@@ -9,6 +9,7 @@ const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
+const fs = require('fs');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
 
@@ -21,6 +22,36 @@ const publicPath = '/';
 const publicUrl = '';
 // Get environment variables to inject into our app.
 const env = getClientEnvironment(publicUrl);
+
+const dhisConfigPath =
+    process.env.DHIS2_HOME && `${process.env.DHIS2_HOME}/config`;
+
+let dhisConfig;
+try {
+    dhisConfig = require(dhisConfigPath);
+} catch (e) {
+    // Failed to load config file - use default config
+    console.warn(`\nWARNING! Failed to load DHIS config:`, e.message);
+    dhisConfig = {
+        baseUrl: 'http://localhost:8080',
+        authorization: 'Basic YWRtaW46ZGlzdHJpY3Q=', // admin:district
+    };
+}
+
+const manifest = JSON.parse(
+    fs.readFileSync(`${paths.appPublic}/manifest.webapp`, 'utf8')
+);
+
+const globals = Object.assign(
+    {},
+    {
+        DHIS_CONFIG: JSON.stringify(dhisConfig),
+        manifest: JSON.stringify(manifest),
+    },
+    env.stringified
+);
+
+const scriptPrefix = dhisConfig.baseUrl;
 
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.
@@ -87,6 +118,7 @@ module.exports = {
             // Support React Native Web
             // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
             'react-native': 'react-native-web',
+            d2: path.resolve('node_modules/d2'),
         },
         plugins: [
             // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -207,6 +239,12 @@ module.exports = {
             // Make sure to add the new loader(s) before the "file" loader.
         ],
     },
+    externals: [
+        {
+            react: 'var React',
+            'react-dom': 'var ReactDOM',
+        },
+    ],
     plugins: [
         // Makes some environment variables available in index.html.
         // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
@@ -217,12 +255,24 @@ module.exports = {
         new HtmlWebpackPlugin({
             inject: true,
             template: paths.appHtml,
+            vendorScripts: [
+                `./dhis-web-core-resource/fonts/roboto.css`,
+                `${scriptPrefix}/dhis-web-core-resource/babel-polyfill/6.20.0/dist/polyfill.js`,
+                `${scriptPrefix}/dhis-web-core-resource/react/16.2.0/umd/react.development.js`,
+                `${scriptPrefix}/dhis-web-core-resource/react-dom/16.2.0/umd/react-dom.development.js`,
+            ]
+                .map(asset => {
+                    return /\.js$/.test(asset)
+                        ? `<script src="${asset}"></script>`
+                        : `<link type="text/css" rel="stylesheet" href="${asset}">`;
+                })
+                .join('\n'),
         }),
         // Add module names to factory functions so they appear in browser profiler.
         new webpack.NamedModulesPlugin(),
         // Makes some environment variables available to the JS code, for example:
         // if (process.env.NODE_ENV === 'development') { ... }. See `./env.js`.
-        new webpack.DefinePlugin(env.stringified),
+        new webpack.DefinePlugin(globals),
         // This is necessary to emit hot updates (currently CSS only):
         new webpack.HotModuleReplacementPlugin(),
         // Watcher doesn't work well if you mistype casing in a path so we use

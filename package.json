@@ -1,7 +1,9 @@
 {
     "name": "data-visualizer-app",
-    "version": "0.1.0",
+    "version": "30.0.0",
+    "description": "DHIS2 Data Visualizer app",
     "private": true,
+    "license": "BSD-3-Clause",
     "dependencies": {
         "autoprefixer": "7.1.6",
         "babel-core": "6.26.0",
@@ -16,6 +18,10 @@
         "case-sensitive-paths-webpack-plugin": "2.1.1",
         "chalk": "1.1.3",
         "css-loader": "0.28.7",
+        "d2": "^29.1.5",
+        "d2-i18n": "^1.0.2",
+        "d2-manifest": "^1.0.0",
+        "d2-ui": "^29.0.17",
         "dhis2-i18n": "^1.0.1",
         "dotenv": "4.0.0",
         "dotenv-expand": "4.2.0",
@@ -32,7 +38,9 @@
         "file-loader": "1.1.5",
         "fs-extra": "3.0.1",
         "html-webpack-plugin": "2.29.0",
+        "i18next": "^10.6.0",
         "jest": "20.0.4",
+        "material-ui": "^0.20.0",
         "object-assign": "4.1.1",
         "postcss-flexbugs-fixes": "3.2.0",
         "postcss-loader": "2.0.8",
@@ -43,6 +51,11 @@
         "react": "^16.2.0",
         "react-dev-utils": "^5.0.0",
         "react-dom": "^16.2.0",
+        "react-redux": "^5.0.7",
+        "react-tap-event-plugin": "^3.0.2",
+        "redux": "^3.7.2",
+        "redux-logger": "^3.0.6",
+        "redux-thunk": "^2.2.0",
         "style-loader": "0.19.0",
         "sw-precache-webpack-plugin": "0.11.4",
         "url-loader": "0.6.2",
@@ -52,9 +65,50 @@
         "whatwg-fetch": "2.0.3"
     },
     "scripts": {
+        "prestart":
+            "npm run localize && d2-manifest package.json ./public/manifest.webapp",
         "start": "node scripts/start.js",
         "build": "node scripts/build.js",
-        "test": "node scripts/test.js --env=jsdom"
+        "coverage": "npm test -- --coverage",
+        "test": "node scripts/test.js --env=jsdom",
+        "lint": "eslint -c .eslintrc.json src",
+        "prebuild":
+            "rm -rf build && npm run lint && mkdir build && npm run manifest",
+        "postbuild": "cp -r public/i18n build",
+        "manifest": "d2-manifest package.json build/manifest.webapp",
+        "prettify": "prettier \"src/{**/*,*}.js\" --write",
+        "localize":
+            "npm run extract-pot && d2-i18n-generate -n dashboards-app -p ./i18n/ -o ./src/locales/",
+        "extract-pot": "d2-i18n-extract -p src/ -o i18n/"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit":
+                "npm run extract-pot && npm run prettify && CI=true npm run test && git add -A ."
+        }
+    },
+    "manifest.webapp": {
+        "name": "Data Visualizer app",
+        "icons": {
+            "48": "icon.png"
+        },
+        "developer": {
+            "url": "",
+            "name": "DHIS2"
+        },
+        "dhis2": {
+            "apiVersion": "30"
+        },
+        "activities": {
+            "dhis": {
+                "href": ".."
+            }
+        }
+    },
+    "proxy": {
+        "/dhis-web-core-resource": {
+            "target": "http://localhost:8080"
+        }
     },
     "jest": {
         "collectCoverageFrom": ["src/**/*.{js,jsx,mjs}"],
@@ -92,5 +146,13 @@
     },
     "eslintConfig": {
         "extends": "react-app"
+    },
+    "devDependencies": {
+        "create-react-class": "^15.6.3",
+        "d2-i18n-extract": "^1.x",
+        "d2-i18n-generate": "^1.x",
+        "enzyme-adapter-react-16": "^1.1.1",
+        "husky": "^0.15.0-rc.12",
+        "jest-enzyme": "^6.0.0"
     }
 }
