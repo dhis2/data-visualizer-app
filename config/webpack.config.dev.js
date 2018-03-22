@@ -119,6 +119,7 @@ module.exports = {
             // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
             'react-native': 'react-native-web',
             d2: path.resolve('node_modules/d2'),
+            react: path.resolve('node_modules/react'),
         },
         plugins: [
             // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -239,12 +240,6 @@ module.exports = {
             // Make sure to add the new loader(s) before the "file" loader.
         ],
     },
-    externals: [
-        {
-            react: 'var React',
-            'react-dom': 'var ReactDOM',
-        },
-    ],
     plugins: [
         // Makes some environment variables available in index.html.
         // The public URL is available as %PUBLIC_URL% in index.html, e.g.:

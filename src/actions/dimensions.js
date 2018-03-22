@@ -7,7 +7,9 @@ export const acSetDimensions = value => ({
 });
 
 export const tSetDimensions = () => async (dispatch, getState) => {
-    const onSuccess = () => {};
+    const onSuccess = dimensions => {
+        dispatch(acSetDimensions(dimensions));
+    };
 
     const onError = error => {
         console.log('Error (apiFetchDimensions): ', error);
@@ -15,10 +17,7 @@ export const tSetDimensions = () => async (dispatch, getState) => {
     };
 
     try {
-        const collection = await apiFetchDimensions();
-        dispatch(acSetDimensions(collection.toArray()));
-
-        return onSuccess();
+        return onSuccess(apiFetchDimensions());
     } catch (err) {
         return onError(err);
     }

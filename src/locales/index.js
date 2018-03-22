@@ -2,7 +2,7 @@ import i18n from 'd2-i18n';
 
 import enTranslations from './en/translations.json';
 
-const namespace = 'dashboards-app';
+const namespace = 'data-visualizer-app';
 
 i18n.addResources('en', namespace, enTranslations);
 

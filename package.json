@@ -78,7 +78,7 @@
         "manifest": "d2-manifest package.json build/manifest.webapp",
         "prettify": "prettier \"src/{**/*,*}.js\" --write",
         "localize":
-            "npm run extract-pot && d2-i18n-generate -n dashboards-app -p ./i18n/ -o ./src/locales/",
+            "npm run extract-pot && d2-i18n-generate -n data-visualizer-app -p ./i18n/ -o ./src/locales/",
         "extract-pot": "d2-i18n-extract -p src/ -o i18n/"
     },
     "husky": {

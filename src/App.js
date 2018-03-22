@@ -14,6 +14,14 @@ class App extends Component {
         store.dispatch(fromActions.fromUser.acReceivedUser(d2.currentUser));
         store.dispatch(fromActions.fromDimensions.tSetDimensions());
     }
+
+    getChildContext() {
+        return {
+            baseUrl: this.props.baseUrl,
+            i18n,
+        };
+    }
+
     render() {
         return (
             <div className="App">
