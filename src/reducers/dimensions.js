@@ -2,14 +2,12 @@ export const actionTypes = {
     SET_DIMENSIONS: 'SET_DIMENSIONS',
 };
 
-const DEFAULT_DIMENSIONS = null;
+export const DEFAULT_DIMENSIONS = null;
 
 export default (state = DEFAULT_DIMENSIONS, action) => {
     switch (action.type) {
         case actionTypes.SET_DIMENSIONS: {
-            return {
-                ...action.value,
-            };
+            return action.value;
         }
         default:
             return state;
