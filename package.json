@@ -24,7 +24,6 @@
         "babel-jest": "20.0.3",
         "babel-loader": "7.1.2",
         "babel-polyfill": "^6.26.0",
-        "babel-preset-es2015": "^6.24.1",
         "babel-preset-react-app": "^3.1.1",
         "babel-runtime": "6.26.0",
         "case-sensitive-paths-webpack-plugin": "2.1.1",
@@ -74,26 +73,22 @@
         "whatwg-fetch": "2.0.3"
     },
     "scripts": {
-        "prestart":
-            "npm run localize && d2-manifest package.json ./public/manifest.webapp",
+        "prestart": "npm run localize && d2-manifest package.json ./public/manifest.webapp",
         "start": "node scripts/start.js",
         "build": "node scripts/build.js",
         "coverage": "npm test -- --coverage",
         "test": "node scripts/test.js --env=jsdom",
         "lint": "eslint -c .eslintrc.json src",
-        "prebuild":
-            "rm -rf build && npm run lint && mkdir build && npm run manifest",
+        "prebuild": "rm -rf build && npm run lint && mkdir build && npm run manifest",
         "postbuild": "cp -r public/i18n build",
         "manifest": "d2-manifest package.json build/manifest.webapp",
         "prettify": "prettier \"src/{**/*,*}.js\" --write",
-        "localize":
-            "npm run extract-pot && d2-i18n-generate -n data-visualizer-app -p ./i18n/ -o ./src/locales/",
+        "localize": "npm run extract-pot && d2-i18n-generate -n data-visualizer-app -p ./i18n/ -o ./src/locales/",
         "extract-pot": "d2-i18n-extract -p src/ -o i18n/"
     },
     "husky": {
         "hooks": {
-            "pre-commit":
-                "npm run extract-pot && npm run prettify && CI=true npm run test && git add -A ."
+            "pre-commit": "npm run extract-pot && npm run prettify && CI=true npm run test && git add -A ."
         }
     },
     "manifest.webapp": {
@@ -120,8 +115,12 @@
         }
     },
     "jest": {
-        "collectCoverageFrom": ["src/**/*.{js,jsx,mjs}"],
-        "setupFiles": ["<rootDir>/config/polyfills.js"],
+        "collectCoverageFrom": [
+            "src/**/*.{js,jsx,mjs}"
+        ],
+        "setupFiles": [
+            "<rootDir>/config/polyfills.js"
+        ],
         "testMatch": [
             "<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}",
             "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,mjs}"
@@ -131,8 +130,7 @@
         "transform": {
             "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
             "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-            "^(?!.*\\.(js|jsx|mjs|css|json)$)":
-                "<rootDir>/config/jest/fileTransform.js"
+            "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
         },
         "transformIgnorePatterns": [
             "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
@@ -151,7 +149,9 @@
         ]
     },
     "babel": {
-        "presets": ["react-app"]
+        "presets": [
+            "react-app"
+        ]
     },
     "eslintConfig": {
         "extends": "react-app"
