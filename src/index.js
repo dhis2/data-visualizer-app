@@ -29,6 +29,17 @@ const configI18n = userSettings => {
     i18n.changeLanguage(uiLocale);
 };
 
+const render = (config, baseUrl) => {
+    ReactDOM.render(
+        <D2UIApp initConfig={config} muiTheme={muiTheme()}>
+            <Provider store={configureStore()}>
+                <App baseUrl={baseUrl} />
+            </Provider>
+        </D2UIApp>,
+        document.getElementById('root')
+    );
+};
+
 const init = () => {
     // init material-ui
     injectTapEventPlugin();
@@ -55,14 +66,7 @@ const init = () => {
         .then(() => {
             config.schemas = ['chart'];
 
-            ReactDOM.render(
-                <D2UIApp initConfig={config} muiTheme={muiTheme()}>
-                    <Provider store={configureStore()}>
-                        <App baseUrl={baseUrl} />
-                    </Provider>
-                </D2UIApp>,
-                document.getElementById('root')
-            );
+            render(config, baseUrl);
         });
 };
 
