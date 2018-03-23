@@ -1,9 +1,10 @@
 import { actionTypes } from '../reducers';
 import { apiFetchDimensions } from '../api/dimensions';
+import { arrayToIdMap } from '../util';
 
-export const acSetDimensions = value => ({
+export const acSetDimensions = dimensions => ({
     type: actionTypes.SET_DIMENSIONS,
-    value,
+    value: arrayToIdMap(dimensions),
 });
 
 export const tSetDimensions = () => async (dispatch, getState) => {
