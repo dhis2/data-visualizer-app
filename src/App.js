@@ -8,7 +8,7 @@ import SnackbarMessage from './widgets/SnackbarMessage';
 import * as fromReducers from './reducers';
 import * as fromActions from './actions';
 
-class App extends Component {
+export class App extends Component {
     componentDidMount() {
         const { store, d2 } = this.context;
         store.dispatch(fromActions.fromUser.acReceivedUser(d2.currentUser));
@@ -60,8 +60,6 @@ App.childContextTypes = {
     i18n: PropTypes.object,
 };
 
-const AppCt = connect(mapStateToProps, {
+export default connect(mapStateToProps, {
     onCloseSnackbar: fromActions.fromSnackbar.acCloseSnackbar,
 })(App);
-
-export default AppCt;
