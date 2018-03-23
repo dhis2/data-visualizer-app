@@ -16,5 +16,8 @@ export function getStubContext() {
                 },
             },
         },
+        store: {
+            dispatch: () => {},
+        },
     };
 }

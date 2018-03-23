@@ -60,8 +60,6 @@ App.childContextTypes = {
     i18n: PropTypes.object,
 };
 
-const AppCt = connect(mapStateToProps, {
+export default connect(mapStateToProps, {
     onCloseSnackbar: fromActions.fromSnackbar.acCloseSnackbar,
 })(App);
-
-export default AppCt;

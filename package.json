@@ -10,12 +10,14 @@
         "create-react-class": "^15.6.3",
         "d2-i18n-extract": "^1.x",
         "d2-i18n-generate": "^1.x",
+        "enzyme": "^3.3.0",
         "enzyme-adapter-react-16": "^1.1.1",
         "eslint-config-prettier": "^2.9.0",
         "eslint-plugin-prettier": "^2.6.0",
         "husky": "^0.15.0-rc.12",
         "jest-enzyme": "^6.0.0",
-        "prettier": "^1.11.1"
+        "prettier": "^1.11.1",
+        "react-stub-context": "^0.8.1"
     },
     "dependencies": {
         "autoprefixer": "7.1.6",
@@ -119,8 +121,10 @@
             "src/**/*.{js,jsx,mjs}"
         ],
         "setupFiles": [
-            "<rootDir>/config/polyfills.js"
+            "<rootDir>/config/polyfills.js",
+            "<rootDir>/config/shim.js"
         ],
+        "setupTestFrameworkScriptFile": "<rootDir>/config/testSetup.js",
         "testMatch": [
             "<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}",
             "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,mjs}"
@@ -133,7 +137,7 @@
             "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
         },
         "transformIgnorePatterns": [
-            "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
+            "/node_modules/(?!d2-ui).+\\.js$"
         ],
         "moduleNameMapper": {
             "^react-native$": "react-native-web"
