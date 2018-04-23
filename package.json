@@ -76,8 +76,6 @@
         "d2-i18n-extract": "^1.0.4",
         "d2-i18n-generate": "^1.0.6",
         "material-ui-next": "^1.0.0-beta.31",
-        "prettier": "^1.12.1",
-        "react-scripts": "1.1.0",
         "redux-actions": "^2.2.1"
     },
     "scripts": {

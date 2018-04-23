@@ -1,60 +1,64 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withStyles } from 'material-ui-next/styles';
 import { FormGroup, FormControlLabel } from 'material-ui-next/Form';
 import Checkbox from 'material-ui-next/Checkbox';
-import strings from './utils';
+import i18n from 'd2-i18n';
 
-const DataTabCheckBoxes = props => {
-    const { tabContent, onChange } = props;
+const styles = {
+    checkboxes: {
+        marginRight: '70%',
+    },
+};
+
+const DataTabCheckBoxes = ({ classes, onChange, tabContent }) => {
     return (
         <FormGroup>
             <FormControlLabel
-                label={strings.data.values}
+                className={classes.checkboxes}
                 control={
                     <Checkbox
                         checked={tabContent.showValues}
                         color={'primary'}
-                        onChange={event => {
-                            onChange('showValues', event.target.checked);
-                        }}
+                        onChange={onChange('showValues')}
                     />
                 }
+                label={i18n.t('Show Values')}
             />
             <FormControlLabel
-                label={strings.data.cumulative}
+                className={classes.checkboxes}
                 control={
                     <Checkbox
                         checked={tabContent.useCumulative}
                         color={'primary'}
-                        onChange={event => {
-                            onChange('useCumulative', event.target.checked);
-                        }}
+                        onChange={onChange('useCumulative')}
                     />
                 }
+                label={i18n.t('Use 100% Stacked values')}
             />
             <FormControlLabel
-                label={strings.data.stacked}
+                className={classes.checkboxes}
                 control={
                     <Checkbox
                         checked={tabContent.useStacked}
                         color={'primary'}
-                        onChange={event => {
-                            onChange('useStacked', event.target.checked);
-                        }}
+                        onChange={onChange('useStacked')}
                     />
                 }
+                label={i18n.t('Use cumulative values')}
             />
         </FormGroup>
     );
 };
 
 DataTabCheckBoxes.propTypes = {
+    classes: PropTypes.object,
+    onChange: PropTypes.func.isRequired,
     tabContent: PropTypes.shape({
         showValues: PropTypes.bool,
         useCumulative: PropTypes.bool,
         useStacked: PropTypes.bool,
     }),
-    onChange: PropTypes.func.isRequired,
 };
 
 DataTabCheckBoxes.defaultProps = {
@@ -64,4 +68,4 @@ DataTabCheckBoxes.defaultProps = {
         useStacked: false,
     },
 };
-export default DataTabCheckBoxes;
+export default withStyles(styles)(DataTabCheckBoxes);

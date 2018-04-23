@@ -3,36 +3,34 @@ import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui-next/styles';
 import Checkbox from 'material-ui-next/Checkbox';
 import { FormControlLabel } from 'material-ui-next/Form';
-import strings from './utils';
+import i18n from 'd2-i18n';
 
 const styles = {
     divBorder: {
-        borderBottom: '1px solid rgb(158, 158, 158)',
-        paddingBottom: 35,
+        borderBottom: '1px solid #E0E0E0',
+        height: 480,
     },
 };
 
-const StyleTab = props => {
-    const { classes, tabContent, onChange } = props;
+const StyleTab = ({ classes, onChange, tabContent }) => {
     return (
         <div className={classes.divBorder}>
             <FormControlLabel
-                label={strings.noSpace}
                 control={
                     <Checkbox
                         checked={tabContent.noSpace}
-                        onChange={event =>
-                            onChange('noSpace', event.target.checked)
-                        }
+                        color={'primary'}
+                        onChange={onChange('noSpace')}
                     />
                 }
+                label={i18n.t('No space between columns/bars')}
             />
         </div>
     );
 };
 
 StyleTab.propTypes = {
-    onChange: PropTypes.func.isRequired,
+    classes: PropTypes.object,
     tabContent: PropTypes.shape({
         noSpace: PropTypes.bool,
     }),

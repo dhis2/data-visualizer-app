@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui-next/styles';
 import TextField from 'material-ui-next/TextField';
 import { FormControlLabel } from 'material-ui-next/Form';
 import Checkbox from 'material-ui-next/Checkbox';
-import strings from './utils';
+import i18n from 'd2-i18n';
 
 const styles = {
     numberField: {
+        minHeight: 55,
         marginRight: 20,
         width: 120,
     },
     rangeAxistextField: {
+        minHeight: 55,
         width: '40%',
         marginRight: '60%',
     },
@@ -20,6 +22,7 @@ const styles = {
         marginRight: 80,
     },
     domainAxisSubtitleTextField: {
+        minHeight: 55,
         width: '40%',
         marginRight: 80,
     },
@@ -27,113 +30,119 @@ const styles = {
         fontSize: 13,
     },
     coverRestofRowSpace: {
+        minHeight: 55,
         width: 120,
         marginRight: '65%',
     },
     hideChartLegendCheckbox: {
-        // Pads out the remaining row space - "special case"
+        minHeight: 55,
         marginRight: '80%',
     },
     divBorder: {
-        borderBottom: '1px solid rgb(158, 158, 158)',
-        paddingBottom: 35,
+        borderBottom: '1px solid #E0E0E0',
+        height: 480,
     },
 };
 
-const renderTextFields = (classes, tabContent, onChange) => {
-    //Loop through Axes & Legend variable's and render each item with a <TextField/> with correlated string
-    return tabContent.map(([key, value], i) => (
-        <TextField
-            // Ugly Nested terniary: check if its the first or last element,
-            // if outer condition is true: 	i == 0 will render a small numberField
-            //								else check if its the last element which will render a longer textField and pad out the remaining row space
-            //						 		Else it must be "Domain Axis" textField which have a checkbox right next to it (i.e dont pad out the rest of the row)
-            className={
-                i === 0 || i > 3
-                    ? i === 0
-                        ? classes.numberField
-                        : i === 5
-                            ? classes.domainAxisTextField
-                            : classes.rangeAxistextField
-                    : classes.coverRestofRowSpace
-            }
-            label={strings.axes[key]}
-            InputLabelProps={{ className: classes.inputLabeltextSize }}
-            onChange={event => {
-                onChange(key, event.target.value);
-            }}
-            type={i <= 3 ? 'number' : 'string'} // first 4 textFields are number specific
-            value={value}
-            key={i}
-        />
-    ));
+const strings = {
+    axisMin: 'Range axis min',
+    axisMax: 'Range axis max',
+    tickSteps: 'Range axis tick step',
+    decimals: 'Range axis decimals',
+    rangeTitle: 'Range axis title',
+    domainTitle: 'Domain axis title',
+    domainSubtitle: 'Domain axis subtitle',
+    hideChartTitle: 'Hide chart title',
+    hideLegend: 'Hide chart legend',
+    hideSubtitle: 'Hide chart subtitle',
 };
 
-const AxesAndLegendsTab = props => {
-    const { classes, tabContent, onChange } = props;
-    //Loop through the number fields and render accordingly via "renderTextFields();"
-    let textFields = Object.entries(tabContent).slice(10, 16);
+class AxesAndLegendsTab extends Component {
+    state = {};
 
-    return (
-        <div className={classes.divBorder}>
-            <FormControlLabel
-                className={classes.hideChartLegendCheckbox}
-                label={strings.axes.hideLegend}
-                control={
-                    <Checkbox
-                        checked={tabContent.hideChartLegend}
-                        color={'primary'}
-                        onChange={event => {
-                            onChange('hideChartLegend', event.target.checked);
-                        }}
-                    />
-                }
-            />
+    renderTextFields = (classes, onChange, tabContent) => {
+        //Loop through Axes & Legend variable's and render each item with a <TextField/> with correlated string
+        return Object.entries(tabContent)
+            .slice(11, 17)
+            .map(([entry, value], i) => (
+                <TextField
+                    // Ugly Nested terniary: check if this is the first or last element,
+                    // if outer condition is true: 	i == 0 will render a small numberField
+                    //								else check if its the last element which will render a longer textField and pad out the remaining row space
+                    //						 		Else it must be "Domain Axis" textField which have a checkbox right next to it (i.e dont pad out the rest of the row)
+                    className={
+                        i === 0 || i > 3
+                            ? i === 0
+                                ? classes.numberField
+                                : i === 5
+                                    ? classes.domainAxisTextField
+                                    : classes.rangeAxistextField
+                            : classes.coverRestofRowSpace
+                    }
+                    label={i18n.t(strings[entry])}
+                    InputLabelProps={{ className: classes.inputLabeltextSize }}
+                    key={i}
+                    onChange={onChange(entry)}
+                    type={i <= 3 ? 'number' : 'string'} // first 4 textFields are number specific
+                    value={value}
+                />
+            ));
+    };
 
-            {renderTextFields(classes, textFields, onChange)}
+    render = () => {
+        const { classes, onChange, tabContent } = this.props;
 
-            <FormControlLabel
-                label={strings.axes.hideChartTitle}
-                control={
-                    <Checkbox
-                        checked={tabContent.hideChartTitle}
-                        color={'primary'}
-                        onChange={event => {
-                            onChange('hideChartTitle', event.target.checked);
-                        }}
-                    />
-                }
-            />
+        return (
+            <div className={classes.divBorder}>
+                <FormControlLabel
+                    className={classes.hideChartLegendCheckbox}
+                    control={
+                        <Checkbox
+                            checked={tabContent.hideChartLegend}
+                            color={'primary'}
+                            onChange={onChange('hideChartLegend')}
+                        />
+                    }
+                    label={i18n.t(strings.hideLegend)}
+                />
 
-            <TextField
-                className={classes.domainAxisSubtitleTextField}
-                label={strings.axes.domainSubtitle}
-                InputLabelProps={{ className: classes.inputLabeltextSize }}
-                fullWidth
-                onChange={event => {
-                    onChange('domainSubtitle', event.target.value);
-                }}
-                value={tabContent.domainSubtitle}
-            />
+                {this.renderTextFields(classes, onChange, tabContent)}
 
-            <FormControlLabel
-                label={strings.axes.hideSubtitle}
-                control={
-                    <Checkbox
-                        checked={tabContent.hideSubtitle}
-                        color={'primary'}
-                        onChange={event => {
-                            onChange('hideSubtitle', event.target.checked);
-                        }}
-                    />
-                }
-            />
-        </div>
-    );
-};
+                <FormControlLabel
+                    control={
+                        <Checkbox
+                            checked={tabContent.hideChartTitle}
+                            color={'primary'}
+                            onChange={onChange('hideChartTitle')}
+                        />
+                    }
+                    label={i18n.t(strings.hideChartTitle)}
+                />
+                <TextField
+                    className={classes.domainAxisSubtitleTextField}
+                    label={i18n.t(strings.domainSubtitle)}
+                    fullWidth
+                    InputLabelProps={{ className: classes.inputLabeltextSize }}
+                    onChange={onChange('domainSubtitle')}
+                    value={i18n.t(tabContent.domainSubtitle)}
+                />
+                <FormControlLabel
+                    control={
+                        <Checkbox
+                            checked={tabContent.hideSubtitle}
+                            color={'primary'}
+                            onChange={onChange('hideSubtitle')}
+                        />
+                    }
+                    label={i18n.t(strings.hideSubtitle)}
+                />
+            </div>
+        );
+    };
+}
 
 AxesAndLegendsTab.propTypes = {
-    onChange: PropTypes.func.isRequired,
+    classes: PropTypes.object,
     tabContent: PropTypes.shape({
         axisMin: PropTypes.string,
         axisMax: PropTypes.string,

@@ -7,7 +7,7 @@ import i18n from 'd2-i18n';
 import SnackbarMessage from './widgets/SnackbarMessage';
 import * as fromReducers from './reducers';
 import * as fromActions from './actions';
-import ChartOptionsApp from './options-component/index';
+import ChartOptions from './options-component/ChartOptions';
 
 export class App extends Component {
     componentDidMount() {
@@ -35,7 +35,7 @@ export class App extends Component {
                     autoHideDuration={this.props.snackbarDuration}
                     onRequestClose={this.props.onCloseSnackbar}
                 />
-                <ChartOptionsApp />
+                <ChartOptions />
             </div>
         );
     }
