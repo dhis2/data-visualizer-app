@@ -1,15 +1,11 @@
 .chart-type-selector {
     grid-area: charttype;
-    max-width: 300px;
-    min-width: 300px;
 }
 .menu-bar {
     grid-area: menubar;
 }
 .dimensions {
     grid-area: dimensions;
-    max-width: 300px;
-    min-width: 300px;
 }
 .canvas {
     grid-area: canvas;
@@ -18,8 +14,10 @@
 .app {
     display: grid;
     grid-template-areas:
-        'charttype menubar menubar menubar menubar'
-        'dimensions canvas canvas canvas canvas';
+        'charttype menubar'
+        'dimensions canvas';
+    grid-template-columns: 250px auto;
+    grid-template-rows: 40px auto;
     grid-gap: 5px;
     padding: 5px;
     font-family: 'roboto';

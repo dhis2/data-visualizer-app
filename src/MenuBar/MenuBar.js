@@ -2,17 +2,9 @@ import React from 'react';
 
 import './MenuBar.css';
 
-const style = {
-    ul: {
-        listStyleType: 'none',
-        flex: '1',
-        minWidth: '800px',
-    },
-};
-
 const MenuBar = props => {
     return (
-        <ul className="menu-bar" style={style.ul}>
+        <ul className="menu-bar">
             <li>
                 <button type="button">Update</button>
             </li>
