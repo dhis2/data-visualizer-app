@@ -1,8 +1,10 @@
 import i18n from 'd2-i18n';
+import moment from 'moment';
 
 import enTranslations from './en/translations.json';
 
 const namespace = 'data-visualizer-app';
+moment.locale('en');
 
 i18n.addResources('en', namespace, enTranslations);
 

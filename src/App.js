@@ -1,26 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Snackbar from 'material-ui/Snackbar';
 import i18n from 'd2-i18n';
 
 import SnackbarMessage from './widgets/SnackbarMessage';
-import TopBar from './TopBar/TopBar';
+import MenuBar from './MenuBar/MenuBar';
+import ChartTypeSelector from './ChartTypeSelector/ChartTypeSelector';
 import Dimensions from './Dimensions/Dimensions';
+import Visualization from './Visualization/Visualization';
 import * as fromReducers from './reducers';
 import * as fromActions from './actions';
 
-const style = {
-    contentArea: {
-        padding: '10px',
-        minWidth: '800px',
-        flex: '1',
-    },
-    app: {
-        fontFamily: 'roboto',
-        display: 'grid',
-    },
-};
+import './App.css';
 
 export class App extends Component {
     componentDidMount() {
@@ -38,20 +30,13 @@ export class App extends Component {
 
     render() {
         return (
-            <div className="App" style={style.app}>
-                <TopBar />
-                <section
-                    style={{
-                        width: '100%',
-                        marginTop: '3px',
-                    }}
-                >
+            <Fragment>
+                <div className="app">
+                    <ChartTypeSelector />
+                    <MenuBar />
                     <Dimensions />
-                    <div style={style.contentArea}>
-                        <div>Visualization axes</div>
-                        <div>Canvas</div>
-                    </div>
-                </section>
+                    <Visualization />
+                </div>
                 <Snackbar
                     open={this.props.snackbarOpen}
                     message={
@@ -60,7 +45,7 @@ export class App extends Component {
                     autoHideDuration={this.props.snackbarDuration}
                     onRequestClose={this.props.onCloseSnackbar}
                 />
-            </div>
+            </Fragment>
         );
     }
 }

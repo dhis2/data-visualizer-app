@@ -12,7 +12,7 @@ const style = {
 
 const MenuBar = props => {
     return (
-        <ul style={style.ul}>
+        <ul className="menu-bar" style={style.ul}>
             <li>
                 <button type="button">Update</button>
             </li>
