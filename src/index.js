@@ -11,8 +11,6 @@ import D2UIApp from 'd2-ui/lib/app/D2UIApp';
 
 import { config, getUserSettings } from 'd2/lib/d2';
 
-import './index.css';
-
 import configureStore from './configureStore';
 
 import App from './App';
