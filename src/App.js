@@ -5,8 +5,22 @@ import Snackbar from 'material-ui/Snackbar';
 import i18n from 'd2-i18n';
 
 import SnackbarMessage from './widgets/SnackbarMessage';
+import TopBar from './TopBar/TopBar';
+import Dimensions from './Dimensions/Dimensions';
 import * as fromReducers from './reducers';
 import * as fromActions from './actions';
+
+const style = {
+    contentArea: {
+        padding: '10px',
+        minWidth: '800px',
+        flex: '1',
+    },
+    app: {
+        fontFamily: 'roboto',
+        display: 'grid',
+    },
+};
 
 export class App extends Component {
     componentDidMount() {
@@ -24,8 +38,20 @@ export class App extends Component {
 
     render() {
         return (
-            <div className="App">
-                <div>{i18n.t('Data Visualizer app')}</div>
+            <div className="App" style={style.app}>
+                <TopBar />
+                <section
+                    style={{
+                        width: '100%',
+                        marginTop: '3px',
+                    }}
+                >
+                    <Dimensions />
+                    <div style={style.contentArea}>
+                        <div>Visualization axes</div>
+                        <div>Canvas</div>
+                    </div>
+                </section>
                 <Snackbar
                     open={this.props.snackbarOpen}
                     message={
