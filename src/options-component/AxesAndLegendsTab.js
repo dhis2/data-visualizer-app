@@ -82,7 +82,7 @@ class AxesAndLegendsTab extends Component {
                     label={i18n.t(strings[entry])}
                     InputLabelProps={{ className: classes.inputLabeltextSize }}
                     key={i}
-                    onChange={onChange(entry)}
+                    onChange={event => onChange(entry, event.target.value)}
                     type={i <= 3 ? 'number' : 'string'} // first 4 textFields are number specific
                     value={value}
                 />
@@ -100,7 +100,12 @@ class AxesAndLegendsTab extends Component {
                         <Checkbox
                             checked={tabContent.hideChartLegend}
                             color={'primary'}
-                            onChange={onChange('hideChartLegend')}
+                            onChange={event =>
+                                onChange(
+                                    'hideChartLegend',
+                                    event.target.checked
+                                )
+                            }
                         />
                     }
                     label={i18n.t(strings.hideLegend)}
@@ -113,7 +118,9 @@ class AxesAndLegendsTab extends Component {
                         <Checkbox
                             checked={tabContent.hideChartTitle}
                             color={'primary'}
-                            onChange={onChange('hideChartTitle')}
+                            onChange={event =>
+                                onChange('hideChartTitle', event.target.checked)
+                            }
                         />
                     }
                     label={i18n.t(strings.hideChartTitle)}
@@ -123,7 +130,9 @@ class AxesAndLegendsTab extends Component {
                     label={i18n.t(strings.domainSubtitle)}
                     fullWidth
                     InputLabelProps={{ className: classes.inputLabeltextSize }}
-                    onChange={onChange('domainSubtitle')}
+                    onChange={event =>
+                        onChange('domainSubtitle', event.target.value)
+                    }
                     value={i18n.t(tabContent.domainSubtitle)}
                 />
                 <FormControlLabel
@@ -131,7 +140,9 @@ class AxesAndLegendsTab extends Component {
                         <Checkbox
                             checked={tabContent.hideSubtitle}
                             color={'primary'}
-                            onChange={onChange('hideSubtitle')}
+                            onChange={event =>
+                                onChange('hideSubtitle', event.target.checked)
+                            }
                         />
                     }
                     label={i18n.t(strings.hideSubtitle)}

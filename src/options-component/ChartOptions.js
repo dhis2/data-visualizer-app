@@ -60,41 +60,31 @@ class ChartOptions extends Component {
             noSpace: false,
         },
     };
-    handleContentChange = entry => event => {
-        event.target.type === 'checkbox'
-            ? this.setState({
-                  ...this.state,
-                  optionsValues: {
-                      ...this.state.optionsValues,
-                      [entry]: event.target.checked,
-                  },
-              })
+    handleChange = (content, value) => {
+        content === 'activeTab'
+            ? this.setState({ activeTab: value })
             : this.setState({
                   ...this.state,
                   optionsValues: {
                       ...this.state.optionsValues,
-                      [entry]: event.target.value,
+                      [content]: value,
                   },
               });
-    };
-
-    handleTabChange = (event, value) => {
-        this.setState({ activeTab: value });
     };
 
     render = () => {
         const { classes } = this.props;
         let showCurrentTab = [
             <DataTab
-                onChange={this.handleContentChange}
+                onChange={this.handleChange}
                 tabContent={this.state.optionsValues}
             />,
             <AxesAndLegendsTab
-                onChange={this.handleContentChange}
+                onChange={this.handleChange}
                 tabContent={this.state.optionsValues}
             />,
             <StyleTab
-                onChange={this.handleContentChange}
+                onChange={this.handleChange}
                 tabContent={this.state.optionsValues}
             />,
         ];
@@ -105,7 +95,7 @@ class ChartOptions extends Component {
                     <h3 className={classes.title}>{i18n.t('Chart Options')}</h3>
                     <TabsBar
                         activeTab={this.state.activeTab}
-                        onChange={this.handleTabChange}
+                        onChange={this.handleChange}
                     />
                     {showCurrentTab[this.state.activeTab]}
                     <Button

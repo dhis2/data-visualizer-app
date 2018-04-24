@@ -20,7 +20,9 @@ const StyleTab = ({ classes, onChange, tabContent }) => {
                     <Checkbox
                         checked={tabContent.noSpace}
                         color={'primary'}
-                        onChange={onChange('noSpace')}
+                        onChange={event =>
+                            onChange('noSpace', event.target.checked)
+                        }
                     />
                 }
                 label={i18n.t('No space between columns/bars')}

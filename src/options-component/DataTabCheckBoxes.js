@@ -20,7 +20,9 @@ const DataTabCheckBoxes = ({ classes, onChange, tabContent }) => {
                     <Checkbox
                         checked={tabContent.showValues}
                         color={'primary'}
-                        onChange={onChange('showValues')}
+                        onChange={event =>
+                            onChange('showValues', event.target.checked)
+                        }
                     />
                 }
                 label={i18n.t('Show Values')}
@@ -31,7 +33,9 @@ const DataTabCheckBoxes = ({ classes, onChange, tabContent }) => {
                     <Checkbox
                         checked={tabContent.useCumulative}
                         color={'primary'}
-                        onChange={onChange('useCumulative')}
+                        onChange={event =>
+                            onChange('useCumulative', event.target.checked)
+                        }
                     />
                 }
                 label={i18n.t('Use 100% Stacked values')}
@@ -42,7 +46,9 @@ const DataTabCheckBoxes = ({ classes, onChange, tabContent }) => {
                     <Checkbox
                         checked={tabContent.useStacked}
                         color={'primary'}
-                        onChange={onChange('useStacked')}
+                        onChange={event =>
+                            onChange('useStacked', event.target.checked)
+                        }
                     />
                 }
                 label={i18n.t('Use cumulative values')}

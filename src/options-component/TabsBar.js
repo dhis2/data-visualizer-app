@@ -22,7 +22,7 @@ const TabsBar = ({ activeTab, classes, onChange }) => {
         <AppBar elevation={0} className={classes.tabsBar} position={'static'}>
             <Tabs
                 indicatorColor={'primary'}
-                onChange={onChange}
+                onChange={(event, value) => onChange('activeTab', value)}
                 textColor={'primary'}
                 value={activeTab}
             >

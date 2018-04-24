@@ -24,5 +24,7 @@ describe('StyleOptions', () => {
         shallowStyleOptionsComponent = undefined;
     });
     // the outermost div contains everything that will be rendered
-    it();
+    it('renders a div as outermost component', () => {
+        console.log(styleOptions().children());
+    });
 });

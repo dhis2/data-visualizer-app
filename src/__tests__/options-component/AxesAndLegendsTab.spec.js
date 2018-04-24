@@ -34,6 +34,8 @@ describe('AxesOptions', () => {
     });
     // It renders 6 TextFields
     it('should render 6 TextFields', () => {
+        const wrapper = shallow(<AxesAndLegendsTab />);
+        console.log(wrapper);
         //expect(axesOptions().find(TextField).length).toBe(6);
     });
     /*

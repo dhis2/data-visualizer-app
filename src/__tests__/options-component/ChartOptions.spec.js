@@ -24,11 +24,7 @@ describe('ChartOptions', () => {
     beforeEach(() => {
         props = {
             activeTab: 0,
-            selector: undefined,
-            className: undefined, // ?
-            onTabChange: jest.fn(),
-            optionsValues: {},
-            onOptionsChange: jest.fn(),
+            //optionsValues: {},
         };
         shallowChartOptionsComponent = undefined;
     });
@@ -53,7 +49,7 @@ describe('ChartOptions', () => {
 
     // Material-UI v1 Card Component will always be rendered
     it('should always render a material-ui v1 Card Component', () => {
-        console.log(chartOptions());
+        console.log(chartOptions().children());
         //  expect(chartOptions().find(Card).length).toBe(1);
     });
     /*

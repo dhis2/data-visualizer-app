@@ -81,7 +81,7 @@ class DataTab extends Component {
                     InputLabelProps={{ className: classes.inputLabeltextSize }}
                     key={i}
                     label={i18n.t(strings[entry])}
-                    onChange={onChange(entry)}
+                    onChange={event => onChange(entry, event.target.value)}
                     type={i % 2 === 0 ? 'number' : 'string'} // 1st and 3rd TextField component are number specific
                     value={value}
                 />
@@ -102,8 +102,10 @@ class DataTab extends Component {
                         {i18n.t('Hide empty categories')}
                     </InputLabel>
                     <Select
-                        onChange={onChange('category')}
-                        value={i18n.t(tabContent.category)}
+                        onChange={event =>
+                            onChange('category', event.target.value)
+                        }
+                        value={tabContent.category}
                     >
                         {strings.category.map((alternative, id) => (
                             <MenuItem key={id} value={i18n.t(alternative)}>
@@ -122,7 +124,9 @@ class DataTab extends Component {
                         {i18n.t('Trend line')}
                     </InputLabel>
                     <Select
-                        onChange={onChange('trendLine')}
+                        onChange={event =>
+                            onChange('trendLine', event.target.value)
+                        }
                         value={tabContent.trendLine}
                     >
                         {strings.trendLine.map((alternative, id) => (
@@ -140,7 +144,9 @@ class DataTab extends Component {
                         {i18n.t('Sort order')}
                     </InputLabel>
                     <Select
-                        onChange={onChange('sortOrder')}
+                        onChange={event =>
+                            onChange('sortOrder', event.target.value)
+                        }
                         value={tabContent.sortOrder}
                     >
                         {strings.sortOrder.map((alternative, id) => (
@@ -156,7 +162,9 @@ class DataTab extends Component {
                         {i18n.t('Aggregation type')}
                     </InputLabel>
                     <Select
-                        onChange={onChange('aggregation')}
+                        onChange={event =>
+                            onChange('aggregation', event.target.value)
+                        }
                         value={tabContent.aggregation}
                     >
                         {strings.aggregation.map((alternative, id) => (
@@ -184,6 +192,7 @@ DataTab.propTypes = {
         baseLineValue: PropTypes.string,
         baseLineTitle: PropTypes.string,
         sortOrder: PropTypes.string,
+        aggregation: PropTypes.string,
     }),
 };
 DataTab.defaultProps = {
@@ -198,6 +207,7 @@ DataTab.defaultProps = {
         baseLineValue: '',
         baseLineTitle: '',
         sortOrder: '',
+        aggregation: '',
     },
 };
 
