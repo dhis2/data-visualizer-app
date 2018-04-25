@@ -33,6 +33,7 @@ const StyleTab = ({ classes, onChange, tabContent }) => {
 
 StyleTab.propTypes = {
     classes: PropTypes.object,
+    onChange: PropTypes.func.isRequired,
     tabContent: PropTypes.shape({
         noSpace: PropTypes.bool,
     }),

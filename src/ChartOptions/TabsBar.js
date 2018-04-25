@@ -17,7 +17,7 @@ const styles = {
     },
 };
 
-const TabsBar = ({ activeTab, classes, onChange }) => {
+export const TabsBar = ({ activeTab, classes, onChange }) => {
     return (
         <AppBar elevation={0} className={classes.tabsBar} position={'static'}>
             <Tabs

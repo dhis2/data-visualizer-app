@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { getStubContext } from '../../../config/testsContext';
 import TextField from 'material-ui-next/TextField';
-import AxesAndLegendsTab from '../../options-component/AxesAndLegendsTab';
+import AxesAndLegendsTab from '../../ChartOptions/AxesAndLegendsTab';
 
 describe('AxesOptions', () => {
     let props;

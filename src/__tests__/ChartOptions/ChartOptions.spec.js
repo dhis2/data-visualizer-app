@@ -1,40 +1,40 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
+import { createShallow } from 'material-ui-next/test-utils';
 import Card, { CardContent } from 'material-ui-next/Card';
 import { getStubContext } from '../../../config/testsContext';
-import ChartOptions from '../../options-component/ChartOptions';
-import DataTab from '../../options-component/DataTab';
-import AxesAndLegendsTab from '../../options-component/AxesAndLegendsTab';
-import StyleTab from '../../options-component/StyleTab';
+import ChartOptions from '../../ChartOptions/ChartOptions';
 
 describe('ChartOptions', () => {
     let props;
-    let shallowChartOptionsComponent;
+    let shallowChartOptions;
+    let muiShallow;
     const chartOptions = () => {
-        if (!shallowChartOptionsComponent) {
-            shallowChartOptionsComponent = shallow(
-                <ChartOptions {...props} />,
-                {
-                    context: getStubContext(),
-                }
-            );
+        if (!shallowChartOptions) {
+            shallowChartOptions = shallow(<ChartOptions {...props} />, {
+                context: getStubContext(),
+            });
         }
-        return shallowChartOptionsComponent;
+        return shallowChartOptions;
     };
     beforeEach(() => {
         props = {
             activeTab: 0,
-            //optionsValues: {},
+            optionsValues: {},
+            //classes: undefined,
         };
-        shallowChartOptionsComponent = undefined;
+        shallowChartOptions = undefined;
+        muiShallow = createShallow();
     });
     // the outermost div contains everything that will be rendered
-    /* it('contains a <Card /> component which renders everything else', () => {
-        const card = chartOptions().find(Card);
-        const wrappingDiv = card.first();
+    it('renders a <Card /> component', () => {
+        const wrapper = shallow(<ChartOptions {...props} />);
+        console.log(wrapper);
+        // expect(wrapper.find(Card).length).toBeGreaterThan(0);
 
-        expect(wrappingDiv.children()).toEqual(chartOptions().children());
-    });*/
+        console.log(chartOptions().find(Card).length);
+        // expect(chartOptions().find(Card).length).toBeGreaterThan(0);
+    });
     // the outermost div has a className from ../component-helpers/utils
     /*it('should have a default a class name of d2-ui-chartoptions', () => {
         expect(chartOptions().props().className).toMatch('d2-ui-chartoptions');
@@ -48,8 +48,8 @@ describe('ChartOptions', () => {
     });*/
 
     // Material-UI v1 Card Component will always be rendered
-    it('should always render a material-ui v1 Card Component', () => {
-        console.log(chartOptions().children());
+    /*it('should always render a material-ui v1 Card Component', () => {
+        console.log(chartOptions.children());
         //  expect(chartOptions().find(Card).length).toBe(1);
     });
     /*

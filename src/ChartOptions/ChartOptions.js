@@ -9,7 +9,7 @@ import TabsBar from './TabsBar';
 import StyleTab from './StyleTab';
 import AxesAndLegendsTab from './AxesAndLegendsTab';
 
-const styles = {
+export const styles = {
     title: {
         height: 24,
         width: 747,
@@ -29,7 +29,7 @@ const styles = {
     },
 };
 
-class ChartOptions extends Component {
+export class ChartOptions extends Component {
     state = {
         activeTab: 0,
         optionsValues: {

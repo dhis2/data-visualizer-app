@@ -61,15 +61,10 @@ class AxesAndLegendsTab extends Component {
     state = {};
 
     renderTextFields = (classes, onChange, tabContent) => {
-        //Loop through Axes & Legend variable's and render each item with a <TextField/> with correlated string
         return Object.entries(tabContent)
             .slice(11, 17)
             .map(([entry, value], i) => (
                 <TextField
-                    // Ugly Nested terniary: check if this is the first or last element,
-                    // if outer condition is true: 	i == 0 will render a small numberField
-                    //								else check if its the last element which will render a longer textField and pad out the remaining row space
-                    //						 		Else it must be "Domain Axis" textField which have a checkbox right next to it (i.e dont pad out the rest of the row)
                     className={
                         i === 0 || i > 3
                             ? i === 0
