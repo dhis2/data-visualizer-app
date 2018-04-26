@@ -11,7 +11,7 @@ const styles = {
     },
 };
 
-const DataTabCheckBoxes = ({ classes, onChange, tabContent }) => {
+export const DataTabCheckBoxes = ({ classes, onChange, tabContent }) => {
     return (
         <FormGroup>
             <FormControlLabel

@@ -12,7 +12,7 @@ const styles = {
     },
 };
 
-const StyleTab = ({ classes, onChange, tabContent }) => {
+export const StyleTab = ({ classes, onChange, tabContent }) => {
     return (
         <div className={classes.divBorder}>
             <FormControlLabel

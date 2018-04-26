@@ -57,7 +57,7 @@ const strings = {
     hideSubtitle: 'Hide chart subtitle',
 };
 
-class AxesAndLegendsTab extends Component {
+export class AxesAndLegendsTab extends Component {
     state = {};
 
     renderTextFields = (classes, onChange, tabContent) => {
