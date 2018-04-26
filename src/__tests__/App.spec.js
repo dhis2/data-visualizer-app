@@ -29,14 +29,6 @@ describe('App', () => {
         expect(app().find('div').length).toBeGreaterThan(0);
     });
 
-    it('renders a div containing everything else', () => {
-        const wrappingDiv = app()
-            .find('div')
-            .first();
-
-        expect(wrappingDiv.children()).toEqual(shallowApp.children());
-    });
-
     it('renders a Snackbar', () => {
         const snackbar = app().find(Snackbar);
         expect(snackbar.length).toBeGreaterThan(0);

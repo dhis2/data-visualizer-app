@@ -1,0 +1,24 @@
+.chart-type-selector {
+    grid-area: charttype;
+}
+.menu-bar {
+    grid-area: menubar;
+}
+.dimensions {
+    grid-area: dimensions;
+}
+.canvas {
+    grid-area: canvas;
+}
+
+.app {
+    display: grid;
+    grid-template-areas:
+        'charttype menubar'
+        'dimensions canvas';
+    grid-template-columns: 250px auto;
+    grid-template-rows: 40px auto;
+    grid-gap: 5px;
+    padding: 5px;
+    font-family: 'roboto';
+}

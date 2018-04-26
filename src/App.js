@@ -1,12 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Snackbar from 'material-ui/Snackbar';
 import i18n from 'd2-i18n';
 
 import SnackbarMessage from './widgets/SnackbarMessage';
+import MenuBar from './MenuBar/MenuBar';
+import ChartTypeSelector from './ChartTypeSelector/ChartTypeSelector';
+import Dimensions from './Dimensions/Dimensions';
+import Visualization from './Visualization/Visualization';
 import * as fromReducers from './reducers';
 import * as fromActions from './actions';
+
+import './App.css';
 
 export class App extends Component {
     componentDidMount() {
@@ -24,8 +30,13 @@ export class App extends Component {
 
     render() {
         return (
-            <div className="App">
-                <div>{i18n.t('Data Visualizer app')}</div>
+            <Fragment>
+                <div className="app">
+                    <ChartTypeSelector />
+                    <MenuBar />
+                    <Dimensions />
+                    <Visualization />
+                </div>
                 <Snackbar
                     open={this.props.snackbarOpen}
                     message={
@@ -34,7 +45,7 @@ export class App extends Component {
                     autoHideDuration={this.props.snackbarDuration}
                     onRequestClose={this.props.onCloseSnackbar}
                 />
-            </div>
+            </Fragment>
         );
     }
 }
