@@ -31,6 +31,7 @@ describe('ChartOptions', () => {
     it('should always render a CardContent Component', () => {
         expect(chartOptions().find(CardContent).length).toBe(1);
     });
+
     describe('The CardContent Component', () => {
         beforeEach(() => {
             props.activeTab = 0;

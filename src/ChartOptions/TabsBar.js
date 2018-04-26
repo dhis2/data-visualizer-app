@@ -17,6 +17,14 @@ const styles = {
     },
 };
 
+const strings = ['Data', 'Axes & legend', 'Style'];
+
+const renderTabs = classes => {
+    return strings.map((entry, i) => (
+        <Tab className={classes.tab} label={i18n.t(entry)} key={i} value={i} />
+    ));
+};
+
 export const TabsBar = ({ activeTab, classes, onChange }) => {
     return (
         <AppBar elevation={0} className={classes.tabsBar} position={'static'}>
@@ -26,17 +34,7 @@ export const TabsBar = ({ activeTab, classes, onChange }) => {
                 textColor={'primary'}
                 value={activeTab}
             >
-                <Tab className={classes.tab} label={i18n.t('Data')} value={0} />
-                <Tab
-                    className={classes.tab}
-                    label={i18n.t('Axes & legend')}
-                    value={1}
-                />
-                <Tab
-                    className={classes.tab}
-                    label={i18n.t('Style')}
-                    value={2}
-                />
+                {renderTabs(classes)}
             </Tabs>
         </AppBar>
     );

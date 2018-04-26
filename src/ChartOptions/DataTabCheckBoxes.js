@@ -11,49 +11,36 @@ const styles = {
     },
 };
 
+const strings = [
+    'Show Values',
+    'Use 100% Stacked values',
+    'Use cumulative values',
+];
+
+const renderCheckBoxes = (classes, onChange, tabContent) => {
+    return Object.entries(tabContent)
+        .slice(0, 3)
+        .map(([entry, value], i) => (
+            <FormControlLabel
+                className={classes.checkboxes}
+                key={i}
+                control={
+                    <Checkbox
+                        checked={value}
+                        color={'primary'}
+                        onChange={event =>
+                            onChange(entry, event.target.checked)
+                        }
+                    />
+                }
+                label={i18n.t(strings[i])}
+            />
+        ));
+};
+
 export const DataTabCheckBoxes = ({ classes, onChange, tabContent }) => {
     return (
-        <FormGroup>
-            <FormControlLabel
-                className={classes.checkboxes}
-                control={
-                    <Checkbox
-                        checked={tabContent.showValues}
-                        color={'primary'}
-                        onChange={event =>
-                            onChange('showValues', event.target.checked)
-                        }
-                    />
-                }
-                label={i18n.t('Show Values')}
-            />
-            <FormControlLabel
-                className={classes.checkboxes}
-                control={
-                    <Checkbox
-                        checked={tabContent.useCumulative}
-                        color={'primary'}
-                        onChange={event =>
-                            onChange('useCumulative', event.target.checked)
-                        }
-                    />
-                }
-                label={i18n.t('Use 100% Stacked values')}
-            />
-            <FormControlLabel
-                className={classes.checkboxes}
-                control={
-                    <Checkbox
-                        checked={tabContent.useStacked}
-                        color={'primary'}
-                        onChange={event =>
-                            onChange('useStacked', event.target.checked)
-                        }
-                    />
-                }
-                label={i18n.t('Use cumulative values')}
-            />
-        </FormGroup>
+        <FormGroup>{renderCheckBoxes(classes, onChange, tabContent)}</FormGroup>
     );
 };
 
