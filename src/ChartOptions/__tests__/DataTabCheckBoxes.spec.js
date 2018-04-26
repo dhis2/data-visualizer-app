@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { getStubContext } from '../../../config/testsContext';
 import { FormGroup, FormControlLabel } from 'material-ui-next/Form';
-import Tabs, { Tab } from 'material-ui-next/Tabs';
 import Checkbox from 'material-ui-next/Checkbox';
 import { DataTabCheckBoxes } from '../DataTabCheckBoxes';
 
