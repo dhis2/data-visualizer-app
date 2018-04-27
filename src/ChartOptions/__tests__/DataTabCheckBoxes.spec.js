@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { getStubContext } from '../../../config/testsContext';
 import { FormGroup, FormControlLabel } from 'material-ui-next/Form';
 import Checkbox from 'material-ui-next/Checkbox';
 import { DataTabCheckBoxes } from '../DataTabCheckBoxes';
@@ -11,9 +10,7 @@ describe('The Checkboxes within the Data Tab', () => {
     let fullMountedComponent;
     const dataTabCheckBoxes = () => {
         if (!shallowCheckBoxes) {
-            shallowCheckBoxes = shallow(<DataTabCheckBoxes {...props} />, {
-                context: getStubContext(),
-            });
+            shallowCheckBoxes = shallow(<DataTabCheckBoxes {...props} />);
         }
         return shallowCheckBoxes;
     };
@@ -30,10 +27,10 @@ describe('The Checkboxes within the Data Tab', () => {
         shallowCheckBoxes = undefined;
         fullMountedComponent = undefined;
     });
-    it('Renders 1 <FormGroup /> component', () => {
+    it('tenders 1 <FormGroup /> component', () => {
         expect(dataTabCheckBoxes().find(FormGroup).length).toBe(1);
     });
-    it('Renders 3 <FormControlLabel /> component', () => {
+    it('tenders 3 <FormControlLabel /> component', () => {
         expect(dataTabCheckBoxes().find(FormControlLabel).length).toBe(3);
     });
     describe('The <FormControlLabel /> components', () => {
@@ -42,7 +39,7 @@ describe('The Checkboxes within the Data Tab', () => {
             props.onChange = jest.fn();
             fullMountedComponent = mount(<DataTabCheckBoxes {...props} />);
         });
-        it('Renders 1 Checkbox component each, and 3 in total', () => {
+        it('renders 1 Checkbox component each, and 3 in total', () => {
             expect(
                 fullMountedComponent
                     .find(FormControlLabel)
@@ -52,7 +49,7 @@ describe('The Checkboxes within the Data Tab', () => {
 
             expect(fullMountedComponent.find(Checkbox).length).toBe(3);
         });
-        it('Renders the Checkbox component with the property "checked" passed in as props', () => {
+        it('renders the Checkbox component with the property "checked" passed in as props', () => {
             expect(
                 fullMountedComponent
                     .find(Checkbox)
@@ -61,7 +58,7 @@ describe('The Checkboxes within the Data Tab', () => {
             ).toBe(true);
         });
 
-        it('Triggers onChange when the checkbox is clicked', () => {
+        it('triggers onChange when the checkbox is clicked', () => {
             /*fullMountedComponent
                 .find(Checkbox)
                 .first()

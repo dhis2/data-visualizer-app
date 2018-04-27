@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { getStubContext } from '../../../config/testsContext';
 import TextField from 'material-ui-next/TextField';
 import { FormControlLabel } from 'material-ui-next/Form';
 import { AxesAndLegendsTab } from '../AxesAndLegendsTab';
@@ -10,9 +9,7 @@ describe('The Axis & Legend tab', () => {
     let shallowAxesComponent;
     const axesOptions = () => {
         if (!shallowAxesComponent) {
-            shallowAxesComponent = shallow(<AxesAndLegendsTab {...props} />, {
-                context: getStubContext(),
-            });
+            shallowAxesComponent = shallow(<AxesAndLegendsTab {...props} />);
         }
         return shallowAxesComponent;
     };
@@ -41,7 +38,7 @@ describe('The Axis & Legend tab', () => {
             .first();
         expect(wrappingDiv.children()).toEqual(axesOptions().children());
     });
-    it('It receives the prop tabContent, and onChange from ChartOptions copmonent', () => {
+    it('receives the prop tabContent, and onChange from ChartOptions copmonent', () => {
         const onChange = jest.fn();
         /*expect(
             axesOptions()

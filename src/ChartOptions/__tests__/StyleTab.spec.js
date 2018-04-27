@@ -1,17 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { FormControlLabel } from 'material-ui-next/Form';
-import { getStubContext } from '../../../config/testsContext';
 import { StyleTab } from '../StyleTab';
 
-describe('StyleTab', () => {
+describe('The Style tab', () => {
     let props;
     let shallowStyleTab;
     const styleTab = () => {
         if (!shallowStyleTab) {
-            shallowStyleTab = shallow(<StyleTab {...props} />, {
-                context: getStubContext(),
-            });
+            shallowStyleTab = shallow(<StyleTab {...props} />);
         }
         return shallowStyleTab;
     };

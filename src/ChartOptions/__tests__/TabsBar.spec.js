@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import AppBar from 'material-ui-next/AppBar';
 import Tabs, { Tab } from 'material-ui-next/Tabs';
-import { getStubContext } from '../../../config/testsContext';
 import { TabsBar } from '../TabsBar';
 
 describe('The TabsBar', () => {
@@ -10,9 +9,7 @@ describe('The TabsBar', () => {
     let tabsBarComponent;
     const tabsBar = () => {
         if (!tabsBarComponent) {
-            tabsBarComponent = shallow(<TabsBar {...props} />, {
-                context: getStubContext(),
-            });
+            tabsBarComponent = shallow(<TabsBar {...props} />);
         }
         return tabsBarComponent;
     };

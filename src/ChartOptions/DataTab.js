@@ -22,14 +22,11 @@ const styles = {
         marginRight: 20,
         width: 100,
     },
-    formControlCoverWholeRow: {
-        marginRight: '100%',
-    },
     textFieldCoverWholeRow: {
         marginRight: '55%',
         width: 200,
     },
-    dataTab: {
+    divBorder: {
         borderBottom: '1px solid #E0E0E0',
         height: 480,
     },
@@ -55,7 +52,7 @@ const strings = {
         alternatives: ['None', 'Linear', 'Polynomial', 'Loess'],
     },
     sortOrder: {
-        hintText: 'Sort Order',
+        hintText: 'Sort order',
         alternatives: ['None', 'Low to high', 'High to low'],
     },
     aggregation: {
@@ -76,11 +73,10 @@ const strings = {
     },
 };
 
-class DataTab extends Component {
+export class DataTab extends Component {
     state = {};
 
     renderTextFields = (classes, onChange, tabContent) => {
-        console.log(tabContent);
         return Object.entries(tabContent).map(([entry, value], i) => (
             <TextField
                 className={
@@ -121,7 +117,7 @@ class DataTab extends Component {
     render = () => {
         const { classes, onChange, tabContent } = this.props;
         return (
-            <div className={classes.dataTab}>
+            <div className={classes.divBorder}>
                 <DataTabCheckBoxes
                     onChange={onChange}
                     tabContent={tabContent}
@@ -148,6 +144,7 @@ class DataTab extends Component {
 
 DataTab.propTypes = {
     classes: PropTypes.object,
+    onChange: PropTypes.func.isRequired,
     tabContent: PropTypes.shape({
         showValues: PropTypes.bool,
         useCumulative: PropTypes.bool,
