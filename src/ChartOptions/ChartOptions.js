@@ -61,6 +61,7 @@ export class ChartOptions extends Component {
         },
     };
     handleChange = (content, value) => {
+        console.log(content, value);
         content === 'activeTab'
             ? this.setState({ activeTab: value })
             : this.setState({

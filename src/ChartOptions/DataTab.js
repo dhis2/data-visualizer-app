@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui-next/styles';
-import classNames from 'classnames';
 import { FormControl } from 'material-ui-next/Form';
 import Select from 'material-ui-next/Select';
 import TextField from 'material-ui-next/TextField';
@@ -14,7 +13,7 @@ const styles = {
     formControl: {
         minHeight: 55,
         minWidth: 300,
-        marginRight: 75,
+        marginRight: '60%',
     },
     inputLabeltextSize: {
         fontSize: 13,
@@ -41,51 +40,82 @@ const strings = {
     targetLineTitle: 'Target line title',
     baseLineValue: 'Base line value',
     baseLineTitle: 'Base line title',
-    category: [
-        'None',
-        'Before first',
-        'After last',
-        'Before first and after last',
-        'All',
-    ],
-    trendLine: ['None', 'Linear', 'Polynomial', 'Loess'],
-    sortOrder: ['None', 'Low to high', 'High to low'],
-    aggregation: [
-        'By data element',
-        'Count',
-        'Average',
-        'Average (sum in org unit hierarchy)',
-        'Sum',
-        'Standard deviation',
-        'Variance',
-        'Min',
-        'Max',
-        'Last Value',
-        'Last value (average in org unit hierarchy)',
-    ],
+    category: {
+        hintText: 'Hide empty categories',
+        alternatives: [
+            'None',
+            'Before first',
+            'After last',
+            'Before first and after last',
+            'All',
+        ],
+    },
+    trendLine: {
+        hintText: 'Trend line',
+        alternatives: ['None', 'Linear', 'Polynomial', 'Loess'],
+    },
+    sortOrder: {
+        hintText: 'Sort Order',
+        alternatives: ['None', 'Low to high', 'High to low'],
+    },
+    aggregation: {
+        hintText: 'Aggregation',
+        alternatives: [
+            'By data element',
+            'Count',
+            'Average',
+            'Average (sum in org unit hierarchy)',
+            'Sum',
+            'Standard deviation',
+            'Variance',
+            'Min',
+            'Max',
+            'Last Value',
+            'Last value (average in org unit hierarchy)',
+        ],
+    },
 };
 
 class DataTab extends Component {
     state = {};
 
     renderTextFields = (classes, onChange, tabContent) => {
-        return Object.entries(tabContent)
-            .slice(5, 9)
-            .map(([entry, value], i) => (
-                <TextField
-                    className={
-                        i % 2 === 0
-                            ? classes.textFields
-                            : classes.textFieldCoverWholeRow
-                    } // 2nd and 4th TextField component pads out rest of the row space
-                    InputLabelProps={{ className: classes.inputLabeltextSize }}
-                    key={i}
-                    label={i18n.t(strings[entry])}
-                    onChange={event => onChange(entry, event.target.value)}
-                    type={i % 2 === 0 ? 'number' : 'string'} // 1st and 3rd TextField component are number specific
-                    value={value}
-                />
-            ));
+        console.log(tabContent);
+        return Object.entries(tabContent).map(([entry, value], i) => (
+            <TextField
+                className={
+                    i % 2 === 0
+                        ? classes.textFields
+                        : classes.textFieldCoverWholeRow
+                } // 2nd and 4th TextField component pads out rest of the row space
+                InputLabelProps={{ className: classes.inputLabeltextSize }}
+                key={i}
+                label={i18n.t(strings[value[0]])}
+                onChange={event => onChange(value[0], event.target.value)}
+                type={i % 2 === 0 ? 'number' : 'string'} // 1st and 3rd TextField component are number specific
+                value={i18n.t(value[1])}
+            />
+        ));
+    };
+
+    renderSelectFields = (classes, onChange, tabContent) => {
+        return Object.entries(tabContent).map(([entry, value], i) => (
+            <FormControl className={classes.formControl} key={i}>
+                <InputLabel className={classes.inputLabeltextSize}>
+                    {i18n.t(strings[value[0]].hintText)}
+                </InputLabel>
+                <Select
+                    onChange={event => onChange(value[0], event.target.value)}
+                    value={i18n.t(value[1])}
+                >
+                    {strings[value[0]].alternatives.map((alternative, id) => (
+                        <MenuItem key={id} value={i18n.t(alternative)}>
+                            {i18n.t(alternative)}
+                        </MenuItem>
+                    ))}
+                </Select>
+            </FormControl>
+        ));
     };
 
     render = () => {
@@ -96,84 +126,21 @@ class DataTab extends Component {
                     onChange={onChange}
                     tabContent={tabContent}
                 />
-
-                <FormControl className={classes.formControl}>
-                    <InputLabel className={classes.inputLabeltextSize}>
-                        {i18n.t('Hide empty categories')}
-                    </InputLabel>
-                    <Select
-                        onChange={event =>
-                            onChange('category', event.target.value)
-                        }
-                        value={tabContent.category}
-                    >
-                        {strings.category.map((alternative, id) => (
-                            <MenuItem key={id} value={i18n.t(alternative)}>
-                                {alternative}
-                            </MenuItem>
-                        ))}
-                    </Select>
-                </FormControl>
-                <FormControl
-                    className={classNames(
-                        classes.formControl,
-                        classes.formControlCoverWholeRow
-                    )}
-                >
-                    <InputLabel className={classes.inputLabeltextSize}>
-                        {i18n.t('Trend line')}
-                    </InputLabel>
-                    <Select
-                        onChange={event =>
-                            onChange('trendLine', event.target.value)
-                        }
-                        value={tabContent.trendLine}
-                    >
-                        {strings.trendLine.map((alternative, id) => (
-                            <MenuItem key={id} value={i18n.t(alternative)}>
-                                {i18n.t(alternative)}
-                            </MenuItem>
-                        ))}
-                    </Select>
-                </FormControl>
-
-                {this.renderTextFields(classes, onChange, tabContent)}
-
-                <FormControl className={classes.formControl}>
-                    <InputLabel className={classes.inputLabeltextSize}>
-                        {i18n.t('Sort order')}
-                    </InputLabel>
-                    <Select
-                        onChange={event =>
-                            onChange('sortOrder', event.target.value)
-                        }
-                        value={tabContent.sortOrder}
-                    >
-                        {strings.sortOrder.map((alternative, id) => (
-                            <MenuItem key={id} value={i18n.t(alternative)}>
-                                {i18n.t(alternative)}
-                            </MenuItem>
-                        ))}
-                    </Select>
-                </FormControl>
-
-                <FormControl className={classes.formControl}>
-                    <InputLabel className={classes.inputLabeltextSize}>
-                        {i18n.t('Aggregation type')}
-                    </InputLabel>
-                    <Select
-                        onChange={event =>
-                            onChange('aggregation', event.target.value)
-                        }
-                        value={tabContent.aggregation}
-                    >
-                        {strings.aggregation.map((alternative, id) => (
-                            <MenuItem key={id} value={i18n.t(alternative)}>
-                                {i18n.t(alternative)}
-                            </MenuItem>
-                        ))}
-                    </Select>
-                </FormControl>
+                {this.renderSelectFields(
+                    classes,
+                    onChange,
+                    Object.entries(tabContent).slice(3, 5)
+                )}
+                {this.renderTextFields(
+                    classes,
+                    onChange,
+                    Object.entries(tabContent).slice(5, 9)
+                )}
+                {this.renderSelectFields(
+                    classes,
+                    onChange,
+                    Object.entries(tabContent).slice(9, 11)
+                )}
             </div>
         );
     };
