@@ -1,8 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { FormControl } from 'material-ui-next/Form';
-import Select from 'material-ui-next/Select';
-import TextField from 'material-ui-next/TextField';
 import { DataTab } from '../DataTab';
 
 describe('The DataTab component', () => {

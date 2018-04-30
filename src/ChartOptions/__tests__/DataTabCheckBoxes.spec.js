@@ -57,17 +57,5 @@ describe('The Checkboxes within the Data Tab', () => {
                     .props().checked
             ).toEqual(props.tabContent.showValues);
         });
-
-        it('triggers props.onChange when the checkbox is clicked', () => {
-            /* const checkBoxClick = dataTabCheckBoxes()
-                .find(FormControlLabel)
-                .first()
-                .dive(Checkbox)
-                .first();
-
-            checkBoxClick.simulate('change');
-
-            expect(props.onChange).toHaveBeenCalled();*/
-        });
     });
 });

@@ -13,7 +13,6 @@ import * as fromReducers from './reducers';
 import * as fromActions from './actions';
 
 import './App.css';
-import ChartOptions from './ChartOptions/ChartOptions';
 
 export class App extends Component {
     componentDidMount() {
@@ -46,7 +45,6 @@ export class App extends Component {
                     autoHideDuration={this.props.snackbarDuration}
                     onRequestClose={this.props.onCloseSnackbar}
                 />
-                <ChartOptions />
             </Fragment>
         );
     }

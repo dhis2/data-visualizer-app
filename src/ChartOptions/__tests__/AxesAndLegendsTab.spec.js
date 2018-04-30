@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import TextField from 'material-ui-next/TextField';
-import { FormControlLabel } from 'material-ui-next/Form';
 import { AxesAndLegendsTab } from '../AxesAndLegendsTab';
 
 describe('The Axis & Legend tab', () => {
