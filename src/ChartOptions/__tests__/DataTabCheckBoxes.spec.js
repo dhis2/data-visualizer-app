@@ -27,10 +27,10 @@ describe('The Checkboxes within the Data Tab', () => {
         shallowCheckBoxes = undefined;
         fullMountedComponent = undefined;
     });
-    it('tenders 1 <FormGroup /> component', () => {
+    it('renders 1 <FormGroup /> component', () => {
         expect(dataTabCheckBoxes().find(FormGroup).length).toBe(1);
     });
-    it('tenders 3 <FormControlLabel /> component', () => {
+    it('renders 3 <FormControlLabel /> component', () => {
         expect(dataTabCheckBoxes().find(FormControlLabel).length).toBe(3);
     });
     describe('The <FormControlLabel /> components', () => {
@@ -55,14 +55,18 @@ describe('The Checkboxes within the Data Tab', () => {
                     .find(Checkbox)
                     .at(0)
                     .props().checked
-            ).toBe(true);
+            ).toEqual(props.tabContent.showValues);
         });
 
-        it('triggers onChange when the checkbox is clicked', () => {
-            /*fullMountedComponent
-                .find(Checkbox)
+        it('triggers props.onChange when the checkbox is clicked', () => {
+            /* const checkBoxClick = dataTabCheckBoxes()
+                .find(FormControlLabel)
                 .first()
-                .simulate('click');
+                .dive(Checkbox)
+                .first();
+
+            checkBoxClick.simulate('change');
+
             expect(props.onChange).toHaveBeenCalled();*/
         });
     });

@@ -47,9 +47,6 @@ describe('The Axis & Legend tab', () => {
         ).toBe(onChange); */
     });
     it('should render a TextField component', () => {
-        //console.log(axesOptions().find(FormControlLabel));
-
-        // Renders 6 actually.
         expect(axesOptions().find(TextField).length).toBe(1);
     });
     describe('The <TextField /> component', () => {
