@@ -22,17 +22,17 @@ describe('The Style tab', () => {
         };
         shallowStyleTab = undefined;
     });
-    it.only('renders a div', () => {
+    it('renders a div', () => {
         expect(styleTab().find('div').length).toEqual(1);
     });
-    it.only('renders a div containing everything else', () => {
+    it('renders a div containing everything else', () => {
         const wrappingDiv = styleTab()
             .find('div')
             .first();
 
         expect(wrappingDiv.children()).toEqual(styleTab().children());
     });
-    it.only('Renders a <FormControllabel /> component', () => {
+    it('Renders a <FormControllabel /> component', () => {
         const formControlLabel = styleTab().find(FormControlLabel);
         expect(formControlLabel.length).toBe(1);
     });

@@ -61,7 +61,6 @@ export class ChartOptions extends Component {
         },
     };
     handleChange = (content, value) => {
-        console.log(content, value);
         content === 'activeTab'
             ? this.setState({ activeTab: value })
             : this.setState({
@@ -103,7 +102,6 @@ export class ChartOptions extends Component {
                         className={classes.hideButton}
                         color={'primary'}
                         size={'small'}
-                        //TODO: Dispatch settings to Redux store (?)
                     >
                         {i18n.t('Hide')}
                     </Button>

@@ -37,19 +37,7 @@ describe('The Axis & Legend tab', () => {
             .first();
         expect(wrappingDiv.children()).toEqual(axesOptions().children());
     });
-    it('receives the prop tabContent, and onChange from ChartOptions copmonent', () => {
-        const onChange = jest.fn();
-        /*expect(
-            axesOptions()
-                .find(TextField)
-                .props().onChange
-        ).toBe(onChange); */
-    });
     it('should render a TextField component', () => {
         expect(axesOptions().find(TextField).length).toBe(1);
-    });
-    describe('The <TextField /> component', () => {
-        beforeEach(() => {});
-        it('triggers onChange is , it should pass [fieldName] and [newValue] as parameters', () => {});
     });
 });

@@ -2,7 +2,9 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Card, { CardContent } from 'material-ui-next/Card';
 import { ChartOptions } from '../ChartOptions';
-import { DataTab } from '../DataTab';
+import DataTab from '../DataTab';
+import TabsBar from '../TabsBar';
+import Button from 'material-ui-next/Button';
 
 describe('ChartOptions', () => {
     let props;
@@ -31,34 +33,20 @@ describe('ChartOptions', () => {
             .first();
         expect(wrappingCard.children()).toEqual(chartOptions().children());
     });
-
     it('renders a <CardContent /> Component', () => {
         expect(chartOptions().find(CardContent).length).toEqual(1);
     });
     describe('The CardContent Component', () => {
-        beforeEach(() => {
-            props.activeTab = 0;
+        it('renders the <TabsBar /> component', () => {
+            expect(chartOptions().find(TabsBar).length).toBe(1);
         });
-        // If activeTab is 0 - DataOptions should be rendered by CardContent
-        it('renders the <TabsBar /> Component', () => {
+        it('renders the <DataTab /> component if activeTab is set to 0,', () => {
             const cardContentComponent = chartOptions().find(CardContent);
-            //expect(cardContentComponent.find(TabsBar).length).toBe(1);
+            expect(cardContentComponent.find(DataTab).length).toBe(1);
         });
-        /*
-        // If activeTab is 1 - AxesOptions should be rendered by CardContent
-        it('renders AxesAndLegendTab component if activeTab is set to 1,', () => {
-            props.activeTab = 1;
+        it('renders a Button component', () => {
             const cardContentComponent = chartOptions().find(CardContent);
-            expect(cardContentComponent.childAt(2).type()).toEqual(
-                AxesAndLegendsTab
-            );
+            expect(cardContentComponent.childAt(3).type()).toEqual(Button);
         });
-        // If activeTab is 2 - StyleOptions should be rendered by CardContent
-        it('renders StyleTab component if activeTab is set to 2,', () => {
-            props.activeTab = 2;
-            const cardContentComponent = chartOptions().find(CardContent);
-            expect(cardContentComponent.childAt(2).type()).toEqual(StyleTab);
-        });
-        */
     });
 });
