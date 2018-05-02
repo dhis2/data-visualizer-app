@@ -25,6 +25,7 @@ export class App extends Component {
         return {
             baseUrl: this.props.baseUrl,
             i18n,
+            d2: this.context.d2,
         };
     }
 
@@ -67,6 +68,7 @@ App.contextTypes = {
 };
 
 App.childContextTypes = {
+    d2: PropTypes.object,
     baseUrl: PropTypes.string,
     i18n: PropTypes.object,
 };
