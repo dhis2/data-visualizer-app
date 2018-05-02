@@ -16,18 +16,19 @@
     esutils "^2.0.2"
     js-tokens "^3.0.0"
 
-"@dhis2/d2-ui-core@1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-1.0.2.tgz#bf674c6af7d43b77369f7b41456d4f32d091417a"
+"@dhis2/d2-ui-core@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-1.0.3.tgz#1c797a42f98b5e56a0df54661bf5f2fd5e909173"
   dependencies:
+    lodash "^4.17.10"
     material-ui "^0.20.0"
 
-"@dhis2/d2-ui-favorites-dialog@1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-favorites-dialog/-/d2-ui-favorites-dialog-1.0.2.tgz#0d4d83625fdcea7e72a0e446785488cf8ceaa908"
+"@dhis2/d2-ui-favorites-dialog@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-favorites-dialog/-/d2-ui-favorites-dialog-1.0.3.tgz#2c3f1e72eff44b9495f490c27f304e7244121fe2"
   dependencies:
-    "@dhis2/d2-ui-core" "1.0.2"
-    "@dhis2/d2-ui-sharing-dialog" "1.0.2"
+    "@dhis2/d2-ui-core" "^1.0.3"
+    "@dhis2/d2-ui-sharing-dialog" "^1.0.3"
     material-ui "^1.0.0-beta.34"
     material-ui-icons "^1.0.0-beta.17"
     prop-types "^15.6.0"
@@ -36,33 +37,33 @@
     redux-logger "^3.0.6"
     redux-thunk "^2.2.0"
 
-"@dhis2/d2-ui-favorites-menu@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-favorites-menu/-/d2-ui-favorites-menu-1.0.2.tgz#fa0d8c0f9c42cb60454f773508105f7b1da27ad5"
+"@dhis2/d2-ui-favorites-menu@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-favorites-menu/-/d2-ui-favorites-menu-1.0.3.tgz#fe7966e918f73523652caf8e2b8267255893ad19"
   dependencies:
-    "@dhis2/d2-ui-favorites-dialog" "1.0.2"
-    "@dhis2/d2-ui-sharing-dialog" "1.0.2"
-    "@dhis2/d2-ui-translation-dialog" "1.0.2"
+    "@dhis2/d2-ui-favorites-dialog" "^1.0.3"
+    "@dhis2/d2-ui-sharing-dialog" "^1.0.3"
+    "@dhis2/d2-ui-translation-dialog" "^1.0.3"
     d2-ui "^29.0.18"
     material-ui "^1.0.0-beta.34"
     material-ui-icons "^1.0.0-beta.17"
     prop-types "^15.6.0"
 
-"@dhis2/d2-ui-sharing-dialog@1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-sharing-dialog/-/d2-ui-sharing-dialog-1.0.2.tgz#4f07f085efb64c2d745603f7263bb846b5324798"
+"@dhis2/d2-ui-sharing-dialog@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-sharing-dialog/-/d2-ui-sharing-dialog-1.0.3.tgz#ee01c74070501c821e6bacc9f0f4e9346fd6aa88"
   dependencies:
-    "@dhis2/d2-ui-core" "1.0.2"
+    "@dhis2/d2-ui-core" "^1.0.3"
     material-ui "^0.19.3"
     prop-types "^15.5.10"
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
-"@dhis2/d2-ui-translation-dialog@1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-translation-dialog/-/d2-ui-translation-dialog-1.0.2.tgz#eeafd9ed06512f542eaecd5dd727e44b1388bef1"
+"@dhis2/d2-ui-translation-dialog@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-translation-dialog/-/d2-ui-translation-dialog-1.0.3.tgz#696e9ae9d23927c013ffd93b905385359c778bb9"
   dependencies:
-    "@dhis2/d2-ui-core" "1.0.2"
+    "@dhis2/d2-ui-core" "^1.0.3"
     material-ui "^0.19.3"
     prop-types "^15.5.10"
     recompose "^0.26.0"
@@ -5371,7 +5372,7 @@ lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
 
-"lodash@>=3.5 <5", lodash@^4.0.0, lodash@^4.13.1, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0:
+"lodash@>=3.5 <5", lodash@^4.0.0, lodash@^4.13.1, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.10, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0:
   version "4.17.10"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
 
