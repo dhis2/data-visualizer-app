@@ -3,11 +3,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { MuiThemeProvider } from 'material-ui/styles';
 
 import i18n from './locales';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import D2UIApp from 'd2-ui/lib/app/D2UIApp';
+import { D2UIApp } from '@dhis2/d2-ui-core';
 
 import { config, getUserSettings } from 'd2/lib/d2';
 
@@ -29,9 +30,11 @@ const configI18n = userSettings => {
 
 const render = (config, baseUrl) => {
     ReactDOM.render(
-        <D2UIApp initConfig={config} muiTheme={muiTheme()}>
+        <D2UIApp initConfig={config}>
             <Provider store={configureStore()}>
-                <App baseUrl={baseUrl} />
+                <MuiThemeProvider theme={muiTheme()}>
+                    <App baseUrl={baseUrl} />
+                </MuiThemeProvider>
             </Provider>
         </D2UIApp>,
         document.getElementById('root')

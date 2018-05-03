@@ -1,14 +1,20 @@
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import { createMuiTheme } from 'material-ui/styles';
 import { colors } from './colors';
 
 export const muiTheme = () => {
     const raisedButton = {
-        primaryColor: colors.royalBlue,
-        disabledColor: colors.paleBlue,
-        disabledTextColor: colors.lightMediumGrey,
+        root: {
+            flatPrimary: colors.royalBlue,
+        },
+        disabled: {
+            flatPrimary: colors.paleBlue,
+            color: colors.lightMediumGrey,
+        },
     };
 
-    const theme = getMuiTheme({ raisedButton });
+    const theme = createMuiTheme({
+        overrides: { MuiButton: raisedButton },
+    });
 
     return theme;
 };
