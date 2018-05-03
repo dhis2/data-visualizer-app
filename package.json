@@ -33,6 +33,8 @@
         "css-loader": "0.28.7",
         "d2": "^29.1.5",
         "d2-i18n": "^1.0.2",
+        "d2-i18n-extract": "^1.0.4",
+        "d2-i18n-generate": "^1.0.6",
         "d2-manifest": "^1.0.0",
         "d2-ui": "^29.0.17",
         "dhis2-i18n": "^1.0.1",
@@ -52,6 +54,8 @@
         "i18next": "^10.6.0",
         "jest": "20.0.4",
         "material-ui": "^0.20.0",
+        "material-ui-icons": "^1.0.0-beta.36",
+        "material-ui-next": "^1.0.0-beta.31",
         "object-assign": "4.1.1",
         "postcss-flexbugs-fixes": "3.2.0",
         "postcss-loader": "2.0.8",
@@ -64,6 +68,7 @@
         "react-redux": "^5.0.7",
         "react-tap-event-plugin": "^3.0.2",
         "redux": "^3.7.2",
+        "redux-actions": "^2.2.1",
         "redux-logger": "^3.0.6",
         "redux-thunk": "^2.2.0",
         "style-loader": "0.19.0",
@@ -72,11 +77,7 @@
         "webpack": "3.8.1",
         "webpack-dev-server": "2.9.4",
         "webpack-manifest-plugin": "1.3.2",
-        "whatwg-fetch": "2.0.3",
-        "d2-i18n-extract": "^1.0.4",
-        "d2-i18n-generate": "^1.0.6",
-        "material-ui-next": "^1.0.0-beta.31",
-        "redux-actions": "^2.2.1"
+        "whatwg-fetch": "2.0.3"
     },
     "scripts": {
         "prestart": "npm run localize && d2-manifest package.json ./public/manifest.webapp",
