@@ -5,10 +5,13 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-04-27T08:13:49.119Z\n"
-"PO-Revision-Date: 2018-04-27T08:13:49.119Z\n"
+"POT-Creation-Date: 2018-05-03T10:57:17.382Z\n"
+"PO-Revision-Date: 2018-05-03T10:57:17.382Z\n"
 
-msgid "Chart Options"
+msgid "Options"
+msgstr ""
+
+msgid "Chart options"
 msgstr ""
 
 msgid "Hide"
