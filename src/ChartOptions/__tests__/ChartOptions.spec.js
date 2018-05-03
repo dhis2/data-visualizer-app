@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Card, { CardContent } from 'material-ui-next/Card';
+import Card, { CardContent } from 'material-ui/Card';
 import { ChartOptions } from '../ChartOptions';
 import DataTab from '../DataTab';
 import TabsBar from '../TabsBar';
-import Button from 'material-ui-next/Button';
+import Button from 'material-ui/Button';
 
 describe('ChartOptions', () => {
     let props;

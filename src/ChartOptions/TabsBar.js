@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui-next/styles';
-import Tabs, { Tab } from 'material-ui-next/Tabs';
-import AppBar from 'material-ui-next/AppBar';
+import { withStyles } from 'material-ui/styles';
+import Tabs, { Tab } from 'material-ui/Tabs';
+import AppBar from 'material-ui/AppBar';
 import i18n from 'd2-i18n';
 
 const styles = {
