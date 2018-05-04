@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import FavoritesMenu from '@dhis2/d2-ui-favorites-menu';
 
-import ChartOptionsManager from '../ChartOptions/ChartOptionsManager';
+import OptionsManager from '../ChartOptions/OptionsManager';
 import * as fromReducers from '../reducers';
 import * as fromActions from '../actions';
 import './MenuBar.css';
@@ -34,7 +34,7 @@ export const MenuBar = (props, context) => {
                 />
             </li>
             <li>
-                <ChartOptionsManager />
+                <OptionsManager />
             </li>
             <li>Download</li>
             <li>Embed</li>
