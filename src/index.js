@@ -52,7 +52,7 @@ const init = () => {
         }`
     );
 
-    // d2-ui config
+    // d2 config
     const isProd = process.env.NODE_ENV === 'production';
     const baseUrl = isProd
         ? manifest.activities.dhis.href
