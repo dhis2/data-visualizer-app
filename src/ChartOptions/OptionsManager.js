@@ -9,7 +9,7 @@ import i18n from '@dhis2/d2-i18n';
 
 import ChartOptions from './ChartOptions';
 
-class ChartOptionsManager extends Component {
+class OptionsManager extends Component {
     constructor(props) {
         super(props);
 
@@ -19,17 +19,17 @@ class ChartOptionsManager extends Component {
     }
 
     onClose = event => {
-        this.toggleChartOptionsDialog();
+        this.toggleOptionsDialog();
     };
 
-    toggleChartOptionsDialog = () => {
+    toggleOptionsDialog = () => {
         this.setState({ dialogIsOpen: !this.state.dialogIsOpen });
     };
 
     render() {
         return (
             <Fragment>
-                <Button onClick={this.toggleChartOptionsDialog}>
+                <Button onClick={this.toggleOptionsDialog}>
                     {i18n.t('Options')}
                 </Button>
                 <Dialog open={this.state.dialogIsOpen} onClose={this.onClose}>
@@ -46,4 +46,4 @@ class ChartOptionsManager extends Component {
     }
 }
 
-export default ChartOptionsManager;
+export default OptionsManager;
