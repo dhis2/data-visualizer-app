@@ -6,7 +6,7 @@ import Select from 'material-ui/Select';
 import TextField from 'material-ui/TextField';
 import { InputLabel } from 'material-ui/Input';
 import { MenuItem } from 'material-ui/Menu';
-import i18n from 'd2-i18n';
+import i18n from '@dhis2/d2-i18n';
 import DataTabCheckBoxes from './DataTabCheckBoxes';
 
 const styles = {

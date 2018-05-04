@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Tabs, { Tab } from 'material-ui/Tabs';
 import AppBar from 'material-ui/AppBar';
-import i18n from 'd2-i18n';
+import i18n from '@dhis2/d2-i18n';
 
 const styles = {
     tabsBar: {
