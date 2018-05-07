@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { FormGroup, FormControlLabel } from 'material-ui-next/Form';
-import Checkbox from 'material-ui-next/Checkbox';
+import { FormGroup, FormControlLabel } from 'material-ui/Form';
+import Checkbox from 'material-ui/Checkbox';
 import { DataTabCheckBoxes } from '../DataTabCheckBoxes';
 
 describe('The Checkboxes within the Data Tab', () => {

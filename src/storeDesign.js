@@ -5,6 +5,10 @@ const state = {
     // default: null - no favorite is loaded
     id: 'favId',
 
+    // the analytics object as retrieved from the API
+    // typically set when opening an analytics object via the favorites menu
+    visualization: {},
+
     // the current ui selection
     // stick to the api chart format so that we dont need to transform back and forth?
     current: {},
