@@ -22,7 +22,7 @@
     "dependencies": {
         "@dhis2/d2-i18n": "^1.0.3",
         "@dhis2/d2-ui-core": "^1.0.3",
-        "@dhis2/d2-ui-favorites-menu": "^1.0.3",
+        "@dhis2/d2-ui-favorites-menu": "^1.0.4",
         "autoprefixer": "7.1.6",
         "babel-core": "6.26.0",
         "babel-eslint": "7.2.3",
@@ -36,7 +36,6 @@
         "css-loader": "0.28.7",
         "d2": "^29.1.5",
         "d2-manifest": "^1.0.0",
-        "d2-utilizr": "^0.2.15",
         "dotenv": "4.0.0",
         "dotenv-expand": "4.2.0",
         "eslint": "4.10.0",

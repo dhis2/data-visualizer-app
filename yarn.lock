@@ -61,13 +61,13 @@
     redux-logger "^3.0.6"
     redux-thunk "^2.2.0"
 
-"@dhis2/d2-ui-favorites-menu@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-favorites-menu/-/d2-ui-favorites-menu-1.0.3.tgz#fe7966e918f73523652caf8e2b8267255893ad19"
+"@dhis2/d2-ui-favorites-menu@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-favorites-menu/-/d2-ui-favorites-menu-1.0.4.tgz#1bbc4638dd2ee49498d0d030a82122ff2e8d1172"
   dependencies:
     "@dhis2/d2-ui-favorites-dialog" "^1.0.3"
     "@dhis2/d2-ui-sharing-dialog" "^1.0.3"
-    "@dhis2/d2-ui-translation-dialog" "^1.0.3"
+    "@dhis2/d2-ui-translation-dialog" "^1.0.4"
     d2-ui "^29.0.18"
     material-ui "^1.0.0-beta.34"
     material-ui-icons "^1.0.0-beta.17"
@@ -83,11 +83,12 @@
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
-"@dhis2/d2-ui-translation-dialog@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-translation-dialog/-/d2-ui-translation-dialog-1.0.3.tgz#696e9ae9d23927c013ffd93b905385359c778bb9"
+"@dhis2/d2-ui-translation-dialog@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-translation-dialog/-/d2-ui-translation-dialog-1.0.4.tgz#05cae21b6f46aa995744810446bb9258d39c169a"
   dependencies:
     "@dhis2/d2-ui-core" "^1.0.3"
+    d2-utilizr "^0.2.15"
     material-ui "^0.19.3"
     prop-types "^15.5.10"
     recompose "^0.26.0"
