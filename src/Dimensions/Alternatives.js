@@ -1,29 +1,24 @@
 import React from 'react';
-import List, {
-    ListItem,
-    ListItemIcon,
-    ListItemText,
-} from 'material-ui-next/List';
+import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import { Star } from 'material-ui-icons';
 
 const style = {
     // TODO: Move CSS into .css file when styling is done
-    listStyle: {},
-
     listItemStyle: {
-        height: 24,
-        width: 128,
-        borderRadius: 4,
-        backgroundColor: '#BBDEFB',
+        padding: 0,
+        paddingLeft: 12,
+        height: 35,
     },
 
-    iconStyle: {},
+    iconStyle: {
+        marginRight: 0,
+    },
 
-    textStyle: {},
-};
-
-const getDimensionOptions = () => {
-    //TODO: https://play.dhis2.org/dev/api/dimensions.json
+    textStyle: {
+        fontSize: 16,
+        paddingLeft: 10,
+        paddingRight: 0,
+    },
 };
 
 const strings = [
@@ -55,23 +50,35 @@ const strings = [
     'Tracker-based data',
 ];
 
-const listAlternatives = () => {
+export const Alternatives = ({ dimensions, searchFieldValue, onClick }) => {
+    //dimensions.map((id, displayName) => console.log(id, displayName));
     return (
         <List>
-            {strings.map((entry, i) => (
-                <ListItem button key={i}>
-                    <ListItemIcon>
-                        <Star />
-                    </ListItemIcon>
-                    <ListItemText inset primary={entry} />
-                </ListItem>
-            ))}
+            {strings.map(
+                (entry, i) =>
+                    searchFieldValue !== undefined &&
+                    entry
+                        .toLowerCase()
+                        .includes(searchFieldValue.toLowerCase()) ? (
+                        <ListItem
+                            style={style.listItemStyle}
+                            button
+                            key={i}
+                            onClick={() => onClick(i)}
+                        >
+                            <ListItemIcon style={style.iconStyle}>
+                                <Star />
+                            </ListItemIcon>
+                            <ListItemText
+                                style={style.textStyle}
+                                primary={entry}
+                                disableTypography
+                            />
+                        </ListItem>
+                    ) : null
+            )}
         </List>
     );
-};
-
-export const Alternatives = props => {
-    return <div>{listAlternatives()}</div>;
 };
 
 export default Alternatives;
