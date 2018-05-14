@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui-next/styles';
-import Checkbox from 'material-ui-next/Checkbox';
-import { FormControlLabel } from 'material-ui-next/Form';
-import i18n from 'd2-i18n';
+import { withStyles } from 'material-ui/styles';
+import Checkbox from 'material-ui/Checkbox';
+import { FormControlLabel } from 'material-ui/Form';
+import i18n from '@dhis2/d2-i18n';
 
 const styles = {
     divBorder: {

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui-next/styles';
-import { FormControl } from 'material-ui-next/Form';
-import Select from 'material-ui-next/Select';
-import TextField from 'material-ui-next/TextField';
-import { InputLabel } from 'material-ui-next/Input';
-import { MenuItem } from 'material-ui-next/Menu';
-import i18n from 'd2-i18n';
+import { withStyles } from 'material-ui/styles';
+import { FormControl } from 'material-ui/Form';
+import Select from 'material-ui/Select';
+import TextField from 'material-ui/TextField';
+import { InputLabel } from 'material-ui/Input';
+import { MenuItem } from 'material-ui/Menu';
+import i18n from '@dhis2/d2-i18n';
 import DataTabCheckBoxes from './DataTabCheckBoxes';
 
 const styles = {

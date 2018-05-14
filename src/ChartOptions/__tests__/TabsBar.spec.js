@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import AppBar from 'material-ui-next/AppBar';
-import Tabs, { Tab } from 'material-ui-next/Tabs';
+import AppBar from 'material-ui/AppBar';
+import Tabs, { Tab } from 'material-ui/Tabs';
 import { TabsBar } from '../TabsBar';
 
 describe('The TabsBar', () => {
