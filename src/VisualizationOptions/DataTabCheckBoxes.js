@@ -5,11 +5,7 @@ import { FormGroup, FormControlLabel } from 'material-ui/Form';
 import Checkbox from 'material-ui/Checkbox';
 import i18n from '@dhis2/d2-i18n';
 
-const styles = {
-    checkboxes: {
-        marginRight: '70%',
-    },
-};
+const styles = {};
 
 const strings = [
     'Show Values',
@@ -22,7 +18,6 @@ const renderCheckBoxes = (classes, onChange, tabContent) => {
         .slice(0, 3)
         .map(([entry, value], i) => (
             <FormControlLabel
-                className={classes.checkboxes}
                 key={i}
                 control={
                     <Checkbox

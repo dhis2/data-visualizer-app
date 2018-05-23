@@ -5,16 +5,11 @@ import Checkbox from 'material-ui/Checkbox';
 import { FormControlLabel } from 'material-ui/Form';
 import i18n from '@dhis2/d2-i18n';
 
-const styles = {
-    divBorder: {
-        borderBottom: '1px solid #E0E0E0',
-        height: 480,
-    },
-};
+const styles = {};
 
 export const StyleTab = ({ classes, onChange, tabContent }) => {
     return (
-        <div className={classes.divBorder}>
+        <div>
             <FormControlLabel
                 control={
                     <Checkbox

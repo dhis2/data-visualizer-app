@@ -6,7 +6,7 @@ import TabsBar from './TabsBar';
 import StyleTab from './StyleTab';
 import AxesAndLegendsTab from './AxesAndLegendsTab';
 
-export class ChartOptions extends Component {
+export class VisualizationOptions extends Component {
     state = {
         activeTab: 0,
         optionsValues: {
@@ -77,12 +77,12 @@ export class ChartOptions extends Component {
     };
 }
 
-ChartOptions.propTypes = {
+VisualizationOptions.propTypes = {
     activeTab: PropTypes.number,
 };
 
-ChartOptions.defaultProps = {
+VisualizationOptions.defaultProps = {
     activeTab: 0,
 };
 
-export default ChartOptions;
+export default VisualizationOptions;

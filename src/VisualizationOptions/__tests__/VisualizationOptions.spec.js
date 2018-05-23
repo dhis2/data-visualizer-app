@@ -1,18 +1,20 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { ChartOptions } from '../ChartOptions';
+import { VisualizationOptions } from '../VisualizationOptions';
 import DataTab from '../DataTab';
 import TabsBar from '../TabsBar';
 import Button from 'material-ui/Button';
 
-describe('ChartOptions', () => {
+describe('VisualizationOptions', () => {
     let props;
-    let shallowChartOptions;
-    const chartOptions = () => {
-        if (!shallowChartOptions) {
-            shallowChartOptions = shallow(<ChartOptions {...props} />);
+    let shallowVisualizationOptions;
+    const options = () => {
+        if (!shallowVisualizationOptions) {
+            shallowVisualizationOptions = shallow(
+                <VisualizationOptions {...props} />
+            );
         }
-        return shallowChartOptions;
+        return shallowVisualizationOptions;
     };
     beforeEach(() => {
         props = {
@@ -20,13 +22,13 @@ describe('ChartOptions', () => {
             optionsValues: {},
             classes: {},
         };
-        shallowChartOptions = undefined;
+        shallowVisualizationOptions = undefined;
     });
 
     it('renders the <TabsBar /> component', () => {
-        expect(chartOptions().find(TabsBar).length).toBe(1);
+        expect(options().find(TabsBar).length).toBe(1);
     });
     it('renders the <DataTab /> component if activeTab is set to 0,', () => {
-        expect(chartOptions().find(DataTab).length).toBe(1);
+        expect(options().find(DataTab).length).toBe(1);
     });
 });

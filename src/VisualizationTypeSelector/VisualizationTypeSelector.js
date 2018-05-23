@@ -5,12 +5,12 @@ const style = {
     borderRight: `1px solid ${colors.charcoalGrey}`,
 };
 
-const ChartTypeSelector = props => {
+const VisualizationTypeSelector = props => {
     return (
-        <div className="chart-type-selector" style={style}>
-            ChartTypeSelector
+        <div className="visualization-type-selector" style={style}>
+            VisualizationTypeSelector
         </div>
     );
 };
 
-export default ChartTypeSelector;
+export default VisualizationTypeSelector;

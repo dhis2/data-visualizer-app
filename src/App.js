@@ -6,7 +6,7 @@ import i18n from '@dhis2/d2-i18n';
 
 import SnackbarMessage from './widgets/SnackbarMessage';
 import MenuBar from './MenuBar/MenuBar';
-import ChartTypeSelector from './ChartTypeSelector/ChartTypeSelector';
+import VisualizationTypeSelector from './VisualizationTypeSelector/VisualizationTypeSelector';
 import Dimensions from './Dimensions/Dimensions';
 import Visualization from './Visualization/Visualization';
 import * as fromReducers from './reducers';
@@ -33,7 +33,7 @@ export class App extends Component {
         return (
             <Fragment>
                 <div className="app">
-                    <ChartTypeSelector />
+                    <VisualizationTypeSelector />
                     <MenuBar />
                     <Dimensions />
                     <Visualization />
