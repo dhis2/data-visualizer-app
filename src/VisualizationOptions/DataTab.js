@@ -20,15 +20,11 @@ const styles = {
     },
     textFields: {
         marginRight: 20,
-        width: 100,
+        //width: 100,
     },
     textFieldCoverWholeRow: {
-        marginRight: '55%',
+        // marginRight: '55%',
         width: 200,
-    },
-    divBorder: {
-        borderBottom: '1px solid #E0E0E0',
-        height: 480,
     },
 };
 
@@ -117,7 +113,7 @@ export class DataTab extends Component {
     render = () => {
         const { classes, onChange, tabContent } = this.props;
         return (
-            <div className={classes.divBorder}>
+            <div>
                 <DataTabCheckBoxes
                     onChange={onChange}
                     tabContent={tabContent}

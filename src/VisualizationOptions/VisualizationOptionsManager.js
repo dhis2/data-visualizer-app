@@ -7,9 +7,9 @@ import Dialog, {
 } from 'material-ui/Dialog';
 import i18n from '@dhis2/d2-i18n';
 
-import ChartOptions from './ChartOptions';
+import VisualizationOptions from './VisualizationOptions';
 
-class OptionsManager extends Component {
+class VisualizationOptionsManager extends Component {
     constructor(props) {
         super(props);
 
@@ -19,23 +19,27 @@ class OptionsManager extends Component {
     }
 
     onClose = event => {
-        this.toggleOptionsDialog();
+        this.toggleVisualizationOptionsDialog();
     };
 
-    toggleOptionsDialog = () => {
+    toggleVisualizationOptionsDialog = () => {
         this.setState({ dialogIsOpen: !this.state.dialogIsOpen });
     };
 
     render() {
         return (
             <Fragment>
-                <Button onClick={this.toggleOptionsDialog}>
+                <Button onClick={this.toggleVisualizationOptionsDialog}>
                     {i18n.t('Options')}
                 </Button>
-                <Dialog open={this.state.dialogIsOpen} onClose={this.onClose}>
+                <Dialog
+                    open={this.state.dialogIsOpen}
+                    onClose={this.onClose}
+                    fullWidth={true}
+                >
                     <DialogTitle>{i18n.t('Chart options')}</DialogTitle>
                     <DialogContent>
-                        <ChartOptions />
+                        <VisualizationOptions />
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={this.onClose}>{i18n.t('Hide')}</Button>
@@ -46,4 +50,4 @@ class OptionsManager extends Component {
     }
 }
 
-export default OptionsManager;
+export default VisualizationOptionsManager;
