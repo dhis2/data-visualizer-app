@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Tabs, { Tab } from 'material-ui/Tabs';
@@ -26,18 +26,16 @@ const renderTabs = classes => {
 
 export const TabsBar = ({ activeTab, classes, onChange }) => {
     return (
-        <Fragment>
-            <AppBar elevation={0} className={classes.tabsBar} position="sticky">
-                <Tabs
-                    indicatorColor="primary"
-                    onChange={(event, value) => onChange('activeTab', value)}
-                    textColor="primary"
-                    value={activeTab}
-                >
-                    {renderTabs(classes)}
-                </Tabs>
-            </AppBar>
-        </Fragment>
+        <AppBar elevation={0} className={classes.tabsBar} position="sticky">
+            <Tabs
+                indicatorColor="primary"
+                onChange={(event, value) => onChange('activeTab', value)}
+                textColor="primary"
+                value={activeTab}
+            >
+                {renderTabs(classes)}
+            </Tabs>
+        </AppBar>
     );
 };
 
