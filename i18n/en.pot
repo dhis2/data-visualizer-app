@@ -5,11 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-05-03T10:57:17.382Z\n"
-"PO-Revision-Date: 2018-05-03T10:57:17.382Z\n"
-
-msgid "Options"
-msgstr ""
+"POT-Creation-Date: 2018-05-24T14:56:32.085Z\n"
+"PO-Revision-Date: 2018-05-24T14:56:32.085Z\n"
 
 msgid "Chart options"
 msgstr ""
@@ -18,4 +15,7 @@ msgid "Hide"
 msgstr ""
 
 msgid "No space between columns/bars"
+msgstr ""
+
+msgid "Options"
 msgstr ""

@@ -38,10 +38,6 @@ const styles = {
         minHeight: 55,
         marginRight: '80%',
     },
-    divBorder: {
-        borderBottom: '1px solid #E0E0E0',
-        height: 480,
-    },
 };
 
 const strings = {
@@ -88,7 +84,7 @@ export class AxesAndLegendsTab extends Component {
         const { classes, onChange, tabContent } = this.props;
 
         return (
-            <div className={classes.divBorder}>
+            <div>
                 <FormControlLabel
                     className={classes.hideChartLegendCheckbox}
                     control={

@@ -55,7 +55,15 @@
     lodash "^4.17.10"
     material-ui "^0.20.0"
 
-"@dhis2/d2-ui-favorites-dialog@^1.0.9":
+"@dhis2/d2-ui-core@^1.1.4":
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-1.1.4.tgz#c19616f2beca8a1aa1c7909e847f48c1aaa0157a"
+  dependencies:
+    babel-runtime "^6.26.0"
+    lodash "^4.17.10"
+    material-ui "^0.20.0"
+
+"@dhis2/d2-ui-favorites-dialog@^1.0.4":
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-favorites-dialog/-/d2-ui-favorites-dialog-1.0.9.tgz#32e5d244330f9ae7c4676f2a6059af25e6df66e4"
   dependencies:
@@ -70,20 +78,20 @@
     redux-logger "^3.0.6"
     redux-thunk "^2.2.0"
 
-"@dhis2/d2-ui-favorites-menu@^1.0.4":
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-favorites-menu/-/d2-ui-favorites-menu-1.0.10.tgz#a88d523d2e6c491117ff21bd4df169b4ab804e97"
+"@dhis2/d2-ui-file-menu@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-file-menu/-/d2-ui-file-menu-1.0.1.tgz#6bba069ee34cce96397b12e4c8b9e03effd5f57d"
   dependencies:
-    "@dhis2/d2-ui-favorites-dialog" "^1.0.9"
-    "@dhis2/d2-ui-sharing-dialog" "^1.0.9"
-    "@dhis2/d2-ui-translation-dialog" "^1.0.10"
-    babel-runtime "^6.26.0"
+    "@dhis2/d2-i18n" "^1.0.3"
+    "@dhis2/d2-ui-favorites-dialog" "^1.0.4"
+    "@dhis2/d2-ui-sharing-dialog" "^1.0.4"
+    "@dhis2/d2-ui-translation-dialog" "^1.0.5"
     d2-ui "^29.0.18"
     material-ui "^1.0.0-beta.34"
     material-ui-icons "^1.0.0-beta.17"
     prop-types "^15.6.0"
 
-"@dhis2/d2-ui-sharing-dialog@^1.0.9":
+"@dhis2/d2-ui-sharing-dialog@^1.0.4", "@dhis2/d2-ui-sharing-dialog@^1.0.9":
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-sharing-dialog/-/d2-ui-sharing-dialog-1.0.9.tgz#01d9d02c381d3e59cb6a89a104776f722f02e837"
   dependencies:
@@ -94,7 +102,7 @@
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
-"@dhis2/d2-ui-translation-dialog@^1.0.10":
+"@dhis2/d2-ui-translation-dialog@^1.0.5":
   version "1.0.10"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-translation-dialog/-/d2-ui-translation-dialog-1.0.10.tgz#87162bd18a12c8deeacf833f6edfe0b0b2310ac4"
   dependencies:

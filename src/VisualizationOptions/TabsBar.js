@@ -8,7 +8,6 @@ import i18n from '@dhis2/d2-i18n';
 const styles = {
     tabsBar: {
         height: 48,
-        width: 747,
         backgroundColor: '#FFFFFF',
         borderBottom: '1px solid #E0E0E0',
     },
@@ -27,11 +26,11 @@ const renderTabs = classes => {
 
 export const TabsBar = ({ activeTab, classes, onChange }) => {
     return (
-        <AppBar elevation={0} className={classes.tabsBar} position={'static'}>
+        <AppBar elevation={0} className={classes.tabsBar} position="sticky">
             <Tabs
-                indicatorColor={'primary'}
+                indicatorColor="primary"
                 onChange={(event, value) => onChange('activeTab', value)}
-                textColor={'primary'}
+                textColor="primary"
                 value={activeTab}
             >
                 {renderTabs(classes)}
