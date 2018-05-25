@@ -4,20 +4,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { MuiThemeProvider } from 'material-ui/styles';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+import D2UIApp from '@dhis2/d2-ui-app';
+import { init as d2Init, config, getUserSettings } from 'd2/lib/d2';
 
 import i18n from './locales';
-
-import injectTapEventPlugin from 'react-tap-event-plugin';
-import { D2UIApp } from '@dhis2/d2-ui-core';
-
-import { config, getUserSettings } from 'd2/lib/d2';
-
 import configureStore from './configureStore';
 
 import App from './App';
 import { muiTheme } from './theme';
 
-const configI18n = userSettings => {
+const configI18n = async userSettings => {
     const uiLocale = userSettings.keyUiLocale;
 
     if (uiLocale && uiLocale !== 'en') {
@@ -28,12 +26,12 @@ const configI18n = userSettings => {
     i18n.changeLanguage(uiLocale);
 };
 
-const render = (config, baseUrl) => {
+const render = (baseUrl, d2) => {
     ReactDOM.render(
-        <D2UIApp initConfig={config}>
+        <D2UIApp>
             <Provider store={configureStore()}>
                 <MuiThemeProvider theme={muiTheme()}>
-                    <App baseUrl={baseUrl} />
+                    <App baseUrl={baseUrl} d2={d2} />
                 </MuiThemeProvider>
             </Provider>
         </D2UIApp>,
@@ -41,7 +39,7 @@ const render = (config, baseUrl) => {
     );
 };
 
-const init = () => {
+const init = async () => {
     // init material-ui
     injectTapEventPlugin();
 
@@ -61,14 +59,13 @@ const init = () => {
     config.headers = isProd
         ? null
         : { Authorization: DHIS_CONFIG.authorization };
+    config.schemas = ['chart'];
 
-    getUserSettings()
-        .then(configI18n)
-        .then(() => {
-            config.schemas = ['chart'];
+    const userSettings = await getUserSettings();
+    await configI18n(userSettings);
 
-            render(config, baseUrl);
-        });
+    const d2 = await d2Init({ baseUrl: config.baseUrl });
+    render(baseUrl, d2);
 };
 
 init();

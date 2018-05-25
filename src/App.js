@@ -16,7 +16,8 @@ import './App.css';
 
 export class App extends Component {
     componentDidMount() {
-        const { store, d2 } = this.context;
+        const { store } = this.context;
+        const d2 = this.props.d2;
         store.dispatch(fromActions.fromUser.acReceivedUser(d2.currentUser));
         store.dispatch(fromActions.fromDimensions.tSetDimensions());
     }
@@ -25,7 +26,7 @@ export class App extends Component {
         return {
             baseUrl: this.props.baseUrl,
             i18n,
-            d2: this.context.d2,
+            d2: this.props.d2,
         };
     }
 
@@ -63,7 +64,6 @@ const mapStateToProps = state => {
 };
 
 App.contextTypes = {
-    d2: PropTypes.object,
     store: PropTypes.object,
 };
 
@@ -71,6 +71,11 @@ App.childContextTypes = {
     d2: PropTypes.object,
     baseUrl: PropTypes.string,
     i18n: PropTypes.object,
+};
+
+App.propTypes = {
+    d2: PropTypes.object,
+    baseUrl: PropTypes.string,
 };
 
 export default connect(mapStateToProps, {

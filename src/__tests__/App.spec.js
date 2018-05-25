@@ -18,6 +18,7 @@ describe('App', () => {
 
     beforeEach(() => {
         props = {
+            d2: {},
             baseUrl: undefined,
             snackbarOpen: false,
             snackbarMessage: '',
