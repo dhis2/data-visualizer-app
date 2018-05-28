@@ -52,7 +52,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    {
-        tSetVisualization: fromActions.fromVisualization.tSetVisualization,
-    }
+    { tSetVisualization: fromActions.fromVisualization.tSetVisualization }
 )(MenuBar);

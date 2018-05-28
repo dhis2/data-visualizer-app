@@ -81,7 +81,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    {
-        setDimension: fromActions.fromDimensions.acSetDimensions,
-    }
+    { setDimension: fromActions.fromDimensions.acSetDimensions }
 )(Dimensions);

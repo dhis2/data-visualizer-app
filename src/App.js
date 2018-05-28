@@ -80,7 +80,5 @@ App.propTypes = {
 
 export default connect(
     mapStateToProps,
-    {
-        onCloseSnackbar: fromActions.fromSnackbar.acCloseSnackbar,
-    }
+    { onCloseSnackbar: fromActions.fromSnackbar.acCloseSnackbar }
 )(App);
