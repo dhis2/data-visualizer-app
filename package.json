@@ -21,6 +21,7 @@
     },
     "dependencies": {
         "@dhis2/d2-i18n": "^1.0.3",
+        "@dhis2/d2-ui-app": "^1.0.4",
         "@dhis2/d2-ui-core": "^1.0.3",
         "@dhis2/d2-ui-file-menu": "^1.0.1",
         "autoprefixer": "7.1.6",

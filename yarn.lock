@@ -47,9 +47,18 @@
   dependencies:
     i18next "^10.3"
 
-"@dhis2/d2-ui-core@^1.0.3", "@dhis2/d2-ui-core@^1.1.4":
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-1.1.4.tgz#c19616f2beca8a1aa1c7909e847f48c1aaa0157a"
+"@dhis2/d2-ui-app@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-app/-/d2-ui-app-1.0.4.tgz#05bba43dfb1ba868f08f9c3010fbba29551f6952"
+  dependencies:
+    "@dhis2/d2-ui-core" "^1.1.4"
+    babel-runtime "^6.26.0"
+    lodash "^4.17.10"
+    material-ui "^0.20.0"
+
+"@dhis2/d2-ui-core@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-1.0.3.tgz#1c797a42f98b5e56a0df54661bf5f2fd5e909173"
   dependencies:
     babel-runtime "^6.26.0"
     lodash "^4.17.10"
