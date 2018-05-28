@@ -13,17 +13,21 @@ describe('The Alternatives component', () => {
         return shallowAlternatives;
     };
     beforeEach(() => {
-        props = {};
+        props = {
+            dimensions: {},
+            searchFieldValue: '',
+            onClick: jest.fn(),
+        };
         shallowAlternatives = undefined;
     });
     it('renders 1 <List /> as the outermost component', () => {
         expect(alternatives().find(List).length).toBe(1);
     });
 
-    /* it('renders a <List /> containing everything else', () => {
+    it('renders a <List /> containing everything else', () => {
         const wrappingDiv = alternatives()
             .find(List)
             .first();
         expect(wrappingDiv.children()).toEqual(alternatives().children());
-    });*/
+    });
 });
