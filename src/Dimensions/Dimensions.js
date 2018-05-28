@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import TextField from 'material-ui-next/TextField';
+import { connect } from 'react-redux';
+import TextField from 'material-ui/TextField';
 import { Search } from 'material-ui-icons';
 import { colors } from '../colors';
-import { apiFetchDimensions } from '../api/dimensions';
 import Alternatives from './Alternatives';
 import DimensionsManager from './DimensionsManager';
+import i18n from '@dhis2/d2-i18n';
+import * as fromReducers from '../reducers';
+import * as fromActions from '../actions';
 
 const style = {
     divContainter: {
@@ -22,12 +25,7 @@ const style = {
 };
 
 export class Dimensions extends Component {
-    state = {
-        dimensions: [],
-        searchFieldValue: '',
-        dialogIsOpen: false,
-        dialogIndexNum: undefined,
-    };
+    state = {};
 
     onClick = index => {
         this.toggleDialog();
@@ -40,17 +38,16 @@ export class Dimensions extends Component {
         this.setState({ dialogIsOpen: !this.state.dialogIsOpen });
     };
 
-    componentDidMount = () => {
-        apiFetchDimensions().then(response =>
-            this.setState({
-                dimensions: response.dimensions,
-            })
-        );
+    componentWillMount = () => {
+        this.setState({
+            searchFieldValue: '',
+            dialogIsOpen: false,
+        });
     };
 
     render = () => {
         return (
-            <div className="dimensions" style={style.divContainter}>
+            <div className={'dimensions'} style={style.divContainter}>
                 <DimensionsManager
                     index={this.state.dialogIndexNum}
                     dialogIsOpen={this.state.dialogIsOpen}
@@ -58,7 +55,7 @@ export class Dimensions extends Component {
                 />
                 <Search style={style.searchIcon} />
                 <TextField
-                    placeholder={'Search dimensions'}
+                    placeholder={i18n.t('Search dimensions')}
                     style={style.textField}
                     onChange={event =>
                         this.setState({ searchFieldValue: event.target.value })
@@ -66,7 +63,7 @@ export class Dimensions extends Component {
                 />
                 <Alternatives
                     searchFieldValue={this.state.searchFieldValue}
-                    dimensions={this.state.dimensions}
+                    dimensions={this.props.dimensions}
                     onClick={this.onClick}
                 />
             </div>
@@ -74,4 +71,17 @@ export class Dimensions extends Component {
     };
 }
 
-export default Dimensions;
+//TODO: retrieve default dimensions from reducer
+const mapStateToProps = state => {
+    const dimensions = fromReducers.fromDimensions.sGetFromState(state);
+    return {
+        dimensions: dimensions,
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    {
+        setDimension: fromActions.fromDimensions.acSetDimensions,
+    }
+)(Dimensions);

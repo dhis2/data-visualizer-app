@@ -21,42 +21,22 @@ const style = {
     },
 };
 
-const strings = [
-    'Data',
-    'Period',
-    'Organisation Units',
-    'Area',
-    'Commodities',
-    'Diagnosis',
-    'Donor',
-    'EPI/nutrition age',
-    'Facility Ownership',
-    'Facility Type',
-    'Funding Agency',
-    'Gender',
-    'HIV age',
-    'Implementing Partner',
-    'Location Fixed/Outreach',
-    'Location Rural/Urban',
-    'Main data element groups',
-    'Morbidity Age',
-    'Morbidity/Mortality',
-    'PMTCT',
-    'Pregnant/Non-Pregnant',
-    'Project',
-    'Referrals Age',
-    'Rural and Urban',
-    'Target vs Result',
-    'Tracker-based data',
-];
+// these are missing from the API request
+let testArr = ['Data', 'Period', 'Organisation Units'];
 
 export const Alternatives = ({ dimensions, searchFieldValue, onClick }) => {
-    //dimensions.map((id, displayName) => console.log(id, displayName));
+    if (dimensions !== null) {
+        Object.entries(dimensions).map(
+            entry =>
+                //console.log(entry[1].displayName)
+                (testArr = [...testArr, entry[1].displayName])
+        );
+    }
+    //console.log(testArr);
     return (
         <List>
-            {strings.map(
+            {testArr.map(
                 (entry, i) =>
-                    searchFieldValue !== undefined &&
                     entry
                         .toLowerCase()
                         .includes(searchFieldValue.toLowerCase()) ? (
@@ -67,6 +47,7 @@ export const Alternatives = ({ dimensions, searchFieldValue, onClick }) => {
                             onClick={() => onClick(i)}
                         >
                             <ListItemIcon style={style.iconStyle}>
+                                {/* TODO: Replace placeholder for the icons displayed in the Dimension list */}
                                 <Star />
                             </ListItemIcon>
                             <ListItemText

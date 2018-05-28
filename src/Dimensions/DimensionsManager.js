@@ -7,9 +7,10 @@ import Dialog, {
 } from 'material-ui/Dialog';
 import i18n from '@dhis2/d2-i18n';
 
-import ChartOptions from '../ChartOptions/ChartOptions';
+import VisualizationOptions from '../VisualizationOptions/VisualizationOptions';
 
-let dimensionsArr = [<ChartOptions />, 'test'];
+// Placeholder for the dimension popup dialogs - using the Options dialog until the components are created
+let dimensionsArr = [<VisualizationOptions />, 'test'];
 
 export const DimensionsManager = ({ index, dialogIsOpen, toggleDialog }) => {
     return (
