@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import TextField from 'material-ui/TextField';
 import { Search } from 'material-ui-icons';
 import { colors } from '../colors';
 import Alternatives from './Alternatives';
 import DimensionsManager from './DimensionsManager';
 import i18n from '@dhis2/d2-i18n';
-import * as fromReducers from '../reducers';
-import * as fromActions from '../actions';
 
 const style = {
     divContainter: {
@@ -25,7 +22,7 @@ const style = {
 };
 
 export class Dimensions extends Component {
-    state = {};
+    state = { searchFieldValue: '', dialogIsOpen: false };
 
     onClick = index => {
         this.toggleDialog();
@@ -36,13 +33,6 @@ export class Dimensions extends Component {
 
     toggleDialog = () => {
         this.setState({ dialogIsOpen: !this.state.dialogIsOpen });
-    };
-
-    componentWillMount = () => {
-        this.setState({
-            searchFieldValue: '',
-            dialogIsOpen: false,
-        });
     };
 
     render = () => {
@@ -63,7 +53,6 @@ export class Dimensions extends Component {
                 />
                 <Alternatives
                     searchFieldValue={this.state.searchFieldValue}
-                    dimensions={this.props.dimensions}
                     onClick={this.onClick}
                 />
             </div>
@@ -71,15 +60,4 @@ export class Dimensions extends Component {
     };
 }
 
-//TODO: retrieve default dimensions from reducer
-const mapStateToProps = state => {
-    const dimensions = fromReducers.fromDimensions.sGetFromState(state);
-    return {
-        dimensions: dimensions,
-    };
-};
-
-export default connect(
-    mapStateToProps,
-    { setDimension: fromActions.fromDimensions.acSetDimensions }
-)(Dimensions);
+export default Dimensions;
