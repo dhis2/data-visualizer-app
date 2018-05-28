@@ -50,6 +50,9 @@ const mapStateToProps = state => ({
     visualization: fromReducers.fromVisualization.visualization,
 });
 
-export default connect(mapStateToProps, {
-    tSetVisualization: fromActions.fromVisualization.tSetVisualization,
-})(MenuBar);
+export default connect(
+    mapStateToProps,
+    {
+        tSetVisualization: fromActions.fromVisualization.tSetVisualization,
+    }
+)(MenuBar);

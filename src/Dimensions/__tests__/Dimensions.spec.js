@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import TextField from 'material-ui-next/TextField';
+import TextField from 'material-ui/TextField';
 import Dimensions from '../Dimensions';
 
 describe('The Dimensions component', () => {

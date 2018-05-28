@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import List from 'material-ui-next/List';
+import List from 'material-ui/List';
 import Alternatives from '../Alternatives';
 
 describe('The Alternatives component', () => {

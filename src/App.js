@@ -78,6 +78,9 @@ App.propTypes = {
     baseUrl: PropTypes.string,
 };
 
-export default connect(mapStateToProps, {
-    onCloseSnackbar: fromActions.fromSnackbar.acCloseSnackbar,
-})(App);
+export default connect(
+    mapStateToProps,
+    {
+        onCloseSnackbar: fromActions.fromSnackbar.acCloseSnackbar,
+    }
+)(App);
