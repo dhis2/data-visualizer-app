@@ -1,6 +1,11 @@
 import React from 'react';
 import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
-import { Star } from 'material-ui-icons';
+import { Data } from './icons/data';
+import { Period } from './icons/period';
+import { OrgUnit } from './icons/orgunit';
+import { GenericDimension } from './icons/genericdimension';
+
+// import { Data, Period, OrgUnit, GenericDimension } from './icons';  resulting in module not found (?)
 
 const style = {
     // TODO: Move CSS into .css file when styling is done
@@ -20,6 +25,8 @@ const style = {
     },
 };
 
+const dimensionIcon = [<Data />, <Period />, <OrgUnit />];
+
 export const Alternatives = ({ dimensions, searchFieldValue, onClick }) => {
     return (
         <List>
@@ -35,8 +42,11 @@ export const Alternatives = ({ dimensions, searchFieldValue, onClick }) => {
                             onClick={() => onClick(index)}
                         >
                             <ListItemIcon style={style.iconStyle}>
-                                {/* TODO: Replace placeholder for the icons displayed in the Dimension list */}
-                                <Star />
+                                {index < 3 ? (
+                                    dimensionIcon[index]
+                                ) : (
+                                    <GenericDimension />
+                                )}
                             </ListItemIcon>
                             <ListItemText
                                 style={style.textStyle}
