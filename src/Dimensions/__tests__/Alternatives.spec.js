@@ -14,7 +14,7 @@ describe('The Alternatives component', () => {
     };
     beforeEach(() => {
         props = {
-            dimensions: {},
+            dimensions: [],
             searchFieldValue: '',
             onClick: jest.fn(),
         };
