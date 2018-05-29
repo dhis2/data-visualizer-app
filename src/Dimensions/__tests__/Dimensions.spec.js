@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import TextField from 'material-ui/TextField';
 import { Dimensions } from '../Dimensions';
+import { DimensionsManager } from '../DimensionsManager';
 
 describe('The Dimensions component', () => {
     let props;
@@ -29,8 +30,11 @@ describe('The Dimensions component', () => {
             .first();
         expect(wrappingDiv.children()).toEqual(dimensions().children());
     });
-    it('should render a TextField component', () => {
+    it('render a TextField component', () => {
         expect(dimensions().find(TextField).length).toBe(1);
     });
-    it('', () => {});
+    it('renders a DimensionsManager component', () => {
+        expect(dimensions().find(DimensionsManager).length).toBe(1);
+    });
+    //describe('The DimensionsManager component');
 });

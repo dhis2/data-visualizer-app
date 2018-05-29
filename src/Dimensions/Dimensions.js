@@ -32,7 +32,7 @@ export class Dimensions extends Component {
     };
 
     onClick = index => {
-        //this.props.tSetDimension('dimension', index); // (dispatch, getState)
+        //setDimension('dimension', index); // (dispatch, getState)
         this.toggleDialog();
         this.setState({
             dialogIndexNum: index,
@@ -84,7 +84,11 @@ const mapStateToProps = state => ({
     dimensions: fromReducers.fromDimensions.sGetFromState(state) || {},
 });
 
+const mapDispatchToProps = dispatch => ({
+    setDimension: fromActions.fromDimensions.acSetDimensions,
+});
+
 export default connect(
     mapStateToProps,
-    { tSetDimension: fromActions.fromDimensions.acSetDimensions }
+    mapDispatchToProps
 )(Dimensions);
