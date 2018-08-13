@@ -27,3 +27,6 @@ manifest.webapp
 
 #maven
 /target
+
+#i18n
+/src/locales/
