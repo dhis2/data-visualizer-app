@@ -3,6 +3,12 @@ import React from 'react';
 export const Data = () => {
     return (
         <svg
+            style={{
+                marginLeft: 8,
+                marginRight: 2,
+                top: 3,
+                position: 'relative',
+            }}
             width="12px"
             height="12px"
             viewBox="0 0 12 12"
@@ -64,6 +70,12 @@ export const Data = () => {
 export const Period = () => {
     return (
         <svg
+            style={{
+                marginLeft: 8,
+                marginRight: 2,
+                top: 2,
+                position: 'relative',
+            }}
             width="11px"
             height="11px"
             viewBox="0 0 11 11"
@@ -116,6 +128,12 @@ export const Period = () => {
 export const OrgUnit = () => {
     return (
         <svg
+            style={{
+                marginLeft: 8,
+                marginRight: 2,
+                top: 4,
+                position: 'relative',
+            }}
             width="11px"
             height="12px"
             viewBox="0 0 11 12"
@@ -209,6 +227,11 @@ export const OrgUnit = () => {
 export const GenericDimension = () => {
     return (
         <svg
+            style={{
+                marginLeft: 8,
+                marginRight: 2,
+                position: 'relative',
+            }}
             width="6px"
             height="6px"
             viewBox="0 0 6 6"

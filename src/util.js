@@ -7,3 +7,7 @@ export function arrayToIdMap(array) {
         return obj;
     }, {});
 }
+
+export function arrayGetById(array, id) {
+    return array.find(item => item.id === id);
+}

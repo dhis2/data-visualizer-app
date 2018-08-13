@@ -1,23 +1,45 @@
 import React, { Component } from 'react';
-import List, { ListItemIcon, ListItemText } from 'material-ui/List';
-import { MenuItem } from 'material-ui';
 import { Data, Period, OrgUnit, GenericDimension } from './icons';
+import { SvgIcon } from '@dhis2/d2-ui-core';
 
 const style = {
-    // TODO: Move CSS into .css file when styling is done
-    listItemStyle: {
+    alternatives: {
+        maxHeight: 697,
+        overflowY: 'scroll',
+        position: 'relative',
+    },
+    list: {
+        display: 'inline-block',
+        margin: '4px 100% 4px 7px',
         padding: 0,
-        paddingLeft: 12,
-        height: 35,
+        minWidth: 'max-content',
+        height: 24,
+        borderRadius: 4,
     },
-    iconStyle: {
-        marginRight: 0,
+    selected: {
+        backgroundColor: '#BBDEFB',
     },
-
     textStyle: {
         fontSize: 16,
-        paddingLeft: 10,
-        paddingRight: 0,
+        position: 'relative',
+        top: 3,
+        display: 'inline',
+    },
+    deleteButton: {
+        position: 'relative',
+        border: 'none',
+        background: 'none',
+        marginLeft: 7,
+        marginRight: -4,
+        padding: 0,
+        right: 8,
+        top: 2,
+        height: 12,
+        width: 12,
+    },
+    deleteButtonIcon: {
+        height: 10,
+        width: 10,
     },
 };
 
@@ -32,46 +54,58 @@ export class Alternatives extends Component {
         this.props.onClick(index);
     };
 
-    renderListIcon = index => {
+    renderIcon = index => {
+        const fixedDimensions = 3;
         const dimensionIcon = [<Data />, <Period />, <OrgUnit />];
-        return (
-            <ListItemIcon style={style.iconStyle}>
-                {index < 3 ? dimensionIcon[index] : <GenericDimension />}
-            </ListItemIcon>
+        return index < fixedDimensions ? (
+            dimensionIcon[index]
+        ) : (
+            <GenericDimension />
         );
     };
-    displayMatchingDimensions = (entry, index) => {
+    removeDimension = index => {
+        this.state.selected.includes(index) &&
+            this.setState({
+                selected: this.state.selected.filter(entry => index !== entry),
+            });
+    };
+    showMatchingDimensions = (name, index) => {
         return (
-            <MenuItem
-                style={style.listItemStyle}
-                button
+            <ul
                 key={index}
-                onClick={() => this.onClick(index)}
                 selected={this.state.selected.includes(index) || false}
+                style={
+                    this.state.selected.includes(index)
+                        ? { ...style.list, ...style.selected }
+                        : style.list
+                }
+                onClick={() => this.onClick(index)}
             >
-                {this.renderListIcon(index)}
-                <ListItemText
-                    style={style.textStyle}
-                    primary={entry}
-                    disableTypography
-                />
-            </MenuItem>
+                {this.renderIcon(index)}
+                <p style={style.textStyle}> {name} </p>
+                {this.state.selected.includes(index) && (
+                    <button
+                        style={style.deleteButton}
+                        onClick={() => this.removeDimension(index)}
+                    >
+                        <SvgIcon icon="Close" style={style.deleteButtonIcon} />
+                    </button>
+                )}
+            </ul>
+        );
+    };
+    renderDimensions = () => {
+        return this.props.dimensions.map(
+            (dimensionName, index) =>
+                dimensionName
+                    .toLowerCase()
+                    .includes(this.props.searchFieldValue.toLowerCase()) &&
+                this.showMatchingDimensions(dimensionName, index)
         );
     };
 
     render = () => {
-        const { dimensions, searchFieldValue } = this.props;
-        return (
-            <List>
-                {dimensions.map(
-                    (entry, index) =>
-                        entry
-                            .toLowerCase()
-                            .includes(searchFieldValue.toLowerCase()) &&
-                        this.displayMatchingDimensions(entry, index)
-                )}
-            </List>
-        );
+        return <div style={style.alternatives}>{this.renderDimensions()}</div>;
     };
 }
 export default Alternatives;

@@ -12,6 +12,9 @@ import * as fromActions from '../actions';
 const style = {
     divContainter: {
         backgroundColor: colors.lightGrey,
+        height: 764,
+        width: 250,
+        overflowY: 'scroll',
     },
     searchIcon: {
         marginTop: 15,
@@ -22,8 +25,22 @@ const style = {
         bottom: 10,
         left: 10,
     },
+    alternatives: {
+        overflowY: 'scroll',
+    },
 };
 
+/**
+ *  TODO:
+ * - Refactor
+ * - Fix API fetch request
+ * - Fix onClick på dimensjoner (add'e flere)
+ * - Fix "x" på highlighted dimensjoner
+ * - Fix   "..." add to series/category/filter
+ * - Fix "Dimension Recommended with"
+ * - Refactor
+ * - CSS
+ */
 export class Dimensions extends Component {
     state = {
         searchFieldValue: '',
@@ -44,11 +61,12 @@ export class Dimensions extends Component {
     };
 
     componentWillReceiveProps = nextProps => {
+        let metaDataObject = 1;
         this.setState({
             dimensions: [
                 ...this.state.dimensions,
                 ...Object.entries(nextProps.dimensions).map(
-                    entry => entry[1].displayName
+                    entry => entry[metaDataObject].displayName
                 ),
             ],
         });

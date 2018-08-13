@@ -6,9 +6,6 @@
 }
 .dimensions {
     grid-area: dimensions;
-    overflow: auto;
-    height: 764px;
-    width: 250px;
 }
 .canvas {
     grid-area: canvas;
