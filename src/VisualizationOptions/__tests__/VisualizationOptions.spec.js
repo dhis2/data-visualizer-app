@@ -3,7 +3,6 @@ import { shallow } from 'enzyme';
 import { VisualizationOptions } from '../VisualizationOptions';
 import DataTab from '../DataTab';
 import TabsBar from '../TabsBar';
-import Button from 'material-ui/Button';
 
 describe('VisualizationOptions', () => {
     let props;
