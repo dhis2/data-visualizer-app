@@ -13,7 +13,7 @@ export const MenuBar = (props, context) => {
         // TODO get type somehow!
         // from props, when choosing visualization type set type in the store,
         // for now it's only chart...
-        return props.tSetVisualization('chart', id);
+        return props.onSetVisualization('chart', id);
     };
 
     return (
@@ -50,6 +50,9 @@ const mapStateToProps = state => ({
     visualization: fromReducers.fromVisualization.visualization,
 });
 
-export default connect(mapStateToProps, {
-    tSetVisualization: fromActions.fromVisualization.tSetVisualization,
-})(MenuBar);
+export default connect(
+    mapStateToProps,
+    {
+        onSetVisualization: fromActions.fromVisualization.tSetVisualization,
+    }
+)(MenuBar);
