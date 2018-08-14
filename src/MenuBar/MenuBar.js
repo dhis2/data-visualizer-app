@@ -17,11 +17,11 @@ export const MenuBar = (props, context) => {
     };
 
     return (
-        <ul className="menu-bar">
-            <li>
+        <div className="menubar">
+            <div>
                 <button type="button">Update</button>
-            </li>
-            <li>
+            </div>
+            <div>
                 <FileMenu
                     d2={context.d2}
                     // TODO get type somehow!
@@ -32,13 +32,15 @@ export const MenuBar = (props, context) => {
                     onTranslate={() => console.log('translate callback')}
                     onError={() => console.log('error!')}
                 />
-            </li>
-            <li>
+            </div>
+            <div>
                 <VisualizationOptionsManager />
-            </li>
-            <li>Download</li>
-            <li>Embed</li>
-        </ul>
+            </div>
+            <div>Download</div>
+            <div>Embed</div>
+            <div className="spacefiller" />
+            <div>Show interpretations</div>
+        </div>
     );
 };
 

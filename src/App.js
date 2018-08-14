@@ -34,10 +34,23 @@ export class App extends Component {
         return (
             <Fragment>
                 <div className="app">
-                    <VisualizationTypeSelector />
-                    <MenuBar />
-                    <Dimensions />
-                    <Visualization />
+                    <div className="item1 headerbar">Headerbar</div>
+                    <div className="item2 visualization-type-selector">
+                        <VisualizationTypeSelector />
+                    </div>
+                    <div className="item3 menu-bar">
+                        <MenuBar />
+                    </div>
+                    <div className="item4 dimensions">
+                        <Dimensions />
+                    </div>
+                    <div className="item5 chart-layout">Chart layout</div>
+                    <div className="item6 interpretations">
+                        Interpretations panel
+                    </div>
+                    <div className="item7 canvas">
+                        <Visualization />
+                    </div>
                 </div>
                 <Snackbar
                     open={this.props.snackbarOpen}
