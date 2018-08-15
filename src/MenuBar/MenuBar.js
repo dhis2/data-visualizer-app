@@ -8,40 +8,35 @@ import * as fromReducers from '../reducers';
 import * as fromActions from '../actions';
 import './MenuBar.css';
 
-export const MenuBar = (props, context) => {
-    const onOpen = id => {
-        // TODO get type somehow!
-        // from props, when choosing visualization type set type in the store?
-        return props.onSetVisualization('chart', id);
-    };
-
-    return (
-        <div className="menubar">
-            <div>
-                <button type="button">Update</button>
-            </div>
-            <div>
-                <FileMenu
-                    d2={context.d2}
-                    // TODO get type somehow!
-                    // from props, when choosing visualization type set type in the store,
-                    // for now it's only chart...
-                    fileType="chart"
-                    onOpen={onOpen}
-                    onTranslate={() => console.log('translate callback')}
-                    onError={() => console.log('error!')}
-                />
-            </div>
-            <div>
-                <VisualizationOptionsManager />
-            </div>
-            <div>Download</div>
-            <div>Embed</div>
-            <div className="spacefiller" />
-            <div>Show interpretations</div>
-        </div>
-    );
+const getOnOpen = props => {
+    // TODO get type somehow!
+    // from props, when choosing visualization type set type in the store?
+    return id => props.onSetVisualization('chart', id);
 };
+
+export const MenuBar = (props, context) => (
+    <div className="menubar">
+        <div>
+            <button type="button">Update</button>
+        </div>
+        <div>
+            <FileMenu
+                d2={context.d2}
+                fileType="chart"
+                onOpen={getOnOpen(props)}
+                onTranslate={() => console.log('translate callback')}
+                onError={() => console.log('error!')}
+            />
+        </div>
+        <div>
+            <VisualizationOptionsManager />
+        </div>
+        <div>Download</div>
+        <div>Embed</div>
+        <div className="spacefiller" />
+        <div>Show interpretations</div>
+    </div>
+);
 
 MenuBar.contextTypes = {
     d2: PropTypes.object,
