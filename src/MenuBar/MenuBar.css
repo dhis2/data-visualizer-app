@@ -1,8 +1,12 @@
-ul {
-    list-style-type: none;
+.menubar {
+    display: flex;
+    align-items: center;
 }
 
-li {
-    display: inline-block;
-    padding: 0 5px;
+.menubar > div {
+    margin-left: 10px;
+}
+
+.menubar > .spacefiller {
+    flex: 1;
 }
