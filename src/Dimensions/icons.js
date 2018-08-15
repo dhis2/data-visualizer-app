@@ -4,9 +4,8 @@ export const Data = () => {
     return (
         <svg
             style={{
-                marginLeft: 8,
                 marginRight: 2,
-                top: 3,
+                bottom: 12,
                 position: 'relative',
             }}
             width="12px"
@@ -71,9 +70,8 @@ export const Period = () => {
     return (
         <svg
             style={{
-                marginLeft: 8,
                 marginRight: 2,
-                top: 2,
+                bottom: 12,
                 position: 'relative',
             }}
             width="11px"
@@ -129,9 +127,8 @@ export const OrgUnit = () => {
     return (
         <svg
             style={{
-                marginLeft: 8,
                 marginRight: 2,
-                top: 4,
+                bottom: 12,
                 position: 'relative',
             }}
             width="11px"
@@ -228,9 +225,9 @@ export const GenericDimension = () => {
     return (
         <svg
             style={{
-                marginLeft: 8,
                 marginRight: 2,
                 position: 'relative',
+                bottom: 15,
             }}
             width="6px"
             height="6px"
@@ -265,6 +262,24 @@ export const GenericDimension = () => {
                     </g>
                 </g>
             </g>
+        </svg>
+    );
+};
+export const MoreHorizontal = () => {
+    return (
+        <svg
+            style={{
+                position: 'relative',
+                display: 'inline-block',
+                bottom: 2,
+            }}
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+        >
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
         </svg>
     );
 };
