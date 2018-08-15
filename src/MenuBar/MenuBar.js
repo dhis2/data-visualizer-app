@@ -11,8 +11,7 @@ import './MenuBar.css';
 export const MenuBar = (props, context) => {
     const onOpen = id => {
         // TODO get type somehow!
-        // from props, when choosing visualization type set type in the store,
-        // for now it's only chart...
+        // from props, when choosing visualization type set type in the store?
         return props.onSetVisualization('chart', id);
     };
 

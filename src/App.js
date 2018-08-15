@@ -30,6 +30,19 @@ export class App extends Component {
         };
     }
 
+    renderSnackbar() {
+        return (
+            <Snackbar
+                open={this.props.snackbarOpen}
+                message={
+                    <SnackbarMessage message={this.props.snackbarMessage} />
+                }
+                autoHideDuration={this.props.snackbarDuration}
+                onRequestClose={this.props.onCloseSnackbar}
+            />
+        );
+    }
+
     render() {
         return (
             <Fragment>
@@ -52,14 +65,7 @@ export class App extends Component {
                         <Visualization />
                     </div>
                 </div>
-                <Snackbar
-                    open={this.props.snackbarOpen}
-                    message={
-                        <SnackbarMessage message={this.props.snackbarMessage} />
-                    }
-                    autoHideDuration={this.props.snackbarDuration}
-                    onRequestClose={this.props.onCloseSnackbar}
-                />
+                {this.renderSnackbar()}
             </Fragment>
         );
     }
