@@ -1,3 +1,11 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.headerbar {
+    grid-area: headerbar;
+}
 .visualization-type-selector {
     grid-area: charttype;
 }
@@ -7,18 +15,30 @@
 .dimensions {
     grid-area: dimensions;
 }
+.chart-layout {
+    grid-area: chartlayout;
+}
+.interpretations {
+    grid-area: interpretations;
+}
 .canvas {
     grid-area: canvas;
 }
 
 .app {
     display: grid;
-    grid-template-areas:
-        'charttype menubar'
-        'dimensions canvas';
-    grid-template-columns: 250px auto;
-    grid-template-rows: 40px auto;
-    grid-gap: 5px;
-    padding: 5px;
     font-family: 'roboto';
+    background-color: #aaa;
+    grid-gap: 1px;
+    grid-template-areas:
+        'headerbar headerbar headerbar'
+        'charttype menubar menubar'
+        'dimensions chartlayout interpretations'
+        'dimensions canvas interpretations';
+}
+.app > div {
+    background-color: #f1f1f1;
+    text-align: center;
+    font-size: 14px;
+    color: #777;
 }
