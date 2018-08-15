@@ -16,13 +16,14 @@ const style = {
         width: 250,
     },
     searchIcon: {
-        marginTop: 15,
-        marginLeft: 5,
         color: '#9E9E9E',
+        position: 'relative',
+        marginTop: 15,
+        right: 15,
     },
     textField: {
-        bottom: 10,
-        left: 10,
+        bottom: 9,
+        right: 8,
     },
 };
 
@@ -45,12 +46,12 @@ export class DimensionManager extends Component {
     };
 
     componentWillReceiveProps = nextProps => {
-        let metaDataObject = 1;
+        let metaDataObjectPosition = 1;
         this.setState({
             dimensions: [
                 ...this.state.dimensions,
                 ...Object.entries(nextProps.dimensions).map(
-                    entry => entry[metaDataObject].displayName
+                    entry => entry[metaDataObjectPosition].displayName
                 ),
             ],
         });

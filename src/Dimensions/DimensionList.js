@@ -4,9 +4,10 @@ import DimensionItem from './DimensionItem';
 const style = {
     listContainer: {
         maxHeight: 697,
+        overflow: 'hidden',
         overflowY: 'scroll',
-        position: 'absolute',
         padding: 0,
+        marginTop: 0,
         minWidth: 250,
         width: 250,
     },
@@ -44,8 +45,8 @@ export class DimensionList extends Component {
                         key={index}
                         id={index}
                         dimensionName={dimensionName}
-                        addDimension={() => this.addDimension(index)}
-                        removeDimension={() => this.removeDimension(index)}
+                        addDimension={this.addDimension}
+                        removeDimension={this.removeDimension}
                         isSelected={this.state.selected.includes(index)}
                     />
                 )

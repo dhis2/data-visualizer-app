@@ -12,30 +12,19 @@ import MoreOptions from './MoreOptions';
 const style = {
     text: {
         fontSize: 16,
-        position: 'relative',
-        bottom: 12,
-        display: 'inline-block',
-        marginLeft: 3,
-        marginBottom: 10,
-        marginTop: 10,
+        color: 'black',
     },
     itemContainer: {
-        display: 'inline-flex',
-        margin: '4px 0px 4px 0px',
-        padding: 0,
-        minWidth: 'inherit',
+        display: 'flex',
         width: 'inherit',
         height: 24,
-        position: 'relative',
+        marginTop: 6,
+        marginBottom: 6,
     },
     dropDownButton: {
         border: 'none',
         background: 'none',
-        position: 'relative',
-        right: 5,
-        bottom: 3,
-        height: 21,
-        width: 38,
+        outline: 'none',
     },
 };
 
@@ -109,9 +98,9 @@ export class DimensionItem extends Component {
                 onMouseLeave={this.onMouseExit}
             >
                 <DimensionLabel
-                    onAddDimension={addDimension}
-                    onRemoveDimension={removeDimension}
                     isSelected={isSelected}
+                    onAddDimension={() => addDimension(id)}
+                    onRemoveDimension={() => removeDimension(id)}
                 >
                     {this.getDimensionIcon()}
                     {this.getDimensionName()}

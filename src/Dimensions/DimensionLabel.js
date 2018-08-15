@@ -3,28 +3,28 @@ import { SvgIcon } from '@dhis2/d2-ui-core';
 
 const style = {
     unselected: {
+        display: 'inline-flex',
         borderRadius: 4,
-        marginLeft: 12,
-        marginRight: 8,
         minWidth: 'fit-content',
+        marginLeft: 12,
     },
     selected: {
         backgroundColor: '#BBDEFB',
     },
     deleteButton: {
-        position: 'relative',
         border: 'none',
         background: 'none',
-        marginLeft: 10,
+        outline: 'none',
+        position: 'relative',
+        top: 1,
+        marginLeft: 6,
         marginRight: 4,
         padding: 0,
-        bottom: 9,
-        height: 12,
         width: 12,
     },
     deleteButtonIcon: {
         fill: '#004BA0',
-        height: 10,
+        height: 13,
         width: 10,
     },
 };
@@ -64,8 +64,8 @@ export class DimensionLabel extends Component {
         }
 
         return (
-            <div style={labelStyle} onClick={this.onLabelClick}>
-                {this.props.children}
+            <div style={labelStyle}>
+                <div onClick={this.onLabelClick}>{this.props.children}</div>
                 {removeDimensionButton}
             </div>
         );
