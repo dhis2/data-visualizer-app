@@ -6,7 +6,6 @@
 // the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 import i18n from '@dhis2/d2-i18n';
 import moment from 'moment';
 
