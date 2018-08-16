@@ -21,6 +21,7 @@ const style = {
     },
     dropDownMenu: {
         display: 'inline-grid',
+        position: 'absolute',
         height: 117,
         minWidth: 198,
         padding: 0,
@@ -56,22 +57,24 @@ export class MoreOptions extends Component {
 
     render = () => {
         return (
-            this.state.showMenu && (
-                <div style={style.dropDownMenu}>
-                    {items.map(option => (
-                        <button
-                            key={option.id}
-                            style={style.listButton}
-                            onClick={() => this.addDimensionTo(option.id)}
-                            ref={element => {
-                                this.dropDownMenu = element;
-                            }}
-                        >
-                            <span style={style.text}> {option.name} </span>
-                        </button>
-                    ))}
-                </div>
-            )
+            <div>
+                {this.state.showMenu && (
+                    <div style={style.dropDownMenu}>
+                        {items.map(option => (
+                            <button
+                                key={option.id}
+                                style={style.listButton}
+                                onClick={() => this.addDimensionTo(option.id)}
+                                ref={element => {
+                                    this.dropDownMenu = element;
+                                }}
+                            >
+                                <span style={style.text}> {option.name} </span>
+                            </button>
+                        ))}
+                    </div>
+                )}
+            </div>
         );
     };
 }
