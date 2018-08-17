@@ -48,25 +48,28 @@ export class DimensionLabel extends Component {
         this.props.onRemoveDimension();
     };
 
-    render = () => {
-        const { isSelected } = this.props;
-
-        const labelStyle = isSelected
-            ? { ...style.unselected, ...style.selected }
-            : style.unselected;
-
+    renderRemoveButton = () => {
         let removeDimensionButton = null;
 
-        if (isSelected) {
+        if (this.props.isSelected) {
             removeDimensionButton = (
                 <RemoveDimensionButton action={this.removeDimension} />
             );
         }
 
+        return removeDimensionButton;
+    };
+
+    render = () => {
+        const RemoveDimension = this.renderRemoveButton(),
+            labelStyle = this.props.isSelected
+                ? { ...style.unselected, ...style.selected }
+                : style.unselected;
+
         return (
             <div style={labelStyle}>
                 <div onClick={this.onLabelClick}>{this.props.children}</div>
-                {removeDimensionButton}
+                {RemoveDimension}
             </div>
         );
     };
