@@ -7,7 +7,7 @@ import i18n from '@dhis2/d2-i18n';
 import SnackbarMessage from './widgets/SnackbarMessage';
 import MenuBar from './MenuBar/MenuBar';
 import VisualizationTypeSelector from './VisualizationTypeSelector/VisualizationTypeSelector';
-import DimensionsManager from './Dimensions/DimensionManager';
+import Dimensions from './Dimensions/Dimensions';
 import Visualization from './Visualization/Visualization';
 import * as fromReducers from './reducers';
 import * as fromActions from './actions';
@@ -55,7 +55,7 @@ export class App extends Component {
                         <MenuBar />
                     </div>
                     <div className="item4 dimensions">
-                        <DimensionsManager />
+                        <Dimensions />
                     </div>
                     <div className="item5 chart-layout">Chart layout</div>
                     <div className="item6 interpretations">

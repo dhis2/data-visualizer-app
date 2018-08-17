@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
 import DimensionLabel from './DimensionLabel';
-import {
-    Data,
-    Period,
-    OrgUnit,
-    GenericDimension,
-    MoreHorizontal,
-} from './icons';
-import MoreOptions from './MoreOptions';
+import { Data, Period, OrgUnit, GenericDimension } from './icons';
+import DimensionOptions from './DimensionOptions';
 
 const style = {
     text: {
@@ -21,38 +15,26 @@ const style = {
         marginTop: 6,
         marginBottom: 6,
     },
-    dropDownButton: {
-        border: 'none',
-        background: 'none',
-        outline: 'none',
-    },
-};
-
-const MoreOptionsButton = ({ action }) => {
-    return (
-        <button style={style.dropDownButton} onClick={action}>
-            <MoreHorizontal />
-        </button>
-    );
 };
 
 export class DimensionItem extends Component {
-    state = { mouseOver: false, showMoreIsClicked: false };
+    state = { mouseOver: false, optionButtonClicked: false };
 
     onMouseOver = () => {
         this.setState({ mouseOver: true });
     };
 
     onMouseExit = () => {
-        this.setState({ mouseOver: false });
+        if (!this.state.optionButtonClicked) {
+            this.setState({ mouseOver: false });
+        }
     };
 
-    showMoreOptions = () => {
-        this.setState({ showMoreIsClicked: true });
-    };
-
-    hideMoreOptions = () => {
-        this.setState({ showMoreIsClicked: false, mouseOver: false });
+    toggleHoverListener = () => {
+        this.setState(
+            { optionButtonClicked: !this.state.optionButtonClicked },
+            () => this.onMouseExit()
+        );
     };
 
     getDimensionIcon = () => {
@@ -69,26 +51,25 @@ export class DimensionItem extends Component {
         return <span style={style.text}> {this.props.dimensionName} </span>;
     };
 
+    renderOptionsOnHover = () => {
+        let showOptions = null;
+
+        if (!this.props.isSelected && this.state.mouseOver) {
+            showOptions = (
+                <DimensionOptions
+                    toggleHoverListener={this.toggleHoverListener}
+                />
+            );
+        }
+
+        return showOptions;
+    };
+
     render = () => {
         const { addDimension, removeDimension, id, isSelected } = this.props;
-
-        const shouldDisplayMoreOptionsButton =
-            this.state.showMoreIsClicked ||
-            (!isSelected && this.state.mouseOver);
-
-        let moreOptionsButton,
-            showDropDown = null;
-
-        if (shouldDisplayMoreOptionsButton) {
-            moreOptionsButton = (
-                <MoreOptionsButton action={() => this.showMoreOptions()} />
-            );
-        }
-        if (this.state.showMoreIsClicked) {
-            showDropDown = (
-                <MoreOptions onClose={() => this.hideMoreOptions()} />
-            );
-        }
+        const Icon = this.getDimensionIcon();
+        const Label = this.getDimensionName();
+        const MoreOptions = this.renderOptionsOnHover();
 
         return (
             <li
@@ -102,11 +83,10 @@ export class DimensionItem extends Component {
                     onAddDimension={() => addDimension(id)}
                     onRemoveDimension={() => removeDimension(id)}
                 >
-                    {this.getDimensionIcon()}
-                    {this.getDimensionName()}
+                    {Icon}
+                    {Label}
                 </DimensionLabel>
-                {moreOptionsButton}
-                {showDropDown}
+                {MoreOptions}
             </li>
         );
     };
