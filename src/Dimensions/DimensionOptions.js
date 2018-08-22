@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import i18n from '@dhis2/d2-i18n';
 import { MoreHorizontal } from './icons';
 
 const items = [
@@ -83,7 +84,7 @@ export class DimensionOptions extends Component {
                             this.dropDownMenu = element;
                         }}
                     >
-                        <span style={style.text}> {option.name} </span>
+                        <span style={style.text}> {i18n.t(option.name)} </span>
                     </button>
                 ))}
             </div>

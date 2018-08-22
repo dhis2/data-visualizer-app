@@ -1,57 +1,72 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import DimensionItem from './DimensionItem';
 
 const style = {
     listContainer: {
-        maxHeight: 697,
         overflow: 'hidden',
         overflowY: 'scroll',
-        padding: 0,
-        marginTop: 0,
+        maxHeight: 697,
         minWidth: 250,
         width: 250,
+        padding: 0,
+        marginTop: 0,
     },
 };
 
-export class DimensionList extends Component {
-    state = { selected: [] };
+const OBJECT_POS = 1;
 
-    addDimension = index => {
-        !this.state.selected.includes(index) &&
-            this.setState({
-                selected: [...this.state.selected, index],
-            });
-        this.props.onClick(index);
+export class DimensionList extends Component {
+    state = {};
+
+    searchTextContains = dimensionName => {
+        const { searchText } = this.props;
+
+        return dimensionName.toLowerCase().includes(searchText.toLowerCase());
     };
-    removeDimension = index => {
-        this.state.selected.includes(index) &&
-            this.setState({
-                selected: this.state.selected.filter(entry => index !== entry),
-            });
+
+    filterMatchingDimensions = (dimension, tabIndex) => {
+        let Item = null;
+
+        if (this.searchTextContains(dimension.displayName)) {
+            Item = this.renderItem(dimension, tabIndex);
+        }
+
+        return Item;
+    };
+
+    renderItem = (dimension, tabIndex) => {
+        return (
+            <DimensionItem
+                id={dimension.id}
+                key={dimension.id}
+                tabIndex={tabIndex}
+                displayName={dimension.displayName}
+                isSelected={dimension.selected}
+                toggleDialog={this.props.toggleDialog}
+            />
+        );
     };
 
     render = () => {
-        const { dimensions, searchFieldValue } = this.props;
-        const dimensionsList = dimensions.map(
-            (
-                dimensionName,
-                index,
-                searchFieldContainsName = dimensionName
-                    .toLowerCase()
-                    .includes(searchFieldValue.toLowerCase())
-            ) =>
-                searchFieldContainsName && (
-                    <DimensionItem
-                        key={index}
-                        id={index}
-                        dimensionName={dimensionName}
-                        addDimension={this.addDimension}
-                        removeDimension={this.removeDimension}
-                        isSelected={this.state.selected.includes(index)}
-                    />
-                )
-        );
+        const { searchText, dimensions } = this.props,
+            dimensionsList = Object.entries(dimensions).map(
+                (listItem, tabIndex) =>
+                    searchText.length
+                        ? this.filterMatchingDimensions(
+                              listItem[OBJECT_POS],
+                              tabIndex
+                          )
+                        : this.renderItem(listItem[OBJECT_POS], tabIndex)
+            );
         return <ul style={style.listContainer}>{dimensionsList}</ul>;
     };
 }
+
+DimensionList.propTypes = {
+    searchText: PropTypes.string.isRequired,
+    dimensions: PropTypes.object.isRequired,
+    toggleDialog: PropTypes.func.isRequired,
+};
+
 export default DimensionList;

@@ -4,10 +4,9 @@ import TextField from 'material-ui/TextField';
 import { Search } from 'material-ui-icons';
 import { colors } from '../colors';
 import DimensionList from './DimensionList';
-import DialogueManager from './DialogueManager';
+import DialogManager from './DialogManager';
 import i18n from '@dhis2/d2-i18n';
 import * as fromReducers from '../reducers';
-import * as fromActions from '../actions';
 
 const style = {
     divContainter: {
@@ -28,55 +27,37 @@ const style = {
 };
 
 export class Dimensions extends Component {
-    state = {
-        searchFieldValue: '',
-        dialogIsOpen: false,
-        dimensions: ['Data', 'Periods', 'Organisation Units'],
+    state = { searchText: '', dialogIsOpen: false, dimensionId: null };
+
+    handleChange = event => {
+        this.setState({ searchText: event.target.value });
     };
 
-    onClick = index => {
-        this.toggleDialog();
+    toggleDialog = id => {
         this.setState({
-            dialogIndexNum: index,
-        });
-    };
-
-    toggleDialog = () => {
-        this.setState({ dialogIsOpen: !this.state.dialogIsOpen });
-    };
-
-    componentWillReceiveProps = nextProps => {
-        const metaDataObjectPosition = 1;
-        this.setState({
-            dimensions: [
-                ...this.state.dimensions,
-                ...Object.entries(nextProps.dimensions).map(
-                    entry => entry[metaDataObjectPosition].displayName
-                ),
-            ],
+            dimensionId: id,
+            dialogIsOpen: !this.state.dialogIsOpen,
         });
     };
 
     render = () => {
         return (
             <div className={'dimensions'} style={style.divContainter}>
-                <DialogueManager
-                    index={this.state.dialogIndexNum}
-                    dialogIsOpen={this.state.dialogIsOpen}
+                <DialogManager
+                    open={this.state.dialogIsOpen}
+                    dimensionId={this.state.dimensionId}
                     toggleDialog={this.toggleDialog}
                 />
                 <Search style={style.searchIcon} />
                 <TextField
                     placeholder={i18n.t('Search dimensions')}
                     style={style.textField}
-                    onChange={event =>
-                        this.setState({ searchFieldValue: event.target.value })
-                    }
+                    onChange={this.handleChange}
                 />
                 <DimensionList
-                    searchFieldValue={this.state.searchFieldValue}
-                    dimensions={this.state.dimensions}
-                    onClick={this.onClick}
+                    searchText={this.state.searchText}
+                    dimensions={this.props.dimensions}
+                    toggleDialog={this.toggleDialog}
                 />
             </div>
         );
@@ -84,14 +65,7 @@ export class Dimensions extends Component {
 }
 
 const mapStateToProps = state => ({
-    dimensions: fromReducers.fromDimensions.sGetFromState(state) || {},
+    dimensions: fromReducers.fromDimensions.sGetFromState(state),
 });
 
-const mapDispatchToProps = dispatch => ({
-    setDimension: fromActions.fromDimensions.acSetDimensions,
-});
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Dimensions);
+export default connect(mapStateToProps)(Dimensions);

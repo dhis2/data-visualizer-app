@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import i18n from '@dhis2/d2-i18n';
 import DimensionLabel from './DimensionLabel';
-import { Data, Period, OrgUnit, GenericDimension } from './icons';
 import DimensionOptions from './DimensionOptions';
+import { Data, Period, OrgUnit, GenericDimension } from './icons';
 
 const style = {
     text: {
@@ -38,17 +40,20 @@ export class DimensionItem extends Component {
     };
 
     getDimensionIcon = () => {
-        const dimensionIcons = [<Data />, <Period />, <OrgUnit />];
+        const fixedDimensionIcons = [<Data />, <Period />, <OrgUnit />],
+            isGeneric = typeof this.props.id === 'string';
 
-        return this.props.id >= dimensionIcons.length ? (
+        return isGeneric ? (
             <GenericDimension />
         ) : (
-            dimensionIcons[this.props.id]
+            fixedDimensionIcons[this.props.id]
         );
     };
 
-    getDimensionName = () => {
-        return <span style={style.text}> {this.props.dimensionName} </span>;
+    getDimensionType = () => {
+        return (
+            <span style={style.text}> {i18n.t(this.props.displayName)} </span>
+        );
     };
 
     renderOptionsOnHover = () => {
@@ -66,23 +71,18 @@ export class DimensionItem extends Component {
     };
 
     render = () => {
-        const { addDimension, removeDimension, id, isSelected } = this.props;
-        const Icon = this.getDimensionIcon();
-        const Label = this.getDimensionName();
-        const MoreOptions = this.renderOptionsOnHover();
+        const Icon = this.getDimensionIcon(),
+            Label = this.getDimensionType(),
+            MoreOptions = this.renderOptionsOnHover();
 
         return (
             <li
-                key={id}
+                key={this.props.id}
                 style={style.itemContainer}
                 onMouseOver={this.onMouseOver}
                 onMouseLeave={this.onMouseExit}
             >
-                <DimensionLabel
-                    isSelected={isSelected}
-                    onAddDimension={() => addDimension(id)}
-                    onRemoveDimension={() => removeDimension(id)}
-                >
+                <DimensionLabel {...this.props}>
                     {Icon}
                     {Label}
                 </DimensionLabel>
@@ -91,5 +91,12 @@ export class DimensionItem extends Component {
         );
     };
 }
+
+DimensionItem.propTypes = {
+    id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+    displayName: PropTypes.string.isRequired,
+    isSelected: PropTypes.bool.isRequired,
+    toggleDialog: PropTypes.func.isRequired,
+};
 
 export default DimensionItem;

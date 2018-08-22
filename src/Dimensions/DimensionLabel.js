@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { SvgIcon } from '@dhis2/d2-ui-core';
+import { tRemoveDimensions } from '../actions/dimensions';
 
 const style = {
     unselected: {
         display: 'inline-flex',
-        borderRadius: 4,
         minWidth: 'fit-content',
+        borderRadius: 4,
         marginLeft: 12,
     },
     selected: {
@@ -41,11 +44,19 @@ export class DimensionLabel extends Component {
     state = {};
 
     onLabelClick = () => {
-        this.props.onAddDimension();
+        this.props.toggleDialog(this.props.id);
     };
 
-    removeDimension = () => {
-        this.props.onRemoveDimension();
+    onKeyPress = event => {
+        if (event.key === 'Enter') {
+            this.props.isSelected
+                ? this.onRemoveDimensionClick()
+                : this.onLabelClick();
+        }
+    };
+
+    onRemoveDimensionClick = () => {
+        this.props.removeDimension(this.props.id);
     };
 
     renderRemoveButton = () => {
@@ -53,7 +64,7 @@ export class DimensionLabel extends Component {
 
         if (this.props.isSelected) {
             removeDimensionButton = (
-                <RemoveDimensionButton action={this.removeDimension} />
+                <RemoveDimensionButton action={this.onRemoveDimensionClick} />
             );
         }
 
@@ -68,11 +79,33 @@ export class DimensionLabel extends Component {
 
         return (
             <div style={labelStyle}>
-                <div onClick={this.onLabelClick}>{this.props.children}</div>
+                <div
+                    onClick={this.onLabelClick}
+                    onKeyPress={this.onKeyPress}
+                    tabIndex={0}
+                >
+                    {this.props.children}
+                </div>
                 {RemoveDimension}
             </div>
         );
     };
 }
 
-export default DimensionLabel;
+const mapDispatchToProps = dispatch => ({
+    removeDimension: id => dispatch(tRemoveDimensions(id)),
+});
+
+DimensionLabel.propTypes = {
+    id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    isSelected: PropTypes.bool.isRequired,
+    toggleDialog: PropTypes.func.isRequired,
+    removeDimension: PropTypes.func.isRequired,
+    Icon: PropTypes.element,
+    Label: PropTypes.element,
+};
+
+export default connect(
+    null,
+    mapDispatchToProps
+)(DimensionLabel);
