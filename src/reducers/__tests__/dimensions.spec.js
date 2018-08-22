@@ -2,13 +2,14 @@ import reducer, { actionTypes, DEFAULT_DIMENSIONS } from '../dimensions';
 
 describe('dimensions reducer', () => {
     const currentState = {
-        dimId1: { id: 'dimId1', name: 'dimName1' },
-        dimId2: { id: 'dimId2', name: 'dimName2' },
+        dimId1: { id: 'dimId1', displayName: 'dimName1', selected: false },
+        dimId2: { id: 'dimId2', displayName: 'dimName2', selected: false },
     };
 
     const dimension = {
-        id: 'dimIdX',
-        displayName: 'dimNameX',
+        id: 'dimId1',
+        displayName: 'dimName1',
+        selected: true,
     };
 
     const dimensionMap = {
@@ -24,9 +25,11 @@ describe('dimensions reducer', () => {
     it('should set the list of dimensions by replacing the existing list', () => {
         const actualState = reducer(currentState, {
             type: actionTypes.SET_DIMENSIONS,
-            value: dimensionMap,
+            value: dimension.id,
         });
 
-        expect(actualState).toEqual(dimensionMap);
+        const newState = { ...actualState, ...dimensionMap };
+
+        expect(actualState).toEqual(newState);
     });
 });
