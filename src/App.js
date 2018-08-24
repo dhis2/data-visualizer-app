@@ -1,105 +1,141 @@
 import React, { Component, Fragment } from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Snackbar from 'material-ui/Snackbar';
-import i18n from '@dhis2/d2-i18n';
-
-import SnackbarMessage from './widgets/SnackbarMessage';
-import MenuBar from './MenuBar/MenuBar';
-import VisualizationTypeSelector from './VisualizationTypeSelector/VisualizationTypeSelector';
-import Dimensions from './Dimensions/Dimensions';
-import Visualization from './Visualization/Visualization';
-import * as fromReducers from './reducers';
-import * as fromActions from './actions';
 
 import './App.css';
 
-export class App extends Component {
+const getPropMap = modelObjects => {
+    const map = {};
+
+    modelObjects.forEach(modelObj => {
+        modelObj.props.forEach(prop => {
+            if (!map.hasOwnProperty(prop)) {
+                map[prop] = [];
+            }
+
+            map[prop].push(modelObj.name);
+        });
+    });
+
+    return map;
+};
+
+export default class App extends Component {
+    state = {
+        map: null,
+    };
+
     componentDidMount() {
-        const { store } = this.context;
         const d2 = this.props.d2;
-        store.dispatch(fromActions.fromUser.acReceivedUser(d2.currentUser));
-        store.dispatch(fromActions.fromDimensions.tSetDimensions());
+        console.log('d2', d2);
+
+        const models = [
+            d2.models.reportTable,
+            d2.models.chart,
+            d2.models.eventReport,
+            d2.models.eventChart,
+        ];
+
+        this.setState({
+            models,
+            map: getPropMap([
+                {
+                    name: d2.models.reportTable.name,
+                    props: Object.keys(d2.models.reportTable.modelProperties),
+                },
+                {
+                    name: d2.models.chart.name,
+                    props: Object.keys(d2.models.chart.modelProperties),
+                },
+                {
+                    name: d2.models.eventReport.name,
+                    props: Object.keys(d2.models.eventReport.modelProperties),
+                },
+                {
+                    name: d2.models.eventChart.name,
+                    props: Object.keys(d2.models.eventChart.modelProperties),
+                },
+            ]),
+        });
     }
 
     getChildContext() {
         return {
             baseUrl: this.props.baseUrl,
-            i18n,
             d2: this.props.d2,
         };
     }
 
-    renderSnackbar() {
-        return (
-            <Snackbar
-                open={this.props.snackbarOpen}
-                message={
-                    <SnackbarMessage message={this.props.snackbarMessage} />
-                }
-                autoHideDuration={this.props.snackbarDuration}
-                onRequestClose={this.props.onCloseSnackbar}
-            />
-        );
-    }
+    getEntriesByLength = map => {
+        const entries = Object.entries(map);
+        const lengthMap = {};
+
+        entries.forEach(entry => {
+            const prop = entry[0];
+            const names = entry[1];
+
+            if (!lengthMap[names.length]) {
+                lengthMap[names.length] = [];
+            }
+
+            lengthMap[names.length].push(entry);
+        });
+
+        return Object.entries(lengthMap);
+    };
 
     render() {
-        return (
-            <Fragment>
-                <div className="app">
-                    <div className="item1 headerbar">Headerbar</div>
-                    <div className="item2 visualization-type-selector">
-                        <VisualizationTypeSelector />
-                    </div>
-                    <div className="item3 menu-bar">
-                        <MenuBar />
-                    </div>
-                    <div className="item4 dimensions">
-                        <Dimensions />
-                    </div>
-                    <div className="item5 chart-layout">Chart layout</div>
-                    <div className="item6 interpretations">
-                        Interpretations panel
-                    </div>
-                    <div className="item7 canvas">
-                        <Visualization />
-                    </div>
-                </div>
-                {this.renderSnackbar()}
-            </Fragment>
-        );
+        const { map } = this.state;
+
+        if (map) {
+            const entriesByLength = this.getEntriesByLength(map);
+            console.log('map', map);
+            console.log('entriesByLength', entriesByLength);
+
+            const tables = entriesByLength.map(entry => {
+                const len = entry[0];
+                const propObjects = entry[1];
+
+                return (
+                    <table key={len}>
+                        <thead>
+                            <tr>
+                                <th className="prop">Prop</th>
+                                <th>Object</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {propObjects.map(obj => {
+                                const prop = obj[0];
+                                const names = obj[1];
+
+                                return (
+                                    <tr key={Math.random()}>
+                                        <td>{prop}</td>
+                                        <td>{names.join(', ')}</td>
+                                    </tr>
+                                );
+                            })}
+                        </tbody>
+                    </table>
+                );
+            });
+
+            return (
+                <Fragment>
+                    <h3>
+                        Props for{' '}
+                        {this.state.models.map(obj => obj.name).join(', ')}
+                    </h3>
+                    {tables}
+                </Fragment>
+            );
+        }
+
+        return '';
     }
 }
 
-const mapStateToProps = state => {
-    const { message, duration, open } = fromReducers.fromSnackbar.sGetSnackbar(
-        state
-    );
-    return {
-        snackbarOpen: open,
-        snackbarMessage: message,
-        snackbarDuration: duration,
-    };
-};
-
-App.contextTypes = {
-    store: PropTypes.object,
-};
-
 App.childContextTypes = {
-    d2: PropTypes.object,
     baseUrl: PropTypes.string,
-    i18n: PropTypes.object,
-};
-
-App.propTypes = {
     d2: PropTypes.object,
-    baseUrl: PropTypes.string,
 };
-
-export default connect(
-    mapStateToProps,
-    {
-        onCloseSnackbar: fromActions.fromSnackbar.acCloseSnackbar,
-    }
-)(App);
