@@ -3,7 +3,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { MuiThemeProvider } from 'material-ui/styles';
+import { MuiThemeProvider } from '@material-ui/core/styles';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import D2UIApp from '@dhis2/d2-ui-app';
