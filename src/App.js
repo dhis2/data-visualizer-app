@@ -83,50 +83,99 @@ export default class App extends Component {
         return Object.entries(lengthMap);
     };
 
+    renderList = map => {
+        const entriesByLength = this.getEntriesByLength(map);
+        console.log('map', map);
+        console.log('entriesByLength', entriesByLength);
+
+        const tables = entriesByLength.map(entry => {
+            const [len, propObjects] = entry;
+
+            return (
+                <table key={len}>
+                    <thead>
+                        <tr>
+                            <th className="prop">Prop</th>
+                            <th>Object</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {propObjects.map(obj => {
+                            const [prop, names] = obj;
+
+                            return (
+                                <tr key={Math.random()}>
+                                    <td>{prop}</td>
+                                    <td>{names.join(', ')}</td>
+                                </tr>
+                            );
+                        })}
+                    </tbody>
+                </table>
+            );
+        });
+
+        return (
+            <div style={{ margin: 30 }}>
+                <h3>
+                    Props for{' '}
+                    {this.state.models.map(obj => obj.name).join(', ')}
+                </h3>
+                {tables}
+            </div>
+        );
+    };
+
+    renderMap = map => {
+        const comboMap = {};
+        const entries = Object.entries(map);
+
+        entries.forEach(entry => {
+            const [prop, names] = entry;
+            const nameId = names.join('-');
+
+            if (!comboMap.hasOwnProperty(nameId)) {
+                comboMap[nameId] = [];
+            }
+
+            comboMap[nameId].push(prop);
+        });
+
+        return (
+            <div style={{ margin: 30 }}>
+                <h3>Props by combination</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th className="prop">Combination</th>
+                            <th>Props</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {Object.entries(comboMap).map(entry => {
+                            const [combo, names] = entry;
+
+                            return (
+                                <tr key={combo}>
+                                    <td>{combo}</td>
+                                    <td>{names.join(', ')}</td>
+                                </tr>
+                            );
+                        })}
+                    </tbody>
+                </table>
+            </div>
+        );
+    };
+
     render() {
         const { map } = this.state;
 
         if (map) {
-            const entriesByLength = this.getEntriesByLength(map);
-            console.log('map', map);
-            console.log('entriesByLength', entriesByLength);
-
-            const tables = entriesByLength.map(entry => {
-                const len = entry[0];
-                const propObjects = entry[1];
-
-                return (
-                    <table key={len}>
-                        <thead>
-                            <tr>
-                                <th className="prop">Prop</th>
-                                <th>Object</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {propObjects.map(obj => {
-                                const prop = obj[0];
-                                const names = obj[1];
-
-                                return (
-                                    <tr key={Math.random()}>
-                                        <td>{prop}</td>
-                                        <td>{names.join(', ')}</td>
-                                    </tr>
-                                );
-                            })}
-                        </tbody>
-                    </table>
-                );
-            });
-
             return (
                 <Fragment>
-                    <h3>
-                        Props for{' '}
-                        {this.state.models.map(obj => obj.name).join(', ')}
-                    </h3>
-                    {tables}
+                    {this.renderMap(map)}
+                    {this.renderList(map)}
                 </Fragment>
             );
         }
