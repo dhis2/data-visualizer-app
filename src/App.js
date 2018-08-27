@@ -70,7 +70,6 @@ export default class App extends Component {
         const lengthMap = {};
 
         entries.forEach(entry => {
-            const prop = entry[0];
             const names = entry[1];
 
             if (!lengthMap[names.length]) {
@@ -117,10 +116,7 @@ export default class App extends Component {
 
         return (
             <div style={{ margin: 30 }}>
-                <h3>
-                    Props for{' '}
-                    {this.state.models.map(obj => obj.name).join(', ')}
-                </h3>
+                <h3>Props sort by number of objects</h3>
                 {tables}
             </div>
         );
