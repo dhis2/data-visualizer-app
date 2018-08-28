@@ -21,6 +21,7 @@ export class App extends Component {
         const d2 = this.props.d2;
         store.dispatch(fromActions.fromUser.acReceivedUser(d2.currentUser));
         store.dispatch(fromActions.fromDimensions.tGetDimensions());
+        this.loadExampleChart(d2);
     }
 
     loadExampleChart = async () => {
