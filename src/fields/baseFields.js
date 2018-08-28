@@ -1,3 +1,15 @@
+// field constants
+
+const COL_SUBTOTALS = 'colSubTotals';
+const COL_TOTALS = 'colTotals';
+const DISPLAY_DENSITY = 'displayDensity';
+const FONT_SIZE = 'fontSize';
+const HIDE_EMPTY_ROWS = 'hideEmptyRows';
+const ROW_SUBTOTALS = 'rowSubTotals';
+const ROW_TOTALS = 'rowTotals';
+const SHOW_DIMENSION_LABELS = 'showDimensionLabels';
+const SHOW_HIERARCHY = 'showHierarchy';
+
 // excluded fields
 
 export const excludedFields = [
@@ -54,15 +66,15 @@ export const fieldsByType = {
     chart: ['category', 'series'],
     eventReport: ['dataType'],
     reportTable_eventReport: [
-        'colSubTotals',
-        'colTotals',
-        'displayDensity',
-        'fontSize',
-        'hideEmptyRows',
-        'rowSubTotals',
-        'rowTotals',
-        'showDimensionLabels',
-        'showHierarchy',
+        COL_SUBTOTALS,
+        COL_TOTALS,
+        DISPLAY_DENSITY,
+        FONT_SIZE,
+        HIDE_EMPTY_ROWS,
+        ROW_SUBTOTALS,
+        ROW_TOTALS,
+        SHOW_DIMENSION_LABELS,
+        SHOW_HIERARCHY,
     ],
     chart_eventChart: [
         'baseLineLabel',
