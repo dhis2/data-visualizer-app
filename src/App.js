@@ -30,8 +30,11 @@ export class App extends Component {
         const type = 'chart';
         const id = 'Tun9tJb3sQt';
 
+        const fields = getFieldsByType(type);
+        console.log('fields', fields);
+
         const chart1 = await d2.models[type].get(id, {
-            fields: getFieldsByType(type),
+            fields,
         });
 
         console.log('chart1', chart1);

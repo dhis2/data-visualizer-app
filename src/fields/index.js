@@ -1,13 +1,16 @@
 import {
     getAllFieldsByType,
-    excludeFields,
-    excludedFields,
+    extractName,
+    markExcluded,
+    moveExcludedToEnd,
 } from './baseFields';
 import { extendFields } from './nestedFields';
 
 export const getFieldsByType = type =>
     getAllFieldsByType(type)
-        .filter(excludeFields)
+        .map(markExcluded)
+        .map(extractName)
+        .sort()
+        .reduce(moveExcludedToEnd, null)
         .map(extendFields)
-        .concat(excludedFields.map(field => `!${field}`))
         .join(',');
