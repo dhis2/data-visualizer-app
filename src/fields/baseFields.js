@@ -5,38 +5,6 @@ const getFieldObject = (name, props = {}) => ({
     ...props,
 });
 
-// excluded fields
-
-// export const excludedFields = [
-// getFieldObject('attributeDimensions', { excluded: true }),
-// getFieldObject('attributeValues', { excluded: true }),
-// getFieldObject('category', { excluded: true }),
-// getFieldObject('categoryDimensions', { excluded: true }),
-// getFieldObject('categoryOptionGroupSetDimensions', { excluded: true }),
-// getFieldObject('code', { excluded: true }),
-// getFieldObject('columnDimensions', { excluded: true }),
-// getFieldObject('dataDimensionItems', { excluded: true }),
-// getFieldObject('dataElementDimensions', { excluded: true }),
-// getFieldObject('dataElementGroupSetDimensions', { excluded: true }),
-// getFieldObject('externalAccess', { excluded: true }),
-// getFieldObject('filterDimensions', { excluded: true }),
-// getFieldObject('href', { excluded: true }),
-// getFieldObject('itemOrganisationUnitGroups', { excluded: true }),
-// getFieldObject('organisationUnitGroupSetDimensions', { excluded: true }),
-// getFieldObject('organisationUnitGroups', { excluded: true }),
-// getFieldObject('organisationUnitLevels', { excluded: true }),
-// getFieldObject('organisationUnits', { excluded: true }),
-// getFieldObject('parentGraphMap', { excluded: true }),
-// getFieldObject('periods', { excluded: true }),
-// getFieldObject('programIndicatorDimensions', { excluded: true }),
-// getFieldObject('relativePeriods', { excluded: true }),
-// getFieldObject('rowDimensions', { excluded: true }),
-// getFieldObject('series', { excluded: true }),
-// getFieldObject('userOrganisationUnit', { excluded: true }),
-// getFieldObject('userOrganisationUnitChildren', { excluded: true }),
-// getFieldObject('userOrganisationUnitGrandChildren', { excluded: true }),
-// ];
-
 // fields by type
 
 export const fieldsByType = {
@@ -171,12 +139,7 @@ export const fieldsByType = {
     ],
 };
 
-export const getAllFieldsByType = type =>
-    Object.entries(fieldsByType).reduce(
-        (fields, [key, value]) =>
-            key.includes(type) ? fields.concat(value) : fields,
-        []
-    );
+// actions
 
 export const extractName = propObj => propObj[NAME_FIELD];
 
@@ -187,6 +150,15 @@ export const markExcluded = fieldObj =>
 
 export const moveExcludedToEnd = (acc, current, curIndex, array) => {
     !acc && (acc = array.slice());
-    current.includes('!') && acc.push(acc.shift());
+    current.charAt(0) === '!' && acc.push(acc.shift());
     return acc;
 };
+
+// getters
+
+export const getAllFieldObjectsByType = type =>
+    Object.entries(fieldsByType).reduce(
+        (fields, [key, value]) =>
+            key.includes(type) ? fields.concat(value) : fields,
+        []
+    );
