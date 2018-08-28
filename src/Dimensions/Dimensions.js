@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import TextField from 'material-ui/TextField';
-import { Search } from 'material-ui-icons';
+import TextField from '@material-ui/core/TextField';
+import { Search } from '@material-ui/icons';
+import i18n from '@dhis2/d2-i18n';
 import { colors } from '../colors';
 import DimensionList from './DimensionList';
 import DialogManager from './DialogManager';
-import i18n from '@dhis2/d2-i18n';
 import * as fromReducers from '../reducers';
 
 const style = {

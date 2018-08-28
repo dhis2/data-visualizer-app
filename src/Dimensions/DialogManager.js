@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Button from 'material-ui/Button';
-import Dialog, {
+import {
+    Button,
+    Dialog,
     DialogActions,
     DialogContent,
     DialogTitle,
-} from 'material-ui/Dialog';
+} from '@material-ui/core';
 import i18n from '@dhis2/d2-i18n';
 import { tSetDimensions } from '../actions/dimensions';
-
 import VisualizationOptions from '../VisualizationOptions/VisualizationOptions';
 
 // Placeholder for the dimension popup dialogs - using the Options dialog until the components are created

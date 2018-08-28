@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { SvgIcon } from '@dhis2/d2-ui-core';
+import { Close } from '@material-ui/icons';
 import { tRemoveDimensions } from '../actions/dimensions';
 
 const style = {
@@ -17,7 +17,6 @@ const style = {
     deleteButton: {
         border: 'none',
         background: 'none',
-        outline: 'none',
         position: 'relative',
         top: 1,
         marginLeft: 6,
@@ -35,7 +34,7 @@ const style = {
 const RemoveDimensionButton = ({ action }) => {
     return (
         <button style={style.deleteButton} onClick={action}>
-            <SvgIcon icon="Close" style={style.deleteButtonIcon} />
+            <Close style={style.deleteButtonIcon} />
         </button>
     );
 };

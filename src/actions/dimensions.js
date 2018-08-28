@@ -67,7 +67,6 @@ export const tRemoveDimensions = dimension => async dispatch => {
 
     dispatch(acRemoveDimensions(dimension));
     try {
-        console.log('removing dimension ', dimension);
     } catch (err) {
         return onError(err);
     }
