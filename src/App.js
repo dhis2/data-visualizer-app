@@ -12,7 +12,9 @@ const getPropMap = modelObjects => {
                 map[prop] = [];
             }
 
-            map[prop].push(modelObj.name);
+            map[prop].push(
+                modelObj.collection ? modelObj.collectionName : modelObj.name
+            );
         });
     });
 
