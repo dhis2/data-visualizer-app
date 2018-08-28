@@ -287,3 +287,7 @@ export const MoreHorizontal = () => {
         </svg>
     );
 };
+
+export const RecommendedIcon = () => {
+    return null;
+};

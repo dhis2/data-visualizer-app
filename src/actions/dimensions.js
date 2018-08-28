@@ -1,5 +1,10 @@
 import { actionTypes } from '../reducers';
-import { apiFetchDimensions } from '../api/dimensions';
+import {
+    apiFetchDimensions,
+    //apiFetchRecommended,
+    //apiSetDimensions,
+    //apiRemoveDimensions,
+} from '../api/dimensions';
 import { arrayToIdMap } from '../util';
 
 export const acGetDimensions = dimensions => ({
@@ -36,8 +41,8 @@ export const tGetDimensions = () => async dispatch => {
 };
 
 export const tSetDimensions = dimension => async dispatch => {
-    /*const onSuccess = id => {
-        dispatch(acSetDimensions(id));
+    /*const onSuccess = dimension => {
+        dispatch(acSetDimensions(dimension));
     };*/
 
     const onError = error => {
@@ -45,16 +50,19 @@ export const tSetDimensions = dimension => async dispatch => {
         return error;
     };
 
-    dispatch(acSetDimensions(dimension));
     try {
+        dispatch(acSetDimensions(dimension));
+        //const response = await apiSetDimensions(dimension);
+        //const response = await apiFetchRecommended(dimensionA.id, dimensionB.id);
+        //return onSuccess(response.dimensions);
     } catch (err) {
         return onError(err);
     }
 };
 
 export const tRemoveDimensions = dimension => async dispatch => {
-    /*const onSuccess = id => {
-        dispatch(acSetDimensions(id));
+    /*const onSuccess = dimension => {
+        dispatch(acRemoveDimensions(dimension));
     };*/
 
     const onError = error => {
@@ -65,8 +73,10 @@ export const tRemoveDimensions = dimension => async dispatch => {
         return error;
     };
 
-    dispatch(acRemoveDimensions(dimension));
     try {
+        dispatch(acRemoveDimensions(dimension));
+        //const response = await apiRemoveDimensions(dimension);
+        //return onSuccess(response.dimension);
     } catch (err) {
         return onError(err);
     }

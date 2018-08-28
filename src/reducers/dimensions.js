@@ -17,7 +17,7 @@ export const DEFAULT_DIMENSIONS = {
         id: 1,
         dimensionType: 'FIXED_DIMENSION',
         displayName: 'Period',
-        selected: true,
+        selected: false,
     },
     2: {
         id: 2,
@@ -27,6 +27,17 @@ export const DEFAULT_DIMENSIONS = {
     },
 };
 
+/**
+ *  TODO:   Fra egne tanker:
+ *              Fiks fetch recommended
+ *              Fiks Recommended icon
+ *              Fiks update dimension til API
+ *
+ *          Fra Dokument:
+ *              Only dimensions available to the user are displayed
+ *              Dimensions can be drag and dropped to the layout toolbar.
+ *
+ */
 export default (state = DEFAULT_DIMENSIONS, action) => {
     switch (action.type) {
         case actionTypes.SET_DIMENSIONS: {
