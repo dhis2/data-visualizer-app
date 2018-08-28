@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Snackbar from 'material-ui/Snackbar';
+import Snackbar from '@material-ui/core/Snackbar';
 import i18n from '@dhis2/d2-i18n';
 
 import SnackbarMessage from './widgets/SnackbarMessage';
@@ -11,6 +11,7 @@ import Dimensions from './Dimensions/Dimensions';
 import Visualization from './Visualization/Visualization';
 import * as fromReducers from './reducers';
 import * as fromActions from './actions';
+import { getFieldsByType } from './fields';
 
 import './App.css';
 
@@ -21,6 +22,18 @@ export class App extends Component {
         store.dispatch(fromActions.fromUser.acReceivedUser(d2.currentUser));
         store.dispatch(fromActions.fromDimensions.tGetDimensions());
     }
+
+    loadExampleChart = async () => {
+        const d2 = this.props.d2;
+        const type = 'chart';
+        const id = 'Tun9tJb3sQt';
+
+        const chart1 = await d2.models[type].get(id, {
+            fields: getFieldsByType(type),
+        });
+
+        console.log('chart1', chart1);
+    };
 
     getChildContext() {
         return {
