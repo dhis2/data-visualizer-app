@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { FormControlLabel } from 'material-ui/Form';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { StyleTab } from '../StyleTab';
 
 describe('The Style tab', () => {
