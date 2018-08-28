@@ -5,11 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-08-22T14:40:13.970Z\n"
-"PO-Revision-Date: 2018-08-22T14:40:13.970Z\n"
-
-msgid "Chart options"
-msgstr ""
+"POT-Creation-Date: 2018-08-28T22:53:03.232Z\n"
+"PO-Revision-Date: 2018-08-28T22:53:03.232Z\n"
 
 msgid "Submit"
 msgstr ""
@@ -26,5 +23,17 @@ msgstr ""
 msgid "Options"
 msgstr ""
 
+msgid "Chart options"
+msgstr ""
+
 msgid "Hide"
+msgstr ""
+
+msgid "Data Dimension"
+msgstr ""
+
+msgid "Organisation Unit"
+msgstr ""
+
+msgid "Period filter"
 msgstr ""

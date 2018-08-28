@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import TextField from '@material-ui/core/TextField';
-import { Search } from '@material-ui/icons';
+import TextField from '@material-ui/core/TextField'; //TODO: d2-ui
+import { Search } from '@material-ui/icons'; // TODO: d2-ui
 import i18n from '@dhis2/d2-i18n';
 import { colors } from '../colors';
 import DimensionList from './DimensionList';
@@ -27,25 +27,24 @@ const style = {
 };
 
 export class Dimensions extends Component {
-    state = { searchText: '', dialogIsOpen: false, dimensionId: null };
+    state = { searchText: '', dialogDimId: null };
 
     handleChange = event => {
         this.setState({ searchText: event.target.value });
     };
 
-    toggleDialog = id => {
-        this.setState({
-            dimensionId: id,
-            dialogIsOpen: !this.state.dialogIsOpen,
-        });
+    toggleDialog = value => {
+        this.setState({ dialogDimId: value });
     };
 
     render = () => {
         return (
             <div className={'dimensions'} style={style.divContainter}>
                 <DialogManager
-                    open={this.state.dialogIsOpen}
-                    dimensionId={this.state.dimensionId}
+                    dialogIsOpen={
+                        this.state.dialogDimId !== null ? true : false
+                    }
+                    id={this.state.dialogDimId}
                     toggleDialog={this.toggleDialog}
                 />
                 <Search style={style.searchIcon} />

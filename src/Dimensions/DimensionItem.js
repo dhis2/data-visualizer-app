@@ -3,7 +3,13 @@ import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import DimensionLabel from './DimensionLabel';
 import DimensionOptions from './DimensionOptions';
-import { Data, Period, OrgUnit, GenericDimension } from './icons';
+import {
+    Data,
+    Period,
+    OrgUnit,
+    GenericDimension,
+    RecommendedIcon,
+} from './icons';
 
 const style = {
     text: {
@@ -56,24 +62,21 @@ export class DimensionItem extends Component {
         );
     };
 
+    checkIfRecommended = () => {
+        return this.props.isRecommended ? <RecommendedIcon /> : null;
+    };
+
     renderOptionsOnHover = () => {
-        let showOptions = null;
-
-        if (!this.props.isSelected && this.state.mouseOver) {
-            showOptions = (
-                <DimensionOptions
-                    toggleHoverListener={this.toggleHoverListener}
-                />
-            );
-        }
-
-        return showOptions;
+        return !this.props.isSelected && this.state.mouseOver ? (
+            <DimensionOptions toggleHoverListener={this.toggleHoverListener} />
+        ) : null;
     };
 
     render = () => {
         const Icon = this.getDimensionIcon(),
             Label = this.getDimensionType(),
-            MoreOptions = this.renderOptionsOnHover();
+            MoreOptions = this.renderOptionsOnHover(),
+            RecommendedIcon = this.checkIfRecommended();
 
         return (
             <li
@@ -87,6 +90,7 @@ export class DimensionItem extends Component {
                     {Label}
                 </DimensionLabel>
                 {MoreOptions}
+                {RecommendedIcon}
             </li>
         );
     };

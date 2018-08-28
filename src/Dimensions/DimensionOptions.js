@@ -44,7 +44,7 @@ const style = {
 
 const OptionsButton = ({ action }) => {
     return (
-        <button style={style.dropDownButton} onClick={action}>
+        <button style={style.dropDownButton} onClick={action} tabIndex={1}>
             <MoreHorizontal />
         </button>
     );
@@ -68,7 +68,7 @@ export class DimensionOptions extends Component {
     };
 
     addDimensionTo = id => {
-        console.log('Dropdown clicked! adding ', id);
+        console.log('Dropdown clicked! adding to ', id);
         this.closeMenu();
     };
 

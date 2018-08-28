@@ -1,27 +1,23 @@
 import { orObject } from '../util';
 
 export const actionTypes = {
-    SET_DIMENSIONS: 'SET_DIMENSIONS',
+    RECEIVED_DIMENSION: 'RECEIVED_DIMENSION',
     GET_DIMENSIONS: 'GET_DIMENSIONS',
-    REMOVE_DIMENSIONS: 'REMOVE_DIMENSIONS',
 };
 
 export const DEFAULT_DIMENSIONS = {
     0: {
         id: 0,
-        dimensionType: 'FIXED_DIMENSION',
         displayName: 'Data',
         selected: false,
     },
     1: {
         id: 1,
-        dimensionType: 'FIXED_DIMENSION',
         displayName: 'Period',
         selected: false,
     },
     2: {
         id: 2,
-        dimensionType: 'FIXED_DIMENSION',
         displayName: 'Organisation Unit',
         selected: false,
     },
@@ -40,20 +36,17 @@ export const DEFAULT_DIMENSIONS = {
  */
 export default (state = DEFAULT_DIMENSIONS, action) => {
     switch (action.type) {
-        case actionTypes.SET_DIMENSIONS: {
+        case actionTypes.RECEIVED_DIMENSION: {
             return {
                 ...state,
-                [action.value]: { ...state[action.value], selected: true },
+                [action.value]: {
+                    ...state[action.value],
+                    selected: !state[action.value].selected,
+                },
             };
         }
         case actionTypes.GET_DIMENSIONS: {
             return { ...state, ...action.value };
-        }
-        case actionTypes.REMOVE_DIMENSIONS: {
-            return {
-                ...state,
-                [action.value]: { ...state[action.value], selected: false },
-            };
         }
         default:
             return state;

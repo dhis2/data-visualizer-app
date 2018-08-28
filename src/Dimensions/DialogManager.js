@@ -1,33 +1,39 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import i18n from '@dhis2/d2-i18n';
 import {
     Button,
     Dialog,
     DialogActions,
     DialogContent,
-    DialogTitle,
 } from '@material-ui/core';
-import i18n from '@dhis2/d2-i18n';
+import {
+    DataDimension,
+    PeriodDimension,
+    OrgUnitDimension,
+} from '../components/index';
 import { tSetDimensions } from '../actions/dimensions';
-import VisualizationOptions from '../VisualizationOptions/VisualizationOptions';
 
 // Placeholder for the dimension popup dialogs - using the Options dialog until the components are created
-let dimensionsArr = [<VisualizationOptions />, 'test'];
+const dimensionsArr = [
+    <DataDimension />,
+    <PeriodDimension />,
+    <OrgUnitDimension />,
+];
 
 export const DialogManager = ({
-    open,
-    dimensionId,
-    setDimension,
+    dialogIsOpen,
+    id,
     toggleDialog,
+    setDimension,
 }) => {
     return (
-        <Dialog open={open} onClose={() => toggleDialog(null)}>
-            <DialogTitle>{i18n.t('Chart options')}</DialogTitle>
-            <DialogContent>{dimensionsArr[dimensionId]}</DialogContent>
+        <Dialog open={dialogIsOpen} onClose={() => toggleDialog(null)}>
+            <DialogContent>{dimensionsArr[id]}</DialogContent>
             <DialogActions>
                 <Button
                     onClick={() => {
-                        setDimension(dimensionId);
+                        setDimension(id);
                         toggleDialog(null);
                     }}
                 >

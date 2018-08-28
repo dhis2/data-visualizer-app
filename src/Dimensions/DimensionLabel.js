@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Close } from '@material-ui/icons';
-import { tRemoveDimensions } from '../actions/dimensions';
+import { Close } from '@material-ui/icons'; //TODO: d2-ui
+import { tSetDimensions } from '../actions/dimensions';
 
 const style = {
     unselected: {
@@ -33,14 +33,21 @@ const style = {
 
 const RemoveDimensionButton = ({ action }) => {
     return (
-        <button style={style.deleteButton} onClick={action}>
+        <button style={style.deleteButton} onClick={action} tabIndex={-1}>
             <Close style={style.deleteButtonIcon} />
         </button>
     );
 };
 
 export class DimensionLabel extends Component {
-    state = {};
+    static propTypes = {
+        id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+        isSelected: PropTypes.bool.isRequired,
+        toggleDialog: PropTypes.func.isRequired,
+        removeDimension: PropTypes.func.isRequired,
+        Icon: PropTypes.element,
+        Label: PropTypes.element,
+    };
 
     onLabelClick = () => {
         this.props.toggleDialog(this.props.id);
@@ -92,17 +99,8 @@ export class DimensionLabel extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-    removeDimension: id => dispatch(tRemoveDimensions(id)),
+    removeDimension: id => dispatch(tSetDimensions(id)),
 });
-
-DimensionLabel.propTypes = {
-    id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    isSelected: PropTypes.bool.isRequired,
-    toggleDialog: PropTypes.func.isRequired,
-    removeDimension: PropTypes.func.isRequired,
-    Icon: PropTypes.element,
-    Label: PropTypes.element,
-};
 
 export default connect(
     null,

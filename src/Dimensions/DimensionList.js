@@ -17,7 +17,11 @@ const style = {
 const OBJECT_POS = 1;
 
 export class DimensionList extends Component {
-    state = {};
+    static propTypes = {
+        searchText: PropTypes.string.isRequired,
+        dimensions: PropTypes.object.isRequired,
+        toggleDialog: PropTypes.func.isRequired,
+    };
 
     searchTextContains = dimensionName => {
         const { searchText } = this.props;
@@ -25,22 +29,17 @@ export class DimensionList extends Component {
         return dimensionName.toLowerCase().includes(searchText.toLowerCase());
     };
 
-    filterMatchingDimensions = (dimension, tabIndex) => {
-        let Item = null;
-
-        if (this.searchTextContains(dimension.displayName)) {
-            Item = this.renderItem(dimension, tabIndex);
-        }
-
-        return Item;
+    filterMatchingDimensions = dimension => {
+        return this.searchTextContains(dimension.displayName)
+            ? this.renderItem(dimension)
+            : null;
     };
 
-    renderItem = (dimension, tabIndex) => {
+    renderItem = dimension => {
         return (
             <DimensionItem
                 id={dimension.id}
                 key={dimension.id}
-                tabIndex={tabIndex}
                 displayName={dimension.displayName}
                 isSelected={dimension.selected}
                 toggleDialog={this.props.toggleDialog}
@@ -51,22 +50,13 @@ export class DimensionList extends Component {
     render = () => {
         const { searchText, dimensions } = this.props,
             dimensionsList = Object.entries(dimensions).map(
-                (listItem, tabIndex) =>
+                listItem =>
                     searchText.length
-                        ? this.filterMatchingDimensions(
-                              listItem[OBJECT_POS],
-                              tabIndex
-                          )
-                        : this.renderItem(listItem[OBJECT_POS], tabIndex)
+                        ? this.filterMatchingDimensions(listItem[OBJECT_POS])
+                        : this.renderItem(listItem[OBJECT_POS])
             );
         return <ul style={style.listContainer}>{dimensionsList}</ul>;
     };
 }
-
-DimensionList.propTypes = {
-    searchText: PropTypes.string.isRequired,
-    dimensions: PropTypes.object.isRequired,
-    toggleDialog: PropTypes.func.isRequired,
-};
 
 export default DimensionList;
