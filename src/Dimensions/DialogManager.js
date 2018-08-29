@@ -7,11 +7,10 @@ import {
     DialogActions,
     DialogContent,
 } from '@material-ui/core';
-import {
-    DataDimension,
-    PeriodDimension,
-    OrgUnitDimension,
-} from '../components/index';
+import { DataDimension } from './DataDimension';
+import { PeriodDimension } from './PeriodDimension';
+import { OrgUnitDimension } from './OrgUnitDimension';
+
 import { tSetDimensions } from '../actions/dimensions';
 
 // Placeholder for the dimension popup dialogs - using the Options dialog until the components are created
@@ -27,6 +26,8 @@ export const DialogManager = ({
     toggleDialog,
     setDimension,
 }) => {
+    console.log('dimensionsArr[id]', id, dimensionsArr[id]);
+
     return (
         <Dialog open={dialogIsOpen} onClose={() => toggleDialog(null)}>
             <DialogContent>{dimensionsArr[id]}</DialogContent>
