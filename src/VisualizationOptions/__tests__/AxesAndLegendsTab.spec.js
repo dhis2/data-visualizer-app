@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import TextField from 'material-ui/TextField';
+import TextField from '@material-ui/core/TextField';
 import { AxesAndLegendsTab } from '../AxesAndLegendsTab';
 
 describe('The Axis & Legend tab', () => {
