@@ -15,7 +15,7 @@ const style = {
         width: 250,
     },
     searchIcon: {
-        color: '#9E9E9E',
+        color: colors.paleGreay,
         position: 'relative',
         marginTop: 15,
         right: 15,

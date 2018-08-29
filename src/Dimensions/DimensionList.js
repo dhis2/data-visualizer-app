@@ -48,13 +48,13 @@ export class DimensionList extends Component {
     };
 
     render = () => {
-        const { searchText, dimensions } = this.props,
-            dimensionsList = Object.entries(dimensions).map(
-                listItem =>
-                    searchText.length
-                        ? this.filterMatchingDimensions(listItem[OBJECT_POS])
-                        : this.renderItem(listItem[OBJECT_POS])
-            );
+        const { searchText, dimensions } = this.props;
+        const dimensionsList = Object.entries(dimensions).map(
+            listItem =>
+                searchText.length
+                    ? this.filterMatchingDimensions(listItem[OBJECT_POS])
+                    : this.renderItem(listItem[OBJECT_POS])
+        );
         return <ul style={style.listContainer}>{dimensionsList}</ul>;
     };
 }

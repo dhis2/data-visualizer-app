@@ -26,8 +26,6 @@ export const DialogManager = ({
     toggleDialog,
     setDimension,
 }) => {
-    console.log('dimensionsArr[id]', id, dimensionsArr[id]);
-
     return (
         <Dialog open={dialogIsOpen} onClose={() => toggleDialog(null)}>
             <DialogContent>{dimensionsArr[id]}</DialogContent>
@@ -48,11 +46,7 @@ export const DialogManager = ({
     );
 };
 
-const mapDispatchToProps = dispatch => ({
-    setDimension: id => dispatch(tSetDimensions(id)),
-});
-
 export default connect(
     null,
-    mapDispatchToProps
+    { setDimension: tSetDimensions }
 )(DialogManager);

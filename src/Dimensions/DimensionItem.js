@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
+import { colors } from '../colors';
 import DimensionLabel from './DimensionLabel';
 import DimensionOptions from './DimensionOptions';
 import {
@@ -14,7 +15,7 @@ import {
 const style = {
     text: {
         fontSize: 16,
-        color: 'black',
+        color: colors.black,
     },
     itemContainer: {
         display: 'flex',
@@ -46,8 +47,8 @@ export class DimensionItem extends Component {
     };
 
     getDimensionIcon = () => {
-        const fixedDimensionIcons = [<Data />, <Period />, <OrgUnit />],
-            isGeneric = typeof this.props.id === 'string';
+        const fixedDimensionIcons = [<Data />, <Period />, <OrgUnit />];
+        const isGeneric = typeof this.props.id === 'string';
 
         return isGeneric ? (
             <GenericDimension />
@@ -73,10 +74,10 @@ export class DimensionItem extends Component {
     };
 
     render = () => {
-        const Icon = this.getDimensionIcon(),
-            Label = this.getDimensionType(),
-            MoreOptions = this.renderOptionsOnHover(),
-            RecommendedIcon = this.checkIfRecommended();
+        const Icon = this.getDimensionIcon();
+        const Label = this.getDimensionType();
+        const MoreOptions = this.renderOptionsOnHover();
+        const RecommendedIcon = this.checkIfRecommended();
 
         return (
             <li

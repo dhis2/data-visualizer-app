@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import { MoreHorizontal } from './icons';
 
@@ -42,7 +43,7 @@ const style = {
     },
 };
 
-const OptionsButton = ({ action }) => {
+export const OptionsButton = ({ action }) => {
     return (
         <button style={style.dropDownButton} onClick={action} tabIndex={1}>
             <MoreHorizontal />
@@ -101,5 +102,9 @@ export class DimensionOptions extends Component {
         return <div>{Options}</div>;
     };
 }
+
+DimensionOptions.propTypes = {
+    toggleHoverListener: PropTypes.func.isRequired,
+};
 
 export default DimensionOptions;

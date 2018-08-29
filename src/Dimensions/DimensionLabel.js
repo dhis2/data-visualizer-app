@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Close } from '@material-ui/icons'; //TODO: d2-ui
+import { colors } from '../colors';
 import { tSetDimensions } from '../actions/dimensions';
 
 const style = {
@@ -12,7 +13,7 @@ const style = {
         marginLeft: 12,
     },
     selected: {
-        backgroundColor: '#BBDEFB',
+        backgroundColor: colors.lightBlue,
     },
     deleteButton: {
         border: 'none',
@@ -25,13 +26,13 @@ const style = {
         width: 12,
     },
     deleteButtonIcon: {
-        fill: '#004BA0',
+        fill: colors.blue,
         height: 13,
         width: 10,
     },
 };
 
-const RemoveDimensionButton = ({ action }) => {
+export const RemoveDimensionButton = ({ action }) => {
     return (
         <button style={style.deleteButton} onClick={action} tabIndex={-1}>
             <Close style={style.deleteButtonIcon} />
@@ -66,22 +67,16 @@ export class DimensionLabel extends Component {
     };
 
     renderRemoveButton = () => {
-        let removeDimensionButton = null;
-
-        if (this.props.isSelected) {
-            removeDimensionButton = (
-                <RemoveDimensionButton action={this.onRemoveDimensionClick} />
-            );
-        }
-
-        return removeDimensionButton;
+        return this.props.isSelected ? (
+            <RemoveDimensionButton action={this.onRemoveDimensionClick} />
+        ) : null;
     };
 
     render = () => {
-        const RemoveDimension = this.renderRemoveButton(),
-            labelStyle = this.props.isSelected
-                ? { ...style.unselected, ...style.selected }
-                : style.unselected;
+        const RemoveDimension = this.renderRemoveButton();
+        const labelStyle = this.props.isSelected
+            ? { ...style.unselected, ...style.selected }
+            : style.unselected;
 
         return (
             <div style={labelStyle}>
@@ -98,11 +93,7 @@ export class DimensionLabel extends Component {
     };
 }
 
-const mapDispatchToProps = dispatch => ({
-    removeDimension: id => dispatch(tSetDimensions(id)),
-});
-
 export default connect(
     null,
-    mapDispatchToProps
+    { removeDimension: tSetDimensions }
 )(DimensionLabel);
