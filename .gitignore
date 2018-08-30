@@ -10,7 +10,8 @@
 packages/**/build
 packages/**/target
 
-**/src/locales/
+packages/**/src/locales/
+packages/**/public/manifest.webapp
 
 # misc
 .DS_Store
@@ -21,8 +22,6 @@ packages/**/target
 **/npm-debug.log*
 **/yarn-debug.log*
 **/yarn-error.log*
-
-manifest.webapp
 
 #maven
 /target

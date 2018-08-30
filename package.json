@@ -19,7 +19,18 @@
         "prettier": "^1.11.1",
         "react-stub-context": "^0.8.1"
     },
-    "scripts": {},
+    "scripts": {
+        "bootstrap": "lerna bootstrap",
+        "prebuild": "npm run lint && npm run prettier-ci && lerna exec -- rimraf ./build/*",
+        "build": "lerna run build",
+        "lint": "eslint ./packages",
+        "prettier-ci": "prettier \"packages/*/src/{**/*,*}.js\" --list-different",
+        "prettier-write": "prettier \"packages/*/src/{**/*,*}.js\" --write",
+        "start": "lerna run --scope app start",
+        "test": "jest",
+        "coverage": "npm run test -- --coverage",
+        "test-ci": "lerna exec --concurrency 1 -- yarn test-ci"
+    },
     "workspaces": [
         "packages/*"
     ]
