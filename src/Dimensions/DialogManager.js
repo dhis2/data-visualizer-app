@@ -32,7 +32,7 @@ export const DialogManager = ({
             <DialogActions>
                 <Button
                     onClick={() => {
-                        setDimension(id);
+                        setDimension({ id, selected: true });
                         toggleDialog(null);
                     }}
                 >

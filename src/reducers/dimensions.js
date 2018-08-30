@@ -1,8 +1,9 @@
 import { orObject } from '../util';
 
 export const actionTypes = {
+    FETCH_DIMENSIONS: 'FETCH_DIMENSIONS',
     RECEIVED_DIMENSION: 'RECEIVED_DIMENSION',
-    GET_DIMENSIONS: 'GET_DIMENSIONS',
+    RECEIVED_RECOMMENDED: 'RECIEVED_RECOMMENDED_DIMENSION',
 };
 
 export const DEFAULT_DIMENSIONS = {
@@ -26,21 +27,28 @@ export const DEFAULT_DIMENSIONS = {
     },
 };
 
-/**
- *  TODO: FLytt get_DIMENSION til visualization.
- */
 export default (state = DEFAULT_DIMENSIONS, action) => {
     switch (action.type) {
         case actionTypes.RECEIVED_DIMENSION: {
+            console.log(action.value);
             return {
                 ...state,
-                [action.value]: {
-                    ...state[action.value],
-                    selected: !state[action.value].selected,
+                [action.value.id]: {
+                    ...state[action.value.id],
+                    selected: action.value.selected,
                 },
             };
         }
-        case actionTypes.GET_DIMENSIONS: {
+        case actionTypes.RECEIVED_RECOMMENDED: {
+            return {
+                ...state,
+                [action.value.id]: {
+                    ...state[action.value.id],
+                    isRecommended: action.value.isRecommended,
+                },
+            };
+        }
+        case actionTypes.FETCH_DIMENSIONS: {
             return { ...state, ...action.value };
         }
         default:

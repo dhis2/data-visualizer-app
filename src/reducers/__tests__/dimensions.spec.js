@@ -25,7 +25,7 @@ describe('dimensions reducer', () => {
     it('should set the list of dimensions by replacing the existing list', () => {
         const actualState = reducer(currentState, {
             type: actionTypes.RECEIVED_DIMENSION,
-            value: dimension.id,
+            value: { id: dimension.id, selected: dimension.selected },
         });
 
         const newState = { ...actualState, ...dimensionMap };

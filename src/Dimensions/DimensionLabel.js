@@ -34,7 +34,7 @@ const style = {
 
 export const RemoveDimensionButton = ({ action }) => {
     return (
-        <button style={style.deleteButton} onClick={action} tabIndex={-1}>
+        <button style={style.deleteButton} onClick={action} tabIndex={0}>
             <Close style={style.deleteButtonIcon} />
         </button>
     );
@@ -56,14 +56,12 @@ export class DimensionLabel extends Component {
 
     onKeyPress = event => {
         if (event.key === 'Enter') {
-            this.props.isSelected
-                ? this.onRemoveDimensionClick()
-                : this.onLabelClick();
+            this.onLabelClick();
         }
     };
 
     onRemoveDimensionClick = () => {
-        this.props.removeDimension(this.props.id);
+        this.props.removeDimension({ id: this.props.id, selected: false });
     };
 
     renderRemoveButton = () => {
