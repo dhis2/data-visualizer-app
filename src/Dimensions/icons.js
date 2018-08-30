@@ -1,4 +1,64 @@
-import React from 'react';
+import React, { Component } from 'react';
+import i18n from '@dhis2/d2-i18n';
+
+const style = {
+    wrapper: {
+        position: 'absolute',
+    },
+};
+
+export class RecommendedIcon extends Component {
+    state = { mouseOver: false };
+
+    onMouseOver = () => {
+        this.setState({ mouseOver: true });
+    };
+
+    onMouseExit = () => {
+        this.setState({ mouseOver: false });
+    };
+
+    showHintText = () => {
+        return (
+            <div style={style.wrapper}>
+                <div
+                    style={{
+                        position: 'relative',
+                        left: 15,
+                        top: 15,
+                        height: 50,
+                        width: 150,
+                        backgroundColor: 'black',
+                        borderRadius: 5,
+                    }}
+                >
+                    <span style={{ color: 'white' }}>
+                        {i18n.t('Dimension recommended with selected data')}
+                    </span>
+                </div>
+            </div>
+        );
+    };
+
+    render = () => {
+        return (
+            <div
+                style={{
+                    backgroundColor: '#48A999',
+                    height: 7,
+                    width: 7,
+                    borderRadius: 5,
+                    marginTop: 8,
+                    marginLeft: 4,
+                }}
+                onMouseOver={this.onMouseOver}
+                onMouseLeave={this.onMouseExit}
+            >
+                {this.state.mouseOver ? this.showHintText() : null}
+            </div>
+        );
+    };
+}
 
 export const Data = () => {
     return (
@@ -278,7 +338,7 @@ export const MoreHorizontal = () => {
                 display: 'inline-block',
             }}
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
+            width="22"
             height="24"
             viewBox="0 0 24 24"
         >
@@ -288,6 +348,4 @@ export const MoreHorizontal = () => {
     );
 };
 
-export const RecommendedIcon = () => {
-    return null;
-};
+export default RecommendedIcon;

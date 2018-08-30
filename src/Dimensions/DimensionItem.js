@@ -19,7 +19,6 @@ const style = {
     },
     itemContainer: {
         display: 'flex',
-        width: 'inherit',
         height: 24,
         marginTop: 6,
         marginBottom: 6,
@@ -64,7 +63,9 @@ export class DimensionItem extends Component {
     };
 
     checkIfRecommended = () => {
-        return this.props.isRecommended ? <RecommendedIcon /> : null;
+        return this.props.isRecommended && !this.props.isSelected ? (
+            <RecommendedIcon />
+        ) : null;
     };
 
     renderOptionsOnHover = () => {
@@ -90,8 +91,8 @@ export class DimensionItem extends Component {
                     {Icon}
                     {Label}
                 </DimensionLabel>
-                {MoreOptions}
                 {RecommendedIcon}
+                {MoreOptions}
             </li>
         );
     };

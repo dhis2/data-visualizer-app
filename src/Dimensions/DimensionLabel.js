@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Close } from '@material-ui/icons'; //TODO: d2-ui
+import { Close } from '@material-ui/icons';
 import { colors } from '../colors';
 import { tSetDimensions } from '../actions/dimensions';
 
@@ -10,7 +10,7 @@ const style = {
         display: 'inline-flex',
         minWidth: 'fit-content',
         borderRadius: 4,
-        marginLeft: 12,
+        marginLeft: 5,
     },
     selected: {
         backgroundColor: colors.lightBlue,

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import TextField from '@material-ui/core/TextField'; //TODO: d2-ui
-import { Search } from '@material-ui/icons'; // TODO: d2-ui
+import { TextField } from '@material-ui/core';
+import { Search } from '@material-ui/icons';
 import i18n from '@dhis2/d2-i18n';
 import { colors } from '../colors';
 import DimensionList from './DimensionList';

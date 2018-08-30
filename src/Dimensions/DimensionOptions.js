@@ -26,6 +26,10 @@ const style = {
         border: 'none',
         background: 'none',
         outline: 'none',
+        paddingRight: 0,
+        paddingBottom: 0,
+        paddingLeft: 1,
+        paddingTop: 2,
     },
     dropDownMenu: {
         display: 'inline-grid',
