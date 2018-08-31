@@ -28,7 +28,11 @@ const render = (baseUrl, d2) => {
     ReactDOM.render(
         <Provider store={configureStore()}>
             <MuiThemeProvider theme={muiTheme()}>
-                <App baseUrl={baseUrl} d2={d2} />
+                <App
+                    baseUrl={baseUrl}
+                    d2={d2}
+                    auth={{ Authorization: DHIS_CONFIG.authorization }}
+                />
             </MuiThemeProvider>
         </Provider>,
         document.getElementById('root')
@@ -55,7 +59,7 @@ const init = async () => {
     config.headers = isProd
         ? null
         : { Authorization: DHIS_CONFIG.authorization };
-    config.schemas = ['chart'];
+    config.schemas = ['chart', 'eventChart'];
 
     const userSettings = await getUserSettings();
     await configI18n(userSettings);

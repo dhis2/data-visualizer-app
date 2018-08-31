@@ -2417,6 +2417,18 @@ currently-unhandled@^0.4.1:
   dependencies:
     array-find-index "^1.0.1"
 
+d2-charts-api@^29.0.1:
+  version "29.0.1"
+  resolved "https://registry.yarnpkg.com/d2-charts-api/-/d2-charts-api-29.0.1.tgz#b386d43bbdacda5400b27797a80adb9b1534003e"
+  dependencies:
+    d2-utilizr "0.2.13"
+    d3-color "1.0.1"
+    highcharts "5.0.10"
+    highcharts-exporting "0.1.2"
+    highcharts-more "0.1.2"
+    highcharts-no-data-to-display "0.1.2"
+    highcharts-solid-gauge "0.1.2"
+
 d2-manifest@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/d2-manifest/-/d2-manifest-1.0.0.tgz#19d4a4c4e8151442ab730e932c9c2170be9ebcc9"
@@ -2431,6 +2443,18 @@ d2-manifest@^1.0.0:
 d2-ui@^29.0.18:
   version "29.0.21"
   resolved "https://registry.yarnpkg.com/d2-ui/-/d2-ui-29.0.21.tgz#89f5cb810d58e11fa88cef2b3e8cb2ee261c5a06"
+
+d2-utilizr@0.2.13:
+  version "0.2.13"
+  resolved "https://registry.yarnpkg.com/d2-utilizr/-/d2-utilizr-0.2.13.tgz#aff6dfb054f92e2c974cf69f38f4fdc13699a6d3"
+  dependencies:
+    lodash.isboolean "^3.0.3"
+    lodash.isfunction "^3.0.8"
+    lodash.ismap "^4.3.0"
+    lodash.isnumber "^3.0.3"
+    lodash.isobject "^3.0.2"
+    lodash.isset "^4.3.0"
+    lodash.isstring "^4.0.1"
 
 d2-utilizr@^0.2.15:
   version "0.2.16"
@@ -2451,6 +2475,10 @@ d2@^30.0.2:
     docdash "^0.4.0"
     jsdoc "^3.5.5"
     whatwg-fetch "^2.0.3"
+
+d3-color@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/d3-color/-/d3-color-1.0.1.tgz#73cc91f4ee3f12e00ca06b1596a7c83cf104723a"
 
 d@1:
   version "1.0.0"
@@ -3992,6 +4020,26 @@ hash.js@^1.0.0, hash.js@^1.0.3:
 he@1.1.x:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/he/-/he-1.1.1.tgz#93410fd21b009735151f8868c2f271f3427e23fd"
+
+highcharts-exporting@0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/highcharts-exporting/-/highcharts-exporting-0.1.2.tgz#49850e5a4dab2a4a88e83e8a1f143bc1c2250daf"
+
+highcharts-more@0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/highcharts-more/-/highcharts-more-0.1.2.tgz#38c2e386569ec79c8bd97fd68b384c5ea512efac"
+
+highcharts-no-data-to-display@0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/highcharts-no-data-to-display/-/highcharts-no-data-to-display-0.1.2.tgz#274930128c10f0e78cde7d6007658d876f43f79f"
+
+highcharts-solid-gauge@0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/highcharts-solid-gauge/-/highcharts-solid-gauge-0.1.2.tgz#96c2943ddf362ada650ace2777514f8bda7094bb"
+
+highcharts@5.0.10:
+  version "5.0.10"
+  resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-5.0.10.tgz#7a432c39a3c27992314ab17e45ecf29bd1a91132"
 
 hmac-drbg@^1.0.0:
   version "1.0.1"

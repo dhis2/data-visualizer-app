@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Snackbar from '@material-ui/core/Snackbar';
 import i18n from '@dhis2/d2-i18n';
+import { createChart } from 'd2-charts-api';
 
 import SnackbarMessage from './widgets/SnackbarMessage';
 import MenuBar from './MenuBar/MenuBar';
@@ -12,6 +13,7 @@ import Visualization from './Visualization/Visualization';
 import * as fromReducers from './reducers';
 import * as fromActions from './actions';
 import { getFieldsByType } from './fields';
+import { aggregate, event } from './response';
 
 import './App.css';
 
@@ -27,14 +29,32 @@ export class App extends Component {
 
     loadExampleChart = async () => {
         const d2 = this.props.d2;
+        console.log('d2', d2);
         const type = 'chart';
+        const type2 = 'eventChart';
         const id = 'Tun9tJb3sQt';
+        const id2 = 'x5FVFVt5CDI';
+        const res = aggregate;
+        const res2 = event;
 
-        const chart1 = await d2.models[type].get(id, {
+        const chartConfig = await d2.models[type].get(id, {
             fields: getFieldsByType(type),
         });
 
-        console.log('chart1', chart1);
+        const response = new d2.analytics.response(res);
+
+        console.log('chartConfig', chartConfig);
+        console.log('response', response);
+
+        createChart(response, chartConfig, 'viewport');
+        console.log('auth', this.props.auth);
+
+        const r = await fetch(
+            '//localhost:8080/api/29/analytics?dimension=dx:Uvn6LCg7dVU&dimension=pe:LAST_12_MONTHS&filter=ou:ImspTQPwCqd&displayProperty=SHORTNAME&skipMeta=true&includeNumDen=true',
+            { headers: this.props.auth }
+        );
+        console.log('R', r);
+        console.log(await r.json());
     };
 
     getChildContext() {

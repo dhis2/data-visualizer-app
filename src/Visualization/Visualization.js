@@ -3,7 +3,7 @@ import React from 'react';
 const Visualization = props => {
     return (
         <section className="canvas">
-            <div>Visualization Canvas</div>
+            <div id="viewport">Visualization Canvas</div>
         </section>
     );
 };
