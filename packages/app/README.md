@@ -17,7 +17,7 @@ To use the data-visualizer-app in development mode, it is necessary to have a ru
 
 ### Starting the app in dev mode
 
-Prior to starting the app, be sure to follow the startup instructions in the [root README.md](../../README.md#Getting started) file. After you have completed those steps then:
+Prior to starting the app, be sure to follow the startup instructions in the [root README.md](../../README.md#getting-started) file. After you have completed those steps then:
 
 ```
 $ yarn start
@@ -29,7 +29,7 @@ The webpack-dev-server will start up on localhost:3000, by default.
 
 ```
 $ yarn lint // lint files
-$ yarn watch // run tests in watch mode
+$ yarn test // run tests in watch mode
 $ yarn coverage // run tests and output coverage report
 $ yarn prettier-ci // run prettier and list non-compliant files
 $ yarn prettier-write // run prettier and fix
