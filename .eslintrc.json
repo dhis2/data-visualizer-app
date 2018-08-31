@@ -1,14 +1,7 @@
 {
-    "extends": [
-        "react-app",
-        "prettier"
-    ],
-    "plugins": [
-        "react",
-        "prettier"
-    ],
+    "extends": ["react-app", "prettier"],
+    "plugins": ["react", "prettier"],
     "rules": {
-        "prettier/prettier": "error",
-        "react/no-set-state": "error"
+        "prettier/prettier": "error"
     }
 }

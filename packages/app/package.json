@@ -77,13 +77,17 @@
     "scripts": {
         "prestart": "npm run localize && d2-manifest package.json ./public/manifest.webapp",
         "start": "node scripts/start.js",
-        "prebuild": "mkdir build && npm run manifest",
+        "prebuild": "npm run lint && npm run prettier-ci && rimraf build && mkdirp build && npm run manifest",
         "build": "node scripts/build.js",
-        "postbuild": "cp -r public/i18n build",
+        "postbuild": "cp -r public/i18n build && cp package.json build",
+        "lint": "eslint --config=../../.eslintrc.json src",
+        "prettier-ci": "prettier \"./src/{**/*,*}.js\" --list-different",
+        "prettier-write": "prettier \"./src/{**/*,*}.js\" --write",
         "localize": "npm run extract-pot && d2-i18n-generate -n data-visualizer-app -p ./i18n/ -o ./src/locales/",
         "extract-pot": "d2-i18n-extract -p src/ -o i18n/",
         "manifest": "d2-manifest package.json build/manifest.webapp",
-        "test-ci": "jest --config=../../jest.config.js packages/app"
+        "test": "node scripts/test.js --config=../../jest.config.js",
+        "coverage": "npm run test -- --coverage"
     },
     "husky": {
         "hooks": {

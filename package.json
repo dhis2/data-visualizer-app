@@ -21,15 +21,13 @@
     },
     "scripts": {
         "bootstrap": "lerna bootstrap",
-        "prebuild": "npm run lint && npm run prettier-ci && lerna exec -- rimraf ./build/*",
         "build": "lerna run build",
-        "lint": "eslint ./packages",
-        "prettier-ci": "prettier \"packages/*/src/{**/*,*}.js\" --list-different",
-        "prettier-write": "prettier \"packages/*/src/{**/*,*}.js\" --write",
-        "start": "lerna run --scope app start",
+        "lint": "lerna run lint",
+        "prettier-ci": "lerna run prettier-ci",
+        "prettier-write": "lerna run prettier-write",
+        "start-app": "lerna run --scope data-visualizer-app start",
         "test": "jest",
-        "coverage": "npm run test -- --coverage",
-        "test-ci": "lerna exec --concurrency 1 -- yarn test-ci"
+        "coverage": "lerna run test -- --coverage"
     },
     "workspaces": [
         "packages/*"
