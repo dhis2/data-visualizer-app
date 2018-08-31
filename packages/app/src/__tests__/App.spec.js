@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { App } from '../App';
 import Snackbar from '@material-ui/core/Snackbar';
-import { getStubContext } from '../../config/testsContext';
+import { getStubContext } from '../../../../config/testsContext';
 
 describe('App', () => {
     let props;
@@ -18,7 +18,15 @@ describe('App', () => {
 
     beforeEach(() => {
         props = {
-            d2: {},
+            d2: {
+                models: {
+                    chart: {
+                        get: () => {
+                            return Promise.resolve('got a chart');
+                        },
+                    },
+                },
+            },
             baseUrl: undefined,
             snackbarOpen: false,
             snackbarMessage: '',

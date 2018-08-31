@@ -1,5 +1,3 @@
-'use strict';
-
 // Do this as the first thing so that any code reading it knows the right env.
 process.env.BABEL_ENV = 'production';
 process.env.NODE_ENV = 'production';
@@ -80,18 +78,6 @@ measureFileSizesBeforeBuild(paths.appBuild)
                 WARN_AFTER_CHUNK_GZIP_SIZE
             );
             console.log();
-
-            const appPackage = require(paths.appPackageJson);
-            const publicUrl = paths.publicUrl;
-            const publicPath = config.output.publicPath;
-            const buildFolder = path.relative(process.cwd(), paths.appBuild);
-            printHostingInstructions(
-                appPackage,
-                publicUrl,
-                publicPath,
-                buildFolder,
-                useYarn
-            );
         },
         err => {
             console.log(chalk.red('Failed to compile.\n'));
