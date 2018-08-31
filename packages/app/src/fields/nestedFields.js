@@ -25,4 +25,4 @@ export const nestedFields = {
 };
 
 export const extendFields = field =>
-    field + (nestedFields[field] ? `[${nestedFields[field]}]` : '');
+    `${field}${nestedFields[field] ? `[${nestedFields[field]}]` : ''}`;

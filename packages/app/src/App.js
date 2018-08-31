@@ -11,7 +11,7 @@ import Dimensions from './Dimensions/Dimensions';
 import Visualization from './Visualization/Visualization';
 import * as fromReducers from './reducers';
 import * as fromActions from './actions';
-import { getFieldsByType } from './fields';
+import { getFieldsStringByType } from './fields';
 
 import './App.css';
 
@@ -31,8 +31,11 @@ export class App extends Component {
         const type = 'chart';
         const id = 'Tun9tJb3sQt';
 
+        const fields = getFieldsStringByType(type);
+        console.log('fields', fields);
+
         const chart1 = await d2.models[type].get(id, {
-            fields: getFieldsByType(type),
+            fields,
         });
 
         console.log('chart1', chart1);
