@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+import { FIXED_DIMENSIONS } from '../fixedDimensions';
 
 export const actionTypes = {
     FETCH_DIMENSIONS: 'FETCH_DIMENSIONS',
@@ -6,49 +6,12 @@ export const actionTypes = {
     RECEIVED_RECOMMENDED: 'RECIEVED_RECOMMENDED_DIMENSION',
 };
 
-export const DEFAULT_RECOMMENDED_DIMENSIONS = [];
-
-export const DEFAULT_DIMENSIONS = {
-    0: {
-        id: 0,
-        displayName: 'Data',
-        selected: false,
-    },
-    1: {
-        id: 1,
-        displayName: 'Period',
-        selected: false,
-    },
-    2: {
-        id: 2,
-        displayName: 'Organisation Unit',
-        selected: false,
-    },
-};
+export const DEFAULT_DIMENSIONS = FIXED_DIMENSIONS;
 
 const selected = (state = DEFAULT_DIMENSIONS, action) => {
     switch (action.type) {
-        case actionTypes.RECEIVED_DIMENSION: {
-            return {
-                ...state,
-                [action.value.id]: {
-                    ...state[action.value.id],
-                    selected: action.value.selected,
-                },
-            };
-        }
-        case actionTypes.FETCH_DIMENSIONS: {
-            return { ...state, ...action.value };
-        }
-        default:
-            return state;
-    }
-};
-
-const recommendedDims = (state = DEFAULT_RECOMMENDED_DIMENSIONS, action) => {
-    switch (action.type) {
-        case actionTypes.RECEIVED_RECOMMENDED: {
-            return action.value;
+        case actionTypes.SET_DIMENSIONS: {
+            return Object.assign({}, FIXED_DIMENSIONS, { ...action.value });
         }
         default:
             return state;
@@ -72,8 +35,6 @@ export default combineReducers({
  * @param {Object} state The current state
  * @returns {Array}
  */
-export const sGetFromState = state => state.dimensions;
+export const sGetDimensions = state => state.dimensions;
 
-export const sGetSelected = state => sGetFromState(state).selected;
-
-export const sGetRecommended = state => sGetFromState(state).recommendedDims;
+export const sGetSelected = () => [];

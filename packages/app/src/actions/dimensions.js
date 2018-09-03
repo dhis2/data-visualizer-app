@@ -1,16 +1,16 @@
-import { onError } from './index';
+import { arrayToIdMap } from '../util';
 import { actionTypes } from '../reducers';
-import { apiFetchRecommended } from '../api/dimensions';
+import { apiFetchDimensions } from '../api/dimensions';
 
 export const acSetDimension = value => ({
     type: actionTypes.RECEIVED_DIMENSION,
     value,
 });
 
-export const acSetRecommended = value => ({
-    type: actionTypes.RECEIVED_RECOMMENDED,
-    value,
-});
+export const tSetDimensions = () => async dispatch => {
+    const onSuccess = dimensions => {
+        dispatch(acSetDimensions(dimensions));
+    };
 
 const updateDimensionsInStore = (selectedDim, recommendedDim, dispatch) => {
     dispatch(acSetDimension(selectedDim));

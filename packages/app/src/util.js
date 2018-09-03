@@ -6,7 +6,10 @@ export function arrayToIdMap(array) {
     return sortArray(array).reduce((obj, item) => {
         obj[item.id] = {
             ...item,
+<<<<<<< HEAD
             ...{ selected: false },
+=======
+>>>>>>> a3b035fdcddd18970f189423de490d4eac4a4d69
         };
         return obj;
     }, {});

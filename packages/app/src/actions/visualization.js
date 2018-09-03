@@ -1,5 +1,4 @@
 import { actionTypes } from '../reducers';
-import { arrayToIdMap } from '../util';
 import { onError } from './index';
 import { apiFetchVisualization } from '../api/visualization';
 import { apiFetchDimensions } from '../api/dimensions';
