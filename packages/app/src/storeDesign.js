@@ -22,7 +22,10 @@ const state = {
     // default: empty array
     // (no need to distinguish between null and empty array here i think,
     //  as they won't be displayed differently in the ui?)
-    recommendationIds: [],
+    recommendedDimensionIds: [],
+
+    // selected dimension ids for the current visualization
+    selectedDimensionids: [],
 };
 
 const dimension = {

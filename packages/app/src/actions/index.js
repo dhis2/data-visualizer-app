@@ -11,3 +11,8 @@ export {
     fromVisualization,
     fromCurrent,
 };
+
+export const onError = (action, error) => {
+    console.log(`Error in action ${action}: ${error}`);
+    return error;
+};
