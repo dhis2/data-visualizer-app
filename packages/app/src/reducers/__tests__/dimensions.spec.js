@@ -1,27 +1,20 @@
-import reducer, {
-    actionTypes,
-    DEFAULT_DIMENSIONS,
-    DEFAULT_RECOMMENDED_DIMENSIONS,
-} from '../dimensions';
+import reducer, { actionTypes, DEFAULT_DIMENSIONS } from '../dimensions';
 
 describe('dimensions reducer', () => {
     const currentState = {
         dimId1: {
             id: 'dimId1',
             displayName: 'dimName1',
-            selected: false,
         },
         dimId2: {
             id: 'dimId2',
             displayName: 'dimName2',
-            selected: false,
         },
     };
 
     const dimension = {
         id: 'dimId1',
         displayName: 'dimName1',
-        selected: true,
     };
 
     const dimensionMap = {

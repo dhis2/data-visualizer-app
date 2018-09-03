@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
 import {
     Button,
@@ -11,28 +10,21 @@ import { DataDimension } from './DataDimension';
 import { PeriodDimension } from './PeriodDimension';
 import { OrgUnitDimension } from './OrgUnitDimension';
 
-import { tSetDimensions } from '../actions/dimensions';
-
 // Placeholder for the dimension popup dialogs - using the Options dialog until the components are created
-const dimensionsArr = [
-    <DataDimension />,
-    <PeriodDimension />,
-    <OrgUnitDimension />,
-];
+const dimensionComponents = {
+    Data: <DataDimension />,
+    Period: <PeriodDimension />,
+    OrgUnit: <OrgUnitDimension />,
+};
 
-export const DialogManager = ({
-    dialogIsOpen,
-    id,
-    toggleDialog,
-    setDimension,
-}) => {
+export const DialogManager = ({ dialogIsOpen, id, toggleDialog }) => {
     return (
         <Dialog open={dialogIsOpen} onClose={() => toggleDialog(null)}>
-            <DialogContent>{dimensionsArr[id]}</DialogContent>
+            <DialogContent>{dimensionComponents[id]}</DialogContent>
             <DialogActions>
                 <Button
                     onClick={() => {
-                        setDimension({ id, selected: true });
+                        console.log('toggled selected state for dimension');
                         toggleDialog(null);
                     }}
                 >
@@ -46,7 +38,4 @@ export const DialogManager = ({
     );
 };
 
-export default connect(
-    null,
-    { setDimension: tSetDimensions }
-)(DialogManager);
+export default DialogManager;

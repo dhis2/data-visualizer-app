@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Menu, MenuItem } from '@material-ui/core';
-import ReactDOM from 'react-dom';
 import i18n from '@dhis2/d2-i18n';
 
 const items = [
@@ -58,18 +56,7 @@ export class DropDown extends Component {
     componentDidMount = () => {
         const dropDownPos = this.refs.dropDown.getBoundingClientRect();
         console.log(dropDownPos);
-        /* style.container = {
-            ...style.dropDownButton,
-            ...{
-                top: dropDownPos.top,
-                right: dropDownPos.right,
-                bottom: dropDownPos.bottom,
-                left: dropDownPos.left,
-            },
-        };*/
     };
-
-    componentDidUpdate = () => {};
 
     render = () => {
         return (

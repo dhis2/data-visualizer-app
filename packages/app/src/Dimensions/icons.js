@@ -91,7 +91,7 @@ export class RecommendedIcon extends Component {
     };
 }
 
-export const Data = () => {
+export const DataIcon = () => {
     return (
         <svg
             style={style.dataIcon}
@@ -153,7 +153,7 @@ export const Data = () => {
     );
 };
 
-export const Period = () => {
+export const PeriodIcon = () => {
     return (
         <svg
             style={style.periodIcon}
@@ -206,7 +206,7 @@ export const Period = () => {
     );
 };
 
-export const OrgUnit = () => {
+export const OrgUnitIcon = () => {
     return (
         <svg
             style={style.orgUnitIcon}

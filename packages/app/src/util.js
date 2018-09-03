@@ -6,7 +6,6 @@ export function arrayToIdMap(array) {
     return sortArray(array).reduce((obj, item) => {
         obj[item.id] = {
             ...item,
-            ...{ selected: false },
         };
         return obj;
     }, {});

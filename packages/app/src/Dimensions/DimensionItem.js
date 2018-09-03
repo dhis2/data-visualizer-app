@@ -5,9 +5,9 @@ import { colors } from '../colors';
 import DimensionLabel from './DimensionLabel';
 import DimensionOptions from './DimensionOptions';
 import {
-    Data,
-    Period,
-    OrgUnit,
+    DataIcon,
+    PeriodIcon,
+    OrgUnitIcon,
     GenericDimension,
     RecommendedIcon,
 } from './icons';
@@ -26,6 +26,11 @@ const style = {
         marginTop: 6,
         marginBottom: 6,
     },
+};
+const fixedDimensionIcons = {
+    Data: <DataIcon />,
+    Period: <PeriodIcon />,
+    OrgUnit: <OrgUnitIcon />,
 };
 
 export class DimensionItem extends Component {
@@ -48,17 +53,8 @@ export class DimensionItem extends Component {
         );
     };
 
-    getDimensionIcon = () => {
-        const fixedDimensionIcons = [<Data />, <Period />, <OrgUnit />];
-        const genericIdentifier = 'string';
-        const isGeneric = typeof this.props.id === genericIdentifier;
-
-        return isGeneric ? (
-            <GenericDimension />
-        ) : (
-            fixedDimensionIcons[this.props.id]
-        );
-    };
+    getDimensionIcon = () =>
+        fixedDimensionIcons[this.props.id] || <GenericDimension />;
 
     getDimensionType = () => {
         return (

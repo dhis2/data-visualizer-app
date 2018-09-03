@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import DimensionItem from './DimensionItem';
+import * as fromReducers from '../reducers';
 
 const style = {
     listContainer: {
@@ -17,12 +19,6 @@ const style = {
 const OBJECT_POS = 1;
 
 export class DimensionList extends Component {
-    static propTypes = {
-        searchText: PropTypes.string.isRequired,
-        dimensions: PropTypes.object.isRequired,
-        toggleDialog: PropTypes.func.isRequired,
-    };
-
     searchTextContains = dimensionName => {
         const { searchText } = this.props;
 
@@ -41,12 +37,8 @@ export class DimensionList extends Component {
                 id={dimension.id}
                 key={dimension.id}
                 displayName={dimension.displayName}
-                isSelected={dimension.selected}
-                isRecommended={
-                    this.props.isRecommended.includes(dimension.id)
-                        ? true
-                        : false
-                }
+                isSelected={!!this.props.selected.includes(dimension.id)}
+                isRecommended={!!this.props.recommended.includes(dimension.id)}
                 toggleDialog={this.props.toggleDialog}
             />
         );
@@ -64,4 +56,25 @@ export class DimensionList extends Component {
     };
 }
 
-export default DimensionList;
+DimensionList.propTypes = {
+    dimensions: PropTypes.object.isRequired,
+    selected: PropTypes.array,
+    recommended: PropTypes.array,
+    searchText: PropTypes.string.isRequired,
+    toggleDialog: PropTypes.func.isRequired,
+};
+
+DimensionList.defaultProps = {
+    recommended: [],
+    selected: [],
+};
+
+const mapStateToProps = state => ({
+    dimensions: fromReducers.fromDimensions.sGetDimensions(state),
+    selected: fromReducers.fromDimensions.sGetSelected(state),
+    recommended: fromReducers.fromRecommendedDimensionIds.sGetRecommended(
+        state
+    ),
+});
+
+export default connect(mapStateToProps)(DimensionList);

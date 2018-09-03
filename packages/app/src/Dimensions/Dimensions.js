@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { TextField } from '@material-ui/core';
 import { Search } from '@material-ui/icons';
 import i18n from '@dhis2/d2-i18n';
 import { colors } from '../colors';
 import DimensionList from './DimensionList';
 import DialogManager from './DialogManager';
-import * as fromReducers from '../reducers';
 
 const style = {
-    divContainter: {
+    divContainer: {
         backgroundColor: colors.lightGrey,
         height: 764,
         width: 250,
@@ -40,7 +38,7 @@ export class Dimensions extends Component {
 
     render = () => {
         return (
-            <div className={'dimensions'} style={style.divContainter}>
+            <div className={'dimensions'} style={style.divContainer}>
                 <DialogManager
                     dialogIsOpen={!!this.state.dialogDimId}
                     id={this.state.dialogDimId}
@@ -53,7 +51,6 @@ export class Dimensions extends Component {
                     onChange={this.handleChange}
                 />
                 <DimensionList
-                    {...this.props}
                     searchText={this.state.searchText}
                     toggleDialog={this.toggleDialog}
                 />
@@ -62,9 +59,4 @@ export class Dimensions extends Component {
     };
 }
 
-const mapStateToProps = state => ({
-    dimensions: fromReducers.fromDimensions.sGetDimensions(state),
-    isRecommended: fromReducers.fromDimensions.sGetRecommended(state),
-});
-
-export default connect(mapStateToProps)(Dimensions);
+export default Dimensions;

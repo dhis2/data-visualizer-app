@@ -41,13 +41,11 @@ export class DimensionOptions extends Component {
     };
 
     render = () => {
-        let Options = <OptionsButton action={this.showMenu} />;
-
-        if (this.state.showMenu) {
-            Options = <DropDown onClose={this.closeMenu} />;
-        }
-
-        return Options;
+        return this.state.showMenu ? (
+            <DropDown onClose={this.closeMenu} />
+        ) : (
+            <OptionsButton action={this.showMenu} />
+        );
     };
 }
 
