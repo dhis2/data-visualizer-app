@@ -73,9 +73,9 @@ export class DropDown extends Component {
 
     render = () => {
         return (
-            <Menu style={style.container} ref={'dropDown'}>
+            <div style={style.container} ref={'dropDown'}>
                 {items.map(option => (
-                    <MenuItem
+                    <button
                         key={option.id}
                         style={style.listButton}
                         onClick={() => this.addDimensionTo(option.id)}
@@ -85,9 +85,9 @@ export class DropDown extends Component {
                         }}
                     >
                         <span style={style.text}> {i18n.t(option.name)} </span>
-                    </MenuItem>
+                    </button>
                 ))}
-            </Menu>
+            </div>
         );
     };
 }
