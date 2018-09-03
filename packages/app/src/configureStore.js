@@ -7,8 +7,16 @@ const configureStore = () => {
     const middleware = [thunk];
 
     // Enable Redux devtools if extension is installed instead of redux-logger
+    // const composeEnhancers =
+    //     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
     const composeEnhancers =
-        window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+        typeof window === 'object' &&
+        window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+            ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+                  name: 'data-visualizer-app',
+              })
+            : compose;
+
     if (
         !window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ &&
         process.env.NODE_ENV !== 'production'
