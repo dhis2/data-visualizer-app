@@ -65,7 +65,7 @@ module.exports = {
     // The first two entry points enable "hot" CSS and auto-refreshes for JS.
     entry: [
         // We ship a few polyfills by default:
-        require.resolve('./polyfills'),
+        require.resolve('../../../config/polyfills'),
         // Include an alternative client for WebpackDevServer. A client's job is to
         // connect to WebpackDevServer by a socket and get notified about changes.
         // When you save a file, the client will either apply hot updates (in case
@@ -118,8 +118,6 @@ module.exports = {
             // Support React Native Web
             // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
             'react-native': 'react-native-web',
-            d2: path.resolve('node_modules/d2'),
-            react: path.resolve('node_modules/react'),
         },
         plugins: [
             // Prevents users from importing files from outside of src/ (or node_modules/).
