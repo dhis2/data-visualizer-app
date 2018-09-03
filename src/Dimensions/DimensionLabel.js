@@ -7,19 +7,17 @@ import { tSetDimensions } from '../actions/dimensions';
 
 const style = {
     unselected: {
-        display: 'inline-flex',
         minWidth: 'fit-content',
         borderRadius: 4,
         marginLeft: 5,
     },
     selected: {
+        display: 'inline-flex',
         backgroundColor: colors.lightBlue,
     },
     deleteButton: {
         border: 'none',
         background: 'none',
-        position: 'relative',
-        top: 1,
         marginLeft: 6,
         marginRight: 4,
         padding: 0,

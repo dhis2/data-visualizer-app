@@ -2,8 +2,58 @@ import React, { Component } from 'react';
 import i18n from '@dhis2/d2-i18n';
 
 const style = {
-    wrapper: {
-        position: 'absolute',
+    hintTextContainer: {
+        position: 'relative',
+        right: 50,
+        top: 15,
+        height: 50,
+        width: 150,
+        backgroundColor: '#696969',
+        borderRadius: 2,
+    },
+    hintText: {
+        color: 'white',
+        fontSize: 12,
+        position: 'relative',
+        top: 8,
+    },
+    recommendedIcon: {
+        backgroundColor: '#48A999',
+        height: 7,
+        width: 7,
+        borderRadius: 5,
+        marginTop: 8,
+        marginLeft: 4,
+    },
+    dataIcon: {
+        marginRight: 2,
+        marginLeft: 7,
+        marginTop: 5,
+    },
+    periodIcon: {
+        position: 'relative',
+        left: 6,
+        marginRight: 10,
+        marginTop: 5,
+    },
+    orgUnitIcon: {
+        position: 'relative',
+        left: 6,
+        marginRight: 9,
+        marginTop: 5,
+    },
+    genericDimIcon: {
+        position: 'relative',
+        bottom: 3,
+        left: 9,
+        marginRight: 14,
+        marginTop: 11,
+    },
+    moreHorizIcon: {
+        position: 'relative',
+        left: 1,
+        bottom: 2,
+        display: 'inline-block',
     },
 };
 
@@ -20,22 +70,10 @@ export class RecommendedIcon extends Component {
 
     showHintText = () => {
         return (
-            <div style={style.wrapper}>
-                <div
-                    style={{
-                        position: 'relative',
-                        left: 15,
-                        top: 15,
-                        height: 50,
-                        width: 150,
-                        backgroundColor: 'black',
-                        borderRadius: 5,
-                    }}
-                >
-                    <span style={{ color: 'white' }}>
-                        {i18n.t('Dimension recommended with selected data')}
-                    </span>
-                </div>
+            <div style={style.hintTextContainer}>
+                <span style={style.hintText}>
+                    {i18n.t('Dimension recommended with selected data')}
+                </span>
             </div>
         );
     };
@@ -43,14 +81,7 @@ export class RecommendedIcon extends Component {
     render = () => {
         return (
             <div
-                style={{
-                    backgroundColor: '#48A999',
-                    height: 7,
-                    width: 7,
-                    borderRadius: 5,
-                    marginTop: 8,
-                    marginLeft: 4,
-                }}
+                style={style.recommendedIcon}
                 onMouseOver={this.onMouseOver}
                 onMouseLeave={this.onMouseExit}
             >
@@ -63,11 +94,7 @@ export class RecommendedIcon extends Component {
 export const Data = () => {
     return (
         <svg
-            style={{
-                marginRight: 2,
-                marginLeft: 7,
-                marginTop: 5,
-            }}
+            style={style.dataIcon}
             width="12px"
             height="12px"
             viewBox="0 0 12 12"
@@ -129,12 +156,7 @@ export const Data = () => {
 export const Period = () => {
     return (
         <svg
-            style={{
-                position: 'relative',
-                left: 6,
-                marginRight: 10,
-                marginTop: 5,
-            }}
+            style={style.periodIcon}
             width="11px"
             height="11px"
             viewBox="0 0 11 11"
@@ -187,12 +209,7 @@ export const Period = () => {
 export const OrgUnit = () => {
     return (
         <svg
-            style={{
-                position: 'relative',
-                left: 6,
-                marginRight: 9,
-                marginTop: 5,
-            }}
+            style={style.orgUnitIcon}
             width="11px"
             height="12px"
             viewBox="0 0 11 12"
@@ -286,13 +303,7 @@ export const OrgUnit = () => {
 export const GenericDimension = () => {
     return (
         <svg
-            style={{
-                position: 'relative',
-                bottom: 3,
-                left: 9,
-                marginRight: 14,
-                marginTop: 11,
-            }}
+            style={style.genericDimIcon}
             width="6px"
             height="6px"
             viewBox="0 0 6 6"
@@ -332,11 +343,7 @@ export const GenericDimension = () => {
 export const MoreHorizontal = () => {
     return (
         <svg
-            style={{
-                position: 'relative',
-                bottom: 2,
-                display: 'inline-block',
-            }}
+            style={style.moreHorizIcon}
             xmlns="http://www.w3.org/2000/svg"
             width="22"
             height="24"

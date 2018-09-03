@@ -42,7 +42,11 @@ export class DimensionList extends Component {
                 key={dimension.id}
                 displayName={dimension.displayName}
                 isSelected={dimension.selected}
-                isRecommended={true /*(PLACEHOLDER*/}
+                isRecommended={
+                    this.props.isRecommended.includes(dimension.id)
+                        ? true
+                        : false
+                }
                 toggleDialog={this.props.toggleDialog}
             />
         );

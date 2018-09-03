@@ -1,4 +1,4 @@
-import { orObject } from '../util';
+import { combineReducers } from 'redux';
 
 export const actionTypes = {
     FETCH_DIMENSIONS: 'FETCH_DIMENSIONS',
@@ -6,45 +6,34 @@ export const actionTypes = {
     RECEIVED_RECOMMENDED: 'RECIEVED_RECOMMENDED_DIMENSION',
 };
 
+export const DEFAULT_RECOMMENDED_DIMENSIONS = [];
+
 export const DEFAULT_DIMENSIONS = {
     0: {
         id: 0,
         displayName: 'Data',
         selected: false,
-        isRecommended: false,
     },
     1: {
         id: 1,
         displayName: 'Period',
         selected: false,
-        isRecommended: false,
     },
     2: {
         id: 2,
         displayName: 'Organisation Unit',
         selected: false,
-        isRecommended: false,
     },
 };
 
-export default (state = DEFAULT_DIMENSIONS, action) => {
+const selected = (state = DEFAULT_DIMENSIONS, action) => {
     switch (action.type) {
         case actionTypes.RECEIVED_DIMENSION: {
-            console.log(action.value);
             return {
                 ...state,
                 [action.value.id]: {
                     ...state[action.value.id],
                     selected: action.value.selected,
-                },
-            };
-        }
-        case actionTypes.RECEIVED_RECOMMENDED: {
-            return {
-                ...state,
-                [action.value.id]: {
-                    ...state[action.value.id],
-                    isRecommended: action.value.isRecommended,
                 },
             };
         }
@@ -56,6 +45,20 @@ export default (state = DEFAULT_DIMENSIONS, action) => {
     }
 };
 
+const recommendedDims = (state = DEFAULT_RECOMMENDED_DIMENSIONS, action) => {
+    switch (action.type) {
+        case actionTypes.RECEIVED_RECOMMENDED: {
+            return action.value;
+        }
+        default:
+            return state;
+    }
+};
+
+export default combineReducers({
+    selected,
+    recommendedDims,
+});
 // selectors
 
 /**
@@ -69,4 +72,8 @@ export default (state = DEFAULT_DIMENSIONS, action) => {
  * @param {Object} state The current state
  * @returns {Array}
  */
-export const sGetFromState = state => orObject(state.dimensions);
+export const sGetFromState = state => state.dimensions;
+
+export const sGetSelected = state => sGetFromState(state).selected;
+
+export const sGetRecommended = state => sGetFromState(state).recommendedDims;

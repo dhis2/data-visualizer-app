@@ -6,7 +6,7 @@ export function arrayToIdMap(array) {
     return sortArray(array).reduce((obj, item) => {
         obj[item.id] = {
             ...item,
-            ...{ selected: false, isRecommended: false },
+            ...{ selected: false },
         };
         return obj;
     }, {});

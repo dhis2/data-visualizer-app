@@ -13,6 +13,7 @@ const style = {
         backgroundColor: colors.lightGrey,
         height: 764,
         width: 250,
+        position: 'relative',
     },
     searchIcon: {
         color: colors.paleGreay,
@@ -54,8 +55,8 @@ export class Dimensions extends Component {
                     onChange={this.handleChange}
                 />
                 <DimensionList
+                    {...this.props}
                     searchText={this.state.searchText}
-                    dimensions={this.props.dimensions}
                     toggleDialog={this.toggleDialog}
                 />
             </div>
@@ -64,7 +65,8 @@ export class Dimensions extends Component {
 }
 
 const mapStateToProps = state => ({
-    dimensions: fromReducers.fromDimensions.sGetFromState(state),
+    dimensions: fromReducers.fromDimensions.sGetSelected(state),
+    isRecommended: fromReducers.fromDimensions.sGetRecommended(state),
 });
 
 export default connect(mapStateToProps)(Dimensions);

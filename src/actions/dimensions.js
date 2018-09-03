@@ -7,14 +7,20 @@ export const acSetDimension = value => ({
     value,
 });
 
-const updateDimensionsInStore = (dimension, dispatch) => {
-    dispatch(acSetDimension(dimension));
+export const acSetRecommended = value => ({
+    type: actionTypes.RECEIVED_RECOMMENDED,
+    value,
+});
+
+const updateDimensionsInStore = (selectedDim, recommendedDim, dispatch) => {
+    dispatch(acSetDimension(selectedDim));
+    dispatch(acSetRecommended(recommendedDim));
 };
 
-export const tSetDimensions = dimensions => async dispatch => {
+export const tSetDimensions = dimension => async dispatch => {
     try {
-        await apiFetchRecommended(dimensions);
-        return updateDimensionsInStore(dimensions, dispatch);
+        const recommendedIds = await apiFetchRecommended(null, null);
+        return updateDimensionsInStore(dimension, recommendedIds, dispatch);
     } catch (err) {
         return onError('Set Dimensions', err);
     }

@@ -1,27 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import i18n from '@dhis2/d2-i18n';
+import DropDown from './DropDown';
 import { MoreHorizontal } from './icons';
 
-const items = [
-    {
-        id: 'series',
-        name: 'Add to series',
-    },
-    {
-        id: 'category',
-        name: 'Add to category',
-    },
-    {
-        id: 'filter',
-        name: 'Add to filter',
-    },
-];
-
 const style = {
-    menuContainer: {
-        display: 'inline-flex',
-    },
     dropDownButton: {
         border: 'none',
         background: 'none',
@@ -30,20 +12,6 @@ const style = {
         paddingBottom: 0,
         paddingLeft: 1,
         paddingTop: 2,
-    },
-    dropDownMenu: {
-        display: 'inline-grid',
-        position: 'absolute',
-        height: 117,
-        minWidth: 198,
-        padding: 0,
-    },
-    listButton: {
-        border: 'none',
-        height: 39,
-    },
-    text: {
-        fontSize: 15,
     },
 };
 
@@ -72,38 +40,14 @@ export class DimensionOptions extends Component {
         });
     };
 
-    addDimensionTo = id => {
-        console.log('Dropdown clicked! adding to ', id);
-        this.closeMenu();
-    };
-
-    renderDropDown = () => {
-        return (
-            <div style={style.dropDownMenu}>
-                {items.map(option => (
-                    <button
-                        key={option.id}
-                        style={style.listButton}
-                        onClick={() => this.addDimensionTo(option.id)}
-                        ref={element => {
-                            this.dropDownMenu = element;
-                        }}
-                    >
-                        <span style={style.text}> {i18n.t(option.name)} </span>
-                    </button>
-                ))}
-            </div>
-        );
-    };
-
     render = () => {
         let Options = <OptionsButton action={this.showMenu} />;
 
         if (this.state.showMenu) {
-            Options = this.renderDropDown();
+            Options = <DropDown onClose={this.closeMenu} />;
         }
 
-        return <div>{Options}</div>;
+        return Options;
     };
 }
 

@@ -13,6 +13,9 @@ import {
 } from './icons';
 
 const style = {
+    wrapper: {
+        display: 'flex',
+    },
     text: {
         fontSize: 16,
         color: colors.black,
@@ -47,7 +50,8 @@ export class DimensionItem extends Component {
 
     getDimensionIcon = () => {
         const fixedDimensionIcons = [<Data />, <Period />, <OrgUnit />];
-        const isGeneric = typeof this.props.id === 'string';
+        const genericIdentifier = 'string';
+        const isGeneric = typeof this.props.id === genericIdentifier;
 
         return isGeneric ? (
             <GenericDimension />
@@ -91,8 +95,10 @@ export class DimensionItem extends Component {
                     {Icon}
                     {Label}
                 </DimensionLabel>
-                {RecommendedIcon}
-                {MoreOptions}
+                <div style={style.wrapper}>
+                    {RecommendedIcon}
+                    {MoreOptions}
+                </div>
             </li>
         );
     };
@@ -102,6 +108,7 @@ DimensionItem.propTypes = {
     id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
     displayName: PropTypes.string.isRequired,
     isSelected: PropTypes.bool.isRequired,
+    isRecommended: PropTypes.bool.isRequired,
     toggleDialog: PropTypes.func.isRequired,
 };
 
