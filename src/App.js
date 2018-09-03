@@ -29,13 +29,13 @@ export class App extends Component {
 
     loadExampleChart = async () => {
         const d2 = this.props.d2;
-        console.log('d2', d2);
+
         const type = 'chart';
-        const type2 = 'eventChart';
+        // const type = 'eventChart';
         const id = 'Tun9tJb3sQt';
-        const id2 = 'x5FVFVt5CDI';
+        // const id = 'x5FVFVt5CDI';
         const res = aggregate;
-        const res2 = event;
+        // const res = event;
 
         const chartConfig = await d2.models[type].get(id, {
             fields: getFieldsByType(type),
@@ -47,14 +47,6 @@ export class App extends Component {
         console.log('response', response);
 
         createChart(response, chartConfig, 'viewport');
-        console.log('auth', this.props.auth);
-
-        const r = await fetch(
-            '//localhost:8080/api/29/analytics?dimension=dx:Uvn6LCg7dVU&dimension=pe:LAST_12_MONTHS&filter=ou:ImspTQPwCqd&displayProperty=SHORTNAME&skipMeta=true&includeNumDen=true',
-            { headers: this.props.auth }
-        );
-        console.log('R', r);
-        console.log(await r.json());
     };
 
     getChildContext() {
