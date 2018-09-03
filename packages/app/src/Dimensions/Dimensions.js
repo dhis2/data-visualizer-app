@@ -16,7 +16,7 @@ const style = {
         position: 'relative',
     },
     searchIcon: {
-        color: colors.paleGreay,
+        color: colors.paleGrey,
         position: 'relative',
         marginTop: 15,
         right: 15,
