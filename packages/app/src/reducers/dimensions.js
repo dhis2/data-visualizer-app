@@ -1,12 +1,53 @@
+import { combineReducers } from 'redux';
+
 export const actionTypes = {
-    SET_DIMENSIONS: 'SET_DIMENSIONS',
+    FETCH_DIMENSIONS: 'FETCH_DIMENSIONS',
+    RECEIVED_DIMENSION: 'RECEIVED_DIMENSION',
+    RECEIVED_RECOMMENDED: 'RECIEVED_RECOMMENDED_DIMENSION',
 };
 
-export const DEFAULT_DIMENSIONS = null;
+export const DEFAULT_RECOMMENDED_DIMENSIONS = [];
 
-export default (state = DEFAULT_DIMENSIONS, action) => {
+export const DEFAULT_DIMENSIONS = {
+    0: {
+        id: 0,
+        displayName: 'Data',
+        selected: false,
+    },
+    1: {
+        id: 1,
+        displayName: 'Period',
+        selected: false,
+    },
+    2: {
+        id: 2,
+        displayName: 'Organisation Unit',
+        selected: false,
+    },
+};
+
+const selected = (state = DEFAULT_DIMENSIONS, action) => {
     switch (action.type) {
-        case actionTypes.SET_DIMENSIONS: {
+        case actionTypes.RECEIVED_DIMENSION: {
+            return {
+                ...state,
+                [action.value.id]: {
+                    ...state[action.value.id],
+                    selected: action.value.selected,
+                },
+            };
+        }
+        case actionTypes.FETCH_DIMENSIONS: {
+            return { ...state, ...action.value };
+        }
+        default:
+            return state;
+    }
+};
+
+const recommendedDims = (state = DEFAULT_RECOMMENDED_DIMENSIONS, action) => {
+    switch (action.type) {
+        case actionTypes.RECEIVED_RECOMMENDED: {
             return action.value;
         }
         default:
@@ -14,6 +55,10 @@ export default (state = DEFAULT_DIMENSIONS, action) => {
     }
 };
 
+export default combineReducers({
+    selected,
+    recommendedDims,
+});
 // selectors
 
 /**
@@ -28,3 +73,7 @@ export default (state = DEFAULT_DIMENSIONS, action) => {
  * @returns {Array}
  */
 export const sGetFromState = state => state.dimensions;
+
+export const sGetSelected = state => sGetFromState(state).selected;
+
+export const sGetRecommended = state => sGetFromState(state).recommendedDims;

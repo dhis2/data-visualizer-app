@@ -1,26 +1,27 @@
+import { onError } from './index';
 import { actionTypes } from '../reducers';
-import { apiFetchDimensions } from '../api/dimensions';
-import { arrayToIdMap } from '../util';
+import { apiFetchRecommended } from '../api/dimensions';
 
-export const acSetDimensions = dimensions => ({
-    type: actionTypes.SET_DIMENSIONS,
-    value: arrayToIdMap(dimensions),
+export const acSetDimension = value => ({
+    type: actionTypes.RECEIVED_DIMENSION,
+    value,
 });
 
-export const tSetDimensions = () => async (dispatch, getState) => {
-    const onSuccess = dimensions => {
-        dispatch(acSetDimensions(dimensions));
-    };
+export const acSetRecommended = value => ({
+    type: actionTypes.RECEIVED_RECOMMENDED,
+    value,
+});
 
-    const onError = error => {
-        console.log('Error (apiFetchDimensions): ', error);
-        return error;
-    };
+const updateDimensionsInStore = (selectedDim, recommendedDim, dispatch) => {
+    dispatch(acSetDimension(selectedDim));
+    dispatch(acSetRecommended(recommendedDim));
+};
 
+export const tSetDimensions = dimension => async dispatch => {
     try {
-        const response = await apiFetchDimensions();
-        return onSuccess(response.dimensions);
+        const recommendedIds = await apiFetchRecommended(null, null);
+        return updateDimensionsInStore(dimension, recommendedIds, dispatch);
     } catch (err) {
-        return onError(err);
+        return onError('Set Dimensions', err);
     }
 };
