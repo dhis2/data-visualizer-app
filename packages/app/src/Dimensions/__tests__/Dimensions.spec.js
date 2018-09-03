@@ -38,6 +38,6 @@ describe('The Dimensions component ', () => {
         const dialogManager = dimensionsComponent().find(DialogManager);
 
         expect(dimensionsComponent().state('dialogDimId')).toBe(null);
-        expect(dialogManager.find(DialogManager).length).toEqual(0);
+        expect(dialogManager.find(DialogManager).length).toEqual(1);
     });
 });
