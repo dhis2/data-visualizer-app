@@ -1,26 +1,41 @@
 import { onError } from './index';
+import { arrayToIdMap } from '../util';
 import { actionTypes } from '../reducers';
-import { apiFetchRecommended } from '../api/dimensions';
+import { apiFetchRecommended, apiFetchDimensions } from '../api/dimensions';
 
-export const acSetDimension = value => ({
-    type: actionTypes.RECEIVED_DIMENSION,
-    value,
+export const acSetDimensions = dimensions => ({
+    type: actionTypes.SET_DIMENSIONS,
+    value: arrayToIdMap(dimensions),
 });
 
+export const tSetDimensions = () => async dispatch => {
+    const onSuccess = dimensions => {
+        dispatch(acSetDimensions(dimensions));
+    };
+
+    const onError = error => {
+        console.log('Error (apiFetchDimensions): ', error);
+        return error;
+    };
+
+    try {
+        const response = await apiFetchDimensions();
+        return onSuccess(response.dimensions);
+    } catch (err) {
+        return onError(err);
+    }
+};
+
+// recommended dimensions
 export const acSetRecommended = value => ({
     type: actionTypes.RECEIVED_RECOMMENDED,
     value,
 });
 
-const updateDimensionsInStore = (selectedDim, recommendedDim, dispatch) => {
-    dispatch(acSetDimension(selectedDim));
-    dispatch(acSetRecommended(recommendedDim));
-};
-
-export const tSetDimensions = dimension => async dispatch => {
+export const tSetRecommendedDimensions = () => async dispatch => {
     try {
         const recommendedIds = await apiFetchRecommended(null, null);
-        return updateDimensionsInStore(dimension, recommendedIds, dispatch);
+        dispatch(acSetRecommended(recommendedIds));
     } catch (err) {
         return onError('Set Dimensions', err);
     }

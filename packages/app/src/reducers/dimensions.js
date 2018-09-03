@@ -1,12 +1,6 @@
-import { combineReducers } from 'redux';
-
 export const actionTypes = {
-    FETCH_DIMENSIONS: 'FETCH_DIMENSIONS',
-    RECEIVED_DIMENSION: 'RECEIVED_DIMENSION',
-    RECEIVED_RECOMMENDED: 'RECIEVED_RECOMMENDED_DIMENSION',
+    SET_DIMENSIONS: 'SET_DIMENSIONS',
 };
-
-export const DEFAULT_RECOMMENDED_DIMENSIONS = [];
 
 export const DEFAULT_DIMENSIONS = {
     0: {
@@ -26,28 +20,9 @@ export const DEFAULT_DIMENSIONS = {
     },
 };
 
-const selected = (state = DEFAULT_DIMENSIONS, action) => {
+export default (state = DEFAULT_DIMENSIONS, action) => {
     switch (action.type) {
-        case actionTypes.RECEIVED_DIMENSION: {
-            return {
-                ...state,
-                [action.value.id]: {
-                    ...state[action.value.id],
-                    selected: action.value.selected,
-                },
-            };
-        }
-        case actionTypes.FETCH_DIMENSIONS: {
-            return { ...state, ...action.value };
-        }
-        default:
-            return state;
-    }
-};
-
-const recommendedDims = (state = DEFAULT_RECOMMENDED_DIMENSIONS, action) => {
-    switch (action.type) {
-        case actionTypes.RECEIVED_RECOMMENDED: {
+        case actionTypes.SET_DIMENSIONS: {
             return action.value;
         }
         default:
@@ -55,10 +30,6 @@ const recommendedDims = (state = DEFAULT_RECOMMENDED_DIMENSIONS, action) => {
     }
 };
 
-export default combineReducers({
-    selected,
-    recommendedDims,
-});
 // selectors
 
 /**
@@ -72,8 +43,5 @@ export default combineReducers({
  * @param {Object} state The current state
  * @returns {Array}
  */
-export const sGetFromState = state => state.dimensions;
-
-export const sGetSelected = state => sGetFromState(state).selected;
-
-export const sGetRecommended = state => sGetFromState(state).recommendedDims;
+export const sGetDimensions = state => state.dimensions;
+export const sGetRecommended = state => ({});

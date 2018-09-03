@@ -21,7 +21,7 @@ export class App extends Component {
         const d2 = this.props.d2;
 
         store.dispatch(fromActions.fromUser.acReceivedUser(d2.currentUser));
-        store.dispatch(fromActions.fromVisualization.tFetchDimensions());
+        store.dispatch(fromActions.fromDimensions.tSetDimensions());
         this.loadExampleChart(d2);
     }
 
@@ -31,8 +31,6 @@ export class App extends Component {
         const id = 'Tun9tJb3sQt';
 
         const fields = getFieldsStringByType(type);
-        console.log('fields', fields);
-
         const chart1 = await d2.models[type].get(id, {
             fields,
         });

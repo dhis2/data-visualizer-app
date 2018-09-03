@@ -3,6 +3,8 @@ import { onError } from './index';
 
 // Get dimensions on startup
 export const apiFetchDimensions = () => {
+    console.log('fetch dimensions');
+
     const fields = 'id,displayName,dimensionType',
         url = `/dimensions?fields=${fields}`;
 

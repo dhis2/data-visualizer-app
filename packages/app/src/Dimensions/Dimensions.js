@@ -42,9 +42,7 @@ export class Dimensions extends Component {
         return (
             <div className={'dimensions'} style={style.divContainter}>
                 <DialogManager
-                    dialogIsOpen={
-                        this.state.dialogDimId !== null ? true : false
-                    }
+                    dialogIsOpen={!!this.state.dialogDimId}
                     id={this.state.dialogDimId}
                     toggleDialog={this.toggleDialog}
                 />
@@ -65,7 +63,7 @@ export class Dimensions extends Component {
 }
 
 const mapStateToProps = state => ({
-    dimensions: fromReducers.fromDimensions.sGetSelected(state),
+    dimensions: fromReducers.fromDimensions.sGetDimensions(state),
     isRecommended: fromReducers.fromDimensions.sGetRecommended(state),
 });
 
