@@ -59,46 +59,4 @@ export class Dimensions extends Component {
     };
 }
 
-export class Dimensions extends Component {
-    state = { searchText: '', dialogDimId: null };
-
-    handleChange = event => {
-        this.setState({ searchText: event.target.value });
-    };
-
-    toggleDialog = value => {
-        this.setState({ dialogDimId: value });
-    };
-
-    render = () => {
-        return (
-            <div className={'dimensions'} style={style.divContainter}>
-                <DialogManager
-                    dialogIsOpen={
-                        this.state.dialogDimId !== null ? true : false
-                    }
-                    id={this.state.dialogDimId}
-                    toggleDialog={this.toggleDialog}
-                />
-                <Search style={style.searchIcon} />
-                <TextField
-                    placeholder={i18n.t('Search dimensions')}
-                    style={style.textField}
-                    onChange={this.handleChange}
-                />
-                <DimensionList
-                    {...this.props}
-                    searchText={this.state.searchText}
-                    toggleDialog={this.toggleDialog}
-                />
-            </div>
-        );
-    };
-}
-
-const mapStateToProps = state => ({
-    dimensions: fromReducers.fromDimensions.sGetSelected(state),
-    isRecommended: fromReducers.fromDimensions.sGetRecommended(state),
-});
-
-export default connect(mapStateToProps)(Dimensions);
+export default Dimensions;

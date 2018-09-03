@@ -1,14 +1,12 @@
 import { FIXED_DIMENSIONS } from '../fixedDimensions';
 
 export const actionTypes = {
-    FETCH_DIMENSIONS: 'FETCH_DIMENSIONS',
-    RECEIVED_DIMENSION: 'RECEIVED_DIMENSION',
-    RECEIVED_RECOMMENDED: 'RECIEVED_RECOMMENDED_DIMENSION',
+    SET_DIMENSIONS: 'SET_DIMENSIONS',
 };
 
 export const DEFAULT_DIMENSIONS = FIXED_DIMENSIONS;
 
-const selected = (state = DEFAULT_DIMENSIONS, action) => {
+export default (state = DEFAULT_DIMENSIONS, action) => {
     switch (action.type) {
         case actionTypes.SET_DIMENSIONS: {
             return Object.assign({}, FIXED_DIMENSIONS, { ...action.value });
@@ -18,10 +16,6 @@ const selected = (state = DEFAULT_DIMENSIONS, action) => {
     }
 };
 
-export default combineReducers({
-    selected,
-    recommendedDims,
-});
 // selectors
 
 /**
