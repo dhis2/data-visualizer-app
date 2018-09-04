@@ -1,34 +1,51 @@
 /* eslint-disable no-unused-vars */
 
 const state = {
-    // if a favorite is loaded, store the id here
-    // default: null - no favorite is loaded
-    id: 'favId',
-
-    // the analytics object as retrieved from the API
-    // typically set when opening an analytics object via the favorites menu
+    // Analytical object as retrieved from the API (with the correct field filtering)
+    // Typically set when opening an analytics object via the favorites menu
     visualization: {},
 
-    // the current ui selection
-    // stick to the api chart format so that we dont need to transform back and forth?
-    current: {},
+    // Object holding the source of the currently shown visualization
+    // Init state: null
+    current: null,
 
-    // array of /api/dimensions loaded in left panel
-    // default: null - not loaded yet
-    // empty array means no dimensions were provided by the api
-    dimensions: [],
+    // Array of /api/dimensions to show in left panel
+    // Init state: null
+    // If no dimensions were returned by the api: []
+    dimensions: null,
 
-    // list of recommended dimension ids
-    // default: empty array
-    // (no need to distinguish between null and empty array here i think,
-    //  as they won't be displayed differently in the ui?)
+    // Array of recommended dimension ids
+    // Init state: []
+    // Keeping them seperated from dimensions for performance reasons
     recommendedDimensionIds: [],
 
-    // selected dimension ids for the current visualization
-    selectedDimensionids: [],
+    // Object holding default and current state for the components
+    ui: {
+        options: {
+            showValues: true,
+            // ...All options
+        },
+        layout: {
+            columns: ['dx'],
+            rows: ['pe'],
+            filters: ['ou'],
+        },
+        itemsByDimension: {
+            dx: [],
+            pe: ['LAST_12_MONTHS'], // Initialised by https://play.dhis2.org/2.30/api/systemSettings.json?key=keyAnalysisRelativePeriod
+            ou: ['USER_ORGUNIT'],
+        },
+    },
 };
 
-const dimension = {
-    id: 'dimId',
-    displayName: 'dimName',
-};
+// Typical flow
+
+// Open app, select dimensions, change an option etc -> this only changes "ui" in the store
+// Layout, Options, Dimensions are controlled components, they just render what's in "ui"
+// When update button is clicked, current selection is grabbed from "ui" and put in current on the appropriate format
+// Then data is fetched from the backend and the visualization is created
+
+// If you load an AO (analytical object) it will be stored in "visualization" and "current" -> the visualization is shown
+// Change selection (updates "ui") and click update (updates "current") -> "visualization" and "current" are now different objects -> show unsaved state indicator
+
+// When dx/ou in "itemsByDimension" change -> update "recommendedDimensionIds"
