@@ -1,16 +1,16 @@
 export const FIXED_DIMENSIONS = {
-    Data: {
-        id: 'Data',
-        displayName: 'Data',
+    dx: {
+        id: 'dx',
+        displayName: 'Data', // TODO i18n names
         iconName: 'DataIcon',
     },
-    Period: {
-        id: 'Period',
+    pe: {
+        id: 'pe',
         displayName: 'Period',
         iconName: 'PeriodIcon',
     },
-    OrgUnit: {
-        id: 'OrgUnit',
+    ou: {
+        id: 'ou',
         displayName: 'Organisation Unit',
         iconName: 'OrgUnitIcon',
     },

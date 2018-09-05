@@ -9,9 +9,9 @@ const state = {
     // Init state: null
     current: null,
 
-    // Array of /api/dimensions to show in left panel
+    // Object {id:dimension} of dimensions to show in left panel
     // Init state: null
-    // If no dimensions were returned by the api: []
+    // If no dimensions were returned by the api: {}
     dimensions: null,
 
     // Array of recommended dimension ids
@@ -22,7 +22,7 @@ const state = {
     // Object holding default and current state for the components
     ui: {
         options: {
-            showValues: true,
+            showData: true,
             // ...All options
         },
         layout: {
