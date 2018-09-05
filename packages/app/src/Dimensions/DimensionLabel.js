@@ -59,7 +59,7 @@ export class DimensionLabel extends Component {
     };
 
     onRemoveDimensionClick = () => {
-        this.props.removeDimension({ id: this.props.id, selected: false });
+        this.props.removeDimension({ id: this });
     };
 
     renderRemoveButton = () => {

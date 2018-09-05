@@ -15,6 +15,7 @@ import {
 const style = {
     wrapper: {
         display: 'flex',
+        position: 'static',
     },
     text: {
         fontSize: 16,
@@ -91,10 +92,8 @@ export class DimensionItem extends Component {
                     {Icon}
                     {Label}
                 </DimensionLabel>
-                <div style={style.wrapper}>
-                    {RecommendedIcon}
-                    {MoreOptions}
-                </div>
+                {RecommendedIcon}
+                {MoreOptions}
             </li>
         );
     };

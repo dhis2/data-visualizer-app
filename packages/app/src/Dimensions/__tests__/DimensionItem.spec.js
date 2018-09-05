@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { DimensionItem } from '../DimensionItem';
-import { DimensionLabel } from '../DimensionLabel';
-import DimensionOptions from '../DimensionOptions';
-import { RecommendedIcon } from '../icons';
+//import { DimensionLabel } from '../DimensionLabel';
+//import DimensionOptions from '../DimensionOptions';
+//import { RecommendedIcon } from '../icons';
 
 describe('The DimensionItem component ', () => {
     let props;

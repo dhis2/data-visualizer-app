@@ -17,7 +17,12 @@ const dimensionComponents = {
     OrgUnit: <OrgUnitDimension />,
 };
 
-export const DialogManager = ({ dialogIsOpen, id, toggleDialog }) => {
+export const DialogManager = ({
+    addDimension,
+    dialogIsOpen,
+    id,
+    toggleDialog,
+}) => {
     return (
         <Dialog open={dialogIsOpen} onClose={() => toggleDialog(null)}>
             <DialogContent>{dimensionComponents[id]}</DialogContent>
@@ -25,6 +30,7 @@ export const DialogManager = ({ dialogIsOpen, id, toggleDialog }) => {
                 <Button
                     onClick={() => {
                         console.log('toggled selected state for dimension');
+                        addDimension(id);
                         toggleDialog(null);
                     }}
                 >

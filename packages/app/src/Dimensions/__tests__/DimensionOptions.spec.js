@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import { DimensionOptions } from '../DimensionOptions';
 import OptionsButton from '../DimensionOptions';
 
@@ -8,10 +8,11 @@ describe('The DimensionOptions component ', () => {
     let shallowDimOptions;
     const dimOptions = () => {
         if (!shallowDimOptions) {
-            shallowDimOptions = shallow(<DimensionOptions {...props} />);
+            shallowDimOptions = mount(<DimensionOptions {...props} />);
         }
         return shallowDimOptions;
     };
+
     beforeEach(() => {
         props = {
             toggleHoverListener: jest.fn(),
@@ -19,16 +20,14 @@ describe('The DimensionOptions component ', () => {
         shallowDimOptions = undefined;
     });
 
-    it('renders an <OptionButton /> when state "showMenu" is equal to false', () => {
-        const optionButton = dimOptions().find(OptionsButton);
-
+    it('renders an OptionsButton when state "showMenu" is equal to false', () => {
+        //const optionButton = dimOptions().find(OptionsButton);
         expect(dimOptions().state('showMenu')).toBe(false);
         //expect(optionButton.equals(<button />)).toEqual(true);
     });
 
     it('renders a modal dropdown menu when state "showMenu" is equal to true', () => {
-        const optionButton = dimOptions().find(OptionsButton);
-
+        //const optionButton = dimOptions().find(OptionsButton);
         //expect(dimOptions().state('showMenu')).toBe(false);
         //expect(optionButton.length).toBe(1);
     });

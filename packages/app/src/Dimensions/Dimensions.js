@@ -11,10 +11,9 @@ const style = {
         backgroundColor: colors.lightGrey,
         height: 764,
         width: 250,
-        position: 'relative',
     },
     searchIcon: {
-        color: colors.paleGrey,
+        color: colors.charcoalGrey,
         position: 'relative',
         marginTop: 15,
         right: 15,

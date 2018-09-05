@@ -53,14 +53,9 @@ export class DropDown extends Component {
         this.props.onClose();
     };
 
-    componentDidMount = () => {
-        const dropDownPos = this.refs.dropDown.getBoundingClientRect();
-        console.log(dropDownPos);
-    };
-
     render = () => {
         return (
-            <div style={style.container} ref={'dropDown'}>
+            <div style={{ ...style.container, ...this.props.renderPos }}>
                 {items.map(option => (
                     <button
                         key={option.id}

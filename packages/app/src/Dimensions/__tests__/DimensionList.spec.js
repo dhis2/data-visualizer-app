@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { DimensionList } from '../DimensionList';
-import { DimensionItem } from '../DimensionItem';
+//import { DimensionItem } from '../DimensionItem';
 
 describe('The DimensionList component ', () => {
     let props;
@@ -38,7 +38,7 @@ describe('The DimensionList component ', () => {
     it('renders a filtered list of <DimensionItem /> when searchText.length >= 1', () => {
         props.searchText = 'Data';
 
-        const filteredDimItem = dimList().find(DimensionItem);
+        //const filteredDimItem = dimList().find(DimensionItem);
 
         //expect(dimList().props('searchText').length).toBeGreaterThan(1);
     });

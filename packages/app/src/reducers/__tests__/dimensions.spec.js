@@ -26,8 +26,7 @@ describe('dimensions reducer', () => {
 
     it('should return the default state', () => {
         const actualState = reducer(undefined, { type: 'NO_MATCH' });
-        console.log(actualState);
-        //expect(actualState).toEqual(DEFAULT_DIMENSIONS);
+        expect(actualState).toEqual(DEFAULT_DIMENSIONS);
     });
 
     /*it.only('should set the list of dimensions by replacing the existing list', () => {
