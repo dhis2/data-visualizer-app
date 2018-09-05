@@ -21,7 +21,7 @@ describe('The DimensionOptions component ', () => {
     });
 
     it('renders an OptionsButton when state "showMenu" is equal to false', () => {
-        //const optionButton = dimOptions().find(OptionsButton);
+        //const optionButton = dimOptions(git st).find(OptionsButton);
         expect(dimOptions().state('showMenu')).toBe(false);
         //expect(optionButton.equals(<button />)).toEqual(true);
     });

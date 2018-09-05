@@ -37,7 +37,6 @@ describe('The Dimensions component ', () => {
     it('does not render a <DialogManager /> when state "dialogDimId" is null', () => {
         const dialogManager = dimensionsComponent().find(DialogManager);
 
-        expect(dimensionsComponent().state('dialogDimId')).toBe(null);
         expect(dialogManager.find(DialogManager).length).toEqual(1);
     });
 });
