@@ -1,5 +1,4 @@
 import isObject from 'd2-utilizr/lib/isObject';
-// object
 
 // TODO, copied from dashboards-app
 export function arrayToIdMap(array) {
@@ -40,3 +39,8 @@ export function orArray(param) {
 export function orObject(param) {
     return isObject(param) ? param : {};
 }
+
+// object
+
+export const getPropsByKeys = (sourceObj, keys) =>
+    keys.reduce((obj, key) => ({ ...obj, [key]: sourceObj[key] }), {});

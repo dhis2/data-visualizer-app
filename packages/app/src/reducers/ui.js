@@ -1,41 +1,18 @@
+import options from '../options';
+import { getPropsByKeys } from '../util';
+import { layoutKeys, getItemsByDimensionFromVisualization } from '../layout';
+
 export const actionTypes = {
+    SET_UI: 'SET_UI',
+    SET_UI_FROM_VISUALIZATION: 'SET_UI_FROM_VISUALIZATION',
+    SET_UI_TYPE: 'SET_UI_TYPE',
     SET_IU_OPTIONS: 'SET_IU_OPTIONS',
     SET_UI_LAYOUT: 'SET_UI_LAYOUT',
     SET_UI_ITEMS: 'SET_UI_ITEMS',
 };
 
 const DEFAULT_STATE = {
-    options: {
-        baseLineLabel: null,
-        baseLineValue: null,
-        // colorSet:
-        cumulativeValues: false,
-        domainAxisLabel: null,
-        hideEmptyRowItems: null,
-        hideLegend: false,
-        noSpaceBetweenColumns: false,
-        percentStackedValues: false,
-        rangeAxisDecimals: null,
-        rangeAxisLabel: null,
-        rangeAxisMaxValue: null,
-        rangeAxisMinValue: null,
-        rangeAxisSteps: null,
-        regressionType: null,
-        showData: true,
-        targetLineLabel: null,
-        targetLineValue: null,
-        type: 'column',
-        // legendDisplayStrategy
-        // legendSet
-        aggregationType: null,
-        completedOnly: false,
-        hideSubtitle: false,
-        hideTitle: false,
-        sortOrder: null,
-        subtitle: null,
-        title: null,
-        // topLimit
-    },
+    options,
     layout: {
         columns: ['dx'],
         rows: ['pe'],
@@ -50,6 +27,27 @@ const DEFAULT_STATE = {
 
 export default (state = DEFAULT_STATE, action) => {
     switch (action.type) {
+        case actionTypes.SET_UI: {
+            return {
+                ...action.value,
+            };
+        }
+        case actionTypes.SET_IU_FROM_VISUALIZATION: {
+            return {
+                type: action.value.type,
+                options: getPropsByKeys(action.value, Object.keys(options)),
+                layout: getPropsByKeys(action.value, layoutKeys),
+                itemsByDimension: getItemsByDimensionFromVisualization(
+                    action.value
+                ),
+            };
+        }
+        case actionTypes.SET_UI_TYPE: {
+            return {
+                ...state,
+                type: action.value,
+            };
+        }
         case actionTypes.SET_IU_OPTIONS: {
             return {
                 ...state,

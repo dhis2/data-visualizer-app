@@ -11,7 +11,8 @@ export const acSetVisualization = visualization => ({
 export const tSetVisualization = (type, id) => async (dispatch, getState) => {
     const onSuccess = visualization => {
         dispatch(acSetVisualization(visualization));
-        dispatch(acSetCurrent(visualization));
+        return visualization;
+        // dispatch(acSetCurrent(visualization));
     };
 
     try {

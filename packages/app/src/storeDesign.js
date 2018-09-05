@@ -21,6 +21,7 @@ const state = {
 
     // Object holding default and current state for the components
     ui: {
+        type: 'column',
         options: {
             showData: true,
             // ...All options
