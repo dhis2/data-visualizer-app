@@ -25,22 +25,24 @@ const style = {
 };
 
 export class Dimensions extends Component {
-    state = { searchText: '', dialogDimId: null };
+    state = { searchText: '', dialogDim: null };
 
     handleChange = event => {
         this.setState({ searchText: event.target.value });
     };
 
-    toggleDialog = value => {
-        this.setState({ dialogDimId: value });
+    toggleDialog = dimension => {
+        this.setState({
+            dialogDim: dimension,
+        });
     };
 
     render = () => {
         return (
             <div className={'dimensions'} style={style.divContainer}>
                 <DialogManager
-                    dialogIsOpen={!!this.state.dialogDimId}
-                    id={this.state.dialogDimId}
+                    dialogIsOpen={!!this.state.dialogDim}
+                    dimension={this.state.dialogDim}
                     toggleDialog={this.toggleDialog}
                 />
                 <Search style={style.searchIcon} />

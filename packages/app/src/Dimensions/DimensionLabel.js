@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Close } from '@material-ui/icons';
 import { colors } from '../colors';
-import { tSetDimensions } from '../actions/dimensions';
+import { tRemoveSelectedDim } from '../actions/ui';
 
 const style = {
     unselected: {
@@ -49,7 +49,10 @@ export class DimensionLabel extends Component {
     };
 
     onLabelClick = () => {
-        this.props.toggleDialog(this.props.id);
+        this.props.toggleDialog({
+            id: this.props.id,
+            displayName: this.props.displayName,
+        });
     };
 
     onKeyPress = event => {
@@ -59,7 +62,7 @@ export class DimensionLabel extends Component {
     };
 
     onRemoveDimensionClick = () => {
-        this.props.removeDimension({ id: this });
+        this.props.removeDimension(this.props.id);
     };
 
     renderRemoveButton = () => {
@@ -91,5 +94,5 @@ export class DimensionLabel extends Component {
 
 export default connect(
     null,
-    { removeDimension: tSetDimensions }
+    { removeDimension: tRemoveSelectedDim }
 )(DimensionLabel);

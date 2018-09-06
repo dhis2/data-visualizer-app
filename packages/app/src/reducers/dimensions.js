@@ -2,6 +2,7 @@ import { FIXED_DIMENSIONS } from '../fixedDimensions';
 
 export const actionTypes = {
     SET_DIMENSIONS: 'SET_DIMENSIONS',
+    SET_SELECTED_DIMENSION: 'SET_SELECTED_DIMENSION',
 };
 
 export const DEFAULT_DIMENSIONS = FIXED_DIMENSIONS;

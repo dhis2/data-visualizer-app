@@ -71,7 +71,10 @@ export class DimensionItem extends Component {
 
     renderOptionsOnHover = () => {
         return !this.props.isSelected && this.state.mouseOver ? (
-            <DimensionOptions toggleHoverListener={this.toggleHoverListener} />
+            <DimensionOptions
+                toggleHoverListener={this.toggleHoverListener}
+                dimId={this.props.id}
+            />
         ) : null;
     };
 

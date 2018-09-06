@@ -5,6 +5,7 @@ import dimensions, * as fromDimensions from './dimensions';
 import recommendedDimensionIds, * as fromRecommendedDimensionIds from './recommendedDimensionIds';
 import snackbar, * as fromSnackbar from './snackbar';
 import user, * as fromUser from './user';
+import ui, * as fromUi from './ui';
 
 // action types
 
@@ -15,6 +16,7 @@ export const actionTypes = {
     ...fromUser.actionTypes,
     ...fromVisualization.actionTypes,
     ...fromCurrent.actionTypes,
+    ...fromUi.actionTypes,
 };
 
 // reducers
@@ -26,6 +28,7 @@ export default combineReducers({
     user,
     visualization,
     current,
+    ui,
 });
 
 // selectors
@@ -36,4 +39,5 @@ export {
     fromSnackbar,
     fromVisualization,
     fromCurrent,
+    fromUi,
 };

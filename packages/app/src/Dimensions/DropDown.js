@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
+import { tSetSelectedDim } from '../actions/ui';
 
 const items = [
     {
-        id: 'series',
+        id: 'columns',
         name: 'Add to series',
     },
     {
-        id: 'category',
+        id: 'rows',
         name: 'Add to category',
     },
     {
@@ -48,9 +50,9 @@ export class DropDown extends Component {
         }
     };
 
-    addDimensionTo = id => {
-        console.log('Dropdown clicked! adding to ', id);
+    addDimensionTo = layoutId => {
         this.props.onClose();
+        this.props.addDimension(this.props.dimId, layoutId);
     };
 
     render = () => {
@@ -74,4 +76,9 @@ export class DropDown extends Component {
     };
 }
 
-export default DropDown;
+export default connect(
+    null,
+    {
+        addDimension: tSetSelectedDim,
+    }
+)(DropDown);
