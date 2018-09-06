@@ -1,5 +1,5 @@
 import React from 'react';
-import SvgIcon from 'material-ui/SvgIcon';
+import SvgIcon from '@material-ui/core/SvgIcon';
 
 const RadarIcon = ({
     style = { paddingRight: '8px', width: 24, height: 24 },
