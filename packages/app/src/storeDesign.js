@@ -50,3 +50,4 @@ const state = {
 // Change selection (updates "ui") and click update (updates "current") -> "visualization" and "current" are now different objects -> show unsaved state indicator
 
 // When dx/ou in "itemsByDimension" change -> update "recommendedDimensionIds"
+// Keeping recommended ids separated to avoid re-render of the full list, only updating the dots
