@@ -1,5 +1,5 @@
 import React from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import ColumnIcon from './DataTypeIcons/ColumnIcon';
 import StackedColumnIcon from './DataTypeIcons/StackedColumnIcon';
@@ -12,33 +12,52 @@ import AreaIcon from './DataTypeIcons/AreaIcon';
 import RadarIcon from './DataTypeIcons/RadarIcon';
 import BubbleIcon from './DataTypeIcons/BubbleIcon';
 import YearOnYearIcon from './DataTypeIcons/YearOnYearIcon';
+import {
+    COLUMN,
+    STACKED_COLUMN,
+    BAR,
+    STACKED_BAR,
+    LINE,
+    AREA,
+    PIE,
+    RADAR,
+    GAUGE,
+    BUBBLE,
+    YEAR_ON_YEAR,
+    visualizationTypeMap,
+} from './visualizationTypes';
 
-const VisualizationTypeIcon = ({ type = 'column', style }) => {
+const VisualizationTypeIcon = ({ type = COLUMN, style }) => {
     switch (type) {
-        case 'stackedColumn':
+        case STACKED_COLUMN:
             return <StackedColumnIcon style={style} />;
-        case 'bar':
+        case BAR:
             return <BarIcon style={style} />;
-        case 'stackedBar':
+        case STACKED_BAR:
             return <StackedBarIcon style={style} />;
-        case 'pie':
+        case PIE:
             return <PieIcon style={style} />;
-        case 'gauge':
+        case GAUGE:
             return <GaugeIcon style={style} />;
-        case 'line':
+        case LINE:
             return <LineIcon style={style} />;
-        case 'area':
+        case AREA:
             return <AreaIcon style={style} />;
-        case 'radar':
+        case RADAR:
             return <RadarIcon style={style} />;
-        case 'bubble':
+        case BUBBLE:
             return <BubbleIcon style={style} />;
-        case 'yearOnYear':
+        case YEAR_ON_YEAR:
             return <YearOnYearIcon style={style} />;
-        case 'column':
+        case COLUMN:
         default:
             return <ColumnIcon style={style} />;
     }
+};
+
+VisualizationTypeIcon.propTypes = {
+    type: PropTypes.oneOf(Object.keys(visualizationTypeMap)),
+    style: PropTypes.object,
 };
 
 export default VisualizationTypeIcon;

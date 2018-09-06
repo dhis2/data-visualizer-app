@@ -1,30 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Button from 'material-ui/Button';
-import Menu, { MenuItem } from 'material-ui/Menu';
-import { ListItemIcon, ListItemText } from 'material-ui/List';
-import ArrowDropDownIcon from 'material-ui-icons/ArrowDropDown';
+import Button from '@material-ui/core/Button';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import VisualizationTypeIcon from './VisualizationTypeIcon';
-
-// TODO add i18n
-const visualizationTypeMap = {
-    column: 'Column',
-    stackedColumn: 'Stacked column',
-    bar: 'Bar',
-    stackedBar: 'Stacked bar',
-    line: 'Line',
-    area: 'Area',
-    pie: 'Pie',
-    radar: 'Radar',
-    gauge: 'Gauge',
-    bubble: 'Bubble',
-    yearOnYear: 'Year on year',
-};
+import { COLUMN, visualizationTypeMap } from './visualizationTypes';
 
 class VisualizationTypeSelector extends Component {
     state = {
         anchorEl: null,
-        visualizationType: this.props.visualizationType || 'column',
+        visualizationType: this.props.visualizationType || COLUMN,
     };
 
     handleButtonClick = event => {
@@ -67,8 +55,9 @@ class VisualizationTypeSelector extends Component {
                 <Menu
                     open={Boolean(anchorEl)}
                     anchorEl={anchorEl}
-                    anchorOrigin={{ vertical: 'bottom' }}
+                    anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
                     onClose={this.handleClose}
+                    getContentAnchorEl={null}
                 >
                     {Object.keys(visualizationTypeMap).map(type => (
                         <MenuItem
@@ -108,19 +97,9 @@ class VisualizationTypeSelector extends Component {
 }
 
 VisualizationTypeSelector.propTypes = {
-    visualizationType: PropTypes.oneOf([
-        'column',
-        'stackedColumn',
-        'bar',
-        'stackedBar',
-        'line',
-        'area',
-        'pie',
-        'radar',
-        'gauge',
-        'bubble',
-        'yearOnYear',
-    ]),
+    visualizationType: PropTypes.oneOf(
+        Object.keys(visualizationTypeMap)
+    ),
 };
 
 export default VisualizationTypeSelector;
