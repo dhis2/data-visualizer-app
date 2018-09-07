@@ -55,9 +55,11 @@ class VisualizationTypeSelector extends Component {
                 <Menu
                     open={Boolean(anchorEl)}
                     anchorEl={anchorEl}
-                    anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+                    anchorOrigin={{ vertical: 'top', horizontal: 'left' }}
                     onClose={this.handleClose}
                     getContentAnchorEl={null}
+                    style={{maxWidth: 632}}
+                    MenuListProps={{ style: {overflow: 'auto'} }}
                 >
                     {Object.keys(visualizationTypeMap).map(type => (
                         <MenuItem
@@ -68,6 +70,7 @@ class VisualizationTypeSelector extends Component {
                                 padding: '8px',
                                 display: 'flex',
                                 flexDirection: 'column',
+                                float: 'left',
                             }}
                             onClick={this.handleMenuItemClick(type)}
                         >
