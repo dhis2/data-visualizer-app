@@ -4,6 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { MuiThemeProvider } from '@material-ui/core/styles';
+
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { init as d2Init, config, getUserSettings } from 'd2/lib/d2';
 
@@ -12,6 +13,10 @@ import configureStore from './configureStore';
 
 import App from './App';
 import { muiTheme } from './theme';
+
+// XXX temporary hack until d2-ui components are converted to latest MUI
+import { MuiThemeProvider as V0MuiThemeProvider} from 'material-ui';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 const configI18n = async userSettings => {
     const uiLocale = userSettings.keyUiLocale;
@@ -28,7 +33,9 @@ const render = (baseUrl, d2) => {
     ReactDOM.render(
         <Provider store={configureStore()}>
             <MuiThemeProvider theme={muiTheme()}>
+                <V0MuiThemeProvider muiTheme={getMuiTheme({})}>
                 <App baseUrl={baseUrl} d2={d2} />
+                </V0MuiThemeProvider>
             </MuiThemeProvider>
         </Provider>,
         document.getElementById('root')
