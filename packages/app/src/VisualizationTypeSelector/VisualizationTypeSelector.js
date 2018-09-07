@@ -86,6 +86,7 @@ class VisualizationTypeSelector extends Component {
                             </ListItemIcon>
                             <ListItemText
                                 primary={visualizationTypeMap[type]}
+                                disableTypography={true}
                                 style={{
                                     fontSize: '14px',
                                     padding: '16px 0 8px 0',
