@@ -22,21 +22,7 @@ export class App extends Component {
 
         store.dispatch(fromActions.fromUser.acReceivedUser(d2.currentUser));
         store.dispatch(fromActions.fromDimensions.tSetDimensions());
-        this.loadExampleChart(d2);
     }
-
-    loadExampleChart = async () => {
-        const d2 = this.props.d2;
-        const type = 'chart';
-        const id = 'Tun9tJb3sQt';
-
-        const fields = getFieldsStringByType(type);
-        const chart1 = await d2.models[type].get(id, {
-            fields,
-        });
-
-        console.log('chart1', chart1);
-    };
 
     getChildContext() {
         return {
@@ -68,7 +54,7 @@ export class App extends Component {
                         <VisualizationTypeSelector />
                     </div>
                     <div className="item3 menu-bar">
-                        <MenuBar />
+                        <MenuBar fileType="chart" />
                     </div>
                     <div className="item4 dimensions">
                         <Dimensions />
@@ -78,7 +64,7 @@ export class App extends Component {
                         Interpretations panel
                     </div>
                     <div className="item7 canvas">
-                        <Visualization />
+                        <Visualization d2={this.props.d2}/>
                     </div>
                 </div>
                 {this.renderSnackbar()}

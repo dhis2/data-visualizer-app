@@ -11,7 +11,7 @@ import './MenuBar.css';
 const getOnOpen = props => {
     // TODO get type somehow!
     // from props, when choosing visualization type set type in the store?
-    return id => props.onSetVisualization('chart', id);
+    return id => props.onSetVisualization(props.fileType, id);
 };
 
 export const MenuBar = (props, context) => (
@@ -22,7 +22,7 @@ export const MenuBar = (props, context) => (
         <div>
             <FileMenu
                 d2={context.d2}
-                fileType="chart"
+                fileType={props.fileType}
                 onOpen={getOnOpen(props)}
                 onTranslate={() => console.log('translate callback')}
                 onError={() => console.log('error!')}
