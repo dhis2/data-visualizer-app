@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ColumnIcon from './DataTypeIcons/ColumnIcon';
-import StackedColumnIcon from './DataTypeIcons/StackedColumnIcon';
-import BarIcon from './DataTypeIcons/BarIcon';
-import StackedBarIcon from './DataTypeIcons/StackedBarIcon';
-import PieIcon from './DataTypeIcons/PieIcon';
-import GaugeIcon from './DataTypeIcons/GaugeIcon';
-import LineIcon from './DataTypeIcons/LineIcon';
-import AreaIcon from './DataTypeIcons/AreaIcon';
-import RadarIcon from './DataTypeIcons/RadarIcon';
-import BubbleIcon from './DataTypeIcons/BubbleIcon';
-import YearOnYearIcon from './DataTypeIcons/YearOnYearIcon';
+import ColumnIcon from './icons/ColumnIcon';
+import StackedColumnIcon from './icons/StackedColumnIcon';
+import BarIcon from './icons/BarIcon';
+import StackedBarIcon from './icons/StackedBarIcon';
+import PieIcon from './icons/PieIcon';
+import GaugeIcon from './icons/GaugeIcon';
+import LineIcon from './icons/LineIcon';
+import AreaIcon from './icons/AreaIcon';
+import RadarIcon from './icons/RadarIcon';
+import BubbleIcon from './icons/BubbleIcon';
+import YearOnYearIcon from './icons/YearOnYearIcon';
 import {
     COLUMN,
     STACKED_COLUMN,
