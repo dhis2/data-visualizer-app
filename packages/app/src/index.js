@@ -13,6 +13,10 @@ import configureStore from './configureStore';
 import App from './App';
 import { muiTheme } from './theme';
 
+// tmp
+import { MuiThemeProvider as V0MuiThemeProvider } from 'material-ui';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+
 const configI18n = async userSettings => {
     const uiLocale = userSettings.keyUiLocale;
 
@@ -28,7 +32,9 @@ const render = (baseUrl, d2) => {
     ReactDOM.render(
         <Provider store={configureStore()}>
             <MuiThemeProvider theme={muiTheme()}>
-                <App baseUrl={baseUrl} d2={d2} />
+                <V0MuiThemeProvider muiTheme={getMuiTheme({})}>
+                    <App baseUrl={baseUrl} d2={d2} />
+                </V0MuiThemeProvider>
             </MuiThemeProvider>
         </Provider>,
         document.getElementById('root')

@@ -74,10 +74,10 @@ export default (state = DEFAULT_STATE, action) => {
     }
 };
 
-// selectors
+// Selectors
 
-export const sGetFromState = state => state.ui;
+export const sGetUi = state => state.ui;
 
-export const sGetUiOptions = state => sGetFromState(state).options;
-export const sGetUiLayout = state => sGetFromState(state).layout;
-export const sGetUiItems = state => sGetFromState(state).itemsByDimension;
+export const sGetUiOptions = state => sGetUi(state).options;
+export const sGetUiLayout = state => sGetUi(state).layout;
+export const sGetUiItems = state => sGetUi(state).itemsByDimension;

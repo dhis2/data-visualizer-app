@@ -7,7 +7,7 @@ import ui, * as fromUi from './ui';
 import snackbar, * as fromSnackbar from './snackbar';
 import user, * as fromUser from './user';
 
-// action types
+// Action types
 
 export const actionTypes = {
     ...fromVisualization.actionTypes,
@@ -19,7 +19,7 @@ export const actionTypes = {
     ...fromUser.actionTypes,
 };
 
-// reducers
+// Reducers
 
 export default combineReducers({
     visualization,
@@ -31,7 +31,7 @@ export default combineReducers({
     user,
 });
 
-// selectors
+// Selectors
 
 export {
     fromVisualization,

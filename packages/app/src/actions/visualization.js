@@ -1,7 +1,6 @@
 import { actionTypes } from '../reducers';
 import { onError } from './index';
 import { apiFetchVisualization } from '../api/visualization';
-import { acSetCurrent } from '../actions/current';
 
 export const acSetVisualization = visualization => ({
     type: actionTypes.SET_VISUALIZATION,
@@ -9,15 +8,15 @@ export const acSetVisualization = visualization => ({
 });
 
 export const tSetVisualization = (type, id) => async (dispatch, getState) => {
-    const onSuccess = visualization => {
+    const onSuccess = model => {
+        const visualization = model.toJSON();
         dispatch(acSetVisualization(visualization));
         return visualization;
-        // dispatch(acSetCurrent(visualization));
     };
 
     try {
-        const response = await apiFetchVisualization(type, id);
-        return onSuccess(response);
+        const model = await apiFetchVisualization(type, id);
+        return onSuccess(model);
     } catch (err) {
         return onError(err);
     }

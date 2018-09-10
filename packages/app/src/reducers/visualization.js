@@ -14,4 +14,6 @@ export default (state = DEFAULT_VISUALIZATION, action) => {
     }
 };
 
-export const sGetFromState = state => state.visualization;
+// Selectors
+
+export const sGetVisualization = state => state.visualization;

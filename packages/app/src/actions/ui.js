@@ -5,23 +5,23 @@ export const acSetUi = ui => ({
     value: ui,
 });
 
-export const acSetUiFromVisualization = visualization => ({
-    type: actionTypes.SET_IU_FROM_VISUALIZATION,
-    value: visualization,
+export const acSetUiFromVisualization = value => ({
+    type: actionTypes.SET_UI_FROM_VISUALIZATION,
+    value,
 });
 
-export const acSetUiOptions = options => ({
+export const acSetUiOptions = value => ({
     type: actionTypes.SET_IU_OPTIONS,
-    value: options,
+    value,
 });
 
-export const acSetUiLayout = layout => ({
+export const acSetUiLayout = value => ({
     type: actionTypes.SET_IU_LAYOUT,
-    value: layout,
+    value,
 });
 
-export const acSetUiItems = (id, items) => ({
+export const acSetUiItems = (id, value) => ({
     type: actionTypes.SET_IU_ITEMS,
     id,
-    value: items,
+    value,
 });

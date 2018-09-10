@@ -14,5 +14,5 @@ export default (state = DEFAULT_RECOMMENDED_DIMENSION_IDS, action) => {
     }
 };
 
-// selectors
+// Selectors
 export const sGetRecommended = state => state.recommendedDimensionIds || [];

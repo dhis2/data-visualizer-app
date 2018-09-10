@@ -23,7 +23,9 @@ export const tDoLoadVisualization = (type, id) => async (
     dispatch,
     getState
 ) => {
-    const visualization = await fromVisualization.tSetVisualization(type, id);
+    const visualization = await dispatch(
+        fromVisualization.tSetVisualization(type, id)
+    );
 
     dispatch(fromCurrent.acSetCurrent(visualization));
     dispatch(fromUi.acSetUiFromVisualization(visualization));

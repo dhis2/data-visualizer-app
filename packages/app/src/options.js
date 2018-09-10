@@ -1,34 +1,3 @@
-const options = {
-    baseLineLabel: null,
-    baseLineValue: null,
-    // colorSet:
-    cumulativeValues: false,
-    domainAxisLabel: null,
-    hideEmptyRowItems: null,
-    hideLegend: false,
-    noSpaceBetweenColumns: false,
-    percentStackedValues: false,
-    rangeAxisDecimals: null,
-    rangeAxisLabel: null,
-    rangeAxisMaxValue: null,
-    rangeAxisMinValue: null,
-    rangeAxisSteps: null,
-    regressionType: null,
-    showData: true,
-    targetLineLabel: null,
-    targetLineValue: null,
-    // legendDisplayStrategy
-    // legendSet
-    aggregationType: null,
-    completedOnly: false,
-    hideSubtitle: false,
-    hideTitle: false,
-    sortOrder: null,
-    subtitle: null,
-    title: null,
-    // topLimit
-};
-
 export default {
     baseLineLabel: null,
     baseLineValue: null,
