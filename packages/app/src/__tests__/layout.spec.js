@@ -43,15 +43,17 @@ const visualization = {
     [FILTERS]: [ou],
 };
 
-describe('layout.js', () => {
-    it('getAllDimensions', () => {
+describe('getAllDimensions', () => {
+    it('should return an array of all dimensions in the visualization', () => {
         const expectedState = [dx, other, pe, ou];
         const actualState = getAllDimensions(visualization);
 
         expect(actualState).toEqual(expectedState);
     });
+});
 
-    it('getItemIdsByDimensionMap', () => {
+describe('getItemIdsByDimensionMap', () => {
+    it('should return an object with item ids by dimension id from an array of dimensions', () => {
         const expectedState = {
             [dxId]: [dxItem1Id, dxItem2Id],
             [otherId]: [otherItem1Id],
@@ -63,8 +65,10 @@ describe('layout.js', () => {
 
         expect(actualState).toEqual(expectedState);
     });
+});
 
-    it('getItemIdsByDimension', () => {
+describe('getItemIdsByDimension', () => {
+    it('should return an object with item ids by dimension id from a visualization', () => {
         const expectedState = {
             [dxId]: [dxItem1Id, dxItem2Id],
             [otherId]: [otherItem1Id],
@@ -75,8 +79,10 @@ describe('layout.js', () => {
 
         expect(actualState).toEqual(expectedState);
     });
+});
 
-    it('getDimensionIdsByAxis', () => {
+describe('getDimensionIdsByAxis', () => {
+    it('should return an object with dimension ids by axis name', () => {
         const expectedState = {
             [COLUMNS]: [dxId, otherId],
             [ROWS]: [peId],

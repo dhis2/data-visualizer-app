@@ -50,4 +50,10 @@ export function orObject(param) {
 // object
 
 export const getPropsByKeys = (sourceObj, keys) =>
-    keys.reduce((obj, key) => ({ ...obj, [key]: sourceObj[key] }), {});
+    keys.reduce(
+        (obj, key) =>
+            sourceObj.hasOwnProperty(key)
+                ? { ...obj, [key]: sourceObj[key] }
+                : obj,
+        {}
+    );

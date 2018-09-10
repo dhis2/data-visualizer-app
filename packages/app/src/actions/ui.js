@@ -1,8 +1,8 @@
 import { actionTypes } from '../reducers';
 
-export const acSetUi = ui => ({
-    type: actionTypes.SET_IU,
-    value: ui,
+export const acSetUi = value => ({
+    type: actionTypes.SET_UI,
+    value: value,
 });
 
 export const acSetUiFromVisualization = value => ({
@@ -11,17 +11,17 @@ export const acSetUiFromVisualization = value => ({
 });
 
 export const acSetUiOptions = value => ({
-    type: actionTypes.SET_IU_OPTIONS,
+    type: actionTypes.SET_UI_OPTIONS,
     value,
 });
 
 export const acSetUiLayout = value => ({
-    type: actionTypes.SET_IU_LAYOUT,
+    type: actionTypes.SET_UI_LAYOUT,
     value,
 });
 
 export const acSetUiItems = (id, value) => ({
-    type: actionTypes.SET_IU_ITEMS,
+    type: actionTypes.SET_UI_ITEMS,
     id,
     value,
 });

@@ -7,7 +7,9 @@ export const DEFAULT_CURRENT = {};
 export default (state = DEFAULT_CURRENT, action) => {
     switch (action.type) {
         case actionTypes.SET_CURRENT:
-            return action.value;
+            return {
+                ...action.value,
+            };
         default:
             return state;
     }

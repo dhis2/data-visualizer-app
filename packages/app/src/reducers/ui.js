@@ -1,17 +1,17 @@
 import options from '../options';
 import { getPropsByKeys } from '../util';
-import { getDimensionIdsByAxis, getItemsByDimension } from '../layout';
+import { getDimensionIdsByAxis, getItemIdsByDimension } from '../layout';
 
 export const actionTypes = {
     SET_UI: 'SET_UI',
     SET_UI_FROM_VISUALIZATION: 'SET_UI_FROM_VISUALIZATION',
     SET_UI_TYPE: 'SET_UI_TYPE',
-    SET_IU_OPTIONS: 'SET_IU_OPTIONS',
+    SET_UI_OPTIONS: 'SET_UI_OPTIONS',
     SET_UI_LAYOUT: 'SET_UI_LAYOUT',
     SET_UI_ITEMS: 'SET_UI_ITEMS',
 };
 
-const DEFAULT_STATE = {
+export const DEFAULT_UI = {
     options,
     layout: {
         columns: ['dx'],
@@ -25,7 +25,7 @@ const DEFAULT_STATE = {
     },
 };
 
-export default (state = DEFAULT_STATE, action) => {
+export default (state = DEFAULT_UI, action) => {
     switch (action.type) {
         case actionTypes.SET_UI: {
             return {
@@ -33,14 +33,12 @@ export default (state = DEFAULT_STATE, action) => {
             };
         }
         case actionTypes.SET_UI_FROM_VISUALIZATION: {
-            const obj = {
+            return {
                 type: action.value.type,
                 options: getPropsByKeys(action.value, Object.keys(options)),
                 layout: getDimensionIdsByAxis(action.value),
-                itemsByDimension: getItemsByDimension(action.value),
+                itemsByDimension: getItemIdsByDimension(action.value),
             };
-            console.log('SET_UI_FROM_VISUALIZATION', obj);
-            return obj;
         }
         case actionTypes.SET_UI_TYPE: {
             return {
@@ -48,24 +46,27 @@ export default (state = DEFAULT_STATE, action) => {
                 type: action.value,
             };
         }
-        case actionTypes.SET_IU_OPTIONS: {
+        case actionTypes.SET_UI_OPTIONS: {
             return {
                 ...state,
-                options: action.value,
+                options: {
+                    ...action.value,
+                },
             };
         }
         case actionTypes.SET_UI_LAYOUT: {
             return {
                 ...state,
-                layout: action.value,
+                layout: {
+                    ...action.value,
+                },
             };
         }
         case actionTypes.SET_UI_ITEMS: {
             return {
                 ...state,
                 itemsByDimension: {
-                    ...state.itemsByDimension,
-                    [action.id]: action.value,
+                    ...action.value,
                 },
             };
         }
