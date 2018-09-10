@@ -1,6 +1,6 @@
 import options from '../options';
 import { getPropsByKeys } from '../util';
-import { layoutKeys, getItemsByDimensionFromVisualization } from '../layout';
+import { getDimensionIdsByAxis, getItemsByDimension } from '../layout';
 
 export const actionTypes = {
     SET_UI: 'SET_UI',
@@ -32,15 +32,15 @@ export default (state = DEFAULT_STATE, action) => {
                 ...action.value,
             };
         }
-        case actionTypes.SET_IU_FROM_VISUALIZATION: {
-            return {
+        case actionTypes.SET_UI_FROM_VISUALIZATION: {
+            const obj = {
                 type: action.value.type,
                 options: getPropsByKeys(action.value, Object.keys(options)),
-                layout: getPropsByKeys(action.value, layoutKeys),
-                itemsByDimension: getItemsByDimensionFromVisualization(
-                    action.value
-                ),
+                layout: getDimensionIdsByAxis(action.value),
+                itemsByDimension: getItemsByDimension(action.value),
             };
+            console.log('SET_UI_FROM_VISUALIZATION', obj);
+            return obj;
         }
         case actionTypes.SET_UI_TYPE: {
             return {

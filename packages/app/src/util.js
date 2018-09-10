@@ -10,6 +10,13 @@ export function arrayToIdMap(array) {
     }, {});
 }
 
+export function entriesToObject(entries) {
+    return entries.reduce(
+        (obj, [key, value]) => ({ ...obj, [key]: value }),
+        {}
+    );
+}
+
 export const sortArray = array => {
     const sortedDimensions = array.sort((dimensionA, dimensionB) => {
         const nameA = dimensionA.displayName.toLowerCase(),

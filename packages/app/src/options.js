@@ -4,7 +4,7 @@ export default {
     // colorSet:
     cumulativeValues: false,
     domainAxisLabel: null,
-    hideEmptyRowItems: null,
+    hideEmptyRowItems: 'NONE',
     hideLegend: false,
     noSpaceBetweenColumns: false,
     percentStackedValues: false,
@@ -13,17 +13,17 @@ export default {
     rangeAxisMaxValue: null,
     rangeAxisMinValue: null,
     rangeAxisSteps: null,
-    regressionType: null,
+    regressionType: 'NONE',
     showData: true,
     targetLineLabel: null,
     targetLineValue: null,
     // legendDisplayStrategy
     // legendSet
-    aggregationType: null,
+    aggregationType: 'DEFAULT',
     completedOnly: false,
     hideSubtitle: false,
     hideTitle: false,
-    sortOrder: null,
+    sortOrder: 0,
     subtitle: null,
     title: null,
     // topLimit

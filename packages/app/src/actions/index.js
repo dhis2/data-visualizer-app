@@ -19,6 +19,8 @@ export const onError = (action, error) => {
     return error;
 };
 
+// visualization, current, ui
+
 export const tDoLoadVisualization = (type, id) => async (
     dispatch,
     getState
