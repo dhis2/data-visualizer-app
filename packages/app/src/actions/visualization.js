@@ -15,8 +15,7 @@ export const tSetVisualization = (type, id) => async (dispatch, getState) => {
     };
 
     try {
-        const model = await apiFetchVisualization(type, id);
-        return onSuccess(model);
+        return onSuccess(await apiFetchVisualization(type, id));
     } catch (err) {
         return onError(err);
     }

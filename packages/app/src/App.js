@@ -68,7 +68,7 @@ export class App extends Component {
                         <VisualizationTypeSelector />
                     </div>
                     <div className="item3 menu-bar">
-                        <MenuBar />
+                        <MenuBar apiObjectName={this.props.apiObjectName} />
                     </div>
                     <div className="item4 dimensions">
                         <Dimensions />

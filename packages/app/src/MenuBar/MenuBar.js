@@ -8,55 +8,50 @@ import * as fromReducers from '../reducers';
 import * as fromActions from '../actions';
 import './MenuBar.css';
 import { sGetCurrent } from '../reducers/current';
+import { sGetVisualization } from '../reducers/visualization';
 
 const getOnOpen = props => {
     // TODO get type somehow!
     // from props, when choosing visualization type set type in the store?
-    return id => props.onSetVisualization('chart', id);
+    return id => props.onLoadVisualizaton(id);
 };
 
-export const MenuBar = (props, context) => {
-    console.log('columns', props.current.columns);
-    return (
-        <div className="menubar">
-            <div>
-                <button type="button" onClick={props.onLoadVisualizaton}>
-                    Update
-                </button>
-            </div>
-            <div>
-                <FileMenu
-                    d2={context.d2}
-                    fileType="chart"
-                    onOpen={getOnOpen(props)}
-                    onTranslate={() => console.log('translate callback')}
-                    onError={() => console.log('error!')}
-                />
-            </div>
-            <div>
-                <VisualizationOptionsManager />
-            </div>
-            <div>Download</div>
-            <div>Embed</div>
-            <div className="spacefiller" />
-            <div>Show interpretations</div>
+export const MenuBar = (props, context) => (
+    <div className="menubar">
+        <div>
+            <button type="button">Update</button>
         </div>
-    );
-};
+        <div>
+            <FileMenu
+                d2={context.d2}
+                fileType="chart"
+                onOpen={getOnOpen(props)}
+                onTranslate={() => console.log('translate callback')}
+                onError={() => console.log('error!')}
+            />
+        </div>
+        <div>
+            <VisualizationOptionsManager />
+        </div>
+        <div>Download</div>
+        <div>Embed</div>
+        <div className="spacefiller" />
+        <div>Show interpretations</div>
+    </div>
+);
 
 MenuBar.contextTypes = {
     d2: PropTypes.object,
 };
 
 const mapStateToProps = state => ({
-    visualization: fromReducers.fromVisualization.visualization,
+    visualization: sGetVisualization(state),
     current: sGetCurrent(state),
 });
 
-const mapDispatchToProps = dispatch => ({
-    onSetVisualization: fromActions.fromVisualization.tSetVisualization,
-    onLoadVisualizaton: () =>
-        dispatch(fromActions.tDoLoadVisualization('chart', 'CNkMibmx1Zr')),
+const mapDispatchToProps = (dispatch, ownProps) => ({
+    onLoadVisualizaton: id =>
+        dispatch(fromActions.tDoLoadVisualization(ownProps.apiObjectName, id)),
 });
 
 export default connect(

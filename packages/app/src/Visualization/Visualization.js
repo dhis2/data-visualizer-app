@@ -4,23 +4,20 @@ import { sGetCurrent } from '../reducers/current';
 import { sGetVisualization } from '../reducers/visualization';
 import { sGetUi } from '../reducers/ui';
 
-const Visualization = props => {
-    return (
-        <section className="canvas">
-            <div>Visualization Canvas</div>
-        </section>
-    );
-};
+const renderVisualizationName = props =>
+    props.visualization ? <h3>{props.visualization.name}</h3> : '';
 
-const mapStateToProps = state => {
-    const vis = sGetVisualization(state);
-    const cur = sGetCurrent(state);
-    console.log('vis === current', vis === cur);
-    return {
-        visualization: sGetVisualization(state),
-        current: sGetCurrent(state),
-        ui: sGetUi(state),
-    };
-};
+const Visualization = props => (
+    <section className="canvas">
+        <div>Visualization Canvas</div>
+        {renderVisualizationName(props)}
+    </section>
+);
+
+const mapStateToProps = state => ({
+    visualization: sGetVisualization(state),
+    current: sGetCurrent(state),
+    ui: sGetUi(state),
+});
 
 export default connect(mapStateToProps)(Visualization);

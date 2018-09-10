@@ -17,6 +17,8 @@ import { muiTheme } from './theme';
 import { MuiThemeProvider as V0MuiThemeProvider } from 'material-ui';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
+const apiObjectName = 'chart';
+
 const configI18n = async userSettings => {
     const uiLocale = userSettings.keyUiLocale;
 
@@ -33,7 +35,11 @@ const render = (baseUrl, d2) => {
         <Provider store={configureStore()}>
             <MuiThemeProvider theme={muiTheme()}>
                 <V0MuiThemeProvider muiTheme={getMuiTheme({})}>
-                    <App baseUrl={baseUrl} d2={d2} />
+                    <App
+                        baseUrl={baseUrl}
+                        d2={d2}
+                        apiObjectName={apiObjectName}
+                    />
                 </V0MuiThemeProvider>
             </MuiThemeProvider>
         </Provider>,
