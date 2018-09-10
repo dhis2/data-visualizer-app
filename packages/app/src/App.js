@@ -11,7 +11,6 @@ import Dimensions from './Dimensions/Dimensions';
 import Visualization from './Visualization/Visualization';
 import * as fromReducers from './reducers';
 import * as fromActions from './actions';
-import { getFieldsStringByType } from './fields';
 
 import './App.css';
 
