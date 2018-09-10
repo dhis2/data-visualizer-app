@@ -34,11 +34,3 @@ export const getDimensionIdsByAxis = visualization => {
 
     return entriesToObject(entriesWithIds);
 };
-
-const ax = {
-    columns: [{ dimension: 'dx' }, { dimension: 'abc' }],
-    rows: [{ dimension: 'pe' }],
-    filters: [{ dimension: 'ou' }],
-};
-
-const en = [['columns', [{}, {}]], ['rows', [{}, {}]], ['filters', [{}, {}]]];
