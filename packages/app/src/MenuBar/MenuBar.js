@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import FileMenu from '@dhis2/d2-ui-file-menu';
 
 import VisualizationOptionsManager from '../VisualizationOptions/VisualizationOptionsManager';
-import * as fromReducers from '../reducers';
 import * as fromActions from '../actions';
 import './MenuBar.css';
 import { sGetCurrent } from '../reducers/current';

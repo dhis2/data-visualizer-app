@@ -2,7 +2,6 @@ import { getInstance } from 'd2/lib/d2';
 import { onError } from './index';
 import { getFieldsStringByType } from '../fields';
 
-console.log("getFieldsStringByType('chart')", getFieldsStringByType('chart'));
 export const apiFetchVisualization = (type, id) =>
     getInstance()
         .then(d2 =>
