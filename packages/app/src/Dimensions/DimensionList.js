@@ -38,7 +38,6 @@ export class DimensionList extends Component {
                 key={dimension.id}
                 displayName={dimension.displayName}
                 isSelected={!!this.props.selected.includes(dimension.id)}
-                isRecommended={!!this.props.recommended.includes(dimension.id)}
                 toggleDialog={this.props.toggleDialog}
             />
         );
@@ -72,7 +71,6 @@ DimensionList.defaultProps = {
 const mapStateToProps = state => ({
     dimensions: fromReducers.fromDimensions.sGetDimensions(state),
     selected: fromReducers.fromUi.sGetDimensionIdsFromLayout(state),
-    recommended: fromReducers.fromRecommendedIds.sGetRecommendedIds(state),
 });
 
 export default connect(mapStateToProps)(DimensionList);

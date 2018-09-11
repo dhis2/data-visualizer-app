@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import { colors } from '../colors';
@@ -11,6 +12,7 @@ import {
     GenericDimension,
     RecommendedIcon,
 } from './icons';
+import * as fromReducers from '../reducers';
 
 const style = {
     wrapper: {
@@ -64,7 +66,9 @@ export class DimensionItem extends Component {
     };
 
     checkIfRecommended = () => {
-        return this.props.isRecommended && !this.props.isSelected ? (
+        const { isRecommended, isSelected, id } = this.props;
+
+        return isRecommended.includes(id) && !isSelected ? (
             <RecommendedIcon />
         ) : null;
     };
@@ -110,4 +114,8 @@ DimensionItem.propTypes = {
     toggleDialog: PropTypes.func.isRequired,
 };
 
-export default DimensionItem;
+const mapStateToProps = state => ({
+    isRecommended: fromReducers.fromRecommendedIds.sGetRecommendedIds(state),
+});
+
+export default connect(mapStateToProps)(DimensionItem);
