@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import visualization, * as fromVisualization from './visualization';
 import current, * as fromCurrent from './current';
 import dimensions, * as fromDimensions from './dimensions';
-import recommendedDimensionIds, * as fromRecommendedDimensionIds from './recommendedDimensionIds';
+import recommendedIds, * as fromRecommendedIds from './recommendedIds';
 import ui, * as fromUi from './ui';
 import snackbar, * as fromSnackbar from './snackbar';
 import user, * as fromUser from './user';
@@ -13,7 +13,7 @@ export const actionTypes = {
     ...fromVisualization.actionTypes,
     ...fromCurrent.actionTypes,
     ...fromDimensions.actionTypes,
-    ...fromRecommendedDimensionIds.actionTypes,
+    ...fromRecommendedIds.actionTypes,
     ...fromUi.actionTypes,
     ...fromSnackbar.actionTypes,
     ...fromUser.actionTypes,
@@ -25,7 +25,7 @@ export default combineReducers({
     visualization,
     current,
     dimensions,
-    recommendedDimensionIds,
+    recommendedIds,
     ui,
     snackbar,
     user,
@@ -37,7 +37,7 @@ export {
     fromVisualization,
     fromCurrent,
     fromDimensions,
-    fromRecommendedDimensionIds,
+    fromRecommendedIds,
     fromUi,
     fromSnackbar,
 };

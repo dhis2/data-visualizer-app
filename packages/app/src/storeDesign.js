@@ -17,7 +17,7 @@ const state = {
     // Array of recommended dimension ids
     // Init state: []
     // Keeping them seperated from dimensions for performance reasons
-    recommendedDimensionIds: [],
+    recommendedIds: [],
 
     // Object holding default and current state for the components
     ui: {
@@ -49,5 +49,5 @@ const state = {
 // If you load an AO (analytical object) it will be stored in "visualization" and "current" -> the visualization is shown
 // Change selection (updates "ui") and click update (updates "current") -> "visualization" and "current" are now different objects -> show unsaved state indicator
 
-// When dx/ou in "itemsByDimension" change -> update "recommendedDimensionIds"
+// When dx/ou in "itemsByDimension" change -> update "recommendedIds"
 // Keeping recommended ids separated to avoid re-render of the full list, only updating the dots

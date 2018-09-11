@@ -82,3 +82,9 @@ export const sGetUi = state => state.ui;
 export const sGetUiOptions = state => sGetUi(state).options;
 export const sGetUiLayout = state => sGetUi(state).layout;
 export const sGetUiItems = state => sGetUi(state).itemsByDimension;
+
+export const sGetDimensionIdsFromLayout = state =>
+    Object.values(sGetUiLayout(state)).reduce(
+        (ids, axis) => ids.concat(axis),
+        []
+    );

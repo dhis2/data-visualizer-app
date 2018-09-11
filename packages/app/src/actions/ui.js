@@ -2,7 +2,7 @@ import { actionTypes } from '../reducers';
 
 export const acSetUi = value => ({
     type: actionTypes.SET_UI,
-    value: value,
+    value,
 });
 
 export const acSetUiFromVisualization = value => ({
