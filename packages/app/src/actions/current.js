@@ -1,6 +1,6 @@
 import { actionTypes } from '../reducers';
 
-export const acSetCurrent = current => ({
+export const acSetCurrent = value => ({
     type: actionTypes.SET_CURRENT,
-    value: current,
+    value,
 });
