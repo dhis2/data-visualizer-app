@@ -1,39 +1,73 @@
+import options from '../options';
+import { getPropsByKeys } from '../util';
+import { getDimensionIdsByAxis, getItemIdsByDimension } from '../layout';
+
 export const actionTypes = {
-    SET_SELECTED: 'SET_SELECTED',
-    REMOVE_SELECTED: 'REMOVE_SELECTED',
+    SET_UI: 'SET_UI',
+    SET_UI_FROM_VISUALIZATION: 'SET_UI_FROM_VISUALIZATION',
+    SET_UI_TYPE: 'SET_UI_TYPE',
+    SET_UI_OPTIONS: 'SET_UI_OPTIONS',
+    SET_UI_LAYOUT: 'SET_UI_LAYOUT',
+    SET_UI_ITEMS: 'SET_UI_ITEMS',
 };
 
-export const DEFAULT_LAYOUT = {
-    columns: [],
-    rows: [],
-    filter: [],
+export const DEFAULT_UI = {
+    options,
+    layout: {
+        columns: ['dx'],
+        rows: ['pe'],
+        filters: ['ou'],
+    },
+    itemsByDimension: {
+        dx: [],
+        pe: ['LAST_12_MONTHS'],
+        ou: ['USER_ORGUNIT'],
+    },
 };
 
-const LAYOUT_ID_POS = 0;
-const LAYOUT_OBJ_POS = 1;
-
-export default (state = DEFAULT_LAYOUT, action) => {
+export default (state = DEFAULT_UI, action) => {
     switch (action.type) {
-        case actionTypes.SET_SELECTED: {
-            const dimLayoutIds = state[action.value.layoutId];
-
+        case actionTypes.SET_UI: {
             return {
-                ...state,
-                [action.value.layoutId]: dimLayoutIds.concat(
-                    action.value.dimId
-                ),
+                ...action.value,
             };
         }
-        case actionTypes.REMOVE_SELECTED: {
-            const layoutIndex = Object.entries(state).find(item => {
-                return item[LAYOUT_OBJ_POS].includes(action.value);
-            })[LAYOUT_ID_POS];
-
+        case actionTypes.SET_UI_FROM_VISUALIZATION: {
+            return {
+                type: action.value.type,
+                options: getPropsByKeys(action.value, Object.keys(options)),
+                layout: getDimensionIdsByAxis(action.value),
+                itemsByDimension: getItemIdsByDimension(action.value),
+            };
+        }
+        case actionTypes.SET_UI_TYPE: {
             return {
                 ...state,
-                [layoutIndex]: state[layoutIndex].filter(
-                    id => id !== action.value
-                ),
+                type: action.value,
+            };
+        }
+        case actionTypes.SET_UI_OPTIONS: {
+            return {
+                ...state,
+                options: {
+                    ...action.value,
+                },
+            };
+        }
+        case actionTypes.SET_UI_LAYOUT: {
+            return {
+                ...state,
+                layout: {
+                    ...action.value,
+                },
+            };
+        }
+        case actionTypes.SET_UI_ITEMS: {
+            return {
+                ...state,
+                itemsByDimension: {
+                    ...action.value,
+                },
             };
         }
         default:
@@ -41,10 +75,10 @@ export default (state = DEFAULT_LAYOUT, action) => {
     }
 };
 
-export const sGetLayout = state => state.ui;
+// Selectors
 
-export const sGetSelected = state => [
-    ...sGetLayout(state).columns,
-    ...sGetLayout(state).rows,
-    ...sGetLayout(state).filter,
-];
+export const sGetUi = state => state.ui;
+
+export const sGetUiOptions = state => sGetUi(state).options;
+export const sGetUiLayout = state => sGetUi(state).layout;
+export const sGetUiItems = state => sGetUi(state).itemsByDimension;

@@ -65,16 +65,14 @@ DimensionList.propTypes = {
 };
 
 DimensionList.defaultProps = {
-    recommended: [],
     selected: [],
+    recommended: [],
 };
 
 const mapStateToProps = state => ({
     dimensions: fromReducers.fromDimensions.sGetDimensions(state),
-    selected: fromReducers.fromUi.sGetSelected(state),
-    recommended: fromReducers.fromRecommendedDimensionIds.sGetRecommended(
-        state
-    ),
+    selected: fromReducers.fromUi.sGetDimensionIdsFromLayout(state),
+    recommended: fromReducers.fromRecommendedIds.sGetRecommendedIds(state),
 });
 
 export default connect(mapStateToProps)(DimensionList);

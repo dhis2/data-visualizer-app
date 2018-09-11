@@ -1,23 +1,24 @@
-import { FIXED_DIMENSIONS } from '../fixedDimensions';
+import { FIXED_DIMENSIONS as DEFAULT_DIMENSIONS } from '../fixedDimensions';
 
 export const actionTypes = {
     SET_DIMENSIONS: 'SET_DIMENSIONS',
     SET_SELECTED_DIMENSION: 'SET_SELECTED_DIMENSION',
 };
 
-export const DEFAULT_DIMENSIONS = FIXED_DIMENSIONS;
-
 export default (state = DEFAULT_DIMENSIONS, action) => {
     switch (action.type) {
         case actionTypes.SET_DIMENSIONS: {
-            return Object.assign({}, FIXED_DIMENSIONS, { ...action.value });
+            return {
+                ...DEFAULT_DIMENSIONS,
+                ...action.value,
+            };
         }
         default:
             return state;
     }
 };
 
-// selectors
+// Selectors
 
 /**
  * Selector which returns dimensions from the state object
@@ -31,5 +32,3 @@ export default (state = DEFAULT_DIMENSIONS, action) => {
  * @returns {Array}
  */
 export const sGetDimensions = state => state.dimensions;
-
-export const sGetSelected = () => [];

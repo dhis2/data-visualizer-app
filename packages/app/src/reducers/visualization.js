@@ -2,7 +2,7 @@ export const actionTypes = {
     SET_VISUALIZATION: 'SET_VISUALIZATION',
 };
 
-export const DEFAULT_VISUALIZATION = {};
+export const DEFAULT_VISUALIZATION = null;
 
 export default (state = DEFAULT_VISUALIZATION, action) => {
     switch (action.type) {
@@ -14,4 +14,6 @@ export default (state = DEFAULT_VISUALIZATION, action) => {
     }
 };
 
-export const sGetFromState = state => state.visualization;
+// Selectors
+
+export const sGetVisualization = state => state.visualization;
