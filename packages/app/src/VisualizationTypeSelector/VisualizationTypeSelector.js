@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -8,11 +9,12 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import VisualizationTypeIcon from './VisualizationTypeIcon';
 import { COLUMN, visualizationTypeMap } from './visualizationTypes';
+import { sGetUi } from '../reducers/ui';
+import { acSetUiType } from '../actions/ui';
 
-class VisualizationTypeSelector extends Component {
+export class VisualizationTypeSelector extends Component {
     state = {
         anchorEl: null,
-        visualizationType: this.props.visualizationType || COLUMN,
     };
 
     handleButtonClick = event => {
@@ -20,7 +22,7 @@ class VisualizationTypeSelector extends Component {
     };
 
     handleMenuItemClick = type => event => {
-        this.setState({ visualizationType: type });
+        this.props.onTypeSelect(type);
         this.handleClose();
     };
 
@@ -29,7 +31,8 @@ class VisualizationTypeSelector extends Component {
     };
 
     render() {
-        const { anchorEl, visualizationType } = this.state;
+        const { anchorEl } = this.state;
+        const { visualizationType } = this.props;
 
         return (
             <div className="visualization-type-selector">
@@ -106,4 +109,16 @@ VisualizationTypeSelector.propTypes = {
     ),
 };
 
-export default VisualizationTypeSelector;
+const mapStateToProps = state => ({
+    visualizationType: sGetUi(state).type,
+});
+
+const mapDispatchToProps = dispatch => ({
+    onTypeSelect: type =>
+        dispatch(acSetUiType(type)),
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(VisualizationTypeSelector);
