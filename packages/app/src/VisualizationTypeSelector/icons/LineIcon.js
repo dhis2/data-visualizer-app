@@ -16,20 +16,8 @@ const LineIcon = ({
                     mask="url(#mask-2)"
                     points="4 28 16 16 26.7935166 26.7935166 33.0558406 20.5311926 53 36 53 51 0 51 0 28"
                 />
-                <rect
-                    fill="#9E9E9E"
-                    x="0"
-                    y="0"
-                    width="2"
-                    height="48"
-                />
-                <rect
-                    fill="#9E9E9E"
-                    x="0"
-                    y="46"
-                    width="48"
-                    height="2"
-                />
+                <rect fill="#9E9E9E" x="0" y="0" width="2" height="48" />
+                <rect fill="#9E9E9E" x="0" y="46" width="48" height="2" />
             </g>
         </g>
     </SvgIcon>

@@ -7,7 +7,7 @@ const PieIcon = ({
     <SvgIcon viewBox="0,0,48,48" style={style}>
         <defs>
             <mask id="mask-4" fill="white">
-                <circle cx="24" cy="24" r="24"/>
+                <circle cx="24" cy="24" r="24" />
             </mask>
         </defs>
         <g stroke="none" stroke-width="0" fill="none" fill-rule="evenodd">

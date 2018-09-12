@@ -8,7 +8,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import VisualizationTypeIcon from './VisualizationTypeIcon';
-import { COLUMN, visualizationTypeMap } from './visualizationTypes';
+import { visualizationTypeMap } from './visualizationTypes';
 import { sGetUi } from '../reducers/ui';
 import { acSetUiType } from '../actions/ui';
 
@@ -61,8 +61,8 @@ export class VisualizationTypeSelector extends Component {
                     anchorOrigin={{ vertical: 'top', horizontal: 'left' }}
                     onClose={this.handleClose}
                     getContentAnchorEl={null}
-                    style={{maxWidth: 632}}
-                    MenuListProps={{ style: {overflow: 'auto'} }}
+                    style={{ maxWidth: 632 }}
+                    MenuListProps={{ style: { overflow: 'auto' } }}
                 >
                     {Object.keys(visualizationTypeMap).map(type => (
                         <MenuItem
@@ -104,9 +104,7 @@ export class VisualizationTypeSelector extends Component {
 }
 
 VisualizationTypeSelector.propTypes = {
-    visualizationType: PropTypes.oneOf(
-        Object.keys(visualizationTypeMap)
-    ),
+    visualizationType: PropTypes.oneOf(Object.keys(visualizationTypeMap)),
 };
 
 const mapStateToProps = state => ({
@@ -114,8 +112,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    onTypeSelect: type =>
-        dispatch(acSetUiType(type)),
+    onTypeSelect: type => dispatch(acSetUiType(type)),
 });
 
 export default connect(

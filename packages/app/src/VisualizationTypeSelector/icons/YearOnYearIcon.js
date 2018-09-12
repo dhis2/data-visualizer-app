@@ -28,20 +28,8 @@ const YearOnYearIcon = ({
                     mask="url(#mask-2)"
                     points="1 35 19 39 28 31 38 28 50 43 50 66 -3 66 -3 35"
                 />
-                <rect
-                    fill="#9E9E9E"
-                    x="0"
-                    y="0"
-                    width="2"
-                    height="48"
-                />
-                <rect
-                    fill="#9E9E9E"
-                    x="0"
-                    y="46"
-                    width="48"
-                    height="2"
-                />
+                <rect fill="#9E9E9E" x="0" y="0" width="2" height="48" />
+                <rect fill="#9E9E9E" x="0" y="46" width="48" height="2" />
             </g>
         </g>
     </SvgIcon>
