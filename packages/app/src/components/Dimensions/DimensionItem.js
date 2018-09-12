@@ -19,6 +19,8 @@ const style = {
     text: {
         fontSize: 16,
         color: colors.black,
+        cursor: 'pointer',
+        userSelect: 'none',
     },
     itemContainer: {
         display: 'flex',
@@ -56,9 +58,22 @@ export class DimensionItem extends Component {
     getDimensionIcon = () =>
         fixedDimensionIcons[this.props.id] || <GenericDimension />;
 
+    onDragStart = e => {
+        console.log('e.target.id', e.target.id);
+        e.dataTransfer.setData('text', e.target.id);
+    };
+
     getDimensionType = () => {
         return (
-            <span style={style.text}> {i18n.t(this.props.displayName)} </span>
+            <span
+                id={this.props.id}
+                style={style.text}
+                draggable="true"
+                onDragStart={this.onDragStart}
+            >
+                {' '}
+                {i18n.t(this.props.displayName)}{' '}
+            </span>
         );
     };
 
