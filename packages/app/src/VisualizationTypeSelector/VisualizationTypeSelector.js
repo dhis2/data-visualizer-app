@@ -9,7 +9,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import VisualizationTypeIcon from './VisualizationTypeIcon';
 import { visualizationTypeMap } from './visualizationTypes';
-import { sGetUi } from '../reducers/ui';
+import { sGetUiType } from '../reducers/ui';
 import { acSetUiType } from '../actions/ui';
 
 export class VisualizationTypeSelector extends Component {
@@ -108,7 +108,7 @@ VisualizationTypeSelector.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    visualizationType: sGetUi(state).type,
+    visualizationType: sGetUiType(state),
 });
 
 const mapDispatchToProps = dispatch => ({
