@@ -1,15 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { sGetUiLayout } from '../../reducers/ui';
+import { acAddUiLayoutDimension } from '../../actions/ui';
 
 const styles = {
     dropzone: {
-        margin: 30,
+        margin: '0 30 30',
         padding: 30,
         border: '1px solid #ddd',
     },
+    h4: {
+        marginBottom: 5,
+    },
 };
 
-export default class Layout extends React.Component {
+class Layout extends React.Component {
     state = {
         dimensions: [],
     };
@@ -18,37 +23,56 @@ export default class Layout extends React.Component {
         e.preventDefault();
     };
 
-    onDrop = e => {
-        this.setState({
-            dimensions: [...this.state, e.dataTransfer.getData('text')],
-        });
+    getDropHandler = axisId => e => {
+        const dimensionId = e.dataTransfer.getData('text');
 
+        // this.setState({
+        //     dimensions: [...this.state.dimensions, id],
+        // });
+
+        this.props.onAddDimension(axisId, dimensionId);
         e.dataTransfer.clearData();
     };
 
-    render() {
-        console.log('this.state', this.state);
+    renderAxisDropzone = axisId => {
         return (
-            <div className="layout-container">
+            <div>
+                <h4 style={styles.h4}>{axisId}</h4>
                 <div
-                    id="dropzone-columns"
+                    id={`dropzone-${axisId}`}
                     style={styles.dropzone}
                     onDragOver={this.onDragOver}
-                    onDrop={this.onDrop}
+                    onDrop={this.getDropHandler(axisId)}
                 >
-                    {this.state.dimensions.map(dim => (
+                    {this.props.layout[axisId].map(dim => (
                         <div key={dim}>{dim}</div>
                     ))}
                 </div>
             </div>
         );
+    };
+
+    render() {
+        return (
+            <div className="layout-container">
+                {this.renderAxisDropzone('columns')}
+                {this.renderAxisDropzone('rows')}
+                {this.renderAxisDropzone('filters')}
+            </div>
+        );
     }
 }
 
-// const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+    layout: sGetUiLayout(state),
+});
 
-// const mapDispatchToProps = dispatch => ({
-//     onDrop: e => dispatch({ type: ''})
-// });
+const mapDispatchToProps = dispatch => ({
+    onAddDimension: (axisId, dimensionId) =>
+        dispatch(acAddUiLayoutDimension(axisId, dimensionId)),
+});
 
-// export default connect(mapStateToProps)(Layout);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Layout);

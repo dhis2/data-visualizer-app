@@ -8,6 +8,7 @@ export const actionTypes = {
     SET_UI_TYPE: 'SET_UI_TYPE',
     SET_UI_OPTIONS: 'SET_UI_OPTIONS',
     SET_UI_LAYOUT: 'SET_UI_LAYOUT',
+    ADD_UI_LAYOUT_DIMENSION: 'ADD_UI_LAYOUT_DIMENSION',
     SET_UI_ITEMS: 'SET_UI_ITEMS',
 };
 
@@ -59,6 +60,19 @@ export default (state = DEFAULT_UI, action) => {
                 ...state,
                 layout: {
                     ...action.value,
+                },
+            };
+        }
+        case actionTypes.ADD_UI_LAYOUT_DIMENSION: {
+            console.log('ADD_UI_LAYOUT_DIMENSION state', state);
+            return {
+                ...state,
+                layout: {
+                    ...state.layout,
+                    [action.axisId]: [
+                        ...state.layout[action.axisId],
+                        action.dimensionId,
+                    ],
                 },
             };
         }
