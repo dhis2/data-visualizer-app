@@ -1,16 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import { sGetUiLayout } from '../../reducers/ui';
 import { acAddUiLayoutDimension } from '../../actions/ui';
+import { sGetDimensions } from '../../reducers/dimensions';
 
 const styles = {
     dropzone: {
         margin: '0 30 30',
-        padding: 30,
-        border: '1px solid #ddd',
+        padding: 20,
+        border: '1px dashed #ccc',
     },
     h4: {
         marginBottom: 5,
+    },
+    chip: {
+        padding: 5,
+        backgroundColor: '#bbdefb',
+        color: '#000',
+        margin: 2,
     },
 };
 
@@ -25,11 +33,6 @@ class Layout extends React.Component {
 
     getDropHandler = axisId => e => {
         const dimensionId = e.dataTransfer.getData('text');
-
-        // this.setState({
-        //     dimensions: [...this.state.dimensions, id],
-        // });
-
         this.props.onAddDimension(axisId, dimensionId);
         e.dataTransfer.clearData();
     };
@@ -39,13 +42,14 @@ class Layout extends React.Component {
             <div>
                 <h4 style={styles.h4}>{axisId}</h4>
                 <div
-                    id={`dropzone-${axisId}`}
                     style={styles.dropzone}
                     onDragOver={this.onDragOver}
                     onDrop={this.getDropHandler(axisId)}
                 >
-                    {this.props.layout[axisId].map(dim => (
-                        <div key={dim}>{dim}</div>
+                    {this.props.layout[axisId].map(dimensionId => (
+                        <div key={dimensionId} style={styles.chip}>
+                            {this.props.dimensions[dimensionId].displayName}
+                        </div>
                     ))}
                 </div>
             </div>
@@ -65,6 +69,7 @@ class Layout extends React.Component {
 
 const mapStateToProps = state => ({
     layout: sGetUiLayout(state),
+    dimensions: sGetDimensions(state),
 });
 
 const mapDispatchToProps = dispatch => ({
