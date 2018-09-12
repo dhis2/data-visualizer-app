@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { sGetCurrent } from '../reducers/current';
-import { sGetVisualization } from '../reducers/visualization';
-import { sGetUi } from '../reducers/ui';
+import { sGetCurrent } from '../../reducers/current';
+import { sGetVisualization } from '../../reducers/visualization';
+import { sGetUi } from '../../reducers/ui';
 
 const renderVisualizationName = props =>
     props.visualization ? <h3>{props.visualization.name}</h3> : '';
