@@ -10,7 +10,7 @@ import { init as d2Init, config, getUserSettings } from 'd2/lib/d2';
 import i18n from './locales';
 import configureStore from './configureStore';
 
-import App from './App';
+import App from './components/App';
 import { muiTheme } from './theme';
 
 // tmp

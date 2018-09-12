@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Close } from '@material-ui/icons';
-import { colors } from '../colors';
-import { tSetDimensions } from '../actions/dimensions';
+import { colors } from '../../colors';
+import { tSetDimensions } from '../../actions/dimensions';
 
 const style = {
     unselected: {

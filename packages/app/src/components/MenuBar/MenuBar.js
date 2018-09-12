@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 import FileMenu from '@dhis2/d2-ui-file-menu';
 
 import VisualizationOptionsManager from '../VisualizationOptions/VisualizationOptionsManager';
-import * as fromActions from '../actions';
+import * as fromActions from '../../actions';
 import './MenuBar.css';
-import { sGetCurrent } from '../reducers/current';
-import { sGetVisualization } from '../reducers/visualization';
+import { sGetCurrent } from '../../reducers/current';
+import { sGetVisualization } from '../../reducers/visualization';
 
 const getOnOpen = props => {
     // TODO get type somehow!
