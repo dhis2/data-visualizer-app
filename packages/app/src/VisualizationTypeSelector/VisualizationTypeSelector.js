@@ -39,15 +39,14 @@ export class VisualizationTypeSelector extends Component {
                 <Button
                     onClick={this.handleButtonClick}
                     style={{
-                        padding: '8px',
+                        padding: 8,
                         color: 'black',
-                        fontFace: 'Roboto-Regular',
-                        fontSize: '14px',
+                        fontSize: 14,
                         textTransform: 'none',
                         fontWeight: 'normal',
                         borderRight: '1px lightgrey',
-                        width: '250px',
-                        height: '40px',
+                        width: 250,
+                        height: 40,
                         justifyContent: 'left',
                     }}
                 >
@@ -68,9 +67,9 @@ export class VisualizationTypeSelector extends Component {
                         <MenuItem
                             key={type}
                             style={{
-                                height: '104px',
-                                width: '134px',
-                                padding: '8px',
+                                height: 104,
+                                width: 134,
+                                padding: 8,
                                 display: 'flex',
                                 flexDirection: 'column',
                                 float: 'left',
@@ -91,7 +90,7 @@ export class VisualizationTypeSelector extends Component {
                                 primary={visualizationTypeMap[type]}
                                 disableTypography={true}
                                 style={{
-                                    fontSize: '14px',
+                                    fontSize: 14,
                                     padding: '16px 0 8px 0',
                                 }}
                             />
