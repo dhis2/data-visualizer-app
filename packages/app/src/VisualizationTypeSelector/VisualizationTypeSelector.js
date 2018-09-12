@@ -11,6 +11,7 @@ import VisualizationTypeIcon from './VisualizationTypeIcon';
 import { visualizationTypeMap } from './visualizationTypes';
 import { sGetUiType } from '../reducers/ui';
 import { acSetUiType } from '../actions/ui';
+import { colors } from '../colors';
 
 export class VisualizationTypeSelector extends Component {
     state = {
@@ -38,16 +39,27 @@ export class VisualizationTypeSelector extends Component {
             <div className="visualization-type-selector">
                 <Button
                     onClick={this.handleButtonClick}
+                    disableRipple
+                    disableFocusRipple
                     style={{
                         padding: 8,
-                        color: 'black',
+                        margin: '2px 3px',
+                        color: colors.black,
                         fontSize: 14,
                         textTransform: 'none',
                         fontWeight: 'normal',
                         borderRight: '1px lightgrey',
-                        width: 250,
+                        width: 244,
                         height: 40,
                         justifyContent: 'left',
+                        '&:hover': {
+                            backgroundColor: colors.blueGrey,
+                            borderRadius: 4,
+                        },
+                        '&:active': {
+                            backgroundColor: colors.accentPrimaryLightest,
+                            borderRadius: 4,
+                        },
                     }}
                 >
                     <VisualizationTypeIcon type={visualizationType} />
@@ -57,19 +69,22 @@ export class VisualizationTypeSelector extends Component {
                 <Menu
                     open={Boolean(anchorEl)}
                     anchorEl={anchorEl}
-                    anchorOrigin={{ vertical: 'top', horizontal: 'left' }}
+                    anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
                     onClose={this.handleClose}
                     getContentAnchorEl={null}
-                    style={{ maxWidth: 632 }}
-                    MenuListProps={{ style: { overflow: 'auto' } }}
+                    style={{ maxWidth: 640 }}
+                    MenuListProps={{ style: { overflow: 'auto', padding: 0 } }}
                 >
                     {Object.keys(visualizationTypeMap).map(type => (
                         <MenuItem
                             key={type}
+                            selected={type === visualizationType}
                             style={{
                                 height: 104,
                                 width: 134,
-                                padding: 8,
+                                padding: 0,
+                                margin: 8,
+                                boxSizing: 'border-box',
                                 display: 'flex',
                                 flexDirection: 'column',
                                 float: 'left',
