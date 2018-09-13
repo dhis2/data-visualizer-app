@@ -12,9 +12,9 @@ import { OrgUnitDimension } from './OrgUnitDimension';
 
 // Placeholder for the dimension popup dialogs - using the Options dialog until the components are created
 const dimensionComponents = {
-    Data: <DataDimension />,
-    Period: <PeriodDimension />,
-    OrgUnit: <OrgUnitDimension />,
+    dx: <DataDimension />,
+    pe: <PeriodDimension />,
+    ou: <OrgUnitDimension />,
 };
 
 export const DialogManager = ({

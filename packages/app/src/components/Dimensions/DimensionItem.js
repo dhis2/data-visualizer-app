@@ -33,9 +33,9 @@ const style = {
     },
 };
 const fixedDimensionIcons = {
-    Data: <DataIcon />,
-    Period: <PeriodIcon />,
-    OrgUnit: <OrgUnitIcon />,
+    dx: <DataIcon />,
+    pe: <PeriodIcon />,
+    ou: <OrgUnitIcon />,
 };
 
 export class DimensionItem extends Component {

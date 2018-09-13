@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Close } from '@material-ui/icons';
 import { colors } from '../../colors';
-import { tSetDimensions } from '../../actions/dimensions';
+import { acRemoveUiLayoutDimensions } from '../../actions/ui';
 
 const style = {
     unselected: {
@@ -62,7 +62,7 @@ export class DimensionLabel extends Component {
     };
 
     onRemoveDimensionClick = () => {
-        this.props.removeSelectedDimension(this.props.axisKey, this.props.id);
+        this.props.removeDimension(this.props.id);
     };
 
     renderRemoveButton = () => {
@@ -91,19 +91,8 @@ export class DimensionLabel extends Component {
         );
     };
 }
-/*
-const mapStateToProps = (state, ownProps) => ({
-    axisKey: fromReducers.fromUi.sGetLayoutAxisKey(state, ownProps.id),
-});
-
-const mapDispatchToProps = dispatch => ({
-    removeSelectedDimension: (axisKey, id) =>
-        dispatch(tSetUiLayout(axisKey, id)),
-});
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+    null,
+    { removeDimension: id => acRemoveUiLayoutDimensions(id) }
 )(DimensionLabel);
-*/
-export default DimensionLabel;

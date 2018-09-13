@@ -1,6 +1,6 @@
 import { actionTypes } from '../reducers';
-import { acSetRecommendedIds } from './recommendedIds';
-import { apiFetchRecommendedIds } from '../api/dimensions';
+//import { acSetRecommendedIds } from './recommendedIds';
+//import { apiFetchRecommendedIds } from '../api/dimensions';
 
 export const acSetUi = value => ({
     type: actionTypes.SET_UI,
@@ -40,10 +40,5 @@ export const acRemoveUiLayoutDimensions = value => ({
 
 export const acSetUiItems = value => ({
     type: actionTypes.SET_UI_ITEMS,
-    value,
-});
-
-export const acSetUiType = value => ({
-    type: actionTypes.SET_UI_TYPE,
     value,
 });
