@@ -1,12 +1,12 @@
 import {
-    AXIS_KEYS,
+    AXIS_NAMES,
     getAllDimensions,
     getItemIdsByDimensionMap,
     getItemIdsByDimension,
     getDimensionIdsByAxis,
 } from '../layout.js';
 
-const [COLUMNS, ROWS, FILTERS] = AXIS_KEYS;
+const [COLUMNS, ROWS, FILTERS] = AXIS_NAMES;
 
 const dxId = 'dx';
 const dxItem1Id = 'dxItem1';

@@ -24,6 +24,7 @@ describe('The DialogManager component ', () => {
             dialogIsOpen: false,
             id: null,
             toggleDialog: jest.fn(),
+            classes: { paper: {} },
         };
         shallowDialog = undefined;
     });
