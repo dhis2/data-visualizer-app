@@ -28,38 +28,7 @@ export const acSetUiItems = (id, value) => ({
     value,
 });
 
-export const tSetUiLayout = (axisKey, dimId) => async (dispatch, getState) => {
-    const onSuccess = (selectedIds, recommendedIds) => {
-        dispatch(acSetUiLayout(selectedIds));
-        dispatch(acSetRecommendedIds(recommendedIds));
-    };
-
-    const onError = error => {
-        console.log('Error (apiFetchRecommendedIds: ', error);
-        return error;
-    };
-
-    const layoutIds = getState().ui.layout[axisKey];
-    const newSelectedIds = layoutIds.includes(dimId)
-        ? layoutIds.filter(id => id !== dimId)
-        : [...layoutIds, dimId];
-
-    let test;
-    if (axisKey === 'columns') {
-        test = getState().ui.layout.filters;
-    } else if (axisKey === 'filters') {
-        test = getState().ui.layout.columns;
-    }
-
-    const newLayout = { ...getState().ui.layout, [axisKey]: newSelectedIds };
-
-    if (axisKey !== 'rows') {
-        try {
-            const response = await apiFetchRecommendedIds(newSelectedIds, test);
-            return onSuccess(newLayout, response);
-        } catch (err) {
-            return onError(err);
-        }
-    }
-    return onSuccess(newLayout, null);
-};
+export const acSetUiType = value => ({
+    type: actionTypes.SET_UI_TYPE,
+    value,
+});
