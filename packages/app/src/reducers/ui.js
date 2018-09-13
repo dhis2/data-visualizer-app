@@ -4,6 +4,7 @@ import {
     getDimensionIdsByAxis,
     getItemIdsByDimension,
     getFilteredLayout,
+    getAxisNamesByDimensionId,
 } from '../layout';
 
 export const actionTypes = {
@@ -12,7 +13,7 @@ export const actionTypes = {
     SET_UI_TYPE: 'SET_UI_TYPE',
     SET_UI_OPTIONS: 'SET_UI_OPTIONS',
     SET_UI_LAYOUT: 'SET_UI_LAYOUT',
-    ADD_UI_LAYOUT_DIMENSION: 'ADD_UI_LAYOUT_DIMENSION',
+    ADD_UI_LAYOUT_DIMENSIONS: 'ADD_UI_LAYOUT_DIMENSIONS',
     SET_UI_ITEMS: 'SET_UI_ITEMS',
 };
 
@@ -67,15 +68,60 @@ export default (state = DEFAULT_UI, action) => {
                 },
             };
         }
-        case actionTypes.ADD_UI_LAYOUT_DIMENSION: {
-            const { axisName, dimensionId } = action;
-            const newLayout = getFilteredLayout(state.layout, dimensionId);
+        case actionTypes.ADD_UI_LAYOUT_DIMENSIONS: {
+            const addedFromSwap = {};
+            const dimensionIds = Object.keys(action.value);
+            const axisNamesByDimensionId = getAxisNamesByDimensionId(
+                state.layout
+            );
+            console.log('action.value', action.value);
+            console.log('dimensionIds from action.value', dimensionIds);
+            console.log(
+                'axisNamesByDimensionId in state',
+                axisNamesByDimensionId
+            );
 
-            if (['columns', 'rows'].includes(axisName)) {
-                newLayout[axisName] = [dimensionId];
-            } else {
-                newLayout[axisName].push(dimensionId);
-            }
+            dimensionIds.forEach(id => {
+                const existsAt = axisNamesByDimensionId[id];
+                const destinationAxis = action.value[id];
+                const dimAtDestination = state.layout[destinationAxis][0];
+                console.log('existsAt', existsAt);
+                console.log('destinationAxis', destinationAxis);
+                console.log('dimAtDestination', dimAtDestination);
+                if (
+                    existsAt &&
+                    destinationAxis !== 'filters' &&
+                    dimAtDestination
+                ) {
+                    addedFromSwap[dimAtDestination] = existsAt;
+                }
+            });
+            console.log('addedFromSwap', addedFromSwap);
+            const dimensionsToAdd = {
+                ...action.value,
+                ...addedFromSwap,
+            };
+            console.log('dimensionsToAdd', dimensionsToAdd);
+
+            // action.value = {
+            //     dx: 'columns',
+            //     pe: 'rows',
+            // };
+
+            const newLayout = getFilteredLayout(
+                state.layout,
+                Object.keys(dimensionsToAdd)
+            );
+            console.log('newLayout', newLayout);
+            Object.entries(dimensionsToAdd).forEach(
+                ([dimensionId, axisName]) => {
+                    if (['columns', 'rows'].includes(axisName)) {
+                        newLayout[axisName] = [dimensionId];
+                    } else {
+                        newLayout[axisName].push(dimensionId);
+                    }
+                }
+            );
 
             return {
                 ...state,

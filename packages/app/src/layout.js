@@ -50,10 +50,23 @@ export const getItemIdsByDimension = visualization =>
 export const getDimensionIdsByAxis = visualization => {
     const axes = getPropsByKeys(visualization, AXIS_NAMES);
     const entries = Object.entries(axes);
-    const entriesWithIds = entries.map(([axisId, dimensions]) => [
-        axisId,
+    const entriesWithIds = entries.map(([axisName, dimensions]) => [
+        axisName,
         dimensions.map(dim => dim.dimension),
     ]);
 
     return entriesToObject(entriesWithIds);
+};
+
+export const getAxisNamesByDimensionId = layout => {
+    const entries = Object.entries(layout);
+    const map = {};
+
+    entries.forEach(([axisName, dimensionIds]) => {
+        dimensionIds.forEach(id => {
+            map[id] = axisName;
+        });
+    });
+
+    return map;
 };
