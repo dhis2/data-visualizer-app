@@ -32,7 +32,10 @@ class Layout extends React.Component {
     };
 
     getDropHandler = axisId => e => {
-        const dimensionId = e.dataTransfer.getData('text');
+        const { dimensionId, source } = JSON.parse(
+            e.dataTransfer.getData('text')
+        );
+        console.log(dimensionId, source);
         this.props.onAddDimension(axisId, dimensionId);
         e.dataTransfer.clearData();
     };

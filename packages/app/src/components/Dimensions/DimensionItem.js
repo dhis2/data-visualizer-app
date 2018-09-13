@@ -59,8 +59,12 @@ export class DimensionItem extends Component {
         fixedDimensionIcons[this.props.id] || <GenericDimension />;
 
     onDragStart = e => {
-        console.log('e.target.id', e.target.id);
-        e.dataTransfer.setData('text', e.target.id);
+        const data = {
+            dimensionId: e.target.id,
+            source: 'new',
+        };
+
+        e.dataTransfer.setData('text', JSON.stringify(data));
     };
 
     getDimensionType = () => {
