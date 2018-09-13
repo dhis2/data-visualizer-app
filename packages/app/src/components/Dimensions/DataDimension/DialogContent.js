@@ -6,8 +6,8 @@ import i18n from '@dhis2/d2-i18n';
 
 const style = {
     container: {
-        height: 536,
-        width: 747,
+        //maxHeight: 677,
+        //maxWidth: 795,
     },
     title: {
         height: 24,
@@ -18,6 +18,8 @@ const style = {
         fontWeight: 500,
     },
     subContainer: {
+        height: 536,
+        width: 747,
         display: 'flex',
     },
 };

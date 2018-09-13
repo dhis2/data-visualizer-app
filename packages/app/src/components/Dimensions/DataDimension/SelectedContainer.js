@@ -4,18 +4,20 @@ import i18n from '@dhis2/d2-i18n';
 const style = {
     container: {
         height: 536,
-        width: 280,
+        width: 278,
         border: '1px solid #E0E0E0',
     },
     subContainer: {
-        height: 494,
+        height: 493,
         width: 280,
         border: '1px solid #E0E0E0',
+        borderBottom: 0,
     },
     titleContainer: {
-        height: 40,
+        height: 42,
         widht: 280,
         border: '1px solid #E0E0E0',
+        borderBottom: 0,
     },
     title: {
         position: 'relative',

@@ -3,9 +3,10 @@ import React, { Component } from 'react';
 
 const style = {
     container: {
-        height: 390,
+        height: 389,
         width: 420,
         border: '1px solid #E0E0E0',
+        borderBottom: 0,
     },
 };
 
