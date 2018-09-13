@@ -32,6 +32,7 @@ const style = {
         margin: 0,
         paddingTop: 0,
         paddingBottom: 0,
+        paddingRight: 24,
         height: 84,
         borderTop: '1px solid #ECEFF1',
     },

@@ -15,14 +15,14 @@ const style = {
     searchIcon: {
         color: colors.charcoalGrey,
         position: 'relative',
-        marginTop: 15,
-        right: 15,
+        top: 5,
     },
     textField: {
-        bottom: 9,
-        right: 8,
+        right: 25,
     },
 };
+
+const INPUT_PLACEHOLDER = 'Search Dimensions';
 
 export class Dimensions extends Component {
     state = { searchText: '', dialogDim: null };
@@ -45,11 +45,13 @@ export class Dimensions extends Component {
                     dimension={this.state.dialogDim}
                     toggleDialog={this.toggleDialog}
                 />
-                <Search style={style.searchIcon} />
                 <TextField
-                    placeholder={i18n.t('Search dimensions')}
                     style={style.textField}
                     onChange={this.handleChange}
+                    placeholder={i18n.t(INPUT_PLACEHOLDER)}
+                    InputProps={{
+                        startAdornment: <Search style={style.searchIcon} />,
+                    }}
                 />
                 <DimensionList
                     searchText={this.state.searchText}

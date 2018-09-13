@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-//import i18n from '@dhis2/d2-i18n';
+import TextField from '@material-ui/core/TextField';
+import { Search } from '@material-ui/icons';
+import i18n from '@dhis2/d2-i18n';
 
 const style = {
     container: {
@@ -9,6 +11,11 @@ const style = {
         borderBottom: 0,
         backgroundColor: '#FFFFFF',
     },
+    textField: {
+        width: '98%',
+        paddingLeft: 5,
+        paddingRight: 5,
+    },
 };
 
 export class SearchField extends Component {
@@ -17,7 +24,11 @@ export class SearchField extends Component {
     render = () => {
         return (
             <div style={style.container}>
-                1. SearchField Icon 2. TextField ("Search" placeholder)
+                <TextField
+                    style={style.textField}
+                    placeholder={'Search'}
+                    InputProps={{ startAdornment: <Search /> }}
+                />
             </div>
         );
     };
