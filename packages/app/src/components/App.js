@@ -9,6 +9,7 @@ import MenuBar from './MenuBar/MenuBar';
 import VisualizationTypeSelector from './VisualizationTypeSelector/VisualizationTypeSelector';
 import Dimensions from './Dimensions/Dimensions';
 import Visualization from './Visualization/Visualization';
+import Layout from './Layout/Layout';
 import * as fromReducers from '../reducers';
 import * as fromActions from '../actions';
 
@@ -58,7 +59,9 @@ export class App extends Component {
                     <div className="item4 dimensions">
                         <Dimensions />
                     </div>
-                    <div className="item5 chart-layout">Chart layout</div>
+                    <div className="item5 chart-layout">
+                        <Layout />
+                    </div>
                     <div className="item6 interpretations">
                         Interpretations panel
                     </div>

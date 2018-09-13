@@ -25,6 +25,10 @@ body {
     grid-area: canvas;
 }
 
+.app * {
+    outline: none;
+}
+
 .app {
     display: grid;
     font-family: 'roboto';

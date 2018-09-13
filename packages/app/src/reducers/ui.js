@@ -1,7 +1,10 @@
 import options from '../options';
 import { getPropsByKeys } from '../util';
-import { getDimensionIdsByAxis, getItemIdsByDimension } from '../layout';
-import { COLUMN } from '../components/VisualizationTypeSelector/visualizationTypes';
+import {
+    getDimensionIdsByAxis,
+    getItemIdsByDimension,
+    getFilteredLayout,
+} from '../layout';
 
 export const actionTypes = {
     SET_UI: 'SET_UI',
@@ -9,6 +12,7 @@ export const actionTypes = {
     SET_UI_TYPE: 'SET_UI_TYPE',
     SET_UI_OPTIONS: 'SET_UI_OPTIONS',
     SET_UI_LAYOUT: 'SET_UI_LAYOUT',
+    ADD_UI_LAYOUT_DIMENSION: 'ADD_UI_LAYOUT_DIMENSION',
     SET_UI_ITEMS: 'SET_UI_ITEMS',
 };
 
@@ -62,6 +66,23 @@ export default (state = DEFAULT_UI, action) => {
                 layout: {
                     ...action.value,
                 },
+            };
+        }
+        case actionTypes.ADD_UI_LAYOUT_DIMENSION: {
+            const newLayout = getFilteredLayout(
+                state.layout,
+                action.dimensionId
+            );
+
+            if (['columns', 'rows'].includes(action.axisId)) {
+                newLayout[action.axisId] = [action.dimensionId];
+            } else {
+                newLayout[action.axisId].push(action.dimensionId);
+            }
+
+            return {
+                ...state,
+                layout: newLayout,
             };
         }
         case actionTypes.SET_UI_ITEMS: {

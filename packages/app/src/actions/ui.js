@@ -22,6 +22,12 @@ export const acSetUiLayout = value => ({
     value,
 });
 
+export const acAddUiLayoutDimension = (axisId, dimensionId) => ({
+    type: actionTypes.ADD_UI_LAYOUT_DIMENSION,
+    axisId,
+    dimensionId,
+});
+
 export const acSetUiItems = (id, value) => ({
     type: actionTypes.SET_UI_ITEMS,
     id,
