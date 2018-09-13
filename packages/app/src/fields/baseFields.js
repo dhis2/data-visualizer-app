@@ -83,7 +83,7 @@ export const fieldsByType = {
         getFieldObject('attributeDimensions', { excluded: true }),
         getFieldObject('attributeValues', { excluded: true }),
         getFieldObject('categoryDimensions', { excluded: true }),
-        getFieldObject('categoryOptionGroupSetDimensions'),
+        getFieldObject('categoryOptionGroupSetDimensions', { excluded: true }),
         getFieldObject('code', { excluded: true }),
         getFieldObject('columns'),
         getFieldObject('completedOnly', { option: true }),

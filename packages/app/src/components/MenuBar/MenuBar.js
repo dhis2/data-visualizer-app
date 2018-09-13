@@ -4,14 +4,15 @@ import { connect } from 'react-redux';
 import FileMenu from '@dhis2/d2-ui-file-menu';
 
 import VisualizationOptionsManager from '../VisualizationOptions/VisualizationOptionsManager';
-import * as fromReducers from '../reducers';
-import * as fromActions from '../actions';
+import * as fromActions from '../../actions';
 import './MenuBar.css';
+import { sGetCurrent } from '../../reducers/current';
+import { sGetVisualization } from '../../reducers/visualization';
 
 const getOnOpen = props => {
     // TODO get type somehow!
     // from props, when choosing visualization type set type in the store?
-    return id => props.onSetVisualization(props.fileType, id);
+    return id => props.onLoadVisualizaton(id);
 };
 
 export const MenuBar = (props, context) => (
@@ -43,12 +44,16 @@ MenuBar.contextTypes = {
 };
 
 const mapStateToProps = state => ({
-    visualization: fromReducers.fromVisualization.visualization,
+    visualization: sGetVisualization(state),
+    current: sGetCurrent(state),
+});
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+    onLoadVisualizaton: id =>
+        dispatch(fromActions.tDoLoadVisualization(ownProps.apiObjectName, id)),
 });
 
 export default connect(
     mapStateToProps,
-    {
-        onSetVisualization: fromActions.fromVisualization.tSetVisualization,
-    }
+    mapDispatchToProps
 )(MenuBar);

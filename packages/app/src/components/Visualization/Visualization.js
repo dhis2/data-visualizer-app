@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as fromReducers from '../reducers';
 import { createChart } from 'd2-charts-api';
+import { sGetCurrent } from '../../reducers/current';
+import { sGetVisualization } from '../../reducers/visualization';
+import { sGetUi } from '../../reducers/ui';
 
 export class Visualization extends Component {
     componentDidUpdate(prevProps) {
@@ -25,19 +27,18 @@ export class Visualization extends Component {
     };
 
     render() {
-        console.log('in viz render', this.props);
         return (
             <section className="canvas">
                 <div id="visualization-container">Visualization Canvas</div>
             </section>
         );
     }
-};
+}
 
-const mapStateToProps = state => {
-    const current = fromReducers.fromCurrent.sGetFromState(state);
-
-    return { current };
-};
+const mapStateToProps = state => ({
+    visualization: sGetVisualization(state),
+    current: sGetCurrent(state),
+    ui: sGetUi(state),
+});
 
 export default connect(mapStateToProps)(Visualization);

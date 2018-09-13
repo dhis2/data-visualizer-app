@@ -4,14 +4,13 @@ import PropTypes from 'prop-types';
 import Snackbar from '@material-ui/core/Snackbar';
 import i18n from '@dhis2/d2-i18n';
 
-import SnackbarMessage from './widgets/SnackbarMessage';
+import SnackbarMessage from '../widgets/SnackbarMessage';
 import MenuBar from './MenuBar/MenuBar';
 import VisualizationTypeSelector from './VisualizationTypeSelector/VisualizationTypeSelector';
 import Dimensions from './Dimensions/Dimensions';
 import Visualization from './Visualization/Visualization';
-import * as fromReducers from './reducers';
-import * as fromActions from './actions';
-import { getFieldsStringByType } from './fields';
+import * as fromReducers from '../reducers';
+import * as fromActions from '../actions';
 
 import './App.css';
 
@@ -54,7 +53,7 @@ export class App extends Component {
                         <VisualizationTypeSelector />
                     </div>
                     <div className="item3 menu-bar">
-                        <MenuBar fileType="chart" />
+                        <MenuBar apiObjectName={this.props.apiObjectName} />
                     </div>
                     <div className="item4 dimensions">
                         <Dimensions />
@@ -64,7 +63,7 @@ export class App extends Component {
                         Interpretations panel
                     </div>
                     <div className="item7 canvas">
-                        <Visualization d2={this.props.d2}/>
+                        <Visualization d2={this.props.d2} />
                     </div>
                 </div>
                 {this.renderSnackbar()}
