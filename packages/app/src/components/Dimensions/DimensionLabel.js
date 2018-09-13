@@ -91,7 +91,7 @@ export class DimensionLabel extends Component {
         );
     };
 }
-
+/*
 const mapStateToProps = (state, ownProps) => ({
     axisKey: fromReducers.fromUi.sGetLayoutAxisKey(state, ownProps.id),
 });
@@ -105,3 +105,5 @@ export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(DimensionLabel);
+*/
+export default DimensionLabel;

@@ -22,7 +22,7 @@ const style = {
         height: 7,
         width: 7,
         borderRadius: 5,
-        marginTop: 8,
+        marginTop: 10,
         marginLeft: 4,
     },
     dataIcon: {
@@ -48,12 +48,6 @@ const style = {
         left: 9,
         marginRight: 14,
         marginTop: 11,
-    },
-    moreHorizIcon: {
-        position: 'relative',
-        left: 1,
-        bottom: 2,
-        display: 'inline-block',
     },
 };
 
@@ -370,7 +364,6 @@ export const GenericDimension = () => {
 export const MoreHorizontal = () => {
     return (
         <svg
-            style={style.moreHorizIcon}
             xmlns="http://www.w3.org/2000/svg"
             width="22"
             height="24"

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
-import { tSetUiLayout } from '../actions/ui';
+import { acAddUiLayoutDimension } from '../../actions/ui';
 
 const items = [
     {
@@ -50,9 +50,9 @@ export class DropDown extends Component {
         }
     };
 
-    addDimensionTo = axisKey => {
+    addDimension = axisKey => {
         this.props.onClose();
-        this.props.setSelectedDimension(axisKey, this.props.id);
+        this.props.onAddDimension(axisKey, this.props.id);
     };
 
     render = () => {
@@ -62,7 +62,7 @@ export class DropDown extends Component {
                     <button
                         key={option.id}
                         style={style.listButton}
-                        onClick={() => this.addDimensionTo(option.id)}
+                        onClick={() => this.addDimension(option.id)}
                         onKeyDown={this.handleKeyPress}
                         ref={element => {
                             this.dropDownMenu = element;
@@ -79,6 +79,7 @@ export class DropDown extends Component {
 export default connect(
     null,
     {
-        setSelectedDimension: tSetUiLayout,
+        onAddDimension: (axisId, dimensionId) =>
+            acAddUiLayoutDimension(axisId, dimensionId),
     }
 )(DropDown);

@@ -17,7 +17,6 @@ export const actionTypes = {
 };
 
 export const DEFAULT_UI = {
-    type: COLUMN,
     options,
     layout: {
         columns: ['dx'],
@@ -112,6 +111,3 @@ export const sGetDimensionIdsFromLayout = state =>
         (ids, axis) => ids.concat(axis),
         []
     );
-
-export const sGetLayoutAxisKey = (state, id) =>
-    getAxisKeyById(sGetUiLayout(state), id);

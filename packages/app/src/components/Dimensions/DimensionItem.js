@@ -12,7 +12,7 @@ import {
     GenericDimension,
     RecommendedIcon,
 } from './icons';
-import * as fromReducers from '../reducers';
+import * as fromReducers from '../../reducers';
 
 const style = {
     wrapper: {
@@ -42,7 +42,9 @@ export class DimensionItem extends Component {
     state = { mouseOver: false, optionButtonClicked: false };
 
     onMouseOver = () => {
-        this.setState({ mouseOver: true });
+        if (!this.state.optionButtonClicked) {
+            this.setState({ mouseOver: true });
+        }
     };
 
     onMouseExit = () => {
@@ -78,8 +80,7 @@ export class DimensionItem extends Component {
                 draggable="true"
                 onDragStart={this.onDragStart}
             >
-                {' '}
-                {i18n.t(this.props.displayName)}{' '}
+                {i18n.t(this.props.displayName)}
             </span>
         );
     };
