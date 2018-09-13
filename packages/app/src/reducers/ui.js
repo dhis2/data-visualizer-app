@@ -68,20 +68,24 @@ export default (state = DEFAULT_UI, action) => {
             };
         }
         case actionTypes.ADD_UI_LAYOUT_DIMENSION: {
-            const newLayout = getFilteredLayout(
-                state.layout,
-                action.dimensionId
-            );
+            const { axisName, dimensionId } = action;
+            const newLayout = getFilteredLayout(state.layout, dimensionId);
 
-            if (['columns', 'rows'].includes(action.axisId)) {
-                newLayout[action.axisId] = [action.dimensionId];
+            if (['columns', 'rows'].includes(axisName)) {
+                newLayout[axisName] = [dimensionId];
             } else {
-                newLayout[action.axisId].push(action.dimensionId);
+                newLayout[axisName].push(dimensionId);
             }
 
             return {
                 ...state,
                 layout: newLayout,
+            };
+        }
+        case actionTypes.REMOVE_UI_LAYOUT_DIMENSION: {
+            return {
+                ...state,
+                layout: getFilteredLayout(state.layout, action.value),
             };
         }
         case actionTypes.SET_UI_ITEMS: {
