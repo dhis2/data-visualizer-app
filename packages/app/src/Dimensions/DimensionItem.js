@@ -77,7 +77,7 @@ export class DimensionItem extends Component {
         return !this.props.isSelected && this.state.mouseOver ? (
             <DimensionOptions
                 toggleHoverListener={this.toggleHoverListener}
-                dimId={this.props.id}
+                id={this.props.id}
             />
         ) : null;
     };
@@ -110,7 +110,7 @@ DimensionItem.propTypes = {
     id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
     displayName: PropTypes.string.isRequired,
     isSelected: PropTypes.bool.isRequired,
-    isRecommended: PropTypes.bool.isRequired,
+    isRecommended: PropTypes.array.isRequired,
     toggleDialog: PropTypes.func.isRequired,
 };
 

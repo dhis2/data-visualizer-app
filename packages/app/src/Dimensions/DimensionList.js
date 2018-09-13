@@ -58,14 +58,12 @@ export class DimensionList extends Component {
 DimensionList.propTypes = {
     dimensions: PropTypes.object.isRequired,
     selected: PropTypes.array,
-    recommended: PropTypes.array,
     searchText: PropTypes.string.isRequired,
     toggleDialog: PropTypes.func.isRequired,
 };
 
 DimensionList.defaultProps = {
     selected: [],
-    recommended: [],
 };
 
 const mapStateToProps = state => ({

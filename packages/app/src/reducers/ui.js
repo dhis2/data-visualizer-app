@@ -1,6 +1,10 @@
 import options from '../options';
 import { getPropsByKeys } from '../util';
-import { getDimensionIdsByAxis, getItemIdsByDimension } from '../layout';
+import {
+    getDimensionIdsByAxis,
+    getItemIdsByDimension,
+    getAxisKeyById,
+} from '../layout';
 
 export const actionTypes = {
     SET_UI: 'SET_UI',
@@ -88,3 +92,6 @@ export const sGetDimensionIdsFromLayout = state =>
         (ids, axis) => ids.concat(axis),
         []
     );
+
+export const sGetLayoutAxisKey = (state, id) =>
+    getAxisKeyById(sGetUiLayout(state), id);

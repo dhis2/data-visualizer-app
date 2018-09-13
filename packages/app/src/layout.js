@@ -25,6 +25,7 @@ export const getItemIdsByDimension = visualization =>
     getItemIdsByDimensionMap(getAllDimensions(visualization));
 
 export const getDimensionIdsByAxis = visualization => {
+    console.log(visualization);
     const axes = getPropsByKeys(visualization, AXIS_KEYS);
     const entries = Object.entries(axes);
     const entriesWithIds = entries.map(([axisId, dimensions]) => [
@@ -33,4 +34,14 @@ export const getDimensionIdsByAxis = visualization => {
     ]);
 
     return entriesToObject(entriesWithIds);
+};
+
+export const getAxisKeyById = (layout, id) => {
+    const entries = Object.entries(layout);
+
+    const axisId = entries.findIndex(([axisKey, dimIds]) =>
+        dimIds.includes(id)
+    );
+
+    return AXIS_KEYS[axisId];
 };

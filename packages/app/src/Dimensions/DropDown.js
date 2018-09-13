@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
-import { tSetSelectedDim } from '../actions/ui';
+import { tSetUiLayout } from '../actions/ui';
 
 const items = [
     {
@@ -13,7 +13,7 @@ const items = [
         name: 'Add to category',
     },
     {
-        id: 'filter',
+        id: 'filters',
         name: 'Add to filter',
     },
 ];
@@ -50,9 +50,9 @@ export class DropDown extends Component {
         }
     };
 
-    addDimensionTo = layoutId => {
+    addDimensionTo = axisKey => {
         this.props.onClose();
-        this.props.addDimension(this.props.dimId, layoutId);
+        this.props.setSelectedDimension(axisKey, this.props.id);
     };
 
     render = () => {
@@ -79,6 +79,6 @@ export class DropDown extends Component {
 export default connect(
     null,
     {
-        addDimension: tSetSelectedDim,
+        setSelectedDimension: tSetUiLayout,
     }
 )(DropDown);

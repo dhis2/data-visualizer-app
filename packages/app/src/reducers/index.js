@@ -6,7 +6,6 @@ import recommendedIds, * as fromRecommendedIds from './recommendedIds';
 import ui, * as fromUi from './ui';
 import snackbar, * as fromSnackbar from './snackbar';
 import user, * as fromUser from './user';
-import ui, * as fromUi from './ui';
 
 // Action types
 

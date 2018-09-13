@@ -66,7 +66,7 @@ export class DimensionOptions extends Component {
             <DropDown
                 onClose={this.closeMenu}
                 renderPos={style.renderPos}
-                dimId={this.props.dimId}
+                id={this.props.id}
             />
         ) : (
             <OptionsButton action={this.showMenu} />

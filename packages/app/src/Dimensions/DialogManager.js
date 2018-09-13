@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
 import {
     Button,
@@ -10,7 +9,6 @@ import {
 import { DataDimension } from './DataDimension';
 import { PeriodDimension } from './PeriodDimension';
 import { OrgUnitDimension } from './OrgUnitDimension';
-import { tSetSelectedDim } from '../actions/ui';
 
 // Placeholder for the dimension popup dialogs - using the Options dialog until the components are created
 const dimensionComponents = {
@@ -48,7 +46,4 @@ export const DialogManager = ({
     );
 };
 
-export default connect(
-    null,
-    { addDimension: tSetSelectedDim }
-)(DialogManager);
+export default DialogManager;
