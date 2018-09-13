@@ -6,11 +6,12 @@ import {
     DialogActions,
     DialogContent,
 } from '@material-ui/core';
-import { DataDimension } from './DataDimension';
+import { DataDimensionContent as DataDimension } from './DataDimension/DialogContent';
 import { PeriodDimension } from './PeriodDimension';
 import { OrgUnitDimension } from './OrgUnitDimension';
 
-// Placeholder for the dimension popup dialogs - using the Options dialog until the components are created
+const style = {};
+
 const dimensionComponents = {
     dx: <DataDimension />,
     pe: <PeriodDimension />,
