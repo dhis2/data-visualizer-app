@@ -1,6 +1,10 @@
 import options from '../options';
 import { getPropsByKeys } from '../util';
-import { getDimensionIdsByAxis, getItemIdsByDimension } from '../layout';
+import {
+    getDimensionIdsByAxis,
+    getItemIdsByDimension,
+    getFilteredLayout,
+} from '../layout';
 
 export const actionTypes = {
     SET_UI: 'SET_UI',
@@ -64,19 +68,16 @@ export default (state = DEFAULT_UI, action) => {
             };
         }
         case actionTypes.ADD_UI_LAYOUT_DIMENSION: {
-            const newLayout = {
-                columns: state.layout.columns.filter(
-                    dim => dim !== action.dimensionId
-                ),
-                rows: state.layout.rows.filter(
-                    dim => dim !== action.dimensionId
-                ),
-                filters: state.layout.filters.filter(
-                    dim => dim !== action.dimensionId
-                ),
-            };
+            const newLayout = getFilteredLayout(
+                state.layout,
+                action.dimensionId
+            );
 
-            newLayout[action.axisId].push(action.dimensionId);
+            if (['columns', 'rows'].includes(action.axisId)) {
+                newLayout[action.axisId] = [action.dimensionId];
+            } else {
+                newLayout[action.axisId].push(action.dimensionId);
+            }
 
             return {
                 ...state,
