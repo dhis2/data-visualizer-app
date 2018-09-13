@@ -1,7 +1,7 @@
 import options from '../options';
 import { getPropsByKeys } from '../util';
 import { getDimensionIdsByAxis, getItemIdsByDimension } from '../layout';
-import { COLUMN } from '../VisualizationTypeSelector/visualizationTypes';
+import { COLUMN } from '../components/VisualizationTypeSelector/visualizationTypes';
 
 export const actionTypes = {
     SET_UI: 'SET_UI',

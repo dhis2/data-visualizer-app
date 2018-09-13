@@ -9,9 +9,9 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import VisualizationTypeIcon from './VisualizationTypeIcon';
 import { visualizationTypeMap } from './visualizationTypes';
-import { sGetUiType } from '../reducers/ui';
-import { acSetUiType } from '../actions/ui';
-import { colors } from '../colors';
+import { sGetUiType } from '../../reducers/ui';
+import { acSetUiType } from '../../actions/ui';
+import { colors } from '../../colors';
 
 export class VisualizationTypeSelector extends Component {
     state = {
