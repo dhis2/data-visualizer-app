@@ -10,7 +10,7 @@ const PieIcon = ({
                 <circle cx="24" cy="24" r="24" />
             </mask>
         </defs>
-        <g stroke="none" stroke-width="0" fill="none" fill-rule="evenodd">
+        <g stroke="none" strokeWidth="0" fill="none" fillRule="evenodd">
             <g transform="translate(24.000000, 24.000000) rotate(-135.000000) translate(-24.000000, -24.000000) ">
                 <g
                     stroke="none"
