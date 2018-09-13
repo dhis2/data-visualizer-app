@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import DimensionItem from './DimensionItem';
-import * as fromReducers from '../reducers';
+import * as fromReducers from '../../reducers';
 
 const style = {
     listContainer: {
