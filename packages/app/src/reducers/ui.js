@@ -64,16 +64,23 @@ export default (state = DEFAULT_UI, action) => {
             };
         }
         case actionTypes.ADD_UI_LAYOUT_DIMENSION: {
-            console.log('ADD_UI_LAYOUT_DIMENSION state', state);
+            const newLayout = {
+                columns: state.layout.columns.filter(
+                    dim => dim !== action.dimensionId
+                ),
+                rows: state.layout.rows.filter(
+                    dim => dim !== action.dimensionId
+                ),
+                filters: state.layout.filters.filter(
+                    dim => dim !== action.dimensionId
+                ),
+            };
+
+            newLayout[action.axisId].push(action.dimensionId);
+
             return {
                 ...state,
-                layout: {
-                    ...state.layout,
-                    [action.axisId]: [
-                        ...state.layout[action.axisId],
-                        action.dimensionId,
-                    ],
-                },
+                layout: newLayout,
             };
         }
         case actionTypes.SET_UI_ITEMS: {

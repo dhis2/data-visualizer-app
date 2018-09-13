@@ -67,6 +67,8 @@ class Layout extends React.Component {
     }
 }
 
+Layout.displayName = 'Layout';
+
 const mapStateToProps = state => ({
     layout: sGetUiLayout(state),
     dimensions: sGetDimensions(state),
