@@ -51,6 +51,7 @@ class Layout extends React.Component {
                     {axis.map(dimensionId => (
                         <Chip
                             key={dimensionId}
+                            axisName={axisName}
                             dimensionId={dimensionId}
                             dimensions={this.props.dimensions}
                         />

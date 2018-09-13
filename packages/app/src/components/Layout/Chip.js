@@ -1,4 +1,5 @@
 import React from 'react';
+import { setDataTransfer } from '../../dnd';
 
 const styles = {
     chip: {
@@ -6,21 +7,22 @@ const styles = {
         backgroundColor: '#bbdefb',
         color: '#000',
         margin: 2,
+        cursor: 'pointer',
     },
 };
 
-export default ({ dimensionId, dimensions }) => {
-    console.log(
-        'Chip dimensionId:',
-        dimensionId,
-        'of dimensions:',
-        dimensions[dimensionId]
-    );
-    return dimensionId ? (
-        <div style={styles.chip} draggable="true">
+const getDragStartHandler = source => e => setDataTransfer(e, source);
+
+export default ({ axisName, dimensionId, dimensions }) =>
+    dimensionId ? (
+        <div
+            id={dimensionId} // TODO dont use id twice
+            style={styles.chip}
+            draggable="true"
+            onDragStart={getDragStartHandler(axisName)}
+        >
             {dimensions[dimensionId].displayName}
         </div>
     ) : (
         ''
     );
-};
