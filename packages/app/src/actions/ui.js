@@ -12,6 +12,11 @@ export const acSetUiFromVisualization = value => ({
     value,
 });
 
+export const acSetUiType = value => ({
+    type: actionTypes.SET_UI_TYPE,
+    value,
+});
+
 export const acSetUiOptions = value => ({
     type: actionTypes.SET_UI_OPTIONS,
     value,
@@ -22,15 +27,19 @@ export const acSetUiLayout = value => ({
     value,
 });
 
-export const acAddUiLayoutDimension = (axisId, dimensionId) => ({
+export const acAddUiLayoutDimension = (axisName, dimensionId) => ({
     type: actionTypes.ADD_UI_LAYOUT_DIMENSION,
-    axisId,
+    axisName,
     dimensionId,
 });
 
-export const acSetUiItems = (id, value) => ({
+export const acRemoveUiLayoutDimensions = value => ({
+    type: actionTypes.REMOVE_UI_LAYOUT_DIMENSION,
+    value,
+});
+
+export const acSetUiItems = value => ({
     type: actionTypes.SET_UI_ITEMS,
-    id,
     value,
 });
 
