@@ -2,12 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import FileMenu from '@dhis2/d2-ui-file-menu';
+import Button from '@material-ui/core/Button';
 
+import { colors } from '../../colors';
 import VisualizationOptionsManager from '../VisualizationOptions/VisualizationOptionsManager';
 import * as fromActions from '../../actions';
 import './MenuBar.css';
 import { sGetCurrent } from '../../reducers/current';
 import { sGetVisualization } from '../../reducers/visualization';
+import { sGetUi } from '../../reducers/ui';
 
 const getOnOpen = props => {
     // TODO get type somehow!
@@ -18,7 +21,13 @@ const getOnOpen = props => {
 export const MenuBar = (props, context) => (
     <div className="menubar">
         <div>
-            <button type="button">Update</button>
+            <Button onClick={() => props.onUpdate(props.ui)}
+                style={{ backgroundColor: colors.accentPrimaryDark, color: colors.white, fontSize: 13 }}
+                disableRipple={true}
+                disableFocusRipple={true}
+            >
+                Update
+            </Button>
         </div>
         <div>
             <FileMenu
@@ -46,11 +55,14 @@ MenuBar.contextTypes = {
 const mapStateToProps = state => ({
     visualization: sGetVisualization(state),
     current: sGetCurrent(state),
+    ui: sGetUi(state),
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
     onLoadVisualizaton: id =>
         dispatch(fromActions.tDoLoadVisualization(ownProps.apiObjectName, id)),
+    onUpdate: ui =>
+        dispatch(fromActions.fromCurrent.acSetCurrentFromUi(ui)),
 });
 
 export default connect(
