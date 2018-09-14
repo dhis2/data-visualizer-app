@@ -1,22 +1,30 @@
 import { getPropsByKeys, entriesToObject } from './util';
 
+// Prop names for analytical object axes
 export const AXIS_NAME_COLUMNS = 'columns';
 export const AXIS_NAME_ROWS = 'rows';
 export const AXIS_NAME_FILTERS = 'filters';
+
 export const AXIS_NAMES = [
     AXIS_NAME_COLUMNS,
     AXIS_NAME_ROWS,
     AXIS_NAME_FILTERS,
 ];
+
+// Prop names for dimension id and items
 export const DIMENSION_ID_PROP_NAME = 'dimension';
 export const DIMENSION_ITEMS_PROP_NAME = 'items';
 
+// Layout utility functions
+
+// Collect all dimensions from the layout in an array
 export const getAllDimensions = visualization =>
     AXIS_NAMES.reduce(
         (dimensions, key) => dimensions.concat(visualization[key]),
         []
     );
 
+// Exclude one or many dimensions from layout
 export const getFilteredLayout = (layout, excludedIds) => {
     const ids = Array.isArray(excludedIds) ? excludedIds : [excludedIds];
 
@@ -33,8 +41,8 @@ export const getFilteredLayout = (layout, excludedIds) => {
     };
 };
 
-export const getItemIdsByDimensionMap = dimensionArray =>
-    dimensionArray.reduce(
+export const getItemIdsByDimensionId = dimensions =>
+    dimensions.reduce(
         (map, dim) => ({
             ...map,
             [dim[DIMENSION_ID_PROP_NAME]]: dim[DIMENSION_ITEMS_PROP_NAME].map(
@@ -45,7 +53,7 @@ export const getItemIdsByDimensionMap = dimensionArray =>
     );
 
 export const getItemIdsByDimension = visualization =>
-    getItemIdsByDimensionMap(getAllDimensions(visualization));
+    getItemIdsByDimensionId(getAllDimensions(visualization));
 
 export const getDimensionIdsByAxis = visualization => {
     const axes = getPropsByKeys(visualization, AXIS_NAMES);

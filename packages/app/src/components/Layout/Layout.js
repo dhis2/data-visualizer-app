@@ -41,7 +41,7 @@ class Layout extends React.Component {
         const axis = this.props.layout[axisName];
 
         return (
-            <div>
+            <div className={`${axisName}-container`}>
                 <h4 style={styles.h4}>{axisName}</h4>
                 <div
                     style={styles.dropzone}

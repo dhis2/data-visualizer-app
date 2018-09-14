@@ -70,6 +70,8 @@ export default (state = DEFAULT_UI, action) => {
                 },
             };
         }
+        // Accepts object saying what to add where: { ou: 'rows' }
+        // Reducer takes care of swapping if dimension already exists in layout
         case actionTypes.ADD_UI_LAYOUT_DIMENSIONS: {
             const addedFromSwap = {};
             const dimensionIds = Object.keys(action.value);
