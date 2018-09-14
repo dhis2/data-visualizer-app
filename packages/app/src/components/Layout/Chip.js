@@ -16,7 +16,7 @@ const getDragStartHandler = source => e => setDataTransfer(e, source);
 export default ({ axisName, dimensionId, dimensions }) =>
     dimensionId ? (
         <div
-            id={dimensionId} // TODO dont use id twice
+            data-dimensionid={dimensionId} // TODO dont use id twice
             style={styles.chip}
             draggable="true"
             onDragStart={getDragStartHandler(axisName)}

@@ -66,7 +66,7 @@ export class DimensionItem extends Component {
     getDimensionType = () => {
         return (
             <span
-                id={this.props.id}
+                data-dimensionid={this.props.id}
                 style={style.text}
                 draggable="true"
                 onDragStart={this.onDragStart}
