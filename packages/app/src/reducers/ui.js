@@ -4,8 +4,6 @@ import {
     getDimensionIdsByAxis,
     getItemIdsByDimension,
     getFilteredLayout,
-    getAxisNamesByDimensionId,
-    getInverseLayout,
     getSwapModObj,
 } from '../layout';
 import { COLUMN } from '../components/VisualizationTypeSelector/visualizationTypes';
