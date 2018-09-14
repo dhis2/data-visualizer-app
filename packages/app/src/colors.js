@@ -5,6 +5,8 @@ const white = '#FFFFFF';
 const black = 'rgba(0,0,0,0.87)';
 const blue = '#004BA0';
 const lightBlue = '#BBDEFB';
+const blueGrey = '#ECEFF1';
+const accentPrimaryLightest = '#EAF4FF';
 
 export const colors = {
     paleGrey,
@@ -14,4 +16,6 @@ export const colors = {
     black,
     blue,
     lightBlue,
+    blueGrey,
+    accentPrimaryLightest,
 };

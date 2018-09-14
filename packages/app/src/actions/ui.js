@@ -39,3 +39,8 @@ export const acSetUiItems = value => ({
     type: actionTypes.SET_UI_ITEMS,
     value,
 });
+
+export const acSetUiType = value => ({
+    type: actionTypes.SET_UI_TYPE,
+    value,
+});
