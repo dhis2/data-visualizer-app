@@ -66,7 +66,9 @@ export const getDimensionIdsByAxis = visualization => {
     return entriesToObject(entriesWithIds);
 };
 
-export const getAxisNamesByDimensionId = layout => {
+// Accepts layout: { columns: ['dx'] }
+// Returns inverse layout: { dx: 'columns' }
+export const getInverseLayout = layout => {
     const entries = Object.entries(layout);
     const map = {};
 
@@ -77,4 +79,28 @@ export const getAxisNamesByDimensionId = layout => {
     });
 
     return map;
+};
+
+// Accepts layout and modification object
+// Returns modObj with swapped dimensions
+export const getSwapModObj = (layout, modObj) => {
+    const inverseLayout = getInverseLayout(layout);
+    const dimensionIds = Object.keys(modObj);
+    const swappedModObj = {};
+
+    dimensionIds.forEach(id => {
+        const existsAt = inverseLayout[id];
+        const destinationAxis = modObj[id];
+        const dimensionAtDestination = layout[destinationAxis][0];
+
+        if (
+            existsAt &&
+            destinationAxis !== 'filters' &&
+            dimensionAtDestination
+        ) {
+            swappedModObj[dimensionAtDestination] = existsAt;
+        }
+    });
+
+    return swappedModObj;
 };

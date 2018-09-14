@@ -5,6 +5,8 @@ import {
     getItemIdsByDimension,
     getFilteredLayout,
     getAxisNamesByDimensionId,
+    getInverseLayout,
+    getSwapModObj,
 } from '../layout';
 import { COLUMN } from '../components/VisualizationTypeSelector/visualizationTypes';
 
@@ -70,54 +72,20 @@ export default (state = DEFAULT_UI, action) => {
                 },
             };
         }
-        // Accepts object saying what to add where: { ou: 'rows' }
+        // action.value: mod object (dimensionId:axisName) saying what to add where: { ou: 'rows' }
         // Reducer takes care of swapping if dimension already exists in layout
         case actionTypes.ADD_UI_LAYOUT_DIMENSIONS: {
-            const addedFromSwap = {};
-            const dimensionIds = Object.keys(action.value);
-            const axisNamesByDimensionId = getAxisNamesByDimensionId(
-                state.layout
-            );
-            console.log('action.value', action.value);
-            console.log('dimensionIds from action.value', dimensionIds);
-            console.log(
-                'axisNamesByDimensionId in state',
-                axisNamesByDimensionId
-            );
-
-            dimensionIds.forEach(id => {
-                const existsAt = axisNamesByDimensionId[id];
-                const destinationAxis = action.value[id];
-                const dimAtDestination = state.layout[destinationAxis][0];
-                console.log('existsAt', existsAt);
-                console.log('destinationAxis', destinationAxis);
-                console.log('dimAtDestination', dimAtDestination);
-                if (
-                    existsAt &&
-                    destinationAxis !== 'filters' &&
-                    dimAtDestination
-                ) {
-                    addedFromSwap[dimAtDestination] = existsAt;
-                }
-            });
-            console.log('addedFromSwap', addedFromSwap);
-            const dimensionsToAdd = {
+            const modObjWithSwap = {
                 ...action.value,
-                ...addedFromSwap,
+                ...getSwapModObj(state.layout, action.value),
             };
-            console.log('dimensionsToAdd', dimensionsToAdd);
-
-            // action.value = {
-            //     dx: 'columns',
-            //     pe: 'rows',
-            // };
 
             const newLayout = getFilteredLayout(
                 state.layout,
-                Object.keys(dimensionsToAdd)
+                Object.keys(modObjWithSwap)
             );
-            console.log('newLayout', newLayout);
-            Object.entries(dimensionsToAdd).forEach(
+
+            Object.entries(modObjWithSwap).forEach(
                 ([dimensionId, axisName]) => {
                     if (['columns', 'rows'].includes(axisName)) {
                         newLayout[axisName] = [dimensionId];

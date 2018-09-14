@@ -28,7 +28,7 @@ class Layout extends React.Component {
     };
 
     getDropHandler = axisName => e => {
-        const { dimensionId, source } = decodeDataTransfer(e);
+        const { dimensionId } = decodeDataTransfer(e);
 
         this.props.onAddDimension({
             [dimensionId]: axisName,
