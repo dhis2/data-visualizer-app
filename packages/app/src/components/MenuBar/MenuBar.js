@@ -21,8 +21,13 @@ const getOnOpen = props => {
 export const MenuBar = (props, context) => (
     <div className="menubar">
         <div>
-            <Button onClick={() => props.onUpdate(props.ui)}
-                style={{ backgroundColor: colors.accentPrimaryDark, color: colors.white, fontSize: 13 }}
+            <Button
+                onClick={() => props.onUpdate(props.ui)}
+                style={{
+                    backgroundColor: colors.accentPrimaryDark,
+                    color: colors.white,
+                    fontSize: 13,
+                }}
                 disableRipple={true}
                 disableFocusRipple={true}
             >
@@ -32,7 +37,7 @@ export const MenuBar = (props, context) => (
         <div>
             <FileMenu
                 d2={context.d2}
-                fileType={props.fileType}
+                fileType={props.apiObjectName}
                 onOpen={getOnOpen(props)}
                 onTranslate={() => console.log('translate callback')}
                 onError={() => console.log('error!')}
@@ -61,8 +66,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
     onLoadVisualizaton: id =>
         dispatch(fromActions.tDoLoadVisualization(ownProps.apiObjectName, id)),
-    onUpdate: ui =>
-        dispatch(fromActions.fromCurrent.acSetCurrentFromUi(ui)),
+    onUpdate: ui => dispatch(fromActions.fromCurrent.acSetCurrentFromUi(ui)),
 });
 
 export default connect(
