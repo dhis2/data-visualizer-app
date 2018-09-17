@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
+import InputLabel from '@material-ui/core/InputLabel';
 import i18n from '@dhis2/d2-i18n';
 
 const style = {
@@ -11,15 +12,13 @@ const style = {
         borderBottom: 0,
         paddingLeft: 5,
         paddingRight: 5,
+        paddingTop: 5,
         display: 'flex',
         flexFlow: 'column',
     },
     titleText: {
-        fontSize: 12,
+        fontSize: 14,
         color: '#616161',
-    },
-    dropDown: {
-        display: 'grid',
     },
     dropDownItem: {
         fontSize: 16,
@@ -29,48 +28,43 @@ const style = {
 const TITLE = i18n.t('Data Type');
 const alternatives = [
     {
-        id: 'indicator',
+        id: 'indicators',
         displayName: 'Indicators',
     },
     {
-        id: 'Delements',
+        id: 'dataElements',
         displayName: 'Data Elements',
     },
     {
-        id: 'Dsets',
+        id: 'dataSets',
         displayName: 'Data sets',
     },
     {
-        id: 'EDItems',
+        id: 'eventDataItems',
         displayName: 'Event data items',
     },
     {
-        id: 'pIndicator',
+        id: 'programIndicators',
         displayName: 'Program Indicator',
     },
 ];
 
 export class DataTypes extends Component {
-    state = { dataType: '' };
-
-    handleChange = event => {
-        this.setState({ dataType: event.target.value });
-    };
+    state = {};
 
     render = () => {
         return (
             <div style={style.container}>
-                <span style={style.titleText}>{TITLE}</span>
+                <InputLabel style={style.titleText}>{TITLE}</InputLabel>
                 <Select
-                    value={this.state.dataType}
-                    onChange={this.handleChange}
-                    style={style.dropDown}
+                    value={this.props.value}
+                    onChange={this.props.handleChange}
                 >
                     {alternatives.map(item => (
                         <MenuItem
                             style={style.dropDownItem}
                             key={item.id}
-                            value={item.displayName}
+                            value={item.id}
                         >
                             {item.displayName}
                         </MenuItem>

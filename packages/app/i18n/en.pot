@@ -5,13 +5,19 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-09-17T13:02:38.545Z\n"
-"PO-Revision-Date: 2018-09-17T13:02:38.545Z\n"
+"POT-Creation-Date: 2018-09-17T14:25:56.957Z\n"
+"PO-Revision-Date: 2018-09-17T14:25:56.957Z\n"
 
-msgid "Hide"
+msgid "Data Type"
 msgstr ""
 
-msgid "Update"
+msgid "Group"
+msgstr ""
+
+msgid "Details"
+msgstr ""
+
+msgid "Totals"
 msgstr ""
 
 msgid "OrgUnit Dimension"
@@ -30,6 +36,9 @@ msgid "Options"
 msgstr ""
 
 msgid "Chart options"
+msgstr ""
+
+msgid "Hide"
 msgstr ""
 
 msgid "Column"

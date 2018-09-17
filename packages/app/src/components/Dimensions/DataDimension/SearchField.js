@@ -16,11 +16,15 @@ const style = {
         width: '98%',
         paddingLeft: 5,
         paddingRight: 5,
+        fontSize: 14,
     },
     searchIcon: {
         color: colors.charcoalGrey,
         position: 'relative',
-        top: 5,
+        top: 3,
+    },
+    placeholder: {
+        fontSize: 14,
     },
 };
 
@@ -36,6 +40,7 @@ export class SearchField extends Component {
                     style={style.textField}
                     placeholder={i18n.t(PLACEHOLDER_TITLE)}
                     InputProps={{
+                        style: style.placeholder,
                         startAdornment: <Search style={style.searchIcon} />,
                     }}
                 />
