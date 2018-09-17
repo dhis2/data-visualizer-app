@@ -6,7 +6,7 @@ import {
     getFilteredLayout,
     getSwapModObj,
 } from '../layout';
-import { COLUMN } from '../components/VisualizationTypeSelector/visualizationTypes';
+//import { COLUMN } from '../components/VisualizationTypeSelector/visualizationTypes';
 
 export const actionTypes = {
     SET_UI: 'SET_UI',

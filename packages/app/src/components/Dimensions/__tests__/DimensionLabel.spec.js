@@ -19,7 +19,7 @@ describe('The DimensionList component ', () => {
             Icon: null,
             Label: null,
             toggleDialog: jest.fn(),
-            removeDimension: jest.fn(),
+            onRemoveDimension: jest.fn(),
         };
         shallowDimLabel = undefined;
     });
