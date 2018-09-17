@@ -250,6 +250,17 @@
     d2-ui "^29.0.18"
     prop-types "^15.6.0"
 
+"@dhis2/d2-ui-period-selector-dialog@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-period-selector-dialog/-/d2-ui-period-selector-dialog-0.1.1.tgz#7ff320d22c05561c20456cb827c561c421799147"
+  dependencies:
+    "@material-ui/core" "^1.5.1"
+    "@material-ui/icons" "^2.0.3"
+    babel-runtime "^6.26.0"
+    prop-types "^15.6.0"
+    react-redux "^5.0.7"
+    redux "^3.7.2"
+
 "@dhis2/d2-ui-sharing-dialog@^1.0.15":
   version "1.0.15"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-sharing-dialog/-/d2-ui-sharing-dialog-1.0.15.tgz#2cc6cc1bd5cd401dd6163776c775bec79a018b71"

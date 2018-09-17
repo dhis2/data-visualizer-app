@@ -12,25 +12,18 @@ import { OrgUnitDimension } from './OrgUnitDimension';
 
 // Placeholder for the dimension popup dialogs - using the Options dialog until the components are created
 const dimensionComponents = {
-    Data: <DataDimension />,
-    Period: <PeriodDimension />,
-    OrgUnit: <OrgUnitDimension />,
+    dx: <DataDimension />,
+    pe: <PeriodDimension />,
+    ou: <OrgUnitDimension />,
 };
 
-export const DialogManager = ({
-    addDimension,
-    dialogIsOpen,
-    id,
-    toggleDialog,
-}) => {
+export const DialogManager = ({ dialogIsOpen, id, toggleDialog }) => {
     return (
         <Dialog open={dialogIsOpen} onClose={() => toggleDialog(null)}>
             <DialogContent>{dimensionComponents[id]}</DialogContent>
             <DialogActions>
                 <Button
                     onClick={() => {
-                        console.log('toggled selected state for dimension');
-                        addDimension(id);
                         toggleDialog(null);
                     }}
                 >

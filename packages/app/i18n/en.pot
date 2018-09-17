@@ -20,9 +20,6 @@ msgstr ""
 msgid "OrgUnit Dimension"
 msgstr ""
 
-msgid "Period Dimension"
-msgstr ""
-
 msgid "Dimension recommended with selected data"
 msgstr ""
 

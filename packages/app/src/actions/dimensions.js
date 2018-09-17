@@ -19,7 +19,6 @@ export const tSetDimensions = () => async dispatch => {
 
     try {
         const response = await apiFetchDimensions();
-        console.log('dim res', response);
         return onSuccess(response.dimensions);
     } catch (err) {
         return onError(err);

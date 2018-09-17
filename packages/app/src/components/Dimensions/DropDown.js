@@ -6,15 +6,15 @@ import i18n from '@dhis2/d2-i18n';
 const items = [
     {
         axisName: 'columns',
-        name: 'Add to columns',
+        name: 'Add to series',
     },
     {
         axisName: 'rows',
-        name: 'Add to rows',
+        name: 'Add to category',
     },
     {
         axisName: 'filters',
-        name: 'Add to filters',
+        name: 'Add to filter',
     },
 ];
 

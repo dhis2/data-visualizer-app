@@ -41,7 +41,7 @@ export class Dimensions extends Component {
         return (
             <div className={'dimensions'} style={style.divContainer}>
                 <DialogManager
-                    dialogIsOpen={!!this.state.dialogDim}
+                    dialogIsOpen={!!this.state.dialogDimId}
                     id={this.state.dialogDimId}
                     toggleDialog={this.toggleDialog}
                 />

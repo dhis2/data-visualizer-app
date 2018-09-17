@@ -20,7 +20,6 @@ export const actionTypes = {
 };
 
 export const DEFAULT_UI = {
-    type: COLUMN,
     options,
     layout: {
         columns: ['dx'],

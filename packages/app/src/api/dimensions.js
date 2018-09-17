@@ -11,7 +11,7 @@ export const apiFetchDimensions = () => {
         .catch(onError);
 };
 
-export const apiFetchRecommended = (idA, idB) => {
+export const apiFetchRecommendedIds = (dimIdA, dimIdB) => {
     return mockResponse();
     /*const fields = `dx:${idA};${idB}&dimension=ou:${idA};${idB}`,
         url = `/dimensions/recommendations?dimensions=${fields}`;
