@@ -15,14 +15,14 @@ const style = {
     searchIcon: {
         color: colors.charcoalGrey,
         position: 'relative',
-        marginTop: 15,
-        right: 15,
+        top: 5,
     },
     textField: {
-        bottom: 9,
-        right: 8,
+        right: 25,
     },
 };
+
+const SEARCHFIELD_PLACEHOLDER = 'Search Dimensions';
 
 export class Dimensions extends Component {
     state = { searchText: '', dialogDimId: null };
@@ -32,22 +32,26 @@ export class Dimensions extends Component {
     };
 
     toggleDialog = value => {
-        this.setState({ dialogDimId: value });
+        this.setState({
+            dialogDimId: value,
+        });
     };
 
     render = () => {
         return (
             <div className={'dimensions'} style={style.divContainer}>
                 <DialogManager
-                    dialogIsOpen={!!this.state.dialogDimId}
+                    dialogIsOpen={!!this.state.dialogDim}
                     id={this.state.dialogDimId}
                     toggleDialog={this.toggleDialog}
                 />
-                <Search style={style.searchIcon} />
                 <TextField
-                    placeholder={i18n.t('Search dimensions')}
                     style={style.textField}
                     onChange={this.handleChange}
+                    placeholder={i18n.t(SEARCHFIELD_PLACEHOLDER)}
+                    InputProps={{
+                        startAdornment: <Search style={style.searchIcon} />,
+                    }}
                 />
                 <DimensionList
                     searchText={this.state.searchText}

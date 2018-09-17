@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { acAddUiLayoutDimensions } from '../../actions/ui';
 import i18n from '@dhis2/d2-i18n';
 
 const items = [
     {
-        id: 'series',
-        name: 'Add to series',
+        axisName: 'columns',
+        name: 'Add to columns',
     },
     {
-        id: 'category',
-        name: 'Add to category',
+        axisName: 'rows',
+        name: 'Add to rows',
     },
     {
-        id: 'filter',
-        name: 'Add to filter',
+        axisName: 'filters',
+        name: 'Add to filters',
     },
 ];
 
@@ -48,9 +50,9 @@ export class DropDown extends Component {
         }
     };
 
-    addDimensionTo = id => {
-        console.log('Dropdown clicked! adding to ', id);
+    addDimension = axisName => {
         this.props.onClose();
+        this.props.onAddDimension({ [this.props.id]: axisName });
     };
 
     render = () => {
@@ -58,9 +60,9 @@ export class DropDown extends Component {
             <div style={{ ...style.container, ...this.props.renderPos }}>
                 {items.map(option => (
                     <button
-                        key={option.id}
+                        key={option.axisName}
                         style={style.listButton}
-                        onClick={() => this.addDimensionTo(option.id)}
+                        onClick={() => this.addDimension(option.axisName)}
                         onKeyDown={this.handleKeyPress}
                         ref={element => {
                             this.dropDownMenu = element;
@@ -74,4 +76,9 @@ export class DropDown extends Component {
     };
 }
 
-export default DropDown;
+export default connect(
+    null,
+    {
+        onAddDimension: dimension => acAddUiLayoutDimensions(dimension),
+    }
+)(DropDown);

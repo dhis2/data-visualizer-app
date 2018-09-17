@@ -36,10 +36,8 @@ export class DimensionOptions extends Component {
     state = { showMenu: false };
 
     closeMenu = () => {
-        this.setState({ showMenu: false }, () => {
-            document.removeEventListener('click', this.closeMenu);
-            this.props.toggleHoverListener();
-        });
+        document.removeEventListener('click', this.closeMenu);
+        this.props.toggleHoverListener();
     };
 
     showMenu = () => {
@@ -65,7 +63,11 @@ export class DimensionOptions extends Component {
 
     render = () => {
         const Options = this.state.showMenu ? (
-            <DropDown onClose={this.closeMenu} renderPos={style.renderPos} />
+            <DropDown
+                onClose={this.closeMenu}
+                renderPos={style.renderPos}
+                id={this.props.id}
+            />
         ) : (
             <OptionsButton action={this.showMenu} />
         );

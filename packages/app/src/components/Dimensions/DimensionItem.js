@@ -32,16 +32,18 @@ const style = {
     },
 };
 const fixedDimensionIcons = {
-    Data: <DataIcon />,
-    Period: <PeriodIcon />,
-    OrgUnit: <OrgUnitIcon />,
+    dx: <DataIcon />,
+    pe: <PeriodIcon />,
+    ou: <OrgUnitIcon />,
 };
 
 export class DimensionItem extends Component {
     state = { mouseOver: false, optionButtonClicked: false };
 
     onMouseOver = () => {
-        this.setState({ mouseOver: true });
+        if (!this.state.optionButtonClicked) {
+            this.setState({ mouseOver: true });
+        }
     };
 
     onMouseExit = () => {
@@ -72,8 +74,7 @@ export class DimensionItem extends Component {
                 draggable="true"
                 onDragStart={this.onDragStart}
             >
-                {' '}
-                {i18n.t(this.props.displayName)}{' '}
+                {i18n.t(this.props.displayName)}
             </span>
         );
     };
@@ -86,7 +87,10 @@ export class DimensionItem extends Component {
 
     renderOptionsOnHover = () => {
         return !this.props.isSelected && this.state.mouseOver ? (
-            <DimensionOptions toggleHoverListener={this.toggleHoverListener} />
+            <DimensionOptions
+                toggleHoverListener={this.toggleHoverListener}
+                id={this.props.id}
+            />
         ) : null;
     };
 
