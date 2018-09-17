@@ -3,6 +3,8 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
 import i18n from '@dhis2/d2-i18n';
+import Totals from './Totals';
+import { apiFetchAlternatives } from '../../../api/dimensions';
 
 const style = {
     container: {
@@ -20,37 +22,16 @@ const style = {
         paddingLeft: 5,
         paddingRight: 5,
     },
-    detailContainer: {
-        display: 'flex',
-        flexFlow: 'column',
-        width: '40%',
-        paddingLeft: 5,
-        paddingRight: 5,
-    },
-    MenuProps: {
-        PaperProps: {
-            display: 'grid',
-        },
-    },
     titleText: {
         fontSize: 14,
         color: '#616161',
     },
-    dropDownItem: {
-        fontSize: 16,
-        paddingBottom: 10,
-        paddingLeft: 10,
-    },
 };
-
-const GROUP = i18n.t('Group');
-const DETAILS = i18n.t('Details');
-const DETAIL = i18n.t('Detail');
-const TOTALS = i18n.t('Totals');
 const INDICATOR = i18n.t('Select indicator group');
 const DATA_ELEMENTS = i18n.t('Select data element group');
 const DATA_SET = i18n.t('Select data sets');
 const PROG_INDICATOR = i18n.t('Select program');
+const DEFAULT_KEY = 'indicators';
 
 const PLACEHOLDERS = {
     indicators: INDICATOR,
@@ -60,58 +41,74 @@ const PLACEHOLDERS = {
     programIndicators: PROG_INDICATOR,
 };
 
-const detailOrTotals = [
-    {
-        id: 'details',
-        displayName: DETAILS,
-    },
-    {
-        id: 'totals',
-        displayName: TOTALS,
-    },
-];
-
-const groups = {
-    indicators: {},
-    dataElements: {},
-    dataSets: {},
-    eventDataItems: {},
-    programIndicators: {},
-};
-
 export class Groups extends Component {
     state = {
-        dataType: {},
-        detail: TOTALS,
+        indicators: [],
+        dataElements: [],
+        dataSets: [],
+        eventDataItems: [],
+        programIndicators: [],
+        displayValue: '',
+        haveFetchedItems: false,
     };
 
     handleChange = event => {
-        const { dataType } = this.props;
-        this.setState({
-            [dataType]: {
-                ...this.state[dataType],
-                ...{ currentValue: event.target.value },
-            },
-        });
+        console.log(event.target.value);
+        this.setState({ displayValue: event.target.value });
     };
 
-    renderDropDownItem = () => {
+    renderDropDownItems = () => {
+        const { dataType } = this.props;
+        console.log(this.state);
+        return dataType.length
+            ? this.state[dataType].map(item => (
+                  <MenuItem key={item.id} value={item.displayName}>
+                      {item.displayName}
+                  </MenuItem>
+              ))
+            : null;
+    };
+
+    shouldFetchItems = () => {
+        return (
+            this.props.dataType.length &&
+            !this.state[this.props.dataType].length &&
+            !this.state.haveFetchedItems
+        );
+    };
+
+    async componentDidUpdate() {
         const { dataType } = this.props;
 
-        if (this.state[dataType].items) {
-            console.log('item, ', dataType, ' have items loaded alrdy');
-            console.log(this.state[dataType]);
-        } else {
-            console.log('not loaded yet, fetching now');
+        if (this.shouldFetchItems()) {
+            const dataTypeAlternatives = await apiFetchAlternatives(dataType);
+            this.setState({ [dataType]: dataTypeAlternatives });
         }
-    };
+        console.log(this.state);
+    }
+
+    /*static async getDerivedStateFromProps(props, state) {
+        //const { dataType } = this.props;
+        console.log(props.dataType);
+        if (props.dataType.length) {
+            const dataTypeAlternatives = await apiFetchAlternatives(
+                props.dataType
+            );
+            this.setState({ [props.dataType]: dataTypeAlternatives });
+        }
+        console.log(state);
+    }*/
 
     render = () => {
-        const { dataType } = this.props;
         const dataTypeKey = this.props.dataType.length
             ? this.props.dataType
-            : 'indicators';
-        console.log(PLACEHOLDERS[dataTypeKey]);
+            : DEFAULT_KEY;
+
+        const showTotals = dataTypeKey === 'dataElements';
+        const renderItems = this.renderDropDownItems();
+
+        console.log(this.state);
+
         return (
             <div style={style.container}>
                 <div style={style.groupContainer}>
@@ -119,43 +116,14 @@ export class Groups extends Component {
                         {PLACEHOLDERS[dataTypeKey]}
                     </InputLabel>
                     <Select
-                        value={this.state.value || ''}
+                        value={this.state.displayValue}
                         onChange={this.handleChange}
                         MenuProps={style.MenuProps}
                     >
-                        {detailOrTotals.map(item => (
-                            <MenuItem
-                                style={style.dropDownItem}
-                                key={item.id}
-                                value={item.displayName}
-                            >
-                                {item.displayName}
-                            </MenuItem>
-                        ))}
+                        {renderItems}
                     </Select>
                 </div>
-                <div style={style.detailContainer}>
-                    <InputLabel style={style.titleText}>{DETAIL}</InputLabel>
-                    <Select
-                        onChange={event =>
-                            this.setState({
-                                detail: event.target.value,
-                            })
-                        }
-                        value={this.state.detail}
-                        style={style.dropDown}
-                    >
-                        {detailOrTotals.map(item => (
-                            <MenuItem
-                                style={style.dropDownItem}
-                                key={item.id}
-                                value={item.displayName}
-                            >
-                                {item.displayName}
-                            </MenuItem>
-                        ))}
-                    </Select>
-                </div>
+                {showTotals ? <Totals /> : null}
             </div>
         );
     };

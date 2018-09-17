@@ -21,9 +21,29 @@ export const apiFetchRecommendedIds = (dimIdA, dimIdB) => {
         .catch(onError);*/
 };
 
+export const apiFetchAlternatives = dataType => {
+    switch (dataType) {
+        case 'indicators': {
+            return apiFetchIndicatorGroups();
+        }
+        case 'dataElements': {
+            return apiFetchDataElementGroups();
+        }
+        case 'dataSets': {
+            return apiFetchDataSets();
+        }
+        case 'eventDataItems':
+        case 'programIndicators': {
+            return apiFetchProgramIndicators();
+        }
+        default:
+            return null;
+    }
+};
+
 export const apiFetchIndicators = () => {
-    const fields = 'id,displayName~rename(name)';
-    const url = `/indicators?fields=${fields}`;
+    const fields = 'id,displayName';
+    const url = `/indicators?fields=${fields}&paging=false&`;
 
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))
@@ -31,38 +51,42 @@ export const apiFetchIndicators = () => {
 };
 
 export const apiFetchIndicatorGroups = () => {
-    const fields = 'dimensionItem~rename(id),displayName~rename(name)';
-    const url = `/indicatorGroups?fields=${fields}`;
+    const fields = 'id,displayName';
+    const url = `/indicatorGroups?fields=${fields}&paging=false&`;
 
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))
+        .then(response => response.indicatorGroups)
         .catch(onError);
 };
 
 export const apiFetchDataElementGroups = () => {
-    const fields = 'id,displayName~rename(name)';
-    const url = `/dataElementGroups?fields=${fields}`;
+    const fields = 'id,displayName';
+    const url = `/dataElementGroups?fields=${fields}&paging=false&`;
 
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))
+        .then(response => response.dataElementGroups)
         .catch(onError);
 };
 
 export const apiFetchDataSets = () => {
-    const fields = 'dimensionItem~rename(id),displayName~rename(name)';
-    const url = `/dataSets?fields=${fields}`;
+    const fields = 'id,displayName';
+    const url = `/dataSets?fields=${fields}&paging=false&`;
 
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))
+        .then(response => response.dataSets)
         .catch(onError);
 };
 
 export const apiFetchProgramIndicators = () => {
-    const fields = 'dimensionItem~rename(id),displayName~rename(name)';
-    const url = `/pgrograms?fields=${fields}`;
+    const fields = 'id,displayName';
+    const url = `/programs?fields=${fields}&paging=false&`;
 
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))
+        .then(response => response.programs)
         .catch(onError);
 };
 
