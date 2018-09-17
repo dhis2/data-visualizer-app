@@ -1,4 +1,5 @@
-import reducer, { actionTypes, DEFAULT_DIMENSIONS } from '../dimensions';
+import reducer, { actionTypes } from '../dimensions';
+import { FIXED_DIMENSIONS as DEFAULT_DIMENSIONS } from '../../fixedDimensions';
 
 describe('dimensions reducer', () => {
     const currentState = {

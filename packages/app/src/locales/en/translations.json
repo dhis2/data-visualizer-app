@@ -1,6 +1,9 @@
 {
-    "Search dimensions": "",
+    "Data Dimension": "",
+    "Submit": "",
+    "Cancel": "",
     "OrgUnit Dimension": "",
+    "Period Dimension": "",
     "Dimension recommended with selected data": "",
     "No space between columns/bars": "",
     "Options": "",
@@ -16,5 +19,8 @@
     "Radar": "",
     "Gauge": "",
     "Bubble": "",
-    "Year on year": ""
+    "Year on year": "",
+    "Data": "",
+    "Period": "",
+    "Organisation Unit": ""
 }

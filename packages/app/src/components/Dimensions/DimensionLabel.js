@@ -58,13 +58,13 @@ export class DimensionLabel extends Component {
         }
     };
 
-    onRemoveDimensionClick = () => {
-        this.props.removeDimension(this.props.id);
+    removeDimension = () => {
+        this.props.onRemoveDimension(this.props.id);
     };
 
     renderRemoveButton = () => {
         return this.props.isSelected ? (
-            <RemoveDimensionButton action={this.onRemoveDimensionClick} />
+            <RemoveDimensionButton action={this.removeDimension} />
         ) : null;
     };
 
@@ -91,5 +91,5 @@ export class DimensionLabel extends Component {
 
 export default connect(
     null,
-    { removeDimension: id => acRemoveUiLayoutDimensions(id) }
+    { onRemoveDimension: id => acRemoveUiLayoutDimensions(id) }
 )(DimensionLabel);
