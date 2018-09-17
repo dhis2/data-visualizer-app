@@ -44,20 +44,30 @@ const dimensionComponents = {
     ou: <OrgUnitDimension />,
 };
 
-export const DialogManager = ({ dialogIsOpen, id, toggleDialog }) => {
+const HIDE = 'HIDE';
+const UPDATE = 'UPDATE';
+
+export const DialogManager = ({ classes, dialogIsOpen, id, toggleDialog }) => {
     return (
-        <Dialog open={dialogIsOpen} onClose={() => toggleDialog(null)}>
-            <DialogContent>{dimensionComponents[id]}</DialogContent>
-            <DialogActions>
-                <Button
-                    onClick={() => {
-                        toggleDialog(null);
-                    }}
-                >
-                    {i18n.t('Hide')}
-                </Button>
+        <Dialog
+            open={dialogIsOpen}
+            onClose={() => toggleDialog(null)}
+            maxWidth={false}
+            classes={{ paper: classes.paper }}
+        >
+            <DialogContent style={style.dialogContent}>
+                {dimensionComponents[id]}
+            </DialogContent>
+            <DialogActions style={style.dialogActions}>
                 <Button onClick={() => toggleDialog(null)}>
-                    {i18n.t('Update')}
+                    {i18n.t(HIDE)}
+                </Button>
+                <Button
+                    variant={'outlined'}
+                    color={'primary'}
+                    onClick={() => toggleDialog(null)}
+                >
+                    {i18n.t(UPDATE)}
                 </Button>
             </DialogActions>
         </Dialog>

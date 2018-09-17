@@ -5,16 +5,13 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-09-17T12:26:04.667Z\n"
-"PO-Revision-Date: 2018-09-17T12:26:04.667Z\n"
+"POT-Creation-Date: 2018-09-17T13:02:38.545Z\n"
+"PO-Revision-Date: 2018-09-17T13:02:38.545Z\n"
 
-msgid "Data Dimension"
+msgid "Hide"
 msgstr ""
 
-msgid "Submit"
-msgstr ""
-
-msgid "Cancel"
+msgid "Update"
 msgstr ""
 
 msgid "OrgUnit Dimension"
@@ -35,9 +32,6 @@ msgstr ""
 msgid "Chart options"
 msgstr ""
 
-msgid "Hide"
-msgstr ""
-
 msgid "Column"
 msgstr ""
 
@@ -71,39 +65,6 @@ msgstr ""
 msgid "Year on year"
 msgstr ""
 
-<<<<<<< HEAD
-msgid "Column"
-msgstr ""
-
-msgid "Stacked column"
-msgstr ""
-
-msgid "Bar"
-msgstr ""
-
-msgid "Stacked bar"
-msgstr ""
-
-msgid "Line"
-msgstr ""
-
-msgid "Area"
-msgstr ""
-
-msgid "Pie"
-msgstr ""
-
-msgid "Radar"
-msgstr ""
-
-msgid "Gauge"
-msgstr ""
-
-msgid "Bubble"
-msgstr ""
-
-msgid "Year on year"
-=======
 msgid "Data"
 msgstr ""
 
@@ -111,5 +72,4 @@ msgid "Period"
 msgstr ""
 
 msgid "Organisation Unit"
->>>>>>> fix/dim-component-popuprender
 msgstr ""

@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { DimensionOptions } from '../DimensionOptions';
-import OptionsButton from '../DimensionOptions';
+//import OptionsButton from '../DimensionOptions';
 
 describe('The DimensionOptions component ', () => {
     let props;

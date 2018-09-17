@@ -43,7 +43,7 @@ export class DimensionLabel extends Component {
         id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
         isSelected: PropTypes.bool.isRequired,
         toggleDialog: PropTypes.func.isRequired,
-        removeDimension: PropTypes.func.isRequired,
+        onRemoveDimension: PropTypes.func.isRequired,
         Icon: PropTypes.element,
         Label: PropTypes.element,
     };

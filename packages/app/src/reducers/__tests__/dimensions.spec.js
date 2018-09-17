@@ -1,29 +1,26 @@
-import reducer, { actionTypes } from '../dimensions';
+import reducer from '../dimensions';
 import { FIXED_DIMENSIONS as DEFAULT_DIMENSIONS } from '../../fixedDimensions';
 
 describe('dimensions reducer', () => {
-    const currentState = {
+    /*const currentState = {
         dimId1: {
             id: 'dimId1',
             displayName: 'dimName1',
-            selected: false,
         },
         dimId2: {
             id: 'dimId2',
             displayName: 'dimName2',
-            selected: false,
         },
     };
 
     const dimension = {
         id: 'dimId1',
         displayName: 'dimName1',
-        selected: true,
     };
 
     const dimensionMap = {
         [dimension.id]: dimension,
-    };
+    };*/
 
     it('should return the default state', () => {
         const actualState = reducer(undefined, { type: 'NO_MATCH' });
