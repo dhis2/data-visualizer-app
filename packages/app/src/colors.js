@@ -7,6 +7,8 @@ const blue = '#004BA0';
 const lightBlue = '#BBDEFB';
 const blueGrey = '#ECEFF1';
 const accentPrimaryLightest = '#EAF4FF';
+const greyDark = '#474747';
+const greyLight = '#E0E0E0';
 
 export const colors = {
     paleGrey,
@@ -18,4 +20,6 @@ export const colors = {
     lightBlue,
     blueGrey,
     accentPrimaryLightest,
+    greyDark,
+    greyLight,
 };

@@ -1,20 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Chip from './Chip';
+import Axis from './Axis';
 import { sGetUiLayout } from '../../reducers/ui';
-import { acAddUiLayoutDimensions } from '../../actions/ui';
 import { sGetDimensions } from '../../reducers/dimensions';
-import { decodeDataTransfer } from '../../dnd';
+import './Layout.css';
+import { colors } from '../../colors';
 
 const styles = {
-    dropzone: {
-        margin: '0 30 30',
-        padding: 20,
-        border: '1px dashed #ccc',
+    container: {
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr',
     },
-    h4: {
-        marginBottom: 5,
+    item: {
+        borderColor: colors.greyLight,
+        borderStyle: 'solid',
+        borderWidth: '0 0 1px 1px',
+    },
+    filters: {
+        gridRowStart: 'span 2',
     },
 };
 
@@ -23,50 +27,28 @@ class Layout extends React.Component {
         dimensions: [],
     };
 
-    onDragOver = e => {
-        e.preventDefault();
-    };
-
-    getDropHandler = axisName => e => {
-        const { dimensionId } = decodeDataTransfer(e);
-
-        this.props.onAddDimension({
-            [dimensionId]: axisName,
-        });
-
-        e.dataTransfer.clearData();
-    };
-
     renderAxisDropzone = axisName => {
-        const axis = this.props.layout[axisName];
+        const itemStyle = {
+            ...styles.item,
+            ...styles[axisName],
+        };
 
         return (
-            <div className={`${axisName}-container`}>
-                <h4 style={styles.h4}>{axisName}</h4>
-                <div
-                    style={styles.dropzone}
-                    onDragOver={this.onDragOver}
-                    onDrop={this.getDropHandler(axisName)}
-                >
-                    {axis.map(dimensionId => (
-                        <Chip
-                            key={dimensionId}
-                            axisName={axisName}
-                            dimensionId={dimensionId}
-                            dimensions={this.props.dimensions}
-                        />
-                    ))}
-                </div>
+            <div
+                className={`${axisName}-container grid-item`}
+                style={itemStyle}
+            >
+                <Axis axisName={axisName} />
             </div>
         );
     };
 
     render() {
         return (
-            <div className="layout-container">
+            <div className="layout-container" styles={styles.container}>
                 {this.renderAxisDropzone('columns')}
-                {this.renderAxisDropzone('rows')}
                 {this.renderAxisDropzone('filters')}
+                {this.renderAxisDropzone('rows')}
             </div>
         );
     }
@@ -79,11 +61,4 @@ const mapStateToProps = state => ({
     dimensions: sGetDimensions(state),
 });
 
-const mapDispatchToProps = dispatch => ({
-    onAddDimension: map => dispatch(acAddUiLayoutDimensions(map)),
-});
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Layout);
+export default connect(mapStateToProps)(Layout);
