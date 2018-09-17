@@ -47,14 +47,7 @@ const dimensionComponents = {
 const HIDE = 'HIDE';
 const UPDATE = 'UPDATE';
 
-export const DialogManager = ({
-    classes,
-    addDimension,
-    dialogIsOpen,
-    dimension,
-    toggleDialog,
-}) => {
-    const index = dimension ? dimension.id : 0;
+export const DialogManager = ({ classes, dialogIsOpen, id, toggleDialog }) => {
     return (
         <Dialog
             open={dialogIsOpen}
@@ -63,17 +56,10 @@ export const DialogManager = ({
             classes={{ paper: classes.paper }}
         >
             <DialogContent style={style.dialogContent}>
-                {dimensionComponents[index]}
+                {dimensionComponents[id]}
             </DialogContent>
             <DialogActions style={style.dialogActions}>
-                <Button
-                    onClick={() => {
-                        addDimension({
-                            id: dimension.id,
-                        });
-                        toggleDialog();
-                    }}
-                >
+                <Button onClick={() => toggleDialog(null)}>
                     {i18n.t(HIDE)}
                 </Button>
                 <Button

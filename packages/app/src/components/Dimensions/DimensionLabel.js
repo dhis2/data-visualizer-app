@@ -49,10 +49,7 @@ export class DimensionLabel extends Component {
     };
 
     onLabelClick = () => {
-        this.props.toggleDialog({
-            id: this.props.id,
-            displayName: this.props.displayName,
-        });
+        this.props.toggleDialog(this.props.id);
     };
 
     onKeyPress = event => {

@@ -16,6 +16,8 @@ const style = {
         fontFamily: 'Roboto',
         fontSize: 16,
         fontWeight: 500,
+        paddingTop: 15,
+        paddingBottom: 15,
     },
     subContainer: {
         height: 536,
