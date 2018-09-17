@@ -1,9 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import Chip from './Chip';
 import { sGetUiLayout } from '../../reducers/ui';
-import { acAddUiLayoutDimension } from '../../actions/ui';
+import { acAddUiLayoutDimensions } from '../../actions/ui';
 import { sGetDimensions } from '../../reducers/dimensions';
+import { decodeDataTransfer } from '../../dnd';
 
 const styles = {
     dropzone: {
@@ -13,12 +15,6 @@ const styles = {
     },
     h4: {
         marginBottom: 5,
-    },
-    chip: {
-        padding: 5,
-        backgroundColor: '#bbdefb',
-        color: '#000',
-        margin: 2,
     },
 };
 
@@ -31,28 +27,34 @@ class Layout extends React.Component {
         e.preventDefault();
     };
 
-    getDropHandler = axisId => e => {
-        const { dimensionId, source } = JSON.parse(
-            e.dataTransfer.getData('text')
-        );
-        console.log(dimensionId, source);
-        this.props.onAddDimension(axisId, dimensionId);
+    getDropHandler = axisName => e => {
+        const { dimensionId } = decodeDataTransfer(e);
+
+        this.props.onAddDimension({
+            [dimensionId]: axisName,
+        });
+
         e.dataTransfer.clearData();
     };
 
-    renderAxisDropzone = axisId => {
+    renderAxisDropzone = axisName => {
+        const axis = this.props.layout[axisName];
+
         return (
-            <div>
-                <h4 style={styles.h4}>{axisId}</h4>
+            <div className={`${axisName}-container`}>
+                <h4 style={styles.h4}>{axisName}</h4>
                 <div
                     style={styles.dropzone}
                     onDragOver={this.onDragOver}
-                    onDrop={this.getDropHandler(axisId)}
+                    onDrop={this.getDropHandler(axisName)}
                 >
-                    {this.props.layout[axisId].map(dimensionId => (
-                        <div key={dimensionId} style={styles.chip}>
-                            {this.props.dimensions[dimensionId].displayName}
-                        </div>
+                    {axis.map(dimensionId => (
+                        <Chip
+                            key={dimensionId}
+                            axisName={axisName}
+                            dimensionId={dimensionId}
+                            dimensions={this.props.dimensions}
+                        />
                     ))}
                 </div>
             </div>
@@ -78,8 +80,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    onAddDimension: (axisId, dimensionId) =>
-        dispatch(acAddUiLayoutDimension(axisId, dimensionId)),
+    onAddDimension: map => dispatch(acAddUiLayoutDimensions(map)),
 });
 
 export default connect(

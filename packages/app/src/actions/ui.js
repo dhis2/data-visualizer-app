@@ -27,10 +27,9 @@ export const acSetUiLayout = value => ({
     value,
 });
 
-export const acAddUiLayoutDimension = (axisName, dimensionId) => ({
-    type: actionTypes.ADD_UI_LAYOUT_DIMENSION,
-    axisName,
-    dimensionId,
+export const acAddUiLayoutDimensions = value => ({
+    type: actionTypes.ADD_UI_LAYOUT_DIMENSIONS,
+    value,
 });
 
 export const acRemoveUiLayoutDimensions = value => ({

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
-import { colors } from '../../colors';
 import DimensionLabel from './DimensionLabel';
 import DimensionOptions from './DimensionOptions';
 import {
@@ -12,6 +11,8 @@ import {
     GenericDimension,
     RecommendedIcon,
 } from './icons';
+import { colors } from '../../colors';
+import { setDataTransfer } from '../../dnd';
 import * as fromReducers from '../../reducers';
 
 const style = {
@@ -64,18 +65,13 @@ export class DimensionItem extends Component {
         fixedDimensionIcons[this.props.id] || <GenericDimension />;
 
     onDragStart = e => {
-        const data = {
-            dimensionId: e.target.id,
-            source: 'new',
-        };
-
-        e.dataTransfer.setData('text', JSON.stringify(data));
+        setDataTransfer(e, 'dimensions');
     };
 
     getDimensionType = () => {
         return (
             <span
-                id={this.props.id}
+                data-dimensionid={this.props.id}
                 style={style.text}
                 draggable="true"
                 onDragStart={this.onDragStart}

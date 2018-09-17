@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-09-13T18:22:17.781Z\n"
-"PO-Revision-Date: 2018-09-13T18:22:17.781Z\n"
+"POT-Creation-Date: 2018-09-14T08:17:30.549Z\n"
+"PO-Revision-Date: 2018-09-14T08:17:30.549Z\n"
 
 msgid "Search dimensions"
 msgstr ""
@@ -27,6 +27,39 @@ msgid "Chart options"
 msgstr ""
 
 msgid "Hide"
+msgstr ""
+
+msgid "Column"
+msgstr ""
+
+msgid "Stacked column"
+msgstr ""
+
+msgid "Bar"
+msgstr ""
+
+msgid "Stacked bar"
+msgstr ""
+
+msgid "Line"
+msgstr ""
+
+msgid "Area"
+msgstr ""
+
+msgid "Pie"
+msgstr ""
+
+msgid "Radar"
+msgstr ""
+
+msgid "Gauge"
+msgstr ""
+
+msgid "Bubble"
+msgstr ""
+
+msgid "Year on year"
 msgstr ""
 
 msgid "Column"

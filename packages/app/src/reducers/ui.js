@@ -4,7 +4,9 @@ import {
     getDimensionIdsByAxis,
     getItemIdsByDimension,
     getFilteredLayout,
+    getSwapModObj,
 } from '../layout';
+import { COLUMN } from '../components/VisualizationTypeSelector/visualizationTypes';
 
 export const actionTypes = {
     SET_UI: 'SET_UI',
@@ -12,7 +14,7 @@ export const actionTypes = {
     SET_UI_TYPE: 'SET_UI_TYPE',
     SET_UI_OPTIONS: 'SET_UI_OPTIONS',
     SET_UI_LAYOUT: 'SET_UI_LAYOUT',
-    ADD_UI_LAYOUT_DIMENSION: 'ADD_UI_LAYOUT_DIMENSION',
+    ADD_UI_LAYOUT_DIMENSIONS: 'ADD_UI_LAYOUT_DIMENSIONS',
     REMOVE_UI_LAYOUT_DIMENSION: 'REMOVE_UI_LAYOUT_DIMENSION',
     SET_UI_ITEMS: 'SET_UI_ITEMS',
 };
@@ -68,15 +70,28 @@ export default (state = DEFAULT_UI, action) => {
                 },
             };
         }
-        case actionTypes.ADD_UI_LAYOUT_DIMENSION: {
-            const { axisName, dimensionId } = action;
-            const newLayout = getFilteredLayout(state.layout, dimensionId);
+        // action.value: mod object (dimensionId:axisName) saying what to add where: { ou: 'rows' }
+        // Reducer takes care of swapping if dimension already exists in layout
+        case actionTypes.ADD_UI_LAYOUT_DIMENSIONS: {
+            const modObjWithSwap = {
+                ...action.value,
+                ...getSwapModObj(state.layout, action.value),
+            };
 
-            if (['columns', 'rows'].includes(axisName)) {
-                newLayout[axisName] = [dimensionId];
-            } else {
-                newLayout[axisName].push(dimensionId);
-            }
+            const newLayout = getFilteredLayout(
+                state.layout,
+                Object.keys(modObjWithSwap)
+            );
+
+            Object.entries(modObjWithSwap).forEach(
+                ([dimensionId, axisName]) => {
+                    if (['columns', 'rows'].includes(axisName)) {
+                        newLayout[axisName] = [dimensionId];
+                    } else {
+                        newLayout[axisName].push(dimensionId);
+                    }
+                }
+            );
 
             return {
                 ...state,
