@@ -9,5 +9,16 @@
     "No space between columns/bars": "",
     "Options": "",
     "Chart options": "",
-    "Hide": ""
+    "Hide": "",
+    "Column": "",
+    "Stacked column": "",
+    "Bar": "",
+    "Stacked bar": "",
+    "Line": "",
+    "Area": "",
+    "Pie": "",
+    "Radar": "",
+    "Gauge": "",
+    "Bubble": "",
+    "Year on year": ""
 }

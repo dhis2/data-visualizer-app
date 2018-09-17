@@ -22,6 +22,6 @@ export default (state = DEFAULT_STATE, action) => {
     }
 };
 
-// selectors
+// Selectors
 
 export const sGetSnackbar = state => state.snackbar || DEFAULT_STATE;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import DimensionItem from './DimensionItem';
-import * as fromReducers from '../reducers';
+import * as fromReducers from '../../reducers';
 
 const style = {
     listContainer: {
@@ -65,16 +65,14 @@ DimensionList.propTypes = {
 };
 
 DimensionList.defaultProps = {
-    recommended: [],
     selected: [],
+    recommended: [],
 };
 
 const mapStateToProps = state => ({
     dimensions: fromReducers.fromDimensions.sGetDimensions(state),
-    selected: fromReducers.fromDimensions.sGetSelected(state),
-    recommended: fromReducers.fromRecommendedDimensionIds.sGetRecommended(
-        state
-    ),
+    selected: fromReducers.fromUi.sGetDimensionIdsFromLayout(state),
+    recommended: fromReducers.fromRecommendedIds.sGetRecommendedIds(state),
 });
 
 export default connect(mapStateToProps)(DimensionList);

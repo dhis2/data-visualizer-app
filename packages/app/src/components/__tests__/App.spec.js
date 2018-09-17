@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { App } from '../App';
 import Snackbar from '@material-ui/core/Snackbar';
-import { getStubContext } from '../../../../config/testsContext';
+import { getStubContext } from '../../../../../config/testsContext';
 
 describe('App', () => {
     let props;
