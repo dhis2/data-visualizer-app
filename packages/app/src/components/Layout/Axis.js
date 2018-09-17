@@ -10,11 +10,12 @@ import { colors } from '../../colors';
 const styles = {
     axisContainer: {
         display: 'flex',
-        padding: '8px 0 4px 8px',
+        padding: '8px 8px 0 8px',
+        backgroundColor: colors.white,
     },
     title: {
         width: 55,
-        padding: 4,
+        padding: '2px 0 0 4px',
         fontSize: 11,
         color: colors.greyDark,
     },
@@ -44,12 +45,16 @@ const getDropHandler = ({ axisName, onAddDimension }) => e => {
     e.dataTransfer.clearData();
 };
 
-const Axis = ({ axisName, layout, onAddDimension }) => {
+const Axis = ({ axisName, axisStyle, layout, onAddDimension }) => {
     const axis = layout[axisName];
+    const style = {
+        ...styles.axisContainer,
+        ...axisStyle,
+    };
 
     return (
         <div
-            style={styles.axisContainer}
+            style={style}
             onDragOver={onDragOver}
             onDrop={getDropHandler({ axisName, onAddDimension })}
         >

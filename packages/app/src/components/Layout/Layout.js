@@ -10,7 +10,7 @@ import { colors } from '../../colors';
 const styles = {
     container: {
         display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
+        gridTemplateColumns: '1fr 2fr',
     },
     item: {
         borderColor: colors.greyLight,
@@ -19,6 +19,12 @@ const styles = {
     },
     filters: {
         gridRowStart: 'span 2',
+    },
+};
+
+const axisStyle = {
+    filters: {
+        height: 81,
     },
 };
 
@@ -38,7 +44,10 @@ class Layout extends React.Component {
                 className={`${axisName}-container grid-item`}
                 style={itemStyle}
             >
-                <Axis axisName={axisName} />
+                <Axis
+                    axisName={axisName}
+                    axisStyle={{ ...axisStyle[axisName] }}
+                />
             </div>
         );
     };
