@@ -21,7 +21,7 @@ describe('The DimensionItem component ', () => {
             displayName: 'dimTestId',
             isSelected: false,
             toggleDialog: jest.fn(),
-            isRecommended: false,
+            isRecommended: [],
         };
         shallowDimItem = undefined;
     });

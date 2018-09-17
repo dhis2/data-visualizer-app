@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-09-17T11:35:12.518Z\n"
-"PO-Revision-Date: 2018-09-17T11:35:12.518Z\n"
+"POT-Creation-Date: 2018-09-17T12:26:04.667Z\n"
+"PO-Revision-Date: 2018-09-17T12:26:04.667Z\n"
 
 msgid "Data Dimension"
 msgstr ""
@@ -18,6 +18,9 @@ msgid "Cancel"
 msgstr ""
 
 msgid "OrgUnit Dimension"
+msgstr ""
+
+msgid "Period Dimension"
 msgstr ""
 
 msgid "Dimension recommended with selected data"
@@ -66,4 +69,13 @@ msgid "Bubble"
 msgstr ""
 
 msgid "Year on year"
+msgstr ""
+
+msgid "Data"
+msgstr ""
+
+msgid "Period"
+msgstr ""
+
+msgid "Organisation Unit"
 msgstr ""

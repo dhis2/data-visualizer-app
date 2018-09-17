@@ -27,10 +27,10 @@ export const DialogManager = ({ dialogIsOpen, id, toggleDialog }) => {
                         toggleDialog(null);
                     }}
                 >
-                    {i18n.t('Submit')}
+                    {i18n.t('Hide')}
                 </Button>
                 <Button onClick={() => toggleDialog(null)}>
-                    {i18n.t('Cancel')}
+                    {i18n.t('Update')}
                 </Button>
             </DialogActions>
         </Dialog>
