@@ -42,18 +42,23 @@ const PLACEHOLDERS = {
 };
 
 export class Groups extends Component {
-    state = { displayValue: '' };
+    state = {
+        indicators: [],
+        dataElements: [],
+        dataSets: [],
+        eventDataItems: [],
+        programIndicators: [],
+        displayValue: '',
+    };
 
-    handleDropDownChange = event => {
-        //console.log(event.target.value);
+    handleChange = event => {
         this.setState({ displayValue: event.target.value });
     };
 
     renderDropDownItems = () => {
         const { dataType } = this.props;
-        //console.log(this.state);
         return dataType.length
-            ? this.props.unselected.map(item => (
+            ? this.state[dataType].map(item => (
                   <MenuItem key={item.id} value={item.displayName}>
                       {item.displayName}
                   </MenuItem>
@@ -62,18 +67,20 @@ export class Groups extends Component {
     };
 
     shouldFetchItems = () => {
-        return this.props.dataType.length && !this.props.unselected.length;
+        return (
+            this.props.dataType.length &&
+            !this.state[this.props.dataType].length
+        );
     };
 
-    // getDerived ?
     async componentDidUpdate() {
         const { dataType } = this.props;
 
         if (this.shouldFetchItems()) {
             const dataTypeAlternatives = await apiFetchAlternatives(dataType);
-            this.props.onContentChange(dataTypeAlternatives);
-            //console.log(dataTypeAlternatives);
-            //console.log(this.state);
+            this.setState({ [dataType]: dataTypeAlternatives });
+            //this.props.onContentChange(dataTypeAlternatives);
+            console.log(this.state);
         } else {
             console.log('already fetched');
         }
@@ -87,8 +94,6 @@ export class Groups extends Component {
         const showTotals = dataTypeKey === 'dataElements';
         const renderItems = this.renderDropDownItems();
 
-        console.log(this.state);
-
         return (
             <div style={style.container}>
                 <div style={style.groupContainer}>
@@ -97,7 +102,8 @@ export class Groups extends Component {
                     </InputLabel>
                     <Select
                         value={this.state.displayValue}
-                        onChange={this.handleDropDownChange}
+                        onChange={this.handleChange}
+                        MenuProps={style.MenuProps}
                     >
                         {renderItems}
                     </Select>

@@ -36,8 +36,6 @@ const style = {
 };
 
 export const ActionButtons = (onAssignClick, onUnassignClick) => {
-    console.log(onAssignClick);
-    console.log(onUnassignClick);
     return (
         <div style={style.buttonContainer}>
             <AssignButton action={() => onAssignClick} />

@@ -40,10 +40,9 @@ export const apiFetchAlternatives = dataType => {
             return null;
     }
 };
-
-export const apiFetchIndicators = () => {
-    const fields = 'id,displayName';
-    const url = `/indicators?fields=${fields}&paging=false&`;
+export const apiFetchIndicators = indicatorGroupId => {
+    const fields = `id,displayName&filter=indicatorGroups.id:eq:${indicatorGroupId}&paging=false&`;
+    const url = `/indicators?fields=${fields}`;
 
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))
@@ -51,8 +50,8 @@ export const apiFetchIndicators = () => {
 };
 
 export const apiFetchIndicatorGroups = () => {
-    const fields = 'id,displayName';
-    const url = `/indicatorGroups?fields=${fields}&paging=false&`;
+    const fields = 'id,displayName&paging=false&';
+    const url = `/indicatorGroups?fields=${fields}`;
 
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))
@@ -61,8 +60,8 @@ export const apiFetchIndicatorGroups = () => {
 };
 
 export const apiFetchDataElementGroups = () => {
-    const fields = 'id,displayName';
-    const url = `/dataElementGroups?fields=${fields}&paging=false&`;
+    const fields = 'id,displayName&paging=false&';
+    const url = `/dataElementGroups?fields=${fields}`;
 
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))

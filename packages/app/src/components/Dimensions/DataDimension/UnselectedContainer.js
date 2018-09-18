@@ -8,7 +8,6 @@ export class UnselectedContainer extends Component {
     state = { dataType: '', searchField: '' };
 
     handleDataTypeChange = event => {
-        //console.log(event.target.value);
         this.setState({ dataType: event.target.value });
     };
 
@@ -25,7 +24,6 @@ export class UnselectedContainer extends Component {
                 />
                 <Groups
                     dataType={this.state.dataType}
-                    unselected={this.props.unselected}
                     onContentChange={this.props.onContentChange}
                 />
                 <SearchField

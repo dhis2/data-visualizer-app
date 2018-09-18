@@ -24,7 +24,6 @@ export class UnselectedItems extends Component {
     };
 
     filterMatchingDimensions = dataDim => {
-        //console.log('filtering ', dataDim.displayName, this.props.searchField);
         return this.searchTextContains(dataDim.displayName)
             ? this.renderItem(dataDim)
             : null;
@@ -32,11 +31,14 @@ export class UnselectedItems extends Component {
 
     renderItem = dataDim => {
         //console.log(dataDim);
+        const ref = dataDim.id;
+        //console.log(ref);
         return (
             <li
                 id={dataDim.id}
                 key={dataDim.id}
-                onClick={() => this.props.onAddDataDimension(dataDim)}
+                ref={ref}
+                onClick={() => this.refs[ref].focus()}
             >
                 {i18n.t(dataDim.displayName)}
             </li>

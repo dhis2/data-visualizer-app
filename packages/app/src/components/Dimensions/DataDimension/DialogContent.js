@@ -32,8 +32,6 @@ export class DataDimensionContent extends Component {
     state = { unselected: [], selected: [] };
 
     addDataDimension = dataDimension => {
-        //console.log('adding dataDim ', dataDimension, ' to selected');
-        //console.log(this.state);
         this.setState({
             unselected: this.state.unselected.filter(
                 dataDim => dataDim !== dataDimension
@@ -43,8 +41,6 @@ export class DataDimensionContent extends Component {
     };
 
     removeDataDimension = dataDimension => {
-        //console.log('removing dataDim ', dataDimension, ' to unselected');
-        //console.log(this.state);
         this.setState({
             unselected: [...this.state.unselected, dataDimension],
             selected: this.state.selected.filter(
@@ -58,7 +54,6 @@ export class DataDimensionContent extends Component {
     };
 
     render = () => {
-        //console.log(this.state);
         return (
             <div style={style.container}>
                 <h3 style={style.title}>{i18n.t(DIALOG_TITLE)}</h3>
