@@ -1,8 +1,8 @@
 import { getPropsByKeys } from './util';
-import { AXIS_KEYS } from './layout';
+import { AXIS_NAMES } from './layout';
 
 export const getAxesFromUi = ui => {
-    const axes = getPropsByKeys(ui.layout, AXIS_KEYS);
+    const axes = getPropsByKeys(ui.layout, AXIS_NAMES);
     const itemsByDimension = Object.entries(ui.itemsByDimension).reduce(
         (acc, [key, value]) => ({
             ...acc,

@@ -42,7 +42,9 @@ export class Visualization extends Component {
     render() {
         return (
             <section className="canvas">
-                <div id="visualization-container">Visualization Canvas</div>
+                <div id="visualization-container">
+                    <div style={{ margin: 50 }}>Visualization Canvas</div>
+                </div>
             </section>
         );
     }
