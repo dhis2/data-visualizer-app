@@ -5,17 +5,11 @@ import SearchField from './SearchField';
 import UnselectedItems from './UnselectedItems';
 
 export class UnselectedContainer extends Component {
-    state = { dataType: '', dataTypeContent: [], searchField: '' };
+    state = { dataType: '', searchField: '' };
 
-    handleChange = event => {
-        console.log(event.target.value);
+    handleDataTypeChange = event => {
+        //console.log(event.target.value);
         this.setState({ dataType: event.target.value });
-    };
-
-    handleContentChange = newContent => {
-        console.log(newContent);
-        this.setState({ dataTypeContent: newContent });
-        console.log(this.state);
     };
 
     handleSearchFieldChange = text => {
@@ -27,20 +21,21 @@ export class UnselectedContainer extends Component {
             <div>
                 <DataTypes
                     value={this.state.dataType}
-                    handleChange={this.handleChange}
+                    onDataTypeChange={this.handleDataTypeChange}
                 />
                 <Groups
                     dataType={this.state.dataType}
-                    dataTypeContent={this.state.dataTypeContent}
-                    onContentChange={this.handleContentChange}
+                    unselected={this.props.unselected}
+                    onContentChange={this.props.onContentChange}
                 />
                 <SearchField
-                    searchField={this.state.searchField}
+                    searchFieldInput={this.state.searchField}
                     onSearchFieldChange={this.handleSearchFieldChange}
                 />
                 <UnselectedItems
-                    dataTypeContent={this.state.dataTypeContent}
-                    searchField={this.state.searchField}
+                    unselected={this.props.unselected}
+                    searchFieldInput={this.state.searchField}
+                    onAddDataDimension={this.props.onAddDataDimension}
                 />
             </div>
         );

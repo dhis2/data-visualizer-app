@@ -42,25 +42,18 @@ const PLACEHOLDERS = {
 };
 
 export class Groups extends Component {
-    state = {
-        indicators: [],
-        dataElements: [],
-        dataSets: [],
-        eventDataItems: [],
-        programIndicators: [],
-        displayValue: '',
-    };
+    state = { displayValue: '' };
 
-    handleChange = event => {
-        console.log(event.target.value);
+    handleDropDownChange = event => {
+        //console.log(event.target.value);
         this.setState({ displayValue: event.target.value });
     };
 
     renderDropDownItems = () => {
         const { dataType } = this.props;
-        console.log(this.state);
+        //console.log(this.state);
         return dataType.length
-            ? this.state[dataType].map(item => (
+            ? this.props.unselected.map(item => (
                   <MenuItem key={item.id} value={item.displayName}>
                       {item.displayName}
                   </MenuItem>
@@ -69,37 +62,22 @@ export class Groups extends Component {
     };
 
     shouldFetchItems = () => {
-        return (
-            this.props.dataType.length &&
-            !this.state[this.props.dataType].length
-        );
+        return this.props.dataType.length && !this.props.unselected.length;
     };
 
+    // getDerived ?
     async componentDidUpdate() {
         const { dataType } = this.props;
 
         if (this.shouldFetchItems()) {
             const dataTypeAlternatives = await apiFetchAlternatives(dataType);
-            this.setState({ [dataType]: dataTypeAlternatives });
             this.props.onContentChange(dataTypeAlternatives);
-            console.log(dataTypeAlternatives);
-            console.log(this.state);
+            //console.log(dataTypeAlternatives);
+            //console.log(this.state);
         } else {
             console.log('already fetched');
         }
     }
-
-    /*static async getDerivedStateFromProps(props, state) {
-        //const { dataType } = this.props;
-        console.log(props.dataType);
-        if (props.dataType.length) {
-            const dataTypeAlternatives = await apiFetchAlternatives(
-                props.dataType
-            );
-            this.setState({ [props.dataType]: dataTypeAlternatives });
-        }
-        console.log(state);
-    }*/
 
     render = () => {
         const dataTypeKey = this.props.dataType.length
@@ -119,8 +97,7 @@ export class Groups extends Component {
                     </InputLabel>
                     <Select
                         value={this.state.displayValue}
-                        onChange={this.handleChange}
-                        MenuProps={style.MenuProps}
+                        onChange={this.handleDropDownChange}
                     >
                         {renderItems}
                     </Select>

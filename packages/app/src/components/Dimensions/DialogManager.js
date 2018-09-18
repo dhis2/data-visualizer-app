@@ -14,8 +14,8 @@ import { OrgUnitDimension } from './OrgUnitDimension';
 const style = {
     paper: {
         maxHeight: 677,
-        maxWidth: 806,
-        width: 806,
+        maxWidth: 820,
+        width: 820,
         margin: 0,
         border: '1px solid #CCCCCC',
         borderRadius: 0,

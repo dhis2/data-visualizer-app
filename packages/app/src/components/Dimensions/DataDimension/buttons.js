@@ -35,26 +35,34 @@ const style = {
     },
 };
 
-export const ActionButtons = () => {
+export const ActionButtons = (onAssignClick, onUnassignClick) => {
+    console.log(onAssignClick);
+    console.log(onUnassignClick);
     return (
         <div style={style.buttonContainer}>
-            <AssignButton />
-            <UnassignButton />
+            <AssignButton action={() => onAssignClick} />
+            <UnassignButton action={() => onUnassignClick} />
         </div>
     );
 };
 
-export const AssignButton = () => {
+export const AssignButton = ({ action }) => {
     return (
-        <button style={{ ...style.actionButton, ...style.assignButton }}>
+        <button
+            style={{ ...style.actionButton, ...style.assignButton }}
+            onClick={action}
+        >
             <ArrowForward style={style.arrowIcon} />
         </button>
     );
 };
 
-export const UnassignButton = () => {
+export const UnassignButton = ({ action }) => {
     return (
-        <button style={{ ...style.actionButton, ...style.unAssignButton }}>
+        <button
+            style={{ ...style.actionButton, ...style.unAssignButton }}
+            onClick={action}
+        >
             <ArrowBack style={style.arrowIcon} />
         </button>
     );

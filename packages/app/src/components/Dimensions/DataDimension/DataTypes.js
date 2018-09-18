@@ -58,7 +58,7 @@ export class DataTypes extends Component {
                 <InputLabel style={style.titleText}>{TITLE}</InputLabel>
                 <Select
                     value={this.props.value}
-                    onChange={this.props.handleChange}
+                    onChange={this.props.onDataTypeChange}
                 >
                     {alternatives.map(item => (
                         <MenuItem
