@@ -63,7 +63,7 @@ export class App extends Component {
                         Interpretations panel
                     </div>
                     <div className="item7 canvas">
-                        <Visualization />
+                        <Visualization d2={this.props.d2} />
                     </div>
                 </div>
                 {this.renderSnackbar()}

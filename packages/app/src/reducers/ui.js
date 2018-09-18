@@ -1,6 +1,7 @@
 import options from '../options';
 import { getPropsByKeys } from '../util';
 import { getDimensionIdsByAxis, getItemIdsByDimension } from '../layout';
+import { getOptionsDefaultValues } from '../options';
 import { COLUMN } from '../components/VisualizationTypeSelector/visualizationTypes';
 
 export const actionTypes = {
@@ -14,7 +15,7 @@ export const actionTypes = {
 
 export const DEFAULT_UI = {
     type: COLUMN,
-    options,
+    options: getOptionsDefaultValues(),
     layout: {
         columns: ['dx'],
         rows: ['pe'],
