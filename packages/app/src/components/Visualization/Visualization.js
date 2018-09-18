@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createChart } from 'd2-charts-api';
 import { sGetCurrent } from '../../reducers/current';
-import { sGetVisualization } from '../../reducers/visualization';
-import { sGetUi } from '../../reducers/ui';
+import { getOptionsForRequest } from '../../options';
 
 export class Visualization extends Component {
     componentDidUpdate(prevProps) {
@@ -16,7 +15,21 @@ export class Visualization extends Component {
         const { d2, current } = this.props;
 
         if (current) {
-            const req = new d2.analytics.request().fromModel(current);
+            const optionsForRequest = getOptionsForRequest().reduce(
+                (map, [option, props]) => {
+                    // only add parameter if value !== default
+                    if (current[option] !== props.defaultValue) {
+                        map[option] = current[option];
+                    }
+
+                    return map;
+                },
+                {}
+            );
+
+            const req = new d2.analytics.request()
+                .fromModel(current)
+                .withParameters(optionsForRequest);
 
             const rawResponse = await d2.analytics.aggregate.get(req);
 
@@ -36,9 +49,7 @@ export class Visualization extends Component {
 }
 
 const mapStateToProps = state => ({
-    visualization: sGetVisualization(state),
     current: sGetCurrent(state),
-    ui: sGetUi(state),
 });
 
 export default connect(mapStateToProps)(Visualization);
