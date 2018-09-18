@@ -4,6 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { MuiThemeProvider } from '@material-ui/core/styles';
+
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { init as d2Init, config, getUserSettings } from 'd2/lib/d2';
 

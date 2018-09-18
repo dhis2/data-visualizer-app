@@ -1,23 +1,55 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { createChart } from 'd2-charts-api';
 import { sGetCurrent } from '../../reducers/current';
-import { sGetVisualization } from '../../reducers/visualization';
-import { sGetUi } from '../../reducers/ui';
+import { getOptionsForRequest } from '../../options';
 
-const renderVisualizationName = props =>
-    props.visualization ? <h3>{props.visualization.name}</h3> : '';
+export class Visualization extends Component {
+    componentDidUpdate(prevProps) {
+        if (this.props.current !== prevProps.current) {
+            this.renderVisualization();
+        }
+    }
 
-const Visualization = props => (
-    <section className="canvas">
-        <div>Visualization Canvas</div>
-        {renderVisualizationName(props)}
-    </section>
-);
+    renderVisualization = async () => {
+        const { d2, current } = this.props;
+
+        if (current) {
+            const optionsForRequest = getOptionsForRequest().reduce(
+                (map, [option, props]) => {
+                    // only add parameter if value !== default
+                    if (current[option] !== props.defaultValue) {
+                        map[option] = current[option];
+                    }
+
+                    return map;
+                },
+                {}
+            );
+
+            const req = new d2.analytics.request()
+                .fromModel(current)
+                .withParameters(optionsForRequest);
+
+            const rawResponse = await d2.analytics.aggregate.get(req);
+
+            const res = new d2.analytics.response(rawResponse);
+
+            createChart(res, current, 'visualization-container');
+        }
+    };
+
+    render() {
+        return (
+            <section className="canvas">
+                <div id="visualization-container">Visualization Canvas</div>
+            </section>
+        );
+    }
+}
 
 const mapStateToProps = state => ({
-    visualization: sGetVisualization(state),
     current: sGetCurrent(state),
-    ui: sGetUi(state),
 });
 
 export default connect(mapStateToProps)(Visualization);
