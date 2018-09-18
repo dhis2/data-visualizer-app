@@ -18,6 +18,7 @@ const styles = {
         padding: '2px 0 0 4px',
         fontSize: 11,
         color: colors.greyDark,
+        userSelect: 'none',
     },
     field: {
         display: 'flex',

@@ -14,6 +14,9 @@ const styles = {
         color: '#000',
         borderRadius: 5,
         cursor: 'pointer',
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
     },
 };
 

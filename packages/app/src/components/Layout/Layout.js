@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import Axis from './Axis';
 import { sGetUiLayout } from '../../reducers/ui';
 import { sGetDimensions } from '../../reducers/dimensions';
-import './Layout.css';
 import { colors } from '../../colors';
 
 const styles = {
@@ -22,7 +21,13 @@ const styles = {
     },
 };
 
-const axisStyle = {
+const axisStyles = {
+    columns: {
+        height: 36,
+    },
+    rows: {
+        height: 36,
+    },
     filters: {
         height: 81,
     },
@@ -46,7 +51,7 @@ class Layout extends React.Component {
             >
                 <Axis
                     axisName={axisName}
-                    axisStyle={{ ...axisStyle[axisName] }}
+                    axisStyle={{ ...axisStyles[axisName] }}
                 />
             </div>
         );
@@ -54,7 +59,7 @@ class Layout extends React.Component {
 
     render() {
         return (
-            <div className="layout-container" styles={styles.container}>
+            <div className="layout-container" style={styles.container}>
                 {this.renderAxisDropzone('columns')}
                 {this.renderAxisDropzone('filters')}
                 {this.renderAxisDropzone('rows')}
