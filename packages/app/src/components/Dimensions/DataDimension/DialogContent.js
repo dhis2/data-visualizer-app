@@ -29,18 +29,20 @@ const style = {
 const DIALOG_TITLE = 'Data';
 
 export class DataDimensionContent extends Component {
-    state = { unselected: [], selected: [] };
+    state = { unselected: [], selected: [], highlighted: [] };
 
-    addDataDimension = dataDimension => {
+    assignDataDimensions = () => {
         this.setState({
             unselected: this.state.unselected.filter(
-                dataDim => dataDim !== dataDimension
+                dataDim =>
+                    this.state.highlighted.includes(dataDim) ? dataDim : null
             ),
-            selected: [...this.state.selected, dataDimension],
+            selected: this.state.highlighted,
+            highlighted: [],
         });
     };
 
-    removeDataDimension = dataDimension => {
+    unAssignDataDimension = dataDimension => {
         this.setState({
             unselected: [...this.state.unselected, dataDimension],
             selected: this.state.selected.filter(
@@ -54,6 +56,18 @@ export class DataDimensionContent extends Component {
         this.setState({ unselected: newContent });
     };
 
+    toggleHighlight = dataDim => {
+        this.state.highlighted.includes(dataDim)
+            ? this.setState({
+                  highlighted: this.state.highlighted.filter(
+                      item => dataDim.id !== item.id
+                  ),
+              })
+            : this.setState({
+                  highlighted: [...this.state.highlighted, dataDim],
+              });
+    };
+
     render = () => {
         return (
             <div style={style.container}>
@@ -62,15 +76,16 @@ export class DataDimensionContent extends Component {
                     <UnselectedContainer
                         unselected={this.state.unselected}
                         onContentChange={this.handleContentChange}
-                        onAddDataDimension={this.addDataDimension}
+                        highlightedItems={this.state.highlighted}
+                        onItemClick={this.toggleHighlight}
                     />
                     <ActionButtons
-                        onAssignClick={this.addDataDimension}
-                        onUnassignClick={this.removeDataDimension}
+                        onAssignClick={this.assignDataDimensions}
+                        onUnassignClick={this.unAssignDataDimension}
                     />
                     <SelectedContainer
                         selected={this.state.selected}
-                        onRemoveDataDimension={this.removeDataDimension}
+                        onItemClick={this.removeDataDimension}
                     />
                 </div>
             </div>

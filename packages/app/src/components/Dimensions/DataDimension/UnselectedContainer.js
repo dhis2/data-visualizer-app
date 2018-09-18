@@ -33,7 +33,8 @@ export class UnselectedContainer extends Component {
                 <UnselectedItems
                     unselected={this.props.unselected}
                     searchFieldInput={this.state.searchField}
-                    onAddDataDimension={this.props.onAddDataDimension}
+                    highlightedItems={this.props.highlightedItems}
+                    onItemClick={this.props.onItemClick}
                 />
             </div>
         );

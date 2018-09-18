@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import i18n from '@dhis2/d2-i18n';
 import { GenericDimension } from '../icons';
+import { colors } from '../../../colors';
 
 const style = {
     listContainer: {
@@ -12,22 +13,42 @@ const style = {
         margin: 0,
         listStyle: 'none',
     },
-    listItem: {
-        height: 25,
+    highlighted: {
+        //backgroundColor: colors.lightBlue,
+        display: 'flex',
+        paddingTop: 5,
+        paddingBottom: 5,
+        paddingRight: 5,
+        borderRadius: 30,
+        border: '1px solid black',
+    },
+    unHighlighted: {
+        display: 'flex',
+        paddingTop: 5,
+        paddingRight: 5,
+        paddingBottom: 5,
     },
     text: {
-        fontSize: 14,
+        fontSize: 13,
         fontFamily: 'Roboto',
         paddingLeft: 2,
+    },
+    listItem: {
+        display: 'flex',
+        paddingTop: 5,
+        paddingBottom: 5,
+    },
+    icon: {
+        height: 6,
+        width: 6,
+        marginTop: 4,
+        marginLeft: 10,
+        marginRight: 5,
+        backgroundColor: '#9E9E9E',
     },
 };
 
 export class UnselectedItems extends Component {
-    constructor(props) {
-        super(props);
-        this.refsCollection = [];
-    }
-
     searchTextContains = displayName => {
         const { searchFieldInput } = this.props;
 
@@ -43,19 +64,21 @@ export class UnselectedItems extends Component {
     };
 
     renderItem = dataDim => {
-        //console.log(dataDim);
-        //const ref = dataDim.id;
-        //console.log(ref);
         return (
-            <li
-                id={dataDim.id}
-                key={dataDim.id}
-                ref={listItem => (this.refsCollection[dataDim.id] = listItem)}
-                onClick={() => this.refsCollection[dataDim.id].focus()}
-                style={style.listItem}
-            >
-                <GenericDimension />
-                <span style={style.text}>{i18n.t(dataDim.displayName)}</span>
+            <li id={dataDim.id} key={dataDim.id} style={style.listItem}>
+                <div
+                    onClick={() => this.props.onItemClick(dataDim)}
+                    style={
+                        this.props.highlightedItems.includes(dataDim)
+                            ? style.highlighted
+                            : style.unHighlighted
+                    }
+                >
+                    <div style={style.icon} />
+                    <span style={style.text}>
+                        {i18n.t(dataDim.displayName)}
+                    </span>
+                </div>
             </li>
         );
     };

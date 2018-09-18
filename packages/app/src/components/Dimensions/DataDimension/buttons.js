@@ -35,11 +35,11 @@ const style = {
     },
 };
 
-export const ActionButtons = (onAssignClick, onUnassignClick) => {
+export const ActionButtons = ({ onAssignClick, onUnassignClick }) => {
     return (
         <div style={style.buttonContainer}>
-            <AssignButton action={() => onAssignClick} />
-            <UnassignButton action={() => onUnassignClick} />
+            <AssignButton action={onAssignClick} />
+            <UnassignButton action={onUnassignClick} />
         </div>
     );
 };
@@ -59,7 +59,7 @@ export const UnassignButton = ({ action }) => {
     return (
         <button
             style={{ ...style.actionButton, ...style.unAssignButton }}
-            onClick={action}
+            onClick={() => action}
         >
             <ArrowBack style={style.arrowIcon} />
         </button>
