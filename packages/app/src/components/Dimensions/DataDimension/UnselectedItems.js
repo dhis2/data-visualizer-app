@@ -1,19 +1,32 @@
 import React, { Component } from 'react';
 import i18n from '@dhis2/d2-i18n';
+import { GenericDimension } from '../icons';
 
 const style = {
-    container: {
+    listContainer: {
         height: 389,
-        width: 395,
+        width: 420,
         border: '1px solid #E0E0E0',
         borderBottom: 0,
+        paddingLeft: 0,
         margin: 0,
-        paddingLeft: 25,
+        listStyle: 'none',
+    },
+    listItem: {
+        height: 25,
+    },
+    text: {
+        fontSize: 14,
+        fontFamily: 'Roboto',
+        paddingLeft: 2,
     },
 };
 
 export class UnselectedItems extends Component {
-    state = {};
+    constructor(props) {
+        super(props);
+        this.refsCollection = [];
+    }
 
     searchTextContains = displayName => {
         const { searchFieldInput } = this.props;
@@ -31,16 +44,18 @@ export class UnselectedItems extends Component {
 
     renderItem = dataDim => {
         //console.log(dataDim);
-        const ref = dataDim.id;
+        //const ref = dataDim.id;
         //console.log(ref);
         return (
             <li
                 id={dataDim.id}
                 key={dataDim.id}
-                ref={ref}
-                onClick={() => this.refs[ref].focus()}
+                ref={listItem => (this.refsCollection[dataDim.id] = listItem)}
+                onClick={() => this.refsCollection[dataDim.id].focus()}
+                style={style.listItem}
             >
-                {i18n.t(dataDim.displayName)}
+                <GenericDimension />
+                <span style={style.text}>{i18n.t(dataDim.displayName)}</span>
             </li>
         );
     };
@@ -53,7 +68,7 @@ export class UnselectedItems extends Component {
                     ? this.filterMatchingDimensions(listItem)
                     : this.renderItem(listItem)
         );
-        return <ul style={style.container}>{contents}</ul>;
+        return <ul style={style.listContainer}>{contents}</ul>;
     };
 }
 

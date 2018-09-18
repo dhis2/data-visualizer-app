@@ -3,6 +3,7 @@ import TextField from '@material-ui/core/TextField';
 import { Search } from '@material-ui/icons';
 import i18n from '@dhis2/d2-i18n';
 import { colors } from '../../../colors';
+import { RemoveDimensionButton } from '../DimensionLabel';
 
 const style = {
     container: {
@@ -14,17 +15,17 @@ const style = {
     },
     textField: {
         width: '98%',
-        paddingLeft: 5,
         paddingRight: 5,
         fontSize: 14,
     },
     searchIcon: {
-        color: colors.charcoalGrey,
-        position: 'relative',
-        top: 3,
+        paddingTop: 10,
+        paddingLeft: 5,
     },
     placeholder: {
         fontSize: 14,
+        paddingTop: 12,
+        paddingLeft: 5,
     },
 };
 
@@ -44,9 +45,10 @@ export class SearchField extends Component {
                     style={style.textField}
                     placeholder={i18n.t(PLACEHOLDER_TITLE)}
                     InputProps={{
-                        style: style.placeholder,
                         startAdornment: <Search style={style.searchIcon} />,
+                        disableUnderline: true,
                     }}
+                    inputProps={{ style: style.placeholder }}
                     onChange={this.handleInputChange}
                 />
             </div>

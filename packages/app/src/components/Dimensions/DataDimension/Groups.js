@@ -4,7 +4,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
 import i18n from '@dhis2/d2-i18n';
 import Totals from './Totals';
-import { apiFetchAlternatives } from '../../../api/dimensions';
+import { apiFetchGroups, apiFetchAlternatives } from '../../../api/dimensions';
 
 const style = {
     container: {
@@ -18,12 +18,14 @@ const style = {
     groupContainer: {
         display: 'flex',
         flexFlow: 'column',
+        minWidth: 316,
         width: 'inherit',
         paddingLeft: 5,
         paddingRight: 5,
     },
     titleText: {
-        fontSize: 14,
+        fontSize: 13,
+        fontWeight: 300,
         color: '#616161',
     },
 };
@@ -48,18 +50,25 @@ export class Groups extends Component {
         dataSets: [],
         eventDataItems: [],
         programIndicators: [],
-        displayValue: '',
+        dataDimId: '',
     };
 
-    handleChange = event => {
-        this.setState({ displayValue: event.target.value });
+    handleChange = async event => {
+        const dataDimAlt = await apiFetchAlternatives(
+            this.props.dataType,
+            event.target.value
+        );
+        console.log(dataDimAlt);
+        this.props.onContentChange(dataDimAlt);
+
+        this.setState({ dataDimId: event.target.value });
     };
 
     renderDropDownItems = () => {
         const { dataType } = this.props;
         return dataType.length
             ? this.state[dataType].map(item => (
-                  <MenuItem key={item.id} value={item.displayName}>
+                  <MenuItem key={item.id} value={item.id}>
                       {item.displayName}
                   </MenuItem>
               ))
@@ -77,13 +86,20 @@ export class Groups extends Component {
         const { dataType } = this.props;
 
         if (this.shouldFetchItems()) {
-            const dataTypeAlternatives = await apiFetchAlternatives(dataType);
+            const dataTypeAlternatives = await apiFetchGroups(dataType);
             this.setState({ [dataType]: dataTypeAlternatives });
-            //this.props.onContentChange(dataTypeAlternatives);
             console.log(this.state);
         } else {
             console.log('already fetched');
         }
+        /*if (this.state.dataDimId.length && this.state[dataType].length) {
+            const dataDimAlt = await apiFetchAlternatives(
+                dataType,
+                this.state.dataDimId
+            );
+            console.log(dataDimAlt);
+            this.props.onContentChange(dataDimAlt);
+        }*/
     }
 
     render = () => {
@@ -101,9 +117,9 @@ export class Groups extends Component {
                         {PLACEHOLDERS[dataTypeKey]}
                     </InputLabel>
                     <Select
-                        value={this.state.displayValue}
+                        value={this.state.dataDimId}
                         onChange={this.handleChange}
-                        MenuProps={style.MenuProps}
+                        disableUnderline
                     >
                         {renderItems}
                     </Select>

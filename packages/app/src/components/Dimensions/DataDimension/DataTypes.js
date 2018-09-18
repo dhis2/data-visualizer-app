@@ -17,7 +17,8 @@ const style = {
         flexFlow: 'column',
     },
     titleText: {
-        fontSize: 14,
+        fontSize: 13,
+        fontWeight: 300,
         color: '#616161',
     },
     dropDownItem: {
@@ -59,6 +60,7 @@ export class DataTypes extends Component {
                 <Select
                     value={this.props.value}
                     onChange={this.props.onDataTypeChange}
+                    disableUnderline
                 >
                     {alternatives.map(item => (
                         <MenuItem

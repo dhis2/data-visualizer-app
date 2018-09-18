@@ -21,7 +21,7 @@ export const apiFetchRecommendedIds = (dimIdA, dimIdB) => {
         .catch(onError);*/
 };
 
-export const apiFetchAlternatives = dataType => {
+export const apiFetchGroups = dataType => {
     switch (dataType) {
         case 'indicators': {
             return apiFetchIndicatorGroups();
@@ -40,16 +40,39 @@ export const apiFetchAlternatives = dataType => {
             return null;
     }
 };
-export const apiFetchIndicators = indicatorGroupId => {
+
+export const apiFetchAlternatives = (dataType, id) => {
+    switch (dataType) {
+        case 'indicators': {
+            return apiFetchIndicators(id);
+        }
+        case 'dataElements': {
+            return apiFetchDataElements(id);
+        }
+        case 'dataSets': {
+            // TODO check current data viz
+            return ['TODO'];
+        }
+        case 'eventDataItems':
+        case 'programIndicators': {
+            return apiFetchProgramDataElements(id);
+        }
+        default:
+            return null;
+    }
+};
+
+const apiFetchIndicators = indicatorGroupId => {
     const fields = `id,displayName&filter=indicatorGroups.id:eq:${indicatorGroupId}&paging=false&`;
     const url = `/indicators?fields=${fields}`;
 
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))
+        .then(response => response.indicators)
         .catch(onError);
 };
 
-export const apiFetchIndicatorGroups = () => {
+const apiFetchIndicatorGroups = () => {
     const fields = 'id,displayName&paging=false&';
     const url = `/indicatorGroups?fields=${fields}`;
 
@@ -59,7 +82,7 @@ export const apiFetchIndicatorGroups = () => {
         .catch(onError);
 };
 
-export const apiFetchDataElementGroups = () => {
+const apiFetchDataElementGroups = () => {
     const fields = 'id,displayName&paging=false&';
     const url = `/dataElementGroups?fields=${fields}`;
 
@@ -69,7 +92,17 @@ export const apiFetchDataElementGroups = () => {
         .catch(onError);
 };
 
-export const apiFetchDataSets = () => {
+const apiFetchDataElements = id => {
+    const fields = `dimensionItem~rename(id),displayName&filter=dataElementGroups.id:eq:${id}&pgaging=false&`;
+    const url = `/dataElements?fields=${fields}`;
+
+    return getInstance()
+        .then(d2 => d2.Api.getApi().get(url))
+        .then(response => response.dataElements)
+        .catch(onError);
+};
+
+const apiFetchDataSets = () => {
     const fields = 'id,displayName';
     const url = `/dataSets?fields=${fields}&paging=false&`;
 
@@ -79,13 +112,23 @@ export const apiFetchDataSets = () => {
         .catch(onError);
 };
 
-export const apiFetchProgramIndicators = () => {
+const apiFetchProgramIndicators = () => {
     const fields = 'id,displayName';
     const url = `/programs?fields=${fields}&paging=false&`;
 
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))
         .then(response => response.programs)
+        .catch(onError);
+};
+
+const apiFetchProgramDataElements = id => {
+    const fields = `dimensionItem~rename(id),displayName&paging=false&`;
+    const url = `/programDataelements?fields=${fields}`;
+
+    return getInstance()
+        .then(d2 => d2.Api.getApi().get(url))
+        .then(response => response.programDataElements)
         .catch(onError);
 };
 

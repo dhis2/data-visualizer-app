@@ -50,6 +50,7 @@ export class DataDimensionContent extends Component {
     };
 
     handleContentChange = newContent => {
+        //console.log(this.state.unselected);
         this.setState({ unselected: newContent });
     };
 

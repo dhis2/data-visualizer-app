@@ -13,7 +13,8 @@ const style = {
         paddingRight: 5,
     },
     titleText: {
-        fontSize: 14,
+        fontSize: 12,
+        fontWeight: 300,
         color: '#616161',
     },
 };
@@ -37,6 +38,7 @@ export class Totals extends Component {
                 <Select
                     onChange={this.handleChange}
                     value={this.state.detailOrTotals || ''}
+                    disableUnderline
                 >
                     {alternatives.map((item, key) => (
                         <MenuItem key={key} value={item}>
