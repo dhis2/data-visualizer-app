@@ -49,7 +49,6 @@ export class Groups extends Component {
         eventDataItems: [],
         programIndicators: [],
         displayValue: '',
-        haveFetchedItems: false,
     };
 
     handleChange = event => {
@@ -72,8 +71,7 @@ export class Groups extends Component {
     shouldFetchItems = () => {
         return (
             this.props.dataType.length &&
-            !this.state[this.props.dataType].length &&
-            !this.state.haveFetchedItems
+            !this.state[this.props.dataType].length
         );
     };
 
@@ -83,8 +81,12 @@ export class Groups extends Component {
         if (this.shouldFetchItems()) {
             const dataTypeAlternatives = await apiFetchAlternatives(dataType);
             this.setState({ [dataType]: dataTypeAlternatives });
+            this.props.onContentChange(dataTypeAlternatives);
+            console.log(dataTypeAlternatives);
+            console.log(this.state);
+        } else {
+            console.log('already fetched');
         }
-        console.log(this.state);
     }
 
     /*static async getDerivedStateFromProps(props, state) {

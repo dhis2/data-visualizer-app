@@ -31,7 +31,11 @@ const style = {
 const PLACEHOLDER_TITLE = 'Search';
 
 export class SearchField extends Component {
-    state = {};
+    state = { searchField: '' };
+
+    handleChange = event => {
+        this.props.onSearchFieldChange(event.target.value);
+    };
 
     render = () => {
         return (
@@ -43,6 +47,7 @@ export class SearchField extends Component {
                         style: style.placeholder,
                         startAdornment: <Search style={style.searchIcon} />,
                     }}
+                    onChange={this.handleChange}
                 />
             </div>
         );

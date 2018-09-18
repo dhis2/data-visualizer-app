@@ -13,12 +13,37 @@ const style = {
 export class UnselectedItems extends Component {
     state = {};
 
-    renderUnselectedItems = () => {};
+    searchTextContains = displayName => {
+        const { searchField } = this.props;
+
+        return displayName.toLowerCase().includes(searchField.toLowerCase());
+    };
+
+    filterMatchingDimensions = dataDim => {
+        console.log('filtering ', dataDim.displayName, this.props.searchField);
+        return this.searchTextContains(dataDim.displayName)
+            ? this.renderItem(dataDim)
+            : null;
+    };
+
+    renderItem = dataDim => {
+        console.log(dataDim);
+        return (
+            <li id={dataDim.id} key={dataDim.id}>
+                {dataDim.displayName}
+            </li>
+        );
+    };
 
     render = () => {
-        return (
-            <div style={style.container}>{this.renderUnselectedItems()}</div>
+        const { dataTypeContent, searchField } = this.props;
+        const contents = dataTypeContent.map(
+            listItem =>
+                searchField.length
+                    ? this.filterMatchingDimensions(listItem)
+                    : this.renderItem(listItem)
         );
+        return <ul style={style.container}>{contents}</ul>;
     };
 }
 

@@ -5,22 +5,10 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-09-17T21:09:31.579Z\n"
-"PO-Revision-Date: 2018-09-17T21:09:31.579Z\n"
+"POT-Creation-Date: 2018-09-18T09:04:48.509Z\n"
+"PO-Revision-Date: 2018-09-18T09:04:48.509Z\n"
 
 msgid "Data Type"
-msgstr ""
-
-msgid "Group"
-msgstr ""
-
-msgid "Details"
-msgstr ""
-
-msgid "Detail"
-msgstr ""
-
-msgid "Totals"
 msgstr ""
 
 msgid "Select indicator group"
@@ -33,6 +21,15 @@ msgid "Select data sets"
 msgstr ""
 
 msgid "Select program"
+msgstr ""
+
+msgid "Detail"
+msgstr ""
+
+msgid "Totals"
+msgstr ""
+
+msgid "Details"
 msgstr ""
 
 msgid "OrgUnit Dimension"

@@ -5,11 +5,21 @@ import SearchField from './SearchField';
 import UnselectedItems from './UnselectedItems';
 
 export class UnselectedContainer extends Component {
-    state = { dataType: '' };
+    state = { dataType: '', dataTypeContent: [], searchField: '' };
 
     handleChange = event => {
         console.log(event.target.value);
         this.setState({ dataType: event.target.value });
+    };
+
+    handleContentChange = newContent => {
+        console.log(newContent);
+        this.setState({ dataTypeContent: newContent });
+        console.log(this.state);
+    };
+
+    handleSearchFieldChange = text => {
+        this.setState({ searchField: text });
     };
 
     render = () => {
@@ -19,9 +29,19 @@ export class UnselectedContainer extends Component {
                     value={this.state.dataType}
                     handleChange={this.handleChange}
                 />
-                <Groups dataType={this.state.dataType} />
-                <SearchField />
-                <UnselectedItems />
+                <Groups
+                    dataType={this.state.dataType}
+                    dataTypeContent={this.state.dataTypeContent}
+                    onContentChange={this.handleContentChange}
+                />
+                <SearchField
+                    searchField={this.state.searchField}
+                    onSearchFieldChange={this.handleSearchFieldChange}
+                />
+                <UnselectedItems
+                    dataTypeContent={this.state.dataTypeContent}
+                    searchField={this.state.searchField}
+                />
             </div>
         );
     };
