@@ -14,11 +14,14 @@ export default (state = DEFAULT_CURRENT, action) => {
         case actionTypes.SET_CURRENT:
             return action.value;
         case actionTypes.SET_CURRENT_FROM_UI:
+            console.log('action.value', action.value);
             const axesFromUi = getAxesFromUi(action.value);
+            console.log('axesFromUi', axesFromUi);
             const optionsFromUi = getPropsByKeys(
                 action.value.options,
                 Object.keys(options)
             );
+            console.log('optionsFromUi', optionsFromUi);
 
             return {
                 ...state,
