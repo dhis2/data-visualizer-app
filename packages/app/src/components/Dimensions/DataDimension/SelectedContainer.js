@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { Close } from '@material-ui/icons';
 import i18n from '@dhis2/d2-i18n';
+import { DeselectAllButton } from './buttons';
 import { colors } from '../../../colors';
 
 const style = {
@@ -9,10 +11,8 @@ const style = {
         border: '1px solid #E0E0E0',
     },
     list: {
-        height: 493,
+        height: 426,
         width: 280,
-        border: '1px solid #E0E0E0',
-        borderBottom: 0,
         paddingLeft: 0,
         margin: 0,
         listStyle: 'none',
@@ -20,8 +20,7 @@ const style = {
     titleContainer: {
         height: 42,
         widht: 280,
-        border: '1px solid #E0E0E0',
-        borderBottom: 0,
+        borderBottom: '1px solid #E0E0E0',
     },
     title: {
         position: 'relative',
@@ -40,62 +39,95 @@ const style = {
         paddingBottom: 2,
     },
     highlighted: {
-        backgroundColor: colors.lightBlue,
         display: 'flex',
-        paddingTop: 1,
-        paddingBottom: 1,
-        paddingRight: 5,
-        paddingLeft: 6,
-        marginRight: 1,
+        paddingTop: 0,
+        paddingBottom: 0,
+        paddingRight: 4,
+        paddingLeft: 5,
+        marginRight: 3,
         marginLeft: 3,
         borderRadius: 4,
-
-        //border: '1px solid black',
+        border: '1px solid black',
     },
     icon: {
         height: 6,
         width: 6,
         marginTop: 5,
         marginRight: 5,
-        backgroundColor: '#9E9E9E',
+        backgroundColor: '#1976D2',
     },
     paddedIcon: {
         height: 6,
-        width: 10,
+        width: 7,
         marginTop: 10,
         marginRight: 5,
-        backgroundColor: '#9E9E9E',
+        backgroundColor: '#1976D2',
     },
     text: {
         fontSize: 13,
         fontFamily: 'Roboto',
         paddingLeft: 2,
     },
+    deleteButton: {
+        border: 'none',
+        background: 'none',
+        marginLeft: 2,
+        padding: 0,
+        width: 12,
+    },
+    deleteButtonIcon: {
+        fill: colors.blue,
+        height: 13,
+        width: 10,
+    },
+    listItemContainer: {
+        backgroundColor: colors.lightBlue,
+        display: 'flex',
+        paddingTop: 1,
+        paddingBottom: 1,
+        paddingRight: 5,
+        paddingLeft: 6,
+        marginRight: 3,
+        marginLeft: 3,
+        borderRadius: 4,
+    },
+    iconContainer: {},
 };
 
 const TITLE = 'Selected Data';
 
-export class SelectedContainer extends Component {
-    state = {};
+export const RemoveDimensionButton = ({ action }) => {
+    return (
+        <button style={style.deleteButton} onClick={action} tabIndex={0}>
+            <Close style={style.deleteButtonIcon} />
+        </button>
+    );
+};
 
+export class SelectedContainer extends Component {
     renderSelectedItems = dataDim => {
-        console.log(dataDim);
         return (
             <li id={dataDim.id} key={dataDim.id} style={style.listItem}>
                 <div
-                    onClick={() => this.props.onItemClick(dataDim.id)}
-                    style={style.highlighted}
+                    style={
+                        this.props.highlightedItems.includes(dataDim)
+                            ? style.highlighted
+                            : style.listItemContainer
+                    }
                 >
-                    <div
-                        style={
-                            dataDim.displayName.length > 47
-                                ? style.paddedIcon
-                                : style.icon
-                        }
-                    />
-                    <span style={style.text}>
+                    <div style={style.iconContainer}>
+                        <div style={style.icon} />
+                    </div>
+
+                    <span
+                        style={style.text}
+                        onClick={() => this.props.onItemClick(dataDim)}
+                    >
                         {i18n.t(dataDim.displayName)}
                     </span>
+                    <RemoveDimensionButton
+                        action={() => this.props.removeSelected(dataDim)}
+                    />
                 </div>
             </li>
         );
@@ -106,11 +138,12 @@ export class SelectedContainer extends Component {
             this.renderSelectedItems(dataDim)
         );
         return (
-            <div>
+            <div style={style.container}>
                 <div style={style.titleContainer}>
                     <span style={style.title}>{i18n.t(TITLE)}</span>
                 </div>
                 <ul style={style.list}>{selectedItems}</ul>
+                <DeselectAllButton action={this.props.deselectAll} />
             </div>
         );
     };

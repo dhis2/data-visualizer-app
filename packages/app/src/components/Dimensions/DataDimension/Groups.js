@@ -58,7 +58,6 @@ export class Groups extends Component {
             this.props.dataType,
             event.target.value
         );
-        console.log(dataDimAlt);
         this.props.onContentChange(dataDimAlt);
 
         this.setState({ dataDimId: event.target.value });
@@ -88,9 +87,8 @@ export class Groups extends Component {
         if (this.shouldFetchItems()) {
             const dataTypeAlternatives = await apiFetchGroups(dataType);
             this.setState({ [dataType]: dataTypeAlternatives });
-            console.log(this.state);
         } else {
-            console.log('already fetched');
+            console.log('dataType not set, or already fetched');
         }
         /*if (this.state.dataDimId.length && this.state[dataType].length) {
             const dataDimAlt = await apiFetchAlternatives(
@@ -109,7 +107,6 @@ export class Groups extends Component {
 
         const showTotals = dataTypeKey === 'dataElements';
         const renderItems = this.renderDropDownItems();
-
         return (
             <div style={style.container}>
                 <div style={style.groupContainer}>

@@ -33,7 +33,25 @@ const style = {
         top: 2,
         right: 2,
     },
+    deselectButton: {
+        height: 36,
+        width: 125,
+        position: 'relative',
+        left: 76,
+    },
+    buttonText: {
+        height: 15,
+        width: 92.55,
+        color: '#494949',
+        fontFamily: 'Roboto',
+        fontSize: 13,
+        fontWeight: 500,
+        letterSpacing: 0.46,
+    },
 };
+
+const DESELECT_ALL = i18n.t('DESELECT ALL');
+const SELECT_ALL = i18n.t('SELECT ALL');
 
 export const ActionButtons = ({ onAssignClick, onUnassignClick }) => {
     return (
@@ -59,15 +77,25 @@ export const UnassignButton = ({ action }) => {
     return (
         <button
             style={{ ...style.actionButton, ...style.unAssignButton }}
-            onClick={() => action}
+            onClick={action}
         >
             <ArrowBack style={style.arrowIcon} />
         </button>
     );
 };
 
-const DESELECT_ALL = 'DESELECT ALL';
+export const DeselectAllButton = ({ action }) => {
+    return (
+        <button style={style.deselectButton} onClick={action}>
+            <span style={style.buttonText}>{DESELECT_ALL}</span>
+        </button>
+    );
+};
 
-export const DeselectAllButton = () => {
-    return <button>{i18n.t(DESELECT_ALL)}</button>;
+export const SelectAllButton = ({ action }) => {
+    return (
+        <button style={style.selectButton} onClick={action}>
+            <span style={style.buttonText}>{SELECT_ALL}</span>
+        </button>
+    );
 };

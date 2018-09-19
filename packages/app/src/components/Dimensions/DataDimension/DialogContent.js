@@ -29,31 +29,72 @@ const style = {
 const DIALOG_TITLE = 'Data';
 
 export class DataDimensionContent extends Component {
-    state = { unselected: [], selected: [], highlighted: [] };
+    state = { unSelected: [], selected: [], highlighted: [] };
 
     assignDataDimensions = () => {
-        this.setState({
-            unselected: this.state.unselected.filter(
-                dataDim =>
-                    this.state.highlighted.includes(dataDim) ? dataDim : null
+        const filterUnselected = this.state.unSelected.filter(
+            item => (!this.state.highlighted.includes(item) ? item : null)
+        );
+
+        const filterAndMoveItems = [
+            ...this.state.selected,
+            ...this.state.highlighted.filter(
+                item => (this.state.unSelected.includes(item) ? item : null)
             ),
-            selected: this.state.highlighted,
-            highlighted: [],
-        });
+        ];
+
+        console.log(filterAndMoveItems);
+        console.log(filterUnselected);
+
+        const filterHighlighted = this.state.highlighted.filter(
+            item => (!this.state.selected.includes(item) ? item : null)
+        );
+
+        this.setState(
+            {
+                unSelected: filterUnselected,
+                selected: filterAndMoveItems,
+            },
+            () => {
+                const filterHighlighted = this.state.highlighted.filter(
+                    item => (!this.state.selected.includes(item) ? item : null)
+                );
+                this.setState({ highlighted: filterHighlighted });
+            }
+        );
+        console.log(this.state);
     };
 
-    unAssignDataDimension = dataDimension => {
-        this.setState({
-            unselected: [...this.state.unselected, dataDimension],
-            selected: this.state.selected.filter(
-                dataDim => dataDim !== dataDimension
+    unAssignDataDimensions = () => {
+        const filterUnselected = [
+            ...this.state.unSelected,
+            this.state.selected.filter(
+                item => (this.state.highlighted.includes(item) ? item : null)
             ),
-        });
+        ];
+
+        const filterSelected = this.state.selected.filter(
+            dataDim =>
+                !this.state.highlighted.includes(dataDim) ? dataDim : null
+        );
+
+        this.setState(
+            {
+                unSelected: filterUnselected,
+                selected: filterSelected,
+            },
+            () => {
+                const filterHighlighted = this.state.highlighted.filter(
+                    item =>
+                        !this.state.unSelected.includes(item) ? item : null
+                );
+                this.setState({ highlighted: filterHighlighted });
+            }
+        );
     };
 
     handleContentChange = newContent => {
-        //console.log(this.state.unselected);
-        this.setState({ unselected: newContent });
+        this.setState({ unSelected: newContent });
     };
 
     toggleHighlight = dataDim => {
@@ -68,24 +109,64 @@ export class DataDimensionContent extends Component {
               });
     };
 
+    removeSelected = dataDimension => {
+        const filterUnselected = [...this.state.unSelected, dataDimension];
+        const filterSelected = this.state.selected.filter(
+            item => item.id !== dataDimension.id
+        );
+
+        this.setState(
+            {
+                unSelected: filterUnselected,
+                selected: filterSelected,
+            },
+            () => {
+                const filterHighlighted = this.state.highlighted.filter(
+                    item => item.id !== dataDimension.id
+                );
+
+                this.setState({
+                    highlighted: filterHighlighted,
+                });
+            }
+        );
+    };
+
+    deselectAll = () => {
+        this.setState({
+            unSelected: [...this.state.unSelected, ...this.state.selected],
+            selected: [],
+        });
+    };
+
+    selectAll = () => {
+        this.setState({
+            selected: [...this.state.unSelected, ...this.state.selected],
+            unSelected: [],
+        });
+    };
+
     render = () => {
         return (
             <div style={style.container}>
                 <h3 style={style.title}>{i18n.t(DIALOG_TITLE)}</h3>
                 <div style={style.subContainer}>
                     <UnselectedContainer
-                        unselected={this.state.unselected}
                         onContentChange={this.handleContentChange}
+                        unSelected={this.state.unSelected}
                         highlightedItems={this.state.highlighted}
                         onItemClick={this.toggleHighlight}
                     />
                     <ActionButtons
                         onAssignClick={this.assignDataDimensions}
-                        onUnassignClick={this.unAssignDataDimension}
+                        onUnassignClick={this.unAssignDataDimensions}
                     />
                     <SelectedContainer
+                        deselectAll={this.deselectAll}
                         selected={this.state.selected}
-                        onItemClick={this.removeDataDimension}
+                        highlightedItems={this.state.highlighted}
+                        onItemClick={this.toggleHighlight}
+                        removeSelected={this.removeSelected}
                     />
                 </div>
             </div>

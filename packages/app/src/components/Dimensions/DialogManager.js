@@ -36,6 +36,9 @@ const style = {
         height: 84,
         borderTop: '1px solid #ECEFF1',
     },
+    updateButton: {
+        backgroundColor: '#004BA0',
+    },
 };
 
 const dimensionComponents = {
@@ -64,7 +67,7 @@ export const DialogManager = ({ classes, dialogIsOpen, id, toggleDialog }) => {
                 </Button>
                 <Button
                     variant={'outlined'}
-                    color={'primary'}
+                    style={style.updateButton}
                     onClick={() => toggleDialog(null)}
                 >
                     {i18n.t(UPDATE)}

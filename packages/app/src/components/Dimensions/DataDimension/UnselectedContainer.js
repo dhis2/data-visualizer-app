@@ -31,7 +31,7 @@ export class UnselectedContainer extends Component {
                     onSearchFieldChange={this.handleSearchFieldChange}
                 />
                 <UnselectedItems
-                    unselected={this.props.unselected}
+                    unSelected={this.props.unSelected}
                     searchFieldInput={this.state.searchField}
                     highlightedItems={this.props.highlightedItems}
                     onItemClick={this.props.onItemClick}

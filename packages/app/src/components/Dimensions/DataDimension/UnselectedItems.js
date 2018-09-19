@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import i18n from '@dhis2/d2-i18n';
-import { GenericDimension } from '../icons';
+import { SelectAllButton } from './buttons';
 import { colors } from '../../../colors';
 
 const style = {
@@ -16,17 +16,18 @@ const style = {
     highlighted: {
         //backgroundColor: colors.lightBlue,
         display: 'flex',
-        paddingTop: 5,
-        paddingBottom: 5,
+        paddingTop: 2,
+        paddingBottom: 2,
         paddingRight: 5,
-        borderRadius: 30,
-        border: '1px solid black',
+        borderRadius: 4,
+        border: `3px solid ${colors.lightBlue}`,
     },
     unHighlighted: {
+        margin: 3,
         display: 'flex',
-        paddingTop: 5,
+        paddingTop: 2,
         paddingRight: 5,
-        paddingBottom: 5,
+        paddingBottom: 2,
     },
     text: {
         fontSize: 13,
@@ -35,8 +36,8 @@ const style = {
     },
     listItem: {
         display: 'flex',
-        paddingTop: 5,
-        paddingBottom: 5,
+        paddingTop: 2,
+        paddingBottom: 2,
     },
     icon: {
         height: 6,
@@ -84,14 +85,19 @@ export class UnselectedItems extends Component {
     };
 
     render = () => {
-        const { unselected, searchFieldInput } = this.props;
-        const contents = unselected.map(
+        const { unSelected, searchFieldInput } = this.props;
+        const contents = unSelected.map(
             listItem =>
                 searchFieldInput.length
                     ? this.filterMatchingDimensions(listItem)
                     : this.renderItem(listItem)
         );
-        return <ul style={style.listContainer}>{contents}</ul>;
+        return (
+            <div>
+                <ul style={style.listContainer}>{contents}</ul>
+                <SelectAllButton />
+            </div>
+        );
     };
 }
 
