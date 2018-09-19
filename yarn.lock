@@ -3269,9 +3269,9 @@ d2-utilizr@^0.2.15:
     lodash.isset "^4.3.0"
     lodash.isstring "^4.0.1"
 
-d2@31.0.0:
-  version "31.0.0"
-  resolved "https://registry.yarnpkg.com/d2/-/d2-31.0.0.tgz#aaf78d926947b88220afe708020df35c834e6def"
+d2@31.0.1:
+  version "31.0.1"
+  resolved "https://registry.yarnpkg.com/d2/-/d2-31.0.1.tgz#b56a31a57b9b07c44080c8152d4e6673958916a9"
   dependencies:
     babel-jest "^22.4.3"
     docdash "^0.4.0"
