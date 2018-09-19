@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
-import { colors } from '../../colors';
 import DimensionLabel from './DimensionLabel';
 import DimensionOptions from './DimensionOptions';
 import {
@@ -11,6 +10,8 @@ import {
     GenericDimension,
     RecommendedIcon,
 } from './icons';
+import { colors } from '../../colors';
+import { setDataTransfer } from '../../dnd';
 
 const style = {
     wrapper: {
@@ -19,6 +20,8 @@ const style = {
     text: {
         fontSize: 16,
         color: colors.black,
+        cursor: 'pointer',
+        userSelect: 'none',
     },
     itemContainer: {
         display: 'flex',
@@ -56,9 +59,21 @@ export class DimensionItem extends Component {
     getDimensionIcon = () =>
         fixedDimensionIcons[this.props.id] || <GenericDimension />;
 
+    onDragStart = e => {
+        setDataTransfer(e, 'dimensions');
+    };
+
     getDimensionType = () => {
         return (
-            <span style={style.text}> {i18n.t(this.props.displayName)} </span>
+            <span
+                data-dimensionid={this.props.id}
+                style={style.text}
+                draggable="true"
+                onDragStart={this.onDragStart}
+            >
+                {' '}
+                {i18n.t(this.props.displayName)}{' '}
+            </span>
         );
     };
 

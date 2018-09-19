@@ -1,7 +1,7 @@
 import reducer, { DEFAULT_UI, actionTypes } from '../ui';
-import { AXIS_KEYS } from '../../layout';
+import { AXIS_NAMES } from '../../layout';
 
-const [COLUMNS, ROWS, FILTERS] = AXIS_KEYS;
+const [COLUMNS, ROWS, FILTERS] = AXIS_NAMES;
 
 const dxId = 'dx';
 const dxItem1Id = 'dxItem1';

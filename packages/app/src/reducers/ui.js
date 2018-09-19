@@ -1,6 +1,12 @@
 import options from '../options';
 import { getPropsByKeys } from '../util';
-import { getDimensionIdsByAxis, getItemIdsByDimension } from '../layout';
+import {
+    getDimensionIdsByAxis,
+    getItemIdsByDimension,
+    getFilteredLayout,
+    getSwapModObj,
+} from '../layout';
+import { getOptionsDefaultValues } from '../options';
 import { COLUMN } from '../components/VisualizationTypeSelector/visualizationTypes';
 
 export const actionTypes = {
@@ -9,12 +15,13 @@ export const actionTypes = {
     SET_UI_TYPE: 'SET_UI_TYPE',
     SET_UI_OPTIONS: 'SET_UI_OPTIONS',
     SET_UI_LAYOUT: 'SET_UI_LAYOUT',
+    ADD_UI_LAYOUT_DIMENSIONS: 'ADD_UI_LAYOUT_DIMENSIONS',
     SET_UI_ITEMS: 'SET_UI_ITEMS',
 };
 
 export const DEFAULT_UI = {
     type: COLUMN,
-    options,
+    options: getOptionsDefaultValues(),
     layout: {
         columns: ['dx'],
         rows: ['pe'],
@@ -62,6 +69,40 @@ export default (state = DEFAULT_UI, action) => {
                 layout: {
                     ...action.value,
                 },
+            };
+        }
+        // action.value: mod object (dimensionId:axisName) saying what to add where: { ou: 'rows' }
+        // Reducer takes care of swapping if dimension already exists in layout
+        case actionTypes.ADD_UI_LAYOUT_DIMENSIONS: {
+            const modObjWithSwap = {
+                ...action.value,
+                ...getSwapModObj(state.layout, action.value),
+            };
+
+            const newLayout = getFilteredLayout(
+                state.layout,
+                Object.keys(modObjWithSwap)
+            );
+
+            Object.entries(modObjWithSwap).forEach(
+                ([dimensionId, axisName]) => {
+                    if (['columns', 'rows'].includes(axisName)) {
+                        newLayout[axisName] = [dimensionId];
+                    } else {
+                        newLayout[axisName].push(dimensionId);
+                    }
+                }
+            );
+
+            return {
+                ...state,
+                layout: newLayout,
+            };
+        }
+        case actionTypes.REMOVE_UI_LAYOUT_DIMENSION: {
+            return {
+                ...state,
+                layout: getFilteredLayout(state.layout, action.value),
             };
         }
         case actionTypes.SET_UI_ITEMS: {

@@ -1,12 +1,12 @@
 import {
-    AXIS_KEYS,
+    AXIS_NAMES,
     getAllDimensions,
-    getItemIdsByDimensionMap,
+    getItemIdsByDimensionId,
     getItemIdsByDimension,
     getDimensionIdsByAxis,
 } from '../layout.js';
 
-const [COLUMNS, ROWS, FILTERS] = AXIS_KEYS;
+const [COLUMNS, ROWS, FILTERS] = AXIS_NAMES;
 
 const dxId = 'dx';
 const dxItem1Id = 'dxItem1';
@@ -52,7 +52,7 @@ describe('getAllDimensions', () => {
     });
 });
 
-describe('getItemIdsByDimensionMap', () => {
+describe('getItemIdsByDimensionId', () => {
     it('should return an object with item ids by dimension id from an array of dimensions', () => {
         const expectedState = {
             [dxId]: [dxItem1Id, dxItem2Id],
@@ -61,7 +61,7 @@ describe('getItemIdsByDimensionMap', () => {
             [ouId]: [ouItem1Id],
         };
         const allDimensions = getAllDimensions(visualization);
-        const actualState = getItemIdsByDimensionMap(allDimensions);
+        const actualState = getItemIdsByDimensionId(allDimensions);
 
         expect(actualState).toEqual(expectedState);
     });
