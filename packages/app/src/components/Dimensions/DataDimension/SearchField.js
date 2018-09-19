@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
 import { Search } from '@material-ui/icons';
 import i18n from '@dhis2/d2-i18n';
-import { colors } from '../../../colors';
-import { RemoveDimensionButton } from '../DimensionLabel';
 
 const style = {
     container: {
@@ -29,7 +27,7 @@ const style = {
     },
 };
 
-const PLACEHOLDER_TITLE = 'Search';
+const PLACEHOLDER_LABEL = 'Search';
 
 export class SearchField extends Component {
     state = { searchField: '' };
@@ -43,7 +41,7 @@ export class SearchField extends Component {
             <div style={style.container}>
                 <TextField
                     style={style.textField}
-                    placeholder={i18n.t(PLACEHOLDER_TITLE)}
+                    placeholder={i18n.t(PLACEHOLDER_LABEL)}
                     InputProps={{
                         startAdornment: <Search style={style.searchIcon} />,
                         disableUnderline: true,

@@ -38,6 +38,18 @@ const style = {
         width: 125,
         position: 'relative',
         left: 76,
+        backgroundColor: 'inherit',
+        outline: 'none',
+        border: 'none',
+    },
+    selectButton: {
+        height: 36,
+        width: 125,
+        position: 'relative',
+        backgroundColor: 'inherit',
+        border: 'none',
+        outline: 'none',
+        left: 140,
     },
     buttonText: {
         height: 15,

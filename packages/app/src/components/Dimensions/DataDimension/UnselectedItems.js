@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import i18n from '@dhis2/d2-i18n';
 import { SelectAllButton } from './buttons';
 import { colors } from '../../../colors';
+import { sortArray } from '../../../util';
 
 const style = {
     listContainer: {
-        height: 389,
-        width: 420,
-        border: '1px solid #E0E0E0',
+        height: 311,
+        width: 418,
         borderBottom: 0,
         paddingLeft: 0,
         margin: 0,
@@ -46,6 +46,9 @@ const style = {
         marginLeft: 10,
         marginRight: 5,
         backgroundColor: '#9E9E9E',
+    },
+    container: {
+        border: '1px solid #E0E0E0',
     },
 };
 
@@ -86,16 +89,17 @@ export class UnselectedItems extends Component {
 
     render = () => {
         const { unSelected, searchFieldInput } = this.props;
-        const contents = unSelected.map(
+        const contents = sortArray(unSelected).map(
             listItem =>
                 searchFieldInput.length
                     ? this.filterMatchingDimensions(listItem)
                     : this.renderItem(listItem)
         );
+
         return (
-            <div>
+            <div style={style.container}>
                 <ul style={style.listContainer}>{contents}</ul>
-                <SelectAllButton />
+                <SelectAllButton action={this.props.selectAll} />
             </div>
         );
     };

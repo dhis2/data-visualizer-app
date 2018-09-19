@@ -31,70 +31,42 @@ const DIALOG_TITLE = 'Data';
 export class DataDimensionContent extends Component {
     state = { unSelected: [], selected: [], highlighted: [] };
 
-    assignDataDimensions = () => {
-        const filterUnselected = this.state.unSelected.filter(
-            item => (!this.state.highlighted.includes(item) ? item : null)
-        );
-
-        const filterAndMoveItems = [
-            ...this.state.selected,
-            ...this.state.highlighted.filter(
-                item => (this.state.unSelected.includes(item) ? item : null)
-            ),
-        ];
-
-        console.log(filterAndMoveItems);
-        console.log(filterUnselected);
-
-        const filterHighlighted = this.state.highlighted.filter(
-            item => (!this.state.selected.includes(item) ? item : null)
-        );
-
-        this.setState(
-            {
-                unSelected: filterUnselected,
-                selected: filterAndMoveItems,
-            },
-            () => {
-                const filterHighlighted = this.state.highlighted.filter(
-                    item => (!this.state.selected.includes(item) ? item : null)
-                );
-                this.setState({ highlighted: filterHighlighted });
-            }
-        );
-        console.log(this.state);
-    };
-
-    unAssignDataDimensions = () => {
-        const filterUnselected = [
-            ...this.state.unSelected,
-            this.state.selected.filter(
-                item => (this.state.highlighted.includes(item) ? item : null)
-            ),
-        ];
-
-        const filterSelected = this.state.selected.filter(
-            dataDim =>
-                !this.state.highlighted.includes(dataDim) ? dataDim : null
-        );
-
-        this.setState(
-            {
-                unSelected: filterUnselected,
-                selected: filterSelected,
-            },
-            () => {
-                const filterHighlighted = this.state.highlighted.filter(
-                    item =>
-                        !this.state.unSelected.includes(item) ? item : null
-                );
-                this.setState({ highlighted: filterHighlighted });
-            }
-        );
-    };
-
     handleContentChange = newContent => {
         this.setState({ unSelected: newContent });
+    };
+
+    selectAll = () => {
+        const filterSelected = [
+            ...this.state.unSelected,
+            ...this.state.selected,
+        ];
+
+        const filterHighlighted = this.state.selected.filter(
+            item => this.state.highlighted.includes(item) && item
+        );
+
+        this.setState({
+            unSelected: [],
+            selected: filterSelected,
+            highlighted: filterHighlighted,
+        });
+    };
+
+    deselectAll = () => {
+        const filterUnselected = [
+            ...this.state.unSelected,
+            ...this.state.selected,
+        ];
+
+        const filterHighlighted = this.state.unSelected.filter(
+            item => this.state.highlighted.includes(item) && item
+        );
+
+        this.setState({
+            unSelected: filterUnselected,
+            selected: [],
+            highlighted: filterHighlighted,
+        });
     };
 
     toggleHighlight = dataDim => {
@@ -109,40 +81,67 @@ export class DataDimensionContent extends Component {
               });
     };
 
+    assignDataDimensions = () => {
+        const filterUnselected = this.state.unSelected.filter(
+            item => !this.state.highlighted.includes(item) && item
+        );
+
+        const filterAndMoveItems = [
+            ...this.state.selected,
+            ...this.state.highlighted.filter(
+                item => this.state.unSelected.includes(item) && item
+            ),
+        ];
+
+        const filterHighlighted = this.state.highlighted.filter(
+            item => this.state.selected.includes(item) && item
+        );
+
+        this.setState({
+            unSelected: filterUnselected,
+            selected: filterAndMoveItems,
+            highlighted: filterHighlighted,
+        });
+    };
+
+    unAssignDataDimensions = () => {
+        const filterUnselected = [
+            ...this.state.unSelected,
+            ...this.state.selected.filter(
+                item => this.state.highlighted.includes(item) && item
+            ),
+        ];
+
+        const filterSelected = this.state.selected.filter(
+            dataDim => !this.state.highlighted.includes(dataDim) && dataDim
+        );
+
+        const filterHighlighted = this.state.highlighted.filter(
+            item => this.state.unSelected.includes(item) && item
+        );
+
+        this.setState({
+            unSelected: filterUnselected,
+            selected: filterSelected,
+            highlighted: filterHighlighted,
+        });
+    };
+
     removeSelected = dataDimension => {
         const filterUnselected = [...this.state.unSelected, dataDimension];
+
         const filterSelected = this.state.selected.filter(
             item => item.id !== dataDimension.id
         );
 
-        this.setState(
-            {
-                unSelected: filterUnselected,
-                selected: filterSelected,
-            },
-            () => {
-                const filterHighlighted = this.state.highlighted.filter(
-                    item => item.id !== dataDimension.id
-                );
-
-                this.setState({
-                    highlighted: filterHighlighted,
-                });
-            }
+        const filterHighlighted = this.state.highlighted.filter(
+            item => item.id !== dataDimension.id
         );
-    };
 
-    deselectAll = () => {
         this.setState({
-            unSelected: [...this.state.unSelected, ...this.state.selected],
-            selected: [],
-        });
-    };
-
-    selectAll = () => {
-        this.setState({
-            selected: [...this.state.unSelected, ...this.state.selected],
-            unSelected: [],
+            unSelected: filterUnselected,
+            selected: filterSelected,
+            highlighted: filterHighlighted,
         });
     };
 
@@ -152,6 +151,7 @@ export class DataDimensionContent extends Component {
                 <h3 style={style.title}>{i18n.t(DIALOG_TITLE)}</h3>
                 <div style={style.subContainer}>
                     <UnselectedContainer
+                        selectAll={this.selectAll}
                         onContentChange={this.handleContentChange}
                         unSelected={this.state.unSelected}
                         highlightedItems={this.state.highlighted}

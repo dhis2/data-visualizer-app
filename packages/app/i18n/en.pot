@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-09-18T09:04:48.509Z\n"
-"PO-Revision-Date: 2018-09-18T09:04:48.509Z\n"
+"POT-Creation-Date: 2018-09-19T12:36:18.308Z\n"
+"PO-Revision-Date: 2018-09-19T12:36:18.308Z\n"
 
 msgid "Data Type"
 msgstr ""
@@ -30,6 +30,12 @@ msgid "Totals"
 msgstr ""
 
 msgid "Details"
+msgstr ""
+
+msgid "DESELECT ALL"
+msgstr ""
+
+msgid "SELECT ALL"
 msgstr ""
 
 msgid "OrgUnit Dimension"

@@ -16,6 +16,10 @@ const style = {
         fontSize: 12,
         fontWeight: 300,
         color: '#616161',
+        paddingBottom: 15,
+    },
+    dropDown: {
+        padding: 0,
     },
 };
 

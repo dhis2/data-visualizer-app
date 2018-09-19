@@ -20,13 +20,16 @@ const style = {
         fontSize: 13,
         fontWeight: 300,
         color: '#616161',
+        paddingBottom: 15,
     },
     dropDownItem: {
         fontSize: 16,
     },
+    dropDown: {
+        padding: 0,
+    },
 };
 
-const TITLE = i18n.t('Data Type');
 const alternatives = [
     {
         id: 'indicators',
@@ -50,17 +53,20 @@ const alternatives = [
     },
 ];
 
+const LABEL_TITLE = i18n.t('Data Type');
+
 export class DataTypes extends Component {
     state = {};
 
     render = () => {
         return (
             <div style={style.container}>
-                <InputLabel style={style.titleText}>{TITLE}</InputLabel>
+                <InputLabel style={style.titleText}>{LABEL_TITLE}</InputLabel>
                 <Select
                     value={this.props.value}
                     onChange={this.props.onDataTypeChange}
                     disableUnderline
+                    SelectDisplayProps={{ style: style.dropDown }}
                 >
                     {alternatives.map(item => (
                         <MenuItem
