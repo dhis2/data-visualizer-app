@@ -11,18 +11,14 @@ import { acSetUiOptions } from '../../actions/ui';
 
 const SelectBaseOption = ({ option, value, onChange }) => (
     <FormControl>
-        <InputLabel>
-            {option.label}
-        </InputLabel>
+        <InputLabel>{option.label}</InputLabel>
         <Select
             displayEmpty={true}
             onChange={event => onChange(event.target.value)}
             value={value}
         >
-            {option.items.map(({id, label}) => (
-                <MenuItem value={id}>
-                    {label}
-                </MenuItem>
+            {option.items.map(({ id, label }) => (
+                <MenuItem value={id}>{label}</MenuItem>
             ))}
         </Select>
     </FormControl>
@@ -30,10 +26,7 @@ const SelectBaseOption = ({ option, value, onChange }) => (
 
 SelectBaseOption.propTypes = {
     option: PropTypes.object,
-    value: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-    ]),
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     onChange: PropTypes.func,
 };
 
@@ -42,11 +35,11 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onChange: checked => dispatch(acSetUiOptions({ [ownProps.option.name]: checked })),
+    onChange: checked =>
+        dispatch(acSetUiOptions({ [ownProps.option.name]: checked })),
 });
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps,
+    mapDispatchToProps
 )(SelectBaseOption);
-

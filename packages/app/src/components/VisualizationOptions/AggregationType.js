@@ -12,10 +12,16 @@ const AggregationType = () => (
                 { id: '', label: i18n.t('By data element') },
                 { id: 'COUNT', label: i18n.t('Count') },
                 { id: 'AVERAGE', label: i18n.t('Average') },
-                { id: 'AVERAGE_SUM_ORG_UNIT', label: i18n.t('Average (sum in org unit hierarchy)') },
+                {
+                    id: 'AVERAGE_SUM_ORG_UNIT',
+                    label: i18n.t('Average (sum in org unit hierarchy)'),
+                },
                 { id: 'SUM', label: i18n.t('Sum') },
                 { id: 'LAST', label: i18n.t('Last value') },
-                { id: 'LAST_AVERAGE_ORG_UNIT', label: i18n.t('Last value (average in org unit hierarchy)') },
+                {
+                    id: 'LAST_AVERAGE_ORG_UNIT',
+                    label: i18n.t('Last value (average in org unit hierarchy)'),
+                },
                 { id: 'MIN', label: i18n.t('Min') },
                 { id: 'MAX', label: i18n.t('Max') },
                 { id: 'STDDEV', label: i18n.t('Standard deviation') },

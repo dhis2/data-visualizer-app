@@ -4,7 +4,7 @@ import i18n from '@dhis2/d2-i18n';
 
 const BaseLineLabel = () => (
     <TextBaseOption
-        type='text'
+        type="text"
         option={{
             name: 'baseLineLabel',
             label: i18n.t('Base line title'),

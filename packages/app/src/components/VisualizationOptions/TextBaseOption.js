@@ -17,10 +17,7 @@ const TextBaseOption = ({ type, option, value, onChange }) => (
 TextBaseOption.propTypes = {
     type: PropTypes.string,
     option: PropTypes.object,
-    value: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-    ]),
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     onChange: PropTypes.func,
 };
 
@@ -29,11 +26,11 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onChange: checked => dispatch(acSetUiOptions({ [ownProps.option.name]: checked })),
+    onChange: checked =>
+        dispatch(acSetUiOptions({ [ownProps.option.name]: checked })),
 });
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(TextBaseOption);
-

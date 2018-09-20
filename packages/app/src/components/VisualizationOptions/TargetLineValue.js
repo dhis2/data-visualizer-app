@@ -4,7 +4,7 @@ import i18n from '@dhis2/d2-i18n';
 
 const TargetLineValue = () => (
     <TextBaseOption
-        type='number'
+        type="number"
         option={{
             name: 'targetLineValue',
             label: i18n.t('Target line value'),

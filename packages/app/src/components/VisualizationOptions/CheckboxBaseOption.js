@@ -15,7 +15,7 @@ const CheckboxBaseOption = ({ option, value, onChange }) => (
                 onChange={event => onChange(event.target.checked)}
             />
         }
-    label={option.label}
+        label={option.label}
     />
 );
 
@@ -30,11 +30,11 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onChange: checked => dispatch(acSetUiOptions({ [ownProps.option.name]: checked })),
+    onChange: checked =>
+        dispatch(acSetUiOptions({ [ownProps.option.name]: checked })),
 });
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(CheckboxBaseOption);
-

@@ -12,7 +12,10 @@ const HideEmptyRowItems = () => (
                 { id: 'NONE', label: i18n.t('None') },
                 { id: 'BEFORE_FIRST', label: i18n.t('Before first') },
                 { id: 'AFTER_FIRST', label: i18n.t('After first') },
-                { id: 'BEFORE_FIRST_AFTER_LAST', label: i18n.t('Before first and after last') },
+                {
+                    id: 'BEFORE_FIRST_AFTER_LAST',
+                    label: i18n.t('Before first and after last'),
+                },
                 { id: 'ALL', label: i18n.t('All') },
             ],
         }}
