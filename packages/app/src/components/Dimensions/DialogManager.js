@@ -7,7 +7,7 @@ import {
     DialogActions,
     DialogContent,
 } from '@material-ui/core';
-import { DataDimensionContent as DataDimension } from './DataDimension/DialogContent';
+import { DataDimensionManager as DataDimension } from './DataDimension/DataDimensionManager';
 import { PeriodDimension } from './PeriodDimension';
 import { OrgUnitDimension } from './OrgUnitDimension';
 
@@ -39,6 +39,16 @@ const style = {
     updateButton: {
         backgroundColor: '#004BA0',
     },
+    updateText: {
+        fontSize: 13,
+        letterSpacing: 0.46,
+        color: 'white',
+    },
+    hideText: {
+        fontSize: 13,
+        letterSpacing: 0.46,
+        color: '#004BA0',
+    },
 };
 
 const dimensionComponents = {
@@ -63,14 +73,14 @@ export const DialogManager = ({ classes, dialogIsOpen, id, toggleDialog }) => {
             </DialogContent>
             <DialogActions style={style.dialogActions}>
                 <Button onClick={() => toggleDialog(null)}>
-                    {i18n.t(HIDE)}
+                    <span style={style.hideText}>{i18n.t(HIDE)}</span>
                 </Button>
                 <Button
                     variant={'outlined'}
                     style={style.updateButton}
                     onClick={() => toggleDialog(null)}
                 >
-                    {i18n.t(UPDATE)}
+                    <span style={style.updateText}>{i18n.t(UPDATE)}</span>
                 </Button>
             </DialogActions>
         </Dialog>

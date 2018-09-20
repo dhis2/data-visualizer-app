@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowForward, ArrowBack } from '@material-ui/icons';
+import { Button } from '@material-ui/core';
 import i18n from '@dhis2/d2-i18n';
 
 const style = {
@@ -34,30 +35,15 @@ const style = {
         right: 2,
     },
     deselectButton: {
-        height: 36,
-        width: 125,
-        position: 'relative',
         left: 76,
-        backgroundColor: 'inherit',
-        outline: 'none',
-        border: 'none',
     },
     selectButton: {
-        height: 36,
-        width: 125,
-        position: 'relative',
-        backgroundColor: 'inherit',
-        border: 'none',
-        outline: 'none',
-        left: 140,
+        position: 'absolute',
+        bottom: 85,
+        left: 165,
     },
     buttonText: {
-        height: 15,
-        width: 92.55,
-        color: '#494949',
-        fontFamily: 'Roboto',
         fontSize: 13,
-        fontWeight: 500,
         letterSpacing: 0.46,
     },
 };
@@ -98,16 +84,16 @@ export const UnassignButton = ({ action }) => {
 
 export const DeselectAllButton = ({ action }) => {
     return (
-        <button style={style.deselectButton} onClick={action}>
+        <Button style={style.deselectButton} onClick={action}>
             <span style={style.buttonText}>{DESELECT_ALL}</span>
-        </button>
+        </Button>
     );
 };
 
 export const SelectAllButton = ({ action }) => {
     return (
-        <button style={style.selectButton} onClick={action}>
+        <Button style={style.selectButton} onClick={action}>
             <span style={style.buttonText}>{SELECT_ALL}</span>
-        </button>
+        </Button>
     );
 };

@@ -27,7 +27,7 @@ const style = {
     },
 };
 
-const PLACEHOLDER_LABEL = 'Search';
+const INPUTFIELD_PLACEHOLDER = i18n.t('Search');
 
 export class SearchField extends Component {
     state = { searchField: '' };
@@ -41,7 +41,7 @@ export class SearchField extends Component {
             <div style={style.container}>
                 <TextField
                     style={style.textField}
-                    placeholder={i18n.t(PLACEHOLDER_LABEL)}
+                    placeholder={INPUTFIELD_PLACEHOLDER}
                     InputProps={{
                         startAdornment: <Search style={style.searchIcon} />,
                         disableUnderline: true,

@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import i18n from '@dhis2/d2-i18n';
-import { SelectAllButton } from './buttons';
 import { colors } from '../../../colors';
 import { sortArray } from '../../../util';
 
 const style = {
+    container: {
+        border: '1px solid #E0E0E0',
+    },
     listContainer: {
         height: 311,
         width: 418,
@@ -12,6 +14,12 @@ const style = {
         paddingLeft: 0,
         margin: 0,
         listStyle: 'none',
+        overflowX: 'scroll',
+    },
+    listItem: {
+        display: 'flex',
+        paddingTop: 2,
+        paddingBottom: 2,
     },
     highlighted: {
         //backgroundColor: colors.lightBlue,
@@ -34,11 +42,6 @@ const style = {
         fontFamily: 'Roboto',
         paddingLeft: 2,
     },
-    listItem: {
-        display: 'flex',
-        paddingTop: 2,
-        paddingBottom: 2,
-    },
     icon: {
         height: 6,
         width: 6,
@@ -46,9 +49,6 @@ const style = {
         marginLeft: 10,
         marginRight: 5,
         backgroundColor: '#9E9E9E',
-    },
-    container: {
-        border: '1px solid #E0E0E0',
     },
 };
 
@@ -61,7 +61,7 @@ export class UnselectedItems extends Component {
             .includes(searchFieldInput.toLowerCase());
     };
 
-    filterMatchingDimensions = dataDim => {
+    filterMatchingItems = dataDim => {
         return this.searchTextContains(dataDim.displayName)
             ? this.renderItem(dataDim)
             : null;
@@ -73,7 +73,7 @@ export class UnselectedItems extends Component {
                 <div
                     onClick={() => this.props.onItemClick(dataDim)}
                     style={
-                        this.props.highlightedItems.includes(dataDim)
+                        this.props.highlighted.includes(dataDim)
                             ? style.highlighted
                             : style.unHighlighted
                     }
@@ -89,17 +89,16 @@ export class UnselectedItems extends Component {
 
     render = () => {
         const { unSelected, searchFieldInput } = this.props;
-        const contents = sortArray(unSelected).map(
+        const dataDimensions = sortArray(unSelected).map(
             listItem =>
                 searchFieldInput.length
-                    ? this.filterMatchingDimensions(listItem)
+                    ? this.filterMatchingItems(listItem)
                     : this.renderItem(listItem)
         );
 
         return (
             <div style={style.container}>
-                <ul style={style.listContainer}>{contents}</ul>
-                <SelectAllButton action={this.props.selectAll} />
+                <ul style={style.listContainer}>{dataDimensions}</ul>
             </div>
         );
     };

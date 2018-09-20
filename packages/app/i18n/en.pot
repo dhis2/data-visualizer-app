@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-09-19T12:36:18.308Z\n"
-"PO-Revision-Date: 2018-09-19T12:36:18.308Z\n"
+"POT-Creation-Date: 2018-09-19T16:47:03.873Z\n"
+"PO-Revision-Date: 2018-09-19T16:47:03.873Z\n"
 
 msgid "Data Type"
 msgstr ""
@@ -21,6 +21,30 @@ msgid "Select data sets"
 msgstr ""
 
 msgid "Select program"
+msgstr ""
+
+msgid "[ All indicators ]"
+msgstr ""
+
+msgid "[ All data elements ]"
+msgstr ""
+
+msgid "[ All metrics ]"
+msgstr ""
+
+msgid "Reporting rates"
+msgstr ""
+
+msgid "Reporting rates on time"
+msgstr ""
+
+msgid "Actual reports"
+msgstr ""
+
+msgid "Actual reporting rates on time"
+msgstr ""
+
+msgid "Expected reports"
 msgstr ""
 
 msgid "Detail"

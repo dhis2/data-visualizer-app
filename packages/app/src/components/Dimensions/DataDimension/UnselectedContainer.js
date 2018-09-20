@@ -3,6 +3,7 @@ import DataTypes from './DataTypes';
 import Groups from './Groups';
 import SearchField from './SearchField';
 import UnselectedItems from './UnselectedItems';
+import { SelectAllButton } from './buttons';
 
 export class UnselectedContainer extends Component {
     state = { dataType: 'indicators', searchField: '' };
@@ -24,7 +25,7 @@ export class UnselectedContainer extends Component {
                 />
                 <Groups
                     dataType={this.state.dataType}
-                    onContentChange={this.props.onContentChange}
+                    onGroupChange={this.props.onGroupChange}
                 />
                 <SearchField
                     searchFieldInput={this.state.searchField}
@@ -32,11 +33,11 @@ export class UnselectedContainer extends Component {
                 />
                 <UnselectedItems
                     unSelected={this.props.unSelected}
-                    selectAll={this.props.selectAll}
                     searchFieldInput={this.state.searchField}
-                    highlightedItems={this.props.highlightedItems}
+                    highlighted={this.props.highlighted}
                     onItemClick={this.props.onItemClick}
                 />
+                <SelectAllButton action={this.props.selectAll} />
             </div>
         );
     };

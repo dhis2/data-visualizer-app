@@ -27,6 +27,7 @@ const style = {
     },
     dropDown: {
         padding: 0,
+        outline: 'none',
     },
 };
 

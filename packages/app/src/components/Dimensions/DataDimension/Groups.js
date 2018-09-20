@@ -4,7 +4,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
 import i18n from '@dhis2/d2-i18n';
 import Totals from './Totals';
-import { apiFetchGroups, apiFetchAlternatives } from '../../../api/dimensions';
+import { apiFetchGroups, apiFetchAlternatives } from '../../../api/dimensions'; // TODO
 
 const style = {
     container: {
@@ -33,33 +33,32 @@ const style = {
         paddingBottom: 15,
     },
 };
-const DEFAULT_KEY = 'indicators';
-
-const INDICATOR = i18n.t('Select indicator group');
-const DATA_ELEMENTS = i18n.t('Select data element group');
-const DATA_SET = i18n.t('Select data sets');
-const PROG_INDICATOR = i18n.t('Select program');
-
-const DEFAULT_INDICATOR = i18n.t('[ All indicators ]');
-const DEFAULT_DATA_ELEMENTS = i18n.t('[ All data elements ]');
-const DEFAULT_DATA_SETS = i18n.t('[ All metrics ]');
-
-const PLACEHOLDERS = {
-    indicators: { label: INDICATOR, defaultAlternative: DEFAULT_INDICATOR },
-    dataElements: {
-        label: DATA_ELEMENTS,
-        defaultAlternative: DEFAULT_DATA_ELEMENTS,
-    },
-    dataSets: { label: DATA_SET, defaultAlternative: DEFAULT_DATA_SETS },
-    eventDataItems: { label: PROG_INDICATOR },
-    programIndicators: { label: PROG_INDICATOR },
-};
 
 const REPORTING_RATES = 'REPORTING_RATES';
 const REPORTING_RATES_ON_TIME = 'REPORTING_RATES_ON_TIME';
 const ACTUAL_REPORTS = 'ACTUAL_REPORTS';
 const ACTUAL_REPORTING_RATES_ON_TIME = 'ACTUAL_REPORTING_RATES_ON_TIME';
 const EXPECTED_REPORTS = 'EXPECTED_REPORTS';
+
+const INDICATOR = i18n.t('Select indicator group');
+const DATA_ELEMENTS = i18n.t('Select data element group');
+const DATA_SET = i18n.t('Select data sets');
+const PROG_INDICATOR = i18n.t('Select program');
+
+const ALL_INDICATORS = i18n.t('[ All indicators ]');
+const ALL_DATA_ELEMENTS = i18n.t('[ All data elements ]');
+const ALL_METRICS = i18n.t('[ All metrics ]');
+
+const DEFAULTS = {
+    indicators: { label: INDICATOR, defaultAlternative: ALL_INDICATORS },
+    dataElements: {
+        label: DATA_ELEMENTS,
+        defaultAlternative: ALL_DATA_ELEMENTS,
+    },
+    dataSets: { label: DATA_SET, defaultAlternative: ALL_METRICS },
+    eventDataItems: { label: PROG_INDICATOR }, // kan / bør slås sammen
+    programIndicators: { label: PROG_INDICATOR }, // kan / bør slås sammen og fjernes fra objektet
+};
 
 const DATA_SETS_CONSTANTS = [
     { id: REPORTING_RATES, displayName: i18n.t('Reporting rates') },
@@ -85,33 +84,14 @@ export class Groups extends Component {
         dataDimId: '',
     };
 
+    // TODO : Flytt opp, + trenger denne på [ All  metrics ] f.eks
     handleChange = async event => {
-        const dataDimAlt = await apiFetchAlternatives(
+        const newContent = await apiFetchAlternatives(
             this.props.dataType,
             event.target.value
         );
-        this.props.onContentChange(dataDimAlt);
+        this.props.onGroupChange(newContent);
         this.setState({ dataDimId: event.target.value });
-    };
-
-    renderDropDownItems = () => {
-        const { dataType } = this.props;
-
-        const items = [
-            {
-                id: 'DEFAULT',
-                displayName: PLACEHOLDERS[dataType].defaultAlternative,
-            },
-            ...this.state[dataType],
-        ];
-
-        return dataType.length
-            ? items.map(item => (
-                  <MenuItem key={item.id} value={item.id}>
-                      {item.displayName}
-                  </MenuItem>
-              ))
-            : null;
     };
 
     shouldFetchItems = () => {
@@ -119,6 +99,31 @@ export class Groups extends Component {
             this.props.dataType.length &&
             !this.state[this.props.dataType].length
         );
+    };
+
+    //fix de to siste
+    getDefaultAlternative = () => {
+        return {
+            id: 'DEFAULT',
+            displayName: DEFAULTS[this.props.dataType].defaultAlternative,
+        };
+    };
+
+    renderDropDownItems = () => {
+        const { dataType } = this.props;
+
+        const optionItems = [
+            this.getDefaultAlternative(),
+            ...this.state[dataType],
+        ];
+
+        return dataType.length
+            ? optionItems.map(item => (
+                  <MenuItem key={item.id} value={item.id}>
+                      {item.displayName}
+                  </MenuItem>
+              ))
+            : null;
     };
 
     async componentDidUpdate() {
@@ -133,24 +138,20 @@ export class Groups extends Component {
     }
 
     render = () => {
-        const dataTypeKey = this.props.dataType.length
-            ? this.props.dataType
-            : DEFAULT_KEY;
-
-        const showTotals = dataTypeKey === 'dataElements';
+        const showTotals = this.props.dataType === 'dataElements';
         const renderItems = this.renderDropDownItems();
 
         return (
             <div style={style.container}>
                 <div style={style.groupContainer}>
                     <InputLabel style={style.titleText}>
-                        {PLACEHOLDERS[dataTypeKey].label}
+                        {DEFAULTS[this.props.dataType].label}
                     </InputLabel>
                     <Select
                         value={this.state.dataDimId}
                         onChange={this.handleChange}
-                        disableUnderline
                         SelectDisplayProps={{ style: style.dropDown }}
+                        disableUnderline
                     >
                         {renderItems}
                     </Select>

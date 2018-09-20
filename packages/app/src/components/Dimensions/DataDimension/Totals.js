@@ -18,9 +18,6 @@ const style = {
         color: '#616161',
         paddingBottom: 15,
     },
-    dropDown: {
-        padding: 0,
-    },
 };
 
 const DETAIL = i18n.t('Detail');
