@@ -5,8 +5,11 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-09-19T16:47:03.873Z\n"
-"PO-Revision-Date: 2018-09-19T16:47:03.873Z\n"
+"POT-Creation-Date: 2018-09-20T00:31:02.255Z\n"
+"PO-Revision-Date: 2018-09-20T00:31:02.255Z\n"
+
+msgid "Data"
+msgstr ""
 
 msgid "Data Type"
 msgstr ""
@@ -45,6 +48,12 @@ msgid "Actual reporting rates on time"
 msgstr ""
 
 msgid "Expected reports"
+msgstr ""
+
+msgid "Search"
+msgstr ""
+
+msgid "Selected Data"
 msgstr ""
 
 msgid "Detail"
@@ -114,9 +123,6 @@ msgid "Bubble"
 msgstr ""
 
 msgid "Year on year"
-msgstr ""
-
-msgid "Data"
 msgstr ""
 
 msgid "Period"

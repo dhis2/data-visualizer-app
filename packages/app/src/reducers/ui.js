@@ -6,7 +6,8 @@ import {
     getFilteredLayout,
     getSwapModObj,
 } from '../layout';
-//import { COLUMN } from '../components/VisualizationTypeSelector/visualizationTypes';
+import { getOptionsDefaultValues } from '../options';
+import { COLUMN } from '../components/VisualizationTypeSelector/visualizationTypes';
 
 export const actionTypes = {
     SET_UI: 'SET_UI',
@@ -20,7 +21,8 @@ export const actionTypes = {
 };
 
 export const DEFAULT_UI = {
-    options,
+    type: COLUMN,
+    options: getOptionsDefaultValues(),
     layout: {
         columns: ['dx'],
         rows: ['pe'],

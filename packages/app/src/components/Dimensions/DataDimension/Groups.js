@@ -39,6 +39,7 @@ const REPORTING_RATES_ON_TIME = 'REPORTING_RATES_ON_TIME';
 const ACTUAL_REPORTS = 'ACTUAL_REPORTS';
 const ACTUAL_REPORTING_RATES_ON_TIME = 'ACTUAL_REPORTING_RATES_ON_TIME';
 const EXPECTED_REPORTS = 'EXPECTED_REPORTS';
+//const ALL_METRICS_REPORTS = 'ALL_METRICS_REPORTS';
 
 const INDICATOR = i18n.t('Select indicator group');
 const DATA_ELEMENTS = i18n.t('Select data element group');
@@ -56,22 +57,33 @@ const DEFAULTS = {
         defaultAlternative: ALL_DATA_ELEMENTS,
     },
     dataSets: { label: DATA_SET, defaultAlternative: ALL_METRICS },
-    eventDataItems: { label: PROG_INDICATOR }, // kan / bør slås sammen
-    programIndicators: { label: PROG_INDICATOR }, // kan / bør slås sammen og fjernes fra objektet
 };
 
 const DATA_SETS_CONSTANTS = [
-    { id: REPORTING_RATES, displayName: i18n.t('Reporting rates') },
+    {
+        id: ALL_METRICS,
+        displayName: i18n.t('All metrics'),
+    },
+    {
+        id: REPORTING_RATES,
+        displayName: i18n.t('Reporting rates'),
+    },
     {
         id: REPORTING_RATES_ON_TIME,
         displayName: i18n.t('Reporting rates on time'),
     },
-    { id: ACTUAL_REPORTS, displayName: i18n.t('Actual reports') },
+    {
+        id: ACTUAL_REPORTS,
+        displayName: i18n.t('Actual reports'),
+    },
     {
         id: ACTUAL_REPORTING_RATES_ON_TIME,
         displayName: i18n.t('Actual reporting rates on time'),
     },
-    { id: EXPECTED_REPORTS, displayName: i18n.t('Expected reports') },
+    {
+        id: EXPECTED_REPORTS,
+        displayName: i18n.t('Expected reports'),
+    },
 ];
 
 export class Groups extends Component {
@@ -84,14 +96,42 @@ export class Groups extends Component {
         dataDimId: '',
     };
 
-    // TODO : Flytt opp, + trenger denne på [ All  metrics ] f.eks
+    // TODO : Flytt opp og refactor, + trenger denne på [ All  metrics ] f.eks
     handleChange = async event => {
-        const newContent = await apiFetchAlternatives(
+        let newContent = await apiFetchAlternatives(
             this.props.dataType,
             event.target.value
         );
+
+        if (this.props.dataType === 'dataSets') {
+            const constant = DATA_SETS_CONSTANTS.find(function(item) {
+                return item.id === event.target.value;
+            });
+
+            newContent = newContent.map(item => {
+                return {
+                    id: `${item.id}.${constant.id}`,
+                    displayName: `${item.displayName} (${
+                        constant.displayName
+                    })`,
+                };
+            });
+        }
         this.props.onGroupChange(newContent);
         this.setState({ dataDimId: event.target.value });
+    };
+
+    //TODO: flytt / refactor
+    mergeReportingRates = arr => {
+        const items = arr.map(item => {
+            return {
+                id: `${item.id}.${DATA_SETS_CONSTANTS[this.state.dataType]}`,
+                displayName: `${item.displayName} (${
+                    DATA_SETS_CONSTANTS[this.state.dataType].displayName
+                })`,
+            };
+        });
+        return items;
     };
 
     shouldFetchItems = () => {
@@ -101,21 +141,39 @@ export class Groups extends Component {
         );
     };
 
-    //fix de to siste
+    haveDefaultAlternatives = () => {
+        return (
+            this.props.dataType === 'indicators' ||
+            this.props.dataType === 'dataElements'
+        );
+    };
+
+    // ?
     getDefaultAlternative = () => {
-        return {
-            id: 'DEFAULT',
-            displayName: DEFAULTS[this.props.dataType].defaultAlternative,
-        };
+        return this.haveDefaultAlternatives()
+            ? {
+                  id: 'ALL',
+                  displayName: DEFAULTS[this.props.dataType].defaultAlternative,
+              }
+            : null;
+    };
+
+    // ?
+    getCurrentGroupType = () => {
+        return this.haveDefaultAlternatives()
+            ? DEFAULTS[this.props.dataType].label
+            : PROG_INDICATOR;
     };
 
     renderDropDownItems = () => {
         const { dataType } = this.props;
+        let optionItems = this.state[dataType];
 
-        const optionItems = [
-            this.getDefaultAlternative(),
-            ...this.state[dataType],
-        ];
+        if (this.haveDefaultAlternatives())
+            optionItems = [
+                this.getDefaultAlternative(),
+                ...this.state[dataType],
+            ];
 
         return dataType.length
             ? optionItems.map(item => (
@@ -138,15 +196,14 @@ export class Groups extends Component {
     }
 
     render = () => {
-        const showTotals = this.props.dataType === 'dataElements';
+        const label = this.getCurrentGroupType();
         const renderItems = this.renderDropDownItems();
+        const showTotals = this.props.dataType === 'dataElements';
 
         return (
             <div style={style.container}>
                 <div style={style.groupContainer}>
-                    <InputLabel style={style.titleText}>
-                        {DEFAULTS[this.props.dataType].label}
-                    </InputLabel>
+                    <InputLabel style={style.titleText}>{label}</InputLabel>
                     <Select
                         value={this.state.dataDimId}
                         onChange={this.handleChange}

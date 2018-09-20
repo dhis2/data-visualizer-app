@@ -51,7 +51,7 @@ export const apiFetchAlternatives = (dataType, id) => {
         }
         case 'dataSets': {
             // TODO check current data viz
-            return ['TODO'];
+            return apiFetchDataSets();
         }
         case 'eventDataItems':
         case 'programIndicators': {
@@ -63,9 +63,12 @@ export const apiFetchAlternatives = (dataType, id) => {
 };
 
 const apiFetchIndicators = indicatorGroupId => {
-    const fields = `id,displayName&filter=indicatorGroups.id:eq:${indicatorGroupId}&paging=false&`;
-    const url = `/indicators?fields=${fields}`;
+    const fields =
+        indicatorGroupId === 'ALL'
+            ? `id,displayName&paging=false&`
+            : `id,displayName&filter=indicatorGroups.id:eq:${indicatorGroupId}&paging=false&`;
 
+    const url = `/indicators?fields=${fields}`;
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))
         .then(response => response.indicators)
@@ -93,7 +96,10 @@ const apiFetchDataElementGroups = () => {
 };
 
 const apiFetchDataElements = id => {
-    const fields = `dimensionItem~rename(id),displayName&filter=dataElementGroups.id:eq:${id}&pgaging=false&`;
+    const fields =
+        id === 'ALL'
+            ? 'id,displayName&paging=false&'
+            : `dimensionItem~rename(id),displayName&filter=dataElementGroups.id:eq:${id}&pgaging=false&`;
     const url = `/dataElements?fields=${fields}`;
 
     return getInstance()
@@ -103,8 +109,8 @@ const apiFetchDataElements = id => {
 };
 
 const apiFetchDataSets = () => {
-    const fields = 'id,displayName';
-    const url = `/dataSets?fields=${fields}&paging=false&`;
+    const fields = 'dimensionItem~rename(id),displayName&paging=false&';
+    const url = `/dataSets?fields=${fields}`;
 
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))
@@ -122,9 +128,9 @@ const apiFetchProgramIndicators = () => {
         .catch(onError);
 };
 
-const apiFetchProgramDataElements = id => {
+const apiFetchProgramDataElements = programId => {
     const fields = `dimensionItem~rename(id),displayName&paging=false&`;
-    const url = `/programDataelements?fields=${fields}`;
+    const url = `/programDataElements?program=${programId}&fields=${fields}`;
 
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))

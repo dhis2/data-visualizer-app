@@ -6,7 +6,7 @@ import UnselectedItems from './UnselectedItems';
 import { SelectAllButton } from './buttons';
 
 export class UnselectedContainer extends Component {
-    state = { dataType: 'indicators', searchField: '' };
+    state = { dataType: 'indicators', searchField: '', currentGroupSet: '' };
 
     handleDataTypeChange = event => {
         this.setState({ dataType: event.target.value });

@@ -33,6 +33,26 @@ export const sortArray = array => {
     return sortedDimensions;
 };
 
+export const filterArr = (filterArr, includeArr, flag) => {
+    const RETRIEVE_INCLUDED = true;
+    const REMOVE_INCLUDED = false;
+    const REMOVE_ELEMENT = 'NOT_EQUAL';
+
+    switch (flag) {
+        case RETRIEVE_INCLUDED: {
+            return filterArr.filter(item => includeArr.includes(item) && item);
+        }
+        case REMOVE_INCLUDED: {
+            return filterArr.filter(item => !includeArr.includes(item) && item);
+        }
+        case REMOVE_ELEMENT: {
+            return filterArr.filter(item => item.id !== includeArr.id);
+        }
+        default:
+            return [];
+    }
+};
+
 export function arrayGetById(array, id) {
     return array.find(item => item.id === id);
 }

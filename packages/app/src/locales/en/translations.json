@@ -1,4 +1,5 @@
 {
+    "Data": "",
     "Data Type": "",
     "Select indicator group": "",
     "Select data element group": "",
@@ -12,6 +13,8 @@
     "Actual reports": "",
     "Actual reporting rates on time": "",
     "Expected reports": "",
+    "Search": "",
+    "Selected Data": "",
     "Detail": "",
     "Totals": "",
     "Details": "",
@@ -35,7 +38,6 @@
     "Gauge": "",
     "Bubble": "",
     "Year on year": "",
-    "Data": "",
     "Period": "",
     "Organisation Unit": ""
 }

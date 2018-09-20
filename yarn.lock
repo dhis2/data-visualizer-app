@@ -1456,6 +1456,13 @@ babel-jest@23.4.2, babel-jest@^23.4.2:
     babel-plugin-istanbul "^4.1.6"
     babel-preset-jest "^23.2.0"
 
+babel-jest@^22.4.3:
+  version "22.4.4"
+  resolved "https://registry.yarnpkg.com/babel-jest/-/babel-jest-22.4.4.tgz#977259240420e227444ebe49e226a61e49ea659d"
+  dependencies:
+    babel-plugin-istanbul "^4.1.5"
+    babel-preset-jest "^22.4.4"
+
 babel-loader@7.1.5:
   version "7.1.5"
   resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-7.1.5.tgz#e3ee0cd7394aa557e013b02d3e492bfd07aa6d68"
@@ -1484,7 +1491,7 @@ babel-plugin-dynamic-import-node@1.1.0:
     babel-template "^6.26.0"
     babel-types "^6.26.0"
 
-babel-plugin-istanbul@^4.1.6:
+babel-plugin-istanbul@^4.1.5, babel-plugin-istanbul@^4.1.6:
   version "4.1.6"
   resolved "https://registry.yarnpkg.com/babel-plugin-istanbul/-/babel-plugin-istanbul-4.1.6.tgz#36c59b2192efce81c5b378321b74175add1c9a45"
   dependencies:
@@ -1492,6 +1499,10 @@ babel-plugin-istanbul@^4.1.6:
     find-up "^2.1.0"
     istanbul-lib-instrument "^1.10.1"
     test-exclude "^4.2.1"
+
+babel-plugin-jest-hoist@^22.4.4:
+  version "22.4.4"
+  resolved "https://registry.yarnpkg.com/babel-plugin-jest-hoist/-/babel-plugin-jest-hoist-22.4.4.tgz#b9851906eab34c7bf6f8c895a2b08bea1a844c0b"
 
 babel-plugin-jest-hoist@^23.2.0:
   version "23.2.0"
@@ -1943,6 +1954,13 @@ babel-preset-flow@^6.23.0:
   resolved "https://registry.yarnpkg.com/babel-preset-flow/-/babel-preset-flow-6.23.0.tgz#e71218887085ae9a24b5be4169affb599816c49d"
   dependencies:
     babel-plugin-transform-flow-strip-types "^6.22.0"
+
+babel-preset-jest@^22.4.4:
+  version "22.4.4"
+  resolved "https://registry.yarnpkg.com/babel-preset-jest/-/babel-preset-jest-22.4.4.tgz#ec9fbd8bcd7dfd24b8b5320e0e688013235b7c39"
+  dependencies:
+    babel-plugin-jest-hoist "^22.4.4"
+    babel-plugin-syntax-object-rest-spread "^6.13.0"
 
 babel-preset-jest@^23.2.0:
   version "23.2.0"
@@ -3211,6 +3229,18 @@ cyclist@~0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
 
+d2-charts-api@^29.0.1:
+  version "29.0.1"
+  resolved "https://registry.yarnpkg.com/d2-charts-api/-/d2-charts-api-29.0.1.tgz#b386d43bbdacda5400b27797a80adb9b1534003e"
+  dependencies:
+    d2-utilizr "0.2.13"
+    d3-color "1.0.1"
+    highcharts "5.0.10"
+    highcharts-exporting "0.1.2"
+    highcharts-more "0.1.2"
+    highcharts-no-data-to-display "0.1.2"
+    highcharts-solid-gauge "0.1.2"
+
 d2-manifest@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/d2-manifest/-/d2-manifest-1.0.0.tgz#19d4a4c4e8151442ab730e932c9c2170be9ebcc9"
@@ -3226,6 +3256,18 @@ d2-ui@^29.0.18:
   version "29.0.21"
   resolved "https://registry.yarnpkg.com/d2-ui/-/d2-ui-29.0.21.tgz#89f5cb810d58e11fa88cef2b3e8cb2ee261c5a06"
 
+d2-utilizr@0.2.13:
+  version "0.2.13"
+  resolved "https://registry.yarnpkg.com/d2-utilizr/-/d2-utilizr-0.2.13.tgz#aff6dfb054f92e2c974cf69f38f4fdc13699a6d3"
+  dependencies:
+    lodash.isboolean "^3.0.3"
+    lodash.isfunction "^3.0.8"
+    lodash.ismap "^4.3.0"
+    lodash.isnumber "^3.0.3"
+    lodash.isobject "^3.0.2"
+    lodash.isset "^4.3.0"
+    lodash.isstring "^4.0.1"
+
 d2-utilizr@^0.2.15:
   version "0.2.16"
   resolved "https://registry.yarnpkg.com/d2-utilizr/-/d2-utilizr-0.2.16.tgz#b71df7ca8c7ab5125ca8bdb4899611bc6782a754"
@@ -3238,13 +3280,18 @@ d2-utilizr@^0.2.15:
     lodash.isset "^4.3.0"
     lodash.isstring "^4.0.1"
 
-d2@^30.0.2:
-  version "30.0.2"
-  resolved "https://registry.yarnpkg.com/d2/-/d2-30.0.2.tgz#d231289aa24074044b4e6b552308fcad42523181"
+d2@31.0.1:
+  version "31.0.1"
+  resolved "https://registry.yarnpkg.com/d2/-/d2-31.0.1.tgz#b56a31a57b9b07c44080c8152d4e6673958916a9"
   dependencies:
+    babel-jest "^22.4.3"
     docdash "^0.4.0"
     jsdoc "^3.5.5"
     whatwg-fetch "^2.0.3"
+
+d3-color@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/d3-color/-/d3-color-1.0.1.tgz#73cc91f4ee3f12e00ca06b1596a7c83cf104723a"
 
 d@1:
   version "1.0.0"
@@ -4978,6 +5025,26 @@ hash.js@^1.0.0, hash.js@^1.0.3:
 he@1.1.x:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/he/-/he-1.1.1.tgz#93410fd21b009735151f8868c2f271f3427e23fd"
+
+highcharts-exporting@0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/highcharts-exporting/-/highcharts-exporting-0.1.2.tgz#49850e5a4dab2a4a88e83e8a1f143bc1c2250daf"
+
+highcharts-more@0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/highcharts-more/-/highcharts-more-0.1.2.tgz#38c2e386569ec79c8bd97fd68b384c5ea512efac"
+
+highcharts-no-data-to-display@0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/highcharts-no-data-to-display/-/highcharts-no-data-to-display-0.1.2.tgz#274930128c10f0e78cde7d6007658d876f43f79f"
+
+highcharts-solid-gauge@0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/highcharts-solid-gauge/-/highcharts-solid-gauge-0.1.2.tgz#96c2943ddf362ada650ace2777514f8bda7094bb"
+
+highcharts@5.0.10:
+  version "5.0.10"
+  resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-5.0.10.tgz#7a432c39a3c27992314ab17e45ecf29bd1a91132"
 
 hmac-drbg@^1.0.0:
   version "1.0.1"
@@ -6876,7 +6943,7 @@ material-ui@^0.19.3:
     simple-assign "^0.1.0"
     warning "^3.0.0"
 
-material-ui@^0.20.0:
+material-ui@^0.20.0, material-ui@^0.20.2:
   version "0.20.2"
   resolved "https://registry.yarnpkg.com/material-ui/-/material-ui-0.20.2.tgz#5fc9b4b62b691d3b16c89d8e54597a0412b52c7d"
   dependencies:
