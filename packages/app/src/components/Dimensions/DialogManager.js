@@ -27,6 +27,7 @@ const style = {
         padding: 0,
         paddingLeft: 24,
         paddingRight: 24,
+        overflow: 'hidden',
     },
     dialogActions: {
         margin: 0,

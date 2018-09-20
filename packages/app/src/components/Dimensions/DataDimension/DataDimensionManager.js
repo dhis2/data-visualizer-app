@@ -3,8 +3,8 @@ import UnselectedContainer from './UnselectedContainer';
 import SelectedContainer from './SelectedContainer';
 import { ActionButtons } from './buttons';
 import i18n from '@dhis2/d2-i18n';
-import { apiFetchGroups, apiFetchAlternatives } from '../../../api/dimensions';
-import { filterArr } from '../../../util';
+//import { apiFetchGroups, apiFetchAlternatives } from '../../../api/dimensions';
+import { entriesToObject, sortArray } from '../../../util';
 
 const style = {
     container: {
@@ -22,166 +22,150 @@ const style = {
         paddingBottom: 15,
     },
     subContainer: {
-        height: 536,
+        height: 507,
         width: 747,
         display: 'flex',
     },
 };
 
-const RETRIEVE_INCLUDED = true; // RETRIEVE_IF_INCLUDED
-const REMOVE_INCLUDED = false; // REMOVE_IF_NOT_INCLUDED
-const REMOVE_ELEMENT = 'NOT_EQUAL'; // REMOVE_ELEMENT
-
+const OBJECT_POS = 1;
 const DIALOG_TITLE = i18n.t('Data');
 
 export class DataDimensionManager extends Component {
     state = {
         //TODO: prøv objekter
-        unSelected: [],
-        selected: [],
-        highlighted: [],
+        currentGroupSet: {},
+        unSelected: {},
+        selected: {},
     };
 
-    handleContentChange = async currentGroupSet => {
+    handleContentChange = async newContent => {
         /*// TODO API Call
         const newContent = await apiFetchAlternatives(
             this.state.dataType,
             currentGroupSet
             this.setState({ currentGroupSet, unSelected: newContent});
         );*/
-        this.setState({ unSelected: currentGroupSet });
+
+        function arrayToIdMap(array) {
+            return sortArray(array).reduce((obj, item) => {
+                obj[item.id] = { ...item, isHighlighted: false };
+                return obj;
+            }, {});
+        }
+
+        const newDimensions = arrayToIdMap(newContent);
+
+        this.setState({
+            currentGroupSet: newDimensions,
+            unSelected: newDimensions,
+        });
     };
 
     selectAll = () => {
-        const assignedSelectedItems = [
-            ...this.state.unSelected,
-            ...this.state.selected,
-        ];
+        if (Object.keys(this.state.unSelected).length) {
+            const selectedItems = Object.assign(
+                {},
+                this.state.selected,
+                this.state.unSelected
+            );
 
-        const highlightedItems = filterArr(
-            this.state.selected,
-            this.state.highlighted,
-            RETRIEVE_INCLUDED
-        );
-
-        this.setState({
-            unSelected: [],
-            selected: assignedSelectedItems,
-            highlighted: highlightedItems,
-        });
+            this.setState({
+                unSelected: {},
+                selected: selectedItems,
+            });
+        }
     };
 
     deselectAll = () => {
-        const unSelectedItems = [
-            ...this.state.unSelected,
-            ...this.state.selected,
-        ];
-
-        const highlightedItems = filterArr(
-            this.state.unSelected,
-            this.state.highlighted,
-            RETRIEVE_INCLUDED
-        );
-
-        // TODO : Fetch original items from group
         this.setState({
-            unSelected: unSelectedItems,
+            unSelected: this.state.currentGroupSet,
             selected: [],
-            highlighted: highlightedItems,
         });
     };
 
-    toggleHighlight = dataDim => {
-        this.state.highlighted.includes(dataDim)
-            ? this.setState({
-                  highlighted: filterArr(
-                      this.state.highlighted,
-                      dataDim,
-                      REMOVE_ELEMENT
-                  ),
-              })
-            : this.setState({
-                  highlighted: [...this.state.highlighted, dataDim],
-              });
+    toggleHighlight = (name, dataDim) => {
+        const toggle = {
+            ...dataDim,
+            isHighlighted: !dataDim.isHighlighted,
+        };
+
+        const highlightedItems = {
+            ...this.state[name],
+            [dataDim.id]: toggle,
+        };
+
+        this.setState({
+            [name]: highlightedItems,
+        });
     };
 
     assignDataDimensions = () => {
-        const unSelectedItems = filterArr(
-            this.state.unSelected,
-            this.state.highlighted,
-            REMOVE_INCLUDED
-        );
+        let selectedItems = this.state.selected;
 
-        const selectedItems = [
-            ...this.state.selected,
-            ...filterArr(
-                this.state.highlighted,
-                this.state.unSelected,
-                RETRIEVE_INCLUDED
-            ),
-        ];
+        Object.entries(this.state.unSelected).forEach(entry => {
+            const dataDimension = entry[OBJECT_POS];
+            const resetHighlight = {
+                ...dataDimension,
+                isHighlighted: false,
+            };
 
-        const highlightedItems = filterArr(
-            this.state.highlighted,
-            this.state.selected,
-            RETRIEVE_INCLUDED
+            if (dataDimension.isHighlighted)
+                selectedItems = {
+                    ...selectedItems,
+                    [dataDimension.id]: resetHighlight,
+                };
+        });
+
+        const unSelectedItems = Object.entries(this.state.unSelected).filter(
+            dataDim => !dataDim[OBJECT_POS].isHighlighted
         );
 
         this.setState({
-            unSelected: unSelectedItems,
+            unSelected: entriesToObject(unSelectedItems),
             selected: selectedItems,
-            highlighted: highlightedItems,
         });
     };
 
     unAssignDataDimensions = () => {
-        const unSelectedItems = [
-            ...this.state.unSelected,
-            ...filterArr(
-                this.state.selected,
-                this.state.highlighted,
-                RETRIEVE_INCLUDED
-            ),
-        ];
+        let unSelectedItems = this.state.unSelected;
 
-        const selectedItems = filterArr(
-            this.state.selected,
-            this.state.highlighted,
-            REMOVE_INCLUDED
-        );
+        Object.entries(this.state.selected).forEach(dataDim => {
+            const dataDimension = dataDim[OBJECT_POS];
+            const resetHighlight = {
+                ...dataDimension,
+                isHighlighted: false,
+            };
 
-        const highlightedItems = filterArr(
-            this.state.highlighted,
-            this.state.unSelected,
-            RETRIEVE_INCLUDED
+            if (dataDimension.isHighlighted)
+                unSelectedItems = {
+                    ...unSelectedItems,
+                    [dataDimension.id]: resetHighlight,
+                };
+        });
+
+        const selectedItems = Object.entries(this.state.selected).filter(
+            dataDim => !dataDim[OBJECT_POS].isHighlighted
         );
 
         this.setState({
             unSelected: unSelectedItems,
-            selected: selectedItems,
-            highlighted: highlightedItems,
+            selected: entriesToObject(selectedItems),
         });
     };
 
     removeSelected = dataDimension => {
-        const unSelectedItems = [...this.state.unSelected, dataDimension];
+        const unSelectedItems = Object.assign({}, this.state.unSelected, {
+            [dataDimension.id]: dataDimension,
+        });
 
-        const selectedItems = filterArr(
-            this.state.selected,
-            dataDimension,
-            REMOVE_ELEMENT
-        );
-
-        const highlightedItems = filterArr(
-            this.state.highlighted,
-            dataDimension,
-            REMOVE_ELEMENT
+        const selectedItems = Object.entries(this.state.selected).filter(
+            dataDim => dataDim[OBJECT_POS].id !== dataDimension.id
         );
 
         this.setState({
             unSelected: unSelectedItems,
-            selected: selectedItems,
-            highlighted: highlightedItems,
+            selected: entriesToObject(selectedItems),
         });
     };
 

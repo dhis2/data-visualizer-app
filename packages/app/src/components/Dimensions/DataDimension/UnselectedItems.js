@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import i18n from '@dhis2/d2-i18n';
 import { colors } from '../../../colors';
-import { sortArray } from '../../../util';
+import { SelectAllButton } from './buttons';
 
 const style = {
     container: {
@@ -52,6 +52,9 @@ const style = {
     },
 };
 
+const OBJECT_POS = 1;
+const UNSELECTED = 'unSelected';
+
 export class UnselectedItems extends Component {
     searchTextContains = displayName => {
         const { searchFieldInput } = this.props;
@@ -68,16 +71,15 @@ export class UnselectedItems extends Component {
     };
 
     renderItem = dataDim => {
+        const handleClick = () => this.props.onItemClick(UNSELECTED, dataDim);
+
+        const itemStyle = dataDim.isHighlighted
+            ? style.highlighted
+            : style.unHighlighted;
+
         return (
             <li id={dataDim.id} key={dataDim.id} style={style.listItem}>
-                <div
-                    onClick={() => this.props.onItemClick(dataDim)}
-                    style={
-                        this.props.highlighted.includes(dataDim)
-                            ? style.highlighted
-                            : style.unHighlighted
-                    }
-                >
+                <div onClick={handleClick} style={itemStyle}>
                     <div style={style.icon} />
                     <span style={style.text}>
                         {i18n.t(dataDim.displayName)}
@@ -88,17 +90,18 @@ export class UnselectedItems extends Component {
     };
 
     render = () => {
-        const { unSelected, searchFieldInput } = this.props;
-        const dataDimensions = sortArray(unSelected).map(
+        const { unSelected, searchFieldInput, selectAll } = this.props;
+        const dataDimensions = Object.entries(unSelected).map(
             listItem =>
                 searchFieldInput.length
-                    ? this.filterMatchingItems(listItem)
-                    : this.renderItem(listItem)
+                    ? this.filterMatchingItems(listItem[OBJECT_POS])
+                    : this.renderItem(listItem[OBJECT_POS])
         );
 
         return (
             <div style={style.container}>
                 <ul style={style.listContainer}>{dataDimensions}</ul>
+                <SelectAllButton action={selectAll} />
             </div>
         );
     };

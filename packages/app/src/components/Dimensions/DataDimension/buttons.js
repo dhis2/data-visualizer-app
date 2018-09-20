@@ -38,8 +38,6 @@ const style = {
         left: 76,
     },
     selectButton: {
-        position: 'absolute',
-        bottom: 85,
         left: 165,
     },
     buttonText: {

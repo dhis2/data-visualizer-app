@@ -6,7 +6,7 @@ import { colors } from '../../../colors';
 
 const style = {
     container: {
-        height: 536,
+        height: 505,
         width: 278,
         border: '1px solid #E0E0E0',
     },
@@ -94,6 +94,7 @@ const style = {
 };
 
 const SELECTED_DATA_TITLE = i18n.t('Selected Data');
+const OBJECT_POS = 1;
 
 export const RemoveSelectedItemButton = ({ action }) => {
     return (
@@ -102,10 +103,13 @@ export const RemoveSelectedItemButton = ({ action }) => {
         </button>
     );
 };
+const SELECTED = 'selected';
 
 export class SelectedContainer extends Component {
     renderSelectedItems = dataDim => {
-        const itemStyle = this.props.highlighted.includes(dataDim)
+        const handleClick = () => this.props.onItemClick(SELECTED, dataDim);
+
+        const itemStyle = dataDim.isHighlighted
             ? style.highlighted
             : style.unHighlighted;
 
@@ -115,10 +119,7 @@ export class SelectedContainer extends Component {
                     <div style={style.iconContainer}>
                         <div style={style.icon} />
                     </div>
-                    <span
-                        style={style.text}
-                        onClick={() => this.props.onItemClick(dataDim)}
-                    >
+                    <span style={style.text} onClick={handleClick}>
                         {i18n.t(dataDim.displayName)}
                     </span>
                     <RemoveSelectedItemButton
@@ -131,8 +132,8 @@ export class SelectedContainer extends Component {
     };
 
     render = () => {
-        const selectedItems = this.props.selected.map(dataDim =>
-            this.renderSelectedItems(dataDim)
+        const selectedItems = Object.entries(this.props.selected).map(dataDim =>
+            this.renderSelectedItems(dataDim[OBJECT_POS])
         );
         return (
             <div style={style.container}>

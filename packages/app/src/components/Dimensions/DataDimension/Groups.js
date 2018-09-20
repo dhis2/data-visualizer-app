@@ -5,6 +5,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import i18n from '@dhis2/d2-i18n';
 import Totals from './Totals';
 import { apiFetchGroups, apiFetchAlternatives } from '../../../api/dimensions'; // TODO
+import { DATA_SETS_CONSTANTS, getReportingRates } from './dataSets';
 
 const style = {
     container: {
@@ -34,13 +35,6 @@ const style = {
     },
 };
 
-const REPORTING_RATES = 'REPORTING_RATES';
-const REPORTING_RATES_ON_TIME = 'REPORTING_RATES_ON_TIME';
-const ACTUAL_REPORTS = 'ACTUAL_REPORTS';
-const ACTUAL_REPORTING_RATES_ON_TIME = 'ACTUAL_REPORTING_RATES_ON_TIME';
-const EXPECTED_REPORTS = 'EXPECTED_REPORTS';
-//const ALL_METRICS_REPORTS = 'ALL_METRICS_REPORTS';
-
 const INDICATOR = i18n.t('Select indicator group');
 const DATA_ELEMENTS = i18n.t('Select data element group');
 const DATA_SET = i18n.t('Select data sets');
@@ -59,33 +53,6 @@ const DEFAULTS = {
     dataSets: { label: DATA_SET, defaultAlternative: ALL_METRICS },
 };
 
-const DATA_SETS_CONSTANTS = [
-    {
-        id: ALL_METRICS,
-        displayName: i18n.t('All metrics'),
-    },
-    {
-        id: REPORTING_RATES,
-        displayName: i18n.t('Reporting rates'),
-    },
-    {
-        id: REPORTING_RATES_ON_TIME,
-        displayName: i18n.t('Reporting rates on time'),
-    },
-    {
-        id: ACTUAL_REPORTS,
-        displayName: i18n.t('Actual reports'),
-    },
-    {
-        id: ACTUAL_REPORTING_RATES_ON_TIME,
-        displayName: i18n.t('Actual reporting rates on time'),
-    },
-    {
-        id: EXPECTED_REPORTS,
-        displayName: i18n.t('Expected reports'),
-    },
-];
-
 export class Groups extends Component {
     state = {
         indicators: [],
@@ -96,42 +63,18 @@ export class Groups extends Component {
         dataDimId: '',
     };
 
-    // TODO : Flytt opp og refactor, + trenger denne på [ All  metrics ] f.eks
+    // TODO : Flytt opp og refactor, dobbeltsjekk API call
     handleChange = async event => {
         let newContent = await apiFetchAlternatives(
             this.props.dataType,
             event.target.value
         );
 
-        if (this.props.dataType === 'dataSets') {
-            const constant = DATA_SETS_CONSTANTS.find(function(item) {
-                return item.id === event.target.value;
-            });
+        if (this.props.dataType === 'dataSets')
+            newContent = getReportingRates(newContent, event.target.value);
 
-            newContent = newContent.map(item => {
-                return {
-                    id: `${item.id}.${constant.id}`,
-                    displayName: `${item.displayName} (${
-                        constant.displayName
-                    })`,
-                };
-            });
-        }
         this.props.onGroupChange(newContent);
         this.setState({ dataDimId: event.target.value });
-    };
-
-    //TODO: flytt / refactor
-    mergeReportingRates = arr => {
-        const items = arr.map(item => {
-            return {
-                id: `${item.id}.${DATA_SETS_CONSTANTS[this.state.dataType]}`,
-                displayName: `${item.displayName} (${
-                    DATA_SETS_CONSTANTS[this.state.dataType].displayName
-                })`,
-            };
-        });
-        return items;
     };
 
     shouldFetchItems = () => {
@@ -143,12 +86,11 @@ export class Groups extends Component {
 
     haveDefaultAlternatives = () => {
         return (
-            this.props.dataType === 'indicators' ||
-            this.props.dataType === 'dataElements'
+            this.props.dataType !== 'eventDataItems' &&
+            this.props.dataType !== 'programIndicators'
         );
     };
 
-    // ?
     getDefaultAlternative = () => {
         return this.haveDefaultAlternatives()
             ? {
@@ -158,7 +100,6 @@ export class Groups extends Component {
             : null;
     };
 
-    // ?
     getCurrentGroupType = () => {
         return this.haveDefaultAlternatives()
             ? DEFAULTS[this.props.dataType].label
@@ -184,6 +125,7 @@ export class Groups extends Component {
             : null;
     };
 
+    // TODO: Dobbeltsjekk
     async componentDidUpdate() {
         const { dataType } = this.props;
 
