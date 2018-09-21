@@ -5,8 +5,13 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2018-09-21T10:55:34.648Z\n"
 "PO-Revision-Date: 2018-09-21T10:55:34.648Z\n"
+=======
+"POT-Creation-Date: 2018-09-21T12:24:35.125Z\n"
+"PO-Revision-Date: 2018-09-21T12:24:35.125Z\n"
+>>>>>>> 467b1606b0dbc0deebc9041edf207bd9ef49e086
 
 msgid "Data Dimension"
 msgstr ""
