@@ -11,11 +11,12 @@ import './MenuBar.css';
 import { sGetCurrent } from '../../reducers/current';
 import { sGetVisualization } from '../../reducers/visualization';
 import { sGetUi } from '../../reducers/ui';
+import history from '../../history';
 
 const getOnOpen = props => {
     // TODO get type somehow!
     // from props, when choosing visualization type set type in the store?
-    return id => props.onLoadVisualizaton(id);
+    return id => history.push(`/${id}`);
 };
 
 export const MenuBar = (props, context) => (

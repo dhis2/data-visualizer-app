@@ -32,3 +32,9 @@ export const tDoLoadVisualization = (type, id) => async (
     dispatch(fromCurrent.acSetCurrent(visualization));
     dispatch(fromUi.acSetUiFromVisualization(visualization));
 };
+
+export const clearVisualization = dispatch => {
+    dispatch(fromVisualization.acClear());
+    dispatch(fromCurrent.acClear());
+    dispatch(fromUi.acClear());
+};

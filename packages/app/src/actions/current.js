@@ -5,6 +5,10 @@ export const acSetCurrent = value => ({
     value,
 });
 
+export const acClear = () => ({
+    type: actionTypes.CLEAR_CURRENT,
+});
+
 export const acSetCurrentFromUi = value => ({
     type: actionTypes.SET_CURRENT_FROM_UI,
     value,

@@ -17,6 +17,7 @@ export const actionTypes = {
     SET_UI_LAYOUT: 'SET_UI_LAYOUT',
     ADD_UI_LAYOUT_DIMENSIONS: 'ADD_UI_LAYOUT_DIMENSIONS',
     SET_UI_ITEMS: 'SET_UI_ITEMS',
+    CLEAR_UI: 'CLEAR_UI',
 };
 
 export const DEFAULT_UI = {
@@ -113,6 +114,8 @@ export default (state = DEFAULT_UI, action) => {
                 },
             };
         }
+        case actionTypes.CLEAR_UI:
+            return DEFAULT_UI;
         default:
             return state;
     }
