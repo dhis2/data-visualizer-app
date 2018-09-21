@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import FileMenu from '@dhis2/d2-ui-file-menu';
 
-import Update from './Update';
+import UpdateButton from './UpdateButton';
 import VisualizationOptionsManager from '../VisualizationOptions/VisualizationOptionsManager';
 import * as fromActions from '../../actions';
 import './MenuBar.css';
@@ -13,7 +13,7 @@ const getOnOpen = props => id => props.onLoadVisualizaton(id);
 export const MenuBar = (props, context) => (
     <div className="menubar">
         <div>
-            <Update />
+            <UpdateButton />
         </div>
         <div>
             <FileMenu

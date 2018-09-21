@@ -1,5 +1,3 @@
-import arrayClean from 'd2-utilizr/lib/arrayClean';
-
 const getModelAxis = (dimensionId, itemIds) => ({
     dimension: dimensionId,
     items: itemIds.map(id => ({
@@ -14,14 +12,14 @@ export const getAxesFromUi = ui =>
     Object.entries(ui.layout).reduce(
         (layout, [axisName, ids]) => ({
             ...layout,
-            [axisName]: arrayClean(
-                ids.map(
+            [axisName]: ids
+                .map(
                     id =>
                         hasItems(ui.itemsByDimension, id)
                             ? getModelAxis(id, ui.itemsByDimension[id])
                             : null
                 )
-            ),
+                .filter(dim => dim !== null),
         }),
         {}
     );
