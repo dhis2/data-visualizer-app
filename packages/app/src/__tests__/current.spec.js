@@ -32,25 +32,27 @@ const ou = {
     items: [{ id: ouItem1Id }],
 };
 
+const emptyId = 'empty';
+
 const ui = {
     layout: {
-        [COLUMNS]: [dx.dimension, other.dimension],
-        [ROWS]: [pe.dimension],
-        [FILTERS]: [ou.dimension],
+        [COLUMNS]: [dxId, otherId],
+        [ROWS]: [peId, emptyId],
+        [FILTERS]: [ouId],
     },
     itemsByDimension: {
-        [dx.dimension]: dx.items.map(i => i.id),
-        [other.dimension]: other.items.map(i => i.id),
-        [ou.dimension]: ou.items.map(i => i.id),
-        [pe.dimension]: pe.items.map(i => i.id),
+        [dxId]: dx.items.map(i => i.id),
+        [otherId]: other.items.map(i => i.id),
+        [peId]: pe.items.map(i => i.id),
+        [ouId]: ou.items.map(i => i.id),
     },
 };
 
 describe('getAxesFromUi', () => {
-    it('should return an object with rows, columns, filters keys with dimension and list of item objects as value', () => {
+    it('should return a layout object (columns, rows, filters) with dimensions (id and item objects) that are not empty', () => {
         const expectedState = {
-            rows: [pe],
             columns: [dx, other],
+            rows: [pe],
             filters: [ou],
         };
         const actualState = getAxesFromUi(ui);
