@@ -18,7 +18,9 @@ const SelectBaseOption = ({ option, value, onChange }) => (
             value={value}
         >
             {option.items.map(({ id, label }) => (
-                <MenuItem value={id}>{label}</MenuItem>
+                <MenuItem key={id} value={id}>
+                    {label}
+                </MenuItem>
             ))}
         </Select>
     </FormControl>
