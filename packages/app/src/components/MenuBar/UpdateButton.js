@@ -9,7 +9,7 @@ import * as fromActions from '../../actions';
 
 const UpdateButton = props => (
     <Button
-        onClick={() => props.onUpdate(props.ui)}
+        onClick={props.getOnClick(props.ui)}
         style={{
             backgroundColor: colors.accentPrimaryDark,
             color: colors.white,
@@ -26,8 +26,11 @@ const mapStateToProps = state => ({
     ui: sGetUi(state),
 });
 
-const mapDispatchToProps = dispatch => ({
-    onUpdate: ui => dispatch(fromActions.fromCurrent.acSetCurrentFromUi(ui)),
+const mapDispatchToProps = (dispatch, ownProps) => ({
+    getOnClick: ui => () => {
+        dispatch(fromActions.fromCurrent.acSetCurrentFromUi(ui));
+        ownProps.onClick();
+    },
 });
 
 export default connect(
