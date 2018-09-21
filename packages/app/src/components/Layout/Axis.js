@@ -22,6 +22,7 @@ const styles = {
     },
     field: {
         display: 'flex',
+        flexWrap: 'wrap',
     },
 };
 
