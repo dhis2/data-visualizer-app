@@ -55,33 +55,26 @@ export const getOptionsForRequest = () => {
     );
 };
 
+const isNotDefault = (optionsFromVisualization, prop) => {
+    return Boolean(
+        optionsFromVisualization[prop] &&
+            optionsFromVisualization[prop] !== options[prop].defaultValue
+    );
+};
+
 export const getOptionsFromVisualization = visualization => {
     const optionsFromVisualization = {
         ...getOptionsForUi(),
         ...getPropsByKeys(visualization, Object.keys(options)),
     };
 
-    if (
-        (optionsFromVisualization.baseLineLabel &&
-            optionsFromVisualization.baseLineLabel !==
-                options.baseLineLabel.defaultValue) ||
-        (optionsFromVisualization.baseLineValue &&
-            optionsFromVisualization.baseLineValue !==
-                options.baseLineValue.defaultValue)
-    ) {
-        optionsFromVisualization.baseLine = true;
-    }
+    optionsFromVisualization.baseLine =
+        isNotDefault(optionsFromVisualization, 'baseLineLabel') ||
+        isNotDefault(optionsFromVisualization, 'baseLineValue');
 
-    if (
-        (optionsFromVisualization.targetLineLabel &&
-            optionsFromVisualization.targetLineLabel !==
-                options.targetLineLabel.defaultValue) ||
-        (optionsFromVisualization.targetLineValue &&
-            optionsFromVisualization.targetLineValue !==
-                options.targetLineValue.defaultValue)
-    ) {
-        optionsFromVisualization.targetLine = true;
-    }
+    optionsFromVisualization.targetLine =
+        isNotDefault(optionsFromVisualization, 'targetLineLabel') ||
+        isNotDefault(optionsFromVisualization, 'targetLineValue');
 
     return optionsFromVisualization;
 };
