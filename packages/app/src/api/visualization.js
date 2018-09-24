@@ -1,5 +1,4 @@
 import { getInstance } from 'd2/lib/d2';
-import { onError } from './index';
 import { getFieldsStringByType } from '../fields';
 
 export const apiFetchVisualization = (type, id) =>
@@ -8,4 +7,3 @@ export const apiFetchVisualization = (type, id) =>
             fields: getFieldsStringByType(type),
         })
     );
-//.catch(onError);
