@@ -1,8 +1,10 @@
 import React from 'react';
 
-export const BlankCanvas = () => (
+export const visContainerId = 'visualization-container';
+
+const BlankCanvas = () => (
     <section className="canvas">
-        <div id="visualization-container">
+        <div id={visContainerId}>
             <div style={{ margin: 50 }}>Visualization Canvas</div>
         </div>
     </section>

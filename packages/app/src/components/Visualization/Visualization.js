@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createChart } from 'd2-charts-api';
 import { sGetCurrent } from '../../reducers/current';
-import { BlankCanvas } from './BlankCanvas';
+import BlankCanvas, { visContainerId } from './BlankCanvas';
 import { getOptionsForRequest } from '../../options';
 
 export class Visualization extends Component {
@@ -39,7 +39,7 @@ export class Visualization extends Component {
 
         const res = new d2.analytics.response(rawResponse);
 
-        createChart(res, current, 'visualization-container');
+        createChart(res, current, visContainerId);
     };
 
     render() {

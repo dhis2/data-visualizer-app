@@ -52,6 +52,15 @@ describe('reducer: ui', () => {
         expect(ui).toEqual(actualState);
     });
 
+    it('CLEAR_UI should set the default state', () => {
+        const actualState = reducer(
+            { currentVal: 123 },
+            { type: actionTypes.CLEAR_UI }
+        );
+
+        expect(actualState).toEqual(DEFAULT_UI);
+    });
+
     it(`${
         actionTypes.SET_UI_FROM_VISUALIZATION
     }: should set the new based on a visualization`, () => {

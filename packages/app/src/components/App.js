@@ -20,7 +20,7 @@ import './App.css';
 export class App extends Component {
     unlisten = null;
 
-    navigate = location => {
+    loadVisualization = location => {
         const { store } = this.context;
 
         if (location.pathname.length > 1) {
@@ -42,10 +42,10 @@ export class App extends Component {
         store.dispatch(fromActions.fromUser.acReceivedUser(d2.currentUser));
         store.dispatch(fromActions.fromDimensions.tSetDimensions());
 
-        this.navigate(this.props.location);
+        this.loadVisualization(this.props.location);
 
         this.unlisten = history.listen(location => {
-            this.navigate(location);
+            this.loadVisualization(location);
         });
     }
 
@@ -77,7 +77,8 @@ export class App extends Component {
     }
 
     render() {
-        const hasCurrent = Object.keys(this.props.current).length > 0;
+        const hasCurrent =
+            this.props.current && Object.keys(this.props.current).length > 0;
 
         return (
             <Fragment>
