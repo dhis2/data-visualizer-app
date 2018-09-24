@@ -12,9 +12,10 @@ export const DEFAULT_CURRENT = {};
 
 export default (state = DEFAULT_CURRENT, action) => {
     switch (action.type) {
-        case actionTypes.SET_CURRENT:
+        case actionTypes.SET_CURRENT: {
             return action.value;
-        case actionTypes.SET_CURRENT_FROM_UI:
+        }
+        case actionTypes.SET_CURRENT_FROM_UI: {
             const axesFromUi = getAxesFromUi(action.value);
             const optionsFromUi = getPropsByKeys(
                 action.value.options,
@@ -23,10 +24,11 @@ export default (state = DEFAULT_CURRENT, action) => {
 
             return {
                 ...state,
-                ...axesFromUi, // rows, columns, filters
+                ...axesFromUi,
                 ...optionsFromUi,
                 type: action.value.type,
             };
+        }
         case actionTypes.CLEAR_CURRENT:
             return DEFAULT_CURRENT;
         default:
