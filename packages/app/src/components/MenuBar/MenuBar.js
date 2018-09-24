@@ -7,12 +7,9 @@ import UpdateButton from './UpdateButton';
 import VisualizationOptionsManager from '../VisualizationOptions/VisualizationOptionsManager';
 import * as fromActions from '../../actions';
 import './MenuBar.css';
-import { sGetCurrent } from '../../reducers/current';
-import { sGetVisualization } from '../../reducers/visualization';
-import { sGetUi } from '../../reducers/ui';
 import history from '../../history';
 
-const getOnOpen = props => id => history.push(`/${id}`);
+const onOpen = id => history.push(`/${id}`);
 
 const onNew = () => history.push('/');
 
@@ -26,7 +23,7 @@ export const MenuBar = (props, context) => (
                 d2={context.d2}
                 fileId={(props.visualization && props.visualization.id) || null}
                 fileType={props.apiObjectName}
-                onOpen={getOnOpen(props)}
+                onOpen={onOpen}
                 onNew={onNew}
                 onTranslate={() => console.log('translate callback')}
                 onError={() => console.log('error!')}
