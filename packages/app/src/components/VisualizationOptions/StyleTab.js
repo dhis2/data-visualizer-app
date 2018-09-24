@@ -2,7 +2,7 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import FormGroup from '@material-ui/core/FormGroup';
 
-import NoSpaceBetweenColumns from './NoSpaceBetweenColumns';
+import NoSpaceBetweenColumns from './Options/NoSpaceBetweenColumns';
 
 const styles = {};
 

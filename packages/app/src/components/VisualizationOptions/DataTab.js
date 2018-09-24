@@ -2,15 +2,15 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import FormGroup from '@material-ui/core/FormGroup';
 
-import CumulativeValues from './CumulativeValues';
-import PercentStackedValues from './PercentStackedValues';
-import ShowData from './ShowData';
-import HideEmptyRowItems from './HideEmptyRowItems';
-import RegressionType from './RegressionType';
-import TargetLine from './TargetLine';
-import BaseLine from './BaseLine';
-import SortOrder from './SortOrder';
-import AggregationType from './AggregationType';
+import CumulativeValues from './Options/CumulativeValues';
+import PercentStackedValues from './Options/PercentStackedValues';
+import ShowData from './Options/ShowData';
+import HideEmptyRowItems from './Options/HideEmptyRowItems';
+import RegressionType from './Options/RegressionType';
+import TargetLine from './Options/TargetLine';
+import BaseLine from './Options/BaseLine';
+import SortOrder from './Options/SortOrder';
+import AggregationType from './Options/AggregationType';
 
 const styles = {
     formControl: {
