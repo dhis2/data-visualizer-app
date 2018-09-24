@@ -19,6 +19,8 @@ const getOnOpen = props => {
     return id => history.push(`/${id}`);
 };
 
+const onNew = () => history.push('/');
+
 export const MenuBar = (props, context) => (
     <div className="menubar">
         <div>
@@ -40,6 +42,7 @@ export const MenuBar = (props, context) => (
                 d2={context.d2}
                 fileType={props.apiObjectName}
                 onOpen={getOnOpen(props)}
+                onNew={onNew}
                 onTranslate={() => console.log('translate callback')}
                 onError={() => console.log('error!')}
             />

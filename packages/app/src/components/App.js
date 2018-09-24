@@ -9,6 +9,7 @@ import MenuBar from './MenuBar/MenuBar';
 import VisualizationTypeSelector from './VisualizationTypeSelector/VisualizationTypeSelector';
 import Dimensions from './Dimensions/Dimensions';
 import Visualization from './Visualization/Visualization';
+import BlankCanvas from './Visualization/BlankCanvas';
 import Layout from './Layout/Layout';
 import * as fromReducers from '../reducers';
 import * as fromActions from '../actions';
@@ -21,6 +22,7 @@ export class App extends Component {
 
     navigate = location => {
         const { store } = this.context;
+
         if (location.pathname.length > 1) {
             store.dispatch(
                 fromActions.tDoLoadVisualization(
@@ -75,6 +77,8 @@ export class App extends Component {
     }
 
     render() {
+        const hasCurrent = Object.keys(this.props.current).length > 0;
+
         return (
             <Fragment>
                 <div className="app">
@@ -95,7 +99,11 @@ export class App extends Component {
                         Interpretations panel
                     </div>
                     <div className="item7 canvas">
-                        <Visualization d2={this.props.d2} />
+                        {hasCurrent ? (
+                            <Visualization d2={this.props.d2} />
+                        ) : (
+                            <BlankCanvas />
+                        )}
                     </div>
                 </div>
                 {this.renderSnackbar()}
@@ -112,6 +120,7 @@ const mapStateToProps = state => {
         snackbarOpen: open,
         snackbarMessage: message,
         snackbarDuration: duration,
+        current: fromReducers.fromCurrent.sGetCurrent(state),
     };
 };
 

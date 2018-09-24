@@ -7,13 +7,9 @@ export const acSetVisualization = visualization => ({
     value: visualization,
 });
 
-export const acClear = () => {
-    console.log('acClear vis');
-
-    return {
-        type: actionTypes.CLEAR_VISUALIZATION,
-    };
-};
+export const acClear = () => ({
+    type: actionTypes.CLEAR_VISUALIZATION,
+});
 
 export const tSetVisualization = (type, id) => async (dispatch, getState) => {
     const onSuccess = model => {
