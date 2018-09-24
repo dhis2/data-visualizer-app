@@ -71,7 +71,7 @@ export class App extends Component {
                     <SnackbarMessage message={this.props.snackbarMessage} />
                 }
                 autoHideDuration={this.props.snackbarDuration}
-                onRequestClose={this.props.onCloseSnackbar}
+                onClose={this.props.onCloseSnackbar}
             />
         );
     }

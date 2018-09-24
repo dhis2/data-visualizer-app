@@ -25,12 +25,25 @@ export const tDoLoadVisualization = (type, id) => async (
     dispatch,
     getState
 ) => {
-    const visualization = await dispatch(
-        fromVisualization.tSetVisualization(type, id)
-    );
+    const onSuccess = visualization => {
+        dispatch(fromCurrent.acSetCurrent(visualization));
+        dispatch(fromUi.acSetUiFromVisualization(visualization));
+    };
 
-    dispatch(fromCurrent.acSetCurrent(visualization));
-    dispatch(fromUi.acSetUiFromVisualization(visualization));
+    try {
+        return onSuccess(
+            await dispatch(fromVisualization.tSetVisualization(type, id))
+        );
+    } catch (error) {
+        dispatch(
+            fromSnackbar.acReceivedSnackbarMessage({
+                message: error,
+                open: true,
+            })
+        );
+
+        return onError('tDoLoadVisualization ', error);
+    }
 };
 
 export const clearVisualization = dispatch => {

@@ -3,10 +3,9 @@ import { onError } from './index';
 import { getFieldsStringByType } from '../fields';
 
 export const apiFetchVisualization = (type, id) =>
-    getInstance()
-        .then(d2 =>
-            d2.models[type].get(id, {
-                fields: getFieldsStringByType(type),
-            })
-        )
-        .catch(onError);
+    getInstance().then(d2 =>
+        d2.models[type].get(id, {
+            fields: getFieldsStringByType(type),
+        })
+    );
+//.catch(onError);
