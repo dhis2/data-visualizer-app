@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import { sGetUiOptions } from '../../reducers/ui';
-import { acSetUiOptions } from '../../actions/ui';
+import { sGetUiOptions } from '../../../reducers/ui';
+import { acSetUiOptions } from '../../../actions/ui';
 
 const CheckboxBaseOption = ({ option, value, onChange }) => (
     <FormControlLabel

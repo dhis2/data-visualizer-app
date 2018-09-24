@@ -5,12 +5,12 @@ import FormGroup from '@material-ui/core/FormGroup';
 import Switch from '@material-ui/core/Switch';
 
 import i18n from '@dhis2/d2-i18n';
-import { sGetUiOptions } from '../../reducers/ui';
-import { acSetUiOptions } from '../../actions/ui';
-import TargetLineValue from './TargetLineValue';
-import TargetLineLabel from './TargetLineLabel';
+import { sGetUiOptions } from '../../../reducers/ui';
+import { acSetUiOptions } from '../../../actions/ui';
+import BaseLineValue from './BaseLineValue';
+import BaseLineLabel from './BaseLineLabel';
 
-const TargetLine = ({ enabled, onChange }) => (
+const BaseLine = ({ enabled, onChange }) => (
     <FormGroup row={true}>
         <FormControlLabel
             control={
@@ -19,26 +19,26 @@ const TargetLine = ({ enabled, onChange }) => (
                     onChange={event => onChange(event.target.checked)}
                 />
             }
-            label={i18n.t('Target line')}
+            label={i18n.t('Base line')}
         />
         {enabled ? (
             <Fragment>
-                <TargetLineValue />
-                <TargetLineLabel />
+                <BaseLineValue />
+                <BaseLineLabel />
             </Fragment>
         ) : null}
     </FormGroup>
 );
 
 const mapStateToProps = state => ({
-    enabled: sGetUiOptions(state).targetLine,
+    enabled: sGetUiOptions(state).baseLine,
 });
 
 const mapDispatchToProps = dispatch => ({
-    onChange: enabled => dispatch(acSetUiOptions({ targetLine: enabled })),
+    onChange: enabled => dispatch(acSetUiOptions({ baseLine: enabled })),
 });
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(TargetLine);
+)(BaseLine);

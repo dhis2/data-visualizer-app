@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
-import { sGetUiOptions } from '../../reducers/ui';
-import { acSetUiOptions } from '../../actions/ui';
+import { sGetUiOptions } from '../../../reducers/ui';
+import { acSetUiOptions } from '../../../actions/ui';
 
 const TextBaseOption = ({ type, option, value, onChange }) => (
     <TextField

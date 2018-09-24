@@ -6,8 +6,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 
-import { sGetUiOptions } from '../../reducers/ui';
-import { acSetUiOptions } from '../../actions/ui';
+import { sGetUiOptions } from '../../../reducers/ui';
+import { acSetUiOptions } from '../../../actions/ui';
 
 const SelectBaseOption = ({ option, value, onChange }) => (
     <FormControl>
