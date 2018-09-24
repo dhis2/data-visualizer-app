@@ -40,6 +40,7 @@ export const MenuBar = (props, context) => (
         <div>
             <FileMenu
                 d2={context.d2}
+                fileId={(props.visualization && props.visualization.id) || null}
                 fileType={props.apiObjectName}
                 onOpen={getOnOpen(props)}
                 onNew={onNew}
