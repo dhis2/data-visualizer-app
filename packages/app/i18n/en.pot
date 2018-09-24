@@ -101,6 +101,9 @@ msgstr ""
 msgid "Hide chart legend"
 msgstr ""
 
+msgid "Update"
+msgstr ""
+
 msgid "No space between columns/bars"
 msgstr ""
 
