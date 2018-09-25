@@ -1,7 +1,8 @@
 import React from 'react';
-import { ArrowForward, ArrowBack } from '@material-ui/icons';
+import { ArrowForward, ArrowBack, Close } from '@material-ui/icons';
 import { Button } from '@material-ui/core';
 import i18n from '@dhis2/d2-i18n';
+import { colors } from '../../../colors';
 
 const style = {
     buttonContainer: {
@@ -22,11 +23,11 @@ const style = {
     },
     assignButton: {
         top: '40%',
-        left: '55%',
+        left: '56.7%',
     },
     unAssignButton: {
         top: '50%',
-        left: '55%',
+        left: '56.7%',
     },
 
     arrowIcon: {
@@ -46,10 +47,59 @@ const style = {
         fontSize: 13,
         letterSpacing: 0.46,
     },
+    updateButton: {
+        marginLeft: 10,
+        backgroundColor: colors.blue,
+    },
+    updateText: {
+        color: colors.white,
+        fontSize: 13,
+        letterSpacing: 0.46,
+    },
+    hideText: {
+        color: colors.blue,
+        fontSize: 13,
+        letterSpacing: 0.46,
+    },
+    deleteButton: {
+        border: 'none',
+        background: 'none',
+        padding: 0,
+        paddingTop: 6,
+        paddingLeft: 1,
+        width: 9,
+    },
+    deleteButtonIcon: {
+        fill: colors.blue,
+        height: 13,
+        width: 10,
+    },
 };
 
 const DESELECT_ALL = i18n.t('DESELECT ALL');
 const SELECT_ALL = i18n.t('SELECT ALL');
+const HIDE = i18n.t('HIDE');
+const UPDATE = i18n.t('UPDATE');
+
+export const HideButton = ({ action }) => {
+    return (
+        <Button onClick={action}>
+            <span style={style.hideText}>{HIDE}</span>
+        </Button>
+    );
+};
+
+export const UpdateButton = ({ action }) => {
+    return (
+        <Button
+            variant={'outlined'}
+            style={style.updateButton}
+            onClick={action}
+        >
+            <span style={style.updateText}>{UPDATE}</span>
+        </Button>
+    );
+};
 
 export const AssignButton = ({ action }) => {
     return (
@@ -86,5 +136,13 @@ export const SelectAllButton = ({ action }) => {
         <Button style={style.selectButton} onClick={action}>
             <span style={style.buttonText}>{SELECT_ALL}</span>
         </Button>
+    );
+};
+
+export const RemoveSelectedItemButton = ({ action }) => {
+    return (
+        <button style={style.deleteButton} onClick={action} tabIndex={0}>
+            <Close style={style.deleteButtonIcon} />
+        </button>
     );
 };

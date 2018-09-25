@@ -37,7 +37,10 @@ export const acRemoveUiLayoutDimensions = value => ({
     value,
 });
 
-export const acSetUiItems = value => ({
-    type: actionTypes.SET_UI_ITEMS,
-    value,
-});
+export const acSetUiItems = value => {
+    console.log(value);
+    return {
+        type: actionTypes.SET_UI_ITEMS,
+        value,
+    };
+};

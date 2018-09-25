@@ -3,56 +3,35 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
 import i18n from '@dhis2/d2-i18n';
+import { colors } from '../../../colors';
+import { dataTypes } from './defaults';
 
 const style = {
     container: {
+        border: `1px solid ${colors.greyLight}`,
+        display: 'flex',
+        flexFlow: 'column',
         height: 53,
         width: 410,
-        border: '1px solid #E0E0E0',
         borderBottom: 0,
         paddingLeft: 5,
         paddingRight: 5,
         paddingTop: 5,
-        display: 'flex',
-        flexFlow: 'column',
     },
     titleText: {
+        color: colors.greyDark,
         fontSize: 13,
         fontWeight: 300,
-        color: '#616161',
         paddingBottom: 15,
     },
     dropDownItem: {
         fontSize: 16,
     },
     dropDown: {
-        padding: 0,
         outline: 'none',
+        padding: 0,
     },
 };
-
-const alternatives = [
-    {
-        id: 'indicators',
-        displayName: 'Indicators',
-    },
-    {
-        id: 'dataElements',
-        displayName: 'Data Elements',
-    },
-    {
-        id: 'dataSets',
-        displayName: 'Data sets',
-    },
-    {
-        id: 'eventDataItems',
-        displayName: 'Event data items',
-    },
-    {
-        id: 'programIndicators',
-        displayName: 'Program Indicator',
-    },
-];
 
 const LABEL_TITLE = i18n.t('Data Type');
 
@@ -69,7 +48,7 @@ export class DataTypes extends Component {
                     disableUnderline
                     SelectDisplayProps={{ style: style.dropDown }}
                 >
-                    {alternatives.map(item => (
+                    {dataTypes.map(item => (
                         <MenuItem
                             style={style.dropDownItem}
                             key={item.id}

@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
 import { Search } from '@material-ui/icons';
 import i18n from '@dhis2/d2-i18n';
+import { colors } from '../../../colors';
 
 const style = {
     container: {
+        border: `1px solid ${colors.greyLight}`,
+        backgroundColor: colors.white,
         height: 39,
         width: 420,
-        border: '1px solid #E0E0E0',
         borderBottom: 0,
-        backgroundColor: '#FFFFFF',
     },
     textField: {
         width: '98%',

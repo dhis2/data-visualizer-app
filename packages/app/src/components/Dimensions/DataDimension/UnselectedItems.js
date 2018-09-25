@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import i18n from '@dhis2/d2-i18n';
-import { colors } from '../../../colors';
 import { AssignButton, SelectAllButton } from './buttons';
-import { sortArray } from '../../../util';
+import { colors } from '../../../colors';
 
 const style = {
     container: {
         border: '1px solid #E0E0E0',
+        height: 376,
     },
     listContainer: {
-        height: 311,
+        listStyle: 'none',
+        overflowX: 'scroll',
+        height: 340,
         width: 418,
         borderBottom: 0,
         paddingLeft: 0,
         margin: 0,
-        listStyle: 'none',
-        overflowX: 'scroll',
     },
     listItem: {
         display: 'flex',
@@ -23,33 +23,32 @@ const style = {
         paddingBottom: 2,
     },
     highlighted: {
-        //backgroundColor: colors.lightBlue,
+        border: `3px solid ${colors.lightBlue}`,
         display: 'flex',
         paddingTop: 2,
         paddingBottom: 2,
         paddingRight: 5,
         borderRadius: 4,
-        border: `3px solid ${colors.lightBlue}`,
     },
     unHighlighted: {
-        margin: 3,
         display: 'flex',
+        margin: 3,
         paddingTop: 2,
         paddingRight: 5,
         paddingBottom: 2,
     },
     text: {
-        fontSize: 13,
         fontFamily: 'Roboto',
+        fontSize: 14,
         paddingLeft: 2,
     },
     icon: {
+        backgroundColor: '#9E9E9E',
         height: 6,
         width: 6,
         marginTop: 4,
         marginLeft: 10,
         marginRight: 5,
-        backgroundColor: '#9E9E9E',
     },
 };
 

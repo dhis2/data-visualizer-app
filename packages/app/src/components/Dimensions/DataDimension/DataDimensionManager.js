@@ -1,34 +1,45 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { DialogActions, DialogContent } from '@material-ui/core';
+import i18n from '@dhis2/d2-i18n';
 import UnselectedContainer from './UnselectedContainer';
 import SelectedContainer from './SelectedContainer';
-import { ActionButtons } from './buttons';
-import i18n from '@dhis2/d2-i18n';
-//import { apiFetchGroups, apiFetchAlternatives } from '../../../api/dimensions';
-import { entriesToObject, arrayToIdMap, sortArray } from '../../../util';
+import { HideButton, UpdateButton } from './buttons';
+import { acSetUiItems } from '../../../actions/ui';
+import { arrayToIdMap } from '../../../util';
+import { colors } from '../../../colors';
 
 const style = {
-    container: {
-        //maxHeight: 677,
-        //maxWidth: 795,
+    dialogContent: {
+        overflow: 'hidden',
+        paddingBottom: 0,
+        paddingTop: 0,
     },
-    title: {
+    dialogTitle: {
+        fontFamily: 'Roboto',
+        color: colors.black,
         height: 24,
         width: 747,
-        color: '#000000',
-        fontFamily: 'Roboto',
         fontSize: 16,
         fontWeight: 500,
-        paddingTop: 15,
-        paddingBottom: 15,
     },
     subContainer: {
-        height: 507,
-        width: 747,
         display: 'flex',
+        height: 536,
+        width: 747,
+    },
+    dialogActions: {
+        borderTop: `1px solid ${colors.blueGrey}`,
+        height: 84,
+        margin: 0,
+        paddingTop: 0,
+        paddingBottom: 0,
+        paddingRight: 24,
     },
 };
 
 const DIALOG_TITLE = i18n.t('Data');
+
 const KEY_POS = 0;
 const OBJECT_POS = 1;
 
@@ -128,27 +139,48 @@ export class DataDimensionManager extends Component {
         });
     };
 
+    //dispatch to store
+    onUpdateClick = () => {
+        const ids = Object.entries(this.state.selected).map(
+            dataDimension => dataDimension[KEY_POS]
+        );
+        console.log(ids);
+        //this.props.onAddDataDimensions(ids);
+        this.props.toggleDialog(null);
+    };
+
     render = () => {
         return (
-            <div style={style.container}>
-                <h3 style={style.title}>{DIALOG_TITLE}</h3>
-                <div style={style.subContainer}>
-                    <UnselectedContainer
-                        onGroupChange={this.handleContentChange}
-                        unSelectedItems={this.state.unSelected}
-                        onSelectAllClick={this.selectAll}
-                        onAssignClick={this.assignDataDimensions}
-                    />
-                    <SelectedContainer
-                        removeSelected={this.removeSelected}
-                        selectedItems={this.state.selected}
-                        onDeselectAllClick={this.deselectAll}
-                        onUnAssignClick={this.unAssignDataDimensions}
-                    />
-                </div>
+            <div>
+                <DialogContent style={style.dialogContent}>
+                    <h3 style={style.dialogTitle}>{DIALOG_TITLE}</h3>
+                    <div style={style.subContainer}>
+                        <UnselectedContainer
+                            onGroupChange={this.handleContentChange}
+                            unSelectedItems={this.state.unSelected}
+                            onSelectAllClick={this.selectAll}
+                            onAssignClick={this.assignDataDimensions}
+                        />
+                        <SelectedContainer
+                            removeSelected={this.removeSelected}
+                            selectedItems={this.state.selected}
+                            onDeselectAllClick={this.deselectAll}
+                            onUnAssignClick={this.unAssignDataDimensions}
+                        />
+                    </div>
+                </DialogContent>
+                <DialogActions style={style.dialogActions}>
+                    <HideButton action={() => this.props.toggleDialog(null)} />
+                    <UpdateButton action={this.onUpdateClick} />
+                </DialogActions>
             </div>
         );
     };
 }
 
-export default DataDimensionManager;
+export default connect(
+    null,
+    {
+        onAddDataDimensions: ids => acSetUiItems(ids),
+    }
+)(DataDimensionManager);

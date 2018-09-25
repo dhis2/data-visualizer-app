@@ -1,34 +1,37 @@
 import React, { Component } from 'react';
-import { Close } from '@material-ui/icons';
 import i18n from '@dhis2/d2-i18n';
-import { UnAssignButton, DeselectAllButton } from './buttons';
+import {
+    UnAssignButton,
+    DeselectAllButton,
+    RemoveSelectedItemButton,
+} from './buttons';
 import { colors } from '../../../colors';
 
 const style = {
     container: {
-        height: 505,
+        border: `1px solid ${colors.greyLight}`,
+        height: 534,
         width: 278,
-        border: '1px solid #E0E0E0',
     },
     subTitleContainer: {
+        borderBottom: `1px solid ${colors.greyLight}`,
         height: 42,
         widht: 280,
-        borderBottom: '1px solid #E0E0E0',
     },
     list: {
-        height: 426,
+        listStyle: 'none',
+        overflowX: 'scroll',
+        height: 455,
         width: 280,
         paddingLeft: 0,
         margin: 0,
-        listStyle: 'none',
-        overflowX: 'scroll',
     },
-    title: {
+    subTitleText: {
         position: 'relative',
+        color: colors.black,
+        fontFamily: 'Roboto',
         height: 20,
         width: 92,
-        color: '#494949',
-        fontFamily: 'Roboto',
         fontSize: 15,
         fontWeight: 500,
         top: 12,
@@ -42,19 +45,19 @@ const style = {
     },
     highlighted: {
         display: 'flex',
+        border: `1px solid ${colors.black}`,
         marginLeft: 12,
         marginRight: 12,
         paddingRight: 4,
         paddingBottom: 3,
         minHeight: 24,
         borderRadius: 4,
-        border: '1px solid black',
     },
     unHighlighted: {
         backgroundColor: colors.lightBlue,
+        display: 'flex',
         marginTop: 1,
         marginBottom: 1,
-        display: 'flex',
         marginLeft: 13,
         marginRight: 13,
         paddingRight: 4,
@@ -66,44 +69,23 @@ const style = {
         width: 20,
     },
     icon: {
-        height: 6,
-        width: 6,
-        backgroundColor: '#1976D2',
+        backgroundColor: '#1976D2', // color
         position: 'relative',
         left: '44%',
         top: '44%',
+        height: 6,
+        width: 6,
     },
     text: {
-        fontSize: 13,
         fontFamily: 'Roboto',
         wordBreak: 'break-word',
+        fontSize: 14,
         paddingLeft: 8,
         paddingTop: 5,
-    },
-    deleteButton: {
-        border: 'none',
-        background: 'none',
-        padding: 0,
-        paddingTop: 6,
-        paddingLeft: 1,
-        width: 9,
-    },
-    deleteButtonIcon: {
-        fill: colors.blue,
-        height: 13,
-        width: 10,
     },
 };
 
 const SELECTED_DATA_TITLE = i18n.t('Selected Data');
-
-export const RemoveSelectedItemButton = ({ action }) => {
-    return (
-        <button style={style.deleteButton} onClick={action} tabIndex={0}>
-            <Close style={style.deleteButtonIcon} />
-        </button>
-    );
-};
 
 const SelectedIcon = () => {
     return (
@@ -116,7 +98,7 @@ const SelectedIcon = () => {
 const Subtitle = () => {
     return (
         <div style={style.subTitleContainer}>
-            <span style={style.title}>{SELECTED_DATA_TITLE}</span>
+            <span style={style.subTitleText}>{SELECTED_DATA_TITLE}</span>
         </div>
     );
 };

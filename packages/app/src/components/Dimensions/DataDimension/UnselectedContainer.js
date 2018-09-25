@@ -3,7 +3,6 @@ import DataTypes from './DataTypes';
 import Groups from './Groups';
 import SearchField from './SearchField';
 import UnselectedItems from './UnselectedItems';
-import { AssignButton, SelectAllButton } from './buttons';
 
 const style = {
     container: {

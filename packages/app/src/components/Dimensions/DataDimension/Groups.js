@@ -5,13 +5,14 @@ import InputLabel from '@material-ui/core/InputLabel';
 import i18n from '@dhis2/d2-i18n';
 import Totals from './Totals';
 import { apiFetchGroups, apiFetchAlternatives } from '../../../api/dimensions'; // TODO
-import { DATA_SETS_CONSTANTS, getReportingRates } from './dataSets';
+import { colors } from '../../../colors';
+import { DATA_SETS_CONSTANTS, getReportingRates } from './defaults';
 
 const style = {
     container: {
         height: 53,
         width: 420,
-        border: '1px solid #E0E0E0',
+        border: `1px solid ${colors.greyLight}`,
         borderBottom: 0,
         paddingTop: 5,
         display: 'flex',
@@ -30,7 +31,7 @@ const style = {
     titleText: {
         fontSize: 13,
         fontWeight: 300,
-        color: '#616161',
+        color: colors.greyDark,
         paddingBottom: 15,
     },
 };
@@ -73,15 +74,8 @@ export class Groups extends Component {
         if (this.props.dataType === 'dataSets')
             newContent = getReportingRates(newContent, event.target.value);
 
-        this.props.onGroupChange(newContent);
         this.setState({ dataDimId: event.target.value });
-    };
-
-    shouldFetchItems = () => {
-        return (
-            this.props.dataType.length &&
-            !this.state[this.props.dataType].length
-        );
+        this.props.onGroupChange(newContent);
     };
 
     haveDefaultAlternatives = () => {
@@ -125,6 +119,14 @@ export class Groups extends Component {
             : null;
     };
 
+    shouldFetchItems = () => {
+        return (
+            this.props.dataType.length &&
+            !this.state[this.props.dataType].length
+        );
+    };
+
+    // fetch if dataType have changed and API call have not yet been made
     async componentDidUpdate() {
         const { dataType } = this.props;
 

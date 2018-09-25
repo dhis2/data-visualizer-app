@@ -61,3 +61,26 @@ export const getReportingRates = (contents, groupSetId) => {
 
     return dataSets;
 };
+
+export const dataTypes = [
+    {
+        id: 'indicators',
+        displayName: i18n.t('Indicators'),
+    },
+    {
+        id: 'dataElements',
+        displayName: i18n.t('Data Elements'),
+    },
+    {
+        id: 'dataSets',
+        displayName: i18n.t('Data sets'),
+    },
+    {
+        id: 'eventDataItems',
+        displayName: i18n.t('Event data items'),
+    },
+    {
+        id: 'programIndicators',
+        displayName: i18n.t('Program Indicator'),
+    },
+];
