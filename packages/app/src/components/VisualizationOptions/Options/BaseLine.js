@@ -10,7 +10,7 @@ import { acSetUiOptions } from '../../../actions/ui';
 import BaseLineValue from './BaseLineValue';
 import BaseLineLabel from './BaseLineLabel';
 
-const BaseLine = ({ enabled, onChange }) => (
+export const BaseLine = ({ enabled, onChange }) => (
     <FormGroup row={true}>
         <FormControlLabel
             control={

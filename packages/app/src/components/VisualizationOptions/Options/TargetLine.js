@@ -10,7 +10,7 @@ import { acSetUiOptions } from '../../../actions/ui';
 import TargetLineValue from './TargetLineValue';
 import TargetLineLabel from './TargetLineLabel';
 
-const TargetLine = ({ enabled, onChange }) => (
+export const TargetLine = ({ enabled, onChange }) => (
     <FormGroup row={true}>
         <FormControlLabel
             control={

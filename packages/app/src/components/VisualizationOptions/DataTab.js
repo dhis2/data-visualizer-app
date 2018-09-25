@@ -31,7 +31,7 @@ const styles = {
     },
 };
 
-const DataTab = ({ classes }) => (
+export const DataTab = ({ classes }) => (
     <FormGroup>
         <ShowData />
         <PercentStackedValues />

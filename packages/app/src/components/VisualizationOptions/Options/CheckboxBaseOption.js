@@ -6,7 +6,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { sGetUiOptions } from '../../../reducers/ui';
 import { acSetUiOptions } from '../../../actions/ui';
 
-const CheckboxBaseOption = ({ option, value, onChange }) => (
+export const CheckboxBaseOption = ({ option, value, onChange }) => (
     <FormControlLabel
         control={
             <Checkbox

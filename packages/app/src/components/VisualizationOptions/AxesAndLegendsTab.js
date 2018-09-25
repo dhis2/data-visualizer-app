@@ -48,7 +48,7 @@ const styles = {
     },
 };
 
-const AxesAndLegendsTab = ({ classes }) => (
+export const AxesAndLegendsTab = ({ classes }) => (
     <FormGroup>
         <FormGroup row={true}>
             <RangeAxisMinValue />

@@ -9,7 +9,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import { sGetUiOptions } from '../../../reducers/ui';
 import { acSetUiOptions } from '../../../actions/ui';
 
-const SelectBaseOption = ({ option, value, onChange }) => (
+export const SelectBaseOption = ({ option, value, onChange }) => (
     <FormControl>
         <InputLabel>{option.label}</InputLabel>
         <Select

@@ -6,7 +6,7 @@ import NoSpaceBetweenColumns from './Options/NoSpaceBetweenColumns';
 
 const styles = {};
 
-const StyleTab = ({ classes }) => (
+export const StyleTab = ({ classes }) => (
     <FormGroup>
         <NoSpaceBetweenColumns />
     </FormGroup>
