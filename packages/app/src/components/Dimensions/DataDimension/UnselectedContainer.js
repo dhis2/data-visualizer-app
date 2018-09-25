@@ -3,7 +3,13 @@ import DataTypes from './DataTypes';
 import Groups from './Groups';
 import SearchField from './SearchField';
 import UnselectedItems from './UnselectedItems';
+import { AssignButton, SelectAllButton } from './buttons';
 
+const style = {
+    container: {
+        paddingRight: 46,
+    },
+};
 export class UnselectedContainer extends Component {
     state = { dataType: 'indicators', searchField: '' };
 
@@ -17,7 +23,7 @@ export class UnselectedContainer extends Component {
 
     render = () => {
         return (
-            <div>
+            <div style={style.container}>
                 <DataTypes
                     value={this.state.dataType}
                     onDataTypeChange={this.handleDataTypeChange}
@@ -31,11 +37,10 @@ export class UnselectedContainer extends Component {
                     onSearchFieldChange={this.handleSearchFieldChange}
                 />
                 <UnselectedItems
-                    unSelected={this.props.unSelected}
-                    selectAll={this.props.selectAll}
+                    unSelectedItems={this.props.unSelectedItems}
+                    onSelectAllClick={this.props.onSelectAllClick}
+                    onAssignClick={this.props.onAssignClick}
                     searchFieldInput={this.state.searchField}
-                    highlighted={this.props.highlighted}
-                    onItemClick={this.props.onItemClick}
                 />
             </div>
         );

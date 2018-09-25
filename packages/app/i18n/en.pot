@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-09-20T16:12:44.188Z\n"
-"PO-Revision-Date: 2018-09-20T16:12:44.188Z\n"
+"POT-Creation-Date: 2018-09-21T14:35:06.919Z\n"
+"PO-Revision-Date: 2018-09-21T14:35:06.920Z\n"
 
 msgid "Data"
 msgstr ""
@@ -35,21 +35,6 @@ msgstr ""
 msgid "[ All metrics ]"
 msgstr ""
 
-msgid "Reporting rates"
-msgstr ""
-
-msgid "Reporting rates on time"
-msgstr ""
-
-msgid "Actual reports"
-msgstr ""
-
-msgid "Actual reporting rates on time"
-msgstr ""
-
-msgid "Expected reports"
-msgstr ""
-
 msgid "Search"
 msgstr ""
 
@@ -69,6 +54,21 @@ msgid "DESELECT ALL"
 msgstr ""
 
 msgid "SELECT ALL"
+msgstr ""
+
+msgid "Reporting rates"
+msgstr ""
+
+msgid "Reporting rates on time"
+msgstr ""
+
+msgid "Actual reports"
+msgstr ""
+
+msgid "Actual reporting rates on time"
+msgstr ""
+
+msgid "Expected reports"
 msgstr ""
 
 msgid "OrgUnit Dimension"

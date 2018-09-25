@@ -4,7 +4,7 @@ import SelectedContainer from './SelectedContainer';
 import { ActionButtons } from './buttons';
 import i18n from '@dhis2/d2-i18n';
 //import { apiFetchGroups, apiFetchAlternatives } from '../../../api/dimensions';
-import { entriesToObject, sortArray } from '../../../util';
+import { entriesToObject, arrayToIdMap, sortArray } from '../../../util';
 
 const style = {
     container: {
@@ -28,129 +28,84 @@ const style = {
     },
 };
 
-const OBJECT_POS = 1;
 const DIALOG_TITLE = i18n.t('Data');
+const KEY_POS = 0;
+const OBJECT_POS = 1;
 
 export class DataDimensionManager extends Component {
     state = {
-        //TODO: prøv objekter
         currentGroupSet: {},
         unSelected: {},
         selected: {},
     };
 
     handleContentChange = async newContent => {
-        /*// TODO API Call
-        const newContent = await apiFetchAlternatives(
-            this.state.dataType,
-            currentGroupSet
-            this.setState({ currentGroupSet, unSelected: newContent});
-        );*/
-
-        function arrayToIdMap(array) {
-            return sortArray(array).reduce((obj, item) => {
-                obj[item.id] = { ...item, isHighlighted: false };
-                return obj;
-            }, {});
-        }
-
-        const newDimensions = arrayToIdMap(newContent);
-
         this.setState({
-            currentGroupSet: newDimensions,
-            unSelected: newDimensions,
+            currentGroupSet: arrayToIdMap(newContent),
+            unSelected: arrayToIdMap(newContent),
         });
     };
 
     selectAll = () => {
-        if (Object.keys(this.state.unSelected).length) {
-            const selectedItems = Object.assign(
-                {},
-                this.state.selected,
-                this.state.unSelected
-            );
-
+        Object.keys(this.state.unSelected).length &&
             this.setState({
                 unSelected: {},
-                selected: selectedItems,
+                selected: Object.assign(
+                    {},
+                    this.state.unSelected,
+                    this.state.selected
+                ),
             });
-        }
     };
 
     deselectAll = () => {
         this.setState({
             unSelected: this.state.currentGroupSet,
-            selected: [],
+            selected: {},
         });
     };
 
-    toggleHighlight = (name, dataDim) => {
-        const toggle = {
-            ...dataDim,
-            isHighlighted: !dataDim.isHighlighted,
-        };
-
-        const highlightedItems = {
-            ...this.state[name],
-            [dataDim.id]: toggle,
-        };
-
-        this.setState({
-            [name]: highlightedItems,
-        });
-    };
-
-    assignDataDimensions = () => {
+    assignDataDimensions = highlightedIds => {
         let selectedItems = this.state.selected;
+        let unSelectedItems = {};
 
-        Object.entries(this.state.unSelected).forEach(entry => {
-            const dataDimension = entry[OBJECT_POS];
-            const resetHighlight = {
-                ...dataDimension,
-                isHighlighted: false,
-            };
-
-            if (dataDimension.isHighlighted)
-                selectedItems = {
-                    ...selectedItems,
-                    [dataDimension.id]: resetHighlight,
-                };
+        Object.entries(this.state.unSelected).forEach(dataDim => {
+            highlightedIds.includes(dataDim[KEY_POS])
+                ? (selectedItems = {
+                      ...selectedItems,
+                      ...{ [dataDim[KEY_POS]]: dataDim[OBJECT_POS] },
+                  })
+                : (unSelectedItems = {
+                      ...unSelectedItems,
+                      ...{ [dataDim[KEY_POS]]: dataDim[OBJECT_POS] },
+                  });
         });
 
-        const unSelectedItems = Object.entries(this.state.unSelected).filter(
-            dataDim => !dataDim[OBJECT_POS].isHighlighted
-        );
-
         this.setState({
-            unSelected: entriesToObject(unSelectedItems),
+            unSelected: unSelectedItems,
             selected: selectedItems,
         });
     };
 
-    unAssignDataDimensions = () => {
+    unAssignDataDimensions = highlightedIds => {
         let unSelectedItems = this.state.unSelected;
+        let selectedItems = {};
 
         Object.entries(this.state.selected).forEach(dataDim => {
-            const dataDimension = dataDim[OBJECT_POS];
-            const resetHighlight = {
-                ...dataDimension,
-                isHighlighted: false,
-            };
-
-            if (dataDimension.isHighlighted)
-                unSelectedItems = {
-                    ...unSelectedItems,
-                    [dataDimension.id]: resetHighlight,
-                };
+            highlightedIds.includes(dataDim[KEY_POS])
+                ? (unSelectedItems = {
+                      ...unSelectedItems,
+                      ...{ [dataDim[KEY_POS]]: dataDim[OBJECT_POS] },
+                  })
+                : (selectedItems = {
+                      ...selectedItems,
+                      ...{ [dataDim[KEY_POS]]: dataDim[OBJECT_POS] },
+                  });
         });
-
-        const selectedItems = Object.entries(this.state.selected).filter(
-            dataDim => !dataDim[OBJECT_POS].isHighlighted
-        );
 
         this.setState({
             unSelected: unSelectedItems,
-            selected: entriesToObject(selectedItems),
+            selected: selectedItems,
         });
     };
 
@@ -159,13 +114,17 @@ export class DataDimensionManager extends Component {
             [dataDimension.id]: dataDimension,
         });
 
-        const selectedItems = Object.entries(this.state.selected).filter(
-            dataDim => dataDim[OBJECT_POS].id !== dataDimension.id
+        const selectedItems = Object.entries(this.state.selected).reduce(
+            (selectedItems, [key, value]) =>
+                key !== dataDimension.id
+                    ? { ...selectedItems, [key]: value }
+                    : selectedItems,
+            {}
         );
 
         this.setState({
             unSelected: unSelectedItems,
-            selected: entriesToObject(selectedItems),
+            selected: selectedItems,
         });
     };
 
@@ -176,21 +135,15 @@ export class DataDimensionManager extends Component {
                 <div style={style.subContainer}>
                     <UnselectedContainer
                         onGroupChange={this.handleContentChange}
-                        selectAll={this.selectAll}
-                        unSelected={this.state.unSelected}
-                        highlighted={this.state.highlighted}
-                        onItemClick={this.toggleHighlight}
-                    />
-                    <ActionButtons
+                        unSelectedItems={this.state.unSelected}
+                        onSelectAllClick={this.selectAll}
                         onAssignClick={this.assignDataDimensions}
-                        onUnassignClick={this.unAssignDataDimensions}
                     />
                     <SelectedContainer
-                        deselectAll={this.deselectAll}
-                        selected={this.state.selected}
-                        highlighted={this.state.highlighted}
-                        onItemClick={this.toggleHighlight}
                         removeSelected={this.removeSelected}
+                        selectedItems={this.state.selected}
+                        onDeselectAllClick={this.deselectAll}
+                        onUnAssignClick={this.unAssignDataDimensions}
                     />
                 </div>
             </div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Close } from '@material-ui/icons';
 import i18n from '@dhis2/d2-i18n';
-import { DeselectAllButton } from './buttons';
+import { UnAssignButton, DeselectAllButton } from './buttons';
 import { colors } from '../../../colors';
 
 const style = {
@@ -52,9 +52,11 @@ const style = {
     },
     unHighlighted: {
         backgroundColor: colors.lightBlue,
+        marginTop: 1,
+        marginBottom: 1,
         display: 'flex',
-        marginLeft: 12,
-        marginRight: 12,
+        marginLeft: 13,
+        marginRight: 13,
         paddingRight: 4,
         paddingBottom: 3,
         borderRadius: 4,
@@ -94,7 +96,6 @@ const style = {
 };
 
 const SELECTED_DATA_TITLE = i18n.t('Selected Data');
-const OBJECT_POS = 1;
 
 export const RemoveSelectedItemButton = ({ action }) => {
     return (
@@ -103,28 +104,75 @@ export const RemoveSelectedItemButton = ({ action }) => {
         </button>
     );
 };
-const SELECTED = 'selected';
+
+const SelectedIcon = () => {
+    return (
+        <div style={style.iconContainer}>
+            <div style={style.icon} />
+        </div>
+    );
+};
+
+const Subtitle = () => {
+    return (
+        <div style={style.subTitleContainer}>
+            <span style={style.title}>{SELECTED_DATA_TITLE}</span>
+        </div>
+    );
+};
+
+const OBJECT_POS = 1;
 
 export class SelectedContainer extends Component {
-    renderSelectedItems = dataDim => {
-        const handleClick = () => this.props.onItemClick(SELECTED, dataDim);
+    state = { highlighted: [] };
 
-        const itemStyle = dataDim.isHighlighted
+    onUnAssignClick = () => {
+        this.setState({ highlighted: [] });
+        this.props.onUnAssignClick(this.state.highlighted);
+    };
+
+    onDeselectAllClick = () => {
+        this.setState({ highlighted: [] });
+        this.props.onDeselectAllClick();
+    };
+
+    removeHighlight = id => {
+        return this.state.highlighted.filter(
+            dataDimId => dataDimId !== id && dataDimId
+        );
+    };
+
+    toggleHighlight = id => {
+        const higlightedItems = this.state.highlighted.includes(id)
+            ? this.removeHighlight(id)
+            : [...this.state.highlighted, id];
+
+        this.setState({ highlighted: higlightedItems });
+    };
+
+    onRemoveSelected = dataDimension => {
+        this.setState({ highlighted: this.removeHighlight(dataDimension.id) });
+        this.props.removeSelected(dataDimension);
+    };
+
+    renderSelectedItems = dataDim => {
+        const itemStyle = this.state.highlighted.includes(dataDim.id)
             ? style.highlighted
             : style.unHighlighted;
 
         return (
             <li id={dataDim.id} key={dataDim.id} style={style.listItem}>
                 <div style={itemStyle}>
-                    <div style={style.iconContainer}>
-                        <div style={style.icon} />
-                    </div>
-                    <span style={style.text} onClick={handleClick}>
+                    <SelectedIcon />
+                    <span
+                        style={style.text}
+                        onClick={() => this.toggleHighlight(dataDim.id)}
+                    >
                         {i18n.t(dataDim.displayName)}
                     </span>
                     <RemoveSelectedItemButton
                         style={style.removeButton}
-                        action={() => this.props.removeSelected(dataDim)}
+                        action={() => this.onRemoveSelected(dataDim)}
                     />
                 </div>
             </li>
@@ -132,16 +180,16 @@ export class SelectedContainer extends Component {
     };
 
     render = () => {
-        const selectedItems = Object.entries(this.props.selected).map(dataDim =>
-            this.renderSelectedItems(dataDim[OBJECT_POS])
+        const dataDimensions = Object.entries(this.props.selectedItems).map(
+            dataDim => this.renderSelectedItems(dataDim[OBJECT_POS])
         );
+
         return (
             <div style={style.container}>
-                <div style={style.subTitleContainer}>
-                    <span style={style.title}>{SELECTED_DATA_TITLE}</span>
-                </div>
-                <ul style={style.list}>{selectedItems}</ul>
-                <DeselectAllButton action={this.props.deselectAll} />
+                <Subtitle />
+                <ul style={style.list}>{dataDimensions}</ul>
+                <UnAssignButton action={this.onUnAssignClick} />
+                <DeselectAllButton action={this.onDeselectAllClick} />
             </div>
         );
     };

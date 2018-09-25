@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import i18n from '@dhis2/d2-i18n';
 import { colors } from '../../../colors';
-import { SelectAllButton } from './buttons';
+import { AssignButton, SelectAllButton } from './buttons';
+import { sortArray } from '../../../util';
 
 const style = {
     container: {
@@ -52,10 +53,35 @@ const style = {
     },
 };
 
+const UnselectedIcon = () => {
+    return <div style={style.icon} />;
+};
+
 const OBJECT_POS = 1;
-const UNSELECTED = 'unSelected';
 
 export class UnselectedItems extends Component {
+    state = { highlighted: [] };
+
+    onAssignClick = () => {
+        this.setState({ highlighted: [] });
+        this.props.onAssignClick(this.state.highlighted);
+    };
+
+    onSelectAllClick = () => {
+        this.setState({ highlighted: [] });
+        this.props.onSelectAllClick();
+    };
+
+    toggleHighlight = id => {
+        const higlightedItems = this.state.highlighted.includes(id)
+            ? this.state.highlighted.filter(
+                  dataDimId => dataDimId !== id && dataDimId
+              )
+            : [...this.state.highlighted, id];
+
+        this.setState({ highlighted: higlightedItems });
+    };
+
     searchTextContains = displayName => {
         const { searchFieldInput } = this.props;
 
@@ -70,17 +96,18 @@ export class UnselectedItems extends Component {
             : null;
     };
 
-    renderItem = dataDim => {
-        const handleClick = () => this.props.onItemClick(UNSELECTED, dataDim);
-
-        const itemStyle = dataDim.isHighlighted
+    renderUnselectedItem = dataDim => {
+        const itemStyle = this.state.highlighted.includes(dataDim.id)
             ? style.highlighted
             : style.unHighlighted;
 
         return (
             <li id={dataDim.id} key={dataDim.id} style={style.listItem}>
-                <div onClick={handleClick} style={itemStyle}>
-                    <div style={style.icon} />
+                <div
+                    onClick={() => this.toggleHighlight(dataDim.id)}
+                    style={itemStyle}
+                >
+                    <UnselectedIcon />
                     <span style={style.text}>
                         {i18n.t(dataDim.displayName)}
                     </span>
@@ -90,18 +117,20 @@ export class UnselectedItems extends Component {
     };
 
     render = () => {
-        const { unSelected, searchFieldInput, selectAll } = this.props;
-        const dataDimensions = Object.entries(unSelected).map(
+        const { unSelectedItems, searchFieldInput } = this.props;
+
+        const dataDimensions = Object.entries(unSelectedItems).map(
             listItem =>
                 searchFieldInput.length
                     ? this.filterMatchingItems(listItem[OBJECT_POS])
-                    : this.renderItem(listItem[OBJECT_POS])
+                    : this.renderUnselectedItem(listItem[OBJECT_POS])
         );
 
         return (
             <div style={style.container}>
                 <ul style={style.listContainer}>{dataDimensions}</ul>
-                <SelectAllButton action={selectAll} />
+                <AssignButton action={this.onAssignClick} />
+                <SelectAllButton action={this.onSelectAllClick} />
             </div>
         );
     };

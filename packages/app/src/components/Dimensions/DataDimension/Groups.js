@@ -125,15 +125,12 @@ export class Groups extends Component {
             : null;
     };
 
-    // TODO: Dobbeltsjekk
     async componentDidUpdate() {
         const { dataType } = this.props;
 
         if (this.shouldFetchItems()) {
             const dataTypeAlternatives = await apiFetchGroups(dataType);
             this.setState({ [dataType]: dataTypeAlternatives });
-        } else {
-            console.log('dataType not set, or already fetched');
         }
     }
 

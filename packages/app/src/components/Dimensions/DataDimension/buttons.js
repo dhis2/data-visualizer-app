@@ -14,7 +14,7 @@ const style = {
     actionButton: {
         height: 36,
         width: 36,
-        position: 'relative',
+        position: 'absolute',
         borderRadius: 2,
         backgroundColor: '#FFFFFF',
         boxShadow:
@@ -22,9 +22,11 @@ const style = {
     },
     assignButton: {
         top: '40%',
+        left: '55%',
     },
     unAssignButton: {
-        top: '45%',
+        top: '50%',
+        left: '55%',
     },
 
     arrowIcon: {
@@ -49,15 +51,6 @@ const style = {
 const DESELECT_ALL = i18n.t('DESELECT ALL');
 const SELECT_ALL = i18n.t('SELECT ALL');
 
-export const ActionButtons = ({ onAssignClick, onUnassignClick }) => {
-    return (
-        <div style={style.buttonContainer}>
-            <AssignButton action={onAssignClick} />
-            <UnassignButton action={onUnassignClick} />
-        </div>
-    );
-};
-
 export const AssignButton = ({ action }) => {
     return (
         <button
@@ -69,7 +62,7 @@ export const AssignButton = ({ action }) => {
     );
 };
 
-export const UnassignButton = ({ action }) => {
+export const UnAssignButton = ({ action }) => {
     return (
         <button
             style={{ ...style.actionButton, ...style.unAssignButton }}

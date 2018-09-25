@@ -34,7 +34,7 @@ export const DATA_SETS_CONSTANTS = [
 export const getReportingRates = (contents, groupSetId) => {
     let dataSets = [];
 
-    const constant = DATA_SETS_CONSTANTS.find(function(item) {
+    const constant = DATA_SETS_CONSTANTS.find(item => {
         return item.id === groupSetId;
     });
 
