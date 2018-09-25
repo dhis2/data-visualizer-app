@@ -2,37 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import FileMenu from '@dhis2/d2-ui-file-menu';
-import Button from '@material-ui/core/Button';
 
-import { colors } from '../../colors';
+import UpdateButton from './UpdateButton';
 import VisualizationOptionsManager from '../VisualizationOptions/VisualizationOptionsManager';
 import * as fromActions from '../../actions';
 import './MenuBar.css';
-import { sGetCurrent } from '../../reducers/current';
-import { sGetVisualization } from '../../reducers/visualization';
-import { sGetUi } from '../../reducers/ui';
 
-const getOnOpen = props => {
-    // TODO get type somehow!
-    // from props, when choosing visualization type set type in the store?
-    return id => props.onLoadVisualizaton(id);
-};
+const getOnOpen = props => id => props.onLoadVisualizaton(id);
 
 export const MenuBar = (props, context) => (
     <div className="menubar">
         <div>
-            <Button
-                onClick={() => props.onUpdate(props.ui)}
-                style={{
-                    backgroundColor: colors.accentPrimaryDark,
-                    color: colors.white,
-                    fontSize: 13,
-                }}
-                disableRipple={true}
-                disableFocusRipple={true}
-            >
-                Update
-            </Button>
+            <UpdateButton />
         </div>
         <div>
             <FileMenu
@@ -57,19 +38,12 @@ MenuBar.contextTypes = {
     d2: PropTypes.object,
 };
 
-const mapStateToProps = state => ({
-    visualization: sGetVisualization(state),
-    current: sGetCurrent(state),
-    ui: sGetUi(state),
-});
-
 const mapDispatchToProps = (dispatch, ownProps) => ({
     onLoadVisualizaton: id =>
         dispatch(fromActions.tDoLoadVisualization(ownProps.apiObjectName, id)),
-    onUpdate: ui => dispatch(fromActions.fromCurrent.acSetCurrentFromUi(ui)),
 });
 
 export default connect(
-    mapStateToProps,
+    null,
     mapDispatchToProps
 )(MenuBar);

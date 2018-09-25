@@ -1,26 +1,25 @@
-import { getPropsByKeys } from './util';
-import { AXIS_NAMES } from './layout';
+const getModelAxis = (dimensionId, itemIds) => ({
+    dimension: dimensionId,
+    items: itemIds.map(id => ({
+        id,
+    })),
+});
 
-export const getAxesFromUi = ui => {
-    const axes = getPropsByKeys(ui.layout, AXIS_NAMES);
-    const itemsByDimension = Object.entries(ui.itemsByDimension).reduce(
-        (acc, [key, value]) => ({
-            ...acc,
-            [key]: value.map(item => ({ id: item })),
+const hasItems = (object, id) =>
+    object.hasOwnProperty(id) && Array.isArray(object[id]) && object[id].length;
+
+export const getAxesFromUi = ui =>
+    Object.entries(ui.layout).reduce(
+        (layout, [axisName, ids]) => ({
+            ...layout,
+            [axisName]: ids
+                .map(
+                    id =>
+                        hasItems(ui.itemsByDimension, id)
+                            ? getModelAxis(id, ui.itemsByDimension[id])
+                            : null
+                )
+                .filter(dim => dim !== null),
         }),
         {}
     );
-
-    const axesWithIds = Object.keys(axes).reduce(
-        (acc, axis) => ({
-            ...acc,
-            [axis]: axes[axis].map(dimension => ({
-                dimension,
-                items: itemsByDimension[dimension],
-            })),
-        }),
-        {}
-    );
-
-    return axesWithIds;
-};

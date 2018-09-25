@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-09-21T14:35:06.919Z\n"
-"PO-Revision-Date: 2018-09-21T14:35:06.920Z\n"
+"POT-Creation-Date: 2018-09-21T12:24:35.125Z\n"
+"PO-Revision-Date: 2018-09-21T12:24:35.125Z\n"
 
 msgid "Data"
 msgstr ""
@@ -78,6 +78,9 @@ msgid "Period Dimension"
 msgstr ""
 
 msgid "Dimension recommended with selected data"
+msgstr ""
+
+msgid "Update"
 msgstr ""
 
 msgid "No space between columns/bars"
