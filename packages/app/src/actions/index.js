@@ -4,6 +4,7 @@ import * as fromUser from './user';
 import * as fromVisualization from './visualization';
 import * as fromCurrent from './current';
 import * as fromUi from './ui';
+import * as fromLoadError from './loadError';
 
 export {
     fromVisualization,
@@ -12,6 +13,7 @@ export {
     fromUi,
     fromSnackbar,
     fromUser,
+    fromLoadError,
 };
 
 export const onError = (action, error) => {
@@ -35,12 +37,8 @@ export const tDoLoadVisualization = (type, id) => async (
             await dispatch(fromVisualization.tSetVisualization(type, id))
         );
     } catch (error) {
-        dispatch(
-            fromSnackbar.acReceivedSnackbarMessage({
-                message: error,
-                open: true,
-            })
-        );
+        clearVisualization(dispatch);
+        dispatch(fromLoadError.acSetLoadError(error));
 
         return onError('tDoLoadVisualization ', error);
     }

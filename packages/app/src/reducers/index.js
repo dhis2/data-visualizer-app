@@ -6,6 +6,7 @@ import recommendedIds, * as fromRecommendedIds from './recommendedIds';
 import ui, * as fromUi from './ui';
 import snackbar, * as fromSnackbar from './snackbar';
 import user, * as fromUser from './user';
+import loadError, * as fromLoadError from './loadError';
 
 // Action types
 
@@ -17,6 +18,7 @@ export const actionTypes = {
     ...fromUi.actionTypes,
     ...fromSnackbar.actionTypes,
     ...fromUser.actionTypes,
+    ...fromLoadError.actionTypes,
 };
 
 // Reducers
@@ -29,6 +31,7 @@ export default combineReducers({
     ui,
     snackbar,
     user,
+    loadError,
 });
 
 // Selectors
@@ -40,4 +43,5 @@ export {
     fromRecommendedIds,
     fromUi,
     fromSnackbar,
+    fromLoadError,
 };
