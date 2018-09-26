@@ -28,6 +28,7 @@ export const tDoLoadVisualization = (type, id) => async (
     getState
 ) => {
     const onSuccess = visualization => {
+        dispatch(fromLoadError.acClearLoadError());
         dispatch(fromCurrent.acSetCurrent(visualization));
         dispatch(fromUi.acSetUiFromVisualization(visualization));
     };
