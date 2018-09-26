@@ -1,43 +1,42 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import FormGroup from '@material-ui/core/FormGroup';
+
 import { DataTab } from '../DataTab';
 
 describe('The DataTab component', () => {
-    let props;
     let shallowDataTab;
+
     const dataTab = () => {
         if (!shallowDataTab) {
-            shallowDataTab = shallow(<DataTab {...props} />);
+            shallowDataTab = shallow(<DataTab />);
         }
         return shallowDataTab;
     };
+
     beforeEach(() => {
-        props = {
-            classes: {},
-            onChange: jest.fn(),
-            tabContent: {
-                showValues: false,
-                useCumululative: false,
-                useStacked: false,
-                category: '',
-                trendLine: '',
-                targetLineValue: '',
-                targetLineTitle: '',
-                baseLineValue: '',
-                baseLineTitle: '',
-                sortOrder: '',
-                aggregation: '',
-            },
-        };
         shallowDataTab = undefined;
     });
-    it('renders a div', () => {
-        expect(dataTab().find('div').length).toBe(1);
-    });
-    it('renders a div containing everything else', () => {
+
+    it('renders a FormGroup containing everything else', () => {
         const wrappingDiv = dataTab()
-            .find('div')
+            .find(FormGroup)
             .first();
-        expect(wrappingDiv.children()).toEqual(dataTab().children());
+        expect(wrappingDiv.children()).toHaveLength(9);
+    });
+
+    [
+        'CumulativeValues',
+        'PercentStackedValues',
+        'ShowData',
+        'HideEmptyRowItems',
+        'RegressionType',
+        'SortOrder',
+        'AggregationType',
+        // TODO find a way to test BaseLine and TargetLine
+    ].forEach(component => {
+        it(`should render a ${component} component`, () => {
+            expect(dataTab().find(component)).toHaveLength(1);
+        });
     });
 });

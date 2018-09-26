@@ -57,7 +57,7 @@ describe('reducer: ui', () => {
     }: should set the new based on a visualization`, () => {
         const expectedState = {
             type,
-            options: { aggregationType },
+            options: { ...DEFAULT_UI.options, aggregationType },
             layout: {
                 [COLUMNS]: [dxId],
                 [ROWS]: [peId],
@@ -91,10 +91,10 @@ describe('reducer: ui', () => {
     });
 
     it(`${actionTypes.SET_UI_OPTIONS}: should set options`, () => {
-        const newOptions = {};
+        const newOptions = { cumulativeValues: true, title: 'test' };
         const expectedState = {
             ...DEFAULT_UI,
-            options: newOptions,
+            options: { ...DEFAULT_UI.options, ...newOptions },
         };
         const actualState = reducer(DEFAULT_UI, {
             type: actionTypes.SET_UI_OPTIONS,
