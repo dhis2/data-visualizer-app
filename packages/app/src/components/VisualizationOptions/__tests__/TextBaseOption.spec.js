@@ -7,6 +7,7 @@ import { TextBaseOption } from '../Options/TextBaseOption';
 describe('DV > Options > TextBaseOption', () => {
     let props;
     let shallowTextBaseOption;
+    let onChange;
 
     const textBaseOption = props => {
         shallowTextBaseOption = shallow(<TextBaseOption {...props} />);
@@ -15,12 +16,14 @@ describe('DV > Options > TextBaseOption', () => {
     };
 
     beforeEach(() => {
+        onChange = jest.fn();
+
         props = {
             value: 'test',
             option: {
                 label: 'Input field',
             },
-            onChange: jest.fn(),
+            onChange,
         };
 
         shallowTextBaseOption = undefined;
@@ -44,5 +47,13 @@ describe('DV > Options > TextBaseOption', () => {
                 .find(TextField)
                 .props().value
         ).toEqual('test');
+    });
+
+    it('should trigger the onChange callback on text change', () => {
+        const text = textBaseOption(props).find(TextField);
+
+        text.simulate('change', { target: { value: 'test' } });
+
+        expect(onChange).toHaveBeenCalled();
     });
 });
