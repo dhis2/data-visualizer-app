@@ -1,33 +1,48 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Button, DialogActions, DialogContent } from '@material-ui/core';
+import { DialogActions } from '@material-ui/core';
+import { HideButton, UpdateButton } from '../buttons';
 import { DataDimensionManager } from '../DataDimensionManager';
 describe('The DataDimensionManager component ', () => {
     let props;
-    let shallowDialog;
-    const dialogManager = () => {
-        if (!shallowDialog) {
-            shallowDialog = shallow(<DataDimensionManager {...props} />);
+    let shallowDataDim;
+    const dataDimManager = () => {
+        if (!shallowDataDim) {
+            shallowDataDim = shallow(<DataDimensionManager {...props} />);
         }
-        return shallowDialog;
+        return shallowDataDim;
     };
 
     beforeEach(() => {
         props = {
-            dialogIsOpen: false,
-            id: null,
             toggleDialog: jest.fn(),
-            classes: { paper: {} },
         };
-        shallowDialog = undefined;
+        shallowDataDim = undefined;
     });
 
-    it('renders a <DialogContent> ', () => {
-        expect(dialogManager().find(DialogContent).length).toEqual(1);
+    it('renders a div ', () => {
+        expect(
+            dataDimManager()
+                .find('div')
+                .first().length
+        ).toEqual(1);
     });
 
-    it('renders a <DialogContent /> with the correct Dimension component when rendered', () => {
-        const dialogContent = dialogManager().find(DialogContent);
-        expect(dialogContent.length).toBe(1);
+    it('renders a div containing everything else', () => {
+        const wrappingDiv = dataDimManager()
+            .find('div')
+            .first();
+        expect(wrappingDiv.children()).toEqual(dataDimManager().children());
+    });
+
+    it('renders a <DialogActions /> with two buttons', () => {
+        const dialogActions = dataDimManager()
+            .find('div')
+            .first()
+            .find(DialogActions);
+
+        expect(dialogActions.length).toBe(1);
+        expect(dialogActions.childAt(0).type()).toEqual(HideButton);
+        expect(dialogActions.childAt(1).type()).toEqual(UpdateButton);
     });
 });

@@ -156,14 +156,14 @@ export class DataDimensionManager extends Component {
                     <h3 style={style.dialogTitle}>{DIALOG_TITLE}</h3>
                     <div style={style.subContainer}>
                         <UnselectedContainer
-                            onGroupChange={this.handleContentChange}
                             unSelectedItems={this.state.unSelected}
+                            onGroupChange={this.handleContentChange}
                             onSelectAllClick={this.selectAll}
                             onAssignClick={this.assignDataDimensions}
                         />
                         <SelectedContainer
-                            removeSelected={this.removeSelected}
                             selectedItems={this.state.selected}
+                            removeSelected={this.removeSelected}
                             onDeselectAllClick={this.deselectAll}
                             onUnAssignClick={this.unAssignDataDimensions}
                         />
