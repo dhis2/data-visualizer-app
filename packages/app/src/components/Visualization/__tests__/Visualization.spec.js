@@ -58,7 +58,6 @@ describe('Visualization', () => {
         const wrapper = canvas();
 
         setTimeout(() => {
-            wrapper.update();
             expect(wrapper.find(BlankCanvas).length).toBeGreaterThan(0);
             done();
         });
@@ -67,10 +66,9 @@ describe('Visualization', () => {
     it('calls createChart', done => {
         props.d2.analytics.request = getRequestMock();
 
-        const wrapper = canvas();
+        canvas();
 
         setTimeout(() => {
-            wrapper.update();
             expect(chartsApi.createChart).toHaveBeenCalled();
             done();
         });
