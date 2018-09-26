@@ -127,10 +127,8 @@ export class DataDimension extends Component {
         });
 
         const selectedItems = Object.entries(this.state.selected).reduce(
-            (selectedItems, [key, value]) =>
-                key !== dataDimension.id
-                    ? { ...selectedItems, [key]: value }
-                    : selectedItems,
+            (obj, [key, value]) =>
+                key !== dataDimension.id ? { ...obj, [key]: value } : obj,
             {}
         );
 

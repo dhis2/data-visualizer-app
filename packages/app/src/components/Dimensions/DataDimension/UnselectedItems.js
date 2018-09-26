@@ -37,7 +37,7 @@ const style = {
         paddingRight: 2,
     },
     icon: {
-        backgroundColor: '#9E9E9E',
+        backgroundColor: colors.grey,
         height: 6,
         width: 6,
         marginTop: 4,

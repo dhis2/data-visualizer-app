@@ -3,6 +3,7 @@ import i18n from '@dhis2/d2-i18n';
 const ALL_INDICATORS = i18n.t('[ All indicators ]');
 const ALL_DATA_ELEMENTS = i18n.t('[ All data elements ]');
 const ALL_METRICS = i18n.t('[ All metrics ]');
+const ALL_ID = 'ALL';
 
 const ACTUAL_REPORTS = 'ACTUAL_REPORTS';
 const ACTUAL_REPORTING_RATES_ON_TIME = 'ACTUAL_REPORTING_RATES_ON_TIME';
@@ -85,7 +86,7 @@ export const getDefaultAlternative = currentGroupSet => {
 
     return haveDefaultAlternative
         ? {
-              id: 'ALL',
+              id: ALL_ID,
               displayName: DEFAULT_GROUPSET[currentGroupSet].defaultAlternative,
           }
         : null;
@@ -108,7 +109,7 @@ export const getReportingRates = (contents, groupSetId) => {
         return item.id === groupSetId;
     });
 
-    groupSetId === 'ALL'
+    groupSetId === ALL_ID
         ? DATA_SETS_CONSTANTS.forEach(reports => {
               dataSets = [
                   ...dataSets,

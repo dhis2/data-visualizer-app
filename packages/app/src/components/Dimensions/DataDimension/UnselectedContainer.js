@@ -10,6 +10,7 @@ const style = {
         paddingRight: 46,
     },
 };
+
 export class UnselectedContainer extends Component {
     state = { dataType: 'indicators', searchField: '', detailsOrTotals: '' };
 

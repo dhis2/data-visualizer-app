@@ -40,8 +40,4 @@ describe('The UnselectedContainer component ', () => {
             unSelectedContainer().children()
         );
     });
-
-    /*it('receives the correct props', () => {
-     
-    });*/
 });

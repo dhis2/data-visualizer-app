@@ -93,8 +93,8 @@ export class SelectedItems extends Component {
     state = { highlighted: [] };
 
     onUnAssignClick = () => {
-        this.setState({ highlighted: [] });
         this.props.onUnAssignClick(this.state.highlighted);
+        this.setState({ highlighted: [] });
     };
 
     onDeselectAllClick = () => {
