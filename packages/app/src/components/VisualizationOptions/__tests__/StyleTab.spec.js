@@ -1,39 +1,35 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormGroup from '@material-ui/core/FormGroup';
+
 import { StyleTab } from '../StyleTab';
+import NoSpaceBetweenColumns from '../Options/NoSpaceBetweenColumns';
 
 describe('The Style tab', () => {
-    let props;
     let shallowStyleTab;
+
     const styleTab = () => {
         if (!shallowStyleTab) {
-            shallowStyleTab = shallow(<StyleTab {...props} />);
+            shallowStyleTab = shallow(<StyleTab />);
         }
         return shallowStyleTab;
     };
+
     beforeEach(() => {
-        props = {
-            tabContent: {
-                noSpace: false,
-            },
-            classes: {},
-            onChange: jest.fn(),
-        };
         shallowStyleTab = undefined;
     });
-    it('renders a div', () => {
-        expect(styleTab().find('div').length).toEqual(1);
-    });
-    it('renders a div containing everything else', () => {
+
+    it('renders a FormGroup containing everything else', () => {
         const wrappingDiv = styleTab()
-            .find('div')
+            .find(FormGroup)
             .first();
 
-        expect(wrappingDiv.children()).toEqual(styleTab().children());
+        expect(wrappingDiv.children().length).toBe(1);
     });
-    it('Renders a <FormControllabel /> component', () => {
-        const formControlLabel = styleTab().find(FormControlLabel);
-        expect(formControlLabel.length).toBe(1);
+
+    it('Renders a <NoSpaceBetweenColumns /> component', () => {
+        const noSpaceBetweenColumns = styleTab().find(NoSpaceBetweenColumns);
+
+        expect(noSpaceBetweenColumns.length).toBe(1);
     });
 });

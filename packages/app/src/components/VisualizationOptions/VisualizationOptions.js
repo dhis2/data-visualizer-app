@@ -1,88 +1,65 @@
 import React, { Component, Fragment } from 'react';
-import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 
+import i18n from '@dhis2/d2-i18n';
 import DataTab from './DataTab';
-import TabsBar from './TabsBar';
 import StyleTab from './StyleTab';
 import AxesAndLegendsTab from './AxesAndLegendsTab';
+
+const styles = {
+    tabsBar: {
+        height: 48,
+        backgroundColor: '#FFFFFF',
+        borderBottom: '1px solid #E0E0E0',
+    },
+    tab: {
+        width: 160,
+    },
+};
 
 export class VisualizationOptions extends Component {
     state = {
         activeTab: 0,
-        optionsValues: {
-            // DataTab
-            showValues: false,
-            useCumululative: false,
-            useStacked: false,
-            category: '',
-            trendLine: '',
-            targetLineValue: '',
-            targetLineTitle: '',
-            baseLineValue: '',
-            baseLineTitle: '',
-            sortOrder: '',
-            aggregation: '',
-            // Axes&LegendTab
-            axisMin: '',
-            axisMax: '',
-            tickSteps: '',
-            decimals: '',
-            rangeTitle: '',
-            domainTitle: '',
-            domainSubtitle: '',
-            hideChartLegend: false,
-            hideChartTitle: false,
-            hideSubtitle: false,
-            // StyleTab
-            noSpace: false,
-        },
     };
-    handleChange = (content, value) => {
-        content === 'activeTab'
-            ? this.setState({ activeTab: value })
-            : this.setState({
-                  ...this.state,
-                  optionsValues: {
-                      ...this.state.optionsValues,
-                      [content]: value,
-                  },
-              });
+
+    selectTab = tabId => {
+        this.setState({ activeTab: tabId });
     };
 
     render = () => {
-        let showCurrentTab = [
-            <DataTab
-                onChange={this.handleChange}
-                tabContent={this.state.optionsValues}
-            />,
-            <AxesAndLegendsTab
-                onChange={this.handleChange}
-                tabContent={this.state.optionsValues}
-            />,
-            <StyleTab
-                onChange={this.handleChange}
-                tabContent={this.state.optionsValues}
-            />,
-        ];
+        const { classes } = this.props;
+        const { activeTab } = this.state;
 
         return (
             <Fragment>
-                <TabsBar
-                    activeTab={this.state.activeTab}
-                    onChange={this.handleChange}
-                />
-                {showCurrentTab[this.state.activeTab]}
+                <AppBar
+                    position="sticky"
+                    className={classes.tabsBar}
+                    elevation={0}
+                >
+                    <Tabs
+                        indicatorColor="primary"
+                        onChange={(event, tabId) => this.selectTab(tabId)}
+                        textColor="primary"
+                        value={activeTab}
+                    >
+                        <Tab className={classes.tab} label={i18n.t('Data')} />
+                        <Tab
+                            className={classes.tab}
+                            label={i18n.t('Axes & legend')}
+                        />
+                        <Tab className={classes.tab} label={i18n.t('Style')} />
+                    </Tabs>
+                </AppBar>
+                {activeTab === 0 && <DataTab />}
+                {activeTab === 1 && <AxesAndLegendsTab />}
+                {activeTab === 2 && <StyleTab />}
             </Fragment>
         );
     };
 }
 
-VisualizationOptions.propTypes = {
-    activeTab: PropTypes.number,
-};
-
-VisualizationOptions.defaultProps = {
-    activeTab: 0,
-};
-
-export default VisualizationOptions;
+export default withStyles(styles)(VisualizationOptions);

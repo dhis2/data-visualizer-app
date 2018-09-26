@@ -5,8 +5,13 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2018-09-26T12:14:11.141Z\n"
 "PO-Revision-Date: 2018-09-26T12:14:11.141Z\n"
+=======
+"POT-Creation-Date: 2018-09-19T14:56:11.578Z\n"
+"PO-Revision-Date: 2018-09-19T14:56:11.578Z\n"
+>>>>>>> 120dfae3162d3d1aed29c2903ac681481d84abec
 
 msgid "Data"
 msgstr ""
@@ -104,10 +109,148 @@ msgstr ""
 msgid "Dimension recommended with selected data"
 msgstr ""
 
+msgid "Aggregation type"
+msgstr ""
+
+msgid "By data element"
+msgstr ""
+
+msgid "Count"
+msgstr ""
+
+msgid "Average"
+msgstr ""
+
+msgid "Average (sum in org unit hierarchy)"
+msgstr ""
+
+msgid "Sum"
+msgstr ""
+
+msgid "Last value"
+msgstr ""
+
+msgid "Last value (average in org unit hierarchy)"
+msgstr ""
+
+msgid "Min"
+msgstr ""
+
+msgid "Max"
+msgstr ""
+
+msgid "Standard deviation"
+msgstr ""
+
+msgid "Variance"
+msgstr ""
+
+msgid "Base line"
+msgstr ""
+
+msgid "Base line title"
+msgstr ""
+
+msgid "Base line value"
+msgstr ""
+
+msgid "Use cumulative values"
+msgstr ""
+
+msgid "Domain axis title"
+msgstr ""
+
+msgid "Hide empty categories"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Before first"
+msgstr ""
+
+msgid "After first"
+msgstr ""
+
+msgid "Before first and after last"
+msgstr ""
+
+msgid "All"
+msgstr ""
+
+msgid "Hide chart legend"
+msgstr ""
+
 msgid "Update"
 msgstr ""
 
 msgid "No space between columns/bars"
+msgstr ""
+
+msgid "Use 100% stacked values"
+msgstr ""
+
+msgid "Range axis decimals"
+msgstr ""
+
+msgid "Range axis title"
+msgstr ""
+
+msgid "Range axis max"
+msgstr ""
+
+msgid "Range axis min"
+msgstr ""
+
+msgid "Range axis tick steps"
+msgstr ""
+
+msgid "Trend line"
+msgstr ""
+
+msgid "Linear"
+msgstr ""
+
+msgid "Polynomial"
+msgstr ""
+
+msgid "Loess"
+msgstr ""
+
+msgid "Show values"
+msgstr ""
+
+msgid "Sort order"
+msgstr ""
+
+msgid "Low to high"
+msgstr ""
+
+msgid "High to low"
+msgstr ""
+
+msgid "Chart subtitle"
+msgstr ""
+
+msgid "Target line"
+msgstr ""
+
+msgid "Target line title"
+msgstr ""
+
+msgid "Target line value"
+msgstr ""
+
+msgid "Chart title"
+msgstr ""
+
+msgid "Data"
+msgstr ""
+
+msgid "Axes & legend"
+msgstr ""
+
+msgid "Style"
 msgstr ""
 
 msgid "Options"
