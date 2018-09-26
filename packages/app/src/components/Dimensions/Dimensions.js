@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { TextField } from '@material-ui/core';
 import { Search } from '@material-ui/icons';
 import i18n from '@dhis2/d2-i18n';
 import { colors } from '../../colors';
 import DimensionList from './DimensionList';
 import DialogManager from './DialogManager';
+import { acAddUiLayoutDimensions, acSetUiItems } from '../../actions/ui';
 
 const style = {
     divContainer: {
@@ -18,11 +20,11 @@ const style = {
         top: 5,
     },
     textField: {
-        right: 25,
+        left: 5,
     },
 };
 
-const SEARCHFIELD_PLACEHOLDER = 'Search Dimensions';
+const SEARCHFIELD_PLACEHOLDER = i18n.t('Search Dimensions');
 
 export class Dimensions extends Component {
     state = { searchText: '', dialogDimId: null };
@@ -32,9 +34,20 @@ export class Dimensions extends Component {
     };
 
     toggleDialog = value => {
-        this.setState({
-            dialogDimId: value,
-        });
+        if (typeof value === 'object') {
+            //console.log(this.state.dialogDimId);
+            //this.props.setDimension
+
+            //console.log(value);
+            this.props.addDataDimensions(value);
+            this.setState({
+                dialogDimId: null,
+            });
+        } else {
+            this.setState({
+                dialogDimId: value,
+            });
+        }
     };
 
     render = () => {
@@ -62,4 +75,10 @@ export class Dimensions extends Component {
     };
 }
 
-export default Dimensions;
+export default connect(
+    null,
+    {
+        setDimension: id => acAddUiLayoutDimensions(id),
+        addDataDimensions: ids => acSetUiItems(ids),
+    }
+)(Dimensions);

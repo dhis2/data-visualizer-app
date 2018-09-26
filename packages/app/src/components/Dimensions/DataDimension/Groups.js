@@ -2,26 +2,32 @@ import React, { Component } from 'react';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
-import i18n from '@dhis2/d2-i18n';
-import Totals from './Totals';
+import { Detail } from './Detail';
 import { apiFetchGroups, apiFetchAlternatives } from '../../../api/dimensions'; // TODO
+import {
+    DATA_SETS_CONSTANTS,
+    DATA_SETS,
+    DATA_ELEMENTS,
+    getReportingRates,
+    getInputLabel,
+    getDefaultAlternative,
+} from './defaults';
 import { colors } from '../../../colors';
-import { DATA_SETS_CONSTANTS, getReportingRates } from './defaults';
 
 const style = {
     container: {
+        border: `1px solid ${colors.greyLight}`,
+        display: 'flex',
         height: 53,
         width: 420,
-        border: `1px solid ${colors.greyLight}`,
         borderBottom: 0,
         paddingTop: 5,
-        display: 'flex',
     },
     groupContainer: {
         display: 'flex',
         flexFlow: 'column',
-        minWidth: 316,
         width: 'inherit',
+        minWidth: 316,
         paddingLeft: 5,
         paddingRight: 5,
     },
@@ -29,29 +35,11 @@ const style = {
         padding: 0,
     },
     titleText: {
+        color: colors.greyDark,
         fontSize: 13,
         fontWeight: 300,
-        color: colors.greyDark,
         paddingBottom: 15,
     },
-};
-
-const INDICATOR = i18n.t('Select indicator group');
-const DATA_ELEMENTS = i18n.t('Select data element group');
-const DATA_SET = i18n.t('Select data sets');
-const PROG_INDICATOR = i18n.t('Select program');
-
-const ALL_INDICATORS = i18n.t('[ All indicators ]');
-const ALL_DATA_ELEMENTS = i18n.t('[ All data elements ]');
-const ALL_METRICS = i18n.t('[ All metrics ]');
-
-const DEFAULTS = {
-    indicators: { label: INDICATOR, defaultAlternative: ALL_INDICATORS },
-    dataElements: {
-        label: DATA_ELEMENTS,
-        defaultAlternative: ALL_DATA_ELEMENTS,
-    },
-    dataSets: { label: DATA_SET, defaultAlternative: ALL_METRICS },
 };
 
 export class Groups extends Component {
@@ -64,51 +52,30 @@ export class Groups extends Component {
         dataDimId: '',
     };
 
-    // TODO : Flytt opp og refactor, dobbeltsjekk API call
     handleChange = async event => {
-        let newContent = await apiFetchAlternatives(
+        const currentGroup = event.target.value;
+        let newDataDimensions = await apiFetchAlternatives(
             this.props.dataType,
-            event.target.value
+            currentGroup
         );
 
-        if (this.props.dataType === 'dataSets')
-            newContent = getReportingRates(newContent, event.target.value);
+        if (this.props.dataType === DATA_SETS)
+            newDataDimensions = getReportingRates(
+                newDataDimensions,
+                currentGroup
+            );
 
-        this.setState({ dataDimId: event.target.value });
-        this.props.onGroupChange(newContent);
-    };
-
-    haveDefaultAlternatives = () => {
-        return (
-            this.props.dataType !== 'eventDataItems' &&
-            this.props.dataType !== 'programIndicators'
-        );
-    };
-
-    getDefaultAlternative = () => {
-        return this.haveDefaultAlternatives()
-            ? {
-                  id: 'ALL',
-                  displayName: DEFAULTS[this.props.dataType].defaultAlternative,
-              }
-            : null;
-    };
-
-    getCurrentGroupType = () => {
-        return this.haveDefaultAlternatives()
-            ? DEFAULTS[this.props.dataType].label
-            : PROG_INDICATOR;
+        this.setState({ dataDimId: currentGroup });
+        this.props.onGroupChange(newDataDimensions);
     };
 
     renderDropDownItems = () => {
         const { dataType } = this.props;
+        const defaultAlternative = getDefaultAlternative(dataType);
         let optionItems = this.state[dataType];
 
-        if (this.haveDefaultAlternatives())
-            optionItems = [
-                this.getDefaultAlternative(),
-                ...this.state[dataType],
-            ];
+        if (defaultAlternative)
+            optionItems = [defaultAlternative, ...optionItems];
 
         return dataType.length
             ? optionItems.map(item => (
@@ -119,32 +86,26 @@ export class Groups extends Component {
             : null;
     };
 
-    shouldFetchItems = () => {
-        return (
-            this.props.dataType.length &&
-            !this.state[this.props.dataType].length
-        );
-    };
-
-    // fetch if dataType have changed and API call have not yet been made
-    async componentDidUpdate() {
+    componentDidUpdate = async () => {
         const { dataType } = this.props;
 
-        if (this.shouldFetchItems()) {
-            const dataTypeAlternatives = await apiFetchGroups(dataType);
-            this.setState({ [dataType]: dataTypeAlternatives });
+        if (!Object.keys(this.state[dataType]).length) {
+            const groupSetAlternatives = await apiFetchGroups(dataType);
+            this.setState({ [dataType]: groupSetAlternatives });
         }
-    }
+    };
 
     render = () => {
-        const label = this.getCurrentGroupType();
+        const INPUT_LABEL = getInputLabel(this.props.dataType);
         const renderItems = this.renderDropDownItems();
-        const showTotals = this.props.dataType === 'dataElements';
+        const showTotals = this.props.dataType === DATA_ELEMENTS;
 
         return (
             <div style={style.container}>
                 <div style={style.groupContainer}>
-                    <InputLabel style={style.titleText}>{label}</InputLabel>
+                    <InputLabel style={style.titleText}>
+                        {INPUT_LABEL}
+                    </InputLabel>
                     <Select
                         value={this.state.dataDimId}
                         onChange={this.handleChange}
@@ -154,7 +115,12 @@ export class Groups extends Component {
                         {renderItems}
                     </Select>
                 </div>
-                {showTotals ? <Totals /> : null}
+                {showTotals ? (
+                    <Detail
+                        value={this.props.detailValue}
+                        onDetailChange={this.props.onDetailChange}
+                    />
+                ) : null}
             </div>
         );
     };

@@ -10,10 +10,14 @@ const style = {
     },
 };
 export class UnselectedContainer extends Component {
-    state = { dataType: 'indicators', searchField: '' };
+    state = { dataType: 'indicators', searchField: '', detailsOrTotals: '' };
 
-    handleDataTypeChange = event => {
-        this.setState({ dataType: event.target.value });
+    handleDataTypeChange = value => {
+        this.setState({ dataType: value });
+    };
+
+    handleDetailChange = value => {
+        this.setState({ detailsOrTotals: value });
     };
 
     handleSearchFieldChange = text => {
@@ -24,12 +28,14 @@ export class UnselectedContainer extends Component {
         return (
             <div style={style.container}>
                 <DataTypes
-                    value={this.state.dataType}
+                    currentDataType={this.state.dataType}
                     onDataTypeChange={this.handleDataTypeChange}
                 />
                 <Groups
                     dataType={this.state.dataType}
                     onGroupChange={this.props.onGroupChange}
+                    onDetailChange={this.handleDetailChange}
+                    detailValue={this.state.detailsOrTotals}
                 />
                 <SearchField
                     searchFieldInput={this.state.searchField}

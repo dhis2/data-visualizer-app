@@ -107,7 +107,6 @@ export default (state = DEFAULT_UI, action) => {
             };
         }
         case actionTypes.SET_UI_ITEMS: {
-            console.log(action.value);
             return {
                 ...state,
                 itemsByDimension: {

@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { DialogActions, DialogContent } from '@material-ui/core';
 import i18n from '@dhis2/d2-i18n';
 import UnselectedContainer from './UnselectedContainer';
 import SelectedContainer from './SelectedContainer';
 import { HideButton, UpdateButton } from './buttons';
-import { acSetUiItems } from '../../../actions/ui';
 import { arrayToIdMap } from '../../../util';
 import { colors } from '../../../colors';
 
 const style = {
+    container: {
+        maxHeight: 677,
+        maxWidth: 795,
+        overflow: 'scroll',
+    },
     dialogContent: {
-        overflow: 'hidden',
         paddingBottom: 0,
         paddingTop: 0,
     },
@@ -19,27 +21,25 @@ const style = {
         fontFamily: 'Roboto',
         color: colors.black,
         height: 24,
-        width: 747,
         fontSize: 16,
         fontWeight: 500,
     },
     subContainer: {
         display: 'flex',
         height: 536,
-        width: 747,
     },
     dialogActions: {
         borderTop: `1px solid ${colors.blueGrey}`,
-        height: 84,
         margin: 0,
         paddingTop: 0,
         paddingBottom: 0,
+        height: 84,
         paddingRight: 24,
     },
 };
 
 const DIALOG_TITLE = i18n.t('Data');
-
+const AXIS_KEY = 'dx';
 const KEY_POS = 0;
 const OBJECT_POS = 1;
 
@@ -141,17 +141,17 @@ export class DataDimensionManager extends Component {
 
     //dispatch to store
     onUpdateClick = () => {
-        const ids = Object.entries(this.state.selected).map(
-            dataDimension => dataDimension[KEY_POS]
-        );
-        console.log(ids);
-        //this.props.onAddDataDimensions(ids);
-        this.props.toggleDialog(null);
+        if (Object.entries(this.state.selected).length) {
+            const ids = Object.entries(this.state.selected).map(
+                dataDimension => dataDimension[KEY_POS]
+            );
+            this.props.toggleDialog({ [AXIS_KEY]: ids });
+        }
     };
 
     render = () => {
         return (
-            <div>
+            <div style={style.container}>
                 <DialogContent style={style.dialogContent}>
                     <h3 style={style.dialogTitle}>{DIALOG_TITLE}</h3>
                     <div style={style.subContainer}>
@@ -178,9 +178,4 @@ export class DataDimensionManager extends Component {
     };
 }
 
-export default connect(
-    null,
-    {
-        onAddDataDimensions: ids => acSetUiItems(ids),
-    }
-)(DataDimensionManager);
+export default DataDimensionManager;

@@ -91,7 +91,7 @@ export class UnselectedItems extends Component {
 
     filterMatchingItems = dataDim => {
         return this.searchTextContains(dataDim.displayName)
-            ? this.renderItem(dataDim)
+            ? this.renderUnselectedItem(dataDim)
             : null;
     };
 

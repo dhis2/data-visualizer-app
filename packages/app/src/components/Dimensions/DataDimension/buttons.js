@@ -5,31 +5,15 @@ import i18n from '@dhis2/d2-i18n';
 import { colors } from '../../../colors';
 
 const style = {
-    buttonContainer: {
-        width: 55,
-        display: 'flex',
-        flexFlow: 'column',
-        paddingLeft: 5,
-        paddingRight: 5,
-    },
     actionButton: {
         height: 36,
         width: 36,
         position: 'absolute',
         borderRadius: 2,
-        backgroundColor: '#FFFFFF',
+        backgroundColor: colors.white,
         boxShadow:
             '0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 8px 0 rgba(0, 0, 0, 0.12), 0 8px 8px 0 rgba(0, 0, 0, 0.24)',
     },
-    assignButton: {
-        top: '40%',
-        left: '56.7%',
-    },
-    unAssignButton: {
-        top: '50%',
-        left: '56.7%',
-    },
-
     arrowIcon: {
         height: 20,
         width: 24,
@@ -74,6 +58,16 @@ const style = {
         height: 13,
         width: 10,
     },
+    assignWrapper: {
+        position: 'relative',
+        bottom: '75%',
+        left: '101.5%',
+    },
+    unAssignWrapper: {
+        position: 'relative',
+        right: '15%',
+        bottom: '40%',
+    },
 };
 
 const DESELECT_ALL = i18n.t('DESELECT ALL');
@@ -103,23 +97,21 @@ export const UpdateButton = ({ action }) => {
 
 export const AssignButton = ({ action }) => {
     return (
-        <button
-            style={{ ...style.actionButton, ...style.assignButton }}
-            onClick={action}
-        >
-            <ArrowForward style={style.arrowIcon} />
-        </button>
+        <div style={style.assignWrapper}>
+            <button style={style.actionButton} onClick={action}>
+                <ArrowForward style={style.arrowIcon} />
+            </button>
+        </div>
     );
 };
 
 export const UnAssignButton = ({ action }) => {
     return (
-        <button
-            style={{ ...style.actionButton, ...style.unAssignButton }}
-            onClick={action}
-        >
-            <ArrowBack style={style.arrowIcon} />
-        </button>
+        <div style={style.unAssignWrapper}>
+            <button style={style.actionButton} onClick={action}>
+                <ArrowBack style={style.arrowIcon} />
+            </button>
+        </div>
     );
 };
 

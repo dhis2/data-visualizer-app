@@ -11,18 +11,16 @@ const style = {
     container: {
         border: `1px solid ${colors.greyLight}`,
         height: 534,
-        width: 278,
+        minWidth: 278,
     },
     subTitleContainer: {
         borderBottom: `1px solid ${colors.greyLight}`,
         height: 42,
-        widht: 280,
     },
     list: {
         listStyle: 'none',
-        overflowX: 'scroll',
+        overflow: 'scroll',
         height: 455,
-        width: 280,
         paddingLeft: 0,
         margin: 0,
     },
@@ -31,7 +29,6 @@ const style = {
         color: colors.black,
         fontFamily: 'Roboto',
         height: 20,
-        width: 92,
         fontSize: 15,
         fontWeight: 500,
         top: 12,

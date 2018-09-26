@@ -5,13 +5,49 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-09-21T12:24:35.125Z\n"
-"PO-Revision-Date: 2018-09-21T12:24:35.125Z\n"
+"POT-Creation-Date: 2018-09-26T10:25:01.501Z\n"
+"PO-Revision-Date: 2018-09-26T10:25:01.501Z\n"
 
 msgid "Data"
 msgstr ""
 
 msgid "Data Type"
+msgstr ""
+
+msgid "Detail"
+msgstr ""
+
+msgid "Totals"
+msgstr ""
+
+msgid "Details"
+msgstr ""
+
+msgid "Search"
+msgstr ""
+
+msgid "Selected Data"
+msgstr ""
+
+msgid "DESELECT ALL"
+msgstr ""
+
+msgid "SELECT ALL"
+msgstr ""
+
+msgid "HIDE"
+msgstr ""
+
+msgid "UPDATE"
+msgstr ""
+
+msgid "[ All indicators ]"
+msgstr ""
+
+msgid "[ All data elements ]"
+msgstr ""
+
+msgid "[ All metrics ]"
 msgstr ""
 
 msgid "Select indicator group"
@@ -26,34 +62,19 @@ msgstr ""
 msgid "Select program"
 msgstr ""
 
-msgid "[ All indicators ]"
+msgid "Indicators"
 msgstr ""
 
-msgid "[ All data elements ]"
+msgid "Data Elements"
 msgstr ""
 
-msgid "[ All metrics ]"
+msgid "Data sets"
 msgstr ""
 
-msgid "Search"
+msgid "Event data items"
 msgstr ""
 
-msgid "Selected Data"
-msgstr ""
-
-msgid "Detail"
-msgstr ""
-
-msgid "Totals"
-msgstr ""
-
-msgid "Details"
-msgstr ""
-
-msgid "DESELECT ALL"
-msgstr ""
-
-msgid "SELECT ALL"
+msgid "Program Indicator"
 msgstr ""
 
 msgid "Reporting rates"
