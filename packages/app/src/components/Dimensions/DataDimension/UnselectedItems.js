@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import { AssignButton, SelectAllButton } from './buttons';
 import { colors } from '../../../colors';
@@ -134,5 +135,12 @@ export class UnselectedItems extends Component {
         );
     };
 }
+
+UnselectedItems.propTypes = {
+    unSelectedItems: PropTypes.object.isRequired,
+    onSelectAllClick: PropTypes.func.isRequired,
+    onAssignClick: PropTypes.func.isRequired,
+    searchFieldInput: PropTypes.string.isRequired,
+};
 
 export default UnselectedItems;

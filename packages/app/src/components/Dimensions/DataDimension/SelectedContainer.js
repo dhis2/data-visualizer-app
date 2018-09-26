@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import {
     UnAssignButton,
@@ -173,5 +174,12 @@ export class SelectedContainer extends Component {
         );
     };
 }
+
+SelectedContainer.propTypes = {
+    selectedItems: PropTypes.object.isRequired,
+    removeSelected: PropTypes.func.isRequired,
+    onDeselectAllClick: PropTypes.func.isRequired,
+    onUnAssignClick: PropTypes.func.isRequired,
+};
 
 export default SelectedContainer;

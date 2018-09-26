@@ -101,7 +101,6 @@ export const getInputLabel = currentGroupSet => {
         : SELECT_PROGRAM;
 };
 
-//TODO: flytt / refactor
 export const getReportingRates = (contents, groupSetId) => {
     let dataSets = [];
 

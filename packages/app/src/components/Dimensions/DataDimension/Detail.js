@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
@@ -42,6 +43,11 @@ export const Detail = ({ value, onDetailChange }) => {
             </Select>
         </div>
     );
+};
+
+Detail.propTypes = {
+    value: PropTypes.string.isRequired,
+    onDetailChange: PropTypes.func.isRequired,
 };
 
 export default Detail;

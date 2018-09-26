@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import { Search } from '@material-ui/icons';
 import i18n from '@dhis2/d2-i18n';
@@ -36,14 +37,18 @@ export const SearchField = ({ onSearchFieldChange }) => {
                 style={style.textField}
                 placeholder={INPUTFIELD_PLACEHOLDER}
                 InputProps={{
+                    inputProps: { style: style.placeholder },
                     startAdornment: <Search style={style.searchIcon} />,
                     disableUnderline: true,
                 }}
-                inputProps={{ style: style.placeholder }}
                 onChange={event => onSearchFieldChange(event.target.value)}
             />
         </div>
     );
+};
+
+SearchField.propTypes = {
+    onSearchFieldChange: PropTypes.func.isRequired,
 };
 
 export default SearchField;

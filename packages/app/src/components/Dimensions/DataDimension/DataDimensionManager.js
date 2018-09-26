@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { DialogActions, DialogContent } from '@material-ui/core';
 import i18n from '@dhis2/d2-i18n';
 import UnselectedContainer from './UnselectedContainer';
@@ -139,7 +140,6 @@ export class DataDimensionManager extends Component {
         });
     };
 
-    //dispatch to store
     onUpdateClick = () => {
         if (Object.entries(this.state.selected).length) {
             const ids = Object.entries(this.state.selected).map(
@@ -177,5 +177,9 @@ export class DataDimensionManager extends Component {
         );
     };
 }
+
+DataDimensionManager.propTypes = {
+    toggleDialog: PropTypes.func.isRequired,
+};
 
 export default DataDimensionManager;

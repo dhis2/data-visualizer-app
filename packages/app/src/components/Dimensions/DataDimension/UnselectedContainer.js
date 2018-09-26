@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import DataTypes from './DataTypes';
 import Groups from './Groups';
 import SearchField from './SearchField';
@@ -51,5 +52,12 @@ export class UnselectedContainer extends Component {
         );
     };
 }
+
+UnselectedContainer.propTypes = {
+    unSelectedItems: PropTypes.object.isRequired,
+    onGroupChange: PropTypes.func.isRequired,
+    onSelectAllClick: PropTypes.func.isRequired,
+    onAssignClick: PropTypes.func.isRequired,
+};
 
 export default UnselectedContainer;
