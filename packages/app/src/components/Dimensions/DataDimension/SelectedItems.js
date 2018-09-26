@@ -37,31 +37,17 @@ const style = {
     },
     listItem: {
         display: 'flex',
-        paddingTop: 3,
-        paddingBottom: 3,
+        margin: 5,
         minHeight: 24,
     },
     highlighted: {
-        display: 'flex',
-        border: `1px solid ${colors.black}`,
-        marginLeft: 12,
-        marginRight: 12,
-        paddingRight: 4,
-        paddingBottom: 3,
-        minHeight: 24,
-        borderRadius: 4,
+        backgroundColor: '#92C9F7',
     },
     unHighlighted: {
-        backgroundColor: colors.lightBlue,
-        display: 'flex',
-        marginTop: 1,
-        marginBottom: 1,
-        marginLeft: 13,
-        marginRight: 13,
-        paddingRight: 4,
-        paddingBottom: 3,
         borderRadius: 4,
-        minHeight: 24,
+        backgroundColor: '#BBDEFB',
+        display: 'flex',
+        padding: 2,
     },
     iconContainer: {
         width: 20,
@@ -78,8 +64,8 @@ const style = {
         fontFamily: 'Roboto',
         wordBreak: 'break-word',
         fontSize: 14,
-        paddingLeft: 8,
-        paddingTop: 5,
+        paddingLeft: 3,
+        paddingTop: 3,
     },
 };
 
@@ -103,7 +89,7 @@ const Subtitle = () => {
 
 const OBJECT_POS = 1;
 
-export class SelectedContainer extends Component {
+export class SelectedItems extends Component {
     state = { highlighted: [] };
 
     onUnAssignClick = () => {
@@ -137,7 +123,7 @@ export class SelectedContainer extends Component {
 
     renderSelectedItems = dataDim => {
         const itemStyle = this.state.highlighted.includes(dataDim.id)
-            ? style.highlighted
+            ? { ...style.unHighlighted, ...style.highlighted }
             : style.unHighlighted;
 
         return (
@@ -175,11 +161,11 @@ export class SelectedContainer extends Component {
     };
 }
 
-SelectedContainer.propTypes = {
+SelectedItems.propTypes = {
     selectedItems: PropTypes.object.isRequired,
     removeSelected: PropTypes.func.isRequired,
     onDeselectAllClick: PropTypes.func.isRequired,
     onUnAssignClick: PropTypes.func.isRequired,
 };
 
-export default SelectedContainer;
+export default SelectedItems;

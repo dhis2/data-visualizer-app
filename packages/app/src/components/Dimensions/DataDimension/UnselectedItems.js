@@ -20,28 +20,21 @@ const style = {
     },
     listItem: {
         display: 'flex',
-        paddingTop: 2,
-        paddingBottom: 2,
+        margin: 5,
     },
     highlighted: {
-        border: `3px solid ${colors.lightBlue}`,
-        display: 'flex',
-        paddingTop: 2,
-        paddingBottom: 2,
-        paddingRight: 5,
+        backgroundColor: '#92C9F7',
         borderRadius: 4,
     },
     unHighlighted: {
         display: 'flex',
-        margin: 3,
-        paddingTop: 2,
-        paddingRight: 5,
-        paddingBottom: 2,
+        padding: 2,
     },
     text: {
         fontFamily: 'Roboto',
         fontSize: 14,
         paddingLeft: 2,
+        paddingRight: 2,
     },
     icon: {
         backgroundColor: '#9E9E9E',
@@ -98,7 +91,7 @@ export class UnselectedItems extends Component {
 
     renderUnselectedItem = dataDim => {
         const itemStyle = this.state.highlighted.includes(dataDim.id)
-            ? style.highlighted
+            ? { ...style.unHighlighted, ...style.highlighted }
             : style.unHighlighted;
 
         return (

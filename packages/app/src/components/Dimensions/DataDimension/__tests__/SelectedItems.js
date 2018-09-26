@@ -1,16 +1,16 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { SelectedContainer } from '../SelectedContainer';
+import { SelectedItems } from '../SelectedItems';
 
-describe('The SelectedContainer component ', () => {
+describe('The SelectedItems component ', () => {
     let props;
-    let shallowContainer;
+    let shallowSelectedItems;
 
     const selectedContainer = () => {
-        if (!shallowContainer) {
-            shallowContainer = shallow(<SelectedContainer {...props} />);
+        if (!shallowSelectedItems) {
+            shallowSelectedItems = shallow(<SelectedItems {...props} />);
         }
-        return shallowContainer;
+        return shallowSelectedItems;
     };
 
     beforeEach(() => {
@@ -20,7 +20,7 @@ describe('The SelectedContainer component ', () => {
             onDeselectAllClick: jest.fn(),
             onUnAssignClick: jest.fn(),
         };
-        shallowContainer = undefined;
+        shallowSelectedItems = undefined;
     });
 
     it('renders a div ', () => {

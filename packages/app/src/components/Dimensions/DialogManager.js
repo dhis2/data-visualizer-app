@@ -1,6 +1,6 @@
 import React from 'react';
 import { Dialog } from '@material-ui/core';
-import { DataDimensionManager as DataDimension } from './DataDimension/DataDimensionManager';
+import { DataDimension } from './DataDimension/DataDimension';
 import { PeriodDimension } from './PeriodDimension';
 import { OrgUnitDimension } from './OrgUnitDimension';
 

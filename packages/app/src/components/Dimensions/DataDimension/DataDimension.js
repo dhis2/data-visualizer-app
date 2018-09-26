@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { DialogActions, DialogContent } from '@material-ui/core';
 import i18n from '@dhis2/d2-i18n';
 import UnselectedContainer from './UnselectedContainer';
-import SelectedContainer from './SelectedContainer';
+import SelectedItems from './SelectedItems';
 import { HideButton, UpdateButton } from './buttons';
 import { arrayToIdMap } from '../../../util';
 import { colors } from '../../../colors';
@@ -44,7 +44,7 @@ const AXIS_KEY = 'dx';
 const KEY_POS = 0;
 const OBJECT_POS = 1;
 
-export class DataDimensionManager extends Component {
+export class DataDimension extends Component {
     state = {
         currentGroupSet: {},
         unSelected: {},
@@ -161,7 +161,7 @@ export class DataDimensionManager extends Component {
                             onSelectAllClick={this.selectAll}
                             onAssignClick={this.assignDataDimensions}
                         />
-                        <SelectedContainer
+                        <SelectedItems
                             selectedItems={this.state.selected}
                             removeSelected={this.removeSelected}
                             onDeselectAllClick={this.deselectAll}
@@ -178,8 +178,8 @@ export class DataDimensionManager extends Component {
     };
 }
 
-DataDimensionManager.propTypes = {
+DataDimension.propTypes = {
     toggleDialog: PropTypes.func.isRequired,
 };
 
-export default DataDimensionManager;
+export default DataDimension;

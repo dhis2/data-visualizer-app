@@ -2,13 +2,14 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { DialogActions } from '@material-ui/core';
 import { HideButton, UpdateButton } from '../buttons';
-import { DataDimensionManager } from '../DataDimensionManager';
+import { DataDimension } from '../DataDimension';
+
 describe('The DataDimensionManager component ', () => {
     let props;
     let shallowDataDim;
-    const dataDimManager = () => {
+    const dataDim = () => {
         if (!shallowDataDim) {
-            shallowDataDim = shallow(<DataDimensionManager {...props} />);
+            shallowDataDim = shallow(<DataDimension {...props} />);
         }
         return shallowDataDim;
     };
@@ -22,21 +23,21 @@ describe('The DataDimensionManager component ', () => {
 
     it('renders a div ', () => {
         expect(
-            dataDimManager()
+            dataDim()
                 .find('div')
                 .first().length
         ).toEqual(1);
     });
 
     it('renders a div containing everything else', () => {
-        const wrappingDiv = dataDimManager()
+        const wrappingDiv = dataDim()
             .find('div')
             .first();
-        expect(wrappingDiv.children()).toEqual(dataDimManager().children());
+        expect(wrappingDiv.children()).toEqual(dataDim().children());
     });
 
     it('renders a <DialogActions /> with two buttons', () => {
-        const dialogActions = dataDimManager()
+        const dialogActions = dataDim()
             .find('div')
             .first()
             .find(DialogActions);

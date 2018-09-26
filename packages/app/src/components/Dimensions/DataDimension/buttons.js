@@ -49,9 +49,9 @@ const style = {
         border: 'none',
         background: 'none',
         padding: 0,
-        paddingTop: 6,
+        paddingTop: 4,
         paddingLeft: 1,
-        width: 9,
+        width: 10,
     },
     deleteButtonIcon: {
         fill: colors.blue,
