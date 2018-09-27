@@ -1,3 +1,5 @@
+import { apiFetchVisualization } from '../api/visualization';
+
 import * as fromDimensions from './dimensions';
 import * as fromSnackbar from './snackbar';
 import * as fromUser from './user';
@@ -27,25 +29,29 @@ export const tDoLoadVisualization = (type, id) => async (
     dispatch,
     getState
 ) => {
-    const onSuccess = visualization => {
+    const onSuccess = model => {
+        const visualization = model.toJSON();
+
         dispatch(fromLoadError.acClearLoadError());
+        dispatch(fromVisualization.acSetVisualization(visualization));
         dispatch(fromCurrent.acSetCurrent(visualization));
         dispatch(fromUi.acSetUiFromVisualization(visualization));
     };
 
     try {
-        return onSuccess(
-            await dispatch(fromVisualization.tSetVisualization(type, id))
-        );
+        return onSuccess(await apiFetchVisualization(type, id));
     } catch (error) {
-        clearVisualization(dispatch);
         dispatch(fromLoadError.acSetLoadError(error));
+        dispatch(fromVisualization.acClear());
+        dispatch(fromCurrent.acClear());
+        dispatch(fromUi.acClear());
 
         return onError('tDoLoadVisualization ', error);
     }
 };
 
 export const clearVisualization = dispatch => {
+    dispatch(fromLoadError.acClearLoadError());
     dispatch(fromVisualization.acClear());
     dispatch(fromCurrent.acClear());
     dispatch(fromUi.acClear());

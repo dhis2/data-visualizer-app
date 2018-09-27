@@ -1,5 +1,4 @@
 import { actionTypes } from '../reducers';
-import { apiFetchVisualization } from '../api/visualization';
 
 export const acSetVisualization = visualization => ({
     type: actionTypes.SET_VISUALIZATION,
@@ -9,13 +8,3 @@ export const acSetVisualization = visualization => ({
 export const acClear = () => ({
     type: actionTypes.CLEAR_VISUALIZATION,
 });
-
-export const tSetVisualization = (type, id) => async (dispatch, getState) => {
-    const onSuccess = model => {
-        const visualization = model.toJSON();
-        dispatch(acSetVisualization(visualization));
-        return visualization;
-    };
-
-    return onSuccess(await apiFetchVisualization(type, id));
-};
