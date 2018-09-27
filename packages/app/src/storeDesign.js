@@ -52,6 +52,9 @@ const state = {
         uiLocale: '',
         isSuperuser: false,
     },
+
+    // Object containing the text of a load visualization error
+    loadError: null,
 };
 
 // Typical flow
