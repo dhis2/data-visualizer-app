@@ -18,7 +18,7 @@ const style = {
         top: 5,
     },
     textField: {
-        right: 25,
+        left: 12,
     },
 };
 

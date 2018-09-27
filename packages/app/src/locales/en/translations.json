@@ -1,7 +1,7 @@
 {
     "Data Dimension": "",
-    "Submit": "",
-    "Cancel": "",
+    "Hide": "",
+    "Update": "",
     "OrgUnit Dimension": "",
     "Period Dimension": "",
     "Dimension recommended with selected data": "",
@@ -29,7 +29,8 @@
     "Before first and after last": "",
     "All": "",
     "Hide chart legend": "",
-    "Update": "",
+    "Hide subtitle": "",
+    "Hide title": "",
     "No space between columns/bars": "",
     "Use 100% stacked values": "",
     "Range axis decimals": "",
@@ -55,7 +56,6 @@
     "Style": "",
     "Options": "",
     "Chart options": "",
-    "Hide": "",
     "Column": "",
     "Stacked column": "",
     "Bar": "",
@@ -66,5 +66,7 @@
     "Radar": "",
     "Gauge": "",
     "Bubble": "",
-    "Year on year": ""
+    "Year on year": "",
+    "Period": "",
+    "Organisation Unit": ""
 }

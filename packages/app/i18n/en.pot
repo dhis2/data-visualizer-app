@@ -5,16 +5,16 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-09-19T14:56:11.578Z\n"
-"PO-Revision-Date: 2018-09-19T14:56:11.578Z\n"
+"POT-Creation-Date: 2018-09-27T15:21:43.788Z\n"
+"PO-Revision-Date: 2018-09-27T15:21:43.788Z\n"
 
 msgid "Data Dimension"
 msgstr ""
 
-msgid "Submit"
+msgid "Hide"
 msgstr ""
 
-msgid "Cancel"
+msgid "Update"
 msgstr ""
 
 msgid "OrgUnit Dimension"
@@ -98,7 +98,10 @@ msgstr ""
 msgid "Hide chart legend"
 msgstr ""
 
-msgid "Update"
+msgid "Hide subtitle"
+msgstr ""
+
+msgid "Hide title"
 msgstr ""
 
 msgid "No space between columns/bars"
@@ -176,9 +179,6 @@ msgstr ""
 msgid "Chart options"
 msgstr ""
 
-msgid "Hide"
-msgstr ""
-
 msgid "Column"
 msgstr ""
 
@@ -210,4 +210,10 @@ msgid "Bubble"
 msgstr ""
 
 msgid "Year on year"
+msgstr ""
+
+msgid "Period"
+msgstr ""
+
+msgid "Organisation Unit"
 msgstr ""

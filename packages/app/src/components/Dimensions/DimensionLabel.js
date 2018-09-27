@@ -7,13 +7,16 @@ import { acRemoveUiLayoutDimensions } from '../../actions/ui';
 
 const style = {
     unselected: {
+        display: 'flex',
         minWidth: 'fit-content',
         borderRadius: 4,
         marginLeft: 5,
     },
     selected: {
-        display: 'inline-flex',
         backgroundColor: colors.lightBlue,
+    },
+    label: {
+        display: 'flex',
     },
     deleteButton: {
         border: 'none',
@@ -70,16 +73,17 @@ export class DimensionLabel extends Component {
 
     render = () => {
         const RemoveDimension = this.renderRemoveButton();
-        const labelStyle = this.props.isSelected
+        const containerStyle = this.props.isSelected
             ? { ...style.unselected, ...style.selected }
             : style.unselected;
 
         return (
-            <div style={labelStyle}>
+            <div style={containerStyle}>
                 <div
                     onClick={this.onLabelClick}
                     onKeyPress={this.onKeyPress}
                     tabIndex={0}
+                    style={style.label}
                 >
                     {this.props.children}
                 </div>

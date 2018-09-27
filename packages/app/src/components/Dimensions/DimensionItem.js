@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import DimensionLabel from './DimensionLabel';
 import DimensionOptions from './DimensionOptions';
-import {
+import RecommendedIcon, {
     DataIcon,
     PeriodIcon,
     OrgUnitIcon,
     GenericDimension,
-    RecommendedIcon,
 } from './icons';
 import { colors } from '../../colors';
 import { setDataTransfer } from '../../dnd';
@@ -24,14 +22,17 @@ const style = {
         color: colors.black,
         cursor: 'pointer',
         userSelect: 'none',
+        wordBreak: 'break-all',
+        paddingTop: 3,
     },
     itemContainer: {
         display: 'flex',
-        height: 24,
+        minHeight: 24,
         marginTop: 6,
         marginBottom: 6,
     },
 };
+
 const fixedDimensionIcons = {
     dx: <DataIcon />,
     pe: <PeriodIcon />,
@@ -80,14 +81,6 @@ export class DimensionItem extends Component {
         );
     };
 
-    checkIfRecommended = () => {
-        const { isRecommended, isSelected, id } = this.props;
-
-        return isRecommended.includes(id) && !isSelected ? (
-            <RecommendedIcon />
-        ) : null;
-    };
-
     renderOptionsOnHover = () => {
         return !this.props.isSelected && this.state.mouseOver ? (
             <DimensionOptions
@@ -101,7 +94,6 @@ export class DimensionItem extends Component {
         const Icon = this.getDimensionIcon();
         const Label = this.getDimensionType();
         const MoreOptions = this.renderOptionsOnHover();
-        const RecommendedIcon = this.checkIfRecommended();
 
         return (
             <li
@@ -114,7 +106,10 @@ export class DimensionItem extends Component {
                     {Icon}
                     {Label}
                 </DimensionLabel>
-                {RecommendedIcon}
+                <RecommendedIcon
+                    id={this.props.id}
+                    isSelected={this.props.isSelected}
+                />
                 {MoreOptions}
             </li>
         );
@@ -125,12 +120,7 @@ DimensionItem.propTypes = {
     id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
     displayName: PropTypes.string.isRequired,
     isSelected: PropTypes.bool.isRequired,
-    isRecommended: PropTypes.array.isRequired,
     toggleDialog: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({
-    isRecommended: fromReducers.fromRecommendedIds.sGetRecommendedIds(state),
-});
-
-export default connect(mapStateToProps)(DimensionItem);
+export default DimensionItem;

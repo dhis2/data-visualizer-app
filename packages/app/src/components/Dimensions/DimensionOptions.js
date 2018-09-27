@@ -6,15 +6,14 @@ import { MoreHorizontal } from './icons';
 const style = {
     wrapper: {
         position: 'static',
+        height: 24,
     },
     dropDownButton: {
         border: 'none',
         background: 'none',
         outline: 'none',
-        paddingRight: 0,
-        paddingBottom: 0,
-        paddingLeft: 1,
-        paddingTop: 2,
+        padding: 0,
+        height: 24,
     },
     renderPos: {
         left: 5,
@@ -48,12 +47,12 @@ export class DimensionOptions extends Component {
     };
 
     componentDidMount = () => {
-        const initialPos = this.refs.wrapper.getBoundingClientRect();
+        const initialPos = this.refs.dropDownWrapper.getBoundingClientRect();
 
         const topPixelPos =
-            initialPos.top > MAX_TOP_PIXEL_POS
+            initialPos.top + window.scrollY > MAX_TOP_PIXEL_POS
                 ? MAX_TOP_PIXEL_POS
-                : initialPos.top;
+                : initialPos.top + window.scrollY;
 
         style.renderPos = {
             top: topPixelPos,
@@ -73,7 +72,7 @@ export class DimensionOptions extends Component {
         );
 
         return (
-            <div ref={'wrapper'} style={style.wrapper}>
+            <div ref={'dropDownWrapper'} style={style.wrapper}>
                 {Options}
             </div>
         );

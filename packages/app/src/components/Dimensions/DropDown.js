@@ -29,6 +29,7 @@ const style = {
         height: 117,
         minWidth: 198,
         padding: 0,
+        zIndex: 100,
     },
     listButton: {
         display: 'flex',
@@ -51,8 +52,8 @@ export class DropDown extends Component {
     };
 
     addDimension = axisName => {
-        this.props.onClose();
         this.props.onAddDimension({ [this.props.id]: axisName });
+        this.props.onClose();
     };
 
     render = () => {
