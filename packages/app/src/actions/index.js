@@ -1,4 +1,7 @@
-import { apiFetchVisualization } from '../api/visualization';
+import {
+    apiFetchVisualization,
+    apiSaveVisualization,
+} from '../api/visualization';
 
 import * as fromDimensions from './dimensions';
 import * as fromSnackbar from './snackbar';
@@ -7,6 +10,8 @@ import * as fromVisualization from './visualization';
 import * as fromCurrent from './current';
 import * as fromUi from './ui';
 import * as fromLoadError from './loadError';
+
+import { sGetCurrent } from '../reducers/current';
 
 export {
     fromVisualization,
@@ -46,7 +51,7 @@ export const tDoLoadVisualization = (type, id) => async (
         dispatch(fromCurrent.acClear());
         dispatch(fromUi.acClear());
 
-        return onError('tDoLoadVisualization ', error);
+        return onError('tDoLoadVisualization', error);
     }
 };
 
@@ -55,4 +60,29 @@ export const clearVisualization = dispatch => {
     dispatch(fromVisualization.acClear());
     dispatch(fromCurrent.acClear());
     dispatch(fromUi.acClear());
+};
+
+export const tDoSaveVisualization = (type, { name, description }) => async (
+    dispatch,
+    getState
+) => {
+    console.log('in Do Save');
+    const onSuccess = () => {};
+
+    try {
+        const visualization = sGetCurrent(getState());
+
+        if (name) {
+            visualization.name = name;
+        }
+
+        if (description) {
+            visualization.description = description;
+        }
+
+        return onSuccess(await apiSaveVisualization(type, visualization));
+    } catch (error) {
+        // TODO show error in snackbar
+        return onError('tDoSaveVisualization', error);
+    }
 };
