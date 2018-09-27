@@ -123,7 +123,7 @@ export const getReportingRates = (contents, groupSetId) => {
                   }),
               ];
           })
-        : (dataSets = contents.map(item => {
+        : (dataSets = contents.map(dataSet => {
               return {
                   id: `${item.id}.${reportingRateIndex.id}`,
                   displayName: `${item.displayName} (${

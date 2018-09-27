@@ -18,6 +18,15 @@ describe('reducer: current', () => {
         expect(current).toEqual(actualState);
     });
 
+    it('CLEAR_CURRENT should set the default state', () => {
+        const actualState = reducer(
+            { currentVal: 123 },
+            { type: actionTypes.CLEAR_CURRENT }
+        );
+
+        expect(actualState).toEqual(DEFAULT_CURRENT);
+    });
+
     it('SET_CURRENT_FROM_UI: should set the current from the ui state section', () => {
         const ui = {
             type: 'COLUMN',
