@@ -1,3 +1,6 @@
+import { getPropsByKeys } from './util';
+import options, { computedOptions } from './options';
+
 const getModelAxis = (dimensionId, itemIds) => ({
     dimension: dimensionId,
     items: itemIds.map(id => ({
@@ -23,3 +26,22 @@ export const getAxesFromUi = ui =>
         }),
         {}
     );
+
+export const getOptionsFromUi = ui => {
+    const optionsFromUi = getPropsByKeys(
+        ui.options,
+        Object.keys({ ...options, ...computedOptions })
+    );
+
+    if (optionsFromUi.targetLine === false) {
+        delete optionsFromUi.targetLineLabel;
+        delete optionsFromUi.targetLineValue;
+    }
+
+    if (optionsFromUi.baseLine === false) {
+        delete optionsFromUi.baseLineLabel;
+        delete optionsFromUi.baseLineValue;
+    }
+
+    return optionsFromUi;
+};
