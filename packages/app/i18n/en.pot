@@ -5,13 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-<<<<<<< HEAD
-"POT-Creation-Date: 2018-09-26T12:14:11.141Z\n"
-"PO-Revision-Date: 2018-09-26T12:14:11.141Z\n"
-=======
-"POT-Creation-Date: 2018-09-19T14:56:11.578Z\n"
-"PO-Revision-Date: 2018-09-19T14:56:11.578Z\n"
->>>>>>> 120dfae3162d3d1aed29c2903ac681481d84abec
+"POT-Creation-Date: 2018-09-26T20:51:53.294Z\n"
+"PO-Revision-Date: 2018-09-26T20:51:53.294Z\n"
 
 msgid "Data"
 msgstr ""
@@ -109,6 +104,9 @@ msgstr ""
 msgid "Dimension recommended with selected data"
 msgstr ""
 
+msgid "Update"
+msgstr ""
+
 msgid "Aggregation type"
 msgstr ""
 
@@ -181,7 +179,10 @@ msgstr ""
 msgid "Hide chart legend"
 msgstr ""
 
-msgid "Update"
+msgid "Hide subtitle"
+msgstr ""
+
+msgid "Hide title"
 msgstr ""
 
 msgid "No space between columns/bars"
@@ -242,9 +243,6 @@ msgid "Target line value"
 msgstr ""
 
 msgid "Chart title"
-msgstr ""
-
-msgid "Data"
 msgstr ""
 
 msgid "Axes & legend"

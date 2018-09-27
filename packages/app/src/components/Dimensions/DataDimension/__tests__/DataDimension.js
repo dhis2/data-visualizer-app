@@ -4,7 +4,7 @@ import { DialogActions } from '@material-ui/core';
 import { HideButton, UpdateButton } from '../buttons';
 import { DataDimension } from '../DataDimension';
 
-describe('The DataDimensionManager component ', () => {
+describe('The DataDimension component ', () => {
     let props;
     let shallowDataDim;
     const dataDim = () => {

@@ -34,20 +34,15 @@ export class Dimensions extends Component {
     };
 
     toggleDialog = value => {
-        if (typeof value === 'object') {
-            //console.log(this.state.dialogDimId);
-            //this.props.setDimension
+        this.setState({
+            dialogDimId: value,
+        });
+    };
 
-            //console.log(value);
-            this.props.addDataDimensions(value);
-            this.setState({
-                dialogDimId: null,
-            });
-        } else {
-            this.setState({
-                dialogDimId: value,
-            });
-        }
+    setDimension = ids => {
+        //this.props.setDimension(this.state.dialogDimId)
+        this.props.addDataDimensions(ids);
+        this.toggleDialog(null);
     };
 
     render = () => {
@@ -57,11 +52,12 @@ export class Dimensions extends Component {
                     dialogIsOpen={!!this.state.dialogDimId}
                     id={this.state.dialogDimId}
                     toggleDialog={this.toggleDialog}
+                    setDimension={this.setDimension}
                 />
                 <TextField
                     style={style.textField}
                     onChange={this.handleChange}
-                    placeholder={i18n.t(SEARCHFIELD_PLACEHOLDER)}
+                    placeholder={SEARCHFIELD_PLACEHOLDER}
                     InputProps={{
                         startAdornment: <Search style={style.searchIcon} />,
                     }}
