@@ -7,3 +7,12 @@ export const apiFetchVisualization = (type, id) =>
             fields: getFieldsStringByType(type),
         })
     );
+
+export const apiSaveVisualization = (type, visualization) =>
+    getInstance()
+        .then(d2 => d2.models[type].create(visualization))
+        .then(model => {
+            model.dirty = true; // XXX hack until d2 is fixed
+
+            return model.save();
+        });
