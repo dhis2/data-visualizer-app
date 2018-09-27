@@ -1,13 +1,17 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import Tabs from '@material-ui/core/Tabs';
+
 import { VisualizationOptions } from '../VisualizationOptions';
 import DataTab from '../DataTab';
-import TabsBar from '../TabsBar';
+import AxesAndLegendsTab from '../AxesAndLegendsTab';
+import StyleTab from '../StyleTab';
 
 describe('VisualizationOptions', () => {
     let props;
     let shallowVisualizationOptions;
-    const options = () => {
+
+    const visualizationOptions = () => {
         if (!shallowVisualizationOptions) {
             shallowVisualizationOptions = shallow(
                 <VisualizationOptions {...props} />
@@ -15,19 +19,34 @@ describe('VisualizationOptions', () => {
         }
         return shallowVisualizationOptions;
     };
+
     beforeEach(() => {
         props = {
-            activeTab: 0,
-            optionsValues: {},
             classes: {},
         };
+
         shallowVisualizationOptions = undefined;
     });
 
-    it('renders the <TabsBar /> component', () => {
-        expect(options().find(TabsBar).length).toBe(1);
+    it('renders the <Tabs /> component', () => {
+        expect(visualizationOptions().find(Tabs).length).toBe(1);
     });
+
     it('renders the <DataTab /> component if activeTab is set to 0,', () => {
-        expect(options().find(DataTab).length).toBe(1);
+        expect(visualizationOptions().find(DataTab).length).toBe(1);
+    });
+
+    it('renders the <AxesAndLegendsTab /> component if activeTab is set to 1', () => {
+        const viz = visualizationOptions();
+        viz.setState({ activeTab: 1 });
+
+        expect(viz.find(AxesAndLegendsTab).length).toBe(1);
+    });
+
+    it('renders the <StyleTab /> component if activeTab is set to 2', () => {
+        const viz = visualizationOptions();
+        viz.setState({ activeTab: 2 });
+
+        expect(viz.find(StyleTab).length).toBe(1);
     });
 });

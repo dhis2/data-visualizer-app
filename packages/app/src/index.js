@@ -4,6 +4,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { MuiThemeProvider } from '@material-ui/core/styles';
+import history from './history';
+
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { init as d2Init, config, getUserSettings } from 'd2/lib/d2';
 
@@ -30,12 +32,13 @@ const configI18n = async userSettings => {
     i18n.changeLanguage(uiLocale);
 };
 
-const render = (baseUrl, d2) => {
+const render = (location, baseUrl, d2) => {
     ReactDOM.render(
         <Provider store={configureStore()}>
             <MuiThemeProvider theme={muiTheme()}>
                 <V0MuiThemeProvider muiTheme={getMuiTheme({})}>
                     <App
+                        location={location}
                         baseUrl={baseUrl}
                         d2={d2}
                         apiObjectName={apiObjectName}
@@ -72,8 +75,11 @@ const init = async () => {
     const userSettings = await getUserSettings();
     await configI18n(userSettings);
 
-    const d2 = await d2Init({ baseUrl: config.baseUrl });
-    render(baseUrl, d2);
+    const d2 = await d2Init({
+        baseUrl: config.baseUrl,
+    });
+
+    render(history.location, baseUrl, d2);
 };
 
 init();

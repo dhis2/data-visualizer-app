@@ -52,12 +52,21 @@ describe('reducer: ui', () => {
         expect(ui).toEqual(actualState);
     });
 
+    it('CLEAR_UI should set the default state', () => {
+        const actualState = reducer(
+            { currentVal: 123 },
+            { type: actionTypes.CLEAR_UI }
+        );
+
+        expect(actualState).toEqual(DEFAULT_UI);
+    });
+
     it(`${
         actionTypes.SET_UI_FROM_VISUALIZATION
     }: should set the new based on a visualization`, () => {
         const expectedState = {
             type,
-            options: { aggregationType },
+            options: { ...DEFAULT_UI.options, aggregationType },
             layout: {
                 [COLUMNS]: [dxId],
                 [ROWS]: [peId],
@@ -91,10 +100,10 @@ describe('reducer: ui', () => {
     });
 
     it(`${actionTypes.SET_UI_OPTIONS}: should set options`, () => {
-        const newOptions = {};
+        const newOptions = { cumulativeValues: true, title: 'test' };
         const expectedState = {
             ...DEFAULT_UI,
-            options: newOptions,
+            options: { ...DEFAULT_UI.options, ...newOptions },
         };
         const actualState = reducer(DEFAULT_UI, {
             type: actionTypes.SET_UI_OPTIONS,

@@ -9,19 +9,50 @@ import MenuBar from './MenuBar/MenuBar';
 import VisualizationTypeSelector from './VisualizationTypeSelector/VisualizationTypeSelector';
 import Dimensions from './Dimensions/Dimensions';
 import Visualization from './Visualization/Visualization';
+import BlankCanvas from './Visualization/BlankCanvas';
 import Layout from './Layout/Layout';
 import * as fromReducers from '../reducers';
 import * as fromActions from '../actions';
+import history from '../history';
 
 import './App.css';
 
 export class App extends Component {
+    unlisten = null;
+
+    loadVisualization = location => {
+        const { store } = this.context;
+
+        if (location.pathname.length > 1) {
+            store.dispatch(
+                fromActions.tDoLoadVisualization(
+                    this.props.apiObjectName,
+                    location.pathname.slice(1)
+                )
+            );
+        } else {
+            fromActions.clearVisualization(store.dispatch);
+        }
+    };
+
     componentDidMount() {
         const { store } = this.context;
         const d2 = this.props.d2;
 
         store.dispatch(fromActions.fromUser.acReceivedUser(d2.currentUser));
         store.dispatch(fromActions.fromDimensions.tSetDimensions());
+
+        this.loadVisualization(this.props.location);
+
+        this.unlisten = history.listen(location => {
+            this.loadVisualization(location);
+        });
+    }
+
+    componentWillUnmount() {
+        if (this.unlisten) {
+            this.unlisten();
+        }
     }
 
     getChildContext() {
@@ -40,12 +71,15 @@ export class App extends Component {
                     <SnackbarMessage message={this.props.snackbarMessage} />
                 }
                 autoHideDuration={this.props.snackbarDuration}
-                onRequestClose={this.props.onCloseSnackbar}
+                onClose={this.props.onCloseSnackbar}
             />
         );
     }
 
     render() {
+        const hasCurrent =
+            this.props.current && Object.keys(this.props.current).length > 0;
+
         return (
             <Fragment>
                 <div className="app">
@@ -66,7 +100,11 @@ export class App extends Component {
                         Interpretations panel
                     </div>
                     <div className="item7 canvas">
-                        <Visualization />
+                        {hasCurrent ? (
+                            <Visualization d2={this.props.d2} />
+                        ) : (
+                            <BlankCanvas />
+                        )}
                     </div>
                 </div>
                 {this.renderSnackbar()}
@@ -83,6 +121,7 @@ const mapStateToProps = state => {
         snackbarOpen: open,
         snackbarMessage: message,
         snackbarDuration: duration,
+        current: fromReducers.fromCurrent.sGetCurrent(state),
     };
 };
 
@@ -99,6 +138,7 @@ App.childContextTypes = {
 App.propTypes = {
     d2: PropTypes.object,
     baseUrl: PropTypes.string,
+    location: PropTypes.object,
 };
 
 export default connect(

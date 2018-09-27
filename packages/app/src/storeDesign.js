@@ -37,6 +37,24 @@ const state = {
             ou: ['USER_ORGUNIT'],
         },
     },
+
+    // Object containing info to be displayed in the snackbar
+    snackbar: {
+        message: {},
+        duration: null,
+        open: false,
+    },
+
+    // Object containing user information
+    user: {
+        id: '',
+        username: '',
+        uiLocale: '',
+        isSuperuser: false,
+    },
+
+    // Object containing the text of a load visualization error
+    loadError: null,
 };
 
 // Typical flow

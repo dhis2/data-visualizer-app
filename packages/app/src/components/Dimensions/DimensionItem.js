@@ -13,7 +13,6 @@ import {
 } from './icons';
 import { colors } from '../../colors';
 import { setDataTransfer } from '../../dnd';
-import * as fromReducers from '../../reducers';
 
 const style = {
     wrapper: {
