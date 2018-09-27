@@ -2,9 +2,14 @@ import React from 'react';
 import DefaultLayout from './DefaultLayout/DefaultLayout';
 
 const types = {
-    default: <DefaultLayout />,
+    default: DefaultLayout,
 };
 
-const Layout = ({ type = 'default' }) => types[type];
+const getLayoutByType = (type, props) => {
+    const Layout = types[type];
+    return <Layout {...props} />;
+};
+
+const Layout = ({ type = 'default' }) => getLayoutByType(type);
 
 export default Layout;

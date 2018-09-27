@@ -7,22 +7,22 @@ import { sGetUiLayout } from '../../../reducers/ui';
 import { decodeDataTransfer } from '../../../dnd';
 import { acAddUiLayoutDimensions } from '../../../actions/ui';
 import { colors } from '../../../colors';
+import * as defaultTheme from './defaultTheme';
+import * as theme from '../theme';
 
 const styles = {
     axisContainer: {
         display: 'flex',
-        backgroundColor: colors.white,
-        borderColor: colors.greyLight,
-        borderStyle: 'solid',
-        borderWidth: '0px 0px 1px 1px',
-        padding: '6px 6px 2px 8px',
-        // padding: '8px 8px 0px 8px',
+        backgroundColor: theme.AXIS_BACKGROUND_COLOR,
+        borderColor: theme.AXIS_BORDER_COLOR,
+        borderStyle: theme.AXIS_BORDER_STYLE,
+        borderWidth: theme.AXIS_BORDER_WIDTH,
+        padding: theme.AXIS_PADDING,
     },
     label: {
         minWidth: 55,
         maxWidth: 55,
         padding: '2px 0px 0px 0px',
-        // padding: '2px 0 0 4px',
         fontSize: 11,
         color: colors.greyDark,
         userSelect: 'none',
@@ -32,6 +32,7 @@ const styles = {
         alignItems: 'flex-start',
         alignContent: 'flex-start',
         flexWrap: 'wrap',
+        minHeight: defaultTheme.DIMENSION_AXIS_CONTENT_HEIGHT,
     },
 };
 
@@ -54,8 +55,6 @@ const getDropHandler = ({ axisName, onAddDimension }) => e => {
 
     e.dataTransfer.clearData();
 };
-
-// const renderLabel = label =>
 
 const Axis = ({ layout, onAddDimension, axisName, style }) => {
     const axis = layout[axisName];
@@ -80,32 +79,6 @@ const Axis = ({ layout, onAddDimension, axisName, style }) => {
         </div>
     );
 };
-
-//     const axis = layout[axisName];
-//     const style = {
-//         ...styles.axisContainer,
-//         ...axisStyle,
-//     };
-
-//     return (
-//         <div
-//             style={style}
-//             onDragOver={onDragOver}
-//             onDrop={getDropHandler({ axisName, onAddDimension })}
-//         >
-//             <div style={styles.title}>{axisLabelMap[axisName]}</div>
-//             <div style={styles.field}>
-//                 {axis.map(dimensionId => (
-//                     <Chip
-//                         key={dimensionId}
-//                         axisName={axisName}
-//                         dimensionId={dimensionId}
-//                     />
-//                 ))}
-//             </div>
-//         </div>
-//     );
-// };
 
 const mapStateToProps = state => ({
     layout: sGetUiLayout(state),

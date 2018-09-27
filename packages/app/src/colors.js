@@ -11,6 +11,8 @@ const accentPrimaryDark = '#004BA0';
 
 const greyDark = '#474747';
 const greyLight = '#E0E0E0';
+const lightBlueHover = '#92C9F7';
+const lightBlueActive = '#7EBFF5';
 
 export const colors = {
     paleGrey,
@@ -22,7 +24,9 @@ export const colors = {
     lightBlue,
     blueGrey,
     accentPrimaryLightest,
+    accentPrimaryDark,
     greyDark,
     greyLight,
-    accentPrimaryDark,
+    lightBlueHover,
+    lightBlueActive,
 };
