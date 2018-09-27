@@ -7,7 +7,7 @@ import { sGetDimensions } from '../../reducers/dimensions';
 const styles = {
     chip: {
         maxHeight: 16,
-        margin: '4px 8px 4px 4px',
+        margin: '3px 8px 3px 4px',
         padding: 6,
         fontSize: 14,
         backgroundColor: '#bbdefb',
