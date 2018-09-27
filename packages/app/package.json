@@ -16,7 +16,8 @@
         "husky": "^0.15.0-rc.12",
         "jest-enzyme": "^6.0.0",
         "prettier": "^1.11.1",
-        "react-stub-context": "^0.8.1"
+        "react-stub-context": "^0.8.1",
+        "redux-mock-store": "^1.5.3"
     },
     "dependencies": {
         "@dhis2/d2-i18n": "^1.0.3",
