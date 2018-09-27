@@ -9,49 +9,33 @@ import { acAddUiLayoutDimensions } from '../../../actions/ui';
 import { colors } from '../../../colors';
 
 const styles = {
-    axis: {
+    axisContainer: {
         display: 'flex',
-        alignItems: 'flex-start',
-        flexWrap: 'wrap',
         backgroundColor: colors.white,
         borderColor: colors.greyLight,
         borderStyle: 'solid',
-        borderWidth: '0 0 1px 1px',
+        borderWidth: '0px 0px 1px 1px',
+        padding: '6px 6px 2px 8px',
+        // padding: '8px 8px 0px 8px',
+    },
+    label: {
+        minWidth: 55,
+        maxWidth: 55,
+        padding: '2px 0px 0px 0px',
+        // padding: '2px 0 0 4px',
+        fontSize: 11,
+        color: colors.greyDark,
+        userSelect: 'none',
+    },
+    content: {
+        display: 'flex',
+        alignItems: 'flex-start',
+        alignContent: 'flex-start',
+        flexWrap: 'wrap',
     },
 };
 
-// const s = {
-//     item: {
-//         borderColor: colors.greyLight,
-//         borderStyle: 'solid',
-//         borderWidth: '0 0 1px 1px',
-//     },
-//     filters: {
-//         gridRowStart: 'span 2',
-//     },
-// };
-
-// const st = {
-//     axisContainer: {
-//         display: 'flex',
-//         padding: '8px 8px 0 8px',
-//         backgroundColor: colors.white,
-//     },
-//     title: {
-//         width: 55,
-//         padding: '2px 0 0 4px',
-//         fontSize: 11,
-//         color: colors.greyDark,
-//         userSelect: 'none',
-//     },
-//     field: {
-//         display: 'flex',
-//         flexWrap: 'wrap',
-//     },
-// };
-
-// TODO improve
-const axisLabelMap = {
+const axisLabels = {
     columns: i18n.t('Series'),
     rows: i18n.t('Category'),
     filters: i18n.t('Filter'),
@@ -71,23 +55,28 @@ const getDropHandler = ({ axisName, onAddDimension }) => e => {
     e.dataTransfer.clearData();
 };
 
+// const renderLabel = label =>
+
 const Axis = ({ layout, onAddDimension, axisName, style }) => {
     const axis = layout[axisName];
 
     return (
         <div
             id={axisName}
-            style={{ ...styles.axis, ...style }}
+            style={{ ...styles.axisContainer, ...style }}
             onDragOver={onDragOver}
             onDrop={getDropHandler({ axisName, onAddDimension })}
         >
-            {axis.map(dimensionId => (
-                <Chip
-                    key={dimensionId}
-                    axisName={axisName}
-                    dimensionId={dimensionId}
-                />
-            ))}
+            <div style={styles.label}>{axisLabels[axisName]}</div>
+            <div style={styles.content}>
+                {axis.map(dimensionId => (
+                    <Chip
+                        key={dimensionId}
+                        axisName={axisName}
+                        dimensionId={dimensionId}
+                    />
+                ))}
+            </div>
         </div>
     );
 };
