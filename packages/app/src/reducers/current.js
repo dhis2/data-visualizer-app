@@ -5,6 +5,7 @@ import { getAxesFromUi } from '../current';
 export const actionTypes = {
     SET_CURRENT: 'SET_CURRENT',
     SET_CURRENT_FROM_UI: 'SET_CURRENT_FROM_UI',
+    CLEAR_CURRENT: 'CLEAR_CURRENT',
 };
 
 export const DEFAULT_CURRENT = {};
@@ -28,6 +29,8 @@ export default (state = DEFAULT_CURRENT, action) => {
                 type: action.value.type,
             };
         }
+        case actionTypes.CLEAR_CURRENT:
+            return DEFAULT_CURRENT;
         default:
             return state;
     }
