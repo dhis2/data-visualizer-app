@@ -105,32 +105,30 @@ export const getInputLabel = currentGroupSet => {
 export const getReportingRates = (contents, groupSetId) => {
     let dataSets = [];
 
-    const reportingRateIndex = DATA_SETS_CONSTANTS.find(item => {
-        return item.id === groupSetId;
-    });
+    const reportingRateIndex = DATA_SETS_CONSTANTS.find(
+        item => item.id === groupSetId
+    );
 
     groupSetId === ALL_ID
-        ? DATA_SETS_CONSTANTS.forEach(reports => {
-              dataSets = [
-                  ...dataSets,
-                  ...contents.map(dataSet => {
-                      return {
-                          id: `${dataSet.id}.${reports.id}`,
-                          displayName: `${dataSet.displayName} (${
-                              reports.displayName
-                          })`,
-                      };
-                  }),
-              ];
-          })
-        : (dataSets = contents.map(dataSet => {
-              return {
-                  id: `${item.id}.${reportingRateIndex.id}`,
-                  displayName: `${item.displayName} (${
-                      reportingRateIndex.displayName
-                  })`,
-              };
-          }));
+        ? DATA_SETS_CONSTANTS.forEach(
+              reportingRate =>
+                  (dataSets = [
+                      ...dataSets,
+                      ...contents.map(dataSet =>
+                          concatReportingRate(dataSet, reportingRate)
+                      ),
+                  ])
+          )
+        : (dataSets = contents.map(dataSet =>
+              concatReportingRate(dataSet, reportingRateIndex)
+          ));
 
     return dataSets;
+};
+
+const concatReportingRate = (dataSet, reportingRate) => {
+    return {
+        id: `${dataSet.id}.${reportingRate.id}`,
+        displayName: `${dataSet.displayName} (${reportingRate.displayName})`,
+    };
 };
