@@ -5,6 +5,10 @@ export const acSetUi = value => ({
     value,
 });
 
+export const acClear = () => ({
+    type: actionTypes.CLEAR_UI,
+});
+
 export const acSetUiFromVisualization = value => ({
     type: actionTypes.SET_UI_FROM_VISUALIZATION,
     value,

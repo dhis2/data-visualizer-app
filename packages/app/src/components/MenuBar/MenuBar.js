@@ -7,8 +7,11 @@ import UpdateButton from './UpdateButton';
 import VisualizationOptionsManager from '../VisualizationOptions/VisualizationOptionsManager';
 import * as fromActions from '../../actions';
 import './MenuBar.css';
+import history from '../../history';
 
-const getOnOpen = props => id => props.onLoadVisualizaton(id);
+const onOpen = id => history.push(`/${id}`);
+
+const onNew = () => history.push('/');
 
 export const MenuBar = (props, context) => (
     <div className="menubar">
@@ -18,8 +21,10 @@ export const MenuBar = (props, context) => (
         <div>
             <FileMenu
                 d2={context.d2}
+                fileId={(props.visualization && props.visualization.id) || null}
                 fileType={props.apiObjectName}
-                onOpen={getOnOpen(props)}
+                onOpen={onOpen}
+                onNew={onNew}
                 onTranslate={() => console.log('translate callback')}
                 onError={() => console.log('error!')}
             />

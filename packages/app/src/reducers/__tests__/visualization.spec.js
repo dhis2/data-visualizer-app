@@ -16,4 +16,13 @@ describe('reducer: visualization', () => {
 
         expect(visualization).toEqual(actualState);
     });
+
+    it('CLEAR_VISUALIZATION should set the default state', () => {
+        const actualState = reducer(
+            { currentVal: 123 },
+            { type: actionTypes.CLEAR_VISUALIZATION }
+        );
+
+        expect(actualState).toEqual(DEFAULT_VISUALIZATION);
+    });
 });

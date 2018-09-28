@@ -1,10 +1,18 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import i18n from '@dhis2/d2-i18n';
+
+import FormGroup from '@material-ui/core/FormGroup';
+import RangeAxisMinValue from './Options/RangeAxisMinValue';
+import RangeAxisMaxValue from './Options/RangeAxisMaxValue';
+import RangeAxisSteps from './Options/RangeAxisSteps';
+import RangeAxisDecimals from './Options/RangeAxisDecimals';
+import RangeAxisLabel from './Options/RangeAxisLabel';
+import DomainAxisLabel from './Options/DomainAxisLabel';
+import HideLegend from './Options/HideLegend';
+import HideTitle from './Options/HideTitle';
+import Title from './Options/Title';
+import HideSubtitle from './Options/HideSubtitle';
+import Subtitle from './Options/Subtitle';
 
 const styles = {
     numberField: {
@@ -40,132 +48,26 @@ const styles = {
     },
 };
 
-const strings = {
-    axisMin: 'Range axis min',
-    axisMax: 'Range axis max',
-    tickSteps: 'Range axis tick step',
-    decimals: 'Range axis decimals',
-    rangeTitle: 'Range axis title',
-    domainTitle: 'Domain axis title',
-    domainSubtitle: 'Domain axis subtitle',
-    hideChartTitle: 'Hide chart title',
-    hideLegend: 'Hide chart legend',
-    hideSubtitle: 'Hide chart subtitle',
-};
-
-export class AxesAndLegendsTab extends Component {
-    state = {};
-
-    renderTextFields = (classes, onChange, tabContent) => {
-        return Object.entries(tabContent)
-            .slice(11, 17)
-            .map(([entry, value], i) => (
-                <TextField
-                    className={
-                        i === 0 || i > 3
-                            ? i === 0
-                                ? classes.numberField
-                                : i === 5
-                                    ? classes.domainAxisTextField
-                                    : classes.rangeAxistextField
-                            : classes.coverRestofRowSpace
-                    }
-                    label={i18n.t(strings[entry])}
-                    InputLabelProps={{ className: classes.inputLabeltextSize }}
-                    key={i}
-                    onChange={event => onChange(entry, event.target.value)}
-                    type={i <= 3 ? 'number' : 'string'} // first 4 textFields are number specific
-                    value={value}
-                />
-            ));
-    };
-
-    render = () => {
-        const { classes, onChange, tabContent } = this.props;
-
-        return (
-            <div>
-                <FormControlLabel
-                    className={classes.hideChartLegendCheckbox}
-                    control={
-                        <Checkbox
-                            checked={tabContent.hideChartLegend}
-                            color={'primary'}
-                            onChange={event =>
-                                onChange(
-                                    'hideChartLegend',
-                                    event.target.checked
-                                )
-                            }
-                        />
-                    }
-                    label={i18n.t(strings.hideLegend)}
-                />
-
-                {this.renderTextFields(classes, onChange, tabContent)}
-
-                <FormControlLabel
-                    control={
-                        <Checkbox
-                            checked={tabContent.hideChartTitle}
-                            color={'primary'}
-                            onChange={event =>
-                                onChange('hideChartTitle', event.target.checked)
-                            }
-                        />
-                    }
-                    label={i18n.t(strings.hideChartTitle)}
-                />
-                <TextField
-                    className={classes.domainAxisSubtitleTextField}
-                    label={i18n.t(strings.domainSubtitle)}
-                    fullWidth
-                    InputLabelProps={{ className: classes.inputLabeltextSize }}
-                    onChange={event =>
-                        onChange('domainSubtitle', event.target.value)
-                    }
-                    value={i18n.t(tabContent.domainSubtitle)}
-                />
-                <FormControlLabel
-                    control={
-                        <Checkbox
-                            checked={tabContent.hideSubtitle}
-                            color={'primary'}
-                            onChange={event =>
-                                onChange('hideSubtitle', event.target.checked)
-                            }
-                        />
-                    }
-                    label={i18n.t(strings.hideSubtitle)}
-                />
-            </div>
-        );
-    };
-}
-
-AxesAndLegendsTab.propTypes = {
-    classes: PropTypes.object,
-    tabContent: PropTypes.shape({
-        axisMin: PropTypes.string,
-        axisMax: PropTypes.string,
-        tickSteps: PropTypes.string,
-        decimals: PropTypes.string,
-        rangeTitle: PropTypes.string,
-        domainTitle: PropTypes.string,
-        domainSubtitle: PropTypes.string,
-    }),
-};
-
-AxesAndLegendsTab.defaultProps = {
-    tabContent: {
-        axisMin: '',
-        axisMax: '',
-        tickSteps: '',
-        decimals: '',
-        rangeTitle: '',
-        domainTitle: '',
-        domainSubtitle: '',
-    },
-};
+export const AxesAndLegendsTab = ({ classes }) => (
+    <FormGroup>
+        <FormGroup row={true}>
+            <RangeAxisMinValue />
+            <RangeAxisMaxValue />
+        </FormGroup>
+        <RangeAxisSteps />
+        <RangeAxisDecimals />
+        <RangeAxisLabel />
+        <DomainAxisLabel />
+        <HideLegend />
+        <FormGroup row={true}>
+            <Title />
+            <HideTitle />
+        </FormGroup>
+        <FormGroup row={true}>
+            <Subtitle />
+            <HideSubtitle />
+        </FormGroup>
+    </FormGroup>
+);
 
 export default withStyles(styles)(AxesAndLegendsTab);

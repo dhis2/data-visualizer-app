@@ -6,6 +6,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import i18n from '@dhis2/d2-i18n';
 
+import UpdateButton from '../MenuBar/UpdateButton';
 import VisualizationOptions from './VisualizationOptions';
 
 class VisualizationOptionsManager extends Component {
@@ -41,6 +42,7 @@ class VisualizationOptionsManager extends Component {
                         <VisualizationOptions />
                     </DialogContent>
                     <DialogActions>
+                        <UpdateButton onClick={this.onClose} />
                         <Button onClick={this.onClose}>{i18n.t('Hide')}</Button>
                     </DialogActions>
                 </Dialog>

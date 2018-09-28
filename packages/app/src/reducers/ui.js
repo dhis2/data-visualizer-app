@@ -1,12 +1,10 @@
-import options from '../options';
-import { getPropsByKeys } from '../util';
 import {
     getDimensionIdsByAxis,
     getItemIdsByDimension,
     getFilteredLayout,
     getSwapModObj,
 } from '../layout';
-import { getOptionsDefaultValues } from '../options';
+import { getOptionsForUi, getOptionsFromVisualization } from '../options';
 import { COLUMN } from '../components/VisualizationTypeSelector/visualizationTypes';
 
 export const actionTypes = {
@@ -17,11 +15,12 @@ export const actionTypes = {
     SET_UI_LAYOUT: 'SET_UI_LAYOUT',
     ADD_UI_LAYOUT_DIMENSIONS: 'ADD_UI_LAYOUT_DIMENSIONS',
     SET_UI_ITEMS: 'SET_UI_ITEMS',
+    CLEAR_UI: 'CLEAR_UI',
 };
 
 export const DEFAULT_UI = {
     type: COLUMN,
-    options: getOptionsDefaultValues(),
+    options: getOptionsForUi(),
     layout: {
         columns: ['dx'],
         rows: ['pe'],
@@ -44,7 +43,7 @@ export default (state = DEFAULT_UI, action) => {
         case actionTypes.SET_UI_FROM_VISUALIZATION: {
             return {
                 type: action.value.type,
-                options: getPropsByKeys(action.value, Object.keys(options)),
+                options: getOptionsFromVisualization(action.value),
                 layout: getDimensionIdsByAxis(action.value),
                 itemsByDimension: getItemIdsByDimension(action.value),
             };
@@ -59,6 +58,7 @@ export default (state = DEFAULT_UI, action) => {
             return {
                 ...state,
                 options: {
+                    ...state.options,
                     ...action.value,
                 },
             };
@@ -113,6 +113,8 @@ export default (state = DEFAULT_UI, action) => {
                 },
             };
         }
+        case actionTypes.CLEAR_UI:
+            return DEFAULT_UI;
         default:
             return state;
     }
