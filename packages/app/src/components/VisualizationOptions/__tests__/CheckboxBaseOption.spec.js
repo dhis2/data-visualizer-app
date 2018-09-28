@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import { CheckboxBaseOption } from '../Options/CheckboxBaseOption';
-import Checkbox from '@material-ui/core/Checkbox';
 
 describe('DV > Options > CheckboxBaseOption', () => {
     let props;

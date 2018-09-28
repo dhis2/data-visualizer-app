@@ -1,5 +1,3 @@
-import options from '../options';
-import { getPropsByKeys } from '../util';
 import {
     getDimensionIdsByAxis,
     getItemIdsByDimension,
