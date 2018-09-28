@@ -6,7 +6,6 @@
     "devDependencies": {
         "@dhis2/d2-i18n-extract": "^1.0.6",
         "@dhis2/d2-i18n-generate": "^1.0.18",
-        "@dhis2/deploy-build": "^1.1.0",
         "babel-preset-env": "^1.6.1",
         "babel-preset-stage-0": "^6.24.1",
         "create-react-class": "^15.6.3",
@@ -28,8 +27,7 @@
         "prettier-write": "lerna run prettier-write",
         "start-app": "lerna run --scope data-visualizer-app start",
         "test": "jest",
-        "coverage": "lerna run test -- --coverage",
-        "deploy": "deploy-build"
+        "coverage": "lerna run test -- --coverage"
     },
     "workspaces": [
         "packages/*"
