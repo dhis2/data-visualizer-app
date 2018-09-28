@@ -6,11 +6,9 @@
     "OrgUnit Dimension": "",
     "Period Dimension": "",
     "Dimension recommended with selected data": "",
-<<<<<<< HEAD
     "Series": "",
     "Category": "",
     "Filter": "",
-=======
     "Aggregation type": "",
     "By data element": "",
     "Count": "",
@@ -35,7 +33,6 @@
     "Before first and after last": "",
     "All": "",
     "Hide chart legend": "",
->>>>>>> a122c5919e6375edfc34a0a53c1594f821bc03dc
     "Update": "",
     "No space between columns/bars": "",
     "Use 100% stacked values": "",
