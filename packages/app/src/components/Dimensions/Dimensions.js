@@ -22,7 +22,7 @@ const style = {
     },
 };
 
-const SEARCHFIELD_PLACEHOLDER = 'Search Dimensions';
+const SEARCHFIELD_PLACEHOLDER = i18n.t('Search Dimensions');
 
 export class Dimensions extends Component {
     state = { searchText: '', dialogDimId: null };
@@ -48,7 +48,7 @@ export class Dimensions extends Component {
                 <TextField
                     style={style.textField}
                     onChange={this.handleChange}
-                    placeholder={i18n.t(SEARCHFIELD_PLACEHOLDER)}
+                    placeholder={SEARCHFIELD_PLACEHOLDER}
                     InputProps={{
                         startAdornment: <Search style={style.searchIcon} />,
                     }}

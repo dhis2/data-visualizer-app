@@ -52,7 +52,7 @@ const render = (location, baseUrl, d2) => {
 
 const init = async () => {
     // init material-ui
-    injectTapEventPlugin();
+    //injectTapEventPlugin();
 
     // log app info
     console.info(

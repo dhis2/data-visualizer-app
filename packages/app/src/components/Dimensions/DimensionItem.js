@@ -18,12 +18,13 @@ const style = {
         position: 'static',
     },
     text: {
-        fontSize: 16,
         color: colors.black,
         cursor: 'pointer',
         userSelect: 'none',
         wordBreak: 'break-all',
         paddingTop: 3,
+        fontSize: 16,
+        maxWidth: 195,
     },
     itemContainer: {
         display: 'flex',

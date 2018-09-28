@@ -6,15 +6,15 @@ import i18n from '@dhis2/d2-i18n';
 const items = [
     {
         axisName: 'columns',
-        name: 'Add to series',
+        displayName: i18n.t('Add to series'),
     },
     {
         axisName: 'rows',
-        name: 'Add to category',
+        displayName: i18n.t('Add to category'),
     },
     {
         axisName: 'filters',
-        name: 'Add to filter',
+        displayName: i18n.t('Add to filter'),
     },
 ];
 
@@ -56,24 +56,24 @@ export class DropDown extends Component {
         this.props.onClose();
     };
 
+    renderDropDown = () => {
+        return items.map(option => (
+            <button
+                key={option.axisName}
+                style={style.listButton}
+                onClick={() => this.addDimension(option.axisName)}
+                onKeyDown={this.handleKeyPress}
+            >
+                <span style={style.text}> {option.displayName} </span>
+            </button>
+        ));
+    };
+
     render = () => {
-        return (
-            <div style={{ ...style.container, ...this.props.renderPos }}>
-                {items.map(option => (
-                    <button
-                        key={option.axisName}
-                        style={style.listButton}
-                        onClick={() => this.addDimension(option.axisName)}
-                        onKeyDown={this.handleKeyPress}
-                        ref={element => {
-                            this.dropDownMenu = element;
-                        }}
-                    >
-                        <span style={style.text}> {i18n.t(option.name)} </span>
-                    </button>
-                ))}
-            </div>
-        );
+        const dropDown = this.renderDropDown();
+        const dropdownStyle = { ...style.container, ...this.props.renderPos };
+
+        return <div style={dropdownStyle}>{dropDown}</div>;
     };
 }
 

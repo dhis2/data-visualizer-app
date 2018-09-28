@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
 import * as fromReducers from '../../reducers';
+import { colors } from '../../colors';
 
 const style = {
     hintTextContainer: {
@@ -22,7 +23,7 @@ const style = {
     },
     recommendedIcon: {
         position: 'static',
-        backgroundColor: '#48A999',
+        backgroundColor: colors.accentSecondaryLight,
         height: 7,
         width: 7,
         borderRadius: 5,
@@ -57,18 +58,17 @@ export class RecommendedIcon extends Component {
 
     checkIfRecommended = () => {
         const { isRecommended, isSelected, id } = this.props;
-
         return isRecommended.includes(id) && !isSelected;
     };
 
     showHintText = () => {
         const renderPos = this.getRenderPos();
+        const hintTextStyle = { ...style.hintTextContainer, ...renderPos };
+        const displayName = i18n.t('Dimension recommended with selected data');
 
         return (
-            <div style={{ ...style.hintTextContainer, ...renderPos }}>
-                <span style={style.hintText}>
-                    {i18n.t('Dimension recommended with selected data')}
-                </span>
+            <div style={hintTextStyle}>
+                <span style={style.hintText}>{displayName}</span>
             </div>
         );
     };
@@ -365,9 +365,11 @@ export const GenericDimension = () => {
         </div>
     );
 };
+
 export const MoreHorizontal = () => {
     return (
         <svg
+            style={{ position: 'relative', top: 2 }}
             xmlns="http://www.w3.org/2000/svg"
             width="22"
             height="24"
