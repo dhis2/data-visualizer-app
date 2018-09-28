@@ -29,12 +29,12 @@ const getDragStartHandler = source => e => setDataTransfer(e, source);
 const renderChip = (dimensions, itemsByDimension, axisName, dimensionId) => {
     const dimensionLabel = dimensions[dimensionId].displayName;
 
-    const numberOfItems = itemsByDimension[dimensionId].length;
-    const items = i18n.t('items');
-    const item = i18n.t('item');
-    const itemsLabel = `: ${numberOfItems} ${numberOfItems > 1 ? items : item}`;
+    const items = itemsByDimension[dimensionId] || [];
+    const itemsLabel = `: ${items.length} ${
+        items.length > 1 ? i18n.t('items') : i18n.t('item')
+    }`;
 
-    const chipLabel = `${dimensionLabel}${numberOfItems > 0 ? itemsLabel : ''}`;
+    const chipLabel = `${dimensionLabel}${items.length > 0 ? itemsLabel : ''}`;
 
     return (
         <div
