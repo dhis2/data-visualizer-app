@@ -1,17 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import i18n from '@dhis2/d2-i18n';
 
 import { setDataTransfer } from '../../dnd';
 import { sGetDimensions } from '../../reducers/dimensions';
+import * as layoutStyle from './style';
+import { sGetUiItems } from '../../reducers/ui';
 
 const styles = {
     chip: {
-        maxHeight: 16,
-        margin: '4px 8px 4px 4px',
-        padding: 6,
-        fontSize: 14,
-        backgroundColor: '#bbdefb',
-        color: '#000',
+        maxHeight: layoutStyle.CHIP_HEIGHT,
+        margin: layoutStyle.CHIP_MARGIN,
+        padding: layoutStyle.CHIP_PADDING,
+        fontSize: layoutStyle.CHIP_FONT_SIZE,
+        fontWeight: layoutStyle.CHIP_FONT_WEIGHT,
+        backgroundColor: layoutStyle.CHIP_BACKGROUND_COLOR,
+        color: layoutStyle.CHIP_COLOR,
         borderRadius: 5,
         cursor: 'pointer',
         whiteSpace: 'nowrap',
@@ -22,22 +26,38 @@ const styles = {
 
 const getDragStartHandler = source => e => setDataTransfer(e, source);
 
-const Chip = ({ axisName, dimensionId, dimensions }) =>
-    dimensionId ? (
+const renderChip = (dimensionLabel, items = [], axisName, dimensionId) => {
+    const itemsLabel = `: ${items.length} ${
+        items.length > 1 ? i18n.t('items') : i18n.t('item')
+    }`;
+
+    const chipLabel = `${dimensionLabel}${items.length > 0 ? itemsLabel : ''}`;
+
+    return (
         <div
             data-dimensionid={dimensionId}
             style={styles.chip}
             draggable="true"
             onDragStart={getDragStartHandler(axisName)}
         >
-            {dimensions[dimensionId].displayName}
+            {chipLabel}
         </div>
-    ) : (
-        ''
     );
+};
+
+const Chip = ({ dimensions, itemsByDimension, axisName, dimensionId }) =>
+    dimensionId
+        ? renderChip(
+              dimensions[dimensionId].displayName,
+              itemsByDimension[dimensionId],
+              axisName,
+              dimensionId
+          )
+        : '';
 
 const mapStateToProps = state => ({
     dimensions: sGetDimensions(state),
+    itemsByDimension: sGetUiItems(state),
 });
 
 export default connect(mapStateToProps)(Chip);
