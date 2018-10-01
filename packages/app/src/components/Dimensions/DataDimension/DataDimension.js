@@ -12,7 +12,7 @@ const style = {
     container: {
         maxHeight: 677,
         maxWidth: 795,
-        overflow: 'scroll',
+        overflow: 'hidden',
     },
     dialogContent: {
         paddingBottom: 0,
