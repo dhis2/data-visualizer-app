@@ -15,10 +15,8 @@ describe('The SelectedItems component ', () => {
 
     beforeEach(() => {
         props = {
-            selectedItems: {},
-            removeSelected: jest.fn(),
-            onDeselectAllClick: jest.fn(),
-            onUnAssignClick: jest.fn(),
+            items: {},
+            onDeselect: jest.fn(),
         };
         shallowSelectedItems = undefined;
     });

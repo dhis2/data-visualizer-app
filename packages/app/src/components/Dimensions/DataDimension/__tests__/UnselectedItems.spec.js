@@ -14,9 +14,8 @@ describe('The SelectedContainer component ', () => {
 
     beforeEach(() => {
         props = {
-            unSelectedItems: {},
-            onSelectAllClick: jest.fn(),
-            onAssignClick: jest.fn(),
+            items: {},
+            onSelect: jest.fn(),
             searchFieldInput: '',
         };
         shallowItems = undefined;

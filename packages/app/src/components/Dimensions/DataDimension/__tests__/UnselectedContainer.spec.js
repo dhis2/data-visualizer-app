@@ -16,10 +16,9 @@ describe('The UnselectedContainer component ', () => {
 
     beforeEach(() => {
         props = {
-            unSelectedItems: {},
+            items: {},
             onGroupChange: jest.fn(),
-            onSelectAllClick: jest.fn(),
-            onAssignClick: jest.fn(),
+            onSelect: jest.fn(),
         };
         shallowUnselectedContainer = undefined;
     });
