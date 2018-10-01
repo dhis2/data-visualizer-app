@@ -13,7 +13,9 @@ const greyDark = '#494949';
 const grey = '#9E9E9E';
 const greyLight = '#E0E0E0';
 const blueGrey = '#ECEFF1';
+const lightBlue = '#BBDEFB';
 const snow = '#F4F6F8';
+const white = '#FFFFFF';
 
 const negative = '#E53935';
 const warning = '#F19C02';
@@ -24,9 +26,7 @@ const info = '#EAF4FF';
 const paleGrey = '#FAFAFA';
 const lightGrey = '#F5F5F5';
 const charcoalGrey = '#CCCCCC';
-const white = '#FFFFFF';
 const blue = '#004BA0';
-const lightBlue = '#BBDEFB';
 
 export const colors = {
     accentPrimaryDark,
@@ -44,7 +44,9 @@ export const colors = {
     grey,
     greyLight,
     blueGrey,
+    lightBlue,
     snow,
+    white,
 
     negative,
     warning,
@@ -55,7 +57,5 @@ export const colors = {
     paleGrey,
     lightGrey,
     charcoalGrey,
-    white,
     blue,
-    lightBlue,
 };
