@@ -26,10 +26,7 @@ const styles = {
 
 const getDragStartHandler = source => e => setDataTransfer(e, source);
 
-const renderChip = (dimensions, itemsByDimension, axisName, dimensionId) => {
-    const dimensionLabel = dimensions[dimensionId].displayName;
-
-    const items = itemsByDimension[dimensionId] || [];
+const renderChip = (dimensionLabel, items = [], axisName, dimensionId) => {
     const itemsLabel = `: ${items.length} ${
         items.length > 1 ? i18n.t('items') : i18n.t('item')
     }`;
@@ -50,7 +47,12 @@ const renderChip = (dimensions, itemsByDimension, axisName, dimensionId) => {
 
 const Chip = ({ dimensions, itemsByDimension, axisName, dimensionId }) =>
     dimensionId
-        ? renderChip(dimensions, itemsByDimension, axisName, dimensionId)
+        ? renderChip(
+              dimensions[dimensionId].displayName,
+              itemsByDimension[dimensionId],
+              axisName,
+              dimensionId
+          )
         : '';
 
 const mapStateToProps = state => ({
