@@ -109,6 +109,7 @@ export class DataDimension extends Component {
             const ids = Object.entries(this.state.selected).map(
                 dataDimension => dataDimension[KEY_POS]
             );
+
             this.props.setDimension({ [AXIS_KEY]: ids });
         }
     };
@@ -140,6 +141,7 @@ export class DataDimension extends Component {
 }
 
 DataDimension.propTypes = {
+    setDimension: PropTypes.func.isRequired,
     toggleDialog: PropTypes.func.isRequired,
 };
 
