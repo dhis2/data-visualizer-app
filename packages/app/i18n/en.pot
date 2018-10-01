@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-09-28T12:54:44.496Z\n"
-"PO-Revision-Date: 2018-09-28T12:54:44.496Z\n"
+"POT-Creation-Date: 2018-10-01T09:38:48.383Z\n"
+"PO-Revision-Date: 2018-10-01T09:38:48.383Z\n"
 
 msgid "Data Dimension"
 msgstr ""
@@ -29,6 +29,12 @@ msgstr ""
 msgid "Dimension recommended with selected data"
 msgstr ""
 
+msgid "items"
+msgstr ""
+
+msgid "item"
+msgstr ""
+
 msgid "Series"
 msgstr ""
 
@@ -36,6 +42,11 @@ msgid "Category"
 msgstr ""
 
 msgid "Filter"
+msgstr ""
+
+msgid "Update"
+msgstr ""
+
 msgid "Aggregation type"
 msgstr ""
 
@@ -108,7 +119,10 @@ msgstr ""
 msgid "Hide chart legend"
 msgstr ""
 
-msgid "Update"
+msgid "Hide subtitle"
+msgstr ""
+
+msgid "Hide title"
 msgstr ""
 
 msgid "No space between columns/bars"
