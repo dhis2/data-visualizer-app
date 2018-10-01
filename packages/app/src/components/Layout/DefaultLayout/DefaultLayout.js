@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Axis from './Axis';
-import * as defaultTheme from './defaultTheme';
+import * as defaultLayoutStyle from './defaultStyle';
 
 const styles = {
     ct: {
@@ -12,10 +12,10 @@ const styles = {
         flexDirection: 'column',
     },
     axisGroup1: {
-        flexBasis: defaultTheme.DIMENSION_AXIS_WIDTH,
+        flexBasis: defaultLayoutStyle.DIMENSION_AXIS_WIDTH,
     },
     axisGroup2: {
-        flexBasis: defaultTheme.FILTER_AXIS_WIDTH,
+        flexBasis: defaultLayoutStyle.FILTER_AXIS_WIDTH,
     },
     columns: {
         flexBasis: '50%',

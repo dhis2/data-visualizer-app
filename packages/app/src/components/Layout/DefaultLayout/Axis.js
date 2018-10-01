@@ -7,17 +7,17 @@ import { sGetUiLayout } from '../../../reducers/ui';
 import { decodeDataTransfer } from '../../../dnd';
 import { acAddUiLayoutDimensions } from '../../../actions/ui';
 import { colors } from '../../../colors';
-import * as defaultTheme from './defaultTheme';
-import * as theme from '../theme';
+import * as defaultLayoutStyle from './defaultStyle';
+import * as layoutStyle from '../style';
 
 const styles = {
     axisContainer: {
         display: 'flex',
-        backgroundColor: theme.AXIS_BACKGROUND_COLOR,
-        borderColor: theme.AXIS_BORDER_COLOR,
-        borderStyle: theme.AXIS_BORDER_STYLE,
-        borderWidth: theme.AXIS_BORDER_WIDTH,
-        padding: theme.AXIS_PADDING,
+        backgroundColor: layoutStyle.AXIS_BACKGROUND_COLOR,
+        borderColor: layoutStyle.AXIS_BORDER_COLOR,
+        borderStyle: layoutStyle.AXIS_BORDER_STYLE,
+        borderWidth: layoutStyle.AXIS_BORDER_WIDTH,
+        padding: layoutStyle.AXIS_PADDING,
     },
     label: {
         minWidth: 55,
@@ -32,7 +32,7 @@ const styles = {
         alignItems: 'flex-start',
         alignContent: 'flex-start',
         flexWrap: 'wrap',
-        minHeight: defaultTheme.DIMENSION_AXIS_CONTENT_HEIGHT,
+        minHeight: defaultLayoutStyle.DIMENSION_AXIS_CONTENT_HEIGHT,
     },
 };
 

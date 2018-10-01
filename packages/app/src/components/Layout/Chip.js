@@ -4,18 +4,18 @@ import i18n from '@dhis2/d2-i18n';
 
 import { setDataTransfer } from '../../dnd';
 import { sGetDimensions } from '../../reducers/dimensions';
-import * as theme from './theme';
+import * as layoutStyle from './style';
 import { sGetUiItems } from '../../reducers/ui';
 
 const styles = {
     chip: {
-        maxHeight: theme.CHIP_HEIGHT,
-        margin: theme.CHIP_MARGIN,
-        padding: theme.CHIP_PADDING,
-        fontSize: theme.CHIP_FONT_SIZE,
-        fontWeight: theme.CHIP_FONT_WEIGHT,
-        backgroundColor: theme.CHIP_BACKGROUND_COLOR,
-        color: theme.CHIP_COLOR,
+        maxHeight: layoutStyle.CHIP_HEIGHT,
+        margin: layoutStyle.CHIP_MARGIN,
+        padding: layoutStyle.CHIP_PADDING,
+        fontSize: layoutStyle.CHIP_FONT_SIZE,
+        fontWeight: layoutStyle.CHIP_FONT_WEIGHT,
+        backgroundColor: layoutStyle.CHIP_BACKGROUND_COLOR,
+        color: layoutStyle.CHIP_COLOR,
         borderRadius: 5,
         cursor: 'pointer',
         whiteSpace: 'nowrap',

@@ -5,13 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-<<<<<<< HEAD
 "POT-Creation-Date: 2018-09-28T12:54:44.496Z\n"
 "PO-Revision-Date: 2018-09-28T12:54:44.496Z\n"
-=======
-"POT-Creation-Date: 2018-09-19T14:56:11.578Z\n"
-"PO-Revision-Date: 2018-09-19T14:56:11.578Z\n"
->>>>>>> a122c5919e6375edfc34a0a53c1594f821bc03dc
 
 msgid "Data Dimension"
 msgstr ""
@@ -34,7 +29,6 @@ msgstr ""
 msgid "Dimension recommended with selected data"
 msgstr ""
 
-<<<<<<< HEAD
 msgid "Series"
 msgstr ""
 
@@ -42,7 +36,6 @@ msgid "Category"
 msgstr ""
 
 msgid "Filter"
-=======
 msgid "Aggregation type"
 msgstr ""
 
@@ -113,7 +106,6 @@ msgid "All"
 msgstr ""
 
 msgid "Hide chart legend"
->>>>>>> a122c5919e6375edfc34a0a53c1594f821bc03dc
 msgstr ""
 
 msgid "Update"
