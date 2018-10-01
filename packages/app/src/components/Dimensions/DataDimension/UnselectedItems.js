@@ -56,13 +56,13 @@ export class UnselectedItems extends Component {
     state = { highlighted: [] };
 
     onAssignClick = () => {
-        this.setState({ highlighted: [] });
         this.props.onAssignClick(this.state.highlighted);
+        this.setState({ highlighted: [] });
     };
 
     onSelectAllClick = () => {
-        this.setState({ highlighted: [] });
         this.props.onSelectAllClick();
+        this.setState({ highlighted: [] });
     };
 
     toggleHighlight = id => {
@@ -89,6 +89,10 @@ export class UnselectedItems extends Component {
             : null;
     };
 
+    onDoubleClickItem = id => {
+        this.props.onAssignClick(id);
+    }
+
     renderUnselectedItem = dataDim => {
         const itemStyle = this.state.highlighted.includes(dataDim.id)
             ? { ...style.unHighlighted, ...style.highlighted }
@@ -97,6 +101,7 @@ export class UnselectedItems extends Component {
         return (
             <li id={dataDim.id} key={dataDim.id} style={style.listItem}>
                 <div
+                    onDoubleClick={() => this.onDoubleClickItem(dataDim.id)}
                     onClick={() => this.toggleHighlight(dataDim.id)}
                     style={itemStyle}
                 >
