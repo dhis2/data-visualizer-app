@@ -8,6 +8,8 @@ import { HideButton, UpdateButton } from './buttons';
 import { arrayToIdMap } from '../../../util';
 import { colors } from '../../../colors';
 
+import './DataDimension.css';
+
 const style = {
     container: {
         maxHeight: 677,
@@ -58,83 +60,47 @@ export class DataDimension extends Component {
         });
     };
 
-    selectAll = () => {
-        Object.keys(this.state.unSelected).length &&
-            this.setState({
-                unSelected: {},
-                selected: Object.assign(
-                    {},
-                    this.state.unSelected,
-                    this.state.selected
-                ),
-            });
-    };
-
-    deselectAll = () => {
-        this.setState({
-            unSelected: this.state.currentGroupSet,
-            selected: {},
-        });
-    };
-
-    assignDataDimensions = highlightedIds => {
-        let selectedItems = this.state.selected;
-        let unSelectedItems = {};
+    assignDataDimensions = ids => {
+        let selected = this.state.selected;
+        let unSelected = {};
 
         Object.entries(this.state.unSelected).forEach(dataDim => {
-            highlightedIds.includes(dataDim[KEY_POS])
-                ? (selectedItems = {
-                      ...selectedItems,
+            ids.includes(dataDim[KEY_POS])
+                ? (selected = {
+                      ...selected,
                       ...{ [dataDim[KEY_POS]]: dataDim[OBJECT_POS] },
                   })
-                : (unSelectedItems = {
-                      ...unSelectedItems,
+                : (unSelected = {
+                      ...unSelected,
                       ...{ [dataDim[KEY_POS]]: dataDim[OBJECT_POS] },
                   });
         });
 
         this.setState({
-            unSelected: unSelectedItems,
-            selected: selectedItems,
+            unSelected,
+            selected,
         });
     };
 
-    unAssignDataDimensions = highlightedIds => {
-        let unSelectedItems = this.state.unSelected;
-        let selectedItems = {};
+    unassignDataDimensions = ids => {
+        let unSelected = this.state.unSelected;
+        let selected = {};
 
         Object.entries(this.state.selected).forEach(dataDim => {
-            highlightedIds.includes(dataDim[KEY_POS])
-                ? (unSelectedItems = {
-                      ...unSelectedItems,
+            ids.includes(dataDim[KEY_POS])
+                ? (unSelected = {
+                      ...unSelected,
                       ...{ [dataDim[KEY_POS]]: dataDim[OBJECT_POS] },
                   })
-                : (selectedItems = {
-                      ...selectedItems,
+                : (selected = {
+                      ...selected,
                       ...{ [dataDim[KEY_POS]]: dataDim[OBJECT_POS] },
                   });
         });
 
         this.setState({
-            unSelected: unSelectedItems,
-            selected: selectedItems,
-        });
-    };
-
-    removeSelected = dataDimension => {
-        const unSelectedItems = Object.assign({}, this.state.unSelected, {
-            [dataDimension.id]: dataDimension,
-        });
-
-        const selectedItems = Object.entries(this.state.selected).reduce(
-            (obj, [key, value]) =>
-                key !== dataDimension.id ? { ...obj, [key]: value } : obj,
-            {}
-        );
-
-        this.setState({
-            unSelected: unSelectedItems,
-            selected: selectedItems,
+            unSelected,
+            selected,
         });
     };
 
@@ -154,16 +120,13 @@ export class DataDimension extends Component {
                     <h3 style={style.dialogTitle}>{DIALOG_TITLE}</h3>
                     <div style={style.subContainer}>
                         <UnselectedContainer
-                            unSelectedItems={this.state.unSelected}
+                            items={this.state.unSelected}
                             onGroupChange={this.handleContentChange}
-                            onSelectAllClick={this.selectAll}
-                            onAssignClick={this.assignDataDimensions}
+                            onAssign={this.assignDataDimensions}
                         />
                         <SelectedItems
-                            selectedItems={this.state.selected}
-                            removeSelected={this.removeSelected}
-                            onDeselectAllClick={this.deselectAll}
-                            onUnAssignClick={this.unAssignDataDimensions}
+                            items={this.state.selected}
+                            onUnassign={this.unassignDataDimensions}
                         />
                     </div>
                 </DialogContent>

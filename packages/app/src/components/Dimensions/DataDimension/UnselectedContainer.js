@@ -44,9 +44,8 @@ export class UnselectedContainer extends Component {
                     onSearchFieldChange={this.handleSearchFieldChange}
                 />
                 <UnselectedItems
-                    unSelectedItems={this.props.unSelectedItems}
-                    onSelectAllClick={this.props.onSelectAllClick}
-                    onAssignClick={this.props.onAssignClick}
+                    items={this.props.items}
+                    onAssign={this.props.onAssign}
                     searchFieldInput={this.state.searchField}
                 />
             </div>
@@ -55,10 +54,9 @@ export class UnselectedContainer extends Component {
 }
 
 UnselectedContainer.propTypes = {
-    unSelectedItems: PropTypes.object.isRequired,
+    items: PropTypes.object.isRequired,
     onGroupChange: PropTypes.func.isRequired,
-    onSelectAllClick: PropTypes.func.isRequired,
-    onAssignClick: PropTypes.func.isRequired,
+    onAssign: PropTypes.func.isRequired,
 };
 
 export default UnselectedContainer;

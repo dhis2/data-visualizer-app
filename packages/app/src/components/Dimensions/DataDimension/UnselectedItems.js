@@ -56,12 +56,12 @@ export class UnselectedItems extends Component {
     state = { highlighted: [] };
 
     onAssignClick = () => {
-        this.props.onAssignClick(this.state.highlighted);
+        this.props.onAssign(this.state.highlighted);
         this.setState({ highlighted: [] });
     };
 
     onSelectAllClick = () => {
-        this.props.onSelectAllClick();
+        this.props.onAssign(Object.keys(this.props.items));
         this.setState({ highlighted: [] });
     };
 
@@ -90,8 +90,8 @@ export class UnselectedItems extends Component {
     };
 
     onDoubleClickItem = id => {
-        this.props.onAssignClick(id);
-    }
+        this.props.onAssign(id);
+    };
 
     renderUnselectedItem = dataDim => {
         const itemStyle = this.state.highlighted.includes(dataDim.id)
@@ -99,7 +99,12 @@ export class UnselectedItems extends Component {
             : style.unHighlighted;
 
         return (
-            <li id={dataDim.id} key={dataDim.id} style={style.listItem}>
+            <li
+                className="dimension-item"
+                id={dataDim.id}
+                key={dataDim.id}
+                style={style.listItem}
+            >
                 <div
                     onDoubleClick={() => this.onDoubleClickItem(dataDim.id)}
                     onClick={() => this.toggleHighlight(dataDim.id)}
@@ -115,9 +120,9 @@ export class UnselectedItems extends Component {
     };
 
     render = () => {
-        const { unSelectedItems, searchFieldInput } = this.props;
+        const { items, searchFieldInput } = this.props;
 
-        const dataDimensions = Object.entries(unSelectedItems).map(
+        const dataDimensions = Object.entries(items).map(
             listItem =>
                 searchFieldInput.length
                     ? this.filterMatchingItems(listItem[OBJECT_POS])
@@ -135,9 +140,8 @@ export class UnselectedItems extends Component {
 }
 
 UnselectedItems.propTypes = {
-    unSelectedItems: PropTypes.object.isRequired,
-    onSelectAllClick: PropTypes.func.isRequired,
-    onAssignClick: PropTypes.func.isRequired,
+    items: PropTypes.object.isRequired,
+    onAssign: PropTypes.func.isRequired,
     searchFieldInput: PropTypes.string.isRequired,
 };
 

@@ -92,14 +92,19 @@ const OBJECT_POS = 1;
 export class SelectedItems extends Component {
     state = { highlighted: [] };
 
-    onUnAssignClick = () => {
-        this.props.onUnAssignClick(this.state.highlighted);
+    onUnassignClick = () => {
+        this.props.onUnassign(this.state.highlighted);
         this.setState({ highlighted: [] });
     };
 
+    onRemoveSelected = dataDimension => {
+        this.setState({ highlighted: this.removeHighlight(dataDimension.id) });
+        this.props.onUnassign(dataDimension.id);
+    };
+
     onDeselectAllClick = () => {
+        this.props.onUnassign(Object.keys(this.props.items));
         this.setState({ highlighted: [] });
-        this.props.onDeselectAllClick();
     };
 
     removeHighlight = id => {
@@ -116,18 +121,18 @@ export class SelectedItems extends Component {
         this.setState({ highlighted: higlightedItems });
     };
 
-    onRemoveSelected = dataDimension => {
-        this.setState({ highlighted: this.removeHighlight(dataDimension.id) });
-        this.props.removeSelected(dataDimension);
-    };
-
     renderSelectedItems = dataDim => {
         const itemStyle = this.state.highlighted.includes(dataDim.id)
             ? { ...style.unHighlighted, ...style.highlighted }
             : style.unHighlighted;
 
         return (
-            <li id={dataDim.id} key={dataDim.id} style={style.listItem}>
+            <li
+                className="dimension-item"
+                id={dataDim.id}
+                key={dataDim.id}
+                style={style.listItem}
+            >
                 <div style={itemStyle}>
                     <SelectedIcon />
                     <span
@@ -146,15 +151,15 @@ export class SelectedItems extends Component {
     };
 
     render = () => {
-        const dataDimensions = Object.entries(this.props.selectedItems).map(
-            dataDim => this.renderSelectedItems(dataDim[OBJECT_POS])
+        const dataDimensions = Object.entries(this.props.items).map(dataDim =>
+            this.renderSelectedItems(dataDim[OBJECT_POS])
         );
 
         return (
             <div style={style.container}>
                 <Subtitle />
                 <ul style={style.list}>{dataDimensions}</ul>
-                <UnAssignButton action={this.onUnAssignClick} />
+                <UnAssignButton action={this.onUnassignClick} />
                 <DeselectAllButton action={this.onDeselectAllClick} />
             </div>
         );
@@ -162,10 +167,8 @@ export class SelectedItems extends Component {
 }
 
 SelectedItems.propTypes = {
-    selectedItems: PropTypes.object.isRequired,
-    removeSelected: PropTypes.func.isRequired,
-    onDeselectAllClick: PropTypes.func.isRequired,
-    onUnAssignClick: PropTypes.func.isRequired,
+    items: PropTypes.object.isRequired,
+    onUnassign: PropTypes.func.isRequired,
 };
 
 export default SelectedItems;
