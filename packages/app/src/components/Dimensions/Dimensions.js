@@ -40,7 +40,6 @@ export class Dimensions extends Component {
     };
 
     setDimension = ids => {
-        //this.props.setDimension(this.state.dialogDimId)
         this.props.addDataDimensions(ids);
         this.toggleDialog(null);
     };
