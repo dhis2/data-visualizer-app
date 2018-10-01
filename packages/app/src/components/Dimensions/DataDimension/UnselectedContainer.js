@@ -45,7 +45,7 @@ export class UnselectedContainer extends Component {
                 />
                 <UnselectedItems
                     items={this.props.items}
-                    onAssign={this.props.onAssign}
+                    onSelect={this.props.onSelect}
                     searchFieldInput={this.state.searchField}
                 />
             </div>
@@ -56,7 +56,7 @@ export class UnselectedContainer extends Component {
 UnselectedContainer.propTypes = {
     items: PropTypes.object.isRequired,
     onGroupChange: PropTypes.func.isRequired,
-    onAssign: PropTypes.func.isRequired,
+    onSelect: PropTypes.func.isRequired,
 };
 
 export default UnselectedContainer;

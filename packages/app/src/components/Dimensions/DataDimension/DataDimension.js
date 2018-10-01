@@ -60,7 +60,7 @@ export class DataDimension extends Component {
         });
     };
 
-    assignDataDimensions = ids => {
+    selectDataDimensions = ids => {
         let selected = this.state.selected;
         let unSelected = {};
 
@@ -82,7 +82,7 @@ export class DataDimension extends Component {
         });
     };
 
-    unassignDataDimensions = ids => {
+    deselectDataDimensions = ids => {
         let unSelected = this.state.unSelected;
         let selected = {};
 
@@ -122,11 +122,11 @@ export class DataDimension extends Component {
                         <UnselectedContainer
                             items={this.state.unSelected}
                             onGroupChange={this.handleContentChange}
-                            onAssign={this.assignDataDimensions}
+                            onSelect={this.selectDataDimensions}
                         />
                         <SelectedItems
                             items={this.state.selected}
-                            onUnassign={this.unassignDataDimensions}
+                            onDeselect={this.deselectDataDimensions}
                         />
                     </div>
                 </DialogContent>

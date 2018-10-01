@@ -55,13 +55,13 @@ const OBJECT_POS = 1;
 export class UnselectedItems extends Component {
     state = { highlighted: [] };
 
-    onAssignClick = () => {
-        this.props.onAssign(this.state.highlighted);
+    onSelectClick = () => {
+        this.props.onSelect(this.state.highlighted);
         this.setState({ highlighted: [] });
     };
 
     onSelectAllClick = () => {
-        this.props.onAssign(Object.keys(this.props.items));
+        this.props.onSelect(Object.keys(this.props.items));
         this.setState({ highlighted: [] });
     };
 
@@ -90,7 +90,7 @@ export class UnselectedItems extends Component {
     };
 
     onDoubleClickItem = id => {
-        this.props.onAssign(id);
+        this.props.onSelect(id);
     };
 
     renderUnselectedItem = dataDim => {
@@ -132,7 +132,7 @@ export class UnselectedItems extends Component {
         return (
             <div style={style.container}>
                 <ul style={style.listContainer}>{dataDimensions}</ul>
-                <AssignButton action={this.onAssignClick} />
+                <AssignButton action={this.onSelectClick} />
                 <SelectAllButton action={this.onSelectAllClick} />
             </div>
         );
@@ -141,7 +141,7 @@ export class UnselectedItems extends Component {
 
 UnselectedItems.propTypes = {
     items: PropTypes.object.isRequired,
-    onAssign: PropTypes.func.isRequired,
+    onSelect: PropTypes.func.isRequired,
     searchFieldInput: PropTypes.string.isRequired,
 };
 

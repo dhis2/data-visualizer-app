@@ -92,18 +92,18 @@ const OBJECT_POS = 1;
 export class SelectedItems extends Component {
     state = { highlighted: [] };
 
-    onUnassignClick = () => {
-        this.props.onUnassign(this.state.highlighted);
+    onDeselectClick = () => {
+        this.props.onDeselect(this.state.highlighted);
         this.setState({ highlighted: [] });
     };
 
     onRemoveSelected = dataDimension => {
         this.setState({ highlighted: this.removeHighlight(dataDimension.id) });
-        this.props.onUnassign(dataDimension.id);
+        this.props.onDeselect(dataDimension.id);
     };
 
     onDeselectAllClick = () => {
-        this.props.onUnassign(Object.keys(this.props.items));
+        this.props.onDeselect(Object.keys(this.props.items));
         this.setState({ highlighted: [] });
     };
 
@@ -159,7 +159,7 @@ export class SelectedItems extends Component {
             <div style={style.container}>
                 <Subtitle />
                 <ul style={style.list}>{dataDimensions}</ul>
-                <UnAssignButton action={this.onUnassignClick} />
+                <UnAssignButton action={this.onDeselectClick} />
                 <DeselectAllButton action={this.onDeselectAllClick} />
             </div>
         );
@@ -168,7 +168,7 @@ export class SelectedItems extends Component {
 
 SelectedItems.propTypes = {
     items: PropTypes.object.isRequired,
-    onUnassign: PropTypes.func.isRequired,
+    onDeselect: PropTypes.func.isRequired,
 };
 
 export default SelectedItems;
