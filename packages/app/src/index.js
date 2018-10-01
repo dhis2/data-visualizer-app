@@ -6,7 +6,6 @@ import { Provider } from 'react-redux';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import history from './history';
 
-import injectTapEventPlugin from 'react-tap-event-plugin';
 import { init as d2Init, config, getUserSettings } from 'd2/lib/d2';
 
 import i18n from './locales';
@@ -51,9 +50,6 @@ const render = (location, baseUrl, d2) => {
 };
 
 const init = async () => {
-    // init material-ui
-    injectTapEventPlugin();
-
     // log app info
     console.info(
         `Data Visualizer app, v${manifest.version}, ${
