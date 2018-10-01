@@ -23,7 +23,6 @@
         "@dhis2/d2-i18n": "^1.0.3",
         "@dhis2/d2-ui-core": "^1.0.3",
         "@dhis2/d2-ui-file-menu": "^2.0.0",
-        "@dhis2/d2-ui-period-selector-dialog": "^0.1.1",
         "@material-ui/core": "^1.5.1",
         "@material-ui/icons": "^2.0.3",
         "autoprefixer": "9.1.3",
