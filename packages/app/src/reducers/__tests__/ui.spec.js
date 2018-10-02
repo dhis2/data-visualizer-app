@@ -73,9 +73,9 @@ describe('reducer: ui', () => {
                 [FILTERS]: [ouId],
             },
             itemsByDimension: {
-                [dxId]: [dxItem1Id],
-                [peId]: [peItem1Id],
-                [ouId]: [ouItem1Id],
+                [dxId]: [{ id: dxItem1Id }],
+                [peId]: [{ id: peItem1Id }],
+                [ouId]: [{ id: ouItem1Id }],
             },
         };
         const actualState = reducer(DEFAULT_UI, {
@@ -127,17 +127,39 @@ describe('reducer: ui', () => {
         expect(actualState).toEqual(expectedState);
     });
 
-    it(`${actionTypes.SET_UI_ITEMS}: should set items by dimension`, () => {
-        const newLayout = {};
-        const expectedState = {
-            ...DEFAULT_UI,
-            layout: newLayout,
-        };
-        const actualState = reducer(DEFAULT_UI, {
-            type: actionTypes.SET_UI_LAYOUT,
-            value: newLayout,
+    describe('itemByDimension', () => {
+        //this test is testing the wrong action
+        it.skip(`${actionTypes.SET_UI_ITEMS}: sets items by dimension`, () => {
+            const newLayout = {};
+            const expectedState = {
+                ...DEFAULT_UI,
+                layout: newLayout,
+            };
+            const actualState = reducer(DEFAULT_UI, {
+                type: actionTypes.SET_UI_LAYOUT,
+                value: newLayout,
+            });
+
+            expect(actualState).toEqual(expectedState);
         });
 
-        expect(actualState).toEqual(expectedState);
+        it(`${actionTypes.ADD_UI_ITEMS}: adds items to dimension`, () => {
+            const dxObject = {
+                id: 'abc',
+                name: 'rainbow dash',
+            };
+
+            const value = {
+                dimensionType: 'dx',
+                value: dxObject,
+            };
+            const expectedState = [dxObject];
+            const actualState = reducer(DEFAULT_UI, {
+                type: actionTypes.ADD_UI_ITEMS,
+                value,
+            });
+
+            expect(actualState.itemsByDimension.dx).toEqual(expectedState);
+        });
     });
 });

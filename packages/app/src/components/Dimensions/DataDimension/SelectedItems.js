@@ -97,13 +97,13 @@ export class SelectedItems extends Component {
         this.setState({ highlighted: [] });
     };
 
-    onRemoveSelected = dataDimension => {
-        this.setState({ highlighted: this.removeHighlight(dataDimension.id) });
-        this.props.onDeselect(dataDimension.id);
+    onRemoveSelected = id => {
+        this.setState({ highlighted: this.removeHighlight(id) });
+        this.props.onDeselect(id);
     };
 
     onDeselectAllClick = () => {
-        this.props.onDeselect(Object.keys(this.props.items));
+        this.props.onDeselect(this.props.items.map(i => i.id));
         this.setState({ highlighted: [] });
     };
 
@@ -121,7 +121,7 @@ export class SelectedItems extends Component {
         this.setState({ highlighted: higlightedItems });
     };
 
-    renderSelectedItems = dataDim => {
+    renderItem = dataDim => {
         const itemStyle = this.state.highlighted.includes(dataDim.id)
             ? { ...style.unHighlighted, ...style.highlighted }
             : style.unHighlighted;
@@ -143,7 +143,7 @@ export class SelectedItems extends Component {
                     </span>
                     <RemoveSelectedItemButton
                         style={style.removeButton}
-                        action={() => this.onRemoveSelected(dataDim)}
+                        action={() => this.onRemoveSelected(dataDim.id)}
                     />
                 </div>
             </li>
@@ -151,8 +151,8 @@ export class SelectedItems extends Component {
     };
 
     render = () => {
-        const dataDimensions = Object.entries(this.props.items).map(dataDim =>
-            this.renderSelectedItems(dataDim[OBJECT_POS])
+        const dataDimensions = this.props.items.map(dataDim =>
+            this.renderItem(dataDim)
         );
 
         return (
@@ -167,7 +167,7 @@ export class SelectedItems extends Component {
 }
 
 SelectedItems.propTypes = {
-    items: PropTypes.object.isRequired,
+    items: PropTypes.array.isRequired,
     onDeselect: PropTypes.func.isRequired,
 };
 

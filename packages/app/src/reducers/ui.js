@@ -15,6 +15,8 @@ export const actionTypes = {
     SET_UI_LAYOUT: 'SET_UI_LAYOUT',
     ADD_UI_LAYOUT_DIMENSIONS: 'ADD_UI_LAYOUT_DIMENSIONS',
     SET_UI_ITEMS: 'SET_UI_ITEMS',
+    ADD_UI_ITEMS: 'ADD_UI_ITEMS',
+    REMOVE_UI_ITEMS: 'REMOVE_UI_ITEMS',
     CLEAR_UI: 'CLEAR_UI',
 };
 
@@ -112,6 +114,28 @@ export default (state = DEFAULT_UI, action) => {
                     ...action.value,
                 },
             };
+        }
+
+        case actionTypes.ADD_UI_ITEMS: {
+            const dimensionType = action.value.dimensionType;
+
+            const newVal = state.itemsByDimension[dimensionType].concat(
+                action.value.value
+            );
+
+            const itemsByDimension = Object.assign(
+                {},
+                { ...state.itemsByDimension },
+                { [dimensionType]: newVal }
+            );
+
+            const newState = Object.assign(
+                {},
+                { ...state },
+                { itemsByDimension: itemsByDimension }
+            );
+
+            return newState;
         }
         case actionTypes.CLEAR_UI:
             return DEFAULT_UI;

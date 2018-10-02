@@ -8,7 +8,9 @@ import UnselectedContainer from './UnselectedContainer';
 import SelectedItems from './SelectedItems';
 import { HideButton, UpdateButton } from './buttons';
 
-import { sGetUiItems } from '../../../reducers/ui';
+import { sGetUiItems, sGetUi } from '../../../reducers/ui';
+import { acSetCurrentFromUi } from '../../../actions/current';
+import { acAddUiLayoutDimensions } from '../../../actions/ui';
 import { arrayToIdMap } from '../../../util';
 import { colors } from '../../../colors';
 
@@ -51,25 +53,21 @@ const KEY_POS = 0;
 const OBJECT_POS = 1;
 
 export class DataDimension extends Component {
-    componentDidMount() {
-        this.setState({ selected: arrayToIdMap(this.props.selectedItems.dx) });
-    }
-
     state = {
         unSelected: {},
         selected: {},
     };
 
     handleChangedGroup = items => {
-        const selectedIds = Object.keys(this.state.selected);
+        console.log('handleChangedGroup', items);
 
-        const unSelected = items.filter(i => {
-            return selectedIds.indexOf(i.id) === -1;
-        });
-
-        this.setState({
-            unSelected: arrayToIdMap(unSelected),
-        });
+        // const selectedIds = Object.keys(this.props.ui.selected);
+        // const unSelected = items.filter(i => {
+        //     return selectedIds.indexOf(i.id) === -1;
+        // });
+        // this.setState({
+        //     unSelected: arrayToIdMap(unSelected),
+        // });
     };
 
     selectDataDimensions = ids => {
@@ -95,6 +93,8 @@ export class DataDimension extends Component {
     };
 
     deselectDataDimensions = ids => {
+        console.log('deselect', ids);
+
         let unSelected = this.state.unSelected;
         let selected = {};
 
@@ -117,13 +117,7 @@ export class DataDimension extends Component {
     };
 
     onUpdateClick = () => {
-        if (Object.entries(this.state.selected).length) {
-            const ids = Object.entries(this.state.selected).map(
-                dataDimension => dataDimension[KEY_POS]
-            );
-
-            this.props.setDimension({ [AXIS_KEY]: ids });
-        }
+        this.props.onUpdate(this.props.ui);
     };
 
     render = () => {
@@ -138,7 +132,7 @@ export class DataDimension extends Component {
                             onSelect={this.selectDataDimensions}
                         />
                         <SelectedItems
-                            items={this.state.selected}
+                            items={this.props.selectedItems.dx}
                             onDeselect={this.deselectDataDimensions}
                         />
                     </div>
@@ -157,6 +151,15 @@ DataDimension.propTypes = {
     toggleDialog: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({ selectedItems: sGetUiItems(state) });
+const mapStateToProps = state => ({
+    selectedItems: sGetUiItems(state),
+    ui: sGetUi(state),
+});
 
-export default connect(mapStateToProps)(DataDimension);
+export default connect(
+    mapStateToProps,
+    {
+        onSelectedChanged: acAddUiLayoutDimensions,
+        onUpdate: acSetCurrentFromUi,
+    }
+)(DataDimension);
