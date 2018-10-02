@@ -63,12 +63,14 @@ export const apiFetchAlternatives = (dataType, id) => {
 };
 
 const apiFetchIndicators = indicatorGroupId => {
-    const fields =
-        indicatorGroupId === 'ALL'
-            ? `id,displayName&paging=false&`
-            : `id,displayName&filter=indicatorGroups.id:eq:${indicatorGroupId}&paging=false&`;
+    const fields = 'fields=id,displayName,dimensionItemType';
+    const filter =
+        indicatorGroupId !== 'ALL' &&
+        `&filter=indicatorGroups.id:eq:${indicatorGroupId}`;
 
-    const url = `/indicators?fields=${fields}`;
+    const paging = '&paging=false';
+
+    const url = `/indicators?${fields}${filter}${paging}`;
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))
         .then(response => response.indicators)
