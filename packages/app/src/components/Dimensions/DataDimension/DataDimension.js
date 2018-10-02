@@ -61,8 +61,14 @@ export class DataDimension extends Component {
     };
 
     handleChangedGroup = items => {
+        const selectedIds = Object.keys(this.state.selected);
+
+        const unSelected = items.filter(i => {
+            return selectedIds.indexOf(i.id) === -1;
+        });
+
         this.setState({
-            unSelected: arrayToIdMap(items),
+            unSelected: arrayToIdMap(unSelected),
         });
     };
 
