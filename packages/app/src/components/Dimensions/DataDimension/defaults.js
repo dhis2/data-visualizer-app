@@ -44,6 +44,8 @@ export const dataTypes = [
     },
 ];
 
+export const DEFAULT_DATATYPE_ID = dataTypes[0].id;
+
 export const DATA_SETS_CONSTANTS = [
     {
         id: REPORTING_RATES,

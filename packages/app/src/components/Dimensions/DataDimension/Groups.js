@@ -12,6 +12,7 @@ import {
     getReportingRates,
     getInputLabel,
     getDefaultAlternative,
+    DEFAULT_DATATYPE_ID,
 } from './defaults';
 import { colors } from '../../../colors';
 
@@ -85,6 +86,12 @@ export class Groups extends Component {
                   </MenuItem>
               ))
             : null;
+    };
+
+    componentDidMount = async () => {
+        const dataType = DEFAULT_DATATYPE_ID;
+        const groupSetAlternatives = await apiFetchGroups(dataType);
+        this.setState({ [dataType]: groupSetAlternatives });
     };
 
     componentDidUpdate = async () => {

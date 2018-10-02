@@ -4,6 +4,7 @@ import DataTypes from './DataTypes';
 import Groups from './Groups';
 import SearchField from './SearchField';
 import UnselectedItems from './UnselectedItems';
+import { DEFAULT_DATATYPE_ID } from './defaults';
 
 const style = {
     container: {
@@ -12,7 +13,11 @@ const style = {
 };
 
 export class UnselectedContainer extends Component {
-    state = { dataType: 'indicators', searchField: '', detailsOrTotals: '' };
+    state = {
+        dataType: DEFAULT_DATATYPE_ID,
+        searchField: '',
+        detailsOrTotals: '',
+    };
 
     handleDataTypeChange = value => {
         this.setState({ dataType: value });

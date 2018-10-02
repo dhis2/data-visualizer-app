@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { DialogActions, DialogContent } from '@material-ui/core';
 import i18n from '@dhis2/d2-i18n';
+
 import UnselectedContainer from './UnselectedContainer';
 import SelectedItems from './SelectedItems';
 import { HideButton, UpdateButton } from './buttons';
+
+import { sGetUiItems } from '../../../reducers/ui';
 import { arrayToIdMap } from '../../../util';
 import { colors } from '../../../colors';
 
@@ -47,16 +51,18 @@ const KEY_POS = 0;
 const OBJECT_POS = 1;
 
 export class DataDimension extends Component {
+    componentDidMount() {
+        this.setState({ selected: arrayToIdMap(this.props.selectedItems.dx) });
+    }
+
     state = {
-        currentGroupSet: {},
         unSelected: {},
         selected: {},
     };
 
-    handleContentChange = async newContent => {
+    handleChangedGroup = items => {
         this.setState({
-            currentGroupSet: arrayToIdMap(newContent),
-            unSelected: arrayToIdMap(newContent),
+            unSelected: arrayToIdMap(items),
         });
     };
 
@@ -122,7 +128,7 @@ export class DataDimension extends Component {
                     <div style={style.subContainer}>
                         <UnselectedContainer
                             items={this.state.unSelected}
-                            onGroupChange={this.handleContentChange}
+                            onGroupChange={this.handleChangedGroup}
                             onSelect={this.selectDataDimensions}
                         />
                         <SelectedItems
@@ -145,4 +151,6 @@ DataDimension.propTypes = {
     toggleDialog: PropTypes.func.isRequired,
 };
 
-export default DataDimension;
+const mapStateToProps = state => ({ selectedItems: sGetUiItems(state) });
+
+export default connect(mapStateToProps)(DataDimension);

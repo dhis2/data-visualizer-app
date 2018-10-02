@@ -41,19 +41,19 @@ export const getFilteredLayout = (layout, excludedIds) => {
     };
 };
 
-export const getItemIdsByDimensionId = dimensions =>
+export const getItemsByDimensionId = dimensions =>
     dimensions.reduce(
         (map, dim) => ({
             ...map,
             [dim[DIMENSION_ID_PROP_NAME]]: dim[DIMENSION_ITEMS_PROP_NAME].map(
-                item => item.id
+                item => item
             ),
         }),
         {}
     );
 
 export const getItemIdsByDimension = visualization =>
-    getItemIdsByDimensionId(getAllDimensions(visualization));
+    getItemsByDimensionId(getAllDimensions(visualization));
 
 export const getDimensionIdsByAxis = visualization => {
     const axes = getPropsByKeys(visualization, AXIS_NAMES);
