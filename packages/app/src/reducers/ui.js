@@ -117,22 +117,41 @@ export default (state = DEFAULT_UI, action) => {
         }
 
         case actionTypes.ADD_UI_ITEMS: {
-            const dimensionType = action.value.dimensionType;
-
-            const newVal = state.itemsByDimension[dimensionType].concat(
-                action.value.value
-            );
+            const { dimensionType: type, value: items } = action.value;
+            const currentIds = state.itemsByDimension[type].map(i => i.id);
+            const itemsToAdd = items.filter(i => !currentIds.includes(i.id));
 
             const itemsByDimension = Object.assign(
                 {},
                 { ...state.itemsByDimension },
-                { [dimensionType]: newVal }
+                { [type]: state.itemsByDimension[type].concat(itemsToAdd) }
             );
 
             const newState = Object.assign(
                 {},
                 { ...state },
-                { itemsByDimension: itemsByDimension }
+                { itemsByDimension }
+            );
+
+            return newState;
+        }
+        case actionTypes.REMOVE_UI_ITEMS: {
+            const { dimensionType: type, value: items } = action.value;
+            const idsToRemove = items.map(i => i.id);
+            const remainingItems = state.itemsByDimension[type].filter(
+                i => !idsToRemove.includes(i.id)
+            );
+
+            const itemsByDimension = Object.assign(
+                {},
+                { ...state.itemsByDimension },
+                { [type]: remainingItems }
+            );
+
+            const newState = Object.assign(
+                {},
+                { ...state },
+                { itemsByDimension }
             );
 
             return newState;

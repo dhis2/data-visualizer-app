@@ -128,34 +128,99 @@ describe('reducer: ui', () => {
     });
 
     describe('itemByDimension', () => {
-        //this test is testing the wrong action
-        it.skip(`${actionTypes.SET_UI_ITEMS}: sets items by dimension`, () => {
-            const newLayout = {};
+        it(`${actionTypes.SET_UI_ITEMS}: sets items by dimension`, () => {
+            const newItemsByDimension = {
+                dx: 'abc',
+                pe: 'def',
+            };
             const expectedState = {
                 ...DEFAULT_UI,
-                layout: newLayout,
+                itemsByDimension: newItemsByDimension,
             };
             const actualState = reducer(DEFAULT_UI, {
-                type: actionTypes.SET_UI_LAYOUT,
-                value: newLayout,
+                type: actionTypes.SET_UI_ITEMS,
+                value: newItemsByDimension,
             });
 
             expect(actualState).toEqual(expectedState);
         });
 
-        it(`${actionTypes.ADD_UI_ITEMS}: adds items to dimension`, () => {
-            const dxObject = {
-                id: 'abc',
-                name: 'rainbow dash',
-            };
+        it(`${actionTypes.ADD_UI_ITEMS}: adds single item to dx`, () => {
+            const dx = [{ id: 'abc', name: 'rainbow dash' }];
 
             const value = {
                 dimensionType: 'dx',
-                value: dxObject,
+                value: dx,
             };
-            const expectedState = [dxObject];
+            const expectedState = dx;
             const actualState = reducer(DEFAULT_UI, {
                 type: actionTypes.ADD_UI_ITEMS,
+                value,
+            });
+
+            expect(actualState.itemsByDimension.dx).toEqual(expectedState);
+        });
+
+        it(`${actionTypes.ADD_UI_ITEMS}: adds several items to dx`, () => {
+            const dx1 = { id: 'abc', name: 'rainbow dash' };
+            const dx2 = { id: 'def', name: 'pinkie pie' };
+
+            const value = { dimensionType: 'dx', value: [dx1, dx2] };
+            const expectedState = [dx1, dx2];
+            const actualState = reducer(DEFAULT_UI, {
+                type: actionTypes.ADD_UI_ITEMS,
+                value,
+            });
+
+            expect(actualState.itemsByDimension.dx).toEqual(expectedState);
+        });
+
+        it(`${actionTypes.ADD_UI_ITEMS}: adds pre-existing items to dx`, () => {
+            const dx1 = { id: 'abc', name: 'rainbow dash' };
+            const dx2 = { id: 'def', name: 'pinkie pie' };
+
+            const defaultIBD = Object.assign(
+                {},
+                { ...DEFAULT_UI.itemsByDimension },
+                { dx: [dx1] }
+            );
+
+            const startingState = Object.assign(
+                {},
+                { ...DEFAULT_UI },
+                { itemsByDimension: defaultIBD }
+            );
+
+            const value = { dimensionType: 'dx', value: [dx1, dx2] };
+            const expectedState = [dx1, dx2];
+            const actualState = reducer(startingState, {
+                type: actionTypes.ADD_UI_ITEMS,
+                value,
+            });
+
+            expect(actualState.itemsByDimension.dx).toEqual(expectedState);
+        });
+
+        it(`${actionTypes.REMOVE_UI_ITEMS}: removes items from dx`, () => {
+            const dx1 = { id: 'abc', name: 'rainbow dash' };
+            const dx2 = { id: 'def', name: 'pinkie pie' };
+
+            const defaultIBD = Object.assign(
+                {},
+                { ...DEFAULT_UI.itemsByDimension },
+                { dx: [dx1, dx2] }
+            );
+
+            const startingState = Object.assign(
+                {},
+                { ...DEFAULT_UI },
+                { itemsByDimension: defaultIBD }
+            );
+
+            const value = { dimensionType: 'dx', value: [dx1] };
+            const expectedState = [dx2];
+            const actualState = reducer(startingState, {
+                type: actionTypes.REMOVE_UI_ITEMS,
                 value,
             });
 
