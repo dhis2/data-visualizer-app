@@ -59,7 +59,7 @@ export class UnselectedContainer extends Component {
 }
 
 UnselectedContainer.propTypes = {
-    items: PropTypes.object.isRequired,
+    items: PropTypes.array.isRequired,
     onGroupChange: PropTypes.func.isRequired,
     onSelect: PropTypes.func.isRequired,
 };

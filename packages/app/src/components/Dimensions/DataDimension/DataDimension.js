@@ -10,8 +10,7 @@ import { HideButton, UpdateButton } from './buttons';
 
 import { sGetUiItems, sGetUi } from '../../../reducers/ui';
 import { acSetCurrentFromUi } from '../../../actions/current';
-import { acAddUiLayoutDimensions } from '../../../actions/ui';
-import { arrayToIdMap } from '../../../util';
+import { acRemoveUiItems, acAddUiItems } from '../../../actions/ui';
 import { colors } from '../../../colors';
 
 import './DataDimension.css';
@@ -47,73 +46,39 @@ const style = {
     },
 };
 
-const DIALOG_TITLE = i18n.t('Data');
-const AXIS_KEY = 'dx';
-const KEY_POS = 0;
-const OBJECT_POS = 1;
+const DX = 'dx';
 
 export class DataDimension extends Component {
     state = {
-        unSelected: {},
-        selected: {},
+        unSelected: [],
     };
 
     handleChangedGroup = items => {
-        console.log('handleChangedGroup', items);
+        const selectedIds = this.props.selectedItems[DX].map(i => i.id);
+        const unSelected = items.filter(i => !selectedIds.includes(i.id));
 
-        // const selectedIds = Object.keys(this.props.ui.selected);
-        // const unSelected = items.filter(i => {
-        //     return selectedIds.indexOf(i.id) === -1;
-        // });
-        // this.setState({
-        //     unSelected: arrayToIdMap(unSelected),
-        // });
+        this.setState({ unSelected });
     };
 
     selectDataDimensions = ids => {
-        let selected = this.state.selected;
-        let unSelected = {};
+        const itemsToAdd = this.state.unSelected.filter(i =>
+            ids.includes(i.id)
+        );
 
-        Object.entries(this.state.unSelected).forEach(dataDim => {
-            ids.includes(dataDim[KEY_POS])
-                ? (selected = {
-                      ...selected,
-                      ...{ [dataDim[KEY_POS]]: dataDim[OBJECT_POS] },
-                  })
-                : (unSelected = {
-                      ...unSelected,
-                      ...{ [dataDim[KEY_POS]]: dataDim[OBJECT_POS] },
-                  });
+        const unSelected = this.state.unSelected.filter(
+            i => !ids.includes(i.id)
+        );
+
+        this.props.addDxItems({
+            dimensionType: DX,
+            value: itemsToAdd,
         });
 
-        this.setState({
-            unSelected,
-            selected,
-        });
+        this.setState({ unSelected });
     };
 
     deselectDataDimensions = ids => {
-        console.log('deselect', ids);
-
-        let unSelected = this.state.unSelected;
-        let selected = {};
-
-        Object.entries(this.state.selected).forEach(dataDim => {
-            ids.includes(dataDim[KEY_POS])
-                ? (unSelected = {
-                      ...unSelected,
-                      ...{ [dataDim[KEY_POS]]: dataDim[OBJECT_POS] },
-                  })
-                : (selected = {
-                      ...selected,
-                      ...{ [dataDim[KEY_POS]]: dataDim[OBJECT_POS] },
-                  });
-        });
-
-        this.setState({
-            unSelected,
-            selected,
-        });
+        this.props.removeDxItems({ dimensionType: DX, value: ids });
     };
 
     onUpdateClick = () => {
@@ -124,7 +89,7 @@ export class DataDimension extends Component {
         return (
             <div style={style.container}>
                 <DialogContent style={style.dialogContent}>
-                    <h3 style={style.dialogTitle}>{DIALOG_TITLE}</h3>
+                    <h3 style={style.dialogTitle}>{i18n.t('Data')}</h3>
                     <div style={style.subContainer}>
                         <UnselectedContainer
                             items={this.state.unSelected}
@@ -159,7 +124,8 @@ const mapStateToProps = state => ({
 export default connect(
     mapStateToProps,
     {
-        onSelectedChanged: acAddUiLayoutDimensions,
+        removeDxItems: acRemoveUiItems,
+        addDxItems: acAddUiItems,
         onUpdate: acSetCurrentFromUi,
     }
 )(DataDimension);

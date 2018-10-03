@@ -217,7 +217,7 @@ describe('reducer: ui', () => {
                 { itemsByDimension: defaultIBD }
             );
 
-            const value = { dimensionType: 'dx', value: [dx1] };
+            const value = { dimensionType: 'dx', value: [dx1.id] };
             const expectedState = [dx2];
             const actualState = reducer(startingState, {
                 type: actionTypes.REMOVE_UI_ITEMS,

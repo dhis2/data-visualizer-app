@@ -87,8 +87,6 @@ const Subtitle = () => {
     );
 };
 
-const OBJECT_POS = 1;
-
 export class SelectedItems extends Component {
     state = { highlighted: [] };
 
@@ -132,6 +130,7 @@ export class SelectedItems extends Component {
                 id={dataDim.id}
                 key={dataDim.id}
                 style={style.listItem}
+                onDoubleClick={() => this.onRemoveSelected(dataDim.id)}
             >
                 <div style={itemStyle}>
                     <SelectedIcon />

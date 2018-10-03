@@ -61,7 +61,7 @@ export class UnselectedItems extends Component {
     };
 
     onSelectAllClick = () => {
-        this.props.onSelect(Object.keys(this.props.items));
+        this.props.onSelect(this.props.items.map(i => i.id));
         this.setState({ highlighted: [] });
     };
 
@@ -90,7 +90,7 @@ export class UnselectedItems extends Component {
     };
 
     onDoubleClickItem = id => {
-        this.props.onSelect(id);
+        this.props.onSelect([id]);
     };
 
     renderUnselectedItem = dataDim => {
@@ -122,11 +122,11 @@ export class UnselectedItems extends Component {
     render = () => {
         const { items, searchFieldInput } = this.props;
 
-        const dataDimensions = Object.entries(items).map(
+        const dataDimensions = items.map(
             listItem =>
                 searchFieldInput.length
-                    ? this.filterMatchingItems(listItem[OBJECT_POS])
-                    : this.renderUnselectedItem(listItem[OBJECT_POS])
+                    ? this.filterMatchingItems(listItem)
+                    : this.renderUnselectedItem(listItem)
         );
 
         return (
@@ -140,7 +140,7 @@ export class UnselectedItems extends Component {
 }
 
 UnselectedItems.propTypes = {
-    items: PropTypes.object.isRequired,
+    items: PropTypes.array.isRequired,
     onSelect: PropTypes.func.isRequired,
     searchFieldInput: PropTypes.string.isRequired,
 };
