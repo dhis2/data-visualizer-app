@@ -50,34 +50,38 @@ const DX = 'dx';
 
 export class DataDimension extends Component {
     state = {
-        unSelected: [],
+        dimensionItems: [],
+        unselectedIds: [],
     };
 
-    handleChangedGroup = items => {
+    handleChangedGroup = dimensionItems => {
         const selectedIds = this.props.selectedItems[DX].map(i => i.id);
-        const unSelected = items.filter(i => !selectedIds.includes(i.id));
+        const unselectedIds = dimensionItems
+            .filter(i => !selectedIds.includes(i.id))
+            .map(i => i.id);
 
-        this.setState({ unSelected });
+        this.setState({ dimensionItems, unselectedIds });
     };
 
-    selectDataDimensions = ids => {
-        const itemsToAdd = this.state.unSelected.filter(i =>
-            ids.includes(i.id)
+    selectDataDimensions = selectedIds => {
+        const unselectedIds = this.state.unselectedIds.filter(
+            id => !selectedIds.includes(id)
         );
+        this.setState({ unselectedIds });
 
-        const unSelected = this.state.unSelected.filter(
-            i => !ids.includes(i.id)
+        const itemsToAdd = this.state.dimensionItems.filter(di =>
+            selectedIds.includes(di.id)
         );
-
         this.props.addDxItems({
             dimensionType: DX,
             value: itemsToAdd,
         });
-
-        this.setState({ unSelected });
     };
 
     deselectDataDimensions = ids => {
+        const unselectedIds = [...new Set([...this.state.unselectedIds, ids])];
+        this.setState({ unselectedIds });
+
         this.props.removeDxItems({ dimensionType: DX, value: ids });
     };
 
@@ -86,13 +90,17 @@ export class DataDimension extends Component {
     };
 
     render = () => {
+        const unselected = this.state.dimensionItems.filter(di =>
+            this.state.unselectedIds.includes(di.id)
+        );
+
         return (
             <div style={style.container}>
                 <DialogContent style={style.dialogContent}>
                     <h3 style={style.dialogTitle}>{i18n.t('Data')}</h3>
                     <div style={style.subContainer}>
                         <UnselectedContainer
-                            items={this.state.unSelected}
+                            items={unselected}
                             onGroupChange={this.handleChangedGroup}
                             onSelect={this.selectDataDimensions}
                         />

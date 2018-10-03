@@ -13,6 +13,7 @@ import {
     getInputLabel,
     getDefaultAlternative,
     DEFAULT_DATATYPE_ID,
+    ALL_ID,
 } from './defaults';
 import { colors } from '../../../colors';
 
@@ -74,6 +75,7 @@ export class Groups extends Component {
     renderDropDownItems = () => {
         const { dataType } = this.props;
         const defaultAlternative = getDefaultAlternative(dataType);
+
         let optionItems = this.state[dataType];
 
         if (defaultAlternative)
@@ -92,6 +94,12 @@ export class Groups extends Component {
         const dataType = DEFAULT_DATATYPE_ID;
         const groupSetAlternatives = await apiFetchGroups(dataType);
         this.setState({ [dataType]: groupSetAlternatives });
+        const dimensions = await apiFetchAlternatives(
+            this.props.dataType,
+            ALL_ID
+        );
+        this.setState({ dataDimId: ALL_ID });
+        this.props.onGroupChange(dimensions);
     };
 
     componentDidUpdate = async () => {

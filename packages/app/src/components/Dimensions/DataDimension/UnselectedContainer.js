@@ -15,20 +15,20 @@ const style = {
 export class UnselectedContainer extends Component {
     state = {
         dataType: DEFAULT_DATATYPE_ID,
-        searchField: '',
+        searchText: '',
         detailsOrTotals: '',
     };
 
-    handleDataTypeChange = value => {
-        this.setState({ dataType: value });
+    handleDataTypeChange = dataType => {
+        this.setState({ dataType });
     };
 
-    handleDetailChange = value => {
-        this.setState({ detailsOrTotals: value });
+    handleDetailChange = detailsOrTotals => {
+        this.setState({ detailsOrTotals });
     };
 
-    handleSearchFieldChange = text => {
-        this.setState({ searchField: text });
+    handleSearchTextChange = searchText => {
+        this.setState({ searchText });
     };
 
     render = () => {
@@ -45,13 +45,13 @@ export class UnselectedContainer extends Component {
                     detailValue={this.state.detailsOrTotals}
                 />
                 <SearchField
-                    searchFieldInput={this.state.searchField}
-                    onSearchFieldChange={this.handleSearchFieldChange}
+                    searchFieldInput={this.state.searchText}
+                    onSearchFieldChange={this.handleSearchTextChange}
                 />
                 <UnselectedItems
                     items={this.props.items}
                     onSelect={this.props.onSelect}
-                    searchFieldInput={this.state.searchField}
+                    searchFieldInput={this.state.searchText}
                 />
             </div>
         );

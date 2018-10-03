@@ -1,9 +1,9 @@
 import i18n from '@dhis2/d2-i18n';
 
-const ALL_INDICATORS = i18n.t('[ All indicators ]');
+const ALL_INDICATORS = i18n.t('[ All groups ]');
 const ALL_DATA_ELEMENTS = i18n.t('[ All data elements ]');
 const ALL_METRICS = i18n.t('[ All metrics ]');
-const ALL_ID = 'ALL';
+export const ALL_ID = 'ALL';
 
 const ACTUAL_REPORTS = 'ACTUAL_REPORTS';
 const ACTUAL_REPORTING_RATES_ON_TIME = 'ACTUAL_REPORTING_RATES_ON_TIME';
@@ -28,7 +28,7 @@ export const dataTypes = [
     },
     {
         id: 'dataElements',
-        displayName: i18n.t('Data Elements'),
+        displayName: i18n.t('Data elements'),
     },
     {
         id: 'dataSets',
@@ -40,7 +40,7 @@ export const dataTypes = [
     },
     {
         id: 'programIndicators',
-        displayName: i18n.t('Program Indicator'),
+        displayName: i18n.t('Program indicators'),
     },
 ];
 
