@@ -50,8 +50,6 @@ const UnselectedIcon = () => {
     return <div style={style.icon} />;
 };
 
-const OBJECT_POS = 1;
-
 export class UnselectedItems extends Component {
     state = { highlighted: [] };
 
