@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
 
+import Menu from './Menu';
 import { setDataTransfer } from '../../dnd';
 import { sGetDimensions } from '../../reducers/dimensions';
 import * as layoutStyle from './style';
@@ -16,17 +17,27 @@ const styles = {
         fontWeight: layoutStyle.CHIP_FONT_WEIGHT,
         backgroundColor: layoutStyle.CHIP_BACKGROUND_COLOR,
         color: layoutStyle.CHIP_COLOR,
-        borderRadius: 5,
+        borderRadius: layoutStyle.CHIP_BORDER_RADIUS,
+        display: 'flex',
         cursor: 'pointer',
         whiteSpace: 'nowrap',
         overflow: 'hidden',
         textOverflow: 'ellipsis',
     },
+    menuWrapper: {
+        marginLeft: 2,
+    },
 };
 
 const getDragStartHandler = source => e => setDataTransfer(e, source);
 
-const renderChip = (dimensionLabel, items = [], axisName, dimensionId) => {
+const renderChip = (
+    dimensionLabel,
+    items = [],
+    axisName,
+    dimensionId,
+    menuItems
+) => {
     const itemsLabel = `: ${items.length} ${i18n.t('selected')}`;
     const chipLabel = `${dimensionLabel}${items.length > 0 ? itemsLabel : ''}`;
 
@@ -38,17 +49,27 @@ const renderChip = (dimensionLabel, items = [], axisName, dimensionId) => {
             onDragStart={getDragStartHandler(axisName)}
         >
             {chipLabel}
+            <div style={styles.menuWrapper}>
+                <Menu id={dimensionId} menuItems={menuItems} />
+            </div>
         </div>
     );
 };
 
-const Chip = ({ dimensions, itemsByDimension, axisName, dimensionId }) =>
+const Chip = ({
+    dimensions,
+    itemsByDimension,
+    axisName,
+    dimensionId,
+    menuItems,
+}) =>
     dimensionId
         ? renderChip(
               dimensions[dimensionId].displayName,
               itemsByDimension[dimensionId],
               axisName,
-              dimensionId
+              dimensionId,
+              menuItems
           )
         : '';
 

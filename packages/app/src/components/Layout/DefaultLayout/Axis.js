@@ -1,11 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
+import MenuItem from '@material-ui/core/MenuItem';
 
 import Chip from '../Chip';
 import { sGetUiLayout } from '../../../reducers/ui';
 import { decodeDataTransfer } from '../../../dnd';
-import { acAddUiLayoutDimensions } from '../../../actions/ui';
+import {
+    acAddUiLayoutDimensions,
+    acRemoveUiLayoutDimensions,
+} from '../../../actions/ui';
 import { colors } from '../../../colors';
 import * as defaultLayoutStyle from './defaultStyle';
 import * as layoutStyle from '../style';
@@ -56,7 +60,31 @@ const getDropHandler = ({ axisName, onAddDimension }) => e => {
     e.dataTransfer.clearData();
 };
 
-const Axis = ({ layout, onAddDimension, axisName, style }) => {
+const getMenuItems = (dimensionId, axisName, layout, onMenuItemClick) => {
+    const menuItems = Object.keys(layout)
+        .filter(key => key !== axisName)
+        .map(key => (
+            <MenuItem
+                key={`${dimensionId}-to-${key}`}
+                onClick={onMenuItemClick(
+                    acAddUiLayoutDimensions({ [dimensionId]: key })
+                )}
+            >{`${i18n.t('Move to')} ${axisLabels[key]}`}</MenuItem>
+        ));
+
+    menuItems.push(
+        <MenuItem
+            key={`remove-${dimensionId}`}
+            onClick={onMenuItemClick(acRemoveUiLayoutDimensions(dimensionId))}
+        >
+            {i18n.t('Remove')}
+        </MenuItem>
+    );
+
+    return menuItems;
+};
+
+const Axis = ({ layout, onAddDimension, onMenuItemClick, axisName, style }) => {
     const axis = layout[axisName];
 
     return (
@@ -73,6 +101,12 @@ const Axis = ({ layout, onAddDimension, axisName, style }) => {
                         key={dimensionId}
                         axisName={axisName}
                         dimensionId={dimensionId}
+                        menuItems={getMenuItems(
+                            dimensionId,
+                            axisName,
+                            layout,
+                            onMenuItemClick
+                        )}
                     />
                 ))}
             </div>
@@ -86,6 +120,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     onAddDimension: map => dispatch(acAddUiLayoutDimensions(map)),
+    onMenuItemClick: action => () => dispatch(action),
 });
 
 export default connect(
