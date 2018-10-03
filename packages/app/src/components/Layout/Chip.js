@@ -27,10 +27,7 @@ const styles = {
 const getDragStartHandler = source => e => setDataTransfer(e, source);
 
 const renderChip = (dimensionLabel, items = [], axisName, dimensionId) => {
-    const itemsLabel = `: ${items.length} ${
-        items.length > 1 ? i18n.t('items') : i18n.t('item')
-    }`;
-
+    const itemsLabel = `: ${items.length} selected`;
     const chipLabel = `${dimensionLabel}${items.length > 0 ? itemsLabel : ''}`;
 
     return (
