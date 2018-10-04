@@ -31,15 +31,9 @@ const styles = {
 
 const getDragStartHandler = source => e => setDataTransfer(e, source);
 
-const renderChip = (
-    dimensionLabel,
-    items = [],
-    axisName,
-    dimensionId,
-    menuItems
-) => {
+const renderChip = (dimensionName, items, axisName, dimensionId, menuItems) => {
     const itemsLabel = `: ${items.length} ${i18n.t('selected')}`;
-    const chipLabel = `${dimensionLabel}${items.length > 0 ? itemsLabel : ''}`;
+    const chipLabel = `${dimensionName}${items.length > 0 ? itemsLabel : ''}`;
 
     return (
         <div
@@ -56,21 +50,9 @@ const renderChip = (
     );
 };
 
-const Chip = ({
-    dimensions,
-    itemsByDimension,
-    axisName,
-    dimensionId,
-    menuItems,
-}) =>
+const Chip = ({ dimensionName, items, axisName, dimensionId, menuItems }) =>
     dimensionId
-        ? renderChip(
-              dimensions[dimensionId].displayName,
-              itemsByDimension[dimensionId],
-              axisName,
-              dimensionId,
-              menuItems
-          )
+        ? renderChip(dimensionName, items, axisName, dimensionId, menuItems)
         : '';
 
 const mapStateToProps = state => ({
@@ -78,4 +60,14 @@ const mapStateToProps = state => ({
     itemsByDimension: sGetUiItems(state),
 });
 
-export default connect(mapStateToProps)(Chip);
+const mergeProps = (stateProps, dispatchProps, ownProps) => ({
+    dimensionName: stateProps.dimensions[ownProps.dimensionId].displayName,
+    items: stateProps.itemsByDimension[ownProps.dimensionId] || [],
+    ...ownProps,
+});
+
+export default connect(
+    mapStateToProps,
+    null,
+    mergeProps
+)(Chip);
