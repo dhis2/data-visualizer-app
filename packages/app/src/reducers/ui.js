@@ -14,6 +14,7 @@ export const actionTypes = {
     SET_UI_OPTIONS: 'SET_UI_OPTIONS',
     SET_UI_LAYOUT: 'SET_UI_LAYOUT',
     ADD_UI_LAYOUT_DIMENSIONS: 'ADD_UI_LAYOUT_DIMENSIONS',
+    REMOVE_UI_LAYOUT_DIMENSIONS: 'REMOVE_UI_LAYOUT_DIMENSIONS',
     SET_UI_ITEMS: 'SET_UI_ITEMS',
     CLEAR_UI: 'CLEAR_UI',
 };
@@ -99,7 +100,7 @@ export default (state = DEFAULT_UI, action) => {
                 layout: newLayout,
             };
         }
-        case actionTypes.REMOVE_UI_LAYOUT_DIMENSION: {
+        case actionTypes.REMOVE_UI_LAYOUT_DIMENSIONS: {
             return {
                 ...state,
                 layout: getFilteredLayout(state.layout, action.value),

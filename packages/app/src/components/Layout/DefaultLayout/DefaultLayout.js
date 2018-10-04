@@ -11,10 +11,10 @@ const styles = {
         display: 'flex',
         flexDirection: 'column',
     },
-    axisGroup1: {
+    axisGroupLeft: {
         flexBasis: defaultLayoutStyle.DIMENSION_AXIS_WIDTH,
     },
-    axisGroup2: {
+    axisGroupRight: {
         flexBasis: defaultLayoutStyle.FILTER_AXIS_WIDTH,
     },
     columns: {
@@ -32,14 +32,14 @@ const Layout = () => (
     <div id="layout-ct" style={styles.ct}>
         <div
             id="axis-group-1"
-            style={{ ...styles.axisGroup, ...styles.axisGroup1 }}
+            style={{ ...styles.axisGroup, ...styles.axisGroupLeft }}
         >
             <Axis axisName="columns" style={styles.columns} />
             <Axis axisName="rows" style={styles.rows} />
         </div>
         <div
             id="axis-group-2"
-            style={{ ...styles.axisGroup, ...styles.axisGroup2 }}
+            style={{ ...styles.axisGroup, ...styles.axisGroupRight }}
         >
             <Axis axisName="filters" style={styles.filters} />
         </div>
