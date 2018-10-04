@@ -30,7 +30,7 @@ class ChipMenu extends React.Component {
 
     render() {
         return (
-            <div>
+            <React.Fragment>
                 <IconButton
                     aria-owns={this.state.anchorEl ? this.getMenuId() : null}
                     aria-haspopup="true"
@@ -47,7 +47,7 @@ class ChipMenu extends React.Component {
                 >
                     {this.props.menuItems}
                 </Menu>
-            </div>
+            </React.Fragment>
         );
     }
 }
