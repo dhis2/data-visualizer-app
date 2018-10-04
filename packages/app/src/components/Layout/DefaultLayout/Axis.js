@@ -13,6 +13,7 @@ import {
 import { colors } from '../../../colors';
 import * as defaultLayoutStyle from './defaultStyle';
 import * as layoutStyle from '../style';
+import { AXIS_NAMES } from '../../../layout';
 
 const styles = {
     axisContainer: {
@@ -40,10 +41,12 @@ const styles = {
     },
 };
 
-const axisLabels = {
+const labels = {
     columns: i18n.t('Series'),
     rows: i18n.t('Category'),
     filters: i18n.t('Filter'),
+    moveTo: i18n.t('Move to'),
+    labels: i18n.t('Remove'),
 };
 
 const onDragOver = e => {
@@ -60,33 +63,42 @@ const getDropHandler = ({ axisName, onAddDimension }) => e => {
     e.dataTransfer.clearData();
 };
 
-const getMenuItems = (dimensionId, axisName, layout, onMenuItemClick) => {
-    const menuItems = Object.keys(layout)
-        .filter(key => key !== axisName)
-        .map(key => (
-            <MenuItem
-                key={`${dimensionId}-to-${key}`}
-                onClick={onMenuItemClick(
-                    acAddUiLayoutDimensions({ [dimensionId]: key })
-                )}
-            >{`${i18n.t('Move to')} ${axisLabels[key]}`}</MenuItem>
-        ));
-
-    menuItems.push(
+const getAxisMenuItems = (getClickHandler, axisName, dimensionId) =>
+    AXIS_NAMES.filter(key => key !== axisName).map(key => (
         <MenuItem
-            key={`remove-${dimensionId}`}
-            onClick={onMenuItemClick(acRemoveUiLayoutDimensions(dimensionId))}
-        >
-            {i18n.t('Remove')}
-        </MenuItem>
-    );
+            key={`${dimensionId}-to-${key}`}
+            onClick={getClickHandler({ [dimensionId]: key })}
+        >{`${labels.moveTo} ${labels[key]}`}</MenuItem>
+    ));
 
-    return menuItems;
-};
+const getRemoveMenuItem = (getClickHandler, dimensionId) => (
+    <MenuItem
+        key={`remove-${dimensionId}`}
+        onClick={getClickHandler(dimensionId)}
+    >
+        {labels.remove}
+    </MenuItem>
+);
 
-const Axis = ({ layout, onAddDimension, onMenuItemClick, axisName, style }) => {
-    const axis = layout[axisName];
+const getMenuItems = (
+    getMoveHandler,
+    getRemoveHandler,
+    axisName,
+    dimensionId
+) => [
+    ...getAxisMenuItems(getMoveHandler, axisName, dimensionId),
+    ...getRemoveMenuItem(getRemoveHandler, dimensionId),
+];
 
+const Axis = ({
+    axis,
+    onAddDimension,
+    getOpenHandler,
+    getMoveHandler,
+    getRemoveHandler,
+    axisName,
+    style,
+}) => {
     return (
         <div
             id={axisName}
@@ -94,18 +106,19 @@ const Axis = ({ layout, onAddDimension, onMenuItemClick, axisName, style }) => {
             onDragOver={onDragOver}
             onDrop={getDropHandler({ axisName, onAddDimension })}
         >
-            <div style={styles.label}>{axisLabels[axisName]}</div>
+            <div style={styles.label}>{labels[axisName]}</div>
             <div style={styles.content}>
                 {axis.map(dimensionId => (
                     <Chip
                         key={dimensionId}
+                        onClick={getOpenHandler(dimensionId)}
                         axisName={axisName}
                         dimensionId={dimensionId}
                         menuItems={getMenuItems(
-                            dimensionId,
+                            getMoveHandler,
+                            getRemoveHandler,
                             axisName,
-                            layout,
-                            onMenuItemClick
+                            dimensionId
                         )}
                     />
                 ))}
@@ -114,13 +127,16 @@ const Axis = ({ layout, onAddDimension, onMenuItemClick, axisName, style }) => {
     );
 };
 
-const mapStateToProps = state => ({
-    layout: sGetUiLayout(state),
+const mapStateToProps = (state, ownProps) => ({
+    axis: sGetUiLayout(state)[ownProps.axisName],
 });
 
 const mapDispatchToProps = dispatch => ({
     onAddDimension: map => dispatch(acAddUiLayoutDimensions(map)),
-    onMenuItemClick: action => () => dispatch(action),
+    getOpenHandler: dimensionId => () => alert(`Open ${dimensionId} selector`),
+    getMoveHandler: object => () => dispatch(acAddUiLayoutDimensions(object)),
+    getRemoveHandler: dimensionId => () =>
+        dispatch(acRemoveUiLayoutDimensions(dimensionId)),
 });
 
 export default connect(
