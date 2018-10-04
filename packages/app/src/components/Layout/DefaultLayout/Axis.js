@@ -46,86 +46,70 @@ const labels = {
     rows: i18n.t('Category'),
     filters: i18n.t('Filter'),
     moveTo: i18n.t('Move to'),
-    labels: i18n.t('Remove'),
+    remove: i18n.t('Remove'),
 };
 
-const onDragOver = e => {
-    e.preventDefault();
-};
+class Axis extends React.Component {
+    onDragOver = e => {
+        e.preventDefault();
+    };
 
-const getDropHandler = ({ axisName, onAddDimension }) => e => {
-    const { dimensionId } = decodeDataTransfer(e);
+    onDrop = e => {
+        const { dimensionId } = decodeDataTransfer(e);
 
-    onAddDimension({
-        [dimensionId]: axisName,
-    });
+        this.props.onAddDimension({
+            [dimensionId]: this.props.axisName,
+        });
 
-    e.dataTransfer.clearData();
-};
+        e.dataTransfer.clearData();
+    };
 
-const getAxisMenuItems = (getClickHandler, axisName, dimensionId) =>
-    AXIS_NAMES.filter(key => key !== axisName).map(key => (
+    getAxisMenuItems = dimensionId =>
+        AXIS_NAMES.filter(key => key !== this.props.axisName).map(key => (
+            <MenuItem
+                key={`${dimensionId}-to-${key}`}
+                onClick={this.props.getMoveHandler({ [dimensionId]: key })}
+            >{`${labels.moveTo} ${labels[key]}`}</MenuItem>
+        ));
+
+    getRemoveMenuItem = dimensionId => (
         <MenuItem
-            key={`${dimensionId}-to-${key}`}
-            onClick={getClickHandler({ [dimensionId]: key })}
-        >{`${labels.moveTo} ${labels[key]}`}</MenuItem>
-    ));
-
-const getRemoveMenuItem = (getClickHandler, dimensionId) => (
-    <MenuItem
-        key={`remove-${dimensionId}`}
-        onClick={getClickHandler(dimensionId)}
-    >
-        {labels.remove}
-    </MenuItem>
-);
-
-const getMenuItems = (
-    getMoveHandler,
-    getRemoveHandler,
-    axisName,
-    dimensionId
-) => [
-    ...getAxisMenuItems(getMoveHandler, axisName, dimensionId),
-    ...getRemoveMenuItem(getRemoveHandler, dimensionId),
-];
-
-const Axis = ({
-    axis,
-    onAddDimension,
-    getOpenHandler,
-    getMoveHandler,
-    getRemoveHandler,
-    axisName,
-    style,
-}) => {
-    return (
-        <div
-            id={axisName}
-            style={{ ...styles.axisContainer, ...style }}
-            onDragOver={onDragOver}
-            onDrop={getDropHandler({ axisName, onAddDimension })}
+            key={`remove-${dimensionId}`}
+            onClick={this.props.getRemoveHandler(dimensionId)}
         >
-            <div style={styles.label}>{labels[axisName]}</div>
-            <div style={styles.content}>
-                {axis.map(dimensionId => (
-                    <Chip
-                        key={dimensionId}
-                        onClick={getOpenHandler(dimensionId)}
-                        axisName={axisName}
-                        dimensionId={dimensionId}
-                        menuItems={getMenuItems(
-                            getMoveHandler,
-                            getRemoveHandler,
-                            axisName,
-                            dimensionId
-                        )}
-                    />
-                ))}
-            </div>
-        </div>
+            {labels.remove}
+        </MenuItem>
     );
-};
+
+    getMenuItems = dimensionId => [
+        ...this.getAxisMenuItems(dimensionId),
+        this.getRemoveMenuItem(dimensionId),
+    ];
+
+    render() {
+        return (
+            <div
+                id={this.props.axisName}
+                style={{ ...styles.axisContainer, ...this.props.style }}
+                onDragOver={this.onDragOver}
+                onDrop={this.onDrop}
+            >
+                <div style={styles.label}>{labels[this.props.axisName]}</div>
+                <div style={styles.content}>
+                    {this.props.axis.map(dimensionId => (
+                        <Chip
+                            key={dimensionId}
+                            onClick={this.props.getOpenHandler(dimensionId)}
+                            axisName={this.props.axisName}
+                            dimensionId={dimensionId}
+                            menuItems={this.getMenuItems(dimensionId)}
+                        />
+                    ))}
+                </div>
+            </div>
+        );
+    }
+}
 
 const mapStateToProps = (state, ownProps) => ({
     axis: sGetUiLayout(state)[ownProps.axisName],
@@ -134,9 +118,14 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = dispatch => ({
     onAddDimension: map => dispatch(acAddUiLayoutDimensions(map)),
     getOpenHandler: dimensionId => () => alert(`Open ${dimensionId} selector`),
-    getMoveHandler: object => () => dispatch(acAddUiLayoutDimensions(object)),
-    getRemoveHandler: dimensionId => () =>
-        dispatch(acRemoveUiLayoutDimensions(dimensionId)),
+    getMoveHandler: value => event => {
+        event.stopPropagation();
+        dispatch(acAddUiLayoutDimensions(value));
+    },
+    getRemoveHandler: dimensionId => event => {
+        event.stopPropagation();
+        dispatch(acRemoveUiLayoutDimensions(dimensionId));
+    },
 });
 
 export default connect(
