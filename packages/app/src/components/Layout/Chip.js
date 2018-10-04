@@ -29,11 +29,15 @@ const styles = {
     },
 };
 
+const labels = {
+    selected: i18n.t('selected'),
+};
+
 class Chip extends React.Component {
     getDragStartHandler = source => e => setDataTransfer(e, source);
 
     renderChip = () => {
-        const itemsLabel = `: ${this.props.items.length} ${i18n.t('selected')}`;
+        const itemsLabel = `: ${this.props.items.length} ${labels.selected}`;
         const chipLabel = `${this.props.dimensionName}${
             this.props.items.length > 0 ? itemsLabel : ''
         }`;
