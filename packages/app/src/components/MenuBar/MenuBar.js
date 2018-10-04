@@ -16,25 +16,19 @@ const getOnSave = props => details => props.onSaveVisualization(details);
 
 export const MenuBar = (props, context) => (
     <div className="menubar">
-        <div>
-            <UpdateButton />
-        </div>
-        <div>
-            <FileMenu
-                d2={context.d2}
-                fileId={(props.visualization && props.visualization.id) || null}
-                fileType={props.apiObjectName}
-                onOpen={onOpen}
-                onNew={onNew}
-                onSave={getOnSave(props)}
-                onSaveAs={getOnSave(props)}
-                onTranslate={() => console.log('translate callback')}
-                onError={() => console.log('error!')}
-            />
-        </div>
-        <div>
-            <VisualizationOptionsManager />
-        </div>
+        <UpdateButton />
+        <FileMenu
+            d2={context.d2}
+            fileId={props.id || null}
+            fileType={props.apiObjectName}
+            onOpen={onOpen}
+            onNew={onNew}
+            onSave={getOnSave(props)}
+            onSaveAs={getOnSave(props)}
+            onTranslate={() => console.log('translate callback')}
+            onError={() => console.log('error!')}
+        />
+        <VisualizationOptionsManager />
         <div>Download</div>
         <div>Embed</div>
         <div className="spacefiller" />
@@ -51,8 +45,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onLoadVisualizaton: id =>
-        dispatch(fromActions.tDoLoadVisualization(ownProps.apiObjectName, id)),
     onSaveVisualization: details =>
         dispatch(
             fromActions.tDoSaveVisualization(ownProps.apiObjectName, details)
