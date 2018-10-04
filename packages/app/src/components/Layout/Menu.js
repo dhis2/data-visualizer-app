@@ -11,7 +11,7 @@ const styles = {
     },
 };
 
-class ActionMenu extends React.Component {
+class ChipMenu extends React.Component {
     state = {
         anchorEl: null,
     };
@@ -26,17 +26,13 @@ class ActionMenu extends React.Component {
         this.setState({ anchorEl: null });
     };
 
-    getMenuId = id => `menu-for-${this.props.id}`;
+    getMenuId = () => `menu-for-${this.props.id}`;
 
     render() {
         return (
             <div>
                 <IconButton
-                    aria-owns={
-                        this.state.anchorEl
-                            ? this.getMenuId(this.props.id)
-                            : null
-                    }
+                    aria-owns={this.state.anchorEl ? this.getMenuId() : null}
                     aria-haspopup="true"
                     onClick={this.handleClick}
                     style={styles.icon}
@@ -56,4 +52,4 @@ class ActionMenu extends React.Component {
     }
 }
 
-export default ActionMenu;
+export default ChipMenu;
