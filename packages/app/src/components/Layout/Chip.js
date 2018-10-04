@@ -55,19 +55,9 @@ const Chip = ({ dimensionName, items, axisName, dimensionId, menuItems }) =>
         ? renderChip(dimensionName, items, axisName, dimensionId, menuItems)
         : '';
 
-const mapStateToProps = state => ({
-    dimensions: sGetDimensions(state),
-    itemsByDimension: sGetUiItems(state),
+const mapStateToProps = (state, ownProps) => ({
+    dimensionName: sGetDimensions(state)[ownProps.dimensionId].displayName,
+    items: sGetUiItems(state)[ownProps.dimensionId],
 });
 
-const mergeProps = (stateProps, dispatchProps, ownProps) => ({
-    dimensionName: stateProps.dimensions[ownProps.dimensionId].displayName,
-    items: stateProps.itemsByDimension[ownProps.dimensionId] || [],
-    ...ownProps,
-});
-
-export default connect(
-    mapStateToProps,
-    null,
-    mergeProps
-)(Chip);
+export default connect(mapStateToProps)(Chip);
