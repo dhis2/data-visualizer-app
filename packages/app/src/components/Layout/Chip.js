@@ -29,53 +29,38 @@ const styles = {
     },
 };
 
-const getDragStartHandler = source => e => setDataTransfer(e, source);
+class Chip extends React.Component {
+    getDragStartHandler = source => e => setDataTransfer(e, source);
 
-const renderChip = (
-    dimensionName,
-    items,
-    onClick,
-    axisName,
-    dimensionId,
-    menuItems
-) => {
-    const itemsLabel = `: ${items.length} ${i18n.t('selected')}`;
-    const chipLabel = `${dimensionName}${items.length > 0 ? itemsLabel : ''}`;
+    renderChip = () => {
+        const itemsLabel = `: ${this.props.items.length} ${i18n.t('selected')}`;
+        const chipLabel = `${this.props.dimensionName}${
+            this.props.items.length > 0 ? itemsLabel : ''
+        }`;
 
-    return (
-        <div
-            data-dimensionid={dimensionId}
-            style={styles.chip}
-            draggable="true"
-            onClick={onClick}
-            onDragStart={getDragStartHandler(axisName)}
-        >
-            {chipLabel}
-            <div style={styles.menuWrapper}>
-                <Menu id={dimensionId} menuItems={menuItems} />
+        return (
+            <div
+                data-dimensionid={this.props.dimensionId}
+                style={styles.chip}
+                draggable="true"
+                onClick={this.props.onClick}
+                onDragStart={this.getDragStartHandler(this.props.axisName)}
+            >
+                {chipLabel}
+                <div style={styles.menuWrapper}>
+                    <Menu
+                        id={this.props.dimensionId}
+                        menuItems={this.props.menuItems}
+                    />
+                </div>
             </div>
-        </div>
-    );
-};
+        );
+    };
 
-const Chip = ({
-    dimensionName,
-    items,
-    onClick,
-    axisName,
-    dimensionId,
-    menuItems,
-}) =>
-    dimensionId
-        ? renderChip(
-              dimensionName,
-              items,
-              onClick,
-              axisName,
-              dimensionId,
-              menuItems
-          )
-        : '';
+    render() {
+        return this.props.dimensionId ? this.renderChip() : '';
+    }
+}
 
 const mapStateToProps = (state, ownProps) => ({
     dimensionName: sGetDimensions(state)[ownProps.dimensionId].displayName,
