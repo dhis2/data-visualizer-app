@@ -13,6 +13,8 @@ import * as fromLoadError from './loadError';
 
 import { sGetCurrent } from '../reducers/current';
 
+import history from '../history';
+
 export {
     fromVisualization,
     fromCurrent,
@@ -62,14 +64,28 @@ export const clearVisualization = dispatch => {
     dispatch(fromUi.acClear());
 };
 
-export const tDoSaveVisualization = (type, { name, description }) => async (
-    dispatch,
-    getState
-) => {
-    const onSuccess = () => {};
+export const tDoSaveVisualization = (
+    type,
+    { name, description },
+    copy
+) => async (dispatch, getState) => {
+    const onSuccess = res => {
+        if (res.status === 'OK' && res.response.uid) {
+            if (copy) {
+                history.push(`/${res.response.uid}`);
+            } else {
+                history.replace(`/${res.response.uid}`);
+            }
+        }
+    };
 
     try {
         const visualization = sGetCurrent(getState());
+
+        // remove the id to trigger a POST request and save a new AO
+        if (copy) {
+            delete visualization.id;
+        }
 
         if (name) {
             visualization.name = name;

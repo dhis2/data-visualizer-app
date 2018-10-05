@@ -12,7 +12,9 @@ import history from '../../history';
 
 const onOpen = id => history.push(`/${id}`);
 const onNew = () => history.push('/');
-const getOnSave = props => details => props.onSaveVisualization(details);
+const getOnSave = props => details => props.onSaveVisualization(details, false);
+const getOnSaveAs = props => details =>
+    props.onSaveVisualization(details, true);
 
 export const MenuBar = (props, context) => (
     <div className="menubar">
@@ -24,7 +26,7 @@ export const MenuBar = (props, context) => (
             onOpen={onOpen}
             onNew={onNew}
             onSave={getOnSave(props)}
-            onSaveAs={getOnSave(props)}
+            onSaveAs={getOnSaveAs(props)}
             onTranslate={() => console.log('translate callback')}
             onError={() => console.log('error!')}
         />
@@ -45,9 +47,13 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onSaveVisualization: details =>
+    onSaveVisualization: (details, copy) =>
         dispatch(
-            fromActions.tDoSaveVisualization(ownProps.apiObjectName, details)
+            fromActions.tDoSaveVisualization(
+                ownProps.apiObjectName,
+                details,
+                copy
+            )
         ),
 });
 
