@@ -66,7 +66,6 @@ export const tDoSaveVisualization = (type, { name, description }) => async (
     dispatch,
     getState
 ) => {
-    console.log('in Do Save');
     const onSuccess = () => {};
 
     try {
@@ -82,7 +81,6 @@ export const tDoSaveVisualization = (type, { name, description }) => async (
 
         return onSuccess(await apiSaveVisualization(type, visualization));
     } catch (error) {
-        // TODO show error in snackbar
         return onError('tDoSaveVisualization', error);
     }
 };
