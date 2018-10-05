@@ -22,9 +22,9 @@
     "dependencies": {
         "@dhis2/d2-i18n": "^1.0.3",
         "@dhis2/d2-ui-core": "^1.0.3",
-        "@dhis2/d2-ui-file-menu": "^2.0.0",
-        "@material-ui/core": "^1.5.1",
-        "@material-ui/icons": "^2.0.3",
+        "@dhis2/d2-ui-file-menu": "^3.2.0",
+        "@material-ui/core": "^3.1.2",
+        "@material-ui/icons": "^3.0.1",
         "autoprefixer": "9.1.3",
         "babel-core": "6.26.3",
         "babel-eslint": "8.2.6",
@@ -54,7 +54,6 @@
         "history": "^4.7.2",
         "html-webpack-plugin": "3.2.0",
         "jest": "23.5.0",
-        "material-ui": "^0.20.2",
         "object-assign": "4.1.1",
         "postcss-flexbugs-fixes": "4.1.0",
         "postcss-loader": "3.0.0",
@@ -95,7 +94,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "npm run extract-pot && git add ./i18n ./src/locales"
+            "pre-commit": "npm run extract-pot && git add ./i18n/"
         }
     },
     "manifest.webapp": {

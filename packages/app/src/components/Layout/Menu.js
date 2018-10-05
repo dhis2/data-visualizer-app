@@ -8,6 +8,7 @@ const styles = {
         width: 18,
         height: 18,
         color: '#000',
+        padding: 0,
     },
 };
 
