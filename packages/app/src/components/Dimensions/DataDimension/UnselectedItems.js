@@ -117,6 +117,16 @@ export class UnselectedItems extends Component {
         );
     };
 
+    //consider throttling?
+    onScrollItems = e => {
+        const bottom =
+            e.target.scrollHeight - e.target.scrollTop ===
+            e.target.clientHeight;
+        if (bottom) {
+            this.props.requestMoreItems();
+        }
+    };
+
     render = () => {
         const { items, searchFieldInput } = this.props;
 
@@ -128,7 +138,7 @@ export class UnselectedItems extends Component {
         );
 
         return (
-            <div style={style.container}>
+            <div style={style.container} onScroll={this.onScrollItems}>
                 <ul style={style.listContainer}>{dataDimensions}</ul>
                 <AssignButton action={this.onSelectClick} />
                 <SelectAllButton action={this.onSelectAllClick} />
@@ -141,6 +151,7 @@ UnselectedItems.propTypes = {
     items: PropTypes.array.isRequired,
     onSelect: PropTypes.func.isRequired,
     searchFieldInput: PropTypes.string.isRequired,
+    requestMoreItems: PropTypes.func.isRequired,
 };
 
 export default UnselectedItems;

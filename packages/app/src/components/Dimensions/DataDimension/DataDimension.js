@@ -85,6 +85,10 @@ export class DataDimension extends Component {
         this.props.removeDxItems({ dimensionType: DX, value: ids });
     };
 
+    requestMoreItems = () => {
+        console.log('requestMoreItems');
+    };
+
     onUpdateClick = () => {
         this.props.onUpdate(this.props.ui);
     };
@@ -103,6 +107,7 @@ export class DataDimension extends Component {
                             items={unselected}
                             onGroupChange={this.handleChangedGroup}
                             onSelect={this.selectDataDimensions}
+                            requestMoreItems={this.requestMoreItems}
                         />
                         <SelectedItems
                             items={this.props.selectedItems.dx}

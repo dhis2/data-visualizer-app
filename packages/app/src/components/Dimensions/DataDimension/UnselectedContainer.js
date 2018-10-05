@@ -62,6 +62,7 @@ UnselectedContainer.propTypes = {
     items: PropTypes.array.isRequired,
     onGroupChange: PropTypes.func.isRequired,
     onSelect: PropTypes.func.isRequired,
+    requestMoreItems: PropTypes.func.isRequired,
 };
 
 export default UnselectedContainer;
