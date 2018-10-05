@@ -10,9 +10,37 @@ export const apiFetchVisualization = (type, id) =>
 
 export const apiSaveVisualization = (type, visualization) =>
     getInstance()
-        .then(d2 => d2.models[type].create(visualization))
-        .then(model => {
-            model.dirty = true; // XXX hack until d2 is fixed
+        .then(d2 => d2.models[type])
+        .then(modelDefinition => {
+            const api = modelDefinition.api;
+            const apiEndpoint = modelDefinition.apiEndpoint;
 
-            return model.save();
+            const options = {
+                skipTranslations: true,
+                skipSharing: true,
+            };
+
+            const query = Object.entries(options).reduce(
+                (query, [name, value]) => {
+                    query.push(
+                        `${encodeURIComponent(name)}=${encodeURIComponent(
+                            value
+                        )}`
+                    );
+                    return query;
+                },
+                []
+            );
+
+            const queryString = '?' + query.join('&');
+
+            if (visualization.id) {
+                return api.update(
+                    `${apiEndpoint}/${visualization.id}${queryString}`,
+                    visualization,
+                    false
+                );
+            } else {
+                return api.post(`${apiEndpoint}${queryString}`, visualization);
+            }
         });
