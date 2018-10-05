@@ -141,9 +141,15 @@ describe('reducer: ui', () => {
         expect(actualState).toEqual(expectedState);
     });
 
-    it(`${actionTypes.ADD_UI_ITEMS}: should add items by dimension preserving old value`, () => {
+    it(`${
+        actionTypes.ADD_UI_ITEMS
+    }: should add items by dimension preserving old value`, () => {
         const ouItems = {
-            ou: ['USER_ORG_UNIT', 'USER_ORGUNIT_CHILDREN', 'USER_ORGUNIT_GRANDCHILDREN']
+            ou: [
+                'USER_ORG_UNIT',
+                'USER_ORGUNIT_CHILDREN',
+                'USER_ORGUNIT_GRANDCHILDREN'
+            ]
         };
 
         const expectedState = {
