@@ -148,15 +148,15 @@ describe('reducer: ui', () => {
             ou: [
                 'USER_ORG_UNIT',
                 'USER_ORGUNIT_CHILDREN',
-                'USER_ORGUNIT_GRANDCHILDREN'
-            ]
+                'USER_ORGUNIT_GRANDCHILDREN',
+            ],
         };
 
         const expectedState = {
             ...DEFAULT_UI,
             itemsByDimension: {
                 ...DEFAULT_UI.itemsByDimension,
-                ...ouItems
+                ...ouItems,
             },
         };
 

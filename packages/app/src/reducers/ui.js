@@ -120,9 +120,9 @@ export default (state = DEFAULT_UI, action) => {
                 ...state,
                 itemsByDimension: {
                     ...state.itemsByDimension,
-                    ...action.value
-                }
-            }
+                    ...action.value,
+                },
+            };
         }
         case actionTypes.CLEAR_UI:
             return DEFAULT_UI;
