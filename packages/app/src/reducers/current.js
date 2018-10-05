@@ -18,6 +18,7 @@ export default (state = DEFAULT_CURRENT, action) => {
             const optionsFromUi = getOptionsFromUi(action.value);
 
             return {
+                ...state,
                 ...axesFromUi,
                 ...optionsFromUi,
                 type: action.value.type,
