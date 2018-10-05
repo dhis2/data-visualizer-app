@@ -80,7 +80,7 @@ export const tDoSaveVisualization = (
     };
 
     try {
-        const visualization = sGetCurrent(getState());
+        const visualization = { ...sGetCurrent(getState()) };
 
         // remove the id to trigger a POST request and save a new AO
         if (copy) {
