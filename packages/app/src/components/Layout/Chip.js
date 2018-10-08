@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
 
 import Menu from './Menu';
+import Tooltip from './Tooltip';
 import { setDataTransfer } from '../../dnd';
 import { sGetDimensions } from '../../reducers/dimensions';
 import * as layoutStyle from './style';
@@ -34,7 +35,19 @@ const labels = {
 };
 
 class Chip extends React.Component {
+    state = {
+        tooltipOpen: false,
+    };
+
+    id = Math.random().toString(36);
+
     getDragStartHandler = source => e => setDataTransfer(e, source);
+
+    onMouseToggle = () => {
+        this.setState({
+            tooltipOpen: !this.state.tooltipOpen,
+        });
+    };
 
     renderChip = () => {
         const itemsLabel = `: ${this.props.items.length} ${labels.selected}`;
@@ -44,11 +57,14 @@ class Chip extends React.Component {
 
         return (
             <div
+                id={this.id}
                 data-dimensionid={this.props.dimensionId}
                 style={styles.chip}
                 draggable="true"
                 onClick={this.props.onClick}
                 onDragStart={this.getDragStartHandler(this.props.axisName)}
+                onMouseOver={this.onMouseToggle}
+                onMouseOut={this.onMouseToggle}
             >
                 {chipLabel}
                 <div style={styles.menuWrapper}>
@@ -57,6 +73,11 @@ class Chip extends React.Component {
                         menuItems={this.props.menuItems}
                     />
                 </div>
+                <Tooltip
+                    dimensionId={this.props.dimensionId}
+                    open={this.state.tooltipOpen}
+                    anchorEl={document.getElementById(this.id)}
+                />
             </div>
         );
     };
