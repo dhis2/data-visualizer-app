@@ -4,7 +4,6 @@ import DataTypes from './DataTypesSelector';
 import Groups from './Groups';
 import SearchField from './SearchField';
 import UnselectedItems from './UnselectedItems';
-import { DEFAULT_DATATYPE_ID } from './dataTypes';
 
 const style = {
     container: {
@@ -14,13 +13,8 @@ const style = {
 
 export class UnselectedContainer extends Component {
     state = {
-        dataType: DEFAULT_DATATYPE_ID,
         searchText: '',
         detailsOrTotals: '',
-    };
-
-    handleDataTypeChange = dataType => {
-        this.setState({ dataType });
     };
 
     handleDetailChange = detailsOrTotals => {
@@ -35,11 +29,13 @@ export class UnselectedContainer extends Component {
         return (
             <div style={style.container}>
                 <DataTypes
-                    currentDataType={this.state.dataType}
-                    onDataTypeChange={this.handleDataTypeChange}
+                    currentDataType={this.props.dataType}
+                    onDataTypeChange={this.props.onDataTypeChange}
                 />
                 <Groups
-                    dataType={this.state.dataType}
+                    dataType={this.props.dataType}
+                    groups={this.props.groups}
+                    selectedGroupId={this.props.selectedGroupId}
                     onGroupChange={this.props.onGroupChange}
                     onDetailChange={this.handleDetailChange}
                     detailValue={this.state.detailsOrTotals}
@@ -60,8 +56,12 @@ export class UnselectedContainer extends Component {
 }
 
 UnselectedContainer.propTypes = {
+    dataType: PropTypes.string.isRequired,
     items: PropTypes.array.isRequired,
+    groups: PropTypes.array.isRequired,
+    selectedGroupId: PropTypes.string.isRequired,
     onGroupChange: PropTypes.func.isRequired,
+    onDataTypeChange: PropTypes.func.isRequired,
     onSelect: PropTypes.func.isRequired,
     requestMoreItems: PropTypes.func.isRequired,
 };

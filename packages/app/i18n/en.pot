@@ -5,8 +5,23 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-10-01T09:38:48.383Z\n"
-"PO-Revision-Date: 2018-10-01T09:38:48.383Z\n"
+"POT-Creation-Date: 2018-10-08T11:56:11.792Z\n"
+"PO-Revision-Date: 2018-10-08T11:56:11.792Z\n"
+
+msgid "Reporting rates"
+msgstr ""
+
+msgid "Reporting rates on time"
+msgstr ""
+
+msgid "Actual reports"
+msgstr ""
+
+msgid "Actual reporting rates on time"
+msgstr ""
+
+msgid "Expected reports"
+msgstr ""
 
 msgid "Data"
 msgstr ""
@@ -41,55 +56,40 @@ msgstr ""
 msgid "UPDATE"
 msgstr ""
 
-msgid "[ All indicators ]"
-msgstr ""
-
-msgid "[ All data elements ]"
-msgstr ""
-
-msgid "[ All metrics ]"
+msgid "Indicators"
 msgstr ""
 
 msgid "Select indicator group"
 msgstr ""
 
+msgid "[ All groups ]"
+msgstr ""
+
+msgid "Data elements"
+msgstr ""
+
 msgid "Select data element group"
 msgstr ""
 
-msgid "Select data sets"
-msgstr ""
-
-msgid "Select program"
-msgstr ""
-
-msgid "Indicators"
-msgstr ""
-
-msgid "Data Elements"
+msgid "[ All data elements ]"
 msgstr ""
 
 msgid "Data sets"
 msgstr ""
 
+msgid "Select data sets"
+msgstr ""
+
+msgid "[ All metrics ]"
+msgstr ""
+
 msgid "Event data items"
 msgstr ""
 
-msgid "Program Indicator"
+msgid "Select program"
 msgstr ""
 
-msgid "Reporting rates"
-msgstr ""
-
-msgid "Reporting rates on time"
-msgstr ""
-
-msgid "Actual reports"
-msgstr ""
-
-msgid "Actual reporting rates on time"
-msgstr ""
-
-msgid "Expected reports"
+msgid "Program indicators"
 msgstr ""
 
 msgid "Search Dimensions"

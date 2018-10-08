@@ -4,8 +4,7 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
 import { Detail } from './Detail';
-import { apiFetchGroups, apiFetchAlternatives } from '../../../api/dimensions'; // TODO
-import { dataTypes, ALL_ID } from './dataTypes';
+import { dataTypes } from './dataTypes';
 import { colors } from '../../../colors';
 
 const style = {
@@ -37,66 +36,23 @@ const style = {
 };
 
 export class Groups extends Component {
-    state = {
-        indicators: [],
-        dataElements: [],
-        dataSets: [],
-        eventDataItems: [],
-        programIndicators: [],
-        dataDimId: '',
-    };
-
-    handleChange = async event => {
-        const currentGroup = event.target.value;
-        let newDataDimensions = await apiFetchAlternatives(
-            this.props.dataType,
-            currentGroup
-        );
-
-        const augmentFn = dataTypes[this.props.dataType].augmentAlternatives;
-        if (augmentFn) {
-            newDataDimensions = augmentFn(newDataDimensions, currentGroup);
-        }
-
-        this.setState({ dataDimId: currentGroup });
-        this.props.onGroupChange(newDataDimensions);
+    handleChange = event => {
+        this.props.onGroupChange(event.target.value);
     };
 
     renderDropDownItems = () => {
-        const { dataType } = this.props;
-        let optionItems = this.state[dataType];
-        const defaultGroup = dataTypes[dataType].defaultGroup;
+        const defaultGroup = dataTypes[this.props.dataType].defaultGroup;
+        let optionItems = this.props.groups;
 
         if (defaultGroup) {
             optionItems = [defaultGroup, ...optionItems];
         }
 
-        return dataType.length
-            ? optionItems.map(item => (
-                  <MenuItem key={item.id} value={item.id}>
-                      {item.displayName}
-                  </MenuItem>
-              ))
-            : null;
-    };
-
-    componentDidMount = async () => {
-        const dataType = this.props.dataType;
-        const groupSetAlternatives = await apiFetchGroups(dataType);
-        this.setState({ [dataType]: groupSetAlternatives });
-
-        const dimensions = await apiFetchAlternatives(dataType, ALL_ID);
-        this.setState({ dataDimId: ALL_ID });
-        this.props.onGroupChange(dimensions);
-    };
-
-    componentDidUpdate = async () => {
-        const { dataType } = this.props;
-
-        if (!Object.keys(this.state[dataType]).length) {
-            const groupSetAlternatives = await apiFetchGroups(dataType);
-            this.setState({ [dataType]: groupSetAlternatives });
-        }
+        return optionItems.map(item => (
+            <MenuItem key={item.id} value={item.id}>
+                {item.displayName}
+            </MenuItem>
+        ));
     };
 
     render = () => {
@@ -110,7 +66,7 @@ export class Groups extends Component {
                         {dataTypes[this.props.dataType].groupLabel}
                     </InputLabel>
                     <Select
-                        value={this.state.dataDimId}
+                        value={this.props.selectedGroupId}
                         onChange={this.handleChange}
                         SelectDisplayProps={{ style: style.dropDown }}
                         disableUnderline
@@ -131,6 +87,7 @@ export class Groups extends Component {
 
 Groups.propTypes = {
     dataType: PropTypes.string.isRequired,
+    groups: PropTypes.array.isRequired,
     onGroupChange: PropTypes.func.isRequired,
     onDetailChange: PropTypes.func.isRequired,
     detailValue: PropTypes.string.isRequired,
