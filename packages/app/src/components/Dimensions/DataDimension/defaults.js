@@ -20,6 +20,7 @@ export const dataTypes = {
         displayName: i18n.t('Indicators'),
         groupLabel: i18n.t('Select indicator group'),
         defaultGroup: { id: ALL_ID, displayName: i18n.t('[ All groups ]') },
+        groupDetail: false,
     },
     [DATA_ELEMENTS]: {
         id: DATA_ELEMENTS,
@@ -29,24 +30,30 @@ export const dataTypes = {
             id: ALL_ID,
             displayName: i18n.t('[ All data elements ]'),
         },
+        groupDetail: true,
     },
     [DATA_SETS]: {
         id: DATA_SETS,
         displayName: i18n.t('Data sets'),
         groupLabel: i18n.t('Select data sets'),
         defaultGroup: { id: ALL_ID, displayName: i18n.t('[ All metrics ]') },
+        groupDetail: false,
+        augmentAlternatives: (alternatives, groupId) =>
+            getReportingRates(alternatives, groupId),
     },
     [EVENT_DATA_ITEMS]: {
         id: EVENT_DATA_ITEMS,
         displayName: i18n.t('Event data items'),
         groupLabel: i18n.t('Select program'),
         defaultGroup: null,
+        groupDetail: false,
     },
     [PROGRAM_INDICATORS]: {
         id: PROGRAM_INDICATORS,
         displayName: i18n.t('Program indicators'),
         groupLabel: i18n.t('Select program'),
         defaultGroup: null,
+        groupDetail: false,
     },
 };
 
@@ -75,7 +82,7 @@ export const DATA_SETS_CONSTANTS = [
     },
 ];
 
-export const getReportingRates = (contents, groupSetId) => {
+const getReportingRates = (contents, groupSetId) => {
     let dataSets = [];
 
     const reportingRateIndex = DATA_SETS_CONSTANTS.find(

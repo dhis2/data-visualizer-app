@@ -8,9 +8,6 @@ import { apiFetchGroups, apiFetchAlternatives } from '../../../api/dimensions'; 
 import {
     dataTypes,
     DATA_SETS_CONSTANTS,
-    DATA_SETS,
-    DATA_ELEMENTS,
-    getReportingRates,
     DEFAULT_DATATYPE_ID,
     ALL_ID,
 } from './defaults';
@@ -61,11 +58,9 @@ export class Groups extends Component {
             currentGroup
         );
 
-        if (this.props.dataType === DATA_SETS) {
-            newDataDimensions = getReportingRates(
-                newDataDimensions,
-                currentGroup
-            );
+        const augmentFn = dataTypes[this.props.dataType].augmentAlternatives;
+        if (augmentFn) {
+            newDataDimensions = augmentFn(newDataDimensions, currentGroup);
         }
 
         this.setState({ dataDimId: currentGroup });
@@ -114,7 +109,7 @@ export class Groups extends Component {
 
     render = () => {
         const renderItems = this.renderDropDownItems();
-        const showTotals = this.props.dataType === DATA_ELEMENTS;
+        const showTotals = dataTypes[this.props.dataType].groupDetail;
 
         return (
             <div style={style.container}>
