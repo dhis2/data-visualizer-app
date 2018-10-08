@@ -1,67 +1,87 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
-import InputLabel from '@material-ui/core/InputLabel';
 import i18n from '@dhis2/d2-i18n';
-import { dataTypes } from './defaults';
-import { colors } from '../../../colors';
 
-const style = {
-    container: {
-        border: `1px solid ${colors.greyLight}`,
-        display: 'flex',
-        flexFlow: 'column',
-        height: 53,
-        borderBottom: 0,
-        paddingLeft: 5,
-        paddingRight: 5,
-        paddingTop: 5,
+import { DATA_SETS_CONSTANTS } from '../../../api/dimensions';
+
+export const ALL_ID = 'ALL';
+
+const INDICATORS = 'indicators';
+const DATA_ELEMENTS = 'dataElements';
+const DATA_SETS = 'dataSets';
+const EVENT_DATA_ITEMS = 'eventDataItems';
+const PROGRAM_INDICATORS = 'programIndicators';
+
+export const dataTypes = {
+    [INDICATORS]: {
+        id: INDICATORS,
+        displayName: i18n.t('Indicators'),
+        groupLabel: i18n.t('Select indicator group'),
+        defaultGroup: { id: ALL_ID, displayName: i18n.t('[ All groups ]') },
+        groupDetail: false,
     },
-    titleText: {
-        color: colors.greyDark,
-        fontSize: 13,
-        fontWeight: 300,
-        paddingBottom: 15,
+    [DATA_ELEMENTS]: {
+        id: DATA_ELEMENTS,
+        displayName: i18n.t('Data elements'),
+        groupLabel: i18n.t('Select data element group'),
+        defaultGroup: {
+            id: ALL_ID,
+            displayName: i18n.t('[ All data elements ]'),
+        },
+        groupDetail: true,
     },
-    dropDownItem: {
-        fontSize: 16,
+    [DATA_SETS]: {
+        id: DATA_SETS,
+        displayName: i18n.t('Data sets'),
+        groupLabel: i18n.t('Select data sets'),
+        defaultGroup: { id: ALL_ID, displayName: i18n.t('[ All metrics ]') },
+        groupDetail: false,
+        augmentAlternatives: (alternatives, groupId) =>
+            getReportingRates(alternatives, groupId),
     },
-    dropDown: {
-        outline: 'none',
-        padding: 0,
+    [EVENT_DATA_ITEMS]: {
+        id: EVENT_DATA_ITEMS,
+        displayName: i18n.t('Event data items'),
+        groupLabel: i18n.t('Select program'),
+        defaultGroup: null,
+        groupDetail: false,
+    },
+    [PROGRAM_INDICATORS]: {
+        id: PROGRAM_INDICATORS,
+        displayName: i18n.t('Program indicators'),
+        groupLabel: i18n.t('Select program'),
+        defaultGroup: null,
+        groupDetail: false,
     },
 };
 
-export const DataTypes = ({ currentDataType, onDataTypeChange }) => {
-    return (
-        <div style={style.container}>
-            <InputLabel style={style.titleText}>
-                {i18n.t('Data Type')}
-            </InputLabel>
-            <Select
-                value={currentDataType}
-                onChange={event => onDataTypeChange(event.target.value)}
-                disableUnderline
-                SelectDisplayProps={{ style: style.dropDown }}
-            >
-                {Object.values(dataTypes).map(type => (
-                    <MenuItem
-                        style={style.dropDownItem}
-                        key={type.id}
-                        value={type.id}
-                    >
-                        {type.displayName}
-                    </MenuItem>
-                ))}
-            </Select>
-        </div>
+export const DEFAULT_DATATYPE_ID = INDICATORS;
+
+const getReportingRates = (contents, groupSetId) => {
+    let dataSets = [];
+
+    const reportingRateIndex = DATA_SETS_CONSTANTS.find(
+        item => item.id === groupSetId
     );
+
+    groupSetId === ALL_ID
+        ? DATA_SETS_CONSTANTS.forEach(
+              reportingRate =>
+                  (dataSets = [
+                      ...dataSets,
+                      ...contents.map(dataSet =>
+                          concatReportingRate(dataSet, reportingRate)
+                      ),
+                  ])
+          )
+        : (dataSets = contents.map(dataSet =>
+              concatReportingRate(dataSet, reportingRateIndex)
+          ));
+
+    return dataSets;
 };
 
-DataTypes.propTypes = {
-    currentDataType: PropTypes.string.isRequired,
-    onDataTypeChange: PropTypes.func.isRequired,
+const concatReportingRate = (dataSet, reportingRate) => {
+    return {
+        id: `${dataSet.id}.${reportingRate.id}`,
+        displayName: `${dataSet.displayName} (${reportingRate.displayName})`,
+    };
 };
-
-export default DataTypes;

@@ -1,5 +1,29 @@
 import { getInstance } from 'd2/lib/d2';
+import i18n from '@dhis2/d2-i18n';
 import { onError } from './index';
+
+export const DATA_SETS_CONSTANTS = [
+    {
+        id: 'REPORTING_RATES',
+        displayName: i18n.t('Reporting rates'),
+    },
+    {
+        id: 'REPORTING_RATES_ON_TIME',
+        displayName: i18n.t('Reporting rates on time'),
+    },
+    {
+        id: 'ACTUAL_REPORTS',
+        displayName: i18n.t('Actual reports'),
+    },
+    {
+        id: 'ACTUAL_REPORTING_RATES_ON_TIME',
+        displayName: i18n.t('Actual reporting rates on time'),
+    },
+    {
+        id: 'EXPECTED_REPORTS',
+        displayName: i18n.t('Expected reports'),
+    },
+];
 
 // Get dimensions on startup
 export const apiFetchDimensions = () => {
@@ -29,12 +53,12 @@ export const apiFetchGroups = dataType => {
         case 'dataElements': {
             return apiFetchDataElementGroups();
         }
-        case 'dataSets': {
-            return apiFetchDataSets();
-        }
         case 'eventDataItems':
         case 'programIndicators': {
             return apiFetchProgramIndicators();
+        }
+        case 'dataSets': {
+            return Promise.resolve(DATA_SETS_CONSTANTS);
         }
         default:
             return null;

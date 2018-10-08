@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import DataTypes from './DataTypes';
+import DataTypes from './DataTypesSelector';
 import Groups from './Groups';
 import SearchField from './SearchField';
 import UnselectedItems from './UnselectedItems';
-import { DEFAULT_DATATYPE_ID } from './defaults';
+import { DEFAULT_DATATYPE_ID } from './dataTypes';
 
 const style = {
     container: {

@@ -5,12 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
 import { Detail } from './Detail';
 import { apiFetchGroups, apiFetchAlternatives } from '../../../api/dimensions'; // TODO
-import {
-    dataTypes,
-    DATA_SETS_CONSTANTS,
-    DEFAULT_DATATYPE_ID,
-    ALL_ID,
-} from './defaults';
+import { dataTypes, ALL_ID } from './dataTypes';
 import { colors } from '../../../colors';
 
 const style = {
@@ -45,7 +40,7 @@ export class Groups extends Component {
     state = {
         indicators: [],
         dataElements: [],
-        dataSets: DATA_SETS_CONSTANTS,
+        dataSets: [],
         eventDataItems: [],
         programIndicators: [],
         dataDimId: '',
@@ -69,9 +64,8 @@ export class Groups extends Component {
 
     renderDropDownItems = () => {
         const { dataType } = this.props;
-        const defaultGroup = dataTypes[dataType].defaultGroup;
-
         let optionItems = this.state[dataType];
+        const defaultGroup = dataTypes[dataType].defaultGroup;
 
         if (defaultGroup) {
             optionItems = [defaultGroup, ...optionItems];
@@ -87,13 +81,11 @@ export class Groups extends Component {
     };
 
     componentDidMount = async () => {
-        const dataType = DEFAULT_DATATYPE_ID;
+        const dataType = this.props.dataType;
         const groupSetAlternatives = await apiFetchGroups(dataType);
         this.setState({ [dataType]: groupSetAlternatives });
-        const dimensions = await apiFetchAlternatives(
-            this.props.dataType,
-            ALL_ID
-        );
+
+        const dimensions = await apiFetchAlternatives(dataType, ALL_ID);
         this.setState({ dataDimId: ALL_ID });
         this.props.onGroupChange(dimensions);
     };
