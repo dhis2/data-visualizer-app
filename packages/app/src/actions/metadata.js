@@ -1,6 +1,6 @@
 import { actionTypes } from '../reducers';
 
-export const acAddMetadata = metadata => ({
+export const acAddMetadata = value => ({
     type: actionTypes.ADD_METADATA,
-    value: metadata,
+    value,
 });
