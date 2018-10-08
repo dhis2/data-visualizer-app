@@ -140,4 +140,31 @@ describe('reducer: ui', () => {
 
         expect(actualState).toEqual(expectedState);
     });
+
+    it(`${
+        actionTypes.ADD_UI_ITEMS
+    }: should add items by dimension preserving old value`, () => {
+        const ouItems = {
+            ou: [
+                'USER_ORG_UNIT',
+                'USER_ORGUNIT_CHILDREN',
+                'USER_ORGUNIT_GRANDCHILDREN',
+            ],
+        };
+
+        const expectedState = {
+            ...DEFAULT_UI,
+            itemsByDimension: {
+                ...DEFAULT_UI.itemsByDimension,
+                ...ouItems,
+            },
+        };
+
+        const actualState = reducer(DEFAULT_UI, {
+            type: actionTypes.ADD_UI_ITEMS,
+            value: ouItems,
+        });
+
+        expect(actualState).toEqual(expectedState);
+    });
 });

@@ -1,6 +1,4 @@
-import options from '../options';
-import { getPropsByKeys } from '../util';
-import { getAxesFromUi } from '../current';
+import { getAxesFromUi, getOptionsFromUi } from '../current';
 
 export const actionTypes = {
     SET_CURRENT: 'SET_CURRENT',
@@ -17,10 +15,7 @@ export default (state = DEFAULT_CURRENT, action) => {
         }
         case actionTypes.SET_CURRENT_FROM_UI: {
             const axesFromUi = getAxesFromUi(action.value);
-            const optionsFromUi = getPropsByKeys(
-                action.value.options,
-                Object.keys(options)
-            );
+            const optionsFromUi = getOptionsFromUi(action.value);
 
             return {
                 ...state,
