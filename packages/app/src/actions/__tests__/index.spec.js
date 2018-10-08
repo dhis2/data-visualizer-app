@@ -112,7 +112,9 @@ describe('index', () => {
                 )
                 .then(() => {
                     expect(history.default.replace).toHaveBeenCalled();
-                    expect(history.default.replace).toHaveBeenCalledWith('/1');
+                    expect(history.default.replace).toHaveBeenCalledWith(
+                        `/${uid}`
+                    );
                 });
         });
 
@@ -129,7 +131,9 @@ describe('index', () => {
                 )
                 .then(() => {
                     expect(history.default.push).toHaveBeenCalled();
-                    expect(history.default.push).toHaveBeenCalledWith('/2');
+                    expect(history.default.push).toHaveBeenCalledWith(
+                        `/${uid}`
+                    );
                 });
         });
     });
