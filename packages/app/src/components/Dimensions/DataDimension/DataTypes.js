@@ -45,13 +45,13 @@ export const DataTypes = ({ currentDataType, onDataTypeChange }) => {
                 disableUnderline
                 SelectDisplayProps={{ style: style.dropDown }}
             >
-                {dataTypes.map(item => (
+                {Object.values(dataTypes).map(type => (
                     <MenuItem
                         style={style.dropDownItem}
-                        key={item.id}
-                        value={item.id}
+                        key={type.id}
+                        value={type.id}
                     >
-                        {item.displayName}
+                        {type.displayName}
                     </MenuItem>
                 ))}
             </Select>

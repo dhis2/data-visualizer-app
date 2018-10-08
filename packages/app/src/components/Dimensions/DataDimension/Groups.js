@@ -6,12 +6,11 @@ import InputLabel from '@material-ui/core/InputLabel';
 import { Detail } from './Detail';
 import { apiFetchGroups, apiFetchAlternatives } from '../../../api/dimensions'; // TODO
 import {
+    dataTypes,
     DATA_SETS_CONSTANTS,
     DATA_SETS,
     DATA_ELEMENTS,
     getReportingRates,
-    getInputLabel,
-    getDefaultAlternative,
     DEFAULT_DATATYPE_ID,
     ALL_ID,
 } from './defaults';
@@ -75,12 +74,13 @@ export class Groups extends Component {
 
     renderDropDownItems = () => {
         const { dataType } = this.props;
-        const defaultAlternative = getDefaultAlternative(dataType);
+        const defaultGroup = dataTypes[dataType].defaultGroup;
 
         let optionItems = this.state[dataType];
 
-        if (defaultAlternative)
-            optionItems = [defaultAlternative, ...optionItems];
+        if (defaultGroup) {
+            optionItems = [defaultGroup, ...optionItems];
+        }
 
         return dataType.length
             ? optionItems.map(item => (
@@ -113,7 +113,6 @@ export class Groups extends Component {
     };
 
     render = () => {
-        const INPUT_LABEL = getInputLabel(this.props.dataType);
         const renderItems = this.renderDropDownItems();
         const showTotals = this.props.dataType === DATA_ELEMENTS;
 
@@ -121,7 +120,7 @@ export class Groups extends Component {
             <div style={style.container}>
                 <div style={style.groupContainer}>
                     <InputLabel style={style.titleText}>
-                        {INPUT_LABEL}
+                        {dataTypes[this.props.dataType].groupLabel}
                     </InputLabel>
                     <Select
                         value={this.state.dataDimId}
