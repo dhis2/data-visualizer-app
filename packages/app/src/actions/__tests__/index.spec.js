@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 import * as fromActions from '../index';
 import * as fromReducers from '../../reducers/index';
 import * as api from '../../api/visualization';
+import * as history from '../../history';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -74,6 +75,62 @@ describe('index', () => {
             fromActions.clearVisualization(store.dispatch);
 
             expect(store.getActions()).toEqual(expectedActions);
+        });
+    });
+
+    describe('tDoSaveVisualization', () => {
+        let uid = 1;
+
+        const store = mockStore({
+            current: {
+                id: uid,
+                content: 'hey',
+            },
+        });
+
+        // history function mocks
+        history.default.push = jest.fn();
+        history.default.replace = jest.fn();
+
+        api.apiSaveVisualization = (type, vis) => {
+            return Promise.resolve({
+                status: 'OK',
+                response: {
+                    uid,
+                },
+            });
+        };
+
+        it('replaces the location in history on successful save', () => {
+            return store
+                .dispatch(
+                    fromActions.tDoSaveVisualization(
+                        'chart',
+                        { name: 'test', description: 'test' },
+                        false
+                    )
+                )
+                .then(() => {
+                    expect(history.default.replace).toHaveBeenCalled();
+                    expect(history.default.replace).toHaveBeenCalledWith('/1');
+                });
+        });
+
+        it('pushes a new location in history on successful save as', () => {
+            uid = 2;
+
+            return store
+                .dispatch(
+                    fromActions.tDoSaveVisualization(
+                        'chart',
+                        { name: 'test', description: 'test' },
+                        true
+                    )
+                )
+                .then(() => {
+                    expect(history.default.push).toHaveBeenCalled();
+                    expect(history.default.push).toHaveBeenCalledWith('/2');
+                });
         });
     });
 });
