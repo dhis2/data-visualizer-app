@@ -62,11 +62,12 @@ export class Groups extends Component {
             currentGroup
         );
 
-        if (this.props.dataType === DATA_SETS)
+        if (this.props.dataType === DATA_SETS) {
             newDataDimensions = getReportingRates(
                 newDataDimensions,
                 currentGroup
             );
+        }
 
         this.setState({ dataDimId: currentGroup });
         this.props.onGroupChange(newDataDimensions);
@@ -131,12 +132,12 @@ export class Groups extends Component {
                         {renderItems}
                     </Select>
                 </div>
-                {showTotals ? (
+                {showTotals && (
                     <Detail
                         value={this.props.detailValue}
                         onDetailChange={this.props.onDetailChange}
                     />
-                ) : null}
+                )}
             </div>
         );
     };

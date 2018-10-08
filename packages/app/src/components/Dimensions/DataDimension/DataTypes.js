@@ -33,12 +33,12 @@ const style = {
     },
 };
 
-const LABEL_TITLE = i18n.t('Data Type');
-
 export const DataTypes = ({ currentDataType, onDataTypeChange }) => {
     return (
         <div style={style.container}>
-            <InputLabel style={style.titleText}>{LABEL_TITLE}</InputLabel>
+            <InputLabel style={style.titleText}>
+                {i18n.t('Data Type')}
+            </InputLabel>
             <Select
                 value={currentDataType}
                 onChange={event => onDataTypeChange(event.target.value)}
