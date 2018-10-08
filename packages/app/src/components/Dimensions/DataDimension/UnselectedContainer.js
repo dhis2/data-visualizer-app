@@ -52,6 +52,7 @@ export class UnselectedContainer extends Component {
                     items={this.props.items}
                     onSelect={this.props.onSelect}
                     searchFieldInput={this.state.searchText}
+                    requestMoreItems={this.props.requestMoreItems}
                 />
             </div>
         );
