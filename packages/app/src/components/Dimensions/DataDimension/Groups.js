@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
 import { Detail } from './Detail';
+
 import { dataTypes } from './dataTypes';
 import { colors } from '../../../colors';
 
@@ -35,14 +37,14 @@ const style = {
     },
 };
 
-export class Groups extends Component {
-    handleChange = event => {
-        this.props.onGroupChange(event.target.value);
+const Groups = props => {
+    const handleChange = event => {
+        props.onGroupChange(event.target.value);
     };
 
-    renderDropDownItems = () => {
-        const defaultGroup = dataTypes[this.props.dataType].defaultGroup;
-        let optionItems = this.props.groups;
+    const renderDropDownItems = () => {
+        const defaultGroup = dataTypes[props.dataType].defaultGroup;
+        let optionItems = props.groups;
 
         if (defaultGroup) {
             optionItems = [defaultGroup, ...optionItems];
@@ -55,35 +57,32 @@ export class Groups extends Component {
         ));
     };
 
-    render = () => {
-        const renderItems = this.renderDropDownItems();
-        const showTotals = dataTypes[this.props.dataType].groupDetail;
+    const showTotals = dataTypes[props.dataType].groupDetail;
 
-        return (
-            <div style={style.container}>
-                <div style={style.groupContainer}>
-                    <InputLabel style={style.titleText}>
-                        {dataTypes[this.props.dataType].groupLabel}
-                    </InputLabel>
-                    <Select
-                        value={this.props.selectedGroupId}
-                        onChange={this.handleChange}
-                        SelectDisplayProps={{ style: style.dropDown }}
-                        disableUnderline
-                    >
-                        {renderItems}
-                    </Select>
-                </div>
-                {showTotals && (
-                    <Detail
-                        value={this.props.detailValue}
-                        onDetailChange={this.props.onDetailChange}
-                    />
-                )}
+    return (
+        <div style={style.container}>
+            <div style={style.groupContainer}>
+                <InputLabel style={style.titleText}>
+                    {dataTypes[props.dataType].groupLabel}
+                </InputLabel>
+                <Select
+                    value={props.selectedGroupId}
+                    onChange={handleChange}
+                    SelectDisplayProps={{ style: style.dropDown }}
+                    disableUnderline
+                >
+                    {renderDropDownItems()}
+                </Select>
             </div>
-        );
-    };
-}
+            {showTotals && (
+                <Detail
+                    value={props.detailValue}
+                    onDetailChange={props.onDetailChange}
+                />
+            )}
+        </div>
+    );
+};
 
 Groups.propTypes = {
     dataType: PropTypes.string.isRequired,

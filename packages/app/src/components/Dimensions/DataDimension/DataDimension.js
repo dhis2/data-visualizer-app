@@ -195,7 +195,6 @@ export class DataDimension extends Component {
 }
 
 DataDimension.propTypes = {
-    setDimension: PropTypes.func.isRequired,
     toggleDialog: PropTypes.func.isRequired,
 };
 

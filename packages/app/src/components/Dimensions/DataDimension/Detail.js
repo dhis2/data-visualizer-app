@@ -21,7 +21,6 @@ const style = {
     },
 };
 
-const DETAIL = i18n.t('Detail');
 const TOTALS = i18n.t('Totals');
 const DETAILS = i18n.t('Details');
 const alternatives = [DETAILS, TOTALS];
@@ -29,7 +28,7 @@ const alternatives = [DETAILS, TOTALS];
 export const Detail = ({ value, onDetailChange }) => {
     return (
         <div style={style.detailContainer}>
-            <InputLabel style={style.titleText}>{DETAIL}</InputLabel>
+            <InputLabel style={style.titleText}>{i18n.t('Detail')}</InputLabel>
             <Select
                 onChange={event => onDetailChange(event.target.value)}
                 value={value}
