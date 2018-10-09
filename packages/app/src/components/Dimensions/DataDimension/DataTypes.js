@@ -10,6 +10,9 @@ const DATA_SETS = 'dataSets';
 const EVENT_DATA_ITEMS = 'eventDataItems';
 const PROGRAM_INDICATORS = 'programIndicators';
 
+const TOTALS = 'totals';
+const DETAIL = 'detail';
+
 export const dataTypes = {
     [INDICATORS]: {
         id: INDICATORS,
@@ -26,7 +29,13 @@ export const dataTypes = {
             id: ALL_ID,
             displayName: i18n.t('[ All data elements ]'),
         },
-        groupDetail: true,
+        groupDetail: {
+            alternatives: {
+                [TOTALS]: i18n.t('Totals'),
+                [DETAIL]: i18n.t('Details'),
+            },
+            default: TOTALS,
+        },
     },
     [DATA_SETS]: {
         id: DATA_SETS,

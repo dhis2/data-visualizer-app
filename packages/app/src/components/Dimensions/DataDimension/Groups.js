@@ -57,7 +57,11 @@ const Groups = props => {
         ));
     };
 
-    const showTotals = dataTypes[props.dataType].groupDetail;
+    const groupDetail = dataTypes[props.dataType].groupDetail;
+
+    if (groupDetail) {
+        console.log('alternatives', Object.values(groupDetail.alternatives));
+    }
 
     return (
         <div style={style.container}>
@@ -74,10 +78,11 @@ const Groups = props => {
                     {renderDropDownItems()}
                 </Select>
             </div>
-            {showTotals && (
+            {groupDetail && (
                 <Detail
                     value={props.detailValue}
                     onDetailChange={props.onDetailChange}
+                    detailAlternatives={groupDetail.alternatives}
                 />
             )}
         </div>

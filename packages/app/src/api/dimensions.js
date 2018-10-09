@@ -65,6 +65,26 @@ export const apiFetchGroups = dataType => {
     }
 };
 
+const apiFetchIndicatorGroups = () => {
+    const fields = 'id,displayName&paging=false&';
+    const url = `/indicatorGroups?fields=${fields}`;
+
+    return getInstance()
+        .then(d2 => d2.Api.getApi().get(url))
+        .then(response => response.indicatorGroups)
+        .catch(onError);
+};
+
+const apiFetchDataElementGroups = () => {
+    const fields = 'id,displayName&paging=false&';
+    const url = `/dataElementGroups?fields=${fields}`;
+
+    return getInstance()
+        .then(d2 => d2.Api.getApi().get(url))
+        .then(response => response.dataElementGroups)
+        .catch(onError);
+};
+
 export const apiFetchAlternatives = (dataType, id, page = 1) => {
     switch (dataType) {
         case 'indicators': {
@@ -72,6 +92,9 @@ export const apiFetchAlternatives = (dataType, id, page = 1) => {
         }
         case 'dataElements': {
             return apiFetchDataElements(id, page);
+        }
+        case 'dataElementOperands': {
+            return apiFetchDataElementOperands(id, page);
         }
         case 'dataSets': {
             // TODO check current data viz
@@ -110,33 +133,43 @@ const apiFetchIndicators = (indicatorGroupId, page) => {
         .catch(onError);
 };
 
-const apiFetchIndicatorGroups = () => {
-    const fields = 'id,displayName&paging=false&';
-    const url = `/indicatorGroups?fields=${fields}`;
-
-    return getInstance()
-        .then(d2 => d2.Api.getApi().get(url))
-        .then(response => response.indicatorGroups)
-        .catch(onError);
-};
-
-const apiFetchDataElementGroups = () => {
-    const fields = 'id,displayName&paging=false&';
-    const url = `/dataElementGroups?fields=${fields}`;
-
-    return getInstance()
-        .then(d2 => d2.Api.getApi().get(url))
-        .then(response => response.dataElementGroups)
-        .catch(onError);
-};
-
 const apiFetchDataElements = (id, page) => {
     const fields =
         id === 'ALL'
-            ? 'id,displayName&paging=true&'
-            : `dimensionItem~rename(id),displayName&filter=dataElementGroups.id:eq:${id}&paging=true&`;
-    const p = `&page=${page}`;
-    const url = `/dataElements?fields=${fields}${p}`;
+            ? 'id,displayName'
+            : `dimensionItem~rename(id),displayName`;
+
+    const filter =
+        id === 'ALL'
+            ? `&filter=domainType:eq:AGGREGATE`
+            : `&filter=dataElementGroups.id:eq:${id}&filter=domainType:eq:AGGREGATE`;
+
+    const paging = `&paging=true&page=${page}`;
+    const url = `/dataElements?fields=${fields}${filter}${paging}`;
+
+    return getInstance()
+        .then(d2 => d2.Api.getApi().get(url))
+        .then(response => {
+            return {
+                dimensionItems: response.dataElements,
+                nextPage: response.pager.nextPage
+                    ? response.pager.page + 1
+                    : null,
+            };
+        })
+        .catch(onError);
+};
+
+const apiFetchDataElementOperands = (id, page) => {
+    const fields =
+        id === 'ALL'
+            ? 'id,displayName'
+            : `dimensionItem~rename(id),displayName`;
+
+    const filter = id === 'ALL' ? '' : `&filter=dataElementGroups.id:eq:${id}`;
+    const paging = `&paging=true&page=${page}`;
+
+    const url = `/dataElementOperands?fields=${fields}${filter}${paging}`;
 
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))

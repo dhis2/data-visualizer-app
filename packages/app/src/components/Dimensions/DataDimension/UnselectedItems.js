@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import i18n from '@dhis2/d2-i18n';
 import { throttle } from 'lodash-es';
 import { AssignButton, SelectAllButton } from './buttons';
 import { colors } from '../../../colors';
@@ -74,17 +73,17 @@ export class UnselectedItems extends Component {
         this.setState({ highlighted: higlightedItems });
     };
 
-    searchTextContains = displayName => {
-        const { filterText } = this.props;
+    // searchTextContains = displayName => {
+    //     const { filterText } = this.props;
 
-        return displayName.toLowerCase().includes(filterText.toLowerCase());
-    };
+    //     return displayName.toLowerCase().includes(filterText.toLowerCase());
+    // };
 
-    filterMatchingItems = dataDim => {
-        return this.searchTextContains(dataDim.displayName)
-            ? this.renderUnselectedItem(dataDim)
-            : null;
-    };
+    // filterMatchingItems = dataDim => {
+    //     return this.searchTextContains(dataDim.displayName)
+    //         ? this.renderUnselectedItem(dataDim)
+    //         : null;
+    // };
 
     onDoubleClickItem = id => {
         this.props.onSelect([id]);
@@ -108,9 +107,7 @@ export class UnselectedItems extends Component {
                     style={itemStyle}
                 >
                     <UnselectedIcon />
-                    <span style={style.text}>
-                        {i18n.t(dataDim.displayName)}
-                    </span>
+                    <span style={style.text}>{dataDim.displayName}</span>
                 </div>
             </li>
         );

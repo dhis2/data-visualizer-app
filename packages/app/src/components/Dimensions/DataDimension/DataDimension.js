@@ -56,6 +56,7 @@ export class DataDimension extends Component {
         groups: {
             indicators: [],
             dataElements: [],
+            dataElementOperands: [],
             dataSets: [],
             eventDataItems: [],
             programIndicators: [],
@@ -64,6 +65,7 @@ export class DataDimension extends Component {
         dimensionItems: [],
         nextPage: null,
         unselectedIds: [],
+        groupDetail: '',
     };
 
     componentDidMount = async () => {
@@ -94,12 +96,19 @@ export class DataDimension extends Component {
             ? dataTypes[dataType].defaultGroup.id
             : '';
 
+        let groupDetail = '';
+
+        if (dataTypes[dataType].groupDetail) {
+            groupDetail = dataTypes[dataType].groupDetail.default;
+        }
+
         this.setState({
             dimensionItems,
             dataType,
             selectedGroupId,
             unselectedIds,
             nextPage,
+            groupDetail,
         });
     };
 
@@ -187,6 +196,11 @@ export class DataDimension extends Component {
         this.props.onUpdate(this.props.ui);
     };
 
+    onDetailChange = groupDetail => {
+        console.log('detail changed to ', groupDetail);
+        this.setState({ groupDetail });
+    };
+
     render = () => {
         const unselected = this.state.dimensionItems.filter(di =>
             this.state.unselectedIds.includes(di.id)
@@ -196,6 +210,8 @@ export class DataDimension extends Component {
         if (!groups) {
             return <div />;
         }
+
+        console.log('DD render', this.state);
 
         return (
             <div style={style.container}>
@@ -211,6 +227,8 @@ export class DataDimension extends Component {
                             onDataTypeChange={this.onDataTypeChange}
                             onSelect={this.selectDataDimensions}
                             requestMoreItems={this.requestMoreItems}
+                            groupDetail={this.state.groupDetail}
+                            onDetailChange={this.onDetailChange}
                         />
                         <SelectedItems
                             items={this.props.selectedItems.dx}

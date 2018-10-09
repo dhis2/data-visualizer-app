@@ -21,20 +21,17 @@ const style = {
     },
 };
 
-const TOTALS = i18n.t('Totals');
-const DETAILS = i18n.t('Details');
-const alternatives = [DETAILS, TOTALS];
-
-export const Detail = ({ value, onDetailChange }) => {
+export const Detail = ({ value, onDetailChange, detailAlternatives }) => {
+    const detailValue = detailAlternatives[value] || detailAlternatives[0];
     return (
         <div style={style.detailContainer}>
             <InputLabel style={style.titleText}>{i18n.t('Detail')}</InputLabel>
             <Select
                 onChange={event => onDetailChange(event.target.value)}
-                value={value}
+                value={detailValue}
                 disableUnderline
             >
-                {alternatives.map((item, key) => (
+                {Object.values(detailAlternatives).map((item, key) => (
                     <MenuItem key={key} value={item}>
                         {item}
                     </MenuItem>
@@ -47,6 +44,7 @@ export const Detail = ({ value, onDetailChange }) => {
 Detail.propTypes = {
     value: PropTypes.string.isRequired,
     onDetailChange: PropTypes.func.isRequired,
+    detailAlternatives: PropTypes.object.isRequired,
 };
 
 export default Detail;
