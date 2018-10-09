@@ -59,10 +59,6 @@ const Groups = props => {
 
     const groupDetail = dataTypes[props.dataType].groupDetail;
 
-    if (groupDetail) {
-        console.log('alternatives', Object.values(groupDetail.alternatives));
-    }
-
     return (
         <div style={style.container}>
             <div style={style.groupContainer}>

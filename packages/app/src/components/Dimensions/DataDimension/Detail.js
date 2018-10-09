@@ -22,20 +22,21 @@ const style = {
 };
 
 export const Detail = ({ value, onDetailChange, detailAlternatives }) => {
-    const detailValue = detailAlternatives[value] || detailAlternatives[0];
     return (
         <div style={style.detailContainer}>
             <InputLabel style={style.titleText}>{i18n.t('Detail')}</InputLabel>
             <Select
                 onChange={event => onDetailChange(event.target.value)}
-                value={detailValue}
+                value={value}
                 disableUnderline
             >
-                {Object.values(detailAlternatives).map((item, key) => (
-                    <MenuItem key={key} value={item}>
-                        {item}
-                    </MenuItem>
-                ))}
+                {Object.entries(detailAlternatives).map(item => {
+                    return (
+                        <MenuItem key={item[0]} value={item[0]}>
+                            {item[1]}
+                        </MenuItem>
+                    );
+                })}
             </Select>
         </div>
     );

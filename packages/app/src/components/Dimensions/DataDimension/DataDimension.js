@@ -82,10 +82,10 @@ export class DataDimension extends Component {
             this.setState({ groups });
         }
 
-        const { dimensionItems, nextPage } = await apiFetchAlternatives(
-            dataType,
-            ALL_ID
-        );
+        const { dimensionItems, nextPage } = await apiFetchAlternatives({
+            dataType: dataType,
+            id: ALL_ID,
+        });
 
         const selectedIds = this.props.selectedItems[DX].map(i => i.id);
         const unselectedIds = dimensionItems
@@ -119,10 +119,11 @@ export class DataDimension extends Component {
     };
 
     onGroupChange = async selectedGroupId => {
-        let { dimensionItems, nextPage } = await apiFetchAlternatives(
-            this.state.dataType,
-            selectedGroupId
-        );
+        let { dimensionItems, nextPage } = await apiFetchAlternatives({
+            dataType: this.state.dataType,
+            id: selectedGroupId,
+            detail: this.state.groupDetail,
+        });
 
         const augmentFn = dataTypes[this.state.dataType].augmentAlternatives;
         if (augmentFn) {
@@ -169,11 +170,11 @@ export class DataDimension extends Component {
 
     requestMoreItems = async () => {
         if (this.state.nextPage) {
-            let { dimensionItems, nextPage } = await apiFetchAlternatives(
-                this.state.dataType,
-                this.state.selectedGroupId,
-                this.state.nextPage
-            );
+            let { dimensionItems, nextPage } = await apiFetchAlternatives({
+                dataType: this.state.dataType,
+                id: this.state.selectedGroupId,
+                page: this.state.nextPage,
+            });
 
             const newDimensionItems = this.state.dimensionItems.concat(
                 dimensionItems
@@ -196,8 +197,32 @@ export class DataDimension extends Component {
         this.props.onUpdate(this.props.ui);
     };
 
-    onDetailChange = groupDetail => {
-        console.log('detail changed to ', groupDetail);
+    onDetailChange = async groupDetail => {
+        let { dimensionItems, nextPage } = await apiFetchAlternatives({
+            dataType: this.state.dataType,
+            id: this.state.selectedGroupId,
+            detail: groupDetail,
+        });
+
+        const augmentFn = dataTypes[this.state.dataType].augmentAlternatives;
+        if (augmentFn) {
+            dimensionItems = augmentFn(
+                dimensionItems,
+                this.state.selectedGroupId
+            );
+        }
+
+        const selectedIds = this.props.selectedItems[DX].map(i => i.id);
+        const unselectedIds = dimensionItems
+            .filter(i => !selectedIds.includes(i.id))
+            .map(i => i.id);
+
+        this.setState({
+            dimensionItems,
+            unselectedIds,
+            nextPage,
+            groupDetail,
+        });
         this.setState({ groupDetail });
     };
 
@@ -210,8 +235,6 @@ export class DataDimension extends Component {
         if (!groups) {
             return <div />;
         }
-
-        console.log('DD render', this.state);
 
         return (
             <div style={style.container}>

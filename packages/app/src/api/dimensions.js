@@ -85,16 +85,17 @@ const apiFetchDataElementGroups = () => {
         .catch(onError);
 };
 
-export const apiFetchAlternatives = (dataType, id, page = 1) => {
+export const apiFetchAlternatives = ({ dataType, id, page = 1, detail }) => {
     switch (dataType) {
         case 'indicators': {
             return apiFetchIndicators(id, page);
         }
         case 'dataElements': {
-            return apiFetchDataElements(id, page);
-        }
-        case 'dataElementOperands': {
-            return apiFetchDataElementOperands(id, page);
+            if (detail === 'detail') {
+                return apiFetchDataElementOperands(id, page);
+            } else {
+                return apiFetchDataElements(id, page);
+            }
         }
         case 'dataSets': {
             // TODO check current data viz
@@ -166,7 +167,8 @@ const apiFetchDataElementOperands = (id, page) => {
             ? 'id,displayName'
             : `dimensionItem~rename(id),displayName`;
 
-    const filter = id === 'ALL' ? '' : `&filter=dataElementGroups.id:eq:${id}`;
+    const filter =
+        id === 'ALL' ? '' : `&filter=dataElement.dataElementGroups.id:eq:${id}`;
     const paging = `&paging=true&page=${page}`;
 
     const url = `/dataElementOperands?fields=${fields}${filter}${paging}`;
@@ -175,7 +177,7 @@ const apiFetchDataElementOperands = (id, page) => {
         .then(d2 => d2.Api.getApi().get(url))
         .then(response => {
             return {
-                dimensionItems: response.dataElements,
+                dimensionItems: response.dataElementOperands,
                 nextPage: response.pager.nextPage
                     ? response.pager.page + 1
                     : null,
