@@ -110,17 +110,12 @@ export const apiFetchAlternatives = ({ dataType, id, page = 1, detail }) => {
     }
 };
 
-const apiFetchIndicators = (indicatorGroupId, page) => {
+const apiFetchIndicators = (id, page) => {
     const fields = 'fields=id,displayName,dimensionItemType';
-    const filter =
-        indicatorGroupId !== 'ALL'
-            ? `&filter=indicatorGroups.id:eq:${indicatorGroupId}`
-            : '';
+    const filter = id !== 'ALL' ? `&filter=indicatorGroups.id:eq:${id}` : '';
+    const paging = `&paging=true&page=${page}`;
 
-    const paging = '&paging=true';
-    const p = `&page=${page}`;
-
-    const url = `/indicators?${fields}${filter}${paging}${p}`;
+    const url = `/indicators?${fields}${filter}${paging}`;
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))
         .then(response => {
@@ -187,9 +182,9 @@ const apiFetchDataElementOperands = (id, page) => {
 };
 
 const apiFetchDataSets = page => {
-    const fields = 'dimensionItem~rename(id),displayName&paging=true';
-    const p = `&page=${page}`;
-    const url = `/dataSets?fields=${fields}${p}`;
+    const fields = 'dimensionItem~rename(id),displayName';
+    const paging = `&paging=true&page=${page}`;
+    const url = `/dataSets?fields=${fields}${paging}`;
 
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))
@@ -204,9 +199,10 @@ const apiFetchDataSets = page => {
         .catch(onError);
 };
 
-const apiFetchProgramIndicators = () => {
+const apiFetchProgramIndicators = page => {
     const fields = 'id,displayName';
-    const url = `/programs?fields=${fields}&paging=false&`;
+    const paging = `&paging=true&page=${page}`;
+    const url = `/programs?fields=${fields}${paging}`;
 
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))
@@ -214,10 +210,10 @@ const apiFetchProgramIndicators = () => {
         .catch(onError);
 };
 
-const apiFetchProgramDataElements = (programId, page) => {
-    const fields = `dimensionItem~rename(id),displayName&paging=true&`;
-    const p = `&page=${page}`;
-    const url = `/programDataElements?program=${programId}&fields=${fields}${p}`;
+const apiFetchProgramDataElements = (id, page) => {
+    const fields = `dimensionItem~rename(id),displayName`;
+    const paging = `&paging=true&page=${page}`;
+    const url = `/programDataElements?program=${id}&fields=${fields}${paging}`;
 
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))
