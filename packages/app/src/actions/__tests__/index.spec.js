@@ -81,36 +81,50 @@ describe('index', () => {
     describe('tDoSaveVisualization', () => {
         let uid = 1;
 
+        const vis = {
+            id: uid,
+            content: 'hey',
+        };
+
+        const extraParams = { name: 'test', description: 'test' };
+
         const store = mockStore({
-            current: {
-                id: uid,
-                content: 'hey',
-            },
+            current: vis,
         });
 
         // history function mocks
         history.default.push = jest.fn();
         history.default.replace = jest.fn();
 
-        api.apiSaveVisualization = (type, vis) => {
+        api.apiSaveVisualization = jest.fn((type, vis) => {
             return Promise.resolve({
                 status: 'OK',
                 response: {
                     uid,
                 },
             });
-        };
+        });
 
         it('replaces the location in history on successful save', () => {
+            const expectedVis = {
+                ...vis,
+                ...extraParams,
+            };
+
             return store
                 .dispatch(
                     fromActions.tDoSaveVisualization(
                         'chart',
-                        { name: 'test', description: 'test' },
+                        extraParams,
                         false
                     )
                 )
                 .then(() => {
+                    expect(api.apiSaveVisualization).toHaveBeenCalled();
+                    expect(api.apiSaveVisualization).toHaveBeenCalledWith(
+                        'chart',
+                        expectedVis
+                    );
                     expect(history.default.replace).toHaveBeenCalled();
                     expect(history.default.replace).toHaveBeenCalledWith(
                         `/${uid}`
@@ -121,15 +135,22 @@ describe('index', () => {
         it('pushes a new location in history on successful save as', () => {
             uid = 2;
 
+            const expectedVis = {
+                ...vis,
+                id: undefined,
+                ...extraParams,
+            };
+
             return store
                 .dispatch(
-                    fromActions.tDoSaveVisualization(
-                        'chart',
-                        { name: 'test', description: 'test' },
-                        true
-                    )
+                    fromActions.tDoSaveVisualization('chart', extraParams, true)
                 )
                 .then(() => {
+                    expect(api.apiSaveVisualization).toHaveBeenCalled();
+                    expect(api.apiSaveVisualization).toHaveBeenCalledWith(
+                        'chart',
+                        expectedVis
+                    );
                     expect(history.default.push).toHaveBeenCalled();
                     expect(history.default.push).toHaveBeenCalledWith(
                         `/${uid}`
