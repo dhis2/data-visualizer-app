@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { acAddUiLayoutDimensions } from '../../actions/ui';
 import i18n from '@dhis2/d2-i18n';
+import { colors } from '../../colors';
 
 const items = [
     {
@@ -34,6 +35,7 @@ const style = {
     listButton: {
         display: 'flex',
         border: 'none',
+        backgroundColor: colors.white,
         height: 39,
         paddingLeft: 25,
     },

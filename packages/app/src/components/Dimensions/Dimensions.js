@@ -9,7 +9,7 @@ import DialogManager from './DialogManager';
 const style = {
     divContainer: {
         backgroundColor: colors.lightGrey,
-        height: 764,
+        //height: 764,
         width: 250,
     },
     searchIcon: {

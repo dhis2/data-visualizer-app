@@ -8,7 +8,7 @@ const style = {
     listContainer: {
         overflow: 'hidden',
         overflowY: 'scroll',
-        maxHeight: 697,
+        //maxHeight: 697,
         minWidth: 250,
         padding: 0,
         marginTop: 0,

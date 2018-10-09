@@ -359,7 +359,7 @@ export const GenericDimension = () => {
                     border: '1px solid #494949',
                     borderRadius: 1,
                     position: 'relative',
-                    top: '37%',
+                    top: '42%',
                 }}
             />
         </div>
