@@ -164,9 +164,9 @@
     redux-logger "^3.0.6"
     redux-thunk "^2.2.0"
 
-"@dhis2/d2-ui-file-menu@^3.2.0":
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-file-menu/-/d2-ui-file-menu-3.2.0.tgz#cdc88f0b1a9a52f11547cb16e4dc45c8501b1a82"
+"@dhis2/d2-ui-file-menu@3.2.1":
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-file-menu/-/d2-ui-file-menu-3.2.1.tgz#a71324b61343a797a80446f20eeca42dff2c64d7"
   dependencies:
     "@dhis2/d2-i18n" "^1.0.3"
     "@dhis2/d2-ui-favorites-dialog" "^3.0.0"
