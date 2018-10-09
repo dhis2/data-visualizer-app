@@ -2,14 +2,7 @@ export const actionTypes = {
     ADD_METADATA: 'ADD_METADATA',
 };
 
-export const DEFAULT_METADATA = {
-    Uvn6LCg7dVU: {
-        name: 'ANC 1 Coverage',
-    },
-    sB79w2hiLp8: {
-        name: 'ANC 3 Coverage',
-    },
-};
+export const DEFAULT_METADATA = {};
 
 export default (state = DEFAULT_METADATA, action) => {
     switch (action.type) {

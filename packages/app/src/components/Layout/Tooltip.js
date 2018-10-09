@@ -2,10 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Popper from '@material-ui/core/Popper';
 import Paper from '@material-ui/core/Paper';
+import i18n from '@dhis2/d2-i18n';
 
 import { colors } from '../../colors';
 import { sGetUiItems } from '../../reducers/ui';
 import { sGetMetadata } from '../../reducers/metadata';
+
+const labels = {
+    noneSelected: i18n.t('None selected'),
+};
 
 class Tooltip extends React.Component {
     onMouseOverHandler = () =>
@@ -18,8 +23,26 @@ class Tooltip extends React.Component {
             anchorEl: null,
         });
 
-    renderPopper = objects => (
-        <Popper anchorEl={this.props.anchorEl} open={this.props.open}>
+    getNamesFromMetadata = () => {
+        const { itemIds, metadata } = this.props;
+
+        return itemIds.reduce(
+            (acc, id) => [
+                ...acc,
+                ...[metadata[id]]
+                    .filter(item => Boolean(item))
+                    .map(item => item.name),
+            ],
+            []
+        );
+    };
+
+    renderTooltip = names => (
+        <Popper
+            anchorEl={this.props.anchorEl}
+            open={this.props.open}
+            placement="bottom-end"
+        >
             <Paper
                 style={{
                     padding: '8px',
@@ -38,8 +61,10 @@ class Tooltip extends React.Component {
                             padding: 0,
                         }}
                     >
-                        {objects.map(obj => (
-                            <li key={obj.name}>{obj.name}</li>
+                        {names.map(name => (
+                            <li key={`${this.props.dimensionId}-${name}`}>
+                                {name}
+                            </li>
                         ))}
                     </ul>
                 }
@@ -48,22 +73,18 @@ class Tooltip extends React.Component {
     );
 
     render() {
-        const { items, metadata } = this.props;
+        const { itemIds } = this.props;
 
-        const objects = items.reduce(
-            (acc, id) => [
-                ...acc,
-                ...[metadata[id]].filter(item => Boolean(item)),
-            ],
-            []
-        );
+        const displayNames = itemIds.length
+            ? this.getNamesFromMetadata()
+            : [labels.none_selected];
 
-        return objects.length ? this.renderPopper(objects) : '';
+        return displayNames.length ? this.renderTooltip(displayNames) : '';
     }
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    items: sGetUiItems(state)[ownProps.dimensionId],
+    itemIds: sGetUiItems(state)[ownProps.dimensionId],
     metadata: sGetMetadata(state),
 });
 
