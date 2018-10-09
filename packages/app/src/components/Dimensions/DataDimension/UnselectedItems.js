@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
+import { throttle } from 'lodash-es';
 import { AssignButton, SelectAllButton } from './buttons';
 import { colors } from '../../../colors';
 
@@ -115,8 +116,15 @@ export class UnselectedItems extends Component {
         );
     };
 
-    //consider throttling?
-    onScrollItems = e => {
+    throttledScrollItems = (...args) => {
+        const throttled = throttle(...args);
+        return e => {
+            e.persist();
+            return throttled(e);
+        };
+    };
+
+    requestMoreItems = e => {
         const bottom =
             e.target.scrollHeight - e.target.scrollTop ===
             e.target.clientHeight;
@@ -136,7 +144,13 @@ export class UnselectedItems extends Component {
         );
 
         return (
-            <div style={style.container} onScroll={this.onScrollItems}>
+            <div
+                style={style.container}
+                onScroll={this.throttledScrollItems(
+                    this.requestMoreItems,
+                    1000
+                )}
+            >
                 <ul style={style.listContainer}>{dataDimensions}</ul>
                 <AssignButton action={this.onSelectClick} />
                 <SelectAllButton action={this.onSelectAllClick} />
