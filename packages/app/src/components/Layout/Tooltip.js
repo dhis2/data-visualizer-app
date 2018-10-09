@@ -13,20 +13,6 @@ const labels = {
 };
 
 class Tooltip extends React.Component {
-    getNamesFromMetadata = () => {
-        const { itemIds, metadata } = this.props;
-
-        return itemIds.reduce(
-            (acc, id) => [
-                ...acc,
-                ...[metadata[id]]
-                    .filter(item => Boolean(item))
-                    .map(item => item.name),
-            ],
-            []
-        );
-    };
-
     renderTooltip = names => (
         <Popper
             anchorEl={this.props.anchorEl}
@@ -65,10 +51,10 @@ class Tooltip extends React.Component {
     );
 
     render() {
-        const { itemIds } = this.props;
+        const { itemIds, metadata } = this.props;
 
         const displayNames = itemIds.length
-            ? this.getNamesFromMetadata()
+            ? itemIds.map(id => metadata[id] || id)
             : [labels.noneSelected];
 
         return displayNames.length ? this.renderTooltip(displayNames) : '';
