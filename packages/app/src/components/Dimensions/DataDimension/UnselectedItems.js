@@ -46,11 +46,14 @@ const style = {
     },
 };
 
-const UnselectedIcon = () => {
-    return <div style={style.icon} />;
-};
+const UnselectedIcon = () => <div style={style.icon} />;
 
 export class UnselectedItems extends Component {
+    constructor(props) {
+        super(props);
+        this.ulRef = React.createRef();
+    }
+
     state = { highlighted: [] };
 
     onSelectClick = () => {
@@ -73,11 +76,9 @@ export class UnselectedItems extends Component {
         this.setState({ highlighted: higlightedItems });
     };
 
-    onDoubleClickItem = id => {
-        this.props.onSelect([id]);
-    };
+    onDoubleClickItem = id => this.props.onSelect([id]);
 
-    renderUnselectedItem = dataDim => {
+    renderListItem = dataDim => {
         const itemStyle = this.state.highlighted.includes(dataDim.id)
             ? { ...style.unHighlighted, ...style.highlighted }
             : style.unHighlighted;
@@ -85,7 +86,6 @@ export class UnselectedItems extends Component {
         return (
             <li
                 className="dimension-item"
-                id={dataDim.id}
                 key={dataDim.id}
                 style={style.listItem}
             >
@@ -101,39 +101,23 @@ export class UnselectedItems extends Component {
         );
     };
 
-    throttledScrollItems = (...args) => {
-        const throttled = throttle(...args);
-        return e => {
-            e.persist();
-            return throttled(e);
-        };
-    };
+    requestMoreItems = throttle(() => {
+        const node = this.ulRef.current;
 
-    requestMoreItems = e => {
-        const bottom =
-            e.target.scrollHeight - e.target.scrollTop ===
-            e.target.clientHeight;
+        const bottom = node.scrollHeight - node.scrollTop === node.clientHeight;
         if (bottom) {
             this.props.requestMoreItems();
         }
-    };
+    }, 1000);
 
     render = () => {
-        const { items } = this.props;
-
-        const dataDimensions = items.map(listItem =>
-            this.renderUnselectedItem(listItem)
-        );
+        const listItems = this.props.items.map(i => this.renderListItem(i));
 
         return (
-            <div
-                style={style.container}
-                onScroll={this.throttledScrollItems(
-                    this.requestMoreItems,
-                    1000
-                )}
-            >
-                <ul style={style.listContainer}>{dataDimensions}</ul>
+            <div style={style.container} onScroll={this.requestMoreItems}>
+                <ul ref={this.ulRef} style={style.listContainer}>
+                    {listItems}
+                </ul>
                 <AssignButton action={this.onSelectClick} />
                 <SelectAllButton action={this.onSelectAllClick} />
             </div>
