@@ -1,3 +1,5 @@
+import i18n from '@dhis2/d2-i18n';
+
 import {
     apiFetchVisualization,
     apiSaveVisualization,
@@ -99,4 +101,18 @@ export const tDoSaveVisualization = (
     } catch (error) {
         return onError('tDoSaveVisualization', error);
     }
+};
+
+export const tDoDeleteVisualization = () => (dispatch, getState) => {
+    const current = sGetCurrent(getState());
+
+    dispatch(
+        fromSnackbar.acReceivedSnackbarMessage({
+            message: i18n.t(`"${current.name}" successfully deleted.`),
+            open: true,
+            duration: 2000,
+        })
+    );
+
+    history.push('/');
 };
