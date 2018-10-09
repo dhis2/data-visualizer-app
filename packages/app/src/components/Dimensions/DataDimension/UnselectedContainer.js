@@ -12,17 +12,14 @@ const style = {
 };
 
 export class UnselectedContainer extends Component {
-    state = {
-        searchText: '',
-        detailsOrTotals: '',
-    };
+    state = { filterText: '', detailsOrTotals: '' };
 
     handleDetailChange = detailsOrTotals => {
         this.setState({ detailsOrTotals });
     };
 
-    handleSearchTextChange = searchText => {
-        this.setState({ searchText });
+    onFilterTextChange = filterText => {
+        this.setState({ filterText });
     };
 
     render = () => {
@@ -40,14 +37,11 @@ export class UnselectedContainer extends Component {
                     onDetailChange={this.handleDetailChange}
                     detailValue={this.state.detailsOrTotals}
                 />
-                <SearchField
-                    searchFieldInput={this.state.searchText}
-                    onSearchFieldChange={this.handleSearchTextChange}
-                />
+                <SearchField onFilterTextChange={this.onFilterTextChange} />
                 <UnselectedItems
                     items={this.props.items}
                     onSelect={this.props.onSelect}
-                    searchFieldInput={this.state.searchText}
+                    filterText={this.state.filterText}
                     requestMoreItems={this.props.requestMoreItems}
                 />
             </div>

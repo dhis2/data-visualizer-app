@@ -74,11 +74,9 @@ export class UnselectedItems extends Component {
     };
 
     searchTextContains = displayName => {
-        const { searchFieldInput } = this.props;
+        const { filterText } = this.props;
 
-        return displayName
-            .toLowerCase()
-            .includes(searchFieldInput.toLowerCase());
+        return displayName.toLowerCase().includes(filterText.toLowerCase());
     };
 
     filterMatchingItems = dataDim => {
@@ -128,11 +126,11 @@ export class UnselectedItems extends Component {
     };
 
     render = () => {
-        const { items, searchFieldInput } = this.props;
+        const { items, filterText } = this.props;
 
         const dataDimensions = items.map(
             listItem =>
-                searchFieldInput.length
+                filterText.length
                     ? this.filterMatchingItems(listItem)
                     : this.renderUnselectedItem(listItem)
         );
@@ -150,7 +148,7 @@ export class UnselectedItems extends Component {
 UnselectedItems.propTypes = {
     items: PropTypes.array.isRequired,
     onSelect: PropTypes.func.isRequired,
-    searchFieldInput: PropTypes.string.isRequired,
+    filterText: PropTypes.string.isRequired,
     requestMoreItems: PropTypes.func.isRequired,
 };
 

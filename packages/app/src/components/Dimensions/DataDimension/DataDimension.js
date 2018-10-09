@@ -62,7 +62,12 @@ export class DataDimension extends Component {
         },
         selectedGroupId: '',
         dimensionItems: [],
+        nextPage: null,
         unselectedIds: [],
+    };
+
+    componentDidMount = async () => {
+        await this.updateUnselected(DEFAULT_DATATYPE_ID);
     };
 
     updateUnselected = async dataType => {
@@ -75,7 +80,15 @@ export class DataDimension extends Component {
             this.setState({ groups });
         }
 
-        const dimensionItems = await apiFetchAlternatives(dataType, ALL_ID);
+        const { dimensionItems, nextPage } = await apiFetchAlternatives(
+            dataType,
+            ALL_ID
+        );
+
+        const selectedIds = this.props.selectedItems[DX].map(i => i.id);
+        const unselectedIds = dimensionItems
+            .filter(i => !selectedIds.includes(i.id))
+            .map(i => i.id);
 
         const selectedGroupId = dataTypes[dataType].defaultGroup
             ? dataTypes[dataType].defaultGroup.id
@@ -85,11 +98,9 @@ export class DataDimension extends Component {
             dimensionItems,
             dataType,
             selectedGroupId,
+            unselectedIds,
+            nextPage,
         });
-    };
-
-    componentDidMount = async () => {
-        await this.updateUnselected(DEFAULT_DATATYPE_ID);
     };
 
     onDataTypeChange = async dataType => {
@@ -98,8 +109,8 @@ export class DataDimension extends Component {
         }
     };
 
-    handleGroupChange = async selectedGroupId => {
-        let dimensionItems = await apiFetchAlternatives(
+    onGroupChange = async selectedGroupId => {
+        let { dimensionItems, nextPage } = await apiFetchAlternatives(
             this.state.dataType,
             selectedGroupId
         );
@@ -118,6 +129,7 @@ export class DataDimension extends Component {
             dimensionItems,
             unselectedIds,
             selectedGroupId,
+            nextPage,
         });
     };
 
@@ -146,8 +158,30 @@ export class DataDimension extends Component {
         });
     };
 
-    requestMoreItems = () => {
-        console.log('requestMoreItems');
+    requestMoreItems = async () => {
+        if (this.state.nextPage) {
+            console.log('request page ', this.state.nextPage);
+            let { dimensionItems, nextPage } = await apiFetchAlternatives(
+                this.state.dataType,
+                this.state.selectedGroupId,
+                this.state.nextPage
+            );
+
+            const newDimensionItems = this.state.dimensionItems.concat(
+                dimensionItems
+            );
+
+            const selectedIds = this.props.selectedItems[DX].map(i => i.id);
+            const unselectedIds = newDimensionItems
+                .filter(i => !selectedIds.includes(i.id))
+                .map(i => i.id);
+
+            this.setState({
+                dimensionItems: newDimensionItems,
+                nextPage,
+                unselectedIds,
+            });
+        }
     };
 
     onUpdateClick = () => {
@@ -174,7 +208,7 @@ export class DataDimension extends Component {
                             dataType={this.state.dataType}
                             groups={groups}
                             selectedGroupId={this.state.selectedGroupId}
-                            onGroupChange={this.handleGroupChange}
+                            onGroupChange={this.onGroupChange}
                             onDataTypeChange={this.onDataTypeChange}
                             onSelect={this.selectDataDimensions}
                             requestMoreItems={this.requestMoreItems}

@@ -28,27 +28,25 @@ const style = {
     },
 };
 
-const INPUTFIELD_PLACEHOLDER = i18n.t('Search');
-
-export const SearchField = ({ onSearchFieldChange }) => {
+export const SearchField = ({ onFilterTextChange }) => {
     return (
         <div style={style.container}>
             <TextField
                 style={style.textField}
-                placeholder={INPUTFIELD_PLACEHOLDER}
+                placeholder={i18n.t('Search')}
                 InputProps={{
                     inputProps: { style: style.placeholder },
                     startAdornment: <Search style={style.searchIcon} />,
                     disableUnderline: true,
                 }}
-                onChange={event => onSearchFieldChange(event.target.value)}
+                onChange={event => onFilterTextChange(event.target.value)}
             />
         </div>
     );
 };
 
 SearchField.propTypes = {
-    onSearchFieldChange: PropTypes.func.isRequired,
+    onFilterTextChange: PropTypes.func.isRequired,
 };
 
 export default SearchField;
