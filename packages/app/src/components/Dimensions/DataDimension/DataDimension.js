@@ -87,6 +87,7 @@ export class DataDimension extends Component {
         const { dimensionItems, nextPage } = await apiFetchAlternatives({
             dataType: dataType,
             id: ALL_ID,
+            detail: this.state.groupDetail,
         });
 
         const selectedIds = this.props.selectedItems[DX].map(i => i.id);
@@ -145,31 +146,6 @@ export class DataDimension extends Component {
         });
     };
 
-    selectDataDimensions = selectedIds => {
-        const unselectedIds = this.state.unselectedIds.filter(
-            id => !selectedIds.includes(id)
-        );
-        this.setState({ unselectedIds });
-
-        const itemsToAdd = this.state.dimensionItems.filter(di =>
-            selectedIds.includes(di.id)
-        );
-        this.props.addDxItems({
-            dimensionType: DX,
-            value: itemsToAdd,
-        });
-    };
-
-    deselectDataDimensions = ids => {
-        const unselectedIds = [...new Set([...this.state.unselectedIds, ids])];
-        this.setState({ unselectedIds });
-
-        this.props.removeDxItems({
-            dimensionType: DX,
-            value: ids,
-        });
-    };
-
     requestMoreItems = async () => {
         if (this.state.nextPage) {
             let { dimensionItems, nextPage } = await apiFetchAlternatives({
@@ -199,19 +175,18 @@ export class DataDimension extends Component {
         this.props.onUpdate(this.props.ui);
     };
 
-    onDetailChange = async groupDetail => {
+    updateAlternatives = async ({ dataType, id, detail, filterText, page }) => {
         let { dimensionItems, nextPage } = await apiFetchAlternatives({
-            dataType: this.state.dataType,
-            id: this.state.selectedGroupId,
-            detail: groupDetail,
+            dataType,
+            id,
+            detail,
+            page,
+            filterText,
         });
 
-        const augmentFn = dataTypes[this.state.dataType].augmentAlternatives;
+        const augmentFn = dataTypes[dataType].augmentAlternatives;
         if (augmentFn) {
-            dimensionItems = augmentFn(
-                dimensionItems,
-                this.state.selectedGroupId
-            );
+            dimensionItems = augmentFn(dimensionItems, id);
         }
 
         const selectedIds = this.props.selectedItems[DX].map(i => i.id);
@@ -223,9 +198,20 @@ export class DataDimension extends Component {
             dimensionItems,
             unselectedIds,
             nextPage,
-            groupDetail,
         });
-        this.setState({ groupDetail });
+    };
+
+    onDetailChange = groupDetail => {
+        this.setState({ groupDetail }, () => {
+            const options = {
+                dataType: this.state.dataType,
+                id: this.state.selectedGroupId,
+                detail: this.state.groupDetail,
+                page: this.state.page - 1 || 1,
+                filterText: this.state.filterText,
+            };
+            return this.updateAlternatives(options);
+        });
     };
 
     updateDimensions = debounce(async () => {
@@ -258,6 +244,31 @@ export class DataDimension extends Component {
 
     onFilterTextChange = filterText => {
         this.setState({ filterText }, () => this.updateDimensions());
+    };
+
+    selectDataDimensions = selectedIds => {
+        const unselectedIds = this.state.unselectedIds.filter(
+            id => !selectedIds.includes(id)
+        );
+        this.setState({ unselectedIds });
+
+        const itemsToAdd = this.state.dimensionItems.filter(di =>
+            selectedIds.includes(di.id)
+        );
+        this.props.addDxItems({
+            dimensionType: DX,
+            value: itemsToAdd,
+        });
+    };
+
+    deselectDataDimensions = ids => {
+        const unselectedIds = [...new Set([...this.state.unselectedIds, ids])];
+        this.setState({ unselectedIds });
+
+        this.props.removeDxItems({
+            dimensionType: DX,
+            value: ids,
+        });
     };
 
     render = () => {
