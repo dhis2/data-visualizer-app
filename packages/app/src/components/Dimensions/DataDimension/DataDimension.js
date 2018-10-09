@@ -160,7 +160,6 @@ export class DataDimension extends Component {
 
     requestMoreItems = async () => {
         if (this.state.nextPage) {
-            console.log('request page ', this.state.nextPage);
             let { dimensionItems, nextPage } = await apiFetchAlternatives(
                 this.state.dataType,
                 this.state.selectedGroupId,
