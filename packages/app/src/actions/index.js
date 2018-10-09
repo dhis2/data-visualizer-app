@@ -1,3 +1,5 @@
+import i18n from '@dhis2/d2-i18n';
+
 import {
     apiFetchVisualization,
     apiSaveVisualization,
@@ -13,6 +15,7 @@ import * as fromUser from './user';
 import * as fromLoadError from './loadError';
 
 import { sGetCurrent } from '../reducers/current';
+import { sGetVisualization } from '../reducers/visualization';
 
 import history from '../history';
 
@@ -64,6 +67,44 @@ export const clearVisualization = dispatch => {
     dispatch(fromVisualization.acClear());
     dispatch(fromCurrent.acClear());
     dispatch(fromUi.acClear());
+};
+
+export const tDoRenameVisualization = (type, { name, description }) => (
+    dispatch,
+    getState
+) => {
+    const state = getState();
+
+    const visualization = sGetVisualization(state);
+    const current = sGetCurrent(state);
+
+    if (name) {
+        visualization.name = current.name = name;
+    }
+
+    if (description) {
+        visualization.description = current.description = description;
+    }
+
+    const updatedVisualization = { ...visualization };
+
+    dispatch(fromVisualization.acSetVisualization(updatedVisualization));
+
+    // keep the same reference for current if there are no changes
+    // but the name/description
+    if (visualization === current) {
+        dispatch(fromCurrent.acSetCurrent(updatedVisualization));
+    } else {
+        dispatch(fromCurrent.acSetCurrent({ ...current }));
+    }
+
+    dispatch(
+        fromSnackbar.acReceivedSnackbarMessage({
+            message: i18n.t('Rename successful'),
+            open: true,
+            duration: 2000,
+        })
+    );
 };
 
 export const tDoSaveVisualization = (
