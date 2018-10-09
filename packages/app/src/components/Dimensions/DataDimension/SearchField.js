@@ -28,13 +28,14 @@ const style = {
     },
 };
 
-export const SearchField = ({ onFilterTextChange }) => {
+export const SearchField = ({ text, onFilterTextChange }) => {
     return (
         <div style={style.container}>
             <TextField
                 style={style.textField}
                 placeholder={i18n.t('Search')}
                 InputProps={{
+                    value: text,
                     inputProps: { style: style.placeholder },
                     startAdornment: <Search style={style.searchIcon} />,
                     disableUnderline: true,
@@ -46,6 +47,7 @@ export const SearchField = ({ onFilterTextChange }) => {
 };
 
 SearchField.propTypes = {
+    text: PropTypes.string.isRequired,
     onFilterTextChange: PropTypes.func.isRequired,
 };
 

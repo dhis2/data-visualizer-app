@@ -85,34 +85,43 @@ const apiFetchDataElementGroups = () => {
         .catch(onError);
 };
 
-export const apiFetchAlternatives = ({ dataType, id, page = 1, detail }) => {
+export const apiFetchAlternatives = ({
+    dataType,
+    id,
+    page = 1,
+    detail,
+    filterText,
+}) => {
     switch (dataType) {
         case 'indicators': {
-            return apiFetchIndicators(id, page);
+            return apiFetchIndicators(id, page, filterText);
         }
         case 'dataElements': {
             if (detail === 'detail') {
-                return apiFetchDataElementOperands(id, page);
+                return apiFetchDataElementOperands(id, page, filterText);
             } else {
-                return apiFetchDataElements(id, page);
+                return apiFetchDataElements(id, page, filterText);
             }
         }
         case 'dataSets': {
             // TODO check current data viz
-            return apiFetchDataSets(page);
+            return apiFetchDataSets(page, filterText);
         }
         case 'eventDataItems':
         case 'programIndicators': {
-            return apiFetchProgramDataElements(id, page);
+            return apiFetchProgramDataElements(id, page, filterText);
         }
         default:
             return null;
     }
 };
 
-const apiFetchIndicators = (id, page) => {
+const apiFetchIndicators = (id, page, filterText) => {
     const fields = 'fields=id,displayName,dimensionItemType';
-    const filter = id !== 'ALL' ? `&filter=indicatorGroups.id:eq:${id}` : '';
+    let filter = id !== 'ALL' ? `&filter=indicatorGroups.id:eq:${id}` : '';
+    if (filterText) {
+        filter = filter.concat(`&filter=displayName:ilike:${filterText}`);
+    }
     const paging = `&paging=true&page=${page}`;
 
     const url = `/indicators?${fields}${filter}${paging}`;
@@ -129,16 +138,20 @@ const apiFetchIndicators = (id, page) => {
         .catch(onError);
 };
 
-const apiFetchDataElements = (id, page) => {
+const apiFetchDataElements = (id, page, filterText) => {
     const fields =
         id === 'ALL'
             ? 'id,displayName'
             : `dimensionItem~rename(id),displayName`;
 
-    const filter =
+    let filter =
         id === 'ALL'
             ? `&filter=domainType:eq:AGGREGATE`
             : `&filter=dataElementGroups.id:eq:${id}&filter=domainType:eq:AGGREGATE`;
+
+    if (filterText) {
+        filter = filter.concat(`&filter=displayName:ilike:${filterText}`);
+    }
 
     const paging = `&paging=true&page=${page}`;
     const url = `/dataElements?fields=${fields}${filter}${paging}`;
@@ -156,14 +169,18 @@ const apiFetchDataElements = (id, page) => {
         .catch(onError);
 };
 
-const apiFetchDataElementOperands = (id, page) => {
+const apiFetchDataElementOperands = (id, page, filterText) => {
     const fields =
         id === 'ALL'
             ? 'id,displayName'
             : `dimensionItem~rename(id),displayName`;
 
-    const filter =
+    let filter =
         id === 'ALL' ? '' : `&filter=dataElement.dataElementGroups.id:eq:${id}`;
+
+    if (filterText) {
+        filter = filter.concat(`&filter=displayName:ilike:${filterText}`);
+    }
     const paging = `&paging=true&page=${page}`;
 
     const url = `/dataElementOperands?fields=${fields}${filter}${paging}`;
@@ -181,10 +198,11 @@ const apiFetchDataElementOperands = (id, page) => {
         .catch(onError);
 };
 
-const apiFetchDataSets = page => {
+const apiFetchDataSets = (page, filterText) => {
     const fields = 'dimensionItem~rename(id),displayName';
+    const filter = filterText ? `&filter=displayName:ilike:${filterText}` : '';
     const paging = `&paging=true&page=${page}`;
-    const url = `/dataSets?fields=${fields}${paging}`;
+    const url = `/dataSets?fields=${fields}${filter}${paging}`;
 
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))
@@ -199,10 +217,11 @@ const apiFetchDataSets = page => {
         .catch(onError);
 };
 
-const apiFetchProgramIndicators = page => {
+const apiFetchProgramIndicators = (page, filterText) => {
     const fields = 'id,displayName';
+    const filter = filterText ? `&filter=displayName:ilike:${filterText}` : '';
     const paging = `&paging=true&page=${page}`;
-    const url = `/programs?fields=${fields}${paging}`;
+    const url = `/programs?fields=${fields}${filter}${paging}`;
 
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))
@@ -210,10 +229,11 @@ const apiFetchProgramIndicators = page => {
         .catch(onError);
 };
 
-const apiFetchProgramDataElements = (id, page) => {
+const apiFetchProgramDataElements = (id, page, filterText) => {
     const fields = `dimensionItem~rename(id),displayName`;
+    const filter = filterText ? `&filter=displayName:ilike:${filterText}` : '';
     const paging = `&paging=true&page=${page}`;
-    const url = `/programDataElements?program=${id}&fields=${fields}${paging}`;
+    const url = `/programDataElements?program=${id}&fields=${fields}${filter}${paging}`;
 
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))

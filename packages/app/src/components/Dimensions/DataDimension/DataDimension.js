@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { DialogActions, DialogContent } from '@material-ui/core';
 import i18n from '@dhis2/d2-i18n';
+import { debounce } from 'lodash-es';
 
 import UnselectedContainer from './UnselectedContainer';
 import SelectedItems from './SelectedItems';
@@ -66,6 +67,7 @@ export class DataDimension extends Component {
         nextPage: null,
         unselectedIds: [],
         groupDetail: '',
+        filterText: '',
     };
 
     componentDidMount = async () => {
@@ -226,6 +228,38 @@ export class DataDimension extends Component {
         this.setState({ groupDetail });
     };
 
+    updateDimensions = debounce(async () => {
+        let { dimensionItems, nextPage } = await apiFetchAlternatives({
+            dataType: this.state.dataType,
+            id: this.state.selectedGroupId,
+            detail: this.state.groupDetail,
+            filterText: this.state.filterText,
+        });
+
+        const augmentFn = dataTypes[this.state.dataType].augmentAlternatives;
+        if (augmentFn) {
+            dimensionItems = augmentFn(
+                dimensionItems,
+                this.state.selectedGroupId
+            );
+        }
+
+        const selectedIds = this.props.selectedItems[DX].map(i => i.id);
+        const unselectedIds = dimensionItems
+            .filter(i => !selectedIds.includes(i.id))
+            .map(i => i.id);
+
+        this.setState({
+            dimensionItems,
+            unselectedIds,
+            nextPage,
+        });
+    }, 300);
+
+    onFilterTextChange = filterText => {
+        this.setState({ filterText }, () => this.updateDimensions());
+    };
+
     render = () => {
         const unselected = this.state.dimensionItems.filter(di =>
             this.state.unselectedIds.includes(di.id)
@@ -252,6 +286,8 @@ export class DataDimension extends Component {
                             requestMoreItems={this.requestMoreItems}
                             groupDetail={this.state.groupDetail}
                             onDetailChange={this.onDetailChange}
+                            filterText={this.state.filterText}
+                            onFilterTextChange={this.onFilterTextChange}
                         />
                         <SelectedItems
                             items={this.props.selectedItems.dx}

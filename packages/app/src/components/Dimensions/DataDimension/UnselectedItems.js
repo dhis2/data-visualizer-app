@@ -73,18 +73,6 @@ export class UnselectedItems extends Component {
         this.setState({ highlighted: higlightedItems });
     };
 
-    // searchTextContains = displayName => {
-    //     const { filterText } = this.props;
-
-    //     return displayName.toLowerCase().includes(filterText.toLowerCase());
-    // };
-
-    // filterMatchingItems = dataDim => {
-    //     return this.searchTextContains(dataDim.displayName)
-    //         ? this.renderUnselectedItem(dataDim)
-    //         : null;
-    // };
-
     onDoubleClickItem = id => {
         this.props.onSelect([id]);
     };
@@ -131,13 +119,10 @@ export class UnselectedItems extends Component {
     };
 
     render = () => {
-        const { items, filterText } = this.props;
+        const { items } = this.props;
 
-        const dataDimensions = items.map(
-            listItem =>
-                filterText.length
-                    ? this.filterMatchingItems(listItem)
-                    : this.renderUnselectedItem(listItem)
+        const dataDimensions = items.map(listItem =>
+            this.renderUnselectedItem(listItem)
         );
 
         return (

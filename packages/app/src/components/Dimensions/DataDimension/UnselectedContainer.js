@@ -12,12 +12,6 @@ const style = {
 };
 
 export class UnselectedContainer extends Component {
-    state = { filterText: '' };
-
-    onFilterTextChange = filterText => {
-        this.setState({ filterText });
-    };
-
     render = () => {
         return (
             <div style={style.container}>
@@ -33,11 +27,14 @@ export class UnselectedContainer extends Component {
                     onDetailChange={this.props.onDetailChange}
                     detailValue={this.props.groupDetail}
                 />
-                <SearchField onFilterTextChange={this.onFilterTextChange} />
+                <SearchField
+                    text={this.props.filterText}
+                    onFilterTextChange={this.props.onFilterTextChange}
+                />
                 <UnselectedItems
                     items={this.props.items}
                     onSelect={this.props.onSelect}
-                    filterText={this.state.filterText}
+                    filterText={this.props.filterText}
                     requestMoreItems={this.props.requestMoreItems}
                 />
             </div>
@@ -56,6 +53,8 @@ UnselectedContainer.propTypes = {
     requestMoreItems: PropTypes.func.isRequired,
     groupDetail: PropTypes.string.isRequired,
     onDetailChange: PropTypes.func.isRequired,
+    filterText: PropTypes.string.isRequired,
+    onFilterTextChange: PropTypes.func.isRequired,
 };
 
 export default UnselectedContainer;
