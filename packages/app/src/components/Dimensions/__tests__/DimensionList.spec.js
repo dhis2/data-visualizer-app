@@ -13,8 +13,9 @@ describe('The DimensionList component ', () => {
     };
     beforeEach(() => {
         props = {
-            searchText: '',
             dimensions: {},
+            searchText: '',
+            selected: [],
             toggleDialog: jest.fn(),
         };
         shallowDimList = undefined;
@@ -30,19 +31,5 @@ describe('The DimensionList component ', () => {
             .first();
 
         expect(wrappingUl.children()).toEqual(dimList().children());
-    });
-
-    it('renders <DimensionItem /> without filtering matching dimensions when searcthext.length < 1', () => {
-        props.searchText = '';
-
-        //expect(dimList().props().searchText.length).toEqual(0);
-        //expect(dimList().instance().filterMatchingDimensions).tHoHaveBeenCalledTimes(0)
-    });
-
-    it('renders a filtered list of <DimensionItem /> when searchText.length >= 1', () => {
-        props.searchText = 'Data';
-
-        //expect(dimList().props().searchText.length).toEqual(4);
-        //expect(dimList().instance().filterMatchingDimensions).tHoHaveBeenCalledTimes(1)
     });
 });

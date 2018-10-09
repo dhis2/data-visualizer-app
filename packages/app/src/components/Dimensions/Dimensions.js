@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import { TextField } from '@material-ui/core';
 import { Search } from '@material-ui/icons';
 import i18n from '@dhis2/d2-i18n';
-import { colors } from '../../colors';
 import DimensionList from './DimensionList';
-import DialogManager from './DialogManager';
+import { DialogManager } from './DialogManager';
+import { colors } from '../../colors';
 
 const style = {
     divContainer: {
         backgroundColor: colors.lightGrey,
-        //height: 764,
         width: 250,
     },
     searchIcon: {

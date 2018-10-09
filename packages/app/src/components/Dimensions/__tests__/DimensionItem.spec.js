@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { DimensionItem } from '../DimensionItem';
-//import { DimensionLabel } from '../DimensionLabel';
-//import DimensionOptions from '../DimensionOptions';
-//import { RecommendedIcon } from '../icons';
+import DimensionLabel from '../DimensionLabel';
+import { DimensionOptions } from '../DimensionOptions';
+import RecommendedIcon from '../icons';
 
 describe('The DimensionItem component ', () => {
     let props;
@@ -16,12 +16,11 @@ describe('The DimensionItem component ', () => {
     };
     beforeEach(() => {
         props = {
-            id: 0,
-            key: false,
-            displayName: 'dimTestId',
+            id: 'idString',
+            displayName: '',
             isSelected: false,
             toggleDialog: jest.fn(),
-            isRecommended: [],
+            onRemoveDimension: jest.fn(),
         };
         shallowDimItem = undefined;
     });
@@ -38,15 +37,19 @@ describe('The DimensionItem component ', () => {
         expect(wrappingLi.children()).toEqual(dimItem().children());
     });
 
-    /*it('renders a <DimensionOptions /> component when onMouseOver or onFocus is equal to true', () => {
-        dimItem().state().mouseOver = true;
+    it('renders a <DimensionLabel /> ', () => {
+        const dimLabel = dimItem().find(DimensionLabel);
+        expect(dimLabel.length).toEqual(1);
+    });
+
+    it('renders a <RecommendedIcon />', () => {
+        const recommendedIcon = dimItem().find(RecommendedIcon);
+        expect(recommendedIcon.length).toEqual(1);
+    });
+    it('renders a <DimensionOptions /> when state mouseOver is true and prop isSelected is false', () => {
+        dimItem().setState({ mouseOver: true });
         const dimOptions = dimItem().find(DimensionOptions);
 
         expect(dimOptions.length).toEqual(1);
-    });*/
-
-    /*it('renders a <RecommendedIcon /> when prop isRecommended is equal to true', () => {
-        const recommendedIcon = dimItem().find(DimensionItem);
-        expect(recommendedIcon.length).toBe(1);
-    });*/
+    });
 });

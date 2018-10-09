@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
 import * as fromReducers from '../../reducers';
@@ -6,29 +7,27 @@ import { colors } from '../../colors';
 
 const style = {
     hintTextContainer: {
-        position: 'absolute',
-        height: 50,
-        width: 150,
         backgroundColor: '#696969',
+        position: 'absolute',
+        display: 'flex',
+        width: 150,
         borderRadius: 2,
         zIndex: 100,
     },
-    renderPos: {},
     hintText: {
-        color: 'white',
+        color: colors.white,
+        wordBreak: 'break-all',
         fontSize: 12,
-        position: 'relative',
-        top: 5,
-        left: 5,
+        margin: 5,
     },
     recommendedIcon: {
-        position: 'static',
         backgroundColor: colors.accentSecondaryLight,
+        position: 'static',
         height: 7,
         width: 7,
-        borderRadius: 5,
         marginTop: 10,
         marginLeft: 4,
+        borderRadius: 5,
     },
     iconWrapper: {
         paddingLeft: 5,
@@ -42,8 +41,8 @@ const style = {
 
 const TOP_PIXEL_PADDING_POS = 15;
 const LEFT_PIXEL_PADDING_POS = 40;
-const MAX_TOP_PIXEL_POS = 765;
-const LAST_ELEMENT_LEFT_PIXEL_POS = 160;
+const MAX_TOP_PIXEL_POS = 850;
+const LAST_ELEMENT_LEFT_PIXEL_POS = 170;
 
 export class RecommendedIcon extends Component {
     state = { mouseOver: false };
@@ -62,7 +61,7 @@ export class RecommendedIcon extends Component {
     };
 
     showHintText = () => {
-        const renderPos = this.getRenderPos();
+        const renderPos = this.refs.recommendedWrapper && this.getRenderPos();
         const hintTextStyle = { ...style.hintTextContainer, ...renderPos };
         const displayName = i18n.t('Dimension recommended with selected data');
 
@@ -113,6 +112,12 @@ export class RecommendedIcon extends Component {
 const mapStateToProps = state => ({
     isRecommended: fromReducers.fromRecommendedIds.sGetRecommendedIds(state),
 });
+
+RecommendedIcon.propTypes = {
+    id: PropTypes.string.isRequired,
+    isSelected: PropTypes.bool.isRequired,
+    isRecommended: PropTypes.array.isRequired,
+};
 
 export default connect(mapStateToProps)(RecommendedIcon);
 

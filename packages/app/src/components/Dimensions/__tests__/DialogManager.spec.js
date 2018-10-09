@@ -1,14 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import {
-    //Button,
-    Dialog,
-    //DialogActions,
-    DialogContent,
-} from '@material-ui/core';
+import { Dialog, DialogContent } from '@material-ui/core';
 import { DialogManager } from '../DialogManager';
-//import { DataDimension } from '../DataDimension';
-//import { PeriodDimension } from '../PeriodDimension';
+
 describe('The DialogManager component ', () => {
     let props;
     let shallowDialog;

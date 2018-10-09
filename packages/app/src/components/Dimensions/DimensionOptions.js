@@ -20,7 +20,7 @@ const style = {
     },
 };
 
-const MAX_TOP_PIXEL_POS = 696;
+const MAX_TOP_PIXEL_POS = 800;
 const LEFT_RENDER_PIXEL_POS = 5;
 
 export const OptionsButton = ({ action }) => {
@@ -80,6 +80,7 @@ export class DimensionOptions extends Component {
 }
 
 DimensionOptions.propTypes = {
+    id: PropTypes.string.isRequired,
     toggleHoverListener: PropTypes.func.isRequired,
 };
 

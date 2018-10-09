@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import DimensionItem from './DimensionItem';
+import { connect } from 'react-redux';
+import { DimensionItem } from './DimensionItem';
 import * as fromReducers from '../../reducers';
 
 const style = {
     listContainer: {
         overflow: 'hidden',
         overflowY: 'scroll',
-        //maxHeight: 697,
         minWidth: 250,
         padding: 0,
         marginTop: 0,

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { acAddUiLayoutDimensions } from '../../actions/ui';
 import i18n from '@dhis2/d2-i18n';
+import { acAddUiLayoutDimensions } from '../../actions/ui';
 import { colors } from '../../colors';
 
 const items = [
@@ -78,6 +79,13 @@ export class DropDown extends Component {
         return <div style={dropdownStyle}>{dropDown}</div>;
     };
 }
+
+DropDown.propTypes = {
+    renderPos: PropTypes.object.isRequired,
+    id: PropTypes.string.isRequired,
+    onClose: PropTypes.func.isRequired,
+    onAddDimension: PropTypes.func.isRequired,
+};
 
 export default connect(
     null,

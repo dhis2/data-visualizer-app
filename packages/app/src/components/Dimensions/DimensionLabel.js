@@ -2,21 +2,17 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Close } from '@material-ui/icons';
-import { colors } from '../../colors';
 import { acRemoveUiLayoutDimensions } from '../../actions/ui';
+import { colors } from '../../colors';
 
 const style = {
     unselected: {
         display: 'flex',
-        minWidth: 'fit-content',
         borderRadius: 4,
         marginLeft: 5,
     },
     selected: {
         backgroundColor: colors.lightBlue,
-    },
-    label: {
-        display: 'flex',
     },
     deleteButton: {
         border: 'none',
@@ -77,7 +73,7 @@ export class DimensionLabel extends Component {
                 onClick={this.onLabelClick}
                 onKeyPress={this.onKeyPress}
                 tabIndex={0}
-                style={style.label}
+                style={style.unselected}
             >
                 {this.props.children}
             </div>
