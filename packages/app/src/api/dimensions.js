@@ -85,22 +85,17 @@ const apiFetchDataElementGroups = () => {
         .catch(onError);
 };
 
-export const apiFetchAlternatives = ({
-    dataType,
-    id,
-    page = 1,
-    detail,
-    filterText,
-}) => {
+export const apiFetchAlternatives = args => {
+    const { dataType, groupId, page = 1, groupDetail, filterText } = args;
     switch (dataType) {
         case 'indicators': {
-            return apiFetchIndicators(id, page, filterText);
+            return apiFetchIndicators(groupId, page, filterText);
         }
         case 'dataElements': {
-            if (detail === 'detail') {
-                return apiFetchDataElementOperands(id, page, filterText);
+            if (groupDetail === 'detail') {
+                return apiFetchDataElementOperands(groupId, page, filterText);
             } else {
-                return apiFetchDataElements(id, page, filterText);
+                return apiFetchDataElements(groupId, page, filterText);
             }
         }
         case 'dataSets': {
@@ -109,7 +104,7 @@ export const apiFetchAlternatives = ({
         }
         case 'eventDataItems':
         case 'programIndicators': {
-            return apiFetchProgramDataElements(id, page, filterText);
+            return apiFetchProgramDataElements(groupId, page, filterText);
         }
         default:
             return null;

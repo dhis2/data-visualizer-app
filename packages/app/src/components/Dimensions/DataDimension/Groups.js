@@ -66,7 +66,7 @@ const Groups = props => {
                     {dataTypes[props.dataType].groupLabel}
                 </InputLabel>
                 <Select
-                    value={props.selectedGroupId}
+                    value={props.groupId}
                     onChange={handleChange}
                     SelectDisplayProps={{ style: style.dropDown }}
                     disableUnderline
@@ -88,6 +88,7 @@ const Groups = props => {
 Groups.propTypes = {
     dataType: PropTypes.string.isRequired,
     groups: PropTypes.array.isRequired,
+    groupId: PropTypes.string.isRequired,
     onGroupChange: PropTypes.func.isRequired,
     onDetailChange: PropTypes.func.isRequired,
     detailValue: PropTypes.string.isRequired,

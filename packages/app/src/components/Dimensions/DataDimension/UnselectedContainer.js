@@ -22,7 +22,7 @@ export class UnselectedContainer extends Component {
                 <Groups
                     dataType={this.props.dataType}
                     groups={this.props.groups}
-                    selectedGroupId={this.props.selectedGroupId}
+                    groupId={this.props.groupId}
                     onGroupChange={this.props.onGroupChange}
                     onDetailChange={this.props.onDetailChange}
                     detailValue={this.props.groupDetail}
@@ -46,7 +46,7 @@ UnselectedContainer.propTypes = {
     dataType: PropTypes.string.isRequired,
     items: PropTypes.array.isRequired,
     groups: PropTypes.array.isRequired,
-    selectedGroupId: PropTypes.string.isRequired,
+    groupId: PropTypes.string.isRequired,
     onGroupChange: PropTypes.func.isRequired,
     onDataTypeChange: PropTypes.func.isRequired,
     onSelect: PropTypes.func.isRequired,
