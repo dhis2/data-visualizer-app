@@ -41,12 +41,37 @@ class Chip extends React.Component {
 
     id = Math.random().toString(36);
 
-    getDragStartHandler = source => e => setDataTransfer(e, source);
+    timeout = null;
 
-    onMouseToggle = () => {
+    handleMouseEnter = () => {
+        this.timeout = setTimeout(
+            () =>
+                this.setState({
+                    tooltipOpen: true,
+                }),
+            500
+        );
+    };
+
+    handleMouseLeave = () => {
+        clearTimeout(this.timeout);
+        this.timeout = null;
+
         this.setState({
-            tooltipOpen: !this.state.tooltipOpen,
+            tooltipOpen: false,
         });
+    };
+
+    handleClick = event => {
+        this.handleMouseLeave();
+
+        this.props.onClick(event);
+    };
+
+    getDragStartHandler = source => e => {
+        this.handleMouseLeave();
+
+        setDataTransfer(e, source);
     };
 
     renderChip = () => {
@@ -61,10 +86,10 @@ class Chip extends React.Component {
                 data-dimensionid={this.props.dimensionId}
                 style={styles.chip}
                 draggable="true"
-                onClick={this.props.onClick}
+                onClick={this.handleClick}
                 onDragStart={this.getDragStartHandler(this.props.axisName)}
-                onMouseOver={this.onMouseToggle}
-                onMouseOut={this.onMouseToggle}
+                onMouseEnter={this.handleMouseEnter}
+                onMouseLeave={this.handleMouseLeave}
             >
                 {chipLabel}
                 <div style={styles.menuWrapper}>

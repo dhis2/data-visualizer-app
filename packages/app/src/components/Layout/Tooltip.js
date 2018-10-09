@@ -13,16 +13,6 @@ const labels = {
 };
 
 class Tooltip extends React.Component {
-    onMouseOverHandler = () =>
-        this.setState({
-            anchorEl: document.getElementById(this.id),
-        });
-
-    onMouseOutHandler = () =>
-        this.setState({
-            anchorEl: null,
-        });
-
     getNamesFromMetadata = () => {
         const { itemIds, metadata } = this.props;
 
@@ -41,24 +31,26 @@ class Tooltip extends React.Component {
         <Popper
             anchorEl={this.props.anchorEl}
             open={this.props.open}
-            placement="bottom-end"
+            placement="bottom-start"
         >
             <Paper
                 style={{
                     padding: '8px',
-                    fontSize: '12px',
                     color: colors.white,
+                    fontSize: '12px',
                     backgroundColor: '#4a4a4a',
                     boxShadow: 'none',
                     borderRadius: '3px',
+                    position: 'relative',
+                    top: '3px',
                 }}
             >
                 {
                     <ul
                         style={{
                             listStyleType: 'none',
-                            margin: 0,
-                            padding: 0,
+                            margin: '0px',
+                            padding: '0px',
                         }}
                     >
                         {names.map(name => (
@@ -77,7 +69,7 @@ class Tooltip extends React.Component {
 
         const displayNames = itemIds.length
             ? this.getNamesFromMetadata()
-            : [labels.none_selected];
+            : [labels.noneSelected];
 
         return displayNames.length ? this.renderTooltip(displayNames) : '';
     }
