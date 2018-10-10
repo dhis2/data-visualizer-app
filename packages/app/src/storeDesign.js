@@ -3,11 +3,12 @@
 const state = {
     // Analytical object as retrieved from the API (with the correct field filtering)
     // Typically set when opening an analytics object via the favorites menu
-    visualization: {},
-
-    // Object holding the source of the currently shown visualization
     // Init state: null
-    current: null,
+    visualization: null,
+
+    // Object containing the source of the currently shown visualization
+    // Init state: {}
+    current: {},
 
     // Object {id:dimension} of dimensions to show in left panel
     // Init state: null
@@ -19,7 +20,7 @@ const state = {
     // Keeping them seperated from dimensions for performance reasons
     recommendedIds: [],
 
-    // Object holding default and current state for the components
+    // Object containing default and current state for the components
     ui: {
         type: 'column',
         options: {
@@ -37,6 +38,10 @@ const state = {
             ou: ['USER_ORGUNIT'],
         },
     },
+
+    // Object containing all fetched metadata for lookup
+    // Init state: {}
+    metadata: {},
 
     // Object containing info to be displayed in the snackbar
     snackbar: {

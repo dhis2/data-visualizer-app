@@ -14,6 +14,7 @@ export const actionTypes = {
     SET_UI_OPTIONS: 'SET_UI_OPTIONS',
     SET_UI_LAYOUT: 'SET_UI_LAYOUT',
     ADD_UI_LAYOUT_DIMENSIONS: 'ADD_UI_LAYOUT_DIMENSIONS',
+    REMOVE_UI_LAYOUT_DIMENSIONS: 'REMOVE_UI_LAYOUT_DIMENSIONS',
     SET_UI_ITEMS: 'SET_UI_ITEMS',
     ADD_UI_ITEMS: 'ADD_UI_ITEMS',
     REMOVE_UI_ITEMS: 'REMOVE_UI_ITEMS',
@@ -101,7 +102,7 @@ export default (state = DEFAULT_UI, action) => {
                 layout: newLayout,
             };
         }
-        case actionTypes.REMOVE_UI_LAYOUT_DIMENSION: {
+        case actionTypes.REMOVE_UI_LAYOUT_DIMENSIONS: {
             return {
                 ...state,
                 layout: getFilteredLayout(state.layout, action.value),
@@ -115,7 +116,6 @@ export default (state = DEFAULT_UI, action) => {
                 },
             };
         }
-
         case actionTypes.ADD_UI_ITEMS: {
             const { dimensionType: type, value: items } = action.value;
             const dxItems = [

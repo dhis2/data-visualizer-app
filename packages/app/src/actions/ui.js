@@ -35,7 +35,7 @@ export const acAddUiLayoutDimensions = value => ({
 });
 
 export const acRemoveUiLayoutDimensions = value => ({
-    type: actionTypes.REMOVE_UI_LAYOUT_DIMENSION,
+    type: actionTypes.REMOVE_UI_LAYOUT_DIMENSIONS,
     value,
 });
 

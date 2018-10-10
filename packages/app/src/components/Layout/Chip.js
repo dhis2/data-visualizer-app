@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
 
+import Menu from './Menu';
+import Tooltip from './Tooltip';
 import { setDataTransfer } from '../../dnd';
 import { sGetDimensions } from '../../reducers/dimensions';
 import * as layoutStyle from './style';
@@ -16,48 +18,103 @@ const styles = {
         fontWeight: layoutStyle.CHIP_FONT_WEIGHT,
         backgroundColor: layoutStyle.CHIP_BACKGROUND_COLOR,
         color: layoutStyle.CHIP_COLOR,
-        borderRadius: 5,
+        borderRadius: layoutStyle.CHIP_BORDER_RADIUS,
+        display: 'flex',
         cursor: 'pointer',
         whiteSpace: 'nowrap',
         overflow: 'hidden',
         textOverflow: 'ellipsis',
     },
+    menuWrapper: {
+        marginLeft: 2,
+    },
 };
 
-const getDragStartHandler = source => e => setDataTransfer(e, source);
-
-const renderChip = (dimensionLabel, items = [], axisName, dimensionId) => {
-    const itemsLabel = `: ${items.length} ${
-        items.length > 1 ? i18n.t('items') : i18n.t('item')
-    }`;
-
-    const chipLabel = `${dimensionLabel}${items.length > 0 ? itemsLabel : ''}`;
-
-    return (
-        <div
-            data-dimensionid={dimensionId}
-            style={styles.chip}
-            draggable="true"
-            onDragStart={getDragStartHandler(axisName)}
-        >
-            {chipLabel}
-        </div>
-    );
+const labels = {
+    selected: i18n.t('selected'),
 };
 
-const Chip = ({ dimensions, itemsByDimension, axisName, dimensionId }) =>
-    dimensionId
-        ? renderChip(
-              dimensions[dimensionId].displayName,
-              itemsByDimension[dimensionId],
-              axisName,
-              dimensionId
-          )
-        : '';
+class Chip extends React.Component {
+    state = {
+        tooltipOpen: false,
+    };
 
-const mapStateToProps = state => ({
-    dimensions: sGetDimensions(state),
-    itemsByDimension: sGetUiItems(state),
+    id = Math.random().toString(36);
+
+    timeout = null;
+
+    handleMouseEnter = () => {
+        this.timeout = setTimeout(
+            () =>
+                this.setState({
+                    tooltipOpen: true,
+                }),
+            500
+        );
+    };
+
+    handleMouseLeave = () => {
+        clearTimeout(this.timeout);
+        this.timeout = null;
+
+        this.setState({
+            tooltipOpen: false,
+        });
+    };
+
+    handleClick = event => {
+        this.handleMouseLeave();
+
+        this.props.onClick(event);
+    };
+
+    getDragStartHandler = source => e => {
+        this.handleMouseLeave();
+
+        setDataTransfer(e, source);
+    };
+
+    renderChip = () => {
+        const itemsLabel = `: ${this.props.items.length} ${labels.selected}`;
+        const chipLabel = `${this.props.dimensionName}${
+            this.props.items.length > 0 ? itemsLabel : ''
+        }`;
+
+        return (
+            <div
+                id={this.id}
+                data-dimensionid={this.props.dimensionId}
+                style={styles.chip}
+                draggable="true"
+                onClick={this.handleClick}
+                onDragStart={this.getDragStartHandler(this.props.axisName)}
+                onMouseEnter={this.handleMouseEnter}
+                onMouseLeave={this.handleMouseLeave}
+            >
+                {chipLabel}
+                <div style={styles.menuWrapper}>
+                    <Menu
+                        id={this.props.dimensionId}
+                        menuItems={this.props.menuItems}
+                    />
+                </div>
+                <Tooltip
+                    dimensionId={this.props.dimensionId}
+                    open={this.state.tooltipOpen}
+                    anchorEl={document.getElementById(this.id)}
+                />
+            </div>
+        );
+    };
+
+    render() {
+        return this.props.dimensionId ? this.renderChip() : '';
+    }
+}
+
+const mapStateToProps = (state, ownProps) => ({
+    dimensionName: sGetDimensions(state)[ownProps.dimensionId].displayName,
+    items: sGetUiItems(state)[ownProps.dimensionId] || [],
 });
 
 export default connect(mapStateToProps)(Chip);

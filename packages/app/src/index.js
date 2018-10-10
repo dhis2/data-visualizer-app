@@ -10,13 +10,10 @@ import { init as d2Init, config, getUserSettings } from 'd2/lib/d2';
 
 import i18n from './locales';
 import configureStore from './configureStore';
+import metadataMiddleware from './middleware/metadata';
 
 import App from './components/App';
 import { muiTheme } from './theme';
-
-// tmp
-import { MuiThemeProvider as V0MuiThemeProvider } from 'material-ui';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 const apiObjectName = 'chart';
 
@@ -33,16 +30,14 @@ const configI18n = async userSettings => {
 
 const render = (location, baseUrl, d2) => {
     ReactDOM.render(
-        <Provider store={configureStore()}>
+        <Provider store={configureStore(metadataMiddleware)}>
             <MuiThemeProvider theme={muiTheme()}>
-                <V0MuiThemeProvider muiTheme={getMuiTheme({})}>
-                    <App
-                        location={location}
-                        baseUrl={baseUrl}
-                        d2={d2}
-                        apiObjectName={apiObjectName}
-                    />
-                </V0MuiThemeProvider>
+                <App
+                    location={location}
+                    baseUrl={baseUrl}
+                    d2={d2}
+                    apiObjectName={apiObjectName}
+                />
             </MuiThemeProvider>
         </Provider>,
         document.getElementById('root')
