@@ -41,8 +41,9 @@ export const getFilteredLayout = (layout, excludedIds) => {
     };
 };
 
-export const getItemsByDimensionId = dimensions =>
-    dimensions.reduce(
+export const getItemIdsByDimension = visualization => {
+    const dimensions = getAllDimensions(visualization);
+    return dimensions.reduce(
         (map, dim) => ({
             ...map,
             [dim[DIMENSION_ID_PROP_NAME]]: dim[DIMENSION_ITEMS_PROP_NAME].map(
@@ -51,9 +52,7 @@ export const getItemsByDimensionId = dimensions =>
         }),
         {}
     );
-
-export const getItemIdsByDimension = visualization =>
-    getItemsByDimensionId(getAllDimensions(visualization));
+};
 
 export const getDimensionIdsByAxis = visualization => {
     const axes = getPropsByKeys(visualization, AXIS_NAMES);

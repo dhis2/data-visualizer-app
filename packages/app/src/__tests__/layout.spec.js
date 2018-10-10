@@ -1,7 +1,6 @@
 import {
     AXIS_NAMES,
     getAllDimensions,
-    getItemIdsByDimensionId,
     getItemIdsByDimension,
     getDimensionIdsByAxis,
 } from '../layout.js';
@@ -9,32 +8,32 @@ import {
 const [COLUMNS, ROWS, FILTERS] = AXIS_NAMES;
 
 const dxId = 'dx';
-const dxItem1Id = 'dxItem1';
-const dxItem2Id = 'dxItem2';
+const dxItem1 = { id: 'dxItem1id' };
+const dxItem2 = { id: 'dxItem2id' };
 const dx = {
     dimension: dxId,
-    items: [{ id: dxItem1Id }, { id: dxItem2Id }],
+    items: [dxItem1, dxItem2],
 };
 
 const otherId = 'other';
-const otherItem1Id = 'otherItem1';
+const otherItem1 = { id: 'otherItem1id' };
 const other = {
     dimension: otherId,
-    items: [{ id: otherItem1Id }],
+    items: [otherItem1],
 };
 
 const peId = 'pe';
-const peItem1Id = 'peItem1';
+const peItem1 = { id: 'peItem1id' };
 const pe = {
     dimension: peId,
-    items: [{ id: peItem1Id }],
+    items: [peItem1],
 };
 
 const ouId = 'ou';
-const ouItem1Id = 'ouItem1';
+const ouItem1 = { id: 'ouItem1id' };
 const ou = {
     dimension: ouId,
-    items: [{ id: ouItem1Id }],
+    items: [ouItem1],
 };
 
 const visualization = {
@@ -52,28 +51,13 @@ describe('getAllDimensions', () => {
     });
 });
 
-describe('getItemIdsByDimensionId', () => {
-    it('should return an object with item ids by dimension id from an array of dimensions', () => {
-        const expectedState = {
-            [dxId]: [dxItem1Id, dxItem2Id],
-            [otherId]: [otherItem1Id],
-            [peId]: [peItem1Id],
-            [ouId]: [ouItem1Id],
-        };
-        const allDimensions = getAllDimensions(visualization);
-        const actualState = getItemIdsByDimensionId(allDimensions);
-
-        expect(actualState).toEqual(expectedState);
-    });
-});
-
 describe('getItemIdsByDimension', () => {
     it('should return an object with item ids by dimension id from a visualization', () => {
         const expectedState = {
-            [dxId]: [dxItem1Id, dxItem2Id],
-            [otherId]: [otherItem1Id],
-            [peId]: [peItem1Id],
-            [ouId]: [ouItem1Id],
+            [dxId]: [dxItem1, dxItem2],
+            [otherId]: [otherItem1],
+            [peId]: [peItem1],
+            [ouId]: [ouItem1],
         };
         const actualState = getItemIdsByDimension(visualization);
 
