@@ -115,9 +115,7 @@ class Chip extends React.Component {
                     id={this.id}
                     style={styles.chipLeft}
                     onClick={this.handleClick}
-                    onMouseEnter={this.handleMouseOver}
                     onMouseOver={this.handleMouseOver}
-                    onMouseLeave={this.handleMouseOut}
                     onMouseOut={this.handleMouseOut}
                 >
                     {chipLabel}
