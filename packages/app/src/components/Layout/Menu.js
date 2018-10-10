@@ -27,6 +27,12 @@ class ChipMenu extends React.Component {
         this.setState({ anchorEl: null });
     };
 
+    // handleMouseOver = event => {
+    //     event.preventDefault();
+    //     event.stopPropagation();
+    //     console.log('stopped');
+    // };
+
     getMenuId = () => `menu-for-${this.props.id}`;
 
     render() {

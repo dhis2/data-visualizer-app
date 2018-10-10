@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
 
 import Menu from './Menu';
+import Tooltip from './Tooltip';
 import { setDataTransfer } from '../../dnd';
 import { sGetDimensions } from '../../reducers/dimensions';
 import * as layoutStyle from './style';
@@ -34,7 +35,44 @@ const labels = {
 };
 
 class Chip extends React.Component {
-    getDragStartHandler = source => e => setDataTransfer(e, source);
+    state = {
+        tooltipOpen: false,
+    };
+
+    id = Math.random().toString(36);
+
+    timeout = null;
+
+    handleMouseEnter = () => {
+        this.timeout = setTimeout(
+            () =>
+                this.setState({
+                    tooltipOpen: true,
+                }),
+            500
+        );
+    };
+
+    handleMouseLeave = () => {
+        clearTimeout(this.timeout);
+        this.timeout = null;
+
+        this.setState({
+            tooltipOpen: false,
+        });
+    };
+
+    handleClick = event => {
+        this.handleMouseLeave();
+
+        this.props.onClick(event);
+    };
+
+    getDragStartHandler = source => e => {
+        this.handleMouseLeave();
+
+        setDataTransfer(e, source);
+    };
 
     renderChip = () => {
         const itemsLabel = `: ${this.props.items.length} ${labels.selected}`;
@@ -44,11 +82,14 @@ class Chip extends React.Component {
 
         return (
             <div
+                id={this.id}
                 data-dimensionid={this.props.dimensionId}
                 style={styles.chip}
                 draggable="true"
-                onClick={this.props.onClick}
+                onClick={this.handleClick}
                 onDragStart={this.getDragStartHandler(this.props.axisName)}
+                onMouseEnter={this.handleMouseEnter}
+                onMouseLeave={this.handleMouseLeave}
             >
                 {chipLabel}
                 <div style={styles.menuWrapper}>
@@ -57,6 +98,11 @@ class Chip extends React.Component {
                         menuItems={this.props.menuItems}
                     />
                 </div>
+                <Tooltip
+                    dimensionId={this.props.dimensionId}
+                    open={this.state.tooltipOpen}
+                    anchorEl={document.getElementById(this.id)}
+                />
             </div>
         );
     };
