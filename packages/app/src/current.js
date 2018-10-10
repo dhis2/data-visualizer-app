@@ -1,25 +1,29 @@
-const getModelAxis = (dimensionId, itemIds) => ({
+const getModelAxis = (dimensionId, items) => ({
     dimension: dimensionId,
-    items: itemIds.map(id => ({
-        id,
+    items: items.map(item => ({
+        id: item.id,
     })),
 });
 
 const hasItems = (object, id) =>
     object.hasOwnProperty(id) && Array.isArray(object[id]) && object[id].length;
 
-export const getAxesFromUi = ui =>
-    Object.entries(ui.layout).reduce(
-        (layout, [axisName, ids]) => ({
+export const getAxesFromUi = ui => {
+    return Object.entries(ui.layout).reduce(
+        (layout, [axisName, dimensions]) => ({
             ...layout,
-            [axisName]: ids
+            [axisName]: dimensions
                 .map(
-                    id =>
-                        hasItems(ui.itemsByDimension, id)
-                            ? getModelAxis(id, ui.itemsByDimension[id])
+                    dimension =>
+                        hasItems(ui.itemsByDimension, dimension)
+                            ? getModelAxis(
+                                  dimension,
+                                  ui.itemsByDimension[dimension]
+                              )
                             : null
                 )
                 .filter(dim => dim !== null),
         }),
         {}
     );
+};

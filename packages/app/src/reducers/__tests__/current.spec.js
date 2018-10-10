@@ -36,9 +36,15 @@ describe('reducer: current', () => {
                 filters: ['pe'],
             },
             itemsByDimension: {
-                dx: ['dxId1', 'dxId2'],
-                ou: ['ouId1', 'ouId2'],
-                pe: ['peId1'],
+                dx: [
+                    { id: 'dxId1', name: 'dx item1' },
+                    { id: 'dxId2', name: 'dx item2' },
+                ],
+                ou: [
+                    { id: 'ouId1', name: 'ou item1' },
+                    { id: 'ouId2', name: 'ou item2' },
+                ],
+                pe: [{ id: 'peId1', name: 'pe item1' }],
             },
             options,
         };

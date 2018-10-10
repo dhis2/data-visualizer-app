@@ -50,6 +50,7 @@ const style = {
 };
 
 const DX = 'dx';
+const FIRST_PAGE = 1;
 
 export class DataDimension extends Component {
     //defaults
@@ -103,42 +104,18 @@ export class DataDimension extends Component {
         this.setState({ dataType, groupId, groupDetail }, updateCb);
     };
 
-    requestMoreItems = async () => {
+    requestMoreItems = () => {
         if (this.state.nextPage) {
-            let { dimensionItems, nextPage } = await apiFetchAlternatives({
-                dataType: this.state.dataType,
-                groupId: this.state.groupId,
-                page: this.state.nextPage,
-            });
-
-            const augmentFn =
-                dataTypes[this.state.dataType].augmentAlternatives;
-            if (augmentFn) {
-                dimensionItems = augmentFn(dimensionItems, this.state.groupId);
-            }
-
-            const newDimensionItems = this.state.dimensionItems.concat(
-                dimensionItems
-            );
-
-            const selectedIds = this.props.selectedItems[DX].map(i => i.id);
-            const unselectedIds = newDimensionItems
-                .filter(i => !selectedIds.includes(i.id))
-                .map(i => i.id);
-
-            this.setState({
-                dimensionItems: newDimensionItems,
-                nextPage,
-                unselectedIds,
-            });
+            this.updateAlternatives(this.state.nextPage, true);
         }
     };
 
     onUpdateClick = () => {
         this.props.onUpdate(this.props.ui);
+        this.props.toggleDialog(null);
     };
 
-    updateAlternatives = async (page = 1) => {
+    updateAlternatives = async (page = FIRST_PAGE, concatItems = false) => {
         const { dataType, groupId, groupDetail, filterText } = this.state;
         let { dimensionItems, nextPage } = await apiFetchAlternatives({
             dataType,
@@ -153,24 +130,28 @@ export class DataDimension extends Component {
             dimensionItems = augmentFn(dimensionItems, groupId);
         }
 
+        const newDimensionItems = concatItems
+            ? this.state.dimensionItems.concat(dimensionItems)
+            : dimensionItems;
+
         const selectedIds = this.props.selectedItems[DX].map(i => i.id);
-        const unselectedIds = dimensionItems
+        const unselectedIds = newDimensionItems
             .filter(i => !selectedIds.includes(i.id))
             .map(i => i.id);
 
         this.setState({
-            dimensionItems,
+            dimensionItems: newDimensionItems,
             unselectedIds,
             nextPage,
         });
     };
 
     onGroupChange = async groupId => {
-        this.setState({ groupId }, () => this.updateAlternatives());
+        this.setState({ groupId }, this.updateAlternatives);
     };
 
     onDetailChange = groupDetail => {
-        this.setState({ groupDetail }, () => this.updateAlternatives());
+        this.setState({ groupDetail }, this.updateAlternatives);
     };
 
     onFilterTextChange = filterText => {

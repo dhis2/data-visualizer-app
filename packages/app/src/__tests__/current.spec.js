@@ -4,32 +4,32 @@ import { getAxesFromUi } from '../current';
 const [COLUMNS, ROWS, FILTERS] = AXIS_NAMES;
 
 const dxId = 'dx';
-const dxItem1Id = 'dxItem1';
-const dxItem2Id = 'dxItem2';
+const dxItem1 = { id: 'dxItem1id' };
+const dxItem2 = { id: 'dxItem2id' };
 const dx = {
     dimension: dxId,
-    items: [{ id: dxItem1Id }, { id: dxItem2Id }],
+    items: [dxItem1, dxItem2],
 };
 
 const otherId = 'other';
-const otherItem1Id = 'otherItem1';
+const otherItem1 = { id: 'otherItem1id' };
 const other = {
     dimension: otherId,
-    items: [{ id: otherItem1Id }],
+    items: [otherItem1],
 };
 
 const peId = 'pe';
-const peItem1Id = 'peItem1';
+const peItem1 = { id: 'peItem1id' };
 const pe = {
     dimension: peId,
-    items: [{ id: peItem1Id }],
+    items: [peItem1],
 };
 
 const ouId = 'ou';
-const ouItem1Id = 'ouItem1';
+const ouItem1 = { id: 'ouItem1id' };
 const ou = {
     dimension: ouId,
-    items: [{ id: ouItem1Id }],
+    items: [ouItem1],
 };
 
 const emptyId = 'empty';
@@ -41,10 +41,10 @@ const ui = {
         [FILTERS]: [ouId],
     },
     itemsByDimension: {
-        [dxId]: dx.items.map(i => i.id),
-        [otherId]: other.items.map(i => i.id),
-        [peId]: pe.items.map(i => i.id),
-        [ouId]: ou.items.map(i => i.id),
+        [dxId]: dx.items,
+        [otherId]: other.items,
+        [peId]: pe.items,
+        [ouId]: ou.items,
     },
 };
 

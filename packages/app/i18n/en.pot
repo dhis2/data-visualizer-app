@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-10-08T11:56:11.792Z\n"
-"PO-Revision-Date: 2018-10-08T11:56:11.792Z\n"
+"POT-Creation-Date: 2018-10-10T08:45:05.439Z\n"
+"PO-Revision-Date: 2018-10-10T08:45:05.439Z\n"
 
 msgid "Reporting rates"
 msgstr ""
@@ -30,12 +30,6 @@ msgid "Data Type"
 msgstr ""
 
 msgid "Detail"
-msgstr ""
-
-msgid "Totals"
-msgstr ""
-
-msgid "Details"
 msgstr ""
 
 msgid "Search"
@@ -72,6 +66,12 @@ msgid "Select data element group"
 msgstr ""
 
 msgid "[ All data elements ]"
+msgstr ""
+
+msgid "Totals"
+msgstr ""
+
+msgid "Details"
 msgstr ""
 
 msgid "Data sets"
