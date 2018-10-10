@@ -78,6 +78,87 @@ describe('index', () => {
         });
     });
 
+    describe('tDoRenameVisualization', () => {
+        const visualization = {
+            id: 'r1',
+            content: 'burp!',
+        };
+
+        const current = {
+            ...visualization,
+            modified: true,
+        };
+
+        const extraParams = {
+            name: 'rename-test',
+            description: 'Rename test',
+        };
+
+        it('dispatches the correct actions after successfully renaming the original visualization', () => {
+            const store = mockStore({
+                visualization,
+                current: visualization,
+            });
+
+            const expectedActions = [
+                {
+                    type: fromReducers.actionTypes.SET_VISUALIZATION,
+                    value: { ...visualization, ...extraParams },
+                },
+                {
+                    type: fromReducers.actionTypes.SET_CURRENT,
+                    value: { ...visualization, ...extraParams },
+                },
+                {
+                    type: fromReducers.actionTypes.RECEIVED_SNACKBAR_MESSAGE,
+                    value: {
+                        message: 'Rename successful',
+                        open: true,
+                        duration: 2000,
+                    },
+                },
+            ];
+
+            store.dispatch(
+                fromActions.tDoRenameVisualization('chart', extraParams)
+            );
+
+            expect(store.getActions()).toEqual(expectedActions);
+        });
+
+        it('dispatched the correct actions after successfully renaming the modified visualization', () => {
+            const store = mockStore({
+                visualization,
+                current,
+            });
+
+            const expectedActions = [
+                {
+                    type: fromReducers.actionTypes.SET_VISUALIZATION,
+                    value: { ...visualization, ...extraParams },
+                },
+                {
+                    type: fromReducers.actionTypes.SET_CURRENT,
+                    value: { ...current, ...extraParams },
+                },
+                {
+                    type: fromReducers.actionTypes.RECEIVED_SNACKBAR_MESSAGE,
+                    value: {
+                        message: 'Rename successful',
+                        open: true,
+                        duration: 2000,
+                    },
+                },
+            ];
+
+            store.dispatch(
+                fromActions.tDoRenameVisualization('chart', extraParams)
+            );
+
+            expect(store.getActions()).toEqual(expectedActions);
+        });
+    });
+
     describe('tDoSaveVisualization', () => {
         let uid = 1;
 
