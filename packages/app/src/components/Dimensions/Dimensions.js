@@ -31,6 +31,7 @@ export class Dimensions extends Component {
     };
 
     toggleDialog = value => {
+        
         this.setState({
             dialogDimId: value,
         });

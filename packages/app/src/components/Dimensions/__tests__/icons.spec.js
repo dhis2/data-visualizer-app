@@ -34,7 +34,7 @@ describe('The RecommendedIcon component ', () => {
             expect(wrappingDiv.children()).toEqual(recIcon().children());
         });
 
-        it('renders a hint text when state mouseOver is true', () => {
+        it('renders a <span /> with hint text when state mouseOver is true', () => {
             recIcon().setState({ mouseOver: true });
 
             expect(recIcon().find('span').length).toEqual(1);
