@@ -15,7 +15,7 @@ describe('The SelectedItems component ', () => {
 
     beforeEach(() => {
         props = {
-            items: {},
+            items: [],
             onDeselect: jest.fn(),
         };
         shallowSelectedItems = undefined;

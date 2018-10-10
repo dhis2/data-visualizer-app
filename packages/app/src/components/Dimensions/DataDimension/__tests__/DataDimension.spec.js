@@ -16,6 +16,11 @@ describe('The DataDimension component ', () => {
 
     beforeEach(() => {
         props = {
+            selectedItems: {},
+            ui: {},
+            removeDxItems: jest.fn(),
+            addDxItems: jest.fn(),
+            onUpdate: jest.fn(),
             toggleDialog: jest.fn(),
         };
         shallowDataDim = undefined;

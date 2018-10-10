@@ -14,9 +14,10 @@ describe('The SelectedContainer component ', () => {
 
     beforeEach(() => {
         props = {
-            items: {},
+            items: [],
+            filterText: '',
             onSelect: jest.fn(),
-            searchFieldInput: '',
+            requestMoreItems: jest.fn(),
         };
         shallowItems = undefined;
     });
