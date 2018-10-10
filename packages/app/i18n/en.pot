@@ -5,10 +5,13 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-10-09T12:51:06.383Z\n"
-"PO-Revision-Date: 2018-10-09T12:51:06.383Z\n"
+"POT-Creation-Date: 2018-10-10T18:37:43.731Z\n"
+"PO-Revision-Date: 2018-10-10T18:37:43.731Z\n"
 
 msgid "Rename successful"
+msgstr ""
+
+msgid "\"{{what}}\" successfully deleted."
 msgstr ""
 
 msgid "Data Dimension"
@@ -48,6 +51,9 @@ msgid "Move to"
 msgstr ""
 
 msgid "Remove"
+msgstr ""
+
+msgid "None selected"
 msgstr ""
 
 msgid "Update"
