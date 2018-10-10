@@ -78,24 +78,26 @@ export const tDoRenameVisualization = (type, { name, description }) => (
     const visualization = sGetVisualization(state);
     const current = sGetCurrent(state);
 
+    const updatedVisualization = { ...visualization };
+    const updatedCurrent = { ...current };
+
     if (name) {
-        visualization.name = current.name = name;
+        updatedVisualization.name = updatedCurrent.name = name;
     }
 
     if (description) {
-        visualization.description = current.description = description;
+        updatedVisualization.description = updatedCurrent.description = description;
     }
-
-    const updatedVisualization = { ...visualization };
 
     dispatch(fromVisualization.acSetVisualization(updatedVisualization));
 
     // keep the same reference for current if there are no changes
     // but the name/description
     if (visualization === current) {
+        console.log('equal');
         dispatch(fromCurrent.acSetCurrent(updatedVisualization));
     } else {
-        dispatch(fromCurrent.acSetCurrent({ ...current }));
+        dispatch(fromCurrent.acSetCurrent(updatedCurrent));
     }
 
     dispatch(
