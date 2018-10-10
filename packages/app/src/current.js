@@ -8,8 +8,8 @@ const getModelAxis = (dimensionId, items) => ({
 const hasItems = (object, id) =>
     object.hasOwnProperty(id) && Array.isArray(object[id]) && object[id].length;
 
-export const getAxesFromUi = ui => {
-    return Object.entries(ui.layout).reduce(
+export const getAxesFromUi = ui =>
+    Object.entries(ui.layout).reduce(
         (layout, [axisName, dimensions]) => ({
             ...layout,
             [axisName]: dimensions
@@ -26,4 +26,3 @@ export const getAxesFromUi = ui => {
         }),
         {}
     );
-};
