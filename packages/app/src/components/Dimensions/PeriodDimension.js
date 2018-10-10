@@ -1,56 +1,111 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { DialogContent, DialogActions, Button } from '@material-ui/core';
 import { PeriodSelector } from '@dhis2/d2-ui-period-selector-dialog';
 import i18n from '@dhis2/d2-i18n';
 
 import { sGetUiItems, sGetUi } from '../../reducers/ui';
 import { acSetCurrentFromUi } from '../../actions/current';
 //import { acRemoveUiItems, acAddUiItems } from '../../actions/ui';
+import { colors } from '../../colors';
 
 const PE = 'pe';
+const DIALOG_TITLE = i18n.t('Period');
+const Hide = i18n.t('Hide');
+const Update = i18n.t('Update');
+
+const style = {
+    container: {
+        maxHeight: 677,
+        width: 795,
+        overflow: 'hidden',
+    },
+    updateButton: {
+        //redundant
+        marginLeft: 10,
+        marginRight: 24,
+        backgroundColor: colors.blue,
+    },
+    updateText: {
+        color: colors.white,
+        fontSize: 13,
+        letterSpacing: 0.46,
+    },
+};
+
+export const HideButton = ({ action }) => {
+    return (
+        <Button onClick={action}>
+            <span style={style.hideText}>{Hide}</span>
+        </Button>
+    );
+};
+
+export const UpdateButton = ({ action }) => {
+    return (
+        <Button
+            variant={'outlined'}
+            style={style.updateButton}
+            onClick={action}
+        >
+            <span style={style.updateText}>{Update}</span>
+        </Button>
+    );
+};
 
 export class PeriodDimension extends Component {
     state = {
         periods: [],
     };
 
-    savePeriods = periods => {
-        this.setState({
-            periods,
-        });
+    handleClose = periods => {
         this.props.toggleDialog(null);
     };
 
-    handleClose = periods => {
+    handleUpdate = periods => {
         console.log(periods);
-        this.savePeriods(periods);
+
+        this.props.onUpdate(this.props.ui);
+        this.handleClose(null);
     };
 
     handlePeriodsSelect = periods => {
         console.log(periods);
     };
 
-    handleUpdate = periods => {
-        console.log(periods);
-        console.log(this.state.periods);
-
-        const itemsToAdd = periods.map(item => item.id);
-
+    selectPeriodDimensions = selectedIds => {
         this.props.addPeItems({
             dimensionType: PE,
-            value: itemsToAdd,
+            value: selectedIds,
         });
-        this.savePeriods(periods);
+    };
+
+    deselectPeriodDimensions = selectedIds => {
+        this.props.removePeItems({
+            dimensionType: PE,
+            value: selectedIds,
+        });
     };
 
     render = () => {
-        console.log(this.props.selectedItems);
+        console.log(this.props.selectedItems.pe);
         return (
-            <PeriodSelector
-                d2={this.props.d2}
-                periods={this.props.selectedItems.pe}
-                onPeriodsSelect={this.handlePeriodsSelect}
-            />
+            <div style={style.container}>
+                <DialogContent>
+                    <h3>{DIALOG_TITLE}</h3>
+                    <PeriodSelector
+                        d2={this.props.d2}
+                        periods={this.props.selectedItems.pe}
+                        onPeriodsSelect={this.handlePeriodsSelect}
+                    />
+                </DialogContent>
+                <DialogActions>
+                    <HideButton action={this.handleClose}>{Hide}</HideButton>
+                    <UpdateButton action={this.handleUpdate}>
+                        {Update}
+                    </UpdateButton>
+                </DialogActions>
+            </div>
         );
     };
 }

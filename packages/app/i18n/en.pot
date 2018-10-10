@@ -5,16 +5,16 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-10-10T10:52:23.735Z\n"
-"PO-Revision-Date: 2018-10-10T10:52:23.735Z\n"
+"POT-Creation-Date: 2018-10-10T14:22:43.113Z\n"
+"PO-Revision-Date: 2018-10-10T14:22:43.113Z\n"
+
+msgid "Rename successful"
+msgstr ""
+
+msgid "\"{{what}}\" successfully deleted."
+msgstr ""
 
 msgid "Data Dimension"
-msgstr ""
-
-msgid "Hide"
-msgstr ""
-
-msgid "Update"
 msgstr ""
 
 msgid "Search Dimensions"
@@ -30,6 +30,15 @@ msgid "Add to filter"
 msgstr ""
 
 msgid "OrgUnit Dimension"
+msgstr ""
+
+msgid "Period"
+msgstr ""
+
+msgid "Hide"
+msgstr ""
+
+msgid "Update"
 msgstr ""
 
 msgid "Dimension recommended with selected data"
@@ -240,9 +249,6 @@ msgid "Bubble"
 msgstr ""
 
 msgid "Year on year"
-msgstr ""
-
-msgid "Period"
 msgstr ""
 
 msgid "Organisation Unit"
