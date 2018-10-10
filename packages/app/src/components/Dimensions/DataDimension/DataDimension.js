@@ -5,7 +5,10 @@ import { DialogActions, DialogContent } from '@material-ui/core';
 import i18n from '@dhis2/d2-i18n';
 import { debounce } from 'lodash-es';
 
-import UnselectedContainer from './UnselectedContainer';
+import DataTypes from './DataTypesSelector';
+import Groups from './Groups';
+import SearchField from './SearchField';
+import UnselectedItems from './UnselectedItems';
 import SelectedItems from './SelectedItems';
 import { HideButton, UpdateButton } from './buttons';
 
@@ -201,20 +204,30 @@ export class DataDimension extends Component {
                 <DialogContent style={style.dialogContent}>
                     <h3 style={style.dialogTitle}>{i18n.t('Data')}</h3>
                     <div style={style.subContainer}>
-                        <UnselectedContainer
-                            items={unselected}
-                            dataType={this.state.dataType}
-                            groups={groups}
-                            groupId={this.state.groupId}
-                            onGroupChange={this.onGroupChange}
-                            onDataTypeChange={this.onDataTypeChange}
-                            onSelect={this.selectDataDimensions}
-                            requestMoreItems={this.requestMoreItems}
-                            groupDetail={this.state.groupDetail}
-                            onDetailChange={this.onDetailChange}
-                            filterText={this.state.filterText}
-                            onFilterTextChange={this.onFilterTextChange}
-                        />
+                        <div style={{ paddingRight: 46 }}>
+                            <DataTypes
+                                currentDataType={this.state.dataType}
+                                onDataTypeChange={this.onDataTypeChange}
+                            />
+                            <Groups
+                                dataType={this.state.dataType}
+                                groups={groups}
+                                groupId={this.state.groupId}
+                                onGroupChange={this.onGroupChange}
+                                onDetailChange={this.onDetailChange}
+                                detailValue={this.state.groupDetail}
+                            />
+                            <SearchField
+                                text={this.state.filterText}
+                                onFilterTextChange={this.onFilterTextChange}
+                            />
+                            <UnselectedItems
+                                items={unselected}
+                                onSelect={this.selectDataDimensions}
+                                filterText={this.state.filterText}
+                                requestMoreItems={this.requestMoreItems}
+                            />
+                        </div>
                         <SelectedItems
                             items={this.props.selectedItems.dx}
                             onDeselect={this.deselectDataDimensions}
