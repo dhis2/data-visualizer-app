@@ -108,7 +108,9 @@ export const tDoDeleteVisualization = () => (dispatch, getState) => {
 
     dispatch(
         fromSnackbar.acReceivedSnackbarMessage({
-            message: i18n.t(`"${current.name}" successfully deleted.`),
+            message: i18n.t('"{{what}}" successfully deleted.', {
+                what: current.name,
+            }),
             open: true,
             duration: 2000,
         })
