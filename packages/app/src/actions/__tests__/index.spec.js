@@ -91,7 +91,7 @@ describe('index', () => {
             });
 
             const expectedActions = [
-                {
+                { 
                     type: fromReducers.actionTypes.RECEIVED_SNACKBAR_MESSAGE,
                     value: {
                         message: '"delete test" successfully deleted.',
@@ -106,6 +106,168 @@ describe('index', () => {
             expect(store.getActions()).toEqual(expectedActions);
             expect(history.default.push).toHaveBeenCalled();
             expect(history.default.push).toHaveBeenCalledWith('/');
+        });
+    });
+
+    describe('tDoRenameVisualization', () => {
+        const visualization = {
+            id: 'r1',
+            content: 'burp!',
+        };
+
+        const current = {
+            ...visualization,
+            modified: true,
+        };
+
+        const extraParams = {
+            name: 'rename-test',
+            description: 'Rename test',
+        };
+
+        it('dispatches the correct actions after successfully renaming the original visualization', () => {
+            const store = mockStore({
+                visualization,
+                current: visualization,
+            });
+
+            const expectedActions = [
+                {
+                    type: fromReducers.actionTypes.SET_VISUALIZATION,
+                    value: { ...visualization, ...extraParams },
+                },
+                {
+                    type: fromReducers.actionTypes.SET_CURRENT,
+                    value: { ...visualization, ...extraParams },
+                },
+                {
+                    type: fromReducers.actionTypes.RECEIVED_SNACKBAR_MESSAGE,
+                    value: {
+                        message: 'Rename successful',
+                        open: true,
+                        duration: 2000,
+                    },
+                },
+            ];
+
+            store.dispatch(
+                fromActions.tDoRenameVisualization('chart', extraParams)
+            );
+
+            expect(store.getActions()).toEqual(expectedActions);
+        });
+
+        it('dispatched the correct actions after successfully renaming the modified visualization', () => {
+            const store = mockStore({
+                visualization,
+                current,
+            });
+
+            const expectedActions = [
+                {
+                    type: fromReducers.actionTypes.SET_VISUALIZATION,
+                    value: { ...visualization, ...extraParams },
+                },
+                {
+                    type: fromReducers.actionTypes.SET_CURRENT,
+                    value: { ...current, ...extraParams },
+                },
+                {
+                    type: fromReducers.actionTypes.RECEIVED_SNACKBAR_MESSAGE,
+                    value: {
+                        message: 'Rename successful',
+                        open: true,
+                        duration: 2000,
+                    },
+                },
+            ];
+
+            store.dispatch(
+                fromActions.tDoRenameVisualization('chart', extraParams)
+            );
+
+            expect(store.getActions()).toEqual(expectedActions);
+        });
+    });
+
+    describe('tDoSaveVisualization', () => {
+        let uid = 1;
+
+        const vis = {
+            id: uid,
+            content: 'hey',
+        };
+
+        const extraParams = { name: 'test', description: 'test' };
+
+        const store = mockStore({
+            current: vis,
+        });
+
+        // history function mocks
+        history.default.push = jest.fn();
+        history.default.replace = jest.fn();
+
+        api.apiSaveVisualization = jest.fn((type, vis) => {
+            return Promise.resolve({
+                status: 'OK',
+                response: {
+                    uid,
+                },
+            });
+        });
+
+        it('replaces the location in history on successful save', () => {
+            const expectedVis = {
+                ...vis,
+                ...extraParams,
+            };
+
+            return store
+                .dispatch(
+                    fromActions.tDoSaveVisualization(
+                        'chart',
+                        extraParams,
+                        false
+                    )
+                )
+                .then(() => {
+                    expect(api.apiSaveVisualization).toHaveBeenCalled();
+                    expect(api.apiSaveVisualization).toHaveBeenCalledWith(
+                        'chart',
+                        expectedVis
+                    );
+                    expect(history.default.replace).toHaveBeenCalled();
+                    expect(history.default.replace).toHaveBeenCalledWith(
+                        `/${uid}`
+                    );
+                });
+        });
+
+        it('pushes a new location in history on successful save as', () => {
+            uid = 2;
+
+            const expectedVis = {
+                ...vis,
+                id: undefined,
+                ...extraParams,
+            };
+
+            return store
+                .dispatch(
+                    fromActions.tDoSaveVisualization('chart', extraParams, true)
+                )
+                .then(() => {
+                    expect(api.apiSaveVisualization).toHaveBeenCalled();
+                    expect(api.apiSaveVisualization).toHaveBeenCalledWith(
+                        'chart',
+                        expectedVis
+                    );
+                    expect(history.default.push).toHaveBeenCalled();
+                    expect(history.default.push).toHaveBeenCalledWith(
+                        `/${uid}`
+                    );
+                });
         });
     });
 });

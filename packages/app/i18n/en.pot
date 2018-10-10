@@ -5,8 +5,11 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-10-04T07:40:31.674Z\n"
-"PO-Revision-Date: 2018-10-04T07:40:31.674Z\n"
+"POT-Creation-Date: 2018-10-09T12:51:06.383Z\n"
+"PO-Revision-Date: 2018-10-09T12:51:06.383Z\n"
+
+msgid "Rename successful"
+msgstr ""
 
 msgid "Data Dimension"
 msgstr ""

@@ -12,6 +12,8 @@ import history from '../../history';
 
 const onOpen = id => history.push(`/${id}`);
 const onNew = () => history.push('/');
+const getOnRename = props => details =>
+    props.onRenameVisualization(details, false);
 const getOnSave = props => details => props.onSaveVisualization(details, false);
 const getOnSaveAs = props => details =>
     props.onSaveVisualization(details, true);
@@ -26,6 +28,7 @@ export const MenuBar = (props, context) => (
             fileType={props.apiObjectName}
             onOpen={onOpen}
             onNew={onNew}
+            onRename={getOnRename(props)}
             onSave={getOnSave(props)}
             onSaveAs={getOnSaveAs(props)}
             onDelete={getOnDelete(props)}
@@ -49,6 +52,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
+    onRenameVisualization: details =>
+        dispatch(
+            fromActions.tDoRenameVisualization(ownProps.apiObjectName, details)
+        ),
     onSaveVisualization: (details, copy) =>
         dispatch(
             fromActions.tDoSaveVisualization(

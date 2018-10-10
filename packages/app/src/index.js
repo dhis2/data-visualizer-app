@@ -10,6 +10,7 @@ import { init as d2Init, config, getUserSettings } from 'd2/lib/d2';
 
 import i18n from './locales';
 import configureStore from './configureStore';
+import metadataMiddleware from './middleware/metadata';
 
 import App from './components/App';
 import { muiTheme } from './theme';
@@ -29,7 +30,7 @@ const configI18n = async userSettings => {
 
 const render = (location, baseUrl, d2) => {
     ReactDOM.render(
-        <Provider store={configureStore()}>
+        <Provider store={configureStore(metadataMiddleware)}>
             <MuiThemeProvider theme={muiTheme()}>
                 <App
                     location={location}
