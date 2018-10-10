@@ -9,6 +9,8 @@ import { sGetDimensions } from '../../reducers/dimensions';
 import * as layoutStyle from './style';
 import { sGetUiItems } from '../../reducers/ui';
 
+const TOOLTIP_ENTER_DELAY = 500;
+
 const styles = {
     chipWrapper: {
         display: 'flex',
@@ -70,7 +72,7 @@ class Chip extends React.Component {
                     this.setState({
                         tooltipOpen: true,
                     }),
-                500
+                TOOLTIP_ENTER_DELAY
             );
         }
     };
