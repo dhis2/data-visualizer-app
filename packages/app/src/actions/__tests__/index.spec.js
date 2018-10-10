@@ -91,7 +91,7 @@ describe('index', () => {
             });
 
             const expectedActions = [
-                { 
+                {
                     type: fromReducers.actionTypes.RECEIVED_SNACKBAR_MESSAGE,
                     value: {
                         message: '"delete test" successfully deleted.',
