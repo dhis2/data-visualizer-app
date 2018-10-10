@@ -63,8 +63,6 @@ class Chip extends React.Component {
 
     timeout = null;
 
-    chipLeftStyle = {};
-
     handleMouseOver = () => {
         if (this.timeout === null) {
             this.timeout = setTimeout(
