@@ -59,6 +59,7 @@ export class PeriodDimension extends Component {
     };
 
     handleClose = periods => {
+        console.log(periods);
         this.props.toggleDialog(null);
     };
 
@@ -67,10 +68,6 @@ export class PeriodDimension extends Component {
 
         this.props.onUpdate(this.props.ui);
         this.handleClose(null);
-    };
-
-    handlePeriodsSelect = periods => {
-        console.log(periods);
     };
 
     selectPeriodDimensions = selectedIds => {
@@ -88,7 +85,7 @@ export class PeriodDimension extends Component {
     };
 
     render = () => {
-        console.log(this.props.selectedItems.pe);
+        //console.log(this.props.selectedItems.pe);
         return (
             <div style={style.container}>
                 <DialogContent>
@@ -96,7 +93,8 @@ export class PeriodDimension extends Component {
                     <PeriodSelector
                         d2={this.props.d2}
                         periods={this.props.selectedItems.pe}
-                        onPeriodsSelect={this.handlePeriodsSelect}
+                        onSelect={this.selectPeriodDimensions}
+                        onDeselect={this.deselectPeriodDimensions}
                     />
                 </DialogContent>
                 <DialogActions>
