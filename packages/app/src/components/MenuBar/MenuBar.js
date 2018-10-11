@@ -12,9 +12,12 @@ import history from '../../history';
 
 const onOpen = id => history.push(`/${id}`);
 const onNew = () => history.push('/');
+const getOnRename = props => details =>
+    props.onRenameVisualization(details, false);
 const getOnSave = props => details => props.onSaveVisualization(details, false);
 const getOnSaveAs = props => details =>
     props.onSaveVisualization(details, true);
+const getOnDelete = props => () => props.onDeleteVisualization();
 
 export const MenuBar = (props, context) => (
     <div className="menubar">
@@ -25,8 +28,10 @@ export const MenuBar = (props, context) => (
             fileType={props.apiObjectName}
             onOpen={onOpen}
             onNew={onNew}
+            onRename={getOnRename(props)}
             onSave={getOnSave(props)}
             onSaveAs={getOnSaveAs(props)}
+            onDelete={getOnDelete(props)}
             onTranslate={() => console.log('translate callback')}
             onError={() => console.log('error!')}
         />
@@ -47,6 +52,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
+    onRenameVisualization: details =>
+        dispatch(
+            fromActions.tDoRenameVisualization(ownProps.apiObjectName, details)
+        ),
     onSaveVisualization: (details, copy) =>
         dispatch(
             fromActions.tDoSaveVisualization(
@@ -55,6 +64,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
                 copy
             )
         ),
+    onDeleteVisualization: () => dispatch(fromActions.tDoDeleteVisualization()),
 });
 
 export default connect(
