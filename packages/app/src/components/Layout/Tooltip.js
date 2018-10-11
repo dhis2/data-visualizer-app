@@ -54,7 +54,7 @@ class Tooltip extends React.Component {
         const { itemIds, metadata } = this.props;
 
         const displayNames = (itemIds || []).length
-            ? itemIds.map(id => metadata[id] || id)
+            ? itemIds.map(id => (metadata[id] ? metadata[id].name : id))
             : [labels.noneSelected];
 
         return displayNames.length ? this.renderTooltip(displayNames) : '';
