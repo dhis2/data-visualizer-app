@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { MenuItem } from '@material-ui/core';
 import DropDown from './DropDown';
 import { MoreHorizontal } from './icons';
+import i18n from '@dhis2/d2-i18n';
+import { acAddUiLayoutDimensions } from '../../actions/ui';
 
 const style = {
     wrapper: {
-        position: 'static',
         height: 24,
     },
     dropDownButton: {
@@ -20,8 +23,20 @@ const style = {
     },
 };
 
-const MAX_TOP_PIXEL_POS = 800;
-const LEFT_RENDER_PIXEL_POS = 5;
+const items = [
+    {
+        axisName: 'columns',
+        displayName: i18n.t('Add to series'),
+    },
+    {
+        axisName: 'rows',
+        displayName: i18n.t('Add to category'),
+    },
+    {
+        axisName: 'filters',
+        displayName: i18n.t('Add to filter'),
+    },
+];
 
 export const OptionsButton = ({ action }) => {
     return (
@@ -32,48 +47,57 @@ export const OptionsButton = ({ action }) => {
 };
 
 export class DimensionOptions extends Component {
-    state = { showMenu: false };
+    state = { anchorEl: null };
 
-    closeMenu = () => {
-        document.removeEventListener('click', this.closeMenu);
-        this.props.toggleHoverListener();
+    handleClick = event => {
+        event.stopPropagation();
+        this.setState({ anchorEl: event.currentTarget });
     };
 
-    showMenu = () => {
-        this.setState({ showMenu: true }, () => {
-            document.addEventListener('click', this.closeMenu);
-            this.props.toggleHoverListener();
-        });
+    handleClose = event => {
+        event.stopPropagation();
+        this.setState({ anchorEl: null });
+        this.props.onClose();
     };
 
-    componentDidMount = () => {
-        const initialPos = this.refs.dropDownWrapper.getBoundingClientRect();
+    addDimension = (event, axisName) => {
+        this.props.onAddDimension({ [this.props.id]: axisName });
+        this.handleClose(event);
+    };
 
-        const topPixelPos =
-            initialPos.top + window.scrollY > MAX_TOP_PIXEL_POS
-                ? MAX_TOP_PIXEL_POS
-                : initialPos.top + window.scrollY;
+    getMenuId = () => `menu-for-${this.props.id}`;
 
-        style.renderPos = {
-            top: topPixelPos,
-            left: LEFT_RENDER_PIXEL_POS + initialPos.left,
-        };
+    getMenuItems = () => {
+        return items.map(option => (
+            <MenuItem
+                key={option.axisName}
+                onClick={event => this.addDimension(event, option.axisName)}
+            >
+                {option.displayName}
+            </MenuItem>
+        ));
+    };
+
+    renderOptionsOnHover = () => {
+        return this.props.showButton ? (
+            <OptionsButton action={this.handleClick} />
+        ) : null;
     };
 
     render = () => {
-        const Options = this.state.showMenu ? (
-            <DropDown
-                onClose={this.closeMenu}
-                renderPos={style.renderPos}
-                id={this.props.id}
-            />
-        ) : (
-            <OptionsButton action={this.showMenu} />
-        );
+        const menuItems = this.getMenuItems();
+        const menuId = this.getMenuId();
+        const OptionsButton = this.renderOptionsOnHover();
 
         return (
-            <div ref={'dropDownWrapper'} style={style.wrapper}>
-                {Options}
+            <div style={style.wrapper}>
+                {OptionsButton}
+                <DropDown
+                    id={menuId}
+                    anchorEl={this.state.anchorEl}
+                    handleClose={this.handleClose}
+                    menuItems={menuItems}
+                />
             </div>
         );
     };
@@ -81,7 +105,13 @@ export class DimensionOptions extends Component {
 
 DimensionOptions.propTypes = {
     id: PropTypes.string.isRequired,
-    toggleHoverListener: PropTypes.func.isRequired,
+    showButton: PropTypes.bool.isRequired,
+    onClose: PropTypes.func.isRequired,
 };
 
-export default DimensionOptions;
+export default connect(
+    null,
+    {
+        onAddDimension: dimension => acAddUiLayoutDimensions(dimension),
+    }
+)(DimensionOptions);

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import DimensionLabel from './DimensionLabel';
-import { DimensionOptions } from './DimensionOptions';
+import DimensionOptions from './DimensionOptions';
 import RecommendedIcon, {
     DataIcon,
     PeriodIcon,
@@ -41,33 +41,22 @@ const fixedDimensionIcons = {
 };
 
 export class DimensionItem extends Component {
-    state = { mouseOver: false, optionButtonClicked: false };
+    state = { mouseOver: false };
 
     onMouseOver = () => {
-        if (!this.state.optionButtonClicked) {
-            this.setState({ mouseOver: true });
-        }
+        this.setState({ mouseOver: true });
     };
 
     onMouseExit = () => {
-        if (!this.state.optionButtonClicked) {
-            this.setState({ mouseOver: false });
-        }
+        this.setState({ mouseOver: false });
     };
-
-    toggleHoverListener = () => {
-        this.setState(
-            { optionButtonClicked: !this.state.optionButtonClicked },
-            () => this.onMouseExit()
-        );
-    };
-
-    getDimensionIcon = () =>
-        fixedDimensionIcons[this.props.id] || <GenericDimension />;
 
     onDragStart = e => {
         setDataTransfer(e, 'dimensions');
     };
+
+    getDimensionIcon = () =>
+        fixedDimensionIcons[this.props.id] || <GenericDimension />;
 
     getDimensionType = () => {
         return (
@@ -82,19 +71,9 @@ export class DimensionItem extends Component {
         );
     };
 
-    renderOptionsOnHover = () => {
-        return !this.props.isSelected && this.state.mouseOver ? (
-            <DimensionOptions
-                toggleHoverListener={this.toggleHoverListener}
-                id={this.props.id}
-            />
-        ) : null;
-    };
-
     render = () => {
         const Icon = this.getDimensionIcon();
         const Label = this.getDimensionType();
-        const MoreOptions = this.renderOptionsOnHover();
 
         return (
             <li
@@ -111,7 +90,11 @@ export class DimensionItem extends Component {
                     id={this.props.id}
                     isSelected={this.props.isSelected}
                 />
-                {MoreOptions}
+                <DimensionOptions
+                    id={this.props.id}
+                    showButton={!this.props.isSelected && this.state.mouseOver}
+                    onClose={this.onMouseExit}
+                />
             </li>
         );
     };
