@@ -78,6 +78,37 @@ describe('index', () => {
         });
     });
 
+    describe('tDoDeleteVisualization', () => {
+        it('dispatches the correct actions when deleting the visualization', () => {
+            // history function mocks
+            history.default.push = jest.fn();
+
+            const store = mockStore({
+                current: {
+                    id: 'd1',
+                    name: 'delete test',
+                },
+            });
+
+            const expectedActions = [
+                {
+                    type: fromReducers.actionTypes.RECEIVED_SNACKBAR_MESSAGE,
+                    value: {
+                        message: '"delete test" successfully deleted.',
+                        open: true,
+                        duration: 2000,
+                    },
+                },
+            ];
+
+            store.dispatch(fromActions.tDoDeleteVisualization());
+
+            expect(store.getActions()).toEqual(expectedActions);
+            expect(history.default.push).toHaveBeenCalled();
+            expect(history.default.push).toHaveBeenCalledWith('/');
+        });
+    });
+
     describe('tDoRenameVisualization', () => {
         const visualization = {
             id: 'r1',

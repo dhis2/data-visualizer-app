@@ -144,3 +144,19 @@ export const tDoSaveVisualization = (
         return onError('tDoSaveVisualization', error);
     }
 };
+
+export const tDoDeleteVisualization = () => (dispatch, getState) => {
+    const current = sGetCurrent(getState());
+
+    dispatch(
+        fromSnackbar.acReceivedSnackbarMessage({
+            message: i18n.t('"{{what}}" successfully deleted.', {
+                what: current.name,
+            }),
+            open: true,
+            duration: 2000,
+        })
+    );
+
+    history.push('/');
+};

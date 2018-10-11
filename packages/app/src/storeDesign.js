@@ -40,7 +40,16 @@ const state = {
     },
 
     // Object containing all fetched metadata for lookup
+    // When metadata is fetched from the dimension item selectors, from analytics etc - put it here
     // Init state: {}
+    // Example of populated state: {
+    //     Uvn6LCg7dVU: {
+    //         displayName: "ANC 1 Coverage",
+    //     },
+    //     ImspTQPwCqd: {
+    //         displayName: "Sierra Leone",
+    //     },
+    // }
     metadata: {},
 
     // Object containing info to be displayed in the snackbar

@@ -17,6 +17,7 @@ const getOnRename = props => details =>
 const getOnSave = props => details => props.onSaveVisualization(details, false);
 const getOnSaveAs = props => details =>
     props.onSaveVisualization(details, true);
+const getOnDelete = props => () => props.onDeleteVisualization();
 
 export const MenuBar = (props, context) => (
     <div className="menubar">
@@ -30,6 +31,7 @@ export const MenuBar = (props, context) => (
             onRename={getOnRename(props)}
             onSave={getOnSave(props)}
             onSaveAs={getOnSaveAs(props)}
+            onDelete={getOnDelete(props)}
             onTranslate={() => console.log('translate callback')}
             onError={() => console.log('error!')}
         />
@@ -62,6 +64,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
                 copy
             )
         ),
+    onDeleteVisualization: () => dispatch(fromActions.tDoDeleteVisualization()),
 });
 
 export default connect(
