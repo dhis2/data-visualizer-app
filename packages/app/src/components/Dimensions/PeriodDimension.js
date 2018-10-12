@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { DialogContent, DialogActions, Button } from '@material-ui/core';
-import { PeriodSelector } from '@dhis2/d2-ui-period-selector-dialog';
+import PeriodSelectorDialog from '@dhis2/d2-ui-period-selector-dialog';
 import i18n from '@dhis2/d2-i18n';
 
 import { sGetUiItems, sGetUi } from '../../reducers/ui';
 import { acSetCurrentFromUi } from '../../actions/current';
 //import { acRemoveUiItems, acAddUiItems } from '../../actions/ui';
+
 import { colors } from '../../colors';
 
 const PE = 'pe';
@@ -71,23 +72,32 @@ export class PeriodDimension extends Component {
     };
 
     selectPeriodDimensions = selectedIds => {
-        this.props.addPeItems({
+        console.log(selectedIds);
+        /*this.props.addPeItems({
             dimensionType: PE,
             value: selectedIds,
-        });
+        });*/
     };
 
     deselectPeriodDimensions = selectedIds => {
-        this.props.removePeItems({
+        console.log(selectedIds);
+        /*this.props.removePeItems({
             dimensionType: PE,
             value: selectedIds,
-        });
+        });*/
     };
 
     render = () => {
-        //console.log(this.props.selectedItems.pe);
+        console.log(this.props.selectedItems);
         return (
-            <div style={style.container}>
+            <PeriodSelectorDialog
+                open={this.props.dialogIsOpen}
+                onClose={this.handleClose}
+                onUpdate={this.handleUpdate}
+                d2={this.props.d2}
+                periods={this.props.selectedItems}
+            />
+            /*<div style={style.container}>
                 <DialogContent>
                     <h3>{DIALOG_TITLE}</h3>
                     <PeriodSelector
@@ -103,13 +113,13 @@ export class PeriodDimension extends Component {
                         {Update}
                     </UpdateButton>
                 </DialogActions>
-            </div>
+            </div>*/
         );
     };
 }
 
 const mapStateToProps = state => ({
-    selectedItems: sGetUiItems(state),
+    selectedItems: sGetUiItems(state).pe,
     ui: sGetUi(state),
 });
 

@@ -18,7 +18,13 @@ export const DialogManager = ({
                 toggleDialog={toggleDialog}
             />
         ),
-        pe: <PeriodDimension toggleDialog={toggleDialog} d2={d2} />,
+        pe: (
+            <PeriodDimension
+                dialogIsOpen={dialogIsOpen}
+                toggleDialog={toggleDialog}
+                d2={d2}
+            />
+        ),
         ou: <OrgUnitDimension />,
     };
     return id ? (
