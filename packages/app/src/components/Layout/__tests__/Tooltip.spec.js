@@ -15,7 +15,7 @@ describe('Tooltip', () => {
 
     beforeEach(() => {
         props = {
-            open: jest.fn(),
+            open: true,
             anchorEl: {},
             dimensionId: 'abc',
             metadata: {},
@@ -24,7 +24,7 @@ describe('Tooltip', () => {
         shallowTooltip = undefined;
     });
 
-    it.skip('renders a Popper', () => {
+    it('renders a Popper', () => {
         expect(tooltip().find(Popper).length).toBeGreaterThan(0);
     });
 
