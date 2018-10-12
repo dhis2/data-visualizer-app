@@ -1,28 +1,26 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import Paper from '@material-ui/core/Paper';
+import Popper from '@material-ui/core/Popper';
 import i18n from '@dhis2/d2-i18n';
 import * as fromReducers from '../../reducers';
 import { colors } from '../../colors';
 
 const style = {
-    hintTextContainer: {
-        backgroundColor: '#696969',
-        position: 'absolute',
-        display: 'flex',
-        width: 150,
-        borderRadius: 2,
-        zIndex: 100,
-    },
-    hintText: {
+    toolTip: {
         color: colors.white,
-        wordBreak: 'break-all',
+        backgroundColor: '#4a4a4a',
+        boxShadow: 'none',
+        width: 150,
+        borderRadius: 3,
+        position: 'relative',
+        top: 5,
         fontSize: 12,
-        margin: 5,
+        padding: 5,
     },
     recommendedIcon: {
         backgroundColor: colors.accentSecondaryLight,
-        position: 'static',
         height: 7,
         width: 7,
         marginTop: 10,
@@ -39,20 +37,15 @@ const style = {
     },
 };
 
-const TOP_PIXEL_PADDING_POS = 15;
-const LEFT_PIXEL_PADDING_POS = 40;
-const MAX_TOP_PIXEL_POS = 850;
-const LAST_ELEMENT_LEFT_PIXEL_POS = 170;
-
 export class RecommendedIcon extends Component {
-    state = { mouseOver: false };
+    state = { anchorEl: null };
 
-    onMouseOver = () => {
-        this.setState({ mouseOver: true });
+    onMouseOver = event => {
+        this.setState({ anchorEl: event.currentTarget });
     };
 
     onMouseExit = () => {
-        this.setState({ mouseOver: false });
+        this.setState({ anchorEl: null });
     };
 
     checkIfRecommended = () => {
@@ -60,50 +53,32 @@ export class RecommendedIcon extends Component {
         return isRecommended.includes(id) && !isSelected;
     };
 
-    showHintText = () => {
-        const renderPos = this.refs.recommendedWrapper && this.getRenderPos();
-        const hintTextStyle = { ...style.hintTextContainer, ...renderPos };
-        const displayName = i18n.t('Dimension recommended with selected data');
+    showTooltip = () => {
+        const HINT_TEXT = i18n.t('Dimension recommended with selected data');
 
         return (
-            <div style={hintTextStyle}>
-                <span style={style.hintText}>{displayName}</span>
-            </div>
+            <Popper
+                anchorEl={this.state.anchorEl}
+                open={Boolean(this.state.anchorEl)}
+                placement="bottom"
+            >
+                <Paper style={style.toolTip}>{HINT_TEXT}</Paper>
+            </Popper>
         );
     };
 
-    getRenderPos = () => {
-        const initialPos = this.refs.recommendedWrapper.getBoundingClientRect();
-
-        const isOverflowing =
-            initialPos.top + window.scrollY + TOP_PIXEL_PADDING_POS >
-            MAX_TOP_PIXEL_POS;
-
-        const topPixelPos = isOverflowing
-            ? MAX_TOP_PIXEL_POS
-            : initialPos.top + TOP_PIXEL_PADDING_POS + window.scrollY;
-
-        const leftPixelPos = isOverflowing
-            ? LAST_ELEMENT_LEFT_PIXEL_POS
-            : initialPos.left - LEFT_PIXEL_PADDING_POS;
-
-        return {
-            top: topPixelPos,
-            left: leftPixelPos,
-        };
-    };
-
     render = () => {
-        const HintText = this.state.mouseOver ? this.showHintText() : null;
+        const TooltipOnHover = Boolean(this.state.anchorEl)
+            ? this.showTooltip()
+            : null;
 
         return this.checkIfRecommended() ? (
             <div
                 style={style.recommendedIcon}
                 onMouseOver={this.onMouseOver}
                 onMouseLeave={this.onMouseExit}
-                ref={'recommendedWrapper'}
             >
-                {HintText}
+                {TooltipOnHover}
             </div>
         ) : null;
     };

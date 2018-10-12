@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TextField } from '@material-ui/core';
+import TextField from '@material-ui/core/TextField';
 import { Search } from '@material-ui/icons';
 import i18n from '@dhis2/d2-i18n';
 import DimensionList from './DimensionList';
@@ -13,8 +13,6 @@ const style = {
     },
     searchIcon: {
         color: colors.charcoalGrey,
-        position: 'relative',
-        top: 5,
     },
     textField: {
         left: 12,

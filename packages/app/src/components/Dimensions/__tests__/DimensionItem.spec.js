@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { DimensionItem } from '../DimensionItem';
 import DimensionLabel from '../DimensionLabel';
-import { DimensionOptions } from '../DimensionOptions';
+import DimensionOptions from '../DimensionOptions';
 import RecommendedIcon from '../icons';
 
 describe('The DimensionItem component ', () => {
@@ -39,15 +39,16 @@ describe('The DimensionItem component ', () => {
 
     it('renders a <DimensionLabel /> ', () => {
         const dimLabel = dimItem().find(DimensionLabel);
+
         expect(dimLabel.length).toEqual(1);
     });
 
     it('renders a <RecommendedIcon />', () => {
         const recommendedIcon = dimItem().find(RecommendedIcon);
+
         expect(recommendedIcon.length).toEqual(1);
     });
-    it('renders a <DimensionOptions /> when state mouseOver is true and prop isSelected is false', () => {
-        dimItem().setState({ mouseOver: true });
+    it('renders a <DimensionOptions />', () => {
         const dimOptions = dimItem().find(DimensionOptions);
 
         expect(dimOptions.length).toEqual(1);

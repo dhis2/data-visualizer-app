@@ -12,6 +12,7 @@ packages/**/target
 
 packages/**/src/locales/
 packages/**/public/manifest.webapp
+packages/app/i18n/en.pot
 
 # misc
 .DS_Store

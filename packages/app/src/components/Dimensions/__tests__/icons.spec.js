@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import Popper from '@material-ui/core/Popper';
 import { RecommendedIcon } from '../icons';
 
 describe('The RecommendedIcon component ', () => {
@@ -34,10 +35,11 @@ describe('The RecommendedIcon component ', () => {
             expect(wrappingDiv.children()).toEqual(recIcon().children());
         });
 
-        it('renders a hint text when state mouseOver is true', () => {
-            recIcon().setState({ mouseOver: true });
+        it('renders a Tooltip when state anchorEl is not falsy', () => {
+            recIcon().setState({ anchorEl: true });
+            const popper = recIcon().find(Popper);
 
-            expect(recIcon().find('span').length).toEqual(1);
+            expect(popper.length).toEqual(1);
         });
     });
 });
