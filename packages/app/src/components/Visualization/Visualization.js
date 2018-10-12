@@ -4,6 +4,7 @@ import { createChart } from 'd2-charts-api';
 import { sGetCurrent } from '../../reducers/current';
 import BlankCanvas, { visContainerId } from './BlankCanvas';
 import { getOptionsForRequest } from '../../options';
+import { acAddMetadata } from '../../actions/metadata';
 
 export class Visualization extends Component {
     componentDidMount() {
@@ -39,6 +40,9 @@ export class Visualization extends Component {
 
         const res = new d2.analytics.response(rawResponse);
 
+        // TODO add a try/catch here
+        this.props.acAddMetadata(res.metaData.items);
+
         createChart(res, current, visContainerId);
     };
 
@@ -51,4 +55,7 @@ const mapStateToProps = state => ({
     current: sGetCurrent(state),
 });
 
-export default connect(mapStateToProps)(Visualization);
+export default connect(
+    mapStateToProps,
+    { acAddMetadata }
+)(Visualization);

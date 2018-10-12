@@ -80,6 +80,8 @@ class Chip extends React.Component {
             this.props.items.length > 0 ? itemsLabel : ''
         }`;
 
+        const anchorEl = document.getElementById(this.id);
+
         return (
             <div
                 id={this.id}
@@ -98,11 +100,13 @@ class Chip extends React.Component {
                         menuItems={this.props.menuItems}
                     />
                 </div>
-                <Tooltip
-                    dimensionId={this.props.dimensionId}
-                    open={this.state.tooltipOpen}
-                    anchorEl={document.getElementById(this.id)}
-                />
+                {anchorEl && (
+                    <Tooltip
+                        dimensionId={this.props.dimensionId}
+                        open={this.state.tooltipOpen}
+                        anchorEl={anchorEl}
+                    />
+                )}
             </div>
         );
     };
