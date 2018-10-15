@@ -104,6 +104,8 @@ class Chip extends React.Component {
             this.props.items.length > 0 ? itemsLabel : ''
         }`;
 
+        const anchorEl = document.getElementById(this.id);
+
         return (
             <div
                 style={styles.chipWrapper}
@@ -131,6 +133,13 @@ class Chip extends React.Component {
                         anchorEl={document.getElementById(this.id)}
                     />
                 </div>
+                {anchorEl && (
+                    <Tooltip
+                        dimensionId={this.props.dimensionId}
+                        open={this.state.tooltipOpen}
+                        anchorEl={anchorEl}
+                    />
+                )}
             </div>
         );
     };

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Popper from '@material-ui/core/Popper';
 import Paper from '@material-ui/core/Paper';
@@ -12,7 +13,7 @@ const labels = {
     noneSelected: i18n.t('None selected'),
 };
 
-class Tooltip extends React.Component {
+export class Tooltip extends React.Component {
     renderTooltip = names => (
         <Popper
             anchorEl={this.props.anchorEl}
@@ -54,12 +55,18 @@ class Tooltip extends React.Component {
         const { itemIds, metadata } = this.props;
 
         const displayNames = (itemIds || []).length
-            ? itemIds.map(id => metadata[id] || id)
+            ? itemIds.map(id => (metadata[id] ? metadata[id].name : id))
             : [labels.noneSelected];
 
         return displayNames.length ? this.renderTooltip(displayNames) : '';
     }
 }
+
+Tooltip.propTypes = {
+    open: PropTypes.bool.isRequired,
+    anchorEl: PropTypes.object.isRequired,
+    dimensionId: PropTypes.string.isRequired,
+};
 
 const mapStateToProps = (state, ownProps) => ({
     itemIds: sGetUiItems(state)[ownProps.dimensionId],
