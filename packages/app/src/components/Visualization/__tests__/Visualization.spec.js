@@ -5,7 +5,16 @@ import { Visualization } from '../Visualization';
 import BlankCanvas from '../BlankCanvas';
 import * as options from '../../../options';
 
-class MockAnalyticsResponse {}
+const metaDataMock = ['a', 'b'];
+class MockAnalyticsResponse {
+    constructor() {
+        return {
+            metaData: {
+                items: metaDataMock,
+            },
+        };
+    }
+}
 
 const getRequestMock = mfn => {
     const mockFn = mfn ? mfn : jest.fn();
@@ -47,6 +56,7 @@ describe('Visualization', () => {
                     response: MockAnalyticsResponse,
                 },
             },
+            acAddMetadata: jest.fn(),
         };
 
         shallowVisualization = undefined;
@@ -70,6 +80,18 @@ describe('Visualization', () => {
 
         setTimeout(() => {
             expect(chartsApi.createChart).toHaveBeenCalled();
+            done();
+        });
+    });
+
+    it('calls addMetadata action', done => {
+        props.d2.analytics.request = getRequestMock();
+
+        canvas();
+
+        setTimeout(() => {
+            expect(props.acAddMetadata).toHaveBeenCalled();
+            expect(props.acAddMetadata).toHaveBeenCalledWith(metaDataMock);
             done();
         });
     });
