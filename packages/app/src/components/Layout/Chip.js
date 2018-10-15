@@ -9,25 +9,45 @@ import { sGetDimensions } from '../../reducers/dimensions';
 import * as layoutStyle from './style';
 import { sGetUiItems } from '../../reducers/ui';
 
+const TOOLTIP_ENTER_DELAY = 500;
+
 const styles = {
+    chipWrapper: {
+        display: 'flex',
+        margin: layoutStyle.CHIP_MARGIN,
+    },
     chip: {
         maxHeight: layoutStyle.CHIP_HEIGHT,
-        margin: layoutStyle.CHIP_MARGIN,
         padding: layoutStyle.CHIP_PADDING,
         fontSize: layoutStyle.CHIP_FONT_SIZE,
         fontWeight: layoutStyle.CHIP_FONT_WEIGHT,
         backgroundColor: layoutStyle.CHIP_BACKGROUND_COLOR,
         color: layoutStyle.CHIP_COLOR,
         borderRadius: layoutStyle.CHIP_BORDER_RADIUS,
-        display: 'flex',
         cursor: 'pointer',
         whiteSpace: 'nowrap',
         overflow: 'hidden',
         textOverflow: 'ellipsis',
     },
-    menuWrapper: {
-        marginLeft: 2,
+    chipLeft: {
+        borderTopRightRadius: '0px',
+        borderBottomRightRadius: '0px',
     },
+    chipRight: {
+        paddingLeft: '0px',
+        borderTopLeftRadius: '0px',
+        borderBottomLeftRadius: '0px',
+    },
+};
+
+styles.chipLeft = {
+    ...styles.chip,
+    ...styles.chipLeft,
+};
+
+styles.chipRight = {
+    ...styles.chip,
+    ...styles.chipRight,
 };
 
 const labels = {
@@ -43,33 +63,37 @@ class Chip extends React.Component {
 
     timeout = null;
 
-    handleMouseEnter = () => {
-        this.timeout = setTimeout(
-            () =>
-                this.setState({
-                    tooltipOpen: true,
-                }),
-            500
-        );
+    handleMouseOver = () => {
+        if (this.timeout === null) {
+            this.timeout = setTimeout(
+                () =>
+                    this.setState({
+                        tooltipOpen: true,
+                    }),
+                TOOLTIP_ENTER_DELAY
+            );
+        }
     };
 
-    handleMouseLeave = () => {
-        clearTimeout(this.timeout);
-        this.timeout = null;
+    handleMouseOut = () => {
+        if (typeof this.timeout === 'number') {
+            clearTimeout(this.timeout);
+            this.timeout = null;
 
-        this.setState({
-            tooltipOpen: false,
-        });
+            this.setState({
+                tooltipOpen: false,
+            });
+        }
     };
 
     handleClick = event => {
-        this.handleMouseLeave();
+        this.handleMouseOut();
 
         this.props.onClick(event);
     };
 
     getDragStartHandler = source => e => {
-        this.handleMouseLeave();
+        this.handleMouseOut();
 
         setDataTransfer(e, source);
     };
@@ -84,17 +108,21 @@ class Chip extends React.Component {
 
         return (
             <div
-                id={this.id}
+                style={styles.chipWrapper}
                 data-dimensionid={this.props.dimensionId}
-                style={styles.chip}
                 draggable="true"
-                onClick={this.handleClick}
                 onDragStart={this.getDragStartHandler(this.props.axisName)}
-                onMouseEnter={this.handleMouseEnter}
-                onMouseLeave={this.handleMouseLeave}
             >
-                {chipLabel}
-                <div style={styles.menuWrapper}>
+                <div
+                    id={this.id}
+                    style={styles.chipLeft}
+                    onClick={this.handleClick}
+                    onMouseOver={this.handleMouseOver}
+                    onMouseOut={this.handleMouseOut}
+                >
+                    {chipLabel}
+                </div>
+                <div style={styles.chipRight}>
                     <Menu
                         id={this.props.dimensionId}
                         menuItems={this.props.menuItems}
