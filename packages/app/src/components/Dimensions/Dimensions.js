@@ -1,29 +1,30 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { TextField } from '@material-ui/core';
 import { Search } from '@material-ui/icons';
 import i18n from '@dhis2/d2-i18n';
 import { colors } from '../../colors';
 import DimensionList from './DimensionList';
 import DialogManager from './DialogManager';
+import { acAddUiLayoutDimensions, acSetUiItems } from '../../actions/ui';
 
 const style = {
     divContainer: {
         backgroundColor: colors.lightGrey,
         height: 764,
         width: 250,
-        position: 'relative',
     },
     searchIcon: {
-        color: colors.paleGrey,
+        color: colors.charcoalGrey,
         position: 'relative',
-        marginTop: 15,
-        right: 15,
+        top: 5,
     },
     textField: {
-        bottom: 9,
-        right: 8,
+        left: 5,
     },
 };
+
+const SEARCHFIELD_PLACEHOLDER = i18n.t('Search Dimensions');
 
 export class Dimensions extends Component {
     state = { searchText: '', dialogDimId: null };
@@ -33,7 +34,14 @@ export class Dimensions extends Component {
     };
 
     toggleDialog = value => {
-        this.setState({ dialogDimId: value });
+        this.setState({
+            dialogDimId: value,
+        });
+    };
+
+    setDimension = ids => {
+        this.props.addDataDimensions(ids);
+        this.toggleDialog(null);
     };
 
     render = () => {
@@ -43,12 +51,15 @@ export class Dimensions extends Component {
                     dialogIsOpen={!!this.state.dialogDimId}
                     id={this.state.dialogDimId}
                     toggleDialog={this.toggleDialog}
+                    setDimension={this.setDimension}
                 />
-                <Search style={style.searchIcon} />
                 <TextField
-                    placeholder={i18n.t('Search dimensions')}
                     style={style.textField}
                     onChange={this.handleChange}
+                    placeholder={SEARCHFIELD_PLACEHOLDER}
+                    InputProps={{
+                        startAdornment: <Search style={style.searchIcon} />,
+                    }}
                 />
                 <DimensionList
                     searchText={this.state.searchText}
@@ -59,4 +70,10 @@ export class Dimensions extends Component {
     };
 }
 
-export default Dimensions;
+export default connect(
+    null,
+    {
+        setDimension: id => acAddUiLayoutDimensions(id),
+        addDataDimensions: ids => acSetUiItems(ids),
+    }
+)(Dimensions);

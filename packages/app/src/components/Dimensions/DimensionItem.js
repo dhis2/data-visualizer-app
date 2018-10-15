@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import DimensionLabel from './DimensionLabel';
@@ -12,10 +13,12 @@ import {
 } from './icons';
 import { colors } from '../../colors';
 import { setDataTransfer } from '../../dnd';
+import * as fromReducers from '../../reducers';
 
 const style = {
     wrapper: {
         display: 'flex',
+        position: 'static',
     },
     text: {
         fontSize: 16,
@@ -31,16 +34,18 @@ const style = {
     },
 };
 const fixedDimensionIcons = {
-    Data: <DataIcon />,
-    Period: <PeriodIcon />,
-    OrgUnit: <OrgUnitIcon />,
+    dx: <DataIcon />,
+    pe: <PeriodIcon />,
+    ou: <OrgUnitIcon />,
 };
 
 export class DimensionItem extends Component {
     state = { mouseOver: false, optionButtonClicked: false };
 
     onMouseOver = () => {
-        this.setState({ mouseOver: true });
+        if (!this.state.optionButtonClicked) {
+            this.setState({ mouseOver: true });
+        }
     };
 
     onMouseExit = () => {
@@ -71,21 +76,25 @@ export class DimensionItem extends Component {
                 draggable="true"
                 onDragStart={this.onDragStart}
             >
-                {' '}
-                {i18n.t(this.props.displayName)}{' '}
+                {i18n.t(this.props.displayName)}
             </span>
         );
     };
 
     checkIfRecommended = () => {
-        return this.props.isRecommended && !this.props.isSelected ? (
+        const { isRecommended, isSelected, id } = this.props;
+
+        return isRecommended.includes(id) && !isSelected ? (
             <RecommendedIcon />
         ) : null;
     };
 
     renderOptionsOnHover = () => {
         return !this.props.isSelected && this.state.mouseOver ? (
-            <DimensionOptions toggleHoverListener={this.toggleHoverListener} />
+            <DimensionOptions
+                toggleHoverListener={this.toggleHoverListener}
+                id={this.props.id}
+            />
         ) : null;
     };
 
@@ -106,10 +115,8 @@ export class DimensionItem extends Component {
                     {Icon}
                     {Label}
                 </DimensionLabel>
-                <div style={style.wrapper}>
-                    {RecommendedIcon}
-                    {MoreOptions}
-                </div>
+                {RecommendedIcon}
+                {MoreOptions}
             </li>
         );
     };
@@ -119,8 +126,12 @@ DimensionItem.propTypes = {
     id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
     displayName: PropTypes.string.isRequired,
     isSelected: PropTypes.bool.isRequired,
-    isRecommended: PropTypes.bool.isRequired,
+    isRecommended: PropTypes.array.isRequired,
     toggleDialog: PropTypes.func.isRequired,
 };
 
-export default DimensionItem;
+const mapStateToProps = state => ({
+    isRecommended: fromReducers.fromRecommendedIds.sGetRecommendedIds(state),
+});
+
+export default connect(mapStateToProps)(DimensionItem);

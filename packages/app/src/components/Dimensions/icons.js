@@ -3,14 +3,13 @@ import i18n from '@dhis2/d2-i18n';
 
 const style = {
     hintTextContainer: {
-        position: 'relative',
-        right: 50,
-        top: 15,
+        position: 'absolute',
         height: 50,
         width: 150,
         backgroundColor: '#696969',
         borderRadius: 2,
     },
+    renderPos: {},
     hintText: {
         color: 'white',
         fontSize: 12,
@@ -18,11 +17,12 @@ const style = {
         top: 8,
     },
     recommendedIcon: {
+        position: 'static',
         backgroundColor: '#48A999',
         height: 7,
         width: 7,
         borderRadius: 5,
-        marginTop: 8,
+        marginTop: 10,
         marginLeft: 4,
     },
     dataIcon: {
@@ -49,13 +49,12 @@ const style = {
         marginRight: 14,
         marginTop: 11,
     },
-    moreHorizIcon: {
-        position: 'relative',
-        left: 1,
-        bottom: 2,
-        display: 'inline-block',
-    },
 };
+
+const TOP_PIXEL_PADDING_POS = 15;
+const LEFT_PIXEL_PADDING_POS = 40;
+const MAX_TOP_PIXEL_POS = 765;
+const LAST_ELEMENT_LEFT_PIXEL_POS = 160;
 
 export class RecommendedIcon extends Component {
     state = { mouseOver: false };
@@ -69,13 +68,34 @@ export class RecommendedIcon extends Component {
     };
 
     showHintText = () => {
+        const renderPos = this.calculateRenderPos();
+
         return (
-            <div style={style.hintTextContainer}>
+            <div style={{ ...style.hintTextContainer, ...renderPos }}>
                 <span style={style.hintText}>
                     {i18n.t('Dimension recommended with selected data')}
                 </span>
             </div>
         );
+    };
+
+    calculateRenderPos = () => {
+        const initialPos = this.refs.wrapper.getBoundingClientRect();
+        const isOverflowing =
+            initialPos.top + TOP_PIXEL_PADDING_POS > MAX_TOP_PIXEL_POS;
+
+        const topPixelPos = isOverflowing
+            ? MAX_TOP_PIXEL_POS
+            : initialPos.top + TOP_PIXEL_PADDING_POS;
+
+        const leftPixelPos = isOverflowing
+            ? LAST_ELEMENT_LEFT_PIXEL_POS
+            : initialPos.left - LEFT_PIXEL_PADDING_POS;
+
+        return {
+            top: topPixelPos,
+            left: leftPixelPos,
+        };
     };
 
     render = () => {
@@ -84,6 +104,7 @@ export class RecommendedIcon extends Component {
                 style={style.recommendedIcon}
                 onMouseOver={this.onMouseOver}
                 onMouseLeave={this.onMouseExit}
+                ref={'wrapper'}
             >
                 {this.state.mouseOver ? this.showHintText() : null}
             </div>
@@ -343,7 +364,6 @@ export const GenericDimension = () => {
 export const MoreHorizontal = () => {
     return (
         <svg
-            style={style.moreHorizIcon}
             xmlns="http://www.w3.org/2000/svg"
             width="22"
             height="24"

@@ -3,9 +3,7 @@ import isObject from 'd2-utilizr/lib/isObject';
 // TODO, copied from dashboards-app
 export function arrayToIdMap(array) {
     return sortArray(array).reduce((obj, item) => {
-        obj[item.id] = {
-            ...item,
-        };
+        obj[item.id] = item;
         return obj;
     }, {});
 }

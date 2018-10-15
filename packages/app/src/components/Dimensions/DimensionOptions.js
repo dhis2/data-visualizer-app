@@ -4,6 +4,9 @@ import DropDown from './DropDown';
 import { MoreHorizontal } from './icons';
 
 const style = {
+    wrapper: {
+        position: 'static',
+    },
     dropDownButton: {
         border: 'none',
         background: 'none',
@@ -13,7 +16,13 @@ const style = {
         paddingLeft: 1,
         paddingTop: 2,
     },
+    renderPos: {
+        left: 5,
+    },
 };
+
+const MAX_TOP_PIXEL_POS = 696;
+const LEFT_RENDER_PIXEL_POS = 5;
 
 export const OptionsButton = ({ action }) => {
     return (
@@ -27,10 +36,8 @@ export class DimensionOptions extends Component {
     state = { showMenu: false };
 
     closeMenu = () => {
-        this.setState({ showMenu: false }, () => {
-            document.removeEventListener('click', this.closeMenu);
-            this.props.toggleHoverListener();
-        });
+        document.removeEventListener('click', this.closeMenu);
+        this.props.toggleHoverListener();
     };
 
     showMenu = () => {
@@ -40,11 +47,35 @@ export class DimensionOptions extends Component {
         });
     };
 
+    componentDidMount = () => {
+        const initialPos = this.refs.wrapper.getBoundingClientRect();
+
+        const topPixelPos =
+            initialPos.top > MAX_TOP_PIXEL_POS
+                ? MAX_TOP_PIXEL_POS
+                : initialPos.top;
+
+        style.renderPos = {
+            top: topPixelPos,
+            left: LEFT_RENDER_PIXEL_POS + initialPos.left,
+        };
+    };
+
     render = () => {
-        return this.state.showMenu ? (
-            <DropDown onClose={this.closeMenu} />
+        const Options = this.state.showMenu ? (
+            <DropDown
+                onClose={this.closeMenu}
+                renderPos={style.renderPos}
+                id={this.props.id}
+            />
         ) : (
             <OptionsButton action={this.showMenu} />
+        );
+
+        return (
+            <div ref={'wrapper'} style={style.wrapper}>
+                {Options}
+            </div>
         );
     };
 }

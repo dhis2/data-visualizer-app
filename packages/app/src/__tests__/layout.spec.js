@@ -1,7 +1,6 @@
 import {
     AXIS_NAMES,
     getAllDimensions,
-    getItemIdsByDimensionId,
     getItemIdsByDimension,
     getDimensionIdsByAxis,
 } from '../layout.js';
@@ -47,21 +46,6 @@ describe('getAllDimensions', () => {
     it('should return an array of all dimensions in the visualization', () => {
         const expectedState = [dx, other, pe, ou];
         const actualState = getAllDimensions(visualization);
-
-        expect(actualState).toEqual(expectedState);
-    });
-});
-
-describe('getItemIdsByDimensionId', () => {
-    it('should return an object with item ids by dimension id from an array of dimensions', () => {
-        const expectedState = {
-            [dxId]: [dxItem1Id, dxItem2Id],
-            [otherId]: [otherItem1Id],
-            [peId]: [peItem1Id],
-            [ouId]: [ouItem1Id],
-        };
-        const allDimensions = getAllDimensions(visualization);
-        const actualState = getItemIdsByDimensionId(allDimensions);
 
         expect(actualState).toEqual(expectedState);
     });

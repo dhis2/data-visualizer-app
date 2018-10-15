@@ -1,7 +1,8 @@
-import reducer, { actionTypes, DEFAULT_DIMENSIONS } from '../dimensions';
+import reducer from '../dimensions';
+import { FIXED_DIMENSIONS as DEFAULT_DIMENSIONS } from '../../fixedDimensions';
 
 describe('dimensions reducer', () => {
-    const currentState = {
+    /*const currentState = {
         dimId1: {
             id: 'dimId1',
             displayName: 'dimName1',
@@ -19,12 +20,11 @@ describe('dimensions reducer', () => {
 
     const dimensionMap = {
         [dimension.id]: dimension,
-    };
+    };*/
 
     it('should return the default state', () => {
         const actualState = reducer(undefined, { type: 'NO_MATCH' });
-        console.log(actualState);
-        //expect(actualState).toEqual(DEFAULT_DIMENSIONS);
+        expect(actualState).toEqual(DEFAULT_DIMENSIONS);
     });
 
     /*it.only('should set the list of dimensions by replacing the existing list', () => {

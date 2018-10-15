@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Close } from '@material-ui/icons';
 import { colors } from '../../colors';
-import { tSetDimensions } from '../../actions/dimensions';
+import { acRemoveUiLayoutDimensions } from '../../actions/ui';
 
 const style = {
     unselected: {
@@ -43,7 +43,7 @@ export class DimensionLabel extends Component {
         id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
         isSelected: PropTypes.bool.isRequired,
         toggleDialog: PropTypes.func.isRequired,
-        removeDimension: PropTypes.func.isRequired,
+        onRemoveDimension: PropTypes.func.isRequired,
         Icon: PropTypes.element,
         Label: PropTypes.element,
     };
@@ -58,13 +58,13 @@ export class DimensionLabel extends Component {
         }
     };
 
-    onRemoveDimensionClick = () => {
-        this.props.removeDimension({ id: this.props.id, selected: false });
+    removeDimension = () => {
+        this.props.onRemoveDimension(this.props.id);
     };
 
     renderRemoveButton = () => {
         return this.props.isSelected ? (
-            <RemoveDimensionButton action={this.onRemoveDimensionClick} />
+            <RemoveDimensionButton action={this.removeDimension} />
         ) : null;
     };
 
@@ -91,5 +91,5 @@ export class DimensionLabel extends Component {
 
 export default connect(
     null,
-    { removeDimension: tSetDimensions }
+    { onRemoveDimension: id => acRemoveUiLayoutDimensions(id) }
 )(DimensionLabel);

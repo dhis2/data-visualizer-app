@@ -1,14 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import {
-    Button,
-    Dialog,
-    DialogActions,
-    DialogContent,
-} from '@material-ui/core';
+import { Dialog } from '@material-ui/core';
 import { DialogManager } from '../DialogManager';
-import { DataDimension } from '../DataDimension';
-import { PeriodDimension } from '../PeriodDimension';
+//import { DataDimension } from '../DataDimension';
+//import { PeriodDimension } from '../PeriodDimension';
 
 describe('The DialogManager component ', () => {
     let props;
@@ -30,6 +25,7 @@ describe('The DialogManager component ', () => {
     });
 
     it('renders a <Dialog> ', () => {
+        props.id = 'dx';
         expect(dialogManager().find(Dialog).length).toEqual(1);
     });
 
@@ -39,19 +35,5 @@ describe('The DialogManager component ', () => {
             .first();
 
         expect(wrappingDialog.children()).toEqual(dialogManager().children());
-    });
-
-    it('renders a <DialogContent /> with the correct Dimension component when rendered', () => {
-        const dialogContent = dialogManager().find(DialogContent);
-        expect(dialogContent.length).toBe(1);
-    });
-
-    it('renders two <Button /> with the correct props', () => {
-        const button = dialogManager().find(Dialog);
-        expect(button.length).toBe(1);
-    });
-
-    it('does not render when prop dialogIsOpen is equal to false', () => {
-        expect(dialogManager().props().dialogIsOpen).toEqual(undefined); //False
     });
 });
