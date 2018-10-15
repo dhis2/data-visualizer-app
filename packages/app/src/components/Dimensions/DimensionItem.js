@@ -29,8 +29,8 @@ const style = {
     itemContainer: {
         display: 'flex',
         minHeight: 24,
-        marginTop: 6,
-        marginBottom: 6,
+        marginTop: 7,
+        marginBottom: 7,
     },
 };
 

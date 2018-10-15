@@ -9,7 +9,6 @@ const style = {
     unselected: {
         display: 'flex',
         borderRadius: 4,
-        marginLeft: 5,
     },
     selected: {
         backgroundColor: colors.lightBlue,

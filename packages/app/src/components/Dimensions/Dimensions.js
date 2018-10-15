@@ -10,12 +10,13 @@ const style = {
     divContainer: {
         backgroundColor: colors.lightGrey,
         width: 250,
+        padding: 12,
     },
     searchIcon: {
-        color: colors.charcoalGrey,
+        color: colors.grey,
     },
     textField: {
-        left: 12,
+        marginBottom: 12,
     },
 };
 

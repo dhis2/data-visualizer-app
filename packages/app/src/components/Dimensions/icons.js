@@ -31,6 +31,10 @@ const style = {
         paddingLeft: 5,
         paddingRight: 5,
     },
+    iconGenericWrapper: {
+        paddingLeft: 8,
+        paddingRight: 8,
+    },
     icon: {
         position: 'relative',
         top: '14%',
@@ -331,7 +335,7 @@ export const OrgUnitIcon = () => {
 
 export const GenericDimension = () => {
     return (
-        <div style={style.iconWrapper}>
+        <div style={style.iconGenericWrapper}>
             <div
                 style={{
                     height: 4,
