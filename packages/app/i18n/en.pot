@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-10-11T14:20:01.851Z\n"
-"PO-Revision-Date: 2018-10-11T14:20:01.851Z\n"
+"POT-Creation-Date: 2018-10-15T11:14:21.168Z\n"
+"PO-Revision-Date: 2018-10-15T11:14:21.168Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -17,13 +17,22 @@ msgstr ""
 msgid "Data Dimension"
 msgstr ""
 
-msgid "Submit"
+msgid "Hide"
 msgstr ""
 
-msgid "Cancel"
+msgid "Update"
 msgstr ""
 
-msgid "Search dimensions"
+msgid "Add to series"
+msgstr ""
+
+msgid "Add to category"
+msgstr ""
+
+msgid "Add to filter"
+msgstr ""
+
+msgid "Search Dimensions"
 msgstr ""
 
 msgid "OrgUnit Dimension"
@@ -54,9 +63,6 @@ msgid "Remove"
 msgstr ""
 
 msgid "None selected"
-msgstr ""
-
-msgid "Update"
 msgstr ""
 
 msgid "Aggregation type"
@@ -212,9 +218,6 @@ msgstr ""
 msgid "Chart options"
 msgstr ""
 
-msgid "Hide"
-msgstr ""
-
 msgid "Column"
 msgstr ""
 
@@ -246,4 +249,10 @@ msgid "Bubble"
 msgstr ""
 
 msgid "Year on year"
+msgstr ""
+
+msgid "Period"
+msgstr ""
+
+msgid "Organisation Unit"
 msgstr ""
