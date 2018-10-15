@@ -30,21 +30,11 @@ describe('reducer: current', () => {
     it('SET_CURRENT_FROM_UI: should set the current from the ui state section', () => {
         const ui = {
             type: 'COLUMN',
-            layout: {
-                columns: ['dx'],
-                rows: ['ou'],
-                filters: ['pe'],
-            },
+            layout: { columns: ['dx'], rows: ['ou'], filters: ['pe'] },
             itemsByDimension: {
-                dx: [
-                    { id: 'dxId1', name: 'dx item1' },
-                    { id: 'dxId2', name: 'dx item2' },
-                ],
-                ou: [
-                    { id: 'ouId1', name: 'ou item1' },
-                    { id: 'ouId2', name: 'ou item2' },
-                ],
-                pe: [{ id: 'peId1', name: 'pe item1' }],
+                dx: ['dxId1', 'dxId2'],
+                ou: ['ouId1', 'ouId2'],
+                pe: ['peId1'],
             },
             options,
         };

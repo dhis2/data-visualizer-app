@@ -67,17 +67,14 @@ describe('reducer: ui', () => {
         const expectedState = {
             type,
             options: { ...DEFAULT_UI.options, aggregationType },
-            layout: {
-                [COLUMNS]: [dxId],
-                [ROWS]: [peId],
-                [FILTERS]: [ouId],
-            },
+            layout: { [COLUMNS]: [dxId], [ROWS]: [peId], [FILTERS]: [ouId] },
             itemsByDimension: {
-                [dxId]: [{ id: dxItem1Id }],
-                [peId]: [{ id: peItem1Id }],
-                [ouId]: [{ id: ouItem1Id }],
+                [dxId]: [dxItem1Id],
+                [peId]: [peItem1Id],
+                [ouId]: [ouItem1Id],
             },
         };
+
         const actualState = reducer(DEFAULT_UI, {
             type: actionTypes.SET_UI_FROM_VISUALIZATION,
             value: visualization,
@@ -146,7 +143,7 @@ describe('reducer: ui', () => {
         });
 
         it(`${actionTypes.ADD_UI_ITEMS}: adds single item to dx`, () => {
-            const dx = [{ id: 'abc', name: 'rainbow dash' }];
+            const dx = ['abc'];
 
             const value = {
                 dimensionType: 'dx',
@@ -162,8 +159,8 @@ describe('reducer: ui', () => {
         });
 
         it(`${actionTypes.ADD_UI_ITEMS}: adds several items to dx`, () => {
-            const dx1 = { id: 'abc', name: 'rainbow dash' };
-            const dx2 = { id: 'def', name: 'pinkie pie' };
+            const dx1 = 'abc';
+            const dx2 = 'def';
 
             const value = { dimensionType: 'dx', value: [dx1, dx2] };
             const expectedState = [dx1, dx2];
@@ -176,8 +173,8 @@ describe('reducer: ui', () => {
         });
 
         it(`${actionTypes.ADD_UI_ITEMS}: adds pre-existing items to dx`, () => {
-            const dx1 = { id: 'abc', name: 'rainbow dash' };
-            const dx2 = { id: 'def', name: 'pinkie pie' };
+            const dx1 = 'abc';
+            const dx2 = 'def';
 
             const defaultIBD = Object.assign(
                 {},
@@ -202,8 +199,8 @@ describe('reducer: ui', () => {
         });
 
         it(`${actionTypes.REMOVE_UI_ITEMS}: removes items from dx`, () => {
-            const dx1 = { id: 'abc', name: 'rainbow dash' };
-            const dx2 = { id: 'def', name: 'pinkie pie' };
+            const dx1 = 'abc';
+            const dx2 = 'def';
 
             const defaultIBD = Object.assign(
                 {},
@@ -217,7 +214,7 @@ describe('reducer: ui', () => {
                 { itemsByDimension: defaultIBD }
             );
 
-            const value = { dimensionType: 'dx', value: [dx1.id] };
+            const value = { dimensionType: 'dx', value: [dx1] };
             const expectedState = [dx2];
             const actualState = reducer(startingState, {
                 type: actionTypes.REMOVE_UI_ITEMS,
@@ -226,32 +223,5 @@ describe('reducer: ui', () => {
 
             expect(actualState.itemsByDimension.dx).toEqual(expectedState);
         });
-    });
-
-    it(`${
-        actionTypes.ADD_UI_ITEMS
-    }: should add items by dimension preserving old value`, () => {
-        const ouItems = {
-            ou: [
-                'USER_ORG_UNIT',
-                'USER_ORGUNIT_CHILDREN',
-                'USER_ORGUNIT_GRANDCHILDREN',
-            ],
-        };
-
-        const expectedState = {
-            ...DEFAULT_UI,
-            itemsByDimension: {
-                ...DEFAULT_UI.itemsByDimension,
-                ...ouItems,
-            },
-        };
-
-        const actualState = reducer(DEFAULT_UI, {
-            type: actionTypes.ADD_UI_ITEMS,
-            value: ouItems,
-        });
-
-        expect(actualState).toEqual(expectedState);
     });
 });

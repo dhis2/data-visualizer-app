@@ -4,33 +4,21 @@ import { getAxesFromUi } from '../current';
 const [COLUMNS, ROWS, FILTERS] = AXIS_NAMES;
 
 const dxId = 'dx';
-const dxItem1 = { id: 'dxItem1id' };
-const dxItem2 = { id: 'dxItem2id' };
-const dx = {
-    dimension: dxId,
-    items: [dxItem1, dxItem2],
-};
+const dxItem1id = 'dxItem1id';
+const dxItem2id = 'dxItem2id';
+const dxItems = [dxItem1id, dxItem2id];
 
 const otherId = 'other';
-const otherItem1 = { id: 'otherItem1id' };
-const other = {
-    dimension: otherId,
-    items: [otherItem1],
-};
+const otherItemId = 'otherItem1id';
+const otherItems = [otherItemId];
 
 const peId = 'pe';
-const peItem1 = { id: 'peItem1id' };
-const pe = {
-    dimension: peId,
-    items: [peItem1],
-};
+const peItemId = 'peItem1id';
+const peItems = [peItemId];
 
 const ouId = 'ou';
-const ouItem1 = { id: 'ouItem1id' };
-const ou = {
-    dimension: ouId,
-    items: [ouItem1],
-};
+const ouItemId = 'ouItem1id';
+const ouItems = [ouItemId];
 
 const emptyId = 'empty';
 
@@ -41,19 +29,25 @@ const ui = {
         [FILTERS]: [ouId],
     },
     itemsByDimension: {
-        [dxId]: dx.items,
-        [otherId]: other.items,
-        [peId]: pe.items,
-        [ouId]: ou.items,
+        [dxId]: dxItems,
+        [otherId]: otherItems,
+        [peId]: peItems,
+        [ouId]: ouItems,
     },
 };
 
 describe('getAxesFromUi', () => {
     it('should return a layout object (columns, rows, filters) with dimensions (id and item objects) that are not empty', () => {
         const expectedState = {
-            columns: [dx, other],
-            rows: [pe],
-            filters: [ou],
+            columns: [
+                {
+                    dimension: dxId,
+                    items: [{ id: dxItem1id }, { id: dxItem2id }],
+                },
+                { dimension: otherId, items: [{ id: otherItemId }] },
+            ],
+            rows: [{ dimension: peId, items: [{ id: peItemId }] }],
+            filters: [{ dimension: ouId, items: [{ id: ouItemId }] }],
         };
         const actualState = getAxesFromUi(ui);
 
