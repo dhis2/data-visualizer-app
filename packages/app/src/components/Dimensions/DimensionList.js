@@ -14,8 +14,6 @@ const style = {
     },
 };
 
-const OBJECT_POS = 1;
-
 export class DimensionList extends Component {
     searchTextContains = dimensionName => {
         const { searchText } = this.props;
