@@ -112,7 +112,7 @@ export const apiFetchAlternatives = args => {
 };
 
 const apiFetchIndicators = (id, page, filterText) => {
-    const fields = 'fields=id,displayName,dimensionItemType';
+    const fields = 'fields=id,displayName~rename(name),dimensionItemType';
     let filter = id !== 'ALL' ? `&filter=indicatorGroups.id:eq:${id}` : '';
     if (filterText) {
         filter = filter.concat(`&filter=displayName:ilike:${filterText}`);
@@ -136,8 +136,8 @@ const apiFetchIndicators = (id, page, filterText) => {
 const apiFetchDataElements = (id, page, filterText) => {
     const fields =
         id === 'ALL'
-            ? 'id,displayName'
-            : `dimensionItem~rename(id),displayName`;
+            ? 'id,displayName~rename(name)'
+            : `dimensionItem~rename(id),displayName~rename(name)`;
 
     let filter =
         id === 'ALL'
@@ -167,8 +167,8 @@ const apiFetchDataElements = (id, page, filterText) => {
 const apiFetchDataElementOperands = (id, page, filterText) => {
     const fields =
         id === 'ALL'
-            ? 'id,displayName'
-            : `dimensionItem~rename(id),displayName`;
+            ? 'id,displayName~rename(name)'
+            : `dimensionItem~rename(id),displayName~rename(name)`;
 
     let filter =
         id === 'ALL' ? '' : `&filter=dataElement.dataElementGroups.id:eq:${id}`;
@@ -194,7 +194,7 @@ const apiFetchDataElementOperands = (id, page, filterText) => {
 };
 
 const apiFetchDataSets = (page, filterText) => {
-    const fields = 'dimensionItem~rename(id),displayName';
+    const fields = 'dimensionItem~rename(id),displayName~rename(name)';
     const filter = filterText ? `&filter=displayName:ilike:${filterText}` : '';
     const paging = `&paging=true&page=${page}`;
     const url = `/dataSets?fields=${fields}${filter}${paging}`;
@@ -213,7 +213,7 @@ const apiFetchDataSets = (page, filterText) => {
 };
 
 const apiFetchProgramIndicators = (page, filterText) => {
-    const fields = 'id,displayName';
+    const fields = 'id,displayName~rename(name)';
     const filter = filterText ? `&filter=displayName:ilike:${filterText}` : '';
     const paging = `&paging=true&page=${page}`;
     const url = `/programs?fields=${fields}${filter}${paging}`;
@@ -225,7 +225,7 @@ const apiFetchProgramIndicators = (page, filterText) => {
 };
 
 const apiFetchProgramDataElements = (id, page, filterText) => {
-    const fields = `dimensionItem~rename(id),displayName`;
+    const fields = `dimensionItem~rename(id),displayName~rename(name)`;
     const filter = filterText ? `&filter=displayName:ilike:${filterText}` : '';
     const paging = `&paging=true&page=${page}`;
     const url = `/programDataElements?program=${id}&fields=${fields}${filter}${paging}`;

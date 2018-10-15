@@ -47,7 +47,7 @@ export const getItemIdsByDimension = visualization => {
         (map, dim) => ({
             ...map,
             [dim[DIMENSION_ID_PROP_NAME]]: dim[DIMENSION_ITEMS_PROP_NAME].map(
-                item => item
+                item => item.id
             ),
         }),
         {}

@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
 import {
     UnAssignButton,
     DeselectAllButton,
     RemoveSelectedItemButton,
 } from './buttons';
+
+import { sGetMetadata } from '../../../reducers/metadata';
 import { colors } from '../../../colors';
 
 const style = {
@@ -119,30 +122,32 @@ export class SelectedItems extends Component {
         this.setState({ highlighted: higlightedItems });
     };
 
-    renderItem = dataDim => {
-        const itemStyle = this.state.highlighted.includes(dataDim.id)
+    renderItem = id => {
+        const itemStyle = this.state.highlighted.includes(id)
             ? { ...style.unHighlighted, ...style.highlighted }
             : style.unHighlighted;
+
+        const displayName = this.props.metadata[id].name;
 
         return (
             <li
                 className="dimension-item"
-                id={dataDim.id}
-                key={dataDim.id}
+                id={id}
+                key={id}
                 style={style.listItem}
-                onDoubleClick={() => this.onRemoveSelected(dataDim.id)}
+                onDoubleClick={() => this.onRemoveSelected(id)}
             >
                 <div style={itemStyle}>
                     <SelectedIcon />
                     <span
                         style={style.text}
-                        onClick={() => this.toggleHighlight(dataDim.id)}
+                        onClick={() => this.toggleHighlight(id)}
                     >
-                        {i18n.t(dataDim.displayName)}
+                        {displayName}
                     </span>
                     <RemoveSelectedItemButton
                         style={style.removeButton}
-                        action={() => this.onRemoveSelected(dataDim.id)}
+                        action={() => this.onRemoveSelected(id)}
                     />
                 </div>
             </li>
@@ -150,9 +155,7 @@ export class SelectedItems extends Component {
     };
 
     render = () => {
-        const dataDimensions = this.props.items.map(dataDim =>
-            this.renderItem(dataDim)
-        );
+        const dataDimensions = this.props.items.map(id => this.renderItem(id));
 
         return (
             <div style={style.container}>
@@ -170,4 +173,8 @@ SelectedItems.propTypes = {
     onDeselect: PropTypes.func.isRequired,
 };
 
-export default SelectedItems;
+const mapStateToProps = state => ({
+    metadata: sGetMetadata(state),
+});
+
+export default connect(mapStateToProps)(SelectedItems);

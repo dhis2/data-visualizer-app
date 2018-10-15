@@ -133,7 +133,7 @@ export default (state = DEFAULT_UI, action) => {
         case actionTypes.REMOVE_UI_ITEMS: {
             const { dimensionType: type, value: idsToRemove } = action.value;
             const dxItems = state.itemsByDimension[type].filter(
-                i => !idsToRemove.includes(i.id)
+                id => !idsToRemove.includes(id)
             );
 
             const itemsByDimension = Object.assign(

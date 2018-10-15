@@ -95,7 +95,7 @@ export class UnselectedItems extends Component {
                     style={itemStyle}
                 >
                     <UnselectedIcon />
-                    <span style={style.text}>{dataDim.displayName}</span>
+                    <span style={style.text}>{dataDim.name}</span>
                 </div>
             </li>
         );

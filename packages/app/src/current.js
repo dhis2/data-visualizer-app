@@ -1,11 +1,9 @@
 import { getPropsByKeys } from './util';
 import options, { computedOptions } from './options';
 
-const getModelAxis = (dimensionId, items) => ({
+const getModelAxis = (dimensionId, itemIds) => ({
     dimension: dimensionId,
-    items: items.map(item => ({
-        id: item.id,
-    })),
+    items: itemIds.map(id => ({ id })),
 });
 
 const hasItems = (object, id) =>
@@ -13,16 +11,13 @@ const hasItems = (object, id) =>
 
 export const getAxesFromUi = ui =>
     Object.entries(ui.layout).reduce(
-        (layout, [axisName, dimensions]) => ({
+        (layout, [axisName, ids]) => ({
             ...layout,
-            [axisName]: dimensions
+            [axisName]: ids
                 .map(
-                    dimension =>
-                        hasItems(ui.itemsByDimension, dimension)
-                            ? getModelAxis(
-                                  dimension,
-                                  ui.itemsByDimension[dimension]
-                              )
+                    id =>
+                        hasItems(ui.itemsByDimension, id)
+                            ? getModelAxis(id, ui.itemsByDimension[id])
                             : null
                 )
                 .filter(dim => dim !== null),

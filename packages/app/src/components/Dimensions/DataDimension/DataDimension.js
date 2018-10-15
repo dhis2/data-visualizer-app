@@ -16,8 +16,10 @@ import { apiFetchGroups, apiFetchAlternatives } from '../../../api/dimensions';
 import { sGetUiItems, sGetUi } from '../../../reducers/ui';
 import { acSetCurrentFromUi } from '../../../actions/current';
 import { acRemoveUiItems, acAddUiItems } from '../../../actions/ui';
+import { acAddMetadata } from '../../../actions/metadata';
 import { colors } from '../../../colors';
 import { DEFAULT_DATATYPE_ID, ALL_ID, dataTypes } from './dataTypes';
+import { arrayToIdMap } from '../../../util';
 
 import './DataDimension.css';
 
@@ -170,13 +172,15 @@ export class DataDimension extends Component {
         );
         this.setState({ unselectedIds });
 
-        const itemsToAdd = this.state.dimensionItems.filter(di =>
-            selectedIds.includes(di.id)
+        const itemsToAdd = arrayToIdMap(
+            this.state.dimensionItems.filter(di => selectedIds.includes(di.id))
         );
         this.props.addDxItems({
             dimensionType: DX,
-            value: itemsToAdd,
+            value: selectedIds,
         });
+
+        this.props.addMetadata(itemsToAdd);
     };
 
     deselectDataDimensions = ids => {
@@ -258,5 +262,6 @@ export default connect(
         removeDxItems: acRemoveUiItems,
         addDxItems: acAddUiItems,
         onUpdate: acSetCurrentFromUi,
+        addMetadata: acAddMetadata,
     }
 )(DataDimension);
