@@ -127,11 +127,6 @@ class Chip extends React.Component {
                         id={this.props.dimensionId}
                         menuItems={this.props.menuItems}
                     />
-                    <Tooltip
-                        dimensionId={this.props.dimensionId}
-                        open={this.state.tooltipOpen}
-                        anchorEl={document.getElementById(this.id)}
-                    />
                 </div>
                 {anchorEl && (
                     <Tooltip
