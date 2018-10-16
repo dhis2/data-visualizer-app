@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Dialog, DialogContent } from '@material-ui/core';
+import { Dialog } from '@material-ui/core';
 import { DialogManager } from '../DialogManager';
 
 describe('The DialogManager component ', () => {
@@ -22,16 +22,17 @@ describe('The DialogManager component ', () => {
         shallowDialog = undefined;
     });
 
-    it('renders a <Dialog> ', () => {
-        props.id = 'dx';
-        expect(dialogManager().find(Dialog).length).toEqual(1);
+    it('renders a null when id is equal to null ', () => {
+        expect(dialogManager().length).toEqual(1);
     });
 
-    it('renders a <Dialog> containing everything else', () => {
+    it('renders a <Dialog> id is not equal to a falsy value', () => {
+        props.id = 'dx';
+
         const wrappingDialog = dialogManager()
             .find(Dialog)
             .first();
 
-        expect(wrappingDialog.children()).toEqual(dialogManager().children());
+        expect(wrappingDialog.length).toEqual(1);
     });
 });

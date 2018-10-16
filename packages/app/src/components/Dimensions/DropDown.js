@@ -21,9 +21,4 @@ DropDown.propTypes = {
     menuItems: PropTypes.array.isRequired,
 };
 
-export default connect(
-    null,
-    {
-        onAddDimension: dimension => acAddUiLayoutDimensions(dimension),
-    }
-)(DropDown);
+export default DropDown;
