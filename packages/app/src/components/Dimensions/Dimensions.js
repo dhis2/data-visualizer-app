@@ -4,21 +4,7 @@ import { Search } from '@material-ui/icons';
 import i18n from '@dhis2/d2-i18n';
 import DimensionList from './DimensionList';
 import { DialogManager } from './DialogManager';
-import { colors } from '../../colors';
-
-const style = {
-    divContainer: {
-        backgroundColor: colors.lightGrey,
-        width: 250,
-        padding: 12,
-    },
-    searchIcon: {
-        color: colors.grey,
-    },
-    textField: {
-        marginBottom: 12,
-    },
-};
+import { styles } from './styles/Dimensions.style';
 
 const SEARCHFIELD_PLACEHOLDER = i18n.t('Search Dimensions');
 
@@ -37,18 +23,18 @@ export class Dimensions extends Component {
 
     render = () => {
         return (
-            <div className={'dimensions'} style={style.divContainer}>
+            <div className={'dimensions'} style={styles.divContainer}>
                 <DialogManager
                     dialogIsOpen={!!this.state.dialogDimId}
                     id={this.state.dialogDimId}
                     toggleDialog={this.toggleDialog}
                 />
                 <TextField
-                    style={style.textField}
+                    style={styles.textField}
                     onChange={this.handleChange}
                     placeholder={SEARCHFIELD_PLACEHOLDER}
                     InputProps={{
-                        startAdornment: <Search style={style.searchIcon} />,
+                        startAdornment: <Search style={styles.searchIcon} />,
                     }}
                 />
                 <DimensionList

@@ -5,29 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import i18n from '@dhis2/d2-i18n';
 import * as fromReducers from '../../reducers';
-import { colors } from '../../colors';
-
-const style = {
-    toolTip: {
-        color: colors.white,
-        backgroundColor: '#4a4a4a',
-        boxShadow: 'none',
-        width: 150,
-        borderRadius: 3,
-        position: 'relative',
-        top: 5,
-        fontSize: 12,
-        padding: 5,
-    },
-    recommendedIcon: {
-        backgroundColor: colors.accentSecondaryLight,
-        height: 7,
-        width: 7,
-        marginTop: 10,
-        marginLeft: 4,
-        borderRadius: 5,
-    },
-};
+import { styles } from './styles/RecommendedIcon.style';
 
 export class RecommendedIcon extends Component {
     state = { anchorEl: null };
@@ -54,7 +32,7 @@ export class RecommendedIcon extends Component {
                 open={Boolean(this.state.anchorEl)}
                 placement="bottom"
             >
-                <Paper style={style.toolTip}>{HINT_TEXT}</Paper>
+                <Paper style={styles.toolTip}>{HINT_TEXT}</Paper>
             </Popper>
         );
     };
@@ -66,7 +44,7 @@ export class RecommendedIcon extends Component {
 
         return this.checkIfRecommended() ? (
             <div
-                style={style.recommendedIcon}
+                style={styles.recommendedIcon}
                 onMouseOver={this.onMouseOver}
                 onMouseLeave={this.onMouseExit}
             >

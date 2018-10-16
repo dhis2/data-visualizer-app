@@ -1,6 +1,6 @@
 import React from 'react';
 
-const style = {
+const styles = {
     iconWrapper: {
         paddingLeft: 5,
         paddingRight: 5,
@@ -17,9 +17,9 @@ const style = {
 
 export const DataIcon = () => {
     return (
-        <div style={style.iconWrapper}>
+        <div style={styles.iconWrapper}>
             <svg
-                style={style.icon}
+                style={styles.icon}
                 width="12px"
                 height="12px"
                 viewBox="0 0 12 12"
@@ -87,9 +87,9 @@ export const DataIcon = () => {
 
 export const PeriodIcon = () => {
     return (
-        <div style={style.iconWrapper}>
+        <div style={styles.iconWrapper}>
             <svg
-                style={style.icon}
+                style={styles.icon}
                 width="11px"
                 height="11px"
                 viewBox="0 0 11 11"
@@ -148,9 +148,9 @@ export const PeriodIcon = () => {
 
 export const OrgUnitIcon = () => {
     return (
-        <div style={style.iconWrapper}>
+        <div style={styles.iconWrapper}>
             <svg
-                style={style.icon}
+                style={styles.icon}
                 width="11px"
                 height="12px"
                 viewBox="0 0 11 12"
@@ -250,7 +250,7 @@ export const OrgUnitIcon = () => {
 
 export const GenericDimension = () => {
     return (
-        <div style={style.iconGenericWrapper}>
+        <div style={styles.iconGenericWrapper}>
             <div
                 style={{
                     height: 4,
