@@ -139,7 +139,8 @@ export class DataDimension extends Component {
             ? this.state.dimensionItems.concat(dimensionItems)
             : dimensionItems;
 
-        const selectedIds = this.props.selectedItems[DX].map(i => i.id);
+        const selectedIds = this.props.selectedItems[DX];
+
         const unselectedIds = newDimensionItems
             .filter(i => !selectedIds.includes(i.id))
             .map(i => i.id);
@@ -184,7 +185,9 @@ export class DataDimension extends Component {
     };
 
     deselectDataDimensions = ids => {
-        const unselectedIds = [...new Set([...this.state.unselectedIds, ids])];
+        const unselectedIds = [
+            ...new Set([...this.state.unselectedIds, ...ids]),
+        ];
         this.setState({ unselectedIds });
 
         this.props.removeDxItems({
