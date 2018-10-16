@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import DimensionLabel from './DimensionLabel';
 import DimensionOptions from './DimensionOptions';
-import {
+import RecommendedIcon, {
     DataIcon,
     PeriodIcon,
     OrgUnitIcon,
     GenericDimension,
-    RecommendedIcon,
 } from './icons';
 import { colors } from '../../colors';
 import { setDataTransfer } from '../../dnd';
-import * as fromReducers from '../../reducers';
 
 const style = {
     wrapper: {
@@ -21,18 +18,22 @@ const style = {
         position: 'static',
     },
     text: {
-        fontSize: 16,
         color: colors.black,
         cursor: 'pointer',
         userSelect: 'none',
+        wordBreak: 'break-all',
+        paddingTop: 3,
+        fontSize: 16,
+        maxWidth: 195,
     },
     itemContainer: {
         display: 'flex',
-        height: 24,
-        marginTop: 6,
-        marginBottom: 6,
+        minHeight: 24,
+        marginTop: 7,
+        marginBottom: 7,
     },
 };
+
 const fixedDimensionIcons = {
     dx: <DataIcon />,
     pe: <PeriodIcon />,
@@ -40,33 +41,22 @@ const fixedDimensionIcons = {
 };
 
 export class DimensionItem extends Component {
-    state = { mouseOver: false, optionButtonClicked: false };
+    state = { mouseOver: false };
 
     onMouseOver = () => {
-        if (!this.state.optionButtonClicked) {
-            this.setState({ mouseOver: true });
-        }
+        this.setState({ mouseOver: true });
     };
 
     onMouseExit = () => {
-        if (!this.state.optionButtonClicked) {
-            this.setState({ mouseOver: false });
-        }
+        this.setState({ mouseOver: false });
     };
-
-    toggleHoverListener = () => {
-        this.setState(
-            { optionButtonClicked: !this.state.optionButtonClicked },
-            () => this.onMouseExit()
-        );
-    };
-
-    getDimensionIcon = () =>
-        fixedDimensionIcons[this.props.id] || <GenericDimension />;
 
     onDragStart = e => {
         setDataTransfer(e, 'dimensions');
     };
+
+    getDimensionIcon = () =>
+        fixedDimensionIcons[this.props.id] || <GenericDimension />;
 
     getDimensionType = () => {
         return (
@@ -81,28 +71,9 @@ export class DimensionItem extends Component {
         );
     };
 
-    checkIfRecommended = () => {
-        const { isRecommended, isSelected, id } = this.props;
-
-        return isRecommended.includes(id) && !isSelected ? (
-            <RecommendedIcon />
-        ) : null;
-    };
-
-    renderOptionsOnHover = () => {
-        return !this.props.isSelected && this.state.mouseOver ? (
-            <DimensionOptions
-                toggleHoverListener={this.toggleHoverListener}
-                id={this.props.id}
-            />
-        ) : null;
-    };
-
     render = () => {
         const Icon = this.getDimensionIcon();
         const Label = this.getDimensionType();
-        const MoreOptions = this.renderOptionsOnHover();
-        const RecommendedIcon = this.checkIfRecommended();
 
         return (
             <li
@@ -115,8 +86,15 @@ export class DimensionItem extends Component {
                     {Icon}
                     {Label}
                 </DimensionLabel>
-                {RecommendedIcon}
-                {MoreOptions}
+                <RecommendedIcon
+                    id={this.props.id}
+                    isSelected={this.props.isSelected}
+                />
+                <DimensionOptions
+                    id={this.props.id}
+                    showButton={!this.props.isSelected && this.state.mouseOver}
+                    onClose={this.onMouseExit}
+                />
             </li>
         );
     };
@@ -126,12 +104,7 @@ DimensionItem.propTypes = {
     id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
     displayName: PropTypes.string.isRequired,
     isSelected: PropTypes.bool.isRequired,
-    isRecommended: PropTypes.array.isRequired,
     toggleDialog: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({
-    isRecommended: fromReducers.fromRecommendedIds.sGetRecommendedIds(state),
-});
-
-export default connect(mapStateToProps)(DimensionItem);
+export default DimensionItem;

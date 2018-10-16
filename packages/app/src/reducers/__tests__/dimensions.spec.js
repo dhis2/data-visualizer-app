@@ -27,12 +27,11 @@ describe('dimensions reducer', () => {
         expect(actualState).toEqual(DEFAULT_DIMENSIONS);
     });
 
-    /*it.only('should set the list of dimensions by replacing the existing list', () => {
+    /*it('should set the list of dimensions by replacing the existing list', () => {
         const actualState = reducer(currentState, {
             type: actionTypes.RECEIVED_DIMENSION,
             value: {
                 id: dimension.id,
-                selected: dimension.selected,
             },
         });
 

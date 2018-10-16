@@ -1,28 +1,39 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import i18n from '@dhis2/d2-i18n';
+import MenuItem from '@material-ui/core/MenuItem';
 import DropDown from './DropDown';
 import { MoreHorizontal } from './icons';
+import { acAddUiLayoutDimensions } from '../../actions/ui';
 
 const style = {
     wrapper: {
-        position: 'static',
+        height: 24,
     },
     dropDownButton: {
         border: 'none',
         background: 'none',
         outline: 'none',
-        paddingRight: 0,
-        paddingBottom: 0,
-        paddingLeft: 1,
-        paddingTop: 2,
-    },
-    renderPos: {
-        left: 5,
+        padding: 0,
+        height: 24,
     },
 };
 
-const MAX_TOP_PIXEL_POS = 696;
-const LEFT_RENDER_PIXEL_POS = 5;
+const items = [
+    {
+        axisName: 'columns',
+        displayName: i18n.t('Add to series'),
+    },
+    {
+        axisName: 'rows',
+        displayName: i18n.t('Add to category'),
+    },
+    {
+        axisName: 'filters',
+        displayName: i18n.t('Add to filter'),
+    },
+];
 
 export const OptionsButton = ({ action }) => {
     return (
@@ -33,55 +44,66 @@ export const OptionsButton = ({ action }) => {
 };
 
 export class DimensionOptions extends Component {
-    state = { showMenu: false };
+    state = { anchorEl: null };
 
-    closeMenu = () => {
-        document.removeEventListener('click', this.closeMenu);
-        this.props.toggleHoverListener();
+    handleClick = event => {
+        this.setState({ anchorEl: event.currentTarget });
     };
 
-    showMenu = () => {
-        this.setState({ showMenu: true }, () => {
-            document.addEventListener('click', this.closeMenu);
-            this.props.toggleHoverListener();
-        });
+    handleClose = () => {
+        this.setState({ anchorEl: null });
+        this.props.onClose();
     };
 
-    componentDidMount = () => {
-        const initialPos = this.refs.wrapper.getBoundingClientRect();
+    addDimension = axisName => {
+        this.props.onAddDimension({ [this.props.id]: axisName });
+        this.handleClose();
+    };
 
-        const topPixelPos =
-            initialPos.top > MAX_TOP_PIXEL_POS
-                ? MAX_TOP_PIXEL_POS
-                : initialPos.top;
+    getMenuItems = () => {
+        return items.map(option => (
+            <MenuItem
+                key={option.axisName}
+                onClick={() => this.addDimension(option.axisName)}
+            >
+                {option.displayName}
+            </MenuItem>
+        ));
+    };
 
-        style.renderPos = {
-            top: topPixelPos,
-            left: LEFT_RENDER_PIXEL_POS + initialPos.left,
-        };
+    renderOptionsOnHover = () => {
+        return this.props.showButton ? (
+            <OptionsButton action={this.handleClick} />
+        ) : null;
     };
 
     render = () => {
-        const Options = this.state.showMenu ? (
-            <DropDown
-                onClose={this.closeMenu}
-                renderPos={style.renderPos}
-                id={this.props.id}
-            />
-        ) : (
-            <OptionsButton action={this.showMenu} />
-        );
+        const menuItems = this.getMenuItems();
+        const OptionsButton = this.renderOptionsOnHover();
 
         return (
-            <div ref={'wrapper'} style={style.wrapper}>
-                {Options}
+            <div style={style.wrapper}>
+                {OptionsButton}
+                <DropDown
+                    id={this.props.id}
+                    anchorEl={this.state.anchorEl}
+                    handleClose={this.handleClose}
+                    menuItems={menuItems}
+                />
             </div>
         );
     };
 }
 
 DimensionOptions.propTypes = {
-    toggleHoverListener: PropTypes.func.isRequired,
+    id: PropTypes.string.isRequired,
+    showButton: PropTypes.bool.isRequired,
+    onClose: PropTypes.func.isRequired,
 };
 
-export default DimensionOptions;
+export default connect(
+    null,
+    {
+        onAddDimension: dimension => acAddUiLayoutDimensions(dimension),
+    }
+)(DimensionOptions);
