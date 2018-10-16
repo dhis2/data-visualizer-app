@@ -2,7 +2,7 @@ import isObject from 'd2-utilizr/lib/isObject';
 
 // TODO, copied from dashboards-app
 export function arrayToIdMap(array) {
-    return sortArray(array).reduce((obj, item) => {
+    return array.reduce((obj, item) => {
         obj[item.id] = item;
         return obj;
     }, {});
@@ -15,10 +15,12 @@ export function entriesToObject(entries) {
     );
 }
 
-export const sortArray = array => {
-    const sortedDimensions = array.sort((dimensionA, dimensionB) => {
-        const nameA = dimensionA.displayName.toLowerCase(),
-            nameB = dimensionB.displayName.toLowerCase();
+export const sortObjEntries = (obj, propName) => {
+    const entries = Object.values(obj);
+
+    return entries.sort((itemA, itemB) => {
+        const nameA = itemA[propName].toLowerCase();
+        const nameB = itemB[propName].toLowerCase();
 
         if (nameA < nameB) {
             return -1;
@@ -29,8 +31,6 @@ export const sortArray = array => {
 
         return 0;
     });
-
-    return sortedDimensions;
 };
 
 export function arrayGetById(array, id) {

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { DimensionItem } from './DimensionItem';
 import * as fromReducers from '../../reducers';
+import { sortObjEntries } from '../../util';
 
 const style = {
     listContainer: {
@@ -14,6 +15,8 @@ const style = {
         marginTop: 0,
     },
 };
+
+const displayName = 'displayName';
 
 export class DimensionList extends Component {
     searchTextContains = dimensionName => {
@@ -42,7 +45,9 @@ export class DimensionList extends Component {
 
     render = () => {
         const { searchText, dimensions } = this.props;
-        const dimensionsList = Object.values(dimensions).map(
+        const sortedDimensions = sortObjEntries(dimensions, displayName);
+
+        const dimensionsList = Object.values(sortedDimensions).map(
             listItem =>
                 searchText.length
                     ? this.filterMatchingDimensions(listItem)
