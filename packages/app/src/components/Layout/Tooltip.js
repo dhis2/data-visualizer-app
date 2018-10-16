@@ -9,6 +9,25 @@ import { colors } from '../../colors';
 import { sGetUiItems } from '../../reducers/ui';
 import { sGetMetadata } from '../../reducers/metadata';
 
+const styles = {
+    tooltip: {
+        fontFamily: 'roboto',
+        padding: '7px 9px',
+        color: colors.white,
+        fontSize: '12px',
+        backgroundColor: '#4a4a4a',
+        boxShadow: 'none',
+        borderRadius: '3px',
+        position: 'relative',
+        top: '5px',
+    },
+    list: {
+        listStyleType: 'none',
+        margin: '0px',
+        padding: '0px',
+    },
+};
+
 const labels = {
     noneSelected: i18n.t('None selected'),
 };
@@ -20,26 +39,9 @@ export class Tooltip extends React.Component {
             open={this.props.open}
             placement="bottom-start"
         >
-            <Paper
-                style={{
-                    padding: '8px',
-                    color: colors.white,
-                    fontSize: '12px',
-                    backgroundColor: '#4a4a4a',
-                    boxShadow: 'none',
-                    borderRadius: '3px',
-                    position: 'relative',
-                    top: '3px',
-                }}
-            >
+            <Paper style={styles.tooltip}>
                 {
-                    <ul
-                        style={{
-                            listStyleType: 'none',
-                            margin: '0px',
-                            padding: '0px',
-                        }}
-                    >
+                    <ul style={styles.list}>
                         {names.map(name => (
                             <li key={`${this.props.dimensionId}-${name}`}>
                                 {name}

@@ -79,7 +79,6 @@ class Chip extends React.Component {
         if (typeof this.timeout === 'number') {
             clearTimeout(this.timeout);
             this.timeout = null;
-
             this.setState({
                 tooltipOpen: false,
             });
