@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import DimensionLabel from './DimensionLabel';
 import DimensionOptions from './DimensionOptions';
-import RecommendedIcon, {
+import RecommendedIcon from './RecommendedIcon';
+import {
     DataIcon,
     PeriodIcon,
     OrgUnitIcon,
     GenericDimension,
-} from './icons';
+} from '../../icons';
 import { colors } from '../../colors';
 import { setDataTransfer } from '../../dnd';
 
