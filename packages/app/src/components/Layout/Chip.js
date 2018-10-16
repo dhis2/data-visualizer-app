@@ -29,25 +29,19 @@ const styles = {
         overflow: 'hidden',
         textOverflow: 'ellipsis',
     },
-    chipLeft: {
-        borderTopRightRadius: '0px',
-        borderBottomRightRadius: '0px',
-    },
-    chipRight: {
-        paddingLeft: '0px',
-        borderTopLeftRadius: '0px',
-        borderBottomLeftRadius: '0px',
-    },
 };
 
 styles.chipLeft = {
     ...styles.chip,
-    ...styles.chipLeft,
+    borderTopRightRadius: '0px',
+    borderBottomRightRadius: '0px',
 };
 
 styles.chipRight = {
     ...styles.chip,
-    ...styles.chipRight,
+    paddingLeft: '0px',
+    borderTopLeftRadius: '0px',
+    borderBottomLeftRadius: '0px',
 };
 
 const labels = {
