@@ -5,8 +5,13 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2018-10-15T11:14:21.168Z\n"
 "PO-Revision-Date: 2018-10-15T11:14:21.168Z\n"
+=======
+"POT-Creation-Date: 2018-10-15T13:28:27.253Z\n"
+"PO-Revision-Date: 2018-10-15T13:28:27.253Z\n"
+>>>>>>> b3264b252f2e8db4a559f78c0ec9d9626079f6c7
 
 msgid "Rename successful"
 msgstr ""
@@ -14,9 +19,10 @@ msgstr ""
 msgid "\"{{what}}\" successfully deleted."
 msgstr ""
 
-msgid "Data Dimension"
+msgid "Reporting rates"
 msgstr ""
 
+<<<<<<< HEAD
 msgid "Hide"
 msgstr ""
 
@@ -30,6 +36,87 @@ msgid "Add to category"
 msgstr ""
 
 msgid "Add to filter"
+=======
+msgid "Reporting rates on time"
+msgstr ""
+
+msgid "Actual reports"
+msgstr ""
+
+msgid "Actual reporting rates on time"
+msgstr ""
+
+msgid "Expected reports"
+msgstr ""
+
+msgid "Data"
+msgstr ""
+
+msgid "Data Type"
+msgstr ""
+
+msgid "Detail"
+msgstr ""
+
+msgid "Search"
+msgstr ""
+
+msgid "Selected Data"
+msgstr ""
+
+msgid "DESELECT ALL"
+msgstr ""
+
+msgid "SELECT ALL"
+msgstr ""
+
+msgid "HIDE"
+msgstr ""
+
+msgid "UPDATE"
+msgstr ""
+
+msgid "Indicators"
+msgstr ""
+
+msgid "Select indicator group"
+msgstr ""
+
+msgid "[ All groups ]"
+msgstr ""
+
+msgid "Data elements"
+msgstr ""
+
+msgid "Select data element group"
+msgstr ""
+
+msgid "[ All data elements ]"
+msgstr ""
+
+msgid "Totals"
+msgstr ""
+
+msgid "Details"
+msgstr ""
+
+msgid "Data sets"
+msgstr ""
+
+msgid "Select data sets"
+msgstr ""
+
+msgid "[ All metrics ]"
+msgstr ""
+
+msgid "Event data items"
+msgstr ""
+
+msgid "Select program"
+msgstr ""
+
+msgid "Program indicators"
+>>>>>>> b3264b252f2e8db4a559f78c0ec9d9626079f6c7
 msgstr ""
 
 msgid "Search Dimensions"
@@ -201,9 +288,6 @@ msgid "Target line value"
 msgstr ""
 
 msgid "Chart title"
-msgstr ""
-
-msgid "Data"
 msgstr ""
 
 msgid "Axes & legend"

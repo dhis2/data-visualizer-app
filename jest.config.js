@@ -22,4 +22,7 @@ module.exports = {
     },
     moduleFileExtensions: ['js', 'jsx'],
     moduleDirectories: ['node_modules'],
+    moduleNameMapper: {
+        'lodash-es': '<rootDir>/config/lodash-mock.js',
+    },
 };

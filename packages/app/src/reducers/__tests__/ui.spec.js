@@ -67,17 +67,14 @@ describe('reducer: ui', () => {
         const expectedState = {
             type,
             options: { ...DEFAULT_UI.options, aggregationType },
-            layout: {
-                [COLUMNS]: [dxId],
-                [ROWS]: [peId],
-                [FILTERS]: [ouId],
-            },
+            layout: { [COLUMNS]: [dxId], [ROWS]: [peId], [FILTERS]: [ouId] },
             itemsByDimension: {
                 [dxId]: [dxItem1Id],
                 [peId]: [peItem1Id],
                 [ouId]: [ouItem1Id],
             },
         };
+
         const actualState = reducer(DEFAULT_UI, {
             type: actionTypes.SET_UI_FROM_VISUALIZATION,
             value: visualization,
@@ -127,44 +124,104 @@ describe('reducer: ui', () => {
         expect(actualState).toEqual(expectedState);
     });
 
-    it(`${actionTypes.SET_UI_ITEMS}: should set items by dimension`, () => {
-        const newLayout = {};
-        const expectedState = {
-            ...DEFAULT_UI,
-            layout: newLayout,
-        };
-        const actualState = reducer(DEFAULT_UI, {
-            type: actionTypes.SET_UI_LAYOUT,
-            value: newLayout,
+    describe('itemByDimension', () => {
+        it(`${actionTypes.SET_UI_ITEMS}: sets items by dimension`, () => {
+            const newItemsByDimension = {
+                dx: 'abc',
+                pe: 'def',
+            };
+            const expectedState = {
+                ...DEFAULT_UI,
+                itemsByDimension: newItemsByDimension,
+            };
+            const actualState = reducer(DEFAULT_UI, {
+                type: actionTypes.SET_UI_ITEMS,
+                value: newItemsByDimension,
+            });
+
+            expect(actualState).toEqual(expectedState);
         });
 
-        expect(actualState).toEqual(expectedState);
-    });
+        it(`${actionTypes.ADD_UI_ITEMS}: adds single item to dx`, () => {
+            const dx = ['abc'];
 
-    it(`${
-        actionTypes.ADD_UI_ITEMS
-    }: should add items by dimension preserving old value`, () => {
-        const ouItems = {
-            ou: [
-                'USER_ORG_UNIT',
-                'USER_ORGUNIT_CHILDREN',
-                'USER_ORGUNIT_GRANDCHILDREN',
-            ],
-        };
+            const value = {
+                dimensionType: 'dx',
+                value: dx,
+            };
+            const expectedState = dx;
+            const actualState = reducer(DEFAULT_UI, {
+                type: actionTypes.ADD_UI_ITEMS,
+                value,
+            });
 
-        const expectedState = {
-            ...DEFAULT_UI,
-            itemsByDimension: {
-                ...DEFAULT_UI.itemsByDimension,
-                ...ouItems,
-            },
-        };
-
-        const actualState = reducer(DEFAULT_UI, {
-            type: actionTypes.ADD_UI_ITEMS,
-            value: ouItems,
+            expect(actualState.itemsByDimension.dx).toEqual(expectedState);
         });
 
-        expect(actualState).toEqual(expectedState);
+        it(`${actionTypes.ADD_UI_ITEMS}: adds several items to dx`, () => {
+            const dx1 = 'abc';
+            const dx2 = 'def';
+
+            const value = { dimensionType: 'dx', value: [dx1, dx2] };
+            const expectedState = [dx1, dx2];
+            const actualState = reducer(DEFAULT_UI, {
+                type: actionTypes.ADD_UI_ITEMS,
+                value,
+            });
+
+            expect(actualState.itemsByDimension.dx).toEqual(expectedState);
+        });
+
+        it(`${actionTypes.ADD_UI_ITEMS}: adds pre-existing items to dx`, () => {
+            const dx1 = 'abc';
+            const dx2 = 'def';
+
+            const defaultIBD = Object.assign(
+                {},
+                { ...DEFAULT_UI.itemsByDimension },
+                { dx: [dx1] }
+            );
+
+            const startingState = Object.assign(
+                {},
+                { ...DEFAULT_UI },
+                { itemsByDimension: defaultIBD }
+            );
+
+            const value = { dimensionType: 'dx', value: [dx1, dx2] };
+            const expectedState = [dx1, dx2];
+            const actualState = reducer(startingState, {
+                type: actionTypes.ADD_UI_ITEMS,
+                value,
+            });
+
+            expect(actualState.itemsByDimension.dx).toEqual(expectedState);
+        });
+
+        it(`${actionTypes.REMOVE_UI_ITEMS}: removes items from dx`, () => {
+            const dx1 = 'abc';
+            const dx2 = 'def';
+
+            const defaultIBD = Object.assign(
+                {},
+                { ...DEFAULT_UI.itemsByDimension },
+                { dx: [dx1, dx2] }
+            );
+
+            const startingState = Object.assign(
+                {},
+                { ...DEFAULT_UI },
+                { itemsByDimension: defaultIBD }
+            );
+
+            const value = { dimensionType: 'dx', value: [dx1] };
+            const expectedState = [dx2];
+            const actualState = reducer(startingState, {
+                type: actionTypes.REMOVE_UI_ITEMS,
+                value,
+            });
+
+            expect(actualState.itemsByDimension.dx).toEqual(expectedState);
+        });
     });
 });

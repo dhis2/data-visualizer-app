@@ -4,33 +4,21 @@ import { getAxesFromUi } from '../current';
 const [COLUMNS, ROWS, FILTERS] = AXIS_NAMES;
 
 const dxId = 'dx';
-const dxItem1Id = 'dxItem1';
-const dxItem2Id = 'dxItem2';
-const dx = {
-    dimension: dxId,
-    items: [{ id: dxItem1Id }, { id: dxItem2Id }],
-};
+const dxItem1id = 'dxItem1id';
+const dxItem2id = 'dxItem2id';
+const dxItems = [dxItem1id, dxItem2id];
 
 const otherId = 'other';
-const otherItem1Id = 'otherItem1';
-const other = {
-    dimension: otherId,
-    items: [{ id: otherItem1Id }],
-};
+const otherItemId = 'otherItem1id';
+const otherItems = [otherItemId];
 
 const peId = 'pe';
-const peItem1Id = 'peItem1';
-const pe = {
-    dimension: peId,
-    items: [{ id: peItem1Id }],
-};
+const peItemId = 'peItem1id';
+const peItems = [peItemId];
 
 const ouId = 'ou';
-const ouItem1Id = 'ouItem1';
-const ou = {
-    dimension: ouId,
-    items: [{ id: ouItem1Id }],
-};
+const ouItemId = 'ouItem1id';
+const ouItems = [ouItemId];
 
 const emptyId = 'empty';
 
@@ -41,19 +29,25 @@ const ui = {
         [FILTERS]: [ouId],
     },
     itemsByDimension: {
-        [dxId]: dx.items.map(i => i.id),
-        [otherId]: other.items.map(i => i.id),
-        [peId]: pe.items.map(i => i.id),
-        [ouId]: ou.items.map(i => i.id),
+        [dxId]: dxItems,
+        [otherId]: otherItems,
+        [peId]: peItems,
+        [ouId]: ouItems,
     },
 };
 
 describe('getAxesFromUi', () => {
     it('should return a layout object (columns, rows, filters) with dimensions (id and item objects) that are not empty', () => {
         const expectedState = {
-            columns: [dx, other],
-            rows: [pe],
-            filters: [ou],
+            columns: [
+                {
+                    dimension: dxId,
+                    items: [{ id: dxItem1id }, { id: dxItem2id }],
+                },
+                { dimension: otherId, items: [{ id: otherItemId }] },
+            ],
+            rows: [{ dimension: peId, items: [{ id: peItemId }] }],
+            filters: [{ dimension: ouId, items: [{ id: ouItemId }] }],
         };
         const actualState = getAxesFromUi(ui);
 

@@ -1,14 +1,8 @@
 import React from 'react';
-import i18n from '@dhis2/d2-i18n';
-import {
-    Button,
-    Dialog,
-    DialogActions,
-    DialogContent,
-} from '@material-ui/core';
-import { DataDimension } from './DataDimension';
-import { PeriodDimension } from './PeriodDimension';
-import { OrgUnitDimension } from './OrgUnitDimension';
+import { Dialog } from '@material-ui/core';
+import DataDimension from './DataDimension/DataDimension';
+import PeriodDimension from './PeriodDimension';
+import OrgUnitDimension from './OrgUnitDimension';
 
 // Placeholder for the dimension popup dialogs - using the Options dialog until the components are created
 const dimensionComponents = {
@@ -34,7 +28,7 @@ export const DialogManager = ({ dialogIsOpen, id, toggleDialog }) => {
                 </Button>
             </DialogActions>
         </Dialog>
-    );
+    ) : null;
 };
 
 export default DialogManager;

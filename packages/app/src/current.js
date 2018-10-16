@@ -3,9 +3,7 @@ import options, { computedOptions } from './options';
 
 const getModelAxis = (dimensionId, itemIds) => ({
     dimension: dimensionId,
-    items: itemIds.map(id => ({
-        id,
-    })),
+    items: itemIds.map(id => ({ id })),
 });
 
 const hasItems = (object, id) =>

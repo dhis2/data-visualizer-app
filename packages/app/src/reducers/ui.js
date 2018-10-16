@@ -17,6 +17,7 @@ export const actionTypes = {
     REMOVE_UI_LAYOUT_DIMENSIONS: 'REMOVE_UI_LAYOUT_DIMENSIONS',
     SET_UI_ITEMS: 'SET_UI_ITEMS',
     ADD_UI_ITEMS: 'ADD_UI_ITEMS',
+    REMOVE_UI_ITEMS: 'REMOVE_UI_ITEMS',
     CLEAR_UI: 'CLEAR_UI',
 };
 
@@ -116,13 +117,32 @@ export default (state = DEFAULT_UI, action) => {
             };
         }
         case actionTypes.ADD_UI_ITEMS: {
-            return {
-                ...state,
-                itemsByDimension: {
-                    ...state.itemsByDimension,
-                    ...action.value,
-                },
-            };
+            const { dimensionType: type, value: items } = action.value;
+            const dxItems = [
+                ...new Set([...state.itemsByDimension[type], ...items]),
+            ];
+
+            const itemsByDimension = Object.assign(
+                {},
+                { ...state.itemsByDimension },
+                { [type]: dxItems }
+            );
+
+            return Object.assign({}, { ...state }, { itemsByDimension });
+        }
+        case actionTypes.REMOVE_UI_ITEMS: {
+            const { dimensionType: type, value: idsToRemove } = action.value;
+            const dxItems = state.itemsByDimension[type].filter(
+                id => !idsToRemove.includes(id)
+            );
+
+            const itemsByDimension = Object.assign(
+                {},
+                { ...state.itemsByDimension },
+                { [type]: dxItems }
+            );
+
+            return Object.assign({}, { ...state }, { itemsByDimension });
         }
         case actionTypes.CLEAR_UI:
             return DEFAULT_UI;

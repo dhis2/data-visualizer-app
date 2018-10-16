@@ -48,3 +48,8 @@ export const acAddUiItems = value => ({
     type: actionTypes.ADD_UI_ITEMS,
     value,
 });
+
+export const acRemoveUiItems = value => ({
+    type: actionTypes.REMOVE_UI_ITEMS,
+    value,
+});
