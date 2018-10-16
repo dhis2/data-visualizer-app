@@ -104,7 +104,7 @@ export class SelectedItems extends Component {
     };
 
     onDeselectAllClick = () => {
-        this.props.onDeselect(this.props.items.map(i => i.id));
+        this.props.onDeselect(this.props.items);
         this.setState({ highlighted: [] });
     };
 
