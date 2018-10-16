@@ -1,26 +1,22 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { TextField } from '@material-ui/core';
+import TextField from '@material-ui/core/TextField';
 import { Search } from '@material-ui/icons';
 import i18n from '@dhis2/d2-i18n';
-import { colors } from '../../colors';
 import DimensionList from './DimensionList';
-import DialogManager from './DialogManager';
-import { acAddUiLayoutDimensions, acSetUiItems } from '../../actions/ui';
+import { DialogManager } from './DialogManager';
+import { colors } from '../../colors';
 
 const style = {
     divContainer: {
         backgroundColor: colors.lightGrey,
-        height: 764,
         width: 250,
+        padding: 12,
     },
     searchIcon: {
-        color: colors.charcoalGrey,
-        position: 'relative',
-        top: 5,
+        color: colors.grey,
     },
     textField: {
-        left: 5,
+        marginBottom: 12,
     },
 };
 
@@ -39,11 +35,6 @@ export class Dimensions extends Component {
         });
     };
 
-    setDimension = ids => {
-        this.props.addDataDimensions(ids);
-        this.toggleDialog(null);
-    };
-
     render = () => {
         return (
             <div className={'dimensions'} style={style.divContainer}>
@@ -51,7 +42,6 @@ export class Dimensions extends Component {
                     dialogIsOpen={!!this.state.dialogDimId}
                     id={this.state.dialogDimId}
                     toggleDialog={this.toggleDialog}
-                    setDimension={this.setDimension}
                 />
                 <TextField
                     style={style.textField}
@@ -70,10 +60,4 @@ export class Dimensions extends Component {
     };
 }
 
-export default connect(
-    null,
-    {
-        setDimension: id => acAddUiLayoutDimensions(id),
-        addDataDimensions: ids => acSetUiItems(ids),
-    }
-)(Dimensions);
+export default Dimensions;

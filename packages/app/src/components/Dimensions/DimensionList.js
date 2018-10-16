@@ -1,22 +1,19 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import DimensionItem from './DimensionItem';
+import { connect } from 'react-redux';
+import { DimensionItem } from './DimensionItem';
 import * as fromReducers from '../../reducers';
 
 const style = {
     listContainer: {
         overflow: 'hidden',
         overflowY: 'scroll',
-        maxHeight: 697,
+        minHeight: 815,
         minWidth: 250,
-        width: 250,
         padding: 0,
         marginTop: 0,
     },
 };
-
-const OBJECT_POS = 1;
 
 export class DimensionList extends Component {
     searchTextContains = dimensionName => {
@@ -45,11 +42,11 @@ export class DimensionList extends Component {
 
     render = () => {
         const { searchText, dimensions } = this.props;
-        const dimensionsList = Object.entries(dimensions).map(
+        const dimensionsList = Object.values(dimensions).map(
             listItem =>
                 searchText.length
-                    ? this.filterMatchingDimensions(listItem[OBJECT_POS])
-                    : this.renderItem(listItem[OBJECT_POS])
+                    ? this.filterMatchingDimensions(listItem)
+                    : this.renderItem(listItem)
         );
         return <ul style={style.listContainer}>{dimensionsList}</ul>;
     };

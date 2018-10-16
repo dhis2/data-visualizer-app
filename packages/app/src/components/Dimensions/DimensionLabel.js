@@ -2,17 +2,15 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Close } from '@material-ui/icons';
-import { colors } from '../../colors';
 import { acRemoveUiLayoutDimensions } from '../../actions/ui';
+import { colors } from '../../colors';
 
 const style = {
     unselected: {
-        minWidth: 'fit-content',
+        display: 'flex',
         borderRadius: 4,
-        marginLeft: 5,
     },
     selected: {
-        display: 'inline-flex',
         backgroundColor: colors.lightBlue,
     },
     deleteButton: {
@@ -68,21 +66,30 @@ export class DimensionLabel extends Component {
         ) : null;
     };
 
+    renderLabel = () => {
+        return (
+            <div
+                onClick={this.onLabelClick}
+                onKeyPress={this.onKeyPress}
+                tabIndex={0}
+                style={style.unselected}
+            >
+                {this.props.children}
+            </div>
+        );
+    };
+
     render = () => {
+        const Label = this.renderLabel();
         const RemoveDimension = this.renderRemoveButton();
-        const labelStyle = this.props.isSelected
+
+        const containerStyle = this.props.isSelected
             ? { ...style.unselected, ...style.selected }
             : style.unselected;
 
         return (
-            <div style={labelStyle}>
-                <div
-                    onClick={this.onLabelClick}
-                    onKeyPress={this.onKeyPress}
-                    tabIndex={0}
-                >
-                    {this.props.children}
-                </div>
+            <div style={containerStyle}>
+                {Label}
                 {RemoveDimension}
             </div>
         );
