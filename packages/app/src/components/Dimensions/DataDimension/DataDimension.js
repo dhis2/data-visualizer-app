@@ -32,6 +32,7 @@ const style = {
     dialogContent: {
         paddingBottom: 0,
         paddingTop: 0,
+        overflow: 'hidden',
     },
     dialogTitle: {
         fontFamily: 'Roboto',
