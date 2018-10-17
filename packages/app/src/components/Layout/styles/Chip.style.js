@@ -22,6 +22,7 @@ export const styles = {
 
 styles.chipLeft = {
     ...styles.chip,
+    display: 'flex',
     borderTopRightRadius: '0px',
     borderBottomRightRadius: '0px',
 };
