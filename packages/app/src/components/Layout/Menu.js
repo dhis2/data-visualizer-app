@@ -2,15 +2,7 @@ import React from 'react';
 import Menu from '@material-ui/core/Menu';
 import IconButton from '@material-ui/core/IconButton';
 import KeyboardArrowDown from '@material-ui/icons/KeyboardArrowDown';
-
-const styles = {
-    icon: {
-        width: 18,
-        height: 18,
-        color: '#000',
-        padding: 0,
-    },
-};
+import { styles } from './styles/Menu.style';
 
 class ChipMenu extends React.Component {
     state = {
@@ -26,12 +18,6 @@ class ChipMenu extends React.Component {
         event.stopPropagation();
         this.setState({ anchorEl: null });
     };
-
-    // handleMouseOver = event => {
-    //     event.preventDefault();
-    //     event.stopPropagation();
-    //     console.log('stopped');
-    // };
 
     getMenuId = () => `menu-for-${this.props.id}`;
 
