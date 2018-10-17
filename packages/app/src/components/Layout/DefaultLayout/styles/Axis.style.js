@@ -1,6 +1,6 @@
-import { colors } from '../../../colors';
+import { colors } from '../../../../colors';
 import * as defaultLayoutStyle from './defaultStyle';
-import * as layoutStyle from '../style';
+import * as layoutStyle from '../../styles/style';
 
 export const styles = {
     axisContainer: {

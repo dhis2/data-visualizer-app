@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Axis from './Axis';
-import * as defaultLayoutStyle from './defaultStyle';
+import * as defaultLayoutStyle from './styles/defaultStyle';
 
 const styles = {
     ct: {
