@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Popper from '@material-ui/core/Popper';
-import { RecommendedIcon } from '../icons';
+import { RecommendedIcon } from '../RecommendedIcon';
 
 describe('The RecommendedIcon component ', () => {
     let props;

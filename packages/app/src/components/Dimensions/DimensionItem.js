@@ -3,36 +3,15 @@ import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import DimensionLabel from './DimensionLabel';
 import DimensionOptions from './DimensionOptions';
-import RecommendedIcon, {
+import RecommendedIcon from './RecommendedIcon';
+import {
     DataIcon,
     PeriodIcon,
     OrgUnitIcon,
     GenericDimension,
-} from './icons';
-import { colors } from '../../colors';
+} from '../../icons';
 import { setDataTransfer } from '../../dnd';
-
-const style = {
-    wrapper: {
-        display: 'flex',
-        position: 'static',
-    },
-    text: {
-        color: colors.black,
-        cursor: 'pointer',
-        userSelect: 'none',
-        wordBreak: 'break-all',
-        paddingTop: 3,
-        fontSize: 16,
-        maxWidth: 195,
-    },
-    itemContainer: {
-        display: 'flex',
-        minHeight: 24,
-        marginTop: 7,
-        marginBottom: 7,
-    },
-};
+import { styles } from './styles/DimensionItem.style';
 
 const fixedDimensionIcons = {
     dx: <DataIcon />,
@@ -62,7 +41,7 @@ export class DimensionItem extends Component {
         return (
             <span
                 data-dimensionid={this.props.id}
-                style={style.text}
+                style={styles.text}
                 draggable="true"
                 onDragStart={this.onDragStart}
             >
@@ -78,7 +57,7 @@ export class DimensionItem extends Component {
         return (
             <li
                 key={this.props.id}
-                style={style.itemContainer}
+                style={styles.itemContainer}
                 onMouseOver={this.onMouseOver}
                 onMouseLeave={this.onMouseExit}
             >
