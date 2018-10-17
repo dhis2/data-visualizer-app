@@ -154,11 +154,15 @@ export class DataDimension extends Component {
     };
 
     onGroupChange = async groupId => {
-        this.setState({ groupId }, this.updateAlternatives);
+        if (groupId !== this.state.groupId) {
+            this.setState({ groupId }, this.updateAlternatives);
+        }
     };
 
     onDetailChange = groupDetail => {
-        this.setState({ groupDetail }, this.updateAlternatives);
+        if (groupDetail !== this.state.groupDetail) {
+            this.setState({ groupDetail }, this.updateAlternatives);
+        }
     };
 
     onFilterTextChange = filterText => {

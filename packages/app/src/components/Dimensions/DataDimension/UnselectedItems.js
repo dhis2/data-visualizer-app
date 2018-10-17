@@ -17,6 +17,7 @@ const style = {
         borderBottom: 0,
         paddingLeft: 0,
         margin: 0,
+        userSelect: 'none',
     },
     listItem: {
         display: 'flex',
@@ -88,12 +89,10 @@ export class UnselectedItems extends Component {
                 className="dimension-item"
                 key={dataDim.id}
                 style={style.listItem}
+                onDoubleClick={() => this.onDoubleClickItem(dataDim.id)}
+                onClick={() => this.toggleHighlight(dataDim.id)}
             >
-                <div
-                    onDoubleClick={() => this.onDoubleClickItem(dataDim.id)}
-                    onClick={() => this.toggleHighlight(dataDim.id)}
-                    style={itemStyle}
-                >
+                <div style={itemStyle}>
                     <UnselectedIcon />
                     <span style={style.text}>{dataDim.name}</span>
                 </div>
@@ -104,9 +103,12 @@ export class UnselectedItems extends Component {
     requestMoreItems = throttle(() => {
         const node = this.ulRef.current;
 
-        const bottom = node.scrollHeight - node.scrollTop === node.clientHeight;
-        if (bottom) {
-            this.props.requestMoreItems();
+        if (node) {
+            const bottom =
+                node.scrollHeight - node.scrollTop === node.clientHeight;
+            if (bottom) {
+                this.props.requestMoreItems();
+            }
         }
     }, 1000);
 
