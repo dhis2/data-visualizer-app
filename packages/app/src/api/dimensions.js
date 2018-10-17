@@ -213,7 +213,7 @@ const apiFetchDataSets = (page, filterText) => {
 };
 
 const apiFetchProgramIndicators = (page, filterText) => {
-    const fields = 'id,displayName~rename(name)';
+    const fields = 'id,displayName';
     const filter = filterText ? `&filter=displayName:ilike:${filterText}` : '';
     const paging = `&paging=true&page=${page}`;
     const url = `/programs?fields=${fields}${filter}${paging}`;
