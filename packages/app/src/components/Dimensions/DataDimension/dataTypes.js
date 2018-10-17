@@ -91,6 +91,6 @@ const getReportingRates = (contents, groupSetId) => {
 const concatReportingRate = (dataSet, reportingRate) => {
     return {
         id: `${dataSet.id}.${reportingRate.id}`,
-        displayName: `${dataSet.displayName} (${reportingRate.displayName})`,
+        name: `${dataSet.name} (${reportingRate.displayName})`,
     };
 };
