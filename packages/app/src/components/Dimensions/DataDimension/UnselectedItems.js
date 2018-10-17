@@ -103,9 +103,12 @@ export class UnselectedItems extends Component {
     requestMoreItems = throttle(() => {
         const node = this.ulRef.current;
 
-        const bottom = node.scrollHeight - node.scrollTop === node.clientHeight;
-        if (bottom) {
-            this.props.requestMoreItems();
+        if (node) {
+            const bottom =
+                node.scrollHeight - node.scrollTop === node.clientHeight;
+            if (bottom) {
+                this.props.requestMoreItems();
+            }
         }
     }, 1000);
 
