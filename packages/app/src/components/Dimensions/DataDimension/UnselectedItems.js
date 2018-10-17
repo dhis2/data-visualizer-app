@@ -17,6 +17,7 @@ const style = {
         borderBottom: 0,
         paddingLeft: 0,
         margin: 0,
+        userSelect: 'none',
     },
     listItem: {
         display: 'flex',
