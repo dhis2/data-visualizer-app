@@ -9,7 +9,7 @@ import { sGetDimensions } from '../../reducers/dimensions';
 import { sGetUiItems } from '../../reducers/ui';
 import { styles } from './styles/Chip.style';
 import { FIXED_DIMENSIONS } from '../../fixedDimensions';
-import { GenericDimension } from '../../icons';
+import { GenericDimensionIcon } from '../../icons';
 
 const TOOLTIP_ENTER_DELAY = 500;
 
@@ -64,7 +64,7 @@ class Chip extends React.Component {
             return <Icon style={styles.fixedDimensionIcon} />;
         }
 
-        return <GenericDimension style={styles.genericDimensionIcon} />;
+        return <GenericDimensionIcon style={styles.genericDimensionIcon} />;
     };
 
     renderChip = () => {

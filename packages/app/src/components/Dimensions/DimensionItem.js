@@ -4,20 +4,10 @@ import i18n from '@dhis2/d2-i18n';
 import DimensionLabel from './DimensionLabel';
 import DimensionOptions from './DimensionOptions';
 import RecommendedIcon from './RecommendedIcon';
-import {
-    DataIcon,
-    PeriodIcon,
-    OrgUnitIcon,
-    GenericDimension,
-} from '../../icons';
+import { FIXED_DIMENSIONS } from '../../fixedDimensions';
+import { GenericDimensionIcon } from '../../icons';
 import { setDataTransfer } from '../../dnd';
 import { styles } from './styles/DimensionItem.style';
-
-const fixedDimensionIcons = {
-    dx: <DataIcon />,
-    pe: <PeriodIcon />,
-    ou: <OrgUnitIcon />,
-};
 
 export class DimensionItem extends Component {
     state = { mouseOver: false };
@@ -34,8 +24,16 @@ export class DimensionItem extends Component {
         setDataTransfer(e, 'dimensions');
     };
 
-    getDimensionIcon = () =>
-        fixedDimensionIcons[this.props.id] || <GenericDimension />;
+    getDimensionIcon = () => {
+        const fixedDimension = FIXED_DIMENSIONS[this.props.id];
+
+        if (fixedDimension) {
+            const Icon = fixedDimension.icon;
+            return <Icon style={styles.fixedDimensionIcon} />;
+        }
+
+        return <GenericDimensionIcon style={styles.genericDimensionIcon} />;
+    };
 
     getDimensionType = () => {
         return (

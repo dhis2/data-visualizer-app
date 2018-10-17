@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
 import MenuItem from '@material-ui/core/MenuItem';
 import DropDown from './DropDown';
-import { MoreHorizontal } from '../../icons';
+import { MoreHorizontalIcon } from '../../icons';
 import { acAddUiLayoutDimensions } from '../../actions/ui';
 import { styles } from './styles/DimensionOptions.style';
 
@@ -26,7 +26,7 @@ const items = [
 export const OptionsButton = ({ action }) => {
     return (
         <button style={styles.dropDownButton} onClick={action} tabIndex={1}>
-            <MoreHorizontal />
+            <MoreHorizontalIcon />
         </button>
     );
 };

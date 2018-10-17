@@ -224,7 +224,7 @@ export const OrgUnitIcon = ({ style }) => {
     );
 };
 
-export const GenericDimension = ({ style }) => {
+export const GenericDimensionIcon = ({ style }) => {
     return (
         <div
             style={{
@@ -244,7 +244,7 @@ export const GenericDimension = ({ style }) => {
     );
 };
 
-export const MoreHorizontal = ({ style }) => {
+export const MoreHorizontalIcon = ({ style }) => {
     return (
         <svg
             style={{
