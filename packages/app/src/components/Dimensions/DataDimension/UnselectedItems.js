@@ -89,12 +89,10 @@ export class UnselectedItems extends Component {
                 className="dimension-item"
                 key={dataDim.id}
                 style={style.listItem}
+                onDoubleClick={() => this.onDoubleClickItem(dataDim.id)}
+                onClick={() => this.toggleHighlight(dataDim.id)}
             >
-                <div
-                    onDoubleClick={() => this.onDoubleClickItem(dataDim.id)}
-                    onClick={() => this.toggleHighlight(dataDim.id)}
-                    style={itemStyle}
-                >
+                <div style={itemStyle}>
                     <UnselectedIcon />
                     <span style={style.text}>{dataDim.name}</span>
                 </div>
