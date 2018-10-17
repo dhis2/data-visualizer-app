@@ -20,4 +20,15 @@ export const styles = {
         marginTop: 7,
         marginBottom: 7,
     },
+    fixedDimensionIcon: {
+        paddingLeft: '6px',
+        position: 'relative',
+        top: '6px',
+    },
+    genericDimensionIcon: {
+        paddingLeft: '9px',
+        paddingRight: '9px',
+        position: 'relative',
+        top: '9px',
+    },
 };

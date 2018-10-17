@@ -9,7 +9,7 @@ import { sGetDimensions } from '../../reducers/dimensions';
 import { sGetUiItems } from '../../reducers/ui';
 import { styles } from './styles/Chip.style';
 import { FIXED_DIMENSIONS } from '../../fixedDimensions';
-import { GenericDimension } from '../../icons';
+import { GenericDimensionIcon } from '../../icons';
 
 const TOOLTIP_ENTER_DELAY = 500;
 
@@ -56,10 +56,16 @@ class Chip extends React.Component {
         setDataTransfer(e, source);
     };
 
-    getIconByDimension = () =>
-        FIXED_DIMENSIONS[this.props.dimensionId]
-            ? FIXED_DIMENSIONS[this.props.dimensionId].icon
-            : GenericDimension;
+    getIconByDimension = () => {
+        const fixedDimension = FIXED_DIMENSIONS[this.props.dimensionId];
+
+        if (fixedDimension) {
+            const Icon = FIXED_DIMENSIONS[this.props.dimensionId].icon;
+            return <Icon style={styles.fixedDimensionIcon} />;
+        }
+
+        return <GenericDimensionIcon style={styles.genericDimensionIcon} />;
+    };
 
     renderChip = () => {
         const itemsLabel = `: ${this.props.items.length} ${i18n.t('selected')}`;
@@ -69,7 +75,7 @@ class Chip extends React.Component {
 
         const anchorEl = document.getElementById(this.id);
 
-        const Icon = this.getIconByDimension();
+        const icon = this.getIconByDimension();
 
         return (
             <div
@@ -85,7 +91,7 @@ class Chip extends React.Component {
                     onMouseOver={this.handleMouseOver}
                     onMouseOut={this.handleMouseOut}
                 >
-                    <Icon />
+                    {icon}
                     {chipLabel}
                 </div>
                 <div style={styles.chipRight}>

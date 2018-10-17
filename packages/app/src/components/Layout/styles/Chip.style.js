@@ -18,6 +18,11 @@ export const styles = {
         overflow: 'hidden',
         textOverflow: 'ellipsis',
     },
+    fixedDimensionIcon: {
+        position: 'relative',
+        top: 2,
+    },
+    genericDimensionIcon: { position: 'relative', top: 5 },
 };
 
 styles.chipLeft = {
