@@ -27,6 +27,7 @@ const style = {
         height: 455,
         paddingLeft: 0,
         margin: 0,
+        userSelect: 'none',
     },
     subTitleText: {
         position: 'relative',
