@@ -40,6 +40,7 @@ export class App extends Component {
         const { store } = this.context;
         const d2 = this.props.d2;
 
+        store.dispatch(fromActions.fromSettings.tSetSettings());
         store.dispatch(fromActions.fromUser.acReceivedUser(d2.currentUser));
         store.dispatch(fromActions.fromDimensions.tSetDimensions());
         store.dispatch(fromActions.fromMetadata.acAddMetadata(defaultMetadata));
