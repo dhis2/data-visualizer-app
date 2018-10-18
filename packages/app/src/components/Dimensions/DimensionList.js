@@ -3,17 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { DimensionItem } from './DimensionItem';
 import * as fromReducers from '../../reducers';
-
-const style = {
-    listContainer: {
-        overflow: 'hidden',
-        overflowY: 'scroll',
-        minHeight: 815,
-        minWidth: 250,
-        padding: 0,
-        marginTop: 0,
-    },
-};
+import { styles } from './styles/DimensionList.style';
 
 export class DimensionList extends Component {
     searchTextContains = dimensionName => {
@@ -49,7 +39,7 @@ export class DimensionList extends Component {
                     ? this.filterMatchingDimensions(listItem)
                     : this.renderItem(listItem)
         );
-        return <ul style={style.listContainer}>{dimensionsList}</ul>;
+        return <ul style={styles.listContainer}>{dimensionsList}</ul>;
     };
 }
 

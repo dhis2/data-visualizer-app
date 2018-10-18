@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { DimensionItem } from '../DimensionItem';
 import DimensionLabel from '../DimensionLabel';
 import DimensionOptions from '../DimensionOptions';
-import RecommendedIcon from '../icons';
+import RecommendedIcon from '../RecommendedIcon';
 
 describe('The DimensionItem component ', () => {
     let props;

@@ -6,47 +6,12 @@ import Menu from './Menu';
 import Tooltip from './Tooltip';
 import { setDataTransfer } from '../../dnd';
 import { sGetDimensions } from '../../reducers/dimensions';
-import * as layoutStyle from './style';
 import { sGetUiItems } from '../../reducers/ui';
+import { styles } from './styles/Chip.style';
+import { FIXED_DIMENSIONS } from '../../fixedDimensions';
+import { GenericDimensionIcon } from '../../icons';
 
 const TOOLTIP_ENTER_DELAY = 500;
-
-const styles = {
-    chipWrapper: {
-        display: 'flex',
-        margin: layoutStyle.CHIP_MARGIN,
-    },
-    chip: {
-        maxHeight: layoutStyle.CHIP_HEIGHT,
-        padding: layoutStyle.CHIP_PADDING,
-        fontSize: layoutStyle.CHIP_FONT_SIZE,
-        fontWeight: layoutStyle.CHIP_FONT_WEIGHT,
-        backgroundColor: layoutStyle.CHIP_BACKGROUND_COLOR,
-        color: layoutStyle.CHIP_COLOR,
-        borderRadius: layoutStyle.CHIP_BORDER_RADIUS,
-        cursor: 'pointer',
-        whiteSpace: 'nowrap',
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-    },
-};
-
-styles.chipLeft = {
-    ...styles.chip,
-    borderTopRightRadius: '0px',
-    borderBottomRightRadius: '0px',
-};
-
-styles.chipRight = {
-    ...styles.chip,
-    paddingLeft: '0px',
-    borderTopLeftRadius: '0px',
-    borderBottomLeftRadius: '0px',
-};
-
-const labels = {
-    selected: i18n.t('selected'),
-};
 
 class Chip extends React.Component {
     state = {
@@ -91,13 +56,26 @@ class Chip extends React.Component {
         setDataTransfer(e, source);
     };
 
+    getIconByDimension = () => {
+        const fixedDimension = FIXED_DIMENSIONS[this.props.dimensionId];
+
+        if (fixedDimension) {
+            const Icon = FIXED_DIMENSIONS[this.props.dimensionId].icon;
+            return <Icon style={styles.fixedDimensionIcon} />;
+        }
+
+        return <GenericDimensionIcon style={styles.genericDimensionIcon} />;
+    };
+
     renderChip = () => {
-        const itemsLabel = `: ${this.props.items.length} ${labels.selected}`;
+        const itemsLabel = `: ${this.props.items.length} ${i18n.t('selected')}`;
         const chipLabel = `${this.props.dimensionName}${
             this.props.items.length > 0 ? itemsLabel : ''
         }`;
 
         const anchorEl = document.getElementById(this.id);
+
+        const icon = this.getIconByDimension();
 
         return (
             <div
@@ -113,6 +91,7 @@ class Chip extends React.Component {
                     onMouseOver={this.handleMouseOver}
                     onMouseOut={this.handleMouseOut}
                 >
+                    {icon}
                     {chipLabel}
                 </div>
                 <div style={styles.chipRight}>

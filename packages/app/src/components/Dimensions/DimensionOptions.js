@@ -4,21 +4,9 @@ import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
 import MenuItem from '@material-ui/core/MenuItem';
 import DropDown from './DropDown';
-import { MoreHorizontal } from './icons';
+import { MoreHorizontalIcon } from '../../icons';
 import { acAddUiLayoutDimensions } from '../../actions/ui';
-
-const style = {
-    wrapper: {
-        height: 24,
-    },
-    dropDownButton: {
-        border: 'none',
-        background: 'none',
-        outline: 'none',
-        padding: 0,
-        height: 24,
-    },
-};
+import { styles } from './styles/DimensionOptions.style';
 
 const items = [
     {
@@ -37,8 +25,8 @@ const items = [
 
 export const OptionsButton = ({ action }) => {
     return (
-        <button style={style.dropDownButton} onClick={action} tabIndex={1}>
-            <MoreHorizontal />
+        <button style={styles.dropDownButton} onClick={action} tabIndex={1}>
+            <MoreHorizontalIcon />
         </button>
     );
 };
@@ -82,7 +70,7 @@ export class DimensionOptions extends Component {
         const OptionsButton = this.renderOptionsOnHover();
 
         return (
-            <div style={style.wrapper}>
+            <div style={styles.wrapper}>
                 {OptionsButton}
                 <DropDown
                     id={this.props.id}

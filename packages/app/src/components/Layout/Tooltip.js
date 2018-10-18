@@ -5,28 +5,9 @@ import Popper from '@material-ui/core/Popper';
 import Paper from '@material-ui/core/Paper';
 import i18n from '@dhis2/d2-i18n';
 
-import { colors } from '../../colors';
 import { sGetUiItems } from '../../reducers/ui';
 import { sGetMetadata } from '../../reducers/metadata';
-
-const styles = {
-    tooltip: {
-        fontFamily: 'roboto',
-        padding: '7px 9px',
-        color: colors.white,
-        fontSize: '12px',
-        backgroundColor: '#4a4a4a',
-        boxShadow: 'none',
-        borderRadius: '3px',
-        position: 'relative',
-        top: '5px',
-    },
-    list: {
-        listStyleType: 'none',
-        margin: '0px',
-        padding: '0px',
-    },
-};
+import { styles } from './styles/Tooltip.style';
 
 const labels = {
     noneSelected: i18n.t('None selected'),

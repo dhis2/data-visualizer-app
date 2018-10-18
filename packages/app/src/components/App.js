@@ -14,6 +14,7 @@ import Layout from './Layout/Layout';
 import * as fromReducers from '../reducers';
 import * as fromActions from '../actions';
 import history from '../history';
+import defaultMetadata from '../metadata';
 
 import './App.css';
 
@@ -41,6 +42,7 @@ export class App extends Component {
 
         store.dispatch(fromActions.fromUser.acReceivedUser(d2.currentUser));
         store.dispatch(fromActions.fromDimensions.tSetDimensions());
+        store.dispatch(fromActions.fromMetadata.acAddMetadata(defaultMetadata));
 
         this.loadVisualization(this.props.location);
 

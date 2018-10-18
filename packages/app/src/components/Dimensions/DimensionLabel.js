@@ -3,35 +3,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Close } from '@material-ui/icons';
 import { acRemoveUiLayoutDimensions } from '../../actions/ui';
-import { colors } from '../../colors';
-
-const style = {
-    unselected: {
-        display: 'flex',
-        borderRadius: 4,
-    },
-    selected: {
-        backgroundColor: colors.lightBlue,
-    },
-    deleteButton: {
-        border: 'none',
-        background: 'none',
-        marginLeft: 6,
-        marginRight: 4,
-        padding: 0,
-        width: 12,
-    },
-    deleteButtonIcon: {
-        fill: colors.blue,
-        height: 13,
-        width: 10,
-    },
-};
+import { styles } from './styles/DimensionLabel.style';
 
 export const RemoveDimensionButton = ({ action }) => {
     return (
-        <button style={style.deleteButton} onClick={action} tabIndex={0}>
-            <Close style={style.deleteButtonIcon} />
+        <button style={styles.deleteButton} onClick={action} tabIndex={0}>
+            <Close style={styles.deleteButtonIcon} />
         </button>
     );
 };
@@ -72,7 +49,7 @@ export class DimensionLabel extends Component {
                 onClick={this.onLabelClick}
                 onKeyPress={this.onKeyPress}
                 tabIndex={0}
-                style={style.unselected}
+                style={styles.unselected}
             >
                 {this.props.children}
             </div>
@@ -84,8 +61,8 @@ export class DimensionLabel extends Component {
         const RemoveDimension = this.renderRemoveButton();
 
         const containerStyle = this.props.isSelected
-            ? { ...style.unselected, ...style.selected }
-            : style.unselected;
+            ? { ...styles.unselected, ...styles.selected }
+            : styles.unselected;
 
         return (
             <div style={containerStyle}>

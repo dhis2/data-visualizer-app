@@ -32,6 +32,7 @@ const style = {
     dialogContent: {
         paddingBottom: 0,
         paddingTop: 0,
+        overflow: 'hidden',
     },
     dialogTitle: {
         fontFamily: 'Roboto',
@@ -139,7 +140,8 @@ export class DataDimension extends Component {
             ? this.state.dimensionItems.concat(dimensionItems)
             : dimensionItems;
 
-        const selectedIds = this.props.selectedItems[DX].map(i => i.id);
+        const selectedIds = this.props.selectedItems[DX];
+
         const unselectedIds = newDimensionItems
             .filter(i => !selectedIds.includes(i.id))
             .map(i => i.id);
@@ -152,11 +154,15 @@ export class DataDimension extends Component {
     };
 
     onGroupChange = async groupId => {
-        this.setState({ groupId }, this.updateAlternatives);
+        if (groupId !== this.state.groupId) {
+            this.setState({ groupId }, this.updateAlternatives);
+        }
     };
 
     onDetailChange = groupDetail => {
-        this.setState({ groupDetail }, this.updateAlternatives);
+        if (groupDetail !== this.state.groupDetail) {
+            this.setState({ groupDetail }, this.updateAlternatives);
+        }
     };
 
     onFilterTextChange = filterText => {
@@ -184,7 +190,9 @@ export class DataDimension extends Component {
     };
 
     deselectDataDimensions = ids => {
-        const unselectedIds = [...new Set([...this.state.unselectedIds, ids])];
+        const unselectedIds = [
+            ...new Set([...this.state.unselectedIds, ...ids]),
+        ];
         this.setState({ unselectedIds });
 
         this.props.removeDxItems({

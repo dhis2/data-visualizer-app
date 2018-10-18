@@ -10,43 +10,13 @@ import {
     acAddUiLayoutDimensions,
     acRemoveUiLayoutDimensions,
 } from '../../../actions/ui';
-import { colors } from '../../../colors';
-import * as defaultLayoutStyle from './defaultStyle';
-import * as layoutStyle from '../style';
 import { AXIS_NAMES } from '../../../layout';
+import { styles } from './styles/Axis.style';
 
-const styles = {
-    axisContainer: {
-        display: 'flex',
-        backgroundColor: layoutStyle.AXIS_BACKGROUND_COLOR,
-        borderColor: layoutStyle.AXIS_BORDER_COLOR,
-        borderStyle: layoutStyle.AXIS_BORDER_STYLE,
-        borderWidth: layoutStyle.AXIS_BORDER_WIDTH,
-        padding: layoutStyle.AXIS_PADDING,
-    },
-    label: {
-        minWidth: 55,
-        maxWidth: 55,
-        padding: '2px 0px 0px 0px',
-        fontSize: 11,
-        color: colors.greyDark,
-        userSelect: 'none',
-    },
-    content: {
-        display: 'flex',
-        alignItems: 'flex-start',
-        alignContent: 'flex-start',
-        flexWrap: 'wrap',
-        minHeight: defaultLayoutStyle.DIMENSION_AXIS_CONTENT_HEIGHT,
-    },
-};
-
-const labels = {
+const axisLabels = {
     columns: i18n.t('Series'),
     rows: i18n.t('Category'),
     filters: i18n.t('Filter'),
-    moveTo: i18n.t('Move to'),
-    remove: i18n.t('Remove'),
 };
 
 class Axis extends React.Component {
@@ -69,7 +39,7 @@ class Axis extends React.Component {
             <MenuItem
                 key={`${dimensionId}-to-${key}`}
                 onClick={this.props.getMoveHandler({ [dimensionId]: key })}
-            >{`${labels.moveTo} ${labels[key]}`}</MenuItem>
+            >{`${i18n.t('Move to')} ${axisLabels[key]}`}</MenuItem>
         ));
 
     getRemoveMenuItem = dimensionId => (
@@ -77,7 +47,7 @@ class Axis extends React.Component {
             key={`remove-${dimensionId}`}
             onClick={this.props.getRemoveHandler(dimensionId)}
         >
-            {labels.remove}
+            {i18n.t('Remove')}
         </MenuItem>
     );
 
@@ -94,7 +64,9 @@ class Axis extends React.Component {
                 onDragOver={this.onDragOver}
                 onDrop={this.onDrop}
             >
-                <div style={styles.label}>{labels[this.props.axisName]}</div>
+                <div style={styles.label}>
+                    {axisLabels[this.props.axisName]}
+                </div>
                 <div style={styles.content}>
                     {this.props.axis.map(dimensionId => (
                         <Chip
