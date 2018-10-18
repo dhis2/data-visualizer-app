@@ -10,7 +10,6 @@ export const acSetSettings = value => ({
 
 export const tSetSettings = () => async dispatch => {
     const onSuccess = (ss, us) => {
-        console.log(ss, getPropsByKeys(us, USER_SETTINGS));
         dispatch(
             acSetSettings({
                 ...ss,
