@@ -25,6 +25,7 @@ export class Dimensions extends Component {
         return (
             <div className={'dimensions'} style={styles.divContainer}>
                 <DialogManager
+                    d2={this.props.d2}
                     dialogIsOpen={!!this.state.dialogDimId}
                     id={this.state.dialogDimId}
                     toggleDialog={this.toggleDialog}
