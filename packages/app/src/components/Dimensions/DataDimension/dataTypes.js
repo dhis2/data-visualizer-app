@@ -16,18 +16,18 @@ const DETAIL = 'detail';
 export const dataTypes = {
     [INDICATORS]: {
         id: INDICATORS,
-        displayName: i18n.t('Indicators'),
+        name: i18n.t('Indicators'),
         groupLabel: i18n.t('Select indicator group'),
-        defaultGroup: { id: ALL_ID, displayName: i18n.t('[ All groups ]') },
+        defaultGroup: { id: ALL_ID, name: i18n.t('[ All groups ]') },
         groupDetail: false,
     },
     [DATA_ELEMENTS]: {
         id: DATA_ELEMENTS,
-        displayName: i18n.t('Data elements'),
+        name: i18n.t('Data elements'),
         groupLabel: i18n.t('Select data element group'),
         defaultGroup: {
             id: ALL_ID,
-            displayName: i18n.t('[ All data elements ]'),
+            name: i18n.t('[ All data elements ]'),
         },
         groupDetail: {
             alternatives: {
@@ -39,23 +39,23 @@ export const dataTypes = {
     },
     [DATA_SETS]: {
         id: DATA_SETS,
-        displayName: i18n.t('Data sets'),
+        name: i18n.t('Data sets'),
         groupLabel: i18n.t('Select data sets'),
-        defaultGroup: { id: ALL_ID, displayName: i18n.t('[ All metrics ]') },
+        defaultGroup: { id: ALL_ID, name: i18n.t('[ All metrics ]') },
         groupDetail: false,
         augmentAlternatives: (alternatives, groupId) =>
             getReportingRates(alternatives, groupId),
     },
     [EVENT_DATA_ITEMS]: {
         id: EVENT_DATA_ITEMS,
-        displayName: i18n.t('Event data items'),
+        name: i18n.t('Event data items'),
         groupLabel: i18n.t('Select program'),
         defaultGroup: null,
         groupDetail: false,
     },
     [PROGRAM_INDICATORS]: {
         id: PROGRAM_INDICATORS,
-        displayName: i18n.t('Program indicators'),
+        name: i18n.t('Program indicators'),
         groupLabel: i18n.t('Select program'),
         defaultGroup: null,
         groupDetail: false,
@@ -91,6 +91,6 @@ const getReportingRates = (contents, groupSetId) => {
 const concatReportingRate = (dataSet, reportingRate) => {
     return {
         id: `${dataSet.id}.${reportingRate.id}`,
-        name: `${dataSet.name} (${reportingRate.displayName})`,
+        name: `${dataSet.name} (${reportingRate.name})`,
     };
 };

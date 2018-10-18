@@ -17,7 +17,7 @@ describe('The DimensionItem component ', () => {
     beforeEach(() => {
         props = {
             id: 'idString',
-            displayName: '',
+            name: '',
             isSelected: false,
             toggleDialog: jest.fn(),
             onRemoveDimension: jest.fn(),

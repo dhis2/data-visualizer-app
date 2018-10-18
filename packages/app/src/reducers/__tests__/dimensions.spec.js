@@ -5,17 +5,17 @@ describe('dimensions reducer', () => {
     /*const currentState = {
         dimId1: {
             id: 'dimId1',
-            displayName: 'dimName1',
+            name: 'dimName1',
         },
         dimId2: {
             id: 'dimId2',
-            displayName: 'dimName2',
+            name: 'dimName2',
         },
     };
 
     const dimension = {
         id: 'dimId1',
-        displayName: 'dimName1',
+        name: 'dimName1',
     };
 
     const dimensionMap = {

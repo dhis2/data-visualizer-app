@@ -5,29 +5,29 @@ import { onError } from './index';
 export const DATA_SETS_CONSTANTS = [
     {
         id: 'REPORTING_RATES',
-        displayName: i18n.t('Reporting rates'),
+        name: i18n.t('Reporting rates'),
     },
     {
         id: 'REPORTING_RATES_ON_TIME',
-        displayName: i18n.t('Reporting rates on time'),
+        name: i18n.t('Reporting rates on time'),
     },
     {
         id: 'ACTUAL_REPORTS',
-        displayName: i18n.t('Actual reports'),
+        name: i18n.t('Actual reports'),
     },
     {
         id: 'ACTUAL_REPORTING_RATES_ON_TIME',
-        displayName: i18n.t('Actual reporting rates on time'),
+        name: i18n.t('Actual reporting rates on time'),
     },
     {
         id: 'EXPECTED_REPORTS',
-        displayName: i18n.t('Expected reports'),
+        name: i18n.t('Expected reports'),
     },
 ];
 
 // Get dimensions on startup
 export const apiFetchDimensions = () => {
-    const fields = 'id,displayName,dimensionType';
+    const fields = 'id,displayName~rename(name),dimensionType';
     const url = `/dimensions?fields=${fields}`;
 
     return getInstance()
@@ -66,7 +66,7 @@ export const apiFetchGroups = dataType => {
 };
 
 const apiFetchIndicatorGroups = () => {
-    const fields = 'id,displayName&paging=false&';
+    const fields = 'id,displayName~rename(name)&paging=false&';
     const url = `/indicatorGroups?fields=${fields}`;
 
     return getInstance()
@@ -76,7 +76,7 @@ const apiFetchIndicatorGroups = () => {
 };
 
 const apiFetchDataElementGroups = () => {
-    const fields = 'id,displayName&paging=false&';
+    const fields = 'id,displayName~rename(name)&paging=false&';
     const url = `/dataElementGroups?fields=${fields}`;
 
     return getInstance()
@@ -213,7 +213,7 @@ const apiFetchDataSets = (page, filterText) => {
 };
 
 const apiFetchProgramIndicators = (page, filterText) => {
-    const fields = 'id,displayName';
+    const fields = 'id,displayName~rename(name)';
     const filter = filterText ? `&filter=displayName:ilike:${filterText}` : '';
     const paging = `&paging=true&page=${page}`;
     const url = `/programs?fields=${fields}${filter}${paging}`;

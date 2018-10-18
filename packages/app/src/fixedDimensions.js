@@ -1,26 +1,22 @@
 import i18n from '@dhis2/d2-i18n';
 import { DataIcon, PeriodIcon, OrgUnitIcon } from './icons';
 
-const DX_DISPLAYNAME = i18n.t('Data');
-const PE_DISPLAYNAME = i18n.t('Period');
-const OU_DISPLAYNAME = i18n.t('Organisation Unit');
-
 export const FIXED_DIMENSIONS = {
     dx: {
         id: 'dx',
-        displayName: DX_DISPLAYNAME,
+        name: i18n.t('Data'),
         iconName: 'DataIcon',
         icon: DataIcon,
     },
     pe: {
         id: 'pe',
-        displayName: PE_DISPLAYNAME,
+        name: i18n.t('Period'),
         iconName: 'PeriodIcon',
         icon: PeriodIcon,
     },
     ou: {
         id: 'ou',
-        displayName: OU_DISPLAYNAME,
+        name: i18n.t('Organisation Unit'),
         iconName: 'OrgUnitIcon',
         icon: OrgUnitIcon,
     },
