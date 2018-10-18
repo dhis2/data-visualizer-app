@@ -45,7 +45,6 @@ export class PeriodDimension extends Component {
         });
     };
 
-    // temporary fetching of selected periods through the store's metaData object
     getSelectedPeriods = () => {
         return Object.values(this.props.selectedItems)
             .filter(item => item.dimensionItemType === PERIOD)
