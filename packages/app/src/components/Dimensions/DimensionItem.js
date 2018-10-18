@@ -13,9 +13,7 @@ export class DimensionItem extends Component {
     state = { mouseOver: false };
 
     onMouseOver = () => {
-        if (!this.state.optionButtonClicked) {
-            this.setState({ mouseOver: true });
-        }
+        this.setState({ mouseOver: true });
     };
 
     onMouseExit = () => {

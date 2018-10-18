@@ -1,10 +1,8 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import PeriodDimension from '../PeriodDimension';
-import { DialogContent, DialogActions } from '@material-ui/core';
+import { shallow } from 'enzyme';
+import { PeriodDimension } from '../PeriodDimension';
 import { PeriodSelector } from '@dhis2/d2-ui-period-selector-dialog';
-
-import { getStubContext } from '../../../../../../config/testsContext';
+import { HideButton, UpdateButton } from '.././DataDimension/buttons';
 
 describe('The Period Dimension component ', () => {
     let props;
@@ -12,9 +10,7 @@ describe('The Period Dimension component ', () => {
 
     const periodDim = () => {
         if (!shallowPeriodDim) {
-            shallowPeriodDim = mount(<PeriodDimension {...props} />, {
-                context: getStubContext(),
-            });
+            shallowPeriodDim = shallow(<PeriodDimension {...props} />);
         }
         return shallowPeriodDim;
     };
@@ -22,6 +18,8 @@ describe('The Period Dimension component ', () => {
     beforeEach(() => {
         props = {
             toggleDialog: jest.fn(),
+            selectedItems: {},
+            d2: {},
         };
         shallowPeriodDim = undefined;
     });
@@ -34,8 +32,22 @@ describe('The Period Dimension component ', () => {
         expect(wrappingDiv.children()).toEqual(periodDim().children());
     });
 
-    it('renders a <DialogContent/>  with <DialogActions /> ', () => {});
-    it('renders a <PeriodSelector /> component', () => {});
-    it('fires the prop function toggleDialog when <HideButton /> is clicked', () => {});
-    it('fires the prop function onUpdate when the <UpdateButton /> is clicked', () => {});
+    it.only('renders a <PeriodSelector /> component', () => {
+        const periodSelector = periodDim().find(PeriodSelector);
+
+        expect(periodSelector.length).toEqual(1);
+    });
+
+    it('fires the prop function toggleDialog when <HideButton />  is clicked', () => {
+        const hideButton = periodDim().find(HideButton);
+        hideButton.simulate('click');
+
+        expect(props.toggleDialog).toHaveBeenCalledTimes(1);
+    });
+    it('fires the prop function toggleDialog when the <UpdateButton /> is clicked', () => {
+        const updateButton = periodDim().find(UpdateButton);
+        updateButton.simulate('click');
+
+        expect(props.toggleDialog).toHaveBeenCalledTimes(1);
+    });
 });
