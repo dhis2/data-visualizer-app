@@ -15,8 +15,8 @@ export function entriesToObject(entries) {
     );
 }
 
-export const sortObj = (obj, propName) => {
-    const entries = Object.values(obj);
+export const sortArray = (array, propName) => {
+    const entries = Object.values(array);
 
     return entries.sort((itemA, itemB) => {
         const nameA = itemA[propName].toLowerCase();

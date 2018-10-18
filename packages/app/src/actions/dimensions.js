@@ -1,4 +1,4 @@
-import { arrayToIdMap, sortObj } from '../util';
+import { arrayToIdMap, sortArray } from '../util';
 import { actionTypes } from '../reducers';
 import { apiFetchDimensions } from '../api/dimensions';
 
@@ -6,7 +6,7 @@ const propName = 'displayName';
 
 export const acSetDimensions = dimensions => ({
     type: actionTypes.SET_DIMENSIONS,
-    value: arrayToIdMap(sortObj(dimensions, propName)),
+    value: arrayToIdMap(sortArray(dimensions, propName)),
 });
 
 export const tSetDimensions = () => async dispatch => {
