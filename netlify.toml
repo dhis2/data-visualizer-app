@@ -11,6 +11,7 @@
 
   # Default build command.
   # && yarn manifest --manifest.activities.dhis=\"https://play.dhis2.org/dev\""
+  command = "npm run build"
 
 [[redirects]]
   from = "/dhis-web-core-resource/react/16.2.0/umd/react.production.min.js"
