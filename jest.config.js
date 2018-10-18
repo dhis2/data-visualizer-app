@@ -22,4 +22,7 @@ module.exports = {
     },
     moduleFileExtensions: ['js', 'jsx'],
     moduleDirectories: ['node_modules'],
+    moduleNameMapper: {
+        '\\.css$': '<rootDir>/__mocks__/styleMock.js',
+    },
 };
