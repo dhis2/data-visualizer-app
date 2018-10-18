@@ -16,12 +16,12 @@
 [[redirects]]
   from = "/dhis-web-core-resource/react/16.2.0/umd/react.production.min.js"
   to = "https://unpkg.com/react@16.5/umd/react.production.min.js"
-  status = 200
+  status = 302
 
 [[redirects]]
   from = "/dhis-web-core-resource/react-dom/16.2.0/umd/react-dom.production.min.js"
   to = "https://unpkg.com/react-dom@16.5/umd/react-dom.production.min.js"
-  status = 200
+  status = 302
 
 [[redirects]]
   from = "/*"
