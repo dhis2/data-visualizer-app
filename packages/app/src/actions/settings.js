@@ -1,7 +1,5 @@
 import { actionTypes } from '../reducers';
 import { apiFetchSystemSettings, apiFetchUserSettings } from '../api/settings';
-import { getPropsByKeys } from '../util';
-import { USER_SETTINGS } from '../settings';
 
 export const acSetSettings = value => ({
     type: actionTypes.SET_SETTINGS,
@@ -9,12 +7,12 @@ export const acSetSettings = value => ({
 });
 
 export const tSetSettings = () => async dispatch => {
-    const onSuccess = (ss, us) => {
+    const onSuccess = settings => {
+        console.log('settings', settings);
         dispatch(
-            acSetSettings({
-                ...ss,
-                ...getPropsByKeys(us, USER_SETTINGS),
-            })
+            acSetSettings(
+                settings.reduce((all, obj) => ({ ...all, ...obj }), {})
+            )
         );
     };
 
@@ -27,9 +25,13 @@ export const tSetSettings = () => async dispatch => {
     };
 
     try {
-        const systemSettings = await apiFetchSystemSettings();
-        const userSettings = await apiFetchUserSettings();
-        return onSuccess(systemSettings, userSettings);
+        const settings = await Promise.all([
+            apiFetchSystemSettings(),
+            apiFetchUserSettings(),
+        ]);
+        // const systemSettings = await apiFetchSystemSettings();
+        // const userSettings = await apiFetchUserSettings();
+        return onSuccess(settings);
     } catch (err) {
         return onError(err);
     }
