@@ -93,7 +93,7 @@ export class App extends Component {
                         <MenuBar apiObjectName={this.props.apiObjectName} />
                     </div>
                     <div className="item4 dimensions">
-                        <Dimensions d2={this.props.d2} />
+                        <Dimensions />
                     </div>
                     <div className="item5 chart-layout">
                         <Layout />

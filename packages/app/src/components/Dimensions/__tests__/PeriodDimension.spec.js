@@ -18,13 +18,15 @@ describe('The Period Dimension component ', () => {
     beforeEach(() => {
         props = {
             toggleDialog: jest.fn(),
-            selectedItems: {},
+            onUpdate: jest.fn(),
             d2: {},
+            ui: {},
+            selectedItems: {},
         };
         shallowPeriodDim = undefined;
     });
 
-    it.only('renders an <div> containing everything else', () => {
+    it('renders an <div> containing everything else', () => {
         const wrappingDiv = periodDim()
             .find('div')
             .first();
@@ -32,7 +34,7 @@ describe('The Period Dimension component ', () => {
         expect(wrappingDiv.children()).toEqual(periodDim().children());
     });
 
-    it.only('renders a <PeriodSelector /> component', () => {
+    it('renders a <PeriodSelector /> component', () => {
         const periodSelector = periodDim().find(PeriodSelector);
 
         expect(periodSelector.length).toEqual(1);
@@ -40,14 +42,15 @@ describe('The Period Dimension component ', () => {
 
     it('fires the prop function toggleDialog when <HideButton />  is clicked', () => {
         const hideButton = periodDim().find(HideButton);
-        hideButton.simulate('click');
+        hideButton.props().action();
 
-        expect(props.toggleDialog).toHaveBeenCalledTimes(1);
+        expect(props.toggleDialog).toHaveBeenCalled();
     });
+
     it('fires the prop function toggleDialog when the <UpdateButton /> is clicked', () => {
         const updateButton = periodDim().find(UpdateButton);
-        updateButton.simulate('click');
+        updateButton.props().action();
 
-        expect(props.toggleDialog).toHaveBeenCalledTimes(1);
+        expect(props.toggleDialog).toHaveBeenCalled();
     });
 });

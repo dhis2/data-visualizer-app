@@ -86,9 +86,9 @@ export const HideButton = ({ action }) => {
 export const UpdateButton = ({ action }) => {
     return (
         <Button
+            onClick={action}
             variant={'outlined'}
             style={style.updateButton}
-            onClick={action}
         >
             <span style={style.updateText}>{UPDATE}</span>
         </Button>

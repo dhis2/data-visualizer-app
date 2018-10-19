@@ -5,7 +5,7 @@ import { DialogContent, DialogActions } from '@material-ui/core';
 import { PeriodSelector } from '@dhis2/d2-ui-period-selector-dialog';
 import i18n from '@dhis2/d2-i18n';
 
-import { /*sGetUiItems*/ sGetUi } from '../../reducers/ui';
+import { sGetUi } from '../../reducers/ui';
 import { sGetMetadata } from '../../reducers/metadata';
 import { acSetCurrentFromUi } from '../../actions/current';
 import { acRemoveUiItems, acAddUiItems } from '../../actions/ui';
@@ -13,7 +13,6 @@ import { acAddMetadata } from '../../actions/metadata';
 
 import { HideButton, UpdateButton } from './DataDimension/buttons';
 import { styles } from './styles/PeriodDimension.style';
-import { arrayToIdMap } from '../../util';
 
 const PE = 'pe';
 const PERIOD = 'PERIOD';
@@ -33,7 +32,12 @@ export class PeriodDimension extends Component {
             value: idsToAdd,
         });
 
-        this.props.addMetaData(arrayToIdMap(periods));
+        const arrToId = periods.reduce((obj, item) => {
+            obj[item.id] = { ...item, dimensionItemType: PERIOD };
+            return obj;
+        }, {});
+
+        this.props.addMetaData(arrToId);
     };
 
     deselectPeriodDimensions = periods => {
@@ -48,7 +52,12 @@ export class PeriodDimension extends Component {
     getSelectedPeriods = () => {
         return Object.values(this.props.selectedItems)
             .filter(item => item.dimensionItemType === PERIOD)
-            .map(item => ({ ...item, id: item.uid }));
+            .map(item => {
+                if (item.uid) return { ...item, id: item.uid };
+                if (item.id) return item;
+                if (item.code) return { ...item, id: item.code };
+                return item;
+            });
     };
 
     render = () => {
@@ -59,7 +68,7 @@ export class PeriodDimension extends Component {
                 <DialogContent style={styles.dialogContent}>
                     <h3 style={styles.dialogTitle}>{DIALOG_TITLE}</h3>
                     <PeriodSelector
-                        d2={this.props.d2}
+                        d2={this.context.d2}
                         onSelect={this.selectPeriodDimensions}
                         onDeselect={this.deselectPeriodDimensions}
                         selectedItems={selectedPeriods}
@@ -76,7 +85,6 @@ export class PeriodDimension extends Component {
 
 const mapStateToProps = state => ({
     selectedItems: sGetMetadata(state),
-    //selectedItems: sGetUiItems(state).pe,
     ui: sGetUi(state),
 });
 
@@ -92,6 +100,8 @@ export default connect(
 
 PeriodDimension.propTypes = {
     toggleDialog: PropTypes.func.isRequired,
+    selectedItems: PropTypes.object.isRequired,
+    ui: PropTypes.object.isRequired,
 };
 
 PeriodDimension.contextTypes = {
