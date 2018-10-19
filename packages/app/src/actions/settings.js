@@ -1,37 +1,31 @@
 import { actionTypes } from '../reducers';
-import { apiFetchSystemSettings, apiFetchUserSettings } from '../api/settings';
+import { apiFetchSystemSettings } from '../api/settings';
 
 export const acSetSettings = value => ({
     type: actionTypes.SET_SETTINGS,
     value,
 });
 
-export const tSetSettings = () => async dispatch => {
-    const onSuccess = settings => {
-        console.log('settings', settings);
+export const acAddSettings = value => ({
+    type: actionTypes.ADD_SETTINGS,
+    value,
+});
+
+export const tAddSettings = (...extraSettings) => async dispatch => {
+    const onSuccess = fetchedSettings => {
         dispatch(
-            acSetSettings(
-                settings.reduce((all, obj) => ({ ...all, ...obj }), {})
-            )
+            acAddSettings(Object.assign({}, fetchedSettings, ...extraSettings))
         );
     };
 
     const onError = error => {
-        console.log(
-            'Error (apiFetchSystemSettings/apiFetchUserSettings): ',
-            error
-        );
+        console.log('Error (apiFetchSystemSettings): ', error);
         return error;
     };
 
     try {
-        const settings = await Promise.all([
-            apiFetchSystemSettings(),
-            apiFetchUserSettings(),
-        ]);
-        // const systemSettings = await apiFetchSystemSettings();
-        // const userSettings = await apiFetchUserSettings();
-        return onSuccess(settings);
+        const systemSettings = await apiFetchSystemSettings();
+        return onSuccess(systemSettings);
     } catch (err) {
         return onError(err);
     }

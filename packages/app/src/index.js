@@ -28,7 +28,7 @@ const configI18n = async userSettings => {
     i18n.changeLanguage(uiLocale);
 };
 
-const render = (location, baseUrl, d2) => {
+const render = (location, baseUrl, d2, userSettings) => {
     ReactDOM.render(
         <Provider store={configureStore(metadataMiddleware)}>
             <MuiThemeProvider theme={muiTheme()}>
@@ -36,6 +36,7 @@ const render = (location, baseUrl, d2) => {
                     location={location}
                     baseUrl={baseUrl}
                     d2={d2}
+                    userSettings={userSettings}
                     apiObjectName={apiObjectName}
                 />
             </MuiThemeProvider>
@@ -70,7 +71,7 @@ const init = async () => {
         baseUrl: config.baseUrl,
     });
 
-    render(history.location, baseUrl, d2);
+    render(history.location, baseUrl, d2, userSettings);
 };
 
 init();
