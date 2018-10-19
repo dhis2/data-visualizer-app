@@ -15,10 +15,12 @@ export function entriesToObject(entries) {
     );
 }
 
-export const sortArray = array => {
-    const sortedDimensions = array.sort((dimensionA, dimensionB) => {
-        const nameA = dimensionA.displayName.toLowerCase(),
-            nameB = dimensionB.displayName.toLowerCase();
+export const sortArray = (array, propName) => {
+    const entries = Object.values(array);
+
+    return entries.sort((itemA, itemB) => {
+        const nameA = itemA[propName].toLowerCase();
+        const nameB = itemB[propName].toLowerCase();
 
         if (nameA < nameB) {
             return -1;
@@ -29,8 +31,6 @@ export const sortArray = array => {
 
         return 0;
     });
-
-    return sortedDimensions;
 };
 
 export function arrayGetById(array, id) {
