@@ -33,6 +33,6 @@
         "packages/*"
     ],
     "dependencies": {
-        "@dhis2/d2-ui-period-selector-dialog": "^0.1.3"
+        "@dhis2/d2-ui-period-selector-dialog": "^1.0.0"
     }
 }
