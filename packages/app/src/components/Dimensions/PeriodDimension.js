@@ -54,8 +54,8 @@ export class PeriodDimension extends Component {
             .filter(item => item.dimensionItemType === PERIOD)
             .map(item => {
                 if (item.uid) return { ...item, id: item.uid };
-                if (item.id) return item;
                 if (item.code) return { ...item, id: item.code };
+                if (item.id) return item;
                 return item;
             });
     };

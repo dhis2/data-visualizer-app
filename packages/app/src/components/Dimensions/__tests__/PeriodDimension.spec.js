@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import { PeriodDimension } from '../PeriodDimension';
 import { PeriodSelector } from '@dhis2/d2-ui-period-selector-dialog';
 import { HideButton, UpdateButton } from '.././DataDimension/buttons';
+import { getStubContext } from '../../../../../../config/testsContext';
 
 describe('The Period Dimension component ', () => {
     let props;
@@ -10,7 +11,9 @@ describe('The Period Dimension component ', () => {
 
     const periodDim = () => {
         if (!shallowPeriodDim) {
-            shallowPeriodDim = shallow(<PeriodDimension {...props} />);
+            shallowPeriodDim = shallow(<PeriodDimension {...props} />, {
+                context: getStubContext(),
+            });
         }
         return shallowPeriodDim;
     };
