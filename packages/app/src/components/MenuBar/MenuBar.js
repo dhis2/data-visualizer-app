@@ -37,7 +37,6 @@ export const MenuBar = (props, context) => (
         />
         <VisualizationOptionsManager />
         <div>Download</div>
-        <div>Embed</div>
         <div className="spacefiller" />
         <div>Show interpretations</div>
     </div>
