@@ -23,7 +23,8 @@ module.exports = {
     moduleFileExtensions: ['js', 'jsx'],
     moduleDirectories: ['node_modules'],
     moduleNameMapper: {
-        'lodash-es': '<rootDir>/config/lodash-mock.js',
+        'lodash-es/throttle': '<rootDir>/__mocks__/lodash-mock-throttle.js',
+        'lodash-es/debounce': '<rootDir>/__mocks__/lodash-mock-debounce.js',
         '\\.css$': '<rootDir>/__mocks__/styleMock.js',
     },
 };
