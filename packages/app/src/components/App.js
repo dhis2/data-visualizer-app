@@ -52,13 +52,13 @@ export class App extends Component {
             this.loadVisualization(location);
         });
 
-        document.body.addEventListener('keyup', e => {
-            if (e.key === 'Enter' && e.ctrlKey === true) {
-                e.preventDefault();
-                e.stopPropagation();
-                this.props.onKeyUp(this.props.ui);
-            }
-        });
+        document.body.addEventListener(
+            'keyup',
+            e =>
+                e.key === 'Enter' &&
+                e.ctrlKey === true &&
+                this.props.onKeyUp(this.props.ui)
+        );
     }
 
     componentWillUnmount() {
