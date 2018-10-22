@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import FileMenu from '@dhis2/d2-ui-file-menu';
 
 import UpdateButton from './UpdateButton';
+import Download from './Download';
 import VisualizationOptionsManager from '../VisualizationOptions/VisualizationOptionsManager';
 import * as fromActions from '../../actions';
 import { sGetCurrent } from '../../reducers/current';
@@ -36,7 +37,7 @@ export const MenuBar = (props, context) => (
             onError={() => console.log('error!')}
         />
         <VisualizationOptionsManager />
-        <div>Download</div>
+        <Download />
         <div>Embed</div>
         <div className="spacefiller" />
         <div>Show interpretations</div>
