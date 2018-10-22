@@ -20,7 +20,9 @@ const UpdateButton = props => (
             backgroundColor: colors.accentPrimaryDark,
             color: colors.white,
             fontSize: 13,
+            padding: '0 16px',
         }}
+        size="small"
         disableRipple={true}
         disableFocusRipple={true}
     >

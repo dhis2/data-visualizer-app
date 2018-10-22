@@ -4,7 +4,7 @@ export const styles = {
     divContainer: {
         backgroundColor: colors.lightGrey,
         width: 250,
-        padding: 12,
+        padding: '12px 0 12px 12px',
     },
     searchIcon: {
         color: colors.grey,
