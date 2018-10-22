@@ -25,14 +25,40 @@ export const DATA_SETS_CONSTANTS = [
     },
 ];
 
-// Get dimensions on startup
-export const apiFetchDimensions = () => {
-    const fields = 'id,displayName~rename(name),dimensionType';
-    const url = `/dimensions?fields=${fields}`;
+const request = (entity, fields, paging, filter) => {
+    // TODO - build array of non-empty vals
+    const paramString = [fields, filter, paging].join('&');
+    const url = `/${entity}?${paramString}`;
 
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))
+        .then(response => response[entity])
         .catch(onError);
+};
+
+const request2 = (entity, fields, filter, paging, other) => {
+    // TODO - build array of non-empty vals
+    const paramString = [fields, filter, paging, other].join('&');
+    const url = `/${entity}?${paramString}`;
+
+    return getInstance()
+        .then(d2 => d2.Api.getApi().get(url))
+        .then(response => {
+            return {
+                dimensionItems: response[entity],
+                nextPage: response.pager.nextPage
+                    ? response.pager.page + 1
+                    : null,
+            };
+        })
+        .catch(onError);
+};
+
+// Get dimensions on startup
+export const apiFetchDimensions = (nameProp = 'displayName') => {
+    const fields = `fields=id,${nameProp}~rename(name),dimensionType`;
+
+    return request('dimensions', fields);
 };
 
 export const apiFetchRecommendedIds = (dimIdA, dimIdB) => {
@@ -66,181 +92,136 @@ export const apiFetchGroups = dataType => {
 };
 
 const apiFetchIndicatorGroups = () => {
-    const fields = 'id,displayName~rename(name)&paging=false&';
-    const url = `/indicatorGroups?fields=${fields}`;
+    const fields = 'fields=id,displayName~rename(name)';
+    const paging = 'paging=false';
 
-    return getInstance()
-        .then(d2 => d2.Api.getApi().get(url))
-        .then(response => response.indicatorGroups)
-        .catch(onError);
+    return request('indicatorGroups', fields, paging);
 };
 
 const apiFetchDataElementGroups = () => {
-    const fields = 'id,displayName~rename(name)&paging=false&';
-    const url = `/dataElementGroups?fields=${fields}`;
+    const fields = 'fields=id,displayName~rename(name)';
+    const paging = 'paging=false';
 
-    return getInstance()
-        .then(d2 => d2.Api.getApi().get(url))
-        .then(response => response.dataElementGroups)
-        .catch(onError);
+    return request('dataElementGroups', fields, paging);
+};
+
+const apiFetchProgramIndicators = (page, filterText) => {
+    const fields = 'fields=id,displayName~rename(name)';
+    const filter = filterText ? `filter=displayName:ilike:${filterText}` : '';
+    const paging = `paging=true&page=${page}`;
+
+    return request('programs', fields, paging, filter);
 };
 
 export const apiFetchAlternatives = args => {
-    const { dataType, groupId, page = 1, groupDetail, filterText } = args;
+    const {
+        dataType,
+        groupId,
+        page = 1,
+        groupDetail,
+        filterText,
+        nameProp = 'displayName',
+    } = args;
     switch (dataType) {
         case 'indicators': {
-            return apiFetchIndicators(groupId, page, filterText);
+            return apiFetchIndicators(groupId, page, filterText, nameProp);
         }
         case 'dataElements': {
             if (groupDetail === 'detail') {
-                return apiFetchDataElementOperands(groupId, page, filterText);
+                return apiFetchDataElementOperands(
+                    groupId,
+                    page,
+                    filterText,
+                    nameProp
+                );
             } else {
-                return apiFetchDataElements(groupId, page, filterText);
+                return apiFetchDataElements(
+                    groupId,
+                    page,
+                    filterText,
+                    nameProp
+                );
             }
         }
         case 'dataSets': {
             // TODO check current data viz
-            return apiFetchDataSets(page, filterText);
+            return apiFetchDataSets(page, filterText, nameProp);
         }
         case 'eventDataItems':
         case 'programIndicators': {
-            return apiFetchProgramDataElements(groupId, page, filterText);
+            return apiFetchProgramDataElements(
+                groupId,
+                page,
+                filterText,
+                nameProp
+            );
         }
         default:
             return null;
     }
 };
 
-const apiFetchIndicators = (id, page, filterText) => {
+const apiFetchIndicators = (id, page, filterText, nameProp) => {
     const fields = 'fields=id,displayName~rename(name),dimensionItemType';
-    let filter = id !== 'ALL' ? `&filter=indicatorGroups.id:eq:${id}` : '';
+    let filter = id !== 'ALL' ? `filter=indicatorGroups.id:eq:${id}` : '';
     if (filterText) {
-        filter = filter.concat(`&filter=displayName:ilike:${filterText}`);
+        filter = filter.concat(`filter=displayName:ilike:${filterText}`);
     }
-    const paging = `&paging=true&page=${page}`;
+    const paging = `paging=true&page=${page}`;
 
-    const url = `/indicators?${fields}${filter}${paging}`;
-    return getInstance()
-        .then(d2 => d2.Api.getApi().get(url))
-        .then(response => {
-            return {
-                dimensionItems: response.indicators,
-                nextPage: response.pager.nextPage
-                    ? response.pager.page + 1
-                    : null,
-            };
-        })
-        .catch(onError);
+    return request2('indicators', fields, filter, paging);
 };
 
-const apiFetchDataElements = (id, page, filterText) => {
+const apiFetchDataElements = (id, page, filterText, nameProp) => {
     const fields =
         id === 'ALL'
-            ? 'id,displayName~rename(name)'
-            : `dimensionItem~rename(id),displayName~rename(name)`;
+            ? `fields=id,${nameProp}~rename(name)`
+            : `fields=dimensionItem~rename(id),${nameProp}~rename(name)`;
 
     let filter =
         id === 'ALL'
-            ? `&filter=domainType:eq:AGGREGATE`
-            : `&filter=dataElementGroups.id:eq:${id}&filter=domainType:eq:AGGREGATE`;
+            ? `filter=domainType:eq:AGGREGATE`
+            : `filter=dataElementGroups.id:eq:${id}&filter=domainType:eq:AGGREGATE`;
 
     if (filterText) {
         filter = filter.concat(`&filter=displayName:ilike:${filterText}`);
     }
 
-    const paging = `&paging=true&page=${page}`;
-    const url = `/dataElements?fields=${fields}${filter}${paging}`;
+    const paging = `paging=true&page=${page}`;
 
-    return getInstance()
-        .then(d2 => d2.Api.getApi().get(url))
-        .then(response => {
-            return {
-                dimensionItems: response.dataElements,
-                nextPage: response.pager.nextPage
-                    ? response.pager.page + 1
-                    : null,
-            };
-        })
-        .catch(onError);
+    return request2('dataElements', fields, paging, filter);
 };
 
-const apiFetchDataElementOperands = (id, page, filterText) => {
-    const fields =
-        id === 'ALL'
-            ? 'id,displayName~rename(name)'
-            : `dimensionItem~rename(id),displayName~rename(name)`;
+const apiFetchDataElementOperands = (id, page, filterText, nameProp) => {
+    const idField = id === 'ALL' ? 'id' : 'dimensionItem~rename(id)';
+    const fields = `fields=${idField},${nameProp}~rename(name)`;
 
     let filter =
-        id === 'ALL' ? '' : `&filter=dataElement.dataElementGroups.id:eq:${id}`;
+        id === 'ALL' ? '' : `filter=dataElement.dataElementGroups.id:eq:${id}`;
 
     if (filterText) {
         filter = filter.concat(`&filter=displayName:ilike:${filterText}`);
     }
-    const paging = `&paging=true&page=${page}`;
+    const paging = `paging=true&page=${page}`;
 
-    const url = `/dataElementOperands?fields=${fields}${filter}${paging}`;
-
-    return getInstance()
-        .then(d2 => d2.Api.getApi().get(url))
-        .then(response => {
-            return {
-                dimensionItems: response.dataElementOperands,
-                nextPage: response.pager.nextPage
-                    ? response.pager.page + 1
-                    : null,
-            };
-        })
-        .catch(onError);
+    return request2('dataElementOperands', fields, filter, paging);
 };
 
-const apiFetchDataSets = (page, filterText) => {
-    const fields = 'dimensionItem~rename(id),displayName~rename(name)';
-    const filter = filterText ? `&filter=displayName:ilike:${filterText}` : '';
-    const paging = `&paging=true&page=${page}`;
-    const url = `/dataSets?fields=${fields}${filter}${paging}`;
+const apiFetchDataSets = (page, filterText, nameProp) => {
+    const fields = `fields=dimensionItem~rename(id),${nameProp}~rename(name)`;
+    const filter = filterText ? `filter=displayName:ilike:${filterText}` : '';
+    const paging = `paging=true&page=${page}`;
 
-    return getInstance()
-        .then(d2 => d2.Api.getApi().get(url))
-        .then(response => {
-            return {
-                dimensionItems: response.dataSets,
-                nextPage: response.pager.nextPage
-                    ? response.pager.page + 1
-                    : null,
-            };
-        })
-        .catch(onError);
+    return request2('dataSets', fields, filter, paging);
 };
 
-const apiFetchProgramIndicators = (page, filterText) => {
-    const fields = 'id,displayName~rename(name)';
+const apiFetchProgramDataElements = (id, page, filterText, nameProp) => {
+    const fields = `fields=dimensionItem~rename(id),${nameProp}~rename(name)`;
     const filter = filterText ? `&filter=displayName:ilike:${filterText}` : '';
     const paging = `&paging=true&page=${page}`;
-    const url = `/programs?fields=${fields}${filter}${paging}`;
+    const other = `program=${id}`;
 
-    return getInstance()
-        .then(d2 => d2.Api.getApi().get(url))
-        .then(response => response.programs)
-        .catch(onError);
-};
-
-const apiFetchProgramDataElements = (id, page, filterText) => {
-    const fields = `dimensionItem~rename(id),displayName~rename(name)`;
-    const filter = filterText ? `&filter=displayName:ilike:${filterText}` : '';
-    const paging = `&paging=true&page=${page}`;
-    const url = `/programDataElements?program=${id}&fields=${fields}${filter}${paging}`;
-
-    return getInstance()
-        .then(d2 => d2.Api.getApi().get(url))
-        .then(response => {
-            return {
-                dimensionItems: response.programDataElements,
-                nextPage: response.pager.nextPage
-                    ? response.pager.page + 1
-                    : null,
-            };
-        })
-        .catch(onError);
+    return request2('programDataElements', fields, filter, paging, other);
 };
 
 const mockResponse = () => {

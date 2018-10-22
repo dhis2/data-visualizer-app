@@ -18,8 +18,8 @@ export const tSetDimensions = () => async dispatch => {
     };
 
     try {
-        const response = await apiFetchDimensions();
-        return onSuccess(response.dimensions);
+        const dimensions = await apiFetchDimensions();
+        return onSuccess(dimensions);
     } catch (err) {
         return onError(err);
     }
