@@ -50,14 +50,10 @@ export class PeriodDimension extends Component {
     };
 
     getSelectedPeriods = () => {
-        return Object.values(this.props.selectedItems)
-            .filter(item => item.dimensionItemType === PERIOD)
-            .map(item => {
-                if (item.uid) return { ...item, id: item.uid };
-                if (item.code) return { ...item, id: item.code };
-                if (item.id) return item;
-                return item;
-            });
+        return this.props.ui.itemsByDimension[PE].map(item => ({
+            id: item,
+            name: this.props.metadata[item].name,
+        }));
     };
 
     render = () => {
@@ -84,7 +80,7 @@ export class PeriodDimension extends Component {
 }
 
 const mapStateToProps = state => ({
-    selectedItems: sGetMetadata(state),
+    metadata: sGetMetadata(state),
     ui: sGetUi(state),
 });
 
