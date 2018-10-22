@@ -62,7 +62,10 @@ export class VisualizationTypeSelector extends Component {
                     anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
                     onClose={this.handleClose}
                     getContentAnchorEl={null}
-                    style={{ maxWidth: 640 }}
+                    style={{
+                        maxWidth: 632,
+                        borderRadius: 0,
+                    }}
                     MenuListProps={{ style: { overflow: 'auto', padding: 0 } }}
                 >
                     {Object.keys(visualizationTypeMap).map(type => (
@@ -70,10 +73,9 @@ export class VisualizationTypeSelector extends Component {
                             key={type}
                             selected={type === visualizationType}
                             style={{
-                                height: 104,
-                                width: 134,
+                                height: 120,
+                                width: 150,
                                 padding: 0,
-                                margin: 8,
                                 boxSizing: 'border-box',
                                 display: 'flex',
                                 flexDirection: 'column',
@@ -87,7 +89,9 @@ export class VisualizationTypeSelector extends Component {
                                     style={{
                                         width: 48,
                                         height: 48,
-                                        paddingTop: 16,
+                                        position: 'relative',
+                                        top: 24,
+                                        left: 8,
                                     }}
                                 />
                             </ListItemIcon>
@@ -96,7 +100,8 @@ export class VisualizationTypeSelector extends Component {
                                 disableTypography={true}
                                 style={{
                                     fontSize: 14,
-                                    padding: '16px 0 8px 0',
+                                    position: 'relative',
+                                    top: 36,
                                 }}
                             />
                         </MenuItem>
