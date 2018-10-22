@@ -223,5 +223,42 @@ describe('reducer: ui', () => {
 
             expect(actualState.itemsByDimension.dx).toEqual(expectedState);
         });
+
+        it(`${
+            actionTypes.SET_PARENT_GRAPH_MAP
+        }: should set the new parent graph map`, () => {
+            const graphMapToSet = {
+                abc: 'Silly district',
+            };
+            const actualState = reducer(DEFAULT_UI, {
+                type: actionTypes.SET_PARENT_GRAPH_MAP,
+                value: graphMapToSet,
+            });
+
+            expect(actualState.parentGraphMap).toEqual(graphMapToSet);
+        });
+
+        it(`${
+            actionTypes.ADD_PARENT_GRAPH_MAP
+        }: should add to the parent graph map`, () => {
+            const currentGraphMap = {
+                bcd: 'Very silly district',
+            };
+            const graphMapToAdd = {
+                abc: 'Silly district',
+            };
+            const testState = reducer(DEFAULT_UI, {
+                type: actionTypes.SET_PARENT_GRAPH_MAP,
+                value: currentGraphMap,
+            });
+            const actualState = reducer(testState, {
+                type: actionTypes.ADD_PARENT_GRAPH_MAP,
+                value: graphMapToAdd,
+            });
+
+            expect(actualState.parentGraphMap).toEqual(
+                Object.assign({}, currentGraphMap, graphMapToAdd)
+            );
+        });
     });
 });
