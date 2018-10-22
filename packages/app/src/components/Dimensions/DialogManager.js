@@ -7,7 +7,7 @@ import OrgUnitDimension from './OrgUnitDimension';
 export const DialogManager = ({ dialogIsOpen, id, toggleDialog }) => {
     const dimensionComponents = {
         dx: <DataDimension toggleDialog={toggleDialog} />,
-        pe: <PeriodDimension />,
+        pe: <PeriodDimension toggleDialog={toggleDialog} />,
         ou: <OrgUnitDimension />,
     };
     return id ? (
@@ -15,6 +15,7 @@ export const DialogManager = ({ dialogIsOpen, id, toggleDialog }) => {
             open={dialogIsOpen}
             onClose={() => toggleDialog(null)}
             maxWidth={false}
+            disableEnforceFocus
         >
             {dimensionComponents[id]}
         </Dialog>

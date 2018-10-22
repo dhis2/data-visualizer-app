@@ -1,11 +1,105 @@
 import React, { Component } from 'react';
-//import PeriodSelectorDialog from '@dhis2/d2-ui-period-selector-dialog';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogActions from '@material-ui/core/DialogActions';
+
+import { PeriodSelector } from '@dhis2/d2-ui-period-selector-dialog';
 import i18n from '@dhis2/d2-i18n';
 
+import { sGetUi } from '../../reducers/ui';
+import { sGetMetadata } from '../../reducers/metadata';
+import { acSetCurrentFromUi } from '../../actions/current';
+import { acRemoveUiItems, acAddUiItems } from '../../actions/ui';
+import { acAddMetadata } from '../../actions/metadata';
+
+import { HideButton, UpdateButton } from './DataDimension/buttons';
+import { styles } from './styles/PeriodDimension.style';
+
+const PE = 'pe';
+const PERIOD = 'PERIOD';
+
 export class PeriodDimension extends Component {
+    onUpdateClick = () => {
+        this.props.onUpdate(this.props.ui);
+        this.props.toggleDialog(null);
+    };
+
+    selectPeriodDimensions = periods => {
+        const idsToAdd = periods.map(periodRange => periodRange.id);
+
+        this.props.addUiItems({
+            dimensionType: PE,
+            value: idsToAdd,
+        });
+
+        const arrToId = periods.reduce((obj, item) => {
+            obj[item.id] = { ...item, dimensionItemType: PERIOD };
+            return obj;
+        }, {});
+
+        this.props.addMetadata(arrToId);
+    };
+
+    deselectPeriodDimensions = periods => {
+        const idsToRemove = periods.map(periodRange => periodRange.id);
+
+        this.props.removeUiItems({
+            dimensionType: PE,
+            value: idsToRemove,
+        });
+    };
+
+    getSelectedPeriods = () => {
+        return this.props.ui.itemsByDimension[PE].map(item => ({
+            id: item,
+            name: this.props.metadata[item].name,
+        }));
+    };
+
     render = () => {
-        return <h3>{i18n.t('Period Dimension')}</h3>;
+        const selectedPeriods = this.getSelectedPeriods();
+
+        return (
+            <div style={styles.container}>
+                <DialogContent style={styles.dialogContent}>
+                    <h3 style={styles.dialogTitle}>{i18n.t('Period')}</h3>
+                    <PeriodSelector
+                        d2={this.context.d2}
+                        onSelect={this.selectPeriodDimensions}
+                        onDeselect={this.deselectPeriodDimensions}
+                        selectedItems={selectedPeriods}
+                    />
+                </DialogContent>
+                <DialogActions style={styles.dialogActions}>
+                    <HideButton action={() => this.props.toggleDialog(null)} />
+                    <UpdateButton action={this.onUpdateClick} />
+                </DialogActions>
+            </div>
+        );
     };
 }
 
-export default PeriodDimension;
+const mapStateToProps = state => ({
+    metadata: sGetMetadata(state),
+    ui: sGetUi(state),
+});
+
+export default connect(
+    mapStateToProps,
+    {
+        addMetadata: acAddMetadata,
+        addUiItems: acAddUiItems,
+        removeUiItems: acRemoveUiItems,
+        onUpdate: acSetCurrentFromUi,
+    }
+)(PeriodDimension);
+
+PeriodDimension.propTypes = {
+    toggleDialog: PropTypes.func.isRequired,
+    ui: PropTypes.object.isRequired,
+};
+
+PeriodDimension.contextTypes = {
+    d2: PropTypes.object,
+};
