@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
-import { Search } from '@material-ui/icons';
+import Search from '@material-ui/icons/Search';
 import i18n from '@dhis2/d2-i18n';
 import { colors } from '../../../colors';
 

@@ -1,5 +1,7 @@
 import React from 'react';
-import { ArrowForward, ArrowBack, Close } from '@material-ui/icons';
+import ArrowForward from '@material-ui/icons/ArrowForward';
+import ArrowBack from '@material-ui/icons/ArrowBack';
+import Close from '@material-ui/icons/Close';
 import { Button } from '@material-ui/core';
 import i18n from '@dhis2/d2-i18n';
 import { colors } from '../../../colors';
