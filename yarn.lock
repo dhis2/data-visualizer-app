@@ -8036,7 +8036,7 @@ marked@~0.3.6:
   resolved "https://registry.yarnpkg.com/marked/-/marked-0.3.19.tgz#5d47f709c4c9fc3c216b6d46127280f40b39d790"
   integrity sha512-ea2eGWOqNxPcXv8dyERdSr/6FmzvWwzjMxpfGB/sbMccXoct+xY+YukPD+QTUZwyvK7BZwcr4m21WBOW41pAkg==
 
-material-ui@^0.20.0, material-ui@^0.20.2:
+material-ui@^0.20.0:
   version "0.20.2"
   resolved "https://registry.yarnpkg.com/material-ui/-/material-ui-0.20.2.tgz#5fc9b4b62b691d3b16c89d8e54597a0412b52c7d"
   integrity sha512-VeqgQkdvtK193w+FFvXDEwlVxI4rWk83eWbpYLeOIHDPWr3rbB9B075JRnJt/8IsI2X8q5Aia5W3+7m4KkleDg==
