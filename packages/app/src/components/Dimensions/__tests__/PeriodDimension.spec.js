@@ -23,7 +23,11 @@ describe('The Period Dimension component ', () => {
             toggleDialog: jest.fn(),
             onUpdate: jest.fn(),
             d2: {},
-            ui: {},
+            ui: {
+                itemsByDimension: {
+                    pe: [],
+                },
+            },
             selectedItems: {},
         };
         shallowPeriodDim = undefined;
