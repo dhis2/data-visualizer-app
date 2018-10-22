@@ -53,3 +53,13 @@ export const acRemoveUiItems = value => ({
     type: actionTypes.REMOVE_UI_ITEMS,
     value,
 });
+
+export const acAddParentGraphMap = value => ({
+    type: actionTypes.ADD_PARENT_GRAPH_MAP,
+    value,
+});
+
+export const acSetParentGraphMap = value => ({
+    type: actionTypes.SET_PARENT_GRAPH_MAP,
+    value,
+});
