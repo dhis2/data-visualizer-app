@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { DialogActions, DialogContent } from '@material-ui/core';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
 import i18n from '@dhis2/d2-i18n';
 import { debounce } from 'lodash-es';
 

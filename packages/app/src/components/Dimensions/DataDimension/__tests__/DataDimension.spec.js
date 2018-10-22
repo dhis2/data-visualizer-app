@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { DialogActions } from '@material-ui/core';
+import DialogActions from '@material-ui/core/DialogActions';
 import { HideButton, UpdateButton } from '../buttons';
 import { DataDimension } from '../DataDimension';
 
