@@ -22,18 +22,20 @@ describe('The Period Dimension component ', () => {
         props = {
             toggleDialog: jest.fn(),
             onUpdate: jest.fn(),
-            d2: {},
             ui: {
                 itemsByDimension: {
                     pe: [],
                 },
             },
-            selectedItems: {},
+            metadata: {},
+            addMetadata: jest.fn(),
+            addUiItems: jest.fn(),
+            removeUiItems: jest.fn(),
         };
         shallowPeriodDim = undefined;
     });
 
-    it('renders an <div> containing everything else', () => {
+    it('renders a <div> containing everything else', () => {
         const wrappingDiv = periodDim()
             .find('div')
             .first();
@@ -47,14 +49,29 @@ describe('The Period Dimension component ', () => {
         expect(periodSelector.length).toEqual(1);
     });
 
-    it('fires the prop function toggleDialog when <HideButton />  is clicked', () => {
+    it('sets the selected items for the PeriodSelector', () => {
+        props.ui.itemsByDimension.pe = ['applejack', 'rainbowdash'];
+        props.metadata = {
+            applejack: { id: 'applejack', name: 'Apple Jack' },
+            rainbowdash: { id: 'rainbowdash', name: 'Rainbow Dash' },
+            rarity: { id: 'rarity', name: 'A Rarity' },
+        };
+
+        const periodSelector = periodDim().find(PeriodSelector);
+
+        const selectedItems = periodSelector.prop('selectedItems');
+        expect(selectedItems.length).toBe(2);
+        expect(selectedItems[0].name).toBe('Apple Jack');
+    });
+
+    it('triggers toggleDialog when <HideButton /> is clicked', () => {
         const hideButton = periodDim().find(HideButton);
         hideButton.props().action();
 
         expect(props.toggleDialog).toHaveBeenCalled();
     });
 
-    it('fires the prop function toggleDialog when the <UpdateButton /> is clicked', () => {
+    it('triggers toggleDialog when the <UpdateButton /> is clicked', () => {
         const updateButton = periodDim().find(UpdateButton);
         updateButton.props().action();
 

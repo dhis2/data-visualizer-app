@@ -39,7 +39,7 @@ export class PeriodDimension extends Component {
             return obj;
         }, {});
 
-        this.props.addMetaData(arrToId);
+        this.props.addMetadata(arrToId);
     };
 
     deselectPeriodDimensions = periods => {
@@ -89,7 +89,7 @@ const mapStateToProps = state => ({
 export default connect(
     mapStateToProps,
     {
-        addMetaData: acAddMetadata,
+        addMetadata: acAddMetadata,
         addUiItems: acAddUiItems,
         removeUiItems: acRemoveUiItems,
         onUpdate: acSetCurrentFromUi,
