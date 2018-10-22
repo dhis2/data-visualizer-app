@@ -12,6 +12,7 @@ import * as fromUi from './ui';
 import * as fromMetadata from './metadata';
 import * as fromSnackbar from './snackbar';
 import * as fromUser from './user';
+import * as fromChart from './chart';
 import * as fromLoadError from './loadError';
 
 import { sGetCurrent } from '../reducers/current';
@@ -27,6 +28,7 @@ export {
     fromMetadata,
     fromSnackbar,
     fromUser,
+    fromChart,
     fromLoadError,
 };
 

@@ -8,6 +8,7 @@ import metadata, * as fromMetadata from './metadata';
 import snackbar, * as fromSnackbar from './snackbar';
 import user, * as fromUser from './user';
 import loadError, * as fromLoadError from './loadError';
+import chart, * as fromChart from './chart';
 
 // Action types
 
@@ -21,6 +22,7 @@ export const actionTypes = {
     ...fromSnackbar.actionTypes,
     ...fromUser.actionTypes,
     ...fromLoadError.actionTypes,
+    ...fromChart.actionTypes,
 };
 
 // Reducers
@@ -35,6 +37,7 @@ export default combineReducers({
     snackbar,
     user,
     loadError,
+    chart,
 });
 
 // Selectors
@@ -48,4 +51,5 @@ export {
     fromMetadata,
     fromSnackbar,
     fromLoadError,
+    fromChart,
 };
