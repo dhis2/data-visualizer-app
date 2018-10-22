@@ -41,25 +41,15 @@ export class VisualizationTypeSelector extends Component {
                     onClick={this.handleButtonClick}
                     disableRipple
                     disableFocusRipple
+                    fullWidth={true}
+                    size="small"
                     style={{
-                        padding: 8,
-                        margin: '2px 3px',
+                        padding: '8px',
                         color: colors.black,
-                        fontSize: 14,
+                        fontSize: '15px',
                         textTransform: 'none',
                         fontWeight: 'normal',
-                        borderRight: '1px lightgrey',
-                        width: 244,
-                        height: 40,
-                        justifyContent: 'left',
-                        '&:hover': {
-                            backgroundColor: colors.blueGrey,
-                            borderRadius: 4,
-                        },
-                        '&:active': {
-                            backgroundColor: colors.accentPrimaryLightest,
-                            borderRadius: 4,
-                        },
+                        backgroundColor: colors.white,
                     }}
                 >
                     <VisualizationTypeIcon type={visualizationType} />

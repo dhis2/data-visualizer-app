@@ -40,7 +40,7 @@ export const MenuBar = (props, context) => (
         <div style={styles.label}>Download</div>
         <div style={styles.label}>Embed</div>
         <div className="spacefiller" />
-        <div style={styles.label}>Show interpretations</div>
+        <div style={styles.label}>Interpretations</div>
     </div>
 );
 
