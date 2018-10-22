@@ -18,7 +18,6 @@ import { styles } from './styles/PeriodDimension.style';
 
 const PE = 'pe';
 const PERIOD = 'PERIOD';
-const DIALOG_TITLE = i18n.t('Period');
 
 export class PeriodDimension extends Component {
     onUpdateClick = () => {
@@ -64,7 +63,7 @@ export class PeriodDimension extends Component {
         return (
             <div style={styles.container}>
                 <DialogContent style={styles.dialogContent}>
-                    <h3 style={styles.dialogTitle}>{DIALOG_TITLE}</h3>
+                    <h3 style={styles.dialogTitle}>{i18n.t('Period')}</h3>
                     <PeriodSelector
                         d2={this.context.d2}
                         onSelect={this.selectPeriodDimensions}
