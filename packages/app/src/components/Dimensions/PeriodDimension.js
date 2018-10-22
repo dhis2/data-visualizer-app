@@ -29,7 +29,7 @@ export class PeriodDimension extends Component {
     selectPeriodDimensions = periods => {
         const idsToAdd = periods.map(periodRange => periodRange.id);
 
-        this.props.addPeItems({
+        this.props.addUiItems({
             dimensionType: PE,
             value: idsToAdd,
         });
@@ -45,7 +45,7 @@ export class PeriodDimension extends Component {
     deselectPeriodDimensions = periods => {
         const idsToRemove = periods.map(periodRange => periodRange.id);
 
-        this.props.removePeItems({
+        this.props.removeUiItems({
             dimensionType: PE,
             value: idsToRemove,
         });
@@ -90,15 +90,14 @@ export default connect(
     mapStateToProps,
     {
         addMetaData: acAddMetadata,
-        addPeItems: acAddUiItems,
-        removePeItems: acRemoveUiItems,
+        addUiItems: acAddUiItems,
+        removeUiItems: acRemoveUiItems,
         onUpdate: acSetCurrentFromUi,
     }
 )(PeriodDimension);
 
 PeriodDimension.propTypes = {
     toggleDialog: PropTypes.func.isRequired,
-    selectedItems: PropTypes.object.isRequired,
     ui: PropTypes.object.isRequired,
 };
 
