@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import i18n from '@dhis2/d2-i18n';
-import { debounce } from 'lodash-es';
+import debounce from 'lodash-es/debounce';
 
 import DataTypes from './DataTypesSelector';
 import Groups from './Groups';
