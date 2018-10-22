@@ -18,6 +18,8 @@ export const actionTypes = {
     SET_UI_ITEMS: 'SET_UI_ITEMS',
     ADD_UI_ITEMS: 'ADD_UI_ITEMS',
     REMOVE_UI_ITEMS: 'REMOVE_UI_ITEMS',
+    SET_PARENT_GRAPH_MAP: 'SET_PARENT_GRAPH_MAP',
+    ADD_PARENT_GRAPH_MAP: 'ADD_PARENT_GRAPH_MAP',
     CLEAR_UI: 'CLEAR_UI',
 };
 
@@ -34,6 +36,7 @@ export const DEFAULT_UI = {
         pe: ['LAST_12_MONTHS'],
         ou: ['USER_ORGUNIT'],
     },
+    parentGraphMap: {},
 };
 
 export default (state = DEFAULT_UI, action) => {
@@ -143,6 +146,21 @@ export default (state = DEFAULT_UI, action) => {
             );
 
             return Object.assign({}, { ...state }, { itemsByDimension });
+        }
+        case actionTypes.SET_PARENT_GRAPH_MAP: {
+            return {
+                ...state,
+                parentGraphMap: action.value,
+            };
+        }
+        case actionTypes.ADD_PARENT_GRAPH_MAP: {
+            return {
+                ...state,
+                parentGraphMap: {
+                    ...state.parentGraphMap,
+                    ...action.value,
+                },
+            };
         }
         case actionTypes.CLEAR_UI:
             return DEFAULT_UI;
