@@ -33,16 +33,15 @@ body {
 
 .app {
     display: grid;
-    font-family: 'roboto';
-    background-color: #aaa;
     grid-gap: 1px;
     grid-template-columns: 250px auto 385px;
-    grid-template-rows: 48px auto auto auto;
     grid-template-areas:
         'headerbar headerbar headerbar'
         'charttype menubar menubar'
         'dimensions chartlayout interpretations'
         'dimensions canvas interpretations';
+    background-color: #aaa;
+    font-family: Roboto, sans-serif;
 }
 .app > div {
     background-color: #f1f1f1;

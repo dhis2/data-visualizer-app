@@ -88,8 +88,8 @@ export class App extends Component {
         return (
             <Fragment>
                 <UI>
+                    <HeaderBar appName="Data Visualizer" />
                     <div className="app">
-                        <HeaderBar appName="Data Visualizer" />
                         <div className="item2 visualization-type-selector">
                             <VisualizationTypeSelector />
                         </div>
