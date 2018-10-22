@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { DialogContent, DialogActions } from '@material-ui/core';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogActions from '@material-ui/core/DialogActions';
+
 import { PeriodSelector } from '@dhis2/d2-ui-period-selector-dialog';
 import i18n from '@dhis2/d2-i18n';
 

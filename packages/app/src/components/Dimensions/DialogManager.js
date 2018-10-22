@@ -4,10 +4,10 @@ import DataDimension from './DataDimension/DataDimension';
 import PeriodDimension from './PeriodDimension';
 import OrgUnitDimension from './OrgUnitDimension';
 
-export const DialogManager = ({ d2, dialogIsOpen, id, toggleDialog }) => {
+export const DialogManager = ({ dialogIsOpen, id, toggleDialog }) => {
     const dimensionComponents = {
         dx: <DataDimension toggleDialog={toggleDialog} />,
-        pe: <PeriodDimension d2={d2} toggleDialog={toggleDialog} />,
+        pe: <PeriodDimension toggleDialog={toggleDialog} />,
         ou: <OrgUnitDimension />,
     };
     return id ? (
