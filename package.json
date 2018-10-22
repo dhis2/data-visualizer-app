@@ -31,5 +31,8 @@
     },
     "workspaces": [
         "packages/*"
-    ]
+    ],
+    "dependencies": {
+        "ui": "github:dhis2/ui-builds"
+    }
 }

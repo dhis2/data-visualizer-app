@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Snackbar from '@material-ui/core/Snackbar';
 import i18n from '@dhis2/d2-i18n';
+import UI from 'ui/core/UI';
+import HeaderBar from 'ui/widgets/HeaderBar';
 
 import SnackbarMessage from '../widgets/SnackbarMessage';
 import MenuBar from './MenuBar/MenuBar';
@@ -85,32 +87,34 @@ export class App extends Component {
 
         return (
             <Fragment>
-                <div className="app">
-                    <div className="item1 headerbar">Headerbar</div>
-                    <div className="item2 visualization-type-selector">
-                        <VisualizationTypeSelector />
+                <UI>
+                    <div className="app">
+                        <HeaderBar appName="Data Visualizer" />
+                        <div className="item2 visualization-type-selector">
+                            <VisualizationTypeSelector />
+                        </div>
+                        <div className="item3 menu-bar">
+                            <MenuBar apiObjectName={this.props.apiObjectName} />
+                        </div>
+                        <div className="item4 dimensions">
+                            <Dimensions />
+                        </div>
+                        <div className="item5 chart-layout">
+                            <Layout />
+                        </div>
+                        <div className="item6 interpretations">
+                            Interpretations panel
+                        </div>
+                        <div className="item7 canvas">
+                            {hasCurrent ? (
+                                <Visualization d2={this.props.d2} />
+                            ) : (
+                                <BlankCanvas />
+                            )}
+                        </div>
                     </div>
-                    <div className="item3 menu-bar">
-                        <MenuBar apiObjectName={this.props.apiObjectName} />
-                    </div>
-                    <div className="item4 dimensions">
-                        <Dimensions />
-                    </div>
-                    <div className="item5 chart-layout">
-                        <Layout />
-                    </div>
-                    <div className="item6 interpretations">
-                        Interpretations panel
-                    </div>
-                    <div className="item7 canvas">
-                        {hasCurrent ? (
-                            <Visualization d2={this.props.d2} />
-                        ) : (
-                            <BlankCanvas />
-                        )}
-                    </div>
-                </div>
-                {this.renderSnackbar()}
+                    {this.renderSnackbar()}
+                </UI>
             </Fragment>
         );
     }
