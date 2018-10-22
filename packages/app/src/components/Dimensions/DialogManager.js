@@ -8,13 +8,14 @@ export const DialogManager = ({ dialogIsOpen, id, toggleDialog }) => {
     const dimensionComponents = {
         dx: <DataDimension toggleDialog={toggleDialog} />,
         pe: <PeriodDimension />,
-        ou: <OrgUnitDimension />,
+        ou: <OrgUnitDimension toggleDialog={toggleDialog} />,
     };
     return id ? (
         <Dialog
             open={dialogIsOpen}
             onClose={() => toggleDialog(null)}
             maxWidth={false}
+            disableEnforceFocus
         >
             {dimensionComponents[id]}
         </Dialog>
