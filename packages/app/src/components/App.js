@@ -38,8 +38,9 @@ export class App extends Component {
 
     componentDidMount() {
         const { store } = this.context;
-        const d2 = this.props.d2;
+        const { d2, userSettings } = this.props;
 
+        store.dispatch(fromActions.fromSettings.tAddSettings(userSettings));
         store.dispatch(fromActions.fromUser.acReceivedUser(d2.currentUser));
         store.dispatch(fromActions.fromDimensions.tSetDimensions());
         store.dispatch(fromActions.fromMetadata.acAddMetadata(defaultMetadata));

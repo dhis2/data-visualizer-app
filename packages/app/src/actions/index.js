@@ -10,8 +10,9 @@ import * as fromCurrent from './current';
 import * as fromDimensions from './dimensions';
 import * as fromUi from './ui';
 import * as fromMetadata from './metadata';
-import * as fromSnackbar from './snackbar';
+import * as fromSettings from './settings';
 import * as fromUser from './user';
+import * as fromSnackbar from './snackbar';
 import * as fromLoadError from './loadError';
 
 import { sGetCurrent } from '../reducers/current';
@@ -25,8 +26,9 @@ export {
     fromDimensions,
     fromUi,
     fromMetadata,
-    fromSnackbar,
+    fromSettings,
     fromUser,
+    fromSnackbar,
     fromLoadError,
 };
 
