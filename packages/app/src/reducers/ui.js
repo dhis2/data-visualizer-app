@@ -52,6 +52,7 @@ export default (state = DEFAULT_UI, action) => {
                 options: getOptionsFromVisualization(action.value),
                 layout: getDimensionIdsByAxis(action.value),
                 itemsByDimension: getItemIdsByDimension(action.value),
+                parentGraphMap: action.value.parentGraphMap,
             };
         }
         case actionTypes.SET_UI_TYPE: {
