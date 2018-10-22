@@ -27,7 +27,6 @@ export class Download extends Component {
         const a = document.createElement('a');
         a.setAttribute('href', url);
         a.setAttribute('download', current.name);
-        console.log('a', a);
         a.click();
 
         URL.revokeObjectURL(url);
