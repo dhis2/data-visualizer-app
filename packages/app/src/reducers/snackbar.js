@@ -1,11 +1,6 @@
 export const RECEIVED_SNACKBAR_MESSAGE = 'RECEIVED_SNACKBAR_MESSAGE';
 export const CLOSE_SNACKBAR = 'CLOSE_SNACKBAR';
 
-export const actionTypes = {
-    RECEIVED_SNACKBAR_MESSAGE,
-    CLOSE_SNACKBAR,
-};
-
 export const DEFAULT_SNACKBAR = {
     message: {},
     duration: null,

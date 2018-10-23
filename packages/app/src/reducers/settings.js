@@ -1,11 +1,6 @@
 export const SET_SETTINGS = 'SET_SETTINGS';
 export const ADD_SETTINGS = 'ADD_SETTINGS';
 
-export const actionTypes = {
-    SET_SETTINGS,
-    ADD_SETTINGS,
-};
-
 export const DEFAULT_SETTINGS = {
     keyDateFormat: 'yyyy-MM-dd',
     keyAnalysisRelativePeriod: 'LAST_12_MONTHS',

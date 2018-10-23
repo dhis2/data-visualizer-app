@@ -1,11 +1,6 @@
 export const SET_VISUALIZATION = 'SET_VISUALIZATION';
 export const CLEAR_VISUALIZATION = 'CLEAR_VISUALIZATION';
 
-export const actionTypes = {
-    SET_VISUALIZATION,
-    CLEAR_VISUALIZATION,
-};
-
 export const DEFAULT_VISUALIZATION = null;
 
 export default (state = DEFAULT_VISUALIZATION, action) => {

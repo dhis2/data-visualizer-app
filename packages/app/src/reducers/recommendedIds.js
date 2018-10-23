@@ -1,9 +1,5 @@
 export const SET_RECOMMENDED_IDS = 'SET_RECOMMENDED_IDS';
 
-export const actionTypes = {
-    SET_RECOMMENDED_IDS,
-};
-
 export const DEFAULT_RECOMMENDED_IDS = [];
 
 export default (state = DEFAULT_RECOMMENDED_IDS, action) => {

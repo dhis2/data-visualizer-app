@@ -1,9 +1,5 @@
 export const RECEIVED_USER = 'RECEIVED_USER';
 
-export const actionTypes = {
-    RECEIVED_USER,
-};
-
 export const DEFAULT_USER = {
     id: '',
     username: '',

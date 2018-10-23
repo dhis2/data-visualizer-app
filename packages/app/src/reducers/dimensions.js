@@ -3,11 +3,6 @@ import { FIXED_DIMENSIONS as DEFAULT_DIMENSIONS } from '../fixedDimensions';
 export const SET_DIMENSIONS = 'SET_DIMENSIONS';
 export const SET_SELECTED_DIMENSION = 'SET_SELECTED_DIMENSION';
 
-export const actionTypes = {
-    SET_DIMENSIONS,
-    SET_SELECTED_DIMENSION,
-};
-
 export default (state = DEFAULT_DIMENSIONS, action) => {
     switch (action.type) {
         case SET_DIMENSIONS: {

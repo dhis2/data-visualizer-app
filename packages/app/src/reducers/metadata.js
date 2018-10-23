@@ -1,9 +1,5 @@
 export const ADD_METADATA = 'ADD_METADATA';
 
-export const actionTypes = {
-    ADD_METADATA,
-};
-
 export const DEFAULT_METADATA = {};
 
 export default (state = DEFAULT_METADATA, action) => {

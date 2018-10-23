@@ -1,9 +1,17 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as fromActions from '../index';
-import * as fromReducers from '../../reducers/index';
 import * as api from '../../api/visualization';
 import * as history from '../../history';
+
+import {
+    SET_VISUALIZATION,
+    CLEAR_VISUALIZATION,
+} from '../../reducers/visualization';
+import { SET_CURRENT, CLEAR_CURRENT } from '../../reducers/current';
+import { SET_UI_FROM_VISUALIZATION, CLEAR_UI } from '../../reducers/ui';
+import { SET_LOAD_ERROR, CLEAR_LOAD_ERROR } from '../../reducers/loadError';
+import { RECEIVED_SNACKBAR_MESSAGE } from '../../reducers/snackbar';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -18,14 +26,14 @@ describe('index', () => {
                 });
 
             const expectedActions = [
-                { type: fromReducers.actionTypes.CLEAR_LOAD_ERROR },
+                { type: CLEAR_LOAD_ERROR },
                 {
-                    type: fromReducers.actionTypes.SET_VISUALIZATION,
+                    type: SET_VISUALIZATION,
                     value: vis,
                 },
-                { type: fromReducers.actionTypes.SET_CURRENT, value: vis },
+                { type: SET_CURRENT, value: vis },
                 {
-                    type: fromReducers.actionTypes.SET_UI_FROM_VISUALIZATION,
+                    type: SET_UI_FROM_VISUALIZATION,
                     value: vis,
                 },
             ];
@@ -45,10 +53,10 @@ describe('index', () => {
             api.apiFetchVisualization = () => Promise.reject(error);
 
             const expectedActions = [
-                { type: fromReducers.actionTypes.SET_LOAD_ERROR, value: error },
-                { type: fromReducers.actionTypes.CLEAR_VISUALIZATION },
-                { type: fromReducers.actionTypes.CLEAR_CURRENT },
-                { type: fromReducers.actionTypes.CLEAR_UI },
+                { type: SET_LOAD_ERROR, value: error },
+                { type: CLEAR_VISUALIZATION },
+                { type: CLEAR_CURRENT },
+                { type: CLEAR_UI },
             ];
 
             const store = mockStore({});
@@ -64,10 +72,10 @@ describe('index', () => {
     describe('clearVisualization', () => {
         it('dispatches the correct actions when clearing the visualization', () => {
             const expectedActions = [
-                { type: fromReducers.actionTypes.CLEAR_LOAD_ERROR },
-                { type: fromReducers.actionTypes.CLEAR_VISUALIZATION },
-                { type: fromReducers.actionTypes.CLEAR_CURRENT },
-                { type: fromReducers.actionTypes.CLEAR_UI },
+                { type: CLEAR_LOAD_ERROR },
+                { type: CLEAR_VISUALIZATION },
+                { type: CLEAR_CURRENT },
+                { type: CLEAR_UI },
             ];
 
             const store = mockStore({});
@@ -92,7 +100,7 @@ describe('index', () => {
 
             const expectedActions = [
                 {
-                    type: fromReducers.actionTypes.RECEIVED_SNACKBAR_MESSAGE,
+                    type: RECEIVED_SNACKBAR_MESSAGE,
                     value: {
                         message: '"delete test" successfully deleted.',
                         open: true,
@@ -133,15 +141,15 @@ describe('index', () => {
 
             const expectedActions = [
                 {
-                    type: fromReducers.actionTypes.SET_VISUALIZATION,
+                    type: SET_VISUALIZATION,
                     value: { ...visualization, ...extraParams },
                 },
                 {
-                    type: fromReducers.actionTypes.SET_CURRENT,
+                    type: SET_CURRENT,
                     value: { ...visualization, ...extraParams },
                 },
                 {
-                    type: fromReducers.actionTypes.RECEIVED_SNACKBAR_MESSAGE,
+                    type: RECEIVED_SNACKBAR_MESSAGE,
                     value: {
                         message: 'Rename successful',
                         open: true,
@@ -165,15 +173,15 @@ describe('index', () => {
 
             const expectedActions = [
                 {
-                    type: fromReducers.actionTypes.SET_VISUALIZATION,
+                    type: SET_VISUALIZATION,
                     value: { ...visualization, ...extraParams },
                 },
                 {
-                    type: fromReducers.actionTypes.SET_CURRENT,
+                    type: SET_CURRENT,
                     value: { ...current, ...extraParams },
                 },
                 {
-                    type: fromReducers.actionTypes.RECEIVED_SNACKBAR_MESSAGE,
+                    type: RECEIVED_SNACKBAR_MESSAGE,
                     value: {
                         message: 'Rename successful',
                         open: true,
