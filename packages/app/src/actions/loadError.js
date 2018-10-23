@@ -1,8 +1,8 @@
-import { actionTypes } from '../reducers';
+import { SET_LOAD_ERROR, CLEAR_LOAD_ERROR } from '../reducers/loadError';
 
 export const acSetLoadError = value => ({
-    type: actionTypes.SET_LOAD_ERROR,
+    type: SET_LOAD_ERROR,
     value,
 });
 
-export const acClearLoadError = () => ({ type: actionTypes.CLEAR_LOAD_ERROR });
+export const acClearLoadError = () => ({ type: CLEAR_LOAD_ERROR });

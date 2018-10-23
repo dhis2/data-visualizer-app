@@ -1,4 +1,4 @@
-import reducer, { DEFAULT_METADATA, actionTypes } from '../metadata';
+import reducer, { DEFAULT_METADATA, ADD_METADATA } from '../metadata';
 
 const currentState = {
     uid1: {
@@ -20,9 +20,9 @@ describe('reducer: metadata', () => {
         expect(actualState).toEqual(DEFAULT_METADATA);
     });
 
-    it(`${actionTypes.ADD_METADATA}: should add metadata`, () => {
+    it(`${ADD_METADATA}: should add metadata`, () => {
         const actualState = reducer(currentState, {
-            type: actionTypes.ADD_METADATA,
+            type: ADD_METADATA,
             value: metadataToAdd,
         });
 

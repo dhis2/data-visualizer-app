@@ -7,22 +7,20 @@ import {
 import { getOptionsForUi, getOptionsFromVisualization } from '../options';
 import { COLUMN } from '../components/VisualizationTypeSelector/visualizationTypes';
 
-export const actionTypes = {
-    SET_UI: 'SET_UI',
-    SET_UI_FROM_VISUALIZATION: 'SET_UI_FROM_VISUALIZATION',
-    SET_UI_TYPE: 'SET_UI_TYPE',
-    SET_UI_OPTIONS: 'SET_UI_OPTIONS',
-    SET_UI_LAYOUT: 'SET_UI_LAYOUT',
-    ADD_UI_LAYOUT_DIMENSIONS: 'ADD_UI_LAYOUT_DIMENSIONS',
-    REMOVE_UI_LAYOUT_DIMENSIONS: 'REMOVE_UI_LAYOUT_DIMENSIONS',
-    SET_UI_ITEMS: 'SET_UI_ITEMS',
-    ADD_UI_ITEMS: 'ADD_UI_ITEMS',
-    REMOVE_UI_ITEMS: 'REMOVE_UI_ITEMS',
-    SET_UI_PARENT_GRAPH_MAP: 'SET_UI_PARENT_GRAPH_MAP',
-    ADD_UI_PARENT_GRAPH_MAP: 'ADD_UI_PARENT_GRAPH_MAP',
-    SET_UI_ACTIVE_MODAL_DIALOG: 'SET_UI_ACTIVE_MODAL_DIALOG',
-    CLEAR_UI: 'CLEAR_UI',
-};
+export const SET_UI = 'SET_UI';
+export const SET_UI_FROM_VISUALIZATION = 'SET_UI_FROM_VISUALIZATION';
+export const SET_UI_TYPE = 'SET_UI_TYPE';
+export const SET_UI_OPTIONS = 'SET_UI_OPTIONS';
+export const SET_UI_LAYOUT = 'SET_UI_LAYOUT';
+export const ADD_UI_LAYOUT_DIMENSIONS = 'ADD_UI_LAYOUT_DIMENSIONS';
+export const REMOVE_UI_LAYOUT_DIMENSIONS = 'REMOVE_UI_LAYOUT_DIMENSIONS';
+export const SET_UI_ITEMS = 'SET_UI_ITEMS';
+export const ADD_UI_ITEMS = 'ADD_UI_ITEMS';
+export const REMOVE_UI_ITEMS = 'REMOVE_UI_ITEMS';
+export const SET_UI_PARENT_GRAPH_MAP = 'SET_UI_PARENT_GRAPH_MAP';
+export const ADD_UI_PARENT_GRAPH_MAP = 'ADD_UI_PARENT_GRAPH_MAP';
+export const SET_UI_ACTIVE_MODAL_DIALOG = 'SET_UI_ACTIVE_MODAL_DIALOG';
+export const CLEAR_UI = 'CLEAR_UI';
 
 export const DEFAULT_UI = {
     type: COLUMN,
@@ -43,12 +41,12 @@ export const DEFAULT_UI = {
 
 export default (state = DEFAULT_UI, action) => {
     switch (action.type) {
-        case actionTypes.SET_UI: {
+        case SET_UI: {
             return {
                 ...action.value,
             };
         }
-        case actionTypes.SET_UI_FROM_VISUALIZATION: {
+        case SET_UI_FROM_VISUALIZATION: {
             return {
                 type: action.value.type,
                 options: getOptionsFromVisualization(action.value),
@@ -57,13 +55,13 @@ export default (state = DEFAULT_UI, action) => {
                 parentGraphMap: action.value.parentGraphMap,
             };
         }
-        case actionTypes.SET_UI_TYPE: {
+        case SET_UI_TYPE: {
             return {
                 ...state,
                 type: action.value,
             };
         }
-        case actionTypes.SET_UI_OPTIONS: {
+        case SET_UI_OPTIONS: {
             return {
                 ...state,
                 options: {
@@ -72,7 +70,7 @@ export default (state = DEFAULT_UI, action) => {
                 },
             };
         }
-        case actionTypes.SET_UI_LAYOUT: {
+        case SET_UI_LAYOUT: {
             return {
                 ...state,
                 layout: {
@@ -82,7 +80,7 @@ export default (state = DEFAULT_UI, action) => {
         }
         // action.value: mod object (dimensionId:axisName) saying what to add where: { ou: 'rows' }
         // Reducer takes care of swapping if dimension already exists in layout
-        case actionTypes.ADD_UI_LAYOUT_DIMENSIONS: {
+        case ADD_UI_LAYOUT_DIMENSIONS: {
             const modObjWithSwap = {
                 ...action.value,
                 ...getSwapModObj(state.layout, action.value),
@@ -108,13 +106,13 @@ export default (state = DEFAULT_UI, action) => {
                 layout: newLayout,
             };
         }
-        case actionTypes.REMOVE_UI_LAYOUT_DIMENSIONS: {
+        case REMOVE_UI_LAYOUT_DIMENSIONS: {
             return {
                 ...state,
                 layout: getFilteredLayout(state.layout, action.value),
             };
         }
-        case actionTypes.SET_UI_ITEMS: {
+        case SET_UI_ITEMS: {
             return {
                 ...state,
                 itemsByDimension: {
@@ -122,7 +120,7 @@ export default (state = DEFAULT_UI, action) => {
                 },
             };
         }
-        case actionTypes.ADD_UI_ITEMS: {
+        case ADD_UI_ITEMS: {
             const { dimensionType: type, value: items } = action.value;
             const dxItems = [
                 ...new Set([...state.itemsByDimension[type], ...items]),
@@ -136,7 +134,7 @@ export default (state = DEFAULT_UI, action) => {
 
             return Object.assign({}, { ...state }, { itemsByDimension });
         }
-        case actionTypes.REMOVE_UI_ITEMS: {
+        case REMOVE_UI_ITEMS: {
             const { dimensionType: type, value: idsToRemove } = action.value;
             const dxItems = state.itemsByDimension[type].filter(
                 id => !idsToRemove.includes(id)
@@ -150,13 +148,13 @@ export default (state = DEFAULT_UI, action) => {
 
             return Object.assign({}, { ...state }, { itemsByDimension });
         }
-        case actionTypes.SET_UI_PARENT_GRAPH_MAP: {
+        case SET_UI_PARENT_GRAPH_MAP: {
             return {
                 ...state,
                 parentGraphMap: action.value,
             };
         }
-        case actionTypes.ADD_UI_PARENT_GRAPH_MAP: {
+        case ADD_UI_PARENT_GRAPH_MAP: {
             return {
                 ...state,
                 parentGraphMap: {
@@ -165,13 +163,13 @@ export default (state = DEFAULT_UI, action) => {
                 },
             };
         }
-        case actionTypes.SET_UI_ACTIVE_MODAL_DIALOG: {
+        case SET_UI_ACTIVE_MODAL_DIALOG: {
             return {
                 ...state,
                 activeModalDialog: action.value || DEFAULT_UI.activeModalDialog,
             };
         }
-        case actionTypes.CLEAR_UI:
+        case CLEAR_UI:
             return DEFAULT_UI;
         default:
             return state;
