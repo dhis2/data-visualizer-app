@@ -22,8 +22,7 @@ export class Download extends Component {
         const blob = await apiDownloadImage(type, formData);
         const url = URL.createObjectURL(blob);
 
-        const downloadWindow = window.open(url, '_blank');
-        downloadWindow.onload = () => URL.revokeObjectURL(url);
+        window.open(url, '_blank');
     };
 
     downloadData = async (type, idScheme, path) => {
