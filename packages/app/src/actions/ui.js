@@ -1,5 +1,6 @@
 import {
     SET_UI,
+    CLEAR_UI,
     SET_UI_FROM_VISUALIZATION,
     SET_UI_TYPE,
     SET_UI_OPTIONS,
@@ -9,8 +10,9 @@ import {
     SET_UI_ITEMS,
     ADD_UI_ITEMS,
     REMOVE_UI_ITEMS,
+    ADD_UI_PARENT_GRAPH_MAP,
+    SET_UI_PARENT_GRAPH_MAP,
     SET_UI_ACTIVE_MODAL_DIALOG,
-    CLEAR_UI,
 } from '../reducers/ui';
 
 export const acSetUi = value => ({
@@ -68,12 +70,12 @@ export const acRemoveUiItems = value => ({
 });
 
 export const acAddParentGraphMap = value => ({
-    type: actionTypes.ADD_UI_PARENT_GRAPH_MAP,
+    type: ADD_UI_PARENT_GRAPH_MAP,
     value,
 });
 
 export const acSetParentGraphMap = value => ({
-    type: actionTypes.SET_UI_PARENT_GRAPH_MAP,
+    type: SET_UI_PARENT_GRAPH_MAP,
     value,
 });
 
