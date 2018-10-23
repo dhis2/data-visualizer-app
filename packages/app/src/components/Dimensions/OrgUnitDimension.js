@@ -8,6 +8,7 @@ import i18n from '@dhis2/d2-i18n';
 import { OrgUnitSelector, userOrgUnits, removeOrgUnitLastPathSegment } from '@dhis2/d2-ui-org-unit-dialog';
 import PropTypes from 'prop-types';
 import { sGetUi } from '../../reducers/ui';
+import { acSetCurrentFromUi } from '../../actions/current';
 import { acAddMetadata } from '../../actions/metadata';
 import { sGetMetadata } from '../../reducers/metadata';
 import {
@@ -276,7 +277,8 @@ export class OrgUnitDimension extends Component {
     };
 
     onUpdateClick = () => {
-        this.props.toggleDialog();
+        this.props.acSetCurrentFromUi(this.props.ui);
+        this.props.toggleDialog(null);
     };
 
     render = () => {
@@ -336,6 +338,7 @@ const mapDispatchToProps = {
     acSetUiItems,
     acAddParentGraphMap,
     acSetParentGraphMap,
+    acSetCurrentFromUi,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(OrgUnitDimension);
