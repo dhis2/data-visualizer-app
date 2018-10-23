@@ -1,6 +1,9 @@
+export const SET_SETTINGS = 'SET_SETTINGS';
+export const ADD_SETTINGS = 'ADD_SETTINGS';
+
 export const actionTypes = {
-    SET_SETTINGS: 'SET_SETTINGS',
-    ADD_SETTINGS: 'ADD_SETTINGS',
+    SET_SETTINGS,
+    ADD_SETTINGS,
 };
 
 export const DEFAULT_SETTINGS = {
@@ -12,10 +15,10 @@ export const DEFAULT_SETTINGS = {
 
 export default (state = DEFAULT_SETTINGS, action) => {
     switch (action.type) {
-        case actionTypes.SET_SETTINGS: {
+        case SET_SETTINGS: {
             return Object.assign({}, action.value);
         }
-        case actionTypes.ADD_SETTINGS: {
+        case ADD_SETTINGS: {
             return {
                 ...state,
                 ...action.value,
