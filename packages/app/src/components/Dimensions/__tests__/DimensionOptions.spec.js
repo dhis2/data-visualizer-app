@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import { DimensionOptions } from '../DimensionOptions';
 import { OptionsButton } from '../DimensionOptions';
 import DropDown from '../DropDown';
@@ -9,7 +9,7 @@ describe('The DimensionOptions component ', () => {
     let shallowDimOptions;
     const dimOptions = () => {
         if (!shallowDimOptions) {
-            shallowDimOptions = mount(<DimensionOptions {...props} />);
+            shallowDimOptions = shallow(<DimensionOptions {...props} />);
         }
         return shallowDimOptions;
     };

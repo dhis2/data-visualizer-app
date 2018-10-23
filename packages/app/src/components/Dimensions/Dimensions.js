@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
-import { Search } from '@material-ui/icons';
+import Search from '@material-ui/icons/Search';
 import i18n from '@dhis2/d2-i18n';
 import DimensionList from './DimensionList';
 import { DialogManager } from './DialogManager';

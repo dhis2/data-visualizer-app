@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Dialog } from '@material-ui/core';
+import Dialog from '@material-ui/core/Dialog';
 import { DialogManager } from '../DialogManager';
 
 describe('The DialogManager component ', () => {
