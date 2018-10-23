@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Close } from '@material-ui/icons';
+import Close from '@material-ui/icons/Close';
 import { acRemoveUiLayoutDimensions } from '../../actions/ui';
 import { styles } from './styles/DimensionLabel.style';
 

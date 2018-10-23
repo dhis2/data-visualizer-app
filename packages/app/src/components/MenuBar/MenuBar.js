@@ -38,7 +38,6 @@ export const MenuBar = (props, context) => (
         />
         <VisualizationOptionsManager labelStyle={styles.label} />
         <div style={styles.label}>Download</div>
-        <div style={styles.label}>Embed</div>
         <div className="spacefiller" />
         <div style={styles.label}>Interpretations</div>
     </div>
