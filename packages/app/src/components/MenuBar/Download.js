@@ -22,14 +22,8 @@ export class Download extends Component {
         const blob = await apiDownloadImage(type, formData);
         const url = URL.createObjectURL(blob);
 
-        // trigger a download
-        // NOT supported in IE
-        const a = document.createElement('a');
-        a.setAttribute('href', url);
-        a.setAttribute('download', current.name);
-        a.click();
-
-        URL.revokeObjectURL(url);
+        const downloadWindow = window.open(url, '_blank');
+        downloadWindow.onload = () => URL.revokeObjectURL(url);
     };
 
     downloadData = async (type, idScheme, path) => {
