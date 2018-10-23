@@ -8,6 +8,7 @@ import i18n from '@dhis2/d2-i18n';
 import { OrgUnitSelector, userOrgUnits, removeOrgUnitLastPathSegment } from '@dhis2/d2-ui-org-unit-dialog';
 import PropTypes from 'prop-types';
 import { sGetUi } from '../../reducers/ui';
+import { acAddMetadata } from '../../actions/metadata';
 import { sGetMetadata } from '../../reducers/metadata';
 import {
     acAddUiItems,
@@ -16,7 +17,11 @@ import {
     acAddParentGraphMap,
     acSetParentGraphMap
 } from '../../actions/ui';
-import { acAddMetadata } from '../../actions/metadata';
+import {
+    apiFetchOrganisationUnitGroups,
+    apiFetchOrganisationUnitLevels,
+    apiFetchOrganisationUnits,
+} from '../../api/organisationUnits';
 
 /**
  * Org unit level id prefix
@@ -45,10 +50,9 @@ const GROUP_ID_PREFIX = 'OU_GROUP';
 const isGroupId = id => id.substr(0, GROUP_ID_PREFIX.length) === GROUP_ID_PREFIX;
 
 export class OrgUnitDimension extends Component {
-    constructor(props, context) {
+    constructor(props) {
         super(props);
 
-        this.d2 = context.d2;
         this.userOrgUnitIds = userOrgUnits.map(orgUnit => orgUnit.id);
 
         this.state = {
@@ -162,14 +166,7 @@ export class OrgUnitDimension extends Component {
     };
 
     loadOrgUnitTree = () => {
-        this.d2
-            .models
-            .organisationUnits
-            .list({
-                paging: false,
-                level: 1,
-                fields: 'id,path,displayName,children::isNotEmpty',
-            })
+        apiFetchOrganisationUnits()
             .then(rootLevel => rootLevel.toArray()[0])
             .then((root) => {
                 if (this.props.metadata[root.id] === undefined) {
@@ -189,10 +186,7 @@ export class OrgUnitDimension extends Component {
     };
 
     loadOrgUnitGroups = () => {
-        this.d2
-            .models
-            .organisationUnitGroups
-            .list({ paging: false })
+        apiFetchOrganisationUnitGroups()
             .then(collection => collection.toArray())
             .then(this.transformOptionsIntoMetadata)
             .then(({ options, metadata }) => {
@@ -202,10 +196,7 @@ export class OrgUnitDimension extends Component {
     };
 
     loadOrgUnitLevels = () => {
-        this.d2
-            .models
-            .organisationUnitLevels
-            .list({ paging: false })
+        apiFetchOrganisationUnitLevels()
             .then(collection => collection.toArray())
             .then(levelOptions => this.transformOptionsIntoMetadata(levelOptions, ['id', 'displayName', 'name', 'level']))
             .then(({ options, metadata }) => {
@@ -331,10 +322,6 @@ export class OrgUnitDimension extends Component {
 
 OrgUnitDimension.propTypes = {
     toggleDialog: PropTypes.func.isRequired,
-};
-
-OrgUnitDimension.contextTypes = {
-    d2: PropTypes.object,
 };
 
 const mapStateToProps = state => ({
