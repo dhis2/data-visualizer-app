@@ -1,16 +1,19 @@
+export const SET_VISUALIZATION = 'SET_VISUALIZATION';
+export const CLEAR_VISUALIZATION = 'CLEAR_VISUALIZATION';
+
 export const actionTypes = {
-    SET_VISUALIZATION: 'SET_VISUALIZATION',
-    CLEAR_VISUALIZATION: 'CLEAR_VISUALIZATION',
+    SET_VISUALIZATION,
+    CLEAR_VISUALIZATION,
 };
 
 export const DEFAULT_VISUALIZATION = null;
 
 export default (state = DEFAULT_VISUALIZATION, action) => {
     switch (action.type) {
-        case actionTypes.SET_VISUALIZATION: {
+        case SET_VISUALIZATION: {
             return action.value;
         }
-        case actionTypes.CLEAR_VISUALIZATION: {
+        case CLEAR_VISUALIZATION: {
             return DEFAULT_VISUALIZATION;
         }
         default:

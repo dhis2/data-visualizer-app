@@ -1,6 +1,6 @@
 import reducer, { DEFAULT_USER, RECEIVED_USER } from '../user';
 
-describe('user reducer', () => {
+describe('reducer: user', () => {
     it('should return the default state', () => {
         const actualState = reducer(undefined, {});
 

@@ -4,7 +4,7 @@ import reducer, {
     CLOSE_SNACKBAR,
 } from '../snackbar';
 
-describe('snackbar reducer', () => {
+describe('reducer: snackbar', () => {
     it('should return the default state', () => {
         const actualState = reducer(undefined, {});
 
