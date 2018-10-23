@@ -4,7 +4,7 @@ import reducer, {
     CLEAR_LOAD_ERROR,
 } from '../loadError';
 
-describe('loadError reducer', () => {
+describe('reducer: loadError', () => {
     const error = 'fail!';
 
     it('should return the default state', () => {
