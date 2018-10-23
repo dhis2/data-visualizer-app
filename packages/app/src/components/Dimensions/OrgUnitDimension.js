@@ -254,11 +254,6 @@ export class OrgUnitDimension extends Component {
                 ],
             });
         } else {
-            this.props.acRemoveUiItems({
-                dimensionType: 'ou',
-                value: [event.target.name],
-            });
-
             if (this.props.ui.itemsByDimension.ou.length === 1 && this.state.selected.length > 0) {
                 this.props.acSetUiItems({
                     ...this.props.ui.itemsByDimension,
@@ -269,6 +264,11 @@ export class OrgUnitDimension extends Component {
                     selected: [],
                 });
             }
+
+            this.props.acRemoveUiItems({
+                dimensionType: 'ou',
+                value: [event.target.name],
+            });
         }
     };
 

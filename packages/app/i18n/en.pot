@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-10-18T15:40:48.850Z\n"
-"PO-Revision-Date: 2018-10-18T15:40:48.850Z\n"
+"POT-Creation-Date: 2018-10-23T08:07:00.840Z\n"
+"PO-Revision-Date: 2018-10-23T08:07:00.840Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -110,7 +110,13 @@ msgstr ""
 msgid "Search Dimensions"
 msgstr ""
 
-msgid "OrgUnit Dimension"
+msgid "Organisation units"
+msgstr ""
+
+msgid "Hide"
+msgstr ""
+
+msgid "Update"
 msgstr ""
 
 msgid "Period"
@@ -138,9 +144,6 @@ msgid "Remove"
 msgstr ""
 
 msgid "None selected"
-msgstr ""
-
-msgid "Update"
 msgstr ""
 
 msgid "Aggregation type"
@@ -291,9 +294,6 @@ msgid "Options"
 msgstr ""
 
 msgid "Chart options"
-msgstr ""
-
-msgid "Hide"
 msgstr ""
 
 msgid "Column"
