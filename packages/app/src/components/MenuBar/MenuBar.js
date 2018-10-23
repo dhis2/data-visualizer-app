@@ -10,6 +10,7 @@ import * as fromActions from '../../actions';
 import { sGetCurrent } from '../../reducers/current';
 import './MenuBar.css';
 import history from '../../history';
+import styles from './styles/MenuBar.style';
 
 const onOpen = id => history.push(`/${id}`);
 const onNew = () => history.push('/');
@@ -21,7 +22,7 @@ const getOnSaveAs = props => details =>
 const getOnDelete = props => () => props.onDeleteVisualization();
 
 export const MenuBar = (props, context) => (
-    <div className="menubar">
+    <div className="menubar" style={styles.menuBar}>
         <UpdateButton />
         <FileMenu
             d2={context.d2}
@@ -36,11 +37,10 @@ export const MenuBar = (props, context) => (
             onTranslate={() => console.log('translate callback')}
             onError={() => console.log('error!')}
         />
-        <VisualizationOptionsManager />
-        <Download />
-        <div>Embed</div>
+        <VisualizationOptionsManager labelStyle={styles.label} />
+        <Download labelStyle={styles.label} />
         <div className="spacefiller" />
-        <div>Show interpretations</div>
+        <div style={styles.label}>Interpretations</div>
     </div>
 );
 

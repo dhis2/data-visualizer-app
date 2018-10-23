@@ -39,7 +39,6 @@ describe('The DimensionItem component ', () => {
 
     it('renders a <DimensionLabel /> ', () => {
         const dimLabel = dimItem().find(DimensionLabel);
-
         expect(dimLabel.length).toEqual(1);
     });
 

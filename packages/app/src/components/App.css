@@ -7,6 +7,7 @@ body {
     grid-area: headerbar;
     background-color: #2c6593 !important;
     color: white;
+    padding: 14px;
 }
 .visualization-type-selector {
     grid-area: charttype;
@@ -22,6 +23,7 @@ body {
 }
 .interpretations {
     grid-area: interpretations;
+    padding: 20px;
 }
 .canvas {
     grid-area: canvas;
@@ -36,8 +38,8 @@ body {
     font-family: 'roboto';
     background-color: #aaa;
     grid-gap: 1px;
-    grid-template-columns: 250px auto 385px;
-    grid-template-rows: 48px auto auto auto;
+    grid-template-columns: 262px auto 160px;
+    grid-template-rows: 48px 40px 94px auto;
     grid-template-areas:
         'headerbar headerbar headerbar'
         'charttype menubar menubar'
@@ -45,5 +47,25 @@ body {
         'dimensions canvas interpretations';
 }
 .app > div {
-    background-color: #f1f1f1;
+    background-color: #f4f6f8;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #aaa;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #888;
 }

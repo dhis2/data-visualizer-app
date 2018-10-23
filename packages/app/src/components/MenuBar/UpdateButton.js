@@ -5,8 +5,8 @@ import Button from '@material-ui/core/Button';
 import i18n from '@dhis2/d2-i18n';
 
 import { sGetUi } from '../../reducers/ui';
-import { colors } from '../../colors';
 import * as fromActions from '../../actions';
+import styles from './styles/UpdateButton.style';
 
 const onClickWrapper = props => () => {
     props.onUpdate(props.ui);
@@ -16,11 +16,8 @@ const onClickWrapper = props => () => {
 const UpdateButton = props => (
     <Button
         onClick={onClickWrapper(props)}
-        style={{
-            backgroundColor: colors.accentPrimaryDark,
-            color: colors.white,
-            fontSize: 13,
-        }}
+        style={styles}
+        size="small"
         disableRipple={true}
         disableFocusRipple={true}
     >

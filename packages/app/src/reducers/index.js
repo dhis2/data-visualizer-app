@@ -5,8 +5,9 @@ import dimensions, * as fromDimensions from './dimensions';
 import recommendedIds, * as fromRecommendedIds from './recommendedIds';
 import ui, * as fromUi from './ui';
 import metadata, * as fromMetadata from './metadata';
-import snackbar, * as fromSnackbar from './snackbar';
+import settings, * as fromSettings from './settings';
 import user, * as fromUser from './user';
+import snackbar, * as fromSnackbar from './snackbar';
 import loadError, * as fromLoadError from './loadError';
 import chart, * as fromChart from './chart';
 
@@ -19,8 +20,9 @@ export const actionTypes = {
     ...fromRecommendedIds.actionTypes,
     ...fromUi.actionTypes,
     ...fromMetadata.actionTypes,
-    ...fromSnackbar.actionTypes,
+    ...fromSettings.actionTypes,
     ...fromUser.actionTypes,
+    ...fromSnackbar.actionTypes,
     ...fromLoadError.actionTypes,
     ...fromChart.actionTypes,
 };
@@ -34,8 +36,9 @@ export default combineReducers({
     recommendedIds,
     ui,
     metadata,
-    snackbar,
+    settings,
     user,
+    snackbar,
     loadError,
     chart,
 });
@@ -49,6 +52,8 @@ export {
     fromRecommendedIds,
     fromUi,
     fromMetadata,
+    fromSettings,
+    fromUser,
     fromSnackbar,
     fromLoadError,
     fromChart,

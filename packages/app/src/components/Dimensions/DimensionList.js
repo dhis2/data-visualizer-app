@@ -32,6 +32,7 @@ export class DimensionList extends Component {
 
     render = () => {
         const { searchText, dimensions } = this.props;
+
         const dimensionsList = Object.values(dimensions).map(
             listItem =>
                 searchText.length
