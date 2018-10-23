@@ -7,8 +7,8 @@ import OrgUnitDimension from './OrgUnitDimension';
 export const DialogManager = ({ dialogIsOpen, id, toggleDialog }) => {
     const dimensionComponents = {
         dx: <DataDimension toggleDialog={toggleDialog} />,
-        pe: <PeriodDimension />,
         ou: <OrgUnitDimension toggleDialog={toggleDialog} />,
+        pe: <PeriodDimension toggleDialog={toggleDialog} />,
     };
     return id ? (
         <Dialog

@@ -19,7 +19,6 @@ export const DataIcon = ({ style }) => {
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
         >
-            <title>0CE35F95-11B0-4594-B76D-918904D3C4D1</title>
             <desc>Created with sketchtool.</desc>
             <defs />
             <g
@@ -84,7 +83,6 @@ export const PeriodIcon = ({ style }) => {
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
         >
-            <title>619E56CE-6EA1-46F2-83A4-994ED2ADE298</title>
             <desc>Created with sketchtool.</desc>
             <defs />
             <g
@@ -140,7 +138,6 @@ export const OrgUnitIcon = ({ style }) => {
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
         >
-            <title>262CCA05-7B4F-45C2-981D-57F1EC91B010</title>
             <desc>Created with sketchtool.</desc>
             <defs />
             <g
