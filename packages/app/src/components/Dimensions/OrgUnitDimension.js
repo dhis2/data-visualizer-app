@@ -257,8 +257,8 @@ export class OrgUnitDimension extends Component {
             this.props.acAddMetadata({
                 [orgUnit.id]: {
                     id: orgUnit.id,
-                    name: orgUnit.displayName,
-                    path: orgUnit.path,
+                    name: orgUnit.name,
+                    displayName: orgUnit.displayName,
                 },
             });
 
