@@ -5,7 +5,11 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import i18n from '@dhis2/d2-i18n';
-import { OrgUnitSelector, userOrgUnits, removeOrgUnitLastPathSegment } from '@dhis2/d2-ui-org-unit-dialog';
+import {
+    OrgUnitSelector,
+    userOrgUnits,
+    removeOrgUnitLastPathSegment,
+} from '@dhis2/d2-ui-org-unit-dialog';
 import PropTypes from 'prop-types';
 import { sGetUi } from '../../reducers/ui';
 import { acSetCurrentFromUi } from '../../actions/current';
@@ -16,7 +20,7 @@ import {
     acSetUiItems,
     acRemoveUiItems,
     acAddParentGraphMap,
-    acSetParentGraphMap
+    acSetParentGraphMap,
 } from '../../actions/ui';
 import {
     apiFetchOrganisationUnitGroups,
@@ -35,7 +39,9 @@ const LEVEL_ID_PREFIX = 'LEVEL';
  * @param id
  * @returns {boolean}
  */
-const isLevelId = id => id.substr(0, LEVEL_ID_PREFIX.length) === LEVEL_ID_PREFIX;
+const isLevelId = id => {
+    return id.substr(0, LEVEL_ID_PREFIX.length) === LEVEL_ID_PREFIX;
+};
 
 /**
  * Org unit group id prefix
@@ -48,7 +54,9 @@ const GROUP_ID_PREFIX = 'OU_GROUP';
  * @param id
  * @returns {boolean}
  */
-const isGroupId = id => id.substr(0, GROUP_ID_PREFIX.length) === GROUP_ID_PREFIX;
+const isGroupId = id => {
+    return id.substr(0, GROUP_ID_PREFIX.length) === GROUP_ID_PREFIX;
+};
 
 export class OrgUnitDimension extends Component {
     constructor(props) {
@@ -69,11 +77,11 @@ export class OrgUnitDimension extends Component {
         this.loadOrgUnitGroups();
     }
 
-    getUserOrgUnitsFromIds = (ids) => {
+    getUserOrgUnitsFromIds = ids => {
         return userOrgUnits.filter(orgUnit => ids.includes(orgUnit.id));
     };
 
-    getOrgUnitPath = (id) => {
+    getOrgUnitPath = id => {
         if (this.props.metadata[id] && this.props.metadata[id].path) {
             return this.props.metadata[id].path;
         }
@@ -94,12 +102,14 @@ export class OrgUnitDimension extends Component {
             .filter(id => this.props.metadata[id] !== undefined)
             .map(id => ({
                 id: id,
-                name: this.props.metadata[id].displayName || this.props.metadata[id].name,
+                name:
+                    this.props.metadata[id].displayName ||
+                    this.props.metadata[id].name,
                 path: this.getOrgUnitPath(id),
             }));
     };
 
-    getLevelsFromIds = (ids) => {
+    getLevelsFromIds = ids => {
         if (this.state.levelOptions.length === 0) {
             return [];
         }
@@ -107,10 +117,15 @@ export class OrgUnitDimension extends Component {
         return ids
             .filter(isLevelId)
             .map(id => id.substr(LEVEL_ID_PREFIX.length + 1))
-            .map(level => this.state.levelOptions.find(option => Number(option.level) === Number(level)).id);
+            .map(
+                level =>
+                    this.state.levelOptions.find(
+                        option => Number(option.level) === Number(level)
+                    ).id
+            );
     };
 
-    getGroupsFromIds = (ids) => {
+    getGroupsFromIds = ids => {
         if (this.state.groupOptions.length === 0) {
             return [];
         }
@@ -120,7 +135,10 @@ export class OrgUnitDimension extends Component {
             .map(id => id.substr(GROUP_ID_PREFIX.length + 1));
     };
 
-    transformOptionsIntoMetadata = (options, fields = ['id', 'displayName', 'name']) => {
+    transformOptionsIntoMetadata = (
+        options,
+        fields = ['id', 'displayName', 'name']
+    ) => {
         const metadata = {};
 
         for (let i = 0; i < options.length; ++i) {
@@ -142,34 +160,40 @@ export class OrgUnitDimension extends Component {
         };
     };
 
-    onLevelChange = (event) => {
+    onLevelChange = event => {
         const levelIds = event.target.value;
 
         this.props.acSetUiItems({
             ...this.props.ui.itemsByDimension,
             ou: [
-                ...this.props.ui.itemsByDimension.ou.filter(id => !isLevelId(id)),
-                ...levelIds.map(id => `${LEVEL_ID_PREFIX}-${this.props.metadata[id].level}`),
-            ]
+                ...this.props.ui.itemsByDimension.ou.filter(
+                    id => !isLevelId(id)
+                ),
+                ...levelIds.map(
+                    id => `${LEVEL_ID_PREFIX}-${this.props.metadata[id].level}`
+                ),
+            ],
         });
     };
 
-    onGroupChange = (event) => {
+    onGroupChange = event => {
         const optionIds = event.target.value;
 
         this.props.acSetUiItems({
             ...this.props.ui.itemsByDimension,
             ou: [
-                ...this.props.ui.itemsByDimension.ou.filter(id => !isGroupId(id)),
+                ...this.props.ui.itemsByDimension.ou.filter(
+                    id => !isGroupId(id)
+                ),
                 ...optionIds.map(id => `${GROUP_ID_PREFIX}-${id}`),
-            ]
+            ],
         });
     };
 
     loadOrgUnitTree = () => {
         apiFetchOrganisationUnits()
             .then(rootLevel => rootLevel.toArray()[0])
-            .then((root) => {
+            .then(root => {
                 if (this.props.metadata[root.id] === undefined) {
                     this.props.acAddMetadata({
                         [root.id]: {
@@ -193,13 +217,20 @@ export class OrgUnitDimension extends Component {
             .then(({ options, metadata }) => {
                 this.props.acAddMetadata(metadata);
                 this.setState({ groupOptions: options });
-            })
+            });
     };
 
     loadOrgUnitLevels = () => {
         apiFetchOrganisationUnitLevels()
             .then(collection => collection.toArray())
-            .then(levelOptions => this.transformOptionsIntoMetadata(levelOptions, ['id', 'displayName', 'name', 'level']))
+            .then(levelOptions =>
+                this.transformOptionsIntoMetadata(levelOptions, [
+                    'id',
+                    'displayName',
+                    'name',
+                    'level',
+                ])
+            )
             .then(({ options, metadata }) => {
                 this.props.acAddMetadata(metadata);
                 this.setState({ levelOptions: options });
@@ -207,7 +238,9 @@ export class OrgUnitDimension extends Component {
     };
 
     handleOrgUnitClick = (event, orgUnit) => {
-        const selected = this.getOrgUnitsFromIds(this.props.ui.itemsByDimension.ou);
+        const selected = this.getOrgUnitsFromIds(
+            this.props.ui.itemsByDimension.ou
+        );
 
         if (selected.some(ou => ou.path === orgUnit.path)) {
             this.props.acRemoveUiItems({
@@ -218,9 +251,7 @@ export class OrgUnitDimension extends Component {
             const path = removeOrgUnitLastPathSegment(orgUnit.path);
 
             this.props.acAddParentGraphMap({
-                [orgUnit.id]: path[0] === '/'
-                    ? path.substr(1)
-                    : path,
+                [orgUnit.id]: path[0] === '/' ? path.substr(1) : path,
             });
 
             this.props.acAddMetadata({
@@ -228,7 +259,7 @@ export class OrgUnitDimension extends Component {
                     id: orgUnit.id,
                     name: orgUnit.displayName,
                     path: orgUnit.path,
-                }
+                },
             });
 
             this.props.acAddUiItems({
@@ -249,12 +280,17 @@ export class OrgUnitDimension extends Component {
             this.props.acSetUiItems({
                 ...this.props.ui.itemsByDimension,
                 ou: [
-                    ...this.props.ui.itemsByDimension.ou.filter(id => this.userOrgUnitIds.includes(id)),
-                    event.target.name
+                    ...this.props.ui.itemsByDimension.ou.filter(id =>
+                        this.userOrgUnitIds.includes(id)
+                    ),
+                    event.target.name,
                 ],
             });
         } else {
-            if (this.props.ui.itemsByDimension.ou.length === 1 && this.state.selected.length > 0) {
+            if (
+                this.props.ui.itemsByDimension.ou.length === 1 &&
+                this.state.selected.length > 0
+            ) {
                 this.props.acSetUiItems({
                     ...this.props.ui.itemsByDimension,
                     ou: this.state.selected,
@@ -312,7 +348,9 @@ export class OrgUnitDimension extends Component {
                     />
                 </DialogContent>
                 <DialogActions style={{ padding: '24px' }}>
-                    <Button onClick={this.onCloseClick}>{i18n.t('Hide')}</Button>
+                    <Button onClick={this.onCloseClick}>
+                        {i18n.t('Hide')}
+                    </Button>
                     <Button color="primary" onClick={this.onUpdateClick}>
                         {i18n.t('Update')}
                     </Button>
@@ -341,4 +379,7 @@ const mapDispatchToProps = {
     acSetCurrentFromUi,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(OrgUnitDimension);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(OrgUnitDimension);

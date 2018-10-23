@@ -5,15 +5,12 @@ import { getInstance } from 'd2/lib/d2';
  * @returns {Promise<T | never>}
  */
 export const apiFetchOrganisationUnits = () => {
-    return getInstance()
-        .then(d2 => d2
-            .models
-            .organisationUnits
-            .list({
-                paging: false,
-                level: 1,
-                fields: 'id,path,displayName,children::isNotEmpty',
-            })
+    return getInstance().then(d2 =>
+        d2.models.organisationUnits.list({
+            paging: false,
+            level: 1,
+            fields: 'id,path,displayName,children::isNotEmpty',
+        })
     );
 };
 
@@ -22,12 +19,9 @@ export const apiFetchOrganisationUnits = () => {
  * @returns {self|Promise<D2 | never>}
  */
 export const apiFetchOrganisationUnitGroups = () => {
-    return getInstance()
-        .then(d2 => d2
-            .models
-            .organisationUnitGroups
-            .list({ paging: false })
-        )
+    return getInstance().then(d2 =>
+        d2.models.organisationUnitGroups.list({ paging: false })
+    );
 };
 
 /**
@@ -35,10 +29,7 @@ export const apiFetchOrganisationUnitGroups = () => {
  * @returns {*}
  */
 export const apiFetchOrganisationUnitLevels = () => {
-    return getInstance()
-        .then(d2 => d2
-            .models
-            .organisationUnitLevels
-            .list({ paging: false })
-        )
+    return getInstance().then(d2 =>
+        d2.models.organisationUnitLevels.list({ paging: false })
+    );
 };

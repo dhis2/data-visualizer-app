@@ -66,7 +66,7 @@ const init = async () => {
         'chart',
         'organisationUnit',
         'organisationUnitGroup',
-        'organisationUnitLevel'
+        'organisationUnitLevel',
     ];
 
     const userSettings = await getUserSettings();
