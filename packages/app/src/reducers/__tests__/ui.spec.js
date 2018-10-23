@@ -1,4 +1,20 @@
-import reducer, { DEFAULT_UI, actionTypes } from '../ui';
+import reducer, {
+    DEFAULT_UI,
+    SET_UI,
+    SET_UI_FROM_VISUALIZATION,
+    SET_UI_TYPE,
+    SET_UI_OPTIONS,
+    SET_UI_LAYOUT,
+    ADD_UI_LAYOUT_DIMENSIONS,
+    REMOVE_UI_LAYOUT_DIMENSIONS,
+    SET_UI_ITEMS,
+    ADD_UI_ITEMS,
+    REMOVE_UI_ITEMS,
+    SET_UI_PARENT_GRAPH_MAP,
+    ADD_UI_PARENT_GRAPH_MAP,
+    SET_UI_ACTIVE_MODAL_DIALOG,
+    CLEAR_UI,
+} from '../ui';
 import { AXIS_NAMES } from '../../layout';
 
 const [COLUMNS, ROWS, FILTERS] = AXIS_NAMES;
@@ -42,10 +58,10 @@ describe('reducer: ui', () => {
         expect(actualState).toEqual(DEFAULT_UI);
     });
 
-    it(`${actionTypes.SET_UI}: should set the new ui`, () => {
+    it(`${SET_UI}: should set the new ui`, () => {
         const ui = {};
         const actualState = reducer(DEFAULT_UI, {
-            type: actionTypes.SET_UI,
+            type: SET_UI,
             value: ui,
         });
 
@@ -53,17 +69,12 @@ describe('reducer: ui', () => {
     });
 
     it('CLEAR_UI should set the default state', () => {
-        const actualState = reducer(
-            { currentVal: 123 },
-            { type: actionTypes.CLEAR_UI }
-        );
+        const actualState = reducer({ currentVal: 123 }, { type: CLEAR_UI });
 
         expect(actualState).toEqual(DEFAULT_UI);
     });
 
-    it(`${
-        actionTypes.SET_UI_FROM_VISUALIZATION
-    }: should set the new based on a visualization`, () => {
+    it(`${SET_UI_FROM_VISUALIZATION}: should set the new based on a visualization`, () => {
         const expectedState = {
             type,
             options: { ...DEFAULT_UI.options, aggregationType },
@@ -76,48 +87,48 @@ describe('reducer: ui', () => {
         };
 
         const actualState = reducer(DEFAULT_UI, {
-            type: actionTypes.SET_UI_FROM_VISUALIZATION,
+            type: SET_UI_FROM_VISUALIZATION,
             value: visualization,
         });
 
         expect(actualState).toEqual(expectedState);
     });
 
-    it(`${actionTypes.SET_UI_TYPE}: should set the type`, () => {
+    it(`${SET_UI_TYPE}: should set the type`, () => {
         const expectedState = {
             ...DEFAULT_UI,
             type,
         };
         const actualState = reducer(DEFAULT_UI, {
-            type: actionTypes.SET_UI_TYPE,
+            type: SET_UI_TYPE,
             value: type,
         });
 
         expect(actualState.type).toEqual(expectedState.type);
     });
 
-    it(`${actionTypes.SET_UI_OPTIONS}: should set options`, () => {
+    it(`${SET_UI_OPTIONS}: should set options`, () => {
         const newOptions = { cumulativeValues: true, title: 'test' };
         const expectedState = {
             ...DEFAULT_UI,
             options: { ...DEFAULT_UI.options, ...newOptions },
         };
         const actualState = reducer(DEFAULT_UI, {
-            type: actionTypes.SET_UI_OPTIONS,
+            type: SET_UI_OPTIONS,
             value: newOptions,
         });
 
         expect(actualState).toEqual(expectedState);
     });
 
-    it(`${actionTypes.SET_UI_LAYOUT}: should set layout`, () => {
+    it(`${SET_UI_LAYOUT}: should set layout`, () => {
         const newLayout = {};
         const expectedState = {
             ...DEFAULT_UI,
             layout: newLayout,
         };
         const actualState = reducer(DEFAULT_UI, {
-            type: actionTypes.SET_UI_LAYOUT,
+            type: SET_UI_LAYOUT,
             value: newLayout,
         });
 
@@ -125,7 +136,7 @@ describe('reducer: ui', () => {
     });
 
     describe('itemByDimension', () => {
-        it(`${actionTypes.SET_UI_ITEMS}: sets items by dimension`, () => {
+        it(`${SET_UI_ITEMS}: sets items by dimension`, () => {
             const newItemsByDimension = {
                 dx: 'abc',
                 pe: 'def',
@@ -135,14 +146,14 @@ describe('reducer: ui', () => {
                 itemsByDimension: newItemsByDimension,
             };
             const actualState = reducer(DEFAULT_UI, {
-                type: actionTypes.SET_UI_ITEMS,
+                type: SET_UI_ITEMS,
                 value: newItemsByDimension,
             });
 
             expect(actualState).toEqual(expectedState);
         });
 
-        it(`${actionTypes.ADD_UI_ITEMS}: adds single item to dx`, () => {
+        it(`${ADD_UI_ITEMS}: adds single item to dx`, () => {
             const dx = ['abc'];
 
             const value = {
@@ -151,28 +162,28 @@ describe('reducer: ui', () => {
             };
             const expectedState = dx;
             const actualState = reducer(DEFAULT_UI, {
-                type: actionTypes.ADD_UI_ITEMS,
+                type: ADD_UI_ITEMS,
                 value,
             });
 
             expect(actualState.itemsByDimension.dx).toEqual(expectedState);
         });
 
-        it(`${actionTypes.ADD_UI_ITEMS}: adds several items to dx`, () => {
+        it(`${ADD_UI_ITEMS}: adds several items to dx`, () => {
             const dx1 = 'abc';
             const dx2 = 'def';
 
             const value = { dimensionType: 'dx', value: [dx1, dx2] };
             const expectedState = [dx1, dx2];
             const actualState = reducer(DEFAULT_UI, {
-                type: actionTypes.ADD_UI_ITEMS,
+                type: ADD_UI_ITEMS,
                 value,
             });
 
             expect(actualState.itemsByDimension.dx).toEqual(expectedState);
         });
 
-        it(`${actionTypes.ADD_UI_ITEMS}: adds pre-existing items to dx`, () => {
+        it(`${ADD_UI_ITEMS}: adds pre-existing items to dx`, () => {
             const dx1 = 'abc';
             const dx2 = 'def';
 
@@ -191,14 +202,14 @@ describe('reducer: ui', () => {
             const value = { dimensionType: 'dx', value: [dx1, dx2] };
             const expectedState = [dx1, dx2];
             const actualState = reducer(startingState, {
-                type: actionTypes.ADD_UI_ITEMS,
+                type: ADD_UI_ITEMS,
                 value,
             });
 
             expect(actualState.itemsByDimension.dx).toEqual(expectedState);
         });
 
-        it(`${actionTypes.REMOVE_UI_ITEMS}: removes items from dx`, () => {
+        it(`${REMOVE_UI_ITEMS}: removes items from dx`, () => {
             const dx1 = 'abc';
             const dx2 = 'def';
 
@@ -217,30 +228,26 @@ describe('reducer: ui', () => {
             const value = { dimensionType: 'dx', value: [dx1] };
             const expectedState = [dx2];
             const actualState = reducer(startingState, {
-                type: actionTypes.REMOVE_UI_ITEMS,
+                type: REMOVE_UI_ITEMS,
                 value,
             });
 
             expect(actualState.itemsByDimension.dx).toEqual(expectedState);
         });
     });
-    it(`${
-        actionTypes.SET_UI_PARENT_GRAPH_MAP
-    }: should set the new parent graph map`, () => {
+    it(`${SET_UI_PARENT_GRAPH_MAP}: should set the new parent graph map`, () => {
         const graphMapToSet = {
             abc: 'Silly district',
         };
         const actualState = reducer(DEFAULT_UI, {
-            type: actionTypes.SET_UI_PARENT_GRAPH_MAP,
+            type: SET_UI_PARENT_GRAPH_MAP,
             value: graphMapToSet,
         });
 
         expect(actualState.parentGraphMap).toEqual(graphMapToSet);
     });
 
-    it(`${
-        actionTypes.ADD_UI_PARENT_GRAPH_MAP
-    }: should add to the parent graph map`, () => {
+    it(`${ADD_UI_PARENT_GRAPH_MAP}: should add to the parent graph map`, () => {
         const currentGraphMap = {
             bcd: 'Very silly district',
         };
@@ -248,11 +255,11 @@ describe('reducer: ui', () => {
             abc: 'Silly district',
         };
         const testState = reducer(DEFAULT_UI, {
-            type: actionTypes.SET_UI_PARENT_GRAPH_MAP,
+            type: SET_UI_PARENT_GRAPH_MAP,
             value: currentGraphMap,
         });
         const actualState = reducer(testState, {
-            type: actionTypes.ADD_UI_PARENT_GRAPH_MAP,
+            type: ADD_UI_PARENT_GRAPH_MAP,
             value: graphMapToAdd,
         });
 
@@ -261,13 +268,11 @@ describe('reducer: ui', () => {
         );
     });
 
-    it(`${
-        actionTypes.SET_UI_ACTIVE_MODAL_DIALOG
-    }: should set the active modal dialog`, () => {
+    it(`${SET_UI_ACTIVE_MODAL_DIALOG}: should set the active modal dialog`, () => {
         const dialog = 'dynamic-123';
 
         const actualState = reducer(DEFAULT_UI, {
-            type: actionTypes.SET_UI_ACTIVE_MODAL_DIALOG,
+            type: SET_UI_ACTIVE_MODAL_DIALOG,
             value: dialog,
         });
 
