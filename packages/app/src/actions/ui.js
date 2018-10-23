@@ -13,7 +13,7 @@ import {
     ADD_UI_PARENT_GRAPH_MAP,
     SET_UI_ACTIVE_MODAL_DIALOG,
     CLEAR_UI,
-} from '../reducers';
+} from '../reducers/ui';
 
 export const acSetUi = value => ({
     type: SET_UI,
