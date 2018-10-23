@@ -53,3 +53,8 @@ export const acRemoveUiItems = value => ({
     type: actionTypes.REMOVE_UI_ITEMS,
     value,
 });
+
+export const acSetUiActiveModalDialog = value => ({
+    type: actionTypes.SET_ACTIVE_MODAL_DIALOG,
+    value,
+});

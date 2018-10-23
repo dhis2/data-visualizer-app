@@ -260,5 +260,18 @@ describe('reducer: ui', () => {
                 Object.assign({}, currentGraphMap, graphMapToAdd)
             );
         });
+
+        it(`${
+            actionTypes.SET_ACTIVE_MODAL_DIALOG
+        }: should set the active modal dialog`, () => {
+            const dialog = 'dynamic-123';
+
+            const actualState = reducer(DEFAULT_UI, {
+                type: actionTypes.SET_ACTIVE_MODAL_DIALOG,
+                value: dialog,
+            });
+
+            expect(actualState.activeModalDialog).toEqual(dialog);
+        });
     });
 });
