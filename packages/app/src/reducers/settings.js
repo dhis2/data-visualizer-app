@@ -29,3 +29,5 @@ export default (state = DEFAULT_SETTINGS, action) => {
 // Selectors
 
 export const sGetSettings = state => state.settings;
+export const sGetDisplayProperty = state =>
+    state.settings.keyAnalysisDisplayProperty;
