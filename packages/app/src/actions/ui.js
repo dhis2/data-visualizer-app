@@ -54,6 +54,16 @@ export const acRemoveUiItems = value => ({
     value,
 });
 
+export const acAddParentGraphMap = value => ({
+    type: actionTypes.ADD_UI_PARENT_GRAPH_MAP,
+    value,
+});
+
+export const acSetParentGraphMap = value => ({
+    type: actionTypes.SET_UI_PARENT_GRAPH_MAP,
+    value,
+});
+
 export const acSetUiActiveModalDialog = value => ({
     type: actionTypes.SET_UI_ACTIVE_MODAL_DIALOG,
     value,

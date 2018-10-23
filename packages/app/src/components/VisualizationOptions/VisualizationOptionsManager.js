@@ -29,7 +29,10 @@ class VisualizationOptionsManager extends Component {
     render() {
         return (
             <Fragment>
-                <Button onClick={this.toggleVisualizationOptionsDialog} style={this.props.labelStyle}>
+                <Button
+                    onClick={this.toggleVisualizationOptionsDialog}
+                    style={this.props.labelStyle}
+                >
                     {i18n.t('Options')}
                 </Button>
                 <Dialog
