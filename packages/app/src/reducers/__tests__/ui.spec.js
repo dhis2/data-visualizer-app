@@ -135,6 +135,83 @@ describe('reducer: ui', () => {
         expect(actualState).toEqual(expectedState);
     });
 
+    it(`${ADD_UI_LAYOUT_DIMENSIONS}: should add layout dimensions`, () => {
+        const state = {
+            layout: {
+                columns: ['dx'],
+                rows: ['pe'],
+                filters: ['ou'],
+            },
+        };
+
+        const actualState = reducer(state, {
+            type: ADD_UI_LAYOUT_DIMENSIONS,
+            value: {
+                dx: 'rows',
+            },
+        });
+
+        const expectedState = {
+            layout: {
+                columns: ['pe'],
+                rows: ['dx'],
+                filters: ['ou'],
+            },
+        };
+
+        expect(actualState).toEqual(expectedState);
+    });
+
+    it(`${REMOVE_UI_LAYOUT_DIMENSIONS}: should remove a single dimension`, () => {
+        const state = {
+            layout: {
+                columns: ['dx'],
+                rows: ['pe'],
+                filters: ['ou'],
+            },
+        };
+
+        const actualState = reducer(state, {
+            type: REMOVE_UI_LAYOUT_DIMENSIONS,
+            value: 'pe',
+        });
+
+        const expectedState = {
+            layout: {
+                columns: ['dx'],
+                rows: [],
+                filters: ['ou'],
+            },
+        };
+
+        expect(actualState).toEqual(expectedState);
+    });
+
+    it(`${REMOVE_UI_LAYOUT_DIMENSIONS}: should remove muliple dimensions`, () => {
+        const state = {
+            layout: {
+                columns: ['dx'],
+                rows: ['pe'],
+                filters: ['ou'],
+            },
+        };
+
+        const actualState = reducer(state, {
+            type: REMOVE_UI_LAYOUT_DIMENSIONS,
+            value: ['pe', 'ou'],
+        });
+
+        const expectedState = {
+            layout: {
+                columns: ['dx'],
+                rows: [],
+                filters: [],
+            },
+        };
+
+        expect(actualState).toEqual(expectedState);
+    });
+
     describe('itemByDimension', () => {
         it(`${SET_UI_ITEMS}: sets items by dimension`, () => {
             const newItemsByDimension = {

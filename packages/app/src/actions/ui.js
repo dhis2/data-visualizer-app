@@ -9,8 +9,6 @@ import {
     SET_UI_ITEMS,
     ADD_UI_ITEMS,
     REMOVE_UI_ITEMS,
-    SET_UI_PARENT_GRAPH_MAP,
-    ADD_UI_PARENT_GRAPH_MAP,
     SET_UI_ACTIVE_MODAL_DIALOG,
     CLEAR_UI,
 } from '../reducers/ui';
