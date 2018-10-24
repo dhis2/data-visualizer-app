@@ -155,6 +155,36 @@ msgstr ""
 msgid "Dimension recommended with selected data"
 msgstr ""
 
+msgid "Download"
+msgstr ""
+
+msgid "Graphics"
+msgstr ""
+
+msgid "Image (.png)"
+msgstr ""
+
+msgid "PDF (.pdf)"
+msgstr ""
+
+msgid "Plain data source"
+msgstr ""
+
+msgid "Advanced"
+msgstr ""
+
+msgid "Meta-data ID scheme"
+msgstr ""
+
+msgid "Data value set"
+msgstr ""
+
+msgid "Other formats"
+msgstr ""
+
+msgid "Interpretations"
+msgstr ""
+
 msgid "selected"
 msgstr ""
 

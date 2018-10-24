@@ -12,6 +12,7 @@ import * as fromUi from './ui';
 import * as fromMetadata from './metadata';
 import * as fromSettings from './settings';
 import * as fromUser from './user';
+import * as fromChart from './chart';
 import * as fromSnackbar from './snackbar';
 import * as fromLoadError from './loadError';
 
@@ -28,6 +29,7 @@ export {
     fromMetadata,
     fromSettings,
     fromUser,
+    fromChart,
     fromSnackbar,
     fromLoadError,
 };
