@@ -46,7 +46,7 @@ export class Visualization extends Component {
 
         const chartConfig = createChart(res, current, visContainerId);
 
-        this.props.acSetChart(chartConfig.chart.getSVGForExport());
+        this.props.acSetChart(chartConfig.chart.getSVGForExport({ sourceHeight: 768, sourceWidth: 1024 }));
     };
 
     render() {
