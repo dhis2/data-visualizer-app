@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import FileMenu from '@dhis2/d2-ui-file-menu';
 
-import Download from './Download';
 import UpdateButton from '../UpdateButton/UpdateButton';
+import DownloadMenu from '../DownloadMenu/DownloadMenu';
 import VisualizationOptionsManager from '../VisualizationOptions/VisualizationOptionsManager';
 import * as fromActions from '../../actions';
 import { sGetCurrent } from '../../reducers/current';
@@ -38,7 +38,7 @@ export const MenuBar = (props, context) => (
             onError={() => console.log('error!')}
         />
         <VisualizationOptionsManager labelStyle={styles.label} />
-        <Download labelStyle={styles.label} />
+        <DownloadMenu labelStyle={styles.label} />
         <div className="spacefiller" />
         <div style={styles.label}>Interpretations</div>
     </div>

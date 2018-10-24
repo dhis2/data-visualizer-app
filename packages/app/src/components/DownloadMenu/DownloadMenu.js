@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import Menu from '@material-ui/core/Menu';
@@ -15,7 +16,11 @@ import i18n from '@dhis2/d2-i18n';
 
 import { styles } from './styles/DownloadMenu.style';
 
-class DownloadMenu extends Component {
+import { sGetCurrent } from '../../reducers/current';
+import { sGetChart } from '../../reducers/chart';
+import { apiDownloadImage, apiDownloadData } from '../../api/analytics';
+
+export class DownloadMenu extends Component {
     constructor(props) {
         super(props);
 
@@ -45,14 +50,29 @@ class DownloadMenu extends Component {
         this.setState({ [key]: payload });
     };
 
-    downloadImage = type => () => {
-        this.props.downloadImage(type);
+    downloadImage = format => async () => {
+        const { current, chart } = this.props;
+
+        const formData = new URLSearchParams();
+
+        formData.append('filename', current.name);
+
+        if (chart && chart.getSVGForExport) {
+            formData.append('svg', chart.getSVGForExport());
+        }
+
+        const blob = await apiDownloadImage(format, formData);
+        const url = URL.createObjectURL(blob);
 
         this.toggleMenu();
+
+        window.open(url, '_blank');
     };
 
-    downloadData = (format, idScheme, path) => () => {
-        this.props.downloadData(format, idScheme, path);
+    downloadData = (format, idScheme, path) => async () => {
+        const { current } = this.props;
+
+        const url = await apiDownloadData(current, format, idScheme, path);
 
         if (idScheme) {
             this.toggleSubmenu('scheme');
@@ -61,6 +81,8 @@ class DownloadMenu extends Component {
         }
 
         this.toggleMenu();
+
+        window.open(url, format.match(/(xls|csv)/) ? '_top' : '_blank');
     };
 
     render() {
@@ -70,6 +92,8 @@ class DownloadMenu extends Component {
                     onClick={event => this.toggleMenu(event.currentTarget)}
                     disableRipple={true}
                     disableFocusRipple={true}
+                    style={this.props.labelStyle}
+                    disabled={!Boolean(Object.keys(this.props.current).length)}
                 >
                     {i18n.t('Download')}
                 </Button>
@@ -234,14 +258,18 @@ class DownloadMenu extends Component {
     }
 }
 
-DownloadMenu.defaultProps = {
-    downloadData: Function.prototype,
-    downloadImage: Function.prototype,
-};
-
 DownloadMenu.propTypes = {
-    downloadData: PropTypes.func,
-    downloadImage: PropTypes.func,
+    labelStyle: PropTypes.object,
+    current: PropTypes.object,
+    chart: PropTypes.object,
 };
 
-export default DownloadMenu;
+const mapStateToProps = state => ({
+    current: sGetCurrent(state),
+    chart: sGetChart(state),
+});
+
+export default connect(
+    mapStateToProps,
+    {},
+)(DownloadMenu);
