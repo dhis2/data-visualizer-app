@@ -1,30 +1,12 @@
 import reducer, { SET_DIMENSIONS } from '../dimensions';
 import { FIXED_DIMENSIONS as DEFAULT_DIMENSIONS } from '../../fixedDimensions';
 
-<<<<<<< HEAD
-describe('dimensions reducer', () => {
-    /*const currentState = {
-        dimId1: {
-            id: 'dimId1',
-            name: 'dimName1',
-        },
-        dimId2: {
-            id: 'dimId2',
-            name: 'dimName2',
-        },
-    };
-
-    const dimension = {
-        id: 'dimId1',
-        name: 'dimName1',
-=======
 describe('reducer: dimensions', () => {
     const dimensionsToSet = {
         abc: {
             id: 'abc',
             name: 'ABC',
         },
->>>>>>> master
     };
 
     it('should return the default state', () => {
