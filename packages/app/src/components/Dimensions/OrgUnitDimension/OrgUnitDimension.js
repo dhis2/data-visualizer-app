@@ -11,22 +11,23 @@ import {
     removeOrgUnitLastPathSegment,
 } from '@dhis2/d2-ui-org-unit-dialog';
 import PropTypes from 'prop-types';
-import { sGetUi } from '../../reducers/ui';
-import { acSetCurrentFromUi } from '../../actions/current';
-import { acAddMetadata } from '../../actions/metadata';
-import { sGetMetadata } from '../../reducers/metadata';
+import styles from './styles/OrgUnitDimension.style';
+import { sGetUi } from '../../../reducers/ui';
+import { acSetCurrentFromUi } from '../../../actions/current';
+import { acAddMetadata } from '../../../actions/metadata';
+import { sGetMetadata } from '../../../reducers/metadata';
 import {
     acAddUiItems,
     acSetUiItems,
     acRemoveUiItems,
     acAddParentGraphMap,
     acSetParentGraphMap,
-} from '../../actions/ui';
+} from '../../../actions/ui';
 import {
     apiFetchOrganisationUnitGroups,
     apiFetchOrganisationUnitLevels,
     apiFetchOrganisationUnits,
-} from '../../api/organisationUnits';
+} from '../../../api/organisationUnits';
 
 /**
  * Org unit level id prefix
@@ -332,7 +333,7 @@ export class OrgUnitDimension extends Component {
         return (
             <Fragment>
                 <DialogTitle>{i18n.t('Organisation units')}</DialogTitle>
-                <DialogContent>
+                <DialogContent style={styles.dialogContent}>
                     <OrgUnitSelector
                         root={this.state.root}
                         selected={selected}
