@@ -152,8 +152,6 @@ const fetchDataElementOperands = ({ groupId, page, filterText, nameProp }) => {
 };
 
 const fetchDataSets = ({ page, filterText, nameProp }) => {
-    console.log('nameProp', nameProp);
-
     const fields = `fields=dimensionItem~rename(id),${nameProp}~rename(name)`;
     const filter = filterText ? `&filter=${nameProp}:ilike:${filterText}` : '';
 

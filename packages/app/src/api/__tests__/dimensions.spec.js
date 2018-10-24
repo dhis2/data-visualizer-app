@@ -1,4 +1,8 @@
-import { apiFetchAlternatives } from '../dimensions';
+import {
+    apiFetchAlternatives,
+    apiFetchGroups,
+    apiFetchDimensions,
+} from '../dimensions';
 import * as d2lib from 'd2/lib/d2';
 
 let mockD2;
@@ -12,9 +16,9 @@ const asyncCheckMatches = (matches, done) => {
 
         matches.forEach(match => {
             if (match.not) {
-                expect(url).not.toMatch(match.pattern);
+                expect(url).not.toMatch(match.regex);
             } else {
-                expect(url).toMatch(match.pattern);
+                expect(url).toMatch(match.regex);
             }
         });
         done();
@@ -23,214 +27,267 @@ const asyncCheckMatches = (matches, done) => {
 
 describe('api: dimensions', () => {
     beforeEach(() => {
+        mockGetFn = jest.fn().mockResolvedValue({ pager: {} });
+        mockD2 = { Api: { getApi: () => ({ get: mockGetFn }) } };
         d2lib.getInstance = () => Promise.resolve(mockD2);
-
-        dimensionProps = {
-            groupDetail: '',
-            nameProp: 'hello',
-            groupId: 'ALL',
-            page: 1,
-        };
-        mockGetFn = jest.fn().mockResolvedValue({
-            pager: {},
-        });
-
-        mockD2 = {
-            Api: {
-                getApi: () => ({
-                    get: mockGetFn,
-                }),
-            },
-        };
     });
 
-    describe('indicators url', () => {
-        beforeEach(() => {
-            dimensionProps.dataType = 'indicators';
-        });
-
-        it('has correct name, filter and page value', done => {
-            apiFetchAlternatives(dimensionProps);
-
-            const matches = [
-                { pattern: /hello~rename\(name\)/ },
-                { pattern: /filter/, not: true },
-                { pattern: /page=1/ },
-            ];
-            asyncCheckMatches(matches, done);
-        });
-
-        it('has correct filter text value', done => {
-            dimensionProps.filterText = 'rarity';
-
-            apiFetchAlternatives(dimensionProps);
-
-            asyncCheckMatches([{ pattern: /filter=hello:ilike:rarity/ }], done);
-        });
-
-        it('has correct filter based on group Id', done => {
-            dimensionProps.groupId = 'rarity';
-
-            apiFetchAlternatives(dimensionProps);
+    describe('apiFetchDimensions', () => {
+        it('has correct entity and name property', done => {
+            apiFetchDimensions('hello');
 
             asyncCheckMatches(
-                [{ pattern: /filter=indicatorGroups\.id:eq:rarity/ }],
+                [
+                    { regex: /\/dimensions\?/ },
+                    { regex: /hello~rename\(name\)/ },
+                ],
                 done
             );
         });
     });
 
-    describe('dataElements url', () => {
+    describe('apiFetchGroups', () => {
         beforeEach(() => {
-            dimensionProps.dataType = 'dataElements';
+            dimensionProps = {
+                groupDetail: '',
+                nameProp: 'hello',
+                groupId: 'ALL',
+                page: 1,
+            };
         });
 
-        describe('totals', () => {
-            it('fetches dataElements without filter text', done => {
-                apiFetchAlternatives(dimensionProps);
+        it('has correct endpoint and page value for indicators', done => {
+            apiFetchGroups('indicators');
 
-                const matches = [
-                    { pattern: /fields=id,hello~rename\(name\)/ },
-                    { pattern: /filter=domainType:eq:AGGREGATE/ },
-                    { pattern: /filter=dataElementGroups/, not: true },
-                    { pattern: /page=1/ },
-                ];
-                asyncCheckMatches(matches, done);
-            });
-
-            it('fetches dataElements with filter text', done => {
-                dimensionProps.filterText = 'rarity';
-
-                apiFetchAlternatives(dimensionProps);
-
-                asyncCheckMatches(
-                    [{ pattern: /filter=hello:ilike:rarity/ }],
-                    done
-                );
-            });
-
-            it('fetches dataElements with group id', done => {
-                dimensionProps.groupId = 'rarity';
-
-                apiFetchAlternatives(dimensionProps);
-
-                asyncCheckMatches(
-                    [{ pattern: /filter=dataElementGroups\.id:eq:rarity/ }],
-                    done
-                );
-            });
+            const matches = [
+                { regex: /\/indicatorGroups\?/ },
+                { regex: /paging=false/ },
+            ];
+            asyncCheckMatches(matches, done);
         });
 
-        describe('details', () => {
+        it('does not make an api request for dataSets', done => {
+            apiFetchGroups('dataSets');
+
+            setTimeout(() => {
+                expect(mockGetFn).not.toHaveBeenCalled();
+                done();
+            });
+        });
+    });
+
+    describe('apiFetchAlternatives', () => {
+        beforeEach(() => {
+            dimensionProps = {
+                groupDetail: '',
+                nameProp: 'hello',
+                groupId: 'ALL',
+                page: 1,
+            };
+        });
+
+        describe('indicators url', () => {
             beforeEach(() => {
-                dimensionProps.groupDetail = 'detail';
+                dimensionProps.dataType = 'indicators';
             });
 
-            it('fetches dataElements without filter text', done => {
+            it('has correct name, filter and page value', done => {
                 apiFetchAlternatives(dimensionProps);
 
                 const matches = [
-                    { pattern: /fields=id,hello~rename\(name\)/ },
-                    { pattern: /filter/, not: true },
-                    { pattern: /page=1/ },
+                    { regex: /\/indicators\?/ },
+                    { regex: /hello~rename\(name\)/ },
+                    { regex: /filter/, not: true },
+                    { regex: /page=1/ },
                 ];
                 asyncCheckMatches(matches, done);
             });
 
-            it('fetches dataElements with filter text', done => {
+            it('has correct filter text value', done => {
                 dimensionProps.filterText = 'rarity';
 
                 apiFetchAlternatives(dimensionProps);
 
                 asyncCheckMatches(
-                    [{ pattern: /filter=hello:ilike:rarity/ }],
+                    [{ regex: /filter=hello:ilike:rarity/ }],
                     done
                 );
             });
 
-            it('fetches dataElements with group id', done => {
+            it('has correct filter based on group Id', done => {
                 dimensionProps.groupId = 'rarity';
 
                 apiFetchAlternatives(dimensionProps);
 
                 asyncCheckMatches(
-                    [
-                        {
-                            pattern: /filter=dataElement\.dataElementGroups\.id:eq:rarity/,
-                        },
-                    ],
+                    [{ regex: /filter=indicatorGroups\.id:eq:rarity/ }],
                     done
                 );
             });
+        });
 
-            it('has correct url params for filterText and group Id', done => {
+        describe('dataElements url', () => {
+            beforeEach(() => {
+                dimensionProps.dataType = 'dataElements';
+            });
+
+            describe('totals', () => {
+                it('has correct fields, filter, and page', done => {
+                    apiFetchAlternatives(dimensionProps);
+
+                    const matches = [
+                        { regex: /\/dataElements\?/ },
+                        { regex: /fields=id,hello~rename\(name\)/ },
+                        { regex: /filter=domainType:eq:AGGREGATE/ },
+                        { regex: /filter=dataElementGroups/, not: true },
+                        { regex: /page=1/ },
+                    ];
+                    asyncCheckMatches(matches, done);
+                });
+
+                it('has correct filter text value', done => {
+                    dimensionProps.filterText = 'rarity';
+
+                    apiFetchAlternatives(dimensionProps);
+
+                    asyncCheckMatches(
+                        [{ regex: /filter=hello:ilike:rarity/ }],
+                        done
+                    );
+                });
+
+                it('has correct filter based on group Id', done => {
+                    dimensionProps.groupId = 'rarity';
+
+                    apiFetchAlternatives(dimensionProps);
+
+                    asyncCheckMatches(
+                        [{ regex: /filter=dataElementGroups\.id:eq:rarity/ }],
+                        done
+                    );
+                });
+            });
+
+            describe('details', () => {
+                beforeEach(() => {
+                    dimensionProps.groupDetail = 'detail';
+                });
+
+                it('has correct fields, filter, and page', done => {
+                    apiFetchAlternatives(dimensionProps);
+
+                    const matches = [
+                        { regex: /\/dataElementOperands\?/ },
+                        { regex: /fields=id,hello~rename\(name\)/ },
+                        { regex: /filter/, not: true },
+                        { regex: /page=1/ },
+                    ];
+                    asyncCheckMatches(matches, done);
+                });
+
+                it('has correct filter text value', done => {
+                    dimensionProps.filterText = 'rarity';
+
+                    apiFetchAlternatives(dimensionProps);
+
+                    asyncCheckMatches(
+                        [{ regex: /filter=hello:ilike:rarity/ }],
+                        done
+                    );
+                });
+
+                it('has correct filter based on group Id', done => {
+                    dimensionProps.groupId = 'rarity';
+
+                    apiFetchAlternatives(dimensionProps);
+
+                    asyncCheckMatches(
+                        [
+                            {
+                                regex: /filter=dataElement\.dataElementGroups\.id:eq:rarity/,
+                            },
+                        ],
+                        done
+                    );
+                });
+
+                it('has correct url params for filterText and group Id', done => {
+                    dimensionProps.filterText = 'rarity';
+                    dimensionProps.groupId = 'rainbow';
+
+                    apiFetchAlternatives(dimensionProps);
+
+                    asyncCheckMatches(
+                        [
+                            { regex: /filter=hello:ilike:rarity/ },
+                            {
+                                regex: /filter=dataElement\.dataElementGroups\.id:eq:rainbow/,
+                            },
+                        ],
+                        done
+                    );
+                });
+            });
+        });
+
+        describe('dataSets url', () => {
+            beforeEach(() => {
+                dimensionProps.dataType = 'dataSets';
+            });
+
+            it('has correct fields, filter, and page', done => {
+                apiFetchAlternatives(dimensionProps);
+
+                const matches = [
+                    { regex: /\/dataSets\?/ },
+                    { regex: /hello~rename\(name\)/ },
+                    { regex: /filter/, not: true },
+                    { regex: /page=1/ },
+                ];
+                asyncCheckMatches(matches, done);
+            });
+
+            it('has correct filter text value', done => {
                 dimensionProps.filterText = 'rarity';
-                dimensionProps.groupId = 'rainbow';
 
                 apiFetchAlternatives(dimensionProps);
 
                 asyncCheckMatches(
-                    [
-                        { pattern: /filter=hello:ilike:rarity/ },
-                        {
-                            pattern: /filter=dataElement\.dataElementGroups\.id:eq:rainbow/,
-                        },
-                    ],
+                    [{ regex: /filter=hello:ilike:rarity/ }],
                     done
                 );
             });
         });
-    });
 
-    describe('dataSets url', () => {
-        beforeEach(() => {
-            dimensionProps.dataType = 'dataSets';
-        });
+        describe('eventDataItems url', () => {
+            beforeEach(() => {
+                dimensionProps.dataType = 'eventDataItems';
+            });
 
-        it('fetches dataSets without filter text', done => {
-            apiFetchAlternatives(dimensionProps);
+            it('has correct fields, filter, and page', done => {
+                dimensionProps.groupId = 'rainbowdash';
+                apiFetchAlternatives(dimensionProps);
 
-            const matches = [
-                { pattern: /hello~rename\(name\)/ },
-                { pattern: /filter/, not: true },
-                { pattern: /page=1/ },
-            ];
-            asyncCheckMatches(matches, done);
-        });
+                const matches = [
+                    { regex: /\/programDataElements\?/ },
+                    { regex: /hello~rename\(name\)/ },
+                    { regex: /filter/, not: true },
+                    { regex: /page=1/ },
+                    { regex: /program=rainbowdash/ },
+                ];
+                asyncCheckMatches(matches, done);
+            });
 
-        it('fetches dataSets with filter text', done => {
-            dimensionProps.filterText = 'rarity';
+            it('has correct filter text value', done => {
+                dimensionProps.filterText = 'rarity';
 
-            apiFetchAlternatives(dimensionProps);
+                apiFetchAlternatives(dimensionProps);
 
-            asyncCheckMatches([{ pattern: /filter=hello:ilike:rarity/ }], done);
-        });
-    });
-
-    describe('eventDataItems url', () => {
-        beforeEach(() => {
-            dimensionProps.dataType = 'eventDataItems';
-        });
-
-        it('fetches eventDataItems without filter text', done => {
-            dimensionProps.groupId = 'rainbowdash';
-            apiFetchAlternatives(dimensionProps);
-
-            const matches = [
-                { pattern: /hello~rename\(name\)/ },
-                { pattern: /filter/, not: true },
-                { pattern: /page=1/ },
-                { pattern: /program=rainbowdash/ },
-            ];
-            asyncCheckMatches(matches, done);
-        });
-
-        it('fetches eventDataItems with filter text', done => {
-            dimensionProps.filterText = 'rarity';
-
-            apiFetchAlternatives(dimensionProps);
-
-            asyncCheckMatches([{ pattern: /filter=hello:ilike:rarity/ }], done);
+                asyncCheckMatches(
+                    [{ regex: /filter=hello:ilike:rarity/ }],
+                    done
+                );
+            });
         });
     });
 });
