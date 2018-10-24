@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import FileMenu from '@dhis2/d2-ui-file-menu';
 
-import UpdateButton from './UpdateButton';
 import Download from './Download';
+import UpdateButton from '../UpdateButton/UpdateButton';
 import VisualizationOptionsManager from '../VisualizationOptions/VisualizationOptionsManager';
 import * as fromActions from '../../actions';
 import { sGetCurrent } from '../../reducers/current';
