@@ -1,11 +1,11 @@
 import { arrayToIdMap, sortArray } from '../util';
-import { actionTypes } from '../reducers';
+import { SET_DIMENSIONS } from '../reducers/dimensions';
 import { apiFetchDimensions } from '../api/dimensions';
 
 const propName = 'displayName';
 
 export const acSetDimensions = dimensions => ({
-    type: actionTypes.SET_DIMENSIONS,
+    type: SET_DIMENSIONS,
     value: arrayToIdMap(sortArray(dimensions, propName)),
 });
 

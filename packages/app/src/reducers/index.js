@@ -11,22 +11,6 @@ import snackbar, * as fromSnackbar from './snackbar';
 import loadError, * as fromLoadError from './loadError';
 import chart, * as fromChart from './chart';
 
-// Action types
-
-export const actionTypes = {
-    ...fromVisualization.actionTypes,
-    ...fromCurrent.actionTypes,
-    ...fromDimensions.actionTypes,
-    ...fromRecommendedIds.actionTypes,
-    ...fromUi.actionTypes,
-    ...fromMetadata.actionTypes,
-    ...fromSettings.actionTypes,
-    ...fromUser.actionTypes,
-    ...fromSnackbar.actionTypes,
-    ...fromLoadError.actionTypes,
-    ...fromChart.actionTypes,
-};
-
 // Reducers
 
 export default combineReducers({

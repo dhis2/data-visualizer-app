@@ -1,5 +1,10 @@
 import options from '../../options';
-import reducer, { DEFAULT_CURRENT, actionTypes } from '../current';
+import reducer, {
+    DEFAULT_CURRENT,
+    SET_CURRENT,
+    SET_CURRENT_FROM_UI,
+    CLEAR_CURRENT,
+} from '../current';
 
 describe('reducer: current', () => {
     it('should return the default state', () => {
@@ -11,7 +16,7 @@ describe('reducer: current', () => {
     it('SET_CURRENT: should set the new current', () => {
         const current = {};
         const actualState = reducer(undefined, {
-            type: actionTypes.SET_CURRENT,
+            type: SET_CURRENT,
             value: current,
         });
 
@@ -21,7 +26,7 @@ describe('reducer: current', () => {
     it('CLEAR_CURRENT should set the default state', () => {
         const actualState = reducer(
             { currentVal: 123 },
-            { type: actionTypes.CLEAR_CURRENT }
+            { type: CLEAR_CURRENT }
         );
 
         expect(actualState).toEqual(DEFAULT_CURRENT);
@@ -62,7 +67,7 @@ describe('reducer: current', () => {
         };
 
         const actualState = reducer(undefined, {
-            type: actionTypes.SET_CURRENT_FROM_UI,
+            type: SET_CURRENT_FROM_UI,
             value: ui,
         });
 
