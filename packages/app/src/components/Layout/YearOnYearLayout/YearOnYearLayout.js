@@ -14,10 +14,13 @@ const Layout = () => (
             }}
         >
             <YearOnYearAxis
-                axisName="columns"
+                axisName="yearOnYearSeries"
                 style={defaultLayoutStyles.columns}
             />
-            <YearOnYearAxis axisName="rows" style={defaultLayoutStyles.rows} />
+            <YearOnYearAxis
+                axisName="yearOnYearCategory"
+                style={defaultLayoutStyles.rows}
+            />
         </div>
         <div
             id="axis-group-2"
