@@ -21,8 +21,6 @@ const apiObjectName = 'chart';
 const configI18n = async userSettings => {
     const uiLocale = userSettings.uiLocale;
 
-    console.log('uiLocale', uiLocale);
-
     if (uiLocale && uiLocale !== 'en') {
         config.i18n.sources.add(`./i18n/i18n_module_${uiLocale}.properties`);
     }
