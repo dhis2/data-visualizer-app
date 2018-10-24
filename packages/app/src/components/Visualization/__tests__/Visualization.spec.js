@@ -30,6 +30,9 @@ const getRequestMock = mfn => {
 };
 
 jest.mock('d2-charts-api');
+const createChartMock = {
+    chart: 'test',
+};
 
 describe('Visualization', () => {
     options.getOptionsForRequest = () => [
@@ -57,9 +60,12 @@ describe('Visualization', () => {
                 },
             },
             acAddMetadata: jest.fn(),
+            acSetChart: jest.fn(),
         };
 
         shallowVisualization = undefined;
+
+        chartsApi.createChart.mockResolvedValue(createChartMock);
     });
 
     it('renders a BlankCanvas', done => {
@@ -110,6 +116,18 @@ describe('Visualization', () => {
         setTimeout(() => {
             expect(mockFn.mock.calls[0][0]).toEqual({ option1: 'def' });
 
+            done();
+        });
+    });
+
+    it('calls setChart action', () => {
+        props.d2.analytics.request = getRequestMock();
+
+        canvas();
+
+        setTimeout(() => {
+            expect(props.acSetChart).toHaveBeenCalled();
+            expect(props.acSetChart).toHaveBeenCalledWith(createChartMock.chart);
             done();
         });
     });
