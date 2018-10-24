@@ -14,7 +14,7 @@ import { HideButton, UpdateButton } from './buttons';
 
 import { apiFetchGroups, apiFetchAlternatives } from '../../../api/dimensions';
 import { sGetUiItems, sGetUi } from '../../../reducers/ui';
-import { sGetDisplayProperty } from '../../../reducers/settings';
+import { sGetDisplayNameProperty } from '../../../reducers/settings';
 
 import { acSetCurrentFromUi } from '../../../actions/current';
 import { acRemoveUiItems, acAddUiItems } from '../../../actions/ui';
@@ -132,7 +132,7 @@ export class DataDimension extends Component {
             groupDetail,
             page,
             filterText,
-            nameProp: this.props.displayProperty,
+            nameProp: this.props.displayNameProp,
         });
 
         const augmentFn = dataTypes[dataType].augmentAlternatives;
@@ -265,7 +265,7 @@ DataDimension.propTypes = {
 
 const mapStateToProps = state => ({
     selectedItems: sGetUiItems(state),
-    displayProperty: sGetDisplayProperty(state),
+    displayNameProp: sGetDisplayNameProperty(state),
     ui: sGetUi(state),
 });
 
