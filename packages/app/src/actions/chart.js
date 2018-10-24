@@ -1,6 +1,6 @@
-import { actionTypes } from '../reducers';
+import { SET_CHART } from '../reducers/chart';
 
 export const acSetChart = value => ({
-    type: actionTypes.SET_CHART,
+    type: SET_CHART,
     value,
 });
