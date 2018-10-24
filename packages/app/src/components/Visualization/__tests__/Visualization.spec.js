@@ -31,7 +31,9 @@ const getRequestMock = mfn => {
 
 jest.mock('d2-charts-api');
 const createChartMock = {
-    chart: 'test',
+    chart: {
+        getSVGForExport: () => '<svg />',
+    }
 };
 
 describe('Visualization', () => {
@@ -65,7 +67,7 @@ describe('Visualization', () => {
 
         shallowVisualization = undefined;
 
-        chartsApi.createChart.mockResolvedValue(createChartMock);
+        chartsApi.createChart.mockReturnValue(createChartMock);
     });
 
     it('renders a BlankCanvas', done => {
@@ -127,7 +129,7 @@ describe('Visualization', () => {
 
         setTimeout(() => {
             expect(props.acSetChart).toHaveBeenCalled();
-            expect(props.acSetChart).toHaveBeenCalledWith(createChartMock.chart);
+            expect(props.acSetChart).toHaveBeenCalledWith(createChartMock.chart.getSVGForExport());
             done();
         });
     });

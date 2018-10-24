@@ -261,7 +261,7 @@ export class DownloadMenu extends Component {
 DownloadMenu.propTypes = {
     labelStyle: PropTypes.object,
     current: PropTypes.object,
-    chart: PropTypes.object,
+    chart: PropTypes.string,
 };
 
 const mapStateToProps = state => ({
