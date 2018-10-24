@@ -41,7 +41,6 @@ body {
         'dimensions chartlayout interpretations'
         'dimensions canvas interpretations';
     background-color: #aaa;
-    font-family: Roboto, sans-serif;
 }
 .app > div {
     background-color: #f1f1f1;
