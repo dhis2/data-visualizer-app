@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-10-24T12:36:54.511Z\n"
-"PO-Revision-Date: 2018-10-24T12:36:54.511Z\n"
+"POT-Creation-Date: 2018-10-24T13:30:47.492Z\n"
+"PO-Revision-Date: 2018-10-24T13:30:47.492Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -27,6 +27,36 @@ msgid "Actual reporting rates on time"
 msgstr ""
 
 msgid "Expected reports"
+msgstr ""
+
+msgid "Column"
+msgstr ""
+
+msgid "Stacked column"
+msgstr ""
+
+msgid "Bar"
+msgstr ""
+
+msgid "Stacked bar"
+msgstr ""
+
+msgid "Line"
+msgstr ""
+
+msgid "Area"
+msgstr ""
+
+msgid "Pie"
+msgstr ""
+
+msgid "Radar"
+msgstr ""
+
+msgid "Gauge"
+msgstr ""
+
+msgid "Year on year"
 msgstr ""
 
 msgid "Data"
@@ -297,39 +327,6 @@ msgid "Options"
 msgstr ""
 
 msgid "Chart options"
-msgstr ""
-
-msgid "Column"
-msgstr ""
-
-msgid "Stacked column"
-msgstr ""
-
-msgid "Bar"
-msgstr ""
-
-msgid "Stacked bar"
-msgstr ""
-
-msgid "Line"
-msgstr ""
-
-msgid "Area"
-msgstr ""
-
-msgid "Pie"
-msgstr ""
-
-msgid "Radar"
-msgstr ""
-
-msgid "Gauge"
-msgstr ""
-
-msgid "Bubble"
-msgstr ""
-
-msgid "Year on year"
 msgstr ""
 
 msgid "Organisation Unit"

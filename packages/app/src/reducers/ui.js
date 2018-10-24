@@ -5,7 +5,7 @@ import {
     getSwapModObj,
 } from '../layout';
 import { getOptionsForUi, getOptionsFromVisualization } from '../options';
-import { COLUMN } from '../components/VisualizationTypeSelector/visualizationTypes';
+import { COLUMN } from '../chartTypes';
 
 export const SET_UI = 'SET_UI';
 export const SET_UI_FROM_VISUALIZATION = 'SET_UI_FROM_VISUALIZATION';
