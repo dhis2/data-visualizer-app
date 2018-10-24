@@ -57,8 +57,8 @@ export class DownloadMenu extends Component {
 
         formData.append('filename', current.name);
 
-        if (chart && chart.getSVGForExport) {
-            formData.append('svg', chart.getSVGForExport());
+        if (chart) {
+            formData.append('svg', chart);
         }
 
         const blob = await apiDownloadImage(format, formData);
