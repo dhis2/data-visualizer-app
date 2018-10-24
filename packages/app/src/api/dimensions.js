@@ -25,7 +25,6 @@ export const DATA_SETS_CONSTANTS = [
     },
 ];
 
-// Get dimensions on startup
 export const apiFetchDimensions = () => {
     const fields = 'id,displayName,dimensionType';
     const url = `/dimensions?fields=${fields}`;
@@ -35,14 +34,20 @@ export const apiFetchDimensions = () => {
         .catch(onError);
 };
 
-export const apiFetchRecommendedIds = (dimIdA, dimIdB) => {
-    return mockResponse();
-    /*const fields = `dx:${idA};${idB}&dimension=ou:${idA};${idB}`,
-        url = `/dimensions/recommendations?dimensions=${fields}`;
+export const apiFetchRecommendedIds = (dxIds, ouIds) => {
+    const lastDataIds = [dxIds[dxIds.length - 2], dxIds[dxIds.length - 1]];
+    const lastOrgUnitIds = [ouIds[ouIds.length - 2], ouIds[ouIds.length - 1]];
+
+    const fields = `dimension=dx:${lastDataIds[0]};${
+        lastDataIds[1]
+    }&dimension=ou:${lastOrgUnitIds[0]};${lastOrgUnitIds[1]}`;
+
+    const url = `/dimensions/recommendations?${fields}`;
 
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))
-        .catch(onError);*/
+        .then(response => response.dimensions)
+        .catch(onError);
 };
 
 export const apiFetchGroups = dataType => {
@@ -99,7 +104,6 @@ export const apiFetchAlternatives = args => {
             }
         }
         case 'dataSets': {
-            // TODO check current data viz
             return apiFetchDataSets(page, filterText);
         }
         case 'eventDataItems':
@@ -241,15 +245,4 @@ const apiFetchProgramDataElements = (id, page, filterText) => {
             };
         })
         .catch(onError);
-};
-
-const mockResponse = () => {
-    const randomizer = Math.floor(Math.random() * Math.floor(4));
-    const mock1 = ['SooXFOUnciJ', 'eLwL77Z9E7R'];
-    const mock2 = ['Cbuj0VCyDjL', 'J5jldMd8OHv', 'VxWloRvAze8'];
-    const mock3 = ['cX5k9anHEHd'];
-    const mock4 = ['cX5k9anHEHd', 'J5jldMd8OHv', 'jp826jAJHUc', 'XY1vwCQskjX'];
-    const response = [mock1, mock2, mock3, mock4];
-
-    return response[randomizer];
 };

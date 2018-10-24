@@ -13,9 +13,14 @@ import UnselectedItems from './UnselectedItems';
 import SelectedItems from './SelectedItems';
 import { HideButton, UpdateButton } from './buttons';
 
-import { apiFetchGroups, apiFetchAlternatives } from '../../../api/dimensions';
+import {
+    apiFetchGroups,
+    apiFetchAlternatives,
+    apiFetchRecommendedIds,
+} from '../../../api/dimensions';
 import { sGetUiItems, sGetUi } from '../../../reducers/ui';
 import { acSetCurrentFromUi } from '../../../actions/current';
+import { acSetRecommendedIds } from '../../../actions/recommendedIds';
 import { acRemoveUiItems, acAddUiItems } from '../../../actions/ui';
 import { acAddMetadata } from '../../../actions/metadata';
 import { colors } from '../../../colors';
@@ -117,9 +122,28 @@ export class DataDimension extends Component {
         }
     };
 
-    onUpdateClick = () => {
-        this.props.onUpdate(this.props.ui);
-        this.props.toggleDialog(null);
+    onUpdateClick = async () => {
+        const {
+            onUpdate,
+            toggleDialog,
+            selectedItems,
+            setRecommendedIds,
+            ui,
+        } = this.props;
+
+        const shouldFetchRecommended =
+            selectedItems.dx.length >= 2 && selectedItems.ou.length >= 2;
+
+        if (shouldFetchRecommended) {
+            const recommendedIds = await apiFetchRecommendedIds(
+                selectedItems.dx,
+                selectedItems.ou
+            );
+            setRecommendedIds(recommendedIds);
+        }
+
+        onUpdate(ui);
+        toggleDialog(null);
     };
 
     updateAlternatives = async (page = FIRST_PAGE, concatItems = false) => {
@@ -270,6 +294,7 @@ export default connect(
     {
         removeDxItems: acRemoveUiItems,
         addDxItems: acAddUiItems,
+        setRecommendedIds: acSetRecommendedIds,
         onUpdate: acSetCurrentFromUi,
         addMetadata: acAddMetadata,
     }
