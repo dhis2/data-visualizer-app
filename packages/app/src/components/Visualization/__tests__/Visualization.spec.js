@@ -33,7 +33,7 @@ jest.mock('d2-charts-api');
 const createChartMock = {
     chart: {
         getSVGForExport: () => '<svg />',
-    }
+    },
 };
 
 describe('Visualization', () => {
@@ -122,14 +122,16 @@ describe('Visualization', () => {
         });
     });
 
-    it('calls setChart action', () => {
+    it('calls setChart action', done => {
         props.d2.analytics.request = getRequestMock();
 
         canvas();
 
         setTimeout(() => {
             expect(props.acSetChart).toHaveBeenCalled();
-            expect(props.acSetChart).toHaveBeenCalledWith(createChartMock.chart.getSVGForExport());
+            expect(props.acSetChart).toHaveBeenCalledWith(
+                createChartMock.chart.getSVGForExport()
+            );
             done();
         });
     });
