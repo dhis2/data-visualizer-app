@@ -63,7 +63,12 @@ const init = async () => {
     config.headers = isProd
         ? null
         : { Authorization: DHIS_CONFIG.authorization };
-    config.schemas = ['chart'];
+    config.schemas = [
+        'chart',
+        'organisationUnit',
+        'organisationUnitGroup',
+        'organisationUnitLevel',
+    ];
 
     const userSettings = extractUserSettings(await getUserSettings());
 

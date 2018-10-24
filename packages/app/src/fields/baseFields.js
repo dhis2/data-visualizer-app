@@ -115,7 +115,7 @@ export const fieldsByType = {
         }),
         getFieldObject('organisationUnitLevels', { excluded: true }),
         getFieldObject('organisationUnits', { excluded: true }),
-        getFieldObject('parentGraphMap', { excluded: true }),
+        getFieldObject('parentGraphMap'),
         getFieldObject('periods', { excluded: true }),
         getFieldObject('programIndicatorDimensions', { excluded: true }),
         getFieldObject('publicAccess'),

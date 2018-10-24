@@ -1,15 +1,19 @@
-import { actionTypes } from '../reducers';
+import {
+    SET_CURRENT,
+    SET_CURRENT_FROM_UI,
+    CLEAR_CURRENT,
+} from '../reducers/current';
 
 export const acSetCurrent = value => ({
-    type: actionTypes.SET_CURRENT,
+    type: SET_CURRENT,
     value,
 });
 
 export const acClear = () => ({
-    type: actionTypes.CLEAR_CURRENT,
+    type: CLEAR_CURRENT,
 });
 
 export const acSetCurrentFromUi = value => ({
-    type: actionTypes.SET_CURRENT_FROM_UI,
+    type: SET_CURRENT_FROM_UI,
     value,
 });

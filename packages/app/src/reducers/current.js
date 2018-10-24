@@ -1,19 +1,17 @@
 import { getAxesFromUi, getOptionsFromUi } from '../current';
 
-export const actionTypes = {
-    SET_CURRENT: 'SET_CURRENT',
-    SET_CURRENT_FROM_UI: 'SET_CURRENT_FROM_UI',
-    CLEAR_CURRENT: 'CLEAR_CURRENT',
-};
+export const SET_CURRENT = 'SET_CURRENT';
+export const SET_CURRENT_FROM_UI = 'SET_CURRENT_FROM_UI';
+export const CLEAR_CURRENT = 'CLEAR_CURRENT';
 
 export const DEFAULT_CURRENT = {};
 
 export default (state = DEFAULT_CURRENT, action) => {
     switch (action.type) {
-        case actionTypes.SET_CURRENT: {
+        case SET_CURRENT: {
             return action.value;
         }
-        case actionTypes.SET_CURRENT_FROM_UI: {
+        case SET_CURRENT_FROM_UI: {
             const axesFromUi = getAxesFromUi(action.value);
             const optionsFromUi = getOptionsFromUi(action.value);
 
@@ -24,7 +22,7 @@ export default (state = DEFAULT_CURRENT, action) => {
                 type: action.value.type,
             };
         }
-        case actionTypes.CLEAR_CURRENT:
+        case CLEAR_CURRENT:
             return DEFAULT_CURRENT;
         default:
             return state;

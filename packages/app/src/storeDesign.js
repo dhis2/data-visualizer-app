@@ -67,7 +67,7 @@ const state = {
         isSuperuser: false,
     },
 
-    // Object containing the text of a load visualization error
+    // String containing the text of a load visualization error
     loadError: null,
 };
 

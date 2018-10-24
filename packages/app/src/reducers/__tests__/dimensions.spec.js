@@ -1,6 +1,7 @@
-import reducer from '../dimensions';
+import reducer, { SET_DIMENSIONS } from '../dimensions';
 import { FIXED_DIMENSIONS as DEFAULT_DIMENSIONS } from '../../fixedDimensions';
 
+<<<<<<< HEAD
 describe('dimensions reducer', () => {
     /*const currentState = {
         dimId1: {
@@ -16,27 +17,35 @@ describe('dimensions reducer', () => {
     const dimension = {
         id: 'dimId1',
         name: 'dimName1',
+=======
+describe('reducer: dimensions', () => {
+    const dimensionsToSet = {
+        abc: {
+            id: 'abc',
+            name: 'ABC',
+        },
+>>>>>>> master
     };
-
-    const dimensionMap = {
-        [dimension.id]: dimension,
-    };*/
 
     it('should return the default state', () => {
         const actualState = reducer(undefined, { type: 'NO_MATCH' });
         expect(actualState).toEqual(DEFAULT_DIMENSIONS);
     });
 
-    /*it('should set the list of dimensions by replacing the existing list', () => {
-        const actualState = reducer(currentState, {
-            type: actionTypes.RECEIVED_DIMENSION,
-            value: {
-                id: dimension.id,
-            },
-        });
+    it(`${SET_DIMENSIONS}: should set the new dimensions object`, () => {
+        const actualState = reducer(
+            {},
+            {
+                type: SET_DIMENSIONS,
+                value: dimensionsToSet,
+            }
+        );
 
-        const newState = { ...actualState, ...dimensionMap };
+        const expectedState = {
+            ...DEFAULT_DIMENSIONS,
+            ...dimensionsToSet,
+        };
 
-        expect(actualState).toEqual(newState);
-    });*/
+        expect(actualState).toEqual(expectedState);
+    });
 });

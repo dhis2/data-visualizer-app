@@ -17,6 +17,7 @@ import history from '../history';
 import defaultMetadata from '../metadata';
 
 import './App.css';
+import { sGetUi } from '../reducers/ui';
 
 export class App extends Component {
     unlisten = null;
@@ -52,6 +53,14 @@ export class App extends Component {
         this.unlisten = history.listen(location => {
             this.loadVisualization(location);
         });
+
+        document.body.addEventListener(
+            'keyup',
+            e =>
+                e.key === 'Enter' &&
+                e.ctrlKey === true &&
+                this.props.onKeyUp(this.props.ui)
+        );
     };
 
     componentWillUnmount() {
@@ -127,8 +136,14 @@ const mapStateToProps = state => {
         snackbarMessage: message,
         snackbarDuration: duration,
         current: fromReducers.fromCurrent.sGetCurrent(state),
+        ui: sGetUi(state),
     };
 };
+
+const mapDispatchToProps = dispatch => ({
+    onKeyUp: ui => dispatch(fromActions.fromCurrent.acSetCurrentFromUi(ui)),
+    onCloseSnackbar: fromActions.fromSnackbar.acCloseSnackbar,
+});
 
 App.contextTypes = {
     store: PropTypes.object,
@@ -148,7 +163,5 @@ App.propTypes = {
 
 export default connect(
     mapStateToProps,
-    {
-        onCloseSnackbar: fromActions.fromSnackbar.acCloseSnackbar,
-    }
+    mapDispatchToProps
 )(App);

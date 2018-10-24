@@ -11,7 +11,7 @@ export const BlankCanvas = ({ error }) => {
     return (
         <section className="canvas">
             <div id={visContainerId}>
-                <div style={{ margin: 50 }}>
+                <div style={{ margin: 20 }}>
                     <span>{message}</span>
                 </div>
             </div>

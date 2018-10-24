@@ -1,25 +1,29 @@
-import reducer, { DEFAULT_SETTINGS, actionTypes } from '../settings';
-
-const currentState = {
-    keyAnalysisRelativePeriod: 'LAST_12_MONTHS',
-    keyAnalysisDisplayProperty: 'name',
-};
+import reducer, {
+    DEFAULT_SETTINGS,
+    SET_SETTINGS,
+    ADD_SETTINGS,
+} from '../settings';
 
 describe('reducer: settings', () => {
+    const currentState = {
+        keyAnalysisRelativePeriod: 'LAST_12_MONTHS',
+        keyAnalysisDisplayProperty: 'name',
+    };
+
     it('should return the default state', () => {
         const actualState = reducer(DEFAULT_SETTINGS, { type: 'NO_MATCH' });
 
         expect(actualState).toEqual(DEFAULT_SETTINGS);
     });
 
-    it(`${actionTypes.SET_SETTINGS}: should set settings`, () => {
+    it(`${SET_SETTINGS}: should set settings`, () => {
         const stateToSet = {
             keyAnalysisRelativePeriod: 'LAST_4_QUARTERS',
             keyAnalysisDisplayProperty: 'shortName',
         };
 
         const actualState = reducer(currentState, {
-            type: actionTypes.SET_SETTINGS,
+            type: SET_SETTINGS,
             value: stateToSet,
         });
 
@@ -28,14 +32,14 @@ describe('reducer: settings', () => {
         expect(actualState).toEqual(expectedState);
     });
 
-    it(`${actionTypes.ADD_SETTINGS}: should add settings`, () => {
+    it(`${ADD_SETTINGS}: should add settings`, () => {
         const stateToAdd = {
             keyAnalysisDisplayProperty: 'shortName',
             keyAnalysisDigitGroupSeparator: 'SPACE',
         };
 
         const actualState = reducer(currentState, {
-            type: actionTypes.ADD_SETTINGS,
+            type: ADD_SETTINGS,
             value: stateToAdd,
         });
 
