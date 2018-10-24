@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Axis from './Axis';
+import styles from './styles/DefaultLayout.style';
 
 const Layout = () => (
     <div id="layout-ct" style={styles.ct}>

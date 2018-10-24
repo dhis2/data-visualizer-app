@@ -1,9 +1,9 @@
 import i18n from '@dhis2/d2-i18n';
 
 export const COLUMN = 'COLUMN';
-export const STACKED_COLUMN = 'STACKEDCOLUMN';
+export const STACKED_COLUMN = 'STACKED_COLUMN';
 export const BAR = 'BAR';
-export const STACKED_BAR = 'STACKEDBAR';
+export const STACKED_BAR = 'STACKED_BAR';
 export const LINE = 'LINE';
 export const AREA = 'AREA';
 export const PIE = 'PIE';

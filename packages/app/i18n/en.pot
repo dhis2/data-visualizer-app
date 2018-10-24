@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-10-23T08:07:00.840Z\n"
-"PO-Revision-Date: 2018-10-23T08:07:00.840Z\n"
+"POT-Creation-Date: 2018-10-24T12:36:54.511Z\n"
+"PO-Revision-Date: 2018-10-24T12:36:54.511Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -144,6 +144,9 @@ msgid "Remove"
 msgstr ""
 
 msgid "None selected"
+msgstr ""
+
+msgid "Yearly series"
 msgstr ""
 
 msgid "Aggregation type"
