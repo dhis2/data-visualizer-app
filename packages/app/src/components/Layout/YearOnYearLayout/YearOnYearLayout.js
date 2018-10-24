@@ -1,22 +1,35 @@
 import React from 'react';
 
-import Axis from './Axis';
-import styles from './styles/DefaultLayout.style';
+import DefaultAxis from '../DefaultLayout/DefaultAxis';
+import defaultLayoutStyles from '../DefaultLayout/styles/DefaultLayout.style';
+import YearOnYearAxis from './YearOnYearAxis';
 
 const Layout = () => (
-    <div id="layout-ct" style={styles.ct}>
+    <div id="layout-ct" style={defaultLayoutStyles.ct}>
         <div
             id="axis-group-1"
-            style={{ ...styles.axisGroup, ...styles.axisGroupLeft }}
+            style={{
+                ...defaultLayoutStyles.axisGroup,
+                ...defaultLayoutStyles.axisGroupLeft,
+            }}
         >
-            <Axis axisName="columns" style={styles.columns} />
-            <Axis axisName="rows" style={styles.rows} />
+            <YearOnYearAxis
+                axisName="columns"
+                style={defaultLayoutStyles.columns}
+            />
+            <YearOnYearAxis axisName="rows" style={defaultLayoutStyles.rows} />
         </div>
         <div
             id="axis-group-2"
-            style={{ ...styles.axisGroup, ...styles.axisGroupRight }}
+            style={{
+                ...defaultLayoutStyles.axisGroup,
+                ...defaultLayoutStyles.axisGroupRight,
+            }}
         >
-            <Axis axisName="filters" style={styles.filters} />
+            <DefaultAxis
+                axisName="filters"
+                style={defaultLayoutStyles.filters}
+            />
         </div>
     </div>
 );

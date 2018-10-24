@@ -14,6 +14,8 @@ import reducer, {
     ADD_UI_PARENT_GRAPH_MAP,
     SET_UI_ACTIVE_MODAL_DIALOG,
     CLEAR_UI,
+    SET_UI_YEAR_ON_YEAR_SERIES,
+    SET_UI_YEAR_ON_YEAR_CATEGORY,
 } from '../ui';
 import { AXIS_NAMES } from '../../layout';
 
@@ -312,6 +314,29 @@ describe('reducer: ui', () => {
             expect(actualState.itemsByDimension.dx).toEqual(expectedState);
         });
     });
+
+    it(`${SET_UI_YEAR_ON_YEAR_SERIES}: should set new yearOnYearSeries`, () => {
+        const series = 'LAST_YEAR';
+
+        const actualState = reducer(DEFAULT_UI.yearOnYearSeries, {
+            type: SET_UI_YEAR_ON_YEAR_SERIES,
+            value: series,
+        });
+
+        expect(actualState).toEqual(series);
+    });
+
+    it(`${SET_UI_YEAR_ON_YEAR_CATEGORY}: should set new yearOnYearCategory`, () => {
+        const category = 'LAST_3_MONTHS';
+
+        const actualState = reducer(DEFAULT_UI.yearOnYearCategory, {
+            type: SET_UI_YEAR_ON_YEAR_CATEGORY,
+            value: category,
+        });
+
+        expect(actualState).toEqual(category);
+    });
+
     it(`${SET_UI_PARENT_GRAPH_MAP}: should set the new parent graph map`, () => {
         const graphMapToSet = {
             abc: 'Silly district',

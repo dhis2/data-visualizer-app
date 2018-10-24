@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Axis from './Axis';
+import DefaultAxis from './DefaultAxis';
 import styles from './styles/DefaultLayout.style';
 
 const Layout = () => (
@@ -9,14 +9,14 @@ const Layout = () => (
             id="axis-group-1"
             style={{ ...styles.axisGroup, ...styles.axisGroupLeft }}
         >
-            <Axis axisName="columns" style={styles.columns} />
-            <Axis axisName="rows" style={styles.rows} />
+            <DefaultAxis axisName="columns" style={styles.columns} />
+            <DefaultAxis axisName="rows" style={styles.rows} />
         </div>
         <div
             id="axis-group-2"
             style={{ ...styles.axisGroup, ...styles.axisGroupRight }}
         >
-            <Axis axisName="filters" style={styles.filters} />
+            <DefaultAxis axisName="filters" style={styles.filters} />
         </div>
     </div>
 );

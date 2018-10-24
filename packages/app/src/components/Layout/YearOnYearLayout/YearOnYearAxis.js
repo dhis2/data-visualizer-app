@@ -3,7 +3,10 @@ import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
 
 import { sGetUiLayout } from '../../../reducers/ui';
-import { styles } from './styles/Axis.style';
+import defaultAxisStyles from '../DefaultLayout/styles/DefaultAxis.style';
+// import { styles } from './styles/YearOnYearAxis.style';
+
+// const styles = {};
 
 const axisLabels = {
     columns: i18n.t('Yearly series'),
@@ -11,13 +14,10 @@ const axisLabels = {
     filters: i18n.t('Filter'),
 };
 
-const Axis = ({ axis }) => (
-    <div
-        id={this.props.axisName}
-        style={{ ...styles.axisContainer, ...this.props.style }}
-    >
-        <div style={styles.label}>{axisLabels[this.props.axisName]}</div>
-        <div style={styles.content}>Dropdown</div>
+const YearOnYearAxis = ({ axisName, style }) => (
+    <div id={axisName} style={{ ...defaultAxisStyles.axisContainer, ...style }}>
+        <div style={defaultAxisStyles.label}>{axisLabels[axisName]}</div>
+        <div style={defaultAxisStyles.content}>Dropdown</div>
     </div>
 );
 
@@ -25,4 +25,4 @@ const mapStateToProps = (state, ownProps) => ({
     axis: sGetUiLayout(state)[ownProps.axisName],
 });
 
-export default connect(mapStateToProps)(Axis);
+export default connect(mapStateToProps)(YearOnYearAxis);

@@ -11,7 +11,7 @@ import {
     acRemoveUiLayoutDimensions,
 } from '../../../actions/ui';
 import { AXIS_NAMES } from '../../../layout';
-import { styles } from './styles/Axis.style';
+import styles from './styles/DefaultAxis.style';
 
 const axisLabels = {
     columns: i18n.t('Series'),
