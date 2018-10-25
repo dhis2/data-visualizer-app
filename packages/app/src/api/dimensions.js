@@ -25,8 +25,8 @@ export const DATA_SETS_CONSTANTS = [
     },
 ];
 
-const request = (entity, params) => {
-    const url = `/${entity}?${params}&paging=false`;
+const request = (entity, paramString) => {
+    const url = `/${entity}?${paramString}&paging=false`;
 
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))
@@ -54,8 +54,10 @@ export const apiFetchDimensions = nameProp => {
     return request('dimensions', params);
 };
 
-export const apiFetchGroups = dataType => {
-    const fields = 'fields=id,displayName~rename(name)';
+export const apiFetchGroups = (dataType, nameProp) => {
+    //indicatorGroups does not support shortName
+    const name = dataType === 'indicators' ? 'displayName' : nameProp;
+    const fields = `fields=id,${name}~rename(name)`;
 
     switch (dataType) {
         case 'indicators': {

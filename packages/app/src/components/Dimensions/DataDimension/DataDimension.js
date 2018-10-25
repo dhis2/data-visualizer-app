@@ -88,7 +88,10 @@ export class DataDimension extends Component {
 
     updateGroups = async (dataType, cb) => {
         if (!this.state.groups[dataType].length) {
-            const dataTypeGroups = await apiFetchGroups(dataType);
+            const dataTypeGroups = await apiFetchGroups(
+                dataType,
+                this.props.displayNameProp
+            );
 
             const groups = Object.assign({}, this.state.groups, {
                 [dataType]: dataTypeGroups,

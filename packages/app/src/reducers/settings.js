@@ -5,7 +5,7 @@ export const DEFAULT_SETTINGS = {
     keyDateFormat: 'yyyy-MM-dd',
     keyAnalysisRelativePeriod: 'LAST_12_MONTHS',
     keyAnalysisDigitGroupSeparator: 'SPACE',
-    displayNameProperty: 'name',
+    displayNameProperty: 'displayName',
     uiLocale: 'en',
 };
 
@@ -29,4 +29,4 @@ export default (state = DEFAULT_SETTINGS, action) => {
 
 export const sGetSettings = state => state.settings;
 export const sGetDisplayNameProperty = state =>
-    state.settings.displayNameProperty;
+    sGetSettings(state).displayNameProperty;

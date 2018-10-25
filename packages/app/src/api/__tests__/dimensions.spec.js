@@ -56,13 +56,26 @@ describe('api: dimensions', () => {
             };
         });
 
-        it('has correct endpoint and page value for indicators', done => {
-            apiFetchGroups('indicators');
+        it('has correct endpoint, name prop, and page value for indicators', done => {
+            apiFetchGroups('indicators', 'hello');
 
             const matches = [
                 { regex: /\/indicatorGroups\?/ },
+                { regex: /displayName~rename\(name\)/ },
                 { regex: /paging=false/ },
             ];
+
+            asyncCheckMatches(matches, done);
+        });
+
+        it('has correct name prop for dataElements', done => {
+            apiFetchGroups('dataElements', 'hello');
+
+            const matches = [
+                { regex: /\/dataElementGroups\?/ },
+                { regex: /hello~rename\(name\)/ },
+            ];
+
             asyncCheckMatches(matches, done);
         });
 
