@@ -1,25 +1,57 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Dialog from '@material-ui/core/Dialog';
 import DataDimension from './DataDimension/DataDimension';
+import OrgUnitDimension from './OrgUnitDimension/OrgUnitDimension';
 import PeriodDimension from './PeriodDimension';
-import OrgUnitDimension from './OrgUnitDimension';
 
-export const DialogManager = ({ dialogIsOpen, id, toggleDialog }) => {
-    const dimensionComponents = {
-        dx: <DataDimension toggleDialog={toggleDialog} />,
-        ou: <OrgUnitDimension toggleDialog={toggleDialog} />,
-        pe: <PeriodDimension toggleDialog={toggleDialog} />,
+export class DialogManager extends Component {
+    state = {
+        mounted: [],
     };
-    return id ? (
+
+    dimensionComponents = {
+        dx: <DataDimension toggleDialog={this.props.toggleDialog} />,
+        ou: <OrgUnitDimension toggleDialog={this.props.toggleDialog} />,
+        pe: <PeriodDimension toggleDialog={this.props.toggleDialog} />,
+    };
+
+    componentDidUpdate() {
+        if (this.props.id && !this.state.mounted.includes(this.props.id)) {
+            this.setState({
+                mounted: [...this.state.mounted, this.props.id],
+            });
+        }
+    }
+
+    onCloseDialog = () => {
+        this.props.toggleDialog(null);
+    };
+
+    render = () => (
         <Dialog
-            open={dialogIsOpen}
-            onClose={() => toggleDialog(null)}
+            open={this.props.dialogIsOpen}
+            onClose={this.onCloseDialog}
             maxWidth={false}
             disableEnforceFocus
+            keepMounted
         >
-            {dimensionComponents[id]}
+            {Object.keys(this.dimensionComponents).map(dimensionId => {
+                return this.state.mounted.includes(dimensionId) ? (
+                    <div
+                        key={dimensionId}
+                        style={{
+                            display:
+                                dimensionId === this.props.id
+                                    ? 'block'
+                                    : 'none',
+                        }}
+                    >
+                        {this.dimensionComponents[dimensionId]}
+                    </div>
+                ) : null;
+            })}
         </Dialog>
-    ) : null;
-};
+    );
+}
 
 export default DialogManager;
