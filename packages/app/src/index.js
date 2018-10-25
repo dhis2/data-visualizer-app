@@ -14,11 +14,12 @@ import metadataMiddleware from './middleware/metadata';
 
 import App from './components/App';
 import { muiTheme } from './theme';
+import { extractUserSettings } from './settings';
 
 const apiObjectName = 'chart';
 
 const configI18n = async userSettings => {
-    const uiLocale = userSettings.keyUiLocale;
+    const uiLocale = userSettings.uiLocale;
 
     if (uiLocale && uiLocale !== 'en') {
         config.i18n.sources.add(`./i18n/i18n_module_${uiLocale}.properties`);
@@ -69,7 +70,8 @@ const init = async () => {
         'organisationUnitLevel',
     ];
 
-    const userSettings = await getUserSettings();
+    const userSettings = extractUserSettings(await getUserSettings());
+
     await configI18n(userSettings);
 
     const d2 = await d2Init({
