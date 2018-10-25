@@ -1,12 +1,12 @@
 import keyBy from 'lodash-es/keyBy';
-import { sortArray } from '../utils/util';
+import sortBy from 'lodash-es/sortBy';
 import { SET_DIMENSIONS } from '../reducers/dimensions';
 import { apiFetchDimensions } from '../api/dimensions';
 import { sGetDisplayNameProperty } from '../reducers/settings';
 
 export const acSetDimensions = dimensions => ({
     type: SET_DIMENSIONS,
-    value: keyBy(sortArray(dimensions, 'name'), 'id'),
+    value: keyBy(sortBy(dimensions, [d => d.name.toLowerCase()]), 'id'),
 });
 
 export const tSetDimensions = () => async (dispatch, getState) => {
