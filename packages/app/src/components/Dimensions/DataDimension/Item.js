@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { colors } from '../../../colors';
 import { RemoveSelectedItemButton } from './buttons';
 
 const styles = {
-    selected: {
-        borderRadius: 4,
-        backgroundColor: '#BBDEFB',
-        display: 'flex',
-        padding: '2px 5px 2px 2px',
-    },
     unselected: {
-        borderRadius: 4,
         display: 'flex',
         padding: '2px 5px 2px 2px',
+        borderRadius: 4,
+    },
+    selected: {
+        display: 'flex',
+        padding: '2px 5px 2px 2px',
+        backgroundColor: colors.lightBlue,
+        borderRadius: 4,
     },
     onHover: {
         backgroundColor: '#92C9F7',
@@ -27,27 +28,27 @@ const styles = {
         padding: '0px 2px 1px 2px',
     },
     unselectedIcon: {
+        position: 'relative',
+        top: '30%',
+        left: '38%',
         backgroundColor: colors.grey,
         height: 6,
         width: 6,
-        position: 'relative',
-        left: '38%',
-        top: '30%',
     },
     selectedIcon: {
-        backgroundColor: '#1976D2', // color
-        height: 6,
-        width: 6,
         position: 'relative',
         top: '39%',
         left: '40%',
+        backgroundColor: colors.accentPrimary,
+        height: 6,
+        width: 6,
     },
     iconContainer: {
         minWidth: 20,
     },
 };
 
-const UnselectedIcon = () => {
+export const UnselectedIcon = () => {
     return (
         <div style={styles.iconContainer}>
             <div style={styles.unselectedIcon} />
@@ -55,7 +56,7 @@ const UnselectedIcon = () => {
     );
 };
 
-const SelectedIcon = () => {
+export const SelectedIcon = () => {
     return (
         <div style={styles.iconContainer}>
             <div style={styles.selectedIcon} />
@@ -101,14 +102,7 @@ export class Item extends Component {
     };
 
     render = () => {
-        const {
-            id,
-            index,
-            unselected,
-            onItemClick,
-            onDoubleClick,
-            displayName,
-        } = this.props;
+        const { id, index, unselected, onItemClick, displayName } = this.props;
 
         const className = unselected ? 'unselected-label' : 'selected-label';
         const Icon = this.renderIcon();
@@ -122,7 +116,6 @@ export class Item extends Component {
                 onClick={event =>
                     onItemClick(event.metaKey, event.shiftKey, index, id)
                 }
-                onDoubleClick={() => onDoubleClick(id)}
             >
                 {Icon}
                 <span className={className}>{displayName}</span>
@@ -131,3 +124,16 @@ export class Item extends Component {
         );
     };
 }
+
+Item.propTypes = {
+    id: PropTypes.string.isRequired,
+    index: PropTypes.number.isRequired,
+    displayName: PropTypes.string.isRequired,
+    isHighlighted: PropTypes.bool.isRequired,
+    onItemClick: PropTypes.func.isRequired,
+    unselected: PropTypes.bool,
+};
+
+Item.defaultProps = {
+    unselected: true,
+};

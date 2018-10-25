@@ -8,10 +8,11 @@ import { colors } from '../../../colors';
 
 const style = {
     container: {
-        border: '1px solid #E0E0E0',
+        border: `1px solid ${colors.greyLight}`,
         height: 376,
     },
     listContainer: {
+        userSelect: 'none',
         listStyle: 'none',
         overflowY: 'scroll',
         height: 340,
@@ -19,24 +20,10 @@ const style = {
         borderBottom: 0,
         paddingLeft: 0,
         margin: 0,
-        userSelect: 'none',
     },
     listItem: {
         display: 'flex',
         margin: 5,
-    },
-    text: {
-        fontFamily: 'Roboto',
-        fontSize: 14,
-        padding: '0px 2px 1px 2px',
-    },
-    unselectedIcon: {
-        backgroundColor: colors.grey,
-        height: 6,
-        width: 6,
-        marginTop: 5,
-        marginLeft: 10,
-        marginRight: 5,
     },
 };
 
@@ -75,7 +62,14 @@ export class UnselectedItems extends Component {
         });
     };
 
-    onDoubleClickItem = id => this.props.onSelect([id]);
+    onDoubleClickItem = id => {
+        const highlighted = this.state.highlighted.filter(
+            dataDimId => dataDimId !== id
+        );
+
+        this.setState({ highlighted });
+        this.props.onSelect([id]);
+    };
 
     renderListItem = (dataDim, index) => {
         return (
@@ -83,6 +77,7 @@ export class UnselectedItems extends Component {
                 className="dimension-item"
                 key={dataDim.id}
                 style={style.listItem}
+                onDoubleClick={() => this.onDoubleClickItem(dataDim.id)}
             >
                 <Item
                     id={dataDim.id}
@@ -92,8 +87,6 @@ export class UnselectedItems extends Component {
                         !!this.state.highlighted.includes(dataDim.id)
                     }
                     onItemClick={this.toggleHighlight}
-                    onDoubleClick={this.onDoubleClickItem}
-                    unselected={true}
                 />
             </li>
         );

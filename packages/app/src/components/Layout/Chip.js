@@ -45,9 +45,9 @@ class Chip extends React.Component {
     };
 
     handleClick = event => {
-        this.handleMouseOut();
-
         this.props.onClick(event);
+
+        this.handleMouseOut();
     };
 
     getDragStartHandler = source => e => {
@@ -117,7 +117,7 @@ class Chip extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    dimensionName: sGetDimensions(state)[ownProps.dimensionId].displayName,
+    dimensionName: sGetDimensions(state)[ownProps.dimensionId].name,
     items: sGetUiItems(state)[ownProps.dimensionId] || [],
 });
 

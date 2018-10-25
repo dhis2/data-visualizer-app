@@ -20,20 +20,20 @@ const styles = {
         height: 42,
     },
     list: {
+        userSelect: 'none',
         listStyle: 'none',
         overflowY: 'scroll',
         height: 455,
         paddingLeft: 0,
         margin: 0,
-        userSelect: 'none',
     },
     subTitleText: {
         position: 'relative',
-        color: colors.black,
         fontFamily: 'Roboto',
-        height: 20,
+        color: colors.black,
         fontSize: 15,
         fontWeight: 500,
+        height: 20,
         top: 12,
         left: 8,
     },
@@ -41,33 +41,6 @@ const styles = {
         display: 'flex',
         margin: 5,
         minHeight: 24,
-    },
-    highlighted: {
-        backgroundColor: '#92C9F7',
-    },
-    unHighlighted: {
-        borderRadius: 4,
-        backgroundColor: '#BBDEFB',
-        display: 'flex',
-        padding: 2,
-    },
-    iconContainer: {
-        width: 20,
-    },
-    icon: {
-        backgroundColor: '#1976D2', // color
-        position: 'relative',
-        left: '44%',
-        top: '44%',
-        height: 6,
-        width: 6,
-    },
-    text: {
-        fontFamily: 'Roboto',
-        wordBreak: 'break-word',
-        fontSize: 14,
-        paddingLeft: 3,
-        paddingTop: 3,
     },
 };
 
@@ -88,7 +61,10 @@ export class SelectedItems extends Component {
     };
 
     onRemoveSelected = id => {
-        this.setState({ highlighted: this.removeHighlight(id) });
+        const highlighted = this.state.highlighted.filter(
+            dataDimId => dataDimId !== id
+        );
+        this.setState({ highlighted });
         this.props.onDeselect([id]);
     };
 
@@ -123,6 +99,7 @@ export class SelectedItems extends Component {
                 id={id}
                 key={id}
                 style={styles.listItem}
+                onDoubleClick={() => this.onRemoveSelected(id)}
             >
                 <Item
                     id={id}

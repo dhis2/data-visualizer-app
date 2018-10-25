@@ -1,15 +1,14 @@
 import { arrayToIdMap, sortArray } from '../util';
 import { SET_DIMENSIONS } from '../reducers/dimensions';
 import { apiFetchDimensions } from '../api/dimensions';
-
-const propName = 'displayName';
+import { sGetDisplayNameProperty } from '../reducers/settings';
 
 export const acSetDimensions = dimensions => ({
     type: SET_DIMENSIONS,
-    value: arrayToIdMap(sortArray(dimensions, propName)),
+    value: arrayToIdMap(sortArray(dimensions, 'name')),
 });
 
-export const tSetDimensions = () => async dispatch => {
+export const tSetDimensions = () => async (dispatch, getState) => {
     const onSuccess = dimensions => {
         dispatch(acSetDimensions(dimensions));
     };
@@ -20,8 +19,9 @@ export const tSetDimensions = () => async dispatch => {
     };
 
     try {
-        const response = await apiFetchDimensions();
-        return onSuccess(response.dimensions);
+        const displayNameProp = sGetDisplayNameProperty(getState());
+        const dimensions = await apiFetchDimensions(displayNameProp);
+        return onSuccess(dimensions);
     } catch (err) {
         return onError(err);
     }
