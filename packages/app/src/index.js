@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import history from './history';
 
-import { init as d2Init, config, getUserSettings } from 'd2/lib/d2';
+import { init as d2Init, config, getUserSettings } from 'd2';
 
 import i18n from './locales';
 import configureStore from './configureStore';
