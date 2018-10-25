@@ -56,17 +56,25 @@ describe('App', () => {
         expect(app().find(Visualization).length).toBeGreaterThan(0);
     });
 
-    it('calls clear visualization action when location pathname is root', () => {
+    it('calls clear visualization action when location pathname is root', done => {
         app();
-        expect(actions.tDoLoadVisualization).not.toHaveBeenCalled();
-        expect(actions.clearVisualization).toHaveBeenCalled();
+
+        setTimeout(() => {
+            expect(actions.tDoLoadVisualization).not.toHaveBeenCalled();
+            expect(actions.clearVisualization).toHaveBeenCalled();
+            done();
+        });
     });
 
-    it('calls load visualization action when location pathname has length', () => {
+    it('calls load visualization action when location pathname has length', done => {
         props.location.pathname = '/abc123';
         app();
-        expect(actions.tDoLoadVisualization).toHaveBeenCalled();
-        expect(actions.clearVisualization).not.toHaveBeenCalled();
+
+        setTimeout(() => {
+            expect(actions.tDoLoadVisualization).toHaveBeenCalled();
+            expect(actions.clearVisualization).not.toHaveBeenCalled();
+            done();
+        });
     });
 
     it('renders a Snackbar', () => {

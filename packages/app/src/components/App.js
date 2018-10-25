@@ -37,11 +37,13 @@ export class App extends Component {
         }
     };
 
-    componentDidMount() {
+    componentDidMount = async () => {
         const { store } = this.context;
         const { d2, userSettings } = this.props;
 
-        store.dispatch(fromActions.fromSettings.tAddSettings(userSettings));
+        await store.dispatch(
+            fromActions.fromSettings.tAddSettings(userSettings)
+        );
         store.dispatch(fromActions.fromUser.acReceivedUser(d2.currentUser));
         store.dispatch(fromActions.fromDimensions.tSetDimensions());
         store.dispatch(fromActions.fromMetadata.acAddMetadata(defaultMetadata));
@@ -59,7 +61,7 @@ export class App extends Component {
                 e.ctrlKey === true &&
                 this.props.onKeyUp(this.props.ui)
         );
-    }
+    };
 
     componentWillUnmount() {
         if (this.unlisten) {

@@ -46,10 +46,10 @@ const state = {
     // Init state: {}
     // Example of populated state: {
     //     Uvn6LCg7dVU: {
-    //         displayName: "ANC 1 Coverage",
+    //         name: "ANC 1 Coverage",
     //     },
     //     ImspTQPwCqd: {
-    //         displayName: "Sierra Leone",
+    //         name: "Sierra Leone",
     //     },
     // }
     metadata: {},
