@@ -49,4 +49,4 @@ export default (function() {
         ...relativePeriods,
         ...organisationUnits,
     }).reduce((obj, [key, value]) => ({ ...obj, [key]: { name: value } }), {});
-}());
+})();
