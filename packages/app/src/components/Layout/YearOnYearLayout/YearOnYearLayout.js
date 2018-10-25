@@ -68,10 +68,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    onSeriesChange: event => {
-        console.log('e.t.v', event.target.value);
-        dispatch(acSetUiYearOnYearSeries(event.target.value));
-    },
+    onSeriesChange: event =>
+        dispatch(acSetUiYearOnYearSeries(event.target.value)),
     onCategoryChange: event =>
         dispatch(acSetUiYearOnYearCategory(event.target.value)),
 });

@@ -38,7 +38,7 @@ export const DEFAULT_UI = {
         ou: ['USER_ORGUNIT'],
     },
     yearOnYearSeries: 'LAST_5_YEARS',
-    yearOnYearCategory: 'LAST_12_MONTHS',
+    yearOnYearCategory: 'MONTHS_THIS_YEAR',
     parentGraphMap: {},
     activeModalDialog: null,
 };

@@ -2,6 +2,8 @@ import React from 'react';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 
+import styles from './styles/YearOnYearSelect.style';
+
 class YearOnYearSelect extends React.Component {
     state = {
         open: false,
@@ -16,7 +18,6 @@ class YearOnYearSelect extends React.Component {
     };
 
     render() {
-        console.log('this.props.options', this.props.options);
         return (
             <Select
                 open={this.state.open}
@@ -24,6 +25,10 @@ class YearOnYearSelect extends React.Component {
                 onClose={this.handleClose}
                 onOpen={this.handleOpen}
                 value={this.props.value}
+                disableUnderline
+                SelectDisplayProps={{
+                    style: styles.displayProps,
+                }}
             >
                 {this.props.options.map(option => (
                     <MenuItem key={option.id} value={option.id}>
