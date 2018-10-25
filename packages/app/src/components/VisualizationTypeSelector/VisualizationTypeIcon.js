@@ -10,7 +10,6 @@ import GaugeIcon from './icons/GaugeIcon';
 import LineIcon from './icons/LineIcon';
 import AreaIcon from './icons/AreaIcon';
 import RadarIcon from './icons/RadarIcon';
-import BubbleIcon from './icons/BubbleIcon';
 import YearOnYearIcon from './icons/YearOnYearIcon';
 import {
     COLUMN,
@@ -22,10 +21,9 @@ import {
     PIE,
     RADAR,
     GAUGE,
-    BUBBLE,
     YEAR_ON_YEAR,
-    visualizationTypeMap,
-} from './visualizationTypes';
+    chartTypeDisplayNames,
+} from '../../chartTypes';
 
 const VisualizationTypeIcon = ({ type = COLUMN, style }) => {
     switch (type) {
@@ -45,8 +43,6 @@ const VisualizationTypeIcon = ({ type = COLUMN, style }) => {
             return <AreaIcon style={style} />;
         case RADAR:
             return <RadarIcon style={style} />;
-        case BUBBLE:
-            return <BubbleIcon style={style} />;
         case YEAR_ON_YEAR:
             return <YearOnYearIcon style={style} />;
         case COLUMN:
@@ -56,7 +52,7 @@ const VisualizationTypeIcon = ({ type = COLUMN, style }) => {
 };
 
 VisualizationTypeIcon.propTypes = {
-    type: PropTypes.oneOf(Object.keys(visualizationTypeMap)),
+    type: PropTypes.oneOf(Object.keys(chartTypeDisplayNames)),
     style: PropTypes.object,
 };
 
