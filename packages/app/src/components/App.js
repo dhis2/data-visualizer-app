@@ -88,7 +88,7 @@ export class App extends Component {
         return (
             <Fragment>
                 <UI>
-                    <HeaderBar appName="Data Visualizer" />
+                    <HeaderBar appName={i18n.t('Data Visualizer')} />
                     <div className="app">
                         <div className="item2 visualization-type-selector">
                             <VisualizationTypeSelector />
