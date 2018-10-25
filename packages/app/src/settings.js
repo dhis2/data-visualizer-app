@@ -4,4 +4,12 @@ export const SYSTEM_SETTINGS = [
     'keyAnalysisDigitGroupSeparator',
 ];
 
-export const USER_SETTINGS = ['keyAnalysisDisplayProperty'];
+export const extractUserSettings = settings => {
+    const nameProp = settings.keyAnalysisDisplayProperty;
+
+    return {
+        displayNameProperty:
+            nameProp === 'name' ? 'displayName' : 'displayShortName',
+        uiLocale: settings.keyUiLocale,
+    };
+};

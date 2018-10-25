@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import FileMenu from '@dhis2/d2-ui-file-menu';
 
-import UpdateButton from './UpdateButton';
+import UpdateButton from '../UpdateButton/UpdateButton';
+import DownloadMenu from '../DownloadMenu/DownloadMenu';
 import VisualizationOptionsManager from '../VisualizationOptions/VisualizationOptionsManager';
 import * as fromActions from '../../actions';
 import { sGetCurrent } from '../../reducers/current';
 import './MenuBar.css';
 import history from '../../history';
+import styles from './styles/MenuBar.style';
 
 const onOpen = id => history.push(`/${id}`);
 const onNew = () => history.push('/');
@@ -20,7 +22,7 @@ const getOnSaveAs = props => details =>
 const getOnDelete = props => () => props.onDeleteVisualization();
 
 export const MenuBar = (props, context) => (
-    <div className="menubar">
+    <div className="menubar" style={styles.menuBar}>
         <UpdateButton />
         <FileMenu
             d2={context.d2}
@@ -35,11 +37,10 @@ export const MenuBar = (props, context) => (
             onTranslate={() => console.log('translate callback')}
             onError={() => console.log('error!')}
         />
-        <VisualizationOptionsManager />
-        <div>Download</div>
-        <div>Embed</div>
+        <VisualizationOptionsManager labelStyle={styles.label} />
+        <DownloadMenu labelStyle={styles.label} />
         <div className="spacefiller" />
-        <div>Show interpretations</div>
+        <div style={styles.label}>Interpretations</div>
     </div>
 );
 

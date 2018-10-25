@@ -17,7 +17,7 @@ describe('The DimensionItem component ', () => {
     beforeEach(() => {
         props = {
             id: 'idString',
-            displayName: '',
+            name: '',
             isSelected: false,
             toggleDialog: jest.fn(),
             onRemoveDimension: jest.fn(),
@@ -39,7 +39,6 @@ describe('The DimensionItem component ', () => {
 
     it('renders a <DimensionLabel /> ', () => {
         const dimLabel = dimItem().find(DimensionLabel);
-
         expect(dimLabel.length).toEqual(1);
     });
 

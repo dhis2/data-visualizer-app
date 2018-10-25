@@ -52,7 +52,7 @@ const Groups = props => {
 
         return optionItems.map(item => (
             <MenuItem key={item.id} value={item.id}>
-                {item.displayName}
+                {item.name}
             </MenuItem>
         ));
     };

@@ -21,7 +21,7 @@ export const options = {
     targetLineValue: { defaultValue: undefined, requestable: false },
     // legendDisplayStrategy
     // legendSet
-    aggregationType: { defaultValue: '', requestable: true },
+    aggregationType: { defaultValue: 'DEFAULT', requestable: true },
     completedOnly: { defaultValue: false, requestable: true },
     hideSubtitle: { defaultValue: false, requestable: false },
     hideTitle: { defaultValue: false, requestable: false },

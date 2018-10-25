@@ -13,7 +13,7 @@ export class DimensionList extends Component {
     };
 
     filterMatchingDimensions = dimension => {
-        return this.searchTextContains(dimension.displayName)
+        return this.searchTextContains(dimension.name)
             ? this.renderItem(dimension)
             : null;
     };
@@ -23,7 +23,7 @@ export class DimensionList extends Component {
             <DimensionItem
                 id={dimension.id}
                 key={dimension.id}
-                displayName={dimension.displayName}
+                name={dimension.name}
                 isSelected={!!this.props.selected.includes(dimension.id)}
                 toggleDialog={this.props.toggleDialog}
             />

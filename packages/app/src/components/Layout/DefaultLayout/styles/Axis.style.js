@@ -1,5 +1,5 @@
 import { colors } from '../../../../colors';
-import * as defaultLayoutStyle from './defaultStyle';
+import defaultLayoutStyle from './DefaultLayout.style';
 import * as layoutStyle from '../../styles/style';
 
 export const styles = {

@@ -9,7 +9,7 @@ const AggregationType = () => (
             name: 'aggregationType',
             label: i18n.t('Aggregation type'),
             items: [
-                { id: '', label: i18n.t('By data element') },
+                { id: 'DEFAULT', label: i18n.t('By data element') },
                 { id: 'COUNT', label: i18n.t('Count') },
                 { id: 'AVERAGE', label: i18n.t('Average') },
                 {

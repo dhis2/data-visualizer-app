@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { DialogActions, DialogContent } from '@material-ui/core';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
 import i18n from '@dhis2/d2-i18n';
-import { debounce } from 'lodash-es';
+import debounce from 'lodash-es/debounce';
 
 import DataTypes from './DataTypesSelector';
 import Groups from './Groups';
@@ -14,9 +15,12 @@ import { HideButton, UpdateButton } from './buttons';
 
 import { apiFetchGroups, apiFetchAlternatives } from '../../../api/dimensions';
 import { sGetUiItems, sGetUi } from '../../../reducers/ui';
+import { sGetDisplayNameProperty } from '../../../reducers/settings';
+
 import { acSetCurrentFromUi } from '../../../actions/current';
 import { acRemoveUiItems, acAddUiItems } from '../../../actions/ui';
 import { acAddMetadata } from '../../../actions/metadata';
+
 import { colors } from '../../../colors';
 import { DEFAULT_DATATYPE_ID, ALL_ID, dataTypes } from './dataTypes';
 import { arrayToIdMap } from '../../../util';
@@ -84,7 +88,10 @@ export class DataDimension extends Component {
 
     updateGroups = async (dataType, cb) => {
         if (!this.state.groups[dataType].length) {
-            const dataTypeGroups = await apiFetchGroups(dataType);
+            const dataTypeGroups = await apiFetchGroups(
+                dataType,
+                this.props.displayNameProp
+            );
 
             const groups = Object.assign({}, this.state.groups, {
                 [dataType]: dataTypeGroups,
@@ -129,6 +136,7 @@ export class DataDimension extends Component {
             groupDetail,
             page,
             filterText,
+            nameProp: this.props.displayNameProp,
         });
 
         const augmentFn = dataTypes[dataType].augmentAlternatives;
@@ -261,6 +269,7 @@ DataDimension.propTypes = {
 
 const mapStateToProps = state => ({
     selectedItems: sGetUiItems(state),
+    displayNameProp: sGetDisplayNameProperty(state),
     ui: sGetUi(state),
 });
 
