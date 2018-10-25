@@ -7,7 +7,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import { Detail } from './Detail';
 
 import { dataTypes } from './dataTypes';
-import { colors } from '../../../colors';
+import { colors } from '../../../utils/colors';
 
 const style = {
     container: {

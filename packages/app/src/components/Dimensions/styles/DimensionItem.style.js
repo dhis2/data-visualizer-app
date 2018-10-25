@@ -1,4 +1,4 @@
-import { colors } from '../../../colors';
+import { colors } from '../../../utils/colors';
 
 export const styles = {
     wrapper: {

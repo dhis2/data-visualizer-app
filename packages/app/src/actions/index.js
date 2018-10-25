@@ -19,7 +19,7 @@ import * as fromLoadError from './loadError';
 import { sGetCurrent } from '../reducers/current';
 import { sGetVisualization } from '../reducers/visualization';
 
-import history from '../history';
+import history from '../utils/history';
 
 export {
     fromVisualization,

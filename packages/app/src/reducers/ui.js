@@ -3,8 +3,8 @@ import {
     getItemIdsByDimension,
     getFilteredLayout,
     getSwapModObj,
-} from '../layout';
-import { getOptionsForUi, getOptionsFromVisualization } from '../options';
+} from '../utils/layout';
+import { getOptionsForUi, getOptionsFromVisualization } from '../utils/options';
 import { COLUMN } from '../components/VisualizationTypeSelector/visualizationTypes';
 
 export const SET_UI = 'SET_UI';

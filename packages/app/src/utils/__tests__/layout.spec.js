@@ -3,7 +3,7 @@ import {
     getAllDimensions,
     getItemIdsByDimension,
     getDimensionIdsByAxis,
-} from '../layout.js';
+} from '../utils/layout.js';
 
 const [COLUMNS, ROWS, FILTERS] = AXIS_NAMES;
 

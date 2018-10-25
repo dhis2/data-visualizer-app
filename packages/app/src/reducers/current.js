@@ -1,4 +1,4 @@
-import { getAxesFromUi, getOptionsFromUi } from '../current';
+import { getAxesFromUi, getOptionsFromUi } from '../utils/current';
 
 export const SET_CURRENT = 'SET_CURRENT';
 export const SET_CURRENT_FROM_UI = 'SET_CURRENT_FROM_UI';

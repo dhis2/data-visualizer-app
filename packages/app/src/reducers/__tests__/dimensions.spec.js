@@ -1,5 +1,5 @@
 import reducer, { SET_DIMENSIONS } from '../dimensions';
-import { FIXED_DIMENSIONS as DEFAULT_DIMENSIONS } from '../../fixedDimensions';
+import { FIXED_DIMENSIONS as DEFAULT_DIMENSIONS } from '../../utils/fixedDimensions';
 
 describe('reducer: dimensions', () => {
     const dimensionsToSet = {

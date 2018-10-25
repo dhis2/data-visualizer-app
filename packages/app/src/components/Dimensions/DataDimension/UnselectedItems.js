@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import throttle from 'lodash-es/throttle';
 import { AssignButton, SelectAllButton } from './buttons';
-import { colors } from '../../../colors';
+import { colors } from '../../../utils/colors';
 
 const style = {
     container: {

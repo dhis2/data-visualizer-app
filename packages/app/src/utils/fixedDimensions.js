@@ -1,5 +1,5 @@
 import i18n from '@dhis2/d2-i18n';
-import { DataIcon, PeriodIcon, OrgUnitIcon } from './icons';
+import { DataIcon, PeriodIcon, OrgUnitIcon } from '../assets/icons';
 
 export const FIXED_DIMENSIONS = {
     dx: {

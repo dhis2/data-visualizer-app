@@ -1,4 +1,4 @@
-import { colors } from '../../../colors';
+import { colors } from '../../../utils/colors';
 
 // Axis
 export const AXIS_PADDING = '8px 8px 2px 8px';

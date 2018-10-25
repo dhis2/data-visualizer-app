@@ -1,4 +1,4 @@
-import { colors } from '../../../../colors';
+import { colors } from '../../../../utils/colors';
 import defaultLayoutStyle from './DefaultLayout.style';
 import * as layoutStyle from '../../styles/style';
 

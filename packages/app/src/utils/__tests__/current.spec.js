@@ -1,4 +1,4 @@
-import { AXIS_NAMES } from '../layout';
+import { AXIS_NAMES } from '../utils/layout';
 import { getAxesFromUi } from '../current';
 
 const [COLUMNS, ROWS, FILTERS] = AXIS_NAMES;

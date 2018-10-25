@@ -9,7 +9,7 @@ import {
 } from './buttons';
 
 import { sGetMetadata } from '../../../reducers/metadata';
-import { colors } from '../../../colors';
+import { colors } from '../../../utils/colors';
 
 const style = {
     container: {

@@ -4,7 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { MuiThemeProvider } from '@material-ui/core/styles';
-import history from './history';
+import history from './utils/history';
 
 import { init as d2Init, config, getUserSettings } from 'd2';
 
@@ -13,8 +13,8 @@ import configureStore from './configureStore';
 import metadataMiddleware from './middleware/metadata';
 
 import App from './components/App';
-import { muiTheme } from './theme';
-import { extractUserSettings } from './settings';
+import { muiTheme } from './utils/theme';
+import { extractUserSettings } from './utils/settings';
 
 const apiObjectName = 'chart';
 
