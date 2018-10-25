@@ -373,7 +373,7 @@ module.exports = {
         new BundleAnalyzerPlugin({
             analyzerMode: 'static',
             openAnalyzer: false,
-            reportFilename: 'bundleAnalyzerReport.html',
+            reportFilename: 'docs/bundleAnalyzerReport.html',
         }),
     ],
     // Some libraries import Node modules but don't use them in the browser.

@@ -1,56 +1,81 @@
-import { actionTypes } from '../reducers';
+import {
+    SET_UI,
+    CLEAR_UI,
+    SET_UI_FROM_VISUALIZATION,
+    SET_UI_TYPE,
+    SET_UI_OPTIONS,
+    SET_UI_LAYOUT,
+    ADD_UI_LAYOUT_DIMENSIONS,
+    REMOVE_UI_LAYOUT_DIMENSIONS,
+    SET_UI_ITEMS,
+    ADD_UI_ITEMS,
+    REMOVE_UI_ITEMS,
+    ADD_UI_PARENT_GRAPH_MAP,
+    SET_UI_PARENT_GRAPH_MAP,
+    SET_UI_ACTIVE_MODAL_DIALOG,
+} from '../reducers/ui';
 
 export const acSetUi = value => ({
-    type: actionTypes.SET_UI,
+    type: SET_UI,
     value,
 });
 
 export const acClear = () => ({
-    type: actionTypes.CLEAR_UI,
+    type: CLEAR_UI,
 });
 
 export const acSetUiFromVisualization = value => ({
-    type: actionTypes.SET_UI_FROM_VISUALIZATION,
+    type: SET_UI_FROM_VISUALIZATION,
     value,
 });
 
 export const acSetUiType = value => ({
-    type: actionTypes.SET_UI_TYPE,
+    type: SET_UI_TYPE,
     value,
 });
 
 export const acSetUiOptions = value => ({
-    type: actionTypes.SET_UI_OPTIONS,
+    type: SET_UI_OPTIONS,
     value,
 });
 
 export const acSetUiLayout = value => ({
-    type: actionTypes.SET_UI_LAYOUT,
+    type: SET_UI_LAYOUT,
     value,
 });
 
 export const acAddUiLayoutDimensions = value => ({
-    type: actionTypes.ADD_UI_LAYOUT_DIMENSIONS,
+    type: ADD_UI_LAYOUT_DIMENSIONS,
     value,
 });
 
 export const acRemoveUiLayoutDimensions = value => ({
-    type: actionTypes.REMOVE_UI_LAYOUT_DIMENSIONS,
+    type: REMOVE_UI_LAYOUT_DIMENSIONS,
     value,
 });
 
 export const acSetUiItems = value => ({
-    type: actionTypes.SET_UI_ITEMS,
+    type: SET_UI_ITEMS,
     value,
 });
 
 export const acAddUiItems = value => ({
-    type: actionTypes.ADD_UI_ITEMS,
+    type: ADD_UI_ITEMS,
     value,
 });
 
 export const acRemoveUiItems = value => ({
-    type: actionTypes.REMOVE_UI_ITEMS,
+    type: REMOVE_UI_ITEMS,
+    value,
+});
+
+export const acAddParentGraphMap = value => ({
+    type: ADD_UI_PARENT_GRAPH_MAP,
+    value,
+});
+
+export const acSetParentGraphMap = value => ({
+    type: SET_UI_PARENT_GRAPH_MAP,
     value,
 });
 
@@ -65,6 +90,6 @@ export const acSetParentGraphMap = value => ({
 });
 
 export const acSetUiActiveModalDialog = value => ({
-    type: actionTypes.SET_UI_ACTIVE_MODAL_DIALOG,
+    type: SET_UI_ACTIVE_MODAL_DIALOG,
     value,
 });

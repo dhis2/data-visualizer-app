@@ -1,4 +1,8 @@
-import reducer, { DEFAULT_VISUALIZATION, actionTypes } from '../visualization';
+import reducer, {
+    DEFAULT_VISUALIZATION,
+    SET_VISUALIZATION,
+    CLEAR_VISUALIZATION,
+} from '../visualization';
 
 describe('reducer: visualization', () => {
     it('should return the default state', () => {
@@ -10,7 +14,7 @@ describe('reducer: visualization', () => {
     it('SET_VISUALIZATION: should set the new visualization', () => {
         const visualization = {};
         const actualState = reducer(undefined, {
-            type: actionTypes.SET_VISUALIZATION,
+            type: SET_VISUALIZATION,
             value: visualization,
         });
 
@@ -20,7 +24,7 @@ describe('reducer: visualization', () => {
     it('CLEAR_VISUALIZATION should set the default state', () => {
         const actualState = reducer(
             { currentVal: 123 },
-            { type: actionTypes.CLEAR_VISUALIZATION }
+            { type: CLEAR_VISUALIZATION }
         );
 
         expect(actualState).toEqual(DEFAULT_VISUALIZATION);

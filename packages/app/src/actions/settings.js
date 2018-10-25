@@ -1,13 +1,13 @@
-import { actionTypes } from '../reducers';
+import { SET_SETTINGS, ADD_SETTINGS } from '../reducers/settings';
 import { apiFetchSystemSettings } from '../api/settings';
 
 export const acSetSettings = value => ({
-    type: actionTypes.SET_SETTINGS,
+    type: SET_SETTINGS,
     value,
 });
 
 export const acAddSettings = value => ({
-    type: actionTypes.ADD_SETTINGS,
+    type: ADD_SETTINGS,
     value,
 });
 

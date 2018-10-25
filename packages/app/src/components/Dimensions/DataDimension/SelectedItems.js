@@ -128,8 +128,6 @@ export class SelectedItems extends Component {
             ? { ...style.unHighlighted, ...style.highlighted }
             : style.unHighlighted;
 
-        const displayName = this.props.metadata[id].name;
-
         return (
             <li
                 className="dimension-item"
@@ -144,7 +142,7 @@ export class SelectedItems extends Component {
                         style={style.text}
                         onClick={() => this.toggleHighlight(id)}
                     >
-                        {displayName}
+                        {this.props.metadata[id].name}
                     </span>
                     <RemoveSelectedItemButton
                         style={style.removeButton}

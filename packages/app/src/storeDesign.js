@@ -44,10 +44,10 @@ const state = {
     // Init state: {}
     // Example of populated state: {
     //     Uvn6LCg7dVU: {
-    //         displayName: "ANC 1 Coverage",
+    //         name: "ANC 1 Coverage",
     //     },
     //     ImspTQPwCqd: {
-    //         displayName: "Sierra Leone",
+    //         name: "Sierra Leone",
     //     },
     // }
     metadata: {},
@@ -67,7 +67,7 @@ const state = {
         isSuperuser: false,
     },
 
-    // Object containing the text of a load visualization error
+    // String containing the text of a load visualization error
     loadError: null,
 };
 
