@@ -1,3 +1,15 @@
 .dimension-item:hover {
     cursor: pointer;
 }
+
+.unselected-label {
+    font-family: Roboto;
+    font-size: 14px;
+    padding: 0px 2px 1px 2px;
+}
+
+.selected-label {
+    font-family: Roboto;
+    font-size: 14px;
+    padding-top: 2px;
+}

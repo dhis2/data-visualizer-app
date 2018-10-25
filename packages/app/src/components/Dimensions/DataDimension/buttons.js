@@ -50,9 +50,11 @@ const style = {
     deleteButton: {
         border: 'none',
         background: 'none',
+        outline: 'none',
         padding: 0,
         paddingTop: 4,
-        paddingLeft: 1,
+        paddingLeft: 3,
+        paddingRight: 10,
         width: 10,
     },
     deleteButtonIcon: {

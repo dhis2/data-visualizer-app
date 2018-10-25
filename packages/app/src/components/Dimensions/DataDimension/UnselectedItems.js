@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import throttle from 'lodash-es/throttle';
+import { Item } from './Item';
 import { AssignButton, SelectAllButton } from './buttons';
+import { toggler } from './toggler';
 import { colors } from '../../../colors';
 
 const style = {
@@ -11,7 +13,7 @@ const style = {
     },
     listContainer: {
         listStyle: 'none',
-        overflowX: 'scroll',
+        overflowY: 'scroll',
         height: 340,
         width: 418,
         borderBottom: 0,
@@ -23,31 +25,20 @@ const style = {
         display: 'flex',
         margin: 5,
     },
-    highlighted: {
-        backgroundColor: '#92C9F7',
-        borderRadius: 4,
-    },
-    unHighlighted: {
-        display: 'flex',
-        padding: 2,
-    },
     text: {
         fontFamily: 'Roboto',
         fontSize: 14,
-        paddingLeft: 2,
-        paddingRight: 2,
+        padding: '0px 2px 1px 2px',
     },
-    icon: {
+    unselectedIcon: {
         backgroundColor: colors.grey,
         height: 6,
         width: 6,
-        marginTop: 4,
+        marginTop: 5,
         marginLeft: 10,
         marginRight: 5,
     },
 };
-
-const UnselectedIcon = () => <div style={style.icon} />;
 
 export class UnselectedItems extends Component {
     constructor(props) {
@@ -55,7 +46,7 @@ export class UnselectedItems extends Component {
         this.ulRef = React.createRef();
     }
 
-    state = { highlighted: [] };
+    state = { highlighted: [], lastClickedIndex: 0 };
 
     onSelectClick = () => {
         this.props.onSelect(this.state.highlighted);
@@ -67,35 +58,43 @@ export class UnselectedItems extends Component {
         this.setState({ highlighted: [] });
     };
 
-    toggleHighlight = id => {
-        const higlightedItems = this.state.highlighted.includes(id)
-            ? this.state.highlighted.filter(
-                  dataDimId => dataDimId !== id && dataDimId
-              )
-            : [...this.state.highlighted, id];
+    toggleHighlight = (isCtrlPressed, isShiftPressed, index, id) => {
+        const newState = toggler(
+            id,
+            isCtrlPressed,
+            isShiftPressed,
+            index,
+            this.state.lastClickedIndex,
+            this.state.highlighted,
+            this.props.items.map(item => item.id)
+        );
 
-        this.setState({ highlighted: higlightedItems });
+        this.setState({
+            highlighted: newState.ids,
+            lastClickedIndex: newState.lastClickedIndex,
+        });
     };
 
     onDoubleClickItem = id => this.props.onSelect([id]);
 
-    renderListItem = dataDim => {
-        const itemStyle = this.state.highlighted.includes(dataDim.id)
-            ? { ...style.unHighlighted, ...style.highlighted }
-            : style.unHighlighted;
-
+    renderListItem = (dataDim, index) => {
         return (
             <li
                 className="dimension-item"
                 key={dataDim.id}
                 style={style.listItem}
-                onDoubleClick={() => this.onDoubleClickItem(dataDim.id)}
-                onClick={() => this.toggleHighlight(dataDim.id)}
             >
-                <div style={itemStyle}>
-                    <UnselectedIcon />
-                    <span style={style.text}>{dataDim.name}</span>
-                </div>
+                <Item
+                    id={dataDim.id}
+                    index={index}
+                    displayName={dataDim.name}
+                    isHighlighted={
+                        !!this.state.highlighted.includes(dataDim.id)
+                    }
+                    onItemClick={this.toggleHighlight}
+                    onDoubleClick={this.onDoubleClickItem}
+                    unselected={true}
+                />
             </li>
         );
     };
@@ -113,7 +112,9 @@ export class UnselectedItems extends Component {
     }, 1000);
 
     render = () => {
-        const listItems = this.props.items.map(i => this.renderListItem(i));
+        const listItems = this.props.items.map((item, index) =>
+            this.renderListItem(item, index)
+        );
 
         return (
             <div style={style.container} onScroll={this.requestMoreItems}>

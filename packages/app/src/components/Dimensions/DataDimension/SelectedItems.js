@@ -2,16 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
-import {
-    UnAssignButton,
-    DeselectAllButton,
-    RemoveSelectedItemButton,
-} from './buttons';
+import { Item } from './Item';
+import { UnAssignButton, DeselectAllButton } from './buttons';
 
 import { sGetMetadata } from '../../../reducers/metadata';
+import { toggler } from './toggler';
 import { colors } from '../../../colors';
 
-const style = {
+const styles = {
     container: {
         border: `1px solid ${colors.greyLight}`,
         height: 534,
@@ -23,7 +21,7 @@ const style = {
     },
     list: {
         listStyle: 'none',
-        overflow: 'scroll',
+        overflowY: 'scroll',
         height: 455,
         paddingLeft: 0,
         margin: 0,
@@ -73,26 +71,16 @@ const style = {
     },
 };
 
-const SELECTED_DATA_TITLE = i18n.t('Selected Data');
-
-const SelectedIcon = () => {
-    return (
-        <div style={style.iconContainer}>
-            <div style={style.icon} />
-        </div>
-    );
-};
-
 const Subtitle = () => {
     return (
-        <div style={style.subTitleContainer}>
-            <span style={style.subTitleText}>{SELECTED_DATA_TITLE}</span>
+        <div style={styles.subTitleContainer}>
+            <span style={styles.subTitleText}>{i18n.t('Selected Data')}</span>
         </div>
     );
 };
 
 export class SelectedItems extends Component {
-    state = { highlighted: [] };
+    state = { highlighted: [], lastClickedInex: 0 };
 
     onDeselectClick = () => {
         this.props.onDeselect(this.state.highlighted);
@@ -109,25 +97,24 @@ export class SelectedItems extends Component {
         this.setState({ highlighted: [] });
     };
 
-    removeHighlight = id => {
-        return this.state.highlighted.filter(
-            dataDimId => dataDimId !== id && dataDimId
+    toggleHighlight = (isCtrlPressed, isShiftPressed, index, id) => {
+        const newState = toggler(
+            id,
+            isCtrlPressed,
+            isShiftPressed,
+            index,
+            this.state.lastClickedIndex,
+            this.state.highlighted,
+            this.props.items
         );
+
+        this.setState({
+            highlighted: newState.ids,
+            lastClickedIndex: newState.lastClickedIndex,
+        });
     };
 
-    toggleHighlight = id => {
-        const higlightedItems = this.state.highlighted.includes(id)
-            ? this.removeHighlight(id)
-            : [...this.state.highlighted, id];
-
-        this.setState({ highlighted: higlightedItems });
-    };
-
-    renderItem = id => {
-        const itemStyle = this.state.highlighted.includes(id)
-            ? { ...style.unHighlighted, ...style.highlighted }
-            : style.unHighlighted;
-
+    renderListItem = (id, index) => {
         const displayName = this.props.metadata[id].name;
 
         return (
@@ -135,33 +122,30 @@ export class SelectedItems extends Component {
                 className="dimension-item"
                 id={id}
                 key={id}
-                style={style.listItem}
-                onDoubleClick={() => this.onRemoveSelected(id)}
+                style={styles.listItem}
             >
-                <div style={itemStyle}>
-                    <SelectedIcon />
-                    <span
-                        style={style.text}
-                        onClick={() => this.toggleHighlight(id)}
-                    >
-                        {displayName}
-                    </span>
-                    <RemoveSelectedItemButton
-                        style={style.removeButton}
-                        action={() => this.onRemoveSelected(id)}
-                    />
-                </div>
+                <Item
+                    id={id}
+                    index={index}
+                    displayName={displayName}
+                    isHighlighted={!!this.state.highlighted.includes(id)}
+                    onItemClick={this.toggleHighlight}
+                    onRemoveItem={this.onRemoveSelected}
+                    unselected={false}
+                />
             </li>
         );
     };
 
     render = () => {
-        const dataDimensions = this.props.items.map(id => this.renderItem(id));
+        const dataDimensions = this.props.items.map((id, index) =>
+            this.renderListItem(id, index)
+        );
 
         return (
-            <div style={style.container}>
+            <div style={styles.container}>
                 <Subtitle />
-                <ul style={style.list}>{dataDimensions}</ul>
+                <ul style={styles.list}>{dataDimensions}</ul>
                 <UnAssignButton action={this.onDeselectClick} />
                 <DeselectAllButton action={this.onDeselectAllClick} />
             </div>
