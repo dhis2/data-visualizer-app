@@ -31,9 +31,7 @@ export const arrayIsEqual = (array1, array2) => {
     return false;
 };
 export const sortArray = (array, propName) => {
-    const entries = Object.values(array);
-
-    return entries.sort((itemA, itemB) => {
+    return array.sort((itemA, itemB) => {
         const nameA = itemA[propName].toLowerCase();
         const nameB = itemB[propName].toLowerCase();
 

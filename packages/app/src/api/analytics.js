@@ -1,4 +1,4 @@
-import { getInstance } from 'd2/lib/d2';
+import { getInstance } from 'd2';
 
 export const apiDownloadImage = async (type, formData) => {
     const d2 = await getInstance();

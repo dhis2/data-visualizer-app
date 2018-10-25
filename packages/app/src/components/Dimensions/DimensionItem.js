@@ -43,7 +43,7 @@ export class DimensionItem extends Component {
                 draggable="true"
                 onDragStart={this.onDragStart}
             >
-                {i18n.t(this.props.displayName)}
+                {i18n.t(this.props.name)}
             </span>
         );
     };
@@ -79,7 +79,7 @@ export class DimensionItem extends Component {
 
 DimensionItem.propTypes = {
     id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-    displayName: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     isSelected: PropTypes.bool.isRequired,
     toggleDialog: PropTypes.func.isRequired,
 };

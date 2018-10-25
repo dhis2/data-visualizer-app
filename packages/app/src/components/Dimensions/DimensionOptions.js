@@ -11,15 +11,15 @@ import { styles } from './styles/DimensionOptions.style';
 const items = [
     {
         axisName: 'columns',
-        displayName: i18n.t('Add to series'),
+        name: i18n.t('Add to series'),
     },
     {
         axisName: 'rows',
-        displayName: i18n.t('Add to category'),
+        name: i18n.t('Add to category'),
     },
     {
         axisName: 'filters',
-        displayName: i18n.t('Add to filter'),
+        name: i18n.t('Add to filter'),
     },
 ];
 
@@ -54,7 +54,7 @@ export class DimensionOptions extends Component {
                 key={option.axisName}
                 onClick={() => this.addDimension(option.axisName)}
             >
-                {option.displayName}
+                {option.name}
             </MenuItem>
         ));
     };

@@ -51,7 +51,7 @@ export const DataTypes = ({ currentDataType, onDataTypeChange }) => {
                         key={type.id}
                         value={type.id}
                     >
-                        {type.displayName}
+                        {type.name}
                     </MenuItem>
                 ))}
             </Select>
