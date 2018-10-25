@@ -13,6 +13,8 @@ import {
     ADD_UI_PARENT_GRAPH_MAP,
     SET_UI_PARENT_GRAPH_MAP,
     SET_UI_ACTIVE_MODAL_DIALOG,
+    SET_UI_YEAR_ON_YEAR_SERIES,
+    SET_UI_YEAR_ON_YEAR_CATEGORY,
 } from '../reducers/ui';
 
 export const acSetUi = value => ({
@@ -66,6 +68,16 @@ export const acAddUiItems = value => ({
 
 export const acRemoveUiItems = value => ({
     type: REMOVE_UI_ITEMS,
+    value,
+});
+
+export const acSetUiYearOnYearSeries = value => ({
+    type: SET_UI_YEAR_ON_YEAR_SERIES,
+    value,
+});
+
+export const acSetUiYearOnYearCategory = value => ({
+    type: SET_UI_YEAR_ON_YEAR_CATEGORY,
     value,
 });
 

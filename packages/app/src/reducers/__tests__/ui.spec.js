@@ -318,23 +318,33 @@ describe('reducer: ui', () => {
     it(`${SET_UI_YEAR_ON_YEAR_SERIES}: should set new yearOnYearSeries`, () => {
         const series = 'LAST_YEAR';
 
-        const actualState = reducer(DEFAULT_UI.yearOnYearSeries, {
+        const actualState = reducer(DEFAULT_UI, {
             type: SET_UI_YEAR_ON_YEAR_SERIES,
             value: series,
         });
 
-        expect(actualState).toEqual(series);
+        const expectedState = {
+            ...DEFAULT_UI,
+            yearOnYearSeries: series,
+        };
+
+        expect(actualState).toEqual(expectedState);
     });
 
     it(`${SET_UI_YEAR_ON_YEAR_CATEGORY}: should set new yearOnYearCategory`, () => {
         const category = 'LAST_3_MONTHS';
 
-        const actualState = reducer(DEFAULT_UI.yearOnYearCategory, {
+        const actualState = reducer(DEFAULT_UI, {
             type: SET_UI_YEAR_ON_YEAR_CATEGORY,
             value: category,
         });
 
-        expect(actualState).toEqual(category);
+        const expectedState = {
+            ...DEFAULT_UI,
+            yearOnYearCategory: category,
+        };
+
+        expect(actualState).toEqual(expectedState);
     });
 
     it(`${SET_UI_PARENT_GRAPH_MAP}: should set the new parent graph map`, () => {

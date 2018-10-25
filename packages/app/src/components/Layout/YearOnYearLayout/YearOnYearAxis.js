@@ -12,7 +12,7 @@ import defaultAxisStyles from '../DefaultLayout/styles/DefaultAxis.style';
 // const styles = {};
 
 const axisLabels = {
-    yearOnYearSeries: i18n.t('Yearly series'),
+    yearOnYearSeries: i18n.t('Series'),
     yearOnYearCategory: i18n.t('Category'),
 };
 
@@ -22,7 +22,7 @@ const YearOnYearAxis = props => (
         style={{ ...defaultAxisStyles.axisContainer, ...props.style }}
     >
         <div style={defaultAxisStyles.label}>{axisLabels[props.axisName]}</div>
-        <div style={defaultAxisStyles.content}>{props[props.axisName]}</div>
+        <div style={defaultAxisStyles.content}>{props.children}</div>
     </div>
 );
 

@@ -153,10 +153,17 @@ export default (state = DEFAULT_UI, action) => {
             return Object.assign({}, { ...state }, { itemsByDimension });
         }
         case SET_UI_YEAR_ON_YEAR_SERIES: {
-            return action.value || DEFAULT_UI.yearOnYearSeries;
+            return {
+                ...state,
+                yearOnYearSeries: action.value || DEFAULT_UI.yearOnYearSeries,
+            };
         }
         case SET_UI_YEAR_ON_YEAR_CATEGORY: {
-            return action.value || DEFAULT_UI.yearOnYearCategory;
+            return {
+                ...state,
+                yearOnYearCategory:
+                    action.value || DEFAULT_UI.yearOnYearCategory,
+            };
         }
         case SET_UI_PARENT_GRAPH_MAP: {
             return {
