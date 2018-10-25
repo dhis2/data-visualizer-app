@@ -1,32 +1,7 @@
 import React from 'react';
 
 import Axis from './Axis';
-import * as defaultLayoutStyle from './styles/defaultStyle';
-
-const styles = {
-    ct: {
-        display: 'flex',
-    },
-    axisGroup: {
-        display: 'flex',
-        flexDirection: 'column',
-    },
-    axisGroupLeft: {
-        flexBasis: defaultLayoutStyle.DIMENSION_AXIS_WIDTH,
-    },
-    axisGroupRight: {
-        flexBasis: defaultLayoutStyle.FILTER_AXIS_WIDTH,
-    },
-    columns: {
-        flexBasis: '50%',
-    },
-    rows: {
-        flexBasis: '50%',
-    },
-    filters: {
-        flexBasis: '100%',
-    },
-};
+import styles from './styles/DefaultLayout.style';
 
 const Layout = () => (
     <div id="layout-ct" style={styles.ct}>

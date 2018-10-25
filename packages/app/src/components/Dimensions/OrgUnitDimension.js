@@ -14,7 +14,6 @@ import PropTypes from 'prop-types';
 import { sGetUi } from '../../reducers/ui';
 import { sGetMetadata } from '../../reducers/metadata';
 import { acAddMetadata } from '../../actions/metadata';
-import { acSetRecommendedIds } from '../../actions/recommendedIds';
 import { acSetCurrentFromUi } from '../../actions/current';
 import {
     acAddUiItems,
@@ -23,12 +22,12 @@ import {
     acAddParentGraphMap,
     acSetParentGraphMap,
 } from '../../actions/ui';
+import { tSetRecommendedIds } from '../../actions/recommendedIds';
 import {
     apiFetchOrganisationUnitGroups,
     apiFetchOrganisationUnitLevels,
     apiFetchOrganisationUnits,
 } from '../../api/organisationUnits';
-import { apiFetchRecommendedIds } from '../../api/dimensions';
 
 /**
  * Org unit level id prefix
@@ -314,26 +313,20 @@ export class OrgUnitDimension extends Component {
         this.props.toggleDialog();
     };
 
-    onUpdateClick = async () => {
+    onUpdateClick = () => {
         const {
             acSetCurrentFromUi,
-            acSetRecommendedIds,
-            toggleDialog,
             ui,
+            toggleDialog,
+            fetchRecommendedIds,
         } = this.props;
 
-        const shouldFetchRecommended =
-            ui.itemsByDimension.dx.length >= 2 &&
-            ui.itemsByDimension.ou.length >= 2;
-
-        if (shouldFetchRecommended) {
-            const recommendedIds = await apiFetchRecommendedIds(
-                ui.itemsByDimension.dx,
-                ui.itemsByDimension.ou
-            );
-            acSetRecommendedIds(recommendedIds);
+        if (ui.itemsByDimension.ou.length || ui.itemsByDimension.dx.length) {
+            fetchRecommendedIds({
+                dx: ui.itemsByDimension.dx,
+                ou: ui.itemsByDimension.ou,
+            });
         }
-
         acSetCurrentFromUi(ui);
         toggleDialog(null);
     };
@@ -398,7 +391,7 @@ const mapDispatchToProps = {
     acAddParentGraphMap,
     acSetParentGraphMap,
     acSetCurrentFromUi,
-    acSetRecommendedIds,
+    fetchRecommendedIds: tSetRecommendedIds,
 };
 
 export default connect(

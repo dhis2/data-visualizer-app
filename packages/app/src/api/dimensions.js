@@ -35,12 +35,14 @@ export const apiFetchDimensions = () => {
 };
 
 export const apiFetchRecommendedIds = (dxIds, ouIds) => {
-    const lastDataIds = [dxIds[dxIds.length - 2], dxIds[dxIds.length - 1]];
-    const lastOrgUnitIds = [ouIds[ouIds.length - 2], ouIds[ouIds.length - 1]];
+    let fields = 'dimension=';
 
-    const fields = `dimension=dx:${lastDataIds[0]};${
-        lastDataIds[1]
-    }&dimension=ou:${lastOrgUnitIds[0]};${lastOrgUnitIds[1]}`;
+    if (dxIds.length) {
+        fields = fields.concat(`dx:${dxIds.join(';')}`);
+
+        if (ouIds.length)
+            fields = fields.concat(`&dimension=ou:${ouIds.join(';')}`);
+    } else if (ouIds.length) fields = fields.concat(`ou:${ouIds.join(';')}`);
 
     const url = `/dimensions/recommendations?${fields}`;
 

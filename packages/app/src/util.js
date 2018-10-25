@@ -15,6 +15,21 @@ export function entriesToObject(entries) {
     );
 }
 
+export const arrayIsEqual = (array1, array2) => {
+    if (Array.isArray(array1) && Array.isArray(array2)) {
+        const srcArray = array1.length > array2.length ? array1 : array2;
+        const compareArr = array1.length > array2.length ? array2 : array1;
+
+        let isEqual = true;
+        srcArray.forEach(item => {
+            if (!compareArr.includes(item)) isEqual = false;
+        });
+
+        return isEqual;
+    }
+
+    return false;
+};
 export const sortArray = (array, propName) => {
     const entries = Object.values(array);
 

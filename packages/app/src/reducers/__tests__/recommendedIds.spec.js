@@ -5,6 +5,10 @@ import reducer, {
 
 describe('reducer: recommendedIds', () => {
     const ids = ['abc', 'bcd'];
+    const expectedState = {
+        fetchedIds: ids,
+        previousRequestedIds: [],
+    };
 
     it('should return the default state', () => {
         const actualState = reducer(undefined, { type: 'NO_MATCH' });
@@ -17,11 +21,16 @@ describe('reducer: recommendedIds', () => {
             value: ids,
         });
 
-        expect(actualState).toEqual(ids);
+        expect(actualState).toEqual(expectedState);
     });
 
     it(`${SET_RECOMMENDED_IDS}: should clear recommendedIds`, () => {
-        const actualState = reducer(ids, {
+        const testState = {
+            fetchedIds: ids,
+            previousRequestedIds: [],
+        };
+
+        const actualState = reducer(testState, {
             type: SET_RECOMMENDED_IDS,
             value: undefined,
         });
