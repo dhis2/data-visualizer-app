@@ -1,28 +1,32 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import Button from '@material-ui/core/Button';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import i18n from '@dhis2/d2-i18n';
+import PropTypes from 'prop-types';
+
 import {
     OrgUnitSelector,
     userOrgUnits,
     removeOrgUnitLastPathSegment,
 } from '@dhis2/d2-ui-org-unit-dialog';
-import PropTypes from 'prop-types';
+
 import styles from './styles/OrgUnitDimension.style';
+import { HideButton, UpdateButton } from './buttons';
 import { sGetUi } from '../../../reducers/ui';
 import { acSetCurrentFromUi } from '../../../actions/current';
 import { acAddMetadata } from '../../../actions/metadata';
 import { sGetMetadata } from '../../../reducers/metadata';
+
 import {
     acAddUiItems,
     acSetUiItems,
     acRemoveUiItems,
     acAddParentGraphMap,
-    acSetParentGraphMap,
 } from '../../../actions/ui';
+
 import {
     apiFetchOrganisationUnitGroups,
     apiFetchOrganisationUnitLevels,
@@ -88,7 +92,7 @@ export class OrgUnitDimension extends Component {
         }
 
         // for root org units
-        if (this.props.ui.parentGraphMap[id] === '') {
+        if (this.props.ui.parentGraphMap[id] === id) {
             return `/${id}`;
         }
 
@@ -319,10 +323,6 @@ export class OrgUnitDimension extends Component {
     };
 
     render = () => {
-        if (!this.state.root) {
-            return 'loading...';
-        }
-
         const ids = this.props.ui.itemsByDimension.ou;
 
         const userOrgUnits = this.getUserOrgUnitsFromIds(ids);
@@ -334,27 +334,31 @@ export class OrgUnitDimension extends Component {
             <Fragment>
                 <DialogTitle>{i18n.t('Organisation units')}</DialogTitle>
                 <DialogContent style={styles.dialogContent}>
-                    <OrgUnitSelector
-                        root={this.state.root}
-                        selected={selected}
-                        userOrgUnits={userOrgUnits}
-                        level={level}
-                        group={group}
-                        levelOptions={this.state.levelOptions}
-                        groupOptions={this.state.groupOptions}
-                        onLevelChange={this.onLevelChange}
-                        onGroupChange={this.onGroupChange}
-                        handleUserOrgUnitClick={this.handleUserOrgUnitClick}
-                        handleOrgUnitClick={this.handleOrgUnitClick}
-                    />
+                    {this.state.root && (
+                        <OrgUnitSelector
+                            root={this.state.root}
+                            selected={selected}
+                            userOrgUnits={userOrgUnits}
+                            level={level}
+                            group={group}
+                            levelOptions={this.state.levelOptions}
+                            groupOptions={this.state.groupOptions}
+                            onLevelChange={this.onLevelChange}
+                            onGroupChange={this.onGroupChange}
+                            handleUserOrgUnitClick={this.handleUserOrgUnitClick}
+                            handleOrgUnitClick={this.handleOrgUnitClick}
+                        />
+                    )}
+                    {!this.state.root && (
+                        <CircularProgress style={styles.loader} />
+                    )}
                 </DialogContent>
                 <DialogActions style={{ padding: '24px' }}>
-                    <Button onClick={this.onCloseClick}>
-                        {i18n.t('Hide')}
-                    </Button>
-                    <Button color="primary" onClick={this.onUpdateClick}>
-                        {i18n.t('Update')}
-                    </Button>
+                    <HideButton onClick={this.onCloseClick} />
+                    <UpdateButton
+                        color="primary"
+                        onClick={this.onUpdateClick}
+                    />
                 </DialogActions>
             </Fragment>
         );
@@ -376,7 +380,6 @@ const mapDispatchToProps = {
     acAddMetadata,
     acSetUiItems,
     acAddParentGraphMap,
-    acSetParentGraphMap,
     acSetCurrentFromUi,
 };
 
