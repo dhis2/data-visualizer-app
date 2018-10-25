@@ -4,11 +4,12 @@ import i18n from '@dhis2/d2-i18n';
 import MenuItem from '@material-ui/core/MenuItem';
 
 import Chip from '../Chip';
-import { sGetUiLayout } from '../../../reducers/ui';
+import { sGetUiLayout, sGetUiItems } from '../../../reducers/ui';
 import { decodeDataTransfer } from '../../../dnd';
 import {
     acAddUiLayoutDimensions,
     acRemoveUiLayoutDimensions,
+    acSetUiActiveModalDialog,
 } from '../../../actions/ui';
 import { AXIS_NAMES } from '../../../layout';
 import { styles } from './styles/Axis.style';
@@ -26,12 +27,17 @@ class Axis extends React.Component {
 
     onDrop = e => {
         const { dimensionId } = decodeDataTransfer(e);
+        e.dataTransfer.clearData();
 
         this.props.onAddDimension({
             [dimensionId]: this.props.axisName,
         });
 
-        e.dataTransfer.clearData();
+        const items = this.props.itemsByDimension[dimensionId];
+
+        if (!items || !items.length) {
+            this.props.onDropWithoutItems(dimensionId);
+        }
     };
 
     getAxisMenuItems = dimensionId =>
@@ -85,11 +91,15 @@ class Axis extends React.Component {
 
 const mapStateToProps = (state, ownProps) => ({
     axis: sGetUiLayout(state)[ownProps.axisName],
+    itemsByDimension: sGetUiItems(state),
 });
 
 const mapDispatchToProps = dispatch => ({
     onAddDimension: map => dispatch(acAddUiLayoutDimensions(map)),
-    getOpenHandler: dimensionId => () => alert(`Open ${dimensionId} selector`),
+    onDropWithoutItems: dimensionId =>
+        dispatch(acSetUiActiveModalDialog(dimensionId)),
+    getOpenHandler: dimensionId => () =>
+        dispatch(acSetUiActiveModalDialog(dimensionId)),
     getMoveHandler: value => event => {
         event.stopPropagation();
         dispatch(acAddUiLayoutDimensions(value));
