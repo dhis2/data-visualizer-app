@@ -191,8 +191,6 @@ export class DataDimension extends Component {
             'id'
         );
 
-        console.log('itemsToAdd', itemsToAdd);
-
         this.props.addDxItems({
             dimensionType: DX,
             value: selectedIds,
