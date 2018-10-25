@@ -9,6 +9,7 @@ import settings, * as fromSettings from './settings';
 import user, * as fromUser from './user';
 import snackbar, * as fromSnackbar from './snackbar';
 import loadError, * as fromLoadError from './loadError';
+import chart, * as fromChart from './chart';
 
 // Reducers
 
@@ -23,6 +24,7 @@ export default combineReducers({
     user,
     snackbar,
     loadError,
+    chart,
 });
 
 // Selectors
@@ -38,4 +40,5 @@ export {
     fromUser,
     fromSnackbar,
     fromLoadError,
+    fromChart,
 };

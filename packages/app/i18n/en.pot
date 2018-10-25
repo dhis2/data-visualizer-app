@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-10-23T08:07:00.840Z\n"
-"PO-Revision-Date: 2018-10-23T08:07:00.840Z\n"
+"POT-Creation-Date: 2018-10-24T09:51:53.596Z\n"
+"PO-Revision-Date: 2018-10-24T09:51:53.596Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -123,6 +123,36 @@ msgid "Period"
 msgstr ""
 
 msgid "Dimension recommended with selected data"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+msgid "Graphics"
+msgstr ""
+
+msgid "Image (.png)"
+msgstr ""
+
+msgid "PDF (.pdf)"
+msgstr ""
+
+msgid "Plain data source"
+msgstr ""
+
+msgid "Advanced"
+msgstr ""
+
+msgid "Meta-data ID scheme"
+msgstr ""
+
+msgid "Data value set"
+msgstr ""
+
+msgid "Other formats"
+msgstr ""
+
+msgid "Interpretations"
 msgstr ""
 
 msgid "selected"

@@ -1,4 +1,4 @@
-import { getInstance } from 'd2/lib/d2';
+import { getInstance } from 'd2';
 import { getFieldsStringByType } from '../fields';
 
 export const apiFetchVisualization = (type, id) =>

@@ -5,6 +5,7 @@ import { sGetCurrent } from '../../reducers/current';
 import BlankCanvas, { visContainerId } from './BlankCanvas';
 import { getOptionsForRequest } from '../../options';
 import { acAddMetadata } from '../../actions/metadata';
+import { acSetChart } from '../../actions/chart';
 
 export class Visualization extends Component {
     componentDidMount() {
@@ -43,7 +44,14 @@ export class Visualization extends Component {
         // TODO add a try/catch here
         this.props.acAddMetadata(res.metaData.items);
 
-        createChart(res, current, visContainerId);
+        const chartConfig = createChart(res, current, visContainerId);
+
+        this.props.acSetChart(
+            chartConfig.chart.getSVGForExport({
+                sourceHeight: 768,
+                sourceWidth: 1024,
+            })
+        );
     };
 
     render() {
@@ -57,5 +65,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { acAddMetadata }
+    { acAddMetadata, acSetChart }
 )(Visualization);
