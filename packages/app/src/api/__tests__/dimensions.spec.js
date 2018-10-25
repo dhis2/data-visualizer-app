@@ -3,7 +3,7 @@ import {
     apiFetchGroups,
     apiFetchDimensions,
 } from '../dimensions';
-import * as d2lib from 'd2/lib/d2';
+import * as d2lib from 'd2';
 
 let mockD2;
 let mockGetFn;
