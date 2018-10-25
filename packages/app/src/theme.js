@@ -12,8 +12,19 @@ export const muiTheme = () => {
         },
     };
 
+    const selectField = {
+        select: {
+            '&:focus': {
+                background: '$labelcolor',
+            },
+        },
+    };
+
     const theme = createMuiTheme({
-        overrides: { MuiButton: raisedButton },
+        overrides: {
+            MuiButton: raisedButton,
+            MuiSelect: selectField,
+        },
     });
 
     return theme;
