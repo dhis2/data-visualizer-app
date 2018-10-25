@@ -244,17 +244,17 @@
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
-"@dhis2/d2-ui-period-selector-dialog@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-period-selector-dialog/-/d2-ui-period-selector-dialog-2.0.0.tgz#bdfca62b115dc3e8d2e61824c6e637007b841342"
-  integrity sha512-8hgFp6TIyODK0oMuLtyEEd9fV/mF84tedLJdvo2bHRvAz3PlX1R9SbVMl3QzMYgOIOaVYaHqa+KzX5yDE5zS7Q==
+"@dhis2/d2-ui-period-selector-dialog@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-period-selector-dialog/-/d2-ui-period-selector-dialog-2.0.1.tgz#da23c29f89ca2bd3a47488008f2358e1caaa68fd"
+  integrity sha512-Lkr3yX+Zp+YZyqEFSWXoo+9pywQ5c4PmX5V1xWcF2sIVx0lF8D4WYSIy6TPrblFC80W4IaZm75Mjyt7Kpey1nw==
   dependencies:
-    "@material-ui/core" "^1.5.1"
-    "@material-ui/icons" "^2.0.3"
+    "@material-ui/core" "^3.3.1"
+    "@material-ui/icons" "^3.0.1"
     babel-runtime "^6.26.0"
     prop-types "^15.6.0"
     react-redux "^5.0.7"
-    redux "^3.7.2"
+    redux "^4.0.1"
 
 "@dhis2/d2-ui-sharing-dialog@^3.0.0":
   version "3.0.0"
@@ -924,7 +924,7 @@
     recompose "^0.28.0"
     warning "^4.0.1"
 
-"@material-ui/core@^3.0.0", "@material-ui/core@^3.1.0", "@material-ui/core@^3.1.2":
+"@material-ui/core@^3.0.0", "@material-ui/core@^3.1.0", "@material-ui/core@^3.1.2", "@material-ui/core@^3.3.1":
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-3.3.1.tgz#e4ecce8b56065364d2a937e845af63d720b696e8"
   integrity sha512-uXTL6L8ISAAlXK1cNX4sFpRvZFEoyHTMZPIqt3dlqJe4dZxsLA+dzSRMYGd4x3xJAUjjspMFEPAVATjzi6gp+A==
@@ -10594,7 +10594,7 @@ redux@^3.7.2:
     loose-envify "^1.1.0"
     symbol-observable "^1.0.3"
 
-redux@^4.0.0:
+redux@^4.0.0, redux@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/redux/-/redux-4.0.1.tgz#436cae6cc40fbe4727689d7c8fae44808f1bfef5"
   integrity sha512-R7bAtSkk7nY6O/OYMVR9RiBI+XghjF9rlbl5806HJbQph0LJVHZrU5oaO4q70eUKiqMRqm4y07KLTlMZ2BlVmg==
