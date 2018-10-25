@@ -45,9 +45,9 @@ class Chip extends React.Component {
     };
 
     handleClick = event => {
-        this.handleMouseOut();
-
         this.props.onClick(event);
+
+        this.handleMouseOut();
     };
 
     getDragStartHandler = source => e => {
