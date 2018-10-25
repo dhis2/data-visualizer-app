@@ -16,20 +16,17 @@ export function entriesToObject(entries) {
 }
 
 export const arrayIsEqual = (array1, array2) => {
-    if (Array.isArray(array1) && Array.isArray(array2)) {
-        const srcArray = array1.length > array2.length ? array1 : array2;
-        const compareArr = array1.length > array2.length ? array2 : array1;
+    if (array1.length !== array2.length) return false;
 
-        let isEqual = true;
-        srcArray.forEach(item => {
-            if (!compareArr.includes(item)) isEqual = false;
-        });
+    let isEqual = true;
 
-        return isEqual;
-    }
+    array1.forEach(item => {
+        if (!array2.includes(item)) isEqual = false;
+    });
 
-    return false;
+    return isEqual;
 };
+
 export const sortArray = (array, propName) => {
     return array.sort((itemA, itemB) => {
         const nameA = itemA[propName].toLowerCase();
@@ -59,7 +56,6 @@ export function orObject(param) {
 }
 
 // object
-
 export const getPropsByKeys = (sourceObj, keys) =>
     keys.reduce(
         (obj, key) =>

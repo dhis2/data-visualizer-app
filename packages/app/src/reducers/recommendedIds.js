@@ -3,7 +3,10 @@ export const SET_PREVIOUS_REQUESTED_IDS = 'SET_PREVIOUS_REQUESTED_IDS';
 
 export const DEFAULT_RECOMMENDED_IDS = {
     fetchedIds: [],
-    previousRequestedIds: [],
+    previousRequestedIds: {
+        dx: [],
+        ou: [],
+    },
 };
 
 export default (state = DEFAULT_RECOMMENDED_IDS, action) => {

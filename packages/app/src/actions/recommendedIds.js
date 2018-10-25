@@ -27,13 +27,13 @@ export const tSetRecommendedIds = value => async (dispatch, getState) => {
         console.log('Error (apiFetchRecommendedIds): ', error);
     };
 
-    const previousRecommended = sGetPreviousRequestedIds(getState());
+    const previousIds = sGetPreviousRequestedIds(getState());
 
-    const isEqual =
-        arrayIsEqual(value.dx, previousRecommended.dx) &&
-        arrayIsEqual(value.ou, previousRecommended.ou);
+    const shouldFetchItems =
+        !arrayIsEqual(value.dx, previousIds.dx) ||
+        !arrayIsEqual(value.ou, previousIds.ou);
 
-    if (!isEqual) {
+    if (shouldFetchItems) {
         try {
             const recommendedIds = await apiFetchRecommendedIds(
                 value.dx,
