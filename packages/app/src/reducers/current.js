@@ -1,4 +1,7 @@
 import { getAxesFromUi, getOptionsFromUi } from '../current';
+import { createDimension } from '../layout';
+import { YEAR_ON_YEAR } from '../chartTypes';
+import { FIXED_DIMENSIONS } from '../fixedDimensions';
 
 export const SET_CURRENT = 'SET_CURRENT';
 export const SET_CURRENT_FROM_UI = 'SET_CURRENT_FROM_UI';
@@ -6,24 +9,22 @@ export const CLEAR_CURRENT = 'CLEAR_CURRENT';
 
 export const DEFAULT_CURRENT = {};
 
-const getYearOnYearCurrent = (state, action) => ({
+const getYearOnYearCurrentFromUi = (state, action) => ({
     ...state,
-    yearlySeries: action.value.yearOnYearSeries,
+    type: action.value.type,
+    ...getOptionsFromUi(action.value),
     columns: [
-        {
-            dimension: 'pe',
-            items: [{ id: action.value.yearOnYearCategory }],
-        },
+        createDimension(FIXED_DIMENSIONS.pe.id, [
+            action.value.yearOnYearCategory,
+        ]),
     ],
     rows: [
-        {
-            dimension: 'dx',
-            items: [{ id: action.value.itemsByDimension.dx[0] }],
-        },
+        createDimension(FIXED_DIMENSIONS.dx.id, [
+            action.value.itemsByDimension.dx[0],
+        ]),
     ],
     filters: getAxesFromUi(action.value).filters,
-    ...getOptionsFromUi(action.value),
-    type: action.value.type,
+    yearlySeries: action.value.yearOnYearSeries,
 });
 
 export default (state = DEFAULT_CURRENT, action) => {
@@ -33,8 +34,8 @@ export default (state = DEFAULT_CURRENT, action) => {
         }
         case SET_CURRENT_FROM_UI: {
             switch (action.value.type) {
-                case 'YEAR_ON_YEAR':
-                    return getYearOnYearCurrent(state, action);
+                case YEAR_ON_YEAR:
+                    return getYearOnYearCurrentFromUi(state, action);
                 default: {
                     const axesFromUi = getAxesFromUi(action.value);
                     const optionsFromUi = getOptionsFromUi(action.value);
