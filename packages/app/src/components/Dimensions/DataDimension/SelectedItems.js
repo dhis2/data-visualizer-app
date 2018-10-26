@@ -7,42 +7,7 @@ import { UnAssignButton, DeselectAllButton } from './buttons';
 
 import { sGetMetadata } from '../../../reducers/metadata';
 import { toggler } from './toggler';
-import { colors } from '../../../modules/colors';
-
-const styles = {
-    container: {
-        border: `1px solid ${colors.greyLight}`,
-        height: 534,
-        minWidth: 278,
-    },
-    subTitleContainer: {
-        borderBottom: `1px solid ${colors.greyLight}`,
-        height: 42,
-    },
-    list: {
-        userSelect: 'none',
-        listStyle: 'none',
-        overflowY: 'scroll',
-        height: 455,
-        paddingLeft: 0,
-        margin: 0,
-    },
-    subTitleText: {
-        position: 'relative',
-        fontFamily: 'Roboto',
-        color: colors.black,
-        fontSize: 15,
-        fontWeight: 500,
-        height: 20,
-        top: 12,
-        left: 8,
-    },
-    listItem: {
-        display: 'flex',
-        margin: 5,
-        minHeight: 24,
-    },
-};
+import { styles } from './styles/SelectedItems.style';
 
 const Subtitle = () => {
     return (

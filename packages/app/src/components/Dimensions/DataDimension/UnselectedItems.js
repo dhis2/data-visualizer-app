@@ -4,28 +4,7 @@ import throttle from 'lodash-es/throttle';
 import { Item } from './Item';
 import { AssignButton, SelectAllButton } from './buttons';
 import { toggler } from './toggler';
-import { colors } from '../../../modules/colors';
-
-const style = {
-    container: {
-        border: `1px solid ${colors.greyLight}`,
-        height: 376,
-    },
-    listContainer: {
-        userSelect: 'none',
-        listStyle: 'none',
-        overflowY: 'scroll',
-        height: 340,
-        width: 418,
-        borderBottom: 0,
-        paddingLeft: 0,
-        margin: 0,
-    },
-    listItem: {
-        display: 'flex',
-        margin: 5,
-    },
-};
+import { styles } from './styles/UnselectedItems.style';
 
 export class UnselectedItems extends Component {
     constructor(props) {
@@ -76,7 +55,7 @@ export class UnselectedItems extends Component {
             <li
                 className="dimension-item"
                 key={dataDim.id}
-                style={style.listItem}
+                style={styles.listItem}
                 onDoubleClick={() => this.onDoubleClickItem(dataDim.id)}
             >
                 <Item
@@ -111,8 +90,8 @@ export class UnselectedItems extends Component {
         );
 
         return (
-            <div style={style.container} onScroll={this.requestMoreItems}>
-                <ul ref={this.ulRef} style={style.listContainer}>
+            <div style={styles.container} onScroll={this.requestMoreItems}>
+                <ul ref={this.ulRef} style={styles.listContainer}>
                     {listItems}
                 </ul>
                 <AssignButton action={this.onSelectClick} />

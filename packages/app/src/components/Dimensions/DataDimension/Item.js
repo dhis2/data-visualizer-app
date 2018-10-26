@@ -3,15 +3,9 @@ import PropTypes from 'prop-types';
 import { RemoveSelectedItemButton } from './buttons';
 import { UnselectedIcon } from '../../../assets/UnselectedIcon';
 import { SelectedIcon } from '../../../assets/SelectedIcon';
+import { styles } from './styles/Item.style';
 
 import './DataDimension.css';
-
-const styles = {
-    highlighted: {
-        backgroundColor: '#7EBFF5',
-        borderRadius: 4,
-    },
-};
 
 const Icon = ({ iconType }) => {
     const icons = {
