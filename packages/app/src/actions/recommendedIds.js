@@ -5,7 +5,7 @@ import {
 
 import { sGetPreviousRequestedIds } from '../reducers/recommendedIds';
 import { apiFetchRecommendedIds } from '../api/dimensions';
-import { arrayIsEqual } from '../util';
+import isEqual from 'lodash-es/isEqual';
 
 export const acSetRecommendedIds = value => ({
     type: SET_RECOMMENDED_IDS,
@@ -30,8 +30,8 @@ export const tSetRecommendedIds = value => async (dispatch, getState) => {
     const previousIds = sGetPreviousRequestedIds(getState());
 
     const shouldFetchItems =
-        !arrayIsEqual(value.dx, previousIds.dx) ||
-        !arrayIsEqual(value.ou, previousIds.ou);
+        !isEqual(value.dx, previousIds.dx) ||
+        !isEqual(value.ou, previousIds.ou);
 
     if (shouldFetchItems) {
         try {

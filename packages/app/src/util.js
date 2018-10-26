@@ -15,18 +15,6 @@ export function entriesToObject(entries) {
     );
 }
 
-export const arrayIsEqual = (array1, array2) => {
-    if (array1.length !== array2.length) return false;
-
-    let isEqual = true;
-
-    array1.forEach(item => {
-        if (!array2.includes(item)) isEqual = false;
-    });
-
-    return isEqual;
-};
-
 export const sortArray = (array, propName) => {
     return array.sort((itemA, itemB) => {
         const nameA = itemA[propName].toLowerCase();
