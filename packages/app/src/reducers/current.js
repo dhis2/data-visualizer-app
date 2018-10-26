@@ -9,21 +9,18 @@ export const CLEAR_CURRENT = 'CLEAR_CURRENT';
 
 export const DEFAULT_CURRENT = {};
 
+const dxId = FIXED_DIMENSIONS.dx.id;
+const peId = FIXED_DIMENSIONS.pe.id;
+
 const getYearOnYearCurrentFromUi = (state, action) => ({
     ...state,
     type: action.value.type,
     ...getOptionsFromUi(action.value),
-    columns: [
-        createDimension(FIXED_DIMENSIONS.pe.id, [
-            action.value.yearOnYearCategory,
-        ]),
-    ],
-    rows: [
-        createDimension(FIXED_DIMENSIONS.dx.id, [
-            action.value.itemsByDimension.dx[0],
-        ]),
-    ],
-    filters: getAxesFromUi(action.value).filters,
+    columns: [createDimension(peId, [action.value.yearOnYearCategory])],
+    rows: [createDimension(dxId, [action.value.itemsByDimension.dx[0]])],
+    filters: getAxesFromUi(action.value).filters.filter(
+        f => f.dimension !== dxId
+    ),
     yearlySeries: action.value.yearOnYearSeries,
 });
 
