@@ -1,5 +1,5 @@
 import { getInstance } from 'd2';
-import { getFieldsStringByType } from '../fields';
+import { getFieldsStringByType } from '../modules/fields';
 
 export const apiFetchVisualization = (type, id) =>
     getInstance().then(d2 =>

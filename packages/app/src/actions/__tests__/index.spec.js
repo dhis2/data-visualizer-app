@@ -2,7 +2,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as fromActions from '../index';
 import * as api from '../../api/visualization';
-import * as history from '../../history';
+import * as history from '../../modules/history';
 
 import {
     SET_VISUALIZATION,

@@ -15,7 +15,7 @@ import reducer, {
     SET_UI_ACTIVE_MODAL_DIALOG,
     CLEAR_UI,
 } from '../ui';
-import { AXIS_NAMES } from '../../layout';
+import { AXIS_NAMES } from '../../modules/layout';
 
 const [COLUMNS, ROWS, FILTERS] = AXIS_NAMES;
 
