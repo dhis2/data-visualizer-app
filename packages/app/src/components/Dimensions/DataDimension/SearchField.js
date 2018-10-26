@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import Search from '@material-ui/icons/Search';
 import i18n from '@dhis2/d2-i18n';
-import { colors } from '../../../utils/colors';
+import { colors } from '../../../modules/colors';
 
 const style = {
     container: {

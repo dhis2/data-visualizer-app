@@ -22,7 +22,7 @@ import { acSetCurrentFromUi } from '../../../actions/current';
 import { acRemoveUiItems, acAddUiItems } from '../../../actions/ui';
 import { acAddMetadata } from '../../../actions/metadata';
 
-import { colors } from '../../../utils/colors';
+import { colors } from '../../../modules/colors';
 import { DEFAULT_DATATYPE_ID, ALL_ID, dataTypes } from './dataTypes';
 
 import './DataDimension.css';

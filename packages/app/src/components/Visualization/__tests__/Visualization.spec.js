@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import * as chartsApi from 'd2-charts-api';
 import { Visualization } from '../Visualization';
 import BlankCanvas from '../BlankCanvas';
-import * as options from '../../../utils/options';
+import * as options from '../../../modules/options';
 
 const metaDataMock = ['a', 'b'];
 class MockAnalyticsResponse {

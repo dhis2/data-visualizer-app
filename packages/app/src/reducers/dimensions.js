@@ -1,4 +1,4 @@
-import { FIXED_DIMENSIONS as DEFAULT_DIMENSIONS } from '../utils/fixedDimensions';
+import { FIXED_DIMENSIONS as DEFAULT_DIMENSIONS } from '../modules/fixedDimensions';
 
 export const SET_DIMENSIONS = 'SET_DIMENSIONS';
 export const SET_SELECTED_DIMENSION = 'SET_SELECTED_DIMENSION';

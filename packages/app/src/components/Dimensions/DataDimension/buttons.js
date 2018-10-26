@@ -4,7 +4,7 @@ import ArrowBack from '@material-ui/icons/ArrowBack';
 import Close from '@material-ui/icons/Close';
 import Button from '@material-ui/core/Button';
 import i18n from '@dhis2/d2-i18n';
-import { colors } from '../../../utils/colors';
+import { colors } from '../../../modules/colors';
 
 const style = {
     actionButton: {

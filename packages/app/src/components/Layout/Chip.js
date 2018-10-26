@@ -4,11 +4,11 @@ import i18n from '@dhis2/d2-i18n';
 
 import Menu from './Menu';
 import Tooltip from './Tooltip';
-import { setDataTransfer } from '../../utils/dnd';
+import { setDataTransfer } from '../../modules/dnd';
 import { sGetDimensions } from '../../reducers/dimensions';
 import { sGetUiItems } from '../../reducers/ui';
 import { styles } from './styles/Chip.style';
-import { FIXED_DIMENSIONS } from '../../utils/fixedDimensions';
+import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
 import { GenericDimensionIcon } from '../../assets/icons';
 
 const TOOLTIP_ENTER_DELAY = 500;
