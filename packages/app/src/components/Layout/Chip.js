@@ -9,7 +9,7 @@ import { sGetDimensions } from '../../reducers/dimensions';
 import { sGetUiItems } from '../../reducers/ui';
 import { styles } from './styles/Chip.style';
 import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
-import { GenericDimensionIcon } from '../../assets/icons';
+import GenericDimensionIcon from '../../assets/GenericDimensionIcon';
 
 const TOOLTIP_ENTER_DELAY = 500;
 

@@ -5,7 +5,7 @@ import DimensionLabel from './DimensionLabel';
 import DimensionOptions from './DimensionOptions';
 import RecommendedIcon from './RecommendedIcon';
 import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
-import { GenericDimensionIcon } from '../../assets/icons';
+import GenericDimensionIcon from '../../assets/GenericDimensionIcon';
 import { setDataTransfer } from '../../modules/dnd';
 import { styles } from './styles/DimensionItem.style';
 

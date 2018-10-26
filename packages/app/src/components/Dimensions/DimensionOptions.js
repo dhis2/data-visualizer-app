@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
 import MenuItem from '@material-ui/core/MenuItem';
 import DropDown from './DropDown';
-import { MoreHorizontalIcon } from '../../assets/icons';
+import MoreHorizontalIcon from '../../assets/MoreHorizontalIcon';
 import { acAddUiLayoutDimensions } from '../../actions/ui';
 import { styles } from './styles/DimensionOptions.style';
 
