@@ -4,9 +4,9 @@ import i18n from '@dhis2/d2-i18n';
 import DimensionLabel from './DimensionLabel';
 import DimensionOptions from './DimensionOptions';
 import RecommendedIcon from './RecommendedIcon';
-import { FIXED_DIMENSIONS } from '../../fixedDimensions';
-import { GenericDimensionIcon } from '../../icons';
-import { setDataTransfer } from '../../dnd';
+import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
+import GenericDimensionIcon from '../../assets/GenericDimensionIcon';
+import { setDataTransfer } from '../../modules/dnd';
 import { styles } from './styles/DimensionItem.style';
 
 export class DimensionItem extends Component {

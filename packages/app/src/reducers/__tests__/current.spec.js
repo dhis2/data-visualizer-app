@@ -1,4 +1,4 @@
-import options from '../../options';
+import options from '../../modules/options';
 import reducer, {
     DEFAULT_CURRENT,
     SET_CURRENT,

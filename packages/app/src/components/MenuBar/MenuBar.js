@@ -9,7 +9,7 @@ import VisualizationOptionsManager from '../VisualizationOptions/VisualizationOp
 import * as fromActions from '../../actions';
 import { sGetCurrent } from '../../reducers/current';
 import './MenuBar.css';
-import history from '../../history';
+import history from '../../modules/history';
 import styles from './styles/MenuBar.style';
 
 const onOpen = id => history.push(`/${id}`);

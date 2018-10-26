@@ -1,4 +1,4 @@
-import { getPropsByKeys } from './util';
+import pick from 'lodash-es/pick';
 
 export const options = {
     baseLineLabel: { defaultValue: undefined, requestable: false },
@@ -65,7 +65,7 @@ const isNotDefault = (optionsFromVisualization, prop) => {
 export const getOptionsFromVisualization = visualization => {
     const optionsFromVisualization = {
         ...getOptionsForUi(),
-        ...getPropsByKeys(visualization, Object.keys(options)),
+        ...pick(visualization, Object.keys(options)),
     };
 
     optionsFromVisualization.baseLine =

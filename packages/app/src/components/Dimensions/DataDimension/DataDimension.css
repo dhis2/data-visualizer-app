@@ -13,3 +13,24 @@
     font-size: 14px;
     padding-top: 2px;
 }
+
+.unselected-list-item {
+    display: flex;
+    padding: 2px 5px 2px 2px;
+    border-radius: 4px;
+}
+
+.unselected-list-item:hover {
+    background-color: #92c9f7;
+}
+
+.selected-list-item {
+    display: flex;
+    padding: 2px 5px 2px 2px;
+    background-color: #bbdefb;
+    border-radius: 4px;
+}
+
+.selected-list-item:hover {
+    background-color: #92c9f7 !important;
+}

@@ -7,7 +7,7 @@ import { UnAssignButton, DeselectAllButton } from './buttons';
 
 import { sGetMetadata } from '../../../reducers/metadata';
 import { toggler } from './toggler';
-import { colors } from '../../../colors';
+import { colors } from '../../../modules/colors';
 
 const styles = {
     container: {
@@ -53,7 +53,7 @@ const Subtitle = () => {
 };
 
 export class SelectedItems extends Component {
-    state = { highlighted: [], lastClickedInex: 0 };
+    state = { highlighted: [], lastClickedIndex: 0 };
 
     onDeselectClick = () => {
         this.props.onDeselect(this.state.highlighted);
@@ -108,7 +108,7 @@ export class SelectedItems extends Component {
                     isHighlighted={!!this.state.highlighted.includes(id)}
                     onItemClick={this.toggleHighlight}
                     onRemoveItem={this.onRemoveSelected}
-                    unselected={false}
+                    className={'selected'}
                 />
             </li>
         );

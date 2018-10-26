@@ -4,7 +4,7 @@ import throttle from 'lodash-es/throttle';
 import { Item } from './Item';
 import { AssignButton, SelectAllButton } from './buttons';
 import { toggler } from './toggler';
-import { colors } from '../../../colors';
+import { colors } from '../../../modules/colors';
 
 const style = {
     container: {
@@ -87,6 +87,7 @@ export class UnselectedItems extends Component {
                         !!this.state.highlighted.includes(dataDim.id)
                     }
                     onItemClick={this.toggleHighlight}
+                    className={'unselected'}
                 />
             </li>
         );

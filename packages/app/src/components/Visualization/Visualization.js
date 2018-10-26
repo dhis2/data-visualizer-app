@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { createChart } from 'd2-charts-api';
 import { sGetCurrent } from '../../reducers/current';
 import BlankCanvas, { visContainerId } from './BlankCanvas';
-import { getOptionsForRequest } from '../../options';
+import { getOptionsForRequest } from '../../modules/options';
 import { acAddMetadata } from '../../actions/metadata';
 import { acSetChart } from '../../actions/chart';
 
