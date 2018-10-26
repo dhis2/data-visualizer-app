@@ -1,7 +1,7 @@
 import { getAxesFromUi, getOptionsFromUi } from '../modules/current';
 import { createDimension } from '../modules/layout';
-import { YEAR_ON_YEAR } from '../chartTypes';
-import { FIXED_DIMENSIONS } from '../fixedDimensions';
+import { YEAR_ON_YEAR } from '../modules/chartTypes';
+import { FIXED_DIMENSIONS } from '../modules/fixedDimensions';
 
 export const SET_CURRENT = 'SET_CURRENT';
 export const SET_CURRENT_FROM_UI = 'SET_CURRENT_FROM_UI';
