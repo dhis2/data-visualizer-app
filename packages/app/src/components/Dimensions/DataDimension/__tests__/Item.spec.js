@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Item, UnselectedIcon, SelectedIcon } from '../Item';
+import { Item } from '../Item';
 import { RemoveSelectedItemButton } from '../buttons';
 
 describe('The Item component ', () => {
@@ -20,7 +20,7 @@ describe('The Item component ', () => {
             index: 0,
             displayName: 'displayTestName',
             isHighlighted: false,
-            unselected: true,
+            className: 'unselected',
             onItemClick: jest.fn(),
         };
         shallowItem = undefined;
@@ -38,39 +38,22 @@ describe('The Item component ', () => {
         ).toEqual(1);
         expect(wrappingDiv.children()).toEqual(item().children());
     });
-    describe('when prop unselected is equal to true', () => {
-        beforeEach(() => {
-            props.unselected = true;
-        });
 
-        it('renders an <UnselectedIcon /> ', () => {
-            const selectIcon = item().find(UnselectedIcon);
+    it('renders an <UnselectedIcon /> with the correct props', () => {
+        const selectIcon = item().find('Icon');
 
-            expect(selectIcon.length).toEqual(1);
-        });
-
-        it('renders null instead of  a <RemoveSelectedItemButton />', () => {
-            const removeButton = item().find(RemoveSelectedItemButton);
-
-            expect(removeButton.length).toEqual(0);
-        });
+        expect(selectIcon.props().iconType).toEqual(props.className);
     });
-    describe('when prop unselected is equal to false', () => {
-        beforeEach(() => {
-            props.unselected = false;
-        });
 
-        it('renders a <SelectedIcon /> ', () => {
-            const selectIcon = item().find(SelectedIcon);
+    it('renders a <SelectedIcon /> with the correct props', () => {
+        const selectIcon = item().find('Icon');
 
-            expect(selectIcon.length).toEqual(1);
-        });
+        expect(selectIcon.props().iconType).toEqual(props.className);
+    });
 
-        it('renders a RemoveButton when unselected prop is equal to false', () => {
-            props.unselected = false;
-            const removeButton = item().find(RemoveSelectedItemButton);
+    it('renders a <RemoveSelectedItemButton /> ', () => {
+        const removeButton = item().find(RemoveSelectedItemButton);
 
-            expect(removeButton.length).toEqual(1);
-        });
+        expect(removeButton.length).toEqual(1);
     });
 });
