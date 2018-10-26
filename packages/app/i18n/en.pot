@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-10-25T11:04:00.885Z\n"
-"PO-Revision-Date: 2018-10-25T11:04:00.885Z\n"
+"POT-Creation-Date: 2018-10-26T10:01:21.919Z\n"
+"PO-Revision-Date: 2018-10-26T10:01:21.919Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -350,9 +350,6 @@ msgstr ""
 msgid "Gauge"
 msgstr ""
 
-msgid "Bubble"
-msgstr ""
-
 msgid "Year on year"
 msgstr ""
 
@@ -468,4 +465,16 @@ msgid "User org unit children"
 msgstr ""
 
 msgid "User org unit grand children"
+msgstr ""
+
+msgid "Weeks per year"
+msgstr ""
+
+msgid "Months per year"
+msgstr ""
+
+msgid "Bimonths per year"
+msgstr ""
+
+msgid "Quarters per year"
 msgstr ""
