@@ -92,7 +92,10 @@ export class OrgUnitDimension extends Component {
         }
 
         // for root org units
-        if (this.props.ui.parentGraphMap[id] === id) {
+        if (
+            this.props.ui.parentGraphMap[id] === id ||
+            this.props.ui.parentGraphMap[id] === ''
+        ) {
             return `/${id}`;
         }
 
