@@ -19,8 +19,8 @@ export class RecommendedIcon extends Component {
     };
 
     checkIfRecommended = () => {
-        const { isRecommended, isSelected, id } = this.props;
-        return isRecommended.includes(id) && !isSelected;
+        const { isRecommended, isSelected } = this.props;
+        return isRecommended && !isSelected;
     };
 
     showTooltip = () => {
@@ -54,14 +54,14 @@ export class RecommendedIcon extends Component {
     };
 }
 
-const mapStateToProps = state => ({
-    isRecommended: sGetFetchedIds(state),
+const mapStateToProps = (state, id) => ({
+    isRecommended: sGetFetchedIds(state).includes(id),
 });
 
 RecommendedIcon.propTypes = {
     id: PropTypes.string.isRequired,
     isSelected: PropTypes.bool.isRequired,
-    isRecommended: PropTypes.array.isRequired,
+    isRecommended: PropTypes.bool.isRequired,
 };
 
 export default connect(mapStateToProps)(RecommendedIcon);
