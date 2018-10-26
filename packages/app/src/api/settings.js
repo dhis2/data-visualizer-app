@@ -1,6 +1,6 @@
 import { getInstance } from 'd2';
 import { onError } from './index';
-import { SYSTEM_SETTINGS } from '../settings';
+import { SYSTEM_SETTINGS } from '../modules/settings';
 
 export const apiFetchSystemSettings = () => {
     const endPoint = '/systemSettings';

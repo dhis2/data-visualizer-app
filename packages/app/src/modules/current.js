@@ -1,4 +1,4 @@
-import { getPropsByKeys } from './util';
+import pick from 'lodash-es/pick';
 import options, { computedOptions } from './options';
 import { createDimension } from './layout';
 
@@ -22,7 +22,7 @@ export const getAxesFromUi = ui =>
     );
 
 export const getOptionsFromUi = ui => {
-    const optionsFromUi = getPropsByKeys(
+    const optionsFromUi = pick(
         ui.options,
         Object.keys({ ...options, ...computedOptions })
     );

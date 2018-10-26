@@ -1,5 +1,5 @@
-import { getAxesFromUi, getOptionsFromUi } from '../current';
-import { createDimension } from '../layout';
+import { getAxesFromUi, getOptionsFromUi } from '../modules/current';
+import { createDimension } from '../modules/layout';
 import { YEAR_ON_YEAR } from '../chartTypes';
 import { FIXED_DIMENSIONS } from '../fixedDimensions';
 

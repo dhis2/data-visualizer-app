@@ -5,7 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
 import i18n from '@dhis2/d2-i18n';
 import { dataTypes } from './dataTypes';
-import { colors } from '../../../colors';
+import { colors } from '../../../modules/colors';
 
 const style = {
     container: {

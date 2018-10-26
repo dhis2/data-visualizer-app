@@ -17,7 +17,7 @@ import reducer, {
     SET_UI_YEAR_ON_YEAR_SERIES,
     SET_UI_YEAR_ON_YEAR_CATEGORY,
 } from '../ui';
-import { AXIS_NAMES } from '../../layout';
+import { AXIS_NAMES } from '../../modules/layout';
 
 const [COLUMNS, ROWS, FILTERS] = AXIS_NAMES;
 
