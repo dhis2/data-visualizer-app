@@ -13,18 +13,17 @@ module.exports = {
         '<rootDir>/packages/*/build/',
         '<rootDir>/packages/app/scripts/',
     ],
-    verbose: true,
+    verbose: false,
     transform: {
         '^.+\\.(js|jsx|mjs)$': '<rootDir>/node_modules/babel-jest',
         '^.+\\.css$': '<rootDir>/config/jest/cssTransform.js',
         '^(?!.*\\.(js|jsx|mjs|css|json)$)':
             '<rootDir>/config/jest/fileTransform.js',
     },
+    transformIgnorePatterns: ['node_modules/(?!lodash-es/*/)'],
     moduleFileExtensions: ['js', 'jsx'],
     moduleDirectories: ['node_modules'],
     moduleNameMapper: {
-        'lodash-es/throttle': '<rootDir>/__mocks__/lodash-mock-throttle.js',
-        'lodash-es/debounce': '<rootDir>/__mocks__/lodash-mock-debounce.js',
         '\\.css$': '<rootDir>/__mocks__/styleMock.js',
     },
 };

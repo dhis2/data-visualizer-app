@@ -5,6 +5,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import i18n from '@dhis2/d2-i18n';
 import debounce from 'lodash-es/debounce';
+import keyBy from 'lodash-es/keyBy';
 
 import DataTypes from './DataTypesSelector';
 import Groups from './Groups';
@@ -21,9 +22,8 @@ import { acSetCurrentFromUi } from '../../../actions/current';
 import { acRemoveUiItems, acAddUiItems } from '../../../actions/ui';
 import { acAddMetadata } from '../../../actions/metadata';
 
-import { colors } from '../../../colors';
+import { colors } from '../../../modules/colors';
 import { DEFAULT_DATATYPE_ID, ALL_ID, dataTypes } from './dataTypes';
-import { arrayToIdMap } from '../../../util';
 
 import './DataDimension.css';
 
@@ -186,9 +186,11 @@ export class DataDimension extends Component {
         );
         this.setState({ unselectedIds });
 
-        const itemsToAdd = arrayToIdMap(
-            this.state.dimensionItems.filter(di => selectedIds.includes(di.id))
+        const itemsToAdd = keyBy(
+            this.state.dimensionItems.filter(di => selectedIds.includes(di.id)),
+            'id'
         );
+
         this.props.addDxItems({
             dimensionType: DX,
             value: selectedIds,

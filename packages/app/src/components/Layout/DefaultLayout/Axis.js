@@ -5,13 +5,13 @@ import MenuItem from '@material-ui/core/MenuItem';
 
 import Chip from '../Chip';
 import { sGetUiLayout, sGetUiItems } from '../../../reducers/ui';
-import { decodeDataTransfer } from '../../../dnd';
+import { decodeDataTransfer } from '../../../modules/dnd';
 import {
     acAddUiLayoutDimensions,
     acRemoveUiLayoutDimensions,
     acSetUiActiveModalDialog,
 } from '../../../actions/ui';
-import { AXIS_NAMES } from '../../../layout';
+import { AXIS_NAMES } from '../../../modules/layout';
 import { styles } from './styles/Axis.style';
 
 const axisLabels = {

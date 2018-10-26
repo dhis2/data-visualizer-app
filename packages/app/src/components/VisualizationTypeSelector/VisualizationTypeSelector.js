@@ -11,7 +11,7 @@ import VisualizationTypeIcon from './VisualizationTypeIcon';
 import { visualizationTypeMap } from './visualizationTypes';
 import { sGetUiType } from '../../reducers/ui';
 import { acSetUiType } from '../../actions/ui';
-import { colors } from '../../colors';
+import { colors } from '../../modules/colors';
 
 export class VisualizationTypeSelector extends Component {
     state = {
