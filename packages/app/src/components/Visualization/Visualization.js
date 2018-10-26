@@ -10,7 +10,7 @@ import {
     apiFetchAnalytics,
     apiFetchAnalyticsForYearOnYear,
 } from '../../api/analytics';
-import { YEAR_ON_YEAR } from '../VisualizationTypeSelector/visualizationTypes';
+import { YEAR_ON_YEAR } from '../../modules/chartTypes';
 
 export class Visualization extends Component {
     componentDidMount() {
