@@ -17,6 +17,13 @@ export const DIMENSION_ITEMS_PROP_NAME = 'items';
 
 // Layout utility functions
 
+// Accepts: dimensionId, [itemIds]
+// Returns dimension object { dimension: 'dx', items: [{ id: abc }] }
+export const createDimension = (dimensionId, itemIds) => ({
+    dimension: dimensionId,
+    items: itemIds.map(id => ({ id })),
+});
+
 // Collect all dimensions from the layout in an array
 export const getAllDimensions = visualization =>
     AXIS_NAMES.reduce(
