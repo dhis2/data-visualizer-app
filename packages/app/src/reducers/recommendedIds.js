@@ -1,6 +1,9 @@
 export const SET_RECOMMENDED_IDS = 'SET_RECOMMENDED_IDS';
 export const SET_PREVIOUS_REQUESTED_IDS = 'SET_PREVIOUS_REQUESTED_IDS';
 
+const getDimensionIds = array =>
+    array.length ? array.map(obj => obj.id) : array;
+
 export const DEFAULT_RECOMMENDED_IDS = {
     fetchedIds: [],
     previousRequestedIds: {
@@ -12,7 +15,7 @@ export const DEFAULT_RECOMMENDED_IDS = {
 export default (state = DEFAULT_RECOMMENDED_IDS, action) => {
     switch (action.type) {
         case SET_RECOMMENDED_IDS: {
-            return { ...state, fetchedIds: action.value || [] };
+            return { ...state, fetchedIds: getDimensionIds(action.value) };
         }
         case SET_PREVIOUS_REQUESTED_IDS: {
             return {

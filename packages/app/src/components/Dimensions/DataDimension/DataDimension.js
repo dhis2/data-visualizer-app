@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import DialogActions from '@material-ui/core/DialogActions';
+import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
 import i18n from '@dhis2/d2-i18n';
 import debounce from 'lodash-es/debounce';
@@ -11,16 +11,13 @@ import Groups from './Groups';
 import SearchField from './SearchField';
 import UnselectedItems from './UnselectedItems';
 import SelectedItems from './SelectedItems';
-import { HideButton, UpdateButton } from './buttons';
 
 import { apiFetchGroups, apiFetchAlternatives } from '../../../api/dimensions';
 import { sGetUiItems, sGetUi } from '../../../reducers/ui';
 import { sGetDisplayNameProperty } from '../../../reducers/settings';
 
-import { acSetCurrentFromUi } from '../../../actions/current';
 import { acRemoveUiItems, acAddUiItems } from '../../../actions/ui';
 import { acAddMetadata } from '../../../actions/metadata';
-import { tSetRecommendedIds } from '../../../actions/recommendedIds';
 import { colors } from '../../../colors';
 import { DEFAULT_DATATYPE_ID, ALL_ID, dataTypes } from './dataTypes';
 import { arrayToIdMap } from '../../../util';
@@ -46,8 +43,8 @@ const style = {
         fontWeight: 500,
     },
     subContainer: {
-        display: 'flex',
         height: 536,
+        display: 'flex',
     },
     dialogActions: {
         borderTop: `1px solid ${colors.blueGrey}`,
@@ -121,22 +118,6 @@ export class DataDimension extends Component {
         if (this.state.nextPage) {
             this.updateAlternatives(this.state.nextPage, true);
         }
-    };
-
-    onUpdateClick = () => {
-        const {
-            onUpdate,
-            ui,
-            toggleDialog,
-            fetchRecommendedIds,
-            selectedItems,
-        } = this.props;
-
-        if (selectedItems.dx.length || selectedItems.ou.length)
-            fetchRecommendedIds({ dx: selectedItems.dx, ou: selectedItems.ou });
-
-        onUpdate(ui);
-        toggleDialog(null);
     };
 
     updateAlternatives = async (page = FIRST_PAGE, concatItems = false) => {
@@ -231,9 +212,11 @@ export class DataDimension extends Component {
         }
 
         return (
-            <div style={style.container}>
+            <Fragment>
+                <DialogTitle style={style.dialogTitle}>
+                    {i18n.t('Data')}
+                </DialogTitle>
                 <DialogContent style={style.dialogContent}>
-                    <h3 style={style.dialogTitle}>{i18n.t('Data')}</h3>
                     <div style={style.subContainer}>
                         <div style={{ paddingRight: 46 }}>
                             <DataTypes
@@ -265,17 +248,17 @@ export class DataDimension extends Component {
                         />
                     </div>
                 </DialogContent>
-                <DialogActions style={style.dialogActions}>
-                    <HideButton action={() => this.props.toggleDialog(null)} />
-                    <UpdateButton action={this.onUpdateClick} />
-                </DialogActions>
-            </div>
+            </Fragment>
         );
     };
 }
 
 DataDimension.propTypes = {
-    toggleDialog: PropTypes.func.isRequired,
+    ui: PropTypes.object.isRequired,
+    addDxItems: PropTypes.func.isRequired,
+    removeDxItems: PropTypes.func.isRequired,
+    selectedItems: PropTypes.object.isRequired,
+    displayNameProp: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -289,8 +272,6 @@ export default connect(
     {
         removeDxItems: acRemoveUiItems,
         addDxItems: acAddUiItems,
-        onUpdate: acSetCurrentFromUi,
         addMetadata: acAddMetadata,
-        fetchRecommendedIds: tSetRecommendedIds,
     }
 )(DataDimension);

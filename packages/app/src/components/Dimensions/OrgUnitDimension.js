@@ -1,20 +1,16 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import Button from '@material-ui/core/Button';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import DialogContent from '@material-ui/core/DialogContent';
 import i18n from '@dhis2/d2-i18n';
 import {
     OrgUnitSelector,
     userOrgUnits,
     removeOrgUnitLastPathSegment,
 } from '@dhis2/d2-ui-org-unit-dialog';
-import PropTypes from 'prop-types';
 import { sGetUi } from '../../reducers/ui';
 import { sGetMetadata } from '../../reducers/metadata';
 import { acAddMetadata } from '../../actions/metadata';
-import { acSetCurrentFromUi } from '../../actions/current';
 import {
     acAddUiItems,
     acSetUiItems,
@@ -22,7 +18,6 @@ import {
     acAddParentGraphMap,
     acSetParentGraphMap,
 } from '../../actions/ui';
-import { tSetRecommendedIds } from '../../actions/recommendedIds';
 import {
     apiFetchOrganisationUnitGroups,
     apiFetchOrganisationUnitLevels,
@@ -309,28 +304,6 @@ export class OrgUnitDimension extends Component {
         }
     };
 
-    onCloseClick = () => {
-        this.props.toggleDialog();
-    };
-
-    onUpdateClick = () => {
-        const {
-            acSetCurrentFromUi,
-            ui,
-            toggleDialog,
-            fetchRecommendedIds,
-        } = this.props;
-
-        if (ui.itemsByDimension.ou.length || ui.itemsByDimension.dx.length) {
-            fetchRecommendedIds({
-                dx: ui.itemsByDimension.dx,
-                ou: ui.itemsByDimension.ou,
-            });
-        }
-        acSetCurrentFromUi(ui);
-        toggleDialog(null);
-    };
-
     render = () => {
         if (!this.state.root) {
             return 'loading...';
@@ -361,22 +334,12 @@ export class OrgUnitDimension extends Component {
                         handleOrgUnitClick={this.handleOrgUnitClick}
                     />
                 </DialogContent>
-                <DialogActions style={{ padding: '24px' }}>
-                    <Button onClick={this.onCloseClick}>
-                        {i18n.t('Hide')}
-                    </Button>
-                    <Button color="primary" onClick={this.onUpdateClick}>
-                        {i18n.t('Update')}
-                    </Button>
-                </DialogActions>
             </Fragment>
         );
     };
 }
 
-OrgUnitDimension.propTypes = {
-    toggleDialog: PropTypes.func.isRequired,
-};
+OrgUnitDimension.propTypes = {};
 
 const mapStateToProps = state => ({
     ui: sGetUi(state),
@@ -390,8 +353,6 @@ const mapDispatchToProps = {
     acSetUiItems,
     acAddParentGraphMap,
     acSetParentGraphMap,
-    acSetCurrentFromUi,
-    fetchRecommendedIds: tSetRecommendedIds,
 };
 
 export default connect(

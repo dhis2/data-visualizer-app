@@ -31,5 +31,8 @@
     },
     "workspaces": [
         "packages/*"
-    ]
+    ],
+    "dependencies": {
+        "@dhis2/d2-ui-period-selector-dialog": "^2.0.2"
+    }
 }
