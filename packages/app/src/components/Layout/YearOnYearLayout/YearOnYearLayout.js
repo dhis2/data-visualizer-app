@@ -13,7 +13,7 @@ import {
     acSetUiYearOnYearSeries,
     acSetUiYearOnYearCategory,
 } from '../../../actions/ui';
-import { seriesOptions, categoryOptions } from '../../../yearOnYear';
+import { seriesOptions, categoryOptions } from '../../../modules/yearOnYear';
 
 const Layout = props => (
     <div id="layout-ct" style={defaultLayoutStyles.ct}>
