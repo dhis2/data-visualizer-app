@@ -5,13 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-<<<<<<< HEAD
-"POT-Creation-Date: 2018-10-24T14:10:21.299Z\n"
-"PO-Revision-Date: 2018-10-24T14:10:21.299Z\n"
-=======
-"POT-Creation-Date: 2018-10-25T11:04:00.885Z\n"
-"PO-Revision-Date: 2018-10-25T11:04:00.885Z\n"
->>>>>>> 7f4fc3ed1decbc6eea691338613d0602a19d4223
+"POT-Creation-Date: 2018-10-25T14:07:41.488Z\n"
+"PO-Revision-Date: 2018-10-25T14:07:41.488Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -206,9 +201,6 @@ msgid "Remove"
 msgstr ""
 
 msgid "None selected"
-msgstr ""
-
-msgid "Yearly series"
 msgstr ""
 
 msgid "Aggregation type"
@@ -473,4 +465,16 @@ msgid "User org unit children"
 msgstr ""
 
 msgid "User org unit grand children"
+msgstr ""
+
+msgid "Weeks per year"
+msgstr ""
+
+msgid "Months per year"
+msgstr ""
+
+msgid "Bimonths per year"
+msgstr ""
+
+msgid "Quarters per year"
 msgstr ""
