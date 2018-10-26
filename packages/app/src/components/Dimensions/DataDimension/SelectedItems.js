@@ -9,8 +9,7 @@ import {
 } from './buttons';
 
 import { sGetMetadata } from '../../../reducers/metadata';
-
-import { styles } from './styles/SelectedItems.style';
+import { styles } from './styles/SelectedItems.style';
 
 const SelectedIcon = () => {
     return (
@@ -23,7 +22,7 @@ const SelectedIcon = () => {
 const Subtitle = () => {
     return (
         <div style={styles.subTitleContainer}>
-            <span style={styles.subTitleText}>{i18n.t('Selected Data')}</span>
+            <span style={styles.subTitleText}>{i18n.t('Selected Data');}</span>
         </div>
     );
 };
