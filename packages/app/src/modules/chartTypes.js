@@ -10,7 +10,7 @@ export const PIE = 'PIE';
 export const RADAR = 'RADAR';
 export const GAUGE = 'GAUGE';
 export const BUBBLE = 'BUBBLE';
-export const YEAR_ON_YEAR = 'YEARONYEAR';
+export const YEAR_ON_YEAR = 'YEAR_ON_YEAR';
 
 export const chartTypeDisplayNames = {
     [COLUMN]: i18n.t('Column'),
