@@ -8,7 +8,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import VisualizationTypeIcon from './VisualizationTypeIcon';
-import { chartTypeDisplayNames } from '../../chartTypes';
+import { chartTypeDisplayNames } from '../../modules/chartTypes';
 import { sGetUiType } from '../../reducers/ui';
 import { acSetUiType } from '../../actions/ui';
 import { colors } from '../../modules/colors';

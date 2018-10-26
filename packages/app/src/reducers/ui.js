@@ -8,7 +8,7 @@ import {
     getOptionsForUi,
     getOptionsFromVisualization,
 } from '../modules/options';
-import { COLUMN } from '../chartTypes';
+import { COLUMN } from '../modules/chartTypes';
 
 export const SET_UI = 'SET_UI';
 export const SET_UI_FROM_VISUALIZATION = 'SET_UI_FROM_VISUALIZATION';

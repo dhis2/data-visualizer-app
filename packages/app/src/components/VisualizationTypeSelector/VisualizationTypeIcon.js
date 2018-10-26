@@ -23,7 +23,7 @@ import {
     GAUGE,
     YEAR_ON_YEAR,
     chartTypeDisplayNames,
-} from '../../chartTypes';
+} from '../../modules/chartTypes';
 
 const VisualizationTypeIcon = ({ type = COLUMN, style }) => {
     switch (type) {

@@ -14,7 +14,7 @@ import {
     RADAR,
     GAUGE,
     YEAR_ON_YEAR,
-} from '../../chartTypes';
+} from '../../modules/chartTypes';
 import { sGetUiType } from '../../reducers/ui';
 
 const layoutMap = {
