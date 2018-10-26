@@ -6,6 +6,11 @@ import BlankCanvas, { visContainerId } from './BlankCanvas';
 import { getOptionsForRequest } from '../../modules/options';
 import { acAddMetadata } from '../../actions/metadata';
 import { acSetChart } from '../../actions/chart';
+import {
+    apiFetchAnalytics,
+    apiFetchAnalyticsForYearOnYear,
+} from '../../api/analytics';
+import { YEAR_ON_YEAR } from '../VisualizationTypeSelector/visualizationTypes';
 
 export class Visualization extends Component {
     componentDidMount() {
@@ -19,7 +24,7 @@ export class Visualization extends Component {
     }
 
     renderVisualization = async () => {
-        const { d2, current } = this.props;
+        const { current } = this.props;
 
         const optionsForRequest = getOptionsForRequest().reduce(
             (map, [option, props]) => {
@@ -33,18 +38,34 @@ export class Visualization extends Component {
             {}
         );
 
-        const req = new d2.analytics.request()
-            .fromModel(current)
-            .withParameters(optionsForRequest);
+        const extraOptions = {};
+        let responses = [];
 
-        const rawResponse = await d2.analytics.aggregate.get(req);
+        if (current.type === YEAR_ON_YEAR) {
+            let yearlySeriesLabels = [];
 
-        const res = new d2.analytics.response(rawResponse);
+            ({
+                responses,
+                yearlySeriesLabels,
+            } = await apiFetchAnalyticsForYearOnYear(
+                current,
+                optionsForRequest
+            ));
+            console.log('res', responses, yearlySeriesLabels);
+            extraOptions.yearlySeries = yearlySeriesLabels;
+        } else {
+            responses = await apiFetchAnalytics(current, optionsForRequest);
+        }
 
         // TODO add a try/catch here
-        this.props.acAddMetadata(res.metaData.items);
+        responses.forEach(res => this.props.acAddMetadata(res.metaData.items));
 
-        const chartConfig = createChart(res, current, visContainerId);
+        const chartConfig = createChart(
+            responses,
+            current,
+            visContainerId,
+            extraOptions
+        );
 
         this.props.acSetChart(
             chartConfig.chart.getSVGForExport({
