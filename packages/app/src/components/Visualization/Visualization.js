@@ -51,7 +51,7 @@ export class Visualization extends Component {
                 current,
                 optionsForRequest
             ));
-            console.log('res', responses, yearlySeriesLabels);
+
             extraOptions.yearlySeries = yearlySeriesLabels;
         } else {
             responses = await apiFetchAnalytics(current, optionsForRequest);
