@@ -9,13 +9,11 @@ import { sGetMetadata } from '../../../reducers/metadata';
 import { toggler } from './toggler';
 import { styles } from './styles/SelectedItems.style';
 
-const Subtitle = () => {
-    return (
-        <div style={styles.subTitleContainer}>
-            <span style={styles.subTitleText}>{i18n.t('Selected Data')}</span>
-        </div>
-    );
-};
+const Subtitle = () => (
+    <div style={styles.subTitleContainer}>
+        <span style={styles.subTitleText}>{i18n.t('Selected Data')}</span>
+    </div>
+);
 
 export class SelectedItems extends Component {
     state = { highlighted: [], lastClickedIndex: 0 };
@@ -55,29 +53,25 @@ export class SelectedItems extends Component {
         });
     };
 
-    renderListItem = (id, index) => {
-        const displayName = this.props.metadata[id].name;
-
-        return (
-            <li
-                className="dimension-item"
+    renderListItem = (id, index) => (
+        <li
+            className="dimension-item"
+            id={id}
+            key={id}
+            style={styles.listItem}
+            onDoubleClick={() => this.onRemoveSelected(id)}
+        >
+            <Item
                 id={id}
-                key={id}
-                style={styles.listItem}
-                onDoubleClick={() => this.onRemoveSelected(id)}
-            >
-                <Item
-                    id={id}
-                    index={index}
-                    displayName={displayName}
-                    isHighlighted={!!this.state.highlighted.includes(id)}
-                    onItemClick={this.toggleHighlight}
-                    onRemoveItem={this.onRemoveSelected}
-                    className={'selected'}
-                />
-            </li>
-        );
-    };
+                index={index}
+                displayName={this.props.metadata[id].name}
+                isHighlighted={!!this.state.highlighted.includes(id)}
+                onItemClick={this.toggleHighlight}
+                onRemoveItem={this.onRemoveSelected}
+                className={'selected'}
+            />
+        </li>
+    );
 
     render = () => {
         const dataDimensions = this.props.items.map((id, index) =>

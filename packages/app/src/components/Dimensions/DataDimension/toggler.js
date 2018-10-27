@@ -46,9 +46,9 @@ const updateArray = (highlightedIds, id, lastClickedIndex, index) => {
     let ids;
     let newIndex = lastClickedIndex;
 
-    if (highlightedIds.includes(id)) {
+    if (highlightedIds.includes(id))
         ids = highlightedIds.filter(itemId => itemId !== id);
-    } else {
+    else {
         ids = [...highlightedIds, id];
         newIndex = index;
     }

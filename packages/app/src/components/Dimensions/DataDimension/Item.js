@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { RemoveSelectedItemButton } from './buttons';
 import { UnselectedIcon } from '../../../assets/UnselectedIcon';
 import { SelectedIcon } from '../../../assets/SelectedIcon';
-import { styles } from './styles/Item.style';
 
 import './DataDimension.css';
 
@@ -17,14 +16,14 @@ const Icon = ({ iconType }) => {
 };
 
 export const Item = props => {
-    const handleClick = event =>
+    const highlightItem = event =>
         props.onItemClick(event.metaKey, event.shiftKey, props.index, props.id);
 
     return (
         <div
-            style={props.isHighlighted ? styles.highlighted : {}}
+            style={props.isHighlighted ? { backgroundColor: '#7EBFF5' } : {}}
             className={`${props.className}-list-item`}
-            onClick={handleClick}
+            onClick={highlightItem}
         >
             <Icon iconType={props.className} />
             <span className={`${props.className}-label`}>

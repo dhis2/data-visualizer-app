@@ -2,6 +2,8 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { Item } from '../Item';
 import { RemoveSelectedItemButton } from '../buttons';
+import { UnselectedIcon } from '../../../../assets/UnselectedIcon';
+import { SelectedIcon } from '../../../../assets/SelectedIcon';
 
 describe('The Item component ', () => {
     let props;
@@ -39,21 +41,49 @@ describe('The Item component ', () => {
         expect(wrappingDiv.children()).toEqual(item().children());
     });
 
-    it('renders an <UnselectedIcon /> with the correct props', () => {
-        const selectIcon = item().find('Icon');
+    it('renders <UnselectedIcon /> when className is equal to "unselected" ', () => {
+        const unselectIcon = item()
+            .find('Icon')
+            .dive()
+            .find(UnselectedIcon);
 
-        expect(selectIcon.props().iconType).toEqual(props.className);
+        expect(unselectIcon.length).toEqual(1);
     });
 
-    it('renders a <SelectedIcon /> with the correct props', () => {
-        const selectIcon = item().find('Icon');
+    it('renders null when className is equal to "unselected" ', () => {
+        const removeButton = item()
+            .find(RemoveSelectedItemButton)
+            .dive();
 
-        expect(selectIcon.props().iconType).toEqual(props.className);
+        expect(removeButton.children().length).toEqual(0);
     });
 
-    it('renders a <RemoveSelectedItemButton /> ', () => {
-        const removeButton = item().find(RemoveSelectedItemButton);
+    it('renders <SelectedIcon /> when className is equal to "selected" ', () => {
+        props.className = 'selected';
 
-        expect(removeButton.length).toEqual(1);
+        const selectIcon = item()
+            .find('Icon')
+            .dive()
+            .find(SelectedIcon);
+
+        expect(selectIcon.length).toEqual(1);
+    });
+
+    it('renders <RemoveSelectedItemButton /> when className is equal to "selected" ', () => {
+        props.className = 'selected';
+
+        const removeButton = item()
+            .find(RemoveSelectedItemButton)
+            .dive();
+
+        expect(removeButton.children().length).toEqual(1);
+    });
+
+    it('fires prop onItemClick when pressed', () => {
+        item()
+            .props()
+            .onClick({ preventDefault: () => undefined });
+
+        expect(props.onItemClick).toBeCalledTimes(1);
     });
 });

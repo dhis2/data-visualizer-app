@@ -3,11 +3,10 @@ export const styles = {
         height: 24,
     },
     dropDownButton: {
-        marginLeft: '6px',
         border: 'none',
         background: 'none',
         outline: 'none',
-        padding: 0,
+        padding: '1px 0px 0px 0px',
         height: 24,
         cursor: 'pointer',
     },

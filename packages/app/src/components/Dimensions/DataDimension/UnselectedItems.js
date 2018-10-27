@@ -50,27 +50,23 @@ export class UnselectedItems extends Component {
         this.props.onSelect([id]);
     };
 
-    renderListItem = (dataDim, index) => {
-        return (
-            <li
-                className="dimension-item"
-                key={dataDim.id}
-                style={styles.listItem}
-                onDoubleClick={() => this.onDoubleClickItem(dataDim.id)}
-            >
-                <Item
-                    id={dataDim.id}
-                    index={index}
-                    displayName={dataDim.name}
-                    isHighlighted={
-                        !!this.state.highlighted.includes(dataDim.id)
-                    }
-                    onItemClick={this.toggleHighlight}
-                    className={'unselected'}
-                />
-            </li>
-        );
-    };
+    renderListItem = (dataDim, index) => (
+        <li
+            className="dimension-item"
+            key={dataDim.id}
+            style={styles.listItem}
+            onDoubleClick={() => this.onDoubleClickItem(dataDim.id)}
+        >
+            <Item
+                id={dataDim.id}
+                index={index}
+                displayName={dataDim.name}
+                isHighlighted={!!this.state.highlighted.includes(dataDim.id)}
+                onItemClick={this.toggleHighlight}
+                className={'unselected'}
+            />
+        </li>
+    );
 
     requestMoreItems = throttle(() => {
         const node = this.ulRef.current;
