@@ -1,9 +1,15 @@
 import i18n from '@dhis2/d2-i18n';
 
+const getFixedYears = len => {
+    let year = new Date().getFullYear();
+    return new Array(len).fill(null).map(n => ({ id: year, name: year-- }));
+};
+
 export const seriesOptions = [
     { id: 'THIS_YEAR', name: i18n.t('This year') },
     { id: 'LAST_YEAR', name: i18n.t('Last year') },
     { id: 'LAST_5_YEARS', name: i18n.t('Last 5 years') },
+    ...getFixedYears(10),
 ];
 
 export const categoryOptions = [

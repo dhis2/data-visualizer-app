@@ -5,6 +5,7 @@ import DefaultAxis from '../DefaultLayout/DefaultAxis';
 import defaultLayoutStyles from '../DefaultLayout/styles/DefaultLayout.style';
 import YearOnYearAxis from './YearOnYearAxis';
 import YearOnYearSelect from './YearOnYearSelect';
+import YearOnYearLayoutStyles from './styles/YearOnYearLayout.style';
 import {
     sGetUiYearOnYearSeries,
     sGetUiYearOnYearCategory,
@@ -21,7 +22,7 @@ const Layout = props => (
             id="axis-group-1"
             style={{
                 ...defaultLayoutStyles.axisGroup,
-                ...defaultLayoutStyles.axisGroupLeft,
+                ...YearOnYearLayoutStyles.axisGroupLeft,
             }}
         >
             <YearOnYearAxis
@@ -29,6 +30,7 @@ const Layout = props => (
                 style={defaultLayoutStyles.columns}
             >
                 <YearOnYearSelect
+                    multiple="true"
                     value={props.yearOnYearSeries}
                     onChange={props.onSeriesChange}
                     options={seriesOptions}
@@ -39,7 +41,7 @@ const Layout = props => (
                 style={defaultLayoutStyles.rows}
             >
                 <YearOnYearSelect
-                    value={props.yearOnYearCategory}
+                    value={props.yearOnYearCategory[0]}
                     onChange={props.onCategoryChange}
                     options={categoryOptions}
                 />
@@ -49,7 +51,7 @@ const Layout = props => (
             id="axis-group-2"
             style={{
                 ...defaultLayoutStyles.axisGroup,
-                ...defaultLayoutStyles.axisGroupRight,
+                ...YearOnYearLayoutStyles.axisGroupRight,
             }}
         >
             <DefaultAxis
