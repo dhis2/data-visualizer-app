@@ -8,10 +8,10 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import VisualizationTypeIcon from './VisualizationTypeIcon';
-import { visualizationTypeMap } from './visualizationTypes';
+import { chartTypeDisplayNames } from '../../modules/chartTypes';
 import { sGetUiType } from '../../reducers/ui';
 import { acSetUiType } from '../../actions/ui';
-import { colors } from '../../colors';
+import { colors } from '../../modules/colors';
 
 export class VisualizationTypeSelector extends Component {
     state = {
@@ -53,7 +53,7 @@ export class VisualizationTypeSelector extends Component {
                     }}
                 >
                     <VisualizationTypeIcon type={visualizationType} />
-                    {visualizationTypeMap[visualizationType]}
+                    {chartTypeDisplayNames[visualizationType]}
                     <ArrowDropDownIcon style={{ marginLeft: 'auto' }} />
                 </Button>
                 <Menu
@@ -68,7 +68,7 @@ export class VisualizationTypeSelector extends Component {
                     }}
                     MenuListProps={{ style: { overflow: 'auto', padding: 0 } }}
                 >
-                    {Object.keys(visualizationTypeMap).map(type => (
+                    {Object.keys(chartTypeDisplayNames).map(type => (
                         <MenuItem
                             key={type}
                             selected={type === visualizationType}
@@ -96,7 +96,7 @@ export class VisualizationTypeSelector extends Component {
                                 />
                             </ListItemIcon>
                             <ListItemText
-                                primary={visualizationTypeMap[type]}
+                                primary={chartTypeDisplayNames[type]}
                                 disableTypography={true}
                                 style={{
                                     fontSize: 14,
@@ -113,7 +113,7 @@ export class VisualizationTypeSelector extends Component {
 }
 
 VisualizationTypeSelector.propTypes = {
-    visualizationType: PropTypes.oneOf(Object.keys(visualizationTypeMap)),
+    visualizationType: PropTypes.oneOf(Object.keys(chartTypeDisplayNames)),
 };
 
 const mapStateToProps = state => ({
