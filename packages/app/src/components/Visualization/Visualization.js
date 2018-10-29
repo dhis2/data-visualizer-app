@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createChart } from 'd2-charts-api';
+import i18n from '@dhis2/d2-i18n';
 import { sGetCurrent } from '../../reducers/current';
 import BlankCanvas, { visContainerId } from './BlankCanvas';
 import { getOptionsForRequest } from '../../modules/options';
 import { acAddMetadata } from '../../actions/metadata';
+import { acSetLoadError } from '../../actions/loadError';
 import { acSetChart } from '../../actions/chart';
 
 export class Visualization extends Component {
@@ -17,6 +19,8 @@ export class Visualization extends Component {
             this.renderVisualization();
         }
     }
+
+    componentWillUnmount() {}
 
     renderVisualization = async () => {
         const { d2, current } = this.props;
@@ -33,25 +37,27 @@ export class Visualization extends Component {
             {}
         );
 
-        const req = new d2.analytics.request()
-            .fromModel(current)
-            .withParameters(optionsForRequest);
+        try {
+            const req = new d2.analytics.request()
+                .fromModel(current)
+                .withParameters(optionsForRequest);
 
-        const rawResponse = await d2.analytics.aggregate.get(req);
+            const rawResponse = await d2.analytics.aggregate.get(req);
 
-        const res = new d2.analytics.response(rawResponse);
+            const res = new d2.analytics.response(rawResponse);
 
-        // TODO add a try/catch here
-        this.props.acAddMetadata(res.metaData.items);
+            this.props.acAddMetadata(res.metaData.items);
 
-        const chartConfig = createChart(res, current, visContainerId);
-
-        this.props.acSetChart(
-            chartConfig.chart.getSVGForExport({
-                sourceHeight: 768,
-                sourceWidth: 1024,
-            })
-        );
+            const chartConfig = createChart(res, current, visContainerId);
+            this.props.acSetChart(
+                chartConfig.chart.getSVGForExport({
+                    sourceHeight: 768,
+                    sourceWidth: 1024,
+                })
+            );
+        } catch (error) {
+            this.props.acSetLoadError(i18n.t('Could not generate chart'));
+        }
     };
 
     render() {
@@ -65,5 +71,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { acAddMetadata, acSetChart }
+    { acAddMetadata, acSetChart, acSetLoadError }
 )(Visualization);
