@@ -97,36 +97,34 @@ export class App extends Component {
             this.props.current && Object.keys(this.props.current).length > 0;
 
         return (
-            <Fragment>
-                <UI>
-                    <HeaderBar appName={i18n.t('Data Visualizer')} />
-                    <div className="app">
-                        <div className="item2 visualization-type-selector">
-                            <VisualizationTypeSelector />
-                        </div>
-                        <div className="item3 menu-bar">
-                            <MenuBar apiObjectName={this.props.apiObjectName} />
-                        </div>
-                        <div className="item4 dimensions">
-                            <Dimensions />
-                        </div>
-                        <div className="item5 chart-layout">
-                            <Layout />
-                        </div>
-                        <div className="item6 interpretations">
-                            Interpretations panel
-                        </div>
-                        <div className="item7 canvas">
-                            {hasCurrent ? (
-                                <Visualization d2={this.props.d2} />
-                            ) : (
-                                <BlankCanvas />
-                            )}
-                        </div>
+            <UI>
+                <HeaderBar appName={i18n.t('Data Visualizer')} />
+                <div className="app">
+                    <div className="item2 visualization-type-selector">
+                        <VisualizationTypeSelector />
                     </div>
-                    {this.renderSnackbar()}
-                </UI>
-            </Fragment>
+                    <div className="item3 menu-bar">
+                        <MenuBar apiObjectName={this.props.apiObjectName} />
+                    </div>
+                    <div className="item4 dimensions">
+                        <Dimensions />
+                    </div>
+                    <div className="item5 chart-layout">
+                        <Layout />
+                    </div>
+                    <div className="item6 interpretations">
+                        Interpretations panel
+                    </div>
+                    <div className="item7 canvas">
+                        {hasCurrent ? (
+                            <Visualization d2={this.props.d2} />
+                        ) : (
+                            <BlankCanvas />
+                        )}
+                    </div>
+                </div>
+                {this.renderSnackbar()}
+            </UI>
         );
     }
 }

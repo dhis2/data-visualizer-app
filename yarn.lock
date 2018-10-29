@@ -10038,11 +10038,6 @@ punycode@^2.1.0:
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
 
-pupa@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/pupa/-/pupa-1.0.0.tgz#9a9568a5af7e657b8462a6e9d5328743560ceff6"
-  integrity sha1-mpVopa9+ZXuEYqbp1TKHQ1YM7/Y=
-
 q@^1.1.2, q@^1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
@@ -12159,8 +12154,8 @@ uglifyjs-webpack-plugin@^0.4.6:
     webpack-sources "^1.0.1"
 
 "ui@github:dhis2/ui-builds":
-  version "1.0.0-beta.3"
-  resolved "https://codeload.github.com/dhis2/ui-builds/tar.gz/3b9d17f4ff4f47cfb840cd028772230723331a68"
+  version "1.0.0-beta.5"
+  resolved "https://codeload.github.com/dhis2/ui-builds/tar.gz/fb6e79841e12e4c0d7b44b24af43b3b23a66c8ac"
   dependencies:
     "@babel/polyfill" "^7.0.0"
     classnames "^2.2.6"
