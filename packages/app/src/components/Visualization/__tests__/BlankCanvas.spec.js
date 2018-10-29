@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import LoadingMask from '../../../widgets/LoadingMask';
 import { BlankCanvas, defaultCanvasMessage } from '../BlankCanvas';
 
 describe('BlankCanvas', () => {
@@ -27,8 +28,6 @@ describe('BlankCanvas', () => {
     it('renders the default message', () => {
         expect(
             canvas()
-                .find('CanvasContent')
-                .dive()
                 .find('p')
                 .text()
         ).toEqual(defaultCanvasMessage);
@@ -39,10 +38,17 @@ describe('BlankCanvas', () => {
         props.error = theError;
         expect(
             canvas()
-                .find('CanvasContent')
-                .dive()
                 .find('p')
                 .text()
         ).toEqual(theError);
+    });
+
+    it('renders the loading indicator', () => {
+        props.loading = true;
+        expect(
+            canvas()
+                .find(LoadingMask)
+                .exists()
+        ).toBeTruthy();
     });
 });

@@ -9,28 +9,24 @@ import chartErrorImg from '../../assets/chart-error-graphic.png';
 export const visContainerId = 'visualization-container';
 export const defaultCanvasMessage = 'Visualization Canvas';
 
-const CanvasContent = ({ loading, error }) => {
+export const BlankCanvas = ({ loading, error }) => {
     const message = error ? error : defaultCanvasMessage;
 
+    let canvasContent = <p style={styles.text}>{message}</p>;
     if (loading) {
-        return <LoadingMask />;
+        canvasContent = <LoadingMask />;
     } else if (error) {
-        return (
+        canvasContent = (
             <div>
                 <img src={chartErrorImg} alt={i18n.t('Chart error')} />
                 <p style={styles.text}>{message}</p>
             </div>
         );
     }
-    return <p style={styles.text}>{message}</p>;
-};
 
-export const BlankCanvas = ({ loading, error }) => {
     return (
         <div id={visContainerId} style={styles.outer}>
-            <div style={styles.inner}>
-                <CanvasContent loading={loading} error={error} />
-            </div>
+            <div style={styles.inner}>{canvasContent}</div>
         </div>
     );
 };
