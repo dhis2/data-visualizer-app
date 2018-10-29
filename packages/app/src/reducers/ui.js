@@ -8,7 +8,7 @@ import {
     getOptionsForUi,
     getOptionsFromVisualization,
 } from '../modules/options';
-import { COLUMN } from '../modules/chartTypes';
+import { COLUMN, YEAR_ON_YEAR } from '../modules/chartTypes';
 
 export const SET_UI = 'SET_UI';
 export const SET_UI_FROM_VISUALIZATION = 'SET_UI_FROM_VISUALIZATION';
@@ -63,10 +63,29 @@ export default (state = DEFAULT_UI, action) => {
             };
         }
         case SET_UI_TYPE: {
-            return {
+            const newState = {
                 ...state,
                 type: action.value,
             };
+
+            switch (action.value) {
+                case YEAR_ON_YEAR: {
+                    return {
+                        ...newState,
+                        layout: {
+                            columns: [],
+                            rows: [],
+                            filters: [
+                                ...state.layout.filters,
+                                ...state.layout.columns,
+                                ...state.layout.rows,
+                            ],
+                        },
+                    };
+                }
+                default:
+                    return newState;
+            }
         }
         case SET_UI_OPTIONS: {
             return {
