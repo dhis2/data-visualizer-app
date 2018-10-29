@@ -63,19 +63,20 @@ const isGroupId = id => {
     return id.substr(0, GROUP_ID_PREFIX.length) === GROUP_ID_PREFIX;
 };
 
+export const defaultState = {
+    root: undefined,
+    // use "selected" property for cloning org units while user org unit(s) is (are) selected
+    selected: [],
+    levelOptions: [],
+    groupOptions: [],
+};
+
 export class OrgUnitDimension extends Component {
     constructor(props) {
         super(props);
 
+        this.state = defaultState;
         this.userOrgUnitIds = userOrgUnits.map(orgUnit => orgUnit.id);
-
-        this.state = {
-            root: undefined,
-            // use "selected" property for cloning org units while user org unit(s) is (are) selected
-            selected: [],
-            levelOptions: [],
-            groupOptions: [],
-        };
 
         this.loadOrgUnitTree();
         this.loadOrgUnitLevels();
