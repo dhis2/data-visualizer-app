@@ -10,16 +10,15 @@ export const visContainerId = 'visualization-container';
 export const defaultCanvasMessage = 'Visualization Canvas';
 
 export const BlankCanvas = ({ loading, error }) => {
-    const message = error ? error : defaultCanvasMessage;
+    let canvasContent = <p style={styles.text}>{defaultCanvasMessage}</p>;
 
-    let canvasContent = <p style={styles.text}>{message}</p>;
     if (loading) {
         canvasContent = <LoadingMask />;
     } else if (error) {
         canvasContent = (
             <div>
                 <img src={chartErrorImg} alt={i18n.t('Chart error')} />
-                <p style={styles.text}>{message}</p>
+                <p style={styles.text}>{error}</p>
             </div>
         );
     }
