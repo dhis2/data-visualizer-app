@@ -69,13 +69,14 @@ export const apiFetchAnalyticsForYearOnYear = async (current, options) => {
     const requests = [];
     const yearlySeriesLabels = [];
 
+    const now = new Date();
+    const currentDay = ('' + now.getDate()).padStart(2, 0);
+    const currentMonth = ('' + (now.getMonth() + 1)).padStart(2, 0);
+
     yearlySeriesRes.metaData.dimensions.pe.forEach(period => {
         yearlySeriesLabels.push(yearlySeriesRes.metaData.items[period].name);
 
-        // TODO startDate from the response. not sure where exactly
-        const startDate =
-            yearlySeriesRes.metaData.items[period].startDate ||
-            `${period}-01-01`;
+        const startDate = `${period}-${currentMonth}-${currentDay}`;
 
         const req = new d2.analytics.request()
             .fromModel(current)
