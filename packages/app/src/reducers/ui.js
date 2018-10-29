@@ -9,6 +9,7 @@ import {
     getOptionsFromVisualization,
 } from '../modules/options';
 import { COLUMN, YEAR_ON_YEAR } from '../modules/chartTypes';
+import { FIXED_DIMENSIONS } from '../modules/fixedDimensions';
 
 export const SET_UI = 'SET_UI';
 export const SET_UI_FROM_VISUALIZATION = 'SET_UI_FROM_VISUALIZATION';
@@ -27,16 +28,19 @@ export const SET_UI_YEAR_ON_YEAR_SERIES = 'SET_UI_YEAR_ON_YEAR_SERIES';
 export const SET_UI_YEAR_ON_YEAR_CATEGORY = 'SET_UI_YEAR_ON_YEAR_CATEGORY';
 export const CLEAR_UI = 'CLEAR_UI';
 
+const dxId = FIXED_DIMENSIONS.dx.id;
+const peId = FIXED_DIMENSIONS.pe.id;
+const ouId = FIXED_DIMENSIONS.ou.id;
+
 export const DEFAULT_UI = {
     type: COLUMN,
     options: getOptionsForUi(),
     layout: {
-        columns: ['dx'],
-        rows: ['pe'],
-        filters: ['ou'],
+        columns: [dxId],
+        rows: [peId],
+        filters: [ouId],
     },
     itemsByDimension: {
-        dx: [],
         pe: ['LAST_12_MONTHS'],
         ou: ['USER_ORGUNIT'],
     },
@@ -79,7 +83,7 @@ export default (state = DEFAULT_UI, action) => {
                                 ...state.layout.filters,
                                 ...state.layout.columns,
                                 ...state.layout.rows,
-                            ],
+                            ].filter(d => d !== peId),
                         },
                     };
                 }
