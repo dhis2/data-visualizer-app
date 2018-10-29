@@ -4,16 +4,20 @@ import DataDimension from './DataDimension/DataDimension';
 import OrgUnitDimension from './OrgUnitDimension/OrgUnitDimension';
 import PeriodDimension from './PeriodDimension';
 
-export class DialogManager extends Component {
-    state = {
-        mounted: [],
-    };
+export const defaultState = {
+    mounted: [],
+};
 
-    dimensionComponents = {
-        dx: <DataDimension toggleDialog={this.props.toggleDialog} />,
-        ou: <OrgUnitDimension toggleDialog={this.props.toggleDialog} />,
-        pe: <PeriodDimension toggleDialog={this.props.toggleDialog} />,
-    };
+export const dimensionComponents = props => ({
+    dx: <DataDimension toggleDialog={props.toggleDialog} />,
+    ou: <OrgUnitDimension toggleDialog={props.toggleDialog} />,
+    pe: <PeriodDimension toggleDialog={props.toggleDialog} />,
+});
+
+export class DialogManager extends Component {
+    state = defaultState;
+
+    dimensionComponents = dimensionComponents(this.props);
 
     componentDidUpdate() {
         if (this.props.id && !this.state.mounted.includes(this.props.id)) {
