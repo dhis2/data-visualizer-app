@@ -37,18 +37,26 @@ const getMaxIndex = (lastClickedIndex, index) =>
     lastClickedIndex < index ? index : lastClickedIndex;
 
 const mergeIds = (highlightedIds, items, minIndex, maxIndex) =>
-    items
-        .slice(minIndex, maxIndex + 1)
-        .filter(id => !highlightedIds.includes(id))
-        .concat(highlightedIds);
+    highlightedIds.length
+        ? items
+              .slice(minIndex, maxIndex + 1)
+              .filter(id => !highlightedIds.includes(id))
+              .concat(highlightedIds)
+        : items.slice(minIndex, maxIndex + 1);
 
 const updateArray = (highlightedIds, id, lastClickedIndex, index) => {
     let ids;
     let newIndex = lastClickedIndex;
 
-    if (highlightedIds.includes(id))
-        ids = highlightedIds.filter(itemId => itemId !== id);
-    else {
+    const idIndex = highlightedIds.findIndex(
+        highlightedId => highlightedId === id
+    );
+
+    if (idIndex >= 0) {
+        ids = highlightedIds
+            .slice(0, idIndex)
+            .concat(highlightedIds.slice(idIndex + 1));
+    } else {
         ids = [...highlightedIds, id];
         newIndex = index;
     }
