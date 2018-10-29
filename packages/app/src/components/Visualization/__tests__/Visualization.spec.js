@@ -4,6 +4,7 @@ import * as chartsApi from 'd2-charts-api';
 import { Visualization } from '../Visualization';
 import BlankCanvas from '../BlankCanvas';
 import * as options from '../../../modules/options';
+import { getStubContext } from '../../../../../../config/testsContext';
 
 const metaDataMock = ['a', 'b'];
 class MockAnalyticsResponse {
@@ -36,6 +37,17 @@ const createChartMock = {
     },
 };
 
+const stubContext = {
+    d2: {
+        analytics: {
+            aggregate: {
+                get: () => Promise.resolve('got resource'),
+            },
+            response: MockAnalyticsResponse,
+        },
+    },
+};
+
 describe('Visualization', () => {
     options.getOptionsForRequest = () => [
         ['option1', { defaultValue: 'abc' }],
@@ -43,9 +55,12 @@ describe('Visualization', () => {
     ];
     let props;
     let shallowVisualization;
-    const canvas = () => {
+    const canvas = requestMock => {
+        stubContext.d2.analytics.request = requestMock;
         if (!shallowVisualization) {
-            shallowVisualization = shallow(<Visualization {...props} />);
+            shallowVisualization = shallow(<Visualization {...props} />, {
+                context: stubContext,
+            });
         }
         return shallowVisualization;
     };
@@ -53,16 +68,11 @@ describe('Visualization', () => {
     beforeEach(() => {
         props = {
             current: {},
-            d2: {
-                analytics: {
-                    aggregate: {
-                        get: () => Promise.resolve('got resource'),
-                    },
-                    response: MockAnalyticsResponse,
-                },
-            },
             acAddMetadata: jest.fn(),
             acSetChart: jest.fn(),
+            acSetLoading: jest.fn(),
+            acClearLoadError: jest.fn(),
+            acSetLoadError: jest.fn(),
         };
 
         shallowVisualization = undefined;
@@ -71,9 +81,7 @@ describe('Visualization', () => {
     });
 
     it('renders a BlankCanvas', done => {
-        props.d2.analytics.request = getRequestMock();
-
-        const wrapper = canvas();
+        const wrapper = canvas(getRequestMock());
 
         setTimeout(() => {
             expect(wrapper.find(BlankCanvas).length).toBeGreaterThan(0);
@@ -82,9 +90,7 @@ describe('Visualization', () => {
     });
 
     it('calls createChart', done => {
-        props.d2.analytics.request = getRequestMock();
-
-        canvas();
+        canvas(getRequestMock());
 
         setTimeout(() => {
             expect(chartsApi.createChart).toHaveBeenCalled();
@@ -93,9 +99,7 @@ describe('Visualization', () => {
     });
 
     it('calls addMetadata action', done => {
-        props.d2.analytics.request = getRequestMock();
-
-        canvas();
+        canvas(getRequestMock());
 
         setTimeout(() => {
             expect(props.acAddMetadata).toHaveBeenCalled();
@@ -111,9 +115,8 @@ describe('Visualization', () => {
         };
 
         const mockFn = jest.fn();
-        props.d2.analytics.request = getRequestMock(mockFn);
 
-        canvas();
+        canvas(getRequestMock(mockFn));
 
         setTimeout(() => {
             expect(mockFn.mock.calls[0][0]).toEqual({ option1: 'def' });
@@ -122,10 +125,17 @@ describe('Visualization', () => {
         });
     });
 
-    it('calls setChart action', done => {
-        props.d2.analytics.request = getRequestMock();
+    it('calls clearLoadError action', done => {
+        canvas(getRequestMock());
 
-        canvas();
+        setTimeout(() => {
+            expect(props.acClearLoadError).toHaveBeenCalled();
+            done();
+        });
+    });
+
+    it('calls setChart action', done => {
+        canvas(getRequestMock());
 
         setTimeout(() => {
             expect(props.acSetChart).toHaveBeenCalled();

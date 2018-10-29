@@ -114,11 +114,7 @@ export class App extends Component {
                         Interpretations panel
                     </div>
                     <div className="item7 canvas">
-                        {hasCurrent ? (
-                            <Visualization d2={this.props.d2} />
-                        ) : (
-                            <BlankCanvas />
-                        )}
+                        {hasCurrent ? <Visualization /> : <BlankCanvas />}
                     </div>
                 </div>
                 {this.renderSnackbar()}
