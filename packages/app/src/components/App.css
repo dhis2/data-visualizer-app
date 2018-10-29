@@ -20,6 +20,7 @@ body {
 }
 .chart-layout {
     grid-area: chartlayout;
+    display: flex;
 }
 .interpretations {
     grid-area: interpretations;

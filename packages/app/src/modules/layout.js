@@ -1,4 +1,4 @@
-import { getPropsByKeys, entriesToObject } from './util';
+import pick from 'lodash-es/pick';
 
 // Prop names for analytical object axes
 export const AXIS_NAME_COLUMNS = 'columns';
@@ -16,6 +16,13 @@ export const DIMENSION_ID_PROP_NAME = 'dimension';
 export const DIMENSION_ITEMS_PROP_NAME = 'items';
 
 // Layout utility functions
+
+// Accepts: dimensionId, [itemIds]
+// Returns dimension object { dimension: 'dx', items: [{ id: abc }] }
+export const createDimension = (dimensionId, itemIds) => ({
+    dimension: dimensionId,
+    items: itemIds.map(id => ({ id })),
+});
 
 // Collect all dimensions from the layout in an array
 export const getAllDimensions = visualization =>
@@ -55,14 +62,18 @@ export const getItemIdsByDimension = visualization => {
 };
 
 export const getDimensionIdsByAxis = visualization => {
-    const axes = getPropsByKeys(visualization, AXIS_NAMES);
+    const axes = pick(visualization, AXIS_NAMES);
+
     const entries = Object.entries(axes);
     const entriesWithIds = entries.map(([axisName, dimensions]) => [
         axisName,
         dimensions.map(dim => dim.dimension),
     ]);
 
-    return entriesToObject(entriesWithIds);
+    return entriesWithIds.reduce(
+        (obj, [key, value]) => ({ ...obj, [key]: value }),
+        {}
+    );
 };
 
 // Accepts layout: { columns: ['dx'] }

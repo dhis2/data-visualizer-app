@@ -14,8 +14,10 @@ import reducer, {
     ADD_UI_PARENT_GRAPH_MAP,
     SET_UI_ACTIVE_MODAL_DIALOG,
     CLEAR_UI,
+    SET_UI_YEAR_ON_YEAR_SERIES,
+    SET_UI_YEAR_ON_YEAR_CATEGORY,
 } from '../ui';
-import { AXIS_NAMES } from '../../layout';
+import { AXIS_NAMES } from '../../modules/layout';
 
 const [COLUMNS, ROWS, FILTERS] = AXIS_NAMES;
 
@@ -312,6 +314,39 @@ describe('reducer: ui', () => {
             expect(actualState.itemsByDimension.dx).toEqual(expectedState);
         });
     });
+
+    it(`${SET_UI_YEAR_ON_YEAR_SERIES}: should set new yearOnYearSeries`, () => {
+        const series = ['LAST_YEAR'];
+
+        const actualState = reducer(DEFAULT_UI, {
+            type: SET_UI_YEAR_ON_YEAR_SERIES,
+            value: series,
+        });
+
+        const expectedState = {
+            ...DEFAULT_UI,
+            yearOnYearSeries: series,
+        };
+
+        expect(actualState).toEqual(expectedState);
+    });
+
+    it(`${SET_UI_YEAR_ON_YEAR_CATEGORY}: should set new yearOnYearCategory`, () => {
+        const category = ['LAST_3_MONTHS'];
+
+        const actualState = reducer(DEFAULT_UI, {
+            type: SET_UI_YEAR_ON_YEAR_CATEGORY,
+            value: category,
+        });
+
+        const expectedState = {
+            ...DEFAULT_UI,
+            yearOnYearCategory: category,
+        };
+
+        expect(actualState).toEqual(expectedState);
+    });
+
     it(`${SET_UI_PARENT_GRAPH_MAP}: should set the new parent graph map`, () => {
         const graphMapToSet = {
             abc: 'Silly district',

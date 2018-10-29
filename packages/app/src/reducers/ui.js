@@ -3,9 +3,12 @@ import {
     getItemIdsByDimension,
     getFilteredLayout,
     getSwapModObj,
-} from '../layout';
-import { getOptionsForUi, getOptionsFromVisualization } from '../options';
-import { COLUMN } from '../components/VisualizationTypeSelector/visualizationTypes';
+} from '../modules/layout';
+import {
+    getOptionsForUi,
+    getOptionsFromVisualization,
+} from '../modules/options';
+import { COLUMN } from '../modules/chartTypes';
 
 export const SET_UI = 'SET_UI';
 export const SET_UI_FROM_VISUALIZATION = 'SET_UI_FROM_VISUALIZATION';
@@ -20,6 +23,8 @@ export const REMOVE_UI_ITEMS = 'REMOVE_UI_ITEMS';
 export const SET_UI_PARENT_GRAPH_MAP = 'SET_UI_PARENT_GRAPH_MAP';
 export const ADD_UI_PARENT_GRAPH_MAP = 'ADD_UI_PARENT_GRAPH_MAP';
 export const SET_UI_ACTIVE_MODAL_DIALOG = 'SET_UI_ACTIVE_MODAL_DIALOG';
+export const SET_UI_YEAR_ON_YEAR_SERIES = 'SET_UI_YEAR_ON_YEAR_SERIES';
+export const SET_UI_YEAR_ON_YEAR_CATEGORY = 'SET_UI_YEAR_ON_YEAR_CATEGORY';
 export const CLEAR_UI = 'CLEAR_UI';
 
 export const DEFAULT_UI = {
@@ -35,6 +40,8 @@ export const DEFAULT_UI = {
         pe: ['LAST_12_MONTHS'],
         ou: ['USER_ORGUNIT'],
     },
+    yearOnYearSeries: ['LAST_5_YEARS'],
+    yearOnYearCategory: ['MONTHS_THIS_YEAR'],
     parentGraphMap: {},
     activeModalDialog: null,
 };
@@ -148,6 +155,19 @@ export default (state = DEFAULT_UI, action) => {
 
             return Object.assign({}, { ...state }, { itemsByDimension });
         }
+        case SET_UI_YEAR_ON_YEAR_SERIES: {
+            return {
+                ...state,
+                yearOnYearSeries: action.value || DEFAULT_UI.yearOnYearSeries,
+            };
+        }
+        case SET_UI_YEAR_ON_YEAR_CATEGORY: {
+            return {
+                ...state,
+                yearOnYearCategory:
+                    action.value || DEFAULT_UI.yearOnYearCategory,
+            };
+        }
         case SET_UI_PARENT_GRAPH_MAP: {
             return {
                 ...state,
@@ -180,10 +200,15 @@ export default (state = DEFAULT_UI, action) => {
 
 export const sGetUi = state => state.ui;
 
+export const sGetUiType = state => sGetUi(state).type;
 export const sGetUiOptions = state => sGetUi(state).options;
 export const sGetUiLayout = state => sGetUi(state).layout;
 export const sGetUiItems = state => sGetUi(state).itemsByDimension;
-export const sGetUiType = state => sGetUi(state).type;
+export const sGetUiYearOnYearSeries = state => sGetUi(state).yearOnYearSeries;
+export const sGetUiYearOnYearCategory = state =>
+    sGetUi(state).yearOnYearCategory;
+export const sGetUiParentGraphMap = state => sGetUi(state).parentGraphMap;
+export const sGetUiActiveModalDialog = state => sGetUi(state).activeModalDialog;
 
 export const sGetDimensionIdsFromLayout = state =>
     Object.values(sGetUiLayout(state)).reduce(

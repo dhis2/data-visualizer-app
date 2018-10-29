@@ -244,10 +244,10 @@
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
-"@dhis2/d2-ui-period-selector-dialog@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-period-selector-dialog/-/d2-ui-period-selector-dialog-2.0.1.tgz#da23c29f89ca2bd3a47488008f2358e1caaa68fd"
-  integrity sha512-Lkr3yX+Zp+YZyqEFSWXoo+9pywQ5c4PmX5V1xWcF2sIVx0lF8D4WYSIy6TPrblFC80W4IaZm75Mjyt7Kpey1nw==
+"@dhis2/d2-ui-period-selector-dialog@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-period-selector-dialog/-/d2-ui-period-selector-dialog-2.0.2.tgz#b38c3403d8601319d4bb373663896f4005e7461b"
+  integrity sha512-aGmQ38EY32Qg+seSaRLWHviKLRg5KAl5voR9x8JYvXn+Pc33+xLMdj/Kv+dpaWy03/RJrD4QmThokkvuf5dBzA==
   dependencies:
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"

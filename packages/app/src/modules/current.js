@@ -1,10 +1,6 @@
-import { getPropsByKeys } from './util';
+import pick from 'lodash-es/pick';
 import options, { computedOptions } from './options';
-
-const getModelAxis = (dimensionId, itemIds) => ({
-    dimension: dimensionId,
-    items: itemIds.map(id => ({ id })),
-});
+import { createDimension } from './layout';
 
 const hasItems = (object, id) =>
     object.hasOwnProperty(id) && Array.isArray(object[id]) && object[id].length;
@@ -17,7 +13,7 @@ export const getAxesFromUi = ui =>
                 .map(
                     id =>
                         hasItems(ui.itemsByDimension, id)
-                            ? getModelAxis(id, ui.itemsByDimension[id])
+                            ? createDimension(id, ui.itemsByDimension[id])
                             : null
                 )
                 .filter(dim => dim !== null),
@@ -26,7 +22,7 @@ export const getAxesFromUi = ui =>
     );
 
 export const getOptionsFromUi = ui => {
-    const optionsFromUi = getPropsByKeys(
+    const optionsFromUi = pick(
         ui.options,
         Object.keys({ ...options, ...computedOptions })
     );

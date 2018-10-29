@@ -15,8 +15,8 @@ import BlankCanvas from './Visualization/BlankCanvas';
 import Layout from './Layout/Layout';
 import * as fromReducers from '../reducers';
 import * as fromActions from '../actions';
-import history from '../history';
-import defaultMetadata from '../metadata';
+import history from '../modules/history';
+import defaultMetadata from '../modules/metadata';
 
 import './App.css';
 import { sGetUi } from '../reducers/ui';
