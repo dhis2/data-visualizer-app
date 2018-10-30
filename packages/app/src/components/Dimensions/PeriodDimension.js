@@ -15,8 +15,10 @@ import { acAddMetadata } from '../../actions/metadata';
 
 import { HideButton, UpdateButton } from './DataDimension/buttons';
 import { styles } from './styles/PeriodDimension.style';
+import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
 
-const PE = 'pe';
+const peId = FIXED_DIMENSIONS.pe.id;
+
 const PERIOD = 'PERIOD';
 
 export class PeriodDimension extends Component {
@@ -29,7 +31,7 @@ export class PeriodDimension extends Component {
         const idsToAdd = periods.map(periodRange => periodRange.id);
 
         this.props.addUiItems({
-            dimensionType: PE,
+            dimensionType: peId,
             value: idsToAdd,
         });
 
@@ -45,13 +47,13 @@ export class PeriodDimension extends Component {
         const idsToRemove = periods.map(periodRange => periodRange.id);
 
         this.props.removeUiItems({
-            dimensionType: PE,
+            dimensionType: peId,
             value: idsToRemove,
         });
     };
 
     getSelectedPeriods = () => {
-        return this.props.ui.itemsByDimension[PE].map(item => ({
+        return this.props.ui.itemsByDimension[peId].map(item => ({
             id: item,
             name: this.props.metadata[item].name,
         }));

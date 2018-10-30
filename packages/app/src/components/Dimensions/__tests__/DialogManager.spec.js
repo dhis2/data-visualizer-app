@@ -6,6 +6,9 @@ import {
     defaultState,
     dimensionComponents,
 } from '../DialogManager';
+import { FIXED_DIMENSIONS } from '../../../modules/fixedDimensions';
+
+const dxId = FIXED_DIMENSIONS.dx.id;
 
 describe('The DialogManager component ', () => {
     let props;
@@ -37,7 +40,7 @@ describe('The DialogManager component ', () => {
     });
 
     it('renders a <Dialog> id is not equal to a falsy value', () => {
-        props.id = 'dx';
+        props.id = dxId;
 
         const wrappingDialog = dialogManager()
             .find(Dialog)

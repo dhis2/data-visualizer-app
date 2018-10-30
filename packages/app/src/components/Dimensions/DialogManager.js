@@ -3,15 +3,20 @@ import Dialog from '@material-ui/core/Dialog';
 import DataDimension from './DataDimension/DataDimension';
 import OrgUnitDimension from './OrgUnitDimension/OrgUnitDimension';
 import PeriodDimension from './PeriodDimension';
+import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
+
+const dxId = FIXED_DIMENSIONS.dx.id;
+const peId = FIXED_DIMENSIONS.pe.id;
+const ouId = FIXED_DIMENSIONS.ou.id;
 
 export const defaultState = {
     mounted: [],
 };
 
 export const dimensionComponents = props => ({
-    dx: <DataDimension toggleDialog={props.toggleDialog} />,
-    ou: <OrgUnitDimension toggleDialog={props.toggleDialog} />,
-    pe: <PeriodDimension toggleDialog={props.toggleDialog} />,
+    [dxId]: <DataDimension toggleDialog={props.toggleDialog} />,
+    [peId]: <OrgUnitDimension toggleDialog={props.toggleDialog} />,
+    [ouId]: <PeriodDimension toggleDialog={props.toggleDialog} />,
 });
 
 export class DialogManager extends Component {
@@ -39,7 +44,7 @@ export class DialogManager extends Component {
             disableEnforceFocus
             keepMounted
         >
-            {Object.keys(this.dimensionComponents).map(dimensionId => {
+            {Object.keys(dimensionComponents(this.props)).map(dimensionId => {
                 return this.state.mounted.includes(dimensionId) ? (
                     <div
                         key={dimensionId}

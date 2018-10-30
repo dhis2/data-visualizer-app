@@ -15,6 +15,7 @@ import {
 
 import { colors } from '../../../modules/colors';
 import styles from './styles/OrgUnitDimension.style';
+import { FIXED_DIMENSIONS } from '../../../modules/fixedDimensions';
 import { HideButton, UpdateButton } from './buttons';
 import { sGetUi } from '../../../reducers/ui';
 import { acSetCurrentFromUi } from '../../../actions/current';
@@ -46,6 +47,8 @@ import {
     transformOptionsIntoMetadata,
 } from '../../../modules/orgUnitDimensions';
 
+const ouId = FIXED_DIMENSIONS.ou.id;
+
 export const defaultState = {
     root: undefined,
     // use "selected" property for cloning org units while user org unit(s) is (are) selected
@@ -75,8 +78,8 @@ export class OrgUnitDimension extends Component {
 
         this.props.acSetUiItems({
             ...this.props.ui.itemsByDimension,
-            ou: [
-                ...this.props.ui.itemsByDimension.ou.filter(
+            [ouId]: [
+                ...this.props.ui.itemsByDimension[ouId].filter(
                     id => !isLevelId(id)
                 ),
                 ...levelIds.map(
@@ -91,8 +94,8 @@ export class OrgUnitDimension extends Component {
 
         this.props.acSetUiItems({
             ...this.props.ui.itemsByDimension,
-            ou: [
-                ...this.props.ui.itemsByDimension.ou.filter(
+            [ouId]: [
+                ...this.props.ui.itemsByDimension[ouId].filter(
                     id => !isGroupId(id)
                 ),
                 ...optionIds.map(id => `${GROUP_ID_PREFIX}-${id}`),
@@ -152,14 +155,14 @@ export class OrgUnitDimension extends Component {
 
     handleOrgUnitClick = (event, orgUnit) => {
         const selected = getOrgUnitsFromIds(
-            this.props.ui.itemsByDimension.ou,
+            this.props.ui.itemsByDimension[ouId],
             this.props.metadata,
             this.props.ui.parentGraphMap
         );
 
         if (selected.some(ou => ou.path === orgUnit.path)) {
             this.props.acRemoveUiItems({
-                dimensionType: 'ou',
+                dimensionType: ouId,
                 value: [orgUnit.id],
             });
         } else {
@@ -178,7 +181,7 @@ export class OrgUnitDimension extends Component {
             });
 
             this.props.acAddUiItems({
-                dimensionType: 'ou',
+                dimensionType: ouId,
                 value: [orgUnit.id],
             });
         }
@@ -188,14 +191,14 @@ export class OrgUnitDimension extends Component {
         if (checked) {
             if (!this.state.selected.length) {
                 this.setState({
-                    selected: this.props.ui.itemsByDimension.ou.slice(),
+                    selected: this.props.ui.itemsByDimension[ouId].slice(),
                 });
             }
 
             this.props.acSetUiItems({
                 ...this.props.ui.itemsByDimension,
-                ou: [
-                    ...this.props.ui.itemsByDimension.ou.filter(id =>
+                [ouId]: [
+                    ...this.props.ui.itemsByDimension[ouId].filter(id =>
                         this.userOrgUnitIds.includes(id)
                     ),
                     event.target.name,
@@ -203,12 +206,12 @@ export class OrgUnitDimension extends Component {
             });
         } else {
             if (
-                this.props.ui.itemsByDimension.ou.length === 1 &&
+                this.props.ui.itemsByDimension[ouId].length === 1 &&
                 this.state.selected.length > 0
             ) {
                 this.props.acSetUiItems({
                     ...this.props.ui.itemsByDimension,
-                    ou: this.state.selected,
+                    [ouId]: this.state.selected,
                 });
 
                 this.setState({
@@ -217,7 +220,7 @@ export class OrgUnitDimension extends Component {
             }
 
             this.props.acRemoveUiItems({
-                dimensionType: 'ou',
+                dimensionType: ouId,
                 value: [event.target.name],
             });
         }
@@ -233,8 +236,7 @@ export class OrgUnitDimension extends Component {
     };
 
     render = () => {
-        const ids = this.props.ui.itemsByDimension.ou;
-
+        const ids = this.props.ui.itemsByDimension[ouId];
         const selected = getOrgUnitsFromIds(
             ids,
             this.props.metadata,

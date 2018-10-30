@@ -23,11 +23,12 @@ import { acRemoveUiItems, acAddUiItems } from '../../../actions/ui';
 import { acAddMetadata } from '../../../actions/metadata';
 
 import { DEFAULT_DATATYPE_ID, ALL_ID, dataTypes } from './dataTypes';
+import { FIXED_DIMENSIONS } from '../../../modules/fixedDimensions';
 
 import { styles } from './styles/DataDimension.style';
 import './DataDimension.css';
 
-const DX = 'dx';
+const dxId = FIXED_DIMENSIONS.dx.id;
 const FIRST_PAGE = 1;
 
 export class DataDimension extends Component {
@@ -116,7 +117,7 @@ export class DataDimension extends Component {
             ? this.state.dimensionItems.concat(dimensionItems)
             : dimensionItems;
 
-        const selectedIds = this.props.selectedItems[DX];
+        const selectedIds = this.props.selectedItems;
 
         const unselectedIds = newDimensionItems
             .filter(i => !selectedIds.includes(i.id))
@@ -160,7 +161,7 @@ export class DataDimension extends Component {
         );
 
         this.props.addDxItems({
-            dimensionType: DX,
+            dimensionType: dxId,
             value: selectedIds,
         });
 
@@ -174,7 +175,7 @@ export class DataDimension extends Component {
         this.setState({ unselectedIds });
 
         this.props.removeDxItems({
-            dimensionType: DX,
+            dimensionType: dxId,
             value: ids,
         });
     };
@@ -219,7 +220,7 @@ export class DataDimension extends Component {
                             />
                         </div>
                         <SelectedItems
-                            items={this.props.selectedItems.dx}
+                            items={this.props.selectedItems}
                             onDeselect={this.deselectDataDimensions}
                         />
                     </div>
@@ -236,7 +237,7 @@ export class DataDimension extends Component {
 DataDimension.propTypes = {
     toggleDialog: PropTypes.func.isRequired,
     displayNameProp: PropTypes.string.isRequired,
-    selectedItems: PropTypes.object.isRequired,
+    selectedItems: PropTypes.array,
     ui: PropTypes.object.isRequired,
     addDxItems: PropTypes.func.isRequired,
     removeDxItems: PropTypes.func.isRequired,
@@ -244,8 +245,12 @@ DataDimension.propTypes = {
     onUpdate: PropTypes.func.isRequired,
 };
 
+DataDimension.defaultProps = {
+    selectedItems: [],
+};
+
 const mapStateToProps = state => ({
-    selectedItems: sGetUiItems(state),
+    selectedItems: sGetUiItems(state)[dxId],
     displayNameProp: sGetDisplayNameProperty(state),
     ui: sGetUi(state),
 });
