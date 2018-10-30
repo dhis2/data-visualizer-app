@@ -43,9 +43,9 @@ describe('reducer: current', () => {
             type: COLUMN,
             layout: { columns: [dxId], rows: [ouId], filters: [peId] },
             itemsByDimension: {
-                dx: ['dxItemId1', 'dxItemId2'],
-                ou: ['ouItemId1', 'ouItemId2'],
-                pe: ['peItemId1'],
+                [dxId]: ['dxItemId1', 'dxItemId2'],
+                [peId]: ['peItemId1'],
+                [ouId]: ['ouItemId1', 'ouItemId2'],
             },
             options,
         };
@@ -86,8 +86,8 @@ describe('reducer: current', () => {
             type: YEAR_ON_YEAR,
             layout: { columns: [], rows: [], filters: [dxId, ouId] },
             itemsByDimension: {
-                dx: ['dxItemId1', 'dxItemId2'],
-                ou: ['ouItemId1', 'ouItemId2'],
+                [dxId]: ['dxItemId1', 'dxItemId2'],
+                [ouId]: ['ouItemId1', 'ouItemId2'],
             },
             yearOnYearSeries: 'LAST_5_YEARS',
             yearOnYearCategory: 'MONTHS_THIS_YEAR',

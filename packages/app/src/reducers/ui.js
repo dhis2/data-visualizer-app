@@ -42,8 +42,8 @@ export const DEFAULT_UI = {
         filters: [ouId],
     },
     itemsByDimension: {
-        pe: ['LAST_12_MONTHS'],
-        ou: ['USER_ORGUNIT'],
+        [peId]: ['LAST_12_MONTHS'],
+        [ouId]: ['USER_ORGUNIT'],
     },
     yearOnYearSeries: ['LAST_5_YEARS'],
     yearOnYearCategory: ['MONTHS_THIS_YEAR'],

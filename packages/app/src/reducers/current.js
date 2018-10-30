@@ -13,8 +13,8 @@ const dxId = FIXED_DIMENSIONS.dx.id;
 const peId = FIXED_DIMENSIONS.pe.id;
 
 const getYearOnYearCurrentFromUi = (state, action) => {
-    const dxItem = action.value.itemsByDimension.dx
-        ? action.value.itemsByDimension.dx[0]
+    const dxItem = action.value.itemsByDimension[dxId]
+        ? action.value.itemsByDimension[dxId][0]
         : [];
     const peItem = action.value.yearOnYearCategory;
 

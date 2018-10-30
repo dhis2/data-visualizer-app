@@ -122,7 +122,7 @@ describe('reducer: ui', () => {
                 filters: [ouId, dxId],
             },
             itemsByDimension: {
-                ou: DEFAULT_UI.itemsByDimension.ou,
+                [ouId]: DEFAULT_UI.itemsByDimension[ouId],
             },
         };
         const actualState = reducer(DEFAULT_UI, {
@@ -173,7 +173,7 @@ describe('reducer: ui', () => {
         const actualState = reducer(state, {
             type: ADD_UI_LAYOUT_DIMENSIONS,
             value: {
-                dx: 'rows',
+                [dxId]: 'rows',
             },
         });
 
@@ -241,8 +241,8 @@ describe('reducer: ui', () => {
     describe('itemByDimension', () => {
         it(`${SET_UI_ITEMS}: sets items by dimension`, () => {
             const newItemsByDimension = {
-                dx: 'abc',
-                pe: 'def',
+                [dxId]: 'abc',
+                [peId]: 'def',
             };
             const expectedState = {
                 ...DEFAULT_UI,
@@ -269,7 +269,7 @@ describe('reducer: ui', () => {
                 value,
             });
 
-            expect(actualState.itemsByDimension.dx).toEqual(expectedState);
+            expect(actualState.itemsByDimension[dxId]).toEqual(expectedState);
         });
 
         it(`${ADD_UI_ITEMS}: adds several items to dx`, () => {
@@ -283,7 +283,7 @@ describe('reducer: ui', () => {
                 value,
             });
 
-            expect(actualState.itemsByDimension.dx).toEqual(expectedState);
+            expect(actualState.itemsByDimension[dxId]).toEqual(expectedState);
         });
 
         it(`${ADD_UI_ITEMS}: adds pre-existing items to dx`, () => {
@@ -293,7 +293,7 @@ describe('reducer: ui', () => {
             const defaultIBD = Object.assign(
                 {},
                 { ...DEFAULT_UI.itemsByDimension },
-                { dx: [dx1] }
+                { [dxId]: [dx1] }
             );
 
             const startingState = Object.assign(
@@ -309,7 +309,7 @@ describe('reducer: ui', () => {
                 value,
             });
 
-            expect(actualState.itemsByDimension.dx).toEqual(expectedState);
+            expect(actualState.itemsByDimension[dxId]).toEqual(expectedState);
         });
 
         it(`${REMOVE_UI_ITEMS}: removes items from dx`, () => {
@@ -319,7 +319,7 @@ describe('reducer: ui', () => {
             const defaultIBD = Object.assign(
                 {},
                 { ...DEFAULT_UI.itemsByDimension },
-                { dx: [dx1, dx2] }
+                { [dxId]: [dx1, dx2] }
             );
 
             const startingState = Object.assign(
@@ -335,7 +335,7 @@ describe('reducer: ui', () => {
                 value,
             });
 
-            expect(actualState.itemsByDimension.dx).toEqual(expectedState);
+            expect(actualState.itemsByDimension[dxId]).toEqual(expectedState);
         });
     });
 

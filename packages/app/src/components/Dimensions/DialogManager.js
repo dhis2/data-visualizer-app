@@ -3,12 +3,17 @@ import Dialog from '@material-ui/core/Dialog';
 import DataDimension from './DataDimension/DataDimension';
 import PeriodDimension from './PeriodDimension';
 import OrgUnitDimension from './OrgUnitDimension';
+import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
+
+const dxId = FIXED_DIMENSIONS.dx.id;
+const peId = FIXED_DIMENSIONS.pe.id;
+const ouId = FIXED_DIMENSIONS.ou.id;
 
 export const DialogManager = ({ dialogIsOpen, id, toggleDialog }) => {
     const dimensionComponents = {
-        dx: <DataDimension toggleDialog={toggleDialog} />,
-        ou: <OrgUnitDimension toggleDialog={toggleDialog} />,
-        pe: <PeriodDimension toggleDialog={toggleDialog} />,
+        [dxId]: <DataDimension toggleDialog={toggleDialog} />,
+        [peId]: <OrgUnitDimension toggleDialog={toggleDialog} />,
+        [ouId]: <PeriodDimension toggleDialog={toggleDialog} />,
     };
     return id ? (
         <Dialog
