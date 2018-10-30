@@ -5,7 +5,7 @@ import {
     getDimensionIdsByAxis,
 } from '../layout';
 import { createDimension } from '../layout';
-import { FIXED_DIMENSIONS } from '../../../modules/fixedDimensions';
+import { FIXED_DIMENSIONS } from '../fixedDimensions';
 
 const [COLUMNS, ROWS, FILTERS] = AXIS_NAMES;
 

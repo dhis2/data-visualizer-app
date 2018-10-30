@@ -1,6 +1,6 @@
 import { AXIS_NAMES } from '../layout';
 import { getAxesFromUi } from '../current';
-import { FIXED_DIMENSIONS } from '../../../modules/fixedDimensions';
+import { FIXED_DIMENSIONS } from '../fixedDimensions';
 
 const [COLUMNS, ROWS, FILTERS] = AXIS_NAMES;
 
