@@ -10,7 +10,7 @@ import {
 } from '../../reducers/visualization';
 import { SET_CURRENT, CLEAR_CURRENT } from '../../reducers/current';
 import { SET_UI_FROM_VISUALIZATION, CLEAR_UI } from '../../reducers/ui';
-import { SET_LOAD_ERROR, CLEAR_LOAD_ERROR } from '../../reducers/loadError';
+import { SET_LOAD_ERROR, CLEAR_LOAD_ERROR } from '../../reducers/loader';
 import { RECEIVED_SNACKBAR_MESSAGE } from '../../reducers/snackbar';
 
 const middlewares = [thunk];

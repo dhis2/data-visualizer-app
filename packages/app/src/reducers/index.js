@@ -8,7 +8,7 @@ import metadata, * as fromMetadata from './metadata';
 import settings, * as fromSettings from './settings';
 import user, * as fromUser from './user';
 import snackbar, * as fromSnackbar from './snackbar';
-import loadError, * as fromLoadError from './loadError';
+import loader, * as fromLoader from './loader';
 import chart, * as fromChart from './chart';
 
 // Reducers
@@ -23,7 +23,7 @@ export default combineReducers({
     settings,
     user,
     snackbar,
-    loadError,
+    loader,
     chart,
 });
 
@@ -39,6 +39,6 @@ export {
     fromSettings,
     fromUser,
     fromSnackbar,
-    fromLoadError,
+    fromLoader,
     fromChart,
 };

@@ -2,7 +2,7 @@ import { colors } from '../../../../modules/colors';
 import defaultLayoutStyle from './DefaultLayout.style';
 import * as layoutStyle from '../../styles/style';
 
-export const styles = {
+export default {
     axisContainer: {
         display: 'flex',
         backgroundColor: layoutStyle.AXIS_BACKGROUND_COLOR,

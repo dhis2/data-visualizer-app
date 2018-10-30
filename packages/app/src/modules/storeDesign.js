@@ -37,6 +37,8 @@ const state = {
             pe: ['LAST_12_MONTHS'], // Initialised by https://play.dhis2.org/2.30/api/systemSettings.json?key=keyAnalysisRelativePeriod
             ou: ['USER_ORGUNIT'],
         },
+        yearOnYearSeries: 'LAST_5_YEARS',
+        yearOnYearCategory: 'LAST_12_MONTHS',
     },
 
     // Object containing all fetched metadata for lookup
@@ -67,8 +69,11 @@ const state = {
         isSuperuser: false,
     },
 
-    // String containing the text of a load visualization error
-    loadError: null,
+    // Object containing the loading state, and text of a load visualization error
+    loader: {
+        isLoading: false,
+        loadError: '',
+    },
 };
 
 // Typical flow
