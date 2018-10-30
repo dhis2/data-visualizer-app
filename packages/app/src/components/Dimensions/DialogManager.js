@@ -15,8 +15,8 @@ export const defaultState = {
 
 export const dimensionComponents = props => ({
     [dxId]: <DataDimension toggleDialog={props.toggleDialog} />,
-    [peId]: <OrgUnitDimension toggleDialog={props.toggleDialog} />,
-    [ouId]: <PeriodDimension toggleDialog={props.toggleDialog} />,
+    [ouId]: <OrgUnitDimension toggleDialog={props.toggleDialog} />,
+    [peId]: <PeriodDimension toggleDialog={props.toggleDialog} />,
 });
 
 export class DialogManager extends Component {
@@ -44,7 +44,7 @@ export class DialogManager extends Component {
             disableEnforceFocus
             keepMounted
         >
-            {Object.keys(dimensionComponents(this.props)).map(dimensionId => {
+            {Object.keys(this.dimensionComponents).map(dimensionId => {
                 return this.state.mounted.includes(dimensionId) ? (
                     <div
                         key={dimensionId}
