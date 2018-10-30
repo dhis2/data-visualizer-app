@@ -49,13 +49,14 @@ export class DataDimension extends Component {
         dimensionItems: [],
         nextPage: null,
         unselectedIds: [],
+        filter: {},
     };
 
     componentDidMount = () => {
-        this.updateGroups(this.state.dataType, this.updateAlternatives);
+        this.updateGroups(this.state.dataType);
     };
 
-    updateGroups = async (dataType, cb) => {
+    updateGroups = async dataType => {
         if (!this.state.groups[dataType].length) {
             const dataTypeGroups = await apiFetchGroups(
                 dataType,
@@ -65,25 +66,58 @@ export class DataDimension extends Component {
             const groups = Object.assign({}, this.state.groups, {
                 [dataType]: dataTypeGroups,
             });
-            this.setState({ groups }, cb);
+            this.setState({ groups }, this.updateAlternatives);
+        } else {
+            this.updateAlternatives();
         }
     };
 
-    onDataTypeChange = dataType => {
-        const updateCb = () => {
-            this.updateGroups(this.state.dataType, this.updateAlternatives);
-        };
-
-        const groupId = dataTypes[dataType].defaultGroup
+    defaultGroupId = dataType => {
+        return dataTypes[dataType].defaultGroup
             ? dataTypes[dataType].defaultGroup.id
             : '';
+    };
 
-        let groupDetail = '';
-        if (dataTypes[dataType].groupDetail) {
-            groupDetail = dataTypes[dataType].groupDetail.default;
+    defaultGroupDetail = dataType => {
+        return dataTypes[dataType].groupDetail
+            ? dataTypes[dataType].groupDetail.default
+            : '';
+    };
+
+    currentFilter = dataType => {
+        return this.state.filter[dataType] || {};
+    };
+
+    onDataTypeChange = dataType => {
+        if (dataType === this.state.dataType) {
+            return;
         }
 
-        this.setState({ dataType, groupId, groupDetail }, updateCb);
+        const filter = Object.assign({}, this.state.filter, {
+            [this.state.dataType]: {
+                groupId: this.state.groupId,
+                groupDetail: this.state.groupDetail,
+            },
+        });
+
+        const updateCb = () => {
+            this.updateGroups(this.state.dataType);
+        };
+
+        const groupId =
+            this.currentFilter(dataType).groupId ||
+            this.defaultGroupId(dataType);
+
+        const groupDetail =
+            this.currentFilter(dataType).groupDetail ||
+            this.defaultGroupDetail(dataType);
+
+        const filterText = '';
+
+        this.setState(
+            { filter, dataType, groupId, groupDetail, filterText },
+            updateCb
+        );
     };
 
     requestMoreItems = () => {
