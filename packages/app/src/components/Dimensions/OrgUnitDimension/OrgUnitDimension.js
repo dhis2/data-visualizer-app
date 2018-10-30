@@ -13,6 +13,7 @@ import {
     removeOrgUnitLastPathSegment,
 } from '@dhis2/d2-ui-org-unit-dialog';
 
+import { colors } from '../../../modules/colors';
 import styles from './styles/OrgUnitDimension.style';
 import { HideButton, UpdateButton } from './buttons';
 import { sGetUi } from '../../../reducers/ui';
@@ -270,7 +271,8 @@ export class OrgUnitDimension extends Component {
                 <DialogActions style={{ padding: '24px' }}>
                     <HideButton onClick={this.onCloseClick} />
                     <UpdateButton
-                        color="primary"
+                        variant="outlined"
+                        style={{ background: colors.blue, color: colors.white }}
                         onClick={this.onUpdateClick}
                     />
                 </DialogActions>
