@@ -144,7 +144,7 @@ export class OrgUnitDimension extends Component {
             .then(({ options, metadata }) => {
                 this.props.acAddMetadata(metadata);
                 this.setState({
-                    levelOptions: options.sort(sortOrgUnitLevels),
+                    levelOptions: sortOrgUnitLevels(options),
                 });
             });
     };
@@ -152,7 +152,6 @@ export class OrgUnitDimension extends Component {
     handleOrgUnitClick = (event, orgUnit) => {
         const selected = getOrgUnitsFromIds(
             this.props.ui.itemsByDimension.ou,
-            [],
             this.props.metadata,
             this.props.ui.parentGraphMap
         );
@@ -237,9 +236,9 @@ export class OrgUnitDimension extends Component {
 
         const selected = getOrgUnitsFromIds(
             ids,
-            this.userOrgUnitIds,
             this.props.metadata,
-            this.props.ui.parentGraphMap
+            this.props.ui.parentGraphMap,
+            this.userOrgUnitIds
         );
         const userOrgUnits = this.getUserOrgUnitsFromIds(ids);
         const level = getLevelsFromIds(ids, this.state.levelOptions);

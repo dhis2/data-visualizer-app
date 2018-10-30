@@ -58,9 +58,9 @@ export const getOrgUnitPath = (id, metadata, parentGraphMap) => {
  */
 export const getOrgUnitsFromIds = (
     ids,
-    idsToExclude = [],
     metadata,
-    parentGraphMap
+    parentGraphMap,
+    idsToExclude = []
 ) => {
     return ids
         .filter(id => !idsToExclude.includes(id))
@@ -112,20 +112,21 @@ export const getGroupsFromIds = (ids, groupOptions) => {
 
 /**
  * Sort org unit levels by level property
- * @param a
- * @param b
  * @returns {number}
+ * @param levelOptions
  */
-export const sortOrgUnitLevels = (a, b) => {
-    if (a.level < b.level) {
-        return -1;
-    }
+export const sortOrgUnitLevels = levelOptions => {
+    return levelOptions.sort((a, b) => {
+        if (a.level < b.level) {
+            return -1;
+        }
 
-    if (a.level > b.level) {
-        return 1;
-    }
+        if (a.level > b.level) {
+            return 1;
+        }
 
-    return 0;
+        return 0;
+    });
 };
 
 /**
