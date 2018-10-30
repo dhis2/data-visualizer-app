@@ -80,10 +80,6 @@ export class DataDimension extends Component {
         }
     };
 
-    currentFilter = dataType => {
-        return this.state.filter[dataType] || {};
-    };
-
     onDataTypeChange = dataType => {
         if (dataType !== this.state.dataType) {
             const filter = Object.assign({}, this.state.filter, {
