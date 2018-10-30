@@ -6,7 +6,7 @@ import { Item } from './Item';
 import { UnAssignButton, DeselectAllButton } from './buttons';
 
 import { sGetMetadata } from '../../../reducers/metadata';
-import { toggler } from './toggler';
+import { toggler } from '../../../modules/toggler';
 import { styles } from './styles/SelectedItems.style';
 
 const Subtitle = () => (

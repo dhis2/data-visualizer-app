@@ -8,7 +8,7 @@ export const styles = {
     listContainer: {
         userSelect: 'none',
         listStyle: 'none',
-        overflowY: 'scroll',
+        overflowY: 'auto',
         height: 340,
         width: 418,
         borderBottom: 0,

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import throttle from 'lodash-es/throttle';
 import { Item } from './Item';
 import { AssignButton, SelectAllButton } from './buttons';
-import { toggler } from './toggler';
+import { toggler } from '../../../modules/toggler';
 import { styles } from './styles/UnselectedItems.style';
 
 export class UnselectedItems extends Component {
