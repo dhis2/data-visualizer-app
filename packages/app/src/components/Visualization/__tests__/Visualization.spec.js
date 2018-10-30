@@ -1,9 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import * as chartsApi from 'd2-charts-api';
+import * as api from '../../../api/analytics';
 import { Visualization } from '../Visualization';
 import BlankCanvas from '../BlankCanvas';
 import * as options from '../../../modules/options';
+import { YEAR_ON_YEAR } from '../../../modules/chartTypes';
 
 jest.mock('d2-charts-api');
 
@@ -18,33 +20,25 @@ class MockAnalyticsResponse {
     }
 }
 
-const getRequestMock = mfn => {
-    const mockFn = mfn ? mfn : jest.fn();
-
-    class MockAnalyticsRequest {
-        constructor() {
-            this.fromModel = () => ({
-                withParameters: mockFn,
-            });
-        }
+const mockYoYSeriesLabels = ['rainbow', 'rarity'];
+class MockYoYAnalyticsResponse {
+    constructor() {
+        return {
+            responses: [
+                {
+                    metaData: {
+                        items: metaDataMock,
+                    },
+                },
+            ],
+            yearlySeriesLabels: mockYoYSeriesLabels,
+        };
     }
-    return MockAnalyticsRequest;
-};
+}
 
 const createChartMock = {
     chart: {
         getSVGForExport: () => '<svg />',
-    },
-};
-
-const stubContext = {
-    d2: {
-        analytics: {
-            aggregate: {
-                get: () => Promise.resolve('got resource'),
-            },
-            response: MockAnalyticsResponse,
-        },
     },
 };
 
@@ -55,12 +49,9 @@ describe('Visualization', () => {
     ];
     let props;
     let shallowVisualization;
-    const canvas = requestMock => {
-        stubContext.d2.analytics.request = requestMock;
+    const canvas = () => {
         if (!shallowVisualization) {
-            shallowVisualization = shallow(<Visualization {...props} />, {
-                context: stubContext,
-            });
+            shallowVisualization = shallow(<Visualization {...props} />);
         }
         return shallowVisualization;
     };
@@ -76,14 +67,19 @@ describe('Visualization', () => {
         };
 
         shallowVisualization = undefined;
+
+        api.apiFetchAnalytics = jest
+            .fn()
+            .mockResolvedValue([new MockAnalyticsResponse()]);
     });
 
     describe('createChart success', () => {
         beforeEach(() => {
-            chartsApi.createChart.mockReturnValue(createChartMock);
+            chartsApi.createChart = jest.fn().mockReturnValue(createChartMock);
         });
+
         it('renders a BlankCanvas', done => {
-            const wrapper = canvas(getRequestMock());
+            const wrapper = canvas();
 
             setTimeout(() => {
                 expect(wrapper.find(BlankCanvas).length).toBeGreaterThan(0);
@@ -92,7 +88,7 @@ describe('Visualization', () => {
         });
 
         it('calls createChart', done => {
-            canvas(getRequestMock());
+            canvas();
 
             setTimeout(() => {
                 expect(chartsApi.createChart).toHaveBeenCalled();
@@ -101,7 +97,7 @@ describe('Visualization', () => {
         });
 
         it('calls addMetadata action', done => {
-            canvas(getRequestMock());
+            canvas();
 
             setTimeout(() => {
                 expect(props.acAddMetadata).toHaveBeenCalled();
@@ -116,19 +112,20 @@ describe('Visualization', () => {
                 option2: null,
             };
 
-            const mockFn = jest.fn();
-
-            canvas(getRequestMock(mockFn));
+            canvas();
 
             setTimeout(() => {
-                expect(mockFn.mock.calls[0][0]).toEqual({ option1: 'def' });
+                expect(api.apiFetchAnalytics).toHaveBeenCalled();
+                expect(api.apiFetchAnalytics.mock.calls[0][1]).toEqual({
+                    option1: 'def',
+                });
 
                 done();
             });
         });
 
         it('calls clearLoadError action', done => {
-            canvas(getRequestMock());
+            canvas();
 
             setTimeout(() => {
                 expect(props.acClearLoadError).toHaveBeenCalled();
@@ -137,7 +134,7 @@ describe('Visualization', () => {
         });
 
         it('calls setChart action', done => {
-            canvas(getRequestMock());
+            canvas();
 
             setTimeout(() => {
                 expect(props.acSetChart).toHaveBeenCalled();
@@ -147,17 +144,65 @@ describe('Visualization', () => {
                 done();
             });
         });
+
+        describe('Year-on-year chart', () => {
+            beforeEach(() => {
+                props.current = {
+                    type: YEAR_ON_YEAR,
+                    option1: 'def',
+                };
+
+                api.apiFetchAnalyticsForYearOnYear = jest
+                    .fn()
+                    .mockResolvedValue(new MockYoYAnalyticsResponse());
+            });
+
+            it('makes year-on-year analytics request', done => {
+                canvas();
+
+                setTimeout(() => {
+                    expect(
+                        api.apiFetchAnalyticsForYearOnYear
+                    ).toHaveBeenCalled();
+                    expect(
+                        api.apiFetchAnalyticsForYearOnYear.mock.calls[0][1]
+                    ).toEqual({
+                        option1: 'def',
+                    });
+
+                    done();
+                });
+            });
+
+            it('provides extra options to createChart', done => {
+                canvas();
+
+                setTimeout(() => {
+                    expect(chartsApi.createChart).toHaveBeenCalled();
+
+                    const expectedExtraOptions = {
+                        yearlySeries: mockYoYSeriesLabels,
+                    };
+
+                    expect(chartsApi.createChart.mock.calls[0][3]).toEqual(
+                        expectedExtraOptions
+                    );
+
+                    done();
+                });
+            });
+        });
     });
 
-    describe('createChart fails', () => {
+    describe('createChart failure', () => {
         beforeEach(() => {
-            chartsApi.createChart.mockImplementation(() => {
+            chartsApi.createChart = jest.fn().mockImplementation(() => {
                 throw new Error('Big time errors');
             });
         });
 
         it('calls the setLoadError message', done => {
-            canvas(getRequestMock());
+            canvas();
 
             setTimeout(() => {
                 expect(props.acSetLoadError).toHaveBeenCalled();
