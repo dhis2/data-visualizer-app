@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import Button from '@material-ui/core/Button';
-import DialogActions from '@material-ui/core/DialogActions';
+
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import i18n from '@dhis2/d2-i18n';
@@ -11,22 +10,22 @@ import {
     removeOrgUnitLastPathSegment,
 } from '@dhis2/d2-ui-org-unit-dialog';
 import PropTypes from 'prop-types';
-import { sGetUi } from '../../reducers/ui';
-import { acSetCurrentFromUi } from '../../actions/current';
-import { acAddMetadata } from '../../actions/metadata';
-import { sGetMetadata } from '../../reducers/metadata';
+import { sGetUi } from '../../../../reducers/ui';
+import { acSetCurrentFromUi } from '../../../../actions/current';
+import { acAddMetadata } from '../../../../actions/metadata';
+import { sGetMetadata } from '../../../../reducers/metadata';
 import {
     acAddUiItems,
     acSetUiItems,
     acRemoveUiItems,
     acAddParentGraphMap,
     acSetParentGraphMap,
-} from '../../actions/ui';
+} from '../../../../actions/ui';
 import {
     apiFetchOrganisationUnitGroups,
     apiFetchOrganisationUnitLevels,
     apiFetchOrganisationUnits,
-} from '../../api/organisationUnits';
+} from '../../../../api/organisationUnits';
 
 /**
  * Org unit level id prefix
@@ -308,15 +307,6 @@ export class OrgUnitDimension extends Component {
         }
     };
 
-    onCloseClick = () => {
-        this.props.toggleDialog();
-    };
-
-    onUpdateClick = () => {
-        this.props.acSetCurrentFromUi(this.props.ui);
-        this.props.toggleDialog(null);
-    };
-
     render = () => {
         if (!this.state.root) {
             return 'loading...';
@@ -332,7 +322,7 @@ export class OrgUnitDimension extends Component {
         return (
             <Fragment>
                 <DialogTitle>{i18n.t('Organisation units')}</DialogTitle>
-                <DialogContent>
+                <DialogContent style={{ display: 'block ' }}>
                     <OrgUnitSelector
                         root={this.state.root}
                         selected={selected}
@@ -347,14 +337,6 @@ export class OrgUnitDimension extends Component {
                         handleOrgUnitClick={this.handleOrgUnitClick}
                     />
                 </DialogContent>
-                <DialogActions style={{ padding: '24px' }}>
-                    <Button onClick={this.onCloseClick}>
-                        {i18n.t('Hide')}
-                    </Button>
-                    <Button color="primary" onClick={this.onUpdateClick}>
-                        {i18n.t('Update')}
-                    </Button>
-                </DialogActions>
             </Fragment>
         );
     };

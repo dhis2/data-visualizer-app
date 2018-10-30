@@ -13,7 +13,7 @@ export const styles = {
         fontSize: 14,
     },
     searchIcon: {
-        paddingTop: 10,
+        paddingTop: 5,
         paddingLeft: 5,
     },
     placeholder: {

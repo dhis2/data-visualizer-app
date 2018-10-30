@@ -4,7 +4,7 @@ export const styles = {
     container: {
         border: `1px solid ${colors.greyLight}`,
         height: 534,
-        minWidth: 278,
+        width: 278,
     },
     subTitleContainer: {
         borderBottom: `1px solid ${colors.greyLight}`,

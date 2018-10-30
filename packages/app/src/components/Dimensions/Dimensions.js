@@ -3,13 +3,13 @@ import TextField from '@material-ui/core/TextField';
 import Search from '@material-ui/icons/Search';
 import i18n from '@dhis2/d2-i18n';
 import DimensionList from './DimensionList';
-import { DialogManager } from './DialogManager';
+import DialogManager from './DialogManager';
 import { styles } from './styles/Dimensions.style';
 
 const SEARCHFIELD_PLACEHOLDER = i18n.t('Search Dimensions');
 
 export class Dimensions extends Component {
-    state = { searchText: '', dialogDimId: null };
+    state = { searchText: '', dialogDim: null };
 
     handleChange = event => {
         this.setState({ searchText: event.target.value });
@@ -17,7 +17,7 @@ export class Dimensions extends Component {
 
     toggleDialog = value => {
         this.setState({
-            dialogDimId: value,
+            dialogDim: value,
         });
     };
 
@@ -25,8 +25,8 @@ export class Dimensions extends Component {
         return (
             <div className={'dimensions'} style={styles.divContainer}>
                 <DialogManager
-                    dialogIsOpen={!!this.state.dialogDimId}
-                    id={this.state.dialogDimId}
+                    dialogIsOpen={!!this.state.dialogDim}
+                    dimension={this.state.dialogDim}
                     toggleDialog={this.toggleDialog}
                 />
                 <TextField

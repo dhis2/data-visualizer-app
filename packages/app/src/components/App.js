@@ -1,8 +1,10 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Snackbar from '@material-ui/core/Snackbar';
 import i18n from '@dhis2/d2-i18n';
+import UI from 'ui/core/UI';
+import HeaderBar from 'ui/widgets/HeaderBar';
 
 import SnackbarMessage from '../widgets/SnackbarMessage';
 import MenuBar from './MenuBar/MenuBar';
@@ -95,9 +97,9 @@ export class App extends Component {
             this.props.current && Object.keys(this.props.current).length > 0;
 
         return (
-            <Fragment>
+            <UI>
+                <HeaderBar appName={i18n.t('Data Visualizer')} />
                 <div className="app">
-                    <div className="item1 headerbar">Headerbar</div>
                     <div className="item2 visualization-type-selector">
                         <VisualizationTypeSelector />
                     </div>
@@ -118,7 +120,7 @@ export class App extends Component {
                     </div>
                 </div>
                 {this.renderSnackbar()}
-            </Fragment>
+            </UI>
         );
     }
 }

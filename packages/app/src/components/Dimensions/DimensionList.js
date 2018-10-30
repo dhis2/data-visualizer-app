@@ -21,11 +21,17 @@ export class DimensionList extends Component {
     renderItem = dimension => {
         return (
             <DimensionItem
+                dimemsion={dimension}
                 id={dimension.id}
                 key={dimension.id}
                 name={dimension.name}
                 isSelected={!!this.props.selected.includes(dimension.id)}
-                toggleDialog={this.props.toggleDialog}
+                toggleDialog={() =>
+                    this.props.toggleDialog({
+                        title: dimension.name,
+                        id: dimension.id,
+                    })
+                }
             />
         );
     };

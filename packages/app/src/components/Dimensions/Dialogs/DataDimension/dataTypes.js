@@ -1,6 +1,6 @@
 import i18n from '@dhis2/d2-i18n';
 
-import { DATA_SETS_CONSTANTS } from '../../../api/dimensions';
+import { DATA_SETS_CONSTANTS } from '../../../../api/dimensions';
 
 export const ALL_ID = 'ALL';
 

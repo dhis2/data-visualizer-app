@@ -24,7 +24,8 @@ export class DimensionLabel extends Component {
     };
 
     onLabelClick = () => {
-        this.props.toggleDialog(this.props.id);
+        console.log(this.props.dimension);
+        this.props.toggleDialog(this.props.dimension);
     };
 
     onKeyPress = event => {
@@ -46,7 +47,7 @@ export class DimensionLabel extends Component {
     renderLabel = () => {
         return (
             <div
-                onClick={this.onLabelClick}
+                onClick={this.props.toggleDialog}
                 onKeyPress={this.onKeyPress}
                 tabIndex={0}
                 style={styles.unselected}

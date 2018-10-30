@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import DialogActions from '@material-ui/core/DialogActions';
+import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
 import i18n from '@dhis2/d2-i18n';
 import debounce from 'lodash-es/debounce';
@@ -9,23 +9,23 @@ import keyBy from 'lodash-es/keyBy';
 
 import DataTypes from './DataTypesSelector';
 import Groups from './Groups';
-import SearchField from './SearchField';
-import UnselectedItems from './UnselectedItems';
-import SelectedItems from './SelectedItems';
-import { HideButton, UpdateButton } from './buttons';
+import SearchField from '../../Dialogs/SearchField';
+import UnselectedItems from '../../Dialogs/UnselectedItems';
+import SelectedItems from '../../Dialogs/SelectedItems';
 
-import { apiFetchGroups, apiFetchAlternatives } from '../../../api/dimensions';
-import { sGetUiItems, sGetUi } from '../../../reducers/ui';
-import { sGetDisplayNameProperty } from '../../../reducers/settings';
+import {
+    apiFetchGroups,
+    apiFetchAlternatives,
+} from '../../../../api/dimensions';
+import { sGetUiItems } from '../../../../reducers/ui';
+import { sGetDisplayNameProperty } from '../../../../reducers/settings';
 
-import { acSetCurrentFromUi } from '../../../actions/current';
-import { acRemoveUiItems, acAddUiItems } from '../../../actions/ui';
-import { acAddMetadata } from '../../../actions/metadata';
+import { acRemoveUiItems, acAddUiItems } from '../../../../actions/ui';
+import { acAddMetadata } from '../../../../actions/metadata';
 
 import { DEFAULT_DATATYPE_ID, ALL_ID, dataTypes } from './dataTypes';
 
-import { styles } from './styles/DataDimension.style';
-import './DataDimension.css';
+import '../Dialog.css';
 
 const DX = 'dx';
 const FIRST_PAGE = 1;
@@ -89,11 +89,6 @@ export class DataDimension extends Component {
         if (this.state.nextPage) {
             this.updateAlternatives(this.state.nextPage, true);
         }
-    };
-
-    onUpdateClick = () => {
-        this.props.onUpdate(this.props.ui);
-        this.props.toggleDialog(null);
     };
 
     updateAlternatives = async (page = FIRST_PAGE, concatItems = false) => {
@@ -190,64 +185,56 @@ export class DataDimension extends Component {
         }
 
         return (
-            <div style={styles.container}>
-                <DialogContent style={styles.dialogContent}>
-                    <h3 style={styles.dialogTitle}>{i18n.t('Data')}</h3>
-                    <div style={styles.subContainer}>
-                        <div style={{ paddingRight: 46 }}>
-                            <DataTypes
-                                currentDataType={this.state.dataType}
-                                onDataTypeChange={this.onDataTypeChange}
-                            />
-                            <Groups
-                                dataType={this.state.dataType}
-                                groups={groups}
-                                groupId={this.state.groupId}
-                                onGroupChange={this.onGroupChange}
-                                onDetailChange={this.onDetailChange}
-                                detailValue={this.state.groupDetail}
-                            />
-                            <SearchField
-                                text={this.state.filterText}
-                                onFilterTextChange={this.onFilterTextChange}
-                            />
-                            <UnselectedItems
-                                items={unselected}
-                                onSelect={this.selectDataDimensions}
-                                filterText={this.state.filterText}
-                                requestMoreItems={this.requestMoreItems}
-                            />
-                        </div>
-                        <SelectedItems
-                            items={this.props.selectedItems.dx}
-                            onDeselect={this.deselectDataDimensions}
+            <Fragment>
+                <DialogTitle>{i18n.t('Data')}</DialogTitle>
+                <DialogContent>
+                    <div style={{ paddingRight: 46 }}>
+                        <DataTypes
+                            currentDataType={this.state.dataType}
+                            onDataTypeChange={this.onDataTypeChange}
+                        />
+                        <Groups
+                            dataType={this.state.dataType}
+                            groups={groups}
+                            groupId={this.state.groupId}
+                            onGroupChange={this.onGroupChange}
+                            onDetailChange={this.onDetailChange}
+                            detailValue={this.state.groupDetail}
+                        />
+                        <SearchField
+                            text={this.state.filterText}
+                            onFilterTextChange={this.onFilterTextChange}
+                        />
+                        <UnselectedItems
+                            className="data-dimension"
+                            items={unselected}
+                            onSelect={this.selectDataDimensions}
+                            filterText={this.state.filterText}
+                            requestMoreItems={this.requestMoreItems}
                         />
                     </div>
+                    <SelectedItems
+                        className="data-dimension"
+                        items={this.props.selectedItems.dx}
+                        onDeselect={this.deselectDataDimensions}
+                    />
                 </DialogContent>
-                <DialogActions style={styles.dialogActions}>
-                    <HideButton action={() => this.props.toggleDialog(null)} />
-                    <UpdateButton action={this.onUpdateClick} />
-                </DialogActions>
-            </div>
+            </Fragment>
         );
     };
 }
 
 DataDimension.propTypes = {
-    toggleDialog: PropTypes.func.isRequired,
     displayNameProp: PropTypes.string.isRequired,
     selectedItems: PropTypes.object.isRequired,
-    ui: PropTypes.object.isRequired,
     addDxItems: PropTypes.func.isRequired,
     removeDxItems: PropTypes.func.isRequired,
     addMetadata: PropTypes.func.isRequired,
-    onUpdate: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
     selectedItems: sGetUiItems(state),
     displayNameProp: sGetDisplayNameProperty(state),
-    ui: sGetUi(state),
 });
 
 export default connect(
@@ -255,7 +242,6 @@ export default connect(
     {
         removeDxItems: acRemoveUiItems,
         addDxItems: acAddUiItems,
-        onUpdate: acSetCurrentFromUi,
         addMetadata: acAddMetadata,
     }
 )(DataDimension);

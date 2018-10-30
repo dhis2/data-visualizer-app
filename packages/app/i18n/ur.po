@@ -1,0 +1,450 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"POT-Creation-Date: 2018-10-25T10:26:11.821Z\n"
+"PO-Revision-Date: 2018-10-25T10:26:11.821Z\n"
+
+msgid "Rename successful"
+msgstr "نام تبدیل کریں"
+
+msgid "\"{{what}}\" successfully deleted."
+msgstr "\"{{what}}\" کامیابی سے حذف کر دیا گیا"
+
+msgid "Reporting rates"
+msgstr "رپورٹنگ کی شرح"
+
+msgid "Reporting rates on time"
+msgstr "وقت پر رپورٹنگ کی شرح"
+
+msgid "Actual reports"
+msgstr "اصل رپورٹ"
+
+msgid "Actual reporting rates on time"
+msgstr "وقت پر اصل رپورٹنگ کی شرح"
+
+msgid "Expected reports"
+msgstr "متوقع رپورٹ"
+
+msgid "Data Visualizer"
+msgstr "ڈیٹا ویزوئلائزر"
+
+msgid "Data"
+msgstr "ڈیٹا"
+
+msgid "Data Type"
+msgstr "ڈیٹا کی قسم"
+
+msgid "Detail"
+msgstr "تفصیل"
+
+msgid "Search"
+msgstr "تلاش کریں"
+
+msgid "Selected Data"
+msgstr "منتخب ڈیٹا"
+
+msgid "DESELECT ALL"
+msgstr "سب کا انتخاب کریں"
+
+msgid "SELECT ALL"
+msgstr "تمام منتخب کریں"
+
+msgid "HIDE"
+msgstr "چھپائیں"
+
+msgid "UPDATE"
+msgstr "اپ ڈیٹ"
+
+msgid "Indicators"
+msgstr "اشارے"
+
+msgid "Select indicator group"
+msgstr "اشارے گروپ منتخب کریں"
+
+msgid "[ All groups ]"
+msgstr "[ تمام گروپ ]"
+
+msgid "Data elements"
+msgstr "ڈیٹا عناصر"
+
+msgid "Select data element group"
+msgstr "ڈیٹا عنصر گروپ منتخب کریں"
+
+msgid "[ All data elements ]"
+msgstr "[ تمام ڈیٹا عناصر ]"
+
+msgid "Totals"
+msgstr "مجموعی طور پر"
+
+msgid "Details"
+msgstr "تفصیلات"
+
+msgid "Data sets"
+msgstr "ڈیٹا سیٹ"
+
+msgid "Select data sets"
+msgstr "ڈیٹا سیٹ کا انتخاب کریں"
+
+msgid "[ All metrics ]"
+msgstr "[ تمام میٹرکس ]"
+
+msgid "Event data items"
+msgstr "واقعہ کے اعداد و شمار کی اشیاء"
+
+msgid "Select program"
+msgstr "پروگرام منتخب کریں"
+
+msgid "Program indicators"
+msgstr "پروگرام اشارے"
+
+msgid "Add to series"
+msgstr "سیریز میں شامل کریں"
+
+msgid "Add to category"
+msgstr "زمرہ میں شامل کریں"
+
+msgid "Add to filter"
+msgstr "فلٹر میں شامل کریں"
+
+msgid "Search Dimensions"
+msgstr "تلاش کے طول و عرض"
+
+msgid "OrgUnit Dimension"
+msgstr "تنظیم یونٹ طول و عرض"
+
+msgid "Period Dimension"
+msgstr "مدت طول و عرض"
+
+msgid "Dimension recommended with selected data"
+msgstr "منتخب اعداد و شمار کے ساتھ طول و عرض کی سفارش کی گئی ہے"
+
+msgid "selected"
+msgstr "منتخب شدہ"
+
+msgid "Series"
+msgstr "سیریز"
+
+msgid "Category"
+msgstr "قسم"
+
+msgid "Filter"
+msgstr "فلٹر"
+
+msgid "Move to"
+msgstr "پر منتقل"
+
+msgid "Remove"
+msgstr "دور"
+
+msgid "None selected"
+msgstr "کوئی بھی منتخب نہیں"
+
+msgid "Update"
+msgstr "اپ ڈیٹ"
+
+msgid "Aggregation type"
+msgstr "مجموعی قسم"
+
+msgid "By data element"
+msgstr "ڈیٹا عنصر کے ذریعہ"
+
+msgid "Count"
+msgstr "شمار"
+
+msgid "Average"
+msgstr "اوسط"
+
+msgid "Average (sum in org unit hierarchy)"
+msgstr "اوسط (اختیاری یونٹ کے تنظیمی ڈھانچے میں)"
+
+msgid "Sum"
+msgstr "سم"
+
+msgid "Last value"
+msgstr "آخری قیمت"
+
+msgid "Last value (average in org unit hierarchy)"
+msgstr "آخری قدر (اوسط یونٹ کے تنظیمی ڈھانچے میں اوسط)"
+
+msgid "Min"
+msgstr "منٹ"
+
+msgid "Max"
+msgstr "زیادہ سے زیادہ"
+
+msgid "Standard deviation"
+msgstr "معیاری انحراف"
+
+msgid "Variance"
+msgstr "متغیر"
+
+msgid "Base line"
+msgstr "بیس لائن"
+
+msgid "Base line title"
+msgstr "بیس لائن کا عنوان"
+
+msgid "Base line value"
+msgstr "بیس لائن قیمت"
+
+msgid "Use cumulative values"
+msgstr "مجموعی اقدار کا استعمال کریں"
+
+msgid "Domain axis title"
+msgstr "ڈومین محور عنوان"
+
+msgid "Hide empty categories"
+msgstr "خالی اقسام چھپائیں"
+
+msgid "None"
+msgstr "کوئی بھی نہیں"
+
+msgid "Before first"
+msgstr "پہلے سے پہلے"
+
+msgid "After first"
+msgstr "سب سے پہلے"
+
+msgid "Before first and after last"
+msgstr "پہلے اور بعد میں آخری سے پہلے"
+
+msgid "All"
+msgstr "سب"
+
+msgid "Hide chart legend"
+msgstr "چارٹ علامات چھپائیں"
+
+msgid "Hide subtitle"
+msgstr "ذیلی عنوان چھپائیں"
+
+msgid "Hide title"
+msgstr "عنوان چھپائیں"
+
+msgid "No space between columns/bars"
+msgstr "کالم / سلاخوں کے درمیان کوئی جگہ نہیں"
+
+msgid "Use 100% stacked values"
+msgstr "100٪ اسٹیکرز اقدار کا استعمال کریں"
+
+msgid "Range axis decimals"
+msgstr "رینج محور کی فہرست"
+
+msgid "Range axis title"
+msgstr "رینج محور عنوان"
+
+msgid "Range axis max"
+msgstr "رینج محور زیادہ سے زیادہ"
+
+msgid "Range axis min"
+msgstr "رینج محور منٹ"
+
+msgid "Range axis tick steps"
+msgstr "رینج محور کو قدموں میں ٹینک"
+
+msgid "Trend line"
+msgstr "رجحان لائن"
+
+msgid "Linear"
+msgstr "لکیری"
+
+msgid "Polynomial"
+msgstr "پولینومیل"
+
+msgid "Loess"
+msgstr "قرض"
+
+msgid "Show values"
+msgstr "اقدار دکھائیں"
+
+msgid "Sort order"
+msgstr "ترتیب"
+
+msgid "Low to high"
+msgstr "اعلی سے کم"
+
+msgid "High to low"
+msgstr "کم سے کم"
+
+msgid "Chart subtitle"
+msgstr "چارٹ ذیلی عنوان"
+
+msgid "Target line"
+msgstr "ہدف لائن"
+
+msgid "Target line title"
+msgstr "ہدف لائن کا عنوان"
+
+msgid "Target line value"
+msgstr "ہدف لائن کی قیمت"
+
+msgid "Chart title"
+msgstr "چارٹ کا عنوان"
+
+msgid "Axes & legend"
+msgstr "اکس اور افسانوی"
+
+msgid "Style"
+msgstr "انداز"
+
+msgid "Options"
+msgstr "اختیارات"
+
+msgid "Chart options"
+msgstr "چارٹ کے اختیارات"
+
+msgid "Hide"
+msgstr "چھپائیں"
+
+msgid "Column"
+msgstr "کالم"
+
+msgid "Stacked column"
+msgstr "اسٹیک کالم"
+
+msgid "Bar"
+msgstr "بار"
+
+msgid "Stacked bar"
+msgstr "اسٹیک بار"
+
+msgid "Line"
+msgstr "لائن"
+
+msgid "Area"
+msgstr "رقبہ"
+
+msgid "Pie"
+msgstr "پائی"
+
+msgid "Radar"
+msgstr "رڈار"
+
+msgid "Gauge"
+msgstr "گیج"
+
+msgid "Bubble"
+msgstr "بلبلا"
+
+msgid "Year on year"
+msgstr "سالہا سال"
+
+msgid "Period"
+msgstr "مدت"
+
+msgid "Organisation Unit"
+msgstr "تنظیم یونٹ"
+
+msgid "Today"
+msgstr "آج"
+
+msgid "Yesterday"
+msgstr "کل"
+
+msgid "Last 3 days"
+msgstr "آخری 3 دن"
+
+msgid "Last 7 days"
+msgstr "آخری 7 دن"
+
+msgid "Last 14 days"
+msgstr "آخری 14 دن"
+
+msgid "This week"
+msgstr "اس ہفتے"
+
+msgid "Last week"
+msgstr "پچھلا ہفتہ"
+
+msgid "Last 4 weeks"
+msgstr "آخری 4 ہفتوں"
+
+msgid "Last 12 weeks"
+msgstr "آخری 12 ہفتوں"
+
+msgid "Last 52 weeks"
+msgstr "آخری 52 ہفتوں"
+
+msgid "Weeks this year"
+msgstr "اس سال ہفتہ"
+
+msgid "This month"
+msgstr "اس مہینے"
+
+msgid "Last month"
+msgstr "پچھلے مہینے"
+
+msgid "Last 3 months"
+msgstr "آخری 3 ماہ"
+
+msgid "Last 6 months"
+msgstr "آخری 6 ماہ"
+
+msgid "Last 12 months"
+msgstr "آخری 12 ماہ"
+
+msgid "Months this year"
+msgstr "اس سال ماہ"
+
+msgid "This bimonth"
+msgstr "یہ مہینہ"
+
+msgid "Last bimonth"
+msgstr "آخری بار"
+
+msgid "Last 6 bimonths"
+msgstr "آخری 6 بار"
+
+msgid "Bimonths this year"
+msgstr "اس سال دو ماہی"
+
+msgid "This quarter"
+msgstr "اس سہ ماہی"
+
+msgid "Last quarter"
+msgstr "آخری چوتھائی"
+
+msgid "Last 4 quarters"
+msgstr "آخری چار چوتھائی"
+
+msgid "Quarters this year"
+msgstr "اس سال سہ ماہی"
+
+msgid "This six-month"
+msgstr "یہ چھ ماہ"
+
+msgid "Last six-month"
+msgstr "آخری چھ ماہ"
+
+msgid "Last 2 six-months"
+msgstr "آخری 2 چھ ماہ"
+
+msgid "This financial year"
+msgstr "یہ مالی سال"
+
+msgid "Last financial year"
+msgstr "آخری مالی سال"
+
+msgid "Last 5 financial years"
+msgstr "آخری 5 مالی سال"
+
+msgid "This year"
+msgstr "اس سال"
+
+msgid "Last year"
+msgstr "پچھلے سال"
+
+msgid "Last 5 years"
+msgstr "آخری 5 سال"
+
+msgid "User org unit"
+msgstr "صارف کے اجزاء"
+
+msgid "User org unit children"
+msgstr "صارف کے اجزاء بچے"
+
+msgid "User org unit grand children"
+msgstr "یوزر ایو یونٹ گرینڈ بچوں"

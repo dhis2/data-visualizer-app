@@ -58,7 +58,6 @@ export class SelectedItems extends Component {
             className="dimension-item"
             id={id}
             key={id}
-            style={styles.listItem}
             onDoubleClick={() => this.onRemoveSelected(id)}
         >
             <Item
@@ -68,7 +67,7 @@ export class SelectedItems extends Component {
                 isHighlighted={!!this.state.highlighted.includes(id)}
                 onItemClick={this.toggleHighlight}
                 onRemoveItem={this.onRemoveSelected}
-                className={'selected'}
+                className="selected"
             />
         </li>
     );
@@ -82,7 +81,10 @@ export class SelectedItems extends Component {
             <div style={styles.container}>
                 <Subtitle />
                 <ul style={styles.list}>{dataDimensions}</ul>
-                <UnAssignButton action={this.onDeselectClick} />
+                <UnAssignButton
+                    className={this.props.className}
+                    action={this.onDeselectClick}
+                />
                 <DeselectAllButton action={this.onDeselectAllClick} />
             </div>
         );

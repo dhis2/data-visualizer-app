@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import throttle from 'lodash-es/throttle';
 import { Item } from './Item';
 import { AssignButton, SelectAllButton } from './buttons';
 import { toggler } from '../../../modules/toggler';
-import { styles } from './styles/UnselectedItems.style';
 
 export class UnselectedItems extends Component {
     constructor(props) {
@@ -54,7 +52,6 @@ export class UnselectedItems extends Component {
         <li
             className="dimension-item"
             key={dataDim.id}
-            style={styles.listItem}
             onDoubleClick={() => this.onDoubleClickItem(dataDim.id)}
         >
             <Item
@@ -63,22 +60,10 @@ export class UnselectedItems extends Component {
                 displayName={dataDim.name}
                 isHighlighted={!!this.state.highlighted.includes(dataDim.id)}
                 onItemClick={this.toggleHighlight}
-                className={'unselected'}
+                className="unselected"
             />
         </li>
     );
-
-    requestMoreItems = throttle(() => {
-        const node = this.ulRef.current;
-
-        if (node) {
-            const bottom =
-                node.scrollHeight - node.scrollTop === node.clientHeight;
-            if (bottom) {
-                this.props.requestMoreItems();
-            }
-        }
-    }, 1000);
 
     render = () => {
         const listItems = this.props.items.map((item, index) =>
@@ -86,11 +71,14 @@ export class UnselectedItems extends Component {
         );
 
         return (
-            <div style={styles.container} onScroll={this.requestMoreItems}>
-                <ul ref={this.ulRef} style={styles.listContainer}>
+            <div className={`${this.props.className}-dialog`}>
+                <ul ref={this.ulRef} className={`${this.props.className}-list`}>
                     {listItems}
                 </ul>
-                <AssignButton action={this.onSelectClick} />
+                <AssignButton
+                    className={this.props.className}
+                    action={this.onSelectClick}
+                />
                 <SelectAllButton action={this.onSelectAllClick} />
             </div>
         );
@@ -101,7 +89,6 @@ UnselectedItems.propTypes = {
     items: PropTypes.array.isRequired,
     onSelect: PropTypes.func.isRequired,
     filterText: PropTypes.string.isRequired,
-    requestMoreItems: PropTypes.func.isRequired,
 };
 
 export default UnselectedItems;

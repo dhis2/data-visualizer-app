@@ -1,15 +1,21 @@
-import { colors } from '../../../../modules/colors';
+import { colors } from '../../../../../modules/colors';
 
 export const styles = {
     container: {
         border: `1px solid ${colors.greyLight}`,
         display: 'flex',
-        flexFlow: 'column',
         height: 53,
+        width: 420,
         borderBottom: 0,
+        paddingTop: 5,
+    },
+    groupContainer: {
+        display: 'flex',
+        flexFlow: 'column',
+        width: 'inherit',
+        minWidth: 316,
         paddingLeft: 5,
         paddingRight: 5,
-        paddingTop: 5,
     },
     titleText: {
         color: colors.greyDark,
@@ -18,10 +24,6 @@ export const styles = {
         paddingBottom: 15,
     },
     dropDown: {
-        outline: 'none',
         padding: 0,
-    },
-    dropDownItem: {
-        fontSize: 16,
     },
 };
