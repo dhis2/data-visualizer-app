@@ -19,33 +19,9 @@ class MockAnalyticsResponse {
     }
 }
 
-const getRequestMock = mfn => {
-    const mockFn = mfn ? mfn : jest.fn();
-
-    class MockAnalyticsRequest {
-        constructor() {
-            this.fromModel = () => ({
-                withParameters: mockFn,
-            });
-        }
-    }
-    return MockAnalyticsRequest;
-};
-
 const createChartMock = {
     chart: {
         getSVGForExport: () => '<svg />',
-    },
-};
-
-const stubContext = {
-    d2: {
-        analytics: {
-            aggregate: {
-                get: () => Promise.resolve('got resource'),
-            },
-            response: MockAnalyticsResponse,
-        },
     },
 };
 
@@ -56,12 +32,9 @@ describe('Visualization', () => {
     ];
     let props;
     let shallowVisualization;
-    const canvas = requestMock => {
-        stubContext.d2.analytics.request = requestMock;
+    const canvas = () => {
         if (!shallowVisualization) {
-            shallowVisualization = shallow(<Visualization {...props} />, {
-                context: stubContext,
-            });
+            shallowVisualization = shallow(<Visualization {...props} />);
         }
         return shallowVisualization;
     };
@@ -78,16 +51,18 @@ describe('Visualization', () => {
 
         shallowVisualization = undefined;
 
-        api.apiFetchAnalytics = () =>
-            Promise.resolve([new MockAnalyticsResponse()]);
+        api.apiFetchAnalytics = jest
+            .fn()
+            .mockResolvedValue([new MockAnalyticsResponse()]);
     });
 
     describe('createChart success', () => {
         beforeEach(() => {
             chartsApi.createChart.mockReturnValue(createChartMock);
         });
+
         it('renders a BlankCanvas', done => {
-            const wrapper = canvas(getRequestMock());
+            const wrapper = canvas();
 
             setTimeout(() => {
                 expect(wrapper.find(BlankCanvas).length).toBeGreaterThan(0);
@@ -96,7 +71,7 @@ describe('Visualization', () => {
         });
 
         it('calls createChart', done => {
-            canvas(getRequestMock());
+            canvas();
 
             setTimeout(() => {
                 expect(chartsApi.createChart).toHaveBeenCalled();
@@ -105,7 +80,7 @@ describe('Visualization', () => {
         });
 
         it('calls addMetadata action', done => {
-            canvas(getRequestMock());
+            canvas();
 
             setTimeout(() => {
                 expect(props.acAddMetadata).toHaveBeenCalled();
@@ -114,25 +89,26 @@ describe('Visualization', () => {
             });
         });
 
-        it.skip('includes only options that do not have default value in request', done => {
+        it('includes only options that do not have default value in request', done => {
             props.current = {
                 option1: 'def',
                 option2: null,
             };
 
-            const mockFn = jest.fn();
-
-            canvas(getRequestMock(mockFn));
+            canvas();
 
             setTimeout(() => {
-                expect(mockFn.mock.calls[0][0]).toEqual({ option1: 'def' });
+                expect(api.apiFetchAnalytics).toHaveBeenCalled();
+                expect(api.apiFetchAnalytics.mock.calls[0][1]).toEqual({
+                    option1: 'def',
+                });
 
                 done();
             });
         });
 
         it('calls clearLoadError action', done => {
-            canvas(getRequestMock());
+            canvas();
 
             setTimeout(() => {
                 expect(props.acClearLoadError).toHaveBeenCalled();
@@ -141,7 +117,7 @@ describe('Visualization', () => {
         });
 
         it('calls setChart action', done => {
-            canvas(getRequestMock());
+            canvas();
 
             setTimeout(() => {
                 expect(props.acSetChart).toHaveBeenCalled();
@@ -153,7 +129,7 @@ describe('Visualization', () => {
         });
     });
 
-    describe('createChart fails', () => {
+    describe('createChart failure', () => {
         beforeEach(() => {
             chartsApi.createChart.mockImplementation(() => {
                 throw new Error('Big time errors');
@@ -161,7 +137,7 @@ describe('Visualization', () => {
         });
 
         it('calls the setLoadError message', done => {
-            canvas(getRequestMock());
+            canvas();
 
             setTimeout(() => {
                 expect(props.acSetLoadError).toHaveBeenCalled();
