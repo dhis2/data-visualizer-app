@@ -29,6 +29,9 @@ msgstr ""
 msgid "Expected reports"
 msgstr ""
 
+msgid "Data Visualizer"
+msgstr ""
+
 msgid "Data"
 msgstr ""
 
