@@ -316,7 +316,7 @@ describe('reducer: ui', () => {
     });
 
     it(`${SET_UI_YEAR_ON_YEAR_SERIES}: should set new yearOnYearSeries`, () => {
-        const series = 'LAST_YEAR';
+        const series = ['LAST_YEAR'];
 
         const actualState = reducer(DEFAULT_UI, {
             type: SET_UI_YEAR_ON_YEAR_SERIES,
@@ -332,7 +332,7 @@ describe('reducer: ui', () => {
     });
 
     it(`${SET_UI_YEAR_ON_YEAR_CATEGORY}: should set new yearOnYearCategory`, () => {
-        const category = 'LAST_3_MONTHS';
+        const category = ['LAST_3_MONTHS'];
 
         const actualState = reducer(DEFAULT_UI, {
             type: SET_UI_YEAR_ON_YEAR_CATEGORY,

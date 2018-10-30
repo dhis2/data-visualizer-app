@@ -69,8 +69,11 @@ const state = {
         isSuperuser: false,
     },
 
-    // String containing the text of a load visualization error
-    loadError: null,
+    // Object containing the loading state, and text of a load visualization error
+    loader: {
+        isLoading: false,
+        loadError: '',
+    },
 };
 
 // Typical flow
