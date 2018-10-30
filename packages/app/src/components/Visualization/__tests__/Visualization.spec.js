@@ -75,7 +75,7 @@ describe('Visualization', () => {
 
     describe('createChart success', () => {
         beforeEach(() => {
-            chartsApi.createChart.mockReturnValue(createChartMock);
+            chartsApi.createChart = jest.fn().mockReturnValue(createChartMock);
         });
 
         it('renders a BlankCanvas', done => {
@@ -145,7 +145,7 @@ describe('Visualization', () => {
             });
         });
 
-        describe.only('Year-on-year chart', () => {
+        describe('Year-on-year chart', () => {
             beforeEach(() => {
                 props.current = {
                     type: YEAR_ON_YEAR,
@@ -196,7 +196,7 @@ describe('Visualization', () => {
 
     describe('createChart failure', () => {
         beforeEach(() => {
-            chartsApi.createChart.mockImplementation(() => {
+            chartsApi.createChart = jest.fn().mockImplementation(() => {
                 throw new Error('Big time errors');
             });
         });
