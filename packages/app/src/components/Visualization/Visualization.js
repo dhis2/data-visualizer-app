@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createChart } from 'd2-charts-api';
 import i18n from '@dhis2/d2-i18n';
@@ -99,10 +98,6 @@ export class Visualization extends Component {
         return <BlankCanvas />;
     }
 }
-
-Visualization.contextTypes = {
-    d2: PropTypes.object,
-};
 
 const mapStateToProps = state => ({
     current: sGetCurrent(state),
