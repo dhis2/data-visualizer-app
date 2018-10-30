@@ -5,6 +5,12 @@ import reducer, {
     SET_CURRENT_FROM_UI,
     CLEAR_CURRENT,
 } from '../current';
+import { COLUMN, YEAR_ON_YEAR } from '../../modules/chartTypes';
+import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
+
+const dxId = FIXED_DIMENSIONS.dx.id;
+const peId = FIXED_DIMENSIONS.pe.id;
+const ouId = FIXED_DIMENSIONS.ou.id;
 
 describe('reducer: current', () => {
     it('should return the default state', () => {
@@ -34,13 +40,57 @@ describe('reducer: current', () => {
 
     it('SET_CURRENT_FROM_UI: should set the current from the ui state section', () => {
         const ui = {
-            type: 'COLUMN',
-            layout: { columns: ['dx'], rows: ['ou'], filters: ['pe'] },
+            type: COLUMN,
+            layout: { columns: [dxId], rows: [ouId], filters: [peId] },
             itemsByDimension: {
-                dx: ['dxId1', 'dxId2'],
-                ou: ['ouId1', 'ouId2'],
-                pe: ['peId1'],
+                dx: ['dxItemId1', 'dxItemId2'],
+                ou: ['ouItemId1', 'ouItemId2'],
+                pe: ['peItemId1'],
             },
+            options,
+        };
+
+        const expectedState = {
+            ...ui.options,
+            type: ui.type,
+            columns: [
+                {
+                    dimension: dxId,
+                    items: [{ id: 'dxItemId1' }, { id: 'dxItemId2' }],
+                },
+            ],
+            rows: [
+                {
+                    dimension: ouId,
+                    items: [{ id: 'ouItemId1' }, { id: 'ouItemId2' }],
+                },
+            ],
+            filters: [
+                {
+                    dimension: peId,
+                    items: [{ id: 'peItemId1' }],
+                },
+            ],
+        };
+
+        const actualState = reducer(undefined, {
+            type: SET_CURRENT_FROM_UI,
+            value: ui,
+        });
+
+        expect(actualState).toEqual(expectedState);
+    });
+
+    it('SET_CURRENT_FROM_UI: should set the current in a year on year format from the ui state section', () => {
+        const ui = {
+            type: YEAR_ON_YEAR,
+            layout: { columns: [], rows: [], filters: [dxId, ouId] },
+            itemsByDimension: {
+                dx: ['dxItemId1', 'dxItemId2'],
+                ou: ['ouItemId1', 'ouItemId2'],
+            },
+            yearOnYearSeries: 'LAST_5_YEARS',
+            yearOnYearCategory: 'MONTHS_THIS_YEAR',
             options,
         };
         const expectedState = {
@@ -48,22 +98,23 @@ describe('reducer: current', () => {
             type: ui.type,
             columns: [
                 {
-                    dimension: 'dx',
-                    items: [{ id: 'dxId1' }, { id: 'dxId2' }],
+                    dimension: dxId,
+                    items: [{ id: 'dxItemId1' }],
                 },
             ],
             rows: [
                 {
-                    dimension: 'ou',
-                    items: [{ id: 'ouId1' }, { id: 'ouId2' }],
+                    dimension: peId,
+                    items: [{ id: 'MONTHS_THIS_YEAR' }],
                 },
             ],
             filters: [
                 {
-                    dimension: 'pe',
-                    items: [{ id: 'peId1' }],
+                    dimension: ouId,
+                    items: [{ id: 'ouItemId1' }, { id: 'ouItemId2' }],
                 },
             ],
+            yearlySeries: 'LAST_5_YEARS',
         };
 
         const actualState = reducer(undefined, {

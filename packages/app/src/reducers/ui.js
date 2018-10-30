@@ -75,6 +75,12 @@ export default (state = DEFAULT_UI, action) => {
 
             switch (action.value) {
                 case YEAR_ON_YEAR: {
+                    const itemsByDimension = Object.assign(
+                        {},
+                        state.itemsByDimension
+                    );
+                    delete itemsByDimension[peId];
+
                     return {
                         ...newState,
                         layout: {
@@ -85,6 +91,7 @@ export default (state = DEFAULT_UI, action) => {
                                 ...state.layout.columns,
                                 ...state.layout.rows,
                             ].filter(d => d !== peId),
+                            itemsByDimension,
                         },
                     };
                 }
