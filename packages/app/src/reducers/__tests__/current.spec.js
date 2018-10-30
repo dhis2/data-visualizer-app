@@ -81,7 +81,7 @@ describe('reducer: current', () => {
         expect(actualState).toEqual(expectedState);
     });
 
-    it('SET_CURRENT_FROM_UI: should set the current in a year on year format from the ui state section', () => {
+    it('SET_CURRENT_FROM_UI: should set current on a year on year format from the ui state section', () => {
         const ui = {
             type: YEAR_ON_YEAR,
             layout: { columns: [], rows: [], filters: [dxId, ouId] },

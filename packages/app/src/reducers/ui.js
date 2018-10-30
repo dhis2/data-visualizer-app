@@ -75,11 +75,10 @@ export default (state = DEFAULT_UI, action) => {
 
             switch (action.value) {
                 case YEAR_ON_YEAR: {
-                    const itemsByDimension = Object.assign(
-                        {},
-                        state.itemsByDimension
-                    );
-                    delete itemsByDimension[peId];
+                    const items = {
+                        ...state.itemsByDimension,
+                    };
+                    delete items[peId];
 
                     return {
                         ...newState,
@@ -91,8 +90,8 @@ export default (state = DEFAULT_UI, action) => {
                                 ...state.layout.columns,
                                 ...state.layout.rows,
                             ].filter(d => d !== peId),
-                            itemsByDimension,
                         },
+                        itemsByDimension: items,
                     };
                 }
                 default:
@@ -160,9 +159,8 @@ export default (state = DEFAULT_UI, action) => {
         }
         case ADD_UI_ITEMS: {
             const { dimensionType: type, value: items } = action.value;
-            const dxItems = [
-                ...new Set([...state.itemsByDimension[type], ...items]),
-            ];
+            const currentItems = state.itemsByDimension[type] || [];
+            const dxItems = [...new Set([...currentItems, ...items])];
 
             const itemsByDimension = Object.assign(
                 {},
@@ -174,7 +172,7 @@ export default (state = DEFAULT_UI, action) => {
         }
         case REMOVE_UI_ITEMS: {
             const { dimensionType: type, value: idsToRemove } = action.value;
-            const dxItems = state.itemsByDimension[type].filter(
+            const dxItems = (state.itemsByDimension[type] || []).filter(
                 id => !idsToRemove.includes(id)
             );
 

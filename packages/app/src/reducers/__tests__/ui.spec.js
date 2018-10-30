@@ -18,6 +18,7 @@ import reducer, {
     SET_UI_YEAR_ON_YEAR_CATEGORY,
 } from '../ui';
 import { AXIS_NAMES } from '../../modules/layout';
+import { BAR, YEAR_ON_YEAR } from '../../modules/chartTypes';
 
 const [COLUMNS, ROWS, FILTERS] = AXIS_NAMES;
 
@@ -42,7 +43,7 @@ const ou = {
     items: [{ id: ouItem1Id }],
 };
 
-const type = 'bar';
+const type = BAR;
 const aggregationType = 'SUM';
 
 const visualization = {
@@ -107,6 +108,27 @@ describe('reducer: ui', () => {
         });
 
         expect(actualState.type).toEqual(expectedState.type);
+    });
+
+    it(`${SET_UI_TYPE}: should set the type, layout and items on the year on year format`, () => {
+        const expectedState = {
+            ...DEFAULT_UI,
+            type: YEAR_ON_YEAR,
+            layout: {
+                columns: [],
+                rows: [],
+                filters: ['ou', 'dx'],
+            },
+            itemsByDimension: {
+                ou: DEFAULT_UI.itemsByDimension.ou,
+            },
+        };
+        const actualState = reducer(DEFAULT_UI, {
+            type: SET_UI_TYPE,
+            value: YEAR_ON_YEAR,
+        });
+
+        expect(actualState).toEqual(expectedState);
     });
 
     it(`${SET_UI_OPTIONS}: should set options`, () => {
