@@ -32,7 +32,7 @@ import {
 import { FIXED_DIMENSIONS } from '../../../modules/fixedDimensions';
 
 import { styles } from './styles/DataDimension.style';
-import './DataDimension.css';
+import './styles/DataDimension.css';
 
 const dxId = FIXED_DIMENSIONS.dx.id;
 const FIRST_PAGE = 1;
@@ -201,7 +201,7 @@ export class DataDimension extends Component {
         );
         const groups = this.state.groups[this.state.dataType];
 
-        if (!groups) {
+        if (!groups.length) {
             return <div />;
         }
 

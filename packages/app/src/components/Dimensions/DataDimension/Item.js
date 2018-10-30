@@ -4,7 +4,7 @@ import { RemoveSelectedItemButton } from './buttons';
 import { UnselectedIcon } from '../../../assets/UnselectedIcon';
 import { SelectedIcon } from '../../../assets/SelectedIcon';
 
-import './DataDimension.css';
+import './styles/DataDimension.css';
 
 const Icon = ({ iconType }) => {
     const icons = {
