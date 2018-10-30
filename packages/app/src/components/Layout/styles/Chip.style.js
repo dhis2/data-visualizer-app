@@ -4,30 +4,28 @@ export const styles = {
     chipWrapper: {
         display: 'flex',
         margin: layoutStyle.CHIP_MARGIN,
+        backgroundColor: layoutStyle.CHIP_BACKGROUND_COLOR,
+        borderRadius: layoutStyle.CHIP_BORDER_RADIUS,
+        alignItems: 'center',
     },
     chip: {
-        maxHeight: layoutStyle.CHIP_HEIGHT,
         padding: layoutStyle.CHIP_PADDING,
         fontSize: layoutStyle.CHIP_FONT_SIZE,
         fontWeight: layoutStyle.CHIP_FONT_WEIGHT,
-        backgroundColor: layoutStyle.CHIP_BACKGROUND_COLOR,
         color: layoutStyle.CHIP_COLOR,
-        borderRadius: layoutStyle.CHIP_BORDER_RADIUS,
         cursor: 'pointer',
         whiteSpace: 'nowrap',
         overflow: 'hidden',
         textOverflow: 'ellipsis',
     },
     fixedDimensionIcon: {
-        position: 'relative',
-        top: 2,
+        paddingRight: '6px',
     },
     genericDimensionIcon: { position: 'relative', top: 5 },
 };
 
 styles.chipLeft = {
     ...styles.chip,
-    display: 'flex',
     borderTopRightRadius: '0px',
     borderBottomRightRadius: '0px',
 };

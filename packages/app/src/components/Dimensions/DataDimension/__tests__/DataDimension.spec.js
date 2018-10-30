@@ -18,8 +18,10 @@ describe('The DataDimension component ', () => {
         props = {
             selectedItems: {},
             ui: {},
+            displayNameProp: 'string',
             removeDxItems: jest.fn(),
             addDxItems: jest.fn(),
+            addMetadata: jest.fn(),
             onUpdate: jest.fn(),
             toggleDialog: jest.fn(),
         };
