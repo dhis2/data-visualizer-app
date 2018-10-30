@@ -55,11 +55,8 @@ export const apiFetchAnalytics = async (current, options) => {
 export const apiFetchAnalyticsForYearOnYear = async (current, options) => {
     const d2 = await getInstance();
 
-    // XXX should we assume a default here?
-    const yearlySeries = current.yearlySeries || 'LAST_5_YEARS';
-
     const yearlySeriesReq = new d2.analytics.request()
-        .addPeriodDimension(yearlySeries)
+        .addPeriodDimension(current.yearlySeries)
         .withSkipData(true)
         .withSkipMeta(false)
         .withIncludeMetadataDetails(true);

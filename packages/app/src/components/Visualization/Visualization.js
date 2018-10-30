@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createChart } from 'd2-charts-api';
 import i18n from '@dhis2/d2-i18n';
@@ -51,17 +50,35 @@ export class Visualization extends Component {
             this.props.acClearLoadError();
             this.props.acSetLoading(true);
 
-            const d2 = this.context.d2;
-            const req = new d2.analytics.request()
-                .fromModel(current)
-                .withParameters(optionsForRequest);
+            const extraOptions = {};
+            let responses = [];
 
-            const rawResponse = await d2.analytics.aggregate.get(req);
-            const res = new d2.analytics.response(rawResponse);
+            if (current.type === YEAR_ON_YEAR) {
+                let yearlySeriesLabels = [];
 
-            this.props.acAddMetadata(res.metaData.items);
+                ({
+                    responses,
+                    yearlySeriesLabels,
+                } = await apiFetchAnalyticsForYearOnYear(
+                    current,
+                    optionsForRequest
+                ));
 
-            const chartConfig = createChart(res, current, visContainerId);
+                extraOptions.yearlySeries = yearlySeriesLabels;
+            } else {
+                responses = await apiFetchAnalytics(current, optionsForRequest);
+            }
+
+            responses.forEach(res =>
+                this.props.acAddMetadata(res.metaData.items)
+            );
+
+            const chartConfig = createChart(
+                responses,
+                current,
+                visContainerId,
+                extraOptions
+            );
 
             this.props.acSetChart(
                 chartConfig.chart.getSVGForExport({
@@ -81,10 +98,6 @@ export class Visualization extends Component {
         return <BlankCanvas />;
     }
 }
-
-Visualization.contextTypes = {
-    d2: PropTypes.object,
-};
 
 const mapStateToProps = state => ({
     current: sGetCurrent(state),
