@@ -5,6 +5,7 @@ import * as api from '../../../api/analytics';
 import { Visualization } from '../Visualization';
 import BlankCanvas from '../BlankCanvas';
 import * as options from '../../../modules/options';
+import { YEAR_ON_YEAR } from '../../../modules/chartTypes';
 
 jest.mock('d2-charts-api');
 
@@ -15,6 +16,22 @@ class MockAnalyticsResponse {
             metaData: {
                 items: metaDataMock,
             },
+        };
+    }
+}
+
+const mockYoYSeriesLabels = ['rainbow', 'rarity'];
+class MockYoYAnalyticsResponse {
+    constructor() {
+        return {
+            responses: [
+                {
+                    metaData: {
+                        items: metaDataMock,
+                    },
+                },
+            ],
+            yearlySeriesLabels: mockYoYSeriesLabels,
         };
     }
 }
@@ -125,6 +142,54 @@ describe('Visualization', () => {
                     createChartMock.chart.getSVGForExport()
                 );
                 done();
+            });
+        });
+
+        describe.only('Year-on-year chart', () => {
+            beforeEach(() => {
+                props.current = {
+                    type: YEAR_ON_YEAR,
+                    option1: 'def',
+                };
+
+                api.apiFetchAnalyticsForYearOnYear = jest
+                    .fn()
+                    .mockResolvedValue(new MockYoYAnalyticsResponse());
+            });
+
+            it('makes year-on-year analytics request', done => {
+                canvas();
+
+                setTimeout(() => {
+                    expect(
+                        api.apiFetchAnalyticsForYearOnYear
+                    ).toHaveBeenCalled();
+                    expect(
+                        api.apiFetchAnalyticsForYearOnYear.mock.calls[0][1]
+                    ).toEqual({
+                        option1: 'def',
+                    });
+
+                    done();
+                });
+            });
+
+            it('provides extra options to createChart', done => {
+                canvas();
+
+                setTimeout(() => {
+                    expect(chartsApi.createChart).toHaveBeenCalled();
+
+                    const expectedExtraOptions = {
+                        yearlySeries: mockYoYSeriesLabels,
+                    };
+
+                    expect(chartsApi.createChart.mock.calls[0][3]).toEqual(
+                        expectedExtraOptions
+                    );
+
+                    done();
+                });
             });
         });
     });
