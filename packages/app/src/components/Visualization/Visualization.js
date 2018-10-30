@@ -1,15 +1,24 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createChart } from 'd2-charts-api';
+import i18n from '@dhis2/d2-i18n';
 import { sGetCurrent } from '../../reducers/current';
 import BlankCanvas, { visContainerId } from './BlankCanvas';
 import { getOptionsForRequest } from '../../modules/options';
 import { acAddMetadata } from '../../actions/metadata';
+import {
+    acSetLoadError,
+    acSetLoading,
+    acClearLoadError,
+} from '../../actions/loader';
 import { acSetChart } from '../../actions/chart';
 
 export class Visualization extends Component {
     componentDidMount() {
-        this.renderVisualization();
+        if (this.props.current) {
+            this.renderVisualization();
+        }
     }
 
     componentDidUpdate(prevProps) {
@@ -19,7 +28,7 @@ export class Visualization extends Component {
     }
 
     renderVisualization = async () => {
-        const { d2, current } = this.props;
+        const { current } = this.props;
 
         const optionsForRequest = getOptionsForRequest().reduce(
             (map, [option, props]) => {
@@ -33,25 +42,34 @@ export class Visualization extends Component {
             {}
         );
 
-        const req = new d2.analytics.request()
-            .fromModel(current)
-            .withParameters(optionsForRequest);
+        try {
+            this.props.acClearLoadError();
+            this.props.acSetLoading(true);
 
-        const rawResponse = await d2.analytics.aggregate.get(req);
+            const d2 = this.context.d2;
+            const req = new d2.analytics.request()
+                .fromModel(current)
+                .withParameters(optionsForRequest);
 
-        const res = new d2.analytics.response(rawResponse);
+            const rawResponse = await d2.analytics.aggregate.get(req);
+            const res = new d2.analytics.response(rawResponse);
 
-        // TODO add a try/catch here
-        this.props.acAddMetadata(res.metaData.items);
+            this.props.acAddMetadata(res.metaData.items);
 
-        const chartConfig = createChart(res, current, visContainerId);
+            const chartConfig = createChart(res, current, visContainerId);
 
-        this.props.acSetChart(
-            chartConfig.chart.getSVGForExport({
-                sourceHeight: 768,
-                sourceWidth: 1024,
-            })
-        );
+            this.props.acSetChart(
+                chartConfig.chart.getSVGForExport({
+                    sourceHeight: 768,
+                    sourceWidth: 1024,
+                })
+            );
+
+            this.props.acSetLoading(false);
+        } catch (error) {
+            this.props.acSetLoading(false);
+            this.props.acSetLoadError(i18n.t('Could not generate chart'));
+        }
     };
 
     render() {
@@ -59,11 +77,21 @@ export class Visualization extends Component {
     }
 }
 
+Visualization.contextTypes = {
+    d2: PropTypes.object,
+};
+
 const mapStateToProps = state => ({
     current: sGetCurrent(state),
 });
 
 export default connect(
     mapStateToProps,
-    { acAddMetadata, acSetChart }
+    {
+        acAddMetadata,
+        acSetChart,
+        acSetLoadError,
+        acSetLoading,
+        acClearLoadError,
+    }
 )(Visualization);

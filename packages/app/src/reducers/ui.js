@@ -40,8 +40,8 @@ export const DEFAULT_UI = {
         pe: ['LAST_12_MONTHS'],
         ou: ['USER_ORGUNIT'],
     },
-    yearOnYearSeries: 'LAST_5_YEARS',
-    yearOnYearCategory: 'MONTHS_THIS_YEAR',
+    yearOnYearSeries: ['LAST_5_YEARS'],
+    yearOnYearCategory: ['MONTHS_THIS_YEAR'],
     parentGraphMap: {},
     activeModalDialog: null,
 };

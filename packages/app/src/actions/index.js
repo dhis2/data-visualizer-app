@@ -14,7 +14,7 @@ import * as fromSettings from './settings';
 import * as fromUser from './user';
 import * as fromChart from './chart';
 import * as fromSnackbar from './snackbar';
-import * as fromLoadError from './loadError';
+import * as fromLoader from './loader';
 
 import { sGetCurrent } from '../reducers/current';
 import { sGetVisualization } from '../reducers/visualization';
@@ -31,7 +31,7 @@ export {
     fromUser,
     fromChart,
     fromSnackbar,
-    fromLoadError,
+    fromLoader,
 };
 
 export const onError = (action, error) => {
@@ -48,7 +48,7 @@ export const tDoLoadVisualization = (type, id) => async (
     const onSuccess = model => {
         const visualization = model.toJSON();
 
-        dispatch(fromLoadError.acClearLoadError());
+        dispatch(fromLoader.acClearLoadError());
         dispatch(fromVisualization.acSetVisualization(visualization));
         dispatch(fromCurrent.acSetCurrent(visualization));
         dispatch(fromUi.acSetUiFromVisualization(visualization));
@@ -57,7 +57,7 @@ export const tDoLoadVisualization = (type, id) => async (
     try {
         return onSuccess(await apiFetchVisualization(type, id));
     } catch (error) {
-        dispatch(fromLoadError.acSetLoadError(error));
+        dispatch(fromLoader.acSetLoadError(error));
         dispatch(fromVisualization.acClear());
         dispatch(fromCurrent.acClear());
         dispatch(fromUi.acClear());
@@ -67,7 +67,7 @@ export const tDoLoadVisualization = (type, id) => async (
 };
 
 export const clearVisualization = dispatch => {
-    dispatch(fromLoadError.acClearLoadError());
+    dispatch(fromLoader.acClearLoadError());
     dispatch(fromVisualization.acClear());
     dispatch(fromCurrent.acClear());
     dispatch(fromUi.acClear());
