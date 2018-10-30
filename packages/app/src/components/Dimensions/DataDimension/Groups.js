@@ -7,35 +7,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import { Detail } from './Detail';
 
 import { dataTypes } from './dataTypes';
-import { colors } from '../../../modules/colors';
-
-const style = {
-    container: {
-        border: `1px solid ${colors.greyLight}`,
-        display: 'flex',
-        height: 53,
-        width: 420,
-        borderBottom: 0,
-        paddingTop: 5,
-    },
-    groupContainer: {
-        display: 'flex',
-        flexFlow: 'column',
-        width: 'inherit',
-        minWidth: 316,
-        paddingLeft: 5,
-        paddingRight: 5,
-    },
-    dropDown: {
-        padding: 0,
-    },
-    titleText: {
-        color: colors.greyDark,
-        fontSize: 13,
-        fontWeight: 300,
-        paddingBottom: 15,
-    },
-};
+import { styles } from './styles/Groups.style';
 
 const Groups = props => {
     const handleChange = event => {
@@ -60,15 +32,15 @@ const Groups = props => {
     const groupDetail = dataTypes[props.dataType].groupDetail;
 
     return (
-        <div style={style.container}>
-            <div style={style.groupContainer}>
-                <InputLabel style={style.titleText}>
+        <div style={styles.container}>
+            <div style={styles.groupContainer}>
+                <InputLabel style={styles.titleText}>
                     {dataTypes[props.dataType].groupLabel}
                 </InputLabel>
                 <Select
                     value={props.groupId}
                     onChange={handleChange}
-                    SelectDisplayProps={{ style: style.dropDown }}
+                    SelectDisplayProps={{ style: styles.dropDown }}
                     disableUnderline
                 >
                     {renderDropDownItems()}

@@ -22,42 +22,10 @@ import { acSetCurrentFromUi } from '../../../actions/current';
 import { acRemoveUiItems, acAddUiItems } from '../../../actions/ui';
 import { acAddMetadata } from '../../../actions/metadata';
 
-import { colors } from '../../../modules/colors';
 import { DEFAULT_DATATYPE_ID, ALL_ID, dataTypes } from './dataTypes';
 
+import { styles } from './styles/DataDimension.style';
 import './DataDimension.css';
-
-const style = {
-    container: {
-        maxHeight: 677,
-        maxWidth: 795,
-        overflow: 'hidden',
-    },
-    dialogContent: {
-        paddingBottom: 0,
-        paddingTop: 0,
-        overflow: 'hidden',
-    },
-    dialogTitle: {
-        fontFamily: 'Roboto',
-        color: colors.black,
-        height: 24,
-        fontSize: 16,
-        fontWeight: 500,
-    },
-    subContainer: {
-        display: 'flex',
-        height: 536,
-    },
-    dialogActions: {
-        borderTop: `1px solid ${colors.blueGrey}`,
-        margin: 0,
-        paddingTop: 0,
-        paddingBottom: 0,
-        height: 84,
-        paddingRight: 24,
-    },
-};
 
 const DX = 'dx';
 const FIRST_PAGE = 1;
@@ -222,10 +190,10 @@ export class DataDimension extends Component {
         }
 
         return (
-            <div style={style.container}>
-                <DialogContent style={style.dialogContent}>
-                    <h3 style={style.dialogTitle}>{i18n.t('Data')}</h3>
-                    <div style={style.subContainer}>
+            <div style={styles.container}>
+                <DialogContent style={styles.dialogContent}>
+                    <h3 style={styles.dialogTitle}>{i18n.t('Data')}</h3>
+                    <div style={styles.subContainer}>
                         <div style={{ paddingRight: 46 }}>
                             <DataTypes
                                 currentDataType={this.state.dataType}
@@ -256,7 +224,7 @@ export class DataDimension extends Component {
                         />
                     </div>
                 </DialogContent>
-                <DialogActions style={style.dialogActions}>
+                <DialogActions style={styles.dialogActions}>
                     <HideButton action={() => this.props.toggleDialog(null)} />
                     <UpdateButton action={this.onUpdateClick} />
                 </DialogActions>
@@ -267,6 +235,13 @@ export class DataDimension extends Component {
 
 DataDimension.propTypes = {
     toggleDialog: PropTypes.func.isRequired,
+    displayNameProp: PropTypes.string.isRequired,
+    selectedItems: PropTypes.object.isRequired,
+    ui: PropTypes.object.isRequired,
+    addDxItems: PropTypes.func.isRequired,
+    removeDxItems: PropTypes.func.isRequired,
+    addMetadata: PropTypes.func.isRequired,
+    onUpdate: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({

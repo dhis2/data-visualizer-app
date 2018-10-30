@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createChart } from 'd2-charts-api';
+import i18n from '@dhis2/d2-i18n';
 import { sGetCurrent } from '../../reducers/current';
 import BlankCanvas, { visContainerId } from './BlankCanvas';
 import { getOptionsForRequest } from '../../modules/options';
 import { acAddMetadata } from '../../actions/metadata';
+import {
+    acSetLoadError,
+    acSetLoading,
+    acClearLoadError,
+} from '../../actions/loader';
 import { acSetChart } from '../../actions/chart';
 import {
     apiFetchAnalytics,
@@ -14,7 +21,9 @@ import { YEAR_ON_YEAR } from '../../modules/chartTypes';
 
 export class Visualization extends Component {
     componentDidMount() {
-        this.renderVisualization();
+        if (this.props.current) {
+            this.renderVisualization();
+        }
     }
 
     componentDidUpdate(prevProps) {
@@ -38,41 +47,34 @@ export class Visualization extends Component {
             {}
         );
 
-        const extraOptions = {};
-        let responses = [];
+        try {
+            this.props.acClearLoadError();
+            this.props.acSetLoading(true);
 
-        if (current.type === YEAR_ON_YEAR) {
-            let yearlySeriesLabels = [];
+            const d2 = this.context.d2;
+            const req = new d2.analytics.request()
+                .fromModel(current)
+                .withParameters(optionsForRequest);
 
-            ({
-                responses,
-                yearlySeriesLabels,
-            } = await apiFetchAnalyticsForYearOnYear(
-                current,
-                optionsForRequest
-            ));
+            const rawResponse = await d2.analytics.aggregate.get(req);
+            const res = new d2.analytics.response(rawResponse);
 
-            extraOptions.yearlySeries = yearlySeriesLabels;
-        } else {
-            responses = await apiFetchAnalytics(current, optionsForRequest);
+            this.props.acAddMetadata(res.metaData.items);
+
+            const chartConfig = createChart(res, current, visContainerId);
+
+            this.props.acSetChart(
+                chartConfig.chart.getSVGForExport({
+                    sourceHeight: 768,
+                    sourceWidth: 1024,
+                })
+            );
+
+            this.props.acSetLoading(false);
+        } catch (error) {
+            this.props.acSetLoading(false);
+            this.props.acSetLoadError(i18n.t('Could not generate chart'));
         }
-
-        // TODO add a try/catch here
-        responses.forEach(res => this.props.acAddMetadata(res.metaData.items));
-
-        const chartConfig = createChart(
-            responses,
-            current,
-            visContainerId,
-            extraOptions
-        );
-
-        this.props.acSetChart(
-            chartConfig.chart.getSVGForExport({
-                sourceHeight: 768,
-                sourceWidth: 1024,
-            })
-        );
     };
 
     render() {
@@ -80,11 +82,21 @@ export class Visualization extends Component {
     }
 }
 
+Visualization.contextTypes = {
+    d2: PropTypes.object,
+};
+
 const mapStateToProps = state => ({
     current: sGetCurrent(state),
 });
 
 export default connect(
     mapStateToProps,
-    { acAddMetadata, acSetChart }
+    {
+        acAddMetadata,
+        acSetChart,
+        acSetLoadError,
+        acSetLoading,
+        acClearLoadError,
+    }
 )(Visualization);

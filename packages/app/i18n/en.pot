@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-10-26T10:01:21.919Z\n"
-"PO-Revision-Date: 2018-10-26T10:01:21.919Z\n"
+"POT-Creation-Date: 2018-10-30T09:43:22.767Z\n"
+"PO-Revision-Date: 2018-10-30T09:43:22.767Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -27,6 +27,9 @@ msgid "Actual reporting rates on time"
 msgstr ""
 
 msgid "Expected reports"
+msgstr ""
+
+msgid "Data Visualizer"
 msgstr ""
 
 msgid "Data"
@@ -171,6 +174,12 @@ msgid "Remove"
 msgstr ""
 
 msgid "None selected"
+msgstr ""
+
+msgid "Chart error"
+msgstr ""
+
+msgid "Could not generate chart"
 msgstr ""
 
 msgid "Aggregation type"
