@@ -10,6 +10,7 @@ import {
 } from '../modules/options';
 import { COLUMN, YEAR_ON_YEAR } from '../modules/chartTypes';
 import { FIXED_DIMENSIONS } from '../modules/fixedDimensions';
+import { toArray } from '../modules/array';
 
 export const SET_UI = 'SET_UI';
 export const SET_UI_FROM_VISUALIZATION = 'SET_UI_FROM_VISUALIZATION';
@@ -187,8 +188,9 @@ export default (state = DEFAULT_UI, action) => {
         case SET_UI_YEAR_ON_YEAR_CATEGORY: {
             return {
                 ...state,
-                yearOnYearCategory:
-                    action.value || DEFAULT_UI.yearOnYearCategory,
+                yearOnYearCategory: action.value
+                    ? toArray(action.value)
+                    : DEFAULT_UI.yearOnYearCategory,
             };
         }
         case SET_UI_PARENT_GRAPH_MAP: {
