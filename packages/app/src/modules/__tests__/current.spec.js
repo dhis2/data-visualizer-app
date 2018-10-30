@@ -1,9 +1,13 @@
 import { AXIS_NAMES } from '../layout';
 import { getAxesFromUi } from '../current';
+import { FIXED_DIMENSIONS } from '../../../modules/fixedDimensions';
 
 const [COLUMNS, ROWS, FILTERS] = AXIS_NAMES;
 
-const dxId = 'dx';
+const dxId = FIXED_DIMENSIONS.dx.id;
+const peId = FIXED_DIMENSIONS.pe.id;
+const ouId = FIXED_DIMENSIONS.ou.id;
+
 const dxItem1id = 'dxItem1id';
 const dxItem2id = 'dxItem2id';
 const dxItems = [dxItem1id, dxItem2id];
@@ -12,11 +16,9 @@ const otherId = 'other';
 const otherItemId = 'otherItem1id';
 const otherItems = [otherItemId];
 
-const peId = 'pe';
 const peItemId = 'peItem1id';
 const peItems = [peItemId];
 
-const ouId = 'ou';
 const ouItemId = 'ouItem1id';
 const ouItems = [ouItemId];
 

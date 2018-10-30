@@ -19,24 +19,26 @@ import reducer, {
 } from '../ui';
 import { AXIS_NAMES } from '../../modules/layout';
 import { BAR, YEAR_ON_YEAR } from '../../modules/chartTypes';
+import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
 
 const [COLUMNS, ROWS, FILTERS] = AXIS_NAMES;
 
-const dxId = 'dx';
+const dxId = FIXED_DIMENSIONS.dx.id;
+const peId = FIXED_DIMENSIONS.pe.id;
+const ouId = FIXED_DIMENSIONS.ou.id;
+
 const dxItem1Id = 'dxItem1';
 const dx = {
     dimension: dxId,
     items: [{ id: dxItem1Id }],
 };
 
-const peId = 'pe';
 const peItem1Id = 'peItem1';
 const pe = {
     dimension: peId,
     items: [{ id: peItem1Id }],
 };
 
-const ouId = 'ou';
 const ouItem1Id = 'ouItem1';
 const ou = {
     dimension: ouId,
@@ -117,7 +119,7 @@ describe('reducer: ui', () => {
             layout: {
                 columns: [],
                 rows: [],
-                filters: ['ou', 'dx'],
+                filters: [ouId, dxId],
             },
             itemsByDimension: {
                 ou: DEFAULT_UI.itemsByDimension.ou,
@@ -162,9 +164,9 @@ describe('reducer: ui', () => {
     it(`${ADD_UI_LAYOUT_DIMENSIONS}: should add layout dimensions`, () => {
         const state = {
             layout: {
-                columns: ['dx'],
-                rows: ['pe'],
-                filters: ['ou'],
+                columns: [dxId],
+                rows: [peId],
+                filters: [ouId],
             },
         };
 
@@ -177,9 +179,9 @@ describe('reducer: ui', () => {
 
         const expectedState = {
             layout: {
-                columns: ['pe'],
-                rows: ['dx'],
-                filters: ['ou'],
+                columns: [peId],
+                rows: [dxId],
+                filters: [ouId],
             },
         };
 
@@ -189,22 +191,22 @@ describe('reducer: ui', () => {
     it(`${REMOVE_UI_LAYOUT_DIMENSIONS}: should remove a single dimension`, () => {
         const state = {
             layout: {
-                columns: ['dx'],
-                rows: ['pe'],
-                filters: ['ou'],
+                columns: [dxId],
+                rows: [peId],
+                filters: [ouId],
             },
         };
 
         const actualState = reducer(state, {
             type: REMOVE_UI_LAYOUT_DIMENSIONS,
-            value: 'pe',
+            value: peId,
         });
 
         const expectedState = {
             layout: {
-                columns: ['dx'],
+                columns: [dxId],
                 rows: [],
-                filters: ['ou'],
+                filters: [ouId],
             },
         };
 
@@ -214,20 +216,20 @@ describe('reducer: ui', () => {
     it(`${REMOVE_UI_LAYOUT_DIMENSIONS}: should remove muliple dimensions`, () => {
         const state = {
             layout: {
-                columns: ['dx'],
-                rows: ['pe'],
-                filters: ['ou'],
+                columns: [dxId],
+                rows: [peId],
+                filters: [ouId],
             },
         };
 
         const actualState = reducer(state, {
             type: REMOVE_UI_LAYOUT_DIMENSIONS,
-            value: ['pe', 'ou'],
+            value: [peId, ouId],
         });
 
         const expectedState = {
             layout: {
-                columns: ['dx'],
+                columns: [dxId],
                 rows: [],
                 filters: [],
             },
@@ -258,7 +260,7 @@ describe('reducer: ui', () => {
             const dx = ['abc'];
 
             const value = {
-                dimensionType: 'dx',
+                dimensionType: dxId,
                 value: dx,
             };
             const expectedState = dx;
@@ -274,7 +276,7 @@ describe('reducer: ui', () => {
             const dx1 = 'abc';
             const dx2 = 'def';
 
-            const value = { dimensionType: 'dx', value: [dx1, dx2] };
+            const value = { dimensionType: dxId, value: [dx1, dx2] };
             const expectedState = [dx1, dx2];
             const actualState = reducer(DEFAULT_UI, {
                 type: ADD_UI_ITEMS,
@@ -300,7 +302,7 @@ describe('reducer: ui', () => {
                 { itemsByDimension: defaultIBD }
             );
 
-            const value = { dimensionType: 'dx', value: [dx1, dx2] };
+            const value = { dimensionType: dxId, value: [dx1, dx2] };
             const expectedState = [dx1, dx2];
             const actualState = reducer(startingState, {
                 type: ADD_UI_ITEMS,
@@ -326,7 +328,7 @@ describe('reducer: ui', () => {
                 { itemsByDimension: defaultIBD }
             );
 
-            const value = { dimensionType: 'dx', value: [dx1] };
+            const value = { dimensionType: dxId, value: [dx1] };
             const expectedState = [dx2];
             const actualState = reducer(startingState, {
                 type: REMOVE_UI_ITEMS,

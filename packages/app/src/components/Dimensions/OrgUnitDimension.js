@@ -27,6 +27,9 @@ import {
     apiFetchOrganisationUnitLevels,
     apiFetchOrganisationUnits,
 } from '../../api/organisationUnits';
+import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
+
+const ouId = FIXED_DIMENSIONS.ou.id;
 
 /**
  * Org unit level id prefix
@@ -244,7 +247,7 @@ export class OrgUnitDimension extends Component {
 
         if (selected.some(ou => ou.path === orgUnit.path)) {
             this.props.acRemoveUiItems({
-                dimensionType: 'ou',
+                dimensionType: ouId,
                 value: [orgUnit.id],
             });
         } else {
@@ -263,7 +266,7 @@ export class OrgUnitDimension extends Component {
             });
 
             this.props.acAddUiItems({
-                dimensionType: 'ou',
+                dimensionType: ouId,
                 value: [orgUnit.id],
             });
         }
@@ -302,7 +305,7 @@ export class OrgUnitDimension extends Component {
             }
 
             this.props.acRemoveUiItems({
-                dimensionType: 'ou',
+                dimensionType: ouId,
                 value: [event.target.name],
             });
         }

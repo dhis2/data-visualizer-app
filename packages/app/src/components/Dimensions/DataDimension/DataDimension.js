@@ -250,7 +250,7 @@ DataDimension.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-    selectedItems: sGetUiItems(state).dx,
+    selectedItems: sGetUiItems(state)[dxId],
     displayNameProp: sGetDisplayNameProperty(state),
     ui: sGetUi(state),
 });
