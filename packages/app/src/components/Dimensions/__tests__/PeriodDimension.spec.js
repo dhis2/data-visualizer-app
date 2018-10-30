@@ -4,6 +4,9 @@ import { PeriodDimension } from '../PeriodDimension';
 import { PeriodSelector } from '@dhis2/d2-ui-period-selector-dialog';
 import { HideButton, UpdateButton } from '.././DataDimension/buttons';
 import { getStubContext } from '../../../../../../config/testsContext';
+import { FIXED_DIMENSIONS } from '../../../modules/fixedDimensions';
+
+const peId = FIXED_DIMENSIONS.pe.id;
 
 describe('The Period Dimension component ', () => {
     let props;
@@ -24,7 +27,7 @@ describe('The Period Dimension component ', () => {
             onUpdate: jest.fn(),
             ui: {
                 itemsByDimension: {
-                    pe: [],
+                    [peId]: [],
                 },
             },
             metadata: {},
@@ -50,7 +53,7 @@ describe('The Period Dimension component ', () => {
     });
 
     it('sets the selected items for the PeriodSelector', () => {
-        props.ui.itemsByDimension.pe = ['applejack', 'rainbowdash'];
+        props.ui.itemsByDimension[peId] = ['applejack', 'rainbowdash'];
         props.metadata = {
             applejack: { id: 'applejack', name: 'Apple Jack' },
             rainbowdash: { id: 'rainbowdash', name: 'Rainbow Dash' },

@@ -5,10 +5,14 @@ import {
     getDimensionIdsByAxis,
 } from '../layout';
 import { createDimension } from '../layout';
+import { FIXED_DIMENSIONS } from '../fixedDimensions';
 
 const [COLUMNS, ROWS, FILTERS] = AXIS_NAMES;
 
-const dxId = 'dx';
+const dxId = FIXED_DIMENSIONS.dx.id;
+const peId = FIXED_DIMENSIONS.pe.id;
+const ouId = FIXED_DIMENSIONS.ou.id;
+
 const dxItem1Id = 'dxItem1';
 const dxItem2Id = 'dxItem2';
 const dx = {
@@ -23,14 +27,12 @@ const other = {
     items: [{ id: otherItem1Id }],
 };
 
-const peId = 'pe';
 const peItem1Id = 'peItem1';
 const pe = {
     dimension: peId,
     items: [{ id: peItem1Id }],
 };
 
-const ouId = 'ou';
 const ouItem1Id = 'ouItem1';
 const ou = {
     dimension: ouId,
@@ -46,10 +48,10 @@ const visualization = {
 describe('createDimension', () => {
     it('should return a dimension object', () => {
         const expectedState = {
-            dimension: 'dx',
+            dimension: dxId,
             items: [{ id: 'id1' }, { id: 'id2' }],
         };
-        const actualState = createDimension('dx', ['id1', 'id2']);
+        const actualState = createDimension(dxId, ['id1', 'id2']);
 
         expect(actualState).toEqual(expectedState);
     });

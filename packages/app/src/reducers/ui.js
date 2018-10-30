@@ -8,7 +8,9 @@ import {
     getOptionsForUi,
     getOptionsFromVisualization,
 } from '../modules/options';
-import { COLUMN } from '../modules/chartTypes';
+import { COLUMN, YEAR_ON_YEAR } from '../modules/chartTypes';
+import { FIXED_DIMENSIONS } from '../modules/fixedDimensions';
+import { toArray } from '../modules/array';
 
 export const SET_UI = 'SET_UI';
 export const SET_UI_FROM_VISUALIZATION = 'SET_UI_FROM_VISUALIZATION';
@@ -27,18 +29,21 @@ export const SET_UI_YEAR_ON_YEAR_SERIES = 'SET_UI_YEAR_ON_YEAR_SERIES';
 export const SET_UI_YEAR_ON_YEAR_CATEGORY = 'SET_UI_YEAR_ON_YEAR_CATEGORY';
 export const CLEAR_UI = 'CLEAR_UI';
 
+const dxId = FIXED_DIMENSIONS.dx.id;
+const peId = FIXED_DIMENSIONS.pe.id;
+const ouId = FIXED_DIMENSIONS.ou.id;
+
 export const DEFAULT_UI = {
     type: COLUMN,
     options: getOptionsForUi(),
     layout: {
-        columns: ['dx'],
-        rows: ['pe'],
-        filters: ['ou'],
+        columns: [dxId],
+        rows: [peId],
+        filters: [ouId],
     },
     itemsByDimension: {
-        dx: [],
-        pe: ['LAST_12_MONTHS'],
-        ou: ['USER_ORGUNIT'],
+        [peId]: ['LAST_12_MONTHS'],
+        [ouId]: ['USER_ORGUNIT'],
     },
     yearOnYearSeries: ['LAST_5_YEARS'],
     yearOnYearCategory: ['MONTHS_THIS_YEAR'],
@@ -63,10 +68,35 @@ export default (state = DEFAULT_UI, action) => {
             };
         }
         case SET_UI_TYPE: {
-            return {
+            const newState = {
                 ...state,
                 type: action.value,
             };
+
+            switch (action.value) {
+                case YEAR_ON_YEAR: {
+                    const items = {
+                        ...state.itemsByDimension,
+                    };
+                    delete items[peId];
+
+                    return {
+                        ...newState,
+                        layout: {
+                            columns: [],
+                            rows: [],
+                            filters: [
+                                ...state.layout.filters,
+                                ...state.layout.columns,
+                                ...state.layout.rows,
+                            ].filter(d => d !== peId),
+                        },
+                        itemsByDimension: items,
+                    };
+                }
+                default:
+                    return newState;
+            }
         }
         case SET_UI_OPTIONS: {
             return {
@@ -129,9 +159,8 @@ export default (state = DEFAULT_UI, action) => {
         }
         case ADD_UI_ITEMS: {
             const { dimensionType: type, value: items } = action.value;
-            const dxItems = [
-                ...new Set([...state.itemsByDimension[type], ...items]),
-            ];
+            const currentItems = state.itemsByDimension[type] || [];
+            const dxItems = [...new Set([...currentItems, ...items])];
 
             const itemsByDimension = Object.assign(
                 {},
@@ -143,7 +172,7 @@ export default (state = DEFAULT_UI, action) => {
         }
         case REMOVE_UI_ITEMS: {
             const { dimensionType: type, value: idsToRemove } = action.value;
-            const dxItems = state.itemsByDimension[type].filter(
+            const dxItems = (state.itemsByDimension[type] || []).filter(
                 id => !idsToRemove.includes(id)
             );
 
@@ -164,8 +193,9 @@ export default (state = DEFAULT_UI, action) => {
         case SET_UI_YEAR_ON_YEAR_CATEGORY: {
             return {
                 ...state,
-                yearOnYearCategory:
-                    action.value || DEFAULT_UI.yearOnYearCategory,
+                yearOnYearCategory: action.value
+                    ? toArray(action.value)
+                    : DEFAULT_UI.yearOnYearCategory,
             };
         }
         case SET_UI_PARENT_GRAPH_MAP: {
