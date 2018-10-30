@@ -25,6 +25,9 @@ export const muiTheme = () => {
             MuiButton: raisedButton,
             MuiSelect: selectField,
         },
+        typography: {
+            useNextVariants: true,
+        },
     });
 
     return theme;
