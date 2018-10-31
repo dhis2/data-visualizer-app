@@ -5,21 +5,21 @@ import { connect } from 'react-redux';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 
-import DataDimension from './Dialogs/DataDimension/DataDimension';
-import PeriodDimension from './Dialogs/PeriodDimension/PeriodDimension';
-import OrgUnitDimension from './Dialogs/OrgUnitDimension/OrgUnitDimension';
-import GenericDimension from './Dialogs/GenericDimension/GenericDimension';
+import DataDimension from './Dialogs/DataSelector/DataDimension';
+import PeriodDimension from './Dialogs/PeriodSelector/PeriodDimension';
+import OrgUnitDimension from './Dialogs/OrgUnitSelector/OrgUnitDimension';
+import GenericItemSelector from './Dialogs/GenericSelector/GenericItemSelector';
 
-import { HideButton, UpdateButton } from './Dialogs/buttons';
+import HideButton from '../HideButton/HideButton';
+import UpdateButton from '../UpdateButton/UpdateButton';
 
 import { sGetUi, sGetUiActiveModalDialog } from '../../reducers/ui';
+import { sGetDimensions } from '../../reducers/dimensions';
 import { acSetUiActiveModalDialog } from '../../actions/ui';
 import { acSetCurrentFromUi } from '../../actions/current';
 
-import { styles } from './styles/DialogManager.style';
-
 import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
-import { sGetDimensions } from '../../reducers/dimensions';
+import { styles } from './styles/DialogManager.style';
 
 const dxId = FIXED_DIMENSIONS.dx.id;
 const peId = FIXED_DIMENSIONS.pe.id;
@@ -27,28 +27,26 @@ const ouId = FIXED_DIMENSIONS.ou.id;
 
 const fixedDimensionIds = [dxId, peId, ouId];
 
-const dimensionComponents = {
+export const defaultState = {
+    mounted: [],
+};
+
+export const fixedDimensions = {
     [dxId]: <DataDimension />,
     [ouId]: <OrgUnitDimension />,
     [peId]: <PeriodDimension />,
 };
 
 export class DialogManager extends Component {
-    onUpdate = () => {
-        this.props.onUpdate(this.props.ui);
-        this.props.closeDialog(null);
-    };
+    state = defaultState;
 
     renderDialogContent = () => {
         return fixedDimensionIds.includes(this.props.dialogId) ? (
-            dimensionComponents[this.props.dialogId]
+            fixedDimensions[this.props.dialogId]
         ) : (
-            <GenericDimension
-                dimension={{
-                    id: this.props.dialogId,
-                    dialogtitle: this.props.dimensions[this.props.dialogId]
-                        .name,
-                }}
+            <GenericItemSelector
+                dialogId={this.props.dialogId}
+                dialogTitle={this.props.dimensions[this.props.dialogId].name}
             />
         );
     };
@@ -63,8 +61,10 @@ export class DialogManager extends Component {
             >
                 {this.renderDialogContent()}
                 <DialogActions style={styles.dialogActions}>
-                    <HideButton action={() => this.props.closeDialog(null)} />
-                    <UpdateButton action={this.onUpdate} />
+                    <HideButton />
+                    <UpdateButton
+                        onClick={() => this.props.closeDialog(null)}
+                    />
                 </DialogActions>
             </Dialog>
         ) : null;

@@ -25,9 +25,6 @@ export const styles = {
     deselectButton: { left: 76 },
     selectButton: { left: 165 },
     buttonText: { fontSize: 13, letterSpacing: 0.46 },
-    updateButton: { marginLeft: 10, backgroundColor: colors.blue },
-    updateText: { color: colors.white, fontSize: 13, letterSpacing: 0.46 },
-    hideText: { color: colors.blue, fontSize: 13, letterSpacing: 0.46 },
     deleteButton: {
         border: 'none',
         outline: 'none',

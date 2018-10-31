@@ -19,11 +19,11 @@ export const RemoveDimensionButton = ({ action }) => {
 export class DimensionLabel extends Component {
     static propTypes = {
         openDialog: PropTypes.func.isRequired,
-        id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
         isSelected: PropTypes.bool.isRequired,
         onRemoveDimension: PropTypes.func.isRequired,
-        Icon: PropTypes.element,
-        Label: PropTypes.element,
+        children: PropTypes.arrayOf(PropTypes.element).isRequired,
     };
 
     onLabelClick = () => {

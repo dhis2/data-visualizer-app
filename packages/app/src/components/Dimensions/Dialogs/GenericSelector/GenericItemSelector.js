@@ -6,9 +6,9 @@ import DialogContent from '@material-ui/core/DialogContent';
 import i18n from '@dhis2/d2-i18n';
 import keyBy from 'lodash-es/keyBy';
 
-import SearchField from '../../Dialogs/SearchField';
-import UnselectedItems from '../../Dialogs/UnselectedItems';
-import SelectedItems from '../../Dialogs/SelectedItems';
+import SearchField from '../SearchField';
+import UnselectedItems from '../UnselectedItems';
+import SelectedItems from '../SelectedItems';
 
 import { apiFetchItemsByDimension } from '../../../../api/dimensions';
 
@@ -26,23 +26,21 @@ const ouId = FIXED_DIMENSIONS.ou.id;
 
 const dimensionTypes = [dxId, peId, ouId];
 
-export class GenericDimension extends Component {
+export class GenericItemSelector extends Component {
     state = {
         filterText: '',
         dimensionItems: [],
         unselectedIds: [],
         selectedIds: [],
-        dimensionType: '',
+        dimensionType: 'ou',
     };
 
     componentDidMount = async () => {
-        const { selectedLayout, dimension } = this.props;
-        const dimensionItems = await apiFetchItemsByDimension(dimension.id);
+        const { selectedLayout, dialogId } = this.props;
+        const dimensionItems = await apiFetchItemsByDimension(dialogId);
 
         const currentLayout = Object.values(selectedLayout);
-        const axisKey = currentLayout.findIndex(ids =>
-            ids.includes(dimension.id)
-        );
+        const axisKey = currentLayout.findIndex(ids => ids.includes(dialogId));
 
         this.setState({
             dimensionItems,
@@ -74,7 +72,7 @@ export class GenericDimension extends Component {
             'id'
         );
 
-        this.props.addDxItems({
+        this.props.addItems({
             dimensionType: this.state.dimensionType,
             value: selectedIds,
         });
@@ -88,24 +86,20 @@ export class GenericDimension extends Component {
         ];
         this.setState({ unselectedIds });
 
-        this.props.removeDxItems({
+        this.props.removeItems({
             dimensionType: this.state.dimensionType,
             value: ids,
         });
     };
 
     getSelectedItems = () => {
-        let selectedIds = [];
-
         const { selectedItems } = this.props;
 
-        selectedIds = this.state.dimensionItems
+        return this.state.dimensionItems
             .filter(item =>
                 selectedItems[this.state.dimensionType].includes(item.id)
             )
             .map(item => item.id);
-
-        return selectedIds;
     };
 
     render = () => {
@@ -117,9 +111,7 @@ export class GenericDimension extends Component {
 
         return (
             <Fragment>
-                <DialogTitle>
-                    {i18n.t(this.props.dimension.dialogtitle)}
-                </DialogTitle>
+                <DialogTitle>{i18n.t(this.props.dialogTitle)}</DialogTitle>
                 <DialogContent>
                     <div style={{ paddingRight: 55 }}>
                         <SearchField
@@ -145,10 +137,10 @@ export class GenericDimension extends Component {
     };
 }
 
-GenericDimension.propTypes = {
+GenericItemSelector.propTypes = {
     selectedItems: PropTypes.object.isRequired,
-    addDxItems: PropTypes.func.isRequired,
-    removeDxItems: PropTypes.func.isRequired,
+    addItems: PropTypes.func.isRequired,
+    removeItems: PropTypes.func.isRequired,
     addMetadata: PropTypes.func.isRequired,
 };
 
@@ -160,8 +152,8 @@ const mapStateToProps = state => ({
 export default connect(
     mapStateToProps,
     {
-        removeDxItems: acRemoveUiItems,
-        addDxItems: acAddUiItems,
+        removeItems: acRemoveUiItems,
+        addItems: acAddUiItems,
         addMetadata: acAddMetadata,
     }
-)(GenericDimension);
+)(GenericItemSelector);

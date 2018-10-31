@@ -1,79 +1,66 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-
+import CircularProgress from '@material-ui/core/CircularProgress';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import i18n from '@dhis2/d2-i18n';
+import PropTypes from 'prop-types';
+
 import {
     OrgUnitSelector,
     userOrgUnits,
     removeOrgUnitLastPathSegment,
 } from '@dhis2/d2-ui-org-unit-dialog';
-import PropTypes from 'prop-types';
+
 import { sGetUi } from '../../../../reducers/ui';
 import { acSetCurrentFromUi } from '../../../../actions/current';
 import { acAddMetadata } from '../../../../actions/metadata';
 import { sGetMetadata } from '../../../../reducers/metadata';
+
 import {
     acAddUiItems,
     acSetUiItems,
     acRemoveUiItems,
     acAddParentGraphMap,
-    acSetParentGraphMap,
 } from '../../../../actions/ui';
+
 import {
     apiFetchOrganisationUnitGroups,
     apiFetchOrganisationUnitLevels,
     apiFetchOrganisationUnits,
 } from '../../../../api/organisationUnits';
 
+import {
+    LEVEL_ID_PREFIX,
+    GROUP_ID_PREFIX,
+    isLevelId,
+    isGroupId,
+    getOrgUnitsFromIds,
+    getLevelsFromIds,
+    getGroupsFromIds,
+    sortOrgUnitLevels,
+    transformOptionsIntoMetadata,
+} from '../../../../modules/orgUnitDimensions';
+
 import { FIXED_DIMENSIONS } from '../../../../modules/fixedDimensions';
+import styles from './styles/OrgUnitDimension.style';
 
 const ouId = FIXED_DIMENSIONS.ou.id;
 
-/**
- * Org unit level id prefix
- * @type {string}
- */
-const LEVEL_ID_PREFIX = 'LEVEL';
-
-/**
- * Detects if id is ou level id
- * @param id
- * @returns {boolean}
- */
-const isLevelId = id => {
-    return id.substr(0, LEVEL_ID_PREFIX.length) === LEVEL_ID_PREFIX;
-};
-
-/**
- * Org unit group id prefix
- * @type {string}
- */
-const GROUP_ID_PREFIX = 'OU_GROUP';
-
-/**
- * Detects if id is group id
- * @param id
- * @returns {boolean}
- */
-const isGroupId = id => {
-    return id.substr(0, GROUP_ID_PREFIX.length) === GROUP_ID_PREFIX;
+export const defaultState = {
+    root: undefined,
+    // use "selected" property for cloning org units while user org unit(s) is (are) selected
+    selected: [],
+    levelOptions: [],
+    groupOptions: [],
 };
 
 export class OrgUnitDimension extends Component {
     constructor(props) {
         super(props);
 
+        this.state = defaultState;
         this.userOrgUnitIds = userOrgUnits.map(orgUnit => orgUnit.id);
-
-        this.state = {
-            root: undefined,
-            // use "selected" property for cloning org units while user org unit(s) is (are) selected
-            selected: [],
-            levelOptions: [],
-            groupOptions: [],
-        };
 
         this.loadOrgUnitTree();
         this.loadOrgUnitLevels();
@@ -84,87 +71,8 @@ export class OrgUnitDimension extends Component {
         return userOrgUnits.filter(orgUnit => ids.includes(orgUnit.id));
     };
 
-    getOrgUnitPath = id => {
-        if (this.props.metadata[id] && this.props.metadata[id].path) {
-            return this.props.metadata[id].path;
-        }
-
-        // for root org units
-        if (this.props.ui.parentGraphMap[id] === '') {
-            return `/${id}`;
-        }
-
-        return this.props.ui.parentGraphMap[id]
-            ? `/${this.props.ui.parentGraphMap[id]}/${id}`
-            : undefined;
-    };
-
-    getOrgUnitsFromIds = (ids, idsToExclude = []) => {
-        return ids
-            .filter(id => !idsToExclude.includes(id))
-            .filter(id => this.props.metadata[id] !== undefined)
-            .map(id => ({
-                id: id,
-                name:
-                    this.props.metadata[id].displayName ||
-                    this.props.metadata[id].name,
-                path: this.getOrgUnitPath(id),
-            }));
-    };
-
-    getLevelsFromIds = ids => {
-        if (this.state.levelOptions.length === 0) {
-            return [];
-        }
-
-        return ids
-            .filter(isLevelId)
-            .map(id => id.substr(LEVEL_ID_PREFIX.length + 1))
-            .map(
-                level =>
-                    this.state.levelOptions.find(
-                        option => Number(option.level) === Number(level)
-                    ).id
-            );
-    };
-
-    getGroupsFromIds = ids => {
-        if (this.state.groupOptions.length === 0) {
-            return [];
-        }
-
-        return ids
-            .filter(isGroupId)
-            .map(id => id.substr(GROUP_ID_PREFIX.length + 1));
-    };
-
-    transformOptionsIntoMetadata = (
-        options,
-        fields = ['id', 'displayName', 'name']
-    ) => {
-        const metadata = {};
-
-        for (let i = 0; i < options.length; ++i) {
-            // skip if we already have this property in metadata
-            if (this.props.metadata[options[i].id] !== undefined) {
-                break;
-            }
-
-            metadata[options[i].id] = {};
-
-            fields.forEach(field => {
-                metadata[options[i].id][field] = options[i][field];
-            });
-        }
-
-        return {
-            options,
-            metadata,
-        };
-    };
-
     onLevelChange = event => {
-        const levelIds = event.target.value;
+        const levelIds = event.target.value.filter(id => !!id);
 
         this.props.acSetUiItems({
             ...this.props.ui.itemsByDimension,
@@ -180,7 +88,7 @@ export class OrgUnitDimension extends Component {
     };
 
     onGroupChange = event => {
-        const optionIds = event.target.value;
+        const optionIds = event.target.value.filter(id => !!id);
 
         this.props.acSetUiItems({
             ...this.props.ui.itemsByDimension,
@@ -216,7 +124,9 @@ export class OrgUnitDimension extends Component {
     loadOrgUnitGroups = () => {
         apiFetchOrganisationUnitGroups()
             .then(collection => collection.toArray())
-            .then(this.transformOptionsIntoMetadata)
+            .then(options =>
+                transformOptionsIntoMetadata(options, this.props.metadata)
+            )
             .then(({ options, metadata }) => {
                 this.props.acAddMetadata(metadata);
                 this.setState({ groupOptions: options });
@@ -227,22 +137,25 @@ export class OrgUnitDimension extends Component {
         apiFetchOrganisationUnitLevels()
             .then(collection => collection.toArray())
             .then(levelOptions =>
-                this.transformOptionsIntoMetadata(levelOptions, [
-                    'id',
-                    'displayName',
-                    'name',
-                    'level',
-                ])
+                transformOptionsIntoMetadata(
+                    levelOptions,
+                    this.props.metadata,
+                    ['id', 'displayName', 'name', 'level']
+                )
             )
             .then(({ options, metadata }) => {
                 this.props.acAddMetadata(metadata);
-                this.setState({ levelOptions: options });
+                this.setState({
+                    levelOptions: sortOrgUnitLevels(options),
+                });
             });
     };
 
     handleOrgUnitClick = (event, orgUnit) => {
-        const selected = this.getOrgUnitsFromIds(
-            this.props.ui.itemsByDimension[ouId]
+        const selected = getOrgUnitsFromIds(
+            this.props.ui.itemsByDimension[ouId],
+            this.props.metadata,
+            this.props.ui.parentGraphMap
         );
 
         if (selected.some(ou => ou.path === orgUnit.path)) {
@@ -312,34 +225,39 @@ export class OrgUnitDimension extends Component {
     };
 
     render = () => {
-        if (!this.state.root) {
-            return 'loading...';
-        }
-
         const ids = this.props.ui.itemsByDimension[ouId];
-
+        const selected = getOrgUnitsFromIds(
+            ids,
+            this.props.metadata,
+            this.props.ui.parentGraphMap,
+            this.userOrgUnitIds
+        );
         const userOrgUnits = this.getUserOrgUnitsFromIds(ids);
-        const selected = this.getOrgUnitsFromIds(ids, this.userOrgUnitIds);
-        const level = this.getLevelsFromIds(ids);
-        const group = this.getGroupsFromIds(ids);
+        const level = getLevelsFromIds(ids, this.state.levelOptions);
+        const group = getGroupsFromIds(ids, this.state.groupOptions);
 
         return (
             <Fragment>
                 <DialogTitle>{i18n.t('Organisation units')}</DialogTitle>
-                <DialogContent style={{ display: 'block ' }}>
-                    <OrgUnitSelector
-                        root={this.state.root}
-                        selected={selected}
-                        userOrgUnits={userOrgUnits}
-                        level={level}
-                        group={group}
-                        levelOptions={this.state.levelOptions}
-                        groupOptions={this.state.groupOptions}
-                        onLevelChange={this.onLevelChange}
-                        onGroupChange={this.onGroupChange}
-                        handleUserOrgUnitClick={this.handleUserOrgUnitClick}
-                        handleOrgUnitClick={this.handleOrgUnitClick}
-                    />
+                <DialogContent style={styles.dialogContent}>
+                    {this.state.root && (
+                        <OrgUnitSelector
+                            root={this.state.root}
+                            selected={selected}
+                            userOrgUnits={userOrgUnits}
+                            level={level}
+                            group={group}
+                            levelOptions={this.state.levelOptions}
+                            groupOptions={this.state.groupOptions}
+                            onLevelChange={this.onLevelChange}
+                            onGroupChange={this.onGroupChange}
+                            handleUserOrgUnitClick={this.handleUserOrgUnitClick}
+                            handleOrgUnitClick={this.handleOrgUnitClick}
+                        />
+                    )}
+                    {!this.state.root && (
+                        <CircularProgress style={styles.loader} />
+                    )}
                 </DialogContent>
             </Fragment>
         );
@@ -352,9 +270,8 @@ OrgUnitDimension.propTypes = {
     acAddUiItems: PropTypes.func.isRequired,
     acRemoveUiItems: PropTypes.func.isRequired,
     acAddMetadata: PropTypes.func.isRequired,
-    acSetUiItems: PropTypes.func.isRequired,
     acAddParentGraphMap: PropTypes.func.isRequired,
-    acSetParentGraphMap: PropTypes.func.isRequired,
+    acSetUiItems: PropTypes.func.isRequired,
     acSetCurrentFromUi: PropTypes.func.isRequired,
 };
 
@@ -369,7 +286,6 @@ const mapDispatchToProps = {
     acAddMetadata,
     acSetUiItems,
     acAddParentGraphMap,
-    acSetParentGraphMap,
     acSetCurrentFromUi,
 };
 

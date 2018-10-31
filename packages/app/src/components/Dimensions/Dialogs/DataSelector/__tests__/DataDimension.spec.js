@@ -34,7 +34,7 @@ describe('DataDimension component ', () => {
     });
 
     describe('no groups found', () => {
-        it.only('renders empty div', done => {
+        it('renders empty div', done => {
             api.apiFetchGroups = jest.fn().mockResolvedValue([]);
 
             const wrapper = dataDim();
@@ -60,35 +60,21 @@ describe('DataDimension component ', () => {
                 .mockResolvedValue([{ id: 'rarity' }, { id: 'rainbow' }]);
         });
 
-        it('renders a div ', done => {
+        it('renders a Fragment ', done => {
             const wrapper = dataDim();
 
             setTimeout(() => {
-                expect(wrapper.find('div').first().length).toEqual(1);
+                expect(wrapper.find('Fragment').first().length).toEqual(1);
                 done();
             });
         });
 
-        it('renders a div containing everything else', done => {
+        it('renders a Fragment containing everything else', done => {
             const wrapper = dataDim();
 
             setTimeout(() => {
-                const wrappingDiv = wrapper.find('div').first();
+                const wrappingDiv = wrapper.find('Fragment').first();
                 expect(wrappingDiv.children()).toEqual(wrapper.children());
-                done();
-            });
-        });
-
-        it('renders a <DialogActions />', done => {
-            const wrapper = dataDim();
-
-            setTimeout(() => {
-                const dialogActions = wrapper
-                    .find('div')
-                    .first()
-                    .find(DialogActions);
-
-                expect(dialogActions.length).toBe(1);
                 done();
             });
         });
