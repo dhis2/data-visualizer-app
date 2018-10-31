@@ -10456,9 +10456,9 @@ uglifyjs-webpack-plugin@^0.4.6:
     uglify-js "^2.8.29"
     webpack-sources "^1.0.1"
 
-"ui@github:dhis2/ui-builds":
+"ui@github:d2-ci/ui":
   version "1.0.0-beta.5"
-  resolved "https://codeload.github.com/dhis2/ui-builds/tar.gz/d28f146950211e458196cc403cc1c9af6d785ada"
+  resolved "https://codeload.github.com/d2-ci/ui/tar.gz/d28f146950211e458196cc403cc1c9af6d785ada"
   dependencies:
     "@babel/polyfill" "^7.0.0"
     classnames "^2.2.6"
