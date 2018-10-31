@@ -10,7 +10,7 @@ export const PIE = 'PIE';
 export const RADAR = 'RADAR';
 export const GAUGE = 'GAUGE';
 export const BUBBLE = 'BUBBLE';
-export const YEAR_ON_YEAR = 'YEAR_ON_YEAR';
+export const YEAR_OVER_YEAR_LINE = 'YEAR_OVER_YEAR_LINE';
 
 export const chartTypeDisplayNames = {
     [COLUMN]: i18n.t('Column'),
@@ -22,5 +22,5 @@ export const chartTypeDisplayNames = {
     [PIE]: i18n.t('Pie'),
     [RADAR]: i18n.t('Radar'),
     [GAUGE]: i18n.t('Gauge'),
-    [YEAR_ON_YEAR]: i18n.t('Year on year'),
+    [YEAR_OVER_YEAR_LINE]: i18n.t('Year on year'),
 };
