@@ -1,7 +1,7 @@
 import React from 'react';
 import SvgIcon from '@material-ui/core/SvgIcon';
 
-const YearOnYearIcon = ({
+const YearOverYearLineIcon = ({
     style = { paddingRight: '8px', width: 24, height: 24 },
 }) => (
     <SvgIcon viewBox="0,0,48,48" style={style}>
@@ -35,4 +35,4 @@ const YearOnYearIcon = ({
     </SvgIcon>
 );
 
-export default YearOnYearIcon;
+export default YearOverYearLineIcon;

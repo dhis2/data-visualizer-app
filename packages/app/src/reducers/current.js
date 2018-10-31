@@ -1,6 +1,6 @@
 import { getAxesFromUi, getOptionsFromUi } from '../modules/current';
 import { createDimension } from '../modules/layout';
-import { YEAR_ON_YEAR } from '../modules/chartTypes';
+import { YEAR_OVER_YEAR_LINE } from '../modules/chartTypes';
 import { FIXED_DIMENSIONS } from '../modules/fixedDimensions';
 
 export const SET_CURRENT = 'SET_CURRENT';
@@ -38,7 +38,7 @@ export default (state = DEFAULT_CURRENT, action) => {
         }
         case SET_CURRENT_FROM_UI: {
             switch (action.value.type) {
-                case YEAR_ON_YEAR:
+                case YEAR_OVER_YEAR_LINE:
                     return getYearOnYearCurrentFromUi(state, action);
                 default: {
                     const axesFromUi = getAxesFromUi(action.value);
