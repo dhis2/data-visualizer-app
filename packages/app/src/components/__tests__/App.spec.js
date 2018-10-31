@@ -35,6 +35,13 @@ describe('App', () => {
             snackbarMessage: '',
             current: {},
             location: { pathname: '/' },
+            settings: {
+                rootOrganisationUnit: {
+                    id: 'ROOT_ORGUNIT',
+                    path: '/ROOT_ORGUNIT',
+                },
+                keyAnalysisRelativePeriod: 'LAST_12_MONTHS',
+            },
         };
         shallowApp = undefined;
 
