@@ -1,16 +1,9 @@
-import {
-    getDimensionIdsByAxis,
-    getItemIdsByDimension,
-    getFilteredLayout,
-    getSwapModObj,
-} from '../modules/layout';
-import {
-    getOptionsForUi,
-    getOptionsFromVisualization,
-} from '../modules/options';
-import { COLUMN, YEAR_ON_YEAR } from '../modules/chartTypes';
+import { getFilteredLayout, getSwapModObj } from '../modules/layout';
+import { getOptionsForUi } from '../modules/options';
+import { COLUMN } from '../modules/chartTypes';
 import { FIXED_DIMENSIONS } from '../modules/fixedDimensions';
 import { toArray } from '../modules/array';
+import { getUiFromVisualization } from '../modules/ui';
 
 export const SET_UI = 'SET_UI';
 export const SET_UI_FROM_VISUALIZATION = 'SET_UI_FROM_VISUALIZATION';
@@ -59,76 +52,13 @@ export default (state = DEFAULT_UI, action) => {
             };
         }
         case SET_UI_FROM_VISUALIZATION: {
-            const newState = {
-                ...state,
-                type: action.value.type,
-                options: getOptionsFromVisualization(action.value),
-                parentGraphMap:
-                    action.value.parentGraphMap || state.parentGraphMap,
-            };
-
-            switch (action.value.type) {
-                case YEAR_ON_YEAR: {
-                    const items = getItemIdsByDimension(action.value);
-                    delete items[peId];
-
-                    return {
-                        ...newState,
-                        yearOnYearSeries: action.value.yearlySeries,
-                        yearOnYearCategory: action.value.rows[0].items.map(
-                            item => item.id
-                        ),
-                        layout: {
-                            columns: [],
-                            rows: [],
-                            filters: [
-                                ...action.value.filters,
-                                ...action.value.columns,
-                                ...action.value.rows,
-                            ].filter(dim => dim.dimension !== peId),
-                        },
-                        itemsByDimension: items,
-                    };
-                }
-                default: {
-                    return {
-                        ...newState,
-                        layout: getDimensionIdsByAxis(action.value),
-                        itemsByDimension: getItemIdsByDimension(action.value),
-                    };
-                }
-            }
+            return getUiFromVisualization(action.value, state);
         }
         case SET_UI_TYPE: {
-            const newState = {
+            return {
                 ...state,
                 type: action.value,
             };
-
-            switch (action.value) {
-                case YEAR_ON_YEAR: {
-                    const items = {
-                        ...state.itemsByDimension,
-                    };
-                    delete items[peId];
-
-                    return {
-                        ...newState,
-                        layout: {
-                            columns: [],
-                            rows: [],
-                            filters: [
-                                ...state.layout.filters,
-                                ...state.layout.columns,
-                                ...state.layout.rows,
-                            ].filter(d => d !== peId),
-                        },
-                        itemsByDimension: items,
-                    };
-                }
-                default:
-                    return newState;
-            }
         }
         case SET_UI_OPTIONS: {
             return {

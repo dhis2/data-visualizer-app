@@ -4,7 +4,7 @@ import i18n from '@dhis2/d2-i18n';
 import MenuItem from '@material-ui/core/MenuItem';
 
 import Chip from '../Chip';
-import { sGetUiLayout, sGetUiItems } from '../../../reducers/ui';
+import { sGetUiLayout, sGetUiItems, sGetUi } from '../../../reducers/ui';
 import { decodeDataTransfer } from '../../../modules/dnd';
 import {
     acAddUiLayoutDimensions,
@@ -13,6 +13,7 @@ import {
 } from '../../../actions/ui';
 import { AXIS_NAMES } from '../../../modules/layout';
 import styles from './styles/DefaultAxis.style';
+import { getAdaptedUiByType } from '../../../modules/ui';
 
 const axisLabels = {
     columns: i18n.t('Series'),
@@ -89,9 +90,8 @@ class Axis extends React.Component {
     }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-    axis: sGetUiLayout(state)[ownProps.axisName],
-    itemsByDimension: sGetUiItems(state),
+const mapStateToProps = state => ({
+    ui: sGetUi(state),
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -110,7 +110,19 @@ const mapDispatchToProps = dispatch => ({
     },
 });
 
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
+    const adaptedUi = getAdaptedUiByType(stateProps.ui);
+
+    return {
+        axis: adaptedUi.layout[ownProps.axisName],
+        itemsByDimension: adaptedUi.itemsByDimension,
+        ...dispatchProps,
+        ...ownProps,
+    };
+};
+
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
+    mergeProps
 )(Axis);
