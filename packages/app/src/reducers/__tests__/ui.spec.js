@@ -79,7 +79,10 @@ describe('reducer: ui', () => {
             keyAnalysisRelativePeriod: 'LAST_12_MONTHS',
         };
 
-        const actualState = reducer({ currentVal: 123 }, { type: CLEAR_UI, value: settings });
+        const actualState = reducer(
+            { currentVal: 123 },
+            { type: CLEAR_UI, value: settings }
+        );
 
         expect(actualState).toEqual({
             ...DEFAULT_UI,
