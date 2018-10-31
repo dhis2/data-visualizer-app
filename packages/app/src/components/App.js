@@ -35,7 +35,7 @@ export class App extends Component {
                 )
             );
         } else {
-            fromActions.clearVisualization(store.dispatch);
+            fromActions.clearVisualization(store.dispatch, this.props.settings);
         }
     };
 
@@ -48,7 +48,15 @@ export class App extends Component {
         );
         store.dispatch(fromActions.fromUser.acReceivedUser(d2.currentUser));
         store.dispatch(fromActions.fromDimensions.tSetDimensions());
-        store.dispatch(fromActions.fromMetadata.acAddMetadata(defaultMetadata));
+        store.dispatch(
+            fromActions.fromMetadata.acAddMetadata({
+                ...defaultMetadata,
+                [this.props.settings.rootOrganisationUnit.id]: {
+                    ...this.props.settings.rootOrganisationUnit,
+                    path: `/${this.props.settings.rootOrganisationUnit.id}`,
+                },
+            })
+        );
 
         this.loadVisualization(this.props.location);
 
@@ -133,6 +141,7 @@ const mapStateToProps = state => {
         snackbarOpen: open,
         snackbarMessage: message,
         snackbarDuration: duration,
+        settings: fromReducers.fromSettings.sGetSettings(state),
         current: fromReducers.fromCurrent.sGetCurrent(state),
         ui: sGetUi(state),
     };
