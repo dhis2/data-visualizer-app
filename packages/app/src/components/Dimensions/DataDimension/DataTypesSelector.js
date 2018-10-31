@@ -4,7 +4,7 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
 import i18n from '@dhis2/d2-i18n';
-import { dataTypes } from './dataTypes';
+import { dataTypes } from '../../../modules/dataTypes';
 import { styles } from './styles/DataTypesSelector.style';
 
 export const DataTypes = ({ currentDataType, onDataTypeChange }) => (
