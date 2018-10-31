@@ -79,8 +79,9 @@ describe('reducer: ui', () => {
         expect(actualState).toEqual(DEFAULT_UI);
     });
 
-    it(`${SET_UI_FROM_VISUALIZATION}: should set the new based on a visualization`, () => {
+    it(`${SET_UI_FROM_VISUALIZATION}: should set the new ui based on a visualization`, () => {
         const expectedState = {
+            ...DEFAULT_UI,
             type,
             options: { ...DEFAULT_UI.options, aggregationType },
             layout: { [COLUMNS]: [dxId], [ROWS]: [peId], [FILTERS]: [ouId] },
@@ -94,6 +95,34 @@ describe('reducer: ui', () => {
         const actualState = reducer(DEFAULT_UI, {
             type: SET_UI_FROM_VISUALIZATION,
             value: visualization,
+        });
+
+        expect(actualState).toEqual(expectedState);
+    });
+
+    it(`${SET_UI_FROM_VISUALIZATION}: should set the new ui based on a year on year visualization`, () => {
+        const expectedState = {
+            type: YEAR_ON_YEAR,
+            options: DEFAULT_UI.options,
+            layout: { [COLUMNS]: [], [ROWS]: [], [FILTERS]: [dxId, ouId] },
+            itemsByDimension: {
+                [dxId]: [dxItem1Id],
+                [ouId]: [ouItem1Id],
+            },
+            yearOnYearSeries: ['2013', '2014'],
+            yearOnYearCategory: ['LAST_12_MONTHS'],
+        };
+
+        const actualState = reducer(DEFAULT_UI, {
+            type: SET_UI_FROM_VISUALIZATION,
+            value: {
+                type: YEAR_ON_YEAR,
+                ...DEFAULT_UI.options,
+                [COLUMNS]: [dx],
+                [ROWS]: [{ dimension: peId, items: { id: 'LAST_12_MONTHS' } }],
+                [FILTERS]: [ou],
+                yearlySeries: ['2013', '2014'],
+            },
         });
 
         expect(actualState).toEqual(expectedState);

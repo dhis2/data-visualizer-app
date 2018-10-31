@@ -59,13 +59,45 @@ export default (state = DEFAULT_UI, action) => {
             };
         }
         case SET_UI_FROM_VISUALIZATION: {
-            return {
+            const newState = {
+                ...state,
                 type: action.value.type,
                 options: getOptionsFromVisualization(action.value),
-                layout: getDimensionIdsByAxis(action.value),
-                itemsByDimension: getItemIdsByDimension(action.value),
-                parentGraphMap: action.value.parentGraphMap,
+                parentGraphMap:
+                    action.value.parentGraphMap || state.parentGraphMap,
             };
+
+            switch (action.value.type) {
+                case YEAR_ON_YEAR: {
+                    const items = getItemIdsByDimension(action.value);
+                    delete items[peId];
+
+                    return {
+                        ...newState,
+                        yearOnYearSeries: action.value.yearlySeries,
+                        yearOnYearCategory: action.value.rows[0].items.map(
+                            item => item.id
+                        ),
+                        layout: {
+                            columns: [],
+                            rows: [],
+                            filters: [
+                                ...action.value.filters,
+                                ...action.value.columns,
+                                ...action.value.rows,
+                            ].filter(dim => dim.dimension !== peId),
+                        },
+                        itemsByDimension: items,
+                    };
+                }
+                default: {
+                    return {
+                        ...newState,
+                        layout: getDimensionIdsByAxis(action.value),
+                        itemsByDimension: getItemIdsByDimension(action.value),
+                    };
+                }
+            }
         }
         case SET_UI_TYPE: {
             const newState = {
