@@ -20,7 +20,6 @@ class YearOnYearSelect extends React.Component {
     render() {
         return (
             <Select
-                style={{ flex: 1 }}
                 disableUnderline
                 multiple={Boolean(this.props.multiple)}
                 open={this.state.open}

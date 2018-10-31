@@ -11,21 +11,21 @@ import { sGetUi } from '../../../../reducers/ui';
 import { sGetMetadata } from '../../../../reducers/metadata';
 import { acRemoveUiItems, acAddUiItems } from '../../../../actions/ui';
 import { acAddMetadata } from '../../../../actions/metadata';
+import { FIXED_DIMENSIONS } from '../../../../modules/fixedDimensions';
 
-const PE = 'pe';
-const PERIOD = 'PERIOD';
+const peId = FIXED_DIMENSIONS.pe.id;
 
 export class PeriodDimension extends Component {
     selectPeriodDimensions = periods => {
         const idsToAdd = periods.map(periodRange => periodRange.id);
 
         this.props.addUiItems({
-            dimensionType: PE,
+            dimensionType: peId,
             value: idsToAdd,
         });
 
         const arrToId = periods.reduce((obj, item) => {
-            obj[item.id] = { ...item, dimensionItemType: PERIOD };
+            obj[item.id] = { ...item, dimensionItemType: peId };
             return obj;
         }, {});
 
@@ -36,13 +36,13 @@ export class PeriodDimension extends Component {
         const idsToRemove = periods.map(periodRange => periodRange.id);
 
         this.props.removeUiItems({
-            dimensionType: PE,
+            dimensionType: peId,
             value: idsToRemove,
         });
     };
 
     getSelectedPeriods = () => {
-        return this.props.ui.itemsByDimension[PE].map(item => ({
+        return this.props.ui.itemsByDimension[peId].map(item => ({
             id: item,
             name: this.props.metadata[item].name,
         }));

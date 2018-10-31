@@ -9,23 +9,27 @@ export const CLEAR_CURRENT = 'CLEAR_CURRENT';
 
 export const DEFAULT_CURRENT = {};
 
-const getYearOnYearCurrentFromUi = (state, action) => ({
-    ...state,
-    type: action.value.type,
-    ...getOptionsFromUi(action.value),
-    columns: [
-        createDimension(FIXED_DIMENSIONS.pe.id, [
-            action.value.yearOnYearCategory,
-        ]),
-    ],
-    rows: [
-        createDimension(FIXED_DIMENSIONS.dx.id, [
-            action.value.itemsByDimension.dx[0],
-        ]),
-    ],
-    filters: getAxesFromUi(action.value).filters,
-    yearlySeries: action.value.yearOnYearSeries,
-});
+const dxId = FIXED_DIMENSIONS.dx.id;
+const peId = FIXED_DIMENSIONS.pe.id;
+
+const getYearOnYearCurrentFromUi = (state, action) => {
+    const dxItem = action.value.itemsByDimension[dxId]
+        ? action.value.itemsByDimension[dxId][0]
+        : [];
+    const peItem = action.value.yearOnYearCategory;
+
+    return {
+        ...state,
+        type: action.value.type,
+        ...getOptionsFromUi(action.value),
+        columns: [createDimension(dxId, [dxItem])],
+        rows: [createDimension(peId, [peItem])],
+        filters: getAxesFromUi(action.value).filters.filter(
+            f => ![dxId, peId].includes(f.dimension)
+        ),
+        yearlySeries: action.value.yearOnYearSeries,
+    };
+};
 
 export default (state = DEFAULT_CURRENT, action) => {
     switch (action.type) {

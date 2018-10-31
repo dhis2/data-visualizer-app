@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-10-30T09:43:22.767Z\n"
-"PO-Revision-Date: 2018-10-30T09:43:22.767Z\n"
+"POT-Creation-Date: 2018-10-30T21:34:57.191Z\n"
+"PO-Revision-Date: 2018-10-30T21:34:57.191Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -39,24 +39,6 @@ msgid "Data Type"
 msgstr ""
 
 msgid "Detail"
-msgstr ""
-
-msgid "Search"
-msgstr ""
-
-msgid "Selected Data"
-msgstr ""
-
-msgid "DESELECT ALL"
-msgstr ""
-
-msgid "SELECT ALL"
-msgstr ""
-
-msgid "HIDE"
-msgstr ""
-
-msgid "UPDATE"
 msgstr ""
 
 msgid "Indicators"
@@ -101,6 +83,24 @@ msgstr ""
 msgid "Program indicators"
 msgstr ""
 
+msgid "Organisation units"
+msgstr ""
+
+msgid "Period"
+msgstr ""
+
+msgid "Search"
+msgstr ""
+
+msgid "Selected Data"
+msgstr ""
+
+msgid "DESELECT ALL"
+msgstr ""
+
+msgid "SELECT ALL"
+msgstr ""
+
 msgid "Add to series"
 msgstr ""
 
@@ -111,18 +111,6 @@ msgid "Add to filter"
 msgstr ""
 
 msgid "Search Dimensions"
-msgstr ""
-
-msgid "Organisation units"
-msgstr ""
-
-msgid "Hide"
-msgstr ""
-
-msgid "Update"
-msgstr ""
-
-msgid "Period"
 msgstr ""
 
 msgid "Dimension recommended with selected data"
@@ -174,6 +162,9 @@ msgid "Remove"
 msgstr ""
 
 msgid "None selected"
+msgstr ""
+
+msgid "Update"
 msgstr ""
 
 msgid "Chart error"
@@ -330,6 +321,9 @@ msgid "Options"
 msgstr ""
 
 msgid "Chart options"
+msgstr ""
+
+msgid "Hide"
 msgstr ""
 
 msgid "Column"

@@ -52,26 +52,30 @@
 }
 
 .data-dimension-arrow-forward-button {
-    position: absolute;
-    top: 45%;
-    left: 58.5%;
+    position: relative;
+    width: 40px;
+    bottom: 70%;
+    left: 101.5%;
 }
 
 .generic-dimension-arrow-forward-button {
-    position: absolute;
-    top: 40%;
-    left: 58.5%;
+    position: relative;
+    width: 40px;
+    bottom: 60%;
+    left: 101%;
 }
 .data-dimension-arrow-back-button {
-    position: absolute;
-    top: 55%;
-    left: 58.5%;
+    position: relative;
+    width: 40px;
+    bottom: 40%;
+    right: 15.5%;
 }
 
 .generic-dimension-arrow-back-button {
-    position: absolute;
-    top: 50%;
-    left: 58.5%;
+    position: relative;
+    width: 40px;
+    bottom: 40%;
+    right: 15.5%;
 }
 
 .unselected-label,

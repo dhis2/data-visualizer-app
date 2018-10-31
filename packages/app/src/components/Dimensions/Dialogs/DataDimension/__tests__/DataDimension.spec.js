@@ -16,7 +16,7 @@ describe('The DataDimension component ', () => {
 
     beforeEach(() => {
         props = {
-            selectedItems: {},
+            selectedItems: [],
             ui: {},
             displayNameProp: 'string',
             removeDxItems: jest.fn(),

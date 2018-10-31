@@ -36,6 +36,9 @@ export const muiTheme = () => {
             MuiSelect: selectField,
             MuiDialogContent: dialogContent,
         },
+        typography: {
+            useNextVariants: true,
+        },
     });
 
     return theme;

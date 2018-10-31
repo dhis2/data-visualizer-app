@@ -10,18 +10,25 @@ import PeriodDimension from './Dialogs/PeriodDimension/PeriodDimension';
 import OrgUnitDimension from './Dialogs/OrgUnitDimension/OrgUnitDimension';
 import GenericDimension from './Dialogs/GenericDimension/GenericDimension';
 
-import { HideButton, UpdateButton } from './DataDimension/buttons';
+import { HideButton, UpdateButton } from './Dialogs/buttons';
 
 import { sGetUi } from '../../reducers/ui';
 import { acSetCurrentFromUi } from '../../actions/current';
 
 import { styles } from './styles/DialogManager.style';
 
+import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
+
+const dxId = FIXED_DIMENSIONS.dx.id;
+const peId = FIXED_DIMENSIONS.pe.id;
+const ouId = FIXED_DIMENSIONS.ou.id;
+
 const dimensionComponents = {
-    dx: <DataDimension />,
-    ou: <OrgUnitDimension />,
-    pe: <PeriodDimension />,
+    [dxId]: <DataDimension />,
+    [ouId]: <OrgUnitDimension />,
+    [peId]: <PeriodDimension />,
 };
+
 export class DialogManager extends Component {
     onUpdate = () => {
         this.props.onUpdate(this.props.ui);

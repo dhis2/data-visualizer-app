@@ -17,6 +17,7 @@ import { acRemoveUiItems, acAddUiItems } from '../../../../actions/ui';
 import { acAddMetadata } from '../../../../actions/metadata';
 
 import '../Dialog.css';
+import current from '../../../../reducers/current';
 
 const dimensionTypes = ['dx', 'pe', 'ou'];
 
@@ -25,6 +26,7 @@ export class GenericDimension extends Component {
         filterText: '',
         dimensionItems: [],
         unselectedIds: [],
+        selectedIds: [],
         dimensionType: '',
     };
 
@@ -33,12 +35,7 @@ export class GenericDimension extends Component {
             this.props.dimension.id
         );
 
-        const selectedItems = this.getSelectedItems();
-        const unselectedIds = dimensionItems.map(
-            item => !item.id.includes(selectedItems) && item.id
-        );
-
-        this.setState({ unselectedIds, dimensionItems });
+        this.setState({ dimensionItems });
     };
 
     onFilterTextChange = filterText => {
@@ -87,24 +84,43 @@ export class GenericDimension extends Component {
 
     getSelectedItems = () => {
         let selectedIds = [];
-        Object.entries(this.props.selectedDims).forEach((item, index) => {
-            console.log(item, index);
-            if (item[1] === this.props.dimension.id) {
-                selectedIds = this.props.selectedItems[dimensionTypes[index]];
-                this.setState({ dimensionType: dimensionTypes[index] });
-            }
-        });
-        console.log(this.state.dimensionType);
+
+        const { selectedLayout, selectedItems, dimension } = this.props;
+        const currentLayout = Object.values(selectedLayout);
+
+        const layoutIndex = currentLayout.findIndex(ids =>
+            ids.includes(dimension.id)
+        );
+        const isSelected = layoutIndex > -1;
+
+        if (isSelected) {
+            selectedIds = selectedItems[dimensionTypes[layoutIndex]];
+
+            selectedIds = this.state.dimensionItems
+                .filter(item => selectedIds.includes(item.id))
+                .map(item => item.id);
+
+            if (!this.state.dimensionType.length)
+                this.setState({
+                    dimensionType: dimensionTypes[layoutIndex],
+                });
+        }
+
         return selectedIds;
     };
 
     render = () => {
-        const unselected = this.state.dimensionItems.filter(di =>
+        /* const unselectedItems = this.state.dimensionItems.filter(di =>
             this.state.unselectedIds.includes(di.id)
+        );*/
+        const selectedIds = this.getSelectedItems();
+        console.log(selectedIds);
+        console.log(this.state.dimensionItems);
+        const unselectedItems = this.state.dimensionItems.filter(
+            item => !selectedIds.includes(item.id)
         );
-        const selectedItems = this.getSelectedItems();
-
-        console.log(selectedItems);
+        console.log(unselectedItems);
+        console.log(selectedIds);
 
         return (
             <Fragment>
@@ -117,7 +133,7 @@ export class GenericDimension extends Component {
                         />
                         <UnselectedItems
                             className="generic-dimension"
-                            items={unselected}
+                            items={unselectedItems}
                             onSelect={this.selectItemsByDimensions}
                             filterText={this.state.filterText}
                             requestMoreItems={this.requestMoreItems}
@@ -125,7 +141,7 @@ export class GenericDimension extends Component {
                     </div>
                     <SelectedItems
                         className="generic-dimension"
-                        items={selectedItems}
+                        items={selectedIds}
                         onDeselect={this.deselectItemsByDimensions}
                     />
                 </DialogContent>
@@ -142,7 +158,7 @@ GenericDimension.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    selectedDims: sGetUiLayout(state),
+    selectedLayout: sGetUiLayout(state),
     selectedItems: sGetUiItems(state),
 });
 
