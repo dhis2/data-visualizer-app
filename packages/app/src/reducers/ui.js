@@ -41,10 +41,7 @@ export const DEFAULT_UI = {
         rows: [peId],
         filters: [ouId],
     },
-    itemsByDimension: {
-        [peId]: ['LAST_12_MONTHS'],
-        [ouId]: ['USER_ORGUNIT'],
-    },
+    itemsByDimension: {},
     yearOnYearSeries: ['LAST_5_YEARS'],
     yearOnYearCategory: ['MONTHS_THIS_YEAR'],
     parentGraphMap: {},
@@ -220,7 +217,19 @@ export default (state = DEFAULT_UI, action) => {
             };
         }
         case CLEAR_UI:
-            return DEFAULT_UI;
+            const {
+                rootOrganisationUnit,
+                keyAnalysisRelativePeriod,
+            } = action.value;
+
+            return {
+                ...DEFAULT_UI,
+                itemsByDimension: {
+                    ...DEFAULT_UI.itemsByDimension,
+                    [ouId]: [rootOrganisationUnit.id],
+                    [peId]: [keyAnalysisRelativePeriod],
+                },
+            };
         default:
             return state;
     }
