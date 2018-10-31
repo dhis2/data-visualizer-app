@@ -6,41 +6,26 @@ import DimensionList from './DimensionList';
 import DialogManager from './DialogManager';
 import { styles } from './styles/Dimensions.style';
 
-const SEARCHFIELD_PLACEHOLDER = i18n.t('Search Dimensions');
-
 export class Dimensions extends Component {
-    state = { searchText: '', dialogDim: null };
+    state = { filterText: '' };
 
-    handleChange = event => {
-        this.setState({ searchText: event.target.value });
-    };
-
-    toggleDialog = value => {
-        this.setState({
-            dialogDim: value,
-        });
+    onFilterTextChange = event => {
+        this.setState({ filterText: event.target.value });
     };
 
     render = () => {
         return (
             <div className={'dimensions'} style={styles.divContainer}>
-                <DialogManager
-                    dialogIsOpen={!!this.state.dialogDim}
-                    dimension={this.state.dialogDim}
-                    toggleDialog={this.toggleDialog}
-                />
+                <DialogManager />
                 <TextField
                     style={styles.textField}
-                    onChange={this.handleChange}
-                    placeholder={SEARCHFIELD_PLACEHOLDER}
+                    onChange={this.onFilterTextChange}
+                    placeholder={i18n.t('Search Dimensions')}
                     InputProps={{
                         startAdornment: <Search style={styles.searchIcon} />,
                     }}
                 />
-                <DimensionList
-                    searchText={this.state.searchText}
-                    toggleDialog={this.toggleDialog}
-                />
+                <DimensionList filterText={this.state.filterText} />
             </div>
         );
     };

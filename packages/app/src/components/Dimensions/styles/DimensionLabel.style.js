@@ -1,13 +1,8 @@
 import { colors } from '../../../modules/colors';
 
 export const styles = {
-    unselected: {
-        display: 'flex',
-        borderRadius: 4,
-    },
-    selected: {
-        backgroundColor: colors.lightBlue,
-    },
+    unselected: { display: 'flex', borderRadius: 4 },
+    selected: { cursor: 'pointer', backgroundColor: colors.lightBlue },
     deleteButton: {
         border: 'none',
         background: 'none',

@@ -6,7 +6,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
 import { Detail } from './Detail';
 
-import { dataTypes } from './dataTypes';
+import { dataTypes } from '../../../../modules/dataTypes';
 import { styles } from './styles/Groups.style';
 
 const Groups = props => {

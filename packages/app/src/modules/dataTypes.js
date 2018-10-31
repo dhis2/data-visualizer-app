@@ -1,6 +1,6 @@
 import i18n from '@dhis2/d2-i18n';
 
-import { DATA_SETS_CONSTANTS } from '../../../../api/dimensions';
+import { DATA_SETS_CONSTANTS } from '../api/dimensions';
 
 export const ALL_ID = 'ALL';
 
@@ -61,6 +61,18 @@ export const dataTypes = {
         groupDetail: false,
     },
 };
+
+export function defaultGroupId(dataType) {
+    return dataTypes[dataType].defaultGroup
+        ? dataTypes[dataType].defaultGroup.id
+        : '';
+}
+
+export function defaultGroupDetail(dataType) {
+    return dataTypes[dataType].groupDetail
+        ? dataTypes[dataType].groupDetail.default
+        : '';
+}
 
 export const DEFAULT_DATATYPE_ID = INDICATORS;
 

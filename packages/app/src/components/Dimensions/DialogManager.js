@@ -12,16 +12,20 @@ import GenericDimension from './Dialogs/GenericDimension/GenericDimension';
 
 import { HideButton, UpdateButton } from './Dialogs/buttons';
 
-import { sGetUi } from '../../reducers/ui';
+import { sGetUi, sGetUiActiveModalDialog } from '../../reducers/ui';
+import { acSetUiActiveModalDialog } from '../../actions/ui';
 import { acSetCurrentFromUi } from '../../actions/current';
 
 import { styles } from './styles/DialogManager.style';
 
 import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
+import { sGetDimensions } from '../../reducers/dimensions';
 
 const dxId = FIXED_DIMENSIONS.dx.id;
 const peId = FIXED_DIMENSIONS.pe.id;
 const ouId = FIXED_DIMENSIONS.ou.id;
+
+const fixedDimensionIds = [dxId, peId, ouId];
 
 const dimensionComponents = {
     [dxId]: <DataDimension />,
@@ -32,36 +36,34 @@ const dimensionComponents = {
 export class DialogManager extends Component {
     onUpdate = () => {
         this.props.onUpdate(this.props.ui);
-        this.props.toggleDialog(null);
-    };
-
-    isFixed = () => {
-        return (
-            this.props.dimension.id === 'dx' ||
-            this.props.dimension.id === 'pe' ||
-            this.props.dimension.id === 'ou'
-        );
+        this.props.closeDialog(null);
     };
 
     renderDialogContent = () => {
-        return this.isFixed() ? (
-            dimensionComponents[this.props.dimension.id]
+        return fixedDimensionIds.includes(this.props.dialogId) ? (
+            dimensionComponents[this.props.dialogId]
         ) : (
-            <GenericDimension dimension={this.props.dimension} />
+            <GenericDimension
+                dimension={{
+                    id: this.props.dialogId,
+                    dialogtitle: this.props.dimensions[this.props.dialogId]
+                        .name,
+                }}
+            />
         );
     };
 
     render = () => {
-        return this.props.dimension ? (
+        return this.props.dialogId ? (
             <Dialog
-                open={!!this.props.dimension}
-                onClose={() => this.props.toggleDialog(null)}
+                open={!!this.props.dialogId}
+                onClose={() => this.props.closeDialog(null)}
                 maxWidth={false}
                 disableEnforceFocus
             >
                 {this.renderDialogContent()}
                 <DialogActions style={styles.dialogActions}>
-                    <HideButton action={() => this.props.toggleDialog(null)} />
+                    <HideButton action={() => this.props.closeDialog(null)} />
                     <UpdateButton action={this.onUpdate} />
                 </DialogActions>
             </Dialog>
@@ -70,18 +72,26 @@ export class DialogManager extends Component {
 }
 
 DialogManager.propTypes = {
-    toggleDialog: PropTypes.func.isRequired,
-    id: PropTypes.string,
-    dialogIsOpen: PropTypes.bool.isRequired,
+    dialogId: PropTypes.string,
     ui: PropTypes.object.isRequired,
     onUpdate: PropTypes.func.isRequired,
+    closeDialog: PropTypes.func.isRequired,
+};
+
+DialogManager.defaultProps = {
+    dialogId: null,
 };
 
 const mapStateToProps = state => ({
     ui: sGetUi(state),
+    dimensions: sGetDimensions(state),
+    dialogId: sGetUiActiveModalDialog(state),
 });
 
 export default connect(
     mapStateToProps,
-    { onUpdate: acSetCurrentFromUi }
+    {
+        onUpdate: acSetCurrentFromUi,
+        closeDialog: acSetUiActiveModalDialog,
+    }
 )(DialogManager);

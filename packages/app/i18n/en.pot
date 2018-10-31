@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-10-30T21:34:57.191Z\n"
-"PO-Revision-Date: 2018-10-30T21:34:57.191Z\n"
+"POT-Creation-Date: 2018-10-31T09:42:02.598Z\n"
+"PO-Revision-Date: 2018-10-31T09:42:02.598Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -41,48 +41,6 @@ msgstr ""
 msgid "Detail"
 msgstr ""
 
-msgid "Indicators"
-msgstr ""
-
-msgid "Select indicator group"
-msgstr ""
-
-msgid "[ All groups ]"
-msgstr ""
-
-msgid "Data elements"
-msgstr ""
-
-msgid "Select data element group"
-msgstr ""
-
-msgid "[ All data elements ]"
-msgstr ""
-
-msgid "Totals"
-msgstr ""
-
-msgid "Details"
-msgstr ""
-
-msgid "Data sets"
-msgstr ""
-
-msgid "Select data sets"
-msgstr ""
-
-msgid "[ All metrics ]"
-msgstr ""
-
-msgid "Event data items"
-msgstr ""
-
-msgid "Select program"
-msgstr ""
-
-msgid "Program indicators"
-msgstr ""
-
 msgid "Organisation units"
 msgstr ""
 
@@ -99,6 +57,12 @@ msgid "DESELECT ALL"
 msgstr ""
 
 msgid "SELECT ALL"
+msgstr ""
+
+msgid "HIDE"
+msgstr ""
+
+msgid "UPDATE"
 msgstr ""
 
 msgid "Add to series"
@@ -354,6 +318,48 @@ msgid "Gauge"
 msgstr ""
 
 msgid "Year on year"
+msgstr ""
+
+msgid "Indicators"
+msgstr ""
+
+msgid "Select indicator group"
+msgstr ""
+
+msgid "[ All groups ]"
+msgstr ""
+
+msgid "Data elements"
+msgstr ""
+
+msgid "Select data element group"
+msgstr ""
+
+msgid "[ All data elements ]"
+msgstr ""
+
+msgid "Totals"
+msgstr ""
+
+msgid "Details"
+msgstr ""
+
+msgid "Data sets"
+msgstr ""
+
+msgid "Select data sets"
+msgstr ""
+
+msgid "[ All metrics ]"
+msgstr ""
+
+msgid "Event data items"
+msgstr ""
+
+msgid "Select program"
+msgstr ""
+
+msgid "Program indicators"
 msgstr ""
 
 msgid "Organisation Unit"

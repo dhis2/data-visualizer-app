@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Close from '@material-ui/icons/Close';
-import { acRemoveUiLayoutDimensions } from '../../actions/ui';
+import {
+    acRemoveUiLayoutDimensions,
+    acSetUiActiveModalDialog,
+} from '../../actions/ui';
 import { styles } from './styles/DimensionLabel.style';
 
 export const RemoveDimensionButton = ({ action }) => {
@@ -15,23 +18,21 @@ export const RemoveDimensionButton = ({ action }) => {
 
 export class DimensionLabel extends Component {
     static propTypes = {
+        openDialog: PropTypes.func.isRequired,
         id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
         isSelected: PropTypes.bool.isRequired,
-        toggleDialog: PropTypes.func.isRequired,
         onRemoveDimension: PropTypes.func.isRequired,
         Icon: PropTypes.element,
         Label: PropTypes.element,
     };
 
     onLabelClick = () => {
-        console.log(this.props.dimension);
-        this.props.toggleDialog(this.props.dimension);
+        if (this.props.isSelected) this.props.openDialog(this.props.id);
     };
 
     onKeyPress = event => {
-        if (event.key === 'Enter' && event.ctrlKey === false) {
+        if (event.key === 'Enter' && event.ctrlKey === false)
             this.onLabelClick();
-        }
     };
 
     removeDimension = () => {
@@ -47,7 +48,7 @@ export class DimensionLabel extends Component {
     renderLabel = () => {
         return (
             <div
-                onClick={this.props.toggleDialog}
+                onClick={this.onLabelClick}
                 onKeyPress={this.onKeyPress}
                 tabIndex={0}
                 style={styles.unselected}
@@ -76,5 +77,8 @@ export class DimensionLabel extends Component {
 
 export default connect(
     null,
-    { onRemoveDimension: id => acRemoveUiLayoutDimensions(id) }
+    {
+        openDialog: id => acSetUiActiveModalDialog(id),
+        onRemoveDimension: id => acRemoveUiLayoutDimensions(id),
+    }
 )(DimensionLabel);

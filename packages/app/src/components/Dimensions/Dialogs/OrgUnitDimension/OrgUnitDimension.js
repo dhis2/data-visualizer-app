@@ -347,7 +347,15 @@ export class OrgUnitDimension extends Component {
 }
 
 OrgUnitDimension.propTypes = {
-    toggleDialog: PropTypes.func.isRequired,
+    ui: PropTypes.object.isRequired,
+    metadata: PropTypes.object.isRequired,
+    acAddUiItems: PropTypes.func.isRequired,
+    acRemoveUiItems: PropTypes.func.isRequired,
+    acAddMetadata: PropTypes.func.isRequired,
+    acSetUiItems: PropTypes.func.isRequired,
+    acAddParentGraphMap: PropTypes.func.isRequired,
+    acSetParentGraphMap: PropTypes.func.isRequired,
+    acSetCurrentFromUi: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({

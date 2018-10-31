@@ -16,10 +16,15 @@ import { sGetUiItems, sGetUiLayout } from '../../../../reducers/ui';
 import { acRemoveUiItems, acAddUiItems } from '../../../../actions/ui';
 import { acAddMetadata } from '../../../../actions/metadata';
 
-import '../Dialog.css';
-import current from '../../../../reducers/current';
+import { FIXED_DIMENSIONS } from '../../../../modules/fixedDimensions';
 
-const dimensionTypes = ['dx', 'pe', 'ou'];
+import '../styles/Dialog.css';
+
+const dxId = FIXED_DIMENSIONS.dx.id;
+const peId = FIXED_DIMENSIONS.pe.id;
+const ouId = FIXED_DIMENSIONS.ou.id;
+
+const dimensionTypes = [dxId, peId, ouId];
 
 export class GenericDimension extends Component {
     state = {
@@ -31,11 +36,18 @@ export class GenericDimension extends Component {
     };
 
     componentDidMount = async () => {
-        const dimensionItems = await apiFetchItemsByDimension(
-            this.props.dimension.id
+        const { selectedLayout, dimension } = this.props;
+        const dimensionItems = await apiFetchItemsByDimension(dimension.id);
+
+        const currentLayout = Object.values(selectedLayout);
+        const axisKey = currentLayout.findIndex(ids =>
+            ids.includes(dimension.id)
         );
 
-        this.setState({ dimensionItems });
+        this.setState({
+            dimensionItems,
+            dimensionType: dimensionTypes[axisKey],
+        });
     };
 
     onFilterTextChange = filterText => {
@@ -85,48 +97,31 @@ export class GenericDimension extends Component {
     getSelectedItems = () => {
         let selectedIds = [];
 
-        const { selectedLayout, selectedItems, dimension } = this.props;
-        const currentLayout = Object.values(selectedLayout);
+        const { selectedItems } = this.props;
 
-        const layoutIndex = currentLayout.findIndex(ids =>
-            ids.includes(dimension.id)
-        );
-        const isSelected = layoutIndex > -1;
-
-        if (isSelected) {
-            selectedIds = selectedItems[dimensionTypes[layoutIndex]];
-
-            selectedIds = this.state.dimensionItems
-                .filter(item => selectedIds.includes(item.id))
-                .map(item => item.id);
-
-            if (!this.state.dimensionType.length)
-                this.setState({
-                    dimensionType: dimensionTypes[layoutIndex],
-                });
-        }
+        selectedIds = this.state.dimensionItems
+            .filter(item =>
+                selectedItems[this.state.dimensionType].includes(item.id)
+            )
+            .map(item => item.id);
 
         return selectedIds;
     };
 
     render = () => {
-        /* const unselectedItems = this.state.dimensionItems.filter(di =>
-            this.state.unselectedIds.includes(di.id)
-        );*/
         const selectedIds = this.getSelectedItems();
-        console.log(selectedIds);
-        console.log(this.state.dimensionItems);
+
         const unselectedItems = this.state.dimensionItems.filter(
             item => !selectedIds.includes(item.id)
         );
-        console.log(unselectedItems);
-        console.log(selectedIds);
 
         return (
             <Fragment>
-                <DialogTitle>{i18n.t(this.props.dimension.title)}</DialogTitle>
+                <DialogTitle>
+                    {i18n.t(this.props.dimension.dialogtitle)}
+                </DialogTitle>
                 <DialogContent>
-                    <div style={{ paddingRight: 46 }}>
+                    <div style={{ paddingRight: 55 }}>
                         <SearchField
                             text={this.state.filterText}
                             onFilterTextChange={this.onFilterTextChange}

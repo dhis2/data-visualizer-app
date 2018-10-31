@@ -14,9 +14,8 @@ describe('The DimensionList component ', () => {
     beforeEach(() => {
         props = {
             dimensions: {},
-            searchText: '',
+            filterText: '',
             selected: [],
-            toggleDialog: jest.fn(),
         };
         shallowDimList = undefined;
     });

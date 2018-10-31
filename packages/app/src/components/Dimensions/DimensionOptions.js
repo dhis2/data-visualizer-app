@@ -5,7 +5,10 @@ import i18n from '@dhis2/d2-i18n';
 import MenuItem from '@material-ui/core/MenuItem';
 import DropDown from './DropDown';
 import MoreHorizontalIcon from '../../assets/MoreHorizontalIcon';
-import { acAddUiLayoutDimensions } from '../../actions/ui';
+import {
+    acAddUiLayoutDimensions,
+    acSetUiActiveModalDialog,
+} from '../../actions/ui';
 import { styles } from './styles/DimensionOptions.style';
 
 const items = [
@@ -46,6 +49,10 @@ export class DimensionOptions extends Component {
     addDimension = axisName => {
         this.props.onAddDimension({ [this.props.id]: axisName });
         this.handleClose();
+
+        setTimeout(() => this.props.openDialog(this.props.id), 10);
+        // this.props.openDialog(this.props.id);
+        // https://github.com/mui-org/material-ui/issues/13365
     };
 
     getMenuItems = () => {
@@ -86,12 +93,15 @@ export class DimensionOptions extends Component {
 DimensionOptions.propTypes = {
     id: PropTypes.string.isRequired,
     showButton: PropTypes.bool.isRequired,
+    onAddDimension: PropTypes.func.isRequired,
+    openDialog: PropTypes.func.isRequired,
     onClose: PropTypes.func.isRequired,
 };
 
 export default connect(
     null,
     {
+        openDialog: id => acSetUiActiveModalDialog(id),
         onAddDimension: dimension => acAddUiLayoutDimensions(dimension),
     }
 )(DimensionOptions);

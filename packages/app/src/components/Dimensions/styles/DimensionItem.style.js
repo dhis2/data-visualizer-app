@@ -7,7 +7,6 @@ export const styles = {
     },
     text: {
         color: colors.black,
-        cursor: 'pointer',
         userSelect: 'none',
         wordBreak: 'break-all',
         paddingTop: 3,

@@ -83,6 +83,10 @@ export default connect(
 
 PeriodDimension.propTypes = {
     ui: PropTypes.object.isRequired,
+    metadata: PropTypes.object.isRequired,
+    addMetadata: PropTypes.func.isRequired,
+    addUiItems: PropTypes.func.isRequired,
+    removeUiItems: PropTypes.func.isRequired,
 };
 
 PeriodDimension.contextTypes = {

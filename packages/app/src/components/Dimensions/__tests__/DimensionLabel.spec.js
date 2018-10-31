@@ -14,11 +14,11 @@ describe('The DimensionList component ', () => {
     };
     beforeEach(() => {
         props = {
-            id: null,
+            openDialog: jest.fn(),
+            id: 'idstring',
             isSelected: false,
             Icon: null,
             Label: null,
-            toggleDialog: jest.fn(),
             onRemoveDimension: jest.fn(),
         };
         shallowDimLabel = undefined;

@@ -23,10 +23,16 @@ import { sGetDisplayNameProperty } from '../../../../reducers/settings';
 import { acRemoveUiItems, acAddUiItems } from '../../../../actions/ui';
 import { acAddMetadata } from '../../../../actions/metadata';
 
-import { DEFAULT_DATATYPE_ID, ALL_ID, dataTypes } from './dataTypes';
+import {
+    DEFAULT_DATATYPE_ID,
+    ALL_ID,
+    dataTypes,
+    defaultGroupId,
+    defaultGroupDetail,
+} from '../../../../modules/dataTypes';
 import { FIXED_DIMENSIONS } from '../../../../modules/fixedDimensions';
 
-import '../Dialog.css';
+import '../styles/Dialog.css';
 
 const dxId = FIXED_DIMENSIONS.dx.id;
 const FIRST_PAGE = 1;
@@ -46,16 +52,19 @@ export class DataDimension extends Component {
         groupId: ALL_ID,
         groupDetail: '',
         filterText: '',
-        dimensionItems: [],
+        items: [],
         nextPage: null,
         unselectedIds: [],
+        filter: {},
     };
 
-    componentDidMount = () => {
-        this.updateGroups(this.state.dataType, this.updateAlternatives);
-    };
+    componentDidMount() {
+        this.updateGroups();
+    }
 
-    updateGroups = async (dataType, cb) => {
+    updateGroups = async () => {
+        const dataType = this.state.dataType;
+
         if (!this.state.groups[dataType].length) {
             const dataTypeGroups = await apiFetchGroups(
                 dataType,
@@ -65,25 +74,31 @@ export class DataDimension extends Component {
             const groups = Object.assign({}, this.state.groups, {
                 [dataType]: dataTypeGroups,
             });
-            this.setState({ groups }, cb);
+            this.setState({ groups }, this.updateAlternatives);
+        } else {
+            this.updateAlternatives();
         }
     };
 
     onDataTypeChange = dataType => {
-        const updateCb = () => {
-            this.updateGroups(this.state.dataType, this.updateAlternatives);
-        };
+        if (dataType !== this.state.dataType) {
+            const filter = Object.assign({}, this.state.filter, {
+                [this.state.dataType]: {
+                    groupId: this.state.groupId,
+                    groupDetail: this.state.groupDetail,
+                },
+            });
 
-        const groupId = dataTypes[dataType].defaultGroup
-            ? dataTypes[dataType].defaultGroup.id
-            : '';
+            const currentFilter = this.state.filter[dataType] || {};
+            const groupId = currentFilter.groupId || defaultGroupId(dataType);
+            const groupDetail =
+                currentFilter.groupDetail || defaultGroupDetail(dataType);
 
-        let groupDetail = '';
-        if (dataTypes[dataType].groupDetail) {
-            groupDetail = dataTypes[dataType].groupDetail.default;
+            this.setState(
+                { filter, dataType, groupId, groupDetail, filterText: '' },
+                this.updateGroups
+            );
         }
-
-        this.setState({ dataType, groupId, groupDetail }, updateCb);
     };
 
     requestMoreItems = () => {
@@ -108,21 +123,17 @@ export class DataDimension extends Component {
             dimensionItems = augmentFn(dimensionItems, groupId);
         }
 
-        const newDimensionItems = concatItems
-            ? this.state.dimensionItems.concat(dimensionItems)
+        const items = concatItems
+            ? this.state.items.concat(dimensionItems)
             : dimensionItems;
 
         const selectedIds = this.props.selectedItems;
 
-        const unselectedIds = newDimensionItems
+        const unselectedIds = items
             .filter(i => !selectedIds.includes(i.id))
             .map(i => i.id);
 
-        this.setState({
-            dimensionItems: newDimensionItems,
-            unselectedIds,
-            nextPage,
-        });
+        this.setState({ items, unselectedIds, nextPage });
     };
 
     onGroupChange = async groupId => {
@@ -151,7 +162,7 @@ export class DataDimension extends Component {
         this.setState({ unselectedIds });
 
         const itemsToAdd = keyBy(
-            this.state.dimensionItems.filter(di => selectedIds.includes(di.id)),
+            this.state.items.filter(di => selectedIds.includes(di.id)),
             'id'
         );
 
@@ -176,12 +187,12 @@ export class DataDimension extends Component {
     };
 
     render = () => {
-        const unselected = this.state.dimensionItems.filter(di =>
+        const unselected = this.state.items.filter(di =>
             this.state.unselectedIds.includes(di.id)
         );
         const groups = this.state.groups[this.state.dataType];
 
-        if (!groups) {
+        if (!groups.length) {
             return <div />;
         }
 
@@ -189,7 +200,7 @@ export class DataDimension extends Component {
             <Fragment>
                 <DialogTitle>{i18n.t('Data')}</DialogTitle>
                 <DialogContent>
-                    <div style={{ paddingRight: 46 }}>
+                    <div style={{ paddingRight: 55 }}>
                         <DataTypes
                             currentDataType={this.state.dataType}
                             onDataTypeChange={this.onDataTypeChange}

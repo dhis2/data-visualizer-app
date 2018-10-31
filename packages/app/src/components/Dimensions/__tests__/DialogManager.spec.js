@@ -18,24 +18,15 @@ describe('The DialogManager component ', () => {
 
     beforeEach(() => {
         props = {
-            dialogIsOpen: false,
-            id: null,
-            toggleDialog: jest.fn(),
+            dialogId: null,
+            ui: {},
+            closeDialog: jest.fn(),
+            onUpdate: jest.fn(),
         };
         shallowDialog = undefined;
     });
 
-    it('renders a null when id is equal to null ', () => {
+    it('renders null when prop dialogIsOpen is equal to null ', () => {
         expect(dialogManager().length).toEqual(1);
-    });
-
-    it('renders a <Dialog> id is not equal to a falsy value', () => {
-        props.id = dxId;
-
-        const wrappingDialog = dialogManager()
-            .find(Dialog)
-            .first();
-
-        expect(wrappingDialog.length).toEqual(1);
     });
 });
