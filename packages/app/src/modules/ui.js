@@ -1,4 +1,4 @@
-import { YEAR_ON_YEAR } from './chartTypes';
+import { YEAR_OVER_YEAR_LINE } from './chartTypes';
 import {
     AXIS_NAME_COLUMNS,
     AXIS_NAME_ROWS,
@@ -51,7 +51,7 @@ const yearOnYearUiAdapter = ui => {
 
 export const getAdaptedUiByType = ui => {
     switch (ui.type) {
-        case YEAR_ON_YEAR: {
+        case YEAR_OVER_YEAR_LINE: {
             return yearOnYearUiAdapter(ui);
         }
         default:

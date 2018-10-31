@@ -18,7 +18,7 @@ import reducer, {
     SET_UI_YEAR_ON_YEAR_CATEGORY,
 } from '../ui';
 import { AXIS_NAMES } from '../../modules/layout';
-import { BAR, YEAR_ON_YEAR } from '../../modules/chartTypes';
+import { BAR, YEAR_OVER_YEAR_LINE } from '../../modules/chartTypes';
 import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
 
 const [COLUMNS, ROWS, FILTERS] = AXIS_NAMES;
@@ -102,7 +102,7 @@ describe('reducer: ui', () => {
 
     it(`${SET_UI_FROM_VISUALIZATION}: should set the new ui based on a year on year visualization`, () => {
         const expectedState = {
-            type: YEAR_ON_YEAR,
+            type: YEAR_OVER_YEAR_LINE,
             options: DEFAULT_UI.options,
             layout: { [COLUMNS]: [], [ROWS]: [], [FILTERS]: [dxId, ouId] },
             itemsByDimension: {
@@ -116,7 +116,7 @@ describe('reducer: ui', () => {
         const actualState = reducer(DEFAULT_UI, {
             type: SET_UI_FROM_VISUALIZATION,
             value: {
-                type: YEAR_ON_YEAR,
+                type: YEAR_OVER_YEAR_LINE,
                 ...DEFAULT_UI.options,
                 [COLUMNS]: [dx],
                 [ROWS]: [{ dimension: peId, items: { id: 'LAST_12_MONTHS' } }],
@@ -144,7 +144,7 @@ describe('reducer: ui', () => {
     it(`${SET_UI_TYPE}: should set the type, layout and items on the year on year format`, () => {
         const expectedState = {
             ...DEFAULT_UI,
-            type: YEAR_ON_YEAR,
+            type: YEAR_OVER_YEAR_LINE,
             layout: {
                 columns: [],
                 rows: [],
@@ -156,7 +156,7 @@ describe('reducer: ui', () => {
         };
         const actualState = reducer(DEFAULT_UI, {
             type: SET_UI_TYPE,
-            value: YEAR_ON_YEAR,
+            value: YEAR_OVER_YEAR_LINE,
         });
 
         expect(actualState).toEqual(expectedState);
