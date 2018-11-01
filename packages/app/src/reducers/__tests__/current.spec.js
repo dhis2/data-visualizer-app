@@ -5,7 +5,7 @@ import reducer, {
     SET_CURRENT_FROM_UI,
     CLEAR_CURRENT,
 } from '../current';
-import { COLUMN, YEAR_ON_YEAR } from '../../modules/chartTypes';
+import { COLUMN, YEAR_OVER_YEAR_LINE } from '../../modules/chartTypes';
 import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
 
 const dxId = FIXED_DIMENSIONS.dx.id;
@@ -83,7 +83,7 @@ describe('reducer: current', () => {
 
     it('SET_CURRENT_FROM_UI: should set current on a year on year format from the ui state section', () => {
         const ui = {
-            type: YEAR_ON_YEAR,
+            type: YEAR_OVER_YEAR_LINE,
             layout: { columns: [], rows: [], filters: [dxId, ouId] },
             itemsByDimension: {
                 [dxId]: ['dxItemId1', 'dxItemId2'],

@@ -5,7 +5,7 @@ import * as api from '../../../api/analytics';
 import { Visualization } from '../Visualization';
 import BlankCanvas from '../BlankCanvas';
 import * as options from '../../../modules/options';
-import { YEAR_ON_YEAR } from '../../../modules/chartTypes';
+import { YEAR_OVER_YEAR_LINE } from '../../../modules/chartTypes';
 
 jest.mock('d2-charts-api');
 
@@ -148,7 +148,7 @@ describe('Visualization', () => {
         describe('Year-on-year chart', () => {
             beforeEach(() => {
                 props.current = {
-                    type: YEAR_ON_YEAR,
+                    type: YEAR_OVER_YEAR_LINE,
                     option1: 'def',
                 };
 

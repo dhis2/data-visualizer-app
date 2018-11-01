@@ -8,7 +8,7 @@ import {
     getOptionsForUi,
     getOptionsFromVisualization,
 } from '../modules/options';
-import { COLUMN, YEAR_ON_YEAR } from '../modules/chartTypes';
+import { COLUMN, YEAR_OVER_YEAR_LINE } from '../modules/chartTypes';
 import { FIXED_DIMENSIONS } from '../modules/fixedDimensions';
 import { toArray } from '../modules/array';
 
@@ -74,7 +74,7 @@ export default (state = DEFAULT_UI, action) => {
             };
 
             switch (action.value) {
-                case YEAR_ON_YEAR: {
+                case YEAR_OVER_YEAR_LINE: {
                     const items = {
                         ...state.itemsByDimension,
                     };

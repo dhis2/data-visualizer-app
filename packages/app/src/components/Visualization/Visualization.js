@@ -16,7 +16,7 @@ import {
     apiFetchAnalytics,
     apiFetchAnalyticsForYearOnYear,
 } from '../../api/analytics';
-import { YEAR_ON_YEAR } from '../../modules/chartTypes';
+import { YEAR_OVER_YEAR_LINE } from '../../modules/chartTypes';
 
 export class Visualization extends Component {
     componentDidMount() {
@@ -53,7 +53,7 @@ export class Visualization extends Component {
             const extraOptions = {};
             let responses = [];
 
-            if (current.type === YEAR_ON_YEAR) {
+            if (current.type === YEAR_OVER_YEAR_LINE) {
                 let yearlySeriesLabels = [];
 
                 ({
