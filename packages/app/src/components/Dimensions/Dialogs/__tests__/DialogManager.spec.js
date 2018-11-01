@@ -59,7 +59,7 @@ describe('The DialogManager component ', () => {
         dimensionIds.forEach((dimensionId, index) => {
             component.setProps({
                 ...props,
-                id: dimensionId,
+                dialogId: dimensionId,
             });
 
             expect(component.state()).toEqual({

@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import { DataDimension } from '../DataDimension';
 import * as api from '../../../../../api/dimensions';
