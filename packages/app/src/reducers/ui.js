@@ -1,4 +1,9 @@
-import { getFilteredLayout, getSwapModObj } from '../modules/layout';
+import {
+    getFilteredLayout,
+    getSwapModObj,
+    AXIS_NAME_COLUMNS,
+    AXIS_NAME_ROWS,
+} from '../modules/layout';
 import { getOptionsForUi } from '../modules/options';
 import { COLUMN } from '../modules/chartTypes';
 import { FIXED_DIMENSIONS } from '../modules/fixedDimensions';
@@ -92,7 +97,9 @@ export default (state = DEFAULT_UI, action) => {
 
             Object.entries(modObjWithSwap).forEach(
                 ([dimensionId, axisName]) => {
-                    if (['columns', 'rows'].includes(axisName)) {
+                    if (
+                        [AXIS_NAME_COLUMNS, AXIS_NAME_ROWS].includes(axisName)
+                    ) {
                         newLayout[axisName] = [dimensionId];
                     } else {
                         newLayout[axisName].push(dimensionId);
@@ -124,13 +131,13 @@ export default (state = DEFAULT_UI, action) => {
             const currentItems = state.itemsByDimension[type] || [];
             const dxItems = [...new Set([...currentItems, ...items])];
 
-            const itemsByDimension = Object.assign(
-                {},
-                { ...state.itemsByDimension },
-                { [type]: dxItems }
-            );
-
-            return Object.assign({}, { ...state }, { itemsByDimension });
+            return {
+                ...state,
+                itemsByDimension: {
+                    ...state.itemsByDimension,
+                    [type]: dxItems,
+                },
+            };
         }
         case REMOVE_UI_ITEMS: {
             const { dimensionType: type, value: idsToRemove } = action.value;
@@ -138,13 +145,13 @@ export default (state = DEFAULT_UI, action) => {
                 id => !idsToRemove.includes(id)
             );
 
-            const itemsByDimension = Object.assign(
-                {},
-                { ...state.itemsByDimension },
-                { [type]: dxItems }
-            );
-
-            return Object.assign({}, { ...state }, { itemsByDimension });
+            return {
+                ...state,
+                itemsByDimension: {
+                    ...state.itemsByDimension,
+                    [type]: dxItems,
+                },
+            };
         }
         case SET_UI_YEAR_ON_YEAR_SERIES: {
             return {
