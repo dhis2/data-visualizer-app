@@ -66,11 +66,11 @@ export const tDoLoadVisualization = (type, id) => async (
     }
 };
 
-export const clearVisualization = dispatch => {
+export const clearVisualization = (dispatch, settings) => {
     dispatch(fromLoader.acClearLoadError());
     dispatch(fromVisualization.acClear());
     dispatch(fromCurrent.acClear());
-    dispatch(fromUi.acClear());
+    dispatch(fromUi.acClear(settings));
 };
 
 export const tDoRenameVisualization = (type, { name, description }) => (

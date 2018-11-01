@@ -74,9 +74,24 @@ describe('reducer: ui', () => {
     });
 
     it('CLEAR_UI should set the default state', () => {
-        const actualState = reducer({ currentVal: 123 }, { type: CLEAR_UI });
+        const settings = {
+            rootOrganisationUnit: { id: 'ROOT_ORGUNIT' },
+            keyAnalysisRelativePeriod: 'LAST_12_MONTHS',
+        };
 
-        expect(actualState).toEqual(DEFAULT_UI);
+        const actualState = reducer(
+            { currentVal: 123 },
+            { type: CLEAR_UI, value: settings }
+        );
+
+        expect(actualState).toEqual({
+            ...DEFAULT_UI,
+            itemsByDimension: {
+                ...DEFAULT_UI.itemsByDimension,
+                [ouId]: [settings.rootOrganisationUnit.id],
+                [peId]: [settings.keyAnalysisRelativePeriod],
+            },
+        });
     });
 
     it(`${SET_UI_FROM_VISUALIZATION}: should set the new ui based on a visualization`, () => {
