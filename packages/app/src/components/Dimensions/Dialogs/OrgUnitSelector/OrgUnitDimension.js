@@ -270,6 +270,7 @@ OrgUnitDimension.propTypes = {
     acAddUiItems: PropTypes.func.isRequired,
     acRemoveUiItems: PropTypes.func.isRequired,
     acAddMetadata: PropTypes.func.isRequired,
+    acAddParentGraphMap: PropTypes.func.isRequired,
     acSetUiItems: PropTypes.func.isRequired,
     acSetCurrentFromUi: PropTypes.func.isRequired,
 };

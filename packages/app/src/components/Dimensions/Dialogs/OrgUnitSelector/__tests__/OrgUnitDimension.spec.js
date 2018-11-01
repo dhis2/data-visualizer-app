@@ -42,6 +42,7 @@ describe('The OrgUnitDimension component ', () => {
             metadata: {},
             acAddUiItems: jest.fn(),
             acRemoveUiItems: jest.fn(),
+            acAddParentGraphMap: jest.fn(),
             acAddMetadata: jest.fn(),
             acSetUiItems: jest.fn(),
             acSetCurrentFromUi: jest.fn(),

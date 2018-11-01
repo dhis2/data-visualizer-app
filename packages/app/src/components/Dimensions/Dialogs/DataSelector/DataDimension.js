@@ -192,9 +192,9 @@ export class DataDimension extends Component {
         );
         const groups = this.state.groups[this.state.dataType];
 
-        /*if (!groups.length) {
+        if (!groups.length) {
             return <div />;
-        }*/
+        }
 
         return (
             <Fragment>

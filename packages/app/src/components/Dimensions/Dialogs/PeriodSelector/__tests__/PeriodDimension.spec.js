@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { shallow } from 'enzyme';
 import { PeriodDimension } from '../PeriodDimension';
 import { PeriodSelector } from '@dhis2/d2-ui-period-selector-dialog';
