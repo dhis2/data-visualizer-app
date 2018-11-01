@@ -4,7 +4,7 @@ import i18n from '@dhis2/d2-i18n';
 import MenuItem from '@material-ui/core/MenuItem';
 
 import Chip from '../Chip';
-import { sGetUiLayout, sGetUiItems, sGetUi } from '../../../reducers/ui';
+import { sGetUi } from '../../../reducers/ui';
 import { decodeDataTransfer } from '../../../modules/dnd';
 import {
     acAddUiLayoutDimensions,

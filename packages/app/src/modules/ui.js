@@ -31,18 +31,20 @@ export const getUiFromVisualization = (vis, currentState = {}) => ({
 
 // Transform from store.ui to year on year format
 const yearOnYearUiAdapter = ui => {
-    const items = ui.itemsByDimension;
+    const state = Object.assign({}, ui);
+
+    const items = Object.assign({}, state.itemsByDimension);
     delete items[peId];
 
     return {
-        ...ui,
+        ...state,
         layout: {
             [AXIS_NAME_COLUMNS]: [],
             [AXIS_NAME_ROWS]: [],
             [AXIS_NAME_FILTERS]: [
-                ...ui.layout[AXIS_NAME_FILTERS],
-                ...ui.layout[AXIS_NAME_COLUMNS],
-                ...ui.layout[AXIS_NAME_ROWS],
+                ...state.layout[AXIS_NAME_FILTERS],
+                ...state.layout[AXIS_NAME_COLUMNS],
+                ...state.layout[AXIS_NAME_ROWS],
             ].filter(dim => dim !== peId),
         },
         itemsByDimension: items,
