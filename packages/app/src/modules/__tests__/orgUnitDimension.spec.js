@@ -308,7 +308,7 @@ describe('transformOptionsIntoMetadata', () => {
         expect(result.options).toEqual(options);
         expect(Object.keys(result.metadata).length).toEqual(options.length);
 
-        Object.keys(result.metadata).map(id => {
+        Object.keys(result.metadata).forEach(id => {
             expect(result.metadata[id]).toEqual(
                 options.find(option => option.id === id)
             );
