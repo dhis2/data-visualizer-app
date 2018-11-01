@@ -100,34 +100,6 @@ describe('reducer: ui', () => {
         expect(actualState).toEqual(expectedState);
     });
 
-    it(`${SET_UI_FROM_VISUALIZATION}: should set the new ui based on a year on year visualization`, () => {
-        const expectedState = {
-            type: YEAR_OVER_YEAR_LINE,
-            options: DEFAULT_UI.options,
-            layout: { [COLUMNS]: [], [ROWS]: [], [FILTERS]: [dxId, ouId] },
-            itemsByDimension: {
-                [dxId]: [dxItem1Id],
-                [ouId]: [ouItem1Id],
-            },
-            yearOnYearSeries: ['2013', '2014'],
-            yearOnYearCategory: ['LAST_12_MONTHS'],
-        };
-
-        const actualState = reducer(DEFAULT_UI, {
-            type: SET_UI_FROM_VISUALIZATION,
-            value: {
-                type: YEAR_OVER_YEAR_LINE,
-                ...DEFAULT_UI.options,
-                [COLUMNS]: [dx],
-                [ROWS]: [{ dimension: peId, items: { id: 'LAST_12_MONTHS' } }],
-                [FILTERS]: [ou],
-                yearlySeries: ['2013', '2014'],
-            },
-        });
-
-        expect(actualState).toEqual(expectedState);
-    });
-
     it(`${SET_UI_TYPE}: should set the type`, () => {
         const expectedState = {
             ...DEFAULT_UI,
@@ -139,27 +111,6 @@ describe('reducer: ui', () => {
         });
 
         expect(actualState.type).toEqual(expectedState.type);
-    });
-
-    it(`${SET_UI_TYPE}: should set the type, layout and items on the year on year format`, () => {
-        const expectedState = {
-            ...DEFAULT_UI,
-            type: YEAR_OVER_YEAR_LINE,
-            layout: {
-                columns: [],
-                rows: [],
-                filters: [ouId, dxId],
-            },
-            itemsByDimension: {
-                [ouId]: DEFAULT_UI.itemsByDimension[ouId],
-            },
-        };
-        const actualState = reducer(DEFAULT_UI, {
-            type: SET_UI_TYPE,
-            value: YEAR_OVER_YEAR_LINE,
-        });
-
-        expect(actualState).toEqual(expectedState);
     });
 
     it(`${SET_UI_OPTIONS}: should set options`, () => {
