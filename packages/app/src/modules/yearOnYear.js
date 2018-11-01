@@ -4,7 +4,9 @@ import { YEAR_OVER_YEAR_LINE } from './chartTypes';
 // Fixed years generator
 const getFixedYears = len => {
     let year = new Date().getFullYear();
-    return new Array(len).fill(null).map(n => ({ id: year, name: year-- }));
+    return new Array(len)
+        .fill(null)
+        .map(n => ({ id: String(year), name: year-- }));
 };
 
 // Options for the year on year series dropdown
