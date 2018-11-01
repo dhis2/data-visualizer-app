@@ -2,10 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
-import { FIXED_DIMENSIONS } from '../../../../../modules/fixedDimensions';
 import { GenericItemSelector } from '../GenericItemSelector';
-
-const peId = FIXED_DIMENSIONS.pe.id;
 
 describe('The Period Dimension component ', () => {
     let props;

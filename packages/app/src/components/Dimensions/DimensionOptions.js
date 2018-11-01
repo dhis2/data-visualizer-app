@@ -51,8 +51,6 @@ export class DimensionOptions extends Component {
         this.handleClose();
 
         setTimeout(() => this.props.openDialog(this.props.id), 10);
-        // this.props.openDialog(this.props.id);
-        // https://github.com/mui-org/material-ui/issues/13365
     };
 
     getMenuItems = () => {

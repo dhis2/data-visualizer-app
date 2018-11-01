@@ -5,20 +5,20 @@ import { connect } from 'react-redux';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 
-import DataDimension from './Dialogs/DataSelector/DataDimension';
-import PeriodDimension from './Dialogs/PeriodSelector/PeriodDimension';
-import OrgUnitDimension from './Dialogs/OrgUnitSelector/OrgUnitDimension';
-import GenericItemSelector from './Dialogs/GenericSelector/GenericItemSelector';
+import DataDimension from './DataSelector/DataDimension';
+import PeriodDimension from './PeriodSelector/PeriodDimension';
+import OrgUnitDimension from './OrgUnitSelector/OrgUnitDimension';
+import GenericItemSelector from './GenericSelector/GenericItemSelector';
+import HideButton from '../../HideButton/HideButton';
+import UpdateButton from '../../UpdateButton/UpdateButton';
 
-import HideButton from '../HideButton/HideButton';
-import UpdateButton from '../UpdateButton/UpdateButton';
+import { sGetUi, sGetUiActiveModalDialog } from '../../../reducers/ui';
+import { sGetDimensions } from '../../../reducers/dimensions';
 
-import { sGetUi, sGetUiActiveModalDialog } from '../../reducers/ui';
-import { sGetDimensions } from '../../reducers/dimensions';
-import { acSetUiActiveModalDialog } from '../../actions/ui';
-import { acSetCurrentFromUi } from '../../actions/current';
+import { acSetUiActiveModalDialog } from '../../../actions/ui';
+import { acSetCurrentFromUi } from '../../../actions/current';
 
-import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
+import { FIXED_DIMENSIONS } from '../../../modules/fixedDimensions';
 import { styles } from './styles/DialogManager.style';
 
 const dxId = FIXED_DIMENSIONS.dx.id;
@@ -39,6 +39,17 @@ export const fixedDimensions = {
 
 export class DialogManager extends Component {
     state = defaultState;
+
+    componentDidUpdate() {
+        if (
+            this.props.dialogId &&
+            !this.state.mounted.includes(this.props.dialogId)
+        ) {
+            this.setState({
+                mounted: [...this.state.mounted, this.props.dialogId],
+            });
+        }
+    }
 
     renderDialogContent = () => {
         return fixedDimensionIds.includes(this.props.dialogId) ? (

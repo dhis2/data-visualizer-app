@@ -67,6 +67,18 @@ export class PeriodDimension extends Component {
     };
 }
 
+PeriodDimension.propTypes = {
+    ui: PropTypes.object.isRequired,
+    metadata: PropTypes.object.isRequired,
+    addMetadata: PropTypes.func.isRequired,
+    addUiItems: PropTypes.func.isRequired,
+    removeUiItems: PropTypes.func.isRequired,
+};
+
+PeriodDimension.contextTypes = {
+    d2: PropTypes.object,
+};
+
 const mapStateToProps = state => ({
     metadata: sGetMetadata(state),
     ui: sGetUi(state),
@@ -80,15 +92,3 @@ export default connect(
         removeUiItems: acRemoveUiItems,
     }
 )(PeriodDimension);
-
-PeriodDimension.propTypes = {
-    ui: PropTypes.object.isRequired,
-    metadata: PropTypes.object.isRequired,
-    addMetadata: PropTypes.func.isRequired,
-    addUiItems: PropTypes.func.isRequired,
-    removeUiItems: PropTypes.func.isRequired,
-};
-
-PeriodDimension.contextTypes = {
-    d2: PropTypes.object,
-};

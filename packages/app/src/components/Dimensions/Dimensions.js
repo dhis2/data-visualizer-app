@@ -3,7 +3,7 @@ import TextField from '@material-ui/core/TextField';
 import Search from '@material-ui/icons/Search';
 import i18n from '@dhis2/d2-i18n';
 import DimensionList from './DimensionList';
-import DialogManager from './DialogManager';
+import DialogManager from './Dialogs/DialogManager';
 import { styles } from './styles/Dimensions.style';
 
 export class Dimensions extends Component {

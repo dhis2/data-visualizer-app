@@ -15,6 +15,7 @@ export const styles = {
     },
     itemContainer: {
         display: 'flex',
+        cursor: 'pointer',
         minHeight: 24,
         marginTop: 7,
         marginBottom: 7,

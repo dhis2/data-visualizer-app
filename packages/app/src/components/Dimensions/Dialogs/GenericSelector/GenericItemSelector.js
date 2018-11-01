@@ -32,7 +32,7 @@ export class GenericItemSelector extends Component {
         dimensionItems: [],
         unselectedIds: [],
         selectedIds: [],
-        dimensionType: 'ou',
+        dimensionType: '',
     };
 
     componentDidMount = async () => {
@@ -92,18 +92,22 @@ export class GenericItemSelector extends Component {
         });
     };
 
-    getSelectedItems = () => {
+    getSelectedIds = () => {
         const { selectedItems } = this.props;
+        let selectedIds = [];
 
-        return this.state.dimensionItems
-            .filter(item =>
-                selectedItems[this.state.dimensionType].includes(item.id)
-            )
-            .map(item => item.id);
+        if (selectedItems[this.state.dimensionType]) {
+            selectedIds = this.state.dimensionItems
+                .filter(item =>
+                    selectedItems[this.state.dimensionType].includes(item.id)
+                )
+                .map(item => item.id);
+        }
+        return selectedIds;
     };
 
     render = () => {
-        const selectedIds = this.getSelectedItems();
+        const selectedIds = this.getSelectedIds();
 
         const unselectedItems = this.state.dimensionItems.filter(
             item => !selectedIds.includes(item.id)
