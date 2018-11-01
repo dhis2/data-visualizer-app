@@ -84,14 +84,14 @@ describe('reducer: current', () => {
     it('SET_CURRENT_FROM_UI: should set current on a year on year format from the ui state section', () => {
         const ui = {
             type: YEAR_OVER_YEAR_LINE,
+            options,
             layout: { columns: [], rows: [], filters: [dxId, ouId] },
             itemsByDimension: {
                 [dxId]: ['dxItemId1', 'dxItemId2'],
                 [ouId]: ['ouItemId1', 'ouItemId2'],
             },
-            yearOnYearSeries: 'LAST_5_YEARS',
-            yearOnYearCategory: 'MONTHS_THIS_YEAR',
-            options,
+            yearOnYearSeries: ['LAST_5_YEARS'],
+            yearOnYearCategory: ['MONTHS_THIS_YEAR'],
         };
         const expectedState = {
             ...ui.options,
@@ -114,7 +114,7 @@ describe('reducer: current', () => {
                     items: [{ id: 'ouItemId1' }, { id: 'ouItemId2' }],
                 },
             ],
-            yearlySeries: 'LAST_5_YEARS',
+            yearlySeries: ['LAST_5_YEARS'],
         };
 
         const actualState = reducer(undefined, {
