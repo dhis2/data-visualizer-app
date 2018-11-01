@@ -4,7 +4,9 @@ import { onError } from './index';
 export const apiFetchOrganisationUnitRoot = () => {
     const endPoint = '/organisationUnits';
     const fields = ['id', 'displayName', 'name'];
-    const url = `${endPoint}?paging=false&level=1&fields=${fields.join(',')}`;
+    const url = `${endPoint}?paging=false&userDataViewFallback=true&fields=${fields.join(
+        ','
+    )}`;
 
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))
