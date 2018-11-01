@@ -14,7 +14,7 @@ const peId = FIXED_DIMENSIONS.pe.id;
 
 const getYearOnYearCurrentFromUi = (state, action) => {
     const dxItem = action.value.itemsByDimension[dxId]
-        ? action.value.itemsByDimension[dxId][0]
+        ? [action.value.itemsByDimension[dxId][0]]
         : [];
     const peItem = action.value.yearOnYearCategory;
 
@@ -22,8 +22,8 @@ const getYearOnYearCurrentFromUi = (state, action) => {
         ...state,
         type: action.value.type,
         ...getOptionsFromUi(action.value),
-        columns: [createDimension(dxId, [dxItem])],
-        rows: [createDimension(peId, [peItem])],
+        columns: [createDimension(dxId, dxItem)],
+        rows: [createDimension(peId, peItem)],
         filters: getAxesFromUi(action.value).filters.filter(
             f => ![dxId, peId].includes(f.dimension)
         ),
