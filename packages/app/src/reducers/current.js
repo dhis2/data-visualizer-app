@@ -13,21 +13,22 @@ const dxId = FIXED_DIMENSIONS.dx.id;
 const peId = FIXED_DIMENSIONS.pe.id;
 
 const getYearOnYearCurrentFromUi = (state, action) => {
-    const dxItem = action.value.itemsByDimension[dxId]
-        ? [action.value.itemsByDimension[dxId][0]]
+    const ui = action.value;
+
+    const dxItem = ui.itemsByDimension[dxId]
+        ? [ui.itemsByDimension[dxId][0]]
         : [];
-    const peItem = action.value.yearOnYearCategory;
 
     return {
         ...state,
-        type: action.value.type,
-        ...getOptionsFromUi(action.value),
+        type: ui.type,
+        ...getOptionsFromUi(ui),
         columns: [createDimension(dxId, dxItem)],
-        rows: [createDimension(peId, peItem)],
-        filters: getAxesFromUi(action.value).filters.filter(
+        rows: [createDimension(peId, ui.yearOnYearCategory)],
+        filters: getAxesFromUi(ui).filters.filter(
             f => ![dxId, peId].includes(f.dimension)
         ),
-        yearlySeries: action.value.yearOnYearSeries,
+        yearlySeries: ui.yearOnYearSeries,
     };
 };
 
