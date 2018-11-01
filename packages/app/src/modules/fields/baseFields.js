@@ -21,6 +21,7 @@ export const fieldsByType = {
     chart: [
         getFieldObject('category', { excluded: true }),
         getFieldObject('series', { excluded: true }),
+        getFieldObject('yearlySeries'),
     ],
     eventReport: [getFieldObject('dataType')],
     reportTable_eventReport: [

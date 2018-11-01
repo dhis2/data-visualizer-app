@@ -13,7 +13,7 @@ import {
     PIE,
     RADAR,
     GAUGE,
-    YEAR_ON_YEAR,
+    YEAR_OVER_YEAR_LINE,
 } from '../../modules/chartTypes';
 import { sGetUiType } from '../../reducers/ui';
 
@@ -27,7 +27,7 @@ const layoutMap = {
     [PIE]: DefaultLayout,
     [RADAR]: DefaultLayout,
     [GAUGE]: DefaultLayout,
-    [YEAR_ON_YEAR]: YearOnYearLayout,
+    [YEAR_OVER_YEAR_LINE]: YearOnYearLayout,
 };
 
 const getLayoutByType = (type, props) => {

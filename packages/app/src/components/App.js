@@ -149,7 +149,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
     onKeyUp: ui => dispatch(fromActions.fromCurrent.acSetCurrentFromUi(ui)),
-    onCloseSnackbar: fromActions.fromSnackbar.acCloseSnackbar,
+    onCloseSnackbar: () => dispatch(fromActions.fromSnackbar.acCloseSnackbar()),
 });
 
 App.contextTypes = {

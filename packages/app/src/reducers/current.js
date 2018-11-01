@@ -1,6 +1,6 @@
 import { getAxesFromUi, getOptionsFromUi } from '../modules/current';
 import { createDimension } from '../modules/layout';
-import { YEAR_ON_YEAR } from '../modules/chartTypes';
+import { YEAR_OVER_YEAR_LINE } from '../modules/chartTypes';
 import { FIXED_DIMENSIONS } from '../modules/fixedDimensions';
 
 export const SET_CURRENT = 'SET_CURRENT';
@@ -13,21 +13,22 @@ const dxId = FIXED_DIMENSIONS.dx.id;
 const peId = FIXED_DIMENSIONS.pe.id;
 
 const getYearOnYearCurrentFromUi = (state, action) => {
-    const dxItem = action.value.itemsByDimension[dxId]
-        ? action.value.itemsByDimension[dxId][0]
+    const ui = action.value;
+
+    const dxItem = ui.itemsByDimension[dxId]
+        ? [ui.itemsByDimension[dxId][0]]
         : [];
-    const peItem = action.value.yearOnYearCategory;
 
     return {
         ...state,
-        type: action.value.type,
-        ...getOptionsFromUi(action.value),
-        columns: [createDimension(dxId, [dxItem])],
-        rows: [createDimension(peId, [peItem])],
-        filters: getAxesFromUi(action.value).filters.filter(
+        type: ui.type,
+        ...getOptionsFromUi(ui),
+        columns: [createDimension(dxId, dxItem)],
+        rows: [createDimension(peId, ui.yearOnYearCategory)],
+        filters: getAxesFromUi(ui).filters.filter(
             f => ![dxId, peId].includes(f.dimension)
         ),
-        yearlySeries: action.value.yearOnYearSeries,
+        yearlySeries: ui.yearOnYearSeries,
     };
 };
 
@@ -38,7 +39,7 @@ export default (state = DEFAULT_CURRENT, action) => {
         }
         case SET_CURRENT_FROM_UI: {
             switch (action.value.type) {
-                case YEAR_ON_YEAR:
+                case YEAR_OVER_YEAR_LINE:
                     return getYearOnYearCurrentFromUi(state, action);
                 default: {
                     const axesFromUi = getAxesFromUi(action.value);
