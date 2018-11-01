@@ -79,8 +79,9 @@ describe('reducer: ui', () => {
         expect(actualState).toEqual(DEFAULT_UI);
     });
 
-    it(`${SET_UI_FROM_VISUALIZATION}: should set the new based on a visualization`, () => {
+    it(`${SET_UI_FROM_VISUALIZATION}: should set the new ui based on a visualization`, () => {
         const expectedState = {
+            ...DEFAULT_UI,
             type,
             options: { ...DEFAULT_UI.options, aggregationType },
             layout: { [COLUMNS]: [dxId], [ROWS]: [peId], [FILTERS]: [ouId] },
@@ -110,27 +111,6 @@ describe('reducer: ui', () => {
         });
 
         expect(actualState.type).toEqual(expectedState.type);
-    });
-
-    it(`${SET_UI_TYPE}: should set the type, layout and items on the year on year format`, () => {
-        const expectedState = {
-            ...DEFAULT_UI,
-            type: YEAR_OVER_YEAR_LINE,
-            layout: {
-                columns: [],
-                rows: [],
-                filters: [ouId, dxId],
-            },
-            itemsByDimension: {
-                [ouId]: DEFAULT_UI.itemsByDimension[ouId],
-            },
-        };
-        const actualState = reducer(DEFAULT_UI, {
-            type: SET_UI_TYPE,
-            value: YEAR_OVER_YEAR_LINE,
-        });
-
-        expect(actualState).toEqual(expectedState);
     });
 
     it(`${SET_UI_OPTIONS}: should set options`, () => {

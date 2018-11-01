@@ -15,6 +15,7 @@ import {
     acSetUiYearOnYearCategory,
 } from '../../../actions/ui';
 import { seriesOptions, categoryOptions } from '../../../modules/yearOnYear';
+import { AXIS_NAME_FILTERS } from '../../../modules/layout';
 
 const Layout = props => (
     <div id="layout-ct" style={defaultLayoutStyles.ct}>
@@ -55,7 +56,7 @@ const Layout = props => (
             }}
         >
             <DefaultAxis
-                axisName="filters"
+                axisName={AXIS_NAME_FILTERS}
                 style={defaultLayoutStyles.filters}
             />
         </div>

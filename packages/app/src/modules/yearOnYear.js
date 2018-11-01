@@ -1,10 +1,15 @@
 import i18n from '@dhis2/d2-i18n';
+import { YEAR_OVER_YEAR_LINE } from './chartTypes';
 
+// Fixed years generator
 const getFixedYears = len => {
     let year = new Date().getFullYear();
-    return new Array(len).fill(null).map(n => ({ id: year, name: year-- }));
+    return new Array(len)
+        .fill(null)
+        .map(n => ({ id: String(year), name: year-- }));
 };
 
+// Options for the year on year series dropdown
 export const seriesOptions = [
     { id: 'THIS_YEAR', name: i18n.t('This year') },
     { id: 'LAST_YEAR', name: i18n.t('Last year') },
@@ -12,6 +17,7 @@ export const seriesOptions = [
     ...getFixedYears(10),
 ];
 
+// Options for the year on year category dropdown
 export const categoryOptions = [
     { id: 'LAST_3_DAYS', name: i18n.t('Last 3 days') },
     { id: 'LAST_7_DAYS', name: i18n.t('Last 7 days') },
@@ -30,3 +36,6 @@ export const categoryOptions = [
     { id: 'QUARTERS_THIS_YEAR', name: i18n.t('Quarters per year') },
     { id: 'LAST_2_SIXMONTHS', name: i18n.t('Last 2 six-months') },
 ];
+
+// Check if a type is a year on year type
+export const isYearOnYear = type => [YEAR_OVER_YEAR_LINE].includes(type);
