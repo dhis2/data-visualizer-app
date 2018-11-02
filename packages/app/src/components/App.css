@@ -52,7 +52,7 @@ body {
 
 /* width */
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
 }
 
 /* Track */
@@ -62,10 +62,10 @@ body {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #aaa;
+    background: #ccc;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #888;
+    background: #aaa;
 }
