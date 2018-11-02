@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-10-31T09:12:27.495Z\n"
-"PO-Revision-Date: 2018-10-31T09:12:27.496Z\n"
+"POT-Creation-Date: 2018-11-02T10:47:13.180Z\n"
+"PO-Revision-Date: 2018-11-02T10:47:13.180Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -111,6 +111,9 @@ msgid "Data value set"
 msgstr ""
 
 msgid "Other formats"
+msgstr ""
+
+msgid "Interpretations"
 msgstr ""
 
 msgid "selected"
@@ -317,7 +320,10 @@ msgstr ""
 msgid "Gauge"
 msgstr ""
 
-msgid "Year on year"
+msgid "Year over year (line)"
+msgstr ""
+
+msgid "Year over year (column)"
 msgstr ""
 
 msgid "Indicators"
