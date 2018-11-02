@@ -22,6 +22,9 @@ body {
     grid-area: chartlayout;
     display: flex;
 }
+.title-bar {
+    grid-area: titlebar;
+}
 .interpretations {
     grid-area: interpretations;
     padding: 20px;
@@ -38,11 +41,12 @@ body {
     display: grid;
     grid-gap: 1px;
     grid-template-columns: 262px auto 160px;
-    grid-template-rows: 0 40px 94px auto;
+    grid-template-rows: 0 40px 94px 44px auto;
     grid-template-areas:
         'headerbar headerbar headerbar'
         'charttype menubar menubar'
         'dimensions chartlayout interpretations'
+        'dimensions titlebar interpretations'
         'dimensions canvas interpretations';
     background-color: #aaa;
 }
