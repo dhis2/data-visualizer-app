@@ -86,6 +86,12 @@ describe('reducer: ui', () => {
 
         expect(actualState).toEqual({
             ...DEFAULT_UI,
+            parentGraphMap: {
+                ...DEFAULT_UI.parentGraphMap,
+                [settings.rootOrganisationUnit.id]: `/${
+                    settings.rootOrganisationUnit.id
+                }`,
+            },
             itemsByDimension: {
                 ...DEFAULT_UI.itemsByDimension,
                 [ouId]: [settings.rootOrganisationUnit.id],
