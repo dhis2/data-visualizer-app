@@ -248,6 +248,7 @@ module.exports = {
                 `${scriptPrefix}/dhis-web-core-resource/babel-polyfill/6.20.0/dist/polyfill.js`,
                 `${scriptPrefix}/dhis-web-core-resource/react/16.2.0/umd/react.development.js`,
                 `${scriptPrefix}/dhis-web-core-resource/react-dom/16.2.0/umd/react-dom.development.js`,
+                `${scriptPrefix}/dhis-web-core-resource/ckeditor/4.6.1/ckeditor.js`,
             ]
                 .map(asset => {
                     return /\.js$/.test(asset)

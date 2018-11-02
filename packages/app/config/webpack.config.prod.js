@@ -272,6 +272,7 @@ module.exports = {
                 `${scriptPrefix}/dhis-web-maps/map.js`,
                 `${scriptPrefix}/dhis-web-event-reports/eventreport.js`,
                 `${scriptPrefix}/dhis-web-event-visualizer/eventchart.js`,
+                `${scriptPrefix}/dhis-web-core-resource/ckeditor/4.6.1/ckeditor.js`,
             ]
                 .map(asset => {
                     return /\.js$/.test(asset)
