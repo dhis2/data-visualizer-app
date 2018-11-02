@@ -18,7 +18,7 @@ import reducer, {
     SET_UI_YEAR_ON_YEAR_CATEGORY,
 } from '../ui';
 import { AXIS_NAMES } from '../../modules/layout';
-import { BAR, YEAR_OVER_YEAR_LINE } from '../../modules/chartTypes';
+import { BAR } from '../../modules/chartTypes';
 import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
 
 const [COLUMNS, ROWS, FILTERS] = AXIS_NAMES;

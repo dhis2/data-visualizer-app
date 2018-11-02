@@ -38,4 +38,5 @@ export const categoryOptions = [
 ];
 
 // Check if a type is a year on year type
-export const isYearOnYear = type => [YEAR_OVER_YEAR_LINE, YEAR_OVER_YEAR_COLUMN].includes(type);
+export const isYearOnYear = type =>
+    [YEAR_OVER_YEAR_LINE, YEAR_OVER_YEAR_COLUMN].includes(type);

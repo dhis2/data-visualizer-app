@@ -1,6 +1,9 @@
 import { getAxesFromUi, getOptionsFromUi } from '../modules/current';
 import { createDimension } from '../modules/layout';
-import { YEAR_OVER_YEAR_LINE, YEAR_OVER_YEAR_COLUMN } from '../modules/chartTypes';
+import {
+    YEAR_OVER_YEAR_LINE,
+    YEAR_OVER_YEAR_COLUMN,
+} from '../modules/chartTypes';
 import { FIXED_DIMENSIONS } from '../modules/fixedDimensions';
 
 export const SET_CURRENT = 'SET_CURRENT';
