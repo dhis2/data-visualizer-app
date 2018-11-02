@@ -16,6 +16,11 @@ export const TitleBar = ({ title, isDirty }) =>
         </div>
     ) : null;
 
+TitleBar.propTypes = {
+    title: PropTypes.string,
+    isDirty: PropTypes.bool,
+};
+
 const mapStateToProps = state => ({
     title: sGetVisualization(state) ? sGetVisualization(state).name : null,
     isDirty: sGetVisualization(state)
