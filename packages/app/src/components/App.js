@@ -8,6 +8,7 @@ import HeaderBar from 'ui/widgets/HeaderBar';
 
 import SnackbarMessage from '../widgets/SnackbarMessage';
 import MenuBar from './MenuBar/MenuBar';
+import TitleBar from './TitleBar/TitleBar';
 import VisualizationTypeSelector from './VisualizationTypeSelector/VisualizationTypeSelector';
 import Dimensions from './Dimensions/Dimensions';
 import Visualization from './Visualization/Visualization';
@@ -123,7 +124,8 @@ export class App extends Component {
                     <div className="item6 interpretations">
                         Interpretations panel
                     </div>
-                    <div className="item7 canvas">
+                    <div className="item8 canvas">
+                        <TitleBar />
                         {hasCurrent ? <Visualization /> : <BlankCanvas />}
                     </div>
                 </div>
