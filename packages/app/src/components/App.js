@@ -10,6 +10,7 @@ import SnackbarMessage from '../widgets/SnackbarMessage';
 import MenuBar from './MenuBar/MenuBar';
 import VisualizationTypeSelector from './VisualizationTypeSelector/VisualizationTypeSelector';
 import Dimensions from './Dimensions/Dimensions';
+import Interpretations from './Interpretations/Interpretations';
 import Visualization from './Visualization/Visualization';
 import BlankCanvas from './Visualization/BlankCanvas';
 import Layout from './Layout/Layout';
@@ -121,7 +122,7 @@ export class App extends Component {
                         <Layout />
                     </div>
                     <div className="item6 interpretations">
-                        Interpretations panel
+                        <Interpretations id={this.props.current.id} />
                     </div>
                     <div className="item7 canvas">
                         {hasCurrent ? <Visualization /> : <BlankCanvas />}
