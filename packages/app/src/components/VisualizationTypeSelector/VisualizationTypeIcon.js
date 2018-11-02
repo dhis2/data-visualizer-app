@@ -11,6 +11,7 @@ import LineIcon from '../../assets/LineIcon';
 import AreaIcon from '../../assets/AreaIcon';
 import RadarIcon from '../../assets/RadarIcon';
 import YearOverYearLineIcon from '../../assets/YearOverYearLineIcon';
+import YearOverYearColumnIcon from '../../assets/YearOverYearColumnIcon';
 import {
     COLUMN,
     STACKED_COLUMN,
@@ -22,6 +23,7 @@ import {
     RADAR,
     GAUGE,
     YEAR_OVER_YEAR_LINE,
+    YEAR_OVER_YEAR_COLUMN,
     chartTypeDisplayNames,
 } from '../../modules/chartTypes';
 
@@ -45,6 +47,8 @@ const VisualizationTypeIcon = ({ type = COLUMN, style }) => {
             return <RadarIcon style={style} />;
         case YEAR_OVER_YEAR_LINE:
             return <YearOverYearLineIcon style={style} />;
+        case YEAR_OVER_YEAR_COLUMN:
+            return <YearOverYearColumnIcon style={style} />;
         case COLUMN:
         default:
             return <ColumnIcon style={style} />;
