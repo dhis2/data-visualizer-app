@@ -63,6 +63,7 @@ body {
 /* Handle */
 ::-webkit-scrollbar-thumb {
     background: #ccc;
+    border-radius: 3px;
 }
 
 /* Handle on hover */
