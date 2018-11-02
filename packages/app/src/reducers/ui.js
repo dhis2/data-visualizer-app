@@ -198,6 +198,10 @@ export default (state = DEFAULT_UI, action) => {
                     [ouId]: [rootOrganisationUnit.id],
                     [peId]: [keyAnalysisRelativePeriod],
                 },
+                parentGraphMap: {
+                    ...DEFAULT_UI.parentGraphMap,
+                    [rootOrganisationUnit.id]: `/${rootOrganisationUnit.id}`,
+                },
             };
         default:
             return state;
