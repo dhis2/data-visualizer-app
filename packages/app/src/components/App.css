@@ -24,7 +24,6 @@ body {
 }
 .interpretations {
     grid-area: interpretations;
-    padding: 20px;
 }
 .canvas {
     grid-area: canvas;
@@ -37,7 +36,7 @@ body {
 .app {
     display: grid;
     grid-gap: 1px;
-    grid-template-columns: 262px auto 160px;
+    grid-template-columns: 262px 1fr min-content;
     grid-template-rows: 0 40px 94px auto;
     grid-template-areas:
         'headerbar headerbar headerbar'

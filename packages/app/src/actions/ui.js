@@ -15,6 +15,7 @@ import {
     SET_UI_ACTIVE_MODAL_DIALOG,
     SET_UI_YEAR_ON_YEAR_SERIES,
     SET_UI_YEAR_ON_YEAR_CATEGORY,
+    TOGGLE_UI_RIGHT_SIDEBAR_OPEN,
 } from '../reducers/ui';
 
 export const acSetUi = value => ({
@@ -95,4 +96,8 @@ export const acSetParentGraphMap = value => ({
 export const acSetUiActiveModalDialog = value => ({
     type: SET_UI_ACTIVE_MODAL_DIALOG,
     value,
+});
+
+export const acToggleUiRightSidebarOpen = () => ({
+    type: TOGGLE_UI_RIGHT_SIDEBAR_OPEN,
 });

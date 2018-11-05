@@ -108,24 +108,26 @@ export class App extends Component {
             <UI>
                 <HeaderBar appName={i18n.t('Data Visualizer')} />
                 <div className="app">
-                    <div className="item2 visualization-type-selector">
+                    <div className="visualization-type-selector">
                         <VisualizationTypeSelector />
                     </div>
-                    <div className="item3 menu-bar">
+                    <div className="menu-bar">
                         <MenuBar apiObjectName={this.props.apiObjectName} />
                     </div>
-                    <div className="item4 dimensions">
+                    <div className="dimensions">
                         <Dimensions />
                     </div>
-                    <div className="item5 chart-layout">
+                    <div className="chart-layout">
                         <Layout />
                     </div>
-                    <div className="item6 interpretations">
-                        Interpretations panel
-                    </div>
-                    <div className="item8 canvas">
+                    <div className="canvas">
                         <TitleBar />
                         {hasCurrent ? <Visualization /> : <BlankCanvas />}
+                    </div>
+                    <div className="interpretations">
+                        {this.props.ui.rightSidebarOpen
+                            ? 'Interpretations panel'
+                            : null}
                     </div>
                 </div>
                 {this.renderSnackbar()}
