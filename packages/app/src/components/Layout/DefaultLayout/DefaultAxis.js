@@ -59,12 +59,10 @@ class Axis extends React.Component {
         </MenuItem>
     );
 
-    isMoveOptionsSupported = () => !isYearOverYear(this.props.type);
+    isMoveSupported = () => !isYearOverYear(this.props.type);
 
     getMenuItems = dimensionId => [
-        ...(this.isMoveOptionsSupported()
-            ? this.getAxisMenuItems(dimensionId)
-            : []),
+        ...(this.isMoveSupported() ? this.getAxisMenuItems(dimensionId) : []),
         this.getRemoveMenuItem(dimensionId),
     ];
 
