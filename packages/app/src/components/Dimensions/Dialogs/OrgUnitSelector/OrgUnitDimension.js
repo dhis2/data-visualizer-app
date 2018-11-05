@@ -105,16 +105,6 @@ export class OrgUnitDimension extends Component {
         apiFetchOrganisationUnits()
             .then(rootLevel => rootLevel.toArray()[0])
             .then(root => {
-                if (this.props.metadata[root.id] === undefined) {
-                    this.props.acAddMetadata({
-                        [root.id]: {
-                            id: root.id,
-                            displayName: root.displayName,
-                            name: root.name,
-                        },
-                    });
-                }
-
                 this.setState({
                     root,
                 });
@@ -123,9 +113,11 @@ export class OrgUnitDimension extends Component {
 
     loadOrgUnitGroups = () => {
         apiFetchOrganisationUnitGroups()
-            .then(collection => collection.toArray())
-            .then(options =>
-                transformOptionsIntoMetadata(options, this.props.metadata)
+            .then(organisationUnitGroups =>
+                transformOptionsIntoMetadata(
+                    organisationUnitGroups,
+                    this.props.metadata
+                )
             )
             .then(({ options, metadata }) => {
                 this.props.acAddMetadata(metadata);
@@ -135,10 +127,9 @@ export class OrgUnitDimension extends Component {
 
     loadOrgUnitLevels = () => {
         apiFetchOrganisationUnitLevels()
-            .then(collection => collection.toArray())
-            .then(levelOptions =>
+            .then(organisationUnitLevels =>
                 transformOptionsIntoMetadata(
-                    levelOptions,
+                    organisationUnitLevels,
                     this.props.metadata,
                     ['id', 'displayName', 'name', 'level']
                 )

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import throttle from 'lodash-es/throttle';
 import { Item } from './Item';
 import { AssignButton, SelectAllButton } from './buttons';
 import { toggler } from '../../../modules/toggler';
@@ -60,10 +61,22 @@ export class UnselectedItems extends Component {
                 displayName={dataDim.name}
                 isHighlighted={!!this.state.highlighted.includes(dataDim.id)}
                 onItemClick={this.toggleHighlight}
-                className="unselected"
+                className={'unselected'}
             />
         </li>
     );
+
+    requestMoreItems = throttle(() => {
+        const node = this.ulRef.current;
+
+        if (node) {
+            const bottom =
+                node.scrollHeight - node.scrollTop === node.clientHeight;
+            if (bottom) {
+                this.props.requestMoreItems();
+            }
+        }
+    }, 1000);
 
     render = () => {
         const listItems = this.props.items.map((item, index) =>
@@ -71,7 +84,10 @@ export class UnselectedItems extends Component {
         );
 
         return (
-            <div className={`${this.props.className}-dialog`}>
+            <div
+                className={`${this.props.className}-dialog`}
+                onScroll={this.requestMoreItems}
+            >
                 <ul ref={this.ulRef} className={`${this.props.className}-list`}>
                     {listItems}
                 </ul>
@@ -89,6 +105,11 @@ UnselectedItems.propTypes = {
     items: PropTypes.array.isRequired,
     onSelect: PropTypes.func.isRequired,
     filterText: PropTypes.string.isRequired,
+    requestMoreItems: PropTypes.func,
+};
+
+UnselectedItems.defaultProps = {
+    requestMoreItems: () => null,
 };
 
 export default UnselectedItems;

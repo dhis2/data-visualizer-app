@@ -6,12 +6,6 @@ export const styles = {
         minWidth: 40,
         backgroundColor: colors.white,
     },
-    arrowDown: {
-        backgroundColor: colors.white,
-        minWidth: 40,
-        padding: 0,
-        borderRadius: 0,
-    },
     arrowIcon: {
         height: 20,
         width: 24,

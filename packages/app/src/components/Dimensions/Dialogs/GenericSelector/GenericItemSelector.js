@@ -18,6 +18,7 @@ import { acAddMetadata } from '../../../../actions/metadata';
 
 import { FIXED_DIMENSIONS } from '../../../../modules/fixedDimensions';
 
+import { styles } from './styles/GenericItemSelector.styles';
 import '../styles/Dialog.css';
 
 const dxId = FIXED_DIMENSIONS.dx.id;
@@ -25,11 +26,11 @@ const peId = FIXED_DIMENSIONS.pe.id;
 const ouId = FIXED_DIMENSIONS.ou.id;
 
 const dimensionTypes = [dxId, peId, ouId];
-
 export class GenericItemSelector extends Component {
     state = {
         filterText: '',
-        dimensionItems: [],
+        nextPage: null,
+        items: [],
         unselectedIds: [],
         selectedIds: [],
         dimensionType: '',
@@ -37,19 +38,21 @@ export class GenericItemSelector extends Component {
 
     componentDidMount = async () => {
         const { selectedLayout, dialogId } = this.props;
-        const dimensionItems = await apiFetchItemsByDimension(dialogId);
+        const items = await apiFetchItemsByDimension(dialogId);
 
         const currentLayout = Object.values(selectedLayout);
         const axisKey = currentLayout.findIndex(ids => ids.includes(dialogId));
 
+        const dimensionType = axisKey > -1 ? dimensionTypes[axisKey] : dxId;
+
         this.setState({
-            dimensionItems,
-            dimensionType: dimensionTypes[axisKey],
+            items,
+            dimensionType,
         });
     };
 
     onFilterTextChange = filterText => {
-        const filteredItems = this.state.dimensionItems.map(
+        const filteredItems = this.state.items.map(
             item =>
                 item.name.toLowerCase().includes(filterText.toLowerCase()) &&
                 item.id
@@ -68,7 +71,7 @@ export class GenericItemSelector extends Component {
         this.setState({ unselectedIds });
 
         const itemsToAdd = keyBy(
-            this.state.dimensionItems.filter(di => selectedIds.includes(di.id)),
+            this.state.items.filter(di => selectedIds.includes(di.id)),
             'id'
         );
 
@@ -97,19 +100,20 @@ export class GenericItemSelector extends Component {
         let selectedIds = [];
 
         if (selectedItems[this.state.dimensionType]) {
-            selectedIds = this.state.dimensionItems
+            selectedIds = this.state.items
                 .filter(item =>
                     selectedItems[this.state.dimensionType].includes(item.id)
                 )
                 .map(item => item.id);
         }
+
         return selectedIds;
     };
 
     render = () => {
         const selectedIds = this.getSelectedIds();
 
-        const unselectedItems = this.state.dimensionItems.filter(
+        const unselectedItems = this.state.items.filter(
             item => !selectedIds.includes(item.id)
         );
 
@@ -117,7 +121,7 @@ export class GenericItemSelector extends Component {
             <Fragment>
                 <DialogTitle>{i18n.t(this.props.dialogTitle)}</DialogTitle>
                 <DialogContent>
-                    <div style={{ paddingRight: 55 }}>
+                    <div style={styles.dialogContainer}>
                         <SearchField
                             text={this.state.filterText}
                             onFilterTextChange={this.onFilterTextChange}
@@ -127,7 +131,6 @@ export class GenericItemSelector extends Component {
                             items={unselectedItems}
                             onSelect={this.selectItemsByDimensions}
                             filterText={this.state.filterText}
-                            requestMoreItems={this.requestMoreItems}
                         />
                     </div>
                     <SelectedItems

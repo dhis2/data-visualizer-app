@@ -22,8 +22,9 @@ export const acSetUi = value => ({
     value,
 });
 
-export const acClear = () => ({
+export const acClear = value => ({
     type: CLEAR_UI,
+    value,
 });
 
 export const acSetUiFromVisualization = value => ({

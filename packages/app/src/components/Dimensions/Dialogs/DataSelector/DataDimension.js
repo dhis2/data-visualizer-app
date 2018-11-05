@@ -32,6 +32,7 @@ import {
 } from '../../../../modules/dataTypes';
 import { FIXED_DIMENSIONS } from '../../../../modules/fixedDimensions';
 
+import { styles } from './styles/DataDimension.styles';
 import '../styles/Dialog.css';
 
 const dxId = FIXED_DIMENSIONS.dx.id;
@@ -200,7 +201,7 @@ export class DataDimension extends Component {
             <Fragment>
                 <DialogTitle>{i18n.t('Data')}</DialogTitle>
                 <DialogContent>
-                    <div style={{ paddingRight: 55 }}>
+                    <div style={styles.dialogContainer}>
                         <DataTypes
                             currentDataType={this.state.dataType}
                             onDataTypeChange={this.onDataTypeChange}

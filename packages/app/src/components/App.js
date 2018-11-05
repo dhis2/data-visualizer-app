@@ -8,6 +8,7 @@ import HeaderBar from 'ui/widgets/HeaderBar';
 
 import SnackbarMessage from '../widgets/SnackbarMessage';
 import MenuBar from './MenuBar/MenuBar';
+import TitleBar from './TitleBar/TitleBar';
 import VisualizationTypeSelector from './VisualizationTypeSelector/VisualizationTypeSelector';
 import Dimensions from './Dimensions/Dimensions';
 import Visualization from './Visualization/Visualization';
@@ -35,7 +36,7 @@ export class App extends Component {
                 )
             );
         } else {
-            fromActions.clearVisualization(store.dispatch);
+            fromActions.clearVisualization(store.dispatch, this.props.settings);
         }
     };
 
@@ -48,7 +49,15 @@ export class App extends Component {
         );
         store.dispatch(fromActions.fromUser.acReceivedUser(d2.currentUser));
         store.dispatch(fromActions.fromDimensions.tSetDimensions());
-        store.dispatch(fromActions.fromMetadata.acAddMetadata(defaultMetadata));
+        store.dispatch(
+            fromActions.fromMetadata.acAddMetadata({
+                ...defaultMetadata,
+                [this.props.settings.rootOrganisationUnit.id]: {
+                    ...this.props.settings.rootOrganisationUnit,
+                    path: `/${this.props.settings.rootOrganisationUnit.id}`,
+                },
+            })
+        );
 
         this.loadVisualization(this.props.location);
 
@@ -115,7 +124,8 @@ export class App extends Component {
                     <div className="item6 interpretations">
                         Interpretations panel
                     </div>
-                    <div className="item7 canvas">
+                    <div className="item8 canvas">
+                        <TitleBar />
                         {hasCurrent ? <Visualization /> : <BlankCanvas />}
                     </div>
                 </div>
@@ -133,6 +143,7 @@ const mapStateToProps = state => {
         snackbarOpen: open,
         snackbarMessage: message,
         snackbarDuration: duration,
+        settings: fromReducers.fromSettings.sGetSettings(state),
         current: fromReducers.fromCurrent.sGetCurrent(state),
         ui: sGetUi(state),
     };
@@ -140,7 +151,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
     onKeyUp: ui => dispatch(fromActions.fromCurrent.acSetCurrentFromUi(ui)),
-    onCloseSnackbar: fromActions.fromSnackbar.acCloseSnackbar,
+    onCloseSnackbar: () => dispatch(fromActions.fromSnackbar.acCloseSnackbar()),
 });
 
 App.contextTypes = {

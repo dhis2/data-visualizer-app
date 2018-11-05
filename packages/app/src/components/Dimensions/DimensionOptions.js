@@ -7,9 +7,12 @@ import DropDown from './DropDown';
 import MoreHorizontalIcon from '../../assets/MoreHorizontalIcon';
 import {
     acAddUiLayoutDimensions,
+    acRemoveUiItems,
     acSetUiActiveModalDialog,
+    acAddUiItems,
 } from '../../actions/ui';
 import { styles } from './styles/DimensionOptions.style';
+import { sGetUiItems } from '../../reducers/ui';
 
 const items = [
     {
@@ -25,6 +28,12 @@ const items = [
         name: i18n.t('Add to filter'),
     },
 ];
+
+const axisIdObj = {
+    columns: 'dx',
+    rows: 'pe',
+    filters: 'ou',
+};
 
 export const OptionsButton = ({ action }) => {
     return (
@@ -47,6 +56,20 @@ export class DimensionOptions extends Component {
     };
 
     addDimension = axisName => {
+        const id = axisIdObj[axisName];
+        console.log(
+            axisName,
+            this.props.id,
+            id,
+            this.props.selectedItems[axisName]
+        );
+        if (this.props.selectedItems[id] && id !== 'filters') {
+            this.props.removeUiItems({
+                dimensionType: id,
+                value: this.props.selectedItems[id],
+            });
+        }
+
         this.props.onAddDimension({ [this.props.id]: axisName });
         this.handleClose();
 
@@ -96,10 +119,16 @@ DimensionOptions.propTypes = {
     onClose: PropTypes.func.isRequired,
 };
 
+const mapStateToProps = state => ({
+    selectedItems: sGetUiItems(state),
+});
+
 export default connect(
-    null,
+    mapStateToProps,
     {
         openDialog: id => acSetUiActiveModalDialog(id),
         onAddDimension: dimension => acAddUiLayoutDimensions(dimension),
+        addUiItems: dimension => acAddUiItems(dimension),
+        removeUiItems: dimension => acRemoveUiItems(dimension),
     }
 )(DimensionOptions);

@@ -27,7 +27,9 @@ export class DimensionLabel extends Component {
     };
 
     onLabelClick = () => {
-        if (this.props.isSelected) this.props.openDialog(this.props.id);
+        if (this.props.isSelected) {
+            this.props.openDialog(this.props.id);
+        }
     };
 
     onKeyPress = event => {

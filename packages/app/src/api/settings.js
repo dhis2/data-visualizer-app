@@ -13,6 +13,7 @@ export const apiFetchSystemSettings = () => {
 
 export const apiFetchUserSettings = () => {
     // "key" params not supported in the backend yet
+    // update: now it is, should be used here
     const endPoint = '/userSettings';
 
     return getInstance()

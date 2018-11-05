@@ -1,16 +1,14 @@
 import {
-    getDimensionIdsByAxis,
-    getItemIdsByDimension,
     getFilteredLayout,
     getSwapModObj,
+    AXIS_NAME_COLUMNS,
+    AXIS_NAME_ROWS,
 } from '../modules/layout';
-import {
-    getOptionsForUi,
-    getOptionsFromVisualization,
-} from '../modules/options';
-import { COLUMN, YEAR_OVER_YEAR_LINE } from '../modules/chartTypes';
+import { getOptionsForUi } from '../modules/options';
+import { COLUMN } from '../modules/chartTypes';
 import { FIXED_DIMENSIONS } from '../modules/fixedDimensions';
 import { toArray } from '../modules/array';
+import { getUiFromVisualization } from '../modules/ui';
 
 export const SET_UI = 'SET_UI';
 export const SET_UI_FROM_VISUALIZATION = 'SET_UI_FROM_VISUALIZATION';
@@ -41,10 +39,7 @@ export const DEFAULT_UI = {
         rows: [peId],
         filters: [ouId],
     },
-    itemsByDimension: {
-        [peId]: ['LAST_12_MONTHS'],
-        [ouId]: ['USER_ORGUNIT'],
-    },
+    itemsByDimension: {},
     yearOnYearSeries: ['LAST_5_YEARS'],
     yearOnYearCategory: ['MONTHS_THIS_YEAR'],
     parentGraphMap: {},
@@ -59,44 +54,13 @@ export default (state = DEFAULT_UI, action) => {
             };
         }
         case SET_UI_FROM_VISUALIZATION: {
-            return {
-                type: action.value.type,
-                options: getOptionsFromVisualization(action.value),
-                layout: getDimensionIdsByAxis(action.value),
-                itemsByDimension: getItemIdsByDimension(action.value),
-                parentGraphMap: action.value.parentGraphMap,
-            };
+            return getUiFromVisualization(action.value, state);
         }
         case SET_UI_TYPE: {
-            const newState = {
+            return {
                 ...state,
                 type: action.value,
             };
-
-            switch (action.value) {
-                case YEAR_OVER_YEAR_LINE: {
-                    const items = {
-                        ...state.itemsByDimension,
-                    };
-                    delete items[peId];
-
-                    return {
-                        ...newState,
-                        layout: {
-                            columns: [],
-                            rows: [],
-                            filters: [
-                                ...state.layout.filters,
-                                ...state.layout.columns,
-                                ...state.layout.rows,
-                            ].filter(d => d !== peId),
-                        },
-                        itemsByDimension: items,
-                    };
-                }
-                default:
-                    return newState;
-            }
         }
         case SET_UI_OPTIONS: {
             return {
@@ -130,7 +94,9 @@ export default (state = DEFAULT_UI, action) => {
 
             Object.entries(modObjWithSwap).forEach(
                 ([dimensionId, axisName]) => {
-                    if (['columns', 'rows'].includes(axisName)) {
+                    if (
+                        [AXIS_NAME_COLUMNS, AXIS_NAME_ROWS].includes(axisName)
+                    ) {
                         newLayout[axisName] = [dimensionId];
                     } else {
                         newLayout[axisName].push(dimensionId);
@@ -162,13 +128,13 @@ export default (state = DEFAULT_UI, action) => {
             const currentItems = state.itemsByDimension[type] || [];
             const dxItems = [...new Set([...currentItems, ...items])];
 
-            const itemsByDimension = Object.assign(
-                {},
-                { ...state.itemsByDimension },
-                { [type]: dxItems }
-            );
-
-            return Object.assign({}, { ...state }, { itemsByDimension });
+            return {
+                ...state,
+                itemsByDimension: {
+                    ...state.itemsByDimension,
+                    [type]: dxItems,
+                },
+            };
         }
         case REMOVE_UI_ITEMS: {
             const { dimensionType: type, value: idsToRemove } = action.value;
@@ -176,13 +142,13 @@ export default (state = DEFAULT_UI, action) => {
                 id => !idsToRemove.includes(id)
             );
 
-            const itemsByDimension = Object.assign(
-                {},
-                { ...state.itemsByDimension },
-                { [type]: dxItems }
-            );
-
-            return Object.assign({}, { ...state }, { itemsByDimension });
+            return {
+                ...state,
+                itemsByDimension: {
+                    ...state.itemsByDimension,
+                    [type]: dxItems,
+                },
+            };
         }
         case SET_UI_YEAR_ON_YEAR_SERIES: {
             return {
@@ -220,7 +186,19 @@ export default (state = DEFAULT_UI, action) => {
             };
         }
         case CLEAR_UI:
-            return DEFAULT_UI;
+            const {
+                rootOrganisationUnit,
+                keyAnalysisRelativePeriod,
+            } = action.value;
+
+            return {
+                ...DEFAULT_UI,
+                itemsByDimension: {
+                    ...DEFAULT_UI.itemsByDimension,
+                    [ouId]: [rootOrganisationUnit.id],
+                    [peId]: [keyAnalysisRelativePeriod],
+                },
+            };
         default:
             return state;
     }
