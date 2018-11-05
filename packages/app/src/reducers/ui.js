@@ -40,8 +40,8 @@ export const DEFAULT_UI = {
         filters: [ouId],
     },
     itemsByDimension: {},
-    yearOnYearSeries: ['LAST_5_YEARS'],
-    yearOnYearCategory: ['MONTHS_THIS_YEAR'],
+    yearOverYearSeries: ['LAST_5_YEARS'],
+    yearOverYearCategory: ['MONTHS_THIS_YEAR'],
     parentGraphMap: {},
     activeModalDialog: null,
 };
@@ -153,15 +153,16 @@ export default (state = DEFAULT_UI, action) => {
         case SET_UI_YEAR_ON_YEAR_SERIES: {
             return {
                 ...state,
-                yearOnYearSeries: action.value || DEFAULT_UI.yearOnYearSeries,
+                yearOverYearSeries:
+                    action.value || DEFAULT_UI.yearOverYearSeries,
             };
         }
         case SET_UI_YEAR_ON_YEAR_CATEGORY: {
             return {
                 ...state,
-                yearOnYearCategory: action.value
+                yearOverYearCategory: action.value
                     ? toArray(action.value)
-                    : DEFAULT_UI.yearOnYearCategory,
+                    : DEFAULT_UI.yearOverYearCategory,
             };
         }
         case SET_UI_PARENT_GRAPH_MAP: {
@@ -216,9 +217,10 @@ export const sGetUiType = state => sGetUi(state).type;
 export const sGetUiOptions = state => sGetUi(state).options;
 export const sGetUiLayout = state => sGetUi(state).layout;
 export const sGetUiItems = state => sGetUi(state).itemsByDimension;
-export const sGetUiYearOnYearSeries = state => sGetUi(state).yearOnYearSeries;
-export const sGetUiYearOnYearCategory = state =>
-    sGetUi(state).yearOnYearCategory;
+export const sGetUiYearOverYearSeries = state =>
+    sGetUi(state).yearOverYearSeries;
+export const sGetUiYearOverYearCategory = state =>
+    sGetUi(state).yearOverYearCategory;
 export const sGetUiParentGraphMap = state => sGetUi(state).parentGraphMap;
 export const sGetUiActiveModalDialog = state => sGetUi(state).activeModalDialog;
 

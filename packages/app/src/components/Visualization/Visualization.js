@@ -14,7 +14,7 @@ import {
 import { acSetChart } from '../../actions/chart';
 import {
     apiFetchAnalytics,
-    apiFetchAnalyticsForYearOnYear,
+    apiFetchAnalyticsForYearOverYear,
 } from '../../api/analytics';
 import {
     YEAR_OVER_YEAR_LINE,
@@ -66,7 +66,7 @@ export class Visualization extends Component {
                 ({
                     responses,
                     yearlySeriesLabels,
-                } = await apiFetchAnalyticsForYearOnYear(
+                } = await apiFetchAnalyticsForYearOverYear(
                     current,
                     optionsForRequest
                 ));

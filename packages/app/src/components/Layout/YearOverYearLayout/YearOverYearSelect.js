@@ -2,9 +2,9 @@ import React from 'react';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 
-import styles from './styles/YearOnYearSelect.style';
+import styles from './styles/YearOverYearSelect.style';
 
-class YearOnYearSelect extends React.Component {
+class YearOverYearSelect extends React.Component {
     state = {
         open: false,
     };
@@ -41,4 +41,4 @@ class YearOnYearSelect extends React.Component {
     }
 }
 
-export default YearOnYearSelect;
+export default YearOverYearSelect;

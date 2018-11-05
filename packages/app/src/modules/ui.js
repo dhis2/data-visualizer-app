@@ -7,7 +7,7 @@ import {
     getItemIdsByDimension,
 } from './layout';
 import { FIXED_DIMENSIONS } from './fixedDimensions';
-import { isYearOnYear } from './yearOnYear';
+import { isYearOverYear } from './chartTypes';
 import { getOptionsFromVisualization } from './options';
 
 const peId = FIXED_DIMENSIONS.pe.id;
@@ -20,17 +20,17 @@ export const getUiFromVisualization = (vis, currentState = {}) => ({
     layout: getDimensionIdsByAxis(vis),
     itemsByDimension: getItemIdsByDimension(vis),
     parentGraphMap: vis.parentGraphMap || currentState.parentGraphMap,
-    yearOnYearSeries:
-        isYearOnYear(vis.type) && vis.yearlySeries
+    yearOverYearSeries:
+        isYearOverYear(vis.type) && vis.yearlySeries
             ? vis.yearlySeries
-            : currentState.yearOnYearSeries,
-    yearOnYearCategory: isYearOnYear(vis.type)
+            : currentState.yearOverYearSeries,
+    yearOverYearCategory: isYearOverYear(vis.type)
         ? vis.rows[0].items.map(item => item.id)
-        : currentState.yearOnYearCategory,
+        : currentState.yearOverYearCategory,
 });
 
 // Transform from store.ui to year on year format
-const yearOnYearUiAdapter = ui => {
+const yearOverYearUiAdapter = ui => {
     const state = Object.assign({}, ui);
 
     const items = Object.assign({}, state.itemsByDimension);
@@ -55,7 +55,7 @@ export const getAdaptedUiByType = ui => {
     switch (ui.type) {
         case YEAR_OVER_YEAR_LINE:
         case YEAR_OVER_YEAR_COLUMN: {
-            return yearOnYearUiAdapter(ui);
+            return yearOverYearUiAdapter(ui);
         }
         default:
             return ui;

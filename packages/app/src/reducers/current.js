@@ -15,7 +15,7 @@ export const DEFAULT_CURRENT = {};
 const dxId = FIXED_DIMENSIONS.dx.id;
 const peId = FIXED_DIMENSIONS.pe.id;
 
-const getYearOnYearCurrentFromUi = (state, action) => {
+const getYearOverYearCurrentFromUi = (state, action) => {
     const ui = action.value;
 
     const dxItem = ui.itemsByDimension[dxId]
@@ -27,11 +27,11 @@ const getYearOnYearCurrentFromUi = (state, action) => {
         type: ui.type,
         ...getOptionsFromUi(ui),
         columns: [createDimension(dxId, dxItem)],
-        rows: [createDimension(peId, ui.yearOnYearCategory)],
+        rows: [createDimension(peId, ui.yearOverYearCategory)],
         filters: getAxesFromUi(ui).filters.filter(
             f => ![dxId, peId].includes(f.dimension)
         ),
-        yearlySeries: ui.yearOnYearSeries,
+        yearlySeries: ui.yearOverYearSeries,
     };
 };
 
@@ -44,7 +44,7 @@ export default (state = DEFAULT_CURRENT, action) => {
             switch (action.value.type) {
                 case YEAR_OVER_YEAR_LINE:
                 case YEAR_OVER_YEAR_COLUMN:
-                    return getYearOnYearCurrentFromUi(state, action);
+                    return getYearOverYearCurrentFromUi(state, action);
                 default: {
                     const axesFromUi = getAxesFromUi(action.value);
                     const optionsFromUi = getOptionsFromUi(action.value);
