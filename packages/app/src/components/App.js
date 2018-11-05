@@ -32,7 +32,8 @@ export class App extends Component {
             store.dispatch(
                 fromActions.tDoLoadVisualization(
                     this.props.apiObjectName,
-                    location.pathname.slice(1)
+                    location.pathname.slice(1),
+                    this.props.settings
                 )
             );
         } else {
@@ -52,10 +53,8 @@ export class App extends Component {
         store.dispatch(
             fromActions.fromMetadata.acAddMetadata({
                 ...defaultMetadata,
-                [this.props.settings.rootOrganisationUnit.id]: {
-                    ...this.props.settings.rootOrganisationUnit,
-                    path: `/${this.props.settings.rootOrganisationUnit.id}`,
-                },
+                [this.props.settings.rootOrganisationUnit.id]: this.props
+                    .settings.rootOrganisationUnit,
             })
         );
 
