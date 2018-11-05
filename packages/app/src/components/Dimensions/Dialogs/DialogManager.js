@@ -25,22 +25,15 @@ const dxId = FIXED_DIMENSIONS.dx.id;
 const peId = FIXED_DIMENSIONS.pe.id;
 const ouId = FIXED_DIMENSIONS.ou.id;
 
-const fixedDimensionsIds = [dxId, peId, ouId];
-
 export const fixedDimensions = {
     [dxId]: <DataDimension />,
     [ouId]: <OrgUnitDimension />,
     [peId]: <PeriodDimension />,
 };
 
-export const defaultState = {
-    mounted: [],
-};
 export class DialogManager extends Component {
-    state = defaultState;
-
     renderDialogContent = () => {
-        return fixedDimensionsIds.includes(this.props.dialogId) ? (
+        return Object.keys(fixedDimensions).includes(this.props.dialogId) ? (
             fixedDimensions[this.props.dialogId]
         ) : (
             <GenericItemSelector

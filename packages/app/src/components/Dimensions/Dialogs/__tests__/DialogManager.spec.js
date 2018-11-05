@@ -45,27 +45,4 @@ describe('The DialogManager component ', () => {
 
         expect(wrappingDialog.children().length).toBeGreaterThan(1);
     });
-
-    it('has default state', () => {
-        const actualState = dialogManager().state();
-
-        expect(actualState).toEqual(defaultState);
-    });
-
-    it('updates state properly for lazy mounting', () => {
-        const dimensionIds = Object.keys(fixedDimensions);
-        const component = dialogManager();
-
-        dimensionIds.forEach((dimensionId, index) => {
-            component.setProps({
-                ...props,
-                dialogId: dimensionId,
-            });
-
-            expect(component.state()).toEqual({
-                ...component.state(),
-                mounted: dimensionIds.slice(0, index + 1),
-            });
-        });
-    });
 });

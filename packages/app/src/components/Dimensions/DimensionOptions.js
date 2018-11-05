@@ -57,12 +57,6 @@ export class DimensionOptions extends Component {
 
     addDimension = axisName => {
         const id = axisIdObj[axisName];
-        console.log(
-            axisName,
-            this.props.id,
-            id,
-            this.props.selectedItems[axisName]
-        );
         if (this.props.selectedItems[id] && id !== 'filters') {
             this.props.removeUiItems({
                 dimensionType: id,
