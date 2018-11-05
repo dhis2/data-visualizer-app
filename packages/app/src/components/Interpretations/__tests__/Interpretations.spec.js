@@ -20,7 +20,9 @@ describe('Interpretations component', () => {
         };
 
         if (!shallowComponent) {
-            shallowComponent = shallow(<Interpretations {...props} />, { context });
+            shallowComponent = shallow(<Interpretations {...props} />, {
+                context,
+            });
         }
 
         return shallowComponent;
