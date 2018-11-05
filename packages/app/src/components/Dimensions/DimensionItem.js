@@ -54,6 +54,8 @@ export class DimensionItem extends Component {
 
         return (
             <li
+                className={`dimension-${this.props.id}`}
+                id={`dimension-${this.props.id}`}
                 key={this.props.id}
                 style={styles.itemContainer}
                 onMouseOver={this.onMouseOver}
