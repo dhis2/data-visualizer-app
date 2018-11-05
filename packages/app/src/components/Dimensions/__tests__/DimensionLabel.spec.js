@@ -18,7 +18,7 @@ describe('The DimensionList component ', () => {
             id: 'idstring',
             isSelected: false,
             name: 'labelname',
-            onRemoveDimension: jest.fn(),
+            removeDimension: jest.fn(),
             children: [],
         };
         shallowDimLabel = undefined;

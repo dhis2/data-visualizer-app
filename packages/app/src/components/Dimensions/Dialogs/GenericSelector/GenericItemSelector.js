@@ -12,20 +12,13 @@ import SelectedItems from '../SelectedItems';
 
 import { apiFetchItemsByDimension } from '../../../../api/dimensions';
 
-import { sGetUiItems, sGetUiLayout } from '../../../../reducers/ui';
+import { sGetUiItems } from '../../../../reducers/ui';
 import { acRemoveUiItems, acAddUiItems } from '../../../../actions/ui';
 import { acAddMetadata } from '../../../../actions/metadata';
-
-import { FIXED_DIMENSIONS } from '../../../../modules/fixedDimensions';
 
 import { styles } from './styles/GenericItemSelector.styles';
 import '../styles/Dialog.css';
 
-const dxId = FIXED_DIMENSIONS.dx.id;
-const peId = FIXED_DIMENSIONS.pe.id;
-const ouId = FIXED_DIMENSIONS.ou.id;
-
-const dimensionTypes = [dxId, peId, ouId];
 export class GenericItemSelector extends Component {
     state = {
         filterText: '',
@@ -33,22 +26,12 @@ export class GenericItemSelector extends Component {
         items: [],
         unselectedIds: [],
         selectedIds: [],
-        dimensionType: '',
     };
 
     componentDidMount = async () => {
-        const { selectedLayout, dialogId } = this.props;
-        const items = await apiFetchItemsByDimension(dialogId);
+        const items = await apiFetchItemsByDimension(this.props.dialogId);
 
-        const currentLayout = Object.values(selectedLayout);
-        const axisKey = currentLayout.findIndex(ids => ids.includes(dialogId));
-
-        const dimensionType = axisKey > -1 ? dimensionTypes[axisKey] : dxId;
-
-        this.setState({
-            items,
-            dimensionType,
-        });
+        this.setState({ items });
     };
 
     onFilterTextChange = filterText => {
@@ -90,23 +73,9 @@ export class GenericItemSelector extends Component {
         this.setState({ unselectedIds });
 
         this.props.removeItems({
-            dimensionType: this.state.dimensionType,
+            dimensionType: this.props.dialogId,
             value: ids,
         });
-    };
-
-    getSelectedIds = () => {
-        const { selectedItems } = this.props;
-        let selectedIds = [];
-        if (selectedItems[this.state.dimensionType]) {
-            selectedIds = this.state.items
-                .filter(item =>
-                    selectedItems[this.state.dimensionType].includes(item.id)
-                )
-                .map(item => item.id);
-        }
-
-        return selectedIds;
     };
 
     render = () => {
@@ -149,7 +118,6 @@ GenericItemSelector.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => ({
-    selectedLayout: sGetUiLayout(state),
     selectedItems: sGetUiItems(state)[ownProps.dialogId] || [],
 });
 

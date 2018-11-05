@@ -17,7 +17,7 @@ describe('The Period Dimension component ', () => {
 
     beforeEach(() => {
         props = {
-            selectedItems: {},
+            selectedItems: [],
             addItems: jest.fn(),
             removeItems: jest.fn(),
             addMetadata: jest.fn(),

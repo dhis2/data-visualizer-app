@@ -5,7 +5,10 @@ import Close from '@material-ui/icons/Close';
 import {
     acRemoveUiLayoutDimensions,
     acSetUiActiveModalDialog,
+    acSetUiItems,
 } from '../../actions/ui';
+import { sGetUiLayout, sGetUiItems } from '../../reducers/ui';
+
 import { styles } from './styles/DimensionLabel.style';
 
 export const RemoveDimensionButton = ({ action }) => {
@@ -22,7 +25,7 @@ export class DimensionLabel extends Component {
         id: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
         isSelected: PropTypes.bool.isRequired,
-        onRemoveDimension: PropTypes.func.isRequired,
+        removeDimension: PropTypes.func.isRequired,
         children: PropTypes.arrayOf(PropTypes.element).isRequired,
     };
 
@@ -39,7 +42,15 @@ export class DimensionLabel extends Component {
     };
 
     removeDimension = () => {
-        this.props.onRemoveDimension(this.props.id);
+        const filteredUi = Object.keys(this.props.items)
+            .filter(key => !this.props.id.includes(key))
+            .reduce((obj, key) => {
+                obj[key] = this.props.items[key];
+                return obj;
+            }, {});
+
+        this.props.setUiItems(filteredUi);
+        this.props.removeDimension(this.props.id);
     };
 
     renderRemoveButton = () => {
@@ -78,10 +89,16 @@ export class DimensionLabel extends Component {
     };
 }
 
+const mapStateToProps = state => ({
+    currentLayout: sGetUiLayout(state),
+    items: sGetUiItems(state),
+});
+
 export default connect(
-    null,
+    mapStateToProps,
     {
         openDialog: id => acSetUiActiveModalDialog(id),
-        onRemoveDimension: id => acRemoveUiLayoutDimensions(id),
+        removeDimension: id => acRemoveUiLayoutDimensions(id),
+        setUiItems: items => acSetUiItems(items),
     }
 )(DimensionLabel);

@@ -7,7 +7,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import { PeriodSelector } from '@dhis2/d2-ui-period-selector-dialog';
 import i18n from '@dhis2/d2-i18n';
 
-import { sGetUi, sGetUiLayout } from '../../../../reducers/ui';
+import { sGetUi } from '../../../../reducers/ui';
 import { sGetMetadata } from '../../../../reducers/metadata';
 import { acRemoveUiItems, acAddUiItems } from '../../../../actions/ui';
 import { acAddMetadata } from '../../../../actions/metadata';
@@ -83,7 +83,6 @@ PeriodDimension.contextTypes = {
 
 const mapStateToProps = state => ({
     metadata: sGetMetadata(state),
-    selectedLayout: sGetUiLayout(state),
     ui: sGetUi(state),
 });
 

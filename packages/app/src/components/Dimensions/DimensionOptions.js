@@ -7,11 +7,12 @@ import DropDown from './DropDown';
 import MoreHorizontalIcon from '../../assets/MoreHorizontalIcon';
 import {
     acAddUiLayoutDimensions,
-    acRemoveUiItems,
+    acSetUiItems,
+    acRemoveUiLayoutDimensions,
     acSetUiActiveModalDialog,
 } from '../../actions/ui';
 import { styles } from './styles/DimensionOptions.style';
-import { sGetUiItems } from '../../reducers/ui';
+import { sGetUiLayout, sGetUiItems } from '../../reducers/ui';
 
 const items = [
     {
@@ -27,12 +28,6 @@ const items = [
         name: i18n.t('Add to filter'),
     },
 ];
-
-const axisIdObj = {
-    columns: 'dx',
-    rows: 'pe',
-    filters: 'ou',
-};
 
 export const OptionsButton = ({ action }) => {
     return (
@@ -55,13 +50,18 @@ export class DimensionOptions extends Component {
     };
 
     addDimension = axisName => {
-        const id = axisIdObj[axisName];
+        if (this.props.currentLayout[axisName] && axisName !== 'filters') {
+            const filteredUi = Object.keys(this.props.items)
+                .filter(key => !this.props.id.includes(key))
+                .reduce((obj, key) => {
+                    obj[key] = this.props.items[key];
+                    return obj;
+                }, {});
 
-        if (this.props.selectedItems[id] && axisName !== 'filters') {
-            this.props.removeUiItems({
-                dimensionType: id,
-                value: this.props.selectedItems[id],
-            });
+            this.props.setUiItems(filteredUi);
+
+            const currentDimension = this.props.currentLayout[axisName][0];
+            this.props.removeDimension(currentDimension);
         }
 
         this.props.onAddDimension({ [this.props.id]: axisName });
@@ -114,7 +114,8 @@ DimensionOptions.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    selectedItems: sGetUiItems(state),
+    currentLayout: sGetUiLayout(state),
+    items: sGetUiItems(state),
 });
 
 export default connect(
@@ -122,6 +123,7 @@ export default connect(
     {
         openDialog: id => acSetUiActiveModalDialog(id),
         onAddDimension: dimension => acAddUiLayoutDimensions(dimension),
-        removeUiItems: dimension => acRemoveUiItems(dimension),
+        removeDimension: dimension => acRemoveUiLayoutDimensions(dimension),
+        setUiItems: items => acSetUiItems(items),
     }
 )(DimensionOptions);

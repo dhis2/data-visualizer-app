@@ -17,7 +17,7 @@ import {
     apiFetchGroups,
     apiFetchAlternatives,
 } from '../../../../api/dimensions';
-import { sGetUiItems, sGetUiLayout } from '../../../../reducers/ui';
+import { sGetUiItems } from '../../../../reducers/ui';
 import { sGetDisplayNameProperty } from '../../../../reducers/settings';
 
 import { acRemoveUiItems, acAddUiItems } from '../../../../actions/ui';
@@ -36,12 +36,8 @@ import { styles } from './styles/DataDimension.styles';
 import '../styles/Dialog.css';
 
 const dxId = FIXED_DIMENSIONS.dx.id;
-const peId = FIXED_DIMENSIONS.pe.id;
-const ouId = FIXED_DIMENSIONS.ou.id;
 
 const FIRST_PAGE = 1;
-
-const dimensionTypes = [dxId, peId, ouId];
 
 export class DataDimension extends Component {
     //defaults
@@ -256,8 +252,7 @@ DataDimension.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-    selectedItems: sGetUiItems(state)[dxId],
-    selectedLayout: sGetUiLayout(state),
+    selectedItems: sGetUiItems(state)[dxId] || [],
     displayNameProp: sGetDisplayNameProperty(state),
 });
 
