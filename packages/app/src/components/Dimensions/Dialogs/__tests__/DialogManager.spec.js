@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Dialog from '@material-ui/core/Dialog';
-import { DialogManager, defaultState, fixedDimensions } from '../DialogManager';
+import { DialogManager } from '../DialogManager';
 import { FIXED_DIMENSIONS } from '../../../../modules/fixedDimensions';
 
 const dxId = FIXED_DIMENSIONS.dx.id;

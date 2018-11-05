@@ -9,7 +9,6 @@ import {
     acAddUiLayoutDimensions,
     acRemoveUiItems,
     acSetUiActiveModalDialog,
-    acAddUiItems,
 } from '../../actions/ui';
 import { styles } from './styles/DimensionOptions.style';
 import { sGetUiItems } from '../../reducers/ui';
@@ -57,6 +56,7 @@ export class DimensionOptions extends Component {
 
     addDimension = axisName => {
         const id = axisIdObj[axisName];
+
         if (this.props.selectedItems[id] && id !== 'filters') {
             this.props.removeUiItems({
                 dimensionType: id,
@@ -122,7 +122,6 @@ export default connect(
     {
         openDialog: id => acSetUiActiveModalDialog(id),
         onAddDimension: dimension => acAddUiLayoutDimensions(dimension),
-        addUiItems: dimension => acAddUiItems(dimension),
         removeUiItems: dimension => acRemoveUiItems(dimension),
     }
 )(DimensionOptions);

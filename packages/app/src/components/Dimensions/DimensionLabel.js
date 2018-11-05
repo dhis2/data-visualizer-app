@@ -33,8 +33,9 @@ export class DimensionLabel extends Component {
     };
 
     onKeyPress = event => {
-        if (event.key === 'Enter' && event.ctrlKey === false)
+        if (event.key === 'Enter' && event.ctrlKey === false) {
             this.onLabelClick();
+        }
     };
 
     removeDimension = () => {
