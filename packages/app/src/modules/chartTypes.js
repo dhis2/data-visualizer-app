@@ -26,3 +26,9 @@ export const chartTypeDisplayNames = {
     [YEAR_OVER_YEAR_LINE]: i18n.t('Year over year (line)'),
     [YEAR_OVER_YEAR_COLUMN]: i18n.t('Year over year (column)'),
 };
+
+const stackedTypes = [STACKED_COLUMN, STACKED_BAR, AREA];
+const yearOverYearTypes = [YEAR_OVER_YEAR_LINE, YEAR_OVER_YEAR_COLUMN];
+
+export const isStacked = type => stackedTypes.includes(type);
+export const isYearOverYear = type => yearOverYearTypes.includes(type);

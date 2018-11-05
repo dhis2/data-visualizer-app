@@ -3,18 +3,18 @@ import { connect } from 'react-redux';
 
 import DefaultAxis from '../DefaultLayout/DefaultAxis';
 import defaultLayoutStyles from '../DefaultLayout/styles/DefaultLayout.style';
-import YearOnYearAxis from './YearOnYearAxis';
-import YearOnYearSelect from './YearOnYearSelect';
-import YearOnYearLayoutStyles from './styles/YearOnYearLayout.style';
+import YearOverYearAxis from './YearOverYearAxis';
+import YearOverYearSelect from './YearOverYearSelect';
+import YearOverYearLayoutStyles from './styles/YearOverYearLayout.style';
 import {
-    sGetUiYearOnYearSeries,
-    sGetUiYearOnYearCategory,
+    sGetUiYearOverYearSeries,
+    sGetUiYearOverYearCategory,
 } from '../../../reducers/ui';
 import {
-    acSetUiYearOnYearSeries,
-    acSetUiYearOnYearCategory,
+    acSetUiYearOverYearSeries,
+    acSetUiYearOverYearCategory,
 } from '../../../actions/ui';
-import { seriesOptions, categoryOptions } from '../../../modules/yearOnYear';
+import { seriesOptions, categoryOptions } from '../../../modules/yearOverYear';
 import { AXIS_NAME_FILTERS } from '../../../modules/layout';
 
 const Layout = props => (
@@ -23,36 +23,36 @@ const Layout = props => (
             id="axis-group-1"
             style={{
                 ...defaultLayoutStyles.axisGroup,
-                ...YearOnYearLayoutStyles.axisGroupLeft,
+                ...YearOverYearLayoutStyles.axisGroupLeft,
             }}
         >
-            <YearOnYearAxis
-                axisName="yearOnYearSeries"
+            <YearOverYearAxis
+                axisName="yearOverYearSeries"
                 style={defaultLayoutStyles.columns}
             >
-                <YearOnYearSelect
+                <YearOverYearSelect
                     multiple="true"
-                    value={props.yearOnYearSeries}
+                    value={props.yearOverYearSeries}
                     onChange={props.onSeriesChange}
                     options={seriesOptions}
                 />
-            </YearOnYearAxis>
-            <YearOnYearAxis
-                axisName="yearOnYearCategory"
+            </YearOverYearAxis>
+            <YearOverYearAxis
+                axisName="yearOverYearCategory"
                 style={defaultLayoutStyles.rows}
             >
-                <YearOnYearSelect
-                    value={props.yearOnYearCategory[0]}
+                <YearOverYearSelect
+                    value={props.yearOverYearCategory[0]}
                     onChange={props.onCategoryChange}
                     options={categoryOptions}
                 />
-            </YearOnYearAxis>
+            </YearOverYearAxis>
         </div>
         <div
             id="axis-group-2"
             style={{
                 ...defaultLayoutStyles.axisGroup,
-                ...YearOnYearLayoutStyles.axisGroupRight,
+                ...YearOverYearLayoutStyles.axisGroupRight,
             }}
         >
             <DefaultAxis
@@ -66,15 +66,15 @@ const Layout = props => (
 Layout.displayName = 'Layout';
 
 const mapStateToProps = state => ({
-    yearOnYearSeries: sGetUiYearOnYearSeries(state),
-    yearOnYearCategory: sGetUiYearOnYearCategory(state),
+    yearOverYearSeries: sGetUiYearOverYearSeries(state),
+    yearOverYearCategory: sGetUiYearOverYearCategory(state),
 });
 
 const mapDispatchToProps = dispatch => ({
     onSeriesChange: event =>
-        dispatch(acSetUiYearOnYearSeries(event.target.value)),
+        dispatch(acSetUiYearOverYearSeries(event.target.value)),
     onCategoryChange: event =>
-        dispatch(acSetUiYearOnYearCategory(event.target.value)),
+        dispatch(acSetUiYearOverYearCategory(event.target.value)),
 });
 
 export default connect(

@@ -55,7 +55,7 @@ export const apiFetchAnalytics = async (current, options) => {
     return [new d2.analytics.response(rawResponse)];
 };
 
-export const apiFetchAnalyticsForYearOnYear = async (current, options) => {
+export const apiFetchAnalyticsForYearOverYear = async (current, options) => {
     const d2 = await getInstance();
 
     const yearlySeriesReq = new d2.analytics.request()
