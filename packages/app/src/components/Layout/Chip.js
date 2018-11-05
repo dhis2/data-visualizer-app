@@ -81,11 +81,11 @@ class Chip extends React.Component {
             this.props.items[axisIdObj[this.props.axisName]]
         ) {
             const axisIds = this.props.items[axisIdObj[this.props.axisName]];
-
             axisIds.forEach(id => {
                 if (
+                    this.props.metadata[id] &&
                     this.props.metadata[id].dimensionId ===
-                    this.props.dimensionId
+                        this.props.dimensionId
                 ) {
                     count++;
                 }

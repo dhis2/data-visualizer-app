@@ -45,8 +45,20 @@ export const organisationUnits = {
 
 // return {name: <string>} as value
 export default (function() {
-    return Object.entries({
-        ...relativePeriods,
-        ...organisationUnits,
-    }).reduce((obj, [key, value]) => ({ ...obj, [key]: { name: value } }), {});
+    return {
+        ...Object.entries(organisationUnits).reduce(
+            (obj, [key, value]) => ({
+                ...obj,
+                [key]: { name: value, dimensionId: 'ou' },
+            }),
+            {}
+        ),
+        ...Object.entries(relativePeriods).reduce(
+            (obj, [key, value]) => ({
+                ...obj,
+                [key]: { name: value, dimensionId: 'pe' },
+            }),
+            {}
+        ),
+    };
 })();
