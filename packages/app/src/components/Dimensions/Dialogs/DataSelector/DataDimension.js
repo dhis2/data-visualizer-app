@@ -17,7 +17,7 @@ import {
     apiFetchGroups,
     apiFetchAlternatives,
 } from '../../../../api/dimensions';
-import { sGetUiItems } from '../../../../reducers/ui';
+import { sGetUiItems, sGetUiLayout } from '../../../../reducers/ui';
 import { sGetDisplayNameProperty } from '../../../../reducers/settings';
 
 import { acRemoveUiItems, acAddUiItems } from '../../../../actions/ui';
@@ -72,7 +72,7 @@ export class DataDimension extends Component {
         const { selectedLayout } = this.props;
 
         const currentLayout = Object.values(selectedLayout);
-        const axisKey = currentLayout.findIndex(ids => ids.includes(peId));
+        const axisKey = currentLayout.findIndex(ids => ids.includes(dxId));
 
         const dimensionType = axisKey > -1 ? dimensionTypes[axisKey] : dxId;
 
@@ -185,8 +185,10 @@ export class DataDimension extends Component {
             'id'
         );
 
+        const dimensionType = this.getDimensionType();
+
         this.props.addDxItems({
-            dimensionType: dxId,
+            dimensionType,
             value: selectedIds,
         });
 
@@ -199,8 +201,10 @@ export class DataDimension extends Component {
         ];
         this.setState({ unselectedIds });
 
+        const dimensionType = this.getDimensionType();
+
         this.props.removeDxItems({
-            dimensionType: dxId,
+            dimensionType,
             value: ids,
         });
     };
@@ -270,6 +274,7 @@ DataDimension.defaultProps = {
 
 const mapStateToProps = state => ({
     selectedItems: sGetUiItems(state)[dxId],
+    selectedLayout: sGetUiLayout(state),
     displayNameProp: sGetDisplayNameProperty(state),
 });
 

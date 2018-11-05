@@ -166,6 +166,7 @@ export class OrgUnitDimension extends Component {
                     id: orgUnit.id,
                     name: orgUnit.name,
                     displayName: orgUnit.displayName,
+                    dimensionId: 'ou',
                 },
             });
 

@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-11-02T11:11:39.714Z\n"
-"PO-Revision-Date: 2018-11-02T11:11:39.714Z\n"
+"POT-Creation-Date: 2018-11-05T15:46:22.485Z\n"
+"PO-Revision-Date: 2018-11-05T15:46:22.485Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -41,12 +41,6 @@ msgstr ""
 msgid "Detail"
 msgstr ""
 
-msgid "Add to filter"
-msgstr ""
-
-msgid "Add to category"
-msgstr ""
-
 msgid "Organisation units"
 msgstr ""
 
@@ -59,13 +53,19 @@ msgstr ""
 msgid "Selected Data"
 msgstr ""
 
-msgid "DESELECT ALL"
-msgstr ""
-
 msgid "SELECT ALL"
 msgstr ""
 
+msgid "DESELECT ALL"
+msgstr ""
+
 msgid "Add to series"
+msgstr ""
+
+msgid "Add to category"
+msgstr ""
+
+msgid "Add to filter"
 msgstr ""
 
 msgid "Search Dimensions"
