@@ -54,7 +54,7 @@ export class App extends Component {
                 ...defaultMetadata,
                 [this.props.settings.rootOrganisationUnit.id]: {
                     ...this.props.settings.rootOrganisationUnit,
-                    dimensionId: 'ou',
+                    dimensionItemType: 'ORGANISATION_UNIT',
                     path: `/${this.props.settings.rootOrganisationUnit.id}`,
                 },
             })

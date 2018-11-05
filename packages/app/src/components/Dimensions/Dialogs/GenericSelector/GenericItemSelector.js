@@ -71,14 +71,12 @@ export class GenericItemSelector extends Component {
         this.setState({ unselectedIds });
 
         const itemsToAdd = keyBy(
-            this.state.items
-                .filter(di => selectedIds.includes(di.id))
-                .map(di => (di = { ...di, dimensionId: this.props.dialogId })),
+            this.state.items.filter(di => selectedIds.includes(di.id)),
             'id'
         );
 
         this.props.addItems({
-            dimensionType: this.state.dimensionType,
+            dimensionType: this.props.dialogId,
             value: selectedIds,
         });
 
@@ -112,10 +110,8 @@ export class GenericItemSelector extends Component {
     };
 
     render = () => {
-        const selectedIds = this.getSelectedIds();
-
         const unselectedItems = this.state.items.filter(
-            item => !selectedIds.includes(item.id)
+            item => !this.props.selectedItems.includes(item.id)
         );
 
         return (
@@ -136,7 +132,7 @@ export class GenericItemSelector extends Component {
                     </div>
                     <SelectedItems
                         className="generic-dimension"
-                        items={selectedIds}
+                        items={this.props.selectedItems}
                         onDeselect={this.deselectItemsByDimensions}
                     />
                 </DialogContent>
@@ -146,15 +142,15 @@ export class GenericItemSelector extends Component {
 }
 
 GenericItemSelector.propTypes = {
-    selectedItems: PropTypes.object.isRequired,
+    selectedItems: PropTypes.array.isRequired,
     addItems: PropTypes.func.isRequired,
     removeItems: PropTypes.func.isRequired,
     addMetadata: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, ownProps) => ({
     selectedLayout: sGetUiLayout(state),
-    selectedItems: sGetUiItems(state),
+    selectedItems: sGetUiItems(state)[ownProps.dialogId] || [],
 });
 
 export default connect(

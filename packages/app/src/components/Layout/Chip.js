@@ -14,12 +14,6 @@ import { sGetMetadata } from '../../reducers/metadata';
 
 const TOOLTIP_ENTER_DELAY = 500;
 
-const axisIdObj = {
-    columns: 'dx',
-    rows: 'pe',
-    filters: 'ou',
-};
-
 class Chip extends React.Component {
     state = {
         tooltipOpen: false,
@@ -74,34 +68,12 @@ class Chip extends React.Component {
         return <GenericDimensionIcon style={styles.genericDimensionIcon} />;
     };
 
-    getSelectedIdCount = () => {
-        let count = 0;
-        if (
-            this.props.items &&
-            this.props.items[axisIdObj[this.props.axisName]]
-        ) {
-            const axisIds = this.props.items[axisIdObj[this.props.axisName]];
-            axisIds.forEach(id => {
-                if (
-                    this.props.metadata[id] &&
-                    this.props.metadata[id].dimensionId ===
-                        this.props.dimensionId
-                ) {
-                    count++;
-                }
-            });
-        }
-        return count;
-    };
-
     renderChip = () => {
-        const itemsLabel = `: ${this.getSelectedIdCount()} ${i18n.t(
-            'selected'
-        )}`;
-
+        const itemsLabel = `: ${this.props.items.length} ${i18n.t('selected')}`;
         const chipLabel = `${this.props.dimensionName}${
-            this.getSelectedIdCount() > 0 ? itemsLabel : ''
+            this.props.items.length > 0 ? itemsLabel : ''
         }`;
+
         const anchorEl = document.getElementById(this.id);
 
         const icon = this.getIconByDimension();
@@ -147,7 +119,7 @@ class Chip extends React.Component {
 
 const mapStateToProps = (state, ownProps) => ({
     dimensionName: sGetDimensions(state)[ownProps.dimensionId].name,
-    items: sGetUiItems(state) || [],
+    items: sGetUiItems(state)[ownProps.dimensionId] || [],
     metadata: sGetMetadata(state),
 });
 

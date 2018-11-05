@@ -13,39 +13,21 @@ import { acRemoveUiItems, acAddUiItems } from '../../../../actions/ui';
 import { acAddMetadata } from '../../../../actions/metadata';
 import { FIXED_DIMENSIONS } from '../../../../modules/fixedDimensions';
 
-const dxId = FIXED_DIMENSIONS.dx.id;
 const peId = FIXED_DIMENSIONS.pe.id;
-const ouId = FIXED_DIMENSIONS.ou.id;
 
-const dimensionTypes = [dxId, peId, ouId];
+const PERIOD = 'PERIOD';
 
 export class PeriodDimension extends Component {
-    getDimensionType = () => {
-        const { selectedLayout } = this.props;
-
-        const currentLayout = Object.values(selectedLayout);
-        const axisKey = currentLayout.findIndex(ids => ids.includes(peId));
-
-        const dimensionType = axisKey > -1 ? dimensionTypes[axisKey] : peId;
-
-        return dimensionType;
-    };
-
     selectPeriodDimensions = periods => {
         const idsToAdd = periods.map(periodRange => periodRange.id);
-        const dimensionType = this.getDimensionType();
 
         this.props.addUiItems({
-            dimensionType,
+            dimensionType: peId,
             value: idsToAdd,
         });
 
         const arrToId = periods.reduce((obj, item) => {
-            obj[item.id] = {
-                ...item,
-                dimensionItemType: peId,
-                dimensionId: peId,
-            };
+            obj[item.id] = { ...item, dimensionItemType: PERIOD };
             return obj;
         }, {});
 
@@ -54,10 +36,9 @@ export class PeriodDimension extends Component {
 
     deselectPeriodDimensions = periods => {
         const idsToRemove = periods.map(periodRange => periodRange.id);
-        const dimensionType = this.getDimensionType();
 
         this.props.removeUiItems({
-            dimensionType,
+            dimensionType: peId,
             value: idsToRemove,
         });
     };

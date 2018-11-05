@@ -68,17 +68,6 @@ export class DataDimension extends Component {
         this.updateGroups();
     }
 
-    getDimensionType = () => {
-        const { selectedLayout } = this.props;
-
-        const currentLayout = Object.values(selectedLayout);
-        const axisKey = currentLayout.findIndex(ids => ids.includes(dxId));
-
-        const dimensionType = axisKey > -1 ? dimensionTypes[axisKey] : dxId;
-
-        return dimensionType;
-    };
-
     updateGroups = async () => {
         const dataType = this.state.dataType;
 
@@ -179,16 +168,12 @@ export class DataDimension extends Component {
         this.setState({ unselectedIds });
 
         const itemsToAdd = keyBy(
-            this.state.items
-                .filter(di => selectedIds.includes(di.id))
-                .map(di => (di = { ...di, dimensionId: dxId })),
+            this.state.items.filter(di => selectedIds.includes(di.id)),
             'id'
         );
 
-        const dimensionType = this.getDimensionType();
-
         this.props.addDxItems({
-            dimensionType,
+            dimensionType: dxId,
             value: selectedIds,
         });
 
@@ -201,10 +186,8 @@ export class DataDimension extends Component {
         ];
         this.setState({ unselectedIds });
 
-        const dimensionType = this.getDimensionType();
-
         this.props.removeDxItems({
-            dimensionType,
+            dimensionType: dxId,
             value: ids,
         });
     };

@@ -49,14 +49,14 @@ export default (function() {
         ...Object.entries(organisationUnits).reduce(
             (obj, [key, value]) => ({
                 ...obj,
-                [key]: { name: value, dimensionId: 'ou' },
+                [key]: { name: value, dimensionItemType: 'ORGANISATION_UNIT' },
             }),
             {}
         ),
         ...Object.entries(relativePeriods).reduce(
             (obj, [key, value]) => ({
                 ...obj,
-                [key]: { name: value, dimensionId: 'pe' },
+                [key]: { name: value, dimensionItemType: 'PERIOD' },
             }),
             {}
         ),
