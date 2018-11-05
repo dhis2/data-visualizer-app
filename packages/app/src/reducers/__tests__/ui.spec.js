@@ -16,6 +16,7 @@ import reducer, {
     CLEAR_UI,
     SET_UI_YEAR_ON_YEAR_SERIES,
     SET_UI_YEAR_ON_YEAR_CATEGORY,
+    TOGGLE_UI_RIGHT_SIDEBAR_OPEN,
 } from '../ui';
 import { AXIS_NAMES } from '../../modules/layout';
 import { BAR } from '../../modules/chartTypes';
@@ -414,5 +415,19 @@ describe('reducer: ui', () => {
         });
 
         expect(actualState.activeModalDialog).toEqual(dialog);
+    });
+
+    it(`${TOGGLE_UI_RIGHT_SIDEBAR_OPEN}: should toggle the state of the right sidebar`, () => {
+        let actualState = reducer(DEFAULT_UI, {
+            type: TOGGLE_UI_RIGHT_SIDEBAR_OPEN,
+        });
+
+        expect(actualState.rightSidebarOpen).toEqual(true);
+
+        actualState = reducer(actualState, {
+            type: TOGGLE_UI_RIGHT_SIDEBAR_OPEN,
+        });
+
+        expect(actualState.rightSidebarOpen).toEqual(false);
     });
 });
