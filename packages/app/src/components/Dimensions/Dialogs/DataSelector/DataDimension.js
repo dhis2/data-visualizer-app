@@ -36,7 +36,12 @@ import { styles } from './styles/DataDimension.styles';
 import '../styles/Dialog.css';
 
 const dxId = FIXED_DIMENSIONS.dx.id;
+const peId = FIXED_DIMENSIONS.pe.id;
+const ouId = FIXED_DIMENSIONS.ou.id;
+
 const FIRST_PAGE = 1;
+
+const dimensionTypes = [dxId, peId, ouId];
 
 export class DataDimension extends Component {
     //defaults
@@ -62,6 +67,17 @@ export class DataDimension extends Component {
     componentDidMount() {
         this.updateGroups();
     }
+
+    getDimensionType = () => {
+        const { selectedLayout } = this.props;
+
+        const currentLayout = Object.values(selectedLayout);
+        const axisKey = currentLayout.findIndex(ids => ids.includes(peId));
+
+        const dimensionType = axisKey > -1 ? dimensionTypes[axisKey] : dxId;
+
+        return dimensionType;
+    };
 
     updateGroups = async () => {
         const dataType = this.state.dataType;
@@ -163,7 +179,9 @@ export class DataDimension extends Component {
         this.setState({ unselectedIds });
 
         const itemsToAdd = keyBy(
-            this.state.items.filter(di => selectedIds.includes(di.id)),
+            this.state.items
+                .filter(di => selectedIds.includes(di.id))
+                .map(di => (di = { ...di, dimensionId: dxId })),
             'id'
         );
 
@@ -229,6 +247,7 @@ export class DataDimension extends Component {
                     <SelectedItems
                         className="data-dimension"
                         items={this.props.selectedItems}
+                        dialogId={dxId}
                         onDeselect={this.deselectDataDimensions}
                     />
                 </DialogContent>

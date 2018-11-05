@@ -7,25 +7,45 @@ import DialogContent from '@material-ui/core/DialogContent';
 import { PeriodSelector } from '@dhis2/d2-ui-period-selector-dialog';
 import i18n from '@dhis2/d2-i18n';
 
-import { sGetUi } from '../../../../reducers/ui';
+import { sGetUi, sGetUiLayout } from '../../../../reducers/ui';
 import { sGetMetadata } from '../../../../reducers/metadata';
 import { acRemoveUiItems, acAddUiItems } from '../../../../actions/ui';
 import { acAddMetadata } from '../../../../actions/metadata';
 import { FIXED_DIMENSIONS } from '../../../../modules/fixedDimensions';
 
+const dxId = FIXED_DIMENSIONS.dx.id;
 const peId = FIXED_DIMENSIONS.pe.id;
+const ouId = FIXED_DIMENSIONS.ou.id;
+
+const dimensionTypes = [dxId, peId, ouId];
 
 export class PeriodDimension extends Component {
+    getDimensionType = () => {
+        const { selectedLayout } = this.props;
+
+        const currentLayout = Object.values(selectedLayout);
+        const axisKey = currentLayout.findIndex(ids => ids.includes(peId));
+
+        const dimensionType = axisKey > -1 ? dimensionTypes[axisKey] : peId;
+
+        return dimensionType;
+    };
+
     selectPeriodDimensions = periods => {
         const idsToAdd = periods.map(periodRange => periodRange.id);
+        const dimensionType = this.getDimensionType();
 
         this.props.addUiItems({
-            dimensionType: peId,
+            dimensionType,
             value: idsToAdd,
         });
 
         const arrToId = periods.reduce((obj, item) => {
-            obj[item.id] = { ...item, dimensionItemType: peId };
+            obj[item.id] = {
+                ...item,
+                dimensionItemType: peId,
+                dimensionId: peId,
+            };
             return obj;
         }, {});
 
@@ -34,9 +54,10 @@ export class PeriodDimension extends Component {
 
     deselectPeriodDimensions = periods => {
         const idsToRemove = periods.map(periodRange => periodRange.id);
+        const dimensionType = this.getDimensionType();
 
         this.props.removeUiItems({
-            dimensionType: peId,
+            dimensionType,
             value: idsToRemove,
         });
     };
@@ -81,6 +102,7 @@ PeriodDimension.contextTypes = {
 
 const mapStateToProps = state => ({
     metadata: sGetMetadata(state),
+    selectedLayout: sGetUiLayout(state),
     ui: sGetUi(state),
 });
 

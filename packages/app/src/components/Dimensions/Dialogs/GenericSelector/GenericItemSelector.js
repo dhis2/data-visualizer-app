@@ -71,7 +71,9 @@ export class GenericItemSelector extends Component {
         this.setState({ unselectedIds });
 
         const itemsToAdd = keyBy(
-            this.state.items.filter(di => selectedIds.includes(di.id)),
+            this.state.items
+                .filter(di => selectedIds.includes(di.id))
+                .map(di => (di = { ...di, dimensionId: this.props.dialogId })),
             'id'
         );
 
@@ -98,7 +100,6 @@ export class GenericItemSelector extends Component {
     getSelectedIds = () => {
         const { selectedItems } = this.props;
         let selectedIds = [];
-
         if (selectedItems[this.state.dimensionType]) {
             selectedIds = this.state.items
                 .filter(item =>
