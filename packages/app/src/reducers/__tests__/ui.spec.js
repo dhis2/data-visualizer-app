@@ -18,7 +18,7 @@ import reducer, {
     SET_UI_YEAR_ON_YEAR_CATEGORY,
 } from '../ui';
 import { AXIS_NAMES } from '../../modules/layout';
-import { BAR, YEAR_OVER_YEAR_LINE } from '../../modules/chartTypes';
+import { BAR } from '../../modules/chartTypes';
 import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
 
 const [COLUMNS, ROWS, FILTERS] = AXIS_NAMES;
@@ -86,6 +86,12 @@ describe('reducer: ui', () => {
 
         expect(actualState).toEqual({
             ...DEFAULT_UI,
+            parentGraphMap: {
+                ...DEFAULT_UI.parentGraphMap,
+                [settings.rootOrganisationUnit.id]: `/${
+                    settings.rootOrganisationUnit.id
+                }`,
+            },
             itemsByDimension: {
                 ...DEFAULT_UI.itemsByDimension,
                 [ouId]: [settings.rootOrganisationUnit.id],
@@ -334,7 +340,7 @@ describe('reducer: ui', () => {
         });
     });
 
-    it(`${SET_UI_YEAR_ON_YEAR_SERIES}: should set new yearOnYearSeries`, () => {
+    it(`${SET_UI_YEAR_ON_YEAR_SERIES}: should set new yearOverYearSeries`, () => {
         const series = ['LAST_YEAR'];
 
         const actualState = reducer(DEFAULT_UI, {
@@ -344,13 +350,13 @@ describe('reducer: ui', () => {
 
         const expectedState = {
             ...DEFAULT_UI,
-            yearOnYearSeries: series,
+            yearOverYearSeries: series,
         };
 
         expect(actualState).toEqual(expectedState);
     });
 
-    it(`${SET_UI_YEAR_ON_YEAR_CATEGORY}: should set new yearOnYearCategory`, () => {
+    it(`${SET_UI_YEAR_ON_YEAR_CATEGORY}: should set new yearOverYearCategory`, () => {
         const category = ['LAST_3_MONTHS'];
 
         const actualState = reducer(DEFAULT_UI, {
@@ -360,7 +366,7 @@ describe('reducer: ui', () => {
 
         const expectedState = {
             ...DEFAULT_UI,
-            yearOnYearCategory: category,
+            yearOverYearCategory: category,
         };
 
         expect(actualState).toEqual(expectedState);

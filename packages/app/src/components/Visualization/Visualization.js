@@ -14,9 +14,12 @@ import {
 import { acSetChart } from '../../actions/chart';
 import {
     apiFetchAnalytics,
-    apiFetchAnalyticsForYearOnYear,
+    apiFetchAnalyticsForYearOverYear,
 } from '../../api/analytics';
-import { YEAR_OVER_YEAR_LINE } from '../../modules/chartTypes';
+import {
+    YEAR_OVER_YEAR_LINE,
+    YEAR_OVER_YEAR_COLUMN,
+} from '../../modules/chartTypes';
 
 export class Visualization extends Component {
     componentDidMount() {
@@ -53,13 +56,17 @@ export class Visualization extends Component {
             const extraOptions = {};
             let responses = [];
 
-            if (current.type === YEAR_OVER_YEAR_LINE) {
+            if (
+                [YEAR_OVER_YEAR_LINE, YEAR_OVER_YEAR_COLUMN].includes(
+                    current.type
+                )
+            ) {
                 let yearlySeriesLabels = [];
 
                 ({
                     responses,
                     yearlySeriesLabels,
-                } = await apiFetchAnalyticsForYearOnYear(
+                } = await apiFetchAnalyticsForYearOverYear(
                     current,
                     optionsForRequest
                 ));

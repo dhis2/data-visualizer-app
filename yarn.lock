@@ -3311,9 +3311,9 @@ cyclist@~0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
 
-d2-charts-api@31.0.2:
-  version "31.0.2"
-  resolved "https://registry.yarnpkg.com/d2-charts-api/-/d2-charts-api-31.0.2.tgz#1cc1eeb957273f7c169861d94eb93357f2f066fc"
+d2-charts-api@31.0.4:
+  version "31.0.4"
+  resolved "https://registry.yarnpkg.com/d2-charts-api/-/d2-charts-api-31.0.4.tgz#62ace2b8f2012a949b9107d49b497642efc91e45"
   dependencies:
     d2-utilizr "0.2.13"
     d3-color "1.0.1"
@@ -10461,7 +10461,7 @@ uglifyjs-webpack-plugin@^0.4.6:
 
 "ui@github:d2-ci/ui":
   version "1.0.0-beta.5"
-  resolved "https://codeload.github.com/d2-ci/ui/tar.gz/6c364c1743c373022d6b39db4dd58fbb2f17ebd5"
+  resolved "https://codeload.github.com/d2-ci/ui/tar.gz/51f94a7fa2950ab83a863e0d266a04d5a3a2079b"
   dependencies:
     "@babel/polyfill" "^7.0.0"
     classnames "^2.2.6"

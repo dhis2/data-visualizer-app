@@ -3,18 +3,18 @@ import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
 
 import {
-    sGetUiYearOnYearSeries,
-    sGetUiYearOnYearCategory,
+    sGetUiYearOverYearSeries,
+    sGetUiYearOverYearCategory,
 } from '../../../reducers/ui';
 import defaultAxisStyles from '../DefaultLayout/styles/DefaultAxis.style';
-import YearOnYearAxisStyles from './styles/YearOnYearAxis.style';
+import YearOverYearAxisStyles from './styles/YearOverYearAxis.style';
 
 const axisLabels = {
-    yearOnYearSeries: i18n.t('Series'),
-    yearOnYearCategory: i18n.t('Category'),
+    yearOverYearSeries: i18n.t('Series'),
+    yearOverYearCategory: i18n.t('Category'),
 };
 
-const YearOnYearAxis = props => (
+const YearOverYearAxis = props => (
     <div
         id={props.axisName}
         style={{ ...defaultAxisStyles.axisContainer, ...props.style }}
@@ -26,7 +26,7 @@ const YearOnYearAxis = props => (
             className="content"
             style={{
                 ...defaultAxisStyles.content,
-                ...YearOnYearAxisStyles.content,
+                ...YearOverYearAxisStyles.content,
             }}
         >
             {props.children}
@@ -35,8 +35,8 @@ const YearOnYearAxis = props => (
 );
 
 const mapStateToProps = state => ({
-    yearOnYearSeries: sGetUiYearOnYearSeries(state),
-    yearOnYearCategory: sGetUiYearOnYearCategory(state),
+    yearOverYearSeries: sGetUiYearOverYearSeries(state),
+    yearOverYearCategory: sGetUiYearOverYearCategory(state),
 });
 
-export default connect(mapStateToProps)(YearOnYearAxis);
+export default connect(mapStateToProps)(YearOverYearAxis);

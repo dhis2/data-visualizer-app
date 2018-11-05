@@ -1,7 +1,5 @@
 export default {
     dialogContent: {
-        fontFamily: '"Roboto", sans-serif',
-        display: 'block',
         width: 760,
     },
     loader: {
