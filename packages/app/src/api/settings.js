@@ -1,6 +1,6 @@
 import { getInstance } from 'd2';
 import { onError } from './index';
-import { SYSTEM_SETTINGS } from '../settings';
+import { SYSTEM_SETTINGS } from '../modules/settings';
 
 export const apiFetchSystemSettings = () => {
     const endPoint = '/systemSettings';
@@ -13,6 +13,7 @@ export const apiFetchSystemSettings = () => {
 
 export const apiFetchUserSettings = () => {
     // "key" params not supported in the backend yet
+    // update: now it is, should be used here
     const endPoint = '/userSettings';
 
     return getInstance()

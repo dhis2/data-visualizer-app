@@ -1,4 +1,18 @@
 import { getInstance } from 'd2';
+import { onError } from './index';
+
+export const apiFetchOrganisationUnitRoot = () => {
+    const endPoint = '/organisationUnits';
+    const fields = ['id', 'displayName', 'name'];
+    const url = `${endPoint}?paging=false&userDataViewFallback=true&fields=${fields.join(
+        ','
+    )}`;
+
+    return getInstance()
+        .then(d2 => d2.Api.getApi().get(url))
+        .then(({ organisationUnits }) => organisationUnits[0])
+        .catch(onError);
+};
 
 /**
  * Fetch organisation units
@@ -16,12 +30,17 @@ export const apiFetchOrganisationUnits = () => {
 
 /**
  * Fetch organisation unit groups
- * @returns {self|Promise<D2 | never>}
+ * @returns {*}
  */
 export const apiFetchOrganisationUnitGroups = () => {
-    return getInstance().then(d2 =>
-        d2.models.organisationUnitGroups.list({ paging: false })
-    );
+    const endPoint = '/organisationUnitGroups';
+    const fields = ['id', 'displayName', 'name'];
+    const url = `${endPoint}?paging=false&fields=${fields.join(',')}`;
+
+    return getInstance()
+        .then(d2 => d2.Api.getApi().get(url))
+        .then(({ organisationUnitGroups }) => organisationUnitGroups)
+        .catch(onError);
 };
 
 /**
@@ -29,7 +48,12 @@ export const apiFetchOrganisationUnitGroups = () => {
  * @returns {*}
  */
 export const apiFetchOrganisationUnitLevels = () => {
-    return getInstance().then(d2 =>
-        d2.models.organisationUnitLevels.list({ paging: false })
-    );
+    const endPoint = '/organisationUnitLevels';
+    const fields = ['id', 'displayName', 'name', 'level'];
+    const url = `${endPoint}?paging=false&fields=${fields.join(',')}`;
+
+    return getInstance()
+        .then(d2 => d2.Api.getApi().get(url))
+        .then(({ organisationUnitLevels }) => organisationUnitLevels)
+        .catch(onError);
 };

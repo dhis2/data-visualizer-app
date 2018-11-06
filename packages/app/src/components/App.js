@@ -1,11 +1,14 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Snackbar from '@material-ui/core/Snackbar';
 import i18n from '@dhis2/d2-i18n';
+import UI from 'ui/core/UI';
+import HeaderBar from 'ui/widgets/HeaderBar';
 
 import SnackbarMessage from '../widgets/SnackbarMessage';
 import MenuBar from './MenuBar/MenuBar';
+import TitleBar from './TitleBar/TitleBar';
 import VisualizationTypeSelector from './VisualizationTypeSelector/VisualizationTypeSelector';
 import Dimensions from './Dimensions/Dimensions';
 import Visualization from './Visualization/Visualization';
@@ -13,8 +16,8 @@ import BlankCanvas from './Visualization/BlankCanvas';
 import Layout from './Layout/Layout';
 import * as fromReducers from '../reducers';
 import * as fromActions from '../actions';
-import history from '../history';
-import defaultMetadata from '../metadata';
+import history from '../modules/history';
+import defaultMetadata from '../modules/metadata';
 
 import './App.css';
 import { sGetUi } from '../reducers/ui';
@@ -29,11 +32,12 @@ export class App extends Component {
             store.dispatch(
                 fromActions.tDoLoadVisualization(
                     this.props.apiObjectName,
-                    location.pathname.slice(1)
+                    location.pathname.slice(1),
+                    this.props.settings
                 )
             );
         } else {
-            fromActions.clearVisualization(store.dispatch);
+            fromActions.clearVisualization(store.dispatch, this.props.settings);
         }
     };
 
@@ -46,7 +50,13 @@ export class App extends Component {
         );
         store.dispatch(fromActions.fromUser.acReceivedUser(d2.currentUser));
         store.dispatch(fromActions.fromDimensions.tSetDimensions());
-        store.dispatch(fromActions.fromMetadata.acAddMetadata(defaultMetadata));
+        store.dispatch(
+            fromActions.fromMetadata.acAddMetadata({
+                ...defaultMetadata,
+                [this.props.settings.rootOrganisationUnit.id]: this.props
+                    .settings.rootOrganisationUnit,
+            })
+        );
 
         this.loadVisualization(this.props.location);
 
@@ -95,9 +105,9 @@ export class App extends Component {
             this.props.current && Object.keys(this.props.current).length > 0;
 
         return (
-            <Fragment>
+            <UI>
+                <HeaderBar appName={i18n.t('Data Visualizer')} />
                 <div className="app">
-                    <div className="item1 headerbar">Headerbar</div>
                     <div className="item2 visualization-type-selector">
                         <VisualizationTypeSelector />
                     </div>
@@ -113,16 +123,13 @@ export class App extends Component {
                     <div className="item6 interpretations">
                         Interpretations panel
                     </div>
-                    <div className="item7 canvas">
-                        {hasCurrent ? (
-                            <Visualization d2={this.props.d2} />
-                        ) : (
-                            <BlankCanvas />
-                        )}
+                    <div className="item8 canvas">
+                        <TitleBar />
+                        {hasCurrent ? <Visualization /> : <BlankCanvas />}
                     </div>
                 </div>
                 {this.renderSnackbar()}
-            </Fragment>
+            </UI>
         );
     }
 }
@@ -135,6 +142,7 @@ const mapStateToProps = state => {
         snackbarOpen: open,
         snackbarMessage: message,
         snackbarDuration: duration,
+        settings: fromReducers.fromSettings.sGetSettings(state),
         current: fromReducers.fromCurrent.sGetCurrent(state),
         ui: sGetUi(state),
     };
@@ -142,7 +150,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
     onKeyUp: ui => dispatch(fromActions.fromCurrent.acSetCurrentFromUi(ui)),
-    onCloseSnackbar: fromActions.fromSnackbar.acCloseSnackbar,
+    onCloseSnackbar: () => dispatch(fromActions.fromSnackbar.acCloseSnackbar()),
 });
 
 App.contextTypes = {

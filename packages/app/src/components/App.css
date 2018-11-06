@@ -20,6 +20,7 @@ body {
 }
 .chart-layout {
     grid-area: chartlayout;
+    display: flex;
 }
 .interpretations {
     grid-area: interpretations;
@@ -35,16 +36,15 @@ body {
 
 .app {
     display: grid;
-    font-family: 'roboto';
-    background-color: #aaa;
     grid-gap: 1px;
     grid-template-columns: 262px auto 160px;
-    grid-template-rows: 48px 40px 94px auto;
+    grid-template-rows: 0 40px 94px auto;
     grid-template-areas:
         'headerbar headerbar headerbar'
         'charttype menubar menubar'
         'dimensions chartlayout interpretations'
         'dimensions canvas interpretations';
+    background-color: #aaa;
 }
 .app > div {
     background-color: #f4f6f8;
@@ -52,7 +52,7 @@ body {
 
 /* width */
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
 }
 
 /* Track */
@@ -62,10 +62,11 @@ body {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #aaa;
+    background: #ccc;
+    border-radius: 3px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #888;
+    background: #aaa;
 }

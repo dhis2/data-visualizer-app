@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-10-26T11:11:42.270Z\n"
-"PO-Revision-Date: 2018-10-26T11:11:42.270Z\n"
+"POT-Creation-Date: 2018-11-05T23:53:37.275Z\n"
+"PO-Revision-Date: 2018-11-05T23:53:37.275Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -27,6 +27,9 @@ msgid "Actual reporting rates on time"
 msgstr ""
 
 msgid "Expected reports"
+msgstr ""
+
+msgid "Data Visualizer"
 msgstr ""
 
 msgid "Data"
@@ -56,48 +59,6 @@ msgstr ""
 msgid "UPDATE"
 msgstr ""
 
-msgid "Indicators"
-msgstr ""
-
-msgid "Select indicator group"
-msgstr ""
-
-msgid "[ All groups ]"
-msgstr ""
-
-msgid "Data elements"
-msgstr ""
-
-msgid "Select data element group"
-msgstr ""
-
-msgid "[ All data elements ]"
-msgstr ""
-
-msgid "Totals"
-msgstr ""
-
-msgid "Details"
-msgstr ""
-
-msgid "Data sets"
-msgstr ""
-
-msgid "Select data sets"
-msgstr ""
-
-msgid "[ All metrics ]"
-msgstr ""
-
-msgid "Event data items"
-msgstr ""
-
-msgid "Select program"
-msgstr ""
-
-msgid "Program indicators"
-msgstr ""
-
 msgid "Add to series"
 msgstr ""
 
@@ -111,6 +72,12 @@ msgid "Search Dimensions"
 msgstr ""
 
 msgid "Organisation units"
+msgstr ""
+
+msgid "Hide"
+msgstr ""
+
+msgid "Update"
 msgstr ""
 
 msgid "Period"
@@ -167,7 +134,10 @@ msgstr ""
 msgid "None selected"
 msgstr ""
 
-msgid "Update"
+msgid "Chart error"
+msgstr ""
+
+msgid "Could not generate chart"
 msgstr ""
 
 msgid "Aggregation type"
@@ -320,9 +290,6 @@ msgstr ""
 msgid "Chart options"
 msgstr ""
 
-msgid "Hide"
-msgstr ""
-
 msgid "Column"
 msgstr ""
 
@@ -350,10 +317,52 @@ msgstr ""
 msgid "Gauge"
 msgstr ""
 
-msgid "Bubble"
+msgid "Year over year (line)"
 msgstr ""
 
-msgid "Year on year"
+msgid "Year over year (column)"
+msgstr ""
+
+msgid "Indicators"
+msgstr ""
+
+msgid "Select indicator group"
+msgstr ""
+
+msgid "[ All groups ]"
+msgstr ""
+
+msgid "Data elements"
+msgstr ""
+
+msgid "Select data element group"
+msgstr ""
+
+msgid "[ All data elements ]"
+msgstr ""
+
+msgid "Totals"
+msgstr ""
+
+msgid "Details"
+msgstr ""
+
+msgid "Data sets"
+msgstr ""
+
+msgid "Select data sets"
+msgstr ""
+
+msgid "[ All metrics ]"
+msgstr ""
+
+msgid "Event data items"
+msgstr ""
+
+msgid "Select program"
+msgstr ""
+
+msgid "Program indicators"
 msgstr ""
 
 msgid "Organisation Unit"
@@ -468,4 +477,16 @@ msgid "User org unit children"
 msgstr ""
 
 msgid "User org unit grand children"
+msgstr ""
+
+msgid "Weeks per year"
+msgstr ""
+
+msgid "Months per year"
+msgstr ""
+
+msgid "Bimonths per year"
+msgstr ""
+
+msgid "Quarters per year"
 msgstr ""

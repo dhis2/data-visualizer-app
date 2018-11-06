@@ -2,7 +2,7 @@ export const SET_RECOMMENDED_IDS = 'SET_RECOMMENDED_IDS';
 export const SET_PREVIOUS_REQUESTED_IDS = 'SET_PREVIOUS_REQUESTED_IDS';
 
 const getDimensionIds = array =>
-    array.length ? array.map(obj => obj.id) : array;
+    Array.isArray(array) && array.length ? array.map(obj => obj.id) : [];
 
 export const DEFAULT_RECOMMENDED_IDS = {
     fetchedIds: [],

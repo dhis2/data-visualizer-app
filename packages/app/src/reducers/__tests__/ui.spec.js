@@ -14,33 +14,38 @@ import reducer, {
     ADD_UI_PARENT_GRAPH_MAP,
     SET_UI_ACTIVE_MODAL_DIALOG,
     CLEAR_UI,
+    SET_UI_YEAR_ON_YEAR_SERIES,
+    SET_UI_YEAR_ON_YEAR_CATEGORY,
 } from '../ui';
-import { AXIS_NAMES } from '../../layout';
+import { AXIS_NAMES } from '../../modules/layout';
+import { BAR } from '../../modules/chartTypes';
+import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
 
 const [COLUMNS, ROWS, FILTERS] = AXIS_NAMES;
 
-const dxId = 'dx';
+const dxId = FIXED_DIMENSIONS.dx.id;
+const peId = FIXED_DIMENSIONS.pe.id;
+const ouId = FIXED_DIMENSIONS.ou.id;
+
 const dxItem1Id = 'dxItem1';
 const dx = {
     dimension: dxId,
     items: [{ id: dxItem1Id }],
 };
 
-const peId = 'pe';
 const peItem1Id = 'peItem1';
 const pe = {
     dimension: peId,
     items: [{ id: peItem1Id }],
 };
 
-const ouId = 'ou';
 const ouItem1Id = 'ouItem1';
 const ou = {
     dimension: ouId,
     items: [{ id: ouItem1Id }],
 };
 
-const type = 'bar';
+const type = BAR;
 const aggregationType = 'SUM';
 
 const visualization = {
@@ -69,13 +74,35 @@ describe('reducer: ui', () => {
     });
 
     it('CLEAR_UI should set the default state', () => {
-        const actualState = reducer({ currentVal: 123 }, { type: CLEAR_UI });
+        const settings = {
+            rootOrganisationUnit: { id: 'ROOT_ORGUNIT' },
+            keyAnalysisRelativePeriod: 'LAST_12_MONTHS',
+        };
 
-        expect(actualState).toEqual(DEFAULT_UI);
+        const actualState = reducer(
+            { currentVal: 123 },
+            { type: CLEAR_UI, value: settings }
+        );
+
+        expect(actualState).toEqual({
+            ...DEFAULT_UI,
+            parentGraphMap: {
+                ...DEFAULT_UI.parentGraphMap,
+                [settings.rootOrganisationUnit.id]: `/${
+                    settings.rootOrganisationUnit.id
+                }`,
+            },
+            itemsByDimension: {
+                ...DEFAULT_UI.itemsByDimension,
+                [ouId]: [settings.rootOrganisationUnit.id],
+                [peId]: [settings.keyAnalysisRelativePeriod],
+            },
+        });
     });
 
-    it(`${SET_UI_FROM_VISUALIZATION}: should set the new based on a visualization`, () => {
+    it(`${SET_UI_FROM_VISUALIZATION}: should set the new ui based on a visualization`, () => {
         const expectedState = {
+            ...DEFAULT_UI,
             type,
             options: { ...DEFAULT_UI.options, aggregationType },
             layout: { [COLUMNS]: [dxId], [ROWS]: [peId], [FILTERS]: [ouId] },
@@ -138,24 +165,24 @@ describe('reducer: ui', () => {
     it(`${ADD_UI_LAYOUT_DIMENSIONS}: should add layout dimensions`, () => {
         const state = {
             layout: {
-                columns: ['dx'],
-                rows: ['pe'],
-                filters: ['ou'],
+                columns: [dxId],
+                rows: [peId],
+                filters: [ouId],
             },
         };
 
         const actualState = reducer(state, {
             type: ADD_UI_LAYOUT_DIMENSIONS,
             value: {
-                dx: 'rows',
+                [dxId]: 'rows',
             },
         });
 
         const expectedState = {
             layout: {
-                columns: ['pe'],
-                rows: ['dx'],
-                filters: ['ou'],
+                columns: [peId],
+                rows: [dxId],
+                filters: [ouId],
             },
         };
 
@@ -165,22 +192,22 @@ describe('reducer: ui', () => {
     it(`${REMOVE_UI_LAYOUT_DIMENSIONS}: should remove a single dimension`, () => {
         const state = {
             layout: {
-                columns: ['dx'],
-                rows: ['pe'],
-                filters: ['ou'],
+                columns: [dxId],
+                rows: [peId],
+                filters: [ouId],
             },
         };
 
         const actualState = reducer(state, {
             type: REMOVE_UI_LAYOUT_DIMENSIONS,
-            value: 'pe',
+            value: peId,
         });
 
         const expectedState = {
             layout: {
-                columns: ['dx'],
+                columns: [dxId],
                 rows: [],
-                filters: ['ou'],
+                filters: [ouId],
             },
         };
 
@@ -190,20 +217,20 @@ describe('reducer: ui', () => {
     it(`${REMOVE_UI_LAYOUT_DIMENSIONS}: should remove muliple dimensions`, () => {
         const state = {
             layout: {
-                columns: ['dx'],
-                rows: ['pe'],
-                filters: ['ou'],
+                columns: [dxId],
+                rows: [peId],
+                filters: [ouId],
             },
         };
 
         const actualState = reducer(state, {
             type: REMOVE_UI_LAYOUT_DIMENSIONS,
-            value: ['pe', 'ou'],
+            value: [peId, ouId],
         });
 
         const expectedState = {
             layout: {
-                columns: ['dx'],
+                columns: [dxId],
                 rows: [],
                 filters: [],
             },
@@ -215,8 +242,8 @@ describe('reducer: ui', () => {
     describe('itemByDimension', () => {
         it(`${SET_UI_ITEMS}: sets items by dimension`, () => {
             const newItemsByDimension = {
-                dx: 'abc',
-                pe: 'def',
+                [dxId]: 'abc',
+                [peId]: 'def',
             };
             const expectedState = {
                 ...DEFAULT_UI,
@@ -234,7 +261,7 @@ describe('reducer: ui', () => {
             const dx = ['abc'];
 
             const value = {
-                dimensionType: 'dx',
+                dimensionType: dxId,
                 value: dx,
             };
             const expectedState = dx;
@@ -243,21 +270,21 @@ describe('reducer: ui', () => {
                 value,
             });
 
-            expect(actualState.itemsByDimension.dx).toEqual(expectedState);
+            expect(actualState.itemsByDimension[dxId]).toEqual(expectedState);
         });
 
         it(`${ADD_UI_ITEMS}: adds several items to dx`, () => {
             const dx1 = 'abc';
             const dx2 = 'def';
 
-            const value = { dimensionType: 'dx', value: [dx1, dx2] };
+            const value = { dimensionType: dxId, value: [dx1, dx2] };
             const expectedState = [dx1, dx2];
             const actualState = reducer(DEFAULT_UI, {
                 type: ADD_UI_ITEMS,
                 value,
             });
 
-            expect(actualState.itemsByDimension.dx).toEqual(expectedState);
+            expect(actualState.itemsByDimension[dxId]).toEqual(expectedState);
         });
 
         it(`${ADD_UI_ITEMS}: adds pre-existing items to dx`, () => {
@@ -267,7 +294,7 @@ describe('reducer: ui', () => {
             const defaultIBD = Object.assign(
                 {},
                 { ...DEFAULT_UI.itemsByDimension },
-                { dx: [dx1] }
+                { [dxId]: [dx1] }
             );
 
             const startingState = Object.assign(
@@ -276,14 +303,14 @@ describe('reducer: ui', () => {
                 { itemsByDimension: defaultIBD }
             );
 
-            const value = { dimensionType: 'dx', value: [dx1, dx2] };
+            const value = { dimensionType: dxId, value: [dx1, dx2] };
             const expectedState = [dx1, dx2];
             const actualState = reducer(startingState, {
                 type: ADD_UI_ITEMS,
                 value,
             });
 
-            expect(actualState.itemsByDimension.dx).toEqual(expectedState);
+            expect(actualState.itemsByDimension[dxId]).toEqual(expectedState);
         });
 
         it(`${REMOVE_UI_ITEMS}: removes items from dx`, () => {
@@ -293,7 +320,7 @@ describe('reducer: ui', () => {
             const defaultIBD = Object.assign(
                 {},
                 { ...DEFAULT_UI.itemsByDimension },
-                { dx: [dx1, dx2] }
+                { [dxId]: [dx1, dx2] }
             );
 
             const startingState = Object.assign(
@@ -302,16 +329,49 @@ describe('reducer: ui', () => {
                 { itemsByDimension: defaultIBD }
             );
 
-            const value = { dimensionType: 'dx', value: [dx1] };
+            const value = { dimensionType: dxId, value: [dx1] };
             const expectedState = [dx2];
             const actualState = reducer(startingState, {
                 type: REMOVE_UI_ITEMS,
                 value,
             });
 
-            expect(actualState.itemsByDimension.dx).toEqual(expectedState);
+            expect(actualState.itemsByDimension[dxId]).toEqual(expectedState);
         });
     });
+
+    it(`${SET_UI_YEAR_ON_YEAR_SERIES}: should set new yearOverYearSeries`, () => {
+        const series = ['LAST_YEAR'];
+
+        const actualState = reducer(DEFAULT_UI, {
+            type: SET_UI_YEAR_ON_YEAR_SERIES,
+            value: series,
+        });
+
+        const expectedState = {
+            ...DEFAULT_UI,
+            yearOverYearSeries: series,
+        };
+
+        expect(actualState).toEqual(expectedState);
+    });
+
+    it(`${SET_UI_YEAR_ON_YEAR_CATEGORY}: should set new yearOverYearCategory`, () => {
+        const category = ['LAST_3_MONTHS'];
+
+        const actualState = reducer(DEFAULT_UI, {
+            type: SET_UI_YEAR_ON_YEAR_CATEGORY,
+            value: category,
+        });
+
+        const expectedState = {
+            ...DEFAULT_UI,
+            yearOverYearCategory: category,
+        };
+
+        expect(actualState).toEqual(expectedState);
+    });
+
     it(`${SET_UI_PARENT_GRAPH_MAP}: should set the new parent graph map`, () => {
         const graphMapToSet = {
             abc: 'Silly district',

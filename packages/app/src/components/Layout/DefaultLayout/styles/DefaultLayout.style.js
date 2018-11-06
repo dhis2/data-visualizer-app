@@ -8,6 +8,7 @@ export const DIMENSION_AXIS_WIDTH = `${100 - parseInt(FILTER_AXIS_WIDTH, 10)}%`;
 export default {
     ct: {
         display: 'flex',
+        flex: 1,
     },
     axisGroup: {
         display: 'flex',

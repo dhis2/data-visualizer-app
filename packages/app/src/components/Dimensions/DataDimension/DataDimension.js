@@ -1,62 +1,41 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import DialogTitle from '@material-ui/core/DialogTitle';
+import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import i18n from '@dhis2/d2-i18n';
 import debounce from 'lodash-es/debounce';
+import keyBy from 'lodash-es/keyBy';
 
 import DataTypes from './DataTypesSelector';
 import Groups from './Groups';
 import SearchField from './SearchField';
 import UnselectedItems from './UnselectedItems';
 import SelectedItems from './SelectedItems';
+import { HideButton, UpdateButton } from './buttons';
 
 import { apiFetchGroups, apiFetchAlternatives } from '../../../api/dimensions';
 import { sGetUiItems, sGetUi } from '../../../reducers/ui';
 import { sGetDisplayNameProperty } from '../../../reducers/settings';
 
+import { acSetCurrentFromUi } from '../../../actions/current';
 import { acRemoveUiItems, acAddUiItems } from '../../../actions/ui';
 import { acAddMetadata } from '../../../actions/metadata';
-import { colors } from '../../../colors';
-import { DEFAULT_DATATYPE_ID, ALL_ID, dataTypes } from './dataTypes';
-import { arrayToIdMap } from '../../../util';
+import { tSetRecommendedIds } from '../../../actions/recommendedIds';
 
-import './DataDimension.css';
+import {
+    DEFAULT_DATATYPE_ID,
+    ALL_ID,
+    dataTypes,
+    defaultGroupId,
+    defaultGroupDetail,
+} from '../../../modules/dataTypes';
+import { FIXED_DIMENSIONS } from '../../../modules/fixedDimensions';
 
-const style = {
-    container: {
-        maxHeight: 677,
-        maxWidth: 795,
-        overflow: 'hidden',
-    },
-    dialogContent: {
-        paddingBottom: 0,
-        paddingTop: 0,
-        overflow: 'hidden',
-    },
-    dialogTitle: {
-        fontFamily: 'Roboto',
-        color: colors.black,
-        height: 24,
-        fontSize: 16,
-        fontWeight: 500,
-    },
-    subContainer: {
-        height: 536,
-        display: 'flex',
-    },
-    dialogActions: {
-        borderTop: `1px solid ${colors.blueGrey}`,
-        margin: 0,
-        paddingTop: 0,
-        paddingBottom: 0,
-        height: 84,
-        paddingRight: 24,
-    },
-};
+import { styles } from './styles/DataDimension.style';
+import './styles/DataDimension.css';
 
-const DX = 'dx';
+const dxId = FIXED_DIMENSIONS.dx.id;
 const FIRST_PAGE = 1;
 
 export class DataDimension extends Component {
@@ -74,16 +53,19 @@ export class DataDimension extends Component {
         groupId: ALL_ID,
         groupDetail: '',
         filterText: '',
-        dimensionItems: [],
+        items: [],
         nextPage: null,
         unselectedIds: [],
+        filter: {},
     };
 
-    componentDidMount = () => {
-        this.updateGroups(this.state.dataType, this.updateAlternatives);
-    };
+    componentDidMount() {
+        this.updateGroups();
+    }
 
-    updateGroups = async (dataType, cb) => {
+    updateGroups = async () => {
+        const dataType = this.state.dataType;
+
         if (!this.state.groups[dataType].length) {
             const dataTypeGroups = await apiFetchGroups(
                 dataType,
@@ -93,31 +75,53 @@ export class DataDimension extends Component {
             const groups = Object.assign({}, this.state.groups, {
                 [dataType]: dataTypeGroups,
             });
-            this.setState({ groups }, cb);
+            this.setState({ groups }, this.updateAlternatives);
+        } else {
+            this.updateAlternatives();
         }
     };
 
     onDataTypeChange = dataType => {
-        const updateCb = () => {
-            this.updateGroups(this.state.dataType, this.updateAlternatives);
-        };
+        if (dataType !== this.state.dataType) {
+            const filter = Object.assign({}, this.state.filter, {
+                [this.state.dataType]: {
+                    groupId: this.state.groupId,
+                    groupDetail: this.state.groupDetail,
+                },
+            });
 
-        const groupId = dataTypes[dataType].defaultGroup
-            ? dataTypes[dataType].defaultGroup.id
-            : '';
+            const currentFilter = this.state.filter[dataType] || {};
+            const groupId = currentFilter.groupId || defaultGroupId(dataType);
+            const groupDetail =
+                currentFilter.groupDetail || defaultGroupDetail(dataType);
 
-        let groupDetail = '';
-        if (dataTypes[dataType].groupDetail) {
-            groupDetail = dataTypes[dataType].groupDetail.default;
+            this.setState(
+                { filter, dataType, groupId, groupDetail, filterText: '' },
+                this.updateGroups
+            );
         }
-
-        this.setState({ dataType, groupId, groupDetail }, updateCb);
     };
 
     requestMoreItems = () => {
         if (this.state.nextPage) {
             this.updateAlternatives(this.state.nextPage, true);
         }
+    };
+
+    onUpdateClick = () => {
+        const {
+            onUpdate,
+            ui,
+            toggleDialog,
+            fetchRecommendedIds,
+            selectedItems,
+        } = this.props;
+
+        if (selectedItems.dx.length || selectedItems.ou.length)
+            fetchRecommendedIds({ dx: selectedItems.dx, ou: selectedItems.ou });
+
+        onUpdate(ui);
+        toggleDialog(null);
     };
 
     updateAlternatives = async (page = FIRST_PAGE, concatItems = false) => {
@@ -136,21 +140,17 @@ export class DataDimension extends Component {
             dimensionItems = augmentFn(dimensionItems, groupId);
         }
 
-        const newDimensionItems = concatItems
-            ? this.state.dimensionItems.concat(dimensionItems)
+        const items = concatItems
+            ? this.state.items.concat(dimensionItems)
             : dimensionItems;
 
-        const selectedIds = this.props.selectedItems[DX];
+        const selectedIds = this.props.selectedItems[dxId] || [];
 
-        const unselectedIds = newDimensionItems
+        const unselectedIds = items
             .filter(i => !selectedIds.includes(i.id))
             .map(i => i.id);
 
-        this.setState({
-            dimensionItems: newDimensionItems,
-            unselectedIds,
-            nextPage,
-        });
+        this.setState({ items, unselectedIds, nextPage });
     };
 
     onGroupChange = async groupId => {
@@ -178,11 +178,13 @@ export class DataDimension extends Component {
         );
         this.setState({ unselectedIds });
 
-        const itemsToAdd = arrayToIdMap(
-            this.state.dimensionItems.filter(di => selectedIds.includes(di.id))
+        const itemsToAdd = keyBy(
+            this.state.items.filter(di => selectedIds.includes(di.id)),
+            'id'
         );
+
         this.props.addDxItems({
-            dimensionType: DX,
+            dimensionType: dxId,
             value: selectedIds,
         });
 
@@ -196,28 +198,27 @@ export class DataDimension extends Component {
         this.setState({ unselectedIds });
 
         this.props.removeDxItems({
-            dimensionType: DX,
+            dimensionType: dxId,
             value: ids,
         });
     };
 
     render = () => {
-        const unselected = this.state.dimensionItems.filter(di =>
+        const unselected = this.state.items.filter(di =>
             this.state.unselectedIds.includes(di.id)
         );
+        const selectedItems = this.props.selectedItems[dxId] || [];
         const groups = this.state.groups[this.state.dataType];
 
-        if (!groups) {
+        if (!groups.length) {
             return <div />;
         }
 
         return (
-            <Fragment>
-                <DialogTitle style={style.dialogTitle}>
-                    {i18n.t('Data')}
-                </DialogTitle>
-                <DialogContent style={style.dialogContent}>
-                    <div style={style.subContainer}>
+            <div style={styles.container}>
+                <DialogContent style={styles.dialogContent}>
+                    <h3 style={styles.dialogTitle}>{i18n.t('Data')}</h3>
+                    <div style={styles.subContainer}>
                         <div style={{ paddingRight: 46 }}>
                             <DataTypes
                                 currentDataType={this.state.dataType}
@@ -243,22 +244,33 @@ export class DataDimension extends Component {
                             />
                         </div>
                         <SelectedItems
-                            items={this.props.selectedItems.dx}
+                            items={selectedItems}
                             onDeselect={this.deselectDataDimensions}
                         />
                     </div>
                 </DialogContent>
-            </Fragment>
+                <DialogActions style={styles.dialogActions}>
+                    <HideButton action={() => this.props.toggleDialog(null)} />
+                    <UpdateButton action={this.onUpdateClick} />
+                </DialogActions>
+            </div>
         );
     };
 }
 
 DataDimension.propTypes = {
+    toggleDialog: PropTypes.func.isRequired,
+    displayNameProp: PropTypes.string.isRequired,
+    selectedItems: PropTypes.object,
     ui: PropTypes.object.isRequired,
     addDxItems: PropTypes.func.isRequired,
     removeDxItems: PropTypes.func.isRequired,
-    selectedItems: PropTypes.object.isRequired,
-    displayNameProp: PropTypes.string.isRequired,
+    addMetadata: PropTypes.func.isRequired,
+    onUpdate: PropTypes.func.isRequired,
+};
+
+DataDimension.defaultProps = {
+    selectedItems: {},
 };
 
 const mapStateToProps = state => ({
@@ -272,6 +284,8 @@ export default connect(
     {
         removeDxItems: acRemoveUiItems,
         addDxItems: acAddUiItems,
+        onUpdate: acSetCurrentFromUi,
         addMetadata: acAddMetadata,
+        fetchRecommendedIds: tSetRecommendedIds,
     }
 )(DataDimension);

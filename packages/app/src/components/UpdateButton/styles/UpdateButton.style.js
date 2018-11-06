@@ -1,4 +1,4 @@
-import { colors } from '../../../colors';
+import { colors } from '../../../modules/colors';
 
 export default {
     backgroundColor: colors.accentPrimaryDark,

@@ -1,28 +1,37 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
+import DialogActions from '@material-ui/core/DialogActions';
 
 import { PeriodSelector } from '@dhis2/d2-ui-period-selector-dialog';
 import i18n from '@dhis2/d2-i18n';
 
 import { sGetUi } from '../../reducers/ui';
 import { sGetMetadata } from '../../reducers/metadata';
+import { acSetCurrentFromUi } from '../../actions/current';
 import { acRemoveUiItems, acAddUiItems } from '../../actions/ui';
 import { acAddMetadata } from '../../actions/metadata';
 
+import { HideButton, UpdateButton } from './DataDimension/buttons';
 import { styles } from './styles/PeriodDimension.style';
+import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
 
-const PE = 'pe';
+const peId = FIXED_DIMENSIONS.pe.id;
+
 const PERIOD = 'PERIOD';
 
 export class PeriodDimension extends Component {
+    onUpdateClick = () => {
+        this.props.onUpdate(this.props.ui);
+        this.props.toggleDialog(null);
+    };
+
     selectPeriodDimensions = periods => {
         const idsToAdd = periods.map(periodRange => periodRange.id);
 
         this.props.addUiItems({
-            dimensionType: PE,
+            dimensionType: peId,
             value: idsToAdd,
         });
 
@@ -38,13 +47,13 @@ export class PeriodDimension extends Component {
         const idsToRemove = periods.map(periodRange => periodRange.id);
 
         this.props.removeUiItems({
-            dimensionType: PE,
+            dimensionType: peId,
             value: idsToRemove,
         });
     };
 
     getSelectedPeriods = () => {
-        return this.props.ui.itemsByDimension[PE].map(item => ({
+        return this.props.ui.itemsByDimension[peId].map(item => ({
             id: item,
             name: this.props.metadata[item].name,
         }));
@@ -54,11 +63,9 @@ export class PeriodDimension extends Component {
         const selectedPeriods = this.getSelectedPeriods();
 
         return (
-            <Fragment>
-                <DialogTitle style={styles.dialogTitle}>
-                    {i18n.t('Period')}
-                </DialogTitle>
+            <div style={styles.container}>
                 <DialogContent style={styles.dialogContent}>
+                    <h3 style={styles.dialogTitle}>{i18n.t('Period')}</h3>
                     <PeriodSelector
                         d2={this.context.d2}
                         onSelect={this.selectPeriodDimensions}
@@ -66,7 +73,11 @@ export class PeriodDimension extends Component {
                         selectedItems={selectedPeriods}
                     />
                 </DialogContent>
-            </Fragment>
+                <DialogActions style={styles.dialogActions}>
+                    <HideButton action={() => this.props.toggleDialog(null)} />
+                    <UpdateButton action={this.onUpdateClick} />
+                </DialogActions>
+            </div>
         );
     };
 }
@@ -82,15 +93,13 @@ export default connect(
         addMetadata: acAddMetadata,
         addUiItems: acAddUiItems,
         removeUiItems: acRemoveUiItems,
+        onUpdate: acSetCurrentFromUi,
     }
 )(PeriodDimension);
 
 PeriodDimension.propTypes = {
+    toggleDialog: PropTypes.func.isRequired,
     ui: PropTypes.object.isRequired,
-    addUiItems: PropTypes.func.isRequired,
-    removeUiItems: PropTypes.func.isRequired,
-    metadata: PropTypes.object.isRequired,
-    addMetadata: PropTypes.func.isRequired,
 };
 
 PeriodDimension.contextTypes = {
