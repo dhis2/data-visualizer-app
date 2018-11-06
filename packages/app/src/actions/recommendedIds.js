@@ -20,10 +20,8 @@ export const acSetPreviousRequestedIds = value => ({
 
 export const tSetRecommendedIds = () => async (dispatch, getState) => {
     const state = getState();
-
     const previousIds = sGetPreviousRequestedIds(state);
     const items = sGetUiItems(state);
-
     let dxIds = [];
     let ouIds = [];
 
@@ -39,11 +37,9 @@ export const tSetRecommendedIds = () => async (dispatch, getState) => {
     if (items.dx && items.dx.length) {
         dxIds = items.dx;
     }
-
     if (items.ou && items.ou.length) {
         ouIds = items.ou;
     }
-
     const shouldFetchItems =
         !isEqual(dxIds, previousIds.dx) || !isEqual(ouIds, previousIds.ou);
 
