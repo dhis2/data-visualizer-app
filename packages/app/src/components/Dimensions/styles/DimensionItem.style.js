@@ -1,21 +1,17 @@
 import { colors } from '../../../modules/colors';
 
 export const styles = {
-    wrapper: {
-        display: 'flex',
-        position: 'static',
-    },
     text: {
         color: colors.black,
         userSelect: 'none',
         wordBreak: 'break-all',
+        cursor: 'pointer',
         fontSize: 16,
         maxWidth: 195,
         alignSelf: 'center',
     },
     itemContainer: {
         display: 'flex',
-        minHeight: 24,
         marginTop: 7,
         marginBottom: 7,
     },

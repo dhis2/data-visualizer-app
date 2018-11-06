@@ -10,7 +10,6 @@ export const styles = {
         background: 'none',
         outline: 'none',
         padding: '1px 0px 0px 0px',
-        height: 24,
         cursor: 'pointer',
     },
 };
