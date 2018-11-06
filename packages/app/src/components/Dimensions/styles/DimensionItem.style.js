@@ -9,13 +9,12 @@ export const styles = {
         color: colors.black,
         userSelect: 'none',
         wordBreak: 'break-all',
-        paddingTop: 3,
         fontSize: 16,
         maxWidth: 195,
+        alignSelf: 'center',
     },
     itemContainer: {
         display: 'flex',
-        cursor: 'pointer',
         minHeight: 24,
         marginTop: 7,
         marginBottom: 7,
@@ -28,7 +27,5 @@ export const styles = {
     genericDimensionIcon: {
         paddingLeft: '9px',
         paddingRight: '9px',
-        position: 'relative',
-        top: '9px',
     },
 };

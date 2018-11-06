@@ -21,11 +21,11 @@ export const styles = {
     fixedDimensionIcon: {
         paddingRight: '6px',
     },
-    genericDimensionIcon: { position: 'relative', top: 5 },
 };
 
 styles.chipLeft = {
     ...styles.chip,
+    display: 'flex',
     borderTopRightRadius: '0px',
     borderBottomRightRadius: '0px',
 };

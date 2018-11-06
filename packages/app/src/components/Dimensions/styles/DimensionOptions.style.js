@@ -1,6 +1,9 @@
 export const styles = {
     wrapper: {
         height: 24,
+        position: 'relative',
+        left: 5,
+        bottom: 1,
     },
     dropDownButton: {
         border: 'none',
