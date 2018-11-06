@@ -21,8 +21,7 @@ export const styles = {
     },
     fixedDimensionIcon: {
         paddingLeft: '6px',
-        position: 'relative',
-        top: '6px',
+        paddingBottom: '2px',
     },
     genericDimensionIcon: {
         paddingLeft: '9px',
