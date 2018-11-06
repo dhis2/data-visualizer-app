@@ -21,5 +21,7 @@ export const styles = {
         height: 13,
         width: 10,
         cursor: 'pointer',
+        position: 'relative',
+        top: 1,
     },
 };
