@@ -27,6 +27,7 @@ body {
 }
 .canvas {
     grid-area: canvas;
+    position: relative;
 }
 
 .app * {
