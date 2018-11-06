@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-10-31T09:12:27.495Z\n"
-"PO-Revision-Date: 2018-10-31T09:12:27.496Z\n"
+"POT-Creation-Date: 2018-11-06T10:22:51.230Z\n"
+"PO-Revision-Date: 2018-11-06T10:22:51.230Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -53,16 +53,10 @@ msgstr ""
 msgid "Selected Data"
 msgstr ""
 
-msgid "DESELECT ALL"
-msgstr ""
-
 msgid "SELECT ALL"
 msgstr ""
 
-msgid "HIDE"
-msgstr ""
-
-msgid "UPDATE"
+msgid "DESELECT ALL"
 msgstr ""
 
 msgid "Add to series"
@@ -105,6 +99,9 @@ msgid "Data value set"
 msgstr ""
 
 msgid "Other formats"
+msgstr ""
+
+msgid "Hide"
 msgstr ""
 
 msgid "selected"
@@ -287,9 +284,6 @@ msgstr ""
 msgid "Chart options"
 msgstr ""
 
-msgid "Hide"
-msgstr ""
-
 msgid "Column"
 msgstr ""
 
@@ -317,7 +311,10 @@ msgstr ""
 msgid "Gauge"
 msgstr ""
 
-msgid "Year on year"
+msgid "Year over year (line)"
+msgstr ""
+
+msgid "Year over year (column)"
 msgstr ""
 
 msgid "Indicators"

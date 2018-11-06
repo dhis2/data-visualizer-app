@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import omit from 'lodash-es/omit';
 import Close from '@material-ui/icons/Close';
 import {
     acRemoveUiLayoutDimensions,
@@ -42,14 +43,9 @@ export class DimensionLabel extends Component {
     };
 
     removeDimension = () => {
-        const filteredUi = Object.keys(this.props.items)
-            .filter(key => !this.props.id.includes(key))
-            .reduce((obj, key) => {
-                obj[key] = this.props.items[key];
-                return obj;
-            }, {});
+        const remainingItems = omit(this.props.items, this.props.id);
 
-        this.props.setUiItems(filteredUi);
+        this.props.setUiItems(remainingItems);
         this.props.removeDimension(this.props.id);
     };
 

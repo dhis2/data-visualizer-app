@@ -41,7 +41,7 @@ class VisualizationOptionsManager extends Component {
                     fullWidth={true}
                 >
                     <DialogTitle>{i18n.t('Chart options')}</DialogTitle>
-                    <DialogContent>
+                    <DialogContent style={{ display: 'block' }}>
                         <VisualizationOptions />
                     </DialogContent>
                     <DialogActions>
