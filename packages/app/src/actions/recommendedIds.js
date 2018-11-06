@@ -19,8 +19,11 @@ export const acSetPreviousRequestedIds = value => ({
 });
 
 export const tSetRecommendedIds = () => async (dispatch, getState) => {
-    const previousIds = sGetPreviousRequestedIds(getState());
-    const items = sGetUiItems(getState());
+    const state = getState();
+
+    const previousIds = sGetPreviousRequestedIds(state);
+    const items = sGetUiItems(state);
+
     let dxIds = [];
     let ouIds = [];
 
