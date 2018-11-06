@@ -21,18 +21,17 @@ export const acSetPreviousRequestedIds = value => ({
 export const tSetRecommendedIds = () => async (dispatch, getState) => {
     const previousIds = sGetPreviousRequestedIds(getState());
     const items = sGetUiItems(getState());
+    let dxIds = [];
+    let ouIds = [];
 
     const onSuccess = fetchedIds => {
-        dispatch(acSetPreviousRequestedIds({ dx: items.dx, ou: items.ou }));
+        dispatch(acSetPreviousRequestedIds({ dx: dxIds, ou: ouIds }));
         dispatch(acSetRecommendedIds(fetchedIds));
     };
 
     const onError = error => {
         console.log('Error (apiFetchRecommendedIds): ', error);
     };
-
-    let dxIds = [];
-    let ouIds = [];
 
     if (items.dx && items.dx.length) {
         dxIds = items.dx;

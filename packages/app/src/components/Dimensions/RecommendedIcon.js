@@ -54,8 +54,8 @@ export class RecommendedIcon extends Component {
     };
 }
 
-const mapStateToProps = (state, id) => ({
-    isRecommended: sGetFetchedIds(state).includes(id),
+const mapStateToProps = (state, ownProps) => ({
+    isRecommended: sGetFetchedIds(state).includes(ownProps.id),
 });
 
 RecommendedIcon.propTypes = {
