@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import omit from 'lodash-es/omit';
 import i18n from '@dhis2/d2-i18n';
 import MenuItem from '@material-ui/core/MenuItem';
 import DropDown from './DropDown';
 import MoreHorizontalIcon from '../../assets/MoreHorizontalIcon';
-import { acAddUiLayoutDimensions } from '../../actions/ui';
+import {
+    acAddUiLayoutDimensions,
+    acSetUiItems,
+    acRemoveUiLayoutDimensions,
+    acSetUiActiveModalDialog,
+} from '../../actions/ui';
 import { styles } from './styles/DimensionOptions.style';
+import { sGetUiLayout, sGetUiItems } from '../../reducers/ui';
 
 const items = [
     {
@@ -44,8 +51,17 @@ export class DimensionOptions extends Component {
     };
 
     addDimension = axisName => {
+        if (this.props.currentLayout[axisName] && axisName !== 'filters') {
+            const remainingItems = omit(this.props.items, this.props.id);
+            this.props.setUiItems(remainingItems);
+
+            const currentDimension = this.props.currentLayout[axisName][0];
+            this.props.removeDimension(currentDimension);
+        }
+
         this.props.onAddDimension({ [this.props.id]: axisName });
         this.handleClose();
+        setTimeout(() => this.props.openDialog(this.props.id), 10);
     };
 
     getMenuItems = () => {
@@ -86,12 +102,22 @@ export class DimensionOptions extends Component {
 DimensionOptions.propTypes = {
     id: PropTypes.string.isRequired,
     showButton: PropTypes.bool.isRequired,
+    onAddDimension: PropTypes.func.isRequired,
+    openDialog: PropTypes.func.isRequired,
     onClose: PropTypes.func.isRequired,
 };
 
+const mapStateToProps = state => ({
+    currentLayout: sGetUiLayout(state),
+    items: sGetUiItems(state),
+});
+
 export default connect(
-    null,
+    mapStateToProps,
     {
+        openDialog: id => acSetUiActiveModalDialog(id),
         onAddDimension: dimension => acAddUiLayoutDimensions(dimension),
+        removeDimension: dimension => acRemoveUiLayoutDimensions(dimension),
+        setUiItems: items => acSetUiItems(items),
     }
 )(DimensionOptions);

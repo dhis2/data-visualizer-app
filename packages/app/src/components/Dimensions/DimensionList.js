@@ -2,14 +2,17 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { DimensionItem } from './DimensionItem';
-import * as fromReducers from '../../reducers';
+
+import { sGetDimensions } from '../../reducers/dimensions';
+import { sGetDimensionIdsFromLayout } from '../../reducers/ui';
+
 import { styles } from './styles/DimensionList.style';
 
 export class DimensionList extends Component {
-    searchTextContains = dimensionName => {
-        const { searchText } = this.props;
+    filterTextContains = dimensionName => {
+        const { filterText } = this.props;
 
-        return dimensionName.toLowerCase().includes(searchText.toLowerCase());
+        return dimensionName.toLowerCase().includes(filterText.toLowerCase());
     };
 
     filterMatchingDimensions = dimension => {
@@ -25,17 +28,16 @@ export class DimensionList extends Component {
                 key={dimension.id}
                 name={dimension.name}
                 isSelected={!!this.props.selected.includes(dimension.id)}
-                toggleDialog={this.props.toggleDialog}
             />
         );
     };
 
     render = () => {
-        const { searchText, dimensions } = this.props;
+        const { filterText, dimensions } = this.props;
 
         const dimensionsList = Object.values(dimensions).map(
             listItem =>
-                searchText.length
+                filterText.length
                     ? this.filterMatchingDimensions(listItem)
                     : this.renderItem(listItem)
         );
@@ -46,8 +48,7 @@ export class DimensionList extends Component {
 DimensionList.propTypes = {
     dimensions: PropTypes.object.isRequired,
     selected: PropTypes.array,
-    searchText: PropTypes.string.isRequired,
-    toggleDialog: PropTypes.func.isRequired,
+    filterText: PropTypes.string.isRequired,
 };
 
 DimensionList.defaultProps = {
@@ -55,8 +56,8 @@ DimensionList.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-    dimensions: fromReducers.fromDimensions.sGetDimensions(state),
-    selected: fromReducers.fromUi.sGetDimensionIdsFromLayout(state),
+    dimensions: sGetDimensions(state),
+    selected: sGetDimensionIdsFromLayout(state),
 });
 
 export default connect(mapStateToProps)(DimensionList);

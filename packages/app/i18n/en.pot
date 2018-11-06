@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-11-02T15:49:23.599Z\n"
-"PO-Revision-Date: 2018-11-02T15:49:23.599Z\n"
+"POT-Creation-Date: 2018-11-06T10:22:51.230Z\n"
+"PO-Revision-Date: 2018-11-06T10:22:51.230Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -41,22 +41,22 @@ msgstr ""
 msgid "Detail"
 msgstr ""
 
+msgid "Organisation units"
+msgstr ""
+
+msgid "Period"
+msgstr ""
+
 msgid "Search"
 msgstr ""
 
 msgid "Selected Data"
 msgstr ""
 
-msgid "DESELECT ALL"
-msgstr ""
-
 msgid "SELECT ALL"
 msgstr ""
 
-msgid "HIDE"
-msgstr ""
-
-msgid "UPDATE"
+msgid "DESELECT ALL"
 msgstr ""
 
 msgid "Add to series"
@@ -69,18 +69,6 @@ msgid "Add to filter"
 msgstr ""
 
 msgid "Search Dimensions"
-msgstr ""
-
-msgid "Organisation units"
-msgstr ""
-
-msgid "Hide"
-msgstr ""
-
-msgid "Update"
-msgstr ""
-
-msgid "Period"
 msgstr ""
 
 msgid "Dimension recommended with selected data"
@@ -113,6 +101,9 @@ msgstr ""
 msgid "Other formats"
 msgstr ""
 
+msgid "Hide"
+msgstr ""
+
 msgid "selected"
 msgstr ""
 
@@ -132,6 +123,9 @@ msgid "Remove"
 msgstr ""
 
 msgid "None selected"
+msgstr ""
+
+msgid "Update"
 msgstr ""
 
 msgid "Chart error"

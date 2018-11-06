@@ -3,6 +3,7 @@ import React from 'react';
 const styles = {
     icon: {
         paddingRight: '6px',
+        alignSelf: 'center',
     },
 };
 

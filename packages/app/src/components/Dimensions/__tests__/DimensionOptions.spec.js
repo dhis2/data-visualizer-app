@@ -18,6 +18,8 @@ describe('The DimensionOptions component ', () => {
         props = {
             id: 'IdString',
             showButton: false,
+            onAddDimension: jest.fn(),
+            openDialog: jest.fn(),
             onClose: jest.fn(),
         };
         shallowDimOptions = undefined;

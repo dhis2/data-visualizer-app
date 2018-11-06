@@ -150,7 +150,6 @@ export const transformOptionsIntoMetadata = (
         }
 
         result[options[i].id] = {};
-
         fields.forEach(field => {
             result[options[i].id][field] = options[i][field];
         });
