@@ -7,29 +7,15 @@ const YearOverYearColumnIcon = ({
     <SvgIcon viewBox="0,0,48,48" style={style}>
         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
             <g>
-                <mask id="mask-2" fill="white">
-                    <rect x="0" y="0" width="48" height="48" />
-                </mask>
-                <polygon
-                    stroke="#1976D2"
-                    strokeWidth="2"
-                    mask="url(#mask-2)"
-                    points="1 28 10 35 18 16 34 35 50 36 50 51 -3 51 -3 28"
-                />
-                <polygon
-                    stroke="#004BA0"
-                    strokeWidth="2"
-                    mask="url(#mask-2)"
-                    points="1 20 8 20 19 29 36 17 50 28 50 51 -3 51 -3 20"
-                />
-                <polygon
-                    stroke="#63A4FF"
-                    strokeWidth="2"
-                    mask="url(#mask-2)"
-                    points="1 35 19 39 28 31 38 28 50 43 50 66 -3 66 -3 35"
-                />
-                <rect fill="#9E9E9E" x="0" y="0" width="2" height="48" />
-                <rect fill="#9E9E9E" x="0" y="46" width="48" height="2" />
+                <polygon points="0 0 48 0 48 48 0 48"></polygon>
+                <polygon fill="#63A4FF" points="6 14 11 14 11 46 6 46"></polygon>
+                <polygon fill="#63A4FF" points="20 23 25 23 25 46 20 46"></polygon>
+                <polygon fill="#63A4FF" points="34 30 39 30 39 46 34 46"></polygon>
+                <polygon fill="#004BA0" points="11 26 16 26 16 46 11 46"></polygon>
+                <polygon fill="#004BA0" points="25 16 30 16 30 46 25 46"></polygon>
+                <polygon fill="#004BA0" points="39 9 44 9 44 46 39 46"></polygon>
+                <polygon fill="#9E9E9E" points="0 0 2 0 2 48 0 48"></polygon>
+                <polygon fill="#9E9E9E" points="0 46 48 46 48 48 0 48"></polygon>
             </g>
         </g>
     </SvgIcon>
