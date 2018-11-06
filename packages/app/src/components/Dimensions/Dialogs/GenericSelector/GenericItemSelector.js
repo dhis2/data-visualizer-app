@@ -86,7 +86,7 @@ export class GenericItemSelector extends Component {
         return (
             <Fragment>
                 <DialogTitle>{i18n.t(this.props.dialogTitle)}</DialogTitle>
-                <DialogContent>
+                <DialogContent style={styles.dialogContent}>
                     <div style={styles.dialogContainer}>
                         <SearchField
                             text={this.state.filterText}

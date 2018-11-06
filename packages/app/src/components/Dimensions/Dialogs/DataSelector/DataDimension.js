@@ -201,7 +201,7 @@ export class DataDimension extends Component {
         return (
             <Fragment>
                 <DialogTitle>{i18n.t('Data')}</DialogTitle>
-                <DialogContent>
+                <DialogContent style={styles.dialogContent}>
                     <div style={styles.dialogContainer}>
                         <DataTypes
                             currentDataType={this.state.dataType}
