@@ -23,11 +23,13 @@ body {
     display: flex;
 }
 .interpretations {
+    min-width: 280px;
+    max-width: 300px;
     grid-area: interpretations;
-    padding: 20px;
 }
 .canvas {
     grid-area: canvas;
+    position: relative;
 }
 
 .app * {
@@ -37,7 +39,7 @@ body {
 .app {
     display: grid;
     grid-gap: 1px;
-    grid-template-columns: 262px auto 280px;
+    grid-template-columns: 262px 1fr min-content;
     grid-template-rows: 0 40px 94px auto;
     grid-template-areas:
         'headerbar headerbar headerbar'
@@ -52,7 +54,7 @@ body {
 
 /* width */
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
 }
 
 /* Track */
@@ -62,10 +64,11 @@ body {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #aaa;
+    background: #ccc;
+    border-radius: 3px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #888;
+    background: #aaa;
 }

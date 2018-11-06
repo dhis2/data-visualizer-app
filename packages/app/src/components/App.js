@@ -8,6 +8,7 @@ import HeaderBar from 'ui/widgets/HeaderBar';
 
 import SnackbarMessage from '../widgets/SnackbarMessage';
 import MenuBar from './MenuBar/MenuBar';
+import TitleBar from './TitleBar/TitleBar';
 import VisualizationTypeSelector from './VisualizationTypeSelector/VisualizationTypeSelector';
 import Dimensions from './Dimensions/Dimensions';
 import Interpretations from './Interpretations/Interpretations';
@@ -32,7 +33,8 @@ export class App extends Component {
             store.dispatch(
                 fromActions.tDoLoadVisualization(
                     this.props.apiObjectName,
-                    location.pathname.slice(1)
+                    location.pathname.slice(1),
+                    this.props.settings
                 )
             );
         } else {
@@ -52,10 +54,8 @@ export class App extends Component {
         store.dispatch(
             fromActions.fromMetadata.acAddMetadata({
                 ...defaultMetadata,
-                [this.props.settings.rootOrganisationUnit.id]: {
-                    ...this.props.settings.rootOrganisationUnit,
-                    path: `/${this.props.settings.rootOrganisationUnit.id}`,
-                },
+                [this.props.settings.rootOrganisationUnit.id]: this.props
+                    .settings.rootOrganisationUnit,
             })
         );
 
@@ -109,23 +109,26 @@ export class App extends Component {
             <UI>
                 <HeaderBar appName={i18n.t('Data Visualizer')} />
                 <div className="app">
-                    <div className="item2 visualization-type-selector">
+                    <div className="visualization-type-selector">
                         <VisualizationTypeSelector />
                     </div>
-                    <div className="item3 menu-bar">
+                    <div className="menu-bar">
                         <MenuBar apiObjectName={this.props.apiObjectName} />
                     </div>
-                    <div className="item4 dimensions">
+                    <div className="dimensions">
                         <Dimensions />
                     </div>
-                    <div className="item5 chart-layout">
+                    <div className="chart-layout">
                         <Layout />
                     </div>
-                    <div className="item6 interpretations">
-                        <Interpretations id={this.props.current.id} />
-                    </div>
-                    <div className="item7 canvas">
+                    <div className="canvas">
+                        <TitleBar />
                         {hasCurrent ? <Visualization /> : <BlankCanvas />}
+                    </div>
+                    <div className="interpretations">
+                        {this.props.ui.rightSidebarOpen ? (
+                            <Interpretations id={this.props.current.id} />
+                        ) : null}
                     </div>
                 </div>
                 {this.renderSnackbar()}

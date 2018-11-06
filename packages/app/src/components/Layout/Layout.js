@@ -14,6 +14,7 @@ import {
     RADAR,
     GAUGE,
     YEAR_OVER_YEAR_LINE,
+    YEAR_OVER_YEAR_COLUMN,
 } from '../../modules/chartTypes';
 import { sGetUiType } from '../../reducers/ui';
 
@@ -28,6 +29,7 @@ const layoutMap = {
     [RADAR]: DefaultLayout,
     [GAUGE]: DefaultLayout,
     [YEAR_OVER_YEAR_LINE]: YearOnYearLayout,
+    [YEAR_OVER_YEAR_COLUMN]: YearOnYearLayout,
 };
 
 const getLayoutByType = (type, props) => {

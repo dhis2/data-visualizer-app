@@ -16,9 +16,10 @@ import reducer, {
     CLEAR_UI,
     SET_UI_YEAR_ON_YEAR_SERIES,
     SET_UI_YEAR_ON_YEAR_CATEGORY,
+    TOGGLE_UI_RIGHT_SIDEBAR_OPEN,
 } from '../ui';
 import { AXIS_NAMES } from '../../modules/layout';
-import { BAR, YEAR_OVER_YEAR_LINE } from '../../modules/chartTypes';
+import { BAR } from '../../modules/chartTypes';
 import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
 
 const [COLUMNS, ROWS, FILTERS] = AXIS_NAMES;
@@ -86,6 +87,12 @@ describe('reducer: ui', () => {
 
         expect(actualState).toEqual({
             ...DEFAULT_UI,
+            parentGraphMap: {
+                ...DEFAULT_UI.parentGraphMap,
+                [settings.rootOrganisationUnit.id]: `/${
+                    settings.rootOrganisationUnit.id
+                }`,
+            },
             itemsByDimension: {
                 ...DEFAULT_UI.itemsByDimension,
                 [ouId]: [settings.rootOrganisationUnit.id],
@@ -408,5 +415,19 @@ describe('reducer: ui', () => {
         });
 
         expect(actualState.activeModalDialog).toEqual(dialog);
+    });
+
+    it(`${TOGGLE_UI_RIGHT_SIDEBAR_OPEN}: should toggle the state of the right sidebar`, () => {
+        let actualState = reducer(DEFAULT_UI, {
+            type: TOGGLE_UI_RIGHT_SIDEBAR_OPEN,
+        });
+
+        expect(actualState.rightSidebarOpen).toEqual(true);
+
+        actualState = reducer(actualState, {
+            type: TOGGLE_UI_RIGHT_SIDEBAR_OPEN,
+        });
+
+        expect(actualState.rightSidebarOpen).toEqual(false);
     });
 });

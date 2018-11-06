@@ -26,6 +26,7 @@ export const SET_UI_ACTIVE_MODAL_DIALOG = 'SET_UI_ACTIVE_MODAL_DIALOG';
 export const SET_UI_YEAR_ON_YEAR_SERIES = 'SET_UI_YEAR_ON_YEAR_SERIES';
 export const SET_UI_YEAR_ON_YEAR_CATEGORY = 'SET_UI_YEAR_ON_YEAR_CATEGORY';
 export const CLEAR_UI = 'CLEAR_UI';
+export const TOGGLE_UI_RIGHT_SIDEBAR_OPEN = 'TOGGLE_UI_RIGHT_SIDEBAR_OPEN';
 
 const dxId = FIXED_DIMENSIONS.dx.id;
 const peId = FIXED_DIMENSIONS.pe.id;
@@ -44,6 +45,7 @@ export const DEFAULT_UI = {
     yearOnYearCategory: ['MONTHS_THIS_YEAR'],
     parentGraphMap: {},
     activeModalDialog: null,
+    rightSidebarOpen: false,
 };
 
 export default (state = DEFAULT_UI, action) => {
@@ -198,6 +200,15 @@ export default (state = DEFAULT_UI, action) => {
                     [ouId]: [rootOrganisationUnit.id],
                     [peId]: [keyAnalysisRelativePeriod],
                 },
+                parentGraphMap: {
+                    ...DEFAULT_UI.parentGraphMap,
+                    [rootOrganisationUnit.id]: `/${rootOrganisationUnit.id}`,
+                },
+            };
+        case TOGGLE_UI_RIGHT_SIDEBAR_OPEN:
+            return {
+                ...state,
+                rightSidebarOpen: !state.rightSidebarOpen,
             };
         default:
             return state;
@@ -217,6 +228,7 @@ export const sGetUiYearOnYearCategory = state =>
     sGetUi(state).yearOnYearCategory;
 export const sGetUiParentGraphMap = state => sGetUi(state).parentGraphMap;
 export const sGetUiActiveModalDialog = state => sGetUi(state).activeModalDialog;
+export const sGetUiRightSidebarOpen = state => sGetUi(state).rightSidebarOpen;
 
 export const sGetDimensionIdsFromLayout = state =>
     Object.values(sGetUiLayout(state)).reduce(

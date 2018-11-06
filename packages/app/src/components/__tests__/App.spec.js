@@ -34,6 +34,7 @@ describe('App', () => {
             snackbarOpen: false,
             snackbarMessage: '',
             current: {},
+            ui: { rightSidebarOpen: false },
             location: { pathname: '/' },
             settings: {
                 rootOrganisationUnit: {

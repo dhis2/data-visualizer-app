@@ -6,6 +6,7 @@ import { sGetCurrent } from '../../reducers/current';
 import BlankCanvas, { visContainerId } from './BlankCanvas';
 import { getOptionsForRequest } from '../../modules/options';
 import { acAddMetadata } from '../../actions/metadata';
+import { sGetUiRightSidebarOpen } from '../../reducers/ui';
 import {
     acSetLoadError,
     acSetLoading,
@@ -16,9 +17,18 @@ import {
     apiFetchAnalytics,
     apiFetchAnalyticsForYearOnYear,
 } from '../../api/analytics';
-import { YEAR_OVER_YEAR_LINE } from '../../modules/chartTypes';
+import {
+    YEAR_OVER_YEAR_LINE,
+    YEAR_OVER_YEAR_COLUMN,
+} from '../../modules/chartTypes';
 
 export class Visualization extends Component {
+    constructor(props) {
+        super(props);
+
+        this.chart = undefined;
+    }
+
     componentDidMount() {
         if (this.props.current) {
             this.renderVisualization();
@@ -28,6 +38,12 @@ export class Visualization extends Component {
     componentDidUpdate(prevProps) {
         if (this.props.current !== prevProps.current) {
             this.renderVisualization();
+        }
+
+        if (this.props.rightSidebarOpen !== prevProps.rightSidebarOpen) {
+            if (this.chart) {
+                this.chart.reflow();
+            }
         }
     }
 
@@ -53,7 +69,11 @@ export class Visualization extends Component {
             const extraOptions = {};
             let responses = [];
 
-            if (current.type === YEAR_OVER_YEAR_LINE) {
+            if (
+                [YEAR_OVER_YEAR_LINE, YEAR_OVER_YEAR_COLUMN].includes(
+                    current.type
+                )
+            ) {
                 let yearlySeriesLabels = [];
 
                 ({
@@ -80,6 +100,8 @@ export class Visualization extends Component {
                 extraOptions
             );
 
+            this.chart = chartConfig.chart;
+
             this.props.acSetChart(
                 chartConfig.chart.getSVGForExport({
                     sourceHeight: 768,
@@ -101,6 +123,7 @@ export class Visualization extends Component {
 
 const mapStateToProps = state => ({
     current: sGetCurrent(state),
+    rightSidebarOpen: sGetUiRightSidebarOpen(state),
 });
 
 export default connect(

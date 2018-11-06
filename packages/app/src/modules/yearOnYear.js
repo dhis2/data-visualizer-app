@@ -1,5 +1,5 @@
 import i18n from '@dhis2/d2-i18n';
-import { YEAR_OVER_YEAR_LINE } from './chartTypes';
+import { YEAR_OVER_YEAR_LINE, YEAR_OVER_YEAR_COLUMN } from './chartTypes';
 
 // Fixed years generator
 const getFixedYears = len => {
@@ -38,4 +38,5 @@ export const categoryOptions = [
 ];
 
 // Check if a type is a year on year type
-export const isYearOnYear = type => [YEAR_OVER_YEAR_LINE].includes(type);
+export const isYearOnYear = type =>
+    [YEAR_OVER_YEAR_LINE, YEAR_OVER_YEAR_COLUMN].includes(type);
