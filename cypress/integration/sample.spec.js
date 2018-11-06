@@ -2,7 +2,7 @@
 
 describe('Data visualizer', function() {
     it('Selects a data dimension and generates the chart', function() {
-        cy.visit('http://localhost:3000');
+        cy.visit('/');
         cy.get('#label-dx').click();
         //choose indicator group
         //double-click specific item

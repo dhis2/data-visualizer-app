@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Snackbar from '@material-ui/core/Snackbar';
 import i18n from '@dhis2/d2-i18n';
 import UI from 'ui/core/UI';
-import HeaderBar from 'ui/widgets/HeaderBar';
+// import HeaderBar from 'ui/widgets/HeaderBar';
 
 import SnackbarMessage from '../widgets/SnackbarMessage';
 import MenuBar from './MenuBar/MenuBar';
@@ -42,6 +42,8 @@ export class App extends Component {
     };
 
     componentDidMount = async () => {
+        console.log('App CDM');
+
         const { store } = this.context;
         const { d2, userSettings } = this.props;
 
@@ -106,7 +108,7 @@ export class App extends Component {
 
         return (
             <UI>
-                <HeaderBar appName={i18n.t('Data Visualizer')} />
+                {/* <HeaderBar appName={i18n.t('Data Visualizer')} /> */}
                 <div className="app">
                     <div className="item2 visualization-type-selector">
                         <VisualizationTypeSelector />
