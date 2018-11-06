@@ -1,5 +1,5 @@
 export default {
     container: {
-        width: '400px',
+        width: '380px',
     },
 };
