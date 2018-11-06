@@ -23,8 +23,6 @@ body {
     display: flex;
 }
 .interpretations {
-    min-width: 280px;
-    max-width: 300px;
     grid-area: interpretations;
 }
 .canvas {
