@@ -4,12 +4,16 @@ import InterpretationsComponent from '@dhis2/d2-ui-interpretations';
 
 import styles from './styles/Interpretations.style';
 
-const Interpretations = ({ type, id }, context) => {
+export const Interpretations = ({ type, id }, context) => {
     return id ? (
         <div style={styles.container}>
             <InterpretationsComponent id={id} d2={context.d2} type={type} />
         </div>
     ) : null;
+};
+
+Interpretations.defaultProps = {
+    type: 'chart',
 };
 
 Interpretations.propTypes = {

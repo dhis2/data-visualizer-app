@@ -29,7 +29,7 @@ describe('Interpretations component', () => {
     };
 
     beforeEach(() => {
-        props = { id: null };
+        props = { id: null, type: null };
         shallowComponent = undefined;
     });
 
@@ -42,7 +42,7 @@ describe('Interpretations component', () => {
     });
 
     it('renders <InterpretationsComponent /> when id is not null', () => {
-        props = { id: 'SOME_ID' };
+        props = { id: 'SOME_ID', type: 'chart' };
         context = { d2: {} };
 
         expect(
