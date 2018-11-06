@@ -3,44 +3,29 @@ import TextField from '@material-ui/core/TextField';
 import Search from '@material-ui/icons/Search';
 import i18n from '@dhis2/d2-i18n';
 import DimensionList from './DimensionList';
-import { DialogManager } from './DialogManager';
+import DialogManager from './Dialogs/DialogManager';
 import { styles } from './styles/Dimensions.style';
 
-const SEARCHFIELD_PLACEHOLDER = i18n.t('Search Dimensions');
-
 export class Dimensions extends Component {
-    state = { searchText: '', dialogDimId: null };
+    state = { filterText: '' };
 
-    handleChange = event => {
-        this.setState({ searchText: event.target.value });
-    };
-
-    toggleDialog = value => {
-        this.setState({
-            dialogDimId: value,
-        });
+    onFilterTextChange = event => {
+        this.setState({ filterText: event.target.value });
     };
 
     render = () => {
         return (
             <div className={'dimensions'} style={styles.divContainer}>
-                <DialogManager
-                    dialogIsOpen={!!this.state.dialogDimId}
-                    id={this.state.dialogDimId}
-                    toggleDialog={this.toggleDialog}
-                />
+                <DialogManager />
                 <TextField
                     style={styles.textField}
-                    onChange={this.handleChange}
-                    placeholder={SEARCHFIELD_PLACEHOLDER}
+                    onChange={this.onFilterTextChange}
+                    placeholder={i18n.t('Search Dimensions')}
                     InputProps={{
                         startAdornment: <Search style={styles.searchIcon} />,
                     }}
                 />
-                <DimensionList
-                    searchText={this.state.searchText}
-                    toggleDialog={this.toggleDialog}
-                />
+                <DimensionList filterText={this.state.filterText} />
             </div>
         );
     };

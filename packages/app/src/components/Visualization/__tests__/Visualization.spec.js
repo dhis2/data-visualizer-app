@@ -153,7 +153,7 @@ describe('Visualization', () => {
                     option1: 'def',
                 };
 
-                api.apiFetchAnalyticsForYearOnYear = jest
+                api.apiFetchAnalyticsForYearOverYear = jest
                     .fn()
                     .mockResolvedValue(new MockYoYAnalyticsResponse());
             });
@@ -163,10 +163,10 @@ describe('Visualization', () => {
 
                 setTimeout(() => {
                     expect(
-                        api.apiFetchAnalyticsForYearOnYear
+                        api.apiFetchAnalyticsForYearOverYear
                     ).toHaveBeenCalled();
                     expect(
-                        api.apiFetchAnalyticsForYearOnYear.mock.calls[0][1]
+                        api.apiFetchAnalyticsForYearOverYear.mock.calls[0][1]
                     ).toEqual({
                         option1: 'def',
                     });

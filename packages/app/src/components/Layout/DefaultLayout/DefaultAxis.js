@@ -14,6 +14,7 @@ import {
 import { AXIS_NAMES } from '../../../modules/layout';
 import styles from './styles/DefaultAxis.style';
 import { getAdaptedUiByType } from '../../../modules/ui';
+import { isYearOverYear } from '../../../modules/chartTypes';
 
 const axisLabels = {
     columns: i18n.t('Series'),
@@ -58,8 +59,10 @@ class Axis extends React.Component {
         </MenuItem>
     );
 
+    isMoveSupported = () => !isYearOverYear(this.props.type);
+
     getMenuItems = dimensionId => [
-        ...this.getAxisMenuItems(dimensionId),
+        ...(this.isMoveSupported() ? this.getAxisMenuItems(dimensionId) : []),
         this.getRemoveMenuItem(dimensionId),
     ];
 
@@ -116,6 +119,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     return {
         axis: adaptedUi.layout[ownProps.axisName],
         itemsByDimension: adaptedUi.itemsByDimension,
+        type: adaptedUi.type,
         ...dispatchProps,
         ...ownProps,
     };

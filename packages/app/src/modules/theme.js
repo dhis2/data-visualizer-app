@@ -20,10 +20,20 @@ export const muiTheme = () => {
         },
     };
 
+    const dialogContent = {
+        root: {
+            paddingBottom: 0,
+            paddingTop: 0,
+            overflow: 'hidden',
+            overflowY: 'hidden',
+        },
+    };
+
     const theme = createMuiTheme({
         overrides: {
             MuiButton: raisedButton,
             MuiSelect: selectField,
+            MuiDialogContent: dialogContent,
         },
         typography: {
             useNextVariants: true,

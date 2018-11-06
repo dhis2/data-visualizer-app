@@ -81,7 +81,6 @@ DimensionItem.propTypes = {
     id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
     name: PropTypes.string.isRequired,
     isSelected: PropTypes.bool.isRequired,
-    toggleDialog: PropTypes.func.isRequired,
 };
 
 export default DimensionItem;

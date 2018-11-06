@@ -16,8 +16,9 @@ export const styles = {
         backgroundColor: colors.accentSecondaryLight,
         height: 7,
         width: 7,
-        marginTop: 10,
-        marginLeft: 4,
+        position: 'relative',
+        top: 8,
+        left: 4,
         borderRadius: 5,
     },
 };

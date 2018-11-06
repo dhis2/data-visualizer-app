@@ -19,8 +19,6 @@ describe('The DimensionItem component ', () => {
             id: 'idString',
             name: '',
             isSelected: false,
-            toggleDialog: jest.fn(),
-            onRemoveDimension: jest.fn(),
         };
         shallowDimItem = undefined;
     });

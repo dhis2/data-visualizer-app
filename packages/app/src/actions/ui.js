@@ -73,12 +73,12 @@ export const acRemoveUiItems = value => ({
     value,
 });
 
-export const acSetUiYearOnYearSeries = value => ({
+export const acSetUiYearOverYearSeries = value => ({
     type: SET_UI_YEAR_ON_YEAR_SERIES,
     value,
 });
 
-export const acSetUiYearOnYearCategory = value => ({
+export const acSetUiYearOverYearCategory = value => ({
     type: SET_UI_YEAR_ON_YEAR_CATEGORY,
     value,
 });

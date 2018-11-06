@@ -41,22 +41,22 @@ msgstr ""
 msgid "Detail"
 msgstr ""
 
+msgid "Organisation units"
+msgstr ""
+
+msgid "Period"
+msgstr ""
+
 msgid "Search"
 msgstr ""
 
 msgid "Selected Data"
 msgstr ""
 
-msgid "DESELECT ALL"
-msgstr ""
-
 msgid "SELECT ALL"
 msgstr ""
 
-msgid "HIDE"
-msgstr ""
-
-msgid "UPDATE"
+msgid "DESELECT ALL"
 msgstr ""
 
 msgid "Add to series"
@@ -69,18 +69,6 @@ msgid "Add to filter"
 msgstr ""
 
 msgid "Search Dimensions"
-msgstr ""
-
-msgid "Organisation units"
-msgstr ""
-
-msgid "Hide"
-msgstr ""
-
-msgid "Update"
-msgstr ""
-
-msgid "Period"
 msgstr ""
 
 msgid "Dimension recommended with selected data"
@@ -116,6 +104,9 @@ msgstr ""
 msgid "Interpretations"
 msgstr ""
 
+msgid "Hide"
+msgstr ""
+
 msgid "selected"
 msgstr ""
 
@@ -135,6 +126,9 @@ msgid "Remove"
 msgstr ""
 
 msgid "None selected"
+msgstr ""
+
+msgid "Update"
 msgstr ""
 
 msgid "Chart error"

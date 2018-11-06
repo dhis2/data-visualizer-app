@@ -341,7 +341,7 @@ describe('reducer: ui', () => {
         });
     });
 
-    it(`${SET_UI_YEAR_ON_YEAR_SERIES}: should set new yearOnYearSeries`, () => {
+    it(`${SET_UI_YEAR_ON_YEAR_SERIES}: should set new yearOverYearSeries`, () => {
         const series = ['LAST_YEAR'];
 
         const actualState = reducer(DEFAULT_UI, {
@@ -351,13 +351,13 @@ describe('reducer: ui', () => {
 
         const expectedState = {
             ...DEFAULT_UI,
-            yearOnYearSeries: series,
+            yearOverYearSeries: series,
         };
 
         expect(actualState).toEqual(expectedState);
     });
 
-    it(`${SET_UI_YEAR_ON_YEAR_CATEGORY}: should set new yearOnYearCategory`, () => {
+    it(`${SET_UI_YEAR_ON_YEAR_CATEGORY}: should set new yearOverYearCategory`, () => {
         const category = ['LAST_3_MONTHS'];
 
         const actualState = reducer(DEFAULT_UI, {
@@ -367,7 +367,7 @@ describe('reducer: ui', () => {
 
         const expectedState = {
             ...DEFAULT_UI,
-            yearOnYearCategory: category,
+            yearOverYearCategory: category,
         };
 
         expect(actualState).toEqual(expectedState);
