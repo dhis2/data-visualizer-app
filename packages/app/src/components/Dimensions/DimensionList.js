@@ -16,7 +16,7 @@ export class DimensionList extends Component {
     };
 
     filterMatchingDimensions = dimension => {
-        return this.searchTextContains(dimension.name)
+        return this.filterTextContains(dimension.name)
             ? this.renderItem(dimension)
             : null;
     };
