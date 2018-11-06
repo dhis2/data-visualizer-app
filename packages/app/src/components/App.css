@@ -12,6 +12,7 @@ body {
 .visualization-type-selector {
     grid-area: charttype;
     border-right: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
 }
 .menu-bar {
     grid-area: menubar;
@@ -27,10 +28,14 @@ body {
 }
 .interpretations {
     grid-area: interpretations;
+    border-left: 1px solid #aaa;
     padding: 20px;
 }
 .canvas {
     grid-area: canvas;
+}
+.title-bar {
+    grid-area: titlebar;
 }
 
 .app * {
@@ -40,11 +45,12 @@ body {
 .app {
     display: grid;
     grid-template-columns: 262px auto 160px;
-    grid-template-rows: 0 41px 94px auto;
+    grid-template-rows: 0 41px 94px 44px auto;
     grid-template-areas:
         'headerbar headerbar headerbar'
         'charttype menubar menubar'
         'dimensions chartlayout interpretations'
+        'dimensions titlebar interpretations'
         'dimensions canvas interpretations';
 }
 .app > div {
