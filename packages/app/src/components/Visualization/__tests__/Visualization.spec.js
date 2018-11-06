@@ -59,6 +59,7 @@ describe('Visualization', () => {
     beforeEach(() => {
         props = {
             current: {},
+            rightSidebarOpen: false,
             acAddMetadata: jest.fn(),
             acSetChart: jest.fn(),
             acSetLoading: jest.fn(),
@@ -208,6 +209,26 @@ describe('Visualization', () => {
                 expect(props.acSetLoadError).toHaveBeenCalled();
                 done();
             });
+        });
+    });
+
+    describe('chart reflow', () => {
+        const reflowFn = jest.fn();
+
+        const vis = canvas();
+
+        vis.instance().chart = {
+            reflow: reflowFn,
+        };
+
+        it('triggers a reflow when rightSidebarOpen prop changes', () => {
+            vis.setProps({ rightSidebarOpen: true });
+
+            expect(reflowFn).toHaveBeenCalled();
+
+            vis.setProps({ rightSidebarOpen: false });
+
+            expect(reflowFn).toHaveBeenCalled();
         });
     });
 });
