@@ -12,7 +12,7 @@ import GenericItemSelector from './GenericSelector/GenericItemSelector';
 import HideButton from '../../HideButton/HideButton';
 import UpdateButton from '../../UpdateButton/UpdateButton';
 
-import { sGetUi, sGetUiActiveModalDialog } from '../../../reducers/ui';
+import { sGetUiActiveModalDialog } from '../../../reducers/ui';
 import { sGetDimensions } from '../../../reducers/dimensions';
 
 import { acSetUiActiveModalDialog } from '../../../actions/ui';
@@ -44,11 +44,6 @@ export class DialogManager extends Component {
         );
     };
 
-    onUpdate = () => {
-        this.props.fetchRecommendedIds();
-        this.props.closeDialog(null);
-    };
-
     render = () => {
         return this.props.dialogId ? (
             <Dialog
@@ -60,7 +55,9 @@ export class DialogManager extends Component {
                 {this.renderDialogContent()}
                 <DialogActions style={styles.dialogActions}>
                     <HideButton />
-                    <UpdateButton onClick={this.onUpdate} />
+                    <UpdateButton
+                        onClick={() => this.props.closeDialog(null)}
+                    />
                 </DialogActions>
             </Dialog>
         ) : null;
@@ -69,7 +66,6 @@ export class DialogManager extends Component {
 
 DialogManager.propTypes = {
     dialogId: PropTypes.string,
-    ui: PropTypes.object.isRequired,
     onUpdate: PropTypes.func.isRequired,
     closeDialog: PropTypes.func.isRequired,
 };
@@ -79,7 +75,6 @@ DialogManager.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-    ui: sGetUi(state),
     dimensions: sGetDimensions(state),
     dialogId: sGetUiActiveModalDialog(state),
 });

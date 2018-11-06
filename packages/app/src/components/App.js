@@ -59,7 +59,7 @@ export class App extends Component {
         );
 
         this.loadVisualization(this.props.location);
-
+        store.dispatch(fromActions.fromRecommended.tSetRecommendedIds());
         this.unlisten = history.listen(location => {
             this.loadVisualization(location);
         });
