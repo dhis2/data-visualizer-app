@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import omit from 'lodash-es/omit';
 import Close from '@material-ui/icons/Close';
-import { acRemoveUiLayoutDimensions } from '../../actions/ui';
+import {
+    acRemoveUiLayoutDimensions,
+    acSetUiActiveModalDialog,
+    acSetUiItems,
+} from '../../actions/ui';
+import { sGetUiLayout, sGetUiItems } from '../../reducers/ui';
+
 import { styles } from './styles/DimensionLabel.style';
 
 export const RemoveDimensionButton = ({ action }) => {
@@ -15,16 +22,18 @@ export const RemoveDimensionButton = ({ action }) => {
 
 export class DimensionLabel extends Component {
     static propTypes = {
-        id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+        openDialog: PropTypes.func.isRequired,
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
         isSelected: PropTypes.bool.isRequired,
-        toggleDialog: PropTypes.func.isRequired,
-        onRemoveDimension: PropTypes.func.isRequired,
-        Icon: PropTypes.element,
-        Label: PropTypes.element,
+        removeDimension: PropTypes.func.isRequired,
+        children: PropTypes.arrayOf(PropTypes.element).isRequired,
     };
 
     onLabelClick = () => {
-        this.props.toggleDialog(this.props.id);
+        if (this.props.isSelected) {
+            this.props.openDialog(this.props.id);
+        }
     };
 
     onKeyPress = event => {
@@ -34,7 +43,10 @@ export class DimensionLabel extends Component {
     };
 
     removeDimension = () => {
-        this.props.onRemoveDimension(this.props.id);
+        const remainingItems = omit(this.props.items, this.props.id);
+
+        this.props.setUiItems(remainingItems);
+        this.props.removeDimension(this.props.id);
     };
 
     renderRemoveButton = () => {
@@ -73,7 +85,16 @@ export class DimensionLabel extends Component {
     };
 }
 
+const mapStateToProps = state => ({
+    currentLayout: sGetUiLayout(state),
+    items: sGetUiItems(state),
+});
+
 export default connect(
-    null,
-    { onRemoveDimension: id => acRemoveUiLayoutDimensions(id) }
+    mapStateToProps,
+    {
+        openDialog: id => acSetUiActiveModalDialog(id),
+        removeDimension: id => acRemoveUiLayoutDimensions(id),
+        setUiItems: items => acSetUiItems(items),
+    }
 )(DimensionLabel);

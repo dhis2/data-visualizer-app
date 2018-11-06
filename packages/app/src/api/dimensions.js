@@ -72,6 +72,17 @@ export const apiFetchRecommendedIds = (dxIds, ouIds) => {
         .catch(onError);
 };
 
+export const apiFetchItemsByDimension = dimensionId => {
+    const fields = `fields=id,displayName~rename(name)`;
+    const url = `dimensions/${dimensionId}/items?${fields}`;
+
+    return getInstance().then(d2 =>
+        d2.Api.getApi()
+            .get(url)
+            .then(response => response.items)
+    );
+};
+
 export const apiFetchGroups = (dataType, nameProp) => {
     //indicatorGroups does not support shortName
     const name = dataType === 'indicators' ? 'displayName' : nameProp;

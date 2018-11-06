@@ -34,7 +34,6 @@ export const getAllDimensions = visualization =>
 // Exclude one or many dimensions from layout
 export const getFilteredLayout = (layout, excludedIds) => {
     const ids = Array.isArray(excludedIds) ? excludedIds : [excludedIds];
-
     return {
         [AXIS_NAME_COLUMNS]: layout[AXIS_NAME_COLUMNS].filter(
             dim => !ids.includes(dim)

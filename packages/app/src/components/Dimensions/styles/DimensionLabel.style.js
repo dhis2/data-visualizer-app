@@ -20,8 +20,8 @@ export const styles = {
         fill: colors.blue,
         height: 13,
         width: 10,
-        position: 'relative',
-        top: '2px',
         cursor: 'pointer',
+        position: 'relative',
+        top: 1,
     },
 };

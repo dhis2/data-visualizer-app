@@ -1,97 +1,123 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import i18n from "@dhis2/d2-i18n";
-import MenuItem from "@material-ui/core/MenuItem";
-import DropDown from "./DropDown";
-import MoreHorizontalIcon from "../../assets/MoreHorizontalIcon";
-import { acAddUiLayoutDimensions } from "../../actions/ui";
-import { styles } from "./styles/DimensionOptions.style";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import omit from 'lodash-es/omit';
+import i18n from '@dhis2/d2-i18n';
+import MenuItem from '@material-ui/core/MenuItem';
+import DropDown from './DropDown';
+import MoreHorizontalIcon from '../../assets/MoreHorizontalIcon';
+import {
+    acAddUiLayoutDimensions,
+    acSetUiItems,
+    acRemoveUiLayoutDimensions,
+    acSetUiActiveModalDialog,
+} from '../../actions/ui';
+import { styles } from './styles/DimensionOptions.style';
+import { sGetUiLayout, sGetUiItems } from '../../reducers/ui';
 
 const items = [
-  {
-    axisName: "columns",
-    name: i18n.t("Add to series")
-  },
-  {
-    axisName: "rows",
-    name: i18n.t("Add to category")
-  },
-  {
-    axisName: "filters",
-    name: i18n.t("Add to filter")
-  }
+    {
+        axisName: 'columns',
+        name: i18n.t('Add to series'),
+    },
+    {
+        axisName: 'rows',
+        name: i18n.t('Add to category'),
+    },
+    {
+        axisName: 'filters',
+        name: i18n.t('Add to filter'),
+    },
 ];
 
 export const OptionsButton = ({ action }) => {
-  return (
-    <button style={styles.dropDownButton} onClick={action} tabIndex={1}>
-      <MoreHorizontalIcon />
-    </button>
-  );
+    return (
+        <button style={styles.dropDownButton} onClick={action} tabIndex={1}>
+            <MoreHorizontalIcon />
+        </button>
+    );
 };
 
 export class DimensionOptions extends Component {
-  state = { anchorEl: null };
+    state = { anchorEl: null };
 
-  handleClick = event => {
-    this.setState({ anchorEl: event.currentTarget });
-  };
+    handleClick = event => {
+        this.setState({ anchorEl: event.currentTarget });
+    };
 
-  handleClose = () => {
-    this.setState({ anchorEl: null });
-    this.props.onClose();
-  };
+    handleClose = () => {
+        this.setState({ anchorEl: null });
+        this.props.onClose();
+    };
 
-  addDimension = axisName => {
-    this.props.onAddDimension({ [this.props.id]: axisName });
-    this.handleClose();
-  };
+    addDimension = axisName => {
+        if (this.props.currentLayout[axisName] && axisName !== 'filters') {
+            const remainingItems = omit(this.props.items, this.props.id);
+            this.props.setUiItems(remainingItems);
 
-  getMenuItems = () => {
-    return items.map(option => (
-      <MenuItem
-        key={option.axisName}
-        onClick={() => this.addDimension(option.axisName)}
-      >
-        {option.name}
-      </MenuItem>
-    ));
-  };
+            const currentDimension = this.props.currentLayout[axisName][0];
+            this.props.removeDimension(currentDimension);
+        }
 
-  renderOptionsOnHover = () => {
-    return this.props.showButton ? (
-      <OptionsButton action={this.handleClick} />
-    ) : null;
-  };
+        this.props.onAddDimension({ [this.props.id]: axisName });
+        this.handleClose();
+        setTimeout(() => this.props.openDialog(this.props.id), 10);
+    };
 
-  render = () => {
-    const menuItems = this.getMenuItems();
-    const OptionsButton = this.renderOptionsOnHover();
+    getMenuItems = () => {
+        return items.map(option => (
+            <MenuItem
+                key={option.axisName}
+                onClick={() => this.addDimension(option.axisName)}
+            >
+                {option.name}
+            </MenuItem>
+        ));
+    };
 
-    return (
-      <div style={styles.wrapper}>
-        {OptionsButton}
-        <DropDown
-          id={this.props.id}
-          anchorEl={this.state.anchorEl}
-          handleClose={this.handleClose}
-          menuItems={menuItems}
-        />
-      </div>
-    );
-  };
+    renderOptionsOnHover = () => {
+        return this.props.showButton ? (
+            <OptionsButton action={this.handleClick} />
+        ) : null;
+    };
+
+    render = () => {
+        const menuItems = this.getMenuItems();
+        const OptionsButton = this.renderOptionsOnHover();
+
+        return (
+            <div style={styles.wrapper}>
+                {OptionsButton}
+                <DropDown
+                    id={this.props.id}
+                    anchorEl={this.state.anchorEl}
+                    handleClose={this.handleClose}
+                    menuItems={menuItems}
+                />
+            </div>
+        );
+    };
 }
 
 DimensionOptions.propTypes = {
-  id: PropTypes.string.isRequired,
-  showButton: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired
+    id: PropTypes.string.isRequired,
+    showButton: PropTypes.bool.isRequired,
+    onAddDimension: PropTypes.func.isRequired,
+    openDialog: PropTypes.func.isRequired,
+    onClose: PropTypes.func.isRequired,
 };
 
+const mapStateToProps = state => ({
+    currentLayout: sGetUiLayout(state),
+    items: sGetUiItems(state),
+});
+
 export default connect(
-  null,
-  {
-    onAddDimension: dimension => acAddUiLayoutDimensions(dimension)
-  }
+    mapStateToProps,
+    {
+        openDialog: id => acSetUiActiveModalDialog(id),
+        onAddDimension: dimension => acAddUiLayoutDimensions(dimension),
+        removeDimension: dimension => acRemoveUiLayoutDimensions(dimension),
+        setUiItems: items => acSetUiItems(items),
+    }
 )(DimensionOptions);

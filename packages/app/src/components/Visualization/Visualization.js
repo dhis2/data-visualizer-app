@@ -12,6 +12,7 @@ import {
     acClearLoadError,
 } from '../../actions/loader';
 import { acSetChart } from '../../actions/chart';
+import { tSetRecommendedIds } from '../../actions/recommendedIds';
 import {
     apiFetchAnalytics,
     apiFetchAnalyticsForYearOverYear,
@@ -94,6 +95,8 @@ export class Visualization extends Component {
                 })
             );
 
+            this.props.tSetRecommendedIds();
+
             this.props.acSetLoading(false);
         } catch (error) {
             this.props.acSetLoading(false);
@@ -118,5 +121,6 @@ export default connect(
         acSetLoadError,
         acSetLoading,
         acClearLoadError,
+        tSetRecommendedIds,
     }
 )(Visualization);
