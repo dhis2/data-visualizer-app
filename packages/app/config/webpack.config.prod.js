@@ -249,12 +249,6 @@ module.exports = {
             },
         ],
     },
-    externals: [
-        {
-            react: 'var React',
-            'react-dom': 'var ReactDOM',
-        },
-    ],
     plugins: [
         // Generates an `index.html` file with the <script> injected.
         new HtmlWebpackPlugin({
