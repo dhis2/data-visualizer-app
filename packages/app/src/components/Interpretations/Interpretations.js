@@ -1,24 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import InterpretationsComponent from '@dhis2/d2-ui-interpretations';
 
-export class Interpretations extends Component {
-    constructor(props, context) {
-        super(props);
+import styles from './styles/Interpretations.style';
 
-        this.d2 = context.d2;
-    }
+const Interpretations = ({ type, id }, context) => {
+    return id ? (
+        <div style={styles.container}>
+            <InterpretationsComponent id={id} d2={context.d2} type={type} />
+        </div>
+    ) : null;
+};
 
-    render = () => {
-        return this.props.id ? (
-            <InterpretationsComponent
-                id={this.props.id}
-                d2={this.d2}
-                type="chart"
-            />
-        ) : null;
-    };
-}
+Interpretations.propTypes = {
+    id: PropTypes.string,
+    type: PropTypes.string,
+};
 
 Interpretations.contextTypes = {
     d2: PropTypes.object,

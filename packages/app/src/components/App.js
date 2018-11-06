@@ -127,7 +127,10 @@ export class App extends Component {
                     </div>
                     <div className="interpretations">
                         {this.props.ui.rightSidebarOpen ? (
-                            <Interpretations id={this.props.current.id} />
+                            <Interpretations
+                                type={this.props.apiObjectName}
+                                id={this.props.current.id}
+                            />
                         ) : null}
                     </div>
                 </div>
