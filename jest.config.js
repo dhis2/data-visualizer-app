@@ -20,7 +20,9 @@ module.exports = {
         '^(?!.*\\.(js|jsx|mjs|css|json)$)':
             '<rootDir>/config/jest/fileTransform.js',
     },
-    transformIgnorePatterns: ['node_modules/(?!lodash-es/*/)'],
+    transformIgnorePatterns: [
+        'node_modules/(?!(lodash-es|@dhis2/d2-ui-[a-z-]+)/)',
+    ],
     moduleFileExtensions: ['js', 'jsx'],
     moduleDirectories: ['node_modules'],
     moduleNameMapper: {
