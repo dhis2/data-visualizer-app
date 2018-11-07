@@ -76,8 +76,7 @@ describe('index', () => {
             return store
                 .dispatch(fromActions.tDoLoadVisualization())
                 .then(() => {
-                    const actions = store.getActions();
-                    expect(actions).toEqual(expectedActions);
+                    expect(store.getActions()).toEqual(expectedActions);
                 });
         });
     });
