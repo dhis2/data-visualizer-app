@@ -67,7 +67,6 @@ export const apiFetchRecommendedIds = (dxIds, ouIds) => {
     }
 
     const url = `/dimensions/recommendations?${fields}&fields=id`;
-
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))
         .then(response => response.dimensions.map(item => item.id))

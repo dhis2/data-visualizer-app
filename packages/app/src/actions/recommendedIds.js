@@ -1,57 +1,6 @@
-import {
-    SET_RECOMMENDED_IDS,
-    SET_PREVIOUS_REQUESTED_IDS,
-    CLEAR_RECOMMENDED_IDS,
-} from '../reducers/recommendedIds';
-
-import { sGetPreviousRequestedIds } from '../reducers/recommendedIds';
-import { apiFetchRecommendedIds } from '../api/dimensions';
-import isEqual from 'lodash-es/isEqual';
-import { getIds } from '../modules/recommendedIds';
-import { sGetUiItems } from '../reducers/ui';
+import { SET_RECOMMENDED_IDS } from '../reducers/recommendedIds';
 
 export const acSetRecommendedIds = value => ({
     type: SET_RECOMMENDED_IDS,
     value,
 });
-
-export const acSetPreviousRequestedIds = value => ({
-    type: SET_PREVIOUS_REQUESTED_IDS,
-    value,
-});
-
-export const acClearRecommendedIds = () => ({
-    type: CLEAR_RECOMMENDED_IDS,
-});
-
-export const tSetRecommendedIds = () => async (dispatch, getState) => {
-    const state = getState();
-
-    const previousIds = sGetPreviousRequestedIds(state);
-    const items = sGetUiItems(state);
-
-    const dxIds = getIds(items.dx);
-    const ouIds = getIds(items.ou);
-
-    const onSuccess = fetchedIds => {
-        dispatch(acSetPreviousRequestedIds({ dx: dxIds, ou: ouIds }));
-        dispatch(acSetRecommendedIds(fetchedIds));
-    };
-
-    const onError = error => {
-        console.log('Error (apiFetchRecommendedIds): ', error);
-    };
-
-    const shouldFetchItems =
-        !isEqual(dxIds, previousIds.dx) || !isEqual(ouIds, previousIds.ou);
-
-    if (shouldFetchItems) {
-        try {
-            const recommendedIds = await apiFetchRecommendedIds(dxIds, ouIds);
-
-            return onSuccess(recommendedIds);
-        } catch (err) {
-            return onError(err);
-        }
-    }
-};

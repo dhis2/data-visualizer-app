@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import debounce from 'lodash-es/debounce';
+import isEqual from 'lodash-es/isEqual';
+
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 
@@ -12,18 +15,16 @@ import GenericItemSelector from './GenericSelector/GenericItemSelector';
 import HideButton from '../../HideButton/HideButton';
 import UpdateButton from '../../UpdateButton/UpdateButton';
 
-import { sGetUi, sGetUiActiveModalDialog } from '../../../reducers/ui';
+import { acSetUiActiveModalDialog } from '../../../actions/ui';
+import { acSetRecommendedIds } from '../../../actions/recommendedIds';
+
+import { sGetUiItems, sGetUiActiveModalDialog } from '../../../reducers/ui';
 import { sGetDimensions } from '../../../reducers/dimensions';
 
-import { acSetUiActiveModalDialog } from '../../../actions/ui';
-import { acSetCurrentFromUi } from '../../../actions/current';
+import { apiFetchRecommendedIds } from '../../../api/dimensions';
 
 import { FIXED_DIMENSIONS } from '../../../modules/fixedDimensions';
 import { styles } from './styles/DialogManager.style';
-import {
-    tSetRecommendedIds,
-    acClearRecommendedIds,
-} from '../../../actions/recommendedIds';
 
 const dxId = FIXED_DIMENSIONS.dx.id;
 const peId = FIXED_DIMENSIONS.pe.id;
@@ -36,6 +37,25 @@ export const fixedDimensions = {
 };
 
 export class DialogManager extends Component {
+    fetchRecommended = debounce(async () => {
+        const ids = await apiFetchRecommendedIds(
+            this.props.dxIds,
+            this.props.ouIds
+        );
+
+        this.props.setRecommendedIds(ids);
+    }, 1000);
+
+    componentDidUpdate = prevProps => {
+        const shouldFetchItems =
+            !isEqual(prevProps.dxIds, this.props.dxIds) ||
+            !isEqual(prevProps.ouIds, this.props.ouIds);
+
+        if (shouldFetchItems) {
+            this.fetchRecommended();
+        }
+    };
+
     renderDialogContent = () => {
         return Object.keys(fixedDimensions).includes(this.props.dialogId) ? (
             fixedDimensions[this.props.dialogId]
@@ -47,33 +67,30 @@ export class DialogManager extends Component {
         );
     };
 
-    onUpdate = () => {
-        //this.props.fetchRecommendedIds();
-        this.props.closeDialog(null);
-    };
-
     render = () => {
-        return this.props.dialogId ? (
+        const dialogContent = this.props.dialogId
+            ? this.renderDialogContent()
+            : null;
+
+        return (
             <Dialog
                 open={!!this.props.dialogId}
                 onClose={() => this.props.closeDialog(null)}
                 maxWidth={false}
                 disableEnforceFocus
             >
-                {this.renderDialogContent()}
+                {dialogContent}
                 <DialogActions style={styles.dialogActions}>
                     <HideButton />
-                    <UpdateButton onClick={this.onUpdate} />
+                    <UpdateButton />
                 </DialogActions>
             </Dialog>
-        ) : null;
+        );
     };
 }
 
 DialogManager.propTypes = {
     dialogId: PropTypes.string,
-    ui: PropTypes.object.isRequired,
-    onUpdate: PropTypes.func.isRequired,
     closeDialog: PropTypes.func.isRequired,
 };
 
@@ -82,17 +99,16 @@ DialogManager.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-    ui: sGetUi(state),
     dimensions: sGetDimensions(state),
     dialogId: sGetUiActiveModalDialog(state),
+    dxIds: sGetUiItems(state)[dxId] || [],
+    ouIds: sGetUiItems(state)[ouId] || [],
 });
 
 export default connect(
     mapStateToProps,
     {
-        onUpdate: acSetCurrentFromUi,
         closeDialog: acSetUiActiveModalDialog,
-        fetchRecommendedIds: tSetRecommendedIds,
-        clearRecommendeD: acClearRecommendedIds,
+        setRecommendedIds: acSetRecommendedIds,
     }
 )(DialogManager);

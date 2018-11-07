@@ -4,14 +4,7 @@ import reducer, {
 } from '../recommendedIds';
 
 describe('reducer: recommendedIds', () => {
-    const ids = [{ id: 'abc' }, { id: 'bcd' }];
-    const expectedState = {
-        fetchedIds: ['abc', 'bcd'],
-        previousRequestedIds: {
-            dx: [],
-            ou: [],
-        },
-    };
+    const ids = ['abc', 'bcd'];
 
     it('should return the default state', () => {
         const actualState = reducer(undefined, { type: 'NO_MATCH' });
@@ -24,19 +17,11 @@ describe('reducer: recommendedIds', () => {
             value: ids,
         });
 
-        expect(actualState).toEqual(expectedState);
+        expect(actualState).toEqual(ids);
     });
 
     it(`${SET_RECOMMENDED_IDS}: should clear recommendedIds`, () => {
-        const testState = {
-            fetchedIds: ids,
-            previousRequestedIds: {
-                dx: [],
-                ou: [],
-            },
-        };
-
-        const actualState = reducer(testState, {
+        const actualState = reducer(ids, {
             type: SET_RECOMMENDED_IDS,
             value: undefined,
         });

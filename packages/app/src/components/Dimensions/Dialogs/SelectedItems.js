@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
+
 import { Item } from './Item';
 import { UnAssignButton, DeselectAllButton } from './buttons';
 
 import { sGetMetadata } from '../../../reducers/metadata';
+
 import { toggler } from '../../../modules/toggler';
 import { styles } from './styles/SelectedItems.style';
 
