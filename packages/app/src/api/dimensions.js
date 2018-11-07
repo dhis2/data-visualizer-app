@@ -62,13 +62,15 @@ export const apiFetchRecommendedIds = (dxIds, ouIds) => {
 
         if (ouIds.length)
             fields = fields.concat(`&dimension=ou:${ouIds.join(';')}`);
-    } else if (ouIds.length) fields = fields.concat(`ou:${ouIds.join(';')}`);
+    } else if (ouIds.length) {
+        fields = fields.concat(`ou:${ouIds.join(';')}`);
+    }
 
     const url = `/dimensions/recommendations?${fields}&fields=id`;
 
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))
-        .then(response => response.dimensions)
+        .then(response => response.dimensions.map(item => item.id))
         .catch(onError);
 };
 

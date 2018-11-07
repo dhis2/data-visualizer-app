@@ -4,16 +4,16 @@ export const styles = {
     text: {
         color: colors.black,
         userSelect: 'none',
-        wordBreak: 'break-all',
         cursor: 'pointer',
-        fontSize: 16,
-        maxWidth: 195,
+        wordBreak: 'break-word',
+        fontSize: '16px',
+        maxWidth: '195px',
         alignSelf: 'center',
     },
     itemContainer: {
         display: 'flex',
-        marginTop: 7,
-        marginBottom: 7,
+        marginTop: '7px',
+        marginBottom: '7px',
     },
     fixedDimensionIcon: {
         paddingLeft: '6px',

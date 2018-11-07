@@ -129,7 +129,7 @@ export class DataDimension extends Component {
             ? this.state.items.concat(dimensionItems)
             : dimensionItems;
 
-        const selectedIds = this.props.selectedItems[dxId] || [];
+        const selectedIds = this.props.selectedItems;
 
         const unselectedIds = items
             .filter(i => !selectedIds.includes(i.id))
@@ -192,6 +192,7 @@ export class DataDimension extends Component {
         const unselected = this.state.items.filter(di =>
             this.state.unselectedIds.includes(di.id)
         );
+
         const groups = this.state.groups[this.state.dataType];
 
         if (!groups.length) {
