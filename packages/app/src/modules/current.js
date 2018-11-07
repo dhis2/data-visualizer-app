@@ -10,11 +10,10 @@ export const getAxesFromUi = ui =>
         (layout, [axisName, ids]) => ({
             ...layout,
             [axisName]: ids
-                .map(
-                    id =>
-                        hasItems(ui.itemsByDimension, id)
-                            ? createDimension(id, ui.itemsByDimension[id])
-                            : null
+                .map(id =>
+                    hasItems(ui.itemsByDimension, id)
+                        ? createDimension(id, ui.itemsByDimension[id])
+                        : null
                 )
                 .filter(dim => dim !== null),
         }),
