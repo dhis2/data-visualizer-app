@@ -14,7 +14,10 @@ import styles from './styles/Interpretations.style';
 export class Interpretations extends Component {
     onInterpretationChange = interpretation => {
         if (interpretation) {
-            this.props.acSetUiInterpretation(interpretation);
+            this.props.acSetUiInterpretation({
+                id: interpretation.id,
+                created: interpretation.created,
+            });
         } else {
             this.props.acClearUiInterpretation();
         }
