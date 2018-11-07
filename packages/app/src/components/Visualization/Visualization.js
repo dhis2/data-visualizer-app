@@ -6,7 +6,10 @@ import { sGetCurrent } from '../../reducers/current';
 import BlankCanvas, { visContainerId } from './BlankCanvas';
 import { getOptionsForRequest } from '../../modules/options';
 import { acAddMetadata } from '../../actions/metadata';
-import { sGetUiRightSidebarOpen } from '../../reducers/ui';
+import {
+    sGetUiRightSidebarOpen,
+    sGetUiInterpretation,
+} from '../../reducers/ui';
 import {
     acSetLoadError,
     acSetLoading,
@@ -40,6 +43,10 @@ export class Visualization extends Component {
             this.renderVisualization();
         }
 
+        if (this.props.interpretation !== prevProps.interpretation) {
+            this.renderVisualization();
+        }
+
         if (this.props.rightSidebarOpen !== prevProps.rightSidebarOpen) {
             if (this.chart) {
                 this.chart.reflow();
@@ -48,7 +55,7 @@ export class Visualization extends Component {
     }
 
     renderVisualization = async () => {
-        const { current } = this.props;
+        const { current, interpretation } = this.props;
 
         const optionsForRequest = getOptionsForRequest().reduce(
             (map, [option, props]) => {
@@ -61,6 +68,10 @@ export class Visualization extends Component {
             },
             {}
         );
+
+        if (interpretation && interpretation.created) {
+            optionsForRequest.relativePeriodDate = interpretation.created;
+        }
 
         try {
             this.props.acClearLoadError();
@@ -123,6 +134,7 @@ export class Visualization extends Component {
 
 const mapStateToProps = state => ({
     current: sGetCurrent(state),
+    interpretation: sGetUiInterpretation(state),
     rightSidebarOpen: sGetUiRightSidebarOpen(state),
 });
 
