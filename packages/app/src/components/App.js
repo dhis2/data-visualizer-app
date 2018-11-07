@@ -121,8 +121,10 @@ export class App extends Component {
                     <div className="chart-layout">
                         <Layout />
                     </div>
-                    <div className="canvas">
+                    <div className="title-bar">
                         <TitleBar />
+                    </div>
+                    <div className="canvas">
                         {hasCurrent ? <Visualization /> : <BlankCanvas />}
                     </div>
                     <div className="interpretations">
