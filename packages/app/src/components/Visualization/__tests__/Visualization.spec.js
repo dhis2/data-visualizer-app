@@ -59,6 +59,7 @@ describe('Visualization', () => {
     beforeEach(() => {
         props = {
             current: {},
+            interpretation: {},
             rightSidebarOpen: false,
             acAddMetadata: jest.fn(),
             acSetChart: jest.fn(),
@@ -222,11 +223,11 @@ describe('Visualization', () => {
         };
 
         it('triggers a reflow when rightSidebarOpen prop changes', () => {
-            vis.setProps({ rightSidebarOpen: true });
+            vis.setProps({ ...props, rightSidebarOpen: true });
 
             expect(reflowFn).toHaveBeenCalled();
 
-            vis.setProps({ rightSidebarOpen: false });
+            vis.setProps({ ...props, rightSidebarOpen: false });
 
             expect(reflowFn).toHaveBeenCalled();
         });
