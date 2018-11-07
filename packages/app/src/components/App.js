@@ -123,8 +123,10 @@ export class App extends Component {
                     <div className="item6 interpretations">
                         Interpretations panel
                     </div>
-                    <div className="item8 canvas">
+                    <div className="title-bar">
                         <TitleBar />
+                    </div>
+                    <div className="item8 canvas">
                         {hasCurrent ? <Visualization /> : <BlankCanvas />}
                     </div>
                 </div>

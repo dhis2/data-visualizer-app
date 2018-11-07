@@ -11,12 +11,16 @@ body {
 }
 .visualization-type-selector {
     grid-area: charttype;
+    border-right: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
 }
 .menu-bar {
     grid-area: menubar;
+    border-bottom: 1px solid #aaa;
 }
 .dimensions {
     grid-area: dimensions;
+    border-right: 1px solid #aaa;
 }
 .chart-layout {
     grid-area: chartlayout;
@@ -24,10 +28,14 @@ body {
 }
 .interpretations {
     grid-area: interpretations;
+    border-left: 1px solid #aaa;
     padding: 20px;
 }
 .canvas {
     grid-area: canvas;
+}
+.title-bar {
+    grid-area: titlebar;
 }
 
 .app * {
@@ -36,15 +44,14 @@ body {
 
 .app {
     display: grid;
-    grid-gap: 1px;
     grid-template-columns: 262px auto 160px;
-    grid-template-rows: 0 40px 94px auto;
+    grid-template-rows: 0 41px 94px 44px auto;
     grid-template-areas:
         'headerbar headerbar headerbar'
         'charttype menubar menubar'
         'dimensions chartlayout interpretations'
+        'dimensions titlebar interpretations'
         'dimensions canvas interpretations';
-    background-color: #aaa;
 }
 .app > div {
     background-color: #f4f6f8;

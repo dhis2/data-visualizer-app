@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
@@ -36,7 +36,7 @@ export class VisualizationTypeSelector extends Component {
         const { visualizationType } = this.props;
 
         return (
-            <div className="visualization-type-selector">
+            <Fragment>
                 <Button
                     onClick={this.handleButtonClick}
                     disableRipple
@@ -107,7 +107,7 @@ export class VisualizationTypeSelector extends Component {
                         </MenuItem>
                     ))}
                 </Menu>
-            </div>
+            </Fragment>
         );
     }
 }
