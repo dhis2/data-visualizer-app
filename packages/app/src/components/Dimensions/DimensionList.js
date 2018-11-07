@@ -35,11 +35,10 @@ export class DimensionList extends Component {
     render = () => {
         const { filterText, dimensions } = this.props;
 
-        const dimensionsList = Object.values(dimensions).map(
-            listItem =>
-                filterText.length
-                    ? this.filterMatchingDimensions(listItem)
-                    : this.renderItem(listItem)
+        const dimensionsList = Object.values(dimensions).map(listItem =>
+            filterText.length
+                ? this.filterMatchingDimensions(listItem)
+                : this.renderItem(listItem)
         );
         return <ul style={styles.listContainer}>{dimensionsList}</ul>;
     };
