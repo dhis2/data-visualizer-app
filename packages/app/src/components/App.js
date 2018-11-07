@@ -25,11 +25,11 @@ import { sGetUi } from '../reducers/ui';
 export class App extends Component {
     unlisten = null;
 
-    loadVisualization = location => {
+    loadVisualization = async location => {
         const { store } = this.context;
 
         if (location.pathname.length > 1) {
-            store.dispatch(
+            await store.dispatch(
                 fromActions.tDoLoadVisualization(
                     this.props.apiObjectName,
                     location.pathname.slice(1),
@@ -37,7 +37,7 @@ export class App extends Component {
                 )
             );
         } else {
-            fromActions.clearVisualization(store.dispatch, this.props.settings);
+            fromActions.clearVisualization(store.dispatch, store.getState);
         }
     };
 
@@ -50,6 +50,7 @@ export class App extends Component {
         );
         store.dispatch(fromActions.fromUser.acReceivedUser(d2.currentUser));
         store.dispatch(fromActions.fromDimensions.tSetDimensions());
+
         store.dispatch(
             fromActions.fromMetadata.acAddMetadata({
                 ...defaultMetadata,

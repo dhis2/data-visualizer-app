@@ -187,17 +187,14 @@ export default (state = DEFAULT_UI, action) => {
             };
         }
         case CLEAR_UI:
-            const {
-                rootOrganisationUnit,
-                keyAnalysisRelativePeriod,
-            } = action.value;
+            const { rootOrganisationUnit, relativePeriod } = action.value;
 
             return {
                 ...DEFAULT_UI,
                 itemsByDimension: {
                     ...DEFAULT_UI.itemsByDimension,
                     [ouId]: [rootOrganisationUnit.id],
-                    [peId]: [keyAnalysisRelativePeriod],
+                    [peId]: [relativePeriod],
                 },
                 parentGraphMap: {
                     ...DEFAULT_UI.parentGraphMap,
