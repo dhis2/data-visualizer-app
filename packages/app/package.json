@@ -63,10 +63,10 @@
         "promise": "8.0.1",
         "prop-types": "^15.6.1",
         "raf": "3.4.0",
-        "react": "^16.2.0",
+        "react": "^16.6.0",
         "react-dev-utils": "^5.0.2",
-        "react-dom": "^16.2.0",
-        "react-redux": "^5.0.7",
+        "react-dom": "^16.6.0",
+        "react-redux": "^5.1.0",
         "redux": "^4.0.0",
         "redux-actions": "^2.2.1",
         "redux-logger": "^3.0.6",
@@ -78,7 +78,7 @@
         "webpack": "^3.10.0",
         "webpack-dev-server": "^2.9.4",
         "webpack-manifest-plugin": "2.0.3",
-        "whatwg-fetch": "2.0.4"
+        "whatwg-fetch": "^3.0.0"
     },
     "scripts": {
         "prestart": "npm run localize && d2-manifest package.json ./public/manifest.webapp",

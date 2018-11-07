@@ -15,7 +15,7 @@ export class Dimensions extends Component {
 
     render = () => {
         return (
-            <div className={'dimensions'} style={styles.divContainer}>
+            <div style={styles.divContainer}>
                 <DialogManager />
                 <TextField
                     style={styles.textField}
