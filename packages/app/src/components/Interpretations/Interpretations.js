@@ -1,28 +1,64 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import InterpretationsComponent from '@dhis2/d2-ui-interpretations';
+
+import { sGetUiInterpretation } from '../../reducers/ui';
+import {
+    acSetUiInterpretation,
+    acClearUiInterpretation,
+} from '../../actions/ui';
 
 import styles from './styles/Interpretations.style';
 
-export const Interpretations = ({ type, id }, context) => {
-    return id ? (
-        <div style={styles.container}>
-            <InterpretationsComponent id={id} d2={context.d2} type={type} />
-        </div>
-    ) : null;
-};
+export class Interpretations extends Component {
+    onInterpretationChange = interpretation => {
+        if (interpretation) {
+            this.props.acSetUiInterpretation(interpretation);
+        } else {
+            this.props.acClearUiInterpretation();
+        }
+    };
+
+    render() {
+        const { type, id, interpretationId } = this.props;
+
+        return id ? (
+            <div style={styles.container}>
+                <InterpretationsComponent
+                    d2={this.context.d2}
+                    type={type}
+                    id={id}
+                    currentInterpretationId={interpretationId}
+                    onCurrentInterpretationChange={this.onInterpretationChange}
+                />
+            </div>
+        ) : null;
+    }
+}
 
 Interpretations.defaultProps = {
     type: 'chart',
 };
 
 Interpretations.propTypes = {
-    id: PropTypes.string,
     type: PropTypes.string,
+    id: PropTypes.string,
+    interpretationId: PropTypes.string,
 };
 
 Interpretations.contextTypes = {
     d2: PropTypes.object,
 };
 
-export default Interpretations;
+const mapStateToProps = state => ({
+    interpretationId: sGetUiInterpretation(state).id || null,
+});
+
+export default connect(
+    mapStateToProps,
+    {
+        acSetUiInterpretation,
+        acClearUiInterpretation,
+    }
+)(Interpretations);
