@@ -12,9 +12,15 @@ import { SET_CURRENT, CLEAR_CURRENT } from '../../reducers/current';
 import { SET_UI_FROM_VISUALIZATION, CLEAR_UI } from '../../reducers/ui';
 import { SET_LOAD_ERROR, CLEAR_LOAD_ERROR } from '../../reducers/loader';
 import { RECEIVED_SNACKBAR_MESSAGE } from '../../reducers/snackbar';
+import * as selectors from '../../reducers/settings';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
+
+const rootOrganisationUnit = 'abc123';
+const relativePeriod = 'xyzpdq';
+selectors.sGetRootOrgUnit = () => rootOrganisationUnit;
+selectors.sGetRelativePeriod = () => relativePeriod;
 
 describe('index', () => {
     describe('tDoLoadVisualization', () => {
@@ -48,7 +54,7 @@ describe('index', () => {
         });
 
         it('dispatches the correct actions when fetch visualization fails', () => {
-            const error = { code: '718', message: 'I am not a teapot' };
+            const error = 'I am not a teapot';
 
             api.apiFetchVisualization = () => Promise.reject(error);
 
@@ -56,7 +62,13 @@ describe('index', () => {
                 { type: SET_LOAD_ERROR, value: error },
                 { type: CLEAR_VISUALIZATION },
                 { type: CLEAR_CURRENT },
-                { type: CLEAR_UI },
+                {
+                    type: CLEAR_UI,
+                    value: {
+                        rootOrganisationUnit,
+                        relativePeriod,
+                    },
+                },
             ];
 
             const store = mockStore({});
@@ -64,7 +76,8 @@ describe('index', () => {
             return store
                 .dispatch(fromActions.tDoLoadVisualization())
                 .then(() => {
-                    expect(store.getActions()).toEqual(expectedActions);
+                    const actions = store.getActions();
+                    expect(actions).toEqual(expectedActions);
                 });
         });
     });
@@ -75,12 +88,18 @@ describe('index', () => {
                 { type: CLEAR_LOAD_ERROR },
                 { type: CLEAR_VISUALIZATION },
                 { type: CLEAR_CURRENT },
-                { type: CLEAR_UI },
+                {
+                    type: CLEAR_UI,
+                    value: {
+                        rootOrganisationUnit,
+                        relativePeriod,
+                    },
+                },
             ];
 
             const store = mockStore({});
 
-            fromActions.clearVisualization(store.dispatch);
+            fromActions.clearVisualization(store.dispatch, store.getState);
 
             expect(store.getActions()).toEqual(expectedActions);
         });
