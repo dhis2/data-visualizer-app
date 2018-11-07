@@ -68,24 +68,22 @@ export class DialogManager extends Component {
     };
 
     render = () => {
-        const dialogContent = this.props.dialogId
-            ? this.renderDialogContent()
-            : null;
-
-        return (
+        return this.props.dialogId ? (
             <Dialog
                 open={!!this.props.dialogId}
                 onClose={() => this.props.closeDialog(null)}
                 maxWidth={false}
                 disableEnforceFocus
             >
-                {dialogContent}
+                {this.renderDialogContent()}
                 <DialogActions style={styles.dialogActions}>
                     <HideButton />
-                    <UpdateButton />
+                    <UpdateButton
+                        onClick={() => this.props.closeDialog(null)}
+                    />
                 </DialogActions>
             </Dialog>
-        );
+        ) : null;
     };
 }
 

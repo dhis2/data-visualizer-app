@@ -52,10 +52,10 @@ export class DimensionOptions extends Component {
 
     addDimension = axisName => {
         if (this.props.currentLayout[axisName] && axisName !== 'filters') {
-            const remainingItems = omit(this.props.items, this.props.id);
-            this.props.setUiItems(remainingItems);
-
             const currentDimension = this.props.currentLayout[axisName][0];
+            const remainingItems = omit(this.props.items, currentDimension);
+
+            this.props.setUiItems(remainingItems);
             this.props.removeDimension(currentDimension);
         }
 

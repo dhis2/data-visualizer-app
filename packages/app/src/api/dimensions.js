@@ -64,6 +64,8 @@ export const apiFetchRecommendedIds = (dxIds, ouIds) => {
             fields = fields.concat(`&dimension=ou:${ouIds.join(';')}`);
     } else if (ouIds.length) {
         fields = fields.concat(`ou:${ouIds.join(';')}`);
+    } else {
+        return Promise.resolve([]);
     }
 
     const url = `/dimensions/recommendations?${fields}&fields=id`;
