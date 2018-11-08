@@ -55,18 +55,16 @@ export class DimensionLabel extends Component {
         ) : null;
     };
 
-    renderLabel = () => {
-        return (
-            <div
-                onClick={this.onLabelClick}
-                onKeyPress={this.onKeyPress}
-                tabIndex={0}
-                style={styles.unselected}
-            >
-                {this.props.children}
-            </div>
-        );
-    };
+    renderLabel = () => (
+        <div
+            onClick={this.onLabelClick}
+            onKeyPress={this.onKeyPress}
+            tabIndex={0}
+            style={styles.unselected}
+        >
+            {this.props.children}
+        </div>
+    );
 
     render = () => {
         const Label = this.renderLabel();

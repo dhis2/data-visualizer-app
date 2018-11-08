@@ -5,13 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-<<<<<<< HEAD
-"POT-Creation-Date: 2018-11-05T23:53:37.275Z\n"
-"PO-Revision-Date: 2018-11-05T23:53:37.275Z\n"
-=======
 "POT-Creation-Date: 2018-11-06T10:22:51.230Z\n"
 "PO-Revision-Date: 2018-11-06T10:22:51.230Z\n"
->>>>>>> e74ae0981de067651a4b291459f1ce896638d140
 
 msgid "Rename successful"
 msgstr ""

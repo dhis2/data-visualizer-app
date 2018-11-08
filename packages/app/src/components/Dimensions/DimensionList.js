@@ -10,9 +10,9 @@ import { styles } from './styles/DimensionList.style';
 
 export class DimensionList extends Component {
     filterTextContains = dimensionName => {
-        const { filterText } = this.props;
-
-        return dimensionName.toLowerCase().includes(filterText.toLowerCase());
+        return dimensionName
+            .toLowerCase()
+            .includes(this.props.filterText.toLowerCase());
     };
 
     filterMatchingDimensions = dimension => {
@@ -33,14 +33,13 @@ export class DimensionList extends Component {
     };
 
     render = () => {
-        const { filterText, dimensions } = this.props;
-
-        const dimensionsList = Object.values(dimensions).map(
+        const dimensionsList = Object.values(this.props.dimensions).map(
             listItem =>
-                filterText.length
+                this.props.filterText.length
                     ? this.filterMatchingDimensions(listItem)
                     : this.renderItem(listItem)
         );
+
         return <ul style={styles.listContainer}>{dimensionsList}</ul>;
     };
 }

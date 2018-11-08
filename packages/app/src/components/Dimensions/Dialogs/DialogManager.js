@@ -83,7 +83,7 @@ export class DialogManager extends Component {
                     />
                 </DialogActions>
             </Dialog>
-        ): null;
+        ) : null;
     };
 }
 
