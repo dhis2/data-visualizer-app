@@ -4,6 +4,9 @@ import { App } from '../App';
 import Snackbar from '@material-ui/core/Snackbar';
 import Visualization from '../Visualization/Visualization';
 import * as actions from '../../actions/';
+import history from '../../modules/history';
+
+// console.log('allHistory', allHistory);
 
 import { getStubContext } from '../../../../../config/testsContext';
 
@@ -54,6 +57,10 @@ describe('App', () => {
         actions.fromUi.acOpenUiRightSidebarOpen = jest.fn();
     });
 
+    afterEach(() => {
+        shallowApp.instance().componentWillUnmount();
+    });
+
     it('renders a div', () => {
         expect(app().find('div').length).toBeGreaterThan(0);
     });
@@ -66,59 +73,6 @@ describe('App', () => {
         props.current = { visProp: {} };
 
         expect(app().find(Visualization).length).toBeGreaterThan(0);
-    });
-
-    it('calls clear visualization action when location pathname is root', done => {
-        app();
-
-        setTimeout(() => {
-            expect(actions.tDoLoadVisualization).not.toHaveBeenCalled();
-            expect(actions.clearVisualization).toHaveBeenCalled();
-            done();
-        });
-    });
-
-    describe('ao id in pathname', () => {
-        beforeEach(() => {
-            props.location.pathname = `/${aoId}`;
-        });
-
-        it('calls load visualization action when location pathname has length', done => {
-            app();
-
-            setTimeout(() => {
-                expect(actions.tDoLoadVisualization).toHaveBeenCalled();
-                expect(
-                    actions.fromUi.acSetUiInterpretation
-                ).not.toHaveBeenCalled();
-                expect(actions.clearVisualization).not.toHaveBeenCalled();
-                done();
-            });
-        });
-
-        it('does not load visualization if current exists and has not changed', done => {
-            props.current = { id: aoId, visProp: {} };
-
-            app();
-
-            setTimeout(() => {
-                expect(actions.tDoLoadVisualization).not.toHaveBeenCalled();
-
-                done();
-            });
-        });
-
-        it('does not load visualization if current exists and differs from pathname', done => {
-            props.current = { id: 'rarity', visProp: {} };
-
-            app();
-
-            setTimeout(() => {
-                expect(actions.tDoLoadVisualization).toHaveBeenCalled();
-
-                done();
-            });
-        });
     });
 
     it('renders a Snackbar', () => {
@@ -137,23 +91,80 @@ describe('App', () => {
         });
     });
 
-    describe('interpretation id in pathname', () => {
-        it('calls setUiInterpretation action', done => {
-            const interpId = 'xyzpdq';
-            props.location.pathname = `/${aoId}/interpretation/${interpId}`;
+    describe('ao id in pathname', () => {
+        beforeEach(() => {
+            props.location.pathname = `/${aoId}`;
+        });
+
+        it('calls clear visualization action when location pathname is root', done => {
+            props.location.pathname = '/';
+            app();
+
+            setTimeout(() => {
+                expect(actions.tDoLoadVisualization).not.toHaveBeenCalled();
+                expect(actions.clearVisualization).toBeCalledTimes(1);
+                done();
+            });
+        });
+
+        it('calls load visualization action when location pathname has length', done => {
             app();
 
             setTimeout(() => {
                 expect(actions.tDoLoadVisualization).toBeCalledTimes(1);
-                expect(actions.fromUi.acSetUiInterpretation).toHaveBeenCalled();
                 expect(
                     actions.fromUi.acSetUiInterpretation
-                ).toHaveBeenCalledWith({ id: interpId });
-                expect(actions.fromUi.acOpenUiRightSidebarOpen).toBeCalledTimes(
-                    1
-                );
+                ).not.toHaveBeenCalled();
                 expect(actions.clearVisualization).not.toHaveBeenCalled();
                 done();
+            });
+        });
+
+        it('does not load visualization if current exists and is same as in pathname', done => {
+            props.current = { id: aoId, visProp: {} };
+
+            app();
+
+            setTimeout(() => {
+                expect(actions.tDoLoadVisualization).not.toHaveBeenCalled();
+
+                done();
+            });
+        });
+
+        it('does not load visualization if current exists and differs from pathname', done => {
+            props.current = { id: 'rarity', visProp: {} };
+
+            app();
+
+            setTimeout(() => {
+                history.push('rainbows');
+                expect(actions.tDoLoadVisualization).toBeCalledTimes(2);
+
+                done();
+            });
+        });
+
+        describe('interpretation id in pathname', () => {
+            it('calls setUiInterpretation action', done => {
+                const interpId = 'xyzpdq';
+                props.location.pathname = `/${aoId}/interpretation/${interpId}`;
+                app();
+
+                setTimeout(() => {
+                    expect(actions.tDoLoadVisualization).toBeCalledTimes(1);
+                    expect(
+                        actions.fromUi.acSetUiInterpretation
+                    ).toBeCalledTimes(1);
+                    expect(
+                        actions.fromUi.acSetUiInterpretation
+                    ).toHaveBeenCalledWith({ id: interpId });
+                    expect(
+                        actions.fromUi.acOpenUiRightSidebarOpen
+                    ).toBeCalledTimes(1);
+                    expect(actions.clearVisualization).not.toHaveBeenCalled();
+                    done();
+                });
             });
         });
     });
