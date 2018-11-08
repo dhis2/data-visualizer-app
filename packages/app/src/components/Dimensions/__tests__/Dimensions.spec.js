@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Dimensions } from '../Dimensions';
+import DimensionList from '../DimensionList';
 
 describe('The Dimensions component ', () => {
     let shallowDimensions;
@@ -26,6 +27,17 @@ describe('The Dimensions component ', () => {
 
         expect(wrappingDiv.children()).toEqual(
             dimensionsComponent().children()
+        );
+    });
+
+    it('renders a DimensionList with the correct prop', () => {
+        const dimensionsComp = dimensionsComponent();
+        dimensionsComp.setState({ filterText: 'filteredText' });
+
+        const filteredList = dimensionsComp.find(DimensionList).first();
+
+        expect(filteredList.props().filterText).toEqual(
+            dimensionsComp.state().filterText
         );
     });
 });

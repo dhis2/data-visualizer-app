@@ -5,7 +5,6 @@ export const DEFAULT_RECOMMENDED_IDS = [];
 export default (state = DEFAULT_RECOMMENDED_IDS, action) => {
     switch (action.type) {
         case SET_RECOMMENDED_IDS: {
-            console.log('action');
             return action.value || DEFAULT_RECOMMENDED_IDS;
         }
         default:

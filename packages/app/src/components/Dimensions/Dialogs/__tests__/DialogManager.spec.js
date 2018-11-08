@@ -25,9 +25,11 @@ describe('The DialogManager component ', () => {
     beforeEach(() => {
         props = {
             dialogId: null,
-            ui: {},
+            dimensions: {},
+            dxIds: [],
+            ouIds: [],
             closeDialog: jest.fn(),
-            onUpdate: jest.fn(),
+            setRecommendedIds: jest.fn(),
         };
         shallowDialog = undefined;
     });
@@ -36,7 +38,7 @@ describe('The DialogManager component ', () => {
         expect(dialogManager().children().length).toEqual(0);
     });
 
-    it('renders a <Dialog> with when prop dialogId is not equal to a falsy value', () => {
+    it('renders a <Dialog> when prop dialogId is not equal to a falsy value', () => {
         props.dialogId = dxId;
 
         const wrappingDialog = dialogManager()

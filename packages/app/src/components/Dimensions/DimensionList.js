@@ -27,7 +27,7 @@ export class DimensionList extends Component {
                 id={dimension.id}
                 key={dimension.id}
                 name={dimension.name}
-                isSelected={!!this.props.selected.includes(dimension.id)}
+                isSelected={!!this.props.selectedIds.includes(dimension.id)}
             />
         );
     };
@@ -35,10 +35,11 @@ export class DimensionList extends Component {
     render = () => {
         const { filterText, dimensions } = this.props;
 
-        const dimensionsList = Object.values(dimensions).map(listItem =>
-            filterText.length
-                ? this.filterMatchingDimensions(listItem)
-                : this.renderItem(listItem)
+        const dimensionsList = Object.values(dimensions).map(
+            listItem =>
+                filterText.length
+                    ? this.filterMatchingDimensions(listItem)
+                    : this.renderItem(listItem)
         );
         return <ul style={styles.listContainer}>{dimensionsList}</ul>;
     };
@@ -46,17 +47,17 @@ export class DimensionList extends Component {
 
 DimensionList.propTypes = {
     dimensions: PropTypes.object.isRequired,
-    selected: PropTypes.array,
+    selectedIds: PropTypes.array,
     filterText: PropTypes.string.isRequired,
 };
 
 DimensionList.defaultProps = {
-    selected: [],
+    selectedIds: [],
 };
 
 const mapStateToProps = state => ({
     dimensions: sGetDimensions(state),
-    selected: sGetDimensionIdsFromLayout(state),
+    selectedIds: sGetDimensionIdsFromLayout(state),
 });
 
 export default connect(mapStateToProps)(DimensionList);

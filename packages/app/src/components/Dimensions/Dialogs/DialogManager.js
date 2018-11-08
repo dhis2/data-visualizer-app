@@ -37,6 +37,16 @@ export const fixedDimensions = {
 };
 
 export class DialogManager extends Component {
+    componentDidUpdate = prevProps => {
+        const shouldFetchIds =
+            !isEqual(prevProps.dxIds, this.props.dxIds) ||
+            !isEqual(prevProps.ouIds, this.props.ouIds);
+
+        if (shouldFetchIds) {
+            this.fetchRecommended();
+        }
+    };
+
     fetchRecommended = debounce(async () => {
         const ids = await apiFetchRecommendedIds(
             this.props.dxIds,
@@ -45,16 +55,6 @@ export class DialogManager extends Component {
 
         this.props.setRecommendedIds(ids);
     }, 1000);
-
-    componentDidUpdate = prevProps => {
-        const shouldFetchItems =
-            !isEqual(prevProps.dxIds, this.props.dxIds) ||
-            !isEqual(prevProps.ouIds, this.props.ouIds);
-
-        if (shouldFetchItems) {
-            this.fetchRecommended();
-        }
-    };
 
     renderDialogContent = () => {
         return Object.keys(fixedDimensions).includes(this.props.dialogId) ? (
@@ -83,13 +83,16 @@ export class DialogManager extends Component {
                     />
                 </DialogActions>
             </Dialog>
-        ) : null;
+        ): null;
     };
 }
 
 DialogManager.propTypes = {
     dialogId: PropTypes.string,
+    dxIds: PropTypes.array.isRequired,
+    ouIds: PropTypes.array.isRequired,
     closeDialog: PropTypes.func.isRequired,
+    setRecommendedIds: PropTypes.func.isRequired,
 };
 
 DialogManager.defaultProps = {
@@ -97,8 +100,8 @@ DialogManager.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-    dimensions: sGetDimensions(state),
     dialogId: sGetUiActiveModalDialog(state),
+    dimensions: sGetDimensions(state),
     dxIds: sGetUiItems(state)[dxId] || [],
     ouIds: sGetUiItems(state)[ouId] || [],
 });
