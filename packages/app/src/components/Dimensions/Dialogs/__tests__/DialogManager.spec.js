@@ -26,7 +26,7 @@ describe('The DialogManager component ', () => {
         props = {
             dialogId: null,
             dimensions: {},
-            dxIds: [],
+            dxIds: ['test'],
             ouIds: [],
             closeDialog: jest.fn(),
             setRecommendedIds: jest.fn(),
@@ -46,5 +46,29 @@ describe('The DialogManager component ', () => {
             .first();
 
         expect(wrappingDialog.children().length).toBeGreaterThan(1);
+    });
+
+    it('sets the recommended Ids (with debounced delay) when a change in dx (Data) or ou (Organisation Unit) occurs', () => {
+        const dialog = dialogManager();
+        dialog.setProps({ ouIds: ['TEST_OU_ID'] });
+        dialog.setProps({ ouIds: ['OTHER_ID'] });
+
+        setTimeout(
+            () => expect(props.setRecommendedIds).toHaveBeenCalledTimes(1),
+            1001
+        );
+    });
+
+    it('does not update recommendedIds if other selected ids are udpdated', () => {
+        const dialog = dialogManager();
+        dialog.setProps({ dimensionIdA: ['itemsByDimensionIdA'] });
+        dialog.setProps({
+            dimensionIdB: ['itemsByDimensionIdB', 'itemsByDimensionIdC'],
+        });
+
+        setTimeout(
+            () => expect(props.setRecommendedIds).toHaveBeenCalledTimes(0),
+            1001
+        );
     });
 });
