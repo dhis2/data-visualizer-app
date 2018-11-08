@@ -26,6 +26,7 @@ const [COLUMNS, ROWS, FILTERS] = AXIS_NAMES;
 const dxId = FIXED_DIMENSIONS.dx.id;
 const peId = FIXED_DIMENSIONS.pe.id;
 const ouId = FIXED_DIMENSIONS.ou.id;
+const otherId = '123';
 
 const dxItem1Id = 'dxItem1';
 const dx = {
@@ -162,7 +163,7 @@ describe('reducer: ui', () => {
         expect(actualState).toEqual(expectedState);
     });
 
-    it(`${ADD_UI_LAYOUT_DIMENSIONS}: should add layout dimensions`, () => {
+    it(`${ADD_UI_LAYOUT_DIMENSIONS}: should swap layout dimensions`, () => {
         const state = {
             layout: {
                 columns: [dxId],
@@ -182,6 +183,33 @@ describe('reducer: ui', () => {
             layout: {
                 columns: [peId],
                 rows: [dxId],
+                filters: [ouId],
+            },
+        };
+
+        expect(actualState).toEqual(expectedState);
+    });
+
+    it(`${ADD_UI_LAYOUT_DIMENSIONS}: should add/remove layout dimensions`, () => {
+        const state = {
+            layout: {
+                columns: [dxId],
+                rows: [peId],
+                filters: [ouId],
+            },
+        };
+
+        const actualState = reducer(state, {
+            type: ADD_UI_LAYOUT_DIMENSIONS,
+            value: {
+                [otherId]: 'columns',
+            },
+        });
+
+        const expectedState = {
+            layout: {
+                columns: [otherId],
+                rows: [peId],
                 filters: [ouId],
             },
         };
