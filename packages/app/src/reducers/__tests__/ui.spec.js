@@ -60,7 +60,7 @@ describe('reducer: ui', () => {
     it(`${ui.CLEAR_UI} sets the default state`, () => {
         const settings = {
             rootOrganisationUnit: { id: 'ROOT_ORGUNIT' },
-            keyAnalysisRelativePeriod: 'LAST_12_MONTHS',
+            relativePeriod: 'LAST_12_MONTHS',
         };
 
         const actualState = reducer(
@@ -79,7 +79,7 @@ describe('reducer: ui', () => {
             itemsByDimension: {
                 ...ui.DEFAULT_UI.itemsByDimension,
                 [ouId]: [settings.rootOrganisationUnit.id],
-                [peId]: [settings.keyAnalysisRelativePeriod],
+                [peId]: [settings.relativePeriod],
             },
         });
     });
