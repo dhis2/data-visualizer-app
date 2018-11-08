@@ -3,9 +3,9 @@ import React from 'react';
 const PeriodIcon = () => {
     return (
         <svg
-            width="13px"
-            height="13px"
-            viewBox="0 0 13 13"
+            width="16px"
+            height="16px"
+            viewBox="0 0 16 16"
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
         >
@@ -16,12 +16,20 @@ const PeriodIcon = () => {
                 fill="none"
                 fill-rule="evenodd"
             >
-                <g id="Artboard" transform="translate(-33.000000, -10.000000)">
+                <g id="Artboard" transform="translate(-32.000000, -9.000000)">
                     <g
                         id="icon_period_new"
                         transform="translate(32.000000, 9.000000)"
                     >
-                        <rect id="frame" x="0" y="0" width="16" height="16" />
+                        <rect
+                            id="frame"
+                            fill="#D8D8D8"
+                            opacity="0"
+                            x="0"
+                            y="0"
+                            width="16"
+                            height="16"
+                        />
                         <g
                             id="time-clock-circle"
                             transform="translate(2.000000, 2.000000)"
