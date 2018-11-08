@@ -18,24 +18,20 @@ export class RecommendedIcon extends Component {
         this.setState({ anchorEl: null });
     };
 
-    checkIfRecommended = () => {
-        const { isRecommended, isSelected } = this.props;
-        return isRecommended && !isSelected;
-    };
+    checkIfRecommended = () =>
+        this.props.isRecommended && !this.props.isSelected;
 
-    showTooltip = () => {
-        const HINT_TEXT = i18n.t('Dimension recommended with selected data');
-
-        return (
-            <Popper
-                anchorEl={this.state.anchorEl}
-                open={Boolean(this.state.anchorEl)}
-                placement="bottom"
-            >
-                <Paper style={styles.toolTip}>{HINT_TEXT}</Paper>
-            </Popper>
-        );
-    };
+    showTooltip = () => (
+        <Popper
+            anchorEl={this.state.anchorEl}
+            open={Boolean(this.state.anchorEl)}
+            placement="bottom"
+        >
+            <Paper style={styles.toolTip}>
+                {i18n.t('Dimension recommended with selected data')}
+            </Paper>
+        </Popper>
+    );
 
     render = () => {
         const TooltipOnHover = Boolean(this.state.anchorEl)

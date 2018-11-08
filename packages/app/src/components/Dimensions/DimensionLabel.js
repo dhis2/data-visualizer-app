@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import omit from 'lodash-es/omit';
+
 import Close from '@material-ui/icons/Close';
 import {
     acRemoveUiLayoutDimensions,
@@ -12,13 +12,11 @@ import { sGetUiLayout, sGetUiItems } from '../../reducers/ui';
 
 import { styles } from './styles/DimensionLabel.style';
 
-export const RemoveDimensionButton = ({ action }) => {
-    return (
-        <button style={styles.deleteButton} onClick={action} tabIndex={0}>
-            <Close style={styles.deleteButtonIcon} />
-        </button>
-    );
-};
+export const RemoveDimensionButton = ({ action }) => (
+    <button style={styles.deleteButton} onClick={action} tabIndex={0}>
+        <Close style={styles.deleteButtonIcon} />
+    </button>
+);
 
 export class DimensionLabel extends Component {
     static propTypes = {
@@ -43,9 +41,6 @@ export class DimensionLabel extends Component {
     };
 
     removeDimension = () => {
-        const remainingItems = omit(this.props.items, this.props.id);
-
-        this.props.setUiItems(remainingItems);
         this.props.removeDimension(this.props.id);
     };
 
@@ -71,7 +66,7 @@ export class DimensionLabel extends Component {
         const RemoveDimension = this.renderRemoveButton();
 
         const containerStyle = this.props.isSelected
-            ? { ...styles.unselected, ...styles.selected }
+            ? styles.selected
             : styles.unselected;
 
         return (

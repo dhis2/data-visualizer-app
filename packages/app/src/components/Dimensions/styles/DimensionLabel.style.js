@@ -7,6 +7,8 @@ export const styles = {
     },
     selected: {
         backgroundColor: colors.lightBlue,
+        display: 'flex',
+        borderRadius: '4px',
     },
     deleteButton: {
         border: 'none',

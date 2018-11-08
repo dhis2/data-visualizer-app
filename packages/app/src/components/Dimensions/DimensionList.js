@@ -21,16 +21,14 @@ export class DimensionList extends Component {
             : null;
     };
 
-    renderItem = dimension => {
-        return (
-            <DimensionItem
-                id={dimension.id}
-                key={dimension.id}
-                name={dimension.name}
-                isSelected={!!this.props.selectedIds.includes(dimension.id)}
-            />
-        );
-    };
+    renderItem = dimension => (
+        <DimensionItem
+            id={dimension.id}
+            key={dimension.id}
+            name={dimension.name}
+            isSelected={!!this.props.selectedIds.includes(dimension.id)}
+        />
+    );
 
     render = () => {
         const dimensionsList = Object.values(this.props.dimensions).map(
