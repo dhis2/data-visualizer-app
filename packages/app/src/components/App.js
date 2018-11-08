@@ -30,9 +30,11 @@ export class App extends Component {
         const { store } = this.context;
 
         if (location.pathname.length > 1) {
-            const [id, interpretationId] = location.pathname
-                .slice(1)
-                .split('/interpretation/');
+            // /${id}/
+            // /${id}/interpretation/${interpretationId}
+            const pathParts = location.pathname.slice(1).split('/');
+            const id = pathParts[0];
+            const interpretationId = pathParts[2];
 
             if (!(this.props.current && this.props.current.id === id)) {
                 await store.dispatch(
