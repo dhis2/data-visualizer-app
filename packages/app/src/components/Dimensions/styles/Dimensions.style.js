@@ -11,5 +11,6 @@ export const styles = {
     },
     textField: {
         marginBottom: '12px',
+        width: '223px',
     },
 };
