@@ -70,10 +70,10 @@ class Chip extends React.Component {
 
     renderChip = () => {
         const itemsLabel = `: ${this.props.items.length} ${i18n.t('selected')}`;
+
         const chipLabel = `${this.props.dimensionName}${
             this.props.items.length > 0 ? itemsLabel : ''
         }`;
-
         const anchorEl = document.getElementById(this.id);
         const icon = this.getIconByDimension();
         const wrapperStyle = {
