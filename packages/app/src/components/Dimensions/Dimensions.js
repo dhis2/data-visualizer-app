@@ -18,7 +18,6 @@ export class Dimensions extends Component {
             <div style={styles.divContainer}>
                 <DialogManager />
                 <TextField
-                    style={styles.textField}
                     onChange={this.onFilterTextChange}
                     placeholder={i18n.t('Search Dimensions')}
                     InputProps={{
