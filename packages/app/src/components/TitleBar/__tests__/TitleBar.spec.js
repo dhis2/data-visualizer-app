@@ -17,6 +17,7 @@ describe('TitleBar component', () => {
         props = {
             title: 'test title',
             isDirty: false,
+            interpretation: {},
         };
         shallowTitleBar = undefined;
     });
@@ -52,10 +53,8 @@ describe('TitleBar component', () => {
     });
 
     it('renders an "*" when isDirty prop is true', () => {
-        props = {
-            title: 'edited title',
-            isDirty: true,
-        };
+        props.title = 'edited title';
+        props.isDirty = true;
 
         expect(
             titleBar()

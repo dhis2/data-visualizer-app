@@ -14,9 +14,16 @@ import styles from './styles/Interpretations.style';
 export class Interpretations extends Component {
     onInterpretationChange = interpretation => {
         if (interpretation) {
+            const d = new Date(interpretation.created);
+            const created = [
+                d.getFullYear(),
+                ('0' + (d.getMonth() + 1)).slice(-2),
+                ('0' + d.getDate()).slice(-2),
+            ].join('-');
+
             this.props.acSetUiInterpretation({
                 id: interpretation.id,
-                created: interpretation.created,
+                created,
             });
         } else {
             this.props.acClearUiInterpretation();
