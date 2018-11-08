@@ -12,9 +12,9 @@ const PeriodIcon = () => {
             <g
                 id="Exp"
                 stroke="none"
-                stroke-width="1"
+                strokeWidth="1"
                 fill="none"
-                fill-rule="evenodd"
+                fillRule="evenodd"
             >
                 <g id="Artboard" transform="translate(-32.000000, -9.000000)">
                     <g
@@ -37,8 +37,8 @@ const PeriodIcon = () => {
                             <circle
                                 id="Oval"
                                 stroke="#000000"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                                 cx="5.5"
                                 cy="5.5"
                                 r="5.5"

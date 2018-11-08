@@ -12,9 +12,9 @@ const DataIcon = () => {
             <g
                 id="Exp"
                 stroke="none"
-                stroke-width="1"
+                strokeWidth="1"
                 fill="none"
-                fill-rule="evenodd"
+                fillRule="evenodd"
             >
                 <g id="Artboard" transform="translate(-7.000000, -9.000000)">
                     <g
@@ -26,8 +26,8 @@ const DataIcon = () => {
                             id="database-2"
                             transform="translate(2.000000, 2.000000)"
                             stroke="#000000"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                         >
                             <ellipse
                                 id="Oval"

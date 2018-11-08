@@ -12,9 +12,9 @@ const OrgUnitIcon = () => {
             <g
                 id="Exp"
                 stroke="none"
-                stroke-width="1"
+                strokeWidth="1"
                 fill="none"
-                fill-rule="evenodd"
+                fillRule="evenodd"
             >
                 <g id="Artboard" transform="translate(-56.000000, -9.000000)">
                     <g
@@ -26,8 +26,8 @@ const OrgUnitIcon = () => {
                             id="hierarchy-files"
                             transform="translate(3.000000, 2.000000)"
                             stroke="#000000"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                         >
                             <path
                                 d="M7.375,12 L9.62499997,12 C9.83210674,12 9.99999996,11.8209139 9.99999996,11.6 L9.99999996,8.96586667 C10.0000451,8.85989231 9.96066286,8.75822984 9.89049996,8.6832 L9.36049997,8.11733333 C9.29027247,8.04224766 9.19493362,8.00003473 9.09549997,8 L7.375,8 C7.16789322,8 7,8.1790861 7,8.4 L7,11.6 C7,11.8209139 7.16789322,12 7.375,12 Z"
