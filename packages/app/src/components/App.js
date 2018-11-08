@@ -34,13 +34,15 @@ export class App extends Component {
                 .slice(1)
                 .split('/interpretation/');
 
-            await store.dispatch(
-                fromActions.tDoLoadVisualization(
-                    this.props.apiObjectName,
-                    id,
-                    this.props.settings
-                )
-            );
+            if (!(this.props.current && this.props.current.id === id)) {
+                await store.dispatch(
+                    fromActions.tDoLoadVisualization(
+                        this.props.apiObjectName,
+                        id,
+                        this.props.settings
+                    )
+                );
+            }
 
             if (interpretationId) {
                 store.dispatch(
