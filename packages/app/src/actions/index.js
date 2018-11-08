@@ -19,6 +19,7 @@ import * as fromLoader from './loader';
 
 import { sGetCurrent } from '../reducers/current';
 import { sGetVisualization } from '../reducers/visualization';
+import { sGetRootOrgUnit, sGetRelativePeriod } from '../reducers/settings';
 
 import history from '../modules/history';
 
@@ -43,7 +44,7 @@ export const onError = (action, error) => {
 
 // visualization, current, ui
 
-export const tDoLoadVisualization = (type, id, settings) => async (
+export const tDoLoadVisualization = (type, id) => async (
     dispatch,
     getState
 ) => {
@@ -59,20 +60,26 @@ export const tDoLoadVisualization = (type, id, settings) => async (
     try {
         return onSuccess(await apiFetchVisualization(type, id));
     } catch (error) {
-        dispatch(fromLoader.acSetLoadError(error));
-        dispatch(fromVisualization.acClear());
-        dispatch(fromCurrent.acClear());
-        dispatch(fromUi.acClear());
+        clearVisualization(dispatch, getState, error);
 
         return onError('tDoLoadVisualization', error);
     }
 };
 
-export const clearVisualization = (dispatch, settings) => {
-    dispatch(fromLoader.acClearLoadError());
+export const clearVisualization = (dispatch, getState, error = null) => {
+    if (error) {
+        dispatch(fromLoader.acSetLoadError(error));
+    } else {
+        dispatch(fromLoader.acClearLoadError());
+    }
+
     dispatch(fromVisualization.acClear());
     dispatch(fromCurrent.acClear());
-    dispatch(fromUi.acClear(settings));
+
+    const rootOrganisationUnit = sGetRootOrgUnit(getState());
+    const relativePeriod = sGetRelativePeriod(getState());
+
+    dispatch(fromUi.acClear({ rootOrganisationUnit, relativePeriod }));
 };
 
 export const tDoRenameVisualization = (type, { name, description }) => (
