@@ -46,7 +46,7 @@ body {
 .app {
     display: grid;
     grid-template-columns: 230px auto 160px;
-    grid-template-rows: 0 41px 94px 44px auto;
+    grid-template-rows: 0 41px 84px 44px auto;
     grid-template-areas:
         'headerbar headerbar headerbar'
         'charttype menubar menubar'

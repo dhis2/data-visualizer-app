@@ -1,7 +1,7 @@
 import { colors } from '../../../modules/colors';
 
 // Axis
-export const AXIS_PADDING = '8px 8px 2px 8px';
+export const AXIS_PADDING = '6px 6px 2px 6px';
 export const AXIS_LABEL_PADDING = '2px 0px 0px 4px';
 export const AXIS_BORDER_COLOR = colors.greyLight;
 export const AXIS_BORDER_STYLE = 'solid';
@@ -15,7 +15,7 @@ export const CHIP_FONT_SIZE = '14px';
 export const CHIP_BACKGROUND_COLOR = colors.accentSecondaryLightest;
 export const CHIP_BACKGROUND_COLOR_HOVER = colors.lightBlueHover;
 export const CHIP_BACKGROUND_COLOR_ACTIVE = colors.lightBlueActive;
-export const CHIP_HEIGHT = '16px';
+export const CHIP_HEIGHT = '14px';
 export const CHIP_MARGIN = '4px';
-export const CHIP_PADDING = '4px 6px';
-export const CHIP_BORDER_RADIUS = '5px';
+export const CHIP_PADDING = '3px 6px';
+export const CHIP_BORDER_RADIUS = '2px';

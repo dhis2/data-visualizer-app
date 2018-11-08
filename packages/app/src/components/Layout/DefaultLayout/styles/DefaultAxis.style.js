@@ -18,6 +18,7 @@ export default {
         fontSize: 11,
         color: colors.greyDark,
         userSelect: 'none',
+        letterSpacing: '0.2px',
     },
     content: {
         display: 'flex',
