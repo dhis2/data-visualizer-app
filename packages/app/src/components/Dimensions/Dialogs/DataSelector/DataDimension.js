@@ -192,6 +192,7 @@ export class DataDimension extends Component {
         const unselected = this.state.items.filter(di =>
             this.state.unselectedIds.includes(di.id)
         );
+
         const groups = this.state.groups[this.state.dataType];
 
         if (!groups.length) {
@@ -245,10 +246,6 @@ DataDimension.propTypes = {
     addDxItems: PropTypes.func.isRequired,
     removeDxItems: PropTypes.func.isRequired,
     addMetadata: PropTypes.func.isRequired,
-};
-
-DataDimension.defaultProps = {
-    selectedItems: [],
 };
 
 const mapStateToProps = state => ({

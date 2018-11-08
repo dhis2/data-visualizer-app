@@ -60,7 +60,6 @@ export class App extends Component {
         );
 
         this.loadVisualization(this.props.location);
-
         this.unlisten = history.listen(location => {
             this.loadVisualization(location);
         });

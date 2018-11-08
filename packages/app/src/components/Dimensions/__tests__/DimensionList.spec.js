@@ -13,9 +13,13 @@ describe('The DimensionList component ', () => {
     };
     beforeEach(() => {
         props = {
-            dimensions: {},
+            dimensions: {
+                id1: { id: 'id1', name: 'name1' },
+                id2: { id: 'id2', name: 'name2' },
+                id3: { id: 'id3', name: 'name3' },
+            },
             filterText: '',
-            selected: [],
+            selectedIds: [],
         };
         shallowDimList = undefined;
     });
@@ -30,5 +34,27 @@ describe('The DimensionList component ', () => {
             .first();
 
         expect(wrappingUl.children()).toEqual(dimList().children());
+    });
+
+    it('renders an unfiltered list if prop filterText have length < 1', () => {
+        const unfiltered = dimList()
+            .find('ul')
+            .first();
+
+        expect(props.filterText.length).toBeLessThan(1);
+        expect(unfiltered.children().length).toEqual(
+            Object.keys(props.dimensions).length
+        );
+    });
+
+    it('renders a filtered list if prop filterText have length > 1 ', () => {
+        props.filterText = 'name3';
+
+        const unfiltered = dimList()
+            .find('ul')
+            .first();
+
+        expect(props.filterText.length).toBeGreaterThan(1);
+        expect(unfiltered.children().length).toEqual(1);
     });
 });

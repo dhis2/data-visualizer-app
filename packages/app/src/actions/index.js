@@ -8,6 +8,7 @@ import {
 import * as fromVisualization from './visualization';
 import * as fromCurrent from './current';
 import * as fromDimensions from './dimensions';
+import * as fromRecommended from './recommendedIds';
 import * as fromUi from './ui';
 import * as fromMetadata from './metadata';
 import * as fromSettings from './settings';
@@ -26,6 +27,7 @@ export {
     fromVisualization,
     fromCurrent,
     fromDimensions,
+    fromRecommended,
     fromUi,
     fromMetadata,
     fromSettings,
