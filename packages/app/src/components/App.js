@@ -30,15 +30,31 @@ export class App extends Component {
         const { store } = this.context;
 
         if (location.pathname.length > 1) {
+            const [id, interpretationId] = location.pathname
+                .slice(1)
+                .split('/interpretation/');
+
             store.dispatch(
                 fromActions.tDoLoadVisualization(
                     this.props.apiObjectName,
-                    location.pathname.slice(1),
+                    id,
                     this.props.settings
                 )
             );
+
+            if (interpretationId) {
+                store.dispatch(
+                    fromActions.fromUi.acSetUiInterpretation({
+                        id: interpretationId,
+                    })
+                );
+                store.dispatch(fromActions.fromUi.acOpenUiRightSidebarOpen());
+            } else {
+                store.dispatch(fromActions.fromUi.acClearUiInterpretation());
+            }
         } else {
             fromActions.clearVisualization(store.dispatch, this.props.settings);
+            fromActions.fromUi.acClearUiInterpretation(store.dispatch);
         }
     };
 
