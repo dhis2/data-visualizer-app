@@ -19,6 +19,8 @@ describe('App', () => {
         return shallowApp;
     };
 
+    const aoId = 'abc123';
+
     beforeEach(() => {
         props = {
             d2: {
@@ -48,6 +50,8 @@ describe('App', () => {
 
         actions.tDoLoadVisualization = jest.fn();
         actions.clearVisualization = jest.fn();
+        actions.fromUi.acSetUiInterpretation = jest.fn();
+        actions.fromUi.acOpenUiRightSidebarOpen = jest.fn();
     });
 
     it('renders a div', () => {
@@ -74,14 +78,46 @@ describe('App', () => {
         });
     });
 
-    it('calls load visualization action when location pathname has length', done => {
-        props.location.pathname = '/abc123';
-        app();
+    describe('ao id in pathname', () => {
+        beforeEach(() => {
+            props.location.pathname = `/${aoId}`;
+        });
 
-        setTimeout(() => {
-            expect(actions.tDoLoadVisualization).toHaveBeenCalled();
-            expect(actions.clearVisualization).not.toHaveBeenCalled();
-            done();
+        it('calls load visualization action when location pathname has length', done => {
+            app();
+
+            setTimeout(() => {
+                expect(actions.tDoLoadVisualization).toHaveBeenCalled();
+                expect(
+                    actions.fromUi.acSetUiInterpretation
+                ).not.toHaveBeenCalled();
+                expect(actions.clearVisualization).not.toHaveBeenCalled();
+                done();
+            });
+        });
+
+        it('does not load visualization if current exists and has not changed', done => {
+            props.current = { id: aoId, visProp: {} };
+
+            app();
+
+            setTimeout(() => {
+                expect(actions.tDoLoadVisualization).not.toHaveBeenCalled();
+
+                done();
+            });
+        });
+
+        it('does not load visualization if current exists and differs from pathname', done => {
+            props.current = { id: 'rarity', visProp: {} };
+
+            app();
+
+            setTimeout(() => {
+                expect(actions.tDoLoadVisualization).toHaveBeenCalled();
+
+                done();
+            });
         });
     });
 
@@ -98,6 +134,27 @@ describe('App', () => {
                     .find(Snackbar)
                     .prop('open')
             ).toEqual(true);
+        });
+    });
+
+    describe('interpretation id in pathname', () => {
+        it('calls setUiInterpretation action', done => {
+            const interpId = 'xyzpdq';
+            props.location.pathname = `/${aoId}/interpretation/${interpId}`;
+            app();
+
+            setTimeout(() => {
+                expect(actions.tDoLoadVisualization).toBeCalledTimes(1);
+                expect(actions.fromUi.acSetUiInterpretation).toHaveBeenCalled();
+                expect(
+                    actions.fromUi.acSetUiInterpretation
+                ).toHaveBeenCalledWith({ id: interpId });
+                expect(actions.fromUi.acOpenUiRightSidebarOpen).toBeCalledTimes(
+                    1
+                );
+                expect(actions.clearVisualization).not.toHaveBeenCalled();
+                done();
+            });
         });
     });
 });
