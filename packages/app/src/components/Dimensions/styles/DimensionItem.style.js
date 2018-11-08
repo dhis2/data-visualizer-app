@@ -26,4 +26,11 @@ export const styles = {
         paddingLeft: '9px',
         paddingRight: '9px',
     },
+    iconWrapper: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        paddingRight: '8px',
+        paddingLeft: '8px',
+    },
 };

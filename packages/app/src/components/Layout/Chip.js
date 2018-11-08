@@ -92,7 +92,7 @@ class Chip extends React.Component {
                     onMouseOver={this.handleMouseOver}
                     onMouseOut={this.handleMouseOut}
                 >
-                    {icon}
+                    <div style={styles.iconWrapper}>{icon}</div>
                     {chipLabel}
                 </div>
                 <div style={styles.chipRight}>

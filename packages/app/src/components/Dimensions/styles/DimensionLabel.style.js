@@ -10,6 +10,7 @@ export const styles = {
         display: 'flex',
         borderRadius: '2px',
         width: '100%',
+        fontWeight: 500,
     },
     deleteButton: {
         border: 'none',

@@ -58,7 +58,7 @@ export class DimensionItem extends Component {
                 onMouseLeave={this.onMouseExit}
             >
                 <DimensionLabel {...this.props}>
-                    {Icon}
+                    <div style={styles.iconWrapper}>{Icon}</div>
                     {Label}
                 </DimensionLabel>
                 <RecommendedIcon

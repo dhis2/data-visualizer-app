@@ -21,6 +21,11 @@ export const styles = {
     fixedDimensionIcon: {
         paddingRight: '6px',
     },
+    iconWrapper: {
+        paddingRight: '6px',
+        display: 'flex',
+        alignItems: 'center',
+    },
 };
 
 styles.chipLeft = {
@@ -28,6 +33,7 @@ styles.chipLeft = {
     display: 'flex',
     borderTopRightRadius: '0px',
     borderBottomRightRadius: '0px',
+    alignItems: 'center',
 };
 
 styles.chipRight = {
