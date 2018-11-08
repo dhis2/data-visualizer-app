@@ -7,7 +7,7 @@ export const styles = {
     },
     searchIcon: {
         color: colors.grey,
-        padding: '3px',
+        padding: '3px 4px',
     },
     textField: {
         marginBottom: '12px',

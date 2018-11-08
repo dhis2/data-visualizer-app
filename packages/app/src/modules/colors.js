@@ -7,7 +7,7 @@ const accentSecondaryDark = '#004C40';
 const accentSecondary = '#00796B';
 const accentSecondaryLight = '#48A999';
 const accentSecondaryLightest = '#B2DFDB';
-const accentSecondaryTransparent = '#E0F2F1';
+const accentSecondaryTransparent = '#D9ECEB';
 
 const black = '#000000';
 const greyDark = '#494949';
