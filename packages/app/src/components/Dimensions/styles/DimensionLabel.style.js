@@ -3,12 +3,13 @@ import { colors } from '../../../modules/colors';
 export const styles = {
     unselected: {
         display: 'flex',
-        borderRadius: '4px',
+        borderRadius: '2px',
     },
     selected: {
-        backgroundColor: colors.lightBlue,
+        backgroundColor: colors.accentSecondaryTransparent,
         display: 'flex',
-        borderRadius: '4px',
+        borderRadius: '2px',
+        width: '100%',
     },
     deleteButton: {
         border: 'none',
