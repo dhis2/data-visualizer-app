@@ -11,16 +11,16 @@ body {
 }
 .visualization-type-selector {
     grid-area: charttype;
-    border-right: 1px solid #aaa;
-    border-bottom: 1px solid #aaa;
+    border-right: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
 }
 .menu-bar {
     grid-area: menubar;
-    border-bottom: 1px solid #aaa;
+    border-bottom: 1px solid #e0e0e0;
 }
 .dimensions {
     grid-area: dimensions;
-    border-right: 1px solid #aaa;
+    border-right: 1px solid #e0e0e0;
     height: calc(100vh - 42px - 48px);
 }
 .chart-layout {
@@ -29,7 +29,7 @@ body {
 }
 .interpretations {
     grid-area: interpretations;
-    border-left: 1px solid #aaa;
+    border-left: 1px solid #e0e0e0;
     padding: 20px;
 }
 .canvas {
@@ -45,8 +45,8 @@ body {
 
 .app {
     display: grid;
-    grid-template-columns: 230px auto 160px;
-    grid-template-rows: 0 41px 84px 44px auto;
+    grid-template-columns: 240px auto 160px;
+    grid-template-rows: 0 41px 84px 35px auto;
     grid-template-areas:
         'headerbar headerbar headerbar'
         'charttype menubar menubar'
