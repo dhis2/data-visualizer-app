@@ -1,4 +1,5 @@
 import * as layoutStyle from './style';
+import { colors } from '../../../modules/colors';
 
 export const styles = {
     chipWrapper: {
@@ -17,6 +18,9 @@ export const styles = {
         whiteSpace: 'nowrap',
         overflow: 'hidden',
         textOverflow: 'ellipsis',
+    },
+    chipEmpty: {
+        backgroundColor: colors.greyLight,
     },
     fixedDimensionIcon: {
         paddingRight: '6px',

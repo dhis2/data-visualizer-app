@@ -75,12 +75,15 @@ class Chip extends React.Component {
         }`;
 
         const anchorEl = document.getElementById(this.id);
-
         const icon = this.getIconByDimension();
+        const wrapperStyle = {
+            ...styles.chipWrapper,
+            ...(!this.props.items.length ? styles.chipEmpty : {}),
+        };
 
         return (
             <div
-                style={styles.chipWrapper}
+                style={wrapperStyle}
                 data-dimensionid={this.props.dimensionId}
                 draggable="true"
                 onDragStart={this.getDragStartHandler(this.props.axisName)}
