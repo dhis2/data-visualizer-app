@@ -147,6 +147,23 @@ describe('Visualization', () => {
             });
         });
 
+        it('sets period when interpretation selected', done => {
+            const period = 'eons ago';
+            props.interpretation.created = period;
+
+            canvas();
+
+            setTimeout(() => {
+                expect(api.apiFetchAnalytics).toHaveBeenCalled();
+                expect(api.apiFetchAnalytics.mock.calls[0][1]).toHaveProperty(
+                    'relativePeriodDate',
+                    period
+                );
+
+                done();
+            });
+        });
+
         describe('Year-on-year chart', () => {
             beforeEach(() => {
                 props.current = {
