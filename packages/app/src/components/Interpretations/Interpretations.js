@@ -27,19 +27,11 @@ export class Interpretations extends Component {
                 history.push(interpretationUrl);
             }
 
-            const d = new Date(interpretation.created);
-            const created = [
-                d.getFullYear(),
-                ('0' + (d.getMonth() + 1)).slice(-2),
-                ('0' + d.getDate()).slice(-2),
-            ].join('-');
-
             this.props.acSetUiInterpretation({
                 id: interpretation.id,
-                created,
+                created: interpretation.created,
             });
         } else {
-            // no interpretation selected
             history.push(`/${this.props.id}`);
         }
     };
