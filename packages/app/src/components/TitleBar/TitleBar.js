@@ -15,9 +15,9 @@ export const TitleBar = ({ title, isDirty, interpretation }) =>
                 {isDirty ? '* ' : ''}
                 {title}
             </span>
-            {interpretation.created ? (
+            {interpretation && interpretation.created ? (
                 <span style={styles.interpretation}>
-                    {i18n.t('Viewing intepretation from {{date}}', {
+                    {i18n.t('Viewing interpretation from {{date}}', {
                         date: interpretation.created,
                     })}
                 </span>

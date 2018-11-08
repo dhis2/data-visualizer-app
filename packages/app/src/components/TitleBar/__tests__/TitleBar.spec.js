@@ -22,12 +22,13 @@ describe('TitleBar component', () => {
         shallowTitleBar = undefined;
     });
 
+    it('renders nothing if no title', () => {
+        props.title = null;
+        expect(titleBar().find('div')).toHaveLength(0);
+    });
+
     it('renders a <div>', () => {
-        expect(
-            titleBar()
-                .find('div')
-                .first().length
-        ).toEqual(1);
+        expect(titleBar().find('div')).toHaveLength(1);
     });
 
     it('renders a <div> containing everything else', () => {
@@ -39,12 +40,7 @@ describe('TitleBar component', () => {
     });
 
     it('renders a <span> with the title', () => {
-        expect(
-            titleBar()
-                .find('span')
-                .first().length
-        ).toEqual(1);
-
+        expect(titleBar().find('span')).toHaveLength(1);
         expect(
             titleBar()
                 .find('span')
@@ -61,5 +57,18 @@ describe('TitleBar component', () => {
                 .find('span')
                 .text()
         ).toEqual(`* ${props.title}`);
+    });
+
+    it('renders the interpretation info when interpretation exists', () => {
+        props.interpretation = {
+            created: 'eons ago',
+        };
+
+        const spans = titleBar().find('span');
+
+        expect(spans).toHaveLength(2);
+        expect(spans.last().text()).toEqual(
+            `Viewing interpretation from ${props.interpretation.created}`
+        );
     });
 });
