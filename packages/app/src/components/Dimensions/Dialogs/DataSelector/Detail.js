@@ -13,6 +13,7 @@ export const Detail = ({ value, onDetailChange, detailAlternatives }) => (
             onChange={event => onDetailChange(event.target.value)}
             value={value}
             disableUnderline
+            SelectDisplayProps={{ style: styles.dropDown }}
         >
             {Object.entries(detailAlternatives).map(item => {
                 return (

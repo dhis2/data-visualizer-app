@@ -1,6 +1,6 @@
 .dimension-item {
     display: flex;
-    margin: 5px;
+    margin: 2px;
 }
 
 .dimension-item:hover {
@@ -16,7 +16,7 @@
 }
 
 .data-dimension-list {
-    height: 340px;
+    height: 351px;
 }
 
 .generic-dimension-list {
@@ -72,16 +72,19 @@
 }
 
 .unselected-label {
-    padding: 0px 2px 1px 2px;
+    padding: 2px;
 }
-.selected-label {
-    padding-top: 2px;
+.item-label {
+    font-family: Roboto;
+    font-size: 14px;
+    padding: 2px;
 }
 
 .unselected-list-item,
 .selected-list-item {
     display: flex;
-    padding: 2px 5px 2px 2px;
+    align-items: center;
+    padding: 3px 8px 3px 3px;
     border-radius: 4px;
 }
 
