@@ -106,7 +106,6 @@ export const fieldsByType = {
         getFieldObject('hideTitle', { option: true }),
         getFieldObject('href', { excluded: true }),
         getFieldObject('id'),
-        getFieldObject('interpretations'),
         getFieldObject('itemOrganisationUnitGroups', { excluded: true }),
         getFieldObject('lastUpdated'),
         getFieldObject('lastUpdatedBy'),

@@ -5,10 +5,10 @@ import FileMenu from '@dhis2/d2-ui-file-menu';
 
 import UpdateButton from '../UpdateButton/UpdateButton';
 import DownloadMenu from '../DownloadMenu/DownloadMenu';
+import InterpretationsButton from '../Interpretations/InterpretationsButton';
 import VisualizationOptionsManager from '../VisualizationOptions/VisualizationOptionsManager';
 import * as fromActions from '../../actions';
 import { sGetCurrent } from '../../reducers/current';
-import './MenuBar.css';
 import history from '../../modules/history';
 import styles from './styles/MenuBar.style';
 
@@ -39,8 +39,7 @@ export const MenuBar = (props, context) => (
         />
         <VisualizationOptionsManager labelStyle={styles.label} />
         <DownloadMenu labelStyle={styles.label} />
-        <div className="spacefiller" />
-        <div style={styles.label}>Interpretations</div>
+        <InterpretationsButton labelStyle={styles.label} />
     </div>
 );
 

@@ -7,6 +7,10 @@ import BlankCanvas, { visContainerId } from './BlankCanvas';
 import { getOptionsForRequest } from '../../modules/options';
 import { acAddMetadata } from '../../actions/metadata';
 import {
+    sGetUiRightSidebarOpen,
+    sGetUiInterpretation,
+} from '../../reducers/ui';
+import {
     acSetLoadError,
     acSetLoading,
     acClearLoadError,
@@ -22,6 +26,12 @@ import {
 } from '../../modules/chartTypes';
 
 export class Visualization extends Component {
+    constructor(props) {
+        super(props);
+
+        this.chart = undefined;
+    }
+
     componentDidMount() {
         if (this.props.current) {
             this.renderVisualization();
@@ -32,10 +42,25 @@ export class Visualization extends Component {
         if (this.props.current !== prevProps.current) {
             this.renderVisualization();
         }
+
+        // avoid redraw the chart if the interpretation content remains the same
+        // this is the case when the panel is toggled but the selected interpretation is not changed
+        if (
+            prevProps.interpretation &&
+            this.props.interpretation.id !== prevProps.interpretation.id
+        ) {
+            this.renderVisualization();
+        }
+
+        if (this.props.rightSidebarOpen !== prevProps.rightSidebarOpen) {
+            if (this.chart) {
+                this.chart.reflow();
+            }
+        }
     }
 
     renderVisualization = async () => {
-        const { current } = this.props;
+        const { current, interpretation } = this.props;
 
         const optionsForRequest = getOptionsForRequest().reduce(
             (map, [option, props]) => {
@@ -48,6 +73,10 @@ export class Visualization extends Component {
             },
             {}
         );
+
+        if (interpretation && interpretation.created) {
+            optionsForRequest.relativePeriodDate = interpretation.created;
+        }
 
         try {
             this.props.acClearLoadError();
@@ -87,6 +116,8 @@ export class Visualization extends Component {
                 extraOptions
             );
 
+            this.chart = chartConfig.chart;
+
             this.props.acSetChart(
                 chartConfig.chart.getSVGForExport({
                     sourceHeight: 768,
@@ -108,6 +139,8 @@ export class Visualization extends Component {
 
 const mapStateToProps = state => ({
     current: sGetCurrent(state),
+    interpretation: sGetUiInterpretation(state),
+    rightSidebarOpen: sGetUiRightSidebarOpen(state),
 });
 
 export default connect(

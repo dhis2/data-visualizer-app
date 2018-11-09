@@ -59,6 +59,8 @@ describe('Visualization', () => {
     beforeEach(() => {
         props = {
             current: {},
+            interpretation: {},
+            rightSidebarOpen: false,
             acAddMetadata: jest.fn(),
             acSetChart: jest.fn(),
             acSetLoading: jest.fn(),
@@ -145,6 +147,23 @@ describe('Visualization', () => {
             });
         });
 
+        it('sets period when interpretation selected', done => {
+            const period = 'eons ago';
+            props.interpretation.created = period;
+
+            canvas();
+
+            setTimeout(() => {
+                expect(api.apiFetchAnalytics).toHaveBeenCalled();
+                expect(api.apiFetchAnalytics.mock.calls[0][1]).toHaveProperty(
+                    'relativePeriodDate',
+                    period
+                );
+
+                done();
+            });
+        });
+
         describe('Year-on-year chart', () => {
             beforeEach(() => {
                 props.current = {
@@ -208,6 +227,26 @@ describe('Visualization', () => {
                 expect(props.acSetLoadError).toHaveBeenCalled();
                 done();
             });
+        });
+    });
+
+    describe('chart reflow', () => {
+        const reflowFn = jest.fn();
+
+        const vis = canvas();
+
+        vis.instance().chart = {
+            reflow: reflowFn,
+        };
+
+        it('triggers a reflow when rightSidebarOpen prop changes', () => {
+            vis.setProps({ ...props, rightSidebarOpen: true });
+
+            expect(reflowFn).toHaveBeenCalled();
+
+            vis.setProps({ ...props, rightSidebarOpen: false });
+
+            expect(reflowFn).toHaveBeenCalled();
         });
     });
 });
