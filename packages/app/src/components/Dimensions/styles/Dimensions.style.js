@@ -11,6 +11,6 @@ export const styles = {
     },
     textField: {
         marginBottom: '12px',
-        width: '223px',
+        width: 'calc(100% - 8px)',
     },
 };
