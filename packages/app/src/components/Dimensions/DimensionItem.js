@@ -15,7 +15,7 @@ import { isYearOverYear } from '../../modules/chartTypes';
 
 const peId = FIXED_DIMENSIONS.pe.id;
 
-class DimensionItem extends Component {
+export class DimensionItem extends Component {
     state = { mouseOver: false };
 
     onMouseOver = () => {
@@ -41,7 +41,7 @@ class DimensionItem extends Component {
         return <GenericDimensionIcon style={styles.genericDimensionIcon} />;
     };
 
-    isDeactived = () =>
+    isDeactivated = () =>
         this.props.id === peId && isYearOverYear(this.props.type);
 
     getDimensionType = () => (
@@ -49,9 +49,9 @@ class DimensionItem extends Component {
             data-dimensionid={this.props.id}
             style={{
                 ...styles.text,
-                ...(this.isDeactived() ? styles.textDeactivated : {}),
+                ...(this.isDeactivated() ? styles.textDeactivated : {}),
             }}
-            draggable={!this.isDeactived()}
+            draggable={!this.isDeactivated()}
             onDragStart={this.onDragStart}
         >
             {i18n.t(this.props.name)}
@@ -69,7 +69,10 @@ class DimensionItem extends Component {
                 onMouseOver={this.onMouseOver}
                 onMouseLeave={this.onMouseExit}
             >
-                <DimensionLabel {...this.props} isDeactived={this.isDeactived}>
+                <DimensionLabel
+                    {...this.props}
+                    isDeactivated={this.isDeactivated()}
+                >
                     <div style={styles.iconWrapper}>{Icon}</div>
                     {Label}
                     <RecommendedIcon
@@ -79,7 +82,7 @@ class DimensionItem extends Component {
                     <DimensionOptions
                         id={this.props.id}
                         showButton={Boolean(
-                            this.state.mouseOver && !this.isDeactived()
+                            this.state.mouseOver && !this.isDeactivated()
                         )}
                         onClose={this.onMouseExit}
                     />

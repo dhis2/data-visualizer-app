@@ -17,6 +17,7 @@ describe('The DimensionList component ', () => {
             openDialog: jest.fn(),
             id: 'idstring',
             isSelected: false,
+            isDeactivated: false,
             name: 'labelname',
             removeDimension: jest.fn(),
             children: [],
@@ -28,21 +29,21 @@ describe('The DimensionList component ', () => {
         expect(1).toEqual(1);
     });
 
-    // it('renders a <div>', () => {
-    //     expect(
-    //         dimLabel()
-    //             .find('div')
-    //             .first().length
-    //     ).toEqual(1);
-    // });
+    it('renders a <div>', () => {
+        expect(
+            dimLabel()
+                .find('div')
+                .first().length
+        ).toEqual(1);
+    });
 
-    // it('renders a <div> containing everything else', () => {
-    //     const wrappingDiv = dimLabel()
-    //         .find('div')
-    //         .first();
+    it('renders a <div> containing everything else', () => {
+        const wrappingDiv = dimLabel()
+            .find('div')
+            .first();
 
-    //     expect(wrappingDiv.children()).toEqual(dimLabel().children());
-    // });
+        expect(wrappingDiv.children()).toEqual(dimLabel().children());
+    });
 
     // it('renders a <RemoveDimensionButton /> when prop isSelected is equal to true', () => {
     //     props.isSelected = true;

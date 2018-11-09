@@ -24,6 +24,7 @@ export class DimensionLabel extends Component {
         id: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
         isSelected: PropTypes.bool.isRequired,
+        isDeactivated: PropTypes.bool.isRequired,
         removeDimension: PropTypes.func.isRequired,
         children: PropTypes.arrayOf(PropTypes.element).isRequired,
     };
@@ -56,7 +57,7 @@ export class DimensionLabel extends Component {
         const Label = this.renderLabel();
 
         const containerStyle =
-            this.props.isSelected && !this.props.isDeactived()
+            this.props.isSelected && !this.props.isDeactivated
                 ? styles.selected
                 : styles.unselected;
 
