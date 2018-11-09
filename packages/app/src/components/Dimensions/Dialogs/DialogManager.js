@@ -13,7 +13,7 @@ import PeriodDimension from './PeriodSelector/PeriodDimension';
 import OrgUnitDimension from './OrgUnitSelector/OrgUnitDimension';
 import GenericItemSelector from './GenericSelector/GenericItemSelector';
 import HideButton from '../../HideButton/HideButton';
-import UpdateButton from '../../UpdateButton/UpdateButton';
+import AddToLayoutButton from '../../AddToLayoutButton/AddToLayoutButton';
 
 import { acSetUiActiveModalDialog } from '../../../actions/ui';
 import { acSetRecommendedIds } from '../../../actions/recommendedIds';
@@ -78,9 +78,7 @@ export class DialogManager extends Component {
                 {this.renderDialogContent()}
                 <DialogActions style={styles.dialogActions}>
                     <HideButton />
-                    <UpdateButton
-                        onClick={() => this.props.closeDialog(null)}
-                    />
+                    <AddToLayoutButton />
                 </DialogActions>
             </Dialog>
         ) : null;

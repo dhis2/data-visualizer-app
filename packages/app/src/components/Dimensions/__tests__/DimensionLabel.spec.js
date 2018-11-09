@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { DimensionLabel } from '../DimensionLabel';
-import { RemoveDimensionButton } from '../DimensionLabel';
 
 describe('The DimensionList component ', () => {
     let props;
@@ -44,20 +43,4 @@ describe('The DimensionList component ', () => {
 
         expect(wrappingDiv.children()).toEqual(dimLabel().children());
     });
-
-    // it('renders a <RemoveDimensionButton /> when prop isSelected is equal to true', () => {
-    //     props.isSelected = true;
-    //     const removeButton = dimLabel().find(RemoveDimensionButton);
-
-    //     expect(removeButton.length).toBe(1);
-    // });
-
-    // it('calls the prop function toggleDialog when the enter key or mouse click is fired on the component', () => {
-    //     props.isSelected = true;
-    //     dimLabel()
-    //         .find(RemoveDimensionButton)
-    //         .simulate('click');
-
-    //     expect(1);
-    // });
 });
