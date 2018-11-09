@@ -26,7 +26,10 @@ export const OptionsButton = ({ action }) => {
 export class DimensionOptions extends Component {
     state = { anchorEl: null };
 
-    handleClick = event => this.setState({ anchorEl: event.currentTarget });
+    handleClick = event => {
+        event && event.stopPropagation();
+        this.setState({ anchorEl: event.currentTarget });
+    };
 
     handleClose = event => {
         event && event.stopPropagation();
