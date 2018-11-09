@@ -35,16 +35,12 @@ export class Visualization extends Component {
 
     componentDidMount() {
         if (this.props.current) {
-            console.log('Visualization CDM render with current');
-
             this.renderVisualization(this.props.current);
         }
     }
 
     componentDidUpdate(prevProps) {
         if (this.props.current !== prevProps.current) {
-            console.log('VIS CDU render with current');
-
             this.renderVisualization(this.props.current);
         }
 
@@ -54,11 +50,11 @@ export class Visualization extends Component {
             prevProps.interpretation &&
             this.props.interpretation.id !== prevProps.interpretation.id
         ) {
-            if (this.props.interpretation.id) {
-                this.renderVisualization(this.props.visualization);
-            } else {
-                this.renderVisualization(this.props.current);
-            }
+            const vis = this.props.interpretation.id
+                ? this.props.visualization
+                : this.props.current;
+
+            this.renderVisualization(vis);
         }
 
         if (this.props.rightSidebarOpen !== prevProps.rightSidebarOpen) {
