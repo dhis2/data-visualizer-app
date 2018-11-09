@@ -10,6 +10,10 @@ export const styles = {
         maxWidth: '195px',
         alignSelf: 'center',
     },
+    textDeactivated: {
+        cursor: 'auto',
+        color: colors.grey,
+    },
     itemContainer: {
         display: 'flex',
         paddingTop: 2,

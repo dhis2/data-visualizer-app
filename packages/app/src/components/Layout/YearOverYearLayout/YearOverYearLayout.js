@@ -6,6 +6,7 @@ import defaultLayoutStyles from '../DefaultLayout/styles/DefaultLayout.style';
 import YearOverYearAxis from './YearOverYearAxis';
 import YearOverYearSelect from './YearOverYearSelect';
 import YearOverYearLayoutStyles from './styles/YearOverYearLayout.style';
+import defaultAxisStyles from '../DefaultLayout/styles/DefaultAxis.style';
 import {
     sGetUiYearOverYearSeries,
     sGetUiYearOverYearCategory,
@@ -28,7 +29,10 @@ const Layout = props => (
         >
             <YearOverYearAxis
                 axisName="yearOverYearSeries"
-                style={defaultLayoutStyles.columns}
+                style={{
+                    ...defaultLayoutStyles.columns,
+                    ...defaultAxisStyles.axisContainerLeft,
+                }}
             >
                 <YearOverYearSelect
                     multiple="true"
@@ -39,7 +43,10 @@ const Layout = props => (
             </YearOverYearAxis>
             <YearOverYearAxis
                 axisName="yearOverYearCategory"
-                style={defaultLayoutStyles.rows}
+                style={{
+                    ...defaultLayoutStyles.rows,
+                    ...defaultAxisStyles.axisContainerLeft,
+                }}
             >
                 <YearOverYearSelect
                     value={props.yearOverYearCategory[0]}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { DimensionItem } from './DimensionItem';
+import DimensionItem from './DimensionItem';
 
 import { sGetDimensions } from '../../reducers/dimensions';
 import { sGetDimensionIdsFromLayout } from '../../reducers/ui';
