@@ -38,3 +38,5 @@ export const sGetRootOrgUnit = state =>
 
 export const sGetRelativePeriod = state =>
     sGetSettings(state).keyAnalysisRelativePeriod;
+
+export const sGetUiLocale = state => sGetSettings(state).uiLocale;
