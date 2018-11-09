@@ -17,5 +17,5 @@ export const CHIP_BACKGROUND_COLOR_HOVER = colors.lightBlueHover;
 export const CHIP_BACKGROUND_COLOR_ACTIVE = colors.lightBlueActive;
 export const CHIP_HEIGHT = '14px';
 export const CHIP_MARGIN = '4px';
-export const CHIP_PADDING = '3px 6px';
+export const CHIP_PADDING = '1px 6px';
 export const CHIP_BORDER_RADIUS = '2px';
