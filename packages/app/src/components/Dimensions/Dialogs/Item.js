@@ -24,9 +24,7 @@ export const Item = props => {
             onClick={highlightItem}
         >
             <Icon iconType={props.className} />
-            <span className={`${props.className}-label`}>
-                {props.displayName}
-            </span>
+            <span className={'item-label'}>{props.displayName}</span>
             <RemoveSelectedItemButton
                 showButton={props.className}
                 action={() => props.onRemoveItem(props.id)}

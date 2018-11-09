@@ -15,7 +15,7 @@ export const styles = {
         color: colors.greyDark,
         fontSize: 13,
         fontWeight: 300,
-        paddingBottom: 15,
+        paddingBottom: 10,
     },
     dropDown: {
         outline: 'none',

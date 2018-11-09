@@ -9,7 +9,10 @@ export const styles = {
     titleText: {
         color: '#616161', // color
         fontSize: 12,
-        paddingBottom: 15,
+        paddingBottom: 10,
         fontWeight: 300,
+    },
+    dropDown: {
+        padding: 0,
     },
 };
