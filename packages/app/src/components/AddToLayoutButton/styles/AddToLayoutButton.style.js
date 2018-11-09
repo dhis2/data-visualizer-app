@@ -6,6 +6,7 @@ export const styles = {
         color: colors.blue,
         borderRadius: '2px 0px 0px 2px',
         fontSize: '12px',
+        width: '121px',
     },
     menuItem: {
         backgroundColor: colors.white,
