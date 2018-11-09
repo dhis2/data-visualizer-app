@@ -1,66 +1,110 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import i18n from '@dhis2/d2-i18n';
+
+import Button from '@material-ui/core/Button';
+import MenuItem from '@material-ui/core/Button';
 
 import UpdateButton from '../UpdateButton/UpdateButton';
-import DropDownButton from './DropDownButton';
-import { AddToSeriesButton as AddToSeries } from './AddToSeriesButton';
+import Menu from './Menu';
 
-import { sGetUiLayout, sGetUiActiveModalDialog } from '../../reducers/ui';
+import {
+    sGetUiLayout,
+    sGetUiActiveModalDialog,
+    sGetUiType,
+} from '../../reducers/ui';
 import {
     acSetUiActiveModalDialog,
     acAddUiLayoutDimensions,
 } from '../../actions/ui';
 
-const ADD_TO_LAYOUT_BUTTON = -1;
+import { isYearOverYear } from '../../modules/chartTypes';
+import { ADD_TO_LAYOUT_OPTIONS as items } from '../../modules/layout';
+import { styles } from './styles/AddToLayoutButton.style';
+
+const UNSELECTED = -1;
+const SERIES = 0;
+const FILTER = 2;
 
 export class AddToLayoutButton extends Component {
-    state = { anchorEl: null, buttonType: ADD_TO_LAYOUT_BUTTON };
+    state = { anchorEl: null, buttonType: UNSELECTED };
 
     componentDidMount = () => {
-        const currentLayout = Object.values(this.props.currentLayout);
-        const buttonType = currentLayout.findIndex(axisIds =>
-            axisIds.includes(this.props.dialogId)
+        const buttonType = Object.values(this.props.currentLayout).findIndex(
+            axisIds => axisIds.includes(this.props.dialogId)
         );
 
         this.setState({ buttonType });
     };
 
-    toggleAlternatives = event => {
-        this.state.anchorEl
-            ? this.onCloseMenu()
-            : this.setState({ anchorEl: event.currentTarget });
-    };
+    onClose = () => this.setState({ anchorEl: null });
 
-    onCloseMenu = () => {
-        this.setState({ anchorEl: null });
-    };
+    onToggle = event =>
+        this.state.anchorEl
+            ? this.onClose()
+            : this.setState({ anchorEl: event.currentTarget });
 
     onUpdate = axisName => {
-        this.props.onAddDimension({ [this.props.dialogId]: axisName });
+        this.props.onAddDimension({
+            [this.props.dialogId]: axisName,
+        });
         this.props.closeDialog(null);
     };
 
-    render = () => {
-        return this.state.buttonType !== ADD_TO_LAYOUT_BUTTON ? (
-            <UpdateButton onClick={() => this.props.closeDialog(null)} />
+    getMenuItems = () =>
+        items
+            .slice(1)
+            .map(option => (
+                <MenuItem
+                    key={option.axisName}
+                    variant="contained"
+                    style={styles.menuItem}
+                    children={i18n.t(option.name)}
+                    onClick={() => this.onUpdate(option.axisName)}
+                />
+            ));
+
+    getUnselectedButton = () =>
+        isYearOverYear(this.props.layoutType) ? (
+            <Button
+                variant="contained"
+                style={styles.button}
+                children={i18n.t(items[FILTER].name)}
+                onClick={() => this.onUpdate(items[FILTER].axisName)}
+            />
         ) : (
             <Fragment>
-                <AddToSeries onClick={this.onUpdate} />
-                <DropDownButton
-                    open={Boolean(this.state.anchorEl)}
-                    onDropDownClick={this.toggleAlternatives}
-                    onItemClick={this.onUpdate}
-                    onClose={this.onCloseMenu}
+                <Button
+                    variant="contained"
+                    style={styles.button}
+                    children={i18n.t(items[SERIES].name)}
+                    onClick={() => this.onUpdate(items[SERIES].axisName)}
+                />
+                <Menu
+                    onClose={this.onClose}
+                    onClick={this.onToggle}
                     anchorEl={this.state.anchorEl}
+                    menuItems={this.getMenuItems()}
                 />
             </Fragment>
         );
+
+    render = () => {
+        const displayButton =
+            this.state.buttonType === UNSELECTED ? (
+                this.getUnselectedButton()
+            ) : (
+                <UpdateButton onClick={() => this.props.closeDialog(null)} />
+            );
+
+        return displayButton;
     };
 }
 
 AddToLayoutButton.propTypes = {
     dialogId: PropTypes.string.isRequired,
+    layoutType: PropTypes.string.isRequired,
     currentLayout: PropTypes.object.isRequired,
     onAddDimension: PropTypes.func.isRequired,
     closeDialog: PropTypes.func.isRequired,
@@ -68,6 +112,7 @@ AddToLayoutButton.propTypes = {
 
 const mapStateToProps = state => ({
     dialogId: sGetUiActiveModalDialog(state),
+    layoutType: sGetUiType(state),
     currentLayout: sGetUiLayout(state),
 });
 

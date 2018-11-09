@@ -18,6 +18,7 @@ describe('The AddToLayoutButton component ', () => {
     beforeEach(() => {
         props = {
             dialogId: 'id',
+            layoutType: '',
             currentLayout: {},
             onAddDimension: jest.fn(),
             closeDialog: jest.fn(),
@@ -30,5 +31,26 @@ describe('The AddToLayoutButton component ', () => {
         button.setState({ buttonType: 2 });
 
         expect(button.length).toEqual(1);
+    });
+
+    it('renders two buttons, (DropDownIcon and "Add to series") if state buttonType is equal to -1 ', () => {
+        props.layoutType = 'COLUMN';
+        const button = addToButton();
+        button.setState({ buttonType: -1 });
+
+        const fragmentWrapper = button.find('Fragment');
+
+        expect(fragmentWrapper.children().length).toBeGreaterThan(1);
+    });
+
+    it('renders only an "Add to filter" button if current chart type is year on year', () => {
+        props.layoutType = 'YEAR_OVER_YEAR_LINE';
+        const button = addToButton();
+        button.setState({ buttonType: -1 });
+
+        const addToFilterButton = button.find(Button).first();
+
+        expect(addToFilterButton.find('Fragment').length).toEqual(0);
+        expect(addToFilterButton.length).toEqual(1);
     });
 });

@@ -15,6 +15,13 @@ export const AXIS_NAMES = [
 export const DIMENSION_ID_PROP_NAME = 'dimension';
 export const DIMENSION_ITEMS_PROP_NAME = 'items';
 
+// Keys and displayName for adding dimensions to layout
+export const ADD_TO_LAYOUT_OPTIONS = [
+    { axisName: 'columns', name: 'Add to series' },
+    { axisName: 'rows', name: 'Add to category' },
+    { axisName: 'filters', name: 'Add to filter' },
+];
+
 // Layout utility functions
 
 // Accepts: dimensionId, [itemIds]

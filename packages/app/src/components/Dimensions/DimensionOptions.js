@@ -11,23 +11,10 @@ import {
     acRemoveUiLayoutDimensions,
     acSetUiActiveModalDialog,
 } from '../../actions/ui';
-import { styles } from './styles/DimensionOptions.style';
 import { sGetUiLayout, sGetUiItems } from '../../reducers/ui';
 
-const items = [
-    {
-        axisName: 'columns',
-        name: i18n.t('Add to series'),
-    },
-    {
-        axisName: 'rows',
-        name: i18n.t('Add to category'),
-    },
-    {
-        axisName: 'filters',
-        name: i18n.t('Add to filter'),
-    },
-];
+import { ADD_TO_LAYOUT_OPTIONS } from '../../modules/layout';
+import { styles } from './styles/DimensionOptions.style';
 
 export const OptionsButton = ({ action }) => {
     return (
@@ -56,20 +43,18 @@ export class DimensionOptions extends Component {
     };
 
     getMenuItems = () =>
-        items.map(option => (
+        ADD_TO_LAYOUT_OPTIONS.map(option => (
             <MenuItem
                 key={option.axisName}
+                children={i18n.t(option.name)}
                 onClick={() => this.addDimension(option.axisName)}
-            >
-                {option.name}
-            </MenuItem>
+            />
         ));
 
-    renderOptionsOnHover = () => {
-        return this.props.showButton ? (
+    renderOptionsOnHover = () =>
+        this.props.showButton ? (
             <OptionsButton action={this.handleClick} />
         ) : null;
-    };
 
     render = () => {
         const menuItems = this.getMenuItems();
