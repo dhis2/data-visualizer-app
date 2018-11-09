@@ -5,6 +5,7 @@ import i18n from '@dhis2/d2-i18n';
 export const AXIS_NAME_COLUMNS = 'columns';
 export const AXIS_NAME_ROWS = 'rows';
 export const AXIS_NAME_FILTERS = 'filters';
+export const SOURCE_DIMENSIONS = 'dimensions';
 
 export const AXIS_NAMES = [
     AXIS_NAME_COLUMNS,

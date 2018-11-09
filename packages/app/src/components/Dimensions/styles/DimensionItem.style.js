@@ -6,14 +6,18 @@ export const styles = {
         userSelect: 'none',
         cursor: 'pointer',
         wordBreak: 'break-word',
-        fontSize: '16px',
+        fontSize: '14px',
         maxWidth: '195px',
         alignSelf: 'center',
     },
+    textDeactivated: {
+        cursor: 'auto',
+        color: colors.grey,
+    },
     itemContainer: {
         display: 'flex',
-        marginTop: '7px',
-        marginBottom: '7px',
+        paddingTop: 2,
+        paddingBottom: 2,
     },
     fixedDimensionIcon: {
         paddingLeft: '6px',
@@ -22,5 +26,12 @@ export const styles = {
     genericDimensionIcon: {
         paddingLeft: '9px',
         paddingRight: '9px',
+    },
+    iconWrapper: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        paddingRight: '8px',
+        paddingLeft: '8px',
     },
 };

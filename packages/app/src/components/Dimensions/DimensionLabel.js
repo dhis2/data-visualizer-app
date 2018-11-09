@@ -24,6 +24,7 @@ export class DimensionLabel extends Component {
         id: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
         isSelected: PropTypes.bool.isRequired,
+        isDeactivated: PropTypes.bool.isRequired,
         removeDimension: PropTypes.func.isRequired,
         children: PropTypes.arrayOf(PropTypes.element).isRequired,
     };
@@ -38,18 +39,9 @@ export class DimensionLabel extends Component {
         }
     };
 
-    removeDimension = () => {
-        this.props.removeDimension(this.props.id);
-    };
-
-    renderRemoveButton = () => {
-        return this.props.isSelected ? (
-            <RemoveDimensionButton action={this.removeDimension} />
-        ) : null;
-    };
-
     renderLabel = () => (
         <div
+            className="label"
             onClick={this.onLabelClick}
             onKeyPress={this.onKeyPress}
             tabIndex={0}
@@ -61,16 +53,15 @@ export class DimensionLabel extends Component {
 
     render = () => {
         const Label = this.renderLabel();
-        const RemoveDimension = this.renderRemoveButton();
 
-        const containerStyle = this.props.isSelected
-            ? styles.selected
-            : styles.unselected;
+        const containerStyle =
+            this.props.isSelected && !this.props.isDeactivated
+                ? styles.selected
+                : styles.unselected;
 
         return (
-            <div style={containerStyle}>
+            <div className="labelContainer" style={containerStyle}>
                 {Label}
-                {RemoveDimension}
             </div>
         );
     };

@@ -11,16 +11,16 @@ body {
 }
 .visualization-type-selector {
     grid-area: charttype;
-    border-right: 1px solid #aaa;
-    border-bottom: 1px solid #aaa;
+    border-right: 1px solid #e0e2e4;
+    border-bottom: 1px solid #e0e2e4;
 }
 .menu-bar {
     grid-area: menubar;
-    border-bottom: 1px solid #aaa;
+    border-bottom: 1px solid #e0e2e4;
 }
 .dimensions {
     grid-area: dimensions;
-    border-right: 1px solid #aaa;
+    border-right: 1px solid #e0e2e4;
     height: calc(100vh - 42px - 48px);
 }
 .chart-layout {
@@ -29,7 +29,7 @@ body {
 }
 .interpretations {
     grid-area: interpretations;
-    border-left: 1px solid #aaa;
+    border-left: 1px solid #e0e2e4;
 }
 .canvas {
     grid-area: canvas;
@@ -46,11 +46,10 @@ body {
 .app {
     display: grid;
     grid-template-columns: 262px 1fr min-content;
-    grid-template-rows: 0 41px 94px 44px auto;
+    grid-template-rows: 0 39px 80px 35px auto;
     grid-template-areas:
         'headerbar headerbar headerbar'
-        'charttype menubar menubar'
-        'dimensions chartlayout interpretations'
+        'charttype menubar menubar' 'dimensions chartlayout interpretations'
         'dimensions titlebar interpretations'
         'dimensions canvas interpretations';
 }
@@ -65,16 +64,16 @@ body {
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: #f1f3f5;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #ccc;
+    background: #cbcdcf;
     border-radius: 3px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #aaa;
+    background: #aaacae;
 }

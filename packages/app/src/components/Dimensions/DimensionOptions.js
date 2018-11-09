@@ -28,7 +28,8 @@ export class DimensionOptions extends Component {
 
     handleClick = event => this.setState({ anchorEl: event.currentTarget });
 
-    handleClose = () => {
+    handleClose = event => {
+        event && event.stopPropagation();
         this.setState({ anchorEl: null });
         this.props.onClose();
     };
