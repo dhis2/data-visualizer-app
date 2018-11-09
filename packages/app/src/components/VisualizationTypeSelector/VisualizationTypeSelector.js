@@ -44,7 +44,7 @@ export class VisualizationTypeSelector extends Component {
                     fullWidth={true}
                     size="small"
                     style={{
-                        padding: '6px',
+                        padding: '7px',
                         color: colors.black,
                         fontSize: '15px',
                         textTransform: 'none',
