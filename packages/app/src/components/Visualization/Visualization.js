@@ -24,6 +24,7 @@ import {
     YEAR_OVER_YEAR_LINE,
     YEAR_OVER_YEAR_COLUMN,
 } from '../../modules/chartTypes';
+import { sGetVisualization } from '../../reducers/visualization';
 
 export class Visualization extends Component {
     constructor(props) {
@@ -34,13 +35,17 @@ export class Visualization extends Component {
 
     componentDidMount() {
         if (this.props.current) {
-            this.renderVisualization();
+            console.log('Visualization CDM render with current');
+
+            this.renderVisualization(this.props.current);
         }
     }
 
     componentDidUpdate(prevProps) {
         if (this.props.current !== prevProps.current) {
-            this.renderVisualization();
+            console.log('VIS CDU render with current');
+
+            this.renderVisualization(this.props.current);
         }
 
         // avoid redraw the chart if the interpretation content remains the same
@@ -49,7 +54,11 @@ export class Visualization extends Component {
             prevProps.interpretation &&
             this.props.interpretation.id !== prevProps.interpretation.id
         ) {
-            this.renderVisualization();
+            if (this.props.interpretation.id) {
+                this.renderVisualization(this.props.visualization);
+            } else {
+                this.renderVisualization(this.props.current);
+            }
         }
 
         if (this.props.rightSidebarOpen !== prevProps.rightSidebarOpen) {
@@ -59,14 +68,14 @@ export class Visualization extends Component {
         }
     }
 
-    renderVisualization = async () => {
-        const { current, interpretation } = this.props;
+    renderVisualization = async vis => {
+        const { interpretation } = this.props;
 
-        const optionsForRequest = getOptionsForRequest().reduce(
+        const options = getOptionsForRequest().reduce(
             (map, [option, props]) => {
                 // only add parameter if value !== default
-                if (current[option] !== props.defaultValue) {
-                    map[option] = current[option];
+                if (vis[option] !== props.defaultValue) {
+                    map[option] = vis[option];
                 }
 
                 return map;
@@ -75,7 +84,7 @@ export class Visualization extends Component {
         );
 
         if (interpretation && interpretation.created) {
-            optionsForRequest.relativePeriodDate = interpretation.created;
+            options.relativePeriodDate = interpretation.created;
         }
 
         try {
@@ -86,23 +95,18 @@ export class Visualization extends Component {
             let responses = [];
 
             if (
-                [YEAR_OVER_YEAR_LINE, YEAR_OVER_YEAR_COLUMN].includes(
-                    current.type
-                )
+                [YEAR_OVER_YEAR_LINE, YEAR_OVER_YEAR_COLUMN].includes(vis.type)
             ) {
                 let yearlySeriesLabels = [];
 
                 ({
                     responses,
                     yearlySeriesLabels,
-                } = await apiFetchAnalyticsForYearOverYear(
-                    current,
-                    optionsForRequest
-                ));
+                } = await apiFetchAnalyticsForYearOverYear(vis, options));
 
                 extraOptions.yearlySeries = yearlySeriesLabels;
             } else {
-                responses = await apiFetchAnalytics(current, optionsForRequest);
+                responses = await apiFetchAnalytics(vis, options);
             }
 
             responses.forEach(res =>
@@ -111,7 +115,7 @@ export class Visualization extends Component {
 
             const chartConfig = createChart(
                 responses,
-                current,
+                vis,
                 visContainerId,
                 extraOptions
             );
@@ -139,6 +143,7 @@ export class Visualization extends Component {
 
 const mapStateToProps = state => ({
     current: sGetCurrent(state),
+    visualization: sGetVisualization(state),
     interpretation: sGetUiInterpretation(state),
     rightSidebarOpen: sGetUiRightSidebarOpen(state),
 });
