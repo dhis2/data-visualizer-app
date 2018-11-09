@@ -3804,10 +3804,10 @@ cyclist@~0.2.2:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
   integrity sha1-GzN5LhHpFKL9bW7WRHRkRE5fpkA=
 
-d2-charts-api@31.0.4:
-  version "31.0.4"
-  resolved "https://registry.yarnpkg.com/d2-charts-api/-/d2-charts-api-31.0.4.tgz#62ace2b8f2012a949b9107d49b497642efc91e45"
-  integrity sha512-P3YkQsEuLjnqsYNJwx12YbPjaUdYVmhV8Ol4+SI7sazNt6c5O0zZuYaoMOGFulzo8/eG74fLF1QBQtZcWoZPXw==
+d2-charts-api@31.0.5:
+  version "31.0.5"
+  resolved "https://registry.yarnpkg.com/d2-charts-api/-/d2-charts-api-31.0.5.tgz#e3df52fb6efb98f48f74d46f366b28097d021bbf"
+  integrity sha512-PVl7m5TqjVQ75ch1GtF6AZzhLlrOpNQgdd0VCOFcYsmihLqao+cn5zAk+XszYKwLO68KPyUT6oU9TbyIrxhavg==
   dependencies:
     d2-utilizr "0.2.13"
     d3-color "1.0.1"
