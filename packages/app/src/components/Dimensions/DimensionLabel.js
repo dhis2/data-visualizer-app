@@ -44,14 +44,15 @@ export class DimensionLabel extends Component {
         this.props.removeDimension(this.props.id);
     };
 
-    renderRemoveButton = () => {
-        return this.props.isSelected ? (
-            <RemoveDimensionButton action={this.removeDimension} />
-        ) : null;
-    };
+    // renderRemoveButton = () => {
+    //     return this.props.isSelected ? (
+    //         <RemoveDimensionButton action={this.removeDimension} />
+    //     ) : null;
+    // };
 
     renderLabel = () => (
         <div
+            className="label"
             onClick={this.onLabelClick}
             onKeyPress={this.onKeyPress}
             tabIndex={0}
@@ -63,16 +64,15 @@ export class DimensionLabel extends Component {
 
     render = () => {
         const Label = this.renderLabel();
-        const RemoveDimension = this.renderRemoveButton();
+        // const RemoveDimension = this.renderRemoveButton();
 
         const containerStyle = this.props.isSelected
             ? styles.selected
             : styles.unselected;
 
         return (
-            <div style={containerStyle}>
+            <div className="labelContainer" style={containerStyle}>
                 {Label}
-                {RemoveDimension}
             </div>
         );
     };

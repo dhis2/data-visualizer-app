@@ -60,16 +60,19 @@ export class DimensionItem extends Component {
                 <DimensionLabel {...this.props}>
                     <div style={styles.iconWrapper}>{Icon}</div>
                     {Label}
+                    <RecommendedIcon
+                        id={this.props.id}
+                        isSelected={this.props.isSelected}
+                    />
+                    <DimensionOptions
+                        id={this.props.id}
+                        showButton={
+                            // !this.props.isSelected && this.state.mouseOver
+                            Boolean(this.state.mouseOver)
+                        }
+                        onClose={this.onMouseExit}
+                    />
                 </DimensionLabel>
-                <RecommendedIcon
-                    id={this.props.id}
-                    isSelected={this.props.isSelected}
-                />
-                <DimensionOptions
-                    id={this.props.id}
-                    showButton={!this.props.isSelected && this.state.mouseOver}
-                    onClose={this.onMouseExit}
-                />
             </li>
         );
     };
