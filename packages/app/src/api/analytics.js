@@ -58,11 +58,17 @@ export const apiFetchAnalytics = async (current, options) => {
 export const apiFetchAnalyticsForYearOverYear = async (current, options) => {
     const d2 = await getInstance();
 
-    const yearlySeriesReq = new d2.analytics.request()
+    let yearlySeriesReq = new d2.analytics.request()
         .addPeriodDimension(current.yearlySeries)
         .withSkipData(true)
         .withSkipMeta(false)
         .withIncludeMetadataDetails(true);
+
+    if (options.relativePeriodDate) {
+        yearlySeriesReq = yearlySeriesReq.withRelativePeriodDate(
+            options.relativePeriodDate
+        );
+    }
 
     const yearlySeriesRes = await d2.analytics.aggregate.fetch(yearlySeriesReq);
 

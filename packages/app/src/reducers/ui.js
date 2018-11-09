@@ -26,6 +26,10 @@ export const SET_UI_ACTIVE_MODAL_DIALOG = 'SET_UI_ACTIVE_MODAL_DIALOG';
 export const SET_UI_YEAR_ON_YEAR_SERIES = 'SET_UI_YEAR_ON_YEAR_SERIES';
 export const SET_UI_YEAR_ON_YEAR_CATEGORY = 'SET_UI_YEAR_ON_YEAR_CATEGORY';
 export const CLEAR_UI = 'CLEAR_UI';
+export const TOGGLE_UI_RIGHT_SIDEBAR_OPEN = 'TOGGLE_UI_RIGHT_SIDEBAR_OPEN';
+export const OPEN_UI_RIGHT_SIDEBAR_OPEN = 'OPEN_UI_RIGHT_SIDEBAR_OPEN';
+export const SET_UI_INTERPRETATION = 'SET_UI_INTERPRETATION';
+export const CLEAR_UI_INTERPRETATION = 'CLEAR_UI_INTERPRETATION';
 
 const dxId = FIXED_DIMENSIONS.dx.id;
 const peId = FIXED_DIMENSIONS.pe.id;
@@ -44,6 +48,8 @@ export const DEFAULT_UI = {
     yearOverYearCategory: ['MONTHS_THIS_YEAR'],
     parentGraphMap: {},
     activeModalDialog: null,
+    rightSidebarOpen: false,
+    interpretation: {},
 };
 
 export default (state = DEFAULT_UI, action) => {
@@ -201,6 +207,26 @@ export default (state = DEFAULT_UI, action) => {
                     [rootOrganisationUnit.id]: `/${rootOrganisationUnit.id}`,
                 },
             };
+        case TOGGLE_UI_RIGHT_SIDEBAR_OPEN:
+            return {
+                ...state,
+                rightSidebarOpen: !state.rightSidebarOpen,
+            };
+        case OPEN_UI_RIGHT_SIDEBAR_OPEN:
+            return {
+                ...state,
+                rightSidebarOpen: true,
+            };
+        case SET_UI_INTERPRETATION:
+            return {
+                ...state,
+                interpretation: action.value,
+            };
+        case CLEAR_UI_INTERPRETATION:
+            return {
+                ...state,
+                interpretation: DEFAULT_UI.interpretation,
+            };
         default:
             return state;
     }
@@ -220,6 +246,8 @@ export const sGetUiYearOverYearCategory = state =>
     sGetUi(state).yearOverYearCategory;
 export const sGetUiParentGraphMap = state => sGetUi(state).parentGraphMap;
 export const sGetUiActiveModalDialog = state => sGetUi(state).activeModalDialog;
+export const sGetUiRightSidebarOpen = state => sGetUi(state).rightSidebarOpen;
+export const sGetUiInterpretation = state => sGetUi(state).interpretation;
 
 export const sGetDimensionIdsFromLayout = state =>
     Object.values(sGetUiLayout(state)).reduce(

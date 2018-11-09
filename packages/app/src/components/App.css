@@ -30,10 +30,10 @@ body {
 .interpretations {
     grid-area: interpretations;
     border-left: 1px solid #e0e2e4;
-    padding: 20px;
 }
 .canvas {
     grid-area: canvas;
+    position: relative;
 }
 .title-bar {
     grid-area: titlebar;
@@ -45,12 +45,11 @@ body {
 
 .app {
     display: grid;
-    grid-template-columns: 250px auto 160px;
+    grid-template-columns: 262px 1fr min-content;
     grid-template-rows: 0 39px 80px 35px auto;
     grid-template-areas:
         'headerbar headerbar headerbar'
-        'charttype menubar menubar'
-        'dimensions chartlayout interpretations'
+        'charttype menubar menubar' 'dimensions chartlayout interpretations'
         'dimensions titlebar interpretations'
         'dimensions canvas interpretations';
 }
