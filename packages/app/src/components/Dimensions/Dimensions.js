@@ -13,22 +13,20 @@ export class Dimensions extends Component {
         this.setState({ filterText: event.target.value });
     };
 
-    render = () => {
-        return (
-            <div style={styles.divContainer}>
-                <DialogManager />
-                <TextField
-                    style={styles.textField}
-                    onChange={this.onFilterTextChange}
-                    placeholder={i18n.t('Search Dimensions')}
-                    InputProps={{
-                        startAdornment: <Search style={styles.searchIcon} />,
-                    }}
-                />
-                <DimensionList filterText={this.state.filterText} />
-            </div>
-        );
-    };
+    render = () => (
+        <div style={styles.divContainer}>
+            <DialogManager />
+            <TextField
+                style={styles.textField}
+                onChange={this.onFilterTextChange}
+                placeholder={i18n.t('Search Dimensions')}
+                InputProps={{
+                    startAdornment: <Search style={styles.searchIcon} />,
+                }}
+            />
+            <DimensionList filterText={this.state.filterText} />
+        </div>
+    );
 }
 
 export default Dimensions;

@@ -25,9 +25,11 @@ describe('The DialogManager component ', () => {
     beforeEach(() => {
         props = {
             dialogId: null,
-            ui: {},
+            dimensions: {},
+            dxIds: ['test'],
+            ouIds: [],
             closeDialog: jest.fn(),
-            onUpdate: jest.fn(),
+            setRecommendedIds: jest.fn(),
         };
         shallowDialog = undefined;
     });
@@ -36,7 +38,7 @@ describe('The DialogManager component ', () => {
         expect(dialogManager().children().length).toEqual(0);
     });
 
-    it('renders a <Dialog> with when prop dialogId is not equal to a falsy value', () => {
+    it('renders a <Dialog> when prop dialogId is not equal to a falsy value', () => {
         props.dialogId = dxId;
 
         const wrappingDialog = dialogManager()
@@ -44,5 +46,29 @@ describe('The DialogManager component ', () => {
             .first();
 
         expect(wrappingDialog.children().length).toBeGreaterThan(1);
+    });
+
+    it('sets the recommended Ids (with debounced delay) when a change in dx (Data) or ou (Organisation Unit) occurs', () => {
+        const dialog = dialogManager();
+        dialog.setProps({ ouIds: ['TEST_OU_ID'] });
+        dialog.setProps({ ouIds: ['OTHER_ID'] });
+
+        setTimeout(
+            () => expect(props.setRecommendedIds).toHaveBeenCalledTimes(1),
+            1001
+        );
+    });
+
+    it('does not update recommendedIds if other selected ids are udpdated', () => {
+        const dialog = dialogManager();
+        dialog.setProps({ dimensionIdA: ['itemsByDimensionIdA'] });
+        dialog.setProps({
+            dimensionIdB: ['itemsByDimensionIdB', 'itemsByDimensionIdC'],
+        });
+
+        setTimeout(
+            () => expect(props.setRecommendedIds).toHaveBeenCalledTimes(0),
+            1001
+        );
     });
 });

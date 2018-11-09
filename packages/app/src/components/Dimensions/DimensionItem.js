@@ -35,18 +35,16 @@ export class DimensionItem extends Component {
         return <GenericDimensionIcon style={styles.genericDimensionIcon} />;
     };
 
-    getDimensionType = () => {
-        return (
-            <span
-                data-dimensionid={this.props.id}
-                style={styles.text}
-                draggable="true"
-                onDragStart={this.onDragStart}
-            >
-                {i18n.t(this.props.name)}
-            </span>
-        );
-    };
+    getDimensionType = () => (
+        <span
+            data-dimensionid={this.props.id}
+            style={styles.text}
+            draggable="true"
+            onDragStart={this.onDragStart}
+        >
+            {i18n.t(this.props.name)}
+        </span>
+    );
 
     render = () => {
         const Icon = this.getDimensionIcon();

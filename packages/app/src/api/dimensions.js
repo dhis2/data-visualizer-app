@@ -54,6 +54,27 @@ export const apiFetchDimensions = nameProp => {
     return request('dimensions', params);
 };
 
+export const apiFetchRecommendedIds = (dxIds, ouIds) => {
+    let fields = 'dimension=';
+
+    if (dxIds.length) {
+        fields = fields.concat(`dx:${dxIds.join(';')}`);
+
+        if (ouIds.length)
+            fields = fields.concat(`&dimension=ou:${ouIds.join(';')}`);
+    } else if (ouIds.length) {
+        fields = fields.concat(`ou:${ouIds.join(';')}`);
+    } else {
+        return Promise.resolve([]);
+    }
+
+    const url = `/dimensions/recommendations?${fields}&fields=id`;
+    return getInstance()
+        .then(d2 => d2.Api.getApi().get(url))
+        .then(response => response.dimensions.map(item => item.id))
+        .catch(onError);
+};
+
 export const apiFetchItemsByDimension = dimensionId => {
     const fields = `fields=id,displayName~rename(name)`;
     const url = `dimensions/${dimensionId}/items?${fields}`;
@@ -180,25 +201,4 @@ const fetchProgramDataElements = ({ groupId, page, filterText, nameProp }) => {
     const paramString = `${fields}${filter}&program=${groupId}`;
 
     return requestWithPaging('programDataElements', paramString, page);
-};
-
-const mockResponse = () => {
-    const randomizer = Math.floor(Math.random() * Math.floor(4));
-    const mock1 = ['SooXFOUnciJ', 'eLwL77Z9E7R'];
-    const mock2 = ['Cbuj0VCyDjL', 'J5jldMd8OHv', 'VxWloRvAze8'];
-    const mock3 = ['cX5k9anHEHd'];
-    const mock4 = ['cX5k9anHEHd', 'J5jldMd8OHv', 'jp826jAJHUc', 'XY1vwCQskjX'];
-    const response = [mock1, mock2, mock3, mock4];
-
-    return response[randomizer];
-};
-
-export const apiFetchRecommendedIds = (dimIdA, dimIdB) => {
-    return mockResponse();
-    /*const fields = `dx:${idA};${idB}&dimension=ou:${idA};${idB}`,
-        url = `/dimensions/recommendations?dimensions=${fields}`;
-
-    return getInstance()
-        .then(d2 => d2.Api.getApi().get(url))
-        .catch(onError);*/
 };

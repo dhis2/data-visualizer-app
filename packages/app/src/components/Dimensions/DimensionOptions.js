@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import omit from 'lodash-es/omit';
 import i18n from '@dhis2/d2-i18n';
 import MenuItem from '@material-ui/core/MenuItem';
 import DropDown from './DropDown';
@@ -51,21 +50,13 @@ export class DimensionOptions extends Component {
     };
 
     addDimension = axisName => {
-        if (this.props.currentLayout[axisName] && axisName !== 'filters') {
-            const remainingItems = omit(this.props.items, this.props.id);
-            this.props.setUiItems(remainingItems);
-
-            const currentDimension = this.props.currentLayout[axisName][0];
-            this.props.removeDimension(currentDimension);
-        }
-
         this.props.onAddDimension({ [this.props.id]: axisName });
         this.handleClose();
         setTimeout(() => this.props.openDialog(this.props.id), 10);
     };
 
-    getMenuItems = () => {
-        return items.map(option => (
+    getMenuItems = () =>
+        items.map(option => (
             <MenuItem
                 key={option.axisName}
                 onClick={() => this.addDimension(option.axisName)}
@@ -73,7 +64,6 @@ export class DimensionOptions extends Component {
                 {option.name}
             </MenuItem>
         ));
-    };
 
     renderOptionsOnHover = () => {
         return this.props.showButton ? (

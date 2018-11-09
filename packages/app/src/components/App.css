@@ -21,6 +21,7 @@ body {
 .dimensions {
     grid-area: dimensions;
     border-right: 1px solid #aaa;
+    height: calc(100vh - 42px - 48px);
 }
 .chart-layout {
     grid-area: chartlayout;

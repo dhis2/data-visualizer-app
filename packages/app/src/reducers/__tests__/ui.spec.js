@@ -10,6 +10,7 @@ const [COLUMNS, ROWS, FILTERS] = AXIS_NAMES;
 const dxId = FIXED_DIMENSIONS.dx.id;
 const peId = FIXED_DIMENSIONS.pe.id;
 const ouId = FIXED_DIMENSIONS.ou.id;
+const otherId = '123';
 
 const dxItem1Id = 'dxItem1';
 const dx = {
@@ -148,7 +149,7 @@ describe('reducer: ui', () => {
         expect(actualState).toEqual(expectedState);
     });
 
-    it(`${ui.ADD_UI_LAYOUT_DIMENSIONS} adds layout dimensions`, () => {
+    it(`${ui.ADD_UI_LAYOUT_DIMENSIONS}: should swap layout dimensions`, () => {
         const state = {
             layout: {
                 columns: [dxId],
@@ -175,7 +176,34 @@ describe('reducer: ui', () => {
         expect(actualState).toEqual(expectedState);
     });
 
-    it(`${ui.REMOVE_UI_LAYOUT_DIMENSIONS} removes a single dimension`, () => {
+    it(`${ui.ADD_UI_LAYOUT_DIMENSIONS}: should add/remove layout dimensions`, () => {
+        const state = {
+            layout: {
+                columns: [dxId],
+                rows: [peId],
+                filters: [ouId],
+            },
+        };
+
+        const actualState = reducer(state, {
+            type: ADD_UI_LAYOUT_DIMENSIONS,
+            value: {
+                [otherId]: 'columns',
+            },
+        });
+
+        const expectedState = {
+            layout: {
+                columns: [otherId],
+                rows: [peId],
+                filters: [ouId],
+            },
+        };
+
+        expect(actualState).toEqual(expectedState);
+    });
+
+    it(`${ui.REMOVE_UI_LAYOUT_DIMENSIONS}: should remove a single dimension`, () => {
         const state = {
             layout: {
                 columns: [dxId],
