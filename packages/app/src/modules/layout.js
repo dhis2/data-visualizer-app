@@ -4,6 +4,7 @@ import pick from 'lodash-es/pick';
 export const AXIS_NAME_COLUMNS = 'columns';
 export const AXIS_NAME_ROWS = 'rows';
 export const AXIS_NAME_FILTERS = 'filters';
+export const SOURCE_DIMENSIONS = 'dimensions';
 
 export const AXIS_NAMES = [
     AXIS_NAME_COLUMNS,

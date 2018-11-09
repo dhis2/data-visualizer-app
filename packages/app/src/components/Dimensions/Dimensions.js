@@ -19,9 +19,12 @@ export class Dimensions extends Component {
             <TextField
                 style={styles.textField}
                 onChange={this.onFilterTextChange}
-                placeholder={i18n.t('Search Dimensions')}
+                placeholder={i18n.t('Search dimensions')}
                 InputProps={{
                     startAdornment: <Search style={styles.searchIcon} />,
+                    style: {
+                        fontSize: '14px',
+                    },
                 }}
             />
             <DimensionList filterText={this.state.filterText} />

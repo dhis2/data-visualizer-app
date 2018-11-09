@@ -4,7 +4,7 @@ export default {
         display: 'flex',
         alignItems: 'center',
         padding: '0 10px',
-        height: '40px',
+        height: '38px',
     },
     label: {
         color: '#000',

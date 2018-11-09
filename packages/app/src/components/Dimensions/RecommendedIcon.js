@@ -19,7 +19,8 @@ export class RecommendedIcon extends Component {
     };
 
     checkIfRecommended = () =>
-        this.props.isRecommended && !this.props.isSelected;
+        // this.props.isRecommended && !this.props.isSelected;
+        Boolean(this.props.isRecommended);
 
     showTooltip = () => (
         <Popper
