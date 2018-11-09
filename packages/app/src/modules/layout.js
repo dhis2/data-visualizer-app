@@ -1,4 +1,5 @@
 import pick from 'lodash-es/pick';
+import i18n from '@dhis2/d2-i18n';
 
 // Prop names for analytical object axes
 export const AXIS_NAME_COLUMNS = 'columns';
@@ -17,9 +18,9 @@ export const DIMENSION_ITEMS_PROP_NAME = 'items';
 
 // Keys and displayName for adding dimensions to layout
 export const ADD_TO_LAYOUT_OPTIONS = [
-    { axisName: 'columns', name: 'Add to series' },
-    { axisName: 'rows', name: 'Add to category' },
-    { axisName: 'filters', name: 'Add to filter' },
+    { axisName: 'columns', name: i18n.t('Add to series') },
+    { axisName: 'rows', name: i18n.t('Add to category') },
+    { axisName: 'filters', name: i18n.t('Add to filter') },
 ];
 
 // Layout utility functions
