@@ -176,7 +176,9 @@ describe('reducer: ui', () => {
         expect(actualState).toEqual(expectedState);
     });
 
-    it(`${ui.ADD_UI_LAYOUT_DIMENSIONS}: should add/remove layout dimensions`, () => {
+    it(`${
+        ui.ADD_UI_LAYOUT_DIMENSIONS
+    }: should add/remove layout dimensions`, () => {
         const state = {
             layout: {
                 columns: [dxId],
@@ -186,7 +188,7 @@ describe('reducer: ui', () => {
         };
 
         const actualState = reducer(state, {
-            type: ADD_UI_LAYOUT_DIMENSIONS,
+            type: ui.ADD_UI_LAYOUT_DIMENSIONS,
             value: {
                 [otherId]: 'columns',
             },
@@ -203,7 +205,9 @@ describe('reducer: ui', () => {
         expect(actualState).toEqual(expectedState);
     });
 
-    it(`${ui.REMOVE_UI_LAYOUT_DIMENSIONS}: should remove a single dimension`, () => {
+    it(`${
+        ui.REMOVE_UI_LAYOUT_DIMENSIONS
+    }: should remove a single dimension`, () => {
         const state = {
             layout: {
                 columns: [dxId],
