@@ -1,6 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { TitleBar } from '../TitleBar';
+import * as formatDate from '../../../modules/formatDate';
+
+const formattedDate = 'the future';
 
 describe('TitleBar component', () => {
     let props;
@@ -18,8 +21,11 @@ describe('TitleBar component', () => {
             title: 'test title',
             isDirty: false,
             interpretation: {},
+            uiLocale: 'en',
         };
         shallowTitleBar = undefined;
+
+        formatDate.default = jest.fn().mockReturnValue(formattedDate);
     });
 
     it('renders nothing if no title', () => {
@@ -59,16 +65,21 @@ describe('TitleBar component', () => {
         ).toEqual(`* ${props.title}`);
     });
 
-    it('renders the interpretation info when interpretation exists', () => {
-        props.interpretation = {
-            created: 'eons ago',
-        };
+    describe('with interpretation', () => {
+        beforeEach(() => {
+            props.interpretation = {
+                created: 'eons ago',
+            };
+        });
 
-        const spans = titleBar().find('span');
+        it('renders the interpretation info', () => {
+            const spans = titleBar().find('span');
 
-        expect(spans).toHaveLength(2);
-        expect(spans.last().text()).toEqual(
-            `Viewing interpretation from ${props.interpretation.created}`
-        );
+            expect(spans).toHaveLength(2);
+
+            expect(spans.last().text()).toEqual(
+                `Viewing interpretation from ${formattedDate}`
+            );
+        });
     });
 });
