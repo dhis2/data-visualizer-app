@@ -1,11 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import i18n from '@dhis2/d2-i18n';
 
 import Button from '@material-ui/core/Button';
 import MenuItem from '@material-ui/core/Button';
-
 import UpdateButton from '../UpdateButton/UpdateButton';
 import Menu from './Menu';
 
@@ -53,34 +51,35 @@ export class AddToLayoutButton extends Component {
     };
 
     getMenuItems = () =>
-        items
-            .slice(1)
-            .map(option => (
-                <MenuItem
-                    key={option.axisName}
-                    variant="contained"
-                    style={styles.menuItem}
-                    children={i18n.t(option.name)}
-                    onClick={() => this.onUpdate(option.axisName)}
-                />
-            ));
+        items.slice(1).map(option => (
+            <MenuItem
+                key={option.axisName}
+                variant="contained"
+                style={styles.menuItem}
+                onClick={() => this.onUpdate(option.axisName)}
+            >
+                {option.name}
+            </MenuItem>
+        ));
 
     getUnselectedButton = () =>
         isYearOverYear(this.props.layoutType) ? (
             <Button
                 variant="contained"
                 style={styles.button}
-                children={i18n.t(items[FILTER].name)}
                 onClick={() => this.onUpdate(items[FILTER].axisName)}
-            />
+            >
+                {items[FILTER].name}
+            </Button>
         ) : (
             <Fragment>
                 <Button
                     variant="contained"
                     style={styles.button}
-                    children={i18n.t(items[SERIES].name)}
                     onClick={() => this.onUpdate(items[SERIES].axisName)}
-                />
+                >
+                    {items[SERIES].name}
+                </Button>
                 <Menu
                     onClose={this.onClose}
                     onClick={this.onToggle}

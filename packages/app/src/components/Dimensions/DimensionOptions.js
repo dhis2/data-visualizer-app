@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import i18n from '@dhis2/d2-i18n';
 import MenuItem from '@material-ui/core/MenuItem';
 import DropDown from './DropDown';
 import MoreHorizontalIcon from '../../assets/MoreHorizontalIcon';
@@ -27,9 +26,7 @@ export const OptionsButton = ({ action }) => {
 export class DimensionOptions extends Component {
     state = { anchorEl: null };
 
-    handleClick = event => {
-        this.setState({ anchorEl: event.currentTarget });
-    };
+    handleClick = event => this.setState({ anchorEl: event.currentTarget });
 
     handleClose = () => {
         this.setState({ anchorEl: null });
@@ -46,9 +43,10 @@ export class DimensionOptions extends Component {
         ADD_TO_LAYOUT_OPTIONS.map(option => (
             <MenuItem
                 key={option.axisName}
-                children={i18n.t(option.name)}
                 onClick={() => this.addDimension(option.axisName)}
-            />
+            >
+                {option.name}
+            </MenuItem>
         ));
 
     renderOptionsOnHover = () =>
