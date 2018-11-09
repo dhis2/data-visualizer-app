@@ -8,6 +8,7 @@ import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
 import GenericDimensionIcon from '../../assets/GenericDimensionIcon';
 import { setDataTransfer } from '../../modules/dnd';
 import { styles } from './styles/DimensionItem.style';
+import { SOURCE_DIMENSIONS } from '../../modules/layout';
 
 export class DimensionItem extends Component {
     state = { mouseOver: false };
@@ -21,7 +22,7 @@ export class DimensionItem extends Component {
     };
 
     onDragStart = e => {
-        setDataTransfer(e, 'dimensions');
+        setDataTransfer(e, SOURCE_DIMENSIONS);
     };
 
     getDimensionIcon = () => {
