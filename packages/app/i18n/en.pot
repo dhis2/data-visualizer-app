@@ -128,6 +128,9 @@ msgstr ""
 msgid "None selected"
 msgstr ""
 
+msgid "Viewing interpretation from {{date}}"
+msgstr ""
+
 msgid "Update"
 msgstr ""
 
