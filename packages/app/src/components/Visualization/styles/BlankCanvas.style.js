@@ -9,7 +9,7 @@ export default {
         position: 'absolute',
     },
     inner: {
-        maxWidth: 200,
+        maxWidth: 500,
         textAlign: 'center',
         alignSelf: 'center',
     },
