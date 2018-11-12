@@ -69,6 +69,7 @@
 "@babel/polyfill@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@babel/polyfill/-/polyfill-7.0.0.tgz#c8ff65c9ec3be6a1ba10113ebd40e8750fb90bff"
+  integrity sha512-dnrMRkyyr74CRelJwvgnnSUDh2ge2NCTyHVwpOdvRMHtJUyxLtMAfhBN3s64pY41zdw0kgiLPh6S20eb1NcX6Q==
   dependencies:
     core-js "^2.5.7"
     regenerator-runtime "^0.11.1"
@@ -7100,6 +7101,7 @@ marked@~0.3.6:
 material-design-icons@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/material-design-icons/-/material-design-icons-3.0.1.tgz#9a71c48747218ebca51e51a66da682038cdcb7bf"
+  integrity sha1-mnHEh0chjrylHlGmbaaCA4zct78=
 
 material-ui@^0.20.0:
   version "0.20.2"
@@ -10483,6 +10485,7 @@ typedarray@^0.0.6:
 typeface-roboto@^0.0.54:
   version "0.0.54"
   resolved "https://registry.yarnpkg.com/typeface-roboto/-/typeface-roboto-0.0.54.tgz#8f02c9a18d1cfa7f49381a6ff0d21ff061f38ad2"
+  integrity sha512-sOFA1FXgP0gOgBYlS6irwq6hHYA370KE3dPlgYEJHL3PJd5X8gQE0RmL79ONif6fL5JZuGDj+rtOrFeOqz5IZQ==
 
 ua-parser-js@^0.7.18:
   version "0.7.19"
