@@ -18,7 +18,15 @@ const STATE_SAVED = 'SAVED';
 const STATE_UNSAVED = 'UNSAVED';
 const STATE_DIRTY = 'DIRTY';
 
-const TITLE_UNSAVED = i18n.t('Unsaved chart');
+const defaultTitleStyle = {
+    ...styles.cell,
+    ...styles.title,
+};
+
+const defaultInterpretationStyle = {
+    ...styles.cell,
+    ...styles.interpretation,
+};
 
 const getTitleState = (visualization, current) => {
     if (current === DEFAULT_CURRENT) {
@@ -35,38 +43,61 @@ const getTitleState = (visualization, current) => {
 const getTitleText = (titleState, visualization) => {
     switch (titleState) {
         case STATE_UNSAVED:
-            return TITLE_UNSAVED;
+            return i18n.t('Unsaved chart');
         case STATE_SAVED:
-            return visualization.name;
         case STATE_DIRTY:
-            return `* ${visualization.name}`;
-        case STATE_EMPTY:
+            return visualization.name;
         default:
             return '';
     }
 };
 
-const getTitleStyle = titleStyle =>
+const getCustomTitleStyle = titleState => {
+    switch (titleState) {
+        case STATE_UNSAVED:
+            return styles.titleUnsaved;
+        default:
+            return null;
+    }
+};
+
+const getSuffix = titleState => {
+    switch (titleState) {
+        case STATE_DIRTY:
+            return (
+                <div
+                    style={{
+                        ...styles.suffix,
+                        ...styles.titleDirty,
+                    }}
+                >{`- ${i18n.t('Edited')}`}</div>
+            );
+        default:
+            return '';
+    }
+};
 
 export const TitleBar = ({ titleState, titleText, interpretationDate }) => {
     const titleStyle = {
-        ...styles.title,
-        ...(titleState === STATE_UNSAVED ? styles.titleUnsaved : null),
-        ...(titleState === STATE_UNSAVED ? styles.titleUnsaved : null),
+        ...defaultTitleStyle,
+        ...getCustomTitleStyle(titleState),
     };
 
     return titleText ? (
         <div style={styles.titleBar}>
-            <span style={titleStyle}>{titleText}</span>
+            <div style={titleStyle}>
+                {titleText}
+                {getSuffix(titleState)}
+            </div>
             {interpretationDate && (
-                <span style={styles.interpretation}>
+                <div style={defaultInterpretationStyle}>
                     {i18n.t(
                         'Viewing interpretation from {{interpretationDate}}',
                         {
                             interpretationDate,
                         }
                     )}
-                </span>
+                </div>
             )}
         </div>
     ) : null;
@@ -77,15 +108,6 @@ TitleBar.propTypes = {
     isDirty: PropTypes.bool,
     interpretatiom: PropTypes.object,
 };
-
-// const mapStateToProps = state => ({
-//     title: sGetVisualization(state) ? sGetVisualization(state).name : null,
-//     isDirty: sGetVisualization(state)
-//         ? sGetVisualization(state) !== sGetCurrent(state)
-//         : false,
-//     interpretation: sGetUiInterpretation(state),
-//     uiLocale: sGetUiLocale(state),
-// });
 
 const mapStateToProps = state => ({
     visualization: sGetVisualization(state),

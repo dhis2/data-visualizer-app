@@ -5,12 +5,22 @@ export default {
         display: 'flex',
         justifyContent: 'center',
     },
-    title: {
+    cell: {
+        display: 'flex',
+        alignItems: 'center',
         background: '#fff',
         padding: '6px',
         borderRadius: '5px',
-        fontSize: '14px',
         margin: '4px',
+    },
+    title: {
+        fontSize: '14px',
+    },
+    suffix: {
+        paddingLeft: '4px',
+    },
+    interpretation: {
+        fontSize: '12px',
     },
     titleUnsaved: {
         color: colors.grey,
@@ -18,12 +28,5 @@ export default {
     },
     titleDirty: {
         color: colors.greyDark,
-    },
-    interpretation: {
-        background: '#fff',
-        padding: '6px',
-        borderRadius: '5px',
-        fontSize: '12px',
-        margin: '4px',
     },
 };
