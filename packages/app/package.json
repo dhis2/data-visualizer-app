@@ -87,7 +87,7 @@
         "start": "node scripts/start.js",
         "prebuild": "npm run lint && npm run prettier-ci && npm run coverage && rimraf build && mkdirp build && npm run manifest",
         "build": "npm run localize && node scripts/build.js",
-        "postbuild": "cp -r public/i18n build && cp package.json build",
+        "postbuild": "cp -r public/i18n build && cp -r public/i18n_old build && cp public/icon.png build && cp package.json build && npm run manifest",
         "lint": "eslint --config=../../.eslintrc.json src",
         "prettier-ci": "prettier \"./src/{**/*,*}.js\" --list-different",
         "prettier-write": "prettier \"./src/{**/*,*}.js\" --write",
@@ -112,11 +112,11 @@
             "name": "DHIS2"
         },
         "dhis2": {
-            "apiVersion": "30"
+            "apiVersion": "31"
         },
         "activities": {
             "dhis": {
-                "href": ".."
+                "href": "../../.."
             }
         }
     },
