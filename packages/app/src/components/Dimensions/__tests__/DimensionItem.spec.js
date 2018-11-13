@@ -4,7 +4,6 @@ import { DimensionItem } from '../DimensionItem';
 import DimensionLabel from '../DimensionLabel';
 import DimensionOptions from '../DimensionOptions';
 import RecommendedIcon from '../RecommendedIcon';
-import { FIXED_DIMENSIONS } from '../../../modules/fixedDimensions';
 
 describe('The DimensionItem component ', () => {
     let props;
@@ -20,8 +19,13 @@ describe('The DimensionItem component ', () => {
             id: 'idString',
             name: '',
             isSelected: false,
+            type: 'COLUMN',
         };
         shallowDimItem = undefined;
+    });
+
+    it('noop', () => {
+        expect(1).toEqual(1);
     });
 
     it('renders a <li>', () => {
@@ -51,18 +55,5 @@ describe('The DimensionItem component ', () => {
         const dimOptions = dimItem().find(DimensionOptions);
 
         expect(dimOptions.length).toEqual(1);
-    });
-
-    it('renders a fixedDimension Icon if prop id is belongs to a fixed dimension', () => {
-        props.id = 'dx';
-
-        const fixedIcon = dimItem()
-            .find('li')
-            .first()
-            .find(DimensionLabel)
-            .childAt(0)
-            .type();
-
-        expect(fixedIcon).toEqual(FIXED_DIMENSIONS.dx.icon);
     });
 });

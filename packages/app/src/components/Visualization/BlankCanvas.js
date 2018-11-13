@@ -7,7 +7,8 @@ import { sGetLoadError, sGetIsLoading } from '../../reducers/loader';
 import chartErrorImg from '../../assets/chart-error-graphic.png';
 
 export const visContainerId = 'visualization-container';
-export const defaultCanvasMessage = 'Visualization Canvas';
+export const defaultCanvasMessage =
+    'Create a new visualization by adding dimensions to the layout';
 
 export const BlankCanvas = ({ loading, error }) => {
     let canvasContent = <p style={styles.text}>{defaultCanvasMessage}</p>;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import DimensionLabel from './DimensionLabel';
@@ -8,6 +9,11 @@ import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
 import GenericDimensionIcon from '../../assets/GenericDimensionIcon';
 import { setDataTransfer } from '../../modules/dnd';
 import { styles } from './styles/DimensionItem.style';
+import { SOURCE_DIMENSIONS } from '../../modules/layout';
+import { sGetUiType } from '../../reducers/ui';
+import { isYearOverYear } from '../../modules/chartTypes';
+
+const peId = FIXED_DIMENSIONS.pe.id;
 
 export class DimensionItem extends Component {
     state = { mouseOver: false };
@@ -21,7 +27,7 @@ export class DimensionItem extends Component {
     };
 
     onDragStart = e => {
-        setDataTransfer(e, 'dimensions');
+        setDataTransfer(e, SOURCE_DIMENSIONS);
     };
 
     getDimensionIcon = () => {
@@ -35,11 +41,17 @@ export class DimensionItem extends Component {
         return <GenericDimensionIcon style={styles.genericDimensionIcon} />;
     };
 
+    isDeactivated = () =>
+        this.props.id === peId && isYearOverYear(this.props.type);
+
     getDimensionType = () => (
         <span
             data-dimensionid={this.props.id}
-            style={styles.text}
-            draggable="true"
+            style={{
+                ...styles.text,
+                ...(this.isDeactivated() ? styles.textDeactivated : {}),
+            }}
+            draggable={!this.isDeactivated()}
             onDragStart={this.onDragStart}
         >
             {i18n.t(this.props.name)}
@@ -57,19 +69,24 @@ export class DimensionItem extends Component {
                 onMouseOver={this.onMouseOver}
                 onMouseLeave={this.onMouseExit}
             >
-                <DimensionLabel {...this.props}>
-                    {Icon}
+                <DimensionLabel
+                    {...this.props}
+                    isDeactivated={this.isDeactivated()}
+                >
+                    <div style={styles.iconWrapper}>{Icon}</div>
                     {Label}
+                    <RecommendedIcon
+                        id={this.props.id}
+                        isSelected={this.props.isSelected}
+                    />
+                    <DimensionOptions
+                        id={this.props.id}
+                        showButton={Boolean(
+                            this.state.mouseOver && !this.isDeactivated()
+                        )}
+                        onClose={this.onMouseExit}
+                    />
                 </DimensionLabel>
-                <RecommendedIcon
-                    id={this.props.id}
-                    isSelected={this.props.isSelected}
-                />
-                <DimensionOptions
-                    id={this.props.id}
-                    showButton={!this.props.isSelected && this.state.mouseOver}
-                    onClose={this.onMouseExit}
-                />
             </li>
         );
     };
@@ -79,6 +96,11 @@ DimensionItem.propTypes = {
     id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
     name: PropTypes.string.isRequired,
     isSelected: PropTypes.bool.isRequired,
+    type: PropTypes.string.isRequired,
 };
 
-export default DimensionItem;
+const mapStateToProps = state => ({
+    type: sGetUiType(state),
+});
+
+export default connect(mapStateToProps)(DimensionItem);

@@ -59,7 +59,7 @@ const extractTextPluginOptions = shouldUseRelativeAssetPaths
       { publicPath: Array(cssFilename.split('/').length).join('../') }
     : {};
 
-const scriptPrefix = '..';
+const scriptPrefix = manifest.activities.dhis.href;
 
 // This is the production configuration.
 // It compiles slowly and is focused on producing a fast and minimal bundle.
@@ -257,13 +257,6 @@ module.exports = {
             vendorScripts: [
                 `${scriptPrefix}/dhis-web-core-resource/fonts/roboto.css`,
                 `${scriptPrefix}/dhis-web-core-resource/babel-polyfill/6.20.0/dist/polyfill.min.js`,
-                `${scriptPrefix}/dhis-web-core-resource/jquery/3.2.1/dist/jquery.min.js`,
-                `${scriptPrefix}/dhis-web-core-resource/jquery-migrate/3.0.1/dist/jquery-migrate.min.js`,
-                `${scriptPrefix}/dhis-web-pivot/reporttable.js`,
-                `${scriptPrefix}/dhis-web-visualizer/chart.js`,
-                `${scriptPrefix}/dhis-web-maps/map.js`,
-                `${scriptPrefix}/dhis-web-event-reports/eventreport.js`,
-                `${scriptPrefix}/dhis-web-event-visualizer/eventchart.js`,
             ]
                 .map(asset => {
                     return /\.js$/.test(asset)
