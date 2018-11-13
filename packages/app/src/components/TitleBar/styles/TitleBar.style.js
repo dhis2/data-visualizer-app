@@ -1,3 +1,5 @@
+import { colors } from '../../../modules/colors';
+
 export default {
     titleBar: {
         display: 'flex',
@@ -9,6 +11,13 @@ export default {
         borderRadius: '5px',
         fontSize: '14px',
         margin: '4px',
+    },
+    titleUnsaved: {
+        color: colors.grey,
+        fontStyle: 'italic',
+    },
+    titleDirty: {
+        color: colors.greyDark,
     },
     interpretation: {
         background: '#fff',
