@@ -25,6 +25,7 @@ import {
     YEAR_OVER_YEAR_COLUMN,
 } from '../../modules/chartTypes';
 import { sGetVisualization } from '../../reducers/visualization';
+import { computeGenericPeriodNames } from '../../modules/analytics';
 
 export class Visualization extends Component {
     constructor(props) {
@@ -102,13 +103,15 @@ export class Visualization extends Component {
                 } = await apiFetchAnalyticsForYearOverYear(vis, options));
 
                 extraOptions.yearlySeries = yearlySeriesLabels;
+
+                extraOptions.xAxisLabels = computeGenericPeriodNames(responses);
             } else {
                 responses = await apiFetchAnalytics(vis, options);
             }
 
-            responses.forEach(res =>
-                this.props.acAddMetadata(res.metaData.items)
-            );
+            responses.forEach(res => {
+                this.props.acAddMetadata(res.metaData.items);
+            });
 
             const chartConfig = createChart(
                 responses,
