@@ -28,8 +28,10 @@ class Axis extends React.Component {
     };
 
     onDrop = e => {
+        // Prevent redirect in Firefox
+        e.preventDefault();
+
         const { dimensionId, source } = decodeDataTransfer(e);
-        e.dataTransfer.clearData();
 
         this.props.onAddDimension({
             [dimensionId]: this.props.axisName,
