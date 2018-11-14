@@ -14,7 +14,9 @@ const onClickWrapper = props => () => {
     props.clearLoadError();
     props.onUpdate(props.ui);
     if (props.current && props.current.id) {
-        history.push(`/${props.current.id}`);
+        if (history.location.pathname !== `/${props.current.id}`) {
+            history.push(`/${props.current.id}`);
+        }
     }
     props.onClick();
 };

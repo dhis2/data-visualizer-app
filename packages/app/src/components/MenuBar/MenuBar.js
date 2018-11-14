@@ -12,9 +12,13 @@ import { sGetCurrent } from '../../reducers/current';
 import history from '../../modules/history';
 import styles from './styles/MenuBar.style';
 
-const onOpen = clearLoadError => id => {
-    clearLoadError();
-    history.push(`/${id}`);
+const onOpen = id => {
+    const path = `/${id}`;
+    if (history.location.pathname === path) {
+        history.replace(path);
+    } else {
+        history.push(path);
+    }
 };
 const onNew = () => history.push('/');
 const getOnRename = props => details =>
@@ -31,7 +35,7 @@ export const MenuBar = (props, context) => (
             d2={context.d2}
             fileId={props.id || null}
             fileType={props.apiObjectName}
-            onOpen={onOpen(props.clearLoadError)}
+            onOpen={onOpen}
             onNew={onNew}
             onRename={getOnRename(props)}
             onSave={getOnSave(props)}

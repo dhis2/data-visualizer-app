@@ -26,17 +26,62 @@ import { sGetUi } from '../reducers/ui';
 export class App extends Component {
     unlisten = null;
 
+    state = {
+        previousLocation: null,
+        previousError: null,
+    };
+
+    refetch = location => {
+        // first time in app
+        if (!this.state.previousLocation) {
+            return true;
+        }
+
+        // error changed
+        if (this.props.loadError !== this.state.previousError) {
+            return true;
+        }
+
+        const pathParts = location.pathname.slice(1).split('/');
+        const id = pathParts[0];
+        const interpretationId = pathParts[2];
+
+        const prevPathParts = this.state.previousLocation.slice(1).split('/');
+        const prevId = prevPathParts[0];
+        const prevItpId = prevPathParts[2];
+
+        // file->open a different AO
+        // file->saveAs
+        if (id !== prevId) {
+            return true;
+        }
+
+        //file->open the same AO
+        if (this.state.previousLocation === location.pathname) {
+            return true;
+        }
+
+        // select or unselect Itp
+        if (id === prevId && interpretationId !== prevItpId) {
+            return false;
+        }
+
+        return interpretationId !== prevItpId;
+    };
+
     loadVisualization = async location => {
         const { store } = this.context;
+
+        let interpretationId = '';
 
         if (location.pathname.length > 1) {
             // /${id}/
             // /${id}/interpretation/${interpretationId}
             const pathParts = location.pathname.slice(1).split('/');
             const id = pathParts[0];
-            const interpretationId = pathParts[2];
+            interpretationId = pathParts[2];
 
-            if (!this.props.current || this.props.current.id !== id) {
+            if (this.refetch(location)) {
                 await store.dispatch(
                     fromActions.tDoLoadVisualization(
                         this.props.apiObjectName,
@@ -60,6 +105,9 @@ export class App extends Component {
             fromActions.clearVisualization(store.dispatch, store.getState);
             fromActions.fromUi.acClearUiInterpretation(store.dispatch);
         }
+
+        this.setState({ previousLocation: location.pathname });
+        this.setState({ previousError: this.props.loadError });
     };
 
     componentDidMount = async () => {
