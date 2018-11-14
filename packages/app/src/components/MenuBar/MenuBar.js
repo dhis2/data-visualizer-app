@@ -72,7 +72,6 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
             )
         ),
     onDeleteVisualization: () => dispatch(fromActions.tDoDeleteVisualization()),
-    clearLoadError: () => dispatch(fromActions.fromLoader.acClearLoadError()),
 });
 
 export default connect(
