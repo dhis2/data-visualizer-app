@@ -1,29 +1,29 @@
 export const computeGenericPeriodNames = responses => {
-    let xAxisRes;
-
-    responses.forEach(res => {
-        if (xAxisRes) {
-            xAxisRes =
+    const xAxisRes = responses.reduce((out, res) => {
+        if (out.metaData) {
+            if (
                 res.metaData.dimensions.pe.length >
-                xAxisRes.metaData.dimensions.pe.length
-                    ? res
-                    : xAxisRes;
+                out.metaData.dimensions.pe.length
+            ) {
+                out = res;
+            }
         } else {
-            xAxisRes = res;
+            out = res;
         }
-    });
+
+        return out;
+    }, {});
 
     const metadata = xAxisRes.metaData;
-    const genericPeriodNames = [];
 
-    metadata.dimensions.pe.forEach(periodId => {
+    return metadata.dimensions.pe.reduce((genericPeriodNames, periodId) => {
         const name = metadata.items[periodId].name;
 
         // until the day the backend will support this in the API:
         // trim off the trailing year in the period name
         // english names should all have the year at the end of the string
         genericPeriodNames.push(name.replace(/\s+\d{4}$/, ''));
-    });
 
-    return genericPeriodNames;
+        return genericPeriodNames;
+    }, []);
 };
