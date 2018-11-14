@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-11-14T12:27:23.648Z\n"
-"PO-Revision-Date: 2018-11-14T12:27:23.648Z\n"
+"POT-Creation-Date: 2018-11-14T09:24:36.331Z\n"
+"PO-Revision-Date: 2018-11-14T09:24:36.331Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -119,7 +119,13 @@ msgstr ""
 msgid "None selected"
 msgstr ""
 
-msgid "Viewing interpretation from {{date}}"
+msgid "Unsaved chart"
+msgstr ""
+
+msgid "Edited"
+msgstr ""
+
+msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
 msgid "Update"

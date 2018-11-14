@@ -10,7 +10,7 @@ export const SET_CURRENT = 'SET_CURRENT';
 export const SET_CURRENT_FROM_UI = 'SET_CURRENT_FROM_UI';
 export const CLEAR_CURRENT = 'CLEAR_CURRENT';
 
-export const DEFAULT_CURRENT = {};
+export const DEFAULT_CURRENT = null;
 
 const dxId = FIXED_DIMENSIONS.dx.id;
 const peId = FIXED_DIMENSIONS.pe.id;
