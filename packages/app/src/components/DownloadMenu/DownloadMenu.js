@@ -189,7 +189,7 @@ export class DownloadMenu extends Component {
                     onClose={event => this.toggleSubmenu('scheme')}
                 >
                     <ListSubheader component="div">
-                        {i18n.t('Meta-data ID scheme')}
+                        {i18n.t('Metadata ID scheme')}
                     </ListSubheader>
                     <MenuItem
                         onClick={this.downloadData(
