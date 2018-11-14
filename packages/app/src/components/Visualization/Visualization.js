@@ -128,7 +128,10 @@ export class Visualization extends Component {
             this.props.acSetLoading(false);
         } catch (error) {
             this.props.acSetLoading(false);
-            this.props.acSetLoadError(i18n.t('Could not generate chart'));
+            const errorMessage =
+                (error && error.message) ||
+                i18n('Error generating chart, please try again');
+            this.props.acSetLoadError(errorMessage);
         }
     };
 
