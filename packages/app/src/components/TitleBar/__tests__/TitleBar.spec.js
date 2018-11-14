@@ -1,7 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { TitleBar } from '../TitleBar';
-import * as formatDate from '../../../modules/formatDate';
+import {
+    TitleBar,
+    STATE_EMPTY,
+    STATE_SAVED,
+    STATE_UNSAVED,
+    STATE_DIRTY,
+    TITLE_UNSAVED,
+    TITLE_DIRTY,
+} from '../TitleBar';
 
 const formattedDate = 'the future';
 
@@ -18,23 +25,52 @@ describe('TitleBar component', () => {
 
     beforeEach(() => {
         props = {
-            title: 'test title',
-            isDirty: false,
-            interpretation: {},
-            uiLocale: 'en',
+            titleState: STATE_EMPTY,
+            titleText: null,
+            interpretationDate: null,
         };
-        shallowTitleBar = undefined;
 
-        formatDate.default = jest.fn().mockReturnValue(formattedDate);
+        shallowTitleBar = undefined;
     });
 
-    it('renders nothing if no title', () => {
-        props.title = null;
+    it('renders "empty" state', () => {
         expect(titleBar().find('div')).toHaveLength(0);
     });
 
-    it('renders a <div>', () => {
-        expect(titleBar().find('div')).toHaveLength(1);
+    it('renders "unsaved" state', () => {
+        props.titleState = STATE_UNSAVED;
+        props.titleText = TITLE_UNSAVED;
+        expect(titleBar().find('div')).toHaveLength(2);
+        expect(
+            titleBar()
+                .find('div')
+                .first()
+                .text()
+        ).toEqual(TITLE_UNSAVED);
+    });
+
+    it('renders "saved" state', () => {
+        props.titleState = STATE_SAVED;
+        props.titleText = 'Yall';
+        expect(titleBar().find('div')).toHaveLength(2);
+        expect(
+            titleBar()
+                .find('div')
+                .first()
+                .text()
+        ).toEqual('Yall');
+    });
+
+    it('renders "dirty" state', () => {
+        props.titleState = STATE_DIRTY;
+        props.titleText = 'Yall';
+        expect(titleBar().find('div')).toHaveLength(3);
+        expect(
+            titleBar()
+                .find('div')
+                .first()
+                .text()
+        ).toEqual(`Yall- ${TITLE_DIRTY}`);
     });
 
     it('renders a <div> containing everything else', () => {
@@ -45,41 +81,16 @@ describe('TitleBar component', () => {
         expect(wrappingDiv.children()).toEqual(titleBar().children());
     });
 
-    it('renders a <span> with the title', () => {
-        expect(titleBar().find('span')).toHaveLength(1);
+    it('renders the interpretation date', () => {
+        props.titleState = STATE_SAVED;
+        props.titleText = 'Yall';
+        props.interpretationDate = 'aeons ago';
+        expect(titleBar().find('div')).toHaveLength(3);
         expect(
             titleBar()
-                .find('span')
+                .find('div')
+                .last()
                 .text()
-        ).toEqual(props.title);
-    });
-
-    it('renders an "*" when isDirty prop is true', () => {
-        props.title = 'edited title';
-        props.isDirty = true;
-
-        expect(
-            titleBar()
-                .find('span')
-                .text()
-        ).toEqual(`* ${props.title}`);
-    });
-
-    describe('with interpretation', () => {
-        beforeEach(() => {
-            props.interpretation = {
-                created: 'eons ago',
-            };
-        });
-
-        it('renders the interpretation info', () => {
-            const spans = titleBar().find('span');
-
-            expect(spans).toHaveLength(2);
-
-            expect(spans.last().text()).toEqual(
-                `Viewing interpretation from ${formattedDate}`
-            );
-        });
+        ).toEqual(`Viewing interpretation from ${props.interpretationDate}`);
     });
 });

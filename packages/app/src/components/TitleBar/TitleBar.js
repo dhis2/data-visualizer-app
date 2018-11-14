@@ -13,10 +13,13 @@ import { sGetUiLocale } from '../../reducers/settings';
 import formatDate from '../../modules/formatDate';
 import styles from './styles/TitleBar.style';
 
-const STATE_EMPTY = 'EMPTY';
-const STATE_SAVED = 'SAVED';
-const STATE_UNSAVED = 'UNSAVED';
-const STATE_DIRTY = 'DIRTY';
+export const TITLE_UNSAVED = i18n.t('Unsaved chart');
+export const TITLE_DIRTY = i18n.t('Edited');
+
+export const STATE_EMPTY = 'EMPTY';
+export const STATE_SAVED = 'SAVED';
+export const STATE_UNSAVED = 'UNSAVED';
+export const STATE_DIRTY = 'DIRTY';
 
 const defaultTitleStyle = {
     ...styles.cell,
@@ -43,7 +46,7 @@ const getTitleState = (visualization, current) => {
 const getTitleText = (titleState, visualization) => {
     switch (titleState) {
         case STATE_UNSAVED:
-            return i18n.t('Unsaved chart');
+            return TITLE_UNSAVED;
         case STATE_SAVED:
         case STATE_DIRTY:
             return visualization.name;
@@ -70,7 +73,7 @@ const getSuffix = titleState => {
                         ...styles.suffix,
                         ...styles.titleDirty,
                     }}
-                >{`- ${i18n.t('Edited')}`}</div>
+                >{`- ${TITLE_DIRTY}`}</div>
             );
         default:
             return '';
@@ -104,9 +107,9 @@ export const TitleBar = ({ titleState, titleText, interpretationDate }) => {
 };
 
 TitleBar.propTypes = {
-    title: PropTypes.string,
-    isDirty: PropTypes.bool,
-    interpretatiom: PropTypes.object,
+    titleState: PropTypes.string,
+    titleText: PropTypes.string,
+    interpretationDate: PropTypes.string,
 };
 
 const mapStateToProps = state => ({
@@ -119,7 +122,6 @@ const mapStateToProps = state => ({
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
     const { visualization, current, interpretation, uiLocale } = stateProps;
     const titleState = getTitleState(visualization, current);
-
     return {
         ...dispatchProps,
         ...ownProps,
