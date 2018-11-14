@@ -28,58 +28,41 @@ export class App extends Component {
 
     state = {
         previousLocation: null,
-        previousError: null,
     };
 
+    /**
+     * The following cases require a fetch/refetch of the AO
+     * - enter a new url (causing a page load)
+     * - file->open (same or different AO)
+     * - file->saveAs
+     */
     refetch = location => {
-        // first time in app
         if (!this.state.previousLocation) {
             return true;
         }
 
-        // error changed
-        if (this.props.loadError !== this.state.previousError) {
+        const id = location.pathname.slice(1).split('/')[0];
+        const prevId = this.state.previousLocation.slice(1).split('/')[0];
+
+        if (
+            id !== prevId ||
+            this.state.previousLocation === location.pathname
+        ) {
             return true;
         }
 
-        const pathParts = location.pathname.slice(1).split('/');
-        const id = pathParts[0];
-        const interpretationId = pathParts[2];
-
-        const prevPathParts = this.state.previousLocation.slice(1).split('/');
-        const prevId = prevPathParts[0];
-        const prevItpId = prevPathParts[2];
-
-        // file->open a different AO
-        // file->saveAs
-        if (id !== prevId) {
-            return true;
-        }
-
-        //file->open the same AO
-        if (this.state.previousLocation === location.pathname) {
-            return true;
-        }
-
-        // select or unselect Itp
-        if (id === prevId && interpretationId !== prevItpId) {
-            return false;
-        }
-
-        return interpretationId !== prevItpId;
+        return false;
     };
 
     loadVisualization = async location => {
         const { store } = this.context;
-
-        let interpretationId = '';
 
         if (location.pathname.length > 1) {
             // /${id}/
             // /${id}/interpretation/${interpretationId}
             const pathParts = location.pathname.slice(1).split('/');
             const id = pathParts[0];
-            interpretationId = pathParts[2];
+            const interpretationId = pathParts[2];
 
             if (this.refetch(location)) {
                 await store.dispatch(
@@ -107,7 +90,6 @@ export class App extends Component {
         }
 
         this.setState({ previousLocation: location.pathname });
-        this.setState({ previousError: this.props.loadError });
     };
 
     componentDidMount = async () => {
