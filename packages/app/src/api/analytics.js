@@ -34,7 +34,10 @@ export const apiDownloadData = async (current, format, idScheme, path) => {
         req = req.withOutputIdScheme(idScheme);
     }
 
-    const url = new URL(req.buildUrl(), api.baseUrl);
+    const url = new URL(
+        `${api.baseUrl}/${req.buildUrl()}`,
+        `${window.location.origin}${window.location.pathname}`
+    );
 
     Object.entries(req.buildQuery()).forEach(([key, value]) =>
         url.searchParams.append(key, value)

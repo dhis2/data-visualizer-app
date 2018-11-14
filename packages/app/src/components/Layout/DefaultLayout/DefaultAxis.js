@@ -28,8 +28,9 @@ class Axis extends React.Component {
     };
 
     onDrop = e => {
+        e.preventDefault();
+
         const { dimensionId, source } = decodeDataTransfer(e);
-        e.dataTransfer.clearData();
 
         this.props.onAddDimension({
             [dimensionId]: this.props.axisName,
