@@ -48,7 +48,7 @@ MenuBar.contextTypes = {
 };
 
 const mapStateToProps = state => ({
-    id: sGetCurrent(state).id,
+    id: (sGetCurrent(state) || {}).id,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

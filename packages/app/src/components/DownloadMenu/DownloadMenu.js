@@ -93,7 +93,7 @@ export class DownloadMenu extends Component {
                     disableRipple={true}
                     disableFocusRipple={true}
                     style={this.props.labelStyle}
-                    disabled={!Boolean(Object.keys(this.props.current).length)}
+                    disabled={!Boolean(this.props.current)}
                 >
                     {i18n.t('Download')}
                 </Button>

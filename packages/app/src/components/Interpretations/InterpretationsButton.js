@@ -37,7 +37,7 @@ InterpretationsButton.propTypes = {
 
 const mapStateToProps = state => ({
     rightSidebarOpen: sGetUiRightSidebarOpen(state),
-    id: sGetCurrent(state).id,
+    id: (sGetCurrent(state) || {}).id,
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -7,8 +7,8 @@ const state = {
     visualization: null,
 
     // Object containing the source of the currently shown visualization
-    // Init state: {}
-    current: {},
+    // Init state: null
+    current: null,
 
     // Object {id:dimension} of dimensions to show in left panel
     // Init state: null
