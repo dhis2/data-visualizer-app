@@ -36,7 +36,7 @@ export class App extends Component {
             const id = pathParts[0];
             const interpretationId = pathParts[2];
 
-            if (!(this.props.current && this.props.current.id === id)) {
+            if (!this.props.current || this.props.current.id !== id) {
                 await store.dispatch(
                     fromActions.tDoLoadVisualization(
                         this.props.apiObjectName,
@@ -122,8 +122,10 @@ export class App extends Component {
     }
 
     render() {
-        const hasCurrent =
-            this.props.current && Object.keys(this.props.current).length > 0;
+        const showVis =
+            this.props.current &&
+            Object.keys(this.props.current).length > 0 &&
+            !this.props.loadError;
 
         return (
             <UI>
@@ -145,7 +147,7 @@ export class App extends Component {
                         <TitleBar />
                     </div>
                     <div className="canvas">
-                        {hasCurrent ? <Visualization /> : <BlankCanvas />}
+                        {showVis ? <Visualization /> : <BlankCanvas />}
                     </div>
                     <div className="interpretations">
                         {this.props.ui.rightSidebarOpen ? (
@@ -172,6 +174,7 @@ const mapStateToProps = state => {
         snackbarDuration: duration,
         settings: fromReducers.fromSettings.sGetSettings(state),
         current: fromReducers.fromCurrent.sGetCurrent(state),
+        loadError: fromReducers.fromLoader.sGetLoadError(state),
         ui: sGetUi(state),
     };
 };

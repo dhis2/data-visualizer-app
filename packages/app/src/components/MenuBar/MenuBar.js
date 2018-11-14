@@ -12,7 +12,10 @@ import { sGetCurrent } from '../../reducers/current';
 import history from '../../modules/history';
 import styles from './styles/MenuBar.style';
 
-const onOpen = id => history.push(`/${id}`);
+const onOpen = clearLoadError => id => {
+    clearLoadError();
+    history.push(`/${id}`);
+};
 const onNew = () => history.push('/');
 const getOnRename = props => details =>
     props.onRenameVisualization(details, false);
@@ -28,7 +31,7 @@ export const MenuBar = (props, context) => (
             d2={context.d2}
             fileId={props.id || null}
             fileType={props.apiObjectName}
-            onOpen={onOpen}
+            onOpen={onOpen(props.clearLoadError)}
             onNew={onNew}
             onRename={getOnRename(props)}
             onSave={getOnSave(props)}
@@ -65,6 +68,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
             )
         ),
     onDeleteVisualization: () => dispatch(fromActions.tDoDeleteVisualization()),
+    clearLoadError: () => dispatch(fromActions.fromLoader.acClearLoadError()),
 });
 
 export default connect(
