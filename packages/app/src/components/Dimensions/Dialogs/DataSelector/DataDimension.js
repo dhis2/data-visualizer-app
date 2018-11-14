@@ -9,7 +9,7 @@ import keyBy from 'lodash-es/keyBy';
 
 import DataTypes from './DataTypesSelector';
 import Groups from './Groups';
-import SearchField from '../../Dialogs/SearchField';
+import FilterField from '../../Dialogs/FilterField';
 import UnselectedItems from '../../Dialogs/UnselectedItems';
 import SelectedItems from '../../Dialogs/SelectedItems';
 
@@ -150,11 +150,20 @@ export class DataDimension extends Component {
         }
     };
 
+    onClearFilter = () => {
+        this.setState({ filterText: '' }, () => {
+            this.props.enableEscapeKey();
+            debounce(async () => this.updateAlternatives(), 300);
+        });
+    };
+
     onFilterTextChange = filterText => {
-        this.setState(
-            { filterText },
-            debounce(async () => this.updateAlternatives(), 300)
-        );
+        this.setState({ filterText }, () => {
+            if (filterText.length && !this.props.isDisabled) {
+                this.props.disableEscapeKey();
+            }
+            debounce(async () => this.updateAlternatives(), 300);
+        });
     };
 
     selectDataDimensions = selectedIds => {
@@ -216,9 +225,10 @@ export class DataDimension extends Component {
                             onDetailChange={this.onDetailChange}
                             detailValue={this.state.groupDetail}
                         />
-                        <SearchField
+                        <FilterField
                             text={this.state.filterText}
                             onFilterTextChange={this.onFilterTextChange}
+                            onClearFilter={this.onClearFilter}
                         />
                         <UnselectedItems
                             className="data-dimension"

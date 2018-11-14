@@ -6,7 +6,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import i18n from '@dhis2/d2-i18n';
 import keyBy from 'lodash-es/keyBy';
 
-import SearchField from '../SearchField';
+import FilterField from '../FilterField';
 import UnselectedItems from '../UnselectedItems';
 import SelectedItems from '../SelectedItems';
 
@@ -34,6 +34,11 @@ export class GenericItemSelector extends Component {
         this.setState({ items });
     };
 
+    onClearFilter = () => {
+        this.setState({ filterText: '' });
+        this.props.enableEscapeKey();
+    };
+
     onFilterTextChange = filterText => {
         const filteredItems = this.state.items.map(
             item =>
@@ -45,6 +50,10 @@ export class GenericItemSelector extends Component {
             filterText,
             unselectedIds: filteredItems,
         });
+
+        if (filterText.length && !this.props.isDisabled) {
+            this.props.disableEscapeKey();
+        }
     };
 
     selectItemsByDimensions = selectedIds => {
@@ -78,36 +87,36 @@ export class GenericItemSelector extends Component {
         });
     };
 
-    render = () => {
-        const unselectedItems = this.state.items.filter(
+    getUnselectedItems = () =>
+        this.state.items.filter(
             item => !this.props.selectedItems.includes(item.id)
         );
 
-        return (
-            <Fragment>
-                <DialogTitle>{i18n.t(this.props.dialogTitle)}</DialogTitle>
-                <DialogContent style={styles.dialogContent}>
-                    <div style={styles.dialogContainer}>
-                        <SearchField
-                            text={this.state.filterText}
-                            onFilterTextChange={this.onFilterTextChange}
-                        />
-                        <UnselectedItems
-                            className="generic-dimension"
-                            items={unselectedItems}
-                            onSelect={this.selectItemsByDimensions}
-                            filterText={this.state.filterText}
-                        />
-                    </div>
-                    <SelectedItems
-                        className="generic-dimension"
-                        items={this.props.selectedItems}
-                        onDeselect={this.deselectItemsByDimensions}
+    render = () => (
+        <Fragment>
+            <DialogTitle>{i18n.t(this.props.dialogTitle)}</DialogTitle>
+            <DialogContent style={styles.dialogContent}>
+                <div style={styles.dialogContainer}>
+                    <FilterField
+                        text={this.state.filterText}
+                        onFilterTextChange={this.onFilterTextChange}
+                        onClearFilter={this.onClearFilter}
                     />
-                </DialogContent>
-            </Fragment>
-        );
-    };
+                    <UnselectedItems
+                        className="generic-dimension"
+                        items={this.getUnselectedItems()}
+                        onSelect={this.selectItemsByDimensions}
+                        filterText={this.state.filterText}
+                    />
+                </div>
+                <SelectedItems
+                    className="generic-dimension"
+                    items={this.props.selectedItems}
+                    onDeselect={this.deselectItemsByDimensions}
+                />
+            </DialogContent>
+        </Fragment>
+    );
 }
 
 GenericItemSelector.propTypes = {
