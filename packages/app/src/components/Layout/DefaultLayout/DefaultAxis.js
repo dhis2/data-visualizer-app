@@ -28,7 +28,6 @@ class Axis extends React.Component {
     };
 
     onDrop = e => {
-        // Prevent redirect in Firefox
         e.preventDefault();
 
         const { dimensionId, source } = decodeDataTransfer(e);
