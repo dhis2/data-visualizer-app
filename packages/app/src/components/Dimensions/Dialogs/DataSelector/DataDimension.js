@@ -151,19 +151,21 @@ export class DataDimension extends Component {
     };
 
     onClearFilter = () => {
-        this.setState({ filterText: '' }, () => {
-            this.props.enableEscapeKey();
-            debounce(async () => this.updateAlternatives(), 300);
-        });
+        this.setState(
+            { filterText: '' },
+            debounce(async () => this.updateAlternatives(), 300)
+        );
+        this.props.enableEscapeKey();
     };
 
     onFilterTextChange = filterText => {
-        this.setState({ filterText }, () => {
-            if (filterText.length && !this.props.isDisabled) {
-                this.props.disableEscapeKey();
-            }
-            debounce(async () => this.updateAlternatives(), 300);
-        });
+        this.setState(
+            { filterText },
+            debounce(async () => this.updateAlternatives(), 300)
+        );
+        if (filterText.length && !this.props.isDisabled) {
+            this.props.disableEscapeKey();
+        }
     };
 
     selectDataDimensions = selectedIds => {
