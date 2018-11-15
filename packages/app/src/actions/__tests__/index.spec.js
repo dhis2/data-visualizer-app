@@ -32,7 +32,6 @@ describe('index', () => {
                 });
 
             const expectedActions = [
-                { type: CLEAR_LOAD_ERROR },
                 {
                     type: SET_VISUALIZATION,
                     value: vis,
@@ -42,6 +41,7 @@ describe('index', () => {
                     type: SET_UI_FROM_VISUALIZATION,
                     value: vis,
                 },
+                { type: CLEAR_LOAD_ERROR },
             ];
 
             const store = mockStore({});
@@ -50,6 +50,24 @@ describe('index', () => {
                 .dispatch(fromActions.tDoLoadVisualization())
                 .then(() => {
                     expect(store.getActions()).toEqual(expectedActions);
+                });
+        });
+
+        it('dispatches CLEAR_LOAD_ERROR last', () => {
+            const vis = 'hey';
+            api.apiFetchVisualization = () =>
+                Promise.resolve({
+                    toJSON: () => vis,
+                });
+
+            const store = mockStore({});
+
+            return store
+                .dispatch(fromActions.tDoLoadVisualization())
+                .then(() => {
+                    expect(store.getActions().slice(-1)[0].type).toEqual(
+                        CLEAR_LOAD_ERROR
+                    );
                 });
         });
 

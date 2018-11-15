@@ -45,11 +45,12 @@ export class Visualization extends Component {
             this.renderVisualization(this.props.current);
         }
 
-        // avoid redraw the chart if the interpretation content remains the same
+        // avoid redrawing the chart if the interpretation content remains the same
         // this is the case when the panel is toggled but the selected interpretation is not changed
         if (
             prevProps.interpretation &&
-            this.props.interpretation.id !== prevProps.interpretation.id
+            this.props.interpretation.created !==
+                prevProps.interpretation.created
         ) {
             const vis = this.props.interpretation.id
                 ? this.props.visualization
@@ -131,7 +132,10 @@ export class Visualization extends Component {
             this.props.acSetLoading(false);
         } catch (error) {
             this.props.acSetLoading(false);
-            this.props.acSetLoadError(i18n.t('Could not generate chart'));
+            const errorMessage =
+                (error && error.message) ||
+                i18n('Error generating chart, please try again');
+            this.props.acSetLoadError(errorMessage);
         }
     };
 
