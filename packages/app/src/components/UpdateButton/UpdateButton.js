@@ -13,11 +13,15 @@ import styles from './styles/UpdateButton.style';
 const onClickWrapper = props => () => {
     props.clearLoadError();
     props.onUpdate(props.ui);
-    if (props.current && props.current.id) {
-        if (history.location.pathname !== `/${props.current.id}`) {
-            history.push(`/${props.current.id}`);
-        }
+
+    const pathWithoutInterpretation = props.current
+        ? `/${props.current.id}`
+        : '';
+
+    if (history.location.pathname !== pathWithoutInterpretation) {
+        history.push(pathWithoutInterpretation);
     }
+
     props.onClick();
 };
 
