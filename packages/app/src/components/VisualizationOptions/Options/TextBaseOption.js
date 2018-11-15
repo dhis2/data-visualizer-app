@@ -26,8 +26,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onChange: checked =>
-        dispatch(acSetUiOptions({ [ownProps.option.name]: checked })),
+    onChange: value =>
+        dispatch(acSetUiOptions({ [ownProps.option.name]: value })),
 });
 
 export default connect(
