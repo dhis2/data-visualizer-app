@@ -24,6 +24,12 @@ export const ADD_TO_LAYOUT_OPTIONS = [
     { axisName: 'filters', name: i18n.t('Add to filter') },
 ];
 
+export const axisLabels = {
+    columns: i18n.t('Series'),
+    rows: i18n.t('Category'),
+    filters: i18n.t('Filter'),
+};
+
 // Layout utility functions
 
 // Accepts: dimensionId, [itemIds]

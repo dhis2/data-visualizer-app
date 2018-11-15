@@ -14,10 +14,14 @@ export const styles = {
         cursor: 'auto',
         color: colors.grey,
     },
-    itemContainer: {
+    listItem: {
         display: 'flex',
         paddingTop: 2,
         paddingBottom: 2,
+    },
+    selectedListItem: {
+        backgroundColor: colors.accentSecondaryTransparent,
+        fontWeight: 500,
     },
     fixedDimensionIcon: {
         paddingLeft: '6px',

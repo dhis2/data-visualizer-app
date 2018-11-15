@@ -13,12 +13,12 @@ describe('The DimensionList component ', () => {
     };
     beforeEach(() => {
         props = {
-            openDialog: jest.fn(),
             id: 'idstring',
+            type: 'COLUMN',
+            name: 'labelname',
             isSelected: false,
             isDeactivated: false,
-            name: 'labelname',
-            removeDimension: jest.fn(),
+            openDialog: jest.fn(),
             children: [],
         };
         shallowDimLabel = undefined;
@@ -42,5 +42,36 @@ describe('The DimensionList component ', () => {
             .first();
 
         expect(wrappingDiv.children()).toEqual(dimLabel().children());
+    });
+
+    it('should open a dialog when the label is presssed', () => {
+        dimLabel()
+            .props()
+            .onClick();
+
+        expect(props.openDialog).toHaveBeenCalled();
+    });
+
+    it('should open a dialog when user press the "Enter" key on a focused DimensionLabel', () => {
+        const mockEvent = {
+            key: 'Enter',
+            ctrlKey: false,
+        };
+
+        dimLabel()
+            .props()
+            .onKeyPress(mockEvent);
+
+        expect(props.openDialog).toHaveBeenCalled();
+    });
+
+    it('should not open the Period Selector dialog if current layout is equal to YearOnYear/ prop isDeactivated = true', () => {
+        props.isDeactivated = true;
+
+        dimLabel()
+            .props()
+            .onClick();
+
+        expect(props.openDialog).toHaveBeenCalledTimes(0);
     });
 });

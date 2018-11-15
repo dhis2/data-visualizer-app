@@ -2,20 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Menu from '@material-ui/core/Menu';
 
-export const DropDown = ({ id, anchorEl, handleClose, menuItems }) => (
+export const DropDown = ({ id, anchorEl, onClose, menuItems }) => (
     <Menu
         id={id}
         anchorEl={anchorEl}
         open={Boolean(anchorEl)}
-        onClose={handleClose}
+        onClose={onClose}
+        onExited={onClose}
     >
         {menuItems}
     </Menu>
 );
 
+DropDown.defaultProps = {
+    anchorEl: null,
+};
+
 DropDown.propTypes = {
     id: PropTypes.string.isRequired,
-    handleClose: PropTypes.func.isRequired,
+    anchorEl: PropTypes.object,
+    onClose: PropTypes.func.isRequired,
     menuItems: PropTypes.array.isRequired,
 };
 
