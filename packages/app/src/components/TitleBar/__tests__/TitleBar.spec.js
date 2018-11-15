@@ -10,8 +10,6 @@ import {
     TITLE_DIRTY,
 } from '../TitleBar';
 
-const formattedDate = 'the future';
-
 describe('TitleBar component', () => {
     let props;
     let shallowTitleBar;
