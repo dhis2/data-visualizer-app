@@ -22,7 +22,7 @@ TextBaseOption.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => ({
-    value: sGetUiOptions(state)[ownProps.option.name],
+    value: sGetUiOptions(state)[ownProps.option.name] || '',
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
