@@ -3373,9 +3373,9 @@ cyclist@~0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
 
-d2-charts-api@31.0.5:
-  version "31.0.5"
-  resolved "https://registry.yarnpkg.com/d2-charts-api/-/d2-charts-api-31.0.5.tgz#e3df52fb6efb98f48f74d46f366b28097d021bbf"
+d2-charts-api@31.0.6:
+  version "31.0.6"
+  resolved "https://registry.yarnpkg.com/d2-charts-api/-/d2-charts-api-31.0.6.tgz#035a4130a63a261f07f9a538ca6911a48398cbac"
   dependencies:
     d2-utilizr "0.2.13"
     d3-color "1.0.1"

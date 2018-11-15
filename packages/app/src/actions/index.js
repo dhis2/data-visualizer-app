@@ -51,10 +51,10 @@ export const tDoLoadVisualization = (type, id) => async (
     const onSuccess = model => {
         const visualization = model.toJSON();
 
-        dispatch(fromLoader.acClearLoadError());
         dispatch(fromVisualization.acSetVisualization(visualization));
         dispatch(fromCurrent.acSetCurrent(visualization));
         dispatch(fromUi.acSetUiFromVisualization(visualization));
+        dispatch(fromLoader.acClearLoadError());
     };
 
     try {

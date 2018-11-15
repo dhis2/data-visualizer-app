@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-11-14T17:41:53.471Z\n"
-"PO-Revision-Date: 2018-11-14T17:41:53.471Z\n"
+"POT-Creation-Date: 2018-11-15T10:38:45.571Z\n"
+"PO-Revision-Date: 2018-11-15T10:38:45.571Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -59,6 +59,9 @@ msgstr ""
 msgid "DESELECT ALL"
 msgstr ""
 
+msgid "Add to"
+msgstr ""
+
 msgid "Move to"
 msgstr ""
 
@@ -89,7 +92,7 @@ msgstr ""
 msgid "Advanced"
 msgstr ""
 
-msgid "Meta-data ID scheme"
+msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "Data value set"
@@ -134,7 +137,7 @@ msgstr ""
 msgid "Chart error"
 msgstr ""
 
-msgid "Could not generate chart"
+msgid "There is a problem with your chart"
 msgstr ""
 
 msgid "Aggregation type"

@@ -12,7 +12,14 @@ import { sGetCurrent } from '../../reducers/current';
 import history from '../../modules/history';
 import styles from './styles/MenuBar.style';
 
-const onOpen = id => history.push(`/${id}`);
+const onOpen = id => {
+    const path = `/${id}`;
+    if (history.location.pathname === path) {
+        history.replace(path);
+    } else {
+        history.push(path);
+    }
+};
 const onNew = () => history.push('/');
 const getOnRename = props => details =>
     props.onRenameVisualization(details, false);

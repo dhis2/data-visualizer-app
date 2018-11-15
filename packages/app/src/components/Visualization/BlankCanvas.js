@@ -11,7 +11,7 @@ export const defaultCanvasMessage =
     'Create a new visualization by adding dimensions to the layout';
 
 export const BlankCanvas = ({ loading, error }) => {
-    let canvasContent = <p style={styles.text}>{defaultCanvasMessage}</p>;
+    let canvasContent = <p style={styles.title}>{defaultCanvasMessage}</p>;
 
     if (loading) {
         canvasContent = <LoadingMask />;
@@ -19,7 +19,10 @@ export const BlankCanvas = ({ loading, error }) => {
         canvasContent = (
             <div>
                 <img src={chartErrorImg} alt={i18n.t('Chart error')} />
-                <p style={styles.text}>{error}</p>
+                <p style={styles.title}>
+                    {i18n.t('There is a problem with your chart')}
+                </p>
+                <p style={styles.description}>{error}</p>
             </div>
         );
     }

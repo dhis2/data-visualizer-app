@@ -13,8 +13,14 @@ export default {
         textAlign: 'center',
         alignSelf: 'center',
     },
-    text: {
+    title: {
         fontWeight: 'bold',
+        marginTop: '10px',
         color: colors.greyDark,
+    },
+    description: {
+        fontWeight: 'bold',
+        marginTop: '10px',
+        color: colors.grey,
     },
 };
