@@ -6,8 +6,6 @@ import Visualization from '../Visualization/Visualization';
 import * as actions from '../../actions/';
 import history from '../../modules/history';
 
-// console.log('allHistory', allHistory);
-
 import { getStubContext } from '../../../../../config/testsContext';
 
 describe('App', () => {
@@ -21,8 +19,6 @@ describe('App', () => {
         }
         return shallowApp;
     };
-
-    const aoId = 'abc123';
 
     beforeEach(() => {
         props = {
@@ -38,6 +34,7 @@ describe('App', () => {
             baseUrl: undefined,
             snackbarOpen: false,
             snackbarMessage: '',
+            loadError: null,
             current: {},
             ui: { rightSidebarOpen: false },
             location: { pathname: '/' },
@@ -91,11 +88,7 @@ describe('App', () => {
         });
     });
 
-    describe('ao id in pathname', () => {
-        beforeEach(() => {
-            props.location.pathname = `/${aoId}`;
-        });
-
+    describe('location pathname', () => {
         it('calls clear visualization action when location pathname is root', done => {
             props.location.pathname = '/';
             app();
@@ -108,6 +101,7 @@ describe('App', () => {
         });
 
         it('calls load visualization action when location pathname has length', done => {
+            props.location.pathname = '/twilightsparkle';
             app();
 
             setTimeout(() => {
@@ -120,25 +114,26 @@ describe('App', () => {
             });
         });
 
-        it('does not load visualization if current exists and is same as in pathname', done => {
-            props.current = { id: aoId, visProp: {} };
+        it('loads new visualization when pathname changes', done => {
+            props.location.pathname = '/rarity';
 
             app();
 
             setTimeout(() => {
-                expect(actions.tDoLoadVisualization).not.toHaveBeenCalled();
+                history.push('/rainbowdash');
+                expect(actions.tDoLoadVisualization).toBeCalledTimes(2);
 
                 done();
             });
         });
 
-        it('does not load visualization if current exists and differs from pathname', done => {
-            props.current = { id: 'rarity', visProp: {} };
+        it('reloads visualization when same pathname pushed', done => {
+            props.location.pathname = '/fluttershy';
 
             app();
 
             setTimeout(() => {
-                history.push('rainbows');
+                history.replace('/fluttershy');
                 expect(actions.tDoLoadVisualization).toBeCalledTimes(2);
 
                 done();
@@ -146,9 +141,24 @@ describe('App', () => {
         });
 
         describe('interpretation id in pathname', () => {
+            beforeEach(() => {
+                props.location.pathname = `/applejack/interpretation/xyz123`;
+            });
+
+            it('does not reload visualization when interpretation toggled', done => {
+                app();
+
+                setTimeout(() => {
+                    history.push('/applejack');
+                    expect(actions.tDoLoadVisualization).toBeCalledTimes(1);
+
+                    done();
+                });
+            });
+
             it('calls setUiInterpretation action', done => {
                 const interpId = 'xyzpdq';
-                props.location.pathname = `/${aoId}/interpretation/${interpId}`;
+                props.location.pathname = `/spike/interpretation/${interpId}`;
                 app();
 
                 setTimeout(() => {

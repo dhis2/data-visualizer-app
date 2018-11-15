@@ -25,6 +25,7 @@ import {
     YEAR_OVER_YEAR_COLUMN,
 } from '../../modules/chartTypes';
 import { sGetVisualization } from '../../reducers/visualization';
+import { computeGenericPeriodNames } from '../../modules/analytics';
 
 export class Visualization extends Component {
     constructor(props) {
@@ -44,11 +45,12 @@ export class Visualization extends Component {
             this.renderVisualization(this.props.current);
         }
 
-        // avoid redraw the chart if the interpretation content remains the same
+        // avoid redrawing the chart if the interpretation content remains the same
         // this is the case when the panel is toggled but the selected interpretation is not changed
         if (
             prevProps.interpretation &&
-            this.props.interpretation.id !== prevProps.interpretation.id
+            this.props.interpretation.created !==
+                prevProps.interpretation.created
         ) {
             const vis = this.props.interpretation.id
                 ? this.props.visualization
@@ -101,13 +103,15 @@ export class Visualization extends Component {
                 } = await apiFetchAnalyticsForYearOverYear(vis, options));
 
                 extraOptions.yearlySeries = yearlySeriesLabels;
+
+                extraOptions.xAxisLabels = computeGenericPeriodNames(responses);
             } else {
                 responses = await apiFetchAnalytics(vis, options);
             }
 
-            responses.forEach(res =>
-                this.props.acAddMetadata(res.metaData.items)
-            );
+            responses.forEach(res => {
+                this.props.acAddMetadata(res.metaData.items);
+            });
 
             const chartConfig = createChart(
                 responses,
@@ -128,7 +132,10 @@ export class Visualization extends Component {
             this.props.acSetLoading(false);
         } catch (error) {
             this.props.acSetLoading(false);
-            this.props.acSetLoadError(i18n.t('Could not generate chart'));
+            const errorMessage =
+                (error && error.message) ||
+                i18n('Error generating chart, please try again');
+            this.props.acSetLoadError(errorMessage);
         }
     };
 
