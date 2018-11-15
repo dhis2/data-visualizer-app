@@ -58,10 +58,10 @@ describe('The Filter component ', () => {
 
         const mockEvent = {
             key: 'Escape',
-            stopPropagation: jest.fn(),
+            preventDefault: jest.fn(),
         };
 
-        filter.props().onKeyUp(mockEvent);
+        filter.props().onKeyDown(mockEvent);
 
         expect(props.onClear).toHaveBeenCalledTimes(1);
     });
@@ -73,7 +73,7 @@ describe('The Filter component ', () => {
 
         const mockEvent = {
             target: { value: '' },
-            stopPropagation: jest.fn(),
+            preventDefault: jest.fn(),
         };
 
         filter.props().onChange(mockEvent);
