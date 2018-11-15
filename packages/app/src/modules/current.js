@@ -1,5 +1,5 @@
 import pick from 'lodash-es/pick';
-import options, { computedOptions } from './options';
+import options from './options';
 import { createDimension } from './layout';
 
 const hasItems = (object, id) =>
