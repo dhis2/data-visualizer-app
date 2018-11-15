@@ -14,9 +14,8 @@ const onClickWrapper = props => () => {
     props.clearLoadError();
     props.onUpdate(props.ui);
 
-    const pathWithoutInterpretation = props.current
-        ? `/${props.current.id}`
-        : '';
+    const pathWithoutInterpretation =
+        props.current && props.current.id ? `/${props.current.id}` : '/';
 
     if (history.location.pathname !== pathWithoutInterpretation) {
         history.push(pathWithoutInterpretation);
