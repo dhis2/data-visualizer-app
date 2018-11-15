@@ -30,30 +30,13 @@ const dxId = FIXED_DIMENSIONS.dx.id;
 const peId = FIXED_DIMENSIONS.pe.id;
 const ouId = FIXED_DIMENSIONS.ou.id;
 
-export const fixedDialogs = (
-    id,
-    hasFilterText,
-    enableEscape,
-    disableEscape
-) => {
-    const dialogs = {
-        [dxId]: (
-            <DataDimension
-                disableEscapeKey={disableEscape}
-                enableEscapeKey={enableEscape}
-                isDisabled={hasFilterText}
-            />
-        ),
-        [ouId]: <OrgUnitDimension />,
-        [peId]: <PeriodDimension />,
-    };
-
-    return dialogs[id];
+export const fixedDialogs = {
+    [dxId]: <DataDimension />,
+    [ouId]: <OrgUnitDimension />,
+    [peId]: <PeriodDimension />,
 };
 
 export class DialogManager extends Component {
-    state = { hasFilterText: false };
-
     componentDidUpdate = prevProps => {
         const shouldFetchIds =
             !isEqual(prevProps.dxIds, this.props.dxIds) ||
@@ -73,39 +56,15 @@ export class DialogManager extends Component {
         this.props.setRecommendedIds(ids);
     }, 1000);
 
-    onEnableEscape = () => {
-        this.setState({ hasFilterText: false });
-    };
-    onDisableEscape = () => {
-        this.setState({ hasFilterText: true });
-    };
-
-    renderDialogContent = () => {
-        let dialogContent;
-
-        if (FIXED_DIMENSIONS[this.props.dialogId]) {
-            dialogContent = fixedDialogs(
-                this.props.dialogId,
-                this.state.hasFilterText,
-                this.onEnableEscape,
-                this.onDisableEscape
-            );
-        } else {
-            dialogContent = (
-                <GenericItemSelector
-                    dialogId={this.props.dialogId}
-                    dialogTitle={
-                        this.props.dimensions[this.props.dialogId].name
-                    }
-                    isDisabled={this.state.hasFilterText}
-                    enableEscapeKey={this.onEnableEscape}
-                    disableEscapeKey={this.onDisableEscape}
-                />
-            );
-        }
-
-        return dialogContent;
-    };
+    renderDialogContent = () =>
+        FIXED_DIMENSIONS[this.props.dialogId] ? (
+            fixedDialogs[this.props.dialogId]
+        ) : (
+            <GenericItemSelector
+                dialogId={this.props.dialogId}
+                dialogTitle={this.props.dimensions[this.props.dialogId].name}
+            />
+        );
 
     render = () => {
         return this.props.dialogId ? (
@@ -114,7 +73,6 @@ export class DialogManager extends Component {
                 onClose={() => this.props.closeDialog(null)}
                 maxWidth={false}
                 disableEnforceFocus
-                disableEscapeKeyDown={this.state.hasFilterText}
             >
                 {this.renderDialogContent()}
                 <DialogActions style={styles.dialogActions}>

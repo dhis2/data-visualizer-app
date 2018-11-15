@@ -36,7 +36,6 @@ export class GenericItemSelector extends Component {
 
     onClearFilter = () => {
         this.setState({ filterText: '' });
-        this.props.enableEscapeKey();
     };
 
     onFilterTextChange = filterText => {
@@ -50,10 +49,6 @@ export class GenericItemSelector extends Component {
             filterText,
             unselectedIds: filteredItems,
         });
-
-        if (filterText.length && !this.props.isDisabled) {
-            this.props.disableEscapeKey();
-        }
     };
 
     selectItemsByDimensions = selectedIds => {

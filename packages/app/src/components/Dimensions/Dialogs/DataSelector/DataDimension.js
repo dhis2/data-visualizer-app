@@ -155,7 +155,6 @@ export class DataDimension extends Component {
             { filterText: '' },
             debounce(async () => this.updateAlternatives(), 300)
         );
-        this.props.enableEscapeKey();
     };
 
     onFilterTextChange = filterText => {
@@ -163,9 +162,6 @@ export class DataDimension extends Component {
             { filterText },
             debounce(async () => this.updateAlternatives(), 300)
         );
-        if (filterText.length && !this.props.isDisabled) {
-            this.props.disableEscapeKey();
-        }
     };
 
     selectDataDimensions = selectedIds => {

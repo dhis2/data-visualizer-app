@@ -13,9 +13,9 @@ const onChangeWrapper = (props, event) => {
         : props.onClear();
 };
 
-const onKeyUpWrapper = (onClear, event) => {
+const onKeyDownWrapper = (onClear, event) => {
     if (event.key === 'Escape') {
-        event.stopPropagation();
+        event.preventDefault();
         onClear();
     }
 };
@@ -27,7 +27,7 @@ export const Filter = props => (
         placeholder={props.placeholder}
         value={props.text}
         onChange={e => onChangeWrapper(props, e)}
-        onKeyUp={e => onKeyUpWrapper(props.onClear, e)}
+        onKeyDown={e => onKeyDownWrapper(props.onClear, e)}
         InputProps={{
             disableUnderline: props.disableUnderline,
             style: styles.placeholder,

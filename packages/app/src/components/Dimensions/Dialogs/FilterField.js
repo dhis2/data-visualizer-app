@@ -13,7 +13,6 @@ export const FilterField = ({ text, onFilterTextChange, onClearFilter }) => (
             onChange={onFilterTextChange}
             onClear={onClearFilter}
             disableUnderline
-            autoFocus
         />
     </div>
 );
