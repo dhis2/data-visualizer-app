@@ -45,23 +45,30 @@ export class DimensionOptions extends Component {
         this.props.removeDimension(id);
     };
 
-    getAddToItems = () => [
-        isYearOverYear(this.props.type)
-            ? this.renderMenuItem(
-                  `add-to-${this.props.id}`,
-                  FILTER,
-                  this.addDimension,
-                  `Add to ${axisLabels[FILTER]}`
-              )
-            : Object.entries(axisLabels).map(([key, label]) =>
-                  this.renderMenuItem(
-                      `add-to-${key}`,
-                      key,
-                      this.addDimension,
-                      `${i18n.t('Add to')} ${label}`
-                  )
-              ),
-    ];
+    getAddToItems = () => {
+        let items = [];
+        if (isYearOverYear(this.props.type)) {
+            const label = axisLabels[FILTER];
+            items = [
+                this.renderMenuItem(
+                    `add-to-${this.props.id}`,
+                    FILTER,
+                    this.addDimension,
+                    `${i18n.t(`Add to ${label}`, { label })}`
+                ),
+            ];
+        } else {
+            items = Object.entries(axisLabels).map(([key, label]) =>
+                this.renderMenuItem(
+                    `add-to-${key}`,
+                    key,
+                    this.addDimension,
+                    `${i18n.t(`Add to ${label}`, { label })}`
+                )
+            );
+        }
+        return items;
+    };
 
     getMoveToItems = () => {
         if (isYearOverYear(this.props.type)) {
@@ -70,15 +77,16 @@ export class DimensionOptions extends Component {
         const layout = Object.entries(this.props.currentLayout);
 
         return layout
-            .filter(([axisKey, axisIds]) => !axisIds.includes(this.props.id))
-            .map(([axisKey, axisIds]) =>
-                this.renderMenuItem(
-                    `${this.props.id}-to-${axisKey}`,
-                    axisKey,
+            .filter(([key, axisIds]) => !axisIds.includes(this.props.id))
+            .map(([key, axisIds]) => {
+                const label = axisLabels[key];
+                return this.renderMenuItem(
+                    `${this.props.id}-to-${key}`,
+                    key,
                     this.addDimension,
-                    `${i18n.t('Move to')} ${axisLabels[axisKey]}`
-                )
-            );
+                    `${i18n.t(`Move to ${label}`, { label })}`
+                );
+            });
     };
 
     getRemoveMenuItem = () =>
@@ -95,7 +103,11 @@ export class DimensionOptions extends Component {
             : this.getAddToItems();
 
     renderMenuItem = (key, id, onClick, displayName) => (
-        <MenuItem key={key} onClick={() => onClick(id)}>
+        <MenuItem
+            key={key}
+            onClick={() => onClick(id)}
+            onDoubleClick={() => onClick(id)}
+        >
             {displayName}
         </MenuItem>
     );
