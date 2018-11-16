@@ -7,7 +7,7 @@ import Search from '@material-ui/icons/Search';
 import Close from '@material-ui/icons/Close';
 import { styles } from './styles/Filter.style';
 
-let ref;
+let ref = null;
 
 const onChangeWrapper = (props, event) => {
     event.target.value.length
@@ -18,7 +18,7 @@ const onChangeWrapper = (props, event) => {
 const onKeyDownWrapper = (onClear, event, text) => {
     if (event.key === 'Escape') {
         event.preventDefault();
-        !text.length ? ref.blur() : onClear();
+        !text.length ? ref && ref.blur() : onClear();
     }
 };
 
