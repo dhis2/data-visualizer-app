@@ -51,12 +51,15 @@ describe('The Item component ', () => {
         expect(unselectIcon.length).toEqual(1);
     });
 
-    it('should not render a RemoveButton when className is equal to "unselected" ', () => {
-        const removeButton = item()
-            .find(RemoveDimensionButton)
-            .dive();
+    it('renders a <HighlightedIcon /> when prop isHighlighted is equal to true', () => {
+        props.isHighlighted = true;
 
-        expect(removeButton.children().length).toEqual(0);
+        const highlightIcon = item()
+            .find('Icon')
+            .dive()
+            .find(HighlightedIcon);
+
+        expect(highlightIcon.length).toEqual(1);
     });
 
     it('renders <SelectedIcon /> when className is equal to "selected" ', () => {
@@ -68,6 +71,14 @@ describe('The Item component ', () => {
             .find(SelectedIcon);
 
         expect(selectIcon.length).toEqual(1);
+    });
+
+    it('should not render a <RemoveDimensionButton /> when className is equal to "unselected" ', () => {
+        const removeButton = item()
+            .find(RemoveDimensionButton)
+            .dive();
+
+        expect(removeButton.children().length).toEqual(0);
     });
 
     it('renders <RemoveDimensionButton /> when className is equal to "selected" ', () => {
