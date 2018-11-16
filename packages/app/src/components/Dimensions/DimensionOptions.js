@@ -75,18 +75,20 @@ export class DimensionOptions extends Component {
             return [];
         }
         const layout = Object.entries(this.props.currentLayout);
+        const items = layout.filter(
+            ([key, axisIds]) => !axisIds.includes(this.props.id)
+        );
 
-        return layout
-            .filter(([key, axisIds]) => !axisIds.includes(this.props.id))
-            .map(([key, axisIds]) => {
-                const label = axisLabels[key];
-                return this.renderMenuItem(
-                    `${this.props.id}-to-${key}`,
-                    key,
-                    this.addDimension,
-                    `${i18n.t(`Move to ${label}`, { label })}`
-                );
-            });
+        return items.map(([key, axisIds]) => {
+            const label = axisLabels[key];
+
+            return this.renderMenuItem(
+                `${this.props.id}-to-${key}`,
+                key,
+                this.addDimension,
+                `${i18n.t(`Move to ${label}`, { label })}`
+            );
+        });
     };
 
     getRemoveMenuItem = () =>
