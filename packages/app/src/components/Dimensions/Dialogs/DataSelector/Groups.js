@@ -6,13 +6,10 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
 import { Detail } from './Detail';
-
-import {
-    dataTypes,
-    PROGRAM_INDICATORS,
-    EVENT_DATA_ITEMS,
-} from '../../../../modules/dataTypes';
+import { dataTypes, isProgram } from '../../../../modules/dataTypes';
 import { styles } from './styles/Groups.style';
+
+const renderPlaceholder = () => <span>{i18n.t('Select Program')}</span>;
 
 const Groups = props => {
     const handleChange = event => {
@@ -34,12 +31,7 @@ const Groups = props => {
         ));
     };
 
-    const havePlaceholder =
-        !props.groupId.length &&
-        (props.dataType === PROGRAM_INDICATORS ||
-            props.dataType === EVENT_DATA_ITEMS);
-
-    const placeholder = () => <span>{i18n.t('Select Program')}</span>;
+    const havePlaceholder = isProgram(props.groupId, props.dataType);
 
     const groupDetail = dataTypes[props.dataType].groupDetail;
 
@@ -52,7 +44,7 @@ const Groups = props => {
                 <Select
                     value={props.groupId}
                     onChange={handleChange}
-                    renderValue={havePlaceholder ? placeholder : null}
+                    renderValue={havePlaceholder ? renderPlaceholder : null}
                     displayEmpty={havePlaceholder}
                     disableUnderline
                     SelectDisplayProps={

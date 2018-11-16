@@ -28,4 +28,7 @@ export const styles = {
         paddingLeft: '0px',
         margin: '0px',
     },
+    deselectButton: {
+        left: '76px',
+    },
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
-import { RemoveSelectedItemButton } from './buttons';
+import RemoveDimensionButton from './buttons/RemoveDimensionButton';
 import UnselectedIcon from '../../../assets/UnselectedIcon';
 import HighlightedIcon from '../../../assets/HighlightedIcon';
 import SelectedIcon from '../../../assets/SelectedIcon';
@@ -36,7 +36,7 @@ export const Item = props => (
         >
             {i18n.t(props.displayName)}
         </span>
-        <RemoveSelectedItemButton
+        <RemoveDimensionButton
             showButton={props.className}
             isHighlighted={props.isHighlighted}
             onClick={() => props.onRemoveItem(props.id)}

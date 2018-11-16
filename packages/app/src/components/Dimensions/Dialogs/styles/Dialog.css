@@ -1,5 +1,6 @@
 .dimension-item {
     display: flex;
+    cursor: pointer;
     margin: 2px;
 }
 

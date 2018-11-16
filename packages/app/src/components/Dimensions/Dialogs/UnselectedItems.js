@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import i18n from '@dhis2/d2-i18n';
 import throttle from 'lodash-es/throttle';
 import Item from './Item';
-import { AssignButton, SelectAllButton } from './buttons';
+import { ArrowButton as AssignButton } from './buttons/ArrowButton';
+import { selectButton as SelectAllButton } from './buttons/SelectButton';
 import { toggler } from '../../../modules/toggler';
+import { styles } from './styles/UnselectedItems.style';
 
 export class UnselectedItems extends Component {
     constructor(props) {
@@ -92,10 +95,15 @@ export class UnselectedItems extends Component {
                     {listItems}
                 </ul>
                 <AssignButton
-                    className={this.props.className}
-                    action={this.onSelectClick}
+                    className={`${this.props.className}-arrow-forward-button`}
+                    onClick={this.onSelectClick}
+                    iconType={'arrowBack'}
                 />
-                <SelectAllButton action={this.onSelectAllClick} />
+                <SelectAllButton
+                    style={styles.selectButton}
+                    onClick={this.onSelectAllClick}
+                    label={i18n.t('Select All')}
+                />
             </div>
         );
     };

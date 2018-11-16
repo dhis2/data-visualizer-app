@@ -7,8 +7,8 @@ export const ALL_ID = 'ALL';
 const INDICATORS = 'indicators';
 const DATA_ELEMENTS = 'dataElements';
 const DATA_SETS = 'dataSets';
-export const EVENT_DATA_ITEMS = 'eventDataItems';
-export const PROGRAM_INDICATORS = 'programIndicators';
+const EVENT_DATA_ITEMS = 'eventDataItems';
+const PROGRAM_INDICATORS = 'programIndicators';
 
 const TOTALS = 'totals';
 const DETAIL = 'detail';
@@ -25,10 +25,7 @@ export const dataTypes = {
         id: DATA_ELEMENTS,
         name: i18n.t('Data elements'),
         groupLabel: i18n.t('Select data element group'),
-        defaultGroup: {
-            id: ALL_ID,
-            name: i18n.t('[ All data elements ]'),
-        },
+        defaultGroup: { id: ALL_ID, name: i18n.t('[ All data elements ]') },
         groupDetail: {
             alternatives: {
                 [TOTALS]: i18n.t('Totals'),
@@ -61,6 +58,10 @@ export const dataTypes = {
         groupDetail: false,
     },
 };
+
+export const isProgram = (id, dataType) =>
+    !id.length &&
+    (dataType === PROGRAM_INDICATORS || dataType === EVENT_DATA_ITEMS);
 
 export function defaultGroupId(dataType) {
     return dataTypes[dataType].defaultGroup

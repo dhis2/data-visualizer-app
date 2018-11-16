@@ -1,9 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Item } from '../Item';
-import { RemoveSelectedItemButton } from '../buttons';
-import { UnselectedIcon } from '../../../../assets/UnselectedIcon';
-import { SelectedIcon } from '../../../../assets/SelectedIcon';
+import Item from '../Item';
+import RemoveDimensionButton from '../buttons/RemoveDimensionButton';
+import HighlightedIcon from '../../../../assets/HighlightedIcon';
+import UnselectedIcon from '../../../../assets/UnselectedIcon';
+import SelectedIcon from '../../../../assets/SelectedIcon';
 
 describe('The Item component ', () => {
     let props;
@@ -52,7 +53,7 @@ describe('The Item component ', () => {
 
     it('should not render a RemoveButton when className is equal to "unselected" ', () => {
         const removeButton = item()
-            .find(RemoveSelectedItemButton)
+            .find(RemoveDimensionButton)
             .dive();
 
         expect(removeButton.children().length).toEqual(0);
@@ -69,11 +70,11 @@ describe('The Item component ', () => {
         expect(selectIcon.length).toEqual(1);
     });
 
-    it('renders <RemoveSelectedItemButton /> when className is equal to "selected" ', () => {
+    it('renders <RemoveDimensionButton /> when className is equal to "selected" ', () => {
         props.className = 'selected';
 
         const removeButton = item()
-            .find(RemoveSelectedItemButton)
+            .find(RemoveDimensionButton)
             .dive();
 
         expect(removeButton.children().length).toEqual(1);
