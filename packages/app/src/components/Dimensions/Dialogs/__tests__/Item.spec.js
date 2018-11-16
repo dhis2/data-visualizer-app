@@ -50,7 +50,7 @@ describe('The Item component ', () => {
         expect(unselectIcon.length).toEqual(1);
     });
 
-    it('renders null when className is equal to "unselected" ', () => {
+    it('should not render a RemoveButton when className is equal to "unselected" ', () => {
         const removeButton = item()
             .find(RemoveSelectedItemButton)
             .dive();

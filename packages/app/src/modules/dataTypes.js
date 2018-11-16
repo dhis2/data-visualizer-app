@@ -7,8 +7,8 @@ export const ALL_ID = 'ALL';
 const INDICATORS = 'indicators';
 const DATA_ELEMENTS = 'dataElements';
 const DATA_SETS = 'dataSets';
-const EVENT_DATA_ITEMS = 'eventDataItems';
-const PROGRAM_INDICATORS = 'programIndicators';
+export const EVENT_DATA_ITEMS = 'eventDataItems';
+export const PROGRAM_INDICATORS = 'programIndicators';
 
 const TOTALS = 'totals';
 const DETAIL = 'detail';
@@ -49,14 +49,14 @@ export const dataTypes = {
     [EVENT_DATA_ITEMS]: {
         id: EVENT_DATA_ITEMS,
         name: i18n.t('Event data items'),
-        groupLabel: i18n.t('Select program'),
+        groupLabel: i18n.t('Program'),
         defaultGroup: null,
         groupDetail: false,
     },
     [PROGRAM_INDICATORS]: {
         id: PROGRAM_INDICATORS,
         name: i18n.t('Program indicators'),
-        groupLabel: i18n.t('Select program'),
+        groupLabel: i18n.t('Program'),
         defaultGroup: null,
         groupDetail: false,
     },

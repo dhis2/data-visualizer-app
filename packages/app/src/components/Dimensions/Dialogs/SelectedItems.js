@@ -29,8 +29,9 @@ export class SelectedItems extends Component {
         const highlighted = this.state.highlighted.filter(
             dataDimId => dataDimId !== id
         );
-        this.setState({ highlighted });
+
         this.props.onDeselect([id]);
+        this.setState({ highlighted });
     };
 
     onDeselectAllClick = () => {

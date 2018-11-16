@@ -4,21 +4,21 @@ export const styles = {
     container: {
         border: `1px solid ${colors.greyLight}`,
         backgroundColor: colors.white,
-        height: 39,
-        borderBottom: 0,
+        height: '39px',
+        borderBottom: '0px',
     },
     textField: {
-        paddingRight: 5,
+        paddingRight: '5px',
         width: '98%',
-        fontSize: 14,
+        fontSize: '14px',
     },
     searchIcon: {
-        paddingTop: 5,
-        paddingLeft: 5,
+        paddingTop: '5px',
+        paddingLeft: '5px',
     },
     placeholder: {
-        fontSize: 14,
-        paddingTop: 12,
-        paddingLeft: 5,
+        fontSize: '14px',
+        paddingTop: '12px',
+        paddingLeft: '5px',
     },
 };

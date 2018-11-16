@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import throttle from 'lodash-es/throttle';
-import { Item } from './Item';
+import Item from './Item';
 import { AssignButton, SelectAllButton } from './buttons';
 import { toggler } from '../../../modules/toggler';
 
@@ -61,7 +61,7 @@ export class UnselectedItems extends Component {
                 displayName={dataDim.name}
                 isHighlighted={!!this.state.highlighted.includes(dataDim.id)}
                 onItemClick={this.toggleHighlight}
-                className={'unselected'}
+                className="unselected"
             />
         </li>
     );
