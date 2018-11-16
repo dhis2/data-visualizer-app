@@ -24,6 +24,8 @@ import {
     YEAR_OVER_YEAR_LINE,
     YEAR_OVER_YEAR_COLUMN,
 } from '../../modules/chartTypes';
+import { sGetVisualization } from '../../reducers/visualization';
+import { computeGenericPeriodNames } from '../../modules/analytics';
 
 export class Visualization extends Component {
     constructor(props) {
@@ -34,22 +36,27 @@ export class Visualization extends Component {
 
     componentDidMount() {
         if (this.props.current) {
-            this.renderVisualization();
+            this.renderVisualization(this.props.current);
         }
     }
 
     componentDidUpdate(prevProps) {
         if (this.props.current !== prevProps.current) {
-            this.renderVisualization();
+            this.renderVisualization(this.props.current);
         }
 
-        // avoid redraw the chart if the interpretation content remains the same
+        // avoid redrawing the chart if the interpretation content remains the same
         // this is the case when the panel is toggled but the selected interpretation is not changed
         if (
             prevProps.interpretation &&
-            this.props.interpretation.id !== prevProps.interpretation.id
+            this.props.interpretation.created !==
+                prevProps.interpretation.created
         ) {
-            this.renderVisualization();
+            const vis = this.props.interpretation.id
+                ? this.props.visualization
+                : this.props.current;
+
+            this.renderVisualization(vis);
         }
 
         if (this.props.rightSidebarOpen !== prevProps.rightSidebarOpen) {
@@ -59,14 +66,14 @@ export class Visualization extends Component {
         }
     }
 
-    renderVisualization = async () => {
-        const { current, interpretation } = this.props;
+    renderVisualization = async vis => {
+        const { interpretation } = this.props;
 
-        const optionsForRequest = getOptionsForRequest().reduce(
+        const options = getOptionsForRequest().reduce(
             (map, [option, props]) => {
                 // only add parameter if value !== default
-                if (current[option] !== props.defaultValue) {
-                    map[option] = current[option];
+                if (vis[option] !== props.defaultValue) {
+                    map[option] = vis[option];
                 }
 
                 return map;
@@ -75,7 +82,7 @@ export class Visualization extends Component {
         );
 
         if (interpretation && interpretation.created) {
-            optionsForRequest.relativePeriodDate = interpretation.created;
+            options.relativePeriodDate = interpretation.created;
         }
 
         try {
@@ -86,32 +93,29 @@ export class Visualization extends Component {
             let responses = [];
 
             if (
-                [YEAR_OVER_YEAR_LINE, YEAR_OVER_YEAR_COLUMN].includes(
-                    current.type
-                )
+                [YEAR_OVER_YEAR_LINE, YEAR_OVER_YEAR_COLUMN].includes(vis.type)
             ) {
                 let yearlySeriesLabels = [];
 
                 ({
                     responses,
                     yearlySeriesLabels,
-                } = await apiFetchAnalyticsForYearOverYear(
-                    current,
-                    optionsForRequest
-                ));
+                } = await apiFetchAnalyticsForYearOverYear(vis, options));
 
                 extraOptions.yearlySeries = yearlySeriesLabels;
+
+                extraOptions.xAxisLabels = computeGenericPeriodNames(responses);
             } else {
-                responses = await apiFetchAnalytics(current, optionsForRequest);
+                responses = await apiFetchAnalytics(vis, options);
             }
 
-            responses.forEach(res =>
-                this.props.acAddMetadata(res.metaData.items)
-            );
+            responses.forEach(res => {
+                this.props.acAddMetadata(res.metaData.items);
+            });
 
             const chartConfig = createChart(
                 responses,
-                current,
+                vis,
                 visContainerId,
                 extraOptions
             );
@@ -128,7 +132,10 @@ export class Visualization extends Component {
             this.props.acSetLoading(false);
         } catch (error) {
             this.props.acSetLoading(false);
-            this.props.acSetLoadError(i18n.t('Could not generate chart'));
+            const errorMessage =
+                (error && error.message) ||
+                i18n('Error generating chart, please try again');
+            this.props.acSetLoadError(errorMessage);
         }
     };
 
@@ -139,6 +146,7 @@ export class Visualization extends Component {
 
 const mapStateToProps = state => ({
     current: sGetCurrent(state),
+    visualization: sGetVisualization(state),
     interpretation: sGetUiInterpretation(state),
     rightSidebarOpen: sGetUiRightSidebarOpen(state),
 });

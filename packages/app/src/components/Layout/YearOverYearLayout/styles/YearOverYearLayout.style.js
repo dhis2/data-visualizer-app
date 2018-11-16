@@ -1,4 +1,4 @@
-export const FILTER_AXIS_WIDTH = '60%';
+import { FILTER_AXIS_WIDTH } from '../../DefaultLayout/styles/DefaultLayout.style';
 
 // Axis (generated)
 export const DIMENSION_AXIS_WIDTH = `${100 - parseInt(FILTER_AXIS_WIDTH, 10)}%`;

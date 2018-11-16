@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-11-09T14:29:27.471Z\n"
-"PO-Revision-Date: 2018-11-09T14:29:27.471Z\n"
+"POT-Creation-Date: 2018-11-15T09:14:40.126Z\n"
+"PO-Revision-Date: 2018-11-15T09:14:40.127Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -59,16 +59,7 @@ msgstr ""
 msgid "DESELECT ALL"
 msgstr ""
 
-msgid "Add to series"
-msgstr ""
-
-msgid "Add to category"
-msgstr ""
-
-msgid "Add to filter"
-msgstr ""
-
-msgid "Search Dimensions"
+msgid "Search dimensions"
 msgstr ""
 
 msgid "Dimension recommended with selected data"
@@ -92,7 +83,7 @@ msgstr ""
 msgid "Advanced"
 msgstr ""
 
-msgid "Meta-data ID scheme"
+msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "Data value set"
@@ -128,7 +119,13 @@ msgstr ""
 msgid "None selected"
 msgstr ""
 
-msgid "Viewing interpretation from {{date}}"
+msgid "Unsaved chart"
+msgstr ""
+
+msgid "Edited"
+msgstr ""
+
+msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
 msgid "Update"
@@ -137,7 +134,7 @@ msgstr ""
 msgid "Chart error"
 msgstr ""
 
-msgid "Could not generate chart"
+msgid "There is a problem with your chart"
 msgstr ""
 
 msgid "Aggregation type"
@@ -366,6 +363,15 @@ msgid "Program indicators"
 msgstr ""
 
 msgid "Organisation Unit"
+msgstr ""
+
+msgid "Add to series"
+msgstr ""
+
+msgid "Add to category"
+msgstr ""
+
+msgid "Add to filter"
 msgstr ""
 
 msgid "Today"

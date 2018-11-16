@@ -9,12 +9,18 @@ export default {
         position: 'absolute',
     },
     inner: {
-        maxWidth: 200,
+        maxWidth: 500,
         textAlign: 'center',
         alignSelf: 'center',
     },
-    text: {
+    title: {
         fontWeight: 'bold',
+        marginTop: '10px',
         color: colors.greyDark,
+    },
+    description: {
+        fontWeight: 'bold',
+        marginTop: '10px',
+        color: colors.grey,
     },
 };

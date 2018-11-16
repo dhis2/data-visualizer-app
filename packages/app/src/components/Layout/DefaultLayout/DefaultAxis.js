@@ -11,7 +11,7 @@ import {
     acRemoveUiLayoutDimensions,
     acSetUiActiveModalDialog,
 } from '../../../actions/ui';
-import { AXIS_NAMES } from '../../../modules/layout';
+import { AXIS_NAMES, SOURCE_DIMENSIONS } from '../../../modules/layout';
 import styles from './styles/DefaultAxis.style';
 import { getAdaptedUiByType } from '../../../modules/ui';
 import { isYearOverYear } from '../../../modules/chartTypes';
@@ -28,16 +28,18 @@ class Axis extends React.Component {
     };
 
     onDrop = e => {
-        const { dimensionId } = decodeDataTransfer(e);
-        e.dataTransfer.clearData();
+        e.preventDefault();
+
+        const { dimensionId, source } = decodeDataTransfer(e);
 
         this.props.onAddDimension({
             [dimensionId]: this.props.axisName,
         });
 
         const items = this.props.itemsByDimension[dimensionId];
+        const hasNoItems = Boolean(!items || !items.length);
 
-        if (!items || !items.length) {
+        if (source === SOURCE_DIMENSIONS && hasNoItems) {
             this.props.onDropWithoutItems(dimensionId);
         }
     };

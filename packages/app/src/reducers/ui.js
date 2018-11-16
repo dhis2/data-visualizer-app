@@ -44,7 +44,7 @@ export const DEFAULT_UI = {
         filters: [ouId],
     },
     itemsByDimension: {},
-    yearOverYearSeries: ['LAST_5_YEARS'],
+    yearOverYearSeries: ['THIS_YEAR', 'LAST_YEAR'],
     yearOverYearCategory: ['MONTHS_THIS_YEAR'],
     parentGraphMap: {},
     activeModalDialog: null,

@@ -7,6 +7,7 @@ const accentSecondaryDark = '#004C40';
 const accentSecondary = '#00796B';
 const accentSecondaryLight = '#48A999';
 const accentSecondaryLightest = '#B2DFDB';
+const accentSecondaryTransparent = '#D9ECEB';
 
 const black = '#000000';
 const greyDark = '#494949';
@@ -38,6 +39,7 @@ export const colors = {
     accentSecondary,
     accentSecondaryLight,
     accentSecondaryLightest,
+    accentSecondaryTransparent,
 
     black,
     greyDark,
