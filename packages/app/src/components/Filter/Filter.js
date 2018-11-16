@@ -7,16 +7,18 @@ import Search from '@material-ui/icons/Search';
 import Close from '@material-ui/icons/Close';
 import { styles } from './styles/Filter.style';
 
+let ref;
+
 const onChangeWrapper = (props, event) => {
     event.target.value.length
         ? props.onChange(event.target.value)
         : props.onClear();
 };
 
-const onKeyDownWrapper = (onClear, event) => {
+const onKeyDownWrapper = (onClear, event, text) => {
     if (event.key === 'Escape') {
         event.preventDefault();
-        onClear();
+        !text.length ? ref.blur() : onClear();
     }
 };
 
@@ -27,7 +29,8 @@ export const Filter = props => (
         placeholder={props.placeholder}
         value={props.text}
         onChange={e => onChangeWrapper(props, e)}
-        onKeyDown={e => onKeyDownWrapper(props.onClear, e)}
+        onKeyDown={e => onKeyDownWrapper(props.onClear, e, props.text)}
+        inputRef={node => (ref = node)}
         InputProps={{
             disableUnderline: props.disableUnderline,
             style: styles.placeholder,
