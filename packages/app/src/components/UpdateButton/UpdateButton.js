@@ -8,14 +8,19 @@ import { sGetUi } from '../../reducers/ui';
 import { sGetCurrent } from '../../reducers/current';
 import * as fromActions from '../../actions';
 import history from '../../modules/history';
-import styles from './styles/UpdateButton.style';
 
-const UpdateButton = ({ onUpdate, ui, current, onClick, ...props }) => {
+const UpdateButton = ({ clearLoadError, onUpdate, ui, current, onClick, ...props }) => {
     const wrappedOnClick = () => {
+        clearLoadError();
         onUpdate(ui);
-        if (current && current.id) {
-            history.push(`/${current.id}`);
+
+        const pathWithoutInterpretation =
+            current && current.id ? `/${current.id}` : '/';
+
+        if (history.location.pathname !== pathWithoutInterpretation) {
+            history.push(pathWithoutInterpretation);
         }
+
         onClick();
     }
 
@@ -38,9 +43,10 @@ const mapStateToProps = state => ({
     current: sGetCurrent(state),
 });
 
-const mapDispatchToProps = dispatch => ({
-    onUpdate: ui => dispatch(fromActions.fromCurrent.acSetCurrentFromUi(ui)),
-});
+const mapDispatchToProps = {
+    onUpdate: fromActions.fromCurrent.acSetCurrentFromUi,
+    clearLoadError: fromActions.fromLoader.acClearLoadError,
+};
 
 UpdateButton.propTypes = {
     ui: PropTypes.object.isRequired,

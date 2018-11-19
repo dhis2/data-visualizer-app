@@ -9,13 +9,21 @@ import { YEAR_OVER_YEAR_LINE } from '../../../modules/chartTypes';
 
 jest.mock('d2-charts-api');
 
-const metaDataMock = ['a', 'b'];
+const metaDataMock = {
+    items: {
+        a: { name: 'a dim' },
+        b: { name: 'b dim' },
+        p1: { name: 'period 1 1979' },
+        p2: { name: 'period 2 1979' },
+    },
+    dimensions: {
+        pe: ['p1', 'p2'],
+    },
+};
 class MockAnalyticsResponse {
     constructor() {
         return {
-            metaData: {
-                items: metaDataMock,
-            },
+            metaData: metaDataMock,
         };
     }
 }
@@ -26,9 +34,7 @@ class MockYoYAnalyticsResponse {
         return {
             responses: [
                 {
-                    metaData: {
-                        items: metaDataMock,
-                    },
+                    metaData: metaDataMock,
                 },
             ],
             yearlySeriesLabels: mockYoYSeriesLabels,
@@ -103,7 +109,9 @@ describe('Visualization', () => {
 
             setTimeout(() => {
                 expect(props.acAddMetadata).toHaveBeenCalled();
-                expect(props.acAddMetadata).toHaveBeenCalledWith(metaDataMock);
+                expect(props.acAddMetadata).toHaveBeenCalledWith(
+                    metaDataMock.items
+                );
                 done();
             });
         });
@@ -201,6 +209,7 @@ describe('Visualization', () => {
 
                     const expectedExtraOptions = {
                         yearlySeries: mockYoYSeriesLabels,
+                        xAxisLabels: ['period 1', 'period 2'],
                     };
 
                     expect(chartsApi.createChart.mock.calls[0][3]).toEqual(
