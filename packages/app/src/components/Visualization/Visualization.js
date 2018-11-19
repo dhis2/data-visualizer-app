@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createChart } from 'd2-charts-api';
 import i18n from '@dhis2/d2-i18n';
+import debounce from 'lodash.debounce';
+
 import { sGetCurrent } from '../../reducers/current';
 import BlankCanvas, { visContainerId } from './BlankCanvas';
 import { getOptionsForRequest } from '../../modules/options';
@@ -23,6 +25,7 @@ import {
 import {
     YEAR_OVER_YEAR_LINE,
     YEAR_OVER_YEAR_COLUMN,
+    isYearOverYear,
 } from '../../modules/chartTypes';
 import { sGetVisualization } from '../../reducers/visualization';
 import { computeGenericPeriodNames } from '../../modules/analytics';
@@ -32,9 +35,23 @@ export class Visualization extends Component {
         super(props);
 
         this.chart = undefined;
+        this.recreateChart = Function.prototype;
     }
 
+    addResizeHandler = () => {
+        window.addEventListener(
+            'resize',
+            debounce(() => {
+                console.log('resize');
+                this.reflowChart();
+                // requestAnimationFrame(this.recreateChart);
+            }, 300)
+        );
+    };
+
     componentDidMount() {
+        this.addResizeHandler();
+
         if (this.props.current) {
             this.renderVisualization(this.props.current);
         }
@@ -60,9 +77,11 @@ export class Visualization extends Component {
         }
 
         if (this.props.rightSidebarOpen !== prevProps.rightSidebarOpen) {
-            if (this.chart) {
-                this.chart.reflow();
-            }
+            this.recreateChart();
+
+            // if (this.chart) {
+            //     this.chart.reflow();
+            // }
         }
     }
 
@@ -92,9 +111,7 @@ export class Visualization extends Component {
             const extraOptions = {};
             let responses = [];
 
-            if (
-                [YEAR_OVER_YEAR_LINE, YEAR_OVER_YEAR_COLUMN].includes(vis.type)
-            ) {
+            if (isYearOverYear(vis.type)) {
                 let yearlySeriesLabels = [];
 
                 ({
@@ -121,6 +138,17 @@ export class Visualization extends Component {
             );
 
             this.chart = chartConfig.chart;
+
+            this.reflowChart = () => this.chart.reflow();
+
+            this.recreateChart = () => {
+                this.chart = createChart(
+                    responses,
+                    vis,
+                    visContainerId,
+                    extraOptions
+                ).chart;
+            };
 
             this.props.acSetChart(
                 chartConfig.chart.getSVGForExport({
