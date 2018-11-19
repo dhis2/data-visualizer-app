@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
+import { SortableContainer, SortableElement } from 'react-sortable-hoc';
 
 import { Item } from './Item';
 import { UnAssignButton, DeselectAllButton } from './buttons';
@@ -74,15 +75,18 @@ export class SelectedItems extends Component {
         </li>
     );
 
+    renderUl = items => <ul style={styles.list}>{items}</ul>;
+
     render = () => {
         const dataDimensions = this.props.items.map((id, index) =>
-            this.renderListItem(id, index)
+            SortableElement(this.renderListItem(id, index))
         );
 
         return (
             <div style={styles.container}>
                 <Subtitle />
-                <ul style={styles.list}>{dataDimensions}</ul>
+                {/* <ul style={styles.list}>{dataDimensions}</ul> */}
+                {SortableContainer(this.renderUl(dataDimensions))}
                 <UnAssignButton
                     className={this.props.className}
                     action={this.onDeselectClick}

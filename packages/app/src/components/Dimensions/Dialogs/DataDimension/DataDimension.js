@@ -9,9 +9,9 @@ import keyBy from 'lodash-es/keyBy';
 
 import DataTypes from './DataTypesSelector';
 import Groups from './Groups';
-import FilterField from '../../Dialogs/FilterField';
-import UnselectedItems from '../../Dialogs/UnselectedItems';
-import SelectedItems from '../../Dialogs/SelectedItems';
+import FilterField from '../FilterField';
+import UnselectedItems from '../UnselectedItems';
+import SelectedItems from '../SelectedItems';
 
 import {
     apiFetchGroups,
