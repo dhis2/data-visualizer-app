@@ -3376,7 +3376,6 @@ cyclist@~0.2.2:
 d2-charts-api@31.0.7:
   version "31.0.7"
   resolved "https://registry.yarnpkg.com/d2-charts-api/-/d2-charts-api-31.0.7.tgz#599965f21ac002915512653c6ff10ad1ed5f8bf2"
-  integrity sha512-iHUHFw6bPx4JGraz6m181PwolvXh5LG54NjNL0j6MLU6c1oNdFtPJRqKaT0tIL9s1VeA8e/V3Y1Oht1U6ohjxw==
   dependencies:
     d2-utilizr "0.2.13"
     d3-color "1.0.1"
@@ -5233,27 +5232,22 @@ he@1.2.x:
 highcharts-exporting@^0.1.7:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/highcharts-exporting/-/highcharts-exporting-0.1.7.tgz#f38024b9ef78ce2ac3a39f853f83b55822ae1630"
-  integrity sha1-84Akue94zirDo5+FP4O1WCKuFjA=
 
 highcharts-more@^0.1.7:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/highcharts-more/-/highcharts-more-0.1.7.tgz#43cd6274cccba443166c94d4536d904bbabf9c77"
-  integrity sha1-Q81idMzLpEMWbJTUU22QS7q/nHc=
 
 highcharts-no-data-to-display@^0.1.7:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/highcharts-no-data-to-display/-/highcharts-no-data-to-display-0.1.7.tgz#a9eb8b28da3df299d0d8262b78437cfe7d81d877"
-  integrity sha1-qeuLKNo98pnQ2CYreEN8/n2B2Hc=
 
 highcharts-solid-gauge@^0.1.7:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/highcharts-solid-gauge/-/highcharts-solid-gauge-0.1.7.tgz#4bf2dca76b5f559034b59d0c6d4755d1c71a6a5b"
-  integrity sha1-S/Lcp2tfVZA0tZ0MbUdV0ccaals=
 
 highcharts@^6.2.0:
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-6.2.0.tgz#2a6d04652eb43c66f462ca7e2d2808f1f2782b61"
-  integrity sha512-A4E89MA+kto8giic7zyLU6ZxfXnVeCUlKOyzFsah3+n4BROx4bgonl92KIBtwLud/mIWir8ahqhuhe2by9LakQ==
 
 history@^4.7.2:
   version "4.7.2"

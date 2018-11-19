@@ -11,6 +11,7 @@ import * as fromActions from '../../actions';
 import { sGetCurrent } from '../../reducers/current';
 import history from '../../modules/history';
 import styles from './styles/MenuBar.style';
+import './styles/MenuBar.css';
 
 const onOpen = id => {
     const path = `/${id}`;
@@ -31,19 +32,21 @@ const getOnDelete = props => () => props.onDeleteVisualization();
 export const MenuBar = (props, context) => (
     <div className="menubar" style={styles.menuBar}>
         <UpdateButton size="small" />
-        <FileMenu
-            d2={context.d2}
-            fileId={props.id || null}
-            fileType={props.apiObjectName}
-            onOpen={onOpen}
-            onNew={onNew}
-            onRename={getOnRename(props)}
-            onSave={getOnSave(props)}
-            onSaveAs={getOnSaveAs(props)}
-            onDelete={getOnDelete(props)}
-            onTranslate={() => console.log('translate callback')}
-            onError={() => console.log('error!')}
-        />
+        <div className="file-menu-button-wrapper">
+          <FileMenu
+              d2={context.d2}
+              fileId={props.id || null}
+              fileType={props.apiObjectName}
+              onOpen={onOpen}
+              onNew={onNew}
+              onRename={getOnRename(props)}
+              onSave={getOnSave(props)}
+              onSaveAs={getOnSaveAs(props)}
+              onDelete={getOnDelete(props)}
+              onTranslate={() => console.log('translate callback')}
+              onError={() => console.log('error!')}
+          />
+        </div>
         <VisualizationOptionsManager labelStyle={styles.label} />
         <DownloadMenu labelStyle={styles.label} />
         <InterpretationsButton labelStyle={styles.label} />

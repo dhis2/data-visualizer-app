@@ -5,28 +5,13 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-11-15T09:14:40.126Z\n"
-"PO-Revision-Date: 2018-11-15T09:14:40.127Z\n"
+"POT-Creation-Date: 2018-11-17T09:16:30.451Z\n"
+"PO-Revision-Date: 2018-11-17T09:16:30.451Z\n"
 
 msgid "Rename successful"
 msgstr ""
 
 msgid "\"{{what}}\" successfully deleted."
-msgstr ""
-
-msgid "Reporting rates"
-msgstr ""
-
-msgid "Reporting rates on time"
-msgstr ""
-
-msgid "Actual reports"
-msgstr ""
-
-msgid "Actual reporting rates on time"
-msgstr ""
-
-msgid "Expected reports"
 msgstr ""
 
 msgid "Data Visualizer"
@@ -318,6 +303,21 @@ msgid "Year over year (line)"
 msgstr ""
 
 msgid "Year over year (column)"
+msgstr ""
+
+msgid "Reporting rate"
+msgstr ""
+
+msgid "Reporting rate on time"
+msgstr ""
+
+msgid "Actual reports"
+msgstr ""
+
+msgid "Actual reports on time"
+msgstr ""
+
+msgid "Expected reports"
 msgstr ""
 
 msgid "Indicators"
