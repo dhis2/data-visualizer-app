@@ -16,7 +16,7 @@ export const theme = {
         MuiListItem: {
             button: {
                 transition: null,
-            }
+            },
         },
     },
 };
