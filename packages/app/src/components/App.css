@@ -1,7 +1,8 @@
 /* App */
 
 .app {
-    height: 100vh;
+    max-height: 100vh;
+    background-color: #f4f6f8;
 }
 
 /* Flex */
@@ -27,7 +28,7 @@
 /* Toolbar */
 
 .section-toolbar {
-    height: 38px;
+    height: 39px;
 }
 
 .toolbar-type {
@@ -42,11 +43,20 @@
 
 /* Main */
 
+.section-main {
+    max-width: 100vw;
+}
+
 .main-left {
-    width: 260px;
+    min-width: 260px;
+    border-right: 1px solid #e0e2e4;
 }
 
 .main-center {
+}
+
+.main-right {
+    background-color: #f4f6f8;
 }
 
 /* Main center */
@@ -59,4 +69,5 @@
 }
 
 .main-center-canvas {
+    overflow: hidden;
 }

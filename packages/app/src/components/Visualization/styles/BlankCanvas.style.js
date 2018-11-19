@@ -8,8 +8,6 @@ export default {
         // width: '100%',
         // position: 'absolute',
         height: '100%',
-        display: 'flex',
-        justifyContent: 'center',
     },
     inner: {
         maxWidth: 500,

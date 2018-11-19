@@ -187,7 +187,7 @@ export class App extends Component {
                                 {showVis ? <Visualization /> : <BlankCanvas />}
                             </div>
                         </div>
-                        {this.props.ui.rightSidebarOpen && (
+                        {this.props.ui.rightSidebarOpen && this.props.current && (
                             <div className="main-right">
                                 <Interpretations
                                     type={this.props.apiObjectName}
