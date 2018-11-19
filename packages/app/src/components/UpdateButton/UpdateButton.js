@@ -10,25 +10,28 @@ import * as fromActions from '../../actions';
 import history from '../../modules/history';
 import styles from './styles/UpdateButton.style';
 
-const onClickWrapper = props => () => {
-    props.onUpdate(props.ui);
-    if (props.current && props.current.id) {
-        history.push(`/${props.current.id}`);
+const UpdateButton = ({ onUpdate, ui, current, onClick, ...props }) => {
+    const wrappedOnClick = () => {
+        onUpdate(ui);
+        if (current && current.id) {
+            history.push(`/${current.id}`);
+        }
+        onClick();
     }
-    props.onClick();
-};
 
-const UpdateButton = props => (
-    <Button
-        onClick={onClickWrapper(props)}
-        style={styles}
-        size="small"
-        disableRipple={true}
-        disableFocusRipple={true}
-    >
-        {i18n.t('Update')}
-    </Button>
-);
+    return (
+        <Button
+            {...props}
+            variant="contained"
+            color="primary"
+            onClick={wrappedOnClick}
+            disableRipple={true}
+            disableFocusRipple={true}
+        >
+            {i18n.t('Update')}
+        </Button>
+    )
+}
 
 const mapStateToProps = state => ({
     ui: sGetUi(state),

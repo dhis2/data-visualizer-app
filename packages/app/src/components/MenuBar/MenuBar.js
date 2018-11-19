@@ -23,7 +23,7 @@ const getOnDelete = props => () => props.onDeleteVisualization();
 
 export const MenuBar = (props, context) => (
     <div className="menubar" style={styles.menuBar}>
-        <UpdateButton />
+        <UpdateButton size="small" />
         <FileMenu
             d2={context.d2}
             fileId={props.id || null}

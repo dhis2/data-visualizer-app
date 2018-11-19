@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Snackbar from '@material-ui/core/Snackbar';
 import i18n from '@dhis2/d2-i18n';
 import UI from 'ui/core/UI';
 import HeaderBar from 'ui/widgets/HeaderBar';
-import mui3theme from '@dhis2/d2-ui-core/theme/mui3.theme';
 
 import SnackbarMessage from '../widgets/SnackbarMessage';
 import MenuBar from './MenuBar/MenuBar';
@@ -24,20 +22,6 @@ import defaultMetadata from '../modules/metadata';
 
 import './App.css';
 import { sGetUi } from '../reducers/ui';
-
-const theme = createMuiTheme({
-    ...mui3theme,
-    overrides: { // TODO: Move this customization to d2-ui so that it is standardized across apps
-        ...mui3theme.overrides,
-        MuiMenuItem: {
-            root: {
-                paddingTop: mui3theme.spacing.unit,
-                paddingBottom: mui3theme.spacing.unit,
-                fontSize: 'inherit',
-            },
-        },
-    }
-})
 
 export class App extends Component {
     unlisten = null;
@@ -142,40 +126,38 @@ export class App extends Component {
             this.props.current && Object.keys(this.props.current).length > 0;
 
         return (
-            <MuiThemeProvider theme={theme}>
-                <UI>
-                    <HeaderBar appName={i18n.t('Data Visualizer')} />
-                    <div className="app">
-                        <div className="visualization-type-selector">
-                            <VisualizationTypeSelector />
-                        </div>
-                        <div className="menu-bar">
-                            <MenuBar apiObjectName={this.props.apiObjectName} />
-                        </div>
-                        <div className="dimensions">
-                            <Dimensions />
-                        </div>
-                        <div className="chart-layout">
-                            <Layout />
-                        </div>
-                        <div className="title-bar">
-                            <TitleBar />
-                        </div>
-                        <div className="canvas">
-                            {hasCurrent ? <Visualization /> : <BlankCanvas />}
-                        </div>
-                        <div className="interpretations">
-                            {this.props.ui.rightSidebarOpen ? (
-                                <Interpretations
-                                    type={this.props.apiObjectName}
-                                    id={this.props.current.id}
-                                />
-                            ) : null}
-                        </div>
+            <UI>
+                <HeaderBar appName={i18n.t('Data Visualizer')} />
+                <div className="app">
+                    <div className="visualization-type-selector">
+                        <VisualizationTypeSelector />
                     </div>
-                    {this.renderSnackbar()}
-                </UI>
-            </MuiThemeProvider>
+                    <div className="menu-bar">
+                        <MenuBar apiObjectName={this.props.apiObjectName} />
+                    </div>
+                    <div className="dimensions">
+                        <Dimensions />
+                    </div>
+                    <div className="chart-layout">
+                        <Layout />
+                    </div>
+                    <div className="title-bar">
+                        <TitleBar />
+                    </div>
+                    <div className="canvas">
+                        {hasCurrent ? <Visualization /> : <BlankCanvas />}
+                    </div>
+                    <div className="interpretations">
+                        {this.props.ui.rightSidebarOpen ? (
+                            <Interpretations
+                                type={this.props.apiObjectName}
+                                id={this.props.current.id}
+                            />
+                        ) : null}
+                    </div>
+                </div>
+                {this.renderSnackbar()}
+            </UI>
         );
     }
 }

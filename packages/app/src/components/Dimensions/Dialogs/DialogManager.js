@@ -24,7 +24,6 @@ import { sGetDimensions } from '../../../reducers/dimensions';
 import { apiFetchRecommendedIds } from '../../../api/dimensions';
 
 import { FIXED_DIMENSIONS } from '../../../modules/fixedDimensions';
-import { styles } from './styles/DialogManager.style';
 
 const dxId = FIXED_DIMENSIONS.dx.id;
 const peId = FIXED_DIMENSIONS.pe.id;
@@ -76,7 +75,7 @@ export class DialogManager extends Component {
                 disableEnforceFocus
             >
                 {this.renderDialogContent()}
-                <DialogActions style={styles.dialogActions}>
+                <DialogActions>
                     <HideButton />
                     <AddToLayoutButton />
                 </DialogActions>

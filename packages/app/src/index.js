@@ -13,7 +13,7 @@ import configureStore from './configureStore';
 import metadataMiddleware from './middleware/metadata';
 
 import App from './components/App';
-import { muiTheme } from './modules/theme';
+import muiTheme from './modules/theme';
 import { extractUserSettings } from './modules/settings';
 
 const apiObjectName = 'chart';
@@ -34,7 +34,7 @@ const configI18n = async userSettings => {
 const render = (location, baseUrl, d2, userSettings) => {
     ReactDOM.render(
         <Provider store={configureStore(metadataMiddleware)}>
-            <MuiThemeProvider theme={muiTheme()}>
+            <MuiThemeProvider theme={muiTheme}>
                 <App
                     location={location}
                     baseUrl={baseUrl}
