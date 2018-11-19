@@ -33,19 +33,19 @@ export const MenuBar = (props, context) => (
     <div className="menubar" style={styles.menuBar}>
         <UpdateButton size="small" />
         <div className="file-menu-button-wrapper">
-          <FileMenu
-              d2={context.d2}
-              fileId={props.id || null}
-              fileType={props.apiObjectName}
-              onOpen={onOpen}
-              onNew={onNew}
-              onRename={getOnRename(props)}
-              onSave={getOnSave(props)}
-              onSaveAs={getOnSaveAs(props)}
-              onDelete={getOnDelete(props)}
-              onTranslate={() => console.log('translate callback')}
-              onError={() => console.log('error!')}
-          />
+            <FileMenu
+                d2={context.d2}
+                fileId={props.id || null}
+                fileType={props.apiObjectName}
+                onOpen={onOpen}
+                onNew={onNew}
+                onRename={getOnRename(props)}
+                onSave={getOnSave(props)}
+                onSaveAs={getOnSaveAs(props)}
+                onDelete={getOnDelete(props)}
+                onTranslate={() => console.log('translate callback')}
+                onError={() => console.log('error!')}
+            />
         </div>
         <VisualizationOptionsManager labelStyle={styles.label} />
         <DownloadMenu labelStyle={styles.label} />
