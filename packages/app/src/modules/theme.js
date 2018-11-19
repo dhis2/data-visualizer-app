@@ -10,8 +10,13 @@ export const theme = {
             root: {
                 paddingTop: dhis2theme.spacing.unit,
                 paddingBottom: dhis2theme.spacing.unit,
-                fontSize: 'inherit',
+                fontSize: '15px',
             },
+        },
+        MuiListItem: {
+            button: {
+                transition: null,
+            }
         },
     },
 };
