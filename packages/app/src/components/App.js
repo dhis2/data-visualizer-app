@@ -19,9 +19,10 @@ import * as fromReducers from '../reducers';
 import * as fromActions from '../actions';
 import history from '../modules/history';
 import defaultMetadata from '../modules/metadata';
+import { sGetUi } from '../reducers/ui';
 
 import './App.css';
-import { sGetUi } from '../reducers/ui';
+import './scrollbar.css';
 
 export class App extends Component {
     unlisten = null;
@@ -159,35 +160,41 @@ export class App extends Component {
 
         return (
             <UI>
-                <div className="app">
-                    <div className="headerbar">
+                <div className="app flex-ct flex-dir-col">
+                    <div className="section-headerbar">
                         <HeaderBar appName={i18n.t('Data Visualizer')} />
                     </div>
-                    <div className="visualization-type-selector">
-                        <VisualizationTypeSelector />
+                    <div className="section-toolbar flex-ct">
+                        <div className="toolbar-type">
+                            <VisualizationTypeSelector />
+                        </div>
+                        <div className="toolbar-menubar flex-1">
+                            <MenuBar apiObjectName={this.props.apiObjectName} />
+                        </div>
                     </div>
-                    <div className="menu-bar">
-                        <MenuBar apiObjectName={this.props.apiObjectName} />
-                    </div>
-                    <div className="dimensions">
-                        <Dimensions />
-                    </div>
-                    <div className="chart-layout">
-                        <Layout />
-                    </div>
-                    <div className="title-bar">
-                        <TitleBar />
-                    </div>
-                    <div className="canvas">
-                        {showVis ? <Visualization /> : <BlankCanvas />}
-                    </div>
-                    <div className="interpretations">
-                        {this.props.ui.rightSidebarOpen ? (
-                            <Interpretations
-                                type={this.props.apiObjectName}
-                                id={this.props.current.id}
-                            />
-                        ) : null}
+                    <div className="section-main flex-1 flex-ct">
+                        <div className="main-left">
+                            <Dimensions />
+                        </div>
+                        <div className="main-center flex-1 flex-ct flex-dir-col">
+                            <div className="main-center-layout">
+                                <Layout />
+                            </div>
+                            <div className="main-center-titlebar">
+                                <TitleBar />
+                            </div>
+                            <div className="main-center-canvas flex-1">
+                                {showVis ? <Visualization /> : <BlankCanvas />}
+                            </div>
+                        </div>
+                        {this.props.ui.rightSidebarOpen && (
+                            <div className="main-right">
+                                <Interpretations
+                                    type={this.props.apiObjectName}
+                                    id={this.props.current.id}
+                                />
+                            </div>
+                        )}
                     </div>
                 </div>
                 {this.renderSnackbar()}

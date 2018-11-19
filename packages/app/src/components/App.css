@@ -1,77 +1,62 @@
-body {
-    margin: 0;
-    padding: 0;
-}
-
-.headerbar {
-    grid-area: headerbar;
-}
-.visualization-type-selector {
-    grid-area: charttype;
-    border-right: 1px solid #e0e2e4;
-    border-bottom: 1px solid #e0e2e4;
-}
-.menu-bar {
-    grid-area: menubar;
-    border-bottom: 1px solid #e0e2e4;
-}
-.dimensions {
-    grid-area: dimensions;
-    border-right: 1px solid #e0e2e4;
-    height: calc(100vh - 42px - 48px);
-}
-.chart-layout {
-    grid-area: chartlayout;
-    display: flex;
-}
-.interpretations {
-    grid-area: interpretations;
-    border-left: 1px solid #e0e2e4;
-}
-.canvas {
-    grid-area: canvas;
-    position: relative;
-}
-.title-bar {
-    grid-area: titlebar;
-}
-
-.app * {
-    outline: none;
-}
+/* App */
 
 .app {
-    display: grid;
-    grid-template-columns: 262px 1fr min-content;
-    grid-template-rows: 48px 39px 80px 35px auto;
-    grid-template-areas:
-        'headerbar headerbar headerbar'
-        'charttype menubar menubar'
-        'dimensions chartlayout interpretations'
-        'dimensions titlebar interpretations'
-        'dimensions canvas interpretations';
-}
-.app > div {
-    background-color: #f4f6f8;
+    height: 100vh;
 }
 
-/* width */
-::-webkit-scrollbar {
-    width: 6px;
+/* Flex */
+
+.flex-ct {
+    display: flex;
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-    background: #f1f3f5;
+.flex-dir-col {
+    flex-direction: column;
 }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: #cbcdcf;
-    border-radius: 3px;
+.flex-1 {
+    flex: 1;
 }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #aaacae;
+/* Headerbar */
+
+.section-headerbar {
+    height: 48px;
+}
+
+/* Toolbar */
+
+.section-toolbar {
+    height: 38px;
+}
+
+.toolbar-type {
+    width: 260px;
+    border-right: 1px solid #e0e2e4;
+    border-bottom: 1px solid #e0e2e4;
+}
+
+.toolbar-menubar {
+    background-color: #ddd;
+}
+
+/* Main */
+
+.main-left {
+    width: 260px;
+}
+
+.main-center {
+}
+
+/* Main center */
+
+.main-center-layout {
+}
+
+.main-center-titlebar {
+    height: 34px;
+}
+
+.main-center-canvas {
 }
