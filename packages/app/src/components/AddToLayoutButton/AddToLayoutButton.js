@@ -94,7 +94,10 @@ export class AddToLayoutButton extends Component {
             this.state.buttonType === UNSELECTED ? (
                 this.getUnselectedButton()
             ) : (
-                <UpdateButton className={this.props.className} onClick={() => this.props.closeDialog(null)} />
+                <UpdateButton
+                    className={this.props.className}
+                    onClick={() => this.props.closeDialog(null)}
+                />
             );
 
         return displayButton;

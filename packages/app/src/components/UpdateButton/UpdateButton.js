@@ -9,7 +9,14 @@ import { sGetCurrent } from '../../reducers/current';
 import * as fromActions from '../../actions';
 import history from '../../modules/history';
 
-const UpdateButton = ({ clearLoadError, onUpdate, ui, current, onClick, ...props }) => {
+const UpdateButton = ({
+    clearLoadError,
+    onUpdate,
+    ui,
+    current,
+    onClick,
+    ...props
+}) => {
     const wrappedOnClick = () => {
         clearLoadError();
         onUpdate(ui);
@@ -22,7 +29,7 @@ const UpdateButton = ({ clearLoadError, onUpdate, ui, current, onClick, ...props
         }
 
         onClick();
-    }
+    };
 
     return (
         <Button
@@ -35,8 +42,8 @@ const UpdateButton = ({ clearLoadError, onUpdate, ui, current, onClick, ...props
         >
             {i18n.t('Update')}
         </Button>
-    )
-}
+    );
+};
 
 const mapStateToProps = state => ({
     ui: sGetUi(state),
