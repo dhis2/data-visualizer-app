@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -30,8 +31,8 @@ class VisualizationOptionsManager extends Component {
         return (
             <Fragment>
                 <Button
+                    className={this.props.className}
                     onClick={this.toggleVisualizationOptionsDialog}
-                    style={this.props.labelStyle}
                 >
                     {i18n.t('Options')}
                 </Button>
@@ -53,5 +54,9 @@ class VisualizationOptionsManager extends Component {
         );
     }
 }
+
+VisualizationOptionsManager.propTypes = {
+    className: PropTypes.string,
+};
 
 export default VisualizationOptionsManager;
