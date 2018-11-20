@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createChart } from 'd2-charts-api';
 import i18n from '@dhis2/d2-i18n';
-import debounce from 'lodash.debounce';
+import debounce from 'lodash-es/debounce';
 
 import { sGetCurrent } from '../../reducers/current';
 import BlankCanvas, { visContainerId } from './BlankCanvas';
