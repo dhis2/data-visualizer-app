@@ -27,8 +27,7 @@ export const theme = {
         },
         MuiDialogContent: {
             root: {
-                paddingBottom: 0,
-                paddingTop: 0,
+                ...dhis2theme.overrides.MuiDialogContent.root,
                 overflow: 'hidden',
                 overflowY: 'hidden',
             },
