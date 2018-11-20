@@ -3,6 +3,10 @@
 .app {
     height: 100vh;
     background-color: #f4f6f8;
+    overflow: hidden;
+}
+.app * {
+    outline: none;
 }
 
 /* Flex */
