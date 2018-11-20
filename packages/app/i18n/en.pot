@@ -26,13 +26,13 @@ msgstr ""
 msgid "Detail"
 msgstr ""
 
+msgid "Search"
+msgstr ""
+
 msgid "Organisation units"
 msgstr ""
 
 msgid "Period"
-msgstr ""
-
-msgid "Search"
 msgstr ""
 
 msgid "Selected Data"

@@ -8,10 +8,10 @@ import isEqual from 'lodash-es/isEqual';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 
-import DataDimension from './DataSelector/DataDimension';
-import PeriodDimension from './PeriodSelector/PeriodDimension';
-import OrgUnitDimension from './OrgUnitSelector/OrgUnitDimension';
-import GenericItemSelector from './GenericSelector/GenericItemSelector';
+import DataDimension from './DataDimension/DataDimension';
+import PeriodDimension from './PeriodDimension/PeriodDimension';
+import OrgUnitDimension from './OrgUnitDimension/OrgUnitDimension';
+import DynamicDimension from './DynamicDimension/DynamicDimension';
 import HideButton from '../../HideButton/HideButton';
 import AddToLayoutButton from '../../AddToLayoutButton/AddToLayoutButton';
 
@@ -29,7 +29,7 @@ const dxId = FIXED_DIMENSIONS.dx.id;
 const peId = FIXED_DIMENSIONS.pe.id;
 const ouId = FIXED_DIMENSIONS.ou.id;
 
-export const fixedDimensions = {
+export const fixedDialogs = {
     [dxId]: <DataDimension />,
     [ouId]: <OrgUnitDimension />,
     [peId]: <PeriodDimension />,
@@ -55,16 +55,15 @@ export class DialogManager extends Component {
         this.props.setRecommendedIds(ids);
     }, 1000);
 
-    renderDialogContent = () => {
-        return Object.keys(fixedDimensions).includes(this.props.dialogId) ? (
-            fixedDimensions[this.props.dialogId]
+    renderDialogContent = () =>
+        FIXED_DIMENSIONS[this.props.dialogId] ? (
+            fixedDialogs[this.props.dialogId]
         ) : (
-            <GenericItemSelector
+            <DynamicDimension
                 dialogId={this.props.dialogId}
                 dialogTitle={this.props.dimensions[this.props.dialogId].name}
             />
         );
-    };
 
     render = () => {
         return this.props.dialogId ? (
