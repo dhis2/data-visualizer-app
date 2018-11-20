@@ -30,7 +30,6 @@ export class Visualization extends Component {
     constructor(props) {
         super(props);
 
-        this.chart = undefined;
         this.recreateChart = Function.prototype;
     }
 
