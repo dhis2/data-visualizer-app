@@ -4,7 +4,7 @@ import i18n from '@dhis2/d2-i18n';
 import throttle from 'lodash-es/throttle';
 import Item from './Item';
 import { ArrowButton as AssignButton } from './buttons/ArrowButton';
-import { selectButton as SelectAllButton } from './buttons/SelectButton';
+import { SelectButton as SelectAllButton } from './buttons/SelectButton';
 import { toggler } from '../../../modules/toggler';
 import { styles } from './styles/UnselectedItems.style';
 
@@ -107,7 +107,7 @@ export class UnselectedItems extends Component {
                 <AssignButton
                     className={`${this.props.className}-arrow-forward-button`}
                     onClick={this.onSelectClick}
-                    iconType={'arrowBack'}
+                    iconType={'arrowForward'}
                 />
                 <SelectAllButton
                     style={styles.selectButton}

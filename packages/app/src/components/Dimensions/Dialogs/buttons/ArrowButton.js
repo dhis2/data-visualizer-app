@@ -12,9 +12,9 @@ export const ArrowButton = ({ className, onClick, iconType }) => (
             onClick={onClick}
         >
             {iconType === 'arrowForward' ? (
-                <ArrowBack style={styles.arrowIcon} />
-            ) : (
                 <ArrowForward style={styles.arrowIcon} />
+            ) : (
+                <ArrowBack style={styles.arrowIcon} />
             )}
         </IconButton>
     </div>

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
 import Item from './Item';
 import { ArrowButton as UnAssignButton } from './buttons/ArrowButton';
-import { selectButton as DeselectAllButton } from './buttons/SelectButton';
+import { SelectButton as DeselectAllButton } from './buttons/SelectButton';
 import { sGetMetadata } from '../../../reducers/metadata';
 import { toggler } from '../../../modules/toggler';
 import { styles } from './styles/SelectedItems.style';
@@ -85,7 +85,7 @@ export class SelectedItems extends Component {
                 <UnAssignButton
                     className={`${this.props.className}-arrow-back-button`}
                     onClick={this.onDeselectClick}
-                    iconType={'arrowForward'}
+                    iconType={'arrowBack'}
                 />
                 <DeselectAllButton
                     style={styles.deselectButton}
