@@ -22,11 +22,7 @@ import {
     apiFetchAnalytics,
     apiFetchAnalyticsForYearOverYear,
 } from '../../api/analytics';
-import {
-    YEAR_OVER_YEAR_LINE,
-    YEAR_OVER_YEAR_COLUMN,
-    isYearOverYear,
-} from '../../modules/chartTypes';
+import { isYearOverYear } from '../../modules/chartTypes';
 import { sGetVisualization } from '../../reducers/visualization';
 import { computeGenericPeriodNames } from '../../modules/analytics';
 
@@ -43,8 +39,7 @@ export class Visualization extends Component {
             'resize',
             debounce(() => {
                 console.log('resize');
-                this.reflowChart();
-                // requestAnimationFrame(this.recreateChart);
+                this.recreateChart();
             }, 300)
         );
     };
@@ -78,7 +73,6 @@ export class Visualization extends Component {
 
         if (this.props.rightSidebarOpen !== prevProps.rightSidebarOpen) {
             this.recreateChart();
-
             // if (this.chart) {
             //     this.chart.reflow();
             // }
@@ -137,17 +131,15 @@ export class Visualization extends Component {
                 extraOptions
             );
 
-            this.chart = chartConfig.chart;
+            // this.chart = chartConfig.chart;
 
             this.reflowChart = () => this.chart.reflow();
 
             this.recreateChart = () => {
-                this.chart = createChart(
-                    responses,
-                    vis,
-                    visContainerId,
-                    extraOptions
-                ).chart;
+                createChart(responses, vis, visContainerId, {
+                    ...extraOptions,
+                    animation: 0,
+                });
             };
 
             this.props.acSetChart(

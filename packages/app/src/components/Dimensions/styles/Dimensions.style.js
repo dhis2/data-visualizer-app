@@ -10,7 +10,7 @@ export const styles = {
         padding: '3px 4px',
     },
     textField: {
-        marginBottom: '12px',
+        paddingBottom: '12px',
         width: 'calc(100% - 8px)',
     },
 };

@@ -1,9 +1,8 @@
 /* App */
 
 .app {
-    max-height: 100vh;
+    height: 100vh;
     background-color: #f4f6f8;
-    overflow: hidden;
 }
 
 /* Flex */
@@ -45,7 +44,6 @@
 /* Main */
 
 .section-main {
-    max-width: 100vw;
 }
 
 .main-left {
