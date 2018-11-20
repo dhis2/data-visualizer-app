@@ -8,10 +8,10 @@ import isEqual from 'lodash-es/isEqual';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 
-import DataDimension from './DataSelector/DataDimension';
-import PeriodDimension from './PeriodSelector/PeriodDimension';
-import OrgUnitDimension from './OrgUnitSelector/OrgUnitDimension';
-import GenericItemSelector from './GenericSelector/GenericItemSelector';
+import DataDimension from './DataDimension/DataDimension';
+import PeriodDimension from './PeriodDimension/PeriodDimension';
+import OrgUnitDimension from './OrgUnitDimension/OrgUnitDimension';
+import DynamicDimension from './DynamicDimension/DynamicDimension';
 import HideButton from '../../HideButton/HideButton';
 import AddToLayoutButton from '../../AddToLayoutButton/AddToLayoutButton';
 
@@ -60,7 +60,7 @@ export class DialogManager extends Component {
         FIXED_DIMENSIONS[this.props.dialogId] ? (
             fixedDialogs[this.props.dialogId]
         ) : (
-            <GenericItemSelector
+            <DynamicDimension
                 dialogId={this.props.dialogId}
                 dialogTitle={this.props.dimensions[this.props.dialogId].name}
             />

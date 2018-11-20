@@ -16,10 +16,10 @@ import { sGetUiItems } from '../../../../reducers/ui';
 import { acRemoveUiItems, acAddUiItems } from '../../../../actions/ui';
 import { acAddMetadata } from '../../../../actions/metadata';
 
-import { styles } from './styles/GenericItemSelector.styles';
+import { styles } from './styles/DynamicDimension.style';
 import '../styles/Dialog.css';
 
-export class GenericItemSelector extends Component {
+export class DynamicDimension extends Component {
     state = {
         filterText: '',
         nextPage: null,
@@ -98,14 +98,14 @@ export class GenericItemSelector extends Component {
                         onClearFilter={this.onClearFilter}
                     />
                     <UnselectedItems
-                        className="generic-dimension"
+                        className="dynamic-dimension"
                         items={this.getUnselectedItems()}
                         onSelect={this.selectItemsByDimensions}
                         filterText={this.state.filterText}
                     />
                 </div>
                 <SelectedItems
-                    className="generic-dimension"
+                    className="dynamic-dimension"
                     items={this.props.selectedItems}
                     onDeselect={this.deselectItemsByDimensions}
                 />
@@ -114,7 +114,7 @@ export class GenericItemSelector extends Component {
     );
 }
 
-GenericItemSelector.propTypes = {
+DynamicDimension.propTypes = {
     selectedItems: PropTypes.array.isRequired,
     addItems: PropTypes.func.isRequired,
     removeItems: PropTypes.func.isRequired,
@@ -132,4 +132,4 @@ export default connect(
         addItems: acAddUiItems,
         addMetadata: acAddMetadata,
     }
-)(GenericItemSelector);
+)(DynamicDimension);

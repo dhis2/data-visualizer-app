@@ -18,7 +18,7 @@ const onChangeWrapper = (props, event) => {
 const onKeyDownWrapper = (onClear, event, text) => {
     if (event.key === 'Escape') {
         event.preventDefault();
-        !text.length ? ref && ref.blur() : onClear();
+        !text.length && ref ? ref.blur() : onClear();
     }
 };
 
