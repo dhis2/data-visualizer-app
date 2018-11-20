@@ -1,6 +1,6 @@
 import React from 'react';
 
-const GenericDimensionIcon = () => {
+const DynamicDimensionIcon = () => {
     return (
         <svg
             width="16px"
@@ -50,4 +50,4 @@ const GenericDimensionIcon = () => {
     );
 };
 
-export default GenericDimensionIcon;
+export default DynamicDimensionIcon;
