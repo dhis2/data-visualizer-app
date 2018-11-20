@@ -20,6 +20,20 @@ export const muiTheme = () => {
         },
     };
 
+    const inputField = {
+        underline: {
+            '&:after': {
+                borderBottom: `1px solid #aaa`,
+            },
+            '&:before': {
+                borderBottom: `1px solid ${colors.greyLight}`,
+            },
+            '&:hover:not($disabled):not($focused):not($error):before': {
+                borderBottom: `1px solid ${colors.greyLight}`,
+            },
+        },
+    };
+
     const dialogContent = {
         root: {
             paddingBottom: 0,
@@ -34,6 +48,7 @@ export const muiTheme = () => {
             MuiButton: raisedButton,
             MuiSelect: selectField,
             MuiDialogContent: dialogContent,
+            MuiInput: inputField,
         },
         typography: {
             useNextVariants: true,

@@ -27,7 +27,7 @@ export const styles = {
         paddingLeft: '6px',
         paddingBottom: '2px',
     },
-    genericDimensionIcon: {
+    dynamicDimensionIcon: {
         paddingLeft: '9px',
         paddingRight: '9px',
     },

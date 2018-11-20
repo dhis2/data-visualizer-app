@@ -5,7 +5,7 @@ import i18n from '@dhis2/d2-i18n';
 import DimensionLabel from './DimensionLabel';
 import DimensionOptions from './DimensionOptions';
 import RecommendedIcon from './RecommendedIcon';
-import GenericDimensionIcon from '../../assets/GenericDimensionIcon';
+import DynamicDimensionIcon from '../../assets/DynamicDimensionIcon';
 import { sGetUiType } from '../../reducers/ui';
 import { setDataTransfer } from '../../modules/dnd';
 import { SOURCE_DIMENSIONS } from '../../modules/layout';
@@ -38,7 +38,7 @@ export class DimensionItem extends Component {
             return <Icon style={styles.fixedDimensionIcon} />;
         }
 
-        return <GenericDimensionIcon style={styles.genericDimensionIcon} />;
+        return <DynamicDimensionIcon style={styles.dynamicDimensionIcon} />;
     };
 
     isDeactivated = () =>

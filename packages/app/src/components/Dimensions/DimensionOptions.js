@@ -24,12 +24,11 @@ export class DimensionOptions extends Component {
     };
 
     onCloseMenu = () => {
-        this.setState({ anchorEl: null });
         this.props.onCloseMenu();
+        this.setState({ anchorEl: null });
     };
 
     addDimension = axisName => {
-        this.onCloseMenu();
         this.props.onAddDimension({ [this.props.id]: axisName });
 
         const items = this.props.items[this.props.id];
@@ -38,17 +37,20 @@ export class DimensionOptions extends Component {
         if (hasNoItems) {
             this.props.openDialog(this.props.id);
         }
+        this.onCloseMenu();
     };
 
     removeDimension = id => {
-        this.onCloseMenu();
         this.props.removeDimension(id);
+        this.onCloseMenu();
     };
 
     getAddToItems = () => {
         let items = [];
+
         if (isYearOverYear(this.props.type)) {
             const label = axisLabels[FILTER];
+
             items = [
                 this.renderMenuItem(
                     `add-to-${this.props.id}`,
@@ -74,6 +76,7 @@ export class DimensionOptions extends Component {
         if (isYearOverYear(this.props.type)) {
             return [];
         }
+
         const layout = Object.entries(this.props.currentLayout);
         const items = layout.filter(
             ([key, axisIds]) => !axisIds.includes(this.props.id)
@@ -105,11 +108,7 @@ export class DimensionOptions extends Component {
             : this.getAddToItems();
 
     renderMenuItem = (key, id, onClick, displayName) => (
-        <MenuItem
-            key={key}
-            onClick={() => onClick(id)}
-            onDoubleClick={() => onClick(id)}
-        >
+        <MenuItem key={key} onClick={() => onClick(id)}>
             {displayName}
         </MenuItem>
     );

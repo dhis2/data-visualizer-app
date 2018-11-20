@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Menu from '@material-ui/core/Menu';
+import Zoom from '@material-ui/core/Zoom';
 
 export const DropDown = ({ id, anchorEl, onClose, menuItems }) => (
     <Menu
@@ -9,6 +10,8 @@ export const DropDown = ({ id, anchorEl, onClose, menuItems }) => (
         open={Boolean(anchorEl)}
         onClose={onClose}
         onExited={onClose}
+        transitionDuration={{ enter: 50, exit: 0 }}
+        TransitionComponent={Zoom}
     >
         {menuItems}
     </Menu>
