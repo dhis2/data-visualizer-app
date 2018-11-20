@@ -41,10 +41,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    onClick: () => {
-        document.getElementById('visualization-container').innerHTML = '';
-        dispatch(acToggleUiRightSidebarOpen());
-    },
+    onClick: () => dispatch(acToggleUiRightSidebarOpen()),
 });
 
 export default connect(
