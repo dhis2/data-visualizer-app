@@ -1,15 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import i18n from '@dhis2/d2-i18n';
-
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
 import { Detail } from './Detail';
-import { dataTypes, isProgram } from '../../../../modules/dataTypes';
+import { dataTypes } from '../../../../modules/dataTypes';
 import { styles } from './styles/Groups.style';
-
-const renderPlaceholder = () => <span>{i18n.t('Select Program')}</span>;
 
 const Groups = props => {
     const handleChange = event => {
@@ -31,9 +27,9 @@ const Groups = props => {
         ));
     };
 
-    const havePlaceholder = isProgram(props.groupId, props.dataType);
-
     const groupDetail = dataTypes[props.dataType].groupDetail;
+
+    const havePlaceholder = Boolean(dataTypes[props.dataType].placeholder);
 
     return (
         <div style={styles.container}>
@@ -44,7 +40,11 @@ const Groups = props => {
                 <Select
                     value={props.groupId}
                     onChange={handleChange}
-                    renderValue={havePlaceholder ? renderPlaceholder : null}
+                    renderValue={
+                        havePlaceholder
+                            ? dataTypes[props.dataType].placeholder
+                            : null
+                    }
                     displayEmpty={havePlaceholder}
                     disableUnderline
                     SelectDisplayProps={

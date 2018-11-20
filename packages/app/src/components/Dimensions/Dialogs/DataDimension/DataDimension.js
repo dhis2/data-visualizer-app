@@ -202,10 +202,6 @@ export class DataDimension extends Component {
 
         const groups = this.state.groups[this.state.dataType] || [];
 
-        if (!groups.length) {
-            return <div />;
-        }
-
         return (
             <Fragment>
                 <DialogTitle>{i18n.t('Data')}</DialogTitle>

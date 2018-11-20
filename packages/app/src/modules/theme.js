@@ -36,10 +36,9 @@ export const muiTheme = () => {
 
     const dialogContent = {
         root: {
+            overflowY: 'scroll',
             paddingBottom: 0,
             paddingTop: 0,
-            overflow: 'hidden',
-            overflowY: 'hidden',
         },
     };
 

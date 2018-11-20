@@ -61,16 +61,6 @@
     left: 452px;
 }
 
-.unselected-label,
-.selected-label {
-    font-family: Roboto;
-    font-size: 14px;
-}
-
-.unselected-label {
-    padding: 2px;
-}
-
 .unselected-item-label {
     font-family: Roboto;
     font-size: 14px;

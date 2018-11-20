@@ -1,3 +1,4 @@
+import React from 'react';
 import i18n from '@dhis2/d2-i18n';
 
 import { DATA_SETS_CONSTANTS } from '../modules/dataSets';
@@ -47,6 +48,7 @@ export const dataTypes = {
         id: EVENT_DATA_ITEMS,
         name: i18n.t('Event data items'),
         groupLabel: i18n.t('Program'),
+        placeholder: () => <span>{i18n.t('Select Program')}</span>,
         defaultGroup: null,
         groupDetail: false,
     },
@@ -54,14 +56,11 @@ export const dataTypes = {
         id: PROGRAM_INDICATORS,
         name: i18n.t('Program indicators'),
         groupLabel: i18n.t('Program'),
+        placeholder: () => <span>{i18n.t('Select Program')}</span>,
         defaultGroup: null,
         groupDetail: false,
     },
 };
-
-export const isProgram = (id, dataType) =>
-    !id.length &&
-    (dataType === PROGRAM_INDICATORS || dataType === EVENT_DATA_ITEMS);
 
 export function defaultGroupId(dataType) {
     return dataTypes[dataType].defaultGroup

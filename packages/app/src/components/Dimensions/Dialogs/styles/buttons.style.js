@@ -10,9 +10,6 @@ export const styles = {
     arrowIcon: {
         height: '20px',
         width: '24px',
-        position: 'relative',
-        top: '2px',
-        right: '2px',
         fill: colors.greyDark,
     },
     buttonText: {
