@@ -2,8 +2,11 @@ import { colors } from '../../../modules/colors';
 
 export const styles = {
     divContainer: {
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
         backgroundColor: colors.snow,
-        padding: '8px 0 8px 8px',
+        padding: '8px 0 2px 8px',
     },
     searchIcon: {
         color: colors.grey,
