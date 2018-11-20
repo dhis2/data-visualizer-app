@@ -1,3 +1,5 @@
+import { LAYOUT_HEIGHT } from '../../styles/style';
+
 // Axis
 export const FILTER_AXIS_WIDTH = '67%';
 export const DIMENSION_AXIS_CONTENT_HEIGHT = '36px';
@@ -8,7 +10,7 @@ export const DIMENSION_AXIS_WIDTH = `${100 - parseInt(FILTER_AXIS_WIDTH, 10)}%`;
 export default {
     ct: {
         display: 'flex',
-        // flex: 1,
+        height: LAYOUT_HEIGHT,
     },
     axisGroup: {
         display: 'flex',
