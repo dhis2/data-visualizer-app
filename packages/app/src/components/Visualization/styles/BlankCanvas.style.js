@@ -2,11 +2,8 @@ import { colors } from '../../../modules/colors';
 
 export default {
     outer: {
-        // display: 'flex',
-        // justifyContent: 'center',
-        // height: '100%',
-        // width: '100%',
-        // position: 'absolute',
+        display: 'flex',
+        justifyContent: 'center',
         height: '100%',
     },
     inner: {

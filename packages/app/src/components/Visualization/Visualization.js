@@ -38,7 +38,6 @@ export class Visualization extends Component {
         window.addEventListener(
             'resize',
             debounce(() => {
-                console.log('resize');
                 this.recreateChart();
             }, 300)
         );
@@ -73,9 +72,6 @@ export class Visualization extends Component {
 
         if (this.props.rightSidebarOpen !== prevProps.rightSidebarOpen) {
             this.recreateChart();
-            // if (this.chart) {
-            //     this.chart.reflow();
-            // }
         }
     }
 
@@ -130,10 +126,6 @@ export class Visualization extends Component {
                 visContainerId,
                 extraOptions
             );
-
-            // this.chart = chartConfig.chart;
-
-            this.reflowChart = () => this.chart.reflow();
 
             this.recreateChart = () => {
                 createChart(responses, vis, visContainerId, {
