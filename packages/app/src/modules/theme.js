@@ -38,6 +38,8 @@ export const muiTheme = () => {
         root: {
             paddingBottom: 0,
             paddingTop: 0,
+            overflow: 'hidden',
+            overflowY: 'hidden',
         },
     };
 
