@@ -47,15 +47,9 @@
 
 /* Main */
 
-.section-main {
-}
-
 .main-left {
     min-width: 260px;
     border-right: 1px solid #e0e2e4;
-}
-
-.main-center {
 }
 
 .main-right {
@@ -64,9 +58,6 @@
 }
 
 /* Main center */
-
-.main-center-layout {
-}
 
 .main-center-titlebar {
     height: 34px;
