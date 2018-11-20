@@ -8,17 +8,9 @@ export const styles = {
         borderBottom: '0px',
     },
     textField: {
-        paddingRight: '5px',
-        width: '98%',
-        fontSize: '14px',
-    },
-    searchIcon: {
+        paddingRight: '7px',
         paddingTop: '5px',
-        paddingLeft: '5px',
-    },
-    placeholder: {
+        width: '100%',
         fontSize: '14px',
-        paddingTop: '12px',
-        paddingLeft: '5px',
     },
 };

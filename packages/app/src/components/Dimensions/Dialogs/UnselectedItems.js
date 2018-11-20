@@ -26,6 +26,23 @@ export class UnselectedItems extends Component {
         this.setState({ highlighted: [] });
     };
 
+    onDoubleClickItem = id => {
+        const highlighted = this.state.highlighted.filter(
+            dataDimId => dataDimId !== id
+        );
+
+        this.setState({ highlighted });
+        this.props.onSelect([id]);
+    };
+
+    filterTextContains = displayName =>
+        displayName.toLowerCase().includes(this.props.filterText.toLowerCase());
+
+    filterItems = (item, index) =>
+        this.filterTextContains(item.name)
+            ? this.renderListItem(item, index)
+            : null;
+
     toggleHighlight = (isCtrlPressed, isShiftPressed, index, id) => {
         const newState = toggler(
             id,
@@ -41,15 +58,6 @@ export class UnselectedItems extends Component {
             highlighted: newState.ids,
             lastClickedIndex: newState.lastClickedIndex,
         });
-    };
-
-    onDoubleClickItem = id => {
-        const highlighted = this.state.highlighted.filter(
-            dataDimId => dataDimId !== id
-        );
-
-        this.setState({ highlighted });
-        this.props.onSelect([id]);
     };
 
     renderListItem = (dataDim, index) => (
@@ -83,7 +91,9 @@ export class UnselectedItems extends Component {
 
     render = () => {
         const listItems = this.props.items.map((item, index) =>
-            this.renderListItem(item, index)
+            this.props.filterText.length
+                ? this.filterItems(item, index)
+                : this.renderListItem(item, index)
         );
 
         return (

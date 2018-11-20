@@ -7,7 +7,7 @@
     height: 389px;
 }
 
-.generic-dimension-dialog {
+.dynamic-dimension-dialog {
     height: 495px;
 }
 
@@ -15,17 +15,17 @@
     height: 351px;
 }
 
-.generic-dimension-list {
+.dynamic-dimension-list {
     height: 457px;
 }
 
 .data-dimension-dialog,
-.generic-dimension-dialog {
+.dynamic-dimension-dialog {
     border: 1px solid #e0e0e0;
 }
 
 .data-dimension-list,
-.generic-dimension-list {
+.dynamic-dimension-list {
     user-select: none;
     list-style: none;
     overflow-y: auto;
@@ -36,9 +36,9 @@
 }
 
 .data-dimension-arrow-forward-button,
-.generic-dimension-arrow-forward-button,
+.dynamic-dimension-arrow-forward-button,
 .data-dimension-arrow-back-button,
-.generic-dimension-arrow-back-button {
+.dynamic-dimension-arrow-back-button {
     outline: none;
     min-width: 39px;
     padding: 0px;
@@ -48,14 +48,14 @@
 }
 
 .data-dimension-arrow-forward-button,
-.generic-dimension-arrow-forward-button {
+.dynamic-dimension-arrow-forward-button {
     position: absolute;
     top: 277px;
     left: 452px;
 }
 
 .data-dimension-arrow-back-button,
-.generic-dimension-arrow-back-button {
+.dynamic-dimension-arrow-back-button {
     position: absolute;
     top: 347px;
     left: 452px;

@@ -2,5 +2,7 @@ export const styles = {
     dialogContent: {
         display: 'flex',
     },
-    dialogContainer: { paddingRight: 55 },
+    dialogContainer: {
+        paddingRight: 55,
+    },
 };

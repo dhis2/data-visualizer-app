@@ -1,29 +1,6 @@
 import { getInstance } from 'd2';
-import i18n from '@dhis2/d2-i18n';
 import { onError } from './index';
-
-export const DATA_SETS_CONSTANTS = [
-    {
-        id: 'REPORTING_RATES',
-        name: i18n.t('Reporting rates'),
-    },
-    {
-        id: 'REPORTING_RATES_ON_TIME',
-        name: i18n.t('Reporting rates on time'),
-    },
-    {
-        id: 'ACTUAL_REPORTS',
-        name: i18n.t('Actual reports'),
-    },
-    {
-        id: 'ACTUAL_REPORTING_RATES_ON_TIME',
-        name: i18n.t('Actual reporting rates on time'),
-    },
-    {
-        id: 'EXPECTED_REPORTS',
-        name: i18n.t('Expected reports'),
-    },
-];
+import { DATA_SETS_CONSTANTS } from '../modules/dataSets';
 
 const request = (entity, paramString) => {
     const url = `/${entity}?${paramString}&paging=false`;
@@ -49,26 +26,29 @@ const requestWithPaging = (entity, paramString, page) => {
 
 // Get dimensions on startup
 export const apiFetchDimensions = nameProp => {
-    const params = `fields=id,${nameProp}~rename(name),dimensionType`;
+    const fields = `fields=id,${nameProp}~rename(name),dimensionType`;
+    const order = `order=${nameProp}:asc`;
+
+    const params = `${fields}&${order}`;
 
     return request('dimensions', params);
 };
 
 export const apiFetchRecommendedIds = (dxIds, ouIds) => {
-    let fields = 'dimension=';
+    let dimensions = 'dimension=';
 
     if (dxIds.length) {
-        fields = fields.concat(`dx:${dxIds.join(';')}`);
+        dimensions = dimensions.concat(`dx:${dxIds.join(';')}`);
 
         if (ouIds.length)
-            fields = fields.concat(`&dimension=ou:${ouIds.join(';')}`);
+            dimensions = dimensions.concat(`&dimension=ou:${ouIds.join(';')}`);
     } else if (ouIds.length) {
-        fields = fields.concat(`ou:${ouIds.join(';')}`);
+        dimensions = dimensions.concat(`ou:${ouIds.join(';')}`);
     } else {
         return Promise.resolve([]);
     }
 
-    const url = `/dimensions/recommendations?${fields}&fields=id`;
+    const url = `/dimensions/recommendations?${dimensions}&fields=id`;
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))
         .then(response => response.dimensions.map(item => item.id))
@@ -77,7 +57,9 @@ export const apiFetchRecommendedIds = (dxIds, ouIds) => {
 
 export const apiFetchItemsByDimension = dimensionId => {
     const fields = `fields=id,displayName~rename(name)`;
-    const url = `dimensions/${dimensionId}/items?${fields}`;
+    const order = `order=displayName:asc`;
+
+    const url = `dimensions/${dimensionId}/items?${fields}&${order}`;
 
     return getInstance().then(d2 =>
         d2.Api.getApi()
@@ -90,17 +72,20 @@ export const apiFetchGroups = (dataType, nameProp) => {
     //indicatorGroups does not support shortName
     const name = dataType === 'indicators' ? 'displayName' : nameProp;
     const fields = `fields=id,${name}~rename(name)`;
+    const order = `order=${name}:asc`;
+
+    const params = `${fields}&${order}`;
 
     switch (dataType) {
         case 'indicators': {
-            return request('indicatorGroups', fields);
+            return request('indicatorGroups', params);
         }
         case 'dataElements': {
-            return request('dataElementGroups', fields);
+            return request('dataElementGroups', params);
         }
         case 'eventDataItems':
         case 'programIndicators': {
-            return request('programs', fields);
+            return request('programs', params);
         }
         case 'dataSets': {
             return Promise.resolve(DATA_SETS_CONSTANTS);
@@ -137,7 +122,8 @@ export const apiFetchAlternatives = args => {
 };
 
 const fetchIndicators = ({ nameProp, groupId, filterText, page }) => {
-    const fields = `fields=id,${nameProp}~rename(name),dimensionItemType`;
+    const fields = `fields=id,${nameProp}~rename(name),dimensionItemType&order=${nameProp}:asc`;
+    const order = `order=${nameProp}:asc`;
     let filter =
         groupId !== 'ALL' ? `&filter=indicatorGroups.id:eq:${groupId}` : '';
 
@@ -145,7 +131,7 @@ const fetchIndicators = ({ nameProp, groupId, filterText, page }) => {
         filter = filter.concat(`&filter=${nameProp}:ilike:${filterText}`);
     }
 
-    const paramString = `${fields}${filter}`;
+    const paramString = `${fields}&${order}${filter}`;
 
     return requestWithPaging('indicators', paramString, page);
 };
@@ -153,6 +139,7 @@ const fetchIndicators = ({ nameProp, groupId, filterText, page }) => {
 const fetchDataElements = ({ groupId, page, filterText, nameProp }) => {
     const idField = groupId === 'ALL' ? 'id' : 'dimensionItem~rename(id)';
     const fields = `fields=${idField},${nameProp}~rename(name)`;
+    const order = `order=${nameProp}:asc`;
 
     let filter = '&filter=domainType:eq:AGGREGATE';
     if (groupId !== 'ALL') {
@@ -163,7 +150,7 @@ const fetchDataElements = ({ groupId, page, filterText, nameProp }) => {
         filter = filter.concat(`&filter=${nameProp}:ilike:${filterText}`);
     }
 
-    const paramString = `${fields}${filter}`;
+    const paramString = `${fields}&${order}${filter}`;
 
     return requestWithPaging('dataElements', paramString, page);
 };
@@ -171,6 +158,7 @@ const fetchDataElements = ({ groupId, page, filterText, nameProp }) => {
 const fetchDataElementOperands = ({ groupId, page, filterText, nameProp }) => {
     const idField = groupId === 'ALL' ? 'id' : 'dimensionItem~rename(id)';
     const fields = `fields=${idField},${nameProp}~rename(name)`;
+    const order = `order=${nameProp}:asc`;
 
     let filter = '';
     if (groupId !== 'ALL') {
@@ -182,23 +170,30 @@ const fetchDataElementOperands = ({ groupId, page, filterText, nameProp }) => {
         filter = filter.length ? filter.concat(textFilter) : textFilter;
     }
 
-    return requestWithPaging('dataElementOperands', `${fields}${filter}`, page);
+    return requestWithPaging(
+        'dataElementOperands',
+        `${fields}&${order}${filter}`,
+        page
+    );
 };
 
 const fetchDataSets = ({ page, filterText, nameProp }) => {
     const fields = `fields=dimensionItem~rename(id),${nameProp}~rename(name)`;
+    const order = `order=${nameProp}:asc`;
     const filter = filterText ? `&filter=${nameProp}:ilike:${filterText}` : '';
 
-    const paramString = `${fields}${filter}`;
+    const paramString = `${fields}&${order}${filter}`;
 
     return requestWithPaging('dataSets', paramString, page);
 };
 
 const fetchProgramDataElements = ({ groupId, page, filterText, nameProp }) => {
     const fields = `fields=dimensionItem~rename(id),${nameProp}~rename(name)`;
+    const order = `order=${nameProp}:asc`;
+    const program = `program=${groupId}`;
     const filter = filterText ? `&filter=${nameProp}:ilike:${filterText}` : '';
 
-    const paramString = `${fields}${filter}&program=${groupId}`;
+    const paramString = `${fields}&${order}&${program}${filter}`;
 
     return requestWithPaging('programDataElements', paramString, page);
 };
