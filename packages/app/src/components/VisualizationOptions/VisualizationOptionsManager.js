@@ -46,7 +46,7 @@ class VisualizationOptionsManager extends Component {
                         <VisualizationOptions />
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={this.onClose}>{i18n.t('Hide')}</Button>
+                        <Button color="primary" onClick={this.onClose}>{i18n.t('Hide')}</Button>
                         <UpdateButton onClick={this.onClose} />
                     </DialogActions>
                 </Dialog>
