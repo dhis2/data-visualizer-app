@@ -21,6 +21,14 @@ export default {
     },
     interpretation: {
         fontSize: '12px',
+        color: colors.greyDark,
+    },
+    interpretationIcon: {
+        display: 'flex',
+        alignItems: 'center',
+        height: '14px',
+        width: '14px',
+        marginRight: '3px',
     },
     titleUnsaved: {
         color: colors.grey,
