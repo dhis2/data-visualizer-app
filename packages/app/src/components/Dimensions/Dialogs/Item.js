@@ -63,4 +63,3 @@ Item.propTypes = {
 };
 
 export default Item;
-// export default withStyles(styles)(Item);
