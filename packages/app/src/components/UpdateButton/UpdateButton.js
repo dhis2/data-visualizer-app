@@ -38,7 +38,9 @@ const UpdateButton = ({
     return (
         <Button
             {...props}
-            className={flat ? `${classes.flat} ${props.className}` : props.className}
+            className={
+                flat ? `${classes.flat} ${props.className}` : props.className
+            }
             variant="contained"
             color="primary"
             onClick={wrappedOnClick}

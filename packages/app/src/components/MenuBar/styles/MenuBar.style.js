@@ -7,7 +7,7 @@ export default theme => ({
         height: '38px',
     },
     updateButton: {
-        marginRight: theme.spacing.unit
+        marginRight: theme.spacing.unit,
     },
     label: {
         fontSize: '15px',
@@ -19,7 +19,7 @@ export default theme => ({
     },
     fileMenu: {
         '& > button > span': {
-            fontSize: '15px'
-        }
-    }
+            fontSize: '15px',
+        },
+    },
 });
