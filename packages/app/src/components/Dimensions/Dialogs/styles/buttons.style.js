@@ -1,39 +1,37 @@
 import { colors } from '../../../../modules/colors';
 
 export const styles = {
-    assignButton: {
-        padding: 0,
-        minWidth: 40,
+    arrowButton: {
+        padding: '0px',
+        minWidth: '40px',
+        minHeight: '36px',
         backgroundColor: colors.white,
     },
     arrowIcon: {
-        height: 20,
-        width: 24,
-        position: 'relative',
-        top: 2,
-        right: 2,
-    },
-    deselectButton: {
-        left: 76,
-    },
-    selectButton: {
-        left: 165,
+        height: '20px',
+        width: '24px',
+        fill: colors.greyDark,
     },
     buttonText: {
-        fontSize: 13,
-        letterSpacing: 0.46,
+        fontSize: '13px',
+        letterSpacing: '0.46',
     },
     deleteButton: {
         border: 'none',
         outline: 'none',
-        cursor: 'pointer',
         background: 'none',
-        padding: '3px 0px 0px 5px',
-        width: 15,
+        padding: '0px',
+        height: '18px',
+        width: '18px',
     },
-    deleteButtonIcon: {
-        fill: colors.blue,
-        height: 13,
-        width: 10,
+    close: {
+        fill: colors.accentSecondary,
+        height: '13px',
+        width: '10px',
+    },
+    highlightedClose: {
+        fill: colors.white,
+        height: '13px',
+        width: '10px',
     },
 };

@@ -1,3 +1,4 @@
+import React from 'react';
 import i18n from '@dhis2/d2-i18n';
 
 import { DATA_SETS_CONSTANTS } from '../modules/dataSets';
@@ -25,10 +26,7 @@ export const dataTypes = {
         id: DATA_ELEMENTS,
         name: i18n.t('Data elements'),
         groupLabel: i18n.t('Select data element group'),
-        defaultGroup: {
-            id: ALL_ID,
-            name: i18n.t('[ All data elements ]'),
-        },
+        defaultGroup: { id: ALL_ID, name: i18n.t('[ All data elements ]') },
         groupDetail: {
             alternatives: {
                 [TOTALS]: i18n.t('Totals'),
@@ -49,14 +47,16 @@ export const dataTypes = {
     [EVENT_DATA_ITEMS]: {
         id: EVENT_DATA_ITEMS,
         name: i18n.t('Event data items'),
-        groupLabel: i18n.t('Select program'),
+        groupLabel: i18n.t('Program'),
+        placeholder: () => <span>{i18n.t('Select Program')}</span>,
         defaultGroup: null,
         groupDetail: false,
     },
     [PROGRAM_INDICATORS]: {
         id: PROGRAM_INDICATORS,
         name: i18n.t('Program indicators'),
-        groupLabel: i18n.t('Select program'),
+        groupLabel: i18n.t('Program'),
+        placeholder: () => <span>{i18n.t('Select Program')}</span>,
         defaultGroup: null,
         groupDetail: false,
     },
