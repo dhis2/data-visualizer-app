@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-11-20T12:01:10.666Z\n"
-"PO-Revision-Date: 2018-11-20T12:01:10.666Z\n"
+"POT-Creation-Date: 2018-11-20T15:59:24.350Z\n"
+"PO-Revision-Date: 2018-11-20T15:59:24.350Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -24,9 +24,6 @@ msgid "Data Type"
 msgstr ""
 
 msgid "Detail"
-msgstr ""
-
-msgid "Select Program"
 msgstr ""
 
 msgid "Search"
@@ -360,6 +357,9 @@ msgid "Event data items"
 msgstr ""
 
 msgid "Program"
+msgstr ""
+
+msgid "Select Program"
 msgstr ""
 
 msgid "Program indicators"
