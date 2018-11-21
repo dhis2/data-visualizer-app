@@ -3,6 +3,10 @@
     margin: 2px;
 }
 
+.dimension-item.selected {
+    z-index: 10000;
+}
+
 .data-dimension-dialog {
     height: 389px;
 }
