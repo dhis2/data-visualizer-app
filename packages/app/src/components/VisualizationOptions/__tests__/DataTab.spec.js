@@ -5,16 +5,20 @@ import FormGroup from '@material-ui/core/FormGroup';
 import { DataTab } from '../DataTab';
 
 describe('The DataTab component', () => {
+    let props;
     let shallowDataTab;
 
     const dataTab = () => {
         if (!shallowDataTab) {
-            shallowDataTab = shallow(<DataTab />);
+            shallowDataTab = shallow(<DataTab {...props} />);
         }
         return shallowDataTab;
     };
 
     beforeEach(() => {
+        props = {
+            classes: {},
+        };
         shallowDataTab = undefined;
     });
 

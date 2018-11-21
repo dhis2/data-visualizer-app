@@ -24,6 +24,7 @@ describe('DV > Options > TextBaseOption', () => {
                 label: 'Input field',
             },
             onChange,
+            classes: {},
         };
 
         shallowTextBaseOption = undefined;

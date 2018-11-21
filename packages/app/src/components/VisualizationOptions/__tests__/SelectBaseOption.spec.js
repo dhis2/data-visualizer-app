@@ -30,6 +30,7 @@ describe('DV > Options > SelectBaseOption', () => {
                 ],
             },
             onChange,
+            classes: {},
         };
 
         shallowSelectBaseOption = undefined;

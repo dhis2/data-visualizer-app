@@ -5,16 +5,20 @@ import FormGroup from '@material-ui/core/FormGroup';
 import { AxesAndLegendsTab } from '../AxesAndLegendsTab';
 
 describe('The Axis & Legend tab', () => {
+    let props;
     let shallowAxesComponent;
 
     const axesAndLegendsTab = () => {
         if (!shallowAxesComponent) {
-            shallowAxesComponent = shallow(<AxesAndLegendsTab />);
+            shallowAxesComponent = shallow(<AxesAndLegendsTab {...props} />);
         }
         return shallowAxesComponent;
     };
 
     beforeEach(() => {
+        props = {
+            classes: {},
+        };
         shallowAxesComponent = undefined;
     });
 

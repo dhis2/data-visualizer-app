@@ -21,6 +21,7 @@ describe('DV > Options > CheckboxBaseOption', () => {
             value: false,
             option: { label: 'test' },
             onChange,
+            classes: {},
         };
 
         shallowCheckboxBaseOption = undefined;
