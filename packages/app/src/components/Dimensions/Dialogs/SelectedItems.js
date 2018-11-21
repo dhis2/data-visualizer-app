@@ -2,12 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
-
-import { Item } from './Item';
-import { UnAssignButton, DeselectAllButton } from './buttons';
-
+import Item from './Item';
+import { ArrowButton as UnAssignButton } from './buttons/ArrowButton';
+import { SelectButton as DeselectAllButton } from './buttons/SelectButton';
 import { sGetMetadata } from '../../../reducers/metadata';
-
 import { toggler } from '../../../modules/toggler';
 import { styles } from './styles/SelectedItems.style';
 
@@ -29,8 +27,9 @@ export class SelectedItems extends Component {
         const highlighted = this.state.highlighted.filter(
             dataDimId => dataDimId !== id
         );
-        this.setState({ highlighted });
+
         this.props.onDeselect([id]);
+        this.setState({ highlighted });
     };
 
     onDeselectAllClick = () => {
@@ -84,10 +83,15 @@ export class SelectedItems extends Component {
                 <Subtitle />
                 <ul style={styles.list}>{dataDimensions}</ul>
                 <UnAssignButton
-                    className={this.props.className}
-                    action={this.onDeselectClick}
+                    className={`${this.props.className}-arrow-back-button`}
+                    onClick={this.onDeselectClick}
+                    iconType={'arrowBack'}
                 />
-                <DeselectAllButton action={this.onDeselectAllClick} />
+                <DeselectAllButton
+                    style={styles.deselectButton}
+                    onClick={this.onDeselectAllClick}
+                    label={i18n.t('Deselect All')}
+                />
             </div>
         );
     };
