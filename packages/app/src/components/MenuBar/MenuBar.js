@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import FileMenu from '@dhis2/d2-ui-file-menu';
+import { withStyles } from '@material-ui/core/styles';
 
 import UpdateButton from '../UpdateButton/UpdateButton';
 import DownloadMenu from '../DownloadMenu/DownloadMenu';
@@ -11,7 +12,6 @@ import * as fromActions from '../../actions';
 import { sGetCurrent } from '../../reducers/current';
 import history from '../../modules/history';
 import styles from './styles/MenuBar.style';
-import './styles/MenuBar.css';
 
 const onOpen = id => {
     const path = `/${id}`;
@@ -29,10 +29,10 @@ const getOnSaveAs = props => details =>
     props.onSaveVisualization(details, true);
 const getOnDelete = props => () => props.onDeleteVisualization();
 
-export const MenuBar = (props, context) => (
-    <div className="menubar" style={styles.menuBar}>
-        <UpdateButton />
-        <div className="file-menu-button-wrapper">
+export const MenuBar = ({ classes, ...props }, context) => (
+    <div className={classes.menuBar}>
+        <UpdateButton flat size="small" className={classes.updateButton} />
+        <div className={classes.fileMenu}>
             <FileMenu
                 d2={context.d2}
                 fileId={props.id || null}
@@ -47,11 +47,16 @@ export const MenuBar = (props, context) => (
                 onError={() => console.log('error!')}
             />
         </div>
-        <VisualizationOptionsManager labelStyle={styles.label} />
-        <DownloadMenu labelStyle={styles.label} />
-        <InterpretationsButton labelStyle={styles.label} />
+        <VisualizationOptionsManager className={classes.label} />
+        <DownloadMenu className={classes.label} />
+        <div className={classes.grow} />
+        <InterpretationsButton className={classes.label} />
     </div>
 );
+
+MenuBar.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
 
 MenuBar.contextTypes = {
     d2: PropTypes.object,
@@ -80,4 +85,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(MenuBar);
+)(withStyles(styles)(MenuBar));
