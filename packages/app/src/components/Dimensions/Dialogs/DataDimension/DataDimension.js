@@ -199,12 +199,11 @@ export class DataDimension extends Component {
         });
     };
 
-    setUiItems = items => {
+    setUiItems = items =>
         this.props.setDxItems({
             dimensionType: dxId,
             items,
         });
-    };
 
     render = () => {
         const unselected = this.state.items.filter(di =>
@@ -260,6 +259,7 @@ DataDimension.propTypes = {
     displayNameProp: PropTypes.string.isRequired,
     selectedItems: PropTypes.array.isRequired,
     addDxItems: PropTypes.func.isRequired,
+    setDxItems: PropTypes.func.isRequired,
     removeDxItems: PropTypes.func.isRequired,
     addMetadata: PropTypes.func.isRequired,
 };

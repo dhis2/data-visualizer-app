@@ -69,10 +69,9 @@ export class UnselectedItems extends Component {
             <Item
                 id={dataDim.id}
                 index={index}
-                displayName={dataDim.name}
+                name={dataDim.name}
                 isHighlighted={!!this.state.highlighted.includes(dataDim.id)}
                 onItemClick={this.toggleHighlight}
-                className="unselected"
             />
         </li>
     );

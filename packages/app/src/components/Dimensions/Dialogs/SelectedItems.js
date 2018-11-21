@@ -23,38 +23,33 @@ const Subtitle = () => (
     </div>
 );
 
-const SortableItem = SortableElement(({ id, onRemoveItem, ...props }) => {
-    return (
-        <li
-            id={id}
-            className="dimension-item selected"
-            onDoubleClick={() => props.onRemoveItem(id)}
-        >
-            <Item id={id} index={props.idx} {...props} selected />
-        </li>
-    );
-});
+const SortableItem = SortableElement(({ id, idx, ...props }) => (
+    <li
+        id={id}
+        className="dimension-item selected"
+        onDoubleClick={() => props.onRemoveItem(id)}
+    >
+        <Item id={id} index={idx} {...props} selected />
+    </li>
+));
 
-const SortableList = SortableContainer(props => {
-    return (
+const SortableList = SortableContainer(
+    ({ metadata, highlighted, items, ...itemProps }) => (
         <ul style={styles.list}>
-            {props.items.map((id, index) => {
-                return (
-                    <SortableItem
-                        id={id}
-                        index={index}
-                        idx={index}
-                        key={`item-${id}`}
-                        name={props.metadata[id].name}
-                        isHighlighted={props.highlighted.includes(id)}
-                        onRemoveItem={props.onRemoveItem}
-                        onItemClick={props.onItemClick}
-                    />
-                );
-            })}
+            {items.map((id, index) => (
+                <SortableItem
+                    id={id}
+                    index={index}
+                    idx={index}
+                    key={`item-${id}`}
+                    name={metadata[id].name}
+                    isHighlighted={highlighted.includes(id)}
+                    {...itemProps}
+                />
+            ))}
         </ul>
-    );
-});
+    )
+);
 export class SelectedItems extends Component {
     state = { highlighted: [], lastClickedIndex: 0 };
 
