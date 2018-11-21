@@ -20,7 +20,11 @@ import {
 import { sGetUiItems } from '../../../../reducers/ui';
 import { sGetDisplayNameProperty } from '../../../../reducers/settings';
 
-import { acRemoveUiItems, acAddUiItems } from '../../../../actions/ui';
+import {
+    acRemoveUiItems,
+    acAddUiItems,
+    acSetUiItems,
+} from '../../../../actions/ui';
 import { acAddMetadata } from '../../../../actions/metadata';
 
 import {
@@ -195,6 +199,13 @@ export class DataDimension extends Component {
         });
     };
 
+    setUiItems = items => {
+        this.props.setDxItems({
+            dimensiontType: dxId,
+            items,
+        });
+    };
+
     render = () => {
         const unselected = this.state.items.filter(di =>
             this.state.unselectedIds.includes(di.id)
@@ -241,6 +252,7 @@ export class DataDimension extends Component {
                         items={this.props.selectedItems}
                         dialogId={dxId}
                         onDeselect={this.deselectDataDimensions}
+                        onReorder={this.setUiItems}
                     />
                 </DialogContent>
             </Fragment>
@@ -266,6 +278,7 @@ export default connect(
     {
         removeDxItems: acRemoveUiItems,
         addDxItems: acAddUiItems,
+        setDxItems: acSetUiItems,
         addMetadata: acAddMetadata,
     }
 )(DataDimension);
