@@ -5,13 +5,12 @@ import Button from '@material-ui/core/Button';
 import i18n from '@dhis2/d2-i18n';
 
 import { acSetUiActiveModalDialog } from '../../actions/ui';
-import styles from './styles/HideButton.style';
 
-const HideButton = ({ closeDialog }) => (
+const HideButton = ({ className, closeDialog }) => (
     <Button
+        className={className}
+        color="primary"
         onClick={() => closeDialog(null)}
-        style={styles}
-        size="small"
         disableRipple={true}
         disableFocusRipple={true}
     >

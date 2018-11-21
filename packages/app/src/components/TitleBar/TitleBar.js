@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
 import i18n from '@dhis2/d2-i18n';
+
 import {
     sGetVisualization,
     DEFAULT_VISUALIZATION,
@@ -11,6 +11,7 @@ import { sGetCurrent, DEFAULT_CURRENT } from '../../reducers/current';
 import { sGetUiInterpretation } from '../../reducers/ui';
 import { sGetUiLocale } from '../../reducers/settings';
 import formatDate from '../../modules/formatDate';
+import InterpretationIcon from '../../assets/InterpretationIcon';
 import styles from './styles/TitleBar.style';
 
 export const TITLE_UNSAVED = i18n.t('Unsaved chart');
@@ -94,12 +95,17 @@ export const TitleBar = ({ titleState, titleText, interpretationDate }) => {
             </div>
             {interpretationDate && (
                 <div style={defaultInterpretationStyle}>
-                    {i18n.t(
-                        'Viewing interpretation from {{interpretationDate}}',
-                        {
-                            interpretationDate,
-                        }
-                    )}
+                    <div style={styles.interpretationIcon}>
+                        <InterpretationIcon />
+                    </div>
+                    <div>
+                        {i18n.t(
+                            'Viewing interpretation from {{interpretationDate}}',
+                            {
+                                interpretationDate,
+                            }
+                        )}
+                    </div>
                 </div>
             )}
         </div>
