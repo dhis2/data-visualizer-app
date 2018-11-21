@@ -15,57 +15,55 @@ import HideSubtitle from './Options/HideSubtitle';
 import Subtitle from './Options/Subtitle';
 
 const styles = {
-    numberField: {
-        minHeight: 55,
-        marginRight: 20,
-        width: 120,
+    formGroupContainer: {
+        paddingTop: 15,
     },
-    rangeAxistextField: {
-        minHeight: 55,
-        width: '40%',
-        marginRight: '60%',
+    formGroupRoot: {
+        paddingBottom: 15,
     },
-    domainAxisTextField: {
-        width: '40%',
-        marginRight: 80,
+    rangeAxisMin: {
+        paddingRight: 15,
     },
-    domainAxisSubtitleTextField: {
-        minHeight: 55,
-        width: '40%',
-        marginRight: 80,
+    textBaseRoot: {
+        paddingBottom: 15,
     },
-    inputLabeltextSize: {
-        fontSize: 13,
+    formControlLabelRoot: {
+        marginLeft: 15,
+        alignItems: 'flex-end',
     },
-    coverRestofRowSpace: {
-        minHeight: 55,
-        width: 120,
-        marginRight: '65%',
-    },
-    hideChartLegendCheckbox: {
-        minHeight: 55,
-        marginRight: '80%',
+    checkBoxRoot: {
+        padding: '0px 5px',
     },
 };
 
 export const AxesAndLegendsTab = ({ classes }) => (
-    <FormGroup>
-        <FormGroup row={true}>
-            <RangeAxisMinValue />
+    <FormGroup classes={{ root: classes.formGroupContainer }}>
+        <FormGroup classes={{ row: classes.formGroupRoot }} row={true}>
+            <RangeAxisMinValue classes={{ root: classes.rangeAxisMin }} />
             <RangeAxisMaxValue />
         </FormGroup>
-        <RangeAxisSteps />
-        <RangeAxisDecimals />
-        <RangeAxisLabel />
-        <DomainAxisLabel />
+        <RangeAxisSteps classes={{ root: classes.textBaseRoot }} />
+        <RangeAxisDecimals classes={{ root: classes.textBaseRoot }} />
+        <RangeAxisLabel classes={{ root: classes.textBaseRoot }} />
+        <DomainAxisLabel classes={{ root: classes.textBaseRoot }} />
         <HideLegend />
-        <FormGroup row={true}>
+        <FormGroup classes={{ row: classes.formGroupRoot }} row={true}>
             <Title />
-            <HideTitle />
+            <HideTitle
+                classes={{
+                    checkBoxRoot: classes.checkBoxRoot,
+                    formControlLabelRoot: classes.formControlLabelRoot,
+                }}
+            />
         </FormGroup>
-        <FormGroup row={true}>
+        <FormGroup classes={{ row: classes.formGroupRoot }} row={true}>
             <Subtitle />
-            <HideSubtitle />
+            <HideSubtitle
+                classes={{
+                    checkBoxRoot: classes.checkBoxRoot,
+                    formControlLabelRoot: classes.formControlLabelRoot,
+                }}
+            />
         </FormGroup>
     </FormGroup>
 );

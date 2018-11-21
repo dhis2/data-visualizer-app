@@ -2,8 +2,9 @@ import React from 'react';
 import TextBaseOption from './TextBaseOption';
 import i18n from '@dhis2/d2-i18n';
 
-const RangeAxisSteps = () => (
+const RangeAxisSteps = ({ classes }) => (
     <TextBaseOption
+        classes={classes}
         type="number"
         option={{
             name: 'rangeAxisSteps',

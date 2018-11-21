@@ -70,8 +70,8 @@ export class DialogManager extends Component {
             <Dialog
                 open={!!this.props.dialogId}
                 onClose={() => this.props.closeDialog(null)}
-                maxWidth={false}
                 disableEnforceFocus
+                scroll="paper"
             >
                 {this.renderDialogContent()}
                 <DialogActions>

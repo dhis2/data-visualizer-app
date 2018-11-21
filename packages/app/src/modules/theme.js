@@ -25,6 +25,22 @@ export const theme = {
                 transition: null,
             },
         },
+        MuiDialog: {
+            paperWidthSm: {
+                minWidth: 600,
+                maxWidth: 800,
+                minHeight: 700,
+                maxHeight: 700,
+            },
+            paperWidthMd: {
+                minWidth: 815,
+                maxWidth: 960,
+                minHeight: 750,
+                maxHeight: 800,
+            },
+            paperWidthLg: {},
+            paperFullWidth: {},
+        },
         MuiDialogContent: {
             root: {
                 ...dhis2theme.overrides.MuiDialogContent.root,

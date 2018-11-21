@@ -36,11 +36,7 @@ class VisualizationOptionsManager extends Component {
                 >
                     {i18n.t('Options')}
                 </Button>
-                <Dialog
-                    open={this.state.dialogIsOpen}
-                    onClose={this.onClose}
-                    fullWidth={true}
-                >
+                <Dialog open={this.state.dialogIsOpen} onClose={this.onClose}>
                     <DialogTitle>{i18n.t('Chart options')}</DialogTitle>
                     <DialogContent>
                         <VisualizationOptions />

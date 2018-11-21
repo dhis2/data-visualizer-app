@@ -11,6 +11,7 @@ const styles = {
         height: 48,
         backgroundColor: '#FFFFFF',
         borderBottom: '1px solid #E0E0E0',
+        marginBottom: 15,
     },
     tab: {
         width: 160,

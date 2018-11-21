@@ -5,12 +5,16 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
-
+import { withStyles } from '@material-ui/core/styles';
 import { sGetUiOptions } from '../../../reducers/ui';
 import { acSetUiOptions } from '../../../actions/ui';
 
-export const SelectBaseOption = ({ option, value, onChange }) => (
-    <FormControl>
+const styles = {
+    formControlRoot: {},
+};
+
+export const SelectBaseOption = ({ option, value, onChange, classes }) => (
+    <FormControl classes={{ root: classes.formControlRoot }}>
         <InputLabel>{option.label}</InputLabel>
         <Select
             displayEmpty={true}
@@ -44,4 +48,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(SelectBaseOption);
+)(withStyles(styles)(SelectBaseOption));

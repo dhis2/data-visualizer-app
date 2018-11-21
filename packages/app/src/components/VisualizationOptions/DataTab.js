@@ -13,21 +13,8 @@ import SortOrder from './Options/SortOrder';
 import AggregationType from './Options/AggregationType';
 
 const styles = {
-    formControl: {
-        minHeight: 55,
-        minWidth: 300,
-        marginRight: '60%',
-    },
-    inputLabeltextSize: {
-        fontSize: 13,
-    },
-    textFields: {
-        marginRight: 20,
-        //width: 100,
-    },
-    textFieldCoverWholeRow: {
-        // marginRight: '55%',
-        width: 200,
+    formControlRoot: {
+        paddingBottom: 15,
     },
 };
 
@@ -36,12 +23,18 @@ export const DataTab = ({ classes }) => (
         <ShowData />
         <PercentStackedValues />
         <CumulativeValues />
-        <HideEmptyRowItems />
-        <RegressionType />
+        <HideEmptyRowItems
+            classes={{ formControlRoot: classes.formControlRoot }}
+        />
+        <RegressionType
+            classes={{ formControlRoot: classes.formControlRoot }}
+        />
         <TargetLine />
         <BaseLine />
-        <SortOrder />
-        <AggregationType />
+        <SortOrder classes={{ formControlRoot: classes.formControlRoot }} />
+        <AggregationType
+            classes={{ formControlRoot: classes.formControlRoot }}
+        />
     </FormGroup>
 );
 

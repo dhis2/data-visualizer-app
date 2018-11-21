@@ -2,12 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
+import { withStyles } from '@material-ui/core/styles';
 import { sGetUiOptions } from '../../../reducers/ui';
 import { acSetUiOptions } from '../../../actions/ui';
 
-export const TextBaseOption = ({ type, option, value, onChange }) => (
+const styles = {
+    root: {},
+};
+
+export const TextBaseOption = ({ type, option, value, onChange, classes }) => (
     <TextField
+        classes={{ root: classes.root }}
         type={type}
+        InputLabelProps={{ style: { fontSize: 15 } }}
         label={option.label}
         onChange={event => onChange(event.target.value)}
         value={value}
@@ -33,4 +40,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(TextBaseOption);
+)(withStyles(styles)(TextBaseOption));
