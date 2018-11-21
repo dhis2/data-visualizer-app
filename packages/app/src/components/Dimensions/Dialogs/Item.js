@@ -1,10 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { RemoveSelectedItemButton } from './buttons';
-import { UnselectedIcon } from '../../../assets/UnselectedIcon';
-import { SelectedIcon } from '../../../assets/SelectedIcon';
+import i18n from '@dhis2/d2-i18n';
+import RemoveDimensionButton from './buttons/RemoveDimensionButton';
+import UnselectedIcon from '../../../assets/UnselectedIcon';
+import HighlightedIcon from '../../../assets/HighlightedIcon';
+import SelectedIcon from '../../../assets/SelectedIcon';
+import { styles } from './styles/Item.style';
 
-const Icon = ({ iconType }) => {
+const Icon = ({ iconType, isHighlighted }) => {
+    if (isHighlighted) {
+        return <HighlightedIcon />;
+    }
+
     const icons = {
         unselected: <UnselectedIcon />,
         selected: <SelectedIcon />,
@@ -13,24 +20,32 @@ const Icon = ({ iconType }) => {
     return icons[iconType];
 };
 
-export const Item = props => {
-    const highlightItem = event =>
-        props.onItemClick(event.metaKey, event.shiftKey, props.index, props.id);
+const onClickWrapper = props => event =>
+    props.onItemClick(event.metaKey, event.shiftKey, props.index, props.id);
 
-    return (
-        <div
-            style={props.isHighlighted ? { backgroundColor: '#7EBFF5' } : {}}
-            className={`${props.className}-list-item`}
-            onClick={highlightItem}
+export const Item = props => (
+    <div
+        style={props.isHighlighted ? styles.highlightedItem : {}}
+        className={`${props.className}-list-item`}
+        onClick={onClickWrapper(props)}
+    >
+        <Icon iconType={props.className} isHighlighted={props.isHighlighted} />
+        <span
+            style={props.isHighlighted ? styles.highlightedText : {}}
+            className={`${props.className}-item-label`}
         >
-            <Icon iconType={props.className} />
-            <span className={'item-label'}>{props.displayName}</span>
-            <RemoveSelectedItemButton
-                showButton={props.className}
-                action={() => props.onRemoveItem(props.id)}
-            />
-        </div>
-    );
+            {i18n.t(props.displayName)}
+        </span>
+        <RemoveDimensionButton
+            showButton={props.className}
+            isHighlighted={props.isHighlighted}
+            onClick={() => props.onRemoveItem(props.id)}
+        />
+    </div>
+);
+
+Item.defualtProps = {
+    onRemoveItem: () => null,
 };
 
 Item.propTypes = {
@@ -39,5 +54,8 @@ Item.propTypes = {
     displayName: PropTypes.string.isRequired,
     isHighlighted: PropTypes.bool.isRequired,
     onItemClick: PropTypes.func.isRequired,
+    onRemoveItem: PropTypes.func,
     className: PropTypes.string.isRequired,
 };
+
+export default Item;

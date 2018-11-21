@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
 import { Detail } from './Detail';
-
 import { dataTypes } from '../../../../modules/dataTypes';
 import { styles } from './styles/Groups.style';
 
@@ -31,6 +29,8 @@ const Groups = props => {
 
     const groupDetail = dataTypes[props.dataType].groupDetail;
 
+    const havePlaceholder = Boolean(dataTypes[props.dataType].placeholder);
+
     return (
         <div style={styles.container}>
             <div style={styles.groupContainer}>
@@ -40,8 +40,18 @@ const Groups = props => {
                 <Select
                     value={props.groupId}
                     onChange={handleChange}
-                    SelectDisplayProps={{ style: styles.dropDown }}
+                    renderValue={
+                        havePlaceholder
+                            ? dataTypes[props.dataType].placeholder
+                            : null
+                    }
+                    displayEmpty={havePlaceholder}
                     disableUnderline
+                    SelectDisplayProps={
+                        havePlaceholder
+                            ? { style: styles.placeholder }
+                            : { style: styles.dropDown }
+                    }
                 >
                     {renderDropDownItems()}
                 </Select>

@@ -1,9 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Item } from '../Item';
-import { RemoveSelectedItemButton } from '../buttons';
-import { UnselectedIcon } from '../../../../assets/UnselectedIcon';
-import { SelectedIcon } from '../../../../assets/SelectedIcon';
+import Item from '../Item';
+import RemoveDimensionButton from '../buttons/RemoveDimensionButton';
+import HighlightedIcon from '../../../../assets/HighlightedIcon';
+import UnselectedIcon from '../../../../assets/UnselectedIcon';
+import SelectedIcon from '../../../../assets/SelectedIcon';
 
 describe('The Item component ', () => {
     let props;
@@ -50,12 +51,15 @@ describe('The Item component ', () => {
         expect(unselectIcon.length).toEqual(1);
     });
 
-    it('renders null when className is equal to "unselected" ', () => {
-        const removeButton = item()
-            .find(RemoveSelectedItemButton)
-            .dive();
+    it('renders a <HighlightedIcon /> when prop isHighlighted is equal to true', () => {
+        props.isHighlighted = true;
 
-        expect(removeButton.children().length).toEqual(0);
+        const highlightIcon = item()
+            .find('Icon')
+            .dive()
+            .find(HighlightedIcon);
+
+        expect(highlightIcon.length).toEqual(1);
     });
 
     it('renders <SelectedIcon /> when className is equal to "selected" ', () => {
@@ -69,11 +73,19 @@ describe('The Item component ', () => {
         expect(selectIcon.length).toEqual(1);
     });
 
-    it('renders <RemoveSelectedItemButton /> when className is equal to "selected" ', () => {
+    it('should not render a <RemoveDimensionButton /> when className is equal to "unselected" ', () => {
+        const removeButton = item()
+            .find(RemoveDimensionButton)
+            .dive();
+
+        expect(removeButton.children().length).toEqual(0);
+    });
+
+    it('renders <RemoveDimensionButton /> when className is equal to "selected" ', () => {
         props.className = 'selected';
 
         const removeButton = item()
-            .find(RemoveSelectedItemButton)
+            .find(RemoveDimensionButton)
             .dive();
 
         expect(removeButton.children().length).toEqual(1);
