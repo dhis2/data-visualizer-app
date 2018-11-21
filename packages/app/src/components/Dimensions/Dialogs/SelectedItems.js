@@ -43,7 +43,7 @@ const SortableList = SortableContainer(
                     idx={index}
                     key={`item-${id}`}
                     name={metadata[id].name}
-                    isHighlighted={highlighted.includes(id)}
+                    highlighted={highlighted.includes(id)}
                     {...itemProps}
                 />
             ))}

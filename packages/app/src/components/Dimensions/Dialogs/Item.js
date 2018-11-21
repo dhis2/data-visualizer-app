@@ -17,7 +17,7 @@ const onClickWrapper = (id, index, onItemClick) => event =>
 
 export const Item = ({
     selected,
-    isHighlighted,
+    highlighted,
     id,
     index,
     onRemoveItem,
@@ -27,20 +27,20 @@ export const Item = ({
     const selectedState = selected ? 'selected' : 'unselected';
     return (
         <div
-            style={isHighlighted ? styles.highlightedItem : {}}
+            style={highlighted ? styles.highlightedItem : {}}
             className={`${selectedState}-list-item`}
             onClick={onClickWrapper(id, index, onItemClick)}
         >
-            <Icon selected={selected} highlighted={isHighlighted} />
+            <Icon selected={selected} highlighted={highlighted} />
             <span
-                style={isHighlighted ? styles.highlightedText : {}}
+                style={highlighted ? styles.highlightedText : {}}
                 className={`${selectedState}-item-label`}
             >
                 {name}
             </span>
             {selected && (
                 <RemoveDimensionButton
-                    isHighlighted={isHighlighted}
+                    highlighted={highlighted}
                     onClick={() => onRemoveItem(id)}
                 />
             )}
@@ -56,10 +56,11 @@ Item.propTypes = {
     id: PropTypes.string.isRequired,
     index: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-    isHighlighted: PropTypes.bool.isRequired,
+    highlighted: PropTypes.bool.isRequired,
     onItemClick: PropTypes.func.isRequired,
     onRemoveItem: PropTypes.func,
     selected: PropTypes.bool,
 };
 
 export default Item;
+// export default withStyles(styles)(Item);

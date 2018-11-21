@@ -4,7 +4,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Close from '@material-ui/icons/Close';
 import { styles } from '../styles/buttons.style';
 
-export const RemoveDimensionButton = ({ isHighlighted, onClick }) => (
+export const RemoveDimensionButton = ({ highlighted, onClick }) => (
     <IconButton
         style={styles.deleteButton}
         disableRipple
@@ -13,12 +13,12 @@ export const RemoveDimensionButton = ({ isHighlighted, onClick }) => (
             onClick();
         }}
     >
-        <Close style={isHighlighted ? styles.highlightedClose : styles.close} />
+        <Close style={highlighted ? styles.highlightedClose : styles.close} />
     </IconButton>
 );
 
 RemoveDimensionButton.propTypes = {
-    isHighlighted: PropTypes.bool.isRequired,
+    highlighted: PropTypes.bool.isRequired,
     onClick: PropTypes.func.isRequired,
 };
 
