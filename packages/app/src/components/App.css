@@ -55,6 +55,7 @@
 .main-right {
     background-color: #f4f6f8;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 /* Main center */
