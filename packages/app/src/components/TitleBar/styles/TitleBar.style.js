@@ -28,7 +28,7 @@ export default {
         alignItems: 'center',
         height: '14px',
         width: '14px',
-        marginRight: '5px',
+        marginRight: '3px',
     },
     titleUnsaved: {
         color: colors.grey,

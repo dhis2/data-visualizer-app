@@ -83,7 +83,7 @@ describe('TitleBar component', () => {
         props.titleState = STATE_SAVED;
         props.titleText = 'Yall';
         props.interpretationDate = 'aeons ago';
-        expect(titleBar().find('div')).toHaveLength(3);
+        expect(titleBar().find('div')).toHaveLength(5);
         expect(
             titleBar()
                 .find('div')

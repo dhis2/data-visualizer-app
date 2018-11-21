@@ -98,12 +98,14 @@ export const TitleBar = ({ titleState, titleText, interpretationDate }) => {
                     <div style={styles.interpretationIcon}>
                         <InterpretationIcon />
                     </div>
-                    {i18n.t(
-                        'Viewing interpretation from {{interpretationDate}}',
-                        {
-                            interpretationDate,
-                        }
-                    )}
+                    <div>
+                        {i18n.t(
+                            'Viewing interpretation from {{interpretationDate}}',
+                            {
+                                interpretationDate,
+                            }
+                        )}
+                    </div>
                 </div>
             )}
         </div>
