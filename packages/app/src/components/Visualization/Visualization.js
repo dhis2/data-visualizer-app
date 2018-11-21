@@ -27,11 +27,7 @@ import { sGetVisualization } from '../../reducers/visualization';
 import { computeGenericPeriodNames } from '../../modules/analytics';
 
 export class Visualization extends Component {
-    constructor(props) {
-        super(props);
-
-        this.recreateChart = Function.prototype;
-    }
+    recreateChart = Function.prototype;
 
     addResizeHandler = () => {
         window.addEventListener(
@@ -40,6 +36,14 @@ export class Visualization extends Component {
                 this.recreateChart();
             }, 300)
         );
+    };
+
+    removeCurrentVisualization = id => {
+        const container = document.getElementById(id);
+
+        if (container && container.firstChild) {
+            container.removeChild(container.firstChild);
+        }
     };
 
     componentDidMount() {
@@ -127,6 +131,8 @@ export class Visualization extends Component {
             );
 
             this.recreateChart = () => {
+                this.removeCurrentVisualization(visContainerId);
+
                 createChart(responses, vis, visContainerId, {
                     ...extraOptions,
                     animation: 0,
