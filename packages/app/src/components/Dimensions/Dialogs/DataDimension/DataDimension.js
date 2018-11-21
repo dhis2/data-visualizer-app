@@ -201,7 +201,7 @@ export class DataDimension extends Component {
 
     setUiItems = items => {
         this.props.setDxItems({
-            dimensiontType: dxId,
+            dimensionType: dxId,
             items,
         });
     };

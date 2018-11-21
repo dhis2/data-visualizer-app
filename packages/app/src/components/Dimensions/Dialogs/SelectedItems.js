@@ -25,12 +25,12 @@ const Subtitle = () => (
 const SortableItem = SortableElement(({ id, ...props }) => {
     return (
         <li
-            className="dimension-item"
             id={id}
+            className="dimension-item"
             onDoubleClick={() => props.removeSelected(id)}
+            style={{ zIndex: 10000 }}
         >
             <Item
-                logme
                 id={id}
                 index={props.idx}
                 displayName={props.name}
@@ -120,7 +120,11 @@ export class SelectedItems extends Component {
         return (
             <div style={styles.container}>
                 <Subtitle />
-                <SortableList distance={3} {...listProps} />
+                <SortableList
+                    distance={3}
+                    onSortEnd={this.onSortEnd}
+                    {...listProps}
+                />
                 <UnAssignButton
                     className={this.props.className}
                     action={this.onDeselectClick}
