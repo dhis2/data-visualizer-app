@@ -8,8 +8,9 @@ import {
     arrayMove,
 } from 'react-sortable-hoc';
 
-import { Item } from './Item';
-import { UnAssignButton, DeselectAllButton } from './buttons';
+import Item from './Item';
+import { ArrowButton as UnAssignButton } from './buttons/ArrowButton';
+import { SelectButton as DeselectAllButton } from './buttons/SelectButton';
 
 import { sGetMetadata } from '../../../reducers/metadata';
 import { toggler } from '../../../modules/toggler';
@@ -22,30 +23,21 @@ const Subtitle = () => (
     </div>
 );
 
-const SortableItem = SortableElement(({ id, ...props }) => {
+const SortableItem = SortableElement(({ id, onRemoveItem, ...props }) => {
     return (
         <li
             id={id}
-            className="dimension-item"
-            onDoubleClick={() => props.removeSelected(id)}
-            style={{ zIndex: 10000 }}
+            className="dimension-item selected"
+            onDoubleClick={() => props.onRemoveItem(id)}
         >
-            <Item
-                id={id}
-                index={props.idx}
-                displayName={props.name}
-                isHighlighted={props.isHighlighted}
-                onItemClick={props.toggleHighlight}
-                onRemoveItem={props.removeSelected}
-                className="selected"
-            />
+            <Item id={id} index={props.idx} {...props} selected />
         </li>
     );
 });
 
 const SortableList = SortableContainer(props => {
     return (
-        <ul style={props.style}>
+        <ul style={styles.list}>
             {props.items.map((id, index) => {
                 return (
                     <SortableItem
@@ -55,8 +47,8 @@ const SortableList = SortableContainer(props => {
                         key={`item-${id}`}
                         name={props.metadata[id].name}
                         isHighlighted={props.highlighted.includes(id)}
-                        removeSelected={props.removeSelected}
-                        toggleHighlight={props.toggleHighlight}
+                        onRemoveItem={props.onRemoveItem}
+                        onItemClick={props.onItemClick}
                     />
                 );
             })}
@@ -75,8 +67,9 @@ export class SelectedItems extends Component {
         const highlighted = this.state.highlighted.filter(
             dataDimId => dataDimId !== id
         );
-        this.setState({ highlighted });
+
         this.props.onDeselect([id]);
+        this.setState({ highlighted });
     };
 
     onDeselectAllClick = () => {
@@ -105,34 +98,30 @@ export class SelectedItems extends Component {
         this.props.onReorder(arrayMove(this.props.items, oldIndex, newIndex));
     };
 
-    renderUl = items => <ul style={styles.list}>{items}</ul>;
-
-    render = () => {
-        const listProps = {
-            style: styles.list,
-            items: this.props.items,
-            removeSelected: this.onRemoveSelected,
-            toggleHighlight: this.toggleHighlight,
-            metadata: this.props.metadata,
-            highlighted: this.state.highlighted,
-        };
-
-        return (
-            <div style={styles.container}>
-                <Subtitle />
-                <SortableList
-                    distance={3}
-                    onSortEnd={this.onSortEnd}
-                    {...listProps}
-                />
-                <UnAssignButton
-                    className={this.props.className}
-                    action={this.onDeselectClick}
-                />
-                <DeselectAllButton action={this.onDeselectAllClick} />
-            </div>
-        );
-    };
+    render = () => (
+        <div style={styles.container}>
+            <Subtitle />
+            <SortableList
+                distance={3}
+                onSortEnd={this.onSortEnd}
+                items={this.props.items}
+                onRemoveItem={this.onRemoveSelected}
+                onItemClick={this.toggleHighlight}
+                metadata={this.props.metadata}
+                highlighted={this.state.highlighted}
+            />
+            <UnAssignButton
+                className={`${this.props.className}-arrow-back-button`}
+                onClick={this.onDeselectClick}
+                iconType={'arrowBack'}
+            />
+            <DeselectAllButton
+                style={styles.deselectButton}
+                onClick={this.onDeselectAllClick}
+                label={i18n.t('Deselect All')}
+            />
+        </div>
+    );
 }
 
 SelectedItems.propTypes = {

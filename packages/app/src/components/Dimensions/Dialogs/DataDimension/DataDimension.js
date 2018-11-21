@@ -211,11 +211,7 @@ export class DataDimension extends Component {
             this.state.unselectedIds.includes(di.id)
         );
 
-        const groups = this.state.groups[this.state.dataType];
-
-        if (!groups.length) {
-            return <div />;
-        }
+        const groups = this.state.groups[this.state.dataType] || [];
 
         return (
             <Fragment>
