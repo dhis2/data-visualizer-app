@@ -1,5 +1,8 @@
 import { colors } from '../../../modules/colors';
 
+// Layout
+export const LAYOUT_HEIGHT = '78px';
+
 // Axis
 export const AXIS_PADDING = '4px 4px 2px 6px';
 export const AXIS_LABEL_PADDING = '2px 0px 0px 4px';
