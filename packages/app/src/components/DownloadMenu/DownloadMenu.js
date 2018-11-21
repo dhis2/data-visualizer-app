@@ -91,10 +91,10 @@ export class DownloadMenu extends Component {
         return (
             <Fragment>
                 <Button
+                    className={this.props.className}
                     onClick={event => this.toggleMenu(event.currentTarget)}
                     disableRipple={true}
                     disableFocusRipple={true}
-                    style={this.props.labelStyle}
                     disabled={!Boolean(this.props.current)}
                 >
                     {i18n.t('Download')}
@@ -276,7 +276,7 @@ export class DownloadMenu extends Component {
 }
 
 DownloadMenu.propTypes = {
-    labelStyle: PropTypes.object,
+    className: PropTypes.string,
     current: PropTypes.object,
     chart: PropTypes.string,
 };

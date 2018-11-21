@@ -9,15 +9,14 @@ import i18n from '@dhis2/d2-i18n';
 import { sGetUiRightSidebarOpen } from '../../reducers/ui';
 import { sGetCurrent } from '../../reducers/current';
 import { acToggleUiRightSidebarOpen } from '../../actions/ui';
-import styles from './styles/InterpretationsButton.style';
 
 export const InterpretationsButton = props => (
     <Button
+        className={props.className}
         size="small"
         disabled={!Boolean(props.id)}
         disableRipple={true}
         disableFocusRipple={true}
-        style={{ ...styles, ...props.labelStyle }}
         onClick={props.onClick}
     >
         {props.rightSidebarOpen ? (
@@ -30,9 +29,9 @@ export const InterpretationsButton = props => (
 );
 
 InterpretationsButton.propTypes = {
+    className: PropTypes.string,
     rightSiderbarOpen: PropTypes.bool,
     onClick: PropTypes.func,
-    labelStyle: PropTypes.object,
 };
 
 const mapStateToProps = state => ({
