@@ -98,6 +98,7 @@ export class SelectedItems extends Component {
             <Subtitle />
             <SortableList
                 distance={3}
+                transitionDuration={200}
                 onSortEnd={this.onSortEnd}
                 items={this.props.items}
                 onRemoveItem={this.onRemoveSelected}
