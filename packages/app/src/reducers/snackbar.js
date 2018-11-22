@@ -5,6 +5,7 @@ export const DEFAULT_SNACKBAR = {
     message: null,
     duration: null,
     open: false,
+    variant: 'information',
 };
 
 export default (state = DEFAULT_SNACKBAR, action) => {
