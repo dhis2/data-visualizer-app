@@ -40,8 +40,6 @@ export const theme = {
             paperWidthMd: {
                 minWidth: 600,
                 maxWidth: 600,
-
-                minHeight: 685,
             },
             paperWidthLg: {
                 minWidth: 800,

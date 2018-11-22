@@ -44,9 +44,11 @@ export class VisualizationOptions extends Component {
                         <Tab className={classes.tab} label={i18n.t('Style')} />
                     </Tabs>
                 </AppBar>
-                {activeTab === 0 && <DataTab />}
-                {activeTab === 1 && <AxesAndLegendsTab />}
-                {activeTab === 2 && <StyleTab />}
+                <div style={styles.divContainer}>
+                    {activeTab === 0 && <DataTab />}
+                    {activeTab === 1 && <AxesAndLegendsTab />}
+                    {activeTab === 2 && <StyleTab />}
+                </div>
             </Fragment>
         );
     };
