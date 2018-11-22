@@ -25,6 +25,13 @@ export const theme = {
                 transition: null,
             },
         },
+        MuiSelect: {
+            select: {
+                '&:focus': {
+                    background: '$labelcolor',
+                },
+            },
+        },
         MuiDialog: {
             paperWidthSm: {
                 minWidth: 400,
