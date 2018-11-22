@@ -128,7 +128,7 @@ export class DynamicDimension extends Component {
 }
 
 DynamicDimension.propTypes = {
-    selectedItems: PropTypes.array,
+    selectedItems: PropTypes.array.isRequired,
     addItems: PropTypes.func.isRequired,
     setItems: PropTypes.func.isRequired,
     removeItems: PropTypes.func.isRequired,
