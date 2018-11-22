@@ -122,11 +122,11 @@ export default (state = DEFAULT_UI, action) => {
             };
         }
         case SET_UI_ITEMS: {
+            const { dimensionType: type, items } = action.value;
+
             return {
                 ...state,
-                itemsByDimension: {
-                    ...action.value,
-                },
+                itemsByDimension: { ...state.itemsByDimension, [type]: items },
             };
         }
         case ADD_UI_ITEMS: {
