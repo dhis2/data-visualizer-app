@@ -67,6 +67,10 @@ export class OrgUnitDimension extends Component {
         this.loadOrgUnitGroups();
     }
 
+    setOuUiItems = items => {
+        this.props.acSetUiItems({ dimensionType: ouId, items });
+    };
+
     getUserOrgUnitsFromIds = ids => {
         return userOrgUnits.filter(orgUnit => ids.includes(orgUnit.id));
     };
@@ -74,31 +78,25 @@ export class OrgUnitDimension extends Component {
     onLevelChange = event => {
         const levelIds = event.target.value.filter(id => !!id);
 
-        this.props.acSetUiItems({
-            ...this.props.ui.itemsByDimension,
-            [ouId]: [
-                ...this.props.ui.itemsByDimension[ouId].filter(
-                    id => !isLevelId(id)
-                ),
-                ...levelIds.map(
-                    id => `${LEVEL_ID_PREFIX}-${this.props.metadata[id].level}`
-                ),
-            ],
-        });
+        this.setOuUiItems([
+            ...this.props.ui.itemsByDimension[ouId].filter(
+                id => !isLevelId(id)
+            ),
+            ...levelIds.map(
+                id => `${LEVEL_ID_PREFIX}-${this.props.metadata[id].level}`
+            ),
+        ]);
     };
 
     onGroupChange = event => {
         const optionIds = event.target.value.filter(id => !!id);
 
-        this.props.acSetUiItems({
-            ...this.props.ui.itemsByDimension,
-            [ouId]: [
-                ...this.props.ui.itemsByDimension[ouId].filter(
-                    id => !isGroupId(id)
-                ),
-                ...optionIds.map(id => `${GROUP_ID_PREFIX}-${id}`),
-            ],
-        });
+        this.setOuUiItems([
+            ...this.props.ui.itemsByDimension[ouId].filter(
+                id => !isGroupId(id)
+            ),
+            ...optionIds.map(id => `${GROUP_ID_PREFIX}-${id}`),
+        ]);
     };
 
     loadOrgUnitTree = () => {
@@ -184,24 +182,18 @@ export class OrgUnitDimension extends Component {
                 });
             }
 
-            this.props.acSetUiItems({
-                ...this.props.ui.itemsByDimension,
-                [ouId]: [
-                    ...this.props.ui.itemsByDimension[ouId].filter(id =>
-                        this.userOrgUnitIds.includes(id)
-                    ),
-                    event.target.name,
-                ],
-            });
+            this.setOuUiItems([
+                ...this.props.ui.itemsByDimension[ouId].filter(id =>
+                    this.userOrgUnitIds.includes(id)
+                ),
+                event.target.name,
+            ]);
         } else {
             if (
                 this.props.ui.itemsByDimension[ouId].length === 1 &&
                 this.state.selected.length > 0
             ) {
-                this.props.acSetUiItems({
-                    ...this.props.ui.itemsByDimension,
-                    [ouId]: this.state.selected,
-                });
+                this.setOuUiItems(this.state.selected);
 
                 this.setState({
                     selected: [],

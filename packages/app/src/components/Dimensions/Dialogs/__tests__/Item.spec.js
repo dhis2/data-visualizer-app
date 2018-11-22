@@ -2,9 +2,8 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Item from '../Item';
 import RemoveDimensionButton from '../buttons/RemoveDimensionButton';
-import HighlightedIcon from '../../../../assets/HighlightedIcon';
-import UnselectedIcon from '../../../../assets/UnselectedIcon';
-import SelectedIcon from '../../../../assets/SelectedIcon';
+import ItemIcon from '../../../../assets/ItemIcon';
+import { colors } from '../../../../modules/colors';
 
 describe('The Item component ', () => {
     let props;
@@ -21,9 +20,8 @@ describe('The Item component ', () => {
         props = {
             id: 'testID',
             index: 0,
-            displayName: 'displayTestName',
-            isHighlighted: false,
-            className: 'unselected',
+            name: 'displayTestName',
+            highlighted: false,
             onItemClick: jest.fn(),
         };
         shallowItem = undefined;
@@ -37,58 +35,55 @@ describe('The Item component ', () => {
         expect(
             item()
                 .find('div')
-                .first().length
-        ).toEqual(1);
+                .first()
+        ).toHaveLength(1);
         expect(wrappingDiv.children()).toEqual(item().children());
     });
 
-    it('renders <UnselectedIcon /> when className is equal to "unselected" ', () => {
-        const unselectIcon = item()
+    it('renders <UnselectedIcon /> when prop "selected" is true ', () => {
+        const icon = item()
             .find('Icon')
             .dive()
-            .find(UnselectedIcon);
+            .find(ItemIcon);
 
-        expect(unselectIcon.length).toEqual(1);
+        expect(icon.prop('backgroundColor')).toEqual(colors.grey);
     });
 
-    it('renders a <HighlightedIcon /> when prop isHighlighted is equal to true', () => {
-        props.isHighlighted = true;
+    it('renders a <HighlightedIcon /> when props highlighted and selected are true', () => {
+        props.highlighted = true;
+        props.selected = true;
 
-        const highlightIcon = item()
+        const icon = item()
             .find('Icon')
             .dive()
-            .find(HighlightedIcon);
+            .find(ItemIcon);
 
-        expect(highlightIcon.length).toEqual(1);
+        expect(icon.prop('backgroundColor')).toEqual(colors.white);
     });
 
     it('renders <SelectedIcon /> when className is equal to "selected" ', () => {
-        props.className = 'selected';
+        props.selected = true;
 
-        const selectIcon = item()
+        const icon = item()
             .find('Icon')
             .dive()
-            .find(SelectedIcon);
+            .find(ItemIcon);
 
-        expect(selectIcon.length).toEqual(1);
+        expect(icon.prop('backgroundColor')).toEqual(colors.accentSecondary);
     });
 
-    it('should not render a <RemoveDimensionButton /> when className is equal to "unselected" ', () => {
-        const removeButton = item()
-            .find(RemoveDimensionButton)
-            .dive();
+    it('should not render a <RemoveDimensionButton /> for unselected item ', () => {
+        const removeButton = item().find(RemoveDimensionButton);
 
-        expect(removeButton.children().length).toEqual(0);
+        expect(removeButton.length).toEqual(0);
     });
 
-    it('renders <RemoveDimensionButton /> when className is equal to "selected" ', () => {
-        props.className = 'selected';
+    it('renders <RemoveDimensionButton /> for selected item ', () => {
+        props.selected = true;
 
-        const removeButton = item()
-            .find(RemoveDimensionButton)
-            .dive();
+        const removeButton = item().find(RemoveDimensionButton);
 
-        expect(removeButton.children().length).toEqual(1);
+        expect(removeButton.length).toEqual(1);
     });
 
     it('fires prop onItemClick when pressed', () => {
