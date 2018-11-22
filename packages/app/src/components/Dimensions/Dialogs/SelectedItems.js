@@ -75,7 +75,7 @@ export class SelectedItems extends Component {
 
     render = () => {
         const dataDimensions = this.props.items.map((id, index) =>
-            this.renderListItem(id, index)
+            this.props.metadata[id] ? this.renderListItem(id, index) : null
         );
 
         return (
