@@ -45,6 +45,7 @@ export const MenuBar = ({ classes, ...props }, context) => (
                 onDelete={getOnDelete(props)}
                 onTranslate={() => console.log('translate callback')}
                 onError={() => console.log('error!')}
+                dialogMaxWidth="lg"
             />
         </div>
         <VisualizationOptionsManager className={classes.label} />
