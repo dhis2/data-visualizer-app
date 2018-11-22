@@ -287,20 +287,29 @@ describe('reducer: ui', () => {
 
     describe('itemByDimension', () => {
         it(`${ui.SET_UI_ITEMS} sets items by dimension`, () => {
-            const newItemsByDimension = {
-                [dxId]: 'abc',
-                [peId]: 'def',
-            };
-            const expectedState = {
+            const startingState = {
                 ...ui.DEFAULT_UI,
-                itemsByDimension: newItemsByDimension,
+                itemsByDimension: {
+                    [dxId]: 'abc',
+                    [peId]: 'def',
+                },
             };
-            const actualState = reducer(ui.DEFAULT_UI, {
+            const expectedItemsByDimension = {
+                ...startingState.itemsByDimension,
+                twilight: 'xyz',
+            };
+
+            const actualState = reducer(startingState, {
                 type: ui.SET_UI_ITEMS,
-                value: newItemsByDimension,
+                value: {
+                    dimensionType: 'twilight',
+                    items: 'xyz',
+                },
             });
 
-            expect(actualState).toEqual(expectedState);
+            expect(actualState.itemsByDimension).toEqual(
+                expectedItemsByDimension
+            );
         });
 
         it(`${ui.ADD_UI_ITEMS} adds single item to dx`, () => {

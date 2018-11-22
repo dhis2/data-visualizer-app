@@ -6,7 +6,6 @@ import Close from '@material-ui/icons/Close';
 import {
     acRemoveUiLayoutDimensions,
     acSetUiActiveModalDialog,
-    acSetUiItems,
 } from '../../actions/ui';
 import { sGetUiLayout, sGetUiItems } from '../../reducers/ui';
 
@@ -77,6 +76,5 @@ export default connect(
     {
         openDialog: id => acSetUiActiveModalDialog(id),
         removeDimension: id => acRemoveUiLayoutDimensions(id),
-        setUiItems: items => acSetUiItems(items),
     }
 )(DimensionLabel);
