@@ -6,7 +6,6 @@ import DropDown from './DropDown';
 import MoreHorizontalIcon from '../../assets/MoreHorizontalIcon';
 import {
     acAddUiLayoutDimensions,
-    acSetUiItems,
     acRemoveUiLayoutDimensions,
     acSetUiActiveModalDialog,
 } from '../../actions/ui';
@@ -95,6 +94,5 @@ export default connect(
         openDialog: id => acSetUiActiveModalDialog(id),
         onAddDimension: dimension => acAddUiLayoutDimensions(dimension),
         removeDimension: dimension => acRemoveUiLayoutDimensions(dimension),
-        setUiItems: items => acSetUiItems(items),
     }
 )(DimensionOptions);

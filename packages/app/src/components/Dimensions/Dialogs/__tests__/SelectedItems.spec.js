@@ -17,6 +17,7 @@ describe('The SelectedItems component ', () => {
         props = {
             items: [],
             onDeselect: jest.fn(),
+            onReorder: jest.fn(),
         };
         shallowSelectedItems = undefined;
     });
