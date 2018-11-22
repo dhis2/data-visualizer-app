@@ -8156,10 +8156,10 @@ marked@~0.3.6:
   resolved "https://registry.yarnpkg.com/marked/-/marked-0.3.19.tgz#5d47f709c4c9fc3c216b6d46127280f40b39d790"
   integrity sha512-ea2eGWOqNxPcXv8dyERdSr/6FmzvWwzjMxpfGB/sbMccXoct+xY+YukPD+QTUZwyvK7BZwcr4m21WBOW41pAkg==
 
-material-design-icons-iconfont@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/material-design-icons-iconfont/-/material-design-icons-iconfont-4.0.2.tgz#1671f6b7e9f4a58911997c4e0b964a520c059ec2"
-  integrity sha512-BYAtSuiD8EHlLD1TEzNc++KpRmfI5Wn6peBK+fsQfDBzxSbJg3SZ+ALXM+DAJ9ogSLjdmf4DG+6WGFkZABiIqA==
+material-design-icons@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/material-design-icons/-/material-design-icons-3.0.1.tgz#9a71c48747218ebca51e51a66da682038cdcb7bf"
+  integrity sha1-mnHEh0chjrylHlGmbaaCA4zct78=
 
 material-ui@^0.20.0:
   version "0.20.2"
@@ -12135,7 +12135,17 @@ uglifyjs-webpack-plugin@^0.4.6:
   dependencies:
     "@babel/polyfill" "^7.0.0"
     classnames "^2.2.6"
-    material-design-icons-iconfont "^4.0.2"
+    material-design-icons "^3.0.1"
+    prop-types "^15.6.2"
+    typeface-roboto "^0.0.54"
+
+"ui@github:d2-ci/ui#a14c74a62a5baefe84786282b145ba20e19bc907":
+  version "1.0.0-beta.5"
+  resolved "https://codeload.github.com/d2-ci/ui/tar.gz/a14c74a62a5baefe84786282b145ba20e19bc907"
+  dependencies:
+    "@babel/polyfill" "^7.0.0"
+    classnames "^2.2.6"
+    material-design-icons "^3.0.1"
     prop-types "^15.6.2"
     typeface-roboto "^0.0.54"
 

@@ -76,7 +76,7 @@
         "redux-thunk": "^2.2.0",
         "style-loader": "0.22.1",
         "sw-precache-webpack-plugin": "0.11.5",
-        "ui": "github:d2-ci/ui",
+        "ui": "github:d2-ci/ui#a14c74a62a5baefe84786282b145ba20e19bc907",
         "url-loader": "0.6.2",
         "webpack": "^3.10.0",
         "webpack-dev-server": "^2.9.4",
