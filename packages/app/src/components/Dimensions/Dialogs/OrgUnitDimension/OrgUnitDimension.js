@@ -230,7 +230,7 @@ export class OrgUnitDimension extends Component {
         return (
             <Fragment>
                 <DialogTitle>{i18n.t('Organisation units')}</DialogTitle>
-                <DialogContent style={styles.dialogContent}>
+                <DialogContent>
                     {this.state.root && (
                         <OrgUnitSelector
                             root={this.state.root}

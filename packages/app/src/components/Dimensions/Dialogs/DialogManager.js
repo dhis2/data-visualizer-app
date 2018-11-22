@@ -71,7 +71,7 @@ export class DialogManager extends Component {
                 open={!!this.props.dialogId}
                 onClose={() => this.props.closeDialog(null)}
                 disableEnforceFocus
-                scroll="paper"
+                maxWidth="lg"
             >
                 {this.renderDialogContent()}
                 <DialogActions>

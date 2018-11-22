@@ -5,18 +5,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import AppBar from '@material-ui/core/AppBar';
 import i18n from '@dhis2/d2-i18n';
-
-const styles = {
-    tabsBar: {
-        height: 48,
-        backgroundColor: '#FFFFFF',
-        borderBottom: '1px solid #E0E0E0',
-        marginBottom: 15,
-    },
-    tab: {
-        width: 160,
-    },
-};
+import styles from './styles/TabsBar.style';
 
 const strings = ['Data', 'Axes & legend', 'Style'];
 

@@ -11,12 +11,7 @@ import TargetLine from './Options/TargetLine';
 import BaseLine from './Options/BaseLine';
 import SortOrder from './Options/SortOrder';
 import AggregationType from './Options/AggregationType';
-
-const styles = {
-    formControlRoot: {
-        paddingBottom: 15,
-    },
-};
+import styles from './styles/DataTab.style';
 
 export const DataTab = ({ classes }) => (
     <FormGroup>

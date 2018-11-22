@@ -13,28 +13,7 @@ import HideTitle from './Options/HideTitle';
 import Title from './Options/Title';
 import HideSubtitle from './Options/HideSubtitle';
 import Subtitle from './Options/Subtitle';
-
-const styles = {
-    formGroupContainer: {
-        paddingTop: 15,
-    },
-    formGroupRoot: {
-        paddingBottom: 15,
-    },
-    rangeAxisMin: {
-        paddingRight: 15,
-    },
-    textBaseRoot: {
-        paddingBottom: 15,
-    },
-    formControlLabelRoot: {
-        marginLeft: 15,
-        alignItems: 'flex-end',
-    },
-    checkBoxRoot: {
-        padding: '0px 5px',
-    },
-};
+import styles from './styles/AxesAndLegendsTab.style';
 
 export const AxesAndLegendsTab = ({ classes }) => (
     <FormGroup classes={{ root: classes.formGroupContainer }}>

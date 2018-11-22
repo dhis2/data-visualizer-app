@@ -27,26 +27,22 @@ export const theme = {
         },
         MuiDialog: {
             paperWidthSm: {
-                minWidth: 600,
-                maxWidth: 800,
-                minHeight: 700,
-                maxHeight: 700,
+                minWidth: 400,
+                maxWidth: 400,
             },
             paperWidthMd: {
-                minWidth: 815,
-                maxWidth: 960,
-                minHeight: 750,
-                maxHeight: 800,
+                minWidth: 600,
+                maxWidth: 600,
+
+                minHeight: 685,
             },
-            paperWidthLg: {},
-            paperFullWidth: {},
+            paperWidthLg: {
+                minWidth: 800,
+                maxWidth: 800,
+            },
         },
         MuiDialogContent: {
-            root: {
-                ...dhis2theme.overrides.MuiDialogContent.root,
-                overflow: 'hidden',
-                overflowY: 'hidden',
-            },
+            root: dhis2theme.overrides.MuiDialogContent.root,
         },
         MuiInput: {
             underline: {

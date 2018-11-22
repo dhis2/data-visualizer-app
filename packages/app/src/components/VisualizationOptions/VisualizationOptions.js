@@ -8,17 +8,7 @@ import i18n from '@dhis2/d2-i18n';
 import DataTab from './DataTab';
 import StyleTab from './StyleTab';
 import AxesAndLegendsTab from './AxesAndLegendsTab';
-
-const styles = {
-    tabsBar: {
-        height: 48,
-        backgroundColor: '#FFFFFF',
-        borderBottom: '1px solid #E0E0E0',
-    },
-    tab: {
-        width: 160,
-    },
-};
+import styles from './styles/VisualizationOptions.style';
 
 export class VisualizationOptions extends Component {
     state = {
