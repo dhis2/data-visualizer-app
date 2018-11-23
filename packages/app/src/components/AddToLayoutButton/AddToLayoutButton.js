@@ -8,6 +8,7 @@ import UpdateButton from '../UpdateButton/UpdateButton';
 import Menu from './Menu';
 
 import {
+    sGetUi,
     sGetUiLayout,
     sGetUiActiveModalDialog,
     sGetUiType,
@@ -16,6 +17,7 @@ import {
     acSetUiActiveModalDialog,
     acAddUiLayoutDimensions,
 } from '../../actions/ui';
+import { acSetCurrentFromUi } from '../../actions/current';
 
 import { isYearOverYear } from '../../modules/chartTypes';
 import { ADD_TO_LAYOUT_OPTIONS as items } from '../../modules/layout';
@@ -23,18 +25,19 @@ import { styles } from './styles/AddToLayoutButton.style';
 
 const UNSELECTED = -1;
 const SERIES = 0;
+const OMIT_SERIES = 1;
 const FILTER = 2;
 
 export class AddToLayoutButton extends Component {
     state = { anchorEl: null, buttonType: UNSELECTED };
 
-    componentDidMount = () => {
+    componentDidMount() {
         const buttonType = Object.values(this.props.currentLayout).findIndex(
             axisIds => axisIds.includes(this.props.dialogId)
         );
 
         this.setState({ buttonType });
-    };
+    }
 
     onClose = () => this.setState({ anchorEl: null });
 
@@ -47,26 +50,30 @@ export class AddToLayoutButton extends Component {
         this.props.onAddDimension({
             [this.props.dialogId]: axisName,
         });
+        this.props.onUpdate(this.props.ui);
         this.props.closeDialog(null);
     };
 
-    getMenuItems = () =>
-        items.slice(1).map(option => (
+    renderMenuItems = () =>
+        items.slice(OMIT_SERIES).map(option => (
             <MenuItem
                 key={option.axisKey}
-                variant="contained"
                 style={styles.menuItem}
+                component="li"
                 onClick={() => this.onUpdate(option.axisKey)}
             >
                 {option.name}
             </MenuItem>
         ));
 
-    getUnselectedButton = () =>
+    renderUnselectedButton = () =>
         isYearOverYear(this.props.layoutType) ? (
             <Button
                 variant="contained"
+                color="primary"
                 style={styles.button}
+                disableRipple
+                disableFocusRipple
                 onClick={() => this.onUpdate(items[FILTER].axisKey)}
             >
                 {items[FILTER].name}
@@ -75,7 +82,10 @@ export class AddToLayoutButton extends Component {
             <Fragment>
                 <Button
                     variant="contained"
+                    color="primary"
                     style={styles.button}
+                    disableRipple
+                    disableFocusRipple
                     onClick={() => this.onUpdate(items[SERIES].axisKey)}
                 >
                     {items[SERIES].name}
@@ -84,15 +94,15 @@ export class AddToLayoutButton extends Component {
                     onClose={this.onClose}
                     onClick={this.onToggle}
                     anchorEl={this.state.anchorEl}
-                    menuItems={this.getMenuItems()}
+                    menuItems={this.renderMenuItems()}
                 />
             </Fragment>
         );
 
-    render = () => {
+    render() {
         const displayButton =
             this.state.buttonType === UNSELECTED ? (
-                this.getUnselectedButton()
+                this.renderUnselectedButton()
             ) : (
                 <UpdateButton
                     className={this.props.className}
@@ -101,7 +111,7 @@ export class AddToLayoutButton extends Component {
             );
 
         return displayButton;
-    };
+    }
 }
 
 AddToLayoutButton.propTypes = {
@@ -116,12 +126,14 @@ const mapStateToProps = state => ({
     dialogId: sGetUiActiveModalDialog(state),
     layoutType: sGetUiType(state),
     currentLayout: sGetUiLayout(state),
+    ui: sGetUi(state),
 });
 
 export default connect(
     mapStateToProps,
     {
-        onAddDimension: dimension => acAddUiLayoutDimensions(dimension),
         closeDialog: acSetUiActiveModalDialog,
+        onAddDimension: acAddUiLayoutDimensions,
+        onUpdate: acSetCurrentFromUi,
     }
 )(AddToLayoutButton);

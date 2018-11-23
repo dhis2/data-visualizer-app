@@ -8,7 +8,14 @@ import { styles } from './styles/Menu.style';
 
 export const DropDownButton = ({ anchorEl, onClick, onClose, menuItems }) => (
     <Fragment>
-        <Button variant="contained" onClick={onClick} style={styles.arrowDown}>
+        <Button
+            color="primary"
+            variant="contained"
+            style={styles.arrowDown}
+            disableRipple
+            disableFocusRipple
+            onClick={onClick}
+        >
             <ArrowDropDown style={styles.arrowIcon} />
         </Button>
         <Menu

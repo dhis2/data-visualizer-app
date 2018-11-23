@@ -37,7 +37,7 @@ describe('The DropDownButton component ', () => {
         expect(button.children()).toEqual(dropDown().children());
     });
 
-    it('renders a Button with <ArrowDropDown /> icon', () => {
+    it('renders a <Button /> with <ArrowDropDown /> icon as child', () => {
         const arrowIcon = dropDown()
             .find(Button)
             .dive()
@@ -46,7 +46,7 @@ describe('The DropDownButton component ', () => {
         expect(arrowIcon.length).toEqual(1);
     });
 
-    it('renders a Menu with no children if prop anchorEl is equal to a falsy value', () => {
+    it('renders a <Menu /> with no children if prop anchorEl is equal to a falsy value', () => {
         const menu = dropDown()
             .find(Menu)
             .dive();
@@ -54,7 +54,7 @@ describe('The DropDownButton component ', () => {
         expect(menu.children().length).toEqual(0);
     });
 
-    it('renders a Menu with children if prop anchorel is equal to a truthy value', () => {
+    it('renders a <Menu /> with children if prop anchorEl is equal to a truthy value', () => {
         props.anchorEl = {};
         props.menuItems = ADD_TO_LAYOUT_OPTIONS.map(option => (
             <MenuItem key={option.axisName} />
