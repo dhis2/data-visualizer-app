@@ -34,11 +34,8 @@ describe('The OrgUnitDimension component ', () => {
 
     beforeEach(() => {
         props = {
-            ui: {
-                itemsByDimension: {
-                    ou: [],
-                },
-            },
+            ouItems: [],
+            parentGraphMap: {},
             metadata: {},
             acAddUiItems: jest.fn(),
             acRemoveUiItems: jest.fn(),

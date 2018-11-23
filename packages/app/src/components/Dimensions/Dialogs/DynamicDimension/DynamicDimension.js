@@ -12,7 +12,7 @@ import SelectedItems from '../SelectedItems';
 
 import { apiFetchItemsByDimension } from '../../../../api/dimensions';
 
-import { sGetUiItems } from '../../../../reducers/ui';
+import { sGetUiItemsByDimension } from '../../../../reducers/ui';
 import {
     acRemoveUiItems,
     acAddUiItems,
@@ -22,6 +22,8 @@ import { acAddMetadata } from '../../../../actions/metadata';
 
 import { styles } from './styles/DynamicDimension.style';
 import '../styles/Dialog.css';
+
+const emptyItems = [];
 
 export class DynamicDimension extends Component {
     state = {
@@ -134,7 +136,8 @@ DynamicDimension.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => ({
-    selectedItems: sGetUiItems(state)[ownProps.dialogId] || [],
+    selectedItems:
+        sGetUiItemsByDimension(state, ownProps.dialogId) || emptyItems,
 });
 
 export default connect(
