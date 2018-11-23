@@ -2,7 +2,7 @@ import { colors } from '../../../modules/colors';
 
 export default {
     divContainer: {
-        height: 475,
+        height: 465,
     },
     tabsBar: {
         height: 48,

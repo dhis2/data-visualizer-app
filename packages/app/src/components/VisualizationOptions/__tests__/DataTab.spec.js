@@ -4,6 +4,16 @@ import FormGroup from '@material-ui/core/FormGroup';
 
 import { DataTab } from '../DataTab';
 
+import CumulativeValues from '../Options/CumulativeValues';
+import PercentStackedValues from '../Options/PercentStackedValues';
+import ShowData from '../Options/ShowData';
+import HideEmptyRowItems from '../Options/HideEmptyRowItems';
+import RegressionType from '../Options/RegressionType';
+import TargetLine from '../Options/TargetLine';
+import BaseLine from '../Options/BaseLine';
+import SortOrder from '../Options/SortOrder';
+import AggregationType from '../Options/AggregationType';
+
 describe('The DataTab component', () => {
     let props;
     let shallowDataTab;
@@ -30,14 +40,15 @@ describe('The DataTab component', () => {
     });
 
     [
-        'CumulativeValues',
-        'PercentStackedValues',
-        'ShowData',
-        'HideEmptyRowItems',
-        'RegressionType',
-        'SortOrder',
-        'AggregationType',
-        // TODO find a way to test BaseLine and TargetLine
+        CumulativeValues,
+        PercentStackedValues,
+        ShowData,
+        HideEmptyRowItems,
+        RegressionType,
+        TargetLine,
+        BaseLine,
+        SortOrder,
+        AggregationType,
     ].forEach(component => {
         it(`should render a ${component} component`, () => {
             expect(dataTab().find(component)).toHaveLength(1);

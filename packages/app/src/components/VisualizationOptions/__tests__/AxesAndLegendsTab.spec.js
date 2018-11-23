@@ -4,6 +4,18 @@ import FormGroup from '@material-ui/core/FormGroup';
 
 import { AxesAndLegendsTab } from '../AxesAndLegendsTab';
 
+import RangeAxisMinValue from '../Options/RangeAxisMinValue';
+import RangeAxisMaxValue from '../Options/RangeAxisMaxValue';
+import RangeAxisSteps from '../Options/RangeAxisSteps';
+import RangeAxisDecimals from '../Options/RangeAxisDecimals';
+import RangeAxisLabel from '../Options/RangeAxisLabel';
+import DomainAxisLabel from '../Options/DomainAxisLabel';
+import HideLegend from '../Options/HideLegend';
+import Title from '../Options/Title';
+import HideTitle from '../Options/HideTitle';
+import Subtitle from '../Options/Subtitle';
+import HideSubtitle from '../Options/HideSubtitle';
+
 describe('The Axis & Legend tab', () => {
     let props;
     let shallowAxesComponent;
@@ -31,17 +43,17 @@ describe('The Axis & Legend tab', () => {
     });
 
     [
-        'RangeAxisMinValue',
-        'RangeAxisMaxValue',
-        'RangeAxisSteps',
-        'RangeAxisDecimals',
-        'RangeAxisLabel',
-        'DomainAxisLabel',
-        'HideLegend',
-        'Title',
-        'HideTitle',
-        'Subtitle',
-        'HideSubtitle',
+        RangeAxisMinValue,
+        RangeAxisMaxValue,
+        RangeAxisSteps,
+        RangeAxisDecimals,
+        RangeAxisLabel,
+        DomainAxisLabel,
+        HideLegend,
+        Title,
+        HideTitle,
+        Subtitle,
+        HideSubtitle,
     ].forEach(component => {
         it(`should render a ${component} component`, () => {
             expect(axesAndLegendsTab().find(component).length).toBe(1);

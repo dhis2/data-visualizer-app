@@ -25,6 +25,7 @@ describe('DV > Options > TextBaseOption', () => {
             },
             onChange,
             classes: {},
+            type: 'text',
         };
 
         shallowTextBaseOption = undefined;
