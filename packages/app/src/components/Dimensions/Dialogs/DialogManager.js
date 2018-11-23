@@ -73,10 +73,6 @@ export class DialogManager extends Component {
         this.props.setRecommendedIds(ids);
     }, 1000);
 
-    closeDialog = () => {
-        this.props.closeDialog(null);
-    };
-
     renderDialogContent = () => (
         <Fragment>
             {Object.keys(FIXED_DIMENSIONS).map(dimensionId => {
@@ -111,7 +107,7 @@ export class DialogManager extends Component {
     render = () => (
         <Dialog
             open={!!this.props.dialogId}
-            onClose={this.closeDialog}
+            onClose={() => this.props.closeDialog(null)}
             maxWidth={false}
             disableEnforceFocus
             keepMounted

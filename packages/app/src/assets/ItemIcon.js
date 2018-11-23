@@ -4,8 +4,8 @@ const ItemIcon = ({ backgroundColor }) => (
     <div
         style={{
             backgroundColor,
-            height: 6,
-            width: 6,
+            minHeight: 6,
+            minWidth: 6,
             margin: '0px 5px',
         }}
     />

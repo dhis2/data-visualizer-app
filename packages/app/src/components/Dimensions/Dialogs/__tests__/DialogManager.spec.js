@@ -2,9 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Dialog from '@material-ui/core/Dialog';
 import { DialogManager } from '../DialogManager';
-import { FIXED_DIMENSIONS } from '../../../../modules/fixedDimensions';
-
-const dxId = FIXED_DIMENSIONS.dx.id;
 
 describe('The DialogManager component ', () => {
     let props;
@@ -25,7 +22,9 @@ describe('The DialogManager component ', () => {
     beforeEach(() => {
         props = {
             dialogId: null,
-            dimensions: {},
+            dimensions: {
+                test: {},
+            },
             dxIds: ['test'],
             ouIds: [],
             closeDialog: jest.fn(),
@@ -34,18 +33,37 @@ describe('The DialogManager component ', () => {
         shallowDialog = undefined;
     });
 
-    it('renders null when prop dialogId is equal to null ', () => {
-        expect(dialogManager().children().length).toEqual(0);
+    it('should always render a Dialog', () => {
+        const dialog = dialogManager().find(Dialog);
+
+        expect(dialog.length).toEqual(1);
     });
 
-    it('renders a <Dialog> when prop dialogId is not equal to a falsy value', () => {
-        props.dialogId = dxId;
+    it('should add the dialogId of fixed dimensions to state "mounted" on first time render', () => {
+        const orgUnitId = 'ou';
+        const dialog = dialogManager().setProps({ dialogId: orgUnitId });
 
-        const wrappingDialog = dialogManager()
-            .find(Dialog)
-            .first();
+        expect(dialog.state().mounted).toContain(orgUnitId);
+    });
 
-        expect(wrappingDialog.children().length).toBeGreaterThan(1);
+    it('should render fixed dimensions inside a div wrapper', () => {
+        const dataDimId = 'dx';
+        const dialog = dialogManager().setProps({ dialogId: dataDimId });
+
+        const wrappingDiv = dialog.find('div');
+
+        expect(wrappingDiv.length).toEqual(1);
+    });
+
+    it('the wrapping div should hide children with display:"none" if prop dialogId is equal to a falsy value,', () => {
+        const dataDimId = 'dx';
+        const dialog = dialogManager().setProps({ dialogId: dataDimId });
+
+        dialog.setProps({ dialogId: null });
+        const wrappingDiv = dialog.find('div');
+
+        const hidden = { display: 'none' };
+        expect(wrappingDiv.props().style).toEqual(hidden);
     });
 
     it('sets the recommended Ids (with debounced delay) when a change in dx (Data) or ou (Organisation Unit) occurs', () => {

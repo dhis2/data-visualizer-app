@@ -36,17 +36,19 @@ const SortableItem = SortableElement(({ id, idx, ...props }) => (
 const SortableList = SortableContainer(
     ({ metadata, highlighted, items, ...itemProps }) => (
         <ul style={styles.list}>
-            {items.map((id, index) => (
-                <SortableItem
-                    id={id}
-                    index={index}
-                    idx={index}
-                    key={`item-${id}`}
-                    name={metadata[id].name}
-                    highlighted={highlighted.includes(id)}
-                    {...itemProps}
-                />
-            ))}
+            {items.map((id, index) =>
+                metadata[id] ? (
+                    <SortableItem
+                        id={id}
+                        index={index}
+                        idx={index}
+                        key={`item-${id}`}
+                        name={metadata[id].name}
+                        highlighted={highlighted.includes(id)}
+                        {...itemProps}
+                    />
+                ) : null
+            )}
         </ul>
     )
 );
