@@ -1,6 +1,6 @@
 import React from 'react';
-import TextBaseOption from './TextBaseOption';
 import i18n from '@dhis2/d2-i18n';
+import TextBaseOption from './TextBaseOption';
 
 const BaseLineValue = () => (
     <TextBaseOption

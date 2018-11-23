@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import { withStyles } from '@material-ui/core/styles';
 
 import i18n from '@dhis2/d2-i18n';
 import DataTab from './DataTab';
@@ -19,7 +20,7 @@ export class VisualizationOptions extends Component {
         this.setState({ activeTab: tabId });
     };
 
-    render = () => {
+    render() {
         const { classes } = this.props;
         const { activeTab } = this.state;
 
@@ -51,7 +52,11 @@ export class VisualizationOptions extends Component {
                 </div>
             </Fragment>
         );
-    };
+    }
 }
+
+VisualizationOptions.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
 
 export default withStyles(styles)(VisualizationOptions);

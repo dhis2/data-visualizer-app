@@ -1,10 +1,14 @@
 import React from 'react';
-import TextBaseOption from './TextBaseOption';
-import i18n from '@dhis2/d2-i18n';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
 
-const RangeAxisSteps = ({ className }) => (
+import i18n from '@dhis2/d2-i18n';
+import TextBaseOption from './TextBaseOption';
+import styles from '../styles/VisualizationOptions.style';
+
+const RangeAxisSteps = ({ classes }) => (
     <TextBaseOption
-        className={className}
+        className={classes.textBaseRoot}
         type="number"
         option={{
             name: 'rangeAxisSteps',
@@ -13,4 +17,8 @@ const RangeAxisSteps = ({ className }) => (
     />
 );
 
-export default RangeAxisSteps;
+RangeAxisSteps.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(RangeAxisSteps);

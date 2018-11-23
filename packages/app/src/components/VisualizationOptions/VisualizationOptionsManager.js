@@ -19,7 +19,7 @@ class VisualizationOptionsManager extends Component {
         };
     }
 
-    onClose = event => {
+    onClose = () => {
         this.toggleVisualizationOptionsDialog();
     };
 
@@ -58,7 +58,7 @@ class VisualizationOptionsManager extends Component {
 }
 
 VisualizationOptionsManager.propTypes = {
-    className: PropTypes.string,
+    className: PropTypes.string.isRequired,
 };
 
 export default VisualizationOptionsManager;

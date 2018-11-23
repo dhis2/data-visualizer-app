@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import FormGroup from '@material-ui/core/FormGroup';
 import { withStyles } from '@material-ui/core/styles';
 
-import FormGroup from '@material-ui/core/FormGroup';
 import RangeAxisMinValue from './Options/RangeAxisMinValue';
 import RangeAxisMaxValue from './Options/RangeAxisMaxValue';
 import RangeAxisSteps from './Options/RangeAxisSteps';
@@ -18,33 +19,27 @@ import styles from './styles/VisualizationOptions.style';
 export const AxesAndLegendsTab = ({ classes }) => (
     <FormGroup className={classes.formGroupContainer}>
         <FormGroup className={classes.formGroupRoot} row={true}>
-            <RangeAxisMinValue className={classes.rangeAxisMin} />
+            <RangeAxisMinValue />
             <RangeAxisMaxValue />
         </FormGroup>
-        <RangeAxisSteps className={classes.textBaseRoot} />
-        <RangeAxisDecimals className={classes.textBaseRoot} />
-        <RangeAxisLabel className={classes.textBaseRoot} />
-        <DomainAxisLabel className={classes.textBaseRoot} />
+        <RangeAxisSteps />
+        <RangeAxisDecimals />
+        <RangeAxisLabel />
+        <DomainAxisLabel />
         <HideLegend />
         <FormGroup className={classes.formGroupRoot} row={true}>
             <Title />
-            <HideTitle
-                classes={{
-                    checkBoxRoot: classes.checkBoxRoot,
-                    formControlLabelRoot: classes.formControlLabelRoot,
-                }}
-            />
+            <HideTitle />
         </FormGroup>
-        <FormGroup className={classes.formGroupRoot} row={true}>
+        <FormGroup row={true}>
             <Subtitle />
-            <HideSubtitle
-                classes={{
-                    checkBoxRoot: classes.checkBoxRoot,
-                    formControlLabelRoot: classes.formControlLabelRoot,
-                }}
-            />
+            <HideSubtitle />
         </FormGroup>
     </FormGroup>
 );
+
+AxesAndLegendsTab.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
 
 export default withStyles(styles)(AxesAndLegendsTab);

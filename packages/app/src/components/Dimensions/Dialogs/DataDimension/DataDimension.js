@@ -205,7 +205,7 @@ export class DataDimension extends Component {
             items,
         });
 
-    render = () => {
+    render() {
         const unselected = this.state.items.filter(di =>
             this.state.unselectedIds.includes(di.id)
         );
@@ -252,7 +252,7 @@ export class DataDimension extends Component {
                 </DialogContent>
             </Fragment>
         );
-    };
+    }
 }
 
 DataDimension.propTypes = {

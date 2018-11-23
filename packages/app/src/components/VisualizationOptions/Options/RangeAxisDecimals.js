@@ -1,10 +1,14 @@
 import React from 'react';
-import TextBaseOption from './TextBaseOption';
-import i18n from '@dhis2/d2-i18n';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
 
-const RangeAxisDecimals = ({ className }) => (
+import i18n from '@dhis2/d2-i18n';
+import TextBaseOption from './TextBaseOption';
+import styles from '../styles/VisualizationOptions.style';
+
+const RangeAxisDecimals = ({ classes }) => (
     <TextBaseOption
-        className={className}
+        className={classes.textBaseRoot}
         type="number"
         option={{
             name: 'rangeAxisDecimals',
@@ -13,4 +17,8 @@ const RangeAxisDecimals = ({ className }) => (
     />
 );
 
-export default RangeAxisDecimals;
+RangeAxisDecimals.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(RangeAxisDecimals);

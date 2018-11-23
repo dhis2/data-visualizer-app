@@ -1,11 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+
 import i18n from '@dhis2/d2-i18n';
-
 import SelectBaseOption from './SelectBaseOption';
+import styles from '../styles/VisualizationOptions.style';
 
-const RegressionType = ({ className }) => (
+const RegressionType = ({ classes }) => (
     <SelectBaseOption
-        className={className}
+        className={classes.formControlRoot}
         option={{
             name: 'regressionType',
             label: i18n.t('Trend line'),
@@ -19,4 +22,8 @@ const RegressionType = ({ className }) => (
     />
 );
 
-export default RegressionType;
+RegressionType.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(RegressionType);

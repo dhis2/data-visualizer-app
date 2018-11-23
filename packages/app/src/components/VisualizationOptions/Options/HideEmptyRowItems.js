@@ -1,11 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+
 import i18n from '@dhis2/d2-i18n';
-
 import SelectBaseOption from './SelectBaseOption';
+import styles from '../styles/VisualizationOptions.style';
 
-const HideEmptyRowItems = ({ className }) => (
+const HideEmptyRowItems = ({ classes }) => (
     <SelectBaseOption
-        className={className}
+        className={classes.formControlRoot}
         option={{
             name: 'hideEmptyRowItems',
             label: i18n.t('Hide empty categories'),
@@ -23,4 +26,8 @@ const HideEmptyRowItems = ({ className }) => (
     />
 );
 
-export default HideEmptyRowItems;
+HideEmptyRowItems.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(HideEmptyRowItems);

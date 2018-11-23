@@ -1,11 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+
 import i18n from '@dhis2/d2-i18n';
-
 import SelectBaseOption from './SelectBaseOption';
+import styles from '../styles/VisualizationOptions.style';
 
-const SortOrder = ({ className }) => (
+const SortOrder = ({ classes }) => (
     <SelectBaseOption
-        className={className}
+        className={classes.formControlRoot}
         option={{
             name: 'sortOrder',
             label: i18n.t('Sort order'),
@@ -18,4 +21,8 @@ const SortOrder = ({ className }) => (
     />
 );
 
-export default SortOrder;
+SortOrder.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(SortOrder);

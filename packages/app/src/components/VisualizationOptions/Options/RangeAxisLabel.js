@@ -1,10 +1,14 @@
 import React from 'react';
-import TextBaseOption from './TextBaseOption';
-import i18n from '@dhis2/d2-i18n';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
 
-const RangeAxisLabel = ({ className }) => (
+import i18n from '@dhis2/d2-i18n';
+import TextBaseOption from './TextBaseOption';
+import styles from '../styles/VisualizationOptions.style';
+
+const RangeAxisLabel = ({ classes }) => (
     <TextBaseOption
-        className={className}
+        className={classes.textBaseRoot}
         type="text"
         option={{
             name: 'rangeAxisLabel',
@@ -13,4 +17,8 @@ const RangeAxisLabel = ({ className }) => (
     />
 );
 
-export default RangeAxisLabel;
+RangeAxisLabel.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(RangeAxisLabel);

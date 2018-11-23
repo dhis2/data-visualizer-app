@@ -3,17 +3,18 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
+
 import { sGetUiOptions } from '../../../reducers/ui';
 import { acSetUiOptions } from '../../../actions/ui';
 import styles from '../styles/VisualizationOptions.style';
 
 export const TextBaseOption = ({
-    type,
-    option,
-    value,
-    onChange,
-    className,
     classes,
+    className,
+    onChange,
+    option,
+    type,
+    value,
 }) => (
     <TextField
         className={className}
@@ -26,10 +27,12 @@ export const TextBaseOption = ({
 );
 
 TextBaseOption.propTypes = {
-    type: PropTypes.string,
-    option: PropTypes.object,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    onChange: PropTypes.func,
+    classes: PropTypes.object.isRequired,
+    className: PropTypes.string,
+    onChange: PropTypes.func.isRequired,
+    option: PropTypes.object.isRequired,
+    type: PropTypes.string.isRequired,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => ({

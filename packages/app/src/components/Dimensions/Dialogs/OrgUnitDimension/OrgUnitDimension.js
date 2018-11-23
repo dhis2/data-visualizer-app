@@ -206,7 +206,7 @@ export class OrgUnitDimension extends Component {
         }
     };
 
-    render = () => {
+    render() {
         const ids = this.props.ouItems;
         const selected = getOrgUnitsFromIds(
             ids,
@@ -243,7 +243,7 @@ export class OrgUnitDimension extends Component {
                 </DialogContent>
             </Fragment>
         );
-    };
+    }
 }
 
 OrgUnitDimension.propTypes = {

@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
@@ -29,6 +30,11 @@ export const TargetLine = ({ enabled, onChange }) => (
         ) : null}
     </FormGroup>
 );
+
+TargetLine.propTypes = {
+    enabled: PropTypes.bool.isRequired,
+    onChange: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = state => ({
     enabled: sGetUiOptions(state).targetLine,

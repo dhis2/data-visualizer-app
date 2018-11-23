@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withStyles } from '@material-ui/core/styles';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import { withStyles } from '@material-ui/core/styles';
+
 import { sGetUiOptions } from '../../../reducers/ui';
 import { acSetUiOptions } from '../../../actions/ui';
 
@@ -12,7 +13,7 @@ const defaultStyle = {
     checkBoxRoot: {},
 };
 
-export const CheckboxBaseOption = ({ option, value, onChange, classes }) => (
+export const CheckboxBaseOption = ({ classes, onChange, option, value }) => (
     <FormControlLabel
         control={
             <Checkbox
@@ -28,10 +29,10 @@ export const CheckboxBaseOption = ({ option, value, onChange, classes }) => (
 );
 
 CheckboxBaseOption.propTypes = {
-    classes: PropTypes.object,
-    option: PropTypes.object,
-    value: PropTypes.bool,
-    onChange: PropTypes.func,
+    classes: PropTypes.object.isRequired,
+    onChange: PropTypes.func.isRequired,
+    option: PropTypes.object.isRequired,
+    value: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => ({

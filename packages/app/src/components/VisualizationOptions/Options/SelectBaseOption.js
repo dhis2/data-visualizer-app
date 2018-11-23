@@ -5,10 +5,11 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
+
 import { sGetUiOptions } from '../../../reducers/ui';
 import { acSetUiOptions } from '../../../actions/ui';
 
-export const SelectBaseOption = ({ option, value, onChange, className }) => (
+export const SelectBaseOption = ({ className, onChange, option, value }) => (
     <FormControl className={className}>
         <InputLabel>{option.label}</InputLabel>
         <Select
@@ -26,9 +27,10 @@ export const SelectBaseOption = ({ option, value, onChange, className }) => (
 );
 
 SelectBaseOption.propTypes = {
-    option: PropTypes.object,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    onChange: PropTypes.func,
+    className: PropTypes.string,
+    onChange: PropTypes.func.isRequired,
+    option: PropTypes.object.isRequired,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => ({

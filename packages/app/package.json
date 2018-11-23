@@ -23,7 +23,7 @@
     },
     "dependencies": {
         "@dhis2/d2-i18n": "^1.0.3",
-        "@dhis2/d2-ui-file-menu": "5.0.6",
+        "@dhis2/d2-ui-file-menu": "5.0.10",
         "@dhis2/d2-ui-interpretations": "5.0.6",
         "@dhis2/d2-ui-org-unit-dialog": "5.0.6",
         "@dhis2/d2-ui-period-selector-dialog": "5.0.6",
