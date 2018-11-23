@@ -138,10 +138,6 @@ export class App extends Component {
         };
     }
 
-    renderSnackbar() {
-        return <Snackbar />;
-    }
-
     render() {
         const showVis =
             this.props.current &&
@@ -187,7 +183,7 @@ export class App extends Component {
                         )}
                     </div>
                 </div>
-                {this.renderSnackbar()}
+                <Snackbar />
             </UI>
         );
     }
