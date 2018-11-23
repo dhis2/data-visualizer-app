@@ -11,25 +11,19 @@ import TargetLine from './Options/TargetLine';
 import BaseLine from './Options/BaseLine';
 import SortOrder from './Options/SortOrder';
 import AggregationType from './Options/AggregationType';
-import styles from './styles/DataTab.style';
+import styles from './styles/VisualizationOptions.style';
 
 export const DataTab = ({ classes }) => (
     <FormGroup>
         <ShowData />
         <PercentStackedValues />
         <CumulativeValues />
-        <HideEmptyRowItems
-            classes={{ formControlRoot: classes.formControlRoot }}
-        />
-        <RegressionType
-            classes={{ formControlRoot: classes.formControlRoot }}
-        />
+        <HideEmptyRowItems className={classes.formControlRoot} />
+        <RegressionType className={classes.formControlRoot} />
         <TargetLine />
         <BaseLine />
-        <SortOrder classes={{ formControlRoot: classes.formControlRoot }} />
-        <AggregationType
-            classes={{ formControlRoot: classes.formControlRoot }}
-        />
+        <SortOrder className={classes.formControlRoot} />
+        <AggregationType className={classes.formControlRoot} />
     </FormGroup>
 );
 

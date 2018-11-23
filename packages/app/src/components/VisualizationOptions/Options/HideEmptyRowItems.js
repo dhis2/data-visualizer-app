@@ -3,9 +3,9 @@ import i18n from '@dhis2/d2-i18n';
 
 import SelectBaseOption from './SelectBaseOption';
 
-const HideEmptyRowItems = ({ classes }) => (
+const HideEmptyRowItems = ({ className }) => (
     <SelectBaseOption
-        classes={classes}
+        className={className}
         option={{
             name: 'hideEmptyRowItems',
             label: i18n.t('Hide empty categories'),

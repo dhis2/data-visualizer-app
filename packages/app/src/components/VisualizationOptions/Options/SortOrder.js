@@ -3,9 +3,9 @@ import i18n from '@dhis2/d2-i18n';
 
 import SelectBaseOption from './SelectBaseOption';
 
-const SortOrder = ({ classes }) => (
+const SortOrder = ({ className }) => (
     <SelectBaseOption
-        classes={classes}
+        className={className}
         option={{
             name: 'sortOrder',
             label: i18n.t('Sort order'),

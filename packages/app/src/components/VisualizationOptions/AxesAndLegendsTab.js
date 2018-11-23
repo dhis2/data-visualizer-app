@@ -13,20 +13,20 @@ import HideTitle from './Options/HideTitle';
 import Title from './Options/Title';
 import HideSubtitle from './Options/HideSubtitle';
 import Subtitle from './Options/Subtitle';
-import styles from './styles/AxesAndLegendsTab.style';
+import styles from './styles/VisualizationOptions.style';
 
 export const AxesAndLegendsTab = ({ classes }) => (
-    <FormGroup classes={{ root: classes.formGroupContainer }}>
-        <FormGroup classes={{ row: classes.formGroupRoot }} row={true}>
-            <RangeAxisMinValue classes={{ root: classes.rangeAxisMin }} />
+    <FormGroup className={classes.formGroupContainer}>
+        <FormGroup className={classes.formGroupRoot} row={true}>
+            <RangeAxisMinValue className={classes.rangeAxisMin} />
             <RangeAxisMaxValue />
         </FormGroup>
-        <RangeAxisSteps classes={{ root: classes.textBaseRoot }} />
-        <RangeAxisDecimals classes={{ root: classes.textBaseRoot }} />
-        <RangeAxisLabel classes={{ root: classes.textBaseRoot }} />
-        <DomainAxisLabel classes={{ root: classes.textBaseRoot }} />
+        <RangeAxisSteps className={classes.textBaseRoot} />
+        <RangeAxisDecimals className={classes.textBaseRoot} />
+        <RangeAxisLabel className={classes.textBaseRoot} />
+        <DomainAxisLabel className={classes.textBaseRoot} />
         <HideLegend />
-        <FormGroup classes={{ row: classes.formGroupRoot }} row={true}>
+        <FormGroup className={classes.formGroupRoot} row={true}>
             <Title />
             <HideTitle
                 classes={{
@@ -35,7 +35,7 @@ export const AxesAndLegendsTab = ({ classes }) => (
                 }}
             />
         </FormGroup>
-        <FormGroup classes={{ row: classes.formGroupRoot }} row={true}>
+        <FormGroup className={classes.formGroupRoot} row={true}>
             <Subtitle />
             <HideSubtitle
                 classes={{

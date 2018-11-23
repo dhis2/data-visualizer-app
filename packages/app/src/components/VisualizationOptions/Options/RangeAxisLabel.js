@@ -2,9 +2,9 @@ import React from 'react';
 import TextBaseOption from './TextBaseOption';
 import i18n from '@dhis2/d2-i18n';
 
-const RangeAxisLabel = ({ classes }) => (
+const RangeAxisLabel = ({ className }) => (
     <TextBaseOption
-        classes={classes}
+        className={className}
         type="text"
         option={{
             name: 'rangeAxisLabel',

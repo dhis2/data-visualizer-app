@@ -3,9 +3,9 @@ import i18n from '@dhis2/d2-i18n';
 
 import SelectBaseOption from './SelectBaseOption';
 
-const AggregationType = ({ classes }) => (
+const AggregationType = ({ className }) => (
     <SelectBaseOption
-        classes={classes}
+        className={className}
         option={{
             name: 'aggregationType',
             label: i18n.t('Aggregation type'),

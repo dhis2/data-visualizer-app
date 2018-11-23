@@ -35,19 +35,19 @@ export const theme = {
         MuiDialog: {
             paperWidthSm: {
                 minWidth: 400,
+                width: 400,
                 maxWidth: 400,
             },
             paperWidthMd: {
                 minWidth: 600,
+                width: 600,
                 maxWidth: 600,
             },
             paperWidthLg: {
                 minWidth: 800,
+                width: 800,
                 maxWidth: 800,
             },
-        },
-        MuiDialogContent: {
-            root: dhis2theme.overrides.MuiDialogContent.root,
         },
         MuiInput: {
             underline: {

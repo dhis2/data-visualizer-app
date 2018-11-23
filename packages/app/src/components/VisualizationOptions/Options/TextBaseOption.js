@@ -5,16 +5,20 @@ import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
 import { sGetUiOptions } from '../../../reducers/ui';
 import { acSetUiOptions } from '../../../actions/ui';
+import styles from '../styles/VisualizationOptions.style';
 
-const styles = {
-    root: {},
-};
-
-export const TextBaseOption = ({ type, option, value, onChange, classes }) => (
+export const TextBaseOption = ({
+    type,
+    option,
+    value,
+    onChange,
+    className,
+    classes,
+}) => (
     <TextField
-        classes={{ root: classes.root }}
+        className={className}
         type={type}
-        InputLabelProps={{ style: { fontSize: 15 } }}
+        InputLabelProps={{ className: classes.inputLabel }}
         label={option.label}
         onChange={event => onChange(event.target.value)}
         value={value}

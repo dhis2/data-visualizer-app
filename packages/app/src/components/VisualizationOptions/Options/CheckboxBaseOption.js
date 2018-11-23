@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { withStyles } from '@material-ui/core/styles';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import { withStyles } from '@material-ui/core/styles';
 import { sGetUiOptions } from '../../../reducers/ui';
 import { acSetUiOptions } from '../../../actions/ui';
 
-const styles = {
+const defaultStyle = {
     formControlLabelRoot: {},
     checkBoxRoot: {},
 };
@@ -16,15 +16,13 @@ export const CheckboxBaseOption = ({ option, value, onChange, classes }) => (
     <FormControlLabel
         control={
             <Checkbox
-                classes={{
-                    root: classes.checkBoxRoot,
-                }}
+                className={classes.checkBoxRoot}
                 checked={value}
                 color={'primary'}
                 onChange={event => onChange(event.target.checked)}
             />
         }
-        classes={{ root: classes.formControlLabelRoot }}
+        className={classes.formControlLabelRoot}
         label={option.label}
     />
 );
@@ -48,4 +46,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(withStyles(styles)(CheckboxBaseOption));
+)(withStyles(defaultStyle)(CheckboxBaseOption));

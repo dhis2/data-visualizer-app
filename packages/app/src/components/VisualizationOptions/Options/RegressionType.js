@@ -3,9 +3,9 @@ import i18n from '@dhis2/d2-i18n';
 
 import SelectBaseOption from './SelectBaseOption';
 
-const RegressionType = ({ classes }) => (
+const RegressionType = ({ className }) => (
     <SelectBaseOption
-        classes={classes}
+        className={className}
         option={{
             name: 'regressionType',
             label: i18n.t('Trend line'),

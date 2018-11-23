@@ -5,7 +5,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import AppBar from '@material-ui/core/AppBar';
 import i18n from '@dhis2/d2-i18n';
-import styles from './styles/TabsBar.style';
+import styles from './styles/VisualizationOptions.style';
 
 const strings = ['Data', 'Axes & legend', 'Style'];
 
