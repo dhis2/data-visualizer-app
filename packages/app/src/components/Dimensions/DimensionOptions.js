@@ -11,11 +11,11 @@ import {
     acSetUiActiveModalDialog,
 } from '../../actions/ui';
 import { sGetUiLayout, sGetUiItemsByDimension } from '../../reducers/ui';
-import { menuLabels } from '../../modules/layout';
+import { menuLabels, ADD_TO_LAYOUT_OPTIONS } from '../../modules/layout';
 import { isYearOverYear } from '../../modules/chartTypes';
 import { styles } from './styles/DimensionOptions.style';
 
-const FILTER = 'filters';
+const FILTER = 2;
 const emptyItems = [];
 
 export class DimensionOptions extends Component {
@@ -48,23 +48,23 @@ export class DimensionOptions extends Component {
         let items = [];
 
         if (isYearOverYear(this.props.type)) {
-            const label = menuLabels[FILTER];
-
             items = [
                 this.renderMenuItem(
                     `add-to-${this.props.id}`,
-                    FILTER,
+                    ADD_TO_LAYOUT_OPTIONS[FILTER].axisKey,
                     this.addDimension,
-                    `${i18n.t(`Add to ${label}`, { label })}`
+                    ADD_TO_LAYOUT_OPTIONS[FILTER].name
                 ),
             ];
         } else {
-            items = Object.entries(menuLabels).map(([key, label]) =>
-                this.renderMenuItem(
-                    `add-to-${key}`,
-                    key,
-                    this.addDimension,
-                    `${i18n.t(`Add to ${label}`, { label })}`
+            items = Object.values(
+                ADD_TO_LAYOUT_OPTIONS.map(axis =>
+                    this.renderMenuItem(
+                        `add-to-${axis.axisKey}`,
+                        axis.axisKey,
+                        this.addDimension,
+                        axis.name
+                    )
                 )
             );
         }
@@ -120,7 +120,7 @@ export class DimensionOptions extends Component {
             />
         ) : null;
 
-    render = () => {
+    render() {
         const menuItems = this.getMenuItems();
         const OptionsButton = this.renderOptionsOnHover();
 
@@ -135,7 +135,7 @@ export class DimensionOptions extends Component {
                 />
             </div>
         );
-    };
+    }
 }
 
 DimensionOptions.propTypes = {

@@ -27,17 +27,19 @@ export class DimensionLabel extends Component {
         }
     };
 
-    render = () => (
-        <div
-            className="label"
-            onClick={this.onLabelClick}
-            onKeyPress={this.onKeyPress}
-            tabIndex={0}
-            style={styles.label}
-        >
-            {this.props.children}
-        </div>
-    );
+    render() {
+        return (
+            <div
+                className="label"
+                onClick={this.onLabelClick}
+                onKeyPress={this.onKeyPress}
+                tabIndex={0}
+                style={styles.label}
+            >
+                {this.props.children}
+            </div>
+        );
+    }
 }
 
 export default connect(

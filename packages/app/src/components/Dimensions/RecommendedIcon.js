@@ -30,7 +30,7 @@ export class RecommendedIcon extends Component {
         </Popper>
     );
 
-    render = () => {
+    render() {
         const TooltipOnHover = Boolean(this.state.anchorEl)
             ? this.showTooltip()
             : null;
@@ -46,7 +46,7 @@ export class RecommendedIcon extends Component {
                 </div>
             </div>
         ) : null;
-    };
+    }
 }
 
 const mapStateToProps = (state, ownProps) => ({

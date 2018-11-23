@@ -30,7 +30,7 @@ export class DimensionList extends Component {
         />
     );
 
-    render = () => {
+    render() {
         const dimensionsList = Object.values(this.props.dimensions).map(
             listItem =>
                 this.props.filterText.length
@@ -43,7 +43,7 @@ export class DimensionList extends Component {
                 <ul style={styles.list}>{dimensionsList}</ul>
             </div>
         );
-    };
+    }
 }
 
 DimensionList.propTypes = {

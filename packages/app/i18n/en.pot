@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-11-23T11:10:07.518Z\n"
-"PO-Revision-Date: 2018-11-23T11:10:07.518Z\n"
+"POT-Creation-Date: 2018-11-23T13:22:44.733Z\n"
+"PO-Revision-Date: 2018-11-23T13:22:44.733Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -96,15 +96,6 @@ msgid "Category"
 msgstr ""
 
 msgid "Filter"
-msgstr ""
-
-msgid "series"
-msgstr ""
-
-msgid "category"
-msgstr ""
-
-msgid "filter"
 msgstr ""
 
 msgid "Move to"
@@ -384,6 +375,15 @@ msgid "Add to category"
 msgstr ""
 
 msgid "Add to filter"
+msgstr ""
+
+msgid "series"
+msgstr ""
+
+msgid "category"
+msgstr ""
+
+msgid "filter"
 msgstr ""
 
 msgid "Today"

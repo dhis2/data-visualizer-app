@@ -58,7 +58,7 @@ export class DimensionItem extends Component {
         </span>
     );
 
-    render = () => {
+    render() {
         const Icon = this.getDimensionIcon();
         const Label = this.getDimensionType();
         const listItemStyle =
@@ -94,7 +94,7 @@ export class DimensionItem extends Component {
                 />
             </li>
         );
-    };
+    }
 }
 
 DimensionItem.propTypes = {
