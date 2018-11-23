@@ -20,7 +20,7 @@
 }
 
 .flex-1 {
-    flex: 1;
+    flex: 1 1 0%;
 }
 
 /* Headerbar */
@@ -53,6 +53,8 @@
 }
 
 .main-right {
+    flex: 1 1 0%;
+    max-width: 380px;
     background-color: #f4f6f8;
     overflow-y: auto;
     overflow-x: hidden;

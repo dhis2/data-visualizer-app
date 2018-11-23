@@ -15,7 +15,7 @@ export default theme => ({
         textTransform: 'none',
     },
     grow: {
-        flex: 1,
+        flex: '1 1 0%',
     },
     fileMenu: {
         '& > button > span': {
