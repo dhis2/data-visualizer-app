@@ -1,5 +1,10 @@
 export default {
+    wrapper: {
+        position: 'relative',
+    },
     container: {
-        width: '380px',
+        position: 'absolute',
+        height: '100%',
+        width: '100%',
     },
 };
