@@ -9,7 +9,7 @@ import {
     acRemoveUiLayoutDimensions,
     acSetUiActiveModalDialog,
 } from '../../actions/ui';
-import { sGetUiLayout, sGetUiItems } from '../../reducers/ui';
+import { sGetUiLayout } from '../../reducers/ui';
 
 import { ADD_TO_LAYOUT_OPTIONS } from '../../modules/layout';
 import { styles } from './styles/DimensionOptions.style';
@@ -85,7 +85,6 @@ DimensionOptions.propTypes = {
 
 const mapStateToProps = state => ({
     currentLayout: sGetUiLayout(state),
-    items: sGetUiItems(state),
 });
 
 export default connect(

@@ -17,9 +17,9 @@ import { getAdaptedUiByType } from '../../../modules/ui';
 import { isYearOverYear } from '../../../modules/chartTypes';
 
 const axisLabels = {
-    columns: i18n.t('Series'),
-    rows: i18n.t('Category'),
-    filters: i18n.t('Filter'),
+    columns: i18n.t('series'),
+    rows: i18n.t('category'),
+    filters: i18n.t('filter'),
 };
 
 class Axis extends React.Component {

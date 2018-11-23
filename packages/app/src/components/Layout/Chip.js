@@ -6,13 +6,15 @@ import Menu from './Menu';
 import Tooltip from './Tooltip';
 import { setDataTransfer } from '../../modules/dnd';
 import { sGetDimensions } from '../../reducers/dimensions';
-import { sGetUiItems } from '../../reducers/ui';
+import { sGetUiItemsByDimension } from '../../reducers/ui';
 import { styles } from './styles/Chip.style';
 import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
 import DynamicDimensionIcon from '../../assets/DynamicDimensionIcon';
 import { sGetMetadata } from '../../reducers/metadata';
 
 const TOOLTIP_ENTER_DELAY = 500;
+
+const emptyItems = [];
 
 class Chip extends React.Component {
     state = {
@@ -122,7 +124,7 @@ class Chip extends React.Component {
 
 const mapStateToProps = (state, ownProps) => ({
     dimensionName: sGetDimensions(state)[ownProps.dimensionId].name,
-    items: sGetUiItems(state)[ownProps.dimensionId] || [],
+    items: sGetUiItemsByDimension(state, ownProps.dimensionId) || emptyItems,
     metadata: sGetMetadata(state),
 });
 

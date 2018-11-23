@@ -17,7 +17,7 @@ import {
     apiFetchGroups,
     apiFetchAlternatives,
 } from '../../../../api/dimensions';
-import { sGetUiItems } from '../../../../reducers/ui';
+import { sGetUiItemsByDimension } from '../../../../reducers/ui';
 import { sGetDisplayNameProperty } from '../../../../reducers/settings';
 
 import {
@@ -265,7 +265,7 @@ DataDimension.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    selectedItems: sGetUiItems(state)[dxId] || [],
+    selectedItems: sGetUiItemsByDimension(state, dxId),
     displayNameProp: sGetDisplayNameProperty(state),
 });
 

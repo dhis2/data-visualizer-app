@@ -18,7 +18,10 @@ import AddToLayoutButton from '../../AddToLayoutButton/AddToLayoutButton';
 import { acSetUiActiveModalDialog } from '../../../actions/ui';
 import { acSetRecommendedIds } from '../../../actions/recommendedIds';
 
-import { sGetUiItems, sGetUiActiveModalDialog } from '../../../reducers/ui';
+import {
+    sGetUiItemsByDimension,
+    sGetUiActiveModalDialog,
+} from '../../../reducers/ui';
 import { sGetDimensions } from '../../../reducers/dimensions';
 
 import { apiFetchRecommendedIds } from '../../../api/dimensions';
@@ -135,8 +138,8 @@ DialogManager.defaultProps = {
 const mapStateToProps = state => ({
     dialogId: sGetUiActiveModalDialog(state),
     dimensions: sGetDimensions(state),
-    dxIds: sGetUiItems(state)[dxId] || [],
-    ouIds: sGetUiItems(state)[ouId] || [],
+    dxIds: sGetUiItemsByDimension(state, dxId),
+    ouIds: sGetUiItemsByDimension(state, ouId),
 });
 
 export default connect(

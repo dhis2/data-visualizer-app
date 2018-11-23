@@ -38,7 +38,11 @@ export class DimensionList extends Component {
                     : this.renderItem(listItem)
         );
 
-        return <ul style={styles.listContainer}>{dimensionsList}</ul>;
+        return (
+            <div style={styles.listWrapper}>
+                <ul style={styles.listContainer}>{dimensionsList}</ul>
+            </div>
+        );
     };
 }
 
