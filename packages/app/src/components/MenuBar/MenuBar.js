@@ -32,21 +32,19 @@ const getOnDelete = props => () => props.onDeleteVisualization();
 export const MenuBar = ({ classes, ...props }, context) => (
     <div className={classes.menuBar}>
         <UpdateButton flat size="small" className={classes.updateButton} />
-        <div className={classes.fileMenu}>
-            <FileMenu
-                d2={context.d2}
-                fileId={props.id || null}
-                fileType={props.apiObjectName}
-                onOpen={onOpen}
-                onNew={onNew}
-                onRename={getOnRename(props)}
-                onSave={getOnSave(props)}
-                onSaveAs={getOnSaveAs(props)}
-                onDelete={getOnDelete(props)}
-                onTranslate={() => console.log('translate callback')}
-                onError={() => console.log('error!')}
-            />
-        </div>
+        <FileMenu
+            d2={context.d2}
+            fileId={props.id || null}
+            fileType={props.apiObjectName}
+            onOpen={onOpen}
+            onNew={onNew}
+            onRename={getOnRename(props)}
+            onSave={getOnSave(props)}
+            onSaveAs={getOnSaveAs(props)}
+            onDelete={getOnDelete(props)}
+            onTranslate={() => console.log('translate callback')}
+            onError={() => console.log('error!')}
+        />
         <VisualizationOptionsManager className={classes.label} />
         <DownloadMenu className={classes.label} />
         <div className={classes.grow} />
