@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -38,7 +38,13 @@ export const fixedDialogs = {
     [peId]: <PeriodDimension />,
 };
 
+export const defaultState = {
+    mounted: [],
+};
+
 export class DialogManager extends Component {
+    state = defaultState;
+
     componentDidUpdate = prevProps => {
         const shouldFetchIds =
             !isEqual(prevProps.dxIds, this.props.dxIds) ||
@@ -46,6 +52,15 @@ export class DialogManager extends Component {
 
         if (shouldFetchIds) {
             this.fetchRecommended();
+        }
+
+        if (
+            this.props.dialogId &&
+            !this.state.mounted.includes(this.props.dialogId)
+        ) {
+            this.setState({
+                mounted: [...this.state.mounted, this.props.dialogId],
+            });
         }
     };
 
@@ -58,32 +73,54 @@ export class DialogManager extends Component {
         this.props.setRecommendedIds(ids);
     }, 1000);
 
-    renderDialogContent = () =>
-        FIXED_DIMENSIONS[this.props.dialogId] ? (
-            fixedDialogs[this.props.dialogId]
-        ) : (
-            <DynamicDimension
-                dialogId={this.props.dialogId}
-                dialogTitle={this.props.dimensions[this.props.dialogId].name}
-            />
-        );
+    renderDialogContent = () => (
+        <Fragment>
+            {Object.keys(FIXED_DIMENSIONS).map(dimensionId => {
+                return this.state.mounted.includes(dimensionId) ? (
+                    <div
+                        key={dimensionId}
+                        style={{
+                            display:
+                                dimensionId === this.props.dialogId
+                                    ? 'block'
+                                    : 'none',
+                        }}
+                    >
+                        {fixedDialogs[dimensionId]}
+                    </div>
+                ) : null;
+            })}
+            {this.props.dialogId &&
+                !Object.keys(FIXED_DIMENSIONS).includes(
+                    this.props.dialogId
+                ) && (
+                    <DynamicDimension
+                        dialogId={this.props.dialogId}
+                        dialogTitle={
+                            this.props.dimensions[this.props.dialogId].name
+                        }
+                    />
+                )}
+        </Fragment>
+    );
 
-    render = () => {
-        return this.props.dialogId ? (
-            <Dialog
-                open={!!this.props.dialogId}
-                onClose={() => this.props.closeDialog(null)}
-                maxWidth={false}
-                disableEnforceFocus
-            >
-                {this.renderDialogContent()}
-                <DialogActions>
-                    <HideButton />
-                    <AddToLayoutButton />
-                </DialogActions>
-            </Dialog>
-        ) : null;
-    };
+    render = () => (
+        <Dialog
+            open={!!this.props.dialogId}
+            onClose={() => this.props.closeDialog(null)}
+            maxWidth={false}
+            disableEnforceFocus
+            keepMounted
+        >
+            {this.renderDialogContent()}
+            <DialogActions>
+                <HideButton />
+                {this.props.dialogId && (
+                    <AddToLayoutButton dialogId={this.props.dialogId} />
+                )}
+            </DialogActions>
+        </Dialog>
+    );
 }
 
 DialogManager.propTypes = {
