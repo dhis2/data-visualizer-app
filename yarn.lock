@@ -155,15 +155,6 @@
   dependencies:
     i18next "^10.3"
 
-"@dhis2/d2-ui-core@5.0.3":
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-5.0.3.tgz#3520e237b427d6069914a7cab30811bb113f299d"
-  dependencies:
-    babel-runtime "^6.26.0"
-    d2 "~31.1"
-    lodash "^4.17.10"
-    material-ui "^0.20.0"
-
 "@dhis2/d2-ui-core@5.0.7":
   version "5.0.7"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-5.0.7.tgz#c43181fd871e5a8c5807dcdaf7ea52cfa5486c47"
@@ -202,15 +193,16 @@
     "@material-ui/icons" "^3.0.1"
     prop-types "^15.6.0"
 
-"@dhis2/d2-ui-interpretations@^5.0.3":
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-interpretations/-/d2-ui-interpretations-5.0.3.tgz#9219aaa7530f633a8a0cc48e739e976eab181af6"
+"@dhis2/d2-ui-interpretations@^5.0.7":
+  version "5.0.7"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-interpretations/-/d2-ui-interpretations-5.0.7.tgz#d952c8dc07cb4d7dcecccb0f8aee453a664e998f"
+  integrity sha512-L/T4/hTLc9VrAQkt6L0xTut6jkKyEkFFk1JjOOgk/XVOuceyk2jY79FAxwycwXsKDPxsxVYtehqVeku21A/tjA==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.3"
     "@dhis2/d2-i18n-extract" "^1.0.7"
     "@dhis2/d2-i18n-generate" "^1.0.18"
-    "@dhis2/d2-ui-mentions-wrapper" "5.0.3"
-    "@dhis2/d2-ui-sharing-dialog" "5.0.3"
+    "@dhis2/d2-ui-mentions-wrapper" "5.0.7"
+    "@dhis2/d2-ui-sharing-dialog" "5.0.7"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     babel-runtime "^6.26.0"
@@ -221,39 +213,43 @@
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
-"@dhis2/d2-ui-mentions-wrapper@5.0.3":
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-mentions-wrapper/-/d2-ui-mentions-wrapper-5.0.3.tgz#928d2c02d9c2f669c4abda1dbf4f14c9493190ee"
+"@dhis2/d2-ui-mentions-wrapper@5.0.7":
+  version "5.0.7"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-mentions-wrapper/-/d2-ui-mentions-wrapper-5.0.7.tgz#550a29c2c6058ceaae311d11e91dc31afff0055e"
+  integrity sha512-C9xZ6tLHXPORP04hN2KaKhvjUH9PngEXRPMnbT4eKhh/EhrcFNwRpo3RxYGZ2B3OK6/Uh2dMqjnCSjYXOX0Lmg==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.3"
     "@material-ui/core" "^3.3.1"
     lodash "^4.17.10"
     prop-types "^15.6.2"
 
-"@dhis2/d2-ui-org-unit-dialog@^5.0.3":
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-dialog/-/d2-ui-org-unit-dialog-5.0.3.tgz#eac604893d51f8ee94104347c7b531bb2fdeacd2"
+"@dhis2/d2-ui-org-unit-dialog@^5.0.7":
+  version "5.0.7"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-dialog/-/d2-ui-org-unit-dialog-5.0.7.tgz#3670331cda939bcb45e5049f645d2dcd1bad281f"
+  integrity sha512-59cO1+nkBQbwHGel70Wk/wAFh7CCGSQkGC4TXpp00GRngmx9Q7KmSIxW0oP8XUiHEeVHUqitXF0Mj6BH4sALsA==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.3"
-    "@dhis2/d2-ui-org-unit-tree" "5.0.3"
+    "@dhis2/d2-ui-org-unit-tree" "5.0.7"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     prop-types "^15.5.10"
 
-"@dhis2/d2-ui-org-unit-tree@5.0.3":
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-tree/-/d2-ui-org-unit-tree-5.0.3.tgz#10ea55b955d114f73f81dd72e0f061fa8f8060f0"
+"@dhis2/d2-ui-org-unit-tree@5.0.7":
+  version "5.0.7"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-tree/-/d2-ui-org-unit-tree-5.0.7.tgz#dbc784aae319596aa104013539207cde1d24d728"
+  integrity sha512-ViTkrtBQ3ZOnjqVZWeniswdxqvMwZmtxiyIaf/rglaYMc/lcwccSm8Qjy2kO2ezwmXCcXmpbUffeR0g6wKmBww==
   dependencies:
-    "@dhis2/d2-ui-core" "5.0.3"
+    "@dhis2/d2-ui-core" "5.0.7"
     "@material-ui/core" "^3.3.1"
     babel-runtime "^6.26.0"
     prop-types "^15.5.10"
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
-"@dhis2/d2-ui-period-selector-dialog@^5.0.3":
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-period-selector-dialog/-/d2-ui-period-selector-dialog-5.0.3.tgz#937cda82ea5c7569888e295e684df1def006ac13"
+"@dhis2/d2-ui-period-selector-dialog@5.0.7":
+  version "5.0.7"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-period-selector-dialog/-/d2-ui-period-selector-dialog-5.0.7.tgz#d228a2662f498cebf818d3651f2fc889188f212e"
+  integrity sha512-YIdB4MMiKdOHydgtxWB20gNkzxUnD+D0rJJjvXls9AHWB81D2nnjQLQt9rgZnn9DrgnENHF/eJFaqmXIDsiqzg==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@material-ui/core" "^3.3.1"
@@ -262,19 +258,6 @@
     prop-types "^15.6.0"
     react-redux "^5.0.7"
     redux "^4.0.1"
-
-"@dhis2/d2-ui-sharing-dialog@5.0.3":
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-sharing-dialog/-/d2-ui-sharing-dialog-5.0.3.tgz#22704be3889d47391a1a695d45949b1ae81a30ef"
-  dependencies:
-    "@dhis2/d2-ui-core" "5.0.3"
-    "@material-ui/core" "^3.3.1"
-    "@material-ui/icons" "^3.0.1"
-    babel-runtime "^6.26.0"
-    downshift "^2.2.2"
-    prop-types "^15.5.10"
-    recompose "^0.26.0"
-    rxjs "^5.5.7"
 
 "@dhis2/d2-ui-sharing-dialog@5.0.7":
   version "5.0.7"
