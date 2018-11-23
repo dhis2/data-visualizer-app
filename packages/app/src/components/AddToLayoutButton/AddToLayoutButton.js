@@ -53,10 +53,10 @@ export class AddToLayoutButton extends Component {
     getMenuItems = () =>
         items.slice(1).map(option => (
             <MenuItem
-                key={option.axisName}
+                key={option.axisKey}
                 variant="contained"
                 style={styles.menuItem}
-                onClick={() => this.onUpdate(option.axisName)}
+                onClick={() => this.onUpdate(option.axisKey)}
             >
                 {option.name}
             </MenuItem>
@@ -67,7 +67,7 @@ export class AddToLayoutButton extends Component {
             <Button
                 variant="contained"
                 style={styles.button}
-                onClick={() => this.onUpdate(items[FILTER].axisName)}
+                onClick={() => this.onUpdate(items[FILTER].axisKey)}
             >
                 {items[FILTER].name}
             </Button>
@@ -76,7 +76,7 @@ export class AddToLayoutButton extends Component {
                 <Button
                     variant="contained"
                     style={styles.button}
-                    onClick={() => this.onUpdate(items[SERIES].axisName)}
+                    onClick={() => this.onUpdate(items[SERIES].axisKey)}
                 >
                     {items[SERIES].name}
                 </Button>

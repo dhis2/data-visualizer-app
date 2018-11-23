@@ -1,63 +1,126 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import i18n from '@dhis2/d2-i18n';
 import MenuItem from '@material-ui/core/MenuItem';
+import OptionsButton from '../DimensionOptions/OptionsButton';
 import DropDown from './DropDown';
-import MoreHorizontalIcon from '../../assets/MoreHorizontalIcon';
 import {
     acAddUiLayoutDimensions,
     acRemoveUiLayoutDimensions,
     acSetUiActiveModalDialog,
 } from '../../actions/ui';
-import { sGetUiLayout } from '../../reducers/ui';
-
-import { ADD_TO_LAYOUT_OPTIONS } from '../../modules/layout';
+import { sGetUiLayout, sGetUiItemsByDimension } from '../../reducers/ui';
+import { menuLabels, ADD_TO_LAYOUT_OPTIONS } from '../../modules/layout';
+import { isYearOverYear } from '../../modules/chartTypes';
 import { styles } from './styles/DimensionOptions.style';
 
-export const OptionsButton = ({ action }) => {
-    return (
-        <button style={styles.dropDownButton} onClick={action} tabIndex={1}>
-            <MoreHorizontalIcon />
-        </button>
-    );
-};
+const FILTER = 2;
+const emptyItems = [];
 
 export class DimensionOptions extends Component {
     state = { anchorEl: null };
 
-    handleClick = event => {
-        event && event.stopPropagation();
+    onOpenMenu = event => {
         this.setState({ anchorEl: event.currentTarget });
     };
 
-    handleClose = event => {
-        event && event.stopPropagation();
+    onCloseMenu = () => {
+        this.props.onCloseMenu();
         this.setState({ anchorEl: null });
-        this.props.onClose();
     };
 
     addDimension = axisName => {
         this.props.onAddDimension({ [this.props.id]: axisName });
-        this.handleClose();
-        setTimeout(() => this.props.openDialog(this.props.id), 10);
+
+        if (!this.props.items.length) {
+            this.props.openDialog(this.props.id);
+        }
+        this.onCloseMenu();
     };
 
+    removeDimension = id => {
+        this.props.removeDimension(id);
+        this.onCloseMenu();
+    };
+
+    getAddToItems = () => {
+        let items = [];
+
+        if (isYearOverYear(this.props.type)) {
+            items = [
+                this.renderMenuItem(
+                    `add-to-${this.props.id}`,
+                    ADD_TO_LAYOUT_OPTIONS[FILTER].axisKey,
+                    this.addDimension,
+                    ADD_TO_LAYOUT_OPTIONS[FILTER].name
+                ),
+            ];
+        } else {
+            items = Object.values(
+                ADD_TO_LAYOUT_OPTIONS.map(axis =>
+                    this.renderMenuItem(
+                        `add-to-${axis.axisKey}`,
+                        axis.axisKey,
+                        this.addDimension,
+                        axis.name
+                    )
+                )
+            );
+        }
+        return items;
+    };
+
+    getMoveToItems = () => {
+        if (isYearOverYear(this.props.type)) {
+            return [];
+        }
+
+        const layout = Object.entries(this.props.currentLayout);
+        const items = layout.filter(
+            ([key, axisIds]) => !axisIds.includes(this.props.id)
+        );
+
+        return items.map(([key, axisIds]) => {
+            const label = menuLabels[key];
+
+            return this.renderMenuItem(
+                `${this.props.id}-to-${key}`,
+                key,
+                this.addDimension,
+                `${i18n.t(`Move to ${label}`, { label })}`
+            );
+        });
+    };
+
+    getRemoveMenuItem = () =>
+        this.renderMenuItem(
+            `remove-${this.props.id}`,
+            this.props.id,
+            this.removeDimension,
+            i18n.t('Remove')
+        );
+
     getMenuItems = () =>
-        ADD_TO_LAYOUT_OPTIONS.map(option => (
-            <MenuItem
-                key={option.axisName}
-                onClick={() => this.addDimension(option.axisName)}
-            >
-                {option.name}
-            </MenuItem>
-        ));
+        this.props.isSelected
+            ? [...this.getMoveToItems(), this.getRemoveMenuItem()]
+            : this.getAddToItems();
+
+    renderMenuItem = (key, id, onClick, displayName) => (
+        <MenuItem key={key} onClick={() => onClick(id)}>
+            {displayName}
+        </MenuItem>
+    );
 
     renderOptionsOnHover = () =>
         this.props.showButton ? (
-            <OptionsButton action={this.handleClick} />
+            <OptionsButton
+                style={styles.dropDownButton}
+                onClick={this.onOpenMenu}
+            />
         ) : null;
 
-    render = () => {
+    render() {
         const menuItems = this.getMenuItems();
         const OptionsButton = this.renderOptionsOnHover();
 
@@ -67,24 +130,29 @@ export class DimensionOptions extends Component {
                 <DropDown
                     id={this.props.id}
                     anchorEl={this.state.anchorEl}
-                    handleClose={this.handleClose}
+                    onClose={this.onCloseMenu}
                     menuItems={menuItems}
                 />
             </div>
         );
-    };
+    }
 }
 
 DimensionOptions.propTypes = {
     id: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    isSelected: PropTypes.bool.isRequired,
+    currentLayout: PropTypes.object.isRequired,
+    items: PropTypes.array.isRequired,
     showButton: PropTypes.bool.isRequired,
     onAddDimension: PropTypes.func.isRequired,
     openDialog: PropTypes.func.isRequired,
-    onClose: PropTypes.func.isRequired,
+    onCloseMenu: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, ownProps) => ({
     currentLayout: sGetUiLayout(state),
+    items: sGetUiItemsByDimension(state, ownProps.id) || emptyItems,
 });
 
 export default connect(

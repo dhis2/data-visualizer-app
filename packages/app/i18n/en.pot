@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-11-22T12:36:12.972Z\n"
-"PO-Revision-Date: 2018-11-22T12:36:12.972Z\n"
+"POT-Creation-Date: 2018-11-23T13:22:44.733Z\n"
+"PO-Revision-Date: 2018-11-23T13:22:44.733Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -42,6 +42,9 @@ msgid "Deselect All"
 msgstr ""
 
 msgid "Select All"
+msgstr ""
+
+msgid "Remove"
 msgstr ""
 
 msgid "Search dimensions"
@@ -86,28 +89,19 @@ msgstr ""
 msgid "selected"
 msgstr ""
 
-msgid "series"
+msgid "Series"
 msgstr ""
 
-msgid "category"
+msgid "Category"
 msgstr ""
 
-msgid "filter"
+msgid "Filter"
 msgstr ""
 
 msgid "Move to"
 msgstr ""
 
-msgid "Remove"
-msgstr ""
-
 msgid "None selected"
-msgstr ""
-
-msgid "Series"
-msgstr ""
-
-msgid "Category"
 msgstr ""
 
 msgid "Unsaved chart"
@@ -381,6 +375,15 @@ msgid "Add to category"
 msgstr ""
 
 msgid "Add to filter"
+msgstr ""
+
+msgid "series"
+msgstr ""
+
+msgid "category"
+msgstr ""
+
+msgid "filter"
 msgstr ""
 
 msgid "Today"
