@@ -11,7 +11,11 @@ import {
     acRemoveUiLayoutDimensions,
     acSetUiActiveModalDialog,
 } from '../../../actions/ui';
-import { AXIS_NAMES, SOURCE_DIMENSIONS } from '../../../modules/layout';
+import {
+    AXIS_NAMES,
+    SOURCE_DIMENSIONS,
+    menuLabels,
+} from '../../../modules/layout';
 import styles from './styles/DefaultAxis.style';
 import { getAdaptedUiByType } from '../../../modules/ui';
 import { isYearOverYear } from '../../../modules/chartTypes';
@@ -20,12 +24,6 @@ const axisLabels = {
     columns: i18n.t('Series'),
     rows: i18n.t('Category'),
     filters: i18n.t('Filter'),
-};
-
-const menuLabels = {
-    columns: i18n.t('series'),
-    rows: i18n.t('category'),
-    filters: i18n.t('filter'),
 };
 
 class Axis extends React.Component {

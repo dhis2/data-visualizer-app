@@ -7,7 +7,7 @@ export const styles = {
         position: 'relative',
         flex: '1 1 0%',
     },
-    listContainer: {
+    list: {
         position: 'absolute',
         width: '100%',
         height: '100%',

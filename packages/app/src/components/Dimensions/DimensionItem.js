@@ -5,13 +5,13 @@ import i18n from '@dhis2/d2-i18n';
 import DimensionLabel from './DimensionLabel';
 import DimensionOptions from './DimensionOptions';
 import RecommendedIcon from './RecommendedIcon';
-import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
 import DynamicDimensionIcon from '../../assets/DynamicDimensionIcon';
-import { setDataTransfer } from '../../modules/dnd';
-import { styles } from './styles/DimensionItem.style';
-import { SOURCE_DIMENSIONS } from '../../modules/layout';
 import { sGetUiType } from '../../reducers/ui';
+import { setDataTransfer } from '../../modules/dnd';
+import { SOURCE_DIMENSIONS } from '../../modules/layout';
+import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
 import { isYearOverYear } from '../../modules/chartTypes';
+import { styles } from './styles/DimensionItem.style';
 
 const peId = FIXED_DIMENSIONS.pe.id;
 
@@ -58,14 +58,17 @@ export class DimensionItem extends Component {
         </span>
     );
 
-    render = () => {
+    render() {
         const Icon = this.getDimensionIcon();
         const Label = this.getDimensionType();
+        const listItemStyle =
+            this.props.isSelected && !this.props.isDeactivated
+                ? { ...styles.listItem, ...styles.selectedListItem }
+                : styles.listItem;
 
         return (
             <li
-                key={this.props.id}
-                style={styles.itemContainer}
+                style={listItemStyle}
                 onMouseOver={this.onMouseOver}
                 onMouseLeave={this.onMouseExit}
             >
@@ -79,21 +82,23 @@ export class DimensionItem extends Component {
                         id={this.props.id}
                         isSelected={this.props.isSelected}
                     />
-                    <DimensionOptions
-                        id={this.props.id}
-                        showButton={Boolean(
-                            this.state.mouseOver && !this.isDeactivated()
-                        )}
-                        onClose={this.onMouseExit}
-                    />
                 </DimensionLabel>
+                <DimensionOptions
+                    id={this.props.id}
+                    type={this.props.type}
+                    isSelected={this.props.isSelected}
+                    showButton={Boolean(
+                        this.state.mouseOver && !this.isDeactivated()
+                    )}
+                    onCloseMenu={this.onMouseExit}
+                />
             </li>
         );
-    };
+    }
 }
 
 DimensionItem.propTypes = {
-    id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+    id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     isSelected: PropTypes.bool.isRequired,
     type: PropTypes.string.isRequired,

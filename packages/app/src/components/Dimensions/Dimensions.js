@@ -16,19 +16,21 @@ export class Dimensions extends Component {
         this.setState({ filterText });
     };
 
-    render = () => (
-        <div style={styles.divContainer}>
-            <DialogManager />
-            <Filter
-                style={styles.textField}
-                placeholder={i18n.t('Search dimensions')}
-                text={this.state.filterText}
-                onChange={this.onFilterTextChange}
-                onClear={this.onClearFilter}
-            />
-            <DimensionList filterText={this.state.filterText} />
-        </div>
-    );
+    render() {
+        return (
+            <div style={styles.divContainer}>
+                <DialogManager />
+                <Filter
+                    style={styles.textField}
+                    placeholder={i18n.t('Search dimensions')}
+                    text={this.state.filterText}
+                    onChange={this.onFilterTextChange}
+                    onClear={this.onClearFilter}
+                />
+                <DimensionList filterText={this.state.filterText} />
+            </div>
+        );
+    }
 }
 
 export default Dimensions;
