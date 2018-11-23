@@ -25,43 +25,6 @@ export const theme = {
                 transition: null,
             },
         },
-        MuiSelect: {
-            select: {
-                '&:focus': {
-                    background: '$labelcolor',
-                },
-            },
-        },
-        MuiDialog: {
-            paperWidthSm: {
-                minWidth: 400,
-                width: 400,
-                maxWidth: 400,
-            },
-            paperWidthMd: {
-                minWidth: 600,
-                width: 600,
-                maxWidth: 600,
-            },
-            paperWidthLg: {
-                minWidth: 800,
-                width: 800,
-                maxWidth: 800,
-            },
-        },
-        MuiInput: {
-            underline: {
-                '&:after': {
-                    borderBottom: `1px solid #aaa`,
-                },
-                '&:before': {
-                    borderBottom: `1px solid ${colors.greyLight}`,
-                },
-                '&:hover:not($disabled):not($focused):not($error):before': {
-                    borderBottom: `1px solid ${colors.greyLight}`,
-                },
-            },
-        },
     },
 };
 
