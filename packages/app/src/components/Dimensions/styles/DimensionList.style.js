@@ -3,8 +3,14 @@
 // On the list, set position:absolute, width:100%, height:100%
 
 export const styles = {
+    listWrapper: {
+        position: 'relative',
+        flex: '1 1 0%',
+    },
     list: {
-        height: 'calc(100vh - 157px)',
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
         overflow: 'auto',
         padding: '0 8px 0 0',
         marginTop: '0px',

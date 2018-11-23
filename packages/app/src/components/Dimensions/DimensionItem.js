@@ -61,14 +61,14 @@ export class DimensionItem extends Component {
     render = () => {
         const Icon = this.getDimensionIcon();
         const Label = this.getDimensionType();
-        const containerStyle =
+        const listItemStyle =
             this.props.isSelected && !this.props.isDeactivated
                 ? { ...styles.listItem, ...styles.selectedListItem }
                 : styles.listItem;
 
         return (
             <li
-                style={containerStyle}
+                style={listItemStyle}
                 onMouseOver={this.onMouseOver}
                 onMouseLeave={this.onMouseExit}
             >

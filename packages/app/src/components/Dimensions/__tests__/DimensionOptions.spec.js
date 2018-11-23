@@ -21,7 +21,7 @@ describe('The DimensionOptions component ', () => {
             type: 'COLLUMN',
             isSelected: false,
             currentLayout: {},
-            items: {},
+            items: [],
             showButton: false,
             onAddDimension: jest.fn(),
             openDialog: jest.fn(),
