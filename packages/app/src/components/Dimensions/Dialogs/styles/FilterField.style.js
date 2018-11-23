@@ -4,8 +4,8 @@ export const styles = {
     container: {
         border: `1px solid ${colors.greyLight}`,
         backgroundColor: colors.white,
-        height: 39,
-        borderBottom: 0,
+        height: '39px',
+        borderBottom: '0px',
     },
     textField: {
         paddingRight: '7px',

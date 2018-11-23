@@ -11,7 +11,11 @@ import {
     acRemoveUiLayoutDimensions,
     acSetUiActiveModalDialog,
 } from '../../../actions/ui';
-import { AXIS_NAMES, SOURCE_DIMENSIONS } from '../../../modules/layout';
+import {
+    AXIS_NAMES,
+    SOURCE_DIMENSIONS,
+    menuLabels,
+} from '../../../modules/layout';
 import styles from './styles/DefaultAxis.style';
 import { getAdaptedUiByType } from '../../../modules/ui';
 import { isYearOverYear } from '../../../modules/chartTypes';
@@ -49,7 +53,7 @@ class Axis extends React.Component {
             <MenuItem
                 key={`${dimensionId}-to-${key}`}
                 onClick={this.props.getMoveHandler({ [dimensionId]: key })}
-            >{`${i18n.t('Move to')} ${axisLabels[key]}`}</MenuItem>
+            >{`${i18n.t('Move to')} ${menuLabels[key]}`}</MenuItem>
         ));
 
     getRemoveMenuItem = dimensionId => (

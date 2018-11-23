@@ -240,22 +240,20 @@ describe('Visualization', () => {
     });
 
     describe('chart reflow', () => {
-        const reflowFn = jest.fn();
+        const recreateChartFn = jest.fn();
 
         const vis = canvas();
 
-        vis.instance().chart = {
-            reflow: reflowFn,
-        };
+        vis.instance().recreateChart = recreateChartFn;
 
         it('triggers a reflow when rightSidebarOpen prop changes', () => {
             vis.setProps({ ...props, rightSidebarOpen: true });
 
-            expect(reflowFn).toHaveBeenCalled();
+            expect(recreateChartFn).toHaveBeenCalled();
 
             vis.setProps({ ...props, rightSidebarOpen: false });
 
-            expect(reflowFn).toHaveBeenCalled();
+            expect(recreateChartFn).toHaveBeenCalled();
         });
     });
 });

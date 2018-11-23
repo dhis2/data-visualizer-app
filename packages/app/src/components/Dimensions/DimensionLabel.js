@@ -27,7 +27,7 @@ export class DimensionLabel extends Component {
         }
     };
 
-    renderLabel = () => (
+    render = () => (
         <div
             className="label"
             onClick={this.onLabelClick}
@@ -38,17 +38,11 @@ export class DimensionLabel extends Component {
             {this.props.children}
         </div>
     );
-
-    render = () => {
-        const Label = this.renderLabel();
-
-        return Label;
-    };
 }
 
 export default connect(
     null,
     {
-        openDialog: id => acSetUiActiveModalDialog(id),
+        openDialog: acSetUiActiveModalDialog,
     }
 )(DimensionLabel);

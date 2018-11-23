@@ -10,12 +10,14 @@ import {
     acRemoveUiLayoutDimensions,
     acSetUiActiveModalDialog,
 } from '../../actions/ui';
-import { sGetUiLayout, sGetUiItems } from '../../reducers/ui';
-import { axisLabels } from '../../modules/layout';
+import { sGetUiLayout, sGetUiItemsByDimension } from '../../reducers/ui';
+import { menuLabels } from '../../modules/layout';
 import { isYearOverYear } from '../../modules/chartTypes';
 import { styles } from './styles/DimensionOptions.style';
 
 const FILTER = 'filters';
+const emptyItems = [];
+
 export class DimensionOptions extends Component {
     state = { anchorEl: null };
 
@@ -31,10 +33,7 @@ export class DimensionOptions extends Component {
     addDimension = axisName => {
         this.props.onAddDimension({ [this.props.id]: axisName });
 
-        const items = this.props.items[this.props.id];
-        const hasNoItems = Boolean(!items || !items.length);
-
-        if (hasNoItems) {
+        if (!this.props.items.length) {
             this.props.openDialog(this.props.id);
         }
         this.onCloseMenu();
@@ -49,7 +48,7 @@ export class DimensionOptions extends Component {
         let items = [];
 
         if (isYearOverYear(this.props.type)) {
-            const label = axisLabels[FILTER];
+            const label = menuLabels[FILTER];
 
             items = [
                 this.renderMenuItem(
@@ -60,7 +59,7 @@ export class DimensionOptions extends Component {
                 ),
             ];
         } else {
-            items = Object.entries(axisLabels).map(([key, label]) =>
+            items = Object.entries(menuLabels).map(([key, label]) =>
                 this.renderMenuItem(
                     `add-to-${key}`,
                     key,
@@ -83,7 +82,7 @@ export class DimensionOptions extends Component {
         );
 
         return items.map(([key, axisIds]) => {
-            const label = axisLabels[key];
+            const label = menuLabels[key];
 
             return this.renderMenuItem(
                 `${this.props.id}-to-${key}`,
@@ -144,16 +143,16 @@ DimensionOptions.propTypes = {
     type: PropTypes.string.isRequired,
     isSelected: PropTypes.bool.isRequired,
     currentLayout: PropTypes.object.isRequired,
-    items: PropTypes.object.isRequired,
+    items: PropTypes.array.isRequired,
     showButton: PropTypes.bool.isRequired,
     onAddDimension: PropTypes.func.isRequired,
     openDialog: PropTypes.func.isRequired,
     onCloseMenu: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, ownProps) => ({
     currentLayout: sGetUiLayout(state),
-    items: sGetUiItems(state),
+    items: sGetUiItemsByDimension(state, ownProps.id) || emptyItems,
 });
 
 export default connect(

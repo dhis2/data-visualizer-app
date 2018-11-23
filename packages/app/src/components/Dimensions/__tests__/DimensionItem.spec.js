@@ -58,7 +58,7 @@ describe('The DimensionItem component ', () => {
         expect(dimOptions.length).toEqual(1);
     });
 
-    it('renders a DimensionLabel with additional styling properties if props isSelected = true', () => {
+    it('renders a DimensionItem with additional styling properties if props isSelected = true', () => {
         props.isSelected = true;
 
         const selectedStyle = {

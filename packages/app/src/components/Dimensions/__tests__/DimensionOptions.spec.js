@@ -49,7 +49,7 @@ describe('The DimensionOptions component ', () => {
         expect(dropDown.length).toEqual(1);
     });
 
-    it('passes only 1 element ("Add to Filter", or "Remove") as menuItems to <DropDown /> if prop isSelected is true and prop type is equal to YearOnYear', () => {
+    it('passes only 1 element as menuItems to <DropDown /> if prop isSelected is true and prop type is equal to YearOnYear', () => {
         props.isSelected = true;
         props.type = 'YEAR_OVER_YEAR_LINE';
 
@@ -58,7 +58,7 @@ describe('The DimensionOptions component ', () => {
         expect(dropDown.dive().find(MenuItem).length).toEqual(1);
     });
 
-    it('passes 3 elements ("Move to X" + "Remove" or "Add to X") as menuItems if prop "type" is NOT equal to YearOnYear', () => {
+    it('passes 3 elements as menuItems if prop "type" is NOT equal to YearOnYear', () => {
         const dropDown = dimOptions().find(DropDown);
 
         expect(dropDown.dive().find(MenuItem).length).toEqual(3);

@@ -40,14 +40,18 @@ export class Interpretations extends Component {
         const { type, id, interpretationId } = this.props;
 
         return id ? (
-            <div style={styles.container}>
-                <InterpretationsComponent
-                    d2={this.context.d2}
-                    type={type}
-                    id={id}
-                    currentInterpretationId={interpretationId}
-                    onCurrentInterpretationChange={this.onInterpretationChange}
-                />
+            <div style={styles.wrapper}>
+                <div style={styles.container}>
+                    <InterpretationsComponent
+                        d2={this.context.d2}
+                        type={type}
+                        id={id}
+                        currentInterpretationId={interpretationId}
+                        onCurrentInterpretationChange={
+                            this.onInterpretationChange
+                        }
+                    />
+                </div>
             </div>
         ) : null;
     }

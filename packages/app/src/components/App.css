@@ -1,77 +1,71 @@
-body {
-    margin: 0;
-    padding: 0;
-}
+/* App */
 
-.headerbar {
-    grid-area: headerbar;
+.app {
+    height: 100vh;
+    background-color: #f4f6f8;
+    overflow: hidden;
 }
-.visualization-type-selector {
-    grid-area: charttype;
-    border-right: 1px solid #e0e2e4;
-    border-bottom: 1px solid #e0e2e4;
-}
-.menu-bar {
-    grid-area: menubar;
-    border-bottom: 1px solid #e0e2e4;
-}
-.dimensions {
-    grid-area: dimensions;
-    border-right: 1px solid #e0e2e4;
-    height: calc(100vh - 42px - 48px);
-}
-.chart-layout {
-    grid-area: chartlayout;
-    display: flex;
-}
-.interpretations {
-    grid-area: interpretations;
-    border-left: 1px solid #e0e2e4;
-}
-.canvas {
-    grid-area: canvas;
-    position: relative;
-}
-.title-bar {
-    grid-area: titlebar;
-}
-
 .app * {
     outline: none;
 }
 
-.app {
-    display: grid;
-    grid-template-columns: 262px 1fr min-content;
-    grid-template-rows: 48px 39px 80px 35px auto;
-    grid-template-areas:
-        'headerbar headerbar headerbar'
-        'charttype menubar menubar'
-        'dimensions chartlayout interpretations'
-        'dimensions titlebar interpretations'
-        'dimensions canvas interpretations';
+/* Flex */
+
+.flex-ct {
+    display: flex;
 }
-.app > div {
+
+.flex-dir-col {
+    flex-direction: column;
+}
+
+.flex-1 {
+    flex: 1 1 0%;
+}
+
+/* Headerbar */
+
+.section-headerbar {
+    height: 48px;
+}
+
+/* Toolbar */
+
+.section-toolbar {
+    height: 39px;
+}
+
+.toolbar-type {
+    width: 260px;
+    border-right: 1px solid #e0e2e4;
+    border-bottom: 1px solid #e0e2e4;
+}
+
+.toolbar-menubar {
+    background-color: #ddd;
+}
+
+/* Main */
+
+.main-left {
+    min-width: 260px;
+    border-right: 1px solid #e0e2e4;
+}
+
+.main-right {
+    flex: 1 1 0%;
+    max-width: 380px;
     background-color: #f4f6f8;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
-/* width */
-::-webkit-scrollbar {
-    width: 6px;
+/* Main center */
+
+.main-center-titlebar {
+    height: 34px;
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-    background: #f1f3f5;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: #cbcdcf;
-    border-radius: 3px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #aaacae;
+.main-center-canvas {
+    overflow: hidden;
 }

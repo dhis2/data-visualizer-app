@@ -35,7 +35,7 @@ export class RecommendedIcon extends Component {
             ? this.showTooltip()
             : null;
 
-        return Boolean(this.props.isRecommended) ? (
+        return this.props.isRecommended ? (
             <div style={styles.recommendedWrapper}>
                 <div
                     style={styles.recommendedIcon}
