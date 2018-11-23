@@ -21,7 +21,7 @@ import { acSetCurrentFromUi } from '../../actions/current';
 
 import { isYearOverYear } from '../../modules/chartTypes';
 import { ADD_TO_LAYOUT_OPTIONS as items } from '../../modules/layout';
-import { styles } from './styles/AddToLayoutButton.style';
+import styles from './styles/AddToLayoutButton.style';
 
 const UNSELECTED = -1;
 const SERIES = 0;

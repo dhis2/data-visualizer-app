@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import ArrowDropDown from '@material-ui/icons/ArrowDropDown';
 import Menu from '@material-ui/core/Menu';
 
-import { styles } from './styles/Menu.style';
+import styles from './styles/Menu.style';
 
 export const DropDownButton = ({ anchorEl, onClick, onClose, menuItems }) => (
     <Fragment>

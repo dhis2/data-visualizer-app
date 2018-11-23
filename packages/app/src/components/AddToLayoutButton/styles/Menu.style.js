@@ -1,6 +1,6 @@
 import { colors } from '../../../modules/colors';
 
-export const styles = {
+export default {
     arrowDown: {
         borderRadius: '0px 2px 2px 0px',
         padding: '0px',

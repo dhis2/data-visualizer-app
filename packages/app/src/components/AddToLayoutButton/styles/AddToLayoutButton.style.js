@@ -1,6 +1,7 @@
-export const styles = {
+export default {
     button: {
         borderRadius: '2px 0px 0px 2px',
+        marginLeft: '5px',
         fontSize: '12px',
         width: '121px',
     },
