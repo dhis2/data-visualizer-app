@@ -3,7 +3,6 @@ import { colors } from '../../../modules/colors';
 export default {
     divContainer: {
         height: 475,
-        overflowY: 'scroll',
     },
     tabsBar: {
         height: 48,

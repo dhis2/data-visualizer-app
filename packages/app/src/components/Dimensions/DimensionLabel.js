@@ -1,35 +1,24 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
-import Close from '@material-ui/icons/Close';
-import {
-    acRemoveUiLayoutDimensions,
-    acSetUiActiveModalDialog,
-} from '../../actions/ui';
-import { sGetUiLayout, sGetUiItems } from '../../reducers/ui';
-
+import { acSetUiActiveModalDialog } from '../../actions/ui';
 import { styles } from './styles/DimensionLabel.style';
-
-export const RemoveDimensionButton = ({ action }) => (
-    <button style={styles.deleteButton} onClick={action} tabIndex={0}>
-        <Close style={styles.deleteButtonIcon} />
-    </button>
-);
 
 export class DimensionLabel extends Component {
     static propTypes = {
-        openDialog: PropTypes.func.isRequired,
         id: PropTypes.string.isRequired,
+        type: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
-        isSelected: PropTypes.bool.isRequired,
         isDeactivated: PropTypes.bool.isRequired,
-        removeDimension: PropTypes.func.isRequired,
+        isSelected: PropTypes.bool.isRequired,
+        openDialog: PropTypes.func.isRequired,
         children: PropTypes.arrayOf(PropTypes.element).isRequired,
     };
 
     onLabelClick = () => {
-        this.props.openDialog(this.props.id);
+        if (!this.props.isDeactivated) {
+            this.props.openDialog(this.props.id);
+        }
     };
 
     onKeyPress = event => {
@@ -38,43 +27,24 @@ export class DimensionLabel extends Component {
         }
     };
 
-    renderLabel = () => (
-        <div
-            className="label"
-            onClick={this.onLabelClick}
-            onKeyPress={this.onKeyPress}
-            tabIndex={0}
-            style={styles.unselected}
-        >
-            {this.props.children}
-        </div>
-    );
-
-    render = () => {
-        const Label = this.renderLabel();
-
-        const containerStyle =
-            this.props.isSelected && !this.props.isDeactivated
-                ? styles.selected
-                : styles.unselected;
-
+    render() {
         return (
-            <div className="labelContainer" style={containerStyle}>
-                {Label}
+            <div
+                className="label"
+                onClick={this.onLabelClick}
+                onKeyPress={this.onKeyPress}
+                tabIndex={0}
+                style={styles.label}
+            >
+                {this.props.children}
             </div>
         );
-    };
+    }
 }
 
-const mapStateToProps = state => ({
-    currentLayout: sGetUiLayout(state),
-    items: sGetUiItems(state),
-});
-
 export default connect(
-    mapStateToProps,
+    null,
     {
-        openDialog: id => acSetUiActiveModalDialog(id),
-        removeDimension: id => acRemoveUiLayoutDimensions(id),
+        openDialog: acSetUiActiveModalDialog,
     }
 )(DimensionLabel);

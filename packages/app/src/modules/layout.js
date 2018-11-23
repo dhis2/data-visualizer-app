@@ -19,10 +19,16 @@ export const DIMENSION_ITEMS_PROP_NAME = 'items';
 
 // Keys and displayName for adding dimensions to layout
 export const ADD_TO_LAYOUT_OPTIONS = [
-    { axisName: 'columns', name: i18n.t('Add to series') },
-    { axisName: 'rows', name: i18n.t('Add to category') },
-    { axisName: 'filters', name: i18n.t('Add to filter') },
+    { axisKey: 'columns', name: i18n.t('Add to series') },
+    { axisKey: 'rows', name: i18n.t('Add to category') },
+    { axisKey: 'filters', name: i18n.t('Add to filter') },
 ];
+
+export const menuLabels = {
+    columns: i18n.t('series'),
+    rows: i18n.t('category'),
+    filters: i18n.t('filter'),
+};
 
 // Layout utility functions
 

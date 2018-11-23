@@ -18,10 +18,6 @@ export class RecommendedIcon extends Component {
         this.setState({ anchorEl: null });
     };
 
-    checkIfRecommended = () =>
-        // this.props.isRecommended && !this.props.isSelected;
-        Boolean(this.props.isRecommended);
-
     showTooltip = () => (
         <Popper
             anchorEl={this.state.anchorEl}
@@ -34,12 +30,12 @@ export class RecommendedIcon extends Component {
         </Popper>
     );
 
-    render = () => {
+    render() {
         const TooltipOnHover = Boolean(this.state.anchorEl)
             ? this.showTooltip()
             : null;
 
-        return this.checkIfRecommended() ? (
+        return this.props.isRecommended ? (
             <div style={styles.recommendedWrapper}>
                 <div
                     style={styles.recommendedIcon}
@@ -50,7 +46,7 @@ export class RecommendedIcon extends Component {
                 </div>
             </div>
         ) : null;
-    };
+    }
 }
 
 const mapStateToProps = (state, ownProps) => ({
