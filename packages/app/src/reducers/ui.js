@@ -43,7 +43,11 @@ export const DEFAULT_UI = {
         rows: [peId],
         filters: [ouId],
     },
-    itemsByDimension: {},
+    itemsByDimension: {
+        [dxId]: [],
+        [ouId]: [],
+        [peId]: [],
+    },
     yearOverYearSeries: ['THIS_YEAR', 'LAST_YEAR'],
     yearOverYearCategory: ['MONTHS_THIS_YEAR'],
     parentGraphMap: {},
@@ -122,11 +126,11 @@ export default (state = DEFAULT_UI, action) => {
             };
         }
         case SET_UI_ITEMS: {
+            const { dimensionType: type, items } = action.value;
+
             return {
                 ...state,
-                itemsByDimension: {
-                    ...action.value,
-                },
+                itemsByDimension: { ...state.itemsByDimension, [type]: items },
             };
         }
         case ADD_UI_ITEMS: {
@@ -240,6 +244,10 @@ export const sGetUiType = state => sGetUi(state).type;
 export const sGetUiOptions = state => sGetUi(state).options;
 export const sGetUiLayout = state => sGetUi(state).layout;
 export const sGetUiItems = state => sGetUi(state).itemsByDimension;
+
+export const sGetUiItemsByDimension = (state, dimension) =>
+    sGetUiItems(state)[dimension] || DEFAULT_UI.itemsByDimension[dimension];
+
 export const sGetUiYearOverYearSeries = state =>
     sGetUi(state).yearOverYearSeries;
 export const sGetUiYearOverYearCategory = state =>

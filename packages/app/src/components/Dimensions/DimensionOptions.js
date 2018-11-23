@@ -6,11 +6,10 @@ import DropDown from './DropDown';
 import MoreHorizontalIcon from '../../assets/MoreHorizontalIcon';
 import {
     acAddUiLayoutDimensions,
-    acSetUiItems,
     acRemoveUiLayoutDimensions,
     acSetUiActiveModalDialog,
 } from '../../actions/ui';
-import { sGetUiLayout, sGetUiItems } from '../../reducers/ui';
+import { sGetUiLayout } from '../../reducers/ui';
 
 import { ADD_TO_LAYOUT_OPTIONS } from '../../modules/layout';
 import { styles } from './styles/DimensionOptions.style';
@@ -86,7 +85,6 @@ DimensionOptions.propTypes = {
 
 const mapStateToProps = state => ({
     currentLayout: sGetUiLayout(state),
-    items: sGetUiItems(state),
 });
 
 export default connect(
@@ -95,6 +93,5 @@ export default connect(
         openDialog: id => acSetUiActiveModalDialog(id),
         onAddDimension: dimension => acAddUiLayoutDimensions(dimension),
         removeDimension: dimension => acRemoveUiLayoutDimensions(dimension),
-        setUiItems: items => acSetUiItems(items),
     }
 )(DimensionOptions);

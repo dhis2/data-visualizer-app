@@ -22,6 +22,12 @@ const axisLabels = {
     filters: i18n.t('Filter'),
 };
 
+const menuLabels = {
+    columns: i18n.t('series'),
+    rows: i18n.t('category'),
+    filters: i18n.t('filter'),
+};
+
 class Axis extends React.Component {
     onDragOver = e => {
         e.preventDefault();
@@ -49,7 +55,7 @@ class Axis extends React.Component {
             <MenuItem
                 key={`${dimensionId}-to-${key}`}
                 onClick={this.props.getMoveHandler({ [dimensionId]: key })}
-            >{`${i18n.t('Move to')} ${axisLabels[key]}`}</MenuItem>
+            >{`${i18n.t('Move to')} ${menuLabels[key]}`}</MenuItem>
         ));
 
     getRemoveMenuItem = dimensionId => (

@@ -28,12 +28,17 @@ describe('The DimensionList component ', () => {
         expect(dimList().find('ul').length).toEqual(1);
     });
 
-    it('renders an <ul /> containing everything else', () => {
-        const wrappingUl = dimList()
-            .find('ul')
-            .first();
-
-        expect(wrappingUl.children()).toEqual(dimList().children());
+    it('renders an unordered list in a wrapper', () => {
+        expect(
+            dimList()
+                .find('ul')
+                .first()
+        ).toEqual(
+            dimList()
+                .find('div')
+                .first()
+                .children()
+        );
     });
 
     it('renders an unfiltered list if prop filterText have length < 1', () => {

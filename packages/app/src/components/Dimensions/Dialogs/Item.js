@@ -1,48 +1,52 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import i18n from '@dhis2/d2-i18n';
 import RemoveDimensionButton from './buttons/RemoveDimensionButton';
-import UnselectedIcon from '../../../assets/UnselectedIcon';
-import HighlightedIcon from '../../../assets/HighlightedIcon';
-import SelectedIcon from '../../../assets/SelectedIcon';
+import ItemIcon from '../../../assets/ItemIcon';
+import { colors } from '../../../modules/colors';
 import { styles } from './styles/Item.style';
 
-const Icon = ({ iconType, isHighlighted }) => {
-    if (isHighlighted) {
-        return <HighlightedIcon />;
-    }
+const Icon = ({ selected, highlighted }) => {
+    const { grey, white, accentSecondary } = colors;
+    const bgColor = !selected ? grey : highlighted ? white : accentSecondary;
 
-    const icons = {
-        unselected: <UnselectedIcon />,
-        selected: <SelectedIcon />,
-    };
-
-    return icons[iconType];
+    return <ItemIcon backgroundColor={bgColor} />;
 };
 
-const onClickWrapper = props => event =>
-    props.onItemClick(event.metaKey, event.shiftKey, props.index, props.id);
+const onClickWrapper = (id, index, onItemClick) => event =>
+    onItemClick(event.metaKey, event.shiftKey, index, id);
 
-export const Item = props => (
-    <div
-        style={props.isHighlighted ? styles.highlightedItem : {}}
-        className={`${props.className}-list-item`}
-        onClick={onClickWrapper(props)}
-    >
-        <Icon iconType={props.className} isHighlighted={props.isHighlighted} />
-        <span
-            style={props.isHighlighted ? styles.highlightedText : {}}
-            className={`${props.className}-item-label`}
+export const Item = ({
+    selected,
+    highlighted,
+    id,
+    index,
+    onRemoveItem,
+    onItemClick,
+    name,
+}) => {
+    const selectedState = selected ? 'selected' : 'unselected';
+    return (
+        <div
+            style={highlighted ? styles.highlightedItem : {}}
+            className={`${selectedState}-list-item`}
+            onClick={onClickWrapper(id, index, onItemClick)}
         >
-            {i18n.t(props.displayName)}
-        </span>
-        <RemoveDimensionButton
-            showButton={props.className}
-            isHighlighted={props.isHighlighted}
-            onClick={() => props.onRemoveItem(props.id)}
-        />
-    </div>
-);
+            <Icon selected={selected} highlighted={highlighted} />
+            <span
+                style={highlighted ? styles.highlightedText : {}}
+                className={`${selectedState}-item-label`}
+            >
+                {name}
+            </span>
+            {selected && (
+                <RemoveDimensionButton
+                    highlighted={highlighted}
+                    onClick={() => onRemoveItem(id)}
+                />
+            )}
+        </div>
+    );
+};
 
 Item.defualtProps = {
     onRemoveItem: () => null,
@@ -51,11 +55,11 @@ Item.defualtProps = {
 Item.propTypes = {
     id: PropTypes.string.isRequired,
     index: PropTypes.number.isRequired,
-    displayName: PropTypes.string.isRequired,
-    isHighlighted: PropTypes.bool.isRequired,
+    name: PropTypes.string.isRequired,
+    highlighted: PropTypes.bool.isRequired,
     onItemClick: PropTypes.func.isRequired,
     onRemoveItem: PropTypes.func,
-    className: PropTypes.string.isRequired,
+    selected: PropTypes.bool,
 };
 
 export default Item;

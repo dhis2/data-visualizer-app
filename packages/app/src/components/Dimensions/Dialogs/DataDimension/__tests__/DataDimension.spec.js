@@ -21,6 +21,7 @@ describe('DataDimension component ', () => {
             displayNameProp: 'string',
             removeDxItems: jest.fn(),
             addDxItems: jest.fn(),
+            setDxItems: jest.fn(),
             addMetadata: jest.fn(),
             filter: {},
         };

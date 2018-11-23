@@ -12,12 +12,18 @@ import SelectedItems from '../SelectedItems';
 
 import { apiFetchItemsByDimension } from '../../../../api/dimensions';
 
-import { sGetUiItems } from '../../../../reducers/ui';
-import { acRemoveUiItems, acAddUiItems } from '../../../../actions/ui';
+import { sGetUiItemsByDimension } from '../../../../reducers/ui';
+import {
+    acRemoveUiItems,
+    acAddUiItems,
+    acSetUiItems,
+} from '../../../../actions/ui';
 import { acAddMetadata } from '../../../../actions/metadata';
 
 import { styles } from './styles/DynamicDimension.style';
 import '../styles/Dialog.css';
+
+const emptyItems = [];
 
 export class DynamicDimension extends Component {
     state = {
@@ -87,6 +93,12 @@ export class DynamicDimension extends Component {
             item => !this.props.selectedItems.includes(item.id)
         );
 
+    setUiItems = items =>
+        this.props.setItems({
+            dimensionType: this.props.dialogId,
+            items,
+        });
+
     render = () => (
         <Fragment>
             <DialogTitle>{i18n.t(this.props.dialogTitle)}</DialogTitle>
@@ -108,6 +120,7 @@ export class DynamicDimension extends Component {
                     className="dynamic-dimension"
                     items={this.props.selectedItems}
                     onDeselect={this.deselectItemsByDimensions}
+                    onReorder={this.setUiItems}
                 />
             </DialogContent>
         </Fragment>
@@ -117,12 +130,14 @@ export class DynamicDimension extends Component {
 DynamicDimension.propTypes = {
     selectedItems: PropTypes.array.isRequired,
     addItems: PropTypes.func.isRequired,
+    setItems: PropTypes.func.isRequired,
     removeItems: PropTypes.func.isRequired,
     addMetadata: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => ({
-    selectedItems: sGetUiItems(state)[ownProps.dialogId] || [],
+    selectedItems:
+        sGetUiItemsByDimension(state, ownProps.dialogId) || emptyItems,
 });
 
 export default connect(
@@ -130,6 +145,7 @@ export default connect(
     {
         removeItems: acRemoveUiItems,
         addItems: acAddUiItems,
+        setItems: acSetUiItems,
         addMetadata: acAddMetadata,
     }
 )(DynamicDimension);
