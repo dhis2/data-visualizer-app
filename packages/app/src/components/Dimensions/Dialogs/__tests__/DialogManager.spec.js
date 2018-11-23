@@ -2,10 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Dialog from '@material-ui/core/Dialog';
 import { DialogManager } from '../DialogManager';
-import { FIXED_DIMENSIONS } from '../../../../modules/fixedDimensions';
-import { DynamicDimension } from '../DynamicDimension/DynamicDimension';
-
-const dxId = FIXED_DIMENSIONS.dx.id;
 
 describe('The DialogManager component ', () => {
     let props;
@@ -38,7 +34,9 @@ describe('The DialogManager component ', () => {
     });
 
     it('should always render a Dialog', () => {
-        expect(dialogManager().children().length).toEqual(1);
+        const dialog = dialogManager().find(Dialog);
+
+        expect(dialog.length).toEqual(1);
     });
 
     it('should add the dialogId of fixed dimensions to state "mounted" on first time render', () => {
