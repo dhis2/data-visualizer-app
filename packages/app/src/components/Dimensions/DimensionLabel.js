@@ -7,7 +7,7 @@ import {
     acRemoveUiLayoutDimensions,
     acSetUiActiveModalDialog,
 } from '../../actions/ui';
-import { sGetUiLayout, sGetUiItems } from '../../reducers/ui';
+import { sGetUiLayout } from '../../reducers/ui';
 
 import { styles } from './styles/DimensionLabel.style';
 
@@ -68,7 +68,6 @@ export class DimensionLabel extends Component {
 
 const mapStateToProps = state => ({
     currentLayout: sGetUiLayout(state),
-    items: sGetUiItems(state),
 });
 
 export default connect(
