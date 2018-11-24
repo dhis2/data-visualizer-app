@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import Button from '@material-ui/core/Button';
 import MenuItem from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/core/styles';
 import UpdateButton from '../UpdateButton/UpdateButton';
 import Menu from './Menu';
 
@@ -57,8 +58,8 @@ export class AddToLayoutButton extends Component {
     renderMenuItems = () =>
         items.slice(OMIT_SERIES).map(option => (
             <MenuItem
+                className={this.props.classes.menuItem}
                 key={option.axisKey}
-                style={styles.menuItem}
                 component="li"
                 onClick={() => this.onUpdate(option.axisKey)}
             >
@@ -69,9 +70,9 @@ export class AddToLayoutButton extends Component {
     renderUnselectedButton = () =>
         isYearOverYear(this.props.layoutType) ? (
             <Button
+                className={this.props.classes.button}
                 variant="contained"
                 color="primary"
-                style={styles.button}
                 disableRipple
                 disableFocusRipple
                 onClick={() => this.onUpdate(items[FILTER].axisKey)}
@@ -81,9 +82,9 @@ export class AddToLayoutButton extends Component {
         ) : (
             <Fragment>
                 <Button
+                    className={this.props.classes.button}
                     variant="contained"
                     color="primary"
-                    style={styles.button}
                     disableRipple
                     disableFocusRipple
                     onClick={() => this.onUpdate(items[SERIES].axisKey)}
@@ -115,11 +116,12 @@ export class AddToLayoutButton extends Component {
 }
 
 AddToLayoutButton.propTypes = {
+    classes: PropTypes.object.isRequired,
+    closeDialog: PropTypes.func.isRequired,
+    currentLayout: PropTypes.object.isRequired,
     dialogId: PropTypes.string.isRequired,
     layoutType: PropTypes.string.isRequired,
-    currentLayout: PropTypes.object.isRequired,
     onAddDimension: PropTypes.func.isRequired,
-    closeDialog: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -136,4 +138,4 @@ export default connect(
         onAddDimension: acAddUiLayoutDimensions,
         onUpdate: acSetCurrentFromUi,
     }
-)(AddToLayoutButton);
+)(withStyles(styles)(AddToLayoutButton));

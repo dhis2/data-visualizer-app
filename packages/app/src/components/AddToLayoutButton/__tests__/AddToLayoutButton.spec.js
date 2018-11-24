@@ -17,11 +17,12 @@ describe('The AddToLayoutButton component ', () => {
 
     beforeEach(() => {
         props = {
+            classes: {},
+            closeDialog: jest.fn(),
+            currentLayout: {},
             dialogId: 'id',
             layoutType: '',
-            currentLayout: {},
             onAddDimension: jest.fn(),
-            closeDialog: jest.fn(),
         };
         shallowAddToButton = undefined;
     });

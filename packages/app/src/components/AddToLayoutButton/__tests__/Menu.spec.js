@@ -22,9 +22,10 @@ describe('The DropDownButton component ', () => {
     beforeEach(() => {
         props = {
             anchorEl: null,
+            classes: {},
+            menuItems: [],
             onClick: jest.fn(),
             onClose: jest.fn(),
-            menuItems: [],
         };
         shallowDropDown = undefined;
     });
@@ -56,8 +57,8 @@ describe('The DropDownButton component ', () => {
 
     it('renders a <Menu /> with children if prop anchorEl is equal to a truthy value', () => {
         props.anchorEl = {};
-        props.menuItems = ADD_TO_LAYOUT_OPTIONS.map(option => (
-            <MenuItem key={option.axisName} />
+        props.menuItems = ADD_TO_LAYOUT_OPTIONS.map((option, key) => (
+            <MenuItem key={key} value={option.axisName} />
         ));
 
         const menu = dropDown()
