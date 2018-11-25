@@ -4,7 +4,6 @@ export const styles = {
         flexFlow: 'column',
         width: '40%',
         paddingLeft: 5,
-        paddingRight: 5,
     },
     titleText: {
         color: '#616161', // color

@@ -7,20 +7,17 @@ export const styles = {
         height: '53px',
         width: '100%',
         borderBottom: '0px',
-        paddingTop: '5px',
+        padding: '5px 5px 0px 5px',
     },
     groupContainer: {
         display: 'flex',
         flexFlow: 'column',
         width: 'inherit',
-        paddingLeft: '5px',
-        paddingRight: '5px',
     },
     titleText: {
-        color: colors.greyDark,
         fontSize: '13px',
         fontWeight: '300',
-        paddingBottom: '10px',
+        paddingBottom: '8px',
     },
     dropDown: {
         padding: '0px',

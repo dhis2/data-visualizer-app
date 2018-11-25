@@ -5,12 +5,12 @@ export const styles = {
         padding: '0px',
         minWidth: '40px',
         minHeight: '36px',
-        backgroundColor: colors.white,
+        boxShadow: '0 2px 5px #b1b1b1',
+        borderRadius: '4px',
     },
     arrowIcon: {
         height: '20px',
         width: '24px',
-        fill: colors.greyDark,
     },
     buttonText: {
         fontSize: '13px',

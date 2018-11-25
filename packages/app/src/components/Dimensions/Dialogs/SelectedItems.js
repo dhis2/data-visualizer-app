@@ -9,7 +9,6 @@ import {
 } from 'react-sortable-hoc';
 
 import Item from './Item';
-import { ArrowButton as UnAssignButton } from './buttons/ArrowButton';
 import { SelectButton as DeselectAllButton } from './buttons/SelectButton';
 
 import { sGetMetadata } from '../../../reducers/metadata';
@@ -53,26 +52,13 @@ const SortableList = SortableContainer(
     )
 );
 export class SelectedItems extends Component {
-    state = { highlighted: [], lastClickedIndex: 0 };
+    state = { lastClickedIndex: 0 };
 
-    onDeselectClick = () => {
-        this.props.onDeselect(this.state.highlighted);
-        this.setState({ highlighted: [] });
-    };
+    onDeselectClick = () => this.props.onDeselect(this.props.highlighted);
 
-    onRemoveSelected = id => {
-        const highlighted = this.state.highlighted.filter(
-            dataDimId => dataDimId !== id
-        );
+    onRemoveSelected = id => this.props.onDeselect([id]);
 
-        this.props.onDeselect([id]);
-        this.setState({ highlighted });
-    };
-
-    onDeselectAllClick = () => {
-        this.props.onDeselect(this.props.items);
-        this.setState({ highlighted: [] });
-    };
+    onDeselectAllClick = () => this.props.onDeselect(this.props.items);
 
     toggleHighlight = (isCtrlPressed, isShiftPressed, index, id) => {
         const newState = toggler(
@@ -81,12 +67,12 @@ export class SelectedItems extends Component {
             isShiftPressed,
             index,
             this.state.lastClickedIndex,
-            this.state.highlighted,
+            this.props.highlighted,
             this.props.items
         );
 
+        this.props.onHighlightItem('highlightedSelectedIds', newState.ids);
         this.setState({
-            highlighted: newState.ids,
             lastClickedIndex: newState.lastClickedIndex,
         });
     };
@@ -106,12 +92,7 @@ export class SelectedItems extends Component {
                 onRemoveItem={this.onRemoveSelected}
                 onItemClick={this.toggleHighlight}
                 metadata={this.props.metadata}
-                highlighted={this.state.highlighted}
-            />
-            <UnAssignButton
-                className={`${this.props.className}-arrow-back-button`}
-                onClick={this.onDeselectClick}
-                iconType={'arrowBack'}
+                highlighted={this.props.highlighted}
             />
             <DeselectAllButton
                 style={styles.deselectButton}

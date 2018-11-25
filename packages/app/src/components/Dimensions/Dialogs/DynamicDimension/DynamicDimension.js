@@ -9,6 +9,7 @@ import keyBy from 'lodash-es/keyBy';
 import FilterField from '../FilterField';
 import UnselectedItems from '../UnselectedItems';
 import SelectedItems from '../SelectedItems';
+import { ArrowButton } from '../buttons/ArrowButton';
 
 import { apiFetchItemsByDimension } from '../../../../api/dimensions';
 
@@ -32,6 +33,8 @@ export class DynamicDimension extends Component {
         items: [],
         unselectedIds: [],
         selectedIds: [],
+        highlightedUnselectedIds: [],
+        highlightedSelectedIds: [],
     };
 
     componentDidMount = async () => {
@@ -61,7 +64,12 @@ export class DynamicDimension extends Component {
         const unselectedIds = this.state.unselectedIds.filter(
             id => !selectedIds.includes(id)
         );
-        this.setState({ unselectedIds });
+
+        const highlightedUnselectedIds = this.state.highlightedUnselectedIds.filter(
+            id => !selectedIds.includes(id)
+        );
+
+        this.setState({ unselectedIds, highlightedUnselectedIds });
 
         const itemsToAdd = keyBy(
             this.state.items.filter(di => selectedIds.includes(di.id)),
@@ -80,7 +88,12 @@ export class DynamicDimension extends Component {
         const unselectedIds = [
             ...new Set([...this.state.unselectedIds, ...ids]),
         ];
-        this.setState({ unselectedIds });
+
+        const highlightedSelectedIds = this.state.highlightedSelectedIds.filter(
+            id => !ids.includes(id)
+        );
+
+        this.setState({ unselectedIds, highlightedSelectedIds });
 
         this.props.removeItems({
             dimensionType: this.props.dialogId,
@@ -99,12 +112,46 @@ export class DynamicDimension extends Component {
             items,
         });
 
+    onHighlightItem = (arrayName, highlightedIds) => {
+        this.setState({ [arrayName]: highlightedIds });
+    };
+
+    renderSelectButtons = () => (
+        <div className="select-buttons">
+            <ArrowButton
+                className={'data-dimension-arrow-forward-button'}
+                onClick={() =>
+                    this.state.highlightedUnselectedIds.length
+                        ? this.selectItemsByDimensions(
+                              this.state.highlightedUnselectedIds
+                          )
+                        : null
+                }
+                iconType={'arrowForward'}
+            />
+            <ArrowButton
+                className={`data-dimenison-arrow-back-button`}
+                onClick={() =>
+                    this.state.highlightedSelectedIds.length
+                        ? this.deselectItemsByDimensions(
+                              this.state.highlightedSelectedIds
+                          )
+                        : null
+                }
+                iconType={'arrowBack'}
+            />
+        </div>
+    );
+
     render() {
+        const SelectButtons = this.renderSelectButtons();
+        const unselectedItems = this.getUnselectedItems();
+
         return (
             <Fragment>
                 <DialogTitle>{i18n.t(this.props.dialogTitle)}</DialogTitle>
                 <DialogContent style={styles.dialogContent}>
-                    <div style={styles.dialogContainer}>
+                    <div style={styles.unselectedContainer}>
                         <FilterField
                             text={this.state.filterText}
                             onFilterTextChange={this.onFilterTextChange}
@@ -112,14 +159,20 @@ export class DynamicDimension extends Component {
                         />
                         <UnselectedItems
                             className="dynamic-dimension"
-                            items={this.getUnselectedItems()}
+                            items={unselectedItems}
+                            highlighted={this.state.highlightedUnselectedIds}
+                            onHighlightItem={this.onHighlightItem}
                             onSelect={this.selectItemsByDimensions}
                             filterText={this.state.filterText}
                         />
                     </div>
+                    {SelectButtons}
                     <SelectedItems
                         className="dynamic-dimension"
                         items={this.props.selectedItems}
+                        highlighted={this.state.highlightedSelectedIds}
+                        onHighlightItem={this.onHighlightItem}
+                        dialogId={this.props.dialogId}
                         onDeselect={this.deselectItemsByDimensions}
                         onReorder={this.setUiItems}
                     />

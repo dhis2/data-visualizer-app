@@ -3,32 +3,24 @@ import { colors } from '../../../../modules/colors';
 export const styles = {
     container: {
         border: `1px solid ${colors.greyLight}`,
-        height: '534px',
-        width: '278px',
+        height: '480px',
+        display: 'flex',
+        flexDirection: 'column',
+        flexGrow: 2,
+        flexBasis: '278px',
+        userSelect: 'none',
     },
     subTitleContainer: {
         borderBottom: `1px solid ${colors.greyLight}`,
-        height: '42px',
+        height: '40px',
+        padding: '10px 0px 0px 10px',
     },
     subTitleText: {
-        position: 'relative',
-        fontFamily: 'Roboto',
-        color: colors.black,
         fontSize: '15px',
         fontWeight: '500',
-        height: '20px',
-        top: '12px',
-        left: '8px',
     },
     list: {
-        userSelect: 'none',
-        listStyle: 'none',
         overflowY: 'auto',
-        height: '455px',
-        paddingLeft: '0px',
-        margin: '0px',
-    },
-    deselectButton: {
-        left: '76px',
+        height: '100%',
     },
 };

@@ -4,24 +4,21 @@ export const styles = {
     container: {
         border: `1px solid ${colors.greyLight}`,
         display: 'flex',
-        flexFlow: 'column',
+        flexDirection: 'column',
         height: 53,
         borderBottom: 0,
-        paddingLeft: 5,
-        paddingRight: 5,
-        paddingTop: 5,
+        padding: '5px 5px 0px 5px',
     },
     titleText: {
-        color: colors.greyDark,
-        fontSize: 13,
-        fontWeight: 300,
-        paddingBottom: 10,
+        fontSize: '13px',
+        fontWeight: '300',
+        paddingBottom: '10px',
     },
     dropDown: {
         outline: 'none',
-        padding: 0,
+        padding: '0',
     },
     dropDownItem: {
-        fontSize: 16,
+        fontSize: '16px',
     },
 };

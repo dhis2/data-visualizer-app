@@ -3,37 +3,20 @@ import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import throttle from 'lodash-es/throttle';
 import Item from './Item';
-import { ArrowButton as AssignButton } from './buttons/ArrowButton';
 import { SelectButton as SelectAllButton } from './buttons/SelectButton';
 import { toggler } from '../../../modules/toggler';
-import { styles } from './styles/UnselectedItems.style';
-
 export class UnselectedItems extends Component {
     constructor(props) {
         super(props);
         this.ulRef = React.createRef();
     }
 
-    state = { highlighted: [], lastClickedIndex: 0 };
+    state = { lastClickedIndex: 0 };
 
-    onSelectClick = () => {
-        this.props.onSelect(this.state.highlighted);
-        this.setState({ highlighted: [] });
-    };
-
-    onSelectAllClick = () => {
+    onSelectAllClick = () =>
         this.props.onSelect(this.props.items.map(i => i.id));
-        this.setState({ highlighted: [] });
-    };
 
-    onDoubleClickItem = id => {
-        const highlighted = this.state.highlighted.filter(
-            dataDimId => dataDimId !== id
-        );
-
-        this.setState({ highlighted });
-        this.props.onSelect([id]);
-    };
+    onDoubleClickItem = id => this.props.onSelect([id]);
 
     filterTextContains = displayName =>
         displayName.toLowerCase().includes(this.props.filterText.toLowerCase());
@@ -50,12 +33,12 @@ export class UnselectedItems extends Component {
             isShiftPressed,
             index,
             this.state.lastClickedIndex,
-            this.state.highlighted,
+            this.props.highlighted,
             this.props.items.map(item => item.id)
         );
 
+        this.props.onHighlightItem('highlightedUnselectedIds', newState.ids);
         this.setState({
-            highlighted: newState.ids,
             lastClickedIndex: newState.lastClickedIndex,
         });
     };
@@ -70,7 +53,7 @@ export class UnselectedItems extends Component {
                 id={dataDim.id}
                 index={index}
                 name={dataDim.name}
-                highlighted={!!this.state.highlighted.includes(dataDim.id)}
+                highlighted={!!this.props.highlighted.includes(dataDim.id)}
                 onItemClick={this.toggleHighlight}
             />
         </li>
@@ -88,7 +71,7 @@ export class UnselectedItems extends Component {
         }
     }, 1000);
 
-    render = () => {
+    render() {
         const listItems = this.props.items.map((item, index) =>
             this.props.filterText.length
                 ? this.filterItems(item, index)
@@ -103,19 +86,13 @@ export class UnselectedItems extends Component {
                 <ul ref={this.ulRef} className={`${this.props.className}-list`}>
                     {listItems}
                 </ul>
-                <AssignButton
-                    className={`${this.props.className}-arrow-forward-button`}
-                    onClick={this.onSelectClick}
-                    iconType={'arrowForward'}
-                />
                 <SelectAllButton
-                    style={styles.selectButton}
                     onClick={this.onSelectAllClick}
                     label={i18n.t('Select All')}
                 />
             </div>
         );
-    };
+    }
 }
 
 UnselectedItems.propTypes = {

@@ -3,7 +3,9 @@ import Button from '@material-ui/core/Button';
 import { styles } from '../styles/buttons.style';
 
 export const SelectButton = ({ style, onClick, label }) => (
-    <Button style={style} onClick={onClick}>
-        <span style={styles.buttonText}>{label}</span>
-    </Button>
+    <div style={{ textAlign: 'center' }}>
+        <Button onClick={onClick}>
+            <span style={styles.buttonText}>{label}</span>
+        </Button>
+    </div>
 );

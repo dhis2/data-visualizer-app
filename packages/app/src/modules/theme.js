@@ -7,6 +7,14 @@ export const theme = {
     overrides: {
         // TODO: Move this customization to d2-ui so that it is standardized across apps
         ...dhis2theme.overrides,
+
+        MuiDialog: {
+            paperWidthLg: {
+                flexBasis: 800,
+                maxWidth: 800,
+                maxHeight: 'calc(100vh - 155px)',
+            },
+        },
         MuiMenuItem: {
             root: {
                 paddingTop: dhis2theme.spacing.unit,

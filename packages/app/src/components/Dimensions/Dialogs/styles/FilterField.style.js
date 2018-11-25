@@ -6,11 +6,9 @@ export const styles = {
         backgroundColor: colors.white,
         height: '39px',
         borderBottom: '0px',
+        padding: '5px 5px 0px 5px',
     },
     textField: {
-        paddingRight: '7px',
-        paddingTop: '5px',
         width: '100%',
-        fontSize: '14px',
     },
 };

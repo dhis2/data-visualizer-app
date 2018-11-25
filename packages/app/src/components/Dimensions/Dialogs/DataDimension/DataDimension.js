@@ -12,6 +12,7 @@ import Groups from './Groups';
 import FilterField from '../FilterField';
 import UnselectedItems from '../UnselectedItems';
 import SelectedItems from '../SelectedItems';
+import { ArrowButton } from '../buttons/ArrowButton';
 
 import {
     apiFetchGroups,
@@ -61,6 +62,8 @@ export class DataDimension extends Component {
         items: [],
         nextPage: null,
         unselectedIds: [],
+        highlightedUnselectedIds: [],
+        highlightedSelectedIds: [],
         filter: {},
     };
 
@@ -172,7 +175,15 @@ export class DataDimension extends Component {
         const unselectedIds = this.state.unselectedIds.filter(
             id => !selectedIds.includes(id)
         );
-        this.setState({ unselectedIds });
+
+        const highlightedUnselectedIds = this.state.highlightedUnselectedIds.filter(
+            id => !selectedIds.includes(id)
+        );
+
+        this.setState({
+            unselectedIds,
+            highlightedUnselectedIds,
+        });
 
         const itemsToAdd = keyBy(
             this.state.items.filter(di => selectedIds.includes(di.id)),
@@ -191,7 +202,12 @@ export class DataDimension extends Component {
         const unselectedIds = [
             ...new Set([...this.state.unselectedIds, ...ids]),
         ];
-        this.setState({ unselectedIds });
+
+        const highlightedSelectedIds = this.state.highlightedSelectedIds.filter(
+            id => !ids.includes(id)
+        );
+
+        this.setState({ unselectedIds, highlightedSelectedIds });
 
         this.props.removeDxItems({
             dimensionType: dxId,
@@ -205,6 +221,37 @@ export class DataDimension extends Component {
             items,
         });
 
+    onHighlightItem = (arrayName, highlightedIds) => {
+        this.setState({ [arrayName]: highlightedIds });
+    };
+
+    renderSelectButtons = () => (
+        <div className="select-buttons">
+            <ArrowButton
+                className="arrow-forward-button"
+                iconType={'arrowForward'}
+                onClick={() =>
+                    this.state.highlightedUnselectedIds.length
+                        ? this.selectDataDimensions(
+                              this.state.highlightedUnselectedIds
+                          )
+                        : null
+                }
+            />
+            <ArrowButton
+                className="arrow-back-button"
+                iconType={'arrowBack'}
+                onClick={() =>
+                    this.state.highlightedSelectedIds.length
+                        ? this.deselectDataDimensions(
+                              this.state.highlightedSelectedIds
+                          )
+                        : null
+                }
+            />
+        </div>
+    );
+
     render() {
         const unselected = this.state.items.filter(di =>
             this.state.unselectedIds.includes(di.id)
@@ -212,11 +259,13 @@ export class DataDimension extends Component {
 
         const groups = this.state.groups[this.state.dataType] || [];
 
+        const SelectButtons = this.renderSelectButtons();
+
         return (
             <Fragment>
                 <DialogTitle>{i18n.t('Data')}</DialogTitle>
                 <DialogContent style={styles.dialogContent}>
-                    <div style={styles.dialogContainer}>
+                    <div style={styles.unselectedContainer}>
                         <DataTypes
                             currentDataType={this.state.dataType}
                             onDataTypeChange={this.onDataTypeChange}
@@ -237,14 +286,19 @@ export class DataDimension extends Component {
                         <UnselectedItems
                             className="data-dimension"
                             items={unselected}
+                            highlighted={this.state.highlightedUnselectedIds}
+                            onHighlightItem={this.onHighlightItem}
                             onSelect={this.selectDataDimensions}
                             filterText={this.state.filterText}
                             requestMoreItems={this.requestMoreItems}
                         />
                     </div>
+                    {SelectButtons}
                     <SelectedItems
                         className="data-dimension"
                         items={this.props.selectedItems}
+                        highlighted={this.state.highlightedSelectedIds}
+                        onHighlightItem={this.onHighlightItem}
                         dialogId={dxId}
                         onDeselect={this.deselectDataDimensions}
                         onReorder={this.setUiItems}
