@@ -12,6 +12,7 @@ import { sGetMetadata } from '../../../../reducers/metadata';
 import { acRemoveUiItems, acAddUiItems } from '../../../../actions/ui';
 import { acAddMetadata } from '../../../../actions/metadata';
 import { FIXED_DIMENSIONS } from '../../../../modules/fixedDimensions';
+import styles from './styles/PeriodDimension.style';
 
 const peId = FIXED_DIMENSIONS.pe.id;
 
@@ -56,7 +57,7 @@ export class PeriodDimension extends Component {
         return (
             <Fragment>
                 <DialogTitle> {i18n.t('Period')}</DialogTitle>
-                <DialogContent>
+                <DialogContent style={styles.dialogContent}>
                     <PeriodSelector
                         d2={this.context.d2}
                         onSelect={this.selectPeriodDimensions}

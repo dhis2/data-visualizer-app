@@ -12,12 +12,13 @@ export const styles = {
     },
     subTitleContainer: {
         borderBottom: `1px solid ${colors.greyLight}`,
+        display: 'flex',
         height: '40px',
-        padding: '10px 0px 0px 10px',
     },
     subTitleText: {
         fontSize: '15px',
         fontWeight: '500',
+        padding: '10px 0px 0px 10px',
     },
     list: {
         overflowY: 'auto',

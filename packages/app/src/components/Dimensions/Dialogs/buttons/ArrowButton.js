@@ -9,6 +9,7 @@ export const ArrowButton = ({ onClick, iconType }) => (
         variant="contained"
         style={styles.arrowButton}
         onClick={onClick}
+        disableRipple
     >
         {iconType === 'arrowForward' ? (
             <ArrowForward style={styles.arrowIcon} />
