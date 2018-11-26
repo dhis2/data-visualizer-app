@@ -113,7 +113,6 @@ export class DialogManager extends Component {
                 maxWidth="lg"
                 disableEnforceFocus
                 keepMounted
-                classes={{ paperWidthLg: this.props.classes.dialog }}
             >
                 {this.renderDialogContent()}
                 <DialogActions>

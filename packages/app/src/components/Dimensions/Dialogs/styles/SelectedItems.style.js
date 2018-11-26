@@ -21,6 +21,6 @@ export const styles = {
     },
     list: {
         overflowY: 'auto',
-        height: '367px',
+        height: '465px',
     },
 };

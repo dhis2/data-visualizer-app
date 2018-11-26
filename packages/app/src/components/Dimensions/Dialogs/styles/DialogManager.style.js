@@ -6,7 +6,4 @@ export const styles = {
     hidden: {
         display: 'none',
     },
-    dialog: {
-        maxHeight: 'calc(100% - 195px)',
-    },
 };
