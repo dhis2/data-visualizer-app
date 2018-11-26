@@ -1,13 +1,11 @@
-import { colors } from '../../../modules/colors';
-
-export default {
+export default theme => ({
     divContainer: {
         height: 465,
     },
     tabsBar: {
         height: 48,
-        backgroundColor: colors.white,
-        borderBottom: `1px solid ${colors.greyLight}`,
+        backgroundColor: theme.colors.white,
+        borderBottom: `1px solid ${theme.colors.greyLight}`,
     },
     tab: {
         width: 160,
@@ -37,4 +35,4 @@ export default {
     checkBoxRoot: {
         padding: '0px 5px',
     },
-};
+});
