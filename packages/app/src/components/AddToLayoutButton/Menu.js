@@ -12,9 +12,17 @@ export const DropDown = ({
     onClose,
     menuItems,
 }) => {
-    const isOverFowing =
-        anchorEl !== null &&
+    const isOverFlowing =
+        anchorEl &&
         anchorEl.getBoundingClientRect().bottom + 100 > window.innerHeight;
+
+    const anchorOrigin = isOverFlowing
+        ? { vertical: 'top', horizontal: 'left' }
+        : { vertical: 'bottom', horizontal: 'left' };
+
+    const transformOrigin = isOverFlowing
+        ? { vertical: 'bottom', horizontal: 'right' }
+        : { vertical: 'top', horizontal: 'right' };
 
     return (
         <Fragment>
@@ -25,9 +33,8 @@ export const DropDown = ({
                 anchorEl={anchorEl}
                 getContentAnchorEl={null}
                 MenuListProps={{ className: classes.menuList }}
-                anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
-                transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-                marginThreshold={isOverFowing ? 100 : 0}
+                anchorOrigin={anchorOrigin}
+                transformOrigin={transformOrigin}
             >
                 {menuItems}
             </Menu>
