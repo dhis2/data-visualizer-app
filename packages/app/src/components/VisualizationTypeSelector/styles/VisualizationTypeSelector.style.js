@@ -8,6 +8,7 @@ export default {
         textTransform: 'none',
         fontWeight: 'normal',
         backgroundColor: colors.white,
+        justifyContent: 'flex-start',
     },
     dropDownArrow: {
         marginLeft: 'auto',
