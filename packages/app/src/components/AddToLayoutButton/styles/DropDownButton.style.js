@@ -11,9 +11,6 @@ export default {
         fill: colors.white,
     },
     menuList: {
-        display: 'grid',
-    },
-    paper: {
-        width: '121px',
+        display: 'block',
     },
 };

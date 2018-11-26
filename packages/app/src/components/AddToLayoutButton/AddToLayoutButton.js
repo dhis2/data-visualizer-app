@@ -59,8 +59,8 @@ export class AddToLayoutButton extends Component {
         items.slice(OMIT_SERIES).map(option => (
             <MenuItem
                 className={this.props.classes.menuItem}
-                key={option.axisKey}
                 component="li"
+                key={option.axisKey}
                 onClick={() => this.onUpdate(option.axisKey)}
             >
                 {option.name}
@@ -125,10 +125,10 @@ AddToLayoutButton.propTypes = {
 };
 
 const mapStateToProps = state => ({
+    ui: sGetUi(state),
     dialogId: sGetUiActiveModalDialog(state),
     layoutType: sGetUiType(state),
     currentLayout: sGetUiLayout(state),
-    ui: sGetUi(state),
 });
 
 export default connect(

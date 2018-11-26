@@ -6,10 +6,12 @@ export default {
         width: '121px',
     },
     menuItem: {
-        borderRadius: '2px',
-        maxHeight: '37px',
-        width: '100%',
+        fontSize: '15px',
+        textTransform: 'initial',
         whiteSpace: 'nowrap',
-        fontSize: '12px',
+        justifyContent: 'start',
+        flexWrap: 'nowrap',
+        padding: '8px',
+        fontWeight: '400',
     },
 };

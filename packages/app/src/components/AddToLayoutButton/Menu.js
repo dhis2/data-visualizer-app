@@ -1,13 +1,11 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import Button from '@material-ui/core/Button';
-import ArrowDropDown from '@material-ui/icons/ArrowDropDown';
 import Menu from '@material-ui/core/Menu';
 import { withStyles } from '@material-ui/core/styles';
-
+import DropDownButton from './DropDownButton';
 import styles from './styles/Menu.style';
 
-export const DropDownButton = ({
+export const DropDown = ({
     anchorEl,
     classes,
     onClick,
@@ -15,22 +13,12 @@ export const DropDownButton = ({
     menuItems,
 }) => (
     <Fragment>
-        <Button
-            className={classes.arrowDown}
-            color="primary"
-            variant="contained"
-            disableRipple
-            disableFocusRipple
-            onClick={onClick}
-        >
-            <ArrowDropDown className={classes.arrowIcon} />
-        </Button>
+        <DropDownButton onClick={onClick} open={Boolean(anchorEl)} />
         <Menu
             open={Boolean(anchorEl)}
             onClose={onClose}
             anchorEl={anchorEl}
             getContentAnchorEl={null}
-            classes={{ paper: classes.paper }}
             MenuListProps={{ className: classes.menuList }}
             anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
             transformOrigin={{ vertical: 'top', horizontal: 'right' }}
@@ -40,11 +28,11 @@ export const DropDownButton = ({
     </Fragment>
 );
 
-DropDownButton.defaultProps = {
+DropDown.defaultProps = {
     anchorEl: null,
 };
 
-DropDownButton.propTypes = {
+DropDown.propTypes = {
     anchorEl: PropTypes.object,
     classes: PropTypes.object.isRequired,
     menuItems: PropTypes.arrayOf(PropTypes.element).isRequired,
@@ -52,4 +40,4 @@ DropDownButton.propTypes = {
     onClose: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(DropDownButton);
+export default withStyles(styles)(DropDown);
