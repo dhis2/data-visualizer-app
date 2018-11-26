@@ -1,12 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import ArrowDropDown from '@material-ui/icons/ArrowDropDown';
 import { ADD_TO_LAYOUT_OPTIONS } from '../../../modules/layout';
 
-import { DropDownButton } from '../Menu';
+import { DropDown } from '../Menu';
+import DropDownButton from '../DropDownButton';
 
 describe('The DropDownButton component ', () => {
     let props;
@@ -14,7 +13,7 @@ describe('The DropDownButton component ', () => {
 
     const dropDown = () => {
         if (!shallowDropDown) {
-            shallowDropDown = shallow(<DropDownButton {...props} />);
+            shallowDropDown = shallow(<DropDown {...props} />);
         }
         return shallowDropDown;
     };
@@ -38,13 +37,10 @@ describe('The DropDownButton component ', () => {
         expect(button.children()).toEqual(dropDown().children());
     });
 
-    it('renders a <Button /> with <ArrowDropDown /> icon as child', () => {
-        const arrowIcon = dropDown()
-            .find(Button)
-            .dive()
-            .find(ArrowDropDown);
+    it('renders a <DropDownButton /> ', () => {
+        const dropDownButton = dropDown().find(DropDownButton);
 
-        expect(arrowIcon.length).toEqual(1);
+        expect(dropDownButton.length).toEqual(1);
     });
 
     it('renders a <Menu /> with no children if prop anchorEl is equal to a falsy value', () => {
