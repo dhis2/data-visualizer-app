@@ -11,6 +11,7 @@ import VisualizationOptionsManager from '../VisualizationOptions/VisualizationOp
 import * as fromActions from '../../actions';
 import { sGetCurrent } from '../../reducers/current';
 import history from '../../modules/history';
+import { parseError } from '../../modules/error';
 import styles from './styles/MenuBar.style';
 
 const onOpen = id => {
@@ -28,6 +29,7 @@ const getOnSave = props => details => props.onSaveVisualization(details, false);
 const getOnSaveAs = props => details =>
     props.onSaveVisualization(details, true);
 const getOnDelete = props => () => props.onDeleteVisualization();
+const getOnError = props => error => props.onError(error);
 
 export const MenuBar = ({ classes, ...props }, context) => (
     <div className={classes.menuBar}>
@@ -42,8 +44,7 @@ export const MenuBar = ({ classes, ...props }, context) => (
             onSave={getOnSave(props)}
             onSaveAs={getOnSaveAs(props)}
             onDelete={getOnDelete(props)}
-            onTranslate={() => console.log('translate callback')}
-            onError={() => console.log('error!')}
+            onError={getOnError(props)}
         />
         <VisualizationOptionsManager className={classes.label} />
         <DownloadMenu className={classes.label} />
@@ -78,6 +79,17 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
             )
         ),
     onDeleteVisualization: () => dispatch(fromActions.tDoDeleteVisualization()),
+    onError: error => {
+        const { type, message } = parseError(error);
+
+        dispatch(
+            fromActions.fromSnackbar.acReceivedSnackbarMessage({
+                variant: type,
+                message,
+                open: true,
+            })
+        );
+    },
 });
 
 export default connect(
