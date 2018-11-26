@@ -1,32 +1,35 @@
 export default theme => ({
     divContainer: {
-        height: 465,
+        height: '450px',
     },
     tabsBar: {
-        height: 48,
-        backgroundColor: theme.colors.white,
+        height: '48px',
+        backgroundColor: theme.palette.common.white,
         borderBottom: `1px solid ${theme.colors.greyLight}`,
     },
+    flexContainer: {
+        justifyContent: 'space-evenly',
+    },
     tab: {
-        width: 160,
+        flexBasis: '160px',
     },
     formControlRoot: {
-        paddingBottom: 10,
+        paddingBottom: '5px',
     },
     formGroupContainer: {
-        paddingTop: 15,
+        paddingTop: '10px',
     },
     formGroupRoot: {
-        paddingBottom: 10,
+        paddingBottom: '5px',
     },
     rangeAxisMin: {
-        paddingRight: 15,
+        paddingRight: '15px',
     },
     textBaseRoot: {
-        paddingBottom: 10,
+        paddingBottom: '5px',
     },
     inputLabel: {
-        fontSize: 15,
+        fontSize: '15px',
     },
     formControlLabelRoot: {
         marginLeft: 15,

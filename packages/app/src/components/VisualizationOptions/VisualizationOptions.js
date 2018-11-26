@@ -36,6 +36,7 @@ export class VisualizationOptions extends Component {
                         onChange={(event, tabId) => this.selectTab(tabId)}
                         textColor="primary"
                         value={activeTab}
+                        classes={{ flexContainer: classes.flexContainer }}
                     >
                         <Tab className={classes.tab} label={i18n.t('Data')} />
                         <Tab
