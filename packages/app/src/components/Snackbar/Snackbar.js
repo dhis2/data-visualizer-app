@@ -11,6 +11,10 @@ import { sGetSnackbar } from '../../reducers/snackbar';
 import { tDoCloseSnackbar } from '../../actions';
 import styles from './styles/Snackbar.style';
 
+export const VARIANT_INFORMATION = 'information';
+export const VARIANT_WARNING = 'warning';
+export const VARIANT_ERROR = 'error';
+
 export const Snackbar = ({
     classes,
     variant,
@@ -24,11 +28,11 @@ export const Snackbar = ({
             className={classes[variant]}
             message={
                 <span className={classes.container}>
-                    {variant === 'error' ? (
+                    {variant === VARIANT_ERROR ? (
                         <InfoIcon className={classes.icon} />
                     ) : null}
                     {message}
-                    {variant === 'warning' ? (
+                    {variant === VARIANT_WARNING ? (
                         <CloseIcon
                             className={classes.closeIcon}
                             onClick={onClose}
@@ -42,7 +46,11 @@ export const Snackbar = ({
 
 Snackbar.propTypes = {
     classes: PropTypes.object.isRequired,
-    variant: PropTypes.oneOf(['information', 'warning', 'error']).isRequired,
+    variant: PropTypes.oneOf([
+        VARIANT_INFORMATION,
+        VARIANT_WARNING,
+        VARIANT_ERROR,
+    ]).isRequired,
     open: PropTypes.bool,
     message: PropTypes.string,
     duration: PropTypes.number,
