@@ -16,6 +16,7 @@ describe('DataDimension component ', () => {
 
     beforeEach(() => {
         props = {
+            classes: {},
             selectedItems: [],
             ui: {},
             displayNameProp: 'string',
