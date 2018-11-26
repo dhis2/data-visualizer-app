@@ -173,3 +173,16 @@ export const tDoDeleteVisualization = () => (dispatch, getState) => {
 
     history.push('/');
 };
+
+// snackbar
+export const tDoCloseSnackbar = () => (dispatch, getState) => {
+    dispatch(
+        fromSnackbar.acReceivedSnackbarMessage({
+            open: false,
+        })
+    );
+
+    // wait for the animation to complete to avoid
+    // "flashing" of the snackbar
+    setTimeout(() => dispatch(fromSnackbar.acCloseSnackbar()), 250);
+};

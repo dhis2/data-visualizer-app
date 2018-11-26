@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { App } from '../App';
-import Snackbar from '@material-ui/core/Snackbar';
+import Snackbar from '../Snackbar/Snackbar';
 import Visualization from '../Visualization/Visualization';
 import * as actions from '../../actions/';
 import history from '../../modules/history';
@@ -75,17 +75,6 @@ describe('App', () => {
     it('renders a Snackbar', () => {
         const snackbar = app().find(Snackbar);
         expect(snackbar.length).toBeGreaterThan(0);
-    });
-
-    describe('Snackbar', () => {
-        it('renders with correct "open" property', () => {
-            props.snackbarOpen = true;
-            expect(
-                app()
-                    .find(Snackbar)
-                    .prop('open')
-            ).toEqual(true);
-        });
     });
 
     describe('location pathname', () => {

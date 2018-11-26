@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Snackbar from '@material-ui/core/Snackbar';
 import i18n from '@dhis2/d2-i18n';
 import UI from 'ui/core/UI';
 import HeaderBar from 'ui/widgets/HeaderBar';
 
-import SnackbarMessage from '../widgets/SnackbarMessage';
+import Snackbar from '../components/Snackbar/Snackbar';
 import MenuBar from './MenuBar/MenuBar';
 import TitleBar from './TitleBar/TitleBar';
 import VisualizationTypeSelector from './VisualizationTypeSelector/VisualizationTypeSelector';
@@ -139,19 +138,6 @@ export class App extends Component {
         };
     }
 
-    renderSnackbar() {
-        return (
-            <Snackbar
-                open={this.props.snackbarOpen}
-                message={
-                    <SnackbarMessage message={this.props.snackbarMessage} />
-                }
-                autoHideDuration={this.props.snackbarDuration}
-                onClose={this.props.onCloseSnackbar}
-            />
-        );
-    }
-
     render() {
         const showVis =
             this.props.current &&
@@ -197,20 +183,14 @@ export class App extends Component {
                         )}
                     </div>
                 </div>
-                {this.renderSnackbar()}
+                <Snackbar />
             </UI>
         );
     }
 }
 
 const mapStateToProps = state => {
-    const { message, duration, open } = fromReducers.fromSnackbar.sGetSnackbar(
-        state
-    );
     return {
-        snackbarOpen: open,
-        snackbarMessage: message,
-        snackbarDuration: duration,
         settings: fromReducers.fromSettings.sGetSettings(state),
         current: fromReducers.fromCurrent.sGetCurrent(state),
         loadError: fromReducers.fromLoader.sGetLoadError(state),
@@ -220,7 +200,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
     onKeyUp: ui => dispatch(fromActions.fromCurrent.acSetCurrentFromUi(ui)),
-    onCloseSnackbar: () => dispatch(fromActions.fromSnackbar.acCloseSnackbar()),
 });
 
 App.contextTypes = {
