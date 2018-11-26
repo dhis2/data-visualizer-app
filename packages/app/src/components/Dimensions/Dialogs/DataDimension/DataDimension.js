@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
+import { withStyles } from '@material-ui/core/styles';
 import i18n from '@dhis2/d2-i18n';
 import debounce from 'lodash-es/debounce';
 import keyBy from 'lodash-es/keyBy';
@@ -264,8 +265,8 @@ export class DataDimension extends Component {
         return (
             <Fragment>
                 <DialogTitle>{i18n.t('Data')}</DialogTitle>
-                <DialogContent style={styles.dialogContent}>
-                    <div style={styles.unselectedContainer}>
+                <DialogContent className={this.props.classes.dialogContent}>
+                    <div className={this.props.classes.unselectedContainer}>
                         <DataTypes
                             currentDataType={this.state.dataType}
                             onDataTypeChange={this.onDataTypeChange}
@@ -331,4 +332,4 @@ export default connect(
         setDxItems: acSetUiItems,
         addMetadata: acAddMetadata,
     }
-)(DataDimension);
+)(withStyles(styles)(DataDimension));

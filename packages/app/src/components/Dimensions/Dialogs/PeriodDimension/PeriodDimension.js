@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
-import { withStyles } from '@material-ui/core/styles';
 
 import { PeriodSelector } from '@dhis2/d2-ui-period-selector-dialog';
 import i18n from '@dhis2/d2-i18n';
@@ -13,7 +12,6 @@ import { sGetMetadata } from '../../../../reducers/metadata';
 import { acRemoveUiItems, acAddUiItems } from '../../../../actions/ui';
 import { acAddMetadata } from '../../../../actions/metadata';
 import { FIXED_DIMENSIONS } from '../../../../modules/fixedDimensions';
-import styles from './styles/PeriodDimension.style';
 
 const peId = FIXED_DIMENSIONS.pe.id;
 
@@ -58,7 +56,7 @@ export class PeriodDimension extends Component {
         return (
             <Fragment>
                 <DialogTitle> {i18n.t('Period')}</DialogTitle>
-                <DialogContent className={this.props.classes.dialogContent}>
+                <DialogContent>
                     <PeriodSelector
                         d2={this.context.d2}
                         onSelect={this.selectPeriodDimensions}
@@ -95,4 +93,4 @@ export default connect(
         addUiItems: acAddUiItems,
         removeUiItems: acRemoveUiItems,
     }
-)(withStyles(styles)(PeriodDimension));
+)(PeriodDimension);
