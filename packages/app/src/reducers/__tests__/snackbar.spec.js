@@ -4,6 +4,11 @@ import reducer, {
     CLOSE_SNACKBAR,
 } from '../snackbar';
 
+import {
+    VARIANT_INFORMATION,
+    VARIANT_ERROR,
+} from '../../components/Snackbar/Snackbar';
+
 describe('reducer: snackbar', () => {
     it('should return the default state', () => {
         const actualState = reducer(undefined, {});
@@ -22,7 +27,7 @@ describe('reducer: snackbar', () => {
         };
 
         const expectedState = {
-            variant: 'information',
+            variant: VARIANT_INFORMATION,
             message,
             duration: null,
             open: false,
@@ -44,14 +49,14 @@ describe('reducer: snackbar', () => {
         };
 
         const expectedState = {
-            variant: 'information',
+            variant: VARIANT_INFORMATION,
             message,
             duration,
             open: true,
         };
 
         const currentState = {
-            variant: 'information',
+            variant: VARIANT_INFORMATION,
             message: 'You just won 1000 dollars',
             duration,
             open: true,
@@ -76,7 +81,7 @@ describe('reducer: snackbar', () => {
         };
 
         const expectedState = {
-            variant: 'information',
+            variant: VARIANT_INFORMATION,
             message,
             duration,
             open,
@@ -115,7 +120,7 @@ describe('reducer: snackbar', () => {
         };
 
         const currentState = {
-            variant: 'error',
+            variant: VARIANT_ERROR,
             message: 'You just won 1000 dollars',
             duration: 3000,
             open: true,
