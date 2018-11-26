@@ -22,6 +22,7 @@ describe('The Period Dimension component ', () => {
 
     beforeEach(() => {
         props = {
+            classes: {},
             ui: {
                 itemsByDimension: {
                     [peId]: [],

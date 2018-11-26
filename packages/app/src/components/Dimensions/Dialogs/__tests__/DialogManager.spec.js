@@ -22,6 +22,7 @@ describe('The DialogManager component ', () => {
     beforeEach(() => {
         props = {
             dialogId: null,
+            classes: {},
             dimensions: {
                 test: {},
             },
@@ -53,17 +54,6 @@ describe('The DialogManager component ', () => {
         const wrappingDiv = dialog.find('div');
 
         expect(wrappingDiv.length).toEqual(1);
-    });
-
-    it('the wrapping div should hide children with display:"none" if prop dialogId is equal to a falsy value,', () => {
-        const dataDimId = 'dx';
-        const dialog = dialogManager().setProps({ dialogId: dataDimId });
-
-        dialog.setProps({ dialogId: null });
-        const wrappingDiv = dialog.find('div');
-
-        const hidden = { display: 'none' };
-        expect(wrappingDiv.props().style).toEqual(hidden);
     });
 
     it('sets the recommended Ids (with debounced delay) when a change in dx (Data) or ou (Organisation Unit) occurs', () => {
