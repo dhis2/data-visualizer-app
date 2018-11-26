@@ -8,7 +8,7 @@ import { withStyles } from '@material-ui/core/styles';
 import InfoIcon from '@material-ui/icons/InfoOutlined';
 import CloseIcon from '@material-ui/icons/Close';
 import { sGetSnackbar } from '../../reducers/snackbar';
-import { acCloseSnackbar } from '../../actions/snackbar';
+import { tDoCloseSnackbar } from '../../actions';
 import styles from './styles/Snackbar.style';
 
 export const Snackbar = ({
@@ -18,29 +18,27 @@ export const Snackbar = ({
     message,
     duration,
     onClose,
-}) => {
-    return (
-        <MUISnackbar open={open} autoHideDuration={duration} onClose={onClose}>
-            <MUISnackbarContent
-                className={classes[variant]}
-                message={
-                    <span className={classes.container}>
-                        {variant === 'error' ? (
-                            <InfoIcon className={classes.icon} />
-                        ) : null}
-                        {message}
-                        {variant === 'warning' ? (
-                            <CloseIcon
-                                className={classes.closeIcon}
-                                onClick={onClose}
-                            />
-                        ) : null}
-                    </span>
-                }
-            />
-        </MUISnackbar>
-    );
-};
+}) => (
+    <MUISnackbar open={open} autoHideDuration={duration} onClose={onClose}>
+        <MUISnackbarContent
+            className={classes[variant]}
+            message={
+                <span className={classes.container}>
+                    {variant === 'error' ? (
+                        <InfoIcon className={classes.icon} />
+                    ) : null}
+                    {message}
+                    {variant === 'warning' ? (
+                        <CloseIcon
+                            className={classes.closeIcon}
+                            onClick={onClose}
+                        />
+                    ) : null}
+                </span>
+            }
+        />
+    </MUISnackbar>
+);
 
 Snackbar.propTypes = {
     classes: PropTypes.object.isRequired,
@@ -63,7 +61,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    onClose: () => dispatch(acCloseSnackbar()),
+    onClose: () => dispatch(tDoCloseSnackbar()),
 });
 
 export default connect(
