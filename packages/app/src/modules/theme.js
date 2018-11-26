@@ -25,6 +25,26 @@ export const theme = {
                 transition: null,
             },
         },
+        MuiDialogContent: {
+            root: {
+                ...dhis2theme.overrides.MuiDialogContent.root,
+                overflow: 'hidden',
+                overflowY: 'hidden',
+            },
+        },
+        MuiInput: {
+            underline: {
+                '&:after': {
+                    borderBottom: `1px solid #aaa`,
+                },
+                '&:before': {
+                    borderBottom: `1px solid ${colors.greyLight}`,
+                },
+                '&:hover:not($disabled):not($focused):not($error):before': {
+                    borderBottom: `1px solid ${colors.greyLight}`,
+                },
+            },
+        },
     },
 };
 

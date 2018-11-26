@@ -8,7 +8,7 @@ import AxesAndLegendsTab from '../AxesAndLegendsTab';
 import StyleTab from '../StyleTab';
 
 describe('VisualizationOptions', () => {
-    let props;
+    const props = { classes: {} };
     let shallowVisualizationOptions;
 
     const visualizationOptions = () => {
@@ -21,10 +21,6 @@ describe('VisualizationOptions', () => {
     };
 
     beforeEach(() => {
-        props = {
-            classes: {},
-        };
-
         shallowVisualizationOptions = undefined;
     });
 

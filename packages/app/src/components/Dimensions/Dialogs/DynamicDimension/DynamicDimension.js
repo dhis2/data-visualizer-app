@@ -99,34 +99,32 @@ export class DynamicDimension extends Component {
             items,
         });
 
-    render() {
-        return (
-            <Fragment>
-                <DialogTitle>{i18n.t(this.props.dialogTitle)}</DialogTitle>
-                <DialogContent style={styles.dialogContent}>
-                    <div style={styles.dialogContainer}>
-                        <FilterField
-                            text={this.state.filterText}
-                            onFilterTextChange={this.onFilterTextChange}
-                            onClearFilter={this.onClearFilter}
-                        />
-                        <UnselectedItems
-                            className="dynamic-dimension"
-                            items={this.getUnselectedItems()}
-                            onSelect={this.selectItemsByDimensions}
-                            filterText={this.state.filterText}
-                        />
-                    </div>
-                    <SelectedItems
-                        className="dynamic-dimension"
-                        items={this.props.selectedItems}
-                        onDeselect={this.deselectItemsByDimensions}
-                        onReorder={this.setUiItems}
+    render = () => (
+        <Fragment>
+            <DialogTitle>{i18n.t(this.props.dialogTitle)}</DialogTitle>
+            <DialogContent style={styles.dialogContent}>
+                <div style={styles.dialogContainer}>
+                    <FilterField
+                        text={this.state.filterText}
+                        onFilterTextChange={this.onFilterTextChange}
+                        onClearFilter={this.onClearFilter}
                     />
-                </DialogContent>
-            </Fragment>
-        );
-    }
+                    <UnselectedItems
+                        className="dynamic-dimension"
+                        items={this.getUnselectedItems()}
+                        onSelect={this.selectItemsByDimensions}
+                        filterText={this.state.filterText}
+                    />
+                </div>
+                <SelectedItems
+                    className="dynamic-dimension"
+                    items={this.props.selectedItems}
+                    onDeselect={this.deselectItemsByDimensions}
+                    onReorder={this.setUiItems}
+                />
+            </DialogContent>
+        </Fragment>
+    );
 }
 
 DynamicDimension.propTypes = {

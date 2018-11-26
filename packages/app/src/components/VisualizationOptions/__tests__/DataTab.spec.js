@@ -15,7 +15,7 @@ import SortOrder from '../Options/SortOrder';
 import AggregationType from '../Options/AggregationType';
 
 describe('The DataTab component', () => {
-    let props;
+    const props = { classes: {} };
     let shallowDataTab;
 
     const dataTab = () => {
@@ -26,9 +26,6 @@ describe('The DataTab component', () => {
     };
 
     beforeEach(() => {
-        props = {
-            classes: {},
-        };
         shallowDataTab = undefined;
     });
 

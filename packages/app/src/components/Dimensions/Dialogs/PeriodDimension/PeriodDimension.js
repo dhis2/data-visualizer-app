@@ -50,7 +50,7 @@ export class PeriodDimension extends Component {
         }));
     };
 
-    render() {
+    render = () => {
         const selectedPeriods = this.getSelectedPeriods();
 
         return (
@@ -66,7 +66,7 @@ export class PeriodDimension extends Component {
                 </DialogContent>
             </Fragment>
         );
-    }
+    };
 }
 
 PeriodDimension.propTypes = {

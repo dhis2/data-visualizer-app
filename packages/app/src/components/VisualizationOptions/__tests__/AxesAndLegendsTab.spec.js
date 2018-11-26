@@ -17,7 +17,7 @@ import Subtitle from '../Options/Subtitle';
 import HideSubtitle from '../Options/HideSubtitle';
 
 describe('The Axis & Legend tab', () => {
-    let props;
+    const props = { classes: {} };
     let shallowAxesComponent;
 
     const axesAndLegendsTab = () => {
@@ -28,9 +28,6 @@ describe('The Axis & Legend tab', () => {
     };
 
     beforeEach(() => {
-        props = {
-            classes: {},
-        };
         shallowAxesComponent = undefined;
     });
 
