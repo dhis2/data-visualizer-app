@@ -7,7 +7,6 @@ export const styles = {
         flexDirection: 'column',
         flexGrow: 2,
         flexBasis: '375px',
-        height: '480px',
         userSelect: 'none',
     },
 };

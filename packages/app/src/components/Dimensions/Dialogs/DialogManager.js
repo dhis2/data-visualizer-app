@@ -7,6 +7,7 @@ import isEqual from 'lodash-es/isEqual';
 
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
+import { withStyles } from '@material-ui/core/styles';
 
 import DataDimension from './DataDimension/DataDimension';
 import PeriodDimension from './PeriodDimension/PeriodDimension';
@@ -27,6 +28,7 @@ import { sGetDimensions } from '../../../reducers/dimensions';
 import { apiFetchRecommendedIds } from '../../../api/dimensions';
 
 import { FIXED_DIMENSIONS } from '../../../modules/fixedDimensions';
+import { styles } from './styles/DialogManager.style';
 
 const dxId = FIXED_DIMENSIONS.dx.id;
 const peId = FIXED_DIMENSIONS.pe.id;
@@ -79,12 +81,11 @@ export class DialogManager extends Component {
                 return this.state.mounted.includes(dimensionId) ? (
                     <div
                         key={dimensionId}
-                        style={{
-                            display:
-                                dimensionId === this.props.dialogId
-                                    ? 'block'
-                                    : 'none',
-                        }}
+                        className={
+                            dimensionId === this.props.dialogId
+                                ? this.props.classes.visible
+                                : this.props.classes.hidden
+                        }
                     >
                         {fixedDialogs[dimensionId]}
                     </div>
@@ -150,4 +151,4 @@ export default connect(
         closeDialog: acSetUiActiveModalDialog,
         setRecommendedIds: acSetRecommendedIds,
     }
-)(DialogManager);
+)(withStyles(styles)(DialogManager));
