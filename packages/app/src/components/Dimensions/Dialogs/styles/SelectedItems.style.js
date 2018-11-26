@@ -3,7 +3,6 @@ import { colors } from '../../../../modules/colors';
 export const styles = {
     container: {
         border: `1px solid ${colors.greyLight}`,
-        height: '480px',
         display: 'flex',
         flexDirection: 'column',
         flexGrow: 2,
@@ -22,6 +21,6 @@ export const styles = {
     },
     list: {
         overflowY: 'auto',
-        height: '100%',
+        height: '367px',
     },
 };

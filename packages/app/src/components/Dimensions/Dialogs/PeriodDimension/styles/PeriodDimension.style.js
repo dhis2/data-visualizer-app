@@ -1,5 +1,5 @@
 export default {
     dialogContent: {
-        height: '480px',
+        height: '445px',
     },
 };
