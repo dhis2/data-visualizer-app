@@ -1,5 +1,6 @@
 export default {
     menuList: {
-        display: 'grid',
+        display: 'flex',
+        flexDirection: 'column',
     },
 };
