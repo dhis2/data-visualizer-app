@@ -27,9 +27,15 @@ import { sGetVisualization } from '../../reducers/visualization';
 import { computeGenericPeriodNames } from '../../modules/analytics';
 
 export class Visualization extends Component {
-    // renderId = null;
-
     recreateChart = Function.prototype;
+
+    renderId = null;
+
+    getNewRenderId = () =>
+        (this.renderId =
+            typeof this.renderId === 'number' ? this.renderId + 1 : 1);
+
+    isRenderIdDirty = id => id !== this.renderId;
 
     addResizeHandler = () => {
         window.addEventListener(
@@ -40,47 +46,7 @@ export class Visualization extends Component {
         );
     };
 
-    componentDidMount() {
-        this.addResizeHandler();
-
-        if (this.props.current) {
-            // this.renderId = 1;
-            this.renderVisualization(this.props.current, this.renderId);
-        }
-    }
-
-    componentDidUpdate(prevProps) {
-        // new chart
-        if (this.props.current !== prevProps.current) {
-            this.renderVisualization(this.props.current);
-            return;
-        }
-
-        // avoid redrawing the chart if the interpretation content remains the same
-        // this is the case when the panel is toggled but the selected interpretation is not changed
-        if (
-            prevProps.interpretation &&
-            this.props.interpretation.created !==
-                prevProps.interpretation.created
-        ) {
-            const vis = this.props.interpretation.id
-                ? this.props.visualization
-                : this.props.current;
-
-            this.renderVisualization(vis);
-            return;
-        }
-
-        // open sidebar
-        if (this.props.rightSidebarOpen !== prevProps.rightSidebarOpen) {
-            this.recreateChart();
-            return;
-        }
-    }
-
-    renderVisualization = async (vis, renderId) => {
-        const { interpretation } = this.props;
-
+    getOptions = (vis, interpretation) => {
         const options = getOptionsForRequest().reduce(
             (map, [option, props]) => {
                 // only add parameter if value !== default
@@ -96,12 +62,56 @@ export class Visualization extends Component {
         if (interpretation && interpretation.created) {
             options.relativePeriodDate = interpretation.created;
         }
+        return options;
+    };
+
+    componentDidMount() {
+        this.addResizeHandler();
+
+        if (this.props.current) {
+            this.renderVisualization(this.props.current);
+        }
+    }
+
+    componentDidUpdate(prevProps) {
+        // new chart
+        if (this.props.current !== prevProps.current) {
+            this.renderVisualization(this.props.current, this.getNewRenderId());
+            return;
+        }
+
+        // avoid redrawing the chart if the interpretation content remains the same
+        // this is the case when the panel is toggled but the selected interpretation is not changed
+        if (
+            prevProps.interpretation &&
+            this.props.interpretation.created !==
+                prevProps.interpretation.created
+        ) {
+            const vis = this.props.interpretation.id
+                ? this.props.visualization
+                : this.props.current;
+
+            this.renderVisualization(vis, this.getNewRenderId());
+            return;
+        }
+
+        // open sidebar
+        if (this.props.rightSidebarOpen !== prevProps.rightSidebarOpen) {
+            this.recreateChart();
+            return;
+        }
+    }
+
+    renderVisualization = async (vis, renderId = null) => {
+        const { interpretation } = this.props;
+
+        const options = this.getOptions(vis, interpretation);
 
         try {
-            // debounce the process
-            // if (renderId !== this.renderId) {
-            //     return;
-            // }
+            // cancel due to a new request being initiated
+            if (this.isRenderIdDirty(renderId)) {
+                return;
+            }
 
             this.props.acClearLoadError();
             this.props.acSetLoading(true);
@@ -128,6 +138,12 @@ export class Visualization extends Component {
                 this.props.acAddMetadata(res.metaData.items);
             });
 
+            // cancel due to a new request being initiated
+            if (this.isRenderIdDirty(renderId)) {
+                this.props.acSetLoading(false);
+                return;
+            }
+
             const chartConfig = createChart(
                 responses,
                 vis,
@@ -152,6 +168,12 @@ export class Visualization extends Component {
             this.props.acSetLoading(false);
         } catch (error) {
             this.props.acSetLoading(false);
+
+            // do not show messages that are no longer relevant
+            if (this.isRenderIdDirty(renderId)) {
+                return;
+            }
+
             const errorMessage =
                 (error && error.message) ||
                 i18n('Error generating chart, please try again');
