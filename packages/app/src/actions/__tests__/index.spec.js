@@ -11,7 +11,10 @@ import {
 import { SET_CURRENT, CLEAR_CURRENT } from '../../reducers/current';
 import { SET_UI_FROM_VISUALIZATION, CLEAR_UI } from '../../reducers/ui';
 import { SET_LOAD_ERROR, CLEAR_LOAD_ERROR } from '../../reducers/loader';
-import { RECEIVED_SNACKBAR_MESSAGE } from '../../reducers/snackbar';
+import {
+    RECEIVED_SNACKBAR_MESSAGE,
+    CLOSE_SNACKBAR,
+} from '../../reducers/snackbar';
 import * as selectors from '../../reducers/settings';
 
 const middlewares = [thunk];
@@ -312,6 +315,39 @@ describe('index', () => {
                         `/${uid}`
                     );
                 });
+        });
+    });
+
+    describe('tDoCloseSnackbar', () => {
+        it('dispatches the correct actions when closing the snackbar', () => {
+            const snackbar = {
+                message: 'test',
+                open: true,
+                variant: 'warning',
+            };
+
+            const store = mockStore({
+                snackbar,
+            });
+
+            const expectedActions = [
+                {
+                    type: RECEIVED_SNACKBAR_MESSAGE,
+                    value: {
+                        open: false,
+                    },
+                },
+                {
+                    type: CLOSE_SNACKBAR,
+                },
+            ];
+
+            store.dispatch(fromActions.tDoCloseSnackbar());
+
+            setTimeout(
+                () => expect(store.getActions()).toEqual(expectedActions),
+                350
+            );
         });
     });
 });
