@@ -26,7 +26,7 @@ describe('The DropDownButton component ', () => {
         shallowDropDownButton = undefined;
     });
 
-    it.only('renders a <Button /> containing everything else ', () => {
+    it('renders a <Button /> containing everything else ', () => {
         const button = dropDownButton()
             .find(Button)
             .first();
@@ -34,13 +34,13 @@ describe('The DropDownButton component ', () => {
         expect(button.children()).toEqual(dropDownButton().children());
     });
 
-    it.only('renders a <ArrowDropDown /> if prop "open" is equal to false', () => {
+    it('renders a <ArrowDropDown /> if prop "open" is equal to false', () => {
         const arrowIcon = dropDownButton().find(ArrowDropDown);
 
         expect(arrowIcon.length).toEqual(1);
     });
 
-    it.only('renders a <ArrowDropUp /> if prop "open" is equal to true', () => {
+    it('renders a <ArrowDropUp /> if prop "open" is equal to true', () => {
         props.open = true;
 
         const arrowIcon = dropDownButton().find(ArrowDropUp);

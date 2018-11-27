@@ -26,7 +26,6 @@ import styles from './styles/AddToLayoutButton.style';
 
 const UNSELECTED = -1;
 const SERIES = 0;
-const OMIT_SERIES = 1;
 const FILTER = 2;
 
 export class AddToLayoutButton extends Component {
@@ -55,8 +54,11 @@ export class AddToLayoutButton extends Component {
         this.props.closeDialog(null);
     };
 
+    omitSeriesMenuItem = () =>
+        items.filter(option => option.axisKey !== 'columns');
+
     renderMenuItems = () =>
-        items.slice(OMIT_SERIES).map(option => (
+        this.omitSeriesMenuItem().map(option => (
             <MenuItem
                 className={this.props.classes.menuItem}
                 component="li"
