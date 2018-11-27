@@ -44,10 +44,12 @@ export class PeriodDimension extends Component {
     };
 
     getSelectedPeriods = () => {
-        return this.props.ui.itemsByDimension[peId].map(item => ({
-            id: item,
-            name: this.props.metadata[item].name,
-        }));
+        return this.props.ui.itemsByDimension[peId]
+            .filter(item => this.props.metadata[item])
+            .map(item => ({
+                id: item,
+                name: this.props.metadata[item].name,
+            }));
     };
 
     render = () => {
