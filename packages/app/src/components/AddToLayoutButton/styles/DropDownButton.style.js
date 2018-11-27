@@ -10,7 +10,4 @@ export default {
     arrowIcon: {
         fill: colors.white,
     },
-    menuList: {
-        display: 'block',
-    },
 };

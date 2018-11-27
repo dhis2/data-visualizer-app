@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import ArrowDropDown from '@material-ui/icons/ArrowDropDown';
 import ArrowDropUp from '@material-ui/icons/ArrowDropUp';
 import { withStyles } from '@material-ui/core/styles';
-import styles from './styles/Menu.style';
+import styles from './styles/DropDownButton.style';
 
 export const DropDownButton = ({ classes, onClick, open }) => (
     <Button

@@ -58,7 +58,7 @@ export class AddToLayoutButton extends Component {
     renderMenuItems = () =>
         items.slice(OMIT_SERIES).map(option => (
             <MenuItem
-                //className={this.props.classes.menuItem}
+                className={this.props.classes.menuItem}
                 component="li"
                 key={option.axisKey}
                 onClick={() => this.onUpdate(option.axisKey)}
