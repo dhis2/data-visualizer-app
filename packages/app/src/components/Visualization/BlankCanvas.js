@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
 import LoadingMask from '../../widgets/LoadingMask';
@@ -11,11 +11,11 @@ export const defaultCanvasMessage =
     'Create a new visualization by adding dimensions to the layout';
 
 export const BlankCanvas = ({ loading, error }) => {
-    let canvasContent = <p style={styles.title}>{defaultCanvasMessage}</p>;
+    let canvasContent = (
+        <p style={styles.title}>{i18n.t(defaultCanvasMessage)}</p>
+    );
 
-    if (loading) {
-        canvasContent = <LoadingMask />;
-    } else if (error) {
+    if (error) {
         canvasContent = (
             <div>
                 <img src={chartErrorImg} alt={i18n.t('Chart error')} />
@@ -28,9 +28,12 @@ export const BlankCanvas = ({ loading, error }) => {
     }
 
     return (
-        <div id={visContainerId} style={styles.outer}>
-            <div style={styles.inner}>{canvasContent}</div>
-        </div>
+        <Fragment>
+            {loading ? <LoadingMask /> : null}
+            <div id={visContainerId} style={styles.outer}>
+                <div style={styles.inner}>{canvasContent}</div>
+            </div>
+        </Fragment>
     );
 };
 
