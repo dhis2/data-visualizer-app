@@ -27,11 +27,9 @@ import { sGetVisualization } from '../../reducers/visualization';
 import { computeGenericPeriodNames } from '../../modules/analytics';
 
 export class Visualization extends Component {
-    constructor(props) {
-        super(props);
+    // renderId = null;
 
-        this.recreateChart = Function.prototype;
-    }
+    recreateChart = Function.prototype;
 
     addResizeHandler = () => {
         window.addEventListener(
@@ -46,13 +44,16 @@ export class Visualization extends Component {
         this.addResizeHandler();
 
         if (this.props.current) {
-            this.renderVisualization(this.props.current);
+            // this.renderId = 1;
+            this.renderVisualization(this.props.current, this.renderId);
         }
     }
 
     componentDidUpdate(prevProps) {
+        // new chart
         if (this.props.current !== prevProps.current) {
             this.renderVisualization(this.props.current);
+            return;
         }
 
         // avoid redrawing the chart if the interpretation content remains the same
@@ -67,14 +68,17 @@ export class Visualization extends Component {
                 : this.props.current;
 
             this.renderVisualization(vis);
+            return;
         }
 
+        // open sidebar
         if (this.props.rightSidebarOpen !== prevProps.rightSidebarOpen) {
             this.recreateChart();
+            return;
         }
     }
 
-    renderVisualization = async vis => {
+    renderVisualization = async (vis, renderId) => {
         const { interpretation } = this.props;
 
         const options = getOptionsForRequest().reduce(
@@ -94,6 +98,11 @@ export class Visualization extends Component {
         }
 
         try {
+            // debounce the process
+            // if (renderId !== this.renderId) {
+            //     return;
+            // }
+
             this.props.acClearLoadError();
             this.props.acSetLoading(true);
 
