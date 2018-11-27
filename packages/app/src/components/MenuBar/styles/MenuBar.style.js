@@ -17,9 +17,4 @@ export default theme => ({
     grow: {
         flex: '1 1 0%',
     },
-    fileMenu: {
-        '& > button > span': {
-            fontSize: '15px',
-        },
-    },
 });
