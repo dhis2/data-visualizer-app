@@ -34,18 +34,20 @@ const getOnError = props => error => props.onError(error);
 export const MenuBar = ({ classes, ...props }, context) => (
     <div className={classes.menuBar}>
         <UpdateButton flat size="small" className={classes.updateButton} />
-        <FileMenu
-            d2={context.d2}
-            fileId={props.id || null}
-            fileType={props.apiObjectName}
-            onOpen={onOpen}
-            onNew={onNew}
-            onRename={getOnRename(props)}
-            onSave={getOnSave(props)}
-            onSaveAs={getOnSaveAs(props)}
-            onDelete={getOnDelete(props)}
-            onError={getOnError(props)}
-        />
+        <div className={classes.fileMenu}>
+            <FileMenu
+                d2={context.d2}
+                fileId={props.id || null}
+                fileType={props.apiObjectName}
+                onOpen={onOpen}
+                onNew={onNew}
+                onRename={getOnRename(props)}
+                onSave={getOnSave(props)}
+                onSaveAs={getOnSaveAs(props)}
+                onDelete={getOnDelete(props)}
+                onError={getOnError(props)}
+            />
+        </div>
         <VisualizationOptionsManager className={classes.label} />
         <DownloadMenu className={classes.label} />
         <div className={classes.grow} />

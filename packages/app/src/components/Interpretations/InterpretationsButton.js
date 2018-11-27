@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
@@ -11,12 +10,6 @@ import { sGetUiRightSidebarOpen } from '../../reducers/ui';
 import { sGetCurrent } from '../../reducers/current';
 import { acToggleUiRightSidebarOpen } from '../../actions/ui';
 
-const styles = theme => ({
-    icon: {
-        marginRight: theme.spacing.unit,
-        marginTop: 2,
-    },
-});
 export const InterpretationsButton = props => (
     <Button
         className={props.className}
@@ -27,9 +20,9 @@ export const InterpretationsButton = props => (
         onClick={props.onClick}
     >
         {props.rightSidebarOpen ? (
-            <KeyboardArrowRightIcon className={props.classes.icon} />
+            <KeyboardArrowRightIcon />
         ) : (
-            <KeyboardArrowLeftIcon className={props.classes.icon} />
+            <KeyboardArrowLeftIcon />
         )}
         {i18n.t('Interpretations')}
     </Button>
@@ -37,7 +30,6 @@ export const InterpretationsButton = props => (
 
 InterpretationsButton.propTypes = {
     className: PropTypes.string,
-    classes: PropTypes.object.isRequired,
     rightSiderbarOpen: PropTypes.bool,
     onClick: PropTypes.func,
 };
@@ -54,4 +46,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(withStyles(styles)(InterpretationsButton));
+)(InterpretationsButton);
