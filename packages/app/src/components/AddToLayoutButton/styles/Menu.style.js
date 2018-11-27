@@ -13,7 +13,4 @@ export default {
     menuList: {
         display: 'grid',
     },
-    paper: {
-        width: '121px',
-    },
 };

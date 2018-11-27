@@ -12,13 +12,15 @@ export const DropDown = ({
     onClose,
     menuItems,
 }) => {
+    const MENU_HEIGHT = 100;
     const isOverFlowing =
         anchorEl &&
-        anchorEl.getBoundingClientRect().bottom + 100 > window.innerHeight;
+        anchorEl.getBoundingClientRect().bottom + MENU_HEIGHT >
+            window.innerHeight;
 
     const anchorOrigin = isOverFlowing
-        ? { vertical: 'top', horizontal: 'left' }
-        : { vertical: 'bottom', horizontal: 'left' };
+        ? { vertical: 'top', horizontal: 'right' }
+        : { vertical: 'bottom', horizontal: 'right' };
 
     const transformOrigin = isOverFlowing
         ? { vertical: 'bottom', horizontal: 'right' }
