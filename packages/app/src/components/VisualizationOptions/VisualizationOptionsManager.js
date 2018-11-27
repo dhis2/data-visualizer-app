@@ -5,10 +5,12 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import { withStyles } from '@material-ui/core/styles';
 import i18n from '@dhis2/d2-i18n';
 
 import UpdateButton from '../UpdateButton/UpdateButton';
 import VisualizationOptions from './VisualizationOptions';
+import styles from './styles/VisualizationOptions.style';
 
 class VisualizationOptionsManager extends Component {
     constructor(props) {
@@ -42,7 +44,7 @@ class VisualizationOptionsManager extends Component {
                     maxWidth="md"
                 >
                     <DialogTitle>{i18n.t('Chart options')}</DialogTitle>
-                    <DialogContent>
+                    <DialogContent className={this.props.classes.dialogContent}>
                         <VisualizationOptions />
                     </DialogContent>
                     <DialogActions>
@@ -61,4 +63,4 @@ VisualizationOptionsManager.propTypes = {
     className: PropTypes.string.isRequired,
 };
 
-export default VisualizationOptionsManager;
+export default withStyles(styles)(VisualizationOptionsManager);

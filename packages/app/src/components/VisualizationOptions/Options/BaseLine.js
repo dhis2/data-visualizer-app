@@ -4,18 +4,22 @@ import { connect } from 'react-redux';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import Switch from '@material-ui/core/Switch';
+import { withStyles } from '@material-ui/core/styles';
 
 import i18n from '@dhis2/d2-i18n';
 import { sGetUiOptions } from '../../../reducers/ui';
 import { acSetUiOptions } from '../../../actions/ui';
 import BaseLineValue from './BaseLineValue';
 import BaseLineLabel from './BaseLineLabel';
+import styles from '../styles/VisualizationOptions.style';
 
-export const BaseLine = ({ enabled, onChange }) => (
+export const BaseLine = ({ classes, enabled, onChange }) => (
     <FormGroup row={true}>
         <FormControlLabel
+            className={classes.baseLine}
             control={
                 <Switch
+                    className={classes.switchBase}
                     checked={enabled}
                     onChange={event => onChange(event.target.checked)}
                 />
@@ -47,4 +51,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(BaseLine);
+)(withStyles(styles)(BaseLine));

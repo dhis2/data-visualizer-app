@@ -36,7 +36,6 @@ export class VisualizationOptions extends Component {
                         onChange={(event, tabId) => this.selectTab(tabId)}
                         textColor="primary"
                         value={activeTab}
-                        classes={{ flexContainer: classes.flexContainer }}
                     >
                         <Tab className={classes.tab} label={i18n.t('Data')} />
                         <Tab
@@ -46,11 +45,9 @@ export class VisualizationOptions extends Component {
                         <Tab className={classes.tab} label={i18n.t('Style')} />
                     </Tabs>
                 </AppBar>
-                <div className={classes.divContainer}>
-                    {activeTab === 0 && <DataTab />}
-                    {activeTab === 1 && <AxesAndLegendsTab />}
-                    {activeTab === 2 && <StyleTab />}
-                </div>
+                {activeTab === 0 && <DataTab />}
+                {activeTab === 1 && <AxesAndLegendsTab />}
+                {activeTab === 2 && <StyleTab />}
             </Fragment>
         );
     }
