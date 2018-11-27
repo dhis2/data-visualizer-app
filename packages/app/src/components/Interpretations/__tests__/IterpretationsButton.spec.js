@@ -22,7 +22,6 @@ describe('InterpretationsButton component', () => {
 
     beforeEach(() => {
         props = {
-            classes: {},
             id: 'test',
             rightSidebarOpen: false,
             onClick,
