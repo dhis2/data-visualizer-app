@@ -12,7 +12,7 @@ export const DropDown = ({
     onClose,
     menuItems,
 }) => {
-    const MENU_HEIGHT = 100;
+    const MENU_HEIGHT = 120;
     const isOverFlowing =
         anchorEl &&
         anchorEl.getBoundingClientRect().bottom + MENU_HEIGHT >
