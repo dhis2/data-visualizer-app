@@ -12,5 +12,6 @@ export default {
         flexWrap: 'nowrap',
         padding: '8px',
         fontWeight: '400',
+        minWidth: '157px',
     },
 };
