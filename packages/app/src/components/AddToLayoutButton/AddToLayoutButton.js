@@ -21,12 +21,15 @@ import {
 import { acSetCurrentFromUi } from '../../actions/current';
 
 import { isYearOverYear } from '../../modules/chartTypes';
-import { ADD_TO_LAYOUT_OPTIONS as items } from '../../modules/layout';
+import { ADD_TO_LAYOUT_OPTIONS } from '../../modules/layout';
 import styles from './styles/AddToLayoutButton.style';
 
-const UNSELECTED = -1;
-const SERIES = 0;
-const FILTER = 2;
+const UNSELECTED_BUTTON_TYPE = -1;
+const seriesItem = ADD_TO_LAYOUT_OPTIONS[0];
+const filterItem = ADD_TO_LAYOUT_OPTIONS[2];
+const itemsWithoutSeries = ADD_TO_LAYOUT_OPTIONS.filter(
+    option => option.axisKey !== 'columns'
+);
 
 export class AddToLayoutButton extends Component {
     constructor(props) {
@@ -34,7 +37,7 @@ export class AddToLayoutButton extends Component {
         this.buttonRef = React.createRef();
     }
 
-    state = { anchorEl: null, buttonType: UNSELECTED };
+    state = { anchorEl: null, buttonType: UNSELECTED_BUTTON_TYPE };
 
     componentDidMount() {
         const buttonType = Object.values(this.props.currentLayout).findIndex(
@@ -59,11 +62,8 @@ export class AddToLayoutButton extends Component {
         this.props.closeDialog(null);
     };
 
-    omitSeriesMenuItem = () =>
-        items.filter(option => option.axisKey !== 'columns');
-
     renderMenuItems = () =>
-        this.omitSeriesMenuItem().map(option => (
+        itemsWithoutSeries.map(option => (
             <MenuItem
                 className={this.props.classes.menuItem}
                 component="li"
@@ -82,9 +82,9 @@ export class AddToLayoutButton extends Component {
                 color="primary"
                 disableRipple
                 disableFocusRipple
-                onClick={() => this.onUpdate(items[FILTER].axisKey)}
+                onClick={() => this.onUpdate(filterItem.axisKey)}
             >
-                {items[FILTER].name}
+                {filterItem.name}
             </Button>
         ) : (
             <div ref={addToRef => (this.buttonRef = addToRef)}>
@@ -94,9 +94,9 @@ export class AddToLayoutButton extends Component {
                     color="primary"
                     disableRipple
                     disableFocusRipple
-                    onClick={() => this.onUpdate(items[SERIES].axisKey)}
+                    onClick={() => this.onUpdate(seriesItem.axisKey)}
                 >
-                    {items[SERIES].name}
+                    {seriesItem.name}
                 </Button>
                 <Menu
                     onClose={this.onClose}
@@ -110,7 +110,7 @@ export class AddToLayoutButton extends Component {
 
     render() {
         const displayButton =
-            this.state.buttonType === UNSELECTED ? (
+            this.state.buttonType === UNSELECTED_BUTTON_TYPE ? (
                 this.renderUnselectedButton()
             ) : (
                 <UpdateButton
