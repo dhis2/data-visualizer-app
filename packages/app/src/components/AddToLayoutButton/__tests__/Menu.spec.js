@@ -25,6 +25,7 @@ describe('The DropDownButton component ', () => {
             menuItems: [],
             onClick: jest.fn(),
             onClose: jest.fn(),
+            addToButtonRef: { offsetWidth: 100 },
         };
         shallowDropDown = undefined;
     });
@@ -63,5 +64,16 @@ describe('The DropDownButton component ', () => {
             .dive();
 
         expect(menu.children().length).toEqual(3);
+    });
+    it('should set the width based on the prop addToButtonRef', () => {
+        const MARGIN = 5;
+        props.addToButtonRef = { offsetWidth: 1000 };
+
+        const actualMinWidth = props.addToButtonRef.offsetWidth - MARGIN;
+
+        const menu = dropDown().find(Menu);
+        const renderedMinWidth = menu.props().MenuListProps.style.minWidth;
+
+        expect(renderedMinWidth).toEqual(actualMinWidth);
     });
 });

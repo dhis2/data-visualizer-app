@@ -15,7 +15,8 @@ export const DropDown = ({
 }) => {
     const MENU_HEIGHT = 100;
     const ADD_TO_BUTTON_MARGIN = 5;
-    const menuWidth = addToButtonRef.offsetWidth - ADD_TO_BUTTON_MARGIN;
+    const menuWidth =
+        addToButtonRef && addToButtonRef.offsetWidth - ADD_TO_BUTTON_MARGIN;
 
     const isOverFlowing =
         anchorEl &&
@@ -52,10 +53,12 @@ export const DropDown = ({
 };
 DropDown.defaultProps = {
     anchorEl: null,
+    addToButtonRef: null,
 };
 
 DropDown.propTypes = {
     anchorEl: PropTypes.object,
+    addToButtonRef: PropTypes.object,
     classes: PropTypes.object.isRequired,
     menuItems: PropTypes.arrayOf(PropTypes.element).isRequired,
     onClick: PropTypes.func.isRequired,
