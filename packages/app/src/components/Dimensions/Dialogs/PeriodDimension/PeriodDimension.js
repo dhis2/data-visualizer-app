@@ -9,7 +9,11 @@ import i18n from '@dhis2/d2-i18n';
 
 import { sGetUi } from '../../../../reducers/ui';
 import { sGetMetadata } from '../../../../reducers/metadata';
-import { acRemoveUiItems, acAddUiItems } from '../../../../actions/ui';
+import {
+    acRemoveUiItems,
+    acAddUiItems,
+    acSetUiItems
+} from '../../../../actions/ui';
 import { acAddMetadata } from '../../../../actions/metadata';
 import { FIXED_DIMENSIONS } from '../../../../modules/fixedDimensions';
 
@@ -18,6 +22,15 @@ const peId = FIXED_DIMENSIONS.pe.id;
 const PERIOD = 'PERIOD';
 
 export class PeriodDimension extends Component {
+    onReorderPeriods = periods => {
+        const ids = periods.map(period => period.id);
+
+        this.props.setUiItems({
+            dimensionType: peId,
+            items: ids,
+        });
+    };
+
     selectPeriodDimensions = periods => {
         const idsToAdd = periods.map(periodRange => periodRange.id);
 
@@ -63,6 +76,7 @@ export class PeriodDimension extends Component {
                         d2={this.context.d2}
                         onSelect={this.selectPeriodDimensions}
                         onDeselect={this.deselectPeriodDimensions}
+                        onReorder={this.onReorderPeriods}
                         selectedItems={selectedPeriods}
                     />
                 </DialogContent>
@@ -76,6 +90,7 @@ PeriodDimension.propTypes = {
     metadata: PropTypes.object.isRequired,
     addMetadata: PropTypes.func.isRequired,
     addUiItems: PropTypes.func.isRequired,
+    setUiItems: PropTypes.func.isRequired,
     removeUiItems: PropTypes.func.isRequired,
 };
 
@@ -91,6 +106,7 @@ const mapStateToProps = state => ({
 export default connect(
     mapStateToProps,
     {
+        setUiItems: acSetUiItems,
         addMetadata: acAddMetadata,
         addUiItems: acAddUiItems,
         removeUiItems: acRemoveUiItems,
