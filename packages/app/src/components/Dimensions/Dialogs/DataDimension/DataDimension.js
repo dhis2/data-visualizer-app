@@ -68,6 +68,17 @@ export class DataDimension extends Component {
         this.updateGroups();
     }
 
+    reorderSelectedItems = (startIndex, endIndex) => {
+        const items = Array.from(this.props.selectedItems);
+        const [removed] = items.splice(startIndex, 1);
+        items.splice(endIndex, 0, removed);
+
+        this.props.setDxItems({
+            dimensionType: dxId,
+            items,
+        });
+    };
+
     updateGroups = async () => {
         const dataType = this.state.dataType;
 
@@ -247,7 +258,7 @@ export class DataDimension extends Component {
                         items={this.props.selectedItems}
                         dialogId={dxId}
                         onDeselect={this.deselectDataDimensions}
-                        onReorder={this.setUiItems}
+                        onReorder={this.reorderSelectedItems}
                     />
                 </DialogContent>
             </Fragment>

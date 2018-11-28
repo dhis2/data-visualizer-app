@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
-import {
-    SortableContainer,
-    SortableElement,
-    arrayMove,
-} from 'react-sortable-hoc';
+// import {
+//     SortableContainer,
+//     SortableElement,
+//     arrayMove,
+// } from 'react-sortable-hoc';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 import Item from './Item';
 import { ArrowButton as UnAssignButton } from './buttons/ArrowButton';
@@ -23,35 +24,42 @@ const Subtitle = () => (
     </div>
 );
 
-const SortableItem = SortableElement(({ id, idx, ...props }) => (
-    <li
-        id={id}
-        className="dimension-item selected"
-        onDoubleClick={() => props.onRemoveItem(id)}
-    >
-        <Item id={id} index={idx} {...props} selected />
-    </li>
-));
+// const SortableItem = SortableElement(({ id, idx, ...props }) => (
+//     <li
+//         id={id}
+//         className="dimension-item selected"
+//         onDoubleClick={() => props.onRemoveItem(id)}
+//     >
+//         <Item id={id} index={idx} {...props} selected />
+//     </li>
+// ));
 
-const SortableList = SortableContainer(
-    ({ metadata, highlighted, items, ...itemProps }) => (
-        <ul style={styles.list}>
-            {items.map((id, index) =>
-                metadata[id] ? (
-                    <SortableItem
-                        id={id}
-                        index={index}
-                        idx={index}
-                        key={`item-${id}`}
-                        name={metadata[id].name}
-                        highlighted={highlighted.includes(id)}
-                        {...itemProps}
-                    />
-                ) : null
-            )}
-        </ul>
-    )
-);
+// const SortableList = SortableContainer(
+//     ({ metadata, highlighted, items, ...itemProps }) => (
+//         <ul style={styles.list}>
+//             {items.map((id, index) =>
+//                 metadata[id] ? (
+//                     <SortableItem
+//                         id={id}
+//                         index={index}
+//                         idx={index}
+//                         key={`item-${id}`}
+//                         name={metadata[id].name}
+//                         highlighted={highlighted.includes(id)}
+//                         {...itemProps}
+//                     />
+//                 ) : null
+//             )}
+//         </ul>
+//     )
+// );
+
+const getItemStyle = (isDragging, draggableStyle) => ({
+    userSelect: 'none',
+    // change background colour if dragging
+    // background: isDragging ? 'lightgreen' : 'grey',
+    ...draggableStyle,
+});
 export class SelectedItems extends Component {
     state = { highlighted: [], lastClickedIndex: 0 };
 
@@ -74,6 +82,14 @@ export class SelectedItems extends Component {
         this.setState({ highlighted: [] });
     };
 
+    onDragEnd = result => {
+        if (!result.destination) {
+            return;
+        }
+
+        this.props.onReorder(result.source.index, result.destination.index);
+    };
+
     toggleHighlight = (isCtrlPressed, isShiftPressed, index, id) => {
         const newState = toggler(
             id,
@@ -91,35 +107,72 @@ export class SelectedItems extends Component {
         });
     };
 
-    onSortEnd = ({ oldIndex, newIndex }) => {
-        this.props.onReorder(arrayMove(this.props.items, oldIndex, newIndex));
+    // onSortEnd = ({ oldIndex, newIndex }) => {
+    //     this.props.onReorder(arrayMove(this.props.items, oldIndex, newIndex));
+    // };
+
+    renderListItem = (id, index) => {
+        return (
+            <Draggable key={id} draggableId={id} index={index}>
+                {(provided, snapshot) => (
+                    <li
+                        className="dimension-item"
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        id={id}
+                        key={id}
+                        onDoubleClick={() => this.onRemoveSelected(id)}
+                        style={getItemStyle(
+                            snapshot.isDragging,
+                            provided.draggableProps.style
+                        )}
+                    >
+                        <Item
+                            id={id}
+                            index={index}
+                            name={this.props.metadata[id].name}
+                            highlighted={!!this.state.highlighted.includes(id)}
+                            onItemClick={this.toggleHighlight}
+                            onRemoveItem={this.onRemoveSelected}
+                            className="selected"
+                        />
+                    </li>
+                )}
+            </Draggable>
+        );
     };
 
-    render = () => (
-        <div style={styles.container}>
-            <Subtitle />
-            <SortableList
-                distance={3}
-                transitionDuration={200}
-                onSortEnd={this.onSortEnd}
-                items={this.props.items}
-                onRemoveItem={this.onRemoveSelected}
-                onItemClick={this.toggleHighlight}
-                metadata={this.props.metadata}
-                highlighted={this.state.highlighted}
-            />
-            <UnAssignButton
-                className={`${this.props.className}-arrow-back-button`}
-                onClick={this.onDeselectClick}
-                iconType={'arrowBack'}
-            />
-            <DeselectAllButton
-                style={styles.deselectButton}
-                onClick={this.onDeselectAllClick}
-                label={i18n.t('Deselect All')}
-            />
-        </div>
-    );
+    render = () => {
+        const dataDimensions = this.props.items.map((id, index) =>
+            this.renderListItem(id, index)
+        );
+
+        return (
+            <div style={styles.container}>
+                <Subtitle />
+                <DragDropContext onDragEnd={this.onDragEnd}>
+                    <Droppable droppableId="droppable">
+                        {provided => (
+                            <ul ref={provided.innerRef} style={styles.list}>
+                                {dataDimensions}
+                            </ul>
+                        )}
+                    </Droppable>
+                </DragDropContext>
+                <UnAssignButton
+                    className={`${this.props.className}-arrow-back-button`}
+                    onClick={this.onDeselectClick}
+                    iconType={'arrowBack'}
+                />
+                <DeselectAllButton
+                    style={styles.deselectButton}
+                    onClick={this.onDeselectAllClick}
+                    label={i18n.t('Deselect All')}
+                />
+            </div>
+        );
+    };
 }
 
 SelectedItems.propTypes = {
