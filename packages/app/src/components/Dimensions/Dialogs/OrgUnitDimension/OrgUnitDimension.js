@@ -70,6 +70,24 @@ export class OrgUnitDimension extends Component {
         this.loadOrgUnitGroups();
     }
 
+    addOrgUnitToMetadata = orgUnit => {
+        this.props.acAddMetadata({
+            [orgUnit.id]: {
+                id: orgUnit.id,
+                name: orgUnit.name || orgUnit.displayName,
+                displayName: orgUnit.displayName,
+            },
+        });
+    };
+
+    addOrgUnitPathToParentGraphMap = orgUnit => {
+        const path = removeOrgUnitLastPathSegment(orgUnit.path);
+
+        this.props.acAddParentGraphMap({
+            [orgUnit.id]: path[0] === '/' ? path.substr(1) : path,
+        });
+    };
+
     setOuUiItems = items => {
         this.props.acSetUiItems({ dimensionType: ouId, items });
     };
@@ -96,6 +114,10 @@ export class OrgUnitDimension extends Component {
             ...this.props.ouItems.filter(id => !isGroupId(id)),
             ...optionIds.map(id => `${GROUP_ID_PREFIX}-${id}`),
         ]);
+    };
+
+    onDeselectAllClick = () => {
+        this.setOuUiItems([]);
     };
 
     loadOrgUnitTree = () => {
@@ -152,19 +174,8 @@ export class OrgUnitDimension extends Component {
                 value: [orgUnit.id],
             });
         } else {
-            const path = removeOrgUnitLastPathSegment(orgUnit.path);
-
-            this.props.acAddParentGraphMap({
-                [orgUnit.id]: path[0] === '/' ? path.substr(1) : path,
-            });
-
-            this.props.acAddMetadata({
-                [orgUnit.id]: {
-                    id: orgUnit.id,
-                    name: orgUnit.name || orgUnit.displayName,
-                    displayName: orgUnit.displayName,
-                },
-            });
+            this.addOrgUnitPathToParentGraphMap(orgUnit);
+            this.addOrgUnitToMetadata(orgUnit);
 
             this.props.acAddUiItems({
                 dimensionType: ouId,
@@ -206,6 +217,18 @@ export class OrgUnitDimension extends Component {
         }
     };
 
+    handleMultipleOrgUnitsSelect = orgUnits => {
+        orgUnits.forEach(orgUnit => {
+            this.addOrgUnitPathToParentGraphMap(orgUnit);
+            this.addOrgUnitToMetadata(orgUnit);
+        });
+
+        this.props.acAddUiItems({
+            dimensionType: ouId,
+            value: orgUnits.map(orgUnit => orgUnit.id),
+        });
+    };
+
     render = () => {
         const ids = this.props.ouItems;
         const selected = getOrgUnitsFromIds(
@@ -233,8 +256,12 @@ export class OrgUnitDimension extends Component {
                             groupOptions={this.state.groupOptions}
                             onLevelChange={this.onLevelChange}
                             onGroupChange={this.onGroupChange}
+                            onDeselectAllClick={this.onDeselectAllClick}
                             handleUserOrgUnitClick={this.handleUserOrgUnitClick}
                             handleOrgUnitClick={this.handleOrgUnitClick}
+                            handleMultipleOrgUnitsSelect={
+                                this.handleMultipleOrgUnitsSelect
+                            }
                         />
                     )}
                     {!this.state.root && (
