@@ -105,7 +105,7 @@
         }
     },
     "manifest.webapp": {
-        "name": "Data Visualizer (beta)",
+        "name": "Data Visualizer",
         "icons": {
             "48": "icon.png"
         },
