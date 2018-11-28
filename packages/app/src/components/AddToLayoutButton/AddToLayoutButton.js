@@ -29,6 +29,11 @@ const SERIES = 0;
 const FILTER = 2;
 
 export class AddToLayoutButton extends Component {
+    constructor(props) {
+        super(props);
+        this.buttonRef = React.createRef();
+    }
+
     state = { anchorEl: null, buttonType: UNSELECTED };
 
     componentDidMount() {
@@ -82,7 +87,7 @@ export class AddToLayoutButton extends Component {
                 {items[FILTER].name}
             </Button>
         ) : (
-            <Fragment>
+            <div ref={addToRef => (this.buttonRef = addToRef)}>
                 <Button
                     className={this.props.classes.button}
                     variant="contained"
@@ -98,8 +103,9 @@ export class AddToLayoutButton extends Component {
                     onClick={this.onToggle}
                     anchorEl={this.state.anchorEl}
                     menuItems={this.renderMenuItems()}
+                    addToButtonRef={this.buttonRef}
                 />
-            </Fragment>
+            </div>
         );
 
     render() {

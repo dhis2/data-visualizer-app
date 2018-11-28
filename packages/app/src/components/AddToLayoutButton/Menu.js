@@ -11,8 +11,12 @@ export const DropDown = ({
     onClick,
     onClose,
     menuItems,
+    addToButtonRef,
 }) => {
-    const MENU_HEIGHT = 120;
+    const MENU_HEIGHT = 100;
+    const ADD_TO_BUTTON_MARGIN = 5;
+    const menuWidth = addToButtonRef.offsetWidth - ADD_TO_BUTTON_MARGIN;
+
     const isOverFlowing =
         anchorEl &&
         anchorEl.getBoundingClientRect().bottom + MENU_HEIGHT >
@@ -34,7 +38,10 @@ export const DropDown = ({
                 onClose={onClose}
                 anchorEl={anchorEl}
                 getContentAnchorEl={null}
-                MenuListProps={{ className: classes.menuList }}
+                MenuListProps={{
+                    style: { minWidth: menuWidth },
+                    className: classes.menuList,
+                }}
                 anchorOrigin={anchorOrigin}
                 transformOrigin={transformOrigin}
             >
