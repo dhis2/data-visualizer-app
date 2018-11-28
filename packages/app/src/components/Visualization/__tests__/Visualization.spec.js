@@ -247,7 +247,11 @@ describe('Visualization', () => {
         vis.instance().recreateChart = recreateChartFn;
 
         it('triggers a reflow when rightSidebarOpen prop changes', () => {
-            vis.setProps({ ...props, rightSidebarOpen: true });
+            vis.setProps({
+                ...props,
+                current: undefined,
+                rightSidebarOpen: true,
+            });
 
             expect(recreateChartFn).toHaveBeenCalled();
 
