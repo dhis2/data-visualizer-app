@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
-// import {
-//     SortableContainer,
-//     SortableElement,
-//     arrayMove,
-// } from 'react-sortable-hoc';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 import Item from './Item';
@@ -24,39 +19,8 @@ const Subtitle = () => (
     </div>
 );
 
-// const SortableItem = SortableElement(({ id, idx, ...props }) => (
-//     <li
-//         id={id}
-//         className="dimension-item selected"
-//         onDoubleClick={() => props.onRemoveItem(id)}
-//     >
-//         <Item id={id} index={idx} {...props} selected />
-//     </li>
-// ));
-
-// const SortableList = SortableContainer(
-//     ({ metadata, highlighted, items, ...itemProps }) => (
-//         <ul style={styles.list}>
-//             {items.map((id, index) =>
-//                 metadata[id] ? (
-//                     <SortableItem
-//                         id={id}
-//                         index={index}
-//                         idx={index}
-//                         key={`item-${id}`}
-//                         name={metadata[id].name}
-//                         highlighted={highlighted.includes(id)}
-//                         {...itemProps}
-//                     />
-//                 ) : null
-//             )}
-//         </ul>
-//     )
-// );
-
 const getItemStyle = (isDragging, draggableStyle) => ({
     userSelect: 'none',
-    // change background colour if dragging
     // background: isDragging ? 'lightgreen' : 'grey',
     ...draggableStyle,
 });
@@ -107,10 +71,6 @@ export class SelectedItems extends Component {
         });
     };
 
-    // onSortEnd = ({ oldIndex, newIndex }) => {
-    //     this.props.onReorder(arrayMove(this.props.items, oldIndex, newIndex));
-    // };
-
     renderListItem = (id, index) => {
         return (
             <Draggable key={id} draggableId={id} index={index}>
@@ -135,7 +95,7 @@ export class SelectedItems extends Component {
                             highlighted={!!this.state.highlighted.includes(id)}
                             onItemClick={this.toggleHighlight}
                             onRemoveItem={this.onRemoveSelected}
-                            className="selected"
+                            selected
                         />
                     </li>
                 )}

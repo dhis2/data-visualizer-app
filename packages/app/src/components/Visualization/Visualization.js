@@ -52,6 +52,8 @@ export class Visualization extends Component {
 
     componentDidUpdate(prevProps) {
         if (this.props.current !== prevProps.current) {
+            console.log('current changed, renverVis');
+
             this.renderVisualization(this.props.current);
         }
 
@@ -66,10 +68,14 @@ export class Visualization extends Component {
                 ? this.props.visualization
                 : this.props.current;
 
+            console.log('interp changed, renderVis');
+
             this.renderVisualization(vis);
         }
 
         if (this.props.rightSidebarOpen !== prevProps.rightSidebarOpen) {
+            console.log('sidebar changed, recreateChart');
+
             this.recreateChart();
         }
     }
@@ -127,6 +133,8 @@ export class Visualization extends Component {
             );
 
             this.recreateChart = () => {
+                console.log('createChart yo');
+
                 createChart(responses, vis, visContainerId, {
                     ...extraOptions,
                     animation: 0,
