@@ -5,8 +5,15 @@ import TextField from '@material-ui/core/TextField';
 import { sGetUiOptions } from '../../../reducers/ui';
 import { acSetUiOptions } from '../../../actions/ui';
 
-export const TextBaseOption = ({ type, option, value, onChange }) => (
+export const TextBaseOption = ({
+    className,
+    type,
+    option,
+    value,
+    onChange,
+}) => (
     <TextField
+        className={className}
         type={type}
         label={option.label}
         onChange={event => onChange(event.target.value)}

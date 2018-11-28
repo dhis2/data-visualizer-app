@@ -4,7 +4,9 @@ export const styles = {
     arrowButton: {
         padding: '0px',
         minWidth: '40px',
+        width: '40px',
         minHeight: '36px',
+        height: '36px',
         backgroundColor: colors.white,
     },
     arrowIcon: {
