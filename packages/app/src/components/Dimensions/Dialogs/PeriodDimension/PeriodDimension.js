@@ -12,7 +12,7 @@ import { sGetMetadata } from '../../../../reducers/metadata';
 import {
     acRemoveUiItems,
     acAddUiItems,
-    acSetUiItems
+    acSetUiItems,
 } from '../../../../actions/ui';
 import { acAddMetadata } from '../../../../actions/metadata';
 import { FIXED_DIMENSIONS } from '../../../../modules/fixedDimensions';
