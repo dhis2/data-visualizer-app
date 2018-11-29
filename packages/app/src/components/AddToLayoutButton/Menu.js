@@ -5,6 +5,9 @@ import { withStyles } from '@material-ui/core/styles';
 import DropDownButton from './DropDownButton';
 import styles from './styles/Menu.style';
 
+const MENU_HEIGHT = 100;
+const ADD_TO_BUTTON_MARGIN = 5;
+
 export const DropDown = ({
     anchorEl,
     classes,
@@ -13,10 +16,7 @@ export const DropDown = ({
     menuItems,
     addToButtonRef,
 }) => {
-    const MENU_HEIGHT = 100;
-    const ADD_TO_BUTTON_MARGIN = 5;
-    const menuWidth =
-        addToButtonRef && addToButtonRef.offsetWidth - ADD_TO_BUTTON_MARGIN;
+    const menuWidth = addToButtonRef.offsetWidth - ADD_TO_BUTTON_MARGIN;
 
     const isOverFlowing =
         anchorEl &&
@@ -53,12 +53,11 @@ export const DropDown = ({
 };
 DropDown.defaultProps = {
     anchorEl: null,
-    addToButtonRef: null,
 };
 
 DropDown.propTypes = {
     anchorEl: PropTypes.object,
-    addToButtonRef: PropTypes.object,
+    addToButtonRef: PropTypes.object.isRequired,
     classes: PropTypes.object.isRequired,
     menuItems: PropTypes.arrayOf(PropTypes.element).isRequired,
     onClick: PropTypes.func.isRequired,
