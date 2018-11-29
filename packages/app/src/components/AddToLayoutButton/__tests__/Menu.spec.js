@@ -1,12 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import ArrowDropDown from '@material-ui/icons/ArrowDropDown';
 import { ADD_TO_LAYOUT_OPTIONS } from '../../../modules/layout';
 
-import { DropDownButton } from '../Menu';
+import { DropDown } from '../Menu';
+import DropDownButton from '../DropDownButton';
 
 describe('The DropDownButton component ', () => {
     let props;
@@ -14,7 +13,7 @@ describe('The DropDownButton component ', () => {
 
     const dropDown = () => {
         if (!shallowDropDown) {
-            shallowDropDown = shallow(<DropDownButton {...props} />);
+            shallowDropDown = shallow(<DropDown {...props} />);
         }
         return shallowDropDown;
     };
@@ -22,9 +21,11 @@ describe('The DropDownButton component ', () => {
     beforeEach(() => {
         props = {
             anchorEl: null,
+            classes: {},
+            menuItems: [],
             onClick: jest.fn(),
             onClose: jest.fn(),
-            menuItems: [],
+            addToButtonRef: { offsetWidth: 100 },
         };
         shallowDropDown = undefined;
     });
@@ -37,16 +38,13 @@ describe('The DropDownButton component ', () => {
         expect(button.children()).toEqual(dropDown().children());
     });
 
-    it('renders a Button with <ArrowDropDown /> icon', () => {
-        const arrowIcon = dropDown()
-            .find(Button)
-            .dive()
-            .find(ArrowDropDown);
+    it('renders a <DropDownButton /> ', () => {
+        const dropDownButton = dropDown().find(DropDownButton);
 
-        expect(arrowIcon.length).toEqual(1);
+        expect(dropDownButton.length).toEqual(1);
     });
 
-    it('renders a Menu with no children if prop anchorEl is equal to a falsy value', () => {
+    it('renders a <Menu /> with no children if prop anchorEl is equal to a falsy value', () => {
         const menu = dropDown()
             .find(Menu)
             .dive();
@@ -55,9 +53,10 @@ describe('The DropDownButton component ', () => {
     });
 
     it('renders a Menu with children if prop anchorel is equal to a truthy value', () => {
-        props.anchorEl = {};
-        props.menuItems = ADD_TO_LAYOUT_OPTIONS.map(option => (
-            <MenuItem key={option.axisName} />
+        props.anchorEl = { getBoundingClientRect: () => ({ bottom: 100 }) };
+
+        props.menuItems = ADD_TO_LAYOUT_OPTIONS.map((option, i) => (
+            <MenuItem key={i} value={option.axisName} />
         ));
 
         const menu = dropDown()
@@ -65,5 +64,16 @@ describe('The DropDownButton component ', () => {
             .dive();
 
         expect(menu.children().length).toEqual(3);
+    });
+    it('should set the width based on the prop addToButtonRef', () => {
+        const MARGIN = 5;
+        props.addToButtonRef = { offsetWidth: 1000 };
+
+        const actualMinWidth = props.addToButtonRef.offsetWidth - MARGIN;
+
+        const menu = dropDown().find(Menu);
+        const renderedMinWidth = menu.props().MenuListProps.style.minWidth;
+
+        expect(renderedMinWidth).toEqual(actualMinWidth);
     });
 });
