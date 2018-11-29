@@ -157,7 +157,9 @@ export class App extends Component {
                                 <VisualizationTypeSelector />
                             </div>
                             <div className="toolbar-menubar flex-1">
-                                <MenuBar apiObjectName={this.props.apiObjectName} />
+                                <MenuBar
+                                    apiObjectName={this.props.apiObjectName}
+                                />
                             </div>
                         </div>
                         <div className="section-main flex-1 flex-ct">
@@ -172,17 +174,22 @@ export class App extends Component {
                                     <TitleBar />
                                 </div>
                                 <div className="main-center-canvas flex-1">
-                                    {showVis ? <Visualization /> : <BlankCanvas />}
+                                    {showVis ? (
+                                        <Visualization />
+                                    ) : (
+                                        <BlankCanvas />
+                                    )}
                                 </div>
                             </div>
-                            {this.props.ui.rightSidebarOpen && this.props.current && (
-                                <div className="main-right">
-                                    <Interpretations
-                                        type={this.props.apiObjectName}
-                                        id={this.props.current.id}
-                                    />
-                                </div>
-                            )}
+                            {this.props.ui.rightSidebarOpen &&
+                                this.props.current && (
+                                    <div className="main-right">
+                                        <Interpretations
+                                            type={this.props.apiObjectName}
+                                            id={this.props.current.id}
+                                        />
+                                    </div>
+                                )}
                         </div>
                     </div>
                     <Snackbar />
