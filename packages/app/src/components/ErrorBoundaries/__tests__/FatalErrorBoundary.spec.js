@@ -34,6 +34,6 @@ describe('FatalErrorBoundary', () => {
         wrapper.find(Something).simulateError(new Error(testErrorText));
         console.log(wrapper.debug());
         expect(wrapper.contains('Something went wrong')).toBe(true);
-        expect(wrapper).toMatchSnapshot();
+        expect(wrapper).toMatchSnapshot(); // NOTE: This snapshot will change if the .simulateError location changes in this file, since the snapshot includes the callstack!
     });
 });

@@ -3,9 +3,14 @@ import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import { withStyles } from '@material-ui/core/styles';
 import InfoIcon from '@material-ui/icons/InfoOutlined';
+import colors from '@dhis2/d2-ui-core/theme/mui3.theme';
 
-const bgColor = '#F4F6F8',
-    secondaryTextColor = '#494949';
+const bgColor = colors.snow,
+    iconColor = '#B0BEC5',
+    primaryTextColor = colors.black,
+    secondaryTextColor = colors.greyBlack;
+
+const translatedErrorHeading = i18n.t('An error occurred in the DHIS2 Data Visualizer application.');
 
 const replaceNewlinesWithBreaks = text =>
     text
@@ -23,6 +28,7 @@ const styles = {
         overflow: 'auto',
         overflowY: 'auto',
 
+        color: primaryTextColor,
         backgroundColor: bgColor,
 
         display: 'flex',
@@ -40,7 +46,7 @@ const styles = {
     icon: {
         width: 96,
         height: 96,
-        color: '#B0BEC5',
+        color: iconColor,
         marginBottom: 24,
     },
     message: {
@@ -98,10 +104,10 @@ class FatalErrorBoundary extends Component {
         };
     }
 
-    componentDidCatch(error, info) {
+    componentDidCatch(error, errorInfo) {
         this.setState({
             error,
-            errorInfo: info,
+            errorInfo,
         });
     }
 
@@ -143,10 +149,7 @@ class FatalErrorBoundary extends Component {
                             }
                         >
                             <div className={classes.errorIntro}>
-                                {i18n.t(
-                                    'An error occurred in the DHIS2 {{AppName}} application.',
-                                    { AppName: 'Data Visualizer' }
-                                )}
+                                {translatedErrorHeading}
                                 <br />
                                 {i18n.t(
                                     'The following information may be requested by technical support.'

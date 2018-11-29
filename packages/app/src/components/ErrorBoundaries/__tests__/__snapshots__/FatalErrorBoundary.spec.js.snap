@@ -109,7 +109,7 @@ exports[`FatalErrorBoundary Should render the error mask when an error is thrown
             <br
               key="0"
             />
-                at Object.it (/Users/austin/dev/dhis2/apps/data-visualizer/packages/app/src/components/ErrorBoundaries/__tests__/FatalErrorBoundary.spec.js:33:43)
+                at Object.it (/Users/austin/dev/dhis2/apps/data-visualizer/packages/app/src/components/ErrorBoundaries/__tests__/FatalErrorBoundary.spec.js:34:47)
             <br
               key="1"
             />
