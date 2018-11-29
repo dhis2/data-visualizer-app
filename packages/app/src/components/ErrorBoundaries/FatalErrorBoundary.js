@@ -3,12 +3,7 @@ import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import { withStyles } from '@material-ui/core/styles';
 import InfoIcon from '@material-ui/icons/InfoOutlined';
-import colors from '@dhis2/d2-ui-core/theme/mui3.theme';
-
-const bgColor = colors.snow,
-    iconColor = '#B0BEC5',
-    primaryTextColor = colors.black,
-    secondaryTextColor = colors.greyBlack;
+import styles from './styles/FatalErrorBoundary.style';
 
 const translatedErrorHeading = i18n.t('An error occurred in the DHIS2 Data Visualizer application.');
 
@@ -16,83 +11,6 @@ const replaceNewlinesWithBreaks = text =>
     text
         .split('\n')
         .reduce((out, line, i) => [...out, line, <br key={i} />], []);
-
-const styles = {
-    mask: {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-
-        overflow: 'auto',
-        overflowY: 'auto',
-
-        color: primaryTextColor,
-        backgroundColor: bgColor,
-
-        display: 'flex',
-
-        minWidth: 640,
-        minHeight: 480,
-
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    container: {
-        textAlign: 'center',
-        color: 'black',
-    },
-    icon: {
-        width: 96,
-        height: 96,
-        color: iconColor,
-        marginBottom: 24,
-    },
-    message: {
-        fontSize: '24px',
-        marginBottom: 24,
-    },
-    link: {
-        fontSize: '18px',
-        textDecoration: 'underline',
-        cursor: 'pointer',
-        marginBottom: 24,
-    },
-    drawerToggle: {
-        fontSize: '12px',
-        color: secondaryTextColor,
-        textDecoration: 'underline',
-        cursor: 'pointer',
-        marginBottom: 12,
-    },
-    drawerVisible: {
-        padding: 8,
-        display: 'block',
-        height: 150,
-        width: 500,
-        overflow: 'auto',
-        overflowY: 'auto',
-        border: `1px solid ${secondaryTextColor}`,
-        textAlign: 'left',
-    },
-    drawerHidden: {
-        display: 'none',
-    },
-    errorIntro: {
-        fontSize: '12px',
-        lineHeight: 1.2,
-        color: secondaryTextColor,
-        marginBottom: 8,
-        fontFamily: 'Menlo, Courier, monospace !important',
-    },
-    errorDetails: {
-        fontSize: '12px',
-        lineHeight: 1.2,
-        color: 'red',
-        fontFamily: 'Menlo, Courier, monospace !important',
-    },
-};
 
 class FatalErrorBoundary extends Component {
     constructor(props) {
