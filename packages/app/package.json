@@ -79,6 +79,7 @@
         "sw-precache-webpack-plugin": "0.11.5",
         "ui": "github:d2-ci/ui#a14c74a62a5baefe84786282b145ba20e19bc907",
         "url-loader": "0.6.2",
+        "url-polyfill": "^1.1.2",
         "webpack": "^3.10.0",
         "webpack-dev-server": "^2.9.4",
         "webpack-manifest-plugin": "2.0.3",

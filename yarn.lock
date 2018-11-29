@@ -12327,6 +12327,11 @@ url-parse@^1.1.8, url-parse@^1.4.3:
     querystringify "^2.0.0"
     requires-port "^1.0.0"
 
+url-polyfill@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/url-polyfill/-/url-polyfill-1.1.2.tgz#88cd1aa29e6771f13baa29ea58ebf38bb0e14420"
+  integrity sha512-ysIPB51YdpgGYcAJgY64QbBLQCR1DhR/oemwAMKy6yRuMRd1eWRxTHxqv9ZvHb+Jv8xyEg9MIBg42q0ds6tYLg==
+
 url@^0.11.0:
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/url/-/url-0.11.0.tgz#3838e97cfc60521eb73c525a8e55bfdd9e2e28f1"
