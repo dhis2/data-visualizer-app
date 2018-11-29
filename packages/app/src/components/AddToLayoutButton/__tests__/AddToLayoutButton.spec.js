@@ -17,11 +17,12 @@ describe('The AddToLayoutButton component ', () => {
 
     beforeEach(() => {
         props = {
+            classes: {},
+            closeDialog: jest.fn(),
+            currentLayout: {},
             dialogId: 'id',
             layoutType: '',
-            currentLayout: {},
             onAddDimension: jest.fn(),
-            closeDialog: jest.fn(),
         };
         shallowAddToButton = undefined;
     });
@@ -38,7 +39,7 @@ describe('The AddToLayoutButton component ', () => {
         const button = addToButton();
         button.setState({ buttonType: -1 });
 
-        const fragmentWrapper = button.find('Fragment');
+        const fragmentWrapper = button.find('div');
 
         expect(fragmentWrapper.children().length).toBeGreaterThan(1);
     });
@@ -50,7 +51,7 @@ describe('The AddToLayoutButton component ', () => {
 
         const addToFilterButton = button.find(Button).first();
 
-        expect(addToFilterButton.find('Fragment').length).toEqual(0);
+        expect(addToFilterButton.find('div').length).toEqual(0);
         expect(addToFilterButton.length).toEqual(1);
     });
 });
