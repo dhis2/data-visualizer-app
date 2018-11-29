@@ -53,5 +53,5 @@ describe('FatalErrorBoundary', () => {
         expect(wrapper.contains('Something went wrong')).toBe(true);
 
         expect(wrapper).toMatchSnapshot();
-    })
+    });
 });

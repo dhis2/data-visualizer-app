@@ -5,7 +5,9 @@ import { withStyles } from '@material-ui/core/styles';
 import InfoIcon from '@material-ui/icons/InfoOutlined';
 import styles from './styles/FatalErrorBoundary.style';
 
-const translatedErrorHeading = i18n.t('An error occurred in the DHIS2 Data Visualizer application.');
+const translatedErrorHeading = i18n.t(
+    'An error occurred in the DHIS2 Data Visualizer application.'
+);
 
 const replaceNewlinesWithBreaks = text =>
     text
