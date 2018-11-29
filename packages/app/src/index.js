@@ -4,6 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { MuiThemeProvider } from '@material-ui/core/styles';
+import 'url-polyfill';
 import history from './modules/history';
 
 import { init as d2Init, config, getUserSettings } from 'd2';
