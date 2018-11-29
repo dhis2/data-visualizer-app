@@ -1,9 +1,7 @@
-import colors from '@dhis2/d2-ui-core/theme/mui3.theme';
-
-const bgColor = colors.snow,
+const bgColor = '#F4F6F8',
     iconColor = '#B0BEC5',
-    primaryTextColor = colors.black,
-    secondaryTextColor = colors.greyBlack;
+    primaryTextColor = '#000000',
+    secondaryTextColor = '#494949';
 
 export default {
     mask: {
