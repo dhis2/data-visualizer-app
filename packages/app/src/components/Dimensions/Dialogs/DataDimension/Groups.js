@@ -29,7 +29,9 @@ const Groups = props => {
 
     const groupDetail = dataTypes[props.dataType].groupDetail;
 
-    const havePlaceholder = Boolean(dataTypes[props.dataType].placeholder);
+    const havePlaceholder = Boolean(
+        !props.groupId && dataTypes[props.dataType].placeholder
+    );
 
     return (
         <div style={styles.container}>
