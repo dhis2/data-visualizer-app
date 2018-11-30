@@ -28,7 +28,9 @@ const mapStateToProps = state => {
     const options = sGetUiOptions(state);
 
     return {
-        showHelperText: options.rangeAxisSteps && options.rangeAxisMaxValue,
+        showHelperText: Boolean(
+            options.rangeAxisSteps && options.rangeAxisMaxValue
+        ),
     };
 };
 
