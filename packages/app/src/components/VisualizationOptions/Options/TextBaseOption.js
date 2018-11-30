@@ -18,6 +18,7 @@ export const TextBaseOption = ({
         label={option.label}
         onChange={event => onChange(event.target.value)}
         value={value}
+        helperText={option.helperText}
     />
 );
 

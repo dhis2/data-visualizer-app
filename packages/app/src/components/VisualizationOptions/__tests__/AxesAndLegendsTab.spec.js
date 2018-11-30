@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import FormGroup from '@material-ui/core/FormGroup';
 import RangeAxisMinValue from '../Options/RangeAxisMinValue';
+import RangeAxisSteps from '../Options/RangeAxisSteps';
 import { AxesAndLegendsTab } from '../AxesAndLegendsTab';
 
 describe('The Axis & Legend tab', () => {
@@ -27,9 +28,9 @@ describe('The Axis & Legend tab', () => {
     });
 
     [
+        RangeAxisSteps,
         RangeAxisMinValue,
         'RangeAxisMaxValue',
-        'RangeAxisSteps',
         'RangeAxisDecimals',
         'RangeAxisLabel',
         'DomainAxisLabel',
