@@ -8,7 +8,9 @@ import { dataTypes } from '../../../../modules/dataTypes';
 import { styles } from './styles/Groups.style';
 
 const Groups = props => {
-    const handleChange = event => props.onGroupChange(event.target.value);
+    const handleChange = event => {
+        props.onGroupChange(event.target.value);
+    };
 
     const renderDropDownItems = () => {
         const defaultGroup = dataTypes[props.dataType].defaultGroup;
