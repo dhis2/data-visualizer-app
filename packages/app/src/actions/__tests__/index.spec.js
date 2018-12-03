@@ -9,7 +9,12 @@ import {
     CLEAR_VISUALIZATION,
 } from '../../reducers/visualization';
 import { SET_CURRENT, CLEAR_CURRENT } from '../../reducers/current';
-import { SET_UI_FROM_VISUALIZATION, CLEAR_UI } from '../../reducers/ui';
+import {
+    SET_UI_FROM_VISUALIZATION,
+    CLEAR_UI,
+    OPEN_UI_RIGHT_SIDEBAR_OPEN,
+    SET_UI_INTERPRETATION,
+} from '../../reducers/ui';
 import { SET_LOAD_ERROR, CLEAR_LOAD_ERROR } from '../../reducers/loader';
 import {
     RECEIVED_SNACKBAR_MESSAGE,
@@ -28,7 +33,11 @@ selectors.sGetRelativePeriod = () => relativePeriod;
 describe('index', () => {
     describe('tDoLoadVisualization', () => {
         it('dispatches the correct actions after successfully fetching visualization', () => {
-            const vis = 'hey';
+            const vis = {
+                name: 'hey',
+                interpretations: [{ id: 1, created: '2018-12-03' }],
+            };
+
             api.apiFetchVisualization = () =>
                 Promise.resolve({
                     toJSON: () => vis,
@@ -51,6 +60,48 @@ describe('index', () => {
 
             return store
                 .dispatch(fromActions.tDoLoadVisualization())
+                .then(() => {
+                    expect(store.getActions()).toEqual(expectedActions);
+                });
+        });
+
+        it('dispatches the correct actions after successfully fetching visualization and interpretation', () => {
+            const interpretation = { id: 1, created: '2018-12-03' };
+
+            const vis = {
+                name: 'hey',
+                interpretations: [interpretation],
+            };
+
+            api.apiFetchVisualization = () =>
+                Promise.resolve({
+                    toJSON: () => vis,
+                });
+
+            const expectedActions = [
+                {
+                    type: SET_UI_INTERPRETATION,
+                    value: interpretation,
+                },
+                {
+                    type: OPEN_UI_RIGHT_SIDEBAR_OPEN,
+                },
+                {
+                    type: SET_VISUALIZATION,
+                    value: vis,
+                },
+                { type: SET_CURRENT, value: vis },
+                {
+                    type: SET_UI_FROM_VISUALIZATION,
+                    value: vis,
+                },
+                { type: CLEAR_LOAD_ERROR },
+            ];
+
+            const store = mockStore({});
+
+            return store
+                .dispatch(fromActions.tDoLoadVisualization('test', 1, 1))
                 .then(() => {
                     expect(store.getActions()).toEqual(expectedActions);
                 });
