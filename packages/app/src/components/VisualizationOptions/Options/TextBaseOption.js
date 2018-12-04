@@ -7,11 +7,17 @@ import { acSetUiOptions } from '../../../actions/ui';
 
 const emptyString = '';
 
+const incrementByOne = value => (value += 1).toString();
+const decrementByOne = value => (value -= 1).toString();
+
+const onKeyWrapper = (event, props) => {};
+
 export const TextBaseOption = props => (
     <TextField
         className={props.className}
         type={props.type}
         label={props.option.label}
+        onKeyDown={event => onKeyWrapper(event, props)}
         onChange={event => props.onChange(event.target.value)}
         value={props.value}
         helperText={props.option.helperText}
