@@ -18,6 +18,7 @@ import {
 } from '../../../../reducers/ui';
 import { acSetCurrentFromUi } from '../../../../actions/current';
 import { acAddMetadata } from '../../../../actions/metadata';
+import { sGetCurrent } from '../../../../reducers/current';
 import { sGetMetadata } from '../../../../reducers/metadata';
 
 import {
@@ -56,6 +57,7 @@ export const defaultState = {
     selected: [],
     levelOptions: [],
     groupOptions: [],
+    showOrgUnitsTree: true,
 };
 
 export class OrgUnitDimension extends Component {
@@ -69,6 +71,27 @@ export class OrgUnitDimension extends Component {
         this.loadOrgUnitLevels();
         this.loadOrgUnitGroups();
     }
+
+    componentDidUpdate(prevProps) {
+        const previousId = prevProps.current ? prevProps.current.id : null;
+        const currentId = this.props.current ? this.props.current.id : null;
+
+        // remount org units selector component to ensure
+        // only selected org units are expanded
+        if (previousId !== currentId) {
+            this.hideOrgUnitsTree();
+
+            setTimeout(this.showOrgUnitsTree, 0);
+        }
+    }
+
+    showOrgUnitsTree = () => {
+        this.setState({ showOrgUnitsTree: true });
+    };
+
+    hideOrgUnitsTree = () => {
+        this.setState({ showOrgUnitsTree: false });
+    };
 
     addOrgUnitToMetadata = orgUnit => {
         this.props.acAddMetadata({
@@ -245,7 +268,7 @@ export class OrgUnitDimension extends Component {
             <Fragment>
                 <DialogTitle>{i18n.t('Organisation units')}</DialogTitle>
                 <DialogContent style={styles.dialogContent}>
-                    {this.state.root && (
+                    {this.state.root && this.state.showOrgUnitsTree && (
                         <OrgUnitSelector
                             root={this.state.root}
                             selected={selected}
@@ -283,12 +306,14 @@ OrgUnitDimension.propTypes = {
     acAddParentGraphMap: PropTypes.func.isRequired,
     acSetUiItems: PropTypes.func.isRequired,
     acSetCurrentFromUi: PropTypes.func.isRequired,
+    current: PropTypes.object,
 };
 
 const mapStateToProps = state => ({
     ouItems: sGetUiItemsByDimension(state, ouId),
     parentGraphMap: sGetUiParentGraphMap(state),
     metadata: sGetMetadata(state),
+    current: sGetCurrent(state),
 });
 
 const mapDispatchToProps = {
