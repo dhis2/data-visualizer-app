@@ -10,7 +10,23 @@ const emptyString = '';
 const incrementByOne = value => (value += 1).toString();
 const decrementByOne = value => (value -= 1).toString();
 
-const onKeyWrapper = (event, props) => {};
+const onKeyWrapper = (event, props) => {
+    if (props.type === 'number') {
+        if (event.key === 'ArrowUp') {
+            event.preventDefault();
+            return !props.value.length
+                ? props.onChange(incrementByOne(0))
+                : props.onChange(incrementByOne(parseInt(props.value, 10)));
+        }
+
+        if (event.key === 'ArrowDown') {
+            event.preventDefault();
+            return !props.value.length
+                ? props.onChange(decrementByOne(0))
+                : props.onChange(decrementByOne(parseInt(props.value, 10)));
+        }
+    }
+};
 
 export const TextBaseOption = props => (
     <TextField
