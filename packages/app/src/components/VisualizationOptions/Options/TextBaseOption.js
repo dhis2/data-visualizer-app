@@ -5,24 +5,21 @@ import TextField from '@material-ui/core/TextField';
 import { sGetUiOptions } from '../../../reducers/ui';
 import { acSetUiOptions } from '../../../actions/ui';
 
-export const TextBaseOption = ({
-    className,
-    type,
-    option,
-    value,
-    onChange,
-}) => (
+const emptyString = '';
+
+export const TextBaseOption = props => (
     <TextField
-        className={className}
-        type={type}
-        label={option.label}
-        onChange={event => onChange(event.target.value)}
-        value={value}
-        helperText={option.helperText}
+        className={props.className}
+        type={props.type}
+        label={props.option.label}
+        onChange={event => props.onChange(event.target.value)}
+        value={props.value}
+        helperText={props.option.helperText}
     />
 );
 
 TextBaseOption.propTypes = {
+    className: PropTypes.string,
     type: PropTypes.string,
     option: PropTypes.object,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -30,7 +27,7 @@ TextBaseOption.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => ({
-    value: sGetUiOptions(state)[ownProps.option.name] || '',
+    value: sGetUiOptions(state)[ownProps.option.name] || emptyString,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
