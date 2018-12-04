@@ -76,7 +76,7 @@ export class OrgUnitDimension extends Component {
         const previousId = prevProps.current ? prevProps.current.id : null;
         const currentId = this.props.current ? this.props.current.id : null;
 
-        // remount org units selector component to esnure
+        // remount org units selector component to ensure
         // only selected org units are expanded
         if (previousId !== currentId) {
             this.hideOrgUnitsTree();
