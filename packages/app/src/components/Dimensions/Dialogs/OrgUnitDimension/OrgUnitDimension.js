@@ -48,6 +48,7 @@ import {
 
 import { FIXED_DIMENSIONS } from '../../../../modules/fixedDimensions';
 import styles from './styles/OrgUnitDimension.style';
+import { colors } from '../../../../modules/colors';
 
 const ouId = FIXED_DIMENSIONS.ou.id;
 
@@ -285,6 +286,9 @@ export class OrgUnitDimension extends Component {
                             handleMultipleOrgUnitsSelect={
                                 this.handleMultipleOrgUnitsSelect
                             }
+                            checkboxColor="secondary"
+                            deselectAllTooltipFontColor={colors.black}
+                            deselectAllTooltipBackgroundColor={colors.greyLight}
                         />
                     )}
                     {!this.state.root && (
