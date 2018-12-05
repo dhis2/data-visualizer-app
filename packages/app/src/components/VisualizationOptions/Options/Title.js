@@ -4,7 +4,6 @@ import i18n from '@dhis2/d2-i18n';
 
 const Title = () => (
     <TextBaseOption
-        type="text"
         option={{
             name: 'title',
             label: i18n.t('Chart title'),

@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import TextBaseOption from './TextBaseOption';
+import NumberBaseOption from './NumberBaseOption';
 import i18n from '@dhis2/d2-i18n';
 import { sGetUiOptions } from '../../../reducers/ui';
 
 export const RangeAxisSteps = ({ showHelperText }) => (
-    <TextBaseOption
-        type="number"
+    <NumberBaseOption
         option={{
             name: 'rangeAxisSteps',
             label: i18n.t('Range axis tick steps'),

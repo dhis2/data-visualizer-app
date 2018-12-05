@@ -7,57 +7,21 @@ import { acSetUiOptions } from '../../../actions/ui';
 
 const emptyString = '';
 
-const isNumberField = type => type === 'number';
-
-const incrementByOne = value => (parseInt(value, 10) + 1).toString();
-const decrementByOne = value => (parseInt(value, 10) - 1).toString();
-
-const onKeyWrapper = (event, value, onChange) => {
-    if (event.key === 'ArrowUp') {
-        event.preventDefault();
-
-        !value.length
-            ? onChange(incrementByOne(0))
-            : onChange(incrementByOne(value));
-    }
-
-    if (event.key === 'ArrowDown') {
-        event.preventDefault();
-
-        !value.length
-            ? onChange(decrementByOne(0))
-            : onChange(decrementByOne(value));
-    }
-};
-
-const onChangeWrapper = (value, props) => {
-    if (isNumberField(props.type)) {
-        !isNaN(value) && props.onChange(value);
-    } else {
-        props.onChange(value);
-    }
-};
-
-export const TextBaseOption = props => (
+export const TextBaseOption = ({ className, option, value, onChange }) => (
     <TextField
-        className={props.className}
-        type={props.type}
-        label={props.option.label}
-        value={props.value}
-        helperText={props.option.helperText}
-        onChange={event => onChangeWrapper(event.target.value, props)}
-        onKeyDown={event =>
-            isNumberField(props.type) &&
-            onKeyWrapper(event, props.value, props.onChange)
-        }
+        className={className}
+        type="text"
+        label={option.label}
+        value={value}
+        helperText={option.helperText}
+        onChange={event => onChange(event.target.value)}
     />
 );
 
 TextBaseOption.propTypes = {
     className: PropTypes.string,
-    type: PropTypes.string,
     option: PropTypes.object,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    value: PropTypes.string,
     onChange: PropTypes.func,
 };
 
