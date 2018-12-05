@@ -58,7 +58,7 @@ export const tDoLoadVisualization = (type, id, interpretationId) => async (
 
             if (interpretation) {
                 dispatch(fromUi.acSetUiInterpretation(interpretation));
-                dispatch(fromUi.acOpenUiRightSidebarOpen());
+                dispatch(fromUi.acOpenUiRightSidebar());
             }
         }
 
