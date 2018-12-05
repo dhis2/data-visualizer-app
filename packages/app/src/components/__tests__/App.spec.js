@@ -35,6 +35,7 @@ describe('App', () => {
             snackbarOpen: false,
             snackbarMessage: '',
             loadError: null,
+            interpretations: [],
             current: {},
             ui: { rightSidebarOpen: false },
             location: { pathname: '/' },
@@ -50,8 +51,6 @@ describe('App', () => {
 
         actions.tDoLoadVisualization = jest.fn();
         actions.clearVisualization = jest.fn();
-        actions.fromUi.acSetUiInterpretation = jest.fn();
-        actions.fromUi.acOpenUiRightSidebarOpen = jest.fn();
     });
 
     afterEach(() => {
@@ -95,9 +94,6 @@ describe('App', () => {
 
             setTimeout(() => {
                 expect(actions.tDoLoadVisualization).toBeCalledTimes(1);
-                expect(
-                    actions.fromUi.acSetUiInterpretation
-                ).not.toHaveBeenCalled();
                 expect(actions.clearVisualization).not.toHaveBeenCalled();
                 done();
             });
@@ -141,27 +137,6 @@ describe('App', () => {
                     history.push('/applejack');
                     expect(actions.tDoLoadVisualization).toBeCalledTimes(1);
 
-                    done();
-                });
-            });
-
-            it('calls setUiInterpretation action', done => {
-                const interpId = 'xyzpdq';
-                props.location.pathname = `/spike/interpretation/${interpId}`;
-                app();
-
-                setTimeout(() => {
-                    expect(actions.tDoLoadVisualization).toBeCalledTimes(1);
-                    expect(
-                        actions.fromUi.acSetUiInterpretation
-                    ).toBeCalledTimes(1);
-                    expect(
-                        actions.fromUi.acSetUiInterpretation
-                    ).toHaveBeenCalledWith({ id: interpId });
-                    expect(
-                        actions.fromUi.acOpenUiRightSidebarOpen
-                    ).toBeCalledTimes(1);
-                    expect(actions.clearVisualization).not.toHaveBeenCalled();
                     done();
                 });
             });

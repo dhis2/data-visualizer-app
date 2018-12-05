@@ -70,19 +70,12 @@ export class App extends Component {
                     fromActions.tDoLoadVisualization(
                         this.props.apiObjectName,
                         id,
-                        this.props.settings
+                        interpretationId
                     )
                 );
             }
 
-            if (interpretationId) {
-                store.dispatch(
-                    fromActions.fromUi.acSetUiInterpretation({
-                        id: interpretationId,
-                    })
-                );
-                store.dispatch(fromActions.fromUi.acOpenUiRightSidebarOpen());
-            } else {
+            if (!interpretationId) {
                 store.dispatch(fromActions.fromUi.acClearUiInterpretation());
             }
         } else {
@@ -203,6 +196,9 @@ const mapStateToProps = state => {
     return {
         settings: fromReducers.fromSettings.sGetSettings(state),
         current: fromReducers.fromCurrent.sGetCurrent(state),
+        interpretations: fromReducers.fromVisualization.sGetInterpretations(
+            state
+        ),
         loadError: fromReducers.fromLoader.sGetLoadError(state),
         ui: sGetUi(state),
     };
