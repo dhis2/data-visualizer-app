@@ -7,20 +7,16 @@ import { acSetUiOptions } from '../../../actions/ui';
 
 const emptyString = '';
 
-const incrementByOne = value => (parseInt(value, 10) + 1).toString();
-const decrementByOne = value => (parseInt(value, 10) - 1).toString();
+const incrementByOne = value =>
+    value === emptyString ? 1 : (parseInt(value, 10) + 1).toString();
 
-const handleArrowInput = (value, onChange, INCREMENT = true) => {
-    if (INCREMENT) {
-        value === emptyString
-            ? onChange(incrementByOne(0))
-            : onChange(incrementByOne(value));
-    } else {
-        value === emptyString
-            ? onChange(decrementByOne(0))
-            : onChange(decrementByOne(value));
-    }
-};
+const decrementByOne = value =>
+    value === emptyString ? -1 : (parseInt(value, 10) - 1).toString();
+
+const handleArrowInput = (value, onChange, INCREMENT = true) =>
+    INCREMENT
+        ? onChange(incrementByOne(value))
+        : onChange(decrementByOne(value));
 
 const onKeyWrapper = (event, value, onChange) => {
     if (event.key === 'ArrowUp') {
