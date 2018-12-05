@@ -7,34 +7,34 @@ import { acSetUiOptions } from '../../../actions/ui';
 
 const emptyString = '';
 
+const isNumberField = type => type === 'number';
+
 const incrementByOne = value => (parseInt(value, 10) + 1).toString();
 const decrementByOne = value => (parseInt(value, 10) - 1).toString();
 
-const onKeyWrapper = (event, props) => {
-    if (props.type === 'number') {
-        if (event.key === 'ArrowUp') {
-            event.preventDefault();
+const onKeyWrapper = (event, value, onChange) => {
+    if (event.key === 'ArrowUp') {
+        event.preventDefault();
 
-            !props.value.length
-                ? props.onChange(incrementByOne(0))
-                : props.onChange(incrementByOne(props.value));
-        }
+        !value.length
+            ? onChange(incrementByOne(0))
+            : onChange(incrementByOne(value));
+    }
 
-        if (event.key === 'ArrowDown') {
-            event.preventDefault();
+    if (event.key === 'ArrowDown') {
+        event.preventDefault();
 
-            !props.value.length
-                ? props.onChange(decrementByOne(0))
-                : props.onChange(decrementByOne(props.value));
-        }
+        !value.length
+            ? onChange(decrementByOne(0))
+            : onChange(decrementByOne(value));
     }
 };
 
-const onChangeWrapper = (event, props) => {
-    if (props.type === 'number') {
-        !isNaN(event.target.value) && props.onChange(event.target.value);
+const onChangeWrapper = (value, props) => {
+    if (isNumberField(props.type)) {
+        !isNaN(value) && props.onChange(value);
     } else {
-        props.onChange(event.target.value);
+        props.onChange(value);
     }
 };
 
@@ -43,10 +43,13 @@ export const TextBaseOption = props => (
         className={props.className}
         type={props.type}
         label={props.option.label}
-        onKeyDown={event => onKeyWrapper(event, props)}
-        onChange={event => onChangeWrapper(event, props)}
         value={props.value}
         helperText={props.option.helperText}
+        onChange={event => onChangeWrapper(event.target.value, props)}
+        onKeyDown={event =>
+            isNumberField(props.type) &&
+            onKeyWrapper(event, props.value, props.onChange)
+        }
     />
 );
 
