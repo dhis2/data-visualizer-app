@@ -30,14 +30,21 @@ const onKeyWrapper = (event, props) => {
     }
 };
 
+const onChangeWrapper = (event, props) => {
+    if (props.type === 'number') {
+        !isNaN(event.target.value) && props.onChange(event.target.value);
+    } else {
+        props.onChange(event.target.value);
+    }
+};
+
 export const TextBaseOption = props => (
     <TextField
         className={props.className}
         type={props.type}
         label={props.option.label}
         onKeyDown={event => onKeyWrapper(event, props)}
-        onChange={event => props.onChange(event.target.value)}
-        InputProps={{ type: props.type }}
+        onChange={event => onChangeWrapper(event, props)}
         value={props.value}
         helperText={props.option.helperText}
     />
