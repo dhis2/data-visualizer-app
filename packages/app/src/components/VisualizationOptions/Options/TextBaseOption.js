@@ -7,23 +7,25 @@ import { acSetUiOptions } from '../../../actions/ui';
 
 const emptyString = '';
 
-const incrementByOne = value => (value += 1).toString();
-const decrementByOne = value => (value -= 1).toString();
+const incrementByOne = value => (parseInt(value, 10) + 1).toString();
+const decrementByOne = value => (parseInt(value, 10) - 1).toString();
 
 const onKeyWrapper = (event, props) => {
     if (props.type === 'number') {
         if (event.key === 'ArrowUp') {
             event.preventDefault();
-            return !props.value.length
+
+            !props.value.length
                 ? props.onChange(incrementByOne(0))
-                : props.onChange(incrementByOne(parseInt(props.value, 10)));
+                : props.onChange(incrementByOne(props.value));
         }
 
         if (event.key === 'ArrowDown') {
             event.preventDefault();
-            return !props.value.length
+
+            !props.value.length
                 ? props.onChange(decrementByOne(0))
-                : props.onChange(decrementByOne(parseInt(props.value, 10)));
+                : props.onChange(decrementByOne(props.value));
         }
     }
 };
@@ -35,6 +37,7 @@ export const TextBaseOption = props => (
         label={props.option.label}
         onKeyDown={event => onKeyWrapper(event, props)}
         onChange={event => props.onChange(event.target.value)}
+        InputProps={{ type: props.type }}
         value={props.value}
         helperText={props.option.helperText}
     />
