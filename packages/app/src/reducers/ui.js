@@ -27,7 +27,7 @@ export const SET_UI_YEAR_ON_YEAR_SERIES = 'SET_UI_YEAR_ON_YEAR_SERIES';
 export const SET_UI_YEAR_ON_YEAR_CATEGORY = 'SET_UI_YEAR_ON_YEAR_CATEGORY';
 export const CLEAR_UI = 'CLEAR_UI';
 export const TOGGLE_UI_RIGHT_SIDEBAR_OPEN = 'TOGGLE_UI_RIGHT_SIDEBAR_OPEN';
-export const OPEN_UI_RIGHT_SIDEBAR_OPEN = 'OPEN_UI_RIGHT_SIDEBAR_OPEN';
+export const OPEN_UI_RIGHT_SIDEBAR = 'OPEN_UI_RIGHT_SIDEBAR';
 export const SET_UI_INTERPRETATION = 'SET_UI_INTERPRETATION';
 export const CLEAR_UI_INTERPRETATION = 'CLEAR_UI_INTERPRETATION';
 
@@ -216,7 +216,7 @@ export default (state = DEFAULT_UI, action) => {
                 ...state,
                 rightSidebarOpen: !state.rightSidebarOpen,
             };
-        case OPEN_UI_RIGHT_SIDEBAR_OPEN:
+        case OPEN_UI_RIGHT_SIDEBAR:
             return {
                 ...state,
                 rightSidebarOpen: true,
