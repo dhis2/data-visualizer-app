@@ -19,3 +19,5 @@ export default (state = DEFAULT_VISUALIZATION, action) => {
 // Selectors
 
 export const sGetVisualization = state => state.visualization;
+export const sGetInterpretations = state =>
+    state.visualization ? state.visualization.interpretations : [];

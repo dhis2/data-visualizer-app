@@ -11,6 +11,7 @@ const ITEMS = `items[${DIMENSION_ITEM},${NAME},dimensionItemType]`;
 const COMMENTS = `comments[${ID},${USER},lastUpdated,text`;
 
 const AXIS = `dimension,filter,${LEGEND_SET},${ITEMS}`;
+const INTERPRETATIONS = 'id,created';
 
 // nested fields map
 export const nestedFields = {
@@ -19,6 +20,7 @@ export const nestedFields = {
     filters: AXIS,
     user: USER,
     comments: COMMENTS,
+    interpretations: INTERPRETATIONS,
 };
 
 export const extendFields = field =>
