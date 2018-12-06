@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 
 import FormGroup from '@material-ui/core/FormGroup';
@@ -22,5 +23,9 @@ export const AxisAndLegendTab = ({ classes }) => (
         <DomainAxisLabel />
     </FormGroup>
 );
+
+AxisAndLegendTab.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
 
 export default withStyles(styles)(AxisAndLegendTab);

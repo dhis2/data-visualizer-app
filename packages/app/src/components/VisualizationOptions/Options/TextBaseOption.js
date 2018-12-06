@@ -23,6 +23,7 @@ export const TextBaseOption = ({
 );
 
 TextBaseOption.propTypes = {
+    className: PropTypes.string,
     type: PropTypes.string,
     option: PropTypes.object,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
