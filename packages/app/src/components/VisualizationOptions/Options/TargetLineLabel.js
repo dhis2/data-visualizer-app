@@ -1,9 +1,15 @@
 import React from 'react';
-import TextBaseOption from './TextBaseOption';
+import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
+import { withStyles } from '@material-ui/core/styles';
 
-const TargetLineLabel = () => (
+import TextBaseOption from './TextBaseOption';
+import styles from '../styles/VisualizationOptions.style';
+
+const TargetLineLabel = ({ classes, enabled }) => (
     <TextBaseOption
+        className={classes.textBaseOption}
+        enabled={enabled}
         type="text"
         option={{
             name: 'targetLineLabel',
@@ -12,4 +18,9 @@ const TargetLineLabel = () => (
     />
 );
 
-export default TargetLineLabel;
+TargetLineLabel.propTypes = {
+    classes: PropTypes.object.isRequired,
+    enabled: PropTypes.bool.isRequired,
+};
+
+export default withStyles(styles)(TargetLineLabel);

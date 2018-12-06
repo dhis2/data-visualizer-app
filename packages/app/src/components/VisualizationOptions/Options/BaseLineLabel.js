@@ -1,9 +1,15 @@
 import React from 'react';
-import TextBaseOption from './TextBaseOption';
+import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
+import { withStyles } from '@material-ui/core/styles';
 
-const BaseLineLabel = () => (
+import TextBaseOption from './TextBaseOption';
+import styles from '../styles/VisualizationOptions.style';
+
+const BaseLineLabel = ({ classes, enabled }) => (
     <TextBaseOption
+        enabled={enabled}
+        className={classes.textBaseOption}
         type="text"
         option={{
             name: 'baseLineLabel',
@@ -12,4 +18,9 @@ const BaseLineLabel = () => (
     />
 );
 
-export default BaseLineLabel;
+BaseLineLabel.propTypes = {
+    classes: PropTypes.object.isRequired,
+    enabled: PropTypes.bool.isRequired,
+};
+
+export default withStyles(styles)(BaseLineLabel);

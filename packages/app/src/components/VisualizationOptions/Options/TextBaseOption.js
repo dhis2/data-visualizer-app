@@ -7,6 +7,7 @@ import { acSetUiOptions } from '../../../actions/ui';
 
 export const TextBaseOption = ({
     className,
+    enabled,
     type,
     option,
     value,
@@ -14,6 +15,7 @@ export const TextBaseOption = ({
 }) => (
     <TextField
         className={className}
+        disabled={!enabled}
         type={type}
         label={option.label}
         onChange={event => onChange(event.target.value)}
@@ -22,11 +24,16 @@ export const TextBaseOption = ({
     />
 );
 
+TextBaseOption.defaultProps = {
+    enabled: true,
+};
+
 TextBaseOption.propTypes = {
-    type: PropTypes.string,
-    option: PropTypes.object,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    onChange: PropTypes.func,
+    enabled: PropTypes.bool,
+    type: PropTypes.string.isRequired,
+    option: PropTypes.object.isRequired,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    onChange: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => ({

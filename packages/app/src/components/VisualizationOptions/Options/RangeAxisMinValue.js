@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import TextBaseOption from './TextBaseOption';
 import i18n from '@dhis2/d2-i18n';
@@ -6,7 +7,7 @@ import styles from '../styles/VisualizationOptions.style';
 
 const RangeAxisMinValue = ({ classes }) => (
     <TextBaseOption
-        className={classes.rangeAxisMin}
+        className={classes.textBaseOption}
         type="number"
         option={{
             name: 'rangeAxisMinValue',
@@ -14,5 +15,9 @@ const RangeAxisMinValue = ({ classes }) => (
         }}
     />
 );
+
+RangeAxisMinValue.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
 
 export default withStyles(styles)(RangeAxisMinValue);
