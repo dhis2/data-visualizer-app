@@ -18,11 +18,11 @@ export const apiFetchOrganisationUnitRoot = () => {
  * Fetch organisation units
  * @returns {Promise<T | never>}
  */
-export const apiFetchOrganisationUnits = settings => {
+export const apiFetchOrganisationUnits = displayNameProperty => {
     const fields = [
         'id',
         'path',
-        `${settings.displayNameProperty}~rename(displayName)`,
+        `${displayNameProperty}~rename(displayName)`,
         'children::isNotEmpty',
     ];
 
@@ -39,13 +39,9 @@ export const apiFetchOrganisationUnits = settings => {
  * Fetch organisation unit groups
  * @returns {*}
  */
-export const apiFetchOrganisationUnitGroups = settings => {
+export const apiFetchOrganisationUnitGroups = displayNameProperty => {
     const endPoint = '/organisationUnitGroups';
-    const fields = [
-        'id',
-        `${settings.displayNameProperty}~rename(displayName)`,
-        'name',
-    ];
+    const fields = ['id', `${displayNameProperty}~rename(displayName)`, 'name'];
     const url = `${endPoint}?paging=false&fields=${fields.join(',')}`;
 
     return getInstance()
