@@ -7,6 +7,6 @@ export default {
     },
     axisFormGroup: {
         height: '325px',
-        justifyContent: 'space-evenly',
+        justifyContent: 'space-around',
     },
 };
