@@ -10,7 +10,7 @@ import RangeAxisLabel from './Options/RangeAxisLabel';
 import DomainAxisLabel from './Options/DomainAxisLabel';
 import styles from './styles/VisualizationOptions.style';
 
-export const AxesAndLegendsTab = ({ classes }) => (
+export const AxisAndLegendTab = ({ classes }) => (
     <FormGroup>
         <FormGroup row={true}>
             <RangeAxisMinValue />
@@ -23,4 +23,4 @@ export const AxesAndLegendsTab = ({ classes }) => (
     </FormGroup>
 );
 
-export default withStyles(styles)(AxesAndLegendsTab);
+export default withStyles(styles)(AxisAndLegendTab);
