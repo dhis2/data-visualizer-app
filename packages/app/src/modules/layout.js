@@ -3,6 +3,7 @@ import i18n from '@dhis2/d2-i18n';
 import { YEAR_OVER_YEAR_LINE, YEAR_OVER_YEAR_COLUMN } from './chartTypes';
 import { FIXED_DIMENSIONS } from './fixedDimensions';
 
+const dxId = FIXED_DIMENSIONS.dx.id;
 const peId = FIXED_DIMENSIONS.pe.id;
 
 // Prop names for analytical object axes
@@ -49,11 +50,24 @@ const validateDefault = layout => {
     );
 
     if (!(pe && pe.items.length)) {
+        if (!(layout.columns.length && layout.columns[0].items.length)) {
+            throw new Error(i18n.t('Please add a series dimension'));
+        }
+
         throw new Error(i18n.t('Please add a period'));
     }
 };
 
 const validateYearOverYear = layout => {
+    if (
+        !(
+            layout.columns.length &&
+            layout.columns[0].dimension === dxId &&
+            layout.columns[0].items.length
+        )
+    ) {
+        throw new Error(i18n.t('Please add Data as a filter dimension'));
+    }
     console.log(layout);
 };
 
