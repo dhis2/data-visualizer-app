@@ -20,6 +20,7 @@ import { acSetCurrentFromUi } from '../../../../actions/current';
 import { acAddMetadata } from '../../../../actions/metadata';
 import { sGetCurrent } from '../../../../reducers/current';
 import { sGetMetadata } from '../../../../reducers/metadata';
+import { sGetSettings } from '../../../../reducers/settings';
 
 import {
     acAddUiItems,
@@ -68,9 +69,9 @@ export class OrgUnitDimension extends Component {
         this.state = defaultState;
         this.userOrgUnitIds = userOrgUnits.map(orgUnit => orgUnit.id);
 
-        this.loadOrgUnitTree();
+        this.loadOrgUnitTree(this.props.settings);
+        this.loadOrgUnitGroups(this.props.settings);
         this.loadOrgUnitLevels();
-        this.loadOrgUnitGroups();
     }
 
     componentDidUpdate(prevProps) {
@@ -144,8 +145,8 @@ export class OrgUnitDimension extends Component {
         this.setOuUiItems([]);
     };
 
-    loadOrgUnitTree = () => {
-        apiFetchOrganisationUnits()
+    loadOrgUnitTree = settings => {
+        apiFetchOrganisationUnits(settings)
             .then(rootLevel => rootLevel.toArray()[0])
             .then(root => {
                 this.setState({
@@ -154,8 +155,8 @@ export class OrgUnitDimension extends Component {
             });
     };
 
-    loadOrgUnitGroups = () => {
-        apiFetchOrganisationUnitGroups()
+    loadOrgUnitGroups = settings => {
+        apiFetchOrganisationUnitGroups(settings)
             .then(organisationUnitGroups =>
                 transformOptionsIntoMetadata(
                     organisationUnitGroups,
@@ -289,6 +290,9 @@ export class OrgUnitDimension extends Component {
                             checkboxColor="secondary"
                             deselectAllTooltipFontColor={colors.black}
                             deselectAllTooltipBackgroundColor={colors.greyLight}
+                            displayNameProperty={
+                                this.props.settings.displayNameProperty
+                            }
                         />
                     )}
                     {!this.state.root && (
@@ -311,6 +315,7 @@ OrgUnitDimension.propTypes = {
     acSetUiItems: PropTypes.func.isRequired,
     acSetCurrentFromUi: PropTypes.func.isRequired,
     current: PropTypes.object,
+    settings: PropTypes.object,
 };
 
 const mapStateToProps = state => ({
@@ -318,6 +323,7 @@ const mapStateToProps = state => ({
     parentGraphMap: sGetUiParentGraphMap(state),
     metadata: sGetMetadata(state),
     current: sGetCurrent(state),
+    settings: sGetSettings(state),
 });
 
 const mapDispatchToProps = {

@@ -18,12 +18,19 @@ export const apiFetchOrganisationUnitRoot = () => {
  * Fetch organisation units
  * @returns {Promise<T | never>}
  */
-export const apiFetchOrganisationUnits = () => {
+export const apiFetchOrganisationUnits = settings => {
+    const fields = [
+        'id',
+        'path',
+        `${settings.displayNameProperty}~rename(displayName)`,
+        'children::isNotEmpty',
+    ];
+
     return getInstance().then(d2 =>
         d2.models.organisationUnits.list({
             paging: false,
             level: 1,
-            fields: 'id,path,displayName,children::isNotEmpty',
+            fields: fields.join(','),
         })
     );
 };
@@ -32,9 +39,13 @@ export const apiFetchOrganisationUnits = () => {
  * Fetch organisation unit groups
  * @returns {*}
  */
-export const apiFetchOrganisationUnitGroups = () => {
+export const apiFetchOrganisationUnitGroups = settings => {
     const endPoint = '/organisationUnitGroups';
-    const fields = ['id', 'displayName', 'name'];
+    const fields = [
+        'id',
+        `${settings.displayNameProperty}~rename(displayName)`,
+        'name',
+    ];
     const url = `${endPoint}?paging=false&fields=${fields.join(',')}`;
 
     return getInstance()
