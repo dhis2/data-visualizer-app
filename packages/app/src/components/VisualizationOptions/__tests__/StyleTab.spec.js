@@ -3,7 +3,6 @@ import { shallow } from 'enzyme';
 import FormGroup from '@material-ui/core/FormGroup';
 
 import { StyleTab } from '../StyleTab';
-import NoSpaceBetweenColumns from '../Options/NoSpaceBetweenColumns';
 
 describe('The Style tab', () => {
     let shallowStyleTab;
@@ -24,12 +23,13 @@ describe('The Style tab', () => {
             .find(FormGroup)
             .first();
 
-        expect(wrappingDiv.children().length).toBe(1);
+        expect(wrappingDiv.children().length).toBe(4);
     });
-
-    it('Renders a <NoSpaceBetweenColumns /> component', () => {
-        const noSpaceBetweenColumns = styleTab().find(NoSpaceBetweenColumns);
-
-        expect(noSpaceBetweenColumns.length).toBe(1);
-    });
+    ['HideLegend', 'Title', 'HideTitle', 'Subtitle', 'HideSubtitle'].forEach(
+        component => {
+            it(`should render a ${component} component`, () => {
+                expect(styleTab().find(component).length).toBe(1);
+            });
+        }
+    );
 });
