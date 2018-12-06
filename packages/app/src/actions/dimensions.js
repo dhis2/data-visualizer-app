@@ -2,7 +2,7 @@ import keyBy from 'lodash-es/keyBy';
 import sortBy from 'lodash-es/sortBy';
 import { SET_DIMENSIONS } from '../reducers/dimensions';
 import { apiFetchDimensions } from '../api/dimensions';
-import { sGetDisplayNameProperty } from '../reducers/settings';
+import { sGetSettingsDisplayNameProperty } from '../reducers/settings';
 
 export const acSetDimensions = dimensions => ({
     type: SET_DIMENSIONS,
@@ -20,7 +20,7 @@ export const tSetDimensions = () => async (dispatch, getState) => {
     };
 
     try {
-        const displayNameProp = sGetDisplayNameProperty(getState());
+        const displayNameProp = sGetSettingsDisplayNameProperty(getState());
         const dimensions = await apiFetchDimensions(displayNameProp);
         return onSuccess(dimensions);
     } catch (err) {
