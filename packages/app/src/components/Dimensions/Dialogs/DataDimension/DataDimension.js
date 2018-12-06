@@ -19,7 +19,7 @@ import {
     apiFetchAlternatives,
 } from '../../../../api/dimensions';
 import { sGetUiItemsByDimension } from '../../../../reducers/ui';
-import { sGetDisplayNameProperty } from '../../../../reducers/settings';
+import { sGetSettingsDisplayNameProperty } from '../../../../reducers/settings';
 
 import {
     acRemoveUiItems,
@@ -266,7 +266,7 @@ DataDimension.propTypes = {
 
 const mapStateToProps = state => ({
     selectedItems: sGetUiItemsByDimension(state, dxId),
-    displayNameProp: sGetDisplayNameProperty(state),
+    displayNameProp: sGetSettingsDisplayNameProperty(state),
 });
 
 export default connect(
