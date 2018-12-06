@@ -3,14 +3,15 @@ import { shallow } from 'enzyme';
 import FormGroup from '@material-ui/core/FormGroup';
 import RangeAxisMinValue from '../Options/RangeAxisMinValue';
 import RangeAxisSteps from '../Options/RangeAxisSteps';
-import { AxesAndLegendsTab } from '../AxesAndLegendsTab';
+import { AxisAndLegendTab } from '../AxisAndLegendTab';
 
 describe('The Axis & Legend tab', () => {
     let shallowAxesComponent;
+    const props = { classes: {} };
 
     const axesAndLegendsTab = () => {
         if (!shallowAxesComponent) {
-            shallowAxesComponent = shallow(<AxesAndLegendsTab />);
+            shallowAxesComponent = shallow(<AxisAndLegendTab {...props} />);
         }
         return shallowAxesComponent;
     };
