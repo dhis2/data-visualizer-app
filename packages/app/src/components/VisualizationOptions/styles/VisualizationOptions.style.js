@@ -21,4 +21,8 @@ export default {
         justifyContent: 'space-between',
         marginBottom: '12px',
     },
+    axisFormGroup: {
+        height: '325px',
+        justifyContent: 'space-around',
+    },
 };
