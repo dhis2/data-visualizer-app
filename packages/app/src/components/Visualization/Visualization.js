@@ -25,6 +25,7 @@ import {
 import { isYearOverYear } from '../../modules/chartTypes';
 import { sGetVisualization } from '../../reducers/visualization';
 import { computeGenericPeriodNames } from '../../modules/analytics';
+import { validateLayoutByType } from '../../modules/layout';
 
 export class Visualization extends Component {
     recreateChart = Function.prototype;
@@ -108,7 +109,10 @@ export class Visualization extends Component {
         const options = this.getOptions(vis, interpretation);
 
         try {
-            // cancel due to a new request being initiated
+            // Validate layout
+            validateLayoutByType(vis, vis.type);
+
+            // Cancel due to a new request being initiated
             if (this.isRenderIdDirty(renderId)) {
                 return;
             }
@@ -138,7 +142,7 @@ export class Visualization extends Component {
                 this.props.acAddMetadata(res.metaData.items);
             });
 
-            // cancel due to a new request being initiated
+            // Cancel due to a new request being initiated
             if (this.isRenderIdDirty(renderId)) {
                 this.props.acSetLoading(false);
                 return;
@@ -169,7 +173,7 @@ export class Visualization extends Component {
         } catch (error) {
             this.props.acSetLoading(false);
 
-            // do not show messages that are no longer relevant
+            // Do not show messages that are no longer relevant
             if (this.isRenderIdDirty(renderId)) {
                 return;
             }

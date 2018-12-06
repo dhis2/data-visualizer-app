@@ -1,5 +1,9 @@
 import pick from 'lodash-es/pick';
 import i18n from '@dhis2/d2-i18n';
+import { YEAR_OVER_YEAR_LINE, YEAR_OVER_YEAR_COLUMN } from './chartTypes';
+import { FIXED_DIMENSIONS } from './fixedDimensions';
+
+const peId = FIXED_DIMENSIONS.pe.id;
 
 // Prop names for analytical object axes
 export const AXIS_NAME_COLUMNS = 'columns';
@@ -19,15 +23,48 @@ export const DIMENSION_ITEMS_PROP_NAME = 'items';
 
 // Keys and displayName for adding dimensions to layout
 export const ADD_TO_LAYOUT_OPTIONS = [
-    { axisKey: 'columns', name: i18n.t('Add to series') },
-    { axisKey: 'rows', name: i18n.t('Add to category') },
-    { axisKey: 'filters', name: i18n.t('Add to filter') },
+    { axisKey: AXIS_NAME_COLUMNS, name: i18n.t('Add to series') },
+    { axisKey: AXIS_NAME_ROWS, name: i18n.t('Add to category') },
+    { axisKey: AXIS_NAME_FILTERS, name: i18n.t('Add to filter') },
 ];
 
 export const menuLabels = {
     columns: i18n.t('series'),
     rows: i18n.t('category'),
     filters: i18n.t('filter'),
+};
+
+// Layout validation functions
+const validateDefault = layout => {
+    if (!(layout.columns.length && layout.columns[0].items.length)) {
+        throw new Error(i18n.t('Please add a series dimension'));
+    }
+
+    if (!(layout.rows.length && layout.rows[0].items.length)) {
+        throw new Error(i18n.t('Please add a category dimension'));
+    }
+
+    const pe = [...layout.columns, ...layout.rows, ...layout.filters].find(
+        dim => dim.dimension === peId
+    );
+
+    if (!(pe && pe.items.length)) {
+        throw new Error(i18n.t('Please add a period'));
+    }
+};
+
+const validateYearOverYear = layout => {
+    console.log(layout);
+};
+
+export const validateLayoutByType = (layout, type) => {
+    switch (type) {
+        case YEAR_OVER_YEAR_COLUMN:
+        case YEAR_OVER_YEAR_LINE:
+            return validateYearOverYear(layout);
+        default:
+            return validateDefault(layout);
+    }
 };
 
 // Layout utility functions
