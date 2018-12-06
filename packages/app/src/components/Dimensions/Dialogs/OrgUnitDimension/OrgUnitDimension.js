@@ -20,7 +20,7 @@ import { acSetCurrentFromUi } from '../../../../actions/current';
 import { acAddMetadata } from '../../../../actions/metadata';
 import { sGetCurrent } from '../../../../reducers/current';
 import { sGetMetadata } from '../../../../reducers/metadata';
-import { sGetDisplayNameProperty } from '../../../../reducers/settings';
+import { sGetSettingsDisplayNameProperty } from '../../../../reducers/settings';
 
 import {
     acAddUiItems,
@@ -321,7 +321,7 @@ const mapStateToProps = state => ({
     parentGraphMap: sGetUiParentGraphMap(state),
     metadata: sGetMetadata(state),
     current: sGetCurrent(state),
-    displayNameProperty: sGetDisplayNameProperty(state),
+    displayNameProperty: sGetSettingsDisplayNameProperty(state),
 });
 
 const mapDispatchToProps = {
