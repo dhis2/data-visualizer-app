@@ -43,6 +43,8 @@ describe('The OrgUnitDimension component ', () => {
             acAddMetadata: jest.fn(),
             acSetUiItems: jest.fn(),
             acSetCurrentFromUi: jest.fn(),
+            current: { id: null },
+            displayNameProperty: 'displayName',
         };
         shallowDataDim = undefined;
     });

@@ -175,22 +175,22 @@
   dependencies:
     i18next "^10.3"
 
-"@dhis2/d2-ui-core@5.0.16":
-  version "5.0.16"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-5.0.16.tgz#e0dbc904bda90ac518147af481aa6ab9c2e11ea4"
-  integrity sha512-IUhk0K5tkVML/Y4w4aHc87m3M5tvmmwEDPkC5ukBX+eVd1eWCzgtD5oHZqoVRgxqUsadesM6vdX6wHMSc+eLHQ==
+"@dhis2/d2-ui-core@5.0.17":
+  version "5.0.17"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-5.0.17.tgz#0e0201702c0661d1952d666e95e4abb6bfcb304b"
+  integrity sha512-ZrasR7o6OmfJf4Jgf9MFCoPV8t69UU70zDa1oZU7Sdg/O1Ejnd6LIvRrc6xPFVkYR7vke34Hp6SH20jW1RrexQ==
   dependencies:
     babel-runtime "^6.26.0"
     d2 "~31.1"
     lodash "^4.17.10"
     material-ui "^0.20.0"
 
-"@dhis2/d2-ui-favorites-dialog@5.0.16":
-  version "5.0.16"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-favorites-dialog/-/d2-ui-favorites-dialog-5.0.16.tgz#f1946a2a1fdeb993d0ab114c530fc024e4f9cf8c"
-  integrity sha512-K/Y4OCmIvuPfpvzdYx/6ueVz3qukXZgZ8TlWy/lV4Fh7NcOJ2hKBOwBWIPAANqPZ+sHlMwTxyLeSb99QIAHCMA==
+"@dhis2/d2-ui-favorites-dialog@5.0.17":
+  version "5.0.17"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-favorites-dialog/-/d2-ui-favorites-dialog-5.0.17.tgz#1141e4e2356576ff045f2a41748b1acfff3dbd85"
+  integrity sha512-EwdYXh3ydlmHhTDaE7xO2xJ/K18mi/AjnClYybrKQZKlou/UX8rhSPtHSmMWpjffsCMgdpYH5ctpRxxZL5cz9Q==
   dependencies:
-    "@dhis2/d2-ui-sharing-dialog" "5.0.16"
+    "@dhis2/d2-ui-sharing-dialog" "5.0.17"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     babel-runtime "^6.26.0"
@@ -200,29 +200,29 @@
     redux-logger "^3.0.6"
     redux-thunk "^2.2.0"
 
-"@dhis2/d2-ui-file-menu@5.0.16":
-  version "5.0.16"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-file-menu/-/d2-ui-file-menu-5.0.16.tgz#2077593a49239a27ba5e0f91032584778aaa2f17"
-  integrity sha512-n4c4QjcGZI4zTlV+prWKYJvX93gPyD53UhyrpXTmKHSP9WNa4b4KtgrZ0ac4GmVO6tublh7xpjBQjeJs1rnw7Q==
+"@dhis2/d2-ui-file-menu@5.0.17":
+  version "5.0.17"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-file-menu/-/d2-ui-file-menu-5.0.17.tgz#488ff5ab67d88261ce051ae2d8b392a800f0bc2a"
+  integrity sha512-n1ohDccWAYqnt9w8pUJMICzP/5/ZUntohTX6k+YVjk1LKSkj4NyEU1CC+MrdRNvEmKZTEWjAtjOLBBzdrW+QhA==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.3"
-    "@dhis2/d2-ui-favorites-dialog" "5.0.16"
-    "@dhis2/d2-ui-sharing-dialog" "5.0.16"
-    "@dhis2/d2-ui-translation-dialog" "5.0.16"
+    "@dhis2/d2-ui-favorites-dialog" "5.0.17"
+    "@dhis2/d2-ui-sharing-dialog" "5.0.17"
+    "@dhis2/d2-ui-translation-dialog" "5.0.17"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     prop-types "^15.6.0"
 
-"@dhis2/d2-ui-interpretations@5.0.16":
-  version "5.0.16"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-interpretations/-/d2-ui-interpretations-5.0.16.tgz#942d993bcbfd6a27a30af96b75b50c15ddc6748f"
-  integrity sha512-dbiRu8KHgkTbEMrmcAE3qLIU5B811lC5VfmvhuCKgosk4ezRk9ft3oPjgkonkVHvo3UII4aVXKz2UXJJyWp72A==
+"@dhis2/d2-ui-interpretations@5.0.17":
+  version "5.0.17"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-interpretations/-/d2-ui-interpretations-5.0.17.tgz#36ad153ae284546b949c2bb49a7beb6c1f78f5ee"
+  integrity sha512-yptBDdcn+S79tUYFw5bJFig1IoKyZM9IuCM3N7qev+eiOSDpKLPcm1eUMcMHQm9m8tA5GULUpF6hOpm/YqNS1Q==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.3"
     "@dhis2/d2-i18n-extract" "^1.0.7"
     "@dhis2/d2-i18n-generate" "^1.0.18"
-    "@dhis2/d2-ui-mentions-wrapper" "5.0.16"
-    "@dhis2/d2-ui-sharing-dialog" "5.0.16"
+    "@dhis2/d2-ui-mentions-wrapper" "5.0.17"
+    "@dhis2/d2-ui-sharing-dialog" "5.0.17"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     babel-runtime "^6.26.0"
@@ -234,43 +234,43 @@
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
-"@dhis2/d2-ui-mentions-wrapper@5.0.16":
-  version "5.0.16"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-mentions-wrapper/-/d2-ui-mentions-wrapper-5.0.16.tgz#acace9178681f95daa840acb19376284f0d8bd41"
-  integrity sha512-Z8oaPkrZXVom/GTKLc0TqSu7q9BhsYvBWpRkujvjheonPh2s2IEW3uxLza9PEm85uJkAuFayvk9iwM8hgQShEg==
+"@dhis2/d2-ui-mentions-wrapper@5.0.17":
+  version "5.0.17"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-mentions-wrapper/-/d2-ui-mentions-wrapper-5.0.17.tgz#515a4a8433ce20dc339a74cd41d382910458af00"
+  integrity sha512-Hk2Ett7zFn7raLIlruqQcLYCkNkV58dIVqRX/ewPrzEH/OxRUMXaexKvnrefm0sTRXXUnQ29dCMb0TzgyDYUDg==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.3"
     "@material-ui/core" "^3.3.1"
     lodash "^4.17.10"
     prop-types "^15.6.2"
 
-"@dhis2/d2-ui-org-unit-dialog@5.0.16":
-  version "5.0.16"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-dialog/-/d2-ui-org-unit-dialog-5.0.16.tgz#7c75fdbb49ddcae7d9aa8d341f45c47d0811ac67"
-  integrity sha512-/h4dr3QAzFbq6phUGFuXVleDqxjSzx+5RZ0TP15ksPdxv4Y3fmtAKraaQ5hNe/6oNZ974TJpLdAFj3KeQDY1bA==
+"@dhis2/d2-ui-org-unit-dialog@5.0.17":
+  version "5.0.17"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-dialog/-/d2-ui-org-unit-dialog-5.0.17.tgz#c7d1bc54c85f43ca9ad96c3e64c932eda396e4fe"
+  integrity sha512-0FvpOlKJ9QXqzRt1yB2jBApetxDcyJ7pb71qiXi0wL+WkY4xSGR/n+R+ngHlQTcHSM5TrMk7Gl1ZUfF0zNUSPQ==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.3"
-    "@dhis2/d2-ui-org-unit-tree" "5.0.16"
+    "@dhis2/d2-ui-org-unit-tree" "5.0.17"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     prop-types "^15.5.10"
 
-"@dhis2/d2-ui-org-unit-tree@5.0.16":
-  version "5.0.16"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-tree/-/d2-ui-org-unit-tree-5.0.16.tgz#55bee3f875e635425ce99805753748ef532d5448"
-  integrity sha512-PAI1k3xzl8BU/2zVK7uZt1sCKGC2HJNPvx8q5UNdhb8Nwjw6y7ummH/6j6QumY6vlbFKGxgyiHLZ+UDh8gnspA==
+"@dhis2/d2-ui-org-unit-tree@5.0.17":
+  version "5.0.17"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-tree/-/d2-ui-org-unit-tree-5.0.17.tgz#7c90ca990d7e6b2926889d58b9f1ff0db9fc3f4e"
+  integrity sha512-kL5xS3rkwQFcD34rp+c9GfDeMmWhvHuJ2NdS8RHdbNz4SCv65TyR01ZxknvBmLWLQebgkYQbFfrB49IXk0tX7g==
   dependencies:
-    "@dhis2/d2-ui-core" "5.0.16"
+    "@dhis2/d2-ui-core" "5.0.17"
     "@material-ui/core" "^3.3.1"
     babel-runtime "^6.26.0"
     prop-types "^15.5.10"
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
-"@dhis2/d2-ui-period-selector-dialog@5.0.16":
-  version "5.0.16"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-period-selector-dialog/-/d2-ui-period-selector-dialog-5.0.16.tgz#651a297a0bffe3c01d6a1580d412b8fe5db83ab9"
-  integrity sha512-CkcN3r6a339baOHMgeVCbLmUGeI1n/5xnLNX8H9pWr+rPeh66uOq7EG10vtTMj6ZjVXzqrEaivd869BY5PREHQ==
+"@dhis2/d2-ui-period-selector-dialog@5.0.17":
+  version "5.0.17"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-period-selector-dialog/-/d2-ui-period-selector-dialog-5.0.17.tgz#6d205a8cdff7208112895090ad8a104bf9452ca8"
+  integrity sha512-0xDOm2UheX2Eo7BCOVRPLUxzdap05Mynb5ZOFFgFK1H2/IZS7r+WbcWLR1R4mYdOU0V1CrJL5nfKR7fkc/5Atw==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@material-ui/core" "^3.3.1"
@@ -282,12 +282,12 @@
     react-sortable-hoc "^0.8.4"
     redux "^4.0.1"
 
-"@dhis2/d2-ui-sharing-dialog@5.0.16":
-  version "5.0.16"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-sharing-dialog/-/d2-ui-sharing-dialog-5.0.16.tgz#e5a5c838a97bdb1e6af3cfa0d5f5b03814665102"
-  integrity sha512-gQeUUEqfuW0LY44LSC+gk8NA7qlZoKRYqN7fuhCq5UjuZNIaFQYHxXeO3gt5Y6CWsn/blWPZ5q4/XfwFtXlRNA==
+"@dhis2/d2-ui-sharing-dialog@5.0.17":
+  version "5.0.17"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-sharing-dialog/-/d2-ui-sharing-dialog-5.0.17.tgz#5ebaf68ceb880ce93e590759b42a4685711d35f5"
+  integrity sha512-INXps47cN4O0gAI3mknzQmKobSV0xCbSPvW93OKLNgdgOjU+ElVHnTfdQtv8uVl4WLQEzMAZ27jFEju6MqtXww==
   dependencies:
-    "@dhis2/d2-ui-core" "5.0.16"
+    "@dhis2/d2-ui-core" "5.0.17"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     babel-runtime "^6.26.0"
@@ -296,12 +296,12 @@
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
-"@dhis2/d2-ui-translation-dialog@5.0.16":
-  version "5.0.16"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-translation-dialog/-/d2-ui-translation-dialog-5.0.16.tgz#f67fd1b654d91dc4dc60c0a347b108bff1fdfca6"
-  integrity sha512-Oqt70kkWSR+J62JfLCdNMfLwmzMCP9XJd239ipQT19mzgVJrBz/wBhavPLe8+zc5wgoHAR7fk+kvk/LsBotmeA==
+"@dhis2/d2-ui-translation-dialog@5.0.17":
+  version "5.0.17"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-translation-dialog/-/d2-ui-translation-dialog-5.0.17.tgz#8a41d634ab7fc25bd9a7eae90c6fe55c4dfdd652"
+  integrity sha512-CZaffSHfNMrHRwISBqod4Fm/0tzP5qsbOLGA4REWfndPn3ue/O+dfDq0l4wqA76K1Mxiu3Vt0/9uxbR1jXZpEQ==
   dependencies:
-    "@dhis2/d2-ui-core" "5.0.16"
+    "@dhis2/d2-ui-core" "5.0.17"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     babel-runtime "^6.26.0"
@@ -2970,14 +2970,14 @@ caniuse-api@^1.5.2:
     lodash.uniq "^4.5.0"
 
 caniuse-db@^1.0.30000529, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
-  version "1.0.30000914"
-  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000914.tgz#5df1edfb2407dd857bf33e7f346514316c7b9fa3"
-  integrity sha512-UbjlrZOQowyqrPwFKFPZ4M7LngssN5FyWpvzuFKYiQoZD8J+bPYU4s0rSiKPTzFzDYNEP9w5E5+MQj3+TqW+gA==
+  version "1.0.30000916"
+  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000916.tgz#44556ba3f7360a4e103950fc58cc98b74d253da1"
+  integrity sha512-XuMzGxlFYXDEm+e/6ti7ThqQki/hRXHw4aaFMQXtFHYoj2XNn92zZ5aH75AADfQ1tnXoZTOvS2+NbaaWWPypIw==
 
 caniuse-lite@^1.0.30000792, caniuse-lite@^1.0.30000844, caniuse-lite@^1.0.30000878, caniuse-lite@^1.0.30000912:
-  version "1.0.30000914"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000914.tgz#f802b4667c24d0255f54a95818dcf8e1aa41f624"
-  integrity sha512-qqj0CL1xANgg6iDOybiPTIxtsmAnfIky9mBC35qgWrnK4WwmhqfpmkDYMYgwXJ8LRZ3/2jXlCntulO8mBaAgSg==
+  version "1.0.30000916"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000916.tgz#3428d3f529f0a7b2bfaaec65e796037bdd433aab"
+  integrity sha512-D6J9jloPm2MPkg0PXcODLMQAJKkeixKO9xhqTUMvtd44MtTYMyyDXPQ2Lk9IgBq5FH0frwiPa/N/w8ncQf7kIQ==
 
 capture-exit@^1.2.0:
   version "1.2.0"
@@ -8747,9 +8747,9 @@ node-pre-gyp@^0.10.0:
     tar "^4"
 
 node-releases@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.0.5.tgz#a641adcc968b039a27345d92ef10b093e5cbd41d"
-  integrity sha512-Ky7q0BO1BBkG/rQz6PkEZ59rwo+aSfhczHP1wwq8IowoVdN/FpiP7qp0XW0P2+BVCWe5fQUBozdbVd54q1RbCQ==
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.0.tgz#be7464fa8d877808237520fd49436d5e79191c3d"
+  integrity sha512-+qV91QMDBvARuPxUEfI/mRF/BY+UAkTIn3pvmvM2iOLIRvv6RNYklFXBgrkky6P1wXUqQW1P3qKlWxxy4JZbfg==
   dependencies:
     semver "^5.3.0"
 
@@ -9923,9 +9923,9 @@ process@^0.11.10:
   integrity sha1-czIwDoQBYb2j5podHZGn1LwW8YI=
 
 progress@^2.0.0:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.2.tgz#db9476f916bcc9ebe8a04efb22b18b0740376c61"
-  integrity sha512-/OLz5F9beZUWwSHZDreXgap1XShX6W+DCHQCqwCF7uZ88s6uTlD2cR3JBE77SegCmNtb1Idst+NfmwcdU6KVhw==
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
+  integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
 promise-inflight@^1.0.1:
   version "1.0.1"
@@ -11425,9 +11425,9 @@ source-map@^0.7.2:
   integrity sha512-CkCj6giN3S+n9qrYiBTX5gystlENnRW5jZeNLHpe6aue+SrHcG5VYwujhW9s4dY31mEGsxBDrHR6oI69fTXsaQ==
 
 spdx-correct@^3.0.0:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/spdx-correct/-/spdx-correct-3.0.2.tgz#19bb409e91b47b1ad54159243f7312a858db3c2e"
-  integrity sha512-q9hedtzyXHr5S0A1vEPoK/7l8NpfkFYTq6iCY+Pno2ZbdZR6WexZFtqeVGkGxW3TEJMN914Z55EnAGMmenlIQQ==
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/spdx-correct/-/spdx-correct-3.1.0.tgz#fb83e504445268f154b074e218c87c003cd31df4"
+  integrity sha512-lr2EZCctC2BNR7j7WzJ2FpDznxky1sjfxvvYEyzxNyb6lZXHODmEoJeFu4JupYlkfha1KZpJyoqiJ7pgA1qq8Q==
   dependencies:
     spdx-expression-parse "^3.0.0"
     spdx-license-ids "^3.0.0"
