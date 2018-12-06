@@ -5,4 +5,8 @@ export default {
     rangeAxisMin: {
         paddingRight: '15px',
     },
+    axisFormGroup: {
+        height: '325px',
+        justifyContent: 'space-around',
+    },
 };
