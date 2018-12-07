@@ -31,6 +31,10 @@ export default {
     },
     axisFormGroup: {
         height: '325px',
+        justifyContent: 'space-around',
+    },
+    titleFormGroup: {
+        marginBottom: '12px',
     },
     checkboxRoot: {
         position: 'relative',
