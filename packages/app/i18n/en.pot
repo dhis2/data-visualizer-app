@@ -5,28 +5,13 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-11-02T15:49:23.599Z\n"
-"PO-Revision-Date: 2018-11-02T15:49:23.599Z\n"
+"POT-Creation-Date: 2018-12-05T13:37:06.230Z\n"
+"PO-Revision-Date: 2018-12-05T13:37:06.230Z\n"
 
 msgid "Rename successful"
 msgstr ""
 
 msgid "\"{{what}}\" successfully deleted."
-msgstr ""
-
-msgid "Reporting rates"
-msgstr ""
-
-msgid "Reporting rates on time"
-msgstr ""
-
-msgid "Actual reports"
-msgstr ""
-
-msgid "Actual reporting rates on time"
-msgstr ""
-
-msgid "Expected reports"
 msgstr ""
 
 msgid "Data Visualizer"
@@ -44,43 +29,25 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-msgid "Selected Data"
-msgstr ""
-
-msgid "DESELECT ALL"
-msgstr ""
-
-msgid "SELECT ALL"
-msgstr ""
-
-msgid "HIDE"
-msgstr ""
-
-msgid "UPDATE"
-msgstr ""
-
-msgid "Add to series"
-msgstr ""
-
-msgid "Add to category"
-msgstr ""
-
-msgid "Add to filter"
-msgstr ""
-
-msgid "Search Dimensions"
-msgstr ""
-
 msgid "Organisation units"
 msgstr ""
 
-msgid "Hide"
-msgstr ""
-
-msgid "Update"
-msgstr ""
-
 msgid "Period"
+msgstr ""
+
+msgid "Selected Data"
+msgstr ""
+
+msgid "Deselect All"
+msgstr ""
+
+msgid "Select All"
+msgstr ""
+
+msgid "Remove"
+msgstr ""
+
+msgid "Search dimensions"
 msgstr ""
 
 msgid "Dimension recommended with selected data"
@@ -104,13 +71,37 @@ msgstr ""
 msgid "Advanced"
 msgstr ""
 
-msgid "Meta-data ID scheme"
+msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "Data value set"
 msgstr ""
 
 msgid "Other formats"
+msgstr ""
+
+msgid "An error occurred in the DHIS2 Data Visualizer application."
+msgstr ""
+
+msgid "Something went wrong"
+msgstr ""
+
+msgid "Refresh to try again"
+msgstr ""
+
+msgid "Hide technical details"
+msgstr ""
+
+msgid "Show technical details"
+msgstr ""
+
+msgid "The following information may be requested by technical support."
+msgstr ""
+
+msgid "Hide"
+msgstr ""
+
+msgid "Interpretations"
 msgstr ""
 
 msgid "selected"
@@ -128,16 +119,25 @@ msgstr ""
 msgid "Move to"
 msgstr ""
 
-msgid "Remove"
+msgid "None selected"
 msgstr ""
 
-msgid "None selected"
+msgid "Unsaved chart"
+msgstr ""
+
+msgid "Edited"
+msgstr ""
+
+msgid "Viewing interpretation from {{interpretationDate}}"
+msgstr ""
+
+msgid "Update"
 msgstr ""
 
 msgid "Chart error"
 msgstr ""
 
-msgid "Could not generate chart"
+msgid "There is a problem with your chart"
 msgstr ""
 
 msgid "Aggregation type"
@@ -323,6 +323,21 @@ msgstr ""
 msgid "Year over year (column)"
 msgstr ""
 
+msgid "Reporting rate"
+msgstr ""
+
+msgid "Reporting rate on time"
+msgstr ""
+
+msgid "Actual reports"
+msgstr ""
+
+msgid "Actual reports on time"
+msgstr ""
+
+msgid "Expected reports"
+msgstr ""
+
 msgid "Indicators"
 msgstr ""
 
@@ -359,13 +374,34 @@ msgstr ""
 msgid "Event data items"
 msgstr ""
 
-msgid "Select program"
+msgid "Program"
+msgstr ""
+
+msgid "Select Program"
 msgstr ""
 
 msgid "Program indicators"
 msgstr ""
 
 msgid "Organisation Unit"
+msgstr ""
+
+msgid "Add to series"
+msgstr ""
+
+msgid "Add to category"
+msgstr ""
+
+msgid "Add to filter"
+msgstr ""
+
+msgid "series"
+msgstr ""
+
+msgid "category"
+msgstr ""
+
+msgid "filter"
 msgstr ""
 
 msgid "Today"

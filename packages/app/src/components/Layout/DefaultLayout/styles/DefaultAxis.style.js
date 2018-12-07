@@ -11,6 +11,9 @@ export default {
         borderWidth: layoutStyle.AXIS_BORDER_WIDTH,
         padding: layoutStyle.AXIS_PADDING,
     },
+    axisContainerLeft: {
+        borderLeftWidth: 0,
+    },
     label: {
         minWidth: 55,
         maxWidth: 55,
@@ -18,6 +21,7 @@ export default {
         fontSize: 11,
         color: colors.greyDark,
         userSelect: 'none',
+        letterSpacing: '0.2px',
     },
     content: {
         display: 'flex',

@@ -8,6 +8,7 @@ import {
 import * as fromVisualization from './visualization';
 import * as fromCurrent from './current';
 import * as fromDimensions from './dimensions';
+import * as fromRecommended from './recommendedIds';
 import * as fromUi from './ui';
 import * as fromMetadata from './metadata';
 import * as fromSettings from './settings';
@@ -18,6 +19,7 @@ import * as fromLoader from './loader';
 
 import { sGetCurrent } from '../reducers/current';
 import { sGetVisualization } from '../reducers/visualization';
+import { sGetRootOrgUnit, sGetRelativePeriod } from '../reducers/settings';
 
 import history from '../modules/history';
 
@@ -25,6 +27,7 @@ export {
     fromVisualization,
     fromCurrent,
     fromDimensions,
+    fromRecommended,
     fromUi,
     fromMetadata,
     fromSettings,
@@ -41,36 +44,53 @@ export const onError = (action, error) => {
 
 // visualization, current, ui
 
-export const tDoLoadVisualization = (type, id, settings) => async (
+export const tDoLoadVisualization = (type, id, interpretationId) => async (
     dispatch,
     getState
 ) => {
     const onSuccess = model => {
         const visualization = model.toJSON();
 
-        dispatch(fromLoader.acClearLoadError());
+        if (interpretationId) {
+            const interpretation = visualization.interpretations.find(
+                i => i.id === interpretationId
+            );
+
+            if (interpretation) {
+                dispatch(fromUi.acSetUiInterpretation(interpretation));
+                dispatch(fromUi.acOpenUiRightSidebar());
+            }
+        }
+
         dispatch(fromVisualization.acSetVisualization(visualization));
         dispatch(fromCurrent.acSetCurrent(visualization));
         dispatch(fromUi.acSetUiFromVisualization(visualization));
+        dispatch(fromLoader.acClearLoadError());
     };
 
     try {
         return onSuccess(await apiFetchVisualization(type, id));
     } catch (error) {
-        dispatch(fromLoader.acSetLoadError(error));
-        dispatch(fromVisualization.acClear());
-        dispatch(fromCurrent.acClear());
-        dispatch(fromUi.acClear());
+        clearVisualization(dispatch, getState, error);
 
         return onError('tDoLoadVisualization', error);
     }
 };
 
-export const clearVisualization = (dispatch, settings) => {
-    dispatch(fromLoader.acClearLoadError());
+export const clearVisualization = (dispatch, getState, error = null) => {
+    if (error) {
+        dispatch(fromLoader.acSetLoadError(error));
+    } else {
+        dispatch(fromLoader.acClearLoadError());
+    }
+
     dispatch(fromVisualization.acClear());
     dispatch(fromCurrent.acClear());
-    dispatch(fromUi.acClear(settings));
+
+    const rootOrganisationUnit = sGetRootOrgUnit(getState());
+    const relativePeriod = sGetRelativePeriod(getState());
+
+    dispatch(fromUi.acClear({ rootOrganisationUnit, relativePeriod }));
 };
 
 export const tDoRenameVisualization = (type, { name, description }) => (
@@ -163,4 +183,17 @@ export const tDoDeleteVisualization = () => (dispatch, getState) => {
     );
 
     history.push('/');
+};
+
+// snackbar
+export const tDoCloseSnackbar = () => (dispatch, getState) => {
+    dispatch(
+        fromSnackbar.acReceivedSnackbarMessage({
+            open: false,
+        })
+    );
+
+    // wait for the animation to complete to avoid
+    // "flashing" of the snackbar
+    setTimeout(() => dispatch(fromSnackbar.acCloseSnackbar()), 250);
 };

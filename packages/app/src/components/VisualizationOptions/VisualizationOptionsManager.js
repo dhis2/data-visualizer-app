@@ -1,13 +1,16 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import { withStyles } from '@material-ui/core/styles';
 import i18n from '@dhis2/d2-i18n';
 
 import UpdateButton from '../UpdateButton/UpdateButton';
 import VisualizationOptions from './VisualizationOptions';
+import styles from './styles/VisualizationOptions.style';
 
 class VisualizationOptionsManager extends Component {
     constructor(props) {
@@ -30,22 +33,24 @@ class VisualizationOptionsManager extends Component {
         return (
             <Fragment>
                 <Button
+                    className={this.props.className}
                     onClick={this.toggleVisualizationOptionsDialog}
-                    style={this.props.labelStyle}
                 >
                     {i18n.t('Options')}
                 </Button>
                 <Dialog
                     open={this.state.dialogIsOpen}
                     onClose={this.onClose}
-                    fullWidth={true}
+                    maxWidth="md"
                 >
                     <DialogTitle>{i18n.t('Chart options')}</DialogTitle>
-                    <DialogContent>
+                    <DialogContent className={this.props.classes.dialogContent}>
                         <VisualizationOptions />
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={this.onClose}>{i18n.t('Hide')}</Button>
+                        <Button color="primary" onClick={this.onClose}>
+                            {i18n.t('Hide')}
+                        </Button>
                         <UpdateButton onClick={this.onClose} />
                     </DialogActions>
                 </Dialog>
@@ -54,4 +59,9 @@ class VisualizationOptionsManager extends Component {
     }
 }
 
-export default VisualizationOptionsManager;
+VisualizationOptionsManager.propTypes = {
+    classes: PropTypes.object.isRequired,
+    className: PropTypes.string,
+};
+
+export default withStyles(styles)(VisualizationOptionsManager);

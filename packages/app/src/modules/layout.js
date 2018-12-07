@@ -1,9 +1,11 @@
 import pick from 'lodash-es/pick';
+import i18n from '@dhis2/d2-i18n';
 
 // Prop names for analytical object axes
 export const AXIS_NAME_COLUMNS = 'columns';
 export const AXIS_NAME_ROWS = 'rows';
 export const AXIS_NAME_FILTERS = 'filters';
+export const SOURCE_DIMENSIONS = 'dimensions';
 
 export const AXIS_NAMES = [
     AXIS_NAME_COLUMNS,
@@ -14,6 +16,19 @@ export const AXIS_NAMES = [
 // Prop names for dimension id and items
 export const DIMENSION_ID_PROP_NAME = 'dimension';
 export const DIMENSION_ITEMS_PROP_NAME = 'items';
+
+// Keys and displayName for adding dimensions to layout
+export const ADD_TO_LAYOUT_OPTIONS = [
+    { axisKey: 'columns', name: i18n.t('Add to series') },
+    { axisKey: 'rows', name: i18n.t('Add to category') },
+    { axisKey: 'filters', name: i18n.t('Add to filter') },
+];
+
+export const menuLabels = {
+    columns: i18n.t('series'),
+    rows: i18n.t('category'),
+    filters: i18n.t('filter'),
+};
 
 // Layout utility functions
 
@@ -34,7 +49,6 @@ export const getAllDimensions = visualization =>
 // Exclude one or many dimensions from layout
 export const getFilteredLayout = (layout, excludedIds) => {
     const ids = Array.isArray(excludedIds) ? excludedIds : [excludedIds];
-
     return {
         [AXIS_NAME_COLUMNS]: layout[AXIS_NAME_COLUMNS].filter(
             dim => !ids.includes(dim)

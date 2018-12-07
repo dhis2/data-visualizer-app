@@ -9,13 +9,21 @@ import { YEAR_OVER_YEAR_LINE } from '../../../modules/chartTypes';
 
 jest.mock('d2-charts-api');
 
-const metaDataMock = ['a', 'b'];
+const metaDataMock = {
+    items: {
+        a: { name: 'a dim' },
+        b: { name: 'b dim' },
+        p1: { name: 'period 1 1979' },
+        p2: { name: 'period 2 1979' },
+    },
+    dimensions: {
+        pe: ['p1', 'p2'],
+    },
+};
 class MockAnalyticsResponse {
     constructor() {
         return {
-            metaData: {
-                items: metaDataMock,
-            },
+            metaData: metaDataMock,
         };
     }
 }
@@ -26,9 +34,7 @@ class MockYoYAnalyticsResponse {
         return {
             responses: [
                 {
-                    metaData: {
-                        items: metaDataMock,
-                    },
+                    metaData: metaDataMock,
                 },
             ],
             yearlySeriesLabels: mockYoYSeriesLabels,
@@ -59,6 +65,8 @@ describe('Visualization', () => {
     beforeEach(() => {
         props = {
             current: {},
+            interpretation: {},
+            rightSidebarOpen: false,
             acAddMetadata: jest.fn(),
             acSetChart: jest.fn(),
             acSetLoading: jest.fn(),
@@ -101,7 +109,9 @@ describe('Visualization', () => {
 
             setTimeout(() => {
                 expect(props.acAddMetadata).toHaveBeenCalled();
-                expect(props.acAddMetadata).toHaveBeenCalledWith(metaDataMock);
+                expect(props.acAddMetadata).toHaveBeenCalledWith(
+                    metaDataMock.items
+                );
                 done();
             });
         });
@@ -145,6 +155,23 @@ describe('Visualization', () => {
             });
         });
 
+        it('sets period when interpretation selected', done => {
+            const period = 'eons ago';
+            props.interpretation.created = period;
+
+            canvas();
+
+            setTimeout(() => {
+                expect(api.apiFetchAnalytics).toHaveBeenCalled();
+                expect(api.apiFetchAnalytics.mock.calls[0][1]).toHaveProperty(
+                    'relativePeriodDate',
+                    period
+                );
+
+                done();
+            });
+        });
+
         describe('Year-on-year chart', () => {
             beforeEach(() => {
                 props.current = {
@@ -152,7 +179,7 @@ describe('Visualization', () => {
                     option1: 'def',
                 };
 
-                api.apiFetchAnalyticsForYearOnYear = jest
+                api.apiFetchAnalyticsForYearOverYear = jest
                     .fn()
                     .mockResolvedValue(new MockYoYAnalyticsResponse());
             });
@@ -162,10 +189,10 @@ describe('Visualization', () => {
 
                 setTimeout(() => {
                     expect(
-                        api.apiFetchAnalyticsForYearOnYear
+                        api.apiFetchAnalyticsForYearOverYear
                     ).toHaveBeenCalled();
                     expect(
-                        api.apiFetchAnalyticsForYearOnYear.mock.calls[0][1]
+                        api.apiFetchAnalyticsForYearOverYear.mock.calls[0][1]
                     ).toEqual({
                         option1: 'def',
                     });
@@ -182,6 +209,7 @@ describe('Visualization', () => {
 
                     const expectedExtraOptions = {
                         yearlySeries: mockYoYSeriesLabels,
+                        xAxisLabels: ['period 1', 'period 2'],
                     };
 
                     expect(chartsApi.createChart.mock.calls[0][3]).toEqual(
@@ -208,6 +236,27 @@ describe('Visualization', () => {
                 expect(props.acSetLoadError).toHaveBeenCalled();
                 done();
             });
+        });
+    });
+
+    describe('chart reflow', () => {
+        const recreateChartFn = jest.fn();
+
+        const vis = canvas();
+
+        vis.instance().recreateChart = recreateChartFn;
+
+        it('triggers a reflow when rightSidebarOpen prop changes', () => {
+            // simulate prevProps ?!
+            vis.setProps(props);
+
+            vis.setProps({ ...props, rightSidebarOpen: true });
+
+            expect(recreateChartFn).toHaveBeenCalled();
+
+            vis.setProps({ ...props, rightSidebarOpen: false });
+
+            expect(recreateChartFn).toHaveBeenCalled();
         });
     });
 });

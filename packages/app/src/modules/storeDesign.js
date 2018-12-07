@@ -7,8 +7,8 @@ const state = {
     visualization: null,
 
     // Object containing the source of the currently shown visualization
-    // Init state: {}
-    current: {},
+    // Init state: null
+    current: null,
 
     // Object {id:dimension} of dimensions to show in left panel
     // Init state: null
@@ -37,8 +37,8 @@ const state = {
             pe: ['LAST_12_MONTHS'], // Initialised by https://play.dhis2.org/2.30/api/systemSettings.json?key=keyAnalysisRelativePeriod
             ou: ['USER_ORGUNIT'],
         },
-        yearOnYearSeries: 'LAST_5_YEARS',
-        yearOnYearCategory: 'LAST_12_MONTHS',
+        yearOverYearSeries: 'LAST_5_YEARS',
+        yearOverYearCategory: 'LAST_12_MONTHS',
     },
 
     // Object containing all fetched metadata for lookup

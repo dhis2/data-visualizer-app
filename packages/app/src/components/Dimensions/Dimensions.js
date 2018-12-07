@@ -1,51 +1,36 @@
 import React, { Component } from 'react';
-import TextField from '@material-ui/core/TextField';
-import Search from '@material-ui/icons/Search';
 import i18n from '@dhis2/d2-i18n';
+import DialogManager from './Dialogs/DialogManager';
+import Filter from '../Filter/Filter';
 import DimensionList from './DimensionList';
-import { DialogManager } from './DialogManager';
 import { styles } from './styles/Dimensions.style';
 
-const SEARCHFIELD_PLACEHOLDER = i18n.t('Search Dimensions');
-
 export class Dimensions extends Component {
-    state = { searchText: '', dialogDimId: null };
+    state = { filterText: '' };
 
-    handleChange = event => {
-        this.setState({ searchText: event.target.value });
+    onClearFilter = () => {
+        this.setState({ filterText: '' });
     };
 
-    toggleDialog = value => {
-        console.log('toggleDialog', value);
-
-        this.setState({
-            dialogDimId: value,
-        });
+    onFilterTextChange = filterText => {
+        this.setState({ filterText });
     };
 
-    render = () => {
+    render() {
         return (
-            <div className={'dimensions'} style={styles.divContainer}>
-                <DialogManager
-                    dialogIsOpen={!!this.state.dialogDimId}
-                    id={this.state.dialogDimId}
-                    toggleDialog={this.toggleDialog}
-                />
-                <TextField
+            <div style={styles.divContainer}>
+                <DialogManager />
+                <Filter
                     style={styles.textField}
-                    onChange={this.handleChange}
-                    placeholder={SEARCHFIELD_PLACEHOLDER}
-                    InputProps={{
-                        startAdornment: <Search style={styles.searchIcon} />,
-                    }}
+                    placeholder={i18n.t('Search dimensions')}
+                    text={this.state.filterText}
+                    onChange={this.onFilterTextChange}
+                    onClear={this.onClearFilter}
                 />
-                <DimensionList
-                    searchText={this.state.searchText}
-                    toggleDialog={this.toggleDialog}
-                />
+                <DimensionList filterText={this.state.filterText} />
             </div>
         );
-    };
+    }
 }
 
 export default Dimensions;

@@ -1,34 +1,8 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import { colors } from './colors';
+import dhis2theme from '@dhis2/d2-ui-core/theme/mui3.theme';
 
-export const muiTheme = () => {
-    const raisedButton = {
-        root: {
-            flatPrimary: colors.royalBlue,
-        },
-        disabled: {
-            flatPrimary: colors.paleBlue,
-            color: colors.lightMediumGrey,
-        },
-    };
-
-    const selectField = {
-        select: {
-            '&:focus': {
-                background: '$labelcolor',
-            },
-        },
-    };
-
-    const theme = createMuiTheme({
-        overrides: {
-            MuiButton: raisedButton,
-            MuiSelect: selectField,
-        },
-        typography: {
-            useNextVariants: true,
-        },
-    });
-
-    return theme;
+export const theme = {
+    ...dhis2theme,
 };
+
+export default createMuiTheme(theme);

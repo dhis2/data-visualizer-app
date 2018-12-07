@@ -11,6 +11,8 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import ImageIcon from '@material-ui/icons/Image';
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
+import ListIcon from '@material-ui/icons/List';
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 
 import i18n from '@dhis2/d2-i18n';
 
@@ -89,11 +91,11 @@ export class DownloadMenu extends Component {
         return (
             <Fragment>
                 <Button
+                    className={this.props.className}
                     onClick={event => this.toggleMenu(event.currentTarget)}
                     disableRipple={true}
                     disableFocusRipple={true}
-                    style={this.props.labelStyle}
-                    disabled={!Boolean(Object.keys(this.props.current).length)}
+                    disabled={!Boolean(this.props.current)}
                 >
                     {i18n.t('Download')}
                 </Button>
@@ -133,7 +135,10 @@ export class DownloadMenu extends Component {
                             )
                         }
                     >
-                        JSON
+                        <ListItemIcon>
+                            <ListIcon />
+                        </ListItemIcon>
+                        <ListItemText>JSON</ListItemText>
                         <ArrowRightIcon style={styles.arrowIcon} />
                     </MenuItem>
                     <MenuItem
@@ -145,7 +150,10 @@ export class DownloadMenu extends Component {
                             )
                         }
                     >
-                        XML
+                        <ListItemIcon>
+                            <ListIcon />
+                        </ListItemIcon>
+                        <ListItemText>XML</ListItemText>
                         <ArrowRightIcon style={styles.arrowIcon} />
                     </MenuItem>
                     <MenuItem
@@ -157,7 +165,10 @@ export class DownloadMenu extends Component {
                             )
                         }
                     >
-                        Excel
+                        <ListItemIcon>
+                            <ListIcon />
+                        </ListItemIcon>
+                        <ListItemText>Excel</ListItemText>
                         <ArrowRightIcon style={styles.arrowIcon} />
                     </MenuItem>
                     <MenuItem
@@ -169,7 +180,10 @@ export class DownloadMenu extends Component {
                             )
                         }
                     >
-                        CSV
+                        <ListItemIcon>
+                            <ListIcon />
+                        </ListItemIcon>
+                        <ListItemText>CSV</ListItemText>
                         <ArrowRightIcon style={styles.arrowIcon} />
                     </MenuItem>
                     <MenuItem
@@ -177,7 +191,10 @@ export class DownloadMenu extends Component {
                             this.toggleSubmenu('advanced', event.currentTarget)
                         }
                     >
-                        {i18n.t('Advanced')}
+                        <ListItemIcon>
+                            <MoreHorizIcon />
+                        </ListItemIcon>
+                        <ListItemText>{i18n.t('Advanced')}</ListItemText>
                         <ArrowRightIcon style={styles.arrowIcon} />
                     </MenuItem>
                 </Menu>
@@ -189,7 +206,7 @@ export class DownloadMenu extends Component {
                     onClose={event => this.toggleSubmenu('scheme')}
                 >
                     <ListSubheader component="div">
-                        {i18n.t('Meta-data ID scheme')}
+                        {i18n.t('Metadata ID scheme')}
                     </ListSubheader>
                     <MenuItem
                         onClick={this.downloadData(
@@ -259,7 +276,7 @@ export class DownloadMenu extends Component {
 }
 
 DownloadMenu.propTypes = {
-    labelStyle: PropTypes.object,
+    className: PropTypes.string,
     current: PropTypes.object,
     chart: PropTypes.string,
 };

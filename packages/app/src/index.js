@@ -4,6 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { MuiThemeProvider } from '@material-ui/core/styles';
+import 'url-polyfill';
 import history from './modules/history';
 
 import { init as d2Init, config, getUserSettings } from 'd2';
@@ -13,7 +14,7 @@ import configureStore from './configureStore';
 import metadataMiddleware from './middleware/metadata';
 
 import App from './components/App';
-import { muiTheme } from './modules/theme';
+import muiTheme from './modules/theme';
 import { extractUserSettings } from './modules/settings';
 
 const apiObjectName = 'chart';
@@ -22,17 +23,19 @@ const configI18n = async userSettings => {
     const uiLocale = userSettings.uiLocale;
 
     if (uiLocale && uiLocale !== 'en') {
-        config.i18n.sources.add(`./i18n/i18n_module_${uiLocale}.properties`);
+        config.i18n.sources.add(
+            `./i18n_old/i18n_module_${uiLocale}.properties`
+        );
     }
 
-    config.i18n.sources.add('./i18n/i18n_module_en.properties');
+    config.i18n.sources.add('./i18n_old/i18n_module_en.properties');
     i18n.changeLanguage(uiLocale);
 };
 
 const render = (location, baseUrl, d2, userSettings) => {
     ReactDOM.render(
         <Provider store={configureStore(metadataMiddleware)}>
-            <MuiThemeProvider theme={muiTheme()}>
+            <MuiThemeProvider theme={muiTheme}>
                 <App
                     location={location}
                     baseUrl={baseUrl}

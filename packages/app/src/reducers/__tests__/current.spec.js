@@ -90,8 +90,8 @@ describe('reducer: current', () => {
                 [dxId]: ['dxItemId1', 'dxItemId2'],
                 [ouId]: ['ouItemId1', 'ouItemId2'],
             },
-            yearOnYearSeries: ['LAST_5_YEARS'],
-            yearOnYearCategory: ['MONTHS_THIS_YEAR'],
+            yearOverYearSeries: ['LAST_5_YEARS'],
+            yearOverYearCategory: ['MONTHS_THIS_YEAR'],
         };
         const expectedState = {
             ...ui.options,

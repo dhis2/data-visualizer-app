@@ -2,6 +2,7 @@ import React from 'react';
 
 import DefaultAxis from './DefaultAxis';
 import styles from './styles/DefaultLayout.style';
+import defaultAxisStyles from './styles/DefaultAxis.style';
 
 const Layout = () => (
     <div id="layout-ct" style={styles.ct}>
@@ -9,8 +10,20 @@ const Layout = () => (
             id="axis-group-1"
             style={{ ...styles.axisGroup, ...styles.axisGroupLeft }}
         >
-            <DefaultAxis axisName="columns" style={styles.columns} />
-            <DefaultAxis axisName="rows" style={styles.rows} />
+            <DefaultAxis
+                axisName="columns"
+                style={{
+                    ...styles.columns,
+                    ...defaultAxisStyles.axisContainerLeft,
+                }}
+            />
+            <DefaultAxis
+                axisName="rows"
+                style={{
+                    ...styles.rows,
+                    ...defaultAxisStyles.axisContainerLeft,
+                }}
+            />
         </div>
         <div
             id="axis-group-2"

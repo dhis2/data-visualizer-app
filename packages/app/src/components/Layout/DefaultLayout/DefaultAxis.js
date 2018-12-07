@@ -11,9 +11,14 @@ import {
     acRemoveUiLayoutDimensions,
     acSetUiActiveModalDialog,
 } from '../../../actions/ui';
-import { AXIS_NAMES } from '../../../modules/layout';
+import {
+    AXIS_NAMES,
+    SOURCE_DIMENSIONS,
+    menuLabels,
+} from '../../../modules/layout';
 import styles from './styles/DefaultAxis.style';
 import { getAdaptedUiByType } from '../../../modules/ui';
+import { isYearOverYear } from '../../../modules/chartTypes';
 
 const axisLabels = {
     columns: i18n.t('Series'),
@@ -27,16 +32,18 @@ class Axis extends React.Component {
     };
 
     onDrop = e => {
-        const { dimensionId } = decodeDataTransfer(e);
-        e.dataTransfer.clearData();
+        e.preventDefault();
+
+        const { dimensionId, source } = decodeDataTransfer(e);
 
         this.props.onAddDimension({
             [dimensionId]: this.props.axisName,
         });
 
         const items = this.props.itemsByDimension[dimensionId];
+        const hasNoItems = Boolean(!items || !items.length);
 
-        if (!items || !items.length) {
+        if (source === SOURCE_DIMENSIONS && hasNoItems) {
             this.props.onDropWithoutItems(dimensionId);
         }
     };
@@ -46,7 +53,7 @@ class Axis extends React.Component {
             <MenuItem
                 key={`${dimensionId}-to-${key}`}
                 onClick={this.props.getMoveHandler({ [dimensionId]: key })}
-            >{`${i18n.t('Move to')} ${axisLabels[key]}`}</MenuItem>
+            >{`${i18n.t('Move to')} ${menuLabels[key]}`}</MenuItem>
         ));
 
     getRemoveMenuItem = dimensionId => (
@@ -58,8 +65,10 @@ class Axis extends React.Component {
         </MenuItem>
     );
 
+    isMoveSupported = () => !isYearOverYear(this.props.type);
+
     getMenuItems = dimensionId => [
-        ...this.getAxisMenuItems(dimensionId),
+        ...(this.isMoveSupported() ? this.getAxisMenuItems(dimensionId) : []),
         this.getRemoveMenuItem(dimensionId),
     ];
 
@@ -116,6 +125,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     return {
         axis: adaptedUi.layout[ownProps.axisName],
         itemsByDimension: adaptedUi.itemsByDimension,
+        type: adaptedUi.type,
         ...dispatchProps,
         ...ownProps,
     };

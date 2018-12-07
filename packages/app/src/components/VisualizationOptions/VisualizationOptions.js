@@ -7,7 +7,7 @@ import Tab from '@material-ui/core/Tab';
 import i18n from '@dhis2/d2-i18n';
 import DataTab from './DataTab';
 import StyleTab from './StyleTab';
-import AxesAndLegendsTab from './AxesAndLegendsTab';
+import AxisAndLegendTab from './AxisAndLegendTab';
 
 const styles = {
     tabsBar: {
@@ -49,13 +49,13 @@ export class VisualizationOptions extends Component {
                         <Tab className={classes.tab} label={i18n.t('Data')} />
                         <Tab
                             className={classes.tab}
-                            label={i18n.t('Axes & legend')}
+                            label={i18n.t('Axis & legend')}
                         />
                         <Tab className={classes.tab} label={i18n.t('Style')} />
                     </Tabs>
                 </AppBar>
                 {activeTab === 0 && <DataTab />}
-                {activeTab === 1 && <AxesAndLegendsTab />}
+                {activeTab === 1 && <AxisAndLegendTab />}
                 {activeTab === 2 && <StyleTab />}
             </Fragment>
         );

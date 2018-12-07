@@ -7,6 +7,7 @@ export const DEFAULT_SETTINGS = {
     keyAnalysisDigitGroupSeparator: 'SPACE',
     displayNameProperty: 'displayName',
     uiLocale: 'en',
+    rootOrganisationUnit: {},
 };
 
 export default (state = DEFAULT_SETTINGS, action) => {
@@ -28,5 +29,14 @@ export default (state = DEFAULT_SETTINGS, action) => {
 // Selectors
 
 export const sGetSettings = state => state.settings;
-export const sGetDisplayNameProperty = state =>
+
+export const sGetSettingsDisplayNameProperty = state =>
     sGetSettings(state).displayNameProperty;
+
+export const sGetRootOrgUnit = state =>
+    sGetSettings(state).rootOrganisationUnit;
+
+export const sGetRelativePeriod = state =>
+    sGetSettings(state).keyAnalysisRelativePeriod;
+
+export const sGetUiLocale = state => sGetSettings(state).uiLocale;

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
@@ -11,7 +11,7 @@ import VisualizationTypeIcon from './VisualizationTypeIcon';
 import { chartTypeDisplayNames } from '../../modules/chartTypes';
 import { sGetUiType } from '../../reducers/ui';
 import { acSetUiType } from '../../actions/ui';
-import { colors } from '../../modules/colors';
+import styles from './styles/VisualizationTypeSelector.style';
 
 export class VisualizationTypeSelector extends Component {
     state = {
@@ -36,25 +36,18 @@ export class VisualizationTypeSelector extends Component {
         const { visualizationType } = this.props;
 
         return (
-            <div className="visualization-type-selector">
+            <Fragment>
                 <Button
                     onClick={this.handleButtonClick}
                     disableRipple
                     disableFocusRipple
                     fullWidth={true}
                     size="small"
-                    style={{
-                        padding: '8px',
-                        color: colors.black,
-                        fontSize: '15px',
-                        textTransform: 'none',
-                        fontWeight: 'normal',
-                        backgroundColor: colors.white,
-                    }}
+                    style={styles.button}
                 >
                     <VisualizationTypeIcon type={visualizationType} />
                     {chartTypeDisplayNames[visualizationType]}
-                    <ArrowDropDownIcon style={{ marginLeft: 'auto' }} />
+                    <ArrowDropDownIcon style={styles.dropDownArrow} />
                 </Button>
                 <Menu
                     open={Boolean(anchorEl)}
@@ -62,52 +55,33 @@ export class VisualizationTypeSelector extends Component {
                     anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
                     onClose={this.handleClose}
                     getContentAnchorEl={null}
-                    style={{
-                        maxWidth: 632,
-                        borderRadius: 0,
+                    MenuListProps={{
+                        style: styles.menu,
                     }}
-                    MenuListProps={{ style: { overflow: 'auto', padding: 0 } }}
                 >
                     {Object.keys(chartTypeDisplayNames).map(type => (
                         <MenuItem
                             key={type}
                             selected={type === visualizationType}
-                            style={{
-                                height: 120,
-                                width: 150,
-                                padding: 0,
-                                boxSizing: 'border-box',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                float: 'left',
-                            }}
+                            style={styles.menuItem}
                             onClick={this.handleMenuItemClick(type)}
+                            disableRipple
                         >
-                            <ListItemIcon>
+                            <ListItemIcon style={styles.listItemIcon}>
                                 <VisualizationTypeIcon
                                     type={type}
-                                    style={{
-                                        width: 48,
-                                        height: 48,
-                                        position: 'relative',
-                                        top: 24,
-                                        left: 8,
-                                    }}
+                                    style={styles.listItemSvg}
                                 />
                             </ListItemIcon>
                             <ListItemText
                                 primary={chartTypeDisplayNames[type]}
                                 disableTypography={true}
-                                style={{
-                                    fontSize: 14,
-                                    position: 'relative',
-                                    top: 36,
-                                }}
+                                style={styles.listItemText}
                             />
                         </MenuItem>
                     ))}
                 </Menu>
-            </div>
+            </Fragment>
         );
     }
 }

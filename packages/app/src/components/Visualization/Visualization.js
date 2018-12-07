@@ -2,10 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createChart } from 'd2-charts-api';
 import i18n from '@dhis2/d2-i18n';
+import debounce from 'lodash-es/debounce';
+
 import { sGetCurrent } from '../../reducers/current';
 import BlankCanvas, { visContainerId } from './BlankCanvas';
 import { getOptionsForRequest } from '../../modules/options';
 import { acAddMetadata } from '../../actions/metadata';
+import {
+    sGetUiRightSidebarOpen,
+    sGetUiInterpretation,
+} from '../../reducers/ui';
 import {
     acSetLoadError,
     acSetLoading,
@@ -14,34 +20,38 @@ import {
 import { acSetChart } from '../../actions/chart';
 import {
     apiFetchAnalytics,
-    apiFetchAnalyticsForYearOnYear,
+    apiFetchAnalyticsForYearOverYear,
 } from '../../api/analytics';
-import {
-    YEAR_OVER_YEAR_LINE,
-    YEAR_OVER_YEAR_COLUMN,
-} from '../../modules/chartTypes';
+import { isYearOverYear } from '../../modules/chartTypes';
+import { sGetVisualization } from '../../reducers/visualization';
+import { computeGenericPeriodNames } from '../../modules/analytics';
 
 export class Visualization extends Component {
-    componentDidMount() {
-        if (this.props.current) {
-            this.renderVisualization();
-        }
-    }
+    recreateChart = Function.prototype;
 
-    componentDidUpdate(prevProps) {
-        if (this.props.current !== prevProps.current) {
-            this.renderVisualization();
-        }
-    }
+    renderId = null;
 
-    renderVisualization = async () => {
-        const { current } = this.props;
+    getNewRenderId = () =>
+        (this.renderId =
+            typeof this.renderId === 'number' ? this.renderId + 1 : 1);
 
-        const optionsForRequest = getOptionsForRequest().reduce(
+    isRenderIdDirty = id => id !== this.renderId;
+
+    addResizeHandler = () => {
+        window.addEventListener(
+            'resize',
+            debounce(() => {
+                this.recreateChart();
+            }, 300)
+        );
+    };
+
+    getOptions = (vis, interpretation) => {
+        const options = getOptionsForRequest().reduce(
             (map, [option, props]) => {
                 // only add parameter if value !== default
-                if (current[option] !== props.defaultValue) {
-                    map[option] = current[option];
+                if (vis[option] !== props.defaultValue) {
+                    map[option] = vis[option];
                 }
 
                 return map;
@@ -49,43 +59,104 @@ export class Visualization extends Component {
             {}
         );
 
+        if (interpretation && interpretation.created) {
+            options.relativePeriodDate = interpretation.created;
+        }
+        return options;
+    };
+
+    componentDidMount() {
+        this.addResizeHandler();
+
+        if (this.props.current) {
+            this.renderVisualization(this.props.current);
+        }
+    }
+
+    componentDidUpdate(prevProps) {
+        // new chart
+        if (this.props.current !== prevProps.current) {
+            this.renderVisualization(this.props.current, this.getNewRenderId());
+            return;
+        }
+
+        // avoid redrawing the chart if the interpretation content remains the same
+        // this is the case when the panel is toggled but the selected interpretation is not changed
+        if (
+            !prevProps.interpretation ||
+            (this.props.interpretation &&
+                this.props.interpretation.id !== prevProps.interpretation.id)
+        ) {
+            const vis = this.props.interpretation.id
+                ? this.props.visualization
+                : this.props.current;
+
+            this.renderVisualization(vis, this.getNewRenderId());
+            return;
+        }
+
+        // open sidebar
+        if (this.props.rightSidebarOpen !== prevProps.rightSidebarOpen) {
+            this.recreateChart();
+            return;
+        }
+    }
+
+    renderVisualization = async (vis, renderId = null) => {
+        const { interpretation } = this.props;
+
+        const options = this.getOptions(vis, interpretation);
+
         try {
+            // cancel due to a new request being initiated
+            if (this.isRenderIdDirty(renderId)) {
+                return;
+            }
+
             this.props.acClearLoadError();
             this.props.acSetLoading(true);
 
             const extraOptions = {};
             let responses = [];
 
-            if (
-                [YEAR_OVER_YEAR_LINE, YEAR_OVER_YEAR_COLUMN].includes(
-                    current.type
-                )
-            ) {
+            if (isYearOverYear(vis.type)) {
                 let yearlySeriesLabels = [];
 
                 ({
                     responses,
                     yearlySeriesLabels,
-                } = await apiFetchAnalyticsForYearOnYear(
-                    current,
-                    optionsForRequest
-                ));
+                } = await apiFetchAnalyticsForYearOverYear(vis, options));
 
                 extraOptions.yearlySeries = yearlySeriesLabels;
+
+                extraOptions.xAxisLabels = computeGenericPeriodNames(responses);
             } else {
-                responses = await apiFetchAnalytics(current, optionsForRequest);
+                responses = await apiFetchAnalytics(vis, options);
             }
 
-            responses.forEach(res =>
-                this.props.acAddMetadata(res.metaData.items)
-            );
+            responses.forEach(res => {
+                this.props.acAddMetadata(res.metaData.items);
+            });
+
+            // cancel due to a new request being initiated
+            if (this.isRenderIdDirty(renderId)) {
+                this.props.acSetLoading(false);
+                return;
+            }
 
             const chartConfig = createChart(
                 responses,
-                current,
+                vis,
                 visContainerId,
                 extraOptions
             );
+
+            this.recreateChart = () => {
+                createChart(responses, vis, visContainerId, {
+                    ...extraOptions,
+                    animation: 0,
+                });
+            };
 
             this.props.acSetChart(
                 chartConfig.chart.getSVGForExport({
@@ -97,7 +168,16 @@ export class Visualization extends Component {
             this.props.acSetLoading(false);
         } catch (error) {
             this.props.acSetLoading(false);
-            this.props.acSetLoadError(i18n.t('Could not generate chart'));
+
+            // do not show messages that are no longer relevant
+            if (this.isRenderIdDirty(renderId)) {
+                return;
+            }
+
+            const errorMessage =
+                (error && error.message) ||
+                i18n('Error generating chart, please try again');
+            this.props.acSetLoadError(errorMessage);
         }
     };
 
@@ -108,6 +188,9 @@ export class Visualization extends Component {
 
 const mapStateToProps = state => ({
     current: sGetCurrent(state),
+    visualization: sGetVisualization(state),
+    interpretation: sGetUiInterpretation(state),
+    rightSidebarOpen: sGetUiRightSidebarOpen(state),
 });
 
 export default connect(

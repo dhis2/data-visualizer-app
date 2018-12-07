@@ -2,17 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import FileMenu from '@dhis2/d2-ui-file-menu';
+import { withStyles } from '@material-ui/core/styles';
 
 import UpdateButton from '../UpdateButton/UpdateButton';
 import DownloadMenu from '../DownloadMenu/DownloadMenu';
+import InterpretationsButton from '../Interpretations/InterpretationsButton';
 import VisualizationOptionsManager from '../VisualizationOptions/VisualizationOptionsManager';
 import * as fromActions from '../../actions';
 import { sGetCurrent } from '../../reducers/current';
-import './MenuBar.css';
 import history from '../../modules/history';
+import { parseError } from '../../modules/error';
 import styles from './styles/MenuBar.style';
 
-const onOpen = id => history.push(`/${id}`);
+const onOpen = id => {
+    const path = `/${id}`;
+    if (history.location.pathname === path) {
+        history.replace(path);
+    } else {
+        history.push(path);
+    }
+};
 const onNew = () => history.push('/');
 const getOnRename = props => details =>
     props.onRenameVisualization(details, false);
@@ -20,10 +29,11 @@ const getOnSave = props => details => props.onSaveVisualization(details, false);
 const getOnSaveAs = props => details =>
     props.onSaveVisualization(details, true);
 const getOnDelete = props => () => props.onDeleteVisualization();
+const getOnError = props => error => props.onError(error);
 
-export const MenuBar = (props, context) => (
-    <div className="menubar" style={styles.menuBar}>
-        <UpdateButton />
+export const MenuBar = ({ classes, ...props }, context) => (
+    <div className={classes.menuBar}>
+        <UpdateButton flat size="small" className={classes.updateButton} />
         <FileMenu
             d2={context.d2}
             fileId={props.id || null}
@@ -34,22 +44,25 @@ export const MenuBar = (props, context) => (
             onSave={getOnSave(props)}
             onSaveAs={getOnSaveAs(props)}
             onDelete={getOnDelete(props)}
-            onTranslate={() => console.log('translate callback')}
-            onError={() => console.log('error!')}
+            onError={getOnError(props)}
         />
-        <VisualizationOptionsManager labelStyle={styles.label} />
-        <DownloadMenu labelStyle={styles.label} />
-        <div className="spacefiller" />
-        <div style={styles.label}>Interpretations</div>
+        <VisualizationOptionsManager className={classes.label} />
+        <DownloadMenu className={classes.label} />
+        <div className={classes.grow} />
+        <InterpretationsButton className={classes.label} />
     </div>
 );
+
+MenuBar.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
 
 MenuBar.contextTypes = {
     d2: PropTypes.object,
 };
 
 const mapStateToProps = state => ({
-    id: sGetCurrent(state).id,
+    id: (sGetCurrent(state) || {}).id,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
@@ -66,9 +79,20 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
             )
         ),
     onDeleteVisualization: () => dispatch(fromActions.tDoDeleteVisualization()),
+    onError: error => {
+        const { type, message } = parseError(error);
+
+        dispatch(
+            fromActions.fromSnackbar.acReceivedSnackbarMessage({
+                variant: type,
+                message,
+                open: true,
+            })
+        );
+    },
 });
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(MenuBar);
+)(withStyles(styles)(MenuBar));

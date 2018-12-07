@@ -15,6 +15,10 @@ import {
     SET_UI_ACTIVE_MODAL_DIALOG,
     SET_UI_YEAR_ON_YEAR_SERIES,
     SET_UI_YEAR_ON_YEAR_CATEGORY,
+    TOGGLE_UI_RIGHT_SIDEBAR_OPEN,
+    OPEN_UI_RIGHT_SIDEBAR,
+    SET_UI_INTERPRETATION,
+    CLEAR_UI_INTERPRETATION,
 } from '../reducers/ui';
 
 export const acSetUi = value => ({
@@ -72,12 +76,12 @@ export const acRemoveUiItems = value => ({
     value,
 });
 
-export const acSetUiYearOnYearSeries = value => ({
+export const acSetUiYearOverYearSeries = value => ({
     type: SET_UI_YEAR_ON_YEAR_SERIES,
     value,
 });
 
-export const acSetUiYearOnYearCategory = value => ({
+export const acSetUiYearOverYearCategory = value => ({
     type: SET_UI_YEAR_ON_YEAR_CATEGORY,
     value,
 });
@@ -95,4 +99,21 @@ export const acSetParentGraphMap = value => ({
 export const acSetUiActiveModalDialog = value => ({
     type: SET_UI_ACTIVE_MODAL_DIALOG,
     value,
+});
+
+export const acToggleUiRightSidebarOpen = () => ({
+    type: TOGGLE_UI_RIGHT_SIDEBAR_OPEN,
+});
+
+export const acOpenUiRightSidebar = () => ({
+    type: OPEN_UI_RIGHT_SIDEBAR,
+});
+
+export const acSetUiInterpretation = value => ({
+    type: SET_UI_INTERPRETATION,
+    value,
+});
+
+export const acClearUiInterpretation = () => ({
+    type: CLEAR_UI_INTERPRETATION,
 });

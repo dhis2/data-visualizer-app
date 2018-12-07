@@ -34,7 +34,10 @@ export const apiDownloadData = async (current, format, idScheme, path) => {
         req = req.withOutputIdScheme(idScheme);
     }
 
-    const url = new URL(req.buildUrl(), api.baseUrl);
+    const url = new URL(
+        `${api.baseUrl}/${req.buildUrl()}`,
+        `${window.location.origin}${window.location.pathname}`
+    );
 
     Object.entries(req.buildQuery()).forEach(([key, value]) =>
         url.searchParams.append(key, value)
@@ -55,14 +58,20 @@ export const apiFetchAnalytics = async (current, options) => {
     return [new d2.analytics.response(rawResponse)];
 };
 
-export const apiFetchAnalyticsForYearOnYear = async (current, options) => {
+export const apiFetchAnalyticsForYearOverYear = async (current, options) => {
     const d2 = await getInstance();
 
-    const yearlySeriesReq = new d2.analytics.request()
+    let yearlySeriesReq = new d2.analytics.request()
         .addPeriodDimension(current.yearlySeries)
         .withSkipData(true)
         .withSkipMeta(false)
         .withIncludeMetadataDetails(true);
+
+    if (options.relativePeriodDate) {
+        yearlySeriesReq = yearlySeriesReq.withRelativePeriodDate(
+            options.relativePeriodDate
+        );
+    }
 
     const yearlySeriesRes = await d2.analytics.aggregate.fetch(yearlySeriesReq);
 

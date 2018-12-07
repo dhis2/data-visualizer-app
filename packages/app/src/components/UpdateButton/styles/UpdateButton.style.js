@@ -1,8 +1,11 @@
 import { colors } from '../../../modules/colors';
 
 export default {
-    backgroundColor: colors.accentPrimaryDark,
-    color: colors.white,
-    fontSize: '13px',
-    padding: '0 16px',
+    flat: {
+        backgroundColor: colors.accentPrimary,
+        color: colors.white,
+        fontSize: '13px',
+        padding: '6px 15px',
+        boxShadow: 'none',
+    },
 };

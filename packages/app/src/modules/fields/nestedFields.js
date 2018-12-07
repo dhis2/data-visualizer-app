@@ -6,13 +6,12 @@ const NAME = 'name,displayName,displayShortName';
 const DIMENSION_ITEM = `dimensionItem~rename(${ID})`;
 const LEGEND_SET = `legendSet[${ID},${NAME}]`;
 const USER = `user[${NAME},userCredentials[username]]`;
-const LIKED_BY = `likedBy[${ID},${NAME}]`;
 
 const ITEMS = `items[${DIMENSION_ITEM},${NAME},dimensionItemType]`;
-const INTERPRETATIONS = `*,${USER},${LIKED_BY}`;
 const COMMENTS = `comments[${ID},${USER},lastUpdated,text`;
 
 const AXIS = `dimension,filter,${LEGEND_SET},${ITEMS}`;
+const INTERPRETATIONS = 'id,created';
 
 // nested fields map
 export const nestedFields = {

@@ -19,7 +19,7 @@ describe('Tooltip', () => {
             anchorEl: {},
             dimensionId: 'abc',
             metadata: {},
-            itemIds: null,
+            itemIds: [],
         };
         shallowTooltip = undefined;
     });

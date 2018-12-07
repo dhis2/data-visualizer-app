@@ -1,4 +1,5 @@
 import * as layoutStyle from './style';
+import { colors } from '../../../modules/colors';
 
 export const styles = {
     chipWrapper: {
@@ -18,16 +19,25 @@ export const styles = {
         overflow: 'hidden',
         textOverflow: 'ellipsis',
     },
+    chipEmpty: {
+        backgroundColor: colors.greyLight,
+    },
     fixedDimensionIcon: {
         paddingRight: '6px',
     },
-    genericDimensionIcon: { position: 'relative', top: 5 },
+    iconWrapper: {
+        paddingRight: '6px',
+        display: 'flex',
+        alignItems: 'center',
+    },
 };
 
 styles.chipLeft = {
     ...styles.chip,
+    display: 'flex',
     borderTopRightRadius: '0px',
     borderBottomRightRadius: '0px',
+    alignItems: 'center',
 };
 
 styles.chipRight = {

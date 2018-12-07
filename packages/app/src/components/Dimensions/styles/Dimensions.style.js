@@ -2,14 +2,14 @@ import { colors } from '../../../modules/colors';
 
 export const styles = {
     divContainer: {
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
         backgroundColor: colors.snow,
-        width: 250,
-        padding: '12px 0 12px 12px',
-    },
-    searchIcon: {
-        color: colors.grey,
+        padding: '8px 0 2px 8px',
     },
     textField: {
-        marginBottom: 12,
+        paddingBottom: '12px',
+        width: 'calc(100% - 8px)',
     },
 };

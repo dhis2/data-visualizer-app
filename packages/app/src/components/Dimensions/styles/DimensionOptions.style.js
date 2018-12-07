@@ -1,13 +1,15 @@
 export const styles = {
     wrapper: {
-        height: 24,
+        position: 'relative',
+        height: '24px',
+        left: '5px',
+        alignSelf: 'center',
     },
     dropDownButton: {
         border: 'none',
         background: 'none',
         outline: 'none',
-        padding: '1px 0px 0px 0px',
-        height: 24,
         cursor: 'pointer',
+        padding: '1px 0px 0px 0px',
     },
 };

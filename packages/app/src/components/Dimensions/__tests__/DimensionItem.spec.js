@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { DimensionItem } from '../DimensionItem';
 import DimensionLabel from '../DimensionLabel';
+import { styles } from '../styles/DimensionItem.style';
 import DimensionOptions from '../DimensionOptions';
 import RecommendedIcon from '../RecommendedIcon';
 
@@ -19,10 +20,13 @@ describe('The DimensionItem component ', () => {
             id: 'idString',
             name: '',
             isSelected: false,
-            toggleDialog: jest.fn(),
-            onRemoveDimension: jest.fn(),
+            type: 'COLUMN',
         };
         shallowDimItem = undefined;
+    });
+
+    it('noop', () => {
+        expect(1).toEqual(1);
     });
 
     it('renders a <li>', () => {
@@ -47,9 +51,21 @@ describe('The DimensionItem component ', () => {
 
         expect(recommendedIcon.length).toEqual(1);
     });
+
     it('renders a <DimensionOptions />', () => {
         const dimOptions = dimItem().find(DimensionOptions);
 
         expect(dimOptions.length).toEqual(1);
+    });
+
+    it('renders a DimensionItem with additional styling properties if props isSelected = true', () => {
+        props.isSelected = true;
+
+        const selectedStyle = {
+            ...styles.listItem,
+            ...styles.selectedListItem,
+        };
+
+        expect(dimItem().props().style).toEqual(selectedStyle);
     });
 });
