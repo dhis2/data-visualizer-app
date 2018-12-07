@@ -5,6 +5,7 @@ import { YEAR_OVER_YEAR_LINE, YEAR_OVER_YEAR_COLUMN } from './chartTypes';
 import { FIXED_DIMENSIONS } from './fixedDimensions';
 
 const dxId = FIXED_DIMENSIONS.dx.id;
+const dxName = FIXED_DIMENSIONS.dx.name;
 const peId = FIXED_DIMENSIONS.pe.id;
 
 // Prop names for analytical object axes
@@ -101,7 +102,11 @@ const validateYearOverYear = layout => {
             layout.columns[0].items.length
         )
     ) {
-        throw new Error(i18n.t('Please add Data as a filter dimension'));
+        throw new Error(
+            i18n.t('Please add {{data}} as a filter dimension', {
+                data: dxName,
+            })
+        );
     }
     console.log(layout);
 };
