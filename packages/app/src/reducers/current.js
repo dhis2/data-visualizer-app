@@ -21,7 +21,7 @@ const getYearOverYearCurrentFromUi = (state, action) => {
     const dxItem = ui.itemsByDimension[dxId]
         ? [ui.itemsByDimension[dxId][0]]
         : [];
-    console.log('dxItem', dxItem);
+
     return {
         ...state,
         type: ui.type,
