@@ -10,7 +10,6 @@ import {
     sGetUiRightSidebarOpen,
     sGetUiInterpretation,
 } from '../../reducers/ui';
-import { sGetDimensions } from '../../reducers/dimensions';
 
 import { acAddMetadata } from '../../actions/metadata';
 import { acSetChart } from '../../actions/chart';
@@ -22,7 +21,7 @@ import {
 
 import { computeGenericPeriodNames } from '../../modules/analytics';
 import { isYearOverYear } from '../../modules/chartTypes';
-import { validateLayoutByType } from '../../modules/layout';
+import { isLayoutValid } from '../../modules/layout';
 import { getOptionsForRequest } from '../../modules/options';
 
 import {
@@ -115,7 +114,7 @@ export class Visualization extends Component {
 
         try {
             // Validate layout
-            validateLayoutByType(vis, this.props.dimensions);
+            isLayoutValid(vis);
 
             // Cancel due to a new request being initiated
             if (this.isRenderIdDirty(renderId)) {
@@ -200,7 +199,6 @@ const mapStateToProps = state => ({
     visualization: sGetVisualization(state),
     interpretation: sGetUiInterpretation(state),
     rightSidebarOpen: sGetUiRightSidebarOpen(state),
-    dimensions: sGetDimensions(state),
 });
 
 export default connect(

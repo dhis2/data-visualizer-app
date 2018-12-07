@@ -1,4 +1,5 @@
 import pick from 'lodash-es/pick';
+import isObject from 'lodash-es/isObject';
 import i18n from '@dhis2/d2-i18n';
 import { YEAR_OVER_YEAR_LINE, YEAR_OVER_YEAR_COLUMN } from './chartTypes';
 import { FIXED_DIMENSIONS } from './fixedDimensions';
@@ -36,44 +37,63 @@ export const menuLabels = {
 };
 
 // Layout validation functions
-const validateDefault = (layout, dimensions) => {
-    const c = layout.columns;
-    const r = layout.rows;
-    const f = layout.filters;
-    console.log('c', c);
-    console.log('r', r);
-    console.log('f', f);
-    if (!c.length) {
-        throw new Error(i18n.t('Please add a series dimension'));
-    }
+const isDimensionValid = dim =>
+    Boolean(
+        isObject(dim) &&
+            typeof dim.dimension === 'string' &&
+            Array.isArray(dim.items) &&
+            isObject(dim.items[0]) &&
+            typeof dim.items[0].id === 'string'
+    );
 
-    if (!(Array.isArray(c[0].items) && c[0].items.length)) {
-        const dimensionId = c[0].dimension;
+const isAxisValid = axis =>
+    Boolean(Array.isArray(axis) && isDimensionValid(axis[0]));
+
+const validateDefault = layout => {
+    console.log(layout.columns, layout.rows);
+    if (!isAxisValid(layout.columns)) {
         throw new Error(
-            i18n.t('Please add items to the {{dimensionName}} dimension', {
-                dimensionName: dimensions[dimensionId].name,
+            i18n.t('Please add at least one {{series}} dimension', {
+                series: menuLabels.columns,
             })
         );
     }
 
-    if (!(layout.rows.length && layout.rows[0].items.length)) {
-        throw new Error(i18n.t('Please add a category dimension'));
+    if (!isAxisValid(layout.rows)) {
+        throw new Error(
+            i18n.t('Please add at least one {{category}} dimension', {
+                category: menuLabels.rows,
+            })
+        );
     }
 
-    const pe = [...layout.columns, ...layout.rows, ...layout.filters].find(
-        dim => dim.dimension === peId
-    );
+    const peDimension = [
+        ...layout.columns,
+        ...layout.rows,
+        ...layout.filters,
+    ].find(dim => dim.dimension === peId);
 
-    if (!(pe && pe.items.length)) {
-        if (!(layout.columns.length && layout.columns[0].items.length)) {
-            throw new Error(i18n.t('Please add a series dimension'));
-        }
-
-        throw new Error(i18n.t('Please add a period'));
+    if (!(peDimension && isDimensionValid(peDimension))) {
+        throw new Error(
+            i18n.t(
+                'Please add at least one period as {{series}}, {{category}} or {{filter}}',
+                {
+                    series: menuLabels.columns,
+                    category: menuLabels.rows,
+                    filter: menuLabels.filters,
+                }
+            )
+        );
     }
 };
 
 const validateYearOverYear = layout => {
+    console.log(
+        layout.columns,
+        layout.rows,
+        layout.filters,
+        layout.yearlySeries
+    );
     if (
         !(
             layout.columns.length &&
@@ -86,13 +106,13 @@ const validateYearOverYear = layout => {
     console.log(layout);
 };
 
-export const validateLayoutByType = (layout, dimensions) => {
+export const isLayoutValid = layout => {
     switch (layout.type) {
         case YEAR_OVER_YEAR_COLUMN:
         case YEAR_OVER_YEAR_LINE:
             return validateYearOverYear(layout);
         default:
-            return validateDefault(layout, dimensions);
+            return validateDefault(layout);
     }
 };
 
