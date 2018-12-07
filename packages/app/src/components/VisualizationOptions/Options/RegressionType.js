@@ -1,10 +1,12 @@
 import React from 'react';
 import i18n from '@dhis2/d2-i18n';
-
+import { withStyles } from '@material-ui/core/styles';
 import SelectBaseOption from './SelectBaseOption';
+import styles from '../styles/VisualizationOptions.style';
 
-const RegressionType = () => (
+const RegressionType = ({ classes }) => (
     <SelectBaseOption
+        className={classes.selectBaseRoot}
         option={{
             name: 'regressionType',
             label: i18n.t('Trend line'),
@@ -18,4 +20,4 @@ const RegressionType = () => (
     />
 );
 
-export default RegressionType;
+export default withStyles(styles)(RegressionType);
