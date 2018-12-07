@@ -87,8 +87,6 @@ export class App extends Component {
     };
 
     componentDidMount = async () => {
-        console.log('App CDM');
-
         const { store } = this.context;
         const { d2, userSettings } = this.props;
 

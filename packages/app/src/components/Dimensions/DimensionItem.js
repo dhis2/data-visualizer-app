@@ -68,8 +68,6 @@ export class DimensionItem extends Component {
 
         return (
             <li
-                className={`dimension-${this.props.id}`}
-                id={`dimension-${this.props.id}`}
                 style={listItemStyle}
                 onMouseOver={this.onMouseOver}
                 onMouseLeave={this.onMouseExit}
