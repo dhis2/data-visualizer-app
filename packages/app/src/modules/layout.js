@@ -4,7 +4,6 @@ import i18n from '@dhis2/d2-i18n';
 import { YEAR_OVER_YEAR_LINE, YEAR_OVER_YEAR_COLUMN } from './chartTypes';
 import { FIXED_DIMENSIONS } from './fixedDimensions';
 
-const dxId = FIXED_DIMENSIONS.dx.id;
 const dxName = FIXED_DIMENSIONS.dx.name;
 const peId = FIXED_DIMENSIONS.pe.id;
 
@@ -38,13 +37,15 @@ export const menuLabels = {
 };
 
 // Layout validation functions
+const isItemValid = item =>
+    Boolean(isObject(item) && typeof item.id === 'string');
+
 const isDimensionValid = dim =>
     Boolean(
         isObject(dim) &&
             typeof dim.dimension === 'string' &&
             Array.isArray(dim.items) &&
-            isObject(dim.items[0]) &&
-            typeof dim.items[0].id === 'string'
+            isItemValid(dim.items[0])
     );
 
 const isAxisValid = axis =>
@@ -89,26 +90,37 @@ const validateDefault = layout => {
 };
 
 const validateYearOverYear = layout => {
-    console.log(
-        layout.columns,
-        layout.rows,
-        layout.filters,
-        layout.yearlySeries
-    );
     if (
         !(
-            layout.columns.length &&
-            layout.columns[0].dimension === dxId &&
-            layout.columns[0].items.length
+            Array.isArray(layout.yearlySeries) &&
+            typeof layout.yearlySeries[0] === 'string'
         )
     ) {
+        throw new Error(
+            i18n.t('Please add at least one period as a {{series}} dimension', {
+                series: menuLabels.columns,
+            })
+        );
+    }
+
+    if (!isAxisValid(layout.rows)) {
+        throw new Error(
+            i18n.t(
+                'Please add at least one period as a {{category}} dimension',
+                {
+                    category: menuLabels.rows,
+                }
+            )
+        );
+    }
+
+    if (!isAxisValid(layout.columns)) {
         throw new Error(
             i18n.t('Please add {{data}} as a filter dimension', {
                 data: dxName,
             })
         );
     }
-    console.log(layout);
 };
 
 export const isLayoutValid = layout => {
