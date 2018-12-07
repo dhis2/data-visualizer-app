@@ -1,4 +1,6 @@
 {
-    "loginUrl": "http://localhost:8080",
-    "baseUrl": "http://localhost:3000"
+    "loginUrl": "http://localhost:8080/dhis-web-commons-security/login.action",
+    "username": "admin",
+    "password": "district",
+    "testUrl": "http://localhost:3000"
 }
