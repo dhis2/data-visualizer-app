@@ -2,6 +2,14 @@ export default {
     dialogContent: {
         flex: '1 1 550px',
     },
+    tabsBar: {
+        height: '48px',
+        backgroundColor: '#FFFFFF',
+        borderBottom: '1px solid #E0E0E0',
+    },
+    tab: {
+        width: '33.33%',
+    },
     rangeAxisMin: {
         marginRight: '15px',
     },
