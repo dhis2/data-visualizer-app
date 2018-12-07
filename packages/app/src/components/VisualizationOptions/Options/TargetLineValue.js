@@ -1,14 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
-import { withStyles } from '@material-ui/core/styles';
 
 import TextBaseOption from './TextBaseOption';
-import styles from '../styles/VisualizationOptions.style';
 
-const TargetLineValue = ({ classes, enabled }) => (
+const TargetLineValue = ({ enabled }) => (
     <TextBaseOption
-        className={classes.textBaseOption}
         enabled={enabled}
         type="number"
         option={{
@@ -19,8 +16,7 @@ const TargetLineValue = ({ classes, enabled }) => (
 );
 
 TargetLineValue.propTypes = {
-    classes: PropTypes.object.isRequired,
     enabled: PropTypes.bool.isRequired,
 };
 
-export default withStyles(styles)(TargetLineValue);
+export default TargetLineValue;

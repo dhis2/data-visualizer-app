@@ -7,7 +7,7 @@ import styles from '../styles/VisualizationOptions.style';
 
 const RangeAxisMinValue = ({ classes }) => (
     <TextBaseOption
-        className={classes.textBaseOption}
+        className={classes.rangeAxisMin}
         type="number"
         option={{
             name: 'rangeAxisMinValue',

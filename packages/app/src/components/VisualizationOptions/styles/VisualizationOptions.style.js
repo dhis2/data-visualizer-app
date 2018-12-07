@@ -1,8 +1,8 @@
 export default {
     dialogContent: {
-        flex: '1 1 545px',
+        flex: '1 1 550px',
     },
-    textBaseOption: {
+    rangeAxisMin: {
         marginRight: '15px',
     },
     selectBaseRoot: {
@@ -19,7 +19,7 @@ export default {
     },
     formGroupContainer: {
         justifyContent: 'space-between',
-        marginBottom: '12px',
+        marginBottom: '15px',
     },
     axisFormGroup: {
         height: '325px',
