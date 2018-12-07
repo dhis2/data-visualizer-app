@@ -11,6 +11,8 @@ Cypress.Commands.add('login', (username, password) => {
         form: true,
         log: true,
     });
+
+    // set interface language to English?
 });
 
 Cypress.Commands.add('persistLogin', () => {
