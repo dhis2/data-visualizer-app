@@ -125,7 +125,7 @@ const validateYearOverYear = layout => {
     }
 };
 
-export const isLayoutValid = layout => {
+export const validateLayout = layout => {
     switch (layout.type) {
         case YEAR_OVER_YEAR_COLUMN:
         case YEAR_OVER_YEAR_LINE:

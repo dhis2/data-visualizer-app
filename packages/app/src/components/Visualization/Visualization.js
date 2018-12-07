@@ -115,7 +115,7 @@ export class Visualization extends Component {
 
         try {
             // Validate layout
-            isLayoutValid(vis);
+            validateLayout(vis);
 
             // Cancel due to a new request being initiated
             if (this.isRenderIdDirty(renderId)) {
