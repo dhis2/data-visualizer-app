@@ -18,16 +18,16 @@ export default {
     },
     targetLineRoot: {
         position: 'relative',
-        top: '10px',
+        top: '8px',
     },
     baseLineRoot: {
         position: 'relative',
-        top: '10px',
+        top: '8px',
         marginRight: '25px',
     },
     formGroupContainer: {
         justifyContent: 'space-between',
-        marginBottom: '15px',
+        marginBottom: '5px',
     },
     axisFormGroup: {
         height: '325px',
