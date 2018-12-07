@@ -104,28 +104,30 @@ export class DialogManager extends Component {
         </Fragment>
     );
 
-    render = () => (
-        <Dialog
-            open={!!this.props.dialogId}
-            onClose={() => this.props.closeDialog(null)}
-            maxWidth={false}
-            disableEnforceFocus
-            keepMounted
-        >
-            {this.renderDialogContent()}
-            <DialogActions>
-                <HideButton />
-                {this.props.dialogId && (
-                    <AddToLayoutButton dialogId={this.props.dialogId} />
-                )}
-            </DialogActions>
-        </Dialog>
-    );
+    render() {
+        return (
+            <Dialog
+                open={!!this.props.dialogId}
+                onClose={() => this.props.closeDialog(null)}
+                maxWidth="lg"
+                disableEnforceFocus
+                keepMounted
+            >
+                {this.renderDialogContent()}
+                <DialogActions>
+                    <HideButton />
+                    {this.props.dialogId && (
+                        <AddToLayoutButton dialogId={this.props.dialogId} />
+                    )}
+                </DialogActions>
+            </Dialog>
+        );
+    }
 }
 
 DialogManager.propTypes = {
     dialogId: PropTypes.string,
-    dxIds: PropTypes.array.isRequired,
+    dxIds: PropTypes.array,
     ouIds: PropTypes.array.isRequired,
     closeDialog: PropTypes.func.isRequired,
     setRecommendedIds: PropTypes.func.isRequired,
@@ -133,6 +135,7 @@ DialogManager.propTypes = {
 
 DialogManager.defaultProps = {
     dialogId: null,
+    dxIds: [],
 };
 
 const mapStateToProps = state => ({

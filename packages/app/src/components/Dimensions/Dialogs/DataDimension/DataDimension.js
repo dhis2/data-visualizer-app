@@ -6,6 +6,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import i18n from '@dhis2/d2-i18n';
 import debounce from 'lodash-es/debounce';
 import keyBy from 'lodash-es/keyBy';
+import isEqual from 'lodash-es/isEqual';
 
 import DataTypes from './DataTypesSelector';
 import Groups from './Groups';
@@ -18,7 +19,7 @@ import {
     apiFetchAlternatives,
 } from '../../../../api/dimensions';
 import { sGetUiItemsByDimension } from '../../../../reducers/ui';
-import { sGetDisplayNameProperty } from '../../../../reducers/settings';
+import { sGetSettingsDisplayNameProperty } from '../../../../reducers/settings';
 
 import {
     acRemoveUiItems,
@@ -59,13 +60,26 @@ export class DataDimension extends Component {
         groupDetail: '',
         filterText: '',
         items: [],
+        itemsCopy: [],
         nextPage: null,
-        unselectedIds: [],
         filter: {},
     };
 
     componentDidMount() {
         this.updateGroups();
+    }
+
+    componentDidUpdate(prevProps) {
+        const prevItems = prevProps.selectedItems;
+        const currentItems = this.props.selectedItems;
+
+        if (!isEqual(prevItems, currentItems)) {
+            this.setState({
+                items: this.state.itemsCopy.filter(
+                    di => !currentItems.includes(di.id)
+                ),
+            });
+        }
     }
 
     updateGroups = async () => {
@@ -133,13 +147,13 @@ export class DataDimension extends Component {
             ? this.state.items.concat(dimensionItems)
             : dimensionItems;
 
-        const selectedIds = this.props.selectedItems;
-
-        const unselectedIds = items
-            .filter(i => !selectedIds.includes(i.id))
-            .map(i => i.id);
-
-        this.setState({ items, unselectedIds, nextPage });
+        this.setState({
+            items: items.filter(
+                di => !this.props.selectedItems.includes(di.id)
+            ),
+            itemsCopy: items,
+            nextPage,
+        });
     };
 
     onGroupChange = async groupId => {
@@ -169,11 +183,6 @@ export class DataDimension extends Component {
     };
 
     selectDataDimensions = selectedIds => {
-        const unselectedIds = this.state.unselectedIds.filter(
-            id => !selectedIds.includes(id)
-        );
-        this.setState({ unselectedIds });
-
         const itemsToAdd = keyBy(
             this.state.items.filter(di => selectedIds.includes(di.id)),
             'id'
@@ -188,11 +197,6 @@ export class DataDimension extends Component {
     };
 
     deselectDataDimensions = ids => {
-        const unselectedIds = [
-            ...new Set([...this.state.unselectedIds, ...ids]),
-        ];
-        this.setState({ unselectedIds });
-
         this.props.removeDxItems({
             dimensionType: dxId,
             value: ids,
@@ -206,10 +210,6 @@ export class DataDimension extends Component {
         });
 
     render = () => {
-        const unselected = this.state.items.filter(di =>
-            this.state.unselectedIds.includes(di.id)
-        );
-
         const groups = this.state.groups[this.state.dataType] || [];
 
         return (
@@ -236,7 +236,7 @@ export class DataDimension extends Component {
                         />
                         <UnselectedItems
                             className="data-dimension"
-                            items={unselected}
+                            items={this.state.items}
                             onSelect={this.selectDataDimensions}
                             filterText={this.state.filterText}
                             requestMoreItems={this.requestMoreItems}
@@ -257,16 +257,20 @@ export class DataDimension extends Component {
 
 DataDimension.propTypes = {
     displayNameProp: PropTypes.string.isRequired,
-    selectedItems: PropTypes.array.isRequired,
+    selectedItems: PropTypes.array,
     addDxItems: PropTypes.func.isRequired,
     setDxItems: PropTypes.func.isRequired,
     removeDxItems: PropTypes.func.isRequired,
     addMetadata: PropTypes.func.isRequired,
 };
 
+DataDimension.defaultProps = {
+    selectedItems: [],
+};
+
 const mapStateToProps = state => ({
     selectedItems: sGetUiItemsByDimension(state, dxId),
-    displayNameProp: sGetDisplayNameProperty(state),
+    displayNameProp: sGetSettingsDisplayNameProperty(state),
 });
 
 export default connect(

@@ -44,12 +44,23 @@ export const onError = (action, error) => {
 
 // visualization, current, ui
 
-export const tDoLoadVisualization = (type, id) => async (
+export const tDoLoadVisualization = (type, id, interpretationId) => async (
     dispatch,
     getState
 ) => {
     const onSuccess = model => {
         const visualization = model.toJSON();
+
+        if (interpretationId) {
+            const interpretation = visualization.interpretations.find(
+                i => i.id === interpretationId
+            );
+
+            if (interpretation) {
+                dispatch(fromUi.acSetUiInterpretation(interpretation));
+                dispatch(fromUi.acOpenUiRightSidebar());
+            }
+        }
 
         dispatch(fromVisualization.acSetVisualization(visualization));
         dispatch(fromCurrent.acSetCurrent(visualization));

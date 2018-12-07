@@ -31,6 +31,7 @@ describe('The Period Dimension component ', () => {
             addMetadata: jest.fn(),
             addUiItems: jest.fn(),
             removeUiItems: jest.fn(),
+            setUiItems: jest.fn(),
         };
         shallowPeriodDim = undefined;
     });

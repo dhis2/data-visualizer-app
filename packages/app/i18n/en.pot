@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-12-07T08:52:41.126Z\n"
-"PO-Revision-Date: 2018-12-07T08:52:41.126Z\n"
+"POT-Creation-Date: 2018-12-07T09:58:42.714Z\n"
+"PO-Revision-Date: 2018-12-07T09:58:42.714Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -78,6 +78,24 @@ msgid "Data value set"
 msgstr ""
 
 msgid "Other formats"
+msgstr ""
+
+msgid "An error occurred in the DHIS2 Data Visualizer application."
+msgstr ""
+
+msgid "Something went wrong"
+msgstr ""
+
+msgid "Refresh to try again"
+msgstr ""
+
+msgid "Hide technical details"
+msgstr ""
+
+msgid "Show technical details"
+msgstr ""
+
+msgid "The following information may be requested by technical support."
 msgstr ""
 
 msgid "Hide"
@@ -221,6 +239,9 @@ msgstr ""
 msgid "Range axis tick steps"
 msgstr ""
 
+msgid "Tick steps may extend the chart beyond 'Range axis max'"
+msgstr ""
+
 msgid "Trend line"
 msgstr ""
 
@@ -260,7 +281,7 @@ msgstr ""
 msgid "Chart title"
 msgstr ""
 
-msgid "Axes & legend"
+msgid "Axis & legend"
 msgstr ""
 
 msgid "Style"

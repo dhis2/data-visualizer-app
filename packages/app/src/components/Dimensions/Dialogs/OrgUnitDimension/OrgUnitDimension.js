@@ -18,7 +18,9 @@ import {
 } from '../../../../reducers/ui';
 import { acSetCurrentFromUi } from '../../../../actions/current';
 import { acAddMetadata } from '../../../../actions/metadata';
+import { sGetCurrent } from '../../../../reducers/current';
 import { sGetMetadata } from '../../../../reducers/metadata';
+import { sGetSettingsDisplayNameProperty } from '../../../../reducers/settings';
 
 import {
     acAddUiItems,
@@ -47,6 +49,7 @@ import {
 
 import { FIXED_DIMENSIONS } from '../../../../modules/fixedDimensions';
 import styles from './styles/OrgUnitDimension.style';
+import { colors } from '../../../../modules/colors';
 
 const ouId = FIXED_DIMENSIONS.ou.id;
 
@@ -56,6 +59,7 @@ export const defaultState = {
     selected: [],
     levelOptions: [],
     groupOptions: [],
+    showOrgUnitsTree: true,
 };
 
 export class OrgUnitDimension extends Component {
@@ -65,10 +69,31 @@ export class OrgUnitDimension extends Component {
         this.state = defaultState;
         this.userOrgUnitIds = userOrgUnits.map(orgUnit => orgUnit.id);
 
-        this.loadOrgUnitTree();
+        this.loadOrgUnitTree(this.props.displayNameProperty);
+        this.loadOrgUnitGroups(this.props.displayNameProperty);
         this.loadOrgUnitLevels();
-        this.loadOrgUnitGroups();
     }
+
+    componentDidUpdate(prevProps) {
+        const previousId = prevProps.current ? prevProps.current.id : null;
+        const currentId = this.props.current ? this.props.current.id : null;
+
+        // remount org units selector component to ensure
+        // only selected org units are expanded
+        if (previousId !== currentId) {
+            this.hideOrgUnitsTree();
+
+            setTimeout(this.showOrgUnitsTree, 0);
+        }
+    }
+
+    showOrgUnitsTree = () => {
+        this.setState({ showOrgUnitsTree: true });
+    };
+
+    hideOrgUnitsTree = () => {
+        this.setState({ showOrgUnitsTree: false });
+    };
 
     addOrgUnitToMetadata = orgUnit => {
         this.props.acAddMetadata({
@@ -120,8 +145,8 @@ export class OrgUnitDimension extends Component {
         this.setOuUiItems([]);
     };
 
-    loadOrgUnitTree = () => {
-        apiFetchOrganisationUnits()
+    loadOrgUnitTree = displayNameProperty => {
+        apiFetchOrganisationUnits(displayNameProperty)
             .then(rootLevel => rootLevel.toArray()[0])
             .then(root => {
                 this.setState({
@@ -130,8 +155,8 @@ export class OrgUnitDimension extends Component {
             });
     };
 
-    loadOrgUnitGroups = () => {
-        apiFetchOrganisationUnitGroups()
+    loadOrgUnitGroups = displayNameProperty => {
+        apiFetchOrganisationUnitGroups(displayNameProperty)
             .then(organisationUnitGroups =>
                 transformOptionsIntoMetadata(
                     organisationUnitGroups,
@@ -245,7 +270,7 @@ export class OrgUnitDimension extends Component {
             <Fragment>
                 <DialogTitle>{i18n.t('Organisation units')}</DialogTitle>
                 <DialogContent style={styles.dialogContent}>
-                    {this.state.root && (
+                    {this.state.root && this.state.showOrgUnitsTree && (
                         <OrgUnitSelector
                             root={this.state.root}
                             selected={selected}
@@ -262,6 +287,10 @@ export class OrgUnitDimension extends Component {
                             handleMultipleOrgUnitsSelect={
                                 this.handleMultipleOrgUnitsSelect
                             }
+                            checkboxColor="secondary"
+                            deselectAllTooltipFontColor={colors.black}
+                            deselectAllTooltipBackgroundColor={colors.greyLight}
+                            displayNameProperty={this.props.displayNameProperty}
                         />
                     )}
                     {!this.state.root && (
@@ -283,12 +312,16 @@ OrgUnitDimension.propTypes = {
     acAddParentGraphMap: PropTypes.func.isRequired,
     acSetUiItems: PropTypes.func.isRequired,
     acSetCurrentFromUi: PropTypes.func.isRequired,
+    current: PropTypes.object,
+    displayNameProperty: PropTypes.string,
 };
 
 const mapStateToProps = state => ({
     ouItems: sGetUiItemsByDimension(state, ouId),
     parentGraphMap: sGetUiParentGraphMap(state),
     metadata: sGetMetadata(state),
+    current: sGetCurrent(state),
+    displayNameProperty: sGetSettingsDisplayNameProperty(state),
 });
 
 const mapDispatchToProps = {

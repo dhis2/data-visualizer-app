@@ -1,5 +1,44 @@
 export default {
+    dialogContent: {
+        flex: '1 1 550px',
+    },
+    tabsBar: {
+        height: '48px',
+        backgroundColor: '#FFFFFF',
+        borderBottom: '1px solid #E0E0E0',
+    },
+    tab: {
+        width: '33.33%',
+    },
     rangeAxisMin: {
-        paddingRight: '15px',
+        marginRight: '15px',
+    },
+    selectBaseRoot: {
+        marginBottom: '12px',
+    },
+    targetLineRoot: {
+        position: 'relative',
+        top: '10px',
+    },
+    baseLineRoot: {
+        position: 'relative',
+        top: '10px',
+        marginRight: '25px',
+    },
+    formGroupContainer: {
+        justifyContent: 'space-between',
+        marginBottom: '15px',
+    },
+    axisFormGroup: {
+        height: '325px',
+        justifyContent: 'space-around',
+    },
+    titleFormGroup: {
+        marginBottom: '12px',
+    },
+    checkboxRoot: {
+        position: 'relative',
+        top: '10px',
+        marginLeft: '5px',
     },
 };

@@ -89,9 +89,9 @@ export class Visualization extends Component {
         // avoid redrawing the chart if the interpretation content remains the same
         // this is the case when the panel is toggled but the selected interpretation is not changed
         if (
-            prevProps.interpretation &&
-            this.props.interpretation.created !==
-                prevProps.interpretation.created
+            !prevProps.interpretation ||
+            (this.props.interpretation &&
+                this.props.interpretation.id !== prevProps.interpretation.id)
         ) {
             const vis = this.props.interpretation.id
                 ? this.props.visualization

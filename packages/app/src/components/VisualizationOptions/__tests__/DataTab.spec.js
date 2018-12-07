@@ -1,7 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import FormGroup from '@material-ui/core/FormGroup';
-
+import HideEmptyRowItems from '../Options/HideEmptyRowItems';
+import RegressionType from '../Options/RegressionType';
+import SortOrder from '../Options/SortOrder';
 import { DataTab } from '../DataTab';
 
 describe('The DataTab component', () => {
@@ -29,9 +31,9 @@ describe('The DataTab component', () => {
         'CumulativeValues',
         'PercentStackedValues',
         'ShowData',
-        'HideEmptyRowItems',
-        'RegressionType',
-        'SortOrder',
+        HideEmptyRowItems,
+        RegressionType,
+        SortOrder,
         'AggregationType',
         // TODO find a way to test BaseLine and TargetLine
     ].forEach(component => {
