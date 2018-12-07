@@ -1,6 +1,7 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 import FormGroup from '@material-ui/core/FormGroup';
+import { withStyles } from '@material-ui/core/styles';
 
 import NoSpaceBetweenColumns from './Options/NoSpaceBetweenColumns';
 import HideLegend from './Options/HideLegend';
@@ -14,7 +15,7 @@ export const StyleTab = ({ classes }) => (
     <FormGroup>
         <NoSpaceBetweenColumns />
         <HideLegend />
-        <FormGroup row={true}>
+        <FormGroup className={classes.titleFormGroup} row={true}>
             <Title />
             <HideTitle />
         </FormGroup>
@@ -24,5 +25,9 @@ export const StyleTab = ({ classes }) => (
         </FormGroup>
     </FormGroup>
 );
+
+StyleTab.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
 
 export default withStyles(styles)(StyleTab);
