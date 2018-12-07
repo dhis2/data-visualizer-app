@@ -21,7 +21,7 @@ import {
 
 import { computeGenericPeriodNames } from '../../modules/analytics';
 import { isYearOverYear } from '../../modules/chartTypes';
-import { isLayoutValid } from '../../modules/layout';
+import { validateLayout } from '../../modules/layout';
 import { getOptionsForRequest } from '../../modules/options';
 import { BASE_FIELD_YEARLY_SERIES } from '../../modules/fields/baseFields';
 
