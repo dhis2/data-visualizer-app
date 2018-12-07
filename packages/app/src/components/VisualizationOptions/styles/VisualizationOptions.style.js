@@ -25,4 +25,12 @@ export default {
         height: '325px',
         justifyContent: 'space-around',
     },
+    titleFormGroup: {
+        marginBottom: '12px',
+    },
+    checkboxRoot: {
+        position: 'relative',
+        top: '10px',
+        marginLeft: '5px',
+    },
 };

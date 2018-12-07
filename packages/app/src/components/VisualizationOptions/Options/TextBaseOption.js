@@ -29,11 +29,12 @@ TextBaseOption.defaultProps = {
 };
 
 TextBaseOption.propTypes = {
+    className: PropTypes.string,
     enabled: PropTypes.bool,
-    type: PropTypes.string.isRequired,
-    option: PropTypes.object.isRequired,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-    onChange: PropTypes.func.isRequired,
+    type: PropTypes.string,
+    option: PropTypes.object,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    onChange: PropTypes.func,
 };
 
 const mapStateToProps = (state, ownProps) => ({
