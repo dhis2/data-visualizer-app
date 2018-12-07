@@ -127,7 +127,7 @@ export class DialogManager extends Component {
 
 DialogManager.propTypes = {
     dialogId: PropTypes.string,
-    dxIds: PropTypes.array.isRequired,
+    dxIds: PropTypes.array,
     ouIds: PropTypes.array.isRequired,
     closeDialog: PropTypes.func.isRequired,
     setRecommendedIds: PropTypes.func.isRequired,
@@ -135,6 +135,7 @@ DialogManager.propTypes = {
 
 DialogManager.defaultProps = {
     dialogId: null,
+    dxIds: [],
 };
 
 const mapStateToProps = state => ({

@@ -257,11 +257,15 @@ export class DataDimension extends Component {
 
 DataDimension.propTypes = {
     displayNameProp: PropTypes.string.isRequired,
-    selectedItems: PropTypes.array.isRequired,
+    selectedItems: PropTypes.array,
     addDxItems: PropTypes.func.isRequired,
     setDxItems: PropTypes.func.isRequired,
     removeDxItems: PropTypes.func.isRequired,
     addMetadata: PropTypes.func.isRequired,
+};
+
+DataDimension.defaultProps = {
+    selectedItems: [],
 };
 
 const mapStateToProps = state => ({
