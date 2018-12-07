@@ -10,6 +10,7 @@ module.exports = {
     setupTestFrameworkScriptFile: '<rootDir>/config/testSetup.js',
     testPathIgnorePatterns: [
         '/node_modules/',
+        '<rootDir>/packages/app/cypress/',
         '<rootDir>/packages/*/build/',
         '<rootDir>/packages/app/scripts/',
     ],
