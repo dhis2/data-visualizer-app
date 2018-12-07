@@ -15,7 +15,7 @@ export default {
     },
     title: {
         fontWeight: 'bold',
-        marginTop: '20px',
+        marginTop: '30px',
         color: colors.greyDark,
     },
     description: {
