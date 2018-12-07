@@ -36,9 +36,24 @@ export const menuLabels = {
 };
 
 // Layout validation functions
-const validateDefault = layout => {
-    if (!(layout.columns.length && layout.columns[0].items.length)) {
+const validateDefault = (layout, dimensions) => {
+    const c = layout.columns;
+    const r = layout.rows;
+    const f = layout.filters;
+    console.log('c', c);
+    console.log('r', r);
+    console.log('f', f);
+    if (!c.length) {
         throw new Error(i18n.t('Please add a series dimension'));
+    }
+
+    if (!(Array.isArray(c[0].items) && c[0].items.length)) {
+        const dimensionId = c[0].dimension;
+        throw new Error(
+            i18n.t('Please add items to the {{dimensionName}} dimension', {
+                dimensionName: dimensions[dimensionId].name,
+            })
+        );
     }
 
     if (!(layout.rows.length && layout.rows[0].items.length)) {
@@ -71,13 +86,13 @@ const validateYearOverYear = layout => {
     console.log(layout);
 };
 
-export const validateLayoutByType = (layout, type) => {
-    switch (type) {
+export const validateLayoutByType = (layout, dimensions) => {
+    switch (layout.type) {
         case YEAR_OVER_YEAR_COLUMN:
         case YEAR_OVER_YEAR_LINE:
             return validateYearOverYear(layout);
         default:
-            return validateDefault(layout);
+            return validateDefault(layout, dimensions);
     }
 };
 

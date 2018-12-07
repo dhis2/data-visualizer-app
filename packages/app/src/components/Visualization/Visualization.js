@@ -4,28 +4,33 @@ import { createChart } from 'd2-charts-api';
 import i18n from '@dhis2/d2-i18n';
 import debounce from 'lodash-es/debounce';
 
+import { sGetVisualization } from '../../reducers/visualization';
 import { sGetCurrent } from '../../reducers/current';
-import BlankCanvas, { visContainerId } from './BlankCanvas';
-import { getOptionsForRequest } from '../../modules/options';
-import { acAddMetadata } from '../../actions/metadata';
 import {
     sGetUiRightSidebarOpen,
     sGetUiInterpretation,
 } from '../../reducers/ui';
+import { sGetDimensions } from '../../reducers/dimensions';
+
+import { acAddMetadata } from '../../actions/metadata';
+import { acSetChart } from '../../actions/chart';
 import {
     acSetLoadError,
     acSetLoading,
     acClearLoadError,
 } from '../../actions/loader';
-import { acSetChart } from '../../actions/chart';
+
+import { computeGenericPeriodNames } from '../../modules/analytics';
+import { isYearOverYear } from '../../modules/chartTypes';
+import { validateLayoutByType } from '../../modules/layout';
+import { getOptionsForRequest } from '../../modules/options';
+
 import {
     apiFetchAnalytics,
     apiFetchAnalyticsForYearOverYear,
 } from '../../api/analytics';
-import { isYearOverYear } from '../../modules/chartTypes';
-import { sGetVisualization } from '../../reducers/visualization';
-import { computeGenericPeriodNames } from '../../modules/analytics';
-import { validateLayoutByType } from '../../modules/layout';
+
+import BlankCanvas, { visContainerId } from './BlankCanvas';
 
 export class Visualization extends Component {
     recreateChart = Function.prototype;
@@ -110,7 +115,7 @@ export class Visualization extends Component {
 
         try {
             // Validate layout
-            validateLayoutByType(vis, vis.type);
+            validateLayoutByType(vis, this.props.dimensions);
 
             // Cancel due to a new request being initiated
             if (this.isRenderIdDirty(renderId)) {
@@ -195,6 +200,7 @@ const mapStateToProps = state => ({
     visualization: sGetVisualization(state),
     interpretation: sGetUiInterpretation(state),
     rightSidebarOpen: sGetUiRightSidebarOpen(state),
+    dimensions: sGetDimensions(state),
 });
 
 export default connect(

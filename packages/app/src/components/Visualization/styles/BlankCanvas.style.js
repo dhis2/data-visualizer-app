@@ -10,15 +10,17 @@ export default {
         maxWidth: 500,
         textAlign: 'center',
         alignSelf: 'center',
+        position: 'relative',
+        top: '-20%',
     },
     title: {
         fontWeight: 'bold',
-        marginTop: '10px',
+        marginTop: '20px',
         color: colors.greyDark,
     },
     description: {
         fontWeight: 'bold',
-        marginTop: '10px',
+        marginTop: '20px',
         color: colors.grey,
     },
 };
