@@ -3,21 +3,24 @@ import isObject from 'lodash-es/isObject';
 import i18n from '@dhis2/d2-i18n';
 import { YEAR_OVER_YEAR_LINE, YEAR_OVER_YEAR_COLUMN } from './chartTypes';
 import { FIXED_DIMENSIONS } from './fixedDimensions';
+import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields';
 
 const dxName = FIXED_DIMENSIONS.dx.name;
 const peId = FIXED_DIMENSIONS.pe.id;
 
-// Prop names for analytical object axes
+// Names for analytical object axes
 export const AXIS_NAME_COLUMNS = 'columns';
 export const AXIS_NAME_ROWS = 'rows';
 export const AXIS_NAME_FILTERS = 'filters';
-export const SOURCE_DIMENSIONS = 'dimensions';
 
 export const AXIS_NAMES = [
     AXIS_NAME_COLUMNS,
     AXIS_NAME_ROWS,
     AXIS_NAME_FILTERS,
 ];
+
+// Names for dnd sources
+export const SOURCE_DIMENSIONS = 'dimensions';
 
 // Prop names for dimension id and items
 export const DIMENSION_ID_PROP_NAME = 'dimension';
@@ -43,16 +46,15 @@ const isItemValid = item =>
 const isDimensionValid = dim =>
     Boolean(
         isObject(dim) &&
-            typeof dim.dimension === 'string' &&
-            Array.isArray(dim.items) &&
-            isItemValid(dim.items[0])
+            typeof dim[DIMENSION_ID_PROP_NAME] === 'string' &&
+            Array.isArray(dim[DIMENSION_ITEMS_PROP_NAME]) &&
+            isItemValid(dim[DIMENSION_ITEMS_PROP_NAME][0])
     );
 
 const isAxisValid = axis =>
     Boolean(Array.isArray(axis) && isDimensionValid(axis[0]));
 
 const validateDefault = layout => {
-    console.log(layout.columns, layout.rows);
     if (!isAxisValid(layout.columns)) {
         throw new Error(
             i18n.t('Please add at least one {{series}} dimension', {
@@ -92,8 +94,8 @@ const validateDefault = layout => {
 const validateYearOverYear = layout => {
     if (
         !(
-            Array.isArray(layout.yearlySeries) &&
-            typeof layout.yearlySeries[0] === 'string'
+            Array.isArray(layout[BASE_FIELD_YEARLY_SERIES]) &&
+            typeof layout[BASE_FIELD_YEARLY_SERIES][0] === 'string'
         )
     ) {
         throw new Error(
@@ -138,7 +140,7 @@ export const isLayoutValid = layout => {
 // Accepts: dimensionId, [itemIds]
 // Returns dimension object { dimension: 'dx', items: [{ id: abc }] }
 export const createDimension = (dimensionId, itemIds) => ({
-    dimension: dimensionId,
+    [DIMENSION_ID_PROP_NAME]: dimensionId,
     items: itemIds.map(id => ({ id })),
 });
 
@@ -184,7 +186,7 @@ export const getDimensionIdsByAxis = visualization => {
     const entries = Object.entries(axes);
     const entriesWithIds = entries.map(([axisName, dimensions]) => [
         axisName,
-        dimensions.map(dim => dim.dimension),
+        dimensions.map(dim => dim[DIMENSION_ID_PROP_NAME]),
     ]);
 
     return entriesWithIds.reduce(

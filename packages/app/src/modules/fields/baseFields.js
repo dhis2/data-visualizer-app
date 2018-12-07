@@ -1,7 +1,9 @@
-const NAME_FIELD = 'name';
+export const BASE_FIELD_NAME = 'name';
+export const BASE_FIELD_TYPE = 'type';
+export const BASE_FIELD_YEARLY_SERIES = 'yearlySeries';
 
 const getFieldObject = (name, props = {}) => ({
-    [NAME_FIELD]: name,
+    [BASE_FIELD_NAME]: name,
     ...props,
 });
 
@@ -21,7 +23,7 @@ export const fieldsByType = {
     chart: [
         getFieldObject('category', { excluded: true }),
         getFieldObject('series', { excluded: true }),
-        getFieldObject('yearlySeries'),
+        getFieldObject(BASE_FIELD_YEARLY_SERIES),
     ],
     eventReport: [getFieldObject('dataType')],
     reportTable_eventReport: [
@@ -54,7 +56,7 @@ export const fieldsByType = {
         getFieldObject('showData', { option: true }),
         getFieldObject('targetLineLabel', { option: true }),
         getFieldObject('targetLineValue', { option: true }),
-        getFieldObject('type', { option: true }),
+        getFieldObject(BASE_FIELD_TYPE, { option: true }),
     ],
     eventReport_eventChart: [
         getFieldObject('attributeValueDimension'),
@@ -142,11 +144,11 @@ export const fieldsByType = {
 
 // actions
 
-export const extractName = propObj => propObj[NAME_FIELD];
+export const extractName = propObj => propObj[BASE_FIELD_NAME];
 
 export const markExcluded = fieldObj =>
     fieldObj.excluded === true
-        ? { ...fieldObj, [NAME_FIELD]: `!${fieldObj[NAME_FIELD]}` }
+        ? { ...fieldObj, [BASE_FIELD_NAME]: `!${fieldObj[BASE_FIELD_NAME]}` }
         : fieldObj;
 
 export const moveExcludedToEnd = (acc, current, curIndex, array) => {

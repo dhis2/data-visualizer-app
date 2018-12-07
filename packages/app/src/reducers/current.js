@@ -1,10 +1,19 @@
 import { getAxesFromUi, getOptionsFromUi } from '../modules/current';
-import { createDimension } from '../modules/layout';
+import {
+    createDimension,
+    AXIS_NAME_COLUMNS,
+    AXIS_NAME_ROWS,
+    AXIS_NAME_FILTERS,
+} from '../modules/layout';
 import {
     YEAR_OVER_YEAR_LINE,
     YEAR_OVER_YEAR_COLUMN,
 } from '../modules/chartTypes';
 import { FIXED_DIMENSIONS } from '../modules/fixedDimensions';
+import {
+    BASE_FIELD_YEARLY_SERIES,
+    BASE_FIELD_TYPE,
+} from '../modules/fields/baseFields';
 
 export const SET_CURRENT = 'SET_CURRENT';
 export const SET_CURRENT_FROM_UI = 'SET_CURRENT_FROM_UI';
@@ -24,14 +33,14 @@ const getYearOverYearCurrentFromUi = (state, action) => {
 
     return {
         ...state,
-        type: ui.type,
+        [BASE_FIELD_TYPE]: ui.type,
         ...getOptionsFromUi(ui),
-        columns: [createDimension(dxId, dxItem)],
-        rows: [createDimension(peId, ui.yearOverYearCategory)],
-        filters: getAxesFromUi(ui).filters.filter(
+        [AXIS_NAME_COLUMNS]: [createDimension(dxId, dxItem)],
+        [AXIS_NAME_ROWS]: [createDimension(peId, ui.yearOverYearCategory)],
+        [AXIS_NAME_FILTERS]: getAxesFromUi(ui).filters.filter(
             f => ![dxId, peId].includes(f.dimension)
         ),
-        yearlySeries: ui.yearOverYearSeries,
+        [[BASE_FIELD_YEARLY_SERIES]]: ui.yearOverYearSeries,
     };
 };
 
@@ -53,7 +62,7 @@ export default (state = DEFAULT_CURRENT, action) => {
                         ...state,
                         ...axesFromUi,
                         ...optionsFromUi,
-                        type: action.value.type,
+                        [BASE_FIELD_TYPE]: action.value.type,
                     };
                 }
             }

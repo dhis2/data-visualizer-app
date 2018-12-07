@@ -23,6 +23,7 @@ import { computeGenericPeriodNames } from '../../modules/analytics';
 import { isYearOverYear } from '../../modules/chartTypes';
 import { isLayoutValid } from '../../modules/layout';
 import { getOptionsForRequest } from '../../modules/options';
+import { BASE_FIELD_YEARLY_SERIES } from '../../modules/fields/baseFields';
 
 import {
     apiFetchAnalytics,
@@ -135,7 +136,7 @@ export class Visualization extends Component {
                     yearlySeriesLabels,
                 } = await apiFetchAnalyticsForYearOverYear(vis, options));
 
-                extraOptions.yearlySeries = yearlySeriesLabels;
+                extraOptions[BASE_FIELD_YEARLY_SERIES] = yearlySeriesLabels;
 
                 extraOptions.xAxisLabels = computeGenericPeriodNames(responses);
             } else {
