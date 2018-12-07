@@ -44,7 +44,6 @@ export const DEFAULT_UI = {
         filters: [ouId],
     },
     itemsByDimension: {
-        [dxId]: [],
         [ouId]: [],
         [peId]: [],
     },
