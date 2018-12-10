@@ -12,7 +12,7 @@ import { SET_CURRENT, CLEAR_CURRENT } from '../../reducers/current';
 import {
     SET_UI_FROM_VISUALIZATION,
     CLEAR_UI,
-    OPEN_UI_RIGHT_SIDEBAR,
+    SET_UI_RIGHT_SIDEBAR_OPEN,
     SET_UI_INTERPRETATION,
 } from '../../reducers/ui';
 import { SET_LOAD_ERROR, CLEAR_LOAD_ERROR } from '../../reducers/loader';
@@ -84,7 +84,7 @@ describe('index', () => {
                     value: interpretation,
                 },
                 {
-                    type: OPEN_UI_RIGHT_SIDEBAR,
+                    type: SET_UI_RIGHT_SIDEBAR_OPEN,
                 },
                 {
                     type: SET_VISUALIZATION,
