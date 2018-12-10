@@ -4,27 +4,33 @@ import { createChart } from 'd2-charts-api';
 import i18n from '@dhis2/d2-i18n';
 import debounce from 'lodash-es/debounce';
 
+import { sGetVisualization } from '../../reducers/visualization';
 import { sGetCurrent } from '../../reducers/current';
-import BlankCanvas, { visContainerId } from './BlankCanvas';
-import { getOptionsForRequest } from '../../modules/options';
-import { acAddMetadata } from '../../actions/metadata';
 import {
     sGetUiRightSidebarOpen,
     sGetUiInterpretation,
 } from '../../reducers/ui';
+
+import { acAddMetadata } from '../../actions/metadata';
+import { acSetChart } from '../../actions/chart';
 import {
     acSetLoadError,
     acSetLoading,
     acClearLoadError,
 } from '../../actions/loader';
-import { acSetChart } from '../../actions/chart';
+
+import { computeGenericPeriodNames } from '../../modules/analytics';
+import { isYearOverYear } from '../../modules/chartTypes';
+import { validateLayout } from '../../modules/layout';
+import { getOptionsForRequest } from '../../modules/options';
+import { BASE_FIELD_YEARLY_SERIES } from '../../modules/fields/baseFields';
+
 import {
     apiFetchAnalytics,
     apiFetchAnalyticsForYearOverYear,
 } from '../../api/analytics';
-import { isYearOverYear } from '../../modules/chartTypes';
-import { sGetVisualization } from '../../reducers/visualization';
-import { computeGenericPeriodNames } from '../../modules/analytics';
+
+import BlankCanvas, { visContainerId } from './BlankCanvas';
 
 export class Visualization extends Component {
     recreateChart = Function.prototype;
@@ -108,7 +114,10 @@ export class Visualization extends Component {
         const options = this.getOptions(vis, interpretation);
 
         try {
-            // cancel due to a new request being initiated
+            // Validate layout
+            validateLayout(vis);
+
+            // Cancel due to a new request being initiated
             if (this.isRenderIdDirty(renderId)) {
                 return;
             }
@@ -127,7 +136,7 @@ export class Visualization extends Component {
                     yearlySeriesLabels,
                 } = await apiFetchAnalyticsForYearOverYear(vis, options));
 
-                extraOptions.yearlySeries = yearlySeriesLabels;
+                extraOptions[BASE_FIELD_YEARLY_SERIES] = yearlySeriesLabels;
 
                 extraOptions.xAxisLabels = computeGenericPeriodNames(responses);
             } else {
@@ -138,7 +147,7 @@ export class Visualization extends Component {
                 this.props.acAddMetadata(res.metaData.items);
             });
 
-            // cancel due to a new request being initiated
+            // Cancel due to a new request being initiated
             if (this.isRenderIdDirty(renderId)) {
                 this.props.acSetLoading(false);
                 return;
@@ -169,7 +178,7 @@ export class Visualization extends Component {
         } catch (error) {
             this.props.acSetLoading(false);
 
-            // do not show messages that are no longer relevant
+            // Do not show messages that are no longer relevant
             if (this.isRenderIdDirty(renderId)) {
                 return;
             }

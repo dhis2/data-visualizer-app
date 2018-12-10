@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-12-07T09:58:42.714Z\n"
-"PO-Revision-Date: 2018-12-07T09:58:42.714Z\n"
+"POT-Creation-Date: 2018-12-07T14:37:05.829Z\n"
+"PO-Revision-Date: 2018-12-07T14:37:05.829Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -239,9 +239,6 @@ msgstr ""
 msgid "Range axis tick steps"
 msgstr ""
 
-msgid "Tick steps may extend the chart beyond 'Range axis max'"
-msgstr ""
-
 msgid "Trend line"
 msgstr ""
 
@@ -405,6 +402,24 @@ msgid "category"
 msgstr ""
 
 msgid "filter"
+msgstr ""
+
+msgid "Please add at least one {{series}} dimension"
+msgstr ""
+
+msgid "Please add at least one {{category}} dimension"
+msgstr ""
+
+msgid "Please add at least one period as {{series}}, {{category}} or {{filter}}"
+msgstr ""
+
+msgid "Please add at least one period as a {{series}} dimension"
+msgstr ""
+
+msgid "Please add at least one period as a {{category}} dimension"
+msgstr ""
+
+msgid "Please add {{data}} as a filter dimension"
 msgstr ""
 
 msgid "Today"
