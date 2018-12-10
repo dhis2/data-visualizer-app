@@ -28,11 +28,9 @@ export class DimensionLabel extends Component {
     };
 
     render() {
-        console.log('dataTest', this.props.dataTest);
-
         return (
             <div
-                data-test={this.props.dataTest}
+                data-test={this.props.id}
                 className="label"
                 onClick={this.onLabelClick}
                 onKeyPress={this.onKeyPress}

@@ -23,7 +23,6 @@ export class DimensionList extends Component {
 
     renderItem = dimension => (
         <DimensionItem
-            dataTest={dimension.id}
             id={dimension.id}
             key={dimension.id}
             name={dimension.name}
