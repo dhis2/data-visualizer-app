@@ -1,0 +1,24 @@
+{
+    "name": "data-visualizer-plugin",
+    "version": "0.0.0-PLACEHOLDER",
+    "description": "DHIS2 Data Visualizer plugin",
+    "main": "./build/index.js",
+    "license": "BSD-3-Clause",
+    "peerDependencies": {
+        "d2": "^31.2.1",
+        "d2-charts-api": "^31.0.9",
+        "react": "^16.6.0"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.2.0",
+        "@babel/core": "^7.2.0",
+        "@babel/preset-env": "^7.2.0",
+        "@babel/preset-react": "^7.0.0",
+        "babel-preset-react-app": "^6.1.0"
+    },
+    "scripts": {
+        "build":
+            "rm -rf dist && NODE_ENV=production babel src --out-dir build --copy-files"
+    },
+    "browserslist": [">0.2%", "not dead", "not ie < 11", "not op_mini all"]
+}
