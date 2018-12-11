@@ -78,8 +78,11 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    onSeriesChange: event =>
-        dispatch(acSetUiYearOverYearSeries(event.target.value)),
+    onSeriesChange: event => {
+        if (event.target.value.length) {
+            dispatch(acSetUiYearOverYearSeries(event.target.value));
+        }
+    },
     onCategoryChange: event =>
         dispatch(acSetUiYearOverYearCategory(event.target.value)),
 });

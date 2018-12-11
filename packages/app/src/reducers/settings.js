@@ -30,7 +30,7 @@ export default (state = DEFAULT_SETTINGS, action) => {
 
 export const sGetSettings = state => state.settings;
 
-export const sGetDisplayNameProperty = state =>
+export const sGetSettingsDisplayNameProperty = state =>
     sGetSettings(state).displayNameProperty;
 
 export const sGetRootOrgUnit = state =>
