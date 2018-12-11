@@ -16,7 +16,7 @@ import {
     SET_UI_YEAR_ON_YEAR_SERIES,
     SET_UI_YEAR_ON_YEAR_CATEGORY,
     TOGGLE_UI_RIGHT_SIDEBAR_OPEN,
-    OPEN_UI_RIGHT_SIDEBAR_OPEN,
+    SET_UI_RIGHT_SIDEBAR_OPEN,
     SET_UI_INTERPRETATION,
     CLEAR_UI_INTERPRETATION,
 } from '../reducers/ui';
@@ -105,8 +105,8 @@ export const acToggleUiRightSidebarOpen = () => ({
     type: TOGGLE_UI_RIGHT_SIDEBAR_OPEN,
 });
 
-export const acOpenUiRightSidebarOpen = () => ({
-    type: OPEN_UI_RIGHT_SIDEBAR_OPEN,
+export const acSetUiRightSidebarOpen = () => ({
+    type: SET_UI_RIGHT_SIDEBAR_OPEN,
 });
 
 export const acSetUiInterpretation = value => ({
