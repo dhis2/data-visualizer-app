@@ -15,6 +15,7 @@ const TOTALS = 'totals';
 const DETAIL = 'detail';
 
 const programText = i18n.t('Program');
+const selectProgramText = i18n.t('Select a program');
 
 export const dataTypes = {
     [INDICATORS]: {
@@ -50,7 +51,7 @@ export const dataTypes = {
         id: EVENT_DATA_ITEMS,
         name: i18n.t('Event data items'),
         groupLabel: programText,
-        placeholder: () => <span>{programText}</span>,
+        placeholder: () => <span>{selectProgramText}</span>,
         defaultGroup: null,
         groupDetail: false,
     },
@@ -58,7 +59,7 @@ export const dataTypes = {
         id: PROGRAM_INDICATORS,
         name: i18n.t('Program indicators'),
         groupLabel: programText,
-        placeholder: () => <span>{programText}</span>,
+        placeholder: () => <span>{selectProgramText}</span>,
         defaultGroup: null,
         groupDetail: false,
     },
