@@ -79,7 +79,13 @@ class ChartPlugin extends Component {
     };
 
     renderChart = async () => {
-        const { config, filters, onChartGenerated, onError } = this.props;
+        const {
+            config,
+            filters,
+            onResponsesReceived,
+            onChartGenerated,
+            onError,
+        } = this.props;
 
         try {
             const visualization =
@@ -107,6 +113,10 @@ class ChartPlugin extends Component {
                 extraOptions.xAxisLabels = computeGenericPeriodNames(responses);
             } else {
                 responses = await apiFetchAnalytics(visualization, options);
+            }
+
+            if (responses.length) {
+                onResponsesReceived(responses);
             }
 
             this.recreateChart = animation => {
