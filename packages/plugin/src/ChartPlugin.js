@@ -67,8 +67,13 @@ class ChartPlugin extends Component {
         }
 
         // global filters
-        if (filters.userOrgUnit) {
-            options.userOrgUnit = filters.userOrgUnits;
+        // userOrgUnit
+        if (filters.userOrgUnit && filters.userOrgUnit.length) {
+            const ouIds = filters.userOrgUnit.map(
+                ouPath => ouPath.split('/').slice(-1)[0]
+            );
+
+            options.userOrgUnit = ouIds.join(';');
         }
 
         return options;
