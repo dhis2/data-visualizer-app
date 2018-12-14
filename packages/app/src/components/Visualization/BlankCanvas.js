@@ -1,11 +1,10 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
 import styles from './styles/BlankCanvas.style';
 import { sGetLoadError } from '../../reducers/loader';
 import chartErrorImg from '../../assets/chart-error-graphic.png';
 
-export const visContainerId = 'visualization-container';
 export const defaultCanvasMessage =
     'Create a new visualization by adding dimensions to the layout';
 
@@ -27,11 +26,9 @@ export const BlankCanvas = ({ error }) => {
     }
 
     return (
-        <Fragment>
-            <div id={visContainerId} style={styles.outer}>
-                <div style={styles.inner}>{canvasContent}</div>
-            </div>
-        </Fragment>
+        <div style={styles.outer}>
+            <div style={styles.inner}>{canvasContent}</div>
+        </div>
     );
 };
 
