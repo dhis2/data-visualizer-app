@@ -4,7 +4,8 @@
     "description": "DHIS2 Data Visualizer plugin",
     "main": "./build/index.js",
     "license": "BSD-3-Clause",
-    "peerDependencies": {
+    "dependencies": {
+        "@material-ui/core": "^3.1.2",
         "d2": "^31.2.1",
         "d2-charts-api": "^31.0.9",
         "react": "^16.6.0"
@@ -17,8 +18,15 @@
         "babel-preset-react-app": "^6.1.0"
     },
     "scripts": {
-        "build":
-            "rm -rf dist && NODE_ENV=production babel src --out-dir build --copy-files"
+        "clean": "rm -rf ./build/*",
+        "build": "npm run clean && NODE_ENV=production npm run build:es",
+        "build:es": "babel src --out-dir build --copy-files --verbose"
     },
-    "browserslist": [">0.2%", "not dead", "not ie < 11", "not op_mini all"]
+    "browserslist": [
+        ">0.5%",
+        "last 2 versions",
+        "Firefox ESR",
+        "ie 11",
+        "not dead"
+    ]
 }
