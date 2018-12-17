@@ -88,6 +88,7 @@ export class Visualization extends Component {
     componentDidUpdate(prevProps) {
         if (this.props.chartConfig !== prevProps.chartConfig) {
             this.validate(this.props.chartConfig);
+            return;
         }
 
         // open sidebar
