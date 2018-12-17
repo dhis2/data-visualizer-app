@@ -87,6 +87,7 @@ class ChartPlugin extends Component {
         const {
             config,
             filters,
+            forDashboard,
             onResponsesReceived,
             onChartGenerated,
             onError,
@@ -100,7 +101,7 @@ class ChartPlugin extends Component {
 
             const options = this.getRequestOptions(visualization, filters);
 
-            const extraOptions = {};
+            const extraOptions = { dashboard: forDashboard };
             let responses = [];
 
             if (isYearOverYear(visualization.type)) {
@@ -155,7 +156,7 @@ class ChartPlugin extends Component {
         return (
             <Fragment>
                 {this.state.isLoading ? <LoadingMask /> : null}
-                <div ref={this.canvasRef} style={{ height: '100%' }} />
+                <div ref={this.canvasRef} />
             </Fragment>
         );
     }
@@ -164,6 +165,7 @@ class ChartPlugin extends Component {
 ChartPlugin.defaultProps = {
     config: {},
     filters: {},
+    forDashboard: false,
     animation: 200,
     onError: Function.prototype,
     onChartGenerated: Function.prototype,
@@ -175,6 +177,7 @@ ChartPlugin.propTypes = {
     animation: PropTypes.number,
     config: PropTypes.object.isRequired,
     filters: PropTypes.object,
+    forDashboard: PropTypes.bool,
     onError: PropTypes.func.isRequired,
     onChartGenerated: PropTypes.func,
     onResponsesReceived: PropTypes.func,
