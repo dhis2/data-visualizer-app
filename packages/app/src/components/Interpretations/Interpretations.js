@@ -25,12 +25,12 @@ export class Interpretations extends Component {
             // the other scenario is when the URL changes because of a click inside the Interpretations component
             if (history.location.pathname !== interpretationUrl) {
                 history.push(interpretationUrl);
-            }
 
-            this.props.acSetUiInterpretation({
-                id: interpretation.id,
-                created: interpretation.created,
-            });
+                this.props.acSetUiInterpretation({
+                    id: interpretation.id,
+                    created: interpretation.created,
+                });
+            }
         } else {
             history.push(`/${this.props.id}`);
         }
