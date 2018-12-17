@@ -4812,10 +4812,10 @@ d2-utilizr@^0.2.15:
     lodash.isset "^4.3.0"
     lodash.isstring "^4.0.1"
 
-d2@31.2.1, d2@^31.2.1:
-  version "31.2.1"
-  resolved "https://registry.yarnpkg.com/d2/-/d2-31.2.1.tgz#0ca21a30118d0486f3807f165a2420ecaad0a1e1"
-  integrity sha512-0AuYkAHR3+hnxKjpi8okaiNXoBDfr1ZFlzELyuN+BMo42fu4IIANEy4/MoVZvN8ezfbFM5Y8aJu1MmG1zLCNtA==
+d2@31.2.3:
+  version "31.2.3"
+  resolved "https://registry.yarnpkg.com/d2/-/d2-31.2.3.tgz#f69f5c977494f477e5dd505d556744b317b0d099"
+  integrity sha512-g1Aj02sSd/hpGdf2qVSszu19rq25meV7bZdECFqOHGaLXehyZ+QMkzS4+DM4wNtrRMzSCTQZxNoxvBYPqRf73Q==
   dependencies:
     babel-jest "^22.4.3"
     docdash "^0.4.0"
