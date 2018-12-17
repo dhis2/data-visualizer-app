@@ -156,7 +156,7 @@ class ChartPlugin extends Component {
         return (
             <Fragment>
                 {this.state.isLoading ? <LoadingMask /> : null}
-                <div ref={this.canvasRef} />
+                <div ref={this.canvasRef} style={{ height: '100%' }} />
             </Fragment>
         );
     }
