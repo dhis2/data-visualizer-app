@@ -1,4 +1,4 @@
-import { YEAR_OVER_YEAR_LINE, YEAR_OVER_YEAR_COLUMN } from './chartTypes';
+import { YEAR_OVER_YEAR_LINE, YEAR_OVER_YEAR_COLUMN, PIE } from './chartTypes';
 import {
     AXIS_NAME_COLUMNS,
     AXIS_NAME_ROWS,
@@ -52,11 +52,31 @@ const yearOverYearUiAdapter = ui => {
     };
 };
 
+// Transform from store.ui to pie format
+const pieUiAdapter = ui => {
+    const state = Object.assign({}, ui);
+
+    return {
+        ...state,
+        layout: {
+            ...state.layout,
+            [AXIS_NAME_COLUMNS]: [],
+            [AXIS_NAME_FILTERS]: [
+                ...state.layout[AXIS_NAME_FILTERS],
+                ...state.layout[AXIS_NAME_COLUMNS],
+            ],
+        },
+    };
+};
+
 export const getAdaptedUiByType = ui => {
     switch (ui.type) {
         case YEAR_OVER_YEAR_LINE:
         case YEAR_OVER_YEAR_COLUMN: {
             return yearOverYearUiAdapter(ui);
+        }
+        case PIE: {
+            return pieUiAdapter(ui);
         }
         default:
             return ui;
