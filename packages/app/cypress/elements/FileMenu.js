@@ -15,8 +15,7 @@ class FileMenu {
 
     newFile() {
         clickFileButton();
-        return cy
-            .get('div')
+        cy.get('div')
             .contains('New')
             .click();
     }
