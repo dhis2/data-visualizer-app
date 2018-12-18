@@ -5,6 +5,7 @@ import { YEAR_OVER_YEAR_LINE, YEAR_OVER_YEAR_COLUMN, PIE } from './chartTypes';
 import { FIXED_DIMENSIONS } from './fixedDimensions';
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields';
 
+const dxId = FIXED_DIMENSIONS.dx.id;
 const dxName = FIXED_DIMENSIONS.dx.name;
 const peId = FIXED_DIMENSIONS.pe.id;
 
@@ -54,6 +55,11 @@ const errorLabels = {
             filter: menuLabels.filters,
         }
     ),
+    pieData: i18n.t('Please add {{data}} as {{category}} or {{filter}}', {
+        data: dxName,
+        category: menuLabels.rows,
+        filter: menuLabels.filters,
+    }),
     piePeriod: i18n.t(
         'Please add at least one period as {{category}} or {{filter}}',
         {
@@ -105,16 +111,16 @@ const validateAxis = (axis, message) => {
     }
 };
 
-const findPeDimension = layout =>
+const findDimension = (layout, dimensionId) =>
     [...layout.columns, ...layout.rows, ...layout.filters].find(
-        dim => dim.dimension === peId
+        dim => dim.dimension === dimensionId
     );
 
 // Layout validation
 const validateDefaultLayout = layout => {
     validateAxis(layout.columns, errorLabels.defaultSeries);
     validateAxis(layout.rows, errorLabels.defaultCategory);
-    validateDimension(findPeDimension(layout), errorLabels.defaultPeriod);
+    validateDimension(findDimension(layout, peId), errorLabels.defaultPeriod);
 };
 
 const validateYearOverYearLayout = layout => {
@@ -134,7 +140,8 @@ const validateYearOverYearLayout = layout => {
 
 const validatePieLayout = layout => {
     validateAxis(layout.rows, errorLabels.defaultCategory);
-    validateDimension(findPeDimension(layout), errorLabels.piePeriod);
+    validateDimension(findDimension(layout, dxId), errorLabels.pieData);
+    validateDimension(findDimension(layout, peId), errorLabels.piePeriod);
 };
 
 export const validateLayout = layout => {
