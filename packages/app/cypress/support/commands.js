@@ -26,7 +26,6 @@ Cypress.Commands.add('persistLogin', () => {
 });
 
 Cypress.Commands.add('loadPage', () => {
-    cy.visit(Cypress.config('testUrl'));
     cy.visit(Cypress.config('testUrl'), { onBeforeLoad });
     cy.get('header', { log: false, timeout: 10000 }); // Waits for the page to fully load
 });

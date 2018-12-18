@@ -1,6 +1,6 @@
 import FileMenu from '../elements/FileMenu';
 import DimensionPanel from '../elements/DimensionPanel';
-import { chartTitleEl, chartVisualizationEl } from '../elements/Canvas';
+import { chartTitleEl, chartContainer } from '../elements/Canvas';
 
 describe('Data visualizer', function() {
     let fileMenu;
@@ -26,7 +26,7 @@ describe('Data visualizer', function() {
             .should('be.visible')
             .contains(chartTitle);
 
-        cy.get(chartVisualizationEl)
+        cy.get(chartContainer)
             .should('have.length', 1)
             .should('be.visible');
     });
@@ -41,16 +41,29 @@ describe('Data visualizer', function() {
                 .its('current')
                 .should('be.null');
 
+            cy.get(chartContainer, { log: false, timeout: 10000 })
+                .should('not.be.visible')
+                .should('have.length', 0);
+
             const dimensionPanel = new DimensionPanel();
             dimensionPanel.selectDimension('dx');
 
             dimensionPanel.selectIndicator('sB79w2hiLp8');
 
+            dimensionPanel.clickUpdate();
+
+            cy.get(chartContainer, {
+                log: false,
+                timeout: 10000,
+            }).should('be.visible');
+
             cy.window()
                 .its('store')
                 .invoke('getState')
                 .its('current')
-                .should('be.null');
+                .its('columns')
+                .should('be.visible')
+                .should('have.length', 1);
         });
     });
 });
