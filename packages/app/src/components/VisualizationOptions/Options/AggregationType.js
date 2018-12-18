@@ -1,10 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
+import { withStyles } from '@material-ui/core/styles';
+import styles from '../styles/VisualizationOptions.style';
 
 import SelectBaseOption from './SelectBaseOption';
 
-const AggregationType = () => (
+const AggregationType = ({ classes }) => (
     <SelectBaseOption
+        className={classes.aggregationType}
         option={{
             name: 'aggregationType',
             label: i18n.t('Aggregation type'),
@@ -31,4 +35,8 @@ const AggregationType = () => (
     />
 );
 
-export default AggregationType;
+AggregationType.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(AggregationType);
