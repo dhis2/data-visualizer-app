@@ -27,6 +27,7 @@ export const Item = ({
     const selectedState = selected ? 'selected' : 'unselected';
     return (
         <div
+            data-test={id}
             style={highlighted ? styles.highlightedItem : {}}
             className={`${selectedState}-list-item`}
             onClick={onClickWrapper(id, index, onItemClick)}

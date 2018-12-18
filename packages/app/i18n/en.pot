@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-12-07T10:54:00.630Z\n"
-"PO-Revision-Date: 2018-12-07T10:54:00.630Z\n"
+"POT-Creation-Date: 2018-12-17T13:18:39.977Z\n"
+"PO-Revision-Date: 2018-12-17T13:18:39.977Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -237,9 +237,6 @@ msgid "Range axis min"
 msgstr ""
 
 msgid "Range axis tick steps"
-msgstr ""
-
-msgid "Tick steps may extend the chart beyond 'Range axis max'"
 msgstr ""
 
 msgid "Trend line"

@@ -35,8 +35,22 @@ describe('Data visualizer', function() {
         it('adds a data dimension', () => {
             fileMenu.newFile();
 
+            cy.window()
+                .its('store')
+                .invoke('getState')
+                .its('current')
+                .should('be.null');
+
             const dimensionPanel = new DimensionPanel();
             dimensionPanel.selectDimension('dx');
+
+            dimensionPanel.selectIndicator('sB79w2hiLp8');
+
+            cy.window()
+                .its('store')
+                .invoke('getState')
+                .its('current')
+                .should('be.null');
         });
     });
 });
