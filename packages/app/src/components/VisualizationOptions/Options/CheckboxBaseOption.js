@@ -6,8 +6,9 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { sGetUiOptions } from '../../../reducers/ui';
 import { acSetUiOptions } from '../../../actions/ui';
 
-export const CheckboxBaseOption = ({ option, value, onChange }) => (
+export const CheckboxBaseOption = ({ className, option, value, onChange }) => (
     <FormControlLabel
+        className={className}
         control={
             <Checkbox
                 checked={value}
@@ -20,6 +21,7 @@ export const CheckboxBaseOption = ({ option, value, onChange }) => (
 );
 
 CheckboxBaseOption.propTypes = {
+    className: PropTypes.string,
     option: PropTypes.object,
     value: PropTypes.bool,
     onChange: PropTypes.func,

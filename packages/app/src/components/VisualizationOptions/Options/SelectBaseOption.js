@@ -9,8 +9,8 @@ import InputLabel from '@material-ui/core/InputLabel';
 import { sGetUiOptions } from '../../../reducers/ui';
 import { acSetUiOptions } from '../../../actions/ui';
 
-export const SelectBaseOption = ({ option, value, onChange }) => (
-    <FormControl>
+export const SelectBaseOption = ({ className, option, value, onChange }) => (
+    <FormControl className={className}>
         <InputLabel>{option.label}</InputLabel>
         <Select
             displayEmpty={true}
@@ -27,9 +27,10 @@ export const SelectBaseOption = ({ option, value, onChange }) => (
 );
 
 SelectBaseOption.propTypes = {
-    option: PropTypes.object,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    onChange: PropTypes.func,
+    className: PropTypes.string,
+    option: PropTypes.object.isRequired,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    onChange: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => ({
