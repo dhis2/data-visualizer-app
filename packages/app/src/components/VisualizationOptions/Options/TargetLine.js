@@ -14,7 +14,7 @@ import TargetLineLabel from './TargetLineLabel';
 import styles from '../styles/VisualizationOptions.style';
 
 export const TargetLine = ({ classes, enabled, onChange }) => (
-    <FormGroup className={classes.formGroupContainer} row={true}>
+    <FormGroup className={classes.targetLine} row={true}>
         <FormControlLabel
             className={classes.targetLineRoot}
             control={

@@ -14,7 +14,10 @@ export default {
         marginRight: '15px',
     },
     selectBaseRoot: {
-        marginBottom: '12px',
+        margin: '15px 0px 10px',
+    },
+    regressionType: {
+        margin: '10px 0px 10px',
     },
     targetLineRoot: {
         position: 'relative',
@@ -25,13 +28,16 @@ export default {
         top: '8px',
         marginRight: '25px',
     },
-    formGroupContainer: {
-        justifyContent: 'space-between',
-        marginBottom: '5px',
-    },
     axisFormGroup: {
         height: '325px',
         justifyContent: 'space-around',
+    },
+    targetLine: {
+        justifyContent: 'space-between',
+        marginBottom: '8px',
+    },
+    baseLine: {
+        justifyContent: 'space-between',
     },
     titleFormGroup: {
         marginBottom: '12px',
@@ -40,5 +46,14 @@ export default {
         position: 'relative',
         top: '10px',
         marginLeft: '5px',
+    },
+    dataTabCheckbox: {
+        height: '35px',
+    },
+    aggregationType: {
+        marginTop: '10px',
+    },
+    dataTabFormGroup: {
+        paddingTop: '8px',
     },
 };
