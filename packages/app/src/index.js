@@ -35,11 +35,8 @@ const configI18n = async userSettings => {
 const render = (location, baseUrl, d2, userSettings) => {
     const store = configureStore(metadataMiddleware);
 
-    console.log('jj render app');
-
     if (window.Cypress) {
         window.store = store;
-        console.log('set store to', store);
     }
 
     ReactDOM.render(
