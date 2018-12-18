@@ -10,7 +10,7 @@ class FileMenu {
         cy.get('div')
             .contains('Open')
             .click();
-        return cy.contains(fileName).click();
+        cy.contains(fileName).click();
     }
 
     newFile() {

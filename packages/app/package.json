@@ -100,7 +100,8 @@
         "extract-pot": "d2-i18n-extract -p src/ -o i18n/",
         "manifest": "d2-manifest package.json build/manifest.webapp",
         "test": "node scripts/test.js --config=../../jest.config.js",
-        "test-browser": "cypress open",
+        "cy:e2e:open": "cypress open",
+        "cy:e2e:run": "cypress run",
         "coverage": "npm run test -- --coverage"
     },
     "husky": {

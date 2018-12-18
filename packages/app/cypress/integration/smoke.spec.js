@@ -1,8 +1,8 @@
 import FileMenu from '../elements/FileMenu';
-import DimensionPanel from '../elements/DimensionPanel';
+import Dimensions from '../elements/Dimensions';
 import { chartTitleEl, chartContainer } from '../elements/Canvas';
 
-describe('Data visualizer', function() {
+describe('Data visualizer', () => {
     let fileMenu;
     before(() => {
         cy.login();
@@ -35,34 +35,34 @@ describe('Data visualizer', function() {
         it('adds a data dimension', () => {
             fileMenu.newFile();
 
-            cy.window()
-                .its('store')
-                .invoke('getState')
-                .its('current')
-                .should('be.null');
+            cy.getReduxState('current').should('be.null');
 
-            cy.get(chartContainer, { log: false, timeout: 10000 })
+            cy.get(chartContainer, {
+                log: false,
+                timeout: 10000,
+            })
                 .should('not.be.visible')
                 .should('have.length', 0);
 
-            const dimensionPanel = new DimensionPanel();
-            dimensionPanel.selectDimension('dx');
+            cy.server();
+            cy.route(/\/analytics\.json.*/).as('getAnalytics');
 
-            dimensionPanel.selectIndicator('sB79w2hiLp8');
+            const dimensions = new Dimensions();
+            dimensions.selectDimension('dx');
+            dimensions.selectIndicator('sB79w2hiLp8'); //ANC 3 Coverage
+            dimensions.clickUpdate();
 
-            dimensionPanel.clickUpdate();
+            cy.wait('@getAnalytics')
+                .its('status')
+                .should('be', 200);
 
             cy.get(chartContainer, {
                 log: false,
                 timeout: 10000,
             }).should('be.visible');
 
-            cy.window()
-                .its('store')
-                .invoke('getState')
-                .its('current')
+            cy.getReduxState('current')
                 .its('columns')
-                .should('be.visible')
                 .should('have.length', 1);
         });
     });

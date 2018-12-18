@@ -1,4 +1,4 @@
-class DimensionPanel {
+class Dimensions {
     selectDimension(dimension) {
         cy.get(`[data-test=${dimension}]`).click();
     }
@@ -14,4 +14,4 @@ class DimensionPanel {
     }
 }
 
-export default DimensionPanel;
+export default Dimensions;
