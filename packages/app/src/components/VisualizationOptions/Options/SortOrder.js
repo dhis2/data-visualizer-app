@@ -8,7 +8,7 @@ import styles from '../styles/VisualizationOptions.style';
 
 const SortOrder = ({ classes }) => (
     <SelectBaseOption
-        className={classes.selectBaseRoot}
+        className={classes.selectBaseOption}
         option={{
             name: 'sortOrder',
             label: i18n.t('Sort order'),

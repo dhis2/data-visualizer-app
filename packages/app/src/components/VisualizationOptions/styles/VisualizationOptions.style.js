@@ -10,10 +10,17 @@ export default {
     tab: {
         width: '33.33%',
     },
-    rangeAxisMin: {
-        marginRight: '15px',
+    dataTabFormGroup: {
+        paddingTop: '8px',
     },
-    selectBaseRoot: {
+    axisTabFormGroup: {
+        height: '325px',
+        justifyContent: 'space-around',
+    },
+    dataTabCheckbox: {
+        height: '35px',
+    },
+    selectBaseOption: {
         margin: '15px 0px 10px',
     },
     regressionType: {
@@ -28,32 +35,26 @@ export default {
         top: '8px',
         marginRight: '25px',
     },
-    axisFormGroup: {
-        height: '325px',
-        justifyContent: 'space-around',
+    checkboxRoot: {
+        position: 'relative',
+        top: '10px',
+        marginLeft: '5px',
     },
     targetLine: {
         justifyContent: 'space-between',
         marginBottom: '8px',
     },
     baseLine: {
+        marginBottom: '5px',
         justifyContent: 'space-between',
-    },
-    titleFormGroup: {
-        marginBottom: '12px',
-    },
-    checkboxRoot: {
-        position: 'relative',
-        top: '10px',
-        marginLeft: '5px',
-    },
-    dataTabCheckbox: {
-        height: '35px',
     },
     aggregationType: {
         marginTop: '10px',
     },
-    dataTabFormGroup: {
-        paddingTop: '8px',
+    rangeAxisMin: {
+        marginRight: '15px',
+    },
+    titleFormGroup: {
+        marginBottom: '12px',
     },
 };
