@@ -37,16 +37,28 @@ Lint:
 $ yarn lint
 ```
 
-Run tests:
+Run unit tests:
 
 ```
 $ yarn test
 ```
 
-Run tests with coverage report
+Run unit tests with coverage report
 
 ```
 $ yarn coverage
+```
+
+Run Cypress (browser) tests interactively:
+
+```
+yarn cy:e2e:open
+```
+
+Run Cypress (browser) tests in ci mode:
+
+```
+yarn cy:e2e:run
 ```
 
 Run prettier and write changes:
