@@ -31,13 +31,13 @@ $ yarn start
 
 The following npm scripts can all be run from the repo root directory and will execute on all packages
 
-Lint:
+#### Lint
 
 ```
 $ yarn lint
 ```
 
-Run unit tests:
+#### Unit tests
 
 ```
 $ yarn test
@@ -49,19 +49,28 @@ Run unit tests with coverage report
 $ yarn coverage
 ```
 
-Run Cypress (browser) tests interactively:
+#### Browser tests
+
+We use Cypress for our browser tests. In order to run the tests, you need to define two environment variables:
+
+```
+CYPRESS_DHIS2_USERNAME=myusername
+CYPRESS_DHIS2_PASSWORD=mypassword
+```
+
+Run tests interactively:
 
 ```
 yarn cy:e2e:open
 ```
 
-Run Cypress (browser) tests in ci mode:
+Run tests in ci mode:
 
 ```
 yarn cy:e2e:run
 ```
 
-Run prettier and write changes:
+#### Prettier and write changes
 
 ```
 $ yarn prettier-write

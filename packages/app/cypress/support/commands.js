@@ -4,15 +4,20 @@ const onBeforeLoad = win => {
     delete win.fetch;
 };
 
-Cypress.Commands.add('login', (username, password) => {
-    const uname = username || Cypress.config('username');
-    const pswd = password || Cypress.config('password');
+Cypress.Commands.add('login', () => {
+    const username = Cypress.env('DHIS2_USERNAME');
+    const password = Cypress.env('DHIS2_PASSWORD');
+
+    if (!username || !password) {
+        throw new Error('Missing login credentials');
+    }
+
     cy.request({
         method: 'POST',
         url: Cypress.config('loginUrl'),
         body: {
-            j_username: uname,
-            j_password: pswd,
+            j_username: username,
+            j_password: password,
         },
         form: true,
         log: true,
