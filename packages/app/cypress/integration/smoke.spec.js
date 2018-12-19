@@ -10,7 +10,9 @@ describe('Data visualizer', () => {
 
         fileMenu = new FileMenu();
     });
-    beforeEach(() => {});
+    beforeEach(() => {
+        cy.persistLogin();
+    });
 
     it('loads', () => {
         cy.title().should('equal', 'Data Visualizer');
