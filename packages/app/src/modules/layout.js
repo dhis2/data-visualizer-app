@@ -139,8 +139,8 @@ const validateYearOverYearLayout = layout => {
 };
 
 const validatePieLayout = layout => {
+    console.log('pie layout', layout);
     validateAxis(layout.rows, errorLabels.defaultCategory);
-    validateDimension(findDimension(layout, dxId), errorLabels.pieData);
     validateDimension(findDimension(layout, peId), errorLabels.piePeriod);
 };
 

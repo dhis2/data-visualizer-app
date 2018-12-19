@@ -30,6 +30,23 @@ export const getUiFromVisualization = (vis, currentState = {}) => ({
         : currentState.yearOverYearCategory,
 });
 
+// Transform from store.ui to pie format
+const pieUiAdapter = ui => {
+    const state = Object.assign({}, ui);
+
+    return {
+        ...state,
+        layout: {
+            ...state.layout,
+            [AXIS_NAME_COLUMNS]: [],
+            [AXIS_NAME_FILTERS]: [
+                ...state.layout[AXIS_NAME_FILTERS],
+                ...state.layout[AXIS_NAME_COLUMNS],
+            ],
+        },
+    };
+};
+
 // Transform from store.ui to year on year format
 const yearOverYearUiAdapter = ui => {
     const state = Object.assign({}, ui);
@@ -49,23 +66,6 @@ const yearOverYearUiAdapter = ui => {
             ].filter(dim => dim !== peId),
         },
         itemsByDimension: items,
-    };
-};
-
-// Transform from store.ui to pie format
-const pieUiAdapter = ui => {
-    const state = Object.assign({}, ui);
-
-    return {
-        ...state,
-        layout: {
-            ...state.layout,
-            [AXIS_NAME_COLUMNS]: [],
-            [AXIS_NAME_FILTERS]: [
-                ...state.layout[AXIS_NAME_FILTERS],
-                ...state.layout[AXIS_NAME_COLUMNS],
-            ],
-        },
     };
 };
 

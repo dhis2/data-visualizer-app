@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-12-18T13:56:24.347Z\n"
-"PO-Revision-Date: 2018-12-18T13:56:24.347Z\n"
+"POT-Creation-Date: 2018-12-19T08:34:46.311Z\n"
+"PO-Revision-Date: 2018-12-19T08:34:46.311Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -411,6 +411,9 @@ msgid "Please add at least one {{category}} dimension"
 msgstr ""
 
 msgid "Please add at least one period as {series}}, {{category}} or {{filter}}"
+msgstr ""
+
+msgid "Please add {{data}} as {{category}} or {{filter}}"
 msgstr ""
 
 msgid "Please add at least one period as {{category}} or {{filter}}"

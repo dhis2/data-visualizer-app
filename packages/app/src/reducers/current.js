@@ -2,10 +2,12 @@ import {
     getAxesFromUi,
     getOptionsFromUi,
     getYearOverYearCurrentFromUi,
+    getPieCurrentFromUi,
 } from '../modules/current';
 import {
     YEAR_OVER_YEAR_LINE,
     YEAR_OVER_YEAR_COLUMN,
+    PIE,
 } from '../modules/chartTypes';
 import { BASE_FIELD_TYPE } from '../modules/fields/baseFields';
 
@@ -22,6 +24,8 @@ export default (state = DEFAULT_CURRENT, action) => {
         }
         case SET_CURRENT_FROM_UI: {
             switch (action.value.type) {
+                case PIE:
+                    return getPieCurrentFromUi(state, action);
                 case YEAR_OVER_YEAR_LINE:
                 case YEAR_OVER_YEAR_COLUMN:
                     return getYearOverYearCurrentFromUi(state, action);
