@@ -12,9 +12,11 @@ Cypress.Commands.add('login', () => {
         throw new Error('Missing login credentials');
     }
 
+    const loginUrl = Cypress.config('loginUrl');
+
     cy.request({
         method: 'POST',
-        url: Cypress.config('loginUrl'),
+        url: `${loginUrl}/dhis-web-commons-security/login.action`,
         body: {
             j_username: username,
             j_password: password,
@@ -31,7 +33,7 @@ Cypress.Commands.add('persistLogin', () => {
 });
 
 Cypress.Commands.add('loadPage', () => {
-    cy.visit(Cypress.config('testUrl'), { onBeforeLoad });
+    cy.visit(Cypress.config('appUrl'), { onBeforeLoad });
     cy.get('header', { log: false, timeout: 10000 }); // Waits for the page to fully load
 });
 

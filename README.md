@@ -51,7 +51,8 @@ $ yarn coverage
 
 #### Browser tests
 
-We use Cypress for our browser tests. In order to run the tests, you need to define two environment variables:
+We use Cypress for our browser tests. Currently the tests can only run against the dhis2 server localhost:8080.
+There are plans to make this configurable. In order to run the tests, you need to define two environment variables:
 
 ```
 CYPRESS_DHIS2_USERNAME=myusername
