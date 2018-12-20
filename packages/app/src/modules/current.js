@@ -48,7 +48,7 @@ export const getOptionsFromUi = ui => {
 
 export const getYearOverYearCurrentFromUi = (state, action) => {
     const ui = action.value;
-    console.log('getyoycurrent state', state);
+
     const dxItem = ui.itemsByDimension[dxId]
         ? [ui.itemsByDimension[dxId][0]]
         : [];
@@ -69,16 +69,10 @@ export const getYearOverYearCurrentFromUi = (state, action) => {
 export const getPieCurrentFromUi = (state, action) => {
     const ui = action.value;
 
-    // const dxItem = ui.itemsByDimension[dxId]
-    //     ? [ui.itemsByDimension[dxId][0]]
-    //     : [];
-
-    console.log('getpiecurrent state/ui', state, ui);
     return {
         ...state,
         [BASE_FIELD_TYPE]: ui.type,
         ...getOptionsFromUi(ui),
-        // [AXIS_NAME_COLUMNS]: [createDimension(dxId, dxItem)],
         [AXIS_NAME_COLUMNS]: [],
         [AXIS_NAME_ROWS]: getAxesFromUi(ui).rows,
         [AXIS_NAME_FILTERS]: [
