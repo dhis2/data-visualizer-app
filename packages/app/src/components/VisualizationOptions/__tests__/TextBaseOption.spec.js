@@ -20,6 +20,7 @@ describe('DV > Options > TextBaseOption', () => {
 
         props = {
             value: 'test',
+            type: 'text',
             option: {
                 label: 'Input field',
             },

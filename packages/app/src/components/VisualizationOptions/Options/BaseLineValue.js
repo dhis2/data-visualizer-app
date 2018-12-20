@@ -1,9 +1,12 @@
 import React from 'react';
-import TextBaseOption from './TextBaseOption';
+import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 
-const BaseLineValue = () => (
+import TextBaseOption from './TextBaseOption';
+
+const BaseLineValue = ({ enabled }) => (
     <TextBaseOption
+        enabled={enabled}
         type="number"
         option={{
             name: 'baseLineValue',
@@ -11,5 +14,9 @@ const BaseLineValue = () => (
         }}
     />
 );
+
+BaseLineValue.propTypes = {
+    enabled: PropTypes.bool.isRequired,
+};
 
 export default BaseLineValue;
