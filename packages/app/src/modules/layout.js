@@ -5,7 +5,6 @@ import { YEAR_OVER_YEAR_LINE, YEAR_OVER_YEAR_COLUMN, PIE } from './chartTypes';
 import { FIXED_DIMENSIONS } from './fixedDimensions';
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields';
 
-const dxId = FIXED_DIMENSIONS.dx.id;
 const dxName = FIXED_DIMENSIONS.dx.name;
 const peId = FIXED_DIMENSIONS.pe.id;
 

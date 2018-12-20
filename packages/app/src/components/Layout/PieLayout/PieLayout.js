@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import DefaultAxis from '../DefaultLayout/DefaultAxis';
+import defaultAxisStyles from '../DefaultLayout/styles/DefaultAxis.style';
 import defaultLayoutStyles from '../DefaultLayout/styles/DefaultLayout.style';
 import { AXIS_NAME_ROWS, AXIS_NAME_FILTERS } from '../../../modules/layout';
 
@@ -16,7 +17,10 @@ const Layout = props => (
         >
             <DefaultAxis
                 axisName={AXIS_NAME_ROWS}
-                style={defaultLayoutStyles.filters}
+                style={{
+                    ...defaultLayoutStyles.filters,
+                    ...defaultAxisStyles.axisContainerLeft,
+                }}
             />
         </div>
         <div
