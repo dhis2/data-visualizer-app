@@ -30,7 +30,7 @@ export class DimensionLabel extends Component {
     render() {
         return (
             <div
-                data-test={this.props.id}
+                data-test={`dimension-id-${this.props.id}`}
                 className="label"
                 onClick={this.onLabelClick}
                 onKeyPress={this.onKeyPress}

@@ -1,10 +1,10 @@
 class Dimensions {
     selectDimension(dimension) {
-        cy.get(`[data-test=${dimension}]`).click();
+        cy.get(`[data-test=dimension-id-${dimension}]`).click();
     }
 
     selectIndicator(indicator) {
-        cy.get(`[data-test=${indicator}]`).dblclick();
+        cy.get(`[data-test=dimension-item-${indicator}]`).dblclick();
     }
 
     clickUpdate() {
