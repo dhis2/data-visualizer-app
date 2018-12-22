@@ -14,7 +14,7 @@ import BaseLineLabel from './BaseLineLabel';
 import styles from '../styles/VisualizationOptions.style';
 
 export const BaseLine = ({ classes, enabled, onChange }) => (
-    <FormGroup className={classes.formGroupContainer} row={true}>
+    <FormGroup className={classes.baseLine} row={true}>
         <FormControlLabel
             className={classes.baseLineRoot}
             control={

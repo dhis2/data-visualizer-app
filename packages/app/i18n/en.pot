@@ -338,6 +338,12 @@ msgstr ""
 msgid "Expected reports"
 msgstr ""
 
+msgid "Program"
+msgstr ""
+
+msgid "Select a program"
+msgstr ""
+
 msgid "Indicators"
 msgstr ""
 
@@ -374,12 +380,6 @@ msgstr ""
 msgid "Event data items"
 msgstr ""
 
-msgid "Program"
-msgstr ""
-
-msgid "Select Program"
-msgstr ""
-
 msgid "Program indicators"
 msgstr ""
 
@@ -402,6 +402,24 @@ msgid "category"
 msgstr ""
 
 msgid "filter"
+msgstr ""
+
+msgid "Please add at least one {{series}} dimension"
+msgstr ""
+
+msgid "Please add at least one {{category}} dimension"
+msgstr ""
+
+msgid "Please add at least one period as {{series}}, {{category}} or {{filter}}"
+msgstr ""
+
+msgid "Please add at least one period as a {{series}} dimension"
+msgstr ""
+
+msgid "Please add at least one period as a {{category}} dimension"
+msgstr ""
+
+msgid "Please add {{data}} as a filter dimension"
 msgstr ""
 
 msgid "Today"

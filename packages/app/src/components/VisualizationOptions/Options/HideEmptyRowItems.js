@@ -7,7 +7,7 @@ import styles from '../styles/VisualizationOptions.style';
 
 const HideEmptyRowItems = ({ classes }) => (
     <SelectBaseOption
-        className={classes.selectBaseRoot}
+        className={classes.selectBaseOption}
         option={{
             name: 'hideEmptyRowItems',
             label: i18n.t('Hide empty categories'),

@@ -5,9 +5,50 @@ import * as api from '../../../api/analytics';
 import { Visualization } from '../Visualization';
 import BlankCanvas from '../BlankCanvas';
 import * as options from '../../../modules/options';
-import { YEAR_OVER_YEAR_LINE } from '../../../modules/chartTypes';
+import { YEAR_OVER_YEAR_LINE, COLUMN } from '../../../modules/chartTypes';
 
 jest.mock('d2-charts-api');
+
+const dxMock = {
+    dimension: 'dx',
+    items: [
+        {
+            id: 'Uvn6LCg7dVU',
+        },
+    ],
+};
+
+const peMock = {
+    dimension: 'pe',
+    items: [
+        {
+            id: 'LAST_12_MONTHS',
+        },
+    ],
+};
+
+const ouMock = {
+    dimension: 'ou',
+    items: [
+        {
+            id: 'ImspTQPwCqd',
+        },
+    ],
+};
+
+const defaultCurrentMock = {
+    type: COLUMN,
+    columns: [dxMock],
+    rows: [peMock],
+    filters: [ouMock],
+};
+
+const yearOverYearCurrentMock = {
+    type: YEAR_OVER_YEAR_LINE,
+    columns: [dxMock],
+    rows: [peMock],
+    yearlySeries: ['LAST_YEAR'],
+};
 
 const metaDataMock = {
     items: {
@@ -64,7 +105,7 @@ describe('Visualization', () => {
 
     beforeEach(() => {
         props = {
-            current: {},
+            current: defaultCurrentMock,
             interpretation: {},
             rightSidebarOpen: false,
             acAddMetadata: jest.fn(),
@@ -118,6 +159,7 @@ describe('Visualization', () => {
 
         it('includes only options that do not have default value in request', done => {
             props.current = {
+                ...defaultCurrentMock,
                 option1: 'def',
                 option2: null,
             };
@@ -175,7 +217,7 @@ describe('Visualization', () => {
         describe('Year-on-year chart', () => {
             beforeEach(() => {
                 props.current = {
-                    type: YEAR_OVER_YEAR_LINE,
+                    ...yearOverYearCurrentMock,
                     option1: 'def',
                 };
 

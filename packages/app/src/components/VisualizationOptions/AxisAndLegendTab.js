@@ -12,7 +12,7 @@ import DomainAxisLabel from './Options/DomainAxisLabel';
 import styles from './styles/VisualizationOptions.style';
 
 export const AxisAndLegendTab = ({ classes }) => (
-    <FormGroup className={classes.axisFormGroup}>
+    <FormGroup className={classes.axisTabFormGroup}>
         <FormGroup row={true}>
             <RangeAxisMinValue />
             <RangeAxisMaxValue />

@@ -9,6 +9,7 @@ import {
 import { FIXED_DIMENSIONS } from './fixedDimensions';
 import { isYearOverYear } from './chartTypes';
 import { getOptionsFromVisualization } from './options';
+import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields';
 
 const peId = FIXED_DIMENSIONS.pe.id;
 
@@ -21,8 +22,8 @@ export const getUiFromVisualization = (vis, currentState = {}) => ({
     itemsByDimension: getItemIdsByDimension(vis),
     parentGraphMap: vis.parentGraphMap || currentState.parentGraphMap,
     yearOverYearSeries:
-        isYearOverYear(vis.type) && vis.yearlySeries
-            ? vis.yearlySeries
+        isYearOverYear(vis.type) && vis[BASE_FIELD_YEARLY_SERIES]
+            ? vis[BASE_FIELD_YEARLY_SERIES]
             : currentState.yearOverYearSeries,
     yearOverYearCategory: isYearOverYear(vis.type)
         ? vis.rows[0].items.map(item => item.id)
