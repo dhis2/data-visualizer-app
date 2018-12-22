@@ -33,8 +33,14 @@ const configI18n = async userSettings => {
 };
 
 const render = (location, baseUrl, d2, userSettings) => {
+    const store = configureStore(metadataMiddleware);
+
+    if (window.Cypress) {
+        window.store = store;
+    }
+
     ReactDOM.render(
-        <Provider store={configureStore(metadataMiddleware)}>
+        <Provider store={store}>
             <MuiThemeProvider theme={muiTheme}>
                 <App
                     location={location}
@@ -63,9 +69,6 @@ const init = async () => {
         ? manifest.activities.dhis.href
         : DHIS_CONFIG.baseUrl;
     config.baseUrl = `${baseUrl}/api/${manifest.dhis2.apiVersion}`;
-    config.headers = isProd
-        ? null
-        : { Authorization: DHIS_CONFIG.authorization };
     config.schemas = ['chart', 'organisationUnit'];
 
     const userSettings = extractUserSettings(await getUserSettings());

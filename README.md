@@ -31,25 +31,47 @@ $ yarn start
 
 The following npm scripts can all be run from the repo root directory and will execute on all packages
 
-Lint:
+#### Lint
 
 ```
 $ yarn lint
 ```
 
-Run tests:
+#### Unit tests
 
 ```
 $ yarn test
 ```
 
-Run tests with coverage report
+Run unit tests with coverage report
 
 ```
 $ yarn coverage
 ```
 
-Run prettier and write changes:
+#### Browser tests
+
+We use Cypress for our browser tests. Currently the tests can only run against the dhis2 server localhost:8080.
+There are plans to make this configurable. In order to run the tests, you need to define two environment variables:
+
+```
+CYPRESS_DHIS2_USERNAME=myusername
+CYPRESS_DHIS2_PASSWORD=mypassword
+```
+
+Run tests interactively:
+
+```
+yarn cy:e2e:open
+```
+
+Run tests in ci mode:
+
+```
+yarn cy:e2e:run
+```
+
+#### Prettier and write changes
 
 ```
 $ yarn prettier-write
