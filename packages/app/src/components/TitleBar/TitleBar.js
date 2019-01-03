@@ -88,7 +88,7 @@ export const TitleBar = ({ titleState, titleText, interpretationDate }) => {
     };
 
     return titleText ? (
-        <div style={styles.titleBar}>
+        <div data-test="chart-title" style={styles.titleBar}>
             <div style={titleStyle}>
                 {titleText}
                 {getSuffix(titleState)}

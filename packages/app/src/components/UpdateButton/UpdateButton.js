@@ -37,6 +37,7 @@ const UpdateButton = ({
 
     return (
         <Button
+            data-test="update-button"
             {...props}
             className={
                 flat ? `${classes.flat} ${props.className}` : props.className
