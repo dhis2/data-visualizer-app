@@ -8,6 +8,7 @@ import {
 } from './layout';
 import { FIXED_DIMENSIONS } from './fixedDimensions';
 import { BASE_FIELD_TYPE, BASE_FIELD_YEARLY_SERIES } from './fields/baseFields';
+import { pieLayoutAdapter } from './layoutAdapters';
 
 const dxId = FIXED_DIMENSIONS.dx.id;
 const peId = FIXED_DIMENSIONS.pe.id;
@@ -46,6 +47,22 @@ export const getOptionsFromUi = ui => {
     return optionsFromUi;
 };
 
+export const getPieCurrentFromUi = (state, action) => {
+    const ui = {
+        ...action.value,
+        layout: {
+            ...pieLayoutAdapter(action.value.layout),
+        },
+    };
+
+    return {
+        ...state,
+        [BASE_FIELD_TYPE]: ui.type,
+        ...getAxesFromUi(ui),
+        ...getOptionsFromUi(ui),
+    };
+};
+
 export const getYearOverYearCurrentFromUi = (state, action) => {
     const ui = action.value;
 
@@ -56,28 +73,12 @@ export const getYearOverYearCurrentFromUi = (state, action) => {
     return {
         ...state,
         [BASE_FIELD_TYPE]: ui.type,
-        ...getOptionsFromUi(ui),
         [AXIS_NAME_COLUMNS]: [createDimension(dxId, dxItem)],
         [AXIS_NAME_ROWS]: [createDimension(peId, ui.yearOverYearCategory)],
         [AXIS_NAME_FILTERS]: getAxesFromUi(ui).filters.filter(
             f => ![dxId, peId].includes(f.dimension)
         ),
         [[BASE_FIELD_YEARLY_SERIES]]: ui.yearOverYearSeries,
-    };
-};
-
-export const getPieCurrentFromUi = (state, action) => {
-    const ui = action.value;
-
-    return {
-        ...state,
-        [BASE_FIELD_TYPE]: ui.type,
         ...getOptionsFromUi(ui),
-        [AXIS_NAME_COLUMNS]: [],
-        [AXIS_NAME_ROWS]: getAxesFromUi(ui).rows,
-        [AXIS_NAME_FILTERS]: [
-            ...getAxesFromUi(ui).filters,
-            ...getAxesFromUi(ui).columns,
-        ],
     };
 };

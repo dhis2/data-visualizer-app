@@ -10,6 +10,7 @@ import { FIXED_DIMENSIONS } from './fixedDimensions';
 import { isYearOverYear } from './chartTypes';
 import { getOptionsFromVisualization } from './options';
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields';
+import { pieLayoutAdapter, yearOverYearLayoutAdapter } from './layoutAdapters';
 
 const peId = FIXED_DIMENSIONS.pe.id;
 
@@ -31,24 +32,13 @@ export const getUiFromVisualization = (vis, currentState = {}) => ({
 });
 
 // Transform from store.ui to pie format
-const pieUiAdapter = ui => {
-    const state = Object.assign({}, ui);
-
-    return {
-        ...state,
-        layout: {
-            ...state.layout,
-            [AXIS_NAME_COLUMNS]: [],
-            [AXIS_NAME_FILTERS]: [
-                ...state.layout[AXIS_NAME_FILTERS],
-                ...state.layout[AXIS_NAME_COLUMNS],
-            ],
-        },
-    };
-};
+export const pieUiAdapter = ui => ({
+    ...ui,
+    layout: pieLayoutAdapter(ui.layout),
+});
 
 // Transform from store.ui to year on year format
-const yearOverYearUiAdapter = ui => {
+export const yearOverYearUiAdapter = ui => {
     const state = Object.assign({}, ui);
 
     const items = Object.assign({}, state.itemsByDimension);
@@ -56,15 +46,7 @@ const yearOverYearUiAdapter = ui => {
 
     return {
         ...state,
-        layout: {
-            [AXIS_NAME_COLUMNS]: [],
-            [AXIS_NAME_ROWS]: [],
-            [AXIS_NAME_FILTERS]: [
-                ...state.layout[AXIS_NAME_FILTERS],
-                ...state.layout[AXIS_NAME_COLUMNS],
-                ...state.layout[AXIS_NAME_ROWS],
-            ].filter(dim => dim !== peId),
-        },
+        layout: yearOverYearLayoutAdapter(ui.layout),
         itemsByDimension: items,
     };
 };

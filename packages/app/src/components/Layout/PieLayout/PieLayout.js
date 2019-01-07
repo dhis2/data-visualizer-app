@@ -1,12 +1,11 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 import DefaultAxis from '../DefaultLayout/DefaultAxis';
 import defaultAxisStyles from '../DefaultLayout/styles/DefaultAxis.style';
 import defaultLayoutStyles from '../DefaultLayout/styles/DefaultLayout.style';
 import { AXIS_NAME_ROWS, AXIS_NAME_FILTERS } from '../../../modules/layout';
 
-const Layout = props => (
+const Layout = () => (
     <div id="layout-ct" style={defaultLayoutStyles.ct}>
         <div
             id="axis-group-1"
@@ -38,36 +37,4 @@ const Layout = props => (
     </div>
 );
 
-Layout.displayName = 'Layout';
-
-const mapStateToProps = state => ({});
-
-const mapDispatchToProps = dispatch => ({
-    onSeriesChange: event => {
-        if (event.target.value.length) {
-            // dispatch(acSetUiYearOverYearSeries(event.target.value));
-        }
-    },
-    // onCategoryChange: event =>
-    //     dispatch(acSetUiYearOverYearCategory(event.target.value)),
-});
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Layout);
-
-// const mapStateToProps = state => ({
-//     yearOverYearSeries: sGetUiYearOverYearSeries(state),
-//     yearOverYearCategory: sGetUiYearOverYearCategory(state),
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//     onSeriesChange: event => {
-//         if (event.target.value.length) {
-//             dispatch(acSetUiYearOverYearSeries(event.target.value));
-//         }
-//     },
-//     onCategoryChange: event =>
-//         dispatch(acSetUiYearOverYearCategory(event.target.value)),
-// });
+export default Layout;

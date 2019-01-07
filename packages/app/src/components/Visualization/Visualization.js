@@ -21,7 +21,7 @@ import {
 
 import { computeGenericPeriodNames } from '../../modules/analytics';
 import { isYearOverYear } from '../../modules/chartTypes';
-import { validateLayout } from '../../modules/layout';
+import { validateLayout } from '../../modules/layoutValidation';
 import { getOptionsForRequest } from '../../modules/options';
 import { BASE_FIELD_YEARLY_SERIES } from '../../modules/fields/baseFields';
 
@@ -113,81 +113,81 @@ export class Visualization extends Component {
 
         const options = this.getOptions(vis, interpretation);
 
-        try {
-            // Validate layout
-            validateLayout(vis);
+        // try {
+        // Validate layout
+        validateLayout(vis);
 
-            // Cancel due to a new request being initiated
-            if (this.isRenderIdDirty(renderId)) {
-                return;
-            }
-
-            this.props.acClearLoadError();
-            this.props.acSetLoading(true);
-
-            const extraOptions = {};
-            let responses = [];
-
-            if (isYearOverYear(vis.type)) {
-                let yearlySeriesLabels = [];
-
-                ({
-                    responses,
-                    yearlySeriesLabels,
-                } = await apiFetchAnalyticsForYearOverYear(vis, options));
-
-                extraOptions[BASE_FIELD_YEARLY_SERIES] = yearlySeriesLabels;
-
-                extraOptions.xAxisLabels = computeGenericPeriodNames(responses);
-            } else {
-                responses = await apiFetchAnalytics(vis, options);
-            }
-
-            responses.forEach(res => {
-                this.props.acAddMetadata(res.metaData.items);
-            });
-
-            // Cancel due to a new request being initiated
-            if (this.isRenderIdDirty(renderId)) {
-                this.props.acSetLoading(false);
-                return;
-            }
-
-            const chartConfig = createChart(
-                responses,
-                vis,
-                visContainerId,
-                extraOptions
-            );
-
-            this.recreateChart = () => {
-                createChart(responses, vis, visContainerId, {
-                    ...extraOptions,
-                    animation: 0,
-                });
-            };
-
-            this.props.acSetChart(
-                chartConfig.chart.getSVGForExport({
-                    sourceHeight: 768,
-                    sourceWidth: 1024,
-                })
-            );
-
-            this.props.acSetLoading(false);
-        } catch (error) {
-            this.props.acSetLoading(false);
-
-            // Do not show messages that are no longer relevant
-            if (this.isRenderIdDirty(renderId)) {
-                return;
-            }
-
-            const errorMessage =
-                (error && error.message) ||
-                i18n('Error generating chart, please try again');
-            this.props.acSetLoadError(errorMessage);
+        // Cancel due to a new request being initiated
+        if (this.isRenderIdDirty(renderId)) {
+            return;
         }
+
+        this.props.acClearLoadError();
+        this.props.acSetLoading(true);
+
+        const extraOptions = {};
+        let responses = [];
+
+        if (isYearOverYear(vis.type)) {
+            let yearlySeriesLabels = [];
+
+            ({
+                responses,
+                yearlySeriesLabels,
+            } = await apiFetchAnalyticsForYearOverYear(vis, options));
+
+            extraOptions[BASE_FIELD_YEARLY_SERIES] = yearlySeriesLabels;
+
+            extraOptions.xAxisLabels = computeGenericPeriodNames(responses);
+        } else {
+            responses = await apiFetchAnalytics(vis, options);
+        }
+
+        responses.forEach(res => {
+            this.props.acAddMetadata(res.metaData.items);
+        });
+
+        // Cancel due to a new request being initiated
+        if (this.isRenderIdDirty(renderId)) {
+            this.props.acSetLoading(false);
+            return;
+        }
+
+        const chartConfig = createChart(
+            responses,
+            vis,
+            visContainerId,
+            extraOptions
+        );
+
+        this.recreateChart = () => {
+            createChart(responses, vis, visContainerId, {
+                ...extraOptions,
+                animation: 0,
+            });
+        };
+
+        this.props.acSetChart(
+            chartConfig.chart.getSVGForExport({
+                sourceHeight: 768,
+                sourceWidth: 1024,
+            })
+        );
+
+        this.props.acSetLoading(false);
+        // } catch (error) {
+        //     this.props.acSetLoading(false);
+
+        //     // Do not show messages that are no longer relevant
+        //     if (this.isRenderIdDirty(renderId)) {
+        //         return;
+        //     }
+
+        //     const errorMessage =
+        //         (error && error.message) ||
+        //         i18n.t('Error generating chart, please try again');
+        //     this.props.acSetLoadError(errorMessage);
+        // }
     };
 
     render() {

@@ -1,8 +1,8 @@
 import {
     getAxesFromUi,
     getOptionsFromUi,
-    getYearOverYearCurrentFromUi,
     getPieCurrentFromUi,
+    getYearOverYearCurrentFromUi,
 } from '../modules/current';
 import {
     YEAR_OVER_YEAR_LINE,

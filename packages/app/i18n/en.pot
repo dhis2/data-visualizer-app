@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-12-19T08:34:46.311Z\n"
-"PO-Revision-Date: 2018-12-19T08:34:46.311Z\n"
+"POT-Creation-Date: 2019-01-04T10:09:40.610Z\n"
+"PO-Revision-Date: 2019-01-04T10:09:40.610Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -138,6 +138,9 @@ msgid "Chart error"
 msgstr ""
 
 msgid "There is a problem with your chart"
+msgstr ""
+
+msgid "Error generating chart, please try again"
 msgstr ""
 
 msgid "Aggregation type"
@@ -417,6 +420,9 @@ msgid "Please add {{data}} as {{category}} or {{filter}}"
 msgstr ""
 
 msgid "Please add at least one period as {{category}} or {{filter}}"
+msgstr ""
+
+msgid "Please add at least one {{filter}} dimension"
 msgstr ""
 
 msgid "Please add at least one period as a {{series}} dimension"
