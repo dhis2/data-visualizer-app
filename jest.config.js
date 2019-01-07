@@ -12,7 +12,7 @@ module.exports = {
         '/node_modules/',
         '<rootDir>/packages/app/cypress/',
         '<rootDir>/packages/*/build/',
-        '<rootDir>/packages/app/scripts/',
+        '<rootDir>/packages/*/scripts/',
     ],
     verbose: false,
     transform: {
