@@ -1,5 +1,5 @@
 import React from 'react';
-import { configure, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 import LoadingMask from '../widgets/LoadingMask';
 import ChartPlugin from '../ChartPlugin';
 import * as chartsApi from 'd2-charts-api';
@@ -197,6 +197,74 @@ describe('ChartPlugin', () => {
             setTimeout(() => {
                 expect(props.onError).toHaveBeenCalled();
                 done();
+            });
+        });
+
+        it('sets period when interpretation selected', done => {
+            const period = 'eons ago';
+            props.filters.relativePeriodDate = period;
+
+            canvas();
+
+            setTimeout(() => {
+                expect(api.apiFetchAnalytics).toHaveBeenCalled();
+                expect(api.apiFetchAnalytics.mock.calls[0][1]).toHaveProperty(
+                    'relativePeriodDate',
+                    period
+                );
+
+                done();
+            });
+        });
+
+        describe('Year-on-year chart', () => {
+            beforeEach(() => {
+                props.config = {
+                    ...yearOverYearCurrentMock,
+                    option1: 'def',
+                };
+
+                api.apiFetchAnalyticsForYearOverYear = jest
+                    .fn()
+                    .mockResolvedValue(new MockYoYAnalyticsResponse());
+            });
+
+            it('makes year-on-year analytics request', done => {
+                canvas();
+
+                setTimeout(() => {
+                    expect(
+                        api.apiFetchAnalyticsForYearOverYear
+                    ).toHaveBeenCalled();
+                    expect(
+                        api.apiFetchAnalyticsForYearOverYear.mock.calls[0][1]
+                    ).toEqual({
+                        option1: 'def',
+                    });
+
+                    done();
+                });
+            });
+
+            it('provides extra options to createChart', done => {
+                canvas();
+
+                setTimeout(() => {
+                    expect(chartsApi.createChart).toHaveBeenCalled();
+
+                    const expectedExtraOptions = {
+                        yearlySeries: mockYoYSeriesLabels,
+                        xAxisLabels: ['period 1', 'period 2'],
+                    };
+
+                    expect(chartsApi.createChart.mock.calls[0][3]).toEqual({
+                        animation: undefined,
+                        dashboard: false,
+                        ...expectedExtraOptions,
+                    });
+
+                    done();
+                });
             });
         });
     });
