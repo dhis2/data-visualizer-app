@@ -16,11 +16,11 @@ export default {
     title: {
         fontWeight: 'bold',
         marginTop: '30px',
-        color: colors.greyDark,
+        color: colors.grey,
     },
     description: {
         fontWeight: 'bold',
         marginTop: '20px',
-        color: colors.grey,
+        color: colors.greyDark,
     },
 };

@@ -1,11 +1,5 @@
 import { YEAR_OVER_YEAR_LINE, YEAR_OVER_YEAR_COLUMN, PIE } from './chartTypes';
-import {
-    AXIS_NAME_COLUMNS,
-    AXIS_NAME_ROWS,
-    AXIS_NAME_FILTERS,
-    getDimensionIdsByAxis,
-    getItemIdsByDimension,
-} from './layout';
+import { getDimensionIdsByAxis, getItemIdsByDimension } from './layout';
 import { FIXED_DIMENSIONS } from './fixedDimensions';
 import { isYearOverYear } from './chartTypes';
 import { getOptionsFromVisualization } from './options';

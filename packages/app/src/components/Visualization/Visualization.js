@@ -113,81 +113,81 @@ export class Visualization extends Component {
 
         const options = this.getOptions(vis, interpretation);
 
-        // try {
-        // Validate layout
-        validateLayout(vis);
+        try {
+            // Validate layout
+            validateLayout(vis);
 
-        // Cancel due to a new request being initiated
-        if (this.isRenderIdDirty(renderId)) {
-            return;
-        }
+            // Cancel due to a new request being initiated
+            if (this.isRenderIdDirty(renderId)) {
+                return;
+            }
 
-        this.props.acClearLoadError();
-        this.props.acSetLoading(true);
+            this.props.acClearLoadError();
+            this.props.acSetLoading(true);
 
-        const extraOptions = {};
-        let responses = [];
+            const extraOptions = {};
+            let responses = [];
 
-        if (isYearOverYear(vis.type)) {
-            let yearlySeriesLabels = [];
+            if (isYearOverYear(vis.type)) {
+                let yearlySeriesLabels = [];
 
-            ({
-                responses,
-                yearlySeriesLabels,
-            } = await apiFetchAnalyticsForYearOverYear(vis, options));
+                ({
+                    responses,
+                    yearlySeriesLabels,
+                } = await apiFetchAnalyticsForYearOverYear(vis, options));
 
-            extraOptions[BASE_FIELD_YEARLY_SERIES] = yearlySeriesLabels;
+                extraOptions[BASE_FIELD_YEARLY_SERIES] = yearlySeriesLabels;
 
-            extraOptions.xAxisLabels = computeGenericPeriodNames(responses);
-        } else {
-            responses = await apiFetchAnalytics(vis, options);
-        }
+                extraOptions.xAxisLabels = computeGenericPeriodNames(responses);
+            } else {
+                responses = await apiFetchAnalytics(vis, options);
+            }
 
-        responses.forEach(res => {
-            this.props.acAddMetadata(res.metaData.items);
-        });
-
-        // Cancel due to a new request being initiated
-        if (this.isRenderIdDirty(renderId)) {
-            this.props.acSetLoading(false);
-            return;
-        }
-
-        const chartConfig = createChart(
-            responses,
-            vis,
-            visContainerId,
-            extraOptions
-        );
-
-        this.recreateChart = () => {
-            createChart(responses, vis, visContainerId, {
-                ...extraOptions,
-                animation: 0,
+            responses.forEach(res => {
+                this.props.acAddMetadata(res.metaData.items);
             });
-        };
 
-        this.props.acSetChart(
-            chartConfig.chart.getSVGForExport({
-                sourceHeight: 768,
-                sourceWidth: 1024,
-            })
-        );
+            // Cancel due to a new request being initiated
+            if (this.isRenderIdDirty(renderId)) {
+                this.props.acSetLoading(false);
+                return;
+            }
 
-        this.props.acSetLoading(false);
-        // } catch (error) {
-        //     this.props.acSetLoading(false);
+            const chartConfig = createChart(
+                responses,
+                vis,
+                visContainerId,
+                extraOptions
+            );
 
-        //     // Do not show messages that are no longer relevant
-        //     if (this.isRenderIdDirty(renderId)) {
-        //         return;
-        //     }
+            this.recreateChart = () => {
+                createChart(responses, vis, visContainerId, {
+                    ...extraOptions,
+                    animation: 0,
+                });
+            };
 
-        //     const errorMessage =
-        //         (error && error.message) ||
-        //         i18n.t('Error generating chart, please try again');
-        //     this.props.acSetLoadError(errorMessage);
-        // }
+            this.props.acSetChart(
+                chartConfig.chart.getSVGForExport({
+                    sourceHeight: 768,
+                    sourceWidth: 1024,
+                })
+            );
+
+            this.props.acSetLoading(false);
+        } catch (error) {
+            this.props.acSetLoading(false);
+
+            // Do not show messages that are no longer relevant
+            if (this.isRenderIdDirty(renderId)) {
+                return;
+            }
+
+            const errorMessage =
+                (error && error.message) ||
+                i18n.t('Error generating chart, please try again');
+            this.props.acSetLoadError(errorMessage);
+        }
     };
 
     render() {

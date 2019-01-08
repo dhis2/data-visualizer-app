@@ -20,7 +20,7 @@ const errorLabels = {
     defaultCategory: i18n.t('Please add at least one {{category}} dimension', {
         category: menuLabels.rows,
     }),
-    defaultPeriod: i18n.t(
+    defaultPe: i18n.t(
         'Please add at least one period as {series}}, {{category}} or {{filter}}',
         {
             series: menuLabels.columns,
@@ -29,12 +29,12 @@ const errorLabels = {
         }
     ),
     pie: {
-        data: i18n.t('Please add {{data}} as {{category}} or {{filter}}', {
+        dx: i18n.t('Please add {{data}} as {{category}} or {{filter}}', {
             data: dxName,
             category: menuLabels.rows,
             filter: menuLabels.filters,
         }),
-        period: i18n.t(
+        pe: i18n.t(
             'Please add at least one period as {{category}} or {{filter}}',
             {
                 category: menuLabels.rows,
@@ -58,7 +58,7 @@ const errorLabels = {
                 category: menuLabels.rows,
             }
         ),
-        data: i18n.t('Please add {{data}} as a filter dimension', {
+        dx: i18n.t('Please add {{data}} as a filter dimension', {
             data: dxName,
         }),
     },
@@ -100,7 +100,7 @@ const findDimension = (layout, dimensionId) =>
 const validateDefaultLayout = layout => {
     validateAxis(layout.columns, errorLabels.defaultSeries);
     validateAxis(layout.rows, errorLabels.defaultCategory);
-    validateDimension(findDimension(layout, peId), errorLabels.defaultPeriod);
+    validateDimension(findDimension(layout, peId), errorLabels.defaultPe);
 };
 
 const validateYearOverYearLayout = layout => {
@@ -115,13 +115,13 @@ const validateYearOverYearLayout = layout => {
 
     validateAxis(layout.rows, errorLabels.yearOverYear.categoryPeriod);
 
-    validateAxis(layout.columns, errorLabels.yearOverYear.data);
+    validateAxis(layout.columns, errorLabels.yearOverYear.dx);
 };
 
 const validatePieLayout = layout => {
     validateAxis(layout.rows, errorLabels.defaultCategory);
     validateAxis(layout.filters, errorLabels.pie.filter);
-    validateDimension(findDimension(layout, peId), errorLabels.pie.period);
+    validateDimension(findDimension(layout, peId), errorLabels.pie.pe);
 };
 
 export const validateLayout = layout => {
