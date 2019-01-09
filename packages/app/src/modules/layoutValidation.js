@@ -21,7 +21,7 @@ const errorLabels = {
         category: menuLabels.rows,
     }),
     defaultPe: i18n.t(
-        'Please add at least one period as {series}}, {{category}} or {{filter}}',
+        'Please add at least one period as {{series}}, {{category}} or {{filter}}',
         {
             series: menuLabels.columns,
             category: menuLabels.rows,
@@ -35,9 +35,9 @@ const errorLabels = {
             filter: menuLabels.filters,
         }),
         pe: i18n.t(
-            'Please add at least one period as {{category}} or {{filter}}',
+            'Please add at least one period as {{series}} or {{filter}}',
             {
-                category: menuLabels.rows,
+                series: menuLabels.columns,
                 filter: menuLabels.filters,
             }
         ),
