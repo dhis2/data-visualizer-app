@@ -119,7 +119,7 @@ const validateYearOverYearLayout = layout => {
 };
 
 const validatePieLayout = layout => {
-    validateAxis(layout.rows, errorLabels.defaultCategory);
+    validateAxis(layout.columns, errorLabels.defaultSeries);
     validateAxis(layout.filters, errorLabels.pie.filter);
     validateDimension(findDimension(layout, peId), errorLabels.pie.pe);
 };

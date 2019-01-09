@@ -3,7 +3,7 @@ import React from 'react';
 import DefaultAxis from '../DefaultLayout/DefaultAxis';
 import defaultAxisStyles from '../DefaultLayout/styles/DefaultAxis.style';
 import defaultLayoutStyles from '../DefaultLayout/styles/DefaultLayout.style';
-import { AXIS_NAME_ROWS, AXIS_NAME_FILTERS } from '../../../modules/layout';
+import { AXIS_NAME_COLUMNS, AXIS_NAME_FILTERS } from '../../../modules/layout';
 
 const Layout = () => (
     <div id="layout-ct" style={defaultLayoutStyles.ct}>
@@ -15,7 +15,7 @@ const Layout = () => (
             }}
         >
             <DefaultAxis
-                axisName={AXIS_NAME_ROWS}
+                axisName={AXIS_NAME_COLUMNS}
                 style={{
                     ...defaultLayoutStyles.filters,
                     ...defaultAxisStyles.axisContainerLeft,

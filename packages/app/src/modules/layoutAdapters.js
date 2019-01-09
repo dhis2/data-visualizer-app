@@ -9,8 +9,8 @@ export const pieLayoutAdapter = layout => {
     const rows = layout[AXIS_NAME_ROWS].slice();
 
     return {
-        [AXIS_NAME_COLUMNS]: [],
-        [AXIS_NAME_ROWS]: [rows.shift() || columns.shift()],
+        [AXIS_NAME_COLUMNS]: [columns.shift() || rows.shift()],
+        [AXIS_NAME_ROWS]: [],
         [AXIS_NAME_FILTERS]: [
             ...layout[AXIS_NAME_FILTERS],
             ...columns,

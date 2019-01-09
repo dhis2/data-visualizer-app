@@ -19,10 +19,12 @@ export const BlankCanvas = ({ loading, error }) => {
         canvasContent = (
             <div>
                 <img src={chartErrorImg} alt={i18n.t('Chart error')} />
-                <p style={styles.title}>
-                    {i18n.t('There is a problem with your chart')}
-                </p>
-                <p style={styles.description}>{error}</p>
+                {!error && (
+                    <p style={styles.title}>
+                        {i18n.t('There is a problem with your chart')}
+                    </p>
+                )}
+                <p style={error ? styles.title : styles.description}>{error}</p>
             </div>
         );
     }

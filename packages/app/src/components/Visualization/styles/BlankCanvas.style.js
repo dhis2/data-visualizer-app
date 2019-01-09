@@ -1,5 +1,11 @@
 import { colors } from '../../../modules/colors';
 
+const error = {
+    fontWeight: 'bold',
+    marginTop: '30px',
+    lineHeight: '22px',
+};
+
 export default {
     outer: {
         display: 'flex',
@@ -14,13 +20,11 @@ export default {
         top: '-20%',
     },
     title: {
-        fontWeight: 'bold',
-        marginTop: '30px',
-        color: colors.grey,
+        ...error,
+        color: colors.greyDark,
     },
     description: {
-        fontWeight: 'bold',
-        marginTop: '20px',
-        color: colors.greyDark,
+        ...error,
+        color: colors.grey,
     },
 };

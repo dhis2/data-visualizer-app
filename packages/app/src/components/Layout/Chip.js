@@ -123,7 +123,7 @@ class Chip extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    dimensionName: sGetDimensions(state)[ownProps.dimensionId].name,
+    dimensionName: (sGetDimensions(state)[ownProps.dimensionId] || {}).name,
     items: sGetUiItemsByDimension(state, ownProps.dimensionId) || emptyItems,
     metadata: sGetMetadata(state),
 });
