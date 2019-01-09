@@ -1,6 +1,17 @@
 import pick from 'lodash-es/pick';
 import options from './options';
-import { createDimension } from './layout';
+import {
+    createDimension,
+    AXIS_NAME_COLUMNS,
+    AXIS_NAME_ROWS,
+    AXIS_NAME_FILTERS,
+} from './layout';
+import { FIXED_DIMENSIONS } from './fixedDimensions';
+import { BASE_FIELD_TYPE, BASE_FIELD_YEARLY_SERIES } from './fields/baseFields';
+import { pieLayoutAdapter } from './layoutAdapters';
+
+const dxId = FIXED_DIMENSIONS.dx.id;
+const peId = FIXED_DIMENSIONS.pe.id;
 
 const hasItems = (object, id) =>
     object.hasOwnProperty(id) && Array.isArray(object[id]) && object[id].length;
@@ -34,4 +45,40 @@ export const getOptionsFromUi = ui => {
     }
 
     return optionsFromUi;
+};
+
+export const getPieCurrentFromUi = (state, action) => {
+    const ui = {
+        ...action.value,
+        layout: {
+            ...pieLayoutAdapter(action.value.layout),
+        },
+    };
+
+    return {
+        ...state,
+        [BASE_FIELD_TYPE]: ui.type,
+        ...getAxesFromUi(ui),
+        ...getOptionsFromUi(ui),
+    };
+};
+
+export const getYearOverYearCurrentFromUi = (state, action) => {
+    const ui = action.value;
+
+    const dxItem = ui.itemsByDimension[dxId]
+        ? [ui.itemsByDimension[dxId][0]]
+        : [];
+
+    return {
+        ...state,
+        [BASE_FIELD_TYPE]: ui.type,
+        [AXIS_NAME_COLUMNS]: [createDimension(dxId, dxItem)],
+        [AXIS_NAME_ROWS]: [createDimension(peId, ui.yearOverYearCategory)],
+        [AXIS_NAME_FILTERS]: getAxesFromUi(ui).filters.filter(
+            f => ![dxId, peId].includes(f.dimension)
+        ),
+        [[BASE_FIELD_YEARLY_SERIES]]: ui.yearOverYearSeries,
+        ...getOptionsFromUi(ui),
+    };
 };

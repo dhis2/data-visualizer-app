@@ -10,22 +10,32 @@ export const visContainerId = 'visualization-container';
 export const defaultCanvasMessage =
     'Create a new visualization by adding dimensions to the layout';
 
-export const BlankCanvas = ({ loading, error }) => {
-    let canvasContent = (
-        <p style={styles.title}>{i18n.t(defaultCanvasMessage)}</p>
-    );
+const getMessage = text => <p style={styles.title}>{text}</p>;
 
-    if (error) {
-        canvasContent = (
-            <div>
-                <img src={chartErrorImg} alt={i18n.t('Chart error')} />
-                <p style={styles.title}>
-                    {i18n.t('There is a problem with your chart')}
-                </p>
-                <p style={styles.description}>{error}</p>
-            </div>
-        );
-    }
+export const BlankCanvas = ({ loading, error }) => {
+    // let canvasContent = (
+    //     <p style={styles.title}>{i18n.t(defaultCanvasMessage)}</p>
+    // );
+    // console.log('error', error);
+    // if (error) {
+    //     canvasContent = (
+    //         <div>
+    //             <img src={chartErrorImg} alt={i18n.t('Chart error')} />
+    //             <p style={styles.title}>
+    //                 {error || i18n.t('There is a problem with your chart')}
+    //             </p>
+    //         </div>
+    //     );
+    // }
+
+    const canvasContent = error ? (
+        <div>
+            <img src={chartErrorImg} alt={i18n.t('Chart error')} />
+            {getMessage(error)}
+        </div>
+    ) : (
+        getMessage(i18n.t(defaultCanvasMessage))
+    );
 
     return (
         <Fragment>

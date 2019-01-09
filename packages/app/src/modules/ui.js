@@ -1,15 +1,10 @@
-import { YEAR_OVER_YEAR_LINE, YEAR_OVER_YEAR_COLUMN } from './chartTypes';
-import {
-    AXIS_NAME_COLUMNS,
-    AXIS_NAME_ROWS,
-    AXIS_NAME_FILTERS,
-    getDimensionIdsByAxis,
-    getItemIdsByDimension,
-} from './layout';
+import { YEAR_OVER_YEAR_LINE, YEAR_OVER_YEAR_COLUMN, PIE } from './chartTypes';
+import { getDimensionIdsByAxis, getItemIdsByDimension } from './layout';
 import { FIXED_DIMENSIONS } from './fixedDimensions';
 import { isYearOverYear } from './chartTypes';
 import { getOptionsFromVisualization } from './options';
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields';
+import { pieLayoutAdapter, yearOverYearLayoutAdapter } from './layoutAdapters';
 
 const peId = FIXED_DIMENSIONS.pe.id;
 
@@ -30,8 +25,14 @@ export const getUiFromVisualization = (vis, currentState = {}) => ({
         : currentState.yearOverYearCategory,
 });
 
+// Transform from store.ui to pie format
+export const pieUiAdapter = ui => ({
+    ...ui,
+    layout: pieLayoutAdapter(ui.layout),
+});
+
 // Transform from store.ui to year on year format
-const yearOverYearUiAdapter = ui => {
+export const yearOverYearUiAdapter = ui => {
     const state = Object.assign({}, ui);
 
     const items = Object.assign({}, state.itemsByDimension);
@@ -39,15 +40,7 @@ const yearOverYearUiAdapter = ui => {
 
     return {
         ...state,
-        layout: {
-            [AXIS_NAME_COLUMNS]: [],
-            [AXIS_NAME_ROWS]: [],
-            [AXIS_NAME_FILTERS]: [
-                ...state.layout[AXIS_NAME_FILTERS],
-                ...state.layout[AXIS_NAME_COLUMNS],
-                ...state.layout[AXIS_NAME_ROWS],
-            ].filter(dim => dim !== peId),
-        },
+        layout: yearOverYearLayoutAdapter(ui.layout),
         itemsByDimension: items,
     };
 };
@@ -57,6 +50,9 @@ export const getAdaptedUiByType = ui => {
         case YEAR_OVER_YEAR_LINE:
         case YEAR_OVER_YEAR_COLUMN: {
             return yearOverYearUiAdapter(ui);
+        }
+        case PIE: {
+            return pieUiAdapter(ui);
         }
         default:
             return ui;

@@ -1,12 +1,5 @@
 import pick from 'lodash-es/pick';
-import isObject from 'lodash-es/isObject';
 import i18n from '@dhis2/d2-i18n';
-import { YEAR_OVER_YEAR_LINE, YEAR_OVER_YEAR_COLUMN } from './chartTypes';
-import { FIXED_DIMENSIONS } from './fixedDimensions';
-import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields';
-
-const dxName = FIXED_DIMENSIONS.dx.name;
-const peId = FIXED_DIMENSIONS.pe.id;
 
 // Names for analytical object axes
 export const AXIS_NAME_COLUMNS = 'columns';
@@ -37,102 +30,6 @@ export const menuLabels = {
     columns: i18n.t('series'),
     rows: i18n.t('category'),
     filters: i18n.t('filter'),
-};
-
-// Layout validation functions
-const isItemValid = item =>
-    Boolean(isObject(item) && typeof item.id === 'string');
-
-const isDimensionValid = dim =>
-    Boolean(
-        isObject(dim) &&
-            typeof dim[DIMENSION_ID_PROP_NAME] === 'string' &&
-            Array.isArray(dim[DIMENSION_ITEMS_PROP_NAME]) &&
-            isItemValid(dim[DIMENSION_ITEMS_PROP_NAME][0])
-    );
-
-const isAxisValid = axis =>
-    Boolean(Array.isArray(axis) && isDimensionValid(axis[0]));
-
-const validateDefault = layout => {
-    if (!isAxisValid(layout.columns)) {
-        throw new Error(
-            i18n.t('Please add at least one {{series}} dimension', {
-                series: menuLabels.columns,
-            })
-        );
-    }
-
-    if (!isAxisValid(layout.rows)) {
-        throw new Error(
-            i18n.t('Please add at least one {{category}} dimension', {
-                category: menuLabels.rows,
-            })
-        );
-    }
-
-    const peDimension = [
-        ...layout.columns,
-        ...layout.rows,
-        ...layout.filters,
-    ].find(dim => dim.dimension === peId);
-
-    if (!(peDimension && isDimensionValid(peDimension))) {
-        throw new Error(
-            i18n.t(
-                'Please add at least one period as {{series}}, {{category}} or {{filter}}',
-                {
-                    series: menuLabels.columns,
-                    category: menuLabels.rows,
-                    filter: menuLabels.filters,
-                }
-            )
-        );
-    }
-};
-
-const validateYearOverYear = layout => {
-    if (
-        !(
-            Array.isArray(layout[BASE_FIELD_YEARLY_SERIES]) &&
-            typeof layout[BASE_FIELD_YEARLY_SERIES][0] === 'string'
-        )
-    ) {
-        throw new Error(
-            i18n.t('Please add at least one period as a {{series}} dimension', {
-                series: menuLabels.columns,
-            })
-        );
-    }
-
-    if (!isAxisValid(layout.rows)) {
-        throw new Error(
-            i18n.t(
-                'Please add at least one period as a {{category}} dimension',
-                {
-                    category: menuLabels.rows,
-                }
-            )
-        );
-    }
-
-    if (!isAxisValid(layout.columns)) {
-        throw new Error(
-            i18n.t('Please add {{data}} as a filter dimension', {
-                data: dxName,
-            })
-        );
-    }
-};
-
-export const validateLayout = layout => {
-    switch (layout.type) {
-        case YEAR_OVER_YEAR_COLUMN:
-        case YEAR_OVER_YEAR_LINE:
-            return validateYearOverYear(layout);
-        default:
-            return validateDefault(layout);
-    }
 };
 
 // Layout utility functions
@@ -224,7 +121,7 @@ export const getSwapModObj = (layout, modObj) => {
 
         if (
             existsAt &&
-            destinationAxis !== 'filters' &&
+            destinationAxis !== AXIS_NAME_FILTERS &&
             dimensionAtDestination
         ) {
             swappedModObj[dimensionAtDestination] = existsAt;

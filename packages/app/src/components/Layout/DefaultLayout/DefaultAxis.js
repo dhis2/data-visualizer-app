@@ -86,7 +86,7 @@ class Axis extends React.Component {
                 <div style={styles.content}>
                     {this.props.axis.map(dimensionId => (
                         <Chip
-                            key={dimensionId}
+                            key={`${this.props.axisName}-${dimensionId}`}
                             onClick={this.props.getOpenHandler(dimensionId)}
                             axisName={this.props.axisName}
                             dimensionId={dimensionId}

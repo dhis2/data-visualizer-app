@@ -9,8 +9,8 @@ const accentSecondaryLight = '#48A999';
 const accentSecondaryLightest = '#B2DFDB';
 const accentSecondaryTransparent = '#D9ECEB';
 
-const greyDark = '#494949';
 const black = '#000000';
+const greyDark = '#494949';
 const grey = '#9E9E9E';
 const greyLight = '#E0E0E0';
 const blueGrey = '#ECEFF1';

@@ -21,7 +21,7 @@ import {
 
 import { computeGenericPeriodNames } from '../../modules/analytics';
 import { isYearOverYear } from '../../modules/chartTypes';
-import { validateLayout } from '../../modules/layout';
+import { validateLayout } from '../../modules/layoutValidation';
 import { getOptionsForRequest } from '../../modules/options';
 import { BASE_FIELD_YEARLY_SERIES } from '../../modules/fields/baseFields';
 
@@ -185,7 +185,7 @@ export class Visualization extends Component {
 
             const errorMessage =
                 (error && error.message) ||
-                i18n('Error generating chart, please try again');
+                i18n.t('Error generating chart, please try again');
             this.props.acSetLoadError(errorMessage);
         }
     };
