@@ -107,6 +107,7 @@ export class DialogManager extends Component {
     render() {
         return (
             <Dialog
+                data-test="dialog-manager"
                 open={!!this.props.dialogId}
                 onClose={() => this.props.closeDialog(null)}
                 maxWidth="lg"

@@ -5,6 +5,9 @@
 
 # testing
 /coverage
+.netlify
+packages/app/cypress/videos/
+packages/app/cypress/screenshots/
 
 # production
 packages/**/build
