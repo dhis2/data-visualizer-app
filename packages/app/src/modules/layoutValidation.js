@@ -1,7 +1,12 @@
 import isObject from 'lodash-es/isObject';
 import i18n from '@dhis2/d2-i18n';
 
-import { YEAR_OVER_YEAR_LINE, YEAR_OVER_YEAR_COLUMN, PIE } from './chartTypes';
+import {
+    YEAR_OVER_YEAR_LINE,
+    YEAR_OVER_YEAR_COLUMN,
+    PIE,
+    GAUGE,
+} from './chartTypes';
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields';
 import {
     menuLabels,
@@ -127,6 +132,8 @@ const validatePieLayout = layout => {
 export const validateLayout = layout => {
     switch (layout.type) {
         case PIE:
+            return validatePieLayout(layout);
+        case GAUGE:
             return validatePieLayout(layout);
         case YEAR_OVER_YEAR_COLUMN:
         case YEAR_OVER_YEAR_LINE:

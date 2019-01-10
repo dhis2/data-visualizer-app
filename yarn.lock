@@ -4092,10 +4092,10 @@ cypress@^3.1.1:
     url "0.11.0"
     yauzl "2.8.0"
 
-d2-charts-api@31.0.8:
-  version "31.0.8"
-  resolved "https://registry.yarnpkg.com/d2-charts-api/-/d2-charts-api-31.0.8.tgz#1c3430dc1b5777518306692bc1d2dd5af2abe602"
-  integrity sha512-QT9Jb9npTkA4l/xv16aTDupYUuk2dAQAKcSQ+YwUAStcIcZ3QwuLPj3+7Ggsj5mKSDGNE4DbUgA1BuiksFonDA==
+d2-charts-api@31.0.11:
+  version "31.0.11"
+  resolved "https://registry.yarnpkg.com/d2-charts-api/-/d2-charts-api-31.0.11.tgz#3083f0495111e6ce9ba010041d0338ef861c53bb"
+  integrity sha512-2V+fYoPg0qhXOzQgk9RwkbAyz8BZFk343/QD9roIGL6leB+6Qq+1UQ2EKZqYDDnPeQkUx4AdfblPWNjIeP34pw==
   dependencies:
     d2-utilizr "0.2.13"
     d3-color "1.0.1"

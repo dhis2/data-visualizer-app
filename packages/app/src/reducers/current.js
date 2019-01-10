@@ -8,6 +8,7 @@ import {
     YEAR_OVER_YEAR_LINE,
     YEAR_OVER_YEAR_COLUMN,
     PIE,
+    GAUGE,
 } from '../modules/chartTypes';
 import { BASE_FIELD_TYPE } from '../modules/fields/baseFields';
 
@@ -25,6 +26,7 @@ export default (state = DEFAULT_CURRENT, action) => {
         case SET_CURRENT_FROM_UI: {
             switch (action.value.type) {
                 case PIE:
+                case GAUGE:
                     return getPieCurrentFromUi(state, action);
                 case YEAR_OVER_YEAR_LINE:
                 case YEAR_OVER_YEAR_COLUMN:

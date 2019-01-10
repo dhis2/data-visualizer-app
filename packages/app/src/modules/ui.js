@@ -1,4 +1,9 @@
-import { YEAR_OVER_YEAR_LINE, YEAR_OVER_YEAR_COLUMN, PIE } from './chartTypes';
+import {
+    YEAR_OVER_YEAR_LINE,
+    YEAR_OVER_YEAR_COLUMN,
+    PIE,
+    GAUGE,
+} from './chartTypes';
 import { getDimensionIdsByAxis, getItemIdsByDimension } from './layout';
 import { FIXED_DIMENSIONS } from './fixedDimensions';
 import { isYearOverYear } from './chartTypes';
@@ -52,6 +57,9 @@ export const getAdaptedUiByType = ui => {
             return yearOverYearUiAdapter(ui);
         }
         case PIE: {
+            return pieUiAdapter(ui);
+        }
+        case GAUGE: {
             return pieUiAdapter(ui);
         }
         default:

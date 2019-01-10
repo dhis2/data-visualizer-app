@@ -28,7 +28,7 @@ const layoutMap = {
     [AREA]: DefaultLayout,
     [PIE]: PieLayout,
     [RADAR]: DefaultLayout,
-    [GAUGE]: DefaultLayout,
+    [GAUGE]: PieLayout,
     [YEAR_OVER_YEAR_LINE]: YearOverYearLayout,
     [YEAR_OVER_YEAR_COLUMN]: YearOverYearLayout,
 };
