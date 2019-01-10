@@ -32,12 +32,6 @@ describe('BlankCanvas', () => {
         ).toEqual(defaultCanvasMessage);
     });
 
-    it('renders 2 <p> elements', () => {
-        const theError = 'Error 718: I am not a teapot';
-        props.error = theError;
-        expect(canvas().find('p')).toHaveLength(2);
-    });
-
     it('renders the provided error message', () => {
         const theError = 'Error 718: I am not a teapot';
         props.error = theError;

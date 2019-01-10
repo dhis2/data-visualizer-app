@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import DefaultLayout from './DefaultLayout/DefaultLayout';
 import YearOverYearLayout from './YearOverYearLayout/YearOverYearLayout';
+import PieLayout from './PieLayout/PieLayout';
 import {
     COLUMN,
     STACKED_COLUMN,
@@ -25,7 +26,7 @@ const layoutMap = {
     [STACKED_BAR]: DefaultLayout,
     [LINE]: DefaultLayout,
     [AREA]: DefaultLayout,
-    [PIE]: DefaultLayout,
+    [PIE]: PieLayout,
     [RADAR]: DefaultLayout,
     [GAUGE]: DefaultLayout,
     [YEAR_OVER_YEAR_LINE]: YearOverYearLayout,

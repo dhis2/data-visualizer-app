@@ -8,22 +8,17 @@ import chartErrorImg from '../../assets/chart-error-graphic.png';
 export const defaultCanvasMessage =
     'Create a new visualization by adding dimensions to the layout';
 
-export const BlankCanvas = ({ error }) => {
-    let canvasContent = (
-        <p style={styles.title}>{i18n.t(defaultCanvasMessage)}</p>
-    );
+const getMessage = text => <p style={styles.title}>{text}</p>;
 
-    if (error) {
-        canvasContent = (
-            <div>
-                <img src={chartErrorImg} alt={i18n.t('Chart error')} />
-                <p style={styles.title}>
-                    {i18n.t('There is a problem with your chart')}
-                </p>
-                <p style={styles.description}>{error}</p>
-            </div>
-        );
-    }
+export const BlankCanvas = ({ error }) => {
+    const canvasContent = error ? (
+        <div>
+            <img src={chartErrorImg} alt={i18n.t('Chart error')} />
+            {getMessage(error)}
+        </div>
+    ) : (
+        getMessage(i18n.t(defaultCanvasMessage))
+    );
 
     return (
         <div style={styles.outer}>
