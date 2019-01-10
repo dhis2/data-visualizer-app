@@ -132,7 +132,6 @@ const validatePieLayout = layout => {
 export const validateLayout = layout => {
     switch (layout.type) {
         case PIE:
-            return validatePieLayout(layout);
         case GAUGE:
             return validatePieLayout(layout);
         case YEAR_OVER_YEAR_COLUMN:
