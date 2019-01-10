@@ -56,9 +56,7 @@ export const getAdaptedUiByType = ui => {
         case YEAR_OVER_YEAR_COLUMN: {
             return yearOverYearUiAdapter(ui);
         }
-        case PIE: {
-            return pieUiAdapter(ui);
-        }
+        case PIE:
         case GAUGE: {
             return pieUiAdapter(ui);
         }
