@@ -137,9 +137,6 @@ msgstr ""
 msgid "Chart error"
 msgstr ""
 
-msgid "Error generating chart, please try again"
-msgstr ""
-
 msgid "Aggregation type"
 msgstr ""
 

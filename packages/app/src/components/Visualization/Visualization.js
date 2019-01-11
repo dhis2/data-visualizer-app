@@ -137,10 +137,13 @@ const mapStateToProps = state => ({
     error: sGetLoadError(state),
 });
 
-export default connect(mapStateToProps, {
-    acAddMetadata,
-    acSetChart,
-    acSetLoadError,
-    acSetLoading,
-    acClearLoadError,
-})(Visualization);
+export default connect(
+    mapStateToProps,
+    {
+        acAddMetadata,
+        acSetChart,
+        acSetLoadError,
+        acSetLoading,
+        acClearLoadError,
+    }
+)(Visualization);
