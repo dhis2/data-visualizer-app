@@ -116,13 +116,13 @@ export class Visualization extends Component {
     }
 }
 
-const chartConfigSelector = createSelector(
+export const chartConfigSelector = createSelector(
     [sGetCurrent, sGetVisualization, sGetUiInterpretation],
     (current, visualization, interpretation) =>
         interpretation.id ? visualization : current
 );
 
-const chartFiltersSelector = createSelector(
+export const chartFiltersSelector = createSelector(
     [sGetUiInterpretation],
     interpretation =>
         interpretation.created
