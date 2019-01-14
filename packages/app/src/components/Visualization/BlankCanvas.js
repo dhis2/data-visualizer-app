@@ -13,21 +13,6 @@ export const defaultCanvasMessage =
 const getMessage = text => <p style={styles.title}>{text}</p>;
 
 export const BlankCanvas = ({ loading, error }) => {
-    // let canvasContent = (
-    //     <p style={styles.title}>{i18n.t(defaultCanvasMessage)}</p>
-    // );
-    // console.log('error', error);
-    // if (error) {
-    //     canvasContent = (
-    //         <div>
-    //             <img src={chartErrorImg} alt={i18n.t('Chart error')} />
-    //             <p style={styles.title}>
-    //                 {error || i18n.t('There is a problem with your chart')}
-    //             </p>
-    //         </div>
-    //     );
-    // }
-
     const canvasContent = error ? (
         <div>
             <img src={chartErrorImg} alt={i18n.t('Chart error')} />
