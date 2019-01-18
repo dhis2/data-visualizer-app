@@ -3,13 +3,22 @@ import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
 import styles from './styles/BlankCanvas.style';
 import { sGetLoadError } from '../../reducers/loader';
+import chartErrorImg from '../../assets/chart-error-graphic.png';
 
-export const defaultCanvasMessage =
-    'Create a new visualization by adding dimensions to the layout';
+export const defaultCanvasMessage = i18n.t(
+    'Create a new visualization by adding dimensions to the layout'
+);
+
+const getMessage = text => <p style={styles.title}>{text}</p>;
 
 export const BlankCanvas = ({ error }) => {
-    let canvasContent = (
-        <p style={styles.title}>{i18n.t(defaultCanvasMessage)}</p>
+    const canvasContent = error ? (
+        <div>
+            <img src={chartErrorImg} alt={i18n.t('Chart error')} />
+            {getMessage(error)}
+        </div>
+    ) : (
+        getMessage(defaultCanvasMessage)
     );
 
     return (
