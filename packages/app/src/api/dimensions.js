@@ -14,7 +14,7 @@ const request = (entity, paramString) => {
 const requestWithPaging = (entity, paramString, page) => {
     const paging = `&paging=true&page=${page}`;
     const url = `/${entity}?${paramString}${paging}`;
-
+    console.log('entity', entity);
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))
         .then(response => ({
@@ -83,12 +83,12 @@ export const apiFetchGroups = (dataType, nameProp) => {
         case 'dataElements': {
             return request('dataElementGroups', params);
         }
+        case 'dataSets': {
+            return Promise.resolve(DATA_SETS_CONSTANTS);
+        }
         case 'eventDataItems':
         case 'programIndicators': {
             return request('programs', params);
-        }
-        case 'dataSets': {
-            return Promise.resolve(DATA_SETS_CONSTANTS);
         }
         default:
             return null;
@@ -97,7 +97,7 @@ export const apiFetchGroups = (dataType, nameProp) => {
 
 export const apiFetchAlternatives = args => {
     const { dataType, groupDetail, ...queryParams } = args;
-
+    console.log('FA:', dataType, groupDetail, queryParams);
     switch (dataType) {
         case 'indicators': {
             return fetchIndicators(queryParams);
@@ -112,9 +112,18 @@ export const apiFetchAlternatives = args => {
         case 'dataSets': {
             return fetchDataSets(queryParams);
         }
-        case 'eventDataItems':
-        case 'programIndicators': {
+        case 'eventDataItems': {
             return fetchProgramDataElements(queryParams);
+        }
+        // case 'eventDataItems': {
+        //     return queryParams.groupId
+        //         ? fetchProgramDataElements(queryParams)
+        //         : null;
+        // }
+        case 'programIndicators': {
+            return queryParams.groupId
+                ? fetchProgramIndicators(queryParams)
+                : null;
         }
         default:
             return null;
@@ -196,4 +205,15 @@ const fetchProgramDataElements = ({ groupId, page, filterText, nameProp }) => {
     const paramString = `${fields}&${order}&${program}${filter}`;
 
     return requestWithPaging('programDataElements', paramString, page);
+};
+
+const fetchProgramIndicators = ({ groupId, page, filterText, nameProp }) => {
+    const fields = `fields=[dimensionItem~rename(id),${nameProp}~rename(name)`;
+    const order = `order=${nameProp}:asc`;
+    const programFilter = `filter=program.id:eq:${groupId}`;
+    const filter = filterText ? `&filter=${nameProp}:ilike:${filterText}` : '';
+
+    const paramString = `${fields}&${order}&${programFilter}${filter}`;
+
+    return requestWithPaging('programIndicators', paramString, page);
 };
