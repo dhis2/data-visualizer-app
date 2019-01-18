@@ -156,7 +156,7 @@ class ChartPlugin extends Component {
         return (
             <Fragment>
                 {this.state.isLoading ? <LoadingMask /> : null}
-                <div ref={this.canvasRef} style={{ height: '100%' }} />
+                <div ref={this.canvasRef} style={this.props.style} />
             </Fragment>
         );
     }
@@ -166,6 +166,7 @@ ChartPlugin.defaultProps = {
     config: {},
     filters: {},
     forDashboard: false,
+    style: {},
     animation: 200,
     onError: Function.prototype,
     onChartGenerated: Function.prototype,
@@ -178,6 +179,7 @@ ChartPlugin.propTypes = {
     config: PropTypes.object.isRequired,
     filters: PropTypes.object,
     forDashboard: PropTypes.bool,
+    style: PropTypes.object,
     onError: PropTypes.func.isRequired,
     onChartGenerated: PropTypes.func,
     onResponsesReceived: PropTypes.func,
