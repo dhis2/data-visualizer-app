@@ -60,7 +60,7 @@ export class Visualization extends Component {
     onChartGenerated = svg => this.props.acSetChart(svg);
     onResponsesReceived = responses =>
         responses.forEach(response =>
-            this.acAddMetadata(response.metaData.items)
+            this.props.acAddMetadata(response.metaData.items)
         );
 
     getNewRenderId = () =>
