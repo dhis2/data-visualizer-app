@@ -4160,7 +4160,7 @@ cypress@^3.1.1:
     url "0.11.0"
     yauzl "2.8.0"
 
-d2-charts-api@31.0.12, d2-charts-api@^31.0.9:
+d2-charts-api@31.0.12, d2-charts-api@^31.0.12, d2-charts-api@^31.0.9:
   version "31.0.12"
   resolved "https://registry.yarnpkg.com/d2-charts-api/-/d2-charts-api-31.0.12.tgz#ef3f682fd6dbe572471b0636c93e87a1717c0e28"
   integrity sha512-ywcB/pdU4DVU/A989rUHgVcCWiZGc1i5EOvtlLdIJGTjxg83L8QgeN5c0AuulZPGA9OG+K0k8WGZiuDyqMkRAw==
@@ -4280,6 +4280,17 @@ data-urls@^1.0.0:
     abab "^2.0.0"
     whatwg-mimetype "^2.2.0"
     whatwg-url "^7.0.0"
+
+"data-visualizer-plugin@github:d2-ci/data-visualizer-plugin":
+  version "32.0.2"
+  resolved "https://codeload.github.com/d2-ci/data-visualizer-plugin/tar.gz/e08aa6ba2e6d035933a47f61ec0e2eeef7b6f0af"
+  dependencies:
+    "@material-ui/core" "^3.1.2"
+    d2 "31.2.3"
+    d2-charts-api "^31.0.9"
+    lodash-es "^4.17.11"
+    react "^16.6.0"
+    react-dom "^16.6.0"
 
 date-fns@^1.27.2:
   version "1.30.1"
@@ -11557,6 +11568,11 @@ requizzle@~0.2.1:
   integrity sha1-aUPDUwxNmn5G8c3dUcFY/GcM294=
   dependencies:
     underscore "~1.6.0"
+
+reselect@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/reselect/-/reselect-4.0.0.tgz#f2529830e5d3d0e021408b246a206ef4ea4437f7"
+  integrity sha512-qUgANli03jjAyGlnbYVAV5vvnOmJnODyABz51RdBN7M4WaVu8mecZWgyQNkG8Yqe3KRGRt0l4K4B3XVEULC4CA==
 
 resolve-cwd@^2.0.0:
   version "2.0.0"
