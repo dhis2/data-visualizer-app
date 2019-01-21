@@ -2,23 +2,26 @@ import { getInstance } from 'd2';
 import { onError } from './index';
 import { DATA_SETS_CONSTANTS } from '../modules/dataSets';
 
-const request = (entity, paramString) => {
+const selectFromResponse = (response, entity, selectorFn) =>
+    typeof selectorFn === 'function' ? selectorFn(response) : response[entity];
+
+const request = (entity, paramString, { selectorFn } = {}) => {
     const url = `/${entity}?${paramString}&paging=false`;
 
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))
-        .then(response => response[entity])
+        .then(response => selectFromResponse(response, entity, selectorFn))
         .catch(onError);
 };
 
-const requestWithPaging = (entity, paramString, page) => {
+const requestWithPaging = (entity, paramString, page, { selectorFn } = {}) => {
     const paging = `&paging=true&page=${page}`;
     const url = `/${entity}?${paramString}${paging}`;
-    console.log('entity', entity);
+
     return getInstance()
         .then(d2 => d2.Api.getApi().get(url))
         .then(response => ({
-            dimensionItems: response[entity],
+            dimensionItems: selectFromResponse(response, entity, selectorFn),
             nextPage: response.pager.nextPage ? response.pager.page + 1 : null,
         }))
         .catch(onError);
@@ -97,7 +100,7 @@ export const apiFetchGroups = (dataType, nameProp) => {
 
 export const apiFetchAlternatives = args => {
     const { dataType, groupDetail, ...queryParams } = args;
-    console.log('FA:', dataType, groupDetail, queryParams);
+    console.log('FetchA:', dataType, groupDetail, queryParams);
     switch (dataType) {
         case 'indicators': {
             return fetchIndicators(queryParams);
@@ -112,14 +115,14 @@ export const apiFetchAlternatives = args => {
         case 'dataSets': {
             return fetchDataSets(queryParams);
         }
-        case 'eventDataItems': {
-            return fetchProgramDataElements(queryParams);
-        }
         // case 'eventDataItems': {
-        //     return queryParams.groupId
-        //         ? fetchProgramDataElements(queryParams)
-        //         : null;
+        //     return fetchProgramDataElements(queryParams);
         // }
+        case 'eventDataItems': {
+            return queryParams.groupId
+                ? fetchTrackedEntityAttributes(queryParams)
+                : null;
+        }
         case 'programIndicators': {
             return queryParams.groupId
                 ? fetchProgramIndicators(queryParams)
@@ -207,8 +210,33 @@ const fetchProgramDataElements = ({ groupId, page, filterText, nameProp }) => {
     return requestWithPaging('programDataElements', paramString, page);
 };
 
+const fetchTrackedEntityAttributes = ({
+    groupId,
+    page,
+    filterText,
+    nameProp,
+}) => {
+    const fields = `fields=programTrackedEntityAttributes[trackedEntityAttribute[id,${nameProp}~rename(name),valueType]]`;
+    const filter = filterText ? `&filter=${nameProp}:ilike:${filterText}` : '';
+
+    const paramString = `${fields}${filter}`;
+
+    return request(`programs/${groupId}`, paramString, {
+        selectorFn: r => {
+            const items = r.programTrackedEntityAttributes
+                .map(a => a.trackedEntityAttribute)
+                .map(a => ({
+                    ...a,
+                    id: `${groupId}.${a.id}`,
+                }));
+            console.log('items', items);
+            return items;
+        },
+    });
+};
+
 const fetchProgramIndicators = ({ groupId, page, filterText, nameProp }) => {
-    const fields = `fields=[dimensionItem~rename(id),${nameProp}~rename(name)`;
+    const fields = `fields=dimensionItem~rename(id),${nameProp}~rename(name)`;
     const order = `order=${nameProp}:asc`;
     const programFilter = `filter=program.id:eq:${groupId}`;
     const filter = filterText ? `&filter=${nameProp}:ilike:${filterText}` : '';

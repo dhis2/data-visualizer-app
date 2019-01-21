@@ -133,10 +133,20 @@ export class DataDimension extends Component {
         }
     };
 
+    extractDimensionItems = fetchedAlt =>
+        'dimensionItems' in fetchedAlt
+            ? fetchedAlt.dimensionItems
+            : Array.isArray(fetchedAlt)
+            ? fetchedAlt
+            : [];
+
+    extractNextPage = fetchedAlt =>
+        'nextPage' in fetchedAlt ? fetchedAlt.nextPage : null;
+
     updateAlternatives = async (page = FIRST_PAGE, concatItems = false) => {
         const { dataType, groupId, groupDetail, filterText } = this.state;
 
-        let { dimensionItems, nextPage } =
+        const alternatives =
             (await apiFetchAlternatives({
                 dataType,
                 groupId,
@@ -145,7 +155,23 @@ export class DataDimension extends Component {
                 filterText,
                 nameProp: this.props.displayNameProp,
             })) || DEFAULT_ALTERNATIVES;
-        console.log('dimensionItems', dimensionItems);
+
+        let dimensionItems = this.extractDimensionItems(alternatives);
+        let nextPage = this.extractNextPage(alternatives);
+
+        //    console.log('dimensionItems', dimensionItems);
+
+        // let { dimensionItems, nextPage } =
+        //     (await apiFetchAlternatives({
+        //         dataType,
+        //         groupId,
+        //         groupDetail,
+        //         page,
+        //         filterText,
+        //         nameProp: this.props.displayNameProp,
+        //     })) || DEFAULT_ALTERNATIVES;
+        // console.log('dimensionItems', dimensionItems);
+
         const augmentFn = dataTypes[dataType].augmentAlternatives;
         if (augmentFn) {
             dimensionItems = augmentFn(dimensionItems, groupId);
