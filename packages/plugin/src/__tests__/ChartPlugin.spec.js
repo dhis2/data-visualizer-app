@@ -107,7 +107,7 @@ describe('ChartPlugin', () => {
             config: {},
             filters: {},
             style: { height: 100 },
-            id: '1',
+            id: 1,
             onChartGenerated: jest.fn(),
             onResponsesReceived: jest.fn(),
             onError: jest.fn(),
