@@ -4160,7 +4160,7 @@ cypress@^3.1.1:
     url "0.11.0"
     yauzl "2.8.0"
 
-d2-charts-api@31.0.12, d2-charts-api@^31.0.12, d2-charts-api@^31.0.9:
+d2-charts-api@31.0.12, d2-charts-api@^31.0.12:
   version "31.0.12"
   resolved "https://registry.yarnpkg.com/d2-charts-api/-/d2-charts-api-31.0.12.tgz#ef3f682fd6dbe572471b0636c93e87a1717c0e28"
   integrity sha512-ywcB/pdU4DVU/A989rUHgVcCWiZGc1i5EOvtlLdIJGTjxg83L8QgeN5c0AuulZPGA9OG+K0k8WGZiuDyqMkRAw==
@@ -4221,16 +4221,6 @@ d2@31.2.1:
     jsdoc "^3.5.5"
     whatwg-fetch "^2.0.3"
 
-d2@31.2.3:
-  version "31.2.3"
-  resolved "https://registry.yarnpkg.com/d2/-/d2-31.2.3.tgz#f69f5c977494f477e5dd505d556744b317b0d099"
-  integrity sha512-g1Aj02sSd/hpGdf2qVSszu19rq25meV7bZdECFqOHGaLXehyZ+QMkzS4+DM4wNtrRMzSCTQZxNoxvBYPqRf73Q==
-  dependencies:
-    babel-jest "^22.4.3"
-    docdash "^0.4.0"
-    jsdoc "^3.5.5"
-    whatwg-fetch "^2.0.3"
-
 d2@~31.1:
   version "31.1.1"
   resolved "https://registry.yarnpkg.com/d2/-/d2-31.1.1.tgz#8c551077c27031de8ad2d8df0b575242a3080917"
@@ -4281,13 +4271,13 @@ data-urls@^1.0.0:
     whatwg-mimetype "^2.2.0"
     whatwg-url "^7.0.0"
 
-"data-visualizer-plugin@github:d2-ci/data-visualizer-plugin":
+"data-visualizer-plugin@github:d2-ci/data-visualizer-plugin#task/use-dv-plugin":
   version "32.0.2"
-  resolved "https://codeload.github.com/d2-ci/data-visualizer-plugin/tar.gz/e08aa6ba2e6d035933a47f61ec0e2eeef7b6f0af"
+  resolved "https://codeload.github.com/d2-ci/data-visualizer-plugin/tar.gz/43ba291bdfee522198bca184088128a76b5e5bcf"
   dependencies:
     "@material-ui/core" "^3.1.2"
-    d2 "31.2.3"
-    d2-charts-api "^31.0.9"
+    d2 "31.2.1"
+    d2-charts-api "^31.0.12"
     lodash-es "^4.17.11"
     react "^16.6.0"
     react-dom "^16.6.0"
