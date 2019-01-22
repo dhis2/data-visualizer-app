@@ -15,7 +15,7 @@ const asyncCheckMatches = (matches, done) => {
     setTimeout(() => {
         expect(mockGetFn).toHaveBeenCalledTimes(1);
         const url = mockGetFn.mock.calls[0][0];
-        console.log('URL: ', url);
+
         matches.forEach(match => {
             if (match.not) {
                 expect(url).not.toMatch(match.regex);
