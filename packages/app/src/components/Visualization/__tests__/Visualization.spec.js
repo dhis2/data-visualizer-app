@@ -1,304 +1,164 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import * as chartsApi from 'd2-charts-api';
-import * as api from '../../../api/analytics';
-import { Visualization } from '../Visualization';
+import ChartPlugin from 'data-visualizer-plugin';
+import {
+    Visualization,
+    chartConfigSelector,
+    chartFiltersSelector,
+} from '../Visualization';
 import BlankCanvas from '../BlankCanvas';
-import * as options from '../../../modules/options';
-import { YEAR_OVER_YEAR_LINE, COLUMN } from '../../../modules/chartTypes';
+import * as validator from '../../../modules/layoutValidation';
 
-jest.mock('d2-charts-api');
-
-const dxMock = {
-    dimension: 'dx',
-    items: [
-        {
-            id: 'Uvn6LCg7dVU',
-        },
-    ],
-};
-
-const peMock = {
-    dimension: 'pe',
-    items: [
-        {
-            id: 'LAST_12_MONTHS',
-        },
-    ],
-};
-
-const ouMock = {
-    dimension: 'ou',
-    items: [
-        {
-            id: 'ImspTQPwCqd',
-        },
-    ],
-};
-
-const defaultCurrentMock = {
-    type: COLUMN,
-    columns: [dxMock],
-    rows: [peMock],
-    filters: [ouMock],
-};
-
-const yearOverYearCurrentMock = {
-    type: YEAR_OVER_YEAR_LINE,
-    columns: [dxMock],
-    rows: [peMock],
-    yearlySeries: ['LAST_YEAR'],
-};
-
-const metaDataMock = {
-    items: {
-        a: { name: 'a dim' },
-        b: { name: 'b dim' },
-        p1: { name: 'period 1 1979' },
-        p2: { name: 'period 2 1979' },
-    },
-    dimensions: {
-        pe: ['p1', 'p2'],
-    },
-};
-class MockAnalyticsResponse {
-    constructor() {
-        return {
-            metaData: metaDataMock,
-        };
-    }
-}
-
-const mockYoYSeriesLabels = ['rainbow', 'rarity'];
-class MockYoYAnalyticsResponse {
-    constructor() {
-        return {
-            responses: [
-                {
-                    metaData: metaDataMock,
-                },
-            ],
-            yearlySeriesLabels: mockYoYSeriesLabels,
-        };
-    }
-}
-
-const createChartMock = {
-    chart: {
-        getSVGForExport: () => '<svg />',
-    },
-};
+jest.mock('data-visualizer-plugin', () => () => <div />);
 
 describe('Visualization', () => {
-    options.getOptionsForRequest = () => [
-        ['option1', { defaultValue: 'abc' }],
-        ['option2', { defaultValue: null }],
-    ];
-    let props;
-    let shallowVisualization;
-    const canvas = () => {
-        if (!shallowVisualization) {
-            shallowVisualization = shallow(<Visualization {...props} />);
-        }
-        return shallowVisualization;
-    };
-
-    beforeEach(() => {
-        props = {
-            current: defaultCurrentMock,
-            interpretation: {},
-            rightSidebarOpen: false,
-            acAddMetadata: jest.fn(),
-            acSetChart: jest.fn(),
-            acSetLoading: jest.fn(),
-            acClearLoadError: jest.fn(),
-            acSetLoadError: jest.fn(),
+    describe('component', () => {
+        let props;
+        let shallowVisualization;
+        const vis = () => {
+            if (!shallowVisualization) {
+                shallowVisualization = shallow(<Visualization {...props} />);
+            }
+            return shallowVisualization;
         };
 
-        shallowVisualization = undefined;
-
-        api.apiFetchAnalytics = jest
-            .fn()
-            .mockResolvedValue([new MockAnalyticsResponse()]);
-    });
-
-    describe('createChart success', () => {
         beforeEach(() => {
-            chartsApi.createChart = jest.fn().mockReturnValue(createChartMock);
-        });
-
-        it('renders a BlankCanvas', done => {
-            const wrapper = canvas();
-
-            setTimeout(() => {
-                expect(wrapper.find(BlankCanvas).length).toBeGreaterThan(0);
-                done();
-            });
-        });
-
-        it('calls createChart', done => {
-            canvas();
-
-            setTimeout(() => {
-                expect(chartsApi.createChart).toHaveBeenCalled();
-                done();
-            });
-        });
-
-        it('calls addMetadata action', done => {
-            canvas();
-
-            setTimeout(() => {
-                expect(props.acAddMetadata).toHaveBeenCalled();
-                expect(props.acAddMetadata).toHaveBeenCalledWith(
-                    metaDataMock.items
-                );
-                done();
-            });
-        });
-
-        it('includes only options that do not have default value in request', done => {
-            props.current = {
-                ...defaultCurrentMock,
-                option1: 'def',
-                option2: null,
+            props = {
+                chartConfig: null,
+                chartFilters: null,
+                error: null,
+                rightSidebarOpen: false,
+                acAddMetadata: jest.fn(),
+                acSetChart: jest.fn(),
+                acClearLoadError: jest.fn(),
+                acSetLoadError: jest.fn(),
             };
 
-            canvas();
-
-            setTimeout(() => {
-                expect(api.apiFetchAnalytics).toHaveBeenCalled();
-                expect(api.apiFetchAnalytics.mock.calls[0][1]).toEqual({
-                    option1: 'def',
-                });
-
-                done();
-            });
+            shallowVisualization = undefined;
         });
 
-        it('calls clearLoadError action', done => {
-            canvas();
+        it('renders a BlankCanvas when error', () => {
+            props.error = 'there was a catastrophic error';
 
-            setTimeout(() => {
-                expect(props.acClearLoadError).toHaveBeenCalled();
-                done();
-            });
+            expect(vis().find(BlankCanvas).length).toEqual(1);
         });
 
-        it('calls setChart action', done => {
-            canvas();
-
-            setTimeout(() => {
-                expect(props.acSetChart).toHaveBeenCalled();
-                expect(props.acSetChart).toHaveBeenCalledWith(
-                    createChartMock.chart.getSVGForExport()
-                );
-                done();
-            });
+        it('renders a ChartPlugin when no error', () => {
+            expect(vis().find(ChartPlugin).length).toEqual(1);
         });
 
-        it('sets period when interpretation selected', done => {
-            const period = 'eons ago';
-            props.interpretation.created = period;
+        it('triggers addMetadata action when responses received from chart plugin', () => {
+            const items = ['a', 'b', 'c'];
 
-            canvas();
+            vis().simulate('responsesReceived', [{ metaData: { items } }]);
 
-            setTimeout(() => {
-                expect(api.apiFetchAnalytics).toHaveBeenCalled();
-                expect(api.apiFetchAnalytics.mock.calls[0][1]).toHaveProperty(
-                    'relativePeriodDate',
-                    period
-                );
-
-                done();
-            });
+            expect(props.acAddMetadata).toHaveBeenCalled();
+            expect(props.acAddMetadata).toHaveBeenCalledWith(items);
         });
 
-        describe('Year-on-year chart', () => {
-            beforeEach(() => {
-                props.current = {
-                    ...yearOverYearCurrentMock,
-                    option1: 'def',
-                };
+        it('triggers setChart action when chart has been generated', () => {
+            const svg = 'coolChart';
 
-                api.apiFetchAnalyticsForYearOverYear = jest
-                    .fn()
-                    .mockResolvedValue(new MockYoYAnalyticsResponse());
+            vis().simulate('chartGenerated', svg);
+
+            expect(props.acSetChart).toHaveBeenCalled();
+            expect(props.acSetChart).toHaveBeenCalledWith(svg);
+        });
+
+        it('triggers setLoadError when error received from chart plugin', () => {
+            const errorMsg = 'catastrophic error';
+
+            vis().simulate('error', { message: errorMsg });
+
+            expect(props.acSetLoadError).toHaveBeenCalled();
+            expect(props.acSetLoadError).toHaveBeenCalledWith(errorMsg);
+        });
+
+        it('triggers clearLoadError when chart config has valid layout', () => {
+            props.chartConfig = { name: 'rainbowDash' };
+            validator.validateLayout = () => 'valid';
+            vis();
+            expect(props.acClearLoadError).toHaveBeenCalled();
+        });
+
+        it('triggers setLoadError when chart config has invalid layout', () => {
+            props.chartConfig = { name: 'non-valid rainbowDash' };
+            validator.validateLayout = () => {
+                throw new Error('not valid');
+            };
+            vis();
+
+            expect(props.acSetLoadError).toHaveBeenCalled();
+        });
+
+        it('renders chart with new id when rightSidebarOpen prop changes', () => {
+            const wrapper = vis();
+
+            const initialId = wrapper.find(ChartPlugin).prop('id');
+            wrapper.setProps({ ...props, rightSidebarOpen: true });
+            const updatedId = wrapper.find(ChartPlugin).prop('id');
+
+            expect(initialId).not.toEqual(updatedId);
+        });
+
+        it('triggers clearLoadError when chart changed to a different, valid chart', () => {
+            validator.validateLayout = () => 'valid';
+            const wrapper = vis();
+
+            wrapper.setProps({
+                ...props,
+                chartConfig: { name: 'rainbowDash' },
             });
 
-            it('makes year-on-year analytics request', done => {
-                canvas();
-
-                setTimeout(() => {
-                    expect(
-                        api.apiFetchAnalyticsForYearOverYear
-                    ).toHaveBeenCalled();
-                    expect(
-                        api.apiFetchAnalyticsForYearOverYear.mock.calls[0][1]
-                    ).toEqual({
-                        option1: 'def',
-                    });
-
-                    done();
-                });
-            });
-
-            it('provides extra options to createChart', done => {
-                canvas();
-
-                setTimeout(() => {
-                    expect(chartsApi.createChart).toHaveBeenCalled();
-
-                    const expectedExtraOptions = {
-                        yearlySeries: mockYoYSeriesLabels,
-                        xAxisLabels: ['period 1', 'period 2'],
-                    };
-
-                    expect(chartsApi.createChart.mock.calls[0][3]).toEqual(
-                        expectedExtraOptions
-                    );
-
-                    done();
-                });
-            });
+            expect(props.acClearLoadError).toHaveBeenCalledTimes(1);
         });
     });
 
-    describe('createChart failure', () => {
-        beforeEach(() => {
-            chartsApi.createChart = jest.fn().mockImplementation(() => {
-                throw new Error('Big time errors');
+    describe('reselectors', () => {
+        const state = {
+            current: 'current',
+            visualization: 'vis',
+            ui: {
+                interpretation: {},
+            },
+        };
+
+        describe('chartConfigSelector', () => {
+            it('equals the visualization if interpretation selected', () => {
+                const newState = Object.assign({}, state, {
+                    ui: { interpretation: { id: 'rainbow dash' } },
+                });
+
+                const selector = chartConfigSelector(newState);
+                expect(selector).toEqual('vis');
+            });
+
+            it('equals the current if no interpretation selected', () => {
+                const selector = chartConfigSelector(state);
+                expect(selector).toEqual('current');
             });
         });
 
-        it('calls the setLoadError message', done => {
-            canvas();
-
-            setTimeout(() => {
-                expect(props.acSetLoadError).toHaveBeenCalled();
-                done();
+        describe('chartFiltersSelector', () => {
+            it('equals object with interpretation date if interpretation selected', () => {
+                const created = 'the near future';
+                const newState = Object.assign({}, state, {
+                    ui: {
+                        interpretation: {
+                            created,
+                        },
+                    },
+                });
+                const selector = chartFiltersSelector(newState);
+                expect(selector).toEqual({
+                    relativePeriodDate: created,
+                });
             });
-        });
-    });
 
-    describe('chart reflow', () => {
-        const recreateChartFn = jest.fn();
-
-        const vis = canvas();
-
-        vis.instance().recreateChart = recreateChartFn;
-
-        it('triggers a reflow when rightSidebarOpen prop changes', () => {
-            // simulate prevProps ?!
-            vis.setProps(props);
-
-            vis.setProps({ ...props, rightSidebarOpen: true });
-
-            expect(recreateChartFn).toHaveBeenCalled();
-
-            vis.setProps({ ...props, rightSidebarOpen: false });
-
-            expect(recreateChartFn).toHaveBeenCalled();
+            it('equals empty object if no interpretation selected', () => {
+                const selector = chartFiltersSelector(state);
+                expect(selector).toEqual({});
+            });
         });
     });
 });
