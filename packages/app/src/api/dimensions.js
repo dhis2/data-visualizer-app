@@ -232,7 +232,7 @@ const fetchTrackedEntityAttributes = ({
 
 const getEventDataItems = async queryParams => {
     const dataElementsObj = await fetchProgramDataElements(queryParams);
-    const attributes = (await fetchTrackedEntityAttributes(queryParams)) || [];
+    const attributes = await fetchTrackedEntityAttributes(queryParams);
 
     return {
         ...dataElementsObj,
