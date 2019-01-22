@@ -4271,9 +4271,9 @@ data-urls@^1.0.0:
     whatwg-mimetype "^2.2.0"
     whatwg-url "^7.0.0"
 
-"data-visualizer-plugin@github:d2-ci/data-visualizer-plugin#task/use-dv-plugin":
+"data-visualizer-plugin@github:d2-ci/data-visualizer-plugin":
   version "32.0.2"
-  resolved "https://codeload.github.com/d2-ci/data-visualizer-plugin/tar.gz/43ba291bdfee522198bca184088128a76b5e5bcf"
+  resolved "https://codeload.github.com/d2-ci/data-visualizer-plugin/tar.gz/7791bc7f3f0454e55d4e30213e236ce101f2f844"
   dependencies:
     "@material-ui/core" "^3.1.2"
     d2 "31.2.1"
