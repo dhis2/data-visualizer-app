@@ -50,7 +50,7 @@ const DEFAULT_ALTERNATIVES = {
 };
 
 export class DataDimension extends Component {
-    //defaults
+    // defaults
     state = {
         dataType: DEFAULT_DATATYPE_ID,
         groups: {
