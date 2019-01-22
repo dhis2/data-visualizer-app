@@ -2,6 +2,8 @@ import {
     apiFetchAlternatives,
     apiFetchGroups,
     apiFetchDimensions,
+    fetchProgramDataElements,
+    fetchTrackedEntityAttributes,
 } from '../dimensions';
 import * as d2lib from 'd2';
 
@@ -13,7 +15,7 @@ const asyncCheckMatches = (matches, done) => {
     setTimeout(() => {
         expect(mockGetFn).toHaveBeenCalledTimes(1);
         const url = mockGetFn.mock.calls[0][0];
-
+        console.log('URL: ', url);
         matches.forEach(match => {
             if (match.not) {
                 expect(url).not.toMatch(match.regex);
@@ -34,12 +36,12 @@ describe('api: dimensions', () => {
 
     describe('apiFetchDimensions', () => {
         it('has correct entity and name property', done => {
-            apiFetchDimensions('hello');
+            apiFetchDimensions('entireName');
 
             asyncCheckMatches(
                 [
                     { regex: /\/dimensions\?/ },
-                    { regex: /hello~rename\(name\)/ },
+                    { regex: /entireName~rename\(name\)/ },
                 ],
                 done
             );
@@ -50,14 +52,14 @@ describe('api: dimensions', () => {
         beforeEach(() => {
             dimensionProps = {
                 groupDetail: '',
-                nameProp: 'hello',
+                nameProp: 'entireName',
                 groupId: 'ALL',
                 page: 1,
             };
         });
 
         it('has correct endpoint, name prop, and page value for indicators', done => {
-            apiFetchGroups('indicators', 'hello');
+            apiFetchGroups('indicators', 'entireName');
 
             const matches = [
                 { regex: /\/indicatorGroups\?/ },
@@ -69,11 +71,11 @@ describe('api: dimensions', () => {
         });
 
         it('has correct name prop for dataElements', done => {
-            apiFetchGroups('dataElements', 'hello');
+            apiFetchGroups('dataElements', 'entireName');
 
             const matches = [
                 { regex: /\/dataElementGroups\?/ },
-                { regex: /hello~rename\(name\)/ },
+                { regex: /entireName~rename\(name\)/ },
             ];
 
             asyncCheckMatches(matches, done);
@@ -93,7 +95,7 @@ describe('api: dimensions', () => {
         beforeEach(() => {
             dimensionProps = {
                 groupDetail: '',
-                nameProp: 'hello',
+                nameProp: 'entireName',
                 groupId: 'ALL',
                 page: 1,
             };
@@ -109,7 +111,7 @@ describe('api: dimensions', () => {
 
                 const matches = [
                     { regex: /\/indicators\?/ },
-                    { regex: /hello~rename\(name\)/ },
+                    { regex: /entireName~rename\(name\)/ },
                     { regex: /filter/, not: true },
                     { regex: /page=1/ },
                 ];
@@ -122,7 +124,7 @@ describe('api: dimensions', () => {
                 apiFetchAlternatives(dimensionProps);
 
                 asyncCheckMatches(
-                    [{ regex: /filter=hello:ilike:rarity/ }],
+                    [{ regex: /filter=entireName:ilike:rarity/ }],
                     done
                 );
             });
@@ -150,7 +152,7 @@ describe('api: dimensions', () => {
 
                     const matches = [
                         { regex: /\/dataElements\?/ },
-                        { regex: /fields=id,hello~rename\(name\)/ },
+                        { regex: /fields=id,entireName~rename\(name\)/ },
                         { regex: /filter=domainType:eq:AGGREGATE/ },
                         { regex: /filter=dataElementGroups/, not: true },
                         { regex: /page=1/ },
@@ -164,7 +166,7 @@ describe('api: dimensions', () => {
                     apiFetchAlternatives(dimensionProps);
 
                     asyncCheckMatches(
-                        [{ regex: /filter=hello:ilike:rarity/ }],
+                        [{ regex: /filter=entireName:ilike:rarity/ }],
                         done
                     );
                 });
@@ -191,7 +193,7 @@ describe('api: dimensions', () => {
 
                     const matches = [
                         { regex: /\/dataElementOperands\?/ },
-                        { regex: /fields=id,hello~rename\(name\)/ },
+                        { regex: /fields=id,entireName~rename\(name\)/ },
                         { regex: /filter/, not: true },
                         { regex: /page=1/ },
                     ];
@@ -204,7 +206,7 @@ describe('api: dimensions', () => {
                     apiFetchAlternatives(dimensionProps);
 
                     asyncCheckMatches(
-                        [{ regex: /filter=hello:ilike:rarity/ }],
+                        [{ regex: /filter=entireName:ilike:rarity/ }],
                         done
                     );
                 });
@@ -232,7 +234,7 @@ describe('api: dimensions', () => {
 
                     asyncCheckMatches(
                         [
-                            { regex: /filter=hello:ilike:rarity/ },
+                            { regex: /filter=entireName:ilike:rarity/ },
                             {
                                 regex: /filter=dataElement\.dataElementGroups\.id:eq:rainbow/,
                             },
@@ -253,7 +255,7 @@ describe('api: dimensions', () => {
 
                 const matches = [
                     { regex: /\/dataSets\?/ },
-                    { regex: /hello~rename\(name\)/ },
+                    { regex: /entireName~rename\(name\)/ },
                     { regex: /filter/, not: true },
                     { regex: /page=1/ },
                 ];
@@ -266,7 +268,7 @@ describe('api: dimensions', () => {
                 apiFetchAlternatives(dimensionProps);
 
                 asyncCheckMatches(
-                    [{ regex: /filter=hello:ilike:rarity/ }],
+                    [{ regex: /filter=entireName:ilike:rarity/ }],
                     done
                 );
             });
@@ -277,13 +279,13 @@ describe('api: dimensions', () => {
                 dimensionProps.dataType = 'eventDataItems';
             });
 
-            it('has correct fields, filter, and page', done => {
+            it('has correct fields, filter, and page (data elements)', done => {
                 dimensionProps.groupId = 'rainbowdash';
-                apiFetchAlternatives(dimensionProps);
+                fetchProgramDataElements(dimensionProps);
 
                 const matches = [
                     { regex: /\/programDataElements\?/ },
-                    { regex: /hello~rename\(name\)/ },
+                    { regex: /entireName~rename\(name\)/ },
                     { regex: /filter/, not: true },
                     { regex: /page=1/ },
                     { regex: /program=rainbowdash/ },
@@ -293,11 +295,61 @@ describe('api: dimensions', () => {
 
             it('has correct filter text value', done => {
                 dimensionProps.filterText = 'rarity';
+                fetchProgramDataElements(dimensionProps);
 
+                asyncCheckMatches(
+                    [{ regex: /filter=entireName:ilike:rarity/ }],
+                    done
+                );
+            });
+
+            it('has correct fields and filter (attributes)', done => {
+                dimensionProps.groupId = 'rainbowdash';
+                fetchTrackedEntityAttributes(dimensionProps);
+
+                const matches = [
+                    { regex: /\/programs\/rainbowdash/ },
+                    { regex: /entireName~rename\(name\)/ },
+                    { regex: /filter/, not: true },
+                ];
+                asyncCheckMatches(matches, done);
+            });
+
+            it('has correct filter text value', done => {
+                dimensionProps.filterText = 'rarity';
+                fetchTrackedEntityAttributes(dimensionProps);
+
+                asyncCheckMatches(
+                    [{ regex: /filter=entireName:ilike:rarity/ }],
+                    done
+                );
+            });
+        });
+
+        describe('programIndicators url', () => {
+            beforeEach(() => {
+                dimensionProps.dataType = 'programIndicators';
+            });
+
+            it('has correct fields, filter, and page', done => {
+                dimensionProps.groupId = 'rainbowdash';
+                apiFetchAlternatives(dimensionProps);
+
+                const matches = [
+                    { regex: /\/programIndicators\?/ },
+                    { regex: /entireName~rename\(name\)/ },
+                    { regex: /page=1/ },
+                    { regex: /filter=program.id:eq:rainbowdash/ },
+                ];
+                asyncCheckMatches(matches, done);
+            });
+
+            it('has correct filter text value', done => {
+                dimensionProps.filterText = 'rarity';
                 apiFetchAlternatives(dimensionProps);
 
                 asyncCheckMatches(
-                    [{ regex: /filter=hello:ilike:rarity/ }],
+                    [{ regex: /filter=entireName:ilike:rarity/ }],
                     done
                 );
             });

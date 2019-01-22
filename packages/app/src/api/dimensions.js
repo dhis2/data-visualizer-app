@@ -196,7 +196,12 @@ const fetchDataSets = ({ page, filterText, nameProp }) => {
     return requestWithPaging('dataSets', paramString, page);
 };
 
-const fetchProgramDataElements = ({ groupId, page, filterText, nameProp }) => {
+export const fetchProgramDataElements = ({
+    groupId,
+    page,
+    filterText,
+    nameProp,
+}) => {
     const fields = `fields=dimensionItem~rename(id),${nameProp}~rename(name)`;
     const order = `order=${nameProp}:asc`;
     const program = `program=${groupId}`;
@@ -207,7 +212,7 @@ const fetchProgramDataElements = ({ groupId, page, filterText, nameProp }) => {
     return requestWithPaging('programDataElements', paramString, page);
 };
 
-const fetchTrackedEntityAttributes = ({
+export const fetchTrackedEntityAttributes = ({
     groupId,
     page,
     filterText,
@@ -220,13 +225,15 @@ const fetchTrackedEntityAttributes = ({
 
     return request(`programs/${groupId}`, paramString, {
         selectorFn: r =>
-            r.programTrackedEntityAttributes
-                .map(a => a.trackedEntityAttribute)
-                .map(a => ({
-                    ...a,
-                    id: `${groupId}.${a.id}`,
-                    name: `${r.name} ${a.name}`,
-                })),
+            Array.isArray(r.programTrackedEntityAttributes)
+                ? r.programTrackedEntityAttributes
+                      .map(a => a.trackedEntityAttribute)
+                      .map(a => ({
+                          ...a,
+                          id: `${groupId}.${a.id}`,
+                          name: `${r.name} ${a.name}`,
+                      }))
+                : [],
     });
 };
 
