@@ -2,7 +2,7 @@ import { getInstance } from 'd2';
 import { onError } from './index';
 import { DATA_SETS_CONSTANTS } from '../modules/dataSets';
 import { createSortFunction } from '../modules/array';
-import { AGGREGATE_AGGREGATABLE_TYPES } from '../modules/dataTypes';
+import { CHART_AGGREGATE_AGGREGATABLE_TYPES } from '../modules/dataTypes';
 
 const selectFromResponse = (response, entity, selectorFn) =>
     typeof selectorFn === 'function' ? selectorFn(response) : response[entity];
@@ -239,7 +239,9 @@ const getEventDataItems = async queryParams => {
         dimensionItems: [
             ...dataElementsObj.dimensionItems,
             ...attributes.filter(a =>
-                Boolean(AGGREGATE_AGGREGATABLE_TYPES.includes(a.valueType))
+                Boolean(
+                    CHART_AGGREGATE_AGGREGATABLE_TYPES.includes(a.valueType)
+                )
             ),
         ].sort(createSortFunction('name')),
     };
