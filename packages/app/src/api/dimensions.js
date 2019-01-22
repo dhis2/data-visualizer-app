@@ -1,6 +1,8 @@
 import { getInstance } from 'd2';
 import { onError } from './index';
 import { DATA_SETS_CONSTANTS } from '../modules/dataSets';
+import { createSortFunction } from '../modules/array';
+import { AGGREGATE_AGGREGATABLE_TYPES } from '../modules/dataTypes';
 
 const selectFromResponse = (response, entity, selectorFn) =>
     typeof selectorFn === 'function' ? selectorFn(response) : response[entity];
@@ -72,7 +74,7 @@ export const apiFetchItemsByDimension = dimensionId => {
 };
 
 export const apiFetchGroups = (dataType, nameProp) => {
-    //indicatorGroups does not support shortName
+    // indicatorGroups does not support shortName
     const name = dataType === 'indicators' ? 'displayName' : nameProp;
     const fields = `fields=id,${name}~rename(name)`;
     const order = `order=${name}:asc`;
@@ -100,7 +102,7 @@ export const apiFetchGroups = (dataType, nameProp) => {
 
 export const apiFetchAlternatives = args => {
     const { dataType, groupDetail, ...queryParams } = args;
-    console.log('FetchA:', dataType, groupDetail, queryParams);
+
     switch (dataType) {
         case 'indicators': {
             return fetchIndicators(queryParams);
@@ -115,13 +117,8 @@ export const apiFetchAlternatives = args => {
         case 'dataSets': {
             return fetchDataSets(queryParams);
         }
-        // case 'eventDataItems': {
-        //     return fetchProgramDataElements(queryParams);
-        // }
         case 'eventDataItems': {
-            return queryParams.groupId
-                ? fetchTrackedEntityAttributes(queryParams)
-                : null;
+            return queryParams.groupId ? getEventDataItems(queryParams) : null;
         }
         case 'programIndicators': {
             return queryParams.groupId
@@ -216,23 +213,36 @@ const fetchTrackedEntityAttributes = ({
     filterText,
     nameProp,
 }) => {
-    const fields = `fields=programTrackedEntityAttributes[trackedEntityAttribute[id,${nameProp}~rename(name),valueType]]`;
+    const fields = `fields=${nameProp}~rename(name),programTrackedEntityAttributes[trackedEntityAttribute[id,${nameProp}~rename(name),valueType]]`;
     const filter = filterText ? `&filter=${nameProp}:ilike:${filterText}` : '';
 
     const paramString = `${fields}${filter}`;
 
     return request(`programs/${groupId}`, paramString, {
-        selectorFn: r => {
-            const items = r.programTrackedEntityAttributes
+        selectorFn: r =>
+            r.programTrackedEntityAttributes
                 .map(a => a.trackedEntityAttribute)
                 .map(a => ({
                     ...a,
                     id: `${groupId}.${a.id}`,
-                }));
-            console.log('items', items);
-            return items;
-        },
+                    name: `${r.name} ${a.name}`,
+                })),
     });
+};
+
+const getEventDataItems = async queryParams => {
+    const dataElementsObj = await fetchProgramDataElements(queryParams);
+    const attributes = (await fetchTrackedEntityAttributes(queryParams)) || [];
+
+    return {
+        ...dataElementsObj,
+        dimensionItems: [
+            ...dataElementsObj.dimensionItems,
+            ...attributes.filter(a =>
+                Boolean(AGGREGATE_AGGREGATABLE_TYPES.includes(a.valueType))
+            ),
+        ].sort(createSortFunction('name')),
+    };
 };
 
 const fetchProgramIndicators = ({ groupId, page, filterText, nameProp }) => {

@@ -89,14 +89,13 @@ export class DataDimension extends Component {
 
     updateGroups = async () => {
         const dataType = this.state.dataType;
-        console.log('dataType', dataType);
-        console.log('goroups', this.state.groups[dataType]);
+
         if (!this.state.groups[dataType].length) {
             const dataTypeGroups = await apiFetchGroups(
                 dataType,
                 this.props.displayNameProp
             );
-            console.log('dataTypeGroups', dataTypeGroups);
+
             const groups = Object.assign({}, this.state.groups, {
                 [dataType]: dataTypeGroups,
             });
@@ -133,20 +132,10 @@ export class DataDimension extends Component {
         }
     };
 
-    extractDimensionItems = fetchedAlt =>
-        'dimensionItems' in fetchedAlt
-            ? fetchedAlt.dimensionItems
-            : Array.isArray(fetchedAlt)
-            ? fetchedAlt
-            : [];
-
-    extractNextPage = fetchedAlt =>
-        'nextPage' in fetchedAlt ? fetchedAlt.nextPage : null;
-
     updateAlternatives = async (page = FIRST_PAGE, concatItems = false) => {
         const { dataType, groupId, groupDetail, filterText } = this.state;
 
-        const alternatives =
+        let { dimensionItems, nextPage } =
             (await apiFetchAlternatives({
                 dataType,
                 groupId,
@@ -155,22 +144,6 @@ export class DataDimension extends Component {
                 filterText,
                 nameProp: this.props.displayNameProp,
             })) || DEFAULT_ALTERNATIVES;
-
-        let dimensionItems = this.extractDimensionItems(alternatives);
-        let nextPage = this.extractNextPage(alternatives);
-
-        //    console.log('dimensionItems', dimensionItems);
-
-        // let { dimensionItems, nextPage } =
-        //     (await apiFetchAlternatives({
-        //         dataType,
-        //         groupId,
-        //         groupDetail,
-        //         page,
-        //         filterText,
-        //         nameProp: this.props.displayNameProp,
-        //     })) || DEFAULT_ALTERNATIVES;
-        // console.log('dimensionItems', dimensionItems);
 
         const augmentFn = dataTypes[dataType].augmentAlternatives;
         if (augmentFn) {
