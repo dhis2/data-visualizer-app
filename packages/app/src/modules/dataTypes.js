@@ -3,6 +3,18 @@ import i18n from '@dhis2/d2-i18n';
 
 import { DATA_SETS_CONSTANTS } from '../modules/dataSets';
 
+export const CHART_AGGREGATE_AGGREGATABLE_TYPES = [
+    'BOOLEAN',
+    'TRUE_ONLY',
+    'INTEGER',
+    'INTEGER_POSITIVE',
+    'INTEGER_NEGATIVE',
+    'INTEGER_ZERO_OR_POSITIVE',
+    'NUMBER',
+    'UNIT_INTERVAL',
+    'PERCENTAGE',
+];
+
 export const ALL_ID = 'ALL';
 
 const INDICATORS = 'indicators';
