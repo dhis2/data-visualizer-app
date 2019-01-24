@@ -199,12 +199,7 @@ const fetchDataSets = ({ page, filterText, nameProp }) => {
     return requestWithPaging('dataSets', paramString, page);
 };
 
-export const fetchProgramDataElements = ({
-    groupId,
-    page,
-    filterText,
-    nameProp,
-}) => {
+const fetchProgramDataElements = ({ groupId, page, filterText, nameProp }) => {
     const fields = `fields=dimensionItem~rename(id),${nameProp}~rename(name),valueType`;
     const order = `order=${nameProp}:asc`;
     const program = `program=${groupId}`;
@@ -215,7 +210,7 @@ export const fetchProgramDataElements = ({
     return requestWithPaging('programDataElements', paramString, page);
 };
 
-export const fetchTrackedEntityAttributes = ({
+const fetchTrackedEntityAttributes = ({
     groupId,
     page,
     filterText,
@@ -241,8 +236,11 @@ export const fetchTrackedEntityAttributes = ({
 };
 
 const getEventDataItems = async queryParams => {
-    const dataElementsObj = await fetchProgramDataElements(queryParams);
-    const attributes = await fetchTrackedEntityAttributes(queryParams);
+    const [dataElementsObj, attributes] = await Promise.all([
+        fetchProgramDataElements(queryParams),
+        fetchTrackedEntityAttributes(queryParams),
+    ]);
+
     const filterInvalidTypes = item =>
         Boolean(CHART_AGGREGATE_AGGREGATABLE_TYPES.includes(item.valueType));
 

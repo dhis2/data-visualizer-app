@@ -2,8 +2,6 @@ import {
     apiFetchAlternatives,
     apiFetchGroups,
     apiFetchDimensions,
-    fetchProgramDataElements,
-    fetchTrackedEntityAttributes,
 } from '../dimensions';
 import * as d2lib from 'd2';
 
@@ -11,18 +9,22 @@ let mockD2;
 let mockGetFn;
 let dimensionProps;
 
+const checkMatches = (url, matches) => {
+    matches.forEach(match => {
+        if (match.not) {
+            expect(url).not.toMatch(match.regex);
+        } else {
+            expect(url).toMatch(match.regex);
+        }
+    });
+};
+
 const asyncCheckMatches = (matches, done) => {
     setTimeout(() => {
         expect(mockGetFn).toHaveBeenCalledTimes(1);
         const url = mockGetFn.mock.calls[0][0];
 
-        matches.forEach(match => {
-            if (match.not) {
-                expect(url).not.toMatch(match.regex);
-            } else {
-                expect(url).toMatch(match.regex);
-            }
-        });
+        checkMatches(url, matches);
         done();
     });
 };
@@ -274,14 +276,77 @@ describe('api: dimensions', () => {
             });
         });
 
-        describe('eventDataItems url', () => {
+        describe('eventDataItems', () => {
             beforeEach(() => {
                 dimensionProps.dataType = 'eventDataItems';
+                mockGetFn = jest.fn().mockImplementation(url => {
+                    if (url.includes('programDataElements')) {
+                        return Promise.resolve({
+                            programDataElements: [
+                                {
+                                    id: 'cc',
+                                    name: 'Chocolate cake',
+                                },
+                                {
+                                    id: 'em',
+                                    name: 'English muffin',
+                                },
+                            ],
+                            pager: {},
+                        });
+                    } else if (url.includes('programs/')) {
+                        return Promise.resolve({
+                            name: 'Veggies',
+                            programTrackedEntityAttributes: [
+                                {
+                                    trackedEntityAttribute: {
+                                        id: 'spin',
+                                        name: 'Spinach',
+                                        valueType: 'TEXT',
+                                    },
+                                },
+                                {
+                                    trackedEntityAttribute: {
+                                        id: 'broc',
+                                        name: 'Broccoli',
+                                        valueType: 'NUMBER',
+                                    },
+                                },
+                            ],
+                        });
+                    }
+
+                    return Promise.resolve({ pager: {} });
+                });
             });
 
-            it('has correct fields, filter, and page (data elements)', done => {
+            it('returns the correct dimension items', done => {
                 dimensionProps.groupId = 'rainbowdash';
-                fetchProgramDataElements(dimensionProps);
+
+                const expectedResult = {
+                    dimensionItems: [
+                        { id: 'cc', name: 'Chocolate cake' },
+                        { id: 'em', name: 'English muffin' },
+                        {
+                            id: 'rainbowdash.broc',
+                            name: 'Veggies Broccoli',
+                            valueType: 'NUMBER',
+                        },
+                    ],
+                    nextPage: null,
+                };
+
+                setTimeout(() => {
+                    expect(
+                        apiFetchAlternatives(dimensionProps)
+                    ).resolves.toEqual(expectedResult);
+
+                    done();
+                });
+            });
+
+            it('has correct fields, filter, and page (data elements) in request url', done => {
+                dimensionProps.groupId = 'rainbowdash';
 
                 const matches = [
                     { regex: /\/programDataElements\?/ },
@@ -290,39 +355,48 @@ describe('api: dimensions', () => {
                     { regex: /page=1/ },
                     { regex: /program=rainbowdash/ },
                 ];
-                asyncCheckMatches(matches, done);
+                apiFetchAlternatives(dimensionProps);
+
+                setTimeout(() => {
+                    expect(mockGetFn).toHaveBeenCalledTimes(2);
+                    const url = mockGetFn.mock.calls[0][0];
+
+                    checkMatches(url, matches);
+                    done();
+                });
             });
 
-            it('has correct filter text value', done => {
+            it('has correct filter text value in request url', done => {
                 dimensionProps.filterText = 'rarity';
-                fetchProgramDataElements(dimensionProps);
 
-                asyncCheckMatches(
-                    [{ regex: /filter=entireName:ilike:rarity/ }],
-                    done
-                );
+                const matches = [{ regex: /filter=entireName:ilike:rarity/ }];
+                apiFetchAlternatives(dimensionProps);
+
+                setTimeout(() => {
+                    expect(mockGetFn).toHaveBeenCalledTimes(2);
+                    const url = mockGetFn.mock.calls[0][0];
+
+                    checkMatches(url, matches);
+                    done();
+                });
             });
 
-            it('has correct fields and filter (attributes)', done => {
+            it('has correct fields and filter (attributes) in request url', done => {
                 dimensionProps.groupId = 'rainbowdash';
-                fetchTrackedEntityAttributes(dimensionProps);
+                apiFetchAlternatives(dimensionProps);
 
                 const matches = [
                     { regex: /\/programs\/rainbowdash/ },
                     { regex: /entireName~rename\(name\)/ },
                     { regex: /filter/, not: true },
                 ];
-                asyncCheckMatches(matches, done);
-            });
+                setTimeout(() => {
+                    expect(mockGetFn).toHaveBeenCalledTimes(2);
+                    const url = mockGetFn.mock.calls[1][0];
 
-            it('has correct filter text value', done => {
-                dimensionProps.filterText = 'rarity';
-                fetchTrackedEntityAttributes(dimensionProps);
-
-                asyncCheckMatches(
-                    [{ regex: /filter=entireName:ilike:rarity/ }],
-                    done
-                );
+                    checkMatches(url, matches);
+                    done();
+                });
             });
         });
 
