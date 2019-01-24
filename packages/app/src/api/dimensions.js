@@ -1,12 +1,15 @@
 import { getInstance } from 'd2';
+import sortBy from 'lodash-es/sortBy';
+
 import { onError } from './index';
 import { DATA_SETS_CONSTANTS } from '../modules/dataSets';
-import { createSortFunction } from '../modules/array';
 import { CHART_AGGREGATE_AGGREGATABLE_TYPES } from '../modules/dataTypes';
 
+// Request util functions
 const selectFromResponse = (response, entity, selectorFn) =>
     typeof selectorFn === 'function' ? selectorFn(response) : response[entity];
 
+// Request functions
 const request = (entity, paramString, { selectorFn } = {}) => {
     const url = `/${entity}?${paramString}&paging=false`;
 
@@ -29,7 +32,7 @@ const requestWithPaging = (entity, paramString, page, { selectorFn } = {}) => {
         .catch(onError);
 };
 
-// Get dimensions on startup
+// Fetch functions
 export const apiFetchDimensions = nameProp => {
     const fields = `fields=id,${nameProp}~rename(name),dimensionType`;
     const order = `order=${nameProp}:asc`;
@@ -202,7 +205,7 @@ export const fetchProgramDataElements = ({
     filterText,
     nameProp,
 }) => {
-    const fields = `fields=dimensionItem~rename(id),${nameProp}~rename(name)`;
+    const fields = `fields=dimensionItem~rename(id),${nameProp}~rename(name),valueType`;
     const order = `order=${nameProp}:asc`;
     const program = `program=${groupId}`;
     const filter = filterText ? `&filter=${nameProp}:ilike:${filterText}` : '';
@@ -240,17 +243,17 @@ export const fetchTrackedEntityAttributes = ({
 const getEventDataItems = async queryParams => {
     const dataElementsObj = await fetchProgramDataElements(queryParams);
     const attributes = await fetchTrackedEntityAttributes(queryParams);
+    const filterInvalidTypes = item =>
+        Boolean(CHART_AGGREGATE_AGGREGATABLE_TYPES.includes(item.valueType));
 
     return {
         ...dataElementsObj,
-        dimensionItems: [
-            ...dataElementsObj.dimensionItems,
-            ...attributes.filter(a =>
-                Boolean(
-                    CHART_AGGREGATE_AGGREGATABLE_TYPES.includes(a.valueType)
-                )
+        dimensionItems: sortBy(
+            [...dataElementsObj.dimensionItems, ...attributes].filter(
+                filterInvalidTypes
             ),
-        ].sort(createSortFunction('name')),
+            'name'
+        ),
     };
 };
 
