@@ -286,10 +286,12 @@ describe('api: dimensions', () => {
                                 {
                                     id: 'cc',
                                     name: 'Chocolate cake',
+                                    valueType: 'NUMBER',
                                 },
                                 {
                                     id: 'em',
                                     name: 'English muffin',
+                                    valueType: 'TEXT',
                                 },
                             ],
                             pager: {},
@@ -325,8 +327,11 @@ describe('api: dimensions', () => {
 
                 const expectedResult = {
                     dimensionItems: [
-                        { id: 'cc', name: 'Chocolate cake' },
-                        { id: 'em', name: 'English muffin' },
+                        {
+                            id: 'cc',
+                            name: 'Chocolate cake',
+                            valueType: 'NUMBER',
+                        },
                         {
                             id: 'rainbowdash.broc',
                             name: 'Veggies Broccoli',
