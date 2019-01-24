@@ -44,8 +44,13 @@ const dxId = FIXED_DIMENSIONS.dx.id;
 
 const FIRST_PAGE = 1;
 
+const DEFAULT_ALTERNATIVES = {
+    dimensionItems: [],
+    nextPage: FIRST_PAGE,
+};
+
 export class DataDimension extends Component {
-    //defaults
+    // defaults
     state = {
         dataType: DEFAULT_DATATYPE_ID,
         groups: {
@@ -129,14 +134,16 @@ export class DataDimension extends Component {
 
     updateAlternatives = async (page = FIRST_PAGE, concatItems = false) => {
         const { dataType, groupId, groupDetail, filterText } = this.state;
-        let { dimensionItems, nextPage } = await apiFetchAlternatives({
-            dataType,
-            groupId,
-            groupDetail,
-            page,
-            filterText,
-            nameProp: this.props.displayNameProp,
-        });
+
+        let { dimensionItems, nextPage } =
+            (await apiFetchAlternatives({
+                dataType,
+                groupId,
+                groupDetail,
+                page,
+                filterText,
+                nameProp: this.props.displayNameProp,
+            })) || DEFAULT_ALTERNATIVES;
 
         const augmentFn = dataTypes[dataType].augmentAlternatives;
         if (augmentFn) {
