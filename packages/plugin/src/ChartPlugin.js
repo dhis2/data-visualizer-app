@@ -95,7 +95,7 @@ class ChartPlugin extends Component {
 
         try {
             const visualization =
-                Object.keys(config).length === 1
+                forDashboard || Object.keys(config).length === 1
                     ? await this.getConfigById(config.id)
                     : config;
 
