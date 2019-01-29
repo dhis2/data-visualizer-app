@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 import Item from './Item';
 import { ArrowButton as UnAssignButton } from './buttons/ArrowButton';
@@ -16,6 +17,12 @@ const Subtitle = () => (
     <div style={styles.subTitleContainer}>
         <span style={styles.subTitleText}>{i18n.t('Selected Data')}</span>
     </div>
+);
+
+const ItemsList = ({ styles, innerRef, children }) => (
+    <ul style={styles.list} ref={innerRef}>
+        {children}
+    </ul>
 );
 
 export class SelectedItems extends Component {
@@ -59,24 +66,52 @@ export class SelectedItems extends Component {
 
     renderListItem = (id, index) => {
         return (
-            <li
-                className="dimension-item"
-                id={id}
-                key={id}
-                onDoubleClick={() => this.onRemoveSelected(id)}
-            >
-                <Item
-                    id={id}
-                    index={index}
-                    displayName={this.props.metadata[id].name}
-                    name={this.props.metadata[id].name}
-                    highlighted={!!this.state.highlighted.includes(id)}
-                    onItemClick={this.toggleHighlight}
-                    onRemoveItem={this.onRemoveSelected}
-                    className="selected"
-                />
-            </li>
+            <Draggable draggableId={id} index={index} key={id}>
+                {provided => (
+                    <li
+                        className="dimension-item"
+                        id={id}
+                        onDoubleClick={() => this.onRemoveSelected(id)}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        ref={provided.innerRef}
+                    >
+                        <Item
+                            id={id}
+                            index={index}
+                            displayName={this.props.metadata[id].name}
+                            name={this.props.metadata[id].name}
+                            highlighted={!!this.state.highlighted.includes(id)}
+                            onItemClick={this.toggleHighlight}
+                            onRemoveItem={this.onRemoveSelected}
+                            className="selected"
+                            selected
+                        />
+                    </li>
+                )}
+            </Draggable>
         );
+    };
+
+    onDragEnd = result => {
+        const { destination, source, draggableId } = result;
+
+        if (destination === null) {
+            return;
+        }
+
+        if (
+            destination.draggableId === source.draggableId &&
+            destination.index === source.index
+        ) {
+            return;
+        }
+
+        const newList = Array.from(this.props.items);
+        newList.splice(source.index, 1);
+        newList.splice(destination.index, 0, draggableId);
+
+        this.props.onReorder(newList);
     };
 
     render = () => {
@@ -87,7 +122,20 @@ export class SelectedItems extends Component {
         return (
             <div style={styles.container}>
                 <Subtitle />
-                <ul style={styles.list}>{dataDimensions}</ul>
+                <DragDropContext onDragEnd={this.onDragEnd}>
+                    <Droppable droppableId="selectedi-items-droppable">
+                        {provided => (
+                            <ItemsList
+                                styles={styles}
+                                innerRef={provided.innerRef}
+                                {...provided.droppableProps}
+                            >
+                                {dataDimensions}
+                                {provided.placeholder}
+                            </ItemsList>
+                        )}
+                    </Droppable>
+                </DragDropContext>
                 <UnAssignButton
                     className={`${this.props.className}-arrow-back-button`}
                     onClick={this.onDeselectClick}
