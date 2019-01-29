@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
-import {
-    SortableContainer,
-    SortableElement,
-    arrayMove,
-} from 'react-sortable-hoc';
 
 import Item from './Item';
 import { ArrowButton as UnAssignButton } from './buttons/ArrowButton';
@@ -23,35 +18,6 @@ const Subtitle = () => (
     </div>
 );
 
-const SortableItem = SortableElement(({ id, idx, ...props }) => (
-    <li
-        id={id}
-        className="dimension-item selected"
-        onDoubleClick={() => props.onRemoveItem(id)}
-    >
-        <Item id={id} index={idx} {...props} selected />
-    </li>
-));
-
-const SortableList = SortableContainer(
-    ({ metadata, highlighted, items, ...itemProps }) => (
-        <ul style={styles.list}>
-            {items.map((id, index) =>
-                metadata[id] ? (
-                    <SortableItem
-                        id={id}
-                        index={index}
-                        idx={index}
-                        key={`item-${id}`}
-                        name={metadata[id].name}
-                        highlighted={highlighted.includes(id)}
-                        {...itemProps}
-                    />
-                ) : null
-            )}
-        </ul>
-    )
-);
 export class SelectedItems extends Component {
     state = { highlighted: [], lastClickedIndex: 0 };
 
@@ -91,35 +57,50 @@ export class SelectedItems extends Component {
         });
     };
 
-    onSortEnd = ({ oldIndex, newIndex }) => {
-        this.props.onReorder(arrayMove(this.props.items, oldIndex, newIndex));
+    renderListItem = (id, index) => {
+        return (
+            <li
+                className="dimension-item"
+                id={id}
+                key={id}
+                onDoubleClick={() => this.onRemoveSelected(id)}
+            >
+                <Item
+                    id={id}
+                    index={index}
+                    displayName={this.props.metadata[id].name}
+                    name={this.props.metadata[id].name}
+                    highlighted={!!this.state.highlighted.includes(id)}
+                    onItemClick={this.toggleHighlight}
+                    onRemoveItem={this.onRemoveSelected}
+                    className="selected"
+                />
+            </li>
+        );
     };
 
-    render = () => (
-        <div style={styles.container}>
-            <Subtitle />
-            <SortableList
-                distance={3}
-                transitionDuration={200}
-                onSortEnd={this.onSortEnd}
-                items={this.props.items}
-                onRemoveItem={this.onRemoveSelected}
-                onItemClick={this.toggleHighlight}
-                metadata={this.props.metadata}
-                highlighted={this.state.highlighted}
-            />
-            <UnAssignButton
-                className={`${this.props.className}-arrow-back-button`}
-                onClick={this.onDeselectClick}
-                iconType={'arrowBack'}
-            />
-            <DeselectAllButton
-                style={styles.deselectButton}
-                onClick={this.onDeselectAllClick}
-                label={i18n.t('Deselect All')}
-            />
-        </div>
-    );
+    render = () => {
+        const dataDimensions = this.props.items.map((id, index) =>
+            this.renderListItem(id, index)
+        );
+
+        return (
+            <div style={styles.container}>
+                <Subtitle />
+                <ul style={styles.list}>{dataDimensions}</ul>
+                <UnAssignButton
+                    className={`${this.props.className}-arrow-back-button`}
+                    onClick={this.onDeselectClick}
+                    iconType={'arrowBack'}
+                />
+                <DeselectAllButton
+                    style={styles.deselectButton}
+                    onClick={this.onDeselectAllClick}
+                    label={i18n.t('Deselect All')}
+                />
+            </div>
+        );
+    };
 }
 
 SelectedItems.propTypes = {
