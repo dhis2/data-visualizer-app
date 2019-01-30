@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
@@ -27,11 +27,7 @@ const ItemsList = ({ styles, innerRef, children }) => (
 );
 
 export class SelectedItems extends Component {
-    state = {
-        highlighted: [],
-        lastClickedIndex: 0,
-        draggingId: null,
-    };
+    state = { highlighted: [], lastClickedIndex: 0, draggingId: null };
 
     onDeselectClick = () => {
         this.props.onDeselect(this.state.highlighted);
@@ -76,95 +72,7 @@ export class SelectedItems extends Component {
         );
     };
 
-    renderListItem = (id, index) => {
-        const isGhosting =
-            this.state.highlighted.includes(id) &&
-            Boolean(this.state.draggingId) &&
-            this.state.draggingId !== id;
-
-        const isItemBeingDragged =
-            this.isMultiDrag(this.state.draggingId) &&
-            this.state.draggingId === id;
-
-        return (
-            <Fragment>
-                <Draggable draggableId={id} index={index} key={id}>
-                    {(provided, snapshot) => {
-                        const showCount =
-                            snapshot.isDragging &&
-                            this.state.highlighted.length > 1 &&
-                            this.state.highlighted.includes(
-                                this.state.draggingId
-                            );
-
-                        const itemText = showCount
-                            ? `${this.state.highlighted.length} items`
-                            : this.props.metadata[id].name;
-
-                        return (
-                            <li
-                                className="dimension-item"
-                                id={id}
-                                onDoubleClick={() => this.onRemoveSelected(id)}
-                                {...provided.draggableProps}
-                                {...provided.dragHandleProps}
-                                ref={provided.innerRef}
-                            >
-                                <Item
-                                    id={id}
-                                    index={index}
-                                    name={itemText}
-                                    highlighted={
-                                        !!this.state.highlighted.includes(id)
-                                    }
-                                    onItemClick={this.toggleHighlight}
-                                    onRemoveItem={this.onRemoveSelected}
-                                    selected
-                                    isGhosting={isGhosting}
-                                />
-                            </li>
-                        );
-                    }}
-                </Draggable>
-                {isItemBeingDragged && (
-                    <Draggable
-                        draggableId={`${id}-clone`}
-                        index={9999}
-                        key={`${id}-clone`}
-                    >
-                        {provided => {
-                            return (
-                                <li
-                                    className="dimension-item"
-                                    id={id}
-                                    {...provided.draggableProps}
-                                    {...provided.dragHandleProps}
-                                    ref={provided.innerRef}
-                                >
-                                    <Item
-                                        id={`${id}-clone`}
-                                        index={9999}
-                                        name={this.props.metadata[id].name}
-                                        highlighted={
-                                            !!this.state.highlighted.includes(
-                                                id
-                                            )
-                                        }
-                                        selected
-                                        isGhosting={true}
-                                    />
-                                </li>
-                            );
-                        }}
-                    </Draggable>
-                )}
-            </Fragment>
-        );
-    };
-
     onDragStart = start => {
-        console.log('onDragStart', start);
-
         const id = start.draggableId;
         const selected = this.state.highlighted.find(itemId => itemId === id);
 
@@ -173,9 +81,7 @@ export class SelectedItems extends Component {
             this.setState({ highlighted: [] });
         }
 
-        this.setState({
-            draggingId: start.draggableId,
-        });
+        this.setState({ draggingId: start.draggableId });
     };
 
     onDragEnd = result => {
@@ -199,7 +105,10 @@ export class SelectedItems extends Component {
         if (this.isMultiDrag(draggableId)) {
             const indexedItemsToMove = sortBy(
                 this.state.highlighted.map(item => {
-                    return { item, idx: this.props.items.indexOf(item) };
+                    return {
+                        item,
+                        idx: this.props.items.indexOf(item),
+                    };
                 }),
                 'idx'
             );
@@ -233,8 +142,116 @@ export class SelectedItems extends Component {
         this.props.onReorder(newList);
     };
 
+    renderListItem = ({ id, clone }, index) => {
+        if (!clone) {
+            return (
+                <Draggable draggableId={id} index={index} key={id}>
+                    {(provided, snapshot) => {
+                        const isItemBeingDragged =
+                            snapshot.isDragging &&
+                            this.state.highlighted.length > 1 &&
+                            this.state.highlighted.includes(
+                                this.state.draggingId
+                            );
+
+                        const isGhosting =
+                            this.state.highlighted.includes(id) &&
+                            Boolean(this.state.draggingId) &&
+                            this.state.draggingId !== id;
+
+                        const itemText = isItemBeingDragged
+                            ? `${this.state.highlighted.length} items`
+                            : this.props.metadata[id].name;
+
+                        const ghostClassname = isGhosting ? 'ghost' : '';
+                        const draggingItemClassname = isItemBeingDragged
+                            ? 'dragging-item'
+                            : '';
+
+                        const classNames = [
+                            ghostClassname,
+                            draggingItemClassname,
+                        ].join(' ');
+
+                        return (
+                            <li
+                                className="dimension-item"
+                                id={id}
+                                onDoubleClick={() => this.onRemoveSelected(id)}
+                                {...provided.draggableProps}
+                                {...provided.dragHandleProps}
+                                ref={provided.innerRef}
+                            >
+                                <Item
+                                    id={id}
+                                    index={index}
+                                    name={itemText}
+                                    highlighted={
+                                        !!this.state.highlighted.includes(id)
+                                    }
+                                    onItemClick={this.toggleHighlight}
+                                    onRemoveItem={this.onRemoveSelected}
+                                    selected
+                                    classNames={classNames}
+                                />
+                            </li>
+                        );
+                    }}
+                </Draggable>
+            );
+        } else {
+            const cloneId = `${id}-clone`;
+            return (
+                <Draggable draggableId={cloneId} index={index} key={cloneId}>
+                    {provided => {
+                        return (
+                            <li
+                                className="dimension-item"
+                                id={cloneId}
+                                {...provided.draggableProps}
+                                {...provided.dragHandleProps}
+                                ref={provided.innerRef}
+                            >
+                                <Item
+                                    id={cloneId}
+                                    index={9999}
+                                    name={this.props.metadata[id].name}
+                                    highlighted={
+                                        !!this.state.highlighted.includes(id)
+                                    }
+                                    selected
+                                    classNames="ghost"
+                                />
+                            </li>
+                        );
+                    }}
+                </Draggable>
+            );
+        }
+    };
+
     render = () => {
-        console.log('render with state', this.state);
+        const getList = () => {
+            let theList = [];
+
+            this.props.items.forEach(id => {
+                theList.push({ id });
+
+                const itemIsBeingDragged =
+                    this.isMultiDrag(this.state.draggingId) &&
+                    this.state.draggingId === id;
+
+                if (itemIsBeingDragged) {
+                    theList.push({ id, clone: true });
+                }
+            });
+
+            return theList;
+        };
+
+        const dataDimensions = getList().map((itemObj, index) =>
+            this.renderListItem(itemObj, index)
+        );
 
         return (
             <div style={styles.container}>
@@ -244,16 +261,7 @@ export class SelectedItems extends Component {
                     onDragEnd={this.onDragEnd}
                 >
                     <Droppable droppableId="selected-items-droppable">
-                        {(provided, snapshot) => {
-                            const dataDimensions = this.props.items.map(
-                                (id, index) =>
-                                    this.renderListItem(
-                                        id,
-                                        index,
-                                        snapshot.draggingOverWith
-                                    )
-                            );
-
+                        {provided => {
                             return (
                                 <ItemsList
                                     styles={styles}

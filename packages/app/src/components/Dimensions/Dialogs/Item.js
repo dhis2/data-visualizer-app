@@ -23,12 +23,12 @@ export const Item = ({
     onRemoveItem,
     onItemClick,
     name,
-    isGhosting,
+    classNames,
 }) => {
     const selectedState = selected ? 'selected' : 'unselected';
-
-    const divClassName =
-        `${selectedState}-list-item` + (isGhosting ? ' ghost' : '');
+    const divClassName = [`${selectedState}-list-item`]
+        .concat(classNames)
+        .join(' ');
 
     return (
         <div
@@ -56,6 +56,7 @@ export const Item = ({
 
 Item.defualtProps = {
     onRemoveItem: () => null,
+    onItemClick: () => null,
 };
 
 Item.propTypes = {
@@ -63,7 +64,7 @@ Item.propTypes = {
     index: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     highlighted: PropTypes.bool.isRequired,
-    onItemClick: PropTypes.func.isRequired,
+    onItemClick: PropTypes.func,
     onRemoveItem: PropTypes.func,
     selected: PropTypes.bool,
 };
