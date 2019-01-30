@@ -4,6 +4,7 @@ import LoadingMask from '../widgets/LoadingMask';
 import ChartPlugin from '../ChartPlugin';
 import * as chartsApi from 'd2-charts-api';
 import * as api from '../api/analytics';
+import * as apiViz from '../api/visualization';
 import * as options from '../modules/options';
 import { YEAR_OVER_YEAR_LINE, COLUMN } from '../modules/chartTypes';
 
@@ -108,11 +109,16 @@ describe('ChartPlugin', () => {
             filters: {},
             style: { height: 100 },
             id: 1,
+            forDashboard: false,
             onChartGenerated: jest.fn(),
             onResponsesReceived: jest.fn(),
             onError: jest.fn(),
         };
         shallowChartPlugin = undefined;
+
+        apiViz.apiFetchVisualization = jest
+            .fn()
+            .mockResolvedValue(defaultCurrentMock);
 
         api.apiFetchAnalytics = jest
             .fn()
@@ -170,6 +176,26 @@ describe('ChartPlugin', () => {
                 expect(api.apiFetchAnalytics.mock.calls[0][1]).toEqual({
                     option1: 'def',
                 });
+
+                done();
+            });
+        });
+
+        it('fetches the AO by id when forDashboard is passed', done => {
+            props.forDashboard = true;
+            props.config = {
+                id: 'test1',
+                type: COLUMN,
+            };
+
+            canvas();
+
+            setTimeout(() => {
+                expect(apiViz.apiFetchVisualization).toHaveBeenCalled();
+                expect(apiViz.apiFetchVisualization).toHaveBeenCalledWith(
+                    'chart',
+                    'test1'
+                );
 
                 done();
             });
