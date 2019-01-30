@@ -95,3 +95,7 @@
 .selected-list-item:hover {
     background-color: #86c4bf;
 }
+
+.dimension-item:focus {
+    outline: none;
+}

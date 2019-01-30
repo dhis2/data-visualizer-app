@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import sortBy from 'lodash-es/sortBy';
 
 import Item from './Item';
 import { ArrowButton as UnAssignButton } from './buttons/ArrowButton';
@@ -108,8 +109,36 @@ export class SelectedItems extends Component {
         }
 
         const newList = Array.from(this.props.items);
-        newList.splice(source.index, 1);
-        newList.splice(destination.index, 0, draggableId);
+
+        if (
+            this.state.highlighted.includes(draggableId) &&
+            this.state.highlighted.length > 1
+        ) {
+            const indexedItemsToMove = sortBy(
+                this.state.highlighted.map(item => {
+                    return { item, idx: this.props.items.indexOf(item) };
+                }),
+                'idx'
+            );
+
+            let destinationIndex = destination.index;
+            indexedItemsToMove.forEach(indexed => {
+                if (indexed.idx < destinationIndex) {
+                    --destinationIndex;
+                }
+            });
+            indexedItemsToMove.forEach(indexed => {
+                const idx = newList.indexOf(indexed.item);
+                newList.splice(idx, 1);
+            });
+
+            indexedItemsToMove.reverse().forEach(indexed => {
+                newList.splice(destinationIndex, 0, indexed.item);
+            });
+        } else {
+            newList.splice(source.index, 1);
+            newList.splice(destination.index, 0, draggableId);
+        }
 
         this.props.onReorder(newList);
     };
