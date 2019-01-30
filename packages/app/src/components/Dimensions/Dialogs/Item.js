@@ -23,14 +23,18 @@ export const Item = ({
     onRemoveItem,
     onItemClick,
     name,
+    isGhosting,
 }) => {
     const selectedState = selected ? 'selected' : 'unselected';
+
+    const divClassName =
+        `${selectedState}-list-item` + (isGhosting ? ' ghost' : '');
 
     return (
         <div
             data-test={`dimension-item-${id}`}
             style={highlighted ? styles.highlightedItem : {}}
-            className={`${selectedState}-list-item`}
+            className={divClassName}
             onClick={onClickWrapper(id, index, onItemClick)}
         >
             <Icon selected={selected} highlighted={highlighted} />

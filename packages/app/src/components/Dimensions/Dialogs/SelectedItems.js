@@ -27,7 +27,7 @@ const ItemsList = ({ styles, innerRef, children }) => (
 );
 
 export class SelectedItems extends Component {
-    state = { highlighted: [], lastClickedIndex: 0 };
+    state = { highlighted: [], lastClickedIndex: 0, draggingId: null };
 
     onDeselectClick = () => {
         this.props.onDeselect(this.state.highlighted);
@@ -65,14 +65,24 @@ export class SelectedItems extends Component {
         });
     };
 
-    renderListItem = (id, index, itemBeingDragged) => {
+    renderListItem = (id, index) => {
+        // console.log('renderListItem with state', this.state);
+
+        const isGhosting =
+            this.state.highlighted.includes(id) &&
+            Boolean(this.state.draggingId) &&
+            this.state.draggingId !== id;
         return (
             <Draggable draggableId={id} index={index} key={id}>
                 {(provided, snapshot) => {
                     const showCount =
                         snapshot.isDragging &&
                         this.state.highlighted.length > 1 &&
-                        this.state.highlighted.includes(itemBeingDragged);
+                        this.state.highlighted.includes(this.state.draggingId);
+
+                    const itemText = showCount
+                        ? `${this.state.highlighted.length} items`
+                        : this.props.metadata[id].name;
 
                     return (
                         <li
@@ -86,19 +96,15 @@ export class SelectedItems extends Component {
                             <Item
                                 id={id}
                                 index={index}
-                                displayName={this.props.metadata[id].name}
-                                name={this.props.metadata[id].name}
+                                name={itemText}
                                 highlighted={
                                     !!this.state.highlighted.includes(id)
                                 }
                                 onItemClick={this.toggleHighlight}
                                 onRemoveItem={this.onRemoveSelected}
-                                className="selected"
                                 selected
+                                isGhosting={isGhosting}
                             />
-                            {showCount ? (
-                                <span>{this.state.highlighted.length}</span>
-                            ) : null}
                         </li>
                     );
                 }}
@@ -106,8 +112,24 @@ export class SelectedItems extends Component {
         );
     };
 
+    onDragStart = start => {
+        const id = start.draggableId;
+        const selected = this.state.highlighted.find(itemId => itemId === id);
+
+        // if dragging an item that is not highlighted, unhighlight all items
+        if (!selected) {
+            this.setState({ highlighted: [] });
+        }
+
+        this.setState({
+            draggingId: start.draggableId,
+        });
+    };
+
     onDragEnd = result => {
         const { destination, source, draggableId } = result;
+
+        this.setState({ draggingId: null });
 
         if (destination === null) {
             return;
@@ -166,8 +188,11 @@ export class SelectedItems extends Component {
         return (
             <div style={styles.container}>
                 <Subtitle />
-                <DragDropContext onDragEnd={this.onDragEnd}>
-                    <Droppable droppableId="selectedi-items-droppable">
+                <DragDropContext
+                    onDragStart={this.onDragStart}
+                    onDragEnd={this.onDragEnd}
+                >
+                    <Droppable droppableId="selected-items-droppable">
                         {(provided, snapshot) => {
                             const dataDimensions = this.props.items.map(
                                 (id, index) =>

@@ -92,6 +92,11 @@
     background-color: #b2dfdb;
 }
 
+.ghost {
+    transition: opacity 0.2s ease;
+    opacity: 0.2;
+}
+
 .selected-list-item:hover {
     background-color: #86c4bf;
 }
