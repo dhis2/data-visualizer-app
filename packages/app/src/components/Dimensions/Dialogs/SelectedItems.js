@@ -134,18 +134,25 @@ export class SelectedItems extends Component {
             );
 
             let destinationIndex = destination.index;
-            indexedItemsToMove.forEach(indexed => {
-                if (indexed.idx < destinationIndex) {
-                    --destinationIndex;
-                }
-            });
+
+            if (
+                destinationIndex < this.props.items.length - 1 &&
+                destinationIndex > 1
+            ) {
+                indexedItemsToMove.forEach(indexed => {
+                    if (indexed.idx < destinationIndex) {
+                        --destinationIndex;
+                    }
+                });
+            }
+
             indexedItemsToMove.forEach(indexed => {
                 const idx = newList.indexOf(indexed.item);
                 newList.splice(idx, 1);
             });
 
-            indexedItemsToMove.reverse().forEach(indexed => {
-                newList.splice(destinationIndex, 0, indexed.item);
+            indexedItemsToMove.forEach((indexed, i) => {
+                newList.splice(destinationIndex + i, 0, indexed.item);
             });
         } else {
             newList.splice(source.index, 1);
