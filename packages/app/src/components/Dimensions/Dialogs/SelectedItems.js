@@ -65,31 +65,43 @@ export class SelectedItems extends Component {
         });
     };
 
-    renderListItem = (id, index) => {
+    renderListItem = (id, index, itemBeingDragged) => {
         return (
             <Draggable draggableId={id} index={index} key={id}>
-                {provided => (
-                    <li
-                        className="dimension-item"
-                        id={id}
-                        onDoubleClick={() => this.onRemoveSelected(id)}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                        ref={provided.innerRef}
-                    >
-                        <Item
+                {(provided, snapshot) => {
+                    const showCount =
+                        snapshot.isDragging &&
+                        this.state.highlighted.length > 1 &&
+                        this.state.highlighted.includes(itemBeingDragged);
+
+                    return (
+                        <li
+                            className="dimension-item"
                             id={id}
-                            index={index}
-                            displayName={this.props.metadata[id].name}
-                            name={this.props.metadata[id].name}
-                            highlighted={!!this.state.highlighted.includes(id)}
-                            onItemClick={this.toggleHighlight}
-                            onRemoveItem={this.onRemoveSelected}
-                            className="selected"
-                            selected
-                        />
-                    </li>
-                )}
+                            onDoubleClick={() => this.onRemoveSelected(id)}
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}
+                            ref={provided.innerRef}
+                        >
+                            <Item
+                                id={id}
+                                index={index}
+                                displayName={this.props.metadata[id].name}
+                                name={this.props.metadata[id].name}
+                                highlighted={
+                                    !!this.state.highlighted.includes(id)
+                                }
+                                onItemClick={this.toggleHighlight}
+                                onRemoveItem={this.onRemoveSelected}
+                                className="selected"
+                                selected
+                            />
+                            {showCount ? (
+                                <span>{this.state.highlighted.length}</span>
+                            ) : null}
+                        </li>
+                    );
+                }}
             </Draggable>
         );
     };
@@ -144,25 +156,32 @@ export class SelectedItems extends Component {
     };
 
     render = () => {
-        const dataDimensions = this.props.items.map((id, index) =>
-            this.renderListItem(id, index)
-        );
-
         return (
             <div style={styles.container}>
                 <Subtitle />
                 <DragDropContext onDragEnd={this.onDragEnd}>
                     <Droppable droppableId="selectedi-items-droppable">
-                        {provided => (
-                            <ItemsList
-                                styles={styles}
-                                innerRef={provided.innerRef}
-                                {...provided.droppableProps}
-                            >
-                                {dataDimensions}
-                                {provided.placeholder}
-                            </ItemsList>
-                        )}
+                        {(provided, snapshot) => {
+                            const dataDimensions = this.props.items.map(
+                                (id, index) =>
+                                    this.renderListItem(
+                                        id,
+                                        index,
+                                        snapshot.draggingOverWith
+                                    )
+                            );
+
+                            return (
+                                <ItemsList
+                                    styles={styles}
+                                    innerRef={provided.innerRef}
+                                    {...provided.droppableProps}
+                                >
+                                    {dataDimensions}
+                                    {provided.placeholder}
+                                </ItemsList>
+                            );
+                        }}
                     </Droppable>
                 </DragDropContext>
                 <UnAssignButton
