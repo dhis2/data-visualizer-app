@@ -14,16 +14,6 @@
   command = "echo BUILDING... && yarn build"
 
 [[redirects]]
-  from = "/dhis-web-core-resource/react/16.2.0/umd/react.production.min.js"
-  to = "https://unpkg.com/react@16.5/umd/react.production.min.js"
-  status = 302
-
-[[redirects]]
-  from = "/dhis-web-core-resource/react-dom/16.2.0/umd/react-dom.production.min.js"
-  to = "https://unpkg.com/react-dom@16.5/umd/react-dom.production.min.js"
-  status = 302
-
-[[redirects]]
   from = "/*"
   to = "https://play.dhis2.org/dev/:splat"
   status = 200
@@ -31,3 +21,4 @@
   [redirects.headers]
     # Use request forwarding and basic authentication as admin:district for now
     Authorization = "Basic YWRtaW46ZGlzdHJpY3Q="
+  
