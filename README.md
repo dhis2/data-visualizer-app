@@ -109,8 +109,8 @@ Branches are available at (replace `/` and other special characters in `{branchn
 
 ```https://{branchname}--dhis2-data-visualizer.netlify.com```
 
-Pull requests (I.E. #123) are available at:
+Pull requests (I.E. #209) are available at:
 
-```https://deploy-preview-123--dhis2-data-visualizer.netlify.com```
+```https://deploy-preview-209--dhis2-data-visualizer.netlify.com```
 
 Netlify will also add a status check to each PR which links directly to the PR deployment.
