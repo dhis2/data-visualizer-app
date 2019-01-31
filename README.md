@@ -88,3 +88,29 @@ $ yarn prettier-ci
 ```
 $ yarn build
 ```
+
+
+#### Manual testing with Netlify
+
+This repo is configured to deploy all branches to netlify. This makes it simple to share a running implementation with others (e.g., tester, product manager, ux, fellow developers) prior
+to merging to master.
+
+All netlfiy deployments run against play.dhis2.org/dev, so in order to use them, you must configure CORS for your particular branch:
+
+1. Copy the URL of the deployment you want to enable, i.e. `https://dhis2-data-visualizer.netlify.com`
+2. Visit the play/dev [system settings -- access](https://play.dhis2.org/dev/dhis-web-settings/index.html#/access) page
+3. Add the copied URL on a new line the in CORS Whitelist textbox **NOTE**: do NOT include a trailing slash
+
+The master branch is always available at:
+
+```https://dhis2-data-visualizer.netlify.com```
+
+Branches are available at (replace `/` and other special characters in `{branchname}` with `-`):
+
+```https://{branchname}--dhis2-data-visualizer.netlify.com```
+
+Pull requests (I.E. #209) are available at:
+
+```https://deploy-preview-209--dhis2-data-visualizer.netlify.com```
+
+Netlify will also add a status check to each PR which links directly to the PR deployment.
