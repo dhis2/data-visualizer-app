@@ -20,6 +20,7 @@ describe('DV > Options > TextBaseOption', () => {
 
         props = {
             value: 'test',
+            type: 'text',
             option: {
                 label: 'Input field',
             },
@@ -47,6 +48,16 @@ describe('DV > Options > TextBaseOption', () => {
                 .find(TextField)
                 .props().value
         ).toEqual('test');
+    });
+
+    it('sets the helper text to what passed in the option prop', () => {
+        props.option.helperText = 'helper text';
+
+        expect(
+            textBaseOption(props)
+                .find(TextField)
+                .props().helperText
+        ).toEqual('helper text');
     });
 
     it('should trigger the onChange callback on text change', () => {

@@ -1,28 +1,35 @@
 import * as layoutStyle from './style';
+import { colors } from '../../../modules/colors';
 
 export const styles = {
     chipWrapper: {
         display: 'flex',
         margin: layoutStyle.CHIP_MARGIN,
+        backgroundColor: layoutStyle.CHIP_BACKGROUND_COLOR,
+        borderRadius: layoutStyle.CHIP_BORDER_RADIUS,
+        alignItems: 'center',
     },
     chip: {
-        maxHeight: layoutStyle.CHIP_HEIGHT,
         padding: layoutStyle.CHIP_PADDING,
         fontSize: layoutStyle.CHIP_FONT_SIZE,
         fontWeight: layoutStyle.CHIP_FONT_WEIGHT,
-        backgroundColor: layoutStyle.CHIP_BACKGROUND_COLOR,
         color: layoutStyle.CHIP_COLOR,
-        borderRadius: layoutStyle.CHIP_BORDER_RADIUS,
         cursor: 'pointer',
         whiteSpace: 'nowrap',
         overflow: 'hidden',
         textOverflow: 'ellipsis',
     },
-    fixedDimensionIcon: {
-        position: 'relative',
-        top: 2,
+    chipEmpty: {
+        backgroundColor: colors.greyLight,
     },
-    genericDimensionIcon: { position: 'relative', top: 5 },
+    fixedDimensionIcon: {
+        paddingRight: '6px',
+    },
+    iconWrapper: {
+        paddingRight: '6px',
+        display: 'flex',
+        alignItems: 'center',
+    },
 };
 
 styles.chipLeft = {
@@ -30,6 +37,7 @@ styles.chipLeft = {
     display: 'flex',
     borderTopRightRadius: '0px',
     borderBottomRightRadius: '0px',
+    alignItems: 'center',
 };
 
 styles.chipRight = {

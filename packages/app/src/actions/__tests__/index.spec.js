@@ -1,33 +1,59 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as fromActions from '../index';
-import * as fromReducers from '../../reducers/index';
 import * as api from '../../api/visualization';
-import * as history from '../../history';
+import * as history from '../../modules/history';
+
+import {
+    SET_VISUALIZATION,
+    CLEAR_VISUALIZATION,
+} from '../../reducers/visualization';
+import { SET_CURRENT, CLEAR_CURRENT } from '../../reducers/current';
+import {
+    SET_UI_FROM_VISUALIZATION,
+    CLEAR_UI,
+    SET_UI_RIGHT_SIDEBAR_OPEN,
+    SET_UI_INTERPRETATION,
+} from '../../reducers/ui';
+import { SET_LOAD_ERROR, CLEAR_LOAD_ERROR } from '../../reducers/loader';
+import {
+    RECEIVED_SNACKBAR_MESSAGE,
+    CLOSE_SNACKBAR,
+} from '../../reducers/snackbar';
+import * as selectors from '../../reducers/settings';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
+const rootOrganisationUnit = 'abc123';
+const relativePeriod = 'xyzpdq';
+selectors.sGetRootOrgUnit = () => rootOrganisationUnit;
+selectors.sGetRelativePeriod = () => relativePeriod;
+
 describe('index', () => {
     describe('tDoLoadVisualization', () => {
         it('dispatches the correct actions after successfully fetching visualization', () => {
-            const vis = 'hey';
+            const vis = {
+                name: 'hey',
+                interpretations: [{ id: 1, created: '2018-12-03' }],
+            };
+
             api.apiFetchVisualization = () =>
                 Promise.resolve({
                     toJSON: () => vis,
                 });
 
             const expectedActions = [
-                { type: fromReducers.actionTypes.CLEAR_LOAD_ERROR },
                 {
-                    type: fromReducers.actionTypes.SET_VISUALIZATION,
+                    type: SET_VISUALIZATION,
                     value: vis,
                 },
-                { type: fromReducers.actionTypes.SET_CURRENT, value: vis },
+                { type: SET_CURRENT, value: vis },
                 {
-                    type: fromReducers.actionTypes.SET_UI_FROM_VISUALIZATION,
+                    type: SET_UI_FROM_VISUALIZATION,
                     value: vis,
                 },
+                { type: CLEAR_LOAD_ERROR },
             ];
 
             const store = mockStore({});
@@ -39,16 +65,82 @@ describe('index', () => {
                 });
         });
 
+        it('dispatches the correct actions after successfully fetching visualization and interpretation', () => {
+            const interpretation = { id: 1, created: '2018-12-03' };
+
+            const vis = {
+                name: 'hey',
+                interpretations: [interpretation],
+            };
+
+            api.apiFetchVisualization = () =>
+                Promise.resolve({
+                    toJSON: () => vis,
+                });
+
+            const expectedActions = [
+                {
+                    type: SET_UI_INTERPRETATION,
+                    value: interpretation,
+                },
+                {
+                    type: SET_UI_RIGHT_SIDEBAR_OPEN,
+                },
+                {
+                    type: SET_VISUALIZATION,
+                    value: vis,
+                },
+                { type: SET_CURRENT, value: vis },
+                {
+                    type: SET_UI_FROM_VISUALIZATION,
+                    value: vis,
+                },
+                { type: CLEAR_LOAD_ERROR },
+            ];
+
+            const store = mockStore({});
+
+            return store
+                .dispatch(fromActions.tDoLoadVisualization('test', 1, 1))
+                .then(() => {
+                    expect(store.getActions()).toEqual(expectedActions);
+                });
+        });
+
+        it('dispatches CLEAR_LOAD_ERROR last', () => {
+            const vis = 'hey';
+            api.apiFetchVisualization = () =>
+                Promise.resolve({
+                    toJSON: () => vis,
+                });
+
+            const store = mockStore({});
+
+            return store
+                .dispatch(fromActions.tDoLoadVisualization())
+                .then(() => {
+                    expect(store.getActions().slice(-1)[0].type).toEqual(
+                        CLEAR_LOAD_ERROR
+                    );
+                });
+        });
+
         it('dispatches the correct actions when fetch visualization fails', () => {
-            const error = { code: '718', message: 'I am not a teapot' };
+            const error = 'I am not a teapot';
 
             api.apiFetchVisualization = () => Promise.reject(error);
 
             const expectedActions = [
-                { type: fromReducers.actionTypes.SET_LOAD_ERROR, value: error },
-                { type: fromReducers.actionTypes.CLEAR_VISUALIZATION },
-                { type: fromReducers.actionTypes.CLEAR_CURRENT },
-                { type: fromReducers.actionTypes.CLEAR_UI },
+                { type: SET_LOAD_ERROR, value: error },
+                { type: CLEAR_VISUALIZATION },
+                { type: CLEAR_CURRENT },
+                {
+                    type: CLEAR_UI,
+                    value: {
+                        rootOrganisationUnit,
+                        relativePeriod,
+                    },
+                },
             ];
 
             const store = mockStore({});
@@ -64,15 +156,21 @@ describe('index', () => {
     describe('clearVisualization', () => {
         it('dispatches the correct actions when clearing the visualization', () => {
             const expectedActions = [
-                { type: fromReducers.actionTypes.CLEAR_LOAD_ERROR },
-                { type: fromReducers.actionTypes.CLEAR_VISUALIZATION },
-                { type: fromReducers.actionTypes.CLEAR_CURRENT },
-                { type: fromReducers.actionTypes.CLEAR_UI },
+                { type: CLEAR_LOAD_ERROR },
+                { type: CLEAR_VISUALIZATION },
+                { type: CLEAR_CURRENT },
+                {
+                    type: CLEAR_UI,
+                    value: {
+                        rootOrganisationUnit,
+                        relativePeriod,
+                    },
+                },
             ];
 
             const store = mockStore({});
 
-            fromActions.clearVisualization(store.dispatch);
+            fromActions.clearVisualization(store.dispatch, store.getState);
 
             expect(store.getActions()).toEqual(expectedActions);
         });
@@ -92,7 +190,7 @@ describe('index', () => {
 
             const expectedActions = [
                 {
-                    type: fromReducers.actionTypes.RECEIVED_SNACKBAR_MESSAGE,
+                    type: RECEIVED_SNACKBAR_MESSAGE,
                     value: {
                         message: '"delete test" successfully deleted.',
                         open: true,
@@ -133,15 +231,15 @@ describe('index', () => {
 
             const expectedActions = [
                 {
-                    type: fromReducers.actionTypes.SET_VISUALIZATION,
+                    type: SET_VISUALIZATION,
                     value: { ...visualization, ...extraParams },
                 },
                 {
-                    type: fromReducers.actionTypes.SET_CURRENT,
+                    type: SET_CURRENT,
                     value: { ...visualization, ...extraParams },
                 },
                 {
-                    type: fromReducers.actionTypes.RECEIVED_SNACKBAR_MESSAGE,
+                    type: RECEIVED_SNACKBAR_MESSAGE,
                     value: {
                         message: 'Rename successful',
                         open: true,
@@ -165,15 +263,15 @@ describe('index', () => {
 
             const expectedActions = [
                 {
-                    type: fromReducers.actionTypes.SET_VISUALIZATION,
+                    type: SET_VISUALIZATION,
                     value: { ...visualization, ...extraParams },
                 },
                 {
-                    type: fromReducers.actionTypes.SET_CURRENT,
+                    type: SET_CURRENT,
                     value: { ...current, ...extraParams },
                 },
                 {
-                    type: fromReducers.actionTypes.RECEIVED_SNACKBAR_MESSAGE,
+                    type: RECEIVED_SNACKBAR_MESSAGE,
                     value: {
                         message: 'Rename successful',
                         open: true,
@@ -268,6 +366,39 @@ describe('index', () => {
                         `/${uid}`
                     );
                 });
+        });
+    });
+
+    describe('tDoCloseSnackbar', () => {
+        it('dispatches the correct actions when closing the snackbar', () => {
+            const snackbar = {
+                message: 'test',
+                open: true,
+                variant: 'warning',
+            };
+
+            const store = mockStore({
+                snackbar,
+            });
+
+            const expectedActions = [
+                {
+                    type: RECEIVED_SNACKBAR_MESSAGE,
+                    value: {
+                        open: false,
+                    },
+                },
+                {
+                    type: CLOSE_SNACKBAR,
+                },
+            ];
+
+            store.dispatch(fromActions.tDoCloseSnackbar());
+
+            setTimeout(
+                () => expect(store.getActions()).toEqual(expectedActions),
+                350
+            );
         });
     });
 });

@@ -1,15 +1,15 @@
-import { colors } from '../../../colors';
+import { colors } from '../../../modules/colors';
 
 export const styles = {
     divContainer: {
-        backgroundColor: colors.lightGrey,
-        width: 250,
-        padding: 12,
-    },
-    searchIcon: {
-        color: colors.grey,
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        backgroundColor: colors.snow,
+        padding: '8px 0 2px 8px',
     },
     textField: {
-        marginBottom: 12,
+        paddingBottom: '12px',
+        width: 'calc(100% - 8px)',
     },
 };

@@ -13,7 +13,7 @@ describe('The RecommendedIcon component ', () => {
         return shallowRecIcon;
     };
     beforeEach(() => {
-        props = { id: 'idString', isSelected: false, isRecommended: [] };
+        props = { id: 'idString', isSelected: false, isRecommended: false };
         shallowRecIcon = undefined;
     });
 
@@ -21,9 +21,9 @@ describe('The RecommendedIcon component ', () => {
         expect(recIcon().children().length).toEqual(0);
     });
 
-    describe('when isRecommended includes the id', () => {
+    describe('when isRecommended is equal to true', () => {
         beforeEach(() => {
-            props.isRecommended = ['idString'];
+            props.isRecommended = true;
             shallowRecIcon = undefined;
         });
 

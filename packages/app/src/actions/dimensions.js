@@ -1,13 +1,15 @@
-import { arrayToIdMap, sortArray } from '../util';
-import { actionTypes } from '../reducers';
+import keyBy from 'lodash-es/keyBy';
+import sortBy from 'lodash-es/sortBy';
+import { SET_DIMENSIONS } from '../reducers/dimensions';
 import { apiFetchDimensions } from '../api/dimensions';
+import { sGetSettingsDisplayNameProperty } from '../reducers/settings';
 
 export const acSetDimensions = dimensions => ({
-    type: actionTypes.SET_DIMENSIONS,
-    value: arrayToIdMap(sortArray(dimensions)),
+    type: SET_DIMENSIONS,
+    value: keyBy(sortBy(dimensions, [d => d.name.toLowerCase()]), 'id'),
 });
 
-export const tSetDimensions = () => async dispatch => {
+export const tSetDimensions = () => async (dispatch, getState) => {
     const onSuccess = dimensions => {
         dispatch(acSetDimensions(dimensions));
     };
@@ -18,8 +20,9 @@ export const tSetDimensions = () => async dispatch => {
     };
 
     try {
-        const response = await apiFetchDimensions();
-        return onSuccess(response.dimensions);
+        const displayNameProp = sGetSettingsDisplayNameProperty(getState());
+        const dimensions = await apiFetchDimensions(displayNameProp);
+        return onSuccess(dimensions);
     } catch (err) {
         return onError(err);
     }

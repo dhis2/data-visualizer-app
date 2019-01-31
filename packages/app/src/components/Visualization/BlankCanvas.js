@@ -1,21 +1,30 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { sGetLoadError } from '../../reducers/loadError';
+import i18n from '@dhis2/d2-i18n';
+import styles from './styles/BlankCanvas.style';
+import { sGetLoadError } from '../../reducers/loader';
+import chartErrorImg from '../../assets/chart-error-graphic.png';
 
-export const visContainerId = 'visualization-container';
-export const defaultCanvasMessage = 'Visualization Canvas';
+export const defaultCanvasMessage = i18n.t(
+    'Create a new visualization by adding dimensions to the layout'
+);
+
+const getMessage = text => <p style={styles.title}>{text}</p>;
 
 export const BlankCanvas = ({ error }) => {
-    const message = error ? error : defaultCanvasMessage;
+    const canvasContent = error ? (
+        <div>
+            <img src={chartErrorImg} alt={i18n.t('Chart error')} />
+            {getMessage(error)}
+        </div>
+    ) : (
+        getMessage(defaultCanvasMessage)
+    );
 
     return (
-        <section className="canvas">
-            <div id={visContainerId}>
-                <div style={{ margin: 50 }}>
-                    <span>{message}</span>
-                </div>
-            </div>
-        </section>
+        <div style={styles.outer}>
+            <div style={styles.inner}>{canvasContent}</div>
+        </div>
     );
 };
 

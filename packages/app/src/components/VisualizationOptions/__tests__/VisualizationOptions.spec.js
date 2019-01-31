@@ -4,7 +4,7 @@ import Tabs from '@material-ui/core/Tabs';
 
 import { VisualizationOptions } from '../VisualizationOptions';
 import DataTab from '../DataTab';
-import AxesAndLegendsTab from '../AxesAndLegendsTab';
+import AxisAndLegendTab from '../AxisAndLegendTab';
 import StyleTab from '../StyleTab';
 
 describe('VisualizationOptions', () => {
@@ -36,11 +36,11 @@ describe('VisualizationOptions', () => {
         expect(visualizationOptions().find(DataTab).length).toBe(1);
     });
 
-    it('renders the <AxesAndLegendsTab /> component if activeTab is set to 1', () => {
+    it('renders the <AxisAndLegendTab /> component if activeTab is set to 1', () => {
         const viz = visualizationOptions();
         viz.setState({ activeTab: 1 });
 
-        expect(viz.find(AxesAndLegendsTab).length).toBe(1);
+        expect(viz.find(AxisAndLegendTab).length).toBe(1);
     });
 
     it('renders the <StyleTab /> component if activeTab is set to 2', () => {

@@ -1,116 +1,164 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import * as chartsApi from 'd2-charts-api';
-import { Visualization } from '../Visualization';
+import ChartPlugin from 'data-visualizer-plugin';
+import {
+    Visualization,
+    chartConfigSelector,
+    chartFiltersSelector,
+} from '../Visualization';
 import BlankCanvas from '../BlankCanvas';
-import * as options from '../../../options';
+import * as validator from '../../../modules/layoutValidation';
 
-const metaDataMock = ['a', 'b'];
-class MockAnalyticsResponse {
-    constructor() {
-        return {
-            metaData: {
-                items: metaDataMock,
-            },
-        };
-    }
-}
-
-const getRequestMock = mfn => {
-    const mockFn = mfn ? mfn : jest.fn();
-
-    class MockAnalyticsRequest {
-        constructor() {
-            this.fromModel = () => ({
-                withParameters: mockFn,
-            });
-        }
-    }
-    return MockAnalyticsRequest;
-};
-
-jest.mock('d2-charts-api');
+jest.mock('data-visualizer-plugin', () => () => <div />);
 
 describe('Visualization', () => {
-    options.getOptionsForRequest = () => [
-        ['option1', { defaultValue: 'abc' }],
-        ['option2', { defaultValue: null }],
-    ];
-    let props;
-    let shallowVisualization;
-    const canvas = () => {
-        if (!shallowVisualization) {
-            shallowVisualization = shallow(<Visualization {...props} />);
-        }
-        return shallowVisualization;
-    };
-
-    beforeEach(() => {
-        props = {
-            current: {},
-            d2: {
-                analytics: {
-                    aggregate: {
-                        get: () => Promise.resolve('got resource'),
-                    },
-                    response: MockAnalyticsResponse,
-                },
-            },
-            acAddMetadata: jest.fn(),
+    describe('component', () => {
+        let props;
+        let shallowVisualization;
+        const vis = () => {
+            if (!shallowVisualization) {
+                shallowVisualization = shallow(<Visualization {...props} />);
+            }
+            return shallowVisualization;
         };
 
-        shallowVisualization = undefined;
-    });
+        beforeEach(() => {
+            props = {
+                chartConfig: null,
+                chartFilters: null,
+                error: null,
+                rightSidebarOpen: false,
+                acAddMetadata: jest.fn(),
+                acSetChart: jest.fn(),
+                acClearLoadError: jest.fn(),
+                acSetLoadError: jest.fn(),
+            };
 
-    it('renders a BlankCanvas', done => {
-        props.d2.analytics.request = getRequestMock();
-
-        const wrapper = canvas();
-
-        setTimeout(() => {
-            expect(wrapper.find(BlankCanvas).length).toBeGreaterThan(0);
-            done();
+            shallowVisualization = undefined;
         });
-    });
 
-    it('calls createChart', done => {
-        props.d2.analytics.request = getRequestMock();
+        it('renders a BlankCanvas when error', () => {
+            props.error = 'there was a catastrophic error';
 
-        canvas();
-
-        setTimeout(() => {
-            expect(chartsApi.createChart).toHaveBeenCalled();
-            done();
+            expect(vis().find(BlankCanvas).length).toEqual(1);
         });
-    });
 
-    it('calls addMetadata action', done => {
-        props.d2.analytics.request = getRequestMock();
+        it('renders a ChartPlugin when no error', () => {
+            expect(vis().find(ChartPlugin).length).toEqual(1);
+        });
 
-        canvas();
+        it('triggers addMetadata action when responses received from chart plugin', () => {
+            const items = ['a', 'b', 'c'];
 
-        setTimeout(() => {
+            vis().simulate('responsesReceived', [{ metaData: { items } }]);
+
             expect(props.acAddMetadata).toHaveBeenCalled();
-            expect(props.acAddMetadata).toHaveBeenCalledWith(metaDataMock);
-            done();
+            expect(props.acAddMetadata).toHaveBeenCalledWith(items);
+        });
+
+        it('triggers setChart action when chart has been generated', () => {
+            const svg = 'coolChart';
+
+            vis().simulate('chartGenerated', svg);
+
+            expect(props.acSetChart).toHaveBeenCalled();
+            expect(props.acSetChart).toHaveBeenCalledWith(svg);
+        });
+
+        it('triggers setLoadError when error received from chart plugin', () => {
+            const errorMsg = 'catastrophic error';
+
+            vis().simulate('error', { message: errorMsg });
+
+            expect(props.acSetLoadError).toHaveBeenCalled();
+            expect(props.acSetLoadError).toHaveBeenCalledWith(errorMsg);
+        });
+
+        it('triggers clearLoadError when chart config has valid layout', () => {
+            props.chartConfig = { name: 'rainbowDash' };
+            validator.validateLayout = () => 'valid';
+            vis();
+            expect(props.acClearLoadError).toHaveBeenCalled();
+        });
+
+        it('triggers setLoadError when chart config has invalid layout', () => {
+            props.chartConfig = { name: 'non-valid rainbowDash' };
+            validator.validateLayout = () => {
+                throw new Error('not valid');
+            };
+            vis();
+
+            expect(props.acSetLoadError).toHaveBeenCalled();
+        });
+
+        it('renders chart with new id when rightSidebarOpen prop changes', () => {
+            const wrapper = vis();
+
+            const initialId = wrapper.find(ChartPlugin).prop('id');
+            wrapper.setProps({ ...props, rightSidebarOpen: true });
+            const updatedId = wrapper.find(ChartPlugin).prop('id');
+
+            expect(initialId).not.toEqual(updatedId);
+        });
+
+        it('triggers clearLoadError when chart changed to a different, valid chart', () => {
+            validator.validateLayout = () => 'valid';
+            const wrapper = vis();
+
+            wrapper.setProps({
+                ...props,
+                chartConfig: { name: 'rainbowDash' },
+            });
+
+            expect(props.acClearLoadError).toHaveBeenCalledTimes(1);
         });
     });
 
-    it('includes only options that do not have default value in request', done => {
-        props.current = {
-            option1: 'def',
-            option2: null,
+    describe('reselectors', () => {
+        const state = {
+            current: 'current',
+            visualization: 'vis',
+            ui: {
+                interpretation: {},
+            },
         };
 
-        const mockFn = jest.fn();
-        props.d2.analytics.request = getRequestMock(mockFn);
+        describe('chartConfigSelector', () => {
+            it('equals the visualization if interpretation selected', () => {
+                const newState = Object.assign({}, state, {
+                    ui: { interpretation: { id: 'rainbow dash' } },
+                });
 
-        canvas();
+                const selector = chartConfigSelector(newState);
+                expect(selector).toEqual('vis');
+            });
 
-        setTimeout(() => {
-            expect(mockFn.mock.calls[0][0]).toEqual({ option1: 'def' });
+            it('equals the current if no interpretation selected', () => {
+                const selector = chartConfigSelector(state);
+                expect(selector).toEqual('current');
+            });
+        });
 
-            done();
+        describe('chartFiltersSelector', () => {
+            it('equals object with interpretation date if interpretation selected', () => {
+                const created = 'the near future';
+                const newState = Object.assign({}, state, {
+                    ui: {
+                        interpretation: {
+                            created,
+                        },
+                    },
+                });
+                const selector = chartFiltersSelector(newState);
+                expect(selector).toEqual({
+                    relativePeriodDate: created,
+                });
+            });
+
+            it('equals empty object if no interpretation selected', () => {
+                const selector = chartFiltersSelector(state);
+                expect(selector).toEqual({});
+            });
         });
     });
 });

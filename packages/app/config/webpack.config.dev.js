@@ -34,7 +34,6 @@ try {
     console.warn(`\nWARNING! Failed to load DHIS config:`, e.message);
     dhisConfig = {
         baseUrl: 'http://localhost:8080',
-        authorization: 'Basic YWRtaW46ZGlzdHJpY3Q=', // admin:district
     };
 }
 
@@ -246,8 +245,6 @@ module.exports = {
             vendorScripts: [
                 `./dhis-web-core-resource/fonts/roboto.css`,
                 `${scriptPrefix}/dhis-web-core-resource/babel-polyfill/6.20.0/dist/polyfill.js`,
-                `${scriptPrefix}/dhis-web-core-resource/react/16.2.0/umd/react.development.js`,
-                `${scriptPrefix}/dhis-web-core-resource/react-dom/16.2.0/umd/react-dom.development.js`,
             ]
                 .map(asset => {
                     return /\.js$/.test(asset)

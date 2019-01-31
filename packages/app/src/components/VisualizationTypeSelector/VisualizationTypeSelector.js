@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
@@ -8,10 +8,10 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import VisualizationTypeIcon from './VisualizationTypeIcon';
-import { visualizationTypeMap } from './visualizationTypes';
+import { chartTypeDisplayNames } from '../../modules/chartTypes';
 import { sGetUiType } from '../../reducers/ui';
 import { acSetUiType } from '../../actions/ui';
-import { colors } from '../../colors';
+import styles from './styles/VisualizationTypeSelector.style';
 
 export class VisualizationTypeSelector extends Component {
     state = {
@@ -36,35 +36,18 @@ export class VisualizationTypeSelector extends Component {
         const { visualizationType } = this.props;
 
         return (
-            <div className="visualization-type-selector">
+            <Fragment>
                 <Button
                     onClick={this.handleButtonClick}
                     disableRipple
                     disableFocusRipple
-                    style={{
-                        padding: 8,
-                        margin: '2px 3px',
-                        color: colors.black,
-                        fontSize: 14,
-                        textTransform: 'none',
-                        fontWeight: 'normal',
-                        borderRight: '1px lightgrey',
-                        width: 244,
-                        height: 40,
-                        justifyContent: 'left',
-                        '&:hover': {
-                            backgroundColor: colors.blueGrey,
-                            borderRadius: 4,
-                        },
-                        '&:active': {
-                            backgroundColor: colors.accentPrimaryLightest,
-                            borderRadius: 4,
-                        },
-                    }}
+                    fullWidth={true}
+                    size="small"
+                    style={styles.button}
                 >
                     <VisualizationTypeIcon type={visualizationType} />
-                    {visualizationTypeMap[visualizationType]}
-                    <ArrowDropDownIcon style={{ marginLeft: 'auto' }} />
+                    {chartTypeDisplayNames[visualizationType]}
+                    <ArrowDropDownIcon style={styles.dropDownArrow} />
                 </Button>
                 <Menu
                     open={Boolean(anchorEl)}
@@ -72,53 +55,39 @@ export class VisualizationTypeSelector extends Component {
                     anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
                     onClose={this.handleClose}
                     getContentAnchorEl={null}
-                    style={{ maxWidth: 640 }}
-                    MenuListProps={{ style: { overflow: 'auto', padding: 0 } }}
+                    MenuListProps={{
+                        style: styles.menu,
+                    }}
                 >
-                    {Object.keys(visualizationTypeMap).map(type => (
+                    {Object.keys(chartTypeDisplayNames).map(type => (
                         <MenuItem
                             key={type}
                             selected={type === visualizationType}
-                            style={{
-                                height: 104,
-                                width: 134,
-                                padding: 0,
-                                margin: 8,
-                                boxSizing: 'border-box',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                float: 'left',
-                            }}
+                            style={styles.menuItem}
                             onClick={this.handleMenuItemClick(type)}
+                            disableRipple
                         >
-                            <ListItemIcon>
+                            <ListItemIcon style={styles.listItemIcon}>
                                 <VisualizationTypeIcon
                                     type={type}
-                                    style={{
-                                        width: 48,
-                                        height: 48,
-                                        paddingTop: 16,
-                                    }}
+                                    style={styles.listItemSvg}
                                 />
                             </ListItemIcon>
                             <ListItemText
-                                primary={visualizationTypeMap[type]}
+                                primary={chartTypeDisplayNames[type]}
                                 disableTypography={true}
-                                style={{
-                                    fontSize: 14,
-                                    padding: '16px 0 8px 0',
-                                }}
+                                style={styles.listItemText}
                             />
                         </MenuItem>
                     ))}
                 </Menu>
-            </div>
+            </Fragment>
         );
     }
 }
 
 VisualizationTypeSelector.propTypes = {
-    visualizationType: PropTypes.oneOf(Object.keys(visualizationTypeMap)),
+    visualizationType: PropTypes.oneOf(Object.keys(chartTypeDisplayNames)),
 };
 
 const mapStateToProps = state => ({

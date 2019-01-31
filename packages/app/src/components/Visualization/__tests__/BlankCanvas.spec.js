@@ -14,6 +14,7 @@ describe('BlankCanvas', () => {
 
     beforeEach(() => {
         props = {
+            loading: false,
             error: null,
         };
         shallowBlankCanvas = undefined;
@@ -26,7 +27,7 @@ describe('BlankCanvas', () => {
     it('renders the default message', () => {
         expect(
             canvas()
-                .find('span')
+                .find('p')
                 .text()
         ).toEqual(defaultCanvasMessage);
     });
@@ -36,7 +37,8 @@ describe('BlankCanvas', () => {
         props.error = theError;
         expect(
             canvas()
-                .find('span')
+                .find('p')
+                .last()
                 .text()
         ).toEqual(theError);
     });

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import i18n from '@dhis2/d2-i18n';
-import * as fromReducers from '../../reducers';
+import { sGetRecommendedIds } from '../../reducers/recommendedIds';
 import { styles } from './styles/RecommendedIcon.style';
 
 export class RecommendedIcon extends Component {
@@ -18,50 +18,45 @@ export class RecommendedIcon extends Component {
         this.setState({ anchorEl: null });
     };
 
-    checkIfRecommended = () => {
-        const { isRecommended, isSelected, id } = this.props;
-        return isRecommended.includes(id) && !isSelected;
-    };
+    showTooltip = () => (
+        <Popper
+            anchorEl={this.state.anchorEl}
+            open={Boolean(this.state.anchorEl)}
+            placement="bottom"
+        >
+            <Paper style={styles.toolTip}>
+                {i18n.t('Dimension recommended with selected data')}
+            </Paper>
+        </Popper>
+    );
 
-    showTooltip = () => {
-        const HINT_TEXT = i18n.t('Dimension recommended with selected data');
-
-        return (
-            <Popper
-                anchorEl={this.state.anchorEl}
-                open={Boolean(this.state.anchorEl)}
-                placement="bottom"
-            >
-                <Paper style={styles.toolTip}>{HINT_TEXT}</Paper>
-            </Popper>
-        );
-    };
-
-    render = () => {
+    render() {
         const TooltipOnHover = Boolean(this.state.anchorEl)
             ? this.showTooltip()
             : null;
 
-        return this.checkIfRecommended() ? (
-            <div
-                style={styles.recommendedIcon}
-                onMouseOver={this.onMouseOver}
-                onMouseLeave={this.onMouseExit}
-            >
-                {TooltipOnHover}
+        return this.props.isRecommended ? (
+            <div style={styles.recommendedWrapper}>
+                <div
+                    style={styles.recommendedIcon}
+                    onMouseOver={this.onMouseOver}
+                    onMouseLeave={this.onMouseExit}
+                >
+                    {TooltipOnHover}
+                </div>
             </div>
         ) : null;
-    };
+    }
 }
 
-const mapStateToProps = state => ({
-    isRecommended: fromReducers.fromRecommendedIds.sGetRecommendedIds(state),
+const mapStateToProps = (state, ownProps) => ({
+    isRecommended: sGetRecommendedIds(state).includes(ownProps.id),
 });
 
 RecommendedIcon.propTypes = {
     id: PropTypes.string.isRequired,
     isSelected: PropTypes.bool.isRequired,
-    isRecommended: PropTypes.array.isRequired,
+    isRecommended: PropTypes.bool.isRequired,
 };
 
 export default connect(mapStateToProps)(RecommendedIcon);

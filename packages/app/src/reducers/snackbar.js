@@ -1,21 +1,22 @@
-export const actionTypes = {
-    RECEIVED_SNACKBAR_MESSAGE: 'RECEIVED_SNACKBAR_MESSAGE',
-    CLOSE_SNACKBAR: 'CLOSE_SNACKBAR',
-};
+import { VARIANT_INFORMATION } from '../components/Snackbar/Snackbar';
 
-export const DEFAULT_STATE = {
-    message: {},
+export const RECEIVED_SNACKBAR_MESSAGE = 'RECEIVED_SNACKBAR_MESSAGE';
+export const CLOSE_SNACKBAR = 'CLOSE_SNACKBAR';
+
+export const DEFAULT_SNACKBAR = {
+    message: null,
     duration: null,
     open: false,
+    variant: VARIANT_INFORMATION,
 };
 
-export default (state = DEFAULT_STATE, action) => {
+export default (state = DEFAULT_SNACKBAR, action) => {
     switch (action.type) {
-        case actionTypes.RECEIVED_SNACKBAR_MESSAGE: {
+        case RECEIVED_SNACKBAR_MESSAGE: {
             return { ...state, ...action.value };
         }
-        case actionTypes.CLOSE_SNACKBAR: {
-            return DEFAULT_STATE;
+        case CLOSE_SNACKBAR: {
+            return DEFAULT_SNACKBAR;
         }
         default:
             return state;
@@ -24,4 +25,4 @@ export default (state = DEFAULT_STATE, action) => {
 
 // Selectors
 
-export const sGetSnackbar = state => state.snackbar || DEFAULT_STATE;
+export const sGetSnackbar = state => state.snackbar;

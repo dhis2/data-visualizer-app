@@ -1,61 +1,64 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { DimensionItem } from './DimensionItem';
-import * as fromReducers from '../../reducers';
+import DimensionItem from './DimensionItem';
+
+import { sGetDimensions } from '../../reducers/dimensions';
+import { sGetDimensionIdsFromLayout } from '../../reducers/ui';
+
 import { styles } from './styles/DimensionList.style';
 
 export class DimensionList extends Component {
-    searchTextContains = dimensionName => {
-        const { searchText } = this.props;
-
-        return dimensionName.toLowerCase().includes(searchText.toLowerCase());
+    filterTextContains = dimensionName => {
+        return dimensionName
+            .toLowerCase()
+            .includes(this.props.filterText.toLowerCase());
     };
 
     filterMatchingDimensions = dimension => {
-        return this.searchTextContains(dimension.displayName)
+        return this.filterTextContains(dimension.name)
             ? this.renderItem(dimension)
             : null;
     };
 
-    renderItem = dimension => {
-        return (
-            <DimensionItem
-                id={dimension.id}
-                key={dimension.id}
-                displayName={dimension.displayName}
-                isSelected={!!this.props.selected.includes(dimension.id)}
-                toggleDialog={this.props.toggleDialog}
-            />
-        );
-    };
+    renderItem = dimension => (
+        <DimensionItem
+            id={dimension.id}
+            key={dimension.id}
+            name={dimension.name}
+            isSelected={!!this.props.selectedIds.includes(dimension.id)}
+        />
+    );
 
-    render = () => {
-        const { searchText, dimensions } = this.props;
-        const dimensionsList = Object.values(dimensions).map(
+    render() {
+        const dimensionsList = Object.values(this.props.dimensions).map(
             listItem =>
-                searchText.length
+                this.props.filterText.length
                     ? this.filterMatchingDimensions(listItem)
                     : this.renderItem(listItem)
         );
-        return <ul style={styles.listContainer}>{dimensionsList}</ul>;
-    };
+
+        return (
+            <div style={styles.listWrapper}>
+                <ul style={styles.list}>{dimensionsList}</ul>
+            </div>
+        );
+    }
 }
 
 DimensionList.propTypes = {
     dimensions: PropTypes.object.isRequired,
-    selected: PropTypes.array,
-    searchText: PropTypes.string.isRequired,
-    toggleDialog: PropTypes.func.isRequired,
+    selectedIds: PropTypes.array,
+    filterText: PropTypes.string.isRequired,
 };
 
 DimensionList.defaultProps = {
-    selected: [],
+    selectedIds: [],
 };
 
 const mapStateToProps = state => ({
-    dimensions: fromReducers.fromDimensions.sGetDimensions(state),
-    selected: fromReducers.fromUi.sGetDimensionIdsFromLayout(state),
+    dimensions: sGetDimensions(state),
+    selectedIds: sGetDimensionIdsFromLayout(state),
 });
 
 export default connect(mapStateToProps)(DimensionList);

@@ -1,32 +1,8 @@
 import React from 'react';
 
-import Axis from './Axis';
-import * as defaultLayoutStyle from './styles/defaultStyle';
-
-const styles = {
-    ct: {
-        display: 'flex',
-    },
-    axisGroup: {
-        display: 'flex',
-        flexDirection: 'column',
-    },
-    axisGroupLeft: {
-        flexBasis: defaultLayoutStyle.DIMENSION_AXIS_WIDTH,
-    },
-    axisGroupRight: {
-        flexBasis: defaultLayoutStyle.FILTER_AXIS_WIDTH,
-    },
-    columns: {
-        flexBasis: '50%',
-    },
-    rows: {
-        flexBasis: '50%',
-    },
-    filters: {
-        flexBasis: '100%',
-    },
-};
+import DefaultAxis from './DefaultAxis';
+import styles from './styles/DefaultLayout.style';
+import defaultAxisStyles from './styles/DefaultAxis.style';
 
 const Layout = () => (
     <div id="layout-ct" style={styles.ct}>
@@ -34,14 +10,26 @@ const Layout = () => (
             id="axis-group-1"
             style={{ ...styles.axisGroup, ...styles.axisGroupLeft }}
         >
-            <Axis axisName="columns" style={styles.columns} />
-            <Axis axisName="rows" style={styles.rows} />
+            <DefaultAxis
+                axisName="columns"
+                style={{
+                    ...styles.columns,
+                    ...defaultAxisStyles.axisContainerLeft,
+                }}
+            />
+            <DefaultAxis
+                axisName="rows"
+                style={{
+                    ...styles.rows,
+                    ...defaultAxisStyles.axisContainerLeft,
+                }}
+            />
         </div>
         <div
             id="axis-group-2"
             style={{ ...styles.axisGroup, ...styles.axisGroupRight }}
         >
-            <Axis axisName="filters" style={styles.filters} />
+            <DefaultAxis axisName="filters" style={styles.filters} />
         </div>
     </div>
 );

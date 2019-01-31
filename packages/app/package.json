@@ -1,28 +1,35 @@
 {
     "name": "data-visualizer-app",
-    "version": "30.0.1",
+    "version": "32.0.2",
     "description": "DHIS2 Data Visualizer app",
     "license": "BSD-3-Clause",
+    "homepage": ".",
     "devDependencies": {
         "@dhis2/d2-i18n-extract": "^1.0.6",
         "@dhis2/d2-i18n-generate": "^1.0.18",
         "babel-preset-env": "^1.6.1",
         "babel-preset-stage-0": "^6.24.1",
         "create-react-class": "^15.6.3",
+        "cypress": "^3.1.1",
         "enzyme": "^3.5.0",
         "enzyme-adapter-react-16": "^1.3.0",
         "eslint-config-prettier": "^3.0.1",
+        "eslint-plugin-cypress": "^2.1.2",
         "eslint-plugin-prettier": "^2.6.0",
-        "husky": "^0.15.0-rc.12",
+        "husky": "^1.1.2",
         "jest-enzyme": "^6.0.0",
         "prettier": "^1.11.1",
         "react-stub-context": "^0.8.1",
-        "redux-mock-store": "^1.5.3"
+        "redux-mock-store": "^1.5.3",
+        "webpack-bundle-analyzer": "^3.0.3"
     },
     "dependencies": {
         "@dhis2/d2-i18n": "^1.0.3",
-        "@dhis2/d2-ui-core": "^1.0.3",
-        "@dhis2/d2-ui-file-menu": "3.2.1",
+        "@dhis2/d2-ui-core": "5.0.17",
+        "@dhis2/d2-ui-file-menu": "5.0.17",
+        "@dhis2/d2-ui-interpretations": "5.0.17",
+        "@dhis2/d2-ui-org-unit-dialog": "5.0.17",
+        "@dhis2/d2-ui-period-selector-dialog": "5.0.17",
         "@material-ui/core": "^3.1.2",
         "@material-ui/icons": "^3.0.1",
         "autoprefixer": "9.1.3",
@@ -36,9 +43,10 @@
         "case-sensitive-paths-webpack-plugin": "2.1.2",
         "chalk": "2.4.1",
         "css-loader": "0.28.7",
-        "d2": "31.0.1",
-        "d2-charts-api": "^29.0.1",
+        "d2": "31.2.1",
+        "d2-charts-api": "31.0.12",
         "d2-manifest": "^1.0.0",
+        "data-visualizer-plugin": "github:d2-ci/data-visualizer-plugin",
         "dotenv": "6.0.0",
         "dotenv-expand": "4.2.0",
         "eslint": "5.4.0",
@@ -55,36 +63,38 @@
         "html-webpack-plugin": "3.2.0",
         "jest": "23.5.0",
         "lodash-es": "^4.17.11",
-        "material-ui": "^0.20.2",
         "object-assign": "4.1.1",
         "postcss-flexbugs-fixes": "4.1.0",
         "postcss-loader": "3.0.0",
         "promise": "8.0.1",
         "prop-types": "^15.6.1",
         "raf": "3.4.0",
-        "react": "^16.2.0",
+        "react": "^16.6.0",
         "react-dev-utils": "^5.0.2",
-        "react-dom": "^16.2.0",
-        "react-redux": "^5.0.7",
-        "react-tap-event-plugin": "^3.0.2",
+        "react-dom": "^16.6.0",
+        "react-redux": "^5.1.0",
+        "react-sortable-hoc": "^0.8.3",
         "redux": "^4.0.0",
         "redux-actions": "^2.2.1",
         "redux-logger": "^3.0.6",
         "redux-thunk": "^2.2.0",
+        "reselect": "^4.0.0",
         "style-loader": "0.22.1",
         "sw-precache-webpack-plugin": "0.11.5",
+        "ui": "github:d2-ci/ui#a14c74a62a5baefe84786282b145ba20e19bc907",
         "url-loader": "0.6.2",
+        "url-polyfill": "^1.1.2",
         "webpack": "^3.10.0",
         "webpack-dev-server": "^2.9.4",
         "webpack-manifest-plugin": "2.0.3",
-        "whatwg-fetch": "2.0.4"
+        "whatwg-fetch": "^3.0.0"
     },
     "scripts": {
         "prestart": "npm run localize && d2-manifest package.json ./public/manifest.webapp",
         "start": "node scripts/start.js",
         "prebuild": "npm run lint && npm run prettier-ci && npm run coverage && rimraf build && mkdirp build && npm run manifest",
         "build": "npm run localize && node scripts/build.js",
-        "postbuild": "cp -r public/i18n build && cp package.json build",
+        "postbuild": "cp -r public/i18n build && cp -r public/i18n_old build && cp public/icon.png build && cp package.json build && npm run manifest",
         "lint": "eslint --config=../../.eslintrc.json src",
         "prettier-ci": "prettier \"./src/{**/*,*}.js\" --list-different",
         "prettier-write": "prettier \"./src/{**/*,*}.js\" --write",
@@ -92,6 +102,8 @@
         "extract-pot": "d2-i18n-extract -p src/ -o i18n/",
         "manifest": "d2-manifest package.json build/manifest.webapp",
         "test": "node scripts/test.js --config=../../jest.config.js",
+        "cy:e2e:open": "cypress open",
+        "cy:e2e:run": "cypress run",
         "coverage": "npm run test -- --coverage"
     },
     "husky": {
@@ -100,7 +112,7 @@
         }
     },
     "manifest.webapp": {
-        "name": "Data Visualizer app",
+        "name": "Data Visualizer",
         "icons": {
             "48": "icon.png"
         },
@@ -109,7 +121,7 @@
             "name": "DHIS2"
         },
         "dhis2": {
-            "apiVersion": "30"
+            "apiVersion": "31"
         },
         "activities": {
             "dhis": {

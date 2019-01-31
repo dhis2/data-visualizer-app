@@ -10,19 +10,23 @@ module.exports = {
     setupTestFrameworkScriptFile: '<rootDir>/config/testSetup.js',
     testPathIgnorePatterns: [
         '/node_modules/',
+        '<rootDir>/packages/app/cypress/',
         '<rootDir>/packages/*/build/',
-        '<rootDir>/packages/app/scripts/',
+        '<rootDir>/packages/*/scripts/',
     ],
-    verbose: true,
+    verbose: false,
     transform: {
         '^.+\\.(js|jsx|mjs)$': '<rootDir>/node_modules/babel-jest',
         '^.+\\.css$': '<rootDir>/config/jest/cssTransform.js',
         '^(?!.*\\.(js|jsx|mjs|css|json)$)':
             '<rootDir>/config/jest/fileTransform.js',
     },
+    transformIgnorePatterns: [
+        'node_modules/(?!(lodash-es|@dhis2/d2-ui-[a-z-]+)/)',
+    ],
     moduleFileExtensions: ['js', 'jsx'],
     moduleDirectories: ['node_modules'],
     moduleNameMapper: {
-        'lodash-es': '<rootDir>/config/lodash-mock.js',
+        '\\.css$': '<rootDir>/__mocks__/styleMock.js',
     },
 };

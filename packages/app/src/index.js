@@ -4,38 +4,49 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { MuiThemeProvider } from '@material-ui/core/styles';
-import history from './history';
+import 'url-polyfill';
+import history from './modules/history';
 
-import { init as d2Init, config, getUserSettings } from 'd2/lib/d2';
+import { init as d2Init, config, getUserSettings } from 'd2';
 
 import i18n from './locales';
 import configureStore from './configureStore';
 import metadataMiddleware from './middleware/metadata';
 
 import App from './components/App';
-import { muiTheme } from './theme';
+import muiTheme from './modules/theme';
+import { extractUserSettings } from './modules/settings';
 
 const apiObjectName = 'chart';
 
 const configI18n = async userSettings => {
-    const uiLocale = userSettings.keyUiLocale;
+    const uiLocale = userSettings.uiLocale;
 
     if (uiLocale && uiLocale !== 'en') {
-        config.i18n.sources.add(`./i18n/i18n_module_${uiLocale}.properties`);
+        config.i18n.sources.add(
+            `./i18n_old/i18n_module_${uiLocale}.properties`
+        );
     }
 
-    config.i18n.sources.add('./i18n/i18n_module_en.properties');
+    config.i18n.sources.add('./i18n_old/i18n_module_en.properties');
     i18n.changeLanguage(uiLocale);
 };
 
-const render = (location, baseUrl, d2) => {
+const render = (location, baseUrl, d2, userSettings) => {
+    const store = configureStore(metadataMiddleware);
+
+    if (window.Cypress) {
+        window.store = store;
+    }
+
     ReactDOM.render(
-        <Provider store={configureStore(metadataMiddleware)}>
-            <MuiThemeProvider theme={muiTheme()}>
+        <Provider store={store}>
+            <MuiThemeProvider theme={muiTheme}>
                 <App
                     location={location}
                     baseUrl={baseUrl}
                     d2={d2}
+                    userSettings={userSettings}
                     apiObjectName={apiObjectName}
                 />
             </MuiThemeProvider>
@@ -58,19 +69,17 @@ const init = async () => {
         ? manifest.activities.dhis.href
         : DHIS_CONFIG.baseUrl;
     config.baseUrl = `${baseUrl}/api/${manifest.dhis2.apiVersion}`;
-    config.headers = isProd
-        ? null
-        : { Authorization: DHIS_CONFIG.authorization };
-    config.schemas = ['chart'];
+    config.schemas = ['chart', 'organisationUnit'];
 
-    const userSettings = await getUserSettings();
+    const userSettings = extractUserSettings(await getUserSettings());
+
     await configI18n(userSettings);
 
     const d2 = await d2Init({
         baseUrl: config.baseUrl,
     });
 
-    render(history.location, baseUrl, d2);
+    render(history.location, baseUrl, d2, userSettings);
 };
 
 init();
