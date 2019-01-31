@@ -11005,7 +11005,7 @@ react-select@^2.0.0:
     react-input-autosize "^2.2.1"
     react-transition-group "^2.2.1"
 
-react-sortable-hoc@^0.8.3, react-sortable-hoc@^0.8.4:
+react-sortable-hoc@^0.8.4:
   version "0.8.4"
   resolved "https://registry.yarnpkg.com/react-sortable-hoc/-/react-sortable-hoc-0.8.4.tgz#11aa1f3e07ded79764a8bae9d107990ab9b3954b"
   integrity sha512-J9AFEQAJ7u2YWdVzkU5E3ewrG82xQ4xF1ZPrZYKliDwlVBDkmjri+iKFAEt6NCDIRiBZ4hiN5vzI8pwy/dGPHw==
