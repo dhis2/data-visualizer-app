@@ -13,7 +13,7 @@ const Icon = ({ selected, highlighted }) => {
 };
 
 const onClickWrapper = (id, index, onItemClick) => event =>
-    onItemClick(event.metaKey, event.shiftKey, index, id);
+    onItemClick(event.metaKey || event.ctrlKey, event.shiftKey, index, id);
 
 export const Item = ({
     selected,
