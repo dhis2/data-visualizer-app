@@ -86,11 +86,55 @@ describe('The Item component ', () => {
         expect(removeButton.length).toEqual(1);
     });
 
-    it('fires prop onItemClick when pressed', () => {
-        item()
-            .props()
-            .onClick({ preventDefault: () => undefined });
+    describe('onClick', () => {
+        it('fires onItemClick property', () => {
+            item()
+                .props()
+                .onClick({ preventDefault: () => undefined });
 
-        expect(props.onItemClick).toBeCalledTimes(1);
+            expect(props.onItemClick).toBeCalledTimes(1);
+        });
+
+        it('fires onItemClick with correct arguments when metaKey pressed', () => {
+            item()
+                .props()
+                .onClick({
+                    preventDefault: () => undefined,
+                    metaKey: true,
+                    ctrlKey: false,
+                    shiftKey: false,
+                });
+
+            expect(props.onItemClick).toBeCalledTimes(1);
+            expect(props.onItemClick).toBeCalledWith(true, false, 0, 'testID');
+        });
+
+        it('fires onItemClick with correct arguments when ctrlKey pressed', () => {
+            item()
+                .props()
+                .onClick({
+                    preventDefault: () => undefined,
+                    metaKey: false,
+                    ctrlKey: true,
+                    shiftKey: false,
+                });
+
+            expect(props.onItemClick).toBeCalledTimes(1);
+            expect(props.onItemClick).toBeCalledWith(true, false, 0, 'testID');
+        });
+
+        it('fires onItemClick with correct arguments when shiftKey pressed', () => {
+            item()
+                .props()
+                .onClick({
+                    preventDefault: () => undefined,
+                    metaKey: false,
+                    ctrlKey: false,
+                    shiftKey: true,
+                });
+
+            expect(props.onItemClick).toBeCalledTimes(1);
+            expect(props.onItemClick).toBeCalledWith(false, true, 0, 'testID');
+        });
     });
 });

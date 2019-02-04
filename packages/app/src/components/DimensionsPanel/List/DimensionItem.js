@@ -5,12 +5,12 @@ import i18n from '@dhis2/d2-i18n';
 import DimensionLabel from './DimensionLabel';
 import DimensionOptions from './DimensionOptions';
 import RecommendedIcon from './RecommendedIcon';
-import DynamicDimensionIcon from '../../assets/DynamicDimensionIcon';
-import { sGetUiType } from '../../reducers/ui';
-import { setDataTransfer } from '../../modules/dnd';
-import { SOURCE_DIMENSIONS } from '../../modules/layout';
-import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
-import { isYearOverYear } from '../../modules/chartTypes';
+import DynamicDimensionIcon from '../../../assets/DynamicDimensionIcon';
+import { sGetUiType } from '../../../reducers/ui';
+import { setDataTransfer } from '../../../modules/dnd';
+import { SOURCE_DIMENSIONS } from '../../../modules/layout';
+import { FIXED_DIMENSIONS } from '../../../modules/fixedDimensions';
+import { isYearOverYear } from '../../../modules/chartTypes';
 import { styles } from './styles/DimensionItem.style';
 
 const peId = FIXED_DIMENSIONS.pe.id;

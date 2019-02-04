@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import MenuItem from '@material-ui/core/MenuItem';
 import { DimensionOptions } from '../DimensionOptions';
-import OptionsButton from '../../DimensionOptions/OptionsButton';
+import OptionsButton from '../OptionsButton';
 import DropDown from '../DropDown';
 
 describe('The DimensionOptions component ', () => {

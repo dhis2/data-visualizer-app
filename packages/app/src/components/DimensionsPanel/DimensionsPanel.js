@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import i18n from '@dhis2/d2-i18n';
 import DialogManager from './Dialogs/DialogManager';
-import Filter from '../Filter/Filter';
-import DimensionList from './DimensionList';
-import { styles } from './styles/Dimensions.style';
+import Filter from './Filter/Filter';
+import DimensionList from './List/DimensionList';
+import { styles } from './styles/DimensionsPanel.style';
 
 export class Dimensions extends Component {
     state = { filterText: '' };
