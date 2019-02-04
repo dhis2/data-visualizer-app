@@ -23,7 +23,7 @@ export const styles = {
     list: {
         userSelect: 'none',
         listStyle: 'none',
-        overflowY: 'auto',
+        overflowY: 'scroll',
         height: '455px',
         paddingLeft: '0px',
         margin: '0px',
