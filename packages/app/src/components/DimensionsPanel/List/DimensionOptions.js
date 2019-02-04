@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
 import MenuItem from '@material-ui/core/MenuItem';
-import OptionsButton from '../DimensionOptions/OptionsButton';
+import OptionsButton from './OptionsButton';
 import DropDown from './DropDown';
 import {
     acAddUiLayoutDimensions,
     acRemoveUiLayoutDimensions,
     acSetUiActiveModalDialog,
-} from '../../actions/ui';
-import { sGetUiLayout, sGetUiItemsByDimension } from '../../reducers/ui';
-import { menuLabels, ADD_TO_LAYOUT_OPTIONS } from '../../modules/layout';
-import { isYearOverYear } from '../../modules/chartTypes';
+} from '../../../actions/ui';
+import { sGetUiLayout, sGetUiItemsByDimension } from '../../../reducers/ui';
+import { menuLabels, ADD_TO_LAYOUT_OPTIONS } from '../../../modules/layout';
+import { isYearOverYear } from '../../../modules/chartTypes';
 import { styles } from './styles/DimensionOptions.style';
 
 const FILTER = 2;

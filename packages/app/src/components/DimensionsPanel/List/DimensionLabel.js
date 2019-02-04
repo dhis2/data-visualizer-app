@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { acSetUiActiveModalDialog } from '../../actions/ui';
+import { acSetUiActiveModalDialog } from '../../../actions/ui';
 import { styles } from './styles/DimensionLabel.style';
 
 export class DimensionLabel extends Component {

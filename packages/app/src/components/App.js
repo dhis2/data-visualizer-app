@@ -10,7 +10,7 @@ import Snackbar from '../components/Snackbar/Snackbar';
 import MenuBar from './MenuBar/MenuBar';
 import TitleBar from './TitleBar/TitleBar';
 import VisualizationTypeSelector from './VisualizationTypeSelector/VisualizationTypeSelector';
-import Dimensions from './Dimensions/Dimensions';
+import DimensionsPanel from './DimensionsPanel/DimensionsPanel';
 import Interpretations from './Interpretations/Interpretations';
 import Visualization from './Visualization/Visualization';
 import BlankCanvas from './Visualization/BlankCanvas';
@@ -157,7 +157,7 @@ export class App extends Component {
                         </div>
                         <div className="section-main flex-1 flex-ct">
                             <div className="main-left">
-                                <Dimensions />
+                                <DimensionsPanel />
                             </div>
                             <div className="main-center flex-1 flex-ct flex-dir-col">
                                 <div className="main-center-layout">
