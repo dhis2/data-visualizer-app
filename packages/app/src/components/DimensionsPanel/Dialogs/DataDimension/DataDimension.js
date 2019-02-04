@@ -8,11 +8,10 @@ import debounce from 'lodash-es/debounce';
 import keyBy from 'lodash-es/keyBy';
 import isEqual from 'lodash-es/isEqual';
 
+import ItemSelector from '../ItemSelector/ItemSelector';
 import DataTypes from './DataTypesSelector';
 import Groups from './Groups';
 import FilterField from '../FilterField';
-import UnselectedItems from '../UnselectedItems';
-import SelectedItems from '../SelectedItems';
 
 import {
     apiFetchGroups,
@@ -219,43 +218,55 @@ export class DataDimension extends Component {
     render = () => {
         const groups = this.state.groups[this.state.dataType] || [];
 
+        const filterZone = () => {
+            return (
+                <div>
+                    <DataTypes
+                        currentDataType={this.state.dataType}
+                        onDataTypeChange={this.onDataTypeChange}
+                    />
+                    <Groups
+                        dataType={this.state.dataType}
+                        groups={groups}
+                        groupId={this.state.groupId}
+                        onGroupChange={this.onGroupChange}
+                        onDetailChange={this.onDetailChange}
+                        detailValue={this.state.groupDetail}
+                    />
+                    <FilterField
+                        text={this.state.filterText}
+                        onFilterTextChange={this.onFilterTextChange}
+                        onClearFilter={this.onClearFilter}
+                    />
+                </div>
+            );
+        };
+
+        const unselected = {
+            items: this.state.items,
+            onSelect: this.selectDataDimensions,
+            filterText: this.state.filterText,
+            requestMoreItems: this.requestMoreItems,
+        };
+
+        const selected = {
+            items: this.props.selectedItems,
+            dialogId: dxId,
+            onDeselect: this.deselectDataDimensions,
+            onReorder: this.setUiItems,
+        };
+
         return (
             <Fragment>
                 <DialogTitle>{i18n.t('Data')}</DialogTitle>
                 <DialogContent style={styles.dialogContent}>
-                    <div style={styles.dialogContainer}>
-                        <DataTypes
-                            currentDataType={this.state.dataType}
-                            onDataTypeChange={this.onDataTypeChange}
-                        />
-                        <Groups
-                            dataType={this.state.dataType}
-                            groups={groups}
-                            groupId={this.state.groupId}
-                            onGroupChange={this.onGroupChange}
-                            onDetailChange={this.onDetailChange}
-                            detailValue={this.state.groupDetail}
-                        />
-                        <FilterField
-                            text={this.state.filterText}
-                            onFilterTextChange={this.onFilterTextChange}
-                            onClearFilter={this.onClearFilter}
-                        />
-                        <UnselectedItems
-                            className="data-dimension"
-                            items={this.state.items}
-                            onSelect={this.selectDataDimensions}
-                            filterText={this.state.filterText}
-                            requestMoreItems={this.requestMoreItems}
-                        />
-                    </div>
-                    <SelectedItems
-                        className="data-dimension"
-                        items={this.props.selectedItems}
-                        dialogId={dxId}
-                        onDeselect={this.deselectDataDimensions}
-                        onReorder={this.setUiItems}
-                    />
+                    <ItemSelector
+                        itemClassName="data-dimension"
+                        unselected={unselected}
+                        selected={selected}
+                    >
+                        {filterZone()}
+                    </ItemSelector>
                 </DialogContent>
             </Fragment>
         );

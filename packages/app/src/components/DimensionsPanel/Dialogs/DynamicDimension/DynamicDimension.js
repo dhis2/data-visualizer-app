@@ -7,8 +7,6 @@ import i18n from '@dhis2/d2-i18n';
 import keyBy from 'lodash-es/keyBy';
 
 import FilterField from '../FilterField';
-import UnselectedItems from '../UnselectedItems';
-import SelectedItems from '../SelectedItems';
 
 import { apiFetchItemsByDimension } from '../../../../api/dimensions';
 
@@ -22,6 +20,7 @@ import { acAddMetadata } from '../../../../actions/metadata';
 
 import { styles } from './styles/DynamicDimension.style';
 import '../styles/Dialog.css';
+import ItemSelector from '../ItemSelector/ItemSelector';
 
 const emptyItems = [];
 
@@ -99,32 +98,44 @@ export class DynamicDimension extends Component {
             items,
         });
 
-    render = () => (
-        <Fragment>
-            <DialogTitle>{i18n.t(this.props.dialogTitle)}</DialogTitle>
-            <DialogContent style={styles.dialogContent}>
-                <div style={styles.dialogContainer}>
-                    <FilterField
-                        text={this.state.filterText}
-                        onFilterTextChange={this.onFilterTextChange}
-                        onClearFilter={this.onClearFilter}
-                    />
-                    <UnselectedItems
-                        className="dynamic-dimension"
-                        items={this.getUnselectedItems()}
-                        onSelect={this.selectItemsByDimensions}
-                        filterText={this.state.filterText}
-                    />
-                </div>
-                <SelectedItems
-                    className="dynamic-dimension"
-                    items={this.props.selectedItems}
-                    onDeselect={this.deselectItemsByDimensions}
-                    onReorder={this.setUiItems}
+    render = () => {
+        const filterZone = () => {
+            return (
+                <FilterField
+                    text={this.state.filterText}
+                    onFilterTextChange={this.onFilterTextChange}
+                    onClearFilter={this.onClearFilter}
                 />
-            </DialogContent>
-        </Fragment>
-    );
+            );
+        };
+
+        const unselected = {
+            items: this.getUnselectedItems(),
+            onSelect: this.selectItemsByDimensions,
+            filterText: this.state.filterText,
+        };
+
+        const selected = {
+            items: this.props.selectedItems,
+            onDeselect: this.deselectItemsByDimensions,
+            onReorder: this.setUiItems,
+        };
+
+        return (
+            <Fragment>
+                <DialogTitle>{i18n.t(this.props.dialogTitle)}</DialogTitle>
+                <DialogContent style={styles.dialogContent}>
+                    <ItemSelector
+                        itemClassName="dynamic-dimension"
+                        unselected={unselected}
+                        selected={selected}
+                    >
+                        {filterZone()}
+                    </ItemSelector>
+                </DialogContent>
+            </Fragment>
+        );
+    };
 }
 
 DynamicDimension.propTypes = {

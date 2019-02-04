@@ -9,8 +9,8 @@ import Item from './Item';
 import { ArrowButton as UnAssignButton } from './buttons/ArrowButton';
 import { SelectButton as DeselectAllButton } from './buttons/SelectButton';
 
-import { sGetMetadata } from '../../../reducers/metadata';
-import { toggler } from '../../../modules/toggler';
+import { sGetMetadata } from '../../../../reducers/metadata';
+import { toggler } from '../../../../modules/toggler';
 
 import { styles } from './styles/SelectedItems.style';
 
