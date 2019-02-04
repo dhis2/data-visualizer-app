@@ -5,6 +5,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
 import i18n from '@dhis2/d2-i18n';
 import keyBy from 'lodash-es/keyBy';
+import { ItemSelector } from 'analytics-shared-components';
 
 import FilterField from '../FilterField';
 
@@ -21,7 +22,6 @@ import { acAddMetadata } from '../../../../actions/metadata';
 
 import { styles } from './styles/DynamicDimension.style';
 import '../styles/Dialog.css';
-import ItemSelector from '../ItemSelector/ItemSelector';
 
 const emptyItems = [];
 

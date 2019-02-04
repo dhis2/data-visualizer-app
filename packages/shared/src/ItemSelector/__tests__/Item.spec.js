@@ -2,8 +2,8 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Item from '../Item';
 import RemoveDimensionButton from '../buttons/RemoveDimensionButton';
-import ItemIcon from '../../../../assets/ItemIcon';
-import { colors } from '../../../../modules/colors';
+import ItemIcon from '../ItemIcon';
+import { colors } from '../../colors';
 
 describe('The Item component ', () => {
     let props;

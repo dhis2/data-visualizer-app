@@ -8,7 +8,7 @@ import debounce from 'lodash-es/debounce';
 import keyBy from 'lodash-es/keyBy';
 import isEqual from 'lodash-es/isEqual';
 
-import ItemSelector from '../ItemSelector/ItemSelector';
+import { ItemSelector } from 'analytics-shared-components';
 import DataTypes from './DataTypesSelector';
 import Groups from './Groups';
 import FilterField from '../FilterField';
