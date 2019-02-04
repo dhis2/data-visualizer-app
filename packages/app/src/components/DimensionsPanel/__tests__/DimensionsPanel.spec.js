@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Dimensions } from '../Dimensions';
-import DimensionList from '../DimensionList';
+import { Dimensions } from '../DimensionsPanel';
+import DimensionList from '../List/DimensionList';
 
 describe('The Dimensions component ', () => {
     let shallowDimensions;

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import i18n from '@dhis2/d2-i18n';
-import { sGetRecommendedIds } from '../../reducers/recommendedIds';
+import { sGetRecommendedIds } from '../../../reducers/recommendedIds';
 import { styles } from './styles/RecommendedIcon.style';
 
 export class RecommendedIcon extends Component {
