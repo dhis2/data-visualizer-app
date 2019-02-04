@@ -18,19 +18,10 @@ class ItemSelector extends Component {
                     {filterZone}
                     <UnselectedItems
                         className={itemClassName}
-                        items={unselected.items}
-                        onSelect={unselected.onSelect}
-                        filterText={unselected.filterText}
-                        requestMoreItems={unselected.requestMoreItems}
+                        {...unselected}
                     />
                 </div>
-                <SelectedItems
-                    className={itemClassName}
-                    items={selected.items}
-                    dialogId={selected.dialogId}
-                    onDeselect={selected.onDeselect}
-                    onReorder={selected.onReorder}
-                />
+                <SelectedItems className={itemClassName} {...selected} />
             </Fragment>
         );
     }
@@ -50,7 +41,12 @@ ItemSelector.propTypes = {
         requestMoreItems: PropTypes.func,
     }),
     selected: PropTypes.shape({
-        items: PropTypes.array.isRequired,
+        items: PropTypes.arrayOf(
+            PropTypes.shape({
+                id: PropTypes.string.isRequired,
+                name: PropTypes.string.isRequired,
+            })
+        ).isRequired,
         dialogId: PropTypes.string,
         onDeselect: PropTypes.func.isRequired,
         onReorder: PropTypes.func.isRequired,

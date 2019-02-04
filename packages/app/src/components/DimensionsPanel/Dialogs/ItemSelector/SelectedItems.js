@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import sortBy from 'lodash-es/sortBy';
@@ -9,8 +8,7 @@ import Item from './Item';
 import { ArrowButton as UnAssignButton } from './buttons/ArrowButton';
 import { SelectButton as DeselectAllButton } from './buttons/SelectButton';
 
-import { sGetMetadata } from '../../../../reducers/metadata';
-import { toggler } from '../../../../modules/toggler';
+import { toggler } from './modules/toggler';
 
 import { styles } from './styles/SelectedItems.style';
 
@@ -44,7 +42,7 @@ export class SelectedItems extends Component {
     };
 
     onDeselectAllClick = () => {
-        this.props.onDeselect(this.props.items);
+        this.props.onDeselect(this.props.items.map(item => item.id));
         this.setState({ highlighted: [] });
     };
 
@@ -56,7 +54,7 @@ export class SelectedItems extends Component {
             index,
             this.state.lastClickedIndex,
             this.state.highlighted,
-            this.props.items
+            this.props.items.map(item => item.id)
         );
 
         this.setState({
@@ -100,14 +98,16 @@ export class SelectedItems extends Component {
             return;
         }
 
-        const newList = Array.from(this.props.items);
+        const newList = Array.from(this.props.items.map(item => item.id));
 
         if (this.isMultiDrag(draggableId)) {
             const indexedItemsToMove = sortBy(
                 this.state.highlighted.map(item => {
                     return {
                         item,
-                        idx: this.props.items.indexOf(item),
+                        idx: this.props.items
+                            .map(item => item.id)
+                            .indexOf(item),
                     };
                 }),
                 'idx'
@@ -142,7 +142,7 @@ export class SelectedItems extends Component {
         this.props.onReorder(newList);
     };
 
-    renderListItem = ({ id, clone }, index) => {
+    renderListItem = ({ id, name, clone }, index) => {
         if (!clone) {
             return (
                 <Draggable draggableId={id} index={index} key={id}>
@@ -161,7 +161,7 @@ export class SelectedItems extends Component {
 
                         const itemText = isItemBeingDragged
                             ? `${this.state.highlighted.length} items`
-                            : this.props.metadata[id].name;
+                            : name;
 
                         const ghostClassname = isGhosting ? 'ghost' : '';
                         const draggingItemClassname = isItemBeingDragged
@@ -215,7 +215,7 @@ export class SelectedItems extends Component {
                                 <Item
                                     id={cloneId}
                                     index={9999}
-                                    name={this.props.metadata[id].name}
+                                    name={name}
                                     highlighted={
                                         !!this.state.highlighted.includes(id)
                                     }
@@ -231,25 +231,25 @@ export class SelectedItems extends Component {
     };
 
     render = () => {
-        const getList = () => {
-            let theList = [];
+        const itemList = () => {
+            let list = [];
 
-            this.props.items.forEach(id => {
-                theList.push({ id });
+            this.props.items.forEach(item => {
+                list.push(item);
 
                 const itemIsBeingDragged =
                     this.isMultiDrag(this.state.draggingId) &&
-                    this.state.draggingId === id;
+                    this.state.draggingId === item.id;
 
                 if (itemIsBeingDragged) {
-                    theList.push({ id, clone: true });
+                    list.push({ id: item.id, name: item.name, clone: true });
                 }
             });
 
-            return theList;
+            return list;
         };
 
-        const dataDimensions = getList().map((itemObj, index) =>
+        const dataDimensions = itemList().map((itemObj, index) =>
             this.renderListItem(itemObj, index)
         );
 
@@ -296,8 +296,4 @@ SelectedItems.propTypes = {
     onReorder: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({
-    metadata: sGetMetadata(state),
-});
-
-export default connect(mapStateToProps)(SelectedItems);
+export default SelectedItems;

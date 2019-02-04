@@ -16,6 +16,7 @@ import {
     acAddUiItems,
     acSetUiItems,
 } from '../../../../actions/ui';
+import { sGetMetadata } from '../../../../reducers/metadata';
 import { acAddMetadata } from '../../../../actions/metadata';
 
 import { styles } from './styles/DynamicDimension.style';
@@ -115,8 +116,12 @@ export class DynamicDimension extends Component {
             filterText: this.state.filterText,
         };
 
+        const selectedItems = this.props.selectedItems.map(i => {
+            return { id: i, name: this.props.metadata[i].name };
+        });
+
         const selected = {
-            items: this.props.selectedItems,
+            items: selectedItems,
             onDeselect: this.deselectItemsByDimensions,
             onReorder: this.setUiItems,
         };
@@ -149,6 +154,7 @@ DynamicDimension.propTypes = {
 const mapStateToProps = (state, ownProps) => ({
     selectedItems:
         sGetUiItemsByDimension(state, ownProps.dialogId) || emptyItems,
+    metadata: sGetMetadata(state),
 });
 
 export default connect(

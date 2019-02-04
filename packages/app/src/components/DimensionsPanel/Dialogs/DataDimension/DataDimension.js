@@ -19,6 +19,7 @@ import {
 } from '../../../../api/dimensions';
 import { sGetUiItemsByDimension } from '../../../../reducers/ui';
 import { sGetSettingsDisplayNameProperty } from '../../../../reducers/settings';
+import { sGetMetadata } from '../../../../reducers/metadata';
 
 import {
     acRemoveUiItems,
@@ -249,8 +250,15 @@ export class DataDimension extends Component {
             requestMoreItems: this.requestMoreItems,
         };
 
+        const selectedItems = this.props.selectedItems.map(i => {
+            return {
+                id: i,
+                name: this.props.metadata[i].name,
+            };
+        });
+
         const selected = {
-            items: this.props.selectedItems,
+            items: selectedItems,
             dialogId: dxId,
             onDeselect: this.deselectDataDimensions,
             onReorder: this.setUiItems,
@@ -289,6 +297,7 @@ DataDimension.defaultProps = {
 const mapStateToProps = state => ({
     selectedItems: sGetUiItemsByDimension(state, dxId),
     displayNameProp: sGetSettingsDisplayNameProperty(state),
+    metadata: sGetMetadata(state),
 });
 
 export default connect(

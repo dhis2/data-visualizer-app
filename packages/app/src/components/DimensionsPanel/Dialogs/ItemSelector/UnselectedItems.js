@@ -5,7 +5,7 @@ import throttle from 'lodash-es/throttle';
 import Item from './Item';
 import { ArrowButton as AssignButton } from './buttons/ArrowButton';
 import { SelectButton as SelectAllButton } from './buttons/SelectButton';
-import { toggler } from '../../../../modules/toggler';
+import { toggler } from './modules/toggler';
 import { styles } from './styles/UnselectedItems.style';
 
 export class UnselectedItems extends Component {
