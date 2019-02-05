@@ -38,7 +38,6 @@ import {
 import { FIXED_DIMENSIONS } from '../../../../modules/fixedDimensions';
 
 import { styles } from './styles/DataDimension.style';
-import '../styles/Dialog.css';
 
 const dxId = FIXED_DIMENSIONS.dx.id;
 

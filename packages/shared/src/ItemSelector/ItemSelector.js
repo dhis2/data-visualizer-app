@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import UnselectedItems from './UnselectedItems';
 import SelectedItems from './SelectedItems';
 
+import './styles/ItemSelector.css';
+
 class ItemSelector extends Component {
     render() {
         const {

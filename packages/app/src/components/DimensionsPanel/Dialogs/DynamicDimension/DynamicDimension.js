@@ -21,7 +21,6 @@ import { sGetMetadata } from '../../../../reducers/metadata';
 import { acAddMetadata } from '../../../../actions/metadata';
 
 import { styles } from './styles/DynamicDimension.style';
-import '../styles/Dialog.css';
 
 const emptyItems = [];
 
