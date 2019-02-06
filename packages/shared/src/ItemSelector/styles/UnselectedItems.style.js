@@ -1,5 +1,7 @@
 export const styles = {
     selectButton: {
-        left: '165px',
+        margin: '0 auto',
+        display: 'block',
     },
+    unselectedItems: { flex: '1', overflowY: 'auto' },
 };

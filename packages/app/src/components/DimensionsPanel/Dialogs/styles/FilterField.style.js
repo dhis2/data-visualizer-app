@@ -5,7 +5,9 @@ export const styles = {
         border: `1px solid ${colors.greyLight}`,
         backgroundColor: colors.white,
         height: '39px',
-        borderBottom: '0px',
+        borderRight: '0px',
+        borderLeft: '0px',
+        borderTop: '0px',
     },
     textField: {
         paddingRight: '7px',

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import throttle from 'lodash-es/throttle';
@@ -11,7 +11,7 @@ import { styles } from './styles/UnselectedItems.style';
 export class UnselectedItems extends Component {
     constructor(props) {
         super(props);
-        this.ulRef = React.createRef();
+        this.scrolElRef = React.createRef();
     }
 
     state = { highlighted: [], lastClickedIndex: 0 };
@@ -62,7 +62,7 @@ export class UnselectedItems extends Component {
 
     renderListItem = (dataDim, index) => (
         <li
-            className="dimension-item"
+            className="item-selector-item"
             key={dataDim.id}
             onDoubleClick={() => this.onDoubleClickItem(dataDim.id)}
         >
@@ -77,7 +77,7 @@ export class UnselectedItems extends Component {
     );
 
     requestMoreItems = throttle(() => {
-        const node = this.ulRef.current;
+        const node = this.scrolElRef.current;
 
         if (node) {
             const bottom =
@@ -96,24 +96,25 @@ export class UnselectedItems extends Component {
         );
 
         return (
-            <div
-                className={`${this.props.className}-dialog`}
-                onScroll={this.requestMoreItems}
-            >
-                <ul ref={this.ulRef} className={`${this.props.className}-list`}>
-                    {listItems}
-                </ul>
-                <AssignButton
-                    className={`${this.props.className}-arrow-forward-button`}
-                    onClick={this.onSelectClick}
-                    iconType={'arrowForward'}
-                />
+            <Fragment>
+                <div
+                    ref={this.scrolElRef}
+                    onScroll={this.requestMoreItems}
+                    style={styles.unselectedItems}
+                >
+                    <ul className="item-selector-list">{listItems}</ul>
+                </div>
                 <SelectAllButton
                     style={styles.selectButton}
                     onClick={this.onSelectAllClick}
                     label={i18n.t('Select All')}
                 />
-            </div>
+                <AssignButton
+                    className="item-selector-arrow-forward-button"
+                    onClick={this.onSelectClick}
+                    iconType={'arrowForward'}
+                />
+            </Fragment>
         );
     };
 }

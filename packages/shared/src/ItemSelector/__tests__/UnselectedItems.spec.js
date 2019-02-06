@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { UnselectedItems } from '../UnselectedItems';
 
-describe('The SelectedContainer component ', () => {
+describe.skip('The SelectedContainer component ', () => {
     let props;
     let shallowItems;
     const unselectedItems = () => {

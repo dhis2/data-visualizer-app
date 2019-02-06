@@ -7,8 +7,9 @@
     "main": "./build/index.js",
     "scripts": {
         "clean": "rm -rf ./build/*",
-        "build": "npm run clean && NODE_ENV=production npm run build:es",
+        "build": "npm run clean && NODE_ENV=production npm run build:es && NODE_ENV=production npm run build:css",
         "build:es": "babel src --out-dir build --copy-files --verbose",
+        "build:css": "cp ./src/ItemSelector/ItemSelector.css ./build/",
         "test": "jest --config=../../jest.config.js"
     },
     "browserslist": [

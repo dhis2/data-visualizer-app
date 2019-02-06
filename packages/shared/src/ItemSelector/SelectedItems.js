@@ -175,7 +175,7 @@ export class SelectedItems extends Component {
 
                         return (
                             <li
-                                className="dimension-item"
+                                className="item-selector-item"
                                 id={id}
                                 onDoubleClick={() => this.onRemoveSelected(id)}
                                 {...provided.draggableProps}
@@ -206,7 +206,7 @@ export class SelectedItems extends Component {
                     {provided => {
                         return (
                             <li
-                                className="dimension-item"
+                                className="item-selector-item"
                                 id={cloneId}
                                 {...provided.draggableProps}
                                 {...provided.dragHandleProps}
@@ -276,7 +276,7 @@ export class SelectedItems extends Component {
                     </Droppable>
                 </DragDropContext>
                 <UnAssignButton
-                    className={`${this.props.className}-arrow-back-button`}
+                    className="item-selector-arrow-back-button"
                     onClick={this.onDeselectClick}
                     iconType={'arrowBack'}
                 />

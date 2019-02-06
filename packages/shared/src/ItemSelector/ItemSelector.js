@@ -3,7 +3,18 @@ import PropTypes from 'prop-types';
 import UnselectedItems from './UnselectedItems';
 import SelectedItems from './SelectedItems';
 
-import './styles/ItemSelector.css';
+import './ItemSelector.css';
+
+const style = {
+    container: {
+        marginRight: 55,
+        display: 'flex',
+        flexDirection: 'column',
+        width: 420,
+        height: 534,
+        border: '1px solid #e0e0e0',
+    },
+};
 
 class ItemSelector extends Component {
     render() {
@@ -16,9 +27,10 @@ class ItemSelector extends Component {
 
         return (
             <Fragment>
-                <div style={{ paddingRight: 55 }}>
+                <div style={style.container}>
                     {filterZone}
                     <UnselectedItems
+                        style={style.unselectedItems}
                         className={itemClassName}
                         {...unselected}
                     />
