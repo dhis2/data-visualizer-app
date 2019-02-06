@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import FileMenu from '@dhis2/d2-ui-file-menu';
+import MapMenu from '../MapMenu/MapMenu';
 import { withStyles } from '@material-ui/core/styles';
 
 import UpdateButton from '../UpdateButton/UpdateButton';
@@ -49,6 +50,7 @@ export const MenuBar = ({ classes, ...props }, context) => (
         <VisualizationOptionsManager className={classes.label} />
         <DownloadMenu className={classes.label} />
         <div className={classes.grow} />
+        <MapMenu className={classes.label} />
         <InterpretationsButton className={classes.label} />
     </div>
 );
