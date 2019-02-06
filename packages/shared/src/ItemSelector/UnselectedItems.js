@@ -120,9 +120,14 @@ export class UnselectedItems extends Component {
 }
 
 UnselectedItems.propTypes = {
-    items: PropTypes.array.isRequired,
+    items: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            name: PropTypes.string.isRequired,
+        })
+    ).isRequired,
     onSelect: PropTypes.func.isRequired,
-    filterText: PropTypes.string.isRequired,
+    filterText: PropTypes.string,
     requestMoreItems: PropTypes.func,
 };
 

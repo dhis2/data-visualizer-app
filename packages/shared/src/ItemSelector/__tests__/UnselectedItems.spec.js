@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { UnselectedItems } from '../UnselectedItems';
 
-describe.skip('The SelectedContainer component ', () => {
+describe('UnselectedItems component ', () => {
     let props;
     let shallowItems;
     const unselectedItems = () => {
@@ -22,18 +22,18 @@ describe.skip('The SelectedContainer component ', () => {
         shallowItems = undefined;
     });
 
-    it('renders a div ', () => {
-        expect(
-            unselectedItems()
-                .find('div')
-                .first().length
-        ).toEqual(1);
+    it('matches the snapshot when list is empty', () => {
+        expect(unselectedItems()).toMatchSnapshot();
     });
 
-    it('renders a div containing everything else', () => {
-        const wrappingDiv = unselectedItems()
-            .find('div')
-            .first();
-        expect(wrappingDiv.children()).toEqual(unselectedItems().children());
+    it('matches the snapshot when list has items', () => {
+        props.items = [
+            {
+                id: 'rb',
+                name: 'rainbow',
+            },
+            { id: 'rr', name: 'rarity' },
+        ];
+        expect(unselectedItems()).toMatchSnapshot();
     });
 });
