@@ -2,6 +2,7 @@ import { getInstance } from 'd2';
 import { onError } from './index';
 
 export const NAMESPACE = 'analytics';
+export const CURRENT_AO_KEY = 'currentAnalyticalObject';
 
 export const hasNamespace = async d2 =>
     await d2.currentUser.dataStore.has(NAMESPACE);
@@ -34,3 +35,9 @@ export const apiFetch = async (key, namespace) => {
         return onError(error);
     }
 };
+
+export const apiSaveAOInUserDataStore = (current, key = CURRENT_AO_KEY) =>
+    apiCreate(current, key);
+
+export const apiFetchAOFromUserDataStore = (key = CURRENT_AO_KEY) =>
+    apiFetch(key);

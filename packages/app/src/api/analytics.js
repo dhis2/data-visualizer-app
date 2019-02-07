@@ -1,10 +1,7 @@
 import { getInstance } from 'd2';
 import { FIXED_DIMENSIONS } from '../modules/fixedDimensions';
-import * as userDataStore from './userDataStore';
 
 const peId = FIXED_DIMENSIONS.pe.id;
-
-export const CURRENT_AO_KEY = 'currentAnalyticalObject';
 
 export const apiDownloadImage = async (type, formData) => {
     const d2 = await getInstance();
@@ -103,9 +100,3 @@ export const apiFetchAnalyticsForYearOverYear = async (current, options) => {
         yearlySeriesLabels,
     }));
 };
-
-export const apiSaveAOInUserDataStore = (current, key = CURRENT_AO_KEY) =>
-    userDataStore.apiCreate(current, key);
-
-export const apiFetchAOFromUserDataStore = (key = CURRENT_AO_KEY) =>
-    userDataStore.apiFetch(key);
