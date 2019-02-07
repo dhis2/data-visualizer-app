@@ -10,7 +10,8 @@
         "build": "npm run clean && NODE_ENV=production npm run build:es && NODE_ENV=production npm run build:css",
         "build:es": "babel src --out-dir build --copy-files --verbose",
         "build:css": "cp ./src/ItemSelector/ItemSelector.css ./build/",
-        "test": "jest --config=../../jest.config.js"
+        "test": "jest --config=../../jest.config.js",
+        "watch": "npm run build -- --watch"
     },
     "browserslist": [
         ">0.5%",
