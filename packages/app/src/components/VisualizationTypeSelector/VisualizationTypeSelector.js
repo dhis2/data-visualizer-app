@@ -6,7 +6,6 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
-import VisualizationTypeIcon from './VisualizationTypeIcon';
 import {
     chartTypeDisplayNames,
     isOpenAsType,
@@ -15,18 +14,16 @@ import {
 import { sGetUiType } from '../../reducers/ui';
 import { sGetCurrent } from '../../reducers/current';
 import { acSetUiType } from '../../actions/ui';
-import { apiSaveAOInUserDataStore } from '../../api/userDataStore';
-import styles from './styles/VisualizationTypeSelector.style';
+import {
+    apiSaveAOInUserDataStore,
+    prepareCurrentAnalyticalObject,
+} from '../../api/userDataStore';
+
 import VisualizationTypeMenuItem from './VisualizationTypeMenuItem';
+import VisualizationTypeIcon from './VisualizationTypeIcon';
+import styles from './styles/VisualizationTypeSelector.style';
 
 export const MAPS_APP_URL = 'dhis-web-maps';
-
-export const prepareCurrentAnalyticalObject = current => ({
-    ...current,
-    id: undefined,
-    name: undefined,
-    displayName: undefined,
-});
 
 export class VisualizationTypeSelector extends Component {
     constructor(props, context) {
