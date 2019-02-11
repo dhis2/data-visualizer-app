@@ -10,6 +10,7 @@ import { sGetCurrent } from '../../reducers/current';
 import * as fromActions from '../../actions';
 import history from '../../modules/history';
 import styles from './styles/UpdateButton.style';
+import { CURRENT_AO_KEY } from '../../api/userDataStore';
 
 const UpdateButton = ({
     classes,
@@ -25,10 +26,16 @@ const UpdateButton = ({
         clearLoadError();
         onUpdate(ui);
 
+        const urlContainsCurrentAOKey =
+            history.location.pathname === '/' + CURRENT_AO_KEY;
+
         const pathWithoutInterpretation =
             current && current.id ? `/${current.id}` : '/';
 
-        if (history.location.pathname !== pathWithoutInterpretation) {
+        if (
+            !urlContainsCurrentAOKey &&
+            history.location.pathname !== pathWithoutInterpretation
+        ) {
             history.push(pathWithoutInterpretation);
         }
 
