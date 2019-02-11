@@ -28,7 +28,6 @@ import {
 import './App.css';
 import './scrollbar.css';
 
-
 export class App extends Component {
     unlisten = null;
 

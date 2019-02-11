@@ -53,7 +53,7 @@ const VisualizationTypeIcon = ({ type = COLUMN, style }) => {
         case YEAR_OVER_YEAR_COLUMN:
             return <YearOverYearColumnIcon style={style} />;
         case OPEN_AS_GEO_MAP:
-            return <GlobeIcon style={style} />
+            return <GlobeIcon style={style} />;
         case COLUMN:
         default:
             return <ColumnIcon style={style} />;
