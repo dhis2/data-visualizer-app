@@ -21,6 +21,13 @@ import VisualizationTypeMenuItem from './VisualizationTypeMenuItem';
 
 export const MAPS_APP_URL = 'dhis-web-maps';
 
+export const prepareCurrentAnalyticalObject = current => ({
+    ...current,
+    id: undefined,
+    name: undefined,
+    displayName: undefined,
+});
+
 export class VisualizationTypeSelector extends Component {
     constructor(props, context) {
         super(props);
@@ -50,7 +57,11 @@ export class VisualizationTypeSelector extends Component {
     };
 
     handleOpenChartAsMapClick = async () => {
-        await apiSaveAOInUserDataStore(this.props.current);
+        const currentAnalyticalObject = prepareCurrentAnalyticalObject(
+            this.props.current
+        );
+
+        await apiSaveAOInUserDataStore(currentAnalyticalObject);
 
         window.location.href = `${
             this.baseUrl
