@@ -12,7 +12,7 @@ export const getNamespace = async (d2, hasNamespace) =>
         ? await d2.currentUser.dataStore.get(NAMESPACE)
         : await d2.currentUser.dataStore.create(NAMESPACE);
 
-export const apiCreate = async (data, key, namespace) => {
+export const apiSave = async (data, key, namespace) => {
     try {
         const d2 = await getInstance();
         const ns =
@@ -37,7 +37,7 @@ export const apiFetch = async (key, namespace) => {
 };
 
 export const apiSaveAOInUserDataStore = (current, key = CURRENT_AO_KEY) =>
-    apiCreate(current, key);
+    apiSave(current, key);
 
 export const apiFetchAOFromUserDataStore = (key = CURRENT_AO_KEY) =>
     apiFetch(key);
