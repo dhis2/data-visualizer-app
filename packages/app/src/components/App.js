@@ -20,9 +20,14 @@ import * as fromActions from '../actions';
 import history from '../modules/history';
 import defaultMetadata from '../modules/metadata';
 import { sGetUi } from '../reducers/ui';
+import {
+    apiFetchAOFromUserDataStore,
+    CURRENT_AO_KEY,
+} from '../api/userDataStore';
 
 import './App.css';
 import './scrollbar.css';
+
 
 export class App extends Component {
     unlisten = null;
@@ -59,13 +64,23 @@ export class App extends Component {
         const { store } = this.context;
 
         if (location.pathname.length > 1) {
+            // /currentAnalyticalObject
             // /${id}/
             // /${id}/interpretation/${interpretationId}
             const pathParts = location.pathname.slice(1).split('/');
             const id = pathParts[0];
             const interpretationId = pathParts[2];
+            const urlContainsCurrentAOKey = id === CURRENT_AO_KEY;
 
-            if (this.refetch(location)) {
+            if (urlContainsCurrentAOKey) {
+                const AO = await apiFetchAOFromUserDataStore();
+
+                this.props.setCurrent(AO);
+                this.props.setVisualization(AO);
+                this.props.setUiFromVisualization(AO);
+            }
+
+            if (!urlContainsCurrentAOKey && this.refetch(location)) {
                 await store.dispatch(
                     fromActions.tDoLoadVisualization(
                         this.props.apiObjectName,
@@ -206,6 +221,14 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
     onKeyUp: ui => dispatch(fromActions.fromCurrent.acSetCurrentFromUi(ui)),
+    setCurrent: current =>
+        dispatch(fromActions.fromCurrent.acSetCurrent(current)),
+    setVisualization: visualization =>
+        dispatch(
+            fromActions.fromVisualization.acSetVisualization(visualization)
+        ),
+    setUiFromVisualization: visualization =>
+        dispatch(fromActions.fromUi.acSetUiFromVisualization(visualization)),
 });
 
 App.contextTypes = {
