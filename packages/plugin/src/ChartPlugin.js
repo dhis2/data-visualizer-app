@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 
 import { createChart } from 'd2-charts-api';
 
-import { apiFetchVisualization } from './api/visualization';
+import { apiFetchVisualization } from 'data-visualizer-app/src/api/visualization';
 import {
     apiFetchAnalytics,
     apiFetchAnalyticsForYearOverYear,
-} from './api/analytics';
-import { isYearOverYear } from './modules/chartTypes';
-import { getOptionsForRequest } from './modules/options';
-import { computeGenericPeriodNames } from './modules/analytics';
-import { BASE_FIELD_YEARLY_SERIES } from './modules/fields/baseFields';
-import LoadingMask from './widgets/LoadingMask';
+} from 'data-visualizer-app/src/api/analytics';
+import { isYearOverYear } from 'data-visualizer-app/src/modules/chartTypes';
+import { getOptionsForRequest } from 'data-visualizer-app/src/modules/options';
+import { computeGenericPeriodNames } from 'data-visualizer-app/src/modules/analytics';
+import { BASE_FIELD_YEARLY_SERIES } from 'data-visualizer-app/src/modules/fields/baseFields';
+import LoadingMask from 'data-visualizer-app/src/widgets/LoadingMask';
 
 class ChartPlugin extends Component {
     constructor(props) {
