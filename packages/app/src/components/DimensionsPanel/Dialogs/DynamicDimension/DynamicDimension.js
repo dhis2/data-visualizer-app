@@ -115,9 +115,10 @@ export class DynamicDimension extends Component {
             filterText: this.state.filterText,
         };
 
-        const selectedItems = this.props.selectedItems.map(i => {
-            return { id: i, name: this.props.metadata[i].name };
-        });
+        const selectedItems = this.props.selectedItems.map(i => ({
+            id: i,
+            name: this.props.metadata[i].name,
+        }));
 
         const selected = {
             items: selectedItems,
