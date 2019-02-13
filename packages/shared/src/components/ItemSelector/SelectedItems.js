@@ -24,6 +24,8 @@ const ItemsList = ({ styles, innerRef, children }) => (
     </ul>
 );
 
+const CLONE_INDEX = 9999;
+
 export class SelectedItems extends Component {
     state = { highlighted: [], lastClickedIndex: 0, draggingId: null };
 
@@ -82,9 +84,7 @@ export class SelectedItems extends Component {
         this.setState({ draggingId: start.draggableId });
     };
 
-    onDragEnd = result => {
-        const { destination, source, draggableId } = result;
-
+    onDragEnd = ({ destination, source, draggableId }) => {
         this.setState({ draggingId: null });
 
         if (destination === null) {
@@ -154,9 +154,9 @@ export class SelectedItems extends Component {
                                 this.state.draggingId
                             );
 
-                        const isGhosting =
-                            isItemBeingDragged &&
+                        const isGhost =
                             this.state.highlighted.includes(id) &&
+                            Boolean(this.state.draggingId) &&
                             this.state.draggingId !== id;
 
                         const itemText = isItemBeingDragged
@@ -182,7 +182,7 @@ export class SelectedItems extends Component {
                                     onItemClick={this.toggleHighlight}
                                     onRemoveItem={this.onRemoveSelected}
                                     selected
-                                    classNames={isGhosting ? 'ghost' : ''}
+                                    isGhost={isGhost}
                                 />
                             </li>
                         );
@@ -204,13 +204,13 @@ export class SelectedItems extends Component {
                             >
                                 <Item
                                     id={cloneId}
-                                    index={9999}
+                                    index={CLONE_INDEX}
                                     name={name}
                                     highlighted={
                                         !!this.state.highlighted.includes(id)
                                     }
                                     selected
-                                    classNames="ghost"
+                                    isGhost
                                 />
                             </li>
                         );
@@ -220,7 +220,7 @@ export class SelectedItems extends Component {
         }
     };
 
-    getItemList = () => {
+    getItemListWithClone = () => {
         let list = [];
 
         this.props.items.forEach(item => {
@@ -239,8 +239,8 @@ export class SelectedItems extends Component {
     };
 
     render = () => {
-        const dataDimensions = this.getItemList().map((itemObj, index) =>
-            this.renderListItem(itemObj, index)
+        const dataDimensions = this.getItemListWithClone().map(
+            (itemObj, index) => this.renderListItem(itemObj, index)
         );
 
         return (

@@ -23,11 +23,11 @@ export const Item = ({
     onRemoveItem,
     onItemClick,
     name,
-    classNames,
+    isGhost,
 }) => {
     const selectedState = selected ? 'selected' : 'unselected';
     const divClassName = [`${selectedState}-list-item`]
-        .concat(classNames)
+        .concat(isGhost ? 'ghost' : '')
         .join(' ');
 
     return (
