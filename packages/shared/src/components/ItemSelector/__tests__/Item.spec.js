@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import Item from '../Item';
 import RemoveDimensionButton from '../buttons/RemoveDimensionButton';
 import ItemIcon from '../ItemIcon';
-import { colors } from '../../colors';
+import { colors } from '../../../modules/colors';
 
 describe('The Item component ', () => {
     let props;

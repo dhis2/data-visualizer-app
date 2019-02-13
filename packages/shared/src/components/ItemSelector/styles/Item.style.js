@@ -1,4 +1,3 @@
-// import { colors } from 'analytics-shared';
 import { colors } from '../../../modules/colors';
 
 export const styles = {

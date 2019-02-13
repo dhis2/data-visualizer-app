@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { colors } from 'analytics-shared';
 import { colors } from '../../modules/colors';
 import RemoveDimensionButton from './buttons/RemoveDimensionButton';
 import ItemIcon from './ItemIcon';
