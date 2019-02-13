@@ -4,6 +4,7 @@ import { createSelector } from 'reselect';
 import i18n from '@dhis2/d2-i18n';
 import debounce from 'lodash-es/debounce';
 
+import styles from './styles/Visualization.style';
 import ChartPlugin from 'data-visualizer-plugin';
 
 import { sGetVisualization } from '../../reducers/visualization';
@@ -111,6 +112,7 @@ export class Visualization extends Component {
                 onChartGenerated={this.onChartGenerated}
                 onResponsesReceived={this.onResponsesReceived}
                 onError={this.onError}
+                style={styles.chartCanvas}
             />
         );
     }

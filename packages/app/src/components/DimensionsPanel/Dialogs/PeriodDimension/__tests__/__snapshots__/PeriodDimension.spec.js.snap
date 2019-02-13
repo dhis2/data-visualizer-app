@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Period Dimension component  renders correctly 1`] = `
+Array [
+  <div
+    className="MuiDialogTitle-root-1"
+  >
+    <h2
+      className="MuiTypography-root-2 MuiTypography-title-8"
+    >
+       
+      Period
+    </h2>
+  </div>,
+  <div
+    className="MuiDialogContent-root-38"
+  >
+    <mockPeriodSelector
+      onDeselect={[Function]}
+      onReorder={[Function]}
+      onSelect={[Function]}
+      selectedItems={Array []}
+    />
+  </div>,
+]
+`;
+
+exports[`The Period Dimension component renders correctly 1`] = `
+Array [
+  <div
+    className="MuiDialogTitle-root-1"
+  >
+    <h2
+      className="MuiTypography-root-2 MuiTypography-title-8"
+    >
+       
+      Period
+    </h2>
+  </div>,
+  <div
+    className="MuiDialogContent-root-38"
+  >
+    <mockPeriodSelector
+      onDeselect={[Function]}
+      onReorder={[Function]}
+      onSelect={[Function]}
+      selectedItems={Array []}
+    />
+  </div>,
+]
+`;
