@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// import { colors } from 'analytics-shared';
+import { colors } from '../../modules/colors';
 import RemoveDimensionButton from './buttons/RemoveDimensionButton';
 import ItemIcon from './ItemIcon';
-import { colors } from '../colors';
 import { styles } from './styles/Item.style';
 
 const Icon = ({ selected, highlighted }) => {

@@ -1,4 +1,4 @@
-import ItemSelector from './ItemSelector/ItemSelector';
-import colors from './colors';
+import ItemSelector from './components/ItemSelector/ItemSelector';
+import { colors } from './modules/colors';
 
 export { ItemSelector, colors };

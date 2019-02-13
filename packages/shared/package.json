@@ -1,7 +1,7 @@
 {
-    "name": "analytics-shared-components",
+    "name": "analytics-shared",
     "version": "1.0.0",
-    "description": "analytics shared components",
+    "description": "analytics shared components and modules",
     "author": "Jen Jones Arnesen <jennifer@dhis2.org>",
     "license": "BSD-3-Clause",
     "main": "./build/index.js",
@@ -9,7 +9,7 @@
         "clean": "rm -rf ./build/*",
         "build": "npm run clean && NODE_ENV=production npm run build:es && NODE_ENV=production npm run build:css",
         "build:es": "babel src --out-dir build --copy-files --verbose",
-        "build:css": "cp ./src/ItemSelector/ItemSelector.css ./build/",
+        "build:css": "cp ./src/components/ItemSelector/ItemSelector.css ./build/",
         "test": "jest --config=../../jest.config.js",
         "watch": "npm run build -- --watch"
     },

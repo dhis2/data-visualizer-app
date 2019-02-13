@@ -1,5 +1,5 @@
+import { colors } from 'analytics-shared';
 import * as layoutStyle from './style';
-import { colors } from '../../../modules/colors';
 
 export const styles = {
     chipWrapper: {

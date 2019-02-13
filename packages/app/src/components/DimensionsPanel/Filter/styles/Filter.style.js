@@ -1,4 +1,4 @@
-import { colors } from '../../../../modules/colors';
+import { colors } from 'analytics-shared';
 
 export const styles = {
     searchIcon: {
