@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import VisualizationTypeMenuItem from '../VisualizationTypeMenuItem';
 import MenuItem from '@material-ui/core/MenuItem';
 import VisualizationTypeIcon from '../VisualizationTypeIcon';
+import { COLUMN } from '../../../modules/chartTypes';
 
 describe('VisualizationTypeMenuItem component ', () => {
     let props;
@@ -17,8 +18,8 @@ describe('VisualizationTypeMenuItem component ', () => {
 
     beforeEach(() => {
         props = {
-            type: '',
-            visualizationType: '',
+            type: COLUMN,
+            visualizationType: COLUMN,
             styles: {},
         };
         shallowElement = undefined;
