@@ -155,23 +155,13 @@ export class SelectedItems extends Component {
                             );
 
                         const isGhosting =
+                            isItemBeingDragged &&
                             this.state.highlighted.includes(id) &&
-                            Boolean(this.state.draggingId) &&
                             this.state.draggingId !== id;
 
                         const itemText = isItemBeingDragged
                             ? `${this.state.highlighted.length} items`
                             : name;
-
-                        const ghostClassname = isGhosting ? 'ghost' : '';
-                        const draggingItemClassname = isItemBeingDragged
-                            ? 'dragging-item'
-                            : '';
-
-                        const classNames = [
-                            ghostClassname,
-                            draggingItemClassname,
-                        ].join(' ');
 
                         return (
                             <li
@@ -192,7 +182,7 @@ export class SelectedItems extends Component {
                                     onItemClick={this.toggleHighlight}
                                     onRemoveItem={this.onRemoveSelected}
                                     selected
-                                    classNames={classNames}
+                                    classNames={isGhosting ? 'ghost' : ''}
                                 />
                             </li>
                         );
@@ -230,26 +220,26 @@ export class SelectedItems extends Component {
         }
     };
 
+    getItemList = () => {
+        let list = [];
+
+        this.props.items.forEach(item => {
+            list.push(item);
+
+            const itemIsBeingDragged =
+                this.isMultiDrag(this.state.draggingId) &&
+                this.state.draggingId === item.id;
+
+            if (itemIsBeingDragged) {
+                list.push({ id: item.id, name: item.name, clone: true });
+            }
+        });
+
+        return list;
+    };
+
     render = () => {
-        const itemList = () => {
-            let list = [];
-
-            this.props.items.forEach(item => {
-                list.push(item);
-
-                const itemIsBeingDragged =
-                    this.isMultiDrag(this.state.draggingId) &&
-                    this.state.draggingId === item.id;
-
-                if (itemIsBeingDragged) {
-                    list.push({ id: item.id, name: item.name, clone: true });
-                }
-            });
-
-            return list;
-        };
-
-        const dataDimensions = itemList().map((itemObj, index) =>
+        const dataDimensions = this.getItemList().map((itemObj, index) =>
             this.renderListItem(itemObj, index)
         );
 
