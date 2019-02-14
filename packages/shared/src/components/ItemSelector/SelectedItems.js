@@ -24,7 +24,7 @@ const ItemsList = ({ styles, innerRef, children }) => (
     </ul>
 );
 
-const CLONE_INDEX = 9999;
+const CLONE_INDEX = 9999; // a high number to not influence the actual item list
 
 export class SelectedItems extends Component {
     state = { highlighted: [], lastClickedIndex: 0, draggingId: null };
@@ -84,21 +84,8 @@ export class SelectedItems extends Component {
         this.setState({ draggingId: start.draggableId });
     };
 
-    onDragEnd = ({ destination, source, draggableId }) => {
-        this.setState({ draggingId: null });
-
-        if (destination === null) {
-            return;
-        }
-
-        if (
-            destination.draggableId === source.draggableId &&
-            destination.index === source.index
-        ) {
-            return;
-        }
-
-        const newList = Array.from(this.props.items.map(item => item.id));
+    reorderList = (destination, source, draggableId) => {
+        const list = Array.from(this.props.items.map(item => item.id));
 
         if (this.isMultiDrag(draggableId)) {
             const indexedItemsToMove = sortBy(
@@ -127,97 +114,106 @@ export class SelectedItems extends Component {
             }
 
             indexedItemsToMove.forEach(indexed => {
-                const idx = newList.indexOf(indexed.item);
-                newList.splice(idx, 1);
+                const idx = list.indexOf(indexed.item);
+                list.splice(idx, 1);
             });
 
             indexedItemsToMove.forEach((indexed, i) => {
-                newList.splice(destinationIndex + i, 0, indexed.item);
+                list.splice(destinationIndex + i, 0, indexed.item);
             });
         } else {
-            newList.splice(source.index, 1);
-            newList.splice(destination.index, 0, draggableId);
+            list.splice(source.index, 1);
+            list.splice(destination.index, 0, draggableId);
         }
+
+        return list;
+    };
+
+    onDragEnd = ({ destination, source, draggableId }) => {
+        this.setState({ draggingId: null });
+
+        if (destination === null) {
+            return;
+        }
+
+        if (
+            destination.draggableId === source.draggableId &&
+            destination.index === source.index
+        ) {
+            return;
+        }
+
+        const newList = this.reorderList(destination, source, draggableId);
 
         this.props.onReorder(newList);
     };
 
-    renderListItem = ({ id, name, clone }, index) => {
-        if (!clone) {
-            return (
-                <Draggable draggableId={id} index={index} key={id}>
-                    {(provided, snapshot) => {
-                        const isItemBeingDragged =
-                            snapshot.isDragging &&
-                            this.state.highlighted.length > 1 &&
-                            this.state.highlighted.includes(
-                                this.state.draggingId
-                            );
+    renderListItem = ({ id, name }, index) => (
+        <Draggable draggableId={id} index={index} key={id}>
+            {(provided, snapshot) => {
+                const isDraggedItem =
+                    snapshot.isDragging &&
+                    this.state.highlighted.length > 1 &&
+                    this.state.highlighted.includes(this.state.draggingId);
 
-                        const isGhost =
-                            this.state.highlighted.includes(id) &&
-                            Boolean(this.state.draggingId) &&
-                            this.state.draggingId !== id;
+                const isGhost =
+                    this.state.highlighted.includes(id) &&
+                    Boolean(this.state.draggingId) &&
+                    this.state.draggingId !== id;
 
-                        const itemText = isItemBeingDragged
-                            ? `${this.state.highlighted.length} items`
-                            : name;
+                const itemText = isDraggedItem
+                    ? `${this.state.highlighted.length} items`
+                    : name;
 
-                        return (
-                            <li
-                                className="item-selector-item"
-                                id={id}
-                                onDoubleClick={() => this.onRemoveSelected(id)}
-                                {...provided.draggableProps}
-                                {...provided.dragHandleProps}
-                                ref={provided.innerRef}
-                            >
-                                <Item
-                                    id={id}
-                                    index={index}
-                                    name={itemText}
-                                    highlighted={
-                                        !!this.state.highlighted.includes(id)
-                                    }
-                                    onItemClick={this.toggleHighlight}
-                                    onRemoveItem={this.onRemoveSelected}
-                                    selected
-                                    isGhost={isGhost}
-                                />
-                            </li>
-                        );
-                    }}
-                </Draggable>
-            );
-        } else {
-            const cloneId = `${id}-clone`;
-            return (
-                <Draggable draggableId={cloneId} index={index} key={cloneId}>
-                    {provided => {
-                        return (
-                            <li
-                                className="item-selector-item"
-                                id={cloneId}
-                                {...provided.draggableProps}
-                                {...provided.dragHandleProps}
-                                ref={provided.innerRef}
-                            >
-                                <Item
-                                    id={cloneId}
-                                    index={CLONE_INDEX}
-                                    name={name}
-                                    highlighted={
-                                        !!this.state.highlighted.includes(id)
-                                    }
-                                    selected
-                                    isGhost
-                                />
-                            </li>
-                        );
-                    }}
-                </Draggable>
-            );
-        }
+                return (
+                    <li
+                        className="item-selector-item"
+                        id={id}
+                        onDoubleClick={() => this.onRemoveSelected(id)}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        ref={provided.innerRef}
+                    >
+                        <Item
+                            id={id}
+                            index={index}
+                            name={itemText}
+                            highlighted={!!this.state.highlighted.includes(id)}
+                            onItemClick={this.toggleHighlight}
+                            onRemoveItem={this.onRemoveSelected}
+                            selected
+                            isGhost={isGhost}
+                        />
+                    </li>
+                );
+            }}
+        </Draggable>
+    );
+
+    renderCloneItem = ({ id, name }, index) => {
+        const cloneId = `${id}-clone`;
+        return (
+            <Draggable draggableId={cloneId} index={index} key={cloneId}>
+                {provided => (
+                    <li
+                        className="item-selector-item"
+                        id={cloneId}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        ref={provided.innerRef}
+                    >
+                        <Item
+                            id={cloneId}
+                            index={CLONE_INDEX}
+                            name={name}
+                            highlighted={!!this.state.highlighted.includes(id)}
+                            selected
+                            isGhost
+                        />
+                    </li>
+                )}
+            </Draggable>
+        );
     };
 
     getItemListWithClone = () => {
@@ -226,11 +222,11 @@ export class SelectedItems extends Component {
         this.props.items.forEach(item => {
             list.push(item);
 
-            const itemIsBeingDragged =
+            const isDraggedItem =
                 this.isMultiDrag(this.state.draggingId) &&
                 this.state.draggingId === item.id;
 
-            if (itemIsBeingDragged) {
+            if (isDraggedItem) {
                 list.push({ id: item.id, name: item.name, clone: true });
             }
         });
@@ -239,8 +235,10 @@ export class SelectedItems extends Component {
     };
 
     render = () => {
-        const dataDimensions = this.getItemListWithClone().map(
-            (itemObj, index) => this.renderListItem(itemObj, index)
+        const dimensions = this.getItemListWithClone().map((item, i) =>
+            item.clone
+                ? this.renderCloneItem(item, i)
+                : this.renderListItem(item, i)
         );
 
         return (
@@ -251,18 +249,16 @@ export class SelectedItems extends Component {
                     onDragEnd={this.onDragEnd}
                 >
                     <Droppable droppableId="selected-items-droppable">
-                        {provided => {
-                            return (
-                                <ItemsList
-                                    styles={styles}
-                                    innerRef={provided.innerRef}
-                                    {...provided.droppableProps}
-                                >
-                                    {dataDimensions}
-                                    {provided.placeholder}
-                                </ItemsList>
-                            );
-                        }}
+                        {provided => (
+                            <ItemsList
+                                styles={styles}
+                                innerRef={provided.innerRef}
+                                {...provided.droppableProps}
+                            >
+                                {dimensions}
+                                {provided.placeholder}
+                            </ItemsList>
+                        )}
                     </Droppable>
                 </DragDropContext>
                 <UnAssignButton

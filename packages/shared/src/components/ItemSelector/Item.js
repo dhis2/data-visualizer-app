@@ -67,6 +67,7 @@ Item.propTypes = {
     onItemClick: PropTypes.func,
     onRemoveItem: PropTypes.func,
     selected: PropTypes.bool,
+    isGhost: PropTypes.bool,
 };
 
 export default Item;
