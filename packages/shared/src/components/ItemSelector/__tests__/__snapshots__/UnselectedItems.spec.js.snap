@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`UnselectedItems component  matches the snapshot when list has items 1`] = `
+exports[`UnselectedItems component list with items matches the snapshot when list has items 1`] = `
 <Fragment>
   <div
     onScroll={[Function]}
@@ -60,7 +60,7 @@ exports[`UnselectedItems component  matches the snapshot when list has items 1`]
 </Fragment>
 `;
 
-exports[`UnselectedItems component  matches the snapshot when list is empty 1`] = `
+exports[`UnselectedItems component matches the snapshot when list is empty 1`] = `
 <Fragment>
   <div
     onScroll={[Function]}
