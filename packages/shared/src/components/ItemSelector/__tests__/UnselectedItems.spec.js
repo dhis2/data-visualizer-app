@@ -64,7 +64,7 @@ describe('UnselectedItems component', () => {
             const list = unselectedItems();
             list.find('Item')
                 .first()
-                .simulate('itemClick', false, false, 0, 'rb');
+                .simulate('click', false, false, 0, 'rb');
 
             list.find('ArrowButton')
                 .first()
@@ -73,8 +73,6 @@ describe('UnselectedItems component', () => {
             expect(props.onSelect).toHaveBeenCalled();
             expect(props.onSelect).toHaveBeenCalledWith(['rb']);
         });
-
-        it('triggers requestMoreItems when scroll to bottom is reached', () => {});
 
         it('renders only items matching the filter', () => {
             props.filterText = 'b';

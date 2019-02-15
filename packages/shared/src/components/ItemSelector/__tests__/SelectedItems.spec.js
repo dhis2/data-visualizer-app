@@ -1,16 +1,16 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import { SelectedItems } from '../SelectedItems';
 
-describe('The SelectedItems component ', () => {
+describe('The SelectedItems component', () => {
     let props;
-    let shallowSelectedItems;
+    let selectedItemsWrapper;
 
-    const selectedContainer = () => {
-        if (!shallowSelectedItems) {
-            shallowSelectedItems = shallow(<SelectedItems {...props} />);
+    const selectedItems = () => {
+        if (!selectedItemsWrapper) {
+            selectedItemsWrapper = mount(<SelectedItems {...props} />);
         }
-        return shallowSelectedItems;
+        return selectedItemsWrapper;
     };
 
     beforeEach(() => {
@@ -19,21 +19,60 @@ describe('The SelectedItems component ', () => {
             onDeselect: jest.fn(),
             onReorder: jest.fn(),
         };
-        shallowSelectedItems = undefined;
+        selectedItemsWrapper = undefined;
     });
 
-    it('renders a div ', () => {
-        expect(
-            selectedContainer()
-                .find('div')
-                .first().length
-        ).toEqual(1);
+    it('matches the snapshot when list is empty', () => {
+        expect(selectedItems()).toMatchSnapshot();
     });
 
-    it('renders a div containing everything else', () => {
-        const wrappingDiv = selectedContainer()
-            .find('div')
-            .first();
-        expect(wrappingDiv.children()).toEqual(selectedContainer().children());
+    describe('list with items', () => {
+        beforeEach(() => {
+            props.items = [
+                {
+                    id: 'rb',
+                    name: 'rainbow',
+                },
+                { id: 'rr', name: 'rarity' },
+            ];
+        });
+        it('matches the snapshot with list has items', () => {
+            expect(selectedItems()).toMatchSnapshot();
+        });
+
+        it('triggers onDeselect when item double-clicked', () => {
+            selectedItems()
+                .find('li')
+                .first()
+                .simulate('doubleClick');
+
+            expect(props.onDeselect).toHaveBeenCalled();
+            expect(props.onDeselect).toHaveBeenCalledWith(['rb']);
+        });
+
+        it('triggers onDeselect when Deselect All button clicked', () => {
+            selectedItems()
+                .find('SelectButton')
+                .first()
+                .simulate('click');
+
+            expect(props.onDeselect).toHaveBeenCalled();
+            expect(props.onDeselect).toHaveBeenCalledWith(['rb', 'rr']);
+        });
+
+        it('triggers onDeselect when "unassign" button clicked', () => {
+            const list = selectedItems();
+
+            list.find('Item')
+                .first()
+                .simulate('click', false, false, 0, 'rb');
+
+            const onClickFn = list.find('ArrowButton').prop('onClick');
+
+            onClickFn(); // enzyme simulate was not working
+
+            expect(props.onDeselect).toHaveBeenCalled();
+            expect(props.onDeselect).toHaveBeenCalledWith(['rb']);
+        });
     });
 });

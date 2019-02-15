@@ -12,8 +12,8 @@ const Icon = ({ selected, highlighted }) => {
     return <ItemIcon backgroundColor={bgColor} />;
 };
 
-const onClickWrapper = (id, index, onItemClick) => event =>
-    onItemClick(event.metaKey || event.ctrlKey, event.shiftKey, index, id);
+const onClickWrapper = (id, index, onClick) => event =>
+    onClick(event.metaKey || event.ctrlKey, event.shiftKey, index, id);
 
 export const Item = ({
     selected,
@@ -21,7 +21,7 @@ export const Item = ({
     id,
     index,
     onRemoveItem,
-    onItemClick,
+    onClick,
     name,
     isGhost,
 }) => {
@@ -35,7 +35,7 @@ export const Item = ({
             data-test={`dimension-item-${id}`}
             style={highlighted ? styles.highlightedItem : {}}
             className={divClassName}
-            onClick={onClickWrapper(id, index, onItemClick)}
+            onClick={onClickWrapper(id, index, onClick)}
         >
             <Icon selected={selected} highlighted={highlighted} />
             <span
@@ -56,7 +56,7 @@ export const Item = ({
 
 Item.defualtProps = {
     onRemoveItem: () => null,
-    onItemClick: () => null,
+    onClick: () => null,
 };
 
 Item.propTypes = {
@@ -64,7 +64,7 @@ Item.propTypes = {
     index: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     highlighted: PropTypes.bool.isRequired,
-    onItemClick: PropTypes.func,
+    onClick: PropTypes.func,
     onRemoveItem: PropTypes.func,
     selected: PropTypes.bool,
     isGhost: PropTypes.bool,

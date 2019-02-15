@@ -24,7 +24,7 @@ exports[`UnselectedItems component list with items matches the snapshot when lis
           id="rb"
           index={0}
           name="rainbow"
-          onItemClick={[Function]}
+          onClick={[Function]}
         />
       </li>
       <li
@@ -37,7 +37,7 @@ exports[`UnselectedItems component list with items matches the snapshot when lis
           id="rr"
           index={1}
           name="rarity"
-          onItemClick={[Function]}
+          onClick={[Function]}
         />
       </li>
     </ul>

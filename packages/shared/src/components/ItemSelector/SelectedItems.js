@@ -29,21 +29,21 @@ const CLONE_INDEX = 9999; // a high number to not influence the actual item list
 export class SelectedItems extends Component {
     state = { highlighted: [], lastClickedIndex: 0, draggingId: null };
 
-    onDeselectClick = () => {
+    onDeselectHighlighted = () => {
         this.props.onDeselect(this.state.highlighted);
         this.setState({ highlighted: [] });
     };
 
-    onRemoveSelected = id => {
+    onDeselectOne = id => {
         const highlighted = this.state.highlighted.filter(
-            dataDimId => dataDimId !== id
+            highlightedId => highlightedId !== id
         );
 
         this.props.onDeselect([id]);
         this.setState({ highlighted });
     };
 
-    onDeselectAllClick = () => {
+    onDeselectAll = () => {
         this.props.onDeselect(this.props.items.map(item => item.id));
         this.setState({ highlighted: [] });
     };
@@ -169,7 +169,7 @@ export class SelectedItems extends Component {
                     <li
                         className="item-selector-item"
                         id={id}
-                        onDoubleClick={() => this.onRemoveSelected(id)}
+                        onDoubleClick={() => this.onDeselectOne(id)}
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
                         ref={provided.innerRef}
@@ -179,8 +179,8 @@ export class SelectedItems extends Component {
                             index={index}
                             name={itemText}
                             highlighted={!!this.state.highlighted.includes(id)}
-                            onItemClick={this.toggleHighlight}
-                            onRemoveItem={this.onRemoveSelected}
+                            onRemoveItem={this.onDeselectOne}
+                            onClick={this.toggleHighlight}
                             selected
                             isGhost={isGhost}
                         />
@@ -263,12 +263,12 @@ export class SelectedItems extends Component {
                 </DragDropContext>
                 <UnAssignButton
                     className="item-selector-arrow-back-button"
-                    onClick={this.onDeselectClick}
+                    onClick={this.onDeselectHighlighted}
                     iconType={'arrowBack'}
                 />
                 <DeselectAllButton
                     style={styles.deselectButton}
-                    onClick={this.onDeselectAllClick}
+                    onClick={this.onDeselectAll}
                     label={i18n.t('Deselect All')}
                 />
             </div>
