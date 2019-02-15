@@ -1,9 +1,19 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Dialog from '@material-ui/core/Dialog';
 import { DialogManager } from '../DialogManager';
+import { FIXED_DIMENSIONS } from '../../../../modules/fixedDimensions';
 
-describe('The DialogManager component ', () => {
+jest.mock('@material-ui/core/Dialog', () => props => {
+    console.log('children', props.children);
+
+    return <div id="mock-mui-dialog">{props.children}</div>;
+});
+
+jest.mock('@material-ui/core/DialogActions', () => props => (
+    <div id="mock-mui-dialog-actions">{props.children}</div>
+));
+
+describe('The DialogManager component', () => {
     let props;
     let shallowDialog;
 
@@ -33,37 +43,59 @@ describe('The DialogManager component ', () => {
         shallowDialog = undefined;
     });
 
-    it('should always render a Dialog', () => {
-        const dialog = dialogManager().find(Dialog);
+    it('renders a closed dialog', () => {
+        expect(dialogManager()).toMatchSnapshot();
+    });
 
-        expect(dialog.length).toEqual(1);
+    it('renders the DynamicDimension content in dialog', () => {
+        const dialog = dialogManager().setProps({ dialogId: 'test' });
+        expect(dialog).toMatchSnapshot();
     });
 
     it('should add the dialogId of fixed dimensions to state "mounted" on first time render', () => {
-        const orgUnitId = 'ou';
-        const dialog = dialogManager().setProps({ dialogId: orgUnitId });
+        const dialog = dialogManager().setProps({
+            dialogId: FIXED_DIMENSIONS.ou.id,
+        });
 
-        expect(dialog.state().mounted).toContain(orgUnitId);
+        expect(dialog.state().ouMounted).toBe(true);
     });
 
-    it('should render fixed dimensions inside a div wrapper', () => {
-        const dataDimId = 'dx';
-        const dialog = dialogManager().setProps({ dialogId: dataDimId });
+    it('renders the DataDimension content in dialog', () => {
+        const dialog = dialogManager().setProps({
+            dialogId: FIXED_DIMENSIONS.dx.id,
+        });
 
-        const wrappingDiv = dialog.find('div');
-
-        expect(wrappingDiv.length).toEqual(1);
+        expect(dialog).toMatchSnapshot();
     });
 
-    it('the wrapping div should hide children with display:"none" if prop dialogId is equal to a falsy value,', () => {
-        const dataDimId = 'dx';
-        const dialog = dialogManager().setProps({ dialogId: dataDimId });
+    it('renders the OrgUnitDimension content in dialog', () => {
+        const dialog = dialogManager().setProps({
+            dialogId: FIXED_DIMENSIONS.ou.id,
+        });
+
+        expect(dialog).toMatchSnapshot();
+    });
+
+    it('renders the PeriodDimension content in dialog', () => {
+        const dialog = dialogManager().setProps({
+            dialogId: FIXED_DIMENSIONS.pe.id,
+        });
+
+        expect(dialog).toMatchSnapshot();
+    });
+
+    it('renders OUDimension content with display:none when previously mounted', () => {
+        const dialog = dialogManager().setProps({
+            dialogId: FIXED_DIMENSIONS.ou.id,
+        });
+
+        expect(dialog).toMatchSnapshot();
 
         dialog.setProps({ dialogId: null });
-        const wrappingDiv = dialog.find('div');
+        expect(dialog).toMatchSnapshot();
 
-        const hidden = { display: 'none' };
-        expect(wrappingDiv.props().style).toEqual(hidden);
+        dialog.setProps({ dialogId: FIXED_DIMENSIONS.dx.id });
+        expect(dialog).toMatchSnapshot();
     });
 
     it('sets the recommended Ids (with debounced delay) when a change in dx (Data) or ou (Organisation Unit) occurs', () => {
@@ -88,5 +120,15 @@ describe('The DialogManager component ', () => {
             () => expect(props.setRecommendedIds).toHaveBeenCalledTimes(0),
             1001
         );
+    });
+
+    it('calls the closeDialog function', () => {
+        const dialog = dialogManager().setProps({
+            dialogId: FIXED_DIMENSIONS.dx.id,
+        });
+
+        dialog.simulate('close');
+
+        expect(props.closeDialog).toHaveBeenCalled();
     });
 });

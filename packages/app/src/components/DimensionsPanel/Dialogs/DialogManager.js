@@ -32,12 +32,10 @@ const ouId = FIXED_DIMENSIONS.ou.id;
 
 const ouDialogContent = <OrgUnitDimension />;
 
-export const defaultState = {
-    ouMounted: false,
-};
-
 export class DialogManager extends Component {
-    state = defaultState;
+    state = {
+        onMounted: false,
+    };
 
     componentDidUpdate = prevProps => {
         const shouldFetchIds =
