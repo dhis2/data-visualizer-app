@@ -13,6 +13,7 @@ import {
 } from '../../modules/chartTypes';
 import { sGetUiType } from '../../reducers/ui';
 import { sGetCurrent } from '../../reducers/current';
+import { sGetMetadata } from '../../reducers/metadata';
 import { acSetUiType } from '../../actions/ui';
 import {
     apiSaveAOInUserDataStore,
@@ -55,7 +56,8 @@ export class VisualizationTypeSelector extends Component {
 
     handleOpenChartAsMapClick = async () => {
         const currentAnalyticalObject = prepareCurrentAnalyticalObject(
-            this.props.current
+            this.props.current,
+            this.props.metadata
         );
 
         await apiSaveAOInUserDataStore(currentAnalyticalObject);
@@ -138,6 +140,8 @@ export class VisualizationTypeSelector extends Component {
 
 VisualizationTypeSelector.propTypes = {
     visualizationType: PropTypes.oneOf(Object.keys(chartTypeDisplayNames)),
+    current: PropTypes.object,
+    metadata: PropTypes.object,
 };
 
 VisualizationTypeSelector.contextTypes = {
@@ -147,6 +151,7 @@ VisualizationTypeSelector.contextTypes = {
 const mapStateToProps = state => ({
     visualizationType: sGetUiType(state),
     current: sGetCurrent(state),
+    metadata: sGetMetadata(state),
 });
 
 const mapDispatchToProps = dispatch => ({
