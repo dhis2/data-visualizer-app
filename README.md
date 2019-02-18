@@ -9,7 +9,7 @@ and link all the packages in the repo:
 
 ```
 $ yarn install
-$ yarn bootstrap
+$ yarn build
 ```
 
 ### Development
