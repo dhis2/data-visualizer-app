@@ -27,6 +27,7 @@ import {
 
 import './App.css';
 import './scrollbar.css';
+import { getParentGraphMapFromVisualization } from '../modules/ui';
 
 export class App extends Component {
     unlisten = null;
@@ -74,9 +75,13 @@ export class App extends Component {
             if (urlContainsCurrentAOKey) {
                 const AO = await apiFetchAOFromUserDataStore();
 
-                this.props.setCurrent(AO);
+                this.props.addParentGraphMap(
+                    getParentGraphMapFromVisualization(AO)
+                );
+
                 this.props.setVisualization(AO);
                 this.props.setUiFromVisualization(AO);
+                this.props.setCurrentFromUi(this.props.ui);
             }
 
             if (!urlContainsCurrentAOKey && this.refetch(location)) {
@@ -119,6 +124,7 @@ export class App extends Component {
         );
 
         this.loadVisualization(this.props.location);
+
         this.unlisten = history.listen(location => {
             this.loadVisualization(location);
         });
@@ -128,7 +134,7 @@ export class App extends Component {
             e =>
                 e.key === 'Enter' &&
                 e.ctrlKey === true &&
-                this.props.onKeyUp(this.props.ui)
+                this.props.setCurrentFromUi(this.props.ui)
         );
     };
 
@@ -219,7 +225,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    onKeyUp: ui => dispatch(fromActions.fromCurrent.acSetCurrentFromUi(ui)),
+    setCurrentFromUi: ui =>
+        dispatch(fromActions.fromCurrent.acSetCurrentFromUi(ui)),
     setCurrent: current =>
         dispatch(fromActions.fromCurrent.acSetCurrent(current)),
     setVisualization: visualization =>
@@ -228,6 +235,8 @@ const mapDispatchToProps = dispatch => ({
         ),
     setUiFromVisualization: visualization =>
         dispatch(fromActions.fromUi.acSetUiFromVisualization(visualization)),
+    addParentGraphMap: parentGraphMap =>
+        dispatch(fromActions.fromUi.acAddParentGraphMap(parentGraphMap)),
 });
 
 App.contextTypes = {
