@@ -3,6 +3,7 @@ import {
     YEAR_OVER_YEAR_COLUMN,
     PIE,
     GAUGE,
+    defaultChartType,
 } from './chartTypes';
 import { getDimensionIdsByAxis, getItemIdsByDimension } from './layout';
 import { FIXED_DIMENSIONS } from './fixedDimensions';
@@ -16,7 +17,7 @@ const peId = FIXED_DIMENSIONS.pe.id;
 // Transform from backend model to store.ui format
 export const getUiFromVisualization = (vis, currentState = {}) => ({
     ...currentState,
-    type: vis.type,
+    type: vis.type || defaultChartType,
     options: getOptionsFromVisualization(vis),
     layout: getDimensionIdsByAxis(vis),
     itemsByDimension: getItemIdsByDimension(vis),
