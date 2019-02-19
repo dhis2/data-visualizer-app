@@ -5,7 +5,11 @@ import {
     GAUGE,
     defaultChartType,
 } from './chartTypes';
-import { getDimensionIdsByAxis, getItemIdsByDimension } from './layout';
+import {
+    getDimensionIdsByAxis,
+    getInverseLayout,
+    getItemIdsByDimension,
+} from './layout';
 import { FIXED_DIMENSIONS } from './fixedDimensions';
 import { isYearOverYear } from './chartTypes';
 import { getOptionsFromVisualization } from './options';
@@ -21,7 +25,10 @@ export const getUiFromVisualization = (vis, currentState = {}) => ({
     options: getOptionsFromVisualization(vis),
     layout: getDimensionIdsByAxis(vis),
     itemsByDimension: getItemIdsByDimension(vis),
-    parentGraphMap: vis.parentGraphMap || currentState.parentGraphMap,
+    parentGraphMap:
+        vis.parentGraphMap ||
+        getParentGraphMapFromVisualization(vis) ||
+        currentState.parentGraphMap,
     yearOverYearSeries:
         isYearOverYear(vis.type) && vis[BASE_FIELD_YEARLY_SERIES]
             ? vis[BASE_FIELD_YEARLY_SERIES]
@@ -64,4 +71,23 @@ export const getAdaptedUiByType = ui => {
         default:
             return ui;
     }
+};
+
+export const getParentGraphMapFromVisualization = vis => {
+    const ouId = FIXED_DIMENSIONS.ou.id;
+    const dimensionIdsByAxis = getDimensionIdsByAxis(vis);
+    const inverseLayout = getInverseLayout(dimensionIdsByAxis);
+    const ouAxis = inverseLayout[ouId];
+    const ouDimension = vis[ouAxis].find(
+        dimension => dimension.dimension === ouId
+    );
+    const parentGraphMap = {};
+
+    ouDimension.items
+        .filter(orgUnit => orgUnit.path)
+        .forEach(orgUnit => {
+            parentGraphMap[orgUnit.id] = orgUnit.path;
+        });
+
+    return parentGraphMap;
 };
