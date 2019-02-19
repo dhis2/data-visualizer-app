@@ -4,10 +4,13 @@
     height: 100vh;
     background-color: #f4f6f8;
     overflow: hidden;
-    font-family: 'Roboto', sans-serif;
 }
 .app * {
     outline: none;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
 }
 
 /* Flex */
