@@ -2,16 +2,17 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 import {
     chartTypeDisplayNames,
     isOpenAsType,
     OPEN_AS_GEO_MAP,
 } from '../../modules/chartTypes';
-import { sGetUiType } from '../../reducers/ui';
+import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
+import { sGetUi, sGetUiType } from '../../reducers/ui';
 import { sGetCurrent } from '../../reducers/current';
 import { sGetMetadata } from '../../reducers/metadata';
 import { acSetUiType } from '../../actions/ui';
@@ -23,14 +24,22 @@ import {
 import VisualizationTypeMenuItem from './VisualizationTypeMenuItem';
 import VisualizationTypeIcon from './VisualizationTypeIcon';
 import styles from './styles/VisualizationTypeSelector.style';
+import OpenAsMapConfirmationDialog from './OpenAsMapConfirmationDialog';
+
+const dxId = FIXED_DIMENSIONS.dx.id;
 
 export const MAPS_APP_URL = 'dhis-web-maps';
+
+export const defaultState = {
+    anchorEl: null,
+    openAsMapConfirmationDialogOpen: false,
+};
 
 export class VisualizationTypeSelector extends Component {
     constructor(props, context) {
         super(props);
 
-        this.state = { anchorEl: null };
+        this.state = defaultState;
         this.baseUrl = context.baseUrl;
         this.chartTypes = this.getChartTypes();
     }
@@ -39,19 +48,19 @@ export class VisualizationTypeSelector extends Component {
         this.setState({ anchorEl: event.currentTarget });
     };
 
-    handleMenuItemClick = type => event => {
+    handleMenuItemClick = type => () => {
         this.props.onTypeSelect(type);
         this.handleClose();
     };
 
-    handleOpenAsMenuItemClick = type => event => {
+    handleOpenAsMenuItemClick = type => () => {
         if (type === OPEN_AS_GEO_MAP) {
-            this.handleOpenChartAsMapClick();
+            if (this.shouldConfirmOpenAsMap()) {
+                this.toggleOpenAsMapConfirmationDialogOpen();
+            } else {
+                this.handleOpenChartAsMapClick();
+            }
         }
-    };
-
-    handleClose = () => {
-        this.setState({ anchorEl: null });
     };
 
     handleOpenChartAsMapClick = async () => {
@@ -65,6 +74,14 @@ export class VisualizationTypeSelector extends Component {
         window.location.href = `${
             this.baseUrl
         }/${MAPS_APP_URL}?currentAnalyticalObject=true`;
+    };
+
+    handleClose = () => {
+        this.setState({ anchorEl: null });
+    };
+
+    shouldConfirmOpenAsMap = () => {
+        return this.props.ui.itemsByDimension[dxId].length > 1;
     };
 
     getChartTypes = () => {
@@ -82,13 +99,25 @@ export class VisualizationTypeSelector extends Component {
         );
     };
 
+    toggleOpenAsMapConfirmationDialogOpen = () => {
+        this.setState({
+            openAsMapConfirmationDialogOpen: !this.state
+                .openAsMapConfirmationDialogOpen,
+        });
+    };
+
     render() {
-        const { anchorEl } = this.state;
+        const { anchorEl, openAsMapConfirmationDialogOpen } = this.state;
         const { visualizationType } = this.props;
         const { nativeTypes, openAsTypes } = this.chartTypes;
 
         return (
             <Fragment>
+                <OpenAsMapConfirmationDialog
+                    toggleDialog={this.toggleOpenAsMapConfirmationDialogOpen}
+                    open={openAsMapConfirmationDialogOpen}
+                    handleOpenChartAsMapClick={this.handleOpenChartAsMapClick}
+                />
                 <Button
                     onClick={this.handleButtonClick}
                     disableRipple
@@ -142,6 +171,7 @@ VisualizationTypeSelector.propTypes = {
     visualizationType: PropTypes.oneOf(Object.keys(chartTypeDisplayNames)),
     current: PropTypes.object,
     metadata: PropTypes.object,
+    ui: PropTypes.object,
 };
 
 VisualizationTypeSelector.contextTypes = {
@@ -152,6 +182,7 @@ const mapStateToProps = state => ({
     visualizationType: sGetUiType(state),
     current: sGetCurrent(state),
     metadata: sGetMetadata(state),
+    ui: sGetUi(state),
 });
 
 const mapDispatchToProps = dispatch => ({
