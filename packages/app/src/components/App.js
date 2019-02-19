@@ -21,7 +21,6 @@ import defaultMetadata from '../modules/metadata';
 import { sGetUi } from '../reducers/ui';
 
 import '@dhis2/ui/defaults/reset.css';
-import '@dhis2/ui/defaults/common.css';
 
 import './App.css';
 import './scrollbar.css';

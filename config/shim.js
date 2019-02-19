@@ -5,5 +5,5 @@ global.requestAnimationFrame = callback => {
 };
 
 // needed for headerbar beta
-global.DHIS_CONFIG = {};
+global.DHIS_CONFIG = { baseUrl: 'http://localhost:8080' };
 global.manifest = {};
