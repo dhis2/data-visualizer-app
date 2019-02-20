@@ -306,6 +306,15 @@
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
+"@dhis2/ui@^1.0.0-beta.11":
+  version "1.0.0-beta.11"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-1.0.0-beta.11.tgz#612637e5a085a73cea7da9030b5fff997d036329"
+  integrity sha512-Ygox1WQ2psrClsv46csJ+aUDBA8OtQGMc7hiTc1mm1le6uI/M4EgiAbr3hEVxKlSQjzDf0XcpG6j74eD6tQKHg==
+  dependencies:
+    classnames "^2.2.6"
+    material-design-icons-iconfont "^4.0.2"
+    typeface-roboto "^0.0.54"
+
 "@emotion/cache@10.0.0":
   version "10.0.0"
   resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-10.0.0.tgz#e22eadcb770de4131ec707c84207e9e1ce210413"
@@ -8824,6 +8833,11 @@ marked@~0.3.6:
   version "0.3.19"
   resolved "https://registry.yarnpkg.com/marked/-/marked-0.3.19.tgz#5d47f709c4c9fc3c216b6d46127280f40b39d790"
   integrity sha512-ea2eGWOqNxPcXv8dyERdSr/6FmzvWwzjMxpfGB/sbMccXoct+xY+YukPD+QTUZwyvK7BZwcr4m21WBOW41pAkg==
+
+material-design-icons-iconfont@^4.0.2:
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/material-design-icons-iconfont/-/material-design-icons-iconfont-4.0.5.tgz#4107ba3b8a9d688a3d9325fc7363af51b17d3aee"
+  integrity sha512-ByJJ1yz8+RfCx2uNiC5WjVCR7K3UWRb8ytWV3RMaoFRzQLNr/J5x7+Wg1+3OlIZahNXrId9Hu+BfXfQIo01v7g==
 
 material-design-icons@^3.0.1:
   version "3.0.1"
