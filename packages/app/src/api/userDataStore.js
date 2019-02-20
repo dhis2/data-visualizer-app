@@ -1,6 +1,5 @@
 import { getInstance } from 'd2';
 import { onError } from './index';
-import flow from 'lodash-es/flow';
 
 export const NAMESPACE = 'analytics';
 export const CURRENT_AO_KEY = 'currentAnalyticalObject';
@@ -12,41 +11,6 @@ export const getNamespace = async (d2, hasNamespace) =>
     hasNamespace
         ? await d2.currentUser.dataStore.get(NAMESPACE)
         : await d2.currentUser.dataStore.create(NAMESPACE);
-
-export const prepareCurrentAnalyticalObject = (current, metadata) =>
-    flow(
-        removeUnnecessaryAttributesFromAnalyticalObject,
-        appendDimensionItemNamesToAnalyticalObject.bind(this, metadata)
-    )(current);
-
-export const removeUnnecessaryAttributesFromAnalyticalObject = current => ({
-    ...current,
-    id: undefined,
-    name: undefined,
-    displayName: undefined,
-});
-
-export const appendDimensionItemNamesToAnalyticalObject = (
-    metadata,
-    current
-) => {
-    const appendNames = dimension => ({
-        ...dimension,
-        items: dimension.items
-            .filter(item => metadata[item.id])
-            .map(item => ({
-                ...item,
-                name: metadata[item.id].name,
-            })),
-    });
-
-    return {
-        ...current,
-        columns: current.columns.map(appendNames),
-        filters: current.filters.map(appendNames),
-        rows: current.rows.map(appendNames),
-    };
-};
 
 export const apiSave = async (data, key, namespace) => {
     try {
