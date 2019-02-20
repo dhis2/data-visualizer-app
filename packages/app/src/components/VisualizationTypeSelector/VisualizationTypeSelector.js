@@ -11,13 +11,14 @@ import {
     isOpenAsType,
     OPEN_AS_MAP,
 } from '../../modules/chartTypes';
-import { sGetUiType } from '../../reducers/ui';
+import { prepareCurrentAnalyticalObject } from '../../modules/currentAnalyticalObject';
+import { sGetUi, sGetUiType } from '../../reducers/ui';
 import { sGetCurrent } from '../../reducers/current';
 import { sGetMetadata } from '../../reducers/metadata';
 import { acSetUiType } from '../../actions/ui';
 import {
     apiSaveAOInUserDataStore,
-    prepareCurrentAnalyticalObject,
+    CURRENT_AO_KEY,
 } from '../../api/userDataStore';
 
 import VisualizationTypeMenuItem from './VisualizationTypeMenuItem';
@@ -57,14 +58,15 @@ export class VisualizationTypeSelector extends Component {
     handleOpenChartAsMapClick = async () => {
         const currentAnalyticalObject = prepareCurrentAnalyticalObject(
             this.props.current,
-            this.props.metadata
+            this.props.metadata,
+            this.props.ui
         );
 
         await apiSaveAOInUserDataStore(currentAnalyticalObject);
 
         window.location.href = `${
             this.baseUrl
-        }/${MAPS_APP_URL}?currentAnalyticalObject=true`;
+        }/${MAPS_APP_URL}?${CURRENT_AO_KEY}=true`;
     };
 
     handleClose = () => {
@@ -157,6 +159,7 @@ const mapStateToProps = state => ({
     visualizationType: sGetUiType(state),
     current: sGetCurrent(state),
     metadata: sGetMetadata(state),
+    ui: sGetUi(state),
 });
 
 const mapDispatchToProps = dispatch => ({

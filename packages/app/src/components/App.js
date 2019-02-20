@@ -227,8 +227,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
     setCurrentFromUi: ui =>
         dispatch(fromActions.fromCurrent.acSetCurrentFromUi(ui)),
-    setCurrent: current =>
-        dispatch(fromActions.fromCurrent.acSetCurrent(current)),
     setVisualization: visualization =>
         dispatch(
             fromActions.fromVisualization.acSetVisualization(visualization)

@@ -7,7 +7,9 @@ import * as actions from '../../actions/';
 import history from '../../modules/history';
 
 import { getStubContext } from '../../../../../config/testsContext';
+import { apiFetchAOFromUserDataStore, CURRENT_AO_KEY } from '../../api/userDataStore';
 import * as userDataStore from '../../api/userDataStore';
+import * as ui  from '../../modules/ui';
 
 describe('App', () => {
     let props;
@@ -47,15 +49,18 @@ describe('App', () => {
                 },
                 keyAnalysisRelativePeriod: 'LAST_12_MONTHS',
             },
-            setCurrent: jest.fn(),
+
+            addParentGraphMap: jest.fn(),
             setVisualization: jest.fn(),
             setUiFromVisualization: jest.fn(),
+            setCurrentFromUi: jest.fn(),
         };
         shallowApp = undefined;
 
         actions.tDoLoadVisualization = jest.fn();
         actions.clearVisualization = jest.fn();
         userDataStore.apiFetchAOFromUserDataStore = jest.fn();
+        ui.getParentGraphMapFromVisualization = jest.fn();
     });
 
     afterEach(() => {
@@ -131,7 +136,8 @@ describe('App', () => {
         });
 
         it('loads AO from user data store if id equals to "currentAnalyticalObject"', done => {
-            props.location.pathname = '/' + userDataStore.CURRENT_AO_KEY;
+            props.location.pathname = '/' + CURRENT_AO_KEY;
+
             app();
 
             setTimeout(() => {
@@ -139,7 +145,8 @@ describe('App', () => {
                     userDataStore.apiFetchAOFromUserDataStore
                 ).toBeCalledTimes(1);
 
-                expect(props.setCurrent).toBeCalledTimes(1);
+                expect(props.addParentGraphMap).toBeCalledTimes(1);
+                expect(props.setCurrentFromUi).toBeCalledTimes(1);
                 expect(props.setVisualization).toBeCalledTimes(1);
                 expect(props.setUiFromVisualization).toBeCalledTimes(1);
 
