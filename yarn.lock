@@ -229,7 +229,7 @@
 
 "@dhis2/d2-ui-interpretations@https://github.com/d2-ci/d2-ui-interpretations#refactor/interpretations-component":
   version "5.1.3"
-  resolved "https://github.com/d2-ci/d2-ui-interpretations#ed3e74c3424cbc2e93f6ae3b7c561b5c1f8e775a"
+  resolved "https://github.com/d2-ci/d2-ui-interpretations#3016bed2cb2839ad20c512c4372f747f564937b6"
   dependencies:
     "@dhis2/d2-i18n" "^1.0.3"
     "@dhis2/d2-i18n-extract" "^1.0.7"
