@@ -46,6 +46,7 @@ export class Interpretations extends Component {
                         d2={this.context.d2}
                         type={type}
                         id={id}
+                        appName={'CHART'}
                         currentInterpretationId={interpretationId}
                         onCurrentInterpretationChange={
                             this.onInterpretationChange
