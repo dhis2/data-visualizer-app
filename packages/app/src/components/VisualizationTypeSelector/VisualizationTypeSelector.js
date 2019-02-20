@@ -9,7 +9,7 @@ import Menu from '@material-ui/core/Menu';
 import {
     chartTypeDisplayNames,
     isOpenAsType,
-    OPEN_AS_GEO_MAP,
+    OPEN_AS_MAP,
 } from '../../modules/chartTypes';
 import { sGetUiType } from '../../reducers/ui';
 import { sGetCurrent } from '../../reducers/current';
@@ -49,7 +49,7 @@ export class VisualizationTypeSelector extends Component {
     };
 
     handleOpenAsMenuItemClick = type => () => {
-        if (type === OPEN_AS_GEO_MAP) {
+        if (type === OPEN_AS_MAP) {
             this.handleOpenChartAsMapClick();
         }
     };

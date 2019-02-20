@@ -26,7 +26,7 @@ import {
     GAUGE,
     YEAR_OVER_YEAR_LINE,
     YEAR_OVER_YEAR_COLUMN,
-    OPEN_AS_GEO_MAP,
+    OPEN_AS_MAP,
     chartTypeDisplayNames,
 } from '../../modules/chartTypes';
 
@@ -52,7 +52,7 @@ const VisualizationTypeIcon = ({ type = COLUMN, style }) => {
             return <YearOverYearLineIcon style={style} />;
         case YEAR_OVER_YEAR_COLUMN:
             return <YearOverYearColumnIcon style={style} />;
-        case OPEN_AS_GEO_MAP:
+        case OPEN_AS_MAP:
             return <GlobeIcon style={style} />;
         case COLUMN:
         default:
