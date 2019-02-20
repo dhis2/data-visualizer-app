@@ -1,5 +1,6 @@
 import {
-    appendDimensionItemNamesToAnalyticalObject, appendPathsToOrgUnits,
+    appendDimensionItemNamesToAnalyticalObject,
+    appendPathsToOrgUnits,
     prepareCurrentAnalyticalObject,
     removeUnnecessaryAttributesFromAnalyticalObject,
 } from '../currentAnalyticalObject';

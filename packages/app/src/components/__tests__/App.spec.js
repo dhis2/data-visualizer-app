@@ -7,9 +7,9 @@ import * as actions from '../../actions/';
 import history from '../../modules/history';
 
 import { getStubContext } from '../../../../../config/testsContext';
-import { apiFetchAOFromUserDataStore, CURRENT_AO_KEY } from '../../api/userDataStore';
+import { CURRENT_AO_KEY } from '../../api/userDataStore';
 import * as userDataStore from '../../api/userDataStore';
-import * as ui  from '../../modules/ui';
+import * as ui from '../../modules/ui';
 
 describe('App', () => {
     let props;
