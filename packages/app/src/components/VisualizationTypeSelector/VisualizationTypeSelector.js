@@ -11,8 +11,7 @@ import {
     isOpenAsType,
     OPEN_AS_GEO_MAP,
 } from '../../modules/chartTypes';
-import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
-import { sGetUi, sGetUiType } from '../../reducers/ui';
+import { sGetUiType } from '../../reducers/ui';
 import { sGetCurrent } from '../../reducers/current';
 import { sGetMetadata } from '../../reducers/metadata';
 import { acSetUiType } from '../../actions/ui';
@@ -24,15 +23,11 @@ import {
 import VisualizationTypeMenuItem from './VisualizationTypeMenuItem';
 import VisualizationTypeIcon from './VisualizationTypeIcon';
 import styles from './styles/VisualizationTypeSelector.style';
-import OpenAsMapConfirmationDialog from './OpenAsMapConfirmationDialog';
-
-const dxId = FIXED_DIMENSIONS.dx.id;
 
 export const MAPS_APP_URL = 'dhis-web-maps';
 
 export const defaultState = {
     anchorEl: null,
-    openAsMapConfirmationDialogOpen: false,
 };
 
 export class VisualizationTypeSelector extends Component {
@@ -55,11 +50,7 @@ export class VisualizationTypeSelector extends Component {
 
     handleOpenAsMenuItemClick = type => () => {
         if (type === OPEN_AS_GEO_MAP) {
-            if (this.shouldConfirmOpenAsMap()) {
-                this.toggleOpenAsMapConfirmationDialogOpen();
-            } else {
-                this.handleOpenChartAsMapClick();
-            }
+            this.handleOpenChartAsMapClick();
         }
     };
 
@@ -80,10 +71,6 @@ export class VisualizationTypeSelector extends Component {
         this.setState({ anchorEl: null });
     };
 
-    shouldConfirmOpenAsMap = () => {
-        return this.props.ui.itemsByDimension[dxId].length > 1;
-    };
-
     getChartTypes = () => {
         return Object.keys(chartTypeDisplayNames).reduce(
             (result, type) => {
@@ -99,25 +86,13 @@ export class VisualizationTypeSelector extends Component {
         );
     };
 
-    toggleOpenAsMapConfirmationDialogOpen = () => {
-        this.setState({
-            openAsMapConfirmationDialogOpen: !this.state
-                .openAsMapConfirmationDialogOpen,
-        });
-    };
-
     render() {
-        const { anchorEl, openAsMapConfirmationDialogOpen } = this.state;
+        const { anchorEl } = this.state;
         const { visualizationType } = this.props;
         const { nativeTypes, openAsTypes } = this.chartTypes;
 
         return (
             <Fragment>
-                <OpenAsMapConfirmationDialog
-                    toggleDialog={this.toggleOpenAsMapConfirmationDialogOpen}
-                    open={openAsMapConfirmationDialogOpen}
-                    handleOpenChartAsMapClick={this.handleOpenChartAsMapClick}
-                />
                 <Button
                     onClick={this.handleButtonClick}
                     disableRipple
@@ -182,7 +157,6 @@ const mapStateToProps = state => ({
     visualizationType: sGetUiType(state),
     current: sGetCurrent(state),
     metadata: sGetMetadata(state),
-    ui: sGetUi(state),
 });
 
 const mapDispatchToProps = dispatch => ({
