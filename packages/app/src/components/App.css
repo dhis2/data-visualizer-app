@@ -9,6 +9,10 @@
     outline: none;
 }
 
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
 /* Flex */
 
 .flex-ct {

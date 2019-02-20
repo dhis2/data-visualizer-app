@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
-import UI from 'ui/core/UI';
-import HeaderBar from 'ui/widgets/HeaderBar';
+import HeaderBar from '@dhis2/ui/widgets/HeaderBar';
 
 import FatalErrorBoundary from './ErrorBoundaries/FatalErrorBoundary';
 import Snackbar from '../components/Snackbar/Snackbar';
@@ -20,6 +19,8 @@ import * as fromActions from '../actions';
 import history from '../modules/history';
 import defaultMetadata from '../modules/metadata';
 import { sGetUi } from '../reducers/ui';
+
+import '@dhis2/ui/defaults/reset.css';
 
 import './App.css';
 import './scrollbar.css';
@@ -140,53 +141,44 @@ export class App extends Component {
 
         return (
             <FatalErrorBoundary>
-                <UI>
-                    <div className="app flex-ct flex-dir-col">
-                        <div className="section-headerbar">
-                            <HeaderBar appName={i18n.t('Data Visualizer')} />
+                <div className="app flex-ct flex-dir-col">
+                    <div className="section-headerbar">
+                        <HeaderBar appName={i18n.t('Data Visualizer')} />
+                    </div>
+                    <div className="section-toolbar flex-ct">
+                        <div className="toolbar-type">
+                            <VisualizationTypeSelector />
                         </div>
-                        <div className="section-toolbar flex-ct">
-                            <div className="toolbar-type">
-                                <VisualizationTypeSelector />
-                            </div>
-                            <div className="toolbar-menubar flex-1">
-                                <MenuBar
-                                    apiObjectName={this.props.apiObjectName}
-                                />
-                            </div>
-                        </div>
-                        <div className="section-main flex-1 flex-ct">
-                            <div className="main-left">
-                                <Dimensions />
-                            </div>
-                            <div className="main-center flex-1 flex-ct flex-dir-col">
-                                <div className="main-center-layout">
-                                    <Layout />
-                                </div>
-                                <div className="main-center-titlebar">
-                                    <TitleBar />
-                                </div>
-                                <div className="main-center-canvas flex-1">
-                                    {showVis ? (
-                                        <Visualization />
-                                    ) : (
-                                        <BlankCanvas />
-                                    )}
-                                </div>
-                            </div>
-                            {this.props.ui.rightSidebarOpen &&
-                                this.props.current && (
-                                    <div className="main-right">
-                                        <Interpretations
-                                            type={this.props.apiObjectName}
-                                            id={this.props.current.id}
-                                        />
-                                    </div>
-                                )}
+                        <div className="toolbar-menubar flex-1">
+                            <MenuBar apiObjectName={this.props.apiObjectName} />
                         </div>
                     </div>
-                    <Snackbar />
-                </UI>
+                    <div className="section-main flex-1 flex-ct">
+                        <div className="main-left">
+                            <Dimensions />
+                        </div>
+                        <div className="main-center flex-1 flex-ct flex-dir-col">
+                            <div className="main-center-layout">
+                                <Layout />
+                            </div>
+                            <div className="main-center-titlebar">
+                                <TitleBar />
+                            </div>
+                            <div className="main-center-canvas flex-1">
+                                {showVis ? <Visualization /> : <BlankCanvas />}
+                            </div>
+                        </div>
+                        {this.props.ui.rightSidebarOpen && this.props.current && (
+                            <div className="main-right">
+                                <Interpretations
+                                    type={this.props.apiObjectName}
+                                    id={this.props.current.id}
+                                />
+                            </div>
+                        )}
+                    </div>
+                </div>
+                <Snackbar />
             </FatalErrorBoundary>
         );
     }
