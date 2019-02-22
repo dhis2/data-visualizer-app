@@ -2,7 +2,6 @@ import { getParentGraphMapFromVisualization } from '../ui';
 
 describe('ui', () => {
     let mockCurrent;
-    let mockMetadata;
     let mockUi;
 
     beforeEach(() => {
@@ -44,12 +43,6 @@ describe('ui', () => {
                     ],
                 },
             ],
-        };
-        mockMetadata = {
-            Uvn6LCg7dVU: { name: 'ANC 1 Coverage' },
-            qhqAxPSTUXp: { name: 'Koinadugu' },
-            Vth0fbpFcsO: { name: 'Kono' },
-            2017: { name: '2017' },
         };
         mockUi = {
             parentGraphMap: {

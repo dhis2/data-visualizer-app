@@ -50,5 +50,5 @@ export default {
     },
     clearFix: {
         clear: 'both',
-    }
+    },
 };
