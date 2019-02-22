@@ -126,7 +126,7 @@ export class VisualizationTypeSelector extends Component {
                             onClick={this.handleMenuItemClick(type)}
                         />
                     ))}
-                    <div style={{ clear: 'both' }} />
+                    <div style={styles.clearFix} />
                     <hr style={styles.menuDivider} />
                     {openAsTypes.map(type => (
                         <VisualizationTypeMenuItem

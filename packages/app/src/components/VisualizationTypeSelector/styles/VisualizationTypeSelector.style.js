@@ -48,4 +48,7 @@ export default {
         whiteSpace: 'normal',
         textAlign: 'center',
     },
+    clearFix: {
+        clear: 'both',
+    }
 };
