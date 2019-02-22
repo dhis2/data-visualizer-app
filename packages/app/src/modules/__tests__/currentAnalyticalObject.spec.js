@@ -89,6 +89,37 @@ describe('currentAnalyticalObject', () => {
                 appendPathsToOrgUnits(mockUi, mockMetadata, mockCurrent)
             ).toEqual(expected);
         });
+
+        it('handles visualization without "ou" dimension', () => {
+            const mockCurrentWithoutOuDimension = {
+                ...mockCurrent,
+                rows: [],
+                columns: [
+                    {
+                        dimension: 'J5jldMd8OHv',
+                        items: [{ id: 'uYxK4wmcPqA' }, { id: 'RXL3lPSK8oG' }],
+                    },
+                ],
+                filters: [
+                    {
+                        dimension: 'pe',
+                        items: [{ id: 'LAST_YEAR' }],
+                    },
+                    {
+                        dimension: 'dx',
+                        items: [{ id: 'hfdmMSPBgLG' }],
+                    },
+                ],
+            };
+
+            expect(
+                appendPathsToOrgUnits(
+                    mockUi,
+                    mockMetadata,
+                    mockCurrentWithoutOuDimension
+                )
+            ).toEqual(mockCurrentWithoutOuDimension);
+        });
     });
 
     describe('appendDimensionItemNamesToAnalyticalObject', () => {

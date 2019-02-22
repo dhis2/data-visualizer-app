@@ -9,6 +9,10 @@ export const appendPathsToOrgUnits = (ui, metadata, current) => {
     const ouAxis = inverseLayout[ouId];
     const { parentGraphMap } = ui;
 
+    if (!ouAxis) {
+        return current;
+    }
+
     return {
         ...current,
         [ouAxis]: current[ouAxis].map(dimension => ({

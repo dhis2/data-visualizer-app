@@ -78,10 +78,15 @@ export const getParentGraphMapFromVisualization = vis => {
     const dimensionIdsByAxis = getDimensionIdsByAxis(vis);
     const inverseLayout = getInverseLayout(dimensionIdsByAxis);
     const ouAxis = inverseLayout[ouId];
+
+    if (!ouAxis) {
+        return {};
+    }
+
+    const parentGraphMap = {};
     const ouDimension = vis[ouAxis].find(
         dimension => dimension.dimension === ouId
     );
-    const parentGraphMap = {};
 
     ouDimension.items
         .filter(orgUnit => orgUnit.path)
