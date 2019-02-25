@@ -85,9 +85,9 @@ describe('currentAnalyticalObject', () => {
                 ],
             };
 
-            expect(
-                appendPathsToOrgUnits(mockUi, mockMetadata, mockCurrent)
-            ).toEqual(expected);
+            expect(appendPathsToOrgUnits(mockCurrent, mockUi)).toEqual(
+                expected
+            );
         });
 
         it('handles visualization without "ou" dimension', () => {
@@ -113,11 +113,7 @@ describe('currentAnalyticalObject', () => {
             };
 
             expect(
-                appendPathsToOrgUnits(
-                    mockUi,
-                    mockMetadata,
-                    mockCurrentWithoutOuDimension
-                )
+                appendPathsToOrgUnits(mockCurrentWithoutOuDimension, mockUi)
             ).toEqual(mockCurrentWithoutOuDimension);
         });
     });
@@ -142,8 +138,8 @@ describe('currentAnalyticalObject', () => {
             mockCurrent.rows.forEach(testDimensionItemNamesAreUndefined);
 
             const processed = appendDimensionItemNamesToAnalyticalObject(
-                mockMetadata,
-                mockCurrent
+                mockCurrent,
+                mockMetadata
             );
 
             processed.columns.forEach(testDimensionItemNamesAreNotUndefined);

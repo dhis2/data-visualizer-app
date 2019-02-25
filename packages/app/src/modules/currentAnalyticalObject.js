@@ -1,8 +1,7 @@
-import flow from 'lodash-es/flow';
 import { FIXED_DIMENSIONS } from './fixedDimensions';
 import { getDimensionIdsByAxis, getInverseLayout } from './layout';
 
-export const appendPathsToOrgUnits = (ui, metadata, current) => {
+export const appendPathsToOrgUnits = (current, ui) => {
     const ouId = FIXED_DIMENSIONS.ou.id;
     const dimensionIdsByAxis = getDimensionIdsByAxis(current);
     const inverseLayout = getInverseLayout(dimensionIdsByAxis);
@@ -33,8 +32,8 @@ export const removeUnnecessaryAttributesFromAnalyticalObject = current => ({
 });
 
 export const appendDimensionItemNamesToAnalyticalObject = (
-    metadata,
-    current
+    current,
+    metadata
 ) => {
     const appendNames = dimension => ({
         ...dimension,
@@ -54,9 +53,12 @@ export const appendDimensionItemNamesToAnalyticalObject = (
     };
 };
 
-export const prepareCurrentAnalyticalObject = (current, metadata, ui) =>
-    flow(
-        removeUnnecessaryAttributesFromAnalyticalObject,
-        appendDimensionItemNamesToAnalyticalObject.bind(this, metadata),
-        appendPathsToOrgUnits.bind(this, ui, metadata)
-    )(current);
+export const prepareCurrentAnalyticalObject = (current, metadata, ui) => {
+    let result;
+
+    result = removeUnnecessaryAttributesFromAnalyticalObject(current);
+    result = appendDimensionItemNamesToAnalyticalObject(result, metadata);
+    result = appendPathsToOrgUnits(result, ui);
+
+    return result;
+};
