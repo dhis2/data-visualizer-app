@@ -189,6 +189,16 @@
     lodash "^4.17.10"
     material-ui "^0.20.0"
 
+"@dhis2/d2-ui-core@5.2.5":
+  version "5.2.5"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-5.2.5.tgz#7a62b23e60e806ae2eae18d6d6b1a3f9415fd1a4"
+  integrity sha512-44J4JFCYSESQe4Oe1SjJj27o44fwnbXl3XSxJ9lTz+bWaECqQ1HAR+byrKIF4ED+Z+zxOOI/yNi67QnFEWnb1w==
+  dependencies:
+    babel-runtime "^6.26.0"
+    d2 "~31.4"
+    lodash "^4.17.10"
+    material-ui "^0.20.0"
+
 "@dhis2/d2-ui-favorites-dialog@5.1.3":
   version "5.1.3"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-favorites-dialog/-/d2-ui-favorites-dialog-5.1.3.tgz#fb86615ec16f373f23b7bd97df3c85765a800e4b"
@@ -217,16 +227,17 @@
     "@material-ui/icons" "^3.0.1"
     prop-types "^15.6.0"
 
-"@dhis2/d2-ui-interpretations@5.1.3":
-  version "5.1.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-interpretations/-/d2-ui-interpretations-5.1.3.tgz#3bce78a8b5baf55f4ea3bc58821a55c27b4d74fb"
-  integrity sha512-5JCIyxqkjaMWwZ1wxVwzQKbijWgg2VMTsiwUfULMf+xvWRKEsdfstJONE/orzrCzXLcLex8r6w4qQICP06QULA==
+"@dhis2/d2-ui-interpretations@5.2.5":
+  version "5.2.5"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-interpretations/-/d2-ui-interpretations-5.2.5.tgz#347b01b0fb3185547e7163b2089e9ce4c70a67be"
+  integrity sha512-3Aaj0s4avXF1B7puuxb04Y/TnHV0noa0lGno9IUKsX/q0NP5TRGIs/E9RAKuL7gZvuhSdBuW5t6ZLtXFllMszg==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.3"
     "@dhis2/d2-i18n-extract" "^1.0.7"
     "@dhis2/d2-i18n-generate" "^1.0.18"
-    "@dhis2/d2-ui-mentions-wrapper" "5.1.3"
-    "@dhis2/d2-ui-sharing-dialog" "5.1.3"
+    "@dhis2/d2-ui-mentions-wrapper" "5.2.5"
+    "@dhis2/d2-ui-rich-text" "5.2.5"
+    "@dhis2/d2-ui-sharing-dialog" "5.2.5"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     babel-runtime "^6.26.0"
@@ -238,10 +249,10 @@
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
-"@dhis2/d2-ui-mentions-wrapper@5.1.3":
-  version "5.1.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-mentions-wrapper/-/d2-ui-mentions-wrapper-5.1.3.tgz#23d661207a5dc5b261cca15a5a04bb847b06636c"
-  integrity sha512-JGOXrt6qVwp6HcOlEE1BU8Jt/sWEfX2oeviTOpCHAOmYoj2TzCZLWbsskYIVOrE9+EKZPlOF6PAxwsUUN75AWg==
+"@dhis2/d2-ui-mentions-wrapper@5.2.5":
+  version "5.2.5"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-mentions-wrapper/-/d2-ui-mentions-wrapper-5.2.5.tgz#8940959be239e03af45702d8849df2acd1aa3ff6"
+  integrity sha512-s8w/nXuZ4RakRpiVjEp/y1Jcq/sah6mqGnfi894hfbPbd6OtforCWwsKI+SySG97w8y7qPzbd8gkhE0UNgIe8Q==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.3"
     "@material-ui/core" "^3.3.1"
@@ -286,12 +297,35 @@
     react-sortable-hoc "^0.8.4"
     redux "^4.0.1"
 
+"@dhis2/d2-ui-rich-text@5.2.5":
+  version "5.2.5"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-rich-text/-/d2-ui-rich-text-5.2.5.tgz#74cb40330c54e25a470d8c29ed2307bb7dc3b4f5"
+  integrity sha512-2mNU/St2XNF3L4ggqNhgk+UYlSiy43GUT3hjfi4UfjuGyOrSmu/w43g0OMmNdiHGoUngAn0agzorlTFTGLql0Q==
+  dependencies:
+    babel-runtime "^6.26.0"
+    markdown-it "^8.4.2"
+    prop-types "^15.6.2"
+
 "@dhis2/d2-ui-sharing-dialog@5.1.3":
   version "5.1.3"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-sharing-dialog/-/d2-ui-sharing-dialog-5.1.3.tgz#5cca58ee0e185ca205720792582d507b77d83796"
   integrity sha512-+j6jSfi83elcClpDxYEm8B1kjwSW5p9aN7F04s+iJXbdPMYZLVhiszic5Qc+GCpAxSBHZW6/Gih3BGUdyoeT0Q==
   dependencies:
     "@dhis2/d2-ui-core" "5.1.3"
+    "@material-ui/core" "^3.3.1"
+    "@material-ui/icons" "^3.0.1"
+    babel-runtime "^6.26.0"
+    downshift "^2.2.2"
+    prop-types "^15.5.10"
+    recompose "^0.26.0"
+    rxjs "^5.5.7"
+
+"@dhis2/d2-ui-sharing-dialog@5.2.5":
+  version "5.2.5"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-sharing-dialog/-/d2-ui-sharing-dialog-5.2.5.tgz#ab0ba34436004aa9e23897a5d1ea5f346bec5601"
+  integrity sha512-xrmmyV5Tx+pfR88Na+UsDpIdAulPiuSb7yojmu9CUadDEtxAEkyEhd7QRx+hny7wgkaBZJBeR30rdXvvytSayQ==
+  dependencies:
+    "@dhis2/d2-ui-core" "5.2.5"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     babel-runtime "^6.26.0"
@@ -4355,6 +4389,13 @@ d2@~31.1:
     jsdoc "^3.5.5"
     whatwg-fetch "^2.0.3"
 
+d2@~31.4:
+  version "31.4.0"
+  resolved "https://registry.yarnpkg.com/d2/-/d2-31.4.0.tgz#761e297d0f6a5b4b1d6043de176d887ee5faa09b"
+  integrity sha512-8Bw4W4XVc6jDlZ/+g2TJW6iuxcLAi8ii8Iv0tRBe1M+WjH+x6UWfQuMKxXL/hZtOaa0TNiRouyp50pVBuXawIw==
+  dependencies:
+    whatwg-fetch "^2.0.3"
+
 d3-color@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/d3-color/-/d3-color-1.0.1.tgz#73cc91f4ee3f12e00ca06b1596a7c83cf104723a"
@@ -4397,7 +4438,7 @@ data-urls@^1.0.0:
 
 "data-visualizer-plugin@github:d2-ci/data-visualizer-plugin":
   version "32.0.2"
-  resolved "https://codeload.github.com/d2-ci/data-visualizer-plugin/tar.gz/1b0433a03ea4f1149460f0edfe5d01c3964061b3"
+  resolved "https://codeload.github.com/d2-ci/data-visualizer-plugin/tar.gz/6abf0b27ef92304e15c22d88aea9e1cde1fb1243"
   dependencies:
     "@material-ui/core" "^3.1.2"
     d2 "31.2.1"
@@ -8395,6 +8436,13 @@ libnpmpublish@^1.1.1:
     semver "^5.5.1"
     ssri "^6.0.1"
 
+linkify-it@^2.0.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/linkify-it/-/linkify-it-2.1.0.tgz#c4caf38a6cd7ac2212ef3c7d2bde30a91561f9db"
+  integrity sha512-4REs8/062kV2DSHxNfq5183zrqXMl7WP0WzABH9IeJI+NLm429FgE1PDecltYfnOoFDFlZGh2T8PfZn0r+GTRg==
+  dependencies:
+    uc.micro "^1.0.1"
+
 listr-silent-renderer@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/listr-silent-renderer/-/listr-silent-renderer-1.1.1.tgz#924b5a3757153770bf1a8e3fbf74b8bbf3f9242e"
@@ -8853,6 +8901,17 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
+markdown-it@^8.4.2:
+  version "8.4.2"
+  resolved "https://registry.yarnpkg.com/markdown-it/-/markdown-it-8.4.2.tgz#386f98998dc15a37722aa7722084f4020bdd9b54"
+  integrity sha512-GcRz3AWTqSUphY3vsUqQSFMbgR38a4Lh3GWlHRh/7MRwz8mcu9n2IO7HOh+bXHrR9kOPDl5RNCaEsrneb+xhHQ==
+  dependencies:
+    argparse "^1.0.7"
+    entities "~1.1.1"
+    linkify-it "^2.0.0"
+    mdurl "^1.0.1"
+    uc.micro "^1.0.5"
+
 marked@~0.3.6:
   version "0.3.19"
   resolved "https://registry.yarnpkg.com/marked/-/marked-0.3.19.tgz#5d47f709c4c9fc3c216b6d46127280f40b39d790"
@@ -8898,6 +8957,11 @@ md5.js@^1.3.4:
     hash-base "^3.0.0"
     inherits "^2.0.1"
     safe-buffer "^5.1.2"
+
+mdurl@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/mdurl/-/mdurl-1.0.1.tgz#fe85b2ec75a59037f2adfec100fd6c601761152e"
+  integrity sha1-/oWy7HWlkDfyrf7BAP1sYBdhFS4=
 
 media-typer@0.3.0:
   version "0.3.0"
@@ -13004,6 +13068,11 @@ ua-parser-js@^0.7.18:
   version "0.7.19"
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.19.tgz#94151be4c0a7fb1d001af7022fdaca4642659e4b"
   integrity sha512-T3PVJ6uz8i0HzPxOF9SWzWAlfN/DavlpQqepn22xgve/5QecC+XMCAtmUNnY7C9StehaV6exjUCI801lOI7QlQ==
+
+uc.micro@^1.0.1, uc.micro@^1.0.5:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/uc.micro/-/uc.micro-1.0.6.tgz#9c411a802a409a91fc6cf74081baba34b24499ac"
+  integrity sha512-8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA==
 
 uglify-es@^3.3.9:
   version "3.3.9"
