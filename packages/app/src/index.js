@@ -62,11 +62,12 @@ const init = async () => {
     const baseUrl = isProd
         ? manifest.activities.dhis.href
         : DHIS_CONFIG.baseUrl;
+
     config.baseUrl = `${baseUrl}/api/${manifest.dhis2.apiVersion}`;
     config.headers = isProd
         ? null
         : { Authorization: DHIS_CONFIG.authorization };
-    config.schemas = ['chart', 'organisationUnit'];
+    config.schemas = ['chart', 'organisationUnit', 'userGroup'];
 
     const userSettings = extractUserSettings(await getUserSettings());
 

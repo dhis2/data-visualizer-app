@@ -1,6 +1,7 @@
 export default {
     wrapper: {
         position: 'relative',
+        width: '380px',
     },
     container: {
         position: 'absolute',
