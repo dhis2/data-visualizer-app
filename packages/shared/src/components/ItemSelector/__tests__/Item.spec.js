@@ -2,8 +2,8 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Item from '../Item';
 import RemoveDimensionButton from '../buttons/RemoveDimensionButton';
-import ItemIcon from '../../../../assets/ItemIcon';
-import { colors } from '../../../../modules/colors';
+import ItemIcon from '../ItemIcon';
+import { colors } from '../../../modules/colors';
 
 describe('The Item component ', () => {
     let props;
@@ -22,7 +22,7 @@ describe('The Item component ', () => {
             index: 0,
             name: 'displayTestName',
             highlighted: false,
-            onItemClick: jest.fn(),
+            onClick: jest.fn(),
         };
         shallowItem = undefined;
     });
@@ -87,15 +87,15 @@ describe('The Item component ', () => {
     });
 
     describe('onClick', () => {
-        it('fires onItemClick property', () => {
+        it('fires onClick property', () => {
             item()
                 .props()
                 .onClick({ preventDefault: () => undefined });
 
-            expect(props.onItemClick).toBeCalledTimes(1);
+            expect(props.onClick).toBeCalledTimes(1);
         });
 
-        it('fires onItemClick with correct arguments when metaKey pressed', () => {
+        it('fires onClick with correct arguments when metaKey pressed', () => {
             item()
                 .props()
                 .onClick({
@@ -105,11 +105,11 @@ describe('The Item component ', () => {
                     shiftKey: false,
                 });
 
-            expect(props.onItemClick).toBeCalledTimes(1);
-            expect(props.onItemClick).toBeCalledWith(true, false, 0, 'testID');
+            expect(props.onClick).toBeCalledTimes(1);
+            expect(props.onClick).toBeCalledWith(true, false, 0, 'testID');
         });
 
-        it('fires onItemClick with correct arguments when ctrlKey pressed', () => {
+        it('fires onClick with correct arguments when ctrlKey pressed', () => {
             item()
                 .props()
                 .onClick({
@@ -119,11 +119,11 @@ describe('The Item component ', () => {
                     shiftKey: false,
                 });
 
-            expect(props.onItemClick).toBeCalledTimes(1);
-            expect(props.onItemClick).toBeCalledWith(true, false, 0, 'testID');
+            expect(props.onClick).toBeCalledTimes(1);
+            expect(props.onClick).toBeCalledWith(true, false, 0, 'testID');
         });
 
-        it('fires onItemClick with correct arguments when shiftKey pressed', () => {
+        it('fires onClick with correct arguments when shiftKey pressed', () => {
             item()
                 .props()
                 .onClick({
@@ -133,8 +133,8 @@ describe('The Item component ', () => {
                     shiftKey: true,
                 });
 
-            expect(props.onItemClick).toBeCalledTimes(1);
-            expect(props.onItemClick).toBeCalledWith(false, true, 0, 'testID');
+            expect(props.onClick).toBeCalledTimes(1);
+            expect(props.onClick).toBeCalledWith(false, true, 0, 'testID');
         });
     });
 });

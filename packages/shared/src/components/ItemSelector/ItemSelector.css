@@ -1,68 +1,38 @@
-.dimension-item {
+.item-selector-item {
     display: flex;
     margin: 2px;
 }
 
-.dimension-item.selected {
+.item-selector-item.selected {
     z-index: 10000;
 }
 
-.data-dimension-dialog {
-    height: 389px;
-}
-
-.dynamic-dimension-dialog {
-    height: 495px;
-}
-
-.data-dimension-list {
-    height: 351px;
-}
-
-.dynamic-dimension-list {
-    height: 457px;
-}
-
-.data-dimension-dialog,
-.dynamic-dimension-dialog {
-    border: 1px solid #e0e0e0;
-}
-
-.data-dimension-list,
-.dynamic-dimension-list {
+.item-selector-list {
     user-select: none;
     list-style: none;
-    overflow-y: auto;
-    width: 418px;
     border-bottom: 0px;
     padding-left: 0px;
     margin: 0px;
 }
 
-.data-dimension-arrow-forward-button,
-.dynamic-dimension-arrow-forward-button,
-.data-dimension-arrow-back-button,
-.dynamic-dimension-arrow-back-button {
+.item-selector-arrow-forward-button,
+.item-selector-arrow-back-button {
     outline: none;
     min-width: 39px;
     padding: 0px;
     border-radius: 4px;
     background-color: white;
     box-shadow: 0px 2px 5px #b1b1b1;
+    position: absolute;
+    left: 452px;
 }
 
-.data-dimension-arrow-forward-button,
-.dynamic-dimension-arrow-forward-button {
-    position: absolute;
+.item-selector-arrow-forward-button {
     top: 277px;
-    left: 452px;
 }
 
-.data-dimension-arrow-back-button,
-.dynamic-dimension-arrow-back-button {
-    position: absolute;
+.item-selector-arrow-back-button {
     top: 347px;
-    left: 452px;
 }
 
 .unselected-item-label {
@@ -92,6 +62,15 @@
     background-color: #b2dfdb;
 }
 
+.ghost {
+    transition: opacity 0.2s ease;
+    opacity: 0.2;
+}
+
 .selected-list-item:hover {
     background-color: #86c4bf;
+}
+
+.item-selector-item:focus {
+    outline: none;
 }
