@@ -8,6 +8,8 @@ import history from '../../modules/history';
 
 import { getStubContext } from '../../../../../config/testsContext';
 
+jest.mock('../Visualization/Visualization', () => () => <div />);
+
 describe('App', () => {
     let props;
     let shallowApp;

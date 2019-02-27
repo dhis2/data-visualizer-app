@@ -4,6 +4,7 @@
     "description": "analytics shared components and modules",
     "author": "Jen Jones Arnesen <jennifer@dhis2.org>",
     "license": "BSD-3-Clause",
+    "private": true,
     "main": "./build/index.js",
     "scripts": {
         "clean": "rm -rf ./build/*",
