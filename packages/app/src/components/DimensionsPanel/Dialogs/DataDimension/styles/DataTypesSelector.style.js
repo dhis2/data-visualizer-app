@@ -1,8 +1,7 @@
-import { colors } from '../../../../../modules/colors';
+import { colors } from 'analytics-shared';
 
 export const styles = {
     container: {
-        border: `1px solid ${colors.greyLight}`,
         display: 'flex',
         flexFlow: 'column',
         height: 53,

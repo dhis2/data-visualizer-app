@@ -22,7 +22,7 @@ module.exports = {
             '<rootDir>/config/jest/fileTransform.js',
     },
     transformIgnorePatterns: [
-        'node_modules/(?!(lodash-es|@dhis2/d2-ui-[a-z-]+)/)',
+        'node_modules/(?!(lodash-es|analytics-shared|@dhis2/d2-ui-[a-z-]+)/)',
     ],
     moduleFileExtensions: ['js', 'jsx'],
     moduleDirectories: ['node_modules'],

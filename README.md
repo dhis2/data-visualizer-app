@@ -5,11 +5,11 @@ This is a lerna repo that contains the data-visualizer-app. Eventually it will a
 ## Getting started
 
 To run data-visualizer-app from the repo root directory, install the dependencies for all packages
-and link all the packages in the repo:
+and link all the packages in the repo, then make sure the plugin is built:
 
 ```
 $ yarn install
-$ yarn bootstrap
+$ yarn build
 ```
 
 ### Development

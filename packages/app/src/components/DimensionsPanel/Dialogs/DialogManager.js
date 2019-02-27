@@ -23,27 +23,19 @@ import {
     sGetUiActiveModalDialog,
 } from '../../../reducers/ui';
 import { sGetDimensions } from '../../../reducers/dimensions';
-
 import { apiFetchRecommendedIds } from '../../../api/dimensions';
-
 import { FIXED_DIMENSIONS } from '../../../modules/fixedDimensions';
 
 const dxId = FIXED_DIMENSIONS.dx.id;
 const peId = FIXED_DIMENSIONS.pe.id;
 const ouId = FIXED_DIMENSIONS.ou.id;
 
-export const fixedDialogs = {
-    [dxId]: <DataDimension />,
-    [ouId]: <OrgUnitDimension />,
-    [peId]: <PeriodDimension />,
-};
-
-export const defaultState = {
-    mounted: [],
-};
+const ouDialogContent = <OrgUnitDimension />;
 
 export class DialogManager extends Component {
-    state = defaultState;
+    state = {
+        onMounted: false,
+    };
 
     componentDidUpdate = prevProps => {
         const shouldFetchIds =
@@ -54,13 +46,8 @@ export class DialogManager extends Component {
             this.fetchRecommended();
         }
 
-        if (
-            this.props.dialogId &&
-            !this.state.mounted.includes(this.props.dialogId)
-        ) {
-            this.setState({
-                mounted: [...this.state.mounted, this.props.dialogId],
-            });
+        if (this.props.dialogId === ouId && !this.state.ouMounted) {
+            this.setState({ ouMounted: true });
         }
     };
 
@@ -73,53 +60,73 @@ export class DialogManager extends Component {
         this.props.setRecommendedIds(ids);
     }, 1000);
 
-    renderDialogContent = () => (
-        <Fragment>
-            {Object.keys(FIXED_DIMENSIONS).map(dimensionId => {
-                return this.state.mounted.includes(dimensionId) ? (
-                    <div
-                        key={dimensionId}
-                        style={{
-                            display:
-                                dimensionId === this.props.dialogId
-                                    ? 'block'
-                                    : 'none',
-                        }}
-                    >
-                        {fixedDialogs[dimensionId]}
-                    </div>
-                ) : null;
-            })}
-            {this.props.dialogId &&
-                !Object.keys(FIXED_DIMENSIONS).includes(
-                    this.props.dialogId
-                ) && (
+    // The OU content is persisted as mounted in order
+    // to cache the org unit tree data
+    renderPersistedContent = () => {
+        if (this.state.ouMounted) {
+            return (
+                <div
+                    key={ouId}
+                    style={{
+                        display:
+                            ouId === this.props.dialogId ? 'block' : 'none',
+                    }}
+                >
+                    {ouDialogContent}
+                </div>
+            );
+        }
+
+        return null;
+    };
+
+    renderDialogContent = () => {
+        const { dialogId } = this.props;
+        const dynamicContent = () => {
+            if (dialogId === dxId) {
+                return <DataDimension />;
+            }
+
+            if (dialogId === peId) {
+                return <PeriodDimension />;
+            }
+
+            if (!Object.keys(FIXED_DIMENSIONS).includes(dialogId)) {
+                return (
                     <DynamicDimension
-                        dialogId={this.props.dialogId}
-                        dialogTitle={
-                            this.props.dimensions[this.props.dialogId].name
-                        }
+                        dialogId={dialogId}
+                        dialogTitle={this.props.dimensions[dialogId].name}
                     />
-                )}
-        </Fragment>
-    );
+                );
+            }
+            return null;
+        };
+
+        return (
+            <Fragment>
+                {this.renderPersistedContent()}
+                {dialogId && dynamicContent()}
+            </Fragment>
+        );
+    };
 
     render() {
+        const { dialogId } = this.props;
+        const keepMounted = !dialogId || dialogId === ouId;
+
         return (
             <Dialog
                 data-test="dialog-manager"
-                open={!!this.props.dialogId}
+                open={!!dialogId}
                 onClose={() => this.props.closeDialog(null)}
                 maxWidth="lg"
                 disableEnforceFocus
-                keepMounted
+                keepMounted={keepMounted}
             >
                 {this.renderDialogContent()}
                 <DialogActions>
                     <HideButton />
-                    {this.props.dialogId && (
-                        <AddToLayoutButton dialogId={this.props.dialogId} />
-                    )}
+                    {dialogId && <AddToLayoutButton dialogId={dialogId} />}
                 </DialogActions>
             </Dialog>
         );

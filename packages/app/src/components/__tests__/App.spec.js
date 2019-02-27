@@ -11,6 +11,8 @@ import { CURRENT_AO_KEY } from '../../api/userDataStore';
 import * as userDataStore from '../../api/userDataStore';
 import * as ui from '../../modules/ui';
 
+jest.mock('../Visualization/Visualization', () => () => <div />);
+
 describe('App', () => {
     let props;
     let shallowApp;

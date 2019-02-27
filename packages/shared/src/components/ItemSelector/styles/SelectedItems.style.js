@@ -1,4 +1,4 @@
-import { colors } from '../../../../modules/colors';
+import { colors } from '../../../modules/colors';
 
 export const styles = {
     container: {
@@ -23,12 +23,13 @@ export const styles = {
     list: {
         userSelect: 'none',
         listStyle: 'none',
-        overflowY: 'auto',
+        overflowY: 'scroll',
         height: '455px',
         paddingLeft: '0px',
         margin: '0px',
     },
     deselectButton: {
-        left: '76px',
+        margin: '0 auto',
+        display: 'block',
     },
 };
