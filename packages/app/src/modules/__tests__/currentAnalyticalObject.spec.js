@@ -119,20 +119,20 @@ describe('currentAnalyticalObject', () => {
     });
 
     describe('appendDimensionItemNamesToAnalyticalObject', () => {
+        const testDimensionItemNamesAreUndefined = dimension => {
+            dimension.items.forEach(item => {
+                expect(item.name).toBeUndefined();
+            });
+        };
+
+        const testDimensionItemNamesAreNotUndefined = dimension => {
+            dimension.items.forEach(item => {
+                expect(item.name).not.toBeUndefined();
+                expect(item.name).toEqual(mockMetadata[item.id].name);
+            });
+        };
+
         it('appends dimension item names to analytical object', () => {
-            const testDimensionItemNamesAreUndefined = dimension => {
-                dimension.items.forEach(item => {
-                    expect(item.name).toBeUndefined();
-                });
-            };
-
-            const testDimensionItemNamesAreNotUndefined = dimension => {
-                dimension.items.forEach(item => {
-                    expect(item.name).not.toBeUndefined();
-                    expect(item.name).toEqual(mockMetadata[item.id].name);
-                });
-            };
-
             mockCurrent.columns.forEach(testDimensionItemNamesAreUndefined);
             mockCurrent.filters.forEach(testDimensionItemNamesAreUndefined);
             mockCurrent.rows.forEach(testDimensionItemNamesAreUndefined);
@@ -145,6 +145,21 @@ describe('currentAnalyticalObject', () => {
             processed.columns.forEach(testDimensionItemNamesAreNotUndefined);
             processed.filters.forEach(testDimensionItemNamesAreNotUndefined);
             processed.rows.forEach(testDimensionItemNamesAreNotUndefined);
+        });
+
+        it('passes dimension items without names as they are without skipping them', () => {
+            mockCurrent.columns.forEach(testDimensionItemNamesAreUndefined);
+            mockCurrent.filters.forEach(testDimensionItemNamesAreUndefined);
+            mockCurrent.rows.forEach(testDimensionItemNamesAreUndefined);
+
+            mockMetadata = {};
+
+            const processed = appendDimensionItemNamesToAnalyticalObject(
+                mockCurrent,
+                mockMetadata
+            );
+
+            expect(processed).toEqual(mockCurrent);
         });
     });
 

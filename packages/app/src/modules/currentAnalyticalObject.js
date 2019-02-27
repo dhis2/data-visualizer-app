@@ -37,12 +37,10 @@ export const appendDimensionItemNamesToAnalyticalObject = (
 ) => {
     const appendNames = dimension => ({
         ...dimension,
-        items: dimension.items
-            .filter(item => metadata[item.id])
-            .map(item => ({
-                ...item,
-                name: metadata[item.id].name,
-            })),
+        items: dimension.items.map(item => ({
+            ...item,
+            name: metadata[item.id] ? metadata[item.id].name : undefined,
+        })),
     });
 
     return {
