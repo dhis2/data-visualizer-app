@@ -19,11 +19,16 @@ import * as fromActions from '../actions';
 import history from '../modules/history';
 import defaultMetadata from '../modules/metadata';
 import { sGetUi } from '../reducers/ui';
+import {
+    apiFetchAOFromUserDataStore,
+    CURRENT_AO_KEY,
+} from '../api/userDataStore';
 
 import '@dhis2/ui/defaults/reset.css';
 
 import './App.css';
 import './scrollbar.css';
+import { getParentGraphMapFromVisualization } from '../modules/ui';
 
 export class App extends Component {
     unlisten = null;
@@ -60,13 +65,27 @@ export class App extends Component {
         const { store } = this.context;
 
         if (location.pathname.length > 1) {
+            // /currentAnalyticalObject
             // /${id}/
             // /${id}/interpretation/${interpretationId}
             const pathParts = location.pathname.slice(1).split('/');
             const id = pathParts[0];
             const interpretationId = pathParts[2];
+            const urlContainsCurrentAOKey = id === CURRENT_AO_KEY;
 
-            if (this.refetch(location)) {
+            if (urlContainsCurrentAOKey) {
+                const AO = await apiFetchAOFromUserDataStore();
+
+                this.props.addParentGraphMap(
+                    getParentGraphMapFromVisualization(AO)
+                );
+
+                this.props.setVisualization(AO);
+                this.props.setUiFromVisualization(AO);
+                this.props.setCurrentFromUi(this.props.ui);
+            }
+
+            if (!urlContainsCurrentAOKey && this.refetch(location)) {
                 await store.dispatch(
                     fromActions.tDoLoadVisualization(
                         this.props.apiObjectName,
@@ -106,6 +125,7 @@ export class App extends Component {
         );
 
         this.loadVisualization(this.props.location);
+
         this.unlisten = history.listen(location => {
             this.loadVisualization(location);
         });
@@ -115,7 +135,7 @@ export class App extends Component {
             e =>
                 e.key === 'Enter' &&
                 e.ctrlKey === true &&
-                this.props.onKeyUp(this.props.ui)
+                this.props.setCurrentFromUi(this.props.ui)
         );
     };
 
@@ -197,7 +217,16 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    onKeyUp: ui => dispatch(fromActions.fromCurrent.acSetCurrentFromUi(ui)),
+    setCurrentFromUi: ui =>
+        dispatch(fromActions.fromCurrent.acSetCurrentFromUi(ui)),
+    setVisualization: visualization =>
+        dispatch(
+            fromActions.fromVisualization.acSetVisualization(visualization)
+        ),
+    setUiFromVisualization: visualization =>
+        dispatch(fromActions.fromUi.acSetUiFromVisualization(visualization)),
+    addParentGraphMap: parentGraphMap =>
+        dispatch(fromActions.fromUi.acAddParentGraphMap(parentGraphMap)),
 });
 
 App.contextTypes = {

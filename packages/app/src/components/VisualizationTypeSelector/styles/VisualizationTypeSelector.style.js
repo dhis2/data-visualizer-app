@@ -17,6 +17,11 @@ export default {
         maxWidth: '600px',
         padding: 0,
     },
+    menuDivider: {
+        border: 'none',
+        borderBottom: '1px solid',
+        borderColor: colors.greyLight,
+    },
     menuItem: {
         height: 120,
         width: 126,
@@ -30,6 +35,7 @@ export default {
     },
     listItemIcon: {
         margin: 0,
+        marginBottom: 15,
     },
     listItemSvg: {
         width: 48,
@@ -41,5 +47,8 @@ export default {
         padding: 0,
         whiteSpace: 'normal',
         textAlign: 'center',
+    },
+    clearFix: {
+        clear: 'both',
     },
 };

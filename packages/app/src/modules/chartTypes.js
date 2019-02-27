@@ -12,6 +12,7 @@ export const GAUGE = 'GAUGE';
 export const BUBBLE = 'BUBBLE';
 export const YEAR_OVER_YEAR_LINE = 'YEAR_OVER_YEAR_LINE';
 export const YEAR_OVER_YEAR_COLUMN = 'YEAR_OVER_YEAR_COLUMN';
+export const OPEN_AS_MAP = 'OPEN_AS_MAP';
 
 export const chartTypeDisplayNames = {
     [COLUMN]: i18n.t('Column'),
@@ -25,10 +26,14 @@ export const chartTypeDisplayNames = {
     [GAUGE]: i18n.t('Gauge'),
     [YEAR_OVER_YEAR_LINE]: i18n.t('Year over year (line)'),
     [YEAR_OVER_YEAR_COLUMN]: i18n.t('Year over year (column)'),
+    [OPEN_AS_MAP]: i18n.t('Open as: Map'),
 };
 
 const stackedTypes = [STACKED_COLUMN, STACKED_BAR, AREA];
 const yearOverYearTypes = [YEAR_OVER_YEAR_LINE, YEAR_OVER_YEAR_COLUMN];
+const openAsTypes = [OPEN_AS_MAP];
 
+export const defaultChartType = COLUMN;
 export const isStacked = type => stackedTypes.includes(type);
 export const isYearOverYear = type => yearOverYearTypes.includes(type);
+export const isOpenAsType = type => openAsTypes.includes(type);

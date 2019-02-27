@@ -1,39 +1,97 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import VisualizationTypeIcon from './VisualizationTypeIcon';
-import { chartTypeDisplayNames } from '../../modules/chartTypes';
-import { sGetUiType } from '../../reducers/ui';
+
+import {
+    chartTypeDisplayNames,
+    isOpenAsType,
+    OPEN_AS_MAP,
+} from '../../modules/chartTypes';
+import { prepareCurrentAnalyticalObject } from '../../modules/currentAnalyticalObject';
+import { sGetUi, sGetUiType } from '../../reducers/ui';
+import { sGetCurrent } from '../../reducers/current';
+import { sGetMetadata } from '../../reducers/metadata';
 import { acSetUiType } from '../../actions/ui';
+import {
+    apiSaveAOInUserDataStore,
+    CURRENT_AO_KEY,
+} from '../../api/userDataStore';
+
+import VisualizationTypeMenuItem from './VisualizationTypeMenuItem';
+import VisualizationTypeIcon from './VisualizationTypeIcon';
 import styles from './styles/VisualizationTypeSelector.style';
 
+export const MAPS_APP_URL = 'dhis-web-maps';
+
+export const defaultState = {
+    anchorEl: null,
+};
+
 export class VisualizationTypeSelector extends Component {
-    state = {
-        anchorEl: null,
-    };
+    constructor(props, context) {
+        super(props);
+
+        this.state = defaultState;
+        this.baseUrl = context.baseUrl;
+        this.chartTypes = this.getChartTypes();
+    }
 
     handleButtonClick = event => {
         this.setState({ anchorEl: event.currentTarget });
     };
 
-    handleMenuItemClick = type => event => {
+    handleMenuItemClick = type => () => {
         this.props.onTypeSelect(type);
         this.handleClose();
+    };
+
+    handleOpenAsMenuItemClick = type => () => {
+        if (type === OPEN_AS_MAP) {
+            this.handleOpenChartAsMapClick();
+        }
+    };
+
+    handleOpenChartAsMapClick = async () => {
+        const currentAnalyticalObject = prepareCurrentAnalyticalObject(
+            this.props.current,
+            this.props.metadata,
+            this.props.ui
+        );
+
+        await apiSaveAOInUserDataStore(currentAnalyticalObject);
+
+        window.location.href = `${
+            this.baseUrl
+        }/${MAPS_APP_URL}?${CURRENT_AO_KEY}=true`;
     };
 
     handleClose = () => {
         this.setState({ anchorEl: null });
     };
 
+    getChartTypes = () => {
+        return Object.keys(chartTypeDisplayNames).reduce(
+            (result, type) => {
+                const chartType = isOpenAsType(type)
+                    ? 'openAsTypes'
+                    : 'nativeTypes';
+
+                result[chartType].push(type);
+
+                return result;
+            },
+            { nativeTypes: [], openAsTypes: [] }
+        );
+    };
+
     render() {
         const { anchorEl } = this.state;
         const { visualizationType } = this.props;
+        const { nativeTypes, openAsTypes } = this.chartTypes;
 
         return (
             <Fragment>
@@ -59,26 +117,26 @@ export class VisualizationTypeSelector extends Component {
                         style: styles.menu,
                     }}
                 >
-                    {Object.keys(chartTypeDisplayNames).map(type => (
-                        <MenuItem
+                    {nativeTypes.map(type => (
+                        <VisualizationTypeMenuItem
                             key={type}
-                            selected={type === visualizationType}
-                            style={styles.menuItem}
+                            type={type}
+                            visualizationType={visualizationType}
+                            styles={styles}
                             onClick={this.handleMenuItemClick(type)}
-                            disableRipple
-                        >
-                            <ListItemIcon style={styles.listItemIcon}>
-                                <VisualizationTypeIcon
-                                    type={type}
-                                    style={styles.listItemSvg}
-                                />
-                            </ListItemIcon>
-                            <ListItemText
-                                primary={chartTypeDisplayNames[type]}
-                                disableTypography={true}
-                                style={styles.listItemText}
-                            />
-                        </MenuItem>
+                        />
+                    ))}
+                    <div style={styles.clearFix} />
+                    <hr style={styles.menuDivider} />
+                    {openAsTypes.map(type => (
+                        <VisualizationTypeMenuItem
+                            key={type}
+                            type={type}
+                            visualizationType={visualizationType}
+                            styles={styles}
+                            onClick={this.handleOpenAsMenuItemClick(type)}
+                            disabled={!this.props.current}
+                        />
                     ))}
                 </Menu>
             </Fragment>
@@ -88,10 +146,20 @@ export class VisualizationTypeSelector extends Component {
 
 VisualizationTypeSelector.propTypes = {
     visualizationType: PropTypes.oneOf(Object.keys(chartTypeDisplayNames)),
+    current: PropTypes.object,
+    metadata: PropTypes.object,
+    ui: PropTypes.object,
+};
+
+VisualizationTypeSelector.contextTypes = {
+    baseUrl: PropTypes.string,
 };
 
 const mapStateToProps = state => ({
     visualizationType: sGetUiType(state),
+    current: sGetCurrent(state),
+    metadata: sGetMetadata(state),
+    ui: sGetUi(state),
 });
 
 const mapDispatchToProps = dispatch => ({

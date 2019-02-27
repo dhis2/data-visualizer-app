@@ -66,6 +66,7 @@ export const getFilteredLayout = (layout, excludedIds) => {
 
 export const getItemIdsByDimension = visualization => {
     const dimensions = getAllDimensions(visualization);
+
     return dimensions.reduce(
         (map, dim) => ({
             ...map,
