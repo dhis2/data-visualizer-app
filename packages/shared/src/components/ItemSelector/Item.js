@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { colors } from '../../modules/colors';
 import RemoveDimensionButton from './buttons/RemoveDimensionButton';
-import ItemIcon from '../../../assets/ItemIcon';
-import { colors } from '../../../modules/colors';
+import ItemIcon from './ItemIcon';
 import { styles } from './styles/Item.style';
 
 const Icon = ({ selected, highlighted }) => {
@@ -12,8 +12,8 @@ const Icon = ({ selected, highlighted }) => {
     return <ItemIcon backgroundColor={bgColor} />;
 };
 
-const onClickWrapper = (id, index, onItemClick) => event =>
-    onItemClick(event.metaKey || event.ctrlKey, event.shiftKey, index, id);
+const onClickWrapper = (id, index, onClick) => event =>
+    onClick(event.metaKey || event.ctrlKey, event.shiftKey, index, id);
 
 export const Item = ({
     selected,
@@ -21,17 +21,21 @@ export const Item = ({
     id,
     index,
     onRemoveItem,
-    onItemClick,
+    onClick,
     name,
+    isGhost,
 }) => {
     const selectedState = selected ? 'selected' : 'unselected';
+    const divClassName = [`${selectedState}-list-item`]
+        .concat(isGhost ? 'ghost' : '')
+        .join(' ');
 
     return (
         <div
             data-test={`dimension-item-${id}`}
             style={highlighted ? styles.highlightedItem : {}}
-            className={`${selectedState}-list-item`}
-            onClick={onClickWrapper(id, index, onItemClick)}
+            className={divClassName}
+            onClick={onClickWrapper(id, index, onClick)}
         >
             <Icon selected={selected} highlighted={highlighted} />
             <span
@@ -52,6 +56,7 @@ export const Item = ({
 
 Item.defualtProps = {
     onRemoveItem: () => null,
+    onClick: () => null,
 };
 
 Item.propTypes = {
@@ -59,9 +64,10 @@ Item.propTypes = {
     index: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     highlighted: PropTypes.bool.isRequired,
-    onItemClick: PropTypes.func.isRequired,
+    onClick: PropTypes.func,
     onRemoveItem: PropTypes.func,
     selected: PropTypes.bool,
+    isGhost: PropTypes.bool,
 };
 
 export default Item;

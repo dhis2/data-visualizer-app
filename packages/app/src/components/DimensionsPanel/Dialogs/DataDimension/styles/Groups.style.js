@@ -1,4 +1,4 @@
-import { colors } from '../../../../../modules/colors';
+import { colors } from 'analytics-shared';
 
 export const styles = {
     container: {
@@ -6,7 +6,8 @@ export const styles = {
         display: 'flex',
         height: '53px',
         width: '420px',
-        borderBottom: '0px',
+        borderRight: '0px',
+        borderLeft: '0px',
         paddingTop: '5px',
     },
     groupContainer: {
@@ -15,7 +16,6 @@ export const styles = {
         width: 'inherit',
         minWidth: '316px',
         paddingLeft: '5px',
-        paddingRight: '5px',
     },
     titleText: {
         color: colors.greyDark,

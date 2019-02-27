@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UnselectedItems component list with items matches the snapshot when list has items 1`] = `
+<Fragment>
+  <div
+    onScroll={[Function]}
+    style={
+      Object {
+        "flex": "1",
+        "overflowY": "auto",
+      }
+    }
+  >
+    <ul
+      className="item-selector-list"
+    >
+      <li
+        className="item-selector-item"
+        key="rb"
+        onDoubleClick={[Function]}
+      >
+        <Item
+          highlighted={false}
+          id="rb"
+          index={0}
+          name="rainbow"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="item-selector-item"
+        key="rr"
+        onDoubleClick={[Function]}
+      >
+        <Item
+          highlighted={false}
+          id="rr"
+          index={1}
+          name="rarity"
+          onClick={[Function]}
+        />
+      </li>
+    </ul>
+  </div>
+  <SelectButton
+    label="Select All"
+    onClick={[Function]}
+    style={
+      Object {
+        "display": "block",
+        "margin": "0 auto",
+      }
+    }
+  />
+  <ArrowButton
+    className="item-selector-arrow-forward-button"
+    iconType="arrowForward"
+    onClick={[Function]}
+  />
+</Fragment>
+`;
+
+exports[`UnselectedItems component matches the snapshot when list is empty 1`] = `
+<Fragment>
+  <div
+    onScroll={[Function]}
+    style={
+      Object {
+        "flex": "1",
+        "overflowY": "auto",
+      }
+    }
+  >
+    <ul
+      className="item-selector-list"
+    />
+  </div>
+  <SelectButton
+    label="Select All"
+    onClick={[Function]}
+    style={
+      Object {
+        "display": "block",
+        "margin": "0 auto",
+      }
+    }
+  />
+  <ArrowButton
+    className="item-selector-arrow-forward-button"
+    iconType="arrowForward"
+    onClick={[Function]}
+  />
+</Fragment>
+`;

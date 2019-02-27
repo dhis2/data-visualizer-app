@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import LoadingMask from 'data-visualizer-app/src/widgets/LoadingMask';
+import LoadingMask from '../widgets/LoadingMask';
 import ChartPlugin from '../ChartPlugin';
 import * as chartsApi from 'd2-charts-api';
-import * as api from 'data-visualizer-app/src/api/analytics';
-import * as apiViz from 'data-visualizer-app/src/api/visualization';
-import * as options from 'data-visualizer-app/src/modules/options';
-import { YEAR_OVER_YEAR_LINE, COLUMN } from 'data-visualizer-app/src/modules/chartTypes';
+import * as api from '../api/analytics';
+import * as apiViz from '../api/visualization';
+import * as options from '../modules/options';
+import { YEAR_OVER_YEAR_LINE, COLUMN } from '../modules/chartTypes';
 
 jest.mock('d2-charts-api');
 

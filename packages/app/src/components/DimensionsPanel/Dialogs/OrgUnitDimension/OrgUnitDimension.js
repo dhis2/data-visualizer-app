@@ -5,6 +5,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import i18n from '@dhis2/d2-i18n';
 import PropTypes from 'prop-types';
+import { colors } from 'analytics-shared';
 
 import {
     OrgUnitSelector,
@@ -49,7 +50,6 @@ import {
 
 import { FIXED_DIMENSIONS } from '../../../../modules/fixedDimensions';
 import styles from './styles/OrgUnitDimension.style';
-import { colors } from '../../../../modules/colors';
 
 const ouId = FIXED_DIMENSIONS.ou.id;
 

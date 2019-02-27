@@ -1,0 +1,1845 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The SelectedItems component list with items matches the snapshot with list has items 1`] = `
+<SelectedItems
+  items={
+    Array [
+      Object {
+        "id": "rb",
+        "name": "rainbow",
+      },
+      Object {
+        "id": "rr",
+        "name": "rarity",
+      },
+    ]
+  }
+  onDeselect={[MockFunction]}
+  onReorder={[MockFunction]}
+>
+  <div
+    style={
+      Object {
+        "border": "1px solid #E0E0E0",
+        "height": "534px",
+        "width": "278px",
+      }
+    }
+  >
+    <Subtitle>
+      <div
+        style={
+          Object {
+            "borderBottom": "1px solid #E0E0E0",
+            "height": "42px",
+          }
+        }
+      >
+        <span
+          style={
+            Object {
+              "color": "#000000",
+              "fontFamily": "Roboto",
+              "fontSize": "15px",
+              "fontWeight": "500",
+              "height": "20px",
+              "left": "8px",
+              "position": "relative",
+              "top": "12px",
+            }
+          }
+        >
+          Selected Data
+        </span>
+      </div>
+    </Subtitle>
+    <DragDropContext
+      onDragEnd={[Function]}
+      onDragStart={[Function]}
+    >
+      <Connect(Droppable)
+        direction="vertical"
+        droppableId="selected-items-droppable"
+        ignoreContainerClipping={false}
+        isCombineEnabled={false}
+        isDropDisabled={false}
+        type="DEFAULT"
+      >
+        <Droppable
+          direction="vertical"
+          dispatch={[Function]}
+          draggingOverWith={null}
+          droppableId="selected-items-droppable"
+          ignoreContainerClipping={false}
+          isCombineEnabled={false}
+          isDraggingOver={false}
+          isDropDisabled={false}
+          placeholder={null}
+          type="DEFAULT"
+        >
+          <DroppableDimensionPublisher
+            direction="vertical"
+            droppableId="selected-items-droppable"
+            getDroppableRef={[Function]}
+            getPlaceholderRef={[Function]}
+            ignoreContainerClipping={false}
+            isCombineEnabled={false}
+            isDropDisabled={false}
+            type="DEFAULT"
+          >
+            <ItemsList
+              data-react-beautiful-dnd-droppable="1"
+              innerRef={[Function]}
+              styles={
+                Object {
+                  "container": Object {
+                    "border": "1px solid #E0E0E0",
+                    "height": "534px",
+                    "width": "278px",
+                  },
+                  "deselectButton": Object {
+                    "display": "block",
+                    "margin": "0 auto",
+                  },
+                  "list": Object {
+                    "height": "455px",
+                    "listStyle": "none",
+                    "margin": "0px",
+                    "overflowY": "scroll",
+                    "paddingLeft": "0px",
+                    "userSelect": "none",
+                  },
+                  "subTitleContainer": Object {
+                    "borderBottom": "1px solid #E0E0E0",
+                    "height": "42px",
+                  },
+                  "subTitleText": Object {
+                    "color": "#000000",
+                    "fontFamily": "Roboto",
+                    "fontSize": "15px",
+                    "fontWeight": "500",
+                    "height": "20px",
+                    "left": "8px",
+                    "position": "relative",
+                    "top": "12px",
+                  },
+                }
+              }
+            >
+              <ul
+                style={
+                  Object {
+                    "height": "455px",
+                    "listStyle": "none",
+                    "margin": "0px",
+                    "overflowY": "scroll",
+                    "paddingLeft": "0px",
+                    "userSelect": "none",
+                  }
+                }
+              >
+                <Connect(Draggable)
+                  disableInteractiveElementBlocking={false}
+                  draggableId="rb"
+                  index={0}
+                  isDragDisabled={false}
+                  key="rb"
+                >
+                  <Draggable
+                    disableInteractiveElementBlocking={false}
+                    draggableId="rb"
+                    dragging={null}
+                    drop={[Function]}
+                    dropAnimationFinished={[Function]}
+                    index={0}
+                    isDragDisabled={false}
+                    lift={[Function]}
+                    move={[Function]}
+                    moveByWindowScroll={[Function]}
+                    moveDown={[Function]}
+                    moveLeft={[Function]}
+                    moveRight={[Function]}
+                    moveUp={[Function]}
+                    secondary={
+                      Object {
+                        "combineTargetFor": null,
+                        "offset": Object {
+                          "x": 0,
+                          "y": 0,
+                        },
+                        "shouldAnimateDisplacement": true,
+                      }
+                    }
+                  >
+                    <DraggableDimensionPublisher
+                      draggableId="rb"
+                      droppableId="selected-items-droppable"
+                      getDraggableRef={[Function]}
+                      index={0}
+                      key="rb"
+                      type="DEFAULT"
+                    >
+                      <DragHandle
+                        callbacks={
+                          Object {
+                            "onCancel": [Function],
+                            "onDrop": [Function],
+                            "onLift": [Function],
+                            "onMove": [Function],
+                            "onMoveDown": [Function],
+                            "onMoveLeft": [Function],
+                            "onMoveRight": [Function],
+                            "onMoveUp": [Function],
+                            "onWindowScroll": [Function],
+                          }
+                        }
+                        canDragInteractiveElements={false}
+                        draggableId="rb"
+                        getDraggableRef={[Function]}
+                        isDragging={false}
+                        isDropAnimating={false}
+                        isEnabled={true}
+                      >
+                        <li
+                          aria-roledescription="Draggable item. Press space bar to lift"
+                          className="item-selector-item"
+                          data-react-beautiful-dnd-drag-handle="1"
+                          data-react-beautiful-dnd-draggable="1"
+                          draggable={false}
+                          id="rb"
+                          onBlur={[Function]}
+                          onDoubleClick={[Function]}
+                          onDragStart={[Function]}
+                          onFocus={[Function]}
+                          onKeyDown={[Function]}
+                          onMouseDown={[Function]}
+                          onTouchStart={[Function]}
+                          onTransitionEnd={null}
+                          style={
+                            Object {
+                              "transform": null,
+                              "transition": null,
+                            }
+                          }
+                          tabIndex={0}
+                        >
+                          <Item
+                            highlighted={false}
+                            id="rb"
+                            index={0}
+                            isGhost={false}
+                            name="rainbow"
+                            onClick={[Function]}
+                            onRemoveItem={[Function]}
+                            selected={true}
+                          >
+                            <div
+                              className="selected-list-item "
+                              data-test="dimension-item-rb"
+                              onClick={[Function]}
+                              style={Object {}}
+                            >
+                              <Icon
+                                highlighted={false}
+                                selected={true}
+                              >
+                                <ItemIcon
+                                  backgroundColor="#00796B"
+                                >
+                                  <div
+                                    style={
+                                      Object {
+                                        "backgroundColor": "#00796B",
+                                        "margin": "0px 5px",
+                                        "minHeight": 6,
+                                        "minWidth": 6,
+                                      }
+                                    }
+                                  />
+                                </ItemIcon>
+                              </Icon>
+                              <span
+                                className="selected-item-label"
+                                style={Object {}}
+                              >
+                                rainbow
+                              </span>
+                              <RemoveDimensionButton
+                                highlighted={false}
+                                onClick={[Function]}
+                              >
+                                <WithStyles(IconButton)
+                                  disableRipple={true}
+                                  onClick={[Function]}
+                                  style={
+                                    Object {
+                                      "background": "none",
+                                      "border": "none",
+                                      "height": "18px",
+                                      "outline": "none",
+                                      "padding": "0px",
+                                      "width": "18px",
+                                    }
+                                  }
+                                >
+                                  <IconButton
+                                    classes={
+                                      Object {
+                                        "colorInherit": "MuiIconButton-colorInherit-2",
+                                        "colorPrimary": "MuiIconButton-colorPrimary-3",
+                                        "colorSecondary": "MuiIconButton-colorSecondary-4",
+                                        "disabled": "MuiIconButton-disabled-5",
+                                        "label": "MuiIconButton-label-6",
+                                        "root": "MuiIconButton-root-1",
+                                      }
+                                    }
+                                    color="default"
+                                    disableRipple={true}
+                                    disabled={false}
+                                    onClick={[Function]}
+                                    style={
+                                      Object {
+                                        "background": "none",
+                                        "border": "none",
+                                        "height": "18px",
+                                        "outline": "none",
+                                        "padding": "0px",
+                                        "width": "18px",
+                                      }
+                                    }
+                                  >
+                                    <WithStyles(ButtonBase)
+                                      centerRipple={true}
+                                      className="MuiIconButton-root-1"
+                                      disableRipple={true}
+                                      disabled={false}
+                                      focusRipple={true}
+                                      onClick={[Function]}
+                                      style={
+                                        Object {
+                                          "background": "none",
+                                          "border": "none",
+                                          "height": "18px",
+                                          "outline": "none",
+                                          "padding": "0px",
+                                          "width": "18px",
+                                        }
+                                      }
+                                    >
+                                      <ButtonBase
+                                        centerRipple={true}
+                                        className="MuiIconButton-root-1"
+                                        classes={
+                                          Object {
+                                            "disabled": "MuiButtonBase-disabled-8",
+                                            "focusVisible": "MuiButtonBase-focusVisible-9",
+                                            "root": "MuiButtonBase-root-7",
+                                          }
+                                        }
+                                        component="button"
+                                        disableRipple={true}
+                                        disableTouchRipple={false}
+                                        disabled={false}
+                                        focusRipple={true}
+                                        onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "background": "none",
+                                            "border": "none",
+                                            "height": "18px",
+                                            "outline": "none",
+                                            "padding": "0px",
+                                            "width": "18px",
+                                          }
+                                        }
+                                        tabIndex="0"
+                                        type="button"
+                                      >
+                                        <button
+                                          className="MuiButtonBase-root-7 MuiIconButton-root-1"
+                                          disabled={false}
+                                          onBlur={[Function]}
+                                          onClick={[Function]}
+                                          onContextMenu={[Function]}
+                                          onFocus={[Function]}
+                                          onKeyDown={[Function]}
+                                          onKeyUp={[Function]}
+                                          onMouseDown={[Function]}
+                                          onMouseLeave={[Function]}
+                                          onMouseUp={[Function]}
+                                          onTouchEnd={[Function]}
+                                          onTouchMove={[Function]}
+                                          onTouchStart={[Function]}
+                                          style={
+                                            Object {
+                                              "background": "none",
+                                              "border": "none",
+                                              "height": "18px",
+                                              "outline": "none",
+                                              "padding": "0px",
+                                              "width": "18px",
+                                            }
+                                          }
+                                          tabIndex="0"
+                                          type="button"
+                                        >
+                                          <span
+                                            className="MuiIconButton-label-6"
+                                          >
+                                            <pure(CloseIcon)
+                                              style={
+                                                Object {
+                                                  "fill": "#00796B",
+                                                  "height": "13px",
+                                                  "width": "10px",
+                                                }
+                                              }
+                                            >
+                                              <CloseIcon
+                                                style={
+                                                  Object {
+                                                    "fill": "#00796B",
+                                                    "height": "13px",
+                                                    "width": "10px",
+                                                  }
+                                                }
+                                              >
+                                                <WithStyles(SvgIcon)
+                                                  style={
+                                                    Object {
+                                                      "fill": "#00796B",
+                                                      "height": "13px",
+                                                      "width": "10px",
+                                                    }
+                                                  }
+                                                >
+                                                  <SvgIcon
+                                                    classes={
+                                                      Object {
+                                                        "colorAction": "MuiSvgIcon-colorAction-13",
+                                                        "colorDisabled": "MuiSvgIcon-colorDisabled-15",
+                                                        "colorError": "MuiSvgIcon-colorError-14",
+                                                        "colorPrimary": "MuiSvgIcon-colorPrimary-11",
+                                                        "colorSecondary": "MuiSvgIcon-colorSecondary-12",
+                                                        "fontSizeInherit": "MuiSvgIcon-fontSizeInherit-16",
+                                                        "fontSizeLarge": "MuiSvgIcon-fontSizeLarge-18",
+                                                        "fontSizeSmall": "MuiSvgIcon-fontSizeSmall-17",
+                                                        "root": "MuiSvgIcon-root-10",
+                                                      }
+                                                    }
+                                                    color="inherit"
+                                                    component="svg"
+                                                    fontSize="default"
+                                                    style={
+                                                      Object {
+                                                        "fill": "#00796B",
+                                                        "height": "13px",
+                                                        "width": "10px",
+                                                      }
+                                                    }
+                                                    viewBox="0 0 24 24"
+                                                  >
+                                                    <svg
+                                                      aria-hidden="true"
+                                                      className="MuiSvgIcon-root-10"
+                                                      focusable="false"
+                                                      role="presentation"
+                                                      style={
+                                                        Object {
+                                                          "fill": "#00796B",
+                                                          "height": "13px",
+                                                          "width": "10px",
+                                                        }
+                                                      }
+                                                      viewBox="0 0 24 24"
+                                                    >
+                                                      <path
+                                                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                                                      />
+                                                      <path
+                                                        d="M0 0h24v24H0z"
+                                                        fill="none"
+                                                      />
+                                                    </svg>
+                                                  </SvgIcon>
+                                                </WithStyles(SvgIcon)>
+                                              </CloseIcon>
+                                            </pure(CloseIcon)>
+                                          </span>
+                                        </button>
+                                      </ButtonBase>
+                                    </WithStyles(ButtonBase)>
+                                  </IconButton>
+                                </WithStyles(IconButton)>
+                              </RemoveDimensionButton>
+                            </div>
+                          </Item>
+                        </li>
+                      </DragHandle>
+                    </DraggableDimensionPublisher>
+                  </Draggable>
+                </Connect(Draggable)>
+                <Connect(Draggable)
+                  disableInteractiveElementBlocking={false}
+                  draggableId="rr"
+                  index={1}
+                  isDragDisabled={false}
+                  key="rr"
+                >
+                  <Draggable
+                    disableInteractiveElementBlocking={false}
+                    draggableId="rr"
+                    dragging={null}
+                    drop={[Function]}
+                    dropAnimationFinished={[Function]}
+                    index={1}
+                    isDragDisabled={false}
+                    lift={[Function]}
+                    move={[Function]}
+                    moveByWindowScroll={[Function]}
+                    moveDown={[Function]}
+                    moveLeft={[Function]}
+                    moveRight={[Function]}
+                    moveUp={[Function]}
+                    secondary={
+                      Object {
+                        "combineTargetFor": null,
+                        "offset": Object {
+                          "x": 0,
+                          "y": 0,
+                        },
+                        "shouldAnimateDisplacement": true,
+                      }
+                    }
+                  >
+                    <DraggableDimensionPublisher
+                      draggableId="rr"
+                      droppableId="selected-items-droppable"
+                      getDraggableRef={[Function]}
+                      index={1}
+                      key="rr"
+                      type="DEFAULT"
+                    >
+                      <DragHandle
+                        callbacks={
+                          Object {
+                            "onCancel": [Function],
+                            "onDrop": [Function],
+                            "onLift": [Function],
+                            "onMove": [Function],
+                            "onMoveDown": [Function],
+                            "onMoveLeft": [Function],
+                            "onMoveRight": [Function],
+                            "onMoveUp": [Function],
+                            "onWindowScroll": [Function],
+                          }
+                        }
+                        canDragInteractiveElements={false}
+                        draggableId="rr"
+                        getDraggableRef={[Function]}
+                        isDragging={false}
+                        isDropAnimating={false}
+                        isEnabled={true}
+                      >
+                        <li
+                          aria-roledescription="Draggable item. Press space bar to lift"
+                          className="item-selector-item"
+                          data-react-beautiful-dnd-drag-handle="1"
+                          data-react-beautiful-dnd-draggable="1"
+                          draggable={false}
+                          id="rr"
+                          onBlur={[Function]}
+                          onDoubleClick={[Function]}
+                          onDragStart={[Function]}
+                          onFocus={[Function]}
+                          onKeyDown={[Function]}
+                          onMouseDown={[Function]}
+                          onTouchStart={[Function]}
+                          onTransitionEnd={null}
+                          style={
+                            Object {
+                              "transform": null,
+                              "transition": null,
+                            }
+                          }
+                          tabIndex={0}
+                        >
+                          <Item
+                            highlighted={false}
+                            id="rr"
+                            index={1}
+                            isGhost={false}
+                            name="rarity"
+                            onClick={[Function]}
+                            onRemoveItem={[Function]}
+                            selected={true}
+                          >
+                            <div
+                              className="selected-list-item "
+                              data-test="dimension-item-rr"
+                              onClick={[Function]}
+                              style={Object {}}
+                            >
+                              <Icon
+                                highlighted={false}
+                                selected={true}
+                              >
+                                <ItemIcon
+                                  backgroundColor="#00796B"
+                                >
+                                  <div
+                                    style={
+                                      Object {
+                                        "backgroundColor": "#00796B",
+                                        "margin": "0px 5px",
+                                        "minHeight": 6,
+                                        "minWidth": 6,
+                                      }
+                                    }
+                                  />
+                                </ItemIcon>
+                              </Icon>
+                              <span
+                                className="selected-item-label"
+                                style={Object {}}
+                              >
+                                rarity
+                              </span>
+                              <RemoveDimensionButton
+                                highlighted={false}
+                                onClick={[Function]}
+                              >
+                                <WithStyles(IconButton)
+                                  disableRipple={true}
+                                  onClick={[Function]}
+                                  style={
+                                    Object {
+                                      "background": "none",
+                                      "border": "none",
+                                      "height": "18px",
+                                      "outline": "none",
+                                      "padding": "0px",
+                                      "width": "18px",
+                                    }
+                                  }
+                                >
+                                  <IconButton
+                                    classes={
+                                      Object {
+                                        "colorInherit": "MuiIconButton-colorInherit-2",
+                                        "colorPrimary": "MuiIconButton-colorPrimary-3",
+                                        "colorSecondary": "MuiIconButton-colorSecondary-4",
+                                        "disabled": "MuiIconButton-disabled-5",
+                                        "label": "MuiIconButton-label-6",
+                                        "root": "MuiIconButton-root-1",
+                                      }
+                                    }
+                                    color="default"
+                                    disableRipple={true}
+                                    disabled={false}
+                                    onClick={[Function]}
+                                    style={
+                                      Object {
+                                        "background": "none",
+                                        "border": "none",
+                                        "height": "18px",
+                                        "outline": "none",
+                                        "padding": "0px",
+                                        "width": "18px",
+                                      }
+                                    }
+                                  >
+                                    <WithStyles(ButtonBase)
+                                      centerRipple={true}
+                                      className="MuiIconButton-root-1"
+                                      disableRipple={true}
+                                      disabled={false}
+                                      focusRipple={true}
+                                      onClick={[Function]}
+                                      style={
+                                        Object {
+                                          "background": "none",
+                                          "border": "none",
+                                          "height": "18px",
+                                          "outline": "none",
+                                          "padding": "0px",
+                                          "width": "18px",
+                                        }
+                                      }
+                                    >
+                                      <ButtonBase
+                                        centerRipple={true}
+                                        className="MuiIconButton-root-1"
+                                        classes={
+                                          Object {
+                                            "disabled": "MuiButtonBase-disabled-8",
+                                            "focusVisible": "MuiButtonBase-focusVisible-9",
+                                            "root": "MuiButtonBase-root-7",
+                                          }
+                                        }
+                                        component="button"
+                                        disableRipple={true}
+                                        disableTouchRipple={false}
+                                        disabled={false}
+                                        focusRipple={true}
+                                        onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "background": "none",
+                                            "border": "none",
+                                            "height": "18px",
+                                            "outline": "none",
+                                            "padding": "0px",
+                                            "width": "18px",
+                                          }
+                                        }
+                                        tabIndex="0"
+                                        type="button"
+                                      >
+                                        <button
+                                          className="MuiButtonBase-root-7 MuiIconButton-root-1"
+                                          disabled={false}
+                                          onBlur={[Function]}
+                                          onClick={[Function]}
+                                          onContextMenu={[Function]}
+                                          onFocus={[Function]}
+                                          onKeyDown={[Function]}
+                                          onKeyUp={[Function]}
+                                          onMouseDown={[Function]}
+                                          onMouseLeave={[Function]}
+                                          onMouseUp={[Function]}
+                                          onTouchEnd={[Function]}
+                                          onTouchMove={[Function]}
+                                          onTouchStart={[Function]}
+                                          style={
+                                            Object {
+                                              "background": "none",
+                                              "border": "none",
+                                              "height": "18px",
+                                              "outline": "none",
+                                              "padding": "0px",
+                                              "width": "18px",
+                                            }
+                                          }
+                                          tabIndex="0"
+                                          type="button"
+                                        >
+                                          <span
+                                            className="MuiIconButton-label-6"
+                                          >
+                                            <pure(CloseIcon)
+                                              style={
+                                                Object {
+                                                  "fill": "#00796B",
+                                                  "height": "13px",
+                                                  "width": "10px",
+                                                }
+                                              }
+                                            >
+                                              <CloseIcon
+                                                style={
+                                                  Object {
+                                                    "fill": "#00796B",
+                                                    "height": "13px",
+                                                    "width": "10px",
+                                                  }
+                                                }
+                                              >
+                                                <WithStyles(SvgIcon)
+                                                  style={
+                                                    Object {
+                                                      "fill": "#00796B",
+                                                      "height": "13px",
+                                                      "width": "10px",
+                                                    }
+                                                  }
+                                                >
+                                                  <SvgIcon
+                                                    classes={
+                                                      Object {
+                                                        "colorAction": "MuiSvgIcon-colorAction-13",
+                                                        "colorDisabled": "MuiSvgIcon-colorDisabled-15",
+                                                        "colorError": "MuiSvgIcon-colorError-14",
+                                                        "colorPrimary": "MuiSvgIcon-colorPrimary-11",
+                                                        "colorSecondary": "MuiSvgIcon-colorSecondary-12",
+                                                        "fontSizeInherit": "MuiSvgIcon-fontSizeInherit-16",
+                                                        "fontSizeLarge": "MuiSvgIcon-fontSizeLarge-18",
+                                                        "fontSizeSmall": "MuiSvgIcon-fontSizeSmall-17",
+                                                        "root": "MuiSvgIcon-root-10",
+                                                      }
+                                                    }
+                                                    color="inherit"
+                                                    component="svg"
+                                                    fontSize="default"
+                                                    style={
+                                                      Object {
+                                                        "fill": "#00796B",
+                                                        "height": "13px",
+                                                        "width": "10px",
+                                                      }
+                                                    }
+                                                    viewBox="0 0 24 24"
+                                                  >
+                                                    <svg
+                                                      aria-hidden="true"
+                                                      className="MuiSvgIcon-root-10"
+                                                      focusable="false"
+                                                      role="presentation"
+                                                      style={
+                                                        Object {
+                                                          "fill": "#00796B",
+                                                          "height": "13px",
+                                                          "width": "10px",
+                                                        }
+                                                      }
+                                                      viewBox="0 0 24 24"
+                                                    >
+                                                      <path
+                                                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                                                      />
+                                                      <path
+                                                        d="M0 0h24v24H0z"
+                                                        fill="none"
+                                                      />
+                                                    </svg>
+                                                  </SvgIcon>
+                                                </WithStyles(SvgIcon)>
+                                              </CloseIcon>
+                                            </pure(CloseIcon)>
+                                          </span>
+                                        </button>
+                                      </ButtonBase>
+                                    </WithStyles(ButtonBase)>
+                                  </IconButton>
+                                </WithStyles(IconButton)>
+                              </RemoveDimensionButton>
+                            </div>
+                          </Item>
+                        </li>
+                      </DragHandle>
+                    </DraggableDimensionPublisher>
+                  </Draggable>
+                </Connect(Draggable)>
+              </ul>
+            </ItemsList>
+          </DroppableDimensionPublisher>
+        </Droppable>
+      </Connect(Droppable)>
+    </DragDropContext>
+    <ArrowButton
+      className="item-selector-arrow-back-button"
+      iconType="arrowBack"
+      onClick={[Function]}
+    >
+      <div
+        className="item-selector-arrow-back-button"
+      >
+        <WithStyles(IconButton)
+          onClick={[Function]}
+          style={
+            Object {
+              "backgroundColor": "#FFFFFF",
+              "height": "36px",
+              "minHeight": "36px",
+              "minWidth": "40px",
+              "padding": "0px",
+              "width": "40px",
+            }
+          }
+          variant="contained"
+        >
+          <IconButton
+            classes={
+              Object {
+                "colorInherit": "MuiIconButton-colorInherit-2",
+                "colorPrimary": "MuiIconButton-colorPrimary-3",
+                "colorSecondary": "MuiIconButton-colorSecondary-4",
+                "disabled": "MuiIconButton-disabled-5",
+                "label": "MuiIconButton-label-6",
+                "root": "MuiIconButton-root-1",
+              }
+            }
+            color="default"
+            disabled={false}
+            onClick={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "height": "36px",
+                "minHeight": "36px",
+                "minWidth": "40px",
+                "padding": "0px",
+                "width": "40px",
+              }
+            }
+            variant="contained"
+          >
+            <WithStyles(ButtonBase)
+              centerRipple={true}
+              className="MuiIconButton-root-1"
+              disabled={false}
+              focusRipple={true}
+              onClick={[Function]}
+              style={
+                Object {
+                  "backgroundColor": "#FFFFFF",
+                  "height": "36px",
+                  "minHeight": "36px",
+                  "minWidth": "40px",
+                  "padding": "0px",
+                  "width": "40px",
+                }
+              }
+              variant="contained"
+            >
+              <ButtonBase
+                centerRipple={true}
+                className="MuiIconButton-root-1"
+                classes={
+                  Object {
+                    "disabled": "MuiButtonBase-disabled-8",
+                    "focusVisible": "MuiButtonBase-focusVisible-9",
+                    "root": "MuiButtonBase-root-7",
+                  }
+                }
+                component="button"
+                disableRipple={false}
+                disableTouchRipple={false}
+                disabled={false}
+                focusRipple={true}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "backgroundColor": "#FFFFFF",
+                    "height": "36px",
+                    "minHeight": "36px",
+                    "minWidth": "40px",
+                    "padding": "0px",
+                    "width": "40px",
+                  }
+                }
+                tabIndex="0"
+                type="button"
+                variant="contained"
+              >
+                <button
+                  className="MuiButtonBase-root-7 MuiIconButton-root-1"
+                  disabled={false}
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onContextMenu={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onKeyUp={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseUp={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchMove={[Function]}
+                  onTouchStart={[Function]}
+                  style={
+                    Object {
+                      "backgroundColor": "#FFFFFF",
+                      "height": "36px",
+                      "minHeight": "36px",
+                      "minWidth": "40px",
+                      "padding": "0px",
+                      "width": "40px",
+                    }
+                  }
+                  tabIndex="0"
+                  type="button"
+                  variant="contained"
+                >
+                  <span
+                    className="MuiIconButton-label-6"
+                  >
+                    <pure(ArrowBackIcon)
+                      style={
+                        Object {
+                          "fill": "#494949",
+                          "height": "20px",
+                          "width": "24px",
+                        }
+                      }
+                    >
+                      <ArrowBackIcon
+                        style={
+                          Object {
+                            "fill": "#494949",
+                            "height": "20px",
+                            "width": "24px",
+                          }
+                        }
+                      >
+                        <WithStyles(SvgIcon)
+                          style={
+                            Object {
+                              "fill": "#494949",
+                              "height": "20px",
+                              "width": "24px",
+                            }
+                          }
+                        >
+                          <SvgIcon
+                            classes={
+                              Object {
+                                "colorAction": "MuiSvgIcon-colorAction-13",
+                                "colorDisabled": "MuiSvgIcon-colorDisabled-15",
+                                "colorError": "MuiSvgIcon-colorError-14",
+                                "colorPrimary": "MuiSvgIcon-colorPrimary-11",
+                                "colorSecondary": "MuiSvgIcon-colorSecondary-12",
+                                "fontSizeInherit": "MuiSvgIcon-fontSizeInherit-16",
+                                "fontSizeLarge": "MuiSvgIcon-fontSizeLarge-18",
+                                "fontSizeSmall": "MuiSvgIcon-fontSizeSmall-17",
+                                "root": "MuiSvgIcon-root-10",
+                              }
+                            }
+                            color="inherit"
+                            component="svg"
+                            fontSize="default"
+                            style={
+                              Object {
+                                "fill": "#494949",
+                                "height": "20px",
+                                "width": "24px",
+                              }
+                            }
+                            viewBox="0 0 24 24"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              className="MuiSvgIcon-root-10"
+                              focusable="false"
+                              role="presentation"
+                              style={
+                                Object {
+                                  "fill": "#494949",
+                                  "height": "20px",
+                                  "width": "24px",
+                                }
+                              }
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M0 0h24v24H0z"
+                                fill="none"
+                              />
+                              <path
+                                d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                              />
+                            </svg>
+                          </SvgIcon>
+                        </WithStyles(SvgIcon)>
+                      </ArrowBackIcon>
+                    </pure(ArrowBackIcon)>
+                  </span>
+                  <NoSsr
+                    defer={false}
+                    fallback={null}
+                  >
+                    <WithStyles(TouchRipple)
+                      center={true}
+                      innerRef={[Function]}
+                    >
+                      <TouchRipple
+                        center={true}
+                        classes={
+                          Object {
+                            "child": "MuiTouchRipple-child-49",
+                            "childLeaving": "MuiTouchRipple-childLeaving-50",
+                            "childPulsate": "MuiTouchRipple-childPulsate-51",
+                            "ripple": "MuiTouchRipple-ripple-46",
+                            "ripplePulsate": "MuiTouchRipple-ripplePulsate-48",
+                            "rippleVisible": "MuiTouchRipple-rippleVisible-47",
+                            "root": "MuiTouchRipple-root-45",
+                          }
+                        }
+                      >
+                        <TransitionGroup
+                          childFactory={[Function]}
+                          className="MuiTouchRipple-root-45"
+                          component="span"
+                          enter={true}
+                          exit={true}
+                        >
+                          <span
+                            className="MuiTouchRipple-root-45"
+                          />
+                        </TransitionGroup>
+                      </TouchRipple>
+                    </WithStyles(TouchRipple)>
+                  </NoSsr>
+                </button>
+              </ButtonBase>
+            </WithStyles(ButtonBase)>
+          </IconButton>
+        </WithStyles(IconButton)>
+      </div>
+    </ArrowButton>
+    <SelectButton
+      label="Deselect All"
+      onClick={[Function]}
+      style={
+        Object {
+          "display": "block",
+          "margin": "0 auto",
+        }
+      }
+    >
+      <WithStyles(Button)
+        onClick={[Function]}
+        style={
+          Object {
+            "display": "block",
+            "margin": "0 auto",
+          }
+        }
+      >
+        <Button
+          classes={
+            Object {
+              "colorInherit": "MuiButton-colorInherit-40",
+              "contained": "MuiButton-contained-30",
+              "containedPrimary": "MuiButton-containedPrimary-31",
+              "containedSecondary": "MuiButton-containedSecondary-32",
+              "disabled": "MuiButton-disabled-39",
+              "extendedFab": "MuiButton-extendedFab-37",
+              "fab": "MuiButton-fab-36",
+              "flat": "MuiButton-flat-24",
+              "flatPrimary": "MuiButton-flatPrimary-25",
+              "flatSecondary": "MuiButton-flatSecondary-26",
+              "focusVisible": "MuiButton-focusVisible-38",
+              "fullWidth": "MuiButton-fullWidth-44",
+              "label": "MuiButton-label-20",
+              "mini": "MuiButton-mini-41",
+              "outlined": "MuiButton-outlined-27",
+              "outlinedPrimary": "MuiButton-outlinedPrimary-28",
+              "outlinedSecondary": "MuiButton-outlinedSecondary-29",
+              "raised": "MuiButton-raised-33",
+              "raisedPrimary": "MuiButton-raisedPrimary-34",
+              "raisedSecondary": "MuiButton-raisedSecondary-35",
+              "root": "MuiButton-root-19",
+              "sizeLarge": "MuiButton-sizeLarge-43",
+              "sizeSmall": "MuiButton-sizeSmall-42",
+              "text": "MuiButton-text-21",
+              "textPrimary": "MuiButton-textPrimary-22",
+              "textSecondary": "MuiButton-textSecondary-23",
+            }
+          }
+          color="default"
+          component="button"
+          disableFocusRipple={false}
+          disabled={false}
+          fullWidth={false}
+          mini={false}
+          onClick={[Function]}
+          size="medium"
+          style={
+            Object {
+              "display": "block",
+              "margin": "0 auto",
+            }
+          }
+          type="button"
+          variant="text"
+        >
+          <WithStyles(ButtonBase)
+            className="MuiButton-root-19 MuiButton-text-21 MuiButton-flat-24"
+            component="button"
+            disabled={false}
+            focusRipple={true}
+            focusVisibleClassName="MuiButton-focusVisible-38"
+            onClick={[Function]}
+            style={
+              Object {
+                "display": "block",
+                "margin": "0 auto",
+              }
+            }
+            type="button"
+          >
+            <ButtonBase
+              centerRipple={false}
+              className="MuiButton-root-19 MuiButton-text-21 MuiButton-flat-24"
+              classes={
+                Object {
+                  "disabled": "MuiButtonBase-disabled-8",
+                  "focusVisible": "MuiButtonBase-focusVisible-9",
+                  "root": "MuiButtonBase-root-7",
+                }
+              }
+              component="button"
+              disableRipple={false}
+              disableTouchRipple={false}
+              disabled={false}
+              focusRipple={true}
+              focusVisibleClassName="MuiButton-focusVisible-38"
+              onClick={[Function]}
+              style={
+                Object {
+                  "display": "block",
+                  "margin": "0 auto",
+                }
+              }
+              tabIndex="0"
+              type="button"
+            >
+              <button
+                className="MuiButtonBase-root-7 MuiButton-root-19 MuiButton-text-21 MuiButton-flat-24"
+                disabled={false}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onContextMenu={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                onMouseDown={[Function]}
+                onMouseLeave={[Function]}
+                onMouseUp={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                style={
+                  Object {
+                    "display": "block",
+                    "margin": "0 auto",
+                  }
+                }
+                tabIndex="0"
+                type="button"
+              >
+                <span
+                  className="MuiButton-label-20"
+                >
+                  <span
+                    style={
+                      Object {
+                        "fontSize": "13px",
+                        "letterSpacing": "0.46",
+                      }
+                    }
+                  >
+                    Deselect All
+                  </span>
+                </span>
+                <NoSsr
+                  defer={false}
+                  fallback={null}
+                >
+                  <WithStyles(TouchRipple)
+                    center={false}
+                    innerRef={[Function]}
+                  >
+                    <TouchRipple
+                      center={false}
+                      classes={
+                        Object {
+                          "child": "MuiTouchRipple-child-49",
+                          "childLeaving": "MuiTouchRipple-childLeaving-50",
+                          "childPulsate": "MuiTouchRipple-childPulsate-51",
+                          "ripple": "MuiTouchRipple-ripple-46",
+                          "ripplePulsate": "MuiTouchRipple-ripplePulsate-48",
+                          "rippleVisible": "MuiTouchRipple-rippleVisible-47",
+                          "root": "MuiTouchRipple-root-45",
+                        }
+                      }
+                    >
+                      <TransitionGroup
+                        childFactory={[Function]}
+                        className="MuiTouchRipple-root-45"
+                        component="span"
+                        enter={true}
+                        exit={true}
+                      >
+                        <span
+                          className="MuiTouchRipple-root-45"
+                        />
+                      </TransitionGroup>
+                    </TouchRipple>
+                  </WithStyles(TouchRipple)>
+                </NoSsr>
+              </button>
+            </ButtonBase>
+          </WithStyles(ButtonBase)>
+        </Button>
+      </WithStyles(Button)>
+    </SelectButton>
+  </div>
+</SelectedItems>
+`;
+
+exports[`The SelectedItems component matches the snapshot when list is empty 1`] = `
+<SelectedItems
+  items={Array []}
+  onDeselect={[MockFunction]}
+  onReorder={[MockFunction]}
+>
+  <div
+    style={
+      Object {
+        "border": "1px solid #E0E0E0",
+        "height": "534px",
+        "width": "278px",
+      }
+    }
+  >
+    <Subtitle>
+      <div
+        style={
+          Object {
+            "borderBottom": "1px solid #E0E0E0",
+            "height": "42px",
+          }
+        }
+      >
+        <span
+          style={
+            Object {
+              "color": "#000000",
+              "fontFamily": "Roboto",
+              "fontSize": "15px",
+              "fontWeight": "500",
+              "height": "20px",
+              "left": "8px",
+              "position": "relative",
+              "top": "12px",
+            }
+          }
+        >
+          Selected Data
+        </span>
+      </div>
+    </Subtitle>
+    <DragDropContext
+      onDragEnd={[Function]}
+      onDragStart={[Function]}
+    >
+      <Connect(Droppable)
+        direction="vertical"
+        droppableId="selected-items-droppable"
+        ignoreContainerClipping={false}
+        isCombineEnabled={false}
+        isDropDisabled={false}
+        type="DEFAULT"
+      >
+        <Droppable
+          direction="vertical"
+          dispatch={[Function]}
+          draggingOverWith={null}
+          droppableId="selected-items-droppable"
+          ignoreContainerClipping={false}
+          isCombineEnabled={false}
+          isDraggingOver={false}
+          isDropDisabled={false}
+          placeholder={null}
+          type="DEFAULT"
+        >
+          <DroppableDimensionPublisher
+            direction="vertical"
+            droppableId="selected-items-droppable"
+            getDroppableRef={[Function]}
+            getPlaceholderRef={[Function]}
+            ignoreContainerClipping={false}
+            isCombineEnabled={false}
+            isDropDisabled={false}
+            type="DEFAULT"
+          >
+            <ItemsList
+              data-react-beautiful-dnd-droppable="0"
+              innerRef={[Function]}
+              styles={
+                Object {
+                  "container": Object {
+                    "border": "1px solid #E0E0E0",
+                    "height": "534px",
+                    "width": "278px",
+                  },
+                  "deselectButton": Object {
+                    "display": "block",
+                    "margin": "0 auto",
+                  },
+                  "list": Object {
+                    "height": "455px",
+                    "listStyle": "none",
+                    "margin": "0px",
+                    "overflowY": "scroll",
+                    "paddingLeft": "0px",
+                    "userSelect": "none",
+                  },
+                  "subTitleContainer": Object {
+                    "borderBottom": "1px solid #E0E0E0",
+                    "height": "42px",
+                  },
+                  "subTitleText": Object {
+                    "color": "#000000",
+                    "fontFamily": "Roboto",
+                    "fontSize": "15px",
+                    "fontWeight": "500",
+                    "height": "20px",
+                    "left": "8px",
+                    "position": "relative",
+                    "top": "12px",
+                  },
+                }
+              }
+            >
+              <ul
+                style={
+                  Object {
+                    "height": "455px",
+                    "listStyle": "none",
+                    "margin": "0px",
+                    "overflowY": "scroll",
+                    "paddingLeft": "0px",
+                    "userSelect": "none",
+                  }
+                }
+              />
+            </ItemsList>
+          </DroppableDimensionPublisher>
+        </Droppable>
+      </Connect(Droppable)>
+    </DragDropContext>
+    <ArrowButton
+      className="item-selector-arrow-back-button"
+      iconType="arrowBack"
+      onClick={[Function]}
+    >
+      <div
+        className="item-selector-arrow-back-button"
+      >
+        <WithStyles(IconButton)
+          onClick={[Function]}
+          style={
+            Object {
+              "backgroundColor": "#FFFFFF",
+              "height": "36px",
+              "minHeight": "36px",
+              "minWidth": "40px",
+              "padding": "0px",
+              "width": "40px",
+            }
+          }
+          variant="contained"
+        >
+          <IconButton
+            classes={
+              Object {
+                "colorInherit": "MuiIconButton-colorInherit-2",
+                "colorPrimary": "MuiIconButton-colorPrimary-3",
+                "colorSecondary": "MuiIconButton-colorSecondary-4",
+                "disabled": "MuiIconButton-disabled-5",
+                "label": "MuiIconButton-label-6",
+                "root": "MuiIconButton-root-1",
+              }
+            }
+            color="default"
+            disabled={false}
+            onClick={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "height": "36px",
+                "minHeight": "36px",
+                "minWidth": "40px",
+                "padding": "0px",
+                "width": "40px",
+              }
+            }
+            variant="contained"
+          >
+            <WithStyles(ButtonBase)
+              centerRipple={true}
+              className="MuiIconButton-root-1"
+              disabled={false}
+              focusRipple={true}
+              onClick={[Function]}
+              style={
+                Object {
+                  "backgroundColor": "#FFFFFF",
+                  "height": "36px",
+                  "minHeight": "36px",
+                  "minWidth": "40px",
+                  "padding": "0px",
+                  "width": "40px",
+                }
+              }
+              variant="contained"
+            >
+              <ButtonBase
+                centerRipple={true}
+                className="MuiIconButton-root-1"
+                classes={
+                  Object {
+                    "disabled": "MuiButtonBase-disabled-8",
+                    "focusVisible": "MuiButtonBase-focusVisible-9",
+                    "root": "MuiButtonBase-root-7",
+                  }
+                }
+                component="button"
+                disableRipple={false}
+                disableTouchRipple={false}
+                disabled={false}
+                focusRipple={true}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "backgroundColor": "#FFFFFF",
+                    "height": "36px",
+                    "minHeight": "36px",
+                    "minWidth": "40px",
+                    "padding": "0px",
+                    "width": "40px",
+                  }
+                }
+                tabIndex="0"
+                type="button"
+                variant="contained"
+              >
+                <button
+                  className="MuiButtonBase-root-7 MuiIconButton-root-1"
+                  disabled={false}
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onContextMenu={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onKeyUp={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseUp={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchMove={[Function]}
+                  onTouchStart={[Function]}
+                  style={
+                    Object {
+                      "backgroundColor": "#FFFFFF",
+                      "height": "36px",
+                      "minHeight": "36px",
+                      "minWidth": "40px",
+                      "padding": "0px",
+                      "width": "40px",
+                    }
+                  }
+                  tabIndex="0"
+                  type="button"
+                  variant="contained"
+                >
+                  <span
+                    className="MuiIconButton-label-6"
+                  >
+                    <pure(ArrowBackIcon)
+                      style={
+                        Object {
+                          "fill": "#494949",
+                          "height": "20px",
+                          "width": "24px",
+                        }
+                      }
+                    >
+                      <ArrowBackIcon
+                        style={
+                          Object {
+                            "fill": "#494949",
+                            "height": "20px",
+                            "width": "24px",
+                          }
+                        }
+                      >
+                        <WithStyles(SvgIcon)
+                          style={
+                            Object {
+                              "fill": "#494949",
+                              "height": "20px",
+                              "width": "24px",
+                            }
+                          }
+                        >
+                          <SvgIcon
+                            classes={
+                              Object {
+                                "colorAction": "MuiSvgIcon-colorAction-13",
+                                "colorDisabled": "MuiSvgIcon-colorDisabled-15",
+                                "colorError": "MuiSvgIcon-colorError-14",
+                                "colorPrimary": "MuiSvgIcon-colorPrimary-11",
+                                "colorSecondary": "MuiSvgIcon-colorSecondary-12",
+                                "fontSizeInherit": "MuiSvgIcon-fontSizeInherit-16",
+                                "fontSizeLarge": "MuiSvgIcon-fontSizeLarge-18",
+                                "fontSizeSmall": "MuiSvgIcon-fontSizeSmall-17",
+                                "root": "MuiSvgIcon-root-10",
+                              }
+                            }
+                            color="inherit"
+                            component="svg"
+                            fontSize="default"
+                            style={
+                              Object {
+                                "fill": "#494949",
+                                "height": "20px",
+                                "width": "24px",
+                              }
+                            }
+                            viewBox="0 0 24 24"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              className="MuiSvgIcon-root-10"
+                              focusable="false"
+                              role="presentation"
+                              style={
+                                Object {
+                                  "fill": "#494949",
+                                  "height": "20px",
+                                  "width": "24px",
+                                }
+                              }
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M0 0h24v24H0z"
+                                fill="none"
+                              />
+                              <path
+                                d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                              />
+                            </svg>
+                          </SvgIcon>
+                        </WithStyles(SvgIcon)>
+                      </ArrowBackIcon>
+                    </pure(ArrowBackIcon)>
+                  </span>
+                  <NoSsr
+                    defer={false}
+                    fallback={null}
+                  >
+                    <WithStyles(TouchRipple)
+                      center={true}
+                      innerRef={[Function]}
+                    >
+                      <TouchRipple
+                        center={true}
+                        classes={
+                          Object {
+                            "child": "MuiTouchRipple-child-49",
+                            "childLeaving": "MuiTouchRipple-childLeaving-50",
+                            "childPulsate": "MuiTouchRipple-childPulsate-51",
+                            "ripple": "MuiTouchRipple-ripple-46",
+                            "ripplePulsate": "MuiTouchRipple-ripplePulsate-48",
+                            "rippleVisible": "MuiTouchRipple-rippleVisible-47",
+                            "root": "MuiTouchRipple-root-45",
+                          }
+                        }
+                      >
+                        <TransitionGroup
+                          childFactory={[Function]}
+                          className="MuiTouchRipple-root-45"
+                          component="span"
+                          enter={true}
+                          exit={true}
+                        >
+                          <span
+                            className="MuiTouchRipple-root-45"
+                          />
+                        </TransitionGroup>
+                      </TouchRipple>
+                    </WithStyles(TouchRipple)>
+                  </NoSsr>
+                </button>
+              </ButtonBase>
+            </WithStyles(ButtonBase)>
+          </IconButton>
+        </WithStyles(IconButton)>
+      </div>
+    </ArrowButton>
+    <SelectButton
+      label="Deselect All"
+      onClick={[Function]}
+      style={
+        Object {
+          "display": "block",
+          "margin": "0 auto",
+        }
+      }
+    >
+      <WithStyles(Button)
+        onClick={[Function]}
+        style={
+          Object {
+            "display": "block",
+            "margin": "0 auto",
+          }
+        }
+      >
+        <Button
+          classes={
+            Object {
+              "colorInherit": "MuiButton-colorInherit-40",
+              "contained": "MuiButton-contained-30",
+              "containedPrimary": "MuiButton-containedPrimary-31",
+              "containedSecondary": "MuiButton-containedSecondary-32",
+              "disabled": "MuiButton-disabled-39",
+              "extendedFab": "MuiButton-extendedFab-37",
+              "fab": "MuiButton-fab-36",
+              "flat": "MuiButton-flat-24",
+              "flatPrimary": "MuiButton-flatPrimary-25",
+              "flatSecondary": "MuiButton-flatSecondary-26",
+              "focusVisible": "MuiButton-focusVisible-38",
+              "fullWidth": "MuiButton-fullWidth-44",
+              "label": "MuiButton-label-20",
+              "mini": "MuiButton-mini-41",
+              "outlined": "MuiButton-outlined-27",
+              "outlinedPrimary": "MuiButton-outlinedPrimary-28",
+              "outlinedSecondary": "MuiButton-outlinedSecondary-29",
+              "raised": "MuiButton-raised-33",
+              "raisedPrimary": "MuiButton-raisedPrimary-34",
+              "raisedSecondary": "MuiButton-raisedSecondary-35",
+              "root": "MuiButton-root-19",
+              "sizeLarge": "MuiButton-sizeLarge-43",
+              "sizeSmall": "MuiButton-sizeSmall-42",
+              "text": "MuiButton-text-21",
+              "textPrimary": "MuiButton-textPrimary-22",
+              "textSecondary": "MuiButton-textSecondary-23",
+            }
+          }
+          color="default"
+          component="button"
+          disableFocusRipple={false}
+          disabled={false}
+          fullWidth={false}
+          mini={false}
+          onClick={[Function]}
+          size="medium"
+          style={
+            Object {
+              "display": "block",
+              "margin": "0 auto",
+            }
+          }
+          type="button"
+          variant="text"
+        >
+          <WithStyles(ButtonBase)
+            className="MuiButton-root-19 MuiButton-text-21 MuiButton-flat-24"
+            component="button"
+            disabled={false}
+            focusRipple={true}
+            focusVisibleClassName="MuiButton-focusVisible-38"
+            onClick={[Function]}
+            style={
+              Object {
+                "display": "block",
+                "margin": "0 auto",
+              }
+            }
+            type="button"
+          >
+            <ButtonBase
+              centerRipple={false}
+              className="MuiButton-root-19 MuiButton-text-21 MuiButton-flat-24"
+              classes={
+                Object {
+                  "disabled": "MuiButtonBase-disabled-8",
+                  "focusVisible": "MuiButtonBase-focusVisible-9",
+                  "root": "MuiButtonBase-root-7",
+                }
+              }
+              component="button"
+              disableRipple={false}
+              disableTouchRipple={false}
+              disabled={false}
+              focusRipple={true}
+              focusVisibleClassName="MuiButton-focusVisible-38"
+              onClick={[Function]}
+              style={
+                Object {
+                  "display": "block",
+                  "margin": "0 auto",
+                }
+              }
+              tabIndex="0"
+              type="button"
+            >
+              <button
+                className="MuiButtonBase-root-7 MuiButton-root-19 MuiButton-text-21 MuiButton-flat-24"
+                disabled={false}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onContextMenu={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                onMouseDown={[Function]}
+                onMouseLeave={[Function]}
+                onMouseUp={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                style={
+                  Object {
+                    "display": "block",
+                    "margin": "0 auto",
+                  }
+                }
+                tabIndex="0"
+                type="button"
+              >
+                <span
+                  className="MuiButton-label-20"
+                >
+                  <span
+                    style={
+                      Object {
+                        "fontSize": "13px",
+                        "letterSpacing": "0.46",
+                      }
+                    }
+                  >
+                    Deselect All
+                  </span>
+                </span>
+                <NoSsr
+                  defer={false}
+                  fallback={null}
+                >
+                  <WithStyles(TouchRipple)
+                    center={false}
+                    innerRef={[Function]}
+                  >
+                    <TouchRipple
+                      center={false}
+                      classes={
+                        Object {
+                          "child": "MuiTouchRipple-child-49",
+                          "childLeaving": "MuiTouchRipple-childLeaving-50",
+                          "childPulsate": "MuiTouchRipple-childPulsate-51",
+                          "ripple": "MuiTouchRipple-ripple-46",
+                          "ripplePulsate": "MuiTouchRipple-ripplePulsate-48",
+                          "rippleVisible": "MuiTouchRipple-rippleVisible-47",
+                          "root": "MuiTouchRipple-root-45",
+                        }
+                      }
+                    >
+                      <TransitionGroup
+                        childFactory={[Function]}
+                        className="MuiTouchRipple-root-45"
+                        component="span"
+                        enter={true}
+                        exit={true}
+                      >
+                        <span
+                          className="MuiTouchRipple-root-45"
+                        />
+                      </TransitionGroup>
+                    </TouchRipple>
+                  </WithStyles(TouchRipple)>
+                </NoSsr>
+              </button>
+            </ButtonBase>
+          </WithStyles(ButtonBase)>
+        </Button>
+      </WithStyles(Button)>
+    </SelectButton>
+  </div>
+</SelectedItems>
+`;
