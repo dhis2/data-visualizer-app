@@ -1,6 +1,16 @@
 import { FIXED_DIMENSIONS } from './fixedDimensions';
 import { getDimensionIdsByAxis, getInverseLayout } from './layout';
 
+export const getPathForOrgUnit = (orgUnit, parentGraphMap) => {
+    // if this is org unit then in parentGraphMap object
+    // it has same value as key
+    if (orgUnit.id === parentGraphMap[orgUnit.id]) {
+        return '/' + orgUnit.id;
+    }
+
+    return '/' + parentGraphMap[orgUnit.id] + '/' + orgUnit.id;
+};
+
 export const appendPathsToOrgUnits = (current, ui) => {
     const ouId = FIXED_DIMENSIONS.ou.id;
     const dimensionIdsByAxis = getDimensionIdsByAxis(current);
@@ -18,7 +28,7 @@ export const appendPathsToOrgUnits = (current, ui) => {
             ...dimension,
             items: dimension.items.map(item => ({
                 ...item,
-                path: parentGraphMap[item.id],
+                path: getPathForOrgUnit(item, parentGraphMap),
             })),
         })),
     };

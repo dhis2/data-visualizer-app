@@ -1,6 +1,7 @@
 import {
     appendDimensionItemNamesToAnalyticalObject,
     appendPathsToOrgUnits,
+    getPathForOrgUnit,
     prepareCurrentAnalyticalObject,
     removeUnnecessaryAttributesFromAnalyticalObject,
 } from '../currentAnalyticalObject';
@@ -64,6 +65,30 @@ describe('currentAnalyticalObject', () => {
         };
     });
 
+    describe('getPathForOrgUnit', () => {
+        it('generates path for orgunit using ui.parentGraphMap', () => {
+            const orgUnit = { id: 'SOME_ID' };
+            const parentGraphMap = { SOME_ID: 'ORG_UNIT/SUB_ORG_UNIT' };
+            const expectedPath = '/ORG_UNIT/SUB_ORG_UNIT/SOME_ID';
+
+            expect(getPathForOrgUnit(orgUnit, parentGraphMap)).toEqual(
+                expectedPath
+            );
+        });
+
+        it('handles root org unit case', () => {
+            const orgUnit = { id: 'ROOT_SIERRA_LEONE_ORG_UNIT' };
+            const parentGraphMap = {
+                ROOT_SIERRA_LEONE_ORG_UNIT: 'ROOT_SIERRA_LEONE_ORG_UNIT',
+            };
+            const expectedPath = '/ROOT_SIERRA_LEONE_ORG_UNIT';
+
+            expect(getPathForOrgUnit(orgUnit, parentGraphMap)).toEqual(
+                expectedPath
+            );
+        });
+    });
+
     describe('appendPathsToOrgUnits', () => {
         it('appends org unit paths to current analytical object', () => {
             const expected = {
@@ -74,11 +99,11 @@ describe('currentAnalyticalObject', () => {
                         items: [
                             {
                                 id: 'qhqAxPSTUXp',
-                                path: 'ImspTQPwCqd',
+                                path: '/ImspTQPwCqd/qhqAxPSTUXp',
                             },
                             {
                                 id: 'Vth0fbpFcsO',
-                                path: 'ImspTQPwCqd',
+                                path: '/ImspTQPwCqd/Vth0fbpFcsO',
                             },
                         ],
                     },
@@ -208,12 +233,12 @@ describe('currentAnalyticalObject', () => {
                             {
                                 id: 'qhqAxPSTUXp',
                                 name: 'Koinadugu',
-                                path: 'ImspTQPwCqd',
+                                path: '/ImspTQPwCqd/qhqAxPSTUXp',
                             },
                             {
                                 id: 'Vth0fbpFcsO',
                                 name: 'Kono',
-                                path: 'ImspTQPwCqd',
+                                path: '/ImspTQPwCqd/Vth0fbpFcsO',
                             },
                         ],
                     },
