@@ -6,12 +6,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import i18n from '@dhis2/d2-i18n';
 import PropTypes from 'prop-types';
 import { colors } from 'analytics-shared';
-
-import {
-    OrgUnitSelector,
-    userOrgUnits,
-    removeOrgUnitLastPathSegment,
-} from '@dhis2/d2-ui-org-unit-dialog';
+import { OrgUnitSelector, userOrgUnits } from '@dhis2/d2-ui-org-unit-dialog';
 
 import {
     sGetUiItemsByDimension,
@@ -46,6 +41,7 @@ import {
     getGroupsFromIds,
     sortOrgUnitLevels,
     transformOptionsIntoMetadata,
+    removeOrgUnitLastPathSegment,
 } from '../../../../modules/orgUnitDimensions';
 
 import { FIXED_DIMENSIONS } from '../../../../modules/fixedDimensions';
