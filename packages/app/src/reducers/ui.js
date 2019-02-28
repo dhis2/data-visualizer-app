@@ -207,7 +207,7 @@ export default (state = DEFAULT_UI, action) => {
                 },
                 parentGraphMap: {
                     ...DEFAULT_UI.parentGraphMap,
-                    [rootOrganisationUnit.id]: `/${rootOrganisationUnit.id}`,
+                    [rootOrganisationUnit.id]: rootOrganisationUnit.id,
                 },
             };
         case TOGGLE_UI_RIGHT_SIDEBAR_OPEN:
