@@ -2,13 +2,13 @@ import { FIXED_DIMENSIONS } from './fixedDimensions';
 import { getDimensionIdsByAxis, getInverseLayout } from './layout';
 
 export const getPathForOrgUnit = (orgUnit, parentGraphMap) => {
-    if (!parentGraphMap[orgUnit.id]) {
+    if (parentGraphMap[orgUnit.id] === undefined) {
         return undefined;
     }
 
-    // if this is org unit then in parentGraphMap object
-    // it has same value as key
-    if (orgUnit.id === parentGraphMap[orgUnit.id]) {
+    // if this is root org unit then in parentGraphMap object
+    // it has empty string as value and id as key
+    if (parentGraphMap[orgUnit.id] === '') {
         return '/' + orgUnit.id;
     }
 

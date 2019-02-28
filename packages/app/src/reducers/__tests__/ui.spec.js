@@ -73,8 +73,7 @@ describe('reducer: ui', () => {
             ...ui.DEFAULT_UI,
             parentGraphMap: {
                 ...ui.DEFAULT_UI.parentGraphMap,
-                [settings.rootOrganisationUnit.id]:
-                    settings.rootOrganisationUnit.id,
+                [settings.rootOrganisationUnit.id]: '',
             },
             itemsByDimension: {
                 ...ui.DEFAULT_UI.itemsByDimension,

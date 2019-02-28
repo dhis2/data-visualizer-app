@@ -79,7 +79,7 @@ describe('currentAnalyticalObject', () => {
         it('handles root org unit case', () => {
             const orgUnit = { id: 'ROOT_SIERRA_LEONE_ORG_UNIT' };
             const parentGraphMap = {
-                ROOT_SIERRA_LEONE_ORG_UNIT: 'ROOT_SIERRA_LEONE_ORG_UNIT',
+                ROOT_SIERRA_LEONE_ORG_UNIT: '',
             };
             const expectedPath = '/ROOT_SIERRA_LEONE_ORG_UNIT';
 
