@@ -87,6 +87,13 @@ describe('currentAnalyticalObject', () => {
                 expectedPath
             );
         });
+
+        it('returns undefined if parentGraphMap does not contain specified parent path', () => {
+            const orgUnit = 'USER_ORG_UNIT_CHILDREN';
+            const parentGraphMap = {};
+
+            expect(getPathForOrgUnit(orgUnit, parentGraphMap)).toBeUndefined();
+        });
     });
 
     describe('appendPathsToOrgUnits', () => {
