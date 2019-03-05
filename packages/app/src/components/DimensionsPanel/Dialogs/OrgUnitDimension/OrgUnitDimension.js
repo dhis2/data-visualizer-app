@@ -102,10 +102,18 @@ export class OrgUnitDimension extends Component {
     };
 
     addOrgUnitPathToParentGraphMap = orgUnit => {
-        const path = removeOrgUnitLastPathSegment(orgUnit.path);
+        let value;
+
+        if ('/' + orgUnit.id === orgUnit.path) {
+            // root org unit case
+            value = '';
+        } else {
+            const path = removeOrgUnitLastPathSegment(orgUnit.path);
+            value = path[0] === '/' ? path.substr(1) : path;
+        }
 
         this.props.acAddParentGraphMap({
-            [orgUnit.id]: path[0] === '/' ? path.substr(1) : path,
+            [orgUnit.id]: value,
         });
     };
 
