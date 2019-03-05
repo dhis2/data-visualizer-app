@@ -1,4 +1,5 @@
 import {
+    appendCompleteParentGraphMap,
     appendDimensionItemNamesToAnalyticalObject,
     appendPathsToOrgUnits,
     getPathForOrgUnit,
@@ -218,8 +219,27 @@ describe('currentAnalyticalObject', () => {
         });
     });
 
+    describe('appendCompleteParentGraphMap', () => {
+        it('appends complete parent graph map property', () => {
+            const parentGraphMap = {
+                SOME_ORG_UNIT_ID: 'SOME_ORG_UNIT_PARENT',
+            };
+            const expected = {
+                ...mockCurrent,
+                parentGraphMap: {
+                    ...mockCurrent.parentGraphMap,
+                    SOME_ORG_UNIT_ID: 'SOME_ORG_UNIT_PARENT',
+                },
+            };
+
+            expect(
+                appendCompleteParentGraphMap(mockCurrent, { parentGraphMap })
+            ).toEqual(expected);
+        });
+    });
+
     describe('prepareCurrentAnalyticalObject', () => {
-        it('appends org unit paths, dimension item names and removes attributes and ', () => {
+        it('prepares current analytical object for user data store', () => {
             const expected = {
                 key: 'value',
                 columns: [
@@ -233,6 +253,10 @@ describe('currentAnalyticalObject', () => {
                         ],
                     },
                 ],
+                parentGraphMap: {
+                    qhqAxPSTUXp: 'ImspTQPwCqd',
+                    Vth0fbpFcsO: 'ImspTQPwCqd',
+                },
                 filters: [
                     {
                         dimension: 'ou',

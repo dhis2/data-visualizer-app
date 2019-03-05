@@ -65,12 +65,21 @@ export const appendDimensionItemNamesToAnalyticalObject = (
     };
 };
 
+export const appendCompleteParentGraphMap = (current, { parentGraphMap }) => ({
+    ...current,
+    parentGraphMap: {
+        ...current.parentGraphMap,
+        ...parentGraphMap,
+    },
+});
+
 export const prepareCurrentAnalyticalObject = (current, metadata, ui) => {
     let result;
 
     result = removeUnnecessaryAttributesFromAnalyticalObject(current);
     result = appendDimensionItemNamesToAnalyticalObject(result, metadata);
     result = appendPathsToOrgUnits(result, ui);
+    result = appendCompleteParentGraphMap(result, ui);
 
     return result;
 };
