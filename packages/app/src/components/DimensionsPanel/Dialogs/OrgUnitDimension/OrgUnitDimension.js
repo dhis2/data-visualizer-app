@@ -6,12 +6,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import i18n from '@dhis2/d2-i18n';
 import PropTypes from 'prop-types';
 import { colors } from 'analytics-shared';
-
-import {
-    OrgUnitSelector,
-    userOrgUnits,
-    removeOrgUnitLastPathSegment,
-} from '@dhis2/d2-ui-org-unit-dialog';
+import { OrgUnitSelector, userOrgUnits } from '@dhis2/d2-ui-org-unit-dialog';
 
 import {
     sGetUiItemsByDimension,
@@ -46,6 +41,7 @@ import {
     getGroupsFromIds,
     sortOrgUnitLevels,
     transformOptionsIntoMetadata,
+    removeOrgUnitLastPathSegment,
 } from '../../../../modules/orgUnitDimensions';
 
 import { FIXED_DIMENSIONS } from '../../../../modules/fixedDimensions';
@@ -106,10 +102,18 @@ export class OrgUnitDimension extends Component {
     };
 
     addOrgUnitPathToParentGraphMap = orgUnit => {
-        const path = removeOrgUnitLastPathSegment(orgUnit.path);
+        let value;
+
+        if ('/' + orgUnit.id === orgUnit.path) {
+            // root org unit case
+            value = '';
+        } else {
+            const path = removeOrgUnitLastPathSegment(orgUnit.path);
+            value = path[0] === '/' ? path.substr(1) : path;
+        }
 
         this.props.acAddParentGraphMap({
-            [orgUnit.id]: path[0] === '/' ? path.substr(1) : path,
+            [orgUnit.id]: value,
         });
     };
 

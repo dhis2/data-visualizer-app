@@ -15,6 +15,7 @@ import { isYearOverYear } from './chartTypes';
 import { getOptionsFromVisualization } from './options';
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields';
 import { pieLayoutAdapter, yearOverYearLayoutAdapter } from './layoutAdapters';
+import { removeOrgUnitLastPathSegment } from './orgUnitDimensions';
 
 const peId = FIXED_DIMENSIONS.pe.id;
 
@@ -91,7 +92,14 @@ export const getParentGraphMapFromVisualization = vis => {
     ouDimension.items
         .filter(orgUnit => orgUnit.path)
         .forEach(orgUnit => {
-            parentGraphMap[orgUnit.id] = orgUnit.path;
+            if ('/' + orgUnit.id === orgUnit.path) {
+                // root org unit case
+                parentGraphMap[orgUnit.id] = '';
+            } else {
+                const path = removeOrgUnitLastPathSegment(orgUnit.path);
+                parentGraphMap[orgUnit.id] =
+                    path[0] === '/' ? path.substr(1) : path;
+            }
         });
 
     return parentGraphMap;

@@ -63,11 +63,11 @@ describe('ui', () => {
                         items: [
                             {
                                 id: 'qhqAxPSTUXp',
-                                path: 'ImspTQPwCqd',
+                                path: '/ImspTQPwCqd',
                             },
                             {
                                 id: 'Vth0fbpFcsO',
-                                path: 'ImspTQPwCqd',
+                                path: '/ImspTQPwCqd',
                             },
                         ],
                     },

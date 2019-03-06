@@ -160,3 +160,12 @@ export const transformOptionsIntoMetadata = (
         metadata: result,
     };
 };
+
+export const removeOrgUnitLastPathSegment = path => {
+    // if root path, then return unprocessed path
+    if (path.match(/\//g).length === 1) {
+        return path;
+    }
+
+    return path.substr(0, path.lastIndexOf('/'));
+};

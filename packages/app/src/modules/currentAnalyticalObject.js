@@ -1,6 +1,20 @@
 import { FIXED_DIMENSIONS } from './fixedDimensions';
 import { getDimensionIdsByAxis, getInverseLayout } from './layout';
 
+export const getPathForOrgUnit = (orgUnit, parentGraphMap) => {
+    if (parentGraphMap[orgUnit.id] === undefined) {
+        return undefined;
+    }
+
+    // if this is root org unit then in parentGraphMap object
+    // it has empty string as value and id as key
+    if (parentGraphMap[orgUnit.id] === '') {
+        return '/' + orgUnit.id;
+    }
+
+    return '/' + parentGraphMap[orgUnit.id] + '/' + orgUnit.id;
+};
+
 export const appendPathsToOrgUnits = (current, ui) => {
     const ouId = FIXED_DIMENSIONS.ou.id;
     const dimensionIdsByAxis = getDimensionIdsByAxis(current);
@@ -18,7 +32,7 @@ export const appendPathsToOrgUnits = (current, ui) => {
             ...dimension,
             items: dimension.items.map(item => ({
                 ...item,
-                path: parentGraphMap[item.id],
+                path: getPathForOrgUnit(item, parentGraphMap),
             })),
         })),
     };
@@ -51,12 +65,21 @@ export const appendDimensionItemNamesToAnalyticalObject = (
     };
 };
 
+export const appendCompleteParentGraphMap = (current, { parentGraphMap }) => ({
+    ...current,
+    parentGraphMap: {
+        ...current.parentGraphMap,
+        ...parentGraphMap,
+    },
+});
+
 export const prepareCurrentAnalyticalObject = (current, metadata, ui) => {
     let result;
 
     result = removeUnnecessaryAttributesFromAnalyticalObject(current);
     result = appendDimensionItemNamesToAnalyticalObject(result, metadata);
     result = appendPathsToOrgUnits(result, ui);
+    result = appendCompleteParentGraphMap(result, ui);
 
     return result;
 };

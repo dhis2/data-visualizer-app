@@ -1,6 +1,8 @@
 import {
+    appendCompleteParentGraphMap,
     appendDimensionItemNamesToAnalyticalObject,
     appendPathsToOrgUnits,
+    getPathForOrgUnit,
     prepareCurrentAnalyticalObject,
     removeUnnecessaryAttributesFromAnalyticalObject,
 } from '../currentAnalyticalObject';
@@ -64,6 +66,37 @@ describe('currentAnalyticalObject', () => {
         };
     });
 
+    describe('getPathForOrgUnit', () => {
+        it('generates path for orgunit using ui.parentGraphMap', () => {
+            const orgUnit = { id: 'SOME_ID' };
+            const parentGraphMap = { SOME_ID: 'ORG_UNIT/SUB_ORG_UNIT' };
+            const expectedPath = '/ORG_UNIT/SUB_ORG_UNIT/SOME_ID';
+
+            expect(getPathForOrgUnit(orgUnit, parentGraphMap)).toEqual(
+                expectedPath
+            );
+        });
+
+        it('handles root org unit case', () => {
+            const orgUnit = { id: 'ROOT_SIERRA_LEONE_ORG_UNIT' };
+            const parentGraphMap = {
+                ROOT_SIERRA_LEONE_ORG_UNIT: '',
+            };
+            const expectedPath = '/ROOT_SIERRA_LEONE_ORG_UNIT';
+
+            expect(getPathForOrgUnit(orgUnit, parentGraphMap)).toEqual(
+                expectedPath
+            );
+        });
+
+        it('returns undefined if parentGraphMap does not contain specified parent path', () => {
+            const orgUnit = 'USER_ORG_UNIT_CHILDREN';
+            const parentGraphMap = {};
+
+            expect(getPathForOrgUnit(orgUnit, parentGraphMap)).toBeUndefined();
+        });
+    });
+
     describe('appendPathsToOrgUnits', () => {
         it('appends org unit paths to current analytical object', () => {
             const expected = {
@@ -74,11 +107,11 @@ describe('currentAnalyticalObject', () => {
                         items: [
                             {
                                 id: 'qhqAxPSTUXp',
-                                path: 'ImspTQPwCqd',
+                                path: '/ImspTQPwCqd/qhqAxPSTUXp',
                             },
                             {
                                 id: 'Vth0fbpFcsO',
-                                path: 'ImspTQPwCqd',
+                                path: '/ImspTQPwCqd/Vth0fbpFcsO',
                             },
                         ],
                     },
@@ -186,8 +219,27 @@ describe('currentAnalyticalObject', () => {
         });
     });
 
+    describe('appendCompleteParentGraphMap', () => {
+        it('appends complete parent graph map property', () => {
+            const parentGraphMap = {
+                SOME_ORG_UNIT_ID: 'SOME_ORG_UNIT_PARENT',
+            };
+            const expected = {
+                ...mockCurrent,
+                parentGraphMap: {
+                    ...mockCurrent.parentGraphMap,
+                    SOME_ORG_UNIT_ID: 'SOME_ORG_UNIT_PARENT',
+                },
+            };
+
+            expect(
+                appendCompleteParentGraphMap(mockCurrent, { parentGraphMap })
+            ).toEqual(expected);
+        });
+    });
+
     describe('prepareCurrentAnalyticalObject', () => {
-        it('appends org unit paths, dimension item names and removes attributes and ', () => {
+        it('prepares current analytical object for user data store', () => {
             const expected = {
                 key: 'value',
                 columns: [
@@ -201,6 +253,10 @@ describe('currentAnalyticalObject', () => {
                         ],
                     },
                 ],
+                parentGraphMap: {
+                    qhqAxPSTUXp: 'ImspTQPwCqd',
+                    Vth0fbpFcsO: 'ImspTQPwCqd',
+                },
                 filters: [
                     {
                         dimension: 'ou',
@@ -208,12 +264,12 @@ describe('currentAnalyticalObject', () => {
                             {
                                 id: 'qhqAxPSTUXp',
                                 name: 'Koinadugu',
-                                path: 'ImspTQPwCqd',
+                                path: '/ImspTQPwCqd/qhqAxPSTUXp',
                             },
                             {
                                 id: 'Vth0fbpFcsO',
                                 name: 'Kono',
-                                path: 'ImspTQPwCqd',
+                                path: '/ImspTQPwCqd/Vth0fbpFcsO',
                             },
                         ],
                     },

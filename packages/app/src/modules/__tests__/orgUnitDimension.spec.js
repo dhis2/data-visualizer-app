@@ -9,6 +9,7 @@ import {
     getGroupsFromIds,
     sortOrgUnitLevels,
     transformOptionsIntoMetadata,
+    removeOrgUnitLastPathSegment,
 } from '../orgUnitDimensions';
 
 describe('isLevelId', () => {
@@ -313,5 +314,25 @@ describe('transformOptionsIntoMetadata', () => {
                 options.find(option => option.id === id)
             );
         });
+    });
+});
+
+describe('removeOrgUnitLastPathSegment', () => {
+    it('handles a root path', () => {
+        const path = '/';
+
+        expect(removeOrgUnitLastPathSegment(path)).toEqual(path);
+    });
+
+    it('handles a path with single segment', () => {
+        const path = '/abc';
+
+        expect(removeOrgUnitLastPathSegment(path)).toEqual(path);
+    });
+
+    it('handles a path with multiple segments', () => {
+        const path = 'ABC/def/GHI';
+
+        expect(removeOrgUnitLastPathSegment(path)).toEqual('ABC/def');
     });
 });
