@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
-import UI from 'ui/core/UI';
 import HeaderBar from 'ui/widgets/HeaderBar';
+import UI from 'ui/core/UI';
 
 import FatalErrorBoundary from './ErrorBoundaries/FatalErrorBoundary';
 import Snackbar from '../components/Snackbar/Snackbar';
@@ -20,6 +20,8 @@ import * as fromActions from '../actions';
 import history from '../modules/history';
 import defaultMetadata from '../modules/metadata';
 import { sGetUi } from '../reducers/ui';
+
+import '@dhis2/ui/defaults/reset.css';
 
 import './App.css';
 import './scrollbar.css';
