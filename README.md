@@ -1,5 +1,7 @@
 # Data visualizer app and plugin
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/dhis2/data-visualizer-app.svg)](https://greenkeeper.io/)
+
 This is a lerna repo that contains the data-visualizer-app. Eventually it will also contain the analytics plugins.
 
 ## Getting started
