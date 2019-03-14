@@ -109,6 +109,7 @@ describe('ChartPlugin', () => {
             filters: {},
             style: { height: 100 },
             id: 1,
+            d2: {},
             forDashboard: false,
             onChartGenerated: jest.fn(),
             onResponsesReceived: jest.fn(),
@@ -173,7 +174,7 @@ describe('ChartPlugin', () => {
 
             setTimeout(() => {
                 expect(api.apiFetchAnalytics).toHaveBeenCalled();
-                expect(api.apiFetchAnalytics.mock.calls[0][1]).toEqual({
+                expect(api.apiFetchAnalytics.mock.calls[0][2]).toEqual({
                     option1: 'def',
                 });
 
@@ -193,6 +194,7 @@ describe('ChartPlugin', () => {
             setTimeout(() => {
                 expect(apiViz.apiFetchVisualization).toHaveBeenCalled();
                 expect(apiViz.apiFetchVisualization).toHaveBeenCalledWith(
+                    props.d2,
                     'chart',
                     'test1'
                 );
@@ -244,7 +246,7 @@ describe('ChartPlugin', () => {
 
             setTimeout(() => {
                 expect(api.apiFetchAnalytics).toHaveBeenCalled();
-                expect(api.apiFetchAnalytics.mock.calls[0][1]).toHaveProperty(
+                expect(api.apiFetchAnalytics.mock.calls[0][2]).toHaveProperty(
                     'relativePeriodDate',
                     period
                 );
