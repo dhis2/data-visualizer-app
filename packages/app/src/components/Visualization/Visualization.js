@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
 import i18n from '@dhis2/d2-i18n';
@@ -107,6 +108,7 @@ export class Visualization extends Component {
         ) : (
             <ChartPlugin
                 id={renderId}
+                d2={this.context.d2}
                 config={chartConfig}
                 filters={chartFilters}
                 onChartGenerated={this.onChartGenerated}
@@ -117,6 +119,10 @@ export class Visualization extends Component {
         );
     }
 }
+
+Visualization.contextTypes = {
+    d2: PropTypes.object,
+};
 
 export const chartConfigSelector = createSelector(
     [sGetCurrent, sGetVisualization, sGetUiInterpretation],

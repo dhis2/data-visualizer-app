@@ -80,7 +80,7 @@ class ChartPlugin extends Component {
     };
 
     getConfigById = id => {
-        return apiFetchVisualization('chart', id);
+        return apiFetchVisualization(this.props.d2, 'chart', id);
     };
 
     renderChart = async () => {
@@ -118,7 +118,11 @@ class ChartPlugin extends Component {
                 extraOptions[BASE_FIELD_YEARLY_SERIES] = yearlySeriesLabels;
                 extraOptions.xAxisLabels = computeGenericPeriodNames(responses);
             } else {
-                responses = await apiFetchAnalytics(visualization, options);
+                responses = await apiFetchAnalytics(
+                    this.props.d2,
+                    visualization,
+                    options
+                );
             }
 
             if (responses.length) {
@@ -175,6 +179,7 @@ ChartPlugin.defaultProps = {
 
 ChartPlugin.propTypes = {
     id: PropTypes.number,
+    d2: PropTypes.object.isRequired,
     animation: PropTypes.number,
     config: PropTypes.object.isRequired,
     filters: PropTypes.object,
