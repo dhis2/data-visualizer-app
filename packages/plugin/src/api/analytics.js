@@ -1,10 +1,6 @@
-import { getInstance } from 'd2';
-
 const peId = 'pe';
 
-export const apiFetchAnalytics = async (current, options) => {
-    const d2 = await getInstance();
-
+export const apiFetchAnalytics = async (d2, current, options) => {
     const req = new d2.analytics.request()
         .fromModel(current)
         .withParameters(options);
@@ -14,9 +10,11 @@ export const apiFetchAnalytics = async (current, options) => {
     return [new d2.analytics.response(rawResponse)];
 };
 
-export const apiFetchAnalyticsForYearOverYear = async (current, options) => {
-    const d2 = await getInstance();
-
+export const apiFetchAnalyticsForYearOverYear = async (
+    d2,
+    current,
+    options
+) => {
     let yearlySeriesReq = new d2.analytics.request()
         .addPeriodDimension(current.yearlySeries)
         .withSkipData(true)

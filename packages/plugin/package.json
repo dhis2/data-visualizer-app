@@ -6,7 +6,6 @@
     "license": "BSD-3-Clause",
     "dependencies": {
         "@material-ui/core": "^3.1.2",
-        "d2": "31.2.1",
         "d2-charts-api": "^31.0.12",
         "lodash-es": "^4.17.11",
         "react": "^16.6.0",
