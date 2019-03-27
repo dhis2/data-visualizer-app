@@ -2,7 +2,7 @@ import { colors } from 'analytics-shared';
 
 export default {
     button: {
-        padding: '7px',
+        padding: '6px',
         color: colors.black,
         fontSize: '15px',
         textTransform: 'none',
