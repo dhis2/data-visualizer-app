@@ -24,7 +24,7 @@ import {
     CURRENT_AO_KEY,
 } from '../api/userDataStore';
 
-import '@dhis2/ui/defaults/reset.css';
+import '@dhis2/ui/css/reset.css';
 
 import './App.css';
 import './scrollbar.css';
