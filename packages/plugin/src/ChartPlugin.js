@@ -111,6 +111,7 @@ class ChartPlugin extends Component {
                     responses,
                     yearlySeriesLabels,
                 } = await apiFetchAnalyticsForYearOverYear(
+                    this.props.d2,
                     visualization,
                     options
                 ));

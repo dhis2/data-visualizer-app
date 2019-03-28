@@ -277,6 +277,7 @@ describe('ChartPlugin', () => {
                     expect(
                         api.apiFetchAnalyticsForYearOverYear.mock.calls[0][1]
                     ).toEqual({
+                        ...yearOverYearCurrentMock,
                         option1: 'def',
                     });
 
