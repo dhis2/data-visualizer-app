@@ -30,6 +30,7 @@ export const TOGGLE_UI_RIGHT_SIDEBAR_OPEN = 'TOGGLE_UI_RIGHT_SIDEBAR_OPEN';
 export const SET_UI_RIGHT_SIDEBAR_OPEN = 'SET_UI_RIGHT_SIDEBAR_OPEN';
 export const SET_UI_INTERPRETATION = 'SET_UI_INTERPRETATION';
 export const CLEAR_UI_INTERPRETATION = 'CLEAR_UI_INTERPRETATION';
+export const SET_AXES = 'SET_AXES';
 
 const dxId = FIXED_DIMENSIONS.dx.id;
 const peId = FIXED_DIMENSIONS.pe.id;
@@ -53,6 +54,7 @@ export const DEFAULT_UI = {
     activeModalDialog: null,
     rightSidebarOpen: false,
     interpretation: {},
+    axes: null,
 };
 
 export default (state = DEFAULT_UI, action) => {
@@ -255,6 +257,7 @@ export const sGetUiParentGraphMap = state => sGetUi(state).parentGraphMap;
 export const sGetUiActiveModalDialog = state => sGetUi(state).activeModalDialog;
 export const sGetUiRightSidebarOpen = state => sGetUi(state).rightSidebarOpen;
 export const sGetUiInterpretation = state => sGetUi(state).interpretation;
+export const sGetAxes = state => sGetUi(state).axes;
 
 export const sGetDimensionIdsFromLayout = state =>
     Object.values(sGetUiLayout(state)).reduce(
