@@ -52,12 +52,9 @@ class ChartPlugin extends Component {
         const options = getOptionsForRequest().reduce(
             (map, [option, props]) => {
                 // only add parameter if value !== default
-                // only assign undefined if defaultValue is/can be undefined
                 if (
-                    (visualization[option] !== undefined &&
-                        visualization[option] !== props.defaultValue) ||
-                    (visualization[option] === undefined &&
-                        visualization[option] === props.defaultValue)
+                    visualization[option] !== undefined &&
+                    visualization[option] !== props.defaultValue
                 ) {
                     map[option] = visualization[option];
                 }
