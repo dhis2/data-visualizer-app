@@ -4315,10 +4315,10 @@ cypress@^3.1.1:
     url "0.11.0"
     yauzl "2.8.0"
 
-d2-charts-api@31.0.12:
-  version "31.0.12"
-  resolved "https://registry.yarnpkg.com/d2-charts-api/-/d2-charts-api-31.0.12.tgz#ef3f682fd6dbe572471b0636c93e87a1717c0e28"
-  integrity sha512-ywcB/pdU4DVU/A989rUHgVcCWiZGc1i5EOvtlLdIJGTjxg83L8QgeN5c0AuulZPGA9OG+K0k8WGZiuDyqMkRAw==
+d2-charts-api@31.0.14, d2-charts-api@^31.0.14:
+  version "31.0.14"
+  resolved "https://registry.yarnpkg.com/d2-charts-api/-/d2-charts-api-31.0.14.tgz#bce5a761393f02cfc00c7aaaa402c9fef52f4431"
+  integrity sha512-KLv83cl+lqQZ2dAOaAD1KKHpECZy2j9MfjnGHR9BOQPzUnpKBf2aYsAVmP3dqsHUI5Y/SZDKUBCIjZS+6DBtXA==
   dependencies:
     d2-utilizr "0.2.13"
     d3-color "1.0.1"
@@ -4451,7 +4451,6 @@ data-urls@^1.0.0:
   resolved "https://codeload.github.com/d2-ci/data-visualizer-plugin/tar.gz/6abf0b27ef92304e15c22d88aea9e1cde1fb1243"
   dependencies:
     "@material-ui/core" "^3.1.2"
-    d2 "31.2.1"
     d2-charts-api "^31.0.12"
     lodash-es "^4.17.11"
     react "^16.6.0"
