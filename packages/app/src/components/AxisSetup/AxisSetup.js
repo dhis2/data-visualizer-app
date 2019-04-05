@@ -139,7 +139,7 @@ class AxisSetup extends Component {
                 <DialogContent className={classes.dialogContent}>
                     <p>
                         {i18n.t(
-                            'A chart can have up to 4 different axes. Here you can assign each data selection to an axis.'
+                            'A chart can have two axes. Each axis will have its own scale. Set the axis for each data selection below.'
                         )}
                     </p>
                     <div className={classes.tableContainer}>

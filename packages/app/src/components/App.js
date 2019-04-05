@@ -162,10 +162,10 @@ export class App extends Component {
             !this.props.loadError;
 
         const items = [
-            { id: '1ad', name: 'ANC 1 Coverage', axis: 1 },
-            { id: '2qweq', name: 'ANC 2 Coverage', axis: 1 },
-            { id: 'qe3da', name: 'BCG Stock PHU', axis: 1 },
-            { id: 'we43d', name: 'BCG Coverage <1y', axis: 2 },
+            { id: '1ad', name: 'ANC 1 Coverage', axis: 0 },
+            { id: '2qweq', name: 'ANC 2 Coverage', axis: 0 },
+            { id: 'qe3da', name: 'BCG Stock PHU', axis: 0 },
+            { id: 'we43d', name: 'BCG Coverage <1y', axis: 1 },
         ];
 
         return (

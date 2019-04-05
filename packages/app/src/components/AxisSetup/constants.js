@@ -1,5 +1,5 @@
-export const axis1 = 1;
-export const axis2 = 2;
+export const axis1 = 0;
+export const axis2 = 1;
 
 export default {
     axis1,
