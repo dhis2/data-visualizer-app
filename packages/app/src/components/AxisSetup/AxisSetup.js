@@ -69,7 +69,7 @@ class AxisSetup extends Component {
                 </colgroup>
                 <TableHead>
                     <TableRow>
-                        <TableCell />
+                        <TableCell className={classes.head} />
                         <TableCell
                             className={`${classes.tableCell} ${classes.head}`}
                             align="center"
