@@ -29,12 +29,14 @@ import '@dhis2/ui/defaults/reset.css';
 import './App.css';
 import './scrollbar.css';
 import { getParentGraphMapFromVisualization } from '../modules/ui';
+import AxisSetup from './AxisSetup/AxisSetup';
 
 export class App extends Component {
     unlisten = null;
 
     state = {
         previousLocation: null,
+        isAxisSetupDialogOpened: true,
     };
 
     /**
@@ -159,8 +161,23 @@ export class App extends Component {
             Object.keys(this.props.current).length > 0 &&
             !this.props.loadError;
 
+        const items = [
+            { id: '1ad', name: 'ANC 1 Coverage', axis: 1 },
+            { id: '2qweq', name: 'ANC 2 Coverage', axis: 1 },
+            { id: 'qe3da', name: 'BCG Stock PHU', axis: 1 },
+            { id: 'we43d', name: 'BCG Coverage <1y', axis: 2 },
+        ];
+
         return (
             <FatalErrorBoundary>
+                <AxisSetup
+                    isOpened={this.state.isAxisSetupDialogOpened}
+                    items={items}
+                    onUpdateClick={items => console.log(items)}
+                    onCancelClick={() =>
+                        this.setState({ isAxisSetupDialogOpened: false })
+                    }
+                />
                 <div className="app flex-ct flex-dir-col">
                     <div className="section-headerbar">
                         <HeaderBar appName={i18n.t('Data Visualizer')} />
