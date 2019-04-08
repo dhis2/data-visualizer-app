@@ -102,7 +102,7 @@ export class Visualization extends Component {
     render() {
         const { chartConfig, chartFilters, error } = this.props;
         const { renderId } = this.state;
-
+        console.log('chartConfig', chartConfig);
         return error ? (
             <BlankCanvas />
         ) : (

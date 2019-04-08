@@ -3,6 +3,7 @@ import {
     getOptionsFromUi,
     getPieCurrentFromUi,
     getYearOverYearCurrentFromUi,
+    getChartSeriesFromUi,
 } from '../modules/current';
 import {
     YEAR_OVER_YEAR_LINE,
@@ -18,6 +19,20 @@ export const CLEAR_CURRENT = 'CLEAR_CURRENT';
 
 export const DEFAULT_CURRENT = null;
 
+const getDefaultFromUi = (state, action) => {
+    const axesFromUi = getAxesFromUi(action.value);
+    const optionsFromUi = getOptionsFromUi(action.value);
+    const chartSeries = getChartSeriesFromUi(action.value);
+
+    return {
+        ...state,
+        [BASE_FIELD_TYPE]: action.value.type,
+        ...axesFromUi,
+        ...optionsFromUi,
+        chartSeries,
+    };
+};
+
 export default (state = DEFAULT_CURRENT, action) => {
     switch (action.type) {
         case SET_CURRENT: {
@@ -32,15 +47,7 @@ export default (state = DEFAULT_CURRENT, action) => {
                 case YEAR_OVER_YEAR_COLUMN:
                     return getYearOverYearCurrentFromUi(state, action);
                 default: {
-                    const axesFromUi = getAxesFromUi(action.value);
-                    const optionsFromUi = getOptionsFromUi(action.value);
-
-                    return {
-                        ...state,
-                        ...axesFromUi,
-                        ...optionsFromUi,
-                        [BASE_FIELD_TYPE]: action.value.type,
-                    };
+                    return getDefaultFromUi(state, action);
                 }
             }
         }

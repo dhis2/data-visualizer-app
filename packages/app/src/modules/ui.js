@@ -106,3 +106,13 @@ export const getParentGraphMapFromVisualization = vis => {
 
     return parentGraphMap;
 };
+
+export const mergeUiMaps = (destinationMap, sourceMap, propName) => {
+    Object.keys(sourceMap || {}).forEach(key => {
+        if (!(key in destinationMap)) {
+            destinationMap[key] = {};
+        }
+
+        destinationMap[key][propName] = sourceMap[key];
+    });
+};

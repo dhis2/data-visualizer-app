@@ -15,10 +15,11 @@ import {
     AXIS_NAMES,
     SOURCE_DIMENSIONS,
     menuLabels,
+    AXIS_NAME_COLUMNS,
 } from '../../../modules/layout';
 import styles from './styles/DefaultAxis.style';
 import { getAdaptedUiByType } from '../../../modules/ui';
-import { isYearOverYear } from '../../../modules/chartTypes';
+import { isYearOverYear, isDualAxisType } from '../../../modules/chartTypes';
 
 const axisLabels = {
     columns: i18n.t('Series'),
@@ -56,6 +57,12 @@ class Axis extends React.Component {
             >{`${i18n.t('Move to')} ${menuLabels[key]}`}</MenuItem>
         ));
 
+    getDualAxisItem = () => (
+        <MenuItem key="dual-axis" onClick={Function.prototype}>
+            Dual-axis
+        </MenuItem>
+    );
+
     getRemoveMenuItem = dimensionId => (
         <MenuItem
             key={`remove-${dimensionId}`}
@@ -67,7 +74,12 @@ class Axis extends React.Component {
 
     isMoveSupported = () => !isYearOverYear(this.props.type);
 
+    isSeries = () => this.props.axisName === AXIS_NAME_COLUMNS;
+
     getMenuItems = dimensionId => [
+        this.isSeries() && isDualAxisType(this.props.type)
+            ? this.getDualAxisItem()
+            : null,
         ...(this.isMoveSupported() ? this.getAxisMenuItems(dimensionId) : []),
         this.getRemoveMenuItem(dimensionId),
     ];

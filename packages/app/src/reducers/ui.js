@@ -54,7 +54,10 @@ export const DEFAULT_UI = {
     activeModalDialog: null,
     rightSidebarOpen: false,
     interpretation: {},
-    axes: null,
+    // axes: null,
+    axes: {
+        Uvn6LCg7dVU: 1,
+    },
 };
 
 export default (state = DEFAULT_UI, action) => {

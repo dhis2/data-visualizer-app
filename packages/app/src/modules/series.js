@@ -1,8 +1,8 @@
-import { DEFAULT_UI, sGetAxes } from '../reducers/ui';
+import { DEFAULT_UI } from '../reducers/ui';
 
 export const getAxesFromChartSeries = chartSeries => {
     if (!(Array.isArray(chartSeries) && chartSeries.length)) {
-        return sGetAxes(DEFAULT_UI);
+        return DEFAULT_UI.axes;
     }
 
     return chartSeries

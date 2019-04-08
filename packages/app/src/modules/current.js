@@ -9,6 +9,7 @@ import {
 import { FIXED_DIMENSIONS } from './fixedDimensions';
 import { BASE_FIELD_TYPE, BASE_FIELD_YEARLY_SERIES } from './fields/baseFields';
 import { pieLayoutAdapter } from './layoutAdapters';
+import { mergeUiMaps } from './ui';
 
 const dxId = FIXED_DIMENSIONS.dx.id;
 const peId = FIXED_DIMENSIONS.pe.id;
@@ -45,6 +46,20 @@ export const getOptionsFromUi = ui => {
     }
 
     return optionsFromUi;
+};
+
+// expand to support series types later
+export const getChartSeriesFromUi = ui => {
+    const chartSeriesObj = {};
+
+    // axes
+    mergeUiMaps(chartSeriesObj, ui.axes, 'axis');
+
+    return Object.entries(chartSeriesObj).reduce((arr, [key, value]) => {
+        value.id = key;
+        arr.push(value);
+        return arr;
+    }, []);
 };
 
 export const getPieCurrentFromUi = (state, action) => {
