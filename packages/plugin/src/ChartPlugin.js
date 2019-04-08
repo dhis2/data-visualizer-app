@@ -52,7 +52,10 @@ class ChartPlugin extends Component {
         const options = getOptionsForRequest().reduce(
             (map, [option, props]) => {
                 // only add parameter if value !== default
-                if (visualization[option] !== props.defaultValue) {
+                if (
+                    visualization[option] !== undefined &&
+                    visualization[option] !== props.defaultValue
+                ) {
                     map[option] = visualization[option];
                 }
 
@@ -95,7 +98,7 @@ class ChartPlugin extends Component {
 
         try {
             const visualization =
-                forDashboard || Object.keys(config).length === 1
+                Object.keys(config).length === 1 && config.id
                     ? await this.getConfigById(config.id)
                     : config;
 
