@@ -19,7 +19,7 @@ import TableBody from '@material-ui/core/TableBody';
 import styles from './styles/AxisSetup.style';
 import { axis1, axis2 } from './constants';
 
-class AxisSetup extends Component {
+export class AxisSetup extends Component {
     state = {
         items: undefined,
     };
