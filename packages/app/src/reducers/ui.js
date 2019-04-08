@@ -56,7 +56,9 @@ export const DEFAULT_UI = {
     interpretation: {},
     // axes: null,
     axes: {
-        OdiHJayrsKo: 1,
+        sB79w2hiLp8: 1,
+        AUqdhY4mpvp: 1,
+        dwEq7wi6nXV: 1,
     },
 };
 
