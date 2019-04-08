@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import map from 'lodash-es/map';
+import isEqual from 'lodash-es/isEqual';
 
 import { withStyles } from '@material-ui/core/styles';
 import Dialog from '@material-ui/core/Dialog';
@@ -25,7 +26,20 @@ export class AxisSetup extends Component {
     };
 
     componentDidMount() {
-        const itemsMap = this.props.items.reduce(
+        this.setItems(this.props.items);
+    }
+
+    componentDidUpdate(prevProps) {
+        const oldItems = prevProps.items;
+        const newItems = this.props.items;
+
+        if (!isEqual(oldItems, newItems)) {
+            this.setItems(newItems);
+        }
+    }
+
+    setItems = items => {
+        const itemsMap = items.reduce(
             (itemsMap, item) => ({ ...itemsMap, [item.id]: item }),
             {}
         );
@@ -33,7 +47,7 @@ export class AxisSetup extends Component {
         this.setState({
             items: itemsMap,
         });
-    }
+    };
 
     onAxisChange = (item, axis) => {
         this.setState({

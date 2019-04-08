@@ -73,4 +73,25 @@ describe('AxisSetup component', () => {
             { id: 'qwe23ecs', name: 'ANC 3 Coverage', axis: axis2 },
         ]);
     });
+
+    it('updates items on prop update', () => {
+        const component = axisSetupComponent();
+        const { items } = props;
+        const newItem = {
+            id: 'qwe213csd',
+            name: 'Some new data element',
+            axis: axis1,
+        };
+        const newItems = [...props.items, newItem];
+
+        items.forEach(item => {
+            expect(component.contains(item.name)).toBeTruthy();
+        });
+
+        component.setProps({ items: newItems });
+
+        newItems.forEach(item => {
+            expect(component.contains(item.name)).toBeTruthy();
+        });
+    });
 });
