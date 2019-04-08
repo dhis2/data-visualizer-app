@@ -3,7 +3,7 @@ import {
     getOptionsFromUi,
     getPieCurrentFromUi,
     getYearOverYearCurrentFromUi,
-    getChartSeriesFromUi,
+    getSeriesItemsFromUi,
 } from '../modules/current';
 import {
     YEAR_OVER_YEAR_LINE,
@@ -22,14 +22,14 @@ export const DEFAULT_CURRENT = null;
 const getDefaultFromUi = (state, action) => {
     const axesFromUi = getAxesFromUi(action.value);
     const optionsFromUi = getOptionsFromUi(action.value);
-    const chartSeries = getChartSeriesFromUi(action.value);
-    console.log('chartSeries', chartSeries);
+    const seriesItems = getSeriesItemsFromUi(action.value);
+    console.log('seriesItems', seriesItems);
     return {
         ...state,
         [BASE_FIELD_TYPE]: action.value.type,
         ...axesFromUi,
         ...optionsFromUi,
-        chartSeries,
+        seriesItems,
     };
 };
 
