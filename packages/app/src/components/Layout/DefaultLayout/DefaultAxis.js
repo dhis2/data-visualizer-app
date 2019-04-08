@@ -20,6 +20,7 @@ import {
 import styles from './styles/DefaultAxis.style';
 import { getAdaptedUiByType } from '../../../modules/ui';
 import { isYearOverYear, isDualAxisType } from '../../../modules/chartTypes';
+import { AxisSetup } from '../../AxisSetup/AxisSetup';
 
 const axisLabels = {
     columns: i18n.t('Series'),
@@ -84,6 +85,12 @@ class Axis extends React.Component {
         this.getRemoveMenuItem(dimensionId),
     ];
 
+    // renderAxisSetup = () => <AxisSetup
+
+    // TODO reuse code for:
+    // - menu item?
+    // - opened dialog?
+
     render() {
         return (
             <div
@@ -106,6 +113,7 @@ class Axis extends React.Component {
                         />
                     ))}
                 </div>
+                {/* {isSeries() ? <AxisSetup } */}
             </div>
         );
     }

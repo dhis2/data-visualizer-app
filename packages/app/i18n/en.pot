@@ -5,8 +5,13 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2019-03-27T14:43:22.270Z\n"
 "PO-Revision-Date: 2019-03-27T14:43:22.270Z\n"
+=======
+"POT-Creation-Date: 2019-04-08T08:46:41.758Z\n"
+"PO-Revision-Date: 2019-04-08T08:46:41.758Z\n"
+>>>>>>> origin/feature/multiaxis-component-dialog
 
 msgid "Rename successful"
 msgstr ""
@@ -15,6 +20,26 @@ msgid "\"{{what}}\" successfully deleted."
 msgstr ""
 
 msgid "Data Visualizer"
+msgstr ""
+
+msgid "Axis 1"
+msgstr ""
+
+msgid "Axis 2"
+msgstr ""
+
+msgid "Multi-axes chart"
+msgstr ""
+
+msgid ""
+"A chart can have two axes. Each axis will have its own scale. Set the axis "
+"for each data selection below."
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Update"
 msgstr ""
 
 msgid "Data"
@@ -120,9 +145,6 @@ msgid "Edited"
 msgstr ""
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr ""
-
-msgid "Update"
 msgstr ""
 
 msgid "Create a new visualization by adding dimensions to the layout"
