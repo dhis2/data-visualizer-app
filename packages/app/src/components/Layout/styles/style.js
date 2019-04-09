@@ -1,4 +1,4 @@
-import { colors } from 'analytics-shared';
+import { colors } from '../../../modules/colors';
 
 // Layout
 export const LAYOUT_HEIGHT = '78px';

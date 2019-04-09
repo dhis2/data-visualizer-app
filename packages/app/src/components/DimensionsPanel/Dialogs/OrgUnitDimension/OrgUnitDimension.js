@@ -5,7 +5,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import i18n from '@dhis2/d2-i18n';
 import PropTypes from 'prop-types';
-import { colors } from 'analytics-shared';
+import { colors } from '../../../../modules/colors';
 import { OrgUnitSelector, userOrgUnits } from '@dhis2/d2-ui-org-unit-dialog';
 
 import {
