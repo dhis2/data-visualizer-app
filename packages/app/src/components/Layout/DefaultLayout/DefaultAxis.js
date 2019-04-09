@@ -75,7 +75,7 @@ class Axis extends React.Component {
             key={`dual-axis-${dimensionId}`}
             onClick={this.props.onOpenAxisSetup}
         >
-            {'Dual'}
+            {i18n.t('Dual-axis')}
         </MenuItem>
     );
 
