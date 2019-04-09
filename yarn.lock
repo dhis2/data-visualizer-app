@@ -4236,10 +4236,10 @@ cypress@^3.1.1:
     url "0.11.0"
     yauzl "2.10.0"
 
-d2-charts-api@31.0.14, d2-charts-api@^31.0.14:
-  version "31.0.14"
-  resolved "https://registry.yarnpkg.com/d2-charts-api/-/d2-charts-api-31.0.14.tgz#bce5a761393f02cfc00c7aaaa402c9fef52f4431"
-  integrity sha512-KLv83cl+lqQZ2dAOaAD1KKHpECZy2j9MfjnGHR9BOQPzUnpKBf2aYsAVmP3dqsHUI5Y/SZDKUBCIjZS+6DBtXA==
+d2-charts-api@32.0.0:
+  version "32.0.0"
+  resolved "https://registry.yarnpkg.com/d2-charts-api/-/d2-charts-api-32.0.0.tgz#f0d8f5ff961c662fd91abc098152dcbd10130990"
+  integrity sha512-RCnsXPtZMdwce2k7BqqNfNyKCbrHNR9mK5bJvzyME7nPD2aLM7btOPGuq1tbJdqYC5iNJpWqjCpLzNV/yX8bww==
   dependencies:
     d2-utilizr "0.2.13"
     d3-color "1.0.1"
@@ -5713,6 +5713,13 @@ fd-slicer@~1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/fd-slicer/-/fd-slicer-1.0.1.tgz#8b5bcbd9ec327c5041bf9ab023fd6750f1177e65"
   integrity sha1-i1vL2ewyfFBBv5qwI/1nUPEXfmU=
+  dependencies:
+    pend "~1.2.0"
+
+fd-slicer@~1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/fd-slicer/-/fd-slicer-1.1.0.tgz#25c7c89cb1f9077f8891bbe61d8f390eae256f1e"
+  integrity sha1-JcfInLH5B3+IkbvmHY85Dq4lbx4=
   dependencies:
     pend "~1.2.0"
 
@@ -13905,17 +13912,17 @@ yargs@~3.10.0:
     decamelize "^1.0.0"
     window-size "0.1.0"
 
+yauzl@2.10.0:
+  version "2.10.0"
+  resolved "https://registry.yarnpkg.com/yauzl/-/yauzl-2.10.0.tgz#c7eb17c93e112cb1086fa6d8e51fb0667b79a5f9"
+  integrity sha1-x+sXyT4RLLEIb6bY5R+wZnt5pfk=
+  dependencies:
+    buffer-crc32 "~0.2.3"
+    fd-slicer "~1.1.0"
+
 yauzl@2.4.1:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/yauzl/-/yauzl-2.4.1.tgz#9528f442dab1b2284e58b4379bb194e22e0c4005"
   integrity sha1-lSj0QtqxsihOWLQ3m7GU4i4MQAU=
   dependencies:
-    fd-slicer "~1.0.1"
-
-yauzl@2.8.0:
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/yauzl/-/yauzl-2.8.0.tgz#79450aff22b2a9c5a41ef54e02db907ccfbf9ee2"
-  integrity sha1-eUUK/yKyqcWkHvVOAtuQfM+/nuI=
-  dependencies:
-    buffer-crc32 "~0.2.3"
     fd-slicer "~1.0.1"
