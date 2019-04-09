@@ -32,8 +32,10 @@ export const chartTypeDisplayNames = {
 const stackedTypes = [STACKED_COLUMN, STACKED_BAR, AREA];
 const yearOverYearTypes = [YEAR_OVER_YEAR_LINE, YEAR_OVER_YEAR_COLUMN];
 const openAsTypes = [OPEN_AS_MAP];
+const dualAxisTypes = [COLUMN, BAR, LINE, AREA];
 
 export const defaultChartType = COLUMN;
 export const isStacked = type => stackedTypes.includes(type);
 export const isYearOverYear = type => yearOverYearTypes.includes(type);
 export const isOpenAsType = type => openAsTypes.includes(type);
+export const isDualAxisType = type => dualAxisTypes.includes(type);

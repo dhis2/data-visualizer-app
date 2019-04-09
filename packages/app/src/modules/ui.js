@@ -16,6 +16,7 @@ import { getOptionsFromVisualization } from './options';
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields';
 import { pieLayoutAdapter, yearOverYearLayoutAdapter } from './layoutAdapters';
 import { removeOrgUnitLastPathSegment } from './orgUnitDimensions';
+import { getAxesFromSeriesItems } from './seriesItems';
 
 const peId = FIXED_DIMENSIONS.pe.id;
 
@@ -37,6 +38,7 @@ export const getUiFromVisualization = (vis, currentState = {}) => ({
     yearOverYearCategory: isYearOverYear(vis.type)
         ? vis.rows[0].items.map(item => item.id)
         : currentState.yearOverYearCategory,
+    axes: getAxesFromSeriesItems(vis.seriesItems),
 });
 
 // Transform from store.ui to pie format
@@ -103,4 +105,14 @@ export const getParentGraphMapFromVisualization = vis => {
         });
 
     return parentGraphMap;
+};
+
+export const mergeUiMaps = (destinationMap, sourceMap, propName) => {
+    Object.keys(sourceMap || {}).forEach(key => {
+        if (!(key in destinationMap)) {
+            destinationMap[key] = {};
+        }
+
+        destinationMap[key][propName] = sourceMap[key];
+    });
 };

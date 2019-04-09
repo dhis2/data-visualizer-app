@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-02-27T09:12:48.095Z\n"
-"PO-Revision-Date: 2019-02-27T09:12:48.095Z\n"
+"POT-Creation-Date: 2019-04-09T19:49:32.869Z\n"
+"PO-Revision-Date: 2019-04-09T19:49:32.869Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -15,6 +15,26 @@ msgid "\"{{what}}\" successfully deleted."
 msgstr ""
 
 msgid "Data Visualizer"
+msgstr ""
+
+msgid "Axis 1"
+msgstr ""
+
+msgid "Axis 2"
+msgstr ""
+
+msgid "Multi-axes chart"
+msgstr ""
+
+msgid ""
+"A chart can have two axes. Each axis will have its own scale. Set the axis "
+"for each data selection below."
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Update"
 msgstr ""
 
 msgid "Data"
@@ -110,6 +130,9 @@ msgstr ""
 msgid "Move to"
 msgstr ""
 
+msgid "Dual-axis"
+msgstr ""
+
 msgid "None selected"
 msgstr ""
 
@@ -120,9 +143,6 @@ msgid "Edited"
 msgstr ""
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr ""
-
-msgid "Update"
 msgstr ""
 
 msgid "Create a new visualization by adding dimensions to the layout"
@@ -228,6 +248,9 @@ msgid "Range axis min"
 msgstr ""
 
 msgid "Range axis tick steps"
+msgstr ""
+
+msgid "Tick steps may extend the chart beyond 'Range axis max'"
 msgstr ""
 
 msgid "Trend line"

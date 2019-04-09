@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
 import MenuItem from '@material-ui/core/MenuItem';
+import Divider from '@material-ui/core/Divider';
 
 import Chip from '../Chip';
 import { sGetUi } from '../../../reducers/ui';
@@ -15,10 +16,12 @@ import {
     AXIS_NAMES,
     SOURCE_DIMENSIONS,
     menuLabels,
+    AXIS_NAME_COLUMNS,
 } from '../../../modules/layout';
 import styles from './styles/DefaultAxis.style';
 import { getAdaptedUiByType } from '../../../modules/ui';
-import { isYearOverYear } from '../../../modules/chartTypes';
+import { isYearOverYear, isDualAxisType } from '../../../modules/chartTypes';
+import { AXIS_SETUP_DIALOG_ID } from '../../AxisSetup/AxisSetup';
 
 const axisLabels = {
     columns: i18n.t('Series'),
@@ -48,6 +51,8 @@ class Axis extends React.Component {
         }
     };
 
+    isMoveSupported = () => !isYearOverYear(this.props.type);
+
     getAxisMenuItems = dimensionId =>
         AXIS_NAMES.filter(key => key !== this.props.axisName).map(key => (
             <MenuItem
@@ -55,6 +60,24 @@ class Axis extends React.Component {
                 onClick={this.props.getMoveHandler({ [dimensionId]: key })}
             >{`${i18n.t('Move to')} ${menuLabels[key]}`}</MenuItem>
         ));
+
+    isSeries = () => this.props.axisName === AXIS_NAME_COLUMNS;
+
+    shouldHaveDualAxis = () =>
+        Boolean(
+            this.isSeries() &&
+                isDualAxisType(this.props.type) &&
+                this.props.itemsByDimension[this.props.axis[0]]
+        );
+
+    getDualAxisItem = dimensionId => (
+        <MenuItem
+            key={`dual-axis-${dimensionId}`}
+            onClick={this.props.onOpenAxisSetup}
+        >
+            {i18n.t('Manage axes')}
+        </MenuItem>
+    );
 
     getRemoveMenuItem = dimensionId => (
         <MenuItem
@@ -65,9 +88,13 @@ class Axis extends React.Component {
         </MenuItem>
     );
 
-    isMoveSupported = () => !isYearOverYear(this.props.type);
+    getDividerItem = key => <Divider light key={key} />;
 
     getMenuItems = dimensionId => [
+        this.shouldHaveDualAxis() ? this.getDualAxisItem(dimensionId) : null,
+        this.shouldHaveDualAxis()
+            ? this.getDividerItem('dual-axis-menu-divider')
+            : null,
         ...(this.isMoveSupported() ? this.getAxisMenuItems(dimensionId) : []),
         this.getRemoveMenuItem(dimensionId),
     ];
@@ -117,6 +144,8 @@ const mapDispatchToProps = dispatch => ({
         event.stopPropagation();
         dispatch(acRemoveUiLayoutDimensions(dimensionId));
     },
+    onOpenAxisSetup: () =>
+        dispatch(acSetUiActiveModalDialog(AXIS_SETUP_DIALOG_ID)),
 });
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {

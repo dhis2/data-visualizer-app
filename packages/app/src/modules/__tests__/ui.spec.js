@@ -1,4 +1,4 @@
-import { getParentGraphMapFromVisualization } from '../ui';
+import { getParentGraphMapFromVisualization, mergeUiMaps } from '../ui';
 
 describe('ui', () => {
     let mockCurrent;
@@ -106,6 +106,36 @@ describe('ui', () => {
                     mockCurrentWithoutOuDimension
                 )
             ).toEqual({});
+        });
+    });
+
+    describe('mergeUiMaps', () => {
+        it('should merge ui key/value maps', () => {
+            const axisMap = {
+                item1Id: 1,
+            };
+
+            const typeMap = {
+                item1Id: 'line',
+                item2Id: 'column',
+            };
+
+            const mergeMap = {};
+
+            mergeUiMaps(mergeMap, axisMap, 'axis');
+            mergeUiMaps(mergeMap, typeMap, 'type');
+
+            const expectedState = {
+                item1Id: {
+                    axis: 1,
+                    type: 'line',
+                },
+                item2Id: {
+                    type: 'column',
+                },
+            };
+
+            expect(mergeMap).toEqual(expectedState);
         });
     });
 });

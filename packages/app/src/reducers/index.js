@@ -42,3 +42,9 @@ export {
     fromLoader,
     fromChart,
 };
+
+export const sGetAxisSetupItems = state =>
+    fromUi.sGetAxisSetup(state).map(obj => ({
+        ...obj,
+        name: (fromMetadata.sGetMetadata(state)[obj.id] || {}).name,
+    }));
