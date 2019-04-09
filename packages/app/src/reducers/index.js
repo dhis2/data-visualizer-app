@@ -43,14 +43,8 @@ export {
     fromChart,
 };
 
-export const sGetAxisSetupItems = state => {
-    const as = fromUi.sGetAxisSetup(state);
-    console.log('as:', as);
-    const md = fromMetadata.sGetMetadata(state);
-    console.log('md:', md);
-
-    return fromUi.sGetAxisSetup(state).map(obj => ({
+export const sGetAxisSetupItems = state =>
+    fromUi.sGetAxisSetup(state).map(obj => ({
         ...obj,
-        name: ((fromMetadata.sGetMetadata(state) || {})[obj.id] || {}).name,
+        name: (fromMetadata.sGetMetadata(state)[obj.id] || {}).name,
     }));
-};
