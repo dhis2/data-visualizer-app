@@ -5,13 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-<<<<<<< HEAD
-"POT-Creation-Date: 2019-03-27T14:43:22.270Z\n"
-"PO-Revision-Date: 2019-03-27T14:43:22.270Z\n"
-=======
-"POT-Creation-Date: 2019-04-08T08:46:41.758Z\n"
-"PO-Revision-Date: 2019-04-08T08:46:41.758Z\n"
->>>>>>> origin/feature/multiaxis-component-dialog
+"POT-Creation-Date: 2019-04-09T19:49:32.869Z\n"
+"PO-Revision-Date: 2019-04-09T19:49:32.869Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -133,6 +128,9 @@ msgid "Filter"
 msgstr ""
 
 msgid "Move to"
+msgstr ""
+
+msgid "Dual-axis"
 msgstr ""
 
 msgid "None selected"
