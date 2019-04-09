@@ -54,12 +54,7 @@ export const DEFAULT_UI = {
     activeModalDialog: null,
     rightSidebarOpen: false,
     interpretation: {},
-    // axes: null,
-    axes: {
-        sB79w2hiLp8: 1,
-        AUqdhY4mpvp: 1,
-        dwEq7wi6nXV: 1,
-    },
+    axes: null,
 };
 
 export default (state = DEFAULT_UI, action) => {
@@ -278,7 +273,7 @@ export const sGetDimensionIdsFromLayout = state =>
 export const sGetAxisSetup = state => {
     const columns = sGetUiLayout(state).columns;
     const items = sGetUiItems(state);
-    const axes = sGetAxes(state);
+    const axes = sGetAxes(state) || {};
 
     return Array.isArray(items[columns[0]]) && items[columns[0]].length
         ? items[columns[0]].map(id => ({

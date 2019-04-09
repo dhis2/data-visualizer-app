@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
-import map from 'lodash-es/map';
 import isEqual from 'lodash-es/isEqual';
 
 import { withStyles } from '@material-ui/core/styles';
@@ -20,7 +19,7 @@ import TableBody from '@material-ui/core/TableBody';
 
 import styles from './styles/AxisSetup.style';
 import { axis1, axis2 } from './constants';
-import { sGetUiActiveModalDialog } from '../../reducers/ui';
+import { sGetUiActiveModalDialog, DEFAULT_UI } from '../../reducers/ui';
 import { sGetAxisSetupItems } from '../../reducers';
 import { acSetAxes, acSetUiActiveModalDialog } from '../../actions/ui';
 
@@ -45,10 +44,10 @@ class AxisSetup extends Component {
     }
 
     setItems = items => {
-        const itemsMap = items.reduce(
-            (itemsMap, item) => ({ ...itemsMap, [item.id]: item }),
-            {}
-        );
+        const itemsMap = items.reduce((itemsMap, item) => {
+            itemsMap[item.id] = item;
+            return itemsMap;
+        }, {});
 
         this.setState({
             items: itemsMap,
@@ -67,8 +66,8 @@ class AxisSetup extends Component {
         });
     };
 
-    getAxes = () =>
-        Object.keys(this.state.items).reduce((map, id) => {
+    getAxes = () => {
+        const axes = Object.keys(this.state.items).reduce((map, id) => {
             const axis = this.state.items[id].axis;
 
             if (axis > 0) {
@@ -78,11 +77,8 @@ class AxisSetup extends Component {
             return map;
         }, {});
 
-    // onUpdateClick = () => {
-    //     const itemsArray = map(this.state.items, item => item);
-
-    //     this.props.onUpdateClick(itemsArray);
-    // };
+        return Object.keys(axes).length > 0 ? axes : DEFAULT_UI.axes;
+    };
 
     renderTable() {
         const { classes } = this.props;
@@ -158,9 +154,6 @@ class AxisSetup extends Component {
 
     render() {
         const { classes, isOpen, dialogMaxWidth, onCancelClick } = this.props;
-        console.log('isOpen: ', isOpen);
-        console.log('props.items: ', this.props.items);
-        console.log('state.items: ', this.state.items);
 
         return (
             <Dialog

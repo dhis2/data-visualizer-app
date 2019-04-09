@@ -206,17 +206,13 @@ export class App extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        settings: fromReducers.fromSettings.sGetSettings(state),
-        current: fromReducers.fromCurrent.sGetCurrent(state),
-        interpretations: fromReducers.fromVisualization.sGetInterpretations(
-            state
-        ),
-        loadError: fromReducers.fromLoader.sGetLoadError(state),
-        ui: sGetUi(state),
-    };
-};
+const mapStateToProps = state => ({
+    settings: fromReducers.fromSettings.sGetSettings(state),
+    current: fromReducers.fromCurrent.sGetCurrent(state),
+    interpretations: fromReducers.fromVisualization.sGetInterpretations(state),
+    loadError: fromReducers.fromLoader.sGetLoadError(state),
+    ui: sGetUi(state),
+});
 
 const mapDispatchToProps = dispatch => ({
     setCurrentFromUi: ui =>
