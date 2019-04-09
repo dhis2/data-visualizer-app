@@ -19,9 +19,10 @@ import TableBody from '@material-ui/core/TableBody';
 
 import styles from './styles/AxisSetup.style';
 import { axis1, axis2 } from './constants';
-import { sGetUiActiveModalDialog, DEFAULT_UI } from '../../reducers/ui';
+import { sGetUiActiveModalDialog, DEFAULT_UI, sGetUi } from '../../reducers/ui';
 import { sGetAxisSetupItems } from '../../reducers';
 import { acSetAxes, acSetUiActiveModalDialog } from '../../actions/ui';
+import { acSetCurrentFromUi } from '../../actions/current';
 
 export const AXIS_SETUP_DIALOG_ID = 'axisSetup';
 
@@ -185,7 +186,12 @@ class AxisSetup extends Component {
                     <Button
                         color="primary"
                         variant="contained"
-                        onClick={() => this.props.onUpdateClick(this.getAxes())}
+                        onClick={() =>
+                            this.props.onUpdateClick(
+                                this.getAxes(),
+                                this.props.ui
+                            )
+                        }
                     >
                         {i18n.t('Update')}
                     </Button>
@@ -222,13 +228,21 @@ AxisSetup.defaultProps = {
 const mapStateToProps = state => ({
     isOpen: sGetUiActiveModalDialog(state) === AXIS_SETUP_DIALOG_ID,
     items: sGetAxisSetupItems(state),
+    ui: sGetUi(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-    onUpdateClick: axes => {
+    onUpdateClick: (axes, ui) => {
         dispatch(acSetAxes(axes));
+        dispatch(
+            acSetCurrentFromUi({
+                ...ui,
+                axes,
+            })
+        );
         dispatch(acSetUiActiveModalDialog());
     },
+    onCancelClick: () => dispatch(acSetUiActiveModalDialog()),
 });
 
 export default connect(

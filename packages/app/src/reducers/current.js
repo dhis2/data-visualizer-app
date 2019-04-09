@@ -23,7 +23,7 @@ const getDefaultFromUi = (state, action) => {
     const axesFromUi = getAxesFromUi(action.value);
     const optionsFromUi = getOptionsFromUi(action.value);
     const seriesItems = getSeriesItemsFromUi(action.value);
-    console.log('seriesItems', seriesItems);
+
     return {
         ...state,
         [BASE_FIELD_TYPE]: action.value.type,

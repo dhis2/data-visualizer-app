@@ -22,7 +22,6 @@ class ChipMenu extends React.Component {
     getMenuId = () => `menu-for-${this.props.id}`;
 
     render() {
-        console.log('this.props.menuItems', this.props.menuItems);
         return (
             <React.Fragment>
                 <IconButton
