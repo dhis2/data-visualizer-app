@@ -237,6 +237,11 @@ export default (state = DEFAULT_UI, action) => {
                 ...state,
                 interpretation: DEFAULT_UI.interpretation,
             };
+        case SET_AXES:
+            return {
+                ...state,
+                axes: action.value,
+            };
         default:
             return state;
     }
@@ -269,3 +274,16 @@ export const sGetDimensionIdsFromLayout = state =>
         (ids, axis) => ids.concat(axis),
         []
     );
+
+export const sGetAxisSetup = state => {
+    const columns = sGetUiLayout(state).columns;
+    const items = sGetUiItems(state);
+    const axes = sGetAxes(state);
+
+    return Array.isArray(items[columns[0]]) && items[columns[0]].length
+        ? items[columns[0]].map(id => ({
+              id,
+              axis: id in axes ? axes[id] : 0,
+          }))
+        : [];
+};

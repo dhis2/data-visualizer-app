@@ -92,10 +92,12 @@ export class DialogManager extends Component {
             }
 
             if (!Object.keys(FIXED_DIMENSIONS).includes(dialogId)) {
+                const dimension = this.props.dimensions[dialogId];
+
                 return (
                     <DynamicDimension
                         dialogId={dialogId}
-                        dialogTitle={this.props.dimensions[dialogId].name}
+                        dialogTitle={dimension && dimension.name}
                     />
                 );
             }
@@ -111,13 +113,13 @@ export class DialogManager extends Component {
     };
 
     render() {
-        const { dialogId } = this.props;
+        const { dialogId, dimensions } = this.props;
         const keepMounted = !dialogId || dialogId === ouId;
 
         return (
             <Dialog
                 data-test="dialog-manager"
-                open={!!dialogId}
+                open={dialogId in dimensions}
                 onClose={() => this.props.closeDialog(null)}
                 maxWidth="lg"
                 disableEnforceFocus

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import map from 'lodash-es/map';
@@ -19,8 +20,13 @@ import TableBody from '@material-ui/core/TableBody';
 
 import styles from './styles/AxisSetup.style';
 import { axis1, axis2 } from './constants';
+import { sGetUiActiveModalDialog } from '../../reducers/ui';
+import { sGetAxisSetupItems } from '../../reducers';
+import { acSetAxes, acSetUiActiveModalDialog } from '../../actions/ui';
 
-export class AxisSetup extends Component {
+export const AXIS_SETUP_DIALOG_ID = 'axisSetup';
+
+class AxisSetup extends Component {
     state = {
         items: undefined,
     };
@@ -61,11 +67,22 @@ export class AxisSetup extends Component {
         });
     };
 
-    onUpdateClick = () => {
-        const itemsArray = map(this.state.items, item => item);
+    getAxes = () =>
+        Object.keys(this.state.items).reduce((map, id) => {
+            const axis = this.state.items[id].axis;
 
-        this.props.onUpdateClick(itemsArray);
-    };
+            if (axis > 0) {
+                map[id] = axis;
+            }
+
+            return map;
+        }, {});
+
+    // onUpdateClick = () => {
+    //     const itemsArray = map(this.state.items, item => item);
+
+    //     this.props.onUpdateClick(itemsArray);
+    // };
 
     renderTable() {
         const { classes } = this.props;
@@ -140,11 +157,14 @@ export class AxisSetup extends Component {
     }
 
     render() {
-        const { classes, isOpened, dialogMaxWidth, onCancelClick } = this.props;
+        const { classes, isOpen, dialogMaxWidth, onCancelClick } = this.props;
+        console.log('isOpen: ', isOpen);
+        console.log('props.items: ', this.props.items);
+        console.log('state.items: ', this.state.items);
 
         return (
             <Dialog
-                open={isOpened}
+                open={isOpen}
                 maxWidth={dialogMaxWidth}
                 onClose={onCancelClick}
                 disableEnforceFocus
@@ -172,7 +192,7 @@ export class AxisSetup extends Component {
                     <Button
                         color="primary"
                         variant="contained"
-                        onClick={this.onUpdateClick}
+                        onClick={() => this.props.onUpdateClick(this.getAxes())}
                     >
                         {i18n.t('Update')}
                     </Button>
@@ -184,7 +204,7 @@ export class AxisSetup extends Component {
 
 AxisSetup.propTypes = {
     classes: PropTypes.object,
-    isOpened: PropTypes.bool.isRequired,
+    isOpen: PropTypes.bool.isRequired,
     items: PropTypes.arrayOf(
         PropTypes.shape({
             id: PropTypes.string.isRequired,
@@ -199,8 +219,26 @@ AxisSetup.propTypes = {
 
 AxisSetup.defaultProps = {
     classes: {},
-    onCancelClick: () => {},
+    isOpen: false,
+    items: [],
+    onUpdateClick: Function.prototype,
+    onCancelClick: Function.prototype,
     dialogMaxWidth: 'md',
 };
 
-export default withStyles(styles)(AxisSetup);
+const mapStateToProps = state => ({
+    isOpen: sGetUiActiveModalDialog(state) === AXIS_SETUP_DIALOG_ID,
+    items: sGetAxisSetupItems(state),
+});
+
+const mapDispatchToProps = dispatch => ({
+    onUpdateClick: axes => {
+        dispatch(acSetAxes(axes));
+        dispatch(acSetUiActiveModalDialog());
+    },
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(withStyles(styles)(AxisSetup));

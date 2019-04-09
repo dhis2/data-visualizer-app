@@ -29,6 +29,7 @@ import '@dhis2/ui/css/reset.css';
 import './App.css';
 import './scrollbar.css';
 import { getParentGraphMapFromVisualization } from '../modules/ui';
+import AxisSetup from './AxisSetup/AxisSetup';
 
 export class App extends Component {
     unlisten = null;
@@ -161,6 +162,7 @@ export class App extends Component {
 
         return (
             <FatalErrorBoundary>
+                <AxisSetup />
                 <div className="app flex-ct flex-dir-col">
                     <div className="section-headerbar">
                         <HeaderBar appName={i18n.t('Data Visualizer')} />
