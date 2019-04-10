@@ -1,11 +1,11 @@
 /* App */
 
-.app {
+.data-visualizer-app {
     height: 100vh;
     background-color: #f4f6f8;
     overflow: hidden;
 }
-.app * {
+.data-visualizer-app * {
     outline: none;
 }
 
