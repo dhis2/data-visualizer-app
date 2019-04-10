@@ -4354,19 +4354,6 @@ d2-charts-api@32.0.0:
     highcharts-no-data-to-display "^0.1.7"
     highcharts-solid-gauge "^0.1.7"
 
-d2-charts-api@^31.0.12:
-  version "31.0.13"
-  resolved "https://registry.yarnpkg.com/d2-charts-api/-/d2-charts-api-31.0.13.tgz#38c6a67fef7c167828000946141b49e395899984"
-  integrity sha512-rVTX7nAaELnugiEydGIDf+nuiYhnH3W5714kQXSKx+Z5mDdb9rsY4cAgdsT0Um1jbm7T4daJAFrl0FjlquuDUg==
-  dependencies:
-    d2-utilizr "0.2.13"
-    d3-color "1.0.1"
-    highcharts "^6.2.0"
-    highcharts-exporting "^0.1.7"
-    highcharts-more "^0.1.7"
-    highcharts-no-data-to-display "^0.1.7"
-    highcharts-solid-gauge "^0.1.7"
-
 d2-manifest@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/d2-manifest/-/d2-manifest-1.0.0.tgz#19d4a4c4e8151442ab730e932c9c2170be9ebcc9"
@@ -4478,17 +4465,6 @@ data-urls@^1.0.0:
     abab "^2.0.0"
     whatwg-mimetype "^2.2.0"
     whatwg-url "^7.0.0"
-
-"data-visualizer-plugin@github:d2-ci/data-visualizer-plugin":
-  version "32.0.2"
-  resolved "https://codeload.github.com/d2-ci/data-visualizer-plugin/tar.gz/93e547e560c38b283d82c3685268adc68f317b75"
-  dependencies:
-    "@material-ui/core" "^3.1.2"
-    d2 "31.2.1"
-    d2-charts-api "^31.0.12"
-    lodash-es "^4.17.11"
-    react "^16.6.0"
-    react-dom "^16.6.0"
 
 date-fns@^1.27.2:
   version "1.30.1"

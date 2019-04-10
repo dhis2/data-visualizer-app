@@ -29,8 +29,8 @@ describe('DataDimension component ', () => {
 
         api.apiFetchAlternatives = jest.fn().mockResolvedValue({
             dimensionItems: [
-                { id: 'dimId1', name: 'the first dim' },
-                { id: 'dimId2', name: 'the second dim' },
+                { id: 'dimId1', name: 'dim item 1' },
+                { id: 'dimId2', name: 'dim item 2' },
             ],
             nextPage: null,
         });

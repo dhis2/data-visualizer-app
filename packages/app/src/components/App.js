@@ -163,7 +163,7 @@ export class App extends Component {
         return (
             <FatalErrorBoundary>
                 <AxisSetup />
-                <div className="app flex-ct flex-dir-col">
+                <div className="data-visualizer-app flex-ct flex-dir-col">
                     <div className="section-headerbar">
                         <HeaderBar appName={i18n.t('Data Visualizer')} />
                     </div>
