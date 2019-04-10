@@ -36,7 +36,7 @@ describe('The RecommendedIcon component ', () => {
         });
 
         it('renders a Tooltip when state anchorEl is not falsy', () => {
-            recIcon().setState({ anchorEl: true });
+            recIcon().setState({ anchorEl: {} });
             const popper = recIcon().find(Popper);
 
             expect(popper.length).toEqual(1);
