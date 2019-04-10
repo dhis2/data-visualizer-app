@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import HeaderBar from '@dhis2/ui/widgets/HeaderBar';
+import { withStyles } from '@material-ui/core/styles';
 
 import FatalErrorBoundary from './ErrorBoundaries/FatalErrorBoundary';
 import Snackbar from '../components/Snackbar/Snackbar';
@@ -163,7 +164,7 @@ export class App extends Component {
         return (
             <FatalErrorBoundary>
                 <AxisSetup />
-                <div className="app flex-ct flex-dir-col">
+                <div className="data-visualizer-app flex-ct flex-dir-col">
                     <div className="section-headerbar">
                         <HeaderBar appName={i18n.t('Data Visualizer')} />
                     </div>
