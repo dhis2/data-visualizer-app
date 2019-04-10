@@ -163,7 +163,7 @@ class AxisSetup extends Component {
                 onClose={onCancelClick}
                 disableEnforceFocus
             >
-                <DialogTitle>{i18n.t('Multi-axes chart')}</DialogTitle>
+                <DialogTitle>{i18n.t('Manage axes')}</DialogTitle>
                 <DialogContent className={classes.dialogContent}>
                     <p>
                         {i18n.t(
