@@ -28,7 +28,10 @@ describe('DataDimension component ', () => {
         shallowDataDim = undefined;
 
         api.apiFetchAlternatives = jest.fn().mockResolvedValue({
-            dimensionItems: [{ id: 'dimId1' }, { id: 'dimId2' }],
+            dimensionItems: [
+                { id: 'dimId1', name: 'the first dim' },
+                { id: 'dimId2', name: 'the second dim' },
+            ],
             nextPage: null,
         });
     });
