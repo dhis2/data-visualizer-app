@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import { SelectedItems } from '../SelectedItems';
 
 describe('The SelectedItems component', () => {
@@ -22,10 +22,6 @@ describe('The SelectedItems component', () => {
         selectedItemsWrapper = undefined;
     });
 
-    // it('matches the snapshot when list is empty', () => {
-    //     expect(selectedItems()).toMatchSnapshot();
-    // });
-
     describe('list with items', () => {
         beforeEach(() => {
             props.items = [
@@ -36,9 +32,6 @@ describe('The SelectedItems component', () => {
                 { id: 'rr', name: 'rarity' },
             ];
         });
-        // it('matches the snapshot with list has items', () => {
-        //     expect(selectedItems()).toMatchSnapshot();
-        // });
 
         it('triggers onDeselect when item double-clicked', () => {
             selectedItems()
