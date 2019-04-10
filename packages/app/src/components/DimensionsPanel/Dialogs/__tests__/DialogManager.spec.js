@@ -60,43 +60,43 @@ describe('The DialogManager component', () => {
         expect(dialog.state().ouMounted).toBe(true);
     });
 
-    // it('renders the DataDimension content in dialog', () => {
-    //     const dialog = dialogManager().setProps({
-    //         dialogId: FIXED_DIMENSIONS.dx.id,
-    //     });
+    it('renders the DataDimension content in dialog', () => {
+        const dialog = dialogManager().setProps({
+            dialogId: FIXED_DIMENSIONS.dx.id,
+        });
 
-    //     expect(dialog).toMatchSnapshot();
-    // });
+        expect(dialog).toMatchSnapshot();
+    });
 
-    // it('renders the OrgUnitDimension content in dialog', () => {
-    //     const dialog = dialogManager().setProps({
-    //         dialogId: FIXED_DIMENSIONS.ou.id,
-    //     });
+    it('renders the OrgUnitDimension content in dialog', () => {
+        const dialog = dialogManager().setProps({
+            dialogId: FIXED_DIMENSIONS.ou.id,
+        });
 
-    //     expect(dialog).toMatchSnapshot();
-    // });
+        expect(dialog).toMatchSnapshot();
+    });
 
-    // it('renders the PeriodDimension content in dialog', () => {
-    //     const dialog = dialogManager().setProps({
-    //         dialogId: FIXED_DIMENSIONS.pe.id,
-    //     });
+    it('renders the PeriodDimension content in dialog', () => {
+        const dialog = dialogManager().setProps({
+            dialogId: FIXED_DIMENSIONS.pe.id,
+        });
 
-    //     expect(dialog).toMatchSnapshot();
-    // });
+        expect(dialog).toMatchSnapshot();
+    });
 
-    // it('renders OUDimension content with display:none when previously mounted', () => {
-    //     const dialog = dialogManager().setProps({
-    //         dialogId: FIXED_DIMENSIONS.ou.id,
-    //     });
+    it('renders OUDimension content with display:none when previously mounted', () => {
+        const dialog = dialogManager().setProps({
+            dialogId: FIXED_DIMENSIONS.ou.id,
+        });
 
-    //     expect(dialog).toMatchSnapshot();
+        expect(dialog).toMatchSnapshot();
 
-    //     dialog.setProps({ dialogId: null });
-    //     expect(dialog).toMatchSnapshot();
+        dialog.setProps({ dialogId: null });
+        expect(dialog).toMatchSnapshot();
 
-    //     dialog.setProps({ dialogId: FIXED_DIMENSIONS.dx.id });
-    //     expect(dialog).toMatchSnapshot();
-    // });
+        dialog.setProps({ dialogId: FIXED_DIMENSIONS.dx.id });
+        expect(dialog).toMatchSnapshot();
+    });
 
     it('sets the recommended Ids (with debounced delay) when a change in dx (Data) or ou (Organisation Unit) occurs', () => {
         const dialog = dialogManager();
