@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import HeaderBar from '@dhis2/ui/widgets/HeaderBar';
-import { withStyles } from '@material-ui/core/styles';
 
 import FatalErrorBoundary from './ErrorBoundaries/FatalErrorBoundary';
 import Snackbar from '../components/Snackbar/Snackbar';
