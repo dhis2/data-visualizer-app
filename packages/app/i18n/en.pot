@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-04-10T07:37:19.391Z\n"
-"PO-Revision-Date: 2019-04-10T07:37:19.391Z\n"
+"POT-Creation-Date: 2019-04-10T14:05:52.758Z\n"
+"PO-Revision-Date: 2019-04-10T14:05:52.758Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Axis 2"
 msgstr ""
 
-msgid "Multi-axes chart"
+msgid "Manage axes"
 msgstr ""
 
 msgid ""
@@ -128,9 +128,6 @@ msgid "Filter"
 msgstr ""
 
 msgid "Move to"
-msgstr ""
-
-msgid "Manage axes"
 msgstr ""
 
 msgid "None selected"
