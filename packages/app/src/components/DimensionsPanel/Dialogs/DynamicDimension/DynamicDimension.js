@@ -5,7 +5,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
 import i18n from '@dhis2/d2-i18n';
 import keyBy from 'lodash-es/keyBy';
-import { ItemSelector } from 'analytics-shared';
+import { ItemSelector } from '@dhis2/d2-ui-analytics';
 
 import FilterField from '../FilterField';
 

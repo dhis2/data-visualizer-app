@@ -1,4 +1,4 @@
-import { colors } from 'analytics-shared';
+import { colors } from '../../../modules/colors';
 import * as layoutStyle from './style';
 
 export const styles = {
