@@ -24,5 +24,6 @@ export const styles = {
         flexDirection: 'column',
         justifyContent: 'center',
         paddingLeft: '8px',
+        cursor: 'pointer',
     },
 };
