@@ -1,4 +1,4 @@
-import { colors } from 'analytics-shared';
+import { colors } from '../../../../modules/colors';
 import defaultLayoutStyle from './DefaultLayout.style';
 import * as layoutStyle from '../../styles/style';
 
