@@ -9,7 +9,9 @@ import Snackbar from '../components/Snackbar/Snackbar';
 import MenuBar from './MenuBar/MenuBar';
 import TitleBar from './TitleBar/TitleBar';
 import VisualizationTypeSelector from './VisualizationTypeSelector/VisualizationTypeSelector';
-import DimensionsPanel from './DimensionsPanel/DimensionsPanel';
+import DialogManager from './DimensionsPanel/Dialogs/DialogManager';
+import { DimensionsPanel } from '@dhis2/d2-ui-analytics';
+import DimensionOptions from './DimensionsPanel/List/DimensionOptions';
 import Interpretations from './Interpretations/Interpretations';
 import Visualization from './Visualization/Visualization';
 import BlankCanvas from './Visualization/BlankCanvas';
@@ -18,7 +20,10 @@ import * as fromReducers from '../reducers';
 import * as fromActions from '../actions';
 import history from '../modules/history';
 import defaultMetadata from '../modules/metadata';
-import { sGetUi } from '../reducers/ui';
+import { SOURCE_DIMENSIONS } from '../modules/layout';
+import { FIXED_DIMENSIONS } from '../modules/fixedDimensions';
+import { setDataTransfer } from '../modules/dnd';
+import { isYearOverYear } from '../modules/chartTypes';
 import {
     apiFetchAOFromUserDataStore,
     CURRENT_AO_KEY,
@@ -31,11 +36,15 @@ import './scrollbar.css';
 import { getParentGraphMapFromVisualization } from '../modules/ui';
 import AxisSetup from './AxisSetup/AxisSetup';
 
+const peId = FIXED_DIMENSIONS.pe.id;
+
 export class App extends Component {
     unlisten = null;
 
     state = {
         previousLocation: null,
+        dimensionsOptionsAnchorEl: null,
+        dimensionId: null,
     };
 
     /**
@@ -154,6 +163,29 @@ export class App extends Component {
         };
     }
 
+    onDimensionOptionsClick = (event, id) => {
+        console.log('dim options click', event.currentTarget);
+        event.stopPropagation();
+
+        // set anchor for options menu
+        // open menu
+        this.setState({
+            dimensionOptionsAnchorEl: event.currentTarget,
+            dimensionId: id,
+        });
+    };
+
+    onDimensionOptionsClose = () =>
+        this.setState({ dimensionOptionsAnchorEl: null, dimensionId: null });
+
+    onDimensionDragStart = e => {
+        setDataTransfer(e, SOURCE_DIMENSIONS);
+    };
+
+    disabledDimension = dimension => {
+        return dimension.id === peId && isYearOverYear(this.props.type);
+    };
+
     render() {
         const showVis =
             this.props.current &&
@@ -177,7 +209,32 @@ export class App extends Component {
                     </div>
                     <div className="section-main flex-1 flex-ct">
                         <div className="main-left">
-                            <DimensionsPanel />
+                            <DimensionsPanel
+                                dimensions={this.props.dimensions}
+                                selectedIds={this.props.selectedIds}
+                                disabledDimension={this.disabledDimension}
+                                //recommendedDimension={}
+                                onDimensionOptionsClick={
+                                    this.onDimensionOptionsClick
+                                }
+                                onDimensionDragStart={this.onDimensionDragStart}
+                                onDimensionClick={this.props.onDimensionClick}
+                            />
+                            {this.state.dimensionOptionsAnchorEl ? (
+                                <DimensionOptions
+                                    id={this.state.dimensionId}
+                                    type={this.props.type}
+                                    isSelected={this.props.selectedIds.includes(
+                                        this.state.dimensionId
+                                    )}
+                                    anchorEl={
+                                        this.state.dimensionOptionsAnchorEl
+                                    }
+                                    onCloseMenu={this.onDimensionOptionsClose}
+                                />
+                            ) : null}
+                            />
+                            <DialogManager d2={this.props.d2} />
                         </div>
                         <div className="main-center flex-1 flex-ct flex-dir-col">
                             <div className="main-center-layout">
@@ -206,13 +263,20 @@ export class App extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-    settings: fromReducers.fromSettings.sGetSettings(state),
-    current: fromReducers.fromCurrent.sGetCurrent(state),
-    interpretations: fromReducers.fromVisualization.sGetInterpretations(state),
-    loadError: fromReducers.fromLoader.sGetLoadError(state),
-    ui: sGetUi(state),
-});
+const mapStateToProps = state => {
+    return {
+        settings: fromReducers.fromSettings.sGetSettings(state),
+        current: fromReducers.fromCurrent.sGetCurrent(state),
+        interpretations: fromReducers.fromVisualization.sGetInterpretations(
+            state
+        ),
+        loadError: fromReducers.fromLoader.sGetLoadError(state),
+        ui: fromReducers.fromUi.sGetUi(state),
+        type: fromReducers.fromUi.sGetUiType(state),
+        dimensions: fromReducers.fromDimensions.sGetDimensions(state),
+        selectedIds: fromReducers.fromUi.sGetDimensionIdsFromLayout(state),
+    };
+};
 
 const mapDispatchToProps = dispatch => ({
     setCurrentFromUi: ui =>
@@ -225,6 +289,8 @@ const mapDispatchToProps = dispatch => ({
         dispatch(fromActions.fromUi.acSetUiFromVisualization(visualization)),
     addParentGraphMap: parentGraphMap =>
         dispatch(fromActions.fromUi.acAddParentGraphMap(parentGraphMap)),
+    onDimensionClick: id =>
+        dispatch(fromActions.fromUi.acSetUiActiveModalDialog(id)),
 });
 
 App.contextTypes = {

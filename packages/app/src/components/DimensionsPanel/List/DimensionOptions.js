@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
 import MenuItem from '@material-ui/core/MenuItem';
-import OptionsButton from './OptionsButton';
 import DropDown from './DropDown';
 import {
     acAddUiLayoutDimensions,
@@ -13,35 +12,23 @@ import {
 import { sGetUiLayout, sGetUiItemsByDimension } from '../../../reducers/ui';
 import { menuLabels, ADD_TO_LAYOUT_OPTIONS } from '../../../modules/layout';
 import { isYearOverYear } from '../../../modules/chartTypes';
-import { styles } from './styles/DimensionOptions.style';
 
 const FILTER = 2;
 const emptyItems = [];
 
 export class DimensionOptions extends Component {
-    state = { anchorEl: null };
-
-    onOpenMenu = event => {
-        this.setState({ anchorEl: event.currentTarget });
-    };
-
-    onCloseMenu = () => {
-        this.props.onCloseMenu();
-        this.setState({ anchorEl: null });
-    };
-
     addDimension = axisName => {
         this.props.onAddDimension({ [this.props.id]: axisName });
 
         if (!this.props.items.length) {
             this.props.openDialog(this.props.id);
         }
-        this.onCloseMenu();
+        this.props.onCloseMenu();
     };
 
     removeDimension = id => {
         this.props.removeDimension(id);
-        this.onCloseMenu();
+        this.props.onCloseMenu();
     };
 
     getAddToItems = () => {
@@ -112,28 +99,18 @@ export class DimensionOptions extends Component {
         </MenuItem>
     );
 
-    renderOptionsOnHover = () =>
-        this.props.showButton ? (
-            <OptionsButton
-                style={styles.dropDownButton}
-                onClick={this.onOpenMenu}
-            />
-        ) : null;
-
     render() {
+        const { id, anchorEl, onCloseMenu } = this.props;
+
         const menuItems = this.getMenuItems();
-        const OptionsButton = this.renderOptionsOnHover();
 
         return (
-            <div style={styles.wrapper}>
-                {OptionsButton}
-                <DropDown
-                    id={this.props.id}
-                    anchorEl={this.state.anchorEl}
-                    onClose={this.onCloseMenu}
-                    menuItems={menuItems}
-                />
-            </div>
+            <DropDown
+                id={id}
+                anchorEl={anchorEl}
+                onClose={onCloseMenu}
+                menuItems={menuItems}
+            />
         );
     }
 }
@@ -141,10 +118,10 @@ export class DimensionOptions extends Component {
 DimensionOptions.propTypes = {
     id: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
+    anchorEl: PropTypes.object.isRequired,
     isSelected: PropTypes.bool.isRequired,
     currentLayout: PropTypes.object.isRequired,
     items: PropTypes.array.isRequired,
-    showButton: PropTypes.bool.isRequired,
     onAddDimension: PropTypes.func.isRequired,
     openDialog: PropTypes.func.isRequired,
     onCloseMenu: PropTypes.func.isRequired,
