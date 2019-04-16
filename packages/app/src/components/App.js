@@ -126,11 +126,15 @@ export class App extends Component {
         store.dispatch(fromActions.fromUser.acReceivedUser(d2.currentUser));
         store.dispatch(fromActions.fromDimensions.tSetDimensions());
 
+        const rootOrgUnit = this.props.settings.rootOrganisationUnit;
+
         store.dispatch(
             fromActions.fromMetadata.acAddMetadata({
                 ...defaultMetadata,
-                [this.props.settings.rootOrganisationUnit.id]: this.props
-                    .settings.rootOrganisationUnit,
+                [rootOrgUnit.id]: {
+                    ...rootOrgUnit,
+                    path: `/${rootOrgUnit.id}`,
+                },
             })
         );
 
@@ -213,7 +217,11 @@ export class App extends Component {
                                 dimensions={this.props.dimensions}
                                 selectedIds={this.props.selectedIds}
                                 disabledDimension={this.disabledDimension}
-                                //recommendedDimension={}
+                                recommendedDimension={dimension =>
+                                    this.props.recommendedIds.includes(
+                                        dimension.id
+                                    )
+                                }
                                 onDimensionOptionsClick={
                                     this.onDimensionOptionsClick
                                 }
@@ -275,6 +283,9 @@ const mapStateToProps = state => {
         type: fromReducers.fromUi.sGetUiType(state),
         dimensions: fromReducers.fromDimensions.sGetDimensions(state),
         selectedIds: fromReducers.fromUi.sGetDimensionIdsFromLayout(state),
+        recommendedIds: fromReducers.fromRecommendedIds.sGetRecommendedIds(
+            state
+        ),
     };
 };
 
