@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
-import i18n from '@dhis2/d2-i18n';
+import { connect } from 'react-redux';
+import { DimensionsPanel } from '@dhis2/d2-ui-analytics';
+
 import DialogManager from './Dialogs/DialogManager';
-import Filter from './Filter/Filter';
-import DimensionList from './List/DimensionList';
+import { sGetDimensions } from '../../reducers/dimensions';
+import { sGetDimensionIdsFromLayout } from '../../reducers/ui';
+import { sGetRecommendedIds } from '../../reducers/recommendedIds';
+import { acSetUiActiveModalDialog } from '../../actions/ui';
+
 import { styles } from './styles/DimensionsPanel.style';
 
 export class Dimensions extends Component {
@@ -16,21 +21,44 @@ export class Dimensions extends Component {
         this.setState({ filterText });
     };
 
+    onSelectDimension = id => {
+        this.props.openDialog(id);
+    };
+
+    onDimensionOptionsClick = args => {
+        console.log('args', args);
+    };
+
     render() {
+        const isRecommendedFn = recommendedIds => id =>
+            recommendedIds.includes(id);
+
         return (
             <div style={styles.divContainer}>
                 <DialogManager />
-                <Filter
-                    style={styles.textField}
-                    placeholder={i18n.t('Search dimensions')}
-                    text={this.state.filterText}
-                    onChange={this.onFilterTextChange}
-                    onClear={this.onClearFilter}
+                <DimensionsPanel
+                    dimensions={this.props.dimensions}
+                    selectedIds={this.props.selectedIds}
+                    recommendedDimension={isRecommendedFn(
+                        this.props.recommendedIds
+                    )}
+                    onDimensionClick={this.onSelectDimension}
+                    onDimensionOptionsClick={this.onDimensionOptionsClick}
                 />
-                <DimensionList filterText={this.state.filterText} />
             </div>
         );
     }
 }
 
-export default Dimensions;
+const mapStateToProps = state => ({
+    dimensions: sGetDimensions(state),
+    selectedIds: sGetDimensionIdsFromLayout(state),
+    recommendedIds: sGetRecommendedIds(state),
+});
+
+export default connect(
+    mapStateToProps,
+    {
+        openDialog: acSetUiActiveModalDialog,
+    }
+)(Dimensions);
