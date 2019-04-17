@@ -46,7 +46,7 @@
         "chalk": "2.4.1",
         "css-loader": "0.28.7",
         "d2": "31.2.1",
-        "d2-charts-api": "32.0.2",
+        "d2-charts-api": "32.0.3",
         "d2-manifest": "^1.0.0",
         "data-visualizer-plugin": "32.0.3",
         "dotenv": "6.0.0",
