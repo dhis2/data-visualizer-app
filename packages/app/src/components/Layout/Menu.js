@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { cloneElement, isValidElement } from 'react';
+import isFunction from 'lodash-es/isFunction';
 import Menu from '@material-ui/core/Menu';
 import IconButton from '@material-ui/core/IconButton';
 import MoreHorizontalIcon from '../../assets/MoreHorizontalIcon';
@@ -38,7 +39,18 @@ class ChipMenu extends React.Component {
                     open={Boolean(this.state.anchorEl)}
                     onClose={this.handleClose}
                 >
-                    {this.props.menuItems}
+                    {this.props.menuItems.map(menuItem => {
+                        const onClick = e => {
+                            if (isFunction(menuItem.props.onClick)) {
+                                menuItem.props.onClick(e);
+                            }
+                            this.handleClose(e);
+                        };
+
+                        return isValidElement(menuItem)
+                            ? cloneElement(menuItem, { onClick })
+                            : menuItem;
+                    })}
                 </Menu>
             </React.Fragment>
         );
