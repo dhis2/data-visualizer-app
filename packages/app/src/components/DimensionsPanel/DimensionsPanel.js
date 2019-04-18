@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { DimensionsPanel } from '@dhis2/d2-ui-analytics';
 
-import DialogManager from './Dialogs/DialogManager';
+import DialogManager from './DialogManager';
 import DimensionOptions from './List/DimensionOptions';
 import { SOURCE_DIMENSIONS } from '../../modules/layout';
 import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';

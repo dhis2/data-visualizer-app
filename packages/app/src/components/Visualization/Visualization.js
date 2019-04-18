@@ -61,7 +61,7 @@ export class Visualization extends Component {
 
     onChartGenerated = svg => this.props.acSetChart(svg);
 
-    onResponsesReceived = Function.prototype;
+    // onResponsesReceived = Function.prototype;
     /* XXX this screws up things in metadata in the store,
      * causing breakage in dimension dialogs (ou)
     onResponsesReceived = responses =>
