@@ -15,7 +15,11 @@ import * as fromActions from '../../actions';
 import { styles } from './styles/DimensionsPanel.style';
 
 export class Dimensions extends Component {
-    state = { filterText: '' };
+    state = {
+        filterText: '',
+        dimensionOptionsAnchorEl: null,
+        dimensionId: null,
+    };
 
     onClearFilter = () => {
         this.setState({ filterText: '' });
