@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
-import i18n from '@dhis2/d2-i18n';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { DimensionsPanel } from '@dhis2/d2-ui-analytics';
+
 import DialogManager from './Dialogs/DialogManager';
-import Filter from './Filter/Filter';
-import DimensionList from './List/DimensionList';
+import DimensionOptions from './List/DimensionOptions';
+import { SOURCE_DIMENSIONS } from '../../modules/layout';
+import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
+import { setDataTransfer } from '../../modules/dnd';
+import { isYearOverYear } from '../../modules/chartTypes';
+import * as fromReducers from '../../reducers';
+import * as fromActions from '../../actions';
+
 import { styles } from './styles/DimensionsPanel.style';
 
 export class Dimensions extends Component {
@@ -16,21 +25,83 @@ export class Dimensions extends Component {
         this.setState({ filterText });
     };
 
+    onDimensionOptionsClick = (event, id) => {
+        console.log('dim options click', event.currentTarget);
+        event.stopPropagation();
+
+        // set anchor for options menu
+        // open menu
+        this.setState({
+            dimensionOptionsAnchorEl: event.currentTarget,
+            dimensionId: id,
+        });
+    };
+
+    onDimensionOptionsClose = () =>
+        this.setState({
+            dimensionOptionsAnchorEl: null,
+            dimensionId: null,
+        });
+
+    onDimensionDragStart = e => {
+        setDataTransfer(e, SOURCE_DIMENSIONS);
+    };
+
+    disabledDimension = dimension => {
+        return (
+            dimension.id === FIXED_DIMENSIONS.pe.id &&
+            isYearOverYear(this.props.type)
+        );
+    };
+
     render() {
         return (
             <div style={styles.divContainer}>
-                <DialogManager />
-                <Filter
-                    style={styles.textField}
-                    placeholder={i18n.t('Search dimensions')}
-                    text={this.state.filterText}
-                    onChange={this.onFilterTextChange}
-                    onClear={this.onClearFilter}
+                <DimensionsPanel
+                    dimensions={this.props.dimensions}
+                    selectedIds={this.props.selectedIds}
+                    disabledDimension={this.disabledDimension}
+                    recommendedDimension={dimension =>
+                        this.props.recommendedIds.includes(dimension.id)
+                    }
+                    onDimensionOptionsClick={this.onDimensionOptionsClick}
+                    onDimensionDragStart={this.onDimensionDragStart}
+                    onDimensionClick={this.props.onDimensionClick}
                 />
-                <DimensionList filterText={this.state.filterText} />
+                {this.state.dimensionOptionsAnchorEl && (
+                    <DimensionOptions
+                        id={this.state.dimensionId}
+                        type={this.props.type}
+                        isSelected={this.props.selectedIds.includes(
+                            this.state.dimensionId
+                        )}
+                        anchorEl={this.state.dimensionOptionsAnchorEl}
+                        onCloseMenu={this.onDimensionOptionsClose}
+                    />
+                )}
+                />
+                <DialogManager />
             </div>
         );
     }
 }
+const mapStateToProps = state => {
+    return {
+        type: fromReducers.fromUi.sGetUiType(state),
+        dimensions: fromReducers.fromDimensions.sGetDimensions(state),
+        selectedIds: fromReducers.fromUi.sGetDimensionIdsFromLayout(state),
+        recommendedIds: fromReducers.fromRecommendedIds.sGetRecommendedIds(
+            state
+        ),
+    };
+};
 
-export default Dimensions;
+const mapDispatchToProps = dispatch => ({
+    onDimensionClick: id =>
+        dispatch(fromActions.fromUi.acSetUiActiveModalDialog(id)),
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Dimensions);

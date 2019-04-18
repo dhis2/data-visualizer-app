@@ -70,8 +70,8 @@ export class DialogManager extends Component {
         this.props.setRecommendedIds(ids);
     }, 1000);
 
-    onSelect = ({ dimensionType, value: items }) => {
-        console.log('onSelect items', items);
+    onSelect = ({ dimensionType, value }) => {
+        const items = Object.values(value);
         this.props.addUiItems({
             dimensionType,
             value: items.map(item => item.id),
@@ -84,7 +84,6 @@ export class DialogManager extends Component {
     // to cache the org unit tree data
     renderPersistedContent = () => {
         const {
-            d2,
             displayNameProperty,
             dialogId,
             ouIds,
@@ -106,7 +105,7 @@ export class DialogManager extends Component {
                     }}
                 >
                     <OrgUnitDimension
-                        d2={d2}
+                        d2={this.context.d2}
                         displayNameProperty={displayNameProperty}
                         ouItems={ouItems}
                         onSelect={this.onSelect}
@@ -122,7 +121,6 @@ export class DialogManager extends Component {
 
     renderDialogContent = () => {
         const {
-            d2,
             displayNameProperty,
             dialogId,
             dxIds,
@@ -134,9 +132,13 @@ export class DialogManager extends Component {
             setUiItems,
         } = this.props;
 
+        // console.log('peIds', peIds);
+        // console.log('dxIds', dxIds);
+        // console.log('selectedItems', selectedItems);
+
         const dynamicContent = () => {
             if (dialogId === dxId) {
-                const selectedDimensions = dxIds
+                const selectedDimensions = selectedItems[dialogId]
                     .filter(id => metadata[id])
                     .map(id => ({
                         id,
@@ -145,7 +147,7 @@ export class DialogManager extends Component {
 
                 return (
                     <DataDimension
-                        d2={d2}
+                        d2={this.context.d2}
                         displayNameProp={displayNameProperty} // XXX from user settings but metadata only has name
                         selectedDimensions={selectedDimensions}
                         onSelect={this.onSelect}
@@ -165,7 +167,7 @@ export class DialogManager extends Component {
 
                 return (
                     <PeriodDimension
-                        d2={d2}
+                        d2={this.context.d2}
                         selectedPeriods={selectedPeriods}
                         onSelect={this.onSelect}
                         onDeselect={removeUiItems}
@@ -188,7 +190,7 @@ export class DialogManager extends Component {
 
                 return (
                     <DynamicDimension
-                        d2={d2}
+                        d2={this.context.d2}
                         selectedItems={dynamicItems}
                         onSelect={this.onSelect}
                         onDeselect={removeUiItems}
@@ -232,7 +234,7 @@ export class DialogManager extends Component {
     }
 }
 
-DialogManager.contexTypes = {
+DialogManager.contextTypes = {
     d2: PropTypes.object,
 };
 
