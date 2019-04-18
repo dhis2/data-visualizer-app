@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { DimensionsPanel } from '@dhis2/d2-ui-analytics';
 
-import DialogManager from './DialogManager';
-import DimensionOptions from './List/DimensionOptions';
+import DialogManager from './Dialogs/DialogManager';
+import DimensionOptions from './DimensionOptions/DimensionOptions';
 import { SOURCE_DIMENSIONS } from '../../modules/layout';
 import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
 import { setDataTransfer } from '../../modules/dnd';
@@ -16,21 +16,11 @@ import { styles } from './styles/DimensionsPanel.style';
 
 export class Dimensions extends Component {
     state = {
-        filterText: '',
         dimensionOptionsAnchorEl: null,
         dimensionId: null,
     };
 
-    onClearFilter = () => {
-        this.setState({ filterText: '' });
-    };
-
-    onFilterTextChange = filterText => {
-        this.setState({ filterText });
-    };
-
     onDimensionOptionsClick = (event, id) => {
-        console.log('dim options click', event.currentTarget);
         event.stopPropagation();
 
         // set anchor for options menu
@@ -83,7 +73,6 @@ export class Dimensions extends Component {
                         onCloseMenu={this.onDimensionOptionsClose}
                     />
                 )}
-                />
                 <DialogManager />
             </div>
         );
