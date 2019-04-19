@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import MenuItem from '@material-ui/core/MenuItem';
 import { DimensionOptions } from '../DimensionOptions';
-// import OptionsButton from '../OptionsButton';
 import ContextMenu from '../ContextMenu';
 
 describe('The DimensionOptions component ', () => {
@@ -19,29 +18,15 @@ describe('The DimensionOptions component ', () => {
         props = {
             id: 'IdString',
             type: 'COLLUMN',
+            anchorEl: {},
             isSelected: false,
             currentLayout: {},
             items: [],
-            anchorEl: {},
-            showButton: false,
             onAddDimension: jest.fn(),
             openDialog: jest.fn(),
             onCloseMenu: jest.fn(),
         };
         shallowDimOptions = undefined;
-    });
-
-    it.skip('does not render an <OptionsButton /> when props showButton is equal to flase', () => {
-        const optionsButton = dimOptions().find(OptionsButton);
-
-        expect(optionsButton.length).toEqual(0);
-    });
-
-    it.skip('renders an <OptionsButton /> when props "showButton" is equal to true', () => {
-        props.showButton = true;
-        const optionsButton = dimOptions().find(OptionsButton);
-
-        expect(optionsButton.length).toEqual(1);
     });
 
     it('renders a <ContextMenu /> ', () => {
