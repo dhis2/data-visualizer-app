@@ -15,6 +15,9 @@ describe('The Dimensions component ', () => {
 
     beforeEach(() => {
         shallowDimensions = undefined;
+        props = {
+            dimensions: {},
+        };
     });
 
     it('renders a div', () => {
@@ -32,9 +35,6 @@ describe('The Dimensions component ', () => {
     });
 
     it('renders a DimensionsPanel with the correct prop', () => {
-        props = {
-            dimensions: [],
-        };
         const dimensionsComp = dimensionsComponent();
 
         expect(dimensionsComp.find(DimensionsPanel).length).toEqual(1);
