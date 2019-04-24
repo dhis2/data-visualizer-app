@@ -104,7 +104,6 @@ export class DownloadMenu extends Component {
                     anchorEl={this.state.anchorEl}
                     anchorOrigin={styles.menuAnchorOrigin}
                     getContentAnchorEl={null}
-                    disableAutoFocusItem={true}
                     onClose={() => this.toggleMenu()}
                 >
                     <ListSubheader component="div">
@@ -202,7 +201,6 @@ export class DownloadMenu extends Component {
                     open={Boolean(this.state.schemeSubmenu.anchorEl)}
                     anchorEl={this.state.schemeSubmenu.anchorEl}
                     anchorOrigin={styles.submenuAnchorOrigin}
-                    disableAutoFocusItem={true}
                     onClose={event => this.toggleSubmenu('scheme')}
                 >
                     <ListSubheader component="div">
@@ -237,7 +235,6 @@ export class DownloadMenu extends Component {
                     open={Boolean(this.state.advancedSubmenu.anchorEl)}
                     anchorEl={this.state.advancedSubmenu.anchorEl}
                     anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-                    disableAutoFocusItem={true}
                     onClose={event => this.toggleSubmenu('advanced')}
                 >
                     <ListSubheader component="div">
