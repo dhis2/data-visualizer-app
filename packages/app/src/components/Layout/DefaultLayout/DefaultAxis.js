@@ -66,14 +66,15 @@ class Axis extends React.Component {
 
     isData = dimensionId => dimensionId === FIXED_DIMENSIONS.dx.id;
 
-    getItemsArrayByDimension = dimensionId => this.props.itemsByDimension[dimensionId] || [];
+    getItemsArrayByDimension = dimensionId =>
+        this.props.itemsByDimension[dimensionId] || [];
 
     shouldHaveDualAxis = dimensionId =>
         Boolean(
             this.isSeries() &&
-            this.isData(dimensionId) &&
-            isDualAxisType(this.props.type) &&
-            this.getItemsArrayByDimension(this.props.axis[0]).length > 1
+                this.isData(dimensionId) &&
+                isDualAxisType(this.props.type) &&
+                this.getItemsArrayByDimension(this.props.axis[0]).length > 1
         );
 
     getDualAxisItem = dimensionId => (
@@ -97,7 +98,9 @@ class Axis extends React.Component {
     getDividerItem = key => <Divider light key={key} />;
 
     getMenuItems = dimensionId => [
-        this.shouldHaveDualAxis(dimensionId) ? this.getDualAxisItem(dimensionId) : null,
+        this.shouldHaveDualAxis(dimensionId)
+            ? this.getDualAxisItem(dimensionId)
+            : null,
         this.shouldHaveDualAxis(dimensionId)
             ? this.getDividerItem('dual-axis-menu-divider')
             : null,
