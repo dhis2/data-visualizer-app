@@ -22,6 +22,7 @@ import styles from './styles/DefaultAxis.style';
 import { getAdaptedUiByType } from '../../../modules/ui';
 import { isYearOverYear, isDualAxisType } from '../../../modules/chartTypes';
 import { AXIS_SETUP_DIALOG_ID } from '../../AxisSetup/AxisSetup';
+import { FIXED_DIMENSIONS } from '../../../modules/fixedDimensions';
 
 const axisLabels = {
     columns: i18n.t('Series'),
@@ -63,11 +64,17 @@ class Axis extends React.Component {
 
     isSeries = () => this.props.axisName === AXIS_NAME_COLUMNS;
 
-    shouldHaveDualAxis = () =>
+    isData = dimensionId => dimensionId === FIXED_DIMENSIONS.dx.id;
+
+    getItemsArrayByDimension = dimensionId =>
+        this.props.itemsByDimension[dimensionId] || [];
+
+    shouldHaveDualAxis = dimensionId =>
         Boolean(
             this.isSeries() &&
+                this.isData(dimensionId) &&
                 isDualAxisType(this.props.type) &&
-                this.props.itemsByDimension[this.props.axis[0]]
+                this.getItemsArrayByDimension(this.props.axis[0]).length > 1
         );
 
     getDualAxisItem = dimensionId => (
@@ -91,8 +98,10 @@ class Axis extends React.Component {
     getDividerItem = key => <Divider light key={key} />;
 
     getMenuItems = dimensionId => [
-        this.shouldHaveDualAxis() ? this.getDualAxisItem(dimensionId) : null,
-        this.shouldHaveDualAxis()
+        this.shouldHaveDualAxis(dimensionId)
+            ? this.getDualAxisItem(dimensionId)
+            : null,
+        this.shouldHaveDualAxis(dimensionId)
             ? this.getDividerItem('dual-axis-menu-divider')
             : null,
         ...(this.isMoveSupported() ? this.getAxisMenuItems(dimensionId) : []),

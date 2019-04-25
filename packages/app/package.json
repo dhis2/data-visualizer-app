@@ -26,7 +26,7 @@
     "dependencies": {
         "@dhis2/d2-i18n": "^1.0.3",
         "@dhis2/d2-ui-analytics": "^0.0.14",
-        "@dhis2/d2-ui-core": "5.1.3",
+        "@dhis2/d2-ui-core": "5.3.8",
         "@dhis2/d2-ui-file-menu": "5.2.11",
         "@dhis2/d2-ui-interpretations": "5.2.10",
         "@dhis2/d2-ui-org-unit-dialog": "5.1.3",
@@ -46,7 +46,7 @@
         "chalk": "2.4.1",
         "css-loader": "0.28.7",
         "d2": "31.2.1",
-        "d2-charts-api": "32.0.1",
+        "d2-charts-api": "32.0.5",
         "d2-manifest": "^1.0.0",
         "data-visualizer-plugin": "32.0.3",
         "dotenv": "6.0.0",
