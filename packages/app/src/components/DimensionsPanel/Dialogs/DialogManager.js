@@ -186,7 +186,7 @@ export class DialogManager extends Component {
             if (dialogId === dxId) {
                 return (
                     <DataDimension
-                        displayNameProp={displayNameProperty} // XXX from user settings but metadata only has name
+                        displayNameProp={displayNameProperty}
                         selectedDimensions={selectedItems}
                         {...dimensionProps}
                     />
