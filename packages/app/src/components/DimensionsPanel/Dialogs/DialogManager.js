@@ -86,28 +86,38 @@ export class DialogManager extends Component {
 
         switch (dimensionType) {
             case ouId: {
+                const forMetadata = {};
+                const forParentGraphMap = {};
+
                 items.forEach(ou => {
-                    this.props.addMetadata({
-                        [ou.id]: {
-                            id: ou.id,
-                            name: ou.name || ou.displayName,
-                            displayName: ou.displayName,
-                        },
-                    });
+                    forMetadata[ou.id] = {
+                        id: ou.id,
+                        name: ou.name || ou.displayName,
+                        displayName: ou.displayName,
+                    };
 
                     const path = removeOrgUnitLastPathSegment(ou.path);
 
-                    this.props.addParentGraphMap({
-                        [ou.id]:
-                            path === `/${ou.id}` ? '' : path.replace(/^\//, ''),
-                    });
+                    forParentGraphMap[ou.id] =
+                        path === `/${ou.id}` ? '' : path.replace(/^\//, '');
                 });
+
+                this.props.addMetadata(forMetadata);
+                this.props.addParentGraphMap(forParentGraphMap);
 
                 break;
             }
             default: {
-                items.forEach(item =>
-                    this.props.addMetadata({ [item.id]: item })
+                this.props.addMetadata(
+                    items.reduce((obj, item) => {
+                        obj[item.id] = {
+                            id: item.id,
+                            name: item.name || item.displayName,
+                            displayName: item.displayName,
+                        };
+
+                        return obj;
+                    }, {})
                 );
             }
         }

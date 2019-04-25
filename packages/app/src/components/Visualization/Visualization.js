@@ -61,10 +61,21 @@ export class Visualization extends Component {
 
     onChartGenerated = svg => this.props.acSetChart(svg);
 
-    onResponsesReceived = responses =>
+    onResponsesReceived = responses => {
+        const forMetadata = {};
+
         responses.forEach(response =>
-            this.props.acAddMetadata(response.metaData.items)
+            Object.entries(response.metaData.items).forEach(([id, item]) => {
+                forMetadata[id] = {
+                    id,
+                    name: item.name || item.displayName,
+                    displayName: item.displayName,
+                };
+            })
         );
+
+        this.props.acAddMetadata(forMetadata);
+    };
 
     getNewRenderId = () =>
         this.setState({

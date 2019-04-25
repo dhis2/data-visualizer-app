@@ -47,8 +47,12 @@ describe('Visualization', () => {
             expect(vis().find(ChartPlugin).length).toEqual(1);
         });
 
-        it.skip('triggers addMetadata action when responses received from chart plugin', () => {
-            const items = ['a', 'b', 'c'];
+        it('triggers addMetadata action when responses received from chart plugin', () => {
+            const items = {
+                a: { id: 'a', name: 'a' },
+                b: { id: 'b', name: 'b' },
+                c: { id: 'c', name: 'c' },
+            };
 
             vis().simulate('responsesReceived', [{ metaData: { items } }]);
 
