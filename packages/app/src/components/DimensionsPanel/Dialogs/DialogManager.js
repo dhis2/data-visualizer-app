@@ -76,15 +76,13 @@ export class DialogManager extends Component {
         this.props.setRecommendedIds(ids);
     }, 1000);
 
-    onSelect = ({ dimensionType, value }) => {
-        const items = Object.values(value);
-
+    onSelect = ({ dimensionId, items }) => {
         this.props.addUiItems({
-            dimensionType,
-            value: items.map(item => item.id),
+            dimensionId,
+            itemIds: items.map(item => item.id),
         });
 
-        switch (dimensionType) {
+        switch (dimensionId) {
             case ouId: {
                 const forMetadata = {};
                 const forParentGraphMap = {};
