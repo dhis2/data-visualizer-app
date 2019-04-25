@@ -234,6 +234,16 @@
     lodash "^4.17.10"
     material-ui "^0.20.0"
 
+"@dhis2/d2-ui-core@5.3.8":
+  version "5.3.8"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-5.3.8.tgz#8b2263edd5d9c59e469f2604182de5e8e9a9a008"
+  integrity sha512-8dB2MpMBWJZoGR7cJOHdRhjjZQBdCDj05kd4ZBVjGunuzM4ETDE0cprL2v847XfFEftAAZCn5+cLk8KH/DFpQg==
+  dependencies:
+    babel-runtime "^6.26.0"
+    d2 "~31.7"
+    lodash "^4.17.10"
+    material-ui "^0.20.0"
+
 "@dhis2/d2-ui-favorites-dialog@5.2.11":
   version "5.2.11"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-favorites-dialog/-/d2-ui-favorites-dialog-5.2.11.tgz#8ab79d465519afa9b519e4df60591264ddfbce55"
