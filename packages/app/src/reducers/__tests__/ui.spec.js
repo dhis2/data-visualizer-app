@@ -300,8 +300,8 @@ describe('reducer: ui', () => {
             const actualState = reducer(startingState, {
                 type: ui.SET_UI_ITEMS,
                 value: {
-                    dimensionType: 'twilight',
-                    items: 'xyz',
+                    dimensionId: 'twilight',
+                    itemIds: 'xyz',
                 },
             });
 
@@ -314,8 +314,8 @@ describe('reducer: ui', () => {
             const dx = ['abc'];
 
             const value = {
-                dimensionType: dxId,
-                value: dx,
+                dimensionId: dxId,
+                itemIds: dx,
             };
             const expectedState = dx;
             const actualState = reducer(ui.DEFAULT_UI, {
@@ -330,7 +330,7 @@ describe('reducer: ui', () => {
             const dx1 = 'abc';
             const dx2 = 'def';
 
-            const value = { dimensionType: dxId, value: [dx1, dx2] };
+            const value = { dimensionId: dxId, itemIds: [dx1, dx2] };
             const expectedState = [dx1, dx2];
             const actualState = reducer(ui.DEFAULT_UI, {
                 type: ui.ADD_UI_ITEMS,
@@ -356,7 +356,7 @@ describe('reducer: ui', () => {
                 { itemsByDimension: defaultIBD }
             );
 
-            const value = { dimensionType: dxId, value: [dx1, dx2] };
+            const value = { dimensionId: dxId, itemIds: [dx1, dx2] };
             const expectedState = [dx1, dx2];
             const actualState = reducer(startingState, {
                 type: ui.ADD_UI_ITEMS,
@@ -382,7 +382,10 @@ describe('reducer: ui', () => {
                 { itemsByDimension: defaultIBD }
             );
 
-            const value = { dimensionType: dxId, value: [dx1] };
+            const value = {
+                dimensionId: dxId,
+                itemIdsToRemove: [dx1],
+            };
             const expectedState = [dx2];
             const actualState = reducer(startingState, {
                 type: ui.REMOVE_UI_ITEMS,
