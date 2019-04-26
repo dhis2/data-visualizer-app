@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import MenuItem from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
-import UpdateButton from '../UpdateButton/UpdateButton';
+import UpdateButton from '../../../UpdateButton/UpdateButton';
 import Menu from './Menu';
 
 import {
@@ -13,15 +13,15 @@ import {
     sGetUiLayout,
     sGetUiActiveModalDialog,
     sGetUiType,
-} from '../../reducers/ui';
+} from '../../../../reducers/ui';
 import {
     acSetUiActiveModalDialog,
     acAddUiLayoutDimensions,
-} from '../../actions/ui';
-import { acSetCurrentFromUi } from '../../actions/current';
+} from '../../../../actions/ui';
+import { acSetCurrentFromUi } from '../../../../actions/current';
 
-import { isYearOverYear } from '../../modules/chartTypes';
-import { ADD_TO_LAYOUT_OPTIONS } from '../../modules/layout';
+import { isYearOverYear } from '../../../../modules/chartTypes';
+import { ADD_TO_LAYOUT_OPTIONS } from '../../../../modules/layout';
 import styles from './styles/AddToLayoutButton.style';
 
 const UNSELECTED_BUTTON_TYPE = -1;

@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-04-10T14:05:52.758Z\n"
-"PO-Revision-Date: 2019-04-10T14:05:52.758Z\n"
+"POT-Creation-Date: 2019-04-18T12:38:17.377Z\n"
+"PO-Revision-Date: 2019-04-18T12:38:17.377Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -37,31 +37,10 @@ msgstr ""
 msgid "Update"
 msgstr ""
 
-msgid "Data"
-msgstr ""
-
-msgid "Data Type"
-msgstr ""
-
-msgid "Detail"
-msgstr ""
-
-msgid "Search"
-msgstr ""
-
-msgid "Organisation units"
-msgstr ""
-
-msgid "Period"
-msgstr ""
-
-msgid "Search dimensions"
+msgid "Hide"
 msgstr ""
 
 msgid "Remove"
-msgstr ""
-
-msgid "Dimension recommended with selected data"
 msgstr ""
 
 msgid "Download"
@@ -107,9 +86,6 @@ msgid "Show technical details"
 msgstr ""
 
 msgid "The following information may be requested by technical support."
-msgstr ""
-
-msgid "Hide"
 msgstr ""
 
 msgid "Interpretations"
@@ -289,6 +265,9 @@ msgstr ""
 msgid "Chart title"
 msgstr ""
 
+msgid "Data"
+msgstr ""
+
 msgid "Axis & legend"
 msgstr ""
 
@@ -392,6 +371,9 @@ msgid "Event data items"
 msgstr ""
 
 msgid "Program indicators"
+msgstr ""
+
+msgid "Period"
 msgstr ""
 
 msgid "Organisation Unit"

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import i18n from '@dhis2/d2-i18n';
 
-import { acSetUiActiveModalDialog } from '../../actions/ui';
+import { acSetUiActiveModalDialog } from '../../../actions/ui';
 
 const HideButton = ({ className, closeDialog }) => (
     <Button

@@ -127,37 +127,41 @@ export default (state = DEFAULT_UI, action) => {
             };
         }
         case SET_UI_ITEMS: {
-            const { dimensionType: type, items } = action.value;
-
-            return {
-                ...state,
-                itemsByDimension: { ...state.itemsByDimension, [type]: items },
-            };
-        }
-        case ADD_UI_ITEMS: {
-            const { dimensionType: type, value: items } = action.value;
-            const currentItems = state.itemsByDimension[type] || [];
-            const dxItems = [...new Set([...currentItems, ...items])];
+            const { dimensionId, itemIds } = action.value;
 
             return {
                 ...state,
                 itemsByDimension: {
                     ...state.itemsByDimension,
-                    [type]: dxItems,
+                    [dimensionId]: itemIds,
+                },
+            };
+        }
+        case ADD_UI_ITEMS: {
+            const { dimensionId, itemIds } = action.value;
+            const currentItemIds = state.itemsByDimension[dimensionId] || [];
+            const dxItems = [...new Set([...currentItemIds, ...itemIds])];
+
+            return {
+                ...state,
+                itemsByDimension: {
+                    ...state.itemsByDimension,
+                    [dimensionId]: dxItems,
                 },
             };
         }
         case REMOVE_UI_ITEMS: {
-            const { dimensionType: type, value: idsToRemove } = action.value;
-            const dxItems = (state.itemsByDimension[type] || []).filter(
-                id => !idsToRemove.includes(id)
+            const { dimensionId, itemIdsToRemove } = action.value;
+
+            const dxItems = (state.itemsByDimension[dimensionId] || []).filter(
+                id => !itemIdsToRemove.includes(id)
             );
 
             return {
                 ...state,
                 itemsByDimension: {
                     ...state.itemsByDimension,
-                    [type]: dxItems,
+                    [dimensionId]: dxItems,
                 },
             };
         }
