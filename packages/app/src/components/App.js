@@ -18,7 +18,6 @@ import * as fromReducers from '../reducers';
 import * as fromActions from '../actions';
 import history from '../modules/history';
 import defaultMetadata from '../modules/metadata';
-import { sGetUi } from '../reducers/ui';
 import {
     apiFetchAOFromUserDataStore,
     CURRENT_AO_KEY,
@@ -117,11 +116,15 @@ export class App extends Component {
         store.dispatch(fromActions.fromUser.acReceivedUser(d2.currentUser));
         store.dispatch(fromActions.fromDimensions.tSetDimensions());
 
+        const rootOrgUnit = this.props.settings.rootOrganisationUnit;
+
         store.dispatch(
             fromActions.fromMetadata.acAddMetadata({
                 ...defaultMetadata,
-                [this.props.settings.rootOrganisationUnit.id]: this.props
-                    .settings.rootOrganisationUnit,
+                [rootOrgUnit.id]: {
+                    ...rootOrgUnit,
+                    path: `/${rootOrgUnit.id}`,
+                },
             })
         );
 
@@ -211,7 +214,7 @@ const mapStateToProps = state => ({
     current: fromReducers.fromCurrent.sGetCurrent(state),
     interpretations: fromReducers.fromVisualization.sGetInterpretations(state),
     loadError: fromReducers.fromLoader.sGetLoadError(state),
-    ui: sGetUi(state),
+    ui: fromReducers.fromUi.sGetUi(state),
 });
 
 const mapDispatchToProps = dispatch => ({

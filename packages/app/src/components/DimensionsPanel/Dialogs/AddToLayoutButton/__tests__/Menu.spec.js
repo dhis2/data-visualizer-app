@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import { ADD_TO_LAYOUT_OPTIONS } from '../../../modules/layout';
+import { ADD_TO_LAYOUT_OPTIONS } from '../../../../../modules/layout';
 
 import { DropDown } from '../Menu';
 import DropDownButton from '../DropDownButton';
