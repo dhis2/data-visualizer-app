@@ -48,7 +48,11 @@ describe('Visualization', () => {
         });
 
         it('triggers addMetadata action when responses received from chart plugin', () => {
-            const items = ['a', 'b', 'c'];
+            const items = {
+                a: { id: 'a', name: 'a' },
+                b: { id: 'b', name: 'b' },
+                c: { id: 'c', name: 'c' },
+            };
 
             vis().simulate('responsesReceived', [{ metaData: { items } }]);
 

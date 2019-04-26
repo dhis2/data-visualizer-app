@@ -13,6 +13,15 @@ jest.mock('@material-ui/core/DialogActions', () => props => (
     <div id="mock-mui-dialog-actions">{props.children}</div>
 ));
 
+jest.mock('@dhis2/d2-ui-analytics', () => {
+    return {
+        DataDimension: () => <div />,
+        DynamicDimension: () => <div />,
+        PeriodDimension: () => <div />,
+        OrgUnitDimension: () => <div />,
+    };
+});
+
 describe('The DialogManager component', () => {
     let props;
     let shallowDialog;
@@ -37,6 +46,13 @@ describe('The DialogManager component', () => {
             },
             dxIds: ['test'],
             ouIds: [],
+            selectedItems: {
+                ou: [],
+                pe: [],
+                dx: ['test'],
+            },
+            d2: {},
+            metadata: {},
             closeDialog: jest.fn(),
             setRecommendedIds: jest.fn(),
         };

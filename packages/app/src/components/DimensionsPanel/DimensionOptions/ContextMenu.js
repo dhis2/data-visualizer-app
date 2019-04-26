@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Menu from '@material-ui/core/Menu';
 import Zoom from '@material-ui/core/Zoom';
 
-export const DropDown = ({ id, anchorEl, onClose, menuItems }) => (
+export const ContextMenu = ({ id, anchorEl, onClose, menuItems }) => (
     <Menu
         id={id}
         anchorEl={anchorEl}
@@ -17,15 +17,15 @@ export const DropDown = ({ id, anchorEl, onClose, menuItems }) => (
     </Menu>
 );
 
-DropDown.defaultProps = {
+ContextMenu.defaultProps = {
     anchorEl: null,
 };
 
-DropDown.propTypes = {
+ContextMenu.propTypes = {
     id: PropTypes.string.isRequired,
     anchorEl: PropTypes.object,
     onClose: PropTypes.func.isRequired,
     menuItems: PropTypes.array.isRequired,
 };
 
-export default DropDown;
+export default ContextMenu;
