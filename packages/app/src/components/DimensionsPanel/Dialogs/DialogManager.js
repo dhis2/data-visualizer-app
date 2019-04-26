@@ -77,7 +77,7 @@ export class DialogManager extends Component {
     }, 1000);
 
     onSelect = ({ dimensionId, items }) => {
-        this.props.addUiItems({
+        this.props.setUiItems({
             dimensionId,
             itemIds: items.map(item => item.id),
         });
@@ -94,10 +94,12 @@ export class DialogManager extends Component {
                         displayName: ou.displayName,
                     };
 
-                    const path = removeOrgUnitLastPathSegment(ou.path);
+                    if (ou.path) {
+                        const path = removeOrgUnitLastPathSegment(ou.path);
 
-                    forParentGraphMap[ou.id] =
-                        path === `/${ou.id}` ? '' : path.replace(/^\//, '');
+                        forParentGraphMap[ou.id] =
+                            path === `/${ou.id}` ? '' : path.replace(/^\//, '');
+                    }
                 });
 
                 this.props.addMetadata(forMetadata);
