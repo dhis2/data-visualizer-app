@@ -43,7 +43,7 @@ class ChartPlugin extends Component {
         }
 
         // id set by DV app, style works in dashboards
-        if (this.props.id !== prevProps.id || this.props.style !== prevProps.style) {
+        if (this.props.id !== prevProps.id || !isEqual(this.props.style, prevProps.style)) {
             this.recreateChart(0); // disable animation
             return;
         }
