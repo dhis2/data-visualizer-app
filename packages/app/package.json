@@ -3,6 +3,7 @@
     "version": "32.0.2",
     "description": "DHIS2 Data Visualizer app",
     "license": "BSD-3-Clause",
+    "private": true,
     "homepage": ".",
     "devDependencies": {
         "@dhis2/d2-i18n-extract": "^1.0.6",
