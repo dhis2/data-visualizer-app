@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ChartPlugin from 'data-visualizer-plugin';
+import ChartPlugin from '@dhis2/data-visualizer-plugin';
 import {
     Visualization,
     chartConfigSelector,
@@ -9,7 +9,7 @@ import {
 import BlankCanvas from '../BlankCanvas';
 import * as validator from '../../../modules/layoutValidation';
 
-jest.mock('data-visualizer-plugin', () => () => <div />);
+jest.mock('@dhis2/data-visualizer-plugin', () => () => <div />);
 
 describe('Visualization', () => {
     describe('component', () => {
