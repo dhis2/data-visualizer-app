@@ -6,7 +6,7 @@ import i18n from '@dhis2/d2-i18n';
 import debounce from 'lodash-es/debounce';
 
 import styles from './styles/Visualization.style';
-import ChartPlugin from 'data-visualizer-plugin';
+import ChartPlugin from '@dhis2/data-visualizer-plugin';
 
 import { sGetVisualization } from '../../reducers/visualization';
 import { sGetCurrent } from '../../reducers/current';
