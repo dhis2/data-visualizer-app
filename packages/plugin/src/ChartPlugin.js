@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import isEqual from 'lodash-es/isEqual';
+
 import { createChart } from 'd2-charts-api';
 
 import { apiFetchVisualization } from './api/visualization';
@@ -32,12 +32,12 @@ class ChartPlugin extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (!isEqual(this.props.config, prevProps.config)) {
+        if (this.props.config !== prevProps.config) {
             this.renderChart();
             return;
         }
 
-        if (!isEqual(this.props.filters, prevProps.filters)) {
+        if (this.props.filters !== prevProps.filters) {
             this.renderChart();
             return;
         }
