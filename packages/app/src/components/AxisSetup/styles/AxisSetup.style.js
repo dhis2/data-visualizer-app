@@ -25,6 +25,7 @@ export default {
     },
     dialogContent: {
         marginBottom: '0px',
+        lineHeight: '1.5',
     },
     dialogActions: {
         border: 'none',
