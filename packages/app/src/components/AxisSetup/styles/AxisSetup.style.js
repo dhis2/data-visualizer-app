@@ -25,6 +25,8 @@ export default {
     },
     dialogContent: {
         marginBottom: '0px',
+    },
+    helpText: {
         lineHeight: '1.5',
     },
     dialogActions: {
