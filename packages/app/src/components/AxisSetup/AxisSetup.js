@@ -165,7 +165,7 @@ class AxisSetup extends Component {
             >
                 <DialogTitle>{i18n.t('Manage axes')}</DialogTitle>
                 <DialogContent className={classes.dialogContent}>
-                    <p>
+                    <p className={classes.helpText}>
                         {i18n.t(
                             'A chart can have two axes. Each axis will have its own scale. Set the axis for each data selection below.'
                         )}
