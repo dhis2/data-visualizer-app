@@ -1,7 +1,9 @@
 import pick from 'lodash-es/pick';
+import { dimensionCreate } from '@dhis2/d2-ui-analytics';
+
 import options from './options';
 import {
-    createDimension,
+    // createDimension,
     AXIS_NAME_COLUMNS,
     AXIS_NAME_ROWS,
     AXIS_NAME_FILTERS,
@@ -25,7 +27,7 @@ export const getAxesFromUi = ui =>
             [axisName]: ids
                 .map(id =>
                     hasItems(ui.itemsByDimension, id)
-                        ? createDimension(id, ui.itemsByDimension[id])
+                        ? dimensionCreate(id, ui.itemsByDimension[id])
                         : null
                 )
                 .filter(dim => dim !== null),
@@ -89,8 +91,8 @@ export const getYearOverYearCurrentFromUi = (state, action) => {
     return {
         ...state,
         [BASE_FIELD_TYPE]: ui.type,
-        [AXIS_NAME_COLUMNS]: [createDimension(dxId, dxItem)],
-        [AXIS_NAME_ROWS]: [createDimension(peId, ui.yearOverYearCategory)],
+        [AXIS_NAME_COLUMNS]: [dimensionCreate(dxId, dxItem)],
+        [AXIS_NAME_ROWS]: [dimensionCreate(peId, ui.yearOverYearCategory)],
         [AXIS_NAME_FILTERS]: getAxesFromUi(ui).filters.filter(
             f => ![dxId, peId].includes(f.dimension)
         ),
