@@ -50,21 +50,6 @@ export const getFilteredLayout = (layout, excludedIds) => {
     };
 };
 
-export const getDimensionIdsByAxis = visualization => {
-    const axes = pick(visualization, AXIS_NAMES);
-
-    const entries = Object.entries(axes);
-    const entriesWithIds = entries.map(([axisName, dimensions]) => [
-        axisName,
-        dimensions.map(dim => dim[DIMENSION_ID_PROP_NAME]),
-    ]);
-
-    return entriesWithIds.reduce(
-        (obj, [key, value]) => ({ ...obj, [key]: value }),
-        {}
-    );
-};
-
 // Accepts layout: { columns: ['dx'] }
 // Returns inverse layout: { dx: 'columns' }
 export const getInverseLayout = layout => {

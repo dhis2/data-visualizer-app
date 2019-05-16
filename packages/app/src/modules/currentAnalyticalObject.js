@@ -1,5 +1,7 @@
+import { layoutGetAxisNameDimensionIdsObject } from '@dhis2/d2-ui-analytics';
+
 import { FIXED_DIMENSIONS } from './fixedDimensions';
-import { getDimensionIdsByAxis, getInverseLayout } from './layout';
+import { getInverseLayout } from './layout';
 
 export const getPathForOrgUnit = (orgUnit, parentGraphMap) => {
     if (parentGraphMap[orgUnit.id] === undefined) {
@@ -17,7 +19,7 @@ export const getPathForOrgUnit = (orgUnit, parentGraphMap) => {
 
 export const appendPathsToOrgUnits = (current, ui) => {
     const ouId = FIXED_DIMENSIONS.ou.id;
-    const dimensionIdsByAxis = getDimensionIdsByAxis(current);
+    const dimensionIdsByAxis = layoutGetAxisNameDimensionIdsObject(current);
     const inverseLayout = getInverseLayout(dimensionIdsByAxis);
     const ouAxis = inverseLayout[ouId];
     const { parentGraphMap } = ui;

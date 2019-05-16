@@ -1,4 +1,7 @@
-import { layoutGetDimensionIdItemIdsObject } from '@dhis2/d2-ui-analytics';
+import {
+    layoutGetAxisNameDimensionIdsObject,
+    layoutGetDimensionIdItemIdsObject,
+} from '@dhis2/d2-ui-analytics';
 
 import {
     YEAR_OVER_YEAR_LINE,
@@ -7,7 +10,7 @@ import {
     GAUGE,
     defaultChartType,
 } from './chartTypes';
-import { getDimensionIdsByAxis, getInverseLayout } from './layout';
+import { getInverseLayout } from './layout';
 import { FIXED_DIMENSIONS } from './fixedDimensions';
 import { isYearOverYear } from './chartTypes';
 import { getOptionsFromVisualization } from './options';
@@ -23,7 +26,7 @@ export const getUiFromVisualization = (vis, currentState = {}) => ({
     ...currentState,
     type: vis.type || defaultChartType,
     options: getOptionsFromVisualization(vis),
-    layout: getDimensionIdsByAxis(vis),
+    layout: layoutGetAxisNameDimensionIdsObject(vis),
     itemsByDimension: layoutGetDimensionIdItemIdsObject(vis),
     parentGraphMap:
         vis.parentGraphMap ||
@@ -76,7 +79,7 @@ export const getAdaptedUiByType = ui => {
 
 export const getParentGraphMapFromVisualization = vis => {
     const ouId = FIXED_DIMENSIONS.ou.id;
-    const dimensionIdsByAxis = getDimensionIdsByAxis(vis);
+    const dimensionIdsByAxis = layoutGetAxisNameDimensionIdsObject(vis);
     const inverseLayout = getInverseLayout(dimensionIdsByAxis);
     const ouAxis = inverseLayout[ouId];
 

@@ -1,8 +1,4 @@
-import {
-    AXIS_NAMES,
-    getItemIdsByDimension,
-    getDimensionIdsByAxis,
-} from '../layout';
+import { AXIS_NAMES, getItemIdsByDimension } from '../layout';
 import { FIXED_DIMENSIONS } from '../fixedDimensions';
 
 const [COLUMNS, ROWS, FILTERS] = AXIS_NAMES;
@@ -52,19 +48,6 @@ describe('getItemIdsByDimension', () => {
             [ouId]: [ouItem1Id],
         };
         const actualState = getItemIdsByDimension(visualization);
-
-        expect(actualState).toEqual(expectedState);
-    });
-});
-
-describe('getDimensionIdsByAxis', () => {
-    it('should return an object with dimension ids by axis name', () => {
-        const expectedState = {
-            [COLUMNS]: [dxId, otherId],
-            [ROWS]: [peId],
-            [FILTERS]: [ouId],
-        };
-        const actualState = getDimensionIdsByAxis(visualization);
 
         expect(actualState).toEqual(expectedState);
     });
