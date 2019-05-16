@@ -2,12 +2,7 @@ import pick from 'lodash-es/pick';
 import { dimensionCreate } from '@dhis2/d2-ui-analytics';
 
 import options from './options';
-import {
-    // createDimension,
-    AXIS_NAME_COLUMNS,
-    AXIS_NAME_ROWS,
-    AXIS_NAME_FILTERS,
-} from './layout';
+import { AXIS_NAME_COLUMNS, AXIS_NAME_ROWS, AXIS_NAME_FILTERS } from './layout';
 import { FIXED_DIMENSIONS } from './fixedDimensions';
 import { BASE_FIELD_TYPE, BASE_FIELD_YEARLY_SERIES } from './fields/baseFields';
 import { pieLayoutAdapter } from './layoutAdapters';

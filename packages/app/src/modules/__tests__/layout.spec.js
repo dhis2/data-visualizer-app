@@ -1,10 +1,8 @@
 import {
     AXIS_NAMES,
-    getAllDimensions,
     getItemIdsByDimension,
     getDimensionIdsByAxis,
 } from '../layout';
-import { createDimension } from '../layout';
 import { FIXED_DIMENSIONS } from '../fixedDimensions';
 
 const [COLUMNS, ROWS, FILTERS] = AXIS_NAMES;
@@ -44,27 +42,6 @@ const visualization = {
     [ROWS]: [pe],
     [FILTERS]: [ou],
 };
-
-describe('createDimension', () => {
-    it('should return a dimension object', () => {
-        const expectedState = {
-            dimension: dxId,
-            items: [{ id: 'id1' }, { id: 'id2' }],
-        };
-        const actualState = createDimension(dxId, ['id1', 'id2']);
-
-        expect(actualState).toEqual(expectedState);
-    });
-});
-
-describe('getAllDimensions', () => {
-    it('should return an array of all dimensions in the visualization', () => {
-        const expectedState = [dx, other, pe, ou];
-        const actualState = getAllDimensions(visualization);
-
-        expect(actualState).toEqual(expectedState);
-    });
-});
 
 describe('getItemIdsByDimension', () => {
     it('should return an object with item ids by dimension id from a visualization', () => {

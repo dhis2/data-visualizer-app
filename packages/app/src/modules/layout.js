@@ -34,20 +34,6 @@ export const menuLabels = {
 
 // Layout utility functions
 
-// Accepts: dimensionId, [itemIds]
-// Returns dimension object { dimension: 'dx', items: [{ id: abc }] }
-export const createDimension = (dimensionId, itemIds) => ({
-    [DIMENSION_ID_PROP_NAME]: dimensionId,
-    items: itemIds.map(id => ({ id })),
-});
-
-// Collect all dimensions from the layout in an array
-export const getAllDimensions = visualization =>
-    AXIS_NAMES.reduce(
-        (dimensions, key) => dimensions.concat(visualization[key]),
-        []
-    );
-
 // Exclude one or many dimensions from layout
 export const getFilteredLayout = (layout, excludedIds) => {
     const ids = Array.isArray(excludedIds) ? excludedIds : [excludedIds];
@@ -62,20 +48,6 @@ export const getFilteredLayout = (layout, excludedIds) => {
             dim => !ids.includes(dim)
         ),
     };
-};
-
-export const getItemIdsByDimension = visualization => {
-    const dimensions = getAllDimensions(visualization);
-
-    return dimensions.reduce(
-        (map, dim) => ({
-            ...map,
-            [dim[DIMENSION_ID_PROP_NAME]]: dim[DIMENSION_ITEMS_PROP_NAME].map(
-                item => item.id
-            ),
-        }),
-        {}
-    );
 };
 
 export const getDimensionIdsByAxis = visualization => {
