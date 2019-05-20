@@ -1,3 +1,5 @@
+import { layoutFilterDimensions } from '@dhis2/d2-ui-analytics';
+
 import {
     getFilteredLayout,
     getSwapModObj,
@@ -102,6 +104,7 @@ export default (state = DEFAULT_UI, action) => {
                 state.layout,
                 Object.keys(modObjWithSwap)
             );
+            console.log('newLayout', newLayout);
 
             Object.entries(modObjWithSwap).forEach(
                 ([dimensionId, axisName]) => {
