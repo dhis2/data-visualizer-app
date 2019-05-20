@@ -1,16 +1,22 @@
 import pick from 'lodash-es/pick';
-import { dimensionCreate } from '@dhis2/d2-ui-analytics';
+import {
+    AXIS_NAME_COLUMNS,
+    AXIS_NAME_ROWS,
+    AXIS_NAME_FILTERS,
+    DIMENSION_ID_DATA,
+    DIMENSION_ID_PERIOD,
+    dimensionCreate,
+} from '@dhis2/d2-ui-analytics';
 
 import options from './options';
-import { AXIS_NAME_COLUMNS, AXIS_NAME_ROWS, AXIS_NAME_FILTERS } from './layout';
-import { FIXED_DIMENSIONS } from './fixedDimensions';
+import {} from './layout';
 import { BASE_FIELD_TYPE, BASE_FIELD_YEARLY_SERIES } from './fields/baseFields';
 import { pieLayoutAdapter } from './layoutAdapters';
 import { mergeUiMaps } from './ui';
 import { SERIES_ITEMS_SERIES } from './seriesItems';
 
-const dxId = FIXED_DIMENSIONS.dx.id;
-const peId = FIXED_DIMENSIONS.pe.id;
+const dxId = DIMENSION_ID_DATA;
+const peId = DIMENSION_ID_PERIOD;
 
 const hasItems = (object, id) =>
     object.hasOwnProperty(id) && Array.isArray(object[id]) && object[id].length;

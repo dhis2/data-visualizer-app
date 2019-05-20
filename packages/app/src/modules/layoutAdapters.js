@@ -1,7 +1,11 @@
-import { AXIS_NAME_COLUMNS, AXIS_NAME_ROWS, AXIS_NAME_FILTERS } from './layout';
-import { FIXED_DIMENSIONS } from './fixedDimensions';
+import {
+    AXIS_NAME_COLUMNS,
+    AXIS_NAME_ROWS,
+    AXIS_NAME_FILTERS,
+    DIMENSION_ID_PERIOD,
+} from '@dhis2/d2-ui-analytics';
 
-const peId = FIXED_DIMENSIONS.pe.id;
+const peId = DIMENSION_ID_PERIOD;
 
 // Transform from ui.layout to pie layout format
 export const pieLayoutAdapter = layout => {

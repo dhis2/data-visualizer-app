@@ -3,6 +3,11 @@ import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
 import MenuItem from '@material-ui/core/MenuItem';
 import Divider from '@material-ui/core/Divider';
+import {
+    AXIS_NAME_COLUMNS,
+    AXIS_NAMES,
+    DIMENSION_ID_DATA,
+} from '@dhis2/d2-ui-analytics';
 
 import Chip from '../Chip';
 import { sGetUi } from '../../../reducers/ui';
@@ -12,17 +17,12 @@ import {
     acRemoveUiLayoutDimensions,
     acSetUiActiveModalDialog,
 } from '../../../actions/ui';
-import {
-    AXIS_NAMES,
-    SOURCE_DIMENSIONS,
-    menuLabels,
-    AXIS_NAME_COLUMNS,
-} from '../../../modules/layout';
-import styles from './styles/DefaultAxis.style';
+import { SOURCE_DIMENSIONS, menuLabels } from '../../../modules/layout';
 import { getAdaptedUiByType } from '../../../modules/ui';
 import { isYearOverYear, isDualAxisType } from '../../../modules/chartTypes';
 import { AXIS_SETUP_DIALOG_ID } from '../../AxisSetup/AxisSetup';
-import { FIXED_DIMENSIONS } from '../../../modules/fixedDimensions';
+
+import styles from './styles/DefaultAxis.style';
 
 const axisLabels = {
     columns: i18n.t('Series'),
@@ -64,7 +64,7 @@ class Axis extends React.Component {
 
     isSeries = () => this.props.axisName === AXIS_NAME_COLUMNS;
 
-    isData = dimensionId => dimensionId === FIXED_DIMENSIONS.dx.id;
+    isData = dimensionId => dimensionId === DIMENSION_ID_DATA;
 
     getItemsArrayByDimension = dimensionId =>
         this.props.itemsByDimension[dimensionId] || [];

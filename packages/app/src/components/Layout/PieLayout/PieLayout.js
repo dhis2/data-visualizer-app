@@ -1,9 +1,9 @@
 import React from 'react';
+import { AXIS_NAME_COLUMNS, AXIS_NAME_FILTERS } from '@dhis2/d2-ui-analytics';
 
 import DefaultAxis from '../DefaultLayout/DefaultAxis';
 import defaultAxisStyles from '../DefaultLayout/styles/DefaultAxis.style';
 import defaultLayoutStyles from '../DefaultLayout/styles/DefaultLayout.style';
-import { AXIS_NAME_COLUMNS, AXIS_NAME_FILTERS } from '../../../modules/layout';
 
 const Layout = () => (
     <div id="layout-ct" style={defaultLayoutStyles.ct}>

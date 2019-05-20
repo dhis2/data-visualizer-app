@@ -87,11 +87,6 @@ const validateAxis = (axis, message) => {
     }
 };
 
-const findDimension = (layout, dimensionId) =>
-    [...layout.columns, ...layout.rows, ...layout.filters].find(
-        dim => dim.dimension === dimensionId
-    );
-
 // Layout validation
 const validateDefaultLayout = layout => {
     validateAxis(layout.columns, errorLabels.defaultSeries);
@@ -117,7 +112,7 @@ const validateYearOverYearLayout = layout => {
 const validatePieLayout = layout => {
     validateAxis(layout.columns, errorLabels.defaultSeries);
     validateAxis(layout.filters, errorLabels.pie.filter);
-    validateDimension(findDimension(layout, peId), errorLabels.pie.pe);
+    validateDimension(layoutGetDimension(layout, peId), errorLabels.pie.pe);
 };
 
 export const validateLayout = layout => {

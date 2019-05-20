@@ -1,14 +1,17 @@
-import { FIXED_DIMENSIONS } from '../fixedDimensions';
-import { pieLayoutAdapter, yearOverYearLayoutAdapter } from '../layoutAdapters';
 import {
     AXIS_NAME_COLUMNS,
     AXIS_NAME_ROWS,
     AXIS_NAME_FILTERS,
-} from '../layout';
+    DIMENSION_ID_DATA,
+    DIMENSION_ID_PERIOD,
+    DIMENSION_ID_ORGUNIT,
+} from '@dhis2/d2-ui-analytics';
 
-const dxId = FIXED_DIMENSIONS.dx.id;
-const peId = FIXED_DIMENSIONS.pe.id;
-const ouId = FIXED_DIMENSIONS.ou.id;
+import { pieLayoutAdapter, yearOverYearLayoutAdapter } from '../layoutAdapters';
+
+const dxId = DIMENSION_ID_DATA;
+const peId = DIMENSION_ID_PERIOD;
+const ouId = DIMENSION_ID_ORGUNIT;
 const someId = 'someId';
 const otherId = 'otherId';
 

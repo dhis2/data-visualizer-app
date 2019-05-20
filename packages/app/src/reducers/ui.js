@@ -1,14 +1,14 @@
-import { layoutFilterDimensions } from '@dhis2/d2-ui-analytics';
-
 import {
-    getFilteredLayout,
-    getSwapModObj,
+    DIMENSION_ID_DATA,
+    DIMENSION_ID_PERIOD,
+    DIMENSION_ID_ORGUNIT,
     AXIS_NAME_COLUMNS,
     AXIS_NAME_ROWS,
-} from '../modules/layout';
+} from '@dhis2/d2-ui-analytics';
+
+import { getFilteredLayout, getSwapModObj } from '../modules/layout';
 import { getOptionsForUi } from '../modules/options';
 import { COLUMN } from '../modules/chartTypes';
-import { FIXED_DIMENSIONS } from '../modules/fixedDimensions';
 import { toArray } from '../modules/array';
 import { getUiFromVisualization } from '../modules/ui';
 
@@ -34,9 +34,9 @@ export const SET_UI_INTERPRETATION = 'SET_UI_INTERPRETATION';
 export const CLEAR_UI_INTERPRETATION = 'CLEAR_UI_INTERPRETATION';
 export const SET_AXES = 'SET_AXES';
 
-const dxId = FIXED_DIMENSIONS.dx.id;
-const peId = FIXED_DIMENSIONS.pe.id;
-const ouId = FIXED_DIMENSIONS.ou.id;
+const dxId = DIMENSION_ID_DATA;
+const peId = DIMENSION_ID_PERIOD;
+const ouId = DIMENSION_ID_ORGUNIT;
 
 export const DEFAULT_UI = {
     type: COLUMN,
@@ -104,7 +104,6 @@ export default (state = DEFAULT_UI, action) => {
                 state.layout,
                 Object.keys(modObjWithSwap)
             );
-            console.log('newLayout', newLayout);
 
             Object.entries(modObjWithSwap).forEach(
                 ([dimensionId, axisName]) => {

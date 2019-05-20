@@ -1,23 +1,12 @@
-import pick from 'lodash-es/pick';
 import i18n from '@dhis2/d2-i18n';
-
-// Names for analytical object axes
-export const AXIS_NAME_COLUMNS = 'columns';
-export const AXIS_NAME_ROWS = 'rows';
-export const AXIS_NAME_FILTERS = 'filters';
-
-export const AXIS_NAMES = [
+import {
     AXIS_NAME_COLUMNS,
     AXIS_NAME_ROWS,
     AXIS_NAME_FILTERS,
-];
+} from '@dhis2/d2-ui-analytics';
 
 // Names for dnd sources
 export const SOURCE_DIMENSIONS = 'dimensions';
-
-// Prop names for dimension id and items
-export const DIMENSION_ID_PROP_NAME = 'dimension';
-export const DIMENSION_ITEMS_PROP_NAME = 'items';
 
 // Keys and displayName for adding dimensions to layout
 export const ADD_TO_LAYOUT_OPTIONS = [
