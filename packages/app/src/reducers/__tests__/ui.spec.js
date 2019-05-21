@@ -2,10 +2,11 @@ import {
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
+    AXIS_NAME_COLUMNS,
+    AXIS_NAMES,
 } from '@dhis2/d2-ui-analytics';
 
 import * as ui from '../ui';
-import { AXIS_NAMES } from '../../modules/layout';
 import { BAR } from '../../modules/chartTypes';
 
 const reducer = ui.default;
@@ -164,7 +165,7 @@ describe('reducer: ui', () => {
         const actualState = reducer(state, {
             type: ui.ADD_UI_LAYOUT_DIMENSIONS,
             value: {
-                [dxId]: 'rows',
+                [dxId]: AXIS_NAME_ROWS,
             },
         });
 
@@ -193,7 +194,7 @@ describe('reducer: ui', () => {
         const actualState = reducer(state, {
             type: ui.ADD_UI_LAYOUT_DIMENSIONS,
             value: {
-                [otherId]: 'columns',
+                [otherId]: AXIS_NAME_COLUMNS,
             },
         });
 
