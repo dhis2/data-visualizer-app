@@ -1,7 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import {
+    DIMENSION_ID_DATA,
+    DIMENSION_ID_PERIOD,
+    DIMENSION_ID_ORGUNIT,
+} from '@dhis2/d2-ui-analytics';
+
 import { DialogManager } from '../DialogManager';
-import { FIXED_DIMENSIONS } from '../../../../modules/fixedDimensions';
 
 jest.mock('@material-ui/core/Dialog', () => props => {
     console.log('children', props.children);
@@ -70,7 +75,7 @@ describe('The DialogManager component', () => {
 
     it('should add the dialogId of fixed dimensions to state "mounted" on first time render', () => {
         const dialog = dialogManager().setProps({
-            dialogId: FIXED_DIMENSIONS.ou.id,
+            dialogId: DIMENSION_ID_ORGUNIT,
         });
 
         expect(dialog.state().ouMounted).toBe(true);
@@ -78,7 +83,7 @@ describe('The DialogManager component', () => {
 
     it('renders the DataDimension content in dialog', () => {
         const dialog = dialogManager().setProps({
-            dialogId: FIXED_DIMENSIONS.dx.id,
+            dialogId: DIMENSION_ID_DATA,
         });
 
         expect(dialog).toMatchSnapshot();
@@ -86,7 +91,7 @@ describe('The DialogManager component', () => {
 
     it('renders the OrgUnitDimension content in dialog', () => {
         const dialog = dialogManager().setProps({
-            dialogId: FIXED_DIMENSIONS.ou.id,
+            dialogId: DIMENSION_ID_ORGUNIT,
         });
 
         expect(dialog).toMatchSnapshot();
@@ -94,7 +99,7 @@ describe('The DialogManager component', () => {
 
     it('renders the PeriodDimension content in dialog', () => {
         const dialog = dialogManager().setProps({
-            dialogId: FIXED_DIMENSIONS.pe.id,
+            dialogId: DIMENSION_ID_PERIOD,
         });
 
         expect(dialog).toMatchSnapshot();
@@ -102,7 +107,7 @@ describe('The DialogManager component', () => {
 
     it('renders OUDimension content with display:none when previously mounted', () => {
         const dialog = dialogManager().setProps({
-            dialogId: FIXED_DIMENSIONS.ou.id,
+            dialogId: DIMENSION_ID_ORGUNIT,
         });
 
         expect(dialog).toMatchSnapshot();
@@ -110,7 +115,7 @@ describe('The DialogManager component', () => {
         dialog.setProps({ dialogId: null });
         expect(dialog).toMatchSnapshot();
 
-        dialog.setProps({ dialogId: FIXED_DIMENSIONS.dx.id });
+        dialog.setProps({ dialogId: DIMENSION_ID_DATA });
         expect(dialog).toMatchSnapshot();
     });
 
@@ -140,7 +145,7 @@ describe('The DialogManager component', () => {
 
     it('calls the closeDialog function', () => {
         const dialog = dialogManager().setProps({
-            dialogId: FIXED_DIMENSIONS.dx.id,
+            dialogId: DIMENSION_ID_DATA,
         });
 
         dialog.simulate('close');

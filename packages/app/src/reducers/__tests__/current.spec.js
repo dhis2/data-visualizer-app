@@ -1,3 +1,9 @@
+import {
+    DIMENSION_ID_DATA,
+    DIMENSION_ID_PERIOD,
+    DIMENSION_ID_ORGUNIT,
+} from '@dhis2/d2-ui-analytics';
+
 import options from '../../modules/options';
 import reducer, {
     DEFAULT_CURRENT,
@@ -6,11 +12,10 @@ import reducer, {
     CLEAR_CURRENT,
 } from '../current';
 import { COLUMN, YEAR_OVER_YEAR_LINE } from '../../modules/chartTypes';
-import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
 
-const dxId = FIXED_DIMENSIONS.dx.id;
-const peId = FIXED_DIMENSIONS.pe.id;
-const ouId = FIXED_DIMENSIONS.ou.id;
+const dxId = DIMENSION_ID_DATA;
+const peId = DIMENSION_ID_PERIOD;
+const ouId = DIMENSION_ID_ORGUNIT;
 
 describe('reducer: current', () => {
     it('should return the default state', () => {

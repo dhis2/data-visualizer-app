@@ -1,7 +1,7 @@
+import { DIMENSION_ID_PERIOD } from '@dhis2/d2-ui-analytics';
 import { getInstance } from 'd2';
-import { FIXED_DIMENSIONS } from '../modules/fixedDimensions';
 
-const peId = FIXED_DIMENSIONS.pe.id;
+const peId = DIMENSION_ID_PERIOD;
 
 export const apiDownloadImage = async (type, formData) => {
     const d2 = await getInstance();

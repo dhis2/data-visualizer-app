@@ -1,11 +1,15 @@
 import { AXIS_NAMES, getItemIdsByDimension } from '../layout';
-import { FIXED_DIMENSIONS } from '../fixedDimensions';
+import {
+    DIMENSION_ID_DATA,
+    DIMENSION_ID_PERIOD,
+    DIMENSION_ID_ORGUNIT,
+} from '@dhis2/d2-ui-analytics';
 
 const [COLUMNS, ROWS, FILTERS] = AXIS_NAMES;
 
-const dxId = FIXED_DIMENSIONS.dx.id;
-const peId = FIXED_DIMENSIONS.pe.id;
-const ouId = FIXED_DIMENSIONS.ou.id;
+const dxId = DIMENSION_ID_DATA;
+const peId = DIMENSION_ID_PERIOD;
+const ouId = DIMENSION_ID_ORGUNIT;
 
 const dxItem1Id = 'dxItem1';
 const dxItem2Id = 'dxItem2';

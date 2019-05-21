@@ -1,4 +1,6 @@
 import {
+    DIMENSION_ID_PERIOD,
+    DIMENSION_ID_ORGUNIT,
     layoutGetAxisNameDimensionIdsObject,
     layoutGetDimensionIdItemIdsObject,
 } from '@dhis2/d2-ui-analytics';
@@ -11,7 +13,6 @@ import {
     defaultChartType,
 } from './chartTypes';
 import { getInverseLayout } from './layout';
-import { FIXED_DIMENSIONS } from './fixedDimensions';
 import { isYearOverYear } from './chartTypes';
 import { getOptionsFromVisualization } from './options';
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields';
@@ -19,7 +20,8 @@ import { pieLayoutAdapter, yearOverYearLayoutAdapter } from './layoutAdapters';
 import { removeOrgUnitLastPathSegment } from './orgUnitDimensions';
 import { getAxesFromSeriesItems } from './seriesItems';
 
-const peId = FIXED_DIMENSIONS.pe.id;
+const peId = DIMENSION_ID_PERIOD;
+const ouId = DIMENSION_ID_ORGUNIT;
 
 // Transform from backend model to store.ui format
 export const getUiFromVisualization = (vis, currentState = {}) => ({
@@ -78,7 +80,6 @@ export const getAdaptedUiByType = ui => {
 };
 
 export const getParentGraphMapFromVisualization = vis => {
-    const ouId = FIXED_DIMENSIONS.ou.id;
     const dimensionIdsByAxis = layoutGetAxisNameDimensionIdsObject(vis);
     const inverseLayout = getInverseLayout(dimensionIdsByAxis);
     const ouAxis = inverseLayout[ouId];

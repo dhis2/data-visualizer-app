@@ -13,6 +13,10 @@ import {
     DynamicDimension,
     PeriodDimension,
     OrgUnitDimension,
+    DIMENSION_ID_DATA,
+    DIMENSION_ID_PERIOD,
+    DIMENSION_ID_ORGUNIT,
+    FIXED_DIMENSIONS,
 } from '@dhis2/d2-ui-analytics';
 
 import HideButton from './HideButton';
@@ -38,15 +42,14 @@ import { sGetDimensions } from '../../../reducers/dimensions';
 import { sGetMetadata } from '../../../reducers/metadata';
 import { sGetSettingsDisplayNameProperty } from '../../../reducers/settings';
 import { apiFetchRecommendedIds } from '../../../api/dimensions';
-import { FIXED_DIMENSIONS } from '../../../modules/fixedDimensions';
 import {
     getOrgUnitsFromIds,
     removeOrgUnitLastPathSegment,
 } from '../../../modules/orgUnitDimensions';
 
-const dxId = FIXED_DIMENSIONS.dx.id;
-const peId = FIXED_DIMENSIONS.pe.id;
-const ouId = FIXED_DIMENSIONS.ou.id;
+const dxId = DIMENSION_ID_DATA;
+const peId = DIMENSION_ID_PERIOD;
+const ouId = DIMENSION_ID_ORGUNIT;
 
 export class DialogManager extends Component {
     state = {

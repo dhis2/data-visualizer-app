@@ -1,6 +1,8 @@
-import { layoutGetAxisNameDimensionIdsObject } from '@dhis2/d2-ui-analytics';
+import {
+    DIMENSION_ID_ORGUNIT,
+    layoutGetAxisNameDimensionIdsObject,
+} from '@dhis2/d2-ui-analytics';
 
-import { FIXED_DIMENSIONS } from './fixedDimensions';
 import { getInverseLayout } from './layout';
 
 export const getPathForOrgUnit = (orgUnit, parentGraphMap) => {
@@ -18,7 +20,7 @@ export const getPathForOrgUnit = (orgUnit, parentGraphMap) => {
 };
 
 export const appendPathsToOrgUnits = (current, ui) => {
-    const ouId = FIXED_DIMENSIONS.ou.id;
+    const ouId = DIMENSION_ID_ORGUNIT;
     const dimensionIdsByAxis = layoutGetAxisNameDimensionIdsObject(current);
     const inverseLayout = getInverseLayout(dimensionIdsByAxis);
     const ouAxis = inverseLayout[ouId];
