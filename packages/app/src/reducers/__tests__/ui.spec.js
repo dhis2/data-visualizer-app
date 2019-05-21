@@ -4,6 +4,7 @@ import {
     DIMENSION_ID_ORGUNIT,
     AXIS_NAME_COLUMNS,
     AXIS_NAMES,
+    AXIS_NAME_ROWS,
 } from '@dhis2/d2-ui-analytics';
 
 import * as ui from '../ui';
