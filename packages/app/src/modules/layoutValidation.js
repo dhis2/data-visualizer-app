@@ -73,7 +73,7 @@ const errorLabels = {
 
 // Layout validation helper functions
 const isAxisValid = axis =>
-    AXIS.validate(axis) && dimensionIsValid(axis[0], { requireItems: true });
+    AXIS.isValid(axis) && dimensionIsValid(axis[0], { requireItems: true });
 
 const validateDimension = (dimension, message) => {
     if (!(dimension && dimensionIsValid(dimension, { requireItems: true }))) {
