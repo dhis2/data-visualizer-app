@@ -1,10 +1,11 @@
-import { AXIS_NAMES } from '../layout';
-import { getAxesFromUi } from '../current';
 import {
+    AXIS_NAMES,
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
 } from '@dhis2/d2-ui-analytics';
+
+import { getAxesFromUi } from '../current';
 
 const [COLUMNS, ROWS, FILTERS] = AXIS_NAMES;
 
