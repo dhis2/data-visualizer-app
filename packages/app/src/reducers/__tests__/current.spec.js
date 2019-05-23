@@ -13,10 +13,6 @@ import reducer, {
 } from '../current';
 import { COLUMN, YEAR_OVER_YEAR_LINE } from '../../modules/chartTypes';
 
-const dxId = DIMENSION_ID_DATA;
-const peId = DIMENSION_ID_PERIOD;
-const ouId = DIMENSION_ID_ORGUNIT;
-
 describe('reducer: current', () => {
     it('should return the default state', () => {
         const actualState = reducer(undefined, { type: 'NO_MATCH' });
@@ -46,11 +42,15 @@ describe('reducer: current', () => {
     it('SET_CURRENT_FROM_UI: should set the current from the ui state section', () => {
         const ui = {
             type: COLUMN,
-            layout: { columns: [dxId], rows: [ouId], filters: [peId] },
+            layout: {
+                columns: [DIMENSION_ID_DATA],
+                rows: [DIMENSION_ID_ORGUNIT],
+                filters: [DIMENSION_ID_PERIOD],
+            },
             itemsByDimension: {
-                [dxId]: ['dxItemId1', 'dxItemId2'],
-                [peId]: ['peItemId1'],
-                [ouId]: ['ouItemId1', 'ouItemId2'],
+                [DIMENSION_ID_DATA]: ['dxItemId1', 'dxItemId2'],
+                [DIMENSION_ID_PERIOD]: ['peItemId1'],
+                [DIMENSION_ID_ORGUNIT]: ['ouItemId1', 'ouItemId2'],
             },
             options,
         };
@@ -60,19 +60,19 @@ describe('reducer: current', () => {
             type: ui.type,
             columns: [
                 {
-                    dimension: dxId,
+                    dimension: DIMENSION_ID_DATA,
                     items: [{ id: 'dxItemId1' }, { id: 'dxItemId2' }],
                 },
             ],
             rows: [
                 {
-                    dimension: ouId,
+                    dimension: DIMENSION_ID_ORGUNIT,
                     items: [{ id: 'ouItemId1' }, { id: 'ouItemId2' }],
                 },
             ],
             filters: [
                 {
-                    dimension: peId,
+                    dimension: DIMENSION_ID_PERIOD,
                     items: [{ id: 'peItemId1' }],
                 },
             ],
@@ -91,10 +91,14 @@ describe('reducer: current', () => {
         const ui = {
             type: YEAR_OVER_YEAR_LINE,
             options,
-            layout: { columns: [], rows: [], filters: [dxId, ouId] },
+            layout: {
+                columns: [],
+                rows: [],
+                filters: [DIMENSION_ID_DATA, DIMENSION_ID_ORGUNIT],
+            },
             itemsByDimension: {
-                [dxId]: ['dxItemId1', 'dxItemId2'],
-                [ouId]: ['ouItemId1', 'ouItemId2'],
+                [DIMENSION_ID_DATA]: ['dxItemId1', 'dxItemId2'],
+                [DIMENSION_ID_ORGUNIT]: ['ouItemId1', 'ouItemId2'],
             },
             yearOverYearSeries: ['LAST_5_YEARS'],
             yearOverYearCategory: ['MONTHS_THIS_YEAR'],
@@ -104,19 +108,19 @@ describe('reducer: current', () => {
             type: ui.type,
             columns: [
                 {
-                    dimension: dxId,
+                    dimension: DIMENSION_ID_DATA,
                     items: [{ id: 'dxItemId1' }],
                 },
             ],
             rows: [
                 {
-                    dimension: peId,
+                    dimension: DIMENSION_ID_PERIOD,
                     items: [{ id: 'MONTHS_THIS_YEAR' }],
                 },
             ],
             filters: [
                 {
-                    dimension: ouId,
+                    dimension: DIMENSION_ID_ORGUNIT,
                     items: [{ id: 'ouItemId1' }, { id: 'ouItemId2' }],
                 },
             ],

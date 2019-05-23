@@ -20,9 +20,6 @@ import { pieLayoutAdapter, yearOverYearLayoutAdapter } from './layoutAdapters';
 import { removeOrgUnitLastPathSegment } from './orgUnitDimensions';
 import { getAxesFromSeriesItems } from './seriesItems';
 
-const peId = DIMENSION_ID_PERIOD;
-const ouId = DIMENSION_ID_ORGUNIT;
-
 // Transform from backend model to store.ui format
 export const getUiFromVisualization = (vis, currentState = {}) => ({
     ...currentState,
@@ -55,7 +52,7 @@ export const yearOverYearUiAdapter = ui => {
     const state = Object.assign({}, ui);
 
     const items = Object.assign({}, state.itemsByDimension);
-    delete items[peId];
+    delete items[DIMENSION_ID_PERIOD];
 
     return {
         ...state,
@@ -82,7 +79,7 @@ export const getAdaptedUiByType = ui => {
 export const getParentGraphMapFromVisualization = vis => {
     const dimensionIdsByAxis = layoutGetAxisNameDimensionIdsObject(vis);
     const inverseLayout = getInverseLayout(dimensionIdsByAxis);
-    const ouAxis = inverseLayout[ouId];
+    const ouAxis = inverseLayout[DIMENSION_ID_ORGUNIT];
 
     if (!ouAxis) {
         return {};
@@ -90,7 +87,7 @@ export const getParentGraphMapFromVisualization = vis => {
 
     const parentGraphMap = {};
     const ouDimension = vis[ouAxis].find(
-        dimension => dimension.dimension === ouId
+        dimension => dimension.dimension === DIMENSION_ID_ORGUNIT
     );
 
     ouDimension.items

@@ -91,7 +91,10 @@ const validateAxis = (axis, message) => {
 const validateDefaultLayout = layout => {
     validateAxis(layout.columns, errorLabels.defaultSeries);
     validateAxis(layout.rows, errorLabels.defaultCategory);
-    validateDimension(layoutGetDimension(layout, peId), errorLabels.defaultPe);
+    validateDimension(
+        layoutGetDimension(layout, DIMENSION_ID_PERIOD),
+        errorLabels.defaultPe
+    );
 };
 
 const validateYearOverYearLayout = layout => {
@@ -112,7 +115,10 @@ const validateYearOverYearLayout = layout => {
 const validatePieLayout = layout => {
     validateAxis(layout.columns, errorLabels.defaultSeries);
     validateAxis(layout.filters, errorLabels.pie.filter);
-    validateDimension(layoutGetDimension(layout, peId), errorLabels.pie.pe);
+    validateDimension(
+        layoutGetDimension(layout, DIMENSION_ID_PERIOD),
+        errorLabels.pie.pe
+    );
 };
 
 export const validateLayout = layout => {

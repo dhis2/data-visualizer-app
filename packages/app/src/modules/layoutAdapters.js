@@ -31,5 +31,5 @@ export const yearOverYearLayoutAdapter = layout => ({
         ...layout[AXIS_NAME_FILTERS],
         ...layout[AXIS_NAME_COLUMNS],
         ...layout[AXIS_NAME_ROWS],
-    ].filter(dim => dim !== peId),
+    ].filter(dim => dim !== DIMENSION_ID_PERIOD),
 });

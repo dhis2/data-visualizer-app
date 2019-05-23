@@ -47,10 +47,6 @@ import {
     removeOrgUnitLastPathSegment,
 } from '../../../modules/orgUnitDimensions';
 
-const dxId = DIMENSION_ID_DATA;
-const peId = DIMENSION_ID_PERIOD;
-const ouId = DIMENSION_ID_ORGUNIT;
-
 export class DialogManager extends Component {
     state = {
         onMounted: false,
@@ -65,7 +61,10 @@ export class DialogManager extends Component {
             this.fetchRecommended();
         }
 
-        if (this.props.dialogId === ouId && !this.state.ouMounted) {
+        if (
+            this.props.dialogId === DIMENSION_ID_ORGUNIT &&
+            !this.state.ouMounted
+        ) {
             this.setState({ ouMounted: true });
         }
     };
@@ -86,7 +85,7 @@ export class DialogManager extends Component {
         });
 
         switch (dimensionId) {
-            case ouId: {
+            case DIMENSION_ID_ORGUNIT: {
                 const forMetadata = {};
                 const forParentGraphMap = {};
 
@@ -151,10 +150,11 @@ export class DialogManager extends Component {
         if (this.state.ouMounted) {
             const ouItems = getOrgUnitsFromIds(ouIds, metadata, parentGraphMap);
 
-            const display = ouId === dialogId ? 'block' : 'none';
+            const display =
+                DIMENSION_ID_ORGUNIT === dialogId ? 'block' : 'none';
 
             return (
-                <div key={ouId} style={{ display }}>
+                <div key={DIMENSION_ID_ORGUNIT} style={{ display }}>
                     <OrgUnitDimension
                         displayNameProperty={displayNameProperty}
                         ouItems={ouItems}
@@ -186,7 +186,7 @@ export class DialogManager extends Component {
         const dynamicContent = () => {
             const selectedItems = this.getSelectedItems(dialogId);
 
-            if (dialogId === dxId) {
+            if (dialogId === DIMENSION_ID_DATA) {
                 return (
                     <DataDimension
                         displayNameProp={displayNameProperty}
@@ -196,7 +196,7 @@ export class DialogManager extends Component {
                 );
             }
 
-            if (dialogId === peId) {
+            if (dialogId === DIMENSION_ID_PERIOD) {
                 return (
                     <PeriodDimension
                         selectedPeriods={selectedItems}
@@ -231,7 +231,7 @@ export class DialogManager extends Component {
 
     render() {
         const { dialogId, dimensions } = this.props;
-        const keepMounted = !dialogId || dialogId === ouId;
+        const keepMounted = !dialogId || dialogId === ouDIMENSION_ID_ORGUNITId;
 
         return (
             <Dialog
@@ -278,8 +278,8 @@ const mapStateToProps = state => ({
     dimensions: sGetDimensions(state),
     metadata: sGetMetadata(state),
     parentGraphMap: sGetUiParentGraphMap(state),
-    dxIds: sGetUiItemsByDimension(state, dxId),
-    ouIds: sGetUiItemsByDimension(state, ouId),
+    dxIds: sGetUiItemsByDimension(state, DIMENSION_ID_DATA),
+    ouIds: sGetUiItemsByDimension(state, DIMENSION_ID_ORGUNIT),
     selectedItems: sGetUiItems(state),
 });
 

@@ -34,21 +34,17 @@ export const SET_UI_INTERPRETATION = 'SET_UI_INTERPRETATION';
 export const CLEAR_UI_INTERPRETATION = 'CLEAR_UI_INTERPRETATION';
 export const SET_AXES = 'SET_AXES';
 
-const dxId = DIMENSION_ID_DATA;
-const peId = DIMENSION_ID_PERIOD;
-const ouId = DIMENSION_ID_ORGUNIT;
-
 export const DEFAULT_UI = {
     type: COLUMN,
     options: getOptionsForUi(),
     layout: {
-        columns: [dxId],
-        rows: [peId],
-        filters: [ouId],
+        columns: [DIMENSION_ID_DATA],
+        rows: [DIMENSION_ID_PERIOD],
+        filters: [DIMENSION_ID_ORGUNIT],
     },
     itemsByDimension: {
-        [ouId]: [],
-        [peId]: [],
+        [DIMENSION_ID_ORGUNIT]: [],
+        [DIMENSION_ID_PERIOD]: [],
     },
     yearOverYearSeries: ['THIS_YEAR', 'LAST_YEAR'],
     yearOverYearCategory: ['MONTHS_THIS_YEAR'],
@@ -210,8 +206,8 @@ export default (state = DEFAULT_UI, action) => {
                 ...DEFAULT_UI,
                 itemsByDimension: {
                     ...DEFAULT_UI.itemsByDimension,
-                    [ouId]: [rootOrganisationUnit.id],
-                    [peId]: [relativePeriod],
+                    [DIMENSION_ID_ORGUNIT]: [rootOrganisationUnit.id],
+                    [DIMENSION_ID_PERIOD]: [relativePeriod],
                 },
                 parentGraphMap: {
                     ...DEFAULT_UI.parentGraphMap,

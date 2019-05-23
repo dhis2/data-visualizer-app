@@ -20,10 +20,9 @@ export const getPathForOrgUnit = (orgUnit, parentGraphMap) => {
 };
 
 export const appendPathsToOrgUnits = (current, ui) => {
-    const ouId = DIMENSION_ID_ORGUNIT;
     const dimensionIdsByAxis = layoutGetAxisNameDimensionIdsObject(current);
     const inverseLayout = getInverseLayout(dimensionIdsByAxis);
-    const ouAxis = inverseLayout[ouId];
+    const ouAxis = inverseLayout[DIMENSION_ID_ORGUNIT];
     const { parentGraphMap } = ui;
 
     if (!ouAxis) {
