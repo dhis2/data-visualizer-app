@@ -41,8 +41,8 @@ import { apiFetchRecommendedIds } from '../../../api/dimensions';
 import { FIXED_DIMENSIONS } from '../../../modules/fixedDimensions';
 import {
     getOrgUnitsFromIds,
-    removeOrgUnitLastPathSegment,
-} from '../../../modules/orgUnitDimensions';
+    removeLastPathSegment,
+} from '../../../modules/orgUnit';
 
 const dxId = FIXED_DIMENSIONS.dx.id;
 const peId = FIXED_DIMENSIONS.pe.id;
@@ -95,7 +95,7 @@ export class DialogManager extends Component {
                     };
 
                     if (ou.path) {
-                        const path = removeOrgUnitLastPathSegment(ou.path);
+                        const path = removeLastPathSegment(ou.path);
 
                         forParentGraphMap[ou.id] =
                             path === `/${ou.id}` ? '' : path.replace(/^\//, '');
