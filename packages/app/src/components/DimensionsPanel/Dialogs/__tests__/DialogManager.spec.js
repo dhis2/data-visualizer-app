@@ -4,7 +4,6 @@ import {
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
-    FIXED_DIMENSIONS,
 } from '@dhis2/d2-ui-analytics';
 
 import { DialogManager } from '../DialogManager';
