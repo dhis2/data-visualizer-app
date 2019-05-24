@@ -44,8 +44,8 @@ import { sGetSettingsDisplayNameProperty } from '../../../reducers/settings';
 import { apiFetchRecommendedIds } from '../../../api/dimensions';
 import {
     getOrgUnitsFromIds,
-    removeOrgUnitLastPathSegment,
-} from '../../../modules/orgUnitDimensions';
+    removeLastPathSegment,
+} from '../../../modules/orgUnit';
 
 export class DialogManager extends Component {
     state = {
@@ -97,7 +97,7 @@ export class DialogManager extends Component {
                     };
 
                     if (ou.path) {
-                        const path = removeOrgUnitLastPathSegment(ou.path);
+                        const path = removeLastPathSegment(ou.path);
 
                         forParentGraphMap[ou.id] =
                             path === `/${ou.id}` ? '' : path.replace(/^\//, '');

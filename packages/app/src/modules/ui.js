@@ -17,7 +17,7 @@ import { isYearOverYear } from './chartTypes';
 import { getOptionsFromVisualization } from './options';
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields';
 import { pieLayoutAdapter, yearOverYearLayoutAdapter } from './layoutAdapters';
-import { removeOrgUnitLastPathSegment } from './orgUnitDimensions';
+import { removeLastPathSegment } from './orgUnit';
 import { getAxesFromSeriesItems } from './seriesItems';
 
 // Transform from backend model to store.ui format
@@ -97,7 +97,7 @@ export const getParentGraphMapFromVisualization = vis => {
                 // root org unit case
                 parentGraphMap[orgUnit.id] = '';
             } else {
-                const path = removeOrgUnitLastPathSegment(orgUnit.path);
+                const path = removeLastPathSegment(orgUnit.path);
                 parentGraphMap[orgUnit.id] =
                     path[0] === '/' ? path.substr(1) : path;
             }
