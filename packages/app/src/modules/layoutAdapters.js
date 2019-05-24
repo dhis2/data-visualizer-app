@@ -5,8 +5,6 @@ import {
     DIMENSION_ID_PERIOD,
 } from '@dhis2/d2-ui-analytics';
 
-const peId = DIMENSION_ID_PERIOD;
-
 // Transform from ui.layout to pie layout format
 export const pieLayoutAdapter = layout => {
     const columns = layout[AXIS_NAME_COLUMNS].slice();

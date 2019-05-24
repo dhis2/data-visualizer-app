@@ -231,7 +231,7 @@ export class DialogManager extends Component {
 
     render() {
         const { dialogId, dimensions } = this.props;
-        const keepMounted = !dialogId || dialogId === ouDIMENSION_ID_ORGUNITId;
+        const keepMounted = !dialogId || dialogId === DIMENSION_ID_ORGUNIT;
 
         return (
             <Dialog

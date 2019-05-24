@@ -18,7 +18,6 @@ import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields';
 import { menuLabels } from './layout';
 
 const dxName = FIXED_DIMENSIONS[DIMENSION_ID_DATA].name;
-const peId = DIMENSION_ID_PERIOD;
 
 const errorLabels = {
     defaultSeries: i18n.t('Please add at least one {{series}} dimension', {
