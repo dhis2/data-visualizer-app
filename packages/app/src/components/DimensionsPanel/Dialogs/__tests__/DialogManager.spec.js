@@ -4,6 +4,7 @@ import {
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
+    FIXED_DIMENSIONS,
 } from '@dhis2/d2-ui-analytics';
 
 import { DialogManager } from '../DialogManager';
@@ -19,11 +20,23 @@ jest.mock('@material-ui/core/DialogActions', () => props => (
 ));
 
 jest.mock('@dhis2/d2-ui-analytics', () => {
+    const dataId = 'dx';
+    const periodId = 'pe';
+    const ouId = 'ou';
+
     return {
         DataDimension: () => <div />,
         DynamicDimension: () => <div />,
         PeriodDimension: () => <div />,
         OrgUnitDimension: () => <div />,
+        DIMENSION_ID_DATA: dataId,
+        DIMENSION_ID_PERIOD: periodId,
+        DIMENSION_ID_ORGUNIT: ouId,
+        FIXED_DIMENSIONS: {
+            [dataId]: {},
+            [periodId]: {},
+            [ouId]: {},
+        },
     };
 });
 
