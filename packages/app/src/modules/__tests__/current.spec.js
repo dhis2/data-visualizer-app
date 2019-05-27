@@ -1,12 +1,13 @@
-import { AXIS_NAMES } from '../layout';
+import {
+    AXIS_NAME_COLUMNS,
+    AXIS_NAME_ROWS,
+    AXIS_NAME_FILTERS,
+    DIMENSION_ID_DATA,
+    DIMENSION_ID_PERIOD,
+    DIMENSION_ID_ORGUNIT,
+} from '@dhis2/d2-ui-analytics';
+
 import { getAxesFromUi } from '../current';
-import { FIXED_DIMENSIONS } from '../fixedDimensions';
-
-const [COLUMNS, ROWS, FILTERS] = AXIS_NAMES;
-
-const dxId = FIXED_DIMENSIONS.dx.id;
-const peId = FIXED_DIMENSIONS.pe.id;
-const ouId = FIXED_DIMENSIONS.ou.id;
 
 const dxItem1id = 'dxItem1id';
 const dxItem2id = 'dxItem2id';
@@ -26,15 +27,15 @@ const emptyId = 'empty';
 
 const ui = {
     layout: {
-        [COLUMNS]: [dxId, otherId],
-        [ROWS]: [peId, emptyId],
-        [FILTERS]: [ouId],
+        [AXIS_NAME_COLUMNS]: [DIMENSION_ID_DATA, otherId],
+        [AXIS_NAME_ROWS]: [DIMENSION_ID_PERIOD, emptyId],
+        [AXIS_NAME_FILTERS]: [DIMENSION_ID_ORGUNIT],
     },
     itemsByDimension: {
-        [dxId]: dxItems,
+        [DIMENSION_ID_DATA]: dxItems,
         [otherId]: otherItems,
-        [peId]: peItems,
-        [ouId]: ouItems,
+        [DIMENSION_ID_PERIOD]: peItems,
+        [DIMENSION_ID_ORGUNIT]: ouItems,
     },
 };
 
@@ -43,13 +44,17 @@ describe('getAxesFromUi', () => {
         const expectedState = {
             columns: [
                 {
-                    dimension: dxId,
+                    dimension: DIMENSION_ID_DATA,
                     items: [{ id: dxItem1id }, { id: dxItem2id }],
                 },
                 { dimension: otherId, items: [{ id: otherItemId }] },
             ],
-            rows: [{ dimension: peId, items: [{ id: peItemId }] }],
-            filters: [{ dimension: ouId, items: [{ id: ouItemId }] }],
+            rows: [
+                { dimension: DIMENSION_ID_PERIOD, items: [{ id: peItemId }] },
+            ],
+            filters: [
+                { dimension: DIMENSION_ID_ORGUNIT, items: [{ id: ouItemId }] },
+            ],
         };
         const actualState = getAxesFromUi(ui);
 

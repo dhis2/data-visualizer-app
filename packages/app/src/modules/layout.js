@@ -1,23 +1,12 @@
-import pick from 'lodash-es/pick';
 import i18n from '@dhis2/d2-i18n';
-
-// Names for analytical object axes
-export const AXIS_NAME_COLUMNS = 'columns';
-export const AXIS_NAME_ROWS = 'rows';
-export const AXIS_NAME_FILTERS = 'filters';
-
-export const AXIS_NAMES = [
+import {
     AXIS_NAME_COLUMNS,
     AXIS_NAME_ROWS,
     AXIS_NAME_FILTERS,
-];
+} from '@dhis2/d2-ui-analytics';
 
 // Names for dnd sources
 export const SOURCE_DIMENSIONS = 'dimensions';
-
-// Prop names for dimension id and items
-export const DIMENSION_ID_PROP_NAME = 'dimension';
-export const DIMENSION_ITEMS_PROP_NAME = 'items';
 
 // Keys and displayName for adding dimensions to layout
 export const ADD_TO_LAYOUT_OPTIONS = [
@@ -34,23 +23,10 @@ export const menuLabels = {
 
 // Layout utility functions
 
-// Accepts: dimensionId, [itemIds]
-// Returns dimension object { dimension: 'dx', items: [{ id: abc }] }
-export const createDimension = (dimensionId, itemIds) => ({
-    [DIMENSION_ID_PROP_NAME]: dimensionId,
-    items: itemIds.map(id => ({ id })),
-});
-
-// Collect all dimensions from the layout in an array
-export const getAllDimensions = visualization =>
-    AXIS_NAMES.reduce(
-        (dimensions, key) => dimensions.concat(visualization[key]),
-        []
-    );
-
 // Exclude one or many dimensions from layout
 export const getFilteredLayout = (layout, excludedIds) => {
     const ids = Array.isArray(excludedIds) ? excludedIds : [excludedIds];
+
     return {
         [AXIS_NAME_COLUMNS]: layout[AXIS_NAME_COLUMNS].filter(
             dim => !ids.includes(dim)
@@ -62,35 +38,6 @@ export const getFilteredLayout = (layout, excludedIds) => {
             dim => !ids.includes(dim)
         ),
     };
-};
-
-export const getItemIdsByDimension = visualization => {
-    const dimensions = getAllDimensions(visualization);
-
-    return dimensions.reduce(
-        (map, dim) => ({
-            ...map,
-            [dim[DIMENSION_ID_PROP_NAME]]: dim[DIMENSION_ITEMS_PROP_NAME].map(
-                item => item.id
-            ),
-        }),
-        {}
-    );
-};
-
-export const getDimensionIdsByAxis = visualization => {
-    const axes = pick(visualization, AXIS_NAMES);
-
-    const entries = Object.entries(axes);
-    const entriesWithIds = entries.map(([axisName, dimensions]) => [
-        axisName,
-        dimensions.map(dim => dim[DIMENSION_ID_PROP_NAME]),
-    ]);
-
-    return entriesWithIds.reduce(
-        (obj, [key, value]) => ({ ...obj, [key]: value }),
-        {}
-    );
 };
 
 // Accepts layout: { columns: ['dx'] }

@@ -1,16 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
+import { FIXED_DIMENSIONS } from '@dhis2/d2-ui-analytics';
 
 import Menu from './Menu';
 import Tooltip from './Tooltip';
 import { setDataTransfer } from '../../modules/dnd';
 import { sGetDimensions } from '../../reducers/dimensions';
 import { sGetUiItemsByDimension } from '../../reducers/ui';
-import { styles } from './styles/Chip.style';
-import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
 import DynamicDimensionIcon from '../../assets/DynamicDimensionIcon';
 import { sGetMetadata } from '../../reducers/metadata';
+import { styles } from './styles/Chip.style';
 
 const TOOLTIP_ENTER_DELAY = 500;
 

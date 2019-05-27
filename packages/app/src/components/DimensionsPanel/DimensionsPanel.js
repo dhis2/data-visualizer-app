@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { DimensionsPanel } from '@dhis2/d2-ui-analytics';
+import { DIMENSION_ID_PERIOD, DimensionsPanel } from '@dhis2/d2-ui-analytics';
 
 import DialogManager from './Dialogs/DialogManager';
 import DimensionOptions from './DimensionOptions/DimensionOptions';
 import { SOURCE_DIMENSIONS } from '../../modules/layout';
-import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
 import { setDataTransfer } from '../../modules/dnd';
 import { isYearOverYear } from '../../modules/chartTypes';
 import * as fromReducers from '../../reducers';
@@ -42,7 +41,7 @@ export class Dimensions extends Component {
 
     disabledDimension = dimension => {
         return (
-            dimension.id === FIXED_DIMENSIONS.pe.id &&
+            dimension.id === DIMENSION_ID_PERIOD &&
             isYearOverYear(this.props.type)
         );
     };

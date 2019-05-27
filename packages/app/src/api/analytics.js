@@ -1,7 +1,5 @@
+import { DIMENSION_ID_PERIOD } from '@dhis2/d2-ui-analytics';
 import { getInstance } from 'd2';
-import { FIXED_DIMENSIONS } from '../modules/fixedDimensions';
-
-const peId = FIXED_DIMENSIONS.pe.id;
 
 export const apiDownloadImage = async (type, formData) => {
     const d2 = await getInstance();
@@ -82,7 +80,7 @@ export const apiFetchAnalyticsForYearOverYear = async (current, options) => {
     const currentDay = ('' + now.getDate()).padStart(2, 0);
     const currentMonth = ('' + (now.getMonth() + 1)).padStart(2, 0);
 
-    yearlySeriesRes.metaData.dimensions[peId].forEach(period => {
+    yearlySeriesRes.metaData.dimensions[DIMENSION_ID_PERIOD].forEach(period => {
         yearlySeriesLabels.push(yearlySeriesRes.metaData.items[period].name);
 
         const startDate = `${period}-${currentMonth}-${currentDay}`;
