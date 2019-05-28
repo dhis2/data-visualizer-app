@@ -185,7 +185,7 @@ export class Visualization extends Component {
 
             const errorMessage =
                 (error && error.message) ||
-                i18n('Error generating chart, please try again');
+                i18n.t('Error generating chart, please try again');
             this.props.acSetLoadError(errorMessage);
         }
     };
