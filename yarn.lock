@@ -4320,6 +4320,19 @@ d2-charts-api@32.0.6:
     highcharts-no-data-to-display "^0.1.7"
     highcharts-solid-gauge "^0.1.7"
 
+d2-charts-api@33.0.0:
+  version "33.0.0"
+  resolved "https://registry.yarnpkg.com/d2-charts-api/-/d2-charts-api-33.0.0.tgz#b8e479b3af721a10eff334c026a48300038966a1"
+  integrity sha512-X++TprMt07djneAT6YvdEZ+CYwHHDM2/0nNfipNdEiu2SL/DjC9qAeOeBATUL3MFHyU6XK06FDS/9rgDfwUY5A==
+  dependencies:
+    d2-utilizr "0.2.13"
+    d3-color "1.0.1"
+    highcharts "^6.2.0"
+    highcharts-exporting "^0.1.7"
+    highcharts-more "^0.1.7"
+    highcharts-no-data-to-display "^0.1.7"
+    highcharts-solid-gauge "^0.1.7"
+
 d2-manifest@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/d2-manifest/-/d2-manifest-1.0.0.tgz#19d4a4c4e8151442ab730e932c9c2170be9ebcc9"
