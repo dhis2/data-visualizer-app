@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
 import debounce from 'lodash-es/debounce';
 import isEqual from 'lodash-es/isEqual';
 
@@ -13,6 +12,9 @@ import {
     DynamicDimension,
     PeriodDimension,
     OrgUnitDimension,
+    getOrgUnitsFromIds,
+    isLevelId,
+    LEVEL_ID_PREFIX,
 } from '@dhis2/d2-ui-analytics';
 
 import HideButton from './HideButton';
@@ -39,10 +41,7 @@ import { sGetMetadata } from '../../../reducers/metadata';
 import { sGetSettingsDisplayNameProperty } from '../../../reducers/settings';
 import { apiFetchRecommendedIds } from '../../../api/dimensions';
 import { FIXED_DIMENSIONS } from '../../../modules/fixedDimensions';
-import {
-    getOrgUnitsFromIds,
-    removeLastPathSegment,
-} from '../../../modules/orgUnit';
+import { removeLastPathSegment } from '../../../modules/orgUnit';
 
 const dxId = FIXED_DIMENSIONS.dx.id;
 const peId = FIXED_DIMENSIONS.pe.id;
@@ -77,10 +76,16 @@ export class DialogManager extends Component {
     }, 1000);
 
     onSelect = ({ dimensionId, items }) => {
+        console.log('items', items);
+
         this.props.setUiItems({
             dimensionId,
             itemIds: items.map(item => item.id),
         });
+
+        const extractOuId = id => {
+            return isLevelId(id) ? id.substr(LEVEL_ID_PREFIX.length + 1) : id;
+        };
 
         switch (dimensionId) {
             case ouId: {
@@ -88,8 +93,9 @@ export class DialogManager extends Component {
                 const forParentGraphMap = {};
 
                 items.forEach(ou => {
-                    forMetadata[ou.id] = {
-                        id: ou.id,
+                    const extractedId = extractOuId(ou.id);
+                    forMetadata[extractedId] = {
+                        id: extractedId,
                         name: ou.name || ou.displayName,
                         displayName: ou.displayName,
                     };
@@ -147,7 +153,6 @@ export class DialogManager extends Component {
 
         if (this.state.ouMounted) {
             const ouItems = getOrgUnitsFromIds(ouIds, metadata, parentGraphMap);
-
             const display = ouId === dialogId ? 'block' : 'none';
 
             return (

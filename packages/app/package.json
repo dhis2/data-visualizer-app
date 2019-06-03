@@ -120,7 +120,7 @@
             "name": "DHIS2"
         },
         "dhis2": {
-            "apiVersion": "31"
+            "apiVersion": "32"
         },
         "activities": {
             "dhis": {
