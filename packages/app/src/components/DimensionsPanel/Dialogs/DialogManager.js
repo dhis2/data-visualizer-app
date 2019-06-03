@@ -14,7 +14,7 @@ import {
     OrgUnitDimension,
     getOrgUnitsFromIds,
     isLevelId,
-    LEVEL_ID_PREFIX,
+    extractOuId,
 } from '@dhis2/d2-ui-analytics';
 
 import HideButton from './HideButton';
@@ -82,10 +82,6 @@ export class DialogManager extends Component {
             dimensionId,
             itemIds: items.map(item => item.id),
         });
-
-        const extractOuId = id => {
-            return isLevelId(id) ? id.substr(LEVEL_ID_PREFIX.length + 1) : id;
-        };
 
         switch (dimensionId) {
             case ouId: {
