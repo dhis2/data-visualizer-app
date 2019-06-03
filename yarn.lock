@@ -4350,23 +4350,10 @@ cypress@^3.1.1:
     url "0.11.0"
     yauzl "2.10.0"
 
-d2-charts-api@32.0.6:
-  version "32.0.6"
-  resolved "https://registry.yarnpkg.com/d2-charts-api/-/d2-charts-api-32.0.6.tgz#e733a5417a78186a0c4a9cce72bc616aa9dfbf79"
-  integrity sha512-pV+f+6oajrRcFn38Zo0m7arIcKUcMeQaGqkFLeg71YuGJC/iojEUQjhixPoTl+arHz+PTtok3o0nN73hKISU3Q==
-  dependencies:
-    d2-utilizr "0.2.13"
-    d3-color "1.0.1"
-    highcharts "^6.2.0"
-    highcharts-exporting "^0.1.7"
-    highcharts-more "^0.1.7"
-    highcharts-no-data-to-display "^0.1.7"
-    highcharts-solid-gauge "^0.1.7"
-
-d2-charts-api@33.0.0:
-  version "33.0.0"
-  resolved "https://registry.yarnpkg.com/d2-charts-api/-/d2-charts-api-33.0.0.tgz#b8e479b3af721a10eff334c026a48300038966a1"
-  integrity sha512-X++TprMt07djneAT6YvdEZ+CYwHHDM2/0nNfipNdEiu2SL/DjC9qAeOeBATUL3MFHyU6XK06FDS/9rgDfwUY5A==
+d2-charts-api@33.0.1:
+  version "33.0.1"
+  resolved "https://registry.yarnpkg.com/d2-charts-api/-/d2-charts-api-33.0.1.tgz#51fcc00610cfb217e31b53c77fb9c9344f19e42f"
+  integrity sha512-DzyAnEZSzYspPGxkiHx4bqNEpdPNlrGms2Ct2ycFs5VmjoGUVJ1DQBet4q6B+6XoBn84Q98/VVddfRWYK8yOGw==
   dependencies:
     d2-utilizr "0.2.13"
     d3-color "1.0.1"
