@@ -1,8 +1,6 @@
 const peId = 'pe';
 
 export const apiFetchAnalytics = async (d2, current, options) => {
-    console.log('apiFetchAnalytics', current, options);
-
     const req = new d2.analytics.request()
         .fromModel(current)
         .withParameters(options);

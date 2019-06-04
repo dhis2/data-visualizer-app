@@ -13,7 +13,6 @@ import {
     PeriodDimension,
     OrgUnitDimension,
     getOrgUnitsFromIds,
-    isLevelId,
     extractOuId,
 } from '@dhis2/d2-ui-analytics';
 

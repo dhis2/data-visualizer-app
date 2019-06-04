@@ -133,8 +133,6 @@ class ChartPlugin extends Component {
                 );
             }
 
-            console.log('responses', responses);
-
             if (responses.length) {
                 onResponsesReceived(responses);
             }
