@@ -10,13 +10,10 @@ import { apiFetchOrganisationUnitLevels } from '../api/organisationUnits';
 const isNumericOuLevel = id =>
     isLevelId(id) ? Number.isInteger(parseInt(extractOuId(id), 10)) : false;
 
-const getUpdatedFilters = async filters => {
+const getUpdatedFilters = async (filters, ouFilter) => {
     const ouLevels = await apiFetchOrganisationUnitLevels();
-    const ouFilter = filters.find(
-        filter => filter.dimension === DIMENSION_ID_ORGUNIT
-    );
 
-    const updatedItems = ouFilter.items.map(item => {
+    const items = ouFilter.items.map(item => {
         if (isNumericOuLevel(item.id)) {
             const ouId = parseInt(extractOuId(item.id), 10);
 
@@ -30,29 +27,29 @@ const getUpdatedFilters = async filters => {
         }
         return item;
     });
-    const newOuFilter = Object.assign({}, ouFilter, { items: updatedItems });
-    const newFilters = filters
+    const newOuFilter = Object.assign({}, ouFilter, { items });
+
+    return filters
         .filter(f => f.dimension !== DIMENSION_ID_ORGUNIT)
         .concat(newOuFilter);
-
-    return newFilters;
 };
 
 export const convertOuLevelsFilter = async visualization => {
+    // return visualization
     const ouFilter = visualization.filters.find(
         filter => filter.dimension === DIMENSION_ID_ORGUNIT
     );
 
-    const hasNumberedOuLevels = ouFilter
-        ? ouFilter.items.some(item => isNumericOuLevel(item.id))
-        : false;
+    const hasNumberedOuLevels =
+        ouFilter && ouFilter.items.some(item => isNumericOuLevel(item.id));
 
-    if (ouFilter && hasNumberedOuLevels) {
-        const updatedFilters = await getUpdatedFilters(visualization.filters);
+    if (hasNumberedOuLevels) {
+        const filters = await getUpdatedFilters(
+            visualization.filters,
+            ouFilter
+        );
 
-        return Object.assign({}, visualization, {
-            filters: updatedFilters,
-        });
+        return Object.assign({}, visualization, { filters });
     }
 
     return visualization;

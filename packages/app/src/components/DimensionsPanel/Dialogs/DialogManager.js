@@ -75,8 +75,6 @@ export class DialogManager extends Component {
     }, 1000);
 
     onSelect = ({ dimensionId, items }) => {
-        console.log('items', items);
-
         this.props.setUiItems({
             dimensionId,
             itemIds: items.map(item => item.id),
@@ -88,9 +86,9 @@ export class DialogManager extends Component {
                 const forParentGraphMap = {};
 
                 items.forEach(ou => {
-                    const extractedId = extractOuId(ou.id);
-                    forMetadata[extractedId] = {
-                        id: extractedId,
+                    const id = extractOuId(ou.id);
+                    forMetadata[id] = {
+                        id,
                         name: ou.name || ou.displayName,
                         displayName: ou.displayName,
                     };
