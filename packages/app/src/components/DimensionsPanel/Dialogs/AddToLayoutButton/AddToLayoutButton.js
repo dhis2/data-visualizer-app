@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
 import Button from '@material-ui/core/Button';
 import MenuItem from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
+import { AXIS_NAME_COLUMNS } from '@dhis2/d2-ui-analytics';
+
 import UpdateButton from '../../../UpdateButton/UpdateButton';
 import Menu from './Menu';
-
 import {
     sGetUi,
     sGetUiLayout,
@@ -28,7 +28,7 @@ const UNSELECTED_BUTTON_TYPE = -1;
 const seriesItem = ADD_TO_LAYOUT_OPTIONS[0];
 const filterItem = ADD_TO_LAYOUT_OPTIONS[2];
 const itemsWithoutSeries = ADD_TO_LAYOUT_OPTIONS.filter(
-    option => option.axisKey !== 'columns'
+    option => option.axisKey !== AXIS_NAME_COLUMNS
 );
 
 export class AddToLayoutButton extends Component {

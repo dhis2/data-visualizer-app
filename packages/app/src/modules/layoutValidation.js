@@ -1,5 +1,12 @@
-import isObject from 'lodash-es/isObject';
 import i18n from '@dhis2/d2-i18n';
+import {
+    AXIS,
+    DIMENSION_ID_DATA,
+    DIMENSION_ID_PERIOD,
+    FIXED_DIMENSIONS,
+    dimensionIsValid,
+    layoutGetDimension,
+} from '@dhis2/d2-ui-analytics';
 
 import {
     YEAR_OVER_YEAR_LINE,
@@ -8,15 +15,9 @@ import {
     GAUGE,
 } from './chartTypes';
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields';
-import {
-    menuLabels,
-    DIMENSION_ID_PROP_NAME,
-    DIMENSION_ITEMS_PROP_NAME,
-} from './layout';
-import { FIXED_DIMENSIONS } from './fixedDimensions';
+import { menuLabels } from './layout';
 
-const dxName = FIXED_DIMENSIONS.dx.name;
-const peId = FIXED_DIMENSIONS.pe.id;
+const dxName = FIXED_DIMENSIONS[DIMENSION_ID_DATA].name;
 
 const errorLabels = {
     defaultSeries: i18n.t('Please add at least one {{series}} dimension', {
@@ -70,22 +71,11 @@ const errorLabels = {
 };
 
 // Layout validation helper functions
-const isItemValid = item =>
-    Boolean(isObject(item) && typeof item.id === 'string');
-
-const isDimensionValid = dim =>
-    Boolean(
-        isObject(dim) &&
-            typeof dim[DIMENSION_ID_PROP_NAME] === 'string' &&
-            Array.isArray(dim[DIMENSION_ITEMS_PROP_NAME]) &&
-            isItemValid(dim[DIMENSION_ITEMS_PROP_NAME][0])
-    );
-
 const isAxisValid = axis =>
-    Boolean(Array.isArray(axis) && isDimensionValid(axis[0]));
+    AXIS.isValid(axis) && dimensionIsValid(axis[0], { requireItems: true });
 
 const validateDimension = (dimension, message) => {
-    if (!(dimension && isDimensionValid(dimension))) {
+    if (!(dimension && dimensionIsValid(dimension, { requireItems: true }))) {
         throw new Error(message);
     }
 };
@@ -96,16 +86,14 @@ const validateAxis = (axis, message) => {
     }
 };
 
-const findDimension = (layout, dimensionId) =>
-    [...layout.columns, ...layout.rows, ...layout.filters].find(
-        dim => dim.dimension === dimensionId
-    );
-
 // Layout validation
 const validateDefaultLayout = layout => {
     validateAxis(layout.columns, errorLabels.defaultSeries);
     validateAxis(layout.rows, errorLabels.defaultCategory);
-    validateDimension(findDimension(layout, peId), errorLabels.defaultPe);
+    validateDimension(
+        layoutGetDimension(layout, DIMENSION_ID_PERIOD),
+        errorLabels.defaultPe
+    );
 };
 
 const validateYearOverYearLayout = layout => {
@@ -126,7 +114,10 @@ const validateYearOverYearLayout = layout => {
 const validatePieLayout = layout => {
     validateAxis(layout.columns, errorLabels.defaultSeries);
     validateAxis(layout.filters, errorLabels.pie.filter);
-    validateDimension(findDimension(layout, peId), errorLabels.pie.pe);
+    validateDimension(
+        layoutGetDimension(layout, DIMENSION_ID_PERIOD),
+        errorLabels.pie.pe
+    );
 };
 
 export const validateLayout = layout => {

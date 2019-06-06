@@ -1,5 +1,6 @@
+import { FIXED_DIMENSIONS } from '@dhis2/d2-ui-analytics';
+
 import reducer, { SET_DIMENSIONS } from '../dimensions';
-import { FIXED_DIMENSIONS as DEFAULT_DIMENSIONS } from '../../modules/fixedDimensions';
 
 describe('reducer: dimensions', () => {
     const dimensionsToSet = {
@@ -11,7 +12,7 @@ describe('reducer: dimensions', () => {
 
     it('should return the default state', () => {
         const actualState = reducer(undefined, { type: 'NO_MATCH' });
-        expect(actualState).toEqual(DEFAULT_DIMENSIONS);
+        expect(actualState).toEqual(FIXED_DIMENSIONS);
     });
 
     it(`${SET_DIMENSIONS}: should set the new dimensions object`, () => {
@@ -24,7 +25,7 @@ describe('reducer: dimensions', () => {
         );
 
         const expectedState = {
-            ...DEFAULT_DIMENSIONS,
+            ...FIXED_DIMENSIONS,
             ...dimensionsToSet,
         };
 

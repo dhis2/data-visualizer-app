@@ -1,16 +1,18 @@
 import {
+    DIMENSION_ID_PERIOD,
+    DIMENSION_ID_ORGUNIT,
+    layoutGetAxisNameDimensionIdsObject,
+    layoutGetDimensionIdItemIdsObject,
+} from '@dhis2/d2-ui-analytics';
+
+import {
     YEAR_OVER_YEAR_LINE,
     YEAR_OVER_YEAR_COLUMN,
     PIE,
     GAUGE,
     defaultChartType,
 } from './chartTypes';
-import {
-    getDimensionIdsByAxis,
-    getInverseLayout,
-    getItemIdsByDimension,
-} from './layout';
-import { FIXED_DIMENSIONS } from './fixedDimensions';
+import { getInverseLayout } from './layout';
 import { isYearOverYear } from './chartTypes';
 import { getOptionsFromVisualization } from './options';
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields';
@@ -18,15 +20,13 @@ import { pieLayoutAdapter, yearOverYearLayoutAdapter } from './layoutAdapters';
 import { removeLastPathSegment } from './orgUnit';
 import { getAxesFromSeriesItems } from './seriesItems';
 
-const peId = FIXED_DIMENSIONS.pe.id;
-
 // Transform from backend model to store.ui format
 export const getUiFromVisualization = (vis, currentState = {}) => ({
     ...currentState,
     type: vis.type || defaultChartType,
     options: getOptionsFromVisualization(vis),
-    layout: getDimensionIdsByAxis(vis),
-    itemsByDimension: getItemIdsByDimension(vis),
+    layout: layoutGetAxisNameDimensionIdsObject(vis),
+    itemsByDimension: layoutGetDimensionIdItemIdsObject(vis),
     parentGraphMap:
         vis.parentGraphMap ||
         getParentGraphMapFromVisualization(vis) ||
@@ -52,7 +52,7 @@ export const yearOverYearUiAdapter = ui => {
     const state = Object.assign({}, ui);
 
     const items = Object.assign({}, state.itemsByDimension);
-    delete items[peId];
+    delete items[DIMENSION_ID_PERIOD];
 
     return {
         ...state,
@@ -77,10 +77,9 @@ export const getAdaptedUiByType = ui => {
 };
 
 export const getParentGraphMapFromVisualization = vis => {
-    const ouId = FIXED_DIMENSIONS.ou.id;
-    const dimensionIdsByAxis = getDimensionIdsByAxis(vis);
+    const dimensionIdsByAxis = layoutGetAxisNameDimensionIdsObject(vis);
     const inverseLayout = getInverseLayout(dimensionIdsByAxis);
-    const ouAxis = inverseLayout[ouId];
+    const ouAxis = inverseLayout[DIMENSION_ID_ORGUNIT];
 
     if (!ouAxis) {
         return {};
@@ -88,7 +87,7 @@ export const getParentGraphMapFromVisualization = vis => {
 
     const parentGraphMap = {};
     const ouDimension = vis[ouAxis].find(
-        dimension => dimension.dimension === ouId
+        dimension => dimension.dimension === DIMENSION_ID_ORGUNIT
     );
 
     ouDimension.items

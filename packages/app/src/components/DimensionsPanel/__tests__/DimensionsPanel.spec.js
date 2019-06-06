@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { DimensionsPanel } from '@dhis2/d2-ui-analytics';
+
 import { Dimensions } from '../DimensionsPanel';
 
 describe('The Dimensions component ', () => {

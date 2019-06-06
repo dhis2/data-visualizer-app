@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { AXIS_NAME_FILTERS } from '@dhis2/d2-ui-analytics';
 
 import DefaultAxis from '../DefaultLayout/DefaultAxis';
 import defaultLayoutStyles from '../DefaultLayout/styles/DefaultLayout.style';
@@ -16,7 +17,6 @@ import {
     acSetUiYearOverYearCategory,
 } from '../../../actions/ui';
 import { seriesOptions, categoryOptions } from '../../../modules/yearOverYear';
-import { AXIS_NAME_FILTERS } from '../../../modules/layout';
 
 const Layout = props => (
     <div id="layout-ct" style={defaultLayoutStyles.ct}>

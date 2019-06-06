@@ -1,19 +1,19 @@
 import pick from 'lodash-es/pick';
-import options from './options';
 import {
-    createDimension,
     AXIS_NAME_COLUMNS,
     AXIS_NAME_ROWS,
     AXIS_NAME_FILTERS,
-} from './layout';
-import { FIXED_DIMENSIONS } from './fixedDimensions';
+    DIMENSION_ID_DATA,
+    DIMENSION_ID_PERIOD,
+    dimensionCreate,
+} from '@dhis2/d2-ui-analytics';
+
+import options from './options';
+import {} from './layout';
 import { BASE_FIELD_TYPE, BASE_FIELD_YEARLY_SERIES } from './fields/baseFields';
 import { pieLayoutAdapter } from './layoutAdapters';
 import { mergeUiMaps } from './ui';
 import { SERIES_ITEMS_SERIES } from './seriesItems';
-
-const dxId = FIXED_DIMENSIONS.dx.id;
-const peId = FIXED_DIMENSIONS.pe.id;
 
 const hasItems = (object, id) =>
     object.hasOwnProperty(id) && Array.isArray(object[id]) && object[id].length;
@@ -25,7 +25,7 @@ export const getAxesFromUi = ui =>
             [axisName]: ids
                 .map(id =>
                     hasItems(ui.itemsByDimension, id)
-                        ? createDimension(id, ui.itemsByDimension[id])
+                        ? dimensionCreate(id, ui.itemsByDimension[id])
                         : null
                 )
                 .filter(dim => dim !== null),
@@ -82,17 +82,19 @@ export const getPieCurrentFromUi = (state, action) => {
 export const getYearOverYearCurrentFromUi = (state, action) => {
     const ui = action.value;
 
-    const dxItem = ui.itemsByDimension[dxId]
-        ? [ui.itemsByDimension[dxId][0]]
+    const dxItem = ui.itemsByDimension[DIMENSION_ID_DATA]
+        ? [ui.itemsByDimension[DIMENSION_ID_DATA][0]]
         : [];
 
     return {
         ...state,
         [BASE_FIELD_TYPE]: ui.type,
-        [AXIS_NAME_COLUMNS]: [createDimension(dxId, dxItem)],
-        [AXIS_NAME_ROWS]: [createDimension(peId, ui.yearOverYearCategory)],
+        [AXIS_NAME_COLUMNS]: [dimensionCreate(DIMENSION_ID_DATA, dxItem)],
+        [AXIS_NAME_ROWS]: [
+            dimensionCreate(DIMENSION_ID_PERIOD, ui.yearOverYearCategory),
+        ],
         [AXIS_NAME_FILTERS]: getAxesFromUi(ui).filters.filter(
-            f => ![dxId, peId].includes(f.dimension)
+            f => ![DIMENSION_ID_DATA, DIMENSION_ID_PERIOD].includes(f.dimension)
         ),
         [[BASE_FIELD_YEARLY_SERIES]]: ui.yearOverYearSeries,
         ...getOptionsFromUi(ui),
