@@ -1,28 +1,28 @@
 import {
-    LEVEL_ID_PREFIX,
-    isLevelId,
-    extractOuId,
+    isOuLevelId,
+    getOuUid,
+    getOuLevelId,
     DIMENSION_ID_ORGUNIT,
 } from '@dhis2/d2-ui-analytics';
 
 import { apiFetchOrganisationUnitLevels } from '../api/organisationUnits';
 
 const isNumericOuLevel = id =>
-    isLevelId(id) ? Number.isInteger(parseInt(extractOuId(id), 10)) : false;
+    isOuLevelId(id) ? Number.isInteger(parseInt(getOuUid(id), 10)) : false;
 
 const getUpdatedFilters = async (filters, ouFilter) => {
     const ouLevels = await apiFetchOrganisationUnitLevels();
 
     const items = ouFilter.items.map(item => {
         if (isNumericOuLevel(item.id)) {
-            const ouId = parseInt(extractOuId(item.id), 10);
+            const ouId = parseInt(getOuUid(item.id), 10);
 
-            const levelId = ouLevels.find(
+            const id = ouLevels.find(
                 level => parseInt(level.level, 10) === ouId
             ).id;
 
             return Object.assign({}, item, {
-                id: `${LEVEL_ID_PREFIX}-${levelId}`,
+                id: getOuLevelId(id),
             });
         }
         return item;
@@ -35,7 +35,6 @@ const getUpdatedFilters = async (filters, ouFilter) => {
 };
 
 export const convertOuLevelsFilter = async visualization => {
-    // return visualization
     const ouFilter = visualization.filters.find(
         filter => filter.dimension === DIMENSION_ID_ORGUNIT
     );
@@ -62,4 +61,24 @@ export const removeLastPathSegment = path => {
     }
 
     return path.substr(0, path.lastIndexOf('/'));
+};
+
+/**
+ * Get org unit path by ou id
+ * @param id
+ * @param metadata
+ * @param parentGraphMap
+ * @returns {*}
+ */
+export const getOuPath = (id, metadata, parentGraphMap) => {
+    if (metadata[id] && metadata[id].path) {
+        return metadata[id].path;
+    }
+
+    // for root org units
+    if (parentGraphMap[id] === id || parentGraphMap[id] === '') {
+        return `/${id}`;
+    }
+
+    return parentGraphMap[id] ? `/${parentGraphMap[id]}/${id}` : undefined;
 };

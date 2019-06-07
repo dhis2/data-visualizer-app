@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-05-28T11:59:48.644Z\n"
-"PO-Revision-Date: 2019-05-28T11:59:48.644Z\n"
+"POT-Creation-Date: 2019-06-07T07:21:52.321Z\n"
+"PO-Revision-Date: 2019-06-07T07:21:52.321Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -122,6 +122,9 @@ msgid "Create a new visualization by adding dimensions to the layout"
 msgstr ""
 
 msgid "Chart error"
+msgstr ""
+
+msgid "Error generating chart, please try again"
 msgstr ""
 
 msgid "Aggregation type"

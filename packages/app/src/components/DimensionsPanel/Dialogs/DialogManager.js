@@ -12,8 +12,7 @@ import {
     DynamicDimension,
     PeriodDimension,
     OrgUnitDimension,
-    getOrgUnitsFromIds,
-    extractOuId,
+    getOuUid,
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
@@ -43,8 +42,7 @@ import { sGetDimensions } from '../../../reducers/dimensions';
 import { sGetMetadata } from '../../../reducers/metadata';
 import { sGetSettingsDisplayNameProperty } from '../../../reducers/settings';
 import { apiFetchRecommendedIds } from '../../../api/dimensions';
-import { FIXED_DIMENSIONS } from '../../../modules/fixedDimensions';
-import { removeLastPathSegment } from '../../../modules/orgUnit';
+import { removeLastPathSegment, getOuPath } from '../../../modules/orgUnit';
 
 export class DialogManager extends Component {
     state = {
@@ -89,7 +87,7 @@ export class DialogManager extends Component {
                 const forParentGraphMap = {};
 
                 items.forEach(ou => {
-                    const id = extractOuId(ou.id);
+                    const id = getOuUid(ou.id);
                     forMetadata[id] = {
                         id,
                         name: ou.name || ou.displayName,
@@ -136,6 +134,18 @@ export class DialogManager extends Component {
             : [];
     };
 
+    getOrgUnitsFromIds = (ids, metadata, parentGraphMap) =>
+        ids
+            .filter(id => metadata[getOuUid(id)] !== undefined)
+            .map(id => {
+                const ouUid = getOuUid(id);
+                return {
+                    id,
+                    name: metadata[ouUid].displayName || metadata[ouUid].name,
+                    path: getOuPath(ouUid, metadata, parentGraphMap),
+                };
+            });
+
     // The OU content is persisted as mounted in order
     // to cache the org unit tree data
     renderPersistedContent = dimensionProps => {
@@ -148,7 +158,12 @@ export class DialogManager extends Component {
         } = this.props;
 
         if (this.state.ouMounted) {
-            const ouItems = getOrgUnitsFromIds(ouIds, metadata, parentGraphMap);
+            const ouItems = this.getOrgUnitsFromIds(
+                ouIds,
+                metadata,
+                parentGraphMap
+            );
+
             const display =
                 DIMENSION_ID_ORGUNIT === dialogId ? 'block' : 'none';
 
