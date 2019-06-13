@@ -1,28 +1,25 @@
-import {
-    isOuLevelId,
-    getOuUid,
-    getOuLevelId,
-    DIMENSION_ID_ORGUNIT,
-} from '@dhis2/d2-ui-analytics';
+import { orgUnitId, DIMENSION_ID_ORGUNIT } from '@dhis2/d2-ui-analytics';
 
 import { apiFetchOrganisationUnitLevels } from '../api/organisationUnits';
 
 const isNumericOuLevel = id =>
-    isOuLevelId(id) ? Number.isInteger(parseInt(getOuUid(id), 10)) : false;
+    orgUnitId.isLevelId(id)
+        ? Number.isInteger(parseInt(orgUnitId.getUid(id), 10))
+        : false;
 
 const getUpdatedFilters = async (filters, ouFilter) => {
     const ouLevels = await apiFetchOrganisationUnitLevels();
 
     const items = ouFilter.items.map(item => {
         if (isNumericOuLevel(item.id)) {
-            const ouId = parseInt(getOuUid(item.id), 10);
+            const ouId = parseInt(orgUnitId.getUid(item.id), 10);
 
             const id = ouLevels.find(
                 level => parseInt(level.level, 10) === ouId
             ).id;
 
             return Object.assign({}, item, {
-                id: getOuLevelId(id),
+                id: orgUnitId.getLevelId(id),
             });
         }
         return item;
