@@ -10,13 +10,18 @@ import {
     YEAR_OVER_YEAR_COLUMN,
     PIE,
     GAUGE,
+    SINGLE_VALUE,
     defaultChartType,
 } from './chartTypes';
 import { getInverseLayout } from './layout';
 import { isYearOverYear } from './chartTypes';
 import { getOptionsFromVisualization } from './options';
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields';
-import { pieLayoutAdapter, yearOverYearLayoutAdapter } from './layoutAdapters';
+import {
+    pieLayoutAdapter,
+    yearOverYearLayoutAdapter,
+    singleValueLayoutAdapter,
+} from './layoutAdapters';
 import { removeLastPathSegment } from './orgUnit';
 import { getAxesFromSeriesItems } from './seriesItems';
 
@@ -61,6 +66,11 @@ export const yearOverYearUiAdapter = ui => {
     };
 };
 
+export const singleValueUiAdapter = ui => ({
+    ...ui,
+    layout: singleValueLayoutAdapter(ui.layout),
+});
+
 export const getAdaptedUiByType = ui => {
     switch (ui.type) {
         case YEAR_OVER_YEAR_LINE:
@@ -70,6 +80,9 @@ export const getAdaptedUiByType = ui => {
         case PIE:
         case GAUGE: {
             return pieUiAdapter(ui);
+        }
+        case SINGLE_VALUE: {
+            return singleValueUiAdapter(ui);
         }
         default:
             return ui;

@@ -2,6 +2,7 @@ import {
     AXIS_NAME_COLUMNS,
     AXIS_NAME_ROWS,
     AXIS_NAME_FILTERS,
+    DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
 } from '@dhis2/d2-ui-analytics';
 
@@ -31,3 +32,19 @@ export const yearOverYearLayoutAdapter = layout => ({
         ...layout[AXIS_NAME_ROWS],
     ].filter(dim => dim !== DIMENSION_ID_PERIOD),
 });
+
+// Transform from ui.layout to single value layout format
+export const singleValueLayoutAdapter = layout => {
+    const columns = layout[AXIS_NAME_COLUMNS].slice();
+    const rows = layout[AXIS_NAME_ROWS].slice();
+    console.log('col', columns, 'row', rows);
+    return {
+        [AXIS_NAME_COLUMNS]: [DIMENSION_ID_DATA],
+        [AXIS_NAME_ROWS]: [],
+        [AXIS_NAME_FILTERS]: [
+            ...layout[AXIS_NAME_FILTERS],
+            ...columns,
+            ...rows,
+        ].filter(dim => dim !== DIMENSION_ID_DATA),
+    };
+};

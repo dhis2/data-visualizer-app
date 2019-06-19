@@ -13,6 +13,7 @@ import {
     YEAR_OVER_YEAR_COLUMN,
     PIE,
     GAUGE,
+    SINGLE_VALUE,
 } from './chartTypes';
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields';
 import { menuLabels } from './layout';
@@ -120,6 +121,15 @@ const validatePieLayout = layout => {
     );
 };
 
+const validateSingleValueLayout = layout => {
+    validateAxis(layout.columns, errorLabels.defaultSeries);
+    validateAxis(layout.filters, errorLabels.pie.filter);
+    validateDimension(
+        layoutGetDimension(layout, DIMENSION_ID_PERIOD),
+        errorLabels.pie.pe
+    );
+};
+
 export const validateLayout = layout => {
     switch (layout.type) {
         case PIE:
@@ -128,6 +138,8 @@ export const validateLayout = layout => {
         case YEAR_OVER_YEAR_COLUMN:
         case YEAR_OVER_YEAR_LINE:
             return validateYearOverYearLayout(layout);
+        case SINGLE_VALUE:
+            return validateSingleValueLayout(layout);
         default:
             return validateDefaultLayout(layout);
     }
