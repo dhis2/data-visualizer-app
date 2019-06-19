@@ -1,16 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
-import { FIXED_DIMENSIONS } from '@dhis2/d2-ui-analytics';
+import { FIXED_DIMENSIONS, DIMENSION_ID_DATA } from '@dhis2/d2-ui-analytics';
+import WarningIcon from '@material-ui/icons/Warning';
 
 import Menu from './Menu';
 import Tooltip from './Tooltip';
 import { setDataTransfer } from '../../modules/dnd';
 import { sGetDimensions } from '../../reducers/dimensions';
-import { sGetUiItemsByDimension } from '../../reducers/ui';
+import { sGetUiItemsByDimension, sGetUiType } from '../../reducers/ui';
 import DynamicDimensionIcon from '../../assets/DynamicDimensionIcon';
 import { sGetMetadata } from '../../reducers/metadata';
 import { styles } from './styles/Chip.style';
+import { isSingleValue } from '../../modules/chartTypes';
 
 const TOOLTIP_ENTER_DELAY = 500;
 
@@ -70,8 +72,23 @@ class Chip extends React.Component {
         return <DynamicDimensionIcon style={styles.dynamicDimensionIcon} />;
     };
 
+    isSingleValueDataDimension = () =>
+        isSingleValue(this.props.type) &&
+        this.props.dimensionId === DIMENSION_ID_DATA &&
+        this.props.items.length > 1;
+
     renderChip = () => {
-        const itemsLabel = `: ${this.props.items.length} ${i18n.t('selected')}`;
+        const itemsLabel = this.isSingleValueDataDimension()
+            ? i18n.t(': {{total}} of 1 selected', {
+                  total: this.props.items.length,
+              })
+            : i18n.t(': {{total}} selected', {
+                  total: this.props.items.length,
+              });
+
+        const itemIds = this.isSingleValueDataDimension()
+            ? this.props.items.slice(0, 1)
+            : this.props.items;
 
         const chipLabel = `${this.props.dimensionName}${
             this.props.items.length > 0 ? itemsLabel : ''
@@ -82,6 +99,11 @@ class Chip extends React.Component {
             ...styles.chipWrapper,
             ...(!this.props.items.length ? styles.chipEmpty : {}),
         };
+        const warningIcon = this.isSingleValueDataDimension() ? (
+            <div style={styles.warningIconWrapper}>
+                <WarningIcon style={styles.warningIcon} />
+            </div>
+        ) : null;
 
         return (
             <div
@@ -99,6 +121,7 @@ class Chip extends React.Component {
                 >
                     <div style={styles.iconWrapper}>{icon}</div>
                     {chipLabel}
+                    {warningIcon}
                 </div>
                 <div style={styles.chipRight}>
                     <Menu
@@ -109,6 +132,7 @@ class Chip extends React.Component {
                 {anchorEl && (
                     <Tooltip
                         dimensionId={this.props.dimensionId}
+                        itemIds={itemIds}
                         open={this.state.tooltipOpen}
                         anchorEl={anchorEl}
                     />
@@ -126,6 +150,7 @@ const mapStateToProps = (state, ownProps) => ({
     dimensionName: (sGetDimensions(state)[ownProps.dimensionId] || {}).name,
     items: sGetUiItemsByDimension(state, ownProps.dimensionId) || emptyItems,
     metadata: sGetMetadata(state),
+    type: sGetUiType(state),
 });
 
 export default connect(mapStateToProps)(Chip);

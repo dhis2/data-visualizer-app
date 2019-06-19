@@ -30,6 +30,14 @@ export const styles = {
         display: 'flex',
         alignItems: 'center',
     },
+    warningIcon: {
+        fontSize: 12,
+    },
+    warningIconWrapper: {
+        paddingLeft: '6px',
+        display: 'flex',
+        alignItems: 'center',
+    },
 };
 
 styles.chipLeft = {

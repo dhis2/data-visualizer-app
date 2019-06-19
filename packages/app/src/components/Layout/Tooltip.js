@@ -5,15 +5,12 @@ import Popper from '@material-ui/core/Popper';
 import Paper from '@material-ui/core/Paper';
 import i18n from '@dhis2/d2-i18n';
 
-import { sGetUiItemsByDimension } from '../../reducers/ui';
 import { sGetMetadata } from '../../reducers/metadata';
 import { styles } from './styles/Tooltip.style';
 
 const labels = {
     noneSelected: i18n.t('None selected'),
 };
-
-const emptyItems = [];
 
 export class Tooltip extends React.Component {
     renderTooltip = names => (
@@ -51,10 +48,10 @@ Tooltip.propTypes = {
     open: PropTypes.bool.isRequired,
     anchorEl: PropTypes.object.isRequired,
     dimensionId: PropTypes.string.isRequired,
+    itemIds: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => ({
-    itemIds: sGetUiItemsByDimension(state, ownProps.dimensionId) || emptyItems,
     metadata: sGetMetadata(state),
 });
 
