@@ -55,6 +55,13 @@ const yearOverYearCurrentMock = {
     yearlySeries: ['LAST_YEAR'],
 };
 
+const singleValueCurrentMock = {
+    type: SINGLE_VALUE,
+    columns: [dxMock],
+    rows: [],
+    filters: [ouMock, peMock],
+};
+
 const metaDataMock = {
     items: {
         a: { name: 'a dim' },
@@ -311,14 +318,20 @@ describe('ChartPlugin', () => {
         });
 
         describe('Single value visualization', () => {
+            beforeEach(() => {
+                props.config = {
+                    ...singleValueCurrentMock,
+                };
+            });
+
             it('provides dhis as output format to createChart', done => {
                 canvas();
 
                 setTimeout(() => {
                     expect(chartsApi.createChart).toHaveBeenCalled();
 
-                    expect(
-                        chartsApi.createChart.mock.calls[0][3].toEqual('dhis')
+                    expect(chartsApi.createChart.mock.calls[0][6]).toEqual(
+                        'dhis'
                     );
 
                     done();
