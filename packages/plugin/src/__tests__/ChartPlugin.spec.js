@@ -6,7 +6,11 @@ import * as chartsApi from 'd2-charts-api';
 import * as api from '../api/analytics';
 import * as apiViz from '../api/visualization';
 import * as options from '../modules/options';
-import { YEAR_OVER_YEAR_LINE, COLUMN } from '../modules/chartTypes';
+import {
+    YEAR_OVER_YEAR_LINE,
+    COLUMN,
+    SINGLE_VALUE,
+} from '../modules/chartTypes';
 
 jest.mock('d2-charts-api');
 
@@ -300,6 +304,22 @@ describe('ChartPlugin', () => {
                         dashboard: false,
                         ...expectedExtraOptions,
                     });
+
+                    done();
+                });
+            });
+        });
+
+        describe('Single value visualization', () => {
+            it('provides dhis as output format to createChart', done => {
+                canvas();
+
+                setTimeout(() => {
+                    expect(chartsApi.createChart).toHaveBeenCalled();
+
+                    expect(
+                        chartsApi.createChart.mock.calls[0][3].toEqual('dhis')
+                    );
 
                     done();
                 });

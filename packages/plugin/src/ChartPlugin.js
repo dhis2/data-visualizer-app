@@ -8,7 +8,7 @@ import {
     apiFetchAnalytics,
     apiFetchAnalyticsForYearOverYear,
 } from './api/analytics';
-import { isYearOverYear } from './modules/chartTypes';
+import { isYearOverYear, isSingleValue } from './modules/chartTypes';
 import { getOptionsForRequest } from './modules/options';
 import { computeGenericPeriodNames } from './modules/analytics';
 import { BASE_FIELD_YEARLY_SERIES } from './modules/fields/baseFields';
@@ -43,7 +43,10 @@ class ChartPlugin extends Component {
         }
 
         // id set by DV app, style works in dashboards
-        if (this.props.id !== prevProps.id || !isEqual(this.props.style, prevProps.style)) {
+        if (
+            this.props.id !== prevProps.id ||
+            !isEqual(this.props.style, prevProps.style)
+        ) {
             this.recreateChart(0); // disable animation
             return;
         }
@@ -142,15 +145,22 @@ class ChartPlugin extends Component {
                     {
                         ...extraOptions,
                         animation,
-                    }
+                    },
+                    undefined,
+                    undefined,
+                    isSingleValue(visualization.type) ? 'dhis' : 'highcharts' // output format
                 );
 
-                onChartGenerated(
-                    chartConfig.chart.getSVGForExport({
-                        sourceHeight: 768,
-                        sourceWidth: 1024,
-                    })
-                );
+                if (isSingleValue(visualization.type)) {
+                    onChartGenerated(chartConfig.chart);
+                } else {
+                    onChartGenerated(
+                        chartConfig.chart.getSVGForExport({
+                            sourceHeight: 768,
+                            sourceWidth: 1024,
+                        })
+                    );
+                }
             };
 
             this.recreateChart();
