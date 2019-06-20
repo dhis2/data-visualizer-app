@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-06-04T07:42:57.930Z\n"
-"PO-Revision-Date: 2019-06-04T07:42:57.930Z\n"
+"POT-Creation-Date: 2019-06-20T07:34:50.327Z\n"
+"PO-Revision-Date: 2019-06-20T07:34:50.327Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -89,9 +89,6 @@ msgid "The following information may be requested by technical support."
 msgstr ""
 
 msgid "Interpretations"
-msgstr ""
-
-msgid "selected"
 msgstr ""
 
 msgid "Series"
