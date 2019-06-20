@@ -31,5 +31,8 @@
     },
     "workspaces": [
         "packages/*"
-    ]
+    ],
+    "dependencies": {
+        "@dhis2/d2-ui-interpretations": "6.1.0"
+    }
 }
