@@ -37,6 +37,7 @@ import {
     sGetUiItemsByDimension,
     sGetUiActiveModalDialog,
     sGetUiParentGraphMap,
+    sGetUiType,
 } from '../../../reducers/ui';
 import { sGetDimensions } from '../../../reducers/dimensions';
 import { sGetMetadata } from '../../../reducers/metadata';
@@ -46,6 +47,7 @@ import {
     getOrgUnitsFromIds,
     removeLastPathSegment,
 } from '../../../modules/orgUnit';
+import { isSingleValue } from '../../../modules/chartTypes';
 
 export class DialogManager extends Component {
     state = {
@@ -174,6 +176,7 @@ export class DialogManager extends Component {
             dimensions,
             removeUiItems,
             setUiItems,
+            type,
         } = this.props;
 
         const dimensionProps = {
@@ -187,11 +190,15 @@ export class DialogManager extends Component {
             const selectedItems = this.getSelectedItems(dialogId);
 
             if (dialogId === DIMENSION_ID_DATA) {
+                const isItemActive = (id, index) =>
+                    isSingleValue(type) ? index === 0 : true;
+
                 return (
                     <DataDimension
                         displayNameProp={displayNameProperty}
                         selectedDimensions={selectedItems}
                         {...dimensionProps}
+                        isItemActive={isItemActive}
                     />
                 );
             }
@@ -265,6 +272,7 @@ DialogManager.propTypes = {
     dimensions: PropTypes.object,
     metadata: PropTypes.object,
     selectedItems: PropTypes.object,
+    type: PropTypes.string,
 };
 
 DialogManager.defaultProps = {
@@ -281,6 +289,7 @@ const mapStateToProps = state => ({
     dxIds: sGetUiItemsByDimension(state, DIMENSION_ID_DATA),
     ouIds: sGetUiItemsByDimension(state, DIMENSION_ID_ORGUNIT),
     selectedItems: sGetUiItems(state),
+    type: sGetUiType(state),
 });
 
 export default connect(
