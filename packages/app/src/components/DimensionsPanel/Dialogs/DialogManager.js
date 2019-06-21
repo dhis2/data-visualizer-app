@@ -8,6 +8,7 @@ import isEqual from 'lodash-es/isEqual';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 
+import i18n from '@dhis2/d2-i18n';
 import {
     DataDimension,
     DynamicDimension,
@@ -173,10 +174,10 @@ export class DialogManager extends Component {
         const {
             displayNameProperty,
             dialogId,
+            type,
             dimensions,
             removeUiItems,
             setUiItems,
-            type,
         } = this.props;
 
         const dimensionProps = {
@@ -192,11 +193,18 @@ export class DialogManager extends Component {
             if (dialogId === DIMENSION_ID_DATA) {
                 const isItemActive = (id, index) =>
                     isSingleValue(type) ? index === 0 : true;
+                const infoBoxMessage =
+                    isSingleValue(type) && selectedItems.length > 1
+                        ? i18n.t(
+                              "'Single Value' can only show one data item. The first data item is automatically selected."
+                          )
+                        : null;
 
                 return (
                     <DataDimension
                         displayNameProp={displayNameProperty}
                         selectedDimensions={selectedItems}
+                        infoBoxMessage={infoBoxMessage}
                         {...dimensionProps}
                         isItemActive={isItemActive}
                     />
