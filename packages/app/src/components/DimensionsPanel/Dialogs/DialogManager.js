@@ -132,9 +132,12 @@ export class DialogManager extends Component {
         return this.props.selectedItems[dialogId]
             ? this.props.selectedItems[dialogId]
                   .filter(id => this.props.metadata[id])
-                  .map(id => ({
+                  .map((id, index) => ({
                       id,
                       name: this.props.metadata[id].name,
+                      isActive: isSingleValue(this.props.type)
+                          ? index === 0
+                          : true,
                   }))
             : [];
     };
@@ -191,8 +194,6 @@ export class DialogManager extends Component {
             const selectedItems = this.getSelectedItems(dialogId);
 
             if (dialogId === DIMENSION_ID_DATA) {
-                const isItemActive = (id, index) =>
-                    isSingleValue(type) ? index === 0 : true;
                 const infoBoxMessage =
                     isSingleValue(type) && selectedItems.length > 1
                         ? i18n.t(
@@ -206,7 +207,6 @@ export class DialogManager extends Component {
                         selectedDimensions={selectedItems}
                         infoBoxMessage={infoBoxMessage}
                         {...dimensionProps}
-                        isItemActive={isItemActive}
                     />
                 );
             }
