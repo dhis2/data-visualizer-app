@@ -87,7 +87,7 @@ export class DialogManager extends Component {
                 const forParentGraphMap = {};
 
                 items.forEach(ou => {
-                    const id = orgUnitId.getUid(ou.id);
+                    const id = orgUnitId.removePrefix(ou.id);
                     forMetadata[id] = {
                         id,
                         name: ou.name || ou.displayName,
@@ -136,9 +136,9 @@ export class DialogManager extends Component {
 
     getOrgUnitsFromIds = (ids, metadata, parentGraphMap) =>
         ids
-            .filter(id => metadata[orgUnitId.getUid(id)] !== undefined)
+            .filter(id => metadata[orgUnitId.removePrefix(id)] !== undefined)
             .map(id => {
-                const ouUid = orgUnitId.getUid(id);
+                const ouUid = orgUnitId.removePrefix(id);
                 return {
                     id,
                     name: metadata[ouUid].displayName || metadata[ouUid].name,

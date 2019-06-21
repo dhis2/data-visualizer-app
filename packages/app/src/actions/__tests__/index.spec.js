@@ -30,6 +30,12 @@ const relativePeriod = 'xyzpdq';
 selectors.sGetRootOrgUnit = () => rootOrganisationUnit;
 selectors.sGetRelativePeriod = () => relativePeriod;
 
+jest.mock('../../modules/orgUnit', () => {
+    return {
+        convertOuLevelsToUids: vis => vis,
+    };
+});
+
 describe('index', () => {
     describe('tDoLoadVisualization', () => {
         it('dispatches the correct actions after successfully fetching visualization', () => {

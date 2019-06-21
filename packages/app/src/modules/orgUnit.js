@@ -3,49 +3,49 @@ import { orgUnitId, DIMENSION_ID_ORGUNIT } from '@dhis2/d2-ui-analytics';
 import { apiFetchOrganisationUnitLevels } from '../api/organisationUnits';
 
 const isNumericOuLevel = id =>
-    orgUnitId.isLevelId(id)
-        ? Number.isInteger(parseInt(orgUnitId.getUid(id), 10))
+    orgUnitId.hasLevelPrefix(id)
+        ? Number.isInteger(parseInt(orgUnitId.removePrefix(id), 10))
         : false;
 
-const getUpdatedFilters = async (filters, ouFilter) => {
+const getUpdatedOuLevels = async (visualizationProp, ouPart) => {
     const ouLevels = await apiFetchOrganisationUnitLevels();
 
-    const items = ouFilter.items.map(item => {
+    const items = ouPart.items.map(item => {
         if (isNumericOuLevel(item.id)) {
-            const ouId = parseInt(orgUnitId.getUid(item.id), 10);
+            const numericOuId = parseInt(orgUnitId.removePrefix(item.id), 10);
 
             const id = ouLevels.find(
-                level => parseInt(level.level, 10) === ouId
+                level => parseInt(level.level, 10) === numericOuId
             ).id;
 
             return Object.assign({}, item, {
-                id: orgUnitId.getLevelId(id),
+                id: orgUnitId.addLevelPrefix(id),
             });
         }
         return item;
     });
-    const newOuFilter = Object.assign({}, ouFilter, { items });
+    const newOuFilter = Object.assign({}, ouPart, { items });
 
-    return filters
-        .filter(f => f.dimension !== DIMENSION_ID_ORGUNIT)
+    return visualizationProp
+        .filter(p => p.dimension !== DIMENSION_ID_ORGUNIT)
         .concat(newOuFilter);
 };
 
-export const convertOuLevelsFilter = async visualization => {
-    const ouFilter = visualization.filters.find(
-        filter => filter.dimension === DIMENSION_ID_ORGUNIT
+export const convertOuLevelsToUids = async visualization => {
+    const hasOu = p => p.dimension === DIMENSION_ID_ORGUNIT;
+    const prop = ['filters', 'rows', 'columns'].find(p =>
+        visualization[p].find(hasOu)
     );
 
+    const ouPart = prop ? visualization[prop].find(hasOu) : null;
+
     const hasNumberedOuLevels =
-        ouFilter && ouFilter.items.some(item => isNumericOuLevel(item.id));
+        ouPart && ouPart.items.some(item => isNumericOuLevel(item.id));
 
     if (hasNumberedOuLevels) {
-        const filters = await getUpdatedFilters(
-            visualization.filters,
-            ouFilter
-        );
+        const updatedOu = await getUpdatedOuLevels(visualization[prop], ouPart);
 
-        return Object.assign({}, visualization, { filters });
+        return Object.assign({}, visualization, { [prop]: updatedOu });
     }
 
     return visualization;

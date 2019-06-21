@@ -1,58 +1,112 @@
 import {
-    getOrgUnitsFromIds,
+    convertOuLevelsToUids,
     removeLastPathSegment,
     getOuPath,
 } from '../orgUnit';
 
-describe('getOrgUnitsFromIds', () => {
-    it('returns org units with ids in given array', () => {
-        const ids = ['ID1', 'ID2', 'LEVEL-LEVEL', 'GROUP-GROUP_ID'];
-        const metadata = {
-            ID1: {
-                id: 'ID1',
-                name: 'Org unit 1',
-                path: '/ID1',
+jest.mock('../../api/organisationUnits', () => ({
+    apiFetchOrganisationUnitLevels: () =>
+        Promise.resolve([
+            {
+                level: 2,
+                id: '2nd-floor',
             },
-            ID2: {
-                id: 'ID2',
-                name: 'Org unit 2',
-                path: '/ID2',
-            },
+        ]),
+}));
+
+describe('convertOuLevelsToUids', () => {
+    let vis;
+    beforeEach(() => {
+        vis = {
+            other: 'abc',
+            filters: [],
+            rows: [],
+            columns: [],
         };
-        const parentGraphMap = {};
+    });
 
-        const orgUnits = getOrgUnitsFromIds(ids, metadata, parentGraphMap);
+    it('converts ou filters', async () => {
+        vis.filters = [
+            {
+                dimension: 'ou',
+                items: [
+                    {
+                        id: 'LEVEL-2',
+                        name: 'LEVEL-2',
+                    },
+                ],
+            },
+        ];
 
-        // test that it only extracts org units, not levels/groups
-        expect(orgUnits.length).toEqual(2);
+        const updatedVis = await convertOuLevelsToUids(vis);
 
-        orgUnits.forEach(orgUnit => {
-            expect(orgUnit.id).toEqual(metadata[orgUnit.id].id);
-            expect(orgUnit.name).toEqual(metadata[orgUnit.id].name);
-            expect(orgUnit.path).toEqual(metadata[orgUnit.id].path);
+        expect(updatedVis).toEqual({
+            filters: [
+                {
+                    dimension: 'ou',
+                    items: [{ id: 'LEVEL-2nd-floor', name: 'LEVEL-2' }],
+                },
+            ],
+            rows: [],
+            columns: [],
+            other: 'abc',
         });
     });
 
-    it('returns empty array if there no org units in ou dimension', () => {
-        const ids = [];
-        const metadata = {};
-        const parentGraphMap = {};
+    it('converts ou rows', async () => {
+        vis.rows = [
+            {
+                dimension: 'ou',
+                items: [
+                    {
+                        id: 'LEVEL-2',
+                        name: 'LEVEL-2',
+                    },
+                ],
+            },
+        ];
 
-        expect(getOrgUnitsFromIds(ids, metadata, parentGraphMap)).toEqual([]);
+        const updatedVis = await convertOuLevelsToUids(vis);
+
+        expect(updatedVis).toEqual({
+            filters: [],
+            columns: [],
+            rows: [
+                {
+                    dimension: 'ou',
+                    items: [{ id: 'LEVEL-2nd-floor', name: 'LEVEL-2' }],
+                },
+            ],
+            other: 'abc',
+        });
     });
 
-    it('only extracts org unit ids, not groups/levels', () => {
-        const levelId = 'LEVEL_ID';
-        const groupId = 'GROUP_ID';
+    it('converts ou columns', async () => {
+        vis.columns = [
+            {
+                dimension: 'ou',
+                items: [
+                    {
+                        id: 'LEVEL-2',
+                        name: 'LEVEL-2',
+                    },
+                ],
+            },
+        ];
 
-        const ids = [`LEVEL-${levelId}`, `GROUP-${groupId}`];
-        const metadata = {
-            [levelId]: { name: 'Level', level: 1 },
-            [groupId]: { name: 'Group' },
-        };
-        const parentGraphMap = {};
+        const updatedVis = await convertOuLevelsToUids(vis);
 
-        expect(getOrgUnitsFromIds(ids, metadata, parentGraphMap)).toEqual([]);
+        expect(updatedVis).toEqual({
+            filters: [],
+            rows: [],
+            columns: [
+                {
+                    dimension: 'ou',
+                    items: [{ id: 'LEVEL-2nd-floor', name: 'LEVEL-2' }],
+                },
+            ],
+            other: 'abc',
+        });
     });
 });
 
@@ -106,55 +160,3 @@ describe('getOrgUnitPath', () => {
         );
     });
 });
-
-// describe('getOrgUnitsFromIds', () => {
-//     it('returns org unit objects with id, name and path', () => {
-//         const levelUid = '2nd-floor'
-//         const groupUid = 'fruit-group'
-//         const ids = [
-//             'ID0',
-//             'ID1',
-//             `${LEVEL_ID_PREFIX}-${levelUid}`,
-//             `${GROUP_ID_PREFIX}-${groupUid}`,
-//         ]
-//         const metadata = {
-//             [ids[0]]: {
-//                 id: ids[0],
-//                 name: 'Org unit 0',
-//                 path: `/${ids[0]}`,
-//             },
-//             [ids[1]]: {
-//                 id: ids[1],
-//                 name: 'Org unit 1',
-//                 path: `/${ids[1]}`,
-//             },
-//             [levelUid]: {
-//                 id: levelUid,
-//                 name: '2nd Floor',
-//             },
-//             [groupUid]: {
-//                 id: groupUid,
-//                 name: 'Fruit Group',
-//             },
-//         }
-//         const metadataVals = Object.values(metadata)
-
-//         const orgUnits = getOrgUnitsFromIds(ids, metadata, {})
-
-//         expect(orgUnits.length).toEqual(4)
-
-//         orgUnits.forEach((orgUnit, i) => {
-//             expect(orgUnit.id).toEqual(ids[i])
-//             expect(orgUnit.name).toEqual(metadataVals[i].name)
-//             expect(orgUnit.path).toEqual(metadataVals[i].path)
-//         })
-//     })
-
-//     it('returns empty array if there no org units in ou dimension', () => {
-//         const ids = []
-//         const metadata = {}
-//         const parentGraphMap = {}
-
-//         expect(getOrgUnitsFromIds(ids, metadata, parentGraphMap)).toEqual([])
-//     })
-// })
