@@ -86,9 +86,9 @@ class Chip extends React.Component {
                   total: this.props.items.length,
               });
 
-        const itemIds = this.isSingleValueDataDimension()
+        const activeItemIds = this.isSingleValueDataDimension()
             ? this.props.items.slice(0, 1)
-            : this.props.items;
+            : [];
 
         const chipLabel = `${this.props.dimensionName}${
             this.props.items.length > 0 ? itemsLabel : ''
@@ -132,7 +132,7 @@ class Chip extends React.Component {
                 {anchorEl && (
                     <Tooltip
                         dimensionId={this.props.dimensionId}
-                        itemIds={itemIds}
+                        activeItemIds={activeItemIds}
                         open={this.state.tooltipOpen}
                         anchorEl={anchorEl}
                     />
