@@ -1,10 +1,10 @@
-import { orgUnitId, DIMENSION_ID_ORGUNIT } from '@dhis2/d2-ui-analytics';
+import { ouIdHelper, DIMENSION_ID_ORGUNIT } from '@dhis2/d2-ui-analytics';
 
 import { apiFetchOrganisationUnitLevels } from '../api/organisationUnits';
 
 const isNumericOuLevel = id =>
-    orgUnitId.hasLevelPrefix(id)
-        ? Number.isInteger(parseInt(orgUnitId.removePrefix(id), 10))
+    ouIdHelper.hasLevelPrefix(id)
+        ? Number.isInteger(parseInt(ouIdHelper.removePrefix(id), 10))
         : false;
 
 const getUpdatedOuLevels = async (visualizationProp, ouPart) => {
@@ -12,14 +12,14 @@ const getUpdatedOuLevels = async (visualizationProp, ouPart) => {
 
     const items = ouPart.items.map(item => {
         if (isNumericOuLevel(item.id)) {
-            const numericOuId = parseInt(orgUnitId.removePrefix(item.id), 10);
+            const numericOuId = parseInt(ouIdHelper.removePrefix(item.id), 10);
 
             const id = ouLevels.find(
                 level => parseInt(level.level, 10) === numericOuId
             ).id;
 
             return Object.assign({}, item, {
-                id: orgUnitId.addLevelPrefix(id),
+                id: ouIdHelper.addLevelPrefix(id),
             });
         }
         return item;

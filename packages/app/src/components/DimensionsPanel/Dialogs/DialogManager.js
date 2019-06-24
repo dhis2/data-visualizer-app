@@ -12,7 +12,7 @@ import {
     DynamicDimension,
     PeriodDimension,
     OrgUnitDimension,
-    orgUnitId,
+    ouIdHelper,
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
@@ -87,7 +87,7 @@ export class DialogManager extends Component {
                 const forParentGraphMap = {};
 
                 items.forEach(ou => {
-                    const id = orgUnitId.removePrefix(ou.id);
+                    const id = ouIdHelper.removePrefix(ou.id);
                     forMetadata[id] = {
                         id,
                         name: ou.name || ou.displayName,
@@ -136,9 +136,9 @@ export class DialogManager extends Component {
 
     getOrgUnitsFromIds = (ids, metadata, parentGraphMap) =>
         ids
-            .filter(id => metadata[orgUnitId.removePrefix(id)] !== undefined)
+            .filter(id => metadata[ouIdHelper.removePrefix(id)] !== undefined)
             .map(id => {
-                const ouUid = orgUnitId.removePrefix(id);
+                const ouUid = ouIdHelper.removePrefix(id);
                 return {
                     id,
                     name: metadata[ouUid].displayName || metadata[ouUid].name,
