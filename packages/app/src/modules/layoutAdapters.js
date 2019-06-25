@@ -4,7 +4,7 @@ import {
     AXIS_NAME_FILTERS,
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
-} from '@dhis2/d2-ui-analytics';
+} from '@dhis2/analytics';
 
 // Transform from ui.layout to pie layout format
 export const pieLayoutAdapter = layout => {
@@ -37,7 +37,7 @@ export const yearOverYearLayoutAdapter = layout => ({
 export const singleValueLayoutAdapter = layout => {
     const columns = layout[AXIS_NAME_COLUMNS].slice();
     const rows = layout[AXIS_NAME_ROWS].slice();
-    console.log('col', columns, 'row', rows);
+
     return {
         [AXIS_NAME_COLUMNS]: [DIMENSION_ID_DATA],
         [AXIS_NAME_ROWS]: [],

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import MenuItem from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
-import { AXIS_NAME_COLUMNS } from '@dhis2/d2-ui-analytics';
+import { AXIS_NAME_COLUMNS } from '@dhis2/analytics';
 
 import UpdateButton from '../../../UpdateButton/UpdateButton';
 import Menu from './Menu';

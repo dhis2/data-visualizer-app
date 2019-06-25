@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
-import { FIXED_DIMENSIONS, DIMENSION_ID_DATA } from '@dhis2/d2-ui-analytics';
+import { FIXED_DIMENSIONS, DIMENSION_ID_DATA } from '@dhis2/analytics';
 import WarningIcon from '@material-ui/icons/Warning';
 
 import Menu from './Menu';

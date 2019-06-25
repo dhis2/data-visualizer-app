@@ -4,7 +4,7 @@ import {
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
-} from '@dhis2/d2-ui-analytics';
+} from '@dhis2/analytics';
 
 import { DialogManager } from '../DialogManager';
 
@@ -18,7 +18,7 @@ jest.mock('@material-ui/core/DialogActions', () => props => (
     <div id="mock-mui-dialog-actions">{props.children}</div>
 ));
 
-jest.mock('@dhis2/d2-ui-analytics', () => {
+jest.mock('@dhis2/analytics', () => {
     const dataId = 'dx';
     const periodId = 'pe';
     const ouId = 'ou';

@@ -18,7 +18,7 @@ import {
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
     FIXED_DIMENSIONS,
-} from '@dhis2/d2-ui-analytics';
+} from '@dhis2/analytics';
 
 import HideButton from './HideButton';
 import AddToLayoutButton from './AddToLayoutButton/AddToLayoutButton';

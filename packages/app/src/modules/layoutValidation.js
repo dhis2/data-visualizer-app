@@ -6,7 +6,7 @@ import {
     FIXED_DIMENSIONS,
     dimensionIsValid,
     layoutGetDimension,
-} from '@dhis2/d2-ui-analytics';
+} from '@dhis2/analytics';
 
 import {
     YEAR_OVER_YEAR_LINE,

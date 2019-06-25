@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { AXIS_NAME_FILTERS } from '@dhis2/d2-ui-analytics';
+import { AXIS_NAME_FILTERS } from '@dhis2/analytics';
 
 import DefaultAxis from '../DefaultLayout/DefaultAxis';
 import defaultLayoutStyles from '../DefaultLayout/styles/DefaultLayout.style';

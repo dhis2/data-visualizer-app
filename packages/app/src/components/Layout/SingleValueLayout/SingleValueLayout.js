@@ -1,5 +1,5 @@
 import React from 'react';
-import { AXIS_NAME_COLUMNS, AXIS_NAME_FILTERS } from '@dhis2/d2-ui-analytics';
+import { AXIS_NAME_COLUMNS, AXIS_NAME_FILTERS } from '@dhis2/analytics';
 
 import DefaultAxis from '../DefaultLayout/DefaultAxis';
 import defaultAxisStyles from '../DefaultLayout/styles/DefaultAxis.style';

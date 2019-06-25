@@ -1,7 +1,7 @@
 import {
     DIMENSION_ID_ORGUNIT,
     layoutGetAxisNameDimensionIdsObject,
-} from '@dhis2/d2-ui-analytics';
+} from '@dhis2/analytics';
 
 import { getInverseLayout } from './layout';
 

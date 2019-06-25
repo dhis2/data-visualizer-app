@@ -5,7 +5,7 @@ import {
     AXIS_NAME_COLUMNS,
     AXIS_NAME_ROWS,
     AXIS_NAME_FILTERS,
-} from '@dhis2/d2-ui-analytics';
+} from '@dhis2/analytics';
 
 import * as ui from '../ui';
 import { BAR } from '../../modules/chartTypes';
@@ -85,7 +85,9 @@ describe('reducer: ui', () => {
         });
     });
 
-    it(`${ui.SET_UI_FROM_VISUALIZATION} sets the new ui based on a visualization`, () => {
+    it(`${
+        ui.SET_UI_FROM_VISUALIZATION
+    } sets the new ui based on a visualization`, () => {
         const expectedState = {
             ...ui.DEFAULT_UI,
             type,
@@ -178,7 +180,9 @@ describe('reducer: ui', () => {
         expect(actualState).toEqual(expectedState);
     });
 
-    it(`${ui.ADD_UI_LAYOUT_DIMENSIONS}: should add/remove layout dimensions`, () => {
+    it(`${
+        ui.ADD_UI_LAYOUT_DIMENSIONS
+    }: should add/remove layout dimensions`, () => {
         const state = {
             layout: {
                 columns: [DIMENSION_ID_DATA],
@@ -205,7 +209,9 @@ describe('reducer: ui', () => {
         expect(actualState).toEqual(expectedState);
     });
 
-    it(`${ui.REMOVE_UI_LAYOUT_DIMENSIONS}: should remove a single dimension`, () => {
+    it(`${
+        ui.REMOVE_UI_LAYOUT_DIMENSIONS
+    }: should remove a single dimension`, () => {
         const state = {
             layout: {
                 columns: [DIMENSION_ID_DATA],
@@ -426,7 +432,9 @@ describe('reducer: ui', () => {
         expect(actualState).toEqual(expectedState);
     });
 
-    it(`${ui.SET_UI_YEAR_ON_YEAR_CATEGORY} sets new yearOverYearCategory`, () => {
+    it(`${
+        ui.SET_UI_YEAR_ON_YEAR_CATEGORY
+    } sets new yearOverYearCategory`, () => {
         const category = ['LAST_3_MONTHS'];
 
         const actualState = reducer(ui.DEFAULT_UI, {
@@ -486,7 +494,9 @@ describe('reducer: ui', () => {
         expect(actualState.activeModalDialog).toEqual(dialog);
     });
 
-    it(`${ui.TOGGLE_UI_RIGHT_SIDEBAR_OPEN} toggles the state of the right sidebar`, () => {
+    it(`${
+        ui.TOGGLE_UI_RIGHT_SIDEBAR_OPEN
+    } toggles the state of the right sidebar`, () => {
         let actualState = reducer(ui.DEFAULT_UI, {
             type: ui.TOGGLE_UI_RIGHT_SIDEBAR_OPEN,
         });

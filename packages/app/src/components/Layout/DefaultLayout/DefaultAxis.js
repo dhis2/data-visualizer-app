@@ -7,7 +7,7 @@ import {
     AXIS_NAME_COLUMNS,
     AXIS_NAMES,
     DIMENSION_ID_DATA,
-} from '@dhis2/d2-ui-analytics';
+} from '@dhis2/analytics';
 
 import Chip from '../Chip';
 import { sGetUi } from '../../../reducers/ui';
