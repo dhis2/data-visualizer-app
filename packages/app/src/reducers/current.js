@@ -3,6 +3,7 @@ import {
     getOptionsFromUi,
     getPieCurrentFromUi,
     getYearOverYearCurrentFromUi,
+    getSingleValueCurrentFromUi,
     getSeriesItemsFromUi,
 } from '../modules/current';
 import {
@@ -10,6 +11,7 @@ import {
     YEAR_OVER_YEAR_COLUMN,
     PIE,
     GAUGE,
+    SINGLE_VALUE,
 } from '../modules/chartTypes';
 import { BASE_FIELD_TYPE } from '../modules/fields/baseFields';
 
@@ -43,6 +45,8 @@ export default (state = DEFAULT_CURRENT, action) => {
                 case PIE:
                 case GAUGE:
                     return getPieCurrentFromUi(state, action);
+                case SINGLE_VALUE:
+                    return getSingleValueCurrentFromUi(state, action);
                 case YEAR_OVER_YEAR_LINE:
                 case YEAR_OVER_YEAR_COLUMN:
                     return getYearOverYearCurrentFromUi(state, action);

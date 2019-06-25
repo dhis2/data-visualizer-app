@@ -11,7 +11,7 @@ import {
 import options from './options';
 import {} from './layout';
 import { BASE_FIELD_TYPE, BASE_FIELD_YEARLY_SERIES } from './fields/baseFields';
-import { pieLayoutAdapter } from './layoutAdapters';
+import { pieLayoutAdapter, singleValueLayoutAdapter } from './layoutAdapters';
 import { mergeUiMaps } from './ui';
 import { SERIES_ITEMS_SERIES } from './seriesItems';
 
@@ -61,6 +61,22 @@ export const getSeriesItemsFromUi = ui => {
         arr.push(value);
         return arr;
     }, []);
+};
+
+export const getSingleValueCurrentFromUi = (state, action) => {
+    const ui = {
+        ...action.value,
+        layout: {
+            ...singleValueLayoutAdapter(action.value.layout),
+        },
+    };
+
+    return {
+        ...state,
+        [BASE_FIELD_TYPE]: ui.type,
+        ...getAxesFromUi(ui),
+        ...getOptionsFromUi(ui),
+    };
 };
 
 export const getPieCurrentFromUi = (state, action) => {
