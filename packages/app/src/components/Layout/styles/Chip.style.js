@@ -1,4 +1,5 @@
-import { colors } from '../../../modules/colors';
+import { colors } from '@dhis2/analytics';
+
 import * as layoutStyle from './style';
 
 export const styles = {

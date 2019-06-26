@@ -1,4 +1,5 @@
-import { colors } from '../../../../modules/colors';
+import { colors } from '@dhis2/analytics';
+
 import defaultLayoutStyle from './DefaultLayout.style';
 import * as layoutStyle from '../../styles/style';
 
