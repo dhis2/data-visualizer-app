@@ -5,7 +5,7 @@ import {
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
-} from '@dhis2/d2-ui-analytics';
+} from '@dhis2/analytics';
 
 import { pieLayoutAdapter, yearOverYearLayoutAdapter } from '../layoutAdapters';
 

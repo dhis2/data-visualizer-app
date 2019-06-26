@@ -58,7 +58,9 @@ const render = (location, baseUrl, d2, userSettings) => {
 const init = async () => {
     // log app info
     console.info(
-        `Data Visualizer app, v${manifest.version}, ${manifest.manifest_generated_at}`
+        `Data Visualizer app, v${manifest.version}, ${
+            manifest.manifest_generated_at
+        }`
     );
 
     // d2 config

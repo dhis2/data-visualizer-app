@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import isEqual from 'lodash-es/isEqual';
-import { createChart } from 'd2-charts-api';
+import { createVisualization } from '@dhis2/analytics';
 
 import { apiFetchVisualization } from './api/visualization';
 import {
@@ -20,7 +20,7 @@ class ChartPlugin extends Component {
 
         this.canvasRef = React.createRef();
 
-        this.recreateChart = Function.prototype;
+        this.recreateVisualization = Function.prototype;
 
         this.state = {
             isLoading: true,
@@ -43,8 +43,11 @@ class ChartPlugin extends Component {
         }
 
         // id set by DV app, style works in dashboards
-        if (this.props.id !== prevProps.id || !isEqual(this.props.style, prevProps.style)) {
-            this.recreateChart(0); // disable animation
+        if (
+            this.props.id !== prevProps.id ||
+            !isEqual(this.props.style, prevProps.style)
+        ) {
+            this.recreateVisualization(0); // disable animation
             return;
         }
     }
@@ -134,8 +137,8 @@ class ChartPlugin extends Component {
                 onResponsesReceived(responses);
             }
 
-            this.recreateChart = animation => {
-                const chartConfig = createChart(
+            this.recreateVisualization = animation => {
+                const visualizationConfig = createVisualization(
                     responses,
                     visualization,
                     this.canvasRef.current,
@@ -146,14 +149,14 @@ class ChartPlugin extends Component {
                 );
 
                 onChartGenerated(
-                    chartConfig.chart.getSVGForExport({
+                    visualizationConfig.visualization.getSVGForExport({
                         sourceHeight: 768,
                         sourceWidth: 1024,
                     })
                 );
             };
 
-            this.recreateChart();
+            this.recreateVisualization();
 
             this.setState({ isLoading: false });
         } catch (error) {
