@@ -1,4 +1,4 @@
-import { FIXED_DIMENSIONS as DEFAULT_DIMENSIONS } from '@dhis2/d2-ui-analytics';
+import { FIXED_DIMENSIONS as DEFAULT_DIMENSIONS } from '@dhis2/analytics';
 
 export const SET_DIMENSIONS = 'SET_DIMENSIONS';
 export const SET_SELECTED_DIMENSION = 'SET_SELECTED_DIMENSION';

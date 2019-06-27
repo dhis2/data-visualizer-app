@@ -5,7 +5,7 @@ import {
     DIMENSION_ID_ORGUNIT,
     AXIS_NAME_COLUMNS,
     AXIS_NAME_ROWS,
-} from '@dhis2/d2-ui-analytics';
+} from '@dhis2/analytics';
 
 import { getFilteredLayout, getSwapModObj } from '../modules/layout';
 import { getOptionsForUi } from '../modules/options';

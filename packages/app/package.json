@@ -25,8 +25,8 @@
         "webpack-bundle-analyzer": "^3.0.3"
     },
     "dependencies": {
+        "@dhis2/analytics": "2.1.1",
         "@dhis2/d2-i18n": "^1.0.3",
-        "@dhis2/d2-ui-analytics": "^1.0.5",
         "@dhis2/d2-ui-core": "6.1.0",
         "@dhis2/d2-ui-file-menu": "6.1.0",
         "@dhis2/d2-ui-interpretations": "6.1.0",
@@ -46,7 +46,6 @@
         "chalk": "2.4.1",
         "css-loader": "0.28.7",
         "d2": "31.2.1",
-        "d2-charts-api": "33.0.1",
         "d2-manifest": "^1.0.0",
         "dotenv": "6.0.0",
         "dotenv-expand": "4.2.0",

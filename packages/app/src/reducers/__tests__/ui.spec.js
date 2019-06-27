@@ -5,7 +5,7 @@ import {
     AXIS_NAME_COLUMNS,
     AXIS_NAME_ROWS,
     AXIS_NAME_FILTERS,
-} from '@dhis2/d2-ui-analytics';
+} from '@dhis2/analytics';
 
 import * as ui from '../ui';
 import { BAR } from '../../modules/chartTypes';
