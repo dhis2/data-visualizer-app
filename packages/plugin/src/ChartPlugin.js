@@ -152,7 +152,7 @@ class ChartPlugin extends Component {
                 );
 
                 if (isSingleValue(visualization.type)) {
-                    onChartGenerated(chartConfig.chart);
+                    onChartGenerated(visualizationConfig.visualization);
                 } else {
                     onChartGenerated(
                         visualizationConfig.visualization.getSVGForExport({
