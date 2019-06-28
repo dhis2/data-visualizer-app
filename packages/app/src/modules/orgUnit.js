@@ -1,4 +1,4 @@
-import { ouIdHelper, DIMENSION_ID_ORGUNIT } from '@dhis2/d2-ui-analytics';
+import { ouIdHelper, DIMENSION_ID_ORGUNIT } from '@dhis2/analytics';
 
 import { apiFetchOrganisationUnitLevels } from '../api/organisationUnits';
 
