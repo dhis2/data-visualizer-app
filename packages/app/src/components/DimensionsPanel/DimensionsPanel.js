@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { DIMENSION_ID_PERIOD, DimensionsPanel } from '@dhis2/d2-ui-analytics';
+import { DIMENSION_ID_PERIOD, DimensionsPanel } from '@dhis2/analytics';
 
 import DialogManager from './Dialogs/DialogManager';
 import DimensionOptions from './DimensionOptions/DimensionOptions';

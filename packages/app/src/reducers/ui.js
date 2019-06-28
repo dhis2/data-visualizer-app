@@ -1,15 +1,15 @@
+import castArray from 'lodash-es/castArray';
 import {
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
     AXIS_NAME_COLUMNS,
     AXIS_NAME_ROWS,
-} from '@dhis2/d2-ui-analytics';
+} from '@dhis2/analytics';
 
 import { getFilteredLayout, getSwapModObj } from '../modules/layout';
 import { getOptionsForUi } from '../modules/options';
 import { COLUMN } from '../modules/chartTypes';
-import { toArray } from '../modules/array';
 import { getUiFromVisualization } from '../modules/ui';
 
 export const SET_UI = 'SET_UI';
@@ -174,7 +174,7 @@ export default (state = DEFAULT_UI, action) => {
             return {
                 ...state,
                 yearOverYearCategory: action.value
-                    ? toArray(action.value)
+                    ? castArray(action.value)
                     : DEFAULT_UI.yearOverYearCategory,
             };
         }

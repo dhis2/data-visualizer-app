@@ -3,7 +3,7 @@ import {
     AXIS_NAME_COLUMNS,
     AXIS_NAME_ROWS,
     AXIS_NAME_FILTERS,
-} from '@dhis2/d2-ui-analytics';
+} from '@dhis2/analytics';
 
 // Names for dnd sources
 export const SOURCE_DIMENSIONS = 'dimensions';

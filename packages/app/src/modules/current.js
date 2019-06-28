@@ -6,7 +6,7 @@ import {
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     dimensionCreate,
-} from '@dhis2/d2-ui-analytics';
+} from '@dhis2/analytics';
 
 import options from './options';
 import {} from './layout';

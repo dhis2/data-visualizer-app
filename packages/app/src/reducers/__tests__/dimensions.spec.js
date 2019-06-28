@@ -1,4 +1,4 @@
-import { FIXED_DIMENSIONS } from '@dhis2/d2-ui-analytics';
+import { FIXED_DIMENSIONS } from '@dhis2/analytics';
 
 import reducer, { SET_DIMENSIONS } from '../dimensions';
 

@@ -1,4 +1,4 @@
-import { DIMENSION_ID_PERIOD } from '@dhis2/d2-ui-analytics';
+import { DIMENSION_ID_PERIOD } from '@dhis2/analytics';
 import { getInstance } from 'd2';
 
 export const apiDownloadImage = async (type, formData) => {
