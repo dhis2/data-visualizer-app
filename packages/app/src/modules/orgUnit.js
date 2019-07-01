@@ -3,6 +3,9 @@ import {
     DIMENSION_ID_ORGUNIT,
     AXIS_NAMES,
     axisHasDimension,
+    axisGetDimension,
+    dimensionIs,
+    dimensionGetItems,
 } from '@dhis2/analytics';
 
 import { apiFetchOrganisationUnitLevels } from '../api/organisationUnits';
@@ -12,32 +15,20 @@ const isNumericOuLevel = id =>
         ? Number.isInteger(parseInt(ouIdHelper.removePrefix(id), 10))
         : false;
 
-const getUpdatedOuLevels = async axisDimensions => {
-    const ouLevels = await apiFetchOrganisationUnitLevels();
-    const replaceNumericId = item => {
-        if (isNumericOuLevel(item.id)) {
-            const numericOuId = parseInt(ouIdHelper.removePrefix(item.id), 10);
+const replaceNumericOuLevelWithUid = ouLevels => item => {
+    if (isNumericOuLevel(item.id)) {
+        const numericOuId = parseInt(ouIdHelper.removePrefix(item.id), 10);
 
-            const id = ouLevels.find(
-                level => parseInt(level.level, 10) === numericOuId
-            ).id;
+        const id = ouLevels.find(
+            level => parseInt(level.level, 10) === numericOuId
+        ).id;
 
-            return Object.assign({}, item, {
-                id: ouIdHelper.addLevelPrefix(id),
-            });
-        }
-        return item;
-    };
+        return Object.assign({}, item, {
+            id: ouIdHelper.addLevelPrefix(id),
+        });
+    }
 
-    return axisDimensions.map(dimension => {
-        if (dimension.dimension === DIMENSION_ID_ORGUNIT) {
-            const items = dimension.items.map(replaceNumericId);
-
-            return Object.assign({}, dimension, { items });
-        }
-
-        return dimension;
-    });
+    return item;
 };
 
 export const convertOuLevelsToUids = async visualization => {
@@ -45,10 +36,31 @@ export const convertOuLevelsToUids = async visualization => {
         axisHasDimension(visualization[a], DIMENSION_ID_ORGUNIT)
     );
 
-    if (axis) {
-        const updatedOu = await getUpdatedOuLevels(visualization[axis]);
+    const ouDimension = axis
+        ? axisGetDimension(visualization[axis], DIMENSION_ID_ORGUNIT)
+        : null;
 
-        return Object.assign({}, visualization, { [axis]: updatedOu });
+    const hasNumericOuLevels =
+        ouDimension &&
+        dimensionGetItems(ouDimension).some(item => isNumericOuLevel(item.id));
+
+    if (hasNumericOuLevels) {
+        const ouLevels = await apiFetchOrganisationUnitLevels();
+        const replaceNumericOuLevel = replaceNumericOuLevelWithUid(ouLevels);
+
+        const updatedAxis = visualization[axis].map(dimension => {
+            if (dimensionIs(dimension, DIMENSION_ID_ORGUNIT)) {
+                const items = dimensionGetItems(dimension).map(
+                    replaceNumericOuLevel
+                );
+
+                return Object.assign({}, dimension, { items });
+            }
+
+            return dimension;
+        });
+
+        return Object.assign({}, visualization, { [axis]: updatedAxis });
     }
 
     return visualization;
