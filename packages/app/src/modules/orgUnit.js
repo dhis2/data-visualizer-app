@@ -1,4 +1,9 @@
-import { ouIdHelper, DIMENSION_ID_ORGUNIT } from '@dhis2/analytics';
+import {
+    ouIdHelper,
+    DIMENSION_ID_ORGUNIT,
+    AXIS_NAMES,
+    axisHasDimension,
+} from '@dhis2/analytics';
 
 import { apiFetchOrganisationUnitLevels } from '../api/organisationUnits';
 
@@ -7,10 +12,9 @@ const isNumericOuLevel = id =>
         ? Number.isInteger(parseInt(ouIdHelper.removePrefix(id), 10))
         : false;
 
-const getUpdatedOuLevels = async (visualizationProp, ouPart) => {
+const getUpdatedOuLevels = async axisDimensions => {
     const ouLevels = await apiFetchOrganisationUnitLevels();
-
-    const items = ouPart.items.map(item => {
+    const replaceNumericId = item => {
         if (isNumericOuLevel(item.id)) {
             const numericOuId = parseInt(ouIdHelper.removePrefix(item.id), 10);
 
@@ -23,29 +27,28 @@ const getUpdatedOuLevels = async (visualizationProp, ouPart) => {
             });
         }
         return item;
-    });
-    const newOuFilter = Object.assign({}, ouPart, { items });
+    };
 
-    return visualizationProp
-        .filter(p => p.dimension !== DIMENSION_ID_ORGUNIT)
-        .concat(newOuFilter);
+    return axisDimensions.map(dimension => {
+        if (dimension.dimension === DIMENSION_ID_ORGUNIT) {
+            const items = dimension.items.map(replaceNumericId);
+
+            return Object.assign({}, dimension, { items });
+        }
+
+        return dimension;
+    });
 };
 
 export const convertOuLevelsToUids = async visualization => {
-    const hasOu = p => p.dimension === DIMENSION_ID_ORGUNIT;
-    const prop = ['filters', 'rows', 'columns'].find(p =>
-        visualization[p].find(hasOu)
+    const axis = AXIS_NAMES.find(a =>
+        axisHasDimension(visualization[a], DIMENSION_ID_ORGUNIT)
     );
 
-    const ouPart = prop ? visualization[prop].find(hasOu) : null;
+    if (axis) {
+        const updatedOu = await getUpdatedOuLevels(visualization[axis]);
 
-    const hasNumberedOuLevels =
-        ouPart && ouPart.items.some(item => isNumericOuLevel(item.id));
-
-    if (hasNumberedOuLevels) {
-        const updatedOu = await getUpdatedOuLevels(visualization[prop], ouPart);
-
-        return Object.assign({}, visualization, { [prop]: updatedOu });
+        return Object.assign({}, visualization, { [axis]: updatedOu });
     }
 
     return visualization;

@@ -25,14 +25,64 @@ describe('convertOuLevelsToUids', () => {
         };
     });
 
+    it('does nothing when no ou', async () => {
+        vis.filters = [
+            {
+                dimension: 'facility_type',
+                items: [
+                    {
+                        id: 'factype1',
+                        name: 'Facility Type 1',
+                    },
+                ],
+            },
+        ];
+
+        const updatedVis = await convertOuLevelsToUids(vis);
+
+        expect(updatedVis).toEqual({
+            filters: [
+                {
+                    dimension: 'facility_type',
+                    items: [
+                        {
+                            id: 'factype1',
+                            name: 'Facility Type 1',
+                        },
+                    ],
+                },
+            ],
+            rows: [],
+            columns: [],
+            other: 'abc',
+        });
+    });
+
     it('converts ou filters', async () => {
         vis.filters = [
             {
                 dimension: 'ou',
                 items: [
                     {
+                        id: 'fluttershy',
+                        name: 'Fluttershy',
+                    },
+                    {
                         id: 'LEVEL-2',
                         name: 'LEVEL-2',
+                    },
+                    {
+                        id: 'rainbow',
+                        name: 'Rainbow Dash',
+                    },
+                ],
+            },
+            {
+                dimension: 'facility_type',
+                items: [
+                    {
+                        id: 'factype1',
+                        name: 'Facility Type 1',
                     },
                 ],
             },
@@ -44,7 +94,20 @@ describe('convertOuLevelsToUids', () => {
             filters: [
                 {
                     dimension: 'ou',
-                    items: [{ id: 'LEVEL-2nd-floor', name: 'LEVEL-2' }],
+                    items: [
+                        { id: 'fluttershy', name: 'Fluttershy' },
+                        { id: 'LEVEL-2nd-floor', name: 'LEVEL-2' },
+                        { id: 'rainbow', name: 'Rainbow Dash' },
+                    ],
+                },
+                {
+                    dimension: 'facility_type',
+                    items: [
+                        {
+                            id: 'factype1',
+                            name: 'Facility Type 1',
+                        },
+                    ],
                 },
             ],
             rows: [],
