@@ -308,7 +308,9 @@ describe('ChartPlugin', () => {
                         xAxisLabels: ['period 1', 'period 2'],
                     };
 
-                    expect(analytics.createVisualization.mock.calls[0][3]).toEqual({
+                    expect(
+                        analytics.createVisualization.mock.calls[0][3]
+                    ).toEqual({
                         animation: undefined,
                         dashboard: false,
                         ...expectedExtraOptions,
@@ -330,11 +332,11 @@ describe('ChartPlugin', () => {
                 canvas();
 
                 setTimeout(() => {
-                    expect(chartsApi.createChart).toHaveBeenCalled();
+                    expect(analytics.createVisualization).toHaveBeenCalled();
 
-                    expect(chartsApi.createChart.mock.calls[0][6]).toEqual(
-                        'dhis'
-                    );
+                    expect(
+                        analytics.createVisualization.mock.calls[0][6]
+                    ).toEqual('dhis');
 
                     done();
                 });

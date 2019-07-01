@@ -82,6 +82,7 @@ exports[`The DialogManager component renders OUDimension content with display:no
     />
   </div>
   <DataDimension
+    infoBoxMessage={null}
     onSelect={[Function]}
     selectedDimensions={Array []}
   />
@@ -119,6 +120,7 @@ exports[`The DialogManager component renders the DataDimension content in dialog
   open={false}
 >
   <DataDimension
+    infoBoxMessage={null}
     onSelect={[Function]}
     selectedDimensions={Array []}
   />
