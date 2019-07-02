@@ -1,4 +1,4 @@
-import { colors } from '@dhis2/analytics';
+import { colors } from '@dhis2/ui-core';
 
 export default {
     titleBar: {
@@ -8,7 +8,7 @@ export default {
     cell: {
         display: 'flex',
         alignItems: 'center',
-        background: '#fff',
+        background: colors.white,
         padding: '6px',
         borderRadius: '5px',
         margin: '4px',
@@ -21,7 +21,7 @@ export default {
     },
     interpretation: {
         fontSize: '12px',
-        color: colors.greyDark,
+        color: colors.grey700,
     },
     interpretationIcon: {
         display: 'flex',
@@ -31,10 +31,10 @@ export default {
         marginRight: '3px',
     },
     titleUnsaved: {
-        color: colors.grey,
+        color: colors.grey500,
         fontStyle: 'italic',
     },
     titleDirty: {
-        color: colors.greyDark,
+        color: colors.grey700,
     },
 };

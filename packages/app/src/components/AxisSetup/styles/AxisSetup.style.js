@@ -1,4 +1,4 @@
-import { colors } from '@dhis2/analytics';
+import { colors } from '@dhis2/ui-core';
 
 export default {
     tableContainer: {
@@ -11,11 +11,11 @@ export default {
         width: '10%',
     },
     coloredColumn: {
-        backgroundColor: colors.lightGrey,
+        backgroundColor: colors.grey100,
     },
     tableCell: {
         padding: '4px 24px',
-        borderBottom: `1px solid ${colors.greyLight}`,
+        borderBottom: `1px solid ${colors.grey300}`,
     },
     head: {
         borderBottom: 'none',

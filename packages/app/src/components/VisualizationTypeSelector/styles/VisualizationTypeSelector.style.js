@@ -1,4 +1,4 @@
-import { colors } from '@dhis2/analytics';
+import { colors } from '@dhis2/ui-core';
 
 export default {
     button: {
@@ -20,7 +20,7 @@ export default {
     menuDivider: {
         border: 'none',
         borderBottom: '1px solid',
-        borderColor: colors.greyLight,
+        borderColor: colors.grey300,
     },
     menuItem: {
         height: 120,

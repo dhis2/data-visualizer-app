@@ -1,4 +1,4 @@
-import { colors } from '@dhis2/analytics';
+import { colors } from '@dhis2/ui-core';
 
 export default theme => ({
     container: {
@@ -15,11 +15,11 @@ export default theme => ({
         cursor: 'pointer',
     },
     warning: {
-        backgroundColor: '#FFCA28',
+        backgroundColor: colors.yellow500,
         color: colors.black,
     },
     error: {
-        backgroundColor: '#D32F2F',
+        backgroundColor: colors.red500,
         color: colors.white,
     },
 });

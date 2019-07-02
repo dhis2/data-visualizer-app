@@ -1,4 +1,4 @@
-import { colors } from '@dhis2/analytics';
+import { colors } from '@dhis2/ui-core';
 
 export const styles = {
     tooltip: {
@@ -6,7 +6,7 @@ export const styles = {
         padding: '7px 9px',
         color: colors.white,
         fontSize: '12px',
-        backgroundColor: '#4a4a4a',
+        backgroundColor: colors.grey900,
         boxShadow: 'none',
         borderRadius: '3px',
         position: 'relative',
