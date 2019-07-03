@@ -3,7 +3,7 @@ import {
     DIMENSION_ID_ORGUNIT,
     layoutGetAxisNameDimensionIdsObject,
     layoutGetDimensionIdItemIdsObject,
-} from '@dhis2/d2-ui-analytics';
+} from '@dhis2/analytics';
 
 import {
     YEAR_OVER_YEAR_LINE,

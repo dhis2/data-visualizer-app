@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
-import { FIXED_DIMENSIONS } from '@dhis2/d2-ui-analytics';
+import { FIXED_DIMENSIONS } from '@dhis2/analytics';
 
 import Menu from './Menu';
 import Tooltip from './Tooltip';
