@@ -79,10 +79,10 @@ class Chip extends React.Component {
 
     renderChip = () => {
         const itemsLabel = this.isSingleValueDataDimension()
-            ? i18n.t(': {{total}} of 1 selected', {
+            ? i18n.t('{{total}} of 1 selected', {
                   total: this.props.items.length,
               })
-            : i18n.t(': {{total}} selected', {
+            : i18n.t('{{total}} selected', {
                   total: this.props.items.length,
               });
 
@@ -90,7 +90,7 @@ class Chip extends React.Component {
             ? this.props.items.slice(0, 1)
             : [];
 
-        const chipLabel = `${this.props.dimensionName}${
+        const chipLabel = `${this.props.dimensionName}: ${
             this.props.items.length > 0 ? itemsLabel : ''
         }`;
         const anchorEl = document.getElementById(this.id);
