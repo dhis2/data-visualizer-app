@@ -1,4 +1,5 @@
-import { colors } from '../../../../modules/colors';
+import { colors } from '@dhis2/ui-core';
+
 import defaultLayoutStyle from './DefaultLayout.style';
 import * as layoutStyle from '../../styles/style';
 
@@ -19,7 +20,7 @@ export default {
         maxWidth: 55,
         padding: '2px 0px 0px 0px',
         fontSize: 11,
-        color: colors.greyDark,
+        color: colors.grey700,
         userSelect: 'none',
         letterSpacing: '0.2px',
     },

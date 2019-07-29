@@ -28,7 +28,7 @@ export const chartTypeDisplayNames = {
     [YEAR_OVER_YEAR_LINE]: i18n.t('Year over year (line)'),
     [YEAR_OVER_YEAR_COLUMN]: i18n.t('Year over year (column)'),
     [SINGLE_VALUE]: i18n.t('Single value'),
-    [OPEN_AS_MAP]: i18n.t('Open as Map'),
+    [OPEN_AS_MAP]: i18n.t('Open as Map'), // TODO Open as: Map when i18next nsSeparator fixed
 };
 
 const stackedTypes = [STACKED_COLUMN, STACKED_BAR, AREA];

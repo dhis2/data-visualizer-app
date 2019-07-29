@@ -1,11 +1,13 @@
+import { colors } from '@dhis2/ui-core';
+
 export default {
     dialogContent: {
         flex: '1 1 550px',
     },
     tabsBar: {
         height: '48px',
-        backgroundColor: '#FFFFFF',
-        borderBottom: '1px solid #E0E0E0',
+        backgroundColor: colors.white,
+        borderBottom: `1px solid ${colors.grey300}`,
     },
     tab: {
         width: '33.33%',
