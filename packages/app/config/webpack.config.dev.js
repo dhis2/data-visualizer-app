@@ -168,6 +168,13 @@ module.exports = {
                     },
                     // Process JS with Babel.
                     {
+                        test: /@dhis2\/.*\.(js|jsx|mjs)$/,
+                        loader: require.resolve('babel-loader'),
+                        options: {
+                            cacheDirectory: true,
+                        },
+                    },
+                    {
                         test: /\.(js|jsx|mjs)$/,
                         include: paths.appSrc,
                         loader: require.resolve('babel-loader'),

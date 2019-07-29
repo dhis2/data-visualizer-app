@@ -1,4 +1,4 @@
-import { colors } from '../../../../../modules/colors';
+import { colors } from '@dhis2/ui-core';
 
 export default {
     arrowDown: {

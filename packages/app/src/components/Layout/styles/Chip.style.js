@@ -1,4 +1,5 @@
-import { colors } from '../../../modules/colors';
+import { colors } from '@dhis2/ui-core';
+
 import * as layoutStyle from './style';
 
 export const styles = {
@@ -20,7 +21,7 @@ export const styles = {
         textOverflow: 'ellipsis',
     },
     chipEmpty: {
-        backgroundColor: colors.greyLight,
+        backgroundColor: colors.grey300,
     },
     fixedDimensionIcon: {
         paddingRight: '6px',
