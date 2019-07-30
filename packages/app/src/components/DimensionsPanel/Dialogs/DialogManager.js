@@ -135,9 +135,11 @@ export class DialogManager extends Component {
                   .map((id, index) => ({
                       id,
                       name: this.props.metadata[id].name,
-                      isActive: isSingleValue(this.props.type)
-                          ? index === 0
-                          : true,
+                      isActive:
+                          dialogId === DIMENSION_ID_DATA &&
+                          isSingleValue(this.props.type)
+                              ? index === 0
+                              : true,
                   }))
             : [];
     };
