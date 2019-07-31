@@ -199,7 +199,7 @@ export class DialogManager extends Component {
                 const infoBoxMessage =
                     isSingleValue(type) && selectedItems.length > 1
                         ? i18n.t(
-                              "'Single Value' can only show one data item. The first data item is automatically selected."
+                              "'Single Value' is intended to show a single data item. Only the first item will be used and saved."
                           )
                         : null;
 

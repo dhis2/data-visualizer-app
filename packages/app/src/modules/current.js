@@ -71,10 +71,14 @@ export const getSingleValueCurrentFromUi = (state, action) => {
         },
     };
 
+    // only save the first dx item
+    const axesFromUi = getAxesFromUi(ui);
+    axesFromUi.columns[0].items.reverse().splice(-1);
+
     return {
         ...state,
         [BASE_FIELD_TYPE]: ui.type,
-        ...getAxesFromUi(ui),
+        ...axesFromUi,
         ...getOptionsFromUi(ui),
     };
 };
