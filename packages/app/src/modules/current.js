@@ -73,7 +73,7 @@ export const getSingleValueCurrentFromUi = (state, action) => {
 
     // only save the first dx item
     const axesFromUi = getAxesFromUi(ui);
-    axesFromUi.columns[0].items.reverse().splice(-1);
+    axesFromUi.columns[0].items = [axesFromUi.columns[0].items[0]];
 
     return {
         ...state,

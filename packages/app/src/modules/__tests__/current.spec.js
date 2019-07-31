@@ -7,7 +7,7 @@ import {
     DIMENSION_ID_ORGUNIT,
 } from '@dhis2/analytics';
 
-import { getAxesFromUi } from '../current';
+import { getAxesFromUi, getSingleValueCurrentFromUi } from '../current';
 
 const dxItem1id = 'dxItem1id';
 const dxItem2id = 'dxItem2id';
@@ -57,6 +57,46 @@ describe('getAxesFromUi', () => {
             ],
         };
         const actualState = getAxesFromUi(ui);
+
+        expect(actualState).toEqual(expectedState);
+    });
+});
+
+describe('getSingleValueCurrentFromUi', () => {
+    it('should return only the 1st item in dx', () => {
+        const expectedState = {
+            columns: [
+                { dimension: DIMENSION_ID_DATA, items: [{ id: dxItem1id }] },
+            ],
+            filters: [
+                { dimension: DIMENSION_ID_ORGUNIT, items: [{ id: ouItemId }] },
+                { dimension: otherId, items: [{ id: otherItemId }] },
+                { dimension: DIMENSION_ID_PERIOD, items: [{ id: peItemId }] },
+            ],
+            itemsByDimension: {
+                dx: [dxItem1id, dxItem2id],
+                other: [otherItemId],
+                ou: [ouItemId],
+                pe: [peItemId],
+            },
+            rows: [],
+            layout: {
+                columns: [DIMENSION_ID_DATA, otherId],
+                filters: [DIMENSION_ID_ORGUNIT],
+                rows: [DIMENSION_ID_PERIOD, emptyId],
+            },
+            options: { targetLine: false },
+            targetLineLabel: undefined,
+            targetLineValue: undefined,
+            type: 'SINGLEVALUE',
+        };
+
+        ui.type = 'SINGLEVALUE';
+        ui.options = {
+            targetLine: false,
+        };
+
+        const actualState = getSingleValueCurrentFromUi(ui, { value: ui });
 
         expect(actualState).toEqual(expectedState);
     });
