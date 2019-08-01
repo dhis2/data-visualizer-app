@@ -69,6 +69,14 @@ const errorLabels = {
             data: dxName,
         }),
     },
+    singleValue: {
+        dx: i18n.t('Please add one {{series}} dimension', {
+            series: menuLabels.columns,
+        }),
+        pe: i18n.t('Please add at least one period as {{filter}}', {
+            filter: menuLabels.filters,
+        }),
+    },
 };
 
 // Layout validation helper functions
@@ -122,11 +130,10 @@ const validatePieLayout = layout => {
 };
 
 const validateSingleValueLayout = layout => {
-    validateAxis(layout.columns, errorLabels.defaultSeries);
-    validateAxis(layout.filters, errorLabels.pie.filter);
+    validateAxis(layout.columns, errorLabels.singleValue.dx);
     validateDimension(
         layoutGetDimension(layout, DIMENSION_ID_PERIOD),
-        errorLabels.pie.pe
+        errorLabels.singleValue.pe
     );
 };
 
