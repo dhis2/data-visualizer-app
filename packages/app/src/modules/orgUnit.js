@@ -1,69 +1,54 @@
 import {
     ouIdHelper,
     DIMENSION_ID_ORGUNIT,
-    AXIS_NAMES,
-    axisHasDimension,
-    axisGetDimension,
-    dimensionIs,
     dimensionGetItems,
+    layoutReplaceDimension,
+    layoutGetDimension,
 } from '@dhis2/analytics';
 
 import { apiFetchOrganisationUnitLevels } from '../api/organisationUnits';
 
-const isNumericOuLevel = id =>
+const isOuLevelIntId = id =>
     ouIdHelper.hasLevelPrefix(id)
         ? Number.isInteger(parseInt(ouIdHelper.removePrefix(id), 10))
         : false;
 
 const replaceNumericOuLevelWithUid = ouLevels => item => {
-    if (isNumericOuLevel(item.id)) {
-        const numericOuId = parseInt(ouIdHelper.removePrefix(item.id), 10);
-
-        const id = ouLevels.find(
-            level => parseInt(level.level, 10) === numericOuId
-        ).id;
-
-        return Object.assign({}, item, {
-            id: ouIdHelper.addLevelPrefix(id),
-        });
+    if (!isOuLevelIntId(item.id)) {
+        return item;
     }
 
-    return item;
+    const ouIntId = parseInt(ouIdHelper.removePrefix(item.id), 10);
+    const ouUid = ouLevels.find(l => parseInt(l.level, 10) === ouIntId).id;
+
+    return Object.assign({}, item, { id: ouIdHelper.addLevelPrefix(ouUid) });
 };
 
-export const convertOuLevelsToUids = async visualization => {
-    const axis = AXIS_NAMES.find(a =>
-        axisHasDimension(visualization[a], DIMENSION_ID_ORGUNIT)
-    );
-
-    const ouDimension = axis
-        ? axisGetDimension(visualization[axis], DIMENSION_ID_ORGUNIT)
-        : null;
+export const convertOuLevelsToUids = async layout => {
+    const ouDimension = layoutGetDimension(layout, DIMENSION_ID_ORGUNIT);
 
     const hasNumericOuLevels =
         ouDimension &&
-        dimensionGetItems(ouDimension).some(item => isNumericOuLevel(item.id));
+        dimensionGetItems(ouDimension).some(item => isOuLevelIntId(item.id));
 
     if (hasNumericOuLevels) {
         const ouLevels = await apiFetchOrganisationUnitLevels();
         const replaceNumericOuLevel = replaceNumericOuLevelWithUid(ouLevels);
 
-        const updatedAxis = visualization[axis].map(dimension => {
-            if (dimensionIs(dimension, DIMENSION_ID_ORGUNIT)) {
-                const items = dimensionGetItems(dimension).map(
-                    replaceNumericOuLevel
-                );
+        const updatedOuItems = dimensionGetItems(ouDimension).map(
+            replaceNumericOuLevel
+        );
 
-                return Object.assign({}, dimension, { items });
-            }
+        console.log('updatedOuItems', updatedOuItems);
 
-            return dimension;
-        });
-
-        return Object.assign({}, visualization, { [axis]: updatedAxis });
+        return layoutReplaceDimension(
+            layout,
+            DIMENSION_ID_ORGUNIT,
+            updatedOuItems
+        );
     }
 
-    return visualization;
+    return layout;
 };
 
 export const removeLastPathSegment = path => {
