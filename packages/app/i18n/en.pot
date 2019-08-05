@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-07-08T08:57:31.844Z\n"
-"PO-Revision-Date: 2019-07-08T08:57:31.844Z\n"
+"POT-Creation-Date: 2019-08-01T09:39:57.107Z\n"
+"PO-Revision-Date: 2019-08-01T09:39:57.107Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -38,8 +38,8 @@ msgid "Update"
 msgstr ""
 
 msgid ""
-"'Single Value' can only show one data item. The first data item is "
-"automatically selected."
+"'Single Value' is intended to show a single data item. Only the first item "
+"will be used and saved."
 msgstr ""
 
 msgid "Hide"
@@ -436,6 +436,12 @@ msgid "Please add at least one period as a {{category}} dimension"
 msgstr ""
 
 msgid "Please add {{data}} as a filter dimension"
+msgstr ""
+
+msgid "Please add one {{series}} dimension"
+msgstr ""
+
+msgid "Please add at least one period as {{filter}}"
 msgstr ""
 
 msgid "Today"
