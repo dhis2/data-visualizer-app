@@ -306,6 +306,7 @@ describe('ChartPlugin', () => {
                     const expectedExtraOptions = {
                         yearlySeries: mockYoYSeriesLabels,
                         xAxisLabels: ['period 1', 'period 2'],
+                        noData: { text: 'No data' },
                     };
 
                     expect(
