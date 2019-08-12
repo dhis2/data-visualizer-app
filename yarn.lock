@@ -179,14 +179,14 @@
     react-beautiful-dnd "^10.1.1"
     styled-jsx "^3.2.1"
 
-"@dhis2/analytics@^2.2.1":
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.2.1.tgz#ed46681c56089db8b5ac8223b5c09cc9a96a1096"
-  integrity sha512-9KWd3hOe6JRhlb3eibxh4Dm/0UjijVer7J4wDLDdvtnoeSo6U0ue6WZ3gw9pVRShqjUU4IsUe7cFgwXpDDlHXQ==
+"@dhis2/analytics@^2.1.0", "@dhis2/analytics@^2.3.2":
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.3.2.tgz#7cbefe3a78250305318baec785eb6c110abdc538"
+  integrity sha512-I3Nf3VK3eoOuMiX1OhbI+hGXSUg9eGfHORXIwTGwnTdLDirfzJRnOxJLB56N7jBZ5Vv0nZaqBaIO56iEDkjuKQ==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^6.1.0"
-    "@dhis2/d2-ui-period-selector-dialog" "^6.1.0"
+    "@dhis2/d2-ui-period-selector-dialog" "^6.2.0"
     "@dhis2/ui-core" "^3.4.0"
     "@material-ui/core" "^3.9.3"
     "@material-ui/icons" "^3.0.2"
@@ -347,6 +347,18 @@
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-analytics" "^1.0.0"
+    "@material-ui/core" "^3.3.1"
+    "@material-ui/icons" "^3.0.1"
+    babel-runtime "^6.26.0"
+    prop-types "^15.6.0"
+
+"@dhis2/d2-ui-period-selector-dialog@^6.2.0":
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-period-selector-dialog/-/d2-ui-period-selector-dialog-6.2.0.tgz#7c27654b846775faa014f67ac7ea0178e40f8066"
+  integrity sha512-NaCeAuwXgHX1Gle6kjFMI5hdtQqeQlBfHtFCa9IPZNvDoN3yn4pDSGx5XW9DPNESEoBg3KVhkdm8NDmcyglbqg==
+  dependencies:
+    "@dhis2/analytics" "^2.1.0"
+    "@dhis2/d2-i18n" "^1.0.4"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     babel-runtime "^6.26.0"
