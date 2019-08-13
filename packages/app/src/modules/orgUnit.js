@@ -6,8 +6,6 @@ import {
     layoutGetDimension,
 } from '@dhis2/analytics';
 
-import { apiFetchOrganisationUnitLevels } from '../api/organisationUnits';
-
 const isOuLevelIntId = id =>
     ouIdHelper.hasLevelPrefix(id)
         ? Number.isInteger(parseInt(ouIdHelper.removePrefix(id), 10))
@@ -24,7 +22,7 @@ const replaceNumericOuLevelWithUid = ouLevels => item => {
     return Object.assign({}, item, { id: ouIdHelper.addLevelPrefix(ouUid) });
 };
 
-export const convertOuLevelsToUids = async layout => {
+export const convertOuLevelsToUids = (ouLevels, layout) => {
     const ouDimension = layoutGetDimension(layout, DIMENSION_ID_ORGUNIT);
 
     const hasNumericOuLevels =
@@ -32,14 +30,11 @@ export const convertOuLevelsToUids = async layout => {
         dimensionGetItems(ouDimension).some(item => isOuLevelIntId(item.id));
 
     if (hasNumericOuLevels) {
-        const ouLevels = await apiFetchOrganisationUnitLevels();
         const replaceNumericOuLevel = replaceNumericOuLevelWithUid(ouLevels);
 
         const updatedOuItems = dimensionGetItems(ouDimension).map(
             replaceNumericOuLevel
         );
-
-        console.log('updatedOuItems', updatedOuItems);
 
         return layoutReplaceDimension(
             layout,

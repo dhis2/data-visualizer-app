@@ -4,6 +4,7 @@ import {
     apiFetchVisualization,
     apiSaveVisualization,
 } from '../api/visualization';
+import { apiFetchOrganisationUnitLevels } from '../api/organisationUnits';
 
 import * as fromVisualization from './visualization';
 import * as fromCurrent from './current';
@@ -50,7 +51,11 @@ export const tDoLoadVisualization = (type, id, interpretationId) => async (
     getState
 ) => {
     const onSuccess = async model => {
-        const visualization = await convertOuLevelsToUids(model.toJSON());
+        const ouLevels = await apiFetchOrganisationUnitLevels();
+        const visualization = await convertOuLevelsToUids(
+            ouLevels,
+            model.toJSON()
+        );
 
         if (interpretationId) {
             const interpretation = visualization.interpretations.find(
