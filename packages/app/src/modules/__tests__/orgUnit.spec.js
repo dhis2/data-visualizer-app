@@ -4,15 +4,12 @@ import {
     getOuPath,
 } from '../orgUnit';
 
-jest.mock('../../api/organisationUnits', () => ({
-    apiFetchOrganisationUnitLevels: () =>
-        Promise.resolve([
-            {
-                level: 2,
-                id: '2nd-floor',
-            },
-        ]),
-}));
+const ouLevels = [
+    {
+        level: 2,
+        id: '2nd-floor',
+    },
+];
 
 describe('convertOuLevelsToUids', () => {
     let vis;
@@ -25,7 +22,7 @@ describe('convertOuLevelsToUids', () => {
         };
     });
 
-    it('does nothing when no ou', async () => {
+    it('does nothing when no ou', () => {
         vis.filters = [
             {
                 dimension: 'facility_type',
@@ -38,7 +35,7 @@ describe('convertOuLevelsToUids', () => {
             },
         ];
 
-        const updatedVis = await convertOuLevelsToUids(vis);
+        const updatedVis = convertOuLevelsToUids(ouLevels, vis);
 
         expect(updatedVis).toEqual({
             filters: [
@@ -88,7 +85,7 @@ describe('convertOuLevelsToUids', () => {
             },
         ];
 
-        const updatedVis = await convertOuLevelsToUids(vis);
+        const updatedVis = convertOuLevelsToUids(ouLevels, vis);
 
         expect(updatedVis).toEqual({
             filters: [
@@ -116,7 +113,7 @@ describe('convertOuLevelsToUids', () => {
         });
     });
 
-    it('converts ou rows', async () => {
+    it('converts ou rows', () => {
         vis.rows = [
             {
                 dimension: 'ou',
@@ -129,7 +126,7 @@ describe('convertOuLevelsToUids', () => {
             },
         ];
 
-        const updatedVis = await convertOuLevelsToUids(vis);
+        const updatedVis = convertOuLevelsToUids(ouLevels, vis);
 
         expect(updatedVis).toEqual({
             filters: [],
@@ -144,7 +141,7 @@ describe('convertOuLevelsToUids', () => {
         });
     });
 
-    it('converts ou columns', async () => {
+    it('converts ou columns', () => {
         vis.columns = [
             {
                 dimension: 'ou',
@@ -157,7 +154,7 @@ describe('convertOuLevelsToUids', () => {
             },
         ];
 
-        const updatedVis = await convertOuLevelsToUids(vis);
+        const updatedVis = convertOuLevelsToUids(ouLevels, vis);
 
         expect(updatedVis).toEqual({
             filters: [],

@@ -31,7 +31,20 @@ selectors.sGetRootOrgUnit = () => rootOrganisationUnit;
 selectors.sGetRelativePeriod = () => relativePeriod;
 
 jest.mock('../../modules/orgUnit', () => ({
-    convertOuLevelsToUids: vis => vis,
+    // convertOuLevelsToUids: ('a', vis) => vis,
+    convertOuLevelsToUids: function(ouLevels, vis) {
+        return vis;
+    },
+}));
+
+jest.mock('../../api/organisationUnits', () => ({
+    apiFetchOrganisationUnitLevels: () =>
+        Promise.resolve([
+            {
+                level: 2,
+                id: '2nd-floor',
+            },
+        ]),
 }));
 
 describe('index', () => {
@@ -63,7 +76,12 @@ describe('index', () => {
             const store = mockStore({});
 
             return store
-                .dispatch(fromActions.tDoLoadVisualization())
+                .dispatch(
+                    fromActions.tDoLoadVisualization({
+                        type: 'test',
+                        id: 1,
+                    })
+                )
                 .then(() => {
                     expect(store.getActions()).toEqual(expectedActions);
                 });
@@ -105,7 +123,14 @@ describe('index', () => {
             const store = mockStore({});
 
             return store
-                .dispatch(fromActions.tDoLoadVisualization('test', 1, 1))
+                .dispatch(
+                    fromActions.tDoLoadVisualization({
+                        type: 'test',
+                        id: 1,
+                        interpretationId: 1,
+                        ouLevels: [],
+                    })
+                )
                 .then(() => {
                     expect(store.getActions()).toEqual(expectedActions);
                 });
@@ -121,7 +146,12 @@ describe('index', () => {
             const store = mockStore({});
 
             return store
-                .dispatch(fromActions.tDoLoadVisualization())
+                .dispatch(
+                    fromActions.tDoLoadVisualization({
+                        type: 'test',
+                        id: 1,
+                    })
+                )
                 .then(() => {
                     expect(store.getActions().slice(-1)[0].type).toEqual(
                         CLEAR_LOAD_ERROR
@@ -150,7 +180,12 @@ describe('index', () => {
             const store = mockStore({});
 
             return store
-                .dispatch(fromActions.tDoLoadVisualization())
+                .dispatch(
+                    fromActions.tDoLoadVisualization({
+                        type: 'test',
+                        id: 1,
+                    })
+                )
                 .then(() => {
                     expect(store.getActions()).toEqual(expectedActions);
                 });
