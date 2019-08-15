@@ -31,10 +31,7 @@ selectors.sGetRootOrgUnit = () => rootOrganisationUnit;
 selectors.sGetRelativePeriod = () => relativePeriod;
 
 jest.mock('../../modules/orgUnit', () => ({
-    // convertOuLevelsToUids: ('a', vis) => vis,
-    convertOuLevelsToUids: function(ouLevels, vis) {
-        return vis;
-    },
+    convertOuLevelsToUids: (ouLevels, vis) => vis,
 }));
 
 jest.mock('../../api/organisationUnits', () => ({
