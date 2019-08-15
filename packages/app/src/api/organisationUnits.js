@@ -16,9 +16,9 @@ export const apiFetchOrganisationUnitRoot = () => {
 
 /**
  * Fetch organisation unit levels
- * @returns {*}
+ * @returns {Promise}
  */
-export const apiFetchOrganisationUnitLevels = async () => {
+export const apiFetchOrganisationUnitLevels = () => {
     const endPoint = '/organisationUnitLevels';
     const fields = ['id', 'name', 'displayName', 'level'];
     const url = `${endPoint}?paging=false&fields=${fields.join(',')}`;
