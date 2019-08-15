@@ -26,7 +26,7 @@ export const chartTypeDisplayNames = {
     [GAUGE]: i18n.t('Gauge'),
     [YEAR_OVER_YEAR_LINE]: i18n.t('Year over year (line)'),
     [YEAR_OVER_YEAR_COLUMN]: i18n.t('Year over year (column)'),
-    [OPEN_AS_MAP]: i18n.t('Open as: Map'),
+    [OPEN_AS_MAP]: i18n.t('Open as Map'), // TODO Open as: Map when i18next nsSeparator fixed
 };
 
 const stackedTypes = [STACKED_COLUMN, STACKED_BAR, AREA];

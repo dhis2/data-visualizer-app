@@ -1,7 +1,9 @@
-const bgColor = '#F4F6F8',
-    iconColor = '#B0BEC5',
-    primaryTextColor = '#000000',
-    secondaryTextColor = '#494949';
+import { colors } from '@dhis2/ui-core';
+
+const bgColor = colors.grey050,
+    iconColor = colors.grey500,
+    primaryTextColor = colors.black,
+    secondaryTextColor = colors.grey700;
 
 export default {
     mask: {

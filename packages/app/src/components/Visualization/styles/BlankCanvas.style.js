@@ -1,4 +1,4 @@
-import { colors } from '../../../modules/colors';
+import { colors } from '@dhis2/ui-core';
 
 const error = {
     fontWeight: 'bold',
@@ -21,10 +21,10 @@ export default {
     },
     title: {
         ...error,
-        color: colors.greyDark,
+        color: colors.grey700,
     },
     description: {
         ...error,
-        color: colors.grey,
+        color: colors.grey500,
     },
 };
