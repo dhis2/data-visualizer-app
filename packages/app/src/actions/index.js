@@ -22,6 +22,7 @@ import { sGetVisualization } from '../reducers/visualization';
 import { sGetRootOrgUnit, sGetRelativePeriod } from '../reducers/settings';
 
 import history from '../modules/history';
+import { convertOuLevelsToUids } from '../modules/orgUnit';
 
 export {
     fromVisualization,
@@ -44,12 +45,14 @@ export const onError = (action, error) => {
 
 // visualization, current, ui
 
-export const tDoLoadVisualization = (type, id, interpretationId) => async (
-    dispatch,
-    getState
-) => {
-    const onSuccess = model => {
-        const visualization = model.toJSON();
+export const tDoLoadVisualization = ({
+    type,
+    id,
+    interpretationId,
+    ouLevels,
+}) => async (dispatch, getState) => {
+    const onSuccess = async model => {
+        const visualization = convertOuLevelsToUids(ouLevels, model.toJSON());
 
         if (interpretationId) {
             const interpretation = visualization.interpretations.find(

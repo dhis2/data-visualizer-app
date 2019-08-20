@@ -16,6 +16,7 @@ import metadataMiddleware from './middleware/metadata';
 import App from './components/App';
 import muiTheme from './modules/theme';
 import { extractUserSettings } from './modules/settings';
+import { apiFetchOrganisationUnitLevels } from './api/organisationUnits';
 
 const apiObjectName = 'chart';
 
@@ -32,7 +33,7 @@ const configI18n = async userSettings => {
     i18n.changeLanguage(uiLocale);
 };
 
-const render = (location, baseUrl, d2, userSettings) => {
+const render = props => {
     const store = configureStore(metadataMiddleware);
 
     if (window.Cypress) {
@@ -42,13 +43,7 @@ const render = (location, baseUrl, d2, userSettings) => {
     ReactDOM.render(
         <Provider store={store}>
             <MuiThemeProvider theme={muiTheme}>
-                <App
-                    location={location}
-                    baseUrl={baseUrl}
-                    d2={d2}
-                    userSettings={userSettings}
-                    apiObjectName={apiObjectName}
-                />
+                <App apiObjectName={apiObjectName} {...props} />
             </MuiThemeProvider>
         </Provider>,
         document.getElementById('root')
@@ -78,7 +73,9 @@ const init = async () => {
         baseUrl: config.baseUrl,
     });
 
-    render(history.location, baseUrl, d2, userSettings);
+    const ouLevels = await apiFetchOrganisationUnitLevels();
+
+    render({ location: history.location, baseUrl, d2, userSettings, ouLevels });
 };
 
 init();
