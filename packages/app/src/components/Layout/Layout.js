@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import DefaultLayout from './DefaultLayout/DefaultLayout';
 import YearOverYearLayout from './YearOverYearLayout/YearOverYearLayout';
 import PieLayout from './PieLayout/PieLayout';
+import SingleValueLayout from './SingleValueLayout/SingleValueLayout';
 import {
     COLUMN,
     STACKED_COLUMN,
@@ -16,6 +17,7 @@ import {
     GAUGE,
     YEAR_OVER_YEAR_LINE,
     YEAR_OVER_YEAR_COLUMN,
+    SINGLE_VALUE,
 } from '../../modules/chartTypes';
 import { sGetUiType } from '../../reducers/ui';
 
@@ -31,6 +33,7 @@ const layoutMap = {
     [GAUGE]: PieLayout,
     [YEAR_OVER_YEAR_LINE]: YearOverYearLayout,
     [YEAR_OVER_YEAR_COLUMN]: YearOverYearLayout,
+    [SINGLE_VALUE]: SingleValueLayout,
 };
 
 const getLayoutByType = (type, props) => {

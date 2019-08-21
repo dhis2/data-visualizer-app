@@ -12,6 +12,7 @@ import AreaIcon from '../../assets/AreaIcon';
 import RadarIcon from '../../assets/RadarIcon';
 import YearOverYearLineIcon from '../../assets/YearOverYearLineIcon';
 import YearOverYearColumnIcon from '../../assets/YearOverYearColumnIcon';
+import SingleValueIcon from '../../assets/SingleValueIcon';
 import GlobeIcon from '../../assets/GlobeIcon';
 
 import {
@@ -26,6 +27,7 @@ import {
     GAUGE,
     YEAR_OVER_YEAR_LINE,
     YEAR_OVER_YEAR_COLUMN,
+    SINGLE_VALUE,
     OPEN_AS_MAP,
     chartTypeDisplayNames,
 } from '../../modules/chartTypes';
@@ -52,6 +54,8 @@ const VisualizationTypeIcon = ({ type = COLUMN, style }) => {
             return <YearOverYearLineIcon style={style} />;
         case YEAR_OVER_YEAR_COLUMN:
             return <YearOverYearColumnIcon style={style} />;
+        case SINGLE_VALUE:
+            return <SingleValueIcon style={style} />;
         case OPEN_AS_MAP:
             return <GlobeIcon style={style} />;
         case COLUMN:

@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-07-02T11:48:24.367Z\n"
-"PO-Revision-Date: 2019-07-02T11:48:24.367Z\n"
+"POT-Creation-Date: 2019-08-08T13:09:25.099Z\n"
+"PO-Revision-Date: 2019-08-08T13:09:25.099Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -35,6 +35,11 @@ msgid "Cancel"
 msgstr ""
 
 msgid "Update"
+msgstr ""
+
+msgid ""
+"'Single Value' is intended to show a single data item. Only the first item "
+"will be used and saved."
 msgstr ""
 
 msgid "Hide"
@@ -91,7 +96,10 @@ msgstr ""
 msgid "Interpretations"
 msgstr ""
 
-msgid "selected"
+msgid "{{total}} of 1 selected"
+msgstr ""
+
+msgid "{{total}} selected"
 msgstr ""
 
 msgid "Series"
@@ -107,6 +115,9 @@ msgid "Move to"
 msgstr ""
 
 msgid "None selected"
+msgstr ""
+
+msgid "Only '{{name}}' in use"
 msgstr ""
 
 msgid "Unsaved chart"
@@ -187,7 +198,7 @@ msgstr ""
 msgid "Before first"
 msgstr ""
 
-msgid "After first"
+msgid "After last"
 msgstr ""
 
 msgid "Before first and after last"
@@ -316,6 +327,9 @@ msgstr ""
 msgid "Year over year (column)"
 msgstr ""
 
+msgid "Single value"
+msgstr ""
+
 msgid "Open as Map"
 msgstr ""
 
@@ -422,6 +436,12 @@ msgid "Please add at least one period as a {{category}} dimension"
 msgstr ""
 
 msgid "Please add {{data}} as a filter dimension"
+msgstr ""
+
+msgid "Please add one {{series}} dimension"
+msgstr ""
+
+msgid "Please add at least one period as {{filter}}"
 msgstr ""
 
 msgid "Today"

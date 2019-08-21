@@ -11,6 +11,7 @@ import { styles } from './styles/Tooltip.style';
 
 const labels = {
     noneSelected: i18n.t('None selected'),
+    onlyOneInUse: name => i18n.t("Only '{{name}}' in use", { name }),
 };
 
 const emptyItems = [];
@@ -37,20 +38,40 @@ export class Tooltip extends React.Component {
     );
 
     render() {
-        const { itemIds, metadata } = this.props;
+        const { itemIds, activeItemIds, metadata } = this.props;
 
-        const names = itemIds.length
-            ? itemIds.map(id => (metadata[id] ? metadata[id].name : id))
-            : [labels.noneSelected];
+        let names = [];
+
+        if (activeItemIds.length) {
+            if (activeItemIds.length === 1) {
+                const id = activeItemIds[0];
+                names = [
+                    labels.onlyOneInUse(metadata[id] ? metadata[id].name : id),
+                ];
+            } else {
+                names = activeItemIds.map(id =>
+                    metadata[id] ? metadata[id].name : id
+                );
+            }
+        } else if (itemIds.length) {
+            names = itemIds.map(id => (metadata[id] ? metadata[id].name : id));
+        } else {
+            names = [labels.noneSelected];
+        }
 
         return names.length ? this.renderTooltip(names) : '';
     }
 }
 
+Tooltip.defaultProps = {
+    activeItemIds: [],
+};
+
 Tooltip.propTypes = {
     open: PropTypes.bool.isRequired,
     anchorEl: PropTypes.object.isRequired,
     dimensionId: PropTypes.string.isRequired,
+    activeItemIds: PropTypes.array,
 };
 
 const mapStateToProps = (state, ownProps) => ({

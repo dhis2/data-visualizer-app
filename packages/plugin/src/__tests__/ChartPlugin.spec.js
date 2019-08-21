@@ -6,7 +6,11 @@ import * as analytics from '@dhis2/analytics';
 import * as api from '../api/analytics';
 import * as apiViz from '../api/visualization';
 import * as options from '../modules/options';
-import { YEAR_OVER_YEAR_LINE, COLUMN } from '../modules/chartTypes';
+import {
+    YEAR_OVER_YEAR_LINE,
+    COLUMN,
+    SINGLE_VALUE,
+} from '../modules/chartTypes';
 
 jest.mock('@dhis2/analytics');
 
@@ -49,6 +53,13 @@ const yearOverYearCurrentMock = {
     columns: [dxMock],
     rows: [peMock],
     yearlySeries: ['LAST_YEAR'],
+};
+
+const singleValueCurrentMock = {
+    type: SINGLE_VALUE,
+    columns: [dxMock],
+    rows: [],
+    filters: [ouMock, peMock],
 };
 
 const metaDataMock = {
@@ -295,13 +306,38 @@ describe('ChartPlugin', () => {
                     const expectedExtraOptions = {
                         yearlySeries: mockYoYSeriesLabels,
                         xAxisLabels: ['period 1', 'period 2'],
+                        noData: { text: 'No data' },
                     };
 
-                    expect(analytics.createVisualization.mock.calls[0][3]).toEqual({
+                    expect(
+                        analytics.createVisualization.mock.calls[0][3]
+                    ).toEqual({
                         animation: undefined,
                         dashboard: false,
                         ...expectedExtraOptions,
                     });
+
+                    done();
+                });
+            });
+        });
+
+        describe('Single value visualization', () => {
+            beforeEach(() => {
+                props.config = {
+                    ...singleValueCurrentMock,
+                };
+            });
+
+            it('provides dhis as output format to createChart', done => {
+                canvas();
+
+                setTimeout(() => {
+                    expect(analytics.createVisualization).toHaveBeenCalled();
+
+                    expect(
+                        analytics.createVisualization.mock.calls[0][6]
+                    ).toEqual('dhis');
 
                     done();
                 });

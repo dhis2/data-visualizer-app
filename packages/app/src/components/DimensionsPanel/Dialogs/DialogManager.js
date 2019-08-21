@@ -7,6 +7,7 @@ import isEqual from 'lodash-es/isEqual';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 
+import i18n from '@dhis2/d2-i18n';
 import {
     DataDimension,
     DynamicDimension,
@@ -37,12 +38,14 @@ import {
     sGetUiItemsByDimension,
     sGetUiActiveModalDialog,
     sGetUiParentGraphMap,
+    sGetUiType,
 } from '../../../reducers/ui';
 import { sGetDimensions } from '../../../reducers/dimensions';
 import { sGetMetadata } from '../../../reducers/metadata';
 import { sGetSettingsDisplayNameProperty } from '../../../reducers/settings';
 import { apiFetchRecommendedIds } from '../../../api/dimensions';
 import { removeLastPathSegment, getOuPath } from '../../../modules/orgUnit';
+import { isSingleValue } from '../../../modules/chartTypes';
 
 export class DialogManager extends Component {
     state = {
@@ -127,9 +130,14 @@ export class DialogManager extends Component {
         return this.props.selectedItems[dialogId]
             ? this.props.selectedItems[dialogId]
                   .filter(id => this.props.metadata[id])
-                  .map(id => ({
+                  .map((id, index) => ({
                       id,
                       name: this.props.metadata[id].name,
+                      isActive:
+                          dialogId === DIMENSION_ID_DATA &&
+                          isSingleValue(this.props.type)
+                              ? index === 0
+                              : true,
                   }))
             : [];
     };
@@ -185,6 +193,7 @@ export class DialogManager extends Component {
         const {
             displayNameProperty,
             dialogId,
+            type,
             dimensions,
             removeUiItems,
             setUiItems,
@@ -201,10 +210,18 @@ export class DialogManager extends Component {
             const selectedItems = this.getSelectedItems(dialogId);
 
             if (dialogId === DIMENSION_ID_DATA) {
+                const infoBoxMessage =
+                    isSingleValue(type) && selectedItems.length > 1
+                        ? i18n.t(
+                              "'Single Value' is intended to show a single data item. Only the first item will be used and saved."
+                          )
+                        : null;
+
                 return (
                     <DataDimension
                         displayNameProp={displayNameProperty}
                         selectedDimensions={selectedItems}
+                        infoBoxMessage={infoBoxMessage}
                         {...dimensionProps}
                     />
                 );
@@ -279,6 +296,7 @@ DialogManager.propTypes = {
     dimensions: PropTypes.object,
     metadata: PropTypes.object,
     selectedItems: PropTypes.object,
+    type: PropTypes.string,
 };
 
 DialogManager.defaultProps = {
@@ -295,6 +313,7 @@ const mapStateToProps = state => ({
     dxIds: sGetUiItemsByDimension(state, DIMENSION_ID_DATA),
     ouIds: sGetUiItemsByDimension(state, DIMENSION_ID_ORGUNIT),
     selectedItems: sGetUiItems(state),
+    type: sGetUiType(state),
 });
 
 export default connect(

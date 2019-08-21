@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import isEqual from 'lodash-es/isEqual';
+import i18n from '@dhis2/d2-i18n';
 import { createVisualization } from '@dhis2/analytics';
 
 import { apiFetchVisualization } from './api/visualization';
@@ -8,7 +9,7 @@ import {
     apiFetchAnalytics,
     apiFetchAnalyticsForYearOverYear,
 } from './api/analytics';
-import { isYearOverYear } from './modules/chartTypes';
+import { isYearOverYear, isSingleValue } from './modules/chartTypes';
 import { getOptionsForRequest } from './modules/options';
 import { computeGenericPeriodNames } from './modules/analytics';
 import { BASE_FIELD_YEARLY_SERIES } from './modules/fields/baseFields';
@@ -108,7 +109,11 @@ class ChartPlugin extends Component {
 
             const options = this.getRequestOptions(visualization, filters);
 
-            const extraOptions = { dashboard: forDashboard };
+            const extraOptions = {
+                dashboard: forDashboard,
+                noData: { text: i18n.t('No data') }
+            };
+
             let responses = [];
 
             if (isYearOverYear(visualization.type)) {
@@ -145,15 +150,22 @@ class ChartPlugin extends Component {
                     {
                         ...extraOptions,
                         animation,
-                    }
+                    },
+                    undefined,
+                    undefined,
+                    isSingleValue(visualization.type) ? 'dhis' : 'highcharts' // output format
                 );
 
-                onChartGenerated(
-                    visualizationConfig.visualization.getSVGForExport({
-                        sourceHeight: 768,
-                        sourceWidth: 1024,
-                    })
-                );
+                if (isSingleValue(visualization.type)) {
+                    onChartGenerated(visualizationConfig.visualization);
+                } else {
+                    onChartGenerated(
+                        visualizationConfig.visualization.getSVGForExport({
+                            sourceHeight: 768,
+                            sourceWidth: 1024,
+                        })
+                    );
+                }
             };
 
             this.recreateVisualization();
