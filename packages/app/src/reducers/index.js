@@ -44,7 +44,11 @@ export {
 };
 
 export const sGetAxisSetupItems = state =>
-    fromUi.sGetAxisSetup(state).map(obj => ({
-        ...obj,
-        name: (fromMetadata.sGetMetadata(state)[obj.id] || {}).name,
-    }));
+    fromUi.sGetAxisSetup(state).map(obj => {
+        const metadata = fromMetadata.sGetMetadata(state)[obj.id];
+
+        return {
+            ...obj,
+            name: metadata ? metadata.name : '',
+        };
+    });
