@@ -1,54 +1,172 @@
-import { getOrgUnitsFromIds, removeLastPathSegment } from '../orgUnit';
+import {
+    convertOuLevelsToUids,
+    removeLastPathSegment,
+    getOuPath,
+} from '../orgUnit';
 
-describe('getOrgUnitsFromIds', () => {
-    it('returns org units with ids in given array', () => {
-        const ids = ['ID1', 'ID2', 'LEVEL-LEVEL', 'GROUP-GROUP_ID'];
-        const metadata = {
-            ID1: {
-                id: 'ID1',
-                name: 'Org unit 1',
-                path: '/ID1',
-            },
-            ID2: {
-                id: 'ID2',
-                name: 'Org unit 2',
-                path: '/ID2',
-            },
+const ouLevels = [
+    {
+        level: 2,
+        id: '2nd-floor',
+    },
+];
+
+describe('convertOuLevelsToUids', () => {
+    let vis;
+    beforeEach(() => {
+        vis = {
+            other: 'abc',
+            filters: [],
+            rows: [],
+            columns: [],
         };
-        const parentGraphMap = {};
+    });
 
-        const orgUnits = getOrgUnitsFromIds(ids, metadata, parentGraphMap);
+    it('does nothing when no ou', () => {
+        vis.filters = [
+            {
+                dimension: 'facility_type',
+                items: [
+                    {
+                        id: 'factype1',
+                        name: 'Facility Type 1',
+                    },
+                ],
+            },
+        ];
 
-        // test that it only extracts org units, not levels/groups
-        expect(orgUnits.length).toEqual(2);
+        const updatedVis = convertOuLevelsToUids(ouLevels, vis);
 
-        orgUnits.forEach(orgUnit => {
-            expect(orgUnit.id).toEqual(metadata[orgUnit.id].id);
-            expect(orgUnit.name).toEqual(metadata[orgUnit.id].name);
-            expect(orgUnit.path).toEqual(metadata[orgUnit.id].path);
+        expect(updatedVis).toEqual({
+            filters: [
+                {
+                    dimension: 'facility_type',
+                    items: [
+                        {
+                            id: 'factype1',
+                            name: 'Facility Type 1',
+                        },
+                    ],
+                },
+            ],
+            rows: [],
+            columns: [],
+            other: 'abc',
         });
     });
 
-    it('returns empty array if there no org units in ou dimension', () => {
-        const ids = [];
-        const metadata = {};
-        const parentGraphMap = {};
+    it('converts ou filters', async () => {
+        vis.filters = [
+            {
+                dimension: 'ou',
+                items: [
+                    {
+                        id: 'fluttershy',
+                        name: 'Fluttershy',
+                    },
+                    {
+                        id: 'LEVEL-2',
+                        name: 'LEVEL-2',
+                    },
+                    {
+                        id: 'rainbow',
+                        name: 'Rainbow Dash',
+                    },
+                ],
+            },
+            {
+                dimension: 'facility_type',
+                items: [
+                    {
+                        id: 'factype1',
+                        name: 'Facility Type 1',
+                    },
+                ],
+            },
+        ];
 
-        expect(getOrgUnitsFromIds(ids, metadata, parentGraphMap)).toEqual([]);
+        const updatedVis = convertOuLevelsToUids(ouLevels, vis);
+
+        expect(updatedVis).toEqual({
+            filters: [
+                {
+                    dimension: 'ou',
+                    items: [
+                        { id: 'fluttershy', name: 'Fluttershy' },
+                        { id: 'LEVEL-2nd-floor', name: 'LEVEL-2' },
+                        { id: 'rainbow', name: 'Rainbow Dash' },
+                    ],
+                },
+                {
+                    dimension: 'facility_type',
+                    items: [
+                        {
+                            id: 'factype1',
+                            name: 'Facility Type 1',
+                        },
+                    ],
+                },
+            ],
+            rows: [],
+            columns: [],
+            other: 'abc',
+        });
     });
 
-    it('only extracts org unit ids, not groups/levels', () => {
-        const levelId = 'LEVEL_ID';
-        const groupId = 'GROUP_ID';
+    it('converts ou rows', () => {
+        vis.rows = [
+            {
+                dimension: 'ou',
+                items: [
+                    {
+                        id: 'LEVEL-2',
+                        name: 'LEVEL-2',
+                    },
+                ],
+            },
+        ];
 
-        const ids = [`LEVEL-${levelId}`, `GROUP-${groupId}`];
-        const metadata = {
-            [levelId]: { name: 'Level', level: 1 },
-            [groupId]: { name: 'Group' },
-        };
-        const parentGraphMap = {};
+        const updatedVis = convertOuLevelsToUids(ouLevels, vis);
 
-        expect(getOrgUnitsFromIds(ids, metadata, parentGraphMap)).toEqual([]);
+        expect(updatedVis).toEqual({
+            filters: [],
+            columns: [],
+            rows: [
+                {
+                    dimension: 'ou',
+                    items: [{ id: 'LEVEL-2nd-floor', name: 'LEVEL-2' }],
+                },
+            ],
+            other: 'abc',
+        });
+    });
+
+    it('converts ou columns', () => {
+        vis.columns = [
+            {
+                dimension: 'ou',
+                items: [
+                    {
+                        id: 'LEVEL-2',
+                        name: 'LEVEL-2',
+                    },
+                ],
+            },
+        ];
+
+        const updatedVis = convertOuLevelsToUids(ouLevels, vis);
+
+        expect(updatedVis).toEqual({
+            filters: [],
+            rows: [],
+            columns: [
+                {
+                    dimension: 'ou',
+                    items: [{ id: 'LEVEL-2nd-floor', name: 'LEVEL-2' }],
+                },
+            ],
+            other: 'abc',
+        });
     });
 });
 
@@ -69,5 +187,36 @@ describe('removeLastPathSegment', () => {
         const path = 'ABC/def/GHI';
 
         expect(removeLastPathSegment(path)).toEqual('ABC/def');
+    });
+});
+
+describe('getOrgUnitPath', () => {
+    it('handles root org units', () => {
+        const id = 'ROOT_ID';
+        const metadata = {};
+        const parentGraphMap = { ROOT_ID: '' };
+
+        expect(getOuPath(id, metadata, parentGraphMap)).toEqual('/ROOT_ID');
+    });
+
+    it('returns path for org unit defined in metadata', () => {
+        const path = 'path';
+        const id = 'ORG_UNIT_ID';
+        const metadata = {
+            [id]: { path },
+        };
+
+        expect(getOuPath(id, metadata)).toEqual(path);
+    });
+
+    it('returns proper path for org unit not defined in metadata, but in parent graph', () => {
+        const id = 'ORG_UNIT_ID';
+        const path = 'path';
+        const metadata = {};
+        const parentGraphMap = { [id]: path };
+
+        expect(getOuPath(id, metadata, parentGraphMap)).toEqual(
+            `/${path}/${id}`
+        );
     });
 });

@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
 import debounce from 'lodash-es/debounce';
 import isEqual from 'lodash-es/isEqual';
 
@@ -14,6 +13,7 @@ import {
     DynamicDimension,
     PeriodDimension,
     OrgUnitDimension,
+    ouIdHelper,
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
@@ -44,10 +44,7 @@ import { sGetDimensions } from '../../../reducers/dimensions';
 import { sGetMetadata } from '../../../reducers/metadata';
 import { sGetSettingsDisplayNameProperty } from '../../../reducers/settings';
 import { apiFetchRecommendedIds } from '../../../api/dimensions';
-import {
-    getOrgUnitsFromIds,
-    removeLastPathSegment,
-} from '../../../modules/orgUnit';
+import { removeLastPathSegment, getOuPath } from '../../../modules/orgUnit';
 import { isSingleValue } from '../../../modules/chartTypes';
 
 export class DialogManager extends Component {
@@ -93,8 +90,9 @@ export class DialogManager extends Component {
                 const forParentGraphMap = {};
 
                 items.forEach(ou => {
-                    forMetadata[ou.id] = {
-                        id: ou.id,
+                    const id = ouIdHelper.removePrefix(ou.id);
+                    forMetadata[id] = {
+                        id,
                         name: ou.name || ou.displayName,
                         displayName: ou.displayName,
                     };
@@ -144,6 +142,18 @@ export class DialogManager extends Component {
             : [];
     };
 
+    getOrgUnitsFromIds = (ids, metadata, parentGraphMap) =>
+        ids
+            .filter(id => metadata[ouIdHelper.removePrefix(id)] !== undefined)
+            .map(id => {
+                const ouUid = ouIdHelper.removePrefix(id);
+                return {
+                    id,
+                    name: metadata[ouUid].displayName || metadata[ouUid].name,
+                    path: getOuPath(ouUid, metadata, parentGraphMap),
+                };
+            });
+
     // The OU content is persisted as mounted in order
     // to cache the org unit tree data
     renderPersistedContent = dimensionProps => {
@@ -156,7 +166,11 @@ export class DialogManager extends Component {
         } = this.props;
 
         if (this.state.ouMounted) {
-            const ouItems = getOrgUnitsFromIds(ouIds, metadata, parentGraphMap);
+            const ouItems = this.getOrgUnitsFromIds(
+                ouIds,
+                metadata,
+                parentGraphMap
+            );
 
             const display =
                 DIMENSION_ID_ORGUNIT === dialogId ? 'block' : 'none';
