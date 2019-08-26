@@ -90,8 +90,8 @@ class Chip extends React.Component {
             ? this.props.items.slice(0, 1)
             : [];
 
-        const chipLabel = `${this.props.dimensionName}: ${
-            this.props.items.length > 0 ? itemsLabel : ''
+        const chipLabel = `${this.props.dimensionName}${
+            this.props.items.length > 0 ? `: ${itemsLabel}` : ''
         }`;
         const anchorEl = document.getElementById(this.id);
         const icon = this.getIconByDimension();
