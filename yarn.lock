@@ -211,17 +211,7 @@
     i18next "^10.3"
     moment "^2.24.0"
 
-"@dhis2/d2-ui-core@6.1.1":
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-6.1.1.tgz#c0ef84ff3267e4645989cf538ca3e4a8ab4a4c0e"
-  integrity sha512-+r8n07NXnolbFQyGKpxP02HBFP26/vueAEmAkiUYBSkZxj5IzuAmMlJB55kRTvkS2DO52mitGWaBPFfgrrAlHA==
-  dependencies:
-    babel-runtime "^6.26.0"
-    d2 "~31.7"
-    lodash "^4.17.10"
-    material-ui "^0.20.0"
-
-"@dhis2/d2-ui-core@6.2.1":
+"@dhis2/d2-ui-core@6.2.1", "@dhis2/d2-ui-core@^6.2.1":
   version "6.2.1"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-6.2.1.tgz#08c461f7658f4cbc198cf4484a470b0481a17f5f"
   integrity sha512-yGLditO7a3jsAzblzzHALjwc5C2YEDcH+4JQESxoZoL7qGHjF3z7N9jgFbJWyfEeT8WK2nl/2jYiJhKrXV8Nuw==
