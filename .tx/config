@@ -2,7 +2,7 @@
 host = https://www.transifex.com
 lang_map = fa_AF: prs
 
-[app-data-visulaizer.en-pot]
+[app-data-visualizer.en-pot]
 file_filter = packages/app/i18n/<lang>.po
 minimum_perc = 0
 source_file = packages/app/i18n/en.pot
