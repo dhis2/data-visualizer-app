@@ -1,8 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
 import styles from './styles/BlankCanvas.style';
-import { sGetLoadError } from '../../reducers/loader';
 import chartErrorImg from '../../assets/chart-error-graphic.png';
 
 export const defaultCanvasMessage = i18n.t(
@@ -28,8 +26,4 @@ export const BlankCanvas = ({ error }) => {
     );
 };
 
-const mapStateToProps = state => ({
-    error: sGetLoadError(state),
-});
-
-export default connect(mapStateToProps)(BlankCanvas);
+export default BlankCanvas;

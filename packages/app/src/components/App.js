@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { createSelector } from 'reselect';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import HeaderBar from '@dhis2/ui/widgets/HeaderBar';
@@ -29,6 +30,12 @@ import './App.css';
 import './scrollbar.css';
 import { getParentGraphMapFromVisualization } from '../modules/ui';
 import AxisSetup from './AxisSetup/AxisSetup';
+
+import { validateLayout } from '../modules/layoutValidation';
+
+import { sGetCurrent } from '../reducers/current';
+import { sGetVisualization } from '../reducers/visualization';
+import { sGetUiInterpretation } from '../reducers/ui';
 
 export class App extends Component {
     unlisten = null;
@@ -158,11 +165,35 @@ export class App extends Component {
         };
     }
 
+    validate = visualization => {
+        try {
+            validateLayout(visualization);
+
+            return '';
+        } catch (err) {
+            const error =
+                (err && err.message) ||
+                i18n.t('Error generating chart, please try again');
+
+            return error;
+        }
+    };
+
     render() {
-        const showVis =
+        let showVis = false;
+        let error = this.props.loadError;
+
+        if (
             this.props.current &&
             Object.keys(this.props.current).length > 0 &&
-            !this.props.loadError;
+            !error
+        ) {
+            error = this.validate(this.props.chartConfig);
+
+            if (!error) {
+                showVis = true;
+            }
+        }
 
         return (
             <FatalErrorBoundary>
@@ -191,7 +222,11 @@ export class App extends Component {
                                 <TitleBar />
                             </div>
                             <div className="main-center-canvas flex-1">
-                                {showVis ? <Visualization /> : <BlankCanvas />}
+                                {showVis ? (
+                                    <Visualization />
+                                ) : (
+                                    <BlankCanvas error={error} />
+                                )}
                             </div>
                         </div>
                         {this.props.ui.rightSidebarOpen && this.props.current && (
@@ -210,7 +245,15 @@ export class App extends Component {
     }
 }
 
+const chartConfigSelector = createSelector(
+    [sGetCurrent, sGetVisualization, sGetUiInterpretation],
+    (current, visualization, interpretation) => {
+        return interpretation.id ? visualization : current;
+    }
+);
+
 const mapStateToProps = state => ({
+    chartConfig: chartConfigSelector(state),
     settings: fromReducers.fromSettings.sGetSettings(state),
     current: fromReducers.fromCurrent.sGetCurrent(state),
     interpretations: fromReducers.fromVisualization.sGetInterpretations(state),

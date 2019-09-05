@@ -14,7 +14,6 @@ import {
     sGetUiRightSidebarOpen,
     sGetUiInterpretation,
 } from '../../reducers/ui';
-import { sGetLoadError } from '../../reducers/loader';
 
 import { acAddMetadata } from '../../actions/metadata';
 import { acSetChart } from '../../actions/chart';
@@ -24,10 +23,6 @@ import {
     acClearLoadError,
 } from '../../actions/loader';
 
-import { validateLayout } from '../../modules/layoutValidation';
-
-import BlankCanvas from './BlankCanvas';
-
 export class Visualization extends Component {
     constructor(props) {
         super(props);
@@ -35,21 +30,7 @@ export class Visualization extends Component {
         this.state = {
             renderId: null,
         };
-
-        if (props.chartConfig) {
-            this.validate(props.chartConfig);
-        }
     }
-
-    validate = visualization => {
-        try {
-            validateLayout(visualization);
-
-            this.props.acClearLoadError();
-        } catch (err) {
-            this.onError(err);
-        }
-    };
 
     onError = err => {
         const error =
@@ -99,11 +80,6 @@ export class Visualization extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.chartConfig !== prevProps.chartConfig) {
-            this.validate(this.props.chartConfig);
-            return;
-        }
-
         // open sidebar
         if (this.props.rightSidebarOpen !== prevProps.rightSidebarOpen) {
             this.getNewRenderId();
@@ -111,12 +87,9 @@ export class Visualization extends Component {
     }
 
     render() {
-        const { chartConfig, chartFilters, error } = this.props;
+        const { chartConfig, chartFilters } = this.props;
         const { renderId } = this.state;
-
-        return error ? (
-            <BlankCanvas />
-        ) : (
+        return (
             <ChartPlugin
                 id={renderId}
                 d2={this.context.d2}
@@ -153,7 +126,6 @@ const mapStateToProps = state => ({
     chartConfig: chartConfigSelector(state),
     chartFilters: chartFiltersSelector(state),
     rightSidebarOpen: sGetUiRightSidebarOpen(state),
-    error: sGetLoadError(state),
 });
 
 export default connect(
