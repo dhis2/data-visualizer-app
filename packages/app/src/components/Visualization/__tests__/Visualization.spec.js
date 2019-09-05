@@ -6,8 +6,6 @@ import {
     chartConfigSelector,
     chartFiltersSelector,
 } from '../Visualization';
-import BlankCanvas from '../BlankCanvas';
-import * as validator from '../../../modules/layoutValidation';
 
 jest.mock('@dhis2/data-visualizer-plugin', () => () => <div />);
 
@@ -35,12 +33,6 @@ describe('Visualization', () => {
             };
 
             shallowVisualization = undefined;
-        });
-
-        it('renders a BlankCanvas when error', () => {
-            props.error = 'there was a catastrophic error';
-
-            expect(vis().find(BlankCanvas).length).toEqual(1);
         });
 
         it('renders a ChartPlugin when no error', () => {
@@ -78,23 +70,6 @@ describe('Visualization', () => {
             expect(props.acSetLoadError).toHaveBeenCalledWith(errorMsg);
         });
 
-        it('triggers clearLoadError when chart config has valid layout', () => {
-            props.chartConfig = { name: 'rainbowDash' };
-            validator.validateLayout = () => 'valid';
-            vis();
-            expect(props.acClearLoadError).toHaveBeenCalled();
-        });
-
-        it('triggers setLoadError when chart config has invalid layout', () => {
-            props.chartConfig = { name: 'non-valid rainbowDash' };
-            validator.validateLayout = () => {
-                throw new Error('not valid');
-            };
-            vis();
-
-            expect(props.acSetLoadError).toHaveBeenCalled();
-        });
-
         it('renders chart with new id when rightSidebarOpen prop changes', () => {
             const wrapper = vis();
 
@@ -103,18 +78,6 @@ describe('Visualization', () => {
             const updatedId = wrapper.find(ChartPlugin).prop('id');
 
             expect(initialId).not.toEqual(updatedId);
-        });
-
-        it('triggers clearLoadError when chart changed to a different, valid chart', () => {
-            validator.validateLayout = () => 'valid';
-            const wrapper = vis();
-
-            wrapper.setProps({
-                ...props,
-                chartConfig: { name: 'rainbowDash' },
-            });
-
-            expect(props.acClearLoadError).toHaveBeenCalledTimes(1);
         });
     });
 

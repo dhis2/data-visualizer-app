@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import { App } from '../App';
 import Snackbar from '../Snackbar/Snackbar';
 import Visualization from '../Visualization/Visualization';
+import BlankCanvas from '../Visualization/BlankCanvas';
 import * as actions from '../../actions/';
 import history from '../../modules/history';
 
@@ -10,6 +11,7 @@ import { getStubContext } from '../../../../../config/testsContext';
 import { CURRENT_AO_KEY } from '../../api/userDataStore';
 import * as userDataStore from '../../api/userDataStore';
 import * as ui from '../../modules/ui';
+import * as validator from '../../modules/layoutValidation';
 
 jest.mock('../Visualization/Visualization', () => () => <div />);
 
@@ -77,10 +79,44 @@ describe('App', () => {
         expect(app().find(Visualization).length).toEqual(0);
     });
 
-    it('renders Visualization component when current is populated', () => {
+    it('renders a BlankCanvas when no AO is loaded', () => {
+        expect(app().find(BlankCanvas).length).toEqual(1);
+    });
+
+    it('renders Visualization component when current is populated, validate passes and no errors', () => {
         props.current = { visProp: {} };
+        validator.validateLayout = () => 'valid';
 
         expect(app().find(Visualization).length).toBeGreaterThan(0);
+    });
+
+    it('renders BlankCanvas with error when current is populated, but validate fails', () => {
+        props.current = { visProp: {} };
+        const validationError = 'layout not valid';
+
+        validator.validateLayout = () => {
+            throw new Error(validationError);
+        };
+
+        const wrapper = app();
+
+        expect(wrapper.find(BlankCanvas).length).toEqual(1);
+        expect(wrapper.find(BlankCanvas).prop('error')).toEqual(
+            validationError
+        );
+    });
+
+    it('renders BlankCanvas with error when current is populated, validate pass but there is another error, typically the plugin throws an error', () => {
+        props.current = { visProp: {} };
+        props.loadError = 'catastrophic error';
+        validator.validateLayout = () => 'valid';
+
+        const wrapper = app();
+
+        expect(wrapper.find(BlankCanvas).length).toEqual(1);
+        expect(wrapper.find(BlankCanvas).prop('error')).toEqual(
+            props.loadError
+        );
     });
 
     it('renders a Snackbar', () => {
