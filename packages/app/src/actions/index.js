@@ -68,7 +68,7 @@ export const tDoLoadVisualization = ({
         dispatch(fromVisualization.acSetVisualization(visualization));
         dispatch(fromCurrent.acSetCurrent(visualization));
         dispatch(fromUi.acSetUiFromVisualization(visualization));
-        dispatch(fromLoader.acClearLoadError());
+        //        dispatch(fromLoader.acClearLoadError());
     };
 
     try {
@@ -84,7 +84,7 @@ export const clearVisualization = (dispatch, getState, error = null) => {
     if (error) {
         dispatch(fromLoader.acSetLoadError(error));
     } else {
-        dispatch(fromLoader.acClearLoadError());
+        //        dispatch(fromLoader.acClearLoadError());
     }
 
     dispatch(fromVisualization.acClear());

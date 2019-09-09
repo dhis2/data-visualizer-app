@@ -159,10 +159,10 @@ export class App extends Component {
     }
 
     render() {
-        const showVis =
+        const showVis = true; /*
             this.props.current &&
             Object.keys(this.props.current).length > 0 &&
-            !this.props.loadError;
+            !this.props.loadError;*/
 
         return (
             <FatalErrorBoundary>

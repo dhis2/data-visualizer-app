@@ -24,6 +24,10 @@ const UpdateButton = ({
 }) => {
     const wrappedOnClick = () => {
         clearLoadError();
+
+        // validate layout
+        console.log('update button', current, ui);
+
         onUpdate(ui);
 
         const urlContainsCurrentAOKey =
