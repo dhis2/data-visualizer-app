@@ -6,28 +6,41 @@ import Button from '@material-ui/core/Button';
 import i18n from '@dhis2/d2-i18n';
 
 import { sGetUi } from '../../reducers/ui';
-import { sGetCurrent } from '../../reducers/current';
+import { sGetCurrent, sGetCurrentFromUi } from '../../reducers/current';
 import * as fromActions from '../../actions';
 import history from '../../modules/history';
 import styles from './styles/UpdateButton.style';
 import { CURRENT_AO_KEY } from '../../api/userDataStore';
 
+import { acSetLoadError, acClearLoadError } from '../../actions/loader';
+import { validateLayout } from '../../modules/layoutValidation';
+
 const UpdateButton = ({
     classes,
-    clearLoadError,
+    acClearLoadError,
+    acSetLoadError,
     onUpdate,
     ui,
     current,
+    currentFromUi,
     onClick,
     flat,
     ...props
 }) => {
     const wrappedOnClick = () => {
-        clearLoadError();
+        // validate layout on update
+        // validation error message will be shown without loading the plugin first
+        try {
+            validateLayout(currentFromUi);
 
-        // validate layout
-        console.log('update button', current, ui);
-
+            acClearLoadError();
+        } catch (err) {
+            acSetLoadError(
+                err && err.message
+                    ? err.message
+                    : i18n.t('Error validating layout')
+            );
+        }
         onUpdate(ui);
 
         const urlContainsCurrentAOKey =
@@ -67,11 +80,13 @@ const UpdateButton = ({
 const mapStateToProps = state => ({
     ui: sGetUi(state),
     current: sGetCurrent(state),
+    currentFromUi: sGetCurrentFromUi(state),
 });
 
 const mapDispatchToProps = {
     onUpdate: fromActions.fromCurrent.acSetCurrentFromUi,
-    clearLoadError: fromActions.fromLoader.acClearLoadError,
+    acSetLoadError,
+    acClearLoadError,
 };
 
 UpdateButton.propTypes = {
