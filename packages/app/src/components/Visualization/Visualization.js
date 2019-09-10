@@ -35,10 +35,6 @@ export class Visualization extends Component {
         this.state = {
             renderId: null,
         };
-        /*
-        if (props.chartConfig) {
-            this.validate(props.chartConfig);
-        }*/
     }
 
     validate = visualization => {
@@ -99,12 +95,6 @@ export class Visualization extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        /*
-        if (this.props.chartConfig !== prevProps.chartConfig) {
-            this.validate(this.props.chartConfig);
-            return;
-        }
-*/
         // open sidebar
         if (this.props.rightSidebarOpen !== prevProps.rightSidebarOpen) {
             this.getNewRenderId();
@@ -114,14 +104,6 @@ export class Visualization extends Component {
     render() {
         const { chartConfig, chartFilters, error } = this.props;
         const { renderId } = this.state;
-        console.log(
-            'chart conf',
-            chartConfig,
-            'error',
-            error,
-            'condition',
-            !chartConfig || error
-        );
 
         return Boolean(!chartConfig || error) ? (
             <BlankCanvas />
