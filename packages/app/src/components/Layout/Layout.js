@@ -63,7 +63,7 @@ class Layout extends Component {
 
         this.props.acSetLoadError(error);
     };
-
+    /*
     componentDidUpdate(prevProps) {
         if (this.props.type !== prevProps.type) {
             this.validate({
@@ -72,7 +72,7 @@ class Layout extends Component {
             });
         }
     }
-
+*/
     render() {
         return getLayoutByType(this.props.type);
     }
