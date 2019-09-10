@@ -18,13 +18,7 @@ import { sGetLoadError } from '../../reducers/loader';
 
 import { acAddMetadata } from '../../actions/metadata';
 import { acSetChart } from '../../actions/chart';
-import {
-    acSetLoadError,
-    acSetLoading,
-    acClearLoadError,
-} from '../../actions/loader';
-
-import { validateLayout } from '../../modules/layoutValidation';
+import { acSetLoadError } from '../../actions/loader';
 
 import BlankCanvas from './BlankCanvas';
 
@@ -36,16 +30,6 @@ export class Visualization extends Component {
             renderId: null,
         };
     }
-
-    validate = visualization => {
-        try {
-            validateLayout(visualization);
-
-            this.props.acClearLoadError();
-        } catch (err) {
-            this.onError(err);
-        }
-    };
 
     onError = err => {
         const error =
@@ -153,7 +137,5 @@ export default connect(
         acAddMetadata,
         acSetChart,
         acSetLoadError,
-        acSetLoading,
-        acClearLoadError,
     }
 )(Visualization);
