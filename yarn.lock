@@ -164,7 +164,7 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@2.3.4", "@dhis2/analytics@^2.1.0":
+"@dhis2/analytics@^2.1.0":
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.3.4.tgz#7132738b957f7342423f039f31b871465c9f4966"
   integrity sha512-eLbCGtRRMUWZpvjlAAAfj0zr32J9CpS3oE3yXJlRVcPJwIT7S3xFAkjcgRwazchr5pZnKR/TBwoXmm84mF18zQ==
