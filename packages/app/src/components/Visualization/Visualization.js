@@ -18,13 +18,7 @@ import { sGetLoadError } from '../../reducers/loader';
 
 import { acAddMetadata } from '../../actions/metadata';
 import { acSetChart } from '../../actions/chart';
-import {
-    acSetLoadError,
-    acSetLoading,
-    acClearLoadError,
-} from '../../actions/loader';
-
-import { validateLayout } from '../../modules/layoutValidation';
+import { acSetLoadError } from '../../actions/loader';
 
 import BlankCanvas from './BlankCanvas';
 
@@ -35,21 +29,7 @@ export class Visualization extends Component {
         this.state = {
             renderId: null,
         };
-
-        if (props.chartConfig) {
-            this.validate(props.chartConfig);
-        }
     }
-
-    validate = visualization => {
-        try {
-            validateLayout(visualization);
-
-            this.props.acClearLoadError();
-        } catch (err) {
-            this.onError(err);
-        }
-    };
 
     onError = err => {
         const error =
@@ -99,11 +79,6 @@ export class Visualization extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.chartConfig !== prevProps.chartConfig) {
-            this.validate(this.props.chartConfig);
-            return;
-        }
-
         // open sidebar
         if (this.props.rightSidebarOpen !== prevProps.rightSidebarOpen) {
             this.getNewRenderId();
@@ -114,7 +89,7 @@ export class Visualization extends Component {
         const { chartConfig, chartFilters, error } = this.props;
         const { renderId } = this.state;
 
-        return error ? (
+        return Boolean(!chartConfig || error) ? (
             <BlankCanvas />
         ) : (
             <ChartPlugin
@@ -162,7 +137,5 @@ export default connect(
         acAddMetadata,
         acSetChart,
         acSetLoadError,
-        acSetLoading,
-        acClearLoadError,
     }
 )(Visualization);

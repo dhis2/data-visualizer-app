@@ -12,7 +12,6 @@ import VisualizationTypeSelector from './VisualizationTypeSelector/Visualization
 import DimensionsPanel from './DimensionsPanel/DimensionsPanel';
 import Interpretations from './Interpretations/Interpretations';
 import Visualization from './Visualization/Visualization';
-import BlankCanvas from './Visualization/BlankCanvas';
 import Layout from './Layout/Layout';
 import * as fromReducers from '../reducers';
 import * as fromActions from '../actions';
@@ -159,11 +158,6 @@ export class App extends Component {
     }
 
     render() {
-        const showVis =
-            this.props.current &&
-            Object.keys(this.props.current).length > 0 &&
-            !this.props.loadError;
-
         return (
             <FatalErrorBoundary>
                 <AxisSetup />
@@ -191,7 +185,7 @@ export class App extends Component {
                                 <TitleBar />
                             </div>
                             <div className="main-center-canvas flex-1">
-                                {showVis ? <Visualization /> : <BlankCanvas />}
+                                <Visualization />
                             </div>
                         </div>
                         {this.props.ui.rightSidebarOpen && this.props.current && (
@@ -214,7 +208,6 @@ const mapStateToProps = state => ({
     settings: fromReducers.fromSettings.sGetSettings(state),
     current: fromReducers.fromCurrent.sGetCurrent(state),
     interpretations: fromReducers.fromVisualization.sGetInterpretations(state),
-    loadError: fromReducers.fromLoader.sGetLoadError(state),
     ui: fromReducers.fromUi.sGetUi(state),
 });
 

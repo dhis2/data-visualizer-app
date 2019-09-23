@@ -65,3 +65,20 @@ export default (state = DEFAULT_CURRENT, action) => {
 // Selectors
 
 export const sGetCurrent = state => state.current;
+export const sGetCurrentFromUi = state => {
+    const ui = state.ui;
+
+    switch (ui.type) {
+        case PIE:
+        case GAUGE:
+            return getPieCurrentFromUi(state, { value: ui });
+        case SINGLE_VALUE:
+            return getSingleValueCurrentFromUi(state, { value: ui });
+        case YEAR_OVER_YEAR_LINE:
+        case YEAR_OVER_YEAR_COLUMN:
+            return getYearOverYearCurrentFromUi(state, { value: ui });
+        default: {
+            return getDefaultFromUi(state, { value: ui });
+        }
+    }
+};
