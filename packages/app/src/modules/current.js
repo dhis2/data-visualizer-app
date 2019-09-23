@@ -73,11 +73,15 @@ export const getSingleValueCurrentFromUi = (state, action) => {
         },
     };
 
-    const axesFromUi = getAxesFromUi(ui)
+    const axesFromUi = getAxesFromUi(ui);
 
     // only save the first dx item
     const dxItems = layoutGetDimensionItems(axesFromUi, DIMENSION_ID_DATA);
-    const singleValueAxesFromUi = layoutReplaceDimension(axesFromUi, DIMENSION_ID_DATA, [dxItems[0]])
+    const singleValueAxesFromUi = layoutReplaceDimension(
+        axesFromUi,
+        DIMENSION_ID_DATA,
+        [dxItems[0]]
+    );
 
     return {
         ...state,
