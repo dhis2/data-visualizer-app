@@ -183,29 +183,10 @@
     react-beautiful-dnd "^10.1.1"
     styled-jsx "^3.2.1"
 
-"@dhis2/analytics@^2.3.9":
-  version "2.3.9"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.3.9.tgz#d595556aa575b49d4041284748d8c466c7969657"
-  integrity sha512-Vdmic9jonq0U6pgrTZkxbyzbtz5ZfUdXftHJblX0AoNS63FnLHPX7tJN0JsmCeJo6ujC2orvjfs5szurQdXXew==
-  dependencies:
-    "@dhis2/d2-i18n" "^1.0.4"
-    "@dhis2/d2-ui-org-unit-dialog" "^6.1.0"
-    "@dhis2/d2-ui-period-selector-dialog" "^6.2.0"
-    "@dhis2/ui-core" "^3.4.0"
-    "@material-ui/core" "^3.9.3"
-    "@material-ui/icons" "^3.0.2"
-    classnames "^2.2.6"
-    d2-utilizr "^0.2.16"
-    d3-color "^1.2.3"
-    highcharts "^7.1.2"
-    lodash "^4.17.11"
-    react-beautiful-dnd "^10.1.1"
-    styled-jsx "^3.2.1"
-
-"@dhis2/analytics@^2.3.9":
-  version "2.3.9"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.3.9.tgz#d595556aa575b49d4041284748d8c466c7969657"
-  integrity sha512-Vdmic9jonq0U6pgrTZkxbyzbtz5ZfUdXftHJblX0AoNS63FnLHPX7tJN0JsmCeJo6ujC2orvjfs5szurQdXXew==
+"@dhis2/analytics@^2.3.10":
+  version "2.3.10"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.3.10.tgz#53b06d47d1fbd263d46abd1f21151fba8cdbcc9b"
+  integrity sha512-qUynHRTfaMcEKchg5koWJNGLv5kRLhh9kvsfxJmMkRQ/X5svh9HrDc99fzl0oEjq9Lv2KOnBxlrN86WqqsjEvQ==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^6.1.0"
