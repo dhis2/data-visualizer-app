@@ -73,13 +73,7 @@ describe('App', () => {
         expect(app().find('div').length).toBeGreaterThan(0);
     });
 
-    it('does not render a Visualization component when current is not populated', () => {
-        expect(app().find(Visualization).length).toEqual(0);
-    });
-
-    it('renders Visualization component when current is populated', () => {
-        props.current = { visProp: {} };
-
+    it('renders Visualization component', () => {
         expect(app().find(Visualization).length).toBeGreaterThan(0);
     });
 
