@@ -169,22 +169,22 @@ export class App extends Component {
                         <div className="toolbar-type">
                             <VisualizationTypeSelector />
                         </div>
-                        <div className="toolbar-menubar flex-1">
+                        <div className="toolbar-menubar flex-grow-1">
                             <MenuBar apiObjectName={this.props.apiObjectName} />
                         </div>
                     </div>
-                    <div className="section-main flex-1 flex-ct">
+                    <div className="section-main flex-grow-1 flex-ct">
                         <div className="main-left">
                             <DimensionsPanel />
                         </div>
-                        <div className="main-center flex-1 flex-ct flex-dir-col">
+                        <div className="main-center flex-grow-1 flex-ct flex-dir-col">
                             <div className="main-center-layout">
                                 <Layout />
                             </div>
                             <div className="main-center-titlebar">
                                 <TitleBar />
                             </div>
-                            <div className="main-center-canvas flex-1">
+                            <div className="main-center-canvas flex-grow-1">
                                 <Visualization />
                             </div>
                         </div>
