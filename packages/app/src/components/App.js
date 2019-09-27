@@ -12,7 +12,6 @@ import VisualizationTypeSelector from './VisualizationTypeSelector/Visualization
 import DimensionsPanel from './DimensionsPanel/DimensionsPanel';
 import Interpretations from './Interpretations/Interpretations';
 import Visualization from './Visualization/Visualization';
-import BlankCanvas from './Visualization/BlankCanvas';
 import Layout from './Layout/Layout';
 import * as fromReducers from '../reducers';
 import * as fromActions from '../actions';
@@ -159,11 +158,6 @@ export class App extends Component {
     }
 
     render() {
-        const showVis =
-            this.props.current &&
-            Object.keys(this.props.current).length > 0 &&
-            !this.props.loadError;
-
         return (
             <FatalErrorBoundary>
                 <AxisSetup />
@@ -175,23 +169,23 @@ export class App extends Component {
                         <div className="toolbar-type">
                             <VisualizationTypeSelector />
                         </div>
-                        <div className="toolbar-menubar flex-1">
+                        <div className="toolbar-menubar flex-grow-1">
                             <MenuBar apiObjectName={this.props.apiObjectName} />
                         </div>
                     </div>
-                    <div className="section-main flex-1 flex-ct">
+                    <div className="section-main flex-grow-1 flex-ct">
                         <div className="main-left">
                             <DimensionsPanel />
                         </div>
-                        <div className="main-center flex-1 flex-ct flex-dir-col">
+                        <div className="main-center flex-grow-1 flex-ct flex-dir-col">
                             <div className="main-center-layout">
                                 <Layout />
                             </div>
                             <div className="main-center-titlebar">
                                 <TitleBar />
                             </div>
-                            <div className="main-center-canvas flex-1">
-                                {showVis ? <Visualization /> : <BlankCanvas />}
+                            <div className="main-center-canvas flex-grow-1">
+                                <Visualization />
                             </div>
                         </div>
                         {this.props.ui.rightSidebarOpen && this.props.current && (
@@ -214,7 +208,6 @@ const mapStateToProps = state => ({
     settings: fromReducers.fromSettings.sGetSettings(state),
     current: fromReducers.fromCurrent.sGetCurrent(state),
     interpretations: fromReducers.fromVisualization.sGetInterpretations(state),
-    loadError: fromReducers.fromLoader.sGetLoadError(state),
     ui: fromReducers.fromUi.sGetUi(state),
 });
 

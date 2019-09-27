@@ -6,6 +6,8 @@ import {
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     dimensionCreate,
+    layoutGetDimensionItems,
+    layoutReplaceDimension,
 } from '@dhis2/analytics';
 
 import options from './options';
@@ -71,14 +73,20 @@ export const getSingleValueCurrentFromUi = (state, action) => {
         },
     };
 
-    // only save the first dx item
     const axesFromUi = getAxesFromUi(ui);
-    axesFromUi.columns[0].items = [axesFromUi.columns[0].items[0]];
+
+    // only save the first dx item
+    const dxItems = layoutGetDimensionItems(axesFromUi, DIMENSION_ID_DATA);
+    const singleValueAxesFromUi = layoutReplaceDimension(
+        axesFromUi,
+        DIMENSION_ID_DATA,
+        [dxItems[0]]
+    );
 
     return {
         ...state,
         [BASE_FIELD_TYPE]: ui.type,
-        ...axesFromUi,
+        ...singleValueAxesFromUi,
         ...getOptionsFromUi(ui),
     };
 };
