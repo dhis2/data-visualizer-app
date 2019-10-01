@@ -177,7 +177,7 @@ export class App extends Component {
                         <div className="main-left">
                             <DimensionsPanel />
                         </div>
-                        <div className="main-center flex-grow-1 flex-ct flex-dir-col">
+                        <div className="main-center flex-grow-1 flex-basis-0 flex-ct flex-dir-col">
                             <div className="main-center-layout">
                                 <Layout />
                             </div>
