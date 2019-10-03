@@ -56,8 +56,5 @@
         "cy:e2e:open": "cypress open",
         "cy:e2e:run": "cypress run",
         "coverage": "npm run test --coverage"
-    },
-    "peerDependencies": {
-        "punycode": "^2.1.1"
     }
 }
