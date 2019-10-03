@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
-import HeaderBar from '@dhis2/ui/widgets/HeaderBar';
 
 import FatalErrorBoundary from './ErrorBoundaries/FatalErrorBoundary';
 import Snackbar from '../components/Snackbar/Snackbar';
@@ -21,8 +20,6 @@ import {
     apiFetchAOFromUserDataStore,
     CURRENT_AO_KEY,
 } from '../api/userDataStore';
-
-import '@dhis2/ui/css/reset.css';
 
 import './App.css';
 import './scrollbar.css';
@@ -158,49 +155,44 @@ export class App extends Component {
     }
 
     render() {
-        return (
-            <FatalErrorBoundary>
-                <AxisSetup />
-                <div className="data-visualizer-app flex-ct flex-dir-col">
-                    <div className="section-headerbar">
-                        <HeaderBar appName={i18n.t('Data Visualizer')} />
+        return (<>
+            <AxisSetup />
+            <div className="data-visualizer-app flex-ct flex-dir-col">
+                <div className="section-toolbar flex-ct">
+                    <div className="toolbar-type">
+                        <VisualizationTypeSelector />
                     </div>
-                    <div className="section-toolbar flex-ct">
-                        <div className="toolbar-type">
-                            <VisualizationTypeSelector />
-                        </div>
-                        <div className="toolbar-menubar flex-grow-1">
-                            <MenuBar apiObjectName={this.props.apiObjectName} />
-                        </div>
-                    </div>
-                    <div className="section-main flex-grow-1 flex-ct">
-                        <div className="main-left">
-                            <DimensionsPanel />
-                        </div>
-                        <div className="main-center flex-grow-1 flex-basis-0 flex-ct flex-dir-col">
-                            <div className="main-center-layout">
-                                <Layout />
-                            </div>
-                            <div className="main-center-titlebar">
-                                <TitleBar />
-                            </div>
-                            <div className="main-center-canvas flex-grow-1">
-                                <Visualization />
-                            </div>
-                        </div>
-                        {this.props.ui.rightSidebarOpen && this.props.current && (
-                            <div className="main-right">
-                                <Interpretations
-                                    type={this.props.apiObjectName}
-                                    id={this.props.current.id}
-                                />
-                            </div>
-                        )}
+                    <div className="toolbar-menubar flex-grow-1">
+                        <MenuBar apiObjectName={this.props.apiObjectName} />
                     </div>
                 </div>
-                <Snackbar />
-            </FatalErrorBoundary>
-        );
+                <div className="section-main flex-grow-1 flex-ct">
+                    <div className="main-left">
+                        <DimensionsPanel />
+                    </div>
+                    <div className="main-center flex-grow-1 flex-basis-0 flex-ct flex-dir-col">
+                        <div className="main-center-layout">
+                            <Layout />
+                        </div>
+                        <div className="main-center-titlebar">
+                            <TitleBar />
+                        </div>
+                        <div className="main-center-canvas flex-grow-1">
+                            <Visualization />
+                        </div>
+                    </div>
+                    {this.props.ui.rightSidebarOpen && this.props.current && (
+                        <div className="main-right">
+                            <Interpretations
+                                type={this.props.apiObjectName}
+                                id={this.props.current.id}
+                            />
+                        </div>
+                    )}
+                </div>
+            </div>
+            <Snackbar />
+        </>);
     }
 }
 
