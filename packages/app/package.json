@@ -32,7 +32,6 @@
         "d2": "31.2.1",
         "history": "^4.7.2",
         "lodash-es": "^4.17.11",
-        "loglevel": "^1.6.4",
         "object-assign": "4.1.1",
         "promise": "8.0.1",
         "prop-types": "^15.6.1",
