@@ -183,14 +183,14 @@
     react-beautiful-dnd "^10.1.1"
     styled-jsx "^3.2.1"
 
-"@dhis2/analytics@^2.4.3":
-  version "2.4.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.4.3.tgz#d9822530f29c2efa735f50154894a6620b589254"
-  integrity sha512-4kGAAKfxqYg+ZcN+VGPYRbVYyDttPStNtJMUUYALOIATzboKzhCmKuAW1EEQBmM8ETPFwUnaRhNAPUElTjD7BA==
+"@dhis2/analytics@^2.4.4":
+  version "2.4.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.4.4.tgz#f0839a61c1919d6a4d0b482d2f02aa27d984707d"
+  integrity sha512-QePnnMBygpJHlihdidrKOl/KQWcwpsGqzVqPYPFb0azWbVQd5L/wz1q0S17tRvf3aN7hqelmklZ6/tNEiiOoRg==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
-    "@dhis2/d2-ui-org-unit-dialog" "^6.1.0"
-    "@dhis2/d2-ui-period-selector-dialog" "^6.2.0"
+    "@dhis2/d2-ui-org-unit-dialog" "^6.3.0"
+    "@dhis2/d2-ui-period-selector-dialog" "^6.3.0"
     "@dhis2/ui-core" "^3.4.0"
     "@material-ui/core" "^3.9.3"
     "@material-ui/icons" "^3.0.2"
@@ -234,6 +234,16 @@
   version "6.2.1"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-6.2.1.tgz#08c461f7658f4cbc198cf4484a470b0481a17f5f"
   integrity sha512-yGLditO7a3jsAzblzzHALjwc5C2YEDcH+4JQESxoZoL7qGHjF3z7N9jgFbJWyfEeT8WK2nl/2jYiJhKrXV8Nuw==
+  dependencies:
+    babel-runtime "^6.26.0"
+    d2 "~31.7"
+    lodash "^4.17.10"
+    material-ui "^0.20.0"
+
+"@dhis2/d2-ui-core@6.3.0":
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-6.3.0.tgz#ec0ef63978a34d5b2330303c426bf7d59e0836fc"
+  integrity sha512-ZFthluJBkmbi1F0vNaIvx2Zbjioapo+Ewn1vNqb2MsUadTHOlPcrWQjDz3JCB0qce2ZW2avZ+spasEOytPNsFA==
   dependencies:
     babel-runtime "^6.26.0"
     d2 "~31.7"
@@ -309,6 +319,17 @@
     "@material-ui/icons" "^3.0.1"
     prop-types "^15.5.10"
 
+"@dhis2/d2-ui-org-unit-dialog@^6.3.0":
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-dialog/-/d2-ui-org-unit-dialog-6.3.0.tgz#6f12b73fab2ce0448b92267a19aa6a1e9c363c70"
+  integrity sha512-wgjs1Av9cQzpCThug8uVu5uc61dwcLpfiWcK7Vr046rsw4iH+iMaCk5FE5nIC06LZWsLkENzVEdxo6DYskuq6w==
+  dependencies:
+    "@dhis2/d2-i18n" "^1.0.3"
+    "@dhis2/d2-ui-org-unit-tree" "6.3.0"
+    "@material-ui/core" "^3.3.1"
+    "@material-ui/icons" "^3.0.1"
+    prop-types "^15.5.10"
+
 "@dhis2/d2-ui-org-unit-tree@6.2.1":
   version "6.2.1"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-tree/-/d2-ui-org-unit-tree-6.2.1.tgz#ca95c06fcb812a87dba0744680316716a7fc0718"
@@ -319,10 +340,32 @@
     babel-runtime "^6.26.0"
     prop-types "^15.5.10"
 
+"@dhis2/d2-ui-org-unit-tree@6.3.0":
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-tree/-/d2-ui-org-unit-tree-6.3.0.tgz#5c80074a38987f853383aa12f10ecd11127332ef"
+  integrity sha512-KzO+ZnyN6vQjogFnK4ZWW/fcha40D0g+Vjc6IVS5U1kBiHdpmqngo+6K6DqCaHRkl/7oUyOUkEvrzbWdnkodVA==
+  dependencies:
+    "@dhis2/d2-ui-core" "6.3.0"
+    "@material-ui/core" "^3.3.1"
+    babel-runtime "^6.26.0"
+    prop-types "^15.5.10"
+
 "@dhis2/d2-ui-period-selector-dialog@^6.2.0":
   version "6.2.1"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-period-selector-dialog/-/d2-ui-period-selector-dialog-6.2.1.tgz#e2345e1a7a3095c18fba9a893bbac6042cd037a7"
   integrity sha512-1MCV+pEZxhNqofADV/Xg4KBs76H9yXDwTQhHj9iXU8worvxiXaQKY+dY1yh99G1FVrZykUMEUnSmhj8okfk8yg==
+  dependencies:
+    "@dhis2/analytics" "^2.1.0"
+    "@dhis2/d2-i18n" "^1.0.4"
+    "@material-ui/core" "^3.3.1"
+    "@material-ui/icons" "^3.0.1"
+    babel-runtime "^6.26.0"
+    prop-types "^15.6.0"
+
+"@dhis2/d2-ui-period-selector-dialog@^6.3.0":
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-period-selector-dialog/-/d2-ui-period-selector-dialog-6.3.0.tgz#56bba56d8a7e914364e94e3d025dda8f03a3622f"
+  integrity sha512-JOofPyx+h45PsVi/0Ubf4xQurBwnnq+wTSOtibKfWSvxNgrNUug08F8+LYxoP/+IUogmkzuFD0uQs9pW3pYa0g==
   dependencies:
     "@dhis2/analytics" "^2.1.0"
     "@dhis2/d2-i18n" "^1.0.4"
