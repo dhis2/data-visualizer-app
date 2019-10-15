@@ -55,6 +55,7 @@ const ouId = FIXED_DIMENSIONS.ou.id;
 
 export const defaultState = {
     root: undefined,
+    roots: undefined,
     // use "selected" property for cloning org units while user org unit(s) is (are) selected
     selected: [],
     levelOptions: [],
@@ -147,10 +148,11 @@ export class OrgUnitDimension extends Component {
 
     loadOrgUnitTree = displayNameProperty => {
         apiFetchOrganisationUnits(displayNameProperty)
-            .then(rootLevel => rootLevel.toArray()[0])
-            .then(root => {
+            .then(rootLevel => rootLevel.toArray())
+            .then(roots => {
                 this.setState({
-                    root,
+                    roots,
+                    root: roots[0],
                 });
             });
     };
@@ -273,6 +275,7 @@ export class OrgUnitDimension extends Component {
                     {this.state.root && this.state.showOrgUnitsTree && (
                         <OrgUnitSelector
                             root={this.state.root}
+                            roots={this.state.roots}
                             selected={selected}
                             userOrgUnits={userOrgUnits}
                             level={level}
@@ -291,6 +294,7 @@ export class OrgUnitDimension extends Component {
                             deselectAllTooltipFontColor={colors.black}
                             deselectAllTooltipBackgroundColor={colors.greyLight}
                             displayNameProperty={this.props.displayNameProperty}
+                            isUserDataViewFallback={true}
                         />
                     )}
                     {!this.state.root && (
