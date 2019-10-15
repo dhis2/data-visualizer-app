@@ -13,7 +13,7 @@ jest.mock('@material-ui/core/DialogActions', () => props => (
     <div id="mock-mui-dialog-actions">{props.children}</div>
 ));
 
-jest.mock('@dhis2/d2-ui-analytics', () => {
+jest.mock('@dhis2/analytics', () => {
     return {
         DataDimension: () => <div />,
         DynamicDimension: () => <div />,
