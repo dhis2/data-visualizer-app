@@ -31,6 +31,7 @@ export const apiFetchOrganisationUnits = displayNameProperty => {
             paging: false,
             level: 1,
             fields: fields.join(','),
+            userDataViewFallback: true,
         })
     );
 };
