@@ -13,9 +13,11 @@ export const BUBBLE = 'BUBBLE';
 export const YEAR_OVER_YEAR_LINE = 'YEAR_OVER_YEAR_LINE';
 export const YEAR_OVER_YEAR_COLUMN = 'YEAR_OVER_YEAR_COLUMN';
 export const SINGLE_VALUE = 'SINGLE_VALUE';
+export const PIVOT_TABLE = 'PIVOT_TABLE';
 export const OPEN_AS_MAP = 'OPEN_AS_MAP';
 
 export const chartTypeDisplayNames = {
+    [PIVOT_TABLE]: i18n.t('Pivot table'),
     [COLUMN]: i18n.t('Column'),
     [STACKED_COLUMN]: i18n.t('Stacked column'),
     [BAR]: i18n.t('Bar'),
@@ -36,7 +38,7 @@ const yearOverYearTypes = [YEAR_OVER_YEAR_LINE, YEAR_OVER_YEAR_COLUMN];
 const openAsTypes = [OPEN_AS_MAP];
 const dualAxisTypes = [COLUMN, BAR, LINE, AREA];
 
-export const defaultChartType = COLUMN;
+export const defaultChartType = PIVOT_TABLE;
 export const isStacked = type => stackedTypes.includes(type);
 export const isYearOverYear = type => yearOverYearTypes.includes(type);
 export const isOpenAsType = type => openAsTypes.includes(type);

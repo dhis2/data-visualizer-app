@@ -16,6 +16,7 @@ import SingleValueIcon from '../../assets/SingleValueIcon';
 import GlobeIcon from '../../assets/GlobeIcon';
 
 import {
+    PIVOT_TABLE,
     COLUMN,
     STACKED_COLUMN,
     BAR,
@@ -32,8 +33,10 @@ import {
     chartTypeDisplayNames,
 } from '../../modules/chartTypes';
 
-const VisualizationTypeIcon = ({ type = COLUMN, style }) => {
+const VisualizationTypeIcon = ({ type = PIVOT_TABLE, style }) => {
     switch (type) {
+        case COLUMN:
+            return <ColumnIcon style={style} />;
         case STACKED_COLUMN:
             return <StackedColumnIcon style={style} />;
         case BAR:
@@ -58,9 +61,9 @@ const VisualizationTypeIcon = ({ type = COLUMN, style }) => {
             return <SingleValueIcon style={style} />;
         case OPEN_AS_MAP:
             return <GlobeIcon style={style} />;
-        case COLUMN:
+        case PIVOT_TABLE:
         default:
-            return <ColumnIcon style={style} />;
+            return <LineIcon style={style} />;
     }
 };
 
