@@ -36,7 +36,7 @@ const initD2 = async ({ baseUrl, apiVersion }) => {
     await configI18n(userSettings);
 
     const d2 = await d2Init({
-        baseUrl: config.baseUrl,
+        baseUrl,
     });
 
     const ouLevels = await apiFetchOrganisationUnitLevels();
