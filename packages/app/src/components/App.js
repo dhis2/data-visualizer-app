@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { createSelector } from 'reselect';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 import HeaderBar from '@dhis2/ui/widgets/HeaderBar';
@@ -14,9 +15,11 @@ import Interpretations from './Interpretations/Interpretations';
 import Visualization from './Visualization/Visualization';
 import Layout from './Layout/Layout';
 import * as fromReducers from '../reducers';
+import { sGetUiType } from '../reducers/ui';
 import * as fromActions from '../actions';
 import history from '../modules/history';
 import defaultMetadata from '../modules/metadata';
+import { PIVOT_TABLE } from '../modules/chartTypes';
 import {
     apiFetchAOFromUserDataStore,
     CURRENT_AO_KEY,
@@ -204,11 +207,17 @@ export class App extends Component {
     }
 }
 
+const apiObjectSelector = createSelector(
+    [sGetUiType],
+    type => (type === PIVOT_TABLE ? 'reportTable' : 'chart')
+);
+
 const mapStateToProps = state => ({
     settings: fromReducers.fromSettings.sGetSettings(state),
     current: fromReducers.fromCurrent.sGetCurrent(state),
     interpretations: fromReducers.fromVisualization.sGetInterpretations(state),
     ui: fromReducers.fromUi.sGetUi(state),
+    apiObjectName: apiObjectSelector(state),
 });
 
 const mapDispatchToProps = dispatch => ({

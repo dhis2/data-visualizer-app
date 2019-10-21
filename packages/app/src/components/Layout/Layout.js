@@ -18,6 +18,7 @@ import {
     YEAR_OVER_YEAR_LINE,
     YEAR_OVER_YEAR_COLUMN,
     SINGLE_VALUE,
+    PIVOT_TABLE,
 } from '../../modules/chartTypes';
 import { sGetUiType } from '../../reducers/ui';
 
@@ -34,6 +35,7 @@ const layoutMap = {
     [YEAR_OVER_YEAR_LINE]: YearOverYearLayout,
     [YEAR_OVER_YEAR_COLUMN]: YearOverYearLayout,
     [SINGLE_VALUE]: SingleValueLayout,
+    [PIVOT_TABLE]: DefaultLayout,
 };
 
 const getLayoutByType = (type, props) => {

@@ -18,8 +18,6 @@ import muiTheme from './modules/theme';
 import { extractUserSettings } from './modules/settings';
 import { apiFetchOrganisationUnitLevels } from './api/organisationUnits';
 
-const apiObjectName = 'chart';
-
 const configI18n = async userSettings => {
     const uiLocale = userSettings.uiLocale;
 
@@ -43,7 +41,7 @@ const render = props => {
     ReactDOM.render(
         <Provider store={store}>
             <MuiThemeProvider theme={muiTheme}>
-                <App apiObjectName={apiObjectName} {...props} />
+                <App {...props} />
             </MuiThemeProvider>
         </Provider>,
         document.getElementById('root')
@@ -63,7 +61,7 @@ const init = async () => {
         : DHIS_CONFIG.baseUrl;
 
     config.baseUrl = `${baseUrl}/api/${manifest.dhis2.apiVersion}`;
-    config.schemas = ['chart', 'organisationUnit', 'userGroup'];
+    config.schemas = ['chart', 'reportTable', 'organisationUnit', 'userGroup'];
 
     const userSettings = extractUserSettings(await getUserSettings());
 

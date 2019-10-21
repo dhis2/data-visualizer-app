@@ -9,7 +9,7 @@ import {
 
 import { getFilteredLayout, getSwapModObj } from '../modules/layout';
 import { getOptionsForUi } from '../modules/options';
-import { COLUMN } from '../modules/chartTypes';
+import { PIVOT_TABLE } from '../modules/chartTypes';
 import { getUiFromVisualization } from '../modules/ui';
 
 export const SET_UI = 'SET_UI';
@@ -35,7 +35,7 @@ export const CLEAR_UI_INTERPRETATION = 'CLEAR_UI_INTERPRETATION';
 export const SET_AXES = 'SET_AXES';
 
 export const DEFAULT_UI = {
-    type: COLUMN,
+    type: PIVOT_TABLE,
     options: getOptionsForUi(),
     layout: {
         columns: [DIMENSION_ID_DATA],

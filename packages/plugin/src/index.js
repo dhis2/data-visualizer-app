@@ -1,3 +1,16 @@
-import ChartPlugin from './ChartPlugin';
+import React from 'react';
 
-export default ChartPlugin;
+import ChartPlugin from './ChartPlugin';
+import PivotPlugin from './PivotPlugin';
+
+import { PIVOT_TABLE } from './modules/chartTypes';
+
+const VisualizationPlugin = props => {
+    if (!props.config.type || props.config.type === PIVOT_TABLE) {
+        return <PivotPlugin {...props} />;
+    } else {
+        return <ChartPlugin {...props} />;
+    }
+};
+
+export default VisualizationPlugin;
