@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ChartPlugin from '@dhis2/data-visualizer-plugin';
+import VisualizationPlugin from '@dhis2/data-visualizer-plugin';
 import {
     Visualization,
-    chartConfigSelector,
-    chartFiltersSelector,
+    visConfigSelector,
+    visFiltersSelector,
 } from '../Visualization';
 import BlankCanvas from '../BlankCanvas';
 
@@ -23,8 +23,8 @@ describe('Visualization', () => {
 
         beforeEach(() => {
             props = {
-                chartConfig: {},
-                chartFilters: null,
+                visConfig: {},
+                visFilters: null,
                 error: null,
                 rightSidebarOpen: false,
                 acAddMetadata: jest.fn(),
@@ -42,8 +42,8 @@ describe('Visualization', () => {
             expect(vis().find(BlankCanvas).length).toEqual(1);
         });
 
-        it('renders a ChartPlugin when no error and chartConfig available', () => {
-            expect(vis().find(ChartPlugin).length).toEqual(1);
+        it('renders a VisualizationPlugin when no error and visConfig available', () => {
+            expect(vis().find(VisualizationPlugin).length).toEqual(1);
         });
 
         it('triggers addMetadata action when responses received from chart plugin', () => {
@@ -77,12 +77,12 @@ describe('Visualization', () => {
             expect(props.acSetLoadError).toHaveBeenCalledWith(errorMsg);
         });
 
-        it('renders chart with new id when rightSidebarOpen prop changes', () => {
+        it('renders visualization with new id when rightSidebarOpen prop changes', () => {
             const wrapper = vis();
 
-            const initialId = wrapper.find(ChartPlugin).prop('id');
+            const initialId = wrapper.find(VisualizationPlugin).prop('id');
             wrapper.setProps({ ...props, rightSidebarOpen: true });
-            const updatedId = wrapper.find(ChartPlugin).prop('id');
+            const updatedId = wrapper.find(VisualizationPlugin).prop('id');
 
             expect(initialId).not.toEqual(updatedId);
         });
@@ -97,23 +97,23 @@ describe('Visualization', () => {
             },
         };
 
-        describe('chartConfigSelector', () => {
+        describe('visConfigSelector', () => {
             it('equals the visualization if interpretation selected', () => {
                 const newState = Object.assign({}, state, {
                     ui: { interpretation: { id: 'rainbow dash' } },
                 });
 
-                const selector = chartConfigSelector(newState);
+                const selector = visConfigSelector(newState);
                 expect(selector).toEqual('vis');
             });
 
             it('equals the current if no interpretation selected', () => {
-                const selector = chartConfigSelector(state);
+                const selector = visConfigSelector(state);
                 expect(selector).toEqual('current');
             });
         });
 
-        describe('chartFiltersSelector', () => {
+        describe('visFiltersSelector', () => {
             it('equals object with interpretation date if interpretation selected', () => {
                 const created = 'the near future';
                 const newState = Object.assign({}, state, {
@@ -123,14 +123,14 @@ describe('Visualization', () => {
                         },
                     },
                 });
-                const selector = chartFiltersSelector(newState);
+                const selector = visFiltersSelector(newState);
                 expect(selector).toEqual({
                     relativePeriodDate: created,
                 });
             });
 
             it('equals empty object if no interpretation selected', () => {
-                const selector = chartFiltersSelector(state);
+                const selector = visFiltersSelector(state);
                 expect(selector).toEqual({});
             });
         });

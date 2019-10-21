@@ -13,6 +13,7 @@ import {
     VIS_TYPE_YEAR_OVER_YEAR_LINE,
     VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
     VIS_TYPE_SINGLE_VALUE,
+    VIS_TYPE_PIVOT_TABLE,
 } from '@dhis2/analytics';
 
 import ColumnIcon from '../../assets/ColumnIcon';
@@ -56,6 +57,7 @@ const MenuItemIcon = ({ iconType, style }) => {
         case 'MAP':
             return <GlobeIcon style={style} />;
         case VIS_TYPE_COLUMN:
+        case VIS_TYPE_PIVOT_TABLE:
         default:
             return <ColumnIcon style={style} />;
     }
