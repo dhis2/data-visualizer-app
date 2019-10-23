@@ -1,73 +1,80 @@
+# Translators:
+# Viktor Varland <viktor@dhis2.org>, 2019
+# phil_dhis2, 2019
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2019-08-08T13:09:25.099Z\n"
+"PO-Revision-Date: 2019-06-25 18:46+0000\n"
+"Last-Translator: phil_dhis2, 2019\n"
+"Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"POT-Creation-Date: 2019-02-27T09:12:48.095Z\n"
-"PO-Revision-Date: 2019-04-03 05:33-0400\n"
-"Last-Translator: Pootle <pootle@translate.dhis2.net>\n"
-"Language-Team: Russian\n"
 "Language: ru\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 msgid "Rename successful"
-msgstr "Переименовать удачно"
+msgstr ""
 
 msgid "\"{{what}}\" successfully deleted."
-msgstr "\"{{what}}\" успешно удален."
+msgstr ""
 
 msgid "Data Visualizer"
-msgstr "Визуализатор данных"
+msgstr "Data Visualizer"
 
-msgid "Data"
-msgstr "Данные"
+msgid "Axis 1"
+msgstr ""
 
-msgid "Data Type"
-msgstr "Тип данных"
+msgid "Axis 2"
+msgstr ""
 
-msgid "Detail"
-msgstr "Подробность"
+msgid "Manage axes"
+msgstr ""
 
-msgid "Search"
-msgstr "Поиск"
+msgid ""
+"A chart can have two axes. Each axis will have its own scale. Set the axis "
+"for each data selection below."
+msgstr ""
 
-msgid "Organisation units"
-msgstr "Организационные единицы"
+msgid "Cancel"
+msgstr "Отменить"
 
-msgid "Period"
-msgstr "Период"
+msgid "Update"
+msgstr "Обновление"
 
-msgid "Search dimensions"
-msgstr "Поиск величин"
+msgid ""
+"'Single Value' is intended to show a single data item. Only the first item "
+"will be used and saved."
+msgstr ""
+
+msgid "Hide"
+msgstr "Скрыть"
 
 msgid "Remove"
-msgstr "Убрать"
-
-msgid "Dimension recommended with selected data"
-msgstr "Величина рекомендуемая с выбранными данными"
+msgstr "Извлечь"
 
 msgid "Download"
-msgstr "Скачать"
+msgstr "Загрузить"
 
 msgid "Graphics"
 msgstr "Графика"
 
 msgid "Image (.png)"
-msgstr "Изображение (.png)"
+msgstr ""
 
 msgid "PDF (.pdf)"
-msgstr "PDF (.pdf)"
+msgstr ""
 
 msgid "Plain data source"
-msgstr "Источник данных"
+msgstr "Простой источник данных"
 
 msgid "Advanced"
 msgstr "Расширенный"
 
 msgid "Metadata ID scheme"
-msgstr "ID Схема метаданных"
+msgstr ""
 
 msgid "Data value set"
 msgstr "Набор значений данных"
@@ -76,32 +83,31 @@ msgid "Other formats"
 msgstr "Другие форматы"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr "Произошла ошибка в приложении Визуализатор Данных DHIS2."
+msgstr ""
 
 msgid "Something went wrong"
-msgstr "Что-то пошло не так"
+msgstr ""
 
 msgid "Refresh to try again"
-msgstr "Обновить и повторить попытку"
+msgstr ""
 
 msgid "Hide technical details"
-msgstr "Скрыть технические подробности"
+msgstr ""
 
 msgid "Show technical details"
-msgstr "Показать технические подробности"
+msgstr ""
 
 msgid "The following information may be requested by technical support."
 msgstr ""
-"Следующая информация может быть запрошена службой технической поддержки."
-
-msgid "Hide"
-msgstr "Скрыть"
 
 msgid "Interpretations"
 msgstr "Интерпретации"
 
-msgid "selected"
-msgstr "выбрано"
+msgid "{{total}} of 1 selected"
+msgstr ""
+
+msgid "{{total}} selected"
+msgstr ""
 
 msgid "Series"
 msgstr "Ряды"
@@ -113,54 +119,55 @@ msgid "Filter"
 msgstr "Фильтр"
 
 msgid "Move to"
-msgstr "Переместить в"
+msgstr ""
 
 msgid "None selected"
-msgstr "Не выбрано"
+msgstr ""
+
+msgid "Only '{{name}}' in use"
+msgstr ""
 
 msgid "Unsaved chart"
-msgstr "Несохраненная диаграмма"
+msgstr ""
 
 msgid "Edited"
-msgstr "Редактированный"
+msgstr ""
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr "Просмотр интерпретации с {{interpretationDate}}"
-
-msgid "Update"
-msgstr "Обновить"
+msgstr ""
 
 msgid "Create a new visualization by adding dimensions to the layout"
-msgstr "Создайте новую визуализацию, добавив величины в макет"
+msgstr ""
 
 msgid "Chart error"
-msgstr "Ошибка диаграммы"
+msgstr ""
+
+msgid "Error generating chart, please try again"
+msgstr ""
 
 msgid "Aggregation type"
-msgstr "Тип агрегирования"
+msgstr "Тип агрегации"
 
 msgid "By data element"
-msgstr "По элементу данных"
+msgstr "По элементам данных"
 
 msgid "Count"
-msgstr "Количество"
+msgstr "Счет"
 
 msgid "Average"
 msgstr "Среднее"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr "Среднее (сумма по иерархической структуре организационных единиц)"
+msgstr "Среднее (сумма по иерархии организационных единиц)"
 
 msgid "Sum"
-msgstr "Сумма"
+msgstr "Сум"
 
 msgid "Last value"
 msgstr "Последнее значение"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr ""
-"Последнее значение (среднее по иерархической структуре организационных "
-"единиц)"
+msgstr "Последнее значение (среднее по иерархии организационных единиц)"
 
 msgid "Min"
 msgstr "Мин"
@@ -169,22 +176,22 @@ msgid "Max"
 msgstr "Макс"
 
 msgid "Standard deviation"
-msgstr "Среднеквадратическое отклонение"
+msgstr "Стандартное отклонение"
 
 msgid "Variance"
-msgstr "Дисперсия"
+msgstr "Variance"
 
 msgid "Base line"
-msgstr "Базисная линия"
+msgstr ""
 
 msgid "Base line title"
-msgstr "Заголовок базисной линии"
+msgstr "Заголовок базовой линии"
 
 msgid "Base line value"
-msgstr "Значение базисной линии"
+msgstr "Исходное значение"
 
 msgid "Use cumulative values"
-msgstr "Использовать накопленные значения"
+msgstr "Отображение в виде линейной диаграммы с накоплением"
 
 msgid "Domain axis title"
 msgstr "Заголовок оси области значений"
@@ -198,8 +205,8 @@ msgstr "Не известное значение"
 msgid "Before first"
 msgstr "До первого"
 
-msgid "After first"
-msgstr "После первого"
+msgid "After last"
+msgstr "После последнего"
 
 msgid "Before first and after last"
 msgstr "До первого и после последнего"
@@ -211,40 +218,43 @@ msgid "Hide chart legend"
 msgstr "Скрыть легенду диаграммы"
 
 msgid "Hide subtitle"
-msgstr "Скрыть подзаголовок"
+msgstr ""
 
 msgid "Hide title"
-msgstr "Скрыть заголовок"
+msgstr ""
 
 msgid "No space between columns/bars"
-msgstr "Без пустого промежутка между столбцами"
+msgstr "Отсутствует пробел между столбцами / строками"
 
 msgid "Use 100% stacked values"
-msgstr "Отображать диаграмму с накоплением в 100%"
+msgstr "Отображение в виде многослойной диаграммы (в сумме дает 100%)"
 
 msgid "Range axis decimals"
-msgstr "Количество десятичных знаков для значений оси диапазона."
+msgstr ""
 
 msgid "Range axis title"
-msgstr "Подпись оси диапазона."
+msgstr "Заголовок оси диапазона"
 
 msgid "Range axis max"
-msgstr "Максимальное значение оси диапазона."
+msgstr ""
 
 msgid "Range axis min"
-msgstr "Минимальное значение оси диапазона."
+msgstr ""
 
 msgid "Range axis tick steps"
-msgstr "Количество меток на оси диапазона."
+msgstr ""
+
+msgid "Tick steps may extend the chart beyond 'Range axis max'"
+msgstr ""
 
 msgid "Trend line"
-msgstr "Линия тренда"
+msgstr "Показать тенденции"
 
 msgid "Linear"
 msgstr "Линейный"
 
 msgid "Polynomial"
-msgstr "Полиномиальный"
+msgstr "Полиномиальная регрессия"
 
 msgid "Loess"
 msgstr "Локальная регрессия (LOESS)"
@@ -253,94 +263,103 @@ msgid "Show values"
 msgstr "Показать значения"
 
 msgid "Sort order"
-msgstr "Порядок сортировки"
+msgstr "Последовательность сортировки"
 
 msgid "Low to high"
-msgstr "От низких к высоким"
+msgstr "Низкий - высокий"
 
 msgid "High to low"
-msgstr "От высоких к низким"
+msgstr "Высокий-низкий"
 
 msgid "Chart subtitle"
 msgstr "Подзаголовок диаграммы"
 
 msgid "Target line"
-msgstr "Линия цели"
+msgstr ""
 
 msgid "Target line title"
-msgstr "Значение линии цели"
+msgstr "Заголовок линии цели"
 
 msgid "Target line value"
-msgstr "Заголовок линии цели"
+msgstr "Значение линии цели"
 
 msgid "Chart title"
 msgstr "Заголовок диаграммы"
 
+msgid "Data"
+msgstr "Данные"
+
 msgid "Axis & legend"
-msgstr "Ось и легенда"
+msgstr ""
 
 msgid "Style"
 msgstr "Стиль"
 
 msgid "Options"
-msgstr "Параметры"
+msgstr "Опции"
 
 msgid "Chart options"
 msgstr "Параметры диаграммы"
 
 msgid "Column"
-msgstr "Столбчатая"
+msgstr "Столбец"
 
 msgid "Stacked column"
-msgstr "Столбчатая с накоплением"
+msgstr ""
 
 msgid "Bar"
-msgstr "Гистограмма"
+msgstr ""
 
 msgid "Stacked bar"
-msgstr "Гистограмма с накоплением"
+msgstr ""
 
 msgid "Line"
-msgstr "Линейная"
+msgstr ""
 
 msgid "Area"
-msgstr "Диаграмма-области"
+msgstr ""
 
 msgid "Pie"
-msgstr "Круговая"
+msgstr ""
 
 msgid "Radar"
-msgstr "Радиальная"
+msgstr ""
 
 msgid "Gauge"
-msgstr "Спидометр"
+msgstr ""
 
 msgid "Year over year (line)"
-msgstr "Год за годом (линия)"
+msgstr ""
 
 msgid "Year over year (column)"
-msgstr "Год за годом (столбец)"
+msgstr ""
+
+msgid "Single value"
+msgstr ""
+
+msgid "Open as Map"
+msgstr ""
 
 msgid "Reporting rate"
-msgstr "Показатель отчетности"
+msgstr ""
 
 msgid "Reporting rate on time"
-msgstr "Показатель отчетности по времени"
+msgstr ""
 
 msgid "Actual reports"
-msgstr "Текущие отчеты"
+msgstr ""
 
 msgid "Actual reports on time"
-msgstr "Текущие отчеты по времени"
+msgstr ""
 
 msgid "Expected reports"
-msgstr "Ожидаемые отчеты"
+msgstr ""
 
 msgid "Program"
-msgstr "Программа"
+msgstr "Program"
 
 msgid "Select a program"
-msgstr "Выбрать программу"
+msgstr ""
 
 msgid "Indicators"
 msgstr "Индикаторы"
@@ -349,16 +368,16 @@ msgid "Select indicator group"
 msgstr "Выбрать группу индикаторов"
 
 msgid "[ All groups ]"
-msgstr "[Все группы]"
+msgstr ""
 
 msgid "Data elements"
 msgstr "Элементы данных"
 
 msgid "Select data element group"
-msgstr "Выберите группу элементов данных"
+msgstr "Выбрать группу элементов данных"
 
 msgid "[ All data elements ]"
-msgstr "[Все элементы данных]"
+msgstr ""
 
 msgid "Totals"
 msgstr "Итоги"
@@ -370,188 +389,188 @@ msgid "Data sets"
 msgstr "Наборы данных"
 
 msgid "Select data sets"
-msgstr "Выбрать набор данных"
+msgstr ""
 
 msgid "[ All metrics ]"
-msgstr "[Все показатели]"
+msgstr ""
 
 msgid "Event data items"
 msgstr "Элементы данных событий"
 
 msgid "Program indicators"
-msgstr "Индикаторы программы"
-
-msgid "Organisation Unit"
-msgstr "Организационная единица"
+msgstr "Программные показатели"
 
 msgid "Add to series"
-msgstr "Добавить в ряд"
+msgstr ""
 
 msgid "Add to category"
-msgstr "Добавить в категорию"
+msgstr ""
 
 msgid "Add to filter"
-msgstr "Добавить в фильтр"
+msgstr ""
 
 msgid "series"
-msgstr "ряд"
+msgstr ""
 
 msgid "category"
-msgstr "категория"
+msgstr ""
 
 msgid "filter"
-msgstr "фильтр"
+msgstr ""
 
 msgid "Please add at least one {{series}} dimension"
-msgstr "Пожалуйста, добавьте хотя бы одну величину {{series}}"
+msgstr ""
 
 msgid "Please add at least one {{category}} dimension"
-msgstr "Пожалуйста, добавьте хотя бы одну величину {{category}}"
+msgstr ""
 
 msgid ""
 "Please add at least one period as {{series}}, {{category}} or {{filter}}"
 msgstr ""
-"Пожалуйста, добавьте хотя бы один период в виде {{series}}, {{category}} или "
-"{{filter}}"
 
 msgid "Please add {{data}} as {{category}} or {{filter}}"
-msgstr "Пожалуйста, добавьте {{data}} как {{category}} или {{filter}}"
+msgstr ""
 
 msgid "Please add at least one period as {{series}} or {{filter}}"
 msgstr ""
-"Пожалуйста, добавьте хотя бы один период в виде {{series}} или {{filter}}"
 
 msgid "Please add at least one {{filter}} dimension"
-msgstr "Пожалуйста, добавьте хотя бы одну величину {{filter}}"
+msgstr ""
 
 msgid "Please add at least one period as a {{series}} dimension"
-msgstr "Пожалуйста, добавьте хотя бы один период в качестве величины {{series}}"
+msgstr ""
 
 msgid "Please add at least one period as a {{category}} dimension"
-msgstr "Пожалуйста, добавьте хотя бы один период как величину {{category}}"
+msgstr ""
 
 msgid "Please add {{data}} as a filter dimension"
-msgstr "Пожалуйста, добавьте {{data}} в качестве фильтра"
+msgstr ""
+
+msgid "Please add one {{series}} dimension"
+msgstr ""
+
+msgid "Please add at least one period as {{filter}}"
+msgstr ""
 
 msgid "Today"
-msgstr "Сегодня"
+msgstr "Today"
 
 msgid "Yesterday"
-msgstr "Вчера"
+msgstr "Yesterday"
 
 msgid "Last 3 days"
-msgstr "Последние 3 дня"
+msgstr "Last 3 days"
 
 msgid "Last 7 days"
-msgstr "Последние 7 дней"
+msgstr "Last 7 days"
 
 msgid "Last 14 days"
-msgstr "Последние 14 дней"
+msgstr "Last 14 days"
 
 msgid "This week"
-msgstr "Эта неделя"
+msgstr "This week"
 
 msgid "Last week"
-msgstr "Прошлая неделя"
+msgstr "Последняя неделя"
 
 msgid "Last 4 weeks"
-msgstr "Прошлые 4 недели"
+msgstr "Последние 4 недели"
 
 msgid "Last 12 weeks"
-msgstr "Прошлые 12 недель"
+msgstr "Последние 12 недель"
 
 msgid "Last 52 weeks"
-msgstr "Прошлые 52 недели"
+msgstr "Last 52 weeks"
 
 msgid "Weeks this year"
-msgstr "Недели этого года"
+msgstr "Weeks this year"
 
 msgid "This month"
-msgstr "Этот месяц"
+msgstr "This month"
 
 msgid "Last month"
-msgstr "Прошлый месяц"
+msgstr "Last month"
 
 msgid "Last 3 months"
-msgstr "Прошлые 3 месяца"
+msgstr "Последние 3 месяца"
 
 msgid "Last 6 months"
-msgstr "Прошлые 6 месяцев"
+msgstr "Last 6 months"
 
 msgid "Last 12 months"
-msgstr "Прошлые 12 месяцев"
+msgstr "Последние 12 месяцев"
 
 msgid "Months this year"
-msgstr "Месяцы этого года"
+msgstr "Месяцы в этом году"
 
 msgid "This bimonth"
-msgstr "Этот бимесяц"
+msgstr ""
 
 msgid "Last bimonth"
-msgstr "Прошлый бимесяц"
+msgstr ""
 
 msgid "Last 6 bimonths"
-msgstr "Прошлые 6 бимесяцев"
+msgstr ""
 
 msgid "Bimonths this year"
-msgstr "Бимесяцы этого года"
+msgstr ""
 
 msgid "This quarter"
-msgstr "Этот квартал"
+msgstr "This quarter"
 
 msgid "Last quarter"
-msgstr "Прошлый квартал"
+msgstr "Last quarter"
 
 msgid "Last 4 quarters"
-msgstr "Прошлые 4 квартала"
+msgstr "Последние 4 квартала"
 
 msgid "Quarters this year"
-msgstr "Кварталы этого года"
+msgstr "Кварталы в этом году"
 
 msgid "This six-month"
-msgstr "Это полугодие"
+msgstr "This six-month"
 
 msgid "Last six-month"
-msgstr "Прошлое полугодие"
+msgstr "Last six-month"
 
 msgid "Last 2 six-months"
-msgstr "Прошлые 2 полугодия"
+msgstr "Последние два полугодия"
 
 msgid "This financial year"
-msgstr "Этот финансовый год"
+msgstr "This financial year"
 
 msgid "Last financial year"
 msgstr "Прошлый финансовый год"
 
 msgid "Last 5 financial years"
-msgstr "Прошлые 5 финансовых лет"
+msgstr "Последние 5 финансовых лет"
 
 msgid "This year"
-msgstr "Этот год"
+msgstr "This year"
 
 msgid "Last year"
-msgstr "Прошлый год"
+msgstr "Последний год"
 
 msgid "Last 5 years"
-msgstr "Прошлые 5 лет"
+msgstr "Последние 5 лет"
 
 msgid "User org unit"
 msgstr "Пользовательская организационная единица"
 
 msgid "User org unit children"
-msgstr "Потомки пользовательской организационной единицы"
+msgstr ""
 
 msgid "User org unit grand children"
-msgstr "Потомки 2го уровня пользовательской организационной единицы"
+msgstr ""
 
 msgid "Weeks per year"
-msgstr "Недели за год"
+msgstr ""
 
 msgid "Months per year"
-msgstr "Месяцы за год"
+msgstr ""
 
 msgid "Bimonths per year"
-msgstr "Бимесяцы за год"
+msgstr ""
 
 msgid "Quarters per year"
-msgstr "Кварталы за год"
+msgstr ""
