@@ -31,8 +31,5 @@
     },
     "workspaces": [
         "packages/*"
-    ],
-    "dependencies": {
-        "@dhis2/d2-i18n": "^1.0.6"
-    }
+    ]
 }
