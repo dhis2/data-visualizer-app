@@ -6,8 +6,8 @@
     "private": true,
     "homepage": ".",
     "devDependencies": {
-        "@dhis2/d2-i18n-extract": "^1.0.6",
-        "@dhis2/d2-i18n-generate": "^1.0.18",
+        "@dhis2/d2-i18n-extract": "^1.0.8",
+        "@dhis2/d2-i18n-generate": "^1.1.1",
         "babel-preset-env": "^1.6.1",
         "babel-preset-stage-0": "^6.24.1",
         "create-react-class": "^15.6.3",
@@ -26,7 +26,7 @@
     },
     "dependencies": {
         "@dhis2/analytics": "^2.4.5",
-        "@dhis2/d2-i18n": "^1.0.3",
+        "@dhis2/d2-i18n": "^1.0.6",
         "@dhis2/d2-ui-core": "^6.2.1",
         "@dhis2/d2-ui-file-menu": "^6.2.1",
         "@dhis2/d2-ui-interpretations": "^6.2.1",
