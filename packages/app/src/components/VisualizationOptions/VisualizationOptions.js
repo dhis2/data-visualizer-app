@@ -1,15 +1,20 @@
-import React, { Component, Fragment } from 'react'
-import PropTypes from 'prop-types'
-import { withStyles } from '@material-ui/core/styles'
-import AppBar from '@material-ui/core/AppBar'
-import Tabs from '@material-ui/core/Tabs'
-import Tab from '@material-ui/core/Tab'
+import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-import i18n from '@dhis2/d2-i18n'
-import DataTab from './DataTab'
-import StyleTab from './StyleTab'
-import AxisAndLegendTab from './AxisAndLegendTab'
-import styles from './styles/VisualizationOptions.style'
+import { withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormLabel from '@material-ui/core/FormLabel';
+
+import { sGetUiType } from '../../reducers/ui';
+
+import styles from './styles/VisualizationOptions.style';
+
+import { getOptionsByType } from '../../modules/options/config';
+
 export class VisualizationOptions extends Component {
     state = { activeTab: 0 }
 
@@ -17,9 +22,30 @@ export class VisualizationOptions extends Component {
         this.setState({ activeTab: tabId })
     }
 
+    generateTabContent = sections =>
+        sections.map(({ key, label, content }) => (
+            <FormGroup key={key} component="fieldset">
+                {label ? (
+                    <FormLabel component="legend">{label}</FormLabel>
+                ) : null}
+                {content}
+            </FormGroup>
+        ));
+
+    generateTabs = tabs =>
+        tabs.map(({ key, label, content }) => ({
+            key,
+            label,
+            content: this.generateTabContent(content),
+        }));
+
     render() {
-        const { classes } = this.props
-        const { activeTab } = this.state
+        const { classes, visualizationType } = this.props;
+        const { activeTab } = this.state;
+
+        const optionsConfig = getOptionsByType(visualizationType);
+
+        const tabs = this.generateTabs(optionsConfig);
 
         return (
             <Fragment>
@@ -34,17 +60,16 @@ export class VisualizationOptions extends Component {
                         textColor="primary"
                         value={activeTab}
                     >
-                        <Tab className={classes.tab} label={i18n.t('Data')} />
-                        <Tab
-                            className={classes.tab}
-                            label={i18n.t('Axis & legend')}
-                        />
-                        <Tab className={classes.tab} label={i18n.t('Style')} />
+                        {tabs.map(({ key, label }) => (
+                            <Tab
+                                key={key}
+                                className={classes.tab}
+                                label={label}
+                            />
+                        ))}
                     </Tabs>
                 </AppBar>
-                {activeTab === 0 && <DataTab />}
-                {activeTab === 1 && <AxisAndLegendTab />}
-                {activeTab === 2 && <StyleTab />}
+                {tabs[activeTab].content}
             </Fragment>
         )
     }
@@ -54,4 +79,10 @@ VisualizationOptions.propTypes = {
     classes: PropTypes.object.isRequired,
 }
 
-export default withStyles(styles)(VisualizationOptions)
+const mapStateToProps = state => ({
+    visualizationType: sGetUiType(state),
+});
+
+export default connect(mapStateToProps)(
+    withStyles(styles)(VisualizationOptions)
+);

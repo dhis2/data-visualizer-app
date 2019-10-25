@@ -10,7 +10,7 @@ export default {
         borderBottom: `1px solid ${colors.grey300}`,
     },
     tab: {
-        width: '33.33%',
+        //        width: '33.33%',
     },
     dataTabFormGroup: {
         paddingTop: '8px',
