@@ -1,16 +1,19 @@
-import React, { Component, Fragment } from 'react'
-import PropTypes from 'prop-types'
-import Button from '@material-ui/core/Button'
-import Dialog from '@material-ui/core/Dialog'
-import DialogActions from '@material-ui/core/DialogActions'
-import DialogContent from '@material-ui/core/DialogContent'
-import DialogTitle from '@material-ui/core/DialogTitle'
-import { withStyles } from '@material-ui/core/styles'
-import i18n from '@dhis2/d2-i18n'
+import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import { withStyles } from '@material-ui/core/styles';
+import i18n from '@dhis2/d2-i18n';
 
-import UpdateButton from '../UpdateButton/UpdateButton'
-import VisualizationOptions from './VisualizationOptions'
-import styles from './styles/VisualizationOptions.style'
+import { sGetUiType } from '../../reducers/ui';
+import { chartTypeDisplayNames } from '../../modules/chartTypes';
+import UpdateButton from '../UpdateButton/UpdateButton';
+import VisualizationOptions from './VisualizationOptions';
+import styles from './styles/VisualizationOptions.style';
 
 class VisualizationOptionsManager extends Component {
     constructor(props) {
@@ -41,9 +44,16 @@ class VisualizationOptionsManager extends Component {
                 <Dialog
                     open={this.state.dialogIsOpen}
                     onClose={this.onClose}
-                    maxWidth="md"
+                    maxWidth="xl"
                 >
-                    <DialogTitle>{i18n.t('Chart options')}</DialogTitle>
+                    <DialogTitle>
+                        {i18n.t('{{visType}} options', {
+                            visType:
+                                chartTypeDisplayNames[
+                                    this.props.visualizationType
+                                ],
+                        })}
+                    </DialogTitle>
                     <DialogContent className={this.props.classes.dialogContent}>
                         <VisualizationOptions />
                     </DialogContent>
@@ -62,6 +72,13 @@ class VisualizationOptionsManager extends Component {
 VisualizationOptionsManager.propTypes = {
     classes: PropTypes.object.isRequired,
     className: PropTypes.string,
+    visualizationType: PropTypes.string,
 }
 
-export default withStyles(styles)(VisualizationOptionsManager)
+const mapStateToProps = state => ({
+    visualizationType: sGetUiType(state),
+});
+
+export default connect(mapStateToProps)(
+    withStyles(styles)(VisualizationOptionsManager)
+);
