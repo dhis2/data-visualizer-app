@@ -25,11 +25,40 @@ export const options = {
     completedOnly: { defaultValue: false, requestable: true },
     hideSubtitle: { defaultValue: false, requestable: false },
     hideTitle: { defaultValue: false, requestable: false },
-    sortOrder: { defaultValue: 0, requestable: false },
+    sortOrder: { defaultValue: '0', requestable: false },
     subtitle: { defaultValue: undefined, requestable: false },
     title: { defaultValue: undefined, requestable: false },
-    // topLimit
-}
+
+    // only for PT XXX
+    colTotals: { defaultValue: false, requestable: true },
+    colSubTotals: { defaultValue: false, requestable: true },
+    rowTotals: { defaultValue: false, requestable: true },
+    rowSubTotals: { defaultValue: false, requestable: true },
+    showDimensionLabels: { defaultValue: false, requestable: true },
+    hideEmptyColumns: { defaultValue: false, requestable: true },
+    hideEmptyRows: { defaultValue: false, requestable: true },
+    skipRounding: { defaultValue: false, requestable: true },
+    numberType: { defaultValue: 'VALUE', requestable: true },
+    showHierarchy: { defaultValue: false, requestable: true },
+    legendSet: { defaultValue: 'NONE', requestable: true }, // XXX can be 'BY_DATA_ITEM'
+    legendDisplayStyle: { defaultValue: 'FILL', requestable: true },
+    displayDensity: { defaultValue: 'NORMAL', requestable: true },
+    fontSize: { defaultValue: 'NORMAL', requestable: true },
+    digitGroupSeparator: { defaultValue: 'SPACE', requestable: true },
+
+    // XXX these are stored in the AO under reportParams
+    paramReportingPeriod: { defaultValue: false, requestable: true },
+    paramOrganisationUnit: { defaultValue: false, requestable: true },
+    paramParentOrganisationUnit: { defaultValue: false, requestable: true },
+    paramGrandParentOrganisationUnit: {
+        defaultValue: false,
+        requestable: true,
+    }, // XXX not in UI?!
+    regression: { defaultValue: false, requestable: true },
+    cumulative: { defaultValue: false, requestable: true },
+    measureCriteria: { defaultValue: null, requestable: true },
+    topLimit: { defaultValue: 0, requestable: true },
+};
 
 export const computedOptions = {
     baseLine: { defaultValue: false, requestable: false },
