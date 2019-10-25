@@ -140,6 +140,18 @@ msgstr ""
 msgid "Error generating chart, please try again"
 msgstr ""
 
+msgid "Display totals"
+msgstr ""
+
+msgid "Display empty data"
+msgstr ""
+
+msgid "Legend Type"
+msgstr ""
+
+msgid "Legend Setup"
+msgstr ""
+
 msgid "Aggregation type"
 msgstr ""
 
@@ -185,16 +197,61 @@ msgstr ""
 msgid "Base line value"
 msgstr ""
 
+msgid "Column sub-totals"
+msgstr ""
+
+msgid "Columns totals"
+msgstr ""
+
+msgid "Include only completed events"
+msgstr ""
+
+msgid "Include cumulative"
+msgstr ""
+
 msgid "Use cumulative values"
+msgstr ""
+
+msgid "Digit group separator"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Space"
+msgstr ""
+
+msgid "Comma"
+msgstr ""
+
+msgid "Display density"
+msgstr ""
+
+msgid "Comfortable"
+msgstr ""
+
+msgid "Normal"
+msgstr ""
+
+msgid "Compact"
 msgstr ""
 
 msgid "Domain axis title"
 msgstr ""
 
-msgid "Hide empty categories"
+msgid "Font size"
 msgstr ""
 
-msgid "None"
+msgid "Large"
+msgstr ""
+
+msgid "Small"
+msgstr ""
+
+msgid "Hide empty columns"
+msgstr ""
+
+msgid "Hide empty categories"
 msgstr ""
 
 msgid "Before first"
@@ -209,6 +266,9 @@ msgstr ""
 msgid "All"
 msgstr ""
 
+msgid "Hide empty rows"
+msgstr ""
+
 msgid "Hide chart legend"
 msgstr ""
 
@@ -218,7 +278,51 @@ msgstr ""
 msgid "Hide title"
 msgstr ""
 
+msgid "Legend changes background color"
+msgstr ""
+
+msgid "Legend changes text color"
+msgstr ""
+
+msgid ""
+"You can set a minimum or maximum value. This will apply to the entire "
+"table, all values outside of the minimum/maximum range will not be displayed"
+msgstr ""
+
+msgid "Minimum data value"
+msgstr ""
+
+msgid "Maximum data value"
+msgstr ""
+
+msgid "Clear min/max limits"
+msgstr ""
+
 msgid "No space between columns/bars"
+msgstr ""
+
+msgid "Number type"
+msgstr ""
+
+msgid "Value"
+msgstr ""
+
+msgid "Percentage of row"
+msgstr ""
+
+msgid "Percentage of column"
+msgstr ""
+
+msgid "Display the value or percentages of the total"
+msgstr ""
+
+msgid "Organisation unit"
+msgstr ""
+
+msgid "Parent organisation unit"
+msgstr ""
+
+msgid "Reporting period"
 msgstr ""
 
 msgid "Use 100% stacked values"
@@ -242,6 +346,9 @@ msgstr ""
 msgid "Tick steps may extend the chart beyond 'Range axis max'"
 msgstr ""
 
+msgid "Include regression"
+msgstr ""
+
 msgid "Trend line"
 msgstr ""
 
@@ -254,7 +361,22 @@ msgstr ""
 msgid "Loess"
 msgstr ""
 
+msgid "Row sub-totals"
+msgstr ""
+
+msgid "Row totals"
+msgstr ""
+
 msgid "Show values"
+msgstr ""
+
+msgid "Dimension labels"
+msgstr ""
+
+msgid "Show hierarchy"
+msgstr ""
+
+msgid "Skip rounding"
 msgstr ""
 
 msgid "Sort order"
@@ -281,6 +403,12 @@ msgstr ""
 msgid "Chart title"
 msgstr ""
 
+msgid "Table title"
+msgstr ""
+
+msgid "Top limit"
+msgstr ""
+
 msgid "Data"
 msgstr ""
 
@@ -290,10 +418,16 @@ msgstr ""
 msgid "Style"
 msgstr ""
 
-msgid "Options"
+msgid "Legend"
 msgstr ""
 
-msgid "Chart options"
+msgid "Limit values"
+msgstr ""
+
+msgid "Parameters"
+msgstr ""
+
+msgid "Options"
 msgstr ""
 
 msgid "Pivot table"
@@ -558,6 +692,15 @@ msgid "User org unit children"
 msgstr ""
 
 msgid "User org unit grand children"
+msgstr ""
+
+msgid "Axes & legend"
+msgstr ""
+
+msgid "Legend type"
+msgstr ""
+
+msgid "Legend setup"
 msgstr ""
 
 msgid "Weeks per year"
