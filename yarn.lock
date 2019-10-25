@@ -171,10 +171,19 @@
     react-beautiful-dnd "^10.1.1"
     styled-jsx "^3.2.1"
 
-"@dhis2/d2-i18n-extract@^1.0.6", "@dhis2/d2-i18n-extract@^1.0.7":
+"@dhis2/d2-i18n-extract@^1.0.7":
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-i18n-extract/-/d2-i18n-extract-1.0.7.tgz#805c92c75f5d3678a047374a551bda5f7571d7f3"
   integrity sha512-i78pbGGA8q73dEShzvYkEP0gzmkytMdUgcPf8qEFIWS1H5ftiu3ErN2aRC2VgB6Jv+Kioc7oJ6nWVLmy67Dtsg==
+  dependencies:
+    argparse "^1.0.10"
+    i18next-conv "^6.0.0"
+    i18next-scanner "^2.4.4"
+
+"@dhis2/d2-i18n-extract@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-i18n-extract/-/d2-i18n-extract-1.0.8.tgz#9d98690d522a51895c8ef3fe7136f026b0f8dacd"
+  integrity sha512-wjQ5J0v8Td12+KcQYSuuZ1tQLReXJ1gBSqkyImf2aNtLwJKERaTOjZ71da+GXdHtd6ph/DP1ezQvFDFKhBHa/A==
   dependencies:
     argparse "^1.0.10"
     i18next-conv "^6.0.0"
