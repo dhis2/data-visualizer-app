@@ -4,8 +4,8 @@
     "private": true,
     "license": "BSD-3-Clause",
     "devDependencies": {
-        "@dhis2/d2-i18n-extract": "^1.0.6",
-        "@dhis2/d2-i18n-generate": "^1.0.18",
+        "@dhis2/d2-i18n-extract": "^1.0.8",
+        "@dhis2/d2-i18n-generate": "^1.1.1",
         "babel-preset-env": "^1.6.1",
         "babel-preset-stage-0": "^6.24.1",
         "create-react-class": "^15.6.3",
