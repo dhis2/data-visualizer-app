@@ -48,7 +48,7 @@ class MeasureCriteria extends Component {
         this.state = this.defaultState;
     }
 
-    onClear = () => this.setState(this.defaultState);
+    onClear = () => this.setState(this.defaultState, this.props.onChange(''));
 
     onChange = name => event => {
         this.setState({ [name]: event.target.value }, () => {
@@ -63,9 +63,7 @@ class MeasureCriteria extends Component {
                 value.push(`${op2}:${v2}`);
             }
 
-            if (value.length > 0) {
-                this.props.onChange(value.join(';'));
-            }
+            this.props.onChange(value.length > 0 ? value.join(';') : '');
         });
     };
 
