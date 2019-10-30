@@ -30,34 +30,34 @@ export const options = {
     title: { defaultValue: undefined, requestable: false },
 
     // only for PT XXX
-    colTotals: { defaultValue: false, requestable: true },
-    colSubTotals: { defaultValue: false, requestable: true },
-    rowTotals: { defaultValue: false, requestable: true },
-    rowSubTotals: { defaultValue: false, requestable: true },
-    showDimensionLabels: { defaultValue: false, requestable: true },
+    colTotals: { defaultValue: false, requestable: false },
+    colSubTotals: { defaultValue: false, requestable: false },
+    rowTotals: { defaultValue: false, requestable: false },
+    rowSubTotals: { defaultValue: false, requestable: false },
+    showDimensionLabels: { defaultValue: false, requestable: false },
     hideEmptyColumns: { defaultValue: false, requestable: true },
     hideEmptyRows: { defaultValue: false, requestable: true },
     skipRounding: { defaultValue: false, requestable: true },
-    numberType: { defaultValue: 'VALUE', requestable: true },
+    numberType: { defaultValue: 'VALUE', requestable: false },
     showHierarchy: { defaultValue: false, requestable: true },
-    legendSet: { defaultValue: 'NONE', requestable: true }, // XXX can be 'BY_DATA_ITEM'
-    legendDisplayStyle: { defaultValue: 'FILL', requestable: true },
-    displayDensity: { defaultValue: 'NORMAL', requestable: true },
-    fontSize: { defaultValue: 'NORMAL', requestable: true },
-    digitGroupSeparator: { defaultValue: 'SPACE', requestable: true },
+    legendSet: { defaultValue: 'NONE', requestable: false }, // XXX can be 'BY_DATA_ITEM'
+    legendDisplayStyle: { defaultValue: 'FILL', requestable: false },
+    displayDensity: { defaultValue: 'NORMAL', requestable: false },
+    fontSize: { defaultValue: 'NORMAL', requestable: false },
+    digitGroupSeparator: { defaultValue: 'SPACE', requestable: false },
 
     // XXX these are stored in the AO under reportParams
-    paramReportingPeriod: { defaultValue: false, requestable: true },
-    paramOrganisationUnit: { defaultValue: false, requestable: true },
-    paramParentOrganisationUnit: { defaultValue: false, requestable: true },
+    paramReportingPeriod: { defaultValue: false, requestable: false },
+    paramOrganisationUnit: { defaultValue: false, requestable: false },
+    paramParentOrganisationUnit: { defaultValue: false, requestable: false },
     paramGrandParentOrganisationUnit: {
         defaultValue: false,
-        requestable: true,
+        requestable: false,
     }, // XXX not in UI?!
-    regression: { defaultValue: false, requestable: true },
-    cumulative: { defaultValue: false, requestable: true },
+    regression: { defaultValue: false, requestable: false },
+    cumulative: { defaultValue: false, requestable: false },
     measureCriteria: { defaultValue: null, requestable: true },
-    topLimit: { defaultValue: 0, requestable: true },
+    topLimit: { defaultValue: 0, requestable: false },
 };
 
 export const computedOptions = {
