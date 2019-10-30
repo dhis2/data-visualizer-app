@@ -56,8 +56,8 @@ export const options = {
     }, // XXX not in UI?!
     regression: { defaultValue: false, requestable: false },
     cumulative: { defaultValue: false, requestable: false },
-    measureCriteria: { defaultValue: null, requestable: true },
-    topLimit: { defaultValue: 0, requestable: false },
+    measureCriteria: { defaultValue: undefined, requestable: true },
+    topLimit: { defaultValue: '0', requestable: false },
 };
 
 export const computedOptions = {

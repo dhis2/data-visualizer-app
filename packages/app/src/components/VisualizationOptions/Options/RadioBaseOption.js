@@ -21,7 +21,7 @@ export const RadioBaseOption = ({
         <FormLabel>{option.label}</FormLabel>
         <RadioGroup
             row={row}
-            value={value}
+            value={String(value)}
             onChange={event => onChange(event.target.value)}
         >
             {option.items.map(({ id, label }) => (

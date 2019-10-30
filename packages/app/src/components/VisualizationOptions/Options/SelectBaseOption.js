@@ -15,7 +15,7 @@ export const SelectBaseOption = ({ className, option, value, onChange }) => (
         <Select
             displayEmpty={true}
             onChange={event => onChange(event.target.value)}
-            value={value}
+            value={String(value)}
         >
             {option.items.map(({ id, label }) => (
                 <MenuItem key={id} value={id}>
