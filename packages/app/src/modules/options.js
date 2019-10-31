@@ -105,5 +105,15 @@ export const getOptionsFromVisualization = visualization => {
         isNotDefault(optionsFromVisualization, 'targetLineLabel') ||
         isNotDefault(optionsFromVisualization, 'targetLineValue')
 
-    return optionsFromVisualization
-}
+    // nested options under reportParams
+    optionsFromVisualization.paramOrganisationUnit =
+        visualization.reportParams.paramOrganisationUnit;
+    optionsFromVisualization.paramReportingPeriod =
+        visualization.reportParams.paramReportingPeriod;
+    optionsFromVisualization.paramParentOrganisationUnit =
+        visualization.reportParams.paramParentOrganisationUnit;
+    optionsFromVisualization.paramGrandParentOrganisationUnit =
+        visualization.reportParams.paramGrandParentOrganisationUnit;
+
+    return optionsFromVisualization;
+};
