@@ -6,7 +6,8 @@ import {
     VIS_TYPE_COLUMN,
 } from '@dhis2/analytics'
 
-import options from '../../modules/options'
+import options from '../../modules/options';
+import { getOptionsFromUi } from '../../modules/current';
 import reducer, {
     DEFAULT_CURRENT,
     SET_CURRENT,
@@ -57,7 +58,7 @@ describe('reducer: current', () => {
         }
 
         const expectedState = {
-            ...ui.options,
+            ...getOptionsFromUi(ui),
             type: ui.type,
             columns: [
                 {
@@ -105,7 +106,7 @@ describe('reducer: current', () => {
             yearOverYearCategory: ['MONTHS_THIS_YEAR'],
         }
         const expectedState = {
-            ...ui.options,
+            ...getOptionsFromUi(ui),
             type: ui.type,
             columns: [
                 {
