@@ -106,14 +106,16 @@ export const getOptionsFromVisualization = visualization => {
         isNotDefault(optionsFromVisualization, 'targetLineValue')
 
     // nested options under reportParams
-    optionsFromVisualization.paramOrganisationUnit =
-        visualization.reportParams.paramOrganisationUnit;
-    optionsFromVisualization.paramReportingPeriod =
-        visualization.reportParams.paramReportingPeriod;
-    optionsFromVisualization.paramParentOrganisationUnit =
-        visualization.reportParams.paramParentOrganisationUnit;
-    optionsFromVisualization.paramGrandParentOrganisationUnit =
-        visualization.reportParams.paramGrandParentOrganisationUnit;
+    if (visualization.reportParams) {
+        optionsFromVisualization.paramOrganisationUnit =
+            visualization.reportParams.paramOrganisationUnit;
+        optionsFromVisualization.paramReportingPeriod =
+            visualization.reportParams.paramReportingPeriod;
+        optionsFromVisualization.paramParentOrganisationUnit =
+            visualization.reportParams.paramParentOrganisationUnit;
+        optionsFromVisualization.paramGrandParentOrganisationUnit =
+            visualization.reportParams.paramGrandParentOrganisationUnit;
+    }
 
     return optionsFromVisualization;
 };
