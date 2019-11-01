@@ -7,7 +7,8 @@ import {
     DIMENSION_ID_ORGUNIT,
 } from '@dhis2/analytics'
 
-import { getAxesFromUi, getSingleValueCurrentFromUi } from '../current'
+import { DEFAULT_CURRENT } from '../../reducers/current';
+import { getAxesFromUi, getSingleValueCurrentFromUi } from '../current';
 
 const dxItem1id = 'dxItem1id'
 const dxItem2id = 'dxItem2id'
@@ -37,7 +38,8 @@ const ui = {
         [DIMENSION_ID_PERIOD]: peItems,
         [DIMENSION_ID_ORGUNIT]: ouItems,
     },
-}
+    options: {},
+};
 
 describe('getAxesFromUi', () => {
     it('should return a layout object (columns, rows, filters) with dimensions (id and item objects) that are not empty', () => {
@@ -73,30 +75,21 @@ describe('getSingleValueCurrentFromUi', () => {
                 { dimension: otherId, items: [{ id: otherItemId }] },
                 { dimension: DIMENSION_ID_PERIOD, items: [{ id: peItemId }] },
             ],
-            itemsByDimension: {
-                dx: [dxItem1id, dxItem2id],
-                other: [otherItemId],
-                ou: [ouItemId],
-                pe: [peItemId],
-            },
             rows: [],
-            layout: {
-                columns: [DIMENSION_ID_DATA, otherId],
-                filters: [DIMENSION_ID_ORGUNIT],
-                rows: [DIMENSION_ID_PERIOD, emptyId],
+            reportParams: {
+                paramOrganisationUnit: undefined,
+                paramReportingPeriod: undefined,
+                paramParentOrganisationUnit: undefined,
+                paramGrandParentOrganisationUnit: undefined,
             },
-            options: { targetLine: false },
-            targetLineLabel: undefined,
-            targetLineValue: undefined,
             type: 'SINGLEVALUE',
         }
 
-        ui.type = 'SINGLEVALUE'
-        ui.options = {
-            targetLine: false,
-        }
+        ui.type = 'SINGLEVALUE';
 
-        const actualState = getSingleValueCurrentFromUi(ui, { value: ui })
+        const actualState = getSingleValueCurrentFromUi(DEFAULT_CURRENT, {
+            value: ui,
+        });
 
         expect(actualState).toEqual(expectedState)
     })
