@@ -38,7 +38,7 @@ export class DimensionOptions extends Component {
             items = [
                 this.renderMenuItem({
                     key: `add-to-${this.props.id}`,
-                    id: ADD_TO_LAYOUT_OPTIONS[FILTER].axisKey,
+                    id: ADD_TO_LAYOUT_OPTIONS[FILTER].axisName,
                     onClick: this.addDimension,
                     displayName: ADD_TO_LAYOUT_OPTIONS[FILTER].name,
                 }),
@@ -47,8 +47,8 @@ export class DimensionOptions extends Component {
             items = Object.values(
                 ADD_TO_LAYOUT_OPTIONS.map(axis =>
                     this.renderMenuItem({
-                        key: `add-to-${axis.axisKey}`,
-                        id: axis.axisKey,
+                        key: `add-to-${axis.axisName}`,
+                        id: axis.axisName,
                         onClick: this.addDimension,
                         displayName: axis.name,
                     })

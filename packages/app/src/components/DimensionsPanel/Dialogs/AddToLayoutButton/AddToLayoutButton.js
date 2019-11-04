@@ -4,7 +4,11 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import MenuItem from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
-import { AXIS_NAME_COLUMNS } from '@dhis2/analytics';
+import {
+    AXIS_NAME_COLUMNS,
+    getLayoutTypeByChartType,
+    getAvailableAxes,
+} from '@dhis2/analytics';
 
 import UpdateButton from '../../../UpdateButton/UpdateButton';
 import Menu from './Menu';
@@ -12,7 +16,6 @@ import {
     sGetUi,
     sGetUiLayout,
     sGetUiActiveModalDialog,
-    sGetUiType,
 } from '../../../../reducers/ui';
 import {
     acSetUiActiveModalDialog,
@@ -28,7 +31,7 @@ const UNSELECTED_BUTTON_TYPE = -1;
 const seriesItem = ADD_TO_LAYOUT_OPTIONS[0];
 const filterItem = ADD_TO_LAYOUT_OPTIONS[2];
 const itemsWithoutSeries = ADD_TO_LAYOUT_OPTIONS.filter(
-    option => option.axisKey !== AXIS_NAME_COLUMNS
+    option => option.axisName !== AXIS_NAME_COLUMNS
 );
 
 export class AddToLayoutButton extends Component {
@@ -62,31 +65,36 @@ export class AddToLayoutButton extends Component {
         this.props.closeDialog(null);
     };
 
-    renderMenuItems = () =>
-        itemsWithoutSeries.map(option => (
-            <MenuItem
-                className={this.props.classes.menuItem}
-                component="li"
-                key={option.axisKey}
-                onClick={() => this.onUpdate(option.axisKey)}
-            >
-                {option.name}
-            </MenuItem>
-        ));
+    getAvailableAxisNames = () =>
+        getAvailableAxes(getLayoutTypeByChartType(this.props.ui.type));
 
-    renderUnselectedButton = () =>
-        isYearOverYear(this.props.layoutType) ? (
-            <Button
-                className={this.props.classes.button}
-                variant="contained"
-                color="primary"
-                disableRipple
-                disableFocusRipple
-                onClick={() => this.onUpdate(filterItem.axisKey)}
-            >
-                {filterItem.name}
-            </Button>
-        ) : (
+    getAxisMeta = axisNameArray =>
+        axisNameArray.map(axisName =>
+            ADD_TO_LAYOUT_OPTIONS.find(
+                axisMetaObj => axisMetaObj.axisName === axisName
+            )
+        );
+
+    renderMenuItems = () =>
+        this.getAxisMeta(this.getAvailableAxisNames())
+            .slice(1)
+            .map(axisMetaObj => (
+                <MenuItem
+                    className={this.props.classes.menuItem}
+                    component="li"
+                    key={axisMetaObj.axisName}
+                    onClick={() => this.onUpdate(axisMetaObj.axisName)}
+                >
+                    {axisMetaObj.name}
+                </MenuItem>
+            ));
+
+    renderUnselectedButton = () => {
+        const availableAxisMeta = this.getAxisMeta(
+            this.getAvailableAxisNames()
+        );
+
+        return (
             <div ref={addToRef => (this.buttonRef = addToRef)}>
                 <Button
                     className={this.props.classes.button}
@@ -94,19 +102,22 @@ export class AddToLayoutButton extends Component {
                     color="primary"
                     disableRipple
                     disableFocusRipple
-                    onClick={() => this.onUpdate(seriesItem.axisKey)}
+                    onClick={() => this.onUpdate(seriesItem.axisName)}
                 >
-                    {seriesItem.name}
+                    {availableAxisMeta[0].name}
                 </Button>
-                <Menu
-                    onClose={this.onClose}
-                    onClick={this.onToggle}
-                    anchorEl={this.state.anchorEl}
-                    menuItems={this.renderMenuItems()}
-                    addToButtonRef={this.buttonRef}
-                />
+                {availableAxisMeta.length > 1 ? (
+                    <Menu
+                        onClose={this.onClose}
+                        onClick={this.onToggle}
+                        anchorEl={this.state.anchorEl}
+                        menuItems={this.renderMenuItems()}
+                        addToButtonRef={this.buttonRef}
+                    />
+                ) : null}
             </div>
         );
+    };
 
     render() {
         const displayButton =
@@ -128,14 +139,12 @@ AddToLayoutButton.propTypes = {
     closeDialog: PropTypes.func.isRequired,
     currentLayout: PropTypes.object.isRequired,
     dialogId: PropTypes.string.isRequired,
-    layoutType: PropTypes.string.isRequired,
     onAddDimension: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
     ui: sGetUi(state),
     dialogId: sGetUiActiveModalDialog(state),
-    layoutType: sGetUiType(state),
     currentLayout: sGetUiLayout(state),
 });
 
