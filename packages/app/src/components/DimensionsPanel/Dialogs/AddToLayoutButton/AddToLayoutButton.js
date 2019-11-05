@@ -120,9 +120,9 @@ export class AddToLayoutButton extends Component {
 
 AddToLayoutButton.propTypes = {
     classes: PropTypes.object.isRequired,
-    closeDialog: PropTypes.func.isRequired,
-    dimensionIdsInLayout: PropTypes.array.isRequired,
     dialogId: PropTypes.string.isRequired,
+    dimensionIdsInLayout: PropTypes.array.isRequired,
+    closeDialog: PropTypes.func.isRequired,
     onAddDimension: PropTypes.func.isRequired,
 };
 
