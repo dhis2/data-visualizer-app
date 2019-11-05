@@ -28,7 +28,7 @@ const UNSELECTED_BUTTON_TYPE = -1;
 const seriesItem = ADD_TO_LAYOUT_OPTIONS[0];
 const filterItem = ADD_TO_LAYOUT_OPTIONS[2];
 const itemsWithoutSeries = ADD_TO_LAYOUT_OPTIONS.filter(
-    option => option.axisKey !== AXIS_NAME_COLUMNS
+    option => option.axisName !== AXIS_NAME_COLUMNS
 );
 
 export class AddToLayoutButton extends Component {
@@ -67,8 +67,8 @@ export class AddToLayoutButton extends Component {
             <MenuItem
                 className={this.props.classes.menuItem}
                 component="li"
-                key={option.axisKey}
-                onClick={() => this.onUpdate(option.axisKey)}
+                key={option.axisName}
+                onClick={() => this.onUpdate(option.axisName)}
             >
                 {option.name}
             </MenuItem>
@@ -82,7 +82,7 @@ export class AddToLayoutButton extends Component {
                 color="primary"
                 disableRipple
                 disableFocusRipple
-                onClick={() => this.onUpdate(filterItem.axisKey)}
+                onClick={() => this.onUpdate(filterItem.axisName)}
             >
                 {filterItem.name}
             </Button>
@@ -94,7 +94,7 @@ export class AddToLayoutButton extends Component {
                     color="primary"
                     disableRipple
                     disableFocusRipple
-                    onClick={() => this.onUpdate(seriesItem.axisKey)}
+                    onClick={() => this.onUpdate(seriesItem.axisName)}
                 >
                     {seriesItem.name}
                 </Button>
