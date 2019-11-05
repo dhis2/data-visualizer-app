@@ -35,13 +35,6 @@ const layoutMap = {
     [SINGLE_VALUE]: PieLayout,
 };
 
-// {
-//     component: DefaultLayout,
-//     adapter: pieLayoutAdapter,
-//     uiRules: pieUiRules,
-
-// }
-
 const getLayoutByType = (type, props) => {
     const Layout = layoutMap[type];
     return <Layout {...props} />;
