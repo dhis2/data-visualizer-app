@@ -125,8 +125,11 @@ class Chip extends React.Component {
                 </div>
                 <div style={styles.chipRight}>
                     <Menu
-                        id={this.props.dimensionId}
-                        menuItems={this.props.menuItems}
+                        dimensionId={this.props.dimensionId}
+                        currentAxisName={this.props.axisName}
+                        visType={this.props.type}
+                        numberOfDimensionItems={this.props.items.length}
+                        anchorEl={anchorEl}
                     />
                 </div>
                 {anchorEl && (
