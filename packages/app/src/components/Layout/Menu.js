@@ -1,4 +1,4 @@
-import React, { cloneElement, isValidElement } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import IconButton from '@material-ui/core/IconButton';
 import { DimensionMenu } from '@dhis2/analytics';
