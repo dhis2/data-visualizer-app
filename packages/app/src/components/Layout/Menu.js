@@ -60,8 +60,7 @@ class ChipMenu extends React.Component {
 const mapDispatchToProps = dispatch => ({
     dualAxisItemHandler: () =>
         dispatch(acSetUiActiveModalDialog(AXIS_SETUP_DIALOG_ID)),
-    axisItemHandler: (dimensionId, targetAxisName) => {
-        // event.stopPropagation();
+    axisItemHandler: (dimensionId, targetAxisName, numberOfDimensionItems) => {
         dispatch(acAddUiLayoutDimensions({ [dimensionId]: targetAxisName }));
     },
     removeItemHandler: dimensionId => {
