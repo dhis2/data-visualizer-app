@@ -25,7 +25,7 @@ import {
 
 export class Dimensions extends Component {
     state = {
-        dimensionOptionsAnchorEl: null,
+        dimensionMenuAnchorEl: null,
         dimensionId: null,
     };
 
@@ -35,14 +35,14 @@ export class Dimensions extends Component {
         // set anchor for options menu
         // open menu
         this.setState({
-            dimensionOptionsAnchorEl: event.currentTarget,
+            dimensionMenuAnchorEl: event.currentTarget,
             dimensionId: id,
         });
     };
 
     onDimensionOptionsClose = () =>
         this.setState({
-            dimensionOptionsAnchorEl: null,
+            dimensionMenuAnchorEl: null,
             dimensionId: null,
         });
 
@@ -68,11 +68,10 @@ export class Dimensions extends Component {
         (this.props.itemsByDimension[this.state.dimensionId] || []).length;
 
     render() {
-        console.log('----DM RENDER----');
-        console.log(this.state.dimensionId);
-        console.log(this.getUiAxisName());
-        console.log(this.props.ui.type);
-        console.log(this.getNumberOfDimensionItems());
+        console.log(
+            '-A menu parent render: ',
+            this.state.dimensionMenuAnchorEl
+        );
 
         return (
             <div style={styles.divContainer}>
@@ -87,7 +86,7 @@ export class Dimensions extends Component {
                     onDimensionDragStart={this.onDimensionDragStart}
                     onDimensionClick={this.props.onDimensionClick}
                 />
-                {this.state.dimensionOptionsAnchorEl && (
+                {this.state.dimensionMenuAnchorEl && (
                     <DimensionMenu
                         dimensionId={this.state.dimensionId}
                         currentAxisName={this.getUiAxisName()}
@@ -96,7 +95,7 @@ export class Dimensions extends Component {
                         dualAxisItemHandler={this.props.dualAxisItemHandler}
                         axisItemHandler={this.props.axisItemHandler}
                         removeItemHandler={this.props.removeItemHandler}
-                        anchorEl={this.state.dimensionOptionsAnchorEl}
+                        anchorEl={this.state.dimensionMenuAnchorEl}
                         onClose={this.onDimensionOptionsClose}
                     />
                 )}
