@@ -86,19 +86,19 @@ export class Dimensions extends Component {
                     onDimensionDragStart={this.onDimensionDragStart}
                     onDimensionClick={this.props.onDimensionClick}
                 />
-                {this.state.dimensionMenuAnchorEl && (
-                    <DimensionMenu
-                        dimensionId={this.state.dimensionId}
-                        currentAxisName={this.getUiAxisName()}
-                        visType={this.props.ui.type}
-                        numberOfDimensionItems={this.getNumberOfDimensionItems()}
-                        dualAxisItemHandler={this.props.dualAxisItemHandler}
-                        axisItemHandler={this.props.axisItemHandler}
-                        removeItemHandler={this.props.removeItemHandler}
-                        anchorEl={this.state.dimensionMenuAnchorEl}
-                        onClose={this.onDimensionOptionsClose}
-                    />
-                )}
+                {/* {this.state.dimensionMenuAnchorEl && ( */}
+                <DimensionMenu
+                    dimensionId={this.state.dimensionId}
+                    currentAxisName={this.getUiAxisName()}
+                    visType={this.props.ui.type}
+                    numberOfDimensionItems={this.getNumberOfDimensionItems()}
+                    dualAxisItemHandler={this.props.dualAxisItemHandler}
+                    axisItemHandler={this.props.axisItemHandler}
+                    removeItemHandler={this.props.removeItemHandler}
+                    anchorEl={this.state.dimensionMenuAnchorEl}
+                    onClose={this.onDimensionOptionsClose}
+                />
+                {/* )} */}
                 <DialogManager />
             </div>
         );
@@ -122,12 +122,10 @@ const mapDispatchToProps = dispatch => ({
         dispatch(fromActions.fromUi.acSetUiActiveModalDialog(id)),
     dualAxisItemHandler: () =>
         dispatch(acSetUiActiveModalDialog(AXIS_SETUP_DIALOG_ID)),
-    axisItemHandler: (dimensionId, targetAxisName) => event => {
-        event.stopPropagation();
+    axisItemHandler: (dimensionId, targetAxisName) => {
         dispatch(acAddUiLayoutDimensions({ [dimensionId]: targetAxisName }));
     },
-    removeItemHandler: dimensionId => event => {
-        event.stopPropagation();
+    removeItemHandler: dimensionId => {
         dispatch(acRemoveUiLayoutDimensions(dimensionId));
     },
 });

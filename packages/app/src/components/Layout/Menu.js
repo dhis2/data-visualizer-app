@@ -23,7 +23,7 @@ class ChipMenu extends React.Component {
     };
 
     handleClose = event => {
-        event.stopPropagation();
+        // event.stopPropagation();
         this.setState({ anchorEl: null });
     };
 
@@ -60,12 +60,11 @@ class ChipMenu extends React.Component {
 const mapDispatchToProps = dispatch => ({
     dualAxisItemHandler: () =>
         dispatch(acSetUiActiveModalDialog(AXIS_SETUP_DIALOG_ID)),
-    axisItemHandler: (dimensionId, targetAxisName) => event => {
-        event.stopPropagation();
+    axisItemHandler: (dimensionId, targetAxisName) => {
+        // event.stopPropagation();
         dispatch(acAddUiLayoutDimensions({ [dimensionId]: targetAxisName }));
     },
-    removeItemHandler: dimensionId => event => {
-        event.stopPropagation();
+    removeItemHandler: dimensionId => {
         dispatch(acRemoveUiLayoutDimensions(dimensionId));
     },
 });
