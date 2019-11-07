@@ -16,6 +16,12 @@ import * as fromActions from '../../actions';
 
 import { styles } from './styles/DimensionsPanel.style';
 import { getAdaptedUiByType } from '../../modules/ui';
+import { AXIS_SETUP_DIALOG_ID } from '../AxisSetup/AxisSetup';
+import {
+    acSetUiActiveModalDialog,
+    acAddUiLayoutDimensions,
+    acRemoveUiLayoutDimensions,
+} from '../../actions/ui';
 
 export class Dimensions extends Component {
     state = {
@@ -53,10 +59,7 @@ export class Dimensions extends Component {
 
     getUiAxisName = () => {
         const adaptedUi = getAdaptedUiByType(this.props.ui);
-        console.log('adaptedUi', adaptedUi);
-
         const inverseLayout = getInverseLayout(adaptedUi.layout);
-        console.log('inverseLayout', inverseLayout);
 
         return inverseLayout[this.state.dimensionId];
     };
@@ -65,7 +68,12 @@ export class Dimensions extends Component {
         (this.props.itemsByDimension[this.state.dimensionId] || []).length;
 
     render() {
-        console.log('NUMBER OF ITEMS', this.getNumberOfDimensionItems());
+        console.log('----DM RENDER----');
+        console.log(this.state.dimensionId);
+        console.log(this.getUiAxisName());
+        console.log(this.props.ui.type);
+        console.log(this.getNumberOfDimensionItems());
+
         return (
             <div style={styles.divContainer}>
                 <DimensionsPanel
@@ -83,15 +91,11 @@ export class Dimensions extends Component {
                     <DimensionMenu
                         dimensionId={this.state.dimensionId}
                         currentAxisName={this.getUiAxisName()}
-                        visType={this.props.type}
+                        visType={this.props.ui.type}
                         numberOfDimensionItems={this.getNumberOfDimensionItems()}
-                        dualAxisItemHandler={Function.prototype}
-                        axisItemHandler={Function.prototype}
-                        removeItemHandler={Function.prototype}
-                        // isSelected={this.props.selectedIds.includes(
-                        //     this.state.dimensionId
-                        // )}
-
+                        dualAxisItemHandler={this.props.dualAxisItemHandler}
+                        axisItemHandler={this.props.axisItemHandler}
+                        removeItemHandler={this.props.removeItemHandler}
                         anchorEl={this.state.dimensionOptionsAnchorEl}
                         onClose={this.onDimensionOptionsClose}
                     />
@@ -117,6 +121,16 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
     onDimensionClick: id =>
         dispatch(fromActions.fromUi.acSetUiActiveModalDialog(id)),
+    dualAxisItemHandler: () =>
+        dispatch(acSetUiActiveModalDialog(AXIS_SETUP_DIALOG_ID)),
+    axisItemHandler: (dimensionId, targetAxisName) => event => {
+        event.stopPropagation();
+        dispatch(acAddUiLayoutDimensions({ [dimensionId]: targetAxisName }));
+    },
+    removeItemHandler: dimensionId => event => {
+        event.stopPropagation();
+        dispatch(acRemoveUiLayoutDimensions(dimensionId));
+    },
 });
 
 export default connect(
