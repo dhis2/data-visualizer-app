@@ -48,7 +48,7 @@ class ChipMenu extends React.Component {
                     dualAxisItemHandler={this.props.dualAxisItemHandler}
                     axisItemHandler={this.props.axisItemHandler}
                     removeItemHandler={this.props.removeItemHandler}
-                    anchorEl={this.props.anchorEl}
+                    anchorEl={this.state.anchorEl}
                     onClose={this.handleClose}
                 />
             </React.Fragment>
@@ -69,24 +69,7 @@ const mapDispatchToProps = dispatch => ({
     },
 });
 
-export default connect(mapDispatchToProps)(ChipMenu);
-
-// <Menu
-//                     id={this.getMenuId(this.props.id)}
-//                     anchorEl={this.state.anchorEl}
-//                     open={Boolean(this.state.anchorEl)}
-//                     onClose={this.handleClose}
-//                 >
-//                     {this.props.menuItems.map(menuItem => {
-//                         const onClick = e => {
-//                             if (isFunction(menuItem.props.onClick)) {
-//                                 menuItem.props.onClick(e);
-//                             }
-//                             this.handleClose(e);
-//                         };
-
-//                         return isValidElement(menuItem)
-//                             ? cloneElement(menuItem, { onClick })
-//                             : menuItem;
-//                     })}
-//                 </Menu>
+export default connect(
+    null,
+    mapDispatchToProps
+)(ChipMenu);
