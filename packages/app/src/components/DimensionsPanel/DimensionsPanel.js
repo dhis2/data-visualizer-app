@@ -7,7 +7,6 @@ import {
 } from '@dhis2/analytics';
 
 import DialogManager from './Dialogs/DialogManager';
-import DimensionOptions from './DimensionOptions/DimensionOptions';
 import { SOURCE_DIMENSIONS, getInverseLayout } from '../../modules/layout';
 import { setDataTransfer } from '../../modules/dnd';
 import { isYearOverYear } from '../../modules/chartTypes';
