@@ -30,7 +30,6 @@ class ChipMenu extends React.Component {
     getMenuId = () => `menu-for-${this.props.id}`;
 
     render() {
-        console.log('-B menu parent render-', this.state.anchorEl);
         return (
             <React.Fragment>
                 <IconButton
