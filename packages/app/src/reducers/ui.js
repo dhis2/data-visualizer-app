@@ -7,11 +7,7 @@ import {
     AXIS_NAME_ROWS,
 } from '@dhis2/analytics';
 
-import {
-    getFilteredLayout,
-    getSwapModObj,
-    getInverseLayout,
-} from '../modules/layout';
+import { getFilteredLayout, getSwapModObj } from '../modules/layout';
 import { getOptionsForUi } from '../modules/options';
 import { COLUMN } from '../modules/chartTypes';
 import { getUiFromVisualization } from '../modules/ui';
