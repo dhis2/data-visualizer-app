@@ -67,11 +67,6 @@ export class Dimensions extends Component {
         (this.props.itemsByDimension[this.state.dimensionId] || []).length;
 
     render() {
-        console.log(
-            '-A menu parent render: ',
-            this.state.dimensionMenuAnchorEl
-        );
-
         return (
             <div style={styles.divContainer}>
                 <DimensionsPanel
