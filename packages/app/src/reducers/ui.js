@@ -5,11 +5,11 @@ import {
     DIMENSION_ID_ORGUNIT,
     AXIS_NAME_COLUMNS,
     AXIS_NAME_ROWS,
+    VIS_TYPE_COLUMN,
 } from '@dhis2/analytics';
 
 import { getFilteredLayout, getSwapModObj } from '../modules/layout';
 import { getOptionsForUi } from '../modules/options';
-import { COLUMN } from '../modules/chartTypes';
 import { getUiFromVisualization } from '../modules/ui';
 
 export const SET_UI = 'SET_UI';
@@ -35,7 +35,7 @@ export const CLEAR_UI_INTERPRETATION = 'CLEAR_UI_INTERPRETATION';
 export const SET_AXES = 'SET_AXES';
 
 export const DEFAULT_UI = {
-    type: COLUMN,
+    type: VIS_TYPE_COLUMN,
     options: getOptionsForUi(),
     layout: {
         columns: [DIMENSION_ID_DATA],

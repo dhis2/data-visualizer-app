@@ -1,16 +1,15 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
-
 import {
-    chartTypeDisplayNames,
+    VIS_TYPE_MAP,
+    visTypeDisplayNames,
     isOpenAsType,
-    OPEN_AS_MAP,
-} from '../../modules/chartTypes';
+} from '@dhis2/analytics';
+
 import { prepareCurrentAnalyticalObject } from '../../modules/currentAnalyticalObject';
 import { sGetUi, sGetUiType } from '../../reducers/ui';
 import { sGetCurrent } from '../../reducers/current';
@@ -50,7 +49,7 @@ export class VisualizationTypeSelector extends Component {
     };
 
     handleOpenAsMenuItemClick = type => () => {
-        if (type === OPEN_AS_MAP) {
+        if (type === VIS_TYPE_MAP) {
             this.handleOpenChartAsMapClick();
         }
     };
@@ -72,7 +71,7 @@ export class VisualizationTypeSelector extends Component {
     };
 
     getChartTypes = () => {
-        return Object.keys(chartTypeDisplayNames).reduce(
+        return Object.keys(visTypeDisplayNames).reduce(
             (result, type) => {
                 const chartType = isOpenAsType(type)
                     ? 'openAsTypes'
@@ -102,7 +101,7 @@ export class VisualizationTypeSelector extends Component {
                     style={styles.button}
                 >
                     <VisualizationTypeIcon type={visualizationType} />
-                    {chartTypeDisplayNames[visualizationType]}
+                    {visTypeDisplayNames[visualizationType]}
                     <ArrowDropDownIcon style={styles.dropDownArrow} />
                 </Button>
                 <Menu
@@ -143,7 +142,7 @@ export class VisualizationTypeSelector extends Component {
 }
 
 VisualizationTypeSelector.propTypes = {
-    visualizationType: PropTypes.oneOf(Object.keys(chartTypeDisplayNames)),
+    visualizationType: PropTypes.oneOf(Object.keys(visTypeDisplayNames)),
     current: PropTypes.object,
     metadata: PropTypes.object,
     ui: PropTypes.object,

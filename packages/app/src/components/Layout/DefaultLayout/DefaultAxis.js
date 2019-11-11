@@ -7,6 +7,8 @@ import {
     AXIS_NAME_COLUMNS,
     AXIS_NAMES,
     DIMENSION_ID_DATA,
+    isYearOverYear,
+    isDualAxisType,
 } from '@dhis2/analytics';
 
 import Chip from '../Chip';
@@ -18,7 +20,6 @@ import {
 } from '../../../actions/ui';
 import { SOURCE_DIMENSIONS, menuLabels } from '../../../modules/layout';
 import { getAdaptedUiByType } from '../../../modules/ui';
-import { isYearOverYear, isDualAxisType } from '../../../modules/chartTypes';
 
 import styles from './styles/DefaultAxis.style';
 

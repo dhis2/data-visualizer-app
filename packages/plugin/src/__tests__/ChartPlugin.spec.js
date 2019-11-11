@@ -1,16 +1,17 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import LoadingMask from '../widgets/LoadingMask';
-import ChartPlugin from '../ChartPlugin';
-import * as analytics from '@dhis2/analytics';
-import * as api from '../api/analytics';
-import * as apiViz from '../api/visualization';
-import * as options from '../modules/options';
 import {
     YEAR_OVER_YEAR_LINE,
     COLUMN,
     SINGLE_VALUE,
-} from '../modules/chartTypes';
+    createVisualization,
+} from '@dhis2/analytics';
+
+import LoadingMask from '../widgets/LoadingMask';
+import ChartPlugin from '../ChartPlugin';
+import * as api from '../api/analytics';
+import * as apiViz from '../api/visualization';
+import * as options from '../modules/options';
 
 jest.mock('@dhis2/analytics');
 
@@ -148,7 +149,7 @@ describe('ChartPlugin', () => {
 
     describe('createVisualization success', () => {
         beforeEach(() => {
-            analytics.createVisualization = jest
+            createVisualization = jest
                 .fn()
                 .mockReturnValue(createVisualizationMock);
         });
@@ -171,7 +172,7 @@ describe('ChartPlugin', () => {
             canvas();
 
             setTimeout(() => {
-                expect(analytics.createVisualization).toHaveBeenCalled();
+                expect(createVisualization).toHaveBeenCalled();
                 done();
             });
         });
@@ -301,7 +302,7 @@ describe('ChartPlugin', () => {
                 canvas();
 
                 setTimeout(() => {
-                    expect(analytics.createVisualization).toHaveBeenCalled();
+                    expect(createVisualization).toHaveBeenCalled();
 
                     const expectedExtraOptions = {
                         yearlySeries: mockYoYSeriesLabels,
@@ -309,9 +310,7 @@ describe('ChartPlugin', () => {
                         noData: { text: 'No data' },
                     };
 
-                    expect(
-                        analytics.createVisualization.mock.calls[0][3]
-                    ).toEqual({
+                    expect(createVisualization.mock.calls[0][3]).toEqual({
                         animation: undefined,
                         dashboard: false,
                         ...expectedExtraOptions,
@@ -333,11 +332,11 @@ describe('ChartPlugin', () => {
                 canvas();
 
                 setTimeout(() => {
-                    expect(analytics.createVisualization).toHaveBeenCalled();
+                    expect(createVisualization).toHaveBeenCalled();
 
-                    expect(
-                        analytics.createVisualization.mock.calls[0][6]
-                    ).toEqual('dhis');
+                    expect(createVisualization.mock.calls[0][6]).toEqual(
+                        'dhis'
+                    );
 
                     done();
                 });

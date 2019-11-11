@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import MenuItem from '@material-ui/core/MenuItem/MenuItem';
+import { visTypeDisplayNames } from '@dhis2/analytics';
+
 import ListItemIcon from '@material-ui/core/ListItemIcon/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText/ListItemText';
-
-import { chartTypeDisplayNames } from '../../modules/chartTypes';
 import VisualizationTypeIcon from './VisualizationTypeIcon';
 
 const VisualizationTypeMenuItem = ({
@@ -24,7 +23,7 @@ const VisualizationTypeMenuItem = ({
             <VisualizationTypeIcon type={type} style={styles.listItemSvg} />
         </ListItemIcon>
         <ListItemText
-            primary={chartTypeDisplayNames[type]}
+            primary={visTypeDisplayNames[type]}
             disableTypography={true}
             style={styles.listItemText}
         />
@@ -32,8 +31,8 @@ const VisualizationTypeMenuItem = ({
 );
 
 VisualizationTypeMenuItem.propTypes = {
-    type: PropTypes.oneOf(Object.keys(chartTypeDisplayNames)),
-    visualizationType: PropTypes.oneOf(Object.keys(chartTypeDisplayNames)),
+    type: PropTypes.oneOf(Object.keys(visTypeDisplayNames)),
+    visualizationType: PropTypes.oneOf(Object.keys(visTypeDisplayNames)),
     styles: PropTypes.object,
 };
 
