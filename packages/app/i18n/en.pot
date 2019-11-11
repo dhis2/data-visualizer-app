@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-11-08T08:34:20.448Z\n"
-"PO-Revision-Date: 2019-11-08T08:34:20.448Z\n"
+"POT-Creation-Date: 2019-11-11T13:15:11.091Z\n"
+"PO-Revision-Date: 2019-11-11T13:15:11.091Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -43,6 +43,9 @@ msgid ""
 msgstr ""
 
 msgid "Hide"
+msgstr ""
+
+msgid "Remove"
 msgstr ""
 
 msgid "Download"
@@ -109,9 +112,6 @@ msgid "Filter"
 msgstr ""
 
 msgid "Move to"
-msgstr ""
-
-msgid "Remove"
 msgstr ""
 
 msgid "None selected"
