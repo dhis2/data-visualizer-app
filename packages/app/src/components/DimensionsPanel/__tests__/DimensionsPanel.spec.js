@@ -18,6 +18,10 @@ describe('The Dimensions component ', () => {
         shallowDimensions = undefined;
         props = {
             dimensions: {},
+            ui: {
+                layout: {}
+            },
+            itemsByDimension: {},
         };
     });
 
