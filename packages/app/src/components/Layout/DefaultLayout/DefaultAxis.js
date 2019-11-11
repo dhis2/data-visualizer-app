@@ -14,13 +14,11 @@ import { sGetUi } from '../../../reducers/ui';
 import { decodeDataTransfer } from '../../../modules/dnd';
 import {
     acAddUiLayoutDimensions,
-    acRemoveUiLayoutDimensions,
     acSetUiActiveModalDialog,
 } from '../../../actions/ui';
 import { SOURCE_DIMENSIONS, menuLabels } from '../../../modules/layout';
 import { getAdaptedUiByType } from '../../../modules/ui';
 import { isYearOverYear, isDualAxisType } from '../../../modules/chartTypes';
-import { AXIS_SETUP_DIALOG_ID } from '../../AxisSetup/AxisSetup';
 
 import styles from './styles/DefaultAxis.style';
 
@@ -126,7 +124,6 @@ class Axis extends React.Component {
                             onClick={this.props.getOpenHandler(dimensionId)}
                             axisName={this.props.axisName}
                             dimensionId={dimensionId}
-                            menuItems={this.getMenuItems(dimensionId)}
                         />
                     ))}
                 </div>
@@ -145,16 +142,6 @@ const mapDispatchToProps = dispatch => ({
         dispatch(acSetUiActiveModalDialog(dimensionId)),
     getOpenHandler: dimensionId => () =>
         dispatch(acSetUiActiveModalDialog(dimensionId)),
-    getMoveHandler: value => event => {
-        event.stopPropagation();
-        dispatch(acAddUiLayoutDimensions(value));
-    },
-    getRemoveHandler: dimensionId => event => {
-        event.stopPropagation();
-        dispatch(acRemoveUiLayoutDimensions(dimensionId));
-    },
-    onOpenAxisSetup: () =>
-        dispatch(acSetUiActiveModalDialog(AXIS_SETUP_DIALOG_ID)),
 });
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
