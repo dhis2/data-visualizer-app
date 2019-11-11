@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import MenuItem from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
-import { getLayoutTypeByChartType, getAvailableAxes } from '@dhis2/analytics';
+import { getAvailableAxes } from '@dhis2/analytics';
 
 import UpdateButton from '../../../UpdateButton/UpdateButton';
 import Menu from './Menu';
@@ -45,9 +45,6 @@ export class AddToLayoutButton extends Component {
         this.props.closeDialog(null);
     };
 
-    getAvailableAxisNames = () =>
-        getAvailableAxes(getLayoutTypeByChartType(this.props.ui.type));
-
     getAxisMeta = axisNameArray =>
         axisNameArray.map(axisName =>
             ADD_TO_LAYOUT_OPTIONS.find(
@@ -56,7 +53,7 @@ export class AddToLayoutButton extends Component {
         );
 
     renderMenuItems = () =>
-        this.getAxisMeta(this.getAvailableAxisNames())
+        this.getAxisMeta(getAvailableAxes(this.props.ui.type))
             .slice(1)
             .map(axisMetaObj => (
                 <MenuItem
@@ -71,7 +68,7 @@ export class AddToLayoutButton extends Component {
 
     renderAddToLayoutButton = () => {
         const availableAxisMeta = this.getAxisMeta(
-            this.getAvailableAxisNames()
+            getAvailableAxes(this.props.ui.type)
         );
 
         return (
