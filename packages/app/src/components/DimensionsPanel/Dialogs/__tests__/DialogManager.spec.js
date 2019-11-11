@@ -37,7 +37,7 @@ jest.mock('@dhis2/analytics', () => {
             [ouId]: {},
         },
         axisLabels: {
-            columns: 'Columns',
+            columns: 'columns',
         },
     };
 });

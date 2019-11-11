@@ -19,7 +19,7 @@ describe('The Dimensions component ', () => {
         props = {
             dimensions: {},
             ui: {
-                layout: {}
+                layout: {},
             },
             itemsByDimension: {},
         };
