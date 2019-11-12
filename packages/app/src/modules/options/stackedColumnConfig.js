@@ -10,8 +10,7 @@ import TargetLine from '../../components/VisualizationOptions/Options/TargetLine
 import BaseLine from '../../components/VisualizationOptions/Options/BaseLine';
 import SortOrder from '../../components/VisualizationOptions/Options/SortOrder';
 import AggregationType from '../../components/VisualizationOptions/Options/AggregationType';
-import RangeAxisMinValue from '../../components/VisualizationOptions/Options/RangeAxisMinValue';
-import RangeAxisMaxValue from '../../components/VisualizationOptions/Options/RangeAxisMaxValue';
+import AxisRange from '../../components/VisualizationOptions/Options/AxisRange';
 import RangeAxisSteps from '../../components/VisualizationOptions/Options/RangeAxisSteps';
 import RangeAxisDecimals from '../../components/VisualizationOptions/Options/RangeAxisDecimals';
 import RangeAxisLabel from '../../components/VisualizationOptions/Options/RangeAxisLabel';
@@ -19,9 +18,7 @@ import DomainAxisLabel from '../../components/VisualizationOptions/Options/Domai
 import NoSpaceBetweenColumns from '../../components/VisualizationOptions/Options/NoSpaceBetweenColumns';
 import HideLegend from '../../components/VisualizationOptions/Options/HideLegend';
 import HideTitle from '../../components/VisualizationOptions/Options/HideTitle';
-import Title from '../../components/VisualizationOptions/Options/Title';
 import HideSubtitle from '../../components/VisualizationOptions/Options/HideSubtitle';
-import Subtitle from '../../components/VisualizationOptions/Options/Subtitle';
 
 export default [
     {
@@ -29,18 +26,25 @@ export default [
         label: i18n.t('Data'),
         content: [
             {
-                key: 'data-section-1',
+                key: 'data-display',
+                label: i18n.t('Display'),
                 content: [
                     <ShowData />,
                     <PercentStackedValues />,
                     <CumulativeValues />,
                     <HideEmptyRowItems />,
-                    <RegressionType />,
-                    <TargetLine />,
-                    <BaseLine />,
                     <SortOrder />,
-                    <AggregationType />,
                 ],
+            },
+            {
+                key: 'data-lines',
+                label: i18n.t('Lines'),
+                content: [<RegressionType />, <TargetLine />, <BaseLine />],
+            },
+            {
+                key: 'data-advanced',
+                label: i18n.t('Advanced'),
+                content: [<AggregationType />],
             },
         ],
     },
@@ -49,15 +53,19 @@ export default [
         label: i18n.t('Axes'),
         content: [
             {
-                key: 'axes-section-1',
+                key: 'axes-vertical-axis',
+                label: i18n.t('Vertical (y) axis'),
                 content: [
-                    <RangeAxisMinValue />,
-                    <RangeAxisMaxValue />,
+                    <RangeAxisLabel />,
+                    <AxisRange />,
                     <RangeAxisSteps />,
                     <RangeAxisDecimals />,
-                    <RangeAxisLabel />,
-                    <DomainAxisLabel />,
                 ],
+            },
+            {
+                key: 'axes-horizontal-axis',
+                label: i18n.t('Horizontal (x) axis'),
+                content: [<DomainAxisLabel />],
             },
         ],
     },
@@ -66,15 +74,18 @@ export default [
         label: i18n.t('Style'),
         content: [
             {
-                key: 'style-section-1',
+                key: 'style-chart-style',
+                label: i18n.t('Chart style'),
                 content: [
                     <NoSpaceBetweenColumns />,
                     <HideLegend />,
-                    <Title />,
-                    <HideTitle />,
-                    <Subtitle />,
-                    <HideSubtitle />,
+                    /* TODO new option <BackgroundLines /> */
                 ],
+            },
+            {
+                key: 'style-titles',
+                label: i18n.t('Titles'),
+                content: [<HideTitle />, <HideSubtitle />],
             },
         ],
     },

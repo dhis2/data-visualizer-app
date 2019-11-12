@@ -63,7 +63,8 @@ export const options = {
 export const computedOptions = {
     baseLine: { defaultValue: false, requestable: false },
     targetLine: { defaultValue: false, requestable: false },
-}
+    axisRange: { defaultValue: undefined, requestable: false },
+};
 
 export default options
 
