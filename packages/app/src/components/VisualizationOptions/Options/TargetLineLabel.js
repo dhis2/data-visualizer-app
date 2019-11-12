@@ -1,22 +1,16 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import i18n from '@dhis2/d2-i18n'
+import React from 'react';
+import i18n from '@dhis2/d2-i18n';
 
 import TextBaseOption from './TextBaseOption'
 
-const TargetLineLabel = ({ enabled }) => (
+const TargetLineLabel = () => (
     <TextBaseOption
-        enabled={enabled}
         type="text"
+        label={i18n.t('Title')}
         option={{
             name: 'targetLineLabel',
-            label: i18n.t('Target line title'),
         }}
     />
 )
 
-TargetLineLabel.propTypes = {
-    enabled: PropTypes.bool.isRequired,
-}
-
-export default TargetLineLabel
+export default TargetLineLabel;

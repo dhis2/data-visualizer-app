@@ -1,13 +1,16 @@
-import React from 'react'
-import TextBaseOption from './TextBaseOption'
-import i18n from '@dhis2/d2-i18n'
+import React from 'react';
+
+import i18n from '@dhis2/d2-i18n';
+
+import TextBaseOption from './TextBaseOption';
 
 const RangeAxisDecimals = () => (
     <TextBaseOption
         type="number"
+        label={i18n.t('Decimals')}
+        placeholder={i18n.t('Auto')}
         option={{
             name: 'rangeAxisDecimals',
-            label: i18n.t('Range axis decimals'),
         }}
     />
 )

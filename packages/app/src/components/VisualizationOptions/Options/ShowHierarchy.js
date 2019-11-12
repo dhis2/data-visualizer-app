@@ -1,22 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import i18n from '@dhis2/d2-i18n';
-import { withStyles } from '@material-ui/core/styles';
-import CheckboxBaseOption from './CheckboxBaseOption';
-import styles from '../styles/VisualizationOptions.style';
 
-const ShowHierarchy = ({ classes }) => (
+import i18n from '@dhis2/d2-i18n';
+
+import CheckboxBaseOption from './CheckboxBaseOption';
+
+const ShowHierarchy = () => (
     <CheckboxBaseOption
-        className={classes.dataTabCheckbox}
+        label={i18n.t('Show hierarchy')}
         option={{
             name: 'showHierarchy',
-            label: i18n.t('Show hierarchy'),
         }}
     />
 );
 
-ShowHierarchy.propTypes = {
-    classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(ShowHierarchy);
+export default ShowHierarchy;

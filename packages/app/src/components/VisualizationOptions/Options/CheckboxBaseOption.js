@@ -1,35 +1,32 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import Checkbox from '@material-ui/core/Checkbox'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import { sGetUiOptions } from '../../../reducers/ui'
-import { acSetUiOptions } from '../../../actions/ui'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-export const CheckboxBaseOption = ({ className, option, value, onChange }) => (
-    <FormControlLabel
-        className={className}
-        control={
-            <Checkbox
-                checked={value}
-                color={'primary'}
-                onChange={event => onChange(event.target.checked)}
-            />
-        }
-        label={option.label}
+import { Checkbox } from '@dhis2/ui-core';
+
+import { sGetUiOptions } from '../../../reducers/ui';
+import { acSetUiOptions } from '../../../actions/ui';
+
+export const CheckboxBaseOption = ({ option, label, value, onChange }) => (
+    <Checkbox
+        checked={value}
+        label={label}
+        name={option.name}
+        onChange={event => onChange(event.target.checked)}
+        dense
     />
 )
 
 CheckboxBaseOption.propTypes = {
-    className: PropTypes.string,
+    label: PropTypes.string,
     option: PropTypes.object,
     value: PropTypes.bool,
     onChange: PropTypes.func,
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    value: sGetUiOptions(state)[ownProps.option.name],
-})
+    value: sGetUiOptions(state)[ownProps.option.name] || false,
+});
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
     onChange: checked =>

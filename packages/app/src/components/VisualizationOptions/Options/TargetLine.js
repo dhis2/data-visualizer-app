@@ -1,39 +1,33 @@
-import React, { Fragment } from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import FormGroup from '@material-ui/core/FormGroup'
-import Switch from '@material-ui/core/Switch'
-import { withStyles } from '@material-ui/core/styles'
+import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-import i18n from '@dhis2/d2-i18n'
-import { sGetUiOptions } from '../../../reducers/ui'
-import { acSetUiOptions } from '../../../actions/ui'
-import TargetLineValue from './TargetLineValue'
-import TargetLineLabel from './TargetLineLabel'
-import styles from '../styles/VisualizationOptions.style'
+import i18n from '@dhis2/d2-i18n';
+import { Checkbox } from '@dhis2/ui-core';
 
-export const TargetLine = ({ classes, enabled, onChange }) => (
-    <FormGroup className={classes.targetLine} row={true}>
-        <FormControlLabel
-            className={classes.targetLineRoot}
-            control={
-                <Switch
-                    checked={enabled}
-                    onChange={event => onChange(event.target.checked)}
-                />
-            }
+import { sGetUiOptions } from '../../../reducers/ui';
+import { acSetUiOptions } from '../../../actions/ui';
+import TargetLineValue from './TargetLineValue';
+import TargetLineLabel from './TargetLineLabel';
+
+export const TargetLine = ({ enabled, onChange }) => (
+    <Fragment>
+        <Checkbox
+            checked={enabled}
             label={i18n.t('Target line')}
+            onChange={event => onChange(event.target.checked)}
+            dense
         />
-        <Fragment>
-            <TargetLineValue enabled={enabled} />
-            <TargetLineLabel enabled={enabled} />
-        </Fragment>
-    </FormGroup>
-)
+        {enabled ? (
+            <Fragment>
+                <TargetLineValue />
+                <TargetLineLabel />
+            </Fragment>
+        ) : null}
+    </Fragment>
+);
 
 TargetLine.propTypes = {
-    classes: PropTypes.object.isRequired,
     enabled: PropTypes.bool.isRequired,
     onChange: PropTypes.func.isRequired,
 }
@@ -49,4 +43,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(withStyles(styles)(TargetLine))
+)(TargetLine);

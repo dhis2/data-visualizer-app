@@ -1,16 +1,20 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import i18n from '@dhis2/d2-i18n'
-import { withStyles } from '@material-ui/core/styles'
-import SelectBaseOption from './SelectBaseOption'
-import styles from '../styles/VisualizationOptions.style'
+import React from 'react';
 
-const HideEmptyRowItems = ({ classes }) => (
+import i18n from '@dhis2/d2-i18n';
+
+import SelectBaseOption from './SelectBaseOption';
+import { options } from '../../../modules/options';
+
+const optionName = 'hideEmptyRowItems';
+const defaultValue = options[optionName].defaultValue;
+
+const HideEmptyRowItems = () => (
     <SelectBaseOption
-        className={classes.selectBaseOption}
+        label={i18n.t('Hide empty categories')}
+        toggleable={true}
         option={{
-            name: 'hideEmptyRowItems',
-            label: i18n.t('Hide empty categories'),
+            name: optionName,
+            defaultValue: defaultValue,
             items: [
                 { id: 'NONE', label: i18n.t('None') },
                 { id: 'BEFORE_FIRST', label: i18n.t('Before first') },
@@ -25,8 +29,4 @@ const HideEmptyRowItems = ({ classes }) => (
     />
 )
 
-HideEmptyRowItems.propTypes = {
-    classes: PropTypes.object.isRequired,
-}
-
-export default withStyles(styles)(HideEmptyRowItems)
+export default HideEmptyRowItems;

@@ -2,17 +2,15 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormLabel from '@material-ui/core/FormLabel';
+import { FieldSet, Legend, TabBar, Tab } from '@dhis2/ui-core';
+
+import {
+    tabSection,
+    tabSectionLegend,
+    tabSectionLabel,
+} from './styles/VisualizationOptions.style.js';
 
 import { sGetUiType } from '../../reducers/ui';
-
-import styles from './styles/VisualizationOptions.style';
-
 import { getOptionsByType } from '../../modules/options/config';
 
 export class VisualizationOptions extends Component {
@@ -24,12 +22,14 @@ export class VisualizationOptions extends Component {
 
     generateTabContent = sections =>
         sections.map(({ key, label, content }) => (
-            <FormGroup key={key} component="fieldset">
+            <FieldSet key={key} className={tabSection.className}>
                 {label ? (
-                    <FormLabel component="legend">{label}</FormLabel>
+                    <Legend className={tabSectionLegend.className}>
+                        {label}
+                    </Legend>
                 ) : null}
                 {content}
-            </FormGroup>
+            </FieldSet>
         ));
 
     generateTabs = tabs =>
@@ -40,7 +40,7 @@ export class VisualizationOptions extends Component {
         }));
 
     render() {
-        const { classes, visualizationType } = this.props;
+        const { visualizationType } = this.props;
         const { activeTab } = this.state;
 
         const optionsConfig = getOptionsByType(visualizationType);
@@ -49,40 +49,32 @@ export class VisualizationOptions extends Component {
 
         return (
             <Fragment>
-                <AppBar
-                    position="sticky"
-                    className={classes.tabsBar}
-                    elevation={0}
-                >
-                    <Tabs
-                        indicatorColor="primary"
-                        onChange={(event, tabId) => this.selectTab(tabId)}
-                        textColor="primary"
-                        value={activeTab}
-                    >
-                        {tabs.map(({ key, label }) => (
-                            <Tab
-                                key={key}
-                                className={classes.tab}
-                                label={label}
-                            />
-                        ))}
-                    </Tabs>
-                </AppBar>
+                <TabBar>
+                    {tabs.map(({ key, label }, index) => (
+                        <Tab
+                            key={key}
+                            onClick={() => this.selectTab(index)}
+                            selected={index === activeTab}
+                        >
+                            {label}
+                        </Tab>
+                    ))}
+                </TabBar>
                 {tabs[activeTab].content}
+                {tabSection.styles}
+                {tabSectionLegend.styles}
+                {tabSectionLabel.styles}
             </Fragment>
         )
     }
 }
 
 VisualizationOptions.propTypes = {
-    classes: PropTypes.object.isRequired,
-}
+    visualizationType: PropTypes.string.isRequired,
+};
 
 const mapStateToProps = state => ({
     visualizationType: sGetUiType(state),
 });
 
-export default connect(mapStateToProps)(
-    withStyles(styles)(VisualizationOptions)
-);
+export default connect(mapStateToProps)(VisualizationOptions);

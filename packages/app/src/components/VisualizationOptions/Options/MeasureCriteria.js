@@ -7,31 +7,61 @@ import FormLabel from '@material-ui/core/FormLabel';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
 
 import i18n from '@dhis2/d2-i18n';
 
+import {
+    Button,
+    Field,
+    InputField,
+    Legend,
+    SingleSelectField,
+    SingleSelectOption,
+} from '@dhis2/ui-core';
 import { sGetUiOptions } from '../../../reducers/ui';
 import { acSetUiOptions } from '../../../actions/ui';
 
-const OperatorSelect = ({ value, onChange }) => (
-    <Select displayEmpty={true} value={value} onChange={onChange}>
-        {[
-            { id: 'EQ', label: '=' },
-            { id: 'GT', label: '>' },
-            { id: 'GE', label: '>=' },
-            { id: 'LT', label: '<' },
-            { id: 'LE', label: '<=' },
-        ].map(({ id, label }) => (
-            <MenuItem key={id} value={id}>
-                {label}
-            </MenuItem>
-        ))}
-    </Select>
-);
+const OperatorSelect = ({ name, value, onChange }) => {
+    const options = [
+        { id: 'EQ', label: '=' },
+        { id: 'GT', label: '>' },
+        { id: 'GE', label: '>=' },
+        { id: 'LT', label: '<' },
+        { id: 'LE', label: '<=' },
+    ];
 
-const ValueInput = ({ value, onChange }) => (
-    <TextField value={value} type="number" onChange={onChange} />
+    const selected = options.find(option => option.id === value);
+    console.log('selected', selected, 'value', value);
+    return (
+        <SingleSelectField
+            name={name}
+            onChange={selected => onChange(selected.value)}
+            selected={
+                selected
+                    ? {
+                          value: selected.id,
+                          label: selected.label,
+                      }
+                    : undefined
+            }
+            dense
+            tabIndex="0"
+        >
+            {options.map(({ id, label }) => (
+                <SingleSelectOption key={id} value={id} label={label} />
+            ))}
+        </SingleSelectField>
+    );
+};
+
+const ValueInput = ({ name, value, onChange }) => (
+    <InputField
+        name={name}
+        value={value}
+        type="number"
+        onChange={event => onChange(event.target.value)}
+        dense
+    />
 );
 
 class MeasureCriteria extends Component {
@@ -50,8 +80,9 @@ class MeasureCriteria extends Component {
 
     onClear = () => this.setState(this.defaultState, this.props.onChange(''));
 
-    onChange = name => event => {
-        this.setState({ [name]: event.target.value }, () => {
+    onChange = name => value => {
+        console.log('onchange', value);
+        this.setState({ [name]: value }, () => {
             const { op1, v1, op2, v2 } = this.state;
             const value = [];
 
@@ -77,26 +108,24 @@ class MeasureCriteria extends Component {
                         'You can set a minimum or maximum value. This will apply to the entire table, all values outside of the minimum/maximum range will not be displayed'
                     )}
                 </p>
-                <FormLabel component="legend">
-                    {i18n.t('Minimum data value')}
-                </FormLabel>
-                <FormGroup row>
-                    <OperatorSelect
-                        name="op1"
-                        value={op1}
-                        onChange={this.onChange('op1')}
-                    />
-                    <ValueInput
-                        name="v1"
-                        value={v1}
-                        onChange={this.onChange('v1')}
-                    />
-                </FormGroup>
+                <Field>
+                    <Legend>{i18n.t('Minimum data value')}</Legend>
+                    <div>
+                        <OperatorSelect
+                            name="op1"
+                            value={op1}
+                            onChange={this.onChange('op1')}
+                        />
+                        <ValueInput
+                            name="v1"
+                            value={v1}
+                            onChange={this.onChange('v1')}
+                        />
+                    </div>
+                </Field>
 
-                <FormLabel component="legend">
-                    {i18n.t('Maximum data value')}
-                </FormLabel>
-                <FormGroup row>
+                <Field>
+                    <Legend>{i18n.t('Maximum data value')}</Legend>
                     <OperatorSelect
                         name="op2"
                         value={op2}
@@ -107,8 +136,8 @@ class MeasureCriteria extends Component {
                         value={v2}
                         onChange={this.onChange('v2')}
                     />
-                </FormGroup>
-                <Button variant="outlined" onClick={this.onClear}>
+                </Field>
+                <Button onClick={this.onClear}>
                     {i18n.t('Clear min/max limits')}
                 </Button>
             </Fragment>

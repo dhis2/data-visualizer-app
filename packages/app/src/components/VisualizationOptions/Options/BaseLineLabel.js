@@ -1,22 +1,16 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import i18n from '@dhis2/d2-i18n'
+import React from 'react';
+import i18n from '@dhis2/d2-i18n';
 
 import TextBaseOption from './TextBaseOption'
 
-const BaseLineLabel = ({ enabled }) => (
+const BaseLineLabel = () => (
     <TextBaseOption
-        enabled={enabled}
         type="text"
+        label={i18n.t('Title')}
         option={{
             name: 'baseLineLabel',
-            label: i18n.t('Base line title'),
         }}
     />
 )
 
-BaseLineLabel.propTypes = {
-    enabled: PropTypes.bool.isRequired,
-}
-
-export default BaseLineLabel
+export default BaseLineLabel;

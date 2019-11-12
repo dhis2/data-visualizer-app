@@ -1,22 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import i18n from '@dhis2/d2-i18n';
-import { withStyles } from '@material-ui/core/styles';
-import CheckboxBaseOption from './CheckboxBaseOption';
-import styles from '../styles/VisualizationOptions.style';
 
-const ColTotals = ({ classes }) => (
+import i18n from '@dhis2/d2-i18n';
+
+import CheckboxBaseOption from './CheckboxBaseOption';
+
+const ColTotals = () => (
     <CheckboxBaseOption
-        className={classes.dataTabCheckbox}
+        label={i18n.t('Columns totals')}
         option={{
             name: 'colTotals',
-            label: i18n.t('Columns totals'),
         }}
     />
 );
 
-ColTotals.propTypes = {
-    classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(ColTotals);
+export default ColTotals;

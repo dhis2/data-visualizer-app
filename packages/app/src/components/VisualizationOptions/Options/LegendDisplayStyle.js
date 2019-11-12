@@ -1,15 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 
 import i18n from '@dhis2/d2-i18n';
-import styles from '../styles/VisualizationOptions.style';
 
 import RadioBaseOption from './RadioBaseOption';
 
-const LegendDisplayStyle = ({ classes }) => (
+const LegendDisplayStyle = () => (
     <RadioBaseOption
-        //        className={classes.selectBaseOption}
         option={{
             name: 'legendDisplayStyle',
             items: [
@@ -23,8 +19,4 @@ const LegendDisplayStyle = ({ classes }) => (
     />
 );
 
-LegendDisplayStyle.propTypes = {
-    classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(LegendDisplayStyle);
+export default LegendDisplayStyle;
