@@ -79,7 +79,7 @@ export class AddToLayoutButton extends Component {
                     color="primary"
                     disableRipple
                     disableFocusRipple
-                    onClick={() => this.onUpdate(availableAxisMeta[0].name)}
+                    onClick={() => this.onUpdate(availableAxisMeta[0].axisName)}
                 >
                     {availableAxisMeta[0].name}
                 </Button>
