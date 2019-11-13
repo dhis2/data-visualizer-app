@@ -29,6 +29,7 @@ import YearOverYearLineIcon from '../../assets/YearOverYearLineIcon';
 import YearOverYearColumnIcon from '../../assets/YearOverYearColumnIcon';
 import SingleValueIcon from '../../assets/SingleValueIcon';
 import GlobeIcon from '../../assets/GlobeIcon';
+import PivotTableIcon from '../../assets/PivotTableIcon';
 
 const MenuItemIcon = ({ iconType, style }) => {
     switch (iconType) {
@@ -56,8 +57,9 @@ const MenuItemIcon = ({ iconType, style }) => {
             return <SingleValueIcon style={style} />;
         case 'MAP':
             return <GlobeIcon style={style} />;
-        case VIS_TYPE_COLUMN:
         case VIS_TYPE_PIVOT_TABLE:
+            return <PivotTableIcon style={style} />;
+        case VIS_TYPE_COLUMN:
         default:
             return <ColumnIcon style={style} />;
     }
