@@ -14,6 +14,7 @@ import YearOverYearLineIcon from '../../assets/YearOverYearLineIcon';
 import YearOverYearColumnIcon from '../../assets/YearOverYearColumnIcon';
 import SingleValueIcon from '../../assets/SingleValueIcon';
 import GlobeIcon from '../../assets/GlobeIcon';
+import PivotTableIcon from '../../assets/PivotTableIcon';
 
 import {
     PIVOT_TABLE,
@@ -62,6 +63,7 @@ const VisualizationTypeIcon = ({ type = PIVOT_TABLE, style }) => {
         case OPEN_AS_MAP:
             return <GlobeIcon style={style} />;
         case PIVOT_TABLE:
+            return <PivotTableIcon style={style} />;
         default:
             return <LineIcon style={style} />;
     }
