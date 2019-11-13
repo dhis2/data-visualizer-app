@@ -1,12 +1,18 @@
+# Translators:
+# phil_dhis2, 2019
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2019-08-08T13:09:25.099Z\n"
+"PO-Revision-Date: 2019-06-25 18:46+0000\n"
+"Last-Translator: phil_dhis2, 2019\n"
+"Language-Team: Persian (Afghanistan) (https://www.transifex.com/hisp-uio/teams/100509/fa_AF/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-11-11T13:15:11.091Z\n"
-"PO-Revision-Date: 2019-11-11T13:15:11.091Z\n"
+"Language: fa_AF\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -32,10 +38,10 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "لغو کردن"
 
 msgid "Update"
-msgstr ""
+msgstr "تجدید"
 
 msgid ""
 "'Single Value' is intended to show a single data item. Only the first item "
@@ -43,16 +49,16 @@ msgid ""
 msgstr ""
 
 msgid "Hide"
-msgstr ""
+msgstr "مخفی کردن"
 
 msgid "Remove"
-msgstr ""
+msgstr "حذف"
 
 msgid "Download"
-msgstr ""
+msgstr "دانلود"
 
 msgid "Graphics"
-msgstr ""
+msgstr "اطلاعات گرافیکی"
 
 msgid "Image (.png)"
 msgstr ""
@@ -61,19 +67,19 @@ msgid "PDF (.pdf)"
 msgstr ""
 
 msgid "Plain data source"
-msgstr ""
+msgstr "منبع دیتا ساده"
 
 msgid "Advanced"
-msgstr ""
+msgstr "پیشرفته"
 
 msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "Data value set"
-msgstr ""
+msgstr "سیت ارزش دیتا"
 
 msgid "Other formats"
-msgstr ""
+msgstr "فارمت های دیگر"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr ""
@@ -94,7 +100,7 @@ msgid "The following information may be requested by technical support."
 msgstr ""
 
 msgid "Interpretations"
-msgstr ""
+msgstr "تفسیر ها"
 
 msgid "{{total}} of 1 selected"
 msgstr ""
@@ -106,10 +112,10 @@ msgid "Series"
 msgstr ""
 
 msgid "Category"
-msgstr ""
+msgstr "دسته بندی"
 
 msgid "Filter"
-msgstr ""
+msgstr "فلتر"
 
 msgid "Move to"
 msgstr ""
@@ -129,9 +135,6 @@ msgstr ""
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
-msgid "Error validating layout"
-msgstr ""
-
 msgid "Create a new visualization by adding dimensions to the layout"
 msgstr ""
 
@@ -142,22 +145,22 @@ msgid "Error generating chart, please try again"
 msgstr ""
 
 msgid "Aggregation type"
-msgstr ""
+msgstr "نوع تجمع"
 
 msgid "By data element"
-msgstr ""
+msgstr "با دیتا ایلمنت"
 
 msgid "Count"
-msgstr ""
+msgstr "تعداد"
 
 msgid "Average"
-msgstr ""
+msgstr "اوسط"
 
 msgid "Average (sum in org unit hierarchy)"
 msgstr ""
 
 msgid "Sum"
-msgstr ""
+msgstr "جمع"
 
 msgid "Last value"
 msgstr ""
@@ -166,16 +169,16 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr ""
 
 msgid "Min"
-msgstr ""
+msgstr "کوچکتر"
 
 msgid "Max"
-msgstr ""
+msgstr "بزرگتر"
 
 msgid "Standard deviation"
 msgstr ""
 
 msgid "Variance"
-msgstr ""
+msgstr "مغییرات"
 
 msgid "Base line"
 msgstr ""
@@ -196,7 +199,7 @@ msgid "Hide empty categories"
 msgstr ""
 
 msgid "None"
-msgstr ""
+msgstr "هیچ‌کدام"
 
 msgid "Before first"
 msgstr ""
@@ -259,13 +262,13 @@ msgid "Show values"
 msgstr ""
 
 msgid "Sort order"
-msgstr ""
+msgstr "مرتب سازی"
 
 msgid "Low to high"
-msgstr ""
+msgstr "پاین تا بالا"
 
 msgid "High to low"
-msgstr ""
+msgstr "بالا تا پاین"
 
 msgid "Chart subtitle"
 msgstr ""
@@ -283,21 +286,18 @@ msgid "Chart title"
 msgstr ""
 
 msgid "Data"
-msgstr ""
+msgstr "دیتا"
 
 msgid "Axis & legend"
 msgstr ""
 
 msgid "Style"
-msgstr ""
+msgstr "استایل"
 
 msgid "Options"
-msgstr ""
+msgstr "گزینه‌ها"
 
 msgid "Chart options"
-msgstr ""
-
-msgid "Pivot table"
 msgstr ""
 
 msgid "Column"
@@ -355,37 +355,37 @@ msgid "Expected reports"
 msgstr ""
 
 msgid "Program"
-msgstr ""
+msgstr "برنامه"
 
 msgid "Select a program"
 msgstr ""
 
 msgid "Indicators"
-msgstr ""
+msgstr "شاخص ها"
 
 msgid "Select indicator group"
-msgstr ""
+msgstr "انتخاب گروپ شاخص"
 
 msgid "[ All groups ]"
 msgstr ""
 
 msgid "Data elements"
-msgstr ""
+msgstr "دیتا ایلمنت ها"
 
 msgid "Select data element group"
-msgstr ""
+msgstr "انتخاب گروپ دیتا ایلمنت"
 
 msgid "[ All data elements ]"
 msgstr ""
 
 msgid "Totals"
-msgstr ""
+msgstr "مجموعه"
 
 msgid "Details"
-msgstr ""
+msgstr "جزئیات"
 
 msgid "Data sets"
-msgstr ""
+msgstr "دیتا سیت ها"
 
 msgid "Select data sets"
 msgstr ""
@@ -423,7 +423,8 @@ msgstr ""
 msgid "Please add at least one {{category}} dimension"
 msgstr ""
 
-msgid "Please add at least one period as {{series}}, {{category}} or {{filter}}"
+msgid ""
+"Please add at least one period as {{series}}, {{category}} or {{filter}}"
 msgstr ""
 
 msgid "Please add {{data}} as {{category}} or {{filter}}"
@@ -451,52 +452,52 @@ msgid "Please add at least one period as {{filter}}"
 msgstr ""
 
 msgid "Today"
-msgstr ""
+msgstr "امروز"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "دیروز"
 
 msgid "Last 3 days"
-msgstr ""
+msgstr "3 روز گذشته"
 
 msgid "Last 7 days"
-msgstr ""
+msgstr "7 روز گذشته"
 
 msgid "Last 14 days"
-msgstr ""
+msgstr "14 روز گذشته"
 
 msgid "This week"
-msgstr ""
+msgstr "هفته جاری"
 
 msgid "Last week"
-msgstr ""
+msgstr "هفته گذشته"
 
 msgid "Last 4 weeks"
-msgstr ""
+msgstr "4 هفته گذشته"
 
 msgid "Last 12 weeks"
-msgstr ""
+msgstr "12 هفته گذشته"
 
 msgid "Last 52 weeks"
-msgstr ""
+msgstr "52 هفته گذشته"
 
 msgid "Weeks this year"
 msgstr ""
 
 msgid "This month"
-msgstr ""
+msgstr "ماه جاری"
 
 msgid "Last month"
-msgstr ""
+msgstr "ماه گذشته"
 
 msgid "Last 3 months"
-msgstr ""
+msgstr "3 ماهه گذشته"
 
 msgid "Last 6 months"
-msgstr ""
+msgstr "6 ماه گذشته"
 
 msgid "Last 12 months"
-msgstr ""
+msgstr "12 ماهه گذشته"
 
 msgid "Months this year"
 msgstr ""
@@ -514,46 +515,46 @@ msgid "Bimonths this year"
 msgstr ""
 
 msgid "This quarter"
-msgstr ""
+msgstr "سه ماهه جاری"
 
 msgid "Last quarter"
-msgstr ""
+msgstr "سه ماهه آخیر"
 
 msgid "Last 4 quarters"
-msgstr ""
+msgstr "4 سه ماهه آخیر"
 
 msgid "Quarters this year"
 msgstr ""
 
 msgid "This six-month"
-msgstr ""
+msgstr "شش-ماه جاری"
 
 msgid "Last six-month"
-msgstr ""
+msgstr "شش-ماهه گذشته"
 
 msgid "Last 2 six-months"
-msgstr ""
+msgstr "2 شش-ماهه گذشته"
 
 msgid "This financial year"
-msgstr ""
+msgstr "سال مالی جاری"
 
 msgid "Last financial year"
-msgstr ""
+msgstr "سال گذشته مالی"
 
 msgid "Last 5 financial years"
-msgstr ""
+msgstr "5 سال گذشته مالی"
 
 msgid "This year"
-msgstr ""
+msgstr "سال جاری"
 
 msgid "Last year"
-msgstr ""
+msgstr "سال گذشته"
 
 msgid "Last 5 years"
-msgstr ""
+msgstr "5 سال گذشته"
 
 msgid "User org unit"
-msgstr ""
+msgstr "واحد سازمان استفاده کننده گان"
 
 msgid "User org unit children"
 msgstr ""

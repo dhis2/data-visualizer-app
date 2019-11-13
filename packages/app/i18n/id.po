@@ -1,0 +1,582 @@
+# Translators:
+# Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2019
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2019-08-08T13:09:25.099Z\n"
+"PO-Revision-Date: 2019-06-25 18:46+0000\n"
+"Last-Translator: Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2019\n"
+"Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: id\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Rename successful"
+msgstr "Penamaan ulang berhasil"
+
+msgid "\"{{what}}\" successfully deleted."
+msgstr "\"{{what}}\" berhasil dihapus."
+
+msgid "Data Visualizer"
+msgstr "Data Visualizer"
+
+msgid "Axis 1"
+msgstr "Aksis 1"
+
+msgid "Axis 2"
+msgstr "Aksis 2"
+
+msgid "Manage axes"
+msgstr "Kelola aksis"
+
+msgid ""
+"A chart can have two axes. Each axis will have its own scale. Set the axis "
+"for each data selection below."
+msgstr ""
+"Sebuah grafik bisa memiliki dua aksis. Setiap aksis memiliki skalanya "
+"masing-masing. Tentukan aksis untuk masing-masing pilihan data berikut."
+
+msgid "Cancel"
+msgstr "Batalkan"
+
+msgid "Update"
+msgstr "Perbarui"
+
+msgid ""
+"'Single Value' is intended to show a single data item. Only the first item "
+"will be used and saved."
+msgstr ""
+"'Nilai Tunggal' berguna untuk menyajikan item data tunggal. Hanya item "
+"pertama yang akan digunakan dan disimpan."
+
+msgid "Hide"
+msgstr "Sembunyikan"
+
+msgid "Remove"
+msgstr "Hapus"
+
+msgid "Download"
+msgstr "Unduh"
+
+msgid "Graphics"
+msgstr "Grafik"
+
+msgid "Image (.png)"
+msgstr "Gambar (.png)"
+
+msgid "PDF (.pdf)"
+msgstr "PDF (.pdf)"
+
+msgid "Plain data source"
+msgstr "Sumber data asli"
+
+msgid "Advanced"
+msgstr "Lebih Lanjut"
+
+msgid "Metadata ID scheme"
+msgstr "Skema ID metadata"
+
+msgid "Data value set"
+msgstr "Set nilai data"
+
+msgid "Other formats"
+msgstr "Format lain"
+
+msgid "An error occurred in the DHIS2 Data Visualizer application."
+msgstr "Terjadi kesalahan dalam aplikasi DHIS2 Data Visualizer."
+
+msgid "Something went wrong"
+msgstr "Terjadi kesalahan"
+
+msgid "Refresh to try again"
+msgstr "Refresh untuk mencoba kembali"
+
+msgid "Hide technical details"
+msgstr "Sembunyikan rincian teknis"
+
+msgid "Show technical details"
+msgstr "Tampilkan rincian teknis"
+
+msgid "The following information may be requested by technical support."
+msgstr "Informasi berikut mungkin diperlukan untuk dukungan teknis."
+
+msgid "Interpretations"
+msgstr "Interpretasi"
+
+msgid "{{total}} of 1 selected"
+msgstr "{{total}} dari 1 terpilih"
+
+msgid "{{total}} selected"
+msgstr "{{total}} terpilih"
+
+msgid "Series"
+msgstr "Seri"
+
+msgid "Category"
+msgstr "Kategori"
+
+msgid "Filter"
+msgstr "Saring"
+
+msgid "Move to"
+msgstr "Pindahkan ke"
+
+msgid "None selected"
+msgstr "Tidak ada yang terpilih"
+
+msgid "Only '{{name}}' in use"
+msgstr "Hanya '{{name}}' yang digunakan"
+
+msgid "Unsaved chart"
+msgstr "Grafik yang belum disimpan"
+
+msgid "Edited"
+msgstr "Diedit"
+
+msgid "Viewing interpretation from {{interpretationDate}}"
+msgstr "Melihat interpretasi dari {{interpretationDate}}"
+
+msgid "Create a new visualization by adding dimensions to the layout"
+msgstr "Buat visualisasi baru dengan menambahkan dimensi ke dalam layout"
+
+msgid "Chart error"
+msgstr "Kesalahan pada grafik"
+
+msgid "Error generating chart, please try again"
+msgstr "Gagal menyajikan grafik, silakan coba kembali"
+
+msgid "Aggregation type"
+msgstr "Tipe agregasi"
+
+msgid "By data element"
+msgstr "Berdasarkan data elemen"
+
+msgid "Count"
+msgstr "Hitung"
+
+msgid "Average"
+msgstr "Rerata"
+
+msgid "Average (sum in org unit hierarchy)"
+msgstr "Rerata (jumlah dalam hirarki org unit)"
+
+msgid "Sum"
+msgstr "Jumlah"
+
+msgid "Last value"
+msgstr "Nilai terakhir"
+
+msgid "Last value (average in org unit hierarchy)"
+msgstr "Nilai terakhir (rerata dalam hirarki org unit)"
+
+msgid "Min"
+msgstr "Min"
+
+msgid "Max"
+msgstr "Maks"
+
+msgid "Standard deviation"
+msgstr "Standar deviasi"
+
+msgid "Variance"
+msgstr "Varians"
+
+msgid "Base line"
+msgstr "Baseline"
+
+msgid "Base line title"
+msgstr "Nama baseline"
+
+msgid "Base line value"
+msgstr "Nilai baseline"
+
+msgid "Use cumulative values"
+msgstr "Gunakan nilai kumulatif"
+
+msgid "Domain axis title"
+msgstr "Nama aksis domain"
+
+msgid "Hide empty categories"
+msgstr "Sembunyikan kategori yang kosong"
+
+msgid "None"
+msgstr "Tidak ada"
+
+msgid "Before first"
+msgstr "Sebelum yang pertama"
+
+msgid "After last"
+msgstr "Setelah terakhir"
+
+msgid "Before first and after last"
+msgstr "Sebelum yang pertama dan sesudah yang terakhir"
+
+msgid "All"
+msgstr "Semua"
+
+msgid "Hide chart legend"
+msgstr "Sembunyikan legenda grafik"
+
+msgid "Hide subtitle"
+msgstr "Sembunyikan subjudul"
+
+msgid "Hide title"
+msgstr "Sembunyikan judul"
+
+msgid "No space between columns/bars"
+msgstr "Tidak ada jeda antar kolom/bar"
+
+msgid "Use 100% stacked values"
+msgstr "Gunakan nilai stacked 100%"
+
+msgid "Range axis decimals"
+msgstr "Desimal jangkauan aksis"
+
+msgid "Range axis title"
+msgstr "Judul jangkauan aksis"
+
+msgid "Range axis max"
+msgstr "Maksimal jangkauan aksis"
+
+msgid "Range axis min"
+msgstr "Minimal jangkauan aksis"
+
+msgid "Range axis tick steps"
+msgstr "Tanda jangkauan aksis"
+
+msgid "Tick steps may extend the chart beyond 'Range axis max'"
+msgstr "Tanda aksis dapat melebihi 'Maksimal jangkauan aksis' dalam grafik"
+
+msgid "Trend line"
+msgstr "Garis tren"
+
+msgid "Linear"
+msgstr "Linier"
+
+msgid "Polynomial"
+msgstr "Polinomial"
+
+msgid "Loess"
+msgstr "Loess"
+
+msgid "Show values"
+msgstr "Tampilkan nilai"
+
+msgid "Sort order"
+msgstr "Urutkan"
+
+msgid "Low to high"
+msgstr "Rendah ke tinggi"
+
+msgid "High to low"
+msgstr "Tinggi ke rendah"
+
+msgid "Chart subtitle"
+msgstr "Subjudul grafik"
+
+msgid "Target line"
+msgstr "Garis sasaran"
+
+msgid "Target line title"
+msgstr "Nama garis sasaran"
+
+msgid "Target line value"
+msgstr "Nilai garis sasaran"
+
+msgid "Chart title"
+msgstr "Judul grafik"
+
+msgid "Data"
+msgstr "Data"
+
+msgid "Axis & legend"
+msgstr "Aksis & legenda"
+
+msgid "Style"
+msgstr "Gaya"
+
+msgid "Options"
+msgstr "Opsi"
+
+msgid "Chart options"
+msgstr "Opsi grafik"
+
+msgid "Column"
+msgstr "Kolom"
+
+msgid "Stacked column"
+msgstr "Kolom tumpuk"
+
+msgid "Bar"
+msgstr "Bar"
+
+msgid "Stacked bar"
+msgstr "Bar tumpuk"
+
+msgid "Line"
+msgstr "Garis"
+
+msgid "Area"
+msgstr "Area"
+
+msgid "Pie"
+msgstr "Pie"
+
+msgid "Radar"
+msgstr "Radar"
+
+msgid "Gauge"
+msgstr "Meteran"
+
+msgid "Year over year (line)"
+msgstr "Tahun ke tahun (garis)"
+
+msgid "Year over year (column)"
+msgstr "Tahun ke tahun (kolom)"
+
+msgid "Single value"
+msgstr "Nilai tunggal"
+
+msgid "Open as Map"
+msgstr "Buka sebagai Peta"
+
+msgid "Reporting rate"
+msgstr "Tingkat pelaporan"
+
+msgid "Reporting rate on time"
+msgstr "Tingkat pelaporan tepat waktu"
+
+msgid "Actual reports"
+msgstr "Laporan sesungguhnya"
+
+msgid "Actual reports on time"
+msgstr "Laporan sesungguhnya yang tepat waktu"
+
+msgid "Expected reports"
+msgstr "Laporan yang diharapkan"
+
+msgid "Program"
+msgstr "Program"
+
+msgid "Select a program"
+msgstr "Pilih program"
+
+msgid "Indicators"
+msgstr "Indikator"
+
+msgid "Select indicator group"
+msgstr "Pilih grup indikator"
+
+msgid "[ All groups ]"
+msgstr "[ All groups ]"
+
+msgid "Data elements"
+msgstr "Data elemen"
+
+msgid "Select data element group"
+msgstr "Pilih grup data elemen"
+
+msgid "[ All data elements ]"
+msgstr "[ All data elements ]"
+
+msgid "Totals"
+msgstr "Total"
+
+msgid "Details"
+msgstr "Rincian"
+
+msgid "Data sets"
+msgstr "Data set"
+
+msgid "Select data sets"
+msgstr "Pilih data set"
+
+msgid "[ All metrics ]"
+msgstr "[ All metrics ]"
+
+msgid "Event data items"
+msgstr "Item data event"
+
+msgid "Program indicators"
+msgstr "Indikator program"
+
+msgid "Add to series"
+msgstr "Tambahkan ke seri"
+
+msgid "Add to category"
+msgstr "Tambahkan ke kategori"
+
+msgid "Add to filter"
+msgstr "Tambahkan ke penyaringan"
+
+msgid "series"
+msgstr "seri"
+
+msgid "category"
+msgstr "kategori"
+
+msgid "filter"
+msgstr "penyaringan"
+
+msgid "Please add at least one {{series}} dimension"
+msgstr "Silakan tambahkan setidaknya satu dimensi {{series}} "
+
+msgid "Please add at least one {{category}} dimension"
+msgstr "Silakan tambahkan setidaknya satu dimensi {{category}}"
+
+msgid ""
+"Please add at least one period as {{series}}, {{category}} or {{filter}}"
+msgstr ""
+"Silakan tambahkan setidaknya satu periode sebagai {{series}}, {{category}} "
+"atau {{filter}}"
+
+msgid "Please add {{data}} as {{category}} or {{filter}}"
+msgstr "Silakan tambahkan {{data}} sebagai {{category}} atau {{filter}}"
+
+msgid "Please add at least one period as {{series}} or {{filter}}"
+msgstr ""
+"Silakan tambahkan setidaknya satu periode sebagai {{series}} atau {{filter}}"
+
+msgid "Please add at least one {{filter}} dimension"
+msgstr "Silakan tambahkan setidaknya satu dimensi {{filter}}"
+
+msgid "Please add at least one period as a {{series}} dimension"
+msgstr "Silakan tambahkan setidaknya satu periode sebagai dimensi {{series}}"
+
+msgid "Please add at least one period as a {{category}} dimension"
+msgstr "Silakan tambahkan satu periode sebagai dimensi {{category}}"
+
+msgid "Please add {{data}} as a filter dimension"
+msgstr "Silakan tambahkan {{data}} sebagai dimensi penyaringan"
+
+msgid "Please add one {{series}} dimension"
+msgstr "Tambahkan satu dimensi {{series}}"
+
+msgid "Please add at least one period as {{filter}}"
+msgstr "Tambahkan setidaknya satu periode sebagai {{filter}}"
+
+msgid "Today"
+msgstr "Hari ini"
+
+msgid "Yesterday"
+msgstr "Kemarin"
+
+msgid "Last 3 days"
+msgstr "3 hari terakhir"
+
+msgid "Last 7 days"
+msgstr "7 hari terakhir"
+
+msgid "Last 14 days"
+msgstr "14 hari terakhir"
+
+msgid "This week"
+msgstr "Minggu ini"
+
+msgid "Last week"
+msgstr "Minggu lalu"
+
+msgid "Last 4 weeks"
+msgstr "4 minggu terakhir"
+
+msgid "Last 12 weeks"
+msgstr "12 minggu terakhir"
+
+msgid "Last 52 weeks"
+msgstr "52 minggu terakhir"
+
+msgid "Weeks this year"
+msgstr "Minggu dalam tahun ini"
+
+msgid "This month"
+msgstr "Bulan ini"
+
+msgid "Last month"
+msgstr "Bulan lalu"
+
+msgid "Last 3 months"
+msgstr "3 bulan lalu"
+
+msgid "Last 6 months"
+msgstr "6 bulan lalu"
+
+msgid "Last 12 months"
+msgstr "12 bulan lalu"
+
+msgid "Months this year"
+msgstr "Bulan dalam tahun ini"
+
+msgid "This bimonth"
+msgstr "Dwiwulan ini"
+
+msgid "Last bimonth"
+msgstr "Dwiwulan yang lalu"
+
+msgid "Last 6 bimonths"
+msgstr "6 dwiwulan yang lalu"
+
+msgid "Bimonths this year"
+msgstr "Dwiwulan tahun ini"
+
+msgid "This quarter"
+msgstr "Triwulan ini"
+
+msgid "Last quarter"
+msgstr "Triwulan yang lalu"
+
+msgid "Last 4 quarters"
+msgstr "4 triwulan yang lalu"
+
+msgid "Quarters this year"
+msgstr "Triwulan dalam tahun ini"
+
+msgid "This six-month"
+msgstr "Semester ini"
+
+msgid "Last six-month"
+msgstr "Semester yang lalu"
+
+msgid "Last 2 six-months"
+msgstr "2 semester yang lalu"
+
+msgid "This financial year"
+msgstr "Tahun fiskal ini"
+
+msgid "Last financial year"
+msgstr "Tahun fiskal lalu"
+
+msgid "Last 5 financial years"
+msgstr "5 tahun fiskal yang lalu"
+
+msgid "This year"
+msgstr "Tahun ini"
+
+msgid "Last year"
+msgstr "Tahun lalu"
+
+msgid "Last 5 years"
+msgstr "5 tahun terakhir"
+
+msgid "User org unit"
+msgstr "Org unit user"
+
+msgid "User org unit children"
+msgstr "Sub org unit user"
+
+msgid "User org unit grand children"
+msgstr "Sub-sub org unit pengguna"
+
+msgid "Weeks per year"
+msgstr "Minggu per tahun"
+
+msgid "Months per year"
+msgstr "Bulan per tahun"
+
+msgid "Bimonths per year"
+msgstr "Dwibulan per tahun"
+
+msgid "Quarters per year"
+msgstr "Triwulan per tahun"

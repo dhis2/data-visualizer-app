@@ -1,12 +1,19 @@
+# Translators:
+# phil_dhis2, 2019
+# Viktor Varland <viktor@dhis2.org>, 2019
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2019-08-08T13:09:25.099Z\n"
+"PO-Revision-Date: 2019-06-25 18:46+0000\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2019\n"
+"Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-11-11T13:15:11.091Z\n"
-"PO-Revision-Date: 2019-11-11T13:15:11.091Z\n"
+"Language: vi\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -32,10 +39,10 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Hủy"
 
 msgid "Update"
-msgstr ""
+msgstr "Cập nhật"
 
 msgid ""
 "'Single Value' is intended to show a single data item. Only the first item "
@@ -43,16 +50,16 @@ msgid ""
 msgstr ""
 
 msgid "Hide"
-msgstr ""
+msgstr "Ẩn"
 
 msgid "Remove"
-msgstr ""
+msgstr "Tháo ra"
 
 msgid "Download"
-msgstr ""
+msgstr "Tải về"
 
 msgid "Graphics"
-msgstr ""
+msgstr "Hình ảnh"
 
 msgid "Image (.png)"
 msgstr ""
@@ -61,19 +68,19 @@ msgid "PDF (.pdf)"
 msgstr ""
 
 msgid "Plain data source"
-msgstr ""
+msgstr "Nguồn dữ liệu gốc"
 
 msgid "Advanced"
-msgstr ""
+msgstr "Nâng cao"
 
 msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "Data value set"
-msgstr ""
+msgstr "Bộ giá trị dữ liệu"
 
 msgid "Other formats"
-msgstr ""
+msgstr "Định dạng khác"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr ""
@@ -94,7 +101,7 @@ msgid "The following information may be requested by technical support."
 msgstr ""
 
 msgid "Interpretations"
-msgstr ""
+msgstr "Diễn giải báo cáo"
 
 msgid "{{total}} of 1 selected"
 msgstr ""
@@ -103,13 +110,13 @@ msgid "{{total}} selected"
 msgstr ""
 
 msgid "Series"
-msgstr ""
+msgstr "Chuỗi Dữ Liệu"
 
 msgid "Category"
-msgstr ""
+msgstr "Phân loại"
 
 msgid "Filter"
-msgstr ""
+msgstr "Lọc"
 
 msgid "Move to"
 msgstr ""
@@ -129,9 +136,6 @@ msgstr ""
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
-msgid "Error validating layout"
-msgstr ""
-
 msgid "Create a new visualization by adding dimensions to the layout"
 msgstr ""
 
@@ -142,76 +146,76 @@ msgid "Error generating chart, please try again"
 msgstr ""
 
 msgid "Aggregation type"
-msgstr ""
+msgstr "Kiểu tổng hợp"
 
 msgid "By data element"
-msgstr ""
+msgstr "Theo Phần Tử Dữ Liệu"
 
 msgid "Count"
-msgstr ""
+msgstr "Đếm"
 
 msgid "Average"
-msgstr ""
+msgstr "Trung bình"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr ""
+msgstr "Average (sum in org unit hierarchy)"
 
 msgid "Sum"
-msgstr ""
+msgstr "Tổng"
 
 msgid "Last value"
-msgstr ""
+msgstr "Last value"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr ""
+msgstr "Last value (average in org unit hierarchy)"
 
 msgid "Min"
-msgstr ""
+msgstr "Nhỏ nhất"
 
 msgid "Max"
-msgstr ""
+msgstr "Lớn nhất"
 
 msgid "Standard deviation"
-msgstr ""
+msgstr "Độ lệch chuẩn"
 
 msgid "Variance"
-msgstr ""
+msgstr "Sự khác nhau"
 
 msgid "Base line"
 msgstr ""
 
 msgid "Base line title"
-msgstr ""
+msgstr "Tiêu đề đường căn bản"
 
 msgid "Base line value"
-msgstr ""
+msgstr "Giá trị đường căn bản"
 
 msgid "Use cumulative values"
-msgstr ""
+msgstr "Dùng giá trị cộng dồn"
 
 msgid "Domain axis title"
-msgstr ""
+msgstr "Tiêu đề trục tung"
 
 msgid "Hide empty categories"
-msgstr ""
+msgstr "Hide empty categories"
 
 msgid "None"
-msgstr ""
+msgstr "Không"
 
 msgid "Before first"
-msgstr ""
+msgstr "Trước giá trị đầu tiên"
 
 msgid "After last"
-msgstr ""
+msgstr "Sau giá trị cuối cùng"
 
 msgid "Before first and after last"
-msgstr ""
+msgstr "Trước giá trị đầu tiên và sau giá trị cuối cùng"
 
 msgid "All"
-msgstr ""
+msgstr "Tất cả"
 
 msgid "Hide chart legend"
-msgstr ""
+msgstr "Ẩn chú thích"
 
 msgid "Hide subtitle"
 msgstr ""
@@ -220,16 +224,16 @@ msgid "Hide title"
 msgstr ""
 
 msgid "No space between columns/bars"
-msgstr ""
+msgstr "No space between columns/bars"
 
 msgid "Use 100% stacked values"
-msgstr ""
+msgstr "Dùng 100% giá trị chồng"
 
 msgid "Range axis decimals"
 msgstr ""
 
 msgid "Range axis title"
-msgstr ""
+msgstr "Tiêu đề trục hoành"
 
 msgid "Range axis max"
 msgstr ""
@@ -244,64 +248,61 @@ msgid "Tick steps may extend the chart beyond 'Range axis max'"
 msgstr ""
 
 msgid "Trend line"
-msgstr ""
+msgstr "Đường Khuynh Hướng"
 
 msgid "Linear"
-msgstr ""
+msgstr "Tuyến tính"
 
 msgid "Polynomial"
-msgstr ""
+msgstr "Đa thức"
 
 msgid "Loess"
-msgstr ""
+msgstr "Biểu đồ Loess"
 
 msgid "Show values"
-msgstr ""
+msgstr "Hiện giá trị"
 
 msgid "Sort order"
-msgstr ""
+msgstr "Thứ tự sắp xếp"
 
 msgid "Low to high"
-msgstr ""
+msgstr "Thấp đến cao"
 
 msgid "High to low"
-msgstr ""
+msgstr "Cao xuống thấp"
 
 msgid "Chart subtitle"
-msgstr ""
+msgstr "Tiêu đề phụ biểu đồ"
 
 msgid "Target line"
 msgstr ""
 
 msgid "Target line title"
-msgstr ""
+msgstr "Tiêu đề đường mục tiêu"
 
 msgid "Target line value"
-msgstr ""
+msgstr "Giá trị của đường mục tiêu"
 
 msgid "Chart title"
-msgstr ""
+msgstr "Tiêu đề của biểu đồ"
 
 msgid "Data"
-msgstr ""
+msgstr "Lấy dữ liệu"
 
 msgid "Axis & legend"
 msgstr ""
 
 msgid "Style"
-msgstr ""
+msgstr "Kiểu dáng"
 
 msgid "Options"
-msgstr ""
+msgstr "Tùy chọn"
 
 msgid "Chart options"
-msgstr ""
-
-msgid "Pivot table"
-msgstr ""
+msgstr "Tùy chọn biểu đồ"
 
 msgid "Column"
-msgstr ""
+msgstr "Cột"
 
 msgid "Stacked column"
 msgstr ""
@@ -355,37 +356,37 @@ msgid "Expected reports"
 msgstr ""
 
 msgid "Program"
-msgstr ""
+msgstr "Chương trình"
 
 msgid "Select a program"
 msgstr ""
 
 msgid "Indicators"
-msgstr ""
+msgstr "Các chỉ số"
 
 msgid "Select indicator group"
-msgstr ""
+msgstr "Chọn nhóm chỉ số"
 
 msgid "[ All groups ]"
 msgstr ""
 
 msgid "Data elements"
-msgstr ""
+msgstr "Các phần tử dữ liệu"
 
 msgid "Select data element group"
-msgstr ""
+msgstr "Chọn nhóm yếu tố dữ liệu"
 
 msgid "[ All data elements ]"
 msgstr ""
 
 msgid "Totals"
-msgstr ""
+msgstr "Tổng"
 
 msgid "Details"
-msgstr ""
+msgstr "Chi tiết"
 
 msgid "Data sets"
-msgstr ""
+msgstr "Biểu nhập"
 
 msgid "Select data sets"
 msgstr ""
@@ -394,10 +395,10 @@ msgid "[ All metrics ]"
 msgstr ""
 
 msgid "Event data items"
-msgstr ""
+msgstr "Mục dữ liệu sự kiện"
 
 msgid "Program indicators"
-msgstr ""
+msgstr "Chỉ Số Chương Trình"
 
 msgid "Add to series"
 msgstr ""
@@ -423,7 +424,8 @@ msgstr ""
 msgid "Please add at least one {{category}} dimension"
 msgstr ""
 
-msgid "Please add at least one period as {{series}}, {{category}} or {{filter}}"
+msgid ""
+"Please add at least one period as {{series}}, {{category}} or {{filter}}"
 msgstr ""
 
 msgid "Please add {{data}} as {{category}} or {{filter}}"
@@ -451,55 +453,55 @@ msgid "Please add at least one period as {{filter}}"
 msgstr ""
 
 msgid "Today"
-msgstr ""
+msgstr "Hôm Nay"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Hôm Qua"
 
 msgid "Last 3 days"
-msgstr ""
+msgstr "3 ngày trước"
 
 msgid "Last 7 days"
-msgstr ""
+msgstr "7 ngày trước"
 
 msgid "Last 14 days"
-msgstr ""
+msgstr "14 ngày trước"
 
 msgid "This week"
-msgstr ""
+msgstr "Tuần này"
 
 msgid "Last week"
-msgstr ""
+msgstr "Last week"
 
 msgid "Last 4 weeks"
-msgstr ""
+msgstr "Last 4 weeks"
 
 msgid "Last 12 weeks"
-msgstr ""
+msgstr "Last 12 weeks"
 
 msgid "Last 52 weeks"
-msgstr ""
+msgstr "52 tuần trước"
 
 msgid "Weeks this year"
-msgstr ""
+msgstr "Các tuần trong năm nay"
 
 msgid "This month"
-msgstr ""
+msgstr "Tháng này"
 
 msgid "Last month"
-msgstr ""
+msgstr "Tháng trước"
 
 msgid "Last 3 months"
-msgstr ""
+msgstr "3 tháng trước"
 
 msgid "Last 6 months"
-msgstr ""
+msgstr "6 tháng trước"
 
 msgid "Last 12 months"
-msgstr ""
+msgstr "Trong 12 tháng trước"
 
 msgid "Months this year"
-msgstr ""
+msgstr "Tháng năm nay"
 
 msgid "This bimonth"
 msgstr ""
@@ -514,46 +516,46 @@ msgid "Bimonths this year"
 msgstr ""
 
 msgid "This quarter"
-msgstr ""
+msgstr "Quý này"
 
 msgid "Last quarter"
-msgstr ""
+msgstr "Quý trước"
 
 msgid "Last 4 quarters"
-msgstr ""
+msgstr "Trong 4 quý vừa qua"
 
 msgid "Quarters this year"
-msgstr ""
+msgstr "Quý năm nay"
 
 msgid "This six-month"
-msgstr ""
+msgstr "Lần Sáu-Tháng này"
 
 msgid "Last six-month"
-msgstr ""
+msgstr "6 tháng trước"
 
 msgid "Last 2 six-months"
-msgstr ""
+msgstr "Last 2 six-months"
 
 msgid "This financial year"
-msgstr ""
+msgstr "Năm tài chính này"
 
 msgid "Last financial year"
-msgstr ""
+msgstr "Năm tài chính trước đó"
 
 msgid "Last 5 financial years"
-msgstr ""
+msgstr "5 năm tài chính trước"
 
 msgid "This year"
-msgstr ""
+msgstr "Năm nay"
 
 msgid "Last year"
-msgstr ""
+msgstr "Năm ngoái"
 
 msgid "Last 5 years"
-msgstr ""
+msgstr "Trong 5 năm vừa qua"
 
 msgid "User org unit"
-msgstr ""
+msgstr "Đơn vị của người dùng"
 
 msgid "User org unit children"
 msgstr ""

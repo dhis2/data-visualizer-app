@@ -1,12 +1,18 @@
+# Translators:
+# Viktor Varland <viktor@dhis2.org>, 2019
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2019-08-08T13:09:25.099Z\n"
+"PO-Revision-Date: 2019-06-25 18:46+0000\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2019\n"
+"Language-Team: Ukrainian (https://www.transifex.com/hisp-uio/teams/100509/uk/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-11-11T13:15:11.091Z\n"
-"PO-Revision-Date: 2019-11-11T13:15:11.091Z\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -15,7 +21,7 @@ msgid "\"{{what}}\" successfully deleted."
 msgstr ""
 
 msgid "Data Visualizer"
-msgstr ""
+msgstr "Data Visualizer"
 
 msgid "Axis 1"
 msgstr ""
@@ -32,10 +38,10 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Скасувати"
 
 msgid "Update"
-msgstr ""
+msgstr "Оновити"
 
 msgid ""
 "'Single Value' is intended to show a single data item. Only the first item "
@@ -43,16 +49,16 @@ msgid ""
 msgstr ""
 
 msgid "Hide"
-msgstr ""
+msgstr "Сховати"
 
 msgid "Remove"
-msgstr ""
+msgstr "Прибрати"
 
 msgid "Download"
-msgstr ""
+msgstr "Завантажити"
 
 msgid "Graphics"
-msgstr ""
+msgstr "Графіка"
 
 msgid "Image (.png)"
 msgstr ""
@@ -61,19 +67,19 @@ msgid "PDF (.pdf)"
 msgstr ""
 
 msgid "Plain data source"
-msgstr ""
+msgstr "Джерело простих даних"
 
 msgid "Advanced"
-msgstr ""
+msgstr "Розширені"
 
 msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "Data value set"
-msgstr ""
+msgstr "Набір значення даних"
 
 msgid "Other formats"
-msgstr ""
+msgstr "Інші формати"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr ""
@@ -94,7 +100,7 @@ msgid "The following information may be requested by technical support."
 msgstr ""
 
 msgid "Interpretations"
-msgstr ""
+msgstr "Інтерпретації"
 
 msgid "{{total}} of 1 selected"
 msgstr ""
@@ -106,10 +112,10 @@ msgid "Series"
 msgstr ""
 
 msgid "Category"
-msgstr ""
+msgstr "Категорія"
 
 msgid "Filter"
-msgstr ""
+msgstr "Фільтр"
 
 msgid "Move to"
 msgstr ""
@@ -129,9 +135,6 @@ msgstr ""
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
-msgid "Error validating layout"
-msgstr ""
-
 msgid "Create a new visualization by adding dimensions to the layout"
 msgstr ""
 
@@ -142,40 +145,40 @@ msgid "Error generating chart, please try again"
 msgstr ""
 
 msgid "Aggregation type"
-msgstr ""
+msgstr "Тип агрегації"
 
 msgid "By data element"
-msgstr ""
+msgstr "За елементом даних"
 
 msgid "Count"
-msgstr ""
+msgstr "Підрахунок"
 
 msgid "Average"
-msgstr ""
+msgstr "Середнє"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr ""
+msgstr "Середнє (сума в ієрархії організаційних підрозділів)"
 
 msgid "Sum"
-msgstr ""
+msgstr "Сума"
 
 msgid "Last value"
-msgstr ""
+msgstr "Останнє значення"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr ""
+msgstr "Останнє значення (середнє в ієрархії організаційних підрозділів)"
 
 msgid "Min"
-msgstr ""
+msgstr "Мін"
 
 msgid "Max"
-msgstr ""
+msgstr "Макс"
 
 msgid "Standard deviation"
-msgstr ""
+msgstr "Стандартне відхилення"
 
 msgid "Variance"
-msgstr ""
+msgstr "Коливання (варіативність)"
 
 msgid "Base line"
 msgstr ""
@@ -196,7 +199,7 @@ msgid "Hide empty categories"
 msgstr ""
 
 msgid "None"
-msgstr ""
+msgstr "Жодного"
 
 msgid "Before first"
 msgstr ""
@@ -208,7 +211,7 @@ msgid "Before first and after last"
 msgstr ""
 
 msgid "All"
-msgstr ""
+msgstr "Всі"
 
 msgid "Hide chart legend"
 msgstr ""
@@ -259,13 +262,13 @@ msgid "Show values"
 msgstr ""
 
 msgid "Sort order"
-msgstr ""
+msgstr "Порядок відображення"
 
 msgid "Low to high"
-msgstr ""
+msgstr "Від низьких до високих"
 
 msgid "High to low"
-msgstr ""
+msgstr "Від високих до низьких"
 
 msgid "Chart subtitle"
 msgstr ""
@@ -283,25 +286,22 @@ msgid "Chart title"
 msgstr ""
 
 msgid "Data"
-msgstr ""
+msgstr "Дані"
 
 msgid "Axis & legend"
 msgstr ""
 
 msgid "Style"
-msgstr ""
+msgstr "Стиль"
 
 msgid "Options"
-msgstr ""
+msgstr "Опції"
 
 msgid "Chart options"
 msgstr ""
 
-msgid "Pivot table"
-msgstr ""
-
 msgid "Column"
-msgstr ""
+msgstr "Стовпчик"
 
 msgid "Stacked column"
 msgstr ""
@@ -355,37 +355,37 @@ msgid "Expected reports"
 msgstr ""
 
 msgid "Program"
-msgstr ""
+msgstr "Program"
 
 msgid "Select a program"
 msgstr ""
 
 msgid "Indicators"
-msgstr ""
+msgstr "Показники"
 
 msgid "Select indicator group"
-msgstr ""
+msgstr "Обрати групу показників"
 
 msgid "[ All groups ]"
 msgstr ""
 
 msgid "Data elements"
-msgstr ""
+msgstr "Елементи даних"
 
 msgid "Select data element group"
-msgstr ""
+msgstr "Обрати групу елементів даних"
 
 msgid "[ All data elements ]"
 msgstr ""
 
 msgid "Totals"
-msgstr ""
+msgstr "Підсумки"
 
 msgid "Details"
-msgstr ""
+msgstr "Деталі"
 
 msgid "Data sets"
-msgstr ""
+msgstr "Набори даних"
 
 msgid "Select data sets"
 msgstr ""
@@ -394,10 +394,10 @@ msgid "[ All metrics ]"
 msgstr ""
 
 msgid "Event data items"
-msgstr ""
+msgstr "Складові дані події"
 
 msgid "Program indicators"
-msgstr ""
+msgstr "Програмні показники"
 
 msgid "Add to series"
 msgstr ""
@@ -423,7 +423,8 @@ msgstr ""
 msgid "Please add at least one {{category}} dimension"
 msgstr ""
 
-msgid "Please add at least one period as {{series}}, {{category}} or {{filter}}"
+msgid ""
+"Please add at least one period as {{series}}, {{category}} or {{filter}}"
 msgstr ""
 
 msgid "Please add {{data}} as {{category}} or {{filter}}"
@@ -451,55 +452,55 @@ msgid "Please add at least one period as {{filter}}"
 msgstr ""
 
 msgid "Today"
-msgstr ""
+msgstr "Today"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Вчора"
 
 msgid "Last 3 days"
-msgstr ""
+msgstr "Last 3 days"
 
 msgid "Last 7 days"
-msgstr ""
+msgstr "Last 7 days"
 
 msgid "Last 14 days"
-msgstr ""
+msgstr "Last 14 days"
 
 msgid "This week"
-msgstr ""
+msgstr "This week"
 
 msgid "Last week"
-msgstr ""
+msgstr "Минулий тиждень"
 
 msgid "Last 4 weeks"
-msgstr ""
+msgstr "Останні 4 тижні"
 
 msgid "Last 12 weeks"
-msgstr ""
+msgstr "Останні 12 тижнів"
 
 msgid "Last 52 weeks"
-msgstr ""
+msgstr "Останні 52 тижні"
 
 msgid "Weeks this year"
-msgstr ""
+msgstr "Weeks this year"
 
 msgid "This month"
-msgstr ""
+msgstr "This month"
 
 msgid "Last month"
-msgstr ""
+msgstr "Останній місяць"
 
 msgid "Last 3 months"
-msgstr ""
+msgstr "Останні 3 місяці"
 
 msgid "Last 6 months"
-msgstr ""
+msgstr "Останні 6 місяців"
 
 msgid "Last 12 months"
-msgstr ""
+msgstr "Останні 12 місяців"
 
 msgid "Months this year"
-msgstr ""
+msgstr "Місяців поточного року"
 
 msgid "This bimonth"
 msgstr ""
@@ -514,46 +515,46 @@ msgid "Bimonths this year"
 msgstr ""
 
 msgid "This quarter"
-msgstr ""
+msgstr "This quarter"
 
 msgid "Last quarter"
-msgstr ""
+msgstr "Минулий квартал"
 
 msgid "Last 4 quarters"
-msgstr ""
+msgstr "Останні 4 квартали"
 
 msgid "Quarters this year"
-msgstr ""
+msgstr "Квартали поточного року"
 
 msgid "This six-month"
-msgstr ""
+msgstr "This six-month"
 
 msgid "Last six-month"
-msgstr ""
+msgstr "Останнє півріччя"
 
 msgid "Last 2 six-months"
-msgstr ""
+msgstr "Останні 2 півріччя"
 
 msgid "This financial year"
-msgstr ""
+msgstr "Поточний фінансовий рік"
 
 msgid "Last financial year"
-msgstr ""
+msgstr "Минулий фінансовий рік"
 
 msgid "Last 5 financial years"
-msgstr ""
+msgstr "Останні 5 фінансових років"
 
 msgid "This year"
-msgstr ""
+msgstr "Поточний рік"
 
 msgid "Last year"
-msgstr ""
+msgstr "Минулий рік"
 
 msgid "Last 5 years"
-msgstr ""
+msgstr "Останні 5 років"
 
 msgid "User org unit"
-msgstr ""
+msgstr "Організаційний підрозділ користувача"
 
 msgid "User org unit children"
 msgstr ""

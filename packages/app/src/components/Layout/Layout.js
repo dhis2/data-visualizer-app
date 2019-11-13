@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import DefaultLayout from './DefaultLayout/DefaultLayout';
 import YearOverYearLayout from './YearOverYearLayout/YearOverYearLayout';
 import PieLayout from './PieLayout/PieLayout';
-import SingleValueLayout from './SingleValueLayout/SingleValueLayout';
 import {
     COLUMN,
     STACKED_COLUMN,
@@ -34,7 +33,7 @@ const layoutMap = {
     [GAUGE]: PieLayout,
     [YEAR_OVER_YEAR_LINE]: YearOverYearLayout,
     [YEAR_OVER_YEAR_COLUMN]: YearOverYearLayout,
-    [SINGLE_VALUE]: SingleValueLayout,
+    [SINGLE_VALUE]: PieLayout,
     [PIVOT_TABLE]: DefaultLayout,
 };
 

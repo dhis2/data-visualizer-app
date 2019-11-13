@@ -1,12 +1,21 @@
+# Translators:
+# Austin McGee <austin@dhis2.org>, 2019
+# mrwine <matthieu@pinard.no>, 2019
+# Viktor Varland <viktor@dhis2.org>, 2019
+# Bram Piot <bram.piot@gmail.com>, 2019
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2019-08-08T13:09:25.099Z\n"
+"PO-Revision-Date: 2019-06-25 18:46+0000\n"
+"Last-Translator: Bram Piot <bram.piot@gmail.com>, 2019\n"
+"Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-11-11T13:15:11.091Z\n"
-"PO-Revision-Date: 2019-11-11T13:15:11.091Z\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -32,10 +41,10 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Annuler"
 
 msgid "Update"
-msgstr ""
+msgstr "Mettre à jour"
 
 msgid ""
 "'Single Value' is intended to show a single data item. Only the first item "
@@ -43,16 +52,16 @@ msgid ""
 msgstr ""
 
 msgid "Hide"
-msgstr ""
+msgstr "Masquer"
 
 msgid "Remove"
-msgstr ""
+msgstr "Supprimer"
 
 msgid "Download"
-msgstr ""
+msgstr "Télécharger"
 
 msgid "Graphics"
-msgstr ""
+msgstr "Graphisme"
 
 msgid "Image (.png)"
 msgstr ""
@@ -61,19 +70,19 @@ msgid "PDF (.pdf)"
 msgstr ""
 
 msgid "Plain data source"
-msgstr ""
+msgstr "Sourc de données brutes"
 
 msgid "Advanced"
-msgstr ""
+msgstr "Avancé"
 
 msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "Data value set"
-msgstr ""
+msgstr "Ensemble de valeurs de données"
 
 msgid "Other formats"
-msgstr ""
+msgstr "Autres formats"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr ""
@@ -94,7 +103,7 @@ msgid "The following information may be requested by technical support."
 msgstr ""
 
 msgid "Interpretations"
-msgstr ""
+msgstr "interprétations"
 
 msgid "{{total}} of 1 selected"
 msgstr ""
@@ -103,13 +112,13 @@ msgid "{{total}} selected"
 msgstr ""
 
 msgid "Series"
-msgstr ""
+msgstr "Séries"
 
 msgid "Category"
-msgstr ""
+msgstr "Catégorie"
 
 msgid "Filter"
-msgstr ""
+msgstr "Filtrer"
 
 msgid "Move to"
 msgstr ""
@@ -129,9 +138,6 @@ msgstr ""
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
-msgid "Error validating layout"
-msgstr ""
-
 msgid "Create a new visualization by adding dimensions to the layout"
 msgstr ""
 
@@ -142,22 +148,22 @@ msgid "Error generating chart, please try again"
 msgstr ""
 
 msgid "Aggregation type"
-msgstr ""
+msgstr "Type d'agrégation"
 
 msgid "By data element"
-msgstr ""
+msgstr "Par élément de donnée"
 
 msgid "Count"
-msgstr ""
+msgstr "Décompte"
 
 msgid "Average"
-msgstr ""
+msgstr "Moyenne"
 
 msgid "Average (sum in org unit hierarchy)"
 msgstr ""
 
 msgid "Sum"
-msgstr ""
+msgstr "Somme"
 
 msgid "Last value"
 msgstr ""
@@ -166,16 +172,16 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr ""
 
 msgid "Min"
-msgstr ""
+msgstr "Min"
 
 msgid "Max"
-msgstr ""
+msgstr "Max"
 
 msgid "Standard deviation"
-msgstr ""
+msgstr "Écart type"
 
 msgid "Variance"
-msgstr ""
+msgstr "Variance"
 
 msgid "Base line"
 msgstr ""
@@ -184,19 +190,19 @@ msgid "Base line title"
 msgstr ""
 
 msgid "Base line value"
-msgstr ""
+msgstr "Valeur de la ligne de réference"
 
 msgid "Use cumulative values"
 msgstr ""
 
 msgid "Domain axis title"
-msgstr ""
+msgstr "Titre de l'axe des abscisses"
 
 msgid "Hide empty categories"
-msgstr ""
+msgstr "Masquer les catégories vides"
 
 msgid "None"
-msgstr ""
+msgstr "Aucun"
 
 msgid "Before first"
 msgstr ""
@@ -208,10 +214,10 @@ msgid "Before first and after last"
 msgstr ""
 
 msgid "All"
-msgstr ""
+msgstr "Tout"
 
 msgid "Hide chart legend"
-msgstr ""
+msgstr "Masquer légende du graphique"
 
 msgid "Hide subtitle"
 msgstr ""
@@ -229,7 +235,7 @@ msgid "Range axis decimals"
 msgstr ""
 
 msgid "Range axis title"
-msgstr ""
+msgstr "Titre de l'axe des ordonnées"
 
 msgid "Range axis max"
 msgstr ""
@@ -244,10 +250,10 @@ msgid "Tick steps may extend the chart beyond 'Range axis max'"
 msgstr ""
 
 msgid "Trend line"
-msgstr ""
+msgstr "Courbe de tendance"
 
 msgid "Linear"
-msgstr ""
+msgstr "Linéaire"
 
 msgid "Polynomial"
 msgstr ""
@@ -256,16 +262,16 @@ msgid "Loess"
 msgstr ""
 
 msgid "Show values"
-msgstr ""
+msgstr "Afficher les valeurs"
 
 msgid "Sort order"
-msgstr ""
+msgstr "Ordre de tri"
 
 msgid "Low to high"
-msgstr ""
+msgstr "Croissant"
 
 msgid "High to low"
-msgstr ""
+msgstr "Décroissant"
 
 msgid "Chart subtitle"
 msgstr ""
@@ -277,31 +283,28 @@ msgid "Target line title"
 msgstr ""
 
 msgid "Target line value"
-msgstr ""
+msgstr "Ligne valeur cible"
 
 msgid "Chart title"
-msgstr ""
+msgstr "Titre du graphique"
 
 msgid "Data"
-msgstr ""
+msgstr "Données"
 
 msgid "Axis & legend"
 msgstr ""
 
 msgid "Style"
-msgstr ""
+msgstr "Style"
 
 msgid "Options"
-msgstr ""
+msgstr "Options"
 
 msgid "Chart options"
-msgstr ""
-
-msgid "Pivot table"
-msgstr ""
+msgstr "Options du graphique"
 
 msgid "Column"
-msgstr ""
+msgstr "Colonne"
 
 msgid "Stacked column"
 msgstr ""
@@ -316,7 +319,7 @@ msgid "Line"
 msgstr ""
 
 msgid "Area"
-msgstr ""
+msgstr "Aire"
 
 msgid "Pie"
 msgstr ""
@@ -355,37 +358,37 @@ msgid "Expected reports"
 msgstr ""
 
 msgid "Program"
-msgstr ""
+msgstr "Programme"
 
 msgid "Select a program"
 msgstr ""
 
 msgid "Indicators"
-msgstr ""
+msgstr "Indicateurs"
 
 msgid "Select indicator group"
-msgstr ""
+msgstr "Sélectionner groupe d'indicateurs"
 
 msgid "[ All groups ]"
 msgstr ""
 
 msgid "Data elements"
-msgstr ""
+msgstr "Eléments de données"
 
 msgid "Select data element group"
-msgstr ""
+msgstr "Sélectionner groupe d'éléments de données"
 
 msgid "[ All data elements ]"
 msgstr ""
 
 msgid "Totals"
-msgstr ""
+msgstr "Totaux "
 
 msgid "Details"
-msgstr ""
+msgstr "Détails"
 
 msgid "Data sets"
-msgstr ""
+msgstr "Ensembles de données"
 
 msgid "Select data sets"
 msgstr ""
@@ -394,10 +397,10 @@ msgid "[ All metrics ]"
 msgstr ""
 
 msgid "Event data items"
-msgstr ""
+msgstr "Eléments de données évènement"
 
 msgid "Program indicators"
-msgstr ""
+msgstr "Program indicators"
 
 msgid "Add to series"
 msgstr ""
@@ -423,7 +426,8 @@ msgstr ""
 msgid "Please add at least one {{category}} dimension"
 msgstr ""
 
-msgid "Please add at least one period as {{series}}, {{category}} or {{filter}}"
+msgid ""
+"Please add at least one period as {{series}}, {{category}} or {{filter}}"
 msgstr ""
 
 msgid "Please add {{data}} as {{category}} or {{filter}}"
@@ -451,55 +455,55 @@ msgid "Please add at least one period as {{filter}}"
 msgstr ""
 
 msgid "Today"
-msgstr ""
+msgstr "Aujourd'hui"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Hier"
 
 msgid "Last 3 days"
-msgstr ""
+msgstr "3 derniers jours"
 
 msgid "Last 7 days"
-msgstr ""
+msgstr "7 derniers jours"
 
 msgid "Last 14 days"
-msgstr ""
+msgstr "14 dernier jours"
 
 msgid "This week"
-msgstr ""
+msgstr "Cette semaine"
 
 msgid "Last week"
-msgstr ""
+msgstr "Semaine passée"
 
 msgid "Last 4 weeks"
-msgstr ""
+msgstr "4 dernières semaines"
 
 msgid "Last 12 weeks"
-msgstr ""
+msgstr "12 dernières semaines"
 
 msgid "Last 52 weeks"
-msgstr ""
+msgstr "52 dernières semaines"
 
 msgid "Weeks this year"
 msgstr ""
 
 msgid "This month"
-msgstr ""
+msgstr "Ce mois-ci"
 
 msgid "Last month"
-msgstr ""
+msgstr "Le mois dernier"
 
 msgid "Last 3 months"
-msgstr ""
+msgstr "3 derniers mois"
 
 msgid "Last 6 months"
-msgstr ""
+msgstr "6 derniers mois"
 
 msgid "Last 12 months"
-msgstr ""
+msgstr "12 derniers mois"
 
 msgid "Months this year"
-msgstr ""
+msgstr "Mois cette année"
 
 msgid "This bimonth"
 msgstr ""
@@ -514,46 +518,46 @@ msgid "Bimonths this year"
 msgstr ""
 
 msgid "This quarter"
-msgstr ""
+msgstr "Ce trimestre"
 
 msgid "Last quarter"
-msgstr ""
+msgstr "Trimestre précédent"
 
 msgid "Last 4 quarters"
-msgstr ""
+msgstr "4 derniers trimestres"
 
 msgid "Quarters this year"
-msgstr ""
+msgstr "Trimestres cette année"
 
 msgid "This six-month"
-msgstr ""
+msgstr "Ce semestre"
 
 msgid "Last six-month"
-msgstr ""
+msgstr "Dernier semestre"
 
 msgid "Last 2 six-months"
-msgstr ""
+msgstr "2 derniers semestres"
 
 msgid "This financial year"
-msgstr ""
+msgstr "Année fiscale en cours"
 
 msgid "Last financial year"
-msgstr ""
+msgstr "Dernière année financière"
 
 msgid "Last 5 financial years"
-msgstr ""
+msgstr "5 dernières années financières"
 
 msgid "This year"
-msgstr ""
+msgstr "Année en cours"
 
 msgid "Last year"
-msgstr ""
+msgstr "L'année passée"
 
 msgid "Last 5 years"
-msgstr ""
+msgstr "5 dernières années"
 
 msgid "User org unit"
-msgstr ""
+msgstr "Unité d'organisation utilisateur"
 
 msgid "User org unit children"
 msgstr ""
