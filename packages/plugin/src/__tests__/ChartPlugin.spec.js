@@ -96,6 +96,14 @@ const createVisualizationMock = {
     },
 };
 
+const isYearOverYearMockResponse = visType => {
+    return visType === analytics.VIS_TYPE_YEAR_OVER_YEAR_LINE;
+};
+
+const isSingleValueMockResponse = visType => {
+    return visType === analytics.VIS_TYPE_SINGLE_VALUE;
+};
+
 describe('ChartPlugin', () => {
     options.getOptionsForRequest = () => [
         ['option1', { defaultValue: 'abc' }],
@@ -273,6 +281,12 @@ describe('ChartPlugin', () => {
                 api.apiFetchAnalyticsForYearOverYear = jest
                     .fn()
                     .mockResolvedValue(new MockYoYAnalyticsResponse());
+
+                analytics.isYearOverYear = jest
+                    .fn()
+                    .mockReturnValue(
+                        isYearOverYearMockResponse(props.config.type)
+                    );
             });
 
             it('makes year-on-year analytics request', done => {
@@ -323,6 +337,12 @@ describe('ChartPlugin', () => {
                 props.config = {
                     ...singleValueCurrentMock,
                 };
+
+                analytics.isSingleValue = jest
+                    .fn()
+                    .mockReturnValue(
+                        isSingleValueMockResponse(props.config.type)
+                    );
             });
 
             it('provides dhis as output format to createChart', done => {
