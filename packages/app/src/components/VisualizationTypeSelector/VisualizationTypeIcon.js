@@ -1,5 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {
+    VIS_TYPE_COLUMN,
+    VIS_TYPE_STACKED_COLUMN,
+    VIS_TYPE_BAR,
+    VIS_TYPE_STACKED_BAR,
+    VIS_TYPE_LINE,
+    VIS_TYPE_AREA,
+    VIS_TYPE_PIE,
+    VIS_TYPE_RADAR,
+    VIS_TYPE_GAUGE,
+    VIS_TYPE_YEAR_OVER_YEAR_LINE,
+    VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
+    VIS_TYPE_SINGLE_VALUE,
+    VIS_TYPE_MAP,
+    visTypeDisplayNames,
+} from '@dhis2/analytics';
 
 import ColumnIcon from '../../assets/ColumnIcon';
 import StackedColumnIcon from '../../assets/StackedColumnIcon';
@@ -15,57 +31,40 @@ import YearOverYearColumnIcon from '../../assets/YearOverYearColumnIcon';
 import SingleValueIcon from '../../assets/SingleValueIcon';
 import GlobeIcon from '../../assets/GlobeIcon';
 
-import {
-    COLUMN,
-    STACKED_COLUMN,
-    BAR,
-    STACKED_BAR,
-    LINE,
-    AREA,
-    PIE,
-    RADAR,
-    GAUGE,
-    YEAR_OVER_YEAR_LINE,
-    YEAR_OVER_YEAR_COLUMN,
-    SINGLE_VALUE,
-    OPEN_AS_MAP,
-    chartTypeDisplayNames,
-} from '../../modules/chartTypes';
-
-const VisualizationTypeIcon = ({ type = COLUMN, style }) => {
+const VisualizationTypeIcon = ({ type = VIS_TYPE_COLUMN, style }) => {
     switch (type) {
-        case STACKED_COLUMN:
+        case VIS_TYPE_STACKED_COLUMN:
             return <StackedColumnIcon style={style} />;
-        case BAR:
+        case VIS_TYPE_BAR:
             return <BarIcon style={style} />;
-        case STACKED_BAR:
+        case VIS_TYPE_STACKED_BAR:
             return <StackedBarIcon style={style} />;
-        case PIE:
+        case VIS_TYPE_PIE:
             return <PieIcon style={style} />;
-        case GAUGE:
+        case VIS_TYPE_GAUGE:
             return <GaugeIcon style={style} />;
-        case LINE:
+        case VIS_TYPE_LINE:
             return <LineIcon style={style} />;
-        case AREA:
+        case VIS_TYPE_AREA:
             return <AreaIcon style={style} />;
-        case RADAR:
+        case VIS_TYPE_RADAR:
             return <RadarIcon style={style} />;
-        case YEAR_OVER_YEAR_LINE:
+        case VIS_TYPE_YEAR_OVER_YEAR_LINE:
             return <YearOverYearLineIcon style={style} />;
-        case YEAR_OVER_YEAR_COLUMN:
+        case VIS_TYPE_YEAR_OVER_YEAR_COLUMN:
             return <YearOverYearColumnIcon style={style} />;
-        case SINGLE_VALUE:
+        case VIS_TYPE_SINGLE_VALUE:
             return <SingleValueIcon style={style} />;
-        case OPEN_AS_MAP:
+        case VIS_TYPE_MAP:
             return <GlobeIcon style={style} />;
-        case COLUMN:
+        case VIS_TYPE_COLUMN:
         default:
             return <ColumnIcon style={style} />;
     }
 };
 
 VisualizationTypeIcon.propTypes = {
-    type: PropTypes.oneOf(Object.keys(chartTypeDisplayNames)),
+    type: PropTypes.oneOf(Object.keys(visTypeDisplayNames)),
     style: PropTypes.object,
 };
 

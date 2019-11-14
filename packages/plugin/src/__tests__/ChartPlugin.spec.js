@@ -1,16 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import * as analytics from '@dhis2/analytics';
+
 import LoadingMask from '../widgets/LoadingMask';
 import ChartPlugin from '../ChartPlugin';
-import * as analytics from '@dhis2/analytics';
 import * as api from '../api/analytics';
 import * as apiViz from '../api/visualization';
 import * as options from '../modules/options';
-import {
-    YEAR_OVER_YEAR_LINE,
-    COLUMN,
-    SINGLE_VALUE,
-} from '../modules/chartTypes';
 
 jest.mock('@dhis2/analytics');
 
@@ -42,21 +38,21 @@ const ouMock = {
 };
 
 const defaultCurrentMock = {
-    type: COLUMN,
+    type: analytics.VIS_TYPE_COLUMN,
     columns: [dxMock],
     rows: [peMock],
     filters: [ouMock],
 };
 
 const yearOverYearCurrentMock = {
-    type: YEAR_OVER_YEAR_LINE,
+    type: analytics.VIS_TYPE_YEAR_OVER_YEAR_LINE,
     columns: [dxMock],
     rows: [peMock],
     yearlySeries: ['LAST_YEAR'],
 };
 
 const singleValueCurrentMock = {
-    type: SINGLE_VALUE,
+    type: analytics.VIS_TYPE_SINGLE_VALUE,
     columns: [dxMock],
     rows: [],
     filters: [ouMock, peMock],
@@ -98,6 +94,14 @@ const createVisualizationMock = {
     visualization: {
         getSVGForExport: () => '<svg />',
     },
+};
+
+const isYearOverYearMockResponse = visType => {
+    return visType === analytics.VIS_TYPE_YEAR_OVER_YEAR_LINE;
+};
+
+const isSingleValueMockResponse = visType => {
+    return visType === analytics.VIS_TYPE_SINGLE_VALUE;
 };
 
 describe('ChartPlugin', () => {
@@ -277,6 +281,12 @@ describe('ChartPlugin', () => {
                 api.apiFetchAnalyticsForYearOverYear = jest
                     .fn()
                     .mockResolvedValue(new MockYoYAnalyticsResponse());
+
+                analytics.isYearOverYear = jest
+                    .fn()
+                    .mockReturnValue(
+                        isYearOverYearMockResponse(props.config.type)
+                    );
             });
 
             it('makes year-on-year analytics request', done => {
@@ -327,6 +337,12 @@ describe('ChartPlugin', () => {
                 props.config = {
                     ...singleValueCurrentMock,
                 };
+
+                analytics.isSingleValue = jest
+                    .fn()
+                    .mockReturnValue(
+                        isSingleValueMockResponse(props.config.type)
+                    );
             });
 
             it('provides dhis as output format to createChart', done => {

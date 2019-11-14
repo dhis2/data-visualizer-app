@@ -5,10 +5,10 @@ import {
     AXIS_NAME_COLUMNS,
     AXIS_NAME_ROWS,
     AXIS_NAME_FILTERS,
+    VIS_TYPE_BAR,
 } from '@dhis2/analytics';
 
 import * as ui from '../ui';
-import { BAR } from '../../modules/chartTypes';
 
 const reducer = ui.default;
 
@@ -32,7 +32,7 @@ const ou = {
     items: [{ id: ouItem1Id }],
 };
 
-const type = BAR;
+const type = VIS_TYPE_BAR;
 const aggregationType = 'SUM';
 
 const visualization = {

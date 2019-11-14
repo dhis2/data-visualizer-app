@@ -4,12 +4,12 @@ import {
     DIMENSION_ID_PERIOD,
     DimensionsPanel,
     DimensionMenu,
+    isYearOverYear,
 } from '@dhis2/analytics';
 
 import DialogManager from './Dialogs/DialogManager';
 import { SOURCE_DIMENSIONS, getInverseLayout } from '../../modules/layout';
 import { setDataTransfer } from '../../modules/dnd';
-import { isYearOverYear } from '../../modules/chartTypes';
 import * as fromReducers from '../../reducers';
 import * as fromActions from '../../actions';
 

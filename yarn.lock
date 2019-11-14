@@ -183,10 +183,10 @@
     react-beautiful-dnd "^10.1.1"
     styled-jsx "^3.2.1"
 
-"@dhis2/analytics@^2.5.1":
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.5.1.tgz#02c2d27b35e67c3a8f9753f704b70423d97ab02d"
-  integrity sha512-Ifqz8NXUAaeZTDJMdfpbIEYKX8EjxCxZDY6VPGsM7RJaAqYB/y/HpcFaQHJ1gunKZ9a5CtRLSDL2EDFXNabx7A==
+"@dhis2/analytics@^2.5.2":
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.5.2.tgz#d7076653765947efee87ac5fac6d67c9815dae9d"
+  integrity sha512-BCySFEKXDUdGnw3Glnv+vZBdmA7a279jdAt69dDLAbea61phvkHrlSKmpRwuTtv3EB0UboaFxzE89/3n21XxGg==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^6.3.0"

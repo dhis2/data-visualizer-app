@@ -18,6 +18,7 @@ import {
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
     FIXED_DIMENSIONS,
+    isSingleValue,
 } from '@dhis2/analytics';
 
 import HideButton from './HideButton';
@@ -45,7 +46,6 @@ import { sGetMetadata } from '../../../reducers/metadata';
 import { sGetSettingsDisplayNameProperty } from '../../../reducers/settings';
 import { apiFetchRecommendedIds } from '../../../api/dimensions';
 import { removeLastPathSegment, getOuPath } from '../../../modules/orgUnit';
-import { isSingleValue } from '../../../modules/chartTypes';
 
 export class DialogManager extends Component {
     state = {

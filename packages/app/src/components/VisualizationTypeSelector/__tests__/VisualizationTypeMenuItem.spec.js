@@ -1,9 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { VIS_TYPE_COLUMN } from '@dhis2/analytics';
+
 import VisualizationTypeMenuItem from '../VisualizationTypeMenuItem';
 import MenuItem from '@material-ui/core/MenuItem';
 import VisualizationTypeIcon from '../VisualizationTypeIcon';
-import { COLUMN } from '../../../modules/chartTypes';
 
 describe('VisualizationTypeMenuItem component ', () => {
     let props;
@@ -18,8 +19,8 @@ describe('VisualizationTypeMenuItem component ', () => {
 
     beforeEach(() => {
         props = {
-            type: COLUMN,
-            visualizationType: COLUMN,
+            type: VIS_TYPE_COLUMN,
+            visualizationType: VIS_TYPE_COLUMN,
             styles: {},
         };
         shallowElement = undefined;
