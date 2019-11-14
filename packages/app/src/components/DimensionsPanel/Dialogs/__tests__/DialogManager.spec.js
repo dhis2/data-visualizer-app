@@ -4,7 +4,6 @@ import {
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
-    isSingleValue,
 } from '@dhis2/analytics';
 
 import { DialogManager } from '../DialogManager';
@@ -29,7 +28,7 @@ jest.mock('@dhis2/analytics', () => {
         DynamicDimension: () => <div />,
         PeriodDimension: () => <div />,
         OrgUnitDimension: () => <div />,
-        isSingleValue,
+        isSingleValue: () => true,
         DIMENSION_ID_DATA: dataId,
         DIMENSION_ID_PERIOD: periodId,
         DIMENSION_ID_ORGUNIT: ouId,
