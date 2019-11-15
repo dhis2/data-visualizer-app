@@ -13,8 +13,6 @@ import {
     VIS_TYPE_YEAR_OVER_YEAR_LINE,
     VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
     VIS_TYPE_SINGLE_VALUE,
-    VIS_TYPE_MAP,
-    visTypeDisplayNames,
 } from '@dhis2/analytics';
 
 import ColumnIcon from '../../assets/ColumnIcon';
@@ -31,8 +29,8 @@ import YearOverYearColumnIcon from '../../assets/YearOverYearColumnIcon';
 import SingleValueIcon from '../../assets/SingleValueIcon';
 import GlobeIcon from '../../assets/GlobeIcon';
 
-const VisualizationTypeIcon = ({ type = VIS_TYPE_COLUMN, style }) => {
-    switch (type) {
+const MenuItemIcon = ({ iconType, style }) => {
+    switch (iconType) {
         case VIS_TYPE_STACKED_COLUMN:
             return <StackedColumnIcon style={style} />;
         case VIS_TYPE_BAR:
@@ -55,7 +53,7 @@ const VisualizationTypeIcon = ({ type = VIS_TYPE_COLUMN, style }) => {
             return <YearOverYearColumnIcon style={style} />;
         case VIS_TYPE_SINGLE_VALUE:
             return <SingleValueIcon style={style} />;
-        case VIS_TYPE_MAP:
+        case 'MAP':
             return <GlobeIcon style={style} />;
         case VIS_TYPE_COLUMN:
         default:
@@ -63,9 +61,9 @@ const VisualizationTypeIcon = ({ type = VIS_TYPE_COLUMN, style }) => {
     }
 };
 
-VisualizationTypeIcon.propTypes = {
-    type: PropTypes.oneOf(Object.keys(visTypeDisplayNames)),
+MenuItemIcon.propTypes = {
+    iconType: PropTypes.string.isRequired,
     style: PropTypes.object,
 };
 
-export default VisualizationTypeIcon;
+export default MenuItemIcon;

@@ -1,29 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import MenuItem from '@material-ui/core/MenuItem/MenuItem';
-import { visTypeDisplayNames } from '@dhis2/analytics';
 
 import ListItemIcon from '@material-ui/core/ListItemIcon/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText/ListItemText';
-import VisualizationTypeIcon from './VisualizationTypeIcon';
+import MenuItemIcon from './MenuItemIcon';
 
 const VisualizationTypeMenuItem = ({
-    type,
-    visualizationType,
+    iconType,
     styles,
+    label,
+    isSelected,
     ...props
 }) => (
     <MenuItem
-        selected={type === visualizationType}
+        selected={Boolean(isSelected)}
         style={styles.menuItem}
         disableRipple
         {...props}
     >
         <ListItemIcon style={styles.listItemIcon}>
-            <VisualizationTypeIcon type={type} style={styles.listItemSvg} />
+            <MenuItemIcon iconType={iconType} style={styles.listItemSvg} />
         </ListItemIcon>
         <ListItemText
-            primary={visTypeDisplayNames[type]}
+            primary={label}
             disableTypography={true}
             style={styles.listItemText}
         />
@@ -31,9 +31,10 @@ const VisualizationTypeMenuItem = ({
 );
 
 VisualizationTypeMenuItem.propTypes = {
-    type: PropTypes.oneOf(Object.keys(visTypeDisplayNames)),
-    visualizationType: PropTypes.oneOf(Object.keys(visTypeDisplayNames)),
+    iconType: PropTypes.string,
     styles: PropTypes.object,
+    label: PropTypes.string,
+    isSelected: PropTypes.Boolean,
 };
 
 export default VisualizationTypeMenuItem;

@@ -4,7 +4,7 @@ import { VIS_TYPE_COLUMN } from '@dhis2/analytics';
 
 import VisualizationTypeMenuItem from '../VisualizationTypeMenuItem';
 import MenuItem from '@material-ui/core/MenuItem';
-import VisualizationTypeIcon from '../VisualizationTypeIcon';
+import MenuItemIcon from '../MenuItemIcon';
 
 describe('VisualizationTypeMenuItem component ', () => {
     let props;
@@ -34,10 +34,10 @@ describe('VisualizationTypeMenuItem component ', () => {
         ).toEqual(1);
     });
 
-    it('renders VisualizationTypeIcon', () => {
+    it('renders MenuItemIcon', () => {
         expect(
             element()
-                .find(VisualizationTypeIcon)
+                .find(MenuItemIcon)
                 .first().length
         ).toEqual(1);
     });
