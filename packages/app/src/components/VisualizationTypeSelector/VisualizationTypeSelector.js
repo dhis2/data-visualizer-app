@@ -105,7 +105,7 @@ export class VisualizationTypeSelector extends Component {
                     <VisualizationTypeMenuItem
                         key={'MAP'}
                         iconType={'MAP'}
-                        label={i18n.t('Open as Map')}
+                        label={i18n.t('Open as Map')} // TODO: Open as: Map when i18next nsSeparator fixed
                         styles={styles}
                         onClick={this.handleOpenAsMapClick}
                         disabled={!this.props.current}
