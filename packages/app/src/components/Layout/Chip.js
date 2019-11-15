@@ -6,6 +6,8 @@ import {
     FIXED_DIMENSIONS,
     DIMENSION_ID_DATA,
     isSingleValue,
+    getMaxNumberOfItemsPerAxis,
+    hasTooManyItemPerAxis,
 } from '@dhis2/analytics';
 
 import Menu from './Menu';
@@ -81,16 +83,28 @@ class Chip extends React.Component {
         this.props.items.length > 1;
 
     renderChip = () => {
-        const itemsLabel = this.isSingleValueDataDimension()
-            ? i18n.t('{{total}} of 1 selected', {
+        const axisName = this.props.axisName;
+        const visType = this.props.type;
+        const numberOfItems = this.props.items.length;
+
+        const maxNumberOfItemsPerAxis = getMaxNumberOfItemsPerAxis(
+            visType,
+            axisName
+        );
+
+        const hasMaxNumberOfItemsRule = !!maxNumberOfItemsPerAxis;
+
+        const itemsLabel = hasMaxNumberOfItemsRule
+            ? i18n.t(`{{total}} of {{maxNumberOfItemsPerAxis}} selected`, {
                   total: this.props.items.length,
+                  maxNumberOfItemsPerAxis,
               })
             : i18n.t('{{total}} selected', {
                   total: this.props.items.length,
               });
 
-        const activeItemIds = this.isSingleValueDataDimension()
-            ? this.props.items.slice(0, 1)
+        const activeItemIds = hasMaxNumberOfItemsRule
+            ? this.props.items.slice(0, maxNumberOfItemsPerAxis)
             : [];
 
         const chipLabel = `${this.props.dimensionName}${
@@ -102,7 +116,11 @@ class Chip extends React.Component {
             ...styles.chipWrapper,
             ...(!this.props.items.length ? styles.chipEmpty : {}),
         };
-        const warningIcon = this.isSingleValueDataDimension() ? (
+        const warningIcon = hasTooManyItemPerAxis(
+            visType,
+            axisName,
+            numberOfItems
+        ) ? (
             <div style={styles.warningIconWrapper}>
                 <WarningIcon style={styles.warningIcon} />
             </div>
