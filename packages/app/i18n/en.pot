@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-11-11T14:45:11.552Z\n"
-"PO-Revision-Date: 2019-11-11T14:45:11.552Z\n"
+"POT-Creation-Date: 2019-11-15T12:12:19.215Z\n"
+"PO-Revision-Date: 2019-11-15T12:12:19.215Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -295,6 +295,9 @@ msgid "Options"
 msgstr ""
 
 msgid "Chart options"
+msgstr ""
+
+msgid "Open as Map"
 msgstr ""
 
 msgid "Reporting rate"

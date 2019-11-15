@@ -62,7 +62,7 @@ const MenuItemIcon = ({ iconType, style }) => {
 };
 
 MenuItemIcon.propTypes = {
-    iconType: PropTypes.string.isRequired,
+    iconType: PropTypes.string,
     style: PropTypes.object,
 };
 

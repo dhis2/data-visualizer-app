@@ -20,8 +20,12 @@ describe('The Dimensions component ', () => {
             dimensions: {},
             ui: {
                 layout: {},
+                type: '',
             },
             itemsByDimension: {},
+            dualAxisItemHandler: () => {},
+            axisItemHandler: () => {},
+            removeItemHandler: () => {},
         };
     });
 

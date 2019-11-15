@@ -34,7 +34,7 @@ VisualizationTypeMenuItem.propTypes = {
     iconType: PropTypes.string,
     styles: PropTypes.object,
     label: PropTypes.string,
-    isSelected: PropTypes.Boolean,
+    isSelected: PropTypes.bool,
 };
 
 export default VisualizationTypeMenuItem;
