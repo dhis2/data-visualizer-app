@@ -27,14 +27,13 @@ export const defaultState = {
     anchorEl: null,
 };
 
-// FIXME: Rename everything with 'chart' to 'vis'
 export class VisualizationTypeSelector extends Component {
     constructor(props, context) {
         super(props);
 
         this.state = defaultState;
         this.baseUrl = context.baseUrl;
-        this.chartTypes = this.getChartTypes(); // FIXME: Refactor
+        this.visTypes = this.getVisTypes();
     }
 
     handleButtonClick = event => {
@@ -46,7 +45,7 @@ export class VisualizationTypeSelector extends Component {
         this.handleClose();
     };
 
-    handleOpenChartAsMapClick = async () => {
+    handleOpenAsMapClick = async () => {
         const currentAnalyticalObject = prepareCurrentAnalyticalObject(
             this.props.current,
             this.props.metadata,
@@ -63,7 +62,7 @@ export class VisualizationTypeSelector extends Component {
     };
 
     // FIXME: Refactor, remove the two types
-    getChartTypes = () => {
+    getVisTypes = () => {
         return Object.keys(visTypeDisplayNames).reduce(
             (result, type) => {
                 result['nativeTypes'].push(type);
@@ -76,7 +75,7 @@ export class VisualizationTypeSelector extends Component {
     render() {
         const { anchorEl } = this.state;
         const { visualizationType } = this.props;
-        const { nativeTypes } = this.chartTypes; // FIXME: Refactor
+        const { nativeTypes } = this.visTypes; // FIXME: Refactor
 
         return (
             <Fragment>
@@ -115,10 +114,11 @@ export class VisualizationTypeSelector extends Component {
                     <div style={styles.clearFix} />
                     <hr style={styles.menuDivider} />
                     <VisualizationTypeMenuItem
+                        key={'MAP'}
                         iconType={'MAP'}
                         label={i18n.t('Open as Map')}
                         styles={styles}
-                        onClick={this.handleOpenChartAsMapClick}
+                        onClick={this.handleOpenAsMapClick}
                         disabled={!this.props.current}
                     />
                 </Menu>
