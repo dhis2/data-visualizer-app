@@ -33,7 +33,6 @@ export class VisualizationTypeSelector extends Component {
 
         this.state = defaultState;
         this.baseUrl = context.baseUrl;
-        this.visTypes = this.getVisTypes();
     }
 
     handleButtonClick = event => {
@@ -61,21 +60,11 @@ export class VisualizationTypeSelector extends Component {
         this.setState({ anchorEl: null });
     };
 
-    // FIXME: Refactor, remove the two types
-    getVisTypes = () => {
-        return Object.keys(visTypeDisplayNames).reduce(
-            (result, type) => {
-                result['nativeTypes'].push(type);
-                return result;
-            },
-            { nativeTypes: [] }
-        );
-    };
+    getVisTypes = () => Object.keys(visTypeDisplayNames);
 
     render() {
         const { anchorEl } = this.state;
         const { visualizationType } = this.props;
-        const { nativeTypes } = this.visTypes; // FIXME: Refactor
 
         return (
             <Fragment>
@@ -101,7 +90,7 @@ export class VisualizationTypeSelector extends Component {
                         style: styles.menu,
                     }}
                 >
-                    {nativeTypes.map(type => (
+                    {this.getVisTypes().map(type => (
                         <VisualizationTypeMenuItem
                             key={type}
                             iconType={type}
