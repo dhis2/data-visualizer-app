@@ -4,11 +4,8 @@ import { connect } from 'react-redux';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
-import {
-    VIS_TYPE_MAP,
-    visTypeDisplayNames,
-    isOpenAsType,
-} from '@dhis2/analytics';
+import { visTypeDisplayNames } from '@dhis2/analytics';
+import i18n from '@dhis2/d2-i18n';
 
 import { prepareCurrentAnalyticalObject } from '../../modules/currentAnalyticalObject';
 import { sGetUi, sGetUiType } from '../../reducers/ui';
@@ -21,7 +18,7 @@ import {
 } from '../../api/userDataStore';
 
 import VisualizationTypeMenuItem from './VisualizationTypeMenuItem';
-import VisualizationTypeIcon from './VisualizationTypeIcon';
+import MenuItemIcon from './MenuItemIcon';
 import styles from './styles/VisualizationTypeSelector.style';
 
 export const MAPS_APP_URL = 'dhis-web-maps';
@@ -30,13 +27,14 @@ export const defaultState = {
     anchorEl: null,
 };
 
+// FIXME: Rename everything with 'chart' to 'vis'
 export class VisualizationTypeSelector extends Component {
     constructor(props, context) {
         super(props);
 
         this.state = defaultState;
         this.baseUrl = context.baseUrl;
-        this.chartTypes = this.getChartTypes();
+        this.chartTypes = this.getChartTypes(); // FIXME: Refactor
     }
 
     handleButtonClick = event => {
@@ -46,12 +44,6 @@ export class VisualizationTypeSelector extends Component {
     handleMenuItemClick = type => () => {
         this.props.onTypeSelect(type);
         this.handleClose();
-    };
-
-    handleOpenAsMenuItemClick = type => () => {
-        if (type === VIS_TYPE_MAP) {
-            this.handleOpenChartAsMapClick();
-        }
     };
 
     handleOpenChartAsMapClick = async () => {
@@ -70,25 +62,21 @@ export class VisualizationTypeSelector extends Component {
         this.setState({ anchorEl: null });
     };
 
+    // FIXME: Refactor, remove the two types
     getChartTypes = () => {
         return Object.keys(visTypeDisplayNames).reduce(
             (result, type) => {
-                const chartType = isOpenAsType(type)
-                    ? 'openAsTypes'
-                    : 'nativeTypes';
-
-                result[chartType].push(type);
-
+                result['nativeTypes'].push(type);
                 return result;
             },
-            { nativeTypes: [], openAsTypes: [] }
+            { nativeTypes: [] }
         );
     };
 
     render() {
         const { anchorEl } = this.state;
         const { visualizationType } = this.props;
-        const { nativeTypes, openAsTypes } = this.chartTypes;
+        const { nativeTypes } = this.chartTypes; // FIXME: Refactor
 
         return (
             <Fragment>
@@ -100,7 +88,7 @@ export class VisualizationTypeSelector extends Component {
                     size="small"
                     style={styles.button}
                 >
-                    <VisualizationTypeIcon type={visualizationType} />
+                    <MenuItemIcon iconType={visualizationType} />
                     {visTypeDisplayNames[visualizationType]}
                     <ArrowDropDownIcon style={styles.dropDownArrow} />
                 </Button>
@@ -117,24 +105,22 @@ export class VisualizationTypeSelector extends Component {
                     {nativeTypes.map(type => (
                         <VisualizationTypeMenuItem
                             key={type}
-                            type={type}
-                            visualizationType={visualizationType}
+                            iconType={type}
+                            label={visTypeDisplayNames[type]}
+                            selected={type === visualizationType}
                             styles={styles}
                             onClick={this.handleMenuItemClick(type)}
                         />
                     ))}
                     <div style={styles.clearFix} />
                     <hr style={styles.menuDivider} />
-                    {openAsTypes.map(type => (
-                        <VisualizationTypeMenuItem
-                            key={type}
-                            type={type}
-                            visualizationType={visualizationType}
-                            styles={styles}
-                            onClick={this.handleOpenAsMenuItemClick(type)}
-                            disabled={!this.props.current}
-                        />
-                    ))}
+                    <VisualizationTypeMenuItem
+                        iconType={'MAP'}
+                        label={i18n.t('Open as Map')}
+                        styles={styles}
+                        onClick={this.handleOpenChartAsMapClick}
+                        disabled={!this.props.current}
+                    />
                 </Menu>
             </Fragment>
         );
