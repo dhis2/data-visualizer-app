@@ -95,7 +95,7 @@ export class VisualizationTypeSelector extends Component {
                             key={type}
                             iconType={type}
                             label={visTypeDisplayNames[type]}
-                            selected={type === visualizationType}
+                            isSelected={type === visualizationType}
                             styles={styles}
                             onClick={this.handleMenuItemClick(type)}
                         />

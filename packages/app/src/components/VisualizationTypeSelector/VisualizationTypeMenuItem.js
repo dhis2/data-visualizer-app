@@ -10,11 +10,11 @@ const VisualizationTypeMenuItem = ({
     iconType,
     styles,
     label,
-    selected,
+    isSelected,
     ...props
 }) => (
     <MenuItem
-        selected={Boolean(selected)}
+        selected={Boolean(isSelected)}
         style={styles.menuItem}
         disableRipple
         {...props}
