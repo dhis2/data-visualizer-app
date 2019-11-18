@@ -222,7 +222,6 @@ export class DialogManager extends Component {
                 hasMaxNumberOfItemsRule &&
                 numberOfItems > maxNumberOfItemsPerAxis
             ) {
-                // TODO show visType label + make more dynamic
                 infoBoxMessage =
                     maxNumberOfItemsPerAxis === 1
                         ? i18n.t(
