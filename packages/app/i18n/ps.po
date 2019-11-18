@@ -1,0 +1,557 @@
+# Translators:
+# Viktor Varland <viktor@dhis2.org>, 2019
+# phil_dhis2, 2019
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2019-08-26T14:38:24.067Z\n"
+"PO-Revision-Date: 2019-09-01 20:50+0000\n"
+"Last-Translator: phil_dhis2, 2019\n"
+"Language-Team: Pushto (https://www.transifex.com/hisp-uio/teams/100509/ps/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ps\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Rename successful"
+msgstr ""
+
+msgid "\"{{what}}\" successfully deleted."
+msgstr ""
+
+msgid "Data Visualizer"
+msgstr "د مالوماتو (ډاټا) ښکاره کوونکی"
+
+msgid "Data"
+msgstr "مالومات (ډاټا)"
+
+msgid "Data Type"
+msgstr ""
+
+msgid "Detail"
+msgstr ""
+
+msgid "Search"
+msgstr "جستجو"
+
+msgid "Organisation units"
+msgstr "د سازمان واحدونه"
+
+msgid "Period"
+msgstr "معیاد"
+
+msgid "Selected Data"
+msgstr ""
+
+msgid "Deselect All"
+msgstr ""
+
+msgid "Select All"
+msgstr ""
+
+msgid "Remove"
+msgstr "لرې کول"
+
+msgid "Search dimensions"
+msgstr ""
+
+msgid "Dimension recommended with selected data"
+msgstr ""
+
+msgid "Download"
+msgstr "بارگیری"
+
+msgid "Graphics"
+msgstr "ګرافیکي مالومات"
+
+msgid "Image (.png)"
+msgstr ""
+
+msgid "PDF (.pdf)"
+msgstr ""
+
+msgid "Plain data source"
+msgstr "د ډاټا یا مالوماتو ساده سرچینه"
+
+msgid "Advanced"
+msgstr "پرمختللي."
+
+msgid "Metadata ID scheme"
+msgstr ""
+
+msgid "Data value set"
+msgstr "د ډاټا یا مالوماتو د ارزښت ټولګه"
+
+msgid "Other formats"
+msgstr "نور فارمټونه یا نمونې"
+
+msgid "An error occurred in the DHIS2 Data Visualizer application."
+msgstr ""
+
+msgid "Something went wrong"
+msgstr ""
+
+msgid "Refresh to try again"
+msgstr ""
+
+msgid "Hide technical details"
+msgstr ""
+
+msgid "Show technical details"
+msgstr ""
+
+msgid "The following information may be requested by technical support."
+msgstr ""
+
+msgid "Hide"
+msgstr "پټ یې کړئ"
+
+msgid "Interpretations"
+msgstr "شفاهي ژباړې"
+
+msgid "selected"
+msgstr ""
+
+msgid "Series"
+msgstr "سلسله (لړۍ)"
+
+msgid "Category"
+msgstr "کټګوري"
+
+msgid "Filter"
+msgstr "فیلټر"
+
+msgid "Move to"
+msgstr ""
+
+msgid "None selected"
+msgstr ""
+
+msgid "Unsaved chart"
+msgstr ""
+
+msgid "Edited"
+msgstr ""
+
+msgid "Viewing interpretation from {{interpretationDate}}"
+msgstr ""
+
+msgid "Update"
+msgstr "تجدید یا نوي یې کړئ"
+
+msgid "Chart error"
+msgstr ""
+
+msgid "There is a problem with your chart"
+msgstr ""
+
+msgid "Error generating chart, please try again"
+msgstr ""
+
+msgid "Aggregation type"
+msgstr "نوع مجموعه"
+
+msgid "By data element"
+msgstr "عنصر اطلاعات له خوا"
+
+msgid "Count"
+msgstr "شمېرل"
+
+msgid "Average"
+msgstr "منځنۍ"
+
+msgid "Average (sum in org unit hierarchy)"
+msgstr ""
+
+msgid "Sum"
+msgstr "جمع کول"
+
+msgid "Last value"
+msgstr ""
+
+msgid "Last value (average in org unit hierarchy)"
+msgstr ""
+
+msgid "Min"
+msgstr "حداقل"
+
+msgid "Max"
+msgstr "حداعظم"
+
+msgid "Standard deviation"
+msgstr "معیاري انحراف"
+
+msgid "Variance"
+msgstr "توپیر"
+
+msgid "Base line"
+msgstr ""
+
+msgid "Base line title"
+msgstr "د بنسټیزې کرښې عنوان"
+
+msgid "Base line value"
+msgstr "د اساسي کرښې رقم"
+
+msgid "Use cumulative values"
+msgstr "د اساسي کرښې رقم"
+
+msgid "Domain axis title"
+msgstr "د ډومېن محوري عنوان"
+
+msgid "Hide empty categories"
+msgstr "د تشو موضوعاتو د کټګوریو پټول"
+
+msgid "None"
+msgstr "هېڅ یو"
+
+msgid "Before first"
+msgstr "لومړۍ اول"
+
+msgid "After first"
+msgstr ""
+
+msgid "Before first and after last"
+msgstr "لومړۍ اول او له وروستي څخه بعد"
+
+msgid "All"
+msgstr "ټول"
+
+msgid "Hide chart legend"
+msgstr "د چارټ لېجنډ پټ کړئ"
+
+msgid "Hide subtitle"
+msgstr ""
+
+msgid "Hide title"
+msgstr ""
+
+msgid "No space between columns/bars"
+msgstr ""
+
+msgid "Use 100% stacked values"
+msgstr "د ۱۰۰٪ ټاکل شویو ارزښتونو څخه ګټه واخلئ"
+
+msgid "Range axis decimals"
+msgstr ""
+
+msgid "Range axis title"
+msgstr "د تسلسل محوري عنوان"
+
+msgid "Range axis max"
+msgstr ""
+
+msgid "Range axis min"
+msgstr ""
+
+msgid "Range axis tick steps"
+msgstr ""
+
+msgid "Trend line"
+msgstr "د محاسبې کرښې ښکاره کړئ"
+
+msgid "Linear"
+msgstr "د کرښې چارټ"
+
+msgid "Polynomial"
+msgstr ""
+
+msgid "Loess"
+msgstr ""
+
+msgid "Show values"
+msgstr "ارقام ښکاره کړئ"
+
+msgid "Sort order"
+msgstr "د طبقه بندۍ یا تسلسل ترتیب"
+
+msgid "Low to high"
+msgstr "د ښکته لوري څخه پورته خوا ته"
+
+msgid "High to low"
+msgstr "د پورتنۍ خوا څخه ښکته لوري ته"
+
+msgid "Chart subtitle"
+msgstr "د چارټ عنوان"
+
+msgid "Target line"
+msgstr ""
+
+msgid "Target line title"
+msgstr "د ټاکلې کرښې عنوان"
+
+msgid "Target line value"
+msgstr "د موخې د کرښې رقم"
+
+msgid "Chart title"
+msgstr "د چارټ عنوان"
+
+msgid "Axis & legend"
+msgstr ""
+
+msgid "Style"
+msgstr "طرز یا ډول"
+
+msgid "Options"
+msgstr "ګزینه"
+
+msgid "Chart options"
+msgstr "د چارټ انتخابونه"
+
+msgid "Column"
+msgstr "ستون"
+
+msgid "Stacked column"
+msgstr ""
+
+msgid "Bar"
+msgstr ""
+
+msgid "Stacked bar"
+msgstr ""
+
+msgid "Line"
+msgstr ""
+
+msgid "Area"
+msgstr ""
+
+msgid "Pie"
+msgstr ""
+
+msgid "Radar"
+msgstr ""
+
+msgid "Gauge"
+msgstr ""
+
+msgid "Year over year (line)"
+msgstr ""
+
+msgid "Year over year (column)"
+msgstr ""
+
+msgid "Reporting rate"
+msgstr ""
+
+msgid "Reporting rate on time"
+msgstr ""
+
+msgid "Actual reports"
+msgstr ""
+
+msgid "Actual reports on time"
+msgstr ""
+
+msgid "Expected reports"
+msgstr ""
+
+msgid "Program"
+msgstr "پروګرام"
+
+msgid "Select a program"
+msgstr ""
+
+msgid "Indicators"
+msgstr "شاخصونه"
+
+msgid "Select indicator group"
+msgstr "د شاخص ګروپ انتخاب یا غوره کړئ"
+
+msgid "[ All groups ]"
+msgstr ""
+
+msgid "Data elements"
+msgstr "د مالوماتو (ډاټا) برخې"
+
+msgid "Select data element group"
+msgstr "د ډاټا یا مالوماتو د برخې ګروپ انتخاب یا غوره کړئ."
+
+msgid "[ All data elements ]"
+msgstr ""
+
+msgid "Totals"
+msgstr "مجموعې"
+
+msgid "Details"
+msgstr "جزیات [ ژباړه ـ جزیات ]"
+
+msgid "Data sets"
+msgstr "د مالوماتو یا ډاټا ټولګې"
+
+msgid "Select data sets"
+msgstr ""
+
+msgid "[ All metrics ]"
+msgstr ""
+
+msgid "Event data items"
+msgstr "د پېښې د ډاټا یا مالوماتو محتویات"
+
+msgid "Program indicators"
+msgstr "د پروګرام شاخص"
+
+msgid "Organisation Unit"
+msgstr ""
+
+msgid "Add to series"
+msgstr ""
+
+msgid "Add to category"
+msgstr ""
+
+msgid "Add to filter"
+msgstr ""
+
+msgid "series"
+msgstr ""
+
+msgid "category"
+msgstr ""
+
+msgid "filter"
+msgstr ""
+
+msgid "Please add at least one {{series}} dimension"
+msgstr ""
+
+msgid "Please add at least one {{category}} dimension"
+msgstr ""
+
+msgid ""
+"Please add at least one period as {{series}}, {{category}} or {{filter}}"
+msgstr ""
+
+msgid "Please add at least one period as a {{series}} dimension"
+msgstr ""
+
+msgid "Please add at least one period as a {{category}} dimension"
+msgstr ""
+
+msgid "Please add {{data}} as a filter dimension"
+msgstr ""
+
+msgid "Today"
+msgstr "نن ورځ"
+
+msgid "Yesterday"
+msgstr "پرونۍ ورځ"
+
+msgid "Last 3 days"
+msgstr "تېرې درې ورځې"
+
+msgid "Last 7 days"
+msgstr "تېرې اوه ورځې"
+
+msgid "Last 14 days"
+msgstr "تېرې څورلس ورځې"
+
+msgid "This week"
+msgstr "هفته هذا"
+
+msgid "Last week"
+msgstr "تېره اونۍ"
+
+msgid "Last 4 weeks"
+msgstr "تېرې 4 اونۍ"
+
+msgid "Last 12 weeks"
+msgstr "تېرې 12 اونۍ"
+
+msgid "Last 52 weeks"
+msgstr "تېرې دوه پنځوس اونۍ"
+
+msgid "Weeks this year"
+msgstr "په روان کال کې اونۍ"
+
+msgid "This month"
+msgstr "ماه هذا"
+
+msgid "Last month"
+msgstr "تېره میاشت"
+
+msgid "Last 3 months"
+msgstr "تېرې 3 میاشتې"
+
+msgid "Last 6 months"
+msgstr "تېرې شپږ میاشتې"
+
+msgid "Last 12 months"
+msgstr "تېرې 12 میاشتې"
+
+msgid "Months this year"
+msgstr "د روان کال میاشتې"
+
+msgid "This bimonth"
+msgstr ""
+
+msgid "Last bimonth"
+msgstr ""
+
+msgid "Last 6 bimonths"
+msgstr ""
+
+msgid "Bimonths this year"
+msgstr ""
+
+msgid "This quarter"
+msgstr "ربع هذا"
+
+msgid "Last quarter"
+msgstr "تېره ربعه"
+
+msgid "Last 4 quarters"
+msgstr "تېرې 4ربعې"
+
+msgid "Quarters this year"
+msgstr "د سږ کال ربعې"
+
+msgid "This six-month"
+msgstr "شش ماه هذا"
+
+msgid "Last six-month"
+msgstr "تېرې شپږ میاشتې [ تېرې ـ شپږ ـ میاشتې ]"
+
+msgid "Last 2 six-months"
+msgstr "تېرې دوه شپږ میاشتې"
+
+msgid "This financial year"
+msgstr "سږنۍ مالي کال"
+
+msgid "Last financial year"
+msgstr "تېر مالي کال"
+
+msgid "Last 5 financial years"
+msgstr "تېر 5 مالي کلونه"
+
+msgid "This year"
+msgstr "روان کال"
+
+msgid "Last year"
+msgstr "تېر کال"
+
+msgid "Last 5 years"
+msgstr "تېر 5 کلونه"
+
+msgid "User org unit"
+msgstr "د سازمان د واحد کاروونکی"
+
+msgid "User org unit children"
+msgstr ""
+
+msgid "User org unit grand children"
+msgstr ""
+
+msgid "Weeks per year"
+msgstr ""
+
+msgid "Months per year"
+msgstr ""
+
+msgid "Bimonths per year"
+msgstr ""
+
+msgid "Quarters per year"
+msgstr ""
