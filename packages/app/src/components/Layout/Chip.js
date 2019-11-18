@@ -77,11 +77,6 @@ class Chip extends React.Component {
         return <DynamicDimensionIcon style={styles.dynamicDimensionIcon} />;
     };
 
-    isSingleValueDataDimension = () =>
-        isSingleValue(this.props.type) &&
-        this.props.dimensionId === DIMENSION_ID_DATA &&
-        this.props.items.length > 1;
-
     renderChip = () => {
         const axisName = this.props.axisName;
         const visType = this.props.type;
@@ -106,7 +101,7 @@ class Chip extends React.Component {
 
         const activeItemIds = hasMaxNumberOfItemsRule
             ? this.props.items.slice(0, maxNumberOfItemsPerAxis)
-            : [];
+            : this.props.items;
 
         const chipLabel = `${this.props.dimensionName}${
             numberOfItems > 0 ? `: ${itemsLabel}` : ''
@@ -156,7 +151,10 @@ class Chip extends React.Component {
                 {anchorEl && (
                     <Tooltip
                         dimensionId={this.props.dimensionId}
-                        activeItemIds={activeItemIds}
+                        itemIds={activeItemIds}
+                        displayLimitedAmount={
+                            this.props.items.length > activeItemIds.length
+                        }
                         open={this.state.tooltipOpen}
                         anchorEl={anchorEl}
                     />
