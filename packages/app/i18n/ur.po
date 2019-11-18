@@ -1,12 +1,19 @@
+# Translators:
+# phil_dhis2, 2019
+# Viktor Varland <viktor@dhis2.org>, 2019
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2019-06-21T08:47:33.000Z\n"
+"PO-Revision-Date: 2019-09-01 20:50+0000\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2019\n"
+"Language-Team: Urdu (https://www.transifex.com/hisp-uio/teams/100509/ur/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-10-25T10:26:11.821Z\n"
-"PO-Revision-Date: 2018-10-25T10:26:11.821Z\n"
+"Language: ur\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Rename successful"
 msgstr "نام تبدیل کریں"
@@ -14,113 +21,82 @@ msgstr "نام تبدیل کریں"
 msgid "\"{{what}}\" successfully deleted."
 msgstr "\"{{what}}\" کامیابی سے حذف کر دیا گیا"
 
-msgid "Reporting rates"
-msgstr "رپورٹنگ کی شرح"
-
-msgid "Reporting rates on time"
-msgstr "وقت پر رپورٹنگ کی شرح"
-
-msgid "Actual reports"
-msgstr "اصل رپورٹ"
-
-msgid "Actual reporting rates on time"
-msgstr "وقت پر اصل رپورٹنگ کی شرح"
-
-msgid "Expected reports"
-msgstr "متوقع رپورٹ"
-
 msgid "Data Visualizer"
 msgstr "ڈیٹا ویزوئلائزر"
 
-msgid "Data"
-msgstr "ڈیٹا"
+msgid "Axis 1"
+msgstr ""
 
-msgid "Data Type"
-msgstr "ڈیٹا کی قسم"
+msgid "Axis 2"
+msgstr ""
 
-msgid "Detail"
-msgstr "تفصیل"
+msgid "Manage axes"
+msgstr ""
 
-msgid "Search"
-msgstr "تلاش کریں"
+msgid ""
+"A chart can have two axes. Each axis will have its own scale. Set the axis "
+"for each data selection below."
+msgstr ""
 
-msgid "Selected Data"
-msgstr "منتخب ڈیٹا"
+msgid "Cancel"
+msgstr "منسوخ"
 
-msgid "DESELECT ALL"
-msgstr "سب کا انتخاب کریں"
+msgid "Update"
+msgstr "اپڈیٹ"
 
-msgid "SELECT ALL"
-msgstr "تمام منتخب کریں"
-
-msgid "HIDE"
+msgid "Hide"
 msgstr "چھپائیں"
 
-msgid "UPDATE"
-msgstr "اپ ڈیٹ"
+msgid "Remove"
+msgstr "حذف"
 
-msgid "Indicators"
-msgstr "اشارے"
+msgid "Download"
+msgstr "ڈاؤن لوڈ کریں"
 
-msgid "Select indicator group"
-msgstr "اشارے گروپ منتخب کریں"
+msgid "Graphics"
+msgstr "گرافکس"
 
-msgid "[ All groups ]"
-msgstr "[ تمام گروپ ]"
+msgid "Image (.png)"
+msgstr ""
 
-msgid "Data elements"
-msgstr "ڈیٹا عناصر"
+msgid "PDF (.pdf)"
+msgstr ""
 
-msgid "Select data element group"
-msgstr "ڈیٹا عنصر گروپ منتخب کریں"
+msgid "Plain data source"
+msgstr "سادہ اعداد و شمار کا ذریعہ"
 
-msgid "[ All data elements ]"
-msgstr "[ تمام ڈیٹا عناصر ]"
+msgid "Advanced"
+msgstr "اعلی درجے کی"
 
-msgid "Totals"
-msgstr "مجموعی طور پر"
+msgid "Metadata ID scheme"
+msgstr ""
 
-msgid "Details"
-msgstr "تفصیلات"
+msgid "Data value set"
+msgstr "ڈیٹا کی قیمت مقرر"
 
-msgid "Data sets"
-msgstr "ڈیٹا سیٹ"
+msgid "Other formats"
+msgstr "دیگر فارمیٹس"
 
-msgid "Select data sets"
-msgstr "ڈیٹا سیٹ کا انتخاب کریں"
+msgid "An error occurred in the DHIS2 Data Visualizer application."
+msgstr ""
 
-msgid "[ All metrics ]"
-msgstr "[ تمام میٹرکس ]"
+msgid "Something went wrong"
+msgstr ""
 
-msgid "Event data items"
-msgstr "واقعہ کے اعداد و شمار کی اشیاء"
+msgid "Refresh to try again"
+msgstr ""
 
-msgid "Select program"
-msgstr "پروگرام منتخب کریں"
+msgid "Hide technical details"
+msgstr ""
 
-msgid "Program indicators"
-msgstr "پروگرام اشارے"
+msgid "Show technical details"
+msgstr ""
 
-msgid "Add to series"
-msgstr "سیریز میں شامل کریں"
+msgid "The following information may be requested by technical support."
+msgstr ""
 
-msgid "Add to category"
-msgstr "زمرہ میں شامل کریں"
-
-msgid "Add to filter"
-msgstr "فلٹر میں شامل کریں"
-
-msgid "Search Dimensions"
-msgstr "تلاش کے طول و عرض"
-
-msgid "OrgUnit Dimension"
-msgstr "تنظیم یونٹ طول و عرض"
-
-msgid "Period Dimension"
-msgstr "مدت طول و عرض"
-
-msgid "Dimension recommended with selected data"
-msgstr "منتخب اعداد و شمار کے ساتھ طول و عرض کی سفارش کی گئی ہے"
+msgid "Interpretations"
+msgstr "تشریحات"
 
 msgid "selected"
 msgstr "منتخب شدہ"
@@ -137,14 +113,26 @@ msgstr "فلٹر"
 msgid "Move to"
 msgstr "پر منتقل"
 
-msgid "Remove"
-msgstr "دور"
-
 msgid "None selected"
 msgstr "کوئی بھی منتخب نہیں"
 
-msgid "Update"
-msgstr "اپ ڈیٹ"
+msgid "Unsaved chart"
+msgstr ""
+
+msgid "Edited"
+msgstr ""
+
+msgid "Viewing interpretation from {{interpretationDate}}"
+msgstr ""
+
+msgid "Create a new visualization by adding dimensions to the layout"
+msgstr ""
+
+msgid "Chart error"
+msgstr ""
+
+msgid "Error generating chart, please try again"
+msgstr ""
 
 msgid "Aggregation type"
 msgstr "مجموعی قسم"
@@ -162,7 +150,7 @@ msgid "Average (sum in org unit hierarchy)"
 msgstr "اوسط (اختیاری یونٹ کے تنظیمی ڈھانچے میں)"
 
 msgid "Sum"
-msgstr "سم"
+msgstr "جمع"
 
 msgid "Last value"
 msgstr "آخری قیمت"
@@ -171,7 +159,7 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr "آخری قدر (اوسط یونٹ کے تنظیمی ڈھانچے میں اوسط)"
 
 msgid "Min"
-msgstr "منٹ"
+msgstr "کم سے کم"
 
 msgid "Max"
 msgstr "زیادہ سے زیادہ"
@@ -201,7 +189,7 @@ msgid "Hide empty categories"
 msgstr "خالی اقسام چھپائیں"
 
 msgid "None"
-msgstr "کوئی بھی نہیں"
+msgstr "کوئی نہں"
 
 msgid "Before first"
 msgstr "پہلے سے پہلے"
@@ -213,7 +201,7 @@ msgid "Before first and after last"
 msgstr "پہلے اور بعد میں آخری سے پہلے"
 
 msgid "All"
-msgstr "سب"
+msgstr "تمام"
 
 msgid "Hide chart legend"
 msgstr "چارٹ علامات چھپائیں"
@@ -244,6 +232,9 @@ msgstr "رینج محور منٹ"
 
 msgid "Range axis tick steps"
 msgstr "رینج محور کو قدموں میں ٹینک"
+
+msgid "Tick steps may extend the chart beyond 'Range axis max'"
+msgstr ""
 
 msgid "Trend line"
 msgstr "رجحان لائن"
@@ -284,20 +275,20 @@ msgstr "ہدف لائن کی قیمت"
 msgid "Chart title"
 msgstr "چارٹ کا عنوان"
 
-msgid "Axes & legend"
-msgstr "اکس اور افسانوی"
+msgid "Data"
+msgstr "ڈیٹا"
+
+msgid "Axis & legend"
+msgstr ""
 
 msgid "Style"
-msgstr "انداز"
+msgstr "سٹائل"
 
 msgid "Options"
 msgstr "اختیارات"
 
 msgid "Chart options"
 msgstr "چارٹ کے اختیارات"
-
-msgid "Hide"
-msgstr "چھپائیں"
 
 msgid "Column"
 msgstr "کالم"
@@ -326,17 +317,123 @@ msgstr "رڈار"
 msgid "Gauge"
 msgstr "گیج"
 
-msgid "Bubble"
-msgstr "بلبلا"
+msgid "Year over year (line)"
+msgstr ""
 
-msgid "Year on year"
-msgstr "سالہا سال"
+msgid "Year over year (column)"
+msgstr ""
+
+msgid "Reporting rate"
+msgstr ""
+
+msgid "Reporting rate on time"
+msgstr ""
+
+msgid "Actual reports"
+msgstr "اصل رپورٹ"
+
+msgid "Actual reports on time"
+msgstr ""
+
+msgid "Expected reports"
+msgstr "متوقع رپورٹ"
+
+msgid "Program"
+msgstr "پروگرام"
+
+msgid "Select a program"
+msgstr ""
+
+msgid "Indicators"
+msgstr "اشارے"
+
+msgid "Select indicator group"
+msgstr "اشارے گروپ منتخب کریں"
+
+msgid "[ All groups ]"
+msgstr "[ تمام گروپ ]"
+
+msgid "Data elements"
+msgstr "ڈیٹا عنصر"
+
+msgid "Select data element group"
+msgstr "ڈیٹا عنصر گروپ منتخب کریں"
+
+msgid "[ All data elements ]"
+msgstr "[ تمام ڈیٹا عناصر ]"
+
+msgid "Totals"
+msgstr "مجموعی طور پر"
+
+msgid "Details"
+msgstr "تفصیلات"
+
+msgid "Data sets"
+msgstr "ڈیٹا سیٹس"
+
+msgid "Select data sets"
+msgstr "ڈیٹا سیٹ کا انتخاب کریں"
+
+msgid "[ All metrics ]"
+msgstr "[ تمام میٹرکس ]"
+
+msgid "Event data items"
+msgstr "واقعہ کے اعداد و شمار کی اشیاء"
+
+msgid "Program indicators"
+msgstr "پروگرام اشارے"
 
 msgid "Period"
 msgstr "مدت"
 
 msgid "Organisation Unit"
-msgstr "تنظیم یونٹ"
+msgstr ""
+
+msgid "Add to series"
+msgstr "سیریز میں شامل کریں"
+
+msgid "Add to category"
+msgstr "زمرہ میں شامل کریں"
+
+msgid "Add to filter"
+msgstr "فلٹر میں شامل کریں"
+
+msgid "series"
+msgstr ""
+
+msgid "category"
+msgstr ""
+
+msgid "filter"
+msgstr ""
+
+msgid "Please add at least one {{series}} dimension"
+msgstr ""
+
+msgid "Please add at least one {{category}} dimension"
+msgstr ""
+
+msgid ""
+"Please add at least one period as {{series}}, {{category}} or {{filter}}"
+msgstr ""
+
+msgid "Please add {{data}} as {{category}} or {{filter}}"
+msgstr ""
+
+msgid "Please add at least one period as {{series}} or {{filter}}"
+msgstr ""
+
+msgid "Please add at least one {{filter}} dimension"
+msgstr ""
+
+msgid "Please add at least one period as a {{series}} dimension"
+msgstr ""
+
+msgid "Please add at least one period as a {{category}} dimension"
+msgstr ""
+
+msgid "Please add {{data}} as a filter dimension"
+msgstr ""
 
 msgid "Today"
 msgstr "آج"
@@ -357,16 +454,16 @@ msgid "This week"
 msgstr "اس ہفتے"
 
 msgid "Last week"
-msgstr "پچھلا ہفتہ"
+msgstr "آخری ہفتہ"
 
 msgid "Last 4 weeks"
-msgstr "آخری 4 ہفتوں"
+msgstr "آخری ۴ ہفتے"
 
 msgid "Last 12 weeks"
-msgstr "آخری 12 ہفتوں"
+msgstr "آخری ۱۲ ہفتے"
 
 msgid "Last 52 weeks"
-msgstr "آخری 52 ہفتوں"
+msgstr "آخری ۵۲ ہفتے"
 
 msgid "Weeks this year"
 msgstr "اس سال ہفتہ"
@@ -375,19 +472,19 @@ msgid "This month"
 msgstr "اس مہینے"
 
 msgid "Last month"
-msgstr "پچھلے مہینے"
+msgstr "آخری ماہ"
 
 msgid "Last 3 months"
-msgstr "آخری 3 ماہ"
+msgstr "آخری ۳ ماہ"
 
 msgid "Last 6 months"
-msgstr "آخری 6 ماہ"
+msgstr "آخری ۶ ماہ"
 
 msgid "Last 12 months"
-msgstr "آخری 12 ماہ"
+msgstr "آخری ۱۲ ماہ"
 
 msgid "Months this year"
-msgstr "اس سال ماہ"
+msgstr "ماہ اس سال"
 
 msgid "This bimonth"
 msgstr "یہ مہینہ"
@@ -405,40 +502,40 @@ msgid "This quarter"
 msgstr "اس سہ ماہی"
 
 msgid "Last quarter"
-msgstr "آخری چوتھائی"
+msgstr "آخری سہ ماہ"
 
 msgid "Last 4 quarters"
-msgstr "آخری چار چوتھائی"
+msgstr "آخری ۴ سہ ماہی"
 
 msgid "Quarters this year"
-msgstr "اس سال سہ ماہی"
+msgstr "سہ ماہی اس سال"
 
 msgid "This six-month"
 msgstr "یہ چھ ماہ"
 
 msgid "Last six-month"
-msgstr "آخری چھ ماہ"
+msgstr "آخری ۶ ماہ"
 
 msgid "Last 2 six-months"
-msgstr "آخری 2 چھ ماہ"
+msgstr "آخری ۲ چھ ماہ"
 
 msgid "This financial year"
-msgstr "یہ مالی سال"
+msgstr "اس مالیاتی سال"
 
 msgid "Last financial year"
-msgstr "آخری مالی سال"
+msgstr "آخری مالیاتی سال"
 
 msgid "Last 5 financial years"
-msgstr "آخری 5 مالی سال"
+msgstr "آخری ۵ مالیاتی سال"
 
 msgid "This year"
 msgstr "اس سال"
 
 msgid "Last year"
-msgstr "پچھلے سال"
+msgstr "آخری سال"
 
 msgid "Last 5 years"
-msgstr "آخری 5 سال"
+msgstr "آخری ۵ سال"
 
 msgid "User org unit"
 msgstr "صارف کے اجزاء"
@@ -448,3 +545,15 @@ msgstr "صارف کے اجزاء بچے"
 
 msgid "User org unit grand children"
 msgstr "یوزر ایو یونٹ گرینڈ بچوں"
+
+msgid "Weeks per year"
+msgstr ""
+
+msgid "Months per year"
+msgstr ""
+
+msgid "Bimonths per year"
+msgstr ""
+
+msgid "Quarters per year"
+msgstr ""
