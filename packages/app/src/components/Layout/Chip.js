@@ -5,7 +5,7 @@ import i18n from '@dhis2/d2-i18n';
 import {
     FIXED_DIMENSIONS,
     getMaxNumberOfItemsPerAxis,
-    hasTooManyItemPerAxis,
+    hasTooManyItemsPerAxis,
 } from '@dhis2/analytics';
 
 import Menu from './Menu';
@@ -110,7 +110,7 @@ class Chip extends React.Component {
             ...styles.chipWrapper,
             ...(!numberOfItems ? styles.chipEmpty : {}),
         };
-        const warningIcon = hasTooManyItemPerAxis(
+        const warningIcon = hasTooManyItemsPerAxis(
             visType,
             axisName,
             numberOfItems
