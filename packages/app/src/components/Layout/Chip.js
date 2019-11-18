@@ -4,8 +4,6 @@ import WarningIcon from '@material-ui/icons/Warning';
 import i18n from '@dhis2/d2-i18n';
 import {
     FIXED_DIMENSIONS,
-    DIMENSION_ID_DATA,
-    isSingleValue,
     getMaxNumberOfItemsPerAxis,
     hasTooManyItemPerAxis,
 } from '@dhis2/analytics';

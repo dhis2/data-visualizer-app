@@ -5,7 +5,6 @@ import Popper from '@material-ui/core/Popper';
 import Paper from '@material-ui/core/Paper';
 import i18n from '@dhis2/d2-i18n';
 
-import { sGetUiItemsByDimension } from '../../reducers/ui';
 import { sGetMetadata } from '../../reducers/metadata';
 import { styles } from './styles/Tooltip.style';
 
@@ -15,8 +14,6 @@ const labels = {
     onlyLimitedNumberInUse: number =>
         i18n.t("Only '{{number}}' in use", { number }),
 };
-
-const emptyItems = [];
 
 export class Tooltip extends React.Component {
     renderTooltip = names => (
