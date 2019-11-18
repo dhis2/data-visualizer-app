@@ -1,0 +1,576 @@
+# Translators:
+# Viktor Varland <viktor@dhis2.org>, 2019
+# phil_dhis2, 2019
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2019-08-08T13:09:25.099Z\n"
+"PO-Revision-Date: 2019-09-01 20:50+0000\n"
+"Last-Translator: phil_dhis2, 2019\n"
+"Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+msgid "Rename successful"
+msgstr ""
+
+msgid "\"{{what}}\" successfully deleted."
+msgstr ""
+
+msgid "Data Visualizer"
+msgstr "البيانات المرئية"
+
+msgid "Axis 1"
+msgstr ""
+
+msgid "Axis 2"
+msgstr ""
+
+msgid "Manage axes"
+msgstr ""
+
+msgid ""
+"A chart can have two axes. Each axis will have its own scale. Set the axis "
+"for each data selection below."
+msgstr ""
+
+msgid "Cancel"
+msgstr "إلغاء"
+
+msgid "Update"
+msgstr "تحديث"
+
+msgid ""
+"'Single Value' is intended to show a single data item. Only the first item "
+"will be used and saved."
+msgstr ""
+
+msgid "Hide"
+msgstr "إخفاء"
+
+msgid "Remove"
+msgstr "إزالة"
+
+msgid "Download"
+msgstr "تحميل"
+
+msgid "Graphics"
+msgstr "الرسومات"
+
+msgid "Image (.png)"
+msgstr ""
+
+msgid "PDF (.pdf)"
+msgstr ""
+
+msgid "Plain data source"
+msgstr "مصدر البيانات الصريحة"
+
+msgid "Advanced"
+msgstr "متقدم"
+
+msgid "Metadata ID scheme"
+msgstr ""
+
+msgid "Data value set"
+msgstr "حزمة قيم البيانات"
+
+msgid "Other formats"
+msgstr "صيغ أخرى"
+
+msgid "An error occurred in the DHIS2 Data Visualizer application."
+msgstr ""
+
+msgid "Something went wrong"
+msgstr ""
+
+msgid "Refresh to try again"
+msgstr ""
+
+msgid "Hide technical details"
+msgstr ""
+
+msgid "Show technical details"
+msgstr ""
+
+msgid "The following information may be requested by technical support."
+msgstr ""
+
+msgid "Interpretations"
+msgstr "التفسيرات"
+
+msgid "{{total}} of 1 selected"
+msgstr ""
+
+msgid "{{total}} selected"
+msgstr ""
+
+msgid "Series"
+msgstr "سلسلة"
+
+msgid "Category"
+msgstr "الفئة"
+
+msgid "Filter"
+msgstr "عامل التصفية"
+
+msgid "Move to"
+msgstr ""
+
+msgid "None selected"
+msgstr ""
+
+msgid "Only '{{name}}' in use"
+msgstr ""
+
+msgid "Unsaved chart"
+msgstr ""
+
+msgid "Edited"
+msgstr ""
+
+msgid "Viewing interpretation from {{interpretationDate}}"
+msgstr ""
+
+msgid "Create a new visualization by adding dimensions to the layout"
+msgstr ""
+
+msgid "Chart error"
+msgstr ""
+
+msgid "Error generating chart, please try again"
+msgstr ""
+
+msgid "Aggregation type"
+msgstr "نوع التجميع"
+
+msgid "By data element"
+msgstr "بواسطة عنصر البيانات"
+
+msgid "Count"
+msgstr "العدد"
+
+msgid "Average"
+msgstr "المتوسط"
+
+msgid "Average (sum in org unit hierarchy)"
+msgstr "المتوسط (المجموع في التسلسل الهرمي للوحدة التنظيمية)"
+
+msgid "Sum"
+msgstr "المجموع"
+
+msgid "Last value"
+msgstr "القيمة الأخيرة"
+
+msgid "Last value (average in org unit hierarchy)"
+msgstr "القيمة الأخيرة (المتوسط في التسلسل الهرمي للوحدة التنظيمية)"
+
+msgid "Min"
+msgstr "الأدنى"
+
+msgid "Max"
+msgstr "الأعلى"
+
+msgid "Standard deviation"
+msgstr "الانحراف المعياري"
+
+msgid "Variance"
+msgstr "التباين"
+
+msgid "Base line"
+msgstr ""
+
+msgid "Base line title"
+msgstr "عنوان خط الأساس"
+
+msgid "Base line value"
+msgstr "قيمة خط الأساس"
+
+msgid "Use cumulative values"
+msgstr "استخدم القيم التراكمية"
+
+msgid "Domain axis title"
+msgstr "عنوان محور النطاق"
+
+msgid "Hide empty categories"
+msgstr "إخفاء الفئات الفارغة"
+
+msgid "None"
+msgstr "لا شيء"
+
+msgid "Before first"
+msgstr "قبل الأول"
+
+msgid "After last"
+msgstr "بعد الأخير"
+
+msgid "Before first and after last"
+msgstr "قبل الأول وبعد الأخير"
+
+msgid "All"
+msgstr "الجميع"
+
+msgid "Hide chart legend"
+msgstr "إخفاء وسيلة الإيضاح للمخطط البياني"
+
+msgid "Hide subtitle"
+msgstr ""
+
+msgid "Hide title"
+msgstr ""
+
+msgid "No space between columns/bars"
+msgstr "لا توجد مساحة بين الأعمدة / الأشرطة"
+
+msgid "Use 100% stacked values"
+msgstr "استخدم قيم مكدسة بنسبة 100٪"
+
+msgid "Range axis decimals"
+msgstr ""
+
+msgid "Range axis title"
+msgstr "عنوان محور المجال"
+
+msgid "Range axis max"
+msgstr ""
+
+msgid "Range axis min"
+msgstr ""
+
+msgid "Range axis tick steps"
+msgstr ""
+
+msgid "Tick steps may extend the chart beyond 'Range axis max'"
+msgstr ""
+
+msgid "Trend line"
+msgstr "خط الاتجاه"
+
+msgid "Linear"
+msgstr "خطي"
+
+msgid "Polynomial"
+msgstr "متعدد الحدود"
+
+msgid "Loess"
+msgstr ""
+
+msgid "Show values"
+msgstr "إظهار القيم"
+
+msgid "Sort order"
+msgstr "ترتيب الفرز"
+
+msgid "Low to high"
+msgstr "من الأدنى إلى الأعلى"
+
+msgid "High to low"
+msgstr "من الأعلى إلى الأدنى"
+
+msgid "Chart subtitle"
+msgstr "العنوان الفرعي للمخطط البياني"
+
+msgid "Target line"
+msgstr ""
+
+msgid "Target line title"
+msgstr "عنوان خط الهدف"
+
+msgid "Target line value"
+msgstr "قيمة خط الهدف"
+
+msgid "Chart title"
+msgstr "عنوان المخطط البياني"
+
+msgid "Data"
+msgstr "البيانات"
+
+msgid "Axis & legend"
+msgstr ""
+
+msgid "Style"
+msgstr "المظهر"
+
+msgid "Options"
+msgstr "الخيارات"
+
+msgid "Chart options"
+msgstr "خيارات المخطط البياني"
+
+msgid "Column"
+msgstr "العمود"
+
+msgid "Stacked column"
+msgstr ""
+
+msgid "Bar"
+msgstr ""
+
+msgid "Stacked bar"
+msgstr ""
+
+msgid "Line"
+msgstr ""
+
+msgid "Area"
+msgstr ""
+
+msgid "Pie"
+msgstr ""
+
+msgid "Radar"
+msgstr ""
+
+msgid "Gauge"
+msgstr ""
+
+msgid "Year over year (line)"
+msgstr ""
+
+msgid "Year over year (column)"
+msgstr ""
+
+msgid "Single value"
+msgstr ""
+
+msgid "Open as Map"
+msgstr ""
+
+msgid "Reporting rate"
+msgstr ""
+
+msgid "Reporting rate on time"
+msgstr ""
+
+msgid "Actual reports"
+msgstr ""
+
+msgid "Actual reports on time"
+msgstr ""
+
+msgid "Expected reports"
+msgstr ""
+
+msgid "Program"
+msgstr "البرنامج"
+
+msgid "Select a program"
+msgstr ""
+
+msgid "Indicators"
+msgstr "المؤشرات"
+
+msgid "Select indicator group"
+msgstr "تحديد مجموعة المؤشرات"
+
+msgid "[ All groups ]"
+msgstr ""
+
+msgid "Data elements"
+msgstr "عناصر البيانات"
+
+msgid "Select data element group"
+msgstr "تحديد مجموعة عناصر البيانات"
+
+msgid "[ All data elements ]"
+msgstr ""
+
+msgid "Totals"
+msgstr "الإجمالي"
+
+msgid "Details"
+msgstr "التفاصيل"
+
+msgid "Data sets"
+msgstr "حزم البيانات"
+
+msgid "Select data sets"
+msgstr ""
+
+msgid "[ All metrics ]"
+msgstr ""
+
+msgid "Event data items"
+msgstr "عناصر بيانات الحدث"
+
+msgid "Program indicators"
+msgstr "مؤشرات البرنامج"
+
+msgid "Add to series"
+msgstr ""
+
+msgid "Add to category"
+msgstr ""
+
+msgid "Add to filter"
+msgstr ""
+
+msgid "series"
+msgstr ""
+
+msgid "category"
+msgstr ""
+
+msgid "filter"
+msgstr ""
+
+msgid "Please add at least one {{series}} dimension"
+msgstr ""
+
+msgid "Please add at least one {{category}} dimension"
+msgstr ""
+
+msgid ""
+"Please add at least one period as {{series}}, {{category}} or {{filter}}"
+msgstr ""
+
+msgid "Please add {{data}} as {{category}} or {{filter}}"
+msgstr ""
+
+msgid "Please add at least one period as {{series}} or {{filter}}"
+msgstr ""
+
+msgid "Please add at least one {{filter}} dimension"
+msgstr ""
+
+msgid "Please add at least one period as a {{series}} dimension"
+msgstr ""
+
+msgid "Please add at least one period as a {{category}} dimension"
+msgstr ""
+
+msgid "Please add {{data}} as a filter dimension"
+msgstr ""
+
+msgid "Please add one {{series}} dimension"
+msgstr ""
+
+msgid "Please add at least one period as {{filter}}"
+msgstr ""
+
+msgid "Today"
+msgstr "اليوم"
+
+msgid "Yesterday"
+msgstr "الأمس"
+
+msgid "Last 3 days"
+msgstr "آخر 3 أيام"
+
+msgid "Last 7 days"
+msgstr "آخر 7 أيام"
+
+msgid "Last 14 days"
+msgstr "آخر 14 يوم"
+
+msgid "This week"
+msgstr "الأسبوع الحالي"
+
+msgid "Last week"
+msgstr "الأسبوع الماضي"
+
+msgid "Last 4 weeks"
+msgstr "آخر 4 أسابيع"
+
+msgid "Last 12 weeks"
+msgstr "آخر 12 أسبوع"
+
+msgid "Last 52 weeks"
+msgstr "آخر 52 أسبوع"
+
+msgid "Weeks this year"
+msgstr "أسابيع السنة الحالية"
+
+msgid "This month"
+msgstr "الشهر الحالي"
+
+msgid "Last month"
+msgstr "الشهر الماضي"
+
+msgid "Last 3 months"
+msgstr "آخر 3 أشهر"
+
+msgid "Last 6 months"
+msgstr "آخر 6 أشهر"
+
+msgid "Last 12 months"
+msgstr "آخر 12 شهر"
+
+msgid "Months this year"
+msgstr "أشهر السنة الحالية"
+
+msgid "This bimonth"
+msgstr ""
+
+msgid "Last bimonth"
+msgstr ""
+
+msgid "Last 6 bimonths"
+msgstr ""
+
+msgid "Bimonths this year"
+msgstr ""
+
+msgid "This quarter"
+msgstr "ربع السنة الحالي"
+
+msgid "Last quarter"
+msgstr "ربع السنة الماضي"
+
+msgid "Last 4 quarters"
+msgstr "آخر 4 أرباع السنة"
+
+msgid "Quarters this year"
+msgstr "أرباع السنة الحالية"
+
+msgid "This six-month"
+msgstr "الستة أشهر الحالية"
+
+msgid "Last six-month"
+msgstr "آخر نصف السنة (فترة من ستة أشهر)"
+
+msgid "Last 2 six-months"
+msgstr "آخر نصفي السنة (كل فترة ستة أشهر)"
+
+msgid "This financial year"
+msgstr "السنة المالية الحالية"
+
+msgid "Last financial year"
+msgstr "السنة المالية الماضية"
+
+msgid "Last 5 financial years"
+msgstr "آخر 5 سنوات مالية"
+
+msgid "This year"
+msgstr "السنة الحالية"
+
+msgid "Last year"
+msgstr "السنة الماضية"
+
+msgid "Last 5 years"
+msgstr "آخر 5 سنوات"
+
+msgid "User org unit"
+msgstr "الوحدة التنظيمية للمستخدم"
+
+msgid "User org unit children"
+msgstr ""
+
+msgid "User org unit grand children"
+msgstr ""
+
+msgid "Weeks per year"
+msgstr ""
+
+msgid "Months per year"
+msgstr ""
+
+msgid "Bimonths per year"
+msgstr ""
+
+msgid "Quarters per year"
+msgstr ""
