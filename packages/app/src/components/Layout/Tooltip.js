@@ -45,22 +45,17 @@ export class Tooltip extends React.Component {
         let names = [];
 
         if (itemIds.length && displayLimitedAmount) {
-            // There's a limit
             if (itemIds.length === 1) {
-                // Limited 1 in use
                 const id = itemIds[0];
                 names = [
                     labels.onlyOneInUse(metadata[id] ? metadata[id].name : id),
                 ];
             } else {
-                // Limited X in use
                 names = [labels.onlyLimitedNumberInUse(itemIds.length)];
             }
         } else if (itemIds.length) {
-            // Output all
             names = itemIds.map(id => (metadata[id] ? metadata[id].name : id));
         } else {
-            // None selected
             names = [labels.noneSelected];
         }
 
