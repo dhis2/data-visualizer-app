@@ -94,14 +94,15 @@ class Chip extends React.Component {
 
         const hasMaxNumberOfItemsRule = !!maxNumberOfItemsPerAxis;
 
-        const itemsLabel = hasMaxNumberOfItemsRule
-            ? i18n.t(`{{total}} of {{maxNumberOfItemsPerAxis}} selected`, {
-                  total: numberOfItems,
-                  maxNumberOfItemsPerAxis,
-              })
-            : i18n.t('{{total}} selected', {
-                  total: numberOfItems,
-              });
+        const itemsLabel =
+            hasMaxNumberOfItemsRule && numberOfItems > maxNumberOfItemsPerAxis
+                ? i18n.t(`{{total}} of {{maxNumberOfItemsPerAxis}} selected`, {
+                      total: numberOfItems,
+                      maxNumberOfItemsPerAxis,
+                  })
+                : i18n.t('{{total}} selected', {
+                      total: numberOfItems,
+                  });
 
         const activeItemIds = hasMaxNumberOfItemsRule
             ? this.props.items.slice(0, maxNumberOfItemsPerAxis)

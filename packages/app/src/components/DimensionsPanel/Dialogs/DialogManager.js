@@ -18,8 +18,8 @@ import {
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
     FIXED_DIMENSIONS,
-    isSingleValue,
     getMaxNumberOfItemsPerAxis,
+    getDisplayNameByVisType,
 } from '@dhis2/analytics';
 
 import HideButton from './HideButton';
@@ -223,9 +223,25 @@ export class DialogManager extends Component {
                 numberOfItems > maxNumberOfItemsPerAxis
             ) {
                 // TODO show visType label + make more dynamic
-                infoBoxMessage = i18n.t(
-                    `'${visType}' is intended to show a single data item. Only the first item will be used and saved.`
-                );
+                infoBoxMessage =
+                    maxNumberOfItemsPerAxis === 1
+                        ? i18n.t(
+                              `'{{visualiationType}}' is intended to show a single data item. Only the first item will be used and saved.`,
+                              {
+                                  visualiationType: getDisplayNameByVisType(
+                                      visType
+                                  ),
+                              }
+                          )
+                        : i18n.t(
+                              `'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of items. Only the first {{maxNumber}} items will be used and saved.`,
+                              {
+                                  visualiationType: getDisplayNameByVisType(
+                                      visType
+                                  ),
+                                  maxNumber: maxNumberOfItemsPerAxis,
+                              }
+                          );
 
                 selectedItems.forEach((item, index) => {
                     item.isActive = index < maxNumberOfItemsPerAxis;

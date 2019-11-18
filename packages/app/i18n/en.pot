@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-11-18T09:12:13.587Z\n"
-"PO-Revision-Date: 2019-11-18T09:12:13.587Z\n"
+"POT-Creation-Date: 2019-11-18T13:21:23.177Z\n"
+"PO-Revision-Date: 2019-11-18T13:21:23.177Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -35,11 +35,6 @@ msgid "Cancel"
 msgstr ""
 
 msgid "Update"
-msgstr ""
-
-msgid ""
-"'Single Value' is intended to show a single data item. Only the first item "
-"will be used and saved."
 msgstr ""
 
 msgid "Hide"
