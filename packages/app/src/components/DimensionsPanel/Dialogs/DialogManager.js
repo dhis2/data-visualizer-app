@@ -19,6 +19,7 @@ import {
     DIMENSION_ID_ORGUNIT,
     FIXED_DIMENSIONS,
     isSingleValue,
+    getMaxNumberOfItemsPerAxis,
 } from '@dhis2/analytics';
 
 import HideButton from './HideButton';
@@ -40,6 +41,7 @@ import {
     sGetUiActiveModalDialog,
     sGetUiParentGraphMap,
     sGetUiType,
+    getAxisNameByDimensionId,
 } from '../../../reducers/ui';
 import { sGetDimensions } from '../../../reducers/dimensions';
 import { sGetMetadata } from '../../../reducers/metadata';
@@ -133,11 +135,6 @@ export class DialogManager extends Component {
                   .map((id, index) => ({
                       id,
                       name: this.props.metadata[id].name,
-                      isActive:
-                          dialogId === DIMENSION_ID_DATA &&
-                          isSingleValue(this.props.type)
-                              ? index === 0
-                              : true,
                   }))
             : [];
     };
@@ -208,15 +205,34 @@ export class DialogManager extends Component {
 
         const dynamicContent = () => {
             const selectedItems = this.getSelectedItems(dialogId);
+            let infoBoxMessage;
+
+            const axisName = this.props.getAxisNameByDimensionId(dialogId);
+            const visType = type;
+            const numberOfItems = selectedItems.length;
+
+            const maxNumberOfItemsPerAxis = getMaxNumberOfItemsPerAxis(
+                visType,
+                axisName
+            );
+
+            const hasMaxNumberOfItemsRule = !!maxNumberOfItemsPerAxis;
+
+            if (
+                hasMaxNumberOfItemsRule &&
+                numberOfItems > maxNumberOfItemsPerAxis
+            ) {
+                // TODO show visType label + make more dynamic
+                infoBoxMessage = i18n.t(
+                    `'${visType}' is intended to show a single data item. Only the first item will be used and saved.`
+                );
+
+                selectedItems.forEach((item, index) => {
+                    item.isActive = index < maxNumberOfItemsPerAxis;
+                });
+            }
 
             if (dialogId === DIMENSION_ID_DATA) {
-                const infoBoxMessage =
-                    isSingleValue(type) && selectedItems.length > 1
-                        ? i18n.t(
-                              "'Single Value' is intended to show a single data item. Only the first item will be used and saved."
-                          )
-                        : null;
-
                 return (
                     <DataDimension
                         displayNameProp={displayNameProperty}
@@ -232,6 +248,7 @@ export class DialogManager extends Component {
                     <PeriodDimension
                         selectedPeriods={selectedItems}
                         {...dimensionProps}
+                        // TODO infoBoxMessage should ideally be implemented for all dimensions
                     />
                 );
             }
@@ -246,6 +263,7 @@ export class DialogManager extends Component {
                         dialogId={dialogId}
                         dialogTitle={dialogTitle}
                         {...dimensionProps}
+                        // TODO infoBoxMessage should ideally be implemented for all dimensions
                     />
                 );
             }
@@ -314,6 +332,8 @@ const mapStateToProps = state => ({
     ouIds: sGetUiItemsByDimension(state, DIMENSION_ID_ORGUNIT),
     selectedItems: sGetUiItems(state),
     type: sGetUiType(state),
+    getAxisNameByDimensionId: dimensionId =>
+        getAxisNameByDimensionId(state, dimensionId),
 });
 
 export default connect(

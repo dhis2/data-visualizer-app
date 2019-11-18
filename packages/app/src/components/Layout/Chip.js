@@ -96,11 +96,11 @@ class Chip extends React.Component {
 
         const itemsLabel = hasMaxNumberOfItemsRule
             ? i18n.t(`{{total}} of {{maxNumberOfItemsPerAxis}} selected`, {
-                  total: this.props.items.length,
+                  total: numberOfItems,
                   maxNumberOfItemsPerAxis,
               })
             : i18n.t('{{total}} selected', {
-                  total: this.props.items.length,
+                  total: numberOfItems,
               });
 
         const activeItemIds = hasMaxNumberOfItemsRule
@@ -108,13 +108,13 @@ class Chip extends React.Component {
             : [];
 
         const chipLabel = `${this.props.dimensionName}${
-            this.props.items.length > 0 ? `: ${itemsLabel}` : ''
+            numberOfItems > 0 ? `: ${itemsLabel}` : ''
         }`;
         const anchorEl = document.getElementById(this.id);
         const icon = this.getIconByDimension();
         const wrapperStyle = {
             ...styles.chipWrapper,
-            ...(!this.props.items.length ? styles.chipEmpty : {}),
+            ...(!numberOfItems ? styles.chipEmpty : {}),
         };
         const warningIcon = hasTooManyItemPerAxis(
             visType,
