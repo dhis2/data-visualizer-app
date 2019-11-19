@@ -110,6 +110,9 @@ msgstr ""
 msgid "Remove"
 msgstr ""
 
+msgid "Remove"
+msgstr ""
+
 msgid "None selected"
 msgstr ""
 
@@ -141,6 +144,9 @@ msgid "Error generating chart, please try again"
 msgstr ""
 
 msgid "Aggregation type"
+msgstr ""
+
+msgid "Determines how the values in the pivot table are aggregated. Learn more"
 msgstr ""
 
 msgid "By data element"
@@ -188,7 +194,13 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
+msgid "Base line title"
+msgstr ""
+
 msgid "Value"
+msgstr ""
+
+msgid "Number"
 msgstr ""
 
 msgid "Column sub-totals"
@@ -392,6 +404,9 @@ msgid "Add a subtitle"
 msgstr ""
 
 msgid "Target line"
+msgstr ""
+
+msgid "Target line title"
 msgstr ""
 
 msgid "Top limit"
