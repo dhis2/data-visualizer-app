@@ -1,13 +1,13 @@
 # Translators:
-# phil_dhis2, 2019
 # Viktor Varland <viktor@dhis2.org>, 2019
+# phil_dhis2, 2019
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-08-08T13:09:25.099Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2019\n"
+"Last-Translator: phil_dhis2, 2019\n"
 "Language-Team: Lao (https://www.transifex.com/hisp-uio/teams/100509/lo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +22,7 @@ msgid "\"{{what}}\" successfully deleted."
 msgstr ""
 
 msgid "Data Visualizer"
-msgstr ""
+msgstr "ການສ້າງຮູບພາບຈາກຂໍ້ມູນ"
 
 msgid "Axis 1"
 msgstr ""
@@ -39,10 +39,10 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr "Cancel"
+msgstr "ຍົກເລີກ"
 
 msgid "Update"
-msgstr "Update"
+msgstr "ປັບປຸງ"
 
 msgid ""
 "'Single Value' is intended to show a single data item. Only the first item "
@@ -113,10 +113,10 @@ msgid "Series"
 msgstr "ແທ່ງ"
 
 msgid "Category"
-msgstr "Category"
+msgstr "ລວງນອນ"
 
 msgid "Filter"
-msgstr "Filter"
+msgstr "ກັ່ນຕອງ"
 
 msgid "Move to"
 msgstr ""
@@ -176,10 +176,10 @@ msgid "Max"
 msgstr "ຄ່າໃຫ່ຍສຸດ"
 
 msgid "Standard deviation"
-msgstr "Standard deviation"
+msgstr ""
 
 msgid "Variance"
-msgstr "Variance"
+msgstr "ຄວາມແຕກຕ່າງ"
 
 msgid "Base line"
 msgstr ""
@@ -212,7 +212,7 @@ msgid "Before first and after last"
 msgstr "ກ່ອນໜ້າທໍາອິດ ແລະ ຫຼັງຈາກສຸດທ້າຍ"
 
 msgid "All"
-msgstr "All"
+msgstr "ທັງໝົດ"
 
 msgid "Hide chart legend"
 msgstr "ເຊື່ອງຄວາມຫມາຍຂອງເສັ້ນສະແດງ"
@@ -224,7 +224,7 @@ msgid "Hide title"
 msgstr ""
 
 msgid "No space between columns/bars"
-msgstr "No space between columns/bars"
+msgstr ""
 
 msgid "Use 100% stacked values"
 msgstr "ໃຊ້ຄ່າທີ່ຊ້ອນກັນ 100%"
@@ -356,13 +356,13 @@ msgid "Expected reports"
 msgstr ""
 
 msgid "Program"
-msgstr "Program"
+msgstr "ສາຍງານ"
 
 msgid "Select a program"
 msgstr ""
 
 msgid "Indicators"
-msgstr "Indicators"
+msgstr "ຕົວຊີ້ວັດ"
 
 msgid "Select indicator group"
 msgstr "ເລືອກກຸ່ມຕົວຊີ້ວັດ"
@@ -456,16 +456,16 @@ msgid "Today"
 msgstr "ມື້ນີ້"
 
 msgid "Yesterday"
-msgstr "Yesterday"
+msgstr "ມື້ວານນີ"
 
 msgid "Last 3 days"
-msgstr "Last 3 days"
+msgstr "3 ມື້ກ່ອນ"
 
 msgid "Last 7 days"
-msgstr "Last 7 days"
+msgstr "7 ມື້ກ່ອນ"
 
 msgid "Last 14 days"
-msgstr "Last 14 days"
+msgstr "14 ມື້ກ່ອນ"
 
 msgid "This week"
 msgstr "ທິດນີ້"
@@ -480,22 +480,22 @@ msgid "Last 12 weeks"
 msgstr "12 ອາທິດຍ້ອນຫຼັງ"
 
 msgid "Last 52 weeks"
-msgstr "Last 52 weeks"
+msgstr "52 ອາທິດຜ່ານມາ"
 
 msgid "Weeks this year"
-msgstr "Weeks this year"
+msgstr "ອາທິດ ຂອງປີນີ້"
 
 msgid "This month"
 msgstr "ເດືອນນີ້"
 
 msgid "Last month"
-msgstr "Last month"
+msgstr "ເດືອນຜ່ານມາ"
 
 msgid "Last 3 months"
 msgstr "3 ເດືອນຍ້ອນຫຼັງ"
 
 msgid "Last 6 months"
-msgstr "Last 6 months"
+msgstr "6 ເດືອນຜ່ານມາ"
 
 msgid "Last 12 months"
 msgstr "12 ເດືອນຍ້ອນຫຼັງ"
@@ -519,7 +519,7 @@ msgid "This quarter"
 msgstr "ໄຕມານີ້"
 
 msgid "Last quarter"
-msgstr "Last quarter"
+msgstr "ໄຕມາດຜ່ານມາ"
 
 msgid "Last 4 quarters"
 msgstr "4 ໄຕມາດຍ້ອນຫຼັງ"
@@ -531,7 +531,7 @@ msgid "This six-month"
 msgstr "6 ເດືອນນີ້"
 
 msgid "Last six-month"
-msgstr "Last six-month"
+msgstr "6 ເດືອນຜ່ານມາ"
 
 msgid "Last 2 six-months"
 msgstr "ລວມ 6 ເດືອນ 2 ຄັ້ງທີ່ຜ່ານມາ"
