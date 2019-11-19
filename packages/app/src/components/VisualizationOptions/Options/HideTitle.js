@@ -1,16 +1,21 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
 
 import i18n from '@dhis2/d2-i18n';
-import { Radio, RadioGroupField } from '@dhis2/ui-core';
+import { Label, Radio, RadioGroup } from '@dhis2/ui-core';
 
 import { PIVOT_TABLE } from '../../../modules/chartTypes';
 import { sGetUiOptions, sGetUiType } from '../../../reducers/ui';
 import { acSetUiOptions } from '../../../actions/ui';
 
 import Title from './Title';
+
+import {
+    tabSectionOption,
+    tabSectionOptionToggleable,
+} from '../styles/VisualizationOptions.style.js';
 
 class HideTitle extends Component {
     constructor(props) {
@@ -21,11 +26,11 @@ class HideTitle extends Component {
         this.state = props.value ? { value: props.value } : this.defaultState;
     }
 
-    onChange = event => {
-        const value = event.target.value === 'NONE' ? true : false;
+    onChange = ({ value }) => {
+        const enabled = value === 'NONE' ? true : false;
 
-        this.setState({ value: event.target.value });
-        this.props.onChange(value);
+        this.setState({ value });
+        this.props.onChange(enabled);
     };
 
     render() {
@@ -33,14 +38,14 @@ class HideTitle extends Component {
         const { visualizationType } = this.props;
 
         return (
-            <Fragment>
-                <RadioGroupField
+            <div className={tabSectionOption.className}>
+                <Label>
+                    {visualizationType === PIVOT_TABLE
+                        ? i18n.t('Table title')
+                        : i18n.t('Chart title')}
+                </Label>
+                <RadioGroup
                     name="hideTitle-selector"
-                    label={
-                        visualizationType === PIVOT_TABLE
-                            ? i18n.t('Table title')
-                            : i18n.t('Chart title')
-                    }
                     onChange={this.onChange}
                     value={value}
                     dense
@@ -52,9 +57,13 @@ class HideTitle extends Component {
                     ].map(({ id, label }) => (
                         <Radio key={id} label={label} value={id} dense />
                     ))}
-                </RadioGroupField>
-                {value === 'CUSTOM' ? <Title /> : null}
-            </Fragment>
+                </RadioGroup>
+                {value === 'CUSTOM' ? (
+                    <div className={tabSectionOptionToggleable.className}>
+                        <Title inline />
+                    </div>
+                ) : null}
+            </div>
         );
     }
 }
@@ -81,7 +90,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    onChange: value => dispatch(acSetUiOptions({ hideTitle: value })),
+    onChange: enabled => dispatch(acSetUiOptions({ hideTitle: enabled })),
 });
 
 export default connect(

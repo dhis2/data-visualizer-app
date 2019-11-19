@@ -7,6 +7,7 @@ import TextBaseOption from './TextBaseOption';
 export const RangeAxisSteps = () => (
     <TextBaseOption
         type="number"
+        width="72px"
         helpText={i18n.t(
             'The number of axis steps between the min and max values'
         )}

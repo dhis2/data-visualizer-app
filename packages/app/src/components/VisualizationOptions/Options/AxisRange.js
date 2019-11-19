@@ -1,17 +1,19 @@
 import React from 'react';
 
 import i18n from '@dhis2/d2-i18n';
-import { Field, Legend, Help } from '@dhis2/ui-core';
+import { Field, Help } from '@dhis2/ui-core';
 
 import RangeAxisMinValue from './RangeAxisMinValue';
 import RangeAxisMaxValue from './RangeAxisMaxValue';
 
+import { tabSectionOptionComplexInline } from '../styles/VisualizationOptions.style.js';
+
 const AxisRange = () => (
     <Field>
-        <Legend>{i18n.t('Axis range')}</Legend>
-        <div>
+        <label>{i18n.t('Axis range')}</label>
+        <div className={tabSectionOptionComplexInline.className}>
             <RangeAxisMinValue />
-            {' - '}
+            {'\u00A0\u2013\u00A0'}
             <RangeAxisMaxValue />
         </div>
         <Help>

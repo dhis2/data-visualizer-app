@@ -6,10 +6,13 @@ import TextBaseOption from './TextBaseOption'
 const TargetLineValue = () => (
     <TextBaseOption
         type="number"
+        width="72px"
         label={i18n.t('Value')}
+        placeholder={i18n.t('Number')}
         option={{
             name: 'targetLineValue',
         }}
+        inline
     />
 )
 

@@ -1,61 +1,90 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { Checkbox, InputField } from '@dhis2/ui-core';
+import { Checkbox, Input, InputField } from '@dhis2/ui-core';
 
 import { sGetUiOptions } from '../../../reducers/ui';
 import { acSetUiOptions } from '../../../actions/ui';
 
+import {
+    tabSectionOption,
+    tabSectionOptionToggleable,
+} from '../styles/VisualizationOptions.style.js';
+
 export const TextBaseOption = ({
-    className,
     type,
     label,
     placeholder,
     helpText,
+    width,
     option,
     value,
     onChange,
     onToggle,
     toggleable,
     enabled,
+    inline,
 }) => (
-    <Fragment>
+    <div
+        className={
+            !toggleable || enabled || inline ? '' : tabSectionOption.className
+        }
+    >
         {toggleable ? (
             <Checkbox
                 checked={enabled}
                 label={label}
                 name={`${option.name}-toggle`}
-                onChange={event => onToggle(event.target.checked)}
+                onChange={({ checked }) => onToggle(checked)}
                 dense
             />
         ) : null}
         {!toggleable || enabled ? (
-            <InputField
-                className={className}
-                type={type}
-                label={toggleable ? '' : label}
-                onChange={event => onChange(event.target.value)}
-                name={option.name}
-                value={value}
-                helpText={helpText}
-                placeholder={placeholder}
-                dense
-            />
+            <div
+                className={
+                    toggleable ? tabSectionOptionToggleable.className : ''
+                }
+            >
+                {inline ? (
+                    <Input
+                        type={type}
+                        onChange={event => onChange(event.target.value)}
+                        name={option.name}
+                        value={value}
+                        placeholder={placeholder}
+                        width={width}
+                        dense
+                    />
+                ) : (
+                    <InputField
+                        type={type}
+                        label={toggleable ? '' : label}
+                        onChange={event => onChange(event.target.value)}
+                        name={option.name}
+                        value={value}
+                        helpText={helpText}
+                        placeholder={placeholder}
+                        inputWidth={width}
+                        dense
+                    />
+                )}
+            </div>
         ) : null}
-    </Fragment>
+    </div>
 );
 
 TextBaseOption.propTypes = {
-    className: PropTypes.string,
     enabled: PropTypes.bool,
     helpText: PropTypes.string,
+    inline: PropTypes.bool,
     label: PropTypes.string,
     option: PropTypes.object,
     placeholder: PropTypes.string,
     toggleable: PropTypes.bool,
     type: PropTypes.string,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    width: PropTypes.string,
     onChange: PropTypes.func,
     onToggle: PropTypes.func,
 };

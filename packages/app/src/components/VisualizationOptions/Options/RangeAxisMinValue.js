@@ -7,10 +7,12 @@ import TextBaseOption from './TextBaseOption';
 const RangeAxisMinValue = () => (
     <TextBaseOption
         type="number"
+        width="72px"
         placeholder={i18n.t('Min')}
         option={{
             name: 'rangeAxisMinValue',
         }}
+        inline
     />
 )
 

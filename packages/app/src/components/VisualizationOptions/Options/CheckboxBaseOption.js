@@ -7,15 +7,19 @@ import { Checkbox } from '@dhis2/ui-core';
 import { sGetUiOptions } from '../../../reducers/ui';
 import { acSetUiOptions } from '../../../actions/ui';
 
+import { tabSectionOption } from '../styles/VisualizationOptions.style.js';
+
 export const CheckboxBaseOption = ({ option, label, value, onChange }) => (
-    <Checkbox
-        checked={value}
-        label={label}
-        name={option.name}
-        onChange={event => onChange(event.target.checked)}
-        dense
-    />
-)
+    <div className={tabSectionOption.className}>
+        <Checkbox
+            checked={value}
+            label={label}
+            name={option.name}
+            onChange={({ checked }) => onChange(checked)}
+            dense
+        />
+    </div>
+);
 
 CheckboxBaseOption.propTypes = {
     label: PropTypes.string,

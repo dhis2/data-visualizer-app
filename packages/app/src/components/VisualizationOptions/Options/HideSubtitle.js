@@ -1,15 +1,20 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import i18n from '@dhis2/d2-i18n';
-import { Radio, RadioGroupField } from '@dhis2/ui-core';
+import { Label, Radio, RadioGroup } from '@dhis2/ui-core';
 
 import { PIVOT_TABLE } from '../../../modules/chartTypes';
 import { sGetUiOptions, sGetUiType } from '../../../reducers/ui';
 import { acSetUiOptions } from '../../../actions/ui';
 
 import Subtitle from './Subtitle';
+
+import {
+    tabSectionOption,
+    tabSectionOptionToggleable,
+} from '../styles/VisualizationOptions.style.js';
 
 class HideSubtitle extends Component {
     constructor(props) {
@@ -20,25 +25,26 @@ class HideSubtitle extends Component {
         this.state = props.value ? { value: props.value } : this.defaultState;
     }
 
-    onChange = event => {
-        const value = event.target.value === 'NONE' ? true : false;
+    onChange = ({ value }) => {
+        const enabled = value === 'NONE' ? true : false;
 
-        this.setState({ value: event.target.value });
-        this.props.onChange(value);
+        this.setState({ value });
+        this.props.onChange(enabled);
     };
 
     render() {
-        const { value, visualizationType } = this.props;
+        const { value } = this.state;
+        const { visualizationType } = this.props;
 
         return (
-            <Fragment>
-                <RadioGroupField
+            <div className={tabSectionOption.className}>
+                <Label>
+                    {visualizationType === PIVOT_TABLE
+                        ? i18n.t('Table subtitle')
+                        : i18n.t('Chart subtitle')}
+                </Label>
+                <RadioGroup
                     name="hideSubtitle-selector"
-                    label={
-                        visualizationType === PIVOT_TABLE
-                            ? i18n.t('Table subtitle')
-                            : i18n.t('Chart subtitle')
-                    }
                     onChange={this.onChange}
                     value={value}
                     dense
@@ -49,9 +55,13 @@ class HideSubtitle extends Component {
                     ].map(({ id, label }) => (
                         <Radio key={id} label={label} value={id} dense />
                     ))}
-                </RadioGroupField>
-                {value === 'CUSTOM' ? <Subtitle /> : null}
-            </Fragment>
+                </RadioGroup>
+                {value === 'CUSTOM' ? (
+                    <div className={tabSectionOptionToggleable.className}>
+                        <Subtitle inline />
+                    </div>
+                ) : null}
+            </div>
         );
     }
 }
@@ -68,7 +78,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    onChange: value => dispatch(acSetUiOptions({ hideSubtitle: value })),
+    onChange: enabled => dispatch(acSetUiOptions({ hideSubtitle: enabled })),
 });
 
 export default connect(

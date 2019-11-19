@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -10,22 +10,30 @@ import { acSetUiOptions } from '../../../actions/ui';
 import BaseLineValue from './BaseLineValue';
 import BaseLineLabel from './BaseLineLabel';
 
+import {
+    tabSectionOption,
+    tabSectionOptionToggleable,
+    tabSectionOptionComplexInline,
+} from '../styles/VisualizationOptions.style.js';
+
 export const BaseLine = ({ enabled, onChange }) => (
-    <Fragment>
+    <div className={tabSectionOption.className}>
         <Checkbox
             checked={enabled}
             label={i18n.t('Base line')}
             name="baseLine-toggle"
-            onChange={event => onChange(event.target.checked)}
+            onChange={({ checked }) => onChange(checked)}
             dense
         />
         {enabled ? (
-            <Fragment>
+            <div
+                className={`${tabSectionOptionToggleable.className} ${tabSectionOptionComplexInline.className}`}
+            >
                 <BaseLineValue />
                 <BaseLineLabel />
-            </Fragment>
+            </div>
         ) : null}
-    </Fragment>
+    </div>
 );
 
 BaseLine.propTypes = {

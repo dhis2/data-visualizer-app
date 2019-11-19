@@ -11,6 +11,12 @@ import {
 import { sGetUiOptions } from '../../../reducers/ui'
 import { acSetUiOptions } from '../../../actions/ui'
 
+import {
+    tabSectionOption,
+    tabSectionOptionItem,
+    tabSectionOptionToggleable,
+} from '../styles/VisualizationOptions.style.js';
+
 export const SelectBaseOption = ({
     option,
     label,
@@ -26,35 +32,50 @@ export const SelectBaseOption = ({
     return (
         <Fragment>
             {toggleable ? (
-                <Checkbox
-                    checked={enabled}
-                    label={label}
-                    name={`${option.name}-toggle`}
-                    onChange={event => onToggle(event.target.checked)}
-                    dense
-                />
+                <div
+                    className={
+                        enabled
+                            ? tabSectionOptionItem.className
+                            : tabSectionOption.className
+                    }
+                >
+                    <Checkbox
+                        checked={enabled}
+                        label={label}
+                        name={`${option.name}-toggle`}
+                        onChange={({ checked }) => onToggle(checked)}
+                        dense
+                    />
+                </div>
             ) : null}
             {!toggleable || enabled ? (
-                <SingleSelectField
-                    name={option.name}
-                    label={toggleable ? '' : label}
-                    onChange={selected => onChange(selected.value)}
-                    selected={{
-                        value: selected.id,
-                        label: selected.label,
-                    }}
-                    dense
-                    helpText={helpText}
-                    tabIndex="0"
+                <div
+                    className={
+                        toggleable ? tabSectionOptionToggleable.className : ''
+                    }
                 >
-                    {option.items.map(({ id, label }) => (
-                        <SingleSelectOption
-                            key={id}
-                            value={String(id)}
-                            label={label}
-                        />
-                    ))}
-                </SingleSelectField>
+                    <SingleSelectField
+                        name={option.name}
+                        label={toggleable ? '' : label}
+                        onChange={selected => onChange(selected.value)}
+                        selected={{
+                            value: selected.id,
+                            label: selected.label,
+                        }}
+                        helpText={helpText}
+                        tabIndex="0"
+                        inputWidth="280px"
+                        dense
+                    >
+                        {option.items.map(({ id, label }) => (
+                            <SingleSelectOption
+                                key={id}
+                                value={String(id)}
+                                label={label}
+                            />
+                        ))}
+                    </SingleSelectField>
+                </div>
             ) : null}
         </Fragment>
     );

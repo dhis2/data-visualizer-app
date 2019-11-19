@@ -7,6 +7,7 @@ import TextBaseOption from './TextBaseOption';
 const Subtitle = () => (
     <TextBaseOption
         type="text"
+        width="280px"
         placeholder={i18n.t('Add a subtitle')}
         option={{
             name: 'subtitle',

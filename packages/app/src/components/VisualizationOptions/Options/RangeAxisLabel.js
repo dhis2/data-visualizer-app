@@ -11,6 +11,7 @@ const defaultValue = options[optionName].defaultValue;
 const RangeAxisLabel = () => (
     <TextBaseOption
         type="text"
+        width="280px"
         label={i18n.t('Axis title')}
         placeholder={i18n.t('Add a title')}
         option={{

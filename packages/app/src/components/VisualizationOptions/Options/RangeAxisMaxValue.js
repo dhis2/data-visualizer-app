@@ -7,10 +7,12 @@ import TextBaseOption from './TextBaseOption';
 const RangeAxisMaxValue = () => (
     <TextBaseOption
         type="number"
+        width="72px"
         placeholder={i18n.t('Max')}
         option={{
             name: 'rangeAxisMaxValue',
         }}
+        inline
     />
 )
 

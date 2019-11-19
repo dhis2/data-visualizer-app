@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -10,21 +10,29 @@ import { acSetUiOptions } from '../../../actions/ui';
 import TargetLineValue from './TargetLineValue';
 import TargetLineLabel from './TargetLineLabel';
 
+import {
+    tabSectionOption,
+    tabSectionOptionToggleable,
+    tabSectionOptionComplexInline,
+} from '../styles/VisualizationOptions.style.js';
+
 export const TargetLine = ({ enabled, onChange }) => (
-    <Fragment>
+    <div className={tabSectionOption.className}>
         <Checkbox
             checked={enabled}
             label={i18n.t('Target line')}
-            onChange={event => onChange(event.target.checked)}
+            onChange={({ checked }) => onChange(checked)}
             dense
         />
         {enabled ? (
-            <Fragment>
+            <div
+                className={`${tabSectionOptionToggleable.className} ${tabSectionOptionComplexInline.className}`}
+            >
                 <TargetLineValue />
                 <TargetLineLabel />
-            </Fragment>
+            </div>
         ) : null}
-    </Fragment>
+    </div>
 );
 
 TargetLine.propTypes = {
