@@ -41,6 +41,7 @@ jest.mock('@dhis2/analytics', () => {
             columns: 'columns',
         },
         getMaxNumberOfItemsPerAxis: () => {},
+        filterFixedDimensions: () => [],
     };
 });
 
@@ -84,11 +85,6 @@ describe('The DialogManager component', () => {
 
     it('renders a closed dialog', () => {
         expect(dialogManager()).toMatchSnapshot();
-    });
-
-    it('renders the DynamicDimension content in dialog', () => {
-        const dialog = dialogManager().setProps({ dialogId: 'test' });
-        expect(dialog).toMatchSnapshot();
     });
 
     it('should add the dialogId of fixed dimensions to state "mounted" on first time render', () => {

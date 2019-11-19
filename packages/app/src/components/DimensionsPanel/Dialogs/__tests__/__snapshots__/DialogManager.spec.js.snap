@@ -131,29 +131,6 @@ exports[`The DialogManager component renders the DataDimension content in dialog
 </Component>
 `;
 
-exports[`The DialogManager component renders the DynamicDimension content in dialog 1`] = `
-<Component
-  data-test="dialog-manager"
-  disableEnforceFocus={true}
-  keepMounted={false}
-  maxWidth="lg"
-  onClose={[Function]}
-  open={true}
->
-  <DynamicDimension
-    dialogId="test"
-    onSelect={[Function]}
-    selectedItems={Array []}
-  />
-  <Component>
-    <Connect(HideButton) />
-    <Connect(WithStyles(AddToLayoutButton))
-      dialogId="test"
-    />
-  </Component>
-</Component>
-`;
-
 exports[`The DialogManager component renders the OrgUnitDimension content in dialog 1`] = `
 <Component
   data-test="dialog-manager"

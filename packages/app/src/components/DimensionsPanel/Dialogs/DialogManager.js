@@ -6,7 +6,6 @@ import isEqual from 'lodash-es/isEqual';
 
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
-
 import i18n from '@dhis2/d2-i18n';
 import {
     DataDimension,
@@ -17,9 +16,9 @@ import {
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
-    FIXED_DIMENSIONS,
     getMaxNumberOfItemsPerAxis,
     getDisplayNameByVisType,
+    filterFixedDimensions,
 } from '@dhis2/analytics';
 
 import HideButton from './HideButton';
@@ -268,7 +267,11 @@ export class DialogManager extends Component {
                 );
             }
 
-            if (!Object.keys(FIXED_DIMENSIONS).includes(dialogId)) {
+            const dynamicDimensions = filterFixedDimensions(
+                Object.keys(this.props.dimensions)
+            );
+
+            if (dynamicDimensions.includes(dialogId)) {
                 const dialogTitle =
                     dimensions[dialogId] && dimensions[dialogId].name;
 
