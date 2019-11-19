@@ -79,7 +79,7 @@ export default [
             {
                 key: 'style-section-1',
                 content: [
-                    <Title />,
+                    <Title label={i18n.t('Table title')} />,
                     <DisplayDensity />,
                     <FontSize />,
                     <DigitGroupSeparator />,
@@ -91,8 +91,15 @@ export default [
         key: 'limitValues-tab',
         label: i18n.t('Limit values'),
         content: [
+            /*
             {
-                key: 'limitValues-section-1',
+                key: 'limitValues-limit-numbers',
+                label: i18n.t('Limit number of values'),
+                content: [<TopLimit />],
+            },*/
+            {
+                key: 'limitValues-limit-min-max',
+                label: i18n.t('Limit minimum/maximum values'),
                 content: [<MeasureCriteria />],
             },
         ],
