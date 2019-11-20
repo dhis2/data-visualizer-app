@@ -82,6 +82,7 @@ class Chip extends React.Component {
         const visType = this.props.type;
         const numberOfItems = this.props.items.length;
 
+        // TODO: Fetch real names
         const dimensionName = 'Hello';
         const visTypeName = 'World';
 
@@ -89,6 +90,14 @@ class Chip extends React.Component {
             visType,
             this.props.dimensionId
         ).includes(dimAxisName => dimAxisName === axisName);
+
+        const testStuff = getLockedDimensionAxis(
+            visType,
+            this.props.dimensionId
+        );
+
+        console.log(getLockedDimensionAxis(visType, this.props.dimensionId));
+        debugger;
 
         const lockedMessage = isLocked
             ? `${dimensionName} is locked to ${axisName} for ${visTypeName}`
