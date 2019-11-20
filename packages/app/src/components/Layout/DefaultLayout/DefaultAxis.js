@@ -5,10 +5,11 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Divider from '@material-ui/core/Divider';
 import {
     AXIS_NAME_COLUMNS,
-    AXIS_NAMES,
+    DEFAULT_AXIS_NAMES,
     DIMENSION_ID_DATA,
     isYearOverYear,
     isDualAxisType,
+    getAxisDisplayName,
 } from '@dhis2/analytics';
 
 import Chip from '../Chip';
@@ -22,13 +23,6 @@ import { SOURCE_DIMENSIONS, menuLabels } from '../../../modules/layout';
 import { getAdaptedUiByType } from '../../../modules/ui';
 
 import styles from './styles/DefaultAxis.style';
-
-const axisLabels = {
-    columns: i18n.t('Series'),
-    rows: i18n.t('Category'),
-    filters: i18n.t('Filter'),
-};
-
 class Axis extends React.Component {
     onDragOver = e => {
         e.preventDefault();
@@ -54,12 +48,14 @@ class Axis extends React.Component {
     isMoveSupported = () => !isYearOverYear(this.props.type);
 
     getAxisMenuItems = dimensionId =>
-        AXIS_NAMES.filter(key => key !== this.props.axisName).map(key => (
-            <MenuItem
-                key={`${dimensionId}-to-${key}`}
-                onClick={this.props.getMoveHandler({ [dimensionId]: key })}
-            >{`${i18n.t('Move to')} ${menuLabels[key]}`}</MenuItem>
-        ));
+        DEFAULT_AXIS_NAMES.filter(key => key !== this.props.axisName).map(
+            key => (
+                <MenuItem
+                    key={`${dimensionId}-to-${key}`}
+                    onClick={this.props.getMoveHandler({ [dimensionId]: key })}
+                >{`${i18n.t('Move to')} ${menuLabels[key]}`}</MenuItem>
+            )
+        );
 
     isSeries = () => this.props.axisName === AXIS_NAME_COLUMNS;
 
@@ -116,7 +112,7 @@ class Axis extends React.Component {
                 onDrop={this.onDrop}
             >
                 <div style={styles.label}>
-                    {axisLabels[this.props.axisName]}
+                    {getAxisDisplayName(this.props.axisName)}
                 </div>
                 <div style={styles.content}>
                     {this.props.axis.map(dimensionId => (

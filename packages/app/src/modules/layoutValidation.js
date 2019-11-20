@@ -1,6 +1,9 @@
 import i18n from '@dhis2/d2-i18n';
 import {
     AXIS,
+    AXIS_NAME_COLUMNS,
+    AXIS_NAME_ROWS,
+    AXIS_NAME_FILTERS,
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     FIXED_DIMENSIONS,
@@ -11,7 +14,7 @@ import {
     VIS_TYPE_SINGLE_VALUE,
     dimensionIsValid,
     layoutGetDimension,
-    axisLabels,
+    getAxisDisplayName,
 } from '@dhis2/analytics';
 
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields';
@@ -20,47 +23,47 @@ const dxName = FIXED_DIMENSIONS[DIMENSION_ID_DATA].name;
 
 const errorLabels = {
     defaultSeries: i18n.t('Please add at least one {{series}} dimension', {
-        series: axisLabels.columns,
+        series: getAxisDisplayName(AXIS_NAME_COLUMNS),
     }),
     defaultCategory: i18n.t('Please add at least one {{category}} dimension', {
-        category: axisLabels.rows,
+        category: getAxisDisplayName(AXIS_NAME_ROWS),
     }),
     defaultPe: i18n.t(
         'Please add at least one period as {{series}}, {{category}} or {{filter}}',
         {
-            series: axisLabels.columns,
-            category: axisLabels.rows,
-            filter: axisLabels.filters,
+            series: getAxisDisplayName(AXIS_NAME_COLUMNS),
+            category: getAxisDisplayName(AXIS_NAME_ROWS),
+            filter: getAxisDisplayName(AXIS_NAME_FILTERS),
         }
     ),
     pie: {
         dx: i18n.t('Please add {{data}} as {{category}} or {{filter}}', {
             data: dxName,
-            category: axisLabels.rows,
-            filter: axisLabels.filters,
+            category: getAxisDisplayName(AXIS_NAME_ROWS),
+            filter: getAxisDisplayName(AXIS_NAME_FILTERS),
         }),
         pe: i18n.t(
             'Please add at least one period as {{series}} or {{filter}}',
             {
-                series: axisLabels.columns,
-                filter: axisLabels.filters,
+                series: getAxisDisplayName(AXIS_NAME_COLUMNS),
+                filter: getAxisDisplayName(AXIS_NAME_FILTERS),
             }
         ),
         filter: i18n.t('Please add at least one {{filter}} dimension', {
-            filter: axisLabels.filters,
+            filter: getAxisDisplayName(AXIS_NAME_FILTERS),
         }),
     },
     yearOverYear: {
         seriesPeriod: i18n.t(
             'Please add at least one period as a {{series}} dimension',
             {
-                series: axisLabels.columns,
+                series: getAxisDisplayName(AXIS_NAME_COLUMNS),
             }
         ),
         categoryPeriod: i18n.t(
             'Please add at least one period as a {{category}} dimension',
             {
-                category: axisLabels.rows,
+                category: getAxisDisplayName(AXIS_NAME_ROWS),
             }
         ),
         dx: i18n.t('Please add {{data}} as a filter dimension', {
@@ -69,10 +72,10 @@ const errorLabels = {
     },
     singleValue: {
         dx: i18n.t('Please add one {{series}} dimension', {
-            series: axisLabels.columns,
+            series: getAxisDisplayName(AXIS_NAME_COLUMNS),
         }),
         pe: i18n.t('Please add at least one period as {{filter}}', {
-            filter: axisLabels.filters,
+            filter: getAxisDisplayName(AXIS_NAME_FILTERS),
         }),
     },
 };
