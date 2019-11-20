@@ -37,9 +37,6 @@ jest.mock('@dhis2/analytics', () => {
             [periodId]: {},
             [ouId]: {},
         },
-        axisLabels: {
-            columns: 'columns',
-        },
         getMaxNumberOfItemsPerAxis: () => {},
         filterOutFixedDimensions: () => [],
     };

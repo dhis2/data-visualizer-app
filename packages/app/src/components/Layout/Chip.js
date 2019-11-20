@@ -8,6 +8,8 @@ import {
     getMaxNumberOfItemsPerAxis,
     hasTooManyItemsPerAxis,
     getLockedDimensionAxis,
+    getDisplayNameByVisType,
+    getAxisDisplayName,
 } from '@dhis2/analytics';
 
 import Menu from './Menu';
@@ -83,9 +85,9 @@ class Chip extends React.Component {
         const numberOfItems = this.props.items.length;
 
         // TODO: Fetch real names
-        const dimensionName = '!Data!'; //store
-        const visTypeName = '!Single Value!';
-        const axisDisplayName = '!Series!';
+        const dimensionName = this.props.dimensionName;
+        const visTypeName = getDisplayNameByVisType(visType);
+        const axisDisplayName = getAxisDisplayName[axisName];
 
         const isLocked = getLockedDimensionAxis(
             visType,
