@@ -79,15 +79,11 @@ class Chip extends React.Component {
         return <DynamicDimensionIcon style={styles.dynamicDimensionIcon} />;
     };
 
+    // TODO refactor this very long function
     renderChip = () => {
         const axisName = this.props.axisName;
         const visType = this.props.type;
         const numberOfItems = this.props.items.length;
-
-        // TODO: Fetch real names
-        const dimensionName = this.props.dimensionName;
-        const visTypeName = getDisplayNameByVisType(visType);
-        const axisDisplayName = getAxisDisplayName[axisName];
 
         const isLocked = getLockedDimensionAxis(
             visType,
@@ -95,7 +91,14 @@ class Chip extends React.Component {
         ).includes(axisName);
 
         const lockedMessage = isLocked
-            ? `${dimensionName} is locked to ${axisDisplayName} for ${visTypeName}`
+            ? i18n.t(
+                  `{{dimensionName}} is locked to {{axisDisplayName}} for {{visTypeName}}`,
+                  {
+                      dimensionName: this.props.dimensionName,
+                      axisDisplayName: getDisplayNameByVisType(visType),
+                      visTypeName: getAxisDisplayName(axisName),
+                  }
+              )
             : null;
 
         const maxNumberOfItemsPerAxis = getMaxNumberOfItemsPerAxis(

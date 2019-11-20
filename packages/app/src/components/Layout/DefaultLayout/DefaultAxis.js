@@ -5,7 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Divider from '@material-ui/core/Divider';
 import {
     AXIS_NAME_COLUMNS,
-    AXIS_NAMES,
+    DEFAULT_AXIS_NAMES,
     DIMENSION_ID_DATA,
     isYearOverYear,
     isDualAxisType,
@@ -48,12 +48,14 @@ class Axis extends React.Component {
     isMoveSupported = () => !isYearOverYear(this.props.type);
 
     getAxisMenuItems = dimensionId =>
-        AXIS_NAMES.filter(key => key !== this.props.axisName).map(key => (
-            <MenuItem
-                key={`${dimensionId}-to-${key}`}
-                onClick={this.props.getMoveHandler({ [dimensionId]: key })}
-            >{`${i18n.t('Move to')} ${menuLabels[key]}`}</MenuItem>
-        ));
+        DEFAULT_AXIS_NAMES.filter(key => key !== this.props.axisName).map(
+            key => (
+                <MenuItem
+                    key={`${dimensionId}-to-${key}`}
+                    onClick={this.props.getMoveHandler({ [dimensionId]: key })}
+                >{`${i18n.t('Move to')} ${menuLabels[key]}`}</MenuItem>
+            )
+        );
 
     isSeries = () => this.props.axisName === AXIS_NAME_COLUMNS;
 
