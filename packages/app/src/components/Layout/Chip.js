@@ -82,12 +82,10 @@ class Chip extends React.Component {
         const visType = this.props.type;
         const numberOfItems = this.props.items.length;
 
-        // TODO: Lock the corresponding item in the Dimensions Panel
-
         // TODO: Fetch real names
-        const dimensionName = 'Hello';
-        const visTypeName = 'World';
-        const axisDisplayName = 'Foo';
+        const dimensionName = '!Data!'; //store
+        const visTypeName = '!Single Value!';
+        const axisDisplayName = '!Series!';
 
         const isLocked = getLockedDimensionAxis(
             visType,
