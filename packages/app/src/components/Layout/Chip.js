@@ -82,25 +82,22 @@ class Chip extends React.Component {
         const visType = this.props.type;
         const numberOfItems = this.props.items.length;
 
+        // TODO: Prevent the locked chip from being dragged
+
+        // TODO: Lock the corresponding item in the Dimensions Panel
+
         // TODO: Fetch real names
         const dimensionName = 'Hello';
         const visTypeName = 'World';
+        const axisDisplayName = 'Foo';
 
         const isLocked = getLockedDimensionAxis(
             visType,
             this.props.dimensionId
-        ).includes(dimAxisName => dimAxisName === axisName);
-
-        const testStuff = getLockedDimensionAxis(
-            visType,
-            this.props.dimensionId
-        );
-
-        console.log(getLockedDimensionAxis(visType, this.props.dimensionId));
-        debugger;
+        ).includes(axisName);
 
         const lockedMessage = isLocked
-            ? `${dimensionName} is locked to ${axisName} for ${visTypeName}`
+            ? `${dimensionName} is locked to ${axisDisplayName} for ${visTypeName}`
             : null;
 
         const maxNumberOfItemsPerAxis = getMaxNumberOfItemsPerAxis(
