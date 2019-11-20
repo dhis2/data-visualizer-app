@@ -39,7 +39,7 @@ jest.mock('@dhis2/analytics', () => {
         },
         getMaxNumberOfItemsPerAxis: () => {},
         filterOutFixedDimensions: () => [],
-        getAxisDisplayName: () => {},
+        getAxisName: () => {},
     };
 });
 

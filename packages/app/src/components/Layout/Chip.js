@@ -9,7 +9,7 @@ import {
     hasTooManyItemsPerAxis,
     getLockedDimensionAxis,
     getDisplayNameByVisType,
-    getAxisDisplayName,
+    getAxisName,
 } from '@dhis2/analytics';
 
 import Menu from './Menu';
@@ -92,11 +92,11 @@ class Chip extends React.Component {
 
         const lockedMessage = isLocked
             ? i18n.t(
-                  `{{dimensionName}} is locked to {{axisDisplayName}} for {{visTypeName}}`,
+                  `{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}`,
                   {
                       dimensionName: this.props.dimensionName,
-                      axisDisplayName: getDisplayNameByVisType(visType),
-                      visTypeName: getAxisDisplayName(axisId),
+                      axisName: getDisplayNameByVisType(visType),
+                      visTypeName: getAxisName(axisId),
                   }
               )
             : null;

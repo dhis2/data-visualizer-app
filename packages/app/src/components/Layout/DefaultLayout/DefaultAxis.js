@@ -9,7 +9,7 @@ import {
     DIMENSION_ID_DATA,
     isYearOverYear,
     isDualAxisType,
-    getAxisDisplayName,
+    getAxisName,
 } from '@dhis2/analytics';
 
 import Chip from '../Chip';
@@ -109,9 +109,7 @@ class Axis extends React.Component {
                 onDragOver={this.onDragOver}
                 onDrop={this.onDrop}
             >
-                <div style={styles.label}>
-                    {getAxisDisplayName(this.props.axisId)}
-                </div>
+                <div style={styles.label}>{getAxisName(this.props.axisId)}</div>
                 <div style={styles.content}>
                     {this.props.axis.map(dimensionId => (
                         <Chip
