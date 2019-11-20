@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-11-15T12:12:19.215Z\n"
-"PO-Revision-Date: 2019-11-15T12:12:19.215Z\n"
+"POT-Creation-Date: 2019-11-18T15:52:18.128Z\n"
+"PO-Revision-Date: 2019-11-18T15:52:18.128Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -38,8 +38,13 @@ msgid "Update"
 msgstr ""
 
 msgid ""
-"'Single Value' is intended to show a single data item. Only the first item "
-"will be used and saved."
+"'{{visualiationType}}' is intended to show a single data item. Only the "
+"first item will be used and saved."
+msgstr ""
+
+msgid ""
+"'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
+"items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
 
 msgid "Hide"
@@ -93,7 +98,7 @@ msgstr ""
 msgid "Interpretations"
 msgstr ""
 
-msgid "{{total}} of 1 selected"
+msgid "{{total}} of {{maxNumberOfItemsPerAxis}} selected"
 msgstr ""
 
 msgid "{{total}} selected"
@@ -118,6 +123,9 @@ msgid "None selected"
 msgstr ""
 
 msgid "Only '{{name}}' in use"
+msgstr ""
+
+msgid "Only '{{number}}' in use"
 msgstr ""
 
 msgid "Unsaved chart"

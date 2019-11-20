@@ -8,7 +8,11 @@ import {
     VIS_TYPE_COLUMN,
 } from '@dhis2/analytics';
 
-import { getFilteredLayout, getSwapModObj } from '../modules/layout';
+import {
+    getFilteredLayout,
+    getSwapModObj,
+    getInverseLayout,
+} from '../modules/layout';
 import { getOptionsForUi } from '../modules/options';
 import { getUiFromVisualization } from '../modules/ui';
 
@@ -252,10 +256,6 @@ export const sGetUiType = state => sGetUi(state).type;
 export const sGetUiOptions = state => sGetUi(state).options;
 export const sGetUiLayout = state => sGetUi(state).layout;
 export const sGetUiItems = state => sGetUi(state).itemsByDimension;
-
-export const sGetUiItemsByDimension = (state, dimension) =>
-    sGetUiItems(state)[dimension] || DEFAULT_UI.itemsByDimension[dimension];
-
 export const sGetUiYearOverYearSeries = state =>
     sGetUi(state).yearOverYearSeries;
 export const sGetUiYearOverYearCategory = state =>
@@ -265,6 +265,14 @@ export const sGetUiActiveModalDialog = state => sGetUi(state).activeModalDialog;
 export const sGetUiRightSidebarOpen = state => sGetUi(state).rightSidebarOpen;
 export const sGetUiInterpretation = state => sGetUi(state).interpretation;
 export const sGetAxes = state => sGetUi(state).axes;
+
+// Selectors level 2
+
+export const getAxisNameByDimensionId = (state, dimensionId) =>
+    (getInverseLayout(sGetUiLayout(state)) || {})[dimensionId];
+
+export const sGetUiItemsByDimension = (state, dimension) =>
+    sGetUiItems(state)[dimension] || DEFAULT_UI.itemsByDimension[dimension];
 
 export const sGetDimensionIdsFromLayout = state =>
     Object.values(sGetUiLayout(state)).reduce(
