@@ -82,8 +82,6 @@ class Chip extends React.Component {
         const visType = this.props.type;
         const numberOfItems = this.props.items.length;
 
-        // TODO: Prevent the locked chip from being dragged
-
         // TODO: Lock the corresponding item in the Dimensions Panel
 
         // TODO: Fetch real names
@@ -150,7 +148,7 @@ class Chip extends React.Component {
             <div
                 style={wrapperStyle}
                 data-dimensionid={this.props.dimensionId}
-                draggable="true"
+                draggable={!isLocked}
                 onDragStart={this.getDragStartHandler(this.props.axisName)}
             >
                 <div
