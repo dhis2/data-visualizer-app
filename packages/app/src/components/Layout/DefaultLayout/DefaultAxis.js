@@ -110,7 +110,7 @@ class Axis extends React.Component {
                 onDrop={this.onDrop}
             >
                 <div style={styles.label}>
-                    {getAxisDisplayName[this.props.axisName]}
+                    {getAxisDisplayName(this.props.axisName)}
                 </div>
                 <div style={styles.content}>
                     {this.props.axis.map(dimensionId => (
