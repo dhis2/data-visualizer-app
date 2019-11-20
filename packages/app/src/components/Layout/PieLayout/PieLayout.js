@@ -1,5 +1,5 @@
 import React from 'react';
-import { AXIS_NAME_COLUMNS, AXIS_NAME_FILTERS } from '@dhis2/analytics';
+import { AXIS_ID_COLUMNS, AXIS_ID_FILTERS } from '@dhis2/analytics';
 
 import DefaultAxis from '../DefaultLayout/DefaultAxis';
 import defaultAxisStyles from '../DefaultLayout/styles/DefaultAxis.style';
@@ -15,7 +15,7 @@ const Layout = () => (
             }}
         >
             <DefaultAxis
-                axisName={AXIS_NAME_COLUMNS}
+                axisId={AXIS_ID_COLUMNS}
                 style={{
                     ...defaultLayoutStyles.filters,
                     ...defaultAxisStyles.axisContainerLeft,
@@ -30,7 +30,7 @@ const Layout = () => (
             }}
         >
             <DefaultAxis
-                axisName={AXIS_NAME_FILTERS}
+                axisId={AXIS_ID_FILTERS}
                 style={defaultLayoutStyles.filters}
             />
         </div>

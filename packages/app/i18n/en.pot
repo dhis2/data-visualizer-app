@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-11-20T14:39:06.658Z\n"
-"PO-Revision-Date: 2019-11-20T14:39:06.658Z\n"
+"POT-Creation-Date: 2019-11-20T20:35:32.765Z\n"
+"PO-Revision-Date: 2019-11-20T20:35:32.765Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -96,6 +96,9 @@ msgid "The following information may be requested by technical support."
 msgstr ""
 
 msgid "Interpretations"
+msgstr ""
+
+msgid "{{dimensionName}} is locked to {{axisDisplayName}} for {{visTypeName}}"
 msgstr ""
 
 msgid "{{total}} of {{maxNumberOfItemsPerAxis}} selected"

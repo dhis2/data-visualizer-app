@@ -81,14 +81,14 @@ class Chip extends React.Component {
 
     // TODO refactor this very long function
     renderChip = () => {
-        const axisName = this.props.axisName;
+        const axisId = this.props.axisId;
         const visType = this.props.type;
         const numberOfItems = this.props.items.length;
 
         const isLocked = getLockedDimensionAxis(
             visType,
             this.props.dimensionId
-        ).includes(axisName);
+        ).includes(axisId);
 
         const lockedMessage = isLocked
             ? i18n.t(
@@ -96,14 +96,14 @@ class Chip extends React.Component {
                   {
                       dimensionName: this.props.dimensionName,
                       axisDisplayName: getDisplayNameByVisType(visType),
-                      visTypeName: getAxisDisplayName(axisName),
+                      visTypeName: getAxisDisplayName(axisId),
                   }
               )
             : null;
 
         const maxNumberOfItemsPerAxis = getMaxNumberOfItemsPerAxis(
             visType,
-            axisName
+            axisId
         );
 
         const hasMaxNumberOfItemsRule = !!maxNumberOfItemsPerAxis;
@@ -133,7 +133,7 @@ class Chip extends React.Component {
         };
         const warningIcon = hasTooManyItemsPerAxis(
             visType,
-            axisName,
+            axisId,
             numberOfItems
         ) ? (
             <div style={styles.warningIconWrapper}>
@@ -152,7 +152,7 @@ class Chip extends React.Component {
                 style={wrapperStyle}
                 data-dimensionid={this.props.dimensionId}
                 draggable={!isLocked}
-                onDragStart={this.getDragStartHandler(this.props.axisName)}
+                onDragStart={this.getDragStartHandler(this.props.axisId)}
             >
                 <div
                     id={this.id}
@@ -170,7 +170,7 @@ class Chip extends React.Component {
                     <div style={styles.chipRight}>
                         <Menu
                             dimensionId={this.props.dimensionId}
-                            currentAxisName={this.props.axisName}
+                            currentAxisId={this.props.axisId}
                             visType={this.props.type}
                             numberOfDimensionItems={this.props.items.length}
                         />

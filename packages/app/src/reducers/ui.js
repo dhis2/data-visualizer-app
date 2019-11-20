@@ -3,8 +3,8 @@ import {
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
-    AXIS_NAME_COLUMNS,
-    AXIS_NAME_ROWS,
+    AXIS_ID_COLUMNS,
+    AXIS_ID_ROWS,
     VIS_TYPE_COLUMN,
 } from '@dhis2/analytics';
 
@@ -92,7 +92,7 @@ export default (state = DEFAULT_UI, action) => {
                 },
             };
         }
-        // action.value: mod object (dimensionId:axisName) saying what to add where: { ou: 'rows' }
+        // action.value: mod object (dimensionId:axisId) saying what to add where: { ou: 'rows' }
         // Reducer takes care of swapping if dimension already exists in layout
         case ADD_UI_LAYOUT_DIMENSIONS: {
             const modObjWithSwap = {
@@ -105,17 +105,13 @@ export default (state = DEFAULT_UI, action) => {
                 Object.keys(modObjWithSwap)
             );
 
-            Object.entries(modObjWithSwap).forEach(
-                ([dimensionId, axisName]) => {
-                    if (
-                        [AXIS_NAME_COLUMNS, AXIS_NAME_ROWS].includes(axisName)
-                    ) {
-                        newLayout[axisName] = [dimensionId];
-                    } else {
-                        newLayout[axisName].push(dimensionId);
-                    }
+            Object.entries(modObjWithSwap).forEach(([dimensionId, axisId]) => {
+                if ([AXIS_ID_COLUMNS, AXIS_ID_ROWS].includes(axisId)) {
+                    newLayout[axisId] = [dimensionId];
+                } else {
+                    newLayout[axisId].push(dimensionId);
                 }
-            );
+            });
 
             return {
                 ...state,
@@ -268,7 +264,7 @@ export const sGetAxes = state => sGetUi(state).axes;
 
 // Selectors level 2
 
-export const getAxisNameByDimensionId = (state, dimensionId) =>
+export const getAxisIdByDimensionId = (state, dimensionId) =>
     (getInverseLayout(sGetUiLayout(state)) || {})[dimensionId];
 
 export const sGetUiItemsByDimension = (state, dimension) =>

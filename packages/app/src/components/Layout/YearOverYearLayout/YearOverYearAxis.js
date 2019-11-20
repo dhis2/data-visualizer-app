@@ -11,11 +11,11 @@ import YearOverYearAxisStyles from './styles/YearOverYearAxis.style';
 
 const YearOverYearAxis = props => (
     <div
-        id={props.axisName}
+        id={props.axisId}
         style={{ ...defaultAxisStyles.axisContainer, ...props.style }}
     >
         <div className="label" style={defaultAxisStyles.label}>
-            {getAxisDisplayName(props.axisName)}
+            {getAxisDisplayName(props.axisId)}
         </div>
         <div
             className="content"

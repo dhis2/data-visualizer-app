@@ -1,8 +1,8 @@
 import pick from 'lodash-es/pick';
 import {
-    AXIS_NAME_COLUMNS,
-    AXIS_NAME_ROWS,
-    AXIS_NAME_FILTERS,
+    AXIS_ID_COLUMNS,
+    AXIS_ID_ROWS,
+    AXIS_ID_FILTERS,
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     dimensionCreate,
@@ -22,9 +22,9 @@ const hasItems = (object, id) =>
 
 export const getAxesFromUi = ui =>
     Object.entries(ui.layout).reduce(
-        (layout, [axisName, ids]) => ({
+        (layout, [axisId, ids]) => ({
             ...layout,
-            [axisName]: ids
+            [axisId]: ids
                 .map(id =>
                     hasItems(ui.itemsByDimension, id)
                         ? dimensionCreate(id, ui.itemsByDimension[id])
@@ -117,11 +117,11 @@ export const getYearOverYearCurrentFromUi = (state, action) => {
     return {
         ...state,
         [BASE_FIELD_TYPE]: ui.type,
-        [AXIS_NAME_COLUMNS]: [dimensionCreate(DIMENSION_ID_DATA, dxItem)],
-        [AXIS_NAME_ROWS]: [
+        [AXIS_ID_COLUMNS]: [dimensionCreate(DIMENSION_ID_DATA, dxItem)],
+        [AXIS_ID_ROWS]: [
             dimensionCreate(DIMENSION_ID_PERIOD, ui.yearOverYearCategory),
         ],
-        [AXIS_NAME_FILTERS]: getAxesFromUi(ui).filters.filter(
+        [AXIS_ID_FILTERS]: getAxesFromUi(ui).filters.filter(
             f => ![DIMENSION_ID_DATA, DIMENSION_ID_PERIOD].includes(f.dimension)
         ),
         [[BASE_FIELD_YEARLY_SERIES]]: ui.yearOverYearSeries,

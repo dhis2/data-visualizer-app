@@ -1,6 +1,6 @@
 import {
     DIMENSION_ID_ORGUNIT,
-    layoutGetAxisNameDimensionIdsObject,
+    layoutGetAxisIdDimensionIdsObject,
 } from '@dhis2/analytics';
 
 import { getInverseLayout } from './layout';
@@ -20,7 +20,7 @@ export const getPathForOrgUnit = (orgUnit, parentGraphMap) => {
 };
 
 export const appendPathsToOrgUnits = (current, ui) => {
-    const dimensionIdsByAxis = layoutGetAxisNameDimensionIdsObject(current);
+    const dimensionIdsByAxis = layoutGetAxisIdDimensionIdsObject(current);
     const inverseLayout = getInverseLayout(dimensionIdsByAxis);
     const ouAxis = inverseLayout[DIMENSION_ID_ORGUNIT];
     const { parentGraphMap } = ui;
