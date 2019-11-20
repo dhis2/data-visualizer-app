@@ -14,11 +14,7 @@ export const pieLayoutAdapter = layout => {
     return {
         [AXIS_ID_COLUMNS]: [columns.shift() || rows.shift()],
         [AXIS_ID_ROWS]: [],
-        [AXIS_ID_FILTERS]: [
-            ...layout[AXIS_ID_FILTERS],
-            ...columns,
-            ...rows,
-        ],
+        [AXIS_ID_FILTERS]: [...layout[AXIS_ID_FILTERS], ...columns, ...rows],
     };
 };
 
