@@ -22,12 +22,15 @@ const hasItems = (object, id) =>
 
 export const getAxesFromUi = ui =>
     Object.entries(ui.layout).reduce(
-        (layout, [axisId, ids]) => ({
+        (layout, [axisId, dimensionIds]) => ({
             ...layout,
-            [axisId]: ids
-                .map(id =>
-                    hasItems(ui.itemsByDimension, id)
-                        ? dimensionCreate(id, ui.itemsByDimension[id])
+            [axisId]: dimensionIds
+                .map(dimensionId =>
+                    hasItems(ui.itemsByDimension, dimensionId)
+                        ? dimensionCreate(
+                              dimensionId,
+                              ui.itemsByDimension[dimensionId]
+                          )
                         : null
                 )
                 .filter(dim => dim !== null),
