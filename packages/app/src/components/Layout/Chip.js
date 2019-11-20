@@ -84,8 +84,6 @@ class Chip extends React.Component {
         const visType = this.props.type;
         const numberOfItems = this.props.items.length;
 
-        // TODO: Lock the corresponding item in the Dimensions Panel
-
         // TODO: Fetch real names
         const dimensionName = this.props.dimensionName;
         const visTypeName = getDisplayNameByVisType(visType);

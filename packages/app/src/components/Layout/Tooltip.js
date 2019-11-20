@@ -61,7 +61,7 @@ export class Tooltip extends React.Component {
             }
         } else if (itemIds.length) {
             names.push(
-                itemIds.map(id => (metadata[id] ? metadata[id].name : id))
+                ...itemIds.map(id => (metadata[id] ? metadata[id].name : id))
             );
         } else {
             names.push(labels.noneSelected);
