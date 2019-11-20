@@ -37,23 +37,34 @@ export class Tooltip extends React.Component {
     );
 
     render() {
-        const { itemIds, metadata, displayLimitedAmount } = this.props;
+        const {
+            itemIds,
+            metadata,
+            displayLimitedAmount,
+            lockedLabel,
+        } = this.props;
 
-        let names = [];
+        const names = [];
+
+        if (lockedLabel) {
+            names.push(lockedLabel);
+        }
 
         if (itemIds.length && displayLimitedAmount) {
             if (itemIds.length === 1) {
                 const id = itemIds[0];
-                names = [
-                    labels.onlyOneInUse(metadata[id] ? metadata[id].name : id),
-                ];
+                names.push(
+                    labels.onlyOneInUse(metadata[id] ? metadata[id].name : id)
+                );
             } else {
-                names = [labels.onlyLimitedNumberInUse(itemIds.length)];
+                names.push(labels.onlyLimitedNumberInUse(itemIds.length));
             }
         } else if (itemIds.length) {
-            names = itemIds.map(id => (metadata[id] ? metadata[id].name : id));
+            names.push(
+                itemIds.map(id => (metadata[id] ? metadata[id].name : id))
+            );
         } else {
-            names = [labels.noneSelected];
+            names.push(labels.noneSelected);
         }
 
         return names.length ? this.renderTooltip(names) : '';
@@ -64,6 +75,7 @@ Tooltip.propTypes = {
     open: PropTypes.bool.isRequired,
     anchorEl: PropTypes.object.isRequired,
     dimensionId: PropTypes.string.isRequired,
+    lockedLabel: PropTypes.string,
     itemIds: PropTypes.array,
     displayLimitedAmount: PropTypes.bool,
 };

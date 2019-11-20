@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import WarningIcon from '@material-ui/icons/Warning';
+import LockIcon from '@material-ui/icons/Lock';
 import i18n from '@dhis2/d2-i18n';
 import {
     FIXED_DIMENSIONS,
     getMaxNumberOfItemsPerAxis,
     hasTooManyItemsPerAxis,
+    getLockedDimensionAxis,
 } from '@dhis2/analytics';
 
 import Menu from './Menu';
@@ -80,6 +82,18 @@ class Chip extends React.Component {
         const visType = this.props.type;
         const numberOfItems = this.props.items.length;
 
+        const dimensionName = 'Hello';
+        const visTypeName = 'World';
+
+        const isLocked = getLockedDimensionAxis(
+            visType,
+            this.props.dimensionId
+        ).includes(dimAxisName => dimAxisName === axisName);
+
+        const lockedMessage = isLocked
+            ? `${dimensionName} is locked to ${axisName} for ${visTypeName}`
+            : null;
+
         const maxNumberOfItemsPerAxis = getMaxNumberOfItemsPerAxis(
             visType,
             axisName
@@ -120,6 +134,12 @@ class Chip extends React.Component {
             </div>
         ) : null;
 
+        const lockIcon = isLocked ? (
+            <div style={styles.lockIconWrapper}>
+                <LockIcon style={styles.lockIcon} />
+            </div>
+        ) : null;
+
         return (
             <div
                 style={wrapperStyle}
@@ -137,19 +157,23 @@ class Chip extends React.Component {
                     <div style={styles.iconWrapper}>{icon}</div>
                     {chipLabel}
                     {warningIcon}
+                    {lockIcon}
                 </div>
-                <div style={styles.chipRight}>
-                    <Menu
-                        dimensionId={this.props.dimensionId}
-                        currentAxisName={this.props.axisName}
-                        visType={this.props.type}
-                        numberOfDimensionItems={this.props.items.length}
-                    />
-                </div>
+                {!isLocked && (
+                    <div style={styles.chipRight}>
+                        <Menu
+                            dimensionId={this.props.dimensionId}
+                            currentAxisName={this.props.axisName}
+                            visType={this.props.type}
+                            numberOfDimensionItems={this.props.items.length}
+                        />
+                    </div>
+                )}
                 {anchorEl && (
                     <Tooltip
                         dimensionId={this.props.dimensionId}
                         itemIds={activeItemIds}
+                        lockedLabel={lockedMessage}
                         displayLimitedAmount={
                             this.props.items.length > activeItemIds.length
                         }
