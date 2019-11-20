@@ -20,6 +20,7 @@ export const styles = {
         overflow: 'hidden',
         textOverflow: 'ellipsis',
         minHeight: 24,
+        userSelect: 'none',
     },
     chipEmpty: {
         backgroundColor: colors.grey300,
