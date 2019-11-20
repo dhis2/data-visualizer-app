@@ -4,6 +4,7 @@ import {
     DimensionsPanel,
     DimensionMenu,
     getDisallowedDims,
+    getLockedDims,
 } from '@dhis2/analytics';
 
 import DialogManager from './Dialogs/DialogManager';
@@ -53,6 +54,9 @@ export class Dimensions extends Component {
     disabledDimension = dimension =>
         this.props.disallowedDimensions.includes(dimension.id);
 
+    lockedDimension = dimension =>
+        this.props.lockedDimensions.includes(dimension.id);
+
     getUiAxisName = () => {
         const adaptedUi = getAdaptedUiByType(this.props.ui);
         const inverseLayout = getInverseLayout(adaptedUi.layout);
@@ -70,6 +74,7 @@ export class Dimensions extends Component {
                     dimensions={this.props.dimensions}
                     selectedIds={this.props.selectedIds}
                     disabledDimension={this.disabledDimension}
+                    lockedDimension={this.lockedDimension}
                     recommendedDimension={dimension =>
                         this.props.recommendedIds.includes(dimension.id)
                     }
@@ -101,6 +106,11 @@ const getDisallowedDimensions = createSelector(
     type => getDisallowedDims(type)
 );
 
+const getLockedDimensions = createSelector(
+    [sGetUiType],
+    type => getLockedDims(type)
+);
+
 const mapStateToProps = state => {
     return {
         ui: fromReducers.fromUi.sGetUi(state),
@@ -112,6 +122,7 @@ const mapStateToProps = state => {
         layout: fromReducers.fromUi.sGetUiLayout(state),
         itemsByDimension: fromReducers.fromUi.sGetUiItems(state),
         disallowedDimensions: getDisallowedDimensions(state),
+        lockedDimensions: getLockedDimensions(state),
     };
 };
 
