@@ -51,11 +51,11 @@ export class Dimensions extends Component {
         setDataTransfer(e, SOURCE_DIMENSIONS);
     };
 
-    disabledDimension = dimension =>
-        this.props.disallowedDimensions.includes(dimension.id);
+    disabledDimension = dimensionId =>
+        this.props.disallowedDimensions.includes(dimensionId);
 
-    lockedDimension = dimension =>
-        this.props.lockedDimensions.includes(dimension.id);
+    lockedDimension = dimensionId =>
+        this.props.lockedDimensions.includes(dimensionId);
 
     getUiAxisId = () => {
         const adaptedUi = getAdaptedUiByType(this.props.ui);
@@ -75,8 +75,8 @@ export class Dimensions extends Component {
                     selectedIds={this.props.selectedIds}
                     disabledDimension={this.disabledDimension}
                     lockedDimension={this.lockedDimension}
-                    recommendedDimension={dimension =>
-                        this.props.recommendedIds.includes(dimension.id)
+                    recommendedDimension={dimensionId =>
+                        this.props.recommendedIds.includes(dimensionId)
                     }
                     onDimensionOptionsClick={this.onDimensionOptionsClick}
                     onDimensionDragStart={this.onDimensionDragStart}
