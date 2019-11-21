@@ -95,8 +95,8 @@ class Chip extends React.Component {
                   `{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}`,
                   {
                       dimensionName: this.props.dimensionName,
-                      axisName: getDisplayNameByVisType(visType),
-                      visTypeName: getAxisName(axisId),
+                      axisName: getAxisName(axisId),
+                      visTypeName: getDisplayNameByVisType(visType),
                   }
               )
             : null;
