@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import {
     DimensionsPanel,
     DimensionMenu,
-    getDisallowedDimensions as _getDisallowedDimensions,
-    getLockedDimensions as _getLockedDimensions,
+    getDisallowedDimensions,
+    getLockedDimensions,
 } from '@dhis2/analytics';
 
 import DialogManager from './Dialogs/DialogManager';
@@ -101,14 +101,14 @@ export class Dimensions extends Component {
     }
 }
 
-const getDisallowedDimensions = createSelector(
+const getDisallowedDimensionsMemo = createSelector(
     [sGetUiType],
-    type => _getDisallowedDimensions(type)
+    type => getDisallowedDimensions(type)
 );
 
-const getLockedDimensions = createSelector(
+const getLockedDimensionsMemo = createSelector(
     [sGetUiType],
-    type => _getLockedDimensions(type)
+    type => getLockedDimensions(type)
 );
 
 const mapStateToProps = state => {
@@ -121,8 +121,8 @@ const mapStateToProps = state => {
         ),
         layout: fromReducers.fromUi.sGetUiLayout(state),
         itemsByDimension: fromReducers.fromUi.sGetUiItems(state),
-        disallowedDimensions: getDisallowedDimensions(state),
-        lockedDimensions: getLockedDimensions(state),
+        disallowedDimensions: getDisallowedDimensionsMemo(state),
+        lockedDimensions: getLockedDimensionsMemo(state),
     };
 };
 
