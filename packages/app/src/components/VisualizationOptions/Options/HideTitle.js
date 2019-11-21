@@ -27,10 +27,8 @@ class HideTitle extends Component {
     }
 
     onChange = ({ value }) => {
-        const enabled = value === 'NONE' ? true : false;
-
         this.setState({ value });
-        this.props.onChange(enabled);
+        this.props.onChange(value === 'NONE');
     };
 
     render() {
