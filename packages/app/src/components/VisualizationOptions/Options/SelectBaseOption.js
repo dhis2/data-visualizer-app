@@ -64,7 +64,7 @@ export const SelectBaseOption = ({
                         }}
                         helpText={helpText}
                         tabIndex="0"
-                        inputWidth="280px"
+                        inputMaxWidth="280px"
                         dense
                     >
                         {option.items.map(({ id, label }) => (
