@@ -1,7 +1,7 @@
 import {
-    AXIS_NAME_COLUMNS,
-    AXIS_NAME_ROWS,
-    AXIS_NAME_FILTERS,
+    AXIS_ID_COLUMNS,
+    AXIS_ID_ROWS,
+    AXIS_ID_FILTERS,
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
@@ -15,17 +15,17 @@ const otherId = 'otherId';
 describe('pieLayoutAdapter', () => {
     it('should move all column and row dimensions to filter except the first column dimension', () => {
         const initialState = {
-            [AXIS_NAME_COLUMNS]: [DIMENSION_ID_DATA, someId],
-            [AXIS_NAME_ROWS]: [DIMENSION_ID_PERIOD, otherId],
-            [AXIS_NAME_FILTERS]: [DIMENSION_ID_ORGUNIT],
+            [AXIS_ID_COLUMNS]: [DIMENSION_ID_DATA, someId],
+            [AXIS_ID_ROWS]: [DIMENSION_ID_PERIOD, otherId],
+            [AXIS_ID_FILTERS]: [DIMENSION_ID_ORGUNIT],
         };
 
         const actualState = pieLayoutAdapter(initialState);
 
         const expectedState = {
-            [AXIS_NAME_COLUMNS]: [DIMENSION_ID_DATA],
-            [AXIS_NAME_ROWS]: [],
-            [AXIS_NAME_FILTERS]: [
+            [AXIS_ID_COLUMNS]: [DIMENSION_ID_DATA],
+            [AXIS_ID_ROWS]: [],
+            [AXIS_ID_FILTERS]: [
                 DIMENSION_ID_ORGUNIT,
                 someId,
                 DIMENSION_ID_PERIOD,
@@ -38,17 +38,17 @@ describe('pieLayoutAdapter', () => {
 
     it('should move the first row dimension to series and the rest to filter', () => {
         const initialState = {
-            [AXIS_NAME_COLUMNS]: [],
-            [AXIS_NAME_ROWS]: [DIMENSION_ID_DATA, DIMENSION_ID_PERIOD, someId],
-            [AXIS_NAME_FILTERS]: [DIMENSION_ID_ORGUNIT],
+            [AXIS_ID_COLUMNS]: [],
+            [AXIS_ID_ROWS]: [DIMENSION_ID_DATA, DIMENSION_ID_PERIOD, someId],
+            [AXIS_ID_FILTERS]: [DIMENSION_ID_ORGUNIT],
         };
 
         const actualState = pieLayoutAdapter(initialState);
 
         const expectedState = {
-            [AXIS_NAME_COLUMNS]: [DIMENSION_ID_DATA],
-            [AXIS_NAME_ROWS]: [],
-            [AXIS_NAME_FILTERS]: [
+            [AXIS_ID_COLUMNS]: [DIMENSION_ID_DATA],
+            [AXIS_ID_ROWS]: [],
+            [AXIS_ID_FILTERS]: [
                 DIMENSION_ID_ORGUNIT,
                 DIMENSION_ID_PERIOD,
                 someId,
@@ -62,17 +62,17 @@ describe('pieLayoutAdapter', () => {
 describe('yearOverYearLayoutAdapter', () => {
     it('should remove the "pe" dimension and move all other dimensions to filter', () => {
         const initialState = {
-            [AXIS_NAME_COLUMNS]: [DIMENSION_ID_DATA, someId],
-            [AXIS_NAME_ROWS]: [DIMENSION_ID_PERIOD, otherId],
-            [AXIS_NAME_FILTERS]: [DIMENSION_ID_ORGUNIT],
+            [AXIS_ID_COLUMNS]: [DIMENSION_ID_DATA, someId],
+            [AXIS_ID_ROWS]: [DIMENSION_ID_PERIOD, otherId],
+            [AXIS_ID_FILTERS]: [DIMENSION_ID_ORGUNIT],
         };
 
         const actualState = yearOverYearLayoutAdapter(initialState);
 
         const expectedState = {
-            [AXIS_NAME_COLUMNS]: [],
-            [AXIS_NAME_ROWS]: [],
-            [AXIS_NAME_FILTERS]: [
+            [AXIS_ID_COLUMNS]: [],
+            [AXIS_ID_ROWS]: [],
+            [AXIS_ID_FILTERS]: [
                 DIMENSION_ID_ORGUNIT,
                 DIMENSION_ID_DATA,
                 someId,

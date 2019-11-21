@@ -1,7 +1,7 @@
 import {
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
-    layoutGetAxisNameDimensionIdsObject,
+    layoutGetAxisIdDimensionIdsObject,
     layoutGetDimensionIdItemIdsObject,
     VIS_TYPE_YEAR_OVER_YEAR_LINE,
     VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
@@ -28,7 +28,7 @@ export const getUiFromVisualization = (vis, currentState = {}) => ({
     ...currentState,
     type: vis.type || defaultVisType,
     options: getOptionsFromVisualization(vis),
-    layout: layoutGetAxisNameDimensionIdsObject(vis),
+    layout: layoutGetAxisIdDimensionIdsObject(vis),
     itemsByDimension: layoutGetDimensionIdItemIdsObject(vis),
     parentGraphMap:
         vis.parentGraphMap ||
@@ -88,7 +88,7 @@ export const getAdaptedUiByType = ui => {
 };
 
 export const getParentGraphMapFromVisualization = vis => {
-    const dimensionIdsByAxis = layoutGetAxisNameDimensionIdsObject(vis);
+    const dimensionIdsByAxis = layoutGetAxisIdDimensionIdsObject(vis);
     const inverseLayout = getInverseLayout(dimensionIdsByAxis);
     const ouAxis = inverseLayout[DIMENSION_ID_ORGUNIT];
 

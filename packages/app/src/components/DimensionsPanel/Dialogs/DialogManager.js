@@ -40,7 +40,7 @@ import {
     sGetUiActiveModalDialog,
     sGetUiParentGraphMap,
     sGetUiType,
-    getAxisNameByDimensionId,
+    getAxisIdByDimensionId,
 } from '../../../reducers/ui';
 import { sGetDimensions } from '../../../reducers/dimensions';
 import { sGetMetadata } from '../../../reducers/metadata';
@@ -206,13 +206,13 @@ export class DialogManager extends Component {
             const selectedItems = this.getSelectedItems(dialogId);
             let infoBoxMessage;
 
-            const axisName = this.props.getAxisNameByDimensionId(dialogId);
+            const axisId = this.props.getAxisIdByDimensionId(dialogId);
             const visType = type;
             const numberOfItems = selectedItems.length;
 
             const maxNumberOfItemsPerAxis = getMaxNumberOfItemsPerAxis(
                 visType,
-                axisName
+                axisId
             );
 
             const hasMaxNumberOfItemsRule = !!maxNumberOfItemsPerAxis;
@@ -350,8 +350,8 @@ const mapStateToProps = state => ({
     ouIds: sGetUiItemsByDimension(state, DIMENSION_ID_ORGUNIT),
     selectedItems: sGetUiItems(state),
     type: sGetUiType(state),
-    getAxisNameByDimensionId: dimensionId =>
-        getAxisNameByDimensionId(state, dimensionId),
+    getAxisIdByDimensionId: dimensionId =>
+        getAxisIdByDimensionId(state, dimensionId),
 });
 
 export default connect(

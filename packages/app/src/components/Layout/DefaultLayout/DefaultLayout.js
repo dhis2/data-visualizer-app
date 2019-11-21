@@ -11,14 +11,14 @@ const Layout = () => (
             style={{ ...styles.axisGroup, ...styles.axisGroupLeft }}
         >
             <DefaultAxis
-                axisName="columns"
+                axisId="columns"
                 style={{
                     ...styles.columns,
                     ...defaultAxisStyles.axisContainerLeft,
                 }}
             />
             <DefaultAxis
-                axisName="rows"
+                axisId="rows"
                 style={{
                     ...styles.rows,
                     ...defaultAxisStyles.axisContainerLeft,
@@ -29,7 +29,7 @@ const Layout = () => (
             id="axis-group-2"
             style={{ ...styles.axisGroup, ...styles.axisGroupRight }}
         >
-            <DefaultAxis axisName="filters" style={styles.filters} />
+            <DefaultAxis axisId="filters" style={styles.filters} />
         </div>
     </div>
 );

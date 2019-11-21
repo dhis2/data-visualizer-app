@@ -39,7 +39,7 @@ jest.mock('@dhis2/analytics', () => {
         },
         getMaxNumberOfItemsPerAxis: () => {},
         filterOutFixedDimensions: () => [],
-        getAxisDisplayName: () => {},
+        getAxisName: () => {},
     };
 });
 
@@ -76,7 +76,7 @@ describe('The DialogManager component', () => {
             metadata: {},
             closeDialog: jest.fn(),
             setRecommendedIds: jest.fn(),
-            getAxisNameByDimensionId: () => {},
+            getAxisIdByDimensionId: () => {},
         };
         shallowDialog = undefined;
     });

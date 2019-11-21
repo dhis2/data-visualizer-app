@@ -57,7 +57,7 @@ export class Dimensions extends Component {
     lockedDimension = dimension =>
         this.props.lockedDimensions.includes(dimension.id);
 
-    getUiAxisName = () => {
+    getUiAxisId = () => {
         const adaptedUi = getAdaptedUiByType(this.props.ui);
         const inverseLayout = getInverseLayout(adaptedUi.layout);
 
@@ -85,7 +85,7 @@ export class Dimensions extends Component {
                 {/* {this.state.dimensionMenuAnchorEl && ( */}
                 <DimensionMenu
                     dimensionId={this.state.dimensionId}
-                    currentAxisName={this.getUiAxisName()}
+                    currentAxisId={this.getUiAxisId()}
                     visType={this.props.ui.type}
                     numberOfDimensionItems={this.getNumberOfDimensionItems()}
                     dualAxisItemHandler={this.props.dualAxisItemHandler}
@@ -131,8 +131,8 @@ const mapDispatchToProps = dispatch => ({
         dispatch(fromActions.fromUi.acSetUiActiveModalDialog(id)),
     dualAxisItemHandler: () =>
         dispatch(acSetUiActiveModalDialog(AXIS_SETUP_DIALOG_ID)),
-    axisItemHandler: (dimensionId, targetAxisName, numberOfDimensionItems) => {
-        dispatch(acAddUiLayoutDimensions({ [dimensionId]: targetAxisName }));
+    axisItemHandler: (dimensionId, targetAxisId, numberOfDimensionItems) => {
+        dispatch(acAddUiLayoutDimensions({ [dimensionId]: targetAxisId }));
 
         if (numberOfDimensionItems > 0) {
             dispatch(acSetUiActiveModalDialog(dimensionId));

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getAxisDisplayName } from '@dhis2/analytics';
+import { getAxisName } from '@dhis2/analytics';
 
 import {
     sGetUiYearOverYearSeries,
@@ -11,11 +11,11 @@ import YearOverYearAxisStyles from './styles/YearOverYearAxis.style';
 
 const YearOverYearAxis = props => (
     <div
-        id={props.axisName}
+        id={props.axisId}
         style={{ ...defaultAxisStyles.axisContainer, ...props.style }}
     >
         <div className="label" style={defaultAxisStyles.label}>
-            {getAxisDisplayName(props.axisName)}
+            {getAxisName(props.axisId)}
         </div>
         <div
             className="content"

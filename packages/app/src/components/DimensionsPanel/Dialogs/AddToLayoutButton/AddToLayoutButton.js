@@ -37,9 +37,9 @@ export class AddToLayoutButton extends Component {
             ? this.onClose()
             : this.setState({ anchorEl: event.currentTarget });
 
-    onUpdate = axisName => {
+    onUpdate = axisId => {
         this.props.onAddDimension({
-            [this.props.dialogId]: axisName,
+            [this.props.dialogId]: axisId,
         });
 
         this.props.onUpdate();
@@ -47,10 +47,10 @@ export class AddToLayoutButton extends Component {
         this.props.closeDialog(null);
     };
 
-    getAxisMeta = axisNameArray =>
-        axisNameArray.map(axisName =>
+    getAxisMeta = axisIdArray =>
+        axisIdArray.map(axisId =>
             ADD_TO_LAYOUT_OPTIONS.find(
-                axisMetaObj => axisMetaObj.axisName === axisName
+                axisMetaObj => axisMetaObj.axisId === axisId
             )
         );
 
@@ -61,8 +61,8 @@ export class AddToLayoutButton extends Component {
                 <MenuItem
                     className={this.props.classes.menuItem}
                     component="li"
-                    key={axisMetaObj.axisName}
-                    onClick={() => this.onUpdate(axisMetaObj.axisName)}
+                    key={axisMetaObj.axisId}
+                    onClick={() => this.onUpdate(axisMetaObj.axisId)}
                 >
                     {axisMetaObj.name}
                 </MenuItem>
@@ -81,7 +81,7 @@ export class AddToLayoutButton extends Component {
                     color="primary"
                     disableRipple
                     disableFocusRipple
-                    onClick={() => this.onUpdate(availableAxisMeta[0].axisName)}
+                    onClick={() => this.onUpdate(availableAxisMeta[0].axisId)}
                 >
                     {availableAxisMeta[0].name}
                 </Button>
