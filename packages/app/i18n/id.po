@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-08-08T13:09:25.099Z\n"
+"POT-Creation-Date: 2019-11-21T07:25:38.180Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2019\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
@@ -46,17 +46,17 @@ msgid "Update"
 msgstr "Perbarui"
 
 msgid ""
-"'Single Value' is intended to show a single data item. Only the first item "
-"will be used and saved."
+"'{{visualiationType}}' is intended to show a single data item. Only the "
+"first item will be used and saved."
 msgstr ""
-"'Nilai Tunggal' berguna untuk menyajikan item data tunggal. Hanya item "
-"pertama yang akan digunakan dan disimpan."
+
+msgid ""
+"'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
+"items. Only the first {{maxNumber}} items will be used and saved."
+msgstr ""
 
 msgid "Hide"
 msgstr "Sembunyikan"
-
-msgid "Remove"
-msgstr "Hapus"
 
 msgid "Download"
 msgstr "Unduh"
@@ -106,29 +106,29 @@ msgstr "Informasi berikut mungkin diperlukan untuk dukungan teknis."
 msgid "Interpretations"
 msgstr "Interpretasi"
 
-msgid "{{total}} of 1 selected"
-msgstr "{{total}} dari 1 terpilih"
+msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
+msgstr ""
+
+msgid "{{total}} of {{maxNumberOfItemsPerAxis}} selected"
+msgstr ""
 
 msgid "{{total}} selected"
 msgstr "{{total}} terpilih"
 
-msgid "Series"
-msgstr "Seri"
-
-msgid "Category"
-msgstr "Kategori"
-
-msgid "Filter"
-msgstr "Saring"
-
 msgid "Move to"
 msgstr "Pindahkan ke"
+
+msgid "Remove"
+msgstr "Hapus"
 
 msgid "None selected"
 msgstr "Tidak ada yang terpilih"
 
 msgid "Only '{{name}}' in use"
 msgstr "Hanya '{{name}}' yang digunakan"
+
+msgid "Only '{{number}}' in use"
+msgstr ""
 
 msgid "Unsaved chart"
 msgstr "Grafik yang belum disimpan"
@@ -138,6 +138,9 @@ msgstr "Diedit"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "Melihat interpretasi dari {{interpretationDate}}"
+
+msgid "Error validating layout"
+msgstr ""
 
 msgid "Create a new visualization by adding dimensions to the layout"
 msgstr "Buat visualisasi baru dengan menambahkan dimensi ke dalam layout"
@@ -303,42 +306,6 @@ msgstr "Opsi"
 
 msgid "Chart options"
 msgstr "Opsi grafik"
-
-msgid "Column"
-msgstr "Kolom"
-
-msgid "Stacked column"
-msgstr "Kolom tumpuk"
-
-msgid "Bar"
-msgstr "Bar"
-
-msgid "Stacked bar"
-msgstr "Bar tumpuk"
-
-msgid "Line"
-msgstr "Garis"
-
-msgid "Area"
-msgstr "Area"
-
-msgid "Pie"
-msgstr "Pie"
-
-msgid "Radar"
-msgstr "Radar"
-
-msgid "Gauge"
-msgstr "Meteran"
-
-msgid "Year over year (line)"
-msgstr "Tahun ke tahun (garis)"
-
-msgid "Year over year (column)"
-msgstr "Tahun ke tahun (kolom)"
-
-msgid "Single value"
-msgstr "Nilai tunggal"
 
 msgid "Open as Map"
 msgstr "Buka sebagai Peta"
