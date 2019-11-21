@@ -6,7 +6,6 @@ import isEqual from 'lodash-es/isEqual';
 
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
-
 import i18n from '@dhis2/d2-i18n';
 import {
     DataDimension,
@@ -17,8 +16,9 @@ import {
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
-    FIXED_DIMENSIONS,
-    isSingleValue,
+    getMaxNumberOfItemsPerAxis,
+    getDisplayNameByVisType,
+    filterOutFixedDimensions,
 } from '@dhis2/analytics';
 
 import HideButton from './HideButton';
@@ -40,6 +40,7 @@ import {
     sGetUiActiveModalDialog,
     sGetUiParentGraphMap,
     sGetUiType,
+    getAxisIdByDimensionId,
 } from '../../../reducers/ui';
 import { sGetDimensions } from '../../../reducers/dimensions';
 import { sGetMetadata } from '../../../reducers/metadata';
@@ -133,11 +134,6 @@ export class DialogManager extends Component {
                   .map((id, index) => ({
                       id,
                       name: this.props.metadata[id].name,
-                      isActive:
-                          dialogId === DIMENSION_ID_DATA &&
-                          isSingleValue(this.props.type)
-                              ? index === 0
-                              : true,
                   }))
             : [];
     };
@@ -208,15 +204,49 @@ export class DialogManager extends Component {
 
         const dynamicContent = () => {
             const selectedItems = this.getSelectedItems(dialogId);
+            let infoBoxMessage;
+
+            const axisId = this.props.getAxisIdByDimensionId(dialogId);
+            const visType = type;
+            const numberOfItems = selectedItems.length;
+
+            const maxNumberOfItemsPerAxis = getMaxNumberOfItemsPerAxis(
+                visType,
+                axisId
+            );
+
+            const hasMaxNumberOfItemsRule = !!maxNumberOfItemsPerAxis;
+
+            if (
+                hasMaxNumberOfItemsRule &&
+                numberOfItems > maxNumberOfItemsPerAxis
+            ) {
+                infoBoxMessage =
+                    maxNumberOfItemsPerAxis === 1
+                        ? i18n.t(
+                              `'{{visualiationType}}' is intended to show a single data item. Only the first item will be used and saved.`,
+                              {
+                                  visualiationType: getDisplayNameByVisType(
+                                      visType
+                                  ),
+                              }
+                          )
+                        : i18n.t(
+                              `'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of items. Only the first {{maxNumber}} items will be used and saved.`,
+                              {
+                                  visualiationType: getDisplayNameByVisType(
+                                      visType
+                                  ),
+                                  maxNumber: maxNumberOfItemsPerAxis,
+                              }
+                          );
+
+                selectedItems.forEach((item, index) => {
+                    item.isActive = index < maxNumberOfItemsPerAxis;
+                });
+            }
 
             if (dialogId === DIMENSION_ID_DATA) {
-                const infoBoxMessage =
-                    isSingleValue(type) && selectedItems.length > 1
-                        ? i18n.t(
-                              "'Single Value' is intended to show a single data item. Only the first item will be used and saved."
-                          )
-                        : null;
-
                 return (
                     <DataDimension
                         displayNameProp={displayNameProperty}
@@ -232,11 +262,16 @@ export class DialogManager extends Component {
                     <PeriodDimension
                         selectedPeriods={selectedItems}
                         {...dimensionProps}
+                        // TODO infoBoxMessage should ideally be implemented for all dimensions
                     />
                 );
             }
 
-            if (!Object.keys(FIXED_DIMENSIONS).includes(dialogId)) {
+            const dynamicDimensions = filterOutFixedDimensions(
+                Object.keys(this.props.dimensions)
+            );
+
+            if (dynamicDimensions.includes(dialogId)) {
                 const dialogTitle =
                     dimensions[dialogId] && dimensions[dialogId].name;
 
@@ -246,6 +281,7 @@ export class DialogManager extends Component {
                         dialogId={dialogId}
                         dialogTitle={dialogTitle}
                         {...dimensionProps}
+                        // TODO infoBoxMessage should ideally be implemented for all dimensions
                     />
                 );
             }
@@ -314,6 +350,8 @@ const mapStateToProps = state => ({
     ouIds: sGetUiItemsByDimension(state, DIMENSION_ID_ORGUNIT),
     selectedItems: sGetUiItems(state),
     type: sGetUiType(state),
+    getAxisIdByDimensionId: dimensionId =>
+        getAxisIdByDimensionId(state, dimensionId),
 });
 
 export default connect(

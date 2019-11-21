@@ -37,9 +37,9 @@ jest.mock('@dhis2/analytics', () => {
             [periodId]: {},
             [ouId]: {},
         },
-        axisLabels: {
-            columns: 'columns',
-        },
+        getMaxNumberOfItemsPerAxis: () => {},
+        filterOutFixedDimensions: () => [],
+        getAxisName: () => {},
     };
 });
 
@@ -76,17 +76,13 @@ describe('The DialogManager component', () => {
             metadata: {},
             closeDialog: jest.fn(),
             setRecommendedIds: jest.fn(),
+            getAxisIdByDimensionId: () => {},
         };
         shallowDialog = undefined;
     });
 
     it('renders a closed dialog', () => {
         expect(dialogManager()).toMatchSnapshot();
-    });
-
-    it('renders the DynamicDimension content in dialog', () => {
-        const dialog = dialogManager().setProps({ dialogId: 'test' });
-        expect(dialog).toMatchSnapshot();
     });
 
     it('should add the dialogId of fixed dimensions to state "mounted" on first time render', () => {

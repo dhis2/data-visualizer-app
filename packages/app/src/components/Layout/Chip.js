@@ -1,11 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import WarningIcon from '@material-ui/icons/Warning';
+import LockIcon from '@material-ui/icons/Lock';
 import i18n from '@dhis2/d2-i18n';
 import {
     FIXED_DIMENSIONS,
-    DIMENSION_ID_DATA,
-    isSingleValue,
+    getMaxNumberOfItemsPerAxis,
+    hasTooManyItemsPerAxis,
+    getLockedDimensionAxis,
+    getDisplayNameByVisType,
+    getAxisName,
 } from '@dhis2/analytics';
 
 import Menu from './Menu';
@@ -75,36 +79,71 @@ class Chip extends React.Component {
         return <DynamicDimensionIcon style={styles.dynamicDimensionIcon} />;
     };
 
-    isSingleValueDataDimension = () =>
-        isSingleValue(this.props.type) &&
-        this.props.dimensionId === DIMENSION_ID_DATA &&
-        this.props.items.length > 1;
-
+    // TODO refactor this very long function
     renderChip = () => {
-        const itemsLabel = this.isSingleValueDataDimension()
-            ? i18n.t('{{total}} of 1 selected', {
-                  total: this.props.items.length,
-              })
-            : i18n.t('{{total}} selected', {
-                  total: this.props.items.length,
-              });
+        const axisId = this.props.axisId;
+        const visType = this.props.type;
+        const numberOfItems = this.props.items.length;
 
-        const activeItemIds = this.isSingleValueDataDimension()
-            ? this.props.items.slice(0, 1)
-            : [];
+        const isLocked = getLockedDimensionAxis(
+            visType,
+            this.props.dimensionId
+        ).includes(axisId);
+
+        const lockedMessage = isLocked
+            ? i18n.t(
+                  `{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}`,
+                  {
+                      dimensionName: this.props.dimensionName,
+                      axisName: getDisplayNameByVisType(visType),
+                      visTypeName: getAxisName(axisId),
+                  }
+              )
+            : null;
+
+        const maxNumberOfItemsPerAxis = getMaxNumberOfItemsPerAxis(
+            visType,
+            axisId
+        );
+
+        const hasMaxNumberOfItemsRule = !!maxNumberOfItemsPerAxis;
+
+        const itemsLabel =
+            hasMaxNumberOfItemsRule && numberOfItems > maxNumberOfItemsPerAxis
+                ? i18n.t(`{{total}} of {{maxNumberOfItemsPerAxis}} selected`, {
+                      total: numberOfItems,
+                      maxNumberOfItemsPerAxis,
+                  })
+                : i18n.t('{{total}} selected', {
+                      total: numberOfItems,
+                  });
+
+        const activeItemIds = hasMaxNumberOfItemsRule
+            ? this.props.items.slice(0, maxNumberOfItemsPerAxis)
+            : this.props.items;
 
         const chipLabel = `${this.props.dimensionName}${
-            this.props.items.length > 0 ? `: ${itemsLabel}` : ''
+            numberOfItems > 0 ? `: ${itemsLabel}` : ''
         }`;
         const anchorEl = document.getElementById(this.id);
         const icon = this.getIconByDimension();
         const wrapperStyle = {
             ...styles.chipWrapper,
-            ...(!this.props.items.length ? styles.chipEmpty : {}),
+            ...(!numberOfItems ? styles.chipEmpty : {}),
         };
-        const warningIcon = this.isSingleValueDataDimension() ? (
+        const warningIcon = hasTooManyItemsPerAxis(
+            visType,
+            axisId,
+            numberOfItems
+        ) ? (
             <div style={styles.warningIconWrapper}>
                 <WarningIcon style={styles.warningIcon} />
+            </div>
+        ) : null;
+
+        const lockIcon = isLocked ? (
+            <div style={styles.lockIconWrapper}>
+                <LockIcon style={styles.lockIcon} />
             </div>
         ) : null;
 
@@ -112,8 +151,8 @@ class Chip extends React.Component {
             <div
                 style={wrapperStyle}
                 data-dimensionid={this.props.dimensionId}
-                draggable="true"
-                onDragStart={this.getDragStartHandler(this.props.axisName)}
+                draggable={!isLocked}
+                onDragStart={this.getDragStartHandler(this.props.axisId)}
             >
                 <div
                     id={this.id}
@@ -125,19 +164,26 @@ class Chip extends React.Component {
                     <div style={styles.iconWrapper}>{icon}</div>
                     {chipLabel}
                     {warningIcon}
+                    {lockIcon}
                 </div>
-                <div style={styles.chipRight}>
-                    <Menu
-                        dimensionId={this.props.dimensionId}
-                        currentAxisName={this.props.axisName}
-                        visType={this.props.type}
-                        numberOfDimensionItems={this.props.items.length}
-                    />
-                </div>
+                {!isLocked && (
+                    <div style={styles.chipRight}>
+                        <Menu
+                            dimensionId={this.props.dimensionId}
+                            currentAxisId={this.props.axisId}
+                            visType={this.props.type}
+                            numberOfDimensionItems={this.props.items.length}
+                        />
+                    </div>
+                )}
                 {anchorEl && (
                     <Tooltip
                         dimensionId={this.props.dimensionId}
-                        activeItemIds={activeItemIds}
+                        itemIds={activeItemIds}
+                        lockedLabel={lockedMessage}
+                        displayLimitedAmount={
+                            this.props.items.length > activeItemIds.length
+                        }
                         open={this.state.tooltipOpen}
                         anchorEl={anchorEl}
                     />

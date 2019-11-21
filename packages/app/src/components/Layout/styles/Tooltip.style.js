@@ -15,6 +15,19 @@ export const styles = {
     list: {
         listStyleType: 'none',
         margin: '0px',
+        marginBottom: '-3px',
         padding: '0px',
+    },
+    item: {
+        marginBottom: '3px',
+    },
+    icon: {
+        fontSize: '13px',
+        marginRight: '6px',
+    },
+    iconWrapper: {
+        display: 'flex',
+        alignItems: 'center',
+        marginBottom: '5px',
     },
 };

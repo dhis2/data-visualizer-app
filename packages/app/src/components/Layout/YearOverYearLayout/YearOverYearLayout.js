@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { AXIS_NAME_FILTERS } from '@dhis2/analytics';
+import { AXIS_ID_FILTERS } from '@dhis2/analytics';
 
 import DefaultAxis from '../DefaultLayout/DefaultAxis';
 import defaultLayoutStyles from '../DefaultLayout/styles/DefaultLayout.style';
@@ -28,7 +28,7 @@ const Layout = props => (
             }}
         >
             <YearOverYearAxis
-                axisName="yearOverYearSeries"
+                axisId="yearOverYearSeries"
                 style={{
                     ...defaultLayoutStyles.columns,
                     ...defaultAxisStyles.axisContainerLeft,
@@ -42,7 +42,7 @@ const Layout = props => (
                 />
             </YearOverYearAxis>
             <YearOverYearAxis
-                axisName="yearOverYearCategory"
+                axisId="yearOverYearCategory"
                 style={{
                     ...defaultLayoutStyles.rows,
                     ...defaultAxisStyles.axisContainerLeft,
@@ -63,7 +63,7 @@ const Layout = props => (
             }}
         >
             <DefaultAxis
-                axisName={AXIS_NAME_FILTERS}
+                axisId={AXIS_ID_FILTERS}
                 style={defaultLayoutStyles.filters}
             />
         </div>

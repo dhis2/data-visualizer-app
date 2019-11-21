@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Button from '@material-ui/core/Button';
 
 import { AddToLayoutButton } from '../AddToLayoutButton';
 
@@ -14,6 +13,9 @@ describe('The AddToLayoutButton component ', () => {
         }
         return shallowButton;
     };
+
+    // TODO remove
+    console.log('getShallowAddToLayoutButton', getShallowAddToLayoutButton);
 
     beforeEach(() => {
         props = {

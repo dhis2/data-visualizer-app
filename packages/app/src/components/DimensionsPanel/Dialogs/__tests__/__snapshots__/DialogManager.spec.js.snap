@@ -82,7 +82,6 @@ exports[`The DialogManager component renders OUDimension content with display:no
     />
   </div>
   <DataDimension
-    infoBoxMessage={null}
     onSelect={[Function]}
     selectedDimensions={Array []}
   />
@@ -120,7 +119,6 @@ exports[`The DialogManager component renders the DataDimension content in dialog
   open={false}
 >
   <DataDimension
-    infoBoxMessage={null}
     onSelect={[Function]}
     selectedDimensions={Array []}
   />
@@ -128,29 +126,6 @@ exports[`The DialogManager component renders the DataDimension content in dialog
     <Connect(HideButton) />
     <Connect(WithStyles(AddToLayoutButton))
       dialogId="dx"
-    />
-  </Component>
-</Component>
-`;
-
-exports[`The DialogManager component renders the DynamicDimension content in dialog 1`] = `
-<Component
-  data-test="dialog-manager"
-  disableEnforceFocus={true}
-  keepMounted={false}
-  maxWidth="lg"
-  onClose={[Function]}
-  open={true}
->
-  <DynamicDimension
-    dialogId="test"
-    onSelect={[Function]}
-    selectedItems={Array []}
-  />
-  <Component>
-    <Connect(HideButton) />
-    <Connect(WithStyles(AddToLayoutButton))
-      dialogId="test"
     />
   </Component>
 </Component>

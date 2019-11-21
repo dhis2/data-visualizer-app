@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-11-21T10:34:34.957Z\n"
-"PO-Revision-Date: 2019-11-21T10:34:34.957Z\n"
+"POT-Creation-Date: 2019-11-21T07:25:38.180Z\n"
+"PO-Revision-Date: 2019-11-21T07:25:38.180Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -38,8 +38,13 @@ msgid "Update"
 msgstr ""
 
 msgid ""
-"'Single Value' is intended to show a single data item. Only the first item "
-"will be used and saved."
+"'{{visualiationType}}' is intended to show a single data item. Only the "
+"first item will be used and saved."
+msgstr ""
+
+msgid ""
+"'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
+"items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
 
 msgid "Hide"
@@ -93,22 +98,19 @@ msgstr ""
 msgid "Interpretations"
 msgstr ""
 
-msgid "{{total}} of 1 selected"
+msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
+msgstr ""
+
+msgid "{{total}} of {{maxNumberOfItemsPerAxis}} selected"
 msgstr ""
 
 msgid "{{total}} selected"
 msgstr ""
 
-msgid "Series"
-msgstr ""
-
-msgid "Category"
-msgstr ""
-
-msgid "Filter"
-msgstr ""
-
 msgid "Move to"
+msgstr ""
+
+msgid "Remove"
 msgstr ""
 
 msgid "Remove"
@@ -118,6 +120,9 @@ msgid "None selected"
 msgstr ""
 
 msgid "Only '{{name}}' in use"
+msgstr ""
+
+msgid "Only '{{number}}' in use"
 msgstr ""
 
 msgid "Unsaved chart"

@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import {
     DimensionsPanel,
     DimensionMenu,
-    getDisallowedDims,
+    getDisallowedDimensions,
+    getLockedDimensions,
 } from '@dhis2/analytics';
 
 import DialogManager from './Dialogs/DialogManager';
@@ -50,10 +51,13 @@ export class Dimensions extends Component {
         setDataTransfer(e, SOURCE_DIMENSIONS);
     };
 
-    disabledDimension = dimension =>
-        this.props.disallowedDimensions.includes(dimension.id);
+    disabledDimension = dimensionId =>
+        this.props.disallowedDimensions.includes(dimensionId);
 
-    getUiAxisName = () => {
+    lockedDimension = dimensionId =>
+        this.props.lockedDimensions.includes(dimensionId);
+
+    getUiAxisId = () => {
         const adaptedUi = getAdaptedUiByType(this.props.ui);
         const inverseLayout = getInverseLayout(adaptedUi.layout);
 
@@ -70,8 +74,9 @@ export class Dimensions extends Component {
                     dimensions={this.props.dimensions}
                     selectedIds={this.props.selectedIds}
                     disabledDimension={this.disabledDimension}
-                    recommendedDimension={dimension =>
-                        this.props.recommendedIds.includes(dimension.id)
+                    lockedDimension={this.lockedDimension}
+                    recommendedDimension={dimensionId =>
+                        this.props.recommendedIds.includes(dimensionId)
                     }
                     onDimensionOptionsClick={this.onDimensionOptionsClick}
                     onDimensionDragStart={this.onDimensionDragStart}
@@ -80,7 +85,7 @@ export class Dimensions extends Component {
                 {/* {this.state.dimensionMenuAnchorEl && ( */}
                 <DimensionMenu
                     dimensionId={this.state.dimensionId}
-                    currentAxisName={this.getUiAxisName()}
+                    currentAxisId={this.getUiAxisId()}
                     visType={this.props.ui.type}
                     numberOfDimensionItems={this.getNumberOfDimensionItems()}
                     dualAxisItemHandler={this.props.dualAxisItemHandler}
@@ -96,9 +101,14 @@ export class Dimensions extends Component {
     }
 }
 
-const getDisallowedDimensions = createSelector(
+const getDisallowedDimensionsMemo = createSelector(
     [sGetUiType],
-    type => getDisallowedDims(type)
+    type => getDisallowedDimensions(type)
+);
+
+const getLockedDimensionsMemo = createSelector(
+    [sGetUiType],
+    type => getLockedDimensions(type)
 );
 
 const mapStateToProps = state => {
@@ -111,7 +121,8 @@ const mapStateToProps = state => {
         ),
         layout: fromReducers.fromUi.sGetUiLayout(state),
         itemsByDimension: fromReducers.fromUi.sGetUiItems(state),
-        disallowedDimensions: getDisallowedDimensions(state),
+        disallowedDimensions: getDisallowedDimensionsMemo(state),
+        lockedDimensions: getLockedDimensionsMemo(state),
     };
 };
 
@@ -120,8 +131,8 @@ const mapDispatchToProps = dispatch => ({
         dispatch(fromActions.fromUi.acSetUiActiveModalDialog(id)),
     dualAxisItemHandler: () =>
         dispatch(acSetUiActiveModalDialog(AXIS_SETUP_DIALOG_ID)),
-    axisItemHandler: (dimensionId, targetAxisName, numberOfDimensionItems) => {
-        dispatch(acAddUiLayoutDimensions({ [dimensionId]: targetAxisName }));
+    axisItemHandler: (dimensionId, targetAxisId, numberOfDimensionItems) => {
+        dispatch(acAddUiLayoutDimensions({ [dimensionId]: targetAxisId }));
 
         if (numberOfDimensionItems > 0) {
             dispatch(acSetUiActiveModalDialog(dimensionId));

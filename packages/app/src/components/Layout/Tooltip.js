@@ -4,20 +4,21 @@ import { connect } from 'react-redux';
 import Popper from '@material-ui/core/Popper';
 import Paper from '@material-ui/core/Paper';
 import i18n from '@dhis2/d2-i18n';
+import LockIcon from '@material-ui/icons/Lock';
+import WarningIcon from '@material-ui/icons/Warning';
 
-import { sGetUiItemsByDimension } from '../../reducers/ui';
 import { sGetMetadata } from '../../reducers/metadata';
 import { styles } from './styles/Tooltip.style';
 
 const labels = {
     noneSelected: i18n.t('None selected'),
     onlyOneInUse: name => i18n.t("Only '{{name}}' in use", { name }),
+    onlyLimitedNumberInUse: number =>
+        i18n.t("Only '{{number}}' in use", { number }),
 };
 
-const emptyItems = [];
-
 export class Tooltip extends React.Component {
-    renderTooltip = names => (
+    renderTooltip = (names, warning) => (
         <Popper
             anchorEl={this.props.anchorEl}
             open={this.props.open}
@@ -26,8 +27,27 @@ export class Tooltip extends React.Component {
             <Paper style={styles.tooltip}>
                 {
                     <ul style={styles.list}>
+                        {warning && (
+                            <li style={styles.item}>
+                                <div style={styles.iconWrapper}>
+                                    <WarningIcon style={styles.icon} />
+                                    <span>{warning}</span>
+                                </div>
+                            </li>
+                        )}
+                        {this.props.lockedLabel && (
+                            <li style={styles.item}>
+                                <div style={styles.iconWrapper}>
+                                    <LockIcon style={styles.icon} />
+                                    <span>{this.props.lockedLabel}</span>
+                                </div>
+                            </li>
+                        )}
                         {names.map(name => (
-                            <li key={`${this.props.dimensionId}-${name}`}>
+                            <li
+                                key={`${this.props.dimensionId}-${name}`}
+                                style={styles.item}
+                            >
                                 {name}
                             </li>
                         ))}
@@ -37,45 +57,44 @@ export class Tooltip extends React.Component {
         </Popper>
     );
 
+    getLimitedLabel = (itemIds, metadata) =>
+        itemIds.length === 1
+            ? labels.onlyOneInUse(
+                  metadata[itemIds[0]] ? metadata[itemIds[0]].name : itemIds[0]
+              )
+            : labels.onlyLimitedNumberInUse(itemIds.length);
+
     render() {
-        const { itemIds, activeItemIds, metadata } = this.props;
+        const { itemIds, metadata, displayLimitedAmount } = this.props;
 
-        let names = [];
+        const names = [];
 
-        if (activeItemIds.length) {
-            if (activeItemIds.length === 1) {
-                const id = activeItemIds[0];
-                names = [
-                    labels.onlyOneInUse(metadata[id] ? metadata[id].name : id),
-                ];
-            } else {
-                names = activeItemIds.map(id =>
-                    metadata[id] ? metadata[id].name : id
-                );
-            }
-        } else if (itemIds.length) {
-            names = itemIds.map(id => (metadata[id] ? metadata[id].name : id));
-        } else {
-            names = [labels.noneSelected];
+        const warning = displayLimitedAmount
+            ? this.getLimitedLabel(itemIds, metadata)
+            : null;
+
+        if (itemIds.length && !displayLimitedAmount) {
+            names.push(
+                ...itemIds.map(id => (metadata[id] ? metadata[id].name : id))
+            );
+        } else if (!itemIds.length) {
+            names.push(labels.noneSelected);
         }
 
-        return names.length ? this.renderTooltip(names) : '';
+        return this.renderTooltip(names, warning);
     }
 }
-
-Tooltip.defaultProps = {
-    activeItemIds: [],
-};
 
 Tooltip.propTypes = {
     open: PropTypes.bool.isRequired,
     anchorEl: PropTypes.object.isRequired,
     dimensionId: PropTypes.string.isRequired,
-    activeItemIds: PropTypes.array,
+    lockedLabel: PropTypes.string,
+    itemIds: PropTypes.array,
+    displayLimitedAmount: PropTypes.bool,
 };
 
 const mapStateToProps = (state, ownProps) => ({
-    itemIds: sGetUiItemsByDimension(state, ownProps.dimensionId) || emptyItems,
     metadata: sGetMetadata(state),
 });
 

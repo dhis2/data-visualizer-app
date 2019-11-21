@@ -3,12 +3,16 @@ import {
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
-    AXIS_NAME_COLUMNS,
-    AXIS_NAME_ROWS,
+    AXIS_ID_COLUMNS,
+    AXIS_ID_ROWS,
     VIS_TYPE_COLUMN,
 } from '@dhis2/analytics';
 
-import { getFilteredLayout, getSwapModObj } from '../modules/layout';
+import {
+    getFilteredLayout,
+    getSwapModObj,
+    getInverseLayout,
+} from '../modules/layout';
 import { getOptionsForUi } from '../modules/options';
 import { getUiFromVisualization } from '../modules/ui';
 
@@ -88,7 +92,7 @@ export default (state = DEFAULT_UI, action) => {
                 },
             };
         }
-        // action.value: mod object (dimensionId:axisName) saying what to add where: { ou: 'rows' }
+        // action.value: mod object (dimensionId:axisId) saying what to add where: { ou: 'rows' }
         // Reducer takes care of swapping if dimension already exists in layout
         case ADD_UI_LAYOUT_DIMENSIONS: {
             const modObjWithSwap = {
@@ -101,17 +105,13 @@ export default (state = DEFAULT_UI, action) => {
                 Object.keys(modObjWithSwap)
             );
 
-            Object.entries(modObjWithSwap).forEach(
-                ([dimensionId, axisName]) => {
-                    if (
-                        [AXIS_NAME_COLUMNS, AXIS_NAME_ROWS].includes(axisName)
-                    ) {
-                        newLayout[axisName] = [dimensionId];
-                    } else {
-                        newLayout[axisName].push(dimensionId);
-                    }
+            Object.entries(modObjWithSwap).forEach(([dimensionId, axisId]) => {
+                if ([AXIS_ID_COLUMNS, AXIS_ID_ROWS].includes(axisId)) {
+                    newLayout[axisId] = [dimensionId];
+                } else {
+                    newLayout[axisId].push(dimensionId);
                 }
-            );
+            });
 
             return {
                 ...state,
@@ -252,10 +252,6 @@ export const sGetUiType = state => sGetUi(state).type;
 export const sGetUiOptions = state => sGetUi(state).options;
 export const sGetUiLayout = state => sGetUi(state).layout;
 export const sGetUiItems = state => sGetUi(state).itemsByDimension;
-
-export const sGetUiItemsByDimension = (state, dimension) =>
-    sGetUiItems(state)[dimension] || DEFAULT_UI.itemsByDimension[dimension];
-
 export const sGetUiYearOverYearSeries = state =>
     sGetUi(state).yearOverYearSeries;
 export const sGetUiYearOverYearCategory = state =>
@@ -265,6 +261,14 @@ export const sGetUiActiveModalDialog = state => sGetUi(state).activeModalDialog;
 export const sGetUiRightSidebarOpen = state => sGetUi(state).rightSidebarOpen;
 export const sGetUiInterpretation = state => sGetUi(state).interpretation;
 export const sGetAxes = state => sGetUi(state).axes;
+
+// Selectors level 2
+
+export const getAxisIdByDimensionId = (state, dimensionId) =>
+    (getInverseLayout(sGetUiLayout(state)) || {})[dimensionId];
+
+export const sGetUiItemsByDimension = (state, dimension) =>
+    sGetUiItems(state)[dimension] || DEFAULT_UI.itemsByDimension[dimension];
 
 export const sGetDimensionIdsFromLayout = state =>
     Object.values(sGetUiLayout(state)).reduce(
