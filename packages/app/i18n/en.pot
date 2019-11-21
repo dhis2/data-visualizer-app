@@ -727,6 +727,12 @@ msgstr ""
 msgid "Limit values"
 msgstr ""
 
+msgid "Limit number of values"
+msgstr ""
+
+msgid "Limit minimum/maximum values"
+msgstr ""
+
 msgid "Parameters"
 msgstr ""
 
