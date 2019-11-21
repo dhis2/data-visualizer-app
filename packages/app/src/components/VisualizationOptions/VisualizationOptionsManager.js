@@ -42,28 +42,26 @@ class VisualizationOptionsManager extends Component {
                 >
                     {i18n.t('Options')}
                 </MuiButton>
-                <Modal
-                    open={this.state.dialogIsOpen}
-                    onClose={this.onClose}
-                    large
-                >
-                    <ModalTitle>{i18n.t('Options')}</ModalTitle>
-                    <ModalContent>
-                        <VisualizationOptions />
-                    </ModalContent>
-                    <ModalActions>
-                        <ButtonStrip>
-                            <Button
-                                type="button"
-                                secondary
-                                onClick={this.onClose}
-                            >
-                                {i18n.t('Hide')}
-                            </Button>
-                            <UpdateButton onClick={this.onClose} />
-                        </ButtonStrip>
-                    </ModalActions>
-                </Modal>
+                {this.state.dialogIsOpen && (
+                    <Modal onClose={this.onClose} large>
+                        <ModalTitle>{i18n.t('Options')}</ModalTitle>
+                        <ModalContent>
+                            <VisualizationOptions />
+                        </ModalContent>
+                        <ModalActions>
+                            <ButtonStrip>
+                                <Button
+                                    type="button"
+                                    secondary
+                                    onClick={this.onClose}
+                                >
+                                    {i18n.t('Hide')}
+                                </Button>
+                                <UpdateButton onClick={this.onClose} />
+                            </ButtonStrip>
+                        </ModalActions>
+                    </Modal>
+                )}
             </Fragment>
         )
     }
