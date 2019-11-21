@@ -17,7 +17,6 @@ import {
     acSetUiActiveModalDialog,
     acAddUiLayoutDimensions,
 } from '../../../../actions/ui';
-import { tSetCurrentFromUi } from '../../../../actions/current';
 
 import { ADD_TO_LAYOUT_OPTIONS } from '../../../../modules/layout';
 import styles from './styles/AddToLayoutButton.style';
@@ -42,7 +41,7 @@ export class AddToLayoutButton extends Component {
             [this.props.dialogId]: axisId,
         });
 
-        this.props.onUpdate();
+        this.props.onClick();
 
         this.props.closeDialog(null);
     };
@@ -123,7 +122,7 @@ AddToLayoutButton.propTypes = {
     dialogId: PropTypes.string.isRequired,
     dimensionIdsInLayout: PropTypes.array.isRequired,
     onAddDimension: PropTypes.func.isRequired,
-    onUpdate: PropTypes.func.isRequired,
+    onClick: PropTypes.func.isRequired,
     closeDialog: PropTypes.func.isRequired,
 };
 
@@ -137,7 +136,7 @@ export default connect(
     mapStateToProps,
     {
         onAddDimension: acAddUiLayoutDimensions,
-        onUpdate: tSetCurrentFromUi,
+        // onUpdate: tSetCurrentFromUi,
         closeDialog: acSetUiActiveModalDialog,
     }
 )(withStyles(styles)(AddToLayoutButton));

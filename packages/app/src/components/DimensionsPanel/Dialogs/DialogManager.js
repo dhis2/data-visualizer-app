@@ -23,6 +23,7 @@ import {
 
 import HideButton from './HideButton';
 import AddToLayoutButton from './AddToLayoutButton/AddToLayoutButton';
+import UpdateVisualizationContainer from '../../UpdateButton/UpdateVisualizationContainer';
 
 import {
     acSetUiActiveModalDialog,
@@ -312,7 +313,14 @@ export class DialogManager extends Component {
                 {this.renderDialogContent()}
                 <DialogActions>
                     <HideButton />
-                    {dialogId && <AddToLayoutButton dialogId={dialogId} />}
+                    {/* {dialogId && <AddToLayoutButton dialogId={dialogId} />} */}
+                    {dialogId && (
+                        <UpdateVisualizationContainer
+                            renderComponent={onClick => (
+                                <AddToLayoutButton onClick={onClick} />
+                            )}
+                        />
+                    )}
                 </DialogActions>
             </Dialog>
         );
