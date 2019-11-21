@@ -7,23 +7,16 @@ import { Radio, RadioGroupField } from '@dhis2/ui-core';
 import { sGetUiOptions } from '../../../reducers/ui';
 import { acSetUiOptions } from '../../../actions/ui';
 
-import { tabSectionOptionItem } from '../styles/VisualizationOptions.style.js';
-
 export const RadioBaseOption = ({ option, label, value, onChange }) => (
     <RadioGroupField
         name={option.name}
         value={String(value)}
-        onChange={(ref, e) => {
-            console.log('v', ref, e);
-            onChange(ref.value);
-        }}
+        onChange={({ value }) => onChange(value)}
         label={label}
         dense
     >
         {option.items.map(({ id, label }) => (
-            <div key={`${id}-div`} className={tabSectionOptionItem.className}>
-                <Radio key={id} label={label} value={String(id)} />
-            </div>
+            <Radio key={id} label={label} value={String(id)} />
         ))}
     </RadioGroupField>
 );
