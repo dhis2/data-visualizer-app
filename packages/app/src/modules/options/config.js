@@ -1,18 +1,18 @@
 import {
-    COLUMN,
-    BAR,
-    STACKED_COLUMN,
-    STACKED_BAR,
-    PIVOT_TABLE,
-    LINE,
-    RADAR,
-    AREA,
-    PIE,
-    GAUGE,
-    YEAR_OVER_YEAR_LINE,
-    YEAR_OVER_YEAR_COLUMN,
-    SINGLE_VALUE,
-} from '../chartTypes';
+    VIS_TYPE_COLUMN,
+    VIS_TYPE_BAR,
+    VIS_TYPE_STACKED_COLUMN,
+    VIS_TYPE_STACKED_BAR,
+    VIS_TYPE_PIVOT_TABLE,
+    VIS_TYPE_LINE,
+    VIS_TYPE_RADAR,
+    VIS_TYPE_AREA,
+    VIS_TYPE_PIE,
+    VIS_TYPE_GAUGE,
+    VIS_TYPE_YEAR_OVER_YEAR_LINE,
+    VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
+    VIS_TYPE_SINGLE_VALUE,
+} from '@dhis2/analytics';
 
 import pivotTableConfig from './pivotTableConfig';
 import columnConfig from './columnConfig';
@@ -23,24 +23,24 @@ import pieConfig from './pieConfig';
 
 export const getOptionsByType = type => {
     switch (type) {
-        case COLUMN:
-        case BAR:
-        case YEAR_OVER_YEAR_LINE:
-        case YEAR_OVER_YEAR_COLUMN:
+        case VIS_TYPE_COLUMN:
+        case VIS_TYPE_BAR:
+        case VIS_TYPE_YEAR_OVER_YEAR_LINE:
+        case VIS_TYPE_YEAR_OVER_YEAR_COLUMN:
             return columnConfig;
-        case STACKED_COLUMN:
-        case STACKED_BAR:
+        case VIS_TYPE_STACKED_COLUMN:
+        case VIS_TYPE_STACKED_BAR:
             return stackedColumnConfig;
-        case LINE:
-        case RADAR:
+        case VIS_TYPE_LINE:
+        case VIS_TYPE_RADAR:
             return lineConfig;
-        case AREA:
+        case VIS_TYPE_AREA:
             return areaConfig;
-        case PIE:
-        case GAUGE:
-        case SINGLE_VALUE:
+        case VIS_TYPE_PIE:
+        case VIS_TYPE_GAUGE:
+        case VIS_TYPE_SINGLE_VALUE:
             return pieConfig;
-        case PIVOT_TABLE:
+        case VIS_TYPE_PIVOT_TABLE:
             return pivotTableConfig;
         default:
             // return all the options

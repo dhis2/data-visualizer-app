@@ -6,7 +6,7 @@ import { createSelector } from 'reselect';
 import i18n from '@dhis2/d2-i18n';
 import { Label, Radio, RadioGroup } from '@dhis2/ui-core';
 
-import { PIVOT_TABLE } from '../../../modules/chartTypes';
+import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics';
 import { sGetUiOptions, sGetUiType } from '../../../reducers/ui';
 import { acSetUiOptions } from '../../../actions/ui';
 
@@ -40,7 +40,7 @@ class HideTitle extends Component {
         return (
             <div className={tabSectionOption.className}>
                 <Label>
-                    {visualizationType === PIVOT_TABLE
+                    {visualizationType === VIS_TYPE_PIVOT_TABLE
                         ? i18n.t('Table title')
                         : i18n.t('Chart title')}
                 </Label>
