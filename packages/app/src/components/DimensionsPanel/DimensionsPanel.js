@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
-    DIMENSION_ID_PERIOD,
     DimensionsPanel,
     DimensionMenu,
+    getDisallowedDims,
 } from '@dhis2/analytics';
 
 import DialogManager from './Dialogs/DialogManager';
 import { SOURCE_DIMENSIONS, getInverseLayout } from '../../modules/layout';
 import { setDataTransfer } from '../../modules/dnd';
-import { isYearOverYear } from '../../modules/chartTypes';
 import * as fromReducers from '../../reducers';
 import * as fromActions from '../../actions';
 
@@ -21,6 +20,8 @@ import {
     acAddUiLayoutDimensions,
     acRemoveUiLayoutDimensions,
 } from '../../actions/ui';
+import { sGetUiType } from '../../reducers/ui';
+import { createSelector } from 'reselect';
 
 export class Dimensions extends Component {
     state = {
@@ -49,12 +50,8 @@ export class Dimensions extends Component {
         setDataTransfer(e, SOURCE_DIMENSIONS);
     };
 
-    disabledDimension = dimension => {
-        return (
-            dimension.id === DIMENSION_ID_PERIOD &&
-            isYearOverYear(this.props.ui.type)
-        );
-    };
+    disabledDimension = dimension =>
+        this.props.disallowedDimensions.includes(dimension.id);
 
     getUiAxisName = () => {
         const adaptedUi = getAdaptedUiByType(this.props.ui);
@@ -98,6 +95,12 @@ export class Dimensions extends Component {
         );
     }
 }
+
+const getDisallowedDimensions = createSelector(
+    [sGetUiType],
+    type => getDisallowedDims(type)
+);
+
 const mapStateToProps = state => {
     return {
         ui: fromReducers.fromUi.sGetUi(state),
@@ -108,6 +111,7 @@ const mapStateToProps = state => {
         ),
         layout: fromReducers.fromUi.sGetUiLayout(state),
         itemsByDimension: fromReducers.fromUi.sGetUiItems(state),
+        disallowedDimensions: getDisallowedDimensions(state),
     };
 };
 

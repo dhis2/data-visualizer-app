@@ -28,6 +28,7 @@ jest.mock('@dhis2/analytics', () => {
         DynamicDimension: () => <div />,
         PeriodDimension: () => <div />,
         OrgUnitDimension: () => <div />,
+        isSingleValue: () => true,
         DIMENSION_ID_DATA: dataId,
         DIMENSION_ID_PERIOD: periodId,
         DIMENSION_ID_ORGUNIT: ouId,

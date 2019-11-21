@@ -1,8 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import i18n from '@dhis2/d2-i18n';
-import { FIXED_DIMENSIONS, DIMENSION_ID_DATA } from '@dhis2/analytics';
 import WarningIcon from '@material-ui/icons/Warning';
+import i18n from '@dhis2/d2-i18n';
+import {
+    FIXED_DIMENSIONS,
+    DIMENSION_ID_DATA,
+    isSingleValue,
+} from '@dhis2/analytics';
 
 import Menu from './Menu';
 import Tooltip from './Tooltip';
@@ -12,7 +16,6 @@ import { sGetUiItemsByDimension, sGetUiType } from '../../reducers/ui';
 import DynamicDimensionIcon from '../../assets/DynamicDimensionIcon';
 import { sGetMetadata } from '../../reducers/metadata';
 import { styles } from './styles/Chip.style';
-import { isSingleValue } from '../../modules/chartTypes';
 
 const TOOLTIP_ENTER_DELAY = 500;
 

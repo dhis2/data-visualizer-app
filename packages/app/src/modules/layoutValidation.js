@@ -4,18 +4,16 @@ import {
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     FIXED_DIMENSIONS,
+    VIS_TYPE_YEAR_OVER_YEAR_LINE,
+    VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
+    VIS_TYPE_PIE,
+    VIS_TYPE_GAUGE,
+    VIS_TYPE_SINGLE_VALUE,
     dimensionIsValid,
     layoutGetDimension,
     axisLabels,
 } from '@dhis2/analytics';
 
-import {
-    YEAR_OVER_YEAR_LINE,
-    YEAR_OVER_YEAR_COLUMN,
-    PIE,
-    GAUGE,
-    SINGLE_VALUE,
-} from './chartTypes';
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields';
 
 const dxName = FIXED_DIMENSIONS[DIMENSION_ID_DATA].name;
@@ -139,13 +137,13 @@ const validateSingleValueLayout = layout => {
 
 export const validateLayout = layout => {
     switch (layout.type) {
-        case PIE:
-        case GAUGE:
+        case VIS_TYPE_PIE:
+        case VIS_TYPE_GAUGE:
             return validatePieLayout(layout);
-        case YEAR_OVER_YEAR_COLUMN:
-        case YEAR_OVER_YEAR_LINE:
+        case VIS_TYPE_YEAR_OVER_YEAR_COLUMN:
+        case VIS_TYPE_YEAR_OVER_YEAR_LINE:
             return validateYearOverYearLayout(layout);
-        case SINGLE_VALUE:
+        case VIS_TYPE_SINGLE_VALUE:
             return validateSingleValueLayout(layout);
         default:
             return validateDefaultLayout(layout);

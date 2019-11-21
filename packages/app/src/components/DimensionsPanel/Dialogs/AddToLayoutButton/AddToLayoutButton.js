@@ -9,15 +9,15 @@ import { getAvailableAxes } from '@dhis2/analytics';
 import UpdateButton from '../../../UpdateButton/UpdateButton';
 import Menu from './Menu';
 import {
-    sGetUi,
     sGetUiActiveModalDialog,
     sGetDimensionIdsFromLayout,
+    sGetUiType,
 } from '../../../../reducers/ui';
 import {
     acSetUiActiveModalDialog,
     acAddUiLayoutDimensions,
 } from '../../../../actions/ui';
-import { acSetCurrentFromUi } from '../../../../actions/current';
+import { tSetCurrentFromUi } from '../../../../actions/current';
 
 import { ADD_TO_LAYOUT_OPTIONS } from '../../../../modules/layout';
 import styles from './styles/AddToLayoutButton.style';
@@ -41,7 +41,9 @@ export class AddToLayoutButton extends Component {
         this.props.onAddDimension({
             [this.props.dialogId]: axisName,
         });
-        this.props.onUpdate(this.props.ui);
+
+        this.props.onUpdate();
+
         this.props.closeDialog(null);
     };
 
@@ -53,7 +55,7 @@ export class AddToLayoutButton extends Component {
         );
 
     renderMenuItems = () =>
-        this.getAxisMeta(getAvailableAxes(this.props.ui.type))
+        this.getAxisMeta(getAvailableAxes(this.props.visType))
             .slice(1)
             .map(axisMetaObj => (
                 <MenuItem
@@ -68,7 +70,7 @@ export class AddToLayoutButton extends Component {
 
     renderAddToLayoutButton = () => {
         const availableAxisMeta = this.getAxisMeta(
-            getAvailableAxes(this.props.ui.type)
+            getAvailableAxes(this.props.visType)
         );
 
         return (
@@ -79,7 +81,7 @@ export class AddToLayoutButton extends Component {
                     color="primary"
                     disableRipple
                     disableFocusRipple
-                    onClick={() => this.onUpdate(availableAxisMeta[0].name)}
+                    onClick={() => this.onUpdate(availableAxisMeta[0].axisName)}
                 >
                     {availableAxisMeta[0].name}
                 </Button>
@@ -117,14 +119,16 @@ export class AddToLayoutButton extends Component {
 
 AddToLayoutButton.propTypes = {
     classes: PropTypes.object.isRequired,
+    visType: PropTypes.string.isRequired,
     dialogId: PropTypes.string.isRequired,
     dimensionIdsInLayout: PropTypes.array.isRequired,
-    closeDialog: PropTypes.func.isRequired,
     onAddDimension: PropTypes.func.isRequired,
+    onUpdate: PropTypes.func.isRequired,
+    closeDialog: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
-    ui: sGetUi(state),
+    visType: sGetUiType(state),
     dialogId: sGetUiActiveModalDialog(state),
     dimensionIdsInLayout: sGetDimensionIdsFromLayout(state),
 });
@@ -132,8 +136,8 @@ const mapStateToProps = state => ({
 export default connect(
     mapStateToProps,
     {
-        closeDialog: acSetUiActiveModalDialog,
         onAddDimension: acAddUiLayoutDimensions,
-        onUpdate: acSetCurrentFromUi,
+        onUpdate: tSetCurrentFromUi,
+        closeDialog: acSetUiActiveModalDialog,
     }
 )(withStyles(styles)(AddToLayoutButton));

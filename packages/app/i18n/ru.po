@@ -65,7 +65,7 @@ msgid "Image (.png)"
 msgstr "Изображение (.png)"
 
 msgid "PDF (.pdf)"
-msgstr "PDF (.pdf)"
+msgstr ""
 
 msgid "Plain data source"
 msgstr "Источник данных"

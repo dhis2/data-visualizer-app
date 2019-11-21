@@ -3,18 +3,16 @@ import {
     DIMENSION_ID_ORGUNIT,
     layoutGetAxisNameDimensionIdsObject,
     layoutGetDimensionIdItemIdsObject,
+    VIS_TYPE_YEAR_OVER_YEAR_LINE,
+    VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
+    VIS_TYPE_PIE,
+    VIS_TYPE_GAUGE,
+    VIS_TYPE_SINGLE_VALUE,
+    defaultVisType,
+    isYearOverYear,
 } from '@dhis2/analytics';
 
-import {
-    YEAR_OVER_YEAR_LINE,
-    YEAR_OVER_YEAR_COLUMN,
-    PIE,
-    GAUGE,
-    SINGLE_VALUE,
-    defaultChartType,
-} from './chartTypes';
 import { getInverseLayout } from './layout';
-import { isYearOverYear } from './chartTypes';
 import { getOptionsFromVisualization } from './options';
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields';
 import {
@@ -28,7 +26,7 @@ import { getAxesFromSeriesItems } from './seriesItems';
 // Transform from backend model to store.ui format
 export const getUiFromVisualization = (vis, currentState = {}) => ({
     ...currentState,
-    type: vis.type || defaultChartType,
+    type: vis.type || defaultVisType,
     options: getOptionsFromVisualization(vis),
     layout: layoutGetAxisNameDimensionIdsObject(vis),
     itemsByDimension: layoutGetDimensionIdItemIdsObject(vis),
@@ -73,15 +71,15 @@ export const singleValueUiAdapter = ui => ({
 
 export const getAdaptedUiByType = ui => {
     switch (ui.type) {
-        case YEAR_OVER_YEAR_LINE:
-        case YEAR_OVER_YEAR_COLUMN: {
+        case VIS_TYPE_YEAR_OVER_YEAR_LINE:
+        case VIS_TYPE_YEAR_OVER_YEAR_COLUMN: {
             return yearOverYearUiAdapter(ui);
         }
-        case PIE:
-        case GAUGE: {
+        case VIS_TYPE_PIE:
+        case VIS_TYPE_GAUGE: {
             return pieUiAdapter(ui);
         }
-        case SINGLE_VALUE: {
+        case VIS_TYPE_SINGLE_VALUE: {
             return singleValueUiAdapter(ui);
         }
         default:

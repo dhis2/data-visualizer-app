@@ -1,4 +1,12 @@
 import {
+    VIS_TYPE_YEAR_OVER_YEAR_LINE,
+    VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
+    VIS_TYPE_PIE,
+    VIS_TYPE_GAUGE,
+    VIS_TYPE_SINGLE_VALUE,
+} from '@dhis2/analytics';
+
+import {
     getAxesFromUi,
     getOptionsFromUi,
     getPieCurrentFromUi,
@@ -6,13 +14,6 @@ import {
     getSingleValueCurrentFromUi,
     getSeriesItemsFromUi,
 } from '../modules/current';
-import {
-    YEAR_OVER_YEAR_LINE,
-    YEAR_OVER_YEAR_COLUMN,
-    PIE,
-    GAUGE,
-    SINGLE_VALUE,
-} from '../modules/chartTypes';
 import { BASE_FIELD_TYPE } from '../modules/fields/baseFields';
 
 export const SET_CURRENT = 'SET_CURRENT';
@@ -42,13 +43,13 @@ export default (state = DEFAULT_CURRENT, action) => {
         }
         case SET_CURRENT_FROM_UI: {
             switch (action.value.type) {
-                case PIE:
-                case GAUGE:
+                case VIS_TYPE_PIE:
+                case VIS_TYPE_GAUGE:
                     return getPieCurrentFromUi(state, action);
-                case SINGLE_VALUE:
+                case VIS_TYPE_SINGLE_VALUE:
                     return getSingleValueCurrentFromUi(state, action);
-                case YEAR_OVER_YEAR_LINE:
-                case YEAR_OVER_YEAR_COLUMN:
+                case VIS_TYPE_YEAR_OVER_YEAR_LINE:
+                case VIS_TYPE_YEAR_OVER_YEAR_COLUMN:
                     return getYearOverYearCurrentFromUi(state, action);
                 default: {
                     return getDefaultFromUi(state, action);
@@ -69,13 +70,13 @@ export const sGetCurrentFromUi = state => {
     const ui = state.ui;
 
     switch (ui.type) {
-        case PIE:
-        case GAUGE:
+        case VIS_TYPE_PIE:
+        case VIS_TYPE_GAUGE:
             return getPieCurrentFromUi(state, { value: ui });
-        case SINGLE_VALUE:
+        case VIS_TYPE_SINGLE_VALUE:
             return getSingleValueCurrentFromUi(state, { value: ui });
-        case YEAR_OVER_YEAR_LINE:
-        case YEAR_OVER_YEAR_COLUMN:
+        case VIS_TYPE_YEAR_OVER_YEAR_LINE:
+        case VIS_TYPE_YEAR_OVER_YEAR_COLUMN:
             return getYearOverYearCurrentFromUi(state, { value: ui });
         default: {
             return getDefaultFromUi(state, { value: ui });
