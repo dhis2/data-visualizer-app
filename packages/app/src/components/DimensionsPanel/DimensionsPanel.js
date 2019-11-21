@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import {
     DimensionsPanel,
     DimensionMenu,
-    getDisallowedDims,
-    getLockedDims,
+    getDisallowedDimensions,
+    getLockedDimensions,
 } from '@dhis2/analytics';
 
 import DialogManager from './Dialogs/DialogManager';
@@ -51,11 +51,11 @@ export class Dimensions extends Component {
         setDataTransfer(e, SOURCE_DIMENSIONS);
     };
 
-    disabledDimension = dimension =>
-        this.props.disallowedDimensions.includes(dimension.id);
+    disabledDimension = dimensionId =>
+        this.props.disallowedDimensions.includes(dimensionId);
 
-    lockedDimension = dimension =>
-        this.props.lockedDimensions.includes(dimension.id);
+    lockedDimension = dimensionId =>
+        this.props.lockedDimensions.includes(dimensionId);
 
     getUiAxisId = () => {
         const adaptedUi = getAdaptedUiByType(this.props.ui);
@@ -75,8 +75,8 @@ export class Dimensions extends Component {
                     selectedIds={this.props.selectedIds}
                     disabledDimension={this.disabledDimension}
                     lockedDimension={this.lockedDimension}
-                    recommendedDimension={dimension =>
-                        this.props.recommendedIds.includes(dimension.id)
+                    recommendedDimension={dimensionId =>
+                        this.props.recommendedIds.includes(dimensionId)
                     }
                     onDimensionOptionsClick={this.onDimensionOptionsClick}
                     onDimensionDragStart={this.onDimensionDragStart}
@@ -101,14 +101,14 @@ export class Dimensions extends Component {
     }
 }
 
-const getDisallowedDimensions = createSelector(
+const getDisallowedDimensionsMemo = createSelector(
     [sGetUiType],
-    type => getDisallowedDims(type)
+    type => getDisallowedDimensions(type)
 );
 
-const getLockedDimensions = createSelector(
+const getLockedDimensionsMemo = createSelector(
     [sGetUiType],
-    type => getLockedDims(type)
+    type => getLockedDimensions(type)
 );
 
 const mapStateToProps = state => {
@@ -121,8 +121,8 @@ const mapStateToProps = state => {
         ),
         layout: fromReducers.fromUi.sGetUiLayout(state),
         itemsByDimension: fromReducers.fromUi.sGetUiItems(state),
-        disallowedDimensions: getDisallowedDimensions(state),
-        lockedDimensions: getLockedDimensions(state),
+        disallowedDimensions: getDisallowedDimensionsMemo(state),
+        lockedDimensions: getLockedDimensionsMemo(state),
     };
 };
 
