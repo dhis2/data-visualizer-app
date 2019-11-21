@@ -36,7 +36,7 @@ export class VisualizationOptions extends Component {
                             </span>
                         </Legend>
                     ) : null}
-                    {content}
+                    {React.Children.toArray(content)}
                 </FieldSet>
             </div>
         ));
