@@ -19,7 +19,7 @@ import { sGetUiType } from '../reducers/ui';
 import * as fromActions from '../actions';
 import history from '../modules/history';
 import defaultMetadata from '../modules/metadata';
-import { PIVOT_TABLE } from '../modules/chartTypes';
+import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics';
 import {
     apiFetchAOFromUserDataStore,
     CURRENT_AO_KEY,
@@ -209,7 +209,7 @@ export class App extends Component {
 
 const apiObjectSelector = createSelector(
     [sGetUiType],
-    type => (type === PIVOT_TABLE ? 'reportTable' : 'chart')
+    type => (type === VIS_TYPE_PIVOT_TABLE ? 'reportTable' : 'chart')
 );
 
 const mapStateToProps = state => ({

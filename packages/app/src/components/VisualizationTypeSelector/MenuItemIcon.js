@@ -61,7 +61,7 @@ const MenuItemIcon = ({ iconType, style }) => {
             return <PivotTableIcon style={style} />;
         case VIS_TYPE_COLUMN:
         default:
-            return <LineIcon style={style} />;
+            return <ColumnIcon style={style} />;
     }
 };
 
