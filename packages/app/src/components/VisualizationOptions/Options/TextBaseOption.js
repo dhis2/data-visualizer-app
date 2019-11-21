@@ -49,7 +49,7 @@ export const TextBaseOption = ({
                 {inline ? (
                     <Input
                         type={type}
-                        onChange={event => onChange(event.target.value)}
+                        onChange={({ value }) => onChange(value)}
                         name={option.name}
                         value={value}
                         placeholder={placeholder}
@@ -60,7 +60,7 @@ export const TextBaseOption = ({
                     <InputField
                         type={type}
                         label={toggleable ? '' : label}
-                        onChange={event => onChange(event.target.value)}
+                        onChange={({ value }) => onChange(value)}
                         name={option.name}
                         value={value}
                         helpText={helpText}

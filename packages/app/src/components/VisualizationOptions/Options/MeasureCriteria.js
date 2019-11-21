@@ -1,12 +1,6 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
-import FormGroup from '@material-ui/core/FormGroup';
-import FormLabel from '@material-ui/core/FormLabel';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
-import TextField from '@material-ui/core/TextField';
 
 import i18n from '@dhis2/d2-i18n';
 
@@ -39,10 +33,12 @@ const OperatorSelect = ({ name, value, onChange }) => {
     const selected = options.find(option => option.id === value);
 
     return (
-        <div style={{ flexBasis: '104px' }}>
+        <div style={{ width: '112px' }}>
             <SingleSelect
                 name={name}
-                onChange={selected => onChange(selected.value)}
+                onChange={({ selected }) => {
+                    onChange(selected.value);
+                }}
                 selected={
                     selected
                         ? {
@@ -52,7 +48,7 @@ const OperatorSelect = ({ name, value, onChange }) => {
                         : undefined
                 }
                 tabIndex="0"
-                inputWidth="100px"
+                inputMaxWidth="106px"
                 dense
             >
                 {options.map(({ id, label }) => (
@@ -68,8 +64,8 @@ const ValueInput = ({ name, value, onChange }) => (
         name={name}
         value={value}
         type="number"
-        onChange={event => onChange(event.target.value)}
-        inputWidth="72px"
+        onChange={({ value }) => onChange(value)}
+        width="72px"
         dense
     />
 );
@@ -119,7 +115,7 @@ class MeasureCriteria extends Component {
                     )}
                 </p>
                 <div className={tabSectionOptionComplexInline.className}>
-                    <Field>
+                    <div style={{ width: '250px', paddingBottom: '16px' }}>
                         <Label>{i18n.t('Minimum data value')}</Label>
                         <div
                             className={tabSectionOptionComplexInline.className}
@@ -135,22 +131,26 @@ class MeasureCriteria extends Component {
                                 onChange={this.onChange('v1')}
                             />
                         </div>
-                    </Field>
+                    </div>
                     <Field>
-                        <Label>{i18n.t('Maximum data value')}</Label>
-                        <div
-                            className={tabSectionOptionComplexInline.className}
-                        >
-                            <OperatorSelect
-                                name="op2"
-                                value={op2}
-                                onChange={this.onChange('op2')}
-                            />
-                            <ValueInput
-                                name="v2"
-                                value={v2}
-                                onChange={this.onChange('v2')}
-                            />
+                        <div style={{ width: '250px' }}>
+                            <Label>{i18n.t('Maximum data value')}</Label>
+                            <div
+                                className={
+                                    tabSectionOptionComplexInline.className
+                                }
+                            >
+                                <OperatorSelect
+                                    name="op2"
+                                    value={op2}
+                                    onChange={this.onChange('op2')}
+                                />
+                                <ValueInput
+                                    name="v2"
+                                    value={v2}
+                                    onChange={this.onChange('v2')}
+                                />
+                            </div>
                         </div>
                     </Field>
                 </div>

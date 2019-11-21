@@ -57,7 +57,7 @@ export const SelectBaseOption = ({
                     <SingleSelectField
                         name={option.name}
                         label={toggleable ? '' : label}
-                        onChange={selected => onChange(selected.value)}
+                        onChange={({ selected }) => onChange(selected.value)}
                         selected={{
                             value: selected.id,
                             label: selected.label,
