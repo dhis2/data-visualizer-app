@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import Popper from '@material-ui/core/Popper';
 import Paper from '@material-ui/core/Paper';
 import i18n from '@dhis2/d2-i18n';
+import LockIcon from '@material-ui/icons/Lock';
+import WarningIcon from '@material-ui/icons/Warning';
 
 import { sGetMetadata } from '../../reducers/metadata';
 import { styles } from './styles/Tooltip.style';
@@ -16,7 +18,7 @@ const labels = {
 };
 
 export class Tooltip extends React.Component {
-    renderTooltip = names => (
+    renderTooltip = (names, warning) => (
         <Popper
             anchorEl={this.props.anchorEl}
             open={this.props.open}
@@ -25,8 +27,27 @@ export class Tooltip extends React.Component {
             <Paper style={styles.tooltip}>
                 {
                     <ul style={styles.list}>
+                        {warning && (
+                            <li style={styles.item}>
+                                <div style={styles.iconWrapper}>
+                                    <WarningIcon style={styles.icon} />
+                                    <span>{warning}</span>
+                                </div>
+                            </li>
+                        )}
+                        {this.props.lockedLabel && (
+                            <li style={styles.item}>
+                                <div style={styles.iconWrapper}>
+                                    <LockIcon style={styles.icon} />
+                                    <span>{this.props.lockedLabel}</span>
+                                </div>
+                            </li>
+                        )}
                         {names.map(name => (
-                            <li key={`${this.props.dimensionId}-${name}`}>
+                            <li
+                                key={`${this.props.dimensionId}-${name}`}
+                                style={styles.item}
+                            >
                                 {name}
                             </li>
                         ))}
@@ -36,38 +57,31 @@ export class Tooltip extends React.Component {
         </Popper>
     );
 
+    getLimitedLabel = (itemIds, metadata) =>
+        itemIds.length === 1
+            ? labels.onlyOneInUse(
+                  metadata[itemIds[0]] ? metadata[itemIds[0]].name : itemIds[0]
+              )
+            : labels.onlyLimitedNumberInUse(itemIds.length);
+
     render() {
-        const {
-            itemIds,
-            metadata,
-            displayLimitedAmount,
-            lockedLabel,
-        } = this.props;
+        const { itemIds, metadata, displayLimitedAmount } = this.props;
 
         const names = [];
 
-        if (lockedLabel) {
-            names.push(lockedLabel);
-        }
+        const warning = displayLimitedAmount
+            ? this.getLimitedLabel(itemIds, metadata)
+            : null;
 
-        if (itemIds.length && displayLimitedAmount) {
-            if (itemIds.length === 1) {
-                const id = itemIds[0];
-                names.push(
-                    labels.onlyOneInUse(metadata[id] ? metadata[id].name : id)
-                );
-            } else {
-                names.push(labels.onlyLimitedNumberInUse(itemIds.length));
-            }
-        } else if (itemIds.length) {
+        if (itemIds.length && !displayLimitedAmount) {
             names.push(
                 ...itemIds.map(id => (metadata[id] ? metadata[id].name : id))
             );
-        } else {
+        } else if (!itemIds.length) {
             names.push(labels.noneSelected);
         }
 
-        return names.length ? this.renderTooltip(names) : '';
+        return this.renderTooltip(names, warning);
     }
 }
 
