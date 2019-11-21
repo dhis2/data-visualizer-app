@@ -50,10 +50,11 @@ export const options = {
     paramReportingPeriod: { defaultValue: false, requestable: false },
     paramOrganisationUnit: { defaultValue: false, requestable: false },
     paramParentOrganisationUnit: { defaultValue: false, requestable: false },
+    // XXX not in UI
     paramGrandParentOrganisationUnit: {
         defaultValue: false,
         requestable: false,
-    }, // XXX not in UI?!
+    },
     regression: { defaultValue: false, requestable: false },
     cumulative: { defaultValue: false, requestable: false },
     measureCriteria: { defaultValue: undefined, requestable: true },
