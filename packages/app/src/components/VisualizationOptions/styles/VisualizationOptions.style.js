@@ -1,7 +1,7 @@
 import React from 'react';
 import css from 'styled-jsx/css';
 
-import { colors } from '@dhis2/ui-core';
+import { colors, spacers } from '@dhis2/ui-core';
 
 export const tabBar = css.resolve`
     div {
@@ -12,7 +12,7 @@ export const tabBar = css.resolve`
 
 export const tabSection = css.resolve`
     div {
-        padding: 16px 0;
+        padding: ${spacers.dp16} 0;
     }
 `;
 
@@ -25,33 +25,34 @@ export const tabSectionContent = css.resolve`
 export const tabSectionTitle = css.resolve`
     span {
         display: inline-block;
-        padding-bottom: 16px;
-        font-size: 16px;
+        padding-bottom: ${spacers.dp16};
+        font-size: ${spacers.dp16};
         color: ${colors.grey900};
     }
 `;
 
 export const tabSectionOption = css.resolve`
     div:not(:last-child):not(.inline) {
-        padding-bottom: 16px;
+        padding-bottom: ${spacers.dp16};
     }
 `;
 
 export const tabSectionOptionItem = css.resolve`
     div:not(:last-child) {
-        padding-bottom: 8px;
+        padding-bottom: ${spacers.dp8};
     }
 `;
 
 export const tabSectionOptionText = css.resolve`
     p {
-        font-size: 14px;
+        font-size: ${spacers.dp14};
+        padding-bottom: ${spacers.dp16};
     }
 `;
 
 export const tabSectionOptionToggleable = css.resolve`
     div {
-        margin: 4px 0 0 23px;
+        margin: ${spacers.dp4} 0 0 23px;
     }
 `;
 
