@@ -77,47 +77,17 @@ class Chip extends React.Component {
         return <DynamicDimensionIcon style={styles.dynamicDimensionIcon} />;
     };
 
-    getLockedLabel = () =>
-        this.isLocked
-            ? i18n.t(
-                  `{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}`,
-                  {
-                      dimensionName: this.props.dimensionName,
-                      axisName: getAxisName(this.props.axisId),
-                      visTypeName: getDisplayNameByVisType(this.props.type),
-                  }
-              )
-            : null;
-
-    getItemsLabel = () => {
-        const numberOfItems = this.props.items.length;
-
-        return !!this.maxNumberOfItemsPerAxis &&
-            numberOfItems > this.maxNumberOfItemsPerAxis
-            ? i18n.t(`{{total}} of {{maxNumberOfItemsPerAxis}} selected`, {
-                  total: numberOfItems,
-                  maxNumberOfItemsPerAxis: this.maxNumberOfItemsPerAxis,
-              })
-            : i18n.t('{{total}} selected', {
-                  total: numberOfItems,
-              });
-    };
-
-    getActiveItemIds = () =>
-        !!this.maxNumberOfItemsPerAxis
-            ? this.props.items.slice(0, this.maxNumberOfItemsPerAxis)
-            : this.props.items;
-
     isLocked = getLockedDimensionAxis(
         this.props.type,
         this.props.dimensionId
     ).includes(this.props.axisId);
 
-    lockIcon = this.isLocked ? (
-        <div style={styles.lockIconWrapper}>
-            <LockIcon style={styles.lockIcon} />
-        </div>
-    ) : null;
+    getLockIcon = () =>
+        this.isLocked ? (
+            <div style={styles.lockIconWrapper}>
+                <LockIcon style={styles.lockIcon} />
+            </div>
+        ) : null;
 
     getWarningIcon = () =>
         hasTooManyItemsPerAxis(
@@ -129,33 +99,6 @@ class Chip extends React.Component {
                 <WarningIcon style={styles.warningIcon} />
             </div>
         ) : null;
-
-    renderMenu = () => (
-        <div style={styles.chipRight}>
-            <Menu
-                dimensionId={this.props.dimensionId}
-                currentAxisId={this.props.axisId}
-                visType={this.props.type}
-                numberOfDimensionItems={this.props.items.length}
-            />
-        </div>
-    );
-
-    renderTooltip = () => {
-        const activeItemIds = this.getActiveItemIds();
-        return (
-            <Tooltip
-                dimensionId={this.props.dimensionId}
-                itemIds={activeItemIds}
-                lockedLabel={this.getLockedLabel()}
-                displayLimitedAmount={
-                    this.props.items.length > activeItemIds.length
-                }
-                open={this.state.tooltipOpen}
-                anchorEl={this.getAnchorEl()}
-            />
-        );
-    };
 
     maxNumberOfItemsPerAxis = getMaxNumberOfItemsPerAxis(
         this.props.type,
@@ -169,10 +112,64 @@ class Chip extends React.Component {
         ...(!this.props.items.length ? styles.chipEmpty : {}),
     });
 
-    getChipLabel = () =>
-        `${this.props.dimensionName}${
-            this.props.items.length > 0 ? `: ${this.getItemsLabel()}` : ''
+    getChipLabel = () => {
+        const numberOfItems = this.props.items.length;
+
+        const getItemsLabel =
+            !!this.maxNumberOfItemsPerAxis &&
+            numberOfItems > this.maxNumberOfItemsPerAxis
+                ? i18n.t(`{{total}} of {{maxNumberOfItemsPerAxis}} selected`, {
+                      total: numberOfItems,
+                      maxNumberOfItemsPerAxis: this.maxNumberOfItemsPerAxis,
+                  })
+                : i18n.t('{{total}} selected', {
+                      total: numberOfItems,
+                  });
+
+        return `${this.props.dimensionName}${
+            this.props.items.length > 0 ? `: ${getItemsLabel}` : ''
         }`;
+    };
+
+    renderMenu = () => (
+        <div style={styles.chipRight}>
+            <Menu
+                dimensionId={this.props.dimensionId}
+                currentAxisId={this.props.axisId}
+                visType={this.props.type}
+                numberOfDimensionItems={this.props.items.length}
+            />
+        </div>
+    );
+
+    renderTooltip = () => {
+        const activeItemIds = !!this.maxNumberOfItemsPerAxis
+            ? this.props.items.slice(0, this.maxNumberOfItemsPerAxis)
+            : this.props.items;
+
+        const lockedLabel = this.isLocked
+            ? i18n.t(
+                  `{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}`,
+                  {
+                      dimensionName: this.props.dimensionName,
+                      axisName: getAxisName(this.props.axisId),
+                      visTypeName: getDisplayNameByVisType(this.props.type),
+                  }
+              )
+            : null;
+        return (
+            <Tooltip
+                dimensionId={this.props.dimensionId}
+                itemIds={activeItemIds}
+                lockedLabel={lockedLabel}
+                displayLimitedAmount={
+                    this.props.items.length > activeItemIds.length
+                }
+                open={this.state.tooltipOpen}
+                anchorEl={this.getAnchorEl()}
+            />
+        );
+    };
 
     render = () =>
         this.props.dimensionId ? (
@@ -194,7 +191,7 @@ class Chip extends React.Component {
                     </div>
                     {this.getChipLabel()}
                     {this.getWarningIcon()}
-                    {this.lockIcon}
+                    {this.getLockIcon()}
                 </div>
                 {!this.isLocked && this.renderMenu()}
                 {this.getAnchorEl() && this.renderTooltip()}
