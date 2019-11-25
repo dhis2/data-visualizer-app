@@ -1,6 +1,7 @@
-import React from 'react'
-import { shallow } from 'enzyme'
-import TextField from '@material-ui/core/TextField'
+import React from 'react';
+import { shallow } from 'enzyme';
+
+import { Checkbox, Input, InputField } from '@dhis2/ui-core';
 
 import { TextBaseOption } from '../Options/TextBaseOption'
 
@@ -15,56 +16,130 @@ describe('DV > Options > TextBaseOption', () => {
         return shallowTextBaseOption
     }
 
-    beforeEach(() => {
-        onChange = jest.fn()
+    describe('non toggleable', () => {
+        beforeEach(() => {
+            onChange = jest.fn();
 
-        props = {
-            value: 'test',
-            type: 'text',
-            option: {
+            props = {
+                value: 'test',
+                type: 'text',
                 label: 'Input field',
-            },
-            onChange,
-        }
+                option: {
+                    name: 'input1',
+                },
 
-        shallowTextBaseOption = undefined
-    })
+                onChange,
+            };
 
-    it('renders a <TextField />', () => {
-        expect(textBaseOption(props).find(TextField)).toHaveLength(1)
-    })
+            shallowTextBaseOption = undefined;
+        });
 
-    it('sets the label prop to what passed in the option prop', () => {
-        expect(
-            textBaseOption(props)
-                .find(TextField)
-                .props().label
-        ).toEqual('Input field')
-    })
+        it('renders a <InputField />', () => {
+            expect(textBaseOption(props).find(InputField)).toHaveLength(1);
+        });
 
-    it('sets the value to what passed in the prop', () => {
-        expect(
-            textBaseOption(props)
-                .find(TextField)
-                .props().value
-        ).toEqual('test')
-    })
+        it('sets the type prop to what passed in the prop', () => {
+            expect(
+                textBaseOption(props)
+                    .find(InputField)
+                    .props().type
+            ).toEqual(props.type);
+        });
 
-    it('sets the helper text to what passed in the option prop', () => {
-        props.option.helperText = 'helper text'
+        it('sets the label prop to what passed in the prop', () => {
+            expect(
+                textBaseOption(props)
+                    .find(InputField)
+                    .props().label
+            ).toEqual(props.label);
+        });
 
-        expect(
-            textBaseOption(props)
-                .find(TextField)
-                .props().helperText
-        ).toEqual('helper text')
-    })
+        it('sets the value to what passed in the prop', () => {
+            expect(
+                textBaseOption(props)
+                    .find(InputField)
+                    .props().value
+            ).toEqual(props.value);
+        });
 
-    it('should trigger the onChange callback on text change', () => {
-        const text = textBaseOption(props).find(TextField)
+        it('sets the help text to what passed in the prop', () => {
+            props.helpText = 'helper text';
 
-        text.simulate('change', { target: { value: 'test' } })
+            expect(
+                textBaseOption(props)
+                    .find(InputField)
+                    .props().helpText
+            ).toEqual(props.helpText);
+        });
 
-        expect(onChange).toHaveBeenCalled()
-    })
-})
+        it('sets the placeholder to what passed in the prop', () => {
+            props.placeholder = 'placeholder text';
+
+            expect(
+                textBaseOption(props)
+                    .find(InputField)
+                    .props().placeholder
+            ).toEqual(props.placeholder);
+        });
+
+        it('sets the width prop to what passed in the prop', () => {
+            props.width = '105px';
+
+            expect(
+                textBaseOption(props)
+                    .find(InputField)
+                    .props().inputWidth
+            ).toEqual(props.width);
+        });
+
+        it('should trigger the onChange callback on text change', () => {
+            const text = textBaseOption(props).find(InputField);
+
+            text.simulate('change', { value: 'test' });
+
+            expect(onChange).toHaveBeenCalled();
+        });
+
+        it('renders a <Input /> field when inline is passed', () => {
+            props.inline = true;
+
+            expect(textBaseOption(props).find(Input)).toHaveLength(1);
+            expect(textBaseOption(props).find(InputField)).toHaveLength(0);
+        });
+    });
+
+    describe('toggleable', () => {
+        beforeEach(() => {
+            props = {
+                value: 'test',
+                type: 'text',
+                label: 'Input field',
+                option: {
+                    name: 'input1',
+                },
+                toggleable: true,
+
+                onChange: jest.fn(),
+                onToggle: jest.fn(),
+            };
+
+            shallowTextBaseOption = undefined;
+        });
+
+        it('renders a <Checkbox />', () => {
+            expect(textBaseOption(props).find(Checkbox)).toHaveLength(1);
+        });
+
+        it('does not render a <InputField />', () => {
+            expect(textBaseOption(props).find(InputField)).toHaveLength(0);
+        });
+
+        it('does render a <InputField /> when the checkbox is enabled', () => {
+            props.enabled = true;
+
+            const text = textBaseOption(props);
+            expect(text.find(InputField)).toHaveLength(1);
+            expect(text.find(Checkbox).props().checked).toBe(true);
+        });
+    });
+});
