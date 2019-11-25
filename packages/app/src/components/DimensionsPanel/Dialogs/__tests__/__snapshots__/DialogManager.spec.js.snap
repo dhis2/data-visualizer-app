@@ -24,8 +24,8 @@ exports[`The DialogManager component renders OUDimension content with display:no
   </div>
   <Component>
     <Connect(HideButton) />
-    <Connect(WithStyles(AddToLayoutButton))
-      dialogId="ou"
+    <Connect(UpdateVisualizationContainer)
+      renderComponent={[Function]}
     />
   </Component>
 </Component>
@@ -87,8 +87,8 @@ exports[`The DialogManager component renders OUDimension content with display:no
   />
   <Component>
     <Connect(HideButton) />
-    <Connect(WithStyles(AddToLayoutButton))
-      dialogId="dx"
+    <Connect(UpdateVisualizationContainer)
+      renderComponent={[Function]}
     />
   </Component>
 </Component>
@@ -124,8 +124,8 @@ exports[`The DialogManager component renders the DataDimension content in dialog
   />
   <Component>
     <Connect(HideButton) />
-    <Connect(WithStyles(AddToLayoutButton))
-      dialogId="dx"
+    <Connect(UpdateVisualizationContainer)
+      renderComponent={[Function]}
     />
   </Component>
 </Component>
@@ -155,8 +155,8 @@ exports[`The DialogManager component renders the OrgUnitDimension content in dia
   </div>
   <Component>
     <Connect(HideButton) />
-    <Connect(WithStyles(AddToLayoutButton))
-      dialogId="ou"
+    <Connect(UpdateVisualizationContainer)
+      renderComponent={[Function]}
     />
   </Component>
 </Component>
@@ -177,8 +177,8 @@ exports[`The DialogManager component renders the PeriodDimension content in dial
   />
   <Component>
     <Connect(HideButton) />
-    <Connect(WithStyles(AddToLayoutButton))
-      dialogId="pe"
+    <Connect(UpdateVisualizationContainer)
+      renderComponent={[Function]}
     />
   </Component>
 </Component>

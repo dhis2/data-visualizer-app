@@ -77,6 +77,7 @@ describe('The DialogManager component', () => {
             closeDialog: jest.fn(),
             setRecommendedIds: jest.fn(),
             getAxisIdByDimensionId: () => {},
+            dimensionIdsInLayout: [],
         };
         shallowDialog = undefined;
     });

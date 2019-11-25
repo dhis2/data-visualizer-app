@@ -6,17 +6,9 @@ import MenuItem from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import { getAvailableAxes } from '@dhis2/analytics';
 
-import UpdateButton from '../../../UpdateButton/UpdateButton';
 import Menu from './Menu';
-import {
-    sGetUiActiveModalDialog,
-    sGetDimensionIdsFromLayout,
-    sGetUiType,
-} from '../../../../reducers/ui';
-import {
-    acSetUiActiveModalDialog,
-    acAddUiLayoutDimensions,
-} from '../../../../actions/ui';
+import { sGetUiActiveModalDialog, sGetUiType } from '../../../../reducers/ui';
+import { acAddUiLayoutDimensions } from '../../../../actions/ui';
 
 import { ADD_TO_LAYOUT_OPTIONS } from '../../../../modules/layout';
 import styles from './styles/AddToLayoutButton.style';
@@ -65,7 +57,7 @@ export class AddToLayoutButton extends Component {
                 </MenuItem>
             ));
 
-    renderAddToLayoutButton = () => {
+    render() {
         const availableAxisMeta = this.getAxisMeta(
             getAvailableAxes(this.props.visType)
         );
@@ -93,24 +85,6 @@ export class AddToLayoutButton extends Component {
                 ) : null}
             </div>
         );
-    };
-
-    renderUpdateButton = () => (
-        <UpdateButton
-            className={this.props.className}
-            onClick={() => this.props.closeDialog(null)}
-        />
-    );
-
-    layoutHasDimension = dimensionId =>
-        this.props.dimensionIdsInLayout.includes(dimensionId);
-
-    render() {
-        const displayButton = this.layoutHasDimension(this.props.dialogId)
-            ? this.renderUpdateButton()
-            : this.renderAddToLayoutButton();
-
-        return displayButton;
     }
 }
 
@@ -118,23 +92,18 @@ AddToLayoutButton.propTypes = {
     classes: PropTypes.object.isRequired,
     visType: PropTypes.string.isRequired,
     dialogId: PropTypes.string.isRequired,
-    dimensionIdsInLayout: PropTypes.array.isRequired,
     onAddDimension: PropTypes.func.isRequired,
     onClick: PropTypes.func.isRequired,
-    closeDialog: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
     visType: sGetUiType(state),
     dialogId: sGetUiActiveModalDialog(state),
-    dimensionIdsInLayout: sGetDimensionIdsFromLayout(state),
 });
 
 export default connect(
     mapStateToProps,
     {
         onAddDimension: acAddUiLayoutDimensions,
-        // onUpdate: tSetCurrentFromUi,
-        closeDialog: acSetUiActiveModalDialog,
     }
 )(withStyles(styles)(AddToLayoutButton));

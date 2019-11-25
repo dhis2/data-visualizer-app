@@ -42,12 +42,14 @@ import {
     sGetUiParentGraphMap,
     sGetUiType,
     getAxisIdByDimensionId,
+    sGetDimensionIdsFromLayout,
 } from '../../../reducers/ui';
 import { sGetDimensions } from '../../../reducers/dimensions';
 import { sGetMetadata } from '../../../reducers/metadata';
 import { sGetSettingsDisplayNameProperty } from '../../../reducers/settings';
 import { apiFetchRecommendedIds } from '../../../api/dimensions';
 import { removeLastPathSegment, getOuPath } from '../../../modules/orgUnit';
+import UpdateButton from '../../UpdateButton/UpdateButton';
 
 export class DialogManager extends Component {
     state = {
@@ -297,6 +299,34 @@ export class DialogManager extends Component {
         );
     };
 
+    renderPrimaryButton = dialogId =>
+        this.props.dimensionIdsInLayout.includes(dialogId) ? (
+            <UpdateVisualizationContainer
+                renderComponent={handler => (
+                    <UpdateButton
+                        flat
+                        size="small"
+                        //className={classes.updateButton} //FIXME: is this needed?
+                        onClick={() => {
+                            handler();
+                            this.props.closeDialog(null);
+                        }}
+                    />
+                )}
+            />
+        ) : (
+            <UpdateVisualizationContainer
+                renderComponent={handler => (
+                    <AddToLayoutButton
+                        onClick={() => {
+                            handler();
+                            this.props.closeDialog(null);
+                        }}
+                    />
+                )}
+            />
+        );
+
     render() {
         const { dialogId, dimensions } = this.props;
         const keepMounted = !dialogId || dialogId === DIMENSION_ID_ORGUNIT;
@@ -313,18 +343,7 @@ export class DialogManager extends Component {
                 {this.renderDialogContent()}
                 <DialogActions>
                     <HideButton />
-                    {dialogId && (
-                        <UpdateVisualizationContainer
-                            renderComponent={handler => (
-                                <AddToLayoutButton
-                                    onClick={() => {
-                                        handler();
-                                        this.props.closeDialog(null);
-                                    }}
-                                />
-                            )}
-                        />
-                    )}
+                    {dialogId && this.renderPrimaryButton(dialogId)}
                 </DialogActions>
             </Dialog>
         );
@@ -345,6 +364,7 @@ DialogManager.propTypes = {
     metadata: PropTypes.object,
     selectedItems: PropTypes.object,
     type: PropTypes.string,
+    dimensionIdsInLayout: PropTypes.array.isRequired,
 };
 
 DialogManager.defaultProps = {
@@ -364,6 +384,7 @@ const mapStateToProps = state => ({
     type: sGetUiType(state),
     getAxisIdByDimensionId: dimensionId =>
         getAxisIdByDimensionId(state, dimensionId),
+    dimensionIdsInLayout: sGetDimensionIdsFromLayout(state),
 });
 
 export default connect(
