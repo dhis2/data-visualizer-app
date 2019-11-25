@@ -91,10 +91,6 @@ class Chip extends React.Component {
 
     getItemsLabel = () => {
         const numberOfItems = this.props.items.length;
-        console.log('numberOfItems: ' + numberOfItems);
-        console.log(
-            'this.maxNumberOfItemsPerAxis: ' + this.maxNumberOfItemsPerAxis
-        );
 
         return !!this.maxNumberOfItemsPerAxis &&
             numberOfItems > this.maxNumberOfItemsPerAxis
@@ -156,7 +152,7 @@ class Chip extends React.Component {
                     this.props.items.length > activeItemIds.length
                 }
                 open={this.state.tooltipOpen}
-                anchorEl={this.anchorEl}
+                anchorEl={this.getAnchorEl()}
             />
         );
     };
@@ -166,12 +162,12 @@ class Chip extends React.Component {
         this.props.axisId
     );
 
-    anchorEl = document.getElementById(this.id);
+    getAnchorEl = () => document.getElementById(this.id);
 
-    wrapperStyles = {
+    getWrapperStyles = () => ({
         ...styles.chipWrapper,
         ...(!this.props.items.length ? styles.chipEmpty : {}),
-    };
+    });
 
     getChipLabel = () =>
         `${this.props.dimensionName}${
@@ -181,7 +177,7 @@ class Chip extends React.Component {
     render = () =>
         this.props.dimensionId ? (
             <div
-                style={this.wrapperStyles}
+                style={this.getWrapperStyles()}
                 data-dimensionid={this.props.dimensionId}
                 draggable={!this.isLocked}
                 onDragStart={this.getDragStartHandler()}
@@ -201,7 +197,7 @@ class Chip extends React.Component {
                     {this.lockIcon}
                 </div>
                 {!this.isLocked && this.renderMenu()}
-                {this.anchorEl && this.renderTooltip()}
+                {this.getAnchorEl() && this.renderTooltip()}
             </div>
         ) : (
             ''
