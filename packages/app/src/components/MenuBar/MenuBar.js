@@ -8,6 +8,7 @@ import UpdateButton from '../UpdateButton/UpdateButton';
 import DownloadMenu from '../DownloadMenu/DownloadMenu';
 import InterpretationsButton from '../Interpretations/InterpretationsButton';
 import VisualizationOptionsManager from '../VisualizationOptions/VisualizationOptionsManager';
+import UpdateVisualizationContainer from '../UpdateButton/UpdateVisualizationContainer';
 import * as fromActions from '../../actions';
 import { sGetCurrent } from '../../reducers/current';
 import history from '../../modules/history';
@@ -33,7 +34,16 @@ const getOnError = props => error => props.onError(error);
 
 export const MenuBar = ({ classes, ...props }, context) => (
     <div className={classes.menuBar}>
-        <UpdateButton flat size="small" className={classes.updateButton} />
+        <UpdateVisualizationContainer
+            renderComponent={handler => (
+                <UpdateButton
+                    flat
+                    size="small"
+                    className={classes.updateButton}
+                    onClick={handler}
+                />
+            )}
+        />
         <FileMenu
             d2={context.d2}
             fileId={props.id || null}

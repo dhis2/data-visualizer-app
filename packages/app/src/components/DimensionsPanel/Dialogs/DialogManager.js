@@ -313,11 +313,10 @@ export class DialogManager extends Component {
                 {this.renderDialogContent()}
                 <DialogActions>
                     <HideButton />
-                    {/* {dialogId && <AddToLayoutButton dialogId={dialogId} />} */}
                     {dialogId && (
                         <UpdateVisualizationContainer
-                            renderComponent={onClick => (
-                                <AddToLayoutButton onClick={onClick} />
+                            renderComponent={handler => (
+                                <AddToLayoutButton onClick={handler} />
                             )}
                         />
                     )}
