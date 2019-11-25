@@ -299,32 +299,28 @@ export class DialogManager extends Component {
         );
     };
 
-    renderPrimaryButton = dialogId =>
-        this.props.dimensionIdsInLayout.includes(dialogId) ? (
-            <UpdateVisualizationContainer
-                renderComponent={handler => (
+    renderPrimaryButton = dialogId => (
+        <UpdateVisualizationContainer
+            renderComponent={handler =>
+                this.props.dimensionIdsInLayout.includes(dialogId) ? (
                     <UpdateButton
                         flat
                         size="small"
-                        onClick={() => {
-                            handler();
-                            this.props.closeDialog(null);
-                        }}
+                        onClick={this.getPrimaryOnClick(handler)}
                     />
-                )}
-            />
-        ) : (
-            <UpdateVisualizationContainer
-                renderComponent={handler => (
+                ) : (
                     <AddToLayoutButton
-                        onClick={() => {
-                            handler();
-                            this.props.closeDialog(null);
-                        }}
+                        onClick={this.getPrimaryOnClick(handler)}
                     />
-                )}
-            />
-        );
+                )
+            }
+        />
+    );
+
+    getPrimaryOnClick = handler => () => {
+        handler();
+        this.props.closeDialog(null);
+    };
 
     render() {
         const { dialogId, dimensions } = this.props;
