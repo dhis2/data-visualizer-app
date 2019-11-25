@@ -42,8 +42,6 @@ export class AddToLayoutButton extends Component {
         });
 
         this.props.onClick();
-
-        this.props.closeDialog(null);
     };
 
     getAxisMeta = axisIdArray =>

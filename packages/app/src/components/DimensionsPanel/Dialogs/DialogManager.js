@@ -316,7 +316,12 @@ export class DialogManager extends Component {
                     {dialogId && (
                         <UpdateVisualizationContainer
                             renderComponent={handler => (
-                                <AddToLayoutButton onClick={handler} />
+                                <AddToLayoutButton
+                                    onClick={() => {
+                                        handler();
+                                        this.props.closeDialog(null);
+                                    }}
+                                />
                             )}
                         />
                     )}
