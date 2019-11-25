@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-08-08T13:09:25.099Z\n"
+"POT-Creation-Date: 2019-09-16T07:28:39.022Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: phil_dhis2, 2019\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
@@ -134,6 +134,9 @@ msgid "Edited"
 msgstr ""
 
 msgid "Viewing interpretation from {{interpretationDate}}"
+msgstr ""
+
+msgid "Error validating layout"
 msgstr ""
 
 msgid "Create a new visualization by adding dimensions to the layout"
