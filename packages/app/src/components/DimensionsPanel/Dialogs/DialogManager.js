@@ -306,7 +306,6 @@ export class DialogManager extends Component {
                     <UpdateButton
                         flat
                         size="small"
-                        //className={classes.updateButton} //FIXME: is this needed?
                         onClick={() => {
                             handler();
                             this.props.closeDialog(null);
