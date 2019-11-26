@@ -15,7 +15,7 @@ if (window.Cypress) {
 
 const apiObjectName = 'chart'
 
-export default () => (
+const AppWrapper = () => (
     <Provider store={store}>
         <MuiThemeProvider theme={muiTheme}>
             <D2Shim>
@@ -26,3 +26,5 @@ export default () => (
         </MuiThemeProvider>
     </Provider>
 )
+
+export default AppWrapper

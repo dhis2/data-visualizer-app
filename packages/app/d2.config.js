@@ -3,7 +3,7 @@ const config = {
     title: 'Data Visualizer',
 
     entryPoints: {
-        app: './src/App',
+        app: './src/AppWrapper',
     },
 }
 

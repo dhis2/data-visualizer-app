@@ -10,6 +10,7 @@
         "cypress": "^3.6.1",
         "enzyme": "^3.10.0",
         "enzyme-adapter-react-16": "^1.15.1",
+        "eslint-plugin-cypress": "^2.7.0",
         "jest-enzyme": "^7.1.2",
         "redux-mock-store": "^1.5.3"
     },

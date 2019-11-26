@@ -14,6 +14,7 @@
         "enzyme-adapter-react-16": "^1.3.0",
         "eslint-config-prettier": "^3.0.1",
         "eslint-plugin-prettier": "^2.6.0",
+        "eslint-plugin-react-hooks": "^2.3.0",
         "husky": "^1.1.2",
         "jest-enzyme": "^6.0.0",
         "lerna": "^3.1.4",
@@ -23,9 +24,8 @@
     "scripts": {
         "bootstrap": "lerna bootstrap",
         "build": "lerna run build",
-        "lint": "lerna run lint",
-        "prettier-ci": "lerna run prettier-ci",
-        "prettier-write": "lerna run prettier-write",
+        "lint": "d2-style js check && d2-style text check",
+        "format": "d2-style js apply && d2-style text apply",
         "start-app": "lerna run --scope data-visualizer-app start",
         "test": "lerna run test",
         "coverage": "lerna run test -- --coverage"
