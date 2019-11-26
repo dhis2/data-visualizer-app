@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -12,7 +12,6 @@ import { sGetUiOptions } from '../../../reducers/ui'
 import { acSetUiOptions } from '../../../actions/ui'
 
 import {
-    tabSectionOption,
     tabSectionOptionItem,
     tabSectionOptionToggleable,
 } from '../styles/VisualizationOptions.style.js';
@@ -30,23 +29,19 @@ export const SelectBaseOption = ({
     const selected = option.items.find(item => item.id === String(value));
 
     return (
-        <Fragment>
+        <div
+            className={
+                !toggleable || enabled ? '' : tabSectionOptionItem.className
+            }
+        >
             {toggleable ? (
-                <div
-                    className={
-                        enabled
-                            ? tabSectionOptionItem.className
-                            : tabSectionOption.className
-                    }
-                >
-                    <Checkbox
-                        checked={enabled}
-                        label={label}
-                        name={`${option.name}-toggle`}
-                        onChange={({ checked }) => onToggle(checked)}
-                        dense
-                    />
-                </div>
+                <Checkbox
+                    checked={enabled}
+                    label={label}
+                    name={`${option.name}-toggle`}
+                    onChange={({ checked }) => onToggle(checked)}
+                    dense
+                />
             ) : null}
             {!toggleable || enabled ? (
                 <div
@@ -63,8 +58,7 @@ export const SelectBaseOption = ({
                             label: selected.label,
                         }}
                         helpText={helpText}
-                        tabIndex="0"
-                        inputMaxWidth="280px"
+                        inputWidth="280px"
                         dense
                     >
                         {option.items.map(({ id, label }) => (
@@ -77,7 +71,7 @@ export const SelectBaseOption = ({
                     </SingleSelectField>
                 </div>
             ) : null}
-        </Fragment>
+        </div>
     );
 };
 
