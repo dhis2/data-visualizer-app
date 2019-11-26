@@ -60,10 +60,10 @@ class Chip extends React.Component {
         this.handleMouseOut();
     };
 
-    getDragStartHandler = source => () => {
+    getDragStartHandler = () => event => {
         this.handleMouseOut();
 
-        setDataTransfer(this.props.axisId, source);
+        setDataTransfer(event, this.props.axisId);
     };
 
     getIconByDimension = () => {
