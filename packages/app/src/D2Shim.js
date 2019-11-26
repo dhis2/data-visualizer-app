@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { useConfig } from '@dhis2/app-runtime'
 import { useState } from 'react';
@@ -8,7 +9,7 @@ import { extractUserSettings } from './modules/settings';
 import { apiFetchOrganisationUnitLevels } from './api/organisationUnits';
 
 import history from './modules/history';
-import LoadingMask from './widgets/LoadingMask';
+import { ScreenCover, CircularLoader } from '@dhis2/ui-core'
 
 const configI18n = async () => {
 
@@ -19,42 +20,36 @@ const configI18n = async () => {
     //     );
     // }
 
-
     d2Config.i18n.sources.add('./i18n_old/i18n_module_en.properties');
 };
 
-const initD2 = async ({ baseUrl, apiVersion }) => {
-    // console.info(
-    //     `Data Visualizer app, v${manifest.version}, ${manifest.manifest_generated_at}`
-    // );
-
-    d2config.baseUrl = `${baseUrl}/api/${apiVersion}`;
-    d2config.schemas = ['chart', 'organisationUnit', 'userGroup'];
+const initD2 = async ({ baseUrl, apiVersion }, initConfig) => {
+    const d2 = await d2Init({
+        ...initConfig,
+        baseUrl: `${baseUrl}/api/${apiVersion}`,
+    });
 
     const userSettings = extractUserSettings(await getUserSettings());
-
     await configI18n(userSettings);
-
-    const d2 = await d2Init({
-        baseUrl,
-    });
 
     const ouLevels = await apiFetchOrganisationUnitLevels();
 
     return { location: history.location, baseUrl, d2, userSettings, ouLevels }
 }
 
-export const D2Shim = ({ children }) => {
-    const config = useConfig()
+export const D2Shim = ({ children, ...initConfig }) => {
+    const appConfig = useConfig()
     const [params, setParams] = useState(null)
 
     useEffect(() => {
-        initD2(config)
+        initD2(appConfig, initConfig)
             .then(setParams)
-    }, [config])
+    }, []) /* eslint-disable-line react-hooks/exhaustive-deps */
 
     if (!params) {
-        return <LoadingMask />
+        return <ScreenCover>
+            <CircularLoader />
+        </ScreenCover>
     }
     return children(params)
 }
