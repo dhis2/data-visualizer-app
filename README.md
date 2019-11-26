@@ -31,12 +31,6 @@ $ yarn start
 
 The following npm scripts can all be run from the repo root directory and will execute on all packages
 
-#### Lint
-
-```
-$ yarn lint
-```
-
 #### Unit tests
 
 ```
@@ -71,19 +65,21 @@ Run tests in ci mode:
 yarn cy:e2e:run
 ```
 
-#### Prettier and write changes
+#### Linting and Formatting
+
+Automatically fix all fixable code-style violations (prettier and eslint)
 
 ```
-$ yarn prettier-write
+$ yarn format
 ```
 
-Run prettier and just report failing files (useful for ci)
+Check all files for code-style violations (prettier and eslint)
 
 ```
-$ yarn prettier-ci
+$ yarn lint
 ```
 
-### Build the all packages
+### Build all packages
 
 ```
 $ yarn build
@@ -97,8 +93,9 @@ to merging to master.
 All netlfiy deployments run against play.dhis2.org/dev, so in order to use them, you must configure CORS for your particular branch:
 
 1. Copy the URL of the deployment you want to enable, i.e. `https://dhis2-data-visualizer.netlify.com`
-2. Visit the play/dev [system settings -- access](https://play.dhis2.org/dev/dhis-web-settings/index.html#/access) page
+2. Visit the [system settings -- access](https://play.dhis2.org/dev/dhis-web-settings/index.html#/access) page on the DHIS2 instance you want to test against (i.e. `https://debug.dhis2.org/dev`)
 3. Add the copied URL on a new line the in CORS Whitelist textbox **NOTE**: do NOT include a trailing slash
+4. Back on [netlify](`https://dhis2-data-visualizer.netlify.com`), enter the DHIS2 instance URL in the Server input of the login dialog
 
 The master branch is always available at:
 
