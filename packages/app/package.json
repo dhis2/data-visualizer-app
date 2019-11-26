@@ -6,7 +6,7 @@
     "private": true,
     "homepage": ".",
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^1.6.0-beta.0",
+        "@dhis2/cli-app-scripts": "^1.6.0-beta.1",
         "@dhis2/cli-style": "^4.1.2",
         "cypress": "^3.1.1",
         "enzyme": "^3.5.0",
