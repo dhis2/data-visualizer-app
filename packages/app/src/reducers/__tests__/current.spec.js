@@ -2,6 +2,8 @@ import {
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
+    VIS_TYPE_YEAR_OVER_YEAR_LINE,
+    VIS_TYPE_COLUMN,
 } from '@dhis2/analytics';
 
 import options from '../../modules/options';
@@ -11,7 +13,6 @@ import reducer, {
     SET_CURRENT_FROM_UI,
     CLEAR_CURRENT,
 } from '../current';
-import { COLUMN, YEAR_OVER_YEAR_LINE } from '../../modules/chartTypes';
 
 describe('reducer: current', () => {
     it('should return the default state', () => {
@@ -41,7 +42,7 @@ describe('reducer: current', () => {
 
     it('SET_CURRENT_FROM_UI: should set the current from the ui state section', () => {
         const ui = {
-            type: COLUMN,
+            type: VIS_TYPE_COLUMN,
             layout: {
                 columns: [DIMENSION_ID_DATA],
                 rows: [DIMENSION_ID_ORGUNIT],
@@ -89,7 +90,7 @@ describe('reducer: current', () => {
 
     it('SET_CURRENT_FROM_UI: should set current on a year on year format from the ui state section', () => {
         const ui = {
-            type: YEAR_OVER_YEAR_LINE,
+            type: VIS_TYPE_YEAR_OVER_YEAR_LINE,
             options,
             layout: {
                 columns: [],

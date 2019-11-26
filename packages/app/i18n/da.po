@@ -1,17 +1,26 @@
+# Translators:
+# phil_dhis2, 2019
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2019-08-08T13:09:25.099Z\n"
+"PO-Revision-Date: 2019-06-25 18:46+0000\n"
+"Last-Translator: phil_dhis2, 2019\n"
+"Language-Team: Danish (https://www.transifex.com/hisp-uio/teams/100509/da/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-11-21T07:25:38.180Z\n"
-"PO-Revision-Date: 2019-11-21T07:25:38.180Z\n"
+"Language: da\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Rename successful"
 msgstr ""
 
 msgid "\"{{what}}\" successfully deleted."
+msgstr ""
+
+msgid "Data Visualizer"
 msgstr ""
 
 msgid "Axis 1"
@@ -29,23 +38,21 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Cancel"
 
 msgid "Update"
-msgstr ""
+msgstr "Update"
 
 msgid ""
-"'{{visualiationType}}' is intended to show a single data item. Only the "
-"first item will be used and saved."
-msgstr ""
-
-msgid ""
-"'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
-"items. Only the first {{maxNumber}} items will be used and saved."
+"'Single Value' is intended to show a single data item. Only the first item "
+"will be used and saved."
 msgstr ""
 
 msgid "Hide"
 msgstr ""
+
+msgid "Remove"
+msgstr "Remove"
 
 msgid "Download"
 msgstr ""
@@ -93,33 +100,30 @@ msgid "The following information may be requested by technical support."
 msgstr ""
 
 msgid "Interpretations"
-msgstr ""
+msgstr "Interpretations"
 
-msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
-msgstr ""
-
-msgid "{{total}} of {{maxNumberOfItemsPerAxis}} selected"
+msgid "{{total}} of 1 selected"
 msgstr ""
 
 msgid "{{total}} selected"
 msgstr ""
 
+msgid "Series"
+msgstr ""
+
+msgid "Category"
+msgstr "Category"
+
+msgid "Filter"
+msgstr "Filter"
+
 msgid "Move to"
-msgstr ""
-
-msgid "Remove"
-msgstr ""
-
-msgid "Remove"
 msgstr ""
 
 msgid "None selected"
 msgstr ""
 
 msgid "Only '{{name}}' in use"
-msgstr ""
-
-msgid "Only '{{number}}' in use"
 msgstr ""
 
 msgid "Unsaved chart"
@@ -129,9 +133,6 @@ msgid "Edited"
 msgstr ""
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr ""
-
-msgid "Error validating layout"
 msgstr ""
 
 msgid "Create a new visualization by adding dimensions to the layout"
@@ -150,16 +151,16 @@ msgid "By data element"
 msgstr ""
 
 msgid "Count"
-msgstr ""
+msgstr "Count"
 
 msgid "Average"
-msgstr ""
+msgstr "Average"
 
 msgid "Average (sum in org unit hierarchy)"
 msgstr ""
 
 msgid "Sum"
-msgstr ""
+msgstr "Sum"
 
 msgid "Last value"
 msgstr ""
@@ -168,16 +169,16 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr ""
 
 msgid "Min"
-msgstr ""
+msgstr "Min"
 
 msgid "Max"
-msgstr ""
+msgstr "Max"
 
 msgid "Standard deviation"
-msgstr ""
+msgstr "Standard deviation"
 
 msgid "Variance"
-msgstr ""
+msgstr "Variance"
 
 msgid "Base line"
 msgstr ""
@@ -198,7 +199,7 @@ msgid "Hide empty categories"
 msgstr ""
 
 msgid "None"
-msgstr ""
+msgstr "None"
 
 msgid "Before first"
 msgstr ""
@@ -210,7 +211,7 @@ msgid "Before first and after last"
 msgstr ""
 
 msgid "All"
-msgstr ""
+msgstr "All"
 
 msgid "Hide chart legend"
 msgstr ""
@@ -291,12 +292,48 @@ msgid "Axis & legend"
 msgstr ""
 
 msgid "Style"
-msgstr ""
+msgstr "Style"
 
 msgid "Options"
 msgstr ""
 
 msgid "Chart options"
+msgstr ""
+
+msgid "Column"
+msgstr ""
+
+msgid "Stacked column"
+msgstr ""
+
+msgid "Bar"
+msgstr ""
+
+msgid "Stacked bar"
+msgstr ""
+
+msgid "Line"
+msgstr ""
+
+msgid "Area"
+msgstr ""
+
+msgid "Pie"
+msgstr ""
+
+msgid "Radar"
+msgstr ""
+
+msgid "Gauge"
+msgstr ""
+
+msgid "Year over year (line)"
+msgstr ""
+
+msgid "Year over year (column)"
+msgstr ""
+
+msgid "Single value"
 msgstr ""
 
 msgid "Open as Map"
@@ -324,7 +361,7 @@ msgid "Select a program"
 msgstr ""
 
 msgid "Indicators"
-msgstr ""
+msgstr "Indicators"
 
 msgid "Select indicator group"
 msgstr ""
@@ -333,7 +370,7 @@ msgid "[ All groups ]"
 msgstr ""
 
 msgid "Data elements"
-msgstr ""
+msgstr "Data elements"
 
 msgid "Select data element group"
 msgstr ""
@@ -345,10 +382,10 @@ msgid "Totals"
 msgstr ""
 
 msgid "Details"
-msgstr ""
+msgstr "Details"
 
 msgid "Data sets"
-msgstr ""
+msgstr "Data sets"
 
 msgid "Select data sets"
 msgstr ""
@@ -386,7 +423,8 @@ msgstr ""
 msgid "Please add at least one {{category}} dimension"
 msgstr ""
 
-msgid "Please add at least one period as {{series}}, {{category}} or {{filter}}"
+msgid ""
+"Please add at least one period as {{series}}, {{category}} or {{filter}}"
 msgstr ""
 
 msgid "Please add {{data}} as {{category}} or {{filter}}"
@@ -432,16 +470,16 @@ msgid "This week"
 msgstr ""
 
 msgid "Last week"
-msgstr ""
+msgstr "Last week"
 
 msgid "Last 4 weeks"
-msgstr ""
+msgstr "Last 4 weeks"
 
 msgid "Last 12 weeks"
-msgstr ""
+msgstr "Last 12 weeks"
 
 msgid "Last 52 weeks"
-msgstr ""
+msgstr "Last 52 weeks"
 
 msgid "Weeks this year"
 msgstr ""
@@ -450,19 +488,19 @@ msgid "This month"
 msgstr ""
 
 msgid "Last month"
-msgstr ""
+msgstr "Last month"
 
 msgid "Last 3 months"
-msgstr ""
+msgstr "Last 3 months"
 
 msgid "Last 6 months"
-msgstr ""
+msgstr "Last 6 months"
 
 msgid "Last 12 months"
-msgstr ""
+msgstr "Last 12 months"
 
 msgid "Months this year"
-msgstr ""
+msgstr "Months this year"
 
 msgid "This bimonth"
 msgstr ""
@@ -480,40 +518,40 @@ msgid "This quarter"
 msgstr ""
 
 msgid "Last quarter"
-msgstr ""
+msgstr "Last quarter"
 
 msgid "Last 4 quarters"
-msgstr ""
+msgstr "Last 4 quarters"
 
 msgid "Quarters this year"
-msgstr ""
+msgstr "Quarters this year"
 
 msgid "This six-month"
 msgstr ""
 
 msgid "Last six-month"
-msgstr ""
+msgstr "Last six-month"
 
 msgid "Last 2 six-months"
-msgstr ""
+msgstr "Last 2 six-months"
 
 msgid "This financial year"
-msgstr ""
+msgstr "This financial year"
 
 msgid "Last financial year"
-msgstr ""
+msgstr "Last financial year"
 
 msgid "Last 5 financial years"
-msgstr ""
+msgstr "Last 5 financial years"
 
 msgid "This year"
-msgstr ""
+msgstr "This year"
 
 msgid "Last year"
-msgstr ""
+msgstr "Last year"
 
 msgid "Last 5 years"
-msgstr ""
+msgstr "Last 5 years"
 
 msgid "User org unit"
 msgstr ""

@@ -4,9 +4,12 @@ import i18n from '@dhis2/d2-i18n';
 import MenuItem from '@material-ui/core/MenuItem';
 import Divider from '@material-ui/core/Divider';
 import {
-    AXIS_NAME_COLUMNS,
-    AXIS_NAMES,
+    AXIS_ID_COLUMNS,
+    DEFAULT_AXIS_IDS,
     DIMENSION_ID_DATA,
+    isYearOverYear,
+    isDualAxisType,
+    getAxisName,
 } from '@dhis2/analytics';
 
 import Chip from '../Chip';
@@ -14,22 +17,12 @@ import { sGetUi } from '../../../reducers/ui';
 import { decodeDataTransfer } from '../../../modules/dnd';
 import {
     acAddUiLayoutDimensions,
-    acRemoveUiLayoutDimensions,
     acSetUiActiveModalDialog,
 } from '../../../actions/ui';
 import { SOURCE_DIMENSIONS, menuLabels } from '../../../modules/layout';
 import { getAdaptedUiByType } from '../../../modules/ui';
-import { isYearOverYear, isDualAxisType } from '../../../modules/chartTypes';
-import { AXIS_SETUP_DIALOG_ID } from '../../AxisSetup/AxisSetup';
 
 import styles from './styles/DefaultAxis.style';
-
-const axisLabels = {
-    columns: i18n.t('Series'),
-    rows: i18n.t('Category'),
-    filters: i18n.t('Filter'),
-};
-
 class Axis extends React.Component {
     onDragOver = e => {
         e.preventDefault();
@@ -41,7 +34,7 @@ class Axis extends React.Component {
         const { dimensionId, source } = decodeDataTransfer(e);
 
         this.props.onAddDimension({
-            [dimensionId]: this.props.axisName,
+            [dimensionId]: this.props.axisId,
         });
 
         const items = this.props.itemsByDimension[dimensionId];
@@ -55,14 +48,14 @@ class Axis extends React.Component {
     isMoveSupported = () => !isYearOverYear(this.props.type);
 
     getAxisMenuItems = dimensionId =>
-        AXIS_NAMES.filter(key => key !== this.props.axisName).map(key => (
+        DEFAULT_AXIS_IDS.filter(key => key !== this.props.axisId).map(key => (
             <MenuItem
                 key={`${dimensionId}-to-${key}`}
                 onClick={this.props.getMoveHandler({ [dimensionId]: key })}
             >{`${i18n.t('Move to')} ${menuLabels[key]}`}</MenuItem>
         ));
 
-    isSeries = () => this.props.axisName === AXIS_NAME_COLUMNS;
+    isSeries = () => this.props.axisId === AXIS_ID_COLUMNS;
 
     isData = dimensionId => dimensionId === DIMENSION_ID_DATA;
 
@@ -111,22 +104,19 @@ class Axis extends React.Component {
     render() {
         return (
             <div
-                id={this.props.axisName}
+                id={this.props.axisId}
                 style={{ ...styles.axisContainer, ...this.props.style }}
                 onDragOver={this.onDragOver}
                 onDrop={this.onDrop}
             >
-                <div style={styles.label}>
-                    {axisLabels[this.props.axisName]}
-                </div>
+                <div style={styles.label}>{getAxisName(this.props.axisId)}</div>
                 <div style={styles.content}>
                     {this.props.axis.map(dimensionId => (
                         <Chip
-                            key={`${this.props.axisName}-${dimensionId}`}
+                            key={`${this.props.axisId}-${dimensionId}`}
                             onClick={this.props.getOpenHandler(dimensionId)}
-                            axisName={this.props.axisName}
+                            axisId={this.props.axisId}
                             dimensionId={dimensionId}
-                            menuItems={this.getMenuItems(dimensionId)}
                         />
                     ))}
                 </div>
@@ -145,23 +135,13 @@ const mapDispatchToProps = dispatch => ({
         dispatch(acSetUiActiveModalDialog(dimensionId)),
     getOpenHandler: dimensionId => () =>
         dispatch(acSetUiActiveModalDialog(dimensionId)),
-    getMoveHandler: value => event => {
-        event.stopPropagation();
-        dispatch(acAddUiLayoutDimensions(value));
-    },
-    getRemoveHandler: dimensionId => event => {
-        event.stopPropagation();
-        dispatch(acRemoveUiLayoutDimensions(dimensionId));
-    },
-    onOpenAxisSetup: () =>
-        dispatch(acSetUiActiveModalDialog(AXIS_SETUP_DIALOG_ID)),
 });
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
     const adaptedUi = getAdaptedUiByType(stateProps.ui);
 
     return {
-        axis: adaptedUi.layout[ownProps.axisName],
+        axis: adaptedUi.layout[ownProps.axisId],
         itemsByDimension: adaptedUi.itemsByDimension,
         type: adaptedUi.type,
         ...dispatchProps,

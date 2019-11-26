@@ -1,68 +1,69 @@
 import i18n from '@dhis2/d2-i18n';
 import {
     AXIS,
+    AXIS_ID_COLUMNS,
+    AXIS_ID_ROWS,
+    AXIS_ID_FILTERS,
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     FIXED_DIMENSIONS,
+    VIS_TYPE_YEAR_OVER_YEAR_LINE,
+    VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
+    VIS_TYPE_PIE,
+    VIS_TYPE_GAUGE,
+    VIS_TYPE_SINGLE_VALUE,
     dimensionIsValid,
     layoutGetDimension,
+    getAxisName,
 } from '@dhis2/analytics';
 
-import {
-    YEAR_OVER_YEAR_LINE,
-    YEAR_OVER_YEAR_COLUMN,
-    PIE,
-    GAUGE,
-    SINGLE_VALUE,
-} from './chartTypes';
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields';
-import { menuLabels } from './layout';
 
 const dxName = FIXED_DIMENSIONS[DIMENSION_ID_DATA].name;
 
 const errorLabels = {
     defaultSeries: i18n.t('Please add at least one {{series}} dimension', {
-        series: menuLabels.columns,
+        series: getAxisName(AXIS_ID_COLUMNS),
     }),
     defaultCategory: i18n.t('Please add at least one {{category}} dimension', {
-        category: menuLabels.rows,
+        category: getAxisName(AXIS_ID_ROWS),
     }),
     defaultPe: i18n.t(
         'Please add at least one period as {{series}}, {{category}} or {{filter}}',
         {
-            series: menuLabels.columns,
-            category: menuLabels.rows,
-            filter: menuLabels.filters,
+            series: getAxisName(AXIS_ID_COLUMNS),
+            category: getAxisName(AXIS_ID_ROWS),
+            filter: getAxisName(AXIS_ID_FILTERS),
         }
     ),
     pie: {
         dx: i18n.t('Please add {{data}} as {{category}} or {{filter}}', {
             data: dxName,
-            category: menuLabels.rows,
-            filter: menuLabels.filters,
+            category: getAxisName(AXIS_ID_ROWS),
+            filter: getAxisName(AXIS_ID_FILTERS),
         }),
         pe: i18n.t(
             'Please add at least one period as {{series}} or {{filter}}',
             {
-                series: menuLabels.columns,
-                filter: menuLabels.filters,
+                series: getAxisName(AXIS_ID_COLUMNS),
+                filter: getAxisName(AXIS_ID_FILTERS),
             }
         ),
         filter: i18n.t('Please add at least one {{filter}} dimension', {
-            filter: menuLabels.filters,
+            filter: getAxisName(AXIS_ID_FILTERS),
         }),
     },
     yearOverYear: {
         seriesPeriod: i18n.t(
             'Please add at least one period as a {{series}} dimension',
             {
-                series: menuLabels.columns,
+                series: getAxisName(AXIS_ID_COLUMNS),
             }
         ),
         categoryPeriod: i18n.t(
             'Please add at least one period as a {{category}} dimension',
             {
-                category: menuLabels.rows,
+                category: getAxisName(AXIS_ID_ROWS),
             }
         ),
         dx: i18n.t('Please add {{data}} as a filter dimension', {
@@ -71,10 +72,10 @@ const errorLabels = {
     },
     singleValue: {
         dx: i18n.t('Please add one {{series}} dimension', {
-            series: menuLabels.columns,
+            series: getAxisName(AXIS_ID_COLUMNS),
         }),
         pe: i18n.t('Please add at least one period as {{filter}}', {
-            filter: menuLabels.filters,
+            filter: getAxisName(AXIS_ID_FILTERS),
         }),
     },
 };
@@ -139,13 +140,13 @@ const validateSingleValueLayout = layout => {
 
 export const validateLayout = layout => {
     switch (layout.type) {
-        case PIE:
-        case GAUGE:
+        case VIS_TYPE_PIE:
+        case VIS_TYPE_GAUGE:
             return validatePieLayout(layout);
-        case YEAR_OVER_YEAR_COLUMN:
-        case YEAR_OVER_YEAR_LINE:
+        case VIS_TYPE_YEAR_OVER_YEAR_COLUMN:
+        case VIS_TYPE_YEAR_OVER_YEAR_LINE:
             return validateYearOverYearLayout(layout);
-        case SINGLE_VALUE:
+        case VIS_TYPE_SINGLE_VALUE:
             return validateSingleValueLayout(layout);
         default:
             return validateDefaultLayout(layout);

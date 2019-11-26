@@ -6,7 +6,7 @@
     "private": true,
     "homepage": ".",
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^1.5.3",
+        "@dhis2/cli-app-scripts": "^1.6.0-beta.0",
         "@dhis2/cli-style": "^4.1.2",
         "cypress": "^3.1.1",
         "enzyme": "^3.5.0",
@@ -15,15 +15,13 @@
         "react-stub-context": "^0.8.1",
         "redux-mock-store": "^1.5.3"
     },
-    "//QUESTIONABLE DEPS//": {
-        "postcss-flexbugs-fixes": "4.1.0"
-    },
     "dependencies": {
-        "@dhis2/analytics": "^2.4.3",
+        "@dhis2/analytics": "^2.6.10",
         "@dhis2/d2-ui-core": "^6.2.1",
         "@dhis2/d2-ui-file-menu": "^6.2.1",
         "@dhis2/d2-ui-interpretations": "^6.2.1",
-        "@dhis2/data-visualizer-plugin": "^33.1.4",
+        "@dhis2/data-visualizer-plugin": "^33.1.6",
+        "@dhis2/ui-core": "^3.4.0",
         "@material-ui/core": "^3.1.2",
         "@material-ui/icons": "^3.0.1",
         "d2": "31.2.1",

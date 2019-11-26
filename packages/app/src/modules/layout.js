@@ -1,8 +1,8 @@
 import i18n from '@dhis2/d2-i18n';
 import {
-    AXIS_NAME_COLUMNS,
-    AXIS_NAME_ROWS,
-    AXIS_NAME_FILTERS,
+    AXIS_ID_COLUMNS,
+    AXIS_ID_ROWS,
+    AXIS_ID_FILTERS,
 } from '@dhis2/analytics';
 
 // Names for dnd sources
@@ -10,9 +10,9 @@ export const SOURCE_DIMENSIONS = 'dimensions';
 
 // Keys and displayName for adding dimensions to layout
 export const ADD_TO_LAYOUT_OPTIONS = [
-    { axisKey: AXIS_NAME_COLUMNS, name: i18n.t('Add to series') },
-    { axisKey: AXIS_NAME_ROWS, name: i18n.t('Add to category') },
-    { axisKey: AXIS_NAME_FILTERS, name: i18n.t('Add to filter') },
+    { axisId: AXIS_ID_COLUMNS, name: i18n.t('Add to series') },
+    { axisId: AXIS_ID_ROWS, name: i18n.t('Add to category') },
+    { axisId: AXIS_ID_FILTERS, name: i18n.t('Add to filter') },
 ];
 
 export const menuLabels = {
@@ -28,13 +28,11 @@ export const getFilteredLayout = (layout, excludedIds) => {
     const ids = Array.isArray(excludedIds) ? excludedIds : [excludedIds];
 
     return {
-        [AXIS_NAME_COLUMNS]: layout[AXIS_NAME_COLUMNS].filter(
+        [AXIS_ID_COLUMNS]: layout[AXIS_ID_COLUMNS].filter(
             dim => !ids.includes(dim)
         ),
-        [AXIS_NAME_ROWS]: layout[AXIS_NAME_ROWS].filter(
-            dim => !ids.includes(dim)
-        ),
-        [AXIS_NAME_FILTERS]: layout[AXIS_NAME_FILTERS].filter(
+        [AXIS_ID_ROWS]: layout[AXIS_ID_ROWS].filter(dim => !ids.includes(dim)),
+        [AXIS_ID_FILTERS]: layout[AXIS_ID_FILTERS].filter(
             dim => !ids.includes(dim)
         ),
     };
@@ -46,9 +44,9 @@ export const getInverseLayout = layout => {
     const entries = Object.entries(layout);
     const map = {};
 
-    entries.forEach(([axisName, dimensionIds]) => {
+    entries.forEach(([axisId, dimensionIds]) => {
         dimensionIds.forEach(id => {
-            map[id] = axisName;
+            map[id] = axisId;
         });
     });
 
@@ -69,7 +67,7 @@ export const getSwapModObj = (layout, modObj) => {
 
         if (
             existsAt &&
-            destinationAxis !== AXIS_NAME_FILTERS &&
+            destinationAxis !== AXIS_ID_FILTERS &&
             dimensionAtDestination
         ) {
             swappedModObj[dimensionAtDestination] = existsAt;

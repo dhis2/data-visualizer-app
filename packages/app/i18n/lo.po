@@ -1,27 +1,28 @@
 # Translators:
 # Viktor Varland <viktor@dhis2.org>, 2019
+# phil_dhis2, 2019
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-08-08T13:09:25.099Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2019\n"
-"Language-Team: Urdu (https://www.transifex.com/hisp-uio/teams/100509/ur/)\n"
+"Last-Translator: phil_dhis2, 2019\n"
+"Language-Team: Lao (https://www.transifex.com/hisp-uio/teams/100509/lo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ur\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: lo\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Rename successful"
-msgstr "نام تبدیل کریں"
+msgstr ""
 
 msgid "\"{{what}}\" successfully deleted."
-msgstr "\"{{what}}\" کامیابی سے حذف کر دیا گیا"
+msgstr ""
 
 msgid "Data Visualizer"
-msgstr "ڈیٹا ویزوئلائزر"
+msgstr "ການສ້າງຮູບພາບຈາກຂໍ້ມູນ"
 
 msgid "Axis 1"
 msgstr ""
@@ -38,10 +39,10 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr "منسوخ"
+msgstr "ຍົກເລີກ"
 
 msgid "Update"
-msgstr "اپ ڈیٹ"
+msgstr "ປັບປຸງ"
 
 msgid ""
 "'Single Value' is intended to show a single data item. Only the first item "
@@ -49,16 +50,16 @@ msgid ""
 msgstr ""
 
 msgid "Hide"
-msgstr "چھپائیں"
+msgstr "ເຊື່ອງ"
 
 msgid "Remove"
-msgstr "دور"
+msgstr "ລົບອອກ"
 
 msgid "Download"
-msgstr "ڈاؤن لوڈ کریں"
+msgstr "ດາວໂຫຼດ"
 
 msgid "Graphics"
-msgstr "گرافکس"
+msgstr "ກຣາບຟິກ"
 
 msgid "Image (.png)"
 msgstr ""
@@ -67,19 +68,19 @@ msgid "PDF (.pdf)"
 msgstr ""
 
 msgid "Plain data source"
-msgstr "سادہ اعداد و شمار کا ذریعہ"
+msgstr "ສະເພາະຂໍ້ມູນພື້ນຖານ"
 
 msgid "Advanced"
-msgstr "اعلی درجے کی"
+msgstr "ການຕັ້ງຄ່າຂັ້ນສູງ"
 
 msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "Data value set"
-msgstr "ڈیٹا کی قیمت مقرر"
+msgstr "ການຕັ້ງຄ່າຂໍ້ມູນ"
 
 msgid "Other formats"
-msgstr "دیگر فارمیٹس"
+msgstr "ຮູບແບບອື່ນ"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr ""
@@ -100,7 +101,7 @@ msgid "The following information may be requested by technical support."
 msgstr ""
 
 msgid "Interpretations"
-msgstr "تشریحات"
+msgstr "ການແປຂໍ້ມູນ"
 
 msgid "{{total}} of 1 selected"
 msgstr ""
@@ -109,19 +110,19 @@ msgid "{{total}} selected"
 msgstr ""
 
 msgid "Series"
-msgstr "سیریز"
+msgstr "ແທ່ງ"
 
 msgid "Category"
-msgstr "قسم"
+msgstr "ລວງນອນ"
 
 msgid "Filter"
-msgstr "فلٹر"
+msgstr "ກັ່ນຕອງ"
 
 msgid "Move to"
-msgstr "پر منتقل"
+msgstr ""
 
 msgid "None selected"
-msgstr "کوئی بھی منتخب نہیں"
+msgstr ""
 
 msgid "Only '{{name}}' in use"
 msgstr ""
@@ -145,187 +146,187 @@ msgid "Error generating chart, please try again"
 msgstr ""
 
 msgid "Aggregation type"
-msgstr "مجموعی قسم"
+msgstr "ປະເພດຕົວເລກລວມ"
 
 msgid "By data element"
-msgstr "ڈیٹا عنصر کے ذریعہ"
+msgstr "ໂດຍອົງປະກອບຂອງຂໍ້ມູນ"
 
 msgid "Count"
-msgstr "شمار"
+msgstr "ນັບ"
 
 msgid "Average"
-msgstr "اوسط"
+msgstr "ສະເລ່ຍ"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr "اوسط (اختیاری یونٹ کے تنظیمی ڈھانچے میں)"
+msgstr "ຄ່າສະເລ່ຍ (ສັງລວມໃນໂຄງຮ່າງການຈັດຕັ້ງ)"
 
 msgid "Sum"
-msgstr "سم"
+msgstr "ຜົນບວກ"
 
 msgid "Last value"
-msgstr "آخری قیمت"
+msgstr "ມູນຄ່າສຸດທ້າຍ"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr "آخری قدر (اوسط یونٹ کے تنظیمی ڈھانچے میں اوسط)"
+msgstr "ມູນຄ່າສຸດທ້າຍ (ຄ່າສະເລ່ຍໃນໂຄງຮ່າງການຈັດຕັ້ງ)"
 
 msgid "Min"
-msgstr "منٹ"
+msgstr "ຄ່າຕໍ່າສຸດ"
 
 msgid "Max"
-msgstr "زیادہ سے زیادہ"
+msgstr "ຄ່າໃຫ່ຍສຸດ"
 
 msgid "Standard deviation"
-msgstr "معیاری انحراف"
+msgstr ""
 
 msgid "Variance"
-msgstr "متغیر"
+msgstr "ຄວາມແຕກຕ່າງ"
 
 msgid "Base line"
-msgstr "بیس لائن"
+msgstr ""
 
 msgid "Base line title"
-msgstr "بیس لائن کا عنوان"
+msgstr "ຫົວຂໍ້ເສັ້ນຖານ"
 
 msgid "Base line value"
-msgstr "بیس لائن قیمت"
+msgstr "ຄ່າຕັ້ງຕົ້ນ"
 
 msgid "Use cumulative values"
-msgstr "مجموعی اقدار کا استعمال کریں"
+msgstr "ໃຊ້ຄ່າຕົວເລກສະສົມ"
 
 msgid "Domain axis title"
-msgstr "ڈومین محور عنوان"
+msgstr "ຫົວຂໍ້ສັ້ນລວງນອນ"
 
 msgid "Hide empty categories"
-msgstr "خالی اقسام چھپائیں"
+msgstr "ເຊື່ອງປະເພດຂອງຂໍ້ມູນທີ່ເປົ່າວ່າງ"
 
 msgid "None"
-msgstr "کوئی بھی نہیں"
+msgstr "ບໍ່ມີ"
 
 msgid "Before first"
-msgstr "پہلے سے پہلے"
+msgstr "ກ່ອນໜ້າທໍາອິດ"
 
 msgid "After last"
-msgstr "آخری کے بعد"
+msgstr "ຫຼັງຈາກສຸດທ້າຍ"
 
 msgid "Before first and after last"
-msgstr "پہلے اور بعد میں آخری سے پہلے"
+msgstr "ກ່ອນໜ້າທໍາອິດ ແລະ ຫຼັງຈາກສຸດທ້າຍ"
 
 msgid "All"
-msgstr "سب"
+msgstr "ທັງໝົດ"
 
 msgid "Hide chart legend"
-msgstr "چارٹ علامات چھپائیں"
+msgstr "ເຊື່ອງຄວາມຫມາຍຂອງເສັ້ນສະແດງ"
 
 msgid "Hide subtitle"
-msgstr "ذیلی عنوان چھپائیں"
+msgstr ""
 
 msgid "Hide title"
-msgstr "عنوان چھپائیں"
+msgstr ""
 
 msgid "No space between columns/bars"
-msgstr "کالم / سلاخوں کے درمیان کوئی جگہ نہیں"
+msgstr ""
 
 msgid "Use 100% stacked values"
-msgstr "100٪ اسٹیکرز اقدار کا استعمال کریں"
+msgstr "ໃຊ້ຄ່າທີ່ຊ້ອນກັນ 100%"
 
 msgid "Range axis decimals"
-msgstr "رینج محور کی فہرست"
+msgstr ""
 
 msgid "Range axis title"
-msgstr "رینج محور عنوان"
+msgstr "ຫົວຂໍ້ສັ້ນລວງຕັ້ງ"
 
 msgid "Range axis max"
-msgstr "رینج محور زیادہ سے زیادہ"
+msgstr ""
 
 msgid "Range axis min"
-msgstr "رینج محور منٹ"
+msgstr ""
 
 msgid "Range axis tick steps"
-msgstr "رینج محور کو قدموں میں ٹینک"
+msgstr ""
 
 msgid "Tick steps may extend the chart beyond 'Range axis max'"
 msgstr ""
 
 msgid "Trend line"
-msgstr "رجحان لائن"
+msgstr "ເສັ້ນແນວໂນ້ມ"
 
 msgid "Linear"
-msgstr "لکیری"
+msgstr "ຈຸດ"
 
 msgid "Polynomial"
-msgstr "پولینومیل"
+msgstr "ເສັ້ນສະແດງແບບໂຄ້ງ"
 
 msgid "Loess"
-msgstr "قرض"
+msgstr "ເສັ້ນສະແດງແບບແຈກຢາຍເປັນຈຸດເປັນຈໍ້າ"
 
 msgid "Show values"
-msgstr "اقدار دکھائیں"
+msgstr "ສະແດງຄ່າ"
 
 msgid "Sort order"
-msgstr "ترتیب"
+msgstr "ລຽງລຳດັບ"
 
 msgid "Low to high"
-msgstr "اعلی سے کم"
+msgstr "ຕ່ຳຫາສູງ"
 
 msgid "High to low"
-msgstr "کم سے کم"
+msgstr "ສູງຫາຕ່ຳ"
 
 msgid "Chart subtitle"
-msgstr "چارٹ ذیلی عنوان"
+msgstr "ຫົວຂໍ້ຍ່ອຍຂອງເສັ້ນສະແດງ"
 
 msgid "Target line"
-msgstr "ہدف لائن"
+msgstr ""
 
 msgid "Target line title"
-msgstr "ہدف لائن کا عنوان"
+msgstr "ຫົວຂໍ້ເສັ້ນເປົ້າໝາຍ"
 
 msgid "Target line value"
-msgstr "ہدف لائن کی قیمت"
+msgstr "ຄ່າເສັ້ນເປົ້າໝາຍ"
 
 msgid "Chart title"
-msgstr "چارٹ کا عنوان"
+msgstr "ຫົວຂໍ້ເສັ້ນສະແດງ"
 
 msgid "Data"
-msgstr "ڈیٹا"
+msgstr "ຂໍ້ມູນ"
 
 msgid "Axis & legend"
 msgstr ""
 
 msgid "Style"
-msgstr "انداز"
+msgstr "ແບບ"
 
 msgid "Options"
-msgstr "اختیارات"
+msgstr "ຈັດການ"
 
 msgid "Chart options"
-msgstr "چارٹ کے اختیارات"
+msgstr "ທາງເລືອກຂອງເສັ້ນສະແດງ"
 
 msgid "Column"
-msgstr "کالم"
+msgstr "ຖັນ"
 
 msgid "Stacked column"
-msgstr "اسٹیک کالم"
+msgstr ""
 
 msgid "Bar"
-msgstr "بار"
+msgstr ""
 
 msgid "Stacked bar"
-msgstr "اسٹیک بار"
+msgstr ""
 
 msgid "Line"
-msgstr "لائن"
+msgstr ""
 
 msgid "Area"
-msgstr "رقبہ"
+msgstr ""
 
 msgid "Pie"
-msgstr "پائی"
+msgstr ""
 
 msgid "Radar"
-msgstr "رڈار"
+msgstr ""
 
 msgid "Gauge"
-msgstr "گیج"
+msgstr ""
 
 msgid "Year over year (line)"
 msgstr ""
@@ -346,67 +347,67 @@ msgid "Reporting rate on time"
 msgstr ""
 
 msgid "Actual reports"
-msgstr "اصل رپورٹ"
+msgstr ""
 
 msgid "Actual reports on time"
 msgstr ""
 
 msgid "Expected reports"
-msgstr "متوقع رپورٹ"
+msgstr ""
 
 msgid "Program"
-msgstr "پروگرام"
+msgstr "ສາຍງານ"
 
 msgid "Select a program"
 msgstr ""
 
 msgid "Indicators"
-msgstr "اشارے"
+msgstr "ຕົວຊີ້ວັດ"
 
 msgid "Select indicator group"
-msgstr "اشارے گروپ منتخب کریں"
+msgstr "ເລືອກກຸ່ມຕົວຊີ້ວັດ"
 
 msgid "[ All groups ]"
-msgstr "[ تمام گروپ ]"
+msgstr ""
 
 msgid "Data elements"
-msgstr "ڈیٹا عناصر"
+msgstr "ອົງປະກອບຂໍ້ມູນ"
 
 msgid "Select data element group"
-msgstr "ڈیٹا عنصر گروپ منتخب کریں"
+msgstr "ເລືອກກຸ່ມອົງປະກອບຂອງຂໍ້ມູນ"
 
 msgid "[ All data elements ]"
-msgstr "[ تمام ڈیٹا عناصر ]"
+msgstr ""
 
 msgid "Totals"
-msgstr "مجموعی طور پر"
+msgstr "ລວມທັງໝົດ"
 
 msgid "Details"
-msgstr "تفصیلات"
+msgstr "ລາຍລະອຽດ"
 
 msgid "Data sets"
-msgstr "ڈیٹا سیٹ"
+msgstr "ແບບຟອມ"
 
 msgid "Select data sets"
-msgstr "ڈیٹا سیٹ کا انتخاب کریں"
+msgstr ""
 
 msgid "[ All metrics ]"
-msgstr "[ تمام میٹرکس ]"
+msgstr ""
 
 msgid "Event data items"
-msgstr "واقعہ کے اعداد و شمار کی اشیاء"
+msgstr "ຂໍ້ມູນລາຍບຸກຄົນ"
 
 msgid "Program indicators"
-msgstr "پروگرام اشارے"
+msgstr "ຕົວຊີ້ວັດສະເພາະວຽກຂອງຂະແໜງ"
 
 msgid "Add to series"
-msgstr "سیریز میں شامل کریں"
+msgstr ""
 
 msgid "Add to category"
-msgstr "زمرہ میں شامل کریں"
+msgstr ""
 
 msgid "Add to filter"
-msgstr "فلٹر میں شامل کریں"
+msgstr ""
 
 msgid "series"
 msgstr ""
@@ -452,115 +453,115 @@ msgid "Please add at least one period as {{filter}}"
 msgstr ""
 
 msgid "Today"
-msgstr "آج"
+msgstr "ມື້ນີ້"
 
 msgid "Yesterday"
-msgstr "کل"
+msgstr "ມື້ວານນີ"
 
 msgid "Last 3 days"
-msgstr "آخری 3 دن"
+msgstr "3 ມື້ກ່ອນ"
 
 msgid "Last 7 days"
-msgstr "آخری 7 دن"
+msgstr "7 ມື້ກ່ອນ"
 
 msgid "Last 14 days"
-msgstr "آخری 14 دن"
+msgstr "14 ມື້ກ່ອນ"
 
 msgid "This week"
-msgstr "اس ہفتے"
+msgstr "ທິດນີ້"
 
 msgid "Last week"
-msgstr "پچھلا ہفتہ"
+msgstr "ອາທິດທີ່ຜ່ານມາ"
 
 msgid "Last 4 weeks"
-msgstr "آخری 4 ہفتوں"
+msgstr "4 ອາທິດຍ້ອນຫຼັງ"
 
 msgid "Last 12 weeks"
-msgstr "آخری 12 ہفتوں"
+msgstr "12 ອາທິດຍ້ອນຫຼັງ"
 
 msgid "Last 52 weeks"
-msgstr "آخری 52 ہفتوں"
+msgstr "52 ອາທິດຜ່ານມາ"
 
 msgid "Weeks this year"
-msgstr "اس سال ہفتہ"
+msgstr "ອາທິດ ຂອງປີນີ້"
 
 msgid "This month"
-msgstr "اس مہینے"
+msgstr "ເດືອນນີ້"
 
 msgid "Last month"
-msgstr "پچھلے مہینے"
+msgstr "ເດືອນຜ່ານມາ"
 
 msgid "Last 3 months"
-msgstr "آخری 3 ماہ"
+msgstr "3 ເດືອນຍ້ອນຫຼັງ"
 
 msgid "Last 6 months"
-msgstr "آخری 6 ماہ"
+msgstr "6 ເດືອນຜ່ານມາ"
 
 msgid "Last 12 months"
-msgstr "آخری 12 ماہ"
+msgstr "12 ເດືອນຍ້ອນຫຼັງ"
 
 msgid "Months this year"
-msgstr "اس سال ماہ"
+msgstr "​ເດືອນ​ໃນ​ປີ"
 
 msgid "This bimonth"
-msgstr "یہ مہینہ"
+msgstr ""
 
 msgid "Last bimonth"
-msgstr "آخری بار"
+msgstr ""
 
 msgid "Last 6 bimonths"
-msgstr "آخری 6 بار"
+msgstr ""
 
 msgid "Bimonths this year"
-msgstr "اس سال دو ماہی"
+msgstr ""
 
 msgid "This quarter"
-msgstr "اس سہ ماہی"
+msgstr "ໄຕມານີ້"
 
 msgid "Last quarter"
-msgstr "آخری چوتھائی"
+msgstr "ໄຕມາດຜ່ານມາ"
 
 msgid "Last 4 quarters"
-msgstr "آخری چار چوتھائی"
+msgstr "4 ໄຕມາດຍ້ອນຫຼັງ"
 
 msgid "Quarters this year"
-msgstr "اس سال سہ ماہی"
+msgstr "​ໄຕຼມາດ​ໃນ​ປີ"
 
 msgid "This six-month"
-msgstr "یہ چھ ماہ"
+msgstr "6 ເດືອນນີ້"
 
 msgid "Last six-month"
-msgstr "آخری چھ ماہ"
+msgstr "6 ເດືອນຜ່ານມາ"
 
 msgid "Last 2 six-months"
-msgstr "آخری 2 چھ ماہ"
+msgstr "ລວມ 6 ເດືອນ 2 ຄັ້ງທີ່ຜ່ານມາ"
 
 msgid "This financial year"
-msgstr "یہ مالی سال"
+msgstr "ສົກປີງົບປະມານຂອງປິນີ້"
 
 msgid "Last financial year"
-msgstr "آخری مالی سال"
+msgstr "​ສົກ​ປີ​ງົບ​ປະ​ມານ​ປີ​ກາຍ"
 
 msgid "Last 5 financial years"
-msgstr "آخری 5 مالی سال"
+msgstr "​ສົກ​ປິ​ງົບ​ປະ​ມານ 5ປີ​ຜ່ານ​ມາ"
 
 msgid "This year"
-msgstr "اس سال"
+msgstr "ປີນີ້"
 
 msgid "Last year"
-msgstr "پچھلے سال"
+msgstr "ປີກາຍ"
 
 msgid "Last 5 years"
-msgstr "آخری 5 سال"
+msgstr "5 ປີຍ້ອນຫຼັງ"
 
 msgid "User org unit"
-msgstr "صارف کے اجزاء"
+msgstr "ໜ່ວຍງານທີ່ຂຶ້ນກັບຕົນເອງ"
 
 msgid "User org unit children"
-msgstr "صارف کے اجزاء بچے"
+msgstr ""
 
 msgid "User org unit grand children"
-msgstr "یوزر ایو یونٹ گرینڈ بچوں"
+msgstr ""
 
 msgid "Weeks per year"
 msgstr ""

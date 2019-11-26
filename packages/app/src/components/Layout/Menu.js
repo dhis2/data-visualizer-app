@@ -1,9 +1,16 @@
-import React, { cloneElement, isValidElement } from 'react';
-import isFunction from 'lodash-es/isFunction';
-import Menu from '@material-ui/core/Menu';
+import React from 'react';
+import { connect } from 'react-redux';
 import IconButton from '@material-ui/core/IconButton';
+import { DimensionMenu } from '@dhis2/analytics';
+
 import MoreHorizontalIcon from '../../assets/MoreHorizontalIcon';
 import { styles } from './styles/Menu.style';
+import {
+    acSetUiActiveModalDialog,
+    acAddUiLayoutDimensions,
+    acRemoveUiLayoutDimensions,
+} from '../../actions/ui';
+import { AXIS_SETUP_DIALOG_ID } from '../AxisSetup/AxisSetup';
 
 class ChipMenu extends React.Component {
     state = {
@@ -16,7 +23,7 @@ class ChipMenu extends React.Component {
     };
 
     handleClose = event => {
-        event.stopPropagation();
+        // event.stopPropagation();
         this.setState({ anchorEl: null });
     };
 
@@ -33,28 +40,34 @@ class ChipMenu extends React.Component {
                 >
                     <MoreHorizontalIcon style={styles.icon} />
                 </IconButton>
-                <Menu
-                    id={this.getMenuId(this.props.id)}
+                <DimensionMenu
+                    dimensionId={this.props.dimensionId}
+                    currentAxisId={this.props.currentAxisId}
+                    visType={this.props.visType}
+                    numberOfDimensionItems={this.props.numberOfDimensionItems}
+                    dualAxisItemHandler={this.props.dualAxisItemHandler}
+                    axisItemHandler={this.props.axisItemHandler}
+                    removeItemHandler={this.props.removeItemHandler}
                     anchorEl={this.state.anchorEl}
-                    open={Boolean(this.state.anchorEl)}
                     onClose={this.handleClose}
-                >
-                    {this.props.menuItems.map(menuItem => {
-                        const onClick = e => {
-                            if (isFunction(menuItem.props.onClick)) {
-                                menuItem.props.onClick(e);
-                            }
-                            this.handleClose(e);
-                        };
-
-                        return isValidElement(menuItem)
-                            ? cloneElement(menuItem, { onClick })
-                            : menuItem;
-                    })}
-                </Menu>
+                />
             </React.Fragment>
         );
     }
 }
 
-export default ChipMenu;
+const mapDispatchToProps = dispatch => ({
+    dualAxisItemHandler: () =>
+        dispatch(acSetUiActiveModalDialog(AXIS_SETUP_DIALOG_ID)),
+    axisItemHandler: (dimensionId, targetAxisId, numberOfDimensionItems) => {
+        dispatch(acAddUiLayoutDimensions({ [dimensionId]: targetAxisId }));
+    },
+    removeItemHandler: dimensionId => {
+        dispatch(acRemoveUiLayoutDimensions(dimensionId));
+    },
+});
+
+export default connect(
+    null,
+    mapDispatchToProps
+)(ChipMenu);

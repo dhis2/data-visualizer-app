@@ -47,9 +47,7 @@ export const D2Shim = ({ children, ...initConfig }) => {
     }, []) /* eslint-disable-line react-hooks/exhaustive-deps */
 
     if (!params) {
-        return <ScreenCover>
-            <CircularLoader />
-        </ScreenCover>
+        return <div>...</div>
     }
     return children(params)
 }

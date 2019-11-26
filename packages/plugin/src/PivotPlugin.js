@@ -2,23 +2,20 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import isEqual from 'lodash-es/isEqual';
 import i18n from '@dhis2/d2-i18n';
-import {
-    isYearOverYear,
-    isSingleValue,
-    createVisualization,
-} from '@dhis2/analytics';
+import { createVisualization } from '@dhis2/analytics';
 
 import { apiFetchVisualization } from './api/visualization';
 import {
     apiFetchAnalytics,
     apiFetchAnalyticsForYearOverYear,
 } from './api/analytics';
+import { isYearOverYear, isSingleValue } from './modules/chartTypes';
 import { getOptionsForRequest } from './modules/options';
 import { computeGenericPeriodNames } from './modules/analytics';
 import { BASE_FIELD_YEARLY_SERIES } from './modules/fields/baseFields';
 import LoadingMask from './widgets/LoadingMask';
 
-class ChartPlugin extends Component {
+class PivotPlugin extends Component {
     constructor(props) {
         super(props);
 
@@ -114,7 +111,7 @@ class ChartPlugin extends Component {
 
             const extraOptions = {
                 dashboard: forDashboard,
-                noData: { text: i18n.t('No data') },
+                noData: { text: i18n.t('No data') }
             };
 
             let responses = [];
@@ -189,7 +186,7 @@ class ChartPlugin extends Component {
     }
 }
 
-ChartPlugin.defaultProps = {
+PivotPlugin.defaultProps = {
     config: {},
     filters: {},
     forDashboard: false,
@@ -200,7 +197,7 @@ ChartPlugin.defaultProps = {
     onResponsesReceived: Function.prototype,
 };
 
-ChartPlugin.propTypes = {
+PivotPlugin.propTypes = {
     id: PropTypes.number,
     d2: PropTypes.object.isRequired,
     animation: PropTypes.number,
@@ -213,4 +210,4 @@ ChartPlugin.propTypes = {
     onResponsesReceived: PropTypes.func,
 };
 
-export default ChartPlugin;
+export default PivotPlugin;

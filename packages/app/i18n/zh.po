@@ -1,18 +1,28 @@
+# Translators:
+# Viktor Varland <viktor@dhis2.org>, 2019
+# phil_dhis2, 2019
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2019-08-08T13:09:25.099Z\n"
+"PO-Revision-Date: 2019-06-25 18:46+0000\n"
+"Last-Translator: phil_dhis2, 2019\n"
+"Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-11-21T07:25:38.180Z\n"
-"PO-Revision-Date: 2019-11-21T07:25:38.180Z\n"
+"Language: zh\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Rename successful"
 msgstr ""
 
 msgid "\"{{what}}\" successfully deleted."
 msgstr ""
+
+msgid "Data Visualizer"
+msgstr "数据可视化图表工具"
 
 msgid "Axis 1"
 msgstr ""
@@ -29,26 +39,24 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 msgid "Update"
-msgstr ""
+msgstr "更新"
 
 msgid ""
-"'{{visualiationType}}' is intended to show a single data item. Only the "
-"first item will be used and saved."
-msgstr ""
-
-msgid ""
-"'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
-"items. Only the first {{maxNumber}} items will be used and saved."
+"'Single Value' is intended to show a single data item. Only the first item "
+"will be used and saved."
 msgstr ""
 
 msgid "Hide"
-msgstr ""
+msgstr "隐藏"
+
+msgid "Remove"
+msgstr "移除"
 
 msgid "Download"
-msgstr ""
+msgstr "下载"
 
 msgid "Graphics"
 msgstr ""
@@ -95,31 +103,28 @@ msgstr ""
 msgid "Interpretations"
 msgstr ""
 
-msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
-msgstr ""
-
-msgid "{{total}} of {{maxNumberOfItemsPerAxis}} selected"
+msgid "{{total}} of 1 selected"
 msgstr ""
 
 msgid "{{total}} selected"
 msgstr ""
 
+msgid "Series"
+msgstr "系列"
+
+msgid "Category"
+msgstr "分类"
+
+msgid "Filter"
+msgstr "过滤器"
+
 msgid "Move to"
-msgstr ""
-
-msgid "Remove"
-msgstr ""
-
-msgid "Remove"
 msgstr ""
 
 msgid "None selected"
 msgstr ""
 
 msgid "Only '{{name}}' in use"
-msgstr ""
-
-msgid "Only '{{number}}' in use"
 msgstr ""
 
 msgid "Unsaved chart"
@@ -129,9 +134,6 @@ msgid "Edited"
 msgstr ""
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr ""
-
-msgid "Error validating layout"
 msgstr ""
 
 msgid "Create a new visualization by adding dimensions to the layout"
@@ -150,16 +152,16 @@ msgid "By data element"
 msgstr ""
 
 msgid "Count"
-msgstr ""
+msgstr "计数"
 
 msgid "Average"
-msgstr ""
+msgstr "平均"
 
 msgid "Average (sum in org unit hierarchy)"
 msgstr ""
 
 msgid "Sum"
-msgstr ""
+msgstr "求和"
 
 msgid "Last value"
 msgstr ""
@@ -168,10 +170,10 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr ""
 
 msgid "Min"
-msgstr ""
+msgstr "最小"
 
 msgid "Max"
-msgstr ""
+msgstr "最大"
 
 msgid "Standard deviation"
 msgstr ""
@@ -186,19 +188,19 @@ msgid "Base line title"
 msgstr ""
 
 msgid "Base line value"
-msgstr ""
+msgstr "基线值"
 
 msgid "Use cumulative values"
 msgstr ""
 
 msgid "Domain axis title"
-msgstr ""
+msgstr "主轴标签"
 
 msgid "Hide empty categories"
 msgstr ""
 
 msgid "None"
-msgstr ""
+msgstr "无"
 
 msgid "Before first"
 msgstr ""
@@ -210,10 +212,10 @@ msgid "Before first and after last"
 msgstr ""
 
 msgid "All"
-msgstr ""
+msgstr "全部"
 
 msgid "Hide chart legend"
-msgstr ""
+msgstr "隐藏图例"
 
 msgid "Hide subtitle"
 msgstr ""
@@ -231,7 +233,7 @@ msgid "Range axis decimals"
 msgstr ""
 
 msgid "Range axis title"
-msgstr ""
+msgstr "范围轴标签"
 
 msgid "Range axis max"
 msgstr ""
@@ -246,7 +248,7 @@ msgid "Tick steps may extend the chart beyond 'Range axis max'"
 msgstr ""
 
 msgid "Trend line"
-msgstr ""
+msgstr "趋势线"
 
 msgid "Linear"
 msgstr ""
@@ -261,13 +263,13 @@ msgid "Show values"
 msgstr ""
 
 msgid "Sort order"
-msgstr ""
+msgstr "排序"
 
 msgid "Low to high"
-msgstr ""
+msgstr "从低到高"
 
 msgid "High to low"
-msgstr ""
+msgstr "由高到低"
 
 msgid "Chart subtitle"
 msgstr ""
@@ -279,24 +281,60 @@ msgid "Target line title"
 msgstr ""
 
 msgid "Target line value"
-msgstr ""
+msgstr "目标线值"
 
 msgid "Chart title"
 msgstr ""
 
 msgid "Data"
-msgstr ""
+msgstr "数据"
 
 msgid "Axis & legend"
 msgstr ""
 
 msgid "Style"
-msgstr ""
+msgstr "风格"
 
 msgid "Options"
-msgstr ""
+msgstr "选项"
 
 msgid "Chart options"
+msgstr "图表选项"
+
+msgid "Column"
+msgstr "列"
+
+msgid "Stacked column"
+msgstr ""
+
+msgid "Bar"
+msgstr ""
+
+msgid "Stacked bar"
+msgstr ""
+
+msgid "Line"
+msgstr ""
+
+msgid "Area"
+msgstr ""
+
+msgid "Pie"
+msgstr ""
+
+msgid "Radar"
+msgstr ""
+
+msgid "Gauge"
+msgstr ""
+
+msgid "Year over year (line)"
+msgstr ""
+
+msgid "Year over year (column)"
+msgstr ""
+
+msgid "Single value"
 msgstr ""
 
 msgid "Open as Map"
@@ -318,37 +356,37 @@ msgid "Expected reports"
 msgstr ""
 
 msgid "Program"
-msgstr ""
+msgstr "项目"
 
 msgid "Select a program"
 msgstr ""
 
 msgid "Indicators"
-msgstr ""
+msgstr "指标"
 
 msgid "Select indicator group"
-msgstr ""
+msgstr "选择指标组"
 
 msgid "[ All groups ]"
 msgstr ""
 
 msgid "Data elements"
-msgstr ""
+msgstr "数据元"
 
 msgid "Select data element group"
-msgstr ""
+msgstr "选择数据元组"
 
 msgid "[ All data elements ]"
 msgstr ""
 
 msgid "Totals"
-msgstr ""
+msgstr "总共"
 
 msgid "Details"
-msgstr ""
+msgstr "详情"
 
 msgid "Data sets"
-msgstr ""
+msgstr "数据集"
 
 msgid "Select data sets"
 msgstr ""
@@ -386,7 +424,8 @@ msgstr ""
 msgid "Please add at least one {{category}} dimension"
 msgstr ""
 
-msgid "Please add at least one period as {{series}}, {{category}} or {{filter}}"
+msgid ""
+"Please add at least one period as {{series}}, {{category}} or {{filter}}"
 msgstr ""
 
 msgid "Please add {{data}} as {{category}} or {{filter}}"
@@ -414,16 +453,16 @@ msgid "Please add at least one period as {{filter}}"
 msgstr ""
 
 msgid "Today"
-msgstr ""
+msgstr "今天"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "昨天"
 
 msgid "Last 3 days"
 msgstr ""
 
 msgid "Last 7 days"
-msgstr ""
+msgstr "最近7天"
 
 msgid "Last 14 days"
 msgstr ""
@@ -432,13 +471,13 @@ msgid "This week"
 msgstr ""
 
 msgid "Last week"
-msgstr ""
+msgstr "上周"
 
 msgid "Last 4 weeks"
-msgstr ""
+msgstr "最近四周"
 
 msgid "Last 12 weeks"
-msgstr ""
+msgstr "最近12周"
 
 msgid "Last 52 weeks"
 msgstr ""
@@ -450,19 +489,19 @@ msgid "This month"
 msgstr ""
 
 msgid "Last month"
-msgstr ""
+msgstr "上月"
 
 msgid "Last 3 months"
-msgstr ""
+msgstr "最近3个月"
 
 msgid "Last 6 months"
 msgstr ""
 
 msgid "Last 12 months"
-msgstr ""
+msgstr "最近12月"
 
 msgid "Months this year"
-msgstr ""
+msgstr "今年的月份"
 
 msgid "This bimonth"
 msgstr ""
@@ -480,43 +519,43 @@ msgid "This quarter"
 msgstr ""
 
 msgid "Last quarter"
-msgstr ""
+msgstr "最近一季"
 
 msgid "Last 4 quarters"
-msgstr ""
+msgstr "最近四个季度"
 
 msgid "Quarters this year"
-msgstr ""
+msgstr "今年的季度"
 
 msgid "This six-month"
 msgstr ""
 
 msgid "Last six-month"
-msgstr ""
+msgstr "最近六个月"
 
 msgid "Last 2 six-months"
-msgstr ""
+msgstr "最近两个半年"
 
 msgid "This financial year"
 msgstr ""
 
 msgid "Last financial year"
-msgstr ""
+msgstr "上一财政年"
 
 msgid "Last 5 financial years"
-msgstr ""
+msgstr "最近五个财政年"
 
 msgid "This year"
-msgstr ""
+msgstr "今年"
 
 msgid "Last year"
-msgstr ""
+msgstr "去年"
 
 msgid "Last 5 years"
-msgstr ""
+msgstr "最近5年"
 
 msgid "User org unit"
-msgstr ""
+msgstr "当前用户机构"
 
 msgid "User org unit children"
 msgstr ""

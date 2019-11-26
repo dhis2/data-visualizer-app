@@ -6,8 +6,7 @@ import i18n from '@dhis2/d2-i18n';
 import debounce from 'lodash-es/debounce';
 
 import styles from './styles/Visualization.style';
-import ChartPlugin from '@dhis2/data-visualizer-plugin';
-
+import VisualizationPlugin from '@dhis2/data-visualizer-plugin';
 import { sGetVisualization } from '../../reducers/visualization';
 import { sGetCurrent } from '../../reducers/current';
 import {
@@ -86,17 +85,17 @@ export class Visualization extends Component {
     }
 
     render() {
-        const { chartConfig, chartFilters, error } = this.props;
+        const { visConfig, visFilters, error } = this.props;
         const { renderId } = this.state;
 
-        return Boolean(!chartConfig || error) ? (
+        return Boolean(!visConfig || error) ? (
             <BlankCanvas />
         ) : (
-            <ChartPlugin
+            <VisualizationPlugin
                 id={renderId}
                 d2={this.context.d2}
-                config={chartConfig}
-                filters={chartFilters}
+                config={visConfig}
+                filters={visFilters}
                 onChartGenerated={this.onChartGenerated}
                 onResponsesReceived={this.onResponsesReceived}
                 onError={this.onError}
@@ -110,13 +109,13 @@ Visualization.contextTypes = {
     d2: PropTypes.object,
 };
 
-export const chartConfigSelector = createSelector(
+export const visConfigSelector = createSelector(
     [sGetCurrent, sGetVisualization, sGetUiInterpretation],
     (current, visualization, interpretation) =>
         interpretation.id ? visualization : current
 );
 
-export const chartFiltersSelector = createSelector(
+export const visFiltersSelector = createSelector(
     [sGetUiInterpretation],
     interpretation =>
         interpretation.created
@@ -125,8 +124,8 @@ export const chartFiltersSelector = createSelector(
 );
 
 const mapStateToProps = state => ({
-    chartConfig: chartConfigSelector(state),
-    chartFilters: chartFiltersSelector(state),
+    visConfig: visConfigSelector(state),
+    visFilters: visFiltersSelector(state),
     rightSidebarOpen: sGetUiRightSidebarOpen(state),
     error: sGetLoadError(state),
 });

@@ -1,7 +1,7 @@
 import {
-    AXIS_NAME_COLUMNS,
-    AXIS_NAME_ROWS,
-    AXIS_NAME_FILTERS,
+    AXIS_ID_COLUMNS,
+    AXIS_ID_ROWS,
+    AXIS_ID_FILTERS,
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
@@ -27,9 +27,9 @@ const emptyId = 'empty';
 
 const ui = {
     layout: {
-        [AXIS_NAME_COLUMNS]: [DIMENSION_ID_DATA, otherId],
-        [AXIS_NAME_ROWS]: [DIMENSION_ID_PERIOD, emptyId],
-        [AXIS_NAME_FILTERS]: [DIMENSION_ID_ORGUNIT],
+        [AXIS_ID_COLUMNS]: [DIMENSION_ID_DATA, otherId],
+        [AXIS_ID_ROWS]: [DIMENSION_ID_PERIOD, emptyId],
+        [AXIS_ID_FILTERS]: [DIMENSION_ID_ORGUNIT],
     },
     itemsByDimension: {
         [DIMENSION_ID_DATA]: dxItems,

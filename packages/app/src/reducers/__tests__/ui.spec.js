@@ -2,13 +2,13 @@ import {
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
-    AXIS_NAME_COLUMNS,
-    AXIS_NAME_ROWS,
-    AXIS_NAME_FILTERS,
+    AXIS_ID_COLUMNS,
+    AXIS_ID_ROWS,
+    AXIS_ID_FILTERS,
+    VIS_TYPE_BAR,
 } from '@dhis2/analytics';
 
 import * as ui from '../ui';
-import { BAR } from '../../modules/chartTypes';
 
 const reducer = ui.default;
 
@@ -32,15 +32,15 @@ const ou = {
     items: [{ id: ouItem1Id }],
 };
 
-const type = BAR;
+const type = VIS_TYPE_BAR;
 const aggregationType = 'SUM';
 
 const visualization = {
     type,
     aggregationType,
-    [AXIS_NAME_COLUMNS]: [dx],
-    [AXIS_NAME_ROWS]: [pe],
-    [AXIS_NAME_FILTERS]: [ou],
+    [AXIS_ID_COLUMNS]: [dx],
+    [AXIS_ID_ROWS]: [pe],
+    [AXIS_ID_FILTERS]: [ou],
 };
 
 describe('reducer: ui', () => {
@@ -91,9 +91,9 @@ describe('reducer: ui', () => {
             type,
             options: { ...ui.DEFAULT_UI.options, aggregationType },
             layout: {
-                [AXIS_NAME_COLUMNS]: [DIMENSION_ID_DATA],
-                [AXIS_NAME_ROWS]: [DIMENSION_ID_PERIOD],
-                [AXIS_NAME_FILTERS]: [DIMENSION_ID_ORGUNIT],
+                [AXIS_ID_COLUMNS]: [DIMENSION_ID_DATA],
+                [AXIS_ID_ROWS]: [DIMENSION_ID_PERIOD],
+                [AXIS_ID_FILTERS]: [DIMENSION_ID_ORGUNIT],
             },
             itemsByDimension: {
                 [DIMENSION_ID_DATA]: [dxItem1Id],
@@ -163,7 +163,7 @@ describe('reducer: ui', () => {
         const actualState = reducer(state, {
             type: ui.ADD_UI_LAYOUT_DIMENSIONS,
             value: {
-                [DIMENSION_ID_DATA]: AXIS_NAME_ROWS,
+                [DIMENSION_ID_DATA]: AXIS_ID_ROWS,
             },
         });
 
@@ -190,7 +190,7 @@ describe('reducer: ui', () => {
         const actualState = reducer(state, {
             type: ui.ADD_UI_LAYOUT_DIMENSIONS,
             value: {
-                [otherId]: AXIS_NAME_COLUMNS,
+                [otherId]: AXIS_ID_COLUMNS,
             },
         });
 

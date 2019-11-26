@@ -21,9 +21,9 @@ export default () => (
     <Provider store={store}>
         <MuiThemeProvider theme={muiTheme}>
             <D2Shim>
-                {(params) => {
+                {(params) => (
                     <App apiObjectName={apiObjectName} {...params} />
-                }}
+                )}
             </D2Shim>
         </MuiThemeProvider>
     </Provider>

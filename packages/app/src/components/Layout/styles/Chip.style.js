@@ -19,6 +19,8 @@ export const styles = {
         whiteSpace: 'nowrap',
         overflow: 'hidden',
         textOverflow: 'ellipsis',
+        minHeight: 24,
+        userSelect: 'none',
     },
     chipEmpty: {
         backgroundColor: colors.grey300,
@@ -32,9 +34,17 @@ export const styles = {
         alignItems: 'center',
     },
     warningIcon: {
-        fontSize: 12,
+        fontSize: layoutStyle.CHIP_FONT_SIZE,
     },
     warningIconWrapper: {
+        paddingLeft: '6px',
+        display: 'flex',
+        alignItems: 'center',
+    },
+    lockIcon: {
+        fontSize: layoutStyle.CHIP_FONT_SIZE,
+    },
+    lockIconWrapper: {
         paddingLeft: '6px',
         display: 'flex',
         alignItems: 'center',

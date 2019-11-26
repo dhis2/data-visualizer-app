@@ -56,7 +56,7 @@ describe('The DropDownButton component ', () => {
         props.anchorEl = { getBoundingClientRect: () => ({ bottom: 100 }) };
 
         props.menuItems = ADD_TO_LAYOUT_OPTIONS.map((option, i) => (
-            <MenuItem key={i} value={option.axisName} />
+            <MenuItem key={i} value={option.axisId} />
         ));
 
         const menu = dropDown()
