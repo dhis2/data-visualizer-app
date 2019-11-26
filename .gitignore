@@ -31,4 +31,5 @@ packages/app/i18n/en.pot
 /target
 
 # DHIS2 Platform
-packages/**/.d2
+packages/*/.d2
+packages/*/coverage

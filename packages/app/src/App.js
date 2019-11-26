@@ -8,6 +8,7 @@ import App from './components/App';
 import muiTheme from './modules/theme';
 
 import 'url-polyfill';
+import 'react-app-polyfill/ie11';
 
 const store = configureStore(metadataMiddleware);
 

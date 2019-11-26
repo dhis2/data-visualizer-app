@@ -26,7 +26,7 @@
         "prettier-ci": "lerna run prettier-ci",
         "prettier-write": "lerna run prettier-write",
         "start-app": "lerna run --scope data-visualizer-app start",
-        "test": "jest",
+        "test": "lerna run test",
         "coverage": "lerna run test -- --coverage"
     },
     "workspaces": [
