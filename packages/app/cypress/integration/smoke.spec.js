@@ -11,7 +11,7 @@ describe('Data visualizer', () => {
         fileMenu = new FileMenu();
     });
     beforeEach(() => {
-        cy.persistLogin()
+        cy.persistLogin();
     });
 
     it('loads', () => {
