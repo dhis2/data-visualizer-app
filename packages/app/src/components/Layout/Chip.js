@@ -82,23 +82,17 @@ class Chip extends React.Component {
         this.props.dimensionId
     ).includes(this.props.axisId);
 
-    getLockIcon = () =>
-        this.isLocked ? (
-            <div style={styles.lockIconWrapper}>
-                <LockIcon style={styles.lockIcon} />
-            </div>
-        ) : null;
+    getLockIcon = () => (
+        <div style={styles.lockIconWrapper}>
+            <LockIcon style={styles.lockIcon} />
+        </div>
+    );
 
-    getWarningIcon = () =>
-        hasTooManyItemsPerAxis(
-            this.props.type,
-            this.props.axisId,
-            this.props.items.length
-        ) ? (
-            <div style={styles.warningIconWrapper}>
-                <WarningIcon style={styles.warningIcon} />
-            </div>
-        ) : null;
+    getWarningIcon = () => (
+        <div style={styles.warningIconWrapper}>
+            <WarningIcon style={styles.warningIcon} />
+        </div>
+    );
 
     maxNumberOfItemsPerAxis = getMaxNumberOfItemsPerAxis(
         this.props.type,
@@ -190,8 +184,12 @@ class Chip extends React.Component {
                         {this.getIconByDimension()}
                     </div>
                     {this.getChipLabel()}
-                    {this.getWarningIcon()}
-                    {this.getLockIcon()}
+                    {hasTooManyItemsPerAxis(
+                        this.props.type,
+                        this.props.axisId,
+                        this.props.items.length
+                    ) && this.getWarningIcon()}
+                    {this.isLocked && this.getLockIcon()}
                 </div>
                 {!this.isLocked && this.renderMenu()}
                 {this.getAnchorEl() && this.renderTooltip()}
