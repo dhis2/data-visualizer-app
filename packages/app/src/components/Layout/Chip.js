@@ -23,6 +23,18 @@ import { styles } from './styles/Chip.style';
 
 const TOOLTIP_ENTER_DELAY = 500;
 
+const LockIconWrapper = (
+    <div style={styles.lockIconWrapper}>
+        <LockIcon style={styles.lockIcon} />
+    </div>
+);
+
+const WarningIconWrapper = (
+    <div style={styles.warningIconWrapper}>
+        <WarningIcon style={styles.warningIcon} />
+    </div>
+);
+
 class Chip extends React.Component {
     state = {
         tooltipOpen: false,
@@ -113,18 +125,6 @@ class Chip extends React.Component {
         return <DynamicDimensionIcon style={styles.dynamicDimensionIcon} />;
     };
 
-    renderLockIcon = () => (
-        <div style={styles.lockIconWrapper}>
-            <LockIcon style={styles.lockIcon} />
-        </div>
-    );
-
-    renderWarningIcon = () => (
-        <div style={styles.warningIconWrapper}>
-            <WarningIcon style={styles.warningIcon} />
-        </div>
-    );
-
     renderMenu = () => (
         <div style={styles.chipRight}>
             <Menu
@@ -185,8 +185,8 @@ class Chip extends React.Component {
                     this.props.type,
                     this.props.axisId,
                     this.props.items.length
-                ) && this.getWarningIcon()}
-                {this.isLocked && this.renderLockIcon()}
+                ) && WarningIconWrapper}
+                {this.isLocked && LockIconWrapper}
             </div>
             {!this.isLocked && this.renderMenu()}
             {this.getAnchorEl() && this.renderTooltip()}
