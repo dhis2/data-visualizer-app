@@ -44,10 +44,9 @@ class Chip extends React.Component {
 
     timeout = null;
 
-    isLocked = getLockedDimensionAxis(
-        this.props.type,
-        this.props.dimensionId
-    ).includes(this.props.axisId);
+    isLocked =
+        getLockedDimensionAxis(this.props.type, this.props.dimensionId) ===
+        this.props.axisId;
 
     maxNumberOfItemsPerAxis = getMaxNumberOfItemsPerAxis(
         this.props.type,
