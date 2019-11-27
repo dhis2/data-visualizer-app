@@ -14,20 +14,7 @@ $ yarn build
 
 ### Development
 
-The data-visualizer-app package is the only "app" in the repo. You can start it in 2 different ways:
-
-From the repo root directory:
-
-```
-$ yarn start-app
-```
-
-Or from the package directory (packages/app):
-
-```
-$ cd packages/app
-$ yarn start
-```
+To build the plugin and start the app on `localhost:3000`, run `yarn start` from the repo root directory.
 
 The following npm scripts can all be run from the repo root directory and will execute on all packages
 
