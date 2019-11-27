@@ -113,9 +113,6 @@ msgstr ""
 msgid "Remove"
 msgstr ""
 
-msgid "Remove"
-msgstr ""
-
 msgid "None selected"
 msgstr ""
 
