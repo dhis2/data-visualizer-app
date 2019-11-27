@@ -5,9 +5,9 @@ import LockIcon from '@material-ui/icons/Lock';
 import i18n from '@dhis2/d2-i18n';
 import {
     FIXED_DIMENSIONS,
-    getMaxNumberOfItemsPerAxis,
-    hasTooManyItemsPerAxis,
-    getLockedDimensionAxis,
+    getAxisMaxNumberOfItems,
+    hasAxisTooManyItems,
+    getAxisPerLockedDimension,
     getDisplayNameByVisType,
     getAxisName,
 } from '@dhis2/analytics';
@@ -45,10 +45,10 @@ class Chip extends React.Component {
     timeout = null;
 
     isLocked =
-        getLockedDimensionAxis(this.props.type, this.props.dimensionId) ===
+        getAxisPerLockedDimension(this.props.type, this.props.dimensionId) ===
         this.props.axisId;
 
-    maxNumberOfItemsPerAxis = getMaxNumberOfItemsPerAxis(
+    maxNumberOfItemsPerAxis = getAxisMaxNumberOfItems(
         this.props.type,
         this.props.axisId
     );
@@ -180,7 +180,7 @@ class Chip extends React.Component {
             >
                 <div style={styles.iconWrapper}>{this.renderChipIcon()}</div>
                 {this.renderChipLabel()}
-                {hasTooManyItemsPerAxis(
+                {hasAxisTooManyItems(
                     this.props.type,
                     this.props.axisId,
                     this.props.items.length

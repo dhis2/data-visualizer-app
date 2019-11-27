@@ -16,7 +16,7 @@ import {
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
-    getMaxNumberOfItemsPerAxis,
+    getAxisMaxNumberOfItems,
     getDisplayNameByVisType,
     filterOutFixedDimensions,
 } from '@dhis2/analytics';
@@ -213,7 +213,7 @@ export class DialogManager extends Component {
             const visType = type;
             const numberOfItems = selectedItems.length;
 
-            const maxNumberOfItemsPerAxis = getMaxNumberOfItemsPerAxis(
+            const maxNumberOfItemsPerAxis = getAxisMaxNumberOfItems(
                 visType,
                 axisId
             );
