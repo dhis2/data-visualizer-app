@@ -11,6 +11,7 @@ import {
     getDisplayNameByVisType,
     getAxisName,
 } from '@dhis2/analytics';
+import PropTypes from 'prop-types';
 
 import Menu from './Menu';
 import Tooltip from './Tooltip';
@@ -18,7 +19,6 @@ import { setDataTransfer } from '../../modules/dnd';
 import { sGetDimensions } from '../../reducers/dimensions';
 import { sGetUiItemsByDimension, sGetUiType } from '../../reducers/ui';
 import DynamicDimensionIcon from '../../assets/DynamicDimensionIcon';
-import { sGetMetadata } from '../../reducers/metadata';
 import { styles } from './styles/Chip.style';
 
 const TOOLTIP_ENTER_DELAY = 500;
@@ -31,6 +31,16 @@ class Chip extends React.Component {
     id = Math.random().toString(36);
 
     timeout = null;
+
+    isLocked = getLockedDimensionAxis(
+        this.props.type,
+        this.props.dimensionId
+    ).includes(this.props.axisId);
+
+    maxNumberOfItemsPerAxis = getMaxNumberOfItemsPerAxis(
+        this.props.type,
+        this.props.axisId
+    );
 
     handleMouseOver = () => {
         if (this.timeout === null) {
@@ -66,39 +76,6 @@ class Chip extends React.Component {
         setDataTransfer(event, this.props.axisId);
     };
 
-    getIconByDimension = () => {
-        const fixedDimension = FIXED_DIMENSIONS[this.props.dimensionId];
-
-        if (fixedDimension) {
-            const Icon = FIXED_DIMENSIONS[this.props.dimensionId].icon;
-            return <Icon style={styles.fixedDimensionIcon} />;
-        }
-
-        return <DynamicDimensionIcon style={styles.dynamicDimensionIcon} />;
-    };
-
-    isLocked = getLockedDimensionAxis(
-        this.props.type,
-        this.props.dimensionId
-    ).includes(this.props.axisId);
-
-    getLockIcon = () => (
-        <div style={styles.lockIconWrapper}>
-            <LockIcon style={styles.lockIcon} />
-        </div>
-    );
-
-    getWarningIcon = () => (
-        <div style={styles.warningIconWrapper}>
-            <WarningIcon style={styles.warningIcon} />
-        </div>
-    );
-
-    maxNumberOfItemsPerAxis = getMaxNumberOfItemsPerAxis(
-        this.props.type,
-        this.props.axisId
-    );
-
     getAnchorEl = () => document.getElementById(this.id);
 
     getWrapperStyles = () => ({
@@ -106,7 +83,7 @@ class Chip extends React.Component {
         ...(!this.props.items.length ? styles.chipEmpty : {}),
     });
 
-    getChipLabel = () => {
+    renderChipLabel = () => {
         const numberOfItems = this.props.items.length;
 
         const getItemsLabel =
@@ -124,6 +101,29 @@ class Chip extends React.Component {
             this.props.items.length > 0 ? `: ${getItemsLabel}` : ''
         }`;
     };
+
+    renderChipIcon = () => {
+        const fixedDimension = FIXED_DIMENSIONS[this.props.dimensionId];
+
+        if (fixedDimension) {
+            const Icon = FIXED_DIMENSIONS[this.props.dimensionId].icon;
+            return <Icon style={styles.fixedDimensionIcon} />;
+        }
+
+        return <DynamicDimensionIcon style={styles.dynamicDimensionIcon} />;
+    };
+
+    renderLockIcon = () => (
+        <div style={styles.lockIconWrapper}>
+            <LockIcon style={styles.lockIcon} />
+        </div>
+    );
+
+    renderWarningIcon = () => (
+        <div style={styles.warningIconWrapper}>
+            <WarningIcon style={styles.warningIcon} />
+        </div>
+    );
 
     renderMenu = () => (
         <div style={styles.chipRight}>
@@ -165,44 +165,52 @@ class Chip extends React.Component {
         );
     };
 
-    render = () =>
-        this.props.dimensionId ? (
+    render = () => (
+        <div
+            style={this.getWrapperStyles()}
+            data-dimensionid={this.props.dimensionId}
+            draggable={!this.isLocked}
+            onDragStart={this.getDragStartHandler()}
+        >
             <div
-                style={this.getWrapperStyles()}
-                data-dimensionid={this.props.dimensionId}
-                draggable={!this.isLocked}
-                onDragStart={this.getDragStartHandler()}
+                id={this.id}
+                style={styles.chipLeft}
+                onClick={this.handleClick}
+                onMouseOver={this.handleMouseOver}
+                onMouseOut={this.handleMouseOut}
             >
-                <div
-                    id={this.id}
-                    style={styles.chipLeft}
-                    onClick={this.handleClick}
-                    onMouseOver={this.handleMouseOver}
-                    onMouseOut={this.handleMouseOut}
-                >
-                    <div style={styles.iconWrapper}>
-                        {this.getIconByDimension()}
-                    </div>
-                    {this.getChipLabel()}
-                    {hasTooManyItemsPerAxis(
-                        this.props.type,
-                        this.props.axisId,
-                        this.props.items.length
-                    ) && this.getWarningIcon()}
-                    {this.isLocked && this.getLockIcon()}
-                </div>
-                {!this.isLocked && this.renderMenu()}
-                {this.getAnchorEl() && this.renderTooltip()}
+                <div style={styles.iconWrapper}>{this.renderChipIcon()}</div>
+                {this.renderChipLabel()}
+                {hasTooManyItemsPerAxis(
+                    this.props.type,
+                    this.props.axisId,
+                    this.props.items.length
+                ) && this.getWarningIcon()}
+                {this.isLocked && this.renderLockIcon()}
             </div>
-        ) : (
-            ''
-        );
+            {!this.isLocked && this.renderMenu()}
+            {this.getAnchorEl() && this.renderTooltip()}
+        </div>
+    );
 }
+
+Chip.propTypes = {
+    axisId: PropTypes.string.isRequired,
+    dimensionId: PropTypes.string.isRequired,
+    dimensionName: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    onClick: PropTypes.func,
+    items: PropTypes.array,
+};
+
+Chip.defaultProps = {
+    onClick: Function.prototype,
+    items: [],
+};
 
 const mapStateToProps = (state, ownProps) => ({
     dimensionName: (sGetDimensions(state)[ownProps.dimensionId] || {}).name,
     items: sGetUiItemsByDimension(state, ownProps.dimensionId) || [],
-    metadata: sGetMetadata(state),
     type: sGetUiType(state),
 });
 
