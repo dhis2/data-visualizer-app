@@ -4,30 +4,25 @@
     "private": true,
     "license": "BSD-3-Clause",
     "devDependencies": {
-        "@dhis2/d2-i18n-extract": "^1.0.6",
-        "@dhis2/d2-i18n-generate": "^1.1.1",
-        "babel-preset-env": "^1.6.1",
-        "babel-preset-stage-0": "^6.24.1",
-        "create-react-class": "^15.6.3",
-        "enzyme": "^3.5.0",
-        "enzyme-adapter-react-16": "^1.3.0",
-        "eslint-config-prettier": "^3.0.1",
-        "eslint-plugin-prettier": "^2.6.0",
-        "husky": "^1.1.2",
-        "jest-enzyme": "^6.0.0",
-        "lerna": "^3.1.4",
-        "prettier": "^1.11.1",
-        "react-stub-context": "^0.8.1"
+        "@dhis2/cli-style": "^5.0.2",
+        "enzyme": "^3.10.0",
+        "enzyme-adapter-react-16": "^1.15.1",
+        "eslint-plugin-react-hooks": "^2.3.0",
+        "jest-enzyme": "^7.1.2",
+        "loglevel": "^1.6.6"
     },
     "scripts": {
-        "bootstrap": "lerna bootstrap",
-        "build": "lerna run build",
-        "lint": "lerna run lint",
-        "prettier-ci": "lerna run prettier-ci",
-        "prettier-write": "lerna run prettier-write",
-        "start-app": "lerna run --scope data-visualizer-app start",
-        "test": "jest",
-        "coverage": "lerna run test -- --coverage"
+        "build-plugin": "cd packages/plugin && yarn build",
+        "build-app": "cd packages/app && yarn build",
+        "build": "yarn build-plugin && yarn build-app",
+        "lint": "d2-style js check || d2-style text check",
+        "format": "d2-style js apply || d2-style text apply",
+        "start-app": "cd packages/app && yarn start",
+        "start": "yarn build-plugin && yarn start-app",
+        "test-plugin": "cd packages/plugin && yarn test",
+        "test-app": "cd packages/app && yarn test",
+        "test": "yarn test-plugin && yarn test-app",
+        "coverage": "yarn test-plugin --coverage && yarn test-app --coverage"
     },
     "workspaces": [
         "packages/*"

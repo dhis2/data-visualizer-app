@@ -29,3 +29,7 @@ packages/app/i18n/en.pot
 
 #maven
 /target
+
+# DHIS2 Platform
+packages/*/.d2
+packages/*/coverage

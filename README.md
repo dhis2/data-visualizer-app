@@ -1,6 +1,6 @@
 # Data visualizer app and plugin
 
-This is a lerna repo that contains the data-visualizer-app. Eventually it will also contain the analytics plugins.
+This is a yarn workspaces mono-repo that contains the data-visualizer-app. Eventually it will also contain the analytics plugins.
 
 ## Getting started
 
@@ -14,28 +14,9 @@ $ yarn build
 
 ### Development
 
-The data-visualizer-app package is the only "app" in the repo. You can start it in 2 different ways:
-
-From the repo root directory:
-
-```
-$ yarn start-app
-```
-
-Or from the package directory (packages/app):
-
-```
-$ cd packages/app
-$ yarn start
-```
+To build the plugin and start the app on `localhost:3000`, run `yarn start` from the repo root directory.
 
 The following npm scripts can all be run from the repo root directory and will execute on all packages
-
-#### Lint
-
-```
-$ yarn lint
-```
 
 #### Unit tests
 
@@ -51,10 +32,19 @@ $ yarn coverage
 
 #### Browser tests
 
-We use Cypress for our browser tests. Currently the tests can only run against the dhis2 server localhost:8080.
-There are plans to make this configurable. In order to run the tests, you need to define two environment variables:
+We use Cypress for our browser tests.
+
+Before running cypress, start the development server in another terminal session.
+Ensure that you specify the correct DHIS2_BASE_URL.
+
+```sh
+> DHIS2_BASE_URL=http://localhost:8080 yarn start
+```
+
+There are plans to make this configurable. In order to run the tests, you need to define three environment variables:
 
 ```
+CYPRESS_LOGIN_URL=http://localhost:8080 # This must match DHIS2_BASE_URL
 CYPRESS_DHIS2_USERNAME=myusername
 CYPRESS_DHIS2_PASSWORD=mypassword
 ```
@@ -62,33 +52,34 @@ CYPRESS_DHIS2_PASSWORD=mypassword
 Run tests interactively:
 
 ```
-yarn cy:e2e:open
+cd packages/app && yarn cy:e2e:open
 ```
 
 Run tests in ci mode:
 
 ```
-yarn cy:e2e:run
+cd packages/app && yarn cy:e2e:run
 ```
 
-#### Prettier and write changes
+#### Linting and Formatting
+
+Automatically fix all fixable code-style violations (prettier and eslint)
 
 ```
-$ yarn prettier-write
+$ yarn format
 ```
 
-Run prettier and just report failing files (useful for ci)
+Check all files for code-style violations (prettier and eslint)
 
 ```
-$ yarn prettier-ci
+$ yarn lint
 ```
 
-### Build the all packages
+### Build all packages
 
 ```
 $ yarn build
 ```
-
 
 #### Manual testing with Netlify
 
@@ -98,19 +89,20 @@ to merging to master.
 All netlfiy deployments run against play.dhis2.org/dev, so in order to use them, you must configure CORS for your particular branch:
 
 1. Copy the URL of the deployment you want to enable, i.e. `https://dhis2-data-visualizer.netlify.com`
-2. Visit the play/dev [system settings -- access](https://play.dhis2.org/dev/dhis-web-settings/index.html#/access) page
+2. Visit the [system settings -- access](https://play.dhis2.org/dev/dhis-web-settings/index.html#/access) page on the DHIS2 instance you want to test against (i.e. `https://debug.dhis2.org/dev`)
 3. Add the copied URL on a new line the in CORS Whitelist textbox **NOTE**: do NOT include a trailing slash
+4. Back on [netlify](`https://dhis2-data-visualizer.netlify.com`), enter the DHIS2 instance URL in the Server input of the login dialog
 
 The master branch is always available at:
 
-```https://dhis2-data-visualizer.netlify.com```
+`https://dhis2-data-visualizer.netlify.com`
 
 Branches are available at (replace `/` and other special characters in `{branchname}` with `-`):
 
-```https://{branchname}--dhis2-data-visualizer.netlify.com```
+`https://{branchname}--dhis2-data-visualizer.netlify.com`
 
 Pull requests (I.E. #209) are available at:
 
-```https://deploy-preview-209--dhis2-data-visualizer.netlify.com```
+`https://deploy-preview-209--dhis2-data-visualizer.netlify.com`
 
 Netlify will also add a status check to each PR which links directly to the PR deployment.

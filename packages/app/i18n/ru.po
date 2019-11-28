@@ -312,6 +312,12 @@ msgstr "Параметры диаграммы"
 msgid "Open as Map"
 msgstr ""
 
+msgid "Single value"
+msgstr ""
+
+msgid "Open as Map"
+msgstr ""
+
 msgid "Reporting rate"
 msgstr "Показатель отчетности"
 

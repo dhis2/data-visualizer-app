@@ -18,8 +18,8 @@ export const BlankCanvas = ({ error }) => {
             {getMessage(error)}
         </div>
     ) : (
-        getMessage(defaultCanvasMessage)
-    );
+            getMessage(defaultCanvasMessage)
+        );
 
     return (
         <div style={styles.outer}>

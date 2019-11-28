@@ -1,7 +1,10 @@
+let polyfill
+
 const onBeforeLoad = win => {
     // From https://github.com/cypress-io/cypress-example-recipes/blob/master/examples/stubbing-spying__window-fetch/cypress/integration/polyfill-fetch-from-tests-spec.js
     // The application will polyfill window.fetch to use XHR, so we can inspect network requests and easily stub responses using cy.server
     delete win.fetch;
+    win.eval(polyfill)
 };
 
 Cypress.Commands.add('login', () => {
@@ -33,6 +36,10 @@ Cypress.Commands.add('persistLogin', () => {
 });
 
 Cypress.Commands.add('loadPage', () => {
+    /* TODO: Confirm that we correctly polyfill in the app itself */
+    cy.readFile('../../node_modules/whatwg-fetch/dist/fetch.umd.js')
+        .then((contents) => polyfill = contents)
+
     cy.visit(Cypress.config('baseUrl'), { onBeforeLoad });
     cy.get('header', { log: false, timeout: 10000 }); // Waits for the page to fully load
 });

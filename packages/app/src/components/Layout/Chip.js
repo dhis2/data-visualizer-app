@@ -99,18 +99,18 @@ class Chip extends React.Component {
 
         const getItemsLabel =
             !!this.axisMaxNumberOfItems &&
-            numberOfItems > this.axisMaxNumberOfItems
+                numberOfItems > this.axisMaxNumberOfItems
                 ? i18n.t(`{{total}} of {{axisMaxNumberOfItems}} selected`, {
-                      total: numberOfItems,
-                      axisMaxNumberOfItems: this.axisMaxNumberOfItems,
-                  })
+                    total: numberOfItems,
+                    axisMaxNumberOfItems: this.axisMaxNumberOfItems,
+                })
                 : i18n.t('{{total}} selected', {
-                      total: numberOfItems,
-                  });
+                    total: numberOfItems,
+                });
 
         return `${this.props.dimensionName}${
             this.props.items.length > 0 ? `: ${getItemsLabel}` : ''
-        }`;
+            }`;
     };
 
     renderChipIcon = () => {
@@ -142,13 +142,13 @@ class Chip extends React.Component {
 
         const lockedLabel = this.isLocked
             ? i18n.t(
-                  `{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}`,
-                  {
-                      dimensionName: this.props.dimensionName,
-                      axisName: getAxisName(this.props.axisId),
-                      visTypeName: getDisplayNameByVisType(this.props.type),
-                  }
-              )
+                `{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}`,
+                {
+                    dimensionName: this.props.dimensionName,
+                    axisName: getAxisName(this.props.axisId),
+                    visTypeName: getDisplayNameByVisType(this.props.type),
+                }
+            )
             : null;
         return (
             <Tooltip

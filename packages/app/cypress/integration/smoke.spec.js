@@ -15,7 +15,7 @@ describe('Data visualizer', () => {
     });
 
     it('loads', () => {
-        cy.title().should('equal', 'Data Visualizer');
+        cy.title().should('equal', 'Data Visualizer | DHIS2');
     });
 
     it('opens a chart', () => {

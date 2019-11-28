@@ -59,8 +59,8 @@ export class Tooltip extends React.Component {
     getLimitedLabel = (itemIds, metadata) =>
         itemIds.length === 1
             ? labels.onlyOneInUse(
-                  metadata[itemIds[0]] ? metadata[itemIds[0]].name : itemIds[0]
-              )
+                metadata[itemIds[0]] ? metadata[itemIds[0]].name : itemIds[0]
+            )
             : labels.onlyLimitedNumberInUse(itemIds.length);
 
     render() {

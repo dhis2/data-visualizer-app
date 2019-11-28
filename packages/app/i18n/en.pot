@@ -14,9 +14,6 @@ msgstr ""
 msgid "\"{{what}}\" successfully deleted."
 msgstr ""
 
-msgid "Data Visualizer"
-msgstr ""
-
 msgid "Axis 1"
 msgstr ""
 
@@ -101,7 +98,7 @@ msgstr ""
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr ""
 
-msgid "{{total}} selected"
+msgid "{{total}} of {{maxNumberOfItemsPerAxis}} selected"
 msgstr ""
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
