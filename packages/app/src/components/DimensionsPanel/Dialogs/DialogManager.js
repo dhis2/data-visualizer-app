@@ -213,19 +213,19 @@ export class DialogManager extends Component {
             const visType = type;
             const numberOfItems = selectedItems.length;
 
-            const maxNumberOfItemsPerAxis = getAxisMaxNumberOfItems(
+            const axisMaxNumberOfItems = getAxisMaxNumberOfItems(
                 visType,
                 axisId
             );
 
-            const hasMaxNumberOfItemsRule = !!maxNumberOfItemsPerAxis;
+            const hasMaxNumberOfItemsRule = !!axisMaxNumberOfItems;
 
             if (
                 hasMaxNumberOfItemsRule &&
-                numberOfItems > maxNumberOfItemsPerAxis
+                numberOfItems > axisMaxNumberOfItems
             ) {
                 infoBoxMessage =
-                    maxNumberOfItemsPerAxis === 1
+                    axisMaxNumberOfItems === 1
                         ? i18n.t(
                               `'{{visualiationType}}' is intended to show a single data item. Only the first item will be used and saved.`,
                               {
@@ -240,12 +240,12 @@ export class DialogManager extends Component {
                                   visualiationType: getDisplayNameByVisType(
                                       visType
                                   ),
-                                  maxNumber: maxNumberOfItemsPerAxis,
+                                  maxNumber: axisMaxNumberOfItems,
                               }
                           );
 
                 selectedItems.forEach((item, index) => {
-                    item.isActive = index < maxNumberOfItemsPerAxis;
+                    item.isActive = index < axisMaxNumberOfItems;
                 });
             }
 

@@ -48,7 +48,7 @@ class Chip extends React.Component {
         getAxisPerLockedDimension(this.props.type, this.props.dimensionId) ===
         this.props.axisId;
 
-    maxNumberOfItemsPerAxis = getAxisMaxNumberOfItems(
+    axisMaxNumberOfItems = getAxisMaxNumberOfItems(
         this.props.type,
         this.props.axisId
     );
@@ -98,11 +98,11 @@ class Chip extends React.Component {
         const numberOfItems = this.props.items.length;
 
         const getItemsLabel =
-            !!this.maxNumberOfItemsPerAxis &&
-            numberOfItems > this.maxNumberOfItemsPerAxis
-                ? i18n.t(`{{total}} of {{maxNumberOfItemsPerAxis}} selected`, {
+            !!this.axisMaxNumberOfItems &&
+            numberOfItems > this.axisMaxNumberOfItems
+                ? i18n.t(`{{total}} of {{axisMaxNumberOfItems}} selected`, {
                       total: numberOfItems,
-                      maxNumberOfItemsPerAxis: this.maxNumberOfItemsPerAxis,
+                      axisMaxNumberOfItems: this.axisMaxNumberOfItems,
                   })
                 : i18n.t('{{total}} selected', {
                       total: numberOfItems,
@@ -136,8 +136,8 @@ class Chip extends React.Component {
     );
 
     renderTooltip = () => {
-        const activeItemIds = !!this.maxNumberOfItemsPerAxis
-            ? this.props.items.slice(0, this.maxNumberOfItemsPerAxis)
+        const activeItemIds = !!this.axisMaxNumberOfItems
+            ? this.props.items.slice(0, this.axisMaxNumberOfItems)
             : this.props.items;
 
         const lockedLabel = this.isLocked
