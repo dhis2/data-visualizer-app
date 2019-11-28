@@ -13,14 +13,14 @@ if (window.Cypress) {
     window.store = store;
 }
 
-const apiObjectName = 'chart'
+const schemas = ['chart', 'reportTable', 'organisationUnit', 'userGroup'];
 
 const AppWrapper = () => (
     <Provider store={store}>
         <MuiThemeProvider theme={muiTheme}>
-            <D2Shim>
+            <D2Shim schemas={schemas}>
                 {(params) => (
-                    <App apiObjectName={apiObjectName} {...params} />
+                    <App {...params} />
                 )}
             </D2Shim>
         </MuiThemeProvider>

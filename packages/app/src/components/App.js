@@ -4,7 +4,6 @@ import { createSelector } from 'reselect';
 import PropTypes from 'prop-types';
 import i18n from '@dhis2/d2-i18n';
 
-import FatalErrorBoundary from './ErrorBoundaries/FatalErrorBoundary';
 import Snackbar from '../components/Snackbar/Snackbar';
 import MenuBar from './MenuBar/MenuBar';
 import TitleBar from './TitleBar/TitleBar';
@@ -18,7 +17,7 @@ import { sGetUiType } from '../reducers/ui';
 import * as fromActions from '../actions';
 import history from '../modules/history';
 import defaultMetadata from '../modules/metadata';
-import { PIVOT_TABLE } from '../modules/chartTypes';
+import { chartTypes } from '@dhis2/data-visualizer-plugin';
 import {
     apiFetchAOFromUserDataStore,
     CURRENT_AO_KEY,
@@ -201,7 +200,7 @@ export class App extends Component {
 
 const apiObjectSelector = createSelector(
     [sGetUiType],
-    type => (type === PIVOT_TABLE ? 'reportTable' : 'chart')
+    type => (type === chartTypes.PIVOT_TABLE ? 'reportTable' : 'chart')
 );
 
 const mapStateToProps = state => ({

@@ -13,4 +13,5 @@ const VisualizationPlugin = props => {
     }
 };
 
+export { default as chartTypes } from './modules/chartTypes'
 export default VisualizationPlugin;
