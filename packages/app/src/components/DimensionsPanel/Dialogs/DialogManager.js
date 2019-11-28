@@ -16,13 +16,14 @@ import {
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
-    getMaxNumberOfItemsPerAxis,
+    getAxisMaxNumberOfItems,
     getDisplayNameByVisType,
     filterOutFixedDimensions,
 } from '@dhis2/analytics';
 
 import HideButton from './HideButton';
 import AddToLayoutButton from './AddToLayoutButton/AddToLayoutButton';
+import UpdateVisualizationContainer from '../../UpdateButton/UpdateVisualizationContainer';
 
 import {
     acSetUiActiveModalDialog,
@@ -41,12 +42,14 @@ import {
     sGetUiParentGraphMap,
     sGetUiType,
     getAxisIdByDimensionId,
+    sGetDimensionIdsFromLayout,
 } from '../../../reducers/ui';
 import { sGetDimensions } from '../../../reducers/dimensions';
 import { sGetMetadata } from '../../../reducers/metadata';
 import { sGetSettingsDisplayNameProperty } from '../../../reducers/settings';
 import { apiFetchRecommendedIds } from '../../../api/dimensions';
 import { removeLastPathSegment, getOuPath } from '../../../modules/orgUnit';
+import UpdateButton from '../../UpdateButton/UpdateButton';
 
 export class DialogManager extends Component {
     state = {
@@ -210,19 +213,19 @@ export class DialogManager extends Component {
             const visType = type;
             const numberOfItems = selectedItems.length;
 
-            const maxNumberOfItemsPerAxis = getMaxNumberOfItemsPerAxis(
+            const axisMaxNumberOfItems = getAxisMaxNumberOfItems(
                 visType,
                 axisId
             );
 
-            const hasMaxNumberOfItemsRule = !!maxNumberOfItemsPerAxis;
+            const hasMaxNumberOfItemsRule = !!axisMaxNumberOfItems;
 
             if (
                 hasMaxNumberOfItemsRule &&
-                numberOfItems > maxNumberOfItemsPerAxis
+                numberOfItems > axisMaxNumberOfItems
             ) {
                 infoBoxMessage =
-                    maxNumberOfItemsPerAxis === 1
+                    axisMaxNumberOfItems === 1
                         ? i18n.t(
                               `'{{visualiationType}}' is intended to show a single data item. Only the first item will be used and saved.`,
                               {
@@ -237,12 +240,12 @@ export class DialogManager extends Component {
                                   visualiationType: getDisplayNameByVisType(
                                       visType
                                   ),
-                                  maxNumber: maxNumberOfItemsPerAxis,
+                                  maxNumber: axisMaxNumberOfItems,
                               }
                           );
 
                 selectedItems.forEach((item, index) => {
-                    item.isActive = index < maxNumberOfItemsPerAxis;
+                    item.isActive = index < axisMaxNumberOfItems;
                 });
             }
 
@@ -296,6 +299,29 @@ export class DialogManager extends Component {
         );
     };
 
+    renderPrimaryButton = dialogId => (
+        <UpdateVisualizationContainer
+            renderComponent={handler =>
+                this.props.dimensionIdsInLayout.includes(dialogId) ? (
+                    <UpdateButton
+                        flat
+                        size="small"
+                        onClick={this.getPrimaryOnClick(handler)}
+                    />
+                ) : (
+                    <AddToLayoutButton
+                        onClick={this.getPrimaryOnClick(handler)}
+                    />
+                )
+            }
+        />
+    );
+
+    getPrimaryOnClick = handler => () => {
+        handler();
+        this.props.closeDialog(null);
+    };
+
     render() {
         const { dialogId, dimensions } = this.props;
         const keepMounted = !dialogId || dialogId === DIMENSION_ID_ORGUNIT;
@@ -312,7 +338,7 @@ export class DialogManager extends Component {
                 {this.renderDialogContent()}
                 <DialogActions>
                     <HideButton />
-                    {dialogId && <AddToLayoutButton dialogId={dialogId} />}
+                    {dialogId && this.renderPrimaryButton(dialogId)}
                 </DialogActions>
             </Dialog>
         );
@@ -333,6 +359,7 @@ DialogManager.propTypes = {
     metadata: PropTypes.object,
     selectedItems: PropTypes.object,
     type: PropTypes.string,
+    dimensionIdsInLayout: PropTypes.array.isRequired,
 };
 
 DialogManager.defaultProps = {
@@ -352,6 +379,7 @@ const mapStateToProps = state => ({
     type: sGetUiType(state),
     getAxisIdByDimensionId: dimensionId =>
         getAxisIdByDimensionId(state, dimensionId),
+    dimensionIdsInLayout: sGetDimensionIdsFromLayout(state),
 });
 
 export default connect(

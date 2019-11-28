@@ -965,10 +965,10 @@
     react-beautiful-dnd "^10.1.1"
     styled-jsx "^3.2.1"
 
-"@dhis2/analytics@^2.6.10":
-  version "2.6.10"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.6.10.tgz#79922dbfe6df23f7cfccffc371b938aadc4887ae"
-  integrity sha512-JKLtfDhg869OHisbnRhgMPZCz68FfGQ95qnCNUTHFNXIJnHL6vyv3OWwf2veXTYSUm/y/SwgQkmMN1S7JaVx+g==
+"@dhis2/analytics@^2.6.12":
+  version "2.6.12"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.6.12.tgz#0d34b604bbee16c2a9f4091551170811d7d7c8d1"
+  integrity sha512-cNtZvioufUWnd3ZNEwKnKnjnaieR5Rsl5TubLxnsLbOcVuEPQAmqXrQHqMRUXypl7yjxf1g/QHFDimfPRQAopA==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^6.3.0"

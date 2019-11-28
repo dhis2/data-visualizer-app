@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-11-21T07:25:38.180Z\n"
-"PO-Revision-Date: 2019-11-21T07:25:38.180Z\n"
+"POT-Creation-Date: 2019-11-28T10:06:38.807Z\n"
+"PO-Revision-Date: 2019-11-28T10:06:38.807Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -95,19 +95,16 @@ msgstr ""
 msgid "Interpretations"
 msgstr ""
 
-msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
+msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr ""
 
 msgid "{{total}} of {{maxNumberOfItemsPerAxis}} selected"
 msgstr ""
 
-msgid "{{total}} selected"
+msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr ""
 
 msgid "Move to"
-msgstr ""
-
-msgid "Remove"
 msgstr ""
 
 msgid "Remove"

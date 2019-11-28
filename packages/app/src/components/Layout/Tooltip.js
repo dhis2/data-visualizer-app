@@ -12,11 +12,10 @@ import { styles } from './styles/Tooltip.style';
 
 const labels = {
     noneSelected: i18n.t('None selected'),
-    onlyOneInUse: name => i18n.t("Only '{{name}}' in use", { name }),
+    onlyOneInUse: name => i18n.t("Only '{{- name}}' in use", { name }),
     onlyLimitedNumberInUse: number =>
         i18n.t("Only '{{number}}' in use", { number }),
 };
-
 export class Tooltip extends React.Component {
     renderTooltip = (names, warning) => (
         <Popper
@@ -60,8 +59,8 @@ export class Tooltip extends React.Component {
     getLimitedLabel = (itemIds, metadata) =>
         itemIds.length === 1
             ? labels.onlyOneInUse(
-                  metadata[itemIds[0]] ? metadata[itemIds[0]].name : itemIds[0]
-              )
+                metadata[itemIds[0]] ? metadata[itemIds[0]].name : itemIds[0]
+            )
             : labels.onlyLimitedNumberInUse(itemIds.length);
 
     render() {
