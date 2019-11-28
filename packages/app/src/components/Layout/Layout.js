@@ -13,6 +13,7 @@ import {
     VIS_TYPE_YEAR_OVER_YEAR_LINE,
     VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
     VIS_TYPE_SINGLE_VALUE,
+    VIS_TYPE_PIVOT_TABLE,
 } from '@dhis2/analytics';
 
 import DefaultLayout from './DefaultLayout/DefaultLayout';
@@ -33,6 +34,7 @@ const layoutMap = {
     [VIS_TYPE_YEAR_OVER_YEAR_LINE]: YearOverYearLayout,
     [VIS_TYPE_YEAR_OVER_YEAR_COLUMN]: YearOverYearLayout,
     [VIS_TYPE_SINGLE_VALUE]: PieLayout,
+    [VIS_TYPE_PIVOT_TABLE]: DefaultLayout,
 };
 
 const getLayoutByType = (type, props) => {

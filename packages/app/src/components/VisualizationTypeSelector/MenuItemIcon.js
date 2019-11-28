@@ -13,6 +13,7 @@ import {
     VIS_TYPE_YEAR_OVER_YEAR_LINE,
     VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
     VIS_TYPE_SINGLE_VALUE,
+    VIS_TYPE_PIVOT_TABLE,
 } from '@dhis2/analytics';
 
 import ColumnIcon from '../../assets/ColumnIcon';
@@ -28,6 +29,7 @@ import YearOverYearLineIcon from '../../assets/YearOverYearLineIcon';
 import YearOverYearColumnIcon from '../../assets/YearOverYearColumnIcon';
 import SingleValueIcon from '../../assets/SingleValueIcon';
 import GlobeIcon from '../../assets/GlobeIcon';
+import PivotTableIcon from '../../assets/PivotTableIcon';
 
 const MenuItemIcon = ({ iconType, style }) => {
     switch (iconType) {
@@ -55,6 +57,8 @@ const MenuItemIcon = ({ iconType, style }) => {
             return <SingleValueIcon style={style} />;
         case 'MAP':
             return <GlobeIcon style={style} />;
+        case VIS_TYPE_PIVOT_TABLE:
+            return <PivotTableIcon style={style} />;
         case VIS_TYPE_COLUMN:
         default:
             return <ColumnIcon style={style} />;
