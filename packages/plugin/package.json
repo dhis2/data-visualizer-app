@@ -13,7 +13,7 @@
         "react-dom": "^16.6.0"
     },
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^2.0.0-beta.0"
+        "@dhis2/cli-app-scripts": "^2.0.0"
     },
     "scripts": {
         "clean": "rm -rf ./build/*",
