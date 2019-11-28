@@ -19,8 +19,12 @@
     flex-direction: column;
 }
 
-.flex-1 {
-    flex: 1 1 0%;
+.flex-grow-1 {
+    flex-grow: 1;
+}
+
+.flex-basis-0 {
+    flex-basis: 0%;
 }
 
 /* Headerbar */
@@ -55,7 +59,7 @@
 .main-right {
     flex: 1 1 0%;
     max-width: 380px;
-    background-color: #f4f6f8;
+    background-color: #f0f2f4;
     overflow-y: auto;
     overflow-x: hidden;
 }
