@@ -1,6 +1,6 @@
 # Translators:
 # Viktor Varland <viktor@dhis2.org>, 2019
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
@@ -113,8 +113,8 @@ msgstr ""
 msgid "{{total}} selected"
 msgstr ""
 
-msgid "Move to"
-msgstr "پر منتقل"
+msgid "Error validating layout"
+msgstr ""
 
 msgid "Remove"
 msgstr "دور"

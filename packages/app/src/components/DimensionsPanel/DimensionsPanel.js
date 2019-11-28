@@ -4,7 +4,7 @@ import {
     DimensionsPanel,
     DimensionMenu,
     getDisallowedDimensions,
-    getLockedDimensions,
+    getAllLockedDimensionIds,
 } from '@dhis2/analytics';
 
 import DialogManager from './Dialogs/DialogManager';
@@ -108,7 +108,7 @@ const getDisallowedDimensionsMemo = createSelector(
 
 const getLockedDimensionsMemo = createSelector(
     [sGetUiType],
-    type => getLockedDimensions(type)
+    type => getAllLockedDimensionIds(type)
 );
 
 const mapStateToProps = state => {
