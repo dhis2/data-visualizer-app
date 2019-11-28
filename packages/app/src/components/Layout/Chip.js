@@ -5,9 +5,9 @@ import LockIcon from '@material-ui/icons/Lock';
 import i18n from '@dhis2/d2-i18n';
 import {
     FIXED_DIMENSIONS,
-    getMaxNumberOfItemsPerAxis,
-    hasTooManyItemsPerAxis,
-    getLockedDimensionAxis,
+    getAxisMaxNumberOfItems,
+    hasAxisTooManyItems,
+    getAxisPerLockedDimension,
     getDisplayNameByVisType,
     getAxisName,
 } from '@dhis2/analytics';
@@ -44,12 +44,11 @@ class Chip extends React.Component {
 
     timeout = null;
 
-    isLocked = getLockedDimensionAxis(
-        this.props.type,
-        this.props.dimensionId
-    ).includes(this.props.axisId);
+    isLocked =
+        getAxisPerLockedDimension(this.props.type, this.props.dimensionId) ===
+        this.props.axisId;
 
-    maxNumberOfItemsPerAxis = getMaxNumberOfItemsPerAxis(
+    axisMaxNumberOfItems = getAxisMaxNumberOfItems(
         this.props.type,
         this.props.axisId
     );
@@ -99,11 +98,11 @@ class Chip extends React.Component {
         const numberOfItems = this.props.items.length;
 
         const getItemsLabel =
-            !!this.maxNumberOfItemsPerAxis &&
-            numberOfItems > this.maxNumberOfItemsPerAxis
-                ? i18n.t(`{{total}} of {{maxNumberOfItemsPerAxis}} selected`, {
+            !!this.axisMaxNumberOfItems &&
+            numberOfItems > this.axisMaxNumberOfItems
+                ? i18n.t(`{{total}} of {{axisMaxNumberOfItems}} selected`, {
                       total: numberOfItems,
-                      maxNumberOfItemsPerAxis: this.maxNumberOfItemsPerAxis,
+                      axisMaxNumberOfItems: this.axisMaxNumberOfItems,
                   })
                 : i18n.t('{{total}} selected', {
                       total: numberOfItems,
@@ -137,8 +136,8 @@ class Chip extends React.Component {
     );
 
     renderTooltip = () => {
-        const activeItemIds = !!this.maxNumberOfItemsPerAxis
-            ? this.props.items.slice(0, this.maxNumberOfItemsPerAxis)
+        const activeItemIds = !!this.axisMaxNumberOfItems
+            ? this.props.items.slice(0, this.axisMaxNumberOfItems)
             : this.props.items;
 
         const lockedLabel = this.isLocked
@@ -181,7 +180,7 @@ class Chip extends React.Component {
             >
                 <div style={styles.iconWrapper}>{this.renderChipIcon()}</div>
                 {this.renderChipLabel()}
-                {hasTooManyItemsPerAxis(
+                {hasAxisTooManyItems(
                     this.props.type,
                     this.props.axisId,
                     this.props.items.length

@@ -1,7 +1,7 @@
 # Translators:
 # Viktor Varland <viktor@dhis2.org>, 2019
 # phil_dhis2, 2019
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
@@ -313,9 +313,6 @@ msgid "Open as Map"
 msgstr ""
 
 msgid "Single value"
-msgstr ""
-
-msgid "Open as Map"
 msgstr ""
 
 msgid "Reporting rate"

@@ -1,7 +1,7 @@
 # Translators:
 # Viktor Varland <viktor@dhis2.org>, 2019
 # phil_dhis2, 2019
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
@@ -104,6 +104,27 @@ msgstr ""
 
 msgid "Interpretations"
 msgstr "tolkningar"
+
+msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
+msgstr ""
+
+msgid "{{total}} of {{maxNumberOfItemsPerAxis}} selected"
+msgstr ""
+
+msgid "{{total}} selected"
+msgstr ""
+
+msgid "Move to"
+msgstr ""
+
+msgid "Remove"
+msgstr "Avlägsna"
+
+msgid "None selected"
+msgstr ""
+
+msgid "Only '{{name}}' in use"
+msgstr ""
 
 msgid "Only '{{number}}' in use"
 msgstr ""
