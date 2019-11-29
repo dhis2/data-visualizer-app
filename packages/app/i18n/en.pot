@@ -5,8 +5,13 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2020-01-29T07:22:55.986Z\n"
 "PO-Revision-Date: 2020-01-29T07:22:55.986Z\n"
+=======
+"POT-Creation-Date: 2019-11-29T10:59:48.425Z\n"
+"PO-Revision-Date: 2019-11-29T10:59:48.425Z\n"
+>>>>>>> fix: pin to analytics@2.6.11 (#495)
 
 msgid "Rename successful"
 msgstr ""
@@ -95,10 +100,14 @@ msgstr ""
 msgid "Hide"
 msgstr ""
 
+<<<<<<< HEAD
 msgid "Interpretations"
 msgstr ""
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
+=======
+msgid "{{total}} of {{maxNumberOfItemsPerAxis}} selected"
+>>>>>>> fix: pin to analytics@2.6.11 (#495)
 msgstr ""
 
 msgid "{{total}} selected"
@@ -107,7 +116,11 @@ msgstr ""
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr ""
 
+<<<<<<< HEAD
 msgid "Columns"
+=======
+msgid "Move to"
+>>>>>>> fix: pin to analytics@2.6.11 (#495)
 msgstr ""
 
 msgid "Rows"
