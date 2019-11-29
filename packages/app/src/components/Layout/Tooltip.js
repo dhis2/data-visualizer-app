@@ -17,70 +17,85 @@ const labels = {
         i18n.t("Only '{{number}}' in use", { number }),
 };
 export class Tooltip extends React.Component {
-    renderTooltip = (names, warning) => (
-        <Popper
-            anchorEl={this.props.anchorEl}
-            open={this.props.open}
-            placement="bottom-start"
-        >
-            <Paper style={styles.tooltip}>
-                {
-                    <ul style={styles.list}>
-                        {warning && (
-                            <li style={styles.item}>
-                                <div style={styles.iconWrapper}>
-                                    <WarningIcon style={styles.icon} />
-                                    <span>{warning}</span>
-                                </div>
-                            </li>
-                        )}
-                        {this.props.lockedLabel && (
-                            <li style={styles.item}>
-                                <div style={styles.iconWrapper}>
-                                    <LockIcon style={styles.icon} />
-                                    <span>{this.props.lockedLabel}</span>
-                                </div>
-                            </li>
-                        )}
-                        {names.map(name => (
-                            <li
-                                key={`${this.props.dimensionId}-${name}`}
-                                style={styles.item}
-                            >
-                                {name}
-                            </li>
-                        ))}
-                    </ul>
-                }
-            </Paper>
-        </Popper>
+    getWarningLabel = () => {
+        const { itemIds, metadata, displayLimitedAmount } = this.props;
+        const warningLabel =
+            itemIds.length === 1
+                ? labels.onlyOneInUse(
+                      metadata[itemIds[0]]
+                          ? metadata[itemIds[0]].name
+                          : itemIds[0]
+                  )
+                : labels.onlyLimitedNumberInUse(itemIds.length);
+        return displayLimitedAmount ? warningLabel : null;
+    };
+
+    getItemDisplayNames = () => {
+        const { itemIds, metadata, displayLimitedAmount } = this.props;
+        return itemIds.length && !displayLimitedAmount
+            ? itemIds.map(id => (metadata[id] ? metadata[id].name : id))
+            : [];
+    };
+
+    renderWarningLabel = warningLabel => (
+        <li style={styles.item}>
+            <div style={styles.iconWrapper}>
+                <WarningIcon style={styles.icon} />
+                <span>{warningLabel}</span>
+            </div>
+        </li>
     );
 
-    getLimitedLabel = (itemIds, metadata) =>
-        itemIds.length === 1
-            ? labels.onlyOneInUse(
-                metadata[itemIds[0]] ? metadata[itemIds[0]].name : itemIds[0]
-            )
-            : labels.onlyLimitedNumberInUse(itemIds.length);
+    renderItems = itemDisplayNames =>
+        itemDisplayNames.map(name => (
+            <li key={`${this.props.dimensionId}-${name}`} style={styles.item}>
+                {name}
+            </li>
+        ));
+
+    renderLockedLabel = () => (
+        <li style={styles.item}>
+            <div style={styles.iconWrapper}>
+                <LockIcon style={styles.icon} />
+                <span>{this.props.lockedLabel}</span>
+            </div>
+        </li>
+    );
+
+    renderNoItemsLabel = () => (
+        <li
+            key={`${this.props.dimensionId}-${labels.noneSelected}`}
+            style={styles.item}
+        >
+            {labels.noneSelected}
+        </li>
+    );
 
     render() {
-        const { itemIds, metadata, displayLimitedAmount } = this.props;
+        const itemDisplayNames = this.getItemDisplayNames();
+        const warningLabel = this.getWarningLabel();
+        const hasNoItemsLabel = !itemDisplayNames.length && !warningLabel;
 
-        const names = [];
-
-        const warning = displayLimitedAmount
-            ? this.getLimitedLabel(itemIds, metadata)
-            : null;
-
-        if (itemIds.length && !displayLimitedAmount) {
-            names.push(
-                ...itemIds.map(id => (metadata[id] ? metadata[id].name : id))
-            );
-        } else if (!itemIds.length) {
-            names.push(labels.noneSelected);
-        }
-
-        return this.renderTooltip(names, warning);
+        return (
+            <Popper
+                anchorEl={this.props.anchorEl}
+                open={this.props.open}
+                placement="bottom-start"
+            >
+                <Paper style={styles.tooltip}>
+                    {
+                        <ul style={styles.list}>
+                            {warningLabel &&
+                                this.renderWarningLabel(warningLabel)}
+                            {this.props.lockedLabel && this.renderLockedLabel()}
+                            {itemDisplayNames &&
+                                this.renderItems(itemDisplayNames)}
+                            {hasNoItemsLabel && this.renderNoItemsLabel()}
+                        </ul>
+                    }
+                </Paper>
+            </Popper>
+        );
     }
 }
 
@@ -93,7 +108,7 @@ Tooltip.propTypes = {
     displayLimitedAmount: PropTypes.bool,
 };
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = state => ({
     metadata: sGetMetadata(state),
 });
 
