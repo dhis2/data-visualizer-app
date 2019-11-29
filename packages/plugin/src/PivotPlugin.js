@@ -1,46 +1,49 @@
-import React, { Component, Fragment } from 'react';
-import PropTypes from 'prop-types';
-import isEqual from 'lodash-es/isEqual';
-import i18n from '@dhis2/d2-i18n';
-import { createVisualization } from '@dhis2/analytics';
+import React, { Component, Fragment } from 'react'
+import PropTypes from 'prop-types'
+import isEqual from 'lodash-es/isEqual'
+import i18n from '@dhis2/d2-i18n'
+import {
+    createVisualization,
+    isYearOverYear,
+    isSingleValue,
+} from '@dhis2/analytics'
 
-import { apiFetchVisualization } from './api/visualization';
+import { apiFetchVisualization } from './api/visualization'
 import {
     apiFetchAnalytics,
     apiFetchAnalyticsForYearOverYear,
-} from './api/analytics';
-import { isYearOverYear, isSingleValue } from './modules/chartTypes';
-import { getOptionsForRequest } from './modules/options';
-import { computeGenericPeriodNames } from './modules/analytics';
-import { BASE_FIELD_YEARLY_SERIES } from './modules/fields/baseFields';
-import LoadingMask from './widgets/LoadingMask';
+} from './api/analytics'
+import { getOptionsForRequest } from './modules/options'
+import { computeGenericPeriodNames } from './modules/analytics'
+import { BASE_FIELD_YEARLY_SERIES } from './modules/fields/baseFields'
+import LoadingMask from './widgets/LoadingMask'
 
 class PivotPlugin extends Component {
     constructor(props) {
-        super(props);
+        super(props)
 
-        this.canvasRef = React.createRef();
+        this.canvasRef = React.createRef()
 
-        this.recreateVisualization = Function.prototype;
+        this.recreateVisualization = Function.prototype
 
         this.state = {
             isLoading: true,
-        };
+        }
     }
 
     componentDidMount() {
-        this.renderChart();
+        this.renderChart()
     }
 
     componentDidUpdate(prevProps) {
         if (!isEqual(this.props.config, prevProps.config)) {
-            this.renderChart();
-            return;
+            this.renderChart()
+            return
         }
 
         if (!isEqual(this.props.filters, prevProps.filters)) {
-            this.renderChart();
-            return;
+            this.renderChart()
+            return
         }
 
         // id set by DV app, style works in dashboards
@@ -48,8 +51,8 @@ class PivotPlugin extends Component {
             this.props.id !== prevProps.id ||
             !isEqual(this.props.style, prevProps.style)
         ) {
-            this.recreateVisualization(0); // disable animation
-            return;
+            this.recreateVisualization(0) // disable animation
+            return
         }
     }
 
@@ -61,17 +64,17 @@ class PivotPlugin extends Component {
                     visualization[option] !== undefined &&
                     visualization[option] !== props.defaultValue
                 ) {
-                    map[option] = visualization[option];
+                    map[option] = visualization[option]
                 }
 
-                return map;
+                return map
             },
             {}
-        );
+        )
 
         // interpretation filter
         if (filters.relativePeriodDate) {
-            options.relativePeriodDate = filters.relativePeriodDate;
+            options.relativePeriodDate = filters.relativePeriodDate
         }
 
         // global filters
@@ -79,17 +82,17 @@ class PivotPlugin extends Component {
         if (filters.userOrgUnit && filters.userOrgUnit.length) {
             const ouIds = filters.userOrgUnit.map(
                 ouPath => ouPath.split('/').slice(-1)[0]
-            );
+            )
 
-            options.userOrgUnit = ouIds.join(';');
+            options.userOrgUnit = ouIds.join(';')
         }
 
-        return options;
-    };
+        return options
+    }
 
     getConfigById = id => {
-        return apiFetchVisualization(this.props.d2, 'chart', id);
-    };
+        return apiFetchVisualization(this.props.d2, 'chart', id)
+    }
 
     renderChart = async () => {
         const {
@@ -99,47 +102,47 @@ class PivotPlugin extends Component {
             onResponsesReceived,
             onChartGenerated,
             onError,
-        } = this.props;
+        } = this.props
 
         try {
             const visualization =
                 Object.keys(config).length === 1 && config.id
                     ? await this.getConfigById(config.id)
-                    : config;
+                    : config
 
-            const options = this.getRequestOptions(visualization, filters);
+            const options = this.getRequestOptions(visualization, filters)
 
             const extraOptions = {
                 dashboard: forDashboard,
-                noData: { text: i18n.t('No data') }
-            };
+                noData: { text: i18n.t('No data') },
+            }
 
-            let responses = [];
+            let responses = []
 
             if (isYearOverYear(visualization.type)) {
-                let yearlySeriesLabels = [];
+                let yearlySeriesLabels = []
 
-                ({
+                ;({
                     responses,
                     yearlySeriesLabels,
                 } = await apiFetchAnalyticsForYearOverYear(
                     this.props.d2,
                     visualization,
                     options
-                ));
+                ))
 
-                extraOptions[BASE_FIELD_YEARLY_SERIES] = yearlySeriesLabels;
-                extraOptions.xAxisLabels = computeGenericPeriodNames(responses);
+                extraOptions[BASE_FIELD_YEARLY_SERIES] = yearlySeriesLabels
+                extraOptions.xAxisLabels = computeGenericPeriodNames(responses)
             } else {
                 responses = await apiFetchAnalytics(
                     this.props.d2,
                     visualization,
                     options
-                );
+                )
             }
 
             if (responses.length) {
-                onResponsesReceived(responses);
+                onResponsesReceived(responses)
             }
 
             this.recreateVisualization = animation => {
@@ -154,27 +157,27 @@ class PivotPlugin extends Component {
                     undefined,
                     undefined,
                     isSingleValue(visualization.type) ? 'dhis' : 'highcharts' // output format
-                );
+                )
 
                 if (isSingleValue(visualization.type)) {
-                    onChartGenerated(visualizationConfig.visualization);
+                    onChartGenerated(visualizationConfig.visualization)
                 } else {
                     onChartGenerated(
                         visualizationConfig.visualization.getSVGForExport({
                             sourceHeight: 768,
                             sourceWidth: 1024,
                         })
-                    );
+                    )
                 }
-            };
+            }
 
-            this.recreateVisualization();
+            this.recreateVisualization()
 
-            this.setState({ isLoading: false });
+            this.setState({ isLoading: false })
         } catch (error) {
-            onError(error);
+            onError(error)
         }
-    };
+    }
 
     render() {
         return (
@@ -182,7 +185,7 @@ class PivotPlugin extends Component {
                 {this.state.isLoading ? <LoadingMask /> : null}
                 <div ref={this.canvasRef} style={this.props.style} />
             </Fragment>
-        );
+        )
     }
 }
 
@@ -195,19 +198,19 @@ PivotPlugin.defaultProps = {
     onError: Function.prototype,
     onChartGenerated: Function.prototype,
     onResponsesReceived: Function.prototype,
-};
+}
 
 PivotPlugin.propTypes = {
-    id: PropTypes.number,
-    d2: PropTypes.object.isRequired,
-    animation: PropTypes.number,
     config: PropTypes.object.isRequired,
+    d2: PropTypes.object.isRequired,
+    onError: PropTypes.func.isRequired,
+    animation: PropTypes.number,
     filters: PropTypes.object,
     forDashboard: PropTypes.bool,
+    id: PropTypes.number,
     style: PropTypes.object,
-    onError: PropTypes.func.isRequired,
     onChartGenerated: PropTypes.func,
     onResponsesReceived: PropTypes.func,
-};
+}
 
-export default PivotPlugin;
+export default PivotPlugin
