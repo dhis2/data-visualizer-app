@@ -1,21 +1,21 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import React from 'react'
+import { shallow } from 'enzyme'
 
-import { AddToLayoutButton } from '../AddToLayoutButton';
+import { AddToLayoutButton } from '../AddToLayoutButton'
 
 describe('The AddToLayoutButton component ', () => {
-    let props;
-    let shallowButton;
+    let props
+    let shallowButton
 
     const getShallowAddToLayoutButton = () => {
         if (!shallowButton) {
-            shallowButton = shallow(<AddToLayoutButton {...props} />);
+            shallowButton = shallow(<AddToLayoutButton {...props} />)
         }
-        return shallowButton;
-    };
+        return shallowButton
+    }
 
     // TODO remove
-    console.log('getShallowAddToLayoutButton', getShallowAddToLayoutButton);
+    console.log('getShallowAddToLayoutButton', getShallowAddToLayoutButton)
 
     beforeEach(() => {
         props = {
@@ -25,13 +25,13 @@ describe('The AddToLayoutButton component ', () => {
             dialogId: '',
             onAddDimension: jest.fn(),
             ui: { type: 'COLUMN' },
-        };
-        shallowButton = undefined;
-    });
+        }
+        shallowButton = undefined
+    })
 
     it('new test below must be fixed', () => {
-        expect(true).toBe(true);
-    });
+        expect(true).toBe(true)
+    })
 
     // new tests
     // https://jira.dhis2.org/browse/DHIS2-7809
@@ -67,4 +67,4 @@ describe('The AddToLayoutButton component ', () => {
         expect(addToFilterButton.find('div').length).toEqual(0);
         expect(addToFilterButton.length).toEqual(1);
     });*/
-});
+})

@@ -1,17 +1,15 @@
-import React from 'react';
+import React from 'react'
+import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
 
-import ChartPlugin from './ChartPlugin';
-import PivotPlugin from './PivotPlugin';
-
-import { PIVOT_TABLE } from './modules/chartTypes';
+import ChartPlugin from './ChartPlugin'
+import PivotPlugin from './PivotPlugin'
 
 const VisualizationPlugin = props => {
-    if (!props.config.type || props.config.type === PIVOT_TABLE) {
-        return <PivotPlugin {...props} />;
+    if (!props.config.type || props.config.type === VIS_TYPE_PIVOT_TABLE) {
+        return <PivotPlugin {...props} />
     } else {
-        return <ChartPlugin {...props} />;
+        return <ChartPlugin {...props} />
     }
-};
+}
 
-export { default as chartTypes } from './modules/chartTypes'
-export default VisualizationPlugin;
+export default VisualizationPlugin
