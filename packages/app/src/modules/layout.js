@@ -58,9 +58,7 @@ export const getInverseLayout = layout => {
 // Returns transfer with possible retransfers
 export const getRetransfer = (layout, transfer, visType) => {
     const inverseLayout = getInverseLayout(layout)
-    console.log('inverseLayout', inverseLayout)
     const dimensionIds = Object.keys(transfer)
-    console.log('dimensionIds', dimensionIds)
     const retransfer = {}
 
     dimensionIds.forEach(id => {
@@ -77,6 +75,5 @@ export const getRetransfer = (layout, transfer, visType) => {
         }
     })
 
-    console.log('swappedModObj', retransfer)
     return retransfer
 }

@@ -91,27 +91,24 @@ export default (state = DEFAULT_UI, action) => {
             }
         }
         // action.value: transfer object (dimensionId:axisId) saying what to add where: { ou: 'rows' }
-        // Reducer takes care of swapping if dimension already exists in layout
+        // Reducer takes care of swapping (retransfer) if dimension already exists in layout
         case ADD_UI_LAYOUT_DIMENSIONS: {
             const transfers = {
                 ...action.value,
                 ...getRetransfer(state.layout, action.value, state.type),
             }
 
+            // Filter out transfered dimension ids (remove from source)
             const newLayout = getFilteredLayout(
                 state.layout,
                 Object.keys(transfers)
             )
-            console.log('newLayout', newLayout)
 
-            // TODO: use rule logic
+            // Add dimension ids to destination (axisId === null means remove from layout)
             Object.entries(transfers).forEach(([dimensionId, axisId]) => {
                 newLayout[axisId] && newLayout[axisId].push(dimensionId)
             })
-            console.log('RETURN', {
-                ...state,
-                layout: newLayout,
-            })
+
             return {
                 ...state,
                 layout: newLayout,
