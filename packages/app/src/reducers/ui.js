@@ -98,7 +98,7 @@ export default (state = DEFAULT_UI, action) => {
                 ...getRetransfer(state.layout, action.value, state.type),
             }
 
-            // Filter out transfered dimension ids (remove from source)
+            // Filter out transferred dimension ids (remove from source)
             const newLayout = getFilteredLayout(
                 state.layout,
                 Object.keys(transfers)

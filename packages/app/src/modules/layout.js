@@ -4,6 +4,7 @@ import {
     AXIS_ID_ROWS,
     AXIS_ID_FILTERS,
     getAxisMaxNumberOfDimensions,
+    getAvailableAxes,
 } from '@dhis2/analytics'
 
 // Names for dnd sources
@@ -72,6 +73,10 @@ export const getRetransfer = (layout, transfer, visType) => {
 
         if (axisIsFull) {
             retransfer[dimensionsAtDestination[0]] = sourceAxis
+                ? sourceAxis
+                : getAvailableAxes(visType).find(
+                      axis => !getAxisMaxNumberOfDimensions(visType, axis)
+                  )
         }
     })
 
