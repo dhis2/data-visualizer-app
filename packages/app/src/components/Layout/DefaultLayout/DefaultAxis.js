@@ -1,8 +1,8 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import i18n from '@dhis2/d2-i18n';
-import MenuItem from '@material-ui/core/MenuItem';
-import Divider from '@material-ui/core/Divider';
+import React from 'react'
+import { connect } from 'react-redux'
+import i18n from '@dhis2/d2-i18n'
+import MenuItem from '@material-ui/core/MenuItem'
+import Divider from '@material-ui/core/Divider'
 import {
     AXIS_ID_COLUMNS,
     DEFAULT_AXIS_IDS,
@@ -10,42 +10,43 @@ import {
     isYearOverYear,
     isDualAxisType,
     getAxisName,
-} from '@dhis2/analytics';
+} from '@dhis2/analytics'
+import PropTypes from 'prop-types'
 
-import Chip from '../Chip';
-import { sGetUi } from '../../../reducers/ui';
-import { decodeDataTransfer } from '../../../modules/dnd';
+import Chip from '../Chip'
+import { sGetUi } from '../../../reducers/ui'
+import { decodeDataTransfer } from '../../../modules/dnd'
 import {
     acAddUiLayoutDimensions,
     acSetUiActiveModalDialog,
-} from '../../../actions/ui';
-import { SOURCE_DIMENSIONS, menuLabels } from '../../../modules/layout';
-import { getAdaptedUiByType } from '../../../modules/ui';
+} from '../../../actions/ui'
+import { SOURCE_DIMENSIONS, menuLabels } from '../../../modules/layout'
+import { getAdaptedUiByType } from '../../../modules/ui'
 
-import styles from './styles/DefaultAxis.style';
+import styles from './styles/DefaultAxis.style'
 class Axis extends React.Component {
     onDragOver = e => {
-        e.preventDefault();
-    };
+        e.preventDefault()
+    }
 
     onDrop = e => {
-        e.preventDefault();
+        e.preventDefault()
 
-        const { dimensionId, source } = decodeDataTransfer(e);
+        const { dimensionId, source } = decodeDataTransfer(e)
 
         this.props.onAddDimension({
             [dimensionId]: this.props.axisId,
-        });
+        })
 
-        const items = this.props.itemsByDimension[dimensionId];
-        const hasNoItems = Boolean(!items || !items.length);
+        const items = this.props.itemsByDimension[dimensionId]
+        const hasNoItems = Boolean(!items || !items.length)
 
         if (source === SOURCE_DIMENSIONS && hasNoItems) {
-            this.props.onDropWithoutItems(dimensionId);
+            this.props.onDropWithoutItems(dimensionId)
         }
-    };
+    }
 
-    isMoveSupported = () => !isYearOverYear(this.props.type);
+    isMoveSupported = () => !isYearOverYear(this.props.type)
 
     getAxisMenuItems = dimensionId =>
         DEFAULT_AXIS_IDS.filter(key => key !== this.props.axisId).map(key => (
@@ -53,14 +54,14 @@ class Axis extends React.Component {
                 key={`${dimensionId}-to-${key}`}
                 onClick={this.props.getMoveHandler({ [dimensionId]: key })}
             >{`${i18n.t('Move to')} ${menuLabels[key]}`}</MenuItem>
-        ));
+        ))
 
-    isSeries = () => this.props.axisId === AXIS_ID_COLUMNS;
+    isSeries = () => this.props.axisId === AXIS_ID_COLUMNS
 
-    isData = dimensionId => dimensionId === DIMENSION_ID_DATA;
+    isData = dimensionId => dimensionId === DIMENSION_ID_DATA
 
     getItemsArrayByDimension = dimensionId =>
-        this.props.itemsByDimension[dimensionId] || [];
+        this.props.itemsByDimension[dimensionId] || []
 
     shouldHaveDualAxis = dimensionId =>
         Boolean(
@@ -68,7 +69,7 @@ class Axis extends React.Component {
                 this.isData(dimensionId) &&
                 isDualAxisType(this.props.type) &&
                 this.getItemsArrayByDimension(this.props.axis[0]).length > 1
-        );
+        )
 
     getDualAxisItem = dimensionId => (
         <MenuItem
@@ -77,7 +78,7 @@ class Axis extends React.Component {
         >
             {i18n.t('Manage axes')}
         </MenuItem>
-    );
+    )
 
     getRemoveMenuItem = dimensionId => (
         <MenuItem
@@ -86,9 +87,9 @@ class Axis extends React.Component {
         >
             {i18n.t('Remove')}
         </MenuItem>
-    );
+    )
 
-    getDividerItem = key => <Divider light key={key} />;
+    getDividerItem = key => <Divider light key={key} />
 
     getMenuItems = dimensionId => [
         this.shouldHaveDualAxis(dimensionId)
@@ -99,7 +100,7 @@ class Axis extends React.Component {
             : null,
         ...(this.isMoveSupported() ? this.getAxisMenuItems(dimensionId) : []),
         this.getRemoveMenuItem(dimensionId),
-    ];
+    ]
 
     render() {
         return (
@@ -121,13 +122,27 @@ class Axis extends React.Component {
                     ))}
                 </div>
             </div>
-        );
+        )
     }
+}
+
+Axis.propTypes = {
+    axis: PropTypes.string,
+    axisId: PropTypes.string,
+    getMoveHandler: PropTypes.func,
+    getOpenHandler: PropTypes.func,
+    getRemoveHandler: PropTypes.func,
+    itemsByDimension: PropTypes.array,
+    style: PropTypes.object,
+    type: PropTypes.string,
+    onAddDimension: PropTypes.func,
+    onDropWithoutItems: PropTypes.func,
+    onOpenAxisSetup: PropTypes.func,
 }
 
 const mapStateToProps = state => ({
     ui: sGetUi(state),
-});
+})
 
 const mapDispatchToProps = dispatch => ({
     onAddDimension: map => dispatch(acAddUiLayoutDimensions(map)),
@@ -135,10 +150,10 @@ const mapDispatchToProps = dispatch => ({
         dispatch(acSetUiActiveModalDialog(dimensionId)),
     getOpenHandler: dimensionId => () =>
         dispatch(acSetUiActiveModalDialog(dimensionId)),
-});
+})
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-    const adaptedUi = getAdaptedUiByType(stateProps.ui);
+    const adaptedUi = getAdaptedUiByType(stateProps.ui)
 
     return {
         axis: adaptedUi.layout[ownProps.axisId],
@@ -146,11 +161,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         type: adaptedUi.type,
         ...dispatchProps,
         ...ownProps,
-    };
-};
+    }
+}
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-    mergeProps
-)(Axis);
+export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(Axis)

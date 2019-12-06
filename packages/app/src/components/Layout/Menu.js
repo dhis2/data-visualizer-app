@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import IconButton from '@material-ui/core/IconButton'
 import { DimensionMenu } from '@dhis2/analytics'
+import PropTypes from 'prop-types'
 
 import MoreHorizontalIcon from '../../assets/MoreHorizontalIcon'
 import { styles } from './styles/Menu.style'
@@ -54,6 +55,17 @@ class ChipMenu extends React.Component {
             </React.Fragment>
         )
     }
+}
+
+ChipMenu.propTypes = {
+    axisItemHandler: PropTypes.func,
+    currentAxisId: PropTypes.string,
+    dimensionId: PropTypes.string,
+    dualAxisItemHandler: PropTypes.func,
+    id: PropTypes.string,
+    numberOfDimensionItems: PropTypes.number,
+    removeItemHandler: PropTypes.func,
+    visType: PropTypes.string,
 }
 
 const mapDispatchToProps = dispatch => ({
