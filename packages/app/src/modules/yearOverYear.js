@@ -1,12 +1,12 @@
-import i18n from '@dhis2/d2-i18n';
+import i18n from '@dhis2/d2-i18n'
 
 // Fixed years generator
 const getFixedYears = len => {
-    let year = new Date().getFullYear();
+    let year = new Date().getFullYear()
     return new Array(len)
         .fill(null)
-        .map(n => ({ id: String(year), name: year-- }));
-};
+        .map(() => ({ id: String(year), name: year-- }))
+}
 
 // Options for the year on year series dropdown
 export const seriesOptions = [
@@ -14,7 +14,7 @@ export const seriesOptions = [
     { id: 'LAST_YEAR', name: i18n.t('Last year') },
     { id: 'LAST_5_YEARS', name: i18n.t('Last 5 years') },
     ...getFixedYears(10),
-];
+]
 
 // Options for the year on year category dropdown
 export const categoryOptions = [
@@ -34,4 +34,4 @@ export const categoryOptions = [
     { id: 'LAST_4_QUARTERS', name: i18n.t('Last 4 quarters') },
     { id: 'QUARTERS_THIS_YEAR', name: i18n.t('Quarters per year') },
     { id: 'LAST_2_SIXMONTHS', name: i18n.t('Last 2 six-months') },
-];
+]
