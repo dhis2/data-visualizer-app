@@ -1,27 +1,28 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+/* eslint-disable react/display-name */
+import React from 'react'
+import { shallow } from 'enzyme'
 import {
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
-} from '@dhis2/analytics';
+} from '@dhis2/analytics'
 
-import { DialogManager } from '../DialogManager';
+import { DialogManager } from '../DialogManager'
 
 jest.mock('@material-ui/core/Dialog', () => props => {
-    console.log('children', props.children);
+    console.log('children', props.children)
 
-    return <div id="mock-mui-dialog">{props.children}</div>;
-});
+    return <div id="mock-mui-dialog">{props.children}</div>
+})
 
 jest.mock('@material-ui/core/DialogActions', () => props => (
     <div id="mock-mui-dialog-actions">{props.children}</div>
-));
+))
 
 jest.mock('@dhis2/analytics', () => {
-    const dataId = 'dx';
-    const periodId = 'pe';
-    const ouId = 'ou';
+    const dataId = 'dx'
+    const periodId = 'pe'
+    const ouId = 'ou'
 
     return {
         DataDimension: () => <div />,
@@ -37,27 +38,27 @@ jest.mock('@dhis2/analytics', () => {
             [periodId]: {},
             [ouId]: {},
         },
-        getAxisMaxNumberOfItems: () => { },
+        getAxisMaxNumberOfItems: () => {},
         filterOutFixedDimensions: () => [],
-        getAxisName: () => { },
-    };
-});
+        getAxisName: () => {},
+    }
+})
 
 describe('The DialogManager component', () => {
-    let props;
-    let shallowDialog;
+    let props
+    let shallowDialog
 
     const dialogManager = (customProps = {}) => {
         props = {
             ...props,
             ...customProps,
-        };
+        }
 
         if (!shallowDialog) {
-            shallowDialog = shallow(<DialogManager {...props} />);
+            shallowDialog = shallow(<DialogManager {...props} />)
         }
-        return shallowDialog;
-    };
+        return shallowDialog
+    }
 
     beforeEach(() => {
         props = {
@@ -76,93 +77,93 @@ describe('The DialogManager component', () => {
             metadata: {},
             closeDialog: jest.fn(),
             setRecommendedIds: jest.fn(),
-            getAxisIdByDimensionId: () => { },
+            getAxisIdByDimensionId: () => {},
             dimensionIdsInLayout: [],
-        };
-        shallowDialog = undefined;
-    });
+        }
+        shallowDialog = undefined
+    })
 
     it('renders a closed dialog', () => {
-        expect(dialogManager()).toMatchSnapshot();
-    });
+        expect(dialogManager()).toMatchSnapshot()
+    })
 
     it('should add the dialogId of fixed dimensions to state "mounted" on first time render', () => {
         const dialog = dialogManager().setProps({
             dialogId: DIMENSION_ID_ORGUNIT,
-        });
+        })
 
-        expect(dialog.state().ouMounted).toBe(true);
-    });
+        expect(dialog.state().ouMounted).toBe(true)
+    })
 
     it('renders the DataDimension content in dialog', () => {
         const dialog = dialogManager().setProps({
             dialogId: DIMENSION_ID_DATA,
-        });
+        })
 
-        expect(dialog).toMatchSnapshot();
-    });
+        expect(dialog).toMatchSnapshot()
+    })
 
     it('renders the OrgUnitDimension content in dialog', () => {
         const dialog = dialogManager().setProps({
             dialogId: DIMENSION_ID_ORGUNIT,
-        });
+        })
 
-        expect(dialog).toMatchSnapshot();
-    });
+        expect(dialog).toMatchSnapshot()
+    })
 
     it('renders the PeriodDimension content in dialog', () => {
         const dialog = dialogManager().setProps({
             dialogId: DIMENSION_ID_PERIOD,
-        });
+        })
 
-        expect(dialog).toMatchSnapshot();
-    });
+        expect(dialog).toMatchSnapshot()
+    })
 
     it('renders OUDimension content with display:none when previously mounted', () => {
         const dialog = dialogManager().setProps({
             dialogId: DIMENSION_ID_ORGUNIT,
-        });
+        })
 
-        expect(dialog).toMatchSnapshot();
+        expect(dialog).toMatchSnapshot()
 
-        dialog.setProps({ dialogId: null });
-        expect(dialog).toMatchSnapshot();
+        dialog.setProps({ dialogId: null })
+        expect(dialog).toMatchSnapshot()
 
-        dialog.setProps({ dialogId: DIMENSION_ID_DATA });
-        expect(dialog).toMatchSnapshot();
-    });
+        dialog.setProps({ dialogId: DIMENSION_ID_DATA })
+        expect(dialog).toMatchSnapshot()
+    })
 
     it('sets the recommended Ids (with debounced delay) when a change in dx (Data) or ou (Organisation Unit) occurs', () => {
-        const dialog = dialogManager();
-        dialog.setProps({ ouIds: ['TEST_OU_ID'] });
-        dialog.setProps({ ouIds: ['OTHER_ID'] });
+        const dialog = dialogManager()
+        dialog.setProps({ ouIds: ['TEST_OU_ID'] })
+        dialog.setProps({ ouIds: ['OTHER_ID'] })
 
         setTimeout(
             () => expect(props.setRecommendedIds).toHaveBeenCalledTimes(1),
             1001
-        );
-    });
+        )
+    })
 
     it('does not update recommendedIds if other selected ids are udpdated', () => {
-        const dialog = dialogManager();
-        dialog.setProps({ dimensionIdA: ['itemsByDimensionIdA'] });
+        const dialog = dialogManager()
+        dialog.setProps({ dimensionIdA: ['itemsByDimensionIdA'] })
         dialog.setProps({
             dimensionIdB: ['itemsByDimensionIdB', 'itemsByDimensionIdC'],
-        });
+        })
 
         setTimeout(
             () => expect(props.setRecommendedIds).toHaveBeenCalledTimes(0),
             1001
-        );
-    });
+        )
+    })
 
     it('calls the closeDialog function', () => {
         const dialog = dialogManager().setProps({
             dialogId: DIMENSION_ID_DATA,
-        });
+        })
 
-        dialog.simulate('close');
+        dialog.simulate('close')
 
-        expect(props.closeDialog).toHaveBeenCalled();
-    });
-});
+        expect(props.closeDialog).toHaveBeenCalled()
+    })
+})

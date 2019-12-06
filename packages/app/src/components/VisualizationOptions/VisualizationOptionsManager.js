@@ -1,33 +1,33 @@
-import React, { Component, Fragment } from 'react';
-import PropTypes from 'prop-types';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import { withStyles } from '@material-ui/core/styles';
-import i18n from '@dhis2/d2-i18n';
+import React, { Component, Fragment } from 'react'
+import PropTypes from 'prop-types'
+import Button from '@material-ui/core/Button'
+import Dialog from '@material-ui/core/Dialog'
+import DialogActions from '@material-ui/core/DialogActions'
+import DialogContent from '@material-ui/core/DialogContent'
+import DialogTitle from '@material-ui/core/DialogTitle'
+import { withStyles } from '@material-ui/core/styles'
+import i18n from '@dhis2/d2-i18n'
 
-import UpdateButton from '../UpdateButton/UpdateButton';
-import VisualizationOptions from './VisualizationOptions';
-import styles from './styles/VisualizationOptions.style';
+import UpdateButton from '../UpdateButton/UpdateButton'
+import VisualizationOptions from './VisualizationOptions'
+import styles from './styles/VisualizationOptions.style'
 
 class VisualizationOptionsManager extends Component {
     constructor(props) {
-        super(props);
+        super(props)
 
         this.state = {
             dialogIsOpen: false,
-        };
+        }
     }
 
-    onClose = event => {
-        this.toggleVisualizationOptionsDialog();
-    };
+    onClose = () => {
+        this.toggleVisualizationOptionsDialog()
+    }
 
     toggleVisualizationOptionsDialog = () => {
-        this.setState({ dialogIsOpen: !this.state.dialogIsOpen });
-    };
+        this.setState({ dialogIsOpen: !this.state.dialogIsOpen })
+    }
 
     render() {
         return (
@@ -55,13 +55,13 @@ class VisualizationOptionsManager extends Component {
                     </DialogActions>
                 </Dialog>
             </Fragment>
-        );
+        )
     }
 }
 
 VisualizationOptionsManager.propTypes = {
     classes: PropTypes.object.isRequired,
     className: PropTypes.string,
-};
+}
 
-export default withStyles(styles)(VisualizationOptionsManager);
+export default withStyles(styles)(VisualizationOptionsManager)
