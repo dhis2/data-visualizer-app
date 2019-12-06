@@ -25,6 +25,7 @@ export default {
         letterSpacing: '0.2px',
     },
     content: {
+        width: '100%',
         display: 'flex',
         alignItems: 'flex-start',
         alignContent: 'flex-start',
