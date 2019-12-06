@@ -236,9 +236,13 @@ App.childContextTypes = {
 }
 
 App.propTypes = {
-    d2: PropTypes.object,
+    addParentGraphMap: PropTypes.func,
     baseUrl: PropTypes.string,
+    d2: PropTypes.object,
     location: PropTypes.object,
+    setCurrentFromUi: PropTypes.func,
+    setUiFromVisualization: PropTypes.func,
+    setVisualization: PropTypes.func,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

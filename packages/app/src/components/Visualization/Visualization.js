@@ -88,7 +88,7 @@ export class Visualization extends Component {
         const { visConfig, visFilters, error } = this.props;
         const { renderId } = this.state;
 
-        return Boolean(!visConfig || error) ? (
+        return !visConfig || error ? (
             <BlankCanvas />
         ) : (
             <VisualizationPlugin

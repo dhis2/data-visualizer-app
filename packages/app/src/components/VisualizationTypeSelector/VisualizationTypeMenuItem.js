@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import MenuItem from '@material-ui/core/MenuItem/MenuItem';
+import React from 'react'
+import PropTypes from 'prop-types'
+import MenuItem from '@material-ui/core/MenuItem/MenuItem'
 
-import ListItemIcon from '@material-ui/core/ListItemIcon/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText/ListItemText';
-import MenuItemIcon from './MenuItemIcon';
+import ListItemIcon from '@material-ui/core/ListItemIcon/ListItemIcon'
+import ListItemText from '@material-ui/core/ListItemText/ListItemText'
+import MenuItemIcon from './MenuItemIcon'
 
 const VisualizationTypeMenuItem = ({
     iconType,
@@ -28,13 +28,13 @@ const VisualizationTypeMenuItem = ({
             style={styles.listItemText}
         />
     </MenuItem>
-);
+)
 
 VisualizationTypeMenuItem.propTypes = {
     iconType: PropTypes.string,
-    styles: PropTypes.object,
-    label: PropTypes.string,
     isSelected: PropTypes.bool,
-};
+    label: PropTypes.string,
+    styles: PropTypes.object,
+}
 
-export default VisualizationTypeMenuItem;
+export default VisualizationTypeMenuItem

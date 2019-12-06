@@ -1,59 +1,59 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import i18n from '@dhis2/d2-i18n';
-import isEqual from 'lodash-es/isEqual';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import i18n from '@dhis2/d2-i18n'
+import isEqual from 'lodash-es/isEqual'
 
-import { withStyles } from '@material-ui/core/styles';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import DialogContent from '@material-ui/core/DialogContent';
-import Button from '@material-ui/core/Button';
-import Radio from '@material-ui/core/Radio';
-import Table from '@material-ui/core/Table';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import TableCell from '@material-ui/core/TableCell';
-import TableBody from '@material-ui/core/TableBody';
+import { withStyles } from '@material-ui/core/styles'
+import Dialog from '@material-ui/core/Dialog'
+import DialogActions from '@material-ui/core/DialogActions'
+import DialogTitle from '@material-ui/core/DialogTitle'
+import DialogContent from '@material-ui/core/DialogContent'
+import Button from '@material-ui/core/Button'
+import Radio from '@material-ui/core/Radio'
+import Table from '@material-ui/core/Table'
+import TableHead from '@material-ui/core/TableHead'
+import TableRow from '@material-ui/core/TableRow'
+import TableCell from '@material-ui/core/TableCell'
+import TableBody from '@material-ui/core/TableBody'
 
-import styles from './styles/AxisSetup.style';
-import { axis1, axis2 } from './constants';
-import { sGetUiActiveModalDialog, DEFAULT_UI, sGetUi } from '../../reducers/ui';
-import { sGetAxisSetupItems } from '../../reducers';
-import { acSetAxes, acSetUiActiveModalDialog } from '../../actions/ui';
-import { acSetCurrentFromUi } from '../../actions/current';
+import styles from './styles/AxisSetup.style'
+import { axis1, axis2 } from './constants'
+import { sGetUiActiveModalDialog, DEFAULT_UI, sGetUi } from '../../reducers/ui'
+import { sGetAxisSetupItems } from '../../reducers'
+import { acSetAxes, acSetUiActiveModalDialog } from '../../actions/ui'
+import { acSetCurrentFromUi } from '../../actions/current'
 
-export const AXIS_SETUP_DIALOG_ID = 'axisSetup';
+export const AXIS_SETUP_DIALOG_ID = 'axisSetup'
 
 class AxisSetup extends Component {
     state = {
         items: undefined,
-    };
+    }
 
     componentDidMount() {
-        this.setItems(this.props.items);
+        this.setItems(this.props.items)
     }
 
     componentDidUpdate(prevProps) {
-        const oldItems = prevProps.items;
-        const newItems = this.props.items;
+        const oldItems = prevProps.items
+        const newItems = this.props.items
 
         if (!isEqual(oldItems, newItems)) {
-            this.setItems(newItems);
+            this.setItems(newItems)
         }
     }
 
     setItems = items => {
         const itemsMap = items.reduce((itemsMap, item) => {
-            itemsMap[item.id] = item;
-            return itemsMap;
-        }, {});
+            itemsMap[item.id] = item
+            return itemsMap
+        }, {})
 
         this.setState({
             items: itemsMap,
-        });
-    };
+        })
+    }
 
     onAxisChange = (item, axis) => {
         this.setState({
@@ -64,25 +64,25 @@ class AxisSetup extends Component {
                     axis,
                 },
             },
-        });
-    };
+        })
+    }
 
     getAxes = () => {
         const axes = Object.keys(this.state.items).reduce((map, id) => {
-            const axis = this.state.items[id].axis;
+            const axis = this.state.items[id].axis
 
             if (axis > 0) {
-                map[id] = axis;
+                map[id] = axis
             }
 
-            return map;
-        }, {});
+            return map
+        }, {})
 
-        return Object.keys(axes).length > 0 ? axes : DEFAULT_UI.axes;
-    };
+        return Object.keys(axes).length > 0 ? axes : DEFAULT_UI.axes
+    }
 
     renderTable() {
-        const { classes } = this.props;
+        const { classes } = this.props
 
         return (
             <Table>
@@ -112,7 +112,7 @@ class AxisSetup extends Component {
                 </TableHead>
                 <TableBody>
                     {Object.keys(this.state.items).map(id => {
-                        const item = this.state.items[id];
+                        const item = this.state.items[id]
 
                         return (
                             <TableRow key={`multiaxis-table-row-${id}`}>
@@ -144,15 +144,15 @@ class AxisSetup extends Component {
                                     />
                                 </TableCell>
                             </TableRow>
-                        );
+                        )
                     })}
                 </TableBody>
             </Table>
-        );
+        )
     }
 
     render() {
-        const { classes, isOpen, dialogMaxWidth, onCancelClick } = this.props;
+        const { classes, isOpen, dialogMaxWidth, onCancelClick } = this.props
 
         return (
             <Dialog
@@ -195,24 +195,25 @@ class AxisSetup extends Component {
                     </Button>
                 </DialogActions>
             </Dialog>
-        );
+        )
     }
 }
 
 AxisSetup.propTypes = {
-    classes: PropTypes.object,
     isOpen: PropTypes.bool.isRequired,
+    onUpdateClick: PropTypes.func.isRequired,
+    classes: PropTypes.object,
+    dialogMaxWidth: PropTypes.string,
     items: PropTypes.arrayOf(
         PropTypes.shape({
+            axis: PropTypes.number.isRequired,
             id: PropTypes.string.isRequired,
             name: PropTypes.string.isRequired,
-            axis: PropTypes.number.isRequired,
         })
     ),
-    onUpdateClick: PropTypes.func.isRequired,
+    ui: PropTypes.object,
     onCancelClick: PropTypes.func,
-    dialogMaxWidth: PropTypes.string,
-};
+}
 
 AxisSetup.defaultProps = {
     classes: {},
@@ -221,29 +222,29 @@ AxisSetup.defaultProps = {
     onUpdateClick: Function.prototype,
     onCancelClick: Function.prototype,
     dialogMaxWidth: 'md',
-};
+}
 
 const mapStateToProps = state => ({
     isOpen: sGetUiActiveModalDialog(state) === AXIS_SETUP_DIALOG_ID,
     items: sGetAxisSetupItems(state),
     ui: sGetUi(state),
-});
+})
 
 const mapDispatchToProps = dispatch => ({
     onUpdateClick: (axes, ui) => {
-        dispatch(acSetAxes(axes));
+        dispatch(acSetAxes(axes))
         dispatch(
             acSetCurrentFromUi({
                 ...ui,
                 axes,
             })
-        );
-        dispatch(acSetUiActiveModalDialog());
+        )
+        dispatch(acSetUiActiveModalDialog())
     },
     onCancelClick: () => dispatch(acSetUiActiveModalDialog()),
-});
+})
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(withStyles(styles)(AxisSetup));
+)(withStyles(styles)(AxisSetup))

@@ -1,30 +1,30 @@
-import React, { Component, Fragment } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import Button from '@material-ui/core/Button';
-import Divider from '@material-ui/core/Divider';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import ArrowRightIcon from '@material-ui/icons/ArrowRight';
-import ImageIcon from '@material-ui/icons/Image';
-import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
-import ListIcon from '@material-ui/icons/List';
-import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import React, { Component, Fragment } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import Button from '@material-ui/core/Button'
+import Divider from '@material-ui/core/Divider'
+import Menu from '@material-ui/core/Menu'
+import MenuItem from '@material-ui/core/MenuItem'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
+import ListItemText from '@material-ui/core/ListItemText'
+import ListSubheader from '@material-ui/core/ListSubheader'
+import ArrowRightIcon from '@material-ui/icons/ArrowRight'
+import ImageIcon from '@material-ui/icons/Image'
+import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf'
+import ListIcon from '@material-ui/icons/List'
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz'
 
-import i18n from '@dhis2/d2-i18n';
+import i18n from '@dhis2/d2-i18n'
 
-import { styles } from './styles/DownloadMenu.style';
+import { styles } from './styles/DownloadMenu.style'
 
-import { sGetCurrent } from '../../reducers/current';
-import { sGetChart } from '../../reducers/chart';
-import { apiDownloadImage, apiDownloadData } from '../../api/analytics';
+import { sGetCurrent } from '../../reducers/current'
+import { sGetChart } from '../../reducers/chart'
+import { apiDownloadImage, apiDownloadData } from '../../api/analytics'
 
 export class DownloadMenu extends Component {
     constructor(props) {
-        super(props);
+        super(props)
 
         this.state = {
             anchorEl: null,
@@ -35,57 +35,57 @@ export class DownloadMenu extends Component {
             advancedSubmenu: {
                 anchorEl: null,
             },
-        };
+        }
     }
 
-    toggleMenu = target => this.setState({ anchorEl: target || null });
+    toggleMenu = target => this.setState({ anchorEl: target || null })
 
     toggleSubmenu = (id, target, dataType) => {
-        const key = `${id}Submenu`;
+        const key = `${id}Submenu`
 
-        const payload = { anchorEl: target || null };
+        const payload = { anchorEl: target || null }
 
         if (id === 'scheme') {
-            payload.dataType = dataType || null;
+            payload.dataType = dataType || null
         }
 
-        this.setState({ [key]: payload });
-    };
+        this.setState({ [key]: payload })
+    }
 
     downloadImage = format => async () => {
-        const { current, chart } = this.props;
+        const { current, chart } = this.props
 
-        const formData = new URLSearchParams();
+        const formData = new URLSearchParams()
 
-        formData.append('filename', current.name);
+        formData.append('filename', current.name)
 
         if (chart) {
-            formData.append('svg', chart);
+            formData.append('svg', chart)
         }
 
-        const blob = await apiDownloadImage(format, formData);
-        const url = URL.createObjectURL(blob);
+        const blob = await apiDownloadImage(format, formData)
+        const url = URL.createObjectURL(blob)
 
-        this.toggleMenu();
+        this.toggleMenu()
 
-        window.open(url, '_blank');
-    };
+        window.open(url, '_blank')
+    }
 
     downloadData = (format, idScheme, path) => async () => {
-        const { current } = this.props;
+        const { current } = this.props
 
-        const url = await apiDownloadData(current, format, idScheme, path);
+        const url = await apiDownloadData(current, format, idScheme, path)
 
         if (idScheme) {
-            this.toggleSubmenu('scheme');
+            this.toggleSubmenu('scheme')
         } else {
-            this.toggleSubmenu('advanced');
+            this.toggleSubmenu('advanced')
         }
 
-        this.toggleMenu();
+        this.toggleMenu()
 
-        window.open(url, format.match(/(xls|csv)/) ? '_top' : '_blank');
-    };
+        window.open(url, format.match(/(xls|csv)/) ? '_top' : '_blank')
+    }
 
     render() {
         return (
@@ -95,7 +95,7 @@ export class DownloadMenu extends Component {
                     onClick={event => this.toggleMenu(event.currentTarget)}
                     disableRipple={true}
                     disableFocusRipple={true}
-                    disabled={!Boolean(this.props.current)}
+                    disabled={!this.props.current}
                 >
                     {i18n.t('Download')}
                 </Button>
@@ -201,7 +201,7 @@ export class DownloadMenu extends Component {
                     open={Boolean(this.state.schemeSubmenu.anchorEl)}
                     anchorEl={this.state.schemeSubmenu.anchorEl}
                     anchorOrigin={styles.submenuAnchorOrigin}
-                    onClose={event => this.toggleSubmenu('scheme')}
+                    onClose={() => this.toggleSubmenu('scheme')}
                 >
                     <ListSubheader component="div">
                         {i18n.t('Metadata ID scheme')}
@@ -235,7 +235,7 @@ export class DownloadMenu extends Component {
                     open={Boolean(this.state.advancedSubmenu.anchorEl)}
                     anchorEl={this.state.advancedSubmenu.anchorEl}
                     anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-                    onClose={event => this.toggleSubmenu('advanced')}
+                    onClose={() => this.toggleSubmenu('advanced')}
                 >
                     <ListSubheader component="div">
                         {i18n.t('Data value set')}
@@ -268,22 +268,19 @@ export class DownloadMenu extends Component {
                     </MenuItem>
                 </Menu>
             </Fragment>
-        );
+        )
     }
 }
 
 DownloadMenu.propTypes = {
+    chart: PropTypes.string,
     className: PropTypes.string,
     current: PropTypes.object,
-    chart: PropTypes.string,
-};
+}
 
 const mapStateToProps = state => ({
     current: sGetCurrent(state),
     chart: sGetChart(state),
-});
+})
 
-export default connect(
-    mapStateToProps,
-    {}
-)(DownloadMenu);
+export default connect(mapStateToProps, {})(DownloadMenu)
