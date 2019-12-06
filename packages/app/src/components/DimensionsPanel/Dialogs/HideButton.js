@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import Button from '@material-ui/core/Button';
-import i18n from '@dhis2/d2-i18n';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import Button from '@material-ui/core/Button'
+import i18n from '@dhis2/d2-i18n'
 
-import { acSetUiActiveModalDialog } from '../../../actions/ui';
+import { acSetUiActiveModalDialog } from '../../../actions/ui'
 
 const HideButton = ({ className, closeDialog }) => (
     <Button
@@ -16,15 +16,13 @@ const HideButton = ({ className, closeDialog }) => (
     >
         {i18n.t('Hide')}
     </Button>
-);
+)
 
 HideButton.propTypes = {
     closeDialog: PropTypes.func.isRequired,
-};
+    className: PropTypes.string,
+}
 
-export default connect(
-    null,
-    {
-        closeDialog: acSetUiActiveModalDialog,
-    }
-)(HideButton);
+export default connect(null, {
+    closeDialog: acSetUiActiveModalDialog,
+})(HideButton)

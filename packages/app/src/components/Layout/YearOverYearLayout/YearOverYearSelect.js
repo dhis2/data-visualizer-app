@@ -1,21 +1,22 @@
-import React from 'react';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
+import React from 'react'
+import Select from '@material-ui/core/Select'
+import MenuItem from '@material-ui/core/MenuItem'
+import PropTypes from 'prop-types'
 
-import styles from './styles/YearOverYearSelect.style';
+import styles from './styles/YearOverYearSelect.style'
 
 class YearOverYearSelect extends React.Component {
     state = {
         open: false,
-    };
+    }
 
     handleClose = () => {
-        this.setState({ open: false });
-    };
+        this.setState({ open: false })
+    }
 
     handleOpen = () => {
-        this.setState({ open: true });
-    };
+        this.setState({ open: true })
+    }
 
     render() {
         return (
@@ -37,8 +38,15 @@ class YearOverYearSelect extends React.Component {
                     </MenuItem>
                 ))}
             </Select>
-        );
+        )
     }
 }
 
-export default YearOverYearSelect;
+YearOverYearSelect.propTypes = {
+    multiple: PropTypes.string,
+    options: PropTypes.array,
+    value: PropTypes.string,
+    onChange: PropTypes.func,
+}
+
+export default YearOverYearSelect
