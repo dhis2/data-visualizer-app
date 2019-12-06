@@ -203,7 +203,7 @@ describe('reducer: ui', () => {
             layout: {
                 columns: [otherId],
                 rows: [DIMENSION_ID_PERIOD],
-                filters: [DIMENSION_ID_ORGUNIT],
+                filters: [DIMENSION_ID_ORGUNIT, DIMENSION_ID_DATA],
             },
         }
 
