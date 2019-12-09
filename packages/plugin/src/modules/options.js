@@ -1,4 +1,4 @@
-import pick from 'lodash-es/pick';
+import pick from 'lodash-es/pick'
 
 export const options = {
     baseLineLabel: { defaultValue: undefined, requestable: false },
@@ -29,52 +29,52 @@ export const options = {
     subtitle: { defaultValue: undefined, requestable: false },
     title: { defaultValue: undefined, requestable: false },
     // topLimit
-};
+}
 
 export const computedOptions = {
     baseLine: { defaultValue: false, requestable: false },
     targetLine: { defaultValue: false, requestable: false },
-};
+}
 
-export default options;
+export default options
 
 export const getOptionsForUi = () => {
     return Object.entries({ ...options, ...computedOptions }).reduce(
         (map, [option, props]) => {
-            map[option] = props.defaultValue;
+            map[option] = props.defaultValue
 
-            return map;
+            return map
         },
         {}
-    );
-};
+    )
+}
 
 export const getOptionsForRequest = () => {
     return Object.entries(options).filter(
-        ([option, props]) => props.requestable
-    );
-};
+        entry => entry[1].requestable // entry = [option, props]
+    )
+}
 
 const isNotDefault = (optionsFromVisualization, prop) => {
     return Boolean(
         optionsFromVisualization[prop] &&
             optionsFromVisualization[prop] !== options[prop].defaultValue
-    );
-};
+    )
+}
 
 export const getOptionsFromVisualization = visualization => {
     const optionsFromVisualization = {
         ...getOptionsForUi(),
         ...pick(visualization, Object.keys(options)),
-    };
+    }
 
     optionsFromVisualization.baseLine =
         isNotDefault(optionsFromVisualization, 'baseLineLabel') ||
-        isNotDefault(optionsFromVisualization, 'baseLineValue');
+        isNotDefault(optionsFromVisualization, 'baseLineValue')
 
     optionsFromVisualization.targetLine =
         isNotDefault(optionsFromVisualization, 'targetLineLabel') ||
-        isNotDefault(optionsFromVisualization, 'targetLineValue');
+        isNotDefault(optionsFromVisualization, 'targetLineValue')
 
-    return optionsFromVisualization;
-};
+    return optionsFromVisualization
+}

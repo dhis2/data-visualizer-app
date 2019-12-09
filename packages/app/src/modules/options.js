@@ -51,7 +51,7 @@ export const getOptionsForUi = () => {
 
 export const getOptionsForRequest = () => {
     return Object.entries(options).filter(
-        ([option, props]) => props.requestable
+        entry => entry[1].requestable // entry = [option, props]
     )
 }
 
