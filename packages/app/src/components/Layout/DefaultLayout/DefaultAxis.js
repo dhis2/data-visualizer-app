@@ -105,43 +105,57 @@ class Axis extends React.Component {
 
     render() {
         return (
-            <Droppable droppableId={this.props.axisId} direction="horizontal">
-                {provided => (
-                <div
-                    id={this.props.axisId}
-                    style={{ ...styles.axisContainer, ...this.props.style }}
-                    onDragOver={this.onDragOver}
-                    onDrop={this.onDrop}
-                    ref={provided.innerRef}
-                    {...provided.droppableProps}
+            <div
+                id={this.props.axisId}
+                style={{ ...styles.axisContainer, ...this.props.style }}
+                onDragOver={this.onDragOver}
+                onDrop={this.onDrop}
+            >
+                <div style={styles.label}>{getAxisName(this.props.axisId)}</div>
+                <Droppable
+                    droppableId={this.props.axisId}
+                    direction="horizontal"
                 >
-                    <div style={styles.label}>{getAxisName(this.props.axisId)}</div>
-                    <div style={styles.content}>
-                        {this.props.axis.map((dimensionId, index) => {
-                            const key = `${this.props.axisId}-${dimensionId}`;
+                    {provided => (
+                        <div
+                            style={styles.content}
+                            ref={provided.innerRef}
+                            {...provided.droppableProps}
+                        >
+                            {this.props.axis.map((dimensionId, index) => {
+                                const key = `${this.props.axisId}-${dimensionId}`
 
-                            return (
-                                <Draggable key={key} draggableId={key} index={index}>
-                                {provided => (
-                                    <div ref={provided.innerRef}
-                                    {...provided.draggableProps}
-                                    {...provided.dragHandleProps}
-                                    >
-                                    <Chip
+                                return (
+                                    <Draggable
                                         key={key}
-                                        onClick={this.props.getOpenHandler(dimensionId)}
-                                        axisId={this.props.axisId}
-                                        dimensionId={dimensionId}
-                                    />
-                                    </div>)}
-                                </Draggable>
-                            );
-                        })}
-                    </div>
-                    {provided.placeholder}
-                </div>)}
-            </Droppable>
-        );
+                                        draggableId={key}
+                                        index={index}
+                                    >
+                                        {provided => (
+                                            <div
+                                                ref={provided.innerRef}
+                                                {...provided.draggableProps}
+                                                {...provided.dragHandleProps}
+                                            >
+                                                <Chip
+                                                    key={key}
+                                                    onClick={this.props.getOpenHandler(
+                                                        dimensionId
+                                                    )}
+                                                    axisId={this.props.axisId}
+                                                    dimensionId={dimensionId}
+                                                />
+                                            </div>
+                                        )}
+                                    </Draggable>
+                                )
+                            })}
+                            {provided.placeholder}
+                        </div>
+                    )}
+                </Droppable>
+            </div>
+        )
     }
 }
 
