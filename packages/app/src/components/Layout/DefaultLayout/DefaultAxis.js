@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { Droppable, Draggable } from 'react-beautiful-dnd';
-import i18n from '@dhis2/d2-i18n';
-import MenuItem from '@material-ui/core/MenuItem';
-import Divider from '@material-ui/core/Divider';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { Droppable, Draggable } from 'react-beautiful-dnd'
+import i18n from '@dhis2/d2-i18n'
+import MenuItem from '@material-ui/core/MenuItem'
+import Divider from '@material-ui/core/Divider'
 import {
     AXIS_ID_COLUMNS,
     DEFAULT_AXIS_IDS,
@@ -172,7 +172,7 @@ Axis.propTypes = {
     onAddDimension: PropTypes.func,
     onDropWithoutItems: PropTypes.func,
     onOpenAxisSetup: PropTypes.func,
-};
+}
 
 const mapStateToProps = state => ({
     ui: sGetUi(state),
