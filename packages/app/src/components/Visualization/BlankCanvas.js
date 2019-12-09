@@ -30,7 +30,7 @@ export const BlankCanvas = ({ error }) => {
 }
 
 BlankCanvas.propTypes = {
-    error: PropTypes.object,
+    error: PropTypes.string,
 }
 
 const mapStateToProps = state => ({

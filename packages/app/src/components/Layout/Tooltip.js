@@ -102,7 +102,7 @@ export class Tooltip extends React.Component {
 Tooltip.propTypes = {
     anchorEl: PropTypes.object.isRequired,
     dimensionId: PropTypes.string.isRequired,
-    metadata: PropTypes.func.isRequired,
+    metadata: PropTypes.object.isRequired,
     open: PropTypes.bool.isRequired,
     displayLimitedAmount: PropTypes.bool,
     itemIds: PropTypes.array,
