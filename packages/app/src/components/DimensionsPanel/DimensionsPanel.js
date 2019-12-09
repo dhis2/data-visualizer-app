@@ -112,10 +112,10 @@ const getLockedDimensionsMemo = createSelector([sGetUiType], type =>
 
 Dimensions.propTypes = {
     axisItemHandler: PropTypes.func,
-    dimensions: PropTypes.array,
+    dimensions: PropTypes.object,
     disallowedDimensions: PropTypes.array,
     dualAxisItemHandler: PropTypes.func,
-    itemsByDimension: PropTypes.array,
+    itemsByDimension: PropTypes.object,
     lockedDimensions: PropTypes.array,
     recommendedIds: PropTypes.array,
     removeItemHandler: PropTypes.func,

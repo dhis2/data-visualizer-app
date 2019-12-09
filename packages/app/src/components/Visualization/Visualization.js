@@ -110,7 +110,7 @@ Visualization.propTypes = {
     acAddMetadata: PropTypes.func,
     acSetChart: PropTypes.func,
     acSetLoadError: PropTypes.func,
-    error: PropTypes.object,
+    error: PropTypes.string,
     rightSidebarOpen: PropTypes.bool,
     visConfig: PropTypes.object,
     visFilters: PropTypes.object,
