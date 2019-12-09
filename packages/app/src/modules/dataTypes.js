@@ -1,21 +1,21 @@
-import React from 'react';
-import i18n from '@dhis2/d2-i18n';
+import React from 'react'
+import i18n from '@dhis2/d2-i18n'
 
-import { DATA_SETS_CONSTANTS } from '../modules/dataSets';
+import { DATA_SETS_CONSTANTS } from '../modules/dataSets'
 
-export const ALL_ID = 'ALL';
+export const ALL_ID = 'ALL'
 
-const INDICATORS = 'indicators';
-const DATA_ELEMENTS = 'dataElements';
-const DATA_SETS = 'dataSets';
-const EVENT_DATA_ITEMS = 'eventDataItems';
-const PROGRAM_INDICATORS = 'programIndicators';
+const INDICATORS = 'indicators'
+const DATA_ELEMENTS = 'dataElements'
+const DATA_SETS = 'dataSets'
+const EVENT_DATA_ITEMS = 'eventDataItems'
+const PROGRAM_INDICATORS = 'programIndicators'
 
-const TOTALS = 'totals';
-const DETAIL = 'detail';
+const TOTALS = 'totals'
+const DETAIL = 'detail'
 
-const programText = i18n.t('Program');
-const selectProgramText = i18n.t('Select a program');
+const programText = i18n.t('Program')
+const selectProgramText = i18n.t('Select a program')
 
 export const dataTypes = {
     [INDICATORS]: {
@@ -51,7 +51,7 @@ export const dataTypes = {
         id: EVENT_DATA_ITEMS,
         name: i18n.t('Event data items'),
         groupLabel: programText,
-        placeholder: () => <span>{selectProgramText}</span>,
+        placeholder: () => <span>{selectProgramText}</span>, // eslint-disable-line react/display-name
         defaultGroup: null,
         groupDetail: false,
     },
@@ -59,32 +59,32 @@ export const dataTypes = {
         id: PROGRAM_INDICATORS,
         name: i18n.t('Program indicators'),
         groupLabel: programText,
-        placeholder: () => <span>{selectProgramText}</span>,
+        placeholder: () => <span>{selectProgramText}</span>, // eslint-disable-line react/display-name
         defaultGroup: null,
         groupDetail: false,
     },
-};
+}
 
 export function defaultGroupId(dataType) {
     return dataTypes[dataType].defaultGroup
         ? dataTypes[dataType].defaultGroup.id
-        : '';
+        : ''
 }
 
 export function defaultGroupDetail(dataType) {
     return dataTypes[dataType].groupDetail
         ? dataTypes[dataType].groupDetail.default
-        : '';
+        : ''
 }
 
-export const DEFAULT_DATATYPE_ID = INDICATORS;
+export const DEFAULT_DATATYPE_ID = INDICATORS
 
 const getReportingRates = (contents, groupSetId) => {
-    let dataSets = [];
+    let dataSets = []
 
     const reportingRateIndex = DATA_SETS_CONSTANTS.find(
         item => item.id === groupSetId
-    );
+    )
 
     groupSetId === ALL_ID
         ? DATA_SETS_CONSTANTS.forEach(
@@ -98,14 +98,14 @@ const getReportingRates = (contents, groupSetId) => {
           )
         : (dataSets = contents.map(dataSet =>
               concatReportingRate(dataSet, reportingRateIndex)
-          ));
+          ))
 
-    return dataSets;
-};
+    return dataSets
+}
 
 const concatReportingRate = (dataSet, reportingRate) => {
     return {
         id: `${dataSet.id}.${reportingRate.id}`,
         name: `${dataSet.name} (${reportingRate.name})`,
-    };
-};
+    }
+}
