@@ -1,50 +1,50 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import Button from '@material-ui/core/Button';
-import ArrowDropDown from '@material-ui/icons/ArrowDropDown';
-import ArrowDropUp from '@material-ui/icons/ArrowDropUp';
+import React from 'react'
+import { shallow } from 'enzyme'
+import Button from '@material-ui/core/Button'
+import ArrowDropDown from '@material-ui/icons/ArrowDropDown'
+import ArrowDropUp from '@material-ui/icons/ArrowDropUp'
 
-import { DropDownButton } from '../DropDownButton';
+import { DropDownButton } from '../DropDownButton'
 
 describe('The DropDownButton component ', () => {
-    let props;
-    let shallowDropDownButton;
+    let props
+    let shallowDropDownButton
 
     const dropDownButton = () => {
         if (!shallowDropDownButton) {
-            shallowDropDownButton = shallow(<DropDownButton {...props} />);
+            shallowDropDownButton = shallow(<DropDownButton {...props} />)
         }
-        return shallowDropDownButton;
-    };
+        return shallowDropDownButton
+    }
 
     beforeEach(() => {
         props = {
             classes: {},
             open: false,
             onClick: jest.fn(),
-        };
-        shallowDropDownButton = undefined;
-    });
+        }
+        shallowDropDownButton = undefined
+    })
 
     it('renders a <Button /> containing everything else ', () => {
         const button = dropDownButton()
             .find(Button)
-            .first();
+            .first()
 
-        expect(button.children()).toEqual(dropDownButton().children());
-    });
+        expect(button.children()).toEqual(dropDownButton().children())
+    })
 
     it('renders a <ArrowDropDown /> if prop "open" is equal to false', () => {
-        const arrowIcon = dropDownButton().find(ArrowDropDown);
+        const arrowIcon = dropDownButton().find(ArrowDropDown)
 
-        expect(arrowIcon.length).toEqual(1);
-    });
+        expect(arrowIcon.length).toEqual(1)
+    })
 
     it('renders a <ArrowDropUp /> if prop "open" is equal to true', () => {
-        props.open = true;
+        props.open = true
 
-        const arrowIcon = dropDownButton().find(ArrowDropUp);
+        const arrowIcon = dropDownButton().find(ArrowDropUp)
 
-        expect(arrowIcon.length).toEqual(1);
-    });
-});
+        expect(arrowIcon.length).toEqual(1)
+    })
+})

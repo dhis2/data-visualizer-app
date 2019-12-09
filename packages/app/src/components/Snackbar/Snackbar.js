@@ -1,19 +1,19 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import MUISnackbar from '@material-ui/core/Snackbar';
-import MUISnackbarContent from '@material-ui/core/SnackbarContent';
-import { withStyles } from '@material-ui/core/styles';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import MUISnackbar from '@material-ui/core/Snackbar'
+import MUISnackbarContent from '@material-ui/core/SnackbarContent'
+import { withStyles } from '@material-ui/core/styles'
 
-import InfoIcon from '@material-ui/icons/InfoOutlined';
-import CloseIcon from '@material-ui/icons/Close';
-import { sGetSnackbar } from '../../reducers/snackbar';
-import { tDoCloseSnackbar } from '../../actions';
-import styles from './styles/Snackbar.style';
+import InfoIcon from '@material-ui/icons/InfoOutlined'
+import CloseIcon from '@material-ui/icons/Close'
+import { sGetSnackbar } from '../../reducers/snackbar'
+import { tDoCloseSnackbar } from '../../actions'
+import styles from './styles/Snackbar.style'
 
-export const VARIANT_INFORMATION = 'information';
-export const VARIANT_WARNING = 'warning';
-export const VARIANT_ERROR = 'error';
+export const VARIANT_INFORMATION = 'information'
+export const VARIANT_WARNING = 'warning'
+export const VARIANT_ERROR = 'error'
 
 export const Snackbar = ({
     classes,
@@ -42,7 +42,7 @@ export const Snackbar = ({
             }
         />
     </MUISnackbar>
-);
+)
 
 Snackbar.propTypes = {
     classes: PropTypes.object.isRequired,
@@ -51,28 +51,28 @@ Snackbar.propTypes = {
         VARIANT_WARNING,
         VARIANT_ERROR,
     ]).isRequired,
-    open: PropTypes.bool,
-    message: PropTypes.string,
     duration: PropTypes.number,
+    message: PropTypes.string,
+    open: PropTypes.bool,
     onClose: PropTypes.func,
-};
+}
 
 const mapStateToProps = state => {
-    const { variant, message, duration, open } = sGetSnackbar(state);
+    const { variant, message, duration, open } = sGetSnackbar(state)
 
     return {
         variant,
         open,
         message,
         duration,
-    };
-};
+    }
+}
 
 const mapDispatchToProps = dispatch => ({
     onClose: () => dispatch(tDoCloseSnackbar()),
-});
+})
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(withStyles(styles)(Snackbar));
+)(withStyles(styles)(Snackbar))

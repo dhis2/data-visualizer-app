@@ -1,11 +1,11 @@
-import { LAYOUT_HEIGHT } from '../../styles/style';
+import { LAYOUT_HEIGHT } from '../../styles/style'
 
 // Axis
-export const FILTER_AXIS_WIDTH = '67%';
-export const DIMENSION_AXIS_CONTENT_HEIGHT = '36px';
+export const FILTER_AXIS_WIDTH = '67%'
+export const DIMENSION_AXIS_CONTENT_HEIGHT = '36px'
 
 // Axis (generated)
-export const DIMENSION_AXIS_WIDTH = `${100 - parseInt(FILTER_AXIS_WIDTH, 10)}%`;
+export const DIMENSION_AXIS_WIDTH = `${100 - parseInt(FILTER_AXIS_WIDTH, 10)}%`
 
 export default {
     ct: {
@@ -31,4 +31,4 @@ export default {
     filters: {
         flexBasis: '100%',
     },
-};
+}

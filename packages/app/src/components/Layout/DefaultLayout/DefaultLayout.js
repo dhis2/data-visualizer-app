@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 
-import DefaultAxis from './DefaultAxis';
-import styles from './styles/DefaultLayout.style';
-import defaultAxisStyles from './styles/DefaultAxis.style';
+import DefaultAxis from './DefaultAxis'
+import styles from './styles/DefaultLayout.style'
+import defaultAxisStyles from './styles/DefaultAxis.style'
 
 const Layout = () => (
     <div id="layout-ct" style={styles.ct}>
@@ -32,8 +32,8 @@ const Layout = () => (
             <DefaultAxis axisId="filters" style={styles.filters} />
         </div>
     </div>
-);
+)
 
-Layout.displayName = 'Layout';
+Layout.displayName = 'Layout'
 
-export default Layout;
+export default Layout

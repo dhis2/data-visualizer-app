@@ -1,13 +1,13 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { getAxisName } from '@dhis2/analytics';
+import React from 'react'
+import { connect } from 'react-redux'
+import { getAxisName } from '@dhis2/analytics'
 
 import {
     sGetUiYearOverYearSeries,
     sGetUiYearOverYearCategory,
-} from '../../../reducers/ui';
-import defaultAxisStyles from '../DefaultLayout/styles/DefaultAxis.style';
-import YearOverYearAxisStyles from './styles/YearOverYearAxis.style';
+} from '../../../reducers/ui'
+import defaultAxisStyles from '../DefaultLayout/styles/DefaultAxis.style'
+import YearOverYearAxisStyles from './styles/YearOverYearAxis.style'
 
 const YearOverYearAxis = props => (
     <div
@@ -27,11 +27,11 @@ const YearOverYearAxis = props => (
             {props.children}
         </div>
     </div>
-);
+)
 
 const mapStateToProps = state => ({
     yearOverYearSeries: sGetUiYearOverYearSeries(state),
     yearOverYearCategory: sGetUiYearOverYearCategory(state),
-});
+})
 
-export default connect(mapStateToProps)(YearOverYearAxis);
+export default connect(mapStateToProps)(YearOverYearAxis)

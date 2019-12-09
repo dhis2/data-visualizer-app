@@ -5,25 +5,25 @@ import {
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
-} from '@dhis2/analytics';
+} from '@dhis2/analytics'
 
-import { getAxesFromUi, getSingleValueCurrentFromUi } from '../current';
+import { getAxesFromUi, getSingleValueCurrentFromUi } from '../current'
 
-const dxItem1id = 'dxItem1id';
-const dxItem2id = 'dxItem2id';
-const dxItems = [dxItem1id, dxItem2id];
+const dxItem1id = 'dxItem1id'
+const dxItem2id = 'dxItem2id'
+const dxItems = [dxItem1id, dxItem2id]
 
-const otherId = 'other';
-const otherItemId = 'otherItem1id';
-const otherItems = [otherItemId];
+const otherId = 'other'
+const otherItemId = 'otherItem1id'
+const otherItems = [otherItemId]
 
-const peItemId = 'peItem1id';
-const peItems = [peItemId];
+const peItemId = 'peItem1id'
+const peItems = [peItemId]
 
-const ouItemId = 'ouItem1id';
-const ouItems = [ouItemId];
+const ouItemId = 'ouItem1id'
+const ouItems = [ouItemId]
 
-const emptyId = 'empty';
+const emptyId = 'empty'
 
 const ui = {
     layout: {
@@ -37,7 +37,7 @@ const ui = {
         [DIMENSION_ID_PERIOD]: peItems,
         [DIMENSION_ID_ORGUNIT]: ouItems,
     },
-};
+}
 
 describe('getAxesFromUi', () => {
     it('should return a layout object (columns, rows, filters) with dimensions (id and item objects) that are not empty', () => {
@@ -55,12 +55,12 @@ describe('getAxesFromUi', () => {
             filters: [
                 { dimension: DIMENSION_ID_ORGUNIT, items: [{ id: ouItemId }] },
             ],
-        };
-        const actualState = getAxesFromUi(ui);
+        }
+        const actualState = getAxesFromUi(ui)
 
-        expect(actualState).toEqual(expectedState);
-    });
-});
+        expect(actualState).toEqual(expectedState)
+    })
+})
 
 describe('getSingleValueCurrentFromUi', () => {
     it('should return only the 1st item in dx', () => {
@@ -89,15 +89,15 @@ describe('getSingleValueCurrentFromUi', () => {
             targetLineLabel: undefined,
             targetLineValue: undefined,
             type: 'SINGLEVALUE',
-        };
+        }
 
-        ui.type = 'SINGLEVALUE';
+        ui.type = 'SINGLEVALUE'
         ui.options = {
             targetLine: false,
-        };
+        }
 
-        const actualState = getSingleValueCurrentFromUi(ui, { value: ui });
+        const actualState = getSingleValueCurrentFromUi(ui, { value: ui })
 
-        expect(actualState).toEqual(expectedState);
-    });
-});
+        expect(actualState).toEqual(expectedState)
+    })
+})

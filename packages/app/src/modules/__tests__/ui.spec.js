@@ -1,8 +1,8 @@
-import { getParentGraphMapFromVisualization, mergeUiMaps } from '../ui';
+import { getParentGraphMapFromVisualization, mergeUiMaps } from '../ui'
 
 describe('ui', () => {
-    let mockCurrent;
-    let mockUi;
+    let mockCurrent
+    let mockUi
 
     beforeEach(() => {
         mockCurrent = {
@@ -43,18 +43,18 @@ describe('ui', () => {
                     ],
                 },
             ],
-        };
+        }
         mockUi = {
             parentGraphMap: {
                 qhqAxPSTUXp: 'ImspTQPwCqd',
                 Vth0fbpFcsO: 'ImspTQPwCqd',
             },
-        };
-    });
+        }
+    })
 
     describe('getParentGraphMapFromVisualization', () => {
         it('generates parent graph map from visualization', () => {
-            const { parentGraphMap } = mockUi;
+            const { parentGraphMap } = mockUi
             const mockCurrentWirhOrgUnitPaths = {
                 ...mockCurrent,
                 filters: [
@@ -72,12 +72,12 @@ describe('ui', () => {
                         ],
                     },
                 ],
-            };
+            }
 
             expect(
                 getParentGraphMapFromVisualization(mockCurrentWirhOrgUnitPaths)
-            ).toEqual(parentGraphMap);
-        });
+            ).toEqual(parentGraphMap)
+        })
 
         it('handles visualization without "ou" dimension', () => {
             const mockCurrentWithoutOuDimension = {
@@ -99,31 +99,31 @@ describe('ui', () => {
                         items: [{ id: 'hfdmMSPBgLG' }],
                     },
                 ],
-            };
+            }
 
             expect(
                 getParentGraphMapFromVisualization(
                     mockCurrentWithoutOuDimension
                 )
-            ).toEqual({});
-        });
-    });
+            ).toEqual({})
+        })
+    })
 
     describe('mergeUiMaps', () => {
         it('should merge ui key/value maps', () => {
             const axisMap = {
                 item1Id: 1,
-            };
+            }
 
             const typeMap = {
                 item1Id: 'line',
                 item2Id: 'column',
-            };
+            }
 
-            const mergeMap = {};
+            const mergeMap = {}
 
-            mergeUiMaps(mergeMap, axisMap, 'axis');
-            mergeUiMaps(mergeMap, typeMap, 'type');
+            mergeUiMaps(mergeMap, axisMap, 'axis')
+            mergeUiMaps(mergeMap, typeMap, 'type')
 
             const expectedState = {
                 item1Id: {
@@ -133,9 +133,9 @@ describe('ui', () => {
                 item2Id: {
                     type: 'column',
                 },
-            };
+            }
 
-            expect(mergeMap).toEqual(expectedState);
-        });
-    });
-});
+            expect(mergeMap).toEqual(expectedState)
+        })
+    })
+})

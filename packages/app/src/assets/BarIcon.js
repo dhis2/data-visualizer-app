@@ -1,5 +1,5 @@
-import React from 'react';
-import SvgIcon from '@material-ui/core/SvgIcon';
+import React from 'react'
+import SvgIcon from '@material-ui/core/SvgIcon'
 
 const BarIcon = ({
     style = { paddingRight: '8px', width: 24, height: 24 },
@@ -13,6 +13,6 @@ const BarIcon = ({
             <rect fill="#9E9E9E" x="0" y="46" width="48" height="2" />
         </g>
     </SvgIcon>
-);
+)
 
-export default BarIcon;
+export default BarIcon

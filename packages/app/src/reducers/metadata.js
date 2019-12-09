@@ -1,6 +1,6 @@
-export const ADD_METADATA = 'ADD_METADATA';
+export const ADD_METADATA = 'ADD_METADATA'
 
-export const DEFAULT_METADATA = {};
+export const DEFAULT_METADATA = {}
 
 export default (state = DEFAULT_METADATA, action) => {
     switch (action.type) {
@@ -8,13 +8,13 @@ export default (state = DEFAULT_METADATA, action) => {
             return {
                 ...state,
                 ...action.value,
-            };
+            }
         }
         default:
-            return state;
+            return state
     }
-};
+}
 
 // Selectors
 
-export const sGetMetadata = state => state.metadata;
+export const sGetMetadata = state => state.metadata

@@ -1,23 +1,23 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
+import React from 'react'
+import { shallow } from 'enzyme'
+import Select from '@material-ui/core/Select'
+import MenuItem from '@material-ui/core/MenuItem'
 
-import { SelectBaseOption } from '../Options/SelectBaseOption';
+import { SelectBaseOption } from '../Options/SelectBaseOption'
 
 describe('DV > Options > SelectBaseOption', () => {
-    let props;
-    let shallowSelectBaseOption;
-    let onChange;
+    let props
+    let shallowSelectBaseOption
+    let onChange
 
     const selectBaseOption = props => {
-        shallowSelectBaseOption = shallow(<SelectBaseOption {...props} />);
+        shallowSelectBaseOption = shallow(<SelectBaseOption {...props} />)
 
-        return shallowSelectBaseOption;
-    };
+        return shallowSelectBaseOption
+    }
 
     beforeEach(() => {
-        onChange = jest.fn();
+        onChange = jest.fn()
 
         props = {
             value: '',
@@ -30,31 +30,31 @@ describe('DV > Options > SelectBaseOption', () => {
                 ],
             },
             onChange,
-        };
+        }
 
-        shallowSelectBaseOption = undefined;
-    });
+        shallowSelectBaseOption = undefined
+    })
 
     it('renders a <Select />', () => {
-        expect(selectBaseOption(props).find(Select)).toHaveLength(1);
-    });
+        expect(selectBaseOption(props).find(Select)).toHaveLength(1)
+    })
 
     it('renders the list of menu items', () => {
-        const menuItems = selectBaseOption(props).find(MenuItem);
+        const menuItems = selectBaseOption(props).find(MenuItem)
 
         menuItems.forEach((item, index) => {
-            const option = props.option.items[index];
+            const option = props.option.items[index]
 
-            expect(item.props().value).toEqual(option.id);
-            expect(item.contains(option.label)).toBe(true);
-        });
-    });
+            expect(item.props().value).toEqual(option.id)
+            expect(item.contains(option.label)).toBe(true)
+        })
+    })
 
     it('should trigger the onChange callback on select change', () => {
-        const select = selectBaseOption(props).find(Select);
+        const select = selectBaseOption(props).find(Select)
 
-        select.simulate('change', { target: { value: 'opt2' } });
+        select.simulate('change', { target: { value: 'opt2' } })
 
-        expect(onChange).toHaveBeenCalled();
-    });
-});
+        expect(onChange).toHaveBeenCalled()
+    })
+})

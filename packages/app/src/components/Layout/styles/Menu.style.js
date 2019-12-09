@@ -1,4 +1,4 @@
-import { colors } from '@dhis2/ui-core';
+import { colors } from '@dhis2/ui-core'
 
 export const styles = {
     icon: {
@@ -8,4 +8,4 @@ export const styles = {
         color: colors.black,
         padding: 0,
     },
-};
+}

@@ -1,4 +1,4 @@
-import { colors } from '@dhis2/ui-core';
+import { colors } from '@dhis2/ui-core'
 
 export const styles = {
     divContainer: {
@@ -7,4 +7,4 @@ export const styles = {
         flexDirection: 'column',
         backgroundColor: colors.grey050,
     },
-};
+}

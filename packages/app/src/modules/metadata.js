@@ -1,4 +1,4 @@
-import i18n from '@dhis2/d2-i18n';
+import i18n from '@dhis2/d2-i18n'
 
 export const relativePeriods = {
     TODAY: i18n.t('Today'),
@@ -35,18 +35,18 @@ export const relativePeriods = {
     THIS_YEAR: i18n.t('This year'),
     LAST_YEAR: i18n.t('Last year'),
     LAST_5_YEARS: i18n.t('Last 5 years'),
-};
+}
 
 export const organisationUnits = {
     USER_ORGUNIT: i18n.t('User org unit'),
     USER_ORGUNIT_CHILDREN: i18n.t('User org unit children'),
     USER_ORGUNIT_GRANDCHILDREN: i18n.t('User org unit grand children'),
-};
+}
 
 // return {name: <string>} as value
 export default (function() {
     return Object.entries({
         ...relativePeriods,
         ...organisationUnits,
-    }).reduce((obj, [key, value]) => ({ ...obj, [key]: { name: value } }), {});
-})();
+    }).reduce((obj, [key, value]) => ({ ...obj, [key]: { name: value } }), {})
+})()

@@ -1,6 +1,6 @@
-import React from 'react';
-import TextBaseOption from './TextBaseOption';
-import i18n from '@dhis2/d2-i18n';
+import React from 'react'
+import TextBaseOption from './TextBaseOption'
+import i18n from '@dhis2/d2-i18n'
 
 const Title = () => (
     <TextBaseOption
@@ -10,6 +10,6 @@ const Title = () => (
             label: i18n.t('Chart title'),
         }}
     />
-);
+)
 
-export default Title;
+export default Title

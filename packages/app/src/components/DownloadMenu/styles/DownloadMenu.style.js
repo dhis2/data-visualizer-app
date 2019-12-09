@@ -10,4 +10,4 @@ export const styles = {
         vertical: 'top',
         horizontal: 'right',
     },
-};
+}

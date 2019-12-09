@@ -1,5 +1,5 @@
-import React from 'react';
-import SvgIcon from '@material-ui/core/SvgIcon';
+import React from 'react'
+import SvgIcon from '@material-ui/core/SvgIcon'
 
 const SingleValueIcon = ({
     style = { paddingRight: '8px', width: 24, height: 24 },
@@ -22,6 +22,6 @@ const SingleValueIcon = ({
             fill="#1976d2"
         />
     </SvgIcon>
-);
+)
 
-export default SingleValueIcon;
+export default SingleValueIcon

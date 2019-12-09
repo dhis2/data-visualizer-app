@@ -1,7 +1,7 @@
-import { colors } from '@dhis2/ui-core';
+import { colors } from '@dhis2/ui-core'
 
-import defaultLayoutStyle from './DefaultLayout.style';
-import * as layoutStyle from '../../styles/style';
+import defaultLayoutStyle from './DefaultLayout.style'
+import * as layoutStyle from '../../styles/style'
 
 export default {
     axisContainer: {
@@ -31,4 +31,4 @@ export default {
         flexWrap: 'wrap',
         minHeight: defaultLayoutStyle.DIMENSION_AXIS_CONTENT_HEIGHT,
     },
-};
+}

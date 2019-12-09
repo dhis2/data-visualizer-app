@@ -1,4 +1,4 @@
-import i18n from '@dhis2/d2-i18n';
+import i18n from '@dhis2/d2-i18n'
 import {
     AXIS,
     AXIS_ID_COLUMNS,
@@ -15,11 +15,11 @@ import {
     dimensionIsValid,
     layoutGetDimension,
     getAxisName,
-} from '@dhis2/analytics';
+} from '@dhis2/analytics'
 
-import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields';
+import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields'
 
-const dxName = FIXED_DIMENSIONS[DIMENSION_ID_DATA].name;
+const dxName = FIXED_DIMENSIONS[DIMENSION_ID_DATA].name
 
 const errorLabels = {
     defaultSeries: i18n.t('Please add at least one {{series}} dimension', {
@@ -78,33 +78,33 @@ const errorLabels = {
             filter: getAxisName(AXIS_ID_FILTERS),
         }),
     },
-};
+}
 
 // Layout validation helper functions
 const isAxisValid = axis =>
-    AXIS.isValid(axis) && dimensionIsValid(axis[0], { requireItems: true });
+    AXIS.isValid(axis) && dimensionIsValid(axis[0], { requireItems: true })
 
 const validateDimension = (dimension, message) => {
     if (!(dimension && dimensionIsValid(dimension, { requireItems: true }))) {
-        throw new Error(message);
+        throw new Error(message)
     }
-};
+}
 
 const validateAxis = (axis, message) => {
     if (!isAxisValid(axis)) {
-        throw new Error(message);
+        throw new Error(message)
     }
-};
+}
 
 // Layout validation
 const validateDefaultLayout = layout => {
-    validateAxis(layout.columns, errorLabels.defaultSeries);
-    validateAxis(layout.rows, errorLabels.defaultCategory);
+    validateAxis(layout.columns, errorLabels.defaultSeries)
+    validateAxis(layout.rows, errorLabels.defaultCategory)
     validateDimension(
         layoutGetDimension(layout, DIMENSION_ID_PERIOD),
         errorLabels.defaultPe
-    );
-};
+    )
+}
 
 const validateYearOverYearLayout = layout => {
     if (
@@ -113,42 +113,42 @@ const validateYearOverYearLayout = layout => {
             typeof layout[BASE_FIELD_YEARLY_SERIES][0] === 'string'
         )
     ) {
-        throw new Error(errorLabels.yearOverYear.seriesPeriod);
+        throw new Error(errorLabels.yearOverYear.seriesPeriod)
     }
 
-    validateAxis(layout.rows, errorLabels.yearOverYear.categoryPeriod);
+    validateAxis(layout.rows, errorLabels.yearOverYear.categoryPeriod)
 
-    validateAxis(layout.columns, errorLabels.yearOverYear.dx);
-};
+    validateAxis(layout.columns, errorLabels.yearOverYear.dx)
+}
 
 const validatePieLayout = layout => {
-    validateAxis(layout.columns, errorLabels.defaultSeries);
-    validateAxis(layout.filters, errorLabels.pie.filter);
+    validateAxis(layout.columns, errorLabels.defaultSeries)
+    validateAxis(layout.filters, errorLabels.pie.filter)
     validateDimension(
         layoutGetDimension(layout, DIMENSION_ID_PERIOD),
         errorLabels.pie.pe
-    );
-};
+    )
+}
 
 const validateSingleValueLayout = layout => {
-    validateAxis(layout.columns, errorLabels.singleValue.dx);
+    validateAxis(layout.columns, errorLabels.singleValue.dx)
     validateDimension(
         layoutGetDimension(layout, DIMENSION_ID_PERIOD),
         errorLabels.singleValue.pe
-    );
-};
+    )
+}
 
 export const validateLayout = layout => {
     switch (layout.type) {
         case VIS_TYPE_PIE:
-            return validatePieLayout(layout);
+            return validatePieLayout(layout)
         case VIS_TYPE_YEAR_OVER_YEAR_COLUMN:
         case VIS_TYPE_YEAR_OVER_YEAR_LINE:
-            return validateYearOverYearLayout(layout);
+            return validateYearOverYearLayout(layout)
         case VIS_TYPE_SINGLE_VALUE:
         case VIS_TYPE_GAUGE:
-            return validateSingleValueLayout(layout);
+            return validateSingleValueLayout(layout)
         default:
-            return validateDefaultLayout(layout);
+            return validateDefaultLayout(layout)
     }
-};
+}

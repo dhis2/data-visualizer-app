@@ -1,29 +1,29 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { App } from '../App';
-import Snackbar from '../Snackbar/Snackbar';
-import Visualization from '../Visualization/Visualization';
-import * as actions from '../../actions/';
-import history from '../../modules/history';
+import React from 'react'
+import { shallow } from 'enzyme'
+import { App } from '../App'
+import Snackbar from '../Snackbar/Snackbar'
+import Visualization from '../Visualization/Visualization'
+import * as actions from '../../actions/'
+import history from '../../modules/history'
 
-import { getStubContext } from '../../../../../config/testsContext';
-import { CURRENT_AO_KEY } from '../../api/userDataStore';
-import * as userDataStore from '../../api/userDataStore';
-import * as ui from '../../modules/ui';
+import { getStubContext } from '../../../../../config/testsContext'
+import { CURRENT_AO_KEY } from '../../api/userDataStore'
+import * as userDataStore from '../../api/userDataStore'
+import * as ui from '../../modules/ui'
 
-jest.mock('../Visualization/Visualization', () => () => <div />);
+jest.mock('../Visualization/Visualization', () => () => <div />)
 
 describe('App', () => {
-    let props;
-    let shallowApp;
+    let props
+    let shallowApp
     const app = () => {
         if (!shallowApp) {
             shallowApp = shallow(<App {...props} />, {
                 context: getStubContext(),
-            });
+            })
         }
-        return shallowApp;
-    };
+        return shallowApp
+    }
 
     beforeEach(() => {
         props = {
@@ -31,7 +31,7 @@ describe('App', () => {
                 models: {
                     chart: {
                         get: () => {
-                            return Promise.resolve('got a chart');
+                            return Promise.resolve('got a chart')
                         },
                     },
                 },
@@ -56,115 +56,115 @@ describe('App', () => {
             setVisualization: jest.fn(),
             setUiFromVisualization: jest.fn(),
             setCurrentFromUi: jest.fn(),
-        };
-        shallowApp = undefined;
+        }
+        shallowApp = undefined
 
-        actions.tDoLoadVisualization = jest.fn();
-        actions.clearVisualization = jest.fn();
-        userDataStore.apiFetchAOFromUserDataStore = jest.fn();
-        ui.getParentGraphMapFromVisualization = jest.fn();
-    });
+        actions.tDoLoadVisualization = jest.fn()
+        actions.clearVisualization = jest.fn()
+        userDataStore.apiFetchAOFromUserDataStore = jest.fn()
+        ui.getParentGraphMapFromVisualization = jest.fn()
+    })
 
     afterEach(() => {
-        shallowApp.instance().componentWillUnmount();
-    });
+        shallowApp.instance().componentWillUnmount()
+    })
 
     it('renders a div', () => {
-        expect(app().find('div').length).toBeGreaterThan(0);
-    });
+        expect(app().find('div').length).toBeGreaterThan(0)
+    })
 
     it('renders Visualization component', () => {
-        expect(app().find(Visualization).length).toBeGreaterThan(0);
-    });
+        expect(app().find(Visualization).length).toBeGreaterThan(0)
+    })
 
     it('renders a Snackbar', () => {
-        const snackbar = app().find(Snackbar);
-        expect(snackbar.length).toBeGreaterThan(0);
-    });
+        const snackbar = app().find(Snackbar)
+        expect(snackbar.length).toBeGreaterThan(0)
+    })
 
     describe('location pathname', () => {
         it('calls clear visualization action when location pathname is root', done => {
-            props.location.pathname = '/';
-            app();
+            props.location.pathname = '/'
+            app()
 
             setTimeout(() => {
-                expect(actions.tDoLoadVisualization).not.toHaveBeenCalled();
-                expect(actions.clearVisualization).toBeCalledTimes(1);
-                done();
-            });
-        });
+                expect(actions.tDoLoadVisualization).not.toHaveBeenCalled()
+                expect(actions.clearVisualization).toBeCalledTimes(1)
+                done()
+            })
+        })
 
         it('calls load visualization action when location pathname has length', done => {
-            props.location.pathname = '/twilightsparkle';
-            app();
+            props.location.pathname = '/twilightsparkle'
+            app()
 
             setTimeout(() => {
-                expect(actions.tDoLoadVisualization).toBeCalledTimes(1);
-                expect(actions.clearVisualization).not.toHaveBeenCalled();
-                done();
-            });
-        });
+                expect(actions.tDoLoadVisualization).toBeCalledTimes(1)
+                expect(actions.clearVisualization).not.toHaveBeenCalled()
+                done()
+            })
+        })
 
         it('loads new visualization when pathname changes', done => {
-            props.location.pathname = '/rarity';
+            props.location.pathname = '/rarity'
 
-            app();
+            app()
 
             setTimeout(() => {
-                history.push('/rainbowdash');
-                expect(actions.tDoLoadVisualization).toBeCalledTimes(2);
+                history.push('/rainbowdash')
+                expect(actions.tDoLoadVisualization).toBeCalledTimes(2)
 
-                done();
-            });
-        });
+                done()
+            })
+        })
 
         it('reloads visualization when same pathname pushed', done => {
-            props.location.pathname = '/fluttershy';
+            props.location.pathname = '/fluttershy'
 
-            app();
+            app()
 
             setTimeout(() => {
-                history.replace('/fluttershy');
-                expect(actions.tDoLoadVisualization).toBeCalledTimes(2);
+                history.replace('/fluttershy')
+                expect(actions.tDoLoadVisualization).toBeCalledTimes(2)
 
-                done();
-            });
-        });
+                done()
+            })
+        })
 
         it('loads AO from user data store if id equals to "currentAnalyticalObject"', done => {
-            props.location.pathname = '/' + CURRENT_AO_KEY;
+            props.location.pathname = '/' + CURRENT_AO_KEY
 
-            app();
+            app()
 
             setTimeout(() => {
                 expect(
                     userDataStore.apiFetchAOFromUserDataStore
-                ).toBeCalledTimes(1);
+                ).toBeCalledTimes(1)
 
-                expect(props.addParentGraphMap).toBeCalledTimes(1);
-                expect(props.setCurrentFromUi).toBeCalledTimes(1);
-                expect(props.setVisualization).toBeCalledTimes(1);
-                expect(props.setUiFromVisualization).toBeCalledTimes(1);
+                expect(props.addParentGraphMap).toBeCalledTimes(1)
+                expect(props.setCurrentFromUi).toBeCalledTimes(1)
+                expect(props.setVisualization).toBeCalledTimes(1)
+                expect(props.setUiFromVisualization).toBeCalledTimes(1)
 
-                done();
-            });
-        });
+                done()
+            })
+        })
 
         describe('interpretation id in pathname', () => {
             beforeEach(() => {
-                props.location.pathname = `/applejack/interpretation/xyz123`;
-            });
+                props.location.pathname = `/applejack/interpretation/xyz123`
+            })
 
             it('does not reload visualization when interpretation toggled', done => {
-                app();
+                app()
 
                 setTimeout(() => {
-                    history.push('/applejack');
-                    expect(actions.tDoLoadVisualization).toBeCalledTimes(1);
+                    history.push('/applejack')
+                    expect(actions.tDoLoadVisualization).toBeCalledTimes(1)
 
-                    done();
-                });
-            });
-        });
-    });
-});
+                    done()
+                })
+            })
+        })
+    })
+})

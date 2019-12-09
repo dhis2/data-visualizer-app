@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import i18n from '@dhis2/d2-i18n';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { withStyles } from '@material-ui/core/styles'
+import i18n from '@dhis2/d2-i18n'
 
-import SelectBaseOption from './SelectBaseOption';
-import styles from '../styles/VisualizationOptions.style';
+import SelectBaseOption from './SelectBaseOption'
+import styles from '../styles/VisualizationOptions.style'
 
 const SortOrder = ({ classes }) => (
     <SelectBaseOption
@@ -19,10 +19,10 @@ const SortOrder = ({ classes }) => (
             ],
         }}
     />
-);
+)
 
 SortOrder.propTypes = {
     classes: PropTypes.object.isRequired,
-};
+}
 
-export default withStyles(styles)(SortOrder);
+export default withStyles(styles)(SortOrder)

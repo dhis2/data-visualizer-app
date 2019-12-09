@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const DynamicDimensionIcon = () => {
     return (
@@ -47,7 +47,7 @@ const DynamicDimensionIcon = () => {
                 </g>
             </g>
         </svg>
-    );
-};
+    )
+}
 
-export default DynamicDimensionIcon;
+export default DynamicDimensionIcon

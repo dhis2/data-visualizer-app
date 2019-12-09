@@ -2,23 +2,23 @@ const clickFileButton = () =>
     cy
         .get('button')
         .contains('File')
-        .click();
+        .click()
 
 class FileMenu {
     openFile(fileName) {
-        clickFileButton();
+        clickFileButton()
         cy.get('div')
             .contains('Open')
-            .click();
-        cy.contains(fileName).click();
+            .click()
+        cy.contains(fileName).click()
     }
 
     newFile() {
-        clickFileButton();
+        clickFileButton()
         cy.get('div')
             .contains('New')
-            .click();
+            .click()
     }
 }
 
-export default FileMenu;
+export default FileMenu
