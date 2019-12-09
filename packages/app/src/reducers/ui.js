@@ -195,7 +195,7 @@ export default (state = DEFAULT_UI, action) => {
                 activeModalDialog: action.value || DEFAULT_UI.activeModalDialog,
             }
         }
-        case CLEAR_UI:
+        case CLEAR_UI: {
             const { rootOrganisationUnit, relativePeriod } = action.value
 
             return {
@@ -210,6 +210,7 @@ export default (state = DEFAULT_UI, action) => {
                     [rootOrganisationUnit.id]: '',
                 },
             }
+        }
         case TOGGLE_UI_RIGHT_SIDEBAR_OPEN:
             return {
                 ...state,
