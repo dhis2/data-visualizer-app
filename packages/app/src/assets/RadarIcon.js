@@ -1,5 +1,6 @@
-import React from 'react';
-import SvgIcon from '@material-ui/core/SvgIcon';
+import React from 'react'
+import SvgIcon from '@material-ui/core/SvgIcon'
+import PropTypes from 'prop-types'
 
 const RadarIcon = ({
     style = { paddingRight: '8px', width: 24, height: 24 },
@@ -16,6 +17,10 @@ const RadarIcon = ({
             <circle fill="#004BA0" cx="40" cy="40" r="2" />
         </g>
     </SvgIcon>
-);
+)
 
-export default RadarIcon;
+RadarIcon.propTypes = {
+    style: PropTypes.object,
+}
+
+export default RadarIcon

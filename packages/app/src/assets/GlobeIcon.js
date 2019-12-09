@@ -1,5 +1,6 @@
-import React from 'react';
-import SvgIcon from '@material-ui/core/SvgIcon';
+import React from 'react'
+import SvgIcon from '@material-ui/core/SvgIcon'
+import PropTypes from 'prop-types'
 
 const GlobeIcon = ({
     style = { width: 24, height: 24, paddingRight: '8px' },
@@ -64,6 +65,10 @@ const GlobeIcon = ({
             </g>
         </g>
     </SvgIcon>
-);
+)
 
-export default GlobeIcon;
+GlobeIcon.propTypes = {
+    style: PropTypes.object,
+}
+
+export default GlobeIcon

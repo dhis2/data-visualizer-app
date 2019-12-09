@@ -1,5 +1,6 @@
-import React from 'react';
-import SvgIcon from '@material-ui/core/SvgIcon';
+import React from 'react'
+import SvgIcon from '@material-ui/core/SvgIcon'
+import PropTypes from 'prop-types'
 
 const LineIcon = ({
     style = { paddingRight: '8px', width: 24, height: 24 },
@@ -21,6 +22,10 @@ const LineIcon = ({
             </g>
         </g>
     </SvgIcon>
-);
+)
 
-export default LineIcon;
+LineIcon.propTypes = {
+    style: PropTypes.object,
+}
+
+export default LineIcon
