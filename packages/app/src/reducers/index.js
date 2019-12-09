@@ -1,15 +1,15 @@
-import { combineReducers } from 'redux';
-import visualization, * as fromVisualization from './visualization';
-import current, * as fromCurrent from './current';
-import dimensions, * as fromDimensions from './dimensions';
-import recommendedIds, * as fromRecommendedIds from './recommendedIds';
-import ui, * as fromUi from './ui';
-import metadata, * as fromMetadata from './metadata';
-import settings, * as fromSettings from './settings';
-import user, * as fromUser from './user';
-import snackbar, * as fromSnackbar from './snackbar';
-import loader, * as fromLoader from './loader';
-import chart, * as fromChart from './chart';
+import { combineReducers } from 'redux'
+import visualization, * as fromVisualization from './visualization'
+import current, * as fromCurrent from './current'
+import dimensions, * as fromDimensions from './dimensions'
+import recommendedIds, * as fromRecommendedIds from './recommendedIds'
+import ui, * as fromUi from './ui'
+import metadata, * as fromMetadata from './metadata'
+import settings, * as fromSettings from './settings'
+import user, * as fromUser from './user'
+import snackbar, * as fromSnackbar from './snackbar'
+import loader, * as fromLoader from './loader'
+import chart, * as fromChart from './chart'
 
 // Reducers
 
@@ -25,7 +25,7 @@ export default combineReducers({
     snackbar,
     loader,
     chart,
-});
+})
 
 // Selectors
 
@@ -41,14 +41,14 @@ export {
     fromSnackbar,
     fromLoader,
     fromChart,
-};
+}
 
 export const sGetAxisSetupItems = state =>
     fromUi.sGetAxisSetup(state).map(obj => {
-        const metadata = fromMetadata.sGetMetadata(state)[obj.id];
+        const metadata = fromMetadata.sGetMetadata(state)[obj.id]
 
         return {
             ...obj,
             name: metadata ? metadata.name : '',
-        };
-    });
+        }
+    })

@@ -10,18 +10,18 @@ import {
     VIS_TYPE_SINGLE_VALUE,
     defaultVisType,
     isYearOverYear,
-} from '@dhis2/analytics';
+} from '@dhis2/analytics'
 
-import { getInverseLayout } from './layout';
-import { getOptionsFromVisualization } from './options';
-import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields';
+import { getInverseLayout } from './layout'
+import { getOptionsFromVisualization } from './options'
+import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields'
 import {
     pieLayoutAdapter,
     yearOverYearLayoutAdapter,
     singleValueLayoutAdapter,
-} from './layoutAdapters';
-import { removeLastPathSegment } from './orgUnit';
-import { getAxesFromSeriesItems } from './seriesItems';
+} from './layoutAdapters'
+import { removeLastPathSegment } from './orgUnit'
+import { getAxesFromSeriesItems } from './seriesItems'
 
 // Transform from backend model to store.ui format
 export const getUiFromVisualization = (vis, currentState = {}) => ({
@@ -42,87 +42,87 @@ export const getUiFromVisualization = (vis, currentState = {}) => ({
         ? vis.rows[0].items.map(item => item.id)
         : currentState.yearOverYearCategory,
     axes: getAxesFromSeriesItems(vis.seriesItems),
-});
+})
 
 // Transform from store.ui to pie format
 export const pieUiAdapter = ui => ({
     ...ui,
     layout: pieLayoutAdapter(ui.layout),
-});
+})
 
 // Transform from store.ui to year on year format
 export const yearOverYearUiAdapter = ui => {
-    const state = Object.assign({}, ui);
+    const state = Object.assign({}, ui)
 
-    const items = Object.assign({}, state.itemsByDimension);
-    delete items[DIMENSION_ID_PERIOD];
+    const items = Object.assign({}, state.itemsByDimension)
+    delete items[DIMENSION_ID_PERIOD]
 
     return {
         ...state,
         layout: yearOverYearLayoutAdapter(ui.layout),
         itemsByDimension: items,
-    };
-};
+    }
+}
 
 export const singleValueUiAdapter = ui => ({
     ...ui,
     layout: singleValueLayoutAdapter(ui.layout),
-});
+})
 
 export const getAdaptedUiByType = ui => {
     switch (ui.type) {
         case VIS_TYPE_YEAR_OVER_YEAR_LINE:
         case VIS_TYPE_YEAR_OVER_YEAR_COLUMN: {
-            return yearOverYearUiAdapter(ui);
+            return yearOverYearUiAdapter(ui)
         }
         case VIS_TYPE_PIE: {
-            return pieUiAdapter(ui);
+            return pieUiAdapter(ui)
         }
         case VIS_TYPE_SINGLE_VALUE:
         case VIS_TYPE_GAUGE: {
-            return singleValueUiAdapter(ui);
+            return singleValueUiAdapter(ui)
         }
         default:
-            return ui;
+            return ui
     }
-};
+}
 
 export const getParentGraphMapFromVisualization = vis => {
-    const dimensionIdsByAxis = layoutGetAxisIdDimensionIdsObject(vis);
-    const inverseLayout = getInverseLayout(dimensionIdsByAxis);
-    const ouAxis = inverseLayout[DIMENSION_ID_ORGUNIT];
+    const dimensionIdsByAxis = layoutGetAxisIdDimensionIdsObject(vis)
+    const inverseLayout = getInverseLayout(dimensionIdsByAxis)
+    const ouAxis = inverseLayout[DIMENSION_ID_ORGUNIT]
 
     if (!ouAxis) {
-        return {};
+        return {}
     }
 
-    const parentGraphMap = {};
+    const parentGraphMap = {}
     const ouDimension = vis[ouAxis].find(
         dimension => dimension.dimension === DIMENSION_ID_ORGUNIT
-    );
+    )
 
     ouDimension.items
         .filter(orgUnit => orgUnit.path)
         .forEach(orgUnit => {
             if ('/' + orgUnit.id === orgUnit.path) {
                 // root org unit case
-                parentGraphMap[orgUnit.id] = '';
+                parentGraphMap[orgUnit.id] = ''
             } else {
-                const path = removeLastPathSegment(orgUnit.path);
+                const path = removeLastPathSegment(orgUnit.path)
                 parentGraphMap[orgUnit.id] =
-                    path[0] === '/' ? path.substr(1) : path;
+                    path[0] === '/' ? path.substr(1) : path
             }
-        });
+        })
 
-    return parentGraphMap;
-};
+    return parentGraphMap
+}
 
 export const mergeUiMaps = (destinationMap, sourceMap, propName) => {
     Object.keys(sourceMap || {}).forEach(key => {
         if (!(key in destinationMap)) {
-            destinationMap[key] = {};
+            destinationMap[key] = {}
         }
 
-        destinationMap[key][propName] = sourceMap[key];
-    });
-};
+        destinationMap[key][propName] = sourceMap[key]
+    })
+}

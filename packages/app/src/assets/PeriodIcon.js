@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const PeriodIcon = () => {
     return (
@@ -53,7 +53,7 @@ const PeriodIcon = () => {
                 </g>
             </g>
         </svg>
-    );
-};
+    )
+}
 
-export default PeriodIcon;
+export default PeriodIcon

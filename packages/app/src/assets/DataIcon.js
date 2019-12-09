@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const DataIcon = () => {
     return (
@@ -49,7 +49,7 @@ const DataIcon = () => {
                 </g>
             </g>
         </svg>
-    );
-};
+    )
+}
 
-export default DataIcon;
+export default DataIcon

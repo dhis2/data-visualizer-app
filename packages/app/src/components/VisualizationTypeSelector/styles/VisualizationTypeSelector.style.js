@@ -1,4 +1,4 @@
-import { colors } from '@dhis2/ui-core';
+import { colors } from '@dhis2/ui-core'
 
 export default {
     button: {
@@ -51,4 +51,4 @@ export default {
     clearFix: {
         clear: 'both',
     },
-};
+}

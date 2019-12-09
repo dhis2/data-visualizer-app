@@ -1,7 +1,7 @@
-import { FIXED_DIMENSIONS as DEFAULT_DIMENSIONS } from '@dhis2/analytics';
+import { FIXED_DIMENSIONS as DEFAULT_DIMENSIONS } from '@dhis2/analytics'
 
-export const SET_DIMENSIONS = 'SET_DIMENSIONS';
-export const SET_SELECTED_DIMENSION = 'SET_SELECTED_DIMENSION';
+export const SET_DIMENSIONS = 'SET_DIMENSIONS'
+export const SET_SELECTED_DIMENSION = 'SET_SELECTED_DIMENSION'
 
 export default (state = DEFAULT_DIMENSIONS, action) => {
     switch (action.type) {
@@ -9,12 +9,12 @@ export default (state = DEFAULT_DIMENSIONS, action) => {
             return {
                 ...DEFAULT_DIMENSIONS,
                 ...action.value,
-            };
+            }
         }
         default:
-            return state;
+            return state
     }
-};
+}
 
 // Selectors
 
@@ -29,4 +29,4 @@ export default (state = DEFAULT_DIMENSIONS, action) => {
  * @param {Object} state The current state
  * @returns {Array}
  */
-export const sGetDimensions = state => state.dimensions;
+export const sGetDimensions = state => state.dimensions

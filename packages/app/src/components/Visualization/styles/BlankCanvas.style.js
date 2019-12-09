@@ -1,10 +1,10 @@
-import { colors } from '@dhis2/ui-core';
+import { colors } from '@dhis2/ui-core'
 
 const error = {
     fontWeight: 'bold',
     marginTop: '30px',
     lineHeight: '22px',
-};
+}
 
 export default {
     outer: {
@@ -27,4 +27,4 @@ export default {
         ...error,
         color: colors.grey500,
     },
-};
+}

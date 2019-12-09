@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const InterpretationIcon = () => {
     return (
@@ -81,7 +81,7 @@ const InterpretationIcon = () => {
                 </g>
             </g>
         </svg>
-    );
-};
+    )
+}
 
-export default InterpretationIcon;
+export default InterpretationIcon

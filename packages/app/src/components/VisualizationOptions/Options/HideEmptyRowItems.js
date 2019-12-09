@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import i18n from '@dhis2/d2-i18n';
-import { withStyles } from '@material-ui/core/styles';
-import SelectBaseOption from './SelectBaseOption';
-import styles from '../styles/VisualizationOptions.style';
+import React from 'react'
+import PropTypes from 'prop-types'
+import i18n from '@dhis2/d2-i18n'
+import { withStyles } from '@material-ui/core/styles'
+import SelectBaseOption from './SelectBaseOption'
+import styles from '../styles/VisualizationOptions.style'
 
 const HideEmptyRowItems = ({ classes }) => (
     <SelectBaseOption
@@ -23,10 +23,10 @@ const HideEmptyRowItems = ({ classes }) => (
             ],
         }}
     />
-);
+)
 
 HideEmptyRowItems.propTypes = {
     classes: PropTypes.object.isRequired,
-};
+}
 
-export default withStyles(styles)(HideEmptyRowItems);
+export default withStyles(styles)(HideEmptyRowItems)

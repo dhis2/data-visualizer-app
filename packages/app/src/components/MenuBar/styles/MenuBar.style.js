@@ -1,4 +1,4 @@
-import { colors } from '@dhis2/ui-core';
+import { colors } from '@dhis2/ui-core'
 
 export default theme => ({
     menuBar: {
@@ -19,4 +19,4 @@ export default theme => ({
     grow: {
         flex: '1 1 0%',
     },
-});
+})

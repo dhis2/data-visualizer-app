@@ -3,4 +3,4 @@ export default {
         background: 'transparent',
         marginLeft: '4px',
     },
-};
+}
