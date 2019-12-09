@@ -1,6 +1,6 @@
-import React from 'react';
-import TextBaseOption from './TextBaseOption';
-import i18n from '@dhis2/d2-i18n';
+import React from 'react'
+import TextBaseOption from './TextBaseOption'
+import i18n from '@dhis2/d2-i18n'
 
 const RangeAxisMaxValue = () => (
     <TextBaseOption
@@ -10,6 +10,6 @@ const RangeAxisMaxValue = () => (
             label: i18n.t('Range axis max'),
         }}
     />
-);
+)
 
-export default RangeAxisMaxValue;
+export default RangeAxisMaxValue

@@ -1,5 +1,5 @@
-import React from 'react';
-import SvgIcon from '@material-ui/core/SvgIcon';
+import React from 'react'
+import SvgIcon from '@material-ui/core/SvgIcon'
 
 const LineIcon = ({
     style = { paddingRight: '8px', width: 24, height: 24 },
@@ -21,6 +21,6 @@ const LineIcon = ({
             </g>
         </g>
     </SvgIcon>
-);
+)
 
-export default LineIcon;
+export default LineIcon

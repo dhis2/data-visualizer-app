@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import TextBaseOption from './TextBaseOption';
-import i18n from '@dhis2/d2-i18n';
-import { sGetUiOptions } from '../../../reducers/ui';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import TextBaseOption from './TextBaseOption'
+import i18n from '@dhis2/d2-i18n'
+import { sGetUiOptions } from '../../../reducers/ui'
 
 export const RangeAxisSteps = ({ showHelperText }) => (
     <TextBaseOption
@@ -18,20 +18,20 @@ export const RangeAxisSteps = ({ showHelperText }) => (
                 : null,
         }}
     />
-);
+)
 
 RangeAxisSteps.propTypes = {
     showHelperText: PropTypes.bool,
-};
+}
 
 const mapStateToProps = state => {
-    const options = sGetUiOptions(state);
+    const options = sGetUiOptions(state)
 
     return {
         showHelperText: Boolean(
             options.rangeAxisSteps && options.rangeAxisMaxValue
         ),
-    };
-};
+    }
+}
 
-export default connect(mapStateToProps)(RangeAxisSteps);
+export default connect(mapStateToProps)(RangeAxisSteps)

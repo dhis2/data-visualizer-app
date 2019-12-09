@@ -1,6 +1,6 @@
 const userSettings = {
     keyDbLocale: 'ponyLang',
-};
+}
 
 export function getStubContext() {
     return {
@@ -19,5 +19,5 @@ export function getStubContext() {
         store: {
             dispatch: () => {},
         },
-    };
+    }
 }

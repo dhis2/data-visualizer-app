@@ -1,4 +1,4 @@
-import { colors } from '@dhis2/ui-core';
+import { colors } from '@dhis2/ui-core'
 
 export default theme => ({
     container: {
@@ -22,4 +22,4 @@ export default theme => ({
         backgroundColor: colors.red500,
         color: colors.white,
     },
-});
+})

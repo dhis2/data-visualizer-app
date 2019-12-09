@@ -74,7 +74,7 @@ const state = {
         isLoading: false,
         loadError: '',
     },
-};
+}
 
 // Typical flow
 

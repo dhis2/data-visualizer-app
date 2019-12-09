@@ -1,7 +1,7 @@
-import { FILTER_AXIS_WIDTH } from '../../DefaultLayout/styles/DefaultLayout.style';
+import { FILTER_AXIS_WIDTH } from '../../DefaultLayout/styles/DefaultLayout.style'
 
 // Axis (generated)
-export const DIMENSION_AXIS_WIDTH = `${100 - parseInt(FILTER_AXIS_WIDTH, 10)}%`;
+export const DIMENSION_AXIS_WIDTH = `${100 - parseInt(FILTER_AXIS_WIDTH, 10)}%`
 
 export default {
     axisGroupLeft: {
@@ -10,4 +10,4 @@ export default {
     axisGroupRight: {
         flexBasis: FILTER_AXIS_WIDTH,
     },
-};
+}

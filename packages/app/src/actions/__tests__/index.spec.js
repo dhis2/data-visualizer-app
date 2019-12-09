@@ -1,38 +1,38 @@
-import configureMockStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import * as fromActions from '../index';
-import * as api from '../../api/visualization';
-import * as history from '../../modules/history';
+import configureMockStore from 'redux-mock-store'
+import thunk from 'redux-thunk'
+import * as fromActions from '../index'
+import * as api from '../../api/visualization'
+import * as history from '../../modules/history'
 
 import {
     SET_VISUALIZATION,
     CLEAR_VISUALIZATION,
-} from '../../reducers/visualization';
-import { SET_CURRENT, CLEAR_CURRENT } from '../../reducers/current';
+} from '../../reducers/visualization'
+import { SET_CURRENT, CLEAR_CURRENT } from '../../reducers/current'
 import {
     SET_UI_FROM_VISUALIZATION,
     CLEAR_UI,
     SET_UI_RIGHT_SIDEBAR_OPEN,
     SET_UI_INTERPRETATION,
-} from '../../reducers/ui';
-import { SET_LOAD_ERROR, CLEAR_LOAD_ERROR } from '../../reducers/loader';
+} from '../../reducers/ui'
+import { SET_LOAD_ERROR, CLEAR_LOAD_ERROR } from '../../reducers/loader'
 import {
     RECEIVED_SNACKBAR_MESSAGE,
     CLOSE_SNACKBAR,
-} from '../../reducers/snackbar';
-import * as selectors from '../../reducers/settings';
+} from '../../reducers/snackbar'
+import * as selectors from '../../reducers/settings'
 
-const middlewares = [thunk];
-const mockStore = configureMockStore(middlewares);
+const middlewares = [thunk]
+const mockStore = configureMockStore(middlewares)
 
-const rootOrganisationUnit = 'abc123';
-const relativePeriod = 'xyzpdq';
-selectors.sGetRootOrgUnit = () => rootOrganisationUnit;
-selectors.sGetRelativePeriod = () => relativePeriod;
+const rootOrganisationUnit = 'abc123'
+const relativePeriod = 'xyzpdq'
+selectors.sGetRootOrgUnit = () => rootOrganisationUnit
+selectors.sGetRelativePeriod = () => relativePeriod
 
 jest.mock('../../modules/orgUnit', () => ({
     convertOuLevelsToUids: (ouLevels, vis) => vis,
-}));
+}))
 
 jest.mock('../../api/organisationUnits', () => ({
     apiFetchOrganisationUnitLevels: () =>
@@ -42,7 +42,7 @@ jest.mock('../../api/organisationUnits', () => ({
                 id: '2nd-floor',
             },
         ]),
-}));
+}))
 
 describe('index', () => {
     describe('tDoLoadVisualization', () => {
@@ -50,12 +50,12 @@ describe('index', () => {
             const vis = {
                 name: 'hey',
                 interpretations: [{ id: 1, created: '2018-12-03' }],
-            };
+            }
 
             api.apiFetchVisualization = () =>
                 Promise.resolve({
                     toJSON: () => vis,
-                });
+                })
 
             const expectedActions = [
                 {
@@ -68,9 +68,9 @@ describe('index', () => {
                     value: vis,
                 },
                 { type: CLEAR_LOAD_ERROR },
-            ];
+            ]
 
-            const store = mockStore({});
+            const store = mockStore({})
 
             return store
                 .dispatch(
@@ -80,22 +80,22 @@ describe('index', () => {
                     })
                 )
                 .then(() => {
-                    expect(store.getActions()).toEqual(expectedActions);
-                });
-        });
+                    expect(store.getActions()).toEqual(expectedActions)
+                })
+        })
 
         it('dispatches the correct actions after successfully fetching visualization and interpretation', () => {
-            const interpretation = { id: 1, created: '2018-12-03' };
+            const interpretation = { id: 1, created: '2018-12-03' }
 
             const vis = {
                 name: 'hey',
                 interpretations: [interpretation],
-            };
+            }
 
             api.apiFetchVisualization = () =>
                 Promise.resolve({
                     toJSON: () => vis,
-                });
+                })
 
             const expectedActions = [
                 {
@@ -115,9 +115,9 @@ describe('index', () => {
                     value: vis,
                 },
                 { type: CLEAR_LOAD_ERROR },
-            ];
+            ]
 
-            const store = mockStore({});
+            const store = mockStore({})
 
             return store
                 .dispatch(
@@ -129,18 +129,18 @@ describe('index', () => {
                     })
                 )
                 .then(() => {
-                    expect(store.getActions()).toEqual(expectedActions);
-                });
-        });
+                    expect(store.getActions()).toEqual(expectedActions)
+                })
+        })
 
         it('dispatches CLEAR_LOAD_ERROR last', () => {
-            const vis = 'hey';
+            const vis = 'hey'
             api.apiFetchVisualization = () =>
                 Promise.resolve({
                     toJSON: () => vis,
-                });
+                })
 
-            const store = mockStore({});
+            const store = mockStore({})
 
             return store
                 .dispatch(
@@ -152,14 +152,14 @@ describe('index', () => {
                 .then(() => {
                     expect(store.getActions().slice(-1)[0].type).toEqual(
                         CLEAR_LOAD_ERROR
-                    );
-                });
-        });
+                    )
+                })
+        })
 
         it('dispatches the correct actions when fetch visualization fails', () => {
-            const error = 'I am not a teapot';
+            const error = 'I am not a teapot'
 
-            api.apiFetchVisualization = () => Promise.reject(error);
+            api.apiFetchVisualization = () => Promise.reject(error)
 
             const expectedActions = [
                 { type: SET_LOAD_ERROR, value: error },
@@ -172,9 +172,9 @@ describe('index', () => {
                         relativePeriod,
                     },
                 },
-            ];
+            ]
 
-            const store = mockStore({});
+            const store = mockStore({})
 
             return store
                 .dispatch(
@@ -184,10 +184,10 @@ describe('index', () => {
                     })
                 )
                 .then(() => {
-                    expect(store.getActions()).toEqual(expectedActions);
-                });
-        });
-    });
+                    expect(store.getActions()).toEqual(expectedActions)
+                })
+        })
+    })
 
     describe('clearVisualization', () => {
         it('dispatches the correct actions when clearing the visualization', () => {
@@ -202,27 +202,27 @@ describe('index', () => {
                         relativePeriod,
                     },
                 },
-            ];
+            ]
 
-            const store = mockStore({});
+            const store = mockStore({})
 
-            fromActions.clearVisualization(store.dispatch, store.getState);
+            fromActions.clearVisualization(store.dispatch, store.getState)
 
-            expect(store.getActions()).toEqual(expectedActions);
-        });
-    });
+            expect(store.getActions()).toEqual(expectedActions)
+        })
+    })
 
     describe('tDoDeleteVisualization', () => {
         it('dispatches the correct actions when deleting the visualization', () => {
             // history function mocks
-            history.default.push = jest.fn();
+            history.default.push = jest.fn()
 
             const store = mockStore({
                 current: {
                     id: 'd1',
                     name: 'delete test',
                 },
-            });
+            })
 
             const expectedActions = [
                 {
@@ -233,37 +233,37 @@ describe('index', () => {
                         duration: 2000,
                     },
                 },
-            ];
+            ]
 
-            store.dispatch(fromActions.tDoDeleteVisualization());
+            store.dispatch(fromActions.tDoDeleteVisualization())
 
-            expect(store.getActions()).toEqual(expectedActions);
-            expect(history.default.push).toHaveBeenCalled();
-            expect(history.default.push).toHaveBeenCalledWith('/');
-        });
-    });
+            expect(store.getActions()).toEqual(expectedActions)
+            expect(history.default.push).toHaveBeenCalled()
+            expect(history.default.push).toHaveBeenCalledWith('/')
+        })
+    })
 
     describe('tDoRenameVisualization', () => {
         const visualization = {
             id: 'r1',
             content: 'burp!',
-        };
+        }
 
         const current = {
             ...visualization,
             modified: true,
-        };
+        }
 
         const extraParams = {
             name: 'rename-test',
             description: 'Rename test',
-        };
+        }
 
         it('dispatches the correct actions after successfully renaming the original visualization', () => {
             const store = mockStore({
                 visualization,
                 current: visualization,
-            });
+            })
 
             const expectedActions = [
                 {
@@ -282,20 +282,20 @@ describe('index', () => {
                         duration: 2000,
                     },
                 },
-            ];
+            ]
 
             store.dispatch(
                 fromActions.tDoRenameVisualization('chart', extraParams)
-            );
+            )
 
-            expect(store.getActions()).toEqual(expectedActions);
-        });
+            expect(store.getActions()).toEqual(expectedActions)
+        })
 
         it('dispatched the correct actions after successfully renaming the modified visualization', () => {
             const store = mockStore({
                 visualization,
                 current,
-            });
+            })
 
             const expectedActions = [
                 {
@@ -314,33 +314,33 @@ describe('index', () => {
                         duration: 2000,
                     },
                 },
-            ];
+            ]
 
             store.dispatch(
                 fromActions.tDoRenameVisualization('chart', extraParams)
-            );
+            )
 
-            expect(store.getActions()).toEqual(expectedActions);
-        });
-    });
+            expect(store.getActions()).toEqual(expectedActions)
+        })
+    })
 
     describe('tDoSaveVisualization', () => {
-        let uid = 1;
+        let uid = 1
 
         const vis = {
             id: uid,
             content: 'hey',
-        };
+        }
 
-        const extraParams = { name: 'test', description: 'test' };
+        const extraParams = { name: 'test', description: 'test' }
 
         const store = mockStore({
             current: vis,
-        });
+        })
 
         // history function mocks
-        history.default.push = jest.fn();
-        history.default.replace = jest.fn();
+        history.default.push = jest.fn()
+        history.default.replace = jest.fn()
 
         api.apiSaveVisualization = jest.fn((type, vis) => {
             return Promise.resolve({
@@ -348,14 +348,14 @@ describe('index', () => {
                 response: {
                     uid,
                 },
-            });
-        });
+            })
+        })
 
         it('replaces the location in history on successful save', () => {
             const expectedVis = {
                 ...vis,
                 ...extraParams,
-            };
+            }
 
             return store
                 .dispatch(
@@ -366,44 +366,42 @@ describe('index', () => {
                     )
                 )
                 .then(() => {
-                    expect(api.apiSaveVisualization).toHaveBeenCalled();
+                    expect(api.apiSaveVisualization).toHaveBeenCalled()
                     expect(api.apiSaveVisualization).toHaveBeenCalledWith(
                         'chart',
                         expectedVis
-                    );
-                    expect(history.default.replace).toHaveBeenCalled();
+                    )
+                    expect(history.default.replace).toHaveBeenCalled()
                     expect(history.default.replace).toHaveBeenCalledWith(
                         `/${uid}`
-                    );
-                });
-        });
+                    )
+                })
+        })
 
         it('pushes a new location in history on successful save as', () => {
-            uid = 2;
+            uid = 2
 
             const expectedVis = {
                 ...vis,
                 id: undefined,
                 ...extraParams,
-            };
+            }
 
             return store
                 .dispatch(
                     fromActions.tDoSaveVisualization('chart', extraParams, true)
                 )
                 .then(() => {
-                    expect(api.apiSaveVisualization).toHaveBeenCalled();
+                    expect(api.apiSaveVisualization).toHaveBeenCalled()
                     expect(api.apiSaveVisualization).toHaveBeenCalledWith(
                         'chart',
                         expectedVis
-                    );
-                    expect(history.default.push).toHaveBeenCalled();
-                    expect(history.default.push).toHaveBeenCalledWith(
-                        `/${uid}`
-                    );
-                });
-        });
-    });
+                    )
+                    expect(history.default.push).toHaveBeenCalled()
+                    expect(history.default.push).toHaveBeenCalledWith(`/${uid}`)
+                })
+        })
+    })
 
     describe('tDoCloseSnackbar', () => {
         it('dispatches the correct actions when closing the snackbar', () => {
@@ -411,11 +409,11 @@ describe('index', () => {
                 message: 'test',
                 open: true,
                 variant: 'warning',
-            };
+            }
 
             const store = mockStore({
                 snackbar,
-            });
+            })
 
             const expectedActions = [
                 {
@@ -427,14 +425,14 @@ describe('index', () => {
                 {
                     type: CLOSE_SNACKBAR,
                 },
-            ];
+            ]
 
-            store.dispatch(fromActions.tDoCloseSnackbar());
+            store.dispatch(fromActions.tDoCloseSnackbar())
 
             setTimeout(
                 () => expect(store.getActions()).toEqual(expectedActions),
                 350
-            );
-        });
-    });
-});
+            )
+        })
+    })
+})

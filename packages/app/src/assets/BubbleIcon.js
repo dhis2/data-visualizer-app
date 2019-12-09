@@ -1,5 +1,5 @@
-import React from 'react';
-import SvgIcon from '@material-ui/core/SvgIcon';
+import React from 'react'
+import SvgIcon from '@material-ui/core/SvgIcon'
 
 const BubbleIcon = ({
     style = { paddingRight: '8px', width: 24, height: 24 },
@@ -13,6 +13,6 @@ const BubbleIcon = ({
             <rect fill="#9E9E9E" x="0" y="46" width="48" height="2" />
         </g>
     </SvgIcon>
-);
+)
 
-export default BubbleIcon;
+export default BubbleIcon

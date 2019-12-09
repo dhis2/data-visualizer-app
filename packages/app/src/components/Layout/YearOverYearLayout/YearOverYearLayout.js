@@ -1,22 +1,22 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { AXIS_ID_FILTERS } from '@dhis2/analytics';
+import React from 'react'
+import { connect } from 'react-redux'
+import { AXIS_ID_FILTERS } from '@dhis2/analytics'
 
-import DefaultAxis from '../DefaultLayout/DefaultAxis';
-import defaultLayoutStyles from '../DefaultLayout/styles/DefaultLayout.style';
-import YearOverYearAxis from './YearOverYearAxis';
-import YearOverYearSelect from './YearOverYearSelect';
-import YearOverYearLayoutStyles from './styles/YearOverYearLayout.style';
-import defaultAxisStyles from '../DefaultLayout/styles/DefaultAxis.style';
+import DefaultAxis from '../DefaultLayout/DefaultAxis'
+import defaultLayoutStyles from '../DefaultLayout/styles/DefaultLayout.style'
+import YearOverYearAxis from './YearOverYearAxis'
+import YearOverYearSelect from './YearOverYearSelect'
+import YearOverYearLayoutStyles from './styles/YearOverYearLayout.style'
+import defaultAxisStyles from '../DefaultLayout/styles/DefaultAxis.style'
 import {
     sGetUiYearOverYearSeries,
     sGetUiYearOverYearCategory,
-} from '../../../reducers/ui';
+} from '../../../reducers/ui'
 import {
     acSetUiYearOverYearSeries,
     acSetUiYearOverYearCategory,
-} from '../../../actions/ui';
-import { seriesOptions, categoryOptions } from '../../../modules/yearOverYear';
+} from '../../../actions/ui'
+import { seriesOptions, categoryOptions } from '../../../modules/yearOverYear'
 
 const Layout = props => (
     <div id="layout-ct" style={defaultLayoutStyles.ct}>
@@ -68,26 +68,23 @@ const Layout = props => (
             />
         </div>
     </div>
-);
+)
 
-Layout.displayName = 'Layout';
+Layout.displayName = 'Layout'
 
 const mapStateToProps = state => ({
     yearOverYearSeries: sGetUiYearOverYearSeries(state),
     yearOverYearCategory: sGetUiYearOverYearCategory(state),
-});
+})
 
 const mapDispatchToProps = dispatch => ({
     onSeriesChange: event => {
         if (event.target.value.length) {
-            dispatch(acSetUiYearOverYearSeries(event.target.value));
+            dispatch(acSetUiYearOverYearSeries(event.target.value))
         }
     },
     onCategoryChange: event =>
         dispatch(acSetUiYearOverYearCategory(event.target.value)),
-});
+})
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Layout);
+export default connect(mapStateToProps, mapDispatchToProps)(Layout)

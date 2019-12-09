@@ -1,5 +1,5 @@
-import React from 'react';
-import SvgIcon from '@material-ui/core/SvgIcon';
+import React from 'react'
+import SvgIcon from '@material-ui/core/SvgIcon'
 
 const GaugeIcon = ({
     style = { paddingRight: '8px', width: 24, height: 24 },
@@ -20,6 +20,6 @@ const GaugeIcon = ({
             </g>
         </g>
     </SvgIcon>
-);
+)
 
-export default GaugeIcon;
+export default GaugeIcon

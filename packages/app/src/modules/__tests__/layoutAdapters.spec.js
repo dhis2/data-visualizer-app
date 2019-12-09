@@ -5,12 +5,12 @@ import {
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
-} from '@dhis2/analytics';
+} from '@dhis2/analytics'
 
-import { pieLayoutAdapter, yearOverYearLayoutAdapter } from '../layoutAdapters';
+import { pieLayoutAdapter, yearOverYearLayoutAdapter } from '../layoutAdapters'
 
-const someId = 'someId';
-const otherId = 'otherId';
+const someId = 'someId'
+const otherId = 'otherId'
 
 describe('pieLayoutAdapter', () => {
     it('should move all column and row dimensions to filter except the first column dimension', () => {
@@ -18,9 +18,9 @@ describe('pieLayoutAdapter', () => {
             [AXIS_ID_COLUMNS]: [DIMENSION_ID_DATA, someId],
             [AXIS_ID_ROWS]: [DIMENSION_ID_PERIOD, otherId],
             [AXIS_ID_FILTERS]: [DIMENSION_ID_ORGUNIT],
-        };
+        }
 
-        const actualState = pieLayoutAdapter(initialState);
+        const actualState = pieLayoutAdapter(initialState)
 
         const expectedState = {
             [AXIS_ID_COLUMNS]: [DIMENSION_ID_DATA],
@@ -31,19 +31,19 @@ describe('pieLayoutAdapter', () => {
                 DIMENSION_ID_PERIOD,
                 otherId,
             ],
-        };
+        }
 
-        expect(actualState).toEqual(expectedState);
-    });
+        expect(actualState).toEqual(expectedState)
+    })
 
     it('should move the first row dimension to series and the rest to filter', () => {
         const initialState = {
             [AXIS_ID_COLUMNS]: [],
             [AXIS_ID_ROWS]: [DIMENSION_ID_DATA, DIMENSION_ID_PERIOD, someId],
             [AXIS_ID_FILTERS]: [DIMENSION_ID_ORGUNIT],
-        };
+        }
 
-        const actualState = pieLayoutAdapter(initialState);
+        const actualState = pieLayoutAdapter(initialState)
 
         const expectedState = {
             [AXIS_ID_COLUMNS]: [DIMENSION_ID_DATA],
@@ -53,11 +53,11 @@ describe('pieLayoutAdapter', () => {
                 DIMENSION_ID_PERIOD,
                 someId,
             ],
-        };
+        }
 
-        expect(actualState).toEqual(expectedState);
-    });
-});
+        expect(actualState).toEqual(expectedState)
+    })
+})
 
 describe('yearOverYearLayoutAdapter', () => {
     it('should remove the "pe" dimension and move all other dimensions to filter', () => {
@@ -65,9 +65,9 @@ describe('yearOverYearLayoutAdapter', () => {
             [AXIS_ID_COLUMNS]: [DIMENSION_ID_DATA, someId],
             [AXIS_ID_ROWS]: [DIMENSION_ID_PERIOD, otherId],
             [AXIS_ID_FILTERS]: [DIMENSION_ID_ORGUNIT],
-        };
+        }
 
-        const actualState = yearOverYearLayoutAdapter(initialState);
+        const actualState = yearOverYearLayoutAdapter(initialState)
 
         const expectedState = {
             [AXIS_ID_COLUMNS]: [],
@@ -78,8 +78,8 @@ describe('yearOverYearLayoutAdapter', () => {
                 someId,
                 otherId,
             ],
-        };
+        }
 
-        expect(actualState).toEqual(expectedState);
-    });
-});
+        expect(actualState).toEqual(expectedState)
+    })
+})

@@ -2,25 +2,25 @@ import {
     convertOuLevelsToUids,
     removeLastPathSegment,
     getOuPath,
-} from '../orgUnit';
+} from '../orgUnit'
 
 const ouLevels = [
     {
         level: 2,
         id: '2nd-floor',
     },
-];
+]
 
 describe('convertOuLevelsToUids', () => {
-    let vis;
+    let vis
     beforeEach(() => {
         vis = {
             other: 'abc',
             filters: [],
             rows: [],
             columns: [],
-        };
-    });
+        }
+    })
 
     it('does nothing when no ou', () => {
         vis.filters = [
@@ -33,9 +33,9 @@ describe('convertOuLevelsToUids', () => {
                     },
                 ],
             },
-        ];
+        ]
 
-        const updatedVis = convertOuLevelsToUids(ouLevels, vis);
+        const updatedVis = convertOuLevelsToUids(ouLevels, vis)
 
         expect(updatedVis).toEqual({
             filters: [
@@ -52,8 +52,8 @@ describe('convertOuLevelsToUids', () => {
             rows: [],
             columns: [],
             other: 'abc',
-        });
-    });
+        })
+    })
 
     it('converts ou filters', async () => {
         vis.filters = [
@@ -83,9 +83,9 @@ describe('convertOuLevelsToUids', () => {
                     },
                 ],
             },
-        ];
+        ]
 
-        const updatedVis = convertOuLevelsToUids(ouLevels, vis);
+        const updatedVis = convertOuLevelsToUids(ouLevels, vis)
 
         expect(updatedVis).toEqual({
             filters: [
@@ -110,8 +110,8 @@ describe('convertOuLevelsToUids', () => {
             rows: [],
             columns: [],
             other: 'abc',
-        });
-    });
+        })
+    })
 
     it('converts ou rows', () => {
         vis.rows = [
@@ -124,9 +124,9 @@ describe('convertOuLevelsToUids', () => {
                     },
                 ],
             },
-        ];
+        ]
 
-        const updatedVis = convertOuLevelsToUids(ouLevels, vis);
+        const updatedVis = convertOuLevelsToUids(ouLevels, vis)
 
         expect(updatedVis).toEqual({
             filters: [],
@@ -138,8 +138,8 @@ describe('convertOuLevelsToUids', () => {
                 },
             ],
             other: 'abc',
-        });
-    });
+        })
+    })
 
     it('converts ou columns', () => {
         vis.columns = [
@@ -152,9 +152,9 @@ describe('convertOuLevelsToUids', () => {
                     },
                 ],
             },
-        ];
+        ]
 
-        const updatedVis = convertOuLevelsToUids(ouLevels, vis);
+        const updatedVis = convertOuLevelsToUids(ouLevels, vis)
 
         expect(updatedVis).toEqual({
             filters: [],
@@ -166,57 +166,57 @@ describe('convertOuLevelsToUids', () => {
                 },
             ],
             other: 'abc',
-        });
-    });
-});
+        })
+    })
+})
 
 describe('removeLastPathSegment', () => {
     it('handles a root path', () => {
-        const path = '/';
+        const path = '/'
 
-        expect(removeLastPathSegment(path)).toEqual(path);
-    });
+        expect(removeLastPathSegment(path)).toEqual(path)
+    })
 
     it('handles a path with single segment', () => {
-        const path = '/abc';
+        const path = '/abc'
 
-        expect(removeLastPathSegment(path)).toEqual(path);
-    });
+        expect(removeLastPathSegment(path)).toEqual(path)
+    })
 
     it('handles a path with multiple segments', () => {
-        const path = 'ABC/def/GHI';
+        const path = 'ABC/def/GHI'
 
-        expect(removeLastPathSegment(path)).toEqual('ABC/def');
-    });
-});
+        expect(removeLastPathSegment(path)).toEqual('ABC/def')
+    })
+})
 
 describe('getOrgUnitPath', () => {
     it('handles root org units', () => {
-        const id = 'ROOT_ID';
-        const metadata = {};
-        const parentGraphMap = { ROOT_ID: '' };
+        const id = 'ROOT_ID'
+        const metadata = {}
+        const parentGraphMap = { ROOT_ID: '' }
 
-        expect(getOuPath(id, metadata, parentGraphMap)).toEqual('/ROOT_ID');
-    });
+        expect(getOuPath(id, metadata, parentGraphMap)).toEqual('/ROOT_ID')
+    })
 
     it('returns path for org unit defined in metadata', () => {
-        const path = 'path';
-        const id = 'ORG_UNIT_ID';
+        const path = 'path'
+        const id = 'ORG_UNIT_ID'
         const metadata = {
             [id]: { path },
-        };
+        }
 
-        expect(getOuPath(id, metadata)).toEqual(path);
-    });
+        expect(getOuPath(id, metadata)).toEqual(path)
+    })
 
     it('returns proper path for org unit not defined in metadata, but in parent graph', () => {
-        const id = 'ORG_UNIT_ID';
-        const path = 'path';
-        const metadata = {};
-        const parentGraphMap = { [id]: path };
+        const id = 'ORG_UNIT_ID'
+        const path = 'path'
+        const metadata = {}
+        const parentGraphMap = { [id]: path }
 
         expect(getOuPath(id, metadata, parentGraphMap)).toEqual(
             `/${path}/${id}`
-        );
-    });
-});
+        )
+    })
+})

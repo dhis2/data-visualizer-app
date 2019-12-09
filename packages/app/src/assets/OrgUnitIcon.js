@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const OrgUnitIcon = () => {
     return (
@@ -54,7 +54,7 @@ const OrgUnitIcon = () => {
                 </g>
             </g>
         </svg>
-    );
-};
+    )
+}
 
-export default OrgUnitIcon;
+export default OrgUnitIcon

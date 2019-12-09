@@ -4,4 +4,4 @@ export default {
         justifyContent: 'center',
         height: '100%',
     },
-};
+}

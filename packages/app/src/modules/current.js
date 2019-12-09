@@ -1,4 +1,4 @@
-import pick from 'lodash-es/pick';
+import pick from 'lodash-es/pick'
 import {
     AXIS_ID_COLUMNS,
     AXIS_ID_ROWS,
@@ -8,17 +8,17 @@ import {
     dimensionCreate,
     layoutGetDimensionItems,
     layoutReplaceDimension,
-} from '@dhis2/analytics';
+} from '@dhis2/analytics'
 
-import options from './options';
-import {} from './layout';
-import { BASE_FIELD_TYPE, BASE_FIELD_YEARLY_SERIES } from './fields/baseFields';
-import { pieLayoutAdapter, singleValueLayoutAdapter } from './layoutAdapters';
-import { mergeUiMaps } from './ui';
-import { SERIES_ITEMS_SERIES } from './seriesItems';
+import options from './options'
+import {} from './layout'
+import { BASE_FIELD_TYPE, BASE_FIELD_YEARLY_SERIES } from './fields/baseFields'
+import { pieLayoutAdapter, singleValueLayoutAdapter } from './layoutAdapters'
+import { mergeUiMaps } from './ui'
+import { SERIES_ITEMS_SERIES } from './seriesItems'
 
 const hasItems = (object, id) =>
-    object.hasOwnProperty(id) && Array.isArray(object[id]) && object[id].length;
+    object.hasOwnProperty(id) && Array.isArray(object[id]) && object[id].length
 
 export const getAxesFromUi = ui =>
     Object.entries(ui.layout).reduce(
@@ -36,37 +36,37 @@ export const getAxesFromUi = ui =>
                 .filter(dim => dim !== null),
         }),
         {}
-    );
+    )
 
 export const getOptionsFromUi = ui => {
-    const optionsFromUi = pick(ui.options, Object.keys(options));
+    const optionsFromUi = pick(ui.options, Object.keys(options))
 
     if (ui.options.targetLine === false) {
-        optionsFromUi.targetLineLabel = options.targetLineLabel.defaultValue;
-        optionsFromUi.targetLineValue = options.targetLineValue.defaultValue;
+        optionsFromUi.targetLineLabel = options.targetLineLabel.defaultValue
+        optionsFromUi.targetLineValue = options.targetLineValue.defaultValue
     }
 
     if (ui.options.baseLine === false) {
-        optionsFromUi.baseLineLabel = options.baseLineLabel.defaultValue;
-        optionsFromUi.baseLineValue = options.baseLineValue.defaultValue;
+        optionsFromUi.baseLineLabel = options.baseLineLabel.defaultValue
+        optionsFromUi.baseLineValue = options.baseLineValue.defaultValue
     }
 
-    return optionsFromUi;
-};
+    return optionsFromUi
+}
 
 // expand to support series types later
 export const getSeriesItemsFromUi = ui => {
-    const seriesItemsObj = {};
+    const seriesItemsObj = {}
 
     // axes
-    mergeUiMaps(seriesItemsObj, ui.axes, 'axis');
+    mergeUiMaps(seriesItemsObj, ui.axes, 'axis')
 
     return Object.entries(seriesItemsObj).reduce((arr, [key, value]) => {
-        value[SERIES_ITEMS_SERIES] = key;
-        arr.push(value);
-        return arr;
-    }, []);
-};
+        value[SERIES_ITEMS_SERIES] = key
+        arr.push(value)
+        return arr
+    }, [])
+}
 
 export const getSingleValueCurrentFromUi = (state, action) => {
     const ui = {
@@ -74,25 +74,25 @@ export const getSingleValueCurrentFromUi = (state, action) => {
         layout: {
             ...singleValueLayoutAdapter(action.value.layout),
         },
-    };
+    }
 
-    const axesFromUi = getAxesFromUi(ui);
+    const axesFromUi = getAxesFromUi(ui)
 
     // only save the first dx item
-    const dxItems = layoutGetDimensionItems(axesFromUi, DIMENSION_ID_DATA);
+    const dxItems = layoutGetDimensionItems(axesFromUi, DIMENSION_ID_DATA)
     const singleValueAxesFromUi = layoutReplaceDimension(
         axesFromUi,
         DIMENSION_ID_DATA,
         [dxItems[0]]
-    );
+    )
 
     return {
         ...state,
         [BASE_FIELD_TYPE]: ui.type,
         ...singleValueAxesFromUi,
         ...getOptionsFromUi(ui),
-    };
-};
+    }
+}
 
 export const getPieCurrentFromUi = (state, action) => {
     const ui = {
@@ -100,22 +100,22 @@ export const getPieCurrentFromUi = (state, action) => {
         layout: {
             ...pieLayoutAdapter(action.value.layout),
         },
-    };
+    }
 
     return {
         ...state,
         [BASE_FIELD_TYPE]: ui.type,
         ...getAxesFromUi(ui),
         ...getOptionsFromUi(ui),
-    };
-};
+    }
+}
 
 export const getYearOverYearCurrentFromUi = (state, action) => {
-    const ui = action.value;
+    const ui = action.value
 
     const dxItem = ui.itemsByDimension[DIMENSION_ID_DATA]
         ? [ui.itemsByDimension[DIMENSION_ID_DATA][0]]
-        : [];
+        : []
 
     return {
         ...state,
@@ -129,5 +129,5 @@ export const getYearOverYearCurrentFromUi = (state, action) => {
         ),
         [[BASE_FIELD_YEARLY_SERIES]]: ui.yearOverYearSeries,
         ...getOptionsFromUi(ui),
-    };
-};
+    }
+}

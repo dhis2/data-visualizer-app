@@ -236,8 +236,8 @@ App.childContextTypes = {
 }
 
 App.propTypes = {
-    d2: PropTypes.object,
     baseUrl: PropTypes.string,
+    d2: PropTypes.object,
     location: PropTypes.object,
 }
 

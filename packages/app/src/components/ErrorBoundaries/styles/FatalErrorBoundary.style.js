@@ -1,9 +1,9 @@
-import { colors } from '@dhis2/ui-core';
+import { colors } from '@dhis2/ui-core'
 
 const bgColor = colors.grey050,
     iconColor = colors.grey500,
     primaryTextColor = colors.black,
-    secondaryTextColor = colors.grey700;
+    secondaryTextColor = colors.grey700
 
 export default {
     mask: {
@@ -80,4 +80,4 @@ export default {
         color: 'red',
         fontFamily: 'Menlo, Courier, monospace !important',
     },
-};
+}

@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import i18n from '@dhis2/d2-i18n';
-import { withStyles } from '@material-ui/core/styles';
-import SelectBaseOption from './SelectBaseOption';
-import styles from '../styles/VisualizationOptions.style';
+import React from 'react'
+import PropTypes from 'prop-types'
+import i18n from '@dhis2/d2-i18n'
+import { withStyles } from '@material-ui/core/styles'
+import SelectBaseOption from './SelectBaseOption'
+import styles from '../styles/VisualizationOptions.style'
 
 const RegressionType = ({ classes }) => (
     <SelectBaseOption
@@ -19,10 +19,10 @@ const RegressionType = ({ classes }) => (
             ],
         }}
     />
-);
+)
 
 RegressionType.propTypes = {
     classes: PropTypes.object.isRequired,
-};
+}
 
-export default withStyles(styles)(RegressionType);
+export default withStyles(styles)(RegressionType)

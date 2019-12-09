@@ -13,4 +13,4 @@ export default {
         padding: '8px',
         fontWeight: '400',
     },
-};
+}

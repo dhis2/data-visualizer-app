@@ -1,5 +1,5 @@
-import React from 'react';
-import SvgIcon from '@material-ui/core/SvgIcon';
+import React from 'react'
+import SvgIcon from '@material-ui/core/SvgIcon'
 
 const PieIcon = ({
     style = { paddingRight: '8px', width: 24, height: 24 },
@@ -53,6 +53,6 @@ const PieIcon = ({
             </g>
         </g>
     </SvgIcon>
-);
+)
 
-export default PieIcon;
+export default PieIcon

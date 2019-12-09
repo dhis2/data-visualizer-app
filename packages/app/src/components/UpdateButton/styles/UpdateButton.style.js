@@ -1,4 +1,4 @@
-import { colors } from '@dhis2/ui-core';
+import { colors } from '@dhis2/ui-core'
 
 export default {
     flat: {
@@ -8,4 +8,4 @@ export default {
         padding: '6px 15px',
         boxShadow: 'none',
     },
-};
+}

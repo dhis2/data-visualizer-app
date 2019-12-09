@@ -1,24 +1,24 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import Popper from '@material-ui/core/Popper';
-import Paper from '@material-ui/core/Paper';
-import i18n from '@dhis2/d2-i18n';
-import LockIcon from '@material-ui/icons/Lock';
-import WarningIcon from '@material-ui/icons/Warning';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import Popper from '@material-ui/core/Popper'
+import Paper from '@material-ui/core/Paper'
+import i18n from '@dhis2/d2-i18n'
+import LockIcon from '@material-ui/icons/Lock'
+import WarningIcon from '@material-ui/icons/Warning'
 
-import { sGetMetadata } from '../../reducers/metadata';
-import { styles } from './styles/Tooltip.style';
+import { sGetMetadata } from '../../reducers/metadata'
+import { styles } from './styles/Tooltip.style'
 
 const labels = {
     noneSelected: i18n.t('None selected'),
     onlyOneInUse: name => i18n.t("Only '{{- name}}' in use", { name }),
     onlyLimitedNumberInUse: number =>
         i18n.t("Only '{{number}}' in use", { number }),
-};
+}
 export class Tooltip extends React.Component {
     getWarningLabel = () => {
-        const { itemIds, metadata, displayLimitedAmount } = this.props;
+        const { itemIds, metadata, displayLimitedAmount } = this.props
         const warningLabel =
             itemIds.length === 1
                 ? labels.onlyOneInUse(
@@ -26,16 +26,16 @@ export class Tooltip extends React.Component {
                           ? metadata[itemIds[0]].name
                           : itemIds[0]
                   )
-                : labels.onlyLimitedNumberInUse(itemIds.length);
-        return displayLimitedAmount ? warningLabel : null;
-    };
+                : labels.onlyLimitedNumberInUse(itemIds.length)
+        return displayLimitedAmount ? warningLabel : null
+    }
 
     getItemDisplayNames = () => {
-        const { itemIds, metadata, displayLimitedAmount } = this.props;
+        const { itemIds, metadata, displayLimitedAmount } = this.props
         return itemIds.length && !displayLimitedAmount
             ? itemIds.map(id => (metadata[id] ? metadata[id].name : id))
-            : [];
-    };
+            : []
+    }
 
     renderWarningLabel = warningLabel => (
         <li style={styles.item}>
@@ -44,14 +44,14 @@ export class Tooltip extends React.Component {
                 <span>{warningLabel}</span>
             </div>
         </li>
-    );
+    )
 
     renderItems = itemDisplayNames =>
         itemDisplayNames.map(name => (
             <li key={`${this.props.dimensionId}-${name}`} style={styles.item}>
                 {name}
             </li>
-        ));
+        ))
 
     renderLockedLabel = () => (
         <li style={styles.item}>
@@ -60,7 +60,7 @@ export class Tooltip extends React.Component {
                 <span>{this.props.lockedLabel}</span>
             </div>
         </li>
-    );
+    )
 
     renderNoItemsLabel = () => (
         <li
@@ -69,12 +69,12 @@ export class Tooltip extends React.Component {
         >
             {labels.noneSelected}
         </li>
-    );
+    )
 
     render() {
-        const itemDisplayNames = this.getItemDisplayNames();
-        const warningLabel = this.getWarningLabel();
-        const hasNoItemsLabel = !itemDisplayNames.length && !warningLabel;
+        const itemDisplayNames = this.getItemDisplayNames()
+        const warningLabel = this.getWarningLabel()
+        const hasNoItemsLabel = !itemDisplayNames.length && !warningLabel
 
         return (
             <Popper
@@ -95,21 +95,21 @@ export class Tooltip extends React.Component {
                     }
                 </Paper>
             </Popper>
-        );
+        )
     }
 }
 
 Tooltip.propTypes = {
-    open: PropTypes.bool.isRequired,
     anchorEl: PropTypes.object.isRequired,
     dimensionId: PropTypes.string.isRequired,
-    lockedLabel: PropTypes.string,
-    itemIds: PropTypes.array,
+    open: PropTypes.bool.isRequired,
     displayLimitedAmount: PropTypes.bool,
-};
+    itemIds: PropTypes.array,
+    lockedLabel: PropTypes.string,
+}
 
 const mapStateToProps = state => ({
     metadata: sGetMetadata(state),
-});
+})
 
-export default connect(mapStateToProps)(Tooltip);
+export default connect(mapStateToProps)(Tooltip)

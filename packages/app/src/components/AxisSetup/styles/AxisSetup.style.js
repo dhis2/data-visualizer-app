@@ -1,4 +1,4 @@
-import { colors } from '@dhis2/ui-core';
+import { colors } from '@dhis2/ui-core'
 
 export default {
     tableContainer: {
@@ -32,4 +32,4 @@ export default {
     dialogActions: {
         border: 'none',
     },
-};
+}

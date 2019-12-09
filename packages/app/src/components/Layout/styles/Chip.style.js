@@ -1,6 +1,6 @@
-import { colors } from '@dhis2/ui-core';
+import { colors } from '@dhis2/ui-core'
 
-import * as layoutStyle from './style';
+import * as layoutStyle from './style'
 
 export const styles = {
     chipWrapper: {
@@ -49,7 +49,7 @@ export const styles = {
         display: 'flex',
         alignItems: 'center',
     },
-};
+}
 
 styles.chipLeft = {
     ...styles.chip,
@@ -57,11 +57,11 @@ styles.chipLeft = {
     borderTopRightRadius: '0px',
     borderBottomRightRadius: '0px',
     alignItems: 'center',
-};
+}
 
 styles.chipRight = {
     ...styles.chip,
     paddingLeft: '0px',
     borderTopLeftRadius: '0px',
     borderBottomLeftRadius: '0px',
-};
+}

@@ -1,4 +1,4 @@
-import { colors } from '@dhis2/ui-core';
+import { colors } from '@dhis2/ui-core'
 
 export const styles = {
     tooltip: {
@@ -30,4 +30,4 @@ export const styles = {
         alignItems: 'center',
         marginBottom: '5px',
     },
-};
+}

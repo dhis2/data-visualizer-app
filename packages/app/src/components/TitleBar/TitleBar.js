@@ -1,69 +1,69 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import i18n from '@dhis2/d2-i18n';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import i18n from '@dhis2/d2-i18n'
 
 import {
     sGetVisualization,
     DEFAULT_VISUALIZATION,
-} from '../../reducers/visualization';
-import { sGetCurrent, DEFAULT_CURRENT } from '../../reducers/current';
-import { sGetUiInterpretation } from '../../reducers/ui';
-import { sGetUiLocale } from '../../reducers/settings';
-import formatDate from '../../modules/formatDate';
-import InterpretationIcon from '../../assets/InterpretationIcon';
-import styles from './styles/TitleBar.style';
+} from '../../reducers/visualization'
+import { sGetCurrent, DEFAULT_CURRENT } from '../../reducers/current'
+import { sGetUiInterpretation } from '../../reducers/ui'
+import { sGetUiLocale } from '../../reducers/settings'
+import formatDate from '../../modules/formatDate'
+import InterpretationIcon from '../../assets/InterpretationIcon'
+import styles from './styles/TitleBar.style'
 
-export const TITLE_UNSAVED = i18n.t('Unsaved chart');
-export const TITLE_DIRTY = i18n.t('Edited');
+export const TITLE_UNSAVED = i18n.t('Unsaved chart')
+export const TITLE_DIRTY = i18n.t('Edited')
 
-export const STATE_EMPTY = 'EMPTY';
-export const STATE_SAVED = 'SAVED';
-export const STATE_UNSAVED = 'UNSAVED';
-export const STATE_DIRTY = 'DIRTY';
+export const STATE_EMPTY = 'EMPTY'
+export const STATE_SAVED = 'SAVED'
+export const STATE_UNSAVED = 'UNSAVED'
+export const STATE_DIRTY = 'DIRTY'
 
 const defaultTitleStyle = {
     ...styles.cell,
     ...styles.title,
-};
+}
 
 const defaultInterpretationStyle = {
     ...styles.cell,
     ...styles.interpretation,
-};
+}
 
 const getTitleState = (visualization, current) => {
     if (current === DEFAULT_CURRENT) {
-        return STATE_EMPTY;
+        return STATE_EMPTY
     } else if (visualization === DEFAULT_VISUALIZATION) {
-        return STATE_UNSAVED;
+        return STATE_UNSAVED
     } else if (current === visualization) {
-        return STATE_SAVED;
+        return STATE_SAVED
     } else {
-        return STATE_DIRTY;
+        return STATE_DIRTY
     }
-};
+}
 
 const getTitleText = (titleState, visualization) => {
     switch (titleState) {
         case STATE_UNSAVED:
-            return TITLE_UNSAVED;
+            return TITLE_UNSAVED
         case STATE_SAVED:
         case STATE_DIRTY:
-            return visualization.name;
+            return visualization.name
         default:
-            return '';
+            return ''
     }
-};
+}
 
 const getCustomTitleStyle = titleState => {
     switch (titleState) {
         case STATE_UNSAVED:
-            return styles.titleUnsaved;
+            return styles.titleUnsaved
         default:
-            return null;
+            return null
     }
-};
+}
 
 const getSuffix = titleState => {
     switch (titleState) {
@@ -75,17 +75,17 @@ const getSuffix = titleState => {
                         ...styles.titleDirty,
                     }}
                 >{`- ${TITLE_DIRTY}`}</div>
-            );
+            )
         default:
-            return '';
+            return ''
     }
-};
+}
 
 export const TitleBar = ({ titleState, titleText, interpretationDate }) => {
     const titleStyle = {
         ...defaultTitleStyle,
         ...getCustomTitleStyle(titleState),
-    };
+    }
 
     return titleText ? (
         <div data-test="chart-title" style={styles.titleBar}>
@@ -109,25 +109,25 @@ export const TitleBar = ({ titleState, titleText, interpretationDate }) => {
                 </div>
             )}
         </div>
-    ) : null;
-};
+    ) : null
+}
 
 TitleBar.propTypes = {
+    interpretationDate: PropTypes.string,
     titleState: PropTypes.string,
     titleText: PropTypes.string,
-    interpretationDate: PropTypes.string,
-};
+}
 
 const mapStateToProps = state => ({
     visualization: sGetVisualization(state),
     current: sGetCurrent(state),
     interpretation: sGetUiInterpretation(state),
     uiLocale: sGetUiLocale(state),
-});
+})
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-    const { visualization, current, interpretation, uiLocale } = stateProps;
-    const titleState = getTitleState(visualization, current);
+    const { visualization, current, interpretation, uiLocale } = stateProps
+    const titleState = getTitleState(visualization, current)
     return {
         ...dispatchProps,
         ...ownProps,
@@ -137,11 +137,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
             interpretation && interpretation.created
                 ? formatDate(interpretation.created, uiLocale)
                 : null,
-    };
-};
+    }
+}
 
-export default connect(
-    mapStateToProps,
-    null,
-    mergeProps
-)(TitleBar);
+export default connect(mapStateToProps, null, mergeProps)(TitleBar)

@@ -3,4 +3,4 @@ export default {
         display: 'flex',
         flexDirection: 'column',
     },
-};
+}
