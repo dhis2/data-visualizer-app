@@ -1,11 +1,11 @@
-import { DIMENSION_ID_PERIOD } from '@dhis2/analytics';
-import { getInstance } from 'd2';
+import { DIMENSION_ID_PERIOD } from '@dhis2/analytics'
+import { getInstance } from 'd2'
 
 export const apiDownloadImage = async (type, formData) => {
-    const d2 = await getInstance();
-    const api = d2.Api.getApi();
+    const d2 = await getInstance()
+    const api = d2.Api.getApi()
 
-    const url = `${api.baseUrl}/svg.${type}`;
+    const url = `${api.baseUrl}/svg.${type}`
 
     return api
         .fetch(url, {
@@ -13,88 +13,88 @@ export const apiDownloadImage = async (type, formData) => {
             body: formData,
             headers: new Headers(api.defaultHeaders),
         })
-        .then(res => res.blob());
-};
+        .then(res => res.blob())
+}
 
-export const apiDownloadData = async (current, format, idScheme, path) => {
-    const d2 = await getInstance();
-    const api = d2.Api.getApi();
+export const apiDownloadData = async ({ current, format, idScheme, path }) => {
+    const d2 = await getInstance()
+    const api = d2.Api.getApi()
 
     let req = new d2.analytics.request()
         .fromModel(current, path === 'dataValueSet')
-        .withFormat(format);
+        .withFormat(format)
 
     if (path) {
-        req = req.withPath(path);
+        req = req.withPath(path)
     }
 
     if (idScheme) {
-        req = req.withOutputIdScheme(idScheme);
+        req = req.withOutputIdScheme(idScheme)
     }
 
     const url = new URL(
         `${api.baseUrl}/${req.buildUrl()}`,
         `${window.location.origin}${window.location.pathname}`
-    );
+    )
 
     Object.entries(req.buildQuery()).forEach(([key, value]) =>
         url.searchParams.append(key, value)
-    );
+    )
 
-    return url;
-};
+    return url
+}
 
 export const apiFetchAnalytics = async (current, options) => {
-    const d2 = await getInstance();
+    const d2 = await getInstance()
 
     const req = new d2.analytics.request()
         .fromModel(current)
-        .withParameters(options);
+        .withParameters(options)
 
-    const rawResponse = await d2.analytics.aggregate.get(req);
+    const rawResponse = await d2.analytics.aggregate.get(req)
 
-    return [new d2.analytics.response(rawResponse)];
-};
+    return [new d2.analytics.response(rawResponse)]
+}
 
 export const apiFetchAnalyticsForYearOverYear = async (current, options) => {
-    const d2 = await getInstance();
+    const d2 = await getInstance()
 
     let yearlySeriesReq = new d2.analytics.request()
         .addPeriodDimension(current.yearlySeries)
         .withSkipData(true)
         .withSkipMeta(false)
-        .withIncludeMetadataDetails(true);
+        .withIncludeMetadataDetails(true)
 
     if (options.relativePeriodDate) {
         yearlySeriesReq = yearlySeriesReq.withRelativePeriodDate(
             options.relativePeriodDate
-        );
+        )
     }
 
-    const yearlySeriesRes = await d2.analytics.aggregate.fetch(yearlySeriesReq);
+    const yearlySeriesRes = await d2.analytics.aggregate.fetch(yearlySeriesReq)
 
-    const requests = [];
-    const yearlySeriesLabels = [];
+    const requests = []
+    const yearlySeriesLabels = []
 
-    const now = new Date();
-    const currentDay = ('' + now.getDate()).padStart(2, 0);
-    const currentMonth = ('' + (now.getMonth() + 1)).padStart(2, 0);
+    const now = new Date()
+    const currentDay = ('' + now.getDate()).padStart(2, 0)
+    const currentMonth = ('' + (now.getMonth() + 1)).padStart(2, 0)
 
     yearlySeriesRes.metaData.dimensions[DIMENSION_ID_PERIOD].forEach(period => {
-        yearlySeriesLabels.push(yearlySeriesRes.metaData.items[period].name);
+        yearlySeriesLabels.push(yearlySeriesRes.metaData.items[period].name)
 
-        const startDate = `${period}-${currentMonth}-${currentDay}`;
+        const startDate = `${period}-${currentMonth}-${currentDay}`
 
         const req = new d2.analytics.request()
             .fromModel(current)
             .withParameters(options)
-            .withRelativePeriodDate(startDate);
+            .withRelativePeriodDate(startDate)
 
-        requests.push(d2.analytics.aggregate.get(req));
-    });
+        requests.push(d2.analytics.aggregate.get(req))
+    })
 
     return Promise.all(requests).then(responses => ({
         responses: responses.map(res => new d2.analytics.response(res)),
         yearlySeriesLabels,
-    }));
-};
+    }))
+}

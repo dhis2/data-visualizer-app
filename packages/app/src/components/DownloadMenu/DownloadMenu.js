@@ -74,7 +74,7 @@ export class DownloadMenu extends Component {
     downloadData = (format, idScheme, path) => async () => {
         const { current } = this.props
 
-        const url = await apiDownloadData(current, format, idScheme, path)
+        const url = await apiDownloadData({ current, format, idScheme, path })
 
         if (idScheme) {
             this.toggleSubmenu('scheme')

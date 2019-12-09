@@ -1,11 +1,11 @@
-export const BASE_FIELD_NAME = 'name';
-export const BASE_FIELD_TYPE = 'type';
-export const BASE_FIELD_YEARLY_SERIES = 'yearlySeries';
+export const BASE_FIELD_NAME = 'name'
+export const BASE_FIELD_TYPE = 'type'
+export const BASE_FIELD_YEARLY_SERIES = 'yearlySeries'
 
 const getFieldObject = (name, props = {}) => ({
     [BASE_FIELD_NAME]: name,
     ...props,
-});
+})
 
 // fields by type
 
@@ -140,22 +140,23 @@ export const fieldsByType = {
         getFieldObject('userOrganisationUnitChildren', { excluded: true }),
         getFieldObject('userOrganisationUnitGrandChildren', { excluded: true }),
     ],
-};
+}
 
 // actions
 
-export const extractName = propObj => propObj[BASE_FIELD_NAME];
+export const extractName = propObj => propObj[BASE_FIELD_NAME]
 
 export const markExcluded = fieldObj =>
     fieldObj.excluded === true
         ? { ...fieldObj, [BASE_FIELD_NAME]: `!${fieldObj[BASE_FIELD_NAME]}` }
-        : fieldObj;
+        : fieldObj
 
+/* eslint-disable-next-line max-params */
 export const moveExcludedToEnd = (acc, current, curIndex, array) => {
-    !acc && (acc = array.slice());
-    current.charAt(0) === '!' && acc.push(acc.shift());
-    return acc;
-};
+    !acc && (acc = array.slice())
+    current.charAt(0) === '!' && acc.push(acc.shift())
+    return acc
+}
 
 // getters
 
@@ -164,4 +165,4 @@ export const getAllFieldObjectsByType = type =>
         (fields, [key, value]) =>
             key.includes(type) ? fields.concat(value) : fields,
         []
-    );
+    )
