@@ -74,7 +74,7 @@ export class DownloadMenu extends Component {
     downloadData = (format, idScheme, path) => async () => {
         const { current } = this.props
 
-        const url = await apiDownloadData(current, format, idScheme, path)
+        const url = await apiDownloadData({ current, format, idScheme, path })
 
         if (idScheme) {
             this.toggleSubmenu('scheme')
@@ -201,7 +201,7 @@ export class DownloadMenu extends Component {
                     open={Boolean(this.state.schemeSubmenu.anchorEl)}
                     anchorEl={this.state.schemeSubmenu.anchorEl}
                     anchorOrigin={styles.submenuAnchorOrigin}
-                    onClose={event => this.toggleSubmenu('scheme')}
+                    onClose={() => this.toggleSubmenu('scheme')}
                 >
                     <ListSubheader component="div">
                         {i18n.t('Metadata ID scheme')}
@@ -235,7 +235,7 @@ export class DownloadMenu extends Component {
                     open={Boolean(this.state.advancedSubmenu.anchorEl)}
                     anchorEl={this.state.advancedSubmenu.anchorEl}
                     anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-                    onClose={event => this.toggleSubmenu('advanced')}
+                    onClose={() => this.toggleSubmenu('advanced')}
                 >
                     <ListSubheader component="div">
                         {i18n.t('Data value set')}

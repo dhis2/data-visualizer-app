@@ -189,7 +189,7 @@ export const tDoDeleteVisualization = () => (dispatch, getState) => {
 }
 
 // snackbar
-export const tDoCloseSnackbar = () => (dispatch, getState) => {
+export const tDoCloseSnackbar = () => dispatch => {
     dispatch(
         fromSnackbar.acReceivedSnackbarMessage({
             open: false,

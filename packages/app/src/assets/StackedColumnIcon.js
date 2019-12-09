@@ -1,5 +1,6 @@
 import React from 'react'
 import SvgIcon from '@material-ui/core/SvgIcon'
+import PropTypes from 'prop-types'
 
 const StackedColumnIcon = ({
     style = { paddingRight: '8px', width: 24, height: 24 },
@@ -38,5 +39,9 @@ const StackedColumnIcon = ({
         </g>
     </SvgIcon>
 )
+
+StackedColumnIcon.propTypes = {
+    style: PropTypes.object,
+}
 
 export default StackedColumnIcon

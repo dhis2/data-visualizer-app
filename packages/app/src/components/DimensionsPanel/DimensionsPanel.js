@@ -6,6 +6,7 @@ import {
     getDisallowedDimensions,
     getAllLockedDimensionIds,
 } from '@dhis2/analytics'
+import PropTypes from 'prop-types'
 
 import DialogManager from './Dialogs/DialogManager'
 import { SOURCE_DIMENSIONS, getInverseLayout } from '../../modules/layout'
@@ -108,6 +109,20 @@ const getDisallowedDimensionsMemo = createSelector([sGetUiType], type =>
 const getLockedDimensionsMemo = createSelector([sGetUiType], type =>
     getAllLockedDimensionIds(type)
 )
+
+Dimensions.propTypes = {
+    axisItemHandler: PropTypes.func,
+    dimensions: PropTypes.array,
+    disallowedDimensions: PropTypes.array,
+    dualAxisItemHandler: PropTypes.func,
+    itemsByDimension: PropTypes.array,
+    lockedDimensions: PropTypes.array,
+    recommendedIds: PropTypes.array,
+    removeItemHandler: PropTypes.func,
+    selectedIds: PropTypes.array,
+    ui: PropTypes.object,
+    onDimensionClick: PropTypes.func,
+}
 
 const mapStateToProps = state => {
     return {

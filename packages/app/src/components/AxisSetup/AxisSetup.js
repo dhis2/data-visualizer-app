@@ -211,6 +211,7 @@ AxisSetup.propTypes = {
             name: PropTypes.string.isRequired,
         })
     ),
+    ui: PropTypes.object,
     onCancelClick: PropTypes.func,
 }
 

@@ -21,7 +21,7 @@ class VisualizationOptionsManager extends Component {
         }
     }
 
-    onClose = event => {
+    onClose = () => {
         this.toggleVisualizationOptionsDialog()
     }
 

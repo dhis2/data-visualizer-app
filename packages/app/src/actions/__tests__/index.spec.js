@@ -342,7 +342,7 @@ describe('index', () => {
         history.default.push = jest.fn()
         history.default.replace = jest.fn()
 
-        api.apiSaveVisualization = jest.fn((type, vis) => {
+        api.apiSaveVisualization = jest.fn(() => {
             return Promise.resolve({
                 status: 'OK',
                 response: {

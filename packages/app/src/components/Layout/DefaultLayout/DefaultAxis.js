@@ -11,6 +11,7 @@ import {
     isDualAxisType,
     getAxisName,
 } from '@dhis2/analytics'
+import PropTypes from 'prop-types'
 
 import Chip from '../Chip'
 import { sGetUi } from '../../../reducers/ui'
@@ -123,6 +124,20 @@ class Axis extends React.Component {
             </div>
         )
     }
+}
+
+Axis.propTypes = {
+    axis: PropTypes.string,
+    axisId: PropTypes.string,
+    getMoveHandler: PropTypes.func,
+    getOpenHandler: PropTypes.func,
+    getRemoveHandler: PropTypes.func,
+    itemsByDimension: PropTypes.array,
+    style: PropTypes.object,
+    type: PropTypes.string,
+    onAddDimension: PropTypes.func,
+    onDropWithoutItems: PropTypes.func,
+    onOpenAxisSetup: PropTypes.func,
 }
 
 const mapStateToProps = state => ({

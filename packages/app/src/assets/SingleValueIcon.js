@@ -1,5 +1,6 @@
 import React from 'react'
 import SvgIcon from '@material-ui/core/SvgIcon'
+import PropTypes from 'prop-types'
 
 const SingleValueIcon = ({
     style = { paddingRight: '8px', width: 24, height: 24 },
@@ -23,5 +24,9 @@ const SingleValueIcon = ({
         />
     </SvgIcon>
 )
+
+SingleValueIcon.propTypes = {
+    style: PropTypes.object,
+}
 
 export default SingleValueIcon

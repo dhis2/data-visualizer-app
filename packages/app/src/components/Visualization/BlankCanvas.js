@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 import styles from './styles/BlankCanvas.style'
 import { sGetLoadError } from '../../reducers/loader'
+import PropTypes from 'prop-types'
 import chartErrorImg from '../../assets/chart-error-graphic.png'
 
 export const defaultCanvasMessage = i18n.t(
@@ -26,6 +27,10 @@ export const BlankCanvas = ({ error }) => {
             <div style={styles.inner}>{canvasContent}</div>
         </div>
     )
+}
+
+BlankCanvas.propTypes = {
+    error: PropTypes.object,
 }
 
 const mapStateToProps = state => ({

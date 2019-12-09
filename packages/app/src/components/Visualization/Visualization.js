@@ -106,6 +106,16 @@ Visualization.contextTypes = {
     d2: PropTypes.object,
 }
 
+Visualization.propTypes = {
+    acAddMetadata: PropTypes.func,
+    acSetChart: PropTypes.func,
+    acSetLoadError: PropTypes.func,
+    error: PropTypes.object,
+    rightSidebarOpen: PropTypes.bool,
+    visConfig: PropTypes.object,
+    visFilters: PropTypes.object,
+}
+
 export const visConfigSelector = createSelector(
     [sGetCurrent, sGetVisualization, sGetUiInterpretation],
     (current, visualization, interpretation) =>

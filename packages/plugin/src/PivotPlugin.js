@@ -145,7 +145,7 @@ class PivotPlugin extends Component {
                 onResponsesReceived(responses)
             }
 
-            this.recreateVisualization = animation => {
+            this.recreateVisualization = (animation = this.props.animation) => {
                 const visualizationConfig = createVisualization(
                     responses,
                     visualization,

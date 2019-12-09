@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import IconButton from '@material-ui/core/IconButton'
 import { DimensionMenu } from '@dhis2/analytics'
+import PropTypes from 'prop-types'
 
 import MoreHorizontalIcon from '../../assets/MoreHorizontalIcon'
 import { styles } from './styles/Menu.style'
@@ -22,7 +23,7 @@ class ChipMenu extends React.Component {
         this.setState({ anchorEl: event.currentTarget })
     }
 
-    handleClose = event => {
+    handleClose = () => {
         // event.stopPropagation();
         this.setState({ anchorEl: null })
     }
@@ -56,10 +57,21 @@ class ChipMenu extends React.Component {
     }
 }
 
+ChipMenu.propTypes = {
+    axisItemHandler: PropTypes.func,
+    currentAxisId: PropTypes.string,
+    dimensionId: PropTypes.string,
+    dualAxisItemHandler: PropTypes.func,
+    id: PropTypes.string,
+    numberOfDimensionItems: PropTypes.number,
+    removeItemHandler: PropTypes.func,
+    visType: PropTypes.string,
+}
+
 const mapDispatchToProps = dispatch => ({
     dualAxisItemHandler: () =>
         dispatch(acSetUiActiveModalDialog(AXIS_SETUP_DIALOG_ID)),
-    axisItemHandler: (dimensionId, targetAxisId, numberOfDimensionItems) => {
+    axisItemHandler: (dimensionId, targetAxisId) => {
         dispatch(acAddUiLayoutDimensions({ [dimensionId]: targetAxisId }))
     },
     removeItemHandler: dimensionId => {

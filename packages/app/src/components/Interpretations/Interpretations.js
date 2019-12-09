@@ -60,6 +60,7 @@ Interpretations.defaultProps = {
 }
 
 Interpretations.propTypes = {
+    acSetUiInterpretation: PropTypes.func,
     id: PropTypes.string,
     interpretationId: PropTypes.string,
     type: PropTypes.string,

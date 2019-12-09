@@ -134,7 +134,7 @@ export class DialogManager extends Component {
         return this.props.selectedItems[dialogId]
             ? this.props.selectedItems[dialogId]
                   .filter(id => this.props.metadata[id])
-                  .map((id, index) => ({
+                  .map(id => ({
                       id,
                       name: this.props.metadata[id].name,
                   }))
@@ -353,11 +353,18 @@ DialogManager.propTypes = {
     dimensionIdsInLayout: PropTypes.array.isRequired,
     ouIds: PropTypes.array.isRequired,
     setRecommendedIds: PropTypes.func.isRequired,
+    addMetadata: PropTypes.func,
+    addParentGraphMap: PropTypes.func,
     dialogId: PropTypes.string,
     dimensions: PropTypes.object,
+    displayNameProperty: PropTypes.string,
     dxIds: PropTypes.array,
+    getAxisIdByDimensionId: PropTypes.func,
     metadata: PropTypes.object,
+    parentGraphMap: PropTypes.object,
+    removeUiItems: PropTypes.func,
     selectedItems: PropTypes.object,
+    setUiItems: PropTypes.func,
     type: PropTypes.string,
 }
 

@@ -27,6 +27,7 @@ const UpdateButton = ({ classes, flat, onClick, ...props }) => {
 
 UpdateButton.propTypes = {
     classes: PropTypes.object.isRequired,
+    className: PropTypes.string,
     flat: PropTypes.bool,
     onClick: PropTypes.func,
 }

@@ -38,7 +38,8 @@ export const InterpretationsButton = props => (
 InterpretationsButton.propTypes = {
     classes: PropTypes.object.isRequired,
     className: PropTypes.string,
-    rightSiderbarOpen: PropTypes.bool,
+    id: PropTypes.string,
+    rightSidebarOpen: PropTypes.bool,
     onClick: PropTypes.func,
 }
 

@@ -16,7 +16,7 @@ export const apiDownloadImage = async (type, formData) => {
         .then(res => res.blob())
 }
 
-export const apiDownloadData = async (current, format, idScheme, path) => {
+export const apiDownloadData = async ({ current, format, idScheme, path }) => {
     const d2 = await getInstance()
     const api = d2.Api.getApi()
 

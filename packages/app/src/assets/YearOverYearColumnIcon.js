@@ -1,5 +1,6 @@
 import React from 'react'
 import SvgIcon from '@material-ui/core/SvgIcon'
+import PropTypes from 'prop-types'
 
 const YearOverYearColumnIcon = ({
     style = { paddingRight: '8px', width: 24, height: 24 },
@@ -20,5 +21,9 @@ const YearOverYearColumnIcon = ({
         </g>
     </SvgIcon>
 )
+
+YearOverYearColumnIcon.propTypes = {
+    style: PropTypes.object,
+}
 
 export default YearOverYearColumnIcon

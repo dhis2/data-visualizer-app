@@ -20,6 +20,7 @@ const HideButton = ({ className, closeDialog }) => (
 
 HideButton.propTypes = {
     closeDialog: PropTypes.func.isRequired,
+    className: PropTypes.string,
 }
 
 export default connect(null, {

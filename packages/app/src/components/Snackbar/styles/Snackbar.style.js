@@ -1,6 +1,6 @@
 import { colors } from '@dhis2/ui-core'
 
-export default theme => ({
+export default {
     container: {
         display: 'flex',
         alignItems: 'center',
@@ -22,4 +22,4 @@ export default theme => ({
         backgroundColor: colors.red500,
         color: colors.white,
     },
-})
+}

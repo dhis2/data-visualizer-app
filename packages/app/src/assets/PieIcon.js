@@ -1,5 +1,6 @@
 import React from 'react'
 import SvgIcon from '@material-ui/core/SvgIcon'
+import PropTypes from 'prop-types'
 
 const PieIcon = ({
     style = { paddingRight: '8px', width: 24, height: 24 },
@@ -54,5 +55,9 @@ const PieIcon = ({
         </g>
     </SvgIcon>
 )
+
+PieIcon.propTypes = {
+    style: PropTypes.object,
+}
 
 export default PieIcon

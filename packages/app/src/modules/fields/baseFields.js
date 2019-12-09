@@ -152,6 +152,7 @@ export const markExcluded = fieldObj =>
         ? { ...fieldObj, [BASE_FIELD_NAME]: `!${fieldObj[BASE_FIELD_NAME]}` }
         : fieldObj
 
+/* eslint-disable-next-line max-params, no-unused-vars */
 export const moveExcludedToEnd = (acc, current, curIndex, array) => {
     !acc && (acc = array.slice())
     current.charAt(0) === '!' && acc.push(acc.shift())

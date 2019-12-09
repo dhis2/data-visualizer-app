@@ -1,5 +1,6 @@
 import React from 'react'
 import SvgIcon from '@material-ui/core/SvgIcon'
+import PropTypes from 'prop-types'
 
 const ColumnIcon = ({
     style = { paddingRight: '8px', width: 24, height: 24 },
@@ -14,5 +15,9 @@ const ColumnIcon = ({
         </g>
     </SvgIcon>
 )
+
+ColumnIcon.propTypes = {
+    style: PropTypes.object,
+}
 
 export default ColumnIcon

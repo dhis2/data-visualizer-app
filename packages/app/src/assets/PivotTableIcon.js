@@ -1,5 +1,6 @@
 import React from 'react'
 import SvgIcon from '@material-ui/core/SvgIcon'
+import PropTypes from 'prop-types'
 
 const PivotTableIcon = ({
     style = { paddingRight: '8px', width: 24, height: 24 },
@@ -22,5 +23,9 @@ const PivotTableIcon = ({
         </g>
     </SvgIcon>
 )
+
+PivotTableIcon.propTypes = {
+    style: PropTypes.object,
+}
 
 export default PivotTableIcon

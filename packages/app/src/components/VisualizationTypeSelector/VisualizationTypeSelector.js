@@ -121,6 +121,7 @@ VisualizationTypeSelector.propTypes = {
     metadata: PropTypes.object,
     ui: PropTypes.object,
     visualizationType: PropTypes.oneOf(Object.keys(visTypeDisplayNames)),
+    onTypeSelect: PropTypes.func,
 }
 
 VisualizationTypeSelector.contextTypes = {

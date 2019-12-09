@@ -1,5 +1,6 @@
 import React from 'react'
 import SvgIcon from '@material-ui/core/SvgIcon'
+import PropTypes from 'prop-types'
 
 const BubbleIcon = ({
     style = { paddingRight: '8px', width: 24, height: 24 },
@@ -14,5 +15,9 @@ const BubbleIcon = ({
         </g>
     </SvgIcon>
 )
+
+BubbleIcon.propTypes = {
+    style: PropTypes.object,
+}
 
 export default BubbleIcon

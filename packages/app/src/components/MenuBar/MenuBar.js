@@ -64,6 +64,8 @@ export const MenuBar = ({ classes, ...props }, context) => (
 
 MenuBar.propTypes = {
     classes: PropTypes.object.isRequired,
+    apiObjectName: PropTypes.string,
+    id: PropTypes.string,
 }
 
 MenuBar.contextTypes = {

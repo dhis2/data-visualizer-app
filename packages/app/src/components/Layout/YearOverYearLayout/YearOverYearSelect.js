@@ -1,6 +1,7 @@
 import React from 'react'
 import Select from '@material-ui/core/Select'
 import MenuItem from '@material-ui/core/MenuItem'
+import PropTypes from 'prop-types'
 
 import styles from './styles/YearOverYearSelect.style'
 
@@ -39,6 +40,13 @@ class YearOverYearSelect extends React.Component {
             </Select>
         )
     }
+}
+
+YearOverYearSelect.propTypes = {
+    multiple: PropTypes.string,
+    options: PropTypes.array,
+    value: PropTypes.string,
+    onChange: PropTypes.func,
 }
 
 export default YearOverYearSelect

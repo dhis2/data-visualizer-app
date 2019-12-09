@@ -1,5 +1,6 @@
 import React from 'react'
 import SvgIcon from '@material-ui/core/SvgIcon'
+import PropTypes from 'prop-types'
 
 const AreaIcon = ({
     style = { paddingRight: '8px', width: 24, height: 24 },
@@ -24,5 +25,9 @@ const AreaIcon = ({
         </g>
     </SvgIcon>
 )
+
+AreaIcon.propTypes = {
+    style: PropTypes.object,
+}
 
 export default AreaIcon

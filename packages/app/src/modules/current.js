@@ -17,8 +17,7 @@ import { pieLayoutAdapter, singleValueLayoutAdapter } from './layoutAdapters'
 import { mergeUiMaps } from './ui'
 import { SERIES_ITEMS_SERIES } from './seriesItems'
 
-const hasItems = (object, id) =>
-    object.hasOwnProperty(id) && Array.isArray(object[id]) && object[id].length
+const hasItems = (object, id) => Array.isArray(object[id]) && object[id].length
 
 export const getAxesFromUi = ui =>
     Object.entries(ui.layout).reduce(

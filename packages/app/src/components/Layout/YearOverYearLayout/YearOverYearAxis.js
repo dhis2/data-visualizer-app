@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { getAxisName } from '@dhis2/analytics'
+import PropTypes from 'prop-types'
 
 import {
     sGetUiYearOverYearSeries,
@@ -28,6 +29,12 @@ const YearOverYearAxis = props => (
         </div>
     </div>
 )
+
+YearOverYearAxis.propTypes = {
+    axisId: PropTypes.string,
+    children: PropTypes.node,
+    style: PropTypes.object,
+}
 
 const mapStateToProps = state => ({
     yearOverYearSeries: sGetUiYearOverYearSeries(state),

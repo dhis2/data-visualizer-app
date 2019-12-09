@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { AXIS_ID_FILTERS } from '@dhis2/analytics'
+import PropTypes from 'prop-types'
 
 import DefaultAxis from '../DefaultLayout/DefaultAxis'
 import defaultLayoutStyles from '../DefaultLayout/styles/DefaultLayout.style'
@@ -71,6 +72,13 @@ const Layout = props => (
 )
 
 Layout.displayName = 'Layout'
+
+Layout.propTypes = {
+    yearOverYearCategory: PropTypes.string,
+    yearOverYearSeries: PropTypes.string,
+    onCategoryChange: PropTypes.func,
+    onSeriesChange: PropTypes.func,
+}
 
 const mapStateToProps = state => ({
     yearOverYearSeries: sGetUiYearOverYearSeries(state),

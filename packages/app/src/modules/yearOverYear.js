@@ -5,7 +5,7 @@ const getFixedYears = len => {
     let year = new Date().getFullYear()
     return new Array(len)
         .fill(null)
-        .map(n => ({ id: String(year), name: year-- }))
+        .map(() => ({ id: String(year), name: year-- }))
 }
 
 // Options for the year on year series dropdown

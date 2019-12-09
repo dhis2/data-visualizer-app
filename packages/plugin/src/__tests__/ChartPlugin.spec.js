@@ -322,7 +322,7 @@ describe('ChartPlugin', () => {
                     expect(
                         analytics.createVisualization.mock.calls[0][3]
                     ).toEqual({
-                        animation: undefined,
+                        animation: 200, // default prop
                         dashboard: false,
                         ...expectedExtraOptions,
                     })
