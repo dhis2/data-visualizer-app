@@ -20,7 +20,7 @@ import { computeGenericPeriodNames } from './modules/analytics'
 import { BASE_FIELD_YEARLY_SERIES } from './modules/fields/baseFields'
 import LoadingMask from './widgets/LoadingMask'
 
-import './PivotPlugin.css'
+import { pivotTableStyles } from './styles/PivotPlugin.style.js';
 
 class PivotPlugin extends Component {
     constructor(props) {
@@ -193,7 +193,9 @@ class PivotPlugin extends Component {
         return (
             <Fragment>
                 {this.state.isLoading ? <LoadingMask /> : null}
-                <div ref={this.canvasRef} style={this.props.style} />
+                <div ref={this.canvasRef} style={this.props.style}>
+                    <style jsx>{pivotTableStyles}</style>
+                </div>
             </Fragment>
         )
     }

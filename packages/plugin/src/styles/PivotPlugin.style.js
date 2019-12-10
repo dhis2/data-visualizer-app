@@ -1,3 +1,6 @@
+import css from 'styled-jsx/css';
+
+export const pivotTableStyles = css.global`
 .pivot td {
     border: 1px solid #b2b2b2;
     padding: 5px;
@@ -31,3 +34,4 @@
 .pointer {
     cursor: pointer;
 }
+`;
