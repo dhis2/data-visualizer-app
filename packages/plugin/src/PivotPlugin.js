@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import isEqual from 'lodash-es/isEqual'
 import i18n from '@dhis2/d2-i18n'
-import { createVisualization } from '@dhis2/analytics'
 import {
     api as d2aApi,
     table as d2aTable,
@@ -13,11 +12,8 @@ import {
 import { apiFetchVisualization } from './api/visualization'
 import {
     apiFetchAnalytics,
-    apiFetchAnalyticsForYearOverYear,
 } from './api/analytics'
 import { getOptionsForRequest } from './modules/options'
-import { computeGenericPeriodNames } from './modules/analytics'
-import { BASE_FIELD_YEARLY_SERIES } from './modules/fields/baseFields'
 import LoadingMask from './widgets/LoadingMask'
 
 import { pivotTableStyles } from './styles/PivotPlugin.style.js';
@@ -95,7 +91,7 @@ class PivotPlugin extends Component {
     }
 
     getConfigById = id => {
-        return apiFetchVisualization(this.props.d2, 'chart', id)
+        return apiFetchVisualization(this.props.d2, 'reportTable', id)
     }
 
     renderTable = async () => {
@@ -104,7 +100,6 @@ class PivotPlugin extends Component {
             filters,
             forDashboard,
             onResponsesReceived,
-            onChartGenerated,
             onError,
         } = this.props
 
@@ -184,7 +179,6 @@ class PivotPlugin extends Component {
 
             this.setState({ isLoading: false })
         } catch (error) {
-            console.log(error)
             onError(error)
         }
     }
@@ -208,7 +202,6 @@ PivotPlugin.defaultProps = {
     style: {},
     animation: 200,
     onError: Function.prototype,
-    onChartGenerated: Function.prototype,
     onResponsesReceived: Function.prototype,
 }
 
@@ -220,7 +213,6 @@ PivotPlugin.propTypes = {
     forDashboard: PropTypes.bool,
     id: PropTypes.number,
     style: PropTypes.object,
-    onChartGenerated: PropTypes.func,
     onResponsesReceived: PropTypes.func,
 }
 
