@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-11-28T10:06:38.807Z\n"
-"PO-Revision-Date: 2019-11-28T10:06:38.807Z\n"
+"POT-Creation-Date: 2019-12-10T08:39:00.095Z\n"
+"PO-Revision-Date: 2019-12-10T08:39:00.095Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -98,7 +98,7 @@ msgstr ""
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr ""
 
-msgid "{{total}} of {{maxNumberOfItemsPerAxis}} selected"
+msgid "{{total}} selected"
 msgstr ""
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
@@ -110,13 +110,10 @@ msgstr ""
 msgid "Remove"
 msgstr ""
 
-msgid "Remove"
-msgstr ""
-
 msgid "None selected"
 msgstr ""
 
-msgid "Only '{{name}}' in use"
+msgid "Only '{{- name}}' in use"
 msgstr ""
 
 msgid "Only '{{number}}' in use"
@@ -413,45 +410,6 @@ msgid "Top limit"
 msgstr ""
 
 msgid "Options"
-msgstr ""
-
-msgid "Pivot table"
-msgstr ""
-
-msgid "Column"
-msgstr ""
-
-msgid "Stacked column"
-msgstr ""
-
-msgid "Bar"
-msgstr ""
-
-msgid "Stacked bar"
-msgstr ""
-
-msgid "Line"
-msgstr ""
-
-msgid "Area"
-msgstr ""
-
-msgid "Pie"
-msgstr ""
-
-msgid "Radar"
-msgstr ""
-
-msgid "Gauge"
-msgstr ""
-
-msgid "Year over year (line)"
-msgstr ""
-
-msgid "Year over year (column)"
-msgstr ""
-
-msgid "Single value"
 msgstr ""
 
 msgid "Open as Map"
