@@ -87,7 +87,6 @@ class MeasureCriteria extends Component {
     onClear = () => this.setState(this.defaultState, this.props.onChange(''));
 
     onChange = name => value => {
-        console.log('onchange', value);
         this.setState({ [name]: value }, () => {
             const { op1, v1, op2, v2 } = this.state;
             const value = [];
