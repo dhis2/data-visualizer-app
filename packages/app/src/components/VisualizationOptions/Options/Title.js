@@ -1,15 +1,30 @@
-import React from 'react'
-import TextBaseOption from './TextBaseOption'
-import i18n from '@dhis2/d2-i18n'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const Title = () => (
+import i18n from '@dhis2/d2-i18n';
+
+import TextBaseOption from './TextBaseOption';
+
+const Title = ({ label, inline }) => (
     <TextBaseOption
         type="text"
+        width="280px"
+        label={label}
+        placeholder={i18n.t('Add a title')}
         option={{
             name: 'title',
-            label: i18n.t('Chart title'),
         }}
+        inline={inline}
     />
 )
 
-export default Title
+Title.defaultProps = {
+    inline: false,
+};
+
+Title.propTypes = {
+    label: PropTypes.string,
+    inline: PropTypes.bool,
+};
+
+export default Title;

@@ -134,7 +134,7 @@ describe('index', () => {
         })
 
         it('dispatches CLEAR_LOAD_ERROR last', () => {
-            const vis = 'hey'
+            const vis = { name: 'hey' };
             api.apiFetchVisualization = () =>
                 Promise.resolve({
                     toJSON: () => vis,

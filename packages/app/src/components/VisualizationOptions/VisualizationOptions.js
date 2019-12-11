@@ -1,57 +1,103 @@
-import React, { Component, Fragment } from 'react'
-import PropTypes from 'prop-types'
-import { withStyles } from '@material-ui/core/styles'
-import AppBar from '@material-ui/core/AppBar'
-import Tabs from '@material-ui/core/Tabs'
-import Tab from '@material-ui/core/Tab'
+import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-import i18n from '@dhis2/d2-i18n'
-import DataTab from './DataTab'
-import StyleTab from './StyleTab'
-import AxisAndLegendTab from './AxisAndLegendTab'
-import styles from './styles/VisualizationOptions.style'
+import { FieldSet, Legend, TabBar, Tab } from '@dhis2/ui-core';
+
+import {
+    tabSection,
+    tabSectionTitle,
+    tabSectionOption,
+    tabSectionOptionItem,
+    tabSectionOptionToggleable,
+    tabSectionOptionComplexInline,
+    tabSectionOptionText,
+    tabBar,
+} from './styles/VisualizationOptions.style.js';
+
+import { sGetUiType } from '../../reducers/ui';
+import { getOptionsByType } from '../../modules/options/config';
+
 export class VisualizationOptions extends Component {
-    state = { activeTab: 0 }
+    state = { activeTabKey: undefined };
 
-    selectTab = tabId => {
-        this.setState({ activeTab: tabId })
-    }
+    selectTab = tabKey => {
+        this.setState({ activeTabKey: tabKey });
+    };
+
+    generateTabContent = sections =>
+        sections.map(({ key, label, content }) => (
+            <div key={key} className={tabSection.className}>
+                <FieldSet>
+                    {label ? (
+                        <Legend>
+                            <span className={tabSectionTitle.className}>
+                                {label}
+                            </span>
+                        </Legend>
+                    ) : null}
+                    {React.Children.toArray(content)}
+                </FieldSet>
+            </div>
+        ));
+
+    generateTabs = tabs =>
+        tabs.map(({ key, label, content }) => ({
+            key,
+            label,
+            content: this.generateTabContent(content),
+        }));
 
     render() {
-        const { classes } = this.props
-        const { activeTab } = this.state
+        const { visualizationType } = this.props;
+
+        const optionsConfig = getOptionsByType(visualizationType);
+
+        const tabs = this.generateTabs(optionsConfig);
+
+        let activeTabIndex = tabs.findIndex(
+            tab => tab.key === this.state.activeTabKey
+        );
+
+        if (activeTabIndex < 0) {
+            activeTabIndex = 0;
+        }
 
         return (
             <Fragment>
-                <AppBar
-                    position="sticky"
-                    className={classes.tabsBar}
-                    elevation={0}
-                >
-                    <Tabs
-                        indicatorColor="primary"
-                        onChange={(event, tabId) => this.selectTab(tabId)}
-                        textColor="primary"
-                        value={activeTab}
-                    >
-                        <Tab className={classes.tab} label={i18n.t('Data')} />
-                        <Tab
-                            className={classes.tab}
-                            label={i18n.t('Axis & legend')}
-                        />
-                        <Tab className={classes.tab} label={i18n.t('Style')} />
-                    </Tabs>
-                </AppBar>
-                {activeTab === 0 && <DataTab />}
-                {activeTab === 1 && <AxisAndLegendTab />}
-                {activeTab === 2 && <StyleTab />}
+                <div className={tabBar.className}>
+                    <TabBar>
+                        {tabs.map(({ key, label }, index) => (
+                            <Tab
+                                key={key}
+                                onClick={() => this.selectTab(key)}
+                                selected={index === activeTabIndex}
+                            >
+                                {label}
+                            </Tab>
+                        ))}
+                    </TabBar>
+                    {tabBar.styles}
+                </div>
+                {tabs[activeTabIndex].content}
+                {tabSection.styles}
+                {tabSectionTitle.styles}
+                {tabSectionOption.styles}
+                {tabSectionOptionItem.styles}
+                {tabSectionOptionToggleable.styles}
+                {tabSectionOptionComplexInline.styles}
+                {tabSectionOptionText.styles}
             </Fragment>
         )
     }
 }
 
 VisualizationOptions.propTypes = {
-    classes: PropTypes.object.isRequired,
-}
+    visualizationType: PropTypes.string.isRequired,
+};
 
-export default withStyles(styles)(VisualizationOptions)
+const mapStateToProps = state => ({
+    visualizationType: sGetUiType(state),
+});
+
+export default connect(mapStateToProps)(VisualizationOptions);

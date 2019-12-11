@@ -50,8 +50,19 @@ export const getOptionsFromUi = ui => {
         optionsFromUi.baseLineValue = options.baseLineValue.defaultValue
     }
 
-    return optionsFromUi
-}
+    // nested options under reportParams
+    optionsFromUi.reportParams = {};
+    [
+        'paramOrganisationUnit',
+        'paramReportingPeriod',
+        'paramParentOrganisationUnit',
+        'paramGrandParentOrganisationUnit',
+    ].forEach(
+        option => (optionsFromUi.reportParams[option] = ui.options[option])
+    );
+
+    return optionsFromUi;
+};
 
 // expand to support series types later
 export const getSeriesItemsFromUi = ui => {

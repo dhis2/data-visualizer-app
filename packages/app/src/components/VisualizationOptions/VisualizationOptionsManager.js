@@ -1,16 +1,20 @@
-import React, { Component, Fragment } from 'react'
-import PropTypes from 'prop-types'
-import Button from '@material-ui/core/Button'
-import Dialog from '@material-ui/core/Dialog'
-import DialogActions from '@material-ui/core/DialogActions'
-import DialogContent from '@material-ui/core/DialogContent'
-import DialogTitle from '@material-ui/core/DialogTitle'
-import { withStyles } from '@material-ui/core/styles'
-import i18n from '@dhis2/d2-i18n'
+import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 
-import UpdateButton from '../UpdateButton/UpdateButton'
-import VisualizationOptions from './VisualizationOptions'
-import styles from './styles/VisualizationOptions.style'
+import { default as MuiButton } from '@material-ui/core/Button';
+
+import i18n from '@dhis2/d2-i18n';
+import {
+    Button,
+    ButtonStrip,
+    Modal,
+    ModalTitle,
+    ModalContent,
+    ModalActions,
+} from '@dhis2/ui-core';
+
+import UpdateButton from '../UpdateButton/UpdateButton';
+import VisualizationOptions from './VisualizationOptions';
 
 class VisualizationOptionsManager extends Component {
     constructor(props) {
@@ -32,36 +36,40 @@ class VisualizationOptionsManager extends Component {
     render() {
         return (
             <Fragment>
-                <Button
+                <MuiButton
                     className={this.props.className}
                     onClick={this.toggleVisualizationOptionsDialog}
                 >
                     {i18n.t('Options')}
-                </Button>
-                <Dialog
-                    open={this.state.dialogIsOpen}
-                    onClose={this.onClose}
-                    maxWidth="md"
-                >
-                    <DialogTitle>{i18n.t('Chart options')}</DialogTitle>
-                    <DialogContent className={this.props.classes.dialogContent}>
-                        <VisualizationOptions />
-                    </DialogContent>
-                    <DialogActions>
-                        <Button color="primary" onClick={this.onClose}>
-                            {i18n.t('Hide')}
-                        </Button>
-                        <UpdateButton onClick={this.onClose} />
-                    </DialogActions>
-                </Dialog>
+                </MuiButton>
+                {this.state.dialogIsOpen && (
+                    <Modal onClose={this.onClose} large>
+                        <ModalTitle>{i18n.t('Options')}</ModalTitle>
+                        <ModalContent>
+                            <VisualizationOptions />
+                        </ModalContent>
+                        <ModalActions>
+                            <ButtonStrip>
+                                <Button
+                                    type="button"
+                                    secondary
+                                    onClick={this.onClose}
+                                >
+                                    {i18n.t('Hide')}
+                                </Button>
+                                <UpdateButton onClick={this.onClose} />
+                            </ButtonStrip>
+                        </ModalActions>
+                    </Modal>
+                )}
             </Fragment>
         )
     }
 }
 
 VisualizationOptionsManager.propTypes = {
-    classes: PropTypes.object.isRequired,
     className: PropTypes.string,
+    visualizationType: PropTypes.string,
 }
 
-export default withStyles(styles)(VisualizationOptionsManager)
+export default VisualizationOptionsManager;

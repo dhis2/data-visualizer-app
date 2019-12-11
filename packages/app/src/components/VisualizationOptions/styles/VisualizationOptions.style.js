@@ -1,62 +1,64 @@
-import { colors } from '@dhis2/ui-core'
+import React from 'react';
+import css from 'styled-jsx/css';
 
-export default {
-    dialogContent: {
-        flex: '1 1 550px',
-    },
-    tabsBar: {
-        height: '48px',
-        backgroundColor: colors.white,
-        borderBottom: `1px solid ${colors.grey300}`,
-    },
-    tab: {
-        width: '33.33%',
-    },
-    dataTabFormGroup: {
-        paddingTop: '8px',
-    },
-    axisTabFormGroup: {
-        height: '325px',
-        justifyContent: 'space-around',
-    },
-    dataTabCheckbox: {
-        height: '35px',
-    },
-    selectBaseOption: {
-        margin: '15px 0px 10px',
-    },
-    regressionType: {
-        margin: '10px 0px 10px',
-    },
-    targetLineRoot: {
-        position: 'relative',
-        top: '8px',
-    },
-    baseLineRoot: {
-        position: 'relative',
-        top: '8px',
-        marginRight: '25px',
-    },
-    checkboxRoot: {
-        position: 'relative',
-        top: '10px',
-        marginLeft: '5px',
-    },
-    targetLine: {
-        justifyContent: 'space-between',
-        marginBottom: '8px',
-    },
-    baseLine: {
-        marginBottom: '5px',
-        justifyContent: 'space-between',
-    },
-    aggregationType: {
-        marginTop: '10px',
-    },
-    rangeAxisMin: {
-        marginRight: '15px',
-    },
-    titleFormGroup: {
-        marginBottom: '12px',
-    },
-}
+import { colors, spacers } from '@dhis2/ui-core';
+
+export const tabBar = css.resolve`
+    div {
+        position: sticky;
+        top: 0;
+    }
+`;
+
+export const tabSection = css.resolve`
+    div {
+        padding: ${spacers.dp16} 0;
+    }
+`;
+
+export const tabSectionContent = css.resolve`
+    div {
+        overflow-y: auto;
+    }
+`;
+
+export const tabSectionTitle = css.resolve`
+    span {
+        display: inline-block;
+        padding-bottom: ${spacers.dp16};
+        font-size: ${spacers.dp16};
+        color: ${colors.grey900};
+    }
+`;
+
+export const tabSectionOption = css.resolve`
+    div:not(:last-child):not(.inline) {
+        padding-bottom: ${spacers.dp16};
+    }
+`;
+
+export const tabSectionOptionItem = css.resolve`
+    div:not(:last-child) {
+        padding-bottom: ${spacers.dp8};
+    }
+`;
+
+export const tabSectionOptionText = css.resolve`
+    p {
+        font-size: ${spacers.dp14};
+        padding-bottom: ${spacers.dp16};
+    }
+`;
+
+export const tabSectionOptionToggleable = css.resolve`
+    div {
+        margin: ${spacers.dp4} 0 0 23px;
+    }
+`;
+
+export const tabSectionOptionComplexInline = css.resolve`
+    div {
+        display: flex;
+        align-items: center;
+    }
+`;

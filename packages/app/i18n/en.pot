@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-11-28T10:06:38.807Z\n"
-"PO-Revision-Date: 2019-11-28T10:06:38.807Z\n"
+"POT-Creation-Date: 2019-12-10T08:39:00.095Z\n"
+"PO-Revision-Date: 2019-12-10T08:39:00.095Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -98,7 +98,7 @@ msgstr ""
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr ""
 
-msgid "{{total}} of {{maxNumberOfItemsPerAxis}} selected"
+msgid "{{total}} selected"
 msgstr ""
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
@@ -113,7 +113,7 @@ msgstr ""
 msgid "None selected"
 msgstr ""
 
-msgid "Only '{{name}}' in use"
+msgid "Only '{{- name}}' in use"
 msgstr ""
 
 msgid "Only '{{number}}' in use"
@@ -141,6 +141,9 @@ msgid "Error generating chart, please try again"
 msgstr ""
 
 msgid "Aggregation type"
+msgstr ""
+
+msgid "Determines how the values in the pivot table are aggregated. Learn more"
 msgstr ""
 
 msgid "By data element"
@@ -176,25 +179,85 @@ msgstr ""
 msgid "Variance"
 msgstr ""
 
+msgid "Axis range"
+msgstr ""
+
+msgid "Values outside of the range will not be displayed"
+msgstr ""
+
 msgid "Base line"
+msgstr ""
+
+msgid "Title"
 msgstr ""
 
 msgid "Base line title"
 msgstr ""
 
-msgid "Base line value"
+msgid "Value"
 msgstr ""
 
-msgid "Use cumulative values"
+msgid "Number"
 msgstr ""
 
-msgid "Domain axis title"
+msgid "Column sub-totals"
 msgstr ""
 
-msgid "Hide empty categories"
+msgid "Columns totals"
+msgstr ""
+
+msgid "Include only completed events"
+msgstr ""
+
+msgid "Include cumulative"
+msgstr ""
+
+msgid "Cumulative values"
+msgstr ""
+
+msgid "Digit group separator"
 msgstr ""
 
 msgid "None"
+msgstr ""
+
+msgid "Space"
+msgstr ""
+
+msgid "Comma"
+msgstr ""
+
+msgid "Display density"
+msgstr ""
+
+msgid "Comfortable"
+msgstr ""
+
+msgid "Normal"
+msgstr ""
+
+msgid "Compact"
+msgstr ""
+
+msgid "Axis title"
+msgstr ""
+
+msgid "Add a title"
+msgstr ""
+
+msgid "Font size"
+msgstr ""
+
+msgid "Large"
+msgstr ""
+
+msgid "Small"
+msgstr ""
+
+msgid "Hide empty columns"
+msgstr ""
+
+msgid "Hide empty categories"
 msgstr ""
 
 msgid "Before first"
@@ -209,37 +272,90 @@ msgstr ""
 msgid "All"
 msgstr ""
 
-msgid "Hide chart legend"
+msgid "Hide empty rows"
 msgstr ""
 
-msgid "Hide subtitle"
+msgid "Legend key"
 msgstr ""
 
-msgid "Hide title"
+msgid "Table subtitle"
 msgstr ""
 
-msgid "No space between columns/bars"
+msgid "Chart subtitle"
 msgstr ""
 
-msgid "Use 100% stacked values"
+msgid "Custom"
 msgstr ""
 
-msgid "Range axis decimals"
+msgid "Table title"
 msgstr ""
 
-msgid "Range axis title"
+msgid "Chart title"
 msgstr ""
 
-msgid "Range axis max"
+msgid "Auto generated"
 msgstr ""
 
-msgid "Range axis min"
+msgid "Legend changes background color"
 msgstr ""
 
-msgid "Range axis tick steps"
+msgid "Legend changes text color"
 msgstr ""
 
-msgid "Tick steps may extend the chart beyond 'Range axis max'"
+msgid ""
+"You can set a minimum or maximum value. This will apply to the entire "
+"table, all values outside of the minimum/maximum range will not be displayed"
+msgstr ""
+
+msgid "Minimum data value"
+msgstr ""
+
+msgid "Maximum data value"
+msgstr ""
+
+msgid "Clear min/max limits"
+msgstr ""
+
+msgid "No space between bars/columns"
+msgstr ""
+
+msgid "Number type"
+msgstr ""
+
+msgid "Display the value of percentages of the total"
+msgstr ""
+
+msgid "Percentage of row"
+msgstr ""
+
+msgid "Percentage of column"
+msgstr ""
+
+msgid "Organisation unit"
+msgstr ""
+
+msgid "Parent organisation unit"
+msgstr ""
+
+msgid "Reporting period"
+msgstr ""
+
+msgid "Stacked values add up to 100%"
+msgstr ""
+
+msgid "Decimals"
+msgstr ""
+
+msgid "Auto"
+msgstr ""
+
+msgid "The number of axis steps between the min and max values"
+msgstr ""
+
+msgid "Steps"
+msgstr ""
+
+msgid "Include regression"
 msgstr ""
 
 msgid "Trend line"
@@ -254,10 +370,25 @@ msgstr ""
 msgid "Loess"
 msgstr ""
 
-msgid "Show values"
+msgid "Row sub-totals"
 msgstr ""
 
-msgid "Sort order"
+msgid "Row totals"
+msgstr ""
+
+msgid "Value labels"
+msgstr ""
+
+msgid "Dimension labels"
+msgstr ""
+
+msgid "Show hierarchy"
+msgstr ""
+
+msgid "Skip rounding"
+msgstr ""
+
+msgid "Custom sort order"
 msgstr ""
 
 msgid "Low to high"
@@ -266,7 +397,7 @@ msgstr ""
 msgid "High to low"
 msgstr ""
 
-msgid "Chart subtitle"
+msgid "Add a subtitle"
 msgstr ""
 
 msgid "Target line"
@@ -275,25 +406,10 @@ msgstr ""
 msgid "Target line title"
 msgstr ""
 
-msgid "Target line value"
-msgstr ""
-
-msgid "Chart title"
-msgstr ""
-
-msgid "Data"
-msgstr ""
-
-msgid "Axis & legend"
-msgstr ""
-
-msgid "Style"
+msgid "Top limit"
 msgstr ""
 
 msgid "Options"
-msgstr ""
-
-msgid "Chart options"
 msgstr ""
 
 msgid "Open as Map"
@@ -519,6 +635,63 @@ msgid "User org unit children"
 msgstr ""
 
 msgid "User org unit grand children"
+msgstr ""
+
+msgid "Data"
+msgstr ""
+
+msgid "Axes"
+msgstr ""
+
+msgid "Style"
+msgstr ""
+
+msgid "Display"
+msgstr ""
+
+msgid "Lines"
+msgstr ""
+
+msgid "Vertical (y) axis"
+msgstr ""
+
+msgid "Horizontal (x) axis"
+msgstr ""
+
+msgid "Colors & Legends"
+msgstr ""
+
+msgid "Chart style"
+msgstr ""
+
+msgid "Titles"
+msgstr ""
+
+msgid "Display totals"
+msgstr ""
+
+msgid "Display empty data"
+msgstr ""
+
+msgid "Legend"
+msgstr ""
+
+msgid "Legend type"
+msgstr ""
+
+msgid "Legend setup"
+msgstr ""
+
+msgid "Limit values"
+msgstr ""
+
+msgid "Limit number of values"
+msgstr ""
+
+msgid "Limit minimum/maximum values"
+msgstr ""
+
+msgid "Parameters"
 msgstr ""
 
 msgid "Weeks per year"

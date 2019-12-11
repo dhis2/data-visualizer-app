@@ -1,28 +1,27 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { withStyles } from '@material-ui/core/styles'
-import i18n from '@dhis2/d2-i18n'
+import React from 'react';
 
-import SelectBaseOption from './SelectBaseOption'
-import styles from '../styles/VisualizationOptions.style'
+import i18n from '@dhis2/d2-i18n';
 
-const SortOrder = ({ classes }) => (
+import SelectBaseOption from './SelectBaseOption';
+import { options } from '../../../modules/options';
+
+const optionName = 'sortOrder';
+const defaultValue = options[optionName].defaultValue;
+
+const SortOrder = () => (
     <SelectBaseOption
-        className={classes.selectBaseOption}
+        toggleable={true}
+        label={i18n.t('Custom sort order')}
         option={{
-            name: 'sortOrder',
-            label: i18n.t('Sort order'),
+            name: optionName,
+            defaultValue: defaultValue,
             items: [
-                { id: 0, label: i18n.t('None') },
-                { id: -1, label: i18n.t('Low to high') },
-                { id: 1, label: i18n.t('High to low') },
+                { id: '-1', label: i18n.t('Low to high') },
+                { id: '1', label: i18n.t('High to low') },
+                { id: '0', label: i18n.t('None') },
             ],
         }}
     />
 )
 
-SortOrder.propTypes = {
-    classes: PropTypes.object.isRequired,
-}
-
-export default withStyles(styles)(SortOrder)
+export default SortOrder;

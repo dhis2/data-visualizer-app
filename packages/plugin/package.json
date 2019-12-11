@@ -6,14 +6,15 @@
     "module": "./build/es/lib.js",
     "license": "BSD-3-Clause",
     "dependencies": {
-        "@dhis2/analytics": "^2.6.16",
+        "@dhis2/analytics": "^2.6.19",
         "@material-ui/core": "^3.1.2",
+        "d2-analysis": "33.2.11",
         "lodash-es": "^4.17.11",
-        "react": "^16.6.0",
-        "react-dom": "^16.6.0"
+        "react": "^16.8",
+        "react-dom": "^16.8"
     },
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^2.0.0"
+        "@dhis2/cli-app-scripts": "^3.0.0"
     },
     "scripts": {
         "clean": "rm -rf ./build/*",

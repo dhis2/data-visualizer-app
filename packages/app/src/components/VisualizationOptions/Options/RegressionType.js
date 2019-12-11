@@ -1,16 +1,20 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import i18n from '@dhis2/d2-i18n'
-import { withStyles } from '@material-ui/core/styles'
-import SelectBaseOption from './SelectBaseOption'
-import styles from '../styles/VisualizationOptions.style'
+import React from 'react';
 
-const RegressionType = ({ classes }) => (
+import i18n from '@dhis2/d2-i18n';
+
+import SelectBaseOption from './SelectBaseOption';
+import { options } from '../../../modules/options';
+
+const optionName = 'regressionType';
+const defaultValue = options[optionName].defaultValue;
+
+const RegressionType = () => (
     <SelectBaseOption
-        className={classes.regressionType}
+        toggleable={true}
+        label={i18n.t('Trend line')}
         option={{
-            name: 'regressionType',
-            label: i18n.t('Trend line'),
+            name: optionName,
+            defaultValue: defaultValue,
             items: [
                 { id: 'NONE', label: i18n.t('None') },
                 { id: 'LINEAR', label: i18n.t('Linear') },
@@ -21,8 +25,4 @@ const RegressionType = ({ classes }) => (
     />
 )
 
-RegressionType.propTypes = {
-    classes: PropTypes.object.isRequired,
-}
-
-export default withStyles(styles)(RegressionType)
+export default RegressionType;

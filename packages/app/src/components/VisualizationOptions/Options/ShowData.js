@@ -1,22 +1,16 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import i18n from '@dhis2/d2-i18n'
-import { withStyles } from '@material-ui/core/styles'
-import CheckboxBaseOption from './CheckboxBaseOption'
-import styles from '../styles/VisualizationOptions.style'
+import React from 'react';
 
-const ShowData = ({ classes }) => (
+import i18n from '@dhis2/d2-i18n';
+
+import CheckboxBaseOption from './CheckboxBaseOption';
+
+const ShowData = () => (
     <CheckboxBaseOption
-        className={classes.dataTabCheckbox}
+        label={i18n.t('Value labels')}
         option={{
             name: 'showData',
-            label: i18n.t('Show values'),
         }}
     />
 )
 
-ShowData.propTypes = {
-    classes: PropTypes.object.isRequired,
-}
-
-export default withStyles(styles)(ShowData)
+export default ShowData;

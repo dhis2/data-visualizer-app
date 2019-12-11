@@ -4,7 +4,7 @@ import {
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
     VIS_TYPE_COLUMN,
-} from '@dhis2/analytics'
+} from '@dhis2/analytics';
 
 import {
     getFilteredLayout,

@@ -1,7 +1,9 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import { CheckboxBaseOption } from '../Options/CheckboxBaseOption'
+import { Checkbox } from '@dhis2/ui-core';
+
+import { CheckboxBaseOption } from '../Options/CheckboxBaseOption';
 
 describe('DV > Options > CheckboxBaseOption', () => {
     let props
@@ -19,7 +21,8 @@ describe('DV > Options > CheckboxBaseOption', () => {
 
         props = {
             value: false,
-            option: { label: 'test' },
+            label: 'text',
+            option: { name: 'checkbox1' },
             onChange,
         }
 
@@ -27,21 +30,25 @@ describe('DV > Options > CheckboxBaseOption', () => {
     })
 
     it('renders a label for checkbox', () => {
-        expect(checkboxBaseOption(props).props().label).toEqual(
-            props.option.label
-        )
-    })
+        expect(
+            checkboxBaseOption(props)
+                .find(Checkbox)
+                .props().label
+        ).toEqual(props.label);
+    });
 
     it('renders the checkbox with the correct checked state', () => {
-        const checkbox = shallow(checkboxBaseOption(props).props().control)
-
-        expect(checkbox.props().checked).toBe(props.value)
-    })
+        expect(
+            checkboxBaseOption(props)
+                .find(Checkbox)
+                .props().checked
+        ).toBe(props.value);
+    });
 
     it('should trigger the onChange callback on checkbox change', () => {
-        const checkbox = shallow(checkboxBaseOption(props).props().control)
+        const checkbox = checkboxBaseOption(props).find(Checkbox);
 
-        checkbox.simulate('change', { target: { checked: true } })
+        checkbox.simulate('change', { checked: true });
 
         expect(onChange).toHaveBeenCalled()
     })
