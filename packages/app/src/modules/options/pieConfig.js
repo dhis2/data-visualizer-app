@@ -13,7 +13,9 @@ export default [
             {
                 key: 'data-advanced',
                 label: i18n.t('Advanced'),
-                content: [<AggregationType />],
+                /* eslint-disable react/jsx-key */
+                content: React.Children.toArray([<AggregationType />]),
+                /* eslint-enable react/jsx-key */
             },
         ],
     },
@@ -24,7 +26,9 @@ export default [
             {
                 key: 'style-titles',
                 label: i18n.t('Titles'),
-                content: [<HideTitle />, <HideSubtitle />],
+                /* eslint-disable react/jsx-key */
+                content: React.Children.toArray([<HideTitle />, <HideSubtitle />]),
+                /* eslint-enable react/jsx-key */
             },
         ],
     },

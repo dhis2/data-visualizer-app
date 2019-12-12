@@ -10,13 +10,11 @@ import {
     Response as d2aResponse,
 } from 'd2-analysis'
 import { apiFetchVisualization } from './api/visualization'
-import {
-    apiFetchAnalytics,
-} from './api/analytics'
+import { apiFetchAnalytics } from './api/analytics'
 import { getOptionsForRequest } from './modules/options'
 import LoadingMask from './widgets/LoadingMask'
 
-import { pivotTableStyles } from './styles/PivotPlugin.style.js';
+import { pivotTableStyles } from './styles/PivotPlugin.style.js'
 
 class PivotPlugin extends Component {
     constructor(props) {
@@ -95,13 +93,7 @@ class PivotPlugin extends Component {
     }
 
     renderTable = async () => {
-        const {
-            config,
-            filters,
-            forDashboard,
-            onResponsesReceived,
-            onError,
-        } = this.props
+        const { config, filters, onResponsesReceived, onError } = this.props
 
         const i18nManager = {
             get: string => i18n.t(string),
@@ -198,7 +190,6 @@ class PivotPlugin extends Component {
 PivotPlugin.defaultProps = {
     config: {},
     filters: {},
-    forDashboard: false,
     style: {},
     animation: 200,
     onError: Function.prototype,
@@ -210,7 +201,6 @@ PivotPlugin.propTypes = {
     d2: PropTypes.object.isRequired,
     onError: PropTypes.func.isRequired,
     filters: PropTypes.object,
-    forDashboard: PropTypes.bool,
     id: PropTypes.number,
     style: PropTypes.object,
     onResponsesReceived: PropTypes.func,

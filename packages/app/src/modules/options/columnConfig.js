@@ -27,21 +27,27 @@ export default [
             {
                 key: 'data-display',
                 label: i18n.t('Display'),
-                content: [
+                /* eslint-disable react/jsx-key */
+                content: React.Children.toArray([
                     <CumulativeValues />,
                     <HideEmptyRowItems />,
                     <SortOrder />,
-                ],
+                ]),
+                /* eslint-enable react/jsx-key */
             },
             {
                 key: 'data-lines',
                 label: i18n.t('Lines'),
-                content: [<RegressionType />, <TargetLine />, <BaseLine />],
+                /* eslint-disable react/jsx-key */
+                content: React.Children.toArray([<RegressionType />, <TargetLine />, <BaseLine />]),
+                /* eslint-enable react/jsx-key */
             },
             {
                 key: 'data-advanced',
                 label: i18n.t('Advanced'),
-                content: [<AggregationType />],
+                /* eslint-disable react/jsx-key */
+                content: React.Children.toArray([<AggregationType />]),
+                /* eslint-enable react/jsx-key */
             },
         ],
     },
@@ -52,17 +58,21 @@ export default [
             {
                 key: 'axes-vertical-axis',
                 label: i18n.t('Vertical (y) axis'),
-                content: [
+                /* eslint-disable react/jsx-key */
+                content: React.Children.toArray([
                     <RangeAxisLabel />,
                     <AxisRange />,
                     <RangeAxisSteps />,
                     <RangeAxisDecimals />,
-                ],
+                ]),
+                /* eslint-enable react/jsx-key */
             },
             {
                 key: 'axes-horizontal-axis',
                 label: i18n.t('Horizontal (x) axis'),
-                content: [<DomainAxisLabel />],
+                /* eslint-disable react/jsx-key */
+                content: React.Children.toArray([<DomainAxisLabel />]),
+                /* eslint-enable react/jsx-key */
             },
         ],
     },
@@ -78,17 +88,21 @@ export default [
             {
                 key: 'style-chart-style',
                 label: i18n.t('Chart style'),
-                content: [
+                /* eslint-disable react/jsx-key */
+                content: React.Children.toArray([
                     <ShowData />,
                     <NoSpaceBetweenColumns />,
                     <HideLegend />,
                     /* TODO new option <BackgroundLines /> */
-                ],
+                ]),
+                /* eslint-enable react/jsx-key */
             },
             {
                 key: 'style-titles',
                 label: i18n.t('Titles'),
-                content: [<HideTitle />, <HideSubtitle />],
+                /* eslint-disable react/jsx-key */
+                content: React.Children.toArray([<HideTitle />, <HideSubtitle />]),
+                /* eslint-enable react/jsx-key */
             },
         ],
     },

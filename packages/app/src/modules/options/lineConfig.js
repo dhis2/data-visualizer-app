@@ -28,7 +28,8 @@ export default [
         content: [
             {
                 key: 'data-section-1',
-                content: [
+                /* eslint-disable react/jsx-key */
+                content: React.Children.toArray([
                     <ShowData />,
                     <CumulativeValues />,
                     <HideEmptyRowItems />,
@@ -37,7 +38,8 @@ export default [
                     <BaseLine />,
                     <SortOrder />,
                     <AggregationType />,
-                ],
+                ]),
+                /* eslint-enable react/jsx-key */
             },
         ],
     },
@@ -47,14 +49,16 @@ export default [
         content: [
             {
                 key: 'axes-section-1',
-                content: [
+                /* eslint-disable react/jsx-key */
+                content: React.Children.toArray([
                     <RangeAxisMinValue />,
                     <RangeAxisMaxValue />,
                     <RangeAxisSteps />,
                     <RangeAxisDecimals />,
                     <RangeAxisLabel />,
                     <DomainAxisLabel />,
-                ],
+                ]),
+                /* eslint-enable react/jsx-key */
             },
         ],
     },
@@ -64,13 +68,15 @@ export default [
         content: [
             {
                 key: 'style-section-1',
-                content: [
+                /* eslint-disable react/jsx-key */
+                content: React.Children.toArray([
                     <HideLegend />,
                     <Title />,
                     <HideTitle />,
                     <Subtitle />,
                     <HideSubtitle />,
-                ],
+                ]),
+                /* eslint-enable react/jsx-key */
             },
         ],
     },

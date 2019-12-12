@@ -59,6 +59,12 @@ const OperatorSelect = ({ name, value, onChange }) => {
     );
 };
 
+OperatorSelect.propTypes = {
+    name: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired
+};
+
 const ValueInput = ({ name, value, onChange }) => (
     <Input
         name={name}
@@ -69,6 +75,12 @@ const ValueInput = ({ name, value, onChange }) => (
         dense
     />
 );
+
+ValueInput.propTypes = {
+    name: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired
+};
 
 class MeasureCriteria extends Component {
     constructor(props) {
