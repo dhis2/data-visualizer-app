@@ -305,8 +305,6 @@ export class DialogManager extends Component {
             renderComponent={handler =>
                 this.props.dimensionIdsInLayout.includes(dialogId) ? (
                     <UpdateButton
-                        flat
-                        size="small"
                         onClick={this.getPrimaryOnClick(handler)}
                     />
                 ) : (
