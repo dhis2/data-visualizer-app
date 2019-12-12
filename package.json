@@ -22,7 +22,9 @@
         "test-plugin": "cd packages/plugin && yarn test",
         "test-app": "cd packages/app && yarn test",
         "test": "yarn test-plugin && yarn test-app",
-        "coverage": "yarn test-plugin --coverage && yarn test-app --coverage"
+        "coverage": "yarn test-plugin --coverage && yarn test-app --coverage",
+        "validate-commit": "d2-style js check --staged && d2-style text check --staged",
+        "validate-push": "yarn test"
     },
     "workspaces": [
         "packages/*"

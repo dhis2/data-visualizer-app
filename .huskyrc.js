@@ -1,13 +1,10 @@
 const { config } = require('@dhis2/cli-style')
-
-const tasks = arr => arr.join(' && ')
+const husky = require(config.husky)
 
 module.exports = {
     hooks: {
-        ...config.husky.hooks,
-        'pre-commit': tasks([
-            // 'd2-style js check --staged',
-            // 'd2-style text check --staged',
-        ]),
+        ...husky.hooks,
+        'pre-commit': 'yarn validate-commit',
+        'pre-push': 'yarn validate-push',
     },
 }
