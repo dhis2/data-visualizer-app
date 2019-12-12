@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 
-import i18n from '@dhis2/d2-i18n';
+import i18n from '@dhis2/d2-i18n'
 
-import TextBaseOption from './TextBaseOption';
+import TextBaseOption from './TextBaseOption'
 
 export const RangeAxisSteps = () => (
     <TextBaseOption
@@ -19,4 +19,4 @@ export const RangeAxisSteps = () => (
     />
 )
 
-export default RangeAxisSteps;
+export default RangeAxisSteps

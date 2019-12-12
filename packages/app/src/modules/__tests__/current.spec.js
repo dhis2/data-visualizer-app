@@ -7,8 +7,8 @@ import {
     DIMENSION_ID_ORGUNIT,
 } from '@dhis2/analytics'
 
-import { DEFAULT_CURRENT } from '../../reducers/current';
-import { getAxesFromUi, getSingleValueCurrentFromUi } from '../current';
+import { DEFAULT_CURRENT } from '../../reducers/current'
+import { getAxesFromUi, getSingleValueCurrentFromUi } from '../current'
 
 const dxItem1id = 'dxItem1id'
 const dxItem2id = 'dxItem2id'
@@ -39,7 +39,7 @@ const ui = {
         [DIMENSION_ID_ORGUNIT]: ouItems,
     },
     options: {},
-};
+}
 
 describe('getAxesFromUi', () => {
     it('should return a layout object (columns, rows, filters) with dimensions (id and item objects) that are not empty', () => {
@@ -85,11 +85,11 @@ describe('getSingleValueCurrentFromUi', () => {
             type: 'SINGLEVALUE',
         }
 
-        ui.type = 'SINGLEVALUE';
+        ui.type = 'SINGLEVALUE'
 
         const actualState = getSingleValueCurrentFromUi(DEFAULT_CURRENT, {
             value: ui,
-        });
+        })
 
         expect(actualState).toEqual(expectedState)
     })

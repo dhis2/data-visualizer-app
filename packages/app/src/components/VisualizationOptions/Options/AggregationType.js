@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-import i18n from '@dhis2/d2-i18n';
+import i18n from '@dhis2/d2-i18n'
 
 import SelectBaseOption from './SelectBaseOption'
 
@@ -35,4 +35,4 @@ const AggregationType = () => (
     />
 )
 
-export default AggregationType;
+export default AggregationType

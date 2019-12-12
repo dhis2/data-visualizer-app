@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 
-import i18n from '@dhis2/d2-i18n';
+import i18n from '@dhis2/d2-i18n'
 
-import CheckboxBaseOption from './CheckboxBaseOption';
+import CheckboxBaseOption from './CheckboxBaseOption'
 
 const ColTotals = () => (
     <CheckboxBaseOption
@@ -11,6 +11,6 @@ const ColTotals = () => (
             name: 'colTotals',
         }}
     />
-);
+)
 
-export default ColTotals;
+export default ColTotals

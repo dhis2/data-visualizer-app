@@ -1,12 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
-import {
-    Checkbox,
-    SingleSelectField,
-    SingleSelectOption,
-} from '@dhis2/ui-core';
+import { Checkbox, SingleSelectField, SingleSelectOption } from '@dhis2/ui-core'
 
 import { sGetUiOptions } from '../../../reducers/ui'
 import { acSetUiOptions } from '../../../actions/ui'
@@ -14,7 +10,7 @@ import { acSetUiOptions } from '../../../actions/ui'
 import {
     tabSectionOptionItem,
     tabSectionOptionToggleable,
-} from '../styles/VisualizationOptions.style.js';
+} from '../styles/VisualizationOptions.style.js'
 
 export const SelectBaseOption = ({
     option,
@@ -26,7 +22,7 @@ export const SelectBaseOption = ({
     onChange,
     onToggle,
 }) => {
-    const selected = option.items.find(item => item.id === String(value));
+    const selected = option.items.find(item => item.id === String(value))
 
     return (
         <div
@@ -72,8 +68,8 @@ export const SelectBaseOption = ({
                 </div>
             ) : null}
         </div>
-    );
-};
+    )
+}
 
 SelectBaseOption.propTypes = {
     option: PropTypes.object.isRequired,
@@ -84,12 +80,12 @@ SelectBaseOption.propTypes = {
     label: PropTypes.string,
     toggleable: PropTypes.bool,
     onToggle: PropTypes.func,
-};
+}
 
 const mapStateToProps = (state, ownProps) => ({
     value: sGetUiOptions(state)[ownProps.option.name],
     enabled: sGetUiOptions(state)[ownProps.option.name] !== undefined,
-});
+})
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
     onChange: value =>
@@ -102,6 +98,6 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
                     : undefined,
             })
         ),
-});
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(SelectBaseOption)

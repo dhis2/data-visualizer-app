@@ -59,13 +59,13 @@ export const options = {
     cumulative: { defaultValue: false, requestable: false },
     measureCriteria: { defaultValue: undefined, requestable: true },
     topLimit: { defaultValue: '0', requestable: false },
-};
+}
 
 export const computedOptions = {
     baseLine: { defaultValue: false, requestable: false },
     targetLine: { defaultValue: false, requestable: false },
     axisRange: { defaultValue: undefined, requestable: false },
-};
+}
 
 export default options
 
@@ -110,14 +110,14 @@ export const getOptionsFromVisualization = visualization => {
     // nested options under reportParams
     if (visualization.reportParams) {
         optionsFromVisualization.paramOrganisationUnit =
-            visualization.reportParams.paramOrganisationUnit;
+            visualization.reportParams.paramOrganisationUnit
         optionsFromVisualization.paramReportingPeriod =
-            visualization.reportParams.paramReportingPeriod;
+            visualization.reportParams.paramReportingPeriod
         optionsFromVisualization.paramParentOrganisationUnit =
-            visualization.reportParams.paramParentOrganisationUnit;
+            visualization.reportParams.paramParentOrganisationUnit
         optionsFromVisualization.paramGrandParentOrganisationUnit =
-            visualization.reportParams.paramGrandParentOrganisationUnit;
+            visualization.reportParams.paramGrandParentOrganisationUnit
     }
 
-    return optionsFromVisualization;
-};
+    return optionsFromVisualization
+}

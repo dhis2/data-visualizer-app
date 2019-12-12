@@ -1,38 +1,38 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
-import i18n from '@dhis2/d2-i18n';
-import { Label, Radio, RadioGroup } from '@dhis2/ui-core';
+import i18n from '@dhis2/d2-i18n'
+import { Label, Radio, RadioGroup } from '@dhis2/ui-core'
 
-import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics';
-import { sGetUiOptions, sGetUiType } from '../../../reducers/ui';
-import { acSetUiOptions } from '../../../actions/ui';
+import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
+import { sGetUiOptions, sGetUiType } from '../../../reducers/ui'
+import { acSetUiOptions } from '../../../actions/ui'
 
-import Subtitle from './Subtitle';
+import Subtitle from './Subtitle'
 
 import {
     tabSectionOption,
     tabSectionOptionToggleable,
-} from '../styles/VisualizationOptions.style.js';
+} from '../styles/VisualizationOptions.style.js'
 
 class HideSubtitle extends Component {
     constructor(props) {
-        super(props);
+        super(props)
 
-        this.defaultState = { value: 'NONE' };
+        this.defaultState = { value: 'NONE' }
 
-        this.state = props.value ? { value: props.value } : this.defaultState;
+        this.state = props.value ? { value: props.value } : this.defaultState
     }
 
     onChange = ({ value }) => {
-        this.setState({ value });
-        this.props.onChange(value === 'NONE');
-    };
+        this.setState({ value })
+        this.props.onChange(value === 'NONE')
+    }
 
     render() {
-        const { value } = this.state;
-        const { visualizationType } = this.props;
+        const { value } = this.state
+        const { visualizationType } = this.props
 
         return (
             <div className={tabSectionOption.className}>
@@ -60,7 +60,7 @@ class HideSubtitle extends Component {
                     </div>
                 ) : null}
             </div>
-        );
+        )
     }
 }
 
@@ -68,18 +68,15 @@ HideSubtitle.propTypes = {
     value: PropTypes.string,
     visualizationType: PropTypes.string,
     onChange: PropTypes.func,
-};
+}
 
 const mapStateToProps = state => ({
     visualizationType: sGetUiType(state),
     value: sGetUiOptions(state).hideSubtitle ? 'NONE' : 'CUSTOM',
-});
+})
 
 const mapDispatchToProps = dispatch => ({
     onChange: enabled => dispatch(acSetUiOptions({ hideSubtitle: enabled })),
-});
+})
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(HideSubtitle);
+export default connect(mapStateToProps, mapDispatchToProps)(HideSubtitle)

@@ -1,12 +1,12 @@
-import React from 'react';
+import React from 'react'
 
-import i18n from '@dhis2/d2-i18n';
+import i18n from '@dhis2/d2-i18n'
 
-import TextBaseOption from './TextBaseOption';
-import { options } from '../../../modules/options';
+import TextBaseOption from './TextBaseOption'
+import { options } from '../../../modules/options'
 
-const optionName = 'rangeAxisLabel';
-const defaultValue = options[optionName].defaultValue;
+const optionName = 'rangeAxisLabel'
+const defaultValue = options[optionName].defaultValue
 
 const RangeAxisLabel = () => (
     <TextBaseOption

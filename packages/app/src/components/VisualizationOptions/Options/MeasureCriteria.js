@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
-import i18n from '@dhis2/d2-i18n';
+import i18n from '@dhis2/d2-i18n'
 
 import {
     Button,
@@ -11,15 +11,15 @@ import {
     Label,
     SingleSelect,
     SingleSelectOption,
-} from '@dhis2/ui-core';
-import { sGetUiOptions } from '../../../reducers/ui';
-import { acSetUiOptions } from '../../../actions/ui';
+} from '@dhis2/ui-core'
+import { sGetUiOptions } from '../../../reducers/ui'
+import { acSetUiOptions } from '../../../actions/ui'
 
 import {
     tabSectionOption,
     tabSectionOptionText,
     tabSectionOptionComplexInline,
-} from '../styles/VisualizationOptions.style.js';
+} from '../styles/VisualizationOptions.style.js'
 
 const OperatorSelect = ({ name, value, onChange }) => {
     const options = [
@@ -28,16 +28,16 @@ const OperatorSelect = ({ name, value, onChange }) => {
         { id: 'GE', label: '>=' },
         { id: 'LT', label: '<' },
         { id: 'LE', label: '<=' },
-    ];
+    ]
 
-    const selected = options.find(option => option.id === value);
+    const selected = options.find(option => option.id === value)
 
     return (
         <div style={{ width: '112px' }}>
             <SingleSelect
                 name={name}
                 onChange={({ selected }) => {
-                    onChange(selected.value);
+                    onChange(selected.value)
                 }}
                 selected={
                     selected
@@ -56,14 +56,14 @@ const OperatorSelect = ({ name, value, onChange }) => {
                 ))}
             </SingleSelect>
         </div>
-    );
-};
+    )
+}
 
 OperatorSelect.propTypes = {
     name: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired
-};
+    onChange: PropTypes.func.isRequired,
+}
 
 const ValueInput = ({ name, value, onChange }) => (
     <Input
@@ -74,44 +74,44 @@ const ValueInput = ({ name, value, onChange }) => (
         width="72px"
         dense
     />
-);
+)
 
 ValueInput.propTypes = {
     name: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired
-};
+    onChange: PropTypes.func.isRequired,
+}
 
 class MeasureCriteria extends Component {
     constructor(props) {
-        super(props);
+        super(props)
 
-        const [op1 = '', v1 = '', op2 = '', v2 = ''] = props.value.split(/[;:]/);
+        const [op1 = '', v1 = '', op2 = '', v2 = ''] = props.value.split(/[;:]/)
 
-        this.state = this.defaultState = { op1, v1, op2, v2 };
+        this.state = this.defaultState = { op1, v1, op2, v2 }
     }
 
-    onClear = () => this.setState(this.defaultState, this.props.onChange(''));
+    onClear = () => this.setState(this.defaultState, this.props.onChange(''))
 
     onChange = name => value => {
         this.setState({ [name]: value }, () => {
-            const { op1, v1, op2, v2 } = this.state;
-            const value = [];
+            const { op1, v1, op2, v2 } = this.state
+            const value = []
 
             if (op1 && v1) {
-                value.push(`${op1}:${v1}`);
+                value.push(`${op1}:${v1}`)
             }
 
             if (op2 && v2) {
-                value.push(`${op2}:${v2}`);
+                value.push(`${op2}:${v2}`)
             }
 
-            this.props.onChange(value.length > 0 ? value.join(';') : '');
-        });
-    };
+            this.props.onChange(value.length > 0 ? value.join(';') : '')
+        })
+    }
 
     render() {
-        const { op1, v1, op2, v2 } = this.state;
+        const { op1, v1, op2, v2 } = this.state
 
         return (
             <div className={tabSectionOption.className}>
@@ -164,24 +164,21 @@ class MeasureCriteria extends Component {
                     {i18n.t('Clear min/max limits')}
                 </Button>
             </div>
-        );
+        )
     }
 }
 
 MeasureCriteria.propTypes = {
     value: PropTypes.string,
     onChange: PropTypes.func,
-};
+}
 
 const mapStateToProps = state => ({
     value: sGetUiOptions(state).measureCriteria || '',
-});
+})
 
 const mapDispatchToProps = dispatch => ({
     onChange: value => dispatch(acSetUiOptions({ measureCriteria: value })),
-});
+})
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(MeasureCriteria);
+export default connect(mapStateToProps, mapDispatchToProps)(MeasureCriteria)

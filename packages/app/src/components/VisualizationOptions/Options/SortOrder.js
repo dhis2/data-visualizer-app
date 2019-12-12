@@ -1,12 +1,12 @@
-import React from 'react';
+import React from 'react'
 
-import i18n from '@dhis2/d2-i18n';
+import i18n from '@dhis2/d2-i18n'
 
-import SelectBaseOption from './SelectBaseOption';
-import { options } from '../../../modules/options';
+import SelectBaseOption from './SelectBaseOption'
+import { options } from '../../../modules/options'
 
-const optionName = 'sortOrder';
-const defaultValue = options[optionName].defaultValue;
+const optionName = 'sortOrder'
+const defaultValue = options[optionName].defaultValue
 
 const SortOrder = () => (
     <SelectBaseOption
@@ -24,4 +24,4 @@ const SortOrder = () => (
     />
 )
 
-export default SortOrder;
+export default SortOrder

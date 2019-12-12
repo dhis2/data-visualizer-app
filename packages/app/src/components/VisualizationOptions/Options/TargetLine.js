@@ -1,20 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
-import i18n from '@dhis2/d2-i18n';
-import { Checkbox } from '@dhis2/ui-core';
+import i18n from '@dhis2/d2-i18n'
+import { Checkbox } from '@dhis2/ui-core'
 
-import { sGetUiOptions } from '../../../reducers/ui';
-import { acSetUiOptions } from '../../../actions/ui';
-import TargetLineValue from './TargetLineValue';
-import TargetLineLabel from './TargetLineLabel';
+import { sGetUiOptions } from '../../../reducers/ui'
+import { acSetUiOptions } from '../../../actions/ui'
+import TargetLineValue from './TargetLineValue'
+import TargetLineLabel from './TargetLineLabel'
 
 import {
     tabSectionOption,
     tabSectionOptionToggleable,
     tabSectionOptionComplexInline,
-} from '../styles/VisualizationOptions.style.js';
+} from '../styles/VisualizationOptions.style.js'
 
 export const TargetLine = ({ enabled, onChange }) => (
     <div className={tabSectionOption.className}>
@@ -33,7 +33,7 @@ export const TargetLine = ({ enabled, onChange }) => (
             </div>
         ) : null}
     </div>
-);
+)
 
 TargetLine.propTypes = {
     enabled: PropTypes.bool.isRequired,
@@ -48,7 +48,4 @@ const mapDispatchToProps = dispatch => ({
     onChange: enabled => dispatch(acSetUiOptions({ targetLine: enabled })),
 })
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(TargetLine);
+export default connect(mapStateToProps, mapDispatchToProps)(TargetLine)

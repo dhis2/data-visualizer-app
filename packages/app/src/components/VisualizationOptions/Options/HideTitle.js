@@ -1,39 +1,39 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { createSelector } from 'reselect';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { createSelector } from 'reselect'
 
-import i18n from '@dhis2/d2-i18n';
-import { Label, Radio, RadioGroup } from '@dhis2/ui-core';
+import i18n from '@dhis2/d2-i18n'
+import { Label, Radio, RadioGroup } from '@dhis2/ui-core'
 
-import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics';
-import { sGetUiOptions, sGetUiType } from '../../../reducers/ui';
-import { acSetUiOptions } from '../../../actions/ui';
+import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
+import { sGetUiOptions, sGetUiType } from '../../../reducers/ui'
+import { acSetUiOptions } from '../../../actions/ui'
 
-import Title from './Title';
+import Title from './Title'
 
 import {
     tabSectionOption,
     tabSectionOptionToggleable,
-} from '../styles/VisualizationOptions.style.js';
+} from '../styles/VisualizationOptions.style.js'
 
 class HideTitle extends Component {
     constructor(props) {
-        super(props);
+        super(props)
 
-        this.defaultState = { value: 'AUTO' };
+        this.defaultState = { value: 'AUTO' }
 
-        this.state = props.value ? { value: props.value } : this.defaultState;
+        this.state = props.value ? { value: props.value } : this.defaultState
     }
 
     onChange = ({ value }) => {
-        this.setState({ value });
-        this.props.onChange(value === 'NONE');
-    };
+        this.setState({ value })
+        this.props.onChange(value === 'NONE')
+    }
 
     render() {
-        const { value } = this.state;
-        const { visualizationType } = this.props;
+        const { value } = this.state
+        const { visualizationType } = this.props
 
         return (
             <div className={tabSectionOption.className}>
@@ -62,7 +62,7 @@ class HideTitle extends Component {
                     </div>
                 ) : null}
             </div>
-        );
+        )
     }
 }
 
@@ -70,28 +70,23 @@ HideTitle.propTypes = {
     value: PropTypes.string,
     visualizationType: PropTypes.string,
     onChange: PropTypes.func,
-};
+}
 
-const hideTitleSelector = createSelector(
-    [sGetUiOptions],
-    uiOptions =>
-        uiOptions.hideTitle
-            ? 'NONE'
-            : uiOptions.title === undefined
-            ? 'AUTO'
-            : 'CUSTOM'
-);
+const hideTitleSelector = createSelector([sGetUiOptions], uiOptions =>
+    uiOptions.hideTitle
+        ? 'NONE'
+        : uiOptions.title === undefined
+        ? 'AUTO'
+        : 'CUSTOM'
+)
 
 const mapStateToProps = state => ({
     visualizationType: sGetUiType(state),
     value: hideTitleSelector(state),
-});
+})
 
 const mapDispatchToProps = dispatch => ({
     onChange: enabled => dispatch(acSetUiOptions({ hideTitle: enabled })),
-});
+})
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(HideTitle);
+export default connect(mapStateToProps, mapDispatchToProps)(HideTitle)
