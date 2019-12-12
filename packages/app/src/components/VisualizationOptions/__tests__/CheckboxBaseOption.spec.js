@@ -1,9 +1,9 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import { Checkbox } from '@dhis2/ui-core';
+import { Checkbox } from '@dhis2/ui-core'
 
-import { CheckboxBaseOption } from '../Options/CheckboxBaseOption';
+import { CheckboxBaseOption } from '../Options/CheckboxBaseOption'
 
 describe('DV > Options > CheckboxBaseOption', () => {
     let props
@@ -34,21 +34,21 @@ describe('DV > Options > CheckboxBaseOption', () => {
             checkboxBaseOption(props)
                 .find(Checkbox)
                 .props().label
-        ).toEqual(props.label);
-    });
+        ).toEqual(props.label)
+    })
 
     it('renders the checkbox with the correct checked state', () => {
         expect(
             checkboxBaseOption(props)
                 .find(Checkbox)
                 .props().checked
-        ).toBe(props.value);
-    });
+        ).toBe(props.value)
+    })
 
     it('should trigger the onChange callback on checkbox change', () => {
-        const checkbox = checkboxBaseOption(props).find(Checkbox);
+        const checkbox = checkboxBaseOption(props).find(Checkbox)
 
-        checkbox.simulate('change', { checked: true });
+        checkbox.simulate('change', { checked: true })
 
         expect(onChange).toHaveBeenCalled()
     })

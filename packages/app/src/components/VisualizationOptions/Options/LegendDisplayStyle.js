@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 
-import i18n from '@dhis2/d2-i18n';
+import i18n from '@dhis2/d2-i18n'
 
-import RadioBaseOption from './RadioBaseOption';
+import RadioBaseOption from './RadioBaseOption'
 
 const LegendDisplayStyle = () => (
     <RadioBaseOption
@@ -17,6 +17,6 @@ const LegendDisplayStyle = () => (
             ],
         }}
     />
-);
+)
 
-export default LegendDisplayStyle;
+export default LegendDisplayStyle

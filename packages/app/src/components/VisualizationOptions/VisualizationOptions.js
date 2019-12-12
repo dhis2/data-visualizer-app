@@ -1,8 +1,8 @@
-import React, { Component, Fragment } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import React, { Component, Fragment } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
-import { FieldSet, Legend, TabBar, Tab } from '@dhis2/ui-core';
+import { FieldSet, Legend, TabBar, Tab } from '@dhis2/ui-core'
 
 import {
     tabSection,
@@ -13,17 +13,17 @@ import {
     tabSectionOptionComplexInline,
     tabSectionOptionText,
     tabBar,
-} from './styles/VisualizationOptions.style.js';
+} from './styles/VisualizationOptions.style.js'
 
-import { sGetUiType } from '../../reducers/ui';
-import { getOptionsByType } from '../../modules/options/config';
+import { sGetUiType } from '../../reducers/ui'
+import { getOptionsByType } from '../../modules/options/config'
 
 export class VisualizationOptions extends Component {
-    state = { activeTabKey: undefined };
+    state = { activeTabKey: undefined }
 
     selectTab = tabKey => {
-        this.setState({ activeTabKey: tabKey });
-    };
+        this.setState({ activeTabKey: tabKey })
+    }
 
     generateTabContent = sections =>
         sections.map(({ key, label, content }) => (
@@ -39,28 +39,28 @@ export class VisualizationOptions extends Component {
                     {content}
                 </FieldSet>
             </div>
-        ));
+        ))
 
     generateTabs = tabs =>
         tabs.map(({ key, label, content }) => ({
             key,
             label,
             content: this.generateTabContent(content),
-        }));
+        }))
 
     render() {
-        const { visualizationType } = this.props;
+        const { visualizationType } = this.props
 
-        const optionsConfig = getOptionsByType(visualizationType);
+        const optionsConfig = getOptionsByType(visualizationType)
 
-        const tabs = this.generateTabs(optionsConfig);
+        const tabs = this.generateTabs(optionsConfig)
 
         let activeTabIndex = tabs.findIndex(
             tab => tab.key === this.state.activeTabKey
-        );
+        )
 
         if (activeTabIndex < 0) {
-            activeTabIndex = 0;
+            activeTabIndex = 0
         }
 
         return (
@@ -94,10 +94,10 @@ export class VisualizationOptions extends Component {
 
 VisualizationOptions.propTypes = {
     visualizationType: PropTypes.string.isRequired,
-};
+}
 
 const mapStateToProps = state => ({
     visualizationType: sGetUiType(state),
-});
+})
 
-export default connect(mapStateToProps)(VisualizationOptions);
+export default connect(mapStateToProps)(VisualizationOptions)

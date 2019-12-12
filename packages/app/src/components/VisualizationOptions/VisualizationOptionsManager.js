@@ -1,21 +1,21 @@
-import React, { Component, Fragment } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component, Fragment } from 'react'
+import PropTypes from 'prop-types'
 
-import { default as MuiButton } from '@material-ui/core/Button';
+import { default as MuiButton } from '@material-ui/core/Button'
 
-import i18n from '@dhis2/d2-i18n';
+import i18n from '@dhis2/d2-i18n'
 import {
     ButtonStrip,
     Modal,
     ModalTitle,
     ModalContent,
     ModalActions,
-} from '@dhis2/ui-core';
+} from '@dhis2/ui-core'
 
-import UpdateButton from '../UpdateButton/UpdateButton';
-import HideButton from '../HideButton/HideButton';
+import UpdateButton from '../UpdateButton/UpdateButton'
+import HideButton from '../HideButton/HideButton'
 import UpdateVisualizationContainer from '../UpdateButton/UpdateVisualizationContainer'
-import VisualizationOptions from './VisualizationOptions';
+import VisualizationOptions from './VisualizationOptions'
 
 class VisualizationOptionsManager extends Component {
     constructor(props) {
@@ -35,8 +35,8 @@ class VisualizationOptionsManager extends Component {
     }
 
     getPrimaryOnClick = handler => () => {
-        handler();
-        this.onClose();
+        handler()
+        this.onClose()
     }
 
     render() {
@@ -56,15 +56,15 @@ class VisualizationOptionsManager extends Component {
                         </ModalContent>
                         <ModalActions>
                             <ButtonStrip>
-                                <HideButton
-                                    onClick={this.onClose}
-                                />
+                                <HideButton onClick={this.onClose} />
                                 <UpdateVisualizationContainer
-                                    renderComponent={handler =>
+                                    renderComponent={handler => (
                                         <UpdateButton
-                                            onClick={this.getPrimaryOnClick(handler)}
+                                            onClick={this.getPrimaryOnClick(
+                                                handler
+                                            )}
                                         />
-                                    }
+                                    )}
                                 />
                             </ButtonStrip>
                         </ModalActions>
@@ -79,4 +79,4 @@ VisualizationOptionsManager.propTypes = {
     className: PropTypes.string,
 }
 
-export default VisualizationOptionsManager;
+export default VisualizationOptionsManager

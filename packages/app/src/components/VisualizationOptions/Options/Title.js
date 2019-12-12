@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import i18n from '@dhis2/d2-i18n';
+import i18n from '@dhis2/d2-i18n'
 
-import TextBaseOption from './TextBaseOption';
+import TextBaseOption from './TextBaseOption'
 
 const Title = ({ label, inline }) => (
     <TextBaseOption
@@ -20,11 +20,11 @@ const Title = ({ label, inline }) => (
 
 Title.defaultProps = {
     inline: false,
-};
+}
 
 Title.propTypes = {
     inline: PropTypes.bool,
     label: PropTypes.string,
-};
+}
 
-export default Title;
+export default Title

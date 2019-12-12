@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 
-import i18n from '@dhis2/d2-i18n';
+import i18n from '@dhis2/d2-i18n'
 
-import SelectBaseOption from './SelectBaseOption';
+import SelectBaseOption from './SelectBaseOption'
 
 const DigitGroupSeparator = () => (
     <SelectBaseOption
@@ -16,6 +16,6 @@ const DigitGroupSeparator = () => (
             ],
         }}
     />
-);
+)
 
-export default DigitGroupSeparator;
+export default DigitGroupSeparator

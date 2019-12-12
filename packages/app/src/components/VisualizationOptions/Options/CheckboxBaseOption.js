@@ -1,13 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
-import { Checkbox } from '@dhis2/ui-core';
+import { Checkbox } from '@dhis2/ui-core'
 
-import { sGetUiOptions } from '../../../reducers/ui';
-import { acSetUiOptions } from '../../../actions/ui';
+import { sGetUiOptions } from '../../../reducers/ui'
+import { acSetUiOptions } from '../../../actions/ui'
 
-import { tabSectionOption } from '../styles/VisualizationOptions.style.js';
+import { tabSectionOption } from '../styles/VisualizationOptions.style.js'
 
 export const CheckboxBaseOption = ({ option, label, value, onChange }) => (
     <div className={tabSectionOption.className}>
@@ -19,7 +19,7 @@ export const CheckboxBaseOption = ({ option, label, value, onChange }) => (
             dense
         />
     </div>
-);
+)
 
 CheckboxBaseOption.propTypes = {
     label: PropTypes.string,
@@ -30,7 +30,7 @@ CheckboxBaseOption.propTypes = {
 
 const mapStateToProps = (state, ownProps) => ({
     value: sGetUiOptions(state)[ownProps.option.name] || false,
-});
+})
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
     onChange: checked =>

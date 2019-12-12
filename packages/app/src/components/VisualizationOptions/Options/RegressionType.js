@@ -1,12 +1,12 @@
-import React from 'react';
+import React from 'react'
 
-import i18n from '@dhis2/d2-i18n';
+import i18n from '@dhis2/d2-i18n'
 
-import SelectBaseOption from './SelectBaseOption';
-import { options } from '../../../modules/options';
+import SelectBaseOption from './SelectBaseOption'
+import { options } from '../../../modules/options'
 
-const optionName = 'regressionType';
-const defaultValue = options[optionName].defaultValue;
+const optionName = 'regressionType'
+const defaultValue = options[optionName].defaultValue
 
 const RegressionType = () => (
     <SelectBaseOption
@@ -25,4 +25,4 @@ const RegressionType = () => (
     />
 )
 
-export default RegressionType;
+export default RegressionType
