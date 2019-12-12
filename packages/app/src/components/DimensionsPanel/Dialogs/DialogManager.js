@@ -130,7 +130,7 @@ export class DialogManager extends Component {
         }
     }
 
-    onClose = () => this.props.closeDialog(null);
+    onClose = () => this.props.onClose(null)
 
     getSelectedItems = dialogId => {
         return this.props.selectedItems[dialogId]
@@ -304,9 +304,7 @@ export class DialogManager extends Component {
         <UpdateVisualizationContainer
             renderComponent={handler =>
                 this.props.dimensionIdsInLayout.includes(dialogId) ? (
-                    <UpdateButton
-                        onClick={this.getPrimaryOnClick(handler)}
-                    />
+                    <UpdateButton onClick={this.getPrimaryOnClick(handler)} />
                 ) : (
                     <AddToLayoutButton
                         onClick={this.getPrimaryOnClick(handler)}
@@ -336,7 +334,7 @@ export class DialogManager extends Component {
             >
                 {this.renderDialogContent()}
                 <DialogActions>
-                    <HideButton  onClick={this.onClose} />
+                    <HideButton onClick={this.onClose} />
                     {dialogId && this.renderPrimaryButton(dialogId)}
                 </DialogActions>
             </Dialog>
@@ -349,10 +347,10 @@ DialogManager.contextTypes = {
 }
 
 DialogManager.propTypes = {
-    closeDialog: PropTypes.func.isRequired,
     dimensionIdsInLayout: PropTypes.array.isRequired,
     ouIds: PropTypes.array.isRequired,
     setRecommendedIds: PropTypes.func.isRequired,
+    onClose: PropTypes.func.isRequired,
     addMetadata: PropTypes.func,
     addParentGraphMap: PropTypes.func,
     dialogId: PropTypes.string,
@@ -389,7 +387,7 @@ const mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps, {
-    closeDialog: acSetUiActiveModalDialog,
+    onClose: acSetUiActiveModalDialog,
     setRecommendedIds: acSetRecommendedIds,
     setUiItems: acSetUiItems,
     addMetadata: acAddMetadata,
