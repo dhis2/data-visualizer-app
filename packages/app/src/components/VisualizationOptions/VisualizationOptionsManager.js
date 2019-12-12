@@ -5,7 +5,6 @@ import { default as MuiButton } from '@material-ui/core/Button';
 
 import i18n from '@dhis2/d2-i18n';
 import {
-    Button,
     ButtonStrip,
     Modal,
     ModalTitle,
@@ -14,6 +13,8 @@ import {
 } from '@dhis2/ui-core';
 
 import UpdateButton from '../UpdateButton/UpdateButton';
+import HideButton from '../HideButton/HideButton';
+import UpdateVisualizationContainer from '../UpdateButton/UpdateVisualizationContainer'
 import VisualizationOptions from './VisualizationOptions';
 
 class VisualizationOptionsManager extends Component {
@@ -33,6 +34,11 @@ class VisualizationOptionsManager extends Component {
         this.setState({ dialogIsOpen: !this.state.dialogIsOpen })
     }
 
+    getPrimaryOnClick = handler => () => {
+        handler();
+        this.onClose();
+    }
+
     render() {
         return (
             <Fragment>
@@ -50,14 +56,16 @@ class VisualizationOptionsManager extends Component {
                         </ModalContent>
                         <ModalActions>
                             <ButtonStrip>
-                                <Button
-                                    type="button"
-                                    secondary
+                                <HideButton
                                     onClick={this.onClose}
-                                >
-                                    {i18n.t('Hide')}
-                                </Button>
-                                <UpdateButton onClick={this.onClose} />
+                                />
+                                <UpdateVisualizationContainer
+                                    renderComponent={handler =>
+                                        <UpdateButton
+                                            onClick={this.getPrimaryOnClick(handler)}
+                                        />
+                                    }
+                                />
                             </ButtonStrip>
                         </ModalActions>
                     </Modal>
@@ -69,7 +77,6 @@ class VisualizationOptionsManager extends Component {
 
 VisualizationOptionsManager.propTypes = {
     className: PropTypes.string,
-    visualizationType: PropTypes.string,
 }
 
 export default VisualizationOptionsManager;

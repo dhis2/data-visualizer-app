@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import React from 'react';
 import i18n from '@dhis2/d2-i18n';
 
@@ -29,7 +30,7 @@ export default [
         content: [
             {
                 key: 'data-section-1',
-                content: [
+                content: React.Children.toArray([
                     <ShowData />,
                     <PercentStackedValues />,
                     <CumulativeValues />,
@@ -39,7 +40,7 @@ export default [
                     <BaseLine />,
                     <SortOrder />,
                     <AggregationType />,
-                ],
+                ]),
             },
         ],
     },
@@ -49,14 +50,14 @@ export default [
         content: [
             {
                 key: 'axes-section-1',
-                content: [
+                content: React.Children.toArray([
                     <RangeAxisMinValue />,
                     <RangeAxisMaxValue />,
                     <RangeAxisSteps />,
                     <RangeAxisDecimals />,
                     <RangeAxisLabel />,
                     <DomainAxisLabel />,
-                ],
+                ]),
             },
         ],
     },
@@ -66,13 +67,13 @@ export default [
         content: [
             {
                 key: 'style-section-1',
-                content: [
+                content: React.Children.toArray([
                     <HideLegend />,
                     <Title />,
                     <HideTitle />,
                     <Subtitle />,
                     <HideSubtitle />,
-                ],
+                ]),
             },
         ],
     },

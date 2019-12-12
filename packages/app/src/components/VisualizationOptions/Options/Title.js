@@ -23,8 +23,8 @@ Title.defaultProps = {
 };
 
 Title.propTypes = {
-    label: PropTypes.string,
     inline: PropTypes.bool,
+    label: PropTypes.string,
 };
 
 export default Title;

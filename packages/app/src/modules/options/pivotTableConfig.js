@@ -1,29 +1,30 @@
-import React from 'react';
-import i18n from '@dhis2/d2-i18n';
+/* eslint-disable react/jsx-key */
+import React from 'react'
+import i18n from '@dhis2/d2-i18n'
 
-import AggregationType from '../../components/VisualizationOptions/Options/AggregationType';
-import ShowDimensionLabels from '../../components/VisualizationOptions/Options/ShowDimensionLabels';
-import SkipRounding from '../../components/VisualizationOptions/Options/SkipRounding';
-import ColTotals from '../../components/VisualizationOptions/Options/ColTotals';
-import ColSubTotals from '../../components/VisualizationOptions/Options/ColSubTotals';
-import RowTotals from '../../components/VisualizationOptions/Options/RowTotals';
-import RowSubTotals from '../../components/VisualizationOptions/Options/RowSubTotals';
-import HideEmptyColumns from '../../components/VisualizationOptions/Options/HideEmptyColumns';
-import HideEmptyRows from '../../components/VisualizationOptions/Options/HideEmptyRows';
-import NumberType from '../../components/VisualizationOptions/Options/NumberType';
-import LegendDisplayStyle from '../../components/VisualizationOptions/Options/LegendDisplayStyle';
-import Title from '../../components/VisualizationOptions/Options/Title';
-import DisplayDensity from '../../components/VisualizationOptions/Options/DisplayDensity';
-import FontSize from '../../components/VisualizationOptions/Options/FontSize';
-import DigitGroupSeparator from '../../components/VisualizationOptions/Options/DigitGroupSeparator';
-import MeasureCriteria from '../../components/VisualizationOptions/Options/MeasureCriteria';
-import ParamReportingPeriod from '../../components/VisualizationOptions/Options/ParamReportingPeriod';
-import ParamOrganisationUnit from '../../components/VisualizationOptions/Options/ParamOrganisationUnit';
-import ParamParentOrganisationUnit from '../../components/VisualizationOptions/Options/ParamParentOrganisationUnit';
-import Regression from '../../components/VisualizationOptions/Options/Regression';
-import Cumulative from '../../components/VisualizationOptions/Options/Cumulative';
-import SortOrder from '../../components/VisualizationOptions/Options/SortOrder';
-import TopLimit from '../../components/VisualizationOptions/Options/TopLimit';
+import AggregationType from '../../components/VisualizationOptions/Options/AggregationType'
+import ShowDimensionLabels from '../../components/VisualizationOptions/Options/ShowDimensionLabels'
+import SkipRounding from '../../components/VisualizationOptions/Options/SkipRounding'
+import ColTotals from '../../components/VisualizationOptions/Options/ColTotals'
+import ColSubTotals from '../../components/VisualizationOptions/Options/ColSubTotals'
+import RowTotals from '../../components/VisualizationOptions/Options/RowTotals'
+import RowSubTotals from '../../components/VisualizationOptions/Options/RowSubTotals'
+import HideEmptyColumns from '../../components/VisualizationOptions/Options/HideEmptyColumns'
+import HideEmptyRows from '../../components/VisualizationOptions/Options/HideEmptyRows'
+import NumberType from '../../components/VisualizationOptions/Options/NumberType'
+import LegendDisplayStyle from '../../components/VisualizationOptions/Options/LegendDisplayStyle'
+import Title from '../../components/VisualizationOptions/Options/Title'
+import DisplayDensity from '../../components/VisualizationOptions/Options/DisplayDensity'
+import FontSize from '../../components/VisualizationOptions/Options/FontSize'
+import DigitGroupSeparator from '../../components/VisualizationOptions/Options/DigitGroupSeparator'
+import MeasureCriteria from '../../components/VisualizationOptions/Options/MeasureCriteria'
+import ParamReportingPeriod from '../../components/VisualizationOptions/Options/ParamReportingPeriod'
+import ParamOrganisationUnit from '../../components/VisualizationOptions/Options/ParamOrganisationUnit'
+import ParamParentOrganisationUnit from '../../components/VisualizationOptions/Options/ParamParentOrganisationUnit'
+import Regression from '../../components/VisualizationOptions/Options/Regression'
+import Cumulative from '../../components/VisualizationOptions/Options/Cumulative'
+import SortOrder from '../../components/VisualizationOptions/Options/SortOrder'
+import TopLimit from '../../components/VisualizationOptions/Options/TopLimit'
 
 export default [
     {
@@ -32,27 +33,36 @@ export default [
         content: [
             {
                 key: 'data-section-1',
-                content: [<ShowDimensionLabels />, <SkipRounding />],
+                content: React.Children.toArray([
+                    <ShowDimensionLabels />,
+                    <SkipRounding />,
+                ]),
             },
             {
                 key: 'data-display-totals',
                 label: i18n.t('Display totals'),
-                content: [
+                content: React.Children.toArray([
                     <ColTotals />,
                     <ColSubTotals />,
                     <RowTotals />,
                     <RowSubTotals />,
-                ],
+                ]),
             },
             {
                 key: 'data-display-empty-data',
                 label: i18n.t('Display empty data'),
-                content: [<HideEmptyColumns />, <HideEmptyRows />],
+                content: React.Children.toArray([
+                    <HideEmptyColumns />,
+                    <HideEmptyRows />,
+                ]),
             },
             {
                 key: 'data-advanced',
                 label: i18n.t('Advanced'),
-                content: [<AggregationType />, <NumberType />],
+                content: React.Children.toArray([
+                    <AggregationType />,
+                    <NumberType />,
+                ]),
             },
         ],
     },
@@ -63,12 +73,12 @@ export default [
             {
                 key: 'legend-legend-type',
                 label: i18n.t('Legend type'),
-                content: [],
+                content: React.Children.toArray([]),
             },
             {
                 key: 'legend-legend-setup',
                 label: i18n.t('Legend setup'),
-                content: [<LegendDisplayStyle />],
+                content: React.Children.toArray([<LegendDisplayStyle />]),
             },
         ],
     },
@@ -78,12 +88,12 @@ export default [
         content: [
             {
                 key: 'style-section-1',
-                content: [
+                content: React.Children.toArray([
                     <Title label={i18n.t('Table title')} />,
                     <DisplayDensity />,
                     <FontSize />,
                     <DigitGroupSeparator />,
-                ],
+                ]),
             },
         ],
     },
@@ -100,7 +110,7 @@ export default [
             {
                 key: 'limitValues-limit-min-max',
                 label: i18n.t('Limit minimum/maximum values'),
-                content: [<MeasureCriteria />],
+                content: React.Children.toArray([<MeasureCriteria />]),
             },
         ],
     },
@@ -110,7 +120,7 @@ export default [
         content: [
             {
                 key: 'parameters-section-1',
-                content: [
+                content: React.Children.toArray([
                     <ParamReportingPeriod />,
                     <ParamOrganisationUnit />,
                     <ParamParentOrganisationUnit />,
@@ -118,8 +128,8 @@ export default [
                     <Cumulative />,
                     <SortOrder />,
                     <TopLimit />,
-                ],
+                ]),
             },
         ],
     },
-];
+]

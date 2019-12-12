@@ -45,7 +45,7 @@ class YearOverYearSelect extends React.Component {
 YearOverYearSelect.propTypes = {
     multiple: PropTypes.string,
     options: PropTypes.array,
-    value: PropTypes.string,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
     onChange: PropTypes.func,
 }
 

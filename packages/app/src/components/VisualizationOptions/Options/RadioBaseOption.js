@@ -24,8 +24,8 @@ export const RadioBaseOption = ({ option, label, value, onChange }) => (
 RadioBaseOption.propTypes = {
     option: PropTypes.object.isRequired,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-    label: PropTypes.string,
     onChange: PropTypes.func.isRequired,
+    label: PropTypes.string,
 };
 
 const mapStateToProps = (state, ownProps) => ({

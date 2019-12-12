@@ -59,6 +59,12 @@ const OperatorSelect = ({ name, value, onChange }) => {
     );
 };
 
+OperatorSelect.propTypes = {
+    name: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired
+};
+
 const ValueInput = ({ name, value, onChange }) => (
     <Input
         name={name}
@@ -70,18 +76,19 @@ const ValueInput = ({ name, value, onChange }) => (
     />
 );
 
+ValueInput.propTypes = {
+    name: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired
+};
+
 class MeasureCriteria extends Component {
     constructor(props) {
         super(props);
 
-        this.defaultState = {
-            op1: '', // XXX must be the same as default values
-            v1: '',
-            op2: '',
-            v2: '',
-        };
+        const [op1 = '', v1 = '', op2 = '', v2 = ''] = props.value.split(/[;:]/);
 
-        this.state = this.defaultState;
+        this.state = this.defaultState = { op1, v1, op2, v2 };
     }
 
     onClear = () => this.setState(this.defaultState, this.props.onChange(''));

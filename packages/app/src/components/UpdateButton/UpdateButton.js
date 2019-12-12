@@ -5,18 +5,14 @@ import { Button } from '@dhis2/ui-core';
 
 const UpdateButton = ({ onClick, ...props }) => {
     return (
-        <Button data-test="update-button" {...props} onClick={onClick} primary>
+        <Button data-test="update-button" {...props} onClick={onClick} type="button" primary>
             {i18n.t('Update')}
         </Button>
     )
 }
 
 UpdateButton.propTypes = {
-    onClick: PropTypes.func,
-}
-
-UpdateButton.defaultProps = {
-    onClick: Function.prototype,
+    onClick: PropTypes.func.isRequired,
 }
 
 export default UpdateButton;

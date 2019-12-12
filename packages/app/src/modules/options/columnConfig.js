@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import React from 'react';
 import i18n from '@dhis2/d2-i18n';
 
@@ -27,21 +28,21 @@ export default [
             {
                 key: 'data-display',
                 label: i18n.t('Display'),
-                content: [
+                content: React.Children.toArray([
                     <CumulativeValues />,
                     <HideEmptyRowItems />,
                     <SortOrder />,
-                ],
+                ]),
             },
             {
                 key: 'data-lines',
                 label: i18n.t('Lines'),
-                content: [<RegressionType />, <TargetLine />, <BaseLine />],
+                content: React.Children.toArray([<RegressionType />, <TargetLine />, <BaseLine />]),
             },
             {
                 key: 'data-advanced',
                 label: i18n.t('Advanced'),
-                content: [<AggregationType />],
+                content: React.Children.toArray([<AggregationType />]),
             },
         ],
     },
@@ -52,17 +53,17 @@ export default [
             {
                 key: 'axes-vertical-axis',
                 label: i18n.t('Vertical (y) axis'),
-                content: [
+                content: React.Children.toArray([
                     <RangeAxisLabel />,
                     <AxisRange />,
                     <RangeAxisSteps />,
                     <RangeAxisDecimals />,
-                ],
+                ]),
             },
             {
                 key: 'axes-horizontal-axis',
                 label: i18n.t('Horizontal (x) axis'),
-                content: [<DomainAxisLabel />],
+                content: React.Children.toArray([<DomainAxisLabel />]),
             },
         ],
     },
@@ -78,17 +79,17 @@ export default [
             {
                 key: 'style-chart-style',
                 label: i18n.t('Chart style'),
-                content: [
+                content: React.Children.toArray([
                     <ShowData />,
                     <NoSpaceBetweenColumns />,
                     <HideLegend />,
                     /* TODO new option <BackgroundLines /> */
-                ],
+                ]),
             },
             {
                 key: 'style-titles',
                 label: i18n.t('Titles'),
-                content: [<HideTitle />, <HideSubtitle />],
+                content: React.Children.toArray([<HideTitle />, <HideSubtitle />]),
             },
         ],
     },

@@ -36,9 +36,8 @@ export const MenuBar = ({ classes, ...props }, context) => (
         <UpdateVisualizationContainer
             renderComponent={handler => (
                 <UpdateButton
-                    flat
-                    size="small"
                     className={classes.updateButton}
+                    small
                     onClick={handler}
                 />
             )}

@@ -74,8 +74,8 @@ const Layout = props => (
 Layout.displayName = 'Layout'
 
 Layout.propTypes = {
-    yearOverYearCategory: PropTypes.string,
-    yearOverYearSeries: PropTypes.string,
+    yearOverYearCategory: PropTypes.array,
+    yearOverYearSeries: PropTypes.array,
     onCategoryChange: PropTypes.func,
     onSeriesChange: PropTypes.func,
 }

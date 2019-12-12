@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import React from 'react';
 import i18n from '@dhis2/d2-i18n';
 
@@ -13,7 +14,7 @@ export default [
             {
                 key: 'data-advanced',
                 label: i18n.t('Advanced'),
-                content: [<AggregationType />],
+                content: React.Children.toArray([<AggregationType />]),
             },
         ],
     },
@@ -24,7 +25,7 @@ export default [
             {
                 key: 'style-titles',
                 label: i18n.t('Titles'),
-                content: [<HideTitle />, <HideSubtitle />],
+                content: React.Children.toArray([<HideTitle />, <HideSubtitle />]),
             },
         ],
     },

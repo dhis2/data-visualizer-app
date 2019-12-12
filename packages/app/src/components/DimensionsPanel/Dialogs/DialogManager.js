@@ -21,7 +21,7 @@ import {
     filterOutFixedDimensions,
 } from '@dhis2/analytics'
 
-import HideButton from './HideButton'
+import HideButton from '../../HideButton/HideButton'
 import AddToLayoutButton from './AddToLayoutButton/AddToLayoutButton'
 import UpdateVisualizationContainer from '../../UpdateButton/UpdateVisualizationContainer'
 
@@ -82,7 +82,7 @@ export class DialogManager extends Component {
         this.props.setRecommendedIds(ids)
     }, 1000)
 
-    onSelect = ({ dimensionId, items }) => {
+    selectUiItems = ({ dimensionId, items }) => {
         this.props.setUiItems({
             dimensionId,
             itemIds: items.map(item => item.id),
@@ -129,6 +129,8 @@ export class DialogManager extends Component {
             }
         }
     }
+
+    closeDialog = () => this.props.closeDialog(null)
 
     getSelectedItems = dialogId => {
         return this.props.selectedItems[dialogId]
@@ -199,7 +201,7 @@ export class DialogManager extends Component {
 
         const dimensionProps = {
             d2: this.context.d2,
-            onSelect: this.onSelect,
+            onSelect: this.selectUiItems,
             onDeselect: removeUiItems,
             onReorder: setUiItems,
         }
@@ -226,9 +228,9 @@ export class DialogManager extends Component {
                 infoBoxMessage =
                     axisMaxNumberOfItems === 1
                         ? i18n.t(
-                              `'{{visualiationType}}' is intended to show a single data item. Only the first item will be used and saved.`,
+                              `'{{visualizationType}}' is intended to show a single data item. Only the first item will be used and saved.`,
                               {
-                                  visualiationType: getDisplayNameByVisType(
+                                  visualizationType: getDisplayNameByVisType(
                                       visType
                                   ),
                               }
@@ -302,11 +304,7 @@ export class DialogManager extends Component {
         <UpdateVisualizationContainer
             renderComponent={handler =>
                 this.props.dimensionIdsInLayout.includes(dialogId) ? (
-                    <UpdateButton
-                        flat
-                        size="small"
-                        onClick={this.getPrimaryOnClick(handler)}
-                    />
+                    <UpdateButton onClick={this.getPrimaryOnClick(handler)} />
                 ) : (
                     <AddToLayoutButton
                         onClick={this.getPrimaryOnClick(handler)}
@@ -318,7 +316,7 @@ export class DialogManager extends Component {
 
     getPrimaryOnClick = handler => () => {
         handler()
-        this.props.closeDialog(null)
+        this.closeDialog()
     }
 
     render() {
@@ -329,14 +327,14 @@ export class DialogManager extends Component {
             <Dialog
                 data-test="dialog-manager"
                 open={dialogId in dimensions}
-                onClose={() => this.props.closeDialog(null)}
+                onClose={this.closeDialog}
                 maxWidth="lg"
                 disableEnforceFocus
                 keepMounted={keepMounted}
             >
                 {this.renderDialogContent()}
                 <DialogActions>
-                    <HideButton />
+                    <HideButton onClick={this.closeDialog} />
                     {dialogId && this.renderPrimaryButton(dialogId)}
                 </DialogActions>
             </Dialog>
