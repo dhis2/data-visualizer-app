@@ -14,6 +14,7 @@ import {
 
 import UpdateButton from '../UpdateButton/UpdateButton';
 import HideButton from '../HideButton/HideButton';
+import UpdateVisualizationContainer from '../UpdateButton/UpdateVisualizationContainer'
 import VisualizationOptions from './VisualizationOptions';
 
 class VisualizationOptionsManager extends Component {
@@ -31,6 +32,11 @@ class VisualizationOptionsManager extends Component {
 
     toggleVisualizationOptionsDialog = () => {
         this.setState({ dialogIsOpen: !this.state.dialogIsOpen })
+    }
+
+    getPrimaryOnClick = handler => () => {
+        handler();
+        this.onClose();
     }
 
     render() {
@@ -52,6 +58,13 @@ class VisualizationOptionsManager extends Component {
                             <ButtonStrip>
                                 <HideButton
                                     onClick={this.onClose}
+                                />
+                                <UpdateVisualizationContainer
+                                    renderComponent={handler =>
+                                        <UpdateButton
+                                            onClick={this.getPrimaryOnClick(handler)}
+                                        />
+                                    }
                                 />
                             </ButtonStrip>
                         </ModalActions>
