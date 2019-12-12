@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import React from 'react'
 import i18n from '@dhis2/d2-i18n'
 
@@ -32,44 +33,36 @@ export default [
         content: [
             {
                 key: 'data-section-1',
-                /* eslint-disable react/jsx-key */
                 content: React.Children.toArray([
                     <ShowDimensionLabels />,
                     <SkipRounding />,
                 ]),
-                /* eslint-enable react/jsx-key */
             },
             {
                 key: 'data-display-totals',
                 label: i18n.t('Display totals'),
-                /* eslint-disable react/jsx-key */
                 content: React.Children.toArray([
                     <ColTotals />,
                     <ColSubTotals />,
                     <RowTotals />,
                     <RowSubTotals />,
                 ]),
-                /* eslint-enable react/jsx-key */
             },
             {
                 key: 'data-display-empty-data',
                 label: i18n.t('Display empty data'),
-                /* eslint-disable react/jsx-key */
                 content: React.Children.toArray([
                     <HideEmptyColumns />,
                     <HideEmptyRows />,
                 ]),
-                /* eslint-enable react/jsx-key */
             },
             {
                 key: 'data-advanced',
                 label: i18n.t('Advanced'),
-                /* eslint-disable react/jsx-key */
                 content: React.Children.toArray([
                     <AggregationType />,
                     <NumberType />,
                 ]),
-                /* eslint-enable react/jsx-key */
             },
         ],
     },
@@ -85,9 +78,7 @@ export default [
             {
                 key: 'legend-legend-setup',
                 label: i18n.t('Legend setup'),
-                /* eslint-disable react/jsx-key */
                 content: React.Children.toArray([<LegendDisplayStyle />]),
-                /* eslint-enable react/jsx-key */
             },
         ],
     },
@@ -97,14 +88,12 @@ export default [
         content: [
             {
                 key: 'style-section-1',
-                /* eslint-disable react/jsx-key */
                 content: React.Children.toArray([
                     <Title label={i18n.t('Table title')} />,
                     <DisplayDensity />,
                     <FontSize />,
                     <DigitGroupSeparator />,
                 ]),
-                /* eslint-enable react/jsx-key */
             },
         ],
     },
@@ -121,9 +110,7 @@ export default [
             {
                 key: 'limitValues-limit-min-max',
                 label: i18n.t('Limit minimum/maximum values'),
-                /* eslint-disable react/jsx-key */
                 content: React.Children.toArray([<MeasureCriteria />]),
-                /* eslint-enable react/jsx-key */
             },
         ],
     },
@@ -133,7 +120,6 @@ export default [
         content: [
             {
                 key: 'parameters-section-1',
-                /* eslint-disable react/jsx-key */
                 content: React.Children.toArray([
                     <ParamReportingPeriod />,
                     <ParamOrganisationUnit />,
@@ -143,7 +129,6 @@ export default [
                     <SortOrder />,
                     <TopLimit />,
                 ]),
-                /* eslint-enable react/jsx-key */
             },
         ],
     },
