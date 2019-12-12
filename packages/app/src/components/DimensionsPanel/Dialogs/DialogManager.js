@@ -21,7 +21,7 @@ import {
     filterOutFixedDimensions,
 } from '@dhis2/analytics'
 
-import HideButton from './HideButton'
+import HideButton from '../../HideButton/HideButton'
 import AddToLayoutButton from './AddToLayoutButton/AddToLayoutButton'
 import UpdateVisualizationContainer from '../../UpdateButton/UpdateVisualizationContainer'
 
@@ -129,6 +129,8 @@ export class DialogManager extends Component {
             }
         }
     }
+
+    onClose = () => this.props.closeDialog(null);
 
     getSelectedItems = dialogId => {
         return this.props.selectedItems[dialogId]
@@ -318,7 +320,7 @@ export class DialogManager extends Component {
 
     getPrimaryOnClick = handler => () => {
         handler()
-        this.props.closeDialog(null)
+        this.onClose()
     }
 
     render() {
@@ -329,14 +331,14 @@ export class DialogManager extends Component {
             <Dialog
                 data-test="dialog-manager"
                 open={dialogId in dimensions}
-                onClose={() => this.props.closeDialog(null)}
+                onClose={this.onClose}
                 maxWidth="lg"
                 disableEnforceFocus
                 keepMounted={keepMounted}
             >
                 {this.renderDialogContent()}
                 <DialogActions>
-                    <HideButton />
+                    <HideButton  onClick={this.onClose} />
                     {dialogId && this.renderPrimaryButton(dialogId)}
                 </DialogActions>
             </Dialog>

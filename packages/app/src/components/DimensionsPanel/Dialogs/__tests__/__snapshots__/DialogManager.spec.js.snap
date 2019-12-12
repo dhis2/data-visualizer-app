@@ -23,7 +23,9 @@ exports[`The DialogManager component renders OUDimension content with display:no
     />
   </div>
   <Component>
-    <Connect(HideButton) />
+    <HideButton
+      onClick={[Function]}
+    />
     <Connect(UpdateVisualizationContainer)
       renderComponent={[Function]}
     />
@@ -54,7 +56,9 @@ exports[`The DialogManager component renders OUDimension content with display:no
     />
   </div>
   <Component>
-    <Connect(HideButton) />
+    <HideButton
+      onClick={[Function]}
+    />
   </Component>
 </Component>
 `;
@@ -86,7 +90,9 @@ exports[`The DialogManager component renders OUDimension content with display:no
     selectedDimensions={Array []}
   />
   <Component>
-    <Connect(HideButton) />
+    <HideButton
+      onClick={[Function]}
+    />
     <Connect(UpdateVisualizationContainer)
       renderComponent={[Function]}
     />
@@ -104,7 +110,9 @@ exports[`The DialogManager component renders a closed dialog 1`] = `
   open={false}
 >
   <Component>
-    <Connect(HideButton) />
+    <HideButton
+      onClick={[Function]}
+    />
   </Component>
 </Component>
 `;
@@ -123,7 +131,9 @@ exports[`The DialogManager component renders the DataDimension content in dialog
     selectedDimensions={Array []}
   />
   <Component>
-    <Connect(HideButton) />
+    <HideButton
+      onClick={[Function]}
+    />
     <Connect(UpdateVisualizationContainer)
       renderComponent={[Function]}
     />
@@ -154,7 +164,9 @@ exports[`The DialogManager component renders the OrgUnitDimension content in dia
     />
   </div>
   <Component>
-    <Connect(HideButton) />
+    <HideButton
+      onClick={[Function]}
+    />
     <Connect(UpdateVisualizationContainer)
       renderComponent={[Function]}
     />
@@ -176,7 +188,9 @@ exports[`The DialogManager component renders the PeriodDimension content in dial
     selectedPeriods={Array []}
   />
   <Component>
-    <Connect(HideButton) />
+    <HideButton
+      onClick={[Function]}
+    />
     <Connect(UpdateVisualizationContainer)
       renderComponent={[Function]}
     />
