@@ -143,6 +143,16 @@ export const fieldsByType = {
     ],
 }
 
+fieldsByType.visualization = [
+    ...fieldsByType.reportTable,
+    ...fieldsByType.chart,
+    ...fieldsByType.reportTable_eventReport,
+    ...fieldsByType.chart_eventChart,
+    ...fieldsByType.reportTable_chart_eventReport,
+    ...fieldsByType.reportTable_eventReport_eventChart,
+    ...fieldsByType.reportTable_chart_eventReport_eventChart,
+]
+
 // actions
 
 export const extractName = propObj => propObj[BASE_FIELD_NAME]
