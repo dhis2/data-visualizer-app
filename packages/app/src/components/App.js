@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { createSelector } from 'reselect'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
-import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
 
 import Snackbar from '../components/Snackbar/Snackbar'
 import MenuBar from './MenuBar/MenuBar'
@@ -14,7 +12,6 @@ import Interpretations from './Interpretations/Interpretations'
 import Visualization from './Visualization/Visualization'
 import Layout from './Layout/Layout'
 import * as fromReducers from '../reducers'
-import { sGetUiType } from '../reducers/ui'
 import * as fromActions from '../actions'
 import history from '../modules/history'
 import defaultMetadata from '../modules/metadata'
@@ -30,6 +27,8 @@ import AxisSetup from './AxisSetup/AxisSetup'
 
 export class App extends Component {
     unlisten = null
+
+    apiObjectName = 'visualization'
 
     state = {
         previousLocation: null,
@@ -86,7 +85,7 @@ export class App extends Component {
             if (!urlContainsCurrentAOKey && this.refetch(location)) {
                 await store.dispatch(
                     fromActions.tDoLoadVisualization({
-                        type: this.props.apiObjectName,
+                        type: this.apiObjectName,
                         id,
                         interpretationId,
                         ouLevels: this.props.ouLevels,
@@ -166,7 +165,7 @@ export class App extends Component {
                             <VisualizationTypeSelector />
                         </div>
                         <div className="toolbar-menubar flex-grow-1">
-                            <MenuBar apiObjectName={this.props.apiObjectName} />
+                            <MenuBar apiObjectName={this.apiObjectName} />
                         </div>
                     </div>
                     <div className="section-main flex-grow-1 flex-ct">
@@ -187,7 +186,7 @@ export class App extends Component {
                         {this.props.ui.rightSidebarOpen && this.props.current && (
                             <div className="main-right">
                                 <Interpretations
-                                    type={this.props.apiObjectName}
+                                    type={this.apiObjectName}
                                     id={this.props.current.id}
                                 />
                             </div>
@@ -200,16 +199,11 @@ export class App extends Component {
     }
 }
 
-const apiObjectSelector = createSelector([sGetUiType], type =>
-    type === VIS_TYPE_PIVOT_TABLE ? 'reportTable' : 'chart'
-)
-
 const mapStateToProps = state => ({
     settings: fromReducers.fromSettings.sGetSettings(state),
     current: fromReducers.fromCurrent.sGetCurrent(state),
     interpretations: fromReducers.fromVisualization.sGetInterpretations(state),
     ui: fromReducers.fromUi.sGetUi(state),
-    apiObjectName: apiObjectSelector(state),
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -237,7 +231,6 @@ App.childContextTypes = {
 
 App.propTypes = {
     addParentGraphMap: PropTypes.func,
-    apiObjectName: PropTypes.string,
     baseUrl: PropTypes.string,
     current: PropTypes.object,
     d2: PropTypes.object,

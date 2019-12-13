@@ -1,7 +1,5 @@
 import i18n from '@dhis2/d2-i18n'
 
-import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
-
 import {
     apiFetchVisualization,
     apiSaveVisualization,
@@ -55,13 +53,6 @@ export const tDoLoadVisualization = ({
 }) => async (dispatch, getState) => {
     const onSuccess = async model => {
         const visualization = convertOuLevelsToUids(ouLevels, model.toJSON())
-
-        // TODO remove this once the backend new api endpoint is ready
-        // the AO should have the type: PIVOT_TABLE
-        if (!visualization.type) {
-            console.log(`type not in AO, set to ${VIS_TYPE_PIVOT_TABLE}`)
-            visualization.type = VIS_TYPE_PIVOT_TABLE
-        }
 
         if (interpretationId) {
             const interpretation = visualization.interpretations.find(
