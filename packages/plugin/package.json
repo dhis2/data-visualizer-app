@@ -1,12 +1,12 @@
 {
     "name": "@dhis2/data-visualizer-plugin",
-    "version": "32.0.7",
+    "version": "32.0.8",
     "description": "DHIS2 Data Visualizer plugin",
     "main": "./build/index.js",
     "license": "BSD-3-Clause",
     "dependencies": {
         "@material-ui/core": "^3.1.2",
-        "d2-charts-api": "32.0.7",
+        "d2-charts-api": "32.0.8",
         "lodash-es": "^4.17.11",
         "react": "^16.6.0",
         "react-dom": "^16.6.0"
