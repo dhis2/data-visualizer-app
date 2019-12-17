@@ -127,12 +127,12 @@ class Axis extends React.Component {
 }
 
 Axis.propTypes = {
-    axis: PropTypes.string,
+    axis: PropTypes.array,
     axisId: PropTypes.string,
     getMoveHandler: PropTypes.func,
     getOpenHandler: PropTypes.func,
     getRemoveHandler: PropTypes.func,
-    itemsByDimension: PropTypes.array,
+    itemsByDimension: PropTypes.object,
     style: PropTypes.object,
     type: PropTypes.string,
     onAddDimension: PropTypes.func,
