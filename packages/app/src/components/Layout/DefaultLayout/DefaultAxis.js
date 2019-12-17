@@ -1,3 +1,5 @@
+// TODO: Deprecated, moved to Analytics. Remove file + /styles/DefaultAxis.style completely?
+
 import React from 'react'
 import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'

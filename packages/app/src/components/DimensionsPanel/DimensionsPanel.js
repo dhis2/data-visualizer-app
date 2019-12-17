@@ -90,6 +90,9 @@ export class Dimensions extends Component {
                     visType={this.props.ui.type}
                     numberOfDimensionItems={this.getNumberOfDimensionItems()}
                     dualAxisItemHandler={this.props.dualAxisItemHandler}
+                    assignedCategoriesItemHandler={
+                        this.props.assignedCategoriesItemHandler
+                    }
                     axisItemHandler={this.props.axisItemHandler}
                     removeItemHandler={this.props.removeItemHandler}
                     anchorEl={this.state.dimensionMenuAnchorEl}
@@ -111,6 +114,7 @@ const getLockedDimensionsMemo = createSelector([sGetUiType], type =>
 )
 
 Dimensions.propTypes = {
+    assignedCategoriesItemHandler: PropTypes.func,
     axisItemHandler: PropTypes.func,
     dimensions: PropTypes.object,
     disallowedDimensions: PropTypes.array,
@@ -154,6 +158,7 @@ const mapDispatchToProps = dispatch => ({
     removeItemHandler: dimensionId => {
         dispatch(acRemoveUiLayoutDimensions(dimensionId))
     },
+    assignedCategoriesItemHandler: () => console.log('B'),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dimensions)
