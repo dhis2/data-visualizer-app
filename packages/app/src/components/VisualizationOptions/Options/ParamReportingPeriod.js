@@ -8,7 +8,7 @@ const ParamReportingPeriod = () => (
     <CheckboxBaseOption
         label={i18n.t('Reporting period')}
         option={{
-            name: 'paramReportingPeriod',
+            name: 'reportingPeriod',
         }}
     />
 )
