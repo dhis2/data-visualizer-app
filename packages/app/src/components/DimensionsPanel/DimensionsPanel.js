@@ -5,6 +5,8 @@ import {
     DimensionMenu,
     getDisallowedDimensions,
     getAllLockedDimensionIds,
+    AXIS_ID_FILTERS,
+    DIMENSION_ID_ASSIGNED_CATEGORIES,
 } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
@@ -91,12 +93,20 @@ export class Dimensions extends Component {
                     visType={this.props.ui.type}
                     numberOfDimensionItems={this.getNumberOfDimensionItems()}
                     dualAxisItemHandler={this.props.dualAxisItemHandler}
-                    assignedCategoriesItemHandler={
-                        this.props.assignedCategoriesItemHandler
+                    assignedCategoriesItemHandler={() =>
+                        this.props.assignedCategoriesItemHandler(
+                            isAssignedCategoriesDimensionInLayout(
+                                this.props.selectedIds
+                            )
+                        )
                     }
                     assignedCategoriesItemLabel={
-                        // TODO: = isAssignedCategoriesDimensionInLayout ? "Exclude" : "Include"
-                        i18n.t('Hello world') // TODO: Move this to a central reusable location
+                        isAssignedCategoriesDimensionInLayout(
+                            this.props.selectedIds
+                        )
+                            ? i18n.t('Exclude categories in layout')
+                            : i18n.t('Include categories in layout')
+                        // TODO: Move this to a central reusable location
                     }
                     axisItemHandler={this.props.axisItemHandler}
                     removeItemHandler={this.props.removeItemHandler}
@@ -117,6 +127,9 @@ const getDisallowedDimensionsMemo = createSelector([sGetUiType], type =>
 const getLockedDimensionsMemo = createSelector([sGetUiType], type =>
     getAllLockedDimensionIds(type)
 )
+
+const isAssignedCategoriesDimensionInLayout = dimensions =>
+    dimensions.includes(DIMENSION_ID_ASSIGNED_CATEGORIES)
 
 Dimensions.propTypes = {
     assignedCategoriesItemHandler: PropTypes.func,
@@ -163,7 +176,16 @@ const mapDispatchToProps = dispatch => ({
     removeItemHandler: dimensionId => {
         dispatch(acRemoveUiLayoutDimensions(dimensionId))
     },
-    assignedCategoriesItemHandler: () => console.log('B'), // TODO: Implement handler
+    assignedCategoriesItemHandler: isAssignedCategoriesDimensionInLayout => {
+        dispatch(
+            isAssignedCategoriesDimensionInLayout
+                ? acRemoveUiLayoutDimensions(DIMENSION_ID_ASSIGNED_CATEGORIES)
+                : acAddUiLayoutDimensions({
+                      // TODO: Consider adding logic to choose category for vistypes with category
+                      [DIMENSION_ID_ASSIGNED_CATEGORIES]: AXIS_ID_FILTERS,
+                  })
+        )
+    },
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dimensions)
