@@ -7,6 +7,7 @@ import {
     getAllLockedDimensionIds,
 } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
+import i18n from '@dhis2/d2-i18n'
 
 import DialogManager from './Dialogs/DialogManager'
 import { SOURCE_DIMENSIONS, getInverseLayout } from '../../modules/layout'
@@ -93,6 +94,10 @@ export class Dimensions extends Component {
                     assignedCategoriesItemHandler={
                         this.props.assignedCategoriesItemHandler
                     }
+                    assignedCategoriesItemLabel={
+                        // TODO: = isAssignedCategoriesDimensionInLayout ? "Exclude" : "Include"
+                        i18n.t('Hello world') // TODO: Move this to a central reusable location
+                    }
                     axisItemHandler={this.props.axisItemHandler}
                     removeItemHandler={this.props.removeItemHandler}
                     anchorEl={this.state.dimensionMenuAnchorEl}
@@ -158,7 +163,7 @@ const mapDispatchToProps = dispatch => ({
     removeItemHandler: dimensionId => {
         dispatch(acRemoveUiLayoutDimensions(dimensionId))
     },
-    assignedCategoriesItemHandler: () => console.log('B'),
+    assignedCategoriesItemHandler: () => console.log('B'), // TODO: Implement handler
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dimensions)

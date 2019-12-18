@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import IconButton from '@material-ui/core/IconButton'
 import { DimensionMenu } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
+import i18n from '@dhis2/d2-i18n'
 
 import MoreHorizontalIcon from '../../assets/MoreHorizontalIcon'
 import { styles } from './styles/Menu.style'
@@ -50,6 +51,7 @@ class ChipMenu extends React.Component {
                     assignedCategoriesItemHandler={
                         this.props.assignedCategoriesItemHandler
                     }
+                    assignedCategoriesItemLabel={i18n.t('LABEL')} // TODO: Same logic as DimensionsPanel.js
                     axisItemHandler={this.props.axisItemHandler}
                     removeItemHandler={this.props.removeItemHandler}
                     anchorEl={this.state.anchorEl}
@@ -81,7 +83,7 @@ const mapDispatchToProps = dispatch => ({
     removeItemHandler: dimensionId => {
         dispatch(acRemoveUiLayoutDimensions(dimensionId))
     },
-    assignedCategoriesItemHandler: () => console.log('A'),
+    assignedCategoriesItemHandler: () => console.log('A'), // TODO: Same logic as DimensionsPanel.js
 })
 
 export default connect(null, mapDispatchToProps)(ChipMenu)
