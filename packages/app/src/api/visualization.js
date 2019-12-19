@@ -1,46 +1,36 @@
-import { getInstance } from 'd2'
 import { getFieldsStringByType } from '../modules/fields'
 
-export const apiFetchVisualization = (type, id) =>
-    getInstance().then(d2 =>
-        d2.models[type].get(id, {
-            fields: getFieldsStringByType(type),
-        })
-    )
+export const apiFetchVisualization = (dataEngine, type, id) => {
+    const visualizationQuery = {
+        visualization: {
+            resource: `${type}s`, // XXX SUPER UGLY HACK will be fixed when the vis api PR is merged
+            id,
+            params: {
+                fields: getFieldsStringByType(type),
+            },
+        },
+    }
 
-export const apiSaveVisualization = (type, visualization) =>
-    getInstance()
-        .then(d2 => d2.models[type])
-        .then(modelDefinition => {
-            const api = modelDefinition.api
-            const apiEndpoint = modelDefinition.apiEndpoint
+    return dataEngine.query(visualizationQuery)
+}
 
-            const options = {
-                skipTranslations: true,
-                skipSharing: true,
-            }
+export const apiSaveVisualization = (dataEngine, type, visualization) => {
+    const mutation = {
+        type: 'create',
+        resource: `${type}s`, // XXX UGLY HACK will be fixed when the vis api PR is merged
+        data: visualization,
+        params: {
+            skipTranslations: 'true',
+            skipSharing: 'true',
+        },
+    }
 
-            const query = Object.entries(options).reduce(
-                (query, [name, value]) => {
-                    query.push(
-                        `${encodeURIComponent(name)}=${encodeURIComponent(
-                            value
-                        )}`
-                    )
-                    return query
-                },
-                []
-            )
+    if (visualization.id) {
+        mutation.type = 'update'
+        mutation.id = visualization.id
+    }
 
-            const queryString = '?' + query.join('&')
-
-            if (visualization.id) {
-                return api.update(
-                    `${apiEndpoint}/${visualization.id}${queryString}`,
-                    visualization,
-                    false
-                )
-            } else {
-                return api.post(`${apiEndpoint}${queryString}`, visualization)
-            }
-        })
+    return dataEngine.mutate(mutation, {
+        onError: error => console.error(error),
+    })
+}

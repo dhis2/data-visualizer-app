@@ -50,9 +50,12 @@ export const tDoLoadVisualization = ({
     id,
     interpretationId,
     ouLevels,
-}) => async (dispatch, getState) => {
-    const onSuccess = async model => {
-        const visualization = convertOuLevelsToUids(ouLevels, model.toJSON())
+}) => async (dispatch, getState, engine) => {
+    const onSuccess = async response => {
+        const visualization = convertOuLevelsToUids(
+            ouLevels,
+            response.visualization
+        )
 
         if (interpretationId) {
             const interpretation = visualization.interpretations.find(
@@ -72,7 +75,7 @@ export const tDoLoadVisualization = ({
     }
 
     try {
-        return onSuccess(await apiFetchVisualization(type, id))
+        return onSuccess(await apiFetchVisualization(engine, type, id))
     } catch (error) {
         clearVisualization(dispatch, getState, error)
 
@@ -139,7 +142,7 @@ export const tDoSaveVisualization = (
     type,
     { name, description },
     copy
-) => async (dispatch, getState) => {
+) => async (dispatch, getState, engine) => {
     const onSuccess = res => {
         if (res.status === 'OK' && res.response.uid) {
             if (copy) {
@@ -166,7 +169,9 @@ export const tDoSaveVisualization = (
             visualization.description = description
         }
 
-        return onSuccess(await apiSaveVisualization(type, visualization))
+        return onSuccess(
+            await apiSaveVisualization(engine, type, visualization)
+        )
     } catch (error) {
         return onError('tDoSaveVisualization', error)
     }
