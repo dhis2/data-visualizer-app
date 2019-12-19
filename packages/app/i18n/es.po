@@ -1,13 +1,14 @@
 # Translators:
 # Viktor Varland <viktor@dhis2.org>, 2019
 # phil_dhis2, 2019
+# Eric Barreda Prades <ericbarredap@gmail.com>, 2019
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-11-29T10:59:48.425Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: phil_dhis2, 2019\n"
+"Last-Translator: Eric Barreda Prades <ericbarredap@gmail.com>, 2019\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -163,16 +164,16 @@ msgid "Average"
 msgstr "Promedio"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr ""
+msgstr "Media (suma en las unidades organizativas de la jerarquía)"
 
 msgid "Sum"
 msgstr "Suma"
 
 msgid "Last value"
-msgstr ""
+msgstr "Último valor"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr ""
+msgstr "Último valor (media en la jerarquía de unidades organizativas)"
 
 msgid "Min"
 msgstr "Mín"
@@ -196,7 +197,7 @@ msgid "Base line value"
 msgstr "Valor de línea base"
 
 msgid "Use cumulative values"
-msgstr ""
+msgstr "Usar valores cumulativos"
 
 msgid "Domain axis title"
 msgstr "Título eje coordenadas"
@@ -428,13 +429,13 @@ msgid "Yesterday"
 msgstr "Ayer"
 
 msgid "Last 3 days"
-msgstr ""
+msgstr "Últimos 3 días"
 
 msgid "Last 7 days"
 msgstr "Últimos 7 diass"
 
 msgid "Last 14 days"
-msgstr ""
+msgstr "Últimos 14 días"
 
 msgid "This week"
 msgstr "Esta semana"
@@ -452,7 +453,7 @@ msgid "Last 52 weeks"
 msgstr "Últimas 52 semanas"
 
 msgid "Weeks this year"
-msgstr ""
+msgstr "Semanas de este año"
 
 msgid "This month"
 msgstr "Este mes"
