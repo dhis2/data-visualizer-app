@@ -22,7 +22,7 @@ import {
 } from '../../reducers/snackbar'
 import * as selectors from '../../reducers/settings'
 
-const middlewares = [thunk]
+const middlewares = [thunk.withExtraArgument('dataEngine')]
 const mockStore = configureMockStore(middlewares)
 
 const rootOrganisationUnit = 'abc123'
@@ -53,9 +53,7 @@ describe('index', () => {
             }
 
             api.apiFetchVisualization = () =>
-                Promise.resolve({
-                    toJSON: () => vis,
-                })
+                Promise.resolve({ visualization: vis })
 
             const expectedActions = [
                 {
@@ -93,9 +91,7 @@ describe('index', () => {
             }
 
             api.apiFetchVisualization = () =>
-                Promise.resolve({
-                    toJSON: () => vis,
-                })
+                Promise.resolve({ visualization: vis })
 
             const expectedActions = [
                 {
@@ -136,9 +132,7 @@ describe('index', () => {
         it('dispatches CLEAR_LOAD_ERROR last', () => {
             const vis = { name: 'hey' }
             api.apiFetchVisualization = () =>
-                Promise.resolve({
-                    toJSON: () => vis,
-                })
+                Promise.resolve({ visualization: vis })
 
             const store = mockStore({})
 
@@ -368,6 +362,7 @@ describe('index', () => {
                 .then(() => {
                     expect(api.apiSaveVisualization).toHaveBeenCalled()
                     expect(api.apiSaveVisualization).toHaveBeenCalledWith(
+                        'dataEngine',
                         'chart',
                         expectedVis
                     )
@@ -394,6 +389,7 @@ describe('index', () => {
                 .then(() => {
                     expect(api.apiSaveVisualization).toHaveBeenCalled()
                     expect(api.apiSaveVisualization).toHaveBeenCalledWith(
+                        'dataEngine',
                         'chart',
                         expectedVis
                     )
