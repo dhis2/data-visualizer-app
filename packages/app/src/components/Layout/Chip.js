@@ -4,7 +4,7 @@ import WarningIcon from '@material-ui/icons/Warning'
 import LockIcon from '@material-ui/icons/Lock'
 import i18n from '@dhis2/d2-i18n'
 import {
-    FIXED_DIMENSIONS,
+    getFixedDimensionProp,
     getAxisMaxNumberOfItems,
     hasAxisTooManyItems,
     getAxisPerLockedDimension,
@@ -114,14 +114,12 @@ class Chip extends React.Component {
     }
 
     renderChipIcon = () => {
-        const fixedDimension = FIXED_DIMENSIONS[this.props.dimensionId]
-
-        if (fixedDimension) {
-            const Icon = FIXED_DIMENSIONS[this.props.dimensionId].icon
-            return <Icon style={styles.fixedDimensionIcon} />
-        }
-
-        return <DynamicDimensionIcon style={styles.dynamicDimensionIcon} />
+        const Icon = getFixedDimensionProp(this.props.dimensionId, 'icon')
+        return Icon ? (
+            <Icon style={styles.fixedDimensionIcon} />
+        ) : (
+            <DynamicDimensionIcon style={styles.dynamicDimensionIcon} />
+        )
     }
 
     renderMenu = () => (

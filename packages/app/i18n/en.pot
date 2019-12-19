@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-12-18T12:43:25.187Z\n"
-"PO-Revision-Date: 2019-12-18T12:43:25.187Z\n"
+"POT-Creation-Date: 2019-12-19T13:11:41.957Z\n"
+"PO-Revision-Date: 2019-12-19T13:11:41.957Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -44,7 +44,10 @@ msgid ""
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
 
-msgid "Hello world"
+msgid "Exclude categories in layout"
+msgstr ""
+
+msgid "Include categories in layout"
 msgstr ""
 
 msgid "Download"
