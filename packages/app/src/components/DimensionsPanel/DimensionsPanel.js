@@ -106,7 +106,7 @@ export class Dimensions extends Component {
                         )
                             ? i18n.t('Exclude categories in layout')
                             : i18n.t('Include categories in layout')
-                        // TODO: Move this to a central reusable location
+                        // AC TODO: Move this to a central reusable location
                     }
                     axisItemHandler={this.props.axisItemHandler}
                     removeItemHandler={this.props.removeItemHandler}
@@ -181,7 +181,7 @@ const mapDispatchToProps = dispatch => ({
             isAssignedCategoriesDimensionInLayout
                 ? acRemoveUiLayoutDimensions(DIMENSION_ID_ASSIGNED_CATEGORIES)
                 : acAddUiLayoutDimensions({
-                      // TODO: Consider adding logic to choose category for vistypes with category
+                      // AC TODO: Consider adding logic to choose category for vistypes with category
                       [DIMENSION_ID_ASSIGNED_CATEGORIES]: AXIS_ID_FILTERS,
                   })
         )

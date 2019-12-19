@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-12-10T08:39:00.095Z\n"
-"PO-Revision-Date: 2019-12-10T08:39:00.095Z\n"
+"POT-Creation-Date: 2019-12-18T12:43:25.187Z\n"
+"PO-Revision-Date: 2019-12-18T12:43:25.187Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -35,7 +35,7 @@ msgid "Update"
 msgstr ""
 
 msgid ""
-"'{{visualiationType}}' is intended to show a single data item. Only the "
+"'{{visualizationType}}' is intended to show a single data item. Only the "
 "first item will be used and saved."
 msgstr ""
 
@@ -44,7 +44,7 @@ msgid ""
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
 
-msgid "Hide"
+msgid "Hello world"
 msgstr ""
 
 msgid "Download"
@@ -92,6 +92,9 @@ msgstr ""
 msgid "The following information may be requested by technical support."
 msgstr ""
 
+msgid "Hide"
+msgstr ""
+
 msgid "Interpretations"
 msgstr ""
 
@@ -108,6 +111,9 @@ msgid "Move to"
 msgstr ""
 
 msgid "Remove"
+msgstr ""
+
+msgid "LABEL"
 msgstr ""
 
 msgid "None selected"

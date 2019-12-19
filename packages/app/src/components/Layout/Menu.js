@@ -51,7 +51,7 @@ class ChipMenu extends React.Component {
                     assignedCategoriesItemHandler={
                         this.props.assignedCategoriesItemHandler
                     }
-                    assignedCategoriesItemLabel={i18n.t('LABEL')} // TODO: Same logic as DimensionsPanel.js
+                    assignedCategoriesItemLabel={i18n.t('LABEL')} // AC TODO: Same logic as DimensionsPanel.js
                     axisItemHandler={this.props.axisItemHandler}
                     removeItemHandler={this.props.removeItemHandler}
                     anchorEl={this.state.anchorEl}
@@ -83,7 +83,7 @@ const mapDispatchToProps = dispatch => ({
     removeItemHandler: dimensionId => {
         dispatch(acRemoveUiLayoutDimensions(dimensionId))
     },
-    assignedCategoriesItemHandler: () => console.log('A'), // TODO: Same logic as DimensionsPanel.js
+    assignedCategoriesItemHandler: () => console.log('A'), // AC TODO: Same logic as DimensionsPanel.js
 })
 
 export default connect(null, mapDispatchToProps)(ChipMenu)
