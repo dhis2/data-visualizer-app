@@ -12,6 +12,7 @@ import {
     isYearOverYear,
     isDualAxisType,
     getAxisName,
+    getFixedDimensionProp,
 } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
 
@@ -117,7 +118,11 @@ class Axis extends React.Component {
                     {this.props.axis.map(dimensionId => (
                         <Chip
                             key={`${this.props.axisId}-${dimensionId}`}
-                            onClick={this.props.getOpenHandler(dimensionId)}
+                            onClick={
+                                !getFixedDimensionProp(dimensionId, 'noItems')
+                                    ? this.props.getOpenHandler(dimensionId)
+                                    : null // TODO: Throws error. Send empty function? Or handle by default prop?
+                            }
                             axisId={this.props.axisId}
                             dimensionId={dimensionId}
                         />

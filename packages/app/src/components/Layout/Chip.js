@@ -91,7 +91,10 @@ class Chip extends React.Component {
 
     getWrapperStyles = () => ({
         ...styles.chipWrapper,
-        ...(!this.props.items.length ? styles.chipEmpty : {}), // TODO: Update for AC / CO
+        ...(!getFixedDimensionProp(this.props.dimensionId, 'noItems') &&
+        !this.props.items.length
+            ? styles.chipEmpty
+            : {}),
     })
 
     renderChipLabel = () => {
