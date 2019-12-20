@@ -12,7 +12,6 @@ import {
     isYearOverYear,
     isDualAxisType,
     getAxisName,
-    getFixedDimensionProp,
 } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
 
@@ -118,11 +117,6 @@ class Axis extends React.Component {
                     {this.props.axis.map(dimensionId => (
                         <Chip
                             key={`${this.props.axisId}-${dimensionId}`}
-                            onClick={
-                                !getFixedDimensionProp(dimensionId, 'noItems')
-                                    ? this.props.getOpenHandler(dimensionId)
-                                    : null // TODO: Throws error. Send empty function? Or handle by default prop?
-                            }
                             axisId={this.props.axisId}
                             dimensionId={dimensionId}
                         />
@@ -137,7 +131,6 @@ Axis.propTypes = {
     axis: PropTypes.array,
     axisId: PropTypes.string,
     getMoveHandler: PropTypes.func,
-    getOpenHandler: PropTypes.func,
     getRemoveHandler: PropTypes.func,
     itemsByDimension: PropTypes.object,
     style: PropTypes.object,
@@ -154,8 +147,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     onAddDimension: map => dispatch(acAddUiLayoutDimensions(map)),
     onDropWithoutItems: dimensionId =>
-        dispatch(acSetUiActiveModalDialog(dimensionId)),
-    getOpenHandler: dimensionId => () =>
         dispatch(acSetUiActiveModalDialog(dimensionId)),
 })
 

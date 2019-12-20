@@ -20,6 +20,7 @@ import { sGetDimensions } from '../../reducers/dimensions'
 import { sGetUiItemsByDimension, sGetUiType } from '../../reducers/ui'
 import DynamicDimensionIcon from '../../assets/DynamicDimensionIcon'
 import { styles } from './styles/Chip.style'
+import { acSetUiActiveModalDialog } from '../../actions/ui'
 
 const TOOLTIP_ENTER_DELAY = 500
 
@@ -75,8 +76,10 @@ class Chip extends React.Component {
         }
     }
 
-    handleClick = event => {
-        this.props.onClick(event)
+    handleClick = () => {
+        if (!getFixedDimensionProp(this.props.dimensionId, 'noItems')) {
+            this.props.getOpenHandler(this.props.dimensionId)
+        }
 
         this.handleMouseOut()
     }
@@ -198,13 +201,12 @@ Chip.propTypes = {
     axisId: PropTypes.string.isRequired,
     dimensionId: PropTypes.string.isRequired,
     dimensionName: PropTypes.string.isRequired,
+    getOpenHandler: PropTypes.func.isRequired,
     type: PropTypes.string.isRequired,
     items: PropTypes.array,
-    onClick: PropTypes.func,
 }
 
 Chip.defaultProps = {
-    onClick: Function.prototype,
     items: [],
 }
 
@@ -214,4 +216,9 @@ const mapStateToProps = (state, ownProps) => ({
     type: sGetUiType(state),
 })
 
-export default connect(mapStateToProps)(Chip)
+const mapDispatchToProps = dispatch => ({
+    getOpenHandler: dimensionId =>
+        dispatch(acSetUiActiveModalDialog(dimensionId)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Chip)
