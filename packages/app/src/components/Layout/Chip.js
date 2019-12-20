@@ -1,3 +1,4 @@
+// TODO: Refactor chip to contain less logic
 import React from 'react'
 import { connect } from 'react-redux'
 import WarningIcon from '@material-ui/icons/Warning'
@@ -10,6 +11,7 @@ import {
     getAxisPerLockedDimension,
     getDisplayNameByVisType,
     getAxisName,
+    DIMENSION_ID_ASSIGNED_CATEGORIES,
 } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
 
@@ -140,32 +142,35 @@ class Chip extends React.Component {
     )
 
     renderTooltip = () => {
-        const activeItemIds = this.axisMaxNumberOfItems
-            ? this.props.items.slice(0, this.axisMaxNumberOfItems)
-            : this.props.items
+        if (this.props.dimensionId !== DIMENSION_ID_ASSIGNED_CATEGORIES) {
+            const activeItemIds = this.axisMaxNumberOfItems
+                ? this.props.items.slice(0, this.axisMaxNumberOfItems)
+                : this.props.items
 
-        const lockedLabel = this.isLocked
-            ? i18n.t(
-                  `{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}`,
-                  {
-                      dimensionName: this.props.dimensionName,
-                      axisName: getAxisName(this.props.axisId),
-                      visTypeName: getDisplayNameByVisType(this.props.type),
-                  }
-              )
-            : null
-        return (
-            <Tooltip
-                dimensionId={this.props.dimensionId}
-                itemIds={activeItemIds}
-                lockedLabel={lockedLabel}
-                displayLimitedAmount={
-                    this.props.items.length > activeItemIds.length
-                }
-                open={this.state.tooltipOpen}
-                anchorEl={this.getAnchorEl()}
-            />
-        )
+            const lockedLabel = this.isLocked
+                ? i18n.t(
+                      `{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}`,
+                      {
+                          dimensionName: this.props.dimensionName,
+                          axisName: getAxisName(this.props.axisId),
+                          visTypeName: getDisplayNameByVisType(this.props.type),
+                      }
+                  )
+                : null
+
+            return (
+                <Tooltip
+                    dimensionId={this.props.dimensionId}
+                    itemIds={activeItemIds}
+                    lockedLabel={lockedLabel}
+                    displayLimitedAmount={
+                        this.props.items.length > activeItemIds.length
+                    }
+                    open={this.state.tooltipOpen}
+                    anchorEl={this.getAnchorEl()}
+                />
+            )
+        }
     }
 
     render = () => (
