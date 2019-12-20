@@ -76,6 +76,10 @@ export class Dimensions extends Component {
             dimension => !dimension.noItems
         )
 
+    isAssignedCategoriesDimensionInLayout = dimensions =>
+        dimensions.includes(DIMENSION_ID_ASSIGNED_CATEGORIES)
+    // AC TODO: Move this to a central reusable location
+
     render() {
         return (
             <div style={styles.divContainer}>
@@ -101,13 +105,13 @@ export class Dimensions extends Component {
                     assignedCategoriesItemHandler={
                         () =>
                             this.props.assignedCategoriesItemHandler(
-                                isAssignedCategoriesDimensionInLayout(
+                                this.isAssignedCategoriesDimensionInLayout(
                                     this.props.selectedIds
                                 )
                             ) // AC TODO: Move this to a central reusable location
                     }
                     assignedCategoriesItemLabel={
-                        isAssignedCategoriesDimensionInLayout(
+                        this.isAssignedCategoriesDimensionInLayout(
                             this.props.selectedIds
                         )
                             ? i18n.t('Exclude categories in layout')
@@ -133,10 +137,6 @@ const getDisallowedDimensionsMemo = createSelector([sGetUiType], type =>
 const getLockedDimensionsMemo = createSelector([sGetUiType], type =>
     getAllLockedDimensionIds(type)
 )
-
-const isAssignedCategoriesDimensionInLayout = dimensions =>
-    dimensions.includes(DIMENSION_ID_ASSIGNED_CATEGORIES)
-// AC TODO: Move this to a central reusable location
 
 Dimensions.propTypes = {
     assignedCategoriesItemHandler: PropTypes.func,
@@ -189,8 +189,7 @@ const mapDispatchToProps = dispatch => ({
             isAssignedCategoriesDimensionInLayout
                 ? acRemoveUiLayoutDimensions(DIMENSION_ID_ASSIGNED_CATEGORIES)
                 : acAddUiLayoutDimensions({
-                      // AC TODO: Consider adding logic to choose category for vistypes with category
-                      [DIMENSION_ID_ASSIGNED_CATEGORIES]: AXIS_ID_FILTERS,
+                      [DIMENSION_ID_ASSIGNED_CATEGORIES]: AXIS_ID_FILTERS, // AC TODO: Add logic for which axis to add AC to
                   })
         )
     },
