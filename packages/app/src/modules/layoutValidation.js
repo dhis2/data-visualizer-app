@@ -82,10 +82,12 @@ const errorLabels = {
 
 // Layout validation helper functions
 const isAxisValid = axis =>
-    //AXIS.isValid(axis) && dimensionIsValid(axis[0], { requireItems: !FIXED_DIMENSIONS[axis[0]].noItems) })
-    //AXIS.isValid(axis) && axis.every(dimension => dimensionIsValid(dimension, { requireItems: !FIXED_DIMENSIONS[dimension].noItems }
-    AXIS.isValid(axis) && dimensionIsValid(axis[0], { requireItems: true })
-// TODO: axis[0] needs to be changed for Pivot Table
+    AXIS.isValid(axis) &&
+    axis.some(dimension =>
+        dimensionIsValid(dimension, {
+            requireItems: !getFixedDimensionProp(dimension, 'noItems'),
+        })
+    )
 
 const validateDimension = (dimension, message) => {
     if (!(dimension && dimensionIsValid(dimension, { requireItems: true }))) {

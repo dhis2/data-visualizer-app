@@ -98,12 +98,13 @@ export class Dimensions extends Component {
                     visType={this.props.ui.type}
                     numberOfDimensionItems={this.getNumberOfDimensionItems()}
                     dualAxisItemHandler={this.props.dualAxisItemHandler}
-                    assignedCategoriesItemHandler={() =>
-                        this.props.assignedCategoriesItemHandler(
-                            isAssignedCategoriesDimensionInLayout(
-                                this.props.selectedIds
-                            )
-                        )
+                    assignedCategoriesItemHandler={
+                        () =>
+                            this.props.assignedCategoriesItemHandler(
+                                isAssignedCategoriesDimensionInLayout(
+                                    this.props.selectedIds
+                                )
+                            ) // AC TODO: Move this to a central reusable location
                     }
                     assignedCategoriesItemLabel={
                         isAssignedCategoriesDimensionInLayout(
@@ -135,6 +136,7 @@ const getLockedDimensionsMemo = createSelector([sGetUiType], type =>
 
 const isAssignedCategoriesDimensionInLayout = dimensions =>
     dimensions.includes(DIMENSION_ID_ASSIGNED_CATEGORIES)
+// AC TODO: Move this to a central reusable location
 
 Dimensions.propTypes = {
     assignedCategoriesItemHandler: PropTypes.func,
@@ -183,6 +185,7 @@ const mapDispatchToProps = dispatch => ({
     },
     assignedCategoriesItemHandler: isAssignedCategoriesDimensionInLayout => {
         dispatch(
+            // AC TODO: Move this to a central reusable location
             isAssignedCategoriesDimensionInLayout
                 ? acRemoveUiLayoutDimensions(DIMENSION_ID_ASSIGNED_CATEGORIES)
                 : acAddUiLayoutDimensions({
