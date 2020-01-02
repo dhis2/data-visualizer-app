@@ -83,9 +83,9 @@ const errorLabels = {
 // Layout validation helper functions
 const isAxisValid = axis =>
     AXIS.isValid(axis) &&
-    axis.some(dimension =>
-        dimensionIsValid(dimension, {
-            requireItems: !getFixedDimensionProp(dimension, 'noItems'),
+    axis.some(axisItem =>
+        dimensionIsValid(axisItem, {
+            requireItems: !getFixedDimensionProp(axisItem.dimension, 'noItems'),
         })
     )
 
