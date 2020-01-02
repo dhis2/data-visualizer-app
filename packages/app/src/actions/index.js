@@ -76,7 +76,13 @@ export const tDoLoadVisualization = ({
 
     try {
         return onSuccess(await apiFetchVisualization(engine, type, id))
-    } catch (error) {
+    } catch (err) {
+        let error = err
+
+        if (err && err.message) {
+            error = err.message
+        }
+
         clearVisualization(dispatch, getState, error)
 
         return onError('tDoLoadVisualization', error)
