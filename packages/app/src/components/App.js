@@ -113,7 +113,7 @@ export class App extends Component {
             fromActions.fromSettings.tAddSettings(userSettings)
         )
         store.dispatch(fromActions.fromUser.acReceivedUser(d2.currentUser))
-        store.dispatch(fromActions.fromDimensions.tSetDimensions())
+        store.dispatch(fromActions.fromDimensions.tSetDimensions(d2))
 
         const rootOrgUnit = this.props.settings.rootOrganisationUnit
 

@@ -47,7 +47,7 @@ import {
 import { sGetDimensions } from '../../../reducers/dimensions'
 import { sGetMetadata } from '../../../reducers/metadata'
 import { sGetSettingsDisplayNameProperty } from '../../../reducers/settings'
-import { apiFetchRecommendedIds } from '../../../api/dimensions'
+import { apiFetchRecommendedIds } from '@dhis2/analytics'
 import { removeLastPathSegment, getOuPath } from '../../../modules/orgUnit'
 import UpdateButton from '../../UpdateButton/UpdateButton'
 
@@ -75,6 +75,7 @@ export class DialogManager extends Component {
 
     fetchRecommended = debounce(async () => {
         const ids = await apiFetchRecommendedIds(
+            this.context.d2,
             this.props.dxIds,
             this.props.ouIds
         )

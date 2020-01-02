@@ -1,7 +1,7 @@
 import keyBy from 'lodash-es/keyBy'
 import sortBy from 'lodash-es/sortBy'
 import { SET_DIMENSIONS } from '../reducers/dimensions'
-import { apiFetchDimensions } from '../api/dimensions'
+import { apiFetchDimensions } from '@dhis2/analytics'
 import { sGetSettingsDisplayNameProperty } from '../reducers/settings'
 
 export const acSetDimensions = dimensions => ({
@@ -9,7 +9,7 @@ export const acSetDimensions = dimensions => ({
     value: keyBy(sortBy(dimensions, [d => d.name.toLowerCase()]), 'id'),
 })
 
-export const tSetDimensions = () => async (dispatch, getState) => {
+export const tSetDimensions = d2 => async (dispatch, getState) => {
     const onSuccess = dimensions => {
         dispatch(acSetDimensions(dimensions))
     }
@@ -21,7 +21,7 @@ export const tSetDimensions = () => async (dispatch, getState) => {
 
     try {
         const displayNameProp = sGetSettingsDisplayNameProperty(getState())
-        const dimensions = await apiFetchDimensions(displayNameProp)
+        const dimensions = await apiFetchDimensions(d2, displayNameProp)
         return onSuccess(dimensions)
     } catch (err) {
         return onError(err)
