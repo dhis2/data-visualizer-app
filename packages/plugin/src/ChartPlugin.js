@@ -8,14 +8,12 @@ import {
     createVisualization,
 } from '@dhis2/analytics'
 
-import { apiFetchVisualization } from './api/visualization'
 import {
     apiFetchAnalytics,
     apiFetchAnalyticsForYearOverYear,
 } from './api/analytics'
 import { getOptionsForRequest } from './modules/options'
 import { computeGenericPeriodNames } from './modules/analytics'
-import { BASE_FIELD_YEARLY_SERIES } from './modules/fields/baseFields'
 import LoadingMask from './widgets/LoadingMask'
 
 class ChartPlugin extends Component {
@@ -90,13 +88,9 @@ class ChartPlugin extends Component {
         return options
     }
 
-    getConfigById = id => {
-        return apiFetchVisualization(this.props.d2, 'chart', id)
-    }
-
     renderChart = async () => {
         const {
-            config,
+            config: visualization,
             filters,
             forDashboard,
             onResponsesReceived,
@@ -105,11 +99,6 @@ class ChartPlugin extends Component {
         } = this.props
 
         try {
-            const visualization =
-                Object.keys(config).length === 1 && config.id
-                    ? await this.getConfigById(config.id)
-                    : config
-
             const options = this.getRequestOptions(visualization, filters)
 
             const extraOptions = {
@@ -131,7 +120,7 @@ class ChartPlugin extends Component {
                     options
                 ))
 
-                extraOptions[BASE_FIELD_YEARLY_SERIES] = yearlySeriesLabels
+                extraOptions.yearlySeries = yearlySeriesLabels
                 extraOptions.xAxisLabels = computeGenericPeriodNames(responses)
             } else {
                 responses = await apiFetchAnalytics(
