@@ -8,7 +8,7 @@ const ParamParentOrganisationUnit = () => (
     <CheckboxBaseOption
         label={i18n.t('Parent organisation unit')}
         option={{
-            name: 'paramParentOrganisationUnit',
+            name: 'parentOrganisationUnit',
         }}
     />
 )

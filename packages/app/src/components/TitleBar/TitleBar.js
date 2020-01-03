@@ -14,7 +14,7 @@ import formatDate from '../../modules/formatDate'
 import InterpretationIcon from '../../assets/InterpretationIcon'
 import styles from './styles/TitleBar.style'
 
-export const TITLE_UNSAVED = i18n.t('Unsaved chart')
+export const TITLE_UNSAVED = i18n.t('Unsaved visualization')
 export const TITLE_DIRTY = i18n.t('Edited')
 
 export const STATE_EMPTY = 'EMPTY'
