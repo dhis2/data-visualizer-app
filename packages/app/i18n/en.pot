@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-12-19T13:11:41.957Z\n"
-"PO-Revision-Date: 2019-12-19T13:11:41.957Z\n"
+"POT-Creation-Date: 2020-01-06T10:34:04.415Z\n"
+"PO-Revision-Date: 2020-01-06T10:34:04.415Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -116,9 +116,6 @@ msgstr ""
 msgid "Remove"
 msgstr ""
 
-msgid "LABEL"
-msgstr ""
-
 msgid "None selected"
 msgstr ""
 
@@ -128,7 +125,7 @@ msgstr ""
 msgid "Only '{{number}}' in use"
 msgstr ""
 
-msgid "Unsaved chart"
+msgid "Unsaved visualization"
 msgstr ""
 
 msgid "Edited"

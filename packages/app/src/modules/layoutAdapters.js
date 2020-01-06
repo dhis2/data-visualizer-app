@@ -4,6 +4,7 @@ import {
     AXIS_ID_FILTERS,
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
+    DIMENSION_ID_ASSIGNED_CATEGORIES,
 } from '@dhis2/analytics'
 
 // Transform from ui.layout to pie layout format
@@ -26,7 +27,7 @@ export const yearOverYearLayoutAdapter = layout => ({
         ...layout[AXIS_ID_FILTERS],
         ...layout[AXIS_ID_COLUMNS],
         ...layout[AXIS_ID_ROWS],
-    ].filter(dim => dim !== DIMENSION_ID_PERIOD),
+    ].filter(dim => dim !== DIMENSION_ID_PERIOD && dim !== DIMENSION_ID_ASSIGNED_CATEGORIES),
 })
 
 // Transform from ui.layout to single value layout format
@@ -41,6 +42,6 @@ export const singleValueLayoutAdapter = layout => {
             ...layout[AXIS_ID_FILTERS],
             ...columns,
             ...rows,
-        ].filter(dim => dim !== DIMENSION_ID_DATA),
+        ].filter(dim => dim !== DIMENSION_ID_DATA && dim !== DIMENSION_ID_ASSIGNED_CATEGORIES),
     }
 }
