@@ -13,7 +13,7 @@ if (window.Cypress) {
     window.store = store
 }
 
-const schemas = ['chart', 'reportTable', 'organisationUnit', 'userGroup']
+const schemas = ['visualization', 'organisationUnit', 'userGroup']
 
 const AppWrapper = () => (
     <Provider store={store}>

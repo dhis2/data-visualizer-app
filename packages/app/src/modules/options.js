@@ -20,7 +20,6 @@ export const options = {
     targetLineLabel: { defaultValue: undefined, requestable: false },
     targetLineValue: { defaultValue: undefined, requestable: false },
     // legendDisplayStrategy
-    // legendSet
     aggregationType: { defaultValue: 'DEFAULT', requestable: true },
     completedOnly: { defaultValue: false, requestable: true },
     hideSubtitle: { defaultValue: false, requestable: false },
@@ -40,18 +39,18 @@ export const options = {
     skipRounding: { defaultValue: false, requestable: true },
     numberType: { defaultValue: 'VALUE', requestable: false },
     showHierarchy: { defaultValue: false, requestable: true },
-    legendSet: { defaultValue: 'NONE', requestable: false }, // XXX can be 'BY_DATA_ITEM'
+    legendSet: { defaultValue: undefined, requestable: false },
     legendDisplayStyle: { defaultValue: 'FILL', requestable: false },
     displayDensity: { defaultValue: 'NORMAL', requestable: false },
     fontSize: { defaultValue: 'NORMAL', requestable: false },
     digitGroupSeparator: { defaultValue: 'SPACE', requestable: false },
 
     // XXX these are stored in the AO under reportParams
-    paramReportingPeriod: { defaultValue: false, requestable: false },
-    paramOrganisationUnit: { defaultValue: false, requestable: false },
-    paramParentOrganisationUnit: { defaultValue: false, requestable: false },
+    reportingPeriod: { defaultValue: false, requestable: false },
+    organisationUnit: { defaultValue: false, requestable: false },
+    parentOrganisationUnit: { defaultValue: false, requestable: false },
     // XXX not in UI
-    paramGrandParentOrganisationUnit: {
+    grandParentOrganisationUnit: {
         defaultValue: false,
         requestable: false,
     },
@@ -109,14 +108,14 @@ export const getOptionsFromVisualization = visualization => {
 
     // nested options under reportParams
     if (visualization.reportParams) {
-        optionsFromVisualization.paramOrganisationUnit =
-            visualization.reportParams.paramOrganisationUnit
-        optionsFromVisualization.paramReportingPeriod =
-            visualization.reportParams.paramReportingPeriod
-        optionsFromVisualization.paramParentOrganisationUnit =
-            visualization.reportParams.paramParentOrganisationUnit
-        optionsFromVisualization.paramGrandParentOrganisationUnit =
-            visualization.reportParams.paramGrandParentOrganisationUnit
+        optionsFromVisualization.organisationUnit =
+            visualization.reportParams.organisationUnit
+        optionsFromVisualization.reportingPeriod =
+            visualization.reportParams.reportingPeriod
+        optionsFromVisualization.parentOrganisationUnit =
+            visualization.reportParams.parentOrganisationUnit
+        optionsFromVisualization.grandParentOrganisationUnit =
+            visualization.reportParams.grandParentOrganisationUnit
     }
 
     return optionsFromVisualization
