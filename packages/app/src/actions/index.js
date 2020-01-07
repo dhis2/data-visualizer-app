@@ -46,7 +46,6 @@ export const onError = (action, error) => {
 // visualization, current, ui
 
 export const tDoLoadVisualization = ({
-    type,
     id,
     interpretationId,
     ouLevels,
@@ -75,7 +74,7 @@ export const tDoLoadVisualization = ({
     }
 
     try {
-        return onSuccess(await apiFetchVisualization(engine, type, id))
+        return onSuccess(await apiFetchVisualization(engine, id))
     } catch (err) {
         let error = err
 
@@ -105,7 +104,7 @@ export const clearVisualization = (dispatch, getState, error = null) => {
     dispatch(fromUi.acClear({ rootOrganisationUnit, relativePeriod }))
 }
 
-export const tDoRenameVisualization = (type, { name, description }) => (
+export const tDoRenameVisualization = ({ name, description }) => (
     dispatch,
     getState
 ) => {
@@ -144,11 +143,11 @@ export const tDoRenameVisualization = (type, { name, description }) => (
     )
 }
 
-export const tDoSaveVisualization = (
-    type,
-    { name, description },
-    copy
-) => async (dispatch, getState, engine) => {
+export const tDoSaveVisualization = ({ name, description }, copy) => async (
+    dispatch,
+    getState,
+    engine
+) => {
     const onSuccess = res => {
         if (res.status === 'OK' && res.response.uid) {
             if (copy) {
@@ -175,9 +174,7 @@ export const tDoSaveVisualization = (
             visualization.description = description
         }
 
-        return onSuccess(
-            await apiSaveVisualization(engine, type, visualization)
-        )
+        return onSuccess(await apiSaveVisualization(engine, visualization))
     } catch (error) {
         return onError('tDoSaveVisualization', error)
     }

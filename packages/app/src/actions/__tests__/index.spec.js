@@ -278,9 +278,7 @@ describe('index', () => {
                 },
             ]
 
-            store.dispatch(
-                fromActions.tDoRenameVisualization('chart', extraParams)
-            )
+            store.dispatch(fromActions.tDoRenameVisualization(extraParams))
 
             expect(store.getActions()).toEqual(expectedActions)
         })
@@ -310,9 +308,7 @@ describe('index', () => {
                 },
             ]
 
-            store.dispatch(
-                fromActions.tDoRenameVisualization('chart', extraParams)
-            )
+            store.dispatch(fromActions.tDoRenameVisualization(extraParams))
 
             expect(store.getActions()).toEqual(expectedActions)
         })
@@ -352,18 +348,11 @@ describe('index', () => {
             }
 
             return store
-                .dispatch(
-                    fromActions.tDoSaveVisualization(
-                        'chart',
-                        extraParams,
-                        false
-                    )
-                )
+                .dispatch(fromActions.tDoSaveVisualization(extraParams, false))
                 .then(() => {
                     expect(api.apiSaveVisualization).toHaveBeenCalled()
                     expect(api.apiSaveVisualization).toHaveBeenCalledWith(
                         'dataEngine',
-                        'chart',
                         expectedVis
                     )
                     expect(history.default.replace).toHaveBeenCalled()
@@ -383,14 +372,11 @@ describe('index', () => {
             }
 
             return store
-                .dispatch(
-                    fromActions.tDoSaveVisualization('chart', extraParams, true)
-                )
+                .dispatch(fromActions.tDoSaveVisualization(extraParams, true))
                 .then(() => {
                     expect(api.apiSaveVisualization).toHaveBeenCalled()
                     expect(api.apiSaveVisualization).toHaveBeenCalledWith(
                         'dataEngine',
-                        'chart',
                         expectedVis
                     )
                     expect(history.default.push).toHaveBeenCalled()
