@@ -36,8 +36,9 @@ class ChipMenu extends React.Component {
 
     getMenuId = () => `menu-for-${this.props.id}`
 
-    isAssignedCategoriesDimensionInLayout = dimensions =>
-        dimensions.includes(DIMENSION_ID_ASSIGNED_CATEGORIES)
+    isAssignedCategoriesDimensionInLayout = () =>
+        this.props.adaptedLayoutHasDimension(DIMENSION_ID_ASSIGNED_CATEGORIES)
+    // AC TODO: Move this to a central reusable location
 
     render() {
         return (
@@ -59,15 +60,11 @@ class ChipMenu extends React.Component {
                     assignedCategoriesItemHandler={
                         () =>
                             this.props.assignedCategoriesItemHandler(
-                                this.isAssignedCategoriesDimensionInLayout(
-                                    this.props.selectedIds
-                                )
+                                this.isAssignedCategoriesDimensionInLayout()
                             ) // AC TODO: Move this to a central reusable location
                     }
                     assignedCategoriesItemLabel={
-                        this.isAssignedCategoriesDimensionInLayout(
-                            this.props.selectedIds
-                        )
+                        this.isAssignedCategoriesDimensionInLayout()
                             ? i18n.t('Exclude categories in layout')
                             : i18n.t('Include categories in layout')
                         // AC TODO: Move this to a central reusable location
@@ -83,6 +80,7 @@ class ChipMenu extends React.Component {
 }
 
 ChipMenu.propTypes = {
+    adaptedLayoutHasDimension: PropTypes.func,
     assignedCategoriesItemHandler: PropTypes.func,
     axisItemHandler: PropTypes.func,
     currentAxisId: PropTypes.string,
@@ -91,13 +89,13 @@ ChipMenu.propTypes = {
     id: PropTypes.string,
     numberOfDimensionItems: PropTypes.number,
     removeItemHandler: PropTypes.func,
-    selectedIds: PropTypes.array,
     visType: PropTypes.string,
 }
 
 const mapStateToProps = state => {
     return {
-        selectedIds: fromReducers.fromUi.sGetDimensionIdsFromLayout(state),
+        adaptedLayoutHasDimension: dimensionId =>
+            fromReducers.fromUi.sAdaptedLayoutHasDimension(state, dimensionId),
     }
 }
 

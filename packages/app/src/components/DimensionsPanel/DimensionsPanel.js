@@ -64,7 +64,6 @@ export class Dimensions extends Component {
     getUiAxisId = () => {
         const adaptedUi = getAdaptedUiByType(this.props.ui)
         const inverseLayout = getInverseLayout(adaptedUi.layout)
-
         return inverseLayout[this.state.dimensionId]
     }
 
@@ -76,8 +75,8 @@ export class Dimensions extends Component {
             dimension => !dimension.noItems
         )
 
-    isAssignedCategoriesDimensionInLayout = dimensions =>
-        dimensions.includes(DIMENSION_ID_ASSIGNED_CATEGORIES)
+    isAssignedCategoriesDimensionInLayout = () =>
+        this.props.adaptedLayoutHasDimension(DIMENSION_ID_ASSIGNED_CATEGORIES)
     // AC TODO: Move this to a central reusable location
 
     render() {
@@ -105,15 +104,11 @@ export class Dimensions extends Component {
                     assignedCategoriesItemHandler={
                         () =>
                             this.props.assignedCategoriesItemHandler(
-                                this.isAssignedCategoriesDimensionInLayout(
-                                    this.props.selectedIds
-                                )
+                                this.isAssignedCategoriesDimensionInLayout()
                             ) // AC TODO: Move this to a central reusable location
                     }
                     assignedCategoriesItemLabel={
-                        this.isAssignedCategoriesDimensionInLayout(
-                            this.props.selectedIds
-                        )
+                        this.isAssignedCategoriesDimensionInLayout()
                             ? i18n.t('Exclude categories in layout')
                             : i18n.t('Include categories in layout')
                         // AC TODO: Move this to a central reusable location
@@ -139,6 +134,7 @@ const getLockedDimensionsMemo = createSelector([sGetUiType], type =>
 )
 
 Dimensions.propTypes = {
+    adaptedLayoutHasDimension: PropTypes.func,
     assignedCategoriesItemHandler: PropTypes.func,
     axisItemHandler: PropTypes.func,
     dimensions: PropTypes.object,
@@ -165,6 +161,8 @@ const mapStateToProps = state => {
         itemsByDimension: fromReducers.fromUi.sGetUiItems(state),
         disallowedDimensions: getDisallowedDimensionsMemo(state),
         lockedDimensions: getLockedDimensionsMemo(state),
+        adaptedLayoutHasDimension: dimensionId =>
+            fromReducers.fromUi.sAdaptedLayoutHasDimension(state, dimensionId),
     }
 }
 
