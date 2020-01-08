@@ -26,7 +26,7 @@ describe('The Dimensions component ', () => {
             dualAxisItemHandler: () => {},
             axisItemHandler: () => {},
             removeItemHandler: () => {},
-            selectedIds: [],
+            adaptedLayoutHasDimension: () => {},
         }
     })
 
