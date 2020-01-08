@@ -1,17 +1,17 @@
 import { getFieldsStringByType } from '../modules/fields'
 
-export const apiFetchVisualization = (dataEngine, id) => {
-    const visualizationQuery = {
-        visualization: {
-            resource: 'visualizations',
-            id,
-            params: {
-                fields: getFieldsStringByType('visualization'),
-            },
+const visualizationQuery = {
+    visualization: {
+        resource: 'visualizations',
+        id: ({ id }) => id,
+        params: {
+            fields: getFieldsStringByType('visualization'),
         },
-    }
+    },
+}
 
-    return dataEngine.query(visualizationQuery)
+export const apiFetchVisualization = (dataEngine, id) => {
+    return dataEngine.query(visualizationQuery, { variables: { id } })
 }
 
 export const apiSaveVisualization = (dataEngine, visualization) => {
@@ -30,7 +30,5 @@ export const apiSaveVisualization = (dataEngine, visualization) => {
         mutation.id = visualization.id
     }
 
-    return dataEngine.mutate(mutation, {
-        onError: error => console.error(error),
-    })
+    return dataEngine.mutate(mutation)
 }
