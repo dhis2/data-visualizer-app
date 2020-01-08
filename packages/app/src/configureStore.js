@@ -1,12 +1,9 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import { createLogger } from 'redux-logger'
-import thunk from 'redux-thunk'
 
 import reducer from './reducers'
 
-const configureStore = (...args) => {
-    const middleware = [thunk, ...args]
-
+const configureStore = middleware => {
     // Enable Redux devtools if extension is installed instead of redux-logger
     // const composeEnhancers =
     //     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

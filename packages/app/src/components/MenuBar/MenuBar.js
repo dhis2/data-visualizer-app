@@ -24,8 +24,7 @@ const onOpen = id => {
     }
 }
 const onNew = () => history.push('/')
-const getOnRename = props => details =>
-    props.onRenameVisualization(details, false)
+const getOnRename = props => details => props.onRenameVisualization(details)
 const getOnSave = props => details => props.onSaveVisualization(details, false)
 const getOnSaveAs = props => details => props.onSaveVisualization(details, true)
 const getOnDelete = props => () => props.onDeleteVisualization()
@@ -75,19 +74,11 @@ const mapStateToProps = state => ({
     id: (sGetCurrent(state) || {}).id,
 })
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = dispatch => ({
     onRenameVisualization: details =>
-        dispatch(
-            fromActions.tDoRenameVisualization(ownProps.apiObjectName, details)
-        ),
+        dispatch(fromActions.tDoRenameVisualization(details)),
     onSaveVisualization: (details, copy) =>
-        dispatch(
-            fromActions.tDoSaveVisualization(
-                ownProps.apiObjectName,
-                details,
-                copy
-            )
-        ),
+        dispatch(fromActions.tDoSaveVisualization(details, copy)),
     onDeleteVisualization: () => dispatch(fromActions.tDoDeleteVisualization()),
     onError: error => {
         const { type, message } = parseError(error)

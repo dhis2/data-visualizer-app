@@ -5,7 +5,6 @@ import * as analytics from '@dhis2/analytics'
 import LoadingMask from '../widgets/LoadingMask'
 import ChartPlugin from '../ChartPlugin'
 import * as api from '../api/analytics'
-import * as apiViz from '../api/visualization'
 import * as options from '../modules/options'
 
 jest.mock('@dhis2/analytics')
@@ -132,10 +131,6 @@ describe('ChartPlugin', () => {
         }
         shallowChartPlugin = undefined
 
-        apiViz.apiFetchVisualization = jest
-            .fn()
-            .mockResolvedValue(defaultCurrentMock)
-
         api.apiFetchAnalytics = jest
             .fn()
             .mockResolvedValue([new MockAnalyticsResponse()])
@@ -194,26 +189,6 @@ describe('ChartPlugin', () => {
                 expect(api.apiFetchAnalytics.mock.calls[0][2]).toEqual({
                     option1: 'def',
                 })
-
-                done()
-            })
-        })
-
-        it('fetches the AO by id when only id is passed in config', done => {
-            props.forDashboard = true
-            props.config = {
-                id: 'test1',
-            }
-
-            canvas()
-
-            setTimeout(() => {
-                expect(apiViz.apiFetchVisualization).toHaveBeenCalled()
-                expect(apiViz.apiFetchVisualization).toHaveBeenCalledWith(
-                    props.d2,
-                    'chart',
-                    'test1'
-                )
 
                 done()
             })
