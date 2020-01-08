@@ -138,7 +138,6 @@ class Axis extends React.Component {
                                                 {...provided.dragHandleProps}
                                             >
                                                 <Chip
-                                                    key={`${key}-chip`}
                                                     onClick={this.props.getOpenHandler(
                                                         dimensionId
                                                     )}
