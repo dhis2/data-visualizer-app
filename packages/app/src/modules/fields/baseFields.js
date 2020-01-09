@@ -17,7 +17,7 @@ export const fieldsByType = {
         getFieldObject('measureCriteria', { option: true }),
         getFieldObject('numberType', { option: true }),
         getFieldObject('regression', { option: true }),
-        getFieldObject('reportParams', { option: true }),
+        getFieldObject('reportingParams', { option: true }),
         getFieldObject('skipRounding', { option: true }),
     ],
     chart: [
