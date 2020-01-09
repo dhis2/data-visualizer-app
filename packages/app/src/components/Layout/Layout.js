@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { DragDropContext } from 'react-beautiful-dnd';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { DragDropContext } from 'react-beautiful-dnd'
 import {
     VIS_TYPE_COLUMN,
     VIS_TYPE_STACKED_COLUMN,
@@ -18,11 +18,11 @@ import {
     VIS_TYPE_PIVOT_TABLE,
 } from '@dhis2/analytics'
 
-import DefaultLayout from './DefaultLayout/DefaultLayout';
-import YearOverYearLayout from './YearOverYearLayout/YearOverYearLayout';
-import PieLayout from './PieLayout/PieLayout';
-import { sGetUiLayout, sGetUiType } from '../../reducers/ui';
-import { acSetUiLayout} from '../../actions/ui';
+import DefaultLayout from './DefaultLayout/DefaultLayout'
+import YearOverYearLayout from './YearOverYearLayout/YearOverYearLayout'
+import PieLayout from './PieLayout/PieLayout'
+import { sGetUiLayout, sGetUiType } from '../../reducers/ui'
+import { acSetUiLayout } from '../../actions/ui'
 
 const layoutMap = {
     [VIS_TYPE_COLUMN]: DefaultLayout,
@@ -46,43 +46,42 @@ const getLayoutByType = (type, props) => {
 }
 
 const Layout = props => {
-     const onDragEnd = result => {
-        const { source, destination } = result;
+    const onDragEnd = result => {
+        const { source, destination } = result
 
         if (!destination) {
-            return;
+            return
         }
 
-        const sourceList = Array.from(props.layout[source.droppableId]);
-        const [moved] = sourceList.splice(source.index, 1);
-        const reorderedDimensions = {};
+        const sourceList = Array.from(props.layout[source.droppableId])
+        const [moved] = sourceList.splice(source.index, 1)
+        const reorderedDimensions = {}
 
         if (source.droppableId === destination.droppableId) {
-            sourceList.splice(destination.index, 0, moved);
-            reorderedDimensions[source.droppableId] = sourceList;
-        }
-        else {
-            const destList = Array.from(props.layout[destination.droppableId]);
-            destList.splice(destination.index, 0, moved);
-            reorderedDimensions[destination.droppableId] = destList;
-            reorderedDimensions[source.droppableId] = sourceList;
+            sourceList.splice(destination.index, 0, moved)
+            reorderedDimensions[source.droppableId] = sourceList
+        } else {
+            const destList = Array.from(props.layout[destination.droppableId])
+            destList.splice(destination.index, 0, moved)
+            reorderedDimensions[destination.droppableId] = destList
+            reorderedDimensions[source.droppableId] = sourceList
         }
 
-        props.onReorderDimensions({ ...props.layout, ...reorderedDimensions });
-    };
+        props.onReorderDimensions({ ...props.layout, ...reorderedDimensions })
+    }
 
     return (
         <DragDropContext onDragEnd={onDragEnd}>
             {getLayoutByType(props.type)}
         </DragDropContext>
-    );
+    )
 }
 
 Layout.propTypes = {
     layout: PropTypes.object,
     type: PropTypes.string,
     onReorderDimensions: PropTypes.func,
-};
+}
 
 const mapStateToProps = state => ({
     layout: sGetUiLayout(state),
@@ -91,6 +90,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     onReorderDimensions: layout => dispatch(acSetUiLayout(layout)),
-});
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(Layout);
+export default connect(mapStateToProps, mapDispatchToProps)(Layout)
