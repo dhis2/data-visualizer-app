@@ -50,16 +50,17 @@ export const getOptionsFromUi = ui => {
         optionsFromUi.baseLineValue = options.baseLineValue.defaultValue
     }
 
-    // nested options under reportParams
-    optionsFromUi.reportParams = {}
+    // nested options under reportingParams
+    optionsFromUi.reportingParams = {}
     ;[
-        'paramOrganisationUnit',
-        'paramReportingPeriod',
-        'paramParentOrganisationUnit',
-        'paramGrandParentOrganisationUnit',
-    ].forEach(
-        option => (optionsFromUi.reportParams[option] = ui.options[option])
-    )
+        'organisationUnit',
+        'reportingPeriod',
+        'parentOrganisationUnit',
+        'grandParentOrganisationUnit',
+    ].forEach(option => {
+        optionsFromUi.reportingParams[option] = optionsFromUi[option]
+        delete optionsFromUi[option]
+    })
 
     return optionsFromUi
 }

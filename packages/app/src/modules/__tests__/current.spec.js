@@ -76,11 +76,11 @@ describe('getSingleValueCurrentFromUi', () => {
                 { dimension: DIMENSION_ID_PERIOD, items: [{ id: peItemId }] },
             ],
             rows: [],
-            reportParams: {
-                paramOrganisationUnit: undefined,
-                paramReportingPeriod: undefined,
-                paramParentOrganisationUnit: undefined,
-                paramGrandParentOrganisationUnit: undefined,
+            reportingParams: {
+                organisationUnit: undefined,
+                reportingPeriod: undefined,
+                parentOrganisationUnit: undefined,
+                grandParentOrganisationUnit: undefined,
             },
             type: 'SINGLEVALUE',
         }
