@@ -4,7 +4,6 @@ import IconButton from '@material-ui/core/IconButton'
 import {
     DimensionMenu,
     DIMENSION_ID_ASSIGNED_CATEGORIES,
-    AXIS_ID_FILTERS,
 } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
 import * as fromReducers from '../../reducers'
@@ -58,9 +57,10 @@ class ChipMenu extends React.Component {
                     dualAxisItemHandler={this.props.dualAxisItemHandler}
                     isAssignedCategoriesInLayout={this.isAssignedCategoriesDimensionInLayout()}
                     assignedCategoriesItemHandler={
-                        () =>
+                        destination =>
                             this.props.assignedCategoriesItemHandler(
-                                this.isAssignedCategoriesDimensionInLayout()
+                                this.isAssignedCategoriesDimensionInLayout(),
+                                destination
                             ) // AC TODO: Move this to a central reusable location
                     }
                     axisItemHandler={this.props.axisItemHandler}
@@ -102,12 +102,16 @@ const mapDispatchToProps = dispatch => ({
     removeItemHandler: dimensionId => {
         dispatch(acRemoveUiLayoutDimensions(dimensionId))
     },
-    assignedCategoriesItemHandler: isAssignedCategoriesDimensionInLayout => {
+    assignedCategoriesItemHandler: (
+        isAssignedCategoriesDimensionInLayout,
+        destination
+    ) => {
         dispatch(
+            // AC TODO: Move this to a central reusable location
             isAssignedCategoriesDimensionInLayout
                 ? acRemoveUiLayoutDimensions(DIMENSION_ID_ASSIGNED_CATEGORIES)
                 : acAddUiLayoutDimensions({
-                      [DIMENSION_ID_ASSIGNED_CATEGORIES]: AXIS_ID_FILTERS,
+                      [DIMENSION_ID_ASSIGNED_CATEGORIES]: destination,
                   })
         )
     },
