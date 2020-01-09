@@ -7,7 +7,6 @@ import {
     AXIS_ID_FILTERS,
 } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
-import i18n from '@dhis2/d2-i18n'
 import * as fromReducers from '../../reducers'
 
 import MoreHorizontalIcon from '../../assets/MoreHorizontalIcon'
@@ -57,17 +56,12 @@ class ChipMenu extends React.Component {
                     visType={this.props.visType}
                     numberOfDimensionItems={this.props.numberOfDimensionItems}
                     dualAxisItemHandler={this.props.dualAxisItemHandler}
+                    isAssignedCategoriesInLayout={this.isAssignedCategoriesDimensionInLayout()}
                     assignedCategoriesItemHandler={
                         () =>
                             this.props.assignedCategoriesItemHandler(
                                 this.isAssignedCategoriesDimensionInLayout()
                             ) // AC TODO: Move this to a central reusable location
-                    }
-                    assignedCategoriesItemLabel={
-                        this.isAssignedCategoriesDimensionInLayout()
-                            ? i18n.t('Exclude categories in layout')
-                            : i18n.t('Include categories in layout')
-                        // AC TODO: Move this to a central reusable location
                     }
                     axisItemHandler={this.props.axisItemHandler}
                     removeItemHandler={this.props.removeItemHandler}

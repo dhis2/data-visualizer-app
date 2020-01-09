@@ -9,7 +9,6 @@ import {
     DIMENSION_ID_ASSIGNED_CATEGORIES,
 } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
-import i18n from '@dhis2/d2-i18n'
 
 import DialogManager from './Dialogs/DialogManager'
 import { SOURCE_DIMENSIONS, getInverseLayout } from '../../modules/layout'
@@ -101,17 +100,12 @@ export class Dimensions extends Component {
                     visType={this.props.ui.type}
                     numberOfDimensionItems={this.getNumberOfDimensionItems()}
                     dualAxisItemHandler={this.props.dualAxisItemHandler}
+                    isAssignedCategoriesInLayout={this.isAssignedCategoriesDimensionInLayout()}
                     assignedCategoriesItemHandler={
                         () =>
                             this.props.assignedCategoriesItemHandler(
                                 this.isAssignedCategoriesDimensionInLayout()
                             ) // AC TODO: Move this to a central reusable location
-                    }
-                    assignedCategoriesItemLabel={
-                        this.isAssignedCategoriesDimensionInLayout()
-                            ? i18n.t('Exclude categories in layout')
-                            : i18n.t('Include categories in layout')
-                        // AC TODO: Move this to a central reusable location
                     }
                     axisItemHandler={this.props.axisItemHandler}
                     removeItemHandler={this.props.removeItemHandler}
