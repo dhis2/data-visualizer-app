@@ -294,6 +294,3 @@ export const sGetAxisSetup = state => {
           }))
         : []
 }
-
-// export const sIsAssignedCategoriesDimensionInLayout = state =>
-//     sGetDimensionIdsFromLayout(state).includes(DIMENSION_ID_ASSIGNED_CATEGORIES)
