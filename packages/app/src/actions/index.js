@@ -46,13 +46,15 @@ export const onError = (action, error) => {
 // visualization, current, ui
 
 export const tDoLoadVisualization = ({
-    type,
     id,
     interpretationId,
     ouLevels,
-}) => async (dispatch, getState) => {
-    const onSuccess = async model => {
-        const visualization = convertOuLevelsToUids(ouLevels, model.toJSON())
+}) => async (dispatch, getState, engine) => {
+    const onSuccess = async response => {
+        const visualization = convertOuLevelsToUids(
+            ouLevels,
+            response.visualization
+        )
 
         if (interpretationId) {
             const interpretation = visualization.interpretations.find(
@@ -72,8 +74,14 @@ export const tDoLoadVisualization = ({
     }
 
     try {
-        return onSuccess(await apiFetchVisualization(type, id))
-    } catch (error) {
+        return onSuccess(await apiFetchVisualization(engine, id))
+    } catch (err) {
+        let error = err
+
+        if (err && err.message) {
+            error = err.message
+        }
+
         clearVisualization(dispatch, getState, error)
 
         return onError('tDoLoadVisualization', error)
@@ -96,7 +104,7 @@ export const clearVisualization = (dispatch, getState, error = null) => {
     dispatch(fromUi.acClear({ rootOrganisationUnit, relativePeriod }))
 }
 
-export const tDoRenameVisualization = (type, { name, description }) => (
+export const tDoRenameVisualization = ({ name, description }) => (
     dispatch,
     getState
 ) => {
@@ -135,11 +143,11 @@ export const tDoRenameVisualization = (type, { name, description }) => (
     )
 }
 
-export const tDoSaveVisualization = (
-    type,
-    { name, description },
-    copy
-) => async (dispatch, getState) => {
+export const tDoSaveVisualization = ({ name, description }, copy) => async (
+    dispatch,
+    getState,
+    engine
+) => {
     const onSuccess = res => {
         if (res.status === 'OK' && res.response.uid) {
             if (copy) {
@@ -166,7 +174,7 @@ export const tDoSaveVisualization = (
             visualization.description = description
         }
 
-        return onSuccess(await apiSaveVisualization(type, visualization))
+        return onSuccess(await apiSaveVisualization(engine, visualization))
     } catch (error) {
         return onError('tDoSaveVisualization', error)
     }

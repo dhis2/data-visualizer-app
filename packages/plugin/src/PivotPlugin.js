@@ -9,7 +9,6 @@ import {
     Layout as d2aLayout,
     Response as d2aResponse,
 } from 'd2-analysis'
-import { apiFetchVisualization } from './api/visualization'
 import { apiFetchAnalytics } from './api/analytics'
 import { getOptionsForRequest } from './modules/options'
 import LoadingMask from './widgets/LoadingMask'
@@ -88,12 +87,13 @@ class PivotPlugin extends Component {
         return options
     }
 
-    getConfigById = id => {
-        return apiFetchVisualization(this.props.d2, 'reportTable', id)
-    }
-
     renderTable = async () => {
-        const { config, filters, onResponsesReceived, onError } = this.props
+        const {
+            config: visualization,
+            filters,
+            onResponsesReceived,
+            onError,
+        } = this.props
 
         const i18nManager = {
             get: string => i18n.t(string),
@@ -119,11 +119,6 @@ class PivotPlugin extends Component {
         }
 
         try {
-            const visualization =
-                Object.keys(config).length === 1 && config.id
-                    ? await this.getConfigById(config.id)
-                    : config
-
             const options = this.getRequestOptions(visualization, filters)
 
             const responses = await apiFetchAnalytics(

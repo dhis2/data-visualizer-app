@@ -22,7 +22,7 @@ import {
 } from '../../reducers/snackbar'
 import * as selectors from '../../reducers/settings'
 
-const middlewares = [thunk]
+const middlewares = [thunk.withExtraArgument('dataEngine')]
 const mockStore = configureMockStore(middlewares)
 
 const rootOrganisationUnit = 'abc123'
@@ -53,9 +53,7 @@ describe('index', () => {
             }
 
             api.apiFetchVisualization = () =>
-                Promise.resolve({
-                    toJSON: () => vis,
-                })
+                Promise.resolve({ visualization: vis })
 
             const expectedActions = [
                 {
@@ -93,9 +91,7 @@ describe('index', () => {
             }
 
             api.apiFetchVisualization = () =>
-                Promise.resolve({
-                    toJSON: () => vis,
-                })
+                Promise.resolve({ visualization: vis })
 
             const expectedActions = [
                 {
@@ -136,9 +132,7 @@ describe('index', () => {
         it('dispatches CLEAR_LOAD_ERROR last', () => {
             const vis = { name: 'hey' }
             api.apiFetchVisualization = () =>
-                Promise.resolve({
-                    toJSON: () => vis,
-                })
+                Promise.resolve({ visualization: vis })
 
             const store = mockStore({})
 
@@ -284,9 +278,7 @@ describe('index', () => {
                 },
             ]
 
-            store.dispatch(
-                fromActions.tDoRenameVisualization('chart', extraParams)
-            )
+            store.dispatch(fromActions.tDoRenameVisualization(extraParams))
 
             expect(store.getActions()).toEqual(expectedActions)
         })
@@ -316,9 +308,7 @@ describe('index', () => {
                 },
             ]
 
-            store.dispatch(
-                fromActions.tDoRenameVisualization('chart', extraParams)
-            )
+            store.dispatch(fromActions.tDoRenameVisualization(extraParams))
 
             expect(store.getActions()).toEqual(expectedActions)
         })
@@ -358,17 +348,11 @@ describe('index', () => {
             }
 
             return store
-                .dispatch(
-                    fromActions.tDoSaveVisualization(
-                        'chart',
-                        extraParams,
-                        false
-                    )
-                )
+                .dispatch(fromActions.tDoSaveVisualization(extraParams, false))
                 .then(() => {
                     expect(api.apiSaveVisualization).toHaveBeenCalled()
                     expect(api.apiSaveVisualization).toHaveBeenCalledWith(
-                        'chart',
+                        'dataEngine',
                         expectedVis
                     )
                     expect(history.default.replace).toHaveBeenCalled()
@@ -388,13 +372,11 @@ describe('index', () => {
             }
 
             return store
-                .dispatch(
-                    fromActions.tDoSaveVisualization('chart', extraParams, true)
-                )
+                .dispatch(fromActions.tDoSaveVisualization(extraParams, true))
                 .then(() => {
                     expect(api.apiSaveVisualization).toHaveBeenCalled()
                     expect(api.apiSaveVisualization).toHaveBeenCalledWith(
-                        'chart',
+                        'dataEngine',
                         expectedVis
                     )
                     expect(history.default.push).toHaveBeenCalled()

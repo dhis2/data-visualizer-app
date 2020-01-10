@@ -85,7 +85,6 @@ export class App extends Component {
             if (!urlContainsCurrentAOKey && this.refetch(location)) {
                 await store.dispatch(
                     fromActions.tDoLoadVisualization({
-                        type: this.apiObjectName,
                         id,
                         interpretationId,
                         ouLevels: this.props.ouLevels,

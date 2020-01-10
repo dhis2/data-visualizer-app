@@ -1,7 +1,9 @@
 // TODO: Deprecated, moved to Analytics. Remove file + /styles/DefaultAxis.style completely?
 
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { Droppable, Draggable } from 'react-beautiful-dnd'
 import i18n from '@dhis2/d2-i18n'
 import MenuItem from '@material-ui/core/MenuItem'
 import Divider from '@material-ui/core/Divider'
@@ -13,7 +15,6 @@ import {
     isDualAxisType,
     getAxisName,
 } from '@dhis2/analytics'
-import PropTypes from 'prop-types'
 
 import Chip from '../Chip'
 import { sGetUi } from '../../../reducers/ui'
@@ -113,15 +114,47 @@ class Axis extends React.Component {
                 onDrop={this.onDrop}
             >
                 <div style={styles.label}>{getAxisName(this.props.axisId)}</div>
-                <div style={styles.content}>
-                    {this.props.axis.map(dimensionId => (
-                        <Chip
-                            key={`${this.props.axisId}-${dimensionId}`}
-                            axisId={this.props.axisId}
-                            dimensionId={dimensionId}
-                        />
-                    ))}
-                </div>
+                <Droppable
+                    droppableId={this.props.axisId}
+                    direction="horizontal"
+                >
+                    {provided => (
+                        <div
+                            style={styles.content}
+                            ref={provided.innerRef}
+                            {...provided.droppableProps}
+                        >
+                            {this.props.axis.map((dimensionId, index) => {
+                                const key = `${this.props.axisId}-${dimensionId}`
+
+                                return (
+                                    <Draggable
+                                        key={key}
+                                        draggableId={key}
+                                        index={index}
+                                    >
+                                        {provided => (
+                                            <div
+                                                ref={provided.innerRef}
+                                                {...provided.draggableProps}
+                                                {...provided.dragHandleProps}
+                                            >
+                                                <Chip
+                                                    onClick={this.props.getOpenHandler(
+                                                        dimensionId
+                                                    )}
+                                                    axisId={this.props.axisId}
+                                                    dimensionId={dimensionId}
+                                                />
+                                            </div>
+                                        )}
+                                    </Draggable>
+                                )
+                            })}
+                            {provided.placeholder}
+                        </div>
+                    )}
+                </Droppable>
             </div>
         )
     }
@@ -131,10 +164,12 @@ Axis.propTypes = {
     axis: PropTypes.array,
     axisId: PropTypes.string,
     getMoveHandler: PropTypes.func,
+    getOpenHandler: PropTypes.func,
     getRemoveHandler: PropTypes.func,
     itemsByDimension: PropTypes.object,
     style: PropTypes.object,
     type: PropTypes.string,
+    ui: PropTypes.object,
     onAddDimension: PropTypes.func,
     onDropWithoutItems: PropTypes.func,
     onOpenAxisSetup: PropTypes.func,
@@ -147,6 +182,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     onAddDimension: map => dispatch(acAddUiLayoutDimensions(map)),
     onDropWithoutItems: dimensionId =>
+        dispatch(acSetUiActiveModalDialog(dimensionId)),
+    getOpenHandler: dimensionId => () =>
         dispatch(acSetUiActiveModalDialog(dimensionId)),
 })
 
