@@ -21,7 +21,7 @@ import {
     singleValueLayoutAdapter,
 } from './layoutAdapters'
 import { removeLastPathSegment } from './orgUnit'
-import { getAxesFromSeriesItems } from './seriesItems'
+import { getIdAxisMap } from './optionalAxes'
 
 // Transform from backend model to store.ui format
 export const getUiFromVisualization = (vis, currentState = {}) => ({
@@ -41,7 +41,7 @@ export const getUiFromVisualization = (vis, currentState = {}) => ({
     yearOverYearCategory: isYearOverYear(vis.type)
         ? vis.rows[0].items.map(item => item.id)
         : currentState.yearOverYearCategory,
-    axes: getAxesFromSeriesItems(vis.seriesItems),
+    axes: getIdAxisMap(vis.optionalAxes),
 })
 
 // Transform from store.ui to pie format

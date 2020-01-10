@@ -15,7 +15,7 @@ import {} from './layout'
 import { BASE_FIELD_TYPE, BASE_FIELD_YEARLY_SERIES } from './fields/baseFields'
 import { pieLayoutAdapter, singleValueLayoutAdapter } from './layoutAdapters'
 import { mergeUiMaps } from './ui'
-import { SERIES_ITEMS_SERIES } from './seriesItems'
+import { OPTIONAL_AXES_DIMENSIONAL_ITEM } from './optionalAxes'
 
 const hasItems = (object, id) => Array.isArray(object[id]) && object[id].length
 
@@ -50,29 +50,30 @@ export const getOptionsFromUi = ui => {
         optionsFromUi.baseLineValue = options.baseLineValue.defaultValue
     }
 
-    // nested options under reportParams
-    optionsFromUi.reportParams = {}
+    // nested options under reportingParams
+    optionsFromUi.reportingParams = {}
     ;[
-        'paramOrganisationUnit',
-        'paramReportingPeriod',
-        'paramParentOrganisationUnit',
-        'paramGrandParentOrganisationUnit',
-    ].forEach(
-        option => (optionsFromUi.reportParams[option] = ui.options[option])
-    )
+        'organisationUnit',
+        'reportingPeriod',
+        'parentOrganisationUnit',
+        'grandParentOrganisationUnit',
+    ].forEach(option => {
+        optionsFromUi.reportingParams[option] = optionsFromUi[option]
+        delete optionsFromUi[option]
+    })
 
     return optionsFromUi
 }
 
 // expand to support series types later
-export const getSeriesItemsFromUi = ui => {
-    const seriesItemsObj = {}
+export const getOptionalAxesFromUi = ui => {
+    const optionalAxes = {}
 
     // axes
-    mergeUiMaps(seriesItemsObj, ui.axes, 'axis')
+    mergeUiMaps(optionalAxes, ui.axes, 'axis')
 
-    return Object.entries(seriesItemsObj).reduce((arr, [key, value]) => {
-        value[SERIES_ITEMS_SERIES] = key
+    return Object.entries(optionalAxes).reduce((arr, [key, value]) => {
+        value[OPTIONAL_AXES_DIMENSIONAL_ITEM] = key
         arr.push(value)
         return arr
     }, [])

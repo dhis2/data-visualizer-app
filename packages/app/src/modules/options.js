@@ -45,11 +45,11 @@ export const options = {
     fontSize: { defaultValue: 'NORMAL', requestable: false },
     digitGroupSeparator: { defaultValue: 'SPACE', requestable: false },
 
-    // XXX these are stored in the AO under reportParams
+    // these are stored in the AO under reportingParams
     reportingPeriod: { defaultValue: false, requestable: false },
     organisationUnit: { defaultValue: false, requestable: false },
     parentOrganisationUnit: { defaultValue: false, requestable: false },
-    // XXX not in UI
+    // not exposed in UI
     grandParentOrganisationUnit: {
         defaultValue: false,
         requestable: false,
@@ -106,16 +106,16 @@ export const getOptionsFromVisualization = visualization => {
         isNotDefault(optionsFromVisualization, 'targetLineLabel') ||
         isNotDefault(optionsFromVisualization, 'targetLineValue')
 
-    // nested options under reportParams
-    if (visualization.reportParams) {
+    // nested options under reportingParams
+    if (visualization.reportingParams) {
         optionsFromVisualization.organisationUnit =
-            visualization.reportParams.organisationUnit
+            visualization.reportingParams.organisationUnit
         optionsFromVisualization.reportingPeriod =
-            visualization.reportParams.reportingPeriod
+            visualization.reportingParams.reportingPeriod
         optionsFromVisualization.parentOrganisationUnit =
-            visualization.reportParams.parentOrganisationUnit
+            visualization.reportingParams.parentOrganisationUnit
         optionsFromVisualization.grandParentOrganisationUnit =
-            visualization.reportParams.grandParentOrganisationUnit
+            visualization.reportingParams.grandParentOrganisationUnit
     }
 
     return optionsFromVisualization

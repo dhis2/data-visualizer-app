@@ -17,7 +17,7 @@ export const fieldsByType = {
         getFieldObject('measureCriteria', { option: true }),
         getFieldObject('numberType', { option: true }),
         getFieldObject('regression', { option: true }),
-        getFieldObject('reportParams', { option: true }),
+        getFieldObject('reportingParams', { option: true }),
         getFieldObject('skipRounding', { option: true }),
     ],
     chart: [
@@ -53,7 +53,7 @@ export const fieldsByType = {
         getFieldObject('rangeAxisMinValue', { option: true }),
         getFieldObject('rangeAxisSteps', { option: true }),
         getFieldObject('regressionType', { option: true }),
-        getFieldObject('seriesItems'),
+        getFieldObject('optionalAxes'),
         getFieldObject('showData', { option: true }),
         getFieldObject('targetLineLabel', { option: true }),
         getFieldObject('targetLineValue', { option: true }),
