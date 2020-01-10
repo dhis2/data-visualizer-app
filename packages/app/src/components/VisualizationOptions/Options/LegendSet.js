@@ -55,13 +55,12 @@ const LegendSelect = ({ value, options, onFocus, onChange }) => {
 
 LegendSelect.propTypes = {
     options: PropTypes.array,
-    value: PropTypes.string,
+    value: PropTypes.object,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
 }
 
 const LegendSetup = ({ value, onChange }) => {
-    console.log('legendSetup value', value)
     const engine = useDataEngine()
 
     const [options, setOptions] = useState([])
@@ -74,8 +73,6 @@ const LegendSetup = ({ value, onChange }) => {
     }
 
     const onSelectFocus = async () => {
-        console.log('select focus')
-
         if (!isLoaded) {
             const query = {
                 legendSets: {
@@ -91,14 +88,10 @@ const LegendSetup = ({ value, onChange }) => {
             const { legendSets } = await engine.query(query)
 
             if (legendSets) {
-                console.log('legendSets', legendSets)
-
                 const options = legendSets.legendSets.map(legendSet => ({
                     id: legendSet.id,
                     label: legendSet.name,
                 }))
-
-                console.log('set option', options)
 
                 setOptions(options)
             }
@@ -118,7 +111,7 @@ const LegendSetup = ({ value, onChange }) => {
 }
 
 LegendSetup.propTypes = {
-    value: PropTypes.string,
+    value: PropTypes.object,
     onChange: PropTypes.func,
 }
 
@@ -133,7 +126,6 @@ const LegendSet = ({ value, legendDisplayStrategy, onChange }) => {
                 legendDisplayStrategy: 'FIXED',
             })
         } else {
-            // XXX reset
             onChange({
                 legendSet: undefined,
                 legendDisplayStrategy: undefined,
