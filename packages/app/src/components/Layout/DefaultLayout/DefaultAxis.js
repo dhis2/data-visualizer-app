@@ -1,5 +1,3 @@
-// TODO: Deprecated, moved to Analytics. Remove file + /styles/DefaultAxis.style completely?
-
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
