@@ -34,10 +34,6 @@ class ChipMenu extends React.Component {
 
     getMenuId = () => `menu-for-${this.props.id}`
 
-    isAssignedCategoriesDimensionInLayout = () =>
-        this.props.adaptedLayoutHasDimension(DIMENSION_ID_ASSIGNED_CATEGORIES)
-    // AC TODO: Move this to a central reusable location
-
     render() {
         return (
             <React.Fragment>
@@ -55,13 +51,14 @@ class ChipMenu extends React.Component {
                     visType={this.props.visType}
                     numberOfDimensionItems={this.props.numberOfDimensionItems}
                     dualAxisItemHandler={this.props.dualAxisItemHandler}
-                    isAssignedCategoriesInLayout={this.isAssignedCategoriesDimensionInLayout()}
-                    assignedCategoriesItemHandler={
-                        destination =>
-                            this.props.assignedCategoriesItemHandler(
-                                this.isAssignedCategoriesDimensionInLayout(),
-                                destination
-                            ) // AC TODO: Move this to a central reusable location
+                    isAssignedCategoriesInLayout={
+                        this.props.adaptedLayoutHasAssignedCategories
+                    }
+                    assignedCategoriesItemHandler={destination =>
+                        this.props.assignedCategoriesItemHandler(
+                            this.props.adaptedLayoutHasAssignedCategories,
+                            destination
+                        )
                     }
                     axisItemHandler={this.props.axisItemHandler}
                     removeItemHandler={this.props.removeItemHandler}
@@ -74,7 +71,7 @@ class ChipMenu extends React.Component {
 }
 
 ChipMenu.propTypes = {
-    adaptedLayoutHasDimension: PropTypes.func,
+    adaptedLayoutHasAssignedCategories: PropTypes.func,
     assignedCategoriesItemHandler: PropTypes.func,
     axisItemHandler: PropTypes.func,
     currentAxisId: PropTypes.string,
@@ -88,8 +85,9 @@ ChipMenu.propTypes = {
 
 const mapStateToProps = state => {
     return {
-        adaptedLayoutHasDimension: dimensionId =>
-            fromReducers.fromUi.sAdaptedLayoutHasDimension(state, dimensionId),
+        adaptedLayoutHasAssignedCategories: fromReducers.fromUi.sAdaptedLayoutHasAssignedCategories(
+            state
+        ),
     }
 }
 
@@ -103,12 +101,11 @@ const mapDispatchToProps = dispatch => ({
         dispatch(acRemoveUiLayoutDimensions(dimensionId))
     },
     assignedCategoriesItemHandler: (
-        isAssignedCategoriesDimensionInLayout,
+        layoutHasAssignedCategories,
         destination
     ) => {
         dispatch(
-            // AC TODO: Move this to a central reusable location
-            isAssignedCategoriesDimensionInLayout
+            layoutHasAssignedCategories
                 ? acRemoveUiLayoutDimensions(DIMENSION_ID_ASSIGNED_CATEGORIES)
                 : acAddUiLayoutDimensions({
                       [DIMENSION_ID_ASSIGNED_CATEGORIES]: destination,

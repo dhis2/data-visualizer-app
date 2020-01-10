@@ -4,6 +4,7 @@ import {
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
     VIS_TYPE_COLUMN,
+    DIMENSION_ID_ASSIGNED_CATEGORIES,
 } from '@dhis2/analytics'
 
 import {
@@ -281,6 +282,9 @@ export const sGetDimensionIdsFromAdaptedLayout = state => {
 
 export const sAdaptedLayoutHasDimension = (state, dimension) =>
     sGetDimensionIdsFromAdaptedLayout(state).includes(dimension)
+
+export const sAdaptedLayoutHasAssignedCategories = state =>
+    sAdaptedLayoutHasDimension(state, DIMENSION_ID_ASSIGNED_CATEGORIES)
 
 export const sGetAxisSetup = state => {
     const columns = sGetUiLayout(state).columns
