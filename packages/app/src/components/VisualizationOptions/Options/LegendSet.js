@@ -24,10 +24,9 @@ import {
     tabSectionTitle,
 } from '../styles/VisualizationOptions.style.js'
 
-const LegendSelect = ({ value, options, onFocus, onChange }) => {
+const LegendSelect = ({ value, loading, options, onFocus, onChange }) => {
     const selected = value ? { value: value.id, label: value.displayName } : {}
 
-    // TODO add loading/loadingText
     return (
         <SingleSelectField
             name="legendSet-legendSelect"
@@ -35,6 +34,8 @@ const LegendSelect = ({ value, options, onFocus, onChange }) => {
             selected={selected}
             inputWidth="280px"
             placeholder={i18n.t('Select from predefined legends')}
+            loadingText={i18n.t('Loading legends')}
+            loading={loading}
             dense
             onFocus={onFocus}
             onChange={({ selected }) =>
@@ -54,6 +55,7 @@ const LegendSelect = ({ value, options, onFocus, onChange }) => {
 }
 
 LegendSelect.propTypes = {
+    loading: PropTypes.bool,
     options: PropTypes.array,
     value: PropTypes.object,
     onChange: PropTypes.func,
@@ -102,6 +104,7 @@ const LegendSetup = ({ value, onChange }) => {
 
     return (
         <LegendSelect
+            loading={!isLoaded}
             value={value}
             options={options}
             onChange={onChange}
