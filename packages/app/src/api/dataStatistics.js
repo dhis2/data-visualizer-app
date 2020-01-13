@@ -2,7 +2,7 @@ import { getInstance } from 'd2';
 
 const EVENT_TYPE_CHART_VIEW = 'CHART_VIEW';
 
-export const apiPostDataStatistics = async (id) => {
+export const apiPostDataStatistics = async id => {
     const d2 = await getInstance();
     const api = d2.Api.getApi();
 
