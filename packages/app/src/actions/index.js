@@ -4,6 +4,7 @@ import {
     apiFetchVisualization,
     apiSaveVisualization,
 } from '../api/visualization';
+import { apiPostDataStatistics } from '../api/dataStatistics';
 
 import * as fromVisualization from './visualization';
 import * as fromCurrent from './current';
@@ -61,6 +62,8 @@ export const tDoLoadVisualization = (type, id, interpretationId) => async (
                 dispatch(fromUi.acSetUiRightSidebarOpen());
             }
         }
+
+        apiPostDataStatistics(visualization.id);
 
         dispatch(fromVisualization.acSetVisualization(visualization));
         dispatch(fromCurrent.acSetCurrent(visualization));
