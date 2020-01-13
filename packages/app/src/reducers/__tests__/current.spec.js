@@ -78,7 +78,7 @@ describe('reducer: current', () => {
                     items: [{ id: 'peItemId1' }],
                 },
             ],
-            seriesItems: [],
+            optionalAxes: [],
         }
 
         const actualState = reducer(undefined, {
