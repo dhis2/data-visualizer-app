@@ -123,7 +123,7 @@ const getLockedDimensionsMemo = createSelector([sGetUiType], type =>
 )
 
 Dimensions.propTypes = {
-    adaptedLayoutHasAssignedCategories: PropTypes.func,
+    adaptedLayoutHasAssignedCategories: PropTypes.bool,
     assignedCategoriesItemHandler: PropTypes.func,
     axisItemHandler: PropTypes.func,
     dimensions: PropTypes.object,

@@ -71,7 +71,7 @@ class ChipMenu extends React.Component {
 }
 
 ChipMenu.propTypes = {
-    adaptedLayoutHasAssignedCategories: PropTypes.func,
+    adaptedLayoutHasAssignedCategories: PropTypes.bool,
     assignedCategoriesItemHandler: PropTypes.func,
     axisItemHandler: PropTypes.func,
     currentAxisId: PropTypes.string,
