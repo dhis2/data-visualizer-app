@@ -12,6 +12,7 @@ import { init as d2Init, config, getUserSettings } from 'd2';
 import i18n from './locales';
 import configureStore from './configureStore';
 import metadataMiddleware from './middleware/metadata';
+import dataStatisticsMiddleware from './middleware/dataStatistics';
 
 import App from './components/App';
 import muiTheme from './modules/theme';
@@ -34,7 +35,7 @@ const configI18n = async userSettings => {
 };
 
 const render = props => {
-    const store = configureStore(metadataMiddleware);
+    const store = configureStore(metadataMiddleware, dataStatisticsMiddleware);
 
     if (window.Cypress) {
         window.store = store;
