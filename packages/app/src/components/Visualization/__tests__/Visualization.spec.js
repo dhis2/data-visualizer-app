@@ -6,7 +6,7 @@ import {
     visConfigSelector,
     visFiltersSelector,
 } from '../Visualization'
-import BlankCanvas from '../BlankCanvas'
+import StartScreen from '../StartScreen'
 
 jest.mock('@dhis2/data-visualizer-plugin', () => () => <div />)
 
@@ -36,10 +36,10 @@ describe('Visualization', () => {
             shallowVisualization = undefined
         })
 
-        it('renders a BlankCanvas when error', () => {
+        it('renders a StartScreen when error', () => {
             props.error = 'there was a catastrophic error'
 
-            expect(vis().find(BlankCanvas).length).toEqual(1)
+            expect(vis().find(StartScreen).length).toEqual(1)
         })
 
         it('renders a VisualizationPlugin when no error and visConfig available', () => {

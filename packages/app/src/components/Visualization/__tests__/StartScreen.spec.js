@@ -1,15 +1,15 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { BlankCanvas, defaultCanvasMessage } from '../BlankCanvas'
+import { StartScreen } from '../StartScreen'
 
-describe('BlankCanvas', () => {
+describe('StartScreen', () => {
     let props
-    let shallowBlankCanvas
+    let shallowStartScreen
     const canvas = () => {
-        if (!shallowBlankCanvas) {
-            shallowBlankCanvas = shallow(<BlankCanvas {...props} />)
+        if (!shallowStartScreen) {
+            shallowStartScreen = shallow(<StartScreen {...props} />)
         }
-        return shallowBlankCanvas
+        return shallowStartScreen
     }
 
     beforeEach(() => {
@@ -17,19 +17,11 @@ describe('BlankCanvas', () => {
             loading: false,
             error: null,
         }
-        shallowBlankCanvas = undefined
+        shallowStartScreen = undefined
     })
 
     it('renders a div', () => {
         expect(canvas().find('div').length).toBeGreaterThan(0)
-    })
-
-    it('renders the default message', () => {
-        expect(
-            canvas()
-                .find('p')
-                .text()
-        ).toEqual(defaultCanvasMessage)
     })
 
     it('renders the provided error message', () => {
