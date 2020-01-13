@@ -29,6 +29,6 @@ export default {
         alignItems: 'flex-start',
         alignContent: 'flex-start',
         flexWrap: 'wrap',
-        minHeight: 39,
+        minHeight: 32,
     },
 }
