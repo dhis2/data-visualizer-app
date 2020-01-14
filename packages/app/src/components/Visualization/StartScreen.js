@@ -5,11 +5,11 @@ import styles from './styles/StartScreen.style'
 import { sGetLoadError } from '../../reducers/loader'
 import PropTypes from 'prop-types'
 import chartErrorImg from '../../assets/chart-error-graphic.png'
-import { apiFetchFavourites } from '../../api/favourites'
+import { apiFetchFavorites } from '../../api/favorites'
 
 export const StartScreen = ({ error }) => {
-    const favourites = apiFetchFavourites()
-    console.log(favourites)
+    const favorites = apiFetchFavorites()
+    console.log(favorites)
 
     const content = error ? (
         <div>
