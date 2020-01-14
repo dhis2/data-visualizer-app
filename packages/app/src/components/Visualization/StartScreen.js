@@ -6,6 +6,7 @@ import { sGetLoadError } from '../../reducers/loader'
 import PropTypes from 'prop-types'
 import chartErrorImg from '../../assets/chart-error-graphic.png'
 import { apiFetchFavorites } from '../../api/favorites'
+import history from '../../modules/history'
 
 export class StartScreen extends Component {
     state = {
@@ -47,7 +48,13 @@ export class StartScreen extends Component {
                 <div style={styles.section}>
                     <h3 style={styles.title}>Most viewed charts and tables</h3>
                     {this.state.favorites.map((favorite, index) => (
-                        <p key={index}>{favorite.name}</p>
+                        <p
+                            key={index}
+                            style={styles.favorite}
+                            onClick={() => history.push(`/${favorite.id}`)}
+                        >
+                            {favorite.name}
+                        </p>
                     ))}
                 </div>
             </div>

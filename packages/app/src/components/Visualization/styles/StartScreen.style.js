@@ -15,9 +15,7 @@ export default {
     inner: {
         maxWidth: 500,
         textAlign: 'center',
-        alignSelf: 'center',
         position: 'relative',
-        top: '-20%',
     },
     title: {
         ...error,
@@ -45,5 +43,8 @@ export default {
     guideItem: {
         marginLeft: 10,
         paddingLeft: 10,
+    },
+    favorite: {
+        cursor: 'pointer',
     },
 }
