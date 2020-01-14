@@ -46,7 +46,7 @@ export class StartScreen extends Component {
                 </div>
                 <div style={styles.section}>
                     <h3 style={styles.title}>Most viewed charts and tables</h3>
-                    {this.state.favorites.map((index, favorite) => (
+                    {this.state.favorites.map((favorite, index) => (
                         <p key={index}>{favorite.name}</p>
                     ))}
                 </div>
