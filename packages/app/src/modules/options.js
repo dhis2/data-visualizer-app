@@ -19,7 +19,6 @@ export const options = {
     showData: { defaultValue: true, requestable: false },
     targetLineLabel: { defaultValue: undefined, requestable: false },
     targetLineValue: { defaultValue: undefined, requestable: false },
-    // legendDisplayStrategy
     aggregationType: { defaultValue: 'DEFAULT', requestable: true },
     completedOnly: { defaultValue: false, requestable: true },
     hideSubtitle: { defaultValue: false, requestable: false },
@@ -40,6 +39,7 @@ export const options = {
     numberType: { defaultValue: 'VALUE', requestable: false },
     showHierarchy: { defaultValue: false, requestable: true },
     legendSet: { defaultValue: undefined, requestable: false },
+    legendDisplayStrategy: { defaultValue: undefined, requestable: false },
     legendDisplayStyle: { defaultValue: 'FILL', requestable: false },
     displayDensity: { defaultValue: 'NORMAL', requestable: false },
     fontSize: { defaultValue: 'NORMAL', requestable: false },

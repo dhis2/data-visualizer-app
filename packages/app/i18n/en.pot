@@ -5,6 +5,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
 "POT-Creation-Date: 2020-01-13T13:24:57.761Z\n"
 "PO-Revision-Date: 2020-01-13T13:24:57.761Z\n"
 
@@ -290,10 +291,34 @@ msgstr ""
 msgid "Auto generated"
 msgstr ""
 
+msgid "Apply a legend to entire table"
+msgstr ""
+
+msgid "Assign a unique legend to data elements"
+msgstr ""
+
 msgid "Legend changes background color"
 msgstr ""
 
 msgid "Legend changes text color"
+msgstr ""
+
+msgid "Select a legend"
+msgstr ""
+
+msgid "Select from predefined legends"
+msgstr ""
+
+msgid "Loading legend sets"
+msgstr ""
+
+msgid "Display legend"
+msgstr ""
+
+msgid "Legend type"
+msgstr ""
+
+msgid "Legend setup"
 msgstr ""
 
 msgid ""
@@ -623,12 +648,6 @@ msgid "Display empty data"
 msgstr ""
 
 msgid "Legend"
-msgstr ""
-
-msgid "Legend type"
-msgstr ""
-
-msgid "Legend setup"
 msgstr ""
 
 msgid "Limit values"
