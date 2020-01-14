@@ -7,5 +7,6 @@ export const apiFetchFavorites = () => {
 
     return getInstance()
         .then(d2 => d2.Api.getApi().get(endPoint))
+        .then(result => result)
         .catch(onError)
 }
