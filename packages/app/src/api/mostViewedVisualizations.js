@@ -1,7 +1,7 @@
 import { getInstance } from 'd2'
 import { onError } from './index'
 
-export const apiFetchFavorites = () => {
+export const apiFetchMostViewedVisualizations = () => {
     const endPoint =
         '/dataStatistics/favorites?eventType=VISUALIZATION_VIEW&pageSize=5'
 

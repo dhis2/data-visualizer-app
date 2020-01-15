@@ -5,22 +5,22 @@ import styles from './styles/StartScreen.style'
 import { sGetLoadError } from '../../reducers/loader'
 import PropTypes from 'prop-types'
 import chartErrorImg from '../../assets/chart-error-graphic.png'
-import { apiFetchFavorites } from '../../api/favorites'
+import { apiFetchMostViewedVisualizations } from '../../api/mostViewedVisualizations'
 import history from '../../modules/history'
 import { withStyles } from '@material-ui/core/styles'
 
 export class StartScreen extends Component {
     state = {
-        favorites: [],
+        mostViewedVisualizations: [],
     }
 
     componentDidMount() {
-        this.getFavorites()
+        this.getMostViewedVisualizations()
     }
 
-    getFavorites = async () => {
-        const result = await apiFetchFavorites()
-        this.setState({ favorites: result })
+    getMostViewedVisualizations = async () => {
+        const result = await apiFetchMostViewedVisualizations()
+        this.setState({ mostViewedVisualizations: result })
     }
 
     getContent = () =>
@@ -48,15 +48,19 @@ export class StartScreen extends Component {
                 </div>
                 <div style={styles.section}>
                     <h3 style={styles.title}>Most viewed charts and tables</h3>
-                    {this.state.favorites.map((favorite, index) => (
-                        <p
-                            key={index}
-                            className={this.props.classes.favorite}
-                            onClick={() => history.push(`/${favorite.id}`)}
-                        >
-                            {favorite.name}
-                        </p>
-                    ))}
+                    {this.state.mostViewedVisualizations.map(
+                        (visualization, index) => (
+                            <p
+                                key={index}
+                                className={this.props.classes.visualization}
+                                onClick={() =>
+                                    history.push(`/${visualization.id}`)
+                                }
+                            >
+                                {visualization.name}
+                            </p>
+                        )
+                    )}
                 </div>
             </div>
         )

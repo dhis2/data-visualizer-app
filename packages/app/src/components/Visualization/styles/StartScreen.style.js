@@ -44,7 +44,7 @@ export default {
         marginLeft: 10,
         paddingLeft: 10,
     },
-    favorite: {
+    visualization: {
         cursor: 'pointer',
         fontSize: '14px',
         '&:hover': {
