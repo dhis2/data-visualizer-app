@@ -1,4 +1,4 @@
-import { colors } from '@dhis2/ui-core'
+import { colors, spacers } from '@dhis2/ui-core'
 
 const error = {
     fontWeight: 'bold',
@@ -13,8 +13,10 @@ export default {
         height: '100%',
     },
     inner: {
-        maxWidth: 580,
-        textAlign: 'center',
+        padding: `${spacers.dp16} ${spacers.dp24}`,
+        maxWidth: 600,
+        boxSizing: 'border-box',
+        color: colors.grey900,
         position: 'relative',
     },
     title: {
@@ -31,20 +33,26 @@ export default {
         background: '#fff',
         padding: 20,
         marginBottom: 20,
+        borderRadius: 5,
     },
     guide: {
-        fontSize: 14,
         lineHeight: '18px',
         letterSpacing: '0.1px',
         listStylePosition: 'outside',
         margin: '0 0 0 12px',
-        padding: 0,
+        padding: '0 0 0 10px',
     },
     guideItem: {
-        marginLeft: 10,
-        paddingLeft: 10,
+        fontSize: '14px',
+        lineHeight: '18px',
+        letterSpacing: '0.1px',
+        marginBottom: '12px',
     },
     visualization: {
+        margin: '0 0 12px 0',
+        padding: 0,
+        letterSpacing: '0.1px',
+        lineHeight: '16px',
         cursor: 'pointer',
         fontSize: '14px',
         '&:hover': {
