@@ -4,7 +4,7 @@ import i18n from '@dhis2/d2-i18n'
 import styles from './styles/StartScreen.style'
 import { sGetLoadError } from '../../reducers/loader'
 import PropTypes from 'prop-types'
-import chartErrorImg from '../../assets/chart-error-graphic.png'
+import visualizationErrorImg from '../../assets/chart-error-graphic.png'
 import { apiFetchMostViewedVisualizations } from '../../api/mostViewedVisualizations'
 import history from '../../modules/history'
 import { withStyles } from '@material-ui/core/styles'
@@ -26,7 +26,10 @@ export class StartScreen extends Component {
     getContent = () =>
         this.props.error ? (
             <div>
-                <img src={chartErrorImg} alt={i18n.t('Chart error')} />
+                <img
+                    src={visualizationErrorImg}
+                    alt={i18n.t('Visualization error')}
+                />
                 <p style={styles.title}>{this.props.error}</p>
             </div>
         ) : (
