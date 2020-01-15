@@ -7,6 +7,7 @@ import PropTypes from 'prop-types'
 import chartErrorImg from '../../assets/chart-error-graphic.png'
 import { apiFetchFavorites } from '../../api/favorites'
 import history from '../../modules/history'
+import { withStyles } from '@material-ui/core/styles'
 
 export class StartScreen extends Component {
     state = {
@@ -50,7 +51,7 @@ export class StartScreen extends Component {
                     {this.state.favorites.map((favorite, index) => (
                         <p
                             key={index}
-                            style={styles.favorite}
+                            className={this.props.classes.favorite}
                             onClick={() => history.push(`/${favorite.id}`)}
                         >
                             {favorite.name}
@@ -70,6 +71,7 @@ export class StartScreen extends Component {
 }
 
 StartScreen.propTypes = {
+    classes: PropTypes.object,
     error: PropTypes.string,
 }
 
@@ -77,4 +79,4 @@ const mapStateToProps = state => ({
     error: sGetLoadError(state),
 })
 
-export default connect(mapStateToProps)(StartScreen)
+export default connect(mapStateToProps)(withStyles(styles)(StartScreen))

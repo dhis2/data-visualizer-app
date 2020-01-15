@@ -13,7 +13,7 @@ export default {
         height: '100%',
     },
     inner: {
-        maxWidth: 500,
+        maxWidth: 580,
         textAlign: 'center',
         position: 'relative',
     },
@@ -46,5 +46,9 @@ export default {
     },
     favorite: {
         cursor: 'pointer',
+        fontSize: '14px',
+        '&:hover': {
+            textDecoration: 'underline',
+        },
     },
 }
