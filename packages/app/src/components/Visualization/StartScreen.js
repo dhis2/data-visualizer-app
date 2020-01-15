@@ -16,11 +16,11 @@ const StartScreen = ({ error, classes }) => {
     const engine = useDataEngine()
 
     useEffect(() => {
-        async function fetchData() {
+        async function fetchData(engine) {
             const result = await apiFetchMostViewedVisualizations(engine)
             setMostViewedVisualizations(result.visualization)
         }
-        fetchData()
+        fetchData(engine)
     }, [])
 
     const getContent = () =>
