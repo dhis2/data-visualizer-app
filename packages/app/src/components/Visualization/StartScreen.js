@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 import styles from './styles/StartScreen.style'
@@ -8,29 +8,28 @@ import visualizationErrorImg from '../../assets/chart-error-graphic.png'
 import { apiFetchMostViewedVisualizations } from '../../api/mostViewedVisualizations'
 import history from '../../modules/history'
 import { withStyles } from '@material-ui/core/styles'
+import { useDataEngine } from '@dhis2/app-runtime'
 
-export class StartScreen extends Component {
-    state = {
-        mostViewedVisualizations: [],
+const StartScreen = ({ error, classes }) => {
+    const [mostViewedVisualizations, setMostViewedVisualizations] = useState([])
+
+    const engine = useDataEngine()
+
+    useEffect(() => getMostViewedVisualizations(engine), [])
+
+    const getMostViewedVisualizations = async engine => {
+        const result = await apiFetchMostViewedVisualizations(engine)
+        setMostViewedVisualizations(result)
     }
 
-    componentDidMount() {
-        this.getMostViewedVisualizations()
-    }
-
-    getMostViewedVisualizations = async () => {
-        const result = await apiFetchMostViewedVisualizations()
-        this.setState({ mostViewedVisualizations: result })
-    }
-
-    getContent = () =>
-        this.props.error ? (
+    const getContent = () =>
+        error ? (
             <div>
                 <img
                     src={visualizationErrorImg}
                     alt={i18n.t('Visualization error')}
                 />
-                <p style={styles.title}>{this.props.error}</p>
+                <p style={styles.title}>{error}</p>
             </div>
         ) : (
             <div>
@@ -51,30 +50,24 @@ export class StartScreen extends Component {
                 </div>
                 <div style={styles.section}>
                     <h3 style={styles.title}>Most viewed charts and tables</h3>
-                    {this.state.mostViewedVisualizations.map(
-                        (visualization, index) => (
-                            <p
-                                key={index}
-                                className={this.props.classes.visualization}
-                                onClick={() =>
-                                    history.push(`/${visualization.id}`)
-                                }
-                            >
-                                {visualization.name}
-                            </p>
-                        )
-                    )}
+                    {mostViewedVisualizations.map((visualization, index) => (
+                        <p
+                            key={index}
+                            className={classes.visualization}
+                            onClick={() => history.push(`/${visualization.id}`)}
+                        >
+                            {visualization.name}
+                        </p>
+                    ))}
                 </div>
             </div>
         )
 
-    render() {
-        return (
-            <div style={styles.outer}>
-                <div style={styles.inner}>{this.getContent()}</div>
-            </div>
-        )
-    }
+    return (
+        <div style={styles.outer}>
+            <div style={styles.inner}>{getContent()}</div>
+        </div>
+    )
 }
 
 StartScreen.propTypes = {
