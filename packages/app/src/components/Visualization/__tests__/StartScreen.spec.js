@@ -16,6 +16,7 @@ describe('StartScreen', () => {
         props = {
             loading: false,
             error: null,
+            classes: {},
         }
         shallowStartScreen = undefined
     })
