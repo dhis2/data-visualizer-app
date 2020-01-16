@@ -17,7 +17,7 @@ const StartScreen = ({ error, classes }) => {
 
     useEffect(() => {
         async function fetchData(engine) {
-            const result = await apiFetchMostViewedVisualizations(engine)
+            const result = await apiFetchMostViewedVisualizations(engine, 6)
             setMostViewedVisualizations(result.visualization)
         }
         fetchData(engine)
@@ -25,12 +25,12 @@ const StartScreen = ({ error, classes }) => {
 
     const getContent = () =>
         error ? (
-            <div>
+            <div style={styles.errorContainer}>
                 <img
                     src={visualizationErrorImg}
                     alt={i18n.t('Visualization error')}
                 />
-                <p style={styles.title}>{error}</p>
+                <p style={styles.errorTitle}>{error}</p>
             </div>
         ) : (
             <div>
