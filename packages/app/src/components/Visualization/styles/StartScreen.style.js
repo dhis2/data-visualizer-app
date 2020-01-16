@@ -24,6 +24,7 @@ export default {
         marginTop: '30px',
         lineHeight: '22px',
         color: colors.grey700,
+        textAlign: 'center',
     },
     title: {
         fontWeight: 'bold',
