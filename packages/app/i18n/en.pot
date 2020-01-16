@@ -5,8 +5,9 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-01-13T08:35:33.076Z\n"
-"PO-Revision-Date: 2020-01-13T08:35:33.076Z\n"
+
+"POT-Creation-Date: 2020-01-13T13:24:57.761Z\n"
+"PO-Revision-Date: 2020-01-13T13:24:57.761Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -102,12 +103,6 @@ msgid "{{total}} selected"
 msgstr ""
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
-msgstr ""
-
-msgid "Move to"
-msgstr ""
-
-msgid "Remove"
 msgstr ""
 
 msgid "None selected"
@@ -452,51 +447,6 @@ msgid "Actual reports on time"
 msgstr ""
 
 msgid "Expected reports"
-msgstr ""
-
-msgid "Program"
-msgstr ""
-
-msgid "Select a program"
-msgstr ""
-
-msgid "Indicators"
-msgstr ""
-
-msgid "Select indicator group"
-msgstr ""
-
-msgid "[ All groups ]"
-msgstr ""
-
-msgid "Data elements"
-msgstr ""
-
-msgid "Select data element group"
-msgstr ""
-
-msgid "[ All data elements ]"
-msgstr ""
-
-msgid "Totals"
-msgstr ""
-
-msgid "Details"
-msgstr ""
-
-msgid "Data sets"
-msgstr ""
-
-msgid "Select data sets"
-msgstr ""
-
-msgid "[ All metrics ]"
-msgstr ""
-
-msgid "Event data items"
-msgstr ""
-
-msgid "Program indicators"
 msgstr ""
 
 msgid "Add to series"

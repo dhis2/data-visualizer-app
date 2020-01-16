@@ -4,6 +4,7 @@ import {
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
     VIS_TYPE_COLUMN,
+    DIMENSION_ID_ASSIGNED_CATEGORIES,
 } from '@dhis2/analytics'
 
 import {
@@ -12,7 +13,7 @@ import {
     getRetransfer,
 } from '../modules/layout'
 import { getOptionsForUi } from '../modules/options'
-import { getUiFromVisualization } from '../modules/ui'
+import { getUiFromVisualization, getAdaptedUiByType } from '../modules/ui'
 
 export const SET_UI = 'SET_UI'
 export const SET_UI_FROM_VISUALIZATION = 'SET_UI_FROM_VISUALIZATION'
@@ -272,6 +273,18 @@ export const sGetDimensionIdsFromLayout = state =>
         (ids, axis) => ids.concat(axis),
         []
     )
+
+export const sGetDimensionIdsFromAdaptedLayout = state => {
+    const adaptedUi = getAdaptedUiByType(sGetUi(state))
+    const inverseLayout = getInverseLayout(adaptedUi.layout)
+    return Object.keys(inverseLayout)
+}
+
+export const sAdaptedLayoutHasDimension = (state, dimension) =>
+    sGetDimensionIdsFromAdaptedLayout(state).includes(dimension)
+
+export const sAdaptedLayoutHasAssignedCategories = state =>
+    sAdaptedLayoutHasDimension(state, DIMENSION_ID_ASSIGNED_CATEGORIES)
 
 export const sGetAxisSetup = state => {
     const columns = sGetUiLayout(state).columns

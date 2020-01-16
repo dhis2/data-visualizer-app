@@ -5,6 +5,7 @@ import {
     DimensionMenu,
     getDisallowedDimensions,
     getAllLockedDimensionIds,
+    DIMENSION_ID_ASSIGNED_CATEGORIES,
 } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
 
@@ -61,18 +62,22 @@ export class Dimensions extends Component {
     getUiAxisId = () => {
         const adaptedUi = getAdaptedUiByType(this.props.ui)
         const inverseLayout = getInverseLayout(adaptedUi.layout)
-
         return inverseLayout[this.state.dimensionId]
     }
 
     getNumberOfDimensionItems = () =>
         (this.props.itemsByDimension[this.state.dimensionId] || []).length
 
+    getFilteredDimensions = () =>
+        Object.values(this.props.dimensions).filter(
+            dimension => !dimension.noItems
+        )
+
     render() {
         return (
             <div style={styles.divContainer}>
                 <DimensionsPanel
-                    dimensions={this.props.dimensions}
+                    dimensions={this.getFilteredDimensions()}
                     selectedIds={this.props.selectedIds}
                     disabledDimension={this.disabledDimension}
                     lockedDimension={this.lockedDimension}
@@ -83,19 +88,26 @@ export class Dimensions extends Component {
                     onDimensionDragStart={this.onDimensionDragStart}
                     onDimensionClick={this.props.onDimensionClick}
                 />
-                {/* {this.state.dimensionMenuAnchorEl && ( */}
                 <DimensionMenu
                     dimensionId={this.state.dimensionId}
                     currentAxisId={this.getUiAxisId()}
                     visType={this.props.ui.type}
                     numberOfDimensionItems={this.getNumberOfDimensionItems()}
                     dualAxisItemHandler={this.props.dualAxisItemHandler}
+                    isAssignedCategoriesInLayout={
+                        this.props.adaptedLayoutHasAssignedCategories
+                    }
+                    assignedCategoriesItemHandler={destination =>
+                        this.props.assignedCategoriesItemHandler(
+                            this.props.adaptedLayoutHasAssignedCategories,
+                            destination
+                        )
+                    }
                     axisItemHandler={this.props.axisItemHandler}
                     removeItemHandler={this.props.removeItemHandler}
                     anchorEl={this.state.dimensionMenuAnchorEl}
                     onClose={this.onDimensionOptionsClose}
                 />
-                {/* )} */}
                 <DialogManager />
             </div>
         )
@@ -111,6 +123,8 @@ const getLockedDimensionsMemo = createSelector([sGetUiType], type =>
 )
 
 Dimensions.propTypes = {
+    adaptedLayoutHasAssignedCategories: PropTypes.bool,
+    assignedCategoriesItemHandler: PropTypes.func,
     axisItemHandler: PropTypes.func,
     dimensions: PropTypes.object,
     disallowedDimensions: PropTypes.array,
@@ -136,6 +150,9 @@ const mapStateToProps = state => {
         itemsByDimension: fromReducers.fromUi.sGetUiItems(state),
         disallowedDimensions: getDisallowedDimensionsMemo(state),
         lockedDimensions: getLockedDimensionsMemo(state),
+        adaptedLayoutHasAssignedCategories: fromReducers.fromUi.sAdaptedLayoutHasAssignedCategories(
+            state
+        ),
     }
 }
 
@@ -153,6 +170,18 @@ const mapDispatchToProps = dispatch => ({
     },
     removeItemHandler: dimensionId => {
         dispatch(acRemoveUiLayoutDimensions(dimensionId))
+    },
+    assignedCategoriesItemHandler: (
+        layoutHasAssignedCategories,
+        destination
+    ) => {
+        dispatch(
+            layoutHasAssignedCategories
+                ? acRemoveUiLayoutDimensions(DIMENSION_ID_ASSIGNED_CATEGORIES)
+                : acAddUiLayoutDimensions({
+                      [DIMENSION_ID_ASSIGNED_CATEGORIES]: destination,
+                  })
+        )
     },
 })
 

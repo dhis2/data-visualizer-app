@@ -6,12 +6,12 @@ import {
     AXIS_ID_FILTERS,
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
-    FIXED_DIMENSIONS,
     VIS_TYPE_YEAR_OVER_YEAR_LINE,
     VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
     VIS_TYPE_PIE,
     VIS_TYPE_GAUGE,
     VIS_TYPE_SINGLE_VALUE,
+    getFixedDimensionProp,
     dimensionIsValid,
     layoutGetDimension,
     getAxisName,
@@ -19,7 +19,7 @@ import {
 
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields'
 
-const dxName = FIXED_DIMENSIONS[DIMENSION_ID_DATA].name
+const dxName = getFixedDimensionProp(DIMENSION_ID_DATA, name)
 
 const errorLabels = {
     defaultSeries: i18n.t('Please add at least one {{series}} dimension', {
@@ -82,7 +82,12 @@ const errorLabels = {
 
 // Layout validation helper functions
 const isAxisValid = axis =>
-    AXIS.isValid(axis) && dimensionIsValid(axis[0], { requireItems: true })
+    AXIS.isValid(axis) &&
+    axis.some(axisItem =>
+        dimensionIsValid(axisItem, {
+            requireItems: !getFixedDimensionProp(axisItem.dimension, 'noItems'),
+        })
+    )
 
 const validateDimension = (dimension, message) => {
     if (!(dimension && dimensionIsValid(dimension, { requireItems: true }))) {
@@ -101,7 +106,7 @@ const validateDefaultLayout = layout => {
     validateAxis(layout.columns, errorLabels.defaultSeries)
     validateAxis(layout.rows, errorLabels.defaultCategory)
     validateDimension(
-        layoutGetDimension(layout, DIMENSION_ID_PERIOD),
+        layoutGetDimension(layout, DIMENSION_ID_PERIOD), // TODO: old validation rule, refactor
         errorLabels.defaultPe
     )
 }
@@ -137,6 +142,8 @@ const validateSingleValueLayout = layout => {
         errorLabels.singleValue.pe
     )
 }
+
+// TODO: Add validatePivotLayout
 
 export const validateLayout = layout => {
     switch (layout.type) {

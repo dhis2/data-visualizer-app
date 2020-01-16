@@ -1,15 +1,17 @@
+// TODO: Refactor chip to contain less logic
 import React from 'react'
 import { connect } from 'react-redux'
 import WarningIcon from '@material-ui/icons/Warning'
 import LockIcon from '@material-ui/icons/Lock'
 import i18n from '@dhis2/d2-i18n'
 import {
-    FIXED_DIMENSIONS,
+    getFixedDimensionProp,
     getAxisMaxNumberOfItems,
     hasAxisTooManyItems,
     getAxisPerLockedDimension,
     getDisplayNameByVisType,
     getAxisName,
+    DIMENSION_ID_ASSIGNED_CATEGORIES,
 } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
 
@@ -20,6 +22,7 @@ import { sGetDimensions } from '../../reducers/dimensions'
 import { sGetUiItemsByDimension, sGetUiType } from '../../reducers/ui'
 import DynamicDimensionIcon from '../../assets/DynamicDimensionIcon'
 import { styles } from './styles/Chip.style'
+import { acSetUiActiveModalDialog } from '../../actions/ui'
 
 const TOOLTIP_ENTER_DELAY = 500
 
@@ -75,8 +78,10 @@ class Chip extends React.Component {
         }
     }
 
-    handleClick = event => {
-        this.props.onClick(event)
+    handleClick = () => {
+        if (!getFixedDimensionProp(this.props.dimensionId, 'noItems')) {
+            this.props.getOpenHandler(this.props.dimensionId)
+        }
 
         this.handleMouseOut()
     }
@@ -91,7 +96,10 @@ class Chip extends React.Component {
 
     getWrapperStyles = () => ({
         ...styles.chipWrapper,
-        ...(!this.props.items.length ? styles.chipEmpty : {}),
+        ...(!getFixedDimensionProp(this.props.dimensionId, 'noItems') &&
+        !this.props.items.length
+            ? styles.chipEmpty
+            : {}),
     })
 
     renderChipLabel = () => {
@@ -114,14 +122,12 @@ class Chip extends React.Component {
     }
 
     renderChipIcon = () => {
-        const fixedDimension = FIXED_DIMENSIONS[this.props.dimensionId]
-
-        if (fixedDimension) {
-            const Icon = FIXED_DIMENSIONS[this.props.dimensionId].icon
-            return <Icon style={styles.fixedDimensionIcon} />
-        }
-
-        return <DynamicDimensionIcon style={styles.dynamicDimensionIcon} />
+        const Icon = getFixedDimensionProp(this.props.dimensionId, 'icon')
+        return Icon ? (
+            <Icon style={styles.fixedDimensionIcon} />
+        ) : (
+            <DynamicDimensionIcon style={styles.dynamicDimensionIcon} />
+        )
     }
 
     renderMenu = () => (
@@ -136,32 +142,35 @@ class Chip extends React.Component {
     )
 
     renderTooltip = () => {
-        const activeItemIds = this.axisMaxNumberOfItems
-            ? this.props.items.slice(0, this.axisMaxNumberOfItems)
-            : this.props.items
+        if (this.props.dimensionId !== DIMENSION_ID_ASSIGNED_CATEGORIES) {
+            const activeItemIds = this.axisMaxNumberOfItems
+                ? this.props.items.slice(0, this.axisMaxNumberOfItems)
+                : this.props.items
 
-        const lockedLabel = this.isLocked
-            ? i18n.t(
-                  `{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}`,
-                  {
-                      dimensionName: this.props.dimensionName,
-                      axisName: getAxisName(this.props.axisId),
-                      visTypeName: getDisplayNameByVisType(this.props.type),
-                  }
-              )
-            : null
-        return (
-            <Tooltip
-                dimensionId={this.props.dimensionId}
-                itemIds={activeItemIds}
-                lockedLabel={lockedLabel}
-                displayLimitedAmount={
-                    this.props.items.length > activeItemIds.length
-                }
-                open={this.state.tooltipOpen}
-                anchorEl={this.getAnchorEl()}
-            />
-        )
+            const lockedLabel = this.isLocked
+                ? i18n.t(
+                      `{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}`,
+                      {
+                          dimensionName: this.props.dimensionName,
+                          axisName: getAxisName(this.props.axisId),
+                          visTypeName: getDisplayNameByVisType(this.props.type),
+                      }
+                  )
+                : null
+
+            return (
+                <Tooltip
+                    dimensionId={this.props.dimensionId}
+                    itemIds={activeItemIds}
+                    lockedLabel={lockedLabel}
+                    displayLimitedAmount={
+                        this.props.items.length > activeItemIds.length
+                    }
+                    open={this.state.tooltipOpen}
+                    anchorEl={this.getAnchorEl()}
+                />
+            )
+        }
     }
 
     render = () => (
@@ -197,13 +206,12 @@ Chip.propTypes = {
     axisId: PropTypes.string.isRequired,
     dimensionId: PropTypes.string.isRequired,
     dimensionName: PropTypes.string.isRequired,
+    getOpenHandler: PropTypes.func.isRequired,
     type: PropTypes.string.isRequired,
     items: PropTypes.array,
-    onClick: PropTypes.func,
 }
 
 Chip.defaultProps = {
-    onClick: Function.prototype,
     items: [],
 }
 
@@ -213,4 +221,9 @@ const mapStateToProps = (state, ownProps) => ({
     type: sGetUiType(state),
 })
 
-export default connect(mapStateToProps)(Chip)
+const mapDispatchToProps = dispatch => ({
+    getOpenHandler: dimensionId =>
+        dispatch(acSetUiActiveModalDialog(dimensionId)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Chip)

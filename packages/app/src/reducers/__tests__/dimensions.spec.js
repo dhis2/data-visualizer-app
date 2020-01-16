@@ -1,4 +1,4 @@
-import { FIXED_DIMENSIONS } from '@dhis2/analytics'
+import { getFixedDimensions } from '@dhis2/analytics'
 
 import reducer, { SET_DIMENSIONS } from '../dimensions'
 
@@ -12,7 +12,7 @@ describe('reducer: dimensions', () => {
 
     it('should return the default state', () => {
         const actualState = reducer(undefined, { type: 'NO_MATCH' })
-        expect(actualState).toEqual(FIXED_DIMENSIONS)
+        expect(actualState).toEqual(getFixedDimensions())
     })
 
     it(`${SET_DIMENSIONS}: should set the new dimensions object`, () => {
@@ -25,7 +25,7 @@ describe('reducer: dimensions', () => {
         )
 
         const expectedState = {
-            ...FIXED_DIMENSIONS,
+            ...getFixedDimensions(),
             ...dimensionsToSet,
         }
 

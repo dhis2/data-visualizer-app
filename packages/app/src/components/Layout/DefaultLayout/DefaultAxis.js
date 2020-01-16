@@ -2,17 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
-import i18n from '@dhis2/d2-i18n'
-import MenuItem from '@material-ui/core/MenuItem'
-import Divider from '@material-ui/core/Divider'
-import {
-    AXIS_ID_COLUMNS,
-    DEFAULT_AXIS_IDS,
-    DIMENSION_ID_DATA,
-    isYearOverYear,
-    isDualAxisType,
-    getAxisName,
-} from '@dhis2/analytics'
+import { getAxisName } from '@dhis2/analytics'
 
 import Chip from '../Chip'
 import { sGetUi } from '../../../reducers/ui'
@@ -21,7 +11,7 @@ import {
     acAddUiLayoutDimensions,
     acSetUiActiveModalDialog,
 } from '../../../actions/ui'
-import { SOURCE_DIMENSIONS, menuLabels } from '../../../modules/layout'
+import { SOURCE_DIMENSIONS } from '../../../modules/layout'
 import { getAdaptedUiByType } from '../../../modules/ui'
 
 import styles from './styles/DefaultAxis.style'
@@ -46,62 +36,6 @@ class Axis extends React.Component {
             this.props.onDropWithoutItems(dimensionId)
         }
     }
-
-    isMoveSupported = () => !isYearOverYear(this.props.type)
-
-    getAxisMenuItems = dimensionId =>
-        DEFAULT_AXIS_IDS.filter(key => key !== this.props.axisId).map(key => (
-            <MenuItem
-                key={`${dimensionId}-to-${key}`}
-                onClick={this.props.getMoveHandler({ [dimensionId]: key })}
-            >{`${i18n.t('Move to')} ${menuLabels[key]}`}</MenuItem>
-        ))
-
-    isSeries = () => this.props.axisId === AXIS_ID_COLUMNS
-
-    isData = dimensionId => dimensionId === DIMENSION_ID_DATA
-
-    getItemsArrayByDimension = dimensionId =>
-        this.props.itemsByDimension[dimensionId] || []
-
-    shouldHaveDualAxis = dimensionId =>
-        Boolean(
-            this.isSeries() &&
-                this.isData(dimensionId) &&
-                isDualAxisType(this.props.type) &&
-                this.getItemsArrayByDimension(this.props.axis[0]).length > 1
-        )
-
-    getDualAxisItem = dimensionId => (
-        <MenuItem
-            key={`dual-axis-${dimensionId}`}
-            onClick={this.props.onOpenAxisSetup}
-        >
-            {i18n.t('Manage axes')}
-        </MenuItem>
-    )
-
-    getRemoveMenuItem = dimensionId => (
-        <MenuItem
-            key={`remove-${dimensionId}`}
-            onClick={this.props.getRemoveHandler(dimensionId)}
-        >
-            {i18n.t('Remove')}
-        </MenuItem>
-    )
-
-    getDividerItem = key => <Divider light key={key} />
-
-    getMenuItems = dimensionId => [
-        this.shouldHaveDualAxis(dimensionId)
-            ? this.getDualAxisItem(dimensionId)
-            : null,
-        this.shouldHaveDualAxis(dimensionId)
-            ? this.getDividerItem('dual-axis-menu-divider')
-            : null,
-        ...(this.isMoveSupported() ? this.getAxisMenuItems(dimensionId) : []),
-        this.getRemoveMenuItem(dimensionId),
-    ]
 
     render() {
         return (

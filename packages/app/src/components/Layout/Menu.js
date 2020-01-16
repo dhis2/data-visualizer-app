@@ -1,8 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import IconButton from '@material-ui/core/IconButton'
-import { DimensionMenu } from '@dhis2/analytics'
+import {
+    DimensionMenu,
+    DIMENSION_ID_ASSIGNED_CATEGORIES,
+} from '@dhis2/analytics'
 import PropTypes from 'prop-types'
+import * as fromReducers from '../../reducers'
 
 import MoreHorizontalIcon from '../../assets/MoreHorizontalIcon'
 import { styles } from './styles/Menu.style'
@@ -47,6 +51,15 @@ class ChipMenu extends React.Component {
                     visType={this.props.visType}
                     numberOfDimensionItems={this.props.numberOfDimensionItems}
                     dualAxisItemHandler={this.props.dualAxisItemHandler}
+                    isAssignedCategoriesInLayout={
+                        this.props.adaptedLayoutHasAssignedCategories
+                    }
+                    assignedCategoriesItemHandler={destination =>
+                        this.props.assignedCategoriesItemHandler(
+                            this.props.adaptedLayoutHasAssignedCategories,
+                            destination
+                        )
+                    }
                     axisItemHandler={this.props.axisItemHandler}
                     removeItemHandler={this.props.removeItemHandler}
                     anchorEl={this.state.anchorEl}
@@ -58,6 +71,8 @@ class ChipMenu extends React.Component {
 }
 
 ChipMenu.propTypes = {
+    adaptedLayoutHasAssignedCategories: PropTypes.bool,
+    assignedCategoriesItemHandler: PropTypes.func,
     axisItemHandler: PropTypes.func,
     currentAxisId: PropTypes.string,
     dimensionId: PropTypes.string,
@@ -66,6 +81,14 @@ ChipMenu.propTypes = {
     numberOfDimensionItems: PropTypes.number,
     removeItemHandler: PropTypes.func,
     visType: PropTypes.string,
+}
+
+const mapStateToProps = state => {
+    return {
+        adaptedLayoutHasAssignedCategories: fromReducers.fromUi.sAdaptedLayoutHasAssignedCategories(
+            state
+        ),
+    }
 }
 
 const mapDispatchToProps = dispatch => ({
@@ -77,6 +100,17 @@ const mapDispatchToProps = dispatch => ({
     removeItemHandler: dimensionId => {
         dispatch(acRemoveUiLayoutDimensions(dimensionId))
     },
+    assignedCategoriesItemHandler: (
+        layoutHasAssignedCategories,
+        destination
+    ) => {
+        dispatch(
+            layoutHasAssignedCategories
+                ? acRemoveUiLayoutDimensions(DIMENSION_ID_ASSIGNED_CATEGORIES)
+                : acAddUiLayoutDimensions({
+                      [DIMENSION_ID_ASSIGNED_CATEGORIES]: destination,
+                  })
+        )
+    },
 })
-
-export default connect(null, mapDispatchToProps)(ChipMenu)
+export default connect(mapStateToProps, mapDispatchToProps)(ChipMenu)
