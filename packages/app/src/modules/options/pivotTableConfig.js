@@ -12,7 +12,7 @@ import RowSubTotals from '../../components/VisualizationOptions/Options/RowSubTo
 import HideEmptyColumns from '../../components/VisualizationOptions/Options/HideEmptyColumns'
 import HideEmptyRows from '../../components/VisualizationOptions/Options/HideEmptyRows'
 import NumberType from '../../components/VisualizationOptions/Options/NumberType'
-import LegendDisplayStyle from '../../components/VisualizationOptions/Options/LegendDisplayStyle'
+import LegendSet from '../../components/VisualizationOptions/Options/LegendSet'
 import Title from '../../components/VisualizationOptions/Options/Title'
 import DisplayDensity from '../../components/VisualizationOptions/Options/DisplayDensity'
 import FontSize from '../../components/VisualizationOptions/Options/FontSize'
@@ -71,14 +71,8 @@ export default [
         label: i18n.t('Legend'),
         content: [
             {
-                key: 'legend-legend-type',
-                label: i18n.t('Legend type'),
-                content: React.Children.toArray([]),
-            },
-            {
-                key: 'legend-legend-setup',
-                label: i18n.t('Legend setup'),
-                content: React.Children.toArray([<LegendDisplayStyle />]),
+                key: 'legend-section-1',
+                content: React.Children.toArray([<LegendSet />]),
             },
         ],
     },

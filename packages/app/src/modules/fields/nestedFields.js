@@ -4,13 +4,12 @@ const ID = 'id'
 const NAME = 'name,displayName,displayShortName'
 
 const DIMENSION_ITEM = `dimensionItem~rename(${ID})`
-const LEGEND_SET = `legendSet[${ID},${NAME}]`
-const USER = `user[${NAME},userCredentials[username]]`
+const LEGEND_SET = `${ID},${NAME}`
+const USER = `${NAME},userCredentials[username]`
 
-const ITEMS = `items[${DIMENSION_ITEM},${NAME},dimensionItemType]`
-const COMMENTS = `comments[${ID},${USER},lastUpdated,text`
+const ITEMS = `${DIMENSION_ITEM},${NAME},dimensionItemType`
 
-const AXIS = `dimension,filter,${LEGEND_SET},${ITEMS}`
+const AXIS = `dimension,filter,legendSet[${LEGEND_SET}],items[${ITEMS}]`
 const INTERPRETATIONS = 'id,created'
 
 // nested fields map
@@ -19,8 +18,8 @@ export const nestedFields = {
     rows: AXIS,
     filters: AXIS,
     user: USER,
-    comments: COMMENTS,
     interpretations: INTERPRETATIONS,
+    legendSet: LEGEND_SET,
 }
 
 export const extendFields = field =>
