@@ -8,10 +8,11 @@ import { visTypeDisplayNames } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 
 import { prepareCurrentAnalyticalObject } from '../../modules/currentAnalyticalObject'
+import { getAdaptedUiByType } from '../../modules/ui'
 import { sGetUi, sGetUiType } from '../../reducers/ui'
 import { sGetCurrent } from '../../reducers/current'
 import { sGetMetadata } from '../../reducers/metadata'
-import { acSetUiType } from '../../actions/ui'
+import { acSetUi } from '../../actions/ui'
 import {
     apiSaveAOInUserDataStore,
     CURRENT_AO_KEY,
@@ -40,7 +41,7 @@ export class VisualizationTypeSelector extends Component {
     }
 
     handleMenuItemClick = type => () => {
-        this.props.onTypeSelect(type)
+        this.props.setUi(getAdaptedUiByType({ ...this.props.ui, type }))
         this.handleClose()
     }
 
@@ -119,9 +120,9 @@ export class VisualizationTypeSelector extends Component {
 VisualizationTypeSelector.propTypes = {
     current: PropTypes.object,
     metadata: PropTypes.object,
+    setUi: PropTypes.func,
     ui: PropTypes.object,
     visualizationType: PropTypes.oneOf(Object.keys(visTypeDisplayNames)),
-    onTypeSelect: PropTypes.func,
 }
 
 VisualizationTypeSelector.contextTypes = {
@@ -136,7 +137,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    onTypeSelect: type => dispatch(acSetUiType(type)),
+    setUi: ui => dispatch(acSetUi(ui)),
 })
 
 export default connect(
