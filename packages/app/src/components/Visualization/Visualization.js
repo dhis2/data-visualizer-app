@@ -16,7 +16,7 @@ import { acAddMetadata } from '../../actions/metadata'
 import { acSetChart } from '../../actions/chart'
 import { acSetLoadError } from '../../actions/loader'
 
-import BlankCanvas from './BlankCanvas'
+import StartScreen from './StartScreen'
 
 export class Visualization extends Component {
     constructor(props) {
@@ -86,7 +86,7 @@ export class Visualization extends Component {
         const { renderId } = this.state
 
         return !visConfig || error ? (
-            <BlankCanvas />
+            <StartScreen />
         ) : (
             <VisualizationPlugin
                 id={renderId}
