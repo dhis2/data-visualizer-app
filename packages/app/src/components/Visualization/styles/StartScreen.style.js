@@ -31,12 +31,6 @@ export default {
         lineHeight: '22px',
         color: colors.grey700,
     },
-    description: {
-        fontWeight: 'bold',
-        marginTop: '30px',
-        lineHeight: '22px',
-        color: colors.grey500,
-    },
     section: {
         textAlign: 'left',
         background: '#fff',
