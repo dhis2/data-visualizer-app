@@ -1244,28 +1244,28 @@
     lodash.once "^4.1.1"
 
 "@dhis2/analytics@^2.1.0":
-  version "2.3.4"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.3.4.tgz#7132738b957f7342423f039f31b871465c9f4966"
-  integrity sha512-eLbCGtRRMUWZpvjlAAAfj0zr32J9CpS3oE3yXJlRVcPJwIT7S3xFAkjcgRwazchr5pZnKR/TBwoXmm84mF18zQ==
+  version "2.8.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.8.1.tgz#228af6524f35c864689e28678752f1c8f42072e8"
+  integrity sha512-uIiQA8kIxUdRZEC+y0cwUDQUxBqgq1yVMRdEuevkm1zTuFJxKaNrJ6nZT9WyrVtnxpzYQneK5LsXsjMMo4vl8g==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
-    "@dhis2/d2-ui-org-unit-dialog" "^6.1.0"
-    "@dhis2/d2-ui-period-selector-dialog" "^6.2.0"
-    "@dhis2/ui-core" "^3.4.0"
+    "@dhis2/d2-ui-org-unit-dialog" "^6.3.2"
+    "@dhis2/d2-ui-period-selector-dialog" "^6.3.2"
+    "@dhis2/ui-core" "^4.1.1"
     "@material-ui/core" "^3.9.3"
     "@material-ui/icons" "^3.0.2"
     classnames "^2.2.6"
     d2-utilizr "^0.2.16"
     d3-color "^1.2.3"
     highcharts "^7.1.2"
-    lodash "^4.17.11"
+    lodash "^4.17.13"
     react-beautiful-dnd "^10.1.1"
     styled-jsx "^3.2.1"
 
-"@dhis2/analytics@^2.8.1":
-  version "2.8.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.8.1.tgz#228af6524f35c864689e28678752f1c8f42072e8"
-  integrity sha512-uIiQA8kIxUdRZEC+y0cwUDQUxBqgq1yVMRdEuevkm1zTuFJxKaNrJ6nZT9WyrVtnxpzYQneK5LsXsjMMo4vl8g==
+"@dhis2/analytics@^2.8.2":
+  version "2.8.2"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.8.2.tgz#93f3a407d90b028621ad8aa7df9e5ad7e8ba9595"
+  integrity sha512-Tf/JzetUM5xLjj+oXjAhAc4LG3PYJuwFUF72v1ltfGEaym7pXurqU/RU6/XCUUz2Mkk0GAMoG1peAvVsLzZoQw==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^6.3.2"
@@ -1314,7 +1314,7 @@
     typeface-roboto "^0.0.75"
     typescript "^3.6.3"
 
-"@dhis2/cli-app-scripts@3.1.1", "@dhis2/cli-app-scripts@^3.1.1":
+"@dhis2/cli-app-scripts@^3.1.1":
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/@dhis2/cli-app-scripts/-/cli-app-scripts-3.1.1.tgz#9a311e67ae61dfb5320c84eaf2bdf8cf7a394285"
   integrity sha512-Hki8K5xbWZC/Dk6+tx2K3mHmhm3k3qwjceRYGiSD6IF2alP4FD6zx3cgtt9stESOH/i4VTQaFo0NwDbbblHFjw==
@@ -1420,16 +1420,6 @@
     i18next "^10.3"
     moment "^2.24.0"
 
-"@dhis2/d2-ui-core@6.3.0":
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-6.3.0.tgz#ec0ef63978a34d5b2330303c426bf7d59e0836fc"
-  integrity sha512-ZFthluJBkmbi1F0vNaIvx2Zbjioapo+Ewn1vNqb2MsUadTHOlPcrWQjDz3JCB0qce2ZW2avZ+spasEOytPNsFA==
-  dependencies:
-    babel-runtime "^6.26.0"
-    d2 "~31.7"
-    lodash "^4.17.10"
-    material-ui "^0.20.0"
-
 "@dhis2/d2-ui-core@6.3.2":
   version "6.3.2"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-6.3.2.tgz#5ff99bc2bab4ebc4a3ff7479d4c99b678c7ffe91"
@@ -1509,17 +1499,6 @@
     lodash "^4.17.10"
     prop-types "^15.6.2"
 
-"@dhis2/d2-ui-org-unit-dialog@^6.1.0":
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-dialog/-/d2-ui-org-unit-dialog-6.3.0.tgz#6f12b73fab2ce0448b92267a19aa6a1e9c363c70"
-  integrity sha512-wgjs1Av9cQzpCThug8uVu5uc61dwcLpfiWcK7Vr046rsw4iH+iMaCk5FE5nIC06LZWsLkENzVEdxo6DYskuq6w==
-  dependencies:
-    "@dhis2/d2-i18n" "^1.0.3"
-    "@dhis2/d2-ui-org-unit-tree" "6.3.0"
-    "@material-ui/core" "^3.3.1"
-    "@material-ui/icons" "^3.0.1"
-    prop-types "^15.5.10"
-
 "@dhis2/d2-ui-org-unit-dialog@^6.3.2":
   version "6.3.2"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-dialog/-/d2-ui-org-unit-dialog-6.3.2.tgz#06eea1b4bae90621c17e82c3e709d5670cb05778"
@@ -1531,16 +1510,6 @@
     "@material-ui/icons" "^3.0.1"
     prop-types "^15.5.10"
 
-"@dhis2/d2-ui-org-unit-tree@6.3.0":
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-tree/-/d2-ui-org-unit-tree-6.3.0.tgz#5c80074a38987f853383aa12f10ecd11127332ef"
-  integrity sha512-KzO+ZnyN6vQjogFnK4ZWW/fcha40D0g+Vjc6IVS5U1kBiHdpmqngo+6K6DqCaHRkl/7oUyOUkEvrzbWdnkodVA==
-  dependencies:
-    "@dhis2/d2-ui-core" "6.3.0"
-    "@material-ui/core" "^3.3.1"
-    babel-runtime "^6.26.0"
-    prop-types "^15.5.10"
-
 "@dhis2/d2-ui-org-unit-tree@6.3.2":
   version "6.3.2"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-tree/-/d2-ui-org-unit-tree-6.3.2.tgz#9f893957f979f183908968e4b41c12929806595c"
@@ -1550,18 +1519,6 @@
     "@material-ui/core" "^3.3.1"
     babel-runtime "^6.26.0"
     prop-types "^15.5.10"
-
-"@dhis2/d2-ui-period-selector-dialog@^6.2.0":
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-period-selector-dialog/-/d2-ui-period-selector-dialog-6.3.0.tgz#56bba56d8a7e914364e94e3d025dda8f03a3622f"
-  integrity sha512-JOofPyx+h45PsVi/0Ubf4xQurBwnnq+wTSOtibKfWSvxNgrNUug08F8+LYxoP/+IUogmkzuFD0uQs9pW3pYa0g==
-  dependencies:
-    "@dhis2/analytics" "^2.1.0"
-    "@dhis2/d2-i18n" "^1.0.4"
-    "@material-ui/core" "^3.3.1"
-    "@material-ui/icons" "^3.0.1"
-    babel-runtime "^6.26.0"
-    prop-types "^15.6.0"
 
 "@dhis2/d2-ui-period-selector-dialog@^6.3.2":
   version "6.3.2"
@@ -1621,7 +1578,7 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/prop-types@^1.0.3", "@dhis2/prop-types@^1.4.0":
+"@dhis2/prop-types@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@dhis2/prop-types/-/prop-types-1.4.0.tgz#921e733bf55a03617414f60d303fa7eacee3ac52"
   integrity sha512-vQomZH0sBLNrTVRMlwQ6HM8rn0kFiw6zt/Z8d6flTAuDuZrwD0Wi505dvbqbf7/bHDwpMnp4xz6v6ky1l+jfeg==
@@ -1634,15 +1591,6 @@
   integrity sha512-dueFkkAMOIMbXiU7Mhr3Y+DBRyOd/rHA+5/IDiYWN1xttlUTSuGZLQ5AnJ7osBicEhx+qElaGbTdRYQj3SMBtA==
   dependencies:
     prop-types "^15"
-
-"@dhis2/ui-core@^3.4.0":
-  version "3.7.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-3.7.2.tgz#a1229930b1a7700883b7d903fa7c335471e2b153"
-  integrity sha512-xFI33fZvULc8mqjUkCDloVaTAUQyY3FbihHZZ3OoZ3st9dT+CkMQviTiE3pYjzb/WatR+WajxCq+7Ar3lsLRfA==
-  dependencies:
-    "@dhis2/prop-types" "^1.0.3"
-    classnames "^2.2.6"
-    styled-jsx "^3.2.1"
 
 "@dhis2/ui-core@^4.1.1":
   version "4.1.1"
@@ -14311,21 +14259,7 @@ style-loader@1.0.0:
     loader-utils "^1.2.3"
     schema-utils "^2.0.1"
 
-styled-jsx@^3.2.1, styled-jsx@^3.2.2:
-  version "3.2.2"
-  resolved "https://registry.yarnpkg.com/styled-jsx/-/styled-jsx-3.2.2.tgz#03d02d26725195d17b6a979eb8d7c34761a16bf8"
-  integrity sha512-Xb9TPFY2REShznvHt/fw78wk+nxejTr8poepDeS5fRvkQ7lW49CDIWWGLzzALCLcKBIRFK/1Wi4PDZNetpig4w==
-  dependencies:
-    babel-plugin-syntax-jsx "6.18.0"
-    babel-types "6.26.0"
-    convert-source-map "1.6.0"
-    loader-utils "1.2.3"
-    source-map "0.7.3"
-    string-hash "1.1.3"
-    stylis "3.5.4"
-    stylis-rule-sheet "0.0.10"
-
-styled-jsx@^3.2.4:
+styled-jsx@^3.2.1, styled-jsx@^3.2.4:
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/styled-jsx/-/styled-jsx-3.2.4.tgz#cbcdedcfb81d717fd355c4a0d8443f8e74527b60"
   integrity sha512-UMclQzI1lss38RhyjTf7SmtXJEMbB6Q9slDz8adGtzHjirYb1PPgeWLSP8SlZc8c9f3LF6axmtv+6K/553ANdg==
@@ -14333,6 +14267,20 @@ styled-jsx@^3.2.4:
     babel-plugin-syntax-jsx "6.18.0"
     babel-types "6.26.0"
     convert-source-map "1.7.0"
+    loader-utils "1.2.3"
+    source-map "0.7.3"
+    string-hash "1.1.3"
+    stylis "3.5.4"
+    stylis-rule-sheet "0.0.10"
+
+styled-jsx@^3.2.2:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/styled-jsx/-/styled-jsx-3.2.2.tgz#03d02d26725195d17b6a979eb8d7c34761a16bf8"
+  integrity sha512-Xb9TPFY2REShznvHt/fw78wk+nxejTr8poepDeS5fRvkQ7lW49CDIWWGLzzALCLcKBIRFK/1Wi4PDZNetpig4w==
+  dependencies:
+    babel-plugin-syntax-jsx "6.18.0"
+    babel-types "6.26.0"
+    convert-source-map "1.6.0"
     loader-utils "1.2.3"
     source-map "0.7.3"
     string-hash "1.1.3"
