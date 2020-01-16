@@ -1,11 +1,5 @@
 import { colors, spacers } from '@dhis2/ui-core'
 
-const error = {
-    fontWeight: 'bold',
-    marginTop: '30px',
-    lineHeight: '22px',
-}
-
 export default {
     outer: {
         display: 'flex',
@@ -19,13 +13,28 @@ export default {
         color: colors.grey900,
         position: 'relative',
     },
-    title: {
-        ...error,
+    errorContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        marginTop: '20px',
+    },
+    errorTitle: {
+        fontWeight: 'bold',
+        marginTop: '30px',
+        lineHeight: '22px',
         color: colors.grey700,
+    },
+    title: {
+        fontWeight: 'bold',
         marginTop: 0,
+        lineHeight: '22px',
+        color: colors.grey700,
     },
     description: {
-        ...error,
+        fontWeight: 'bold',
+        marginTop: '30px',
+        lineHeight: '22px',
         color: colors.grey500,
     },
     section: {

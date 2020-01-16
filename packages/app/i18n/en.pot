@@ -5,9 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-
-"POT-Creation-Date: 2020-01-13T13:24:57.761Z\n"
-"PO-Revision-Date: 2020-01-13T13:24:57.761Z\n"
+"POT-Creation-Date: 2020-01-16T07:40:30.667Z\n"
+"PO-Revision-Date: 2020-01-16T07:40:30.667Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -126,10 +125,7 @@ msgstr ""
 msgid "Error validating layout"
 msgstr ""
 
-msgid "Create a new visualization by adding dimensions to the layout"
-msgstr ""
-
-msgid "Chart error"
+msgid "Visualization error"
 msgstr ""
 
 msgid "Error generating chart, please try again"
@@ -309,7 +305,7 @@ msgstr ""
 msgid "Select from predefined legends"
 msgstr ""
 
-msgid "Loading legend sets"
+msgid "Loading legends"
 msgstr ""
 
 msgid "Display legend"
