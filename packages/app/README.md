@@ -8,8 +8,7 @@ This package contains the data-visualizer-app
 
 ## Developer guide
 
-**THIS IS A WORK-IN-PROGRESS PORT TO THE APPLICATION PLATFORM**
-See [the platform documentation](https://platform.dhis2.nu)
+This is a DHIS2 Platform application, see [the app-platform documentation](https://platform.dhis2.nu).
 
 ## Cypress
 
