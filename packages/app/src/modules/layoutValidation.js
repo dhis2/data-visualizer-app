@@ -62,7 +62,6 @@ const validateYearOverYearLayout = layout => {
     }
 
     validateAxis(layout.rows, new NoCategoryError())
-    validateAxis(layout.columns, new NoDataError(layout.type))
 }
 
 const validatePieLayout = layout => {

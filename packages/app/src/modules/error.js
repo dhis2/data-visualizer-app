@@ -1,16 +1,18 @@
+import i18n from '@dhis2/d2-i18n'
+import {
+    getDisplayNameByVisType,
+    getAvailableAxes,
+    getAxisName,
+    getAxisPerLockedDimension,
+    DIMENSION_ID_DATA,
+} from '@dhis2/analytics'
+
 import {
     EmptySeries,
     EmptyCategory,
     PeriodError,
     DataError,
 } from '../assets/ErrorIcons'
-import i18n from '@dhis2/d2-i18n'
-
-import {
-    getDisplayNameByVisType,
-    getAvailableAxes,
-    getAxisName,
-} from '@dhis2/analytics'
 
 export class VisualizationError {
     constructor(icon, title, description) {
@@ -58,6 +60,7 @@ export class NoPeriodError extends VisualizationError {
 
 export class NoDataError extends VisualizationError {
     constructor(visType) {
+        const lockedAxis = getAxisPerLockedDimension(visType, DIMENSION_ID_DATA)
         super(
             DataError,
             i18n.t('No data set'),
@@ -65,7 +68,9 @@ export class NoDataError extends VisualizationError {
                 '{{visType}} must have at least one data item in {{axes}}.',
                 {
                     visType: getDisplayNameByVisType(visType),
-                    axes: getAvailableAxesDescription(visType),
+                    axes: lockedAxis
+                        ? getAxisName(lockedAxis)
+                        : getAvailableAxesDescription(visType),
                 }
             )
         )
@@ -73,13 +78,13 @@ export class NoDataError extends VisualizationError {
 }
 
 const getAvailableAxesDescription = visType => {
-    const availableAxes = getAvailableAxes(visType)
+    const axes = getAvailableAxes(visType)
     let axesDescription = ''
-    for (let index = 0; index < availableAxes.length; index++) {
-        axesDescription += getAxisName(availableAxes[index])
-        if (index < availableAxes.length - 2) {
+    for (let index = 0; index < axes.length; index++) {
+        axesDescription += getAxisName(axes[index])
+        if (index < axes.length - 2) {
             axesDescription += ', '
-        } else if (index < availableAxes.length - 1) {
+        } else if (index < axes.length - 1) {
             axesDescription += ` ${i18n.t('or')} `
         }
     }
