@@ -13,7 +13,7 @@ import {
     getRetransfer,
 } from '../modules/layout'
 import { getOptionsForUi } from '../modules/options'
-import { getUiFromVisualization } from '../modules/ui'
+import { getAdaptedUiByType, getUiFromVisualization } from '../modules/ui'
 
 export const SET_UI = 'SET_UI'
 export const SET_UI_FROM_VISUALIZATION = 'SET_UI_FROM_VISUALIZATION'
@@ -66,7 +66,9 @@ export default (state = DEFAULT_UI, action) => {
             }
         }
         case SET_UI_FROM_VISUALIZATION: {
-            return getUiFromVisualization(action.value, state)
+            return getAdaptedUiByType(
+                getUiFromVisualization(action.value, state)
+            )
         }
         case SET_UI_TYPE: {
             return {
