@@ -9,6 +9,7 @@ import { apiFetchMostViewedVisualizations } from '../../api/mostViewedVisualizat
 import history from '../../modules/history'
 import { withStyles } from '@material-ui/core/styles'
 import { useDataEngine } from '@dhis2/app-runtime'
+import { VisualizationError } from '../../modules/error'
 
 const StartScreen = ({ error, classes }) => {
     const [mostViewedVisualizations, setMostViewedVisualizations] = useState([])
@@ -59,7 +60,7 @@ const StartScreen = ({ error, classes }) => {
         )
 
     const getErrorContent = () => {
-        return error instanceof Error ? (
+        return error instanceof VisualizationError ? (
             <div style={styles.errorContainer}>
                 <div style={styles.errorIcon}>{error.icon()}</div>
                 <p style={styles.errorTitle}>{error.title}</p>

@@ -18,38 +18,43 @@ import {
 } from '@dhis2/analytics'
 
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields'
-import { NoSeriesError } from './error'
+import {
+    NoSeriesError,
+    NoCategoryError,
+    NoPeriodError,
+    VisualizationError,
+} from './error'
 
 const dxName = getFixedDimensionProp(DIMENSION_ID_DATA, name)
 
 const errorLabels = {
-    defaultSeries: i18n.t('Please add at least one {{series}} dimension', {
-        series: getAxisName(AXIS_ID_COLUMNS),
-    }),
-    defaultCategory: i18n.t('Please add at least one {{category}} dimension', {
-        category: getAxisName(AXIS_ID_ROWS),
-    }),
-    defaultPe: i18n.t(
-        'Please add at least one period as {{series}}, {{category}} or {{filter}}',
-        {
-            series: getAxisName(AXIS_ID_COLUMNS),
-            category: getAxisName(AXIS_ID_ROWS),
-            filter: getAxisName(AXIS_ID_FILTERS),
-        }
-    ),
+    // defaultSeries: i18n.t('Please add at least one {{series}} dimension', {
+    //     series: getAxisName(AXIS_ID_COLUMNS),
+    // }),
+    // defaultCategory: i18n.t('Please add at least one {{category}} dimension', {
+    //     category: getAxisName(AXIS_ID_ROWS),
+    // }),
+    // defaultPe: i18n.t(
+    //     'Please add at least one period as {{series}}, {{category}} or {{filter}}',
+    //     {
+    //         series: getAxisName(AXIS_ID_COLUMNS),
+    //         category: getAxisName(AXIS_ID_ROWS),
+    //         filter: getAxisName(AXIS_ID_FILTERS),
+    //     }
+    // ),
     pie: {
         dx: i18n.t('Please add {{data}} as {{category}} or {{filter}}', {
             data: dxName,
             category: getAxisName(AXIS_ID_ROWS),
             filter: getAxisName(AXIS_ID_FILTERS),
         }),
-        pe: i18n.t(
-            'Please add at least one period as {{series}} or {{filter}}',
-            {
-                series: getAxisName(AXIS_ID_COLUMNS),
-                filter: getAxisName(AXIS_ID_FILTERS),
-            }
-        ),
+        // pe: i18n.t(
+        //     'Please add at least one period as {{series}} or {{filter}}',
+        //     {
+        //         series: getAxisName(AXIS_ID_COLUMNS),
+        //         filter: getAxisName(AXIS_ID_FILTERS),
+        //     }
+        // ),
         filter: i18n.t('Please add at least one {{filter}} dimension', {
             filter: getAxisName(AXIS_ID_FILTERS),
         }),
@@ -61,12 +66,12 @@ const errorLabels = {
                 series: getAxisName(AXIS_ID_COLUMNS),
             }
         ),
-        categoryPeriod: i18n.t(
-            'Please add at least one period as a {{category}} dimension',
-            {
-                category: getAxisName(AXIS_ID_ROWS),
-            }
-        ),
+        // categoryPeriod: i18n.t(
+        //     'Please add at least one period as a {{category}} dimension',
+        //     {
+        //         category: getAxisName(AXIS_ID_ROWS),
+        //     }
+        // ),
         dx: i18n.t('Please add {{data}} as a filter dimension', {
             data: dxName,
         }),
@@ -75,9 +80,9 @@ const errorLabels = {
         dx: i18n.t('Please add one {{series}} dimension', {
             series: getAxisName(AXIS_ID_COLUMNS),
         }),
-        pe: i18n.t('Please add at least one period as {{filter}}', {
-            filter: getAxisName(AXIS_ID_FILTERS),
-        }),
+        // pe: i18n.t('Please add at least one period as {{filter}}', {
+        //     filter: getAxisName(AXIS_ID_FILTERS),
+        // }),
     },
 }
 
@@ -90,16 +95,16 @@ const isAxisValid = axis =>
         })
     )
 
-const validateDimension = (dimension, message) => {
+const validateDimension = (dimension, error) => {
     if (!(dimension && dimensionIsValid(dimension, { requireItems: true }))) {
-        throw new Error(message)
+        throw error
     }
 }
 
 const validateAxis = (axis, error) => {
     if (!isAxisValid(axis)) {
         //TODO: Refactor all errorLabels errors to use custom error classes instead
-        if (error instanceof Error) {
+        if (error instanceof VisualizationError) {
             throw error
         } else {
             throw new Error(error)
@@ -110,10 +115,10 @@ const validateAxis = (axis, error) => {
 // Layout validation
 const validateDefaultLayout = layout => {
     validateAxis(layout.columns, new NoSeriesError())
-    validateAxis(layout.rows, errorLabels.defaultCategory)
+    validateAxis(layout.rows, new NoCategoryError())
     validateDimension(
         layoutGetDimension(layout, DIMENSION_ID_PERIOD), // TODO: old validation rule, refactor
-        errorLabels.defaultPe
+        new NoPeriodError(layout.type)
     )
 }
 
@@ -127,17 +132,17 @@ const validateYearOverYearLayout = layout => {
         throw new Error(errorLabels.yearOverYear.seriesPeriod)
     }
 
-    validateAxis(layout.rows, errorLabels.yearOverYear.categoryPeriod)
+    validateAxis(layout.rows, new NoCategoryError())
 
     validateAxis(layout.columns, errorLabels.yearOverYear.dx)
 }
 
 const validatePieLayout = layout => {
-    validateAxis(layout.columns, errorLabels.defaultSeries)
+    validateAxis(layout.columns, new NoSeriesError())
     validateAxis(layout.filters, errorLabels.pie.filter)
     validateDimension(
         layoutGetDimension(layout, DIMENSION_ID_PERIOD),
-        errorLabels.pie.pe
+        new NoPeriodError(layout.type)
     )
 }
 
@@ -145,7 +150,7 @@ const validateSingleValueLayout = layout => {
     validateAxis(layout.columns, errorLabels.singleValue.dx)
     validateDimension(
         layoutGetDimension(layout, DIMENSION_ID_PERIOD),
-        errorLabels.singleValue.pe
+        new NoPeriodError(layout.type)
     )
 }
 
