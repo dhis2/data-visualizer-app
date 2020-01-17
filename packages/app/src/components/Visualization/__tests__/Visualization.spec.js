@@ -68,15 +68,6 @@ describe('Visualization', () => {
             expect(props.acSetChart).toHaveBeenCalledWith(svg)
         })
 
-        it('triggers setLoadError when error received from chart plugin', () => {
-            const errorMsg = 'catastrophic error'
-
-            vis().simulate('error', { message: errorMsg })
-
-            expect(props.acSetLoadError).toHaveBeenCalled()
-            expect(props.acSetLoadError).toHaveBeenCalledWith(errorMsg)
-        })
-
         it('renders visualization with new id when rightSidebarOpen prop changes', () => {
             const wrapper = vis()
 
