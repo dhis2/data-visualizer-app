@@ -12,12 +12,13 @@ export default {
         boxSizing: 'border-box',
         color: colors.grey900,
         position: 'relative',
+        display: 'flex',
+        alignItems: 'center',
     },
     errorContainer: {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        marginTop: '20px',
         textAlign: 'center',
     },
     errorIcon: {
