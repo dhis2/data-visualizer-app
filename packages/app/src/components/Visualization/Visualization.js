@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
-import i18n from '@dhis2/d2-i18n'
 import debounce from 'lodash-es/debounce'
 
 import styles from './styles/Visualization.style'
@@ -17,6 +16,10 @@ import { acSetChart } from '../../actions/chart'
 import { acSetLoadError } from '../../actions/loader'
 
 import StartScreen from './StartScreen'
+import {
+    AssignedCategoriesError,
+    GenericServerError,
+} from '../../modules/error'
 
 export class Visualization extends Component {
     constructor(props) {
@@ -27,9 +30,21 @@ export class Visualization extends Component {
         }
     }
 
-    onError = err => {
-        const error = err || i18n.t('Error generating chart, please try again')
-        //TODO: Catch errors from the API and set acSetLoadError
+    onError = response => {
+        let error
+        if (response) {
+            if (
+                response.message ==
+                'Assigned categories can only be specified together with data elements, not indicators or reporting rates'
+            ) {
+                error = new AssignedCategoriesError()
+            } else {
+                error = response
+            }
+        } else {
+            error = new GenericServerError()
+        }
+
         this.props.acSetLoadError(error)
     }
 

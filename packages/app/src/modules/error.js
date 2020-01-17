@@ -12,6 +12,7 @@ import {
     EmptyCategory,
     PeriodError,
     DataError,
+    GenericError,
 } from '../assets/ErrorIcons'
 
 export class VisualizationError {
@@ -72,6 +73,28 @@ export class NoDataError extends VisualizationError {
                         ? getAxisName(lockedAxis)
                         : getAvailableAxesDescription(visType),
                 }
+            )
+        )
+    }
+}
+
+export class GenericServerError extends VisualizationError {
+    constructor() {
+        super(
+            GenericError,
+            i18n.t('Something went wrong'),
+            i18n.t('There was a problem getting the data from the server.')
+        )
+    }
+}
+
+export class AssignedCategoriesError extends VisualizationError {
+    constructor() {
+        super(
+            GenericError,
+            i18n.t('Assigned Categories can only be used with data elements'),
+            i18n.t(
+                'Fix this problem by selecting data elements or removing Assigned Categories.'
             )
         )
     }
