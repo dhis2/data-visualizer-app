@@ -83,7 +83,7 @@ export class GenericClientError extends VisualizationError {
         super(
             GenericError,
             i18n.t('Something went wrong'),
-            i18n.t('There is a problem with {{visType}}.', {
+            i18n.t('There is a problem with this {{visType}} visualization.', {
                 visType: getDisplayNameByVisType(visType),
             })
         )
