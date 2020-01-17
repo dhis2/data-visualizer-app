@@ -78,6 +78,18 @@ export class NoDataError extends VisualizationError {
     }
 }
 
+export class GenericClientError extends VisualizationError {
+    constructor(visType) {
+        super(
+            GenericError,
+            i18n.t('Something went wrong'),
+            i18n.t('There is a problem with {{visType}}.', {
+                visType: getDisplayNameByVisType(visType),
+            })
+        )
+    }
+}
+
 export class GenericServerError extends VisualizationError {
     constructor() {
         super(
