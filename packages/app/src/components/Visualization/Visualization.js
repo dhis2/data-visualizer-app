@@ -28,10 +28,8 @@ export class Visualization extends Component {
     }
 
     onError = err => {
-        const error =
-            (err && err.message) ||
-            i18n.t('Error generating chart, please try again')
-
+        const error = err || i18n.t('Error generating chart, please try again')
+        //TODO: Catch errors from the API and set acSetLoadError
         this.props.acSetLoadError(error)
     }
 

@@ -25,13 +25,7 @@ const StartScreen = ({ error, classes }) => {
 
     const getContent = () =>
         error ? (
-            <div style={styles.errorContainer}>
-                <img
-                    src={visualizationErrorImg}
-                    alt={i18n.t('Visualization error')}
-                />
-                <p style={styles.errorTitle}>{error}</p>
-            </div>
+            getErrorContent()
         ) : (
             <div>
                 <div style={styles.section}>
@@ -63,6 +57,24 @@ const StartScreen = ({ error, classes }) => {
                 </div>
             </div>
         )
+
+    const getErrorContent = () => {
+        return error instanceof Error ? (
+            <div style={styles.errorContainer}>
+                <div style={styles.errorIcon}>{error.icon()}</div>
+                <p style={styles.errorTitle}>{error.title}</p>
+                <p style={styles.errorDescription}>{error.description}</p>
+            </div>
+        ) : (
+            <div style={styles.errorContainer}>
+                <img
+                    src={visualizationErrorImg}
+                    alt={i18n.t('Visualization error')}
+                />
+                <p style={styles.errorTitle}>{error}</p>
+            </div>
+        )
+    }
 
     return (
         <div style={styles.outer}>

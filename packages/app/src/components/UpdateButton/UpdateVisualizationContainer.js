@@ -22,14 +22,9 @@ const UpdateVisualizationContainer = ({
     const onClick = () => {
         try {
             validateLayout(getCurrentFromUi())
-
             acClearLoadError()
         } catch (err) {
-            acSetLoadError(
-                err && err.message
-                    ? err.message
-                    : i18n.t('Error validating layout')
-            )
+            acSetLoadError(err || i18n.t('Error validating layout'))
         }
 
         onUpdate()

@@ -18,6 +18,7 @@ import {
 } from '@dhis2/analytics'
 
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields'
+import { NoSeriesError } from './error'
 
 const dxName = getFixedDimensionProp(DIMENSION_ID_DATA, name)
 
@@ -95,15 +96,20 @@ const validateDimension = (dimension, message) => {
     }
 }
 
-const validateAxis = (axis, message) => {
+const validateAxis = (axis, error) => {
     if (!isAxisValid(axis)) {
-        throw new Error(message)
+        //TODO: Refactor all errorLabels errors to use custom error classes instead
+        if (error instanceof Error) {
+            throw error
+        } else {
+            throw new Error(error)
+        }
     }
 }
 
 // Layout validation
 const validateDefaultLayout = layout => {
-    validateAxis(layout.columns, errorLabels.defaultSeries)
+    validateAxis(layout.columns, new NoSeriesError())
     validateAxis(layout.rows, errorLabels.defaultCategory)
     validateDimension(
         layoutGetDimension(layout, DIMENSION_ID_PERIOD), // TODO: old validation rule, refactor
