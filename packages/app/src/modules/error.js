@@ -1,4 +1,9 @@
-import { EmptySeries, EmptyCategory, PeriodError } from '../assets/ErrorIcons'
+import {
+    EmptySeries,
+    EmptyCategory,
+    PeriodError,
+    DataError,
+} from '../assets/ErrorIcons'
 import i18n from '@dhis2/d2-i18n'
 
 import {
@@ -42,6 +47,22 @@ export class NoPeriodError extends VisualizationError {
             i18n.t('No period set'),
             i18n.t(
                 '{{visType}} must have at least one period set in {{axes}}.',
+                {
+                    visType: getDisplayNameByVisType(visType),
+                    axes: getAvailableAxesDescription(visType),
+                }
+            )
+        )
+    }
+}
+
+export class NoDataError extends VisualizationError {
+    constructor(visType) {
+        super(
+            DataError,
+            i18n.t('No data set'),
+            i18n.t(
+                '{{visType}} must have at least one data item in {{axes}}.',
                 {
                     visType: getDisplayNameByVisType(visType),
                     axes: getAvailableAxesDescription(visType),

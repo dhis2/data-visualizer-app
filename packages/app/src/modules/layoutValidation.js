@@ -1,10 +1,5 @@
-import i18n from '@dhis2/d2-i18n'
 import {
     AXIS,
-    AXIS_ID_COLUMNS,
-    AXIS_ID_ROWS,
-    AXIS_ID_FILTERS,
-    DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     VIS_TYPE_YEAR_OVER_YEAR_LINE,
     VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
@@ -14,7 +9,7 @@ import {
     getFixedDimensionProp,
     dimensionIsValid,
     layoutGetDimension,
-    getAxisName,
+    DIMENSION_ID_DATA,
 } from '@dhis2/analytics'
 
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields'
@@ -22,69 +17,8 @@ import {
     NoSeriesError,
     NoCategoryError,
     NoPeriodError,
-    VisualizationError,
+    NoDataError,
 } from './error'
-
-const dxName = getFixedDimensionProp(DIMENSION_ID_DATA, name)
-
-const errorLabels = {
-    // defaultSeries: i18n.t('Please add at least one {{series}} dimension', {
-    //     series: getAxisName(AXIS_ID_COLUMNS),
-    // }),
-    // defaultCategory: i18n.t('Please add at least one {{category}} dimension', {
-    //     category: getAxisName(AXIS_ID_ROWS),
-    // }),
-    // defaultPe: i18n.t(
-    //     'Please add at least one period as {{series}}, {{category}} or {{filter}}',
-    //     {
-    //         series: getAxisName(AXIS_ID_COLUMNS),
-    //         category: getAxisName(AXIS_ID_ROWS),
-    //         filter: getAxisName(AXIS_ID_FILTERS),
-    //     }
-    // ),
-    pie: {
-        dx: i18n.t('Please add {{data}} as {{category}} or {{filter}}', {
-            data: dxName,
-            category: getAxisName(AXIS_ID_ROWS),
-            filter: getAxisName(AXIS_ID_FILTERS),
-        }),
-        // pe: i18n.t(
-        //     'Please add at least one period as {{series}} or {{filter}}',
-        //     {
-        //         series: getAxisName(AXIS_ID_COLUMNS),
-        //         filter: getAxisName(AXIS_ID_FILTERS),
-        //     }
-        // ),
-        filter: i18n.t('Please add at least one {{filter}} dimension', {
-            filter: getAxisName(AXIS_ID_FILTERS),
-        }),
-    },
-    yearOverYear: {
-        seriesPeriod: i18n.t(
-            'Please add at least one period as a {{series}} dimension',
-            {
-                series: getAxisName(AXIS_ID_COLUMNS),
-            }
-        ),
-        // categoryPeriod: i18n.t(
-        //     'Please add at least one period as a {{category}} dimension',
-        //     {
-        //         category: getAxisName(AXIS_ID_ROWS),
-        //     }
-        // ),
-        dx: i18n.t('Please add {{data}} as a filter dimension', {
-            data: dxName,
-        }),
-    },
-    singleValue: {
-        dx: i18n.t('Please add one {{series}} dimension', {
-            series: getAxisName(AXIS_ID_COLUMNS),
-        }),
-        // pe: i18n.t('Please add at least one period as {{filter}}', {
-        //     filter: getAxisName(AXIS_ID_FILTERS),
-        // }),
-    },
-}
 
 // Layout validation helper functions
 const isAxisValid = axis =>
@@ -103,12 +37,7 @@ const validateDimension = (dimension, error) => {
 
 const validateAxis = (axis, error) => {
     if (!isAxisValid(axis)) {
-        //TODO: Refactor all errorLabels errors to use custom error classes instead
-        if (error instanceof VisualizationError) {
-            throw error
-        } else {
-            throw new Error(error)
-        }
+        throw error
     }
 }
 
@@ -129,17 +58,16 @@ const validateYearOverYearLayout = layout => {
             typeof layout[BASE_FIELD_YEARLY_SERIES][0] === 'string'
         )
     ) {
-        throw new Error(errorLabels.yearOverYear.seriesPeriod)
+        throw new NoSeriesError()
     }
 
     validateAxis(layout.rows, new NoCategoryError())
-
-    validateAxis(layout.columns, errorLabels.yearOverYear.dx)
+    validateAxis(layout.columns, new NoDataError(layout.type))
 }
 
 const validatePieLayout = layout => {
     validateAxis(layout.columns, new NoSeriesError())
-    validateAxis(layout.filters, errorLabels.pie.filter)
+    //validateAxis(layout.filters, errorLabels.pie.filter) //FIXME: Redundant?
     validateDimension(
         layoutGetDimension(layout, DIMENSION_ID_PERIOD),
         new NoPeriodError(layout.type)
@@ -147,7 +75,6 @@ const validatePieLayout = layout => {
 }
 
 const validateSingleValueLayout = layout => {
-    validateAxis(layout.columns, errorLabels.singleValue.dx)
     validateDimension(
         layoutGetDimension(layout, DIMENSION_ID_PERIOD),
         new NoPeriodError(layout.type)
@@ -157,6 +84,11 @@ const validateSingleValueLayout = layout => {
 // TODO: Add validatePivotLayout
 
 export const validateLayout = layout => {
+    validateDimension(
+        layoutGetDimension(layout, DIMENSION_ID_DATA),
+        new NoDataError(layout.type)
+    )
+
     switch (layout.type) {
         case VIS_TYPE_PIE:
             return validatePieLayout(layout)
