@@ -53,7 +53,9 @@ describe('Visualization', () => {
                 c: { id: 'c', name: 'c' },
             }
 
-            vis().simulate('responsesReceived', [{ metaData: { items } }])
+            vis().simulate('responsesReceived', [
+                { metaData: { items }, rows: [1, 2, 3] },
+            ])
 
             expect(props.acAddMetadata).toHaveBeenCalled()
             expect(props.acAddMetadata).toHaveBeenCalledWith(items)
