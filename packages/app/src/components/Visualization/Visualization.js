@@ -35,7 +35,7 @@ export class Visualization extends Component {
         let error
         if (response) {
             if (
-                response.message ==
+                response.message ===
                 'Assigned categories can only be specified together with data elements, not indicators or reporting rates'
             ) {
                 error = new AssignedCategoriesError()
