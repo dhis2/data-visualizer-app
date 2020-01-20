@@ -7,6 +7,7 @@ import {
     visFiltersSelector,
 } from '../Visualization'
 import StartScreen from '../StartScreen'
+import { GenericServerError } from '../../../modules/error'
 
 jest.mock('@dhis2/data-visualizer-plugin', () => () => <div />)
 
@@ -37,7 +38,7 @@ describe('Visualization', () => {
         })
 
         it('renders a StartScreen when error', () => {
-            props.error = 'there was a catastrophic error'
+            props.error = new GenericServerError()
 
             expect(vis().find(StartScreen).length).toEqual(1)
         })
