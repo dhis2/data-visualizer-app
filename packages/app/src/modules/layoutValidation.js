@@ -66,7 +66,6 @@ const validateYearOverYearLayout = layout => {
 
 const validatePieLayout = layout => {
     validateAxis(layout.columns, new NoSeriesError())
-    //validateAxis(layout.filters, errorLabels.pie.filter) //FIXME: Redundant?
     validateDimension(
         layoutGetDimension(layout, DIMENSION_ID_PERIOD),
         new NoPeriodError(layout.type)
