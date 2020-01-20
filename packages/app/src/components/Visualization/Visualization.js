@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
-import i18n from '@dhis2/d2-i18n'
 import debounce from 'lodash-es/debounce'
 
 import styles from './styles/Visualization.style'
@@ -17,6 +16,11 @@ import { acSetChart } from '../../actions/chart'
 import { acSetLoadError } from '../../actions/loader'
 
 import StartScreen from './StartScreen'
+import {
+    AssignedCategoriesError,
+    GenericServerError,
+    EmptyResponseError,
+} from '../../modules/error'
 
 export class Visualization extends Component {
     constructor(props) {
@@ -27,10 +31,20 @@ export class Visualization extends Component {
         }
     }
 
-    onError = err => {
-        const error =
-            (err && err.message) ||
-            i18n.t('Error generating chart, please try again')
+    onError = response => {
+        let error
+        if (response) {
+            if (
+                response.message ===
+                'Assigned categories can only be specified together with data elements, not indicators or reporting rates'
+            ) {
+                error = new AssignedCategoriesError()
+            } else {
+                error = response
+            }
+        } else {
+            error = new GenericServerError()
+        }
 
         this.props.acSetLoadError(error)
     }
@@ -40,7 +54,10 @@ export class Visualization extends Component {
     onResponsesReceived = responses => {
         const forMetadata = {}
 
-        responses.forEach(response =>
+        responses.forEach(response => {
+            if (!response.rows || !response.rows.length) {
+                throw new EmptyResponseError()
+            }
             Object.entries(response.metaData.items).forEach(([id, item]) => {
                 forMetadata[id] = {
                     id,
@@ -48,7 +65,7 @@ export class Visualization extends Component {
                     displayName: item.displayName,
                 }
             })
-        )
+        })
 
         this.props.acAddMetadata(forMetadata)
     }

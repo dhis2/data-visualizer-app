@@ -4,11 +4,12 @@ import i18n from '@dhis2/d2-i18n'
 import styles from './styles/StartScreen.style'
 import { sGetLoadError } from '../../reducers/loader'
 import PropTypes from 'prop-types'
-import visualizationErrorImg from '../../assets/chart-error-graphic.png'
 import { apiFetchMostViewedVisualizations } from '../../api/mostViewedVisualizations'
 import history from '../../modules/history'
 import { withStyles } from '@material-ui/core/styles'
 import { useDataEngine } from '@dhis2/app-runtime'
+import { VisualizationError } from '../../modules/error'
+import { GenericError } from '../../assets/ErrorIcons'
 
 const StartScreen = ({ error, classes }) => {
     const [mostViewedVisualizations, setMostViewedVisualizations] = useState([])
@@ -25,13 +26,7 @@ const StartScreen = ({ error, classes }) => {
 
     const getContent = () =>
         error ? (
-            <div style={styles.errorContainer}>
-                <img
-                    src={visualizationErrorImg}
-                    alt={i18n.t('Visualization error')}
-                />
-                <p style={styles.errorTitle}>{error}</p>
-            </div>
+            getErrorContent()
         ) : (
             <div>
                 <div style={styles.section}>
@@ -63,6 +58,24 @@ const StartScreen = ({ error, classes }) => {
                 </div>
             </div>
         )
+
+    const getErrorContent = () => {
+        return error instanceof VisualizationError ? (
+            <div style={styles.errorContainer}>
+                <div style={styles.errorIcon}>{error.icon()}</div>
+                <p style={styles.errorTitle}>{error.title}</p>
+                <p style={styles.errorDescription}>{error.description}</p>
+            </div>
+        ) : (
+            <div style={styles.errorContainer}>
+                <div style={styles.errorIcon}>{GenericError()}</div>
+                <p style={styles.errorTitle}>
+                    {i18n.t('Something went wrong')}
+                </p>
+                <p style={styles.errorDescription}>{error.message || error}</p>
+            </div>
+        )
+    }
 
     return (
         <div style={styles.outer}>
