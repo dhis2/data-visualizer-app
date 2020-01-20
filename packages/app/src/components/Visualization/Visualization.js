@@ -19,6 +19,7 @@ import StartScreen from './StartScreen'
 import {
     AssignedCategoriesError,
     GenericServerError,
+    EmptyResponseError,
 } from '../../modules/error'
 
 export class Visualization extends Component {
@@ -53,7 +54,10 @@ export class Visualization extends Component {
     onResponsesReceived = responses => {
         const forMetadata = {}
 
-        responses.forEach(response =>
+        responses.forEach(response => {
+            if (!response.rows || !response.rows.length) {
+                throw new EmptyResponseError()
+            }
             Object.entries(response.metaData.items).forEach(([id, item]) => {
                 forMetadata[id] = {
                     id,
@@ -61,7 +65,7 @@ export class Visualization extends Component {
                     displayName: item.displayName,
                 }
             })
-        )
+        })
 
         this.props.acAddMetadata(forMetadata)
     }

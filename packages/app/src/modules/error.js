@@ -13,6 +13,7 @@ import {
     PeriodError,
     DataError,
     GenericError,
+    EmptyBox,
 } from '../assets/ErrorIcons'
 
 export class VisualizationError {
@@ -20,6 +21,18 @@ export class VisualizationError {
         this.icon = icon
         this.title = title
         this.description = description
+    }
+}
+
+export class EmptyResponseError extends VisualizationError {
+    constructor() {
+        super(
+            EmptyBox,
+            i18n.t('No data available'),
+            i18n.t(
+                'The selected dimensions didn’t return any data. There may be no data, or you may not have access to it.'
+            )
+        )
     }
 }
 
