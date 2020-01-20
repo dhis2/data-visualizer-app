@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
-import { getAxisName } from '@dhis2/analytics'
+import { getAxisName, getAxisPerLockedDimension } from '@dhis2/analytics'
 
 import Chip from '../Chip'
 import { sGetUi, sGetUiItems, sGetUiType } from '../../../reducers/ui'
@@ -63,6 +63,12 @@ class Axis extends React.Component {
                                         key={key}
                                         draggableId={key}
                                         index={index}
+                                        isDragDisabled={
+                                            getAxisPerLockedDimension(
+                                                this.props.type,
+                                                dimensionId
+                                            ) === this.props.axisId
+                                        }
                                     >
                                         {provided => (
                                             <div
