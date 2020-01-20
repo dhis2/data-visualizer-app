@@ -5,14 +5,13 @@ import { Droppable, Draggable } from 'react-beautiful-dnd'
 import { getAxisName } from '@dhis2/analytics'
 
 import Chip from '../Chip'
-import { sGetUi } from '../../../reducers/ui'
+import { sGetUi, sGetUiItems, sGetUiType } from '../../../reducers/ui'
 import { decodeDataTransfer } from '../../../modules/dnd'
 import {
     acAddUiLayoutDimensions,
     acSetUiActiveModalDialog,
 } from '../../../actions/ui'
 import { SOURCE_DIMENSIONS } from '../../../modules/layout'
-import { getAdaptedUiByType } from '../../../modules/ui'
 
 import styles from './styles/DefaultAxis.style'
 class Axis extends React.Component {
@@ -109,6 +108,8 @@ Axis.propTypes = {
 
 const mapStateToProps = state => ({
     ui: sGetUi(state),
+    type: sGetUiType(state),
+    itemsByDimension: sGetUiItems(state),
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -120,14 +121,11 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-    const adaptedUi = getAdaptedUiByType(stateProps.ui)
-
     return {
-        axis: adaptedUi.layout[ownProps.axisId],
-        itemsByDimension: adaptedUi.itemsByDimension,
-        type: adaptedUi.type,
+        ...stateProps,
         ...dispatchProps,
         ...ownProps,
+        axis: stateProps.ui.layout[ownProps.axisId],
     }
 }
 

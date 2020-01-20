@@ -10,13 +10,12 @@ import {
 import PropTypes from 'prop-types'
 
 import DialogManager from './Dialogs/DialogManager'
-import { SOURCE_DIMENSIONS, getInverseLayout } from '../../modules/layout'
+import { SOURCE_DIMENSIONS } from '../../modules/layout'
 import { setDataTransfer } from '../../modules/dnd'
 import * as fromReducers from '../../reducers'
 import * as fromActions from '../../actions'
 
 import { styles } from './styles/DimensionsPanel.style'
-import { getAdaptedUiByType } from '../../modules/ui'
 import { AXIS_SETUP_DIALOG_ID } from '../AxisSetup/AxisSetup'
 import {
     acSetUiActiveModalDialog,
@@ -59,12 +58,6 @@ export class Dimensions extends Component {
     lockedDimension = dimensionId =>
         this.props.lockedDimensions.includes(dimensionId)
 
-    getUiAxisId = () => {
-        const adaptedUi = getAdaptedUiByType(this.props.ui)
-        const inverseLayout = getInverseLayout(adaptedUi.layout)
-        return inverseLayout[this.state.dimensionId]
-    }
-
     getNumberOfDimensionItems = () =>
         (this.props.itemsByDimension[this.state.dimensionId] || []).length
 
@@ -90,16 +83,18 @@ export class Dimensions extends Component {
                 />
                 <DimensionMenu
                     dimensionId={this.state.dimensionId}
-                    currentAxisId={this.getUiAxisId()}
+                    currentAxisId={this.props.getCurrentAxisId(
+                        this.state.dimensionId
+                    )}
                     visType={this.props.ui.type}
                     numberOfDimensionItems={this.getNumberOfDimensionItems()}
                     dualAxisItemHandler={this.props.dualAxisItemHandler}
                     isAssignedCategoriesInLayout={
-                        this.props.adaptedLayoutHasAssignedCategories
+                        this.props.layoutHasAssignedCategories
                     }
                     assignedCategoriesItemHandler={destination =>
                         this.props.assignedCategoriesItemHandler(
-                            this.props.adaptedLayoutHasAssignedCategories,
+                            this.props.layoutHasAssignedCategories,
                             destination
                         )
                     }
@@ -123,13 +118,14 @@ const getLockedDimensionsMemo = createSelector([sGetUiType], type =>
 )
 
 Dimensions.propTypes = {
-    adaptedLayoutHasAssignedCategories: PropTypes.bool,
     assignedCategoriesItemHandler: PropTypes.func,
     axisItemHandler: PropTypes.func,
     dimensions: PropTypes.object,
     disallowedDimensions: PropTypes.array,
     dualAxisItemHandler: PropTypes.func,
+    getCurrentAxisId: PropTypes.func,
     itemsByDimension: PropTypes.object,
+    layoutHasAssignedCategories: PropTypes.bool,
     lockedDimensions: PropTypes.array,
     recommendedIds: PropTypes.array,
     removeItemHandler: PropTypes.func,
@@ -138,23 +134,21 @@ Dimensions.propTypes = {
     onDimensionClick: PropTypes.func,
 }
 
-const mapStateToProps = state => {
-    return {
-        ui: fromReducers.fromUi.sGetUi(state),
-        dimensions: fromReducers.fromDimensions.sGetDimensions(state),
-        selectedIds: fromReducers.fromUi.sGetDimensionIdsFromLayout(state),
-        recommendedIds: fromReducers.fromRecommendedIds.sGetRecommendedIds(
-            state
-        ),
-        layout: fromReducers.fromUi.sGetUiLayout(state),
-        itemsByDimension: fromReducers.fromUi.sGetUiItems(state),
-        disallowedDimensions: getDisallowedDimensionsMemo(state),
-        lockedDimensions: getLockedDimensionsMemo(state),
-        adaptedLayoutHasAssignedCategories: fromReducers.fromUi.sAdaptedLayoutHasAssignedCategories(
-            state
-        ),
-    }
-}
+const mapStateToProps = state => ({
+    ui: fromReducers.fromUi.sGetUi(state),
+    dimensions: fromReducers.fromDimensions.sGetDimensions(state),
+    selectedIds: fromReducers.fromUi.sGetDimensionIdsFromLayout(state),
+    recommendedIds: fromReducers.fromRecommendedIds.sGetRecommendedIds(state),
+    layout: fromReducers.fromUi.sGetUiLayout(state),
+    itemsByDimension: fromReducers.fromUi.sGetUiItems(state),
+    disallowedDimensions: getDisallowedDimensionsMemo(state),
+    lockedDimensions: getLockedDimensionsMemo(state),
+    layoutHasAssignedCategories: fromReducers.fromUi.sLayoutHasAssignedCategories(
+        state
+    ),
+    getCurrentAxisId: dimensionId =>
+        fromReducers.fromUi.getAxisIdByDimensionId(state, dimensionId),
+})
 
 const mapDispatchToProps = dispatch => ({
     onDimensionClick: id =>
