@@ -86,7 +86,7 @@ const StartScreen = ({ error, classes }) => {
 
 StartScreen.propTypes = {
     classes: PropTypes.object,
-    error: PropTypes.string,
+    error: PropTypes.object,
 }
 
 const mapStateToProps = state => ({
