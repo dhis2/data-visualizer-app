@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { DragDropContext } from 'react-beautiful-dnd'
 import {
     VIS_TYPE_COLUMN,
     VIS_TYPE_STACKED_COLUMN,
@@ -46,50 +45,48 @@ const getLayoutByType = (type, props) => {
 }
 
 const Layout = props => {
-    const onDragEnd = result => {
-        const { source, destination } = result
+    // const onDragEnd = result => {
+    //     const { source, destination } = result
 
-        if (!destination) {
-            return
-        }
+    //     console.log('onDragEnd', result)
 
-        const sourceList = Array.from(props.layout[source.droppableId])
-        const [moved] = sourceList.splice(source.index, 1)
-        const reorderedDimensions = {}
+    //     if (!destination) {
+    //         return
+    //     }
 
-        if (source.droppableId === destination.droppableId) {
-            sourceList.splice(destination.index, 0, moved)
-            reorderedDimensions[source.droppableId] = sourceList
-        } else {
-            const destList = Array.from(props.layout[destination.droppableId])
-            destList.splice(destination.index, 0, moved)
-            reorderedDimensions[destination.droppableId] = destList
-            reorderedDimensions[source.droppableId] = sourceList
-        }
+    //     const sourceList = Array.from(props.layout[source.droppableId])
+    //     const [moved] = sourceList.splice(source.index, 1)
+    //     const reorderedDimensions = {}
 
-        props.onReorderDimensions({ ...props.layout, ...reorderedDimensions })
-    }
+    //     if (source.droppableId === destination.droppableId) {
+    //         sourceList.splice(destination.index, 0, moved)
+    //         reorderedDimensions[source.droppableId] = sourceList
+    //     } else {
+    //         const destList = Array.from(props.layout[destination.droppableId])
+    //         destList.splice(destination.index, 0, moved)
+    //         reorderedDimensions[destination.droppableId] = destList
+    //         reorderedDimensions[source.droppableId] = sourceList
+    //     }
 
-    return (
-        <DragDropContext onDragEnd={onDragEnd}>
-            {getLayoutByType(props.type)}
-        </DragDropContext>
-    )
+    //     props.onReorderDimensions({ ...props.layout, ...reorderedDimensions })
+    // }
+
+    return <>{getLayoutByType(props.type)}</>
 }
 
 Layout.propTypes = {
-    layout: PropTypes.object,
+    // layout: PropTypes.object,
     type: PropTypes.string,
-    onReorderDimensions: PropTypes.func,
+    // onReorderDimensions: PropTypes.func,
 }
 
 const mapStateToProps = state => ({
-    layout: sGetUiLayout(state),
+    // layout: sGetUiLayout(state),
     type: sGetUiType(state),
 })
 
 const mapDispatchToProps = dispatch => ({
-    onReorderDimensions: layout => dispatch(acSetUiLayout(layout)),
+    // onReorderDimensions: layout => dispatch(acSetUiLayout(layout)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Layout)

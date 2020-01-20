@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {
     DimensionsPanel,
+    DimensionItem,
     DimensionMenu,
     getDisallowedDimensions,
     getAllLockedDimensionIds,
@@ -59,6 +60,9 @@ export class Dimensions extends Component {
     lockedDimension = dimensionId =>
         this.props.lockedDimensions.includes(dimensionId)
 
+    isRecommendedDimension = dimensionId =>
+        this.props.recommendedIds.includes(dimensionId)
+
     getUiAxisId = () => {
         const adaptedUi = getAdaptedUiByType(this.props.ui)
         const inverseLayout = getInverseLayout(adaptedUi.layout)
@@ -68,26 +72,34 @@ export class Dimensions extends Component {
     getNumberOfDimensionItems = () =>
         (this.props.itemsByDimension[this.state.dimensionId] || []).length
 
-    getFilteredDimensions = () =>
-        Object.values(this.props.dimensions).filter(
+    getFilteredDimensions = () => {
+        const dims = Object.values(this.props.dimensions).filter(
             dimension => !dimension.noItems
         )
+        return dims.map(this.renderItem)
+    }
+
+    renderItem = dimension => {
+        return (
+            <DimensionItem
+                id={dimension.id}
+                key={dimension.id}
+                name={dimension.name}
+                isLocked={this.lockedDimension(dimension.id)}
+                isSelected={this.props.selectedIds.includes(dimension.id)}
+                isRecommended={this.isRecommendedDimension(dimension.id)}
+                isDeactivated={this.disabledDimension(dimension.id)}
+                onClick={this.props.onDimensionClick}
+                onOptionsClick={this.onDimensionOptionsClick}
+                onDragStart={this.onDimensionDragStart}
+            />
+        )
+    }
 
     render() {
         return (
             <div style={styles.divContainer}>
-                <DimensionsPanel
-                    dimensions={this.getFilteredDimensions()}
-                    selectedIds={this.props.selectedIds}
-                    disabledDimension={this.disabledDimension}
-                    lockedDimension={this.lockedDimension}
-                    recommendedDimension={dimensionId =>
-                        this.props.recommendedIds.includes(dimensionId)
-                    }
-                    onDimensionOptionsClick={this.onDimensionOptionsClick}
-                    onDimensionDragStart={this.onDimensionDragStart}
-                    onDimensionClick={this.props.onDimensionClick}
-                />
+                <DimensionsPanel dimensions={this.getFilteredDimensions()} />
                 <DimensionMenu
                     dimensionId={this.state.dimensionId}
                     currentAxisId={this.getUiAxisId()}

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
+import { DragDropContext } from 'react-beautiful-dnd'
 
 import Snackbar from '../components/Snackbar/Snackbar'
 import MenuBar from './MenuBar/MenuBar'
@@ -154,6 +155,34 @@ export class App extends Component {
         }
     }
 
+    onDragEnd = result => {
+        const { source, destination } = result
+
+        console.log('onDragEnd', result)
+
+        if (!destination) {
+            return
+        }
+
+        const layout = this.props.layout
+
+        const sourceList = Array.from(layout[source.droppableId])
+        const [moved] = sourceList.splice(source.index, 1)
+        const reorderedDimensions = {}
+
+        if (source.droppableId === destination.droppableId) {
+            sourceList.splice(destination.index, 0, moved)
+            reorderedDimensions[source.droppableId] = sourceList
+        } else {
+            const destList = Array.from(layout[destination.droppableId])
+            destList.splice(destination.index, 0, moved)
+            reorderedDimensions[destination.droppableId] = destList
+            reorderedDimensions[source.droppableId] = sourceList
+        }
+
+        this.props.onReorderDimensions({ ...layout, ...reorderedDimensions })
+    }
+
     render() {
         return (
             <>
@@ -168,20 +197,22 @@ export class App extends Component {
                         </div>
                     </div>
                     <div className="section-main flex-grow-1 flex-ct">
-                        <div className="main-left">
-                            <DimensionsPanel />
-                        </div>
-                        <div className="main-center flex-grow-1 flex-basis-0 flex-ct flex-dir-col">
-                            <div className="main-center-layout">
-                                <Layout />
+                        <DragDropContext onDragEnd={this.onDragEnd}>
+                            <div className="main-left">
+                                <DimensionsPanel />
                             </div>
-                            <div className="main-center-titlebar">
-                                <TitleBar />
+                            <div className="main-center flex-grow-1 flex-basis-0 flex-ct flex-dir-col">
+                                <div className="main-center-layout">
+                                    <Layout />
+                                </div>
+                                <div className="main-center-titlebar">
+                                    <TitleBar />
+                                </div>
+                                <div className="main-center-canvas flex-grow-1">
+                                    <Visualization />
+                                </div>
                             </div>
-                            <div className="main-center-canvas flex-grow-1">
-                                <Visualization />
-                            </div>
-                        </div>
+                        </DragDropContext>
                         {this.props.ui.rightSidebarOpen && this.props.current && (
                             <div className="main-right">
                                 <Interpretations
@@ -203,6 +234,7 @@ const mapStateToProps = state => ({
     current: fromReducers.fromCurrent.sGetCurrent(state),
     interpretations: fromReducers.fromVisualization.sGetInterpretations(state),
     ui: fromReducers.fromUi.sGetUi(state),
+    layout: fromReducers.fromUi.sGetUiLayout(state),
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -216,6 +248,8 @@ const mapDispatchToProps = dispatch => ({
         dispatch(fromActions.fromUi.acSetUiFromVisualization(visualization)),
     addParentGraphMap: parentGraphMap =>
         dispatch(fromActions.fromUi.acAddParentGraphMap(parentGraphMap)),
+    onReorderDimensions: layout =>
+        dispatch(fromActions.fromUi.acSetUiLayout(layout)),
 })
 
 App.contextTypes = {
@@ -233,6 +267,7 @@ App.propTypes = {
     baseUrl: PropTypes.string,
     current: PropTypes.object,
     d2: PropTypes.object,
+    layout: PropTypes.object,
     location: PropTypes.object,
     ouLevels: PropTypes.array,
     setCurrentFromUi: PropTypes.func,
@@ -241,6 +276,7 @@ App.propTypes = {
     settings: PropTypes.object,
     ui: PropTypes.object,
     userSettings: PropTypes.object,
+    onReorderDimensions: PropTypes.func,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
