@@ -6,12 +6,10 @@ import { getAxisName } from '@dhis2/analytics'
 
 import Chip from '../Chip'
 import { sGetUi } from '../../../reducers/ui'
-import { decodeDataTransfer } from '../../../modules/dnd'
 import {
     acAddUiLayoutDimensions,
     acSetUiActiveModalDialog,
 } from '../../../actions/ui'
-import { SOURCE_DIMENSIONS } from '../../../modules/layout'
 import { getAdaptedUiByType } from '../../../modules/ui'
 
 import styles from './styles/DefaultAxis.style'
@@ -20,30 +18,12 @@ class Axis extends React.Component {
         e.preventDefault()
     }
 
-    onDrop = e => {
-        e.preventDefault()
-
-        const { dimensionId, source } = decodeDataTransfer(e)
-
-        this.props.onAddDimension({
-            [dimensionId]: this.props.axisId,
-        })
-
-        const items = this.props.itemsByDimension[dimensionId]
-        const hasNoItems = Boolean(!items || !items.length)
-
-        if (source === SOURCE_DIMENSIONS && hasNoItems) {
-            this.props.onDropWithoutItems(dimensionId)
-        }
-    }
-
     render() {
         return (
             <div
                 id={this.props.axisId}
                 style={{ ...styles.axisContainer, ...this.props.style }}
                 onDragOver={this.onDragOver}
-                onDrop={this.onDrop}
             >
                 <div style={styles.label}>{getAxisName(this.props.axisId)}</div>
                 <Droppable
@@ -98,9 +78,7 @@ Axis.propTypes = {
     getMoveHandler: PropTypes.func,
     getOpenHandler: PropTypes.func,
     getRemoveHandler: PropTypes.func,
-    itemsByDimension: PropTypes.object,
     style: PropTypes.object,
-    type: PropTypes.string,
     ui: PropTypes.object,
     onAddDimension: PropTypes.func,
     onDropWithoutItems: PropTypes.func,
@@ -124,8 +102,6 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
 
     return {
         axis: adaptedUi.layout[ownProps.axisId],
-        itemsByDimension: adaptedUi.itemsByDimension,
-        type: adaptedUi.type,
         ...dispatchProps,
         ...ownProps,
     }

@@ -13,6 +13,7 @@ import Interpretations from './Interpretations/Interpretations'
 import Visualization from './Visualization/Visualization'
 import Layout from './Layout/Layout'
 import * as fromReducers from '../reducers'
+import { getAdaptedUiByType } from '../modules/ui'
 import * as fromActions from '../actions'
 import history from '../modules/history'
 import defaultMetadata from '../modules/metadata'
@@ -25,6 +26,7 @@ import './App.css'
 import './scrollbar.css'
 import { getParentGraphMapFromVisualization } from '../modules/ui'
 import AxisSetup from './AxisSetup/AxisSetup'
+import { SOURCE_DIMENSIONS } from '../modules/layout'
 
 export class App extends Component {
     unlisten = null
@@ -156,31 +158,52 @@ export class App extends Component {
     }
 
     onDragEnd = result => {
-        const { source, destination } = result
-
-        console.log('onDragEnd', result)
+        const { source, destination, draggableId } = result
 
         if (!destination) {
             return
         }
 
         const layout = this.props.layout
-
-        const sourceList = Array.from(layout[source.droppableId])
-        const [moved] = sourceList.splice(source.index, 1)
         const reorderedDimensions = {}
 
-        if (source.droppableId === destination.droppableId) {
-            sourceList.splice(destination.index, 0, moved)
-            reorderedDimensions[source.droppableId] = sourceList
+        if (source.droppableId !== SOURCE_DIMENSIONS) {
+            const sourceList = Array.from(layout[source.droppableId])
+            const [moved] = sourceList.splice(source.index, 1)
+
+            if (source.droppableId === destination.droppableId) {
+                sourceList.splice(destination.index, 0, moved)
+                reorderedDimensions[source.droppableId] = sourceList
+            } else {
+                const destList = Array.from(layout[destination.droppableId])
+
+                destList.splice(destination.index, 0, moved)
+
+                reorderedDimensions[destination.droppableId] = destList
+                reorderedDimensions[source.droppableId] = sourceList
+            }
+            this.props.onReorderDimensions({
+                ...layout,
+                ...reorderedDimensions,
+            })
         } else {
             const destList = Array.from(layout[destination.droppableId])
-            destList.splice(destination.index, 0, moved)
+            destList.splice(destination.index, 0, draggableId)
             reorderedDimensions[destination.droppableId] = destList
-            reorderedDimensions[source.droppableId] = sourceList
-        }
 
-        this.props.onReorderDimensions({ ...layout, ...reorderedDimensions })
+            this.props.onReorderDimensions({
+                ...layout,
+                ...reorderedDimensions,
+            })
+
+            const items = this.props.itemsByDimension[draggableId]
+
+            const hasNoItems = Boolean(!items || !items.length)
+
+            if (source.droppableId === SOURCE_DIMENSIONS && hasNoItems) {
+                this.props.onDropWithoutItems(draggableId)
+            }
+        }
     }
 
     render() {
@@ -250,7 +273,20 @@ const mapDispatchToProps = dispatch => ({
         dispatch(fromActions.fromUi.acAddParentGraphMap(parentGraphMap)),
     onReorderDimensions: layout =>
         dispatch(fromActions.fromUi.acSetUiLayout(layout)),
+    onDropWithoutItems: dimensionId =>
+        dispatch(fromActions.fromUi.acSetUiActiveModalDialog(dimensionId)),
 })
+
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
+    const adaptedUi = getAdaptedUiByType(stateProps.ui)
+
+    return {
+        itemsByDimension: adaptedUi.itemsByDimension,
+        ...dispatchProps,
+        ...stateProps,
+        ...ownProps,
+    }
+}
 
 App.contextTypes = {
     store: PropTypes.object,
@@ -267,6 +303,7 @@ App.propTypes = {
     baseUrl: PropTypes.string,
     current: PropTypes.object,
     d2: PropTypes.object,
+    itemsByDimension: PropTypes.object,
     layout: PropTypes.object,
     location: PropTypes.object,
     ouLevels: PropTypes.array,
@@ -276,7 +313,8 @@ App.propTypes = {
     settings: PropTypes.object,
     ui: PropTypes.object,
     userSettings: PropTypes.object,
+    onDropWithoutItems: PropTypes.func,
     onReorderDimensions: PropTypes.func,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(App)

@@ -9,10 +9,10 @@ import {
     DIMENSION_ID_ASSIGNED_CATEGORIES,
 } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
+import { Draggable, Droppable } from 'react-beautiful-dnd'
 
 import DialogManager from './Dialogs/DialogManager'
 import { SOURCE_DIMENSIONS, getInverseLayout } from '../../modules/layout'
-import { setDataTransfer } from '../../modules/dnd'
 import * as fromReducers from '../../reducers'
 import * as fromActions from '../../actions'
 
@@ -50,10 +50,6 @@ export class Dimensions extends Component {
             dimensionId: null,
         })
 
-    onDimensionDragStart = e => {
-        setDataTransfer(e, SOURCE_DIMENSIONS)
-    }
-
     disabledDimension = dimensionId =>
         this.props.disallowedDimensions.includes(dimensionId)
 
@@ -76,30 +72,61 @@ export class Dimensions extends Component {
         const dims = Object.values(this.props.dimensions).filter(
             dimension => !dimension.noItems
         )
-        return dims.map(this.renderItem)
+        return dims.map((dim, index) => this.renderItem(dim, index))
     }
 
-    renderItem = dimension => {
+    renderItem = ({ id, name }, index) => {
+        const key = `${SOURCE_DIMENSIONS}-${id}`
+        const isDragDisabled = !!this.props.usedDimIds(id)
         return (
-            <DimensionItem
-                id={dimension.id}
-                key={dimension.id}
-                name={dimension.name}
-                isLocked={this.lockedDimension(dimension.id)}
-                isSelected={this.props.selectedIds.includes(dimension.id)}
-                isRecommended={this.isRecommendedDimension(dimension.id)}
-                isDeactivated={this.disabledDimension(dimension.id)}
-                onClick={this.props.onDimensionClick}
-                onOptionsClick={this.onDimensionOptionsClick}
-                onDragStart={this.onDimensionDragStart}
-            />
+            <Draggable
+                key={key}
+                draggableId={id}
+                index={index}
+                isDragDisabled={isDragDisabled}
+            >
+                {provided => (
+                    <div
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                    >
+                        <DimensionItem
+                            id={id}
+                            key={id}
+                            name={name}
+                            isLocked={this.lockedDimension(id)}
+                            isSelected={this.props.selectedIds.includes(id)}
+                            isRecommended={this.isRecommendedDimension(id)}
+                            isDeactivated={this.disabledDimension(id)}
+                            onClick={this.props.onDimensionClick}
+                            onOptionsClick={this.onDimensionOptionsClick}
+                        />
+                    </div>
+                )}
+            </Draggable>
         )
     }
 
     render() {
         return (
             <div style={styles.divContainer}>
-                <DimensionsPanel dimensions={this.getFilteredDimensions()} />
+                <Droppable
+                    droppableId={SOURCE_DIMENSIONS}
+                    isDropDisabled={true}
+                >
+                    {(provided, snapshot) => (
+                        <div
+                            ref={provided.innerRef}
+                            {...provided.droppableProps}
+                        >
+                            <DimensionsPanel
+                                dimensions={this.getFilteredDimensions()}
+                            />
+                            {provided.placeholder}
+                        </div>
+                    )}
+                </Droppable>
                 <DimensionMenu
                     dimensionId={this.state.dimensionId}
                     currentAxisId={this.getUiAxisId()}
@@ -147,18 +174,20 @@ Dimensions.propTypes = {
     removeItemHandler: PropTypes.func,
     selectedIds: PropTypes.array,
     ui: PropTypes.object,
+    usedDimIds: PropTypes.func,
     onDimensionClick: PropTypes.func,
 }
 
 const mapStateToProps = state => {
     return {
         ui: fromReducers.fromUi.sGetUi(state),
+        usedDimIds: dimensionId =>
+            fromReducers.fromUi.sAdaptedLayoutHasDimension(state, dimensionId),
         dimensions: fromReducers.fromDimensions.sGetDimensions(state),
         selectedIds: fromReducers.fromUi.sGetDimensionIdsFromLayout(state),
         recommendedIds: fromReducers.fromRecommendedIds.sGetRecommendedIds(
             state
         ),
-        layout: fromReducers.fromUi.sGetUiLayout(state),
         itemsByDimension: fromReducers.fromUi.sGetUiItems(state),
         disallowedDimensions: getDisallowedDimensionsMemo(state),
         lockedDimensions: getLockedDimensionsMemo(state),
