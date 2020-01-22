@@ -40,10 +40,10 @@ export class DndDimensionList extends Component {
     //     return this.filterTextContains(dimension.props.name) ? dimension : null
     // }
 
-    disabledDimension = dimensionId =>
+    isDisabledDimension = dimensionId =>
         this.props.disallowedDimensions.includes(dimensionId)
 
-    lockedDimension = dimensionId =>
+    isLockedDimension = dimensionId =>
         this.props.lockedDimensions.includes(dimensionId)
 
     isRecommendedDimension = dimensionId =>
@@ -58,19 +58,25 @@ export class DndDimensionList extends Component {
     }
 
     renderItem = ({ id, name }, index) => {
-        const key = `${SOURCE_DIMENSIONS}-${id}`
-        const isLocked = this.lockedDimension(id)
-        const isDeactivated = this.disabledDimension(id)
+        const isSelected = this.props.selectedIds.includes(id)
+        const isLocked = this.isLockedDimension(id)
+        const isDeactivated = this.isDisabledDimension(id)
         const isRecommended = this.isRecommendedDimension(id)
-        const isDragDisabled =
-            !!this.props.usedDimIds(id) && !isDeactivated && !isLocked
+
+        const itemProps = {
+            name,
+            isSelected,
+            isLocked,
+            isDeactivated,
+            isRecommended,
+        }
 
         return (
             <Draggable
-                key={key}
+                key={`${SOURCE_DIMENSIONS}-${id}`}
                 draggableId={id}
                 index={index}
-                isDragDisabled={isDragDisabled}
+                isDragDisabled={isSelected || isDeactivated || isLocked}
             >
                 {(provided, snapshot) => (
                     <React.Fragment>
@@ -81,24 +87,16 @@ export class DndDimensionList extends Component {
                             className={snapshot.isDragging ? 'dragging' : null}
                             id={id}
                             key={id}
-                            name={name}
-                            isLocked={isLocked}
-                            isSelected={this.props.selectedIds.includes(id)}
-                            isRecommended={isRecommended}
-                            isDeactivated={isDeactivated}
                             onClick={this.props.onDimensionClick}
                             onOptionsClick={this.onDimensionOptionsClick}
+                            {...itemProps}
                         />
                         {snapshot.isDragging && (
                             <DimensionItem
-                                id="the-clone"
-                                key="the-clone"
-                                name={name}
+                                id="dimension-item-clone"
+                                key="dimension-item-clone"
                                 className="dimension-item-clone"
-                                isLocked={isLocked}
-                                isSelected={this.props.selectedIds.includes(id)}
-                                isRecommended={isRecommended}
-                                isDeactivated={isDeactivated}
+                                {...itemProps}
                             />
                         )}
                     </React.Fragment>
@@ -108,8 +106,6 @@ export class DndDimensionList extends Component {
     }
 
     render() {
-        const dimensionsList = this.getFilteredDimensions()
-
         return (
             <Droppable droppableId={SOURCE_DIMENSIONS} isDropDisabled={true}>
                 {provided => (
@@ -119,7 +115,7 @@ export class DndDimensionList extends Component {
                         style={styles.listWrapper}
                     >
                         <ul style={styles.list}>
-                            {dimensionsList}
+                            {this.getFilteredDimensions()}
                             {provided.placeholder}
                         </ul>
                     </div>
@@ -135,7 +131,6 @@ DndDimensionList.propTypes = {
     lockedDimensions: PropTypes.array,
     recommendedIds: PropTypes.array,
     selectedIds: PropTypes.array,
-    usedDimIds: PropTypes.func,
     onDimensionClick: PropTypes.func,
 }
 
@@ -144,22 +139,20 @@ const getDisallowedDimensionsMemo = createSelector(
     type => getDisallowedDimensions(type)
 )
 
-const getLockedDimensionsMemo = createSelector(
+const getisLockedDimensionsMemo = createSelector(
     [fromReducers.fromUi.sGetUiType],
     type => getAllLockedDimensionIds(type)
 )
 
 const mapStateToProps = state => {
     return {
-        usedDimIds: dimensionId =>
-            fromReducers.fromUi.sAdaptedLayoutHasDimension(state, dimensionId),
         dimensions: fromReducers.fromDimensions.sGetDimensions(state),
         selectedIds: fromReducers.fromUi.sGetDimensionIdsFromLayout(state),
         recommendedIds: fromReducers.fromRecommendedIds.sGetRecommendedIds(
             state
         ),
         disallowedDimensions: getDisallowedDimensionsMemo(state),
-        lockedDimensions: getLockedDimensionsMemo(state),
+        lockedDimensions: getisLockedDimensionsMemo(state),
     }
 }
 
