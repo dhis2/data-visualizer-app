@@ -5,6 +5,7 @@ import {
     DIMENSION_ID_ORGUNIT,
     VIS_TYPE_COLUMN,
     DIMENSION_ID_ASSIGNED_CATEGORIES,
+    canDimensionBeAddedToAxis,
 } from '@dhis2/analytics'
 
 import {
@@ -101,15 +102,18 @@ export default (state = DEFAULT_UI, action) => {
                 ...getRetransfer(state.layout, action.value, state.type),
             }
 
-            // Filter out transferred dimension ids (remove from source)
-            const newLayout = getFilteredLayout(
-                state.layout,
-                Object.keys(transfers)
-            )
+            let newLayout = state.layout
 
             // Add dimension ids to destination (axisId === null means remove from layout)
             Object.entries(transfers).forEach(([dimensionId, axisId]) => {
-                newLayout[axisId] && newLayout[axisId].push(dimensionId)
+                if (
+                    newLayout[axisId] &&
+                    canDimensionBeAddedToAxis(state.type, newLayout, axisId)
+                ) {
+                    // Filter out transferred dimension id (remove from source)
+                    newLayout = getFilteredLayout(newLayout, [dimensionId])
+                    newLayout[axisId].push(dimensionId)
+                }
             })
 
             return {

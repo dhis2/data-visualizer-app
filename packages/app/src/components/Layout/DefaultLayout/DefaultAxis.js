@@ -2,10 +2,19 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
-import { getAxisName, getAxisPerLockedDimension } from '@dhis2/analytics'
+import {
+    getAxisName,
+    getAxisPerLockedDimension,
+    canDimensionBeAddedToAxis,
+} from '@dhis2/analytics'
 
 import Chip from '../Chip'
-import { sGetUi, sGetUiItems, sGetUiType } from '../../../reducers/ui'
+import {
+    sGetUi,
+    sGetUiLayout,
+    sGetUiItems,
+    sGetUiType,
+} from '../../../reducers/ui'
 import { decodeDataTransfer } from '../../../modules/dnd'
 import {
     acAddUiLayoutDimensions,
@@ -22,41 +31,50 @@ class Axis extends React.Component {
     onDrop = e => {
         e.preventDefault()
 
+        const {
+            type,
+            layout,
+            axisId,
+            itemsByDimension,
+            onAddDimension,
+            onDropWithoutItems,
+        } = this.props
         const { dimensionId, source } = decodeDataTransfer(e)
 
-        this.props.onAddDimension({
-            [dimensionId]: this.props.axisId,
-        })
+        if (canDimensionBeAddedToAxis(type, layout, axisId)) {
+            onAddDimension({
+                [dimensionId]: axisId,
+            })
 
-        const items = this.props.itemsByDimension[dimensionId]
-        const hasNoItems = Boolean(!items || !items.length)
+            const items = itemsByDimension[dimensionId]
+            const hasNoItems = Boolean(!items || !items.length)
 
-        if (source === SOURCE_DIMENSIONS && hasNoItems) {
-            this.props.onDropWithoutItems(dimensionId)
+            if (source === SOURCE_DIMENSIONS && hasNoItems) {
+                onDropWithoutItems(dimensionId)
+            }
         }
     }
 
     render() {
+        const { axisId, axis, style, type, getOpenHandler } = this.props
+
         return (
             <div
-                id={this.props.axisId}
-                style={{ ...styles.axisContainer, ...this.props.style }}
+                id={axisId}
+                style={{ ...styles.axisContainer, ...style }}
                 onDragOver={this.onDragOver}
                 onDrop={this.onDrop}
             >
-                <div style={styles.label}>{getAxisName(this.props.axisId)}</div>
-                <Droppable
-                    droppableId={this.props.axisId}
-                    direction="horizontal"
-                >
+                <div style={styles.label}>{getAxisName(axisId)}</div>
+                <Droppable droppableId={axisId} direction="horizontal">
                     {provided => (
                         <div
                             style={styles.content}
                             ref={provided.innerRef}
                             {...provided.droppableProps}
                         >
-                            {this.props.axis.map((dimensionId, index) => {
-                                const key = `${this.props.axisId}-${dimensionId}`
+                            {axis.map((dimensionId, index) => {
+                                const key = `${axisId}-${dimensionId}`
 
                                 return (
                                     <Draggable
@@ -65,9 +83,9 @@ class Axis extends React.Component {
                                         index={index}
                                         isDragDisabled={
                                             getAxisPerLockedDimension(
-                                                this.props.type,
+                                                type,
                                                 dimensionId
-                                            ) === this.props.axisId
+                                            ) === axisId
                                         }
                                     >
                                         {provided => (
@@ -77,10 +95,10 @@ class Axis extends React.Component {
                                                 {...provided.dragHandleProps}
                                             >
                                                 <Chip
-                                                    onClick={this.props.getOpenHandler(
+                                                    onClick={getOpenHandler(
                                                         dimensionId
                                                     )}
-                                                    axisId={this.props.axisId}
+                                                    axisId={axisId}
                                                     dimensionId={dimensionId}
                                                 />
                                             </div>
@@ -104,6 +122,7 @@ Axis.propTypes = {
     getOpenHandler: PropTypes.func,
     getRemoveHandler: PropTypes.func,
     itemsByDimension: PropTypes.object,
+    layout: PropTypes.object,
     style: PropTypes.object,
     type: PropTypes.string,
     ui: PropTypes.object,
@@ -115,6 +134,7 @@ Axis.propTypes = {
 const mapStateToProps = state => ({
     ui: sGetUi(state),
     type: sGetUiType(state),
+    layout: sGetUiLayout(state),
     itemsByDimension: sGetUiItems(state),
 })
 

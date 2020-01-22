@@ -5,6 +5,8 @@ import {
     AXIS_ID_FILTERS,
     getAxisMaxNumberOfDimensions,
     getAvailableAxes,
+    isDimensionLocked,
+    isAxisFull,
 } from '@dhis2/analytics'
 
 // Names for dnd sources
@@ -67,11 +69,14 @@ export const getRetransfer = (layout, transfer, visType) => {
         const destinationAxisId = transfer[id]
         const dimensionsAtDestination = layout[destinationAxisId] || []
 
-        const axisIsFull =
-            dimensionsAtDestination.length ===
-            getAxisMaxNumberOfDimensions(visType, destinationAxisId)
-
-        if (axisIsFull) {
+        if (
+            isAxisFull(
+                visType,
+                destinationAxisId,
+                dimensionsAtDestination.length
+            ) &&
+            !isDimensionLocked(visType, dimensionsAtDestination[0])
+        ) {
             retransfer[dimensionsAtDestination[0]] = sourceAxis
                 ? sourceAxis
                 : getAvailableAxes(visType).find(

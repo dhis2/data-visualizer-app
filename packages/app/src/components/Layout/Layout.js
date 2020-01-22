@@ -7,6 +7,7 @@ import {
     LAYOUT_TYPE_PIE,
     LAYOUT_TYPE_YEAR_OVER_YEAR,
     getLayoutTypeByVisType,
+    canDimensionBeAddedToAxis,
 } from '@dhis2/analytics'
 
 import DefaultLayout from './DefaultLayout/DefaultLayout'
@@ -22,7 +23,9 @@ const componentMap = {
 }
 
 const Layout = props => {
-    const layoutType = getLayoutTypeByVisType(props.visType)
+    const { visType, layout } = props
+
+    const layoutType = getLayoutTypeByVisType(visType)
     const LayoutComponent = componentMap[layoutType]
 
     const onDragEnd = result => {
@@ -43,7 +46,11 @@ const Layout = props => {
                 [source.droppableId]: sourceList,
             })
         } else {
-            props.onAddDimensions({ [moved]: destination.droppableId })
+            const axisId = destination.droppableId
+
+            if (canDimensionBeAddedToAxis(visType, layout, axisId)) {
+                props.onAddDimensions({ [moved]: destination.droppableId })
+            }
         }
     }
 
