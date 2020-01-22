@@ -2,6 +2,16 @@ import { colors } from '@dhis2/ui-core'
 
 import * as layoutStyle from './style'
 
+const baseChip = {
+    padding: layoutStyle.CHIP_PADDING,
+    fontSize: layoutStyle.CHIP_FONT_SIZE,
+    fontWeight: layoutStyle.CHIP_FONT_WEIGHT,
+    color: layoutStyle.CHIP_COLOR,
+    cursor: 'pointer',
+    minHeight: 24,
+    userSelect: 'none',
+}
+
 export const styles = {
     chipWrapper: {
         display: 'flex',
@@ -9,18 +19,13 @@ export const styles = {
         backgroundColor: layoutStyle.CHIP_BACKGROUND_COLOR,
         borderRadius: layoutStyle.CHIP_BORDER_RADIUS,
         alignItems: 'center',
+        maxWidth: '400px',
     },
     chip: {
-        padding: layoutStyle.CHIP_PADDING,
-        fontSize: layoutStyle.CHIP_FONT_SIZE,
-        fontWeight: layoutStyle.CHIP_FONT_WEIGHT,
-        color: layoutStyle.CHIP_COLOR,
-        cursor: 'pointer',
+        ...baseChip,
         whiteSpace: 'nowrap',
         overflow: 'hidden',
         textOverflow: 'ellipsis',
-        minHeight: 24,
-        userSelect: 'none',
     },
     chipEmpty: {
         backgroundColor: colors.grey300,
@@ -49,10 +54,18 @@ export const styles = {
         display: 'flex',
         alignItems: 'center',
     },
+    label: {
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+    },
 }
 
 styles.chipLeft = {
-    ...styles.chip,
+    ...baseChip,
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
     display: 'flex',
     borderTopRightRadius: '0px',
     borderBottomRightRadius: '0px',
@@ -60,7 +73,7 @@ styles.chipLeft = {
 }
 
 styles.chipRight = {
-    ...styles.chip,
+    ...baseChip,
     paddingLeft: '0px',
     borderTopLeftRadius: '0px',
     borderBottomLeftRadius: '0px',

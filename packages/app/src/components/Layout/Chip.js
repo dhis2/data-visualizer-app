@@ -102,7 +102,7 @@ class Chip extends React.Component {
             : {}),
     })
 
-    renderChipLabel = () => {
+    renderChipLabelSuffix = () => {
         const numberOfItems = this.props.items.length
 
         const getItemsLabel =
@@ -116,9 +116,7 @@ class Chip extends React.Component {
                       total: numberOfItems,
                   })
 
-        return `${this.props.dimensionName}${
-            this.props.items.length > 0 ? `: ${getItemsLabel}` : ''
-        }`
+        return `${this.props.items.length > 0 ? `: ${getItemsLabel}` : ''}`
     }
 
     renderChipIcon = () => {
@@ -188,7 +186,8 @@ class Chip extends React.Component {
                 onMouseOut={this.handleMouseOut}
             >
                 <div style={styles.iconWrapper}>{this.renderChipIcon()}</div>
-                {this.renderChipLabel()}
+                <span style={styles.label}>{this.props.dimensionName}</span>
+                <span>{this.renderChipLabelSuffix()}</span>
                 {hasAxisTooManyItems(
                     this.props.type,
                     this.props.axisId,
