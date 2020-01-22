@@ -75,7 +75,7 @@ export class DndDimensionList extends Component {
                 {(provided, snapshot) => (
                     <React.Fragment>
                         <DimensionItem
-                            theInnerRef={provided.innerRef}
+                            innerRef={provided.innerRef}
                             {...provided.draggableProps}
                             {...provided.dragHandleProps}
                             className={snapshot.isDragging ? 'dragging' : null}
@@ -89,7 +89,6 @@ export class DndDimensionList extends Component {
                             onClick={this.props.onDimensionClick}
                             onOptionsClick={this.onDimensionOptionsClick}
                         />
-
                         {snapshot.isDragging && (
                             <DimensionItem
                                 id="the-clone"

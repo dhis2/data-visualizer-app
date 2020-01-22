@@ -11,7 +11,6 @@ import DialogManager from './Dialogs/DialogManager'
 import DndDimensionList from './DndDimensionsList'
 import { getInverseLayout } from '../../modules/layout'
 import * as fromReducers from '../../reducers'
-import * as fromActions from '../../actions'
 
 import { styles } from './styles/DimensionsPanel.style'
 import { getAdaptedUiByType } from '../../modules/ui'
