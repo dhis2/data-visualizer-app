@@ -160,6 +160,10 @@ export class App extends Component {
     onDragEnd = result => {
         const { source, destination, draggableId } = result
 
+        console.log('source', source)
+        console.log('destination', destination)
+        console.log('draggableId', draggableId)
+
         if (!destination) {
             return
         }

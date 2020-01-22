@@ -77,3 +77,15 @@ body {
 .main-center-canvas {
     overflow: hidden;
 }
+
+/* .dragging {
+    background-color: yellow;
+} */
+
+.dimItemCopy ~ li {
+    transform: none !important;
+}
+
+.dimItemCopy ~ [data-rbd-placeholder-context-id] {
+    display: none !important;
+}

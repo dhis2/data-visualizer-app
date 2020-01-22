@@ -85,24 +85,39 @@ export class Dimensions extends Component {
                 index={index}
                 isDragDisabled={isDragDisabled}
             >
-                {provided => (
-                    <div
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                    >
-                        <DimensionItem
-                            id={id}
-                            key={id}
-                            name={name}
-                            isLocked={this.lockedDimension(id)}
-                            isSelected={this.props.selectedIds.includes(id)}
-                            isRecommended={this.isRecommendedDimension(id)}
-                            isDeactivated={this.disabledDimension(id)}
-                            onClick={this.props.onDimensionClick}
-                            onOptionsClick={this.onDimensionOptionsClick}
-                        />
-                    </div>
+                {(provided, snapshot) => (
+                    <React.Fragment>
+                        <div
+                            ref={provided.innerRef}
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}
+                            className={snapshot.isDragging ? 'dragging' : null}
+                        >
+                            <DimensionItem
+                                id={id}
+                                key={id}
+                                name={name}
+                                isLocked={this.lockedDimension(id)}
+                                isSelected={this.props.selectedIds.includes(id)}
+                                isRecommended={this.isRecommendedDimension(id)}
+                                isDeactivated={this.disabledDimension(id)}
+                                onClick={this.props.onDimensionClick}
+                                onOptionsClick={this.onDimensionOptionsClick}
+                            />
+                        </div>
+                        {snapshot.isDragging && (
+                            <DimensionItem
+                                id="the-clone"
+                                key="the-clone"
+                                name={name}
+                                className="dimItemCopy"
+                                isLocked={this.lockedDimension(id)}
+                                isSelected={this.props.selectedIds.includes(id)}
+                                isRecommended={this.isRecommendedDimension(id)}
+                                isDeactivated={this.disabledDimension(id)}
+                            />
+                        )}
+                    </React.Fragment>
                 )}
             </Draggable>
         )
@@ -115,7 +130,7 @@ export class Dimensions extends Component {
                     droppableId={SOURCE_DIMENSIONS}
                     isDropDisabled={true}
                 >
-                    {(provided, snapshot) => (
+                    {provided => (
                         <div
                             ref={provided.innerRef}
                             {...provided.droppableProps}

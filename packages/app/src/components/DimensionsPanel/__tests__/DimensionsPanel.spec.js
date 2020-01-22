@@ -4,7 +4,7 @@ import { DimensionsPanel } from '@dhis2/analytics'
 
 import { Dimensions } from '../DimensionsPanel'
 
-describe('The Dimensions component ', () => {
+describe.skip('The Dimensions component ', () => {
     let shallowDimensions
     let props
     const dimensionsComponent = () => {
