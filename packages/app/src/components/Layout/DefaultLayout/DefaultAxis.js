@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
 import {
     getAxisName,
-    getAxisPerLockedDimension,
+    isDimensionLocked,
     canDimensionBeAddedToAxis,
 } from '@dhis2/analytics'
 
@@ -81,12 +81,10 @@ class Axis extends React.Component {
                                         key={key}
                                         draggableId={key}
                                         index={index}
-                                        isDragDisabled={
-                                            getAxisPerLockedDimension(
-                                                type,
-                                                dimensionId
-                                            ) === axisId
-                                        }
+                                        isDragDisabled={isDimensionLocked(
+                                            type,
+                                            dimensionId
+                                        )}
                                     >
                                         {provided => (
                                             <div
