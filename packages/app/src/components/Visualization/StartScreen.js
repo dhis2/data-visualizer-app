@@ -18,7 +18,7 @@ const StartScreen = ({ error, classes }) => {
     const engine = useDataEngine()
 
     useEffect(() => {
-        async function fetchData(engine) {
+        async function populateMostViewedVisualizations(engine) {
             const mostViewedVisualizationsResult = await apiFetchMostViewedVisualizations(
                 engine,
                 6
@@ -40,7 +40,7 @@ const StartScreen = ({ error, classes }) => {
 
             setMostViewedVisualizations(result)
         }
-        fetchData(engine)
+        populateMostViewedVisualizations(engine)
     }, [])
 
     const getContent = () =>
