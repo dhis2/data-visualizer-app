@@ -83,6 +83,7 @@ export default {
         },
     },
     visIcon: {
+        height: '16px',
         '& svg': {
             height: '16px',
             marginRight: '8px',
