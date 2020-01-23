@@ -10,16 +10,34 @@ import { withStyles } from '@material-ui/core/styles'
 import { useDataEngine } from '@dhis2/app-runtime'
 import { VisualizationError } from '../../modules/error'
 import { GenericError } from '../../assets/ErrorIcons'
+import { apiFetchVisualizations } from '../../api/visualization'
 
 const StartScreen = ({ error, classes }) => {
     const [mostViewedVisualizations, setMostViewedVisualizations] = useState([])
-
     const engine = useDataEngine()
 
     useEffect(() => {
         async function fetchData(engine) {
-            const result = await apiFetchMostViewedVisualizations(engine, 6)
-            setMostViewedVisualizations(result.visualization)
+            const mostViewedVisualizationsResult = await apiFetchMostViewedVisualizations(
+                engine,
+                6
+            )
+            const visualizations = mostViewedVisualizationsResult.visualization
+            const visualizationsResult = await apiFetchVisualizations(
+                engine,
+                `id:in:[${visualizations.map(vis => vis.id)}]`,
+                'id,type'
+            )
+            const visualizationsWithType =
+                visualizationsResult.visualization.visualizations
+            const result = visualizations.map(vis => ({
+                ...visualizationsWithType.find(
+                    visWithType => visWithType.id === vis.id && visWithType
+                ),
+                ...vis,
+            }))
+
+            setMostViewedVisualizations(result)
         }
         fetchData(engine)
     }, [])
@@ -52,7 +70,7 @@ const StartScreen = ({ error, classes }) => {
                             className={classes.visualization}
                             onClick={() => history.push(`/${visualization.id}`)}
                         >
-                            {visualization.name}
+                            {visualization.type}: {visualization.name}
                         </p>
                     ))}
                 </div>
