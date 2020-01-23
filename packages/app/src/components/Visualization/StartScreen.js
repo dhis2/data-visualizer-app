@@ -11,6 +11,7 @@ import { useDataEngine } from '@dhis2/app-runtime'
 import { VisualizationError } from '../../modules/error'
 import { GenericError } from '../../assets/ErrorIcons'
 import { apiFetchVisualizations } from '../../api/visualization'
+import { visTypeIcons } from '@dhis2/analytics'
 
 const StartScreen = ({ error, classes }) => {
     const [mostViewedVisualizations, setMostViewedVisualizations] = useState([])
@@ -70,7 +71,10 @@ const StartScreen = ({ error, classes }) => {
                             className={classes.visualization}
                             onClick={() => history.push(`/${visualization.id}`)}
                         >
-                            {visualization.type}: {visualization.name}
+                            <span className={classes.visIcon}>
+                                {visTypeIcons[visualization.type]}
+                            </span>
+                            <span>{visualization.name}</span>
                         </p>
                     ))}
                 </div>
