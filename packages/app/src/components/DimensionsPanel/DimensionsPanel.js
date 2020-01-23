@@ -57,7 +57,9 @@ export class Dimensions extends Component {
         return (
             <div style={styles.divContainer}>
                 <DimensionsPanel>
-                    <DndDimensionList />
+                    <DndDimensionList
+                        onDimensionOptionsClick={this.onDimensionOptionsClick}
+                    />
                 </DimensionsPanel>
                 <DimensionMenu
                     dimensionId={this.state.dimensionId}

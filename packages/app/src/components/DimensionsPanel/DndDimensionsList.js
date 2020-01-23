@@ -1,45 +1,20 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { Draggable, Droppable } from 'react-beautiful-dnd'
+import { Droppable } from 'react-beautiful-dnd'
 import { createSelector } from 'reselect'
 import {
-    DimensionItem,
+    DimensionList,
     getDisallowedDimensions,
     getAllLockedDimensionIds,
 } from '@dhis2/analytics'
 
+import DndDimensionItem from './DndDimensionItem'
 import * as fromReducers from '../../reducers'
 import { acSetUiActiveModalDialog } from '../../actions/ui'
 import { SOURCE_DIMENSIONS } from '../../modules/layout'
 
-const styles = {
-    listWrapper: {
-        position: 'relative',
-        flex: '1 1 0%',
-        minHeight: '30vh',
-    },
-    list: {
-        position: 'absolute',
-        width: '100%',
-        height: '100%',
-        overflow: 'auto',
-        marginTop: '0px',
-        padding: 0,
-    },
-}
-
 export class DndDimensionList extends Component {
-    // filterTextContains = dimensionName => {
-    //     return dimensionName
-    //         .toLowerCase()
-    //         .includes(this.props.filterText.toLowerCase())
-    // }
-
-    // filterMatchingDimensions = dimension => {
-    //     return this.filterTextContains(dimension.props.name) ? dimension : null
-    // }
-
     isDisabledDimension = dimensionId =>
         this.props.disallowedDimensions.includes(dimensionId)
 
@@ -49,75 +24,49 @@ export class DndDimensionList extends Component {
     isRecommendedDimension = dimensionId =>
         this.props.recommendedIds.includes(dimensionId)
 
-    getFilteredDimensions = () => {
+    renderDimensions = () => {
+        console.log('renderDimensions now')
         const dims = Object.values(this.props.dimensions).filter(
             dimension => !dimension.noItems
         )
 
-        return dims.map((dim, index) => this.renderItem(dim, index))
-    }
+        return dims.map((dim, index) => {
+            const isSelected = this.props.selectedIds.includes(dim.id)
+            const isLocked = this.isLockedDimension(dim.id)
+            const isDeactivated = this.isDisabledDimension(dim.id)
+            const isRecommended = this.isRecommendedDimension(dim.id)
+            const name = dim.name
+            const id = dim.id
 
-    renderItem = ({ id, name }, index) => {
-        const isSelected = this.props.selectedIds.includes(id)
-        const isLocked = this.isLockedDimension(id)
-        const isDeactivated = this.isDisabledDimension(id)
-        const isRecommended = this.isRecommendedDimension(id)
+            const itemProps = {
+                index,
+                isSelected,
+                isLocked,
+                isDeactivated,
+                isRecommended,
+                name,
+                id,
+                onClick: this.props.onDimensionClick,
+                onOptionsClick: this.props.onDimensionOptionsClick,
+            }
 
-        const itemProps = {
-            name,
-            isSelected,
-            isLocked,
-            isDeactivated,
-            isRecommended,
-        }
-
-        return (
-            <Draggable
-                key={`${SOURCE_DIMENSIONS}-${id}`}
-                draggableId={id}
-                index={index}
-                isDragDisabled={isSelected || isDeactivated || isLocked}
-            >
-                {(provided, snapshot) => (
-                    <React.Fragment>
-                        <DimensionItem
-                            innerRef={provided.innerRef}
-                            {...provided.draggableProps}
-                            {...provided.dragHandleProps}
-                            className={snapshot.isDragging ? 'dragging' : null}
-                            id={id}
-                            key={id}
-                            onClick={this.props.onDimensionClick}
-                            onOptionsClick={this.onDimensionOptionsClick}
-                            {...itemProps}
-                        />
-                        {snapshot.isDragging && (
-                            <DimensionItem
-                                id="dimension-item-clone"
-                                key="dimension-item-clone"
-                                className="dimension-item-clone"
-                                {...itemProps}
-                            />
-                        )}
-                    </React.Fragment>
-                )}
-            </Draggable>
-        )
+            return (
+                <DndDimensionItem
+                    key={`${SOURCE_DIMENSIONS}-${dim.id}`}
+                    {...itemProps}
+                />
+            )
+        })
     }
 
     render() {
         return (
             <Droppable droppableId={SOURCE_DIMENSIONS} isDropDisabled={true}>
                 {provided => (
-                    <div
-                        ref={provided.innerRef}
-                        {...provided.droppableProps}
-                        style={styles.listWrapper}
-                    >
-                        <ul style={styles.list}>
-                            {this.getFilteredDimensions()}
+                    <div ref={provided.innerRef} {...provided.droppableProps}>
+                        <DimensionList dimensions={this.renderDimensions()}>
                             {provided.placeholder}
-                        </ul>
+                        </DimensionList>
                     </div>
                 )}
             </Droppable>
@@ -132,6 +81,7 @@ DndDimensionList.propTypes = {
     recommendedIds: PropTypes.array,
     selectedIds: PropTypes.array,
     onDimensionClick: PropTypes.func,
+    onDimensionOptionsClick: PropTypes.func,
 }
 
 const getDisallowedDimensionsMemo = createSelector(
