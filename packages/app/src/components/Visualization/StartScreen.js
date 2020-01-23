@@ -22,7 +22,7 @@ const StartScreen = ({ error, classes }) => {
             setMostViewedVisualizations(result.visualization)
         }
         fetchData(engine)
-    }, [engine])
+    }, []) // eslint-ignore-line react-hooks/exhaustive-deps
 
     const getContent = () =>
         error ? (
