@@ -79,7 +79,7 @@ export const getRetransfer = (layout, transfer, visType) => {
             const transferableDimension = getTransferableDimension(
                 visType,
                 destinationAxisId,
-                layout
+                layout[destinationAxisId]
             )
 
             if (transferableDimension) {

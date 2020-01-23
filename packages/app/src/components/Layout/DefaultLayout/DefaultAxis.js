@@ -41,7 +41,7 @@ class Axis extends React.Component {
         } = this.props
         const { dimensionId, source } = decodeDataTransfer(e)
 
-        if (canDimensionBeAddedToAxis(type, layout, axisId)) {
+        if (canDimensionBeAddedToAxis(type, layout[axisId], axisId)) {
             onAddDimension({
                 [dimensionId]: axisId,
             })

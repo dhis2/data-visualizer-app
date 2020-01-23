@@ -108,7 +108,11 @@ export default (state = DEFAULT_UI, action) => {
             Object.entries(transfers).forEach(([dimensionId, axisId]) => {
                 if (
                     newLayout[axisId] &&
-                    canDimensionBeAddedToAxis(state.type, newLayout, axisId)
+                    canDimensionBeAddedToAxis(
+                        state.type,
+                        newLayout[axisId],
+                        axisId
+                    )
                 ) {
                     // Filter out transferred dimension id (remove from source)
                     newLayout = getFilteredLayout(newLayout, [dimensionId])

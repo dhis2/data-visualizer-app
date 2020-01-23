@@ -35,20 +35,20 @@ const Layout = props => {
             return
         }
 
-        const sourceList = Array.from(props.layout[source.droppableId])
+        const sourceList = Array.from(layout[source.droppableId])
         const [moved] = sourceList.splice(source.index, 1)
 
         if (source.droppableId === destination.droppableId) {
             sourceList.splice(destination.index, 0, moved)
 
             props.onReorderDimensions({
-                ...props.layout,
+                ...layout,
                 [source.droppableId]: sourceList,
             })
         } else {
             const axisId = destination.droppableId
 
-            if (canDimensionBeAddedToAxis(visType, layout, axisId)) {
+            if (canDimensionBeAddedToAxis(visType, layout[axisId], axisId)) {
                 props.onAddDimensions({ [moved]: destination.droppableId })
             }
         }
