@@ -10,13 +10,13 @@ import { acSetUiOptions } from '../../../actions/ui'
 export const RadioBaseOption = ({ option, label, value, onChange }) => (
     <RadioGroupField
         name={option.name}
-        value={String(value)}
+        value={value}
         onChange={({ value }) => onChange(value)}
         label={label}
         dense
     >
         {option.items.map(({ id, label }) => (
-            <Radio key={id} label={label} value={String(id)} />
+            <Radio key={id} label={label} value={id} />
         ))}
     </RadioGroupField>
 )
