@@ -1,26 +1,22 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 import { Draggable } from 'react-beautiful-dnd'
 import { DimensionItem } from '@dhis2/analytics'
-
-import { SOURCE_DIMENSIONS } from '../../modules/layout'
 
 export class DndDimensionItem extends Component {
     render = () => {
         const {
+            id,
+            name,
+            index,
             isSelected,
             isLocked,
             isDeactivated,
             isRecommended,
-            name,
-            index,
-            id,
             onClick,
             onOptionsClick,
             key,
         } = this.props
-
         const itemProps = {
             name,
             isSelected,

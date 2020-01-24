@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {
-    DimensionsPanel,
     DimensionMenu,
     DIMENSION_ID_ASSIGNED_CATEGORIES,
 } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
 
 import DialogManager from './Dialogs/DialogManager'
-import DndDimensionList from './DndDimensionsList'
+import DndDimensionsPanel from './DndDimensionsPanel'
 import { getInverseLayout } from '../../modules/layout'
 import * as fromReducers from '../../reducers'
 
@@ -56,11 +55,9 @@ export class Dimensions extends Component {
     render() {
         return (
             <div style={styles.divContainer}>
-                <DimensionsPanel>
-                    <DndDimensionList
-                        onDimensionOptionsClick={this.onDimensionOptionsClick}
-                    />
-                </DimensionsPanel>
+                <DndDimensionsPanel
+                    onDimensionOptionsClick={this.onDimensionOptionsClick}
+                />
                 <DimensionMenu
                     dimensionId={this.state.dimensionId}
                     currentAxisId={this.getUiAxisId()}

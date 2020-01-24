@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { Droppable } from 'react-beautiful-dnd'
 import { createSelector } from 'reselect'
 import {
-    DimensionList,
     getDisallowedDimensions,
     getAllLockedDimensionIds,
 } from '@dhis2/analytics'
@@ -14,45 +13,65 @@ import * as fromReducers from '../../reducers'
 import { acSetUiActiveModalDialog } from '../../actions/ui'
 import { SOURCE_DIMENSIONS } from '../../modules/layout'
 
+const styles = {
+    listWrapper: {
+        position: 'relative',
+        flex: '1 1 0%',
+        minHeight: '30vh',
+    },
+    list: {
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+        overflow: 'auto',
+        marginTop: '0px',
+        padding: 0,
+    },
+}
 export class DndDimensionList extends Component {
-    isDisabledDimension = dimensionId =>
-        this.props.disallowedDimensions.includes(dimensionId)
+    filterTextContains = dimensionName => {
+        return dimensionName
+            .toLowerCase()
+            .includes(this.props.filterText.toLowerCase())
+    }
 
-    isLockedDimension = dimensionId =>
-        this.props.lockedDimensions.includes(dimensionId)
+    filterMatchingDimensions = dimension => {
+        return this.filterTextContains(dimension.name)
+            ? this.renderItem(dimension)
+            : null
+    }
+    isDisabledDimension = id => this.props.disallowedDimensions.includes(id)
 
-    isRecommendedDimension = dimensionId =>
-        this.props.recommendedIds.includes(dimensionId)
+    isLockedDimension = id => this.props.lockedDimensions.includes(id)
+
+    isRecommendedDimension = id => this.props.recommendedIds.includes(id)
 
     renderDimensions = () => {
-        console.log('renderDimensions now')
-        const dims = Object.values(this.props.dimensions).filter(
+        const dimensionsWithItems = Object.values(this.props.dimensions).filter(
             dimension => !dimension.noItems
         )
 
-        return dims.map((dim, index) => {
-            const isSelected = this.props.selectedIds.includes(dim.id)
-            const isLocked = this.isLockedDimension(dim.id)
-            const isDeactivated = this.isDisabledDimension(dim.id)
-            const isRecommended = this.isRecommendedDimension(dim.id)
-            const name = dim.name
-            const id = dim.id
+        return dimensionsWithItems.map(({ id, name }, index) => {
+            const isSelected = this.props.selectedIds.includes(id)
+            const isLocked = this.isLockedDimension(id)
+            const isDeactivated = this.isDisabledDimension(id)
+            const isRecommended = this.isRecommendedDimension(id)
 
             const itemProps = {
+                id,
+                name,
                 index,
                 isSelected,
                 isLocked,
                 isDeactivated,
                 isRecommended,
-                name,
-                id,
                 onClick: this.props.onDimensionClick,
                 onOptionsClick: this.props.onDimensionOptionsClick,
             }
 
             return (
                 <DndDimensionItem
-                    key={`${SOURCE_DIMENSIONS}-${dim.id}`}
+                    key={`${SOURCE_DIMENSIONS}-${id}`}
                     {...itemProps}
                 />
             )
@@ -64,9 +83,12 @@ export class DndDimensionList extends Component {
             <Droppable droppableId={SOURCE_DIMENSIONS} isDropDisabled={true}>
                 {provided => (
                     <div ref={provided.innerRef} {...provided.droppableProps}>
-                        <DimensionList dimensions={this.renderDimensions()}>
-                            {provided.placeholder}
-                        </DimensionList>
+                        <div style={styles.listWrapper}>
+                            <ul style={styles.list}>
+                                {this.renderDimensions()}
+                            </ul>
+                        </div>
+                        {provided.placeholder}
                     </div>
                 )}
             </Droppable>
@@ -77,6 +99,7 @@ export class DndDimensionList extends Component {
 DndDimensionList.propTypes = {
     dimensions: PropTypes.object,
     disallowedDimensions: PropTypes.array,
+    filterText: PropTypes.string,
     lockedDimensions: PropTypes.array,
     recommendedIds: PropTypes.array,
     selectedIds: PropTypes.array,
