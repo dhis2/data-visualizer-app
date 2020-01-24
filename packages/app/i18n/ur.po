@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-08-08T13:09:25.099Z\n"
+"POT-Creation-Date: 2019-11-29T10:59:48.425Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2019\n"
 "Language-Team: Urdu (https://www.transifex.com/hisp-uio/teams/100509/ur/)\n"
@@ -44,15 +44,17 @@ msgid "Update"
 msgstr "اپ ڈیٹ"
 
 msgid ""
-"'Single Value' is intended to show a single data item. Only the first item "
-"will be used and saved."
+"'{{visualiationType}}' is intended to show a single data item. Only the "
+"first item will be used and saved."
+msgstr ""
+
+msgid ""
+"'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
+"items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
 
 msgid "Hide"
 msgstr "چھپائیں"
-
-msgid "Remove"
-msgstr "دور"
 
 msgid "Download"
 msgstr "ڈاؤن لوڈ کریں"
@@ -102,28 +104,28 @@ msgstr ""
 msgid "Interpretations"
 msgstr "تشریحات"
 
-msgid "{{total}} of 1 selected"
+msgid "{{total}} of {{maxNumberOfItemsPerAxis}} selected"
 msgstr ""
 
 msgid "{{total}} selected"
 msgstr ""
 
-msgid "Series"
-msgstr "سیریز"
-
-msgid "Category"
-msgstr "قسم"
-
-msgid "Filter"
-msgstr "فلٹر"
+msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
+msgstr ""
 
 msgid "Move to"
 msgstr "پر منتقل"
+
+msgid "Remove"
+msgstr "دور"
 
 msgid "None selected"
 msgstr "کوئی بھی منتخب نہیں"
 
 msgid "Only '{{name}}' in use"
+msgstr ""
+
+msgid "Only '{{number}}' in use"
 msgstr ""
 
 msgid "Unsaved chart"
@@ -133,6 +135,9 @@ msgid "Edited"
 msgstr ""
 
 msgid "Viewing interpretation from {{interpretationDate}}"
+msgstr ""
+
+msgid "Error validating layout"
 msgstr ""
 
 msgid "Create a new visualization by adding dimensions to the layout"
@@ -299,42 +304,6 @@ msgstr "اختیارات"
 
 msgid "Chart options"
 msgstr "چارٹ کے اختیارات"
-
-msgid "Column"
-msgstr "کالم"
-
-msgid "Stacked column"
-msgstr "اسٹیک کالم"
-
-msgid "Bar"
-msgstr "بار"
-
-msgid "Stacked bar"
-msgstr "اسٹیک بار"
-
-msgid "Line"
-msgstr "لائن"
-
-msgid "Area"
-msgstr "رقبہ"
-
-msgid "Pie"
-msgstr "پائی"
-
-msgid "Radar"
-msgstr "رڈار"
-
-msgid "Gauge"
-msgstr "گیج"
-
-msgid "Year over year (line)"
-msgstr ""
-
-msgid "Year over year (column)"
-msgstr ""
-
-msgid "Single value"
-msgstr ""
 
 msgid "Open as Map"
 msgstr ""

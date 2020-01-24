@@ -1,13 +1,14 @@
 # Translators:
 # Viktor Varland <viktor@dhis2.org>, 2019
 # phil_dhis2, 2019
+# Eric Barreda Prades <ericbarredap@gmail.com>, 2019
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-08-08T13:09:25.099Z\n"
+"POT-Creation-Date: 2019-11-29T10:59:48.425Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: phil_dhis2, 2019\n"
+"Last-Translator: Eric Barreda Prades <ericbarredap@gmail.com>, 2019\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,15 +46,17 @@ msgid "Update"
 msgstr "Actualizar"
 
 msgid ""
-"'Single Value' is intended to show a single data item. Only the first item "
-"will be used and saved."
+"'{{visualiationType}}' is intended to show a single data item. Only the "
+"first item will be used and saved."
+msgstr ""
+
+msgid ""
+"'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
+"items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
 
 msgid "Hide"
 msgstr "Ocultar"
-
-msgid "Remove"
-msgstr "Eliminar"
 
 msgid "Download"
 msgstr "Descargar"
@@ -103,28 +106,28 @@ msgstr ""
 msgid "Interpretations"
 msgstr "Interpretaciones"
 
-msgid "{{total}} of 1 selected"
+msgid "{{total}} of {{maxNumberOfItemsPerAxis}} selected"
 msgstr ""
 
 msgid "{{total}} selected"
 msgstr ""
 
-msgid "Series"
+msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr ""
-
-msgid "Category"
-msgstr "Categoría"
-
-msgid "Filter"
-msgstr "filtro"
 
 msgid "Move to"
 msgstr ""
+
+msgid "Remove"
+msgstr "Eliminar"
 
 msgid "None selected"
 msgstr ""
 
 msgid "Only '{{name}}' in use"
+msgstr ""
+
+msgid "Only '{{number}}' in use"
 msgstr ""
 
 msgid "Unsaved chart"
@@ -134,6 +137,9 @@ msgid "Edited"
 msgstr ""
 
 msgid "Viewing interpretation from {{interpretationDate}}"
+msgstr ""
+
+msgid "Error validating layout"
 msgstr ""
 
 msgid "Create a new visualization by adding dimensions to the layout"
@@ -158,16 +164,16 @@ msgid "Average"
 msgstr "Promedio"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr ""
+msgstr "Media (suma en las unidades organizativas de la jerarquía)"
 
 msgid "Sum"
 msgstr "Suma"
 
 msgid "Last value"
-msgstr ""
+msgstr "Último valor"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr ""
+msgstr "Último valor (media en la jerarquía de unidades organizativas)"
 
 msgid "Min"
 msgstr "Mín"
@@ -191,7 +197,7 @@ msgid "Base line value"
 msgstr "Valor de línea base"
 
 msgid "Use cumulative values"
-msgstr ""
+msgstr "Usar valores cumulativos"
 
 msgid "Domain axis title"
 msgstr "Título eje coordenadas"
@@ -300,42 +306,6 @@ msgstr "Opciones"
 
 msgid "Chart options"
 msgstr "Opciones del gráfico"
-
-msgid "Column"
-msgstr "Columna"
-
-msgid "Stacked column"
-msgstr ""
-
-msgid "Bar"
-msgstr ""
-
-msgid "Stacked bar"
-msgstr ""
-
-msgid "Line"
-msgstr ""
-
-msgid "Area"
-msgstr ""
-
-msgid "Pie"
-msgstr ""
-
-msgid "Radar"
-msgstr ""
-
-msgid "Gauge"
-msgstr ""
-
-msgid "Year over year (line)"
-msgstr ""
-
-msgid "Year over year (column)"
-msgstr ""
-
-msgid "Single value"
-msgstr ""
 
 msgid "Open as Map"
 msgstr ""
@@ -459,13 +429,13 @@ msgid "Yesterday"
 msgstr "Ayer"
 
 msgid "Last 3 days"
-msgstr ""
+msgstr "Últimos 3 días"
 
 msgid "Last 7 days"
 msgstr "Últimos 7 diass"
 
 msgid "Last 14 days"
-msgstr ""
+msgstr "Últimos 14 días"
 
 msgid "This week"
 msgstr "Esta semana"
@@ -483,7 +453,7 @@ msgid "Last 52 weeks"
 msgstr "Últimas 52 semanas"
 
 msgid "Weeks this year"
-msgstr ""
+msgstr "Semanas de este año"
 
 msgid "This month"
 msgstr "Este mes"

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-08-08T13:09:25.099Z\n"
+"POT-Creation-Date: 2019-11-29T10:59:48.425Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: phil_dhis2, 2019\n"
 "Language-Team: Burmese (https://www.transifex.com/hisp-uio/teams/100509/my/)\n"
@@ -45,15 +45,17 @@ msgid "Update"
 msgstr "‌နောက်ဆုံးသတင်းကိုရစေခြင်း"
 
 msgid ""
-"'Single Value' is intended to show a single data item. Only the first item "
-"will be used and saved."
+"'{{visualiationType}}' is intended to show a single data item. Only the "
+"first item will be used and saved."
+msgstr ""
+
+msgid ""
+"'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
+"items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
 
 msgid "Hide"
 msgstr ""
-
-msgid "Remove"
-msgstr "ဖယ်ရှားခြင်း"
 
 msgid "Download"
 msgstr ""
@@ -103,28 +105,28 @@ msgstr ""
 msgid "Interpretations"
 msgstr "Interpretations"
 
-msgid "{{total}} of 1 selected"
+msgid "{{total}} of {{maxNumberOfItemsPerAxis}} selected"
 msgstr ""
 
 msgid "{{total}} selected"
 msgstr ""
 
-msgid "Series"
-msgstr "အစဉ်အတန်းများ"
-
-msgid "Category"
-msgstr "category"
-
-msgid "Filter"
-msgstr "ရှာဖွေထုတ်သည်"
+msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
+msgstr ""
 
 msgid "Move to"
 msgstr ""
+
+msgid "Remove"
+msgstr "ဖယ်ရှားခြင်း"
 
 msgid "None selected"
 msgstr ""
 
 msgid "Only '{{name}}' in use"
+msgstr ""
+
+msgid "Only '{{number}}' in use"
 msgstr ""
 
 msgid "Unsaved chart"
@@ -134,6 +136,9 @@ msgid "Edited"
 msgstr ""
 
 msgid "Viewing interpretation from {{interpretationDate}}"
+msgstr ""
+
+msgid "Error validating layout"
 msgstr ""
 
 msgid "Create a new visualization by adding dimensions to the layout"
@@ -300,42 +305,6 @@ msgstr ""
 
 msgid "Chart options"
 msgstr "Chart အတွက်ရွေးချယ်စရာများ"
-
-msgid "Column"
-msgstr ""
-
-msgid "Stacked column"
-msgstr ""
-
-msgid "Bar"
-msgstr ""
-
-msgid "Stacked bar"
-msgstr ""
-
-msgid "Line"
-msgstr ""
-
-msgid "Area"
-msgstr ""
-
-msgid "Pie"
-msgstr ""
-
-msgid "Radar"
-msgstr ""
-
-msgid "Gauge"
-msgstr ""
-
-msgid "Year over year (line)"
-msgstr ""
-
-msgid "Year over year (column)"
-msgstr ""
-
-msgid "Single value"
-msgstr ""
 
 msgid "Open as Map"
 msgstr ""

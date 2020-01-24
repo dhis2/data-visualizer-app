@@ -75,11 +75,11 @@ export const getAdaptedUiByType = ui => {
         case VIS_TYPE_YEAR_OVER_YEAR_COLUMN: {
             return yearOverYearUiAdapter(ui);
         }
-        case VIS_TYPE_PIE:
-        case VIS_TYPE_GAUGE: {
+        case VIS_TYPE_PIE: {
             return pieUiAdapter(ui);
         }
-        case VIS_TYPE_SINGLE_VALUE: {
+        case VIS_TYPE_SINGLE_VALUE:
+        case VIS_TYPE_GAUGE: {
             return singleValueUiAdapter(ui);
         }
         default:

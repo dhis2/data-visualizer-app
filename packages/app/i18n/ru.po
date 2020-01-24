@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-08-08T13:09:25.099Z\n"
+"POT-Creation-Date: 2019-11-29T10:59:48.425Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: phil_dhis2, 2019\n"
 "Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
@@ -45,15 +45,17 @@ msgid "Update"
 msgstr "Обновить"
 
 msgid ""
-"'Single Value' is intended to show a single data item. Only the first item "
-"will be used and saved."
+"'{{visualiationType}}' is intended to show a single data item. Only the "
+"first item will be used and saved."
+msgstr ""
+
+msgid ""
+"'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
+"items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
 
 msgid "Hide"
 msgstr "Скрыть"
-
-msgid "Remove"
-msgstr "Убрать"
 
 msgid "Download"
 msgstr "Скачать"
@@ -104,28 +106,28 @@ msgstr ""
 msgid "Interpretations"
 msgstr "Интерпретации"
 
-msgid "{{total}} of 1 selected"
+msgid "{{total}} of {{maxNumberOfItemsPerAxis}} selected"
 msgstr ""
 
 msgid "{{total}} selected"
 msgstr ""
 
-msgid "Series"
-msgstr "Ряды"
-
-msgid "Category"
-msgstr "Категория"
-
-msgid "Filter"
-msgstr "Фильтр"
+msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
+msgstr ""
 
 msgid "Move to"
 msgstr "Переместить в"
+
+msgid "Remove"
+msgstr "Убрать"
 
 msgid "None selected"
 msgstr "Не выбрано"
 
 msgid "Only '{{name}}' in use"
+msgstr ""
+
+msgid "Only '{{number}}' in use"
 msgstr ""
 
 msgid "Unsaved chart"
@@ -136,6 +138,9 @@ msgstr "Редактированный"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "Просмотр интерпретации с {{interpretationDate}}"
+
+msgid "Error validating layout"
+msgstr ""
 
 msgid "Create a new visualization by adding dimensions to the layout"
 msgstr "Создайте новую визуализацию, добавив величины в макет"
@@ -303,42 +308,6 @@ msgstr "Параметры"
 
 msgid "Chart options"
 msgstr "Параметры диаграммы"
-
-msgid "Column"
-msgstr "Столбчатая"
-
-msgid "Stacked column"
-msgstr "Столбчатая с накоплением"
-
-msgid "Bar"
-msgstr "Гистограмма"
-
-msgid "Stacked bar"
-msgstr "Гистограмма с накоплением"
-
-msgid "Line"
-msgstr "Линейная"
-
-msgid "Area"
-msgstr "Диаграмма-области"
-
-msgid "Pie"
-msgstr "Круговая"
-
-msgid "Radar"
-msgstr "Радиальная"
-
-msgid "Gauge"
-msgstr "Спидометр"
-
-msgid "Year over year (line)"
-msgstr "Год за годом (линия)"
-
-msgid "Year over year (column)"
-msgstr "Год за годом (столбец)"
-
-msgid "Single value"
-msgstr ""
 
 msgid "Open as Map"
 msgstr ""
