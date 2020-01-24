@@ -7,16 +7,16 @@ export class DndDimensionItem extends Component {
     render = () => {
         const {
             id,
-            name,
             index,
+            name,
             isSelected,
             isLocked,
             isDeactivated,
             isRecommended,
             onClick,
             onOptionsClick,
-            key,
         } = this.props
+
         const itemProps = {
             name,
             isSelected,
@@ -27,7 +27,6 @@ export class DndDimensionItem extends Component {
 
         return (
             <Draggable
-                key={key}
                 draggableId={id}
                 index={index}
                 isDragDisabled={isSelected || isDeactivated || isLocked}
@@ -38,9 +37,8 @@ export class DndDimensionItem extends Component {
                             innerRef={provided.innerRef}
                             {...provided.draggableProps}
                             {...provided.dragHandleProps}
-                            className={snapshot.isDragging ? 'dragging' : null}
                             id={id}
-                            key={id}
+                            className={snapshot.isDragging ? 'dragging' : null}
                             onClick={onClick}
                             onOptionsClick={onOptionsClick}
                             {...itemProps}
@@ -48,7 +46,6 @@ export class DndDimensionItem extends Component {
                         {snapshot.isDragging && (
                             <DimensionItem
                                 id="dimension-item-clone"
-                                key="dimension-item-clone"
                                 className="dimension-item-clone"
                                 {...itemProps}
                             />
@@ -58,6 +55,18 @@ export class DndDimensionItem extends Component {
             </Draggable>
         )
     }
+}
+
+DndDimensionItem.propTypes = {
+    id: PropTypes.string,
+    index: PropTypes.number,
+    isDeactivated: PropTypes.bool,
+    isLocked: PropTypes.bool,
+    isRecommended: PropTypes.bool,
+    isSelected: PropTypes.bool,
+    name: PropTypes.string,
+    onClick: PropTypes.func,
+    onOptionsClick: PropTypes.func,
 }
 
 export default DndDimensionItem

@@ -50,7 +50,7 @@ export class DndDimensionPanel extends Component {
 }
 
 DndDimensionPanel.propTypes = {
-    onDimensionOptionsClick: PropTypes.func,
+    onDimensionOptionsClick: PropTypes.func.isRequired,
 }
 
 export default DndDimensionPanel

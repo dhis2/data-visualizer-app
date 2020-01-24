@@ -26,18 +26,16 @@ export class Dimensions extends Component {
         dimensionId: null,
     }
 
-    onDimensionOptionsClick = (event, id) => {
+    openOptionsMenuForDimension = (event, id) => {
         event.stopPropagation()
 
-        // set anchor for options menu
-        // open menu
         this.setState({
             dimensionMenuAnchorEl: event.currentTarget,
             dimensionId: id,
         })
     }
 
-    onDimensionOptionsClose = () =>
+    closeOptionsMenuForDimension = () =>
         this.setState({
             dimensionMenuAnchorEl: null,
             dimensionId: null,
@@ -56,7 +54,7 @@ export class Dimensions extends Component {
         return (
             <div style={styles.divContainer}>
                 <DndDimensionsPanel
-                    onDimensionOptionsClick={this.onDimensionOptionsClick}
+                    onDimensionOptionsClick={this.openOptionsMenuForDimension}
                 />
                 <DimensionMenu
                     dimensionId={this.state.dimensionId}
@@ -76,7 +74,7 @@ export class Dimensions extends Component {
                     axisItemHandler={this.props.axisItemHandler}
                     removeItemHandler={this.props.removeItemHandler}
                     anchorEl={this.state.dimensionMenuAnchorEl}
-                    onClose={this.onDimensionOptionsClose}
+                    onClose={this.closeOptionsMenuForDimension}
                 />
                 <DialogManager />
             </div>

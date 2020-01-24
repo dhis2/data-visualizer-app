@@ -35,58 +35,51 @@ export class DndDimensionList extends Component {
             .includes(this.props.filterText.toLowerCase())
     }
 
-    filterMatchingDimensions = dimension => {
-        return this.filterTextContains(dimension.name)
-            ? this.renderItem(dimension)
+    filterMatchingDimensions = (dimension, index) => {
+        return this.filterTextContains(dimension.name, index)
+            ? this.renderItem(dimension, index)
             : null
     }
+
+    isSelected = id => this.props.selectedIds.includes(id)
     isDisabledDimension = id => this.props.disallowedDimensions.includes(id)
-
     isLockedDimension = id => this.props.lockedDimensions.includes(id)
-
     isRecommendedDimension = id => this.props.recommendedIds.includes(id)
 
-    renderDimensions = () => {
-        const dimensionsWithItems = Object.values(this.props.dimensions).filter(
-            dimension => !dimension.noItems
+    renderItem = ({ id, name }, index) => {
+        const itemProps = {
+            id,
+            name,
+            index,
+            isSelected: this.isSelected(id),
+            isLocked: this.isLockedDimension(id),
+            isDeactivated: this.isDisabledDimension(id),
+            isRecommended: this.isRecommendedDimension(id),
+            onClick: this.props.onDimensionClick,
+            onOptionsClick: this.props.onDimensionOptionsClick,
+        }
+
+        return (
+            <DndDimensionItem
+                key={`${SOURCE_DIMENSIONS}-${id}`}
+                {...itemProps}
+            />
         )
-
-        return dimensionsWithItems.map(({ id, name }, index) => {
-            const isSelected = this.props.selectedIds.includes(id)
-            const isLocked = this.isLockedDimension(id)
-            const isDeactivated = this.isDisabledDimension(id)
-            const isRecommended = this.isRecommendedDimension(id)
-
-            const itemProps = {
-                id,
-                name,
-                index,
-                isSelected,
-                isLocked,
-                isDeactivated,
-                isRecommended,
-                onClick: this.props.onDimensionClick,
-                onOptionsClick: this.props.onDimensionOptionsClick,
-            }
-
-            return (
-                <DndDimensionItem
-                    key={`${SOURCE_DIMENSIONS}-${id}`}
-                    {...itemProps}
-                />
-            )
-        })
     }
 
     render() {
+        const dimensionsList = this.props.dimensions.map((dimension, index) =>
+            this.props.filterText.length
+                ? this.filterMatchingDimensions(dimension, index)
+                : this.renderItem(dimension, index)
+        )
+
         return (
             <Droppable droppableId={SOURCE_DIMENSIONS} isDropDisabled={true}>
                 {provided => (
                     <div ref={provided.innerRef} {...provided.droppableProps}>
                         <div style={styles.listWrapper}>
-                            <ul style={styles.list}>
-                                {this.renderDimensions()}
-                            </ul>
+                            <ul style={styles.list}>{dimensionsList}</ul>
                         </div>
                         {provided.placeholder}
                     </div>
@@ -97,7 +90,7 @@ export class DndDimensionList extends Component {
 }
 
 DndDimensionList.propTypes = {
-    dimensions: PropTypes.object,
+    dimensions: PropTypes.array,
     disallowedDimensions: PropTypes.array,
     filterText: PropTypes.string,
     lockedDimensions: PropTypes.array,
@@ -118,8 +111,12 @@ const getisLockedDimensionsMemo = createSelector(
 )
 
 const mapStateToProps = state => {
+    const dimensions = Object.values(
+        fromReducers.fromDimensions.sGetDimensions(state)
+    ).filter(dimension => !dimension.noItems)
+
     return {
-        dimensions: fromReducers.fromDimensions.sGetDimensions(state),
+        dimensions,
         selectedIds: fromReducers.fromUi.sGetDimensionIdsFromLayout(state),
         recommendedIds: fromReducers.fromRecommendedIds.sGetRecommendedIds(
             state
