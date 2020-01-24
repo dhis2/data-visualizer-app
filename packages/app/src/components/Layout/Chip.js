@@ -47,7 +47,7 @@ class Chip extends React.Component {
 
     timeout = null
 
-    isLocked =
+    isLocked = () =>
         getAxisPerLockedDimension(this.props.type, this.props.dimensionId) ===
         this.props.axisId
 
@@ -145,7 +145,7 @@ class Chip extends React.Component {
                 ? this.props.items.slice(0, this.axisMaxNumberOfItems)
                 : this.props.items
 
-            const lockedLabel = this.isLocked
+            const lockedLabel = this.isLocked()
                 ? i18n.t(
                       `{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}`,
                       {
@@ -175,7 +175,7 @@ class Chip extends React.Component {
         <div
             style={this.getWrapperStyles()}
             data-dimensionid={this.props.dimensionId}
-            draggable={!this.isLocked}
+            draggable={!this.isLocked()}
             onDragStart={this.getDragStartHandler()}
         >
             <div
@@ -193,14 +193,13 @@ class Chip extends React.Component {
                     this.props.axisId,
                     this.props.items.length
                 ) && WarningIconWrapper}
-                {this.isLocked && LockIconWrapper}
+                {this.isLocked() && LockIconWrapper}
             </div>
-            {!this.isLocked && this.renderMenu()}
+            {!this.isLocked() && this.renderMenu()}
             {this.getAnchorEl() && this.renderTooltip()}
         </div>
     )
 }
-
 Chip.propTypes = {
     axisId: PropTypes.string.isRequired,
     dimensionId: PropTypes.string.isRequired,
