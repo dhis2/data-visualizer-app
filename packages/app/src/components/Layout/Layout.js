@@ -3,19 +3,10 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { DragDropContext } from 'react-beautiful-dnd'
 import {
-    VIS_TYPE_COLUMN,
-    VIS_TYPE_STACKED_COLUMN,
-    VIS_TYPE_BAR,
-    VIS_TYPE_STACKED_BAR,
-    VIS_TYPE_LINE,
-    VIS_TYPE_AREA,
-    VIS_TYPE_PIE,
-    VIS_TYPE_RADAR,
-    VIS_TYPE_GAUGE,
-    VIS_TYPE_YEAR_OVER_YEAR_LINE,
-    VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
-    VIS_TYPE_SINGLE_VALUE,
-    VIS_TYPE_PIVOT_TABLE,
+    LAYOUT_TYPE_DEFAULT,
+    LAYOUT_TYPE_PIE,
+    LAYOUT_TYPE_YEAR_OVER_YEAR,
+    getLayoutTypeByVisType,
 } from '@dhis2/analytics'
 
 import DefaultLayout from './DefaultLayout/DefaultLayout'
@@ -24,28 +15,16 @@ import PieLayout from './PieLayout/PieLayout'
 import { sGetUiLayout, sGetUiType } from '../../reducers/ui'
 import { acSetUiLayout } from '../../actions/ui'
 
-const layoutMap = {
-    [VIS_TYPE_COLUMN]: DefaultLayout,
-    [VIS_TYPE_STACKED_COLUMN]: DefaultLayout,
-    [VIS_TYPE_BAR]: DefaultLayout,
-    [VIS_TYPE_STACKED_BAR]: DefaultLayout,
-    [VIS_TYPE_LINE]: DefaultLayout,
-    [VIS_TYPE_AREA]: DefaultLayout,
-    [VIS_TYPE_PIE]: PieLayout,
-    [VIS_TYPE_RADAR]: DefaultLayout,
-    [VIS_TYPE_GAUGE]: PieLayout,
-    [VIS_TYPE_YEAR_OVER_YEAR_LINE]: YearOverYearLayout,
-    [VIS_TYPE_YEAR_OVER_YEAR_COLUMN]: YearOverYearLayout,
-    [VIS_TYPE_SINGLE_VALUE]: PieLayout,
-    [VIS_TYPE_PIVOT_TABLE]: DefaultLayout,
-}
-
-const getLayoutByType = (type, props) => {
-    const Layout = layoutMap[type]
-    return <Layout {...props} />
+const componentMap = {
+    [LAYOUT_TYPE_DEFAULT]: DefaultLayout,
+    [LAYOUT_TYPE_PIE]: PieLayout,
+    [LAYOUT_TYPE_YEAR_OVER_YEAR]: YearOverYearLayout,
 }
 
 const Layout = props => {
+    const layoutType = getLayoutTypeByVisType(props.visType)
+    const LayoutComponent = componentMap[layoutType]
+
     const onDragEnd = result => {
         const { source, destination } = result
 
@@ -72,20 +51,20 @@ const Layout = props => {
 
     return (
         <DragDropContext onDragEnd={onDragEnd}>
-            {getLayoutByType(props.type)}
+            <LayoutComponent {...props} />
         </DragDropContext>
     )
 }
 
 Layout.propTypes = {
     layout: PropTypes.object,
-    type: PropTypes.string,
+    visType: PropTypes.string,
     onReorderDimensions: PropTypes.func,
 }
 
 const mapStateToProps = state => ({
     layout: sGetUiLayout(state),
-    type: sGetUiType(state),
+    visType: sGetUiType(state),
 })
 
 const mapDispatchToProps = dispatch => ({
