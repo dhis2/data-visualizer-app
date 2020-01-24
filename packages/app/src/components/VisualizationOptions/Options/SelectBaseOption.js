@@ -22,7 +22,7 @@ export const SelectBaseOption = ({
     onChange,
     onToggle,
 }) => {
-    const selected = option.items.find(item => item.id === String(value))
+    const selected = option.items.find(item => item.id === value)
 
     return (
         <div
@@ -60,7 +60,7 @@ export const SelectBaseOption = ({
                         {option.items.map(({ id, label }) => (
                             <SingleSelectOption
                                 key={id}
-                                value={String(id)}
+                                value={id}
                                 label={label}
                             />
                         ))}
