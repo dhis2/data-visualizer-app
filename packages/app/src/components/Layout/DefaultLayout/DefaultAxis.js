@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
 import { getAxisName } from '@dhis2/analytics'
+import { withStyles } from '@material-ui/core/styles'
 
 import Chip from '../Chip'
 import { sGetUi, sGetUiItems, sGetUiType } from '../../../reducers/ui'
@@ -51,6 +52,7 @@ class Axis extends React.Component {
                 >
                     {provided => (
                         <div
+                            className={this.props.classes.content}
                             style={styles.content}
                             ref={provided.innerRef}
                             {...provided.droppableProps}
@@ -94,6 +96,7 @@ class Axis extends React.Component {
 Axis.propTypes = {
     axis: PropTypes.array,
     axisId: PropTypes.string,
+    classes: PropTypes.object,
     getMoveHandler: PropTypes.func,
     getOpenHandler: PropTypes.func,
     getRemoveHandler: PropTypes.func,
@@ -129,4 +132,8 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(Axis)
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+    mergeProps
+)(withStyles(styles)(Axis))
