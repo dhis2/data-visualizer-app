@@ -24,21 +24,23 @@ const StartScreen = ({ error, classes }) => {
                 6
             )
             const visualizations = mostViewedVisualizationsResult.visualization
-            const visualizationsResult = await apiFetchVisualizations(
-                engine,
-                `id:in:[${visualizations.map(vis => vis.id)}]`,
-                'id,type'
-            )
-            const visualizationsWithType =
-                visualizationsResult.visualization.visualizations
-            const result = visualizations.map(vis => ({
-                ...visualizationsWithType.find(
-                    visWithType => visWithType.id === vis.id && visWithType
-                ),
-                ...vis,
-            }))
+            if (visualizations && visualizations.length) {
+                const visualizationsResult = await apiFetchVisualizations(
+                    engine,
+                    `id:in:[${visualizations.map(vis => vis.id)}]`,
+                    'id,type'
+                )
+                const visualizationsWithType =
+                    visualizationsResult.visualization.visualizations
+                const result = visualizations.map(vis => ({
+                    ...visualizationsWithType.find(
+                        visWithType => visWithType.id === vis.id && visWithType
+                    ),
+                    ...vis,
+                }))
 
-            setMostViewedVisualizations(result)
+                setMostViewedVisualizations(result)
+            }
         }
         populateMostViewedVisualizations(engine)
     }, [])
@@ -63,21 +65,29 @@ const StartScreen = ({ error, classes }) => {
                         </li>
                     </ul>
                 </div>
-                <div style={styles.section}>
-                    <h3 style={styles.title}>Most viewed charts and tables</h3>
-                    {mostViewedVisualizations.map((visualization, index) => (
-                        <p
-                            key={index}
-                            className={classes.visualization}
-                            onClick={() => history.push(`/${visualization.id}`)}
-                        >
-                            <span className={classes.visIcon}>
-                                {visTypeIcons[visualization.type]}
-                            </span>
-                            <span>{visualization.name}</span>
-                        </p>
-                    ))}
-                </div>
+                {mostViewedVisualizations.length > 0 && (
+                    <div style={styles.section}>
+                        <h3 style={styles.title}>
+                            Most viewed charts and tables
+                        </h3>
+                        {mostViewedVisualizations.map(
+                            (visualization, index) => (
+                                <p
+                                    key={index}
+                                    className={classes.visualization}
+                                    onClick={() =>
+                                        history.push(`/${visualization.id}`)
+                                    }
+                                >
+                                    <span className={classes.visIcon}>
+                                        {visTypeIcons[visualization.type]}
+                                    </span>
+                                    <span>{visualization.name}</span>
+                                </p>
+                            )
+                        )}
+                    </div>
+                )}
             </div>
         )
 
