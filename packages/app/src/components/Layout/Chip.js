@@ -8,10 +8,10 @@ import {
     getFixedDimensionProp,
     getAxisMaxNumberOfItems,
     hasAxisTooManyItems,
-    getAxisPerLockedDimension,
     getDisplayNameByVisType,
     getAxisName,
     DIMENSION_ID_ASSIGNED_CATEGORIES,
+    isDimensionLocked,
 } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
 
@@ -47,9 +47,7 @@ class Chip extends React.Component {
 
     timeout = null
 
-    isLocked =
-        getAxisPerLockedDimension(this.props.type, this.props.dimensionId) ===
-        this.props.axisId
+    isLocked = isDimensionLocked(this.props.type, this.props.dimensionId)
 
     axisMaxNumberOfItems = getAxisMaxNumberOfItems(
         this.props.type,

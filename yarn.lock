@@ -1243,10 +1243,10 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@2.8.3":
-  version "2.8.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.8.3.tgz#062118d257c29d5e28cf4bf035842f112b9eef41"
-  integrity sha512-bF38HNa6vL9JcJApSPE1KvLAb8M3p1nh/ymtcD6ULIhnTTqKy9eOaiz8hulH2NYRG+aJkXFNtp46OhmQGTZ7Ng==
+"@dhis2/analytics@^2.1.0":
+  version "2.8.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.8.1.tgz#228af6524f35c864689e28678752f1c8f42072e8"
+  integrity sha512-uIiQA8kIxUdRZEC+y0cwUDQUxBqgq1yVMRdEuevkm1zTuFJxKaNrJ6nZT9WyrVtnxpzYQneK5LsXsjMMo4vl8g==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^6.3.2"
@@ -1262,10 +1262,10 @@
     react-beautiful-dnd "^10.1.1"
     styled-jsx "^3.2.1"
 
-"@dhis2/analytics@^2.1.0":
-  version "2.8.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.8.1.tgz#228af6524f35c864689e28678752f1c8f42072e8"
-  integrity sha512-uIiQA8kIxUdRZEC+y0cwUDQUxBqgq1yVMRdEuevkm1zTuFJxKaNrJ6nZT9WyrVtnxpzYQneK5LsXsjMMo4vl8g==
+"@dhis2/analytics@^2.8.5":
+  version "2.8.5"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.8.5.tgz#8c0ae9a5c3b63d49901f895630a080fd5e5358bf"
+  integrity sha512-+M8WSHvt7Jscuc5cS/HPsLQRRTKayf3GSQDuVIGToaYt7paskJBSK9gA8ldu6pcRkdYho7JPg7C852JEbM8Y4g==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^6.3.2"
