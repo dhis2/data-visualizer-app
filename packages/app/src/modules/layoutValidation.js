@@ -141,12 +141,12 @@ const validateSingleValueLayout = layout => {
 export const validateLayout = layout => {
     switch (layout.type) {
         case VIS_TYPE_PIE:
+        case VIS_TYPE_GAUGE:
             return validatePieLayout(layout);
         case VIS_TYPE_YEAR_OVER_YEAR_COLUMN:
         case VIS_TYPE_YEAR_OVER_YEAR_LINE:
             return validateYearOverYearLayout(layout);
         case VIS_TYPE_SINGLE_VALUE:
-        case VIS_TYPE_GAUGE:
             return validateSingleValueLayout(layout);
         default:
             return validateDefaultLayout(layout);

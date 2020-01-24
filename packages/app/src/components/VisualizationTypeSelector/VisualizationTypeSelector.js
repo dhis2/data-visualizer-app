@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
-import { visTypeDisplayNames, VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics';
+import { visTypeDisplayNames } from '@dhis2/analytics';
 import i18n from '@dhis2/d2-i18n';
 
 import { prepareCurrentAnalyticalObject } from '../../modules/currentAnalyticalObject';
@@ -60,11 +60,7 @@ export class VisualizationTypeSelector extends Component {
         this.setState({ anchorEl: null });
     };
 
-    // TODO: remove the filter when we reenable pivot as type
-    getVisTypes = () =>
-        Object.keys(visTypeDisplayNames).filter(
-            type => type !== VIS_TYPE_PIVOT_TABLE
-        );
+    getVisTypes = () => Object.keys(visTypeDisplayNames);
 
     render() {
         const { anchorEl } = this.state;

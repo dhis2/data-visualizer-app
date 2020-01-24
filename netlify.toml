@@ -12,8 +12,6 @@
   # Default build command.
   # && yarn manifest --manifest.activities.dhis=\"https://play.dhis2.org/dev\""
   command = "echo BUILDING... && yarn build"
-  # TODO: Temporarily disable Netlify builds to get the build minutes under control
-  ignore = "exit 0"
 
 [[redirects]]
   from = "/*"

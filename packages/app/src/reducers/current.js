@@ -44,9 +44,9 @@ export default (state = DEFAULT_CURRENT, action) => {
         case SET_CURRENT_FROM_UI: {
             switch (action.value.type) {
                 case VIS_TYPE_PIE:
+                case VIS_TYPE_GAUGE:
                     return getPieCurrentFromUi(state, action);
                 case VIS_TYPE_SINGLE_VALUE:
-                case VIS_TYPE_GAUGE:
                     return getSingleValueCurrentFromUi(state, action);
                 case VIS_TYPE_YEAR_OVER_YEAR_LINE:
                 case VIS_TYPE_YEAR_OVER_YEAR_COLUMN:
@@ -71,9 +71,9 @@ export const sGetCurrentFromUi = state => {
 
     switch (ui.type) {
         case VIS_TYPE_PIE:
+        case VIS_TYPE_GAUGE:
             return getPieCurrentFromUi(state, { value: ui });
         case VIS_TYPE_SINGLE_VALUE:
-        case VIS_TYPE_GAUGE:
             return getSingleValueCurrentFromUi(state, { value: ui });
         case VIS_TYPE_YEAR_OVER_YEAR_LINE:
         case VIS_TYPE_YEAR_OVER_YEAR_COLUMN:
