@@ -7,6 +7,7 @@ import {
     isDimensionLocked,
     canDimensionBeAddedToAxis,
 } from '@dhis2/analytics'
+import { withStyles } from '@material-ui/core'
 
 import Chip from '../Chip'
 import {
@@ -69,7 +70,7 @@ class Axis extends React.Component {
                 <Droppable droppableId={axisId} direction="horizontal">
                     {provided => (
                         <div
-                            style={styles.content}
+                            className={this.props.classes.content}
                             ref={provided.innerRef}
                             {...provided.droppableProps}
                         >
@@ -116,6 +117,7 @@ class Axis extends React.Component {
 Axis.propTypes = {
     axis: PropTypes.array,
     axisId: PropTypes.string,
+    classes: PropTypes.object,
     getMoveHandler: PropTypes.func,
     getOpenHandler: PropTypes.func,
     getRemoveHandler: PropTypes.func,
@@ -153,4 +155,8 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(Axis)
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+    mergeProps
+)(withStyles(styles)(Axis))
