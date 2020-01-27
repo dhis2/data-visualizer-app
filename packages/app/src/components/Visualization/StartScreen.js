@@ -27,8 +27,7 @@ const StartScreen = ({ error, classes }) => {
             if (visualizations && visualizations.length) {
                 const visualizationsResult = await apiFetchVisualizations(
                     engine,
-                    `id:in:[${visualizations.map(vis => vis.id)}]`,
-                    'id,type'
+                    visualizations.map(vis => vis.id)
                 )
                 const visualizationsWithType =
                     visualizationsResult.visualization.visualizations
