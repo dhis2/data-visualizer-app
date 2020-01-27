@@ -7,6 +7,7 @@ import {
     visFiltersSelector,
 } from '../Visualization'
 import StartScreen from '../StartScreen'
+import { GenericServerError } from '../../../modules/error'
 
 jest.mock('@dhis2/data-visualizer-plugin', () => () => <div />)
 
@@ -37,7 +38,7 @@ describe('Visualization', () => {
         })
 
         it('renders a StartScreen when error', () => {
-            props.error = 'there was a catastrophic error'
+            props.error = new GenericServerError()
 
             expect(vis().find(StartScreen).length).toEqual(1)
         })
@@ -53,7 +54,9 @@ describe('Visualization', () => {
                 c: { id: 'c', name: 'c' },
             }
 
-            vis().simulate('responsesReceived', [{ metaData: { items } }])
+            vis().simulate('responsesReceived', [
+                { metaData: { items }, rows: [1, 2, 3] },
+            ])
 
             expect(props.acAddMetadata).toHaveBeenCalled()
             expect(props.acAddMetadata).toHaveBeenCalledWith(items)
@@ -66,15 +69,6 @@ describe('Visualization', () => {
 
             expect(props.acSetChart).toHaveBeenCalled()
             expect(props.acSetChart).toHaveBeenCalledWith(svg)
-        })
-
-        it('triggers setLoadError when error received from chart plugin', () => {
-            const errorMsg = 'catastrophic error'
-
-            vis().simulate('error', { message: errorMsg })
-
-            expect(props.acSetLoadError).toHaveBeenCalled()
-            expect(props.acSetLoadError).toHaveBeenCalledWith(errorMsg)
         })
 
         it('renders visualization with new id when rightSidebarOpen prop changes', () => {

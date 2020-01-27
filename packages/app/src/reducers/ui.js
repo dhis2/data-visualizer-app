@@ -5,6 +5,7 @@ import {
     DIMENSION_ID_ORGUNIT,
     VIS_TYPE_COLUMN,
     DIMENSION_ID_ASSIGNED_CATEGORIES,
+    canDimensionBeAddedToAxis,
 } from '@dhis2/analytics'
 
 import {
@@ -13,7 +14,7 @@ import {
     getRetransfer,
 } from '../modules/layout'
 import { getOptionsForUi } from '../modules/options'
-import { getUiFromVisualization, getAdaptedUiByType } from '../modules/ui'
+import { getAdaptedUiByType, getUiFromVisualization } from '../modules/ui'
 
 export const SET_UI = 'SET_UI'
 export const SET_UI_FROM_VISUALIZATION = 'SET_UI_FROM_VISUALIZATION'
@@ -66,7 +67,9 @@ export default (state = DEFAULT_UI, action) => {
             }
         }
         case SET_UI_FROM_VISUALIZATION: {
-            return getUiFromVisualization(action.value, state)
+            return getAdaptedUiByType(
+                getUiFromVisualization(action.value, state)
+            )
         }
         case SET_UI_TYPE: {
             return {
@@ -99,15 +102,22 @@ export default (state = DEFAULT_UI, action) => {
                 ...getRetransfer(state.layout, action.value, state.type),
             }
 
-            // Filter out transferred dimension ids (remove from source)
-            const newLayout = getFilteredLayout(
-                state.layout,
-                Object.keys(transfers)
-            )
+            let newLayout = state.layout
 
             // Add dimension ids to destination (axisId === null means remove from layout)
             Object.entries(transfers).forEach(([dimensionId, axisId]) => {
-                newLayout[axisId] && newLayout[axisId].push(dimensionId)
+                if (
+                    newLayout[axisId] &&
+                    canDimensionBeAddedToAxis(
+                        state.type,
+                        newLayout[axisId],
+                        axisId
+                    )
+                ) {
+                    // Filter out transferred dimension id (remove from source)
+                    newLayout = getFilteredLayout(newLayout, [dimensionId])
+                    newLayout[axisId].push(dimensionId)
+                }
             })
 
             return {
@@ -270,21 +280,15 @@ export const sGetUiItemsByDimension = (state, dimension) =>
 
 export const sGetDimensionIdsFromLayout = state =>
     Object.values(sGetUiLayout(state)).reduce(
-        (ids, axis) => ids.concat(axis),
+        (ids, axisDimensionIds) => ids.concat(axisDimensionIds),
         []
     )
 
-export const sGetDimensionIdsFromAdaptedLayout = state => {
-    const adaptedUi = getAdaptedUiByType(sGetUi(state))
-    const inverseLayout = getInverseLayout(adaptedUi.layout)
-    return Object.keys(inverseLayout)
-}
+export const sLayoutHasDimension = (state, dimension) =>
+    sGetDimensionIdsFromLayout(state).includes(dimension)
 
-export const sAdaptedLayoutHasDimension = (state, dimension) =>
-    sGetDimensionIdsFromAdaptedLayout(state).includes(dimension)
-
-export const sAdaptedLayoutHasAssignedCategories = state =>
-    sAdaptedLayoutHasDimension(state, DIMENSION_ID_ASSIGNED_CATEGORIES)
+export const sLayoutHasAssignedCategories = state =>
+    sLayoutHasDimension(state, DIMENSION_ID_ASSIGNED_CATEGORIES)
 
 export const sGetAxisSetup = state => {
     const columns = sGetUiLayout(state).columns

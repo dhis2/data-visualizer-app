@@ -52,11 +52,11 @@ class ChipMenu extends React.Component {
                     numberOfDimensionItems={this.props.numberOfDimensionItems}
                     dualAxisItemHandler={this.props.dualAxisItemHandler}
                     isAssignedCategoriesInLayout={
-                        this.props.adaptedLayoutHasAssignedCategories
+                        this.props.layoutHasAssignedCategories
                     }
                     assignedCategoriesItemHandler={destination =>
                         this.props.assignedCategoriesItemHandler(
-                            this.props.adaptedLayoutHasAssignedCategories,
+                            this.props.layoutHasAssignedCategories,
                             destination
                         )
                     }
@@ -71,13 +71,13 @@ class ChipMenu extends React.Component {
 }
 
 ChipMenu.propTypes = {
-    adaptedLayoutHasAssignedCategories: PropTypes.bool,
     assignedCategoriesItemHandler: PropTypes.func,
     axisItemHandler: PropTypes.func,
     currentAxisId: PropTypes.string,
     dimensionId: PropTypes.string,
     dualAxisItemHandler: PropTypes.func,
     id: PropTypes.string,
+    layoutHasAssignedCategories: PropTypes.bool,
     numberOfDimensionItems: PropTypes.number,
     removeItemHandler: PropTypes.func,
     visType: PropTypes.string,
@@ -85,7 +85,7 @@ ChipMenu.propTypes = {
 
 const mapStateToProps = state => {
     return {
-        adaptedLayoutHasAssignedCategories: fromReducers.fromUi.sAdaptedLayoutHasAssignedCategories(
+        layoutHasAssignedCategories: fromReducers.fromUi.sLayoutHasAssignedCategories(
             state
         ),
     }

@@ -8,10 +8,10 @@ import {
     getFixedDimensionProp,
     getAxisMaxNumberOfItems,
     hasAxisTooManyItems,
-    getAxisPerLockedDimension,
     getDisplayNameByVisType,
     getAxisName,
     DIMENSION_ID_ASSIGNED_CATEGORIES,
+    isDimensionLocked,
 } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
 
@@ -47,9 +47,7 @@ class Chip extends React.Component {
 
     timeout = null
 
-    isLocked =
-        getAxisPerLockedDimension(this.props.type, this.props.dimensionId) ===
-        this.props.axisId
+    isLocked = isDimensionLocked(this.props.type, this.props.dimensionId)
 
     axisMaxNumberOfItems = getAxisMaxNumberOfItems(
         this.props.type,
@@ -102,7 +100,7 @@ class Chip extends React.Component {
             : {}),
     })
 
-    renderChipLabel = () => {
+    renderChipLabelSuffix = () => {
         const numberOfItems = this.props.items.length
 
         const getItemsLabel =
@@ -116,9 +114,7 @@ class Chip extends React.Component {
                       total: numberOfItems,
                   })
 
-        return `${this.props.dimensionName}${
-            this.props.items.length > 0 ? `: ${getItemsLabel}` : ''
-        }`
+        return `${this.props.items.length > 0 ? `: ${getItemsLabel}` : ''}`
     }
 
     renderChipIcon = () => {
@@ -188,7 +184,8 @@ class Chip extends React.Component {
                 onMouseOut={this.handleMouseOut}
             >
                 <div style={styles.iconWrapper}>{this.renderChipIcon()}</div>
-                {this.renderChipLabel()}
+                <span style={styles.label}>{this.props.dimensionName}</span>
+                <span>{this.renderChipLabelSuffix()}</span>
                 {hasAxisTooManyItems(
                     this.props.type,
                     this.props.axisId,
