@@ -10,8 +10,24 @@ const visualizationQuery = {
     },
 }
 
+const visualizationsQuery = {
+    visualization: {
+        resource: 'visualizations',
+        params: ({ visualizationIds }) => ({
+            filter: `id:in:[${visualizationIds}]`,
+            fields: ['id', 'type'],
+        }),
+    },
+}
+
 export const apiFetchVisualization = (dataEngine, id) => {
     return dataEngine.query(visualizationQuery, { variables: { id } })
+}
+
+export const apiFetchVisualizations = (dataEngine, visualizationIds) => {
+    return dataEngine.query(visualizationsQuery, {
+        variables: { visualizationIds },
+    })
 }
 
 export const apiSaveVisualization = (dataEngine, visualization) => {

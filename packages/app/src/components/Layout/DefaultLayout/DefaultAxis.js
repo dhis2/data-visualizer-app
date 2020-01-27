@@ -2,15 +2,20 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
-import { getAxisName } from '@dhis2/analytics'
+import { getAxisName, isDimensionLocked } from '@dhis2/analytics'
+import { withStyles } from '@material-ui/core'
 
 import Chip from '../Chip'
-import { sGetUi } from '../../../reducers/ui'
+import {
+    sGetUi,
+    sGetUiLayout,
+    sGetUiItems,
+    sGetUiType,
+} from '../../../reducers/ui'
 import {
     acAddUiLayoutDimensions,
     acSetUiActiveModalDialog,
 } from '../../../actions/ui'
-import { getAdaptedUiByType } from '../../../modules/ui'
 
 import styles from './styles/DefaultAxis.style'
 class Axis extends React.Component {
@@ -19,31 +24,34 @@ class Axis extends React.Component {
     }
 
     render() {
+        const { axisId, axis, style, type, getOpenHandler } = this.props
+
         return (
             <div
-                id={this.props.axisId}
-                style={{ ...styles.axisContainer, ...this.props.style }}
+                id={axisId}
+                style={{ ...styles.axisContainer, ...style }}
                 onDragOver={this.onDragOver}
             >
-                <div style={styles.label}>{getAxisName(this.props.axisId)}</div>
-                <Droppable
-                    droppableId={this.props.axisId}
-                    direction="horizontal"
-                >
+                <div style={styles.label}>{getAxisName(axisId)}</div>
+                <Droppable droppableId={axisId} direction="horizontal">
                     {provided => (
                         <div
-                            style={styles.content}
+                            className={this.props.classes.content}
                             ref={provided.innerRef}
                             {...provided.droppableProps}
                         >
-                            {this.props.axis.map((dimensionId, index) => {
-                                const key = `${this.props.axisId}-${dimensionId}`
+                            {axis.map((dimensionId, index) => {
+                                const key = `${axisId}-${dimensionId}`
 
                                 return (
                                     <Draggable
                                         key={key}
                                         draggableId={key}
                                         index={index}
+                                        isDragDisabled={isDimensionLocked(
+                                            type,
+                                            dimensionId
+                                        )}
                                     >
                                         {provided => (
                                             <div
@@ -52,10 +60,10 @@ class Axis extends React.Component {
                                                 {...provided.dragHandleProps}
                                             >
                                                 <Chip
-                                                    onClick={this.props.getOpenHandler(
+                                                    onClick={getOpenHandler(
                                                         dimensionId
                                                     )}
-                                                    axisId={this.props.axisId}
+                                                    axisId={axisId}
                                                     dimensionId={dimensionId}
                                                 />
                                             </div>
@@ -75,18 +83,24 @@ class Axis extends React.Component {
 Axis.propTypes = {
     axis: PropTypes.array,
     axisId: PropTypes.string,
+    classes: PropTypes.object,
     getMoveHandler: PropTypes.func,
     getOpenHandler: PropTypes.func,
     getRemoveHandler: PropTypes.func,
+    itemsByDimension: PropTypes.object,
+    layout: PropTypes.object,
     style: PropTypes.object,
+    type: PropTypes.string,
     ui: PropTypes.object,
-    onAddDimension: PropTypes.func,
     onDropWithoutItems: PropTypes.func,
     onOpenAxisSetup: PropTypes.func,
 }
 
 const mapStateToProps = state => ({
     ui: sGetUi(state),
+    type: sGetUiType(state),
+    layout: sGetUiLayout(state),
+    itemsByDimension: sGetUiItems(state),
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -98,13 +112,16 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-    const adaptedUi = getAdaptedUiByType(stateProps.ui)
-
     return {
-        axis: adaptedUi.layout[ownProps.axisId],
+        ...stateProps,
         ...dispatchProps,
         ...ownProps,
+        axis: stateProps.ui.layout[ownProps.axisId],
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(Axis)
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+    mergeProps
+)(withStyles(styles)(Axis))

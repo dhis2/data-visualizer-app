@@ -8,7 +8,7 @@ const AreaIcon = ({
     <SvgIcon viewBox="0,0,48,48" style={style}>
         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
             <g>
-                <mask id="mask-2" fill="white">
+                <mask id="mask-area-icon" fill="white">
                     <rect x="0" y="0" width="48" height="48" />
                 </mask>
                 <g />
@@ -16,7 +16,7 @@ const AreaIcon = ({
                     stroke="#1976D2"
                     strokeWidth="2"
                     fill="#63A4FF"
-                    mask="url(#mask-2)"
+                    mask="url(#mask-area-icon)"
                     points="4 28 16 16 26.7935166 26.7935166 33.0558406 20.5311926 53 36 53 51 0 51 0 28"
                 />
                 <rect fill="#9E9E9E" x="0" y="0" width="2" height="48" />

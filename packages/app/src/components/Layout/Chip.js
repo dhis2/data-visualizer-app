@@ -8,10 +8,10 @@ import {
     getFixedDimensionProp,
     getAxisMaxNumberOfItems,
     hasAxisTooManyItems,
-    getAxisPerLockedDimension,
     getDisplayNameByVisType,
     getAxisName,
     DIMENSION_ID_ASSIGNED_CATEGORIES,
+    isDimensionLocked,
 } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
 
@@ -47,14 +47,10 @@ class Chip extends React.Component {
 
     timeout = null
 
-    isLocked =
-        getAxisPerLockedDimension(this.props.type, this.props.dimensionId) ===
-        this.props.axisId
+    isLocked = () => isDimensionLocked(this.props.type, this.props.dimensionId)
 
-    axisMaxNumberOfItems = getAxisMaxNumberOfItems(
-        this.props.type,
-        this.props.axisId
-    )
+    getMaxNumberOfItems = () =>
+        getAxisMaxNumberOfItems(this.props.type, this.props.axisId)
 
     handleMouseOver = () => {
         if (this.timeout === null) {
@@ -102,23 +98,21 @@ class Chip extends React.Component {
             : {}),
     })
 
-    renderChipLabel = () => {
+    renderChipLabelSuffix = () => {
         const numberOfItems = this.props.items.length
 
         const getItemsLabel =
-            !!this.axisMaxNumberOfItems &&
-            numberOfItems > this.axisMaxNumberOfItems
+            !!this.getMaxNumberOfItems() &&
+            numberOfItems > this.getMaxNumberOfItems()
                 ? i18n.t(`{{total}} of {{axisMaxNumberOfItems}} selected`, {
                       total: numberOfItems,
-                      axisMaxNumberOfItems: this.axisMaxNumberOfItems,
+                      axisMaxNumberOfItems: this.getMaxNumberOfItems(),
                   })
                 : i18n.t('{{total}} selected', {
                       total: numberOfItems,
                   })
 
-        return `${this.props.dimensionName}${
-            this.props.items.length > 0 ? `: ${getItemsLabel}` : ''
-        }`
+        return `${this.props.items.length > 0 ? `: ${getItemsLabel}` : ''}`
     }
 
     renderChipIcon = () => {
@@ -143,11 +137,11 @@ class Chip extends React.Component {
 
     renderTooltip = () => {
         if (this.props.dimensionId !== DIMENSION_ID_ASSIGNED_CATEGORIES) {
-            const activeItemIds = this.axisMaxNumberOfItems
-                ? this.props.items.slice(0, this.axisMaxNumberOfItems)
+            const activeItemIds = this.getMaxNumberOfItems()
+                ? this.props.items.slice(0, this.getMaxNumberOfItems())
                 : this.props.items
 
-            const lockedLabel = this.isLocked
+            const lockedLabel = this.isLocked()
                 ? i18n.t(
                       `{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}`,
                       {
@@ -177,7 +171,7 @@ class Chip extends React.Component {
         <div
             style={this.getWrapperStyles()}
             data-dimensionid={this.props.dimensionId}
-            draggable={!this.isLocked}
+            draggable={!this.isLocked()}
             onDragStart={this.getDragStartHandler()}
         >
             <div
@@ -188,15 +182,16 @@ class Chip extends React.Component {
                 onMouseOut={this.handleMouseOut}
             >
                 <div style={styles.iconWrapper}>{this.renderChipIcon()}</div>
-                {this.renderChipLabel()}
+                <span style={styles.label}>{this.props.dimensionName}</span>
+                <span>{this.renderChipLabelSuffix()}</span>
                 {hasAxisTooManyItems(
                     this.props.type,
                     this.props.axisId,
                     this.props.items.length
                 ) && WarningIconWrapper}
-                {this.isLocked && LockIconWrapper}
+                {this.isLocked() && LockIconWrapper}
             </div>
-            {!this.isLocked && this.renderMenu()}
+            {!this.isLocked() && this.renderMenu()}
             {this.getAnchorEl() && this.renderTooltip()}
         </div>
     )

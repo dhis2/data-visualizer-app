@@ -125,15 +125,6 @@ msgstr ""
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
-msgid "Error validating layout"
-msgstr ""
-
-msgid "Visualization error"
-msgstr ""
-
-msgid "Error generating chart, please try again"
-msgstr ""
-
 msgid "Aggregation type"
 msgstr ""
 
@@ -448,6 +439,53 @@ msgstr ""
 msgid "Expected reports"
 msgstr ""
 
+msgid "No data available"
+msgstr ""
+
+msgid ""
+"The selected dimensions didn’t return any data. There may be no data, or\n"
+"            you may not have access to it."
+msgstr ""
+
+msgid "Series is empty"
+msgstr ""
+
+msgid "Add at least one item to Series."
+msgstr ""
+
+msgid "Category is empty"
+msgstr ""
+
+msgid "Add at least one item to Category."
+msgstr ""
+
+msgid "No period set"
+msgstr ""
+
+msgid "{{visType}} must have at least one period set in {{axes}}."
+msgstr ""
+
+msgid "No data set"
+msgstr ""
+
+msgid "{{visType}} must have at least one data item in {{axes}}."
+msgstr ""
+
+msgid "There is a problem with this {{visType}} visualization."
+msgstr ""
+
+msgid "There was a problem getting the data from the server."
+msgstr ""
+
+msgid "Assigned Categories can only be used with data elements"
+msgstr ""
+
+msgid "Fix this problem by selecting data elements or removing Assigned Categories."
+msgstr ""
+
+msgid "or"
+msgstr ""
+
 msgid "Add to series"
 msgstr ""
 
@@ -464,39 +502,6 @@ msgid "category"
 msgstr ""
 
 msgid "filter"
-msgstr ""
-
-msgid "Please add at least one {{series}} dimension"
-msgstr ""
-
-msgid "Please add at least one {{category}} dimension"
-msgstr ""
-
-msgid "Please add at least one period as {{series}}, {{category}} or {{filter}}"
-msgstr ""
-
-msgid "Please add {{data}} as {{category}} or {{filter}}"
-msgstr ""
-
-msgid "Please add at least one period as {{series}} or {{filter}}"
-msgstr ""
-
-msgid "Please add at least one {{filter}} dimension"
-msgstr ""
-
-msgid "Please add at least one period as a {{series}} dimension"
-msgstr ""
-
-msgid "Please add at least one period as a {{category}} dimension"
-msgstr ""
-
-msgid "Please add {{data}} as a filter dimension"
-msgstr ""
-
-msgid "Please add one {{series}} dimension"
-msgstr ""
-
-msgid "Please add at least one period as {{filter}}"
 msgstr ""
 
 msgid "Today"

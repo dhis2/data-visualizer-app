@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import { DragDropContext } from 'react-beautiful-dnd'
+import { canDimensionBeAddedToAxis } from '@dhis2/analytics'
 
 import Snackbar from '../components/Snackbar/Snackbar'
 import MenuBar from './MenuBar/MenuBar'
@@ -35,6 +36,7 @@ export class App extends Component {
 
     state = {
         previousLocation: null,
+        initialLoadIsComplete: false,
     }
 
     /**
@@ -102,7 +104,7 @@ export class App extends Component {
             fromActions.clearVisualization(store.dispatch, store.getState)
             fromActions.fromUi.acClearUiInterpretation(store.dispatch)
         }
-
+        this.setState({ initialLoadIsComplete: true })
         this.setState({ previousLocation: location.pathname })
     }
 
@@ -165,43 +167,61 @@ export class App extends Component {
         }
 
         const layout = this.props.layout
-        const reorderedDimensions = {}
+        const axisId = destination.droppableId
 
         if (source.droppableId !== SOURCE_DIMENSIONS) {
+            //here we are reorganizing the layout
             const sourceList = Array.from(layout[source.droppableId])
             const [moved] = sourceList.splice(source.index, 1)
 
             if (source.droppableId === destination.droppableId) {
                 sourceList.splice(destination.index, 0, moved)
-                reorderedDimensions[source.droppableId] = sourceList
+
+                this.props.onReorderDimensions({
+                    ...layout,
+                    [source.droppableId]: sourceList,
+                })
             } else {
-                const destList = Array.from(layout[destination.droppableId])
-
-                destList.splice(destination.index, 0, moved)
-
-                reorderedDimensions[destination.droppableId] = destList
-                reorderedDimensions[source.droppableId] = sourceList
+                if (
+                    canDimensionBeAddedToAxis(
+                        this.props.type,
+                        layout[axisId],
+                        axisId
+                    )
+                ) {
+                    this.props.onAddDimensions({
+                        [moved]: destination.droppableId,
+                    })
+                }
             }
-            this.props.onReorderDimensions({
-                ...layout,
-                ...reorderedDimensions,
-            })
         } else {
-            const destList = Array.from(layout[destination.droppableId])
-            destList.splice(destination.index, 0, draggableId)
-            reorderedDimensions[destination.droppableId] = destList
+            //here we are dragging an item from the Dimensions panel to the layout
 
-            this.props.onReorderDimensions({
-                ...layout,
-                ...reorderedDimensions,
-            })
+            const reorderedDimensions = {}
 
-            const items = this.props.itemsByDimension[draggableId]
+            if (
+                canDimensionBeAddedToAxis(
+                    this.props.type,
+                    layout[axisId],
+                    axisId
+                )
+            ) {
+                const destList = Array.from(layout[destination.droppableId])
+                destList.splice(destination.index, 0, draggableId)
+                reorderedDimensions[destination.droppableId] = destList
 
-            const hasNoItems = Boolean(!items || !items.length)
+                this.props.onReorderDimensions({
+                    ...layout,
+                    ...reorderedDimensions,
+                })
 
-            if (source.droppableId === SOURCE_DIMENSIONS && hasNoItems) {
-                this.props.onDropWithoutItems(draggableId)
+                const items = this.props.itemsByDimension[draggableId]
+
+                const hasNoItems = Boolean(!items || !items.length)
+
+                if (source.droppableId === SOURCE_DIMENSIONS && hasNoItems) {
+                    this.props.onDropWithoutItems(draggableId)
+                }
             }
         }
     }
@@ -232,7 +252,9 @@ export class App extends Component {
                                     <TitleBar />
                                 </div>
                                 <div className="main-center-canvas flex-grow-1">
-                                    <Visualization />
+                                    {this.state.initialLoadIsComplete && (
+                                        <Visualization />
+                                    )}
                                 </div>
                             </div>
                         </DragDropContext>
@@ -258,9 +280,14 @@ const mapStateToProps = state => ({
     interpretations: fromReducers.fromVisualization.sGetInterpretations(state),
     ui: fromReducers.fromUi.sGetUi(state),
     layout: fromReducers.fromUi.sGetUiLayout(state),
+    type: fromReducers.fromUi.sGetUiType(state),
 })
 
 const mapDispatchToProps = dispatch => ({
+    onAddDimension: map =>
+        dispatch(fromActions.fromUi.acAddUiLayoutDimensions(map)),
+    onAddDimensions: map =>
+        dispatch(fromActions.fromUi.acAddUiLayoutDimensions(map)),
     setCurrentFromUi: ui =>
         dispatch(fromActions.fromCurrent.acSetCurrentFromUi(ui)),
     setVisualization: visualization =>
@@ -311,8 +338,11 @@ App.propTypes = {
     setUiFromVisualization: PropTypes.func,
     setVisualization: PropTypes.func,
     settings: PropTypes.object,
+    type: PropTypes.string,
     ui: PropTypes.object,
     userSettings: PropTypes.object,
+    // onAddDimension: PropTypes.func,
+    onAddDimensions: PropTypes.func,
     onDropWithoutItems: PropTypes.func,
     onReorderDimensions: PropTypes.func,
 }

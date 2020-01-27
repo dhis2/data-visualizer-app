@@ -11,6 +11,7 @@ export const styles = {
         borderRadius: '3px',
         position: 'relative',
         top: '5px',
+        maxWidth: '300px',
     },
     list: {
         listStyleType: 'none',
@@ -20,6 +21,9 @@ export const styles = {
     },
     item: {
         marginBottom: '3px',
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
     },
     icon: {
         fontSize: '13px',
@@ -29,5 +33,8 @@ export const styles = {
         display: 'flex',
         alignItems: 'center',
         marginBottom: '5px',
+    },
+    warningLabel: {
+        whiteSpace: 'normal',
     },
 }

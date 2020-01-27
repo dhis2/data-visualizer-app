@@ -20,7 +20,7 @@ const GlobeIcon = ({
         >
             <g id="Icon/48x48/chart_GIS">
                 <g id="icon_chart_GIS">
-                    <mask id="mask-2" fill="white">
+                    <mask id="mask-globe-icon" fill="white">
                         <use xlinkHref="#path-1" />
                     </mask>
                     <g id="Bounds" />
@@ -28,7 +28,7 @@ const GlobeIcon = ({
                         id="Oval-4"
                         stroke="#1976D2"
                         strokeWidth="2"
-                        mask="url(#mask-2)"
+                        mask="url(#mask-globe-icon)"
                         cx="24"
                         cy="24"
                         r="23"
@@ -37,28 +37,28 @@ const GlobeIcon = ({
                         id="Path-6"
                         stroke="#1976D2"
                         strokeWidth="2"
-                        mask="url(#mask-2)"
+                        mask="url(#mask-globe-icon)"
                         points="1 21 4 24 8 26 9 24 6 19 11 18 18 12 14 9 16 6 15 3"
                     />
                     <polyline
                         id="Path-7"
                         stroke="#1976D2"
                         strokeWidth="2"
-                        mask="url(#mask-2)"
+                        mask="url(#mask-globe-icon)"
                         points="47 25 45 21 43 19 40 18 37 18 34 17 32 18 30 23 33 27 37 27 38 30 38 38 38.5 42"
                     />
                     <polyline
                         id="Path-5"
                         stroke="#1976D2"
                         strokeWidth="2"
-                        mask="url(#mask-2)"
+                        mask="url(#mask-globe-icon)"
                         points="38 6 37 7 34 6 32 8 34 10 33 12 33 15 37 14 39 15 43 12"
                     />
                     <polyline
                         id="Path-8"
                         stroke="#1976D2"
                         strokeWidth="2"
-                        mask="url(#mask-2)"
+                        mask="url(#mask-globe-icon)"
                         points="18 46 16 41 15 36 13 34 10 31 11 28 14 26 18 27 20 29 23 30 25 32 25 36 23 40 21 47"
                     />
                 </g>

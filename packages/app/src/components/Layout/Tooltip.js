@@ -41,7 +41,7 @@ export class Tooltip extends React.Component {
         <li style={styles.item}>
             <div style={styles.iconWrapper}>
                 <WarningIcon style={styles.icon} />
-                <span>{warningLabel}</span>
+                <span style={styles.warningLabel}>{warningLabel}</span>
             </div>
         </li>
     )

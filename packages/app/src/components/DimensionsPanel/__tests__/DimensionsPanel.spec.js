@@ -26,7 +26,7 @@ describe.skip('The Dimensions component ', () => {
             dualAxisItemHandler: () => {},
             axisItemHandler: () => {},
             removeItemHandler: () => {},
-            adaptedLayoutHasDimension: () => {},
+            getCurrentAxisId: () => '',
         }
     })
 

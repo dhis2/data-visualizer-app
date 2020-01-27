@@ -4,34 +4,49 @@ import i18n from '@dhis2/d2-i18n'
 import styles from './styles/StartScreen.style'
 import { sGetLoadError } from '../../reducers/loader'
 import PropTypes from 'prop-types'
-import visualizationErrorImg from '../../assets/chart-error-graphic.png'
 import { apiFetchMostViewedVisualizations } from '../../api/mostViewedVisualizations'
 import history from '../../modules/history'
 import { withStyles } from '@material-ui/core/styles'
 import { useDataEngine } from '@dhis2/app-runtime'
+import { VisualizationError } from '../../modules/error'
+import { GenericError } from '../../assets/ErrorIcons'
+import { apiFetchVisualizations } from '../../api/visualization'
+import { visTypeIcons } from '@dhis2/analytics'
 
 const StartScreen = ({ error, classes }) => {
     const [mostViewedVisualizations, setMostViewedVisualizations] = useState([])
-
     const engine = useDataEngine()
 
     useEffect(() => {
-        async function fetchData(engine) {
-            const result = await apiFetchMostViewedVisualizations(engine, 6)
-            setMostViewedVisualizations(result.visualization)
+        async function populateMostViewedVisualizations(engine) {
+            const mostViewedVisualizationsResult = await apiFetchMostViewedVisualizations(
+                engine,
+                6
+            )
+            const visualizations = mostViewedVisualizationsResult.visualization
+            if (visualizations && visualizations.length) {
+                const visualizationsResult = await apiFetchVisualizations(
+                    engine,
+                    visualizations.map(vis => vis.id)
+                )
+                const visualizationsWithType =
+                    visualizationsResult.visualization.visualizations
+                const result = visualizations.map(vis => ({
+                    ...visualizationsWithType.find(
+                        visWithType => visWithType.id === vis.id && visWithType
+                    ),
+                    ...vis,
+                }))
+
+                setMostViewedVisualizations(result)
+            }
         }
-        fetchData(engine)
-    }, [])
+        populateMostViewedVisualizations(engine)
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     const getContent = () =>
         error ? (
-            <div style={styles.errorContainer}>
-                <img
-                    src={visualizationErrorImg}
-                    alt={i18n.t('Visualization error')}
-                />
-                <p style={styles.errorTitle}>{error}</p>
-            </div>
+            getErrorContent()
         ) : (
             <div>
                 <div style={styles.section}>
@@ -49,20 +64,49 @@ const StartScreen = ({ error, classes }) => {
                         </li>
                     </ul>
                 </div>
-                <div style={styles.section}>
-                    <h3 style={styles.title}>Most viewed charts and tables</h3>
-                    {mostViewedVisualizations.map((visualization, index) => (
-                        <p
-                            key={index}
-                            className={classes.visualization}
-                            onClick={() => history.push(`/${visualization.id}`)}
-                        >
-                            {visualization.name}
-                        </p>
-                    ))}
-                </div>
+                {mostViewedVisualizations.length > 0 && (
+                    <div style={styles.section}>
+                        <h3 style={styles.title}>
+                            Most viewed charts and tables
+                        </h3>
+                        {mostViewedVisualizations.map(
+                            (visualization, index) => (
+                                <p
+                                    key={index}
+                                    className={classes.visualization}
+                                    onClick={() =>
+                                        history.push(`/${visualization.id}`)
+                                    }
+                                >
+                                    <span className={classes.visIcon}>
+                                        {visTypeIcons[visualization.type]}
+                                    </span>
+                                    <span>{visualization.name}</span>
+                                </p>
+                            )
+                        )}
+                    </div>
+                )}
             </div>
         )
+
+    const getErrorContent = () => {
+        return error instanceof VisualizationError ? (
+            <div style={styles.errorContainer}>
+                <div style={styles.errorIcon}>{error.icon()}</div>
+                <p style={styles.errorTitle}>{error.title}</p>
+                <p style={styles.errorDescription}>{error.description}</p>
+            </div>
+        ) : (
+            <div style={styles.errorContainer}>
+                <div style={styles.errorIcon}>{GenericError()}</div>
+                <p style={styles.errorTitle}>
+                    {i18n.t('Something went wrong')}
+                </p>
+                <p style={styles.errorDescription}>{error.message || error}</p>
+            </div>
+        )
+    }
 
     return (
         <div style={styles.outer}>
@@ -73,7 +117,7 @@ const StartScreen = ({ error, classes }) => {
 
 StartScreen.propTypes = {
     classes: PropTypes.object,
-    error: PropTypes.string,
+    error: PropTypes.object,
 }
 
 const mapStateToProps = state => ({

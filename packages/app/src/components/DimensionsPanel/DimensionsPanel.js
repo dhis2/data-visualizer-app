@@ -8,11 +8,9 @@ import PropTypes from 'prop-types'
 
 import DialogManager from './Dialogs/DialogManager'
 import DndDimensionsPanel from './DndDimensionsPanel'
-import { getInverseLayout } from '../../modules/layout'
 import * as fromReducers from '../../reducers'
 
 import { styles } from './styles/DimensionsPanel.style'
-import { getAdaptedUiByType } from '../../modules/ui'
 import { AXIS_SETUP_DIALOG_ID } from '../AxisSetup/AxisSetup'
 import {
     acSetUiActiveModalDialog,
@@ -41,12 +39,6 @@ export class Dimensions extends Component {
             dimensionId: null,
         })
 
-    getUiAxisId = () => {
-        const adaptedUi = getAdaptedUiByType(this.props.ui)
-        const inverseLayout = getInverseLayout(adaptedUi.layout)
-        return inverseLayout[this.state.dimensionId]
-    }
-
     getNumberOfDimensionItems = () =>
         (this.props.itemsByDimension[this.state.dimensionId] || []).length
 
@@ -58,16 +50,18 @@ export class Dimensions extends Component {
                 />
                 <DimensionMenu
                     dimensionId={this.state.dimensionId}
-                    currentAxisId={this.getUiAxisId()}
+                    currentAxisId={this.props.getCurrentAxisId(
+                        this.state.dimensionId
+                    )}
                     visType={this.props.ui.type}
                     numberOfDimensionItems={this.getNumberOfDimensionItems()}
                     dualAxisItemHandler={this.props.dualAxisItemHandler}
                     isAssignedCategoriesInLayout={
-                        this.props.adaptedLayoutHasAssignedCategories
+                        this.props.layoutHasAssignedCategories
                     }
                     assignedCategoriesItemHandler={destination =>
                         this.props.assignedCategoriesItemHandler(
-                            this.props.adaptedLayoutHasAssignedCategories,
+                            this.props.layoutHasAssignedCategories,
                             destination
                         )
                     }
@@ -83,24 +77,27 @@ export class Dimensions extends Component {
 }
 
 Dimensions.propTypes = {
-    adaptedLayoutHasAssignedCategories: PropTypes.bool,
     assignedCategoriesItemHandler: PropTypes.func,
     axisItemHandler: PropTypes.func,
     dualAxisItemHandler: PropTypes.func,
+    getCurrentAxisId: PropTypes.func,
     itemsByDimension: PropTypes.object,
+    layoutHasAssignedCategories: PropTypes.bool,
     removeItemHandler: PropTypes.func,
     ui: PropTypes.object,
 }
 
-const mapStateToProps = state => {
-    return {
-        ui: fromReducers.fromUi.sGetUi(state),
-        itemsByDimension: fromReducers.fromUi.sGetUiItems(state),
-        adaptedLayoutHasAssignedCategories: fromReducers.fromUi.sAdaptedLayoutHasAssignedCategories(
-            state
-        ),
-    }
-}
+const mapStateToProps = state => ({
+    ui: fromReducers.fromUi.sGetUi(state),
+    dimensions: fromReducers.fromDimensions.sGetDimensions(state),
+    layout: fromReducers.fromUi.sGetUiLayout(state),
+    itemsByDimension: fromReducers.fromUi.sGetUiItems(state),
+    layoutHasAssignedCategories: fromReducers.fromUi.sLayoutHasAssignedCategories(
+        state
+    ),
+    getCurrentAxisId: dimensionId =>
+        fromReducers.fromUi.getAxisIdByDimensionId(state, dimensionId),
+})
 
 const mapDispatchToProps = dispatch => ({
     dualAxisItemHandler: () =>

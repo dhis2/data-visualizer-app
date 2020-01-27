@@ -12,19 +12,36 @@ export default {
         boxSizing: 'border-box',
         color: colors.grey900,
         position: 'relative',
+        display: 'flex',
+        alignItems: 'center',
     },
     errorContainer: {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        marginTop: '20px',
+        textAlign: 'center',
+    },
+    errorIcon: {
+        width: '136px',
+        height: '136px',
+        margin: '0 auto 24px',
     },
     errorTitle: {
-        fontWeight: 'bold',
-        marginTop: '30px',
-        lineHeight: '22px',
+        fontWeight: '500',
+        fontSize: '20px',
+        color: colors.grey800,
+        letterSpacing: '0.15px',
+        lineHeight: '24px',
+        width: '360px',
+        margin: '0 auto 12px',
+    },
+    errorDescription: {
+        fontWeight: '400',
+        fontSize: '14px',
         color: colors.grey700,
-        textAlign: 'center',
+        lineHeight: '19px',
+        width: '360px',
+        margin: '0 auto',
     },
     title: {
         fontWeight: 'bold',
@@ -53,6 +70,8 @@ export default {
         marginBottom: '12px',
     },
     visualization: {
+        display: 'flex',
+        alignItems: 'center',
         margin: '0 0 12px 0',
         padding: 0,
         letterSpacing: '0.1px',
@@ -61,6 +80,13 @@ export default {
         fontSize: '14px',
         '&:hover': {
             textDecoration: 'underline',
+        },
+    },
+    visIcon: {
+        height: '16px',
+        '& svg': {
+            height: '16px',
+            marginRight: '8px',
         },
     },
 }
