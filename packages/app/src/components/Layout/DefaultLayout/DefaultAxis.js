@@ -7,6 +7,7 @@ import {
     isDimensionLocked,
     canDimensionBeAddedToAxis,
 } from '@dhis2/analytics'
+import { withStyles } from '@material-ui/core'
 
 import Chip from '../Chip'
 import {
