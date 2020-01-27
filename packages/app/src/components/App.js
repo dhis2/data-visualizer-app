@@ -2,9 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
-import { DragDropContext } from 'react-beautiful-dnd'
-import { canDimensionBeAddedToAxis } from '@dhis2/analytics'
 
+import DndContext from './DndContext'
 import Snackbar from '../components/Snackbar/Snackbar'
 import MenuBar from './MenuBar/MenuBar'
 import TitleBar from './TitleBar/TitleBar'
@@ -14,7 +13,6 @@ import Interpretations from './Interpretations/Interpretations'
 import Visualization from './Visualization/Visualization'
 import Layout from './Layout/Layout'
 import * as fromReducers from '../reducers'
-import { getAdaptedUiByType } from '../modules/ui'
 import * as fromActions from '../actions'
 import history from '../modules/history'
 import defaultMetadata from '../modules/metadata'
@@ -27,7 +25,6 @@ import './App.css'
 import './scrollbar.css'
 import { getParentGraphMapFromVisualization } from '../modules/ui'
 import AxisSetup from './AxisSetup/AxisSetup'
-import { SOURCE_DIMENSIONS } from '../modules/layout'
 
 export class App extends Component {
     unlisten = null
@@ -159,73 +156,6 @@ export class App extends Component {
         }
     }
 
-    onDragEnd = result => {
-        const { source, destination, draggableId } = result
-
-        if (!destination) {
-            return
-        }
-
-        const layout = this.props.layout
-        const axisId = destination.droppableId
-
-        if (source.droppableId !== SOURCE_DIMENSIONS) {
-            //here we are reorganizing the layout
-            const sourceList = Array.from(layout[source.droppableId])
-            const [moved] = sourceList.splice(source.index, 1)
-
-            if (source.droppableId === destination.droppableId) {
-                sourceList.splice(destination.index, 0, moved)
-
-                this.props.onReorderDimensions({
-                    ...layout,
-                    [source.droppableId]: sourceList,
-                })
-            } else {
-                if (
-                    canDimensionBeAddedToAxis(
-                        this.props.type,
-                        layout[axisId],
-                        axisId
-                    )
-                ) {
-                    this.props.onAddDimensions({
-                        [moved]: destination.droppableId,
-                    })
-                }
-            }
-        } else {
-            //here we are dragging an item from the Dimensions panel to the layout
-
-            const reorderedDimensions = {}
-
-            if (
-                canDimensionBeAddedToAxis(
-                    this.props.type,
-                    layout[axisId],
-                    axisId
-                )
-            ) {
-                const destList = Array.from(layout[destination.droppableId])
-                destList.splice(destination.index, 0, draggableId)
-                reorderedDimensions[destination.droppableId] = destList
-
-                this.props.onReorderDimensions({
-                    ...layout,
-                    ...reorderedDimensions,
-                })
-
-                const items = this.props.itemsByDimension[draggableId]
-
-                const hasNoItems = Boolean(!items || !items.length)
-
-                if (source.droppableId === SOURCE_DIMENSIONS && hasNoItems) {
-                    this.props.onDropWithoutItems(draggableId)
-                }
-            }
-        }
-    }
-
     render() {
         return (
             <>
@@ -240,7 +170,7 @@ export class App extends Component {
                         </div>
                     </div>
                     <div className="section-main flex-grow-1 flex-ct">
-                        <DragDropContext onDragEnd={this.onDragEnd}>
+                        <DndContext>
                             <div className="main-left">
                                 <DimensionsPanel />
                             </div>
@@ -257,7 +187,7 @@ export class App extends Component {
                                     )}
                                 </div>
                             </div>
-                        </DragDropContext>
+                        </DndContext>
                         {this.props.ui.rightSidebarOpen && this.props.current && (
                             <div className="main-right">
                                 <Interpretations
@@ -279,15 +209,9 @@ const mapStateToProps = state => ({
     current: fromReducers.fromCurrent.sGetCurrent(state),
     interpretations: fromReducers.fromVisualization.sGetInterpretations(state),
     ui: fromReducers.fromUi.sGetUi(state),
-    layout: fromReducers.fromUi.sGetUiLayout(state),
-    type: fromReducers.fromUi.sGetUiType(state),
 })
 
 const mapDispatchToProps = dispatch => ({
-    onAddDimension: map =>
-        dispatch(fromActions.fromUi.acAddUiLayoutDimensions(map)),
-    onAddDimensions: map =>
-        dispatch(fromActions.fromUi.acAddUiLayoutDimensions(map)),
     setCurrentFromUi: ui =>
         dispatch(fromActions.fromCurrent.acSetCurrentFromUi(ui)),
     setVisualization: visualization =>
@@ -298,22 +222,7 @@ const mapDispatchToProps = dispatch => ({
         dispatch(fromActions.fromUi.acSetUiFromVisualization(visualization)),
     addParentGraphMap: parentGraphMap =>
         dispatch(fromActions.fromUi.acAddParentGraphMap(parentGraphMap)),
-    onReorderDimensions: layout =>
-        dispatch(fromActions.fromUi.acSetUiLayout(layout)),
-    onDropWithoutItems: dimensionId =>
-        dispatch(fromActions.fromUi.acSetUiActiveModalDialog(dimensionId)),
 })
-
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
-    const adaptedUi = getAdaptedUiByType(stateProps.ui)
-
-    return {
-        itemsByDimension: adaptedUi.itemsByDimension,
-        ...dispatchProps,
-        ...stateProps,
-        ...ownProps,
-    }
-}
 
 App.contextTypes = {
     store: PropTypes.object,
@@ -330,21 +239,14 @@ App.propTypes = {
     baseUrl: PropTypes.string,
     current: PropTypes.object,
     d2: PropTypes.object,
-    itemsByDimension: PropTypes.object,
-    layout: PropTypes.object,
     location: PropTypes.object,
     ouLevels: PropTypes.array,
     setCurrentFromUi: PropTypes.func,
     setUiFromVisualization: PropTypes.func,
     setVisualization: PropTypes.func,
     settings: PropTypes.object,
-    type: PropTypes.string,
     ui: PropTypes.object,
     userSettings: PropTypes.object,
-    // onAddDimension: PropTypes.func,
-    onAddDimensions: PropTypes.func,
-    onDropWithoutItems: PropTypes.func,
-    onReorderDimensions: PropTypes.func,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App)
