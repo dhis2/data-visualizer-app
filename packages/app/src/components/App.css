@@ -74,8 +74,10 @@ body {
     overflow: hidden;
 }
 
+/* DimensionPanel dimension item */
 /*
-This keeps the clone from causing a ripple effect in the Dimension list
+This keeps the dimension item clone from causing 
+a ripple effect in the Dimension list
 */
 .dimension-item-clone ~ li {
     transform: none !important;
