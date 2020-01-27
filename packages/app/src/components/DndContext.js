@@ -99,21 +99,18 @@ DndContext.propTypes = {
 }
 
 const mapStateToProps = state => ({
-    settings: fromReducers.fromSettings.sGetSettings(state),
-    current: fromReducers.fromCurrent.sGetCurrent(state),
-    interpretations: fromReducers.fromVisualization.sGetInterpretations(state),
-    ui: fromReducers.fromUi.sGetUi(state),
     layout: fromReducers.fromUi.sGetUiLayout(state),
     type: fromReducers.fromUi.sGetUiType(state),
+    ui: fromReducers.fromUi.sGetUi(state),
 })
 
 const mapDispatchToProps = dispatch => ({
     onAddDimensions: map =>
         dispatch(fromActions.fromUi.acAddUiLayoutDimensions(map)),
-    onReorderDimensions: layout =>
-        dispatch(fromActions.fromUi.acSetUiLayout(layout)),
     onDropWithoutItems: dimensionId =>
         dispatch(fromActions.fromUi.acSetUiActiveModalDialog(dimensionId)),
+    onReorderDimensions: layout =>
+        dispatch(fromActions.fromUi.acSetUiLayout(layout)),
 })
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
