@@ -1,17 +1,17 @@
 import { getFieldsStringByType } from '../modules/fields'
 
-export const apiFetchVisualization = (dataEngine, id) => {
-    const query = {
-        visualization: {
-            resource: 'visualizations',
-            id: ({ id }) => id,
-            params: {
-                fields: getFieldsStringByType('visualization'),
-            },
+const visualizationQuery = {
+    visualization: {
+        resource: 'visualizations',
+        id: ({ id }) => id,
+        params: {
+            fields: getFieldsStringByType('visualization'),
         },
-    }
+    },
+}
 
-    return dataEngine.query(query, { variables: { id } })
+export const apiFetchVisualization = (dataEngine, id) => {
+    return dataEngine.query(visualizationQuery, { variables: { id } })
 }
 
 export const apiFetchVisualizations = (dataEngine, filter, fields) => {
