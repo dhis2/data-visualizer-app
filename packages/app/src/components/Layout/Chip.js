@@ -47,12 +47,10 @@ class Chip extends React.Component {
 
     timeout = null
 
-    isLocked = isDimensionLocked(this.props.type, this.props.dimensionId)
+    isLocked = () => isDimensionLocked(this.props.type, this.props.dimensionId)
 
-    axisMaxNumberOfItems = getAxisMaxNumberOfItems(
-        this.props.type,
-        this.props.axisId
-    )
+    getMaxNumberOfItems = () =>
+        getAxisMaxNumberOfItems(this.props.type, this.props.axisId)
 
     handleMouseOver = () => {
         if (this.timeout === null) {
@@ -104,11 +102,11 @@ class Chip extends React.Component {
         const numberOfItems = this.props.items.length
 
         const getItemsLabel =
-            !!this.axisMaxNumberOfItems &&
-            numberOfItems > this.axisMaxNumberOfItems
+            !!this.getMaxNumberOfItems() &&
+            numberOfItems > this.getMaxNumberOfItems()
                 ? i18n.t(`{{total}} of {{axisMaxNumberOfItems}} selected`, {
                       total: numberOfItems,
-                      axisMaxNumberOfItems: this.axisMaxNumberOfItems,
+                      axisMaxNumberOfItems: this.getMaxNumberOfItems(),
                   })
                 : i18n.t('{{total}} selected', {
                       total: numberOfItems,
@@ -139,11 +137,11 @@ class Chip extends React.Component {
 
     renderTooltip = () => {
         if (this.props.dimensionId !== DIMENSION_ID_ASSIGNED_CATEGORIES) {
-            const activeItemIds = this.axisMaxNumberOfItems
-                ? this.props.items.slice(0, this.axisMaxNumberOfItems)
+            const activeItemIds = this.getMaxNumberOfItems()
+                ? this.props.items.slice(0, this.getMaxNumberOfItems())
                 : this.props.items
 
-            const lockedLabel = this.isLocked
+            const lockedLabel = this.isLocked()
                 ? i18n.t(
                       `{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}`,
                       {
@@ -173,7 +171,7 @@ class Chip extends React.Component {
         <div
             style={this.getWrapperStyles()}
             data-dimensionid={this.props.dimensionId}
-            draggable={!this.isLocked}
+            draggable={!this.isLocked()}
             onDragStart={this.getDragStartHandler()}
         >
             <div
@@ -191,9 +189,9 @@ class Chip extends React.Component {
                     this.props.axisId,
                     this.props.items.length
                 ) && WarningIconWrapper}
-                {this.isLocked && LockIconWrapper}
+                {this.isLocked() && LockIconWrapper}
             </div>
-            {!this.isLocked && this.renderMenu()}
+            {!this.isLocked() && this.renderMenu()}
             {this.getAnchorEl() && this.renderTooltip()}
         </div>
     )
