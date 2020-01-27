@@ -35,6 +35,7 @@ export class DndDimensionList extends Component {
             .includes(this.props.filterText.toLowerCase())
     }
 
+    //TODO - refactor the way filtering happens so handler only called once per key press
     filterMatchingDimensions = (dimension, index) => {
         return this.filterTextContains(dimension.name, index)
             ? this.renderItem(dimension, index)
@@ -77,10 +78,12 @@ export class DndDimensionList extends Component {
         return (
             <Droppable droppableId={SOURCE_DIMENSIONS} isDropDisabled={true}>
                 {provided => (
-                    <div ref={provided.innerRef} {...provided.droppableProps}>
-                        <div style={styles.listWrapper}>
-                            <ul style={styles.list}>{dimensionsList}</ul>
-                        </div>
+                    <div
+                        style={styles.listWrapper}
+                        ref={provided.innerRef}
+                        {...provided.droppableProps}
+                    >
+                        <ul style={styles.list}>{dimensionsList}</ul>
                         {provided.placeholder}
                     </div>
                 )}

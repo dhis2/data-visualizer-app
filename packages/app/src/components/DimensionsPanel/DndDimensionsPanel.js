@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
-
 import { DimensionFilter } from '@dhis2/analytics'
 
 import DndDimensionList from './DndDimensionList'
 
-// import { styles } from './styles/DimensionsPanel.style'
 const styles = {
     divContainer: {
         height: '100%',
@@ -21,7 +19,7 @@ const styles = {
     },
 }
 
-export class DndDimensionPanel extends Component {
+export class DndDimensionsPanel extends Component {
     state = { filterText: '' }
 
     onClearFilter = () => {
@@ -51,8 +49,8 @@ export class DndDimensionPanel extends Component {
     }
 }
 
-DndDimensionPanel.propTypes = {
+DndDimensionsPanel.propTypes = {
     onDimensionOptionsClick: PropTypes.func,
 }
 
-export default DndDimensionPanel
+export default DndDimensionsPanel
