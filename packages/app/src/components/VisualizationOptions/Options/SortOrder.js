@@ -74,7 +74,7 @@ const SortOrder = ({ value, onChange }) => {
 }
 
 SortOrder.propTypes = {
-    value: PropTypes.object.isRequired,
+    value: PropTypes.number.isRequired,
     onChange: PropTypes.func.isRequired,
 }
 
