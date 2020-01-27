@@ -81,6 +81,7 @@ This keeps the clone from causing a ripple effect in the Dimension list
     transform: none !important;
 }
 
-/* .dimension-item-clone ~ [data-rbd-placeholder-context-id] {
-    display: none !important;
-} */
+li.dragging {
+    background-color: #e8edf2;
+    border-radius: 2px;
+}

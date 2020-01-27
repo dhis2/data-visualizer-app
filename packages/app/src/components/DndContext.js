@@ -10,46 +10,20 @@ import { getAdaptedUiByType } from '../modules/ui'
 import { SOURCE_DIMENSIONS } from '../modules/layout'
 
 class DndContext extends Component {
-    onDragEnd = result => {
-        const { source, destination, draggableId } = result
-
-        if (!destination) {
-            return
-        }
-
+    reorganizeLayout = (source, destination) => {
         const layout = this.props.layout
         const axisId = destination.droppableId
+        const sourceList = Array.from(layout[source.droppableId])
+        const [moved] = sourceList.splice(source.index, 1)
 
-        if (source.droppableId !== SOURCE_DIMENSIONS) {
-            //reorganize the layout
-            const sourceList = Array.from(layout[source.droppableId])
-            const [moved] = sourceList.splice(source.index, 1)
+        if (source.droppableId === destination.droppableId) {
+            sourceList.splice(destination.index, 0, moved)
 
-            if (source.droppableId === destination.droppableId) {
-                sourceList.splice(destination.index, 0, moved)
-
-                this.props.onReorderDimensions({
-                    ...layout,
-                    [source.droppableId]: sourceList,
-                })
-            } else {
-                if (
-                    canDimensionBeAddedToAxis(
-                        this.props.type,
-                        layout[axisId],
-                        axisId
-                    )
-                ) {
-                    this.props.onAddDimensions({
-                        [moved]: destination.droppableId,
-                    })
-                }
-            }
+            this.props.onReorderDimensions({
+                ...layout,
+                [source.droppableId]: sourceList,
+            })
         } else {
-            //drag an item from the Dimensions panel to the layout
-
-            const reorderedDimensions = {}
-
             if (
                 canDimensionBeAddedToAxis(
                     this.props.type,
@@ -57,23 +31,51 @@ class DndContext extends Component {
                     axisId
                 )
             ) {
-                const destList = Array.from(layout[destination.droppableId])
-                destList.splice(destination.index, 0, draggableId)
-                reorderedDimensions[destination.droppableId] = destList
-
-                this.props.onReorderDimensions({
-                    ...layout,
-                    ...reorderedDimensions,
+                this.props.onAddDimensions({
+                    [moved]: destination.droppableId,
                 })
-
-                const items = this.props.itemsByDimension[draggableId]
-
-                const hasNoItems = Boolean(!items || !items.length)
-
-                if (source.droppableId === SOURCE_DIMENSIONS && hasNoItems) {
-                    this.props.onDropWithoutItems(draggableId)
-                }
             }
+        }
+    }
+
+    addItemToLayout = (source, destination, dimensionId) => {
+        const { layout } = this.props
+        const axisId = destination.droppableId
+
+        if (
+            canDimensionBeAddedToAxis(this.props.type, layout[axisId], axisId)
+        ) {
+            const reorderedDimensions = {}
+            const destList = Array.from(layout[destination.droppableId])
+
+            destList.splice(destination.index, 0, dimensionId)
+            reorderedDimensions[destination.droppableId] = destList
+
+            this.props.onReorderDimensions({
+                ...layout,
+                ...reorderedDimensions,
+            })
+
+            const items = this.props.itemsByDimension[dimensionId]
+            const hasNoItems = Boolean(!items || !items.length)
+
+            if (source.droppableId === SOURCE_DIMENSIONS && hasNoItems) {
+                this.props.onDropWithoutItems(dimensionId)
+            }
+        }
+    }
+
+    onDragEnd = result => {
+        const { source, destination, draggableId } = result
+
+        if (!destination) {
+            return
+        }
+
+        if (source.droppableId === SOURCE_DIMENSIONS) {
+            this.addItemToLayout(source, destination, draggableId)
+        } else {
+            this.reorganizeLayout(source, destination)
         }
     }
 
