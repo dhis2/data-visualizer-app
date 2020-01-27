@@ -53,7 +53,6 @@ class Axis extends React.Component {
                     {provided => (
                         <div
                             className={this.props.classes.content}
-                            style={styles.content}
                             ref={provided.innerRef}
                             {...provided.droppableProps}
                         >
