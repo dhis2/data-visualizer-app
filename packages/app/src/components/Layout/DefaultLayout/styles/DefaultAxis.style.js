@@ -30,5 +30,8 @@ export default {
         alignContent: 'flex-start',
         flexWrap: 'wrap',
         minHeight: 32,
+        '& > div': {
+            cursor: 'pointer',
+        },
     },
 }

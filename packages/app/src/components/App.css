@@ -70,10 +70,6 @@ body {
 
 /* Main center */
 
-.main-center-titlebar {
-    height: 34px;
-}
-
 .main-center-canvas {
     overflow: hidden;
 }

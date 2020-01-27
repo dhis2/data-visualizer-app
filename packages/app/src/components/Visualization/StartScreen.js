@@ -42,7 +42,7 @@ const StartScreen = ({ error, classes }) => {
             }
         }
         populateMostViewedVisualizations(engine)
-    }, [])
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     const getContent = () =>
         error ? (
