@@ -32,6 +32,7 @@ export class App extends Component {
 
     state = {
         previousLocation: null,
+        initialLoadIsComplete: false,
     }
 
     /**
@@ -99,7 +100,7 @@ export class App extends Component {
             fromActions.clearVisualization(store.dispatch, store.getState)
             fromActions.fromUi.acClearUiInterpretation(store.dispatch)
         }
-
+        this.setState({ initialLoadIsComplete: true })
         this.setState({ previousLocation: location.pathname })
     }
 
@@ -179,7 +180,9 @@ export class App extends Component {
                                 <TitleBar />
                             </div>
                             <div className="main-center-canvas flex-grow-1">
-                                <Visualization />
+                                {this.state.initialLoadIsComplete && (
+                                    <Visualization />
+                                )}
                             </div>
                         </div>
                         {this.props.ui.rightSidebarOpen && this.props.current && (

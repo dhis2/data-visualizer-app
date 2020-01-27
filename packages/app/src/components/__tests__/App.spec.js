@@ -2,7 +2,6 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { App } from '../App'
 import Snackbar from '../Snackbar/Snackbar'
-import Visualization from '../Visualization/Visualization'
 import * as actions from '../../actions/'
 import history from '../../modules/history'
 
@@ -71,10 +70,6 @@ describe('App', () => {
 
     it('renders a div', () => {
         expect(app().find('div').length).toBeGreaterThan(0)
-    })
-
-    it('renders Visualization component', () => {
-        expect(app().find(Visualization).length).toBeGreaterThan(0)
     })
 
     it('renders a Snackbar', () => {
