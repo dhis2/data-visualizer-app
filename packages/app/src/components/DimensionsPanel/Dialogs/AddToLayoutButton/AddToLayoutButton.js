@@ -30,7 +30,7 @@ export class AddToLayoutButton extends Component {
 
     onUpdate = axisId => {
         this.props.onAddDimension({
-            [this.props.dialogId]: axisId,
+            [this.props.dialogId]: { axisId },
         })
 
         this.props.onClick()
