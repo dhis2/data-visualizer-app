@@ -29,17 +29,10 @@ const styles = {
     },
 }
 export class DndDimensionList extends Component {
-    filterTextContains = dimensionName => {
-        return dimensionName
+    nameContainsFilterText = dimension =>
+        dimension.name
             .toLowerCase()
             .includes(this.props.filterText.toLowerCase())
-    }
-
-    filterMatchingDimensions = (dimension, index) => {
-        return this.filterTextContains(dimension.name, index)
-            ? this.renderItem(dimension, index)
-            : null
-    }
 
     isSelected = id => this.props.selectedIds.includes(id)
     isDisabledDimension = id => this.props.disallowedDimensions.includes(id)
@@ -68,11 +61,9 @@ export class DndDimensionList extends Component {
     }
 
     render() {
-        const dimensionsList = this.props.dimensions.map((dimension, index) =>
-            this.props.filterText.length
-                ? this.filterMatchingDimensions(dimension, index)
-                : this.renderItem(dimension, index)
-        )
+        const dimensionsList = this.props.dimensions
+            .filter(this.nameContainsFilterText)
+            .map(this.renderItem)
 
         return (
             <Droppable droppableId={SOURCE_DIMENSIONS} isDropDisabled={true}>
