@@ -35,7 +35,6 @@ export class DndDimensionList extends Component {
             .includes(this.props.filterText.toLowerCase())
     }
 
-    //TODO - refactor the way filtering happens so handler only called once per key press
     filterMatchingDimensions = (dimension, index) => {
         return this.filterTextContains(dimension.name, index)
             ? this.renderItem(dimension, index)

@@ -39,12 +39,10 @@ class DndContext extends Component {
     }
 
     addDimensionToLayout = (source, destination, dimensionId) => {
-        const { layout } = this.props
+        const { layout, type } = this.props
         const axisId = destination.droppableId
 
-        if (
-            !canDimensionBeAddedToAxis(this.props.type, layout[axisId], axisId)
-        ) {
+        if (!canDimensionBeAddedToAxis(type, layout[axisId], axisId)) {
             return
         }
 

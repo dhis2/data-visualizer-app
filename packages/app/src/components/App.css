@@ -77,7 +77,7 @@ body {
 /* DimensionPanel dimension item */
 /*
 This keeps the dimension item clone from causing 
-a ripple effect in the Dimension list
+a ripple effect in the Dimension list during drag
 */
 .dimension-item-clone ~ li {
     transform: none !important;
