@@ -6,6 +6,7 @@ import {
     LAYOUT_TYPE_DEFAULT,
     LAYOUT_TYPE_PIE,
     LAYOUT_TYPE_YEAR_OVER_YEAR,
+    LAYOUT_TYPE_PIVOT_TABLE,
     getLayoutTypeByVisType,
     canDimensionBeAddedToAxis,
 } from '@dhis2/analytics'
@@ -13,6 +14,7 @@ import {
 import DefaultLayout from './DefaultLayout/DefaultLayout'
 import YearOverYearLayout from './YearOverYearLayout/YearOverYearLayout'
 import PieLayout from './PieLayout/PieLayout'
+import PivotTableLayout from './PivotTableLayout/PivotTableLayout'
 import { sGetUiLayout, sGetUiType } from '../../reducers/ui'
 import { acAddUiLayoutDimensions, acSetUiLayout } from '../../actions/ui'
 
@@ -20,6 +22,7 @@ const componentMap = {
     [LAYOUT_TYPE_DEFAULT]: DefaultLayout,
     [LAYOUT_TYPE_PIE]: PieLayout,
     [LAYOUT_TYPE_YEAR_OVER_YEAR]: YearOverYearLayout,
+    [LAYOUT_TYPE_PIVOT_TABLE]: PivotTableLayout,
 }
 
 const Layout = props => {
