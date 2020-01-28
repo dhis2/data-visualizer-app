@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-01-24T04:33:44.424Z\n"
-"PO-Revision-Date: 2020-01-24T04:33:44.424Z\n"
+"POT-Creation-Date: 2020-01-28T14:43:38.800Z\n"
+"PO-Revision-Date: 2020-01-28T14:43:38.800Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -105,6 +105,12 @@ msgid "{{total}} selected"
 msgstr ""
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
+msgstr ""
+
+msgid "Columns"
+msgstr ""
+
+msgid "Rows"
 msgstr ""
 
 msgid "None selected"
@@ -397,13 +403,13 @@ msgstr ""
 msgid "Skip rounding"
 msgstr ""
 
-msgid "Custom sort order"
-msgstr ""
-
 msgid "Low to high"
 msgstr ""
 
 msgid "High to low"
+msgstr ""
+
+msgid "Custom sort order"
 msgstr ""
 
 msgid "Add a subtitle"
@@ -443,8 +449,8 @@ msgid "No data available"
 msgstr ""
 
 msgid ""
-"The selected dimensions didn’t return any data. There may be no data, or\n"
-"            you may not have access to it."
+"The selected dimensions didn’t return any data. There may be no data, or "
+"you may not have access to it."
 msgstr ""
 
 msgid "Series is empty"

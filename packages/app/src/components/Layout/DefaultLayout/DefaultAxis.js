@@ -24,7 +24,9 @@ class Axis extends React.Component {
                 style={{ ...styles.axisContainer, ...style }}
                 onDragOver={this.onDragOver}
             >
-                <div style={styles.label}>{getAxisName(axisId)}</div>
+                <div style={styles.label}>
+                    {this.props.label || getAxisName(axisId)}
+                </div>
                 <Droppable droppableId={axisId} direction="horizontal">
                     {provided => (
                         <div
@@ -79,6 +81,7 @@ Axis.propTypes = {
     getMoveHandler: PropTypes.func,
     getOpenHandler: PropTypes.func,
     getRemoveHandler: PropTypes.func,
+    label: PropTypes.string,
     layout: PropTypes.object,
     style: PropTypes.object,
     type: PropTypes.string,
