@@ -10,46 +10,50 @@ import { getAdaptedUiByType } from '../modules/ui'
 import { SOURCE_DIMENSIONS } from '../modules/layout'
 
 class DndContext extends Component {
-    rearrangeLayoutDimensions = (source, destination) => {
+    rearrangeLayoutDimensions = ({
+        sourceAxisId,
+        sourceIndex,
+        destinationAxisId,
+        destinationIndex,
+    }) => {
         const layout = this.props.layout
-        const axisId = destination.droppableId
-        const sourceList = Array.from(layout[source.droppableId])
-        const [moved] = sourceList.splice(source.index, 1)
 
-        if (source.droppableId === destination.droppableId) {
-            sourceList.splice(destination.index, 0, moved)
+        const sourceList = Array.from(layout[sourceAxisId])
+        const [moved] = sourceList.splice(sourceIndex, 1)
+
+        if (sourceAxisId === destinationAxisId) {
+            sourceList.splice(destinationIndex, 0, moved)
 
             this.props.onReorderDimensions({
                 ...layout,
-                [source.droppableId]: sourceList,
+                [sourceAxisId]: sourceList,
             })
         } else {
             if (
                 canDimensionBeAddedToAxis(
                     this.props.type,
-                    layout[axisId],
-                    axisId
+                    layout[destinationAxisId],
+                    destinationAxisId
                 )
             ) {
                 this.props.onAddDimensions({
-                    [moved]: destination.droppableId,
+                    [moved]: destinationAxisId,
                 })
             }
         }
     }
 
-    addDimensionToLayout = (source, destination, dimensionId) => {
+    addDimensionToLayout = ({ axisId, index, dimensionId }) => {
         const { layout, type } = this.props
-        const axisId = destination.droppableId
 
         if (!canDimensionBeAddedToAxis(type, layout[axisId], axisId)) {
             return
         }
 
-        const destList = Array.from(layout[destination.droppableId])
+        const destList = Array.from(layout[axisId])
 
-        destList.splice(destination.index, 0, dimensionId)
-        const reorderedDimensions = { [destination.droppableId]: destList }
+        destList.splice(index, 0, dimensionId)
+        const reorderedDimensions = { [axisId]: destList }
 
         this.props.onReorderDimensions({
             ...layout,
@@ -59,7 +63,7 @@ class DndContext extends Component {
         const items = this.props.itemsByDimension[dimensionId]
         const hasNoItems = Boolean(!items || !items.length)
 
-        if (source.droppableId === SOURCE_DIMENSIONS && hasNoItems) {
+        if (hasNoItems) {
             this.props.onDropWithoutItems(dimensionId)
         }
     }
@@ -72,9 +76,18 @@ class DndContext extends Component {
         }
 
         if (source.droppableId === SOURCE_DIMENSIONS) {
-            this.addDimensionToLayout(source, destination, draggableId)
+            this.addDimensionToLayout({
+                axisId: destination.droppableId,
+                index: destination.index,
+                dimensionId: draggableId,
+            })
         } else {
-            this.rearrangeLayoutDimensions(source, destination)
+            this.rearrangeLayoutDimensions({
+                sourceAxisId: source.droppableId,
+                sourceIndex: source.index,
+                destinationAxisId: destination.droppableId,
+                destinationIndex: destination.index,
+            })
         }
     }
 
