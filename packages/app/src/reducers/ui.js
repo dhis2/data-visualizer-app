@@ -117,10 +117,10 @@ export default (state = DEFAULT_UI, action) => {
                     ) {
                         // Filter out transferred dimension id (remove from source)
                         newLayout = getFilteredLayout(newLayout, [dimensionId])
-                        if (!index) {
+                        if (index === null || index === undefined) {
                             newLayout[axisId].push(dimensionId)
                         } else {
-                            newLayout[axisId].splice(1, 0, dimensionId)
+                            newLayout[axisId].splice(index, 0, dimensionId)
                         }
                     }
                 }
