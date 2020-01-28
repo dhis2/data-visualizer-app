@@ -6,7 +6,7 @@ import {
     VIS_TYPE_PIE,
     VIS_TYPE_GAUGE,
     VIS_TYPE_SINGLE_VALUE,
-    getFixedDimensionProp,
+    getPredefinedDimensionProp,
     dimensionIsValid,
     layoutGetDimension,
     DIMENSION_ID_DATA,
@@ -25,7 +25,10 @@ const isAxisValid = axis =>
     AXIS.isValid(axis) &&
     axis.some(axisItem =>
         dimensionIsValid(axisItem, {
-            requireItems: !getFixedDimensionProp(axisItem.dimension, 'noItems'),
+            requireItems: !getPredefinedDimensionProp(
+                axisItem.dimension,
+                'noItems'
+            ),
         })
     )
 

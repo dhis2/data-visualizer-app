@@ -8,7 +8,7 @@ import {
     dimensionCreate,
     layoutGetDimensionItems,
     layoutReplaceDimension,
-    getFixedDimensionProp,
+    getPredefinedDimensionProp,
 } from '@dhis2/analytics'
 
 import options from './options'
@@ -27,7 +27,7 @@ export const getAxesFromUi = ui =>
             [axisId]: dimensionIds
                 .map(dimensionId =>
                     hasItems(ui.itemsByDimension, dimensionId) ||
-                    getFixedDimensionProp(dimensionId, 'noItems')
+                    getPredefinedDimensionProp(dimensionId, 'noItems')
                         ? dimensionCreate(
                               dimensionId,
                               ui.itemsByDimension[dimensionId]

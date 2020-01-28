@@ -5,7 +5,7 @@ import WarningIcon from '@material-ui/icons/Warning'
 import LockIcon from '@material-ui/icons/Lock'
 import i18n from '@dhis2/d2-i18n'
 import {
-    getFixedDimensionProp,
+    getPredefinedDimensionProp,
     getAxisMaxNumberOfItems,
     hasAxisTooManyItems,
     getDisplayNameByVisType,
@@ -75,7 +75,7 @@ class Chip extends React.Component {
     }
 
     handleClick = () => {
-        if (!getFixedDimensionProp(this.props.dimensionId, 'noItems')) {
+        if (!getPredefinedDimensionProp(this.props.dimensionId, 'noItems')) {
             this.props.getOpenHandler(this.props.dimensionId)
         }
 
@@ -92,7 +92,7 @@ class Chip extends React.Component {
 
     getWrapperStyles = () => ({
         ...styles.chipWrapper,
-        ...(!getFixedDimensionProp(this.props.dimensionId, 'noItems') &&
+        ...(!getPredefinedDimensionProp(this.props.dimensionId, 'noItems') &&
         !this.props.items.length
             ? styles.chipEmpty
             : {}),
@@ -116,7 +116,7 @@ class Chip extends React.Component {
     }
 
     renderChipIcon = () => {
-        const Icon = getFixedDimensionProp(this.props.dimensionId, 'icon')
+        const Icon = getPredefinedDimensionProp(this.props.dimensionId, 'icon')
         return Icon ? (
             <Icon style={styles.fixedDimensionIcon} />
         ) : (
