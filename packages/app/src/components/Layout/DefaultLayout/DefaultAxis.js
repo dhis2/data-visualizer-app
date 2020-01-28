@@ -6,16 +6,8 @@ import { getAxisName, isDimensionLocked } from '@dhis2/analytics'
 import { withStyles } from '@material-ui/core'
 
 import Chip from '../Chip'
-import {
-    sGetUi,
-    sGetUiLayout,
-    sGetUiItems,
-    sGetUiType,
-} from '../../../reducers/ui'
-import {
-    acAddUiLayoutDimensions,
-    acSetUiActiveModalDialog,
-} from '../../../actions/ui'
+import { sGetUi, sGetUiLayout, sGetUiType } from '../../../reducers/ui'
+import { acSetUiActiveModalDialog } from '../../../actions/ui'
 
 import styles from './styles/DefaultAxis.style'
 class Axis extends React.Component {
@@ -87,12 +79,10 @@ Axis.propTypes = {
     getMoveHandler: PropTypes.func,
     getOpenHandler: PropTypes.func,
     getRemoveHandler: PropTypes.func,
-    itemsByDimension: PropTypes.object,
     layout: PropTypes.object,
     style: PropTypes.object,
     type: PropTypes.string,
     ui: PropTypes.object,
-    onDropWithoutItems: PropTypes.func,
     onOpenAxisSetup: PropTypes.func,
 }
 
@@ -100,13 +90,9 @@ const mapStateToProps = state => ({
     ui: sGetUi(state),
     type: sGetUiType(state),
     layout: sGetUiLayout(state),
-    itemsByDimension: sGetUiItems(state),
 })
 
 const mapDispatchToProps = dispatch => ({
-    onAddDimension: map => dispatch(acAddUiLayoutDimensions(map)),
-    onDropWithoutItems: dimensionId =>
-        dispatch(acSetUiActiveModalDialog(dimensionId)),
     getOpenHandler: dimensionId => () =>
         dispatch(acSetUiActiveModalDialog(dimensionId)),
 })

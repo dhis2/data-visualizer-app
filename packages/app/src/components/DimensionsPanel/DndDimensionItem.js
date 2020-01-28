@@ -17,7 +17,7 @@ export class DndDimensionItem extends Component {
             onOptionsClick,
         } = this.props
 
-        const itemProps = {
+        const itemCommonProps = {
             name,
             isSelected,
             isLocked,
@@ -32,7 +32,7 @@ export class DndDimensionItem extends Component {
                 isDragDisabled={isSelected || isDeactivated || isLocked}
             >
                 {(provided, snapshot) => (
-                    <React.Fragment>
+                    <>
                         <DimensionItem
                             innerRef={provided.innerRef}
                             {...provided.draggableProps}
@@ -41,16 +41,16 @@ export class DndDimensionItem extends Component {
                             className={snapshot.isDragging ? 'dragging' : null}
                             onClick={onClick}
                             onOptionsClick={onOptionsClick}
-                            {...itemProps}
+                            {...itemCommonProps}
                         />
                         {snapshot.isDragging && (
                             <DimensionItem
                                 id="dimension-item-clone"
                                 className="dimension-item-clone"
-                                {...itemProps}
+                                {...itemCommonProps}
                             />
                         )}
-                    </React.Fragment>
+                    </>
                 )}
             </Draggable>
         )

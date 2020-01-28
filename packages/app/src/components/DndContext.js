@@ -10,7 +10,7 @@ import { getAdaptedUiByType } from '../modules/ui'
 import { SOURCE_DIMENSIONS } from '../modules/layout'
 
 class DndContext extends Component {
-    reorganizeLayout = (source, destination) => {
+    rearrangeLayoutDimensions = (source, destination) => {
         const layout = this.props.layout
         const axisId = destination.droppableId
         const sourceList = Array.from(layout[source.droppableId])
@@ -38,30 +38,31 @@ class DndContext extends Component {
         }
     }
 
-    addItemToLayout = (source, destination, dimensionId) => {
+    addDimensionToLayout = (source, destination, dimensionId) => {
         const { layout } = this.props
         const axisId = destination.droppableId
 
         if (
-            canDimensionBeAddedToAxis(this.props.type, layout[axisId], axisId)
+            !canDimensionBeAddedToAxis(this.props.type, layout[axisId], axisId)
         ) {
-            const reorderedDimensions = {}
-            const destList = Array.from(layout[destination.droppableId])
+            return
+        }
 
-            destList.splice(destination.index, 0, dimensionId)
-            reorderedDimensions[destination.droppableId] = destList
+        const destList = Array.from(layout[destination.droppableId])
 
-            this.props.onReorderDimensions({
-                ...layout,
-                ...reorderedDimensions,
-            })
+        destList.splice(destination.index, 0, dimensionId)
+        const reorderedDimensions = { [destination.droppableId]: destList }
 
-            const items = this.props.itemsByDimension[dimensionId]
-            const hasNoItems = Boolean(!items || !items.length)
+        this.props.onReorderDimensions({
+            ...layout,
+            ...reorderedDimensions,
+        })
 
-            if (source.droppableId === SOURCE_DIMENSIONS && hasNoItems) {
-                this.props.onDropWithoutItems(dimensionId)
-            }
+        const items = this.props.itemsByDimension[dimensionId]
+        const hasNoItems = Boolean(!items || !items.length)
+
+        if (source.droppableId === SOURCE_DIMENSIONS && hasNoItems) {
+            this.props.onDropWithoutItems(dimensionId)
         }
     }
 
@@ -73,9 +74,9 @@ class DndContext extends Component {
         }
 
         if (source.droppableId === SOURCE_DIMENSIONS) {
-            this.addItemToLayout(source, destination, draggableId)
+            this.addDimensionToLayout(source, destination, draggableId)
         } else {
-            this.reorganizeLayout(source, destination)
+            this.rearrangeLayoutDimensions(source, destination)
         }
     }
 
