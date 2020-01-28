@@ -38,7 +38,7 @@ const getRequestOptions = (visualization, filters) => {
 }
 
 const PivotPlugin = ({
-    config: visualization,
+    config,
     filters,
     style,
     onError,
@@ -47,18 +47,20 @@ const PivotPlugin = ({
     d2,
 }) => {
     const [isLoading, setIsLoading] = useState(true)
+    const [visualization, setVisualization] = useState(null)
     const [data, setData] = useState(null)
 
     const remappedOptions = {
-        showColTotals: visualization.colTotals,
-        showRowTotals: visualization.rowTotals,
-        showColSubTotals: visualization.colSubTotals,
-        showRowSubTotals: visualization.rowSubTotals,
+        showColumnTotals: config.colTotals,
+        showRowTotals: config.rowTotals,
+        showColSubtotals: config.colSubTotals,
+        showRowSubtotals: config.rowSubTotals,
     }
 
     useEffect(() => {
-        const options = getRequestOptions(visualization, filters)
-        apiFetchAnalytics(d2, visualization, options)
+        setIsLoading(true)
+        const options = getRequestOptions(config, filters)
+        apiFetchAnalytics(d2, config, options)
             .then(responses => {
                 if (!responses.length) {
                     return
@@ -67,6 +69,7 @@ const PivotPlugin = ({
                     onResponsesReceived(responses)
                 }
 
+                setVisualization(config)
                 setData(responses[0].response)
                 setIsLoading(false)
             })
@@ -76,7 +79,7 @@ const PivotPlugin = ({
 
         // TODO: cancellation
     }, [
-        visualization,
+        config,
         filters,
         id /* TODO: short-circuit when id changes? */,
         onResponsesReceived,
