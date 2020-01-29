@@ -7,7 +7,7 @@ import TextBaseOption from './TextBaseOption'
 const RangeAxisDecimals = () => (
     <TextBaseOption
         type="number"
-        width="72px"
+        width="96px"
         label={i18n.t('Decimals')}
         placeholder={i18n.t('Auto')}
         option={{
