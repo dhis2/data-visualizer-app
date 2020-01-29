@@ -12,6 +12,7 @@ import {
     getAxisName,
     DIMENSION_ID_ASSIGNED_CATEGORIES,
     isDimensionLocked,
+    DIMENSION_PROP_NO_ITEMS,
 } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
 
@@ -75,7 +76,12 @@ class Chip extends React.Component {
     }
 
     handleClick = () => {
-        if (!getPredefinedDimensionProp(this.props.dimensionId, 'noItems')) {
+        if (
+            !getPredefinedDimensionProp(
+                this.props.dimensionId,
+                DIMENSION_PROP_NO_ITEMS
+            )
+        ) {
             this.props.getOpenHandler(this.props.dimensionId)
         }
 
@@ -92,8 +98,10 @@ class Chip extends React.Component {
 
     getWrapperStyles = () => ({
         ...styles.chipWrapper,
-        ...(!getPredefinedDimensionProp(this.props.dimensionId, 'noItems') &&
-        !this.props.items.length
+        ...(!getPredefinedDimensionProp(
+            this.props.dimensionId,
+            DIMENSION_PROP_NO_ITEMS
+        ) && !this.props.items.length
             ? styles.chipEmpty
             : {}),
     })

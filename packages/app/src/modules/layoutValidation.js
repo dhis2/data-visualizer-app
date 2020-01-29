@@ -10,6 +10,7 @@ import {
     dimensionIsValid,
     layoutGetDimension,
     DIMENSION_ID_DATA,
+    DIMENSION_PROP_NO_ITEMS,
 } from '@dhis2/analytics'
 
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields'
@@ -27,7 +28,7 @@ const isAxisValid = axis =>
         dimensionIsValid(axisItem, {
             requireItems: !getPredefinedDimensionProp(
                 axisItem.dimension,
-                'noItems'
+                DIMENSION_PROP_NO_ITEMS
             ),
         })
     )

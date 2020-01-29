@@ -7,6 +7,7 @@ import {
     isDimensionLocked,
     canDimensionBeAddedToAxis,
     getPredefinedDimensionProp,
+    DIMENSION_PROP_NO_ITEMS,
 } from '@dhis2/analytics'
 import { withStyles } from '@material-ui/core'
 
@@ -54,7 +55,10 @@ class Axis extends React.Component {
             if (
                 source === SOURCE_DIMENSIONS &&
                 hasNoItems &&
-                !getPredefinedDimensionProp(dimensionId, 'noItems')
+                !getPredefinedDimensionProp(
+                    dimensionId,
+                    DIMENSION_PROP_NO_ITEMS
+                )
             ) {
                 onDropWithoutItems(dimensionId)
             }
