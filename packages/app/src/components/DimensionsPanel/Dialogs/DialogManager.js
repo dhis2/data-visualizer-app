@@ -18,7 +18,7 @@ import {
     DIMENSION_ID_ORGUNIT,
     getAxisMaxNumberOfItems,
     getDisplayNameByVisType,
-    filterOutFixedDimensions,
+    filterOutPredefinedDimensions,
 } from '@dhis2/analytics'
 
 import HideButton from '../../HideButton/HideButton'
@@ -272,11 +272,11 @@ export class DialogManager extends Component {
                 )
             }
 
-            const dynamicDimensions = filterOutFixedDimensions(
+            const nonPredefinedDimensions = filterOutPredefinedDimensions(
                 Object.keys(this.props.dimensions)
             )
 
-            if (dynamicDimensions.includes(dialogId)) {
+            if (nonPredefinedDimensions.includes(dialogId)) {
                 const dialogTitle =
                     dimensions[dialogId] && dimensions[dialogId].name
 

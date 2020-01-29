@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-01-28T14:43:38.800Z\n"
-"PO-Revision-Date: 2020-01-28T14:43:38.800Z\n"
+"POT-Creation-Date: 2020-01-29T07:22:55.986Z\n"
+"PO-Revision-Date: 2020-01-29T07:22:55.986Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -484,6 +484,12 @@ msgid "Assigned Categories can only be used with data elements"
 msgstr ""
 
 msgid "Fix this problem by selecting data elements or removing Assigned Categories."
+msgstr ""
+
+msgid "Assigned Categories cannot be used as Filter"
+msgstr ""
+
+msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr ""
 
 msgid "or"

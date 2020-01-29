@@ -61,16 +61,11 @@ export class Dimensions extends Component {
     getNumberOfDimensionItems = () =>
         (this.props.itemsByDimension[this.state.dimensionId] || []).length
 
-    getFilteredDimensions = () =>
-        Object.values(this.props.dimensions).filter(
-            dimension => !dimension.noItems
-        )
-
     render() {
         return (
             <div style={styles.divContainer}>
                 <DimensionsPanel
-                    dimensions={this.getFilteredDimensions()}
+                    dimensions={Object.values(this.props.dimensions)}
                     selectedIds={this.props.selectedIds}
                     disabledDimension={this.disabledDimension}
                     lockedDimension={this.lockedDimension}
