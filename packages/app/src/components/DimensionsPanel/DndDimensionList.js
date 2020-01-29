@@ -90,21 +90,15 @@ const getisLockedDimensionsMemo = createSelector(
     type => getAllLockedDimensionIds(type)
 )
 
-const mapStateToProps = state => {
-    const dimensions = Object.values(
+const mapStateToProps = state => ({
+    dimensions: Object.values(
         fromReducers.fromDimensions.sGetDimensions(state)
-    ).filter(dimension => !dimension.noItems)
-
-    return {
-        dimensions,
-        selectedIds: fromReducers.fromUi.sGetDimensionIdsFromLayout(state),
-        recommendedIds: fromReducers.fromRecommendedIds.sGetRecommendedIds(
-            state
-        ),
-        disallowedDimensions: getDisallowedDimensionsMemo(state),
-        lockedDimensions: getisLockedDimensionsMemo(state),
-    }
-}
+    ),
+    selectedIds: fromReducers.fromUi.sGetDimensionIdsFromLayout(state),
+    recommendedIds: fromReducers.fromRecommendedIds.sGetRecommendedIds(state),
+    disallowedDimensions: getDisallowedDimensionsMemo(state),
+    lockedDimensions: getisLockedDimensionsMemo(state),
+})
 
 const mapDispatchToProps = dispatch => ({
     onDimensionClick: id => dispatch(acSetUiActiveModalDialog(id)),

@@ -17,9 +17,10 @@ import { acSetLoadError } from '../../actions/loader'
 
 import StartScreen from './StartScreen'
 import {
-    AssignedCategoriesError,
+    AssignedCategoriesDataElementsError,
     GenericServerError,
     EmptyResponseError,
+    AssignedCategoriesAsFilterError,
 } from '../../modules/error'
 
 export class Visualization extends Component {
@@ -35,7 +36,9 @@ export class Visualization extends Component {
         let error
         if (response) {
             if (response.errorCode === 'E7114') {
-                error = new AssignedCategoriesError()
+                error = new AssignedCategoriesDataElementsError()
+            } else if (response.errorCode === 'E7110') {
+                error = new AssignedCategoriesAsFilterError()
             } else {
                 error = response
             }

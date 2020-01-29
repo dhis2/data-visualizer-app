@@ -2,7 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { DragDropContext } from 'react-beautiful-dnd'
-import { canDimensionBeAddedToAxis } from '@dhis2/analytics'
+import {
+    canDimensionBeAddedToAxis,
+    getPredefinedDimensionProp,
+    DIMENSION_PROP_NO_ITEMS,
+} from '@dhis2/analytics'
 
 import * as fromReducers from '../reducers'
 import * as fromActions from '../actions'
@@ -55,7 +59,10 @@ class DndContext extends Component {
         const items = this.props.itemsByDimension[dimensionId]
         const hasNoItems = Boolean(!items || !items.length)
 
-        if (hasNoItems) {
+        if (
+            hasNoItems &&
+            !getPredefinedDimensionProp(dimensionId, DIMENSION_PROP_NO_ITEMS)
+        ) {
             this.props.onDropWithoutItems(dimensionId)
         }
     }
