@@ -53,7 +53,7 @@ const PivotPlugin = ({
     const remappedOptions = {
         showColumnTotals: config.colTotals,
         showRowTotals: config.rowTotals,
-        showColSubtotals: config.colSubTotals,
+        showColumnSubtotals: config.colSubTotals,
         showRowSubtotals: config.rowSubTotals,
     }
 
