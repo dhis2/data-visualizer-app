@@ -73,17 +73,3 @@ body {
 .main-center-canvas {
     overflow: hidden;
 }
-
-/* DimensionPanel dimension item */
-/*
-This keeps the dimension item clone from causing 
-a ripple effect in the Dimension list during drag
-*/
-.dimension-item-clone ~ li {
-    transform: none !important;
-}
-
-li.dragging {
-    background-color: #e8edf2;
-    border-radius: 2px;
-}

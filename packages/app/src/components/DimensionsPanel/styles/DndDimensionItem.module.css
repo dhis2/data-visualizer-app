@@ -1,0 +1,12 @@
+/*
+This keeps the dimension item clone from causing 
+a ripple effect in the Dimension list during drag
+*/
+.dimensionItemClone ~ li {
+    transform: none !important;
+}
+
+.dragging {
+    background-color: #e8edf2;
+    border-radius: 2px;
+}

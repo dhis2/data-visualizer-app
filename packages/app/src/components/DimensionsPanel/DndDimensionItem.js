@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { Draggable } from 'react-beautiful-dnd'
 import { DimensionItem } from '@dhis2/analytics'
 
+import styles from './styles/DndDimensionItem.module.css'
+
 export class DndDimensionItem extends Component {
     render = () => {
         const {
@@ -38,7 +40,9 @@ export class DndDimensionItem extends Component {
                             {...provided.draggableProps}
                             {...provided.dragHandleProps}
                             id={id}
-                            className={snapshot.isDragging ? 'dragging' : null}
+                            className={
+                                snapshot.isDragging ? styles.dragging : null
+                            }
                             onClick={onClick}
                             onOptionsClick={onOptionsClick}
                             {...itemCommonProps}
@@ -46,7 +50,7 @@ export class DndDimensionItem extends Component {
                         {snapshot.isDragging && (
                             <DimensionItem
                                 id="dimension-item-clone"
-                                className="dimension-item-clone"
+                                className={styles.dimensionItemClone}
                                 {...itemCommonProps}
                             />
                         )}
