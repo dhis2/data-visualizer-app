@@ -49,7 +49,7 @@ export class DndDimensionItem extends Component {
                         />
                         {snapshot.isDragging && (
                             <DimensionItem
-                                id="dimension-item-clone"
+                                id={`dimension-item-clone-${id}`}
                                 className={styles.dimensionItemClone}
                                 {...itemCommonProps}
                             />
