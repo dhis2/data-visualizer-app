@@ -13,21 +13,8 @@ import * as fromReducers from '../../reducers'
 import { acSetUiActiveModalDialog } from '../../actions/ui'
 import { SOURCE_DIMENSIONS } from '../../modules/layout'
 
-const styles = {
-    listWrapper: {
-        position: 'relative',
-        flex: '1 1 0%',
-        minHeight: '30vh',
-    },
-    list: {
-        position: 'absolute',
-        width: '100%',
-        height: '100%',
-        overflow: 'auto',
-        marginTop: '0px',
-        padding: 0,
-    },
-}
+import styles from './styles/DndDimensionList.module.css'
+
 export class DndDimensionList extends Component {
     nameContainsFilterText = dimension =>
         dimension.name
@@ -69,11 +56,11 @@ export class DndDimensionList extends Component {
             <Droppable droppableId={SOURCE_DIMENSIONS} isDropDisabled={true}>
                 {provided => (
                     <div
-                        style={styles.listWrapper}
+                        className={styles.container}
                         ref={provided.innerRef}
                         {...provided.droppableProps}
                     >
-                        <ul style={styles.list}>{dimensionsList}</ul>
+                        <ul className={styles.list}>{dimensionsList}</ul>
                         {provided.placeholder}
                     </div>
                 )}

@@ -5,19 +5,7 @@ import { DimensionFilter } from '@dhis2/analytics'
 
 import DndDimensionList from './DndDimensionList'
 
-const styles = {
-    divContainer: {
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        backgroundColor: '#F4F6F8',
-        padding: '8px',
-        overflow: 'hidden',
-    },
-    textField: {
-        paddingBottom: '6px',
-    },
-}
+import styles from './styles/DndDimensionsPanel.module.css'
 
 export class DndDimensionsPanel extends Component {
     state = { filterText: '' }
@@ -32,9 +20,9 @@ export class DndDimensionsPanel extends Component {
 
     render() {
         return (
-            <div style={styles.divContainer}>
+            <div className={styles.container}>
                 <DimensionFilter
-                    style={styles.textField}
+                    style={{ paddingBottom: '6px' }}
                     placeholder={i18n.t('Search dimensions')}
                     text={this.state.filterText}
                     onChange={this.onFilterTextChange}
