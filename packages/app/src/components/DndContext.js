@@ -20,16 +20,16 @@ class DndContext extends Component {
     rearrangeLayoutDimensions = ({
         sourceAxisId,
         sourceIndex,
-        destinationAxisId: axisId,
-        destinationIndex: index,
+        destinationAxisId,
+        destinationIndex,
     }) => {
         const layout = this.props.layout
 
         const sourceList = Array.from(layout[sourceAxisId])
         const [moved] = sourceList.splice(sourceIndex, 1)
 
-        if (sourceAxisId === axisId) {
-            sourceList.splice(index, 0, moved)
+        if (sourceAxisId === destinationAxisId) {
+            sourceList.splice(destinationIndex, 0, moved)
 
             this.props.onReorderDimensions({
                 ...layout,
@@ -39,12 +39,15 @@ class DndContext extends Component {
             if (
                 canDimensionBeAddedToAxis(
                     this.props.type,
-                    layout[axisId],
-                    axisId
+                    layout[destinationAxisId],
+                    destinationAxisId
                 )
             ) {
                 this.props.onAddDimensions({
-                    [moved]: { axisId, index },
+                    [moved]: {
+                        axisId: destinationAxisId,
+                        index: destinationIndex,
+                    },
                 })
             }
         }
