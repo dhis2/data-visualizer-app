@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-01-20T08:17:07.464Z\n"
-"PO-Revision-Date: 2020-01-20T08:17:07.464Z\n"
+"POT-Creation-Date: 2020-01-29T07:22:55.986Z\n"
+"PO-Revision-Date: 2020-01-29T07:22:55.986Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -394,13 +394,13 @@ msgstr ""
 msgid "Skip rounding"
 msgstr ""
 
-msgid "Custom sort order"
-msgstr ""
-
 msgid "Low to high"
 msgstr ""
 
 msgid "High to low"
+msgstr ""
+
+msgid "Custom sort order"
 msgstr ""
 
 msgid "Add a subtitle"
@@ -440,8 +440,8 @@ msgid "No data available"
 msgstr ""
 
 msgid ""
-"The selected dimensions didn’t return any data. There may be no data, or\n"
-"            you may not have access to it."
+"The selected dimensions didn’t return any data. There may be no data, or "
+"you may not have access to it."
 msgstr ""
 
 msgid "Series is empty"
@@ -478,6 +478,12 @@ msgid "Assigned Categories can only be used with data elements"
 msgstr ""
 
 msgid "Fix this problem by selecting data elements or removing Assigned Categories."
+msgstr ""
+
+msgid "Assigned Categories cannot be used as Filter"
+msgstr ""
+
+msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr ""
 
 msgid "or"
