@@ -8,9 +8,12 @@ import {
     DIMENSION_PROP_NO_ITEMS,
 } from '@dhis2/analytics'
 
-import * as fromReducers from '../reducers'
-import * as fromActions from '../actions'
-import { getAdaptedUiByType } from '../modules/ui'
+import { sGetUiLayout, sGetUiItems, sGetUiType } from '../reducers/ui'
+import {
+    acAddUiLayoutDimensions,
+    acSetUiActiveModalDialog,
+    acSetUiLayout,
+} from '../actions/ui'
 import { SOURCE_DIMENSIONS } from '../modules/layout'
 
 class DndContext extends Component {
@@ -110,33 +113,16 @@ DndContext.propTypes = {
 }
 
 const mapStateToProps = state => ({
-    layout: fromReducers.fromUi.sGetUiLayout(state),
-    type: fromReducers.fromUi.sGetUiType(state),
-    ui: fromReducers.fromUi.sGetUi(state),
+    layout: sGetUiLayout(state),
+    type: sGetUiType(state),
+    itemsByDimension: sGetUiItems(state),
 })
 
 const mapDispatchToProps = dispatch => ({
-    onAddDimensions: map =>
-        dispatch(fromActions.fromUi.acAddUiLayoutDimensions(map)),
+    onAddDimensions: map => dispatch(acAddUiLayoutDimensions(map)),
     onDropWithoutItems: dimensionId =>
-        dispatch(fromActions.fromUi.acSetUiActiveModalDialog(dimensionId)),
-    onReorderDimensions: layout =>
-        dispatch(fromActions.fromUi.acSetUiLayout(layout)),
+        dispatch(acSetUiActiveModalDialog(dimensionId)),
+    onReorderDimensions: layout => dispatch(acSetUiLayout(layout)),
 })
 
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
-    const adaptedUi = getAdaptedUiByType(stateProps.ui)
-
-    return {
-        itemsByDimension: adaptedUi.itemsByDimension,
-        ...dispatchProps,
-        ...stateProps,
-        ...ownProps,
-    }
-}
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-    mergeProps
-)(DndContext)
+export default connect(mapStateToProps, mapDispatchToProps)(DndContext)
