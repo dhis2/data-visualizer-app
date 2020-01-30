@@ -44,6 +44,9 @@ msgid ""
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
 
+msgid "Search dimensions"
+msgstr ""
+
 msgid "Download"
 msgstr ""
 

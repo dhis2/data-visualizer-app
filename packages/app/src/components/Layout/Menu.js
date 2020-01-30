@@ -94,21 +94,20 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
     dualAxisItemHandler: () =>
         dispatch(acSetUiActiveModalDialog(AXIS_SETUP_DIALOG_ID)),
-    axisItemHandler: (dimensionId, targetAxisId) => {
-        dispatch(acAddUiLayoutDimensions({ [dimensionId]: targetAxisId }))
+    axisItemHandler: (dimensionId, axisId) => {
+        dispatch(acAddUiLayoutDimensions({ [dimensionId]: { axisId } }))
     },
     removeItemHandler: dimensionId => {
         dispatch(acRemoveUiLayoutDimensions(dimensionId))
     },
-    assignedCategoriesItemHandler: (
-        layoutHasAssignedCategories,
-        destination
-    ) => {
+    assignedCategoriesItemHandler: (layoutHasAssignedCategories, axisId) => {
         dispatch(
             layoutHasAssignedCategories
                 ? acRemoveUiLayoutDimensions(DIMENSION_ID_ASSIGNED_CATEGORIES)
                 : acAddUiLayoutDimensions({
-                      [DIMENSION_ID_ASSIGNED_CATEGORIES]: destination,
+                      [DIMENSION_ID_ASSIGNED_CATEGORIES]: {
+                          axisId,
+                      },
                   })
         )
     },

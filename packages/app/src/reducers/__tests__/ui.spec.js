@@ -165,7 +165,7 @@ describe('reducer: ui', () => {
         const actualState = reducer(state, {
             type: ui.ADD_UI_LAYOUT_DIMENSIONS,
             value: {
-                [DIMENSION_ID_DATA]: AXIS_ID_ROWS,
+                [DIMENSION_ID_DATA]: { axisId: AXIS_ID_ROWS },
             },
         })
 
@@ -194,7 +194,7 @@ describe('reducer: ui', () => {
         const actualState = reducer(state, {
             type: ui.ADD_UI_LAYOUT_DIMENSIONS,
             value: {
-                [otherId]: AXIS_ID_COLUMNS,
+                [otherId]: { axisId: AXIS_ID_COLUMNS },
             },
         })
 
@@ -204,6 +204,35 @@ describe('reducer: ui', () => {
                 columns: [otherId],
                 rows: [DIMENSION_ID_PERIOD],
                 filters: [DIMENSION_ID_ORGUNIT, DIMENSION_ID_DATA],
+            },
+        }
+
+        expect(actualState).toEqual(expectedState)
+    })
+
+    it(`${ui.ADD_UI_LAYOUT_DIMENSIONS}: should add layout dimensions at desired position`, () => {
+        const state = {
+            type: VIS_TYPE_COLUMN,
+            layout: {
+                columns: [DIMENSION_ID_DATA],
+                rows: [DIMENSION_ID_PERIOD],
+                filters: [DIMENSION_ID_ORGUNIT],
+            },
+        }
+
+        const actualState = reducer(state, {
+            type: ui.ADD_UI_LAYOUT_DIMENSIONS,
+            value: {
+                [otherId]: { axisId: AXIS_ID_FILTERS, index: 0 },
+            },
+        })
+
+        const expectedState = {
+            ...state,
+            layout: {
+                columns: [DIMENSION_ID_DATA],
+                rows: [DIMENSION_ID_PERIOD],
+                filters: [otherId, DIMENSION_ID_ORGUNIT],
             },
         }
 

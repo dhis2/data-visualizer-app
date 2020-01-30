@@ -66,7 +66,7 @@ export const getRetransfer = (layout, transfer, visType) => {
 
     dimensionIds.forEach(id => {
         const sourceAxis = inverseLayout[id] || null
-        const destinationAxisId = transfer[id]
+        const destinationAxisId = transfer[id].axisId
         const dimensionsAtDestination = layout[destinationAxisId] || []
 
         if (
@@ -83,11 +83,13 @@ export const getRetransfer = (layout, transfer, visType) => {
             )
 
             if (transferableDimension) {
-                retransfer[transferableDimension] = sourceAxis
+                const axisId = sourceAxis
                     ? sourceAxis
                     : getAvailableAxes(visType).find(
                           axis => !getAxisMaxNumberOfDimensions(visType, axis)
                       )
+
+                retransfer[transferableDimension] = { axisId }
             }
         }
     })
