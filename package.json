@@ -12,6 +12,9 @@
         "jest-enzyme": "^7.1.2",
         "loglevel": "^1.6.6"
     },
+    "resolutions": {
+        "@dhis2/analytics": "file:../../../libs/analytic"
+    },
     "scripts": {
         "build-plugin": "cd packages/plugin && yarn build",
         "build-app": "cd packages/app && yarn build",

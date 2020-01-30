@@ -43,7 +43,6 @@ const PivotPlugin = ({
     style,
     onError,
     onResponsesReceived,
-    id,
     d2,
 }) => {
     const [isLoading, setIsLoading] = useState(true)
@@ -55,6 +54,8 @@ const PivotPlugin = ({
         showRowTotals: config.rowTotals,
         showColumnSubtotals: config.colSubTotals,
         showRowSubtotals: config.rowSubTotals,
+        hideEmptyColumns: config.hideEmptyColumns,
+        hideEmptyRows: config.hideEmptyRows,
     }
 
     useEffect(() => {
@@ -78,19 +79,14 @@ const PivotPlugin = ({
             })
 
         // TODO: cancellation
-    }, [
-        config,
-        filters,
-        id /* TODO: short-circuit when id changes? */,
-        onResponsesReceived,
-        onError,
-        d2,
-    ])
+    }, [config, filters, onResponsesReceived, onError, d2])
 
     return (
         <div style={{ width: '100%', height: '100%', ...style }}>
             {isLoading ? (
-                <LoadingMask />
+                <div style={{ placeSelf: 'center', flex: '1 0 0%' }}>
+                    <LoadingMask />
+                </div>
             ) : (
                 <PivotTable
                     visualization={visualization}
@@ -115,7 +111,6 @@ PivotPlugin.propTypes = {
     d2: PropTypes.object.isRequired,
     onError: PropTypes.func.isRequired,
     filters: PropTypes.object,
-    id: PropTypes.number,
     style: PropTypes.object,
     onResponsesReceived: PropTypes.func,
 }
