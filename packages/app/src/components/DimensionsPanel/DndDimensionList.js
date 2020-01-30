@@ -50,22 +50,29 @@ export class DndDimensionList extends Component {
         )
     }
 
+    getDimensionItemsByFilter = filter =>
+        this.props.dimensions
+            .filter(filter)
+            .filter(this.nameContainsFilterText)
+            .map(this.renderItem)
+
     render() {
-        const fixedDimensions = Object.values(getFixedDimensions())
-            .filter(this.nameContainsFilterText)
-            .map(this.renderItem)
-        const dynamicDimensions = Object.values(getDynamicDimensions())
-            .filter(this.nameContainsFilterText)
-            .map(this.renderItem)
-        const nonPredefinedDimensions = this.props.dimensions
-            .filter(
-                dimension =>
-                    !Object.values(getPredefinedDimensions()).some(
-                        predefDim => predefDim.id === dimension.id
-                    )
+        const fixedDimensions = this.getDimensionItemsByFilter(dimension =>
+            Object.values(getFixedDimensions()).some(
+                fixedDim => fixedDim.id === dimension.id
             )
-            .filter(this.nameContainsFilterText)
-            .map(this.renderItem)
+        )
+        const dynamicDimensions = this.getDimensionItemsByFilter(dimension =>
+            Object.values(getDynamicDimensions()).some(
+                dynDim => dynDim.id === dimension.id
+            )
+        )
+        const nonPredefinedDimensions = this.getDimensionItemsByFilter(
+            dimension =>
+                !Object.values(getPredefinedDimensions()).some(
+                    predefDim => predefDim.id === dimension.id
+                )
+        )
 
         return (
             <Droppable droppableId={SOURCE_DIMENSIONS} isDropDisabled={true}>
