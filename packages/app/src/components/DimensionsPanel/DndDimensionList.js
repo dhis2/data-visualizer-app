@@ -86,7 +86,7 @@ export class DndDimensionList extends Component {
                             </div>
                             <div className={styles.section}>
                                 <h3 className={styles.header}>
-                                    Dynamic dimensions
+                                    Other dimensions
                                 </h3>
                                 <ul className={styles.list}>
                                     {dynamicDimensions}
