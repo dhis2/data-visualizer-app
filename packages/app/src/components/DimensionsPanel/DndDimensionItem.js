@@ -20,6 +20,7 @@ export class DndDimensionItem extends Component {
         } = this.props
 
         const itemCommonProps = {
+            id,
             name,
             isSelected,
             isLocked,
@@ -39,7 +40,6 @@ export class DndDimensionItem extends Component {
                             innerRef={provided.innerRef}
                             {...provided.draggableProps}
                             {...provided.dragHandleProps}
-                            id={id}
                             className={
                                 snapshot.isDragging
                                     ? styles.dragging
@@ -51,7 +51,6 @@ export class DndDimensionItem extends Component {
                         />
                         {snapshot.isDragging && (
                             <DimensionItem
-                                id={id}
                                 className={styles.dimensionItemClone}
                                 {...itemCommonProps}
                             />
