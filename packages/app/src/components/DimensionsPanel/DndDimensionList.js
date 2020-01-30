@@ -6,6 +6,9 @@ import { createSelector } from 'reselect'
 import {
     getDisallowedDimensions,
     getAllLockedDimensionIds,
+    getFixedDimensions,
+    getDynamicDimensions,
+    getPredefinedDimensions,
 } from '@dhis2/analytics'
 
 import DndDimensionItem from './DndDimensionItem'
@@ -48,7 +51,19 @@ export class DndDimensionList extends Component {
     }
 
     render() {
-        const dimensionsList = this.props.dimensions
+        const fixedDimensions = Object.values(getFixedDimensions())
+            .filter(this.nameContainsFilterText)
+            .map(this.renderItem)
+        const dynamicDimensions = Object.values(getDynamicDimensions())
+            .filter(this.nameContainsFilterText)
+            .map(this.renderItem)
+        const nonPredefinedDimensions = this.props.dimensions
+            .filter(
+                dimension =>
+                    !Object.values(getPredefinedDimensions()).some(
+                        predefDim => predefDim.id === dimension.id
+                    )
+            )
             .filter(this.nameContainsFilterText)
             .map(this.renderItem)
 
@@ -60,7 +75,32 @@ export class DndDimensionList extends Component {
                         ref={provided.innerRef}
                         {...provided.droppableProps}
                     >
-                        <ul className={styles.list}>{dimensionsList}</ul>
+                        <div className={styles.wrapper}>
+                            <div className={styles.section}>
+                                <h3 className={styles.header}>
+                                    Main dimensions
+                                </h3>
+                                <ul className={styles.list}>
+                                    {fixedDimensions}
+                                </ul>
+                            </div>
+                            <div className={styles.section}>
+                                <h3 className={styles.header}>
+                                    Dynamic dimensions
+                                </h3>
+                                <ul className={styles.list}>
+                                    {dynamicDimensions}
+                                </ul>
+                            </div>
+                            <div className={styles.section}>
+                                <h3 className={styles.header}>
+                                    Your dimensions
+                                </h3>
+                                <ul className={styles.list}>
+                                    {nonPredefinedDimensions}
+                                </ul>
+                            </div>
+                        </div>
                         {provided.placeholder}
                     </div>
                 )}

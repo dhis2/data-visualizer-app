@@ -4,11 +4,27 @@
     min-height: 30vh;
 }
 
-.list {
+.wrapper {
     position: absolute;
     width: 100%;
     height: 100%;
     overflow: auto;
     margin-top: 0px;
     padding: 0;
+}
+
+.list {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    text-transform: uppercase;
+    font-size: 12px;
+    color: var(--colors-grey600);
+    margin: 5px 0;
+}
+
+.section:not(:last-child) {
+    margin-bottom: 30px;
 }
