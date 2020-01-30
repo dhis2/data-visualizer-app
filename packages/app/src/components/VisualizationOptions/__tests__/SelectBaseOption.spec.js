@@ -9,7 +9,6 @@ describe('DV > Options > SelectBaseOption', () => {
     let props
     let shallowSelectBaseOption
     const onChange = jest.fn()
-    const onToggle = jest.fn()
 
     const selectBaseOption = props => {
         shallowSelectBaseOption = shallow(<SelectBaseOption {...props} />)
@@ -23,15 +22,15 @@ describe('DV > Options > SelectBaseOption', () => {
                 value: '',
                 label: 'toggleable test',
                 option: {
+                    name: 'toggleable-select',
+                    defaultValue: '',
                     items: [
-                        { id: '', label: 'Empty option' },
-                        { id: 'opt1', label: 'Option 1' },
-                        { id: 'opt2', label: 'Option 2' },
-                        { id: 'opt3', label: 'Option 3' },
+                        { value: 'opt1', label: 'Option 1' },
+                        { value: 'opt2', label: 'Option 2' },
+                        { value: 'opt3', label: 'Option 3' },
                     ],
                 },
                 onChange,
-                onToggle,
                 toggleable: true,
             }
 
@@ -49,10 +48,12 @@ describe('DV > Options > SelectBaseOption', () => {
         })
 
         it('does render a <SingleSelectField /> when the checkbox is enabled', () => {
-            props.enabled = true
-
             const select = selectBaseOption(props)
+            const checkbox = select.find(Checkbox)
+            checkbox.simulate('change', { checked: true })
+
             expect(select.find(SingleSelectField)).toHaveLength(1)
+            expect(onChange).toHaveBeenCalledWith(props.option.items[0].value)
             expect(select.find(Checkbox).props().checked).toBe(true)
         })
     })
@@ -62,15 +63,15 @@ describe('DV > Options > SelectBaseOption', () => {
             props = {
                 value: '',
                 option: {
+                    name: 'non-toggleable-select',
+                    defaultValue: '',
                     items: [
-                        { id: '', label: 'Empty option' },
-                        { id: 'opt1', label: 'Option 1' },
-                        { id: 'opt2', label: 'Option 2' },
-                        { id: 'opt3', label: 'Option 3' },
+                        { value: 'opt1', label: 'Option 1' },
+                        { value: 'opt2', label: 'Option 2' },
+                        { value: 'opt3', label: 'Option 3' },
                     ],
                 },
                 onChange,
-                onToggle,
                 toggleable: false,
             }
 
@@ -89,7 +90,7 @@ describe('DV > Options > SelectBaseOption', () => {
             options.forEach((item, index) => {
                 const option = props.option.items[index]
 
-                expect(item.props().value).toEqual(option.id)
+                expect(item.props().value).toEqual(option.value)
                 expect(item.props().label).toEqual(option.label)
             })
         })
@@ -99,7 +100,9 @@ describe('DV > Options > SelectBaseOption', () => {
 
             select.simulate('change', {
                 selected: {
-                    value: props.option.items.find(item => item.id === 'opt2'),
+                    value: props.option.items.find(
+                        item => item.value === 'opt2'
+                    ),
                 },
             })
 
