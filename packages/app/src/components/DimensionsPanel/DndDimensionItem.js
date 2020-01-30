@@ -41,7 +41,9 @@ export class DndDimensionItem extends Component {
                             {...provided.dragHandleProps}
                             id={id}
                             className={
-                                snapshot.isDragging ? styles.dragging : null
+                                snapshot.isDragging
+                                    ? styles.dragging
+                                    : styles.notDragging
                             }
                             onClick={onClick}
                             onOptionsClick={onOptionsClick}
@@ -49,7 +51,7 @@ export class DndDimensionItem extends Component {
                         />
                         {snapshot.isDragging && (
                             <DimensionItem
-                                id={`dimension-item-clone-${id}`}
+                                id={id}
                                 className={styles.dimensionItemClone}
                                 {...itemCommonProps}
                             />

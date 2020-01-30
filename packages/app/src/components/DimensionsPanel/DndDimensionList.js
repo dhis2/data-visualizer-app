@@ -19,6 +19,8 @@ import { SOURCE_DIMENSIONS } from '../../modules/layout'
 import styles from './styles/DndDimensionList.module.css'
 
 export class DndDimensionList extends Component {
+    dndIndex = 0
+
     nameContainsFilterText = dimension =>
         dimension.name
             .toLowerCase()
@@ -29,11 +31,11 @@ export class DndDimensionList extends Component {
     isLockedDimension = id => this.props.lockedDimensions.includes(id)
     isRecommendedDimension = id => this.props.recommendedIds.includes(id)
 
-    renderItem = ({ id, name }, index) => {
+    renderItem = ({ id, name }) => {
         const itemProps = {
             id,
             name,
-            index,
+            index: this.dndIndex,
             isSelected: this.isSelected(id),
             isLocked: this.isLockedDimension(id),
             isDeactivated: this.isDisabledDimension(id),
@@ -41,6 +43,8 @@ export class DndDimensionList extends Component {
             onClick: this.props.onDimensionClick,
             onOptionsClick: this.props.onDimensionOptionsClick,
         }
+
+        ++this.dndIndex
 
         return (
             <DndDimensionItem
@@ -57,6 +61,7 @@ export class DndDimensionList extends Component {
             .map(this.renderItem)
 
     render() {
+        this.dndIndex = 0
         const fixedDimensions = this.getDimensionItemsByFilter(dimension =>
             Object.values(getFixedDimensions()).some(
                 fixedDim => fixedDim.id === dimension.id
