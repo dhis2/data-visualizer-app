@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
+import { CssVariables } from '@dhis2/ui-core'
 
 import DndContext from './DndContext'
 import Snackbar from '../components/Snackbar/Snackbar'
@@ -199,6 +200,7 @@ export class App extends Component {
                     </div>
                 </div>
                 <Snackbar />
+                <CssVariables colors spacers />
             </>
         )
     }
