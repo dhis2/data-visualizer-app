@@ -200,8 +200,7 @@ export class App extends Component {
                     </div>
                 </div>
                 <Snackbar />
-                <CssVariables colors />
-                <CssVariables spacers />
+                <CssVariables colors spacers />
             </>
         )
     }
