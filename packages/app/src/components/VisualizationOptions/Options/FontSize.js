@@ -10,9 +10,9 @@ const FontSize = () => (
         option={{
             name: 'fontSize',
             items: [
-                { id: 'LARGE', label: i18n.t('Large') },
-                { id: 'NORMAL', label: i18n.t('Normal') },
-                { id: 'SMALL', label: i18n.t('Small') },
+                { value: 'LARGE', label: i18n.t('Large') },
+                { value: 'NORMAL', label: i18n.t('Normal') },
+                { value: 'SMALL', label: i18n.t('Small') },
             ],
         }}
     />

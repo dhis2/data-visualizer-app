@@ -16,14 +16,13 @@ const HideEmptyRowItems = () => (
             name: optionName,
             defaultValue: defaultValue,
             items: [
-                { id: 'NONE', label: i18n.t('None') },
-                { id: 'BEFORE_FIRST', label: i18n.t('Before first') },
-                { id: 'AFTER_LAST', label: i18n.t('After last') },
+                { value: 'BEFORE_FIRST', label: i18n.t('Before first') },
+                { value: 'AFTER_LAST', label: i18n.t('After last') },
                 {
-                    id: 'BEFORE_FIRST_AFTER_LAST',
+                    value: 'BEFORE_FIRST_AFTER_LAST',
                     label: i18n.t('Before first and after last'),
                 },
-                { id: 'ALL', label: i18n.t('All') },
+                { value: 'ALL', label: i18n.t('All') },
             ],
         }}
     />
