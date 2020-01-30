@@ -27,5 +27,5 @@
 }
 
 .section:not(:last-child) {
-    margin-bottom: 30px;
+    margin-bottom: var(--spacers-dp24);
 }
