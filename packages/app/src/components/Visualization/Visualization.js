@@ -48,7 +48,6 @@ export class Visualization extends Component {
         }
 
         this.props.setLoadError(error)
-        this.props.onLoadingFinished()
     }
 
     onChartGenerated = svg => this.props.setChart(svg)
