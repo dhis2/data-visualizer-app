@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import { Checkbox, Input, InputField } from '@dhis2/ui-core'
+import { Checkbox, Constrictor, Input, InputField } from '@dhis2/ui-core'
 
 import { sGetUiOptions } from '../../../reducers/ui'
 import { acSetUiOptions } from '../../../actions/ui'
@@ -47,15 +47,16 @@ export const TextBaseOption = ({
                 }
             >
                 {inline ? (
-                    <Input
-                        type={type}
-                        onChange={({ value }) => onChange(value)}
-                        name={option.name}
-                        value={value}
-                        placeholder={placeholder}
-                        width={width}
-                        dense
-                    />
+                    <Constrictor width={width}>
+                        <Input
+                            type={type}
+                            onChange={({ value }) => onChange(value)}
+                            name={option.name}
+                            value={value}
+                            placeholder={placeholder}
+                            dense
+                        />
+                    </Constrictor>
                 ) : (
                     <InputField
                         type={type}
