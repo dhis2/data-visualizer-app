@@ -7,10 +7,34 @@ import {
     DIMENSION_ID_ORGUNIT,
 } from '@dhis2/analytics'
 
-import { pieLayoutAdapter, yearOverYearLayoutAdapter } from '../layoutAdapters'
+import {
+    defaultLayoutAdapter,
+    pieLayoutAdapter,
+    yearOverYearLayoutAdapter,
+} from '../layoutAdapters'
 
 const someId = 'someId'
 const otherId = 'otherId'
+
+describe('defaultLayoutAdapter', () => {
+    it('should move all extra dimensions in columns and rows to filters', () => {
+        const initialState = {
+            [AXIS_ID_COLUMNS]: [DIMENSION_ID_DATA, someId],
+            [AXIS_ID_ROWS]: [DIMENSION_ID_PERIOD, otherId],
+            [AXIS_ID_FILTERS]: [DIMENSION_ID_ORGUNIT],
+        }
+
+        const actualState = defaultLayoutAdapter(initialState)
+
+        const expectedState = {
+            [AXIS_ID_COLUMNS]: [DIMENSION_ID_DATA],
+            [AXIS_ID_ROWS]: [DIMENSION_ID_PERIOD],
+            [AXIS_ID_FILTERS]: [DIMENSION_ID_ORGUNIT, someId, otherId],
+        }
+
+        expect(actualState).toEqual(expectedState)
+    })
+})
 
 describe('pieLayoutAdapter', () => {
     it('should move all column and row dimensions to filter except the first column dimension', () => {
