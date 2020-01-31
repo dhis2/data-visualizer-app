@@ -14,7 +14,6 @@ import {
 } from './api/analytics'
 import { getOptionsForRequest } from './modules/options'
 import { computeGenericPeriodNames } from './modules/analytics'
-import LoadingMask from './widgets/LoadingMask'
 
 class ChartPlugin extends Component {
     constructor(props) {
@@ -96,6 +95,7 @@ class ChartPlugin extends Component {
             onResponsesReceived,
             onChartGenerated,
             onError,
+            onLoadingComplete,
         } = this.props
 
         try {
@@ -163,6 +163,7 @@ class ChartPlugin extends Component {
             this.recreateVisualization()
 
             this.setState({ isLoading: false })
+            onLoadingComplete()
         } catch (error) {
             onError(error)
         }
@@ -171,7 +172,6 @@ class ChartPlugin extends Component {
     render() {
         return (
             <Fragment>
-                {this.state.isLoading ? <LoadingMask /> : null}
                 <div ref={this.canvasRef} style={this.props.style} />
             </Fragment>
         )
@@ -186,6 +186,7 @@ ChartPlugin.defaultProps = {
     animation: 200,
     onError: Function.prototype,
     onChartGenerated: Function.prototype,
+    onLoadingComplete: Function.prototype,
     onResponsesReceived: Function.prototype,
 }
 
@@ -199,6 +200,7 @@ ChartPlugin.propTypes = {
     id: PropTypes.number,
     style: PropTypes.object,
     onChartGenerated: PropTypes.func,
+    onLoadingComplete: PropTypes.func,
     onResponsesReceived: PropTypes.func,
 }
 
