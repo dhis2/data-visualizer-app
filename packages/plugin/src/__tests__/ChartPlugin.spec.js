@@ -2,7 +2,6 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import * as analytics from '@dhis2/analytics'
 
-import LoadingMask from '../widgets/LoadingMask'
 import ChartPlugin from '../ChartPlugin'
 import * as api from '../api/analytics'
 import * as options from '../modules/options'
@@ -136,14 +135,15 @@ describe('ChartPlugin', () => {
             .mockResolvedValue([new MockAnalyticsResponse()])
     })
 
-    it('renders the loading indicator', () => {
-        props.loading = true
-        expect(
-            canvas()
-                .find(LoadingMask)
-                .exists()
-        ).toBeTruthy()
-    })
+    // it('renders the loading indicator', () => {
+    //     props.loading = true
+    //     expect(
+    //         canvas()
+    //             .find(LoadingMask)
+    //             .exists()
+    //     ).toBeTruthy()
+    // })
+    // TODO: Before merging, move this to Visualization.js
 
     describe('createVisualization success', () => {
         beforeEach(() => {
