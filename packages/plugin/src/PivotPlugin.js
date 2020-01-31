@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import isEqual from 'lodash-es/isEqual'
 import i18n from '@dhis2/d2-i18n'
@@ -11,7 +11,6 @@ import {
 } from 'd2-analysis'
 import { apiFetchAnalytics } from './api/analytics'
 import { getOptionsForRequest } from './modules/options'
-import LoadingMask from './widgets/LoadingMask'
 
 import { pivotTableStyles } from './styles/PivotPlugin.style.js'
 
@@ -22,10 +21,6 @@ class PivotPlugin extends Component {
         this.canvasRef = React.createRef()
 
         this.recreateVisualization = Function.prototype
-
-        this.state = {
-            isLoading: true,
-        }
     }
 
     componentDidMount() {
@@ -93,6 +88,7 @@ class PivotPlugin extends Component {
             filters,
             onResponsesReceived,
             onError,
+            onLoadingComplete,
         } = this.props
 
         const i18nManager = {
@@ -164,7 +160,7 @@ class PivotPlugin extends Component {
 
             this.recreateVisualization()
 
-            this.setState({ isLoading: false })
+            onLoadingComplete()
         } catch (error) {
             onError(error)
         }
@@ -172,12 +168,9 @@ class PivotPlugin extends Component {
 
     render() {
         return (
-            <Fragment>
-                {this.state.isLoading ? <LoadingMask /> : null}
-                <div ref={this.canvasRef} style={this.props.style}>
-                    <style jsx>{pivotTableStyles}</style>
-                </div>
-            </Fragment>
+            <div ref={this.canvasRef} style={this.props.style}>
+                <style jsx>{pivotTableStyles}</style>
+            </div>
         )
     }
 }
@@ -188,6 +181,7 @@ PivotPlugin.defaultProps = {
     style: {},
     animation: 200,
     onError: Function.prototype,
+    onLoadingComplete: Function.prototype,
     onResponsesReceived: Function.prototype,
 }
 
@@ -198,6 +192,7 @@ PivotPlugin.propTypes = {
     filters: PropTypes.object,
     id: PropTypes.number,
     style: PropTypes.object,
+    onLoadingComplete: PropTypes.func,
     onResponsesReceived: PropTypes.func,
 }
 

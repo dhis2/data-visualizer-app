@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import isEqual from 'lodash-es/isEqual'
 import i18n from '@dhis2/d2-i18n'
@@ -22,10 +22,6 @@ class ChartPlugin extends Component {
         this.canvasRef = React.createRef()
 
         this.recreateVisualization = Function.prototype
-
-        this.state = {
-            isLoading: true,
-        }
     }
 
     componentDidMount() {
@@ -162,7 +158,6 @@ class ChartPlugin extends Component {
 
             this.recreateVisualization()
 
-            this.setState({ isLoading: false })
             onLoadingComplete()
         } catch (error) {
             onError(error)
@@ -170,11 +165,7 @@ class ChartPlugin extends Component {
     }
 
     render() {
-        return (
-            <Fragment>
-                <div ref={this.canvasRef} style={this.props.style} />
-            </Fragment>
-        )
+        return <div ref={this.canvasRef} style={this.props.style} />
     }
 }
 
