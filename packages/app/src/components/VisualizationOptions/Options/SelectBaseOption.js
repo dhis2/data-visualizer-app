@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
@@ -16,13 +16,21 @@ export const SelectBaseOption = ({
     option,
     label,
     helpText,
-    enabled,
     toggleable,
     value,
     onChange,
-    onToggle,
 }) => {
-    const selected = option.items.find(item => item.id === value)
+    const defaultValue = option.defaultValue
+
+    const [enabled, setEnabled] = useState(value !== defaultValue)
+
+    const selected = option.items.find(item => item.value === value) || {}
+
+    const onToggle = checked => {
+        setEnabled(checked)
+
+        onChange(checked ? option.items[0].value : defaultValue)
+    }
 
     return (
         <div
@@ -46,21 +54,18 @@ export const SelectBaseOption = ({
                     }
                 >
                     <SingleSelectField
-                        name={option.name}
+                        name={`${option.name}-select`}
                         label={toggleable ? '' : label}
                         onChange={({ selected }) => onChange(selected.value)}
-                        selected={{
-                            value: selected.id,
-                            label: selected.label,
-                        }}
+                        selected={selected}
                         helpText={helpText}
                         inputWidth="280px"
                         dense
                     >
-                        {option.items.map(({ id, label }) => (
+                        {option.items.map(({ value, label }) => (
                             <SingleSelectOption
-                                key={id}
-                                value={id}
+                                key={value}
+                                value={value}
                                 label={label}
                             />
                         ))}
@@ -75,29 +80,18 @@ SelectBaseOption.propTypes = {
     option: PropTypes.object.isRequired,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     onChange: PropTypes.func.isRequired,
-    enabled: PropTypes.bool,
     helpText: PropTypes.string,
     label: PropTypes.string,
     toggleable: PropTypes.bool,
-    onToggle: PropTypes.func,
 }
 
 const mapStateToProps = (state, ownProps) => ({
     value: sGetUiOptions(state)[ownProps.option.name],
-    enabled: sGetUiOptions(state)[ownProps.option.name] !== undefined,
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
     onChange: value =>
         dispatch(acSetUiOptions({ [ownProps.option.name]: value })),
-    onToggle: checked =>
-        dispatch(
-            acSetUiOptions({
-                [ownProps.option.name]: checked
-                    ? ownProps.option.defaultValue
-                    : undefined,
-            })
-        ),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SelectBaseOption)

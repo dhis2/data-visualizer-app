@@ -10,9 +10,9 @@ const DisplayDensity = () => (
         option={{
             name: 'displayDensity',
             items: [
-                { id: 'COMFORTABLE', label: i18n.t('Comfortable') },
-                { id: 'NORMAL', label: i18n.t('Normal') },
-                { id: 'COMPACT', label: i18n.t('Compact') },
+                { value: 'COMFORTABLE', label: i18n.t('Comfortable') },
+                { value: 'NORMAL', label: i18n.t('Normal') },
+                { value: 'COMPACT', label: i18n.t('Compact') },
             ],
         }}
     />

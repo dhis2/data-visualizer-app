@@ -10,9 +10,9 @@ const DigitGroupSeparator = () => (
         option={{
             name: 'digitGroupSeparator',
             items: [
-                { id: 'NONE', label: i18n.t('None') },
-                { id: 'SPACE', label: i18n.t('Space') },
-                { id: 'COMMA', label: i18n.t('Comma') },
+                { value: 'NONE', label: i18n.t('None') },
+                { value: 'SPACE', label: i18n.t('Space') },
+                { value: 'COMMA', label: i18n.t('Comma') },
             ],
         }}
     />

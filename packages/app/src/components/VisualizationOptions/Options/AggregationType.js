@@ -13,23 +13,23 @@ const AggregationType = () => (
         option={{
             name: 'aggregationType',
             items: [
-                { id: 'DEFAULT', label: i18n.t('By data element') },
-                { id: 'COUNT', label: i18n.t('Count') },
-                { id: 'AVERAGE', label: i18n.t('Average') },
+                { value: 'DEFAULT', label: i18n.t('By data element') },
+                { value: 'COUNT', label: i18n.t('Count') },
+                { value: 'AVERAGE', label: i18n.t('Average') },
                 {
-                    id: 'AVERAGE_SUM_ORG_UNIT',
+                    value: 'AVERAGE_SUM_ORG_UNIT',
                     label: i18n.t('Average (sum in org unit hierarchy)'),
                 },
-                { id: 'SUM', label: i18n.t('Sum') },
-                { id: 'LAST', label: i18n.t('Last value') },
+                { value: 'SUM', label: i18n.t('Sum') },
+                { value: 'LAST', label: i18n.t('Last value') },
                 {
-                    id: 'LAST_AVERAGE_ORG_UNIT',
+                    value: 'LAST_AVERAGE_ORG_UNIT',
                     label: i18n.t('Last value (average in org unit hierarchy)'),
                 },
-                { id: 'MIN', label: i18n.t('Min') },
-                { id: 'MAX', label: i18n.t('Max') },
-                { id: 'STDDEV', label: i18n.t('Standard deviation') },
-                { id: 'VARIANCE', label: i18n.t('Variance') },
+                { value: 'MIN', label: i18n.t('Min') },
+                { value: 'MAX', label: i18n.t('Max') },
+                { value: 'STDDEV', label: i18n.t('Standard deviation') },
+                { value: 'VARIANCE', label: i18n.t('Variance') },
             ],
         }}
     />
