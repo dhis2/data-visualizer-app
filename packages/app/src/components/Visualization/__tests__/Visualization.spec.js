@@ -28,10 +28,11 @@ describe('Visualization', () => {
                 visFilters: null,
                 error: null,
                 rightSidebarOpen: false,
-                acAddMetadata: jest.fn(),
-                acSetChart: jest.fn(),
-                acClearLoadError: jest.fn(),
-                acSetLoadError: jest.fn(),
+                addMetadata: jest.fn(),
+                setChart: jest.fn(),
+                clearLoadError: jest.fn(),
+                setLoadError: jest.fn(),
+                onLoadingFinished: jest.fn(),
             }
 
             shallowVisualization = undefined
@@ -54,21 +55,23 @@ describe('Visualization', () => {
                 c: { id: 'c', name: 'c' },
             }
 
-            vis().simulate('responsesReceived', [
-                { metaData: { items }, rows: [1, 2, 3] },
-            ])
+            vis()
+                .instance()
+                .onResponsesReceived([{ metaData: { items }, rows: [1, 2, 3] }])
 
-            expect(props.acAddMetadata).toHaveBeenCalled()
-            expect(props.acAddMetadata).toHaveBeenCalledWith(items)
+            expect(props.addMetadata).toHaveBeenCalled()
+            expect(props.addMetadata).toHaveBeenCalledWith(items)
         })
 
         it('triggers setChart action when chart has been generated', () => {
             const svg = 'coolChart'
 
-            vis().simulate('chartGenerated', svg)
+            vis()
+                .instance()
+                .onChartGenerated(svg)
 
-            expect(props.acSetChart).toHaveBeenCalled()
-            expect(props.acSetChart).toHaveBeenCalledWith(svg)
+            expect(props.setChart).toHaveBeenCalled()
+            expect(props.setChart).toHaveBeenCalledWith(svg)
         })
 
         it('renders visualization with new id when rightSidebarOpen prop changes', () => {
