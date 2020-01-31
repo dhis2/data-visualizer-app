@@ -48,6 +48,7 @@ export class Visualization extends Component {
         }
 
         this.props.setLoadError(error)
+        this.props.onLoadingFinished()
     }
 
     onChartGenerated = svg => this.props.setChart(svg)
@@ -168,9 +169,9 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     onLoadingFinished: () => dispatch(acSetPluginLoading(false)),
-    addMetadata: () => dispatch(acAddMetadata),
-    setChart: () => dispatch(acSetChart),
-    setLoadError: () => dispatch(acSetLoadError),
+    addMetadata: metadata => dispatch(acAddMetadata(metadata)),
+    setChart: chart => dispatch(acSetChart(chart)),
+    setLoadError: error => dispatch(acSetLoadError(error)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Visualization)
