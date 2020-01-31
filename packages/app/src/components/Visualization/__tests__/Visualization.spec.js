@@ -32,7 +32,7 @@ describe('Visualization', () => {
                 setChart: jest.fn(),
                 clearLoadError: jest.fn(),
                 setLoadError: jest.fn(),
-                onLoadingFinished: jest.fn(),
+                onLoadingComplete: jest.fn(),
             }
 
             shallowVisualization = undefined

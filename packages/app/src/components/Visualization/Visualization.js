@@ -118,7 +118,7 @@ export class Visualization extends Component {
                     config={visConfig}
                     filters={visFilters}
                     onChartGenerated={this.onChartGenerated}
-                    onLoadingComplete={this.props.onLoadingFinished}
+                    onLoadingComplete={this.props.onLoadingComplete}
                     onResponsesReceived={this.onResponsesReceived}
                     onError={this.onError}
                     style={styles.chartCanvas}
@@ -141,7 +141,7 @@ Visualization.propTypes = {
     setLoadError: PropTypes.func,
     visConfig: PropTypes.object,
     visFilters: PropTypes.object,
-    onLoadingFinished: PropTypes.func,
+    onLoadingComplete: PropTypes.func,
 }
 
 export const visConfigSelector = createSelector(
@@ -167,7 +167,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    onLoadingFinished: () => dispatch(acSetPluginLoading(false)),
+    onLoadingComplete: () => dispatch(acSetPluginLoading(false)),
     addMetadata: metadata => dispatch(acAddMetadata(metadata)),
     setChart: chart => dispatch(acSetChart(chart)),
     setLoadError: error => dispatch(acSetLoadError(error)),
