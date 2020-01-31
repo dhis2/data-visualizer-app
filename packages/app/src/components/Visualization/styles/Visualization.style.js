@@ -1,7 +1,8 @@
 export default {
     chartCanvas: {
         display: 'flex',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
         height: '100%',
     },
 }
