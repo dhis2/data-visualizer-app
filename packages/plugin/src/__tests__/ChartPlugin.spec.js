@@ -135,16 +135,6 @@ describe('ChartPlugin', () => {
             .mockResolvedValue([new MockAnalyticsResponse()])
     })
 
-    // it('renders the loading indicator', () => {
-    //     props.loading = true
-    //     expect(
-    //         canvas()
-    //             .find(LoadingMask)
-    //             .exists()
-    //     ).toBeTruthy()
-    // })
-    // TODO: Before merging, move this to Visualization.js
-
     describe('createVisualization success', () => {
         beforeEach(() => {
             analytics.createVisualization = jest

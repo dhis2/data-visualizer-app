@@ -8,6 +8,7 @@ import {
 } from '../Visualization'
 import StartScreen from '../StartScreen'
 import { GenericServerError } from '../../../modules/error'
+import LoadingMask from '../LoadingMask'
 
 jest.mock('@dhis2/data-visualizer-plugin', () => () => <div />)
 
@@ -42,6 +43,24 @@ describe('Visualization', () => {
             props.error = new GenericServerError()
 
             expect(vis().find(StartScreen).length).toEqual(1)
+        })
+
+        it('renders the loading indicator when loading', () => {
+            props.isLoading = true
+            expect(
+                vis()
+                    .find(LoadingMask)
+                    .exists()
+            ).toBeTruthy()
+        })
+
+        it('hides the loading indicator when not loading', () => {
+            props.isLoading = false
+            expect(
+                vis()
+                    .find(LoadingMask)
+                    .exists()
+            ).toBeFalsy()
         })
 
         it('renders a VisualizationPlugin when no error and visConfig available', () => {
