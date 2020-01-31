@@ -49,15 +49,6 @@ const PivotPlugin = ({
     const [visualization, setVisualization] = useState(null)
     const [data, setData] = useState(null)
 
-    const remappedOptions = {
-        showColumnTotals: config.colTotals,
-        showRowTotals: config.rowTotals,
-        showColumnSubtotals: config.colSubTotals,
-        showRowSubtotals: config.rowSubTotals,
-        hideEmptyColumns: config.hideEmptyColumns,
-        hideEmptyRows: config.hideEmptyRows,
-    }
-
     useEffect(() => {
         setIsLoading(true)
         const options = getRequestOptions(config, filters)
@@ -88,11 +79,7 @@ const PivotPlugin = ({
                     <LoadingMask />
                 </div>
             ) : (
-                <PivotTable
-                    visualization={visualization}
-                    data={data}
-                    options={remappedOptions}
-                />
+                <PivotTable visualization={visualization} data={data} />
             )}
         </div>
     )
