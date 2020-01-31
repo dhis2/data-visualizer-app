@@ -11,13 +11,13 @@ const NumberType = () => (
         option={{
             name: 'numberType',
             items: [
-                { id: 'VALUE', label: i18n.t('Value') },
+                { value: 'VALUE', label: i18n.t('Value') },
                 {
-                    id: 'ROW_PERCENTAGE',
+                    value: 'ROW_PERCENTAGE',
                     label: i18n.t('Percentage of row'),
                 },
                 {
-                    id: 'COLUMN_PERCENTAGE',
+                    value: 'COLUMN_PERCENTAGE',
                     label: i18n.t('Percentage of column'),
                 },
             ],

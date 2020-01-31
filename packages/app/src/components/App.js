@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
+import { CssVariables } from '@dhis2/ui-core'
 
+import DndContext from './DndContext'
 import Snackbar from '../components/Snackbar/Snackbar'
 import MenuBar from './MenuBar/MenuBar'
 import TitleBar from './TitleBar/TitleBar'
@@ -32,6 +34,7 @@ export class App extends Component {
 
     state = {
         previousLocation: null,
+        initialLoadIsComplete: false,
     }
 
     /**
@@ -99,7 +102,7 @@ export class App extends Component {
             fromActions.clearVisualization(store.dispatch, store.getState)
             fromActions.fromUi.acClearUiInterpretation(store.dispatch)
         }
-
+        this.setState({ initialLoadIsComplete: true })
         this.setState({ previousLocation: location.pathname })
     }
 
@@ -168,20 +171,24 @@ export class App extends Component {
                         </div>
                     </div>
                     <div className="section-main flex-grow-1 flex-ct">
-                        <div className="main-left">
-                            <DimensionsPanel />
-                        </div>
-                        <div className="main-center flex-grow-1 flex-basis-0 flex-ct flex-dir-col">
-                            <div className="main-center-layout">
-                                <Layout />
+                        <DndContext>
+                            <div className="main-left">
+                                <DimensionsPanel />
                             </div>
-                            <div className="main-center-titlebar">
-                                <TitleBar />
+                            <div className="main-center flex-grow-1 flex-basis-0 flex-ct flex-dir-col">
+                                <div className="main-center-layout">
+                                    <Layout />
+                                </div>
+                                <div className="main-center-titlebar">
+                                    <TitleBar />
+                                </div>
+                                <div className="main-center-canvas flex-grow-1">
+                                    {this.state.initialLoadIsComplete && (
+                                        <Visualization />
+                                    )}
+                                </div>
                             </div>
-                            <div className="main-center-canvas flex-grow-1">
-                                <Visualization />
-                            </div>
-                        </div>
+                        </DndContext>
                         {this.props.ui.rightSidebarOpen && this.props.current && (
                             <div className="main-right">
                                 <Interpretations
@@ -193,6 +200,7 @@ export class App extends Component {
                     </div>
                 </div>
                 <Snackbar />
+                <CssVariables colors spacers />
             </>
         )
     }

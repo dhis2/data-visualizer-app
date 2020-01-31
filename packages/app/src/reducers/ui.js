@@ -105,20 +105,26 @@ export default (state = DEFAULT_UI, action) => {
             let newLayout = state.layout
 
             // Add dimension ids to destination (axisId === null means remove from layout)
-            Object.entries(transfers).forEach(([dimensionId, axisId]) => {
-                if (
-                    newLayout[axisId] &&
-                    canDimensionBeAddedToAxis(
-                        state.type,
-                        newLayout[axisId],
-                        axisId
-                    )
-                ) {
-                    // Filter out transferred dimension id (remove from source)
-                    newLayout = getFilteredLayout(newLayout, [dimensionId])
-                    newLayout[axisId].push(dimensionId)
+            Object.entries(transfers).forEach(
+                ([dimensionId, { axisId, index }]) => {
+                    if (
+                        newLayout[axisId] &&
+                        canDimensionBeAddedToAxis(
+                            state.type,
+                            newLayout[axisId],
+                            axisId
+                        )
+                    ) {
+                        // Filter out transferred dimension id (remove from source)
+                        newLayout = getFilteredLayout(newLayout, [dimensionId])
+                        if (index === null || index === undefined) {
+                            newLayout[axisId].push(dimensionId)
+                        } else {
+                            newLayout[axisId].splice(index, 0, dimensionId)
+                        }
+                    }
                 }
-            })
+            )
 
             return {
                 ...state,

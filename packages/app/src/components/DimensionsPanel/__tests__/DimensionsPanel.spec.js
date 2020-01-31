@@ -1,10 +1,10 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { DimensionsPanel } from '@dhis2/analytics'
+import { DndDimensionsPanel } from '../DndDimensionsPanel'
 
 import { Dimensions } from '../DimensionsPanel'
 
-describe('The Dimensions component ', () => {
+describe('Dimensions component ', () => {
     let shallowDimensions
     let props
     const dimensionsComponent = () => {
@@ -17,7 +17,6 @@ describe('The Dimensions component ', () => {
     beforeEach(() => {
         shallowDimensions = undefined
         props = {
-            dimensions: {},
             ui: {
                 layout: {},
                 type: '',
@@ -42,9 +41,9 @@ describe('The Dimensions component ', () => {
         expect(wrappingDiv.children()).toEqual(dimensionsComponent().children())
     })
 
-    it('renders a DimensionsPanel with the correct prop', () => {
+    it('renders a DndDimensionsPanel', () => {
         const dimensionsComp = dimensionsComponent()
 
-        expect(dimensionsComp.find(DimensionsPanel).length).toEqual(1)
+        expect(dimensionsComp.find(DndDimensionsPanel).length).toEqual(1)
     })
 })

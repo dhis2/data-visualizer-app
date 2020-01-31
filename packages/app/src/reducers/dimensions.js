@@ -1,9 +1,9 @@
-import { getFixedDimensions } from '@dhis2/analytics'
+import { getPredefinedDimensions } from '@dhis2/analytics'
 
 export const SET_DIMENSIONS = 'SET_DIMENSIONS'
 export const SET_SELECTED_DIMENSION = 'SET_SELECTED_DIMENSION'
 
-const DEFAULT_DIMENSIONS = getFixedDimensions()
+const DEFAULT_DIMENSIONS = getPredefinedDimensions()
 
 export default (state = DEFAULT_DIMENSIONS, action) => {
     switch (action.type) {

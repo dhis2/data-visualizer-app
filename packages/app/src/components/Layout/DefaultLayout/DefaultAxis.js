@@ -2,58 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
-import {
-    getAxisName,
-    isDimensionLocked,
-    canDimensionBeAddedToAxis,
-} from '@dhis2/analytics'
+import { getAxisName, isDimensionLocked } from '@dhis2/analytics'
 import { withStyles } from '@material-ui/core'
 
 import Chip from '../Chip'
-import {
-    sGetUi,
-    sGetUiLayout,
-    sGetUiItems,
-    sGetUiType,
-} from '../../../reducers/ui'
-import { decodeDataTransfer } from '../../../modules/dnd'
-import {
-    acAddUiLayoutDimensions,
-    acSetUiActiveModalDialog,
-} from '../../../actions/ui'
-import { SOURCE_DIMENSIONS } from '../../../modules/layout'
+import { sGetUi, sGetUiLayout, sGetUiType } from '../../../reducers/ui'
+import { acSetUiActiveModalDialog } from '../../../actions/ui'
 
 import styles from './styles/DefaultAxis.style'
 class Axis extends React.Component {
     onDragOver = e => {
         e.preventDefault()
-    }
-
-    onDrop = e => {
-        e.preventDefault()
-
-        const {
-            type,
-            layout,
-            axisId,
-            itemsByDimension,
-            onAddDimension,
-            onDropWithoutItems,
-        } = this.props
-        const { dimensionId, source } = decodeDataTransfer(e)
-
-        if (canDimensionBeAddedToAxis(type, layout[axisId], axisId)) {
-            onAddDimension({
-                [dimensionId]: axisId,
-            })
-
-            const items = itemsByDimension[dimensionId]
-            const hasNoItems = Boolean(!items || !items.length)
-
-            if (source === SOURCE_DIMENSIONS && hasNoItems) {
-                onDropWithoutItems(dimensionId)
-            }
-        }
     }
 
     render() {
@@ -64,9 +23,10 @@ class Axis extends React.Component {
                 id={axisId}
                 style={{ ...styles.axisContainer, ...style }}
                 onDragOver={this.onDragOver}
-                onDrop={this.onDrop}
             >
-                <div style={styles.label}>{getAxisName(axisId)}</div>
+                <div style={styles.label}>
+                    {this.props.label || getAxisName(axisId)}
+                </div>
                 <Droppable droppableId={axisId} direction="horizontal">
                     {provided => (
                         <div
@@ -121,13 +81,11 @@ Axis.propTypes = {
     getMoveHandler: PropTypes.func,
     getOpenHandler: PropTypes.func,
     getRemoveHandler: PropTypes.func,
-    itemsByDimension: PropTypes.object,
+    label: PropTypes.string,
     layout: PropTypes.object,
     style: PropTypes.object,
     type: PropTypes.string,
     ui: PropTypes.object,
-    onAddDimension: PropTypes.func,
-    onDropWithoutItems: PropTypes.func,
     onOpenAxisSetup: PropTypes.func,
 }
 
@@ -135,13 +93,9 @@ const mapStateToProps = state => ({
     ui: sGetUi(state),
     type: sGetUiType(state),
     layout: sGetUiLayout(state),
-    itemsByDimension: sGetUiItems(state),
 })
 
 const mapDispatchToProps = dispatch => ({
-    onAddDimension: map => dispatch(acAddUiLayoutDimensions(map)),
-    onDropWithoutItems: dimensionId =>
-        dispatch(acSetUiActiveModalDialog(dimensionId)),
     getOpenHandler: dimensionId => () =>
         dispatch(acSetUiActiveModalDialog(dimensionId)),
 })

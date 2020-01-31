@@ -4,8 +4,19 @@ import {
     AXIS_ID_FILTERS,
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
-    DIMENSION_ID_ASSIGNED_CATEGORIES,
 } from '@dhis2/analytics'
+
+// Transform from ui.layout to default layout format
+export const defaultLayoutAdapter = layout => {
+    const columns = layout[AXIS_ID_COLUMNS].slice()
+    const rows = layout[AXIS_ID_ROWS].slice()
+
+    return {
+        [AXIS_ID_COLUMNS]: [columns.shift()],
+        [AXIS_ID_ROWS]: [rows.shift()],
+        [AXIS_ID_FILTERS]: [...layout[AXIS_ID_FILTERS], ...columns, ...rows],
+    }
+}
 
 // Transform from ui.layout to pie layout format
 export const pieLayoutAdapter = layout => {
@@ -27,11 +38,7 @@ export const yearOverYearLayoutAdapter = layout => ({
         ...layout[AXIS_ID_FILTERS],
         ...layout[AXIS_ID_COLUMNS],
         ...layout[AXIS_ID_ROWS],
-    ].filter(
-        dim =>
-            dim !== DIMENSION_ID_PERIOD &&
-            dim !== DIMENSION_ID_ASSIGNED_CATEGORIES
-    ),
+    ].filter(dim => dim !== DIMENSION_ID_PERIOD),
 })
 
 // Transform from ui.layout to single value layout format
@@ -46,10 +53,6 @@ export const singleValueLayoutAdapter = layout => {
             ...layout[AXIS_ID_FILTERS],
             ...columns,
             ...rows,
-        ].filter(
-            dim =>
-                dim !== DIMENSION_ID_DATA &&
-                dim !== DIMENSION_ID_ASSIGNED_CATEGORIES
-        ),
+        ].filter(dim => dim !== DIMENSION_ID_DATA),
     }
 }

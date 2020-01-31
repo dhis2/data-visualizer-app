@@ -14,6 +14,10 @@ export const tabSection = css.resolve`
     div {
         padding: ${spacers.dp16} 0;
     }
+    div:not(:last-child) {
+        border-bottom: 1px solid ${colors.grey300};
+        margin-bottom: ${spacers.dp8};
+    }
 `
 
 export const tabSectionContent = css.resolve`
@@ -25,9 +29,11 @@ export const tabSectionContent = css.resolve`
 export const tabSectionTitle = css.resolve`
     span {
         display: inline-block;
-        padding-bottom: ${spacers.dp16};
-        font-size: ${spacers.dp16};
+        padding-bottom: ${spacers.dp12};
+        font-size: 15px;
         color: ${colors.grey900};
+        font-weight: 500;
+        letter-spacing: 0.2px;
     }
 `
 

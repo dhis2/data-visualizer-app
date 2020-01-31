@@ -23,7 +23,7 @@ export const options = {
     completedOnly: { defaultValue: false, requestable: true },
     hideSubtitle: { defaultValue: false, requestable: false },
     hideTitle: { defaultValue: false, requestable: false },
-    sortOrder: { defaultValue: 0, requestable: false },
+    sortOrder: { defaultValue: '0', requestable: false },
     subtitle: { defaultValue: undefined, requestable: false },
     title: { defaultValue: undefined, requestable: false },
 
@@ -57,7 +57,7 @@ export const options = {
     regression: { defaultValue: false, requestable: false },
     cumulative: { defaultValue: false, requestable: false },
     measureCriteria: { defaultValue: undefined, requestable: true },
-    topLimit: { defaultValue: 0, requestable: false },
+    topLimit: { defaultValue: '0', requestable: false },
 }
 
 export const computedOptions = {
@@ -117,6 +117,13 @@ export const getOptionsFromVisualization = visualization => {
         optionsFromVisualization.grandParentOrganisationUnit =
             visualization.reportingParams.grandParentOrganisationUnit
     }
+
+    // cast option values from Number for some options
+    ;['sortOrder', 'topLimit'].forEach(option => {
+        if (Object.prototype.hasOwnProperty.call(visualization, option)) {
+            optionsFromVisualization[option] = String(visualization[option])
+        }
+    })
 
     return optionsFromVisualization
 }

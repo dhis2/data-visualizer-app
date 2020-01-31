@@ -113,13 +113,25 @@ export class GenericServerError extends VisualizationError {
     }
 }
 
-export class AssignedCategoriesError extends VisualizationError {
+export class AssignedCategoriesDataElementsError extends VisualizationError {
     constructor() {
         super(
             GenericError,
             i18n.t('Assigned Categories can only be used with data elements'),
             i18n.t(
                 'Fix this problem by selecting data elements or removing Assigned Categories.'
+            )
+        )
+    }
+}
+
+export class AssignedCategoriesAsFilterError extends VisualizationError {
+    constructor() {
+        super(
+            GenericError,
+            i18n.t('Assigned Categories cannot be used as Filter'),
+            i18n.t(
+                'Fix this problem by moving or removing Assigned Categories.'
             )
         )
     }

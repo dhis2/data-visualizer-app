@@ -8,7 +8,8 @@ import {
     dimensionCreate,
     layoutGetDimensionItems,
     layoutReplaceDimension,
-    getFixedDimensionProp,
+    getPredefinedDimensionProp,
+    DIMENSION_PROP_NO_ITEMS,
 } from '@dhis2/analytics'
 
 import options from './options'
@@ -27,7 +28,10 @@ export const getAxesFromUi = ui =>
             [axisId]: dimensionIds
                 .map(dimensionId =>
                     hasItems(ui.itemsByDimension, dimensionId) ||
-                    getFixedDimensionProp(dimensionId, 'noItems')
+                    getPredefinedDimensionProp(
+                        dimensionId,
+                        DIMENSION_PROP_NO_ITEMS
+                    )
                         ? dimensionCreate(
                               dimensionId,
                               ui.itemsByDimension[dimensionId]
@@ -62,6 +66,13 @@ export const getOptionsFromUi = ui => {
     ].forEach(option => {
         optionsFromUi.reportingParams[option] = optionsFromUi[option]
         delete optionsFromUi[option]
+    })
+
+    // cast option values to Number for some options
+    ;['sortOrder', 'topLimit'].forEach(option => {
+        if (Object.prototype.hasOwnProperty.call(optionsFromUi, option)) {
+            optionsFromUi[option] = Number(optionsFromUi[option])
+        }
     })
 
     return optionsFromUi

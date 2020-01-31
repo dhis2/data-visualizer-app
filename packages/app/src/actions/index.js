@@ -23,6 +23,7 @@ import { sGetRootOrgUnit, sGetRelativePeriod } from '../reducers/settings'
 
 import history from '../modules/history'
 import { convertOuLevelsToUids } from '../modules/orgUnit'
+import { apiPostDataStatistics } from '../api/dataStatistics'
 
 export {
     fromVisualization,
@@ -66,6 +67,8 @@ export const tDoLoadVisualization = ({
                 dispatch(fromUi.acSetUiRightSidebarOpen())
             }
         }
+
+        apiPostDataStatistics(visualization.id)
 
         dispatch(fromVisualization.acSetVisualization(visualization))
         dispatch(fromCurrent.acSetCurrent(visualization))

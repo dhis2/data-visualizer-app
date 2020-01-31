@@ -70,6 +70,8 @@ export default {
         marginBottom: '12px',
     },
     visualization: {
+        display: 'flex',
+        alignItems: 'center',
         margin: '0 0 12px 0',
         padding: 0,
         letterSpacing: '0.1px',
@@ -78,6 +80,13 @@ export default {
         fontSize: '14px',
         '&:hover': {
             textDecoration: 'underline',
+        },
+    },
+    visIcon: {
+        height: '16px',
+        '& svg': {
+            height: '16px',
+            marginRight: '8px',
         },
     },
 }
