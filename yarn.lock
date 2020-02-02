@@ -1617,10 +1617,20 @@
     lodash "^4.17.10"
     material-ui "^0.20.0"
 
-"@dhis2/d2-ui-core@6.5.1", "@dhis2/d2-ui-core@^6.5.1":
+"@dhis2/d2-ui-core@6.5.1":
   version "6.5.1"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-6.5.1.tgz#09e464e4f79cec111f56b965b1b5d70f63b508e4"
   integrity sha512-fiEtkabcwEs9QDpM3btctGU7FXHOkYgjKSBq97BKoHoZceLhVbmKWpZJZYkdViGGmSHwuyq93AS8BBjdu3XHqA==
+  dependencies:
+    babel-runtime "^6.26.0"
+    d2 "~31.7"
+    lodash "^4.17.10"
+    material-ui "^0.20.0"
+
+"@dhis2/d2-ui-core@^6.5.2":
+  version "6.5.2"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-6.5.2.tgz#4c306b4d8a5df5929ee84d50b3be708da1c32a6c"
+  integrity sha512-ZIzjT3Fzg5CfABBxSinnzQ4bXPaoZxV6muIW7s+Wr6givL8K7u5K6BQfC2CFmwOCQUXyHwzamITyRnsaRaURfA==
   dependencies:
     babel-runtime "^6.26.0"
     d2 "~31.7"
