@@ -6,12 +6,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 <<<<<<< HEAD
+<<<<<<< HEAD
 "POT-Creation-Date: 2020-01-29T07:22:55.986Z\n"
 "PO-Revision-Date: 2020-01-29T07:22:55.986Z\n"
 =======
 "POT-Creation-Date: 2019-11-29T10:59:48.425Z\n"
 "PO-Revision-Date: 2019-11-29T10:59:48.425Z\n"
 >>>>>>> fix: pin to analytics@2.6.11 (#495)
+=======
+"POT-Creation-Date: 2019-11-29T10:59:48.425Z\n"
+"PO-Revision-Date: 2019-11-29T10:59:48.425Z\n"
+>>>>>>> 7949c85baae16d355758b4cb729b506ee778bd75
 
 msgid "Rename successful"
 msgstr ""
@@ -101,11 +106,14 @@ msgid "Hide"
 msgstr ""
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 msgid "Interpretations"
 msgstr ""
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 =======
+=======
+>>>>>>> 7949c85baae16d355758b4cb729b506ee778bd75
 msgid "{{total}} of {{maxNumberOfItemsPerAxis}} selected"
 >>>>>>> fix: pin to analytics@2.6.11 (#495)
 msgstr ""
@@ -117,8 +125,11 @@ msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr ""
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 msgid "Columns"
 =======
+=======
+>>>>>>> 7949c85baae16d355758b4cb729b506ee778bd75
 msgid "Move to"
 >>>>>>> fix: pin to analytics@2.6.11 (#495)
 msgstr ""
