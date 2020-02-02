@@ -1,13 +1,13 @@
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2019
-# phil_dhis2, 2019
+# phil_dhis2, 2020
+# Viktor Varland <viktor@dhis2.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-11-29T10:59:48.425Z\n"
+"POT-Creation-Date: 2020-02-02T13:49:38.927Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: phil_dhis2, 2019\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Lao (https://www.transifex.com/hisp-uio/teams/100509/lo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,9 +20,6 @@ msgstr ""
 
 msgid "\"{{what}}\" successfully deleted."
 msgstr ""
-
-msgid "Data Visualizer"
-msgstr "ການສ້າງຮູບພາບຈາກຂໍ້ມູນ"
 
 msgid "Axis 1"
 msgstr ""
@@ -45,7 +42,7 @@ msgid "Update"
 msgstr "ປັບປຸງ"
 
 msgid ""
-"'{{visualiationType}}' is intended to show a single data item. Only the "
+"'{{visualizationType}}' is intended to show a single data item. Only the "
 "first item will be used and saved."
 msgstr ""
 
@@ -54,8 +51,8 @@ msgid ""
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
 
-msgid "Hide"
-msgstr "ເຊື່ອງ"
+msgid "Filter dimensions"
+msgstr ""
 
 msgid "Download"
 msgstr "ດາວໂຫຼດ"
@@ -102,10 +99,13 @@ msgstr ""
 msgid "The following information may be requested by technical support."
 msgstr ""
 
+msgid "Hide"
+msgstr "ເຊື່ອງ"
+
 msgid "Interpretations"
 msgstr "ການແປຂໍ້ມູນ"
 
-msgid "{{total}} of {{maxNumberOfItemsPerAxis}} selected"
+msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr ""
 
 msgid "{{total}} selected"
@@ -114,22 +114,22 @@ msgstr ""
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr ""
 
-msgid "Move to"
+msgid "Columns"
 msgstr ""
 
-msgid "Remove"
-msgstr "ລົບອອກ"
+msgid "Rows"
+msgstr ""
 
 msgid "None selected"
 msgstr ""
 
-msgid "Only '{{name}}' in use"
+msgid "Only '{{- name}}' in use"
 msgstr ""
 
 msgid "Only '{{number}}' in use"
 msgstr ""
 
-msgid "Unsaved chart"
+msgid "Unsaved visualization"
 msgstr ""
 
 msgid "Edited"
@@ -138,20 +138,12 @@ msgstr ""
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
-msgid "Error validating layout"
-msgstr ""
-
-msgid "Create a new visualization by adding dimensions to the layout"
-msgstr ""
-
-msgid "Chart error"
-msgstr ""
-
-msgid "Error generating chart, please try again"
-msgstr ""
-
 msgid "Aggregation type"
 msgstr "ປະເພດຕົວເລກລວມ"
+
+msgid ""
+"Determines how the values in the pivot table are aggregated. Learn more"
+msgstr ""
 
 msgid "By data element"
 msgstr "ໂດຍອົງປະກອບຂອງຂໍ້ມູນ"
@@ -186,26 +178,86 @@ msgstr ""
 msgid "Variance"
 msgstr "ຄວາມແຕກຕ່າງ"
 
+msgid "Axis range"
+msgstr ""
+
+msgid "Values outside of the range will not be displayed"
+msgstr ""
+
 msgid "Base line"
 msgstr ""
+
+msgid "Title"
+msgstr "ຫົວຂໍ້"
 
 msgid "Base line title"
 msgstr "ຫົວຂໍ້ເສັ້ນຖານ"
 
-msgid "Base line value"
-msgstr "ຄ່າຕັ້ງຕົ້ນ"
+msgid "Value"
+msgstr "Value"
 
-msgid "Use cumulative values"
-msgstr "ໃຊ້ຄ່າຕົວເລກສະສົມ"
+msgid "Number"
+msgstr "ຈຳນວນ"
 
-msgid "Domain axis title"
-msgstr "ຫົວຂໍ້ສັ້ນລວງນອນ"
+msgid "Column sub-totals"
+msgstr ""
 
-msgid "Hide empty categories"
-msgstr "ເຊື່ອງປະເພດຂອງຂໍ້ມູນທີ່ເປົ່າວ່າງ"
+msgid "Columns totals"
+msgstr ""
+
+msgid "Include only completed events"
+msgstr "ສະແດງແຕ່ເຫດການທີ່ສໍາເລັດເທົ່ານັ້ນ"
+
+msgid "Include cumulative"
+msgstr "​ລວມ​ເອົາ​ທັງ​ການ​ສະ​ສົມ"
+
+msgid "Cumulative values"
+msgstr ""
+
+msgid "Digit group separator"
+msgstr "ແຍກຕົວເລກເປັນກຸ່ມ"
 
 msgid "None"
 msgstr "ບໍ່ມີ"
+
+msgid "Space"
+msgstr "ຍະຫວ່າງ"
+
+msgid "Comma"
+msgstr "ຈຸດ"
+
+msgid "Display density"
+msgstr "ສະແດງຄວາມໜາແໜ້ນ"
+
+msgid "Comfortable"
+msgstr "ຂະໜາດພໍດີງາມ"
+
+msgid "Normal"
+msgstr "ປົກກະຕິ"
+
+msgid "Compact"
+msgstr "ໜາແໜ້ນ"
+
+msgid "Axis title"
+msgstr ""
+
+msgid "Add a title"
+msgstr ""
+
+msgid "Font size"
+msgstr "ຂະຫນາດຕົວອັກສອນ"
+
+msgid "Large"
+msgstr "ໃຫຍ່"
+
+msgid "Small"
+msgstr "ນ້ອຍ"
+
+msgid "Hide empty columns"
+msgstr "ປິດແຖວທີ່ຫວ່າງເປົ່າ"
+
+msgid "Hide empty categories"
+msgstr "ເຊື່ອງປະເພດຂອງຂໍ້ມູນທີ່ເປົ່າວ່າງ"
 
 msgid "Before first"
 msgstr "ກ່ອນໜ້າທໍາອິດ"
@@ -219,38 +271,115 @@ msgstr "ກ່ອນໜ້າທໍາອິດ ແລະ ຫຼັງຈາກ�
 msgid "All"
 msgstr "ທັງໝົດ"
 
-msgid "Hide chart legend"
-msgstr "ເຊື່ອງຄວາມຫມາຍຂອງເສັ້ນສະແດງ"
+msgid "Hide empty rows"
+msgstr "ເຊື່ອງແຖວທີ່ເປົ່າຫວ່າງ"
 
-msgid "Hide subtitle"
+msgid "Legend key"
 msgstr ""
 
-msgid "Hide title"
+msgid "Table subtitle"
 msgstr ""
 
-msgid "No space between columns/bars"
+msgid "Chart subtitle"
+msgstr "ຫົວຂໍ້ຍ່ອຍຂອງເສັ້ນສະແດງ"
+
+msgid "Custom"
 msgstr ""
 
-msgid "Use 100% stacked values"
-msgstr "ໃຊ້ຄ່າທີ່ຊ້ອນກັນ 100%"
+msgid "Table title"
+msgstr "ຊື່ຂອງຕາຕະລາງ"
 
-msgid "Range axis decimals"
+msgid "Chart title"
+msgstr "ຫົວຂໍ້ເສັ້ນສະແດງ"
+
+msgid "Auto generated"
 msgstr ""
 
-msgid "Range axis title"
-msgstr "ຫົວຂໍ້ສັ້ນລວງຕັ້ງ"
-
-msgid "Range axis max"
+msgid "Apply a legend to entire table"
 msgstr ""
 
-msgid "Range axis min"
+msgid "Assign a unique legend to data elements"
 msgstr ""
 
-msgid "Range axis tick steps"
+msgid "Legend changes background color"
 msgstr ""
 
-msgid "Tick steps may extend the chart beyond 'Range axis max'"
+msgid "Legend changes text color"
 msgstr ""
+
+msgid "Select a legend"
+msgstr ""
+
+msgid "Select from predefined legends"
+msgstr ""
+
+msgid "Loading legends"
+msgstr ""
+
+msgid "Display legend"
+msgstr ""
+
+msgid "Legend type"
+msgstr ""
+
+msgid "Legend setup"
+msgstr ""
+
+msgid ""
+"You can set a minimum or maximum value. This will apply to the entire table,"
+" all values outside of the minimum/maximum range will not be displayed"
+msgstr ""
+
+msgid "Minimum data value"
+msgstr ""
+
+msgid "Maximum data value"
+msgstr ""
+
+msgid "Clear min/max limits"
+msgstr ""
+
+msgid "No space between bars/columns"
+msgstr ""
+
+msgid "Number type"
+msgstr "Number type"
+
+msgid "Display the value of percentages of the total"
+msgstr ""
+
+msgid "Percentage of row"
+msgstr ""
+
+msgid "Percentage of column"
+msgstr ""
+
+msgid "Organisation unit"
+msgstr "​ຫົວ​ໜ່ວຍ​ການ​ຈັດ​ຕັ້ງ"
+
+msgid "Parent organisation unit"
+msgstr "ໂຄງຮ່າງການຈັດຕັ້ງຂັ້ນສູງ"
+
+msgid "Reporting period"
+msgstr "​ໄລ​ຍະ​ເວ​ລາ​ການ​ລາຍ​ງານ"
+
+msgid "Stacked values add up to 100%"
+msgstr ""
+
+msgid "Decimals"
+msgstr ""
+
+msgid "Auto"
+msgstr ""
+
+msgid "The number of axis steps between the min and max values"
+msgstr ""
+
+msgid "Steps"
+msgstr ""
+
+msgid "Include regression"
+msgstr "​ລວມ​ທັງ​ອັນທີ່​ຊ້ຳ​ກັນ"
 
 msgid "Trend line"
 msgstr "ເສັ້ນແນວໂນ້ມ"
@@ -264,11 +393,26 @@ msgstr "ເສັ້ນສະແດງແບບໂຄ້ງ"
 msgid "Loess"
 msgstr "ເສັ້ນສະແດງແບບແຈກຢາຍເປັນຈຸດເປັນຈໍ້າ"
 
-msgid "Show values"
-msgstr "ສະແດງຄ່າ"
+msgid "Row sub-totals"
+msgstr ""
 
-msgid "Sort order"
-msgstr "ລຽງລຳດັບ"
+msgid "Row totals"
+msgstr ""
+
+msgid "Value labels"
+msgstr ""
+
+msgid "Dimension labels"
+msgstr ""
+
+msgid "Show hierarchy"
+msgstr "ສະແດງລໍາດັບຊັ້ນ"
+
+msgid "Skip rounding"
+msgstr "ບໍ່ປັດຕົວເລກ"
+
+msgid "Custom sort order"
+msgstr ""
 
 msgid "Low to high"
 msgstr "ຕ່ຳຫາສູງ"
@@ -276,8 +420,8 @@ msgstr "ຕ່ຳຫາສູງ"
 msgid "High to low"
 msgstr "ສູງຫາຕ່ຳ"
 
-msgid "Chart subtitle"
-msgstr "ຫົວຂໍ້ຍ່ອຍຂອງເສັ້ນສະແດງ"
+msgid "Add a subtitle"
+msgstr ""
 
 msgid "Target line"
 msgstr ""
@@ -285,26 +429,11 @@ msgstr ""
 msgid "Target line title"
 msgstr "ຫົວຂໍ້ເສັ້ນເປົ້າໝາຍ"
 
-msgid "Target line value"
-msgstr "ຄ່າເສັ້ນເປົ້າໝາຍ"
-
-msgid "Chart title"
-msgstr "ຫົວຂໍ້ເສັ້ນສະແດງ"
-
-msgid "Data"
-msgstr "ຂໍ້ມູນ"
-
-msgid "Axis & legend"
-msgstr ""
-
-msgid "Style"
-msgstr "ແບບ"
+msgid "Top limit"
+msgstr "ຂໍ້​ຈຳ​ກັດ​ສູງ​ສຸດ"
 
 msgid "Options"
 msgstr "ຈັດການ"
-
-msgid "Chart options"
-msgstr "ທາງເລືອກຂອງເສັ້ນສະແດງ"
 
 msgid "Open as Map"
 msgstr ""
@@ -324,50 +453,59 @@ msgstr ""
 msgid "Expected reports"
 msgstr ""
 
-msgid "Program"
-msgstr "ສາຍງານ"
-
-msgid "Select a program"
+msgid "No data available"
 msgstr ""
 
-msgid "Indicators"
-msgstr "ຕົວຊີ້ວັດ"
-
-msgid "Select indicator group"
-msgstr "ເລືອກກຸ່ມຕົວຊີ້ວັດ"
-
-msgid "[ All groups ]"
+msgid ""
+"The selected dimensions didn’t return any data. There may be no data, or you"
+" may not have access to it."
 msgstr ""
 
-msgid "Data elements"
-msgstr "ອົງປະກອບຂໍ້ມູນ"
-
-msgid "Select data element group"
-msgstr "ເລືອກກຸ່ມອົງປະກອບຂອງຂໍ້ມູນ"
-
-msgid "[ All data elements ]"
+msgid "Series is empty"
 msgstr ""
 
-msgid "Totals"
-msgstr "ລວມທັງໝົດ"
-
-msgid "Details"
-msgstr "ລາຍລະອຽດ"
-
-msgid "Data sets"
-msgstr "ແບບຟອມ"
-
-msgid "Select data sets"
+msgid "Add at least one item to Series."
 msgstr ""
 
-msgid "[ All metrics ]"
+msgid "Category is empty"
 msgstr ""
 
-msgid "Event data items"
-msgstr "ຂໍ້ມູນລາຍບຸກຄົນ"
+msgid "Add at least one item to Category."
+msgstr ""
 
-msgid "Program indicators"
-msgstr "ຕົວຊີ້ວັດສະເພາະວຽກຂອງຂະແໜງ"
+msgid "No period set"
+msgstr ""
+
+msgid "{{visType}} must have at least one period set in {{axes}}."
+msgstr ""
+
+msgid "No data set"
+msgstr ""
+
+msgid "{{visType}} must have at least one data item in {{axes}}."
+msgstr ""
+
+msgid "There is a problem with this {{visType}} visualization."
+msgstr ""
+
+msgid "There was a problem getting the data from the server."
+msgstr ""
+
+msgid "Assigned Categories can only be used with data elements"
+msgstr ""
+
+msgid ""
+"Fix this problem by selecting data elements or removing Assigned Categories."
+msgstr ""
+
+msgid "Assigned Categories cannot be used as Filter"
+msgstr ""
+
+msgid "Fix this problem by moving or removing Assigned Categories."
+msgstr ""
+
+msgid "or"
+msgstr "or"
 
 msgid "Add to series"
 msgstr ""
@@ -385,40 +523,6 @@ msgid "category"
 msgstr ""
 
 msgid "filter"
-msgstr ""
-
-msgid "Please add at least one {{series}} dimension"
-msgstr ""
-
-msgid "Please add at least one {{category}} dimension"
-msgstr ""
-
-msgid ""
-"Please add at least one period as {{series}}, {{category}} or {{filter}}"
-msgstr ""
-
-msgid "Please add {{data}} as {{category}} or {{filter}}"
-msgstr ""
-
-msgid "Please add at least one period as {{series}} or {{filter}}"
-msgstr ""
-
-msgid "Please add at least one {{filter}} dimension"
-msgstr ""
-
-msgid "Please add at least one period as a {{series}} dimension"
-msgstr ""
-
-msgid "Please add at least one period as a {{category}} dimension"
-msgstr ""
-
-msgid "Please add {{data}} as a filter dimension"
-msgstr ""
-
-msgid "Please add one {{series}} dimension"
-msgstr ""
-
-msgid "Please add at least one period as {{filter}}"
 msgstr ""
 
 msgid "Today"
@@ -531,6 +635,57 @@ msgstr ""
 
 msgid "User org unit grand children"
 msgstr ""
+
+msgid "Data"
+msgstr "ຂໍ້ມູນ"
+
+msgid "Axes"
+msgstr "ແກນ"
+
+msgid "Style"
+msgstr "ແບບ"
+
+msgid "Display"
+msgstr "ສະແດງ"
+
+msgid "Lines"
+msgstr ""
+
+msgid "Vertical (y) axis"
+msgstr ""
+
+msgid "Horizontal (x) axis"
+msgstr ""
+
+msgid "Colors & Legends"
+msgstr ""
+
+msgid "Chart style"
+msgstr ""
+
+msgid "Titles"
+msgstr ""
+
+msgid "Display totals"
+msgstr ""
+
+msgid "Display empty data"
+msgstr ""
+
+msgid "Legend"
+msgstr "ຫວ່າງຂໍ້ມູນ"
+
+msgid "Limit values"
+msgstr ""
+
+msgid "Limit number of values"
+msgstr ""
+
+msgid "Limit minimum/maximum values"
+msgstr ""
+
+msgid "Parameters"
+msgstr "ຂອບເຂດ"
 
 msgid "Weeks per year"
 msgstr ""
