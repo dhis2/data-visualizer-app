@@ -35,7 +35,7 @@ export class DndDimensionList extends Component {
         const itemProps = {
             id,
             name,
-            index: this.dndIndex,
+            index: this.dndIndex++,
             isSelected: this.isSelected(id),
             isLocked: this.isLockedDimension(id),
             isDeactivated: this.isDisabledDimension(id),
@@ -43,8 +43,6 @@ export class DndDimensionList extends Component {
             onClick: this.props.onDimensionClick,
             onOptionsClick: this.props.onDimensionOptionsClick,
         }
-
-        ++this.dndIndex
 
         return (
             <DndDimensionItem
