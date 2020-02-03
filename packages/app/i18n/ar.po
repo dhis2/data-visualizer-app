@@ -1,12 +1,13 @@
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2019
+# phil_dhis2, 2020
+# Viktor Varland <viktor@dhis2.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-02-02T13:49:38.927Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2019\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -187,16 +188,16 @@ msgid "Base line"
 msgstr ""
 
 msgid "Title"
-msgstr ""
+msgstr "العنوان"
 
 msgid "Base line title"
 msgstr "عنوان خط الأساس"
 
 msgid "Value"
-msgstr ""
+msgstr "القيمة"
 
 msgid "Number"
-msgstr ""
+msgstr "العدد"
 
 msgid "Column sub-totals"
 msgstr ""
@@ -205,37 +206,37 @@ msgid "Columns totals"
 msgstr ""
 
 msgid "Include only completed events"
-msgstr ""
+msgstr "تضمين الأحداث المكتملة فقط"
 
 msgid "Include cumulative"
-msgstr ""
+msgstr "تضمين التراكم"
 
 msgid "Cumulative values"
 msgstr ""
 
 msgid "Digit group separator"
-msgstr ""
+msgstr "فاصل مجموعة الخانات"
 
 msgid "None"
 msgstr "لا شيء"
 
 msgid "Space"
-msgstr ""
+msgstr "مسافة"
 
 msgid "Comma"
-msgstr ""
+msgstr "فاصلة"
 
 msgid "Display density"
-msgstr ""
+msgstr "كثافة العرض"
 
 msgid "Comfortable"
-msgstr ""
+msgstr "مريح"
 
 msgid "Normal"
-msgstr ""
+msgstr "عادي"
 
 msgid "Compact"
-msgstr ""
+msgstr "مضغوط"
 
 msgid "Axis title"
 msgstr ""
@@ -244,16 +245,16 @@ msgid "Add a title"
 msgstr ""
 
 msgid "Font size"
-msgstr ""
+msgstr "حجم الخط"
 
 msgid "Large"
-msgstr ""
+msgstr "كبير"
 
 msgid "Small"
-msgstr ""
+msgstr "صغير"
 
 msgid "Hide empty columns"
-msgstr ""
+msgstr "إخفاء الأعمدة الفارغة"
 
 msgid "Hide empty categories"
 msgstr "إخفاء الفئات الفارغة"
@@ -271,7 +272,7 @@ msgid "All"
 msgstr "الجميع"
 
 msgid "Hide empty rows"
-msgstr ""
+msgstr "إخفاء الصفوف الفارغة"
 
 msgid "Legend key"
 msgstr ""
@@ -283,10 +284,10 @@ msgid "Chart subtitle"
 msgstr "العنوان الفرعي للمخطط البياني"
 
 msgid "Custom"
-msgstr ""
+msgstr "مخصص"
 
 msgid "Table title"
-msgstr ""
+msgstr "عنوان الجدول"
 
 msgid "Chart title"
 msgstr "عنوان المخطط البياني"
@@ -319,7 +320,7 @@ msgid "Display legend"
 msgstr ""
 
 msgid "Legend type"
-msgstr ""
+msgstr "نوع مفتاح الخريطة"
 
 msgid "Legend setup"
 msgstr ""
@@ -342,25 +343,25 @@ msgid "No space between bars/columns"
 msgstr ""
 
 msgid "Number type"
-msgstr ""
+msgstr "نوع العدد"
 
 msgid "Display the value of percentages of the total"
 msgstr ""
 
 msgid "Percentage of row"
-msgstr ""
+msgstr "النسبة المئوية للصف"
 
 msgid "Percentage of column"
-msgstr ""
+msgstr "النسبة المئوية للعمود"
 
 msgid "Organisation unit"
-msgstr ""
+msgstr "الوحدة التنظيمية"
 
 msgid "Parent organisation unit"
-msgstr ""
+msgstr "الوحدة التنظيمية الأصل"
 
 msgid "Reporting period"
-msgstr ""
+msgstr "الفترة الزمنية لإعداد التقرير"
 
 msgid "Stacked values add up to 100%"
 msgstr ""
@@ -378,7 +379,7 @@ msgid "Steps"
 msgstr ""
 
 msgid "Include regression"
-msgstr ""
+msgstr "تضمين الانحدار"
 
 msgid "Trend line"
 msgstr "خط الاتجاه"
@@ -405,10 +406,10 @@ msgid "Dimension labels"
 msgstr ""
 
 msgid "Show hierarchy"
-msgstr ""
+msgstr "إظهار التسلسل الهرمي"
 
 msgid "Skip rounding"
-msgstr ""
+msgstr "تخطي التقريب"
 
 msgid "Custom sort order"
 msgstr ""
@@ -429,7 +430,7 @@ msgid "Target line title"
 msgstr "عنوان خط الهدف"
 
 msgid "Top limit"
-msgstr ""
+msgstr "الحد الأعلى"
 
 msgid "Options"
 msgstr "الخيارات"
@@ -504,7 +505,7 @@ msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr ""
 
 msgid "or"
-msgstr ""
+msgstr "أو"
 
 msgid "Add to series"
 msgstr ""
@@ -639,13 +640,13 @@ msgid "Data"
 msgstr "البيانات"
 
 msgid "Axes"
-msgstr ""
+msgstr "المحاور"
 
 msgid "Style"
 msgstr "المظهر"
 
 msgid "Display"
-msgstr ""
+msgstr "العرض"
 
 msgid "Lines"
 msgstr ""
@@ -672,7 +673,7 @@ msgid "Display empty data"
 msgstr ""
 
 msgid "Legend"
-msgstr ""
+msgstr "شروحات"
 
 msgid "Limit values"
 msgstr ""
@@ -684,7 +685,7 @@ msgid "Limit minimum/maximum values"
 msgstr ""
 
 msgid "Parameters"
-msgstr ""
+msgstr "المعاملات"
 
 msgid "Weeks per year"
 msgstr ""
