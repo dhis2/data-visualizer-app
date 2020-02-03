@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-01-29T07:22:55.986Z\n"
-"PO-Revision-Date: 2020-01-29T07:22:55.986Z\n"
+"POT-Creation-Date: 2020-02-02T13:49:38.927Z\n"
+"PO-Revision-Date: 2020-02-02T13:49:38.927Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -44,7 +44,7 @@ msgid ""
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
 
-msgid "Search dimensions"
+msgid "Filter dimensions"
 msgstr ""
 
 msgid "Download"
@@ -403,13 +403,13 @@ msgstr ""
 msgid "Skip rounding"
 msgstr ""
 
+msgid "Custom sort order"
+msgstr ""
+
 msgid "Low to high"
 msgstr ""
 
 msgid "High to low"
-msgstr ""
-
-msgid "Custom sort order"
 msgstr ""
 
 msgid "Add a subtitle"
