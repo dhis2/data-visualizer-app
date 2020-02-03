@@ -1,12 +1,12 @@
 # Translators:
-# phil_dhis2, 2019
+# phil_dhis2, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-02-02T13:49:38.927Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: phil_dhis2, 2019\n"
+"Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Persian (Afghanistan) (https://www.transifex.com/hisp-uio/teams/100509/fa_AF/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -187,16 +187,16 @@ msgid "Base line"
 msgstr ""
 
 msgid "Title"
-msgstr ""
+msgstr "عنوان"
 
 msgid "Base line title"
 msgstr ""
 
 msgid "Value"
-msgstr ""
+msgstr "مقدار"
 
 msgid "Number"
-msgstr ""
+msgstr "نمبر"
 
 msgid "Column sub-totals"
 msgstr ""
@@ -205,37 +205,37 @@ msgid "Columns totals"
 msgstr ""
 
 msgid "Include only completed events"
-msgstr ""
+msgstr "تنها شامل ساختن رویداد های تکمیل شده"
 
 msgid "Include cumulative"
-msgstr ""
+msgstr "شامل تجمعی"
 
 msgid "Cumulative values"
 msgstr ""
 
 msgid "Digit group separator"
-msgstr ""
+msgstr "واحد سازی گروپ ارقام"
 
 msgid "None"
 msgstr "هیچ‌کدام"
 
 msgid "Space"
-msgstr ""
+msgstr "فاصله"
 
 msgid "Comma"
-msgstr ""
+msgstr "کامه"
 
 msgid "Display density"
-msgstr ""
+msgstr "نمایش تراکم ها"
 
 msgid "Comfortable"
-msgstr ""
+msgstr "راحت"
 
 msgid "Normal"
-msgstr ""
+msgstr "عادی"
 
 msgid "Compact"
-msgstr ""
+msgstr "متراکم"
 
 msgid "Axis title"
 msgstr ""
@@ -244,13 +244,13 @@ msgid "Add a title"
 msgstr ""
 
 msgid "Font size"
-msgstr ""
+msgstr "سایز خط"
 
 msgid "Large"
-msgstr ""
+msgstr "بزرگ"
 
 msgid "Small"
-msgstr ""
+msgstr "کوچک"
 
 msgid "Hide empty columns"
 msgstr ""
@@ -271,7 +271,7 @@ msgid "All"
 msgstr "همه"
 
 msgid "Hide empty rows"
-msgstr ""
+msgstr "پنهان کردن ردیف های خالی"
 
 msgid "Legend key"
 msgstr ""
@@ -283,10 +283,10 @@ msgid "Chart subtitle"
 msgstr "د چارټ عنوان"
 
 msgid "Custom"
-msgstr ""
+msgstr "مروج"
 
 msgid "Table title"
-msgstr ""
+msgstr "جدول عنوان"
 
 msgid "Chart title"
 msgstr "د چارټ عنوان"
@@ -319,7 +319,7 @@ msgid "Display legend"
 msgstr ""
 
 msgid "Legend type"
-msgstr ""
+msgstr "د نښو او علایمو ډول"
 
 msgid "Legend setup"
 msgstr ""
@@ -342,7 +342,7 @@ msgid "No space between bars/columns"
 msgstr ""
 
 msgid "Number type"
-msgstr ""
+msgstr "نوع اعداد"
 
 msgid "Display the value of percentages of the total"
 msgstr ""
@@ -354,13 +354,13 @@ msgid "Percentage of column"
 msgstr ""
 
 msgid "Organisation unit"
-msgstr ""
+msgstr "واحد سازمان"
 
 msgid "Parent organisation unit"
-msgstr ""
+msgstr "سطح بالا واحد سازمان"
 
 msgid "Reporting period"
-msgstr ""
+msgstr "دوره راپور دهی"
 
 msgid "Stacked values add up to 100%"
 msgstr ""
@@ -375,10 +375,10 @@ msgid "The number of axis steps between the min and max values"
 msgstr ""
 
 msgid "Steps"
-msgstr ""
+msgstr "مرحله"
 
 msgid "Include regression"
-msgstr ""
+msgstr "شامل کردن برگشت"
 
 msgid "Trend line"
 msgstr "د محاسبې کرښې ښکاره کړئ"
@@ -405,10 +405,10 @@ msgid "Dimension labels"
 msgstr ""
 
 msgid "Show hierarchy"
-msgstr ""
+msgstr "نمایش دادن سطح"
 
 msgid "Skip rounding"
-msgstr ""
+msgstr "له ګردولو (راونډینګ) څخه تېر شئ"
 
 msgid "Custom sort order"
 msgstr ""
@@ -429,7 +429,7 @@ msgid "Target line title"
 msgstr ""
 
 msgid "Top limit"
-msgstr ""
+msgstr "حد بالا"
 
 msgid "Options"
 msgstr "گزینه‌ها"
@@ -504,7 +504,7 @@ msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr ""
 
 msgid "or"
-msgstr ""
+msgstr "تنظیم"
 
 msgid "Add to series"
 msgstr ""
@@ -639,13 +639,13 @@ msgid "Data"
 msgstr "دیتا"
 
 msgid "Axes"
-msgstr ""
+msgstr "محورونه"
 
 msgid "Style"
 msgstr "استایل"
 
 msgid "Display"
-msgstr ""
+msgstr "نمایش"
 
 msgid "Lines"
 msgstr ""
@@ -672,7 +672,7 @@ msgid "Display empty data"
 msgstr ""
 
 msgid "Legend"
-msgstr ""
+msgstr "داستان"
 
 msgid "Limit values"
 msgstr ""
@@ -684,7 +684,7 @@ msgid "Limit minimum/maximum values"
 msgstr ""
 
 msgid "Parameters"
-msgstr ""
+msgstr "پارامتر ها"
 
 msgid "Weeks per year"
 msgstr ""
