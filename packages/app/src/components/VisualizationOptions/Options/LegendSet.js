@@ -25,7 +25,8 @@ import {
 } from '../styles/VisualizationOptions.style.js'
 
 const LegendSelect = ({ value, loading, options, onFocus, onChange }) => {
-    const selected = value ? { value: value.id, label: value.displayName } : {}
+    const selected =
+        value && value.id ? { value: value.id, label: value.displayName } : {}
 
     return (
         <SingleSelectField
@@ -47,8 +48,8 @@ const LegendSelect = ({ value, loading, options, onFocus, onChange }) => {
                 })
             }
         >
-            {options.map(({ id, label }) => (
-                <SingleSelectOption key={id} value={String(id)} label={label} />
+            {options.map(({ value, label }) => (
+                <SingleSelectOption key={value} value={value} label={label} />
             ))}
         </SingleSelectField>
     )
@@ -68,9 +69,12 @@ const LegendSetup = ({ value, onChange }) => {
     const [options, setOptions] = useState([])
     const [isLoaded, setIsLoaded] = useState(false)
 
-    if (value) {
-        if (!options.find(option => option.id === value.id)) {
-            setOptions([...options, { id: value.id, label: value.displayName }])
+    if (value && value.id) {
+        if (!options.find(option => option.value === value.id)) {
+            setOptions([
+                ...options,
+                { value: value.id, label: value.displayName },
+            ])
         }
     }
 
@@ -91,7 +95,7 @@ const LegendSetup = ({ value, onChange }) => {
 
             if (legendSets) {
                 const options = legendSets.legendSets.map(legendSet => ({
-                    id: legendSet.id,
+                    value: legendSet.id,
                     label: legendSet.name,
                 }))
 
@@ -119,7 +123,7 @@ LegendSetup.propTypes = {
 }
 
 const LegendSet = ({ value, legendDisplayStrategy, onChange }) => {
-    const [legendSetEnabled, setLegendSetEnabled] = useState(Boolean(value))
+    const [legendSetEnabled, setLegendSetEnabled] = useState(Boolean(value.id))
 
     const onCheckboxChange = ({ checked }) => {
         setLegendSetEnabled(checked)
@@ -189,7 +193,7 @@ LegendSet.propTypes = {
 }
 
 const mapStateToProps = state => ({
-    value: sGetUiOptions(state).legendSet,
+    value: sGetUiOptions(state).legendSet || {},
     legendDisplayStrategy: sGetUiOptions(state).legendDisplayStrategy,
 })
 

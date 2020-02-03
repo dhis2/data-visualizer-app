@@ -16,6 +16,7 @@ import { getInverseLayout } from './layout'
 import { getOptionsFromVisualization } from './options'
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields'
 import {
+    defaultLayoutAdapter,
     pieLayoutAdapter,
     yearOverYearLayoutAdapter,
     singleValueLayoutAdapter,
@@ -42,6 +43,12 @@ export const getUiFromVisualization = (vis, currentState = {}) => ({
         ? vis.rows[0].items.map(item => item.id)
         : currentState.yearOverYearCategory,
     axes: getIdAxisMap(vis.optionalAxes),
+})
+
+// Transform from store.ui to default format
+export const defaultUiAdapter = ui => ({
+    ...ui,
+    layout: defaultLayoutAdapter(ui.layout),
 })
 
 // Transform from store.ui to pie format
@@ -83,7 +90,7 @@ export const getAdaptedUiByType = ui => {
             return singleValueUiAdapter(ui)
         }
         default:
-            return ui
+            return defaultUiAdapter(ui)
     }
 }
 

@@ -68,6 +68,13 @@ export const getOptionsFromUi = ui => {
         delete optionsFromUi[option]
     })
 
+    // cast option values to Number for some options
+    ;['sortOrder', 'topLimit'].forEach(option => {
+        if (Object.prototype.hasOwnProperty.call(optionsFromUi, option)) {
+            optionsFromUi[option] = Number(optionsFromUi[option])
+        }
+    })
+
     return optionsFromUi
 }
 

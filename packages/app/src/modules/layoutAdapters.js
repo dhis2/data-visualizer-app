@@ -6,6 +6,18 @@ import {
     DIMENSION_ID_PERIOD,
 } from '@dhis2/analytics'
 
+// Transform from ui.layout to default layout format
+export const defaultLayoutAdapter = layout => {
+    const columns = layout[AXIS_ID_COLUMNS].slice()
+    const rows = layout[AXIS_ID_ROWS].slice()
+
+    return {
+        [AXIS_ID_COLUMNS]: [columns.shift()],
+        [AXIS_ID_ROWS]: [rows.shift()],
+        [AXIS_ID_FILTERS]: [...layout[AXIS_ID_FILTERS], ...columns, ...rows],
+    }
+}
+
 // Transform from ui.layout to pie layout format
 export const pieLayoutAdapter = layout => {
     const columns = layout[AXIS_ID_COLUMNS].slice()
