@@ -1,15 +1,15 @@
 # Translators:
 # Bram Piot <bram.piot@gmail.com>, 2019
 # mrwine <matthieu@pinard.no>, 2019
-# Viktor Varland <viktor@dhis2.org>, 2019
-# phil_dhis2, 2019
+# phil_dhis2, 2020
+# Viktor Varland <viktor@dhis2.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-02-02T13:49:38.927Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: phil_dhis2, 2019\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -190,16 +190,16 @@ msgid "Base line"
 msgstr ""
 
 msgid "Title"
-msgstr ""
+msgstr "Titre"
 
 msgid "Base line title"
 msgstr ""
 
 msgid "Value"
-msgstr ""
+msgstr "Valeur"
 
 msgid "Number"
-msgstr ""
+msgstr "Nombre"
 
 msgid "Column sub-totals"
 msgstr ""
@@ -208,37 +208,37 @@ msgid "Columns totals"
 msgstr ""
 
 msgid "Include only completed events"
-msgstr ""
+msgstr "Inclure seulement les évènements complétés"
 
 msgid "Include cumulative"
-msgstr ""
+msgstr "Inclure cumulatif"
 
 msgid "Cumulative values"
 msgstr ""
 
 msgid "Digit group separator"
-msgstr ""
+msgstr "Séparateur des groupe de chiffres"
 
 msgid "None"
 msgstr "Aucun"
 
 msgid "Space"
-msgstr ""
+msgstr "Espace"
 
 msgid "Comma"
-msgstr ""
+msgstr "Virgule"
 
 msgid "Display density"
-msgstr ""
+msgstr "Afficher densité"
 
 msgid "Comfortable"
-msgstr ""
+msgstr "Confortable"
 
 msgid "Normal"
-msgstr ""
+msgstr "Normal"
 
 msgid "Compact"
-msgstr ""
+msgstr "Compact"
 
 msgid "Axis title"
 msgstr ""
@@ -247,13 +247,13 @@ msgid "Add a title"
 msgstr ""
 
 msgid "Font size"
-msgstr ""
+msgstr "Taille de la police"
 
 msgid "Large"
-msgstr ""
+msgstr "Grand"
 
 msgid "Small"
-msgstr ""
+msgstr "Petit"
 
 msgid "Hide empty columns"
 msgstr ""
@@ -274,7 +274,7 @@ msgid "All"
 msgstr "Tout"
 
 msgid "Hide empty rows"
-msgstr ""
+msgstr "Cacher lignes vides"
 
 msgid "Legend key"
 msgstr ""
@@ -286,10 +286,10 @@ msgid "Chart subtitle"
 msgstr ""
 
 msgid "Custom"
-msgstr ""
+msgstr "Personnalisé"
 
 msgid "Table title"
-msgstr ""
+msgstr "Titre du tableau"
 
 msgid "Chart title"
 msgstr "Titre du graphique"
@@ -322,7 +322,7 @@ msgid "Display legend"
 msgstr ""
 
 msgid "Legend type"
-msgstr ""
+msgstr "Type de légende"
 
 msgid "Legend setup"
 msgstr ""
@@ -345,7 +345,7 @@ msgid "No space between bars/columns"
 msgstr ""
 
 msgid "Number type"
-msgstr ""
+msgstr "Type numérique"
 
 msgid "Display the value of percentages of the total"
 msgstr ""
@@ -357,13 +357,13 @@ msgid "Percentage of column"
 msgstr ""
 
 msgid "Organisation unit"
-msgstr ""
+msgstr "Unité d'organisation"
 
 msgid "Parent organisation unit"
-msgstr ""
+msgstr "Unité d'organisation parent"
 
 msgid "Reporting period"
-msgstr ""
+msgstr "Période de rapportage"
 
 msgid "Stacked values add up to 100%"
 msgstr ""
@@ -378,10 +378,10 @@ msgid "The number of axis steps between the min and max values"
 msgstr ""
 
 msgid "Steps"
-msgstr ""
+msgstr "Étapes"
 
 msgid "Include regression"
-msgstr ""
+msgstr "Inclure régression"
 
 msgid "Trend line"
 msgstr "Courbe de tendance"
@@ -408,10 +408,10 @@ msgid "Dimension labels"
 msgstr ""
 
 msgid "Show hierarchy"
-msgstr ""
+msgstr "Afficher l'hiérarchie"
 
 msgid "Skip rounding"
-msgstr ""
+msgstr "Ne pas arondir"
 
 msgid "Custom sort order"
 msgstr ""
@@ -432,7 +432,7 @@ msgid "Target line title"
 msgstr ""
 
 msgid "Top limit"
-msgstr ""
+msgstr "Limite supérieure"
 
 msgid "Options"
 msgstr "Options"
@@ -507,7 +507,7 @@ msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr ""
 
 msgid "or"
-msgstr ""
+msgstr "ou"
 
 msgid "Add to series"
 msgstr ""
@@ -648,7 +648,7 @@ msgid "Style"
 msgstr "Style"
 
 msgid "Display"
-msgstr ""
+msgstr "Afficher"
 
 msgid "Lines"
 msgstr ""
@@ -675,7 +675,7 @@ msgid "Display empty data"
 msgstr ""
 
 msgid "Legend"
-msgstr ""
+msgstr "Légende"
 
 msgid "Limit values"
 msgstr ""
@@ -687,7 +687,7 @@ msgid "Limit minimum/maximum values"
 msgstr ""
 
 msgid "Parameters"
-msgstr ""
+msgstr "Paramètres"
 
 msgid "Weeks per year"
 msgstr ""
