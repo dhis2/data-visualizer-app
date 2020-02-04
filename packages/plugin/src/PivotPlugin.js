@@ -43,13 +43,12 @@ const PivotPlugin = ({
     onError,
     onResponsesReceived,
     d2,
+    onLoadingComplete,
 }) => {
-    const [isLoading, setIsLoading] = useState(true)
     const [visualization, setVisualization] = useState(null)
     const [data, setData] = useState(null)
 
     useEffect(() => {
-        setIsLoading(true)
         const options = getRequestOptions(config, filters)
         apiFetchAnalytics(d2, config, options)
             .then(responses => {
@@ -68,7 +67,7 @@ const PivotPlugin = ({
             })
 
         // TODO: cancellation
-    }, [config, filters, onResponsesReceived, onError, d2])
+    }, [config, filters, onResponsesReceived, onError, d2, onLoadingComplete])
 
     return (
         <div style={{ width: '100%', height: '100%', ...style }}>
