@@ -6,7 +6,7 @@ import TextBaseOption from './TextBaseOption'
 const BaseLineValue = () => (
     <TextBaseOption
         type="number"
-        width="72px"
+        width="96px"
         label={i18n.t('Value')}
         placeholder={i18n.t('Number')}
         option={{
