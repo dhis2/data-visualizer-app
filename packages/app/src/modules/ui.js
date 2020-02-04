@@ -8,6 +8,7 @@ import {
     VIS_TYPE_PIE,
     VIS_TYPE_GAUGE,
     VIS_TYPE_SINGLE_VALUE,
+    VIS_TYPE_PIVOT_TABLE,
     defaultVisType,
     isYearOverYear,
 } from '@dhis2/analytics'
@@ -89,6 +90,8 @@ export const getAdaptedUiByType = ui => {
         case VIS_TYPE_GAUGE: {
             return singleValueUiAdapter(ui)
         }
+        case VIS_TYPE_PIVOT_TABLE:
+            return ui
         default:
             return defaultUiAdapter(ui)
     }
