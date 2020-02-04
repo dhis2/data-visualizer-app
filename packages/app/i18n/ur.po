@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-11-21T07:25:38.180Z\n"
+"POT-Creation-Date: 2019-11-29T10:59:48.425Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2019\n"
 "Language-Team: Urdu (https://www.transifex.com/hisp-uio/teams/100509/ur/)\n"
@@ -104,9 +104,6 @@ msgstr ""
 msgid "Interpretations"
 msgstr "تشریحات"
 
-msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
-msgstr ""
-
 msgid "{{total}} of {{maxNumberOfItemsPerAxis}} selected"
 msgstr ""
 
@@ -115,6 +112,12 @@ msgstr ""
 
 msgid "Error validating layout"
 msgstr ""
+
+msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
+msgstr ""
+
+msgid "Move to"
+msgstr "پر منتقل"
 
 msgid "Remove"
 msgstr "دور"
