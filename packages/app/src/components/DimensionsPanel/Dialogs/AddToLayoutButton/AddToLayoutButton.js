@@ -4,14 +4,14 @@ import { connect } from 'react-redux'
 import Button from '@material-ui/core/Button'
 import MenuItem from '@material-ui/core/Button'
 import { withStyles } from '@material-ui/core/styles'
-import { getAvailableAxes } from '@dhis2/analytics'
+import { getAvailableAxes, getAxisNameByVisType } from '@dhis2/analytics'
 
 import Menu from './Menu'
 import { sGetUiActiveModalDialog, sGetUiType } from '../../../../reducers/ui'
 import { acAddUiLayoutDimensions } from '../../../../actions/ui'
 
-import { ADD_TO_LAYOUT_OPTIONS } from '../../../../modules/layout'
 import styles from './styles/AddToLayoutButton.style'
+import i18n from '@dhis2/d2-i18n'
 
 export class AddToLayoutButton extends Component {
     constructor(props) {
@@ -20,6 +20,8 @@ export class AddToLayoutButton extends Component {
     }
 
     state = { anchorEl: null }
+
+    labelPrefix = i18n.t('Add to')
 
     onClose = () => this.setState({ anchorEl: null })
 
@@ -36,31 +38,25 @@ export class AddToLayoutButton extends Component {
         this.props.onClick()
     }
 
-    getAxisMeta = axisIdArray =>
-        axisIdArray.map(axisId =>
-            ADD_TO_LAYOUT_OPTIONS.find(
-                axisMetaObj => axisMetaObj.axisId === axisId
-            )
-        )
-
     renderMenuItems = () =>
-        this.getAxisMeta(getAvailableAxes(this.props.visType))
+        getAvailableAxes(this.props.visType)
             .slice(1)
-            .map(axisMetaObj => (
+            .map(axis => (
                 <MenuItem
                     className={this.props.classes.menuItem}
                     component="li"
-                    key={axisMetaObj.axisId}
-                    onClick={() => this.onUpdate(axisMetaObj.axisId)}
+                    key={axis}
+                    onClick={() => this.onUpdate(axis)}
                 >
-                    {axisMetaObj.name}
+                    {`${this.labelPrefix} ${getAxisNameByVisType(
+                        axis,
+                        this.props.visType
+                    )}`}
                 </MenuItem>
             ))
 
     render() {
-        const availableAxisMeta = this.getAxisMeta(
-            getAvailableAxes(this.props.visType)
-        )
+        const availableAxis = getAvailableAxes(this.props.visType)
 
         return (
             <div ref={addToRef => (this.buttonRef = addToRef)}>
@@ -70,11 +66,14 @@ export class AddToLayoutButton extends Component {
                     color="primary"
                     disableRipple
                     disableFocusRipple
-                    onClick={() => this.onUpdate(availableAxisMeta[0].axisId)}
+                    onClick={() => this.onUpdate(availableAxis[0])}
                 >
-                    {availableAxisMeta[0].name}
+                    {`${this.labelPrefix} ${getAxisNameByVisType(
+                        availableAxis[0],
+                        this.props.visType
+                    )}`}
                 </Button>
-                {availableAxisMeta.length > 1 ? (
+                {availableAxis.length > 1 ? (
                     <Menu
                         onClose={this.onClose}
                         onClick={this.onToggle}

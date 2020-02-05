@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-02-05T08:52:11.951Z\n"
-"PO-Revision-Date: 2020-02-05T08:52:11.951Z\n"
+"POT-Creation-Date: 2020-02-05T10:50:15.417Z\n"
+"PO-Revision-Date: 2020-02-05T10:50:15.417Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -105,12 +105,6 @@ msgid "{{total}} selected"
 msgstr ""
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
-msgstr ""
-
-msgid "Columns"
-msgstr ""
-
-msgid "Rows"
 msgstr ""
 
 msgid "None selected"
@@ -447,18 +441,6 @@ msgid ""
 "you may not have access to it."
 msgstr ""
 
-msgid "Series is empty"
-msgstr ""
-
-msgid "Add at least one item to Series."
-msgstr ""
-
-msgid "Category is empty"
-msgstr ""
-
-msgid "Add at least one item to Category."
-msgstr ""
-
 msgid "No period set"
 msgstr ""
 
@@ -679,4 +661,22 @@ msgid "Bimonths per year"
 msgstr ""
 
 msgid "Quarters per year"
+msgstr ""
+
+msgctxt ""
+"COLUMNS,\n"
+"                    visType\n"
+"                )}."
+msgid ""
+"Add at least one item to ${getAxisNameByVisType(\n"
+"                    AXIS_ID"
+msgstr ""
+
+msgctxt ""
+"ROWS,\n"
+"                    visType\n"
+"                )}."
+msgid ""
+"Add at least one item to ${getAxisNameByVisType(\n"
+"                    AXIS_ID"
 msgstr ""

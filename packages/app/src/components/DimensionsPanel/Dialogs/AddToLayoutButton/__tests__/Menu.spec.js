@@ -2,10 +2,11 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
-import { ADD_TO_LAYOUT_OPTIONS } from '../../../../../modules/layout'
 
 import { DropDown } from '../Menu'
 import DropDownButton from '../DropDownButton'
+import { VIS_TYPE_COLUMN } from '@dhis2/analytics/build/modules/visTypes'
+import { getAvailableAxes } from '@dhis2/analytics'
 
 describe('The DropDownButton component ', () => {
     let props
@@ -55,7 +56,7 @@ describe('The DropDownButton component ', () => {
     it('renders a Menu with children if prop anchorel is equal to a truthy value', () => {
         props.anchorEl = { getBoundingClientRect: () => ({ bottom: 100 }) }
 
-        props.menuItems = ADD_TO_LAYOUT_OPTIONS.map((option, i) => (
+        props.menuItems = getAvailableAxes(VIS_TYPE_COLUMN).map((option, i) => (
             <MenuItem key={i} value={option.axisId} />
         ))
 
