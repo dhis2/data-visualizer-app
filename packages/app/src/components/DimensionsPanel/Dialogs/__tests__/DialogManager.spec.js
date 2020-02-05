@@ -35,7 +35,6 @@ jest.mock('@dhis2/analytics', () => {
         DIMENSION_ID_ORGUNIT: ouId,
         getAxisMaxNumberOfItems: () => {},
         filterOutPredefinedDimensions: () => [],
-        getAxisName: () => {},
         getPredefinedDimensions: () => {},
         getPredefinedDimensionProp: () => {},
     }
