@@ -72,11 +72,6 @@ export default [
         ],
     },
     {
-        key: 'colors-legends',
-        label: i18n.t('Colors & Legends'),
-        content: [],
-    },
-    {
         key: 'style-tab',
         label: i18n.t('Style'),
         content: [
