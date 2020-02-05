@@ -152,10 +152,10 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@2.4.6":
-  version "2.4.6"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.4.6.tgz#ceec5185d54d3db80ffa5f1ffca93e6a50e523db"
-  integrity sha512-yKEIz1p3HmMQaL220oXsz2m+BO4DqyPtohO8B6fhfZNaA7BeGkxRv7eraQu4VX7GSPgw/6jeEy8q29GGVPPLVw==
+"@dhis2/analytics@2.4.7":
+  version "2.4.7"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.4.7.tgz#0cbe4e44db69e690b08a2b284ce08b630142d73f"
+  integrity sha512-mESuLf4x224WacDRGju6i5GIVQgtEghHR/tCxtqref1kT1o4NN+ZGjbBn7+fmE7FqIjBt7J0/1/IR58Fq0+GRg==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^6.3.0"
@@ -4340,19 +4340,6 @@ cypress@^3.1.1:
     yauzl "2.10.0"
 
 d2-charts-api@32.0.8, d2-charts-api@^32.0.8:
-  version "32.0.8"
-  resolved "https://registry.yarnpkg.com/d2-charts-api/-/d2-charts-api-32.0.8.tgz#5e79e91ce6744bcd039d27f0527c2908c075361e"
-  integrity sha512-bxWlcb3EylOjunUZwPw18eVDVGsFLUtrNTTYQmrSzab5HzfpeODvOJ/IDdlUK8ltJV8qp6q71+bV6Z/FnFwPLQ==
-  dependencies:
-    d2-utilizr "0.2.13"
-    d3-color "1.0.1"
-    highcharts "^6.2.0"
-    highcharts-exporting "^0.1.7"
-    highcharts-more "^0.1.7"
-    highcharts-no-data-to-display "^0.1.7"
-    highcharts-solid-gauge "^0.1.7"
-
-d2-charts-api@32.0.8:
   version "32.0.8"
   resolved "https://registry.yarnpkg.com/d2-charts-api/-/d2-charts-api-32.0.8.tgz#5e79e91ce6744bcd039d27f0527c2908c075361e"
   integrity sha512-bxWlcb3EylOjunUZwPw18eVDVGsFLUtrNTTYQmrSzab5HzfpeODvOJ/IDdlUK8ltJV8qp6q71+bV6Z/FnFwPLQ==
