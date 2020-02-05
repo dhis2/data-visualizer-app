@@ -8,7 +8,7 @@ const ShowDimensionLabels = () => (
     <CheckboxBaseOption
         label={i18n.t('Dimension labels')}
         option={{
-            name: 'showDimensionTotals',
+            name: 'showDimensionLabels',
         }}
     />
 )
