@@ -10,7 +10,7 @@
     height: 100%;
     overflow: auto;
     margin-top: 0px;
-    padding: 0;
+    padding-right: 8px;
 }
 
 .list {
