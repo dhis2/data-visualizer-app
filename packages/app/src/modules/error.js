@@ -2,9 +2,11 @@ import i18n from '@dhis2/d2-i18n'
 import {
     getDisplayNameByVisType,
     getAvailableAxes,
-    getAxisName,
+    getAxisNameByVisType,
     getAxisPerLockedDimension,
     DIMENSION_ID_DATA,
+    AXIS_ID_COLUMNS,
+    AXIS_ID_ROWS,
 } from '@dhis2/analytics'
 
 import {
@@ -37,21 +39,33 @@ export class EmptyResponseError extends VisualizationError {
 }
 
 export class NoSeriesError extends VisualizationError {
-    constructor() {
+    constructor(visType) {
         super(
             EmptySeries,
-            i18n.t('Series is empty'),
-            i18n.t('Add at least one item to Series.')
+            i18n.t(
+                `${getAxisNameByVisType(AXIS_ID_COLUMNS, visType)} is empty`
+            ),
+            i18n.t(
+                `Add at least one item to ${getAxisNameByVisType(
+                    AXIS_ID_COLUMNS,
+                    visType
+                )}.`
+            )
         )
     }
 }
 
 export class NoCategoryError extends VisualizationError {
-    constructor() {
+    constructor(visType) {
         super(
             EmptyCategory,
-            i18n.t('Category is empty'),
-            i18n.t('Add at least one item to Category.')
+            i18n.t(`${getAxisNameByVisType(AXIS_ID_ROWS, visType)} is empty`),
+            i18n.t(
+                `Add at least one item to ${getAxisNameByVisType(
+                    AXIS_ID_ROWS,
+                    visType
+                )}.`
+            )
         )
     }
 }
@@ -83,7 +97,7 @@ export class NoDataError extends VisualizationError {
                 {
                     visType: getDisplayNameByVisType(visType),
                     axes: lockedAxis
-                        ? getAxisName(lockedAxis)
+                        ? getAxisNameByVisType(lockedAxis, visType)
                         : getAvailableAxesDescription(visType),
                 }
             )
@@ -141,7 +155,7 @@ const getAvailableAxesDescription = visType => {
     const axes = getAvailableAxes(visType)
     let axesDescription = ''
     for (let index = 0; index < axes.length; index++) {
-        axesDescription += getAxisName(axes[index])
+        axesDescription += getAxisNameByVisType(axes[index], visType)
         if (index < axes.length - 2) {
             axesDescription += ', '
         } else if (index < axes.length - 1) {

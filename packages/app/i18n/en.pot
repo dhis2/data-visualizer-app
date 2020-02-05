@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-02-02T13:49:38.927Z\n"
-"PO-Revision-Date: 2020-02-02T13:49:38.927Z\n"
+"POT-Creation-Date: 2020-02-05T08:52:11.951Z\n"
+"PO-Revision-Date: 2020-02-05T08:52:11.951Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -180,9 +180,6 @@ msgid "Base line"
 msgstr ""
 
 msgid "Title"
-msgstr ""
-
-msgid "Base line title"
 msgstr ""
 
 msgid "Value"
@@ -418,9 +415,6 @@ msgstr ""
 msgid "Target line"
 msgstr ""
 
-msgid "Target line title"
-msgstr ""
-
 msgid "Top limit"
 msgstr ""
 
@@ -646,9 +640,6 @@ msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Horizontal (x) axis"
-msgstr ""
-
-msgid "Colors & Legends"
 msgstr ""
 
 msgid "Chart style"
