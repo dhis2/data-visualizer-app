@@ -6,7 +6,6 @@ import i18n from '@dhis2/d2-i18n'
 
 import {
     Button,
-    Field,
     Input,
     Label,
     SingleSelect,
@@ -123,7 +122,7 @@ class MeasureCriteria extends Component {
                     )}
                 </p>
                 <div className={tabSectionOptionComplexInline.className}>
-                    <div style={{ width: '250px', paddingBottom: '16px' }}>
+                    <div style={{ width: '250px' }}>
                         <Label>{i18n.t('Minimum data value')}</Label>
                         <div
                             className={tabSectionOptionComplexInline.className}
@@ -140,31 +139,29 @@ class MeasureCriteria extends Component {
                             />
                         </div>
                     </div>
-                    <Field>
-                        <div style={{ width: '250px' }}>
-                            <Label>{i18n.t('Maximum data value')}</Label>
-                            <div
-                                className={
-                                    tabSectionOptionComplexInline.className
-                                }
-                            >
-                                <OperatorSelect
-                                    name="op2"
-                                    value={op2}
-                                    onChange={this.onChange('op2')}
-                                />
-                                <ValueInput
-                                    name="v2"
-                                    value={v2}
-                                    onChange={this.onChange('v2')}
-                                />
-                            </div>
+                    <div style={{ width: '250px' }}>
+                        <Label>{i18n.t('Maximum data value')}</Label>
+                        <div
+                            className={tabSectionOptionComplexInline.className}
+                        >
+                            <OperatorSelect
+                                name="op2"
+                                value={op2}
+                                onChange={this.onChange('op2')}
+                            />
+                            <ValueInput
+                                name="v2"
+                                value={v2}
+                                onChange={this.onChange('v2')}
+                            />
                         </div>
-                    </Field>
+                    </div>
                 </div>
-                <Button onClick={this.onClear}>
-                    {i18n.t('Clear min/max limits')}
-                </Button>
+                <div style={{ paddingTop: '16px' }}>
+                    <Button onClick={this.onClear}>
+                        {i18n.t('Clear min/max limits')}
+                    </Button>
+                </div>
             </div>
         )
     }
