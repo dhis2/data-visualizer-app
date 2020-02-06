@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-02-02T13:49:38.927Z\n"
+"POT-Creation-Date: 2020-02-05T10:48:05.798Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
@@ -54,9 +54,6 @@ msgstr ""
 msgid "Filter dimensions"
 msgstr ""
 
-msgid "Download"
-msgstr "Tải về"
-
 msgid "Graphics"
 msgstr "Hình ảnh"
 
@@ -65,6 +62,21 @@ msgstr ""
 
 msgid "PDF (.pdf)"
 msgstr ""
+
+msgid "Table"
+msgstr "Bảng"
+
+msgid "Excel (.xls)"
+msgstr ""
+
+msgid "CSV (.csv)"
+msgstr ""
+
+msgid "HTML (.html)"
+msgstr ""
+
+msgid "Download"
+msgstr "Tải về"
 
 msgid "Plain data source"
 msgstr "Nguồn dữ liệu gốc"
@@ -189,9 +201,6 @@ msgstr ""
 
 msgid "Title"
 msgstr "Tiêu đề"
-
-msgid "Base line title"
-msgstr "Tiêu đề đường căn bản"
 
 msgid "Value"
 msgstr "Giá trị"
@@ -426,9 +435,6 @@ msgstr ""
 msgid "Target line"
 msgstr ""
 
-msgid "Target line title"
-msgstr "Tiêu đề đường mục tiêu"
-
 msgid "Top limit"
 msgstr "Giới hạn trên"
 
@@ -655,9 +661,6 @@ msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Horizontal (x) axis"
-msgstr ""
-
-msgid "Colors & Legends"
 msgstr ""
 
 msgid "Chart style"
