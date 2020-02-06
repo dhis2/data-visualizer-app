@@ -16,13 +16,84 @@ export const apiDownloadImage = async (type, formData) => {
         .then(res => res.blob())
 }
 
-export const apiDownloadData = async ({ current, format, idScheme, path }) => {
+const addCommonParameters = (req, current, options) => {
+    req = req
+        .withSkipRounding(current.skipRounding)
+        .withAggregationType(current.aggregationType)
+    //        .withUserOrgUnit(?) TODO
+
+    if (current.displayProperty) {
+        req = req.withDisplayProperty(current.displayProperty)
+    }
+
+    if (options.relativePeriodDate) {
+        req = req.withRelativePeriodDate(options.relativePeriodDate)
+    }
+
+    return req
+}
+
+export const apiDownloadTable = async ({
+    current,
+    format,
+    options,
+    rows,
+    columns,
+}) => {
+    const d2 = await getInstance()
+    const api = d2.Api.getApi()
+
+    let req = new d2.analytics.request()
+        .fromModel(current)
+        .withFormat(format)
+        .withTableLayout()
+        .withRows(rows.join(';'))
+        .withColumns(columns.join(';'))
+
+    req = addCommonParameters(req, current, options)
+
+    if (current.hideEmptyColumns) {
+        req = req.withHideEmptyColumns()
+    }
+
+    if (current.hideEmptyRows) {
+        req = req.withHideEmptyRows()
+    }
+
+    if (current.showHierarchy) {
+        req = req.withShowHierarchy()
+    }
+
+    const url = new URL(
+        `${api.baseUrl}/${req.buildUrl()}`,
+        `${window.location.origin}${window.location.pathname}`
+    )
+
+    Object.entries(req.buildQuery()).forEach(([key, value]) =>
+        url.searchParams.append(key, value)
+    )
+
+    return url
+}
+
+export const apiDownloadData = async ({
+    current,
+    format,
+    options,
+    idScheme,
+    path,
+}) => {
     const d2 = await getInstance()
     const api = d2.Api.getApi()
 
     let req = new d2.analytics.request()
         .fromModel(current, path === 'dataValueSet')
         .withFormat(format)
+        .withHierarchyMeta(current.showHierarchy)
+        .withMeasureCriteria(current.measureCriteria)
+    //.withApprovalLevel(current.?) TODO
+
+    req = addCommonParameters(req, current, options)
 
     if (path) {
         req = req.withPath(path)

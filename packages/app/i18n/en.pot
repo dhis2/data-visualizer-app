@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-02-02T13:49:38.927Z\n"
-"PO-Revision-Date: 2020-02-02T13:49:38.927Z\n"
+"POT-Creation-Date: 2020-02-05T10:48:05.798Z\n"
+"PO-Revision-Date: 2020-02-05T10:48:05.798Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -47,9 +47,6 @@ msgstr ""
 msgid "Filter dimensions"
 msgstr ""
 
-msgid "Download"
-msgstr ""
-
 msgid "Graphics"
 msgstr ""
 
@@ -57,6 +54,21 @@ msgid "Image (.png)"
 msgstr ""
 
 msgid "PDF (.pdf)"
+msgstr ""
+
+msgid "Table"
+msgstr ""
+
+msgid "Excel (.xls)"
+msgstr ""
+
+msgid "CSV (.csv)"
+msgstr ""
+
+msgid "HTML (.html)"
+msgstr ""
+
+msgid "Download"
 msgstr ""
 
 msgid "Plain data source"
@@ -180,9 +192,6 @@ msgid "Base line"
 msgstr ""
 
 msgid "Title"
-msgstr ""
-
-msgid "Base line title"
 msgstr ""
 
 msgid "Value"
@@ -418,9 +427,6 @@ msgstr ""
 msgid "Target line"
 msgstr ""
 
-msgid "Target line title"
-msgstr ""
-
 msgid "Top limit"
 msgstr ""
 
@@ -646,9 +652,6 @@ msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Horizontal (x) axis"
-msgstr ""
-
-msgid "Colors & Legends"
 msgstr ""
 
 msgid "Chart style"

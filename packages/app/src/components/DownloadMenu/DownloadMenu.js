@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { createSelector } from 'reselect'
+
 import Button from '@material-ui/core/Button'
 import Divider from '@material-ui/core/Divider'
 import Menu from '@material-ui/core/Menu'
@@ -16,11 +18,22 @@ import MoreHorizIcon from '@material-ui/icons/MoreHoriz'
 
 import i18n from '@dhis2/d2-i18n'
 
+import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
+
 import { styles } from './styles/DownloadMenu.style'
 
+import {
+    sGetUiType,
+    sGetUiLayout,
+    sGetUiInterpretation,
+} from '../../reducers/ui'
 import { sGetCurrent } from '../../reducers/current'
 import { sGetChart } from '../../reducers/chart'
-import { apiDownloadImage, apiDownloadData } from '../../api/analytics'
+import {
+    apiDownloadImage,
+    apiDownloadData,
+    apiDownloadTable,
+} from '../../api/analytics'
 
 export class DownloadMenu extends Component {
     constructor(props) {
@@ -72,9 +85,15 @@ export class DownloadMenu extends Component {
     }
 
     downloadData = (format, idScheme, path) => async () => {
-        const { current } = this.props
+        const { current, relativePeriodDate } = this.props
 
-        const url = await apiDownloadData({ current, format, idScheme, path })
+        const url = await apiDownloadData({
+            current,
+            format,
+            options: { relativePeriodDate },
+            idScheme,
+            path,
+        })
 
         if (idScheme) {
             this.toggleSubmenu('scheme')
@@ -86,6 +105,62 @@ export class DownloadMenu extends Component {
 
         window.open(url, format.match(/(xls|csv)/) ? '_top' : '_blank')
     }
+
+    downloadTable = format => async () => {
+        const { current, rows, columns, relativePeriodDate } = this.props
+
+        const url = await apiDownloadTable({
+            current,
+            format,
+            options: { relativePeriodDate },
+            rows,
+            columns,
+        })
+
+        window.open(url, format === 'html' ? '_blank' : '_top')
+    }
+
+    graphicsMenuSection = () => (
+        <div>
+            <ListSubheader component="div">{i18n.t('Graphics')}</ListSubheader>
+            <MenuItem onClick={this.downloadImage('png')}>
+                <ListItemIcon>
+                    <ImageIcon />
+                </ListItemIcon>
+                <ListItemText>{i18n.t('Image (.png)')}</ListItemText>
+            </MenuItem>
+            <MenuItem onClick={this.downloadImage('pdf')}>
+                <ListItemIcon>
+                    <PictureAsPdfIcon />
+                </ListItemIcon>
+                <ListItemText>{i18n.t('PDF (.pdf)')}</ListItemText>
+            </MenuItem>
+        </div>
+    )
+
+    tableMenuSection = () => (
+        <div>
+            <ListSubheader component="div">{i18n.t('Table')}</ListSubheader>
+            <MenuItem onClick={this.downloadTable('xls')}>
+                <ListItemIcon>
+                    <ImageIcon />
+                </ListItemIcon>
+                <ListItemText>{i18n.t('Excel (.xls)')}</ListItemText>
+            </MenuItem>
+            <MenuItem onClick={this.downloadTable('csv')}>
+                <ListItemIcon>
+                    <ImageIcon />
+                </ListItemIcon>
+                <ListItemText>{i18n.t('CSV (.csv)')}</ListItemText>
+            </MenuItem>
+            <MenuItem onClick={this.downloadTable('html')}>
+                <ListItemIcon>
+                    <ImageIcon />
+                </ListItemIcon>
+                <ListItemText>{i18n.t('HTML (.html)')}</ListItemText>
+            </MenuItem>
+        </div>
+    )
 
     render() {
         return (
@@ -106,21 +181,9 @@ export class DownloadMenu extends Component {
                     getContentAnchorEl={null}
                     onClose={() => this.toggleMenu()}
                 >
-                    <ListSubheader component="div">
-                        {i18n.t('Graphics')}
-                    </ListSubheader>
-                    <MenuItem onClick={this.downloadImage('png')}>
-                        <ListItemIcon>
-                            <ImageIcon />
-                        </ListItemIcon>
-                        <ListItemText>{i18n.t('Image (.png)')}</ListItemText>
-                    </MenuItem>
-                    <MenuItem onClick={this.downloadImage('pdf')}>
-                        <ListItemIcon>
-                            <PictureAsPdfIcon />
-                        </ListItemIcon>
-                        <ListItemText>{i18n.t('PDF (.pdf)')}</ListItemText>
-                    </MenuItem>
+                    {this.props.visType === VIS_TYPE_PIVOT_TABLE
+                        ? this.tableMenuSection()
+                        : this.graphicsMenuSection()}
                     <Divider />
                     <ListSubheader component="div">
                         {i18n.t('Plain data source')}
@@ -272,15 +335,28 @@ export class DownloadMenu extends Component {
     }
 }
 
+const relativePeriodDateSelector = createSelector(
+    [sGetUiInterpretation],
+    interpretation => interpretation.created || undefined
+)
+
 DownloadMenu.propTypes = {
     chart: PropTypes.string,
     className: PropTypes.string,
+    columns: PropTypes.array,
     current: PropTypes.object,
+    relativePeriodDate: PropTypes.string,
+    rows: PropTypes.array,
+    visType: PropTypes.string,
 }
 
 const mapStateToProps = state => ({
     current: sGetCurrent(state),
+    relativePeriodDate: relativePeriodDateSelector(state),
+    rows: sGetUiLayout(state).rows,
+    columns: sGetUiLayout(state).columns,
     chart: sGetChart(state),
+    visType: sGetUiType(state),
 })
 
 export default connect(mapStateToProps, {})(DownloadMenu)
