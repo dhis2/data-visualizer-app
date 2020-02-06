@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-02-05T10:50:15.417Z\n"
-"PO-Revision-Date: 2020-02-05T10:50:15.417Z\n"
+"POT-Creation-Date: 2020-02-05T15:07:56.241Z\n"
+"PO-Revision-Date: 2020-02-05T15:07:56.241Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -32,6 +32,9 @@ msgid "Cancel"
 msgstr ""
 
 msgid "Update"
+msgstr ""
+
+msgid "Add to"
 msgstr ""
 
 msgid ""
@@ -472,24 +475,6 @@ msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr ""
 
 msgid "or"
-msgstr ""
-
-msgid "Add to series"
-msgstr ""
-
-msgid "Add to category"
-msgstr ""
-
-msgid "Add to filter"
-msgstr ""
-
-msgid "series"
-msgstr ""
-
-msgid "category"
-msgstr ""
-
-msgid "filter"
 msgstr ""
 
 msgid "Today"
