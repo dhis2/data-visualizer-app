@@ -42,11 +42,11 @@ export class NoSeriesError extends VisualizationError {
     constructor(visType) {
         super(
             EmptySeries,
-            i18n.t(`{{visType}} is empty`, {
-                visType: getAxisNameByVisType(AXIS_ID_COLUMNS, visType),
+            i18n.t(`{{axisName}} is empty`, {
+                axisName: getAxisNameByVisType(AXIS_ID_COLUMNS, visType),
             }),
-            i18n.t('Add at least one item to {{visType}}.', {
-                visType: getAxisNameByVisType(AXIS_ID_COLUMNS, visType),
+            i18n.t('Add at least one item to {{axisName}}.', {
+                axisName: getAxisNameByVisType(AXIS_ID_COLUMNS, visType),
             })
         )
     }
@@ -56,11 +56,11 @@ export class NoCategoryError extends VisualizationError {
     constructor(visType) {
         super(
             EmptyCategory,
-            i18n.t(`{{visType}} is empty`, {
-                visType: getAxisNameByVisType(AXIS_ID_ROWS, visType),
+            i18n.t(`{{axisName}} is empty`, {
+                axisName: getAxisNameByVisType(AXIS_ID_ROWS, visType),
             }),
-            i18n.t('Add at least one item to {{visType}}.', {
-                visType: getAxisNameByVisType(AXIS_ID_ROWS, visType),
+            i18n.t('Add at least one item to {{axisName}}.', {
+                axisName: getAxisNameByVisType(AXIS_ID_ROWS, visType),
             })
         )
     }
