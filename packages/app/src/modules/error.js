@@ -72,9 +72,9 @@ export class NoPeriodError extends VisualizationError {
             PeriodError,
             i18n.t('No period set'),
             i18n.t(
-                '{{visType}} must have at least one period set in {{axes}}.',
+                '{{visualizationType}} must have at least one period set in {{axes}}.',
                 {
-                    visType: getDisplayNameByVisType(visType),
+                    visualizationType: getDisplayNameByVisType(visType),
                     axes: getAvailableAxesDescription(visType),
                 }
             )
@@ -89,9 +89,9 @@ export class NoDataError extends VisualizationError {
             DataError,
             i18n.t('No data set'),
             i18n.t(
-                '{{visType}} must have at least one data item in {{axes}}.',
+                '{{visualizationType}} must have at least one data item in {{axes}}.',
                 {
-                    visType: getDisplayNameByVisType(visType),
+                    visualizationType: getDisplayNameByVisType(visType),
                     axes: lockedAxis
                         ? getAxisNameByVisType(lockedAxis, visType)
                         : getAvailableAxesDescription(visType),
@@ -106,9 +106,12 @@ export class GenericClientError extends VisualizationError {
         super(
             GenericError,
             i18n.t('Something went wrong'),
-            i18n.t('There is a problem with this {{visType}} visualization.', {
-                visType: getDisplayNameByVisType(visType),
-            })
+            i18n.t(
+                'There is a problem with this {{visualizationType}} visualization.',
+                {
+                    visualizationType: getDisplayNameByVisType(visType),
+                }
+            )
         )
     }
 }
