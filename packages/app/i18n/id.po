@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-02-02T13:49:38.927Z\n"
+"POT-Creation-Date: 2020-02-05T10:48:05.798Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
@@ -56,9 +56,6 @@ msgstr ""
 msgid "Filter dimensions"
 msgstr ""
 
-msgid "Download"
-msgstr "Unduh"
-
 msgid "Graphics"
 msgstr "Grafik"
 
@@ -67,6 +64,21 @@ msgstr "Gambar (.png)"
 
 msgid "PDF (.pdf)"
 msgstr "PDF (.pdf)"
+
+msgid "Table"
+msgstr "Tabel"
+
+msgid "Excel (.xls)"
+msgstr ""
+
+msgid "CSV (.csv)"
+msgstr ""
+
+msgid "HTML (.html)"
+msgstr ""
+
+msgid "Download"
+msgstr "Unduh"
 
 msgid "Plain data source"
 msgstr "Sumber data asli"
@@ -191,9 +203,6 @@ msgstr "Baseline"
 
 msgid "Title"
 msgstr "Judul"
-
-msgid "Base line title"
-msgstr "Nama baseline"
 
 msgid "Value"
 msgstr "Nilai"
@@ -428,9 +437,6 @@ msgstr ""
 msgid "Target line"
 msgstr "Garis sasaran"
 
-msgid "Target line title"
-msgstr "Nama garis sasaran"
-
 msgid "Top limit"
 msgstr "Batas atas"
 
@@ -657,9 +663,6 @@ msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Horizontal (x) axis"
-msgstr ""
-
-msgid "Colors & Legends"
 msgstr ""
 
 msgid "Chart style"
