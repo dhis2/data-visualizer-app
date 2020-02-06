@@ -50,9 +50,6 @@ msgstr ""
 msgid "Filter dimensions"
 msgstr ""
 
-msgid "Download"
-msgstr ""
-
 msgid "Graphics"
 msgstr ""
 
@@ -60,6 +57,21 @@ msgid "Image (.png)"
 msgstr ""
 
 msgid "PDF (.pdf)"
+msgstr ""
+
+msgid "Table"
+msgstr ""
+
+msgid "Excel (.xls)"
+msgstr ""
+
+msgid "CSV (.csv)"
+msgstr ""
+
+msgid "HTML (.html)"
+msgstr ""
+
+msgid "Download"
 msgstr ""
 
 msgid "Plain data source"
