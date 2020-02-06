@@ -4,7 +4,11 @@ import { connect } from 'react-redux'
 import Button from '@material-ui/core/Button'
 import MenuItem from '@material-ui/core/Button'
 import { withStyles } from '@material-ui/core/styles'
-import { getAvailableAxes, getAxisNameByVisType } from '@dhis2/analytics'
+import {
+    getAvailableAxes,
+    getAxisNameByLayoutType,
+    getLayoutTypeByVisType,
+} from '@dhis2/analytics'
 
 import Menu from './Menu'
 import { sGetUiActiveModalDialog, sGetUiType } from '../../../../reducers/ui'
@@ -48,9 +52,9 @@ export class AddToLayoutButton extends Component {
                     key={axis}
                     onClick={() => this.onUpdate(axis)}
                 >
-                    {`${this.labelPrefix} ${getAxisNameByVisType(
+                    {`${this.labelPrefix} ${getAxisNameByLayoutType(
                         axis,
-                        this.props.visType
+                        getLayoutTypeByVisType(this.props.visType)
                     )}`}
                 </MenuItem>
             ))
@@ -68,9 +72,9 @@ export class AddToLayoutButton extends Component {
                     disableFocusRipple
                     onClick={() => this.onUpdate(availableAxis[0])}
                 >
-                    {`${this.labelPrefix} ${getAxisNameByVisType(
+                    {`${this.labelPrefix} ${getAxisNameByLayoutType(
                         availableAxis[0],
-                        this.props.visType
+                        getLayoutTypeByVisType(this.props.visType)
                     )}`}
                 </Button>
                 {availableAxis.length > 1 ? (

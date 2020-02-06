@@ -2,7 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
-import { getAxisNameByVisType, isDimensionLocked } from '@dhis2/analytics'
+import {
+    getAxisNameByLayoutType,
+    getLayoutTypeByVisType,
+    isDimensionLocked,
+} from '@dhis2/analytics'
 import { withStyles } from '@material-ui/core'
 
 import Chip from '../Chip'
@@ -25,7 +29,11 @@ class Axis extends React.Component {
                 onDragOver={this.onDragOver}
             >
                 <div style={styles.label}>
-                    {this.props.label || getAxisNameByVisType(axisId, type)}
+                    {this.props.label ||
+                        getAxisNameByLayoutType(
+                            axisId,
+                            getLayoutTypeByVisType(type)
+                        )}
                 </div>
                 <Droppable droppableId={axisId} direction="horizontal">
                     {provided => (

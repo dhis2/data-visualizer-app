@@ -9,7 +9,8 @@ import {
     getAxisMaxNumberOfItems,
     hasAxisTooManyItems,
     getDisplayNameByVisType,
-    getAxisNameByVisType,
+    getAxisNameByLayoutType,
+    getLayoutTypeByVisType,
     DIMENSION_ID_ASSIGNED_CATEGORIES,
     isDimensionLocked,
     DIMENSION_PROP_NO_ITEMS,
@@ -154,9 +155,9 @@ class Chip extends React.Component {
                       `{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}`,
                       {
                           dimensionName: this.props.dimensionName,
-                          axisName: getAxisNameByVisType(
+                          axisName: getAxisNameByLayoutType(
                               this.props.axisId,
-                              this.props.type
+                              getLayoutTypeByVisType(this.props.type)
                           ),
                           visTypeName: getDisplayNameByVisType(this.props.type),
                       }

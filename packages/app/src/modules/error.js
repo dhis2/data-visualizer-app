@@ -2,7 +2,8 @@ import i18n from '@dhis2/d2-i18n'
 import {
     getDisplayNameByVisType,
     getAvailableAxes,
-    getAxisNameByVisType,
+    getAxisNameByLayoutType,
+    getLayoutTypeByVisType,
     getAxisPerLockedDimension,
     DIMENSION_ID_DATA,
     AXIS_ID_COLUMNS,
@@ -43,10 +44,16 @@ export class NoSeriesError extends VisualizationError {
         super(
             EmptySeries,
             i18n.t(`{{axisName}} is empty`, {
-                axisName: getAxisNameByVisType(AXIS_ID_COLUMNS, visType),
+                axisName: getAxisNameByLayoutType(
+                    AXIS_ID_COLUMNS,
+                    getLayoutTypeByVisType(visType)
+                ),
             }),
             i18n.t('Add at least one item to {{axisName}}.', {
-                axisName: getAxisNameByVisType(AXIS_ID_COLUMNS, visType),
+                axisName: getAxisNameByLayoutType(
+                    AXIS_ID_COLUMNS,
+                    getLayoutTypeByVisType(visType)
+                ),
             })
         )
     }
@@ -57,10 +64,16 @@ export class NoCategoryError extends VisualizationError {
         super(
             EmptyCategory,
             i18n.t(`{{axisName}} is empty`, {
-                axisName: getAxisNameByVisType(AXIS_ID_ROWS, visType),
+                axisName: getAxisNameByLayoutType(
+                    AXIS_ID_ROWS,
+                    getLayoutTypeByVisType(visType)
+                ),
             }),
             i18n.t('Add at least one item to {{axisName}}.', {
-                axisName: getAxisNameByVisType(AXIS_ID_ROWS, visType),
+                axisName: getAxisNameByLayoutType(
+                    AXIS_ID_ROWS,
+                    getLayoutTypeByVisType(visType)
+                ),
             })
         )
     }
@@ -93,7 +106,10 @@ export class NoDataError extends VisualizationError {
                 {
                     visualizationType: getDisplayNameByVisType(visType),
                     axes: lockedAxis
-                        ? getAxisNameByVisType(lockedAxis, visType)
+                        ? getAxisNameByLayoutType(
+                              lockedAxis,
+                              getLayoutTypeByVisType(visType)
+                          )
                         : getAvailableAxesDescription(visType),
                 }
             )
@@ -154,7 +170,10 @@ const getAvailableAxesDescription = visType => {
     const axes = getAvailableAxes(visType)
     let axesDescription = ''
     for (let index = 0; index < axes.length; index++) {
-        axesDescription += getAxisNameByVisType(axes[index], visType)
+        axesDescription += getAxisNameByLayoutType(
+            axes[index],
+            getLayoutTypeByVisType(visType)
+        )
         if (index < axes.length - 2) {
             axesDescription += ', '
         } else if (index < axes.length - 1) {
