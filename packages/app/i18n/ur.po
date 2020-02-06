@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-02-02T13:49:38.927Z\n"
+"POT-Creation-Date: 2020-02-05T10:48:05.798Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Urdu (https://www.transifex.com/hisp-uio/teams/100509/ur/)\n"
@@ -54,9 +54,6 @@ msgstr ""
 msgid "Filter dimensions"
 msgstr ""
 
-msgid "Download"
-msgstr "ڈاؤن لوڈ کریں"
-
 msgid "Graphics"
 msgstr "گرافکس"
 
@@ -65,6 +62,21 @@ msgstr ""
 
 msgid "PDF (.pdf)"
 msgstr ""
+
+msgid "Table"
+msgstr "ٹیبل"
+
+msgid "Excel (.xls)"
+msgstr ""
+
+msgid "CSV (.csv)"
+msgstr ""
+
+msgid "HTML (.html)"
+msgstr ""
+
+msgid "Download"
+msgstr "ڈاؤن لوڈ کریں"
 
 msgid "Plain data source"
 msgstr "سادہ اعداد و شمار کا ذریعہ"
@@ -189,9 +201,6 @@ msgstr "بیس لائن"
 
 msgid "Title"
 msgstr "عنوان"
-
-msgid "Base line title"
-msgstr "بیس لائن کا عنوان"
 
 msgid "Value"
 msgstr "قدر"
@@ -426,9 +435,6 @@ msgstr ""
 msgid "Target line"
 msgstr "ہدف لائن"
 
-msgid "Target line title"
-msgstr "ہدف لائن کا عنوان"
-
 msgid "Top limit"
 msgstr "اوپر کی حد"
 
@@ -655,9 +661,6 @@ msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Horizontal (x) axis"
-msgstr ""
-
-msgid "Colors & Legends"
 msgstr ""
 
 msgid "Chart style"
