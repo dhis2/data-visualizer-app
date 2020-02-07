@@ -67,7 +67,7 @@ const StartScreen = ({ error, classes }) => {
                 {mostViewedVisualizations.length > 0 && (
                     <div style={styles.section}>
                         <h3 style={styles.title}>
-                            Most viewed charts and tables
+                            Your most viewed charts and tables
                         </h3>
                         {mostViewedVisualizations.map(
                             (visualization, index) => (
