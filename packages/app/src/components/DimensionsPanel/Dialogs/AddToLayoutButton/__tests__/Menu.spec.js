@@ -5,8 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem'
 
 import { DropDown } from '../Menu'
 import DropDownButton from '../DropDownButton'
-import { VIS_TYPE_COLUMN } from '@dhis2/analytics/build/modules/visTypes'
-import { getAvailableAxes } from '@dhis2/analytics'
+import { getAvailableAxes, VIS_TYPE_COLUMN } from '@dhis2/analytics'
 
 describe('The DropDownButton component ', () => {
     let props
