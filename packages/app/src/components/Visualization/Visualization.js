@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
@@ -9,11 +9,11 @@ import VisualizationPlugin from '@dhis2/data-visualizer-plugin'
 import { sGetVisualization } from '../../reducers/visualization'
 import { sGetCurrent } from '../../reducers/current'
 import { sGetUiRightSidebarOpen, sGetUiInterpretation } from '../../reducers/ui'
-import { sGetLoadError } from '../../reducers/loader'
+import { sGetLoadError, sGetIsPluginLoading } from '../../reducers/loader'
 
 import { acAddMetadata } from '../../actions/metadata'
 import { acSetChart } from '../../actions/chart'
-import { acSetLoadError } from '../../actions/loader'
+import { acSetLoadError, acSetPluginLoading } from '../../actions/loader'
 
 import StartScreen from './StartScreen'
 import {
@@ -22,6 +22,7 @@ import {
     EmptyResponseError,
     AssignedCategoriesAsFilterError,
 } from '../../modules/error'
+import LoadingMask from './LoadingMask'
 
 export class Visualization extends Component {
     constructor(props) {
@@ -46,10 +47,10 @@ export class Visualization extends Component {
             error = new GenericServerError()
         }
 
-        this.props.acSetLoadError(error)
+        this.props.setLoadError(error)
     }
 
-    onChartGenerated = svg => this.props.acSetChart(svg)
+    onChartGenerated = svg => this.props.setChart(svg)
 
     onResponsesReceived = responses => {
         const forMetadata = {}
@@ -67,7 +68,7 @@ export class Visualization extends Component {
             })
         })
 
-        this.props.acAddMetadata(forMetadata)
+        this.props.addMetadata(forMetadata)
     }
 
     getNewRenderId = () =>
@@ -105,16 +106,24 @@ export class Visualization extends Component {
         return !visConfig || error ? (
             <StartScreen />
         ) : (
-            <VisualizationPlugin
-                id={renderId}
-                d2={this.context.d2}
-                config={visConfig}
-                filters={visFilters}
-                onChartGenerated={this.onChartGenerated}
-                onResponsesReceived={this.onResponsesReceived}
-                onError={this.onError}
-                style={styles.chartCanvas}
-            />
+            <Fragment>
+                {this.props.isLoading ? (
+                    <div style={styles.loadingCover}>
+                        <LoadingMask />
+                    </div>
+                ) : null}
+                <VisualizationPlugin
+                    id={renderId}
+                    d2={this.context.d2}
+                    config={visConfig}
+                    filters={visFilters}
+                    onChartGenerated={this.onChartGenerated}
+                    onLoadingComplete={this.props.onLoadingComplete}
+                    onResponsesReceived={this.onResponsesReceived}
+                    onError={this.onError}
+                    style={styles.chartCanvas}
+                />
+            </Fragment>
         )
     }
 }
@@ -124,13 +133,15 @@ Visualization.contextTypes = {
 }
 
 Visualization.propTypes = {
-    acAddMetadata: PropTypes.func,
-    acSetChart: PropTypes.func,
-    acSetLoadError: PropTypes.func,
+    addMetadata: PropTypes.func,
     error: PropTypes.object,
+    isLoading: PropTypes.bool,
     rightSidebarOpen: PropTypes.bool,
+    setChart: PropTypes.func,
+    setLoadError: PropTypes.func,
     visConfig: PropTypes.object,
     visFilters: PropTypes.object,
+    onLoadingComplete: PropTypes.func,
 }
 
 export const visConfigSelector = createSelector(
@@ -152,10 +163,14 @@ const mapStateToProps = state => ({
     visFilters: visFiltersSelector(state),
     rightSidebarOpen: sGetUiRightSidebarOpen(state),
     error: sGetLoadError(state),
+    isLoading: sGetIsPluginLoading(state),
 })
 
-export default connect(mapStateToProps, {
-    acAddMetadata,
-    acSetChart,
-    acSetLoadError,
-})(Visualization)
+const mapDispatchToProps = dispatch => ({
+    onLoadingComplete: () => dispatch(acSetPluginLoading(false)),
+    addMetadata: metadata => dispatch(acAddMetadata(metadata)),
+    setChart: chart => dispatch(acSetChart(chart)),
+    setLoadError: error => dispatch(acSetLoadError(error)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Visualization)

@@ -72,4 +72,5 @@ body {
 
 .main-center-canvas {
     overflow: hidden;
+    position: relative;
 }

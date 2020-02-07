@@ -52,6 +52,7 @@ export const tDoLoadVisualization = ({
     ouLevels,
 }) => async (dispatch, getState, engine) => {
     const onSuccess = async response => {
+        dispatch(fromLoader.acSetPluginLoading(true))
         const visualization = convertOuLevelsToUids(
             ouLevels,
             response.visualization
