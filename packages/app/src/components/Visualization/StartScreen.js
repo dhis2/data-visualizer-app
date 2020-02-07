@@ -93,8 +93,8 @@ const StartScreen = ({ error, classes }) => {
             </div>
         )
 
-    const getErrorContent = () => {
-        return error instanceof VisualizationError ? (
+    const getErrorContent = () =>
+        error instanceof VisualizationError ? (
             <div style={styles.errorContainer}>
                 <div style={styles.errorIcon}>{error.icon()}</div>
                 <p style={styles.errorTitle}>{error.title}</p>
@@ -109,7 +109,6 @@ const StartScreen = ({ error, classes }) => {
                 <p style={styles.errorDescription}>{error.message || error}</p>
             </div>
         )
-    }
 
     return (
         <div style={styles.outer}>

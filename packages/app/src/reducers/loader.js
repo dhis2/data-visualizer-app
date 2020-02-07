@@ -1,10 +1,12 @@
 export const SET_LOAD_ERROR = 'SET_LOAD_ERROR'
 export const CLEAR_LOAD_ERROR = 'CLEAR_LOAD_ERROR'
 export const SET_LOADING = 'SET_LOADING'
+export const SET_PLUGIN_LOADING = 'SET_PLUGIN_LOADING'
 
 export const DEFAULT_LOADING = {
     isLoading: false,
     loadingError: null,
+    isPluginLoading: true,
 }
 
 export default (state = DEFAULT_LOADING, action) => {
@@ -25,6 +27,11 @@ export default (state = DEFAULT_LOADING, action) => {
                 ...state,
                 isLoading: action.value,
             }
+        case SET_PLUGIN_LOADING:
+            return {
+                ...state,
+                isPluginLoading: action.value,
+            }
         default:
             return state
     }
@@ -33,3 +40,4 @@ export default (state = DEFAULT_LOADING, action) => {
 // Selectors
 export const sGetLoadError = state => state.loader.loadingError
 export const sGetIsLoading = state => state.loader.isLoading
+export const sGetIsPluginLoading = state => state.loader.isPluginLoading

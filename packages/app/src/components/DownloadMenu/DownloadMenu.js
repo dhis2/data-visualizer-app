@@ -14,6 +14,7 @@ import ArrowRightIcon from '@material-ui/icons/ArrowRight'
 import ImageIcon from '@material-ui/icons/Image'
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf'
 import ListIcon from '@material-ui/icons/List'
+import ListAltIcon from '@material-ui/icons/ListAlt'
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz'
 
 import i18n from '@dhis2/d2-i18n'
@@ -143,19 +144,19 @@ export class DownloadMenu extends Component {
             <ListSubheader component="div">{i18n.t('Table')}</ListSubheader>
             <MenuItem onClick={this.downloadTable('xls')}>
                 <ListItemIcon>
-                    <ImageIcon />
+                    <ListAltIcon />
                 </ListItemIcon>
                 <ListItemText>{i18n.t('Excel (.xls)')}</ListItemText>
             </MenuItem>
             <MenuItem onClick={this.downloadTable('csv')}>
                 <ListItemIcon>
-                    <ImageIcon />
+                    <ListAltIcon />
                 </ListItemIcon>
                 <ListItemText>{i18n.t('CSV (.csv)')}</ListItemText>
             </MenuItem>
             <MenuItem onClick={this.downloadTable('html')}>
                 <ListItemIcon>
-                    <ImageIcon />
+                    <ListAltIcon />
                 </ListItemIcon>
                 <ListItemText>{i18n.t('HTML (.html)')}</ListItemText>
             </MenuItem>
