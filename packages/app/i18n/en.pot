@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-02-07T15:19:20.628Z\n"
-"PO-Revision-Date: 2020-02-07T15:19:20.628Z\n"
+"POT-Creation-Date: 2020-02-07T15:29:25.817Z\n"
+"PO-Revision-Date: 2020-02-07T15:29:25.817Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -45,6 +45,15 @@ msgstr ""
 msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
 "items. Only the first {{maxNumber}} items will be used and saved."
+msgstr ""
+
+msgid "Main dimensions"
+msgstr ""
+
+msgid "Other dimensions"
+msgstr ""
+
+msgid "Your dimensions"
 msgstr ""
 
 msgid "Filter dimensions"
@@ -138,6 +147,9 @@ msgid "Edited"
 msgstr ""
 
 msgid "Viewing interpretation from {{interpretationDate}}"
+msgstr ""
+
+msgid "Getting started"
 msgstr ""
 
 msgid ""

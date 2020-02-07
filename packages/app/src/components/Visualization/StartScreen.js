@@ -50,7 +50,7 @@ const StartScreen = ({ error, classes }) => {
         ) : (
             <div>
                 <div style={styles.section}>
-                    <h3 style={styles.title}>Getting started</h3>
+                    <h3 style={styles.title}>{i18n.t('Getting started')}</h3>
                     <ul style={styles.guide}>
                         <li style={styles.guideItem}>
                             {i18n.t(
