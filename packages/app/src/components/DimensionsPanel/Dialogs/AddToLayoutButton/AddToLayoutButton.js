@@ -25,8 +25,6 @@ export class AddToLayoutButton extends Component {
 
     state = { anchorEl: null }
 
-    labelPrefix = i18n.t('Add to')
-
     onClose = () => this.setState({ anchorEl: null })
 
     onToggle = event =>
@@ -52,10 +50,12 @@ export class AddToLayoutButton extends Component {
                     key={axis}
                     onClick={() => this.onUpdate(axis)}
                 >
-                    {`${this.labelPrefix} ${getAxisNameByLayoutType(
-                        axis,
-                        getLayoutTypeByVisType(this.props.visType)
-                    )}`}
+                    {i18n.t(`Add to {{axisName}}`, {
+                        axisName: getAxisNameByLayoutType(
+                            axis,
+                            getLayoutTypeByVisType(this.props.visType)
+                        ),
+                    })}
                 </MenuItem>
             ))
 
@@ -72,10 +72,12 @@ export class AddToLayoutButton extends Component {
                     disableFocusRipple
                     onClick={() => this.onUpdate(availableAxis[0])}
                 >
-                    {`${this.labelPrefix} ${getAxisNameByLayoutType(
-                        availableAxis[0],
-                        getLayoutTypeByVisType(this.props.visType)
-                    )}`}
+                    {i18n.t(`Add to {{axisName}}`, {
+                        axisName: getAxisNameByLayoutType(
+                            availableAxis[0],
+                            getLayoutTypeByVisType(this.props.visType)
+                        ),
+                    })}
                 </Button>
                 {availableAxis.length > 1 ? (
                     <Menu
