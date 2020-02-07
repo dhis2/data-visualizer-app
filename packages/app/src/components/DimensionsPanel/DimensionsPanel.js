@@ -105,7 +105,7 @@ const mapDispatchToProps = dispatch => ({
     axisItemHandler: (dimensionId, axisId, numberOfDimensionItems) => {
         dispatch(acAddUiLayoutDimensions({ [dimensionId]: { axisId } }))
 
-        if (numberOfDimensionItems > 0) {
+        if (numberOfDimensionItems === 0) {
             dispatch(acSetUiActiveModalDialog(dimensionId))
         }
     },
