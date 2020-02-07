@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-02-07T15:11:13.788Z\n"
-"PO-Revision-Date: 2020-02-07T15:11:13.788Z\n"
+"POT-Creation-Date: 2020-02-07T15:19:20.628Z\n"
+"PO-Revision-Date: 2020-02-07T15:19:20.628Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -138,6 +138,20 @@ msgid "Edited"
 msgstr ""
 
 msgid "Viewing interpretation from {{interpretationDate}}"
+msgstr ""
+
+msgid ""
+"All dimensions that you can use to build visualizations are shown in the "
+"left sidebar"
+msgstr ""
+
+msgid "Add dimensions to the layout above"
+msgstr ""
+
+msgid "Double click a dimension to add or remove items"
+msgstr ""
+
+msgid "Your most viewed charts and tables"
 msgstr ""
 
 msgid "Aggregation type"
