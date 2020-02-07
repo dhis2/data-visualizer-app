@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-02-06T07:29:22.870Z\n"
-"PO-Revision-Date: 2020-02-06T07:29:22.870Z\n"
+"POT-Creation-Date: 2020-02-07T07:26:26.626Z\n"
+"PO-Revision-Date: 2020-02-07T07:26:26.626Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -456,25 +456,25 @@ msgid ""
 "you may not have access to it."
 msgstr ""
 
-msgid "{{visType}} is empty"
+msgid "{{axisName}} is empty"
 msgstr ""
 
-msgid "Add at least one item to {{visType}}."
+msgid "Add at least one item to {{axisName}}."
 msgstr ""
 
 msgid "No period set"
 msgstr ""
 
-msgid "{{visType}} must have at least one period set in {{axes}}."
+msgid "{{visualizationType}} must have at least one period set in {{axes}}."
 msgstr ""
 
 msgid "No data set"
 msgstr ""
 
-msgid "{{visType}} must have at least one data item in {{axes}}."
+msgid "{{visualizationType}} must have at least one data item in {{axes}}."
 msgstr ""
 
-msgid "There is a problem with this {{visType}} visualization."
+msgid "There is a problem with this {{visualizationType}} visualization."
 msgstr ""
 
 msgid "There was a problem getting the data from the server."
