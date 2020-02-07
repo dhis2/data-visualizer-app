@@ -64,7 +64,7 @@ msgid "PDF (.pdf)"
 msgstr ""
 
 msgid "Table"
-msgstr ""
+msgstr "الجدول"
 
 msgid "Excel (.xls)"
 msgstr ""
