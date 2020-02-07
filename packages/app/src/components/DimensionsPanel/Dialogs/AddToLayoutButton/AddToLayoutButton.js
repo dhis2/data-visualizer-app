@@ -60,7 +60,7 @@ export class AddToLayoutButton extends Component {
             ))
 
     render() {
-        const availableAxis = getAvailableAxes(this.props.visType)
+        const availableAxes = getAvailableAxes(this.props.visType)
 
         return (
             <div ref={addToRef => (this.buttonRef = addToRef)}>
@@ -70,16 +70,16 @@ export class AddToLayoutButton extends Component {
                     color="primary"
                     disableRipple
                     disableFocusRipple
-                    onClick={() => this.onUpdate(availableAxis[0])}
+                    onClick={() => this.onUpdate(availableAxes[0])}
                 >
                     {i18n.t(`Add to {{axisName}}`, {
                         axisName: getAxisNameByLayoutType(
-                            availableAxis[0],
+                            availableAxes[0],
                             getLayoutTypeByVisType(this.props.visType)
                         ),
                     })}
                 </Button>
-                {availableAxis.length > 1 ? (
+                {availableAxes.length > 1 ? (
                     <Menu
                         onClose={this.onClose}
                         onClick={this.onToggle}
