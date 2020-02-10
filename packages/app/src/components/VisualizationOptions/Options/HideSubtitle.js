@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { createSelector } from 'reselect'
 
 import i18n from '@dhis2/d2-i18n'
 import { Label, Radio, RadioGroup } from '@dhis2/ui-core'
@@ -20,14 +21,18 @@ class HideSubtitle extends Component {
     constructor(props) {
         super(props)
 
-        this.defaultState = { value: 'NONE' }
+        this.defaultState = { value: 'AUTO' }
 
         this.state = props.value ? { value: props.value } : this.defaultState
     }
 
     onChange = ({ value }) => {
         this.setState({ value })
-        this.props.onChange(value === 'NONE')
+        this.props.onChange({
+            hideSubtitle: value === 'NONE',
+            subtitle:
+                value === 'AUTO' ? undefined : this.props.subtitle || undefined,
+        })
     }
 
     render() {
@@ -48,6 +53,7 @@ class HideSubtitle extends Component {
                     dense
                 >
                     {[
+                        { id: 'AUTO', label: i18n.t('Auto generated') },
                         { id: 'NONE', label: i18n.t('None') },
                         { id: 'CUSTOM', label: i18n.t('Custom') },
                     ].map(({ id, label }) => (
@@ -65,18 +71,28 @@ class HideSubtitle extends Component {
 }
 
 HideSubtitle.propTypes = {
+    subtitle: PropTypes.string,
     value: PropTypes.string,
     visualizationType: PropTypes.string,
     onChange: PropTypes.func,
 }
 
+const hideSubtitleSelector = createSelector([sGetUiOptions], uiOptions =>
+    uiOptions.hideSubtitle
+        ? 'NONE'
+        : uiOptions.subtitle === undefined
+        ? 'AUTO'
+        : 'CUSTOM'
+)
+
 const mapStateToProps = state => ({
     visualizationType: sGetUiType(state),
-    value: sGetUiOptions(state).hideSubtitle ? 'NONE' : 'CUSTOM',
+    value: hideSubtitleSelector(state),
+    subtitle: sGetUiOptions(state).subtitle,
 })
 
 const mapDispatchToProps = dispatch => ({
-    onChange: enabled => dispatch(acSetUiOptions({ hideSubtitle: enabled })),
+    onChange: value => dispatch(acSetUiOptions(value)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(HideSubtitle)

@@ -26,9 +26,12 @@ class HideTitle extends Component {
         this.state = props.value ? { value: props.value } : this.defaultState
     }
 
-    onChange = ({ value }) => {
+    onRadioGroupChange = ({ value }) => {
         this.setState({ value })
-        this.props.onChange(value === 'NONE')
+        this.props.onChange({
+            hideTitle: value === 'NONE',
+            title: value === 'AUTO' ? undefined : this.props.title || undefined,
+        })
     }
 
     render() {
@@ -44,7 +47,7 @@ class HideTitle extends Component {
                 </Label>
                 <RadioGroup
                     name="hideTitle-selector"
-                    onChange={this.onChange}
+                    onChange={this.onRadioGroupChange}
                     value={value}
                     dense
                 >
@@ -67,6 +70,7 @@ class HideTitle extends Component {
 }
 
 HideTitle.propTypes = {
+    title: PropTypes.string,
     value: PropTypes.string,
     visualizationType: PropTypes.string,
     onChange: PropTypes.func,
@@ -83,10 +87,11 @@ const hideTitleSelector = createSelector([sGetUiOptions], uiOptions =>
 const mapStateToProps = state => ({
     visualizationType: sGetUiType(state),
     value: hideTitleSelector(state),
+    title: sGetUiOptions(state).title,
 })
 
 const mapDispatchToProps = dispatch => ({
-    onChange: enabled => dispatch(acSetUiOptions({ hideTitle: enabled })),
+    onChange: value => dispatch(acSetUiOptions(value)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(HideTitle)
