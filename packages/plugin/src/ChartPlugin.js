@@ -31,21 +31,15 @@ class ChartPlugin extends Component {
     componentDidUpdate(prevProps) {
         if (!isEqual(this.props.config, prevProps.config)) {
             this.renderChart()
-            return
-        }
-
-        if (!isEqual(this.props.filters, prevProps.filters)) {
+        } else if (!isEqual(this.props.filters, prevProps.filters)) {
             this.renderChart()
-            return
-        }
-
-        // id set by DV app, style works in dashboards
-        if (
+        } else if (
             this.props.id !== prevProps.id ||
             !isEqual(this.props.style, prevProps.style)
         ) {
             this.recreateVisualization(0) // disable animation
-            return
+        } else {
+            this.props.onLoadingComplete()
         }
     }
 
