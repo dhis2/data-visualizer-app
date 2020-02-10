@@ -24,7 +24,11 @@ describe('reducer: loader', () => {
 
     it(`${CLEAR_LOAD_ERROR}: should clear the loadError`, () => {
         const actualState = reducer(
-            { isLoading: false, loadingError: errorMsg },
+            {
+                isLoading: false,
+                loadingError: errorMsg,
+                isPluginLoading: true,
+            },
             { type: CLEAR_LOAD_ERROR }
         )
 
