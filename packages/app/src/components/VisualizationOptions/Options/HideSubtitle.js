@@ -17,22 +17,27 @@ import {
     tabSectionOptionToggleable,
 } from '../styles/VisualizationOptions.style.js'
 
+const HIDE_SUBTITLE_AUTO = 'AUTO'
+const HIDE_SUBTITLE_NONE = 'NONE'
+const HIDE_SUBTITLE_CUSTOM = 'CUSTOM'
+
 class HideSubtitle extends Component {
     constructor(props) {
         super(props)
 
-        this.defaultState = { value: 'AUTO' }
+        this.defaultState = { value: HIDE_SUBTITLE_AUTO }
 
         this.state = props.value ? { value: props.value } : this.defaultState
     }
 
     onChange = ({ value }) => {
         this.setState({ value })
-        this.props.onChange({
-            hideSubtitle: value === 'NONE',
-            subtitle:
-                value === 'AUTO' ? undefined : this.props.subtitle || undefined,
-        })
+        this.props.onChange(
+            value === HIDE_SUBTITLE_NONE,
+            value === HIDE_SUBTITLE_AUTO
+                ? undefined
+                : this.props.subtitle || undefined
+        )
     }
 
     render() {
@@ -53,14 +58,17 @@ class HideSubtitle extends Component {
                     dense
                 >
                     {[
-                        { id: 'AUTO', label: i18n.t('Auto generated') },
-                        { id: 'NONE', label: i18n.t('None') },
-                        { id: 'CUSTOM', label: i18n.t('Custom') },
+                        {
+                            id: HIDE_SUBTITLE_AUTO,
+                            label: i18n.t('Auto generated'),
+                        },
+                        { id: HIDE_SUBTITLE_NONE, label: i18n.t('None') },
+                        { id: HIDE_SUBTITLE_CUSTOM, label: i18n.t('Custom') },
                     ].map(({ id, label }) => (
                         <Radio key={id} label={label} value={id} dense />
                     ))}
                 </RadioGroup>
-                {value === 'CUSTOM' ? (
+                {value === HIDE_SUBTITLE_CUSTOM ? (
                     <div className={tabSectionOptionToggleable.className}>
                         <Subtitle inline />
                     </div>
@@ -79,10 +87,10 @@ HideSubtitle.propTypes = {
 
 const hideSubtitleSelector = createSelector([sGetUiOptions], uiOptions =>
     uiOptions.hideSubtitle
-        ? 'NONE'
+        ? HIDE_SUBTITLE_NONE
         : uiOptions.subtitle === undefined
-        ? 'AUTO'
-        : 'CUSTOM'
+        ? HIDE_SUBTITLE_AUTO
+        : HIDE_SUBTITLE_CUSTOM
 )
 
 const mapStateToProps = state => ({
@@ -92,7 +100,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    onChange: value => dispatch(acSetUiOptions(value)),
+    onChange: (hideSubtitle, subtitle) =>
+        dispatch(acSetUiOptions({ hideSubtitle, subtitle })),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(HideSubtitle)
