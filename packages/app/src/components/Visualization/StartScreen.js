@@ -50,24 +50,27 @@ const StartScreen = ({ error, classes }) => {
         ) : (
             <div>
                 <div style={styles.section}>
-                    <h3 style={styles.title}>Getting started</h3>
+                    <h3 style={styles.title}>{i18n.t('Getting started')}</h3>
                     <ul style={styles.guide}>
                         <li style={styles.guideItem}>
-                            All dimensions that you can use to build
-                            visualizations are shown in the left sidebar
+                            {i18n.t(
+                                'All dimensions that you can use to build visualizations are shown in the left sidebar'
+                            )}
                         </li>
                         <li style={styles.guideItem}>
-                            Add dimensions to the layout above
+                            {i18n.t('Add dimensions to the layout above')}
                         </li>
                         <li style={styles.guideItem}>
-                            Double click a dimension to add or remove items
+                            {i18n.t(
+                                'Double click a dimension to add or remove items'
+                            )}
                         </li>
                     </ul>
                 </div>
                 {mostViewedVisualizations.length > 0 && (
                     <div style={styles.section}>
                         <h3 style={styles.title}>
-                            Most viewed charts and tables
+                            {i18n.t('Your most viewed charts and tables')}
                         </h3>
                         {mostViewedVisualizations.map(
                             (visualization, index) => (
@@ -90,8 +93,8 @@ const StartScreen = ({ error, classes }) => {
             </div>
         )
 
-    const getErrorContent = () => {
-        return error instanceof VisualizationError ? (
+    const getErrorContent = () =>
+        error instanceof VisualizationError ? (
             <div style={styles.errorContainer}>
                 <div style={styles.errorIcon}>{error.icon()}</div>
                 <p style={styles.errorTitle}>{error.title}</p>
@@ -106,7 +109,6 @@ const StartScreen = ({ error, classes }) => {
                 <p style={styles.errorDescription}>{error.message || error}</p>
             </div>
         )
-    }
 
     return (
         <div style={styles.outer}>
