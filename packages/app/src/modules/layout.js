@@ -1,4 +1,3 @@
-import i18n from '@dhis2/d2-i18n'
 import {
     AXIS_ID_COLUMNS,
     AXIS_ID_ROWS,
@@ -11,19 +10,6 @@ import {
 
 // Names for dnd sources
 export const SOURCE_DIMENSIONS = 'dimensions'
-
-// Keys and displayName for adding dimensions to layout
-export const ADD_TO_LAYOUT_OPTIONS = [
-    { axisId: AXIS_ID_COLUMNS, name: i18n.t('Add to series') },
-    { axisId: AXIS_ID_ROWS, name: i18n.t('Add to category') },
-    { axisId: AXIS_ID_FILTERS, name: i18n.t('Add to filter') },
-]
-
-export const menuLabels = {
-    columns: i18n.t('series'),
-    rows: i18n.t('category'),
-    filters: i18n.t('filter'),
-}
 
 // Layout utility functions
 
