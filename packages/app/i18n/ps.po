@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-02-05T10:48:05.798Z\n"
+"POT-Creation-Date: 2020-02-07T15:29:25.817Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Pushto (https://www.transifex.com/hisp-uio/teams/100509/ps/)\n"
@@ -41,6 +41,9 @@ msgstr "رد یې کړئ [ ژباړه ـ ردول ]"
 msgid "Update"
 msgstr "تجدید یا نوي یې کړئ"
 
+msgid "Add to {{axisName}}"
+msgstr ""
+
 msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
 "first item will be used and saved."
@@ -49,6 +52,15 @@ msgstr ""
 msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
 "items. Only the first {{maxNumber}} items will be used and saved."
+msgstr ""
+
+msgid "Main dimensions"
+msgstr ""
+
+msgid "Other dimensions"
+msgstr ""
+
+msgid "Your dimensions"
 msgstr ""
 
 msgid "Filter dimensions"
@@ -126,12 +138,6 @@ msgstr ""
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr ""
 
-msgid "Columns"
-msgstr ""
-
-msgid "Rows"
-msgstr ""
-
 msgid "None selected"
 msgstr ""
 
@@ -148,6 +154,23 @@ msgid "Edited"
 msgstr ""
 
 msgid "Viewing interpretation from {{interpretationDate}}"
+msgstr ""
+
+msgid "Getting started"
+msgstr ""
+
+msgid ""
+"All dimensions that you can use to build visualizations are shown in the "
+"left sidebar"
+msgstr ""
+
+msgid "Add dimensions to the layout above"
+msgstr ""
+
+msgid "Double click a dimension to add or remove items"
+msgstr ""
+
+msgid "Your most viewed charts and tables"
 msgstr ""
 
 msgid "Aggregation type"
@@ -467,31 +490,25 @@ msgid ""
 " may not have access to it."
 msgstr ""
 
-msgid "Series is empty"
+msgid "{{axisName}} is empty"
 msgstr ""
 
-msgid "Add at least one item to Series."
-msgstr ""
-
-msgid "Category is empty"
-msgstr ""
-
-msgid "Add at least one item to Category."
+msgid "Add at least one item to {{axisName}}."
 msgstr ""
 
 msgid "No period set"
 msgstr ""
 
-msgid "{{visType}} must have at least one period set in {{axes}}."
+msgid "{{visualizationType}} must have at least one period set in {{axes}}."
 msgstr ""
 
 msgid "No data set"
 msgstr ""
 
-msgid "{{visType}} must have at least one data item in {{axes}}."
+msgid "{{visualizationType}} must have at least one data item in {{axes}}."
 msgstr ""
 
-msgid "There is a problem with this {{visType}} visualization."
+msgid "There is a problem with this {{visualizationType}} visualization."
 msgstr ""
 
 msgid "There was a problem getting the data from the server."
@@ -511,24 +528,6 @@ msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr ""
 
 msgid "or"
-msgstr ""
-
-msgid "Add to series"
-msgstr ""
-
-msgid "Add to category"
-msgstr ""
-
-msgid "Add to filter"
-msgstr ""
-
-msgid "series"
-msgstr ""
-
-msgid "category"
-msgstr ""
-
-msgid "filter"
 msgstr ""
 
 msgid "Today"
