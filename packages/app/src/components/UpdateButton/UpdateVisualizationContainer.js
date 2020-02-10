@@ -3,7 +3,11 @@ import { connect } from 'react-redux'
 import { sGetCurrent, sGetCurrentFromUi } from '../../reducers/current'
 import * as fromActions from '../../actions'
 import { validateLayout } from '../../modules/layoutValidation'
-import { acSetLoadError, acClearLoadError } from '../../actions/loader'
+import {
+    acSetLoadError,
+    acClearLoadError,
+    acSetPluginLoading,
+} from '../../actions/loader'
 import history from '../../modules/history'
 import { CURRENT_AO_KEY } from '../../api/userDataStore'
 import { GenericClientError } from '../../modules/error'
@@ -15,6 +19,7 @@ const UpdateVisualizationContainer = ({
     onUpdate,
     acSetLoadError,
     acClearLoadError,
+    onLoadingStart,
 }) => {
     // validate layout on update
     // validation error message will be shown without loading the plugin first
@@ -26,6 +31,8 @@ const UpdateVisualizationContainer = ({
         } catch (error) {
             acSetLoadError(error || new GenericClientError())
         }
+
+        onLoadingStart()
 
         onUpdate()
 
@@ -55,6 +62,7 @@ const mapDispatchToProps = {
     onUpdate: fromActions.fromCurrent.tSetCurrentFromUi,
     acSetLoadError,
     acClearLoadError,
+    onLoadingStart: () => acSetPluginLoading(true),
 }
 
 export default connect(null, mapDispatchToProps)(UpdateVisualizationContainer)
