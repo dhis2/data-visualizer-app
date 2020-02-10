@@ -2,9 +2,12 @@ import i18n from '@dhis2/d2-i18n'
 import {
     getDisplayNameByVisType,
     getAvailableAxes,
-    getAxisName,
+    getAxisNameByLayoutType,
+    getLayoutTypeByVisType,
     getAxisPerLockedDimension,
     DIMENSION_ID_DATA,
+    AXIS_ID_COLUMNS,
+    AXIS_ID_ROWS,
 } from '@dhis2/analytics'
 
 import {
@@ -37,21 +40,41 @@ export class EmptyResponseError extends VisualizationError {
 }
 
 export class NoSeriesError extends VisualizationError {
-    constructor() {
+    constructor(visType) {
         super(
             EmptySeries,
-            i18n.t('Series is empty'),
-            i18n.t('Add at least one item to Series.')
+            i18n.t(`{{axisName}} is empty`, {
+                axisName: getAxisNameByLayoutType(
+                    AXIS_ID_COLUMNS,
+                    getLayoutTypeByVisType(visType)
+                ),
+            }),
+            i18n.t('Add at least one item to {{axisName}}.', {
+                axisName: getAxisNameByLayoutType(
+                    AXIS_ID_COLUMNS,
+                    getLayoutTypeByVisType(visType)
+                ),
+            })
         )
     }
 }
 
 export class NoCategoryError extends VisualizationError {
-    constructor() {
+    constructor(visType) {
         super(
             EmptyCategory,
-            i18n.t('Category is empty'),
-            i18n.t('Add at least one item to Category.')
+            i18n.t(`{{axisName}} is empty`, {
+                axisName: getAxisNameByLayoutType(
+                    AXIS_ID_ROWS,
+                    getLayoutTypeByVisType(visType)
+                ),
+            }),
+            i18n.t('Add at least one item to {{axisName}}.', {
+                axisName: getAxisNameByLayoutType(
+                    AXIS_ID_ROWS,
+                    getLayoutTypeByVisType(visType)
+                ),
+            })
         )
     }
 }
@@ -62,9 +85,9 @@ export class NoPeriodError extends VisualizationError {
             PeriodError,
             i18n.t('No period set'),
             i18n.t(
-                '{{visType}} must have at least one period set in {{axes}}.',
+                '{{visualizationType}} must have at least one period set in {{axes}}.',
                 {
-                    visType: getDisplayNameByVisType(visType),
+                    visualizationType: getDisplayNameByVisType(visType),
                     axes: getAvailableAxesDescription(visType),
                 }
             )
@@ -79,11 +102,14 @@ export class NoDataError extends VisualizationError {
             DataError,
             i18n.t('No data set'),
             i18n.t(
-                '{{visType}} must have at least one data item in {{axes}}.',
+                '{{visualizationType}} must have at least one data item in {{axes}}.',
                 {
-                    visType: getDisplayNameByVisType(visType),
+                    visualizationType: getDisplayNameByVisType(visType),
                     axes: lockedAxis
-                        ? getAxisName(lockedAxis)
+                        ? getAxisNameByLayoutType(
+                              lockedAxis,
+                              getLayoutTypeByVisType(visType)
+                          )
                         : getAvailableAxesDescription(visType),
                 }
             )
@@ -96,9 +122,12 @@ export class GenericClientError extends VisualizationError {
         super(
             GenericError,
             i18n.t('Something went wrong'),
-            i18n.t('There is a problem with this {{visType}} visualization.', {
-                visType: getDisplayNameByVisType(visType),
-            })
+            i18n.t(
+                'There is a problem with this {{visualizationType}} visualization.',
+                {
+                    visualizationType: getDisplayNameByVisType(visType),
+                }
+            )
         )
     }
 }
@@ -141,7 +170,10 @@ const getAvailableAxesDescription = visType => {
     const axes = getAvailableAxes(visType)
     let axesDescription = ''
     for (let index = 0; index < axes.length; index++) {
-        axesDescription += getAxisName(axes[index])
+        axesDescription += getAxisNameByLayoutType(
+            axes[index],
+            getLayoutTypeByVisType(visType)
+        )
         if (index < axes.length - 2) {
             axesDescription += ', '
         } else if (index < axes.length - 1) {
