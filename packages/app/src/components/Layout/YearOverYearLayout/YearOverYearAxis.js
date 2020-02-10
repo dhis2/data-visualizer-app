@@ -1,6 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getAxisName } from '@dhis2/analytics'
+import {
+    getAxisNameByLayoutType,
+    LAYOUT_TYPE_YEAR_OVER_YEAR,
+} from '@dhis2/analytics'
 import PropTypes from 'prop-types'
 
 import {
@@ -16,7 +19,7 @@ const YearOverYearAxis = props => (
         style={{ ...defaultAxisStyles.axisContainer, ...props.style }}
     >
         <div className="label" style={defaultAxisStyles.label}>
-            {getAxisName(props.axisId)}
+            {getAxisNameByLayoutType(props.axisId, LAYOUT_TYPE_YEAR_OVER_YEAR)}
         </div>
         <div
             className="content"
