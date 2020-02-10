@@ -45,7 +45,6 @@ const PivotPlugin = ({
     d2,
     onLoadingComplete,
 }) => {
-    const [visualization, setVisualization] = useState(null)
     const [data, setData] = useState(null)
 
     useEffect(() => {
@@ -58,7 +57,6 @@ const PivotPlugin = ({
                 if (onResponsesReceived) {
                     onResponsesReceived(responses)
                 }
-                setVisualization(config)
                 setData(responses[0].response)
                 onLoadingComplete()
             })
@@ -71,7 +69,7 @@ const PivotPlugin = ({
 
     return (
         <div style={{ width: '100%', height: '100%', ...style }}>
-            <PivotTable visualization={visualization} data={data} />
+            {!data ? null : <PivotTable visualization={config} data={data} />}
         </div>
     )
 }
