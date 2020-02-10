@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-02-02T13:49:38.927Z\n"
-"PO-Revision-Date: 2020-02-02T13:49:38.927Z\n"
+"POT-Creation-Date: 2020-02-07T15:29:25.817Z\n"
+"PO-Revision-Date: 2020-02-07T15:29:25.817Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -34,6 +34,9 @@ msgstr ""
 msgid "Update"
 msgstr ""
 
+msgid "Add to {{axisName}}"
+msgstr ""
+
 msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
 "first item will be used and saved."
@@ -44,10 +47,16 @@ msgid ""
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
 
-msgid "Filter dimensions"
+msgid "Main dimensions"
 msgstr ""
 
-msgid "Download"
+msgid "Other dimensions"
+msgstr ""
+
+msgid "Your dimensions"
+msgstr ""
+
+msgid "Filter dimensions"
 msgstr ""
 
 msgid "Graphics"
@@ -57,6 +66,21 @@ msgid "Image (.png)"
 msgstr ""
 
 msgid "PDF (.pdf)"
+msgstr ""
+
+msgid "Table"
+msgstr ""
+
+msgid "Excel (.xls)"
+msgstr ""
+
+msgid "CSV (.csv)"
+msgstr ""
+
+msgid "HTML (.html)"
+msgstr ""
+
+msgid "Download"
 msgstr ""
 
 msgid "Plain data source"
@@ -107,12 +131,6 @@ msgstr ""
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr ""
 
-msgid "Columns"
-msgstr ""
-
-msgid "Rows"
-msgstr ""
-
 msgid "None selected"
 msgstr ""
 
@@ -129,6 +147,23 @@ msgid "Edited"
 msgstr ""
 
 msgid "Viewing interpretation from {{interpretationDate}}"
+msgstr ""
+
+msgid "Getting started"
+msgstr ""
+
+msgid ""
+"All dimensions that you can use to build visualizations are shown in the "
+"left sidebar"
+msgstr ""
+
+msgid "Add dimensions to the layout above"
+msgstr ""
+
+msgid "Double click a dimension to add or remove items"
+msgstr ""
+
+msgid "Your most viewed charts and tables"
 msgstr ""
 
 msgid "Aggregation type"
@@ -180,9 +215,6 @@ msgid "Base line"
 msgstr ""
 
 msgid "Title"
-msgstr ""
-
-msgid "Base line title"
 msgstr ""
 
 msgid "Value"
@@ -418,9 +450,6 @@ msgstr ""
 msgid "Target line"
 msgstr ""
 
-msgid "Target line title"
-msgstr ""
-
 msgid "Top limit"
 msgstr ""
 
@@ -453,31 +482,25 @@ msgid ""
 "you may not have access to it."
 msgstr ""
 
-msgid "Series is empty"
+msgid "{{axisName}} is empty"
 msgstr ""
 
-msgid "Add at least one item to Series."
-msgstr ""
-
-msgid "Category is empty"
-msgstr ""
-
-msgid "Add at least one item to Category."
+msgid "Add at least one item to {{axisName}}."
 msgstr ""
 
 msgid "No period set"
 msgstr ""
 
-msgid "{{visType}} must have at least one period set in {{axes}}."
+msgid "{{visualizationType}} must have at least one period set in {{axes}}."
 msgstr ""
 
 msgid "No data set"
 msgstr ""
 
-msgid "{{visType}} must have at least one data item in {{axes}}."
+msgid "{{visualizationType}} must have at least one data item in {{axes}}."
 msgstr ""
 
-msgid "There is a problem with this {{visType}} visualization."
+msgid "There is a problem with this {{visualizationType}} visualization."
 msgstr ""
 
 msgid "There was a problem getting the data from the server."
@@ -496,24 +519,6 @@ msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr ""
 
 msgid "or"
-msgstr ""
-
-msgid "Add to series"
-msgstr ""
-
-msgid "Add to category"
-msgstr ""
-
-msgid "Add to filter"
-msgstr ""
-
-msgid "series"
-msgstr ""
-
-msgid "category"
-msgstr ""
-
-msgid "filter"
 msgstr ""
 
 msgid "Today"
@@ -646,9 +651,6 @@ msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Horizontal (x) axis"
-msgstr ""
-
-msgid "Colors & Legends"
 msgstr ""
 
 msgid "Chart style"

@@ -8,7 +8,7 @@ import { sGetUiOptions } from '../../../reducers/ui'
 import { acSetUiOptions } from '../../../actions/ui'
 
 import {
-    tabSectionOptionItem,
+    tabSectionOption,
     tabSectionOptionToggleable,
 } from '../styles/VisualizationOptions.style.js'
 
@@ -34,9 +34,7 @@ export const SelectBaseOption = ({
 
     return (
         <div
-            className={
-                !toggleable || enabled ? '' : tabSectionOptionItem.className
-            }
+            className={!toggleable || enabled ? '' : tabSectionOption.className}
         >
             {toggleable ? (
                 <Checkbox

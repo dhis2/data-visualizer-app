@@ -10,6 +10,7 @@ import {
     getDynamicDimensions,
     getPredefinedDimensions,
 } from '@dhis2/analytics'
+import i18n from '@dhis2/d2-i18n'
 
 import DndDimensionItem from './DndDimensionItem'
 import * as fromReducers from '../../reducers'
@@ -19,6 +20,8 @@ import { SOURCE_DIMENSIONS } from '../../modules/layout'
 import styles from './styles/DndDimensionList.module.css'
 
 export class DndDimensionList extends Component {
+    dndIndex = 0
+
     nameContainsFilterText = dimension =>
         dimension.name
             .toLowerCase()
@@ -29,11 +32,11 @@ export class DndDimensionList extends Component {
     isLockedDimension = id => this.props.lockedDimensions.includes(id)
     isRecommendedDimension = id => this.props.recommendedIds.includes(id)
 
-    renderItem = ({ id, name }, index) => {
+    renderItem = ({ id, name }) => {
         const itemProps = {
             id,
             name,
-            index,
+            index: this.dndIndex++,
             isSelected: this.isSelected(id),
             isLocked: this.isLockedDimension(id),
             isDeactivated: this.isDisabledDimension(id),
@@ -57,6 +60,7 @@ export class DndDimensionList extends Component {
             .map(this.renderItem)
 
     render() {
+        this.dndIndex = 0
         const fixedDimensions = this.getDimensionItemsByFilter(dimension =>
             Object.values(getFixedDimensions()).some(
                 fixedDim => fixedDim.id === dimension.id
@@ -85,7 +89,7 @@ export class DndDimensionList extends Component {
                         <div className={styles.wrapper}>
                             <div className={styles.section}>
                                 <h3 className={styles.header}>
-                                    Main dimensions
+                                    {i18n.t('Main dimensions')}
                                 </h3>
                                 <ul className={styles.list}>
                                     {fixedDimensions}
@@ -93,7 +97,7 @@ export class DndDimensionList extends Component {
                             </div>
                             <div className={styles.section}>
                                 <h3 className={styles.header}>
-                                    Other dimensions
+                                    {i18n.t('Other dimensions')}
                                 </h3>
                                 <ul className={styles.list}>
                                     {dynamicDimensions}
@@ -101,7 +105,7 @@ export class DndDimensionList extends Component {
                             </div>
                             <div className={styles.section}>
                                 <h3 className={styles.header}>
-                                    Your dimensions
+                                    {i18n.t('Your dimensions')}
                                 </h3>
                                 <ul className={styles.list}>
                                     {nonPredefinedDimensions}
