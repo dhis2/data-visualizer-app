@@ -119,11 +119,13 @@ export const getOptionsFromVisualization = visualization => {
     }
 
     // cast option values from Number for some options
-    ;['sortOrder', 'topLimit'].forEach(option => {
-        if (Object.prototype.hasOwnProperty.call(visualization, option)) {
-            optionsFromVisualization[option] = String(visualization[option])
+    ;['baseLineValue', 'targetLineValue', 'sortOrder', 'topLimit'].forEach(
+        option => {
+            if (Object.prototype.hasOwnProperty.call(visualization, option)) {
+                optionsFromVisualization[option] = String(visualization[option])
+            }
         }
-    })
+    )
 
     return optionsFromVisualization
 }

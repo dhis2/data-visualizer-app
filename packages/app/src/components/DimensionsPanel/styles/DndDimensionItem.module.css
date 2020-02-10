@@ -2,7 +2,8 @@
 This keeps the dimension item clone from causing 
 a ripple effect in the Dimension list during drag
 */
-.dimensionItemClone ~ li {
+
+.notDragging {
     transform: none !important;
 }
 

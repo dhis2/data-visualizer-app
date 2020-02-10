@@ -16,7 +16,6 @@ const RegressionType = () => (
             name: optionName,
             defaultValue: defaultValue,
             items: [
-                { value: 'NONE', label: i18n.t('None') },
                 { value: 'LINEAR', label: i18n.t('Linear') },
                 { value: 'POLYNOMIAL', label: i18n.t('Polynomial') },
                 { value: 'LOESS', label: i18n.t('Loess') },

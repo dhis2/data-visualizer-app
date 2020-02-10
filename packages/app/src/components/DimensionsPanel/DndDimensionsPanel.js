@@ -28,6 +28,7 @@ export class DndDimensionsPanel extends Component {
                         background: '#fff',
                         border: `1px solid ${colors.grey400}`,
                         borderRadius: '5px',
+                        marginRight: '8px',
                     }}
                     placeholder={i18n.t('Filter dimensions')}
                     text={this.state.filterText}

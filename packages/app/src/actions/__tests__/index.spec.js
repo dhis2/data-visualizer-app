@@ -15,7 +15,11 @@ import {
     SET_UI_RIGHT_SIDEBAR_OPEN,
     SET_UI_INTERPRETATION,
 } from '../../reducers/ui'
-import { SET_LOAD_ERROR, CLEAR_LOAD_ERROR } from '../../reducers/loader'
+import {
+    SET_LOAD_ERROR,
+    CLEAR_LOAD_ERROR,
+    SET_PLUGIN_LOADING,
+} from '../../reducers/loader'
 import {
     RECEIVED_SNACKBAR_MESSAGE,
     CLOSE_SNACKBAR,
@@ -57,6 +61,10 @@ describe('index', () => {
 
             const expectedActions = [
                 {
+                    type: SET_PLUGIN_LOADING,
+                    value: true,
+                },
+                {
                     type: SET_VISUALIZATION,
                     value: vis,
                 },
@@ -94,6 +102,10 @@ describe('index', () => {
                 Promise.resolve({ visualization: vis })
 
             const expectedActions = [
+                {
+                    type: SET_PLUGIN_LOADING,
+                    value: true,
+                },
                 {
                     type: SET_UI_INTERPRETATION,
                     value: interpretation,
