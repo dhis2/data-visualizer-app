@@ -100,10 +100,10 @@ export class Visualization extends Component {
     }
 
     render() {
-        const { visConfig, visFilters, error } = this.props
+        const { visualization, visFilters, error } = this.props
         const { renderId } = this.state
 
-        return !visConfig || error ? (
+        return !visualization || error ? (
             <StartScreen />
         ) : (
             <Fragment>
@@ -115,7 +115,7 @@ export class Visualization extends Component {
                 <VisualizationPlugin
                     id={renderId}
                     d2={this.context.d2}
-                    config={visConfig}
+                    visualization={visualization}
                     filters={visFilters}
                     onChartGenerated={this.onChartGenerated}
                     onLoadingComplete={this.props.onLoadingComplete}
@@ -139,12 +139,12 @@ Visualization.propTypes = {
     rightSidebarOpen: PropTypes.bool,
     setChart: PropTypes.func,
     setLoadError: PropTypes.func,
-    visConfig: PropTypes.object,
     visFilters: PropTypes.object,
+    visualization: PropTypes.object,
     onLoadingComplete: PropTypes.func,
 }
 
-export const visConfigSelector = createSelector(
+export const visualizationSelector = createSelector(
     [sGetCurrent, sGetVisualization, sGetUiInterpretation],
     (current, visualization, interpretation) =>
         interpretation.id ? visualization : current
@@ -159,7 +159,7 @@ export const visFiltersSelector = createSelector(
 )
 
 const mapStateToProps = state => ({
-    visConfig: visConfigSelector(state),
+    visualization: visualizationSelector(state),
     visFilters: visFiltersSelector(state),
     rightSidebarOpen: sGetUiRightSidebarOpen(state),
     error: sGetLoadError(state),
