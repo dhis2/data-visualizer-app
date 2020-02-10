@@ -1,5 +1,4 @@
 import React from 'react'
-import i18n from '@dhis2/d2-i18n'
 import {
     AXIS_ID_COLUMNS,
     AXIS_ID_ROWS,
@@ -22,7 +21,6 @@ const Layout = () => (
         >
             <DefaultAxis
                 axisId={AXIS_ID_COLUMNS}
-                label={i18n.t('Columns')}
                 style={{
                     ...defaultLayoutStyles.columns,
                     ...defaultAxisStyles.axisContainerLeft,
@@ -30,7 +28,6 @@ const Layout = () => (
             />
             <DefaultAxis
                 axisId={AXIS_ID_ROWS}
-                label={i18n.t('Rows')}
                 style={{
                     ...defaultLayoutStyles.rows,
                     ...defaultAxisStyles.axisContainerLeft,

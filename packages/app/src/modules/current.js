@@ -69,11 +69,13 @@ export const getOptionsFromUi = ui => {
     })
 
     // cast option values to Number for some options
-    ;['sortOrder', 'topLimit'].forEach(option => {
-        if (Object.prototype.hasOwnProperty.call(optionsFromUi, option)) {
-            optionsFromUi[option] = Number(optionsFromUi[option])
+    ;['baseLineValue', 'targetLineValue', 'sortOrder', 'topLimit'].forEach(
+        option => {
+            if (Object.prototype.hasOwnProperty.call(optionsFromUi, option)) {
+                optionsFromUi[option] = Number(optionsFromUi[option])
+            }
         }
-    })
+    )
 
     return optionsFromUi
 }

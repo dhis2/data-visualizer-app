@@ -8,6 +8,7 @@ import {
 } from '../Visualization'
 import StartScreen from '../StartScreen'
 import { GenericServerError } from '../../../modules/error'
+import LoadingMask from '../LoadingMask'
 
 jest.mock('@dhis2/data-visualizer-plugin', () => () => <div />)
 
@@ -28,10 +29,11 @@ describe('Visualization', () => {
                 visFilters: null,
                 error: null,
                 rightSidebarOpen: false,
-                acAddMetadata: jest.fn(),
-                acSetChart: jest.fn(),
-                acClearLoadError: jest.fn(),
-                acSetLoadError: jest.fn(),
+                addMetadata: jest.fn(),
+                setChart: jest.fn(),
+                clearLoadError: jest.fn(),
+                setLoadError: jest.fn(),
+                onLoadingComplete: jest.fn(),
             }
 
             shallowVisualization = undefined
@@ -41,6 +43,24 @@ describe('Visualization', () => {
             props.error = new GenericServerError()
 
             expect(vis().find(StartScreen).length).toEqual(1)
+        })
+
+        it('renders the loading indicator when loading', () => {
+            props.isLoading = true
+            expect(
+                vis()
+                    .find(LoadingMask)
+                    .exists()
+            ).toBeTruthy()
+        })
+
+        it('hides the loading indicator when not loading', () => {
+            props.isLoading = false
+            expect(
+                vis()
+                    .find(LoadingMask)
+                    .exists()
+            ).toBeFalsy()
         })
 
         it('renders a VisualizationPlugin when no error and visConfig available', () => {
@@ -54,21 +74,23 @@ describe('Visualization', () => {
                 c: { id: 'c', name: 'c' },
             }
 
-            vis().simulate('responsesReceived', [
-                { metaData: { items }, rows: [1, 2, 3] },
-            ])
+            vis()
+                .instance()
+                .onResponsesReceived([{ metaData: { items }, rows: [1, 2, 3] }])
 
-            expect(props.acAddMetadata).toHaveBeenCalled()
-            expect(props.acAddMetadata).toHaveBeenCalledWith(items)
+            expect(props.addMetadata).toHaveBeenCalled()
+            expect(props.addMetadata).toHaveBeenCalledWith(items)
         })
 
         it('triggers setChart action when chart has been generated', () => {
             const svg = 'coolChart'
 
-            vis().simulate('chartGenerated', svg)
+            vis()
+                .instance()
+                .onChartGenerated(svg)
 
-            expect(props.acSetChart).toHaveBeenCalled()
-            expect(props.acSetChart).toHaveBeenCalledWith(svg)
+            expect(props.setChart).toHaveBeenCalled()
+            expect(props.setChart).toHaveBeenCalledWith(svg)
         })
 
         it('renders visualization with new id when rightSidebarOpen prop changes', () => {

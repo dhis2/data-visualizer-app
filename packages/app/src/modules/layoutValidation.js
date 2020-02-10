@@ -47,8 +47,8 @@ const validateAxis = (axis, error) => {
 
 // Layout validation
 const validateDefaultLayout = layout => {
-    validateAxis(layout.columns, new NoSeriesError())
-    validateAxis(layout.rows, new NoCategoryError())
+    validateAxis(layout.columns, new NoSeriesError(layout.type))
+    validateAxis(layout.rows, new NoCategoryError(layout.type))
     validateDimension(
         layoutGetDimension(layout, DIMENSION_ID_PERIOD), // TODO: old validation rule, refactor
         new NoPeriodError(layout.type)
@@ -62,14 +62,14 @@ const validateYearOverYearLayout = layout => {
             typeof layout[BASE_FIELD_YEARLY_SERIES][0] === 'string'
         )
     ) {
-        throw new NoSeriesError()
+        throw new NoSeriesError(layout.type)
     }
 
-    validateAxis(layout.rows, new NoCategoryError())
+    validateAxis(layout.rows, new NoCategoryError(layout.type))
 }
 
 const validatePieLayout = layout => {
-    validateAxis(layout.columns, new NoSeriesError())
+    validateAxis(layout.columns, new NoSeriesError(layout.type))
     validateDimension(
         layoutGetDimension(layout, DIMENSION_ID_PERIOD),
         new NoPeriodError(layout.type)
