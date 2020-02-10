@@ -10,6 +10,7 @@ import {
     getDynamicDimensions,
     getPredefinedDimensions,
 } from '@dhis2/analytics'
+import i18n from '@dhis2/d2-i18n'
 
 import DndDimensionItem from './DndDimensionItem'
 import * as fromReducers from '../../reducers'
@@ -88,7 +89,7 @@ export class DndDimensionList extends Component {
                         <div className={styles.wrapper}>
                             <div className={styles.section}>
                                 <h3 className={styles.header}>
-                                    Main dimensions
+                                    {i18n.t('Main dimensions')}
                                 </h3>
                                 <ul className={styles.list}>
                                     {fixedDimensions}
@@ -96,7 +97,7 @@ export class DndDimensionList extends Component {
                             </div>
                             <div className={styles.section}>
                                 <h3 className={styles.header}>
-                                    Other dimensions
+                                    {i18n.t('Other dimensions')}
                                 </h3>
                                 <ul className={styles.list}>
                                     {dynamicDimensions}
@@ -104,7 +105,7 @@ export class DndDimensionList extends Component {
                             </div>
                             <div className={styles.section}>
                                 <h3 className={styles.header}>
-                                    Your dimensions
+                                    {i18n.t('Your dimensions')}
                                 </h3>
                                 <ul className={styles.list}>
                                     {nonPredefinedDimensions}
