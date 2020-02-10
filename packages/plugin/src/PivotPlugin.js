@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { apiFetchAnalytics } from './api/analytics'
 import { getOptionsForRequest } from './modules/options'
-import LoadingMask from './widgets/LoadingMask'
 
 import { PivotTable } from '@dhis2/analytics'
 
@@ -44,13 +43,12 @@ const PivotPlugin = ({
     onError,
     onResponsesReceived,
     d2,
+    onLoadingComplete,
 }) => {
-    const [isLoading, setIsLoading] = useState(true)
     const [visualization, setVisualization] = useState(null)
     const [data, setData] = useState(null)
 
     useEffect(() => {
-        setIsLoading(true)
         const options = getRequestOptions(config, filters)
         apiFetchAnalytics(d2, config, options)
             .then(responses => {
@@ -60,27 +58,20 @@ const PivotPlugin = ({
                 if (onResponsesReceived) {
                     onResponsesReceived(responses)
                 }
-
                 setVisualization(config)
                 setData(responses[0].response)
-                setIsLoading(false)
+                onLoadingComplete()
             })
             .catch(error => {
                 onError(error)
             })
 
         // TODO: cancellation
-    }, [config, filters, onResponsesReceived, onError, d2])
+    }, [config, filters, onResponsesReceived, onError, d2, onLoadingComplete])
 
     return (
         <div style={{ width: '100%', height: '100%', ...style }}>
-            {isLoading ? (
-                <div style={{ placeSelf: 'center', flex: '1 0 0%' }}>
-                    <LoadingMask />
-                </div>
-            ) : (
-                <PivotTable visualization={visualization} data={data} />
-            )}
+            <PivotTable visualization={visualization} data={data} />
         </div>
     )
 }
@@ -90,6 +81,7 @@ PivotPlugin.defaultProps = {
     filters: {},
     style: {},
     onError: Function.prototype,
+    onLoadingComplete: Function.prototype,
     onResponsesReceived: Function.prototype,
 }
 
@@ -99,6 +91,7 @@ PivotPlugin.propTypes = {
     onError: PropTypes.func.isRequired,
     filters: PropTypes.object,
     style: PropTypes.object,
+    onLoadingComplete: PropTypes.func,
     onResponsesReceived: PropTypes.func,
 }
 
