@@ -113,7 +113,6 @@ describe('ChartPlugin', () => {
         if (!chartPlugin) {
             chartPlugin = mount(<ChartPlugin {...props} />)
         }
-        chartPlugin
         return chartPlugin
     }
 
