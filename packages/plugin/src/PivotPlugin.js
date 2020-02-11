@@ -37,7 +37,7 @@ const getRequestOptions = (visualization, filters) => {
 }
 
 const PivotPlugin = ({
-    config,
+    visualization,
     filters,
     style,
     onError,
@@ -45,12 +45,11 @@ const PivotPlugin = ({
     d2,
     onLoadingComplete,
 }) => {
-    const [visualization, setVisualization] = useState(null)
     const [data, setData] = useState(null)
 
     useEffect(() => {
-        const options = getRequestOptions(config, filters)
-        apiFetchAnalytics(d2, config, options)
+        const options = getRequestOptions(visualization, filters)
+        apiFetchAnalytics(d2, visualization, options)
             .then(responses => {
                 if (!responses.length) {
                     return
@@ -58,7 +57,6 @@ const PivotPlugin = ({
                 if (onResponsesReceived) {
                     onResponsesReceived(responses)
                 }
-                setVisualization(config)
                 setData(responses[0].response)
                 onLoadingComplete()
             })
@@ -67,17 +65,26 @@ const PivotPlugin = ({
             })
 
         // TODO: cancellation
-    }, [config, filters, onResponsesReceived, onError, d2, onLoadingComplete])
+    }, [
+        visualization,
+        filters,
+        onResponsesReceived,
+        onError,
+        d2,
+        onLoadingComplete,
+    ])
 
     return (
         <div style={{ width: '100%', height: '100%', ...style }}>
-            <PivotTable visualization={visualization} data={data} />
+            {!data ? null : (
+                <PivotTable visualization={visualization} data={data} />
+            )}
         </div>
     )
 }
 
 PivotPlugin.defaultProps = {
-    config: {},
+    visualization: {},
     filters: {},
     style: {},
     onError: Function.prototype,
@@ -86,8 +93,8 @@ PivotPlugin.defaultProps = {
 }
 
 PivotPlugin.propTypes = {
-    config: PropTypes.object.isRequired,
     d2: PropTypes.object.isRequired,
+    visualization: PropTypes.object.isRequired,
     onError: PropTypes.func.isRequired,
     filters: PropTypes.object,
     style: PropTypes.object,

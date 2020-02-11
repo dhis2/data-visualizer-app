@@ -17,18 +17,27 @@ import {
     tabSectionOptionToggleable,
 } from '../styles/VisualizationOptions.style.js'
 
+const HIDE_TITLE_AUTO = 'AUTO'
+const HIDE_TITLE_NONE = 'NONE'
+const HIDE_TITLE_CUSTOM = 'CUSTOM'
+
 class HideTitle extends Component {
     constructor(props) {
         super(props)
 
-        this.defaultState = { value: 'AUTO' }
+        this.defaultState = { value: HIDE_TITLE_AUTO }
 
         this.state = props.value ? { value: props.value } : this.defaultState
     }
 
-    onChange = ({ value }) => {
+    onRadioGroupChange = ({ value }) => {
         this.setState({ value })
-        this.props.onChange(value === 'NONE')
+        this.props.onChange(
+            value === HIDE_TITLE_NONE,
+            value === HIDE_TITLE_AUTO
+                ? undefined
+                : this.props.title || undefined
+        )
     }
 
     render() {
@@ -44,19 +53,22 @@ class HideTitle extends Component {
                 </Label>
                 <RadioGroup
                     name="hideTitle-selector"
-                    onChange={this.onChange}
+                    onChange={this.onRadioGroupChange}
                     value={value}
                     dense
                 >
                     {[
-                        { id: 'AUTO', label: i18n.t('Auto generated') },
-                        { id: 'NONE', label: i18n.t('None') },
-                        { id: 'CUSTOM', label: i18n.t('Custom') },
+                        {
+                            id: HIDE_TITLE_AUTO,
+                            label: i18n.t('Auto generated'),
+                        },
+                        { id: HIDE_TITLE_NONE, label: i18n.t('None') },
+                        { id: HIDE_TITLE_CUSTOM, label: i18n.t('Custom') },
                     ].map(({ id, label }) => (
                         <Radio key={id} label={label} value={id} dense />
                     ))}
                 </RadioGroup>
-                {value === 'CUSTOM' ? (
+                {value === HIDE_TITLE_CUSTOM ? (
                     <div className={tabSectionOptionToggleable.className}>
                         <Title inline />
                     </div>
@@ -67,6 +79,7 @@ class HideTitle extends Component {
 }
 
 HideTitle.propTypes = {
+    title: PropTypes.string,
     value: PropTypes.string,
     visualizationType: PropTypes.string,
     onChange: PropTypes.func,
@@ -74,19 +87,21 @@ HideTitle.propTypes = {
 
 const hideTitleSelector = createSelector([sGetUiOptions], uiOptions =>
     uiOptions.hideTitle
-        ? 'NONE'
+        ? HIDE_TITLE_NONE
         : uiOptions.title === undefined
-        ? 'AUTO'
-        : 'CUSTOM'
+        ? HIDE_TITLE_AUTO
+        : HIDE_TITLE_CUSTOM
 )
 
 const mapStateToProps = state => ({
     visualizationType: sGetUiType(state),
     value: hideTitleSelector(state),
+    title: sGetUiOptions(state).title,
 })
 
 const mapDispatchToProps = dispatch => ({
-    onChange: enabled => dispatch(acSetUiOptions({ hideTitle: enabled })),
+    onChange: (hideTitle, title) =>
+        dispatch(acSetUiOptions({ hideTitle, title })),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(HideTitle)
