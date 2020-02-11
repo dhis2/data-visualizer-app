@@ -1,12 +1,13 @@
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2019
-#
+# phil_dhis2, 2020
+# Viktor Varland <viktor@dhis2.org>, 2020
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-11-29T10:59:48.425Z\n"
+"POT-Creation-Date: 2020-02-05T10:48:05.798Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2019\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Urdu (https://www.transifex.com/hisp-uio/teams/100509/ur/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,9 +20,6 @@ msgstr "نام تبدیل کریں"
 
 msgid "\"{{what}}\" successfully deleted."
 msgstr "\"{{what}}\" کامیابی سے حذف کر دیا گیا"
-
-msgid "Data Visualizer"
-msgstr "ڈیٹا ویزوئلائزر"
 
 msgid "Axis 1"
 msgstr ""
@@ -44,7 +42,7 @@ msgid "Update"
 msgstr "اپ ڈیٹ"
 
 msgid ""
-"'{{visualiationType}}' is intended to show a single data item. Only the "
+"'{{visualizationType}}' is intended to show a single data item. Only the "
 "first item will be used and saved."
 msgstr ""
 
@@ -53,11 +51,8 @@ msgid ""
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
 
-msgid "Hide"
-msgstr "چھپائیں"
-
-msgid "Download"
-msgstr "ڈاؤن لوڈ کریں"
+msgid "Filter dimensions"
+msgstr ""
 
 msgid "Graphics"
 msgstr "گرافکس"
@@ -67,6 +62,21 @@ msgstr ""
 
 msgid "PDF (.pdf)"
 msgstr ""
+
+msgid "Table"
+msgstr "ٹیبل"
+
+msgid "Excel (.xls)"
+msgstr ""
+
+msgid "CSV (.csv)"
+msgstr ""
+
+msgid "HTML (.html)"
+msgstr ""
+
+msgid "Download"
+msgstr "ڈاؤن لوڈ کریں"
 
 msgid "Plain data source"
 msgstr "سادہ اعداد و شمار کا ذریعہ"
@@ -101,37 +111,37 @@ msgstr ""
 msgid "The following information may be requested by technical support."
 msgstr ""
 
+msgid "Hide"
+msgstr "چھپائیں"
+
 msgid "Interpretations"
 msgstr "تشریحات"
 
-msgid "{{total}} of {{maxNumberOfItemsPerAxis}} selected"
+msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr ""
 
 msgid "{{total}} selected"
 msgstr ""
 
-msgid "Error validating layout"
-msgstr ""
-
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr ""
 
-msgid "Move to"
-msgstr "پر منتقل"
+msgid "Columns"
+msgstr ""
 
-msgid "Remove"
-msgstr "دور"
+msgid "Rows"
+msgstr ""
 
 msgid "None selected"
 msgstr "کوئی بھی منتخب نہیں"
 
-msgid "Only '{{name}}' in use"
+msgid "Only '{{- name}}' in use"
 msgstr ""
 
 msgid "Only '{{number}}' in use"
 msgstr ""
 
-msgid "Unsaved chart"
+msgid "Unsaved visualization"
 msgstr ""
 
 msgid "Edited"
@@ -140,20 +150,12 @@ msgstr ""
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
-msgid "Error validating layout"
-msgstr ""
-
-msgid "Create a new visualization by adding dimensions to the layout"
-msgstr ""
-
-msgid "Chart error"
-msgstr ""
-
-msgid "Error generating chart, please try again"
-msgstr ""
-
 msgid "Aggregation type"
 msgstr "مجموعی قسم"
+
+msgid ""
+"Determines how the values in the pivot table are aggregated. Learn more"
+msgstr ""
 
 msgid "By data element"
 msgstr "ڈیٹا عنصر کے ذریعہ"
@@ -188,26 +190,83 @@ msgstr "معیاری انحراف"
 msgid "Variance"
 msgstr "متغیر"
 
+msgid "Axis range"
+msgstr ""
+
+msgid "Values outside of the range will not be displayed"
+msgstr ""
+
 msgid "Base line"
 msgstr "بیس لائن"
 
-msgid "Base line title"
-msgstr "بیس لائن کا عنوان"
+msgid "Title"
+msgstr "عنوان"
 
-msgid "Base line value"
-msgstr "بیس لائن قیمت"
+msgid "Value"
+msgstr "قدر"
 
-msgid "Use cumulative values"
-msgstr "مجموعی اقدار کا استعمال کریں"
+msgid "Number"
+msgstr "نمبر"
 
-msgid "Domain axis title"
-msgstr "ڈومین محور عنوان"
+msgid "Column sub-totals"
+msgstr ""
 
-msgid "Hide empty categories"
-msgstr "خالی اقسام چھپائیں"
+msgid "Columns totals"
+msgstr ""
+
+msgid "Include only completed events"
+msgstr "صرف مکمل واقعات شامل کریں"
+
+msgid "Include cumulative"
+msgstr "مجموعی شامل کریں"
+
+msgid "Cumulative values"
+msgstr ""
+
+msgid "Digit group separator"
+msgstr "ڈیجیٹٹ گروپ الگ الگ"
 
 msgid "None"
 msgstr "کوئی بھی نہیں"
+
+msgid "Space"
+msgstr "خلائی"
+
+msgid "Comma"
+msgstr "کما"
+
+msgid "Display density"
+msgstr "ڈسپلے کثافت"
+
+msgid "Comfortable"
+msgstr "آرام دہ اور پرسکون"
+
+msgid "Normal"
+msgstr "عام"
+
+msgid "Compact"
+msgstr "کومپیکٹ"
+
+msgid "Axis title"
+msgstr ""
+
+msgid "Add a title"
+msgstr ""
+
+msgid "Font size"
+msgstr "حرف کا سائز"
+
+msgid "Large"
+msgstr "بڑے"
+
+msgid "Small"
+msgstr "چھوٹے"
+
+msgid "Hide empty columns"
+msgstr "خالی کالم چھپائیں"
+
+msgid "Hide empty categories"
+msgstr "خالی اقسام چھپائیں"
 
 msgid "Before first"
 msgstr "پہلے سے پہلے"
@@ -221,38 +280,115 @@ msgstr "پہلے اور بعد میں آخری سے پہلے"
 msgid "All"
 msgstr "سب"
 
-msgid "Hide chart legend"
-msgstr "چارٹ علامات چھپائیں"
+msgid "Hide empty rows"
+msgstr "خالی قطار چھپائیں"
 
-msgid "Hide subtitle"
-msgstr "ذیلی عنوان چھپائیں"
-
-msgid "Hide title"
-msgstr "عنوان چھپائیں"
-
-msgid "No space between columns/bars"
-msgstr "کالم / سلاخوں کے درمیان کوئی جگہ نہیں"
-
-msgid "Use 100% stacked values"
-msgstr "100٪ اسٹیکرز اقدار کا استعمال کریں"
-
-msgid "Range axis decimals"
-msgstr "رینج محور کی فہرست"
-
-msgid "Range axis title"
-msgstr "رینج محور عنوان"
-
-msgid "Range axis max"
-msgstr "رینج محور زیادہ سے زیادہ"
-
-msgid "Range axis min"
-msgstr "رینج محور منٹ"
-
-msgid "Range axis tick steps"
-msgstr "رینج محور کو قدموں میں ٹینک"
-
-msgid "Tick steps may extend the chart beyond 'Range axis max'"
+msgid "Legend key"
 msgstr ""
+
+msgid "Table subtitle"
+msgstr ""
+
+msgid "Chart subtitle"
+msgstr "چارٹ ذیلی عنوان"
+
+msgid "Custom"
+msgstr "مرضی کے مطابق"
+
+msgid "Table title"
+msgstr "ٹیبل کا عنوان"
+
+msgid "Chart title"
+msgstr "چارٹ کا عنوان"
+
+msgid "Auto generated"
+msgstr ""
+
+msgid "Apply a legend to entire table"
+msgstr ""
+
+msgid "Assign a unique legend to data elements"
+msgstr ""
+
+msgid "Legend changes background color"
+msgstr ""
+
+msgid "Legend changes text color"
+msgstr ""
+
+msgid "Select a legend"
+msgstr ""
+
+msgid "Select from predefined legends"
+msgstr ""
+
+msgid "Loading legends"
+msgstr ""
+
+msgid "Display legend"
+msgstr ""
+
+msgid "Legend type"
+msgstr "علامات کی قسم"
+
+msgid "Legend setup"
+msgstr ""
+
+msgid ""
+"You can set a minimum or maximum value. This will apply to the entire table,"
+" all values outside of the minimum/maximum range will not be displayed"
+msgstr ""
+
+msgid "Minimum data value"
+msgstr ""
+
+msgid "Maximum data value"
+msgstr ""
+
+msgid "Clear min/max limits"
+msgstr ""
+
+msgid "No space between bars/columns"
+msgstr ""
+
+msgid "Number type"
+msgstr "نمبر کی قسم"
+
+msgid "Display the value of percentages of the total"
+msgstr ""
+
+msgid "Percentage of row"
+msgstr "قطار کا فیصد"
+
+msgid "Percentage of column"
+msgstr "کالم کا فیصد"
+
+msgid "Organisation unit"
+msgstr "تنظیم یونٹ"
+
+msgid "Parent organisation unit"
+msgstr "والدین تنظیم یونٹ"
+
+msgid "Reporting period"
+msgstr "رپورٹنگ مدت"
+
+msgid "Stacked values add up to 100%"
+msgstr ""
+
+msgid "Decimals"
+msgstr ""
+
+msgid "Auto"
+msgstr ""
+
+msgid "The number of axis steps between the min and max values"
+msgstr ""
+
+msgid "Steps"
+msgstr "مرحلے"
+
+msgid "Include regression"
+msgstr "رجفریشن شامل کریں"
 
 msgid "Trend line"
 msgstr "رجحان لائن"
@@ -266,11 +402,26 @@ msgstr "پولینومیل"
 msgid "Loess"
 msgstr "قرض"
 
-msgid "Show values"
-msgstr "اقدار دکھائیں"
+msgid "Row sub-totals"
+msgstr ""
 
-msgid "Sort order"
-msgstr "ترتیب"
+msgid "Row totals"
+msgstr ""
+
+msgid "Value labels"
+msgstr ""
+
+msgid "Dimension labels"
+msgstr ""
+
+msgid "Show hierarchy"
+msgstr "تنظیمی ڈسپلے دکھائیں"
+
+msgid "Skip rounding"
+msgstr "راؤنڈنگ چھوڑ دو"
+
+msgid "Custom sort order"
+msgstr ""
 
 msgid "Low to high"
 msgstr "اعلی سے کم"
@@ -278,35 +429,17 @@ msgstr "اعلی سے کم"
 msgid "High to low"
 msgstr "کم سے کم"
 
-msgid "Chart subtitle"
-msgstr "چارٹ ذیلی عنوان"
+msgid "Add a subtitle"
+msgstr ""
 
 msgid "Target line"
 msgstr "ہدف لائن"
 
-msgid "Target line title"
-msgstr "ہدف لائن کا عنوان"
-
-msgid "Target line value"
-msgstr "ہدف لائن کی قیمت"
-
-msgid "Chart title"
-msgstr "چارٹ کا عنوان"
-
-msgid "Data"
-msgstr "ڈیٹا"
-
-msgid "Axis & legend"
-msgstr ""
-
-msgid "Style"
-msgstr "انداز"
+msgid "Top limit"
+msgstr "اوپر کی حد"
 
 msgid "Options"
 msgstr "اختیارات"
-
-msgid "Chart options"
-msgstr "چارٹ کے اختیارات"
 
 msgid "Open as Map"
 msgstr ""
@@ -326,50 +459,59 @@ msgstr ""
 msgid "Expected reports"
 msgstr "متوقع رپورٹ"
 
-msgid "Program"
-msgstr "پروگرام"
-
-msgid "Select a program"
+msgid "No data available"
 msgstr ""
 
-msgid "Indicators"
-msgstr "اشارے"
+msgid ""
+"The selected dimensions didn’t return any data. There may be no data, or you"
+" may not have access to it."
+msgstr ""
 
-msgid "Select indicator group"
-msgstr "اشارے گروپ منتخب کریں"
+msgid "Series is empty"
+msgstr ""
 
-msgid "[ All groups ]"
-msgstr "[ تمام گروپ ]"
+msgid "Add at least one item to Series."
+msgstr ""
 
-msgid "Data elements"
-msgstr "ڈیٹا عناصر"
+msgid "Category is empty"
+msgstr ""
 
-msgid "Select data element group"
-msgstr "ڈیٹا عنصر گروپ منتخب کریں"
+msgid "Add at least one item to Category."
+msgstr ""
 
-msgid "[ All data elements ]"
-msgstr "[ تمام ڈیٹا عناصر ]"
+msgid "No period set"
+msgstr ""
 
-msgid "Totals"
-msgstr "مجموعی طور پر"
+msgid "{{visType}} must have at least one period set in {{axes}}."
+msgstr ""
 
-msgid "Details"
-msgstr "تفصیلات"
+msgid "No data set"
+msgstr ""
 
-msgid "Data sets"
-msgstr "ڈیٹا سیٹ"
+msgid "{{visType}} must have at least one data item in {{axes}}."
+msgstr ""
 
-msgid "Select data sets"
-msgstr "ڈیٹا سیٹ کا انتخاب کریں"
+msgid "There is a problem with this {{visType}} visualization."
+msgstr ""
 
-msgid "[ All metrics ]"
-msgstr "[ تمام میٹرکس ]"
+msgid "There was a problem getting the data from the server."
+msgstr ""
 
-msgid "Event data items"
-msgstr "واقعہ کے اعداد و شمار کی اشیاء"
+msgid "Assigned Categories can only be used with data elements"
+msgstr ""
 
-msgid "Program indicators"
-msgstr "پروگرام اشارے"
+msgid ""
+"Fix this problem by selecting data elements or removing Assigned Categories."
+msgstr ""
+
+msgid "Assigned Categories cannot be used as Filter"
+msgstr ""
+
+msgid "Fix this problem by moving or removing Assigned Categories."
+msgstr ""
+
+msgid "or"
+msgstr "یا"
 
 msgid "Add to series"
 msgstr "سیریز میں شامل کریں"
@@ -387,40 +529,6 @@ msgid "category"
 msgstr ""
 
 msgid "filter"
-msgstr ""
-
-msgid "Please add at least one {{series}} dimension"
-msgstr ""
-
-msgid "Please add at least one {{category}} dimension"
-msgstr ""
-
-msgid ""
-"Please add at least one period as {{series}}, {{category}} or {{filter}}"
-msgstr ""
-
-msgid "Please add {{data}} as {{category}} or {{filter}}"
-msgstr ""
-
-msgid "Please add at least one period as {{series}} or {{filter}}"
-msgstr ""
-
-msgid "Please add at least one {{filter}} dimension"
-msgstr ""
-
-msgid "Please add at least one period as a {{series}} dimension"
-msgstr ""
-
-msgid "Please add at least one period as a {{category}} dimension"
-msgstr ""
-
-msgid "Please add {{data}} as a filter dimension"
-msgstr ""
-
-msgid "Please add one {{series}} dimension"
-msgstr ""
-
-msgid "Please add at least one period as {{filter}}"
 msgstr ""
 
 msgid "Today"
@@ -533,6 +641,54 @@ msgstr "صارف کے اجزاء بچے"
 
 msgid "User org unit grand children"
 msgstr "یوزر ایو یونٹ گرینڈ بچوں"
+
+msgid "Data"
+msgstr "ڈیٹا"
+
+msgid "Axes"
+msgstr "محور"
+
+msgid "Style"
+msgstr "انداز"
+
+msgid "Display"
+msgstr ""
+
+msgid "Lines"
+msgstr ""
+
+msgid "Vertical (y) axis"
+msgstr ""
+
+msgid "Horizontal (x) axis"
+msgstr ""
+
+msgid "Chart style"
+msgstr ""
+
+msgid "Titles"
+msgstr ""
+
+msgid "Display totals"
+msgstr ""
+
+msgid "Display empty data"
+msgstr ""
+
+msgid "Legend"
+msgstr "علامات"
+
+msgid "Limit values"
+msgstr ""
+
+msgid "Limit number of values"
+msgstr ""
+
+msgid "Limit minimum/maximum values"
+msgstr ""
+
+msgid "Parameters"
+msgstr "پیرامیٹرز"
 
 msgid "Weeks per year"
 msgstr ""
