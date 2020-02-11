@@ -7,6 +7,7 @@ import BaseLine from '../../components/VisualizationOptions/Options/BaseLine'
 import AggregationType from '../../components/VisualizationOptions/Options/AggregationType'
 import HideTitle from '../../components/VisualizationOptions/Options/HideTitle'
 import HideSubtitle from '../../components/VisualizationOptions/Options/HideSubtitle'
+import AxisRange from '../../components/VisualizationOptions/Options/AxisRange'
 
 export default [
     {
@@ -17,6 +18,11 @@ export default [
                 key: 'data-lines',
                 label: i18n.t('Lines'),
                 content: React.Children.toArray([<TargetLine />, <BaseLine />]),
+            },
+            {
+                key: 'data-range',
+                label: i18n.t('Range'),
+                content: React.Children.toArray([<AxisRange />]),
             },
             {
                 key: 'data-advanced',
