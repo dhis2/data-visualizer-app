@@ -118,7 +118,7 @@ describe('ChartPlugin', () => {
 
     beforeEach(() => {
         props = {
-            config: {},
+            visualization: {},
             filters: {},
             style: { height: 100 },
             id: 1,
@@ -166,7 +166,7 @@ describe('ChartPlugin', () => {
         })
 
         it('includes only options that do not have default value in request', done => {
-            props.config = {
+            props.visualization = {
                 ...defaultCurrentMock,
                 option1: 'def',
                 option2: null,
@@ -238,7 +238,7 @@ describe('ChartPlugin', () => {
 
         describe('Year-on-year chart', () => {
             beforeEach(() => {
-                props.config = {
+                props.visualization = {
                     ...yearOverYearCurrentMock,
                     option1: 'def',
                 }
@@ -250,7 +250,7 @@ describe('ChartPlugin', () => {
                 analytics.isYearOverYear = jest
                     .fn()
                     .mockReturnValue(
-                        isYearOverYearMockResponse(props.config.type)
+                        isYearOverYearMockResponse(props.visualization.type)
                     )
             })
 
@@ -299,14 +299,14 @@ describe('ChartPlugin', () => {
 
         describe('Single value visualization', () => {
             beforeEach(() => {
-                props.config = {
+                props.visualization = {
                     ...singleValueCurrentMock,
                 }
 
                 analytics.isSingleValue = jest
                     .fn()
                     .mockReturnValue(
-                        isSingleValueMockResponse(props.config.type)
+                        isSingleValueMockResponse(props.visualization.type)
                     )
             })
 

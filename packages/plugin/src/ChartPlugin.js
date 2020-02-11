@@ -29,7 +29,7 @@ class ChartPlugin extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (!isEqual(this.props.config, prevProps.config)) {
+        if (!isEqual(this.props.visualization, prevProps.visualization)) {
             this.renderChart()
             return
         }
@@ -85,7 +85,7 @@ class ChartPlugin extends Component {
 
     renderChart = async () => {
         const {
-            config: visualization,
+            visualization,
             filters,
             forDashboard,
             onResponsesReceived,
@@ -170,7 +170,7 @@ class ChartPlugin extends Component {
 }
 
 ChartPlugin.defaultProps = {
-    config: {},
+    visualization: {},
     filters: {},
     forDashboard: false,
     style: {},
@@ -182,8 +182,8 @@ ChartPlugin.defaultProps = {
 }
 
 ChartPlugin.propTypes = {
-    config: PropTypes.object.isRequired,
     d2: PropTypes.object.isRequired,
+    visualization: PropTypes.object.isRequired,
     onError: PropTypes.func.isRequired,
     animation: PropTypes.number,
     filters: PropTypes.object,

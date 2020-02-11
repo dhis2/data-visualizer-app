@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import VisualizationPlugin from '@dhis2/data-visualizer-plugin'
 import {
     Visualization,
-    visConfigSelector,
+    visualizationSelector,
     visFiltersSelector,
 } from '../Visualization'
 import StartScreen from '../StartScreen'
@@ -25,7 +25,7 @@ describe('Visualization', () => {
 
         beforeEach(() => {
             props = {
-                visConfig: {},
+                visualization: {},
                 visFilters: null,
                 error: null,
                 rightSidebarOpen: false,
@@ -63,7 +63,7 @@ describe('Visualization', () => {
             ).toBeFalsy()
         })
 
-        it('renders a VisualizationPlugin when no error and visConfig available', () => {
+        it('renders a VisualizationPlugin when no error and visualization available', () => {
             expect(vis().find(VisualizationPlugin).length).toEqual(1)
         })
 
@@ -113,18 +113,18 @@ describe('Visualization', () => {
             },
         }
 
-        describe('visConfigSelector', () => {
+        describe('visualizationSelector', () => {
             it('equals the visualization if interpretation selected', () => {
                 const newState = Object.assign({}, state, {
                     ui: { interpretation: { id: 'rainbow dash' } },
                 })
 
-                const selector = visConfigSelector(newState)
+                const selector = visualizationSelector(newState)
                 expect(selector).toEqual('vis')
             })
 
             it('equals the current if no interpretation selected', () => {
-                const selector = visConfigSelector(state)
+                const selector = visualizationSelector(state)
                 expect(selector).toEqual('current')
             })
         })
