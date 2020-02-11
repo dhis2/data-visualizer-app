@@ -3,6 +3,9 @@
     "description": "DHIS2 Data Visualizer",
     "private": true,
     "license": "BSD-3-Clause",
+    "resolutions": {
+        "@dhis2/analytics": "file:../analytics"
+    },
     "devDependencies": {
         "@dhis2/cli-style": "^5.0.2",
         "concurrently": "^5.1.0",
