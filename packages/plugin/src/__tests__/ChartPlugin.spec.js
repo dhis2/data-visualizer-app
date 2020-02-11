@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 import * as analytics from '@dhis2/analytics'
 
 import ChartPlugin from '../ChartPlugin'
@@ -108,12 +108,12 @@ describe('ChartPlugin', () => {
         ['option2', { defaultValue: null }],
     ]
     let props
-    let shallowChartPlugin
+    let chartPlugin
     const canvas = () => {
-        if (!shallowChartPlugin) {
-            shallowChartPlugin = shallow(<ChartPlugin {...props} />)
+        if (!chartPlugin) {
+            chartPlugin = mount(<ChartPlugin {...props} />)
         }
-        return shallowChartPlugin
+        return chartPlugin
     }
 
     beforeEach(() => {
@@ -128,7 +128,7 @@ describe('ChartPlugin', () => {
             onResponsesReceived: jest.fn(),
             onError: jest.fn(),
         }
-        shallowChartPlugin = undefined
+        chartPlugin = undefined
 
         api.apiFetchAnalytics = jest
             .fn()
