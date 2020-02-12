@@ -1,3 +1,15 @@
+# [34.0.0](https://github.com/dhis2/data-visualizer-app/compare/v33.0.0...v34.0.0) (2020-02-12)
+
+
+### Bug Fixes
+
+* correctly specify runtime and peer dependencieis ([#662](https://github.com/dhis2/data-visualizer-app/issues/662)) ([a2e3f60](https://github.com/dhis2/data-visualizer-app/commit/a2e3f60c5fc911f32f6a2e7576950a24df81c499))
+
+
+### BREAKING CHANGES
+
+* The Data Visualizer Plugin now requires react and react-dom to be provided by the consumer.
+
 # [33.0.0](https://github.com/dhis2/data-visualizer-app/compare/v32.0.3...v33.0.0) (2020-02-12)
 
 
