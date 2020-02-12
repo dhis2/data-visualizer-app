@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-02-07T15:29:25.817Z\n"
+"POT-Creation-Date: 2020-02-12T09:18:27.515Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Tajik (https://www.transifex.com/hisp-uio/teams/100509/tg/)\n"
@@ -222,11 +222,14 @@ msgstr ""
 msgid "Base line"
 msgstr ""
 
+msgid "Value"
+msgstr "Қимат"
+
 msgid "Title"
 msgstr "Унвон"
 
-msgid "Value"
-msgstr "Қимат"
+msgid "Base line title"
+msgstr ""
 
 msgid "Number"
 msgstr "Рақам"
@@ -315,6 +318,9 @@ msgstr ""
 msgid "Chart subtitle"
 msgstr ""
 
+msgid "Auto generated"
+msgstr ""
+
 msgid "Custom"
 msgstr ""
 
@@ -323,9 +329,6 @@ msgstr ""
 
 msgid "Chart title"
 msgstr "Унвони диаграмма"
-
-msgid "Auto generated"
-msgstr ""
 
 msgid "Apply a legend to entire table"
 msgstr ""
@@ -456,6 +459,9 @@ msgid "Add a subtitle"
 msgstr ""
 
 msgid "Target line"
+msgstr ""
+
+msgid "Target line title"
 msgstr ""
 
 msgid "Top limit"
