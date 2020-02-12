@@ -1,7 +1,6 @@
 name: 'DHIS2: Tests'
 
-on:
-    pull_request:
+on: pull_request
 
 jobs:
     pr:
