@@ -20,14 +20,20 @@ export default [
                 content: React.Children.toArray([<TargetLine />, <BaseLine />]),
             },
             {
-                key: 'data-range',
-                label: i18n.t('Range'),
-                content: React.Children.toArray([<AxisRange />]),
-            },
-            {
                 key: 'data-advanced',
                 label: i18n.t('Advanced'),
                 content: React.Children.toArray([<AggregationType />]),
+            },
+        ],
+    },
+    {
+        key: 'axes-tab',
+        label: i18n.t('Axes'),
+        content: [
+            {
+                key: 'axes-vertical-axis',
+                label: i18n.t('Vertical (y) axis'),
+                content: React.Children.toArray([<AxisRange />]),
             },
         ],
     },
