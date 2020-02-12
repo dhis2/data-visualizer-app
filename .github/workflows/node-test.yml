@@ -1,10 +1,6 @@
 name: 'DHIS2: Tests'
 
-on:
-    push:
-        branches:
-            - master
-    pull_request:
+on: pull_request
 
 jobs:
     pr:
@@ -19,6 +15,9 @@ jobs:
 
             - name: Install
               run: yarn install --frozen-lockfile
+
+            - name: Build
+              run: yarn build-plugin
 
             - name: Test
               run: yarn test
