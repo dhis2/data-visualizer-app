@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-02-07T15:29:25.817Z\n"
+"POT-Creation-Date: 2020-02-12T09:18:27.515Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Lao (https://www.transifex.com/hisp-uio/teams/100509/lo/)\n"
@@ -222,11 +222,14 @@ msgstr ""
 msgid "Base line"
 msgstr ""
 
+msgid "Value"
+msgstr "Value"
+
 msgid "Title"
 msgstr "ຫົວຂໍ້"
 
-msgid "Value"
-msgstr "Value"
+msgid "Base line title"
+msgstr "ຫົວຂໍ້ເສັ້ນຖານ"
 
 msgid "Number"
 msgstr "ຈຳນວນ"
@@ -315,6 +318,9 @@ msgstr ""
 msgid "Chart subtitle"
 msgstr "ຫົວຂໍ້ຍ່ອຍຂອງເສັ້ນສະແດງ"
 
+msgid "Auto generated"
+msgstr ""
+
 msgid "Custom"
 msgstr ""
 
@@ -323,9 +329,6 @@ msgstr "ຊື່ຂອງຕາຕະລາງ"
 
 msgid "Chart title"
 msgstr "ຫົວຂໍ້ເສັ້ນສະແດງ"
-
-msgid "Auto generated"
-msgstr ""
 
 msgid "Apply a legend to entire table"
 msgstr ""
@@ -457,6 +460,9 @@ msgstr ""
 
 msgid "Target line"
 msgstr ""
+
+msgid "Target line title"
+msgstr "ຫົວຂໍ້ເສັ້ນເປົ້າໝາຍ"
 
 msgid "Top limit"
 msgstr "ຂໍ້​ຈຳ​ກັດ​ສູງ​ສຸດ"
