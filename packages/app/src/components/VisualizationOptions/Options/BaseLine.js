@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import i18n from '@dhis2/d2-i18n'
-import { Checkbox } from '@dhis2/ui-core'
+import { Checkbox, Label } from '@dhis2/ui-core'
 
 import { sGetUiOptions } from '../../../reducers/ui'
 import { acSetUiOptions } from '../../../actions/ui'
@@ -29,8 +29,14 @@ export const BaseLine = ({ enabled, onChange }) => (
             <div
                 className={`${tabSectionOptionToggleable.className} ${tabSectionOptionComplexInline.className}`}
             >
-                <BaseLineValue />
-                <BaseLineLabel />
+                <div>
+                    <Label>{i18n.t('Value')}</Label>
+                    <BaseLineValue />
+                </div>
+                <div>
+                    <Label>{i18n.t('Title')}</Label>
+                    <BaseLineLabel />
+                </div>
             </div>
         ) : null}
     </div>

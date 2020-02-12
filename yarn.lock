@@ -1442,10 +1442,10 @@
     react-beautiful-dnd "^10.1.1"
     styled-jsx "^3.2.1"
 
-"@dhis2/analytics@^3.1.3":
-  version "3.1.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-3.1.3.tgz#44ea6812ad74620b26e43b8062e7f8e4cfaaabd8"
-  integrity sha512-8gGKivu6SxShvFbI6Md9NMqBKSjbQx4/9DdvUfqPZQ8w1vcC//kEuzMX+GBHBEvMuKfWJk0jzqYSj7mWXBhvUA==
+"@dhis2/analytics@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-3.2.0.tgz#f0566c629f4c50272a4df0332fd26eda1e738ba4"
+  integrity sha512-qt6Qm6jZMx+kDY1/kRJ9SGL5U5d32GXfWw7m3GF+I7t0LOgV0k39MmG/c6+d/VLfga/ZgYCKJ8vlPlhy3V8G0Q==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^6.3.2"
@@ -1456,7 +1456,7 @@
     classnames "^2.2.6"
     d2-utilizr "^0.2.16"
     d3-color "^1.2.3"
-    highcharts "^7.1.2"
+    highcharts "^7.2.1"
     lodash "^4.17.13"
     react-beautiful-dnd "^10.1.1"
     resize-observer-polyfill "^1.5.1"
@@ -1772,10 +1772,10 @@
   dependencies:
     prop-types "^15"
 
-"@dhis2/ui-core@^4.1.1", "@dhis2/ui-core@^4.7.1":
-  version "4.7.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-4.7.1.tgz#62f663896b67f8a2b1a557b5cb32f1352cf056bc"
-  integrity sha512-CHfesGZ15Gs08mCifqmW4LiOM+MpS2spkbdr3P27Yn0uPYjCOG9QbX0UIrdifIqraUSHqTgwtD2HAA4aG2IXEw==
+"@dhis2/ui-core@^4.1.1":
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-4.9.0.tgz#d2af15cee87a7873741e8698ac2923c423f671c1"
+  integrity sha512-9Cf7Tv4JQ+2TX9CCoy3xGMn0P5FWvA1KNx9qzWFccHorEwlvbDYUbeAJaZ2LMnHUBeS5llmBbDByYzAH4K5SmA==
   dependencies:
     "@dhis2/prop-types" "^1.5.0"
     classnames "^2.2.6"
@@ -1784,6 +1784,14 @@
   version "4.6.1"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-4.6.1.tgz#62677590b3b32322dfa014b006e6226b637f0162"
   integrity sha512-85ubddhmSRjDFPZqtSoTOZiPnfzHU1CyFyTXYmar/3lr8zl4mzY7aKScsEsTtJRWpN8ie86LWRqdGpbrV98VcQ==
+  dependencies:
+    "@dhis2/prop-types" "^1.5.0"
+    classnames "^2.2.6"
+
+"@dhis2/ui-core@^4.7.1":
+  version "4.7.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-4.7.1.tgz#62f663896b67f8a2b1a557b5cb32f1352cf056bc"
+  integrity sha512-CHfesGZ15Gs08mCifqmW4LiOM+MpS2spkbdr3P27Yn0uPYjCOG9QbX0UIrdifIqraUSHqTgwtD2HAA4aG2IXEw==
   dependencies:
     "@dhis2/prop-types" "^1.5.0"
     classnames "^2.2.6"
@@ -7517,6 +7525,11 @@ highcharts@^7.1.2:
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-7.2.0.tgz#d6bd00240767cfab67210ead47c6cd015384e74d"
   integrity sha512-jOlMzj3oRuqNBoJg+rqHZI9vnlLHipwVfceJr00gAreXu8268UwahEh7yBGI/m1wa6Uc/XoBMIuzMpXUFMvFdg==
+
+highcharts@^7.2.1:
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-7.2.1.tgz#313c434bbfd4525a72b76c6bfbd9c39dfe2d1993"
+  integrity sha512-/fSUZiONmM+x49IQJNf8XwZGiNGOPRmxEOcd0xdJP9Xc3OlG46ZiUWgSLfhYQ9Oyhmzc3V3SKYCLud8+rKLi+w==
 
 history@^4.7.2:
   version "4.10.1"

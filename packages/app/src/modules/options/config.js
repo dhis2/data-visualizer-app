@@ -20,6 +20,7 @@ import stackedColumnConfig from './stackedColumnConfig'
 import lineConfig from './lineConfig'
 import areaConfig from './areaConfig'
 import pieConfig from './pieConfig'
+import gaugeConfig from './gaugeConfig'
 
 export const getOptionsByType = type => {
     switch (type) {
@@ -36,8 +37,9 @@ export const getOptionsByType = type => {
             return lineConfig
         case VIS_TYPE_AREA:
             return areaConfig
-        case VIS_TYPE_PIE:
         case VIS_TYPE_GAUGE:
+            return gaugeConfig
+        case VIS_TYPE_PIE:
         case VIS_TYPE_SINGLE_VALUE:
             return pieConfig
         case VIS_TYPE_PIVOT_TABLE:
