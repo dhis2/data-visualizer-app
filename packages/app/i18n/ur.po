@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-02-07T15:29:25.817Z\n"
+"POT-Creation-Date: 2020-02-12T09:18:27.515Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Urdu (https://www.transifex.com/hisp-uio/teams/100509/ur/)\n"
@@ -222,11 +222,14 @@ msgstr ""
 msgid "Base line"
 msgstr "بیس لائن"
 
+msgid "Value"
+msgstr "قدر"
+
 msgid "Title"
 msgstr "عنوان"
 
-msgid "Value"
-msgstr "قدر"
+msgid "Base line title"
+msgstr "بیس لائن کا عنوان"
 
 msgid "Number"
 msgstr "نمبر"
@@ -315,6 +318,9 @@ msgstr ""
 msgid "Chart subtitle"
 msgstr "چارٹ ذیلی عنوان"
 
+msgid "Auto generated"
+msgstr ""
+
 msgid "Custom"
 msgstr "مرضی کے مطابق"
 
@@ -323,9 +329,6 @@ msgstr "ٹیبل کا عنوان"
 
 msgid "Chart title"
 msgstr "چارٹ کا عنوان"
-
-msgid "Auto generated"
-msgstr ""
 
 msgid "Apply a legend to entire table"
 msgstr ""
@@ -457,6 +460,9 @@ msgstr ""
 
 msgid "Target line"
 msgstr "ہدف لائن"
+
+msgid "Target line title"
+msgstr "ہدف لائن کا عنوان"
 
 msgid "Top limit"
 msgstr "اوپر کی حد"
