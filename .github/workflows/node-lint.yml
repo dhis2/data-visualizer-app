@@ -1,9 +1,6 @@
 name: 'DHIS2: Style'
 
 on:
-    push:
-        branches:
-            - master
     pull_request:
 
 jobs:
