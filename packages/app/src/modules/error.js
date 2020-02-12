@@ -122,7 +122,9 @@ export class MultipleIndicatorAsFilterError extends VisualizationError {
         super(
             DataError,
             i18n.t("There's a problem with the layout"),
-            i18n.t('Only a single indicator can be set when Data is in Filter.')
+            i18n.t(
+                'A single indicator must be the only data item when using indicators as Data in Filter.'
+            )
         )
     }
 }
