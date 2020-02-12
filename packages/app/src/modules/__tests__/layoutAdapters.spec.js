@@ -20,16 +20,25 @@ describe('defaultLayoutAdapter', () => {
     it('should move all extra dimensions in columns and rows to filters', () => {
         const initialState = {
             [AXIS_ID_COLUMNS]: [DIMENSION_ID_DATA, someId],
-            [AXIS_ID_ROWS]: [DIMENSION_ID_PERIOD, otherId],
-            [AXIS_ID_FILTERS]: [DIMENSION_ID_ORGUNIT],
+            [AXIS_ID_ROWS]: [],
+            [AXIS_ID_FILTERS]: [
+                DIMENSION_ID_PERIOD,
+                DIMENSION_ID_ORGUNIT,
+                otherId,
+            ],
         }
 
         const actualState = defaultLayoutAdapter(initialState)
 
         const expectedState = {
             [AXIS_ID_COLUMNS]: [DIMENSION_ID_DATA],
-            [AXIS_ID_ROWS]: [DIMENSION_ID_PERIOD],
-            [AXIS_ID_FILTERS]: [DIMENSION_ID_ORGUNIT, someId, otherId],
+            [AXIS_ID_ROWS]: [],
+            [AXIS_ID_FILTERS]: [
+                DIMENSION_ID_PERIOD,
+                DIMENSION_ID_ORGUNIT,
+                otherId,
+                someId,
+            ],
         }
 
         expect(actualState).toEqual(expectedState)

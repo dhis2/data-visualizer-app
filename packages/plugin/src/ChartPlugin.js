@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
+import React, { useRef, useCallback, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import isEqual from 'lodash-es/isEqual'
 import i18n from '@dhis2/d2-i18n'
 import {
     isYearOverYear,
@@ -15,158 +14,158 @@ import {
 import { getOptionsForRequest } from './modules/options'
 import { computeGenericPeriodNames } from './modules/analytics'
 
-class ChartPlugin extends Component {
-    constructor(props) {
-        super(props)
-
-        this.canvasRef = React.createRef()
-
-        this.recreateVisualization = Function.prototype
-    }
-
-    componentDidMount() {
-        this.renderChart()
-    }
-
-    componentDidUpdate(prevProps) {
-        if (!isEqual(this.props.visualization, prevProps.visualization)) {
-            this.renderChart()
-            return
-        }
-
-        if (!isEqual(this.props.filters, prevProps.filters)) {
-            this.renderChart()
-            return
-        }
-
-        // id set by DV app, style works in dashboards
+const getRequestOptions = (visualization, filters) => {
+    const options = getOptionsForRequest().reduce((map, [option, props]) => {
+        // only add parameter if value !== default
         if (
-            this.props.id !== prevProps.id ||
-            !isEqual(this.props.style, prevProps.style)
+            visualization[option] !== undefined &&
+            visualization[option] !== props.defaultValue
         ) {
-            this.recreateVisualization(0) // disable animation
-            return
+            map[option] = visualization[option]
         }
+
+        return map
+    }, {})
+
+    // interpretation filter
+    if (filters.relativePeriodDate) {
+        options.relativePeriodDate = filters.relativePeriodDate
     }
 
-    getRequestOptions = (visualization, filters) => {
-        const options = getOptionsForRequest().reduce(
-            (map, [option, props]) => {
-                // only add parameter if value !== default
-                if (
-                    visualization[option] !== undefined &&
-                    visualization[option] !== props.defaultValue
-                ) {
-                    map[option] = visualization[option]
-                }
-
-                return map
-            },
-            {}
+    // global filters
+    // userOrgUnit
+    if (filters.userOrgUnit && filters.userOrgUnit.length) {
+        const ouIds = filters.userOrgUnit.map(
+            ouPath => ouPath.split('/').slice(-1)[0]
         )
 
-        // interpretation filter
-        if (filters.relativePeriodDate) {
-            options.relativePeriodDate = filters.relativePeriodDate
-        }
+        options.userOrgUnit = ouIds.join(';')
+    }
 
-        // global filters
-        // userOrgUnit
-        if (filters.userOrgUnit && filters.userOrgUnit.length) {
-            const ouIds = filters.userOrgUnit.map(
-                ouPath => ouPath.split('/').slice(-1)[0]
+    return options
+}
+
+const fetchData = async ({ visualization, filters, d2, forDashboard }) => {
+    const options = getRequestOptions(visualization, filters)
+
+    const extraOptions = {
+        dashboard: forDashboard,
+        noData: { text: i18n.t('No data') },
+    }
+
+    if (isYearOverYear(visualization.type)) {
+        const {
+            responses,
+            yearlySeriesLabels,
+        } = await apiFetchAnalyticsForYearOverYear(d2, visualization, options)
+
+        return {
+            responses,
+            extraOptions: {
+                ...extraOptions,
+                yearlySeries: yearlySeriesLabels,
+                xAxisLabels: computeGenericPeriodNames(responses),
+            },
+        }
+    }
+
+    const responses = await apiFetchAnalytics(d2, visualization, options)
+
+    return {
+        responses,
+        extraOptions,
+    }
+}
+
+const ChartPlugin = ({
+    visualization,
+    filters,
+    id,
+    style,
+    d2,
+    forDashboard,
+    onResponsesReceived,
+    onChartGenerated,
+    onError,
+    onLoadingComplete,
+    animation: defaultAnimation,
+}) => {
+    const canvasRef = useRef(undefined)
+    const fetchResult = useRef(undefined)
+
+    const renderVisualization = useCallback(
+        animation => {
+            if (!fetchResult.current) return
+            const { responses, extraOptions } = fetchResult.current
+
+            const visualizationConfig = createVisualization(
+                responses,
+                visualization,
+                canvasRef.current,
+                {
+                    ...extraOptions,
+                    animation,
+                },
+                undefined,
+                undefined,
+                isSingleValue(visualization.type) ? 'dhis' : 'highcharts' // output format
             )
 
-            options.userOrgUnit = ouIds.join(';')
-        }
-
-        return options
-    }
-
-    renderChart = async () => {
-        const {
-            visualization,
-            filters,
-            forDashboard,
-            onResponsesReceived,
-            onChartGenerated,
-            onError,
-            onLoadingComplete,
-        } = this.props
-
-        try {
-            const options = this.getRequestOptions(visualization, filters)
-
-            const extraOptions = {
-                dashboard: forDashboard,
-                noData: { text: i18n.t('No data') },
-            }
-
-            let responses = []
-
-            if (isYearOverYear(visualization.type)) {
-                let yearlySeriesLabels = []
-
-                ;({
-                    responses,
-                    yearlySeriesLabels,
-                } = await apiFetchAnalyticsForYearOverYear(
-                    this.props.d2,
-                    visualization,
-                    options
-                ))
-
-                extraOptions.yearlySeries = yearlySeriesLabels
-                extraOptions.xAxisLabels = computeGenericPeriodNames(responses)
+            if (isSingleValue(visualization.type)) {
+                onChartGenerated(visualizationConfig.visualization)
             } else {
-                responses = await apiFetchAnalytics(
-                    this.props.d2,
-                    visualization,
-                    options
+                onChartGenerated(
+                    visualizationConfig.visualization.getSVGForExport({
+                        sourceHeight: 768,
+                        sourceWidth: 1024,
+                    })
                 )
             }
+        },
+        [canvasRef, visualization, onChartGenerated]
+    )
 
-            if (responses.length) {
-                onResponsesReceived(responses)
-            }
+    const doFetch = useCallback(
+        (visualization, filters, forDashboard) => {
+            fetchData({
+                visualization,
+                filters,
+                d2,
+                forDashboard,
+            })
+                .then(result => {
+                    if (result.responses.length) {
+                        onResponsesReceived(result.responses)
+                    }
 
-            this.recreateVisualization = (animation = this.props.animation) => {
-                const visualizationConfig = createVisualization(
-                    responses,
-                    visualization,
-                    this.canvasRef.current,
-                    {
-                        ...extraOptions,
-                        animation,
-                    },
-                    undefined,
-                    undefined,
-                    isSingleValue(visualization.type) ? 'dhis' : 'highcharts' // output format
-                )
+                    fetchResult.current = result
+                    renderVisualization(defaultAnimation)
+                    onLoadingComplete()
+                })
+                .catch(error => {
+                    onError(error)
+                })
+        },
+        [
+            d2,
+            onResponsesReceived,
+            onLoadingComplete,
+            onError,
+            renderVisualization,
+            defaultAnimation,
+        ]
+    )
 
-                if (isSingleValue(visualization.type)) {
-                    onChartGenerated(visualizationConfig.visualization)
-                } else {
-                    onChartGenerated(
-                        visualizationConfig.visualization.getSVGForExport({
-                            sourceHeight: 768,
-                            sourceWidth: 1024,
-                        })
-                    )
-                }
-            }
+    useEffect(() => {
+        doFetch(visualization, filters, forDashboard)
+        /* eslint-disable-next-line react-hooks/exhaustive-deps */
+    }, [visualization, filters, forDashboard])
 
-            this.recreateVisualization()
+    useEffect(() => {
+        renderVisualization(0)
+    }, [id, style]) /* eslint-disable-line react-hooks/exhaustive-deps */
 
-            onLoadingComplete()
-        } catch (error) {
-            onError(error)
-        }
-    }
-
-    render() {
-        return <div ref={this.canvasRef} style={this.props.style} />
-    }
+    return <div ref={canvasRef} style={style} />
 }
 
 ChartPlugin.defaultProps = {

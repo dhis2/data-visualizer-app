@@ -12,8 +12,8 @@ export const defaultLayoutAdapter = layout => {
     const rows = layout[AXIS_ID_ROWS].slice()
 
     return {
-        [AXIS_ID_COLUMNS]: [columns.shift()],
-        [AXIS_ID_ROWS]: [rows.shift()],
+        [AXIS_ID_COLUMNS]: columns.length ? [columns.shift()] : columns,
+        [AXIS_ID_ROWS]: rows.length ? [rows.shift()] : rows,
         [AXIS_ID_FILTERS]: [...layout[AXIS_ID_FILTERS], ...columns, ...rows],
     }
 }
@@ -24,7 +24,11 @@ export const pieLayoutAdapter = layout => {
     const rows = layout[AXIS_ID_ROWS].slice()
 
     return {
-        [AXIS_ID_COLUMNS]: [columns.shift() || rows.shift()],
+        [AXIS_ID_COLUMNS]: columns.length
+            ? [columns.shift()]
+            : rows.length
+            ? [rows.shift()]
+            : [],
         [AXIS_ID_ROWS]: [],
         [AXIS_ID_FILTERS]: [...layout[AXIS_ID_FILTERS], ...columns, ...rows],
     }
