@@ -1,13 +1,13 @@
 # Translators:
-# phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
+# phil_dhis2, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-02-07T15:29:25.817Z\n"
+"POT-Creation-Date: 2020-02-12T09:18:27.515Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -225,11 +225,14 @@ msgstr ""
 msgid "Base line"
 msgstr "Базисная линия"
 
+msgid "Value"
+msgstr "Значение"
+
 msgid "Title"
 msgstr "Название"
 
-msgid "Value"
-msgstr "Значение"
+msgid "Base line title"
+msgstr "Заголовок базисной линии"
 
 msgid "Number"
 msgstr "Число"
@@ -318,6 +321,9 @@ msgstr ""
 msgid "Chart subtitle"
 msgstr "Подзаголовок диаграммы"
 
+msgid "Auto generated"
+msgstr ""
+
 msgid "Custom"
 msgstr "Пользователь"
 
@@ -326,9 +332,6 @@ msgstr "Название таблицы"
 
 msgid "Chart title"
 msgstr "Заголовок диаграммы"
-
-msgid "Auto generated"
-msgstr ""
 
 msgid "Apply a legend to entire table"
 msgstr ""
@@ -460,6 +463,9 @@ msgstr ""
 
 msgid "Target line"
 msgstr "Линия цели"
+
+msgid "Target line title"
+msgstr "Значение линии цели"
 
 msgid "Top limit"
 msgstr "Верхний предел"
