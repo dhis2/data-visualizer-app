@@ -117,6 +117,16 @@ export class NoDataError extends VisualizationError {
     }
 }
 
+export class MultipleIndicatorAsFilterError extends VisualizationError {
+    constructor() {
+        super(
+            DataError,
+            i18n.t("There's a problem with the layout"),
+            i18n.t('Only a single indicator can be set when Data is in Filter.')
+        )
+    }
+}
+
 export class GenericClientError extends VisualizationError {
     constructor(visType) {
         super(
