@@ -94,17 +94,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
     dualAxisItemHandler: () =>
         dispatch(acSetUiActiveModalDialog(AXIS_SETUP_DIALOG_ID)),
-    axisItemHandler: ({
-        dimensionId,
-        axisId,
-        numberOfDimensionItems,
-        requireItems,
-    }) => {
+    axisItemHandler: (dimensionId, axisId) => {
         dispatch(acAddUiLayoutDimensions({ [dimensionId]: { axisId } }))
-
-        if (numberOfDimensionItems === 0 && requireItems) {
-            dispatch(acSetUiActiveModalDialog(dimensionId))
-        }
     },
     removeItemHandler: dimensionId => {
         dispatch(acRemoveUiLayoutDimensions(dimensionId))
