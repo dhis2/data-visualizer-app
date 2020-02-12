@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-02-07T15:29:25.817Z\n"
-"PO-Revision-Date: 2020-02-07T15:29:25.817Z\n"
+"POT-Creation-Date: 2020-02-12T09:18:27.515Z\n"
+"PO-Revision-Date: 2020-02-12T09:18:27.515Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -214,10 +214,13 @@ msgstr ""
 msgid "Base line"
 msgstr ""
 
+msgid "Value"
+msgstr ""
+
 msgid "Title"
 msgstr ""
 
-msgid "Value"
+msgid "Base line title"
 msgstr ""
 
 msgid "Number"
@@ -307,6 +310,9 @@ msgstr ""
 msgid "Chart subtitle"
 msgstr ""
 
+msgid "Auto generated"
+msgstr ""
+
 msgid "Custom"
 msgstr ""
 
@@ -314,9 +320,6 @@ msgid "Table title"
 msgstr ""
 
 msgid "Chart title"
-msgstr ""
-
-msgid "Auto generated"
 msgstr ""
 
 msgid "Apply a legend to entire table"
@@ -448,6 +451,9 @@ msgid "Add a subtitle"
 msgstr ""
 
 msgid "Target line"
+msgstr ""
+
+msgid "Target line title"
 msgstr ""
 
 msgid "Top limit"
