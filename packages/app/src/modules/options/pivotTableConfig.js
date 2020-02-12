@@ -25,6 +25,7 @@ import Regression from '../../components/VisualizationOptions/Options/Regression
 import Cumulative from '../../components/VisualizationOptions/Options/Cumulative'
 import SortOrder from '../../components/VisualizationOptions/Options/SortOrder'
 import TopLimit from '../../components/VisualizationOptions/Options/TopLimit'
+import ApprovalLevel from '../../components/VisualizationOptions/Options/ApprovalLevel'
 
 export default [
     {
@@ -62,6 +63,7 @@ export default [
                 content: React.Children.toArray([
                     <AggregationType />,
                     <NumberType />,
+                    <ApprovalLevel />,
                 ]),
             },
         ],
