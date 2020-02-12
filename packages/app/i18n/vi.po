@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-02-07T15:29:25.817Z\n"
+"POT-Creation-Date: 2020-02-12T09:18:27.515Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
@@ -222,11 +222,14 @@ msgstr ""
 msgid "Base line"
 msgstr ""
 
+msgid "Value"
+msgstr "Giá trị"
+
 msgid "Title"
 msgstr "Tiêu đề"
 
-msgid "Value"
-msgstr "Giá trị"
+msgid "Base line title"
+msgstr "Tiêu đề đường căn bản"
 
 msgid "Number"
 msgstr "Số"
@@ -315,6 +318,9 @@ msgstr ""
 msgid "Chart subtitle"
 msgstr "Tiêu đề phụ biểu đồ"
 
+msgid "Auto generated"
+msgstr ""
+
 msgid "Custom"
 msgstr "Tùy chỉnh"
 
@@ -323,9 +329,6 @@ msgstr "Tiêu đề bảng"
 
 msgid "Chart title"
 msgstr "Tiêu đề của biểu đồ"
-
-msgid "Auto generated"
-msgstr ""
 
 msgid "Apply a legend to entire table"
 msgstr ""
@@ -457,6 +460,9 @@ msgstr ""
 
 msgid "Target line"
 msgstr ""
+
+msgid "Target line title"
+msgstr "Tiêu đề đường mục tiêu"
 
 msgid "Top limit"
 msgstr "Giới hạn trên"
