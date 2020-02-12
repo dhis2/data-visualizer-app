@@ -1,70 +1,167 @@
 import pick from 'lodash-es/pick'
 
 export const options = {
-    baseLineLabel: { defaultValue: undefined, requestable: false },
-    baseLineValue: { defaultValue: undefined, requestable: false },
+    baseLineLabel: {
+        defaultValue: undefined,
+        requestable: false,
+        savable: true,
+    },
+    baseLineValue: {
+        defaultValue: undefined,
+        requestable: false,
+        savable: true,
+    },
     // colorSet:
-    cumulativeValues: { defaultValue: false, requestable: false },
-    domainAxisLabel: { defaultValue: undefined, requestable: false },
-    hideEmptyRowItems: { defaultValue: 'NONE', requestable: false },
-    hideLegend: { defaultValue: false, requestable: false },
-    noSpaceBetweenColumns: { defaultValue: false, requestable: false },
-    percentStackedValues: { defaultValue: false, requestable: false },
-    rangeAxisDecimals: { defaultValue: undefined, requestable: false },
-    rangeAxisLabel: { defaultValue: undefined, requestable: false },
-    rangeAxisMaxValue: { defaultValue: undefined, requestable: false },
-    rangeAxisMinValue: { defaultValue: undefined, requestable: false },
-    rangeAxisSteps: { defaultValue: undefined, requestable: false },
-    regressionType: { defaultValue: 'NONE', requestable: false },
-    showData: { defaultValue: true, requestable: false },
-    targetLineLabel: { defaultValue: undefined, requestable: false },
-    targetLineValue: { defaultValue: undefined, requestable: false },
-    // legendDisplayStrategy
-    // legendSet
-    aggregationType: { defaultValue: 'DEFAULT', requestable: true },
-    completedOnly: { defaultValue: false, requestable: true },
-    hideSubtitle: { defaultValue: false, requestable: false },
-    hideTitle: { defaultValue: false, requestable: false },
-    sortOrder: { defaultValue: '0', requestable: false },
-    subtitle: { defaultValue: undefined, requestable: false },
-    title: { defaultValue: undefined, requestable: false },
-
-    // only for PT XXX
-    colTotals: { defaultValue: false, requestable: false },
-    colSubTotals: { defaultValue: false, requestable: false },
-    rowTotals: { defaultValue: false, requestable: false },
-    rowSubTotals: { defaultValue: false, requestable: false },
-    showDimensionLabels: { defaultValue: false, requestable: false },
-    hideEmptyColumns: { defaultValue: false, requestable: true },
-    hideEmptyRows: { defaultValue: false, requestable: true },
-    skipRounding: { defaultValue: false, requestable: true },
-    numberType: { defaultValue: 'VALUE', requestable: false },
-    showHierarchy: { defaultValue: false, requestable: true },
-    legendSet: { defaultValue: 'NONE', requestable: false }, // XXX can be 'BY_DATA_ITEM'
-    legendDisplayStyle: { defaultValue: 'FILL', requestable: false },
-    displayDensity: { defaultValue: 'NORMAL', requestable: false },
-    fontSize: { defaultValue: 'NORMAL', requestable: false },
-    digitGroupSeparator: { defaultValue: 'SPACE', requestable: false },
-
-    // XXX these are stored in the AO under reportParams
-    paramReportingPeriod: { defaultValue: false, requestable: false },
-    paramOrganisationUnit: { defaultValue: false, requestable: false },
-    paramParentOrganisationUnit: { defaultValue: false, requestable: false },
-    // XXX not in UI
-    paramGrandParentOrganisationUnit: {
+    cumulativeValues: {
         defaultValue: false,
         requestable: false,
+        savable: true,
     },
-    regression: { defaultValue: false, requestable: false },
-    cumulative: { defaultValue: false, requestable: false },
-    measureCriteria: { defaultValue: undefined, requestable: true },
-    topLimit: { defaultValue: '0', requestable: false },
+    domainAxisLabel: {
+        defaultValue: undefined,
+        requestable: false,
+        savable: true,
+    },
+    hideEmptyRowItems: {
+        defaultValue: 'NONE',
+        requestable: false,
+        savable: true,
+    },
+    hideLegend: { defaultValue: false, requestable: false, savable: true },
+    noSpaceBetweenColumns: {
+        defaultValue: false,
+        requestable: false,
+        savable: true,
+    },
+    percentStackedValues: {
+        defaultValue: false,
+        requestable: false,
+        savable: true,
+    },
+    rangeAxisDecimals: {
+        defaultValue: undefined,
+        requestable: false,
+        savable: true,
+    },
+    rangeAxisLabel: {
+        defaultValue: undefined,
+        requestable: false,
+        savable: true,
+    },
+    rangeAxisMaxValue: {
+        defaultValue: undefined,
+        requestable: false,
+        savable: true,
+    },
+    rangeAxisMinValue: {
+        defaultValue: undefined,
+        requestable: false,
+        savable: true,
+    },
+    rangeAxisSteps: {
+        defaultValue: undefined,
+        requestable: false,
+        savable: true,
+    },
+    regressionType: { defaultValue: 'NONE', requestable: false, savable: true },
+    showData: { defaultValue: true, requestable: false, savable: true },
+    targetLineLabel: {
+        defaultValue: undefined,
+        requestable: false,
+        savable: true,
+    },
+    targetLineValue: {
+        defaultValue: undefined,
+        requestable: false,
+        savable: true,
+    },
+    aggregationType: {
+        defaultValue: 'DEFAULT',
+        requestable: true,
+        savable: true,
+    },
+    completedOnly: { defaultValue: false, requestable: true, savable: true },
+    hideSubtitle: { defaultValue: false, requestable: false, savable: true },
+    hideTitle: { defaultValue: false, requestable: false, savable: true },
+    sortOrder: { defaultValue: '0', requestable: false, savable: true },
+    subtitle: { defaultValue: undefined, requestable: false, savable: true },
+    title: { defaultValue: undefined, requestable: false, savable: true },
+
+    // only for PT XXX
+    colTotals: { defaultValue: false, requestable: false, savable: true },
+    colSubTotals: { defaultValue: false, requestable: false, savable: true },
+    rowTotals: { defaultValue: false, requestable: false, savable: true },
+    rowSubTotals: { defaultValue: false, requestable: false, savable: true },
+    showDimensionLabels: {
+        defaultValue: false,
+        requestable: false,
+        savable: true,
+    },
+    hideEmptyColumns: { defaultValue: false, requestable: true, savable: true },
+    hideEmptyRows: { defaultValue: false, requestable: true, savable: true },
+    skipRounding: { defaultValue: false, requestable: true, savable: true },
+    numberType: { defaultValue: 'VALUE', requestable: false, savable: true },
+    showHierarchy: { defaultValue: false, requestable: true, savable: true },
+    legendSet: { defaultValue: undefined, requestable: false, savable: true },
+    legendDisplayStrategy: {
+        defaultValue: undefined,
+        requestable: false,
+        savable: true,
+    },
+    legendDisplayStyle: {
+        defaultValue: 'FILL',
+        requestable: false,
+        savable: true,
+    },
+    displayDensity: {
+        defaultValue: 'NORMAL',
+        requestable: false,
+        savable: true,
+    },
+    fontSize: { defaultValue: 'NORMAL', requestable: false, savable: true },
+    digitGroupSeparator: {
+        defaultValue: 'SPACE',
+        requestable: false,
+        savable: true,
+    },
+    approvalLevel: {
+        defaultValue: undefined,
+        requestable: true,
+        savable: false,
+    },
+
+    // these are stored in the AO under reportingParams
+    reportingPeriod: { defaultValue: false, requestable: false, savable: true },
+    organisationUnit: {
+        defaultValue: false,
+        requestable: false,
+        savable: true,
+    },
+    parentOrganisationUnit: {
+        defaultValue: false,
+        requestable: false,
+        savable: true,
+    },
+    // not exposed in UI
+    grandParentOrganisationUnit: {
+        defaultValue: false,
+        requestable: false,
+        savable: true,
+    },
+    regression: { defaultValue: false, requestable: false, savable: true },
+    cumulative: { defaultValue: false, requestable: false, savable: true },
+    measureCriteria: {
+        defaultValue: undefined,
+        requestable: true,
+        savable: true,
+    },
+    topLimit: { defaultValue: '0', requestable: false, savable: true },
 }
 
 export const computedOptions = {
-    baseLine: { defaultValue: false, requestable: false },
-    targetLine: { defaultValue: false, requestable: false },
-    axisRange: { defaultValue: undefined, requestable: false },
+    baseLine: { defaultValue: false, requestable: false, savable: false },
+    targetLine: { defaultValue: false, requestable: false, savable: false },
+    axisRange: { defaultValue: undefined, requestable: false, savable: false },
 }
 
 export default options
@@ -107,17 +204,26 @@ export const getOptionsFromVisualization = visualization => {
         isNotDefault(optionsFromVisualization, 'targetLineLabel') ||
         isNotDefault(optionsFromVisualization, 'targetLineValue')
 
-    // nested options under reportParams
-    if (visualization.reportParams) {
-        optionsFromVisualization.paramOrganisationUnit =
-            visualization.reportParams.paramOrganisationUnit
-        optionsFromVisualization.paramReportingPeriod =
-            visualization.reportParams.paramReportingPeriod
-        optionsFromVisualization.paramParentOrganisationUnit =
-            visualization.reportParams.paramParentOrganisationUnit
-        optionsFromVisualization.paramGrandParentOrganisationUnit =
-            visualization.reportParams.paramGrandParentOrganisationUnit
+    // nested options under reportingParams
+    if (visualization.reportingParams) {
+        optionsFromVisualization.organisationUnit =
+            visualization.reportingParams.organisationUnit
+        optionsFromVisualization.reportingPeriod =
+            visualization.reportingParams.reportingPeriod
+        optionsFromVisualization.parentOrganisationUnit =
+            visualization.reportingParams.parentOrganisationUnit
+        optionsFromVisualization.grandParentOrganisationUnit =
+            visualization.reportingParams.grandParentOrganisationUnit
     }
+
+    // cast option values from Number for some options
+    ;['baseLineValue', 'targetLineValue', 'sortOrder', 'topLimit'].forEach(
+        option => {
+            if (Object.prototype.hasOwnProperty.call(visualization, option)) {
+                optionsFromVisualization[option] = String(visualization[option])
+            }
+        }
+    )
 
     return optionsFromVisualization
 }
