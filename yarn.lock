@@ -1603,7 +1603,7 @@
     lodash "^4.17.10"
     material-ui "^0.20.0"
 
-"@dhis2/d2-ui-core@6.5.5", "@dhis2/d2-ui-core@^6.5.3":
+"@dhis2/d2-ui-core@6.5.5", "@dhis2/d2-ui-core@^6.5.5":
   version "6.5.5"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-6.5.5.tgz#d75455a8388ef2c63a79824652a62f920441dfc6"
   integrity sha512-5LQSB9Doy8X38qiDh9c4xmYtqhjKKi9NImi1JSqdHdL+rlaBXYxlnSX7Od/DtX4PMOBJt47dqOTF3s+UXitRVg==
@@ -1629,7 +1629,7 @@
     redux-logger "^3.0.6"
     redux-thunk "^2.2.0"
 
-"@dhis2/d2-ui-file-menu@^6.5.3":
+"@dhis2/d2-ui-file-menu@^6.5.5":
   version "6.5.5"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-file-menu/-/d2-ui-file-menu-6.5.5.tgz#21539a7095033107c9b34e3e178b64ba1c242d2d"
   integrity sha512-oQxmMbtsfJiJfYAON/FKfPQfPwkqu4a0CK25Dl5ZZuIpww56Z0MD9Is3iYQiuTSNe/e6VmJoAP9o6Mqsq1wP6Q==
@@ -1642,7 +1642,7 @@
     "@material-ui/icons" "^3.0.1"
     prop-types "^15.6.0"
 
-"@dhis2/d2-ui-interpretations@^6.5.3":
+"@dhis2/d2-ui-interpretations@^6.5.5":
   version "6.5.5"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-interpretations/-/d2-ui-interpretations-6.5.5.tgz#4a9d941c433bde55b06e1fa57f1d01441fa74aea"
   integrity sha512-eQu5Z/DZjIWKVQiQa2AUJrjDWqtyuRtP1XkMSo46ahZGKzvxylk6ZJEZZp/Y68lRd4SYd5itFyDsHvfWvv3ayQ==
