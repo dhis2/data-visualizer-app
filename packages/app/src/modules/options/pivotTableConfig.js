@@ -26,6 +26,7 @@ import Cumulative from '../../components/VisualizationOptions/Options/Cumulative
 import SortOrder from '../../components/VisualizationOptions/Options/SortOrder'
 import TopLimit from '../../components/VisualizationOptions/Options/TopLimit'
 import ShowHierarchy from '../../components/VisualizationOptions/Options/ShowHierarchy'
+import CompletedOnly from '../../components/VisualizationOptions/Options/CompletedOnly'
 
 export default [
     {
@@ -63,6 +64,7 @@ export default [
                 content: React.Children.toArray([
                     <AggregationType />,
                     <NumberType />,
+                    <CompletedOnly />,
                 ]),
             },
         ],
