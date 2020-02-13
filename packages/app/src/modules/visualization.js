@@ -6,6 +6,6 @@ export const getVisualizationFromCurrent = current => {
     )
 
     nonSavableOptions.forEach(option => delete current[option])
-    console.log('current for saving', current)
+
     return current
 }
