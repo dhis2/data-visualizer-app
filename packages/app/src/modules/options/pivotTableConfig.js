@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-key */
 import React from 'react'
 import i18n from '@dhis2/d2-i18n'
+import { Label } from '@dhis2/ui-core'
 
 import AggregationType from '../../components/VisualizationOptions/Options/AggregationType'
 import ShowDimensionLabels from '../../components/VisualizationOptions/Options/ShowDimensionLabels'
@@ -25,6 +26,7 @@ import Regression from '../../components/VisualizationOptions/Options/Regression
 import Cumulative from '../../components/VisualizationOptions/Options/Cumulative'
 import SortOrder from '../../components/VisualizationOptions/Options/SortOrder'
 import TopLimit from '../../components/VisualizationOptions/Options/TopLimit'
+import OrgUnitHierarchy from '../../components/VisualizationOptions/Options/OrgUnitHierarchy'
 
 export default [
     {
@@ -87,6 +89,10 @@ export default [
                     <DisplayDensity />,
                     <FontSize />,
                     <DigitGroupSeparator />,
+                    <div>
+                        <Label>{i18n.t('Labels')}</Label>
+                        <OrgUnitHierarchy />
+                    </div>,
                 ]),
             },
         ],
