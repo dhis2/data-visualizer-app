@@ -8,7 +8,7 @@ const ShowHierarchy = () => (
     <div>
         <Label>{i18n.t('Labels')}</Label>
         <CheckboxBaseOption
-            label={i18n.t('Show hierarchy')}
+            label={i18n.t('Display organisation unit hierarchy')}
             option={{
                 name: 'showHierarchy',
             }}
