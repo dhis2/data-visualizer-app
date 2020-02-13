@@ -28,7 +28,7 @@ const ApprovalLevelSelect = ({
     return (
         <SingleSelectField
             name="approvalLevelSelect"
-            label={i18n.t('Data approval level')}
+            label={i18n.t('Data approved at level')}
             selected={selected}
             inputWidth="280px"
             placeholder={i18n.t('Select from predefined levels')}
