@@ -229,7 +229,7 @@ msgid "Title"
 msgstr "العنوان"
 
 msgid "Base line title"
-msgstr ""
+msgstr "عنوان خط الأساس"
 
 msgid "Number"
 msgstr "العدد"
@@ -462,7 +462,7 @@ msgid "Target line"
 msgstr ""
 
 msgid "Target line title"
-msgstr ""
+msgstr "عنوان خط الهدف"
 
 msgid "Top limit"
 msgstr "الحد الأعلى"
