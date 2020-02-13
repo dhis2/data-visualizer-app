@@ -13,6 +13,8 @@ import { sGetSettings } from '../../../reducers/settings'
 import { sGetUiOptions } from '../../../reducers/ui'
 import { acSetUiOptions } from '../../../actions/ui'
 
+export const APPROVAL_LEVEL_OPTION_AUTH = 'F_VIEW_UNAPPROVED_DATA'
+
 const ApprovalLevelSelect = ({
     value,
     loading,
@@ -135,7 +137,7 @@ const approvalLevelEnabledSelector = createSelector(
     [sGetSettings, sGetUserAuthorities],
     (settings, authorities) =>
         settings.keyIgnoreAnalyticsApprovalYearThreshold !== -1 &&
-        authorities.F_VIEW_UNAPPROVED_DATA
+        authorities[APPROVAL_LEVEL_OPTION_AUTH]
 )
 
 const mapStateToProps = state => ({

@@ -26,6 +26,7 @@ import './App.css'
 import './scrollbar.css'
 import { getParentGraphMapFromVisualization } from '../modules/ui'
 import AxisSetup from './AxisSetup/AxisSetup'
+import { APPROVAL_LEVEL_OPTION_AUTH } from './VisualizationOptions/Options/ApprovalLevel'
 
 export class App extends Component {
     unlisten = null
@@ -115,7 +116,7 @@ export class App extends Component {
         )
         store.dispatch(fromActions.fromUser.acReceivedUser(d2.currentUser))
         store.dispatch(
-            fromActions.fromUser.tLoadUserAuthority('F_VIEW_UNAPPROVED_DATA')
+            fromActions.fromUser.tLoadUserAuthority(APPROVAL_LEVEL_OPTION_AUTH)
         )
         store.dispatch(fromActions.fromDimensions.tSetDimensions(d2))
 
