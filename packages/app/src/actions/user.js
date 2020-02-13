@@ -1,5 +1,6 @@
 import { RECEIVED_USER, SET_USER_AUTHORITY } from '../reducers/user'
-import { onError } from './index'
+import { acSetLoadError } from './loader'
+import { GenericServerError } from '../modules/error'
 
 import { apiFetchUserAuthority } from '../api/user'
 
@@ -25,6 +26,6 @@ export const tLoadUserAuthority = authorityKey => async (
     try {
         return onSuccess(await apiFetchUserAuthority(engine, authorityKey))
     } catch (err) {
-        onError('tLoadUserAuthority', err)
+        dispatch(acSetLoadError(new GenericServerError()))
     }
 }
