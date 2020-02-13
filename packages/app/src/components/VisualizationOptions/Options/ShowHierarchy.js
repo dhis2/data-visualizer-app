@@ -1,19 +1,15 @@
 import React from 'react'
 import i18n from '@dhis2/d2-i18n'
-import { Label } from '@dhis2/ui-core'
 
 import CheckboxBaseOption from './CheckboxBaseOption'
 
 const ShowHierarchy = () => (
-    <div>
-        <Label>{i18n.t('Labels')}</Label>
-        <CheckboxBaseOption
-            label={i18n.t('Display organisation unit hierarchy')}
-            option={{
-                name: 'showHierarchy',
-            }}
-        />
-    </div>
+    <CheckboxBaseOption
+        label={i18n.t('Display organisation unit hierarchy')}
+        option={{
+            name: 'showHierarchy',
+        }}
+    />
 )
 
 export default ShowHierarchy

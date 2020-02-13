@@ -88,8 +88,12 @@ export default [
                     <DisplayDensity />,
                     <FontSize />,
                     <DigitGroupSeparator />,
-                    <ShowHierarchy />,
                 ]),
+            },
+            {
+                key: 'style-section-2',
+                label: i18n.t('Labels'),
+                content: React.Children.toArray([<ShowHierarchy />]),
             },
         ],
     },
