@@ -102,7 +102,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     dualAxisItemHandler: () =>
         dispatch(acSetUiActiveModalDialog(AXIS_SETUP_DIALOG_ID)),
-    // Disabled to prevent the need for a breaking change in Analytics
+    // TODO: This was disabled to prevent the need for a breaking change in Analytics
     /* eslint-disable max-params */
     axisItemHandler: (
         dimensionId,
