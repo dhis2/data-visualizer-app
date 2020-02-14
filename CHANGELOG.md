@@ -1,3 +1,10 @@
+## [34.0.3](https://github.com/dhis2/data-visualizer-app/compare/v34.0.2...v34.0.3) (2020-02-14)
+
+
+### Bug Fixes
+
+* data with multiple indicators error message ([#658](https://github.com/dhis2/data-visualizer-app/issues/658)) ([f200787](https://github.com/dhis2/data-visualizer-app/commit/f2007875125986c29c908c28b6b50c6f84c72852))
+
 ## [34.0.2](https://github.com/dhis2/data-visualizer-app/compare/v34.0.1...v34.0.2) (2020-02-13)
 
 
