@@ -15,6 +15,17 @@ import { acSetUiOptions } from '../../../actions/ui'
 
 export const APPROVAL_LEVEL_OPTION_AUTH = 'F_VIEW_UNAPPROVED_DATA'
 
+const query = {
+    dataApprovalLevels: {
+        resource: 'dataApprovalLevels.json',
+        params: {
+            order: 'level:asc',
+            fields: 'id,displayName~rename(name),level',
+            paging: false,
+        },
+    },
+}
+
 const ApprovalLevelSelect = ({
     value,
     loading,
@@ -64,6 +75,10 @@ const ApprovalLevel = ({ value, onChange, enabled }) => {
     const [options, setOptions] = useState([])
     const [isLoaded, setIsLoaded] = useState(false)
 
+    if (!enabled) {
+        return null
+    }
+
     if (value && value.id) {
         if (!options.find(option => option.value === value.id)) {
             setOptions([
@@ -73,32 +88,8 @@ const ApprovalLevel = ({ value, onChange, enabled }) => {
         }
     }
 
-    if (!enabled) {
-        return null
-    }
-
-    if (value && value.id) {
-        if ((!options, find(option => option.value === value.id))) {
-            setOptions([
-                ...options,
-                { value: value.id, label: value.displayName },
-            ])
-        }
-    }
-
     const onSelectFocus = async () => {
         if (!isLoaded) {
-            const query = {
-                dataApprovalLevels: {
-                    resource: 'dataApprovalLevels.json',
-                    params: () => ({
-                        order: 'level:asc',
-                        fields: 'id,displayName~rename(name),level',
-                        paging: false,
-                    }),
-                },
-            }
-
             const { dataApprovalLevels } = await engine.query(query)
 
             if (dataApprovalLevels) {
