@@ -1,3 +1,10 @@
+## [34.0.4](https://github.com/dhis2/data-visualizer-app/compare/v34.0.3...v34.0.4) (2020-02-14)
+
+
+### Bug Fixes
+
+* owner filter label (DHIS2-8263) ([#659](https://github.com/dhis2/data-visualizer-app/issues/659)) ([591bbe5](https://github.com/dhis2/data-visualizer-app/commit/591bbe5474a118db27a9b45174dbc87a692f2df8))
+
 ## [34.0.3](https://github.com/dhis2/data-visualizer-app/compare/v34.0.2...v34.0.3) (2020-02-14)
 
 
