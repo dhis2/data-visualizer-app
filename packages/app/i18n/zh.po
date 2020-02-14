@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-02-12T09:18:27.515Z\n"
+"POT-Creation-Date: 2020-02-14T13:49:52.164Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2020\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -241,7 +241,10 @@ msgstr ""
 msgid "Columns totals"
 msgstr ""
 
-msgid "Include only completed events"
+msgid "Event data"
+msgstr ""
+
+msgid "Only include completed events"
 msgstr ""
 
 msgid "Include cumulative"
@@ -441,8 +444,8 @@ msgstr ""
 msgid "Dimension labels"
 msgstr ""
 
-msgid "Show hierarchy"
-msgstr "显示机构层次"
+msgid "Display organisation unit hierarchy"
+msgstr ""
 
 msgid "Skip rounding"
 msgstr ""
@@ -513,6 +516,14 @@ msgid "No data set"
 msgstr ""
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
+msgstr ""
+
+msgid "There's a problem with the layout"
+msgstr ""
+
+msgid ""
+"A single indicator must be the only data item when using indicators as Data "
+"in Filter."
 msgstr ""
 
 msgid "There is a problem with this {{visualizationType}} visualization."
@@ -683,6 +694,9 @@ msgstr ""
 
 msgid "Legend"
 msgstr "图例"
+
+msgid "Labels"
+msgstr ""
 
 msgid "Limit values"
 msgstr ""
