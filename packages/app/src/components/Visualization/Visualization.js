@@ -21,6 +21,7 @@ import {
     GenericServerError,
     EmptyResponseError,
     AssignedCategoriesAsFilterError,
+    MultipleIndicatorAsFilterError,
 } from '../../modules/error'
 import LoadingMask from './LoadingMask'
 
@@ -36,12 +37,18 @@ export class Visualization extends Component {
     onError = response => {
         let error
         if (response) {
-            if (response.errorCode === 'E7114') {
-                error = new AssignedCategoriesDataElementsError()
-            } else if (response.errorCode === 'E7110') {
-                error = new AssignedCategoriesAsFilterError()
-            } else {
-                error = response
+            switch (response.errorCode) {
+                case 'E7114':
+                    error = new AssignedCategoriesDataElementsError()
+                    break
+                case 'E7110':
+                    error = new AssignedCategoriesAsFilterError()
+                    break
+                case 'E7108':
+                    error = new MultipleIndicatorAsFilterError()
+                    break
+                default:
+                    error = response
             }
         } else {
             error = new GenericServerError()
