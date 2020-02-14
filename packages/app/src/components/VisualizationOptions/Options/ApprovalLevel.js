@@ -15,6 +15,8 @@ import { acSetUiOptions } from '../../../actions/ui'
 
 export const APPROVAL_LEVEL_OPTION_AUTH = 'F_VIEW_UNAPPROVED_DATA'
 
+const optionName = 'approvalLevel'
+
 const query = {
     dataApprovalLevels: {
         resource: 'dataApprovalLevels.json',
@@ -133,12 +135,12 @@ const approvalLevelEnabledSelector = createSelector(
 
 const mapStateToProps = state => ({
     enabled: approvalLevelEnabledSelector(state),
-    value: sGetUiOptions(state).approvalLevel || {},
+    value: sGetUiOptions(state)[optionName] || {},
 })
 
 const mapDispatchToProps = dispatch => ({
     onChange: ({ id, displayName }) =>
-        dispatch(acSetUiOptions({ approvalLevel: { id, displayName } })),
+        dispatch(acSetUiOptions({ [optionName]: { id, displayName } })),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ApprovalLevel)
