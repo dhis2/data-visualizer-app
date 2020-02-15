@@ -695,7 +695,7 @@ msgid "Legend"
 msgstr "شروحات"
 
 msgid "Labels"
-msgstr ""
+msgstr "التسميات"
 
 msgid "Limit values"
 msgstr ""
