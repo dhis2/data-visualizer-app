@@ -8,7 +8,7 @@ const AggregationType = () => (
     <SelectBaseOption
         label={i18n.t('Aggregation type')}
         helpText={i18n.t(
-            'Determines how the values in the pivot table are aggregated. Learn more'
+            'Determines how the values in the pivot table are aggregated.'
         )}
         option={{
             name: 'aggregationType',

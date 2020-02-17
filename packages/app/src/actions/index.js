@@ -22,6 +22,7 @@ import { sGetVisualization } from '../reducers/visualization'
 import { sGetRootOrgUnit, sGetRelativePeriod } from '../reducers/settings'
 
 import history from '../modules/history'
+import { getVisualizationFromCurrent } from '../modules/visualization'
 import { convertOuLevelsToUids } from '../modules/orgUnit'
 import { apiPostDataStatistics } from '../api/dataStatistics'
 
@@ -163,7 +164,9 @@ export const tDoSaveVisualization = ({ name, description }, copy) => async (
     }
 
     try {
-        const visualization = { ...sGetCurrent(getState()) }
+        const visualization = getVisualizationFromCurrent(
+            sGetCurrent(getState())
+        )
 
         // remove the id to trigger a POST request and save a new AO
         if (copy) {

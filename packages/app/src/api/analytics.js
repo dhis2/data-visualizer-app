@@ -26,6 +26,10 @@ const addCommonParameters = (req, current, options) => {
         req = req.withDisplayProperty(current.displayProperty)
     }
 
+    if (current.approvalLevel) {
+        req = req.withApprovalLevel(current.approvalLevel)
+    }
+
     if (options.relativePeriodDate) {
         req = req.withRelativePeriodDate(options.relativePeriodDate)
     }
