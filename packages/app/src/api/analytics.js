@@ -91,6 +91,7 @@ export const apiDownloadData = async ({
         .withFormat(format)
         .withHierarchyMeta(current.showHierarchy)
         .withMeasureCriteria(current.measureCriteria)
+        .withIncludeMetadataDetails(true)
     //.withApprovalLevel(current.?) TODO
 
     req = addCommonParameters(req, current, options)
