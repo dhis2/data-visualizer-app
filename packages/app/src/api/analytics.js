@@ -49,7 +49,7 @@ export const apiDownloadTable = async ({
         .withTableLayout()
         .withRows(rows.join(';'))
         .withColumns(columns.join(';'))
-
+        .withMeasureCriteria(current.measureCriteria)
     req = addCommonParameters(req, current, options)
 
     if (current.hideEmptyColumns) {
