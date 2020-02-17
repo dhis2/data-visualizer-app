@@ -102,16 +102,13 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     dualAxisItemHandler: () =>
         dispatch(acSetUiActiveModalDialog(AXIS_SETUP_DIALOG_ID)),
-    // TODO: This was disabled to prevent the need for a breaking change in Analytics
-    /* eslint-disable max-params */
-    axisItemHandler: (
+    axisItemHandler: ({
         dimensionId,
         axisId,
         numberOfDimensionItems,
         requireItems,
-        isDimensionInLayout
-    ) => {
-        /* eslint-enable max-params */
+        isDimensionInLayout,
+    }) => {
         dispatch(acAddUiLayoutDimensions({ [dimensionId]: { axisId } }))
 
         if (
