@@ -50,6 +50,7 @@ export const apiDownloadTable = async ({
         .withRows(rows.join(';'))
         .withColumns(columns.join(';'))
         .withMeasureCriteria(current.measureCriteria)
+
     req = addCommonParameters(req, current, options)
 
     if (current.hideEmptyColumns) {
@@ -92,6 +93,7 @@ export const apiDownloadData = async ({
         .withHierarchyMeta(current.showHierarchy)
         .withMeasureCriteria(current.measureCriteria)
         .withIncludeMetadataDetails(true)
+        .withIncludeNumDen()
     //.withApprovalLevel(current.?) TODO
 
     req = addCommonParameters(req, current, options)
