@@ -141,7 +141,9 @@ export class DownloadMenu extends Component {
 
     tableMenuSection = () => (
         <div>
-            <ListSubheader component="div">{i18n.t('Table')}</ListSubheader>
+            <ListSubheader component="div">
+                {i18n.t('Table layout')}
+            </ListSubheader>
             <MenuItem onClick={this.downloadTable('xls')}>
                 <ListItemIcon>
                     <ListAltIcon />

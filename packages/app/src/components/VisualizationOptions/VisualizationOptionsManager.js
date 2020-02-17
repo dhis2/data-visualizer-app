@@ -49,7 +49,7 @@ class VisualizationOptionsManager extends Component {
                     {i18n.t('Options')}
                 </MuiButton>
                 {this.state.dialogIsOpen && (
-                    <Modal onClose={this.onClose} large>
+                    <Modal onClose={this.onClose} position="top" large>
                         <ModalTitle>{i18n.t('Options')}</ModalTitle>
                         <ModalContent>
                             <VisualizationOptions />

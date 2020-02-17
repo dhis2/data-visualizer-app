@@ -1,3 +1,24 @@
+## [34.0.5](https://github.com/dhis2/data-visualizer-app/compare/v34.0.4...v34.0.5) (2020-02-14)
+
+
+### Bug Fixes
+
+* minor ui glitches ([#667](https://github.com/dhis2/data-visualizer-app/issues/667)) ([d8e8e9e](https://github.com/dhis2/data-visualizer-app/commit/d8e8e9ef3492b7d070a74a6a2867e1afe1e9ad15))
+
+## [34.0.4](https://github.com/dhis2/data-visualizer-app/compare/v34.0.3...v34.0.4) (2020-02-14)
+
+
+### Bug Fixes
+
+* owner filter label (DHIS2-8263) ([#659](https://github.com/dhis2/data-visualizer-app/issues/659)) ([591bbe5](https://github.com/dhis2/data-visualizer-app/commit/591bbe5474a118db27a9b45174dbc87a692f2df8))
+
+## [34.0.3](https://github.com/dhis2/data-visualizer-app/compare/v34.0.2...v34.0.3) (2020-02-14)
+
+
+### Bug Fixes
+
+* data with multiple indicators error message ([#658](https://github.com/dhis2/data-visualizer-app/issues/658)) ([f200787](https://github.com/dhis2/data-visualizer-app/commit/f2007875125986c29c908c28b6b50c6f84c72852))
+
 ## [34.0.2](https://github.com/dhis2/data-visualizer-app/compare/v34.0.1...v34.0.2) (2020-02-13)
 
 
