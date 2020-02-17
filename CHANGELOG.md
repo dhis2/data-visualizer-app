@@ -1,3 +1,10 @@
+## [34.0.7](https://github.com/dhis2/data-visualizer-app/compare/v34.0.6...v34.0.7) (2020-02-17)
+
+
+### Bug Fixes
+
+* fix default state for LegendSet option ([#668](https://github.com/dhis2/data-visualizer-app/issues/668)) ([3bfda8c](https://github.com/dhis2/data-visualizer-app/commit/3bfda8cfbb4632c1ef93c56c553f56b9a928c741))
+
 ## [34.0.6](https://github.com/dhis2/data-visualizer-app/compare/v34.0.5...v34.0.6) (2020-02-17)
 
 
