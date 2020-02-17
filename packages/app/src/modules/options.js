@@ -104,7 +104,7 @@ export const options = {
     showHierarchy: { defaultValue: false, requestable: true, savable: true },
     legendSet: { defaultValue: undefined, requestable: false, savable: true },
     legendDisplayStrategy: {
-        defaultValue: undefined,
+        defaultValue: 'FIXED',
         requestable: false,
         savable: true,
     },
