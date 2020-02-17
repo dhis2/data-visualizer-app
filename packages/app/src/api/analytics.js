@@ -90,12 +90,12 @@ export const apiDownloadData = async ({
     let req = new d2.analytics.request()
         .fromModel(current, path === 'dataValueSet')
         .withFormat(format)
+        .withShowHierarchy(current.showHierarchy)
         .withHierarchyMeta(current.showHierarchy)
         .withMeasureCriteria(current.measureCriteria)
         .withIncludeMetadataDetails(true)
         .withIncludeNumDen()
     //.withApprovalLevel(current.?) TODO
-
     req = addCommonParameters(req, current, options)
 
     if (path) {
