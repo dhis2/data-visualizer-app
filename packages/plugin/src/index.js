@@ -10,6 +10,9 @@ const VisualizationPlugin = props => {
     const engine = useDataEngine()
     const [legendSet, setLegendSet] = useState(null)
 
+    const hasLegendSet =
+        props.visualization.legendSet && props.visualization.legendSet.id
+
     useEffect(() => {
         const fetchLegendSet = async engine => {
             if (
@@ -29,6 +32,12 @@ const VisualizationPlugin = props => {
 
         fetchLegendSet(engine)
     }, [props.visualization.legendSet]) // eslint-disable-line react-hooks/exhaustive-deps
+
+    if (hasLegendSet && !legendSet) {
+        // Until one of the children is rendered and calls onLoadingComplete,
+        // the app will continue to render the loading spinner
+        return null
+    }
 
     if (
         !props.visualization.type ||
