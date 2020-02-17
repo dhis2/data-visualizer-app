@@ -39,7 +39,7 @@ export const options = {
     numberType: { defaultValue: 'VALUE', requestable: false },
     showHierarchy: { defaultValue: false, requestable: true },
     legendSet: { defaultValue: undefined, requestable: false },
-    legendDisplayStrategy: { defaultValue: undefined, requestable: false },
+    legendDisplayStrategy: { defaultValue: 'FIXED', requestable: false },
     legendDisplayStyle: { defaultValue: 'FILL', requestable: false },
     displayDensity: { defaultValue: 'NORMAL', requestable: false },
     fontSize: { defaultValue: 'NORMAL', requestable: false },
