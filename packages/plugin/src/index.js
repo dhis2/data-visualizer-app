@@ -15,7 +15,10 @@ const VisualizationPlugin = props => {
 
     useEffect(() => {
         const fetchLegendSet = async engine => {
-            if (hasLegendSet) {
+            if (
+                props.visualization.legendSet &&
+                props.visualization.legendSet.id
+            ) {
                 const response = await apiFetchLegendSet(
                     engine,
                     props.visualization.legendSet.id
