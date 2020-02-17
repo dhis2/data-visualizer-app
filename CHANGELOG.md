@@ -1,3 +1,10 @@
+## [34.0.6](https://github.com/dhis2/data-visualizer-app/compare/v34.0.5...v34.0.6) (2020-02-17)
+
+
+### Bug Fixes
+
+* correct number parsing and rendering with @dhis2/analytics@3.3.3 ([#669](https://github.com/dhis2/data-visualizer-app/issues/669)) ([6943361](https://github.com/dhis2/data-visualizer-app/commit/69433610a84a6cbf5441e198bc880ad706fd1f0e))
+
 ## [34.0.5](https://github.com/dhis2/data-visualizer-app/compare/v34.0.4...v34.0.5) (2020-02-14)
 
 
