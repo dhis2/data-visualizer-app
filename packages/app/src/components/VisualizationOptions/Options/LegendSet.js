@@ -26,15 +26,18 @@ import {
     tabSectionTitle,
 } from '../styles/VisualizationOptions.style.js'
 
-const optionName = 'legendSet'
-const defaultValue = options[optionName].defaultValue
+const LEGEND_SET_OPTION_NAME = 'legendSet'
+const defaultValue = options[LEGEND_SET_OPTION_NAME].defaultValue
 
 const query = {
     legendSets: {
-        resource: 'legendSets.json',
+        resource: 'legendSets',
         params: {
-            fields:
-                'id,displayName~rename(name),legends[id,displayName~rename(name),startValue,endValue,color]',
+            fields: [
+                'id',
+                'displayName~rename(name)',
+                'legends[id,displayName~rename(name),startValue,endValue,color]',
+            ],
             paging: false,
         },
     },
@@ -189,13 +192,15 @@ LegendSet.propTypes = {
 }
 
 const mapStateToProps = state => ({
-    value: sGetUiOptions(state)[optionName] || {},
+    value: sGetUiOptions(state)[LEGEND_SET_OPTION_NAME] || {},
     legendDisplayStrategy: sGetUiOptions(state).legendDisplayStrategy,
 })
 
 const mapDispatchToProps = dispatch => ({
     onChange: ({ id, displayName }) =>
-        dispatch(acSetUiOptions({ [optionName]: { id, displayName } })),
+        dispatch(
+            acSetUiOptions({ [LEGEND_SET_OPTION_NAME]: { id, displayName } })
+        ),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(LegendSet)
