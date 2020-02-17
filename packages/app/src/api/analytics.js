@@ -50,6 +50,7 @@ export const apiDownloadTable = async ({
         .withRows(rows.join(';'))
         .withColumns(columns.join(';'))
         .withMeasureCriteria(current.measureCriteria)
+        .withParameters({ completedOnly: current.completedOnly })
 
     req = addCommonParameters(req, current, options)
 
@@ -95,6 +96,7 @@ export const apiDownloadData = async ({
         .withMeasureCriteria(current.measureCriteria)
         .withIncludeMetadataDetails(true)
         .withIncludeNumDen()
+        .withParameters({ completedOnly: current.completedOnly })
     //.withApprovalLevel(current.?) TODO
     req = addCommonParameters(req, current, options)
 
