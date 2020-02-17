@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-02-12T09:18:27.515Z\n"
-"PO-Revision-Date: 2020-02-12T09:18:27.515Z\n"
+"POT-Creation-Date: 2020-02-14T13:49:52.164Z\n"
+"PO-Revision-Date: 2020-02-14T13:49:52.164Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -232,7 +232,10 @@ msgstr ""
 msgid "Columns totals"
 msgstr ""
 
-msgid "Include only completed events"
+msgid "Event data"
+msgstr ""
+
+msgid "Only include completed events"
 msgstr ""
 
 msgid "Include cumulative"
@@ -432,7 +435,7 @@ msgstr ""
 msgid "Dimension labels"
 msgstr ""
 
-msgid "Show hierarchy"
+msgid "Display organisation unit hierarchy"
 msgstr ""
 
 msgid "Skip rounding"
@@ -504,6 +507,14 @@ msgid "No data set"
 msgstr ""
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
+msgstr ""
+
+msgid "There's a problem with the layout"
+msgstr ""
+
+msgid ""
+"A single indicator must be the only data item when using indicators as Data "
+"in Filter."
 msgstr ""
 
 msgid "There is a problem with this {{visualizationType}} visualization."
@@ -672,6 +683,9 @@ msgid "Display empty data"
 msgstr ""
 
 msgid "Legend"
+msgstr ""
+
+msgid "Labels"
 msgstr ""
 
 msgid "Limit values"

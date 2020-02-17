@@ -1428,10 +1428,10 @@
     react-beautiful-dnd "^10.1.1"
     styled-jsx "^3.2.1"
 
-"@dhis2/analytics@^3.3.0":
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-3.3.0.tgz#74e382612ec8648ee1dc94ec65e754ba9f4fa711"
-  integrity sha512-K1viRfw5XjhCK5F12I1SX469PoJ5RoVjSVDlWFFC/2l3XwCut2pT+mndM3ybERXOUftaD6qhQlbzFP6mt5omOQ==
+"@dhis2/analytics@^3.3.3":
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-3.3.3.tgz#17d77317ebe046710f3099abb90863423955d974"
+  integrity sha512-RDgu8bik1JTQdIwAv3jEkvx0ZhRcYRBW+4OHOtGwS/+8Mf3oTdwAA+myYLLKA2Al4PDyBoKxSXXGmRN+uRD+lw==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^6.3.2"
@@ -1758,7 +1758,7 @@
   dependencies:
     prop-types "^15"
 
-"@dhis2/ui-core@*", "@dhis2/ui-core@^4.1.1":
+"@dhis2/ui-core@*", "@dhis2/ui-core@^4.1.1", "@dhis2/ui-core@^4.7.1":
   version "4.9.0"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-4.9.0.tgz#d2af15cee87a7873741e8698ac2923c423f671c1"
   integrity sha512-9Cf7Tv4JQ+2TX9CCoy3xGMn0P5FWvA1KNx9qzWFccHorEwlvbDYUbeAJaZ2LMnHUBeS5llmBbDByYzAH4K5SmA==
@@ -1770,14 +1770,6 @@
   version "4.6.1"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-4.6.1.tgz#62677590b3b32322dfa014b006e6226b637f0162"
   integrity sha512-85ubddhmSRjDFPZqtSoTOZiPnfzHU1CyFyTXYmar/3lr8zl4mzY7aKScsEsTtJRWpN8ie86LWRqdGpbrV98VcQ==
-  dependencies:
-    "@dhis2/prop-types" "^1.5.0"
-    classnames "^2.2.6"
-
-"@dhis2/ui-core@^4.7.1":
-  version "4.7.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-4.7.1.tgz#62f663896b67f8a2b1a557b5cb32f1352cf056bc"
-  integrity sha512-CHfesGZ15Gs08mCifqmW4LiOM+MpS2spkbdr3P27Yn0uPYjCOG9QbX0UIrdifIqraUSHqTgwtD2HAA4aG2IXEw==
   dependencies:
     "@dhis2/prop-types" "^1.5.0"
     classnames "^2.2.6"
