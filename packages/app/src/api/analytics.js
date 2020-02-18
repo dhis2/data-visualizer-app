@@ -20,6 +20,8 @@ const addCommonParameters = (req, current, options) => {
     req = req
         .withSkipRounding(current.skipRounding)
         .withAggregationType(current.aggregationType)
+        .withMeasureCriteria(current.measureCriteria)
+        .withParameters({ completedOnly: current.completedOnly })
     //        .withUserOrgUnit(?) TODO
 
     if (current.displayProperty) {
@@ -49,8 +51,6 @@ export const apiDownloadTable = async ({
         .withTableLayout()
         .withRows(rows.join(';'))
         .withColumns(columns.join(';'))
-        .withMeasureCriteria(current.measureCriteria)
-        .withParameters({ completedOnly: current.completedOnly })
 
     req = addCommonParameters(req, current, options)
 
@@ -93,10 +93,8 @@ export const apiDownloadData = async ({
         .withFormat(format)
         .withShowHierarchy(current.showHierarchy)
         .withHierarchyMeta(current.showHierarchy)
-        .withMeasureCriteria(current.measureCriteria)
         .withIncludeMetadataDetails(true)
         .withIncludeNumDen()
-        .withParameters({ completedOnly: current.completedOnly })
     //.withApprovalLevel(current.?) TODO
     req = addCommonParameters(req, current, options)
 
