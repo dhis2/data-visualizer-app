@@ -321,7 +321,7 @@ msgid "Line"
 msgstr ""
 
 msgid "Area"
-msgstr ""
+msgstr "面积"
 
 msgid "Pie"
 msgstr ""
@@ -490,7 +490,7 @@ msgid "Weeks this year"
 msgstr "今年的星期"
 
 msgid "This month"
-msgstr ""
+msgstr "本月"
 
 msgid "Last month"
 msgstr "上月"
