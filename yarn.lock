@@ -1428,15 +1428,15 @@
     react-beautiful-dnd "^10.1.1"
     styled-jsx "^3.2.1"
 
-"@dhis2/analytics@^3.3.3":
-  version "3.3.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-3.3.3.tgz#17d77317ebe046710f3099abb90863423955d974"
-  integrity sha512-RDgu8bik1JTQdIwAv3jEkvx0ZhRcYRBW+4OHOtGwS/+8Mf3oTdwAA+myYLLKA2Al4PDyBoKxSXXGmRN+uRD+lw==
+"@dhis2/analytics@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.0.0.tgz#3f3ff2f32640033a21acb62f1e6b27fbcec3c245"
+  integrity sha512-4b5lXGLpHYGcKhUl4wKli5QYkAvxDOzCZCGn5moEoYjm3nK1JvSO1ZG1Ujp8nLVkQMe5Z3/YZHdaPXrrYZGOcw==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^6.3.2"
     "@dhis2/d2-ui-period-selector-dialog" "^6.3.2"
-    "@dhis2/ui-core" "^4.7.1"
+    "@dhis2/ui-core" "^4.9.1"
     "@material-ui/core" "^3.9.3"
     "@material-ui/icons" "^3.0.2"
     classnames "^2.2.6"
@@ -1758,7 +1758,7 @@
   dependencies:
     prop-types "^15"
 
-"@dhis2/ui-core@*", "@dhis2/ui-core@^4.1.1", "@dhis2/ui-core@^4.7.1":
+"@dhis2/ui-core@*", "@dhis2/ui-core@^4.1.1":
   version "4.9.0"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-4.9.0.tgz#d2af15cee87a7873741e8698ac2923c423f671c1"
   integrity sha512-9Cf7Tv4JQ+2TX9CCoy3xGMn0P5FWvA1KNx9qzWFccHorEwlvbDYUbeAJaZ2LMnHUBeS5llmBbDByYzAH4K5SmA==
@@ -1772,6 +1772,15 @@
   integrity sha512-85ubddhmSRjDFPZqtSoTOZiPnfzHU1CyFyTXYmar/3lr8zl4mzY7aKScsEsTtJRWpN8ie86LWRqdGpbrV98VcQ==
   dependencies:
     "@dhis2/prop-types" "^1.5.0"
+    classnames "^2.2.6"
+
+"@dhis2/ui-core@^4.9.1":
+  version "4.9.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-4.9.1.tgz#13ebaa43deceb5c3fa2955668c183131241847fa"
+  integrity sha512-ejKHYNiY49QIqgu6auLk6fL9It9+eZL1mmBk4Tqpst1u6YrSlnCyxfi/zV+UYqJLATAQX2aEAuB2ibRG5InZJA==
+  dependencies:
+    "@dhis2/prop-types" "^1.5.0"
+    "@popperjs/core" "^2.0.6"
     classnames "^2.2.6"
 
 "@dhis2/ui-widgets@^2.0.4":
@@ -2111,6 +2120,11 @@
   dependencies:
     "@nodelib/fs.scandir" "2.1.3"
     fastq "^1.6.0"
+
+"@popperjs/core@^2.0.6":
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.0.6.tgz#5a39ac118811ca844155b0ad5190b8c24f35e533"
+  integrity sha512-zj7Gw8QC4jmR92eKUvtrZUEpl2ypRbq+qlE4pwf9n2hnUO9BOAcWUs4/Ht+gNIbFt98xtqhLvccdCfD469MzpQ==
 
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
