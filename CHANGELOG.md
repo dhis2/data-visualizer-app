@@ -1,3 +1,31 @@
+# [34.2.0](https://github.com/dhis2/data-visualizer-app/compare/v34.1.0...v34.2.0) (2020-02-17)
+
+
+### Features
+
+* option for data approval level ([#657](https://github.com/dhis2/data-visualizer-app/issues/657)) ([3b7d274](https://github.com/dhis2/data-visualizer-app/commit/3b7d2744884c26ee7a21fbb88cb6a6ffc24a1f6e))
+
+# [34.1.0](https://github.com/dhis2/data-visualizer-app/compare/v34.0.7...v34.1.0) (2020-02-17)
+
+
+### Features
+
+* fetch legendSet and pass as prop to plugins ([#666](https://github.com/dhis2/data-visualizer-app/issues/666)) ([180a82c](https://github.com/dhis2/data-visualizer-app/commit/180a82c2fd0b8a564e406f2c369827f03431c18e))
+
+## [34.0.7](https://github.com/dhis2/data-visualizer-app/compare/v34.0.6...v34.0.7) (2020-02-17)
+
+
+### Bug Fixes
+
+* fix default state for LegendSet option ([#668](https://github.com/dhis2/data-visualizer-app/issues/668)) ([3bfda8c](https://github.com/dhis2/data-visualizer-app/commit/3bfda8cfbb4632c1ef93c56c553f56b9a928c741))
+
+## [34.0.6](https://github.com/dhis2/data-visualizer-app/compare/v34.0.5...v34.0.6) (2020-02-17)
+
+
+### Bug Fixes
+
+* correct number parsing and rendering with @dhis2/analytics@3.3.3 ([#669](https://github.com/dhis2/data-visualizer-app/issues/669)) ([6943361](https://github.com/dhis2/data-visualizer-app/commit/69433610a84a6cbf5441e198bc880ad706fd1f0e))
+
 ## [34.0.5](https://github.com/dhis2/data-visualizer-app/compare/v34.0.4...v34.0.5) (2020-02-14)
 
 
