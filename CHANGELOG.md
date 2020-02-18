@@ -1,3 +1,10 @@
+## [34.2.1](https://github.com/dhis2/data-visualizer-app/compare/v34.2.0...v34.2.1) (2020-02-18)
+
+
+### Bug Fixes
+
+* dimensions modal to show only when dimension is added ([#655](https://github.com/dhis2/data-visualizer-app/issues/655)) ([b199e6e](https://github.com/dhis2/data-visualizer-app/commit/b199e6eab08de87f2b09429d9ac9329d8a091e68)), closes [dhis2/analytics#294](https://github.com/dhis2/analytics/issues/294)
+
 # [34.2.0](https://github.com/dhis2/data-visualizer-app/compare/v34.1.0...v34.2.0) (2020-02-17)
 
 
