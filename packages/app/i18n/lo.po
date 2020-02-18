@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-02-14T13:49:52.164Z\n"
+"POT-Creation-Date: 2020-02-18T09:08:26.548Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Lao (https://www.transifex.com/hisp-uio/teams/100509/lo/)\n"
@@ -75,8 +75,8 @@ msgstr ""
 msgid "PDF (.pdf)"
 msgstr ""
 
-msgid "Table"
-msgstr "ຕາຕະລາງຂໍ້ມູນ"
+msgid "Table layout"
+msgstr "ເຄົ້າໂຄງຕາຕະລາງ"
 
 msgid "Excel (.xls)"
 msgstr ""
@@ -176,8 +176,7 @@ msgstr ""
 msgid "Aggregation type"
 msgstr "ປະເພດຕົວເລກລວມ"
 
-msgid ""
-"Determines how the values in the pivot table are aggregated. Learn more"
+msgid "Determines how the values in the pivot table are aggregated."
 msgstr ""
 
 msgid "By data element"
@@ -212,6 +211,15 @@ msgstr ""
 
 msgid "Variance"
 msgstr "ຄວາມແຕກຕ່າງ"
+
+msgid "Data approved at level"
+msgstr "ຂໍ້ມູນໄດ້ຮັບການອະນຸມັດຢູ່ຂັ້ນ"
+
+msgid "Select from predefined levels"
+msgstr ""
+
+msgid "Loading data approval levels"
+msgstr ""
 
 msgid "Axis range"
 msgstr ""
