@@ -5,6 +5,7 @@ export const DEFAULT_SETTINGS = {
     keyDateFormat: 'yyyy-MM-dd',
     keyAnalysisRelativePeriod: 'LAST_12_MONTHS',
     keyAnalysisDigitGroupSeparator: 'SPACE',
+    keyIgnoreAnalyticsApprovalYearThreshold: -1,
     displayNameProperty: 'displayName',
     uiLocale: 'en',
     rootOrganisationUnit: {},

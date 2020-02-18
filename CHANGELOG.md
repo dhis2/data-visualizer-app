@@ -1,3 +1,10 @@
+# [34.2.0](https://github.com/dhis2/data-visualizer-app/compare/v34.1.0...v34.2.0) (2020-02-17)
+
+
+### Features
+
+* option for data approval level ([#657](https://github.com/dhis2/data-visualizer-app/issues/657)) ([3b7d274](https://github.com/dhis2/data-visualizer-app/commit/3b7d2744884c26ee7a21fbb88cb6a6ffc24a1f6e))
+
 # [34.1.0](https://github.com/dhis2/data-visualizer-app/compare/v34.0.7...v34.1.0) (2020-02-17)
 
 

@@ -56,6 +56,12 @@ export const getOptionsFromUi = ui => {
         optionsFromUi.baseLineValue = options.baseLineValue.defaultValue
     }
 
+    // approvalLevel is stored as an object { id, level, displayName }
+    // only pass approvalLevel id
+    if (optionsFromUi.approvalLevel !== options.approvalLevel.defaultValue) {
+        optionsFromUi.approvalLevel = optionsFromUi.approvalLevel.id
+    }
+
     // nested options under reportingParams
     optionsFromUi.reportingParams = {}
     ;[
