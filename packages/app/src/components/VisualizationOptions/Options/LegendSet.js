@@ -18,11 +18,30 @@ import LegendDisplayStrategy from './LegendDisplayStrategy'
 import { sGetUiOptions } from '../../../reducers/ui'
 import { acSetUiOptions } from '../../../actions/ui'
 
+import { options } from '../../../modules/options'
+
 import {
     tabSection,
     tabSectionOption,
     tabSectionTitle,
 } from '../styles/VisualizationOptions.style.js'
+
+const LEGEND_SET_OPTION_NAME = 'legendSet'
+const defaultValue = options[LEGEND_SET_OPTION_NAME].defaultValue
+
+const query = {
+    legendSets: {
+        resource: 'legendSets',
+        params: {
+            fields: [
+                'id',
+                'displayName~rename(name)',
+                'legends[id,displayName~rename(name),startValue,endValue,color]',
+            ],
+            paging: false,
+        },
+    },
+}
 
 const LegendSelect = ({ value, loading, options, onFocus, onChange }) => {
     const selected =
@@ -41,10 +60,8 @@ const LegendSelect = ({ value, loading, options, onFocus, onChange }) => {
             onFocus={onFocus}
             onChange={({ selected }) =>
                 onChange({
-                    legendSet: {
-                        id: selected.value,
-                        displayName: selected.label,
-                    },
+                    id: selected.value,
+                    displayName: selected.label,
                 })
             }
         >
@@ -80,17 +97,6 @@ const LegendSetup = ({ value, onChange }) => {
 
     const onSelectFocus = async () => {
         if (!isLoaded) {
-            const query = {
-                legendSets: {
-                    resource: 'legendSets.json',
-                    params: () => ({
-                        fields:
-                            'id,displayName~rename(name),legends[id,displayName~rename(name),startValue,endValue,color]',
-                        paging: false,
-                    }),
-                },
-            }
-
             const { legendSets } = await engine.query(query)
 
             if (legendSets) {
@@ -128,15 +134,8 @@ const LegendSet = ({ value, legendDisplayStrategy, onChange }) => {
     const onCheckboxChange = ({ checked }) => {
         setLegendSetEnabled(checked)
 
-        if (checked && !legendDisplayStrategy) {
-            onChange({
-                legendDisplayStrategy: 'FIXED',
-            })
-        } else {
-            onChange({
-                legendSet: undefined,
-                legendDisplayStrategy: undefined,
-            })
+        if (!checked) {
+            onChange(defaultValue)
         }
     }
 
@@ -193,12 +192,15 @@ LegendSet.propTypes = {
 }
 
 const mapStateToProps = state => ({
-    value: sGetUiOptions(state).legendSet || {},
+    value: sGetUiOptions(state)[LEGEND_SET_OPTION_NAME] || {},
     legendDisplayStrategy: sGetUiOptions(state).legendDisplayStrategy,
 })
 
 const mapDispatchToProps = dispatch => ({
-    onChange: legendSetOptions => dispatch(acSetUiOptions(legendSetOptions)),
+    onChange: ({ id, displayName }) =>
+        dispatch(
+            acSetUiOptions({ [LEGEND_SET_OPTION_NAME]: { id, displayName } })
+        ),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(LegendSet)
