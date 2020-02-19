@@ -1,4 +1,3 @@
-import { DIMENSION_ID_PERIOD } from '@dhis2/analytics'
 import { getInstance } from 'd2'
 
 export const apiDownloadImage = async (type, formData) => {
@@ -117,59 +116,4 @@ export const apiDownloadData = async ({
     )
 
     return url
-}
-
-export const apiFetchAnalytics = async (current, options) => {
-    const d2 = await getInstance()
-
-    const req = new d2.analytics.request()
-        .fromModel(current)
-        .withParameters(options)
-
-    const rawResponse = await d2.analytics.aggregate.get(req)
-
-    return [new d2.analytics.response(rawResponse)]
-}
-
-export const apiFetchAnalyticsForYearOverYear = async (current, options) => {
-    const d2 = await getInstance()
-
-    let yearlySeriesReq = new d2.analytics.request()
-        .addPeriodDimension(current.yearlySeries)
-        .withSkipData(true)
-        .withSkipMeta(false)
-        .withIncludeMetadataDetails(true)
-
-    if (options.relativePeriodDate) {
-        yearlySeriesReq = yearlySeriesReq.withRelativePeriodDate(
-            options.relativePeriodDate
-        )
-    }
-
-    const yearlySeriesRes = await d2.analytics.aggregate.fetch(yearlySeriesReq)
-
-    const requests = []
-    const yearlySeriesLabels = []
-
-    const now = new Date()
-    const currentDay = ('' + now.getDate()).padStart(2, 0)
-    const currentMonth = ('' + (now.getMonth() + 1)).padStart(2, 0)
-
-    yearlySeriesRes.metaData.dimensions[DIMENSION_ID_PERIOD].forEach(period => {
-        yearlySeriesLabels.push(yearlySeriesRes.metaData.items[period].name)
-
-        const startDate = `${period}-${currentMonth}-${currentDay}`
-
-        const req = new d2.analytics.request()
-            .fromModel(current)
-            .withParameters(options)
-            .withRelativePeriodDate(startDate)
-
-        requests.push(d2.analytics.aggregate.get(req))
-    })
-
-    return Promise.all(requests).then(responses => ({
-        responses: responses.map(res => new d2.analytics.response(res)),
-        yearlySeriesLabels,
-    }))
 }

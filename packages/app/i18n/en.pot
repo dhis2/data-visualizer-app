@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-02-14T13:49:52.164Z\n"
-"PO-Revision-Date: 2020-02-14T13:49:52.164Z\n"
+"POT-Creation-Date: 2020-02-18T14:35:56.019Z\n"
+"PO-Revision-Date: 2020-02-18T14:35:56.019Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -68,7 +68,7 @@ msgstr ""
 msgid "PDF (.pdf)"
 msgstr ""
 
-msgid "Table"
+msgid "Table layout"
 msgstr ""
 
 msgid "Excel (.xls)"
@@ -169,7 +169,7 @@ msgstr ""
 msgid "Aggregation type"
 msgstr ""
 
-msgid "Determines how the values in the pivot table are aggregated. Learn more"
+msgid "Determines how the values in the pivot table are aggregated."
 msgstr ""
 
 msgid "By data element"
@@ -203,6 +203,15 @@ msgid "Standard deviation"
 msgstr ""
 
 msgid "Variance"
+msgstr ""
+
+msgid "Data approved at level"
+msgstr ""
+
+msgid "Select from predefined levels"
+msgstr ""
+
+msgid "Loading data approval levels"
 msgstr ""
 
 msgid "Axis range"
