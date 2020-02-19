@@ -1,14 +1,14 @@
 # Translators:
 # phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
 # easylin <lin_xd@126.com>, 2020
+# Viktor Varland <viktor@dhis2.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-02-14T13:49:52.164Z\n"
+"POT-Creation-Date: 2020-02-18T09:08:26.548Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: easylin <lin_xd@126.com>, 2020\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -76,8 +76,8 @@ msgstr ""
 msgid "PDF (.pdf)"
 msgstr ""
 
-msgid "Table"
-msgstr "表"
+msgid "Table layout"
+msgstr "表布局"
 
 msgid "Excel (.xls)"
 msgstr ""
@@ -177,8 +177,7 @@ msgstr ""
 msgid "Aggregation type"
 msgstr ""
 
-msgid ""
-"Determines how the values in the pivot table are aggregated. Learn more"
+msgid "Determines how the values in the pivot table are aggregated."
 msgstr ""
 
 msgid "By data element"
@@ -213,6 +212,15 @@ msgstr "标准差"
 
 msgid "Variance"
 msgstr "方差"
+
+msgid "Data approved at level"
+msgstr ""
+
+msgid "Select from predefined levels"
+msgstr ""
+
+msgid "Loading data approval levels"
+msgstr ""
 
 msgid "Axis range"
 msgstr ""
@@ -582,7 +590,7 @@ msgid "Weeks this year"
 msgstr "今年的星期"
 
 msgid "This month"
-msgstr ""
+msgstr "本月"
 
 msgid "Last month"
 msgstr "上月"
