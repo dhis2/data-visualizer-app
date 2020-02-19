@@ -76,7 +76,7 @@ msgid "PDF (.pdf)"
 msgstr ""
 
 msgid "Table layout"
-msgstr ""
+msgstr "تنسيق الجدول"
 
 msgid "Excel (.xls)"
 msgstr ""
@@ -213,7 +213,7 @@ msgid "Variance"
 msgstr "التباين"
 
 msgid "Data approved at level"
-msgstr ""
+msgstr "البيانات الموافق عليها في مستوى"
 
 msgid "Select from predefined levels"
 msgstr ""
