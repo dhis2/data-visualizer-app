@@ -1,3 +1,24 @@
+## [34.2.4](https://github.com/dhis2/data-visualizer-app/compare/v34.2.3...v34.2.4) (2020-02-20)
+
+
+### Bug Fixes
+
+* checks for data in all responses instead of in each individual one ([#699](https://github.com/dhis2/data-visualizer-app/issues/699)) ([ffbb54e](https://github.com/dhis2/data-visualizer-app/commit/ffbb54ea619674eb2a6adf154931c3e46e87aeb8))
+
+## [34.2.3](https://github.com/dhis2/data-visualizer-app/compare/v34.2.2...v34.2.3) (2020-02-20)
+
+
+### Bug Fixes
+
+* fix filtering of non savable options ([#700](https://github.com/dhis2/data-visualizer-app/issues/700)) ([51138bb](https://github.com/dhis2/data-visualizer-app/commit/51138bbd0b5dafd44260fc4e422957ced866c55d))
+
+## [34.2.2](https://github.com/dhis2/data-visualizer-app/compare/v34.2.1...v34.2.2) (2020-02-20)
+
+
+### Bug Fixes
+
+* missing PT download params ([#671](https://github.com/dhis2/data-visualizer-app/issues/671)) ([49669f0](https://github.com/dhis2/data-visualizer-app/commit/49669f0743fbe62324240c06a5485e07a5c11243))
+
 ## [34.2.1](https://github.com/dhis2/data-visualizer-app/compare/v34.2.0...v34.2.1) (2020-02-18)
 
 
