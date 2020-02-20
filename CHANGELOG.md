@@ -1,3 +1,10 @@
+## [34.2.3](https://github.com/dhis2/data-visualizer-app/compare/v34.2.2...v34.2.3) (2020-02-20)
+
+
+### Bug Fixes
+
+* fix filtering of non savable options ([#700](https://github.com/dhis2/data-visualizer-app/issues/700)) ([51138bb](https://github.com/dhis2/data-visualizer-app/commit/51138bbd0b5dafd44260fc4e422957ced866c55d))
+
 ## [34.2.2](https://github.com/dhis2/data-visualizer-app/compare/v34.2.1...v34.2.2) (2020-02-20)
 
 
