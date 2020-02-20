@@ -61,11 +61,12 @@ export class Visualization extends Component {
 
     onResponsesReceived = responses => {
         const forMetadata = {}
-
+        if (
+            !responses.some(response => response.rows && response.rows.length)
+        ) {
+            throw new EmptyResponseError()
+        }
         responses.forEach(response => {
-            if (!response.rows || !response.rows.length) {
-                throw new EmptyResponseError()
-            }
             Object.entries(response.metaData.items).forEach(([id, item]) => {
                 forMetadata[id] = {
                     id,
