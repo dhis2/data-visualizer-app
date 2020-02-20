@@ -1,33 +1,15 @@
-import React, { Fragment, useState } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import i18n from '@dhis2/d2-i18n'
-import {
-    Checkbox,
-    FieldSet,
-    Legend,
-    SingleSelectField,
-    SingleSelectOption,
-} from '@dhis2/ui-core'
+import { SingleSelectField, SingleSelectOption } from '@dhis2/ui-core'
 import { useDataEngine } from '@dhis2/app-runtime'
-
-import LegendDisplayStyle from './LegendDisplayStyle'
-import LegendDisplayStrategy from './LegendDisplayStrategy'
 
 import { sGetUiOptions } from '../../../reducers/ui'
 import { acSetUiOptions } from '../../../actions/ui'
 
-import { options } from '../../../modules/options'
-
-import {
-    tabSection,
-    tabSectionOption,
-    tabSectionTitle,
-} from '../styles/VisualizationOptions.style.js'
-
-const LEGEND_SET_OPTION_NAME = 'legendSet'
-const defaultValue = options[LEGEND_SET_OPTION_NAME].defaultValue
+export const LEGEND_SET_OPTION_NAME = 'legendSet'
 
 const query = {
     legendSets: {
@@ -43,17 +25,17 @@ const query = {
     },
 }
 
-const LegendSelect = ({ value, loading, options, onFocus, onChange }) => {
+const LegendSetSelect = ({ value, loading, options, onFocus, onChange }) => {
     const selected =
         value && value.id ? { value: value.id, label: value.displayName } : {}
 
     return (
         <SingleSelectField
-            name="legendSet-legendSelect"
-            label={i18n.t('Select a legend')}
+            name="legendSetSelect"
+            label={i18n.t('Legend')}
             selected={selected}
             inputWidth="280px"
-            placeholder={i18n.t('Select from predefined legends')}
+            placeholder={i18n.t('Select from legends')}
             loadingText={i18n.t('Loading legends')}
             loading={loading}
             dense
@@ -72,7 +54,7 @@ const LegendSelect = ({ value, loading, options, onFocus, onChange }) => {
     )
 }
 
-LegendSelect.propTypes = {
+LegendSetSelect.propTypes = {
     loading: PropTypes.bool,
     options: PropTypes.array,
     value: PropTypes.object,
@@ -80,7 +62,7 @@ LegendSelect.propTypes = {
     onFocus: PropTypes.func,
 }
 
-const LegendSetup = ({ value, onChange }) => {
+const LegendSet = ({ value, onChange }) => {
     const engine = useDataEngine()
 
     const [options, setOptions] = useState([])
@@ -113,7 +95,7 @@ const LegendSetup = ({ value, onChange }) => {
     }
 
     return (
-        <LegendSelect
+        <LegendSetSelect
             loading={!isLoaded}
             value={value}
             options={options}
@@ -123,77 +105,13 @@ const LegendSetup = ({ value, onChange }) => {
     )
 }
 
-LegendSetup.propTypes = {
+LegendSet.propTypes = {
     value: PropTypes.object,
     onChange: PropTypes.func,
 }
 
-const LegendSet = ({ value, legendDisplayStrategy, onChange }) => {
-    const [legendSetEnabled, setLegendSetEnabled] = useState(Boolean(value.id))
-
-    const onCheckboxChange = ({ checked }) => {
-        setLegendSetEnabled(checked)
-
-        if (!checked) {
-            onChange(defaultValue)
-        }
-    }
-
-    return (
-        <Fragment>
-            <Checkbox
-                checked={legendSetEnabled}
-                label={i18n.t('Display legend')}
-                onChange={onCheckboxChange}
-                dense
-            />
-            {legendSetEnabled ? (
-                <Fragment>
-                    <div className={tabSection.className}>
-                        <FieldSet>
-                            <Legend>
-                                <span className={tabSectionTitle.className}>
-                                    {i18n.t('Legend type')}
-                                </span>
-                            </Legend>
-                            <div className={tabSectionOption.className}>
-                                <LegendDisplayStrategy />
-                            </div>
-                        </FieldSet>
-                    </div>
-                    <div className={tabSection.className}>
-                        <FieldSet>
-                            <Legend>
-                                <span className={tabSectionTitle.className}>
-                                    {i18n.t('Legend setup')}
-                                </span>
-                            </Legend>
-                            {legendDisplayStrategy === 'FIXED' ? (
-                                <div className={tabSectionOption.className}>
-                                    <LegendSetup
-                                        value={value}
-                                        onChange={onChange}
-                                    />
-                                </div>
-                            ) : null}
-                            <LegendDisplayStyle />
-                        </FieldSet>
-                    </div>
-                </Fragment>
-            ) : null}
-        </Fragment>
-    )
-}
-
-LegendSet.propTypes = {
-    value: PropTypes.object.isRequired,
-    onChange: PropTypes.func.isRequired,
-    legendDisplayStrategy: PropTypes.string,
-}
-
 const mapStateToProps = state => ({
     value: sGetUiOptions(state)[LEGEND_SET_OPTION_NAME] || {},
-    legendDisplayStrategy: sGetUiOptions(state).legendDisplayStrategy,
 })
 
 const mapDispatchToProps = dispatch => ({
