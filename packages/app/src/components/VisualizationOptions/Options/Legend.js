@@ -58,7 +58,10 @@ const Legend = ({ legendSet, legendDisplayStrategy, onChange }) => {
                 <div className={tabSectionOptionToggleable.className}>
                     <FieldSet>
                         <UiCoreLegend>
-                            <span className={tabSectionTitle.className}>
+                            <span
+                                className={tabSectionTitle.className}
+                                style={{ marginTop: 8 }}
+                            >
                                 {i18n.t('Legend style')}
                             </span>
                         </UiCoreLegend>
