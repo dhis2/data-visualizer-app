@@ -4,16 +4,23 @@ import i18n from '@dhis2/d2-i18n'
 
 import RadioBaseOption from './RadioBaseOption'
 
+export const LEGEND_DISPLAY_STYLE_OPTION_NAME = 'legendDisplayStyle'
+export const LEGEND_DISPLAY_STYLE_FILL = 'FILL'
+export const LEGEND_DISPLAY_STYLE_TEXT = 'TEXT'
+
 const LegendDisplayStyle = () => (
     <RadioBaseOption
         option={{
-            name: 'legendDisplayStyle',
+            name: LEGEND_DISPLAY_STYLE_OPTION_NAME,
             items: [
                 {
-                    id: 'FILL',
+                    id: LEGEND_DISPLAY_STYLE_FILL,
                     label: i18n.t('Legend changes background color'),
                 },
-                { id: 'TEXT', label: i18n.t('Legend changes text color') },
+                {
+                    id: LEGEND_DISPLAY_STYLE_TEXT,
+                    label: i18n.t('Legend changes text color'),
+                },
             ],
         }}
     />

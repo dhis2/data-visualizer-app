@@ -162,6 +162,7 @@ export const computedOptions = {
     baseLine: { defaultValue: false, requestable: false, savable: false },
     targetLine: { defaultValue: false, requestable: false, savable: false },
     axisRange: { defaultValue: undefined, requestable: false, savable: false },
+    legend: { defaultValue: undefined, requestable: false, savable: false },
 }
 
 export default options
