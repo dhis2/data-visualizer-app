@@ -19,6 +19,8 @@ const addCommonParameters = (req, current, options) => {
     req = req
         .withSkipRounding(current.skipRounding)
         .withAggregationType(current.aggregationType)
+        .withMeasureCriteria(current.measureCriteria)
+        .withParameters({ completedOnly: current.completedOnly })
     //        .withUserOrgUnit(?) TODO
 
     if (current.displayProperty) {
@@ -92,10 +94,11 @@ export const apiDownloadData = async ({
     let req = new d2.analytics.request()
         .fromModel(current, path === 'dataValueSet')
         .withFormat(format)
+        .withShowHierarchy(current.showHierarchy)
         .withHierarchyMeta(current.showHierarchy)
-        .withMeasureCriteria(current.measureCriteria)
+        .withIncludeMetadataDetails(true)
+        .withIncludeNumDen()
     //.withApprovalLevel(current.?) TODO
-
     req = addCommonParameters(req, current, options)
 
     if (path) {
