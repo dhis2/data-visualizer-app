@@ -8,6 +8,7 @@ import AggregationType from '../../components/VisualizationOptions/Options/Aggre
 import HideTitle from '../../components/VisualizationOptions/Options/HideTitle'
 import HideSubtitle from '../../components/VisualizationOptions/Options/HideSubtitle'
 import AxisRange from '../../components/VisualizationOptions/Options/AxisRange'
+import LegendSet from '../../components/VisualizationOptions/Options/LegendSet'
 
 export default [
     {
@@ -23,6 +24,16 @@ export default [
                 key: 'data-advanced',
                 label: i18n.t('Advanced'),
                 content: React.Children.toArray([<AggregationType />]),
+            },
+        ],
+    },
+    {
+        key: 'legend-tab',
+        label: i18n.t('Legend'),
+        content: [
+            {
+                key: 'legend-section-1',
+                content: React.Children.toArray([<LegendSet />]),
             },
         ],
     },
