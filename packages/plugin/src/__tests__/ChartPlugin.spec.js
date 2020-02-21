@@ -109,6 +109,7 @@ describe('ChartPlugin', () => {
             onChartGenerated: jest.fn(),
             responses: [],
             extraOptions: mockExtraOptions,
+            legendSets: [],
         }
         chartPlugin = undefined
 
