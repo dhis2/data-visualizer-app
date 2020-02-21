@@ -8,7 +8,7 @@ import AggregationType from '../../components/VisualizationOptions/Options/Aggre
 import HideTitle from '../../components/VisualizationOptions/Options/HideTitle'
 import HideSubtitle from '../../components/VisualizationOptions/Options/HideSubtitle'
 import AxisRange from '../../components/VisualizationOptions/Options/AxisRange'
-import LegendSet from '../../components/VisualizationOptions/Options/LegendSet'
+import Legend from '../../components/VisualizationOptions/Options/Legend'
 
 export default [
     {
@@ -33,7 +33,7 @@ export default [
         content: [
             {
                 key: 'legend-section-1',
-                content: React.Children.toArray([<LegendSet />]),
+                content: React.Children.toArray([<Legend />]),
             },
         ],
     },
