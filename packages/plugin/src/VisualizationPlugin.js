@@ -9,6 +9,7 @@ import PivotPlugin from './PivotPlugin'
 import { fetchData } from './modules/fetchData'
 
 const LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM = 'BY_DATA_ITEM'
+const LEGEND_DISPLAY_STRATEGY_FIXED = 'FIXED'
 
 export const VisualizationPlugin = ({
     d2,
@@ -64,25 +65,30 @@ export const VisualizationPlugin = ({
 
             const legendSetIds = []
 
-            if (
-                visualization.legendDisplayStrategy ===
-                LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM
-            ) {
-                // parse responses to extract legendSet ids from metaData
-                // multiple responses are only for YOY which does not support legends
-                // safe to use only the 1st
-                const dxIds = responses[0].metaData.dimensions.dx
-
-                dxIds.forEach(dxId => {
-                    const legendSetId =
-                        responses[0].metaData.items[dxId].legendSet
-
-                    if (legendSetId) {
-                        legendSetIds.push(legendSetId)
+            switch (visualization.legendDisplayStrategy) {
+                case LEGEND_DISPLAY_STRATEGY_FIXED:
+                    if (visualization.legendSet && visualization.legendSet.id) {
+                        legendSetIds.push(visualization.legendSet.id)
                     }
-                })
-            } else if (visualization.legendSet && visualization.legendSet.id) {
-                legendSetIds.push(visualization.legendSet.id)
+                    break
+                case LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM: {
+                    // parse responses to extract legendSet ids from metaData
+                    // multiple responses are only for YOY which does not support legends
+                    // safe to use only the 1st
+                    // dx dimensions might not be present, the empty array covers that case
+                    const dxIds = responses[0].metaData.dimensions.dx || []
+
+                    dxIds.forEach(dxId => {
+                        const legendSetId =
+                            responses[0].metaData.items[dxId].legendSet
+
+                        if (legendSetId) {
+                            legendSetIds.push(legendSetId)
+                        }
+                    })
+
+                    break
+                }
             }
 
             const legendSets = await doFetchLegendSets(legendSetIds)
