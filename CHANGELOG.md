@@ -1,3 +1,10 @@
+## [34.2.6](https://github.com/dhis2/data-visualizer-app/compare/v34.2.5...v34.2.6) (2020-02-21)
+
+
+### Bug Fixes
+
+* height in safari (DHIS2-8277) ([#704](https://github.com/dhis2/data-visualizer-app/issues/704)) ([75994b3](https://github.com/dhis2/data-visualizer-app/commit/75994b38cc70747869fe98dccc36f7167c0325c5)), closes [dhis2/app-platform#303](https://github.com/dhis2/app-platform/issues/303)
+
 ## [34.2.5](https://github.com/dhis2/data-visualizer-app/compare/v34.2.4...v34.2.5) (2020-02-20)
 
 
