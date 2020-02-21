@@ -1,3 +1,10 @@
+## [34.2.5](https://github.com/dhis2/data-visualizer-app/compare/v34.2.4...v34.2.5) (2020-02-20)
+
+
+### Bug Fixes
+
+* add pivot table legend support, upgrade to @dhis2/analytics@4.1.0 ([#701](https://github.com/dhis2/data-visualizer-app/issues/701)) ([cdf5934](https://github.com/dhis2/data-visualizer-app/commit/cdf593425baee8383a064af10ba871474a1687f3))
+
 ## [34.2.4](https://github.com/dhis2/data-visualizer-app/compare/v34.2.3...v34.2.4) (2020-02-20)
 
 
