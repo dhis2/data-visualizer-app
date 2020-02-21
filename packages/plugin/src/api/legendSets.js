@@ -2,7 +2,8 @@ const legendSetsQuery = {
     legendSets: {
         resource: 'legendSets',
         params: ({ ids }) => ({
-            fields: 'legends[:all]',
+            fields:
+                'legends[id,displayName~rename(name),startValue,endValue,color]',
             filter: `id:in:[${ids.join(',')}]`,
         }),
     },
