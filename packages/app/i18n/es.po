@@ -1,14 +1,14 @@
 # Translators:
 # phil_dhis2, 2020
-# ericbp <ericbarredap@gmail.com>, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
+# ericbp <ericbarredap@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-02-18T14:35:56.019Z\n"
+"POT-Creation-Date: 2020-02-21T11:16:30.247Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"Last-Translator: ericbp <ericbarredap@gmail.com>, 2020\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -344,10 +344,19 @@ msgstr "Título de la tabla"
 msgid "Chart title"
 msgstr "Título del gráfico"
 
-msgid "Apply a legend to entire table"
+msgid "Display legend"
 msgstr ""
 
-msgid "Assign a unique legend to data elements"
+msgid "Legend style"
+msgstr "Estilo de la leyenda"
+
+msgid "Legend type"
+msgstr "Tipo de leyenda"
+
+msgid "Use pre-defined legends set per data item"
+msgstr ""
+
+msgid "Select a single legend for entire table"
 msgstr ""
 
 msgid "Legend changes background color"
@@ -356,22 +365,13 @@ msgstr ""
 msgid "Legend changes text color"
 msgstr ""
 
-msgid "Select a legend"
-msgstr ""
+msgid "Legend"
+msgstr "Set de leyendas"
 
-msgid "Select from predefined legends"
+msgid "Select from legends"
 msgstr ""
 
 msgid "Loading legends"
-msgstr ""
-
-msgid "Display legend"
-msgstr ""
-
-msgid "Legend type"
-msgstr "Tipo de leyenda"
-
-msgid "Legend setup"
 msgstr ""
 
 msgid ""
@@ -701,9 +701,6 @@ msgstr ""
 
 msgid "Display empty data"
 msgstr ""
-
-msgid "Legend"
-msgstr "Set de leyendas"
 
 msgid "Labels"
 msgstr ""
