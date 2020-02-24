@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-02-18T14:35:56.019Z\n"
+"POT-Creation-Date: 2020-02-21T11:16:30.247Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2020\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
@@ -343,10 +343,19 @@ msgstr "Judul tabel"
 msgid "Chart title"
 msgstr "Judul grafik"
 
-msgid "Apply a legend to entire table"
+msgid "Display legend"
 msgstr ""
 
-msgid "Assign a unique legend to data elements"
+msgid "Legend style"
+msgstr "Gaya legenda"
+
+msgid "Legend type"
+msgstr "Tipe legenda"
+
+msgid "Use pre-defined legends set per data item"
+msgstr ""
+
+msgid "Select a single legend for entire table"
 msgstr ""
 
 msgid "Legend changes background color"
@@ -355,22 +364,13 @@ msgstr ""
 msgid "Legend changes text color"
 msgstr ""
 
-msgid "Select a legend"
-msgstr ""
+msgid "Legend"
+msgstr "Legenda"
 
-msgid "Select from predefined legends"
+msgid "Select from legends"
 msgstr ""
 
 msgid "Loading legends"
-msgstr ""
-
-msgid "Display legend"
-msgstr ""
-
-msgid "Legend type"
-msgstr "Tipe legenda"
-
-msgid "Legend setup"
 msgstr ""
 
 msgid ""
@@ -700,9 +700,6 @@ msgstr ""
 
 msgid "Display empty data"
 msgstr ""
-
-msgid "Legend"
-msgstr "Legenda"
 
 msgid "Labels"
 msgstr ""
