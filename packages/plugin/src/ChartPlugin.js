@@ -6,7 +6,7 @@ const ChartPlugin = ({
     visualization,
     responses,
     extraOptions,
-    // legendSets,
+    legendSets,
     id: renderCounter,
     style,
     onChartGenerated,
@@ -23,6 +23,7 @@ const ChartPlugin = ({
                 {
                     ...extraOptions,
                     animation,
+                    legendSets,
                 },
                 undefined,
                 undefined,
@@ -40,7 +41,14 @@ const ChartPlugin = ({
                 )
             }
         },
-        [canvasRef, visualization, onChartGenerated, responses, extraOptions]
+        [
+            canvasRef,
+            visualization,
+            onChartGenerated,
+            responses,
+            extraOptions,
+            legendSets,
+        ]
     )
 
     useEffect(() => {
@@ -68,7 +76,7 @@ ChartPlugin.defaultProps = {
 
 ChartPlugin.propTypes = {
     extraOptions: PropTypes.object.isRequired,
-    // legendSets: PropTypes.arrayOf(PropTypes.object).isRequired,
+    legendSets: PropTypes.arrayOf(PropTypes.object).isRequired,
     responses: PropTypes.arrayOf(PropTypes.object).isRequired,
     visualization: PropTypes.object.isRequired,
     animation: PropTypes.number,
