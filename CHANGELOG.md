@@ -1,3 +1,10 @@
+# [34.3.0](https://github.com/dhis2/data-visualizer-app/compare/v34.2.7...v34.3.0) (2020-02-24)
+
+
+### Features
+
+* fetch all legend definitions for data items ([#703](https://github.com/dhis2/data-visualizer-app/issues/703)) ([64e6861](https://github.com/dhis2/data-visualizer-app/commit/64e6861432661c75390223d62864d3bae3bad1f4))
+
 ## [34.2.7](https://github.com/dhis2/data-visualizer-app/compare/v34.2.6...v34.2.7) (2020-02-24)
 
 
