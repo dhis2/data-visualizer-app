@@ -1,9 +1,13 @@
-const legendSetQuery = {
-    legendSet: {
+const legendSetsQuery = {
+    legendSets: {
         resource: 'legendSets',
-        id: ({ id }) => id,
+        params: ({ ids }) => ({
+            fields:
+                'id,legends[id,displayName~rename(name),startValue,endValue,color]',
+            filter: `id:in:[${ids.join(',')}]`,
+        }),
     },
 }
 
-export const apiFetchLegendSet = (dataEngine, id) =>
-    dataEngine.query(legendSetQuery, { variables: { id } })
+export const apiFetchLegendSets = (dataEngine, ids) =>
+    dataEngine.query(legendSetsQuery, { variables: { ids } })

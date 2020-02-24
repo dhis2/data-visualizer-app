@@ -3,10 +3,13 @@ import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
 import { useDataEngine } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
 
-import { apiFetchLegendSet } from './api/legendSets'
+import { apiFetchLegendSets } from './api/legendSets'
 import ChartPlugin from './ChartPlugin'
 import PivotPlugin from './PivotPlugin'
 import { fetchData } from './modules/fetchData'
+
+const LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM = 'BY_DATA_ITEM'
+const LEGEND_DISPLAY_STRATEGY_FIXED = 'FIXED'
 
 export const VisualizationPlugin = ({
     d2,
@@ -36,20 +39,20 @@ export const VisualizationPlugin = ({
         return result
     }, [d2, filters, forDashboard, onResponsesReceived, visualization])
 
-    const doFetchLegendSets = useCallback(async () => {
-        if (!visualization.legendSet || !visualization.legendSet.id) {
-            return []
-        }
+    const doFetchLegendSets = useCallback(
+        async legendSetIds => {
+            if (!legendSetIds.length) {
+                return []
+            }
 
-        const response = await apiFetchLegendSet(
-            engine,
-            visualization.legendSet.id
-        )
+            const response = await apiFetchLegendSets(engine, legendSetIds)
 
-        if (response && response.legendSet) {
-            return [response.legendSet]
-        }
-    }, [engine, visualization.legendSet])
+            if (response && response.legendSets) {
+                return response.legendSets.legendSets
+            }
+        },
+        [engine]
+    )
 
     useEffect(() => {
         setFetchResult(null)
@@ -59,7 +62,36 @@ export const VisualizationPlugin = ({
                 filters,
                 forDashboard
             )
-            const legendSets = await doFetchLegendSets()
+
+            const legendSetIds = []
+
+            switch (visualization.legendDisplayStrategy) {
+                case LEGEND_DISPLAY_STRATEGY_FIXED:
+                    if (visualization.legendSet && visualization.legendSet.id) {
+                        legendSetIds.push(visualization.legendSet.id)
+                    }
+                    break
+                case LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM: {
+                    // parse responses to extract legendSet ids from metaData
+                    // multiple responses are only for YOY which does not support legends
+                    // safe to use only the 1st
+                    // dx dimensions might not be present, the empty array covers that case
+                    const dxIds = responses[0].metaData.dimensions.dx || []
+
+                    dxIds.forEach(dxId => {
+                        const legendSetId =
+                            responses[0].metaData.items[dxId].legendSet
+
+                        if (legendSetId) {
+                            legendSetIds.push(legendSetId)
+                        }
+                    })
+
+                    break
+                }
+            }
+
+            const legendSets = await doFetchLegendSets(legendSetIds)
 
             setFetchResult({
                 visualization,
