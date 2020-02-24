@@ -1,3 +1,10 @@
+## [34.2.7](https://github.com/dhis2/data-visualizer-app/compare/v34.2.6...v34.2.7) (2020-02-24)
+
+
+### Bug Fixes
+
+* legends for gauge ([#702](https://github.com/dhis2/data-visualizer-app/issues/702)) ([7c29e47](https://github.com/dhis2/data-visualizer-app/commit/7c29e4793b0c1a553bdbc54d83e36bc5a3c8aa7e))
+
 ## [34.2.6](https://github.com/dhis2/data-visualizer-app/compare/v34.2.5...v34.2.6) (2020-02-21)
 
 
