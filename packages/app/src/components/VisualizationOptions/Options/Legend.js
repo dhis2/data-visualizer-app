@@ -25,7 +25,12 @@ import {
     tabSectionTitle,
 } from '../styles/VisualizationOptions.style.js'
 
-const Legend = ({ legendSet, legendDisplayStrategy, onChange }) => {
+const Legend = ({
+    legendSet,
+    legendDisplayStrategy,
+    onChange,
+    hideStyleOptions,
+}) => {
     const [legendEnabled, setLegendEnabled] = useState(
         !(legendDisplayStrategy === LEGEND_DISPLAY_STRATEGY_FIXED && !legendSet)
     )
@@ -56,19 +61,21 @@ const Legend = ({ legendSet, legendDisplayStrategy, onChange }) => {
             />
             {legendEnabled ? (
                 <div className={tabSectionOptionToggleable.className}>
-                    <FieldSet>
-                        <UiCoreLegend>
-                            <span
-                                className={tabSectionTitle.className}
-                                style={{ marginTop: 8 }}
-                            >
-                                {i18n.t('Legend style')}
-                            </span>
-                        </UiCoreLegend>
-                        <div className={tabSectionOption.className}>
-                            <LegendDisplayStyle />
-                        </div>
-                    </FieldSet>
+                    {!hideStyleOptions ? (
+                        <FieldSet>
+                            <UiCoreLegend>
+                                <span
+                                    className={tabSectionTitle.className}
+                                    style={{ marginTop: 8 }}
+                                >
+                                    {i18n.t('Legend style')}
+                                </span>
+                            </UiCoreLegend>
+                            <div className={tabSectionOption.className}>
+                                <LegendDisplayStyle />
+                            </div>
+                        </FieldSet>
+                    ) : null}
                     <FieldSet>
                         <UiCoreLegend>
                             <span className={tabSectionTitle.className}>
@@ -88,6 +95,7 @@ const Legend = ({ legendSet, legendDisplayStrategy, onChange }) => {
 Legend.propTypes = {
     legendDisplayStrategy: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
+    hideStyleOptions: PropTypes.bool,
     legendSet: PropTypes.object,
 }
 
