@@ -215,17 +215,23 @@ export default (state = DEFAULT_UI, action) => {
         case CLEAR_UI: {
             const { rootOrganisationUnit, relativePeriod } = action.value
 
+            const rootOrganisationUnits = []
+            const parentGraphMap = DEFAULT_UI.parentGraphMap
+
+            if (rootOrganisationUnit && rootOrganisationUnit.id) {
+                rootOrganisationUnits.push(rootOrganisationUnit.id)
+
+                parentGraphMap[rootOrganisationUnit.id] = ''
+            }
+
             return {
                 ...DEFAULT_UI,
                 itemsByDimension: {
                     ...DEFAULT_UI.itemsByDimension,
-                    [DIMENSION_ID_ORGUNIT]: [rootOrganisationUnit.id],
+                    [DIMENSION_ID_ORGUNIT]: rootOrganisationUnits,
                     [DIMENSION_ID_PERIOD]: [relativePeriod],
                 },
-                parentGraphMap: {
-                    ...DEFAULT_UI.parentGraphMap,
-                    [rootOrganisationUnit.id]: '',
-                },
+                parentGraphMap,
             }
         }
         case TOGGLE_UI_RIGHT_SIDEBAR_OPEN:
