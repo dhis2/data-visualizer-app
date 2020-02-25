@@ -1,3 +1,10 @@
+## [34.3.1](https://github.com/dhis2/data-visualizer-app/compare/v34.3.0...v34.3.1) (2020-02-25)
+
+
+### Bug Fixes
+
+* single value legend (DHIS2-8348) ([#722](https://github.com/dhis2/data-visualizer-app/issues/722)) ([ec78234](https://github.com/dhis2/data-visualizer-app/commit/ec78234470f7dd89613cc10b77d52fd52e12ff42))
+
 # [34.3.0](https://github.com/dhis2/data-visualizer-app/compare/v34.2.7...v34.3.0) (2020-02-24)
 
 
