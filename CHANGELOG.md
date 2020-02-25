@@ -1,3 +1,10 @@
+## [34.3.2](https://github.com/dhis2/data-visualizer-app/compare/v34.3.1...v34.3.2) (2020-02-25)
+
+
+### Bug Fixes
+
+* crash and warnings with empty db DHIS2-8335 ([#723](https://github.com/dhis2/data-visualizer-app/issues/723)) ([ec52553](https://github.com/dhis2/data-visualizer-app/commit/ec525532d17fb75040ac7507da5fe6280b1f39f0))
+
 ## [34.3.1](https://github.com/dhis2/data-visualizer-app/compare/v34.3.0...v34.3.1) (2020-02-25)
 
 
