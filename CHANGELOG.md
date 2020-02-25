@@ -1,3 +1,10 @@
+## [34.3.3](https://github.com/dhis2/data-visualizer-app/compare/v34.3.2...v34.3.3) (2020-02-25)
+
+
+### Bug Fixes
+
+* gauge range bug ([#724](https://github.com/dhis2/data-visualizer-app/issues/724)) ([19a3983](https://github.com/dhis2/data-visualizer-app/commit/19a39836b606c81851f371c1edacdec2cc11528c)), closes [dhis2/analytics#321](https://github.com/dhis2/analytics/issues/321)
+
 ## [34.3.2](https://github.com/dhis2/data-visualizer-app/compare/v34.3.1...v34.3.2) (2020-02-25)
 
 
