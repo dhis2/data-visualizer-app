@@ -216,7 +216,7 @@ export default (state = DEFAULT_UI, action) => {
             const { rootOrganisationUnit, relativePeriod } = action.value
 
             const rootOrganisationUnits = []
-            const parentGraphMap = DEFAULT_UI.parentGraphMap
+            const parentGraphMap = { ...DEFAULT_UI.parentGraphMap }
 
             if (rootOrganisationUnit && rootOrganisationUnit.id) {
                 rootOrganisationUnits.push(rootOrganisationUnit.id)
