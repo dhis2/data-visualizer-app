@@ -122,15 +122,17 @@ export class App extends Component {
 
         const rootOrgUnit = this.props.settings.rootOrganisationUnit
 
-        store.dispatch(
-            fromActions.fromMetadata.acAddMetadata({
-                ...defaultMetadata,
-                [rootOrgUnit.id]: {
-                    ...rootOrgUnit,
-                    path: `/${rootOrgUnit.id}`,
-                },
-            })
-        )
+        if (rootOrgUnit && rootOrgUnit.id) {
+            store.dispatch(
+                fromActions.fromMetadata.acAddMetadata({
+                    ...defaultMetadata,
+                    [rootOrgUnit.id]: {
+                        ...rootOrgUnit,
+                        path: `/${rootOrgUnit.id}`,
+                    },
+                })
+            )
+        }
 
         this.loadVisualization(this.props.location)
 
