@@ -1,3 +1,10 @@
+## [34.3.4](https://github.com/dhis2/data-visualizer-app/compare/v34.3.3...v34.3.4) (2020-02-26)
+
+
+### Bug Fixes
+
+* completed only all vis types ([#734](https://github.com/dhis2/data-visualizer-app/issues/734)) ([0dc37ce](https://github.com/dhis2/data-visualizer-app/commit/0dc37cea617b0c23a6bc5212790a4b838a3c5fe0))
+
 ## [34.3.3](https://github.com/dhis2/data-visualizer-app/compare/v34.3.2...v34.3.3) (2020-02-25)
 
 
