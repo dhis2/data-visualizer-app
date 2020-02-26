@@ -12,6 +12,7 @@ import TargetLine from './Options/TargetLine';
 import BaseLine from './Options/BaseLine';
 import SortOrder from './Options/SortOrder';
 import AggregationType from './Options/AggregationType';
+import CompletedOnly from './Options/CompletedOnly';
 import styles from './styles/VisualizationOptions.style';
 
 export const DataTab = ({ classes }) => (
@@ -19,6 +20,7 @@ export const DataTab = ({ classes }) => (
         <ShowData />
         <PercentStackedValues />
         <CumulativeValues />
+        <CompletedOnly />
         <HideEmptyRowItems />
         <RegressionType />
         <TargetLine />

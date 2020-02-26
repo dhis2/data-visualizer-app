@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-09-16T07:28:39.022Z\n"
-"PO-Revision-Date: 2019-09-16T07:28:39.022Z\n"
+"POT-Creation-Date: 2020-02-26T13:21:17.550Z\n"
+"PO-Revision-Date: 2020-02-26T13:21:17.550Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -184,6 +184,9 @@ msgid "Base line title"
 msgstr ""
 
 msgid "Base line value"
+msgstr ""
+
+msgid "Only include completed events"
 msgstr ""
 
 msgid "Use cumulative values"
