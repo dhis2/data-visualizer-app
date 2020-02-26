@@ -1456,10 +1456,10 @@
     resize-observer-polyfill "^1.5.1"
     styled-jsx "^3.2.1"
 
-"@dhis2/analytics@^4.1.4":
-  version "4.1.4"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.1.4.tgz#bcd6d4d99b41720dd99e895c874119881eebd58c"
-  integrity sha512-5sU7pNE2mj0/jVYjso2T+Ujd6dFtC6+hAOJAT4KjeOGbMhmT9TzhRA0ToasYLyu/jQGTLK5s1oTcVnxzk1pFvg==
+"@dhis2/analytics@^4.1.5":
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.1.5.tgz#c16f0c9de24c0635b950cbfd25a6fc42a08ff74a"
+  integrity sha512-pHUwZ9CFvCxNZmrS3tnkfZc+P26UulsxOXmxVxD9weDIeY5+5hnfOMqd+x6QKZSlfPz4HQXRZ2XBSKBtAQ7DWg==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^6.5.6"
