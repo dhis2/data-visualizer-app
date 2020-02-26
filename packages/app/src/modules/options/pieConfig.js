@@ -5,6 +5,7 @@ import i18n from '@dhis2/d2-i18n'
 import AggregationType from '../../components/VisualizationOptions/Options/AggregationType'
 import HideTitle from '../../components/VisualizationOptions/Options/HideTitle'
 import HideSubtitle from '../../components/VisualizationOptions/Options/HideSubtitle'
+import CompletedOnly from '../../components/VisualizationOptions/Options/CompletedOnly'
 
 export default [
     {
@@ -14,7 +15,10 @@ export default [
             {
                 key: 'data-advanced',
                 label: i18n.t('Advanced'),
-                content: React.Children.toArray([<AggregationType />]),
+                content: React.Children.toArray([
+                    <AggregationType />,
+                    <CompletedOnly />,
+                ]),
             },
         ],
     },
