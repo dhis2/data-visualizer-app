@@ -20,6 +20,7 @@ import NoSpaceBetweenColumns from '../../components/VisualizationOptions/Options
 import HideLegend from '../../components/VisualizationOptions/Options/HideLegend'
 import HideTitle from '../../components/VisualizationOptions/Options/HideTitle'
 import HideSubtitle from '../../components/VisualizationOptions/Options/HideSubtitle'
+import CompletedOnly from '../../components/VisualizationOptions/Options/CompletedOnly'
 
 export default [
     {
@@ -49,7 +50,10 @@ export default [
             {
                 key: 'data-advanced',
                 label: i18n.t('Advanced'),
-                content: React.Children.toArray([<AggregationType />]),
+                content: React.Children.toArray([
+                    <AggregationType />,
+                    <CompletedOnly />,
+                ]),
             },
         ],
     },

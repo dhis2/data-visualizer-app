@@ -22,6 +22,7 @@ import HideTitle from '../../components/VisualizationOptions/Options/HideTitle'
 import Title from '../../components/VisualizationOptions/Options/Title'
 import HideSubtitle from '../../components/VisualizationOptions/Options/HideSubtitle'
 import Subtitle from '../../components/VisualizationOptions/Options/Subtitle'
+import CompletedOnly from '../../components/VisualizationOptions/Options/CompletedOnly'
 
 export default [
     {
@@ -41,6 +42,11 @@ export default [
                     <SortOrder />,
                     <AggregationType />,
                 ]),
+            },
+            {
+                key: 'data-advanced',
+                label: i18n.t('Advanced'),
+                content: React.Children.toArray([<CompletedOnly />]),
             },
         ],
     },

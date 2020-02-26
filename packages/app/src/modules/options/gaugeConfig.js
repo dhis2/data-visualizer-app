@@ -9,6 +9,7 @@ import HideTitle from '../../components/VisualizationOptions/Options/HideTitle'
 import HideSubtitle from '../../components/VisualizationOptions/Options/HideSubtitle'
 import AxisRange from '../../components/VisualizationOptions/Options/AxisRange'
 import Legend from '../../components/VisualizationOptions/Options/Legend'
+import CompletedOnly from '../../components/VisualizationOptions/Options/CompletedOnly'
 
 export default [
     {
@@ -23,7 +24,10 @@ export default [
             {
                 key: 'data-advanced',
                 label: i18n.t('Advanced'),
-                content: React.Children.toArray([<AggregationType />]),
+                content: React.Children.toArray([
+                    <AggregationType />,
+                    <CompletedOnly />,
+                ]),
             },
         ],
     },
