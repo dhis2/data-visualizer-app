@@ -9,17 +9,11 @@ import {
     getPredefinedDimensionProp,
     dimensionIsValid,
     layoutGetDimension,
-    DIMENSION_ID_DATA,
     DIMENSION_PROP_NO_ITEMS,
 } from '@dhis2/analytics'
 
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields'
-import {
-    NoSeriesError,
-    NoCategoryError,
-    NoPeriodError,
-    NoDataError,
-} from './error'
+import { NoSeriesError, NoCategoryError, NoPeriodError } from './error'
 
 // Layout validation helper functions
 const isAxisValid = axis =>
@@ -86,11 +80,6 @@ const validateSingleValueLayout = layout => {
 // TODO: Add validatePivotLayout
 
 export const validateLayout = layout => {
-    validateDimension(
-        layoutGetDimension(layout, DIMENSION_ID_DATA),
-        new NoDataError(layout.type)
-    )
-
     switch (layout.type) {
         case VIS_TYPE_PIE:
             return validatePieLayout(layout)
