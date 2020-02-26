@@ -27,7 +27,7 @@ const LegendDisplayStrategy = ({ value, onChange }) => (
         >
             <Radio
                 key={LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM}
-                label={i18n.t('Use pre-defined legends set per data item')}
+                label={i18n.t('Use pre-defined legend per data item')}
                 value={LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM}
             />
             <Radio
