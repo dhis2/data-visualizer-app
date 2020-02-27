@@ -95,6 +95,28 @@ export class NoPeriodError extends VisualizationError {
     }
 }
 
+export class NoDataOrDataElementGroupSetError extends VisualizationError {
+    constructor(visType) {
+        const lockedAxis = getAxisPerLockedDimension(visType, DIMENSION_ID_DATA)
+        super(
+            DataError,
+            i18n.t('No data set'),
+            i18n.t(
+                '{{visualizationType}} must have at least one data item or data element group set item in {{axes}}.',
+                {
+                    visualizationType: getDisplayNameByVisType(visType),
+                    axes: lockedAxis
+                        ? getAxisNameByLayoutType(
+                              lockedAxis,
+                              getLayoutTypeByVisType(visType)
+                          )
+                        : getAvailableAxesDescription(visType),
+                }
+            )
+        )
+    }
+}
+
 export class NoDataError extends VisualizationError {
     constructor(visType) {
         const lockedAxis = getAxisPerLockedDimension(visType, DIMENSION_ID_DATA)

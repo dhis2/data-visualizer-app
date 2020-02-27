@@ -9,8 +9,8 @@ import {
     getPredefinedDimensionProp,
     dimensionIsValid,
     layoutGetDimension,
-    DIMENSION_ID_DATA,
     DIMENSION_PROP_NO_ITEMS,
+    DIMENSION_ID_DATA,
 } from '@dhis2/analytics'
 
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields'
@@ -56,6 +56,11 @@ const validateDefaultLayout = layout => {
 }
 
 const validateYearOverYearLayout = layout => {
+    validateDimension(
+        layoutGetDimension(layout, DIMENSION_ID_DATA),
+        new NoDataError(layout.type)
+    )
+
     if (
         !(
             Array.isArray(layout[BASE_FIELD_YEARLY_SERIES]) &&
@@ -78,6 +83,11 @@ const validatePieLayout = layout => {
 
 const validateSingleValueLayout = layout => {
     validateDimension(
+        layoutGetDimension(layout, DIMENSION_ID_DATA),
+        new NoDataError(layout.type)
+    )
+
+    validateDimension(
         layoutGetDimension(layout, DIMENSION_ID_PERIOD),
         new NoPeriodError(layout.type)
     )
@@ -86,11 +96,6 @@ const validateSingleValueLayout = layout => {
 // TODO: Add validatePivotLayout
 
 export const validateLayout = layout => {
-    validateDimension(
-        layoutGetDimension(layout, DIMENSION_ID_DATA),
-        new NoDataError(layout.type)
-    )
-
     switch (layout.type) {
         case VIS_TYPE_PIE:
             return validatePieLayout(layout)
