@@ -1,3 +1,10 @@
+## [34.3.8](https://github.com/dhis2/data-visualizer-app/compare/v34.3.7...v34.3.8) (2020-02-27)
+
+
+### Bug Fixes
+
+* remove data dimension validation ([#738](https://github.com/dhis2/data-visualizer-app/issues/738)) ([b26bb27](https://github.com/dhis2/data-visualizer-app/commit/b26bb27d2ab397cec4c3f54f35ea2be40c4013f9))
+
 ## [34.3.7](https://github.com/dhis2/data-visualizer-app/compare/v34.3.6...v34.3.7) (2020-02-27)
 
 
