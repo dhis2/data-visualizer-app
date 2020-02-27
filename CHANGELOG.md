@@ -1,3 +1,10 @@
+## [34.3.7](https://github.com/dhis2/data-visualizer-app/compare/v34.3.6...v34.3.7) (2020-02-27)
+
+
+### Bug Fixes
+
+* rephrase legend display strategy option ([#735](https://github.com/dhis2/data-visualizer-app/issues/735)) ([31a75fa](https://github.com/dhis2/data-visualizer-app/commit/31a75fa845788470748a467d413b8d62cb46f3d6))
+
 ## [34.3.6](https://github.com/dhis2/data-visualizer-app/compare/v34.3.5...v34.3.6) (2020-02-27)
 
 
