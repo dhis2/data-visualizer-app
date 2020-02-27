@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-02-24T13:53:01.461Z\n"
+"POT-Creation-Date: 2020-02-27T10:29:24.823Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: ericbp <ericbarredap@gmail.com>, 2020\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
@@ -523,6 +523,11 @@ msgid "{{visualizationType}} must have at least one period set in {{axes}}."
 msgstr ""
 
 msgid "No data set"
+msgstr ""
+
+msgid ""
+"{{visualizationType}} must have at least one data item or data element group"
+" set item in {{axes}}."
 msgstr ""
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
