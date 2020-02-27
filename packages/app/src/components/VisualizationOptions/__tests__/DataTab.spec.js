@@ -33,7 +33,7 @@ describe('The DataTab component', () => {
         const wrappingDiv = dataTab()
             .find(FormGroup)
             .first();
-        expect(wrappingDiv.children()).toHaveLength(9);
+        expect(wrappingDiv.children()).toHaveLength(10);
     });
 
     [

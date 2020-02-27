@@ -22,6 +22,7 @@ export const apiDownloadData = async (current, format, idScheme, path) => {
 
     let req = new d2.analytics.request()
         .fromModel(current, path === 'dataValueSet')
+        .withParameters({ completedOnly: current.completedOnly })
         .withFormat(format);
 
     if (path) {
