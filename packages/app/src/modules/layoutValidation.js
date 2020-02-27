@@ -10,10 +10,16 @@ import {
     dimensionIsValid,
     layoutGetDimension,
     DIMENSION_PROP_NO_ITEMS,
+    DIMENSION_ID_DATA,
 } from '@dhis2/analytics'
 
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields'
-import { NoSeriesError, NoCategoryError, NoPeriodError } from './error'
+import {
+    NoSeriesError,
+    NoCategoryError,
+    NoPeriodError,
+    NoDataError,
+} from './error'
 
 // Layout validation helper functions
 const isAxisValid = axis =>
@@ -50,6 +56,11 @@ const validateDefaultLayout = layout => {
 }
 
 const validateYearOverYearLayout = layout => {
+    validateDimension(
+        layoutGetDimension(layout, DIMENSION_ID_DATA),
+        new NoDataError(layout.type)
+    )
+
     if (
         !(
             Array.isArray(layout[BASE_FIELD_YEARLY_SERIES]) &&
@@ -71,6 +82,11 @@ const validatePieLayout = layout => {
 }
 
 const validateSingleValueLayout = layout => {
+    validateDimension(
+        layoutGetDimension(layout, DIMENSION_ID_DATA),
+        new NoDataError(layout.type)
+    )
+
     validateDimension(
         layoutGetDimension(layout, DIMENSION_ID_PERIOD),
         new NoPeriodError(layout.type)

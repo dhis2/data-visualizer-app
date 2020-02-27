@@ -22,7 +22,7 @@ import {
     EmptyResponseError,
     AssignedCategoriesAsFilterError,
     MultipleIndicatorAsFilterError,
-    NoDataError,
+    NoDataOrDataElementGroupSetError,
 } from '../../modules/error'
 import LoadingMask from './LoadingMask'
 
@@ -49,7 +49,9 @@ export class Visualization extends Component {
                     error = new MultipleIndicatorAsFilterError()
                     break
                 case 'E7102':
-                    error = new NoDataError(this.props.visualization.type)
+                    error = new NoDataOrDataElementGroupSetError(
+                        this.props.visualization.type
+                    )
                     break
                 default:
                     error = response
