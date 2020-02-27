@@ -1,3 +1,10 @@
+## [34.3.6](https://github.com/dhis2/data-visualizer-app/compare/v34.3.5...v34.3.6) (2020-02-27)
+
+
+### Bug Fixes
+
+* avoid casting undefined to Number -> NaN ([#737](https://github.com/dhis2/data-visualizer-app/issues/737)) ([37120b3](https://github.com/dhis2/data-visualizer-app/commit/37120b34d3a40b9745ca6cd112e54fd793afc4a1))
+
 ## [34.3.5](https://github.com/dhis2/data-visualizer-app/compare/v34.3.4...v34.3.5) (2020-02-27)
 
 
