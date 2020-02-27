@@ -1,3 +1,10 @@
+## [34.3.5](https://github.com/dhis2/data-visualizer-app/compare/v34.3.4...v34.3.5) (2020-02-27)
+
+
+### Bug Fixes
+
+* support more pivot table features ([#739](https://github.com/dhis2/data-visualizer-app/issues/739)) ([c6f09a1](https://github.com/dhis2/data-visualizer-app/commit/c6f09a1e6039be1a47c1c8ac4cb582344a6d027e))
+
 ## [34.3.4](https://github.com/dhis2/data-visualizer-app/compare/v34.3.3...v34.3.4) (2020-02-26)
 
 
