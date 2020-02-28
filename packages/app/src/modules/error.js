@@ -151,6 +151,18 @@ export class MultipleIndicatorAsFilterError extends VisualizationError {
     }
 }
 
+export class CombinationDEGSRRError extends VisualizationError {
+    constructor() {
+        super(
+            DataError,
+            i18n.t('Something went wrong'),
+            i18n.t(
+                'Data Element Group Sets and Reporting Rates cannot be used together.'
+            )
+        )
+    }
+}
+
 export class GenericClientError extends VisualizationError {
     constructor(visType) {
         super(
