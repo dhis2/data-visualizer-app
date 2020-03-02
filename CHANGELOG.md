@@ -1,3 +1,10 @@
+## [34.3.9](https://github.com/dhis2/data-visualizer-app/compare/v34.3.8...v34.3.9) (2020-03-02)
+
+
+### Bug Fixes
+
+* @dhis2/analytics@4.3.1 ([#759](https://github.com/dhis2/data-visualizer-app/issues/759)) ([9277236](https://github.com/dhis2/data-visualizer-app/commit/9277236d3a6cab7d10a78dc9dbe0f2e91bf8c61b))
+
 ## [34.3.8](https://github.com/dhis2/data-visualizer-app/compare/v34.3.7...v34.3.8) (2020-02-27)
 
 
