@@ -3,13 +3,20 @@ import PropTypes from 'prop-types'
 
 import { PivotTable } from '@dhis2/analytics'
 
-const PivotPlugin = ({ responses, legendSets, visualization, style }) => {
+const PivotPlugin = ({
+    responses,
+    legendSets,
+    visualization,
+    style,
+    id: renderCounter,
+}) => {
     return (
-        <div style={{ width: '100%', height: '100%', ...style }}>
+        <div style={style}>
             <PivotTable
                 visualization={visualization}
                 data={responses[0].response}
                 legendSets={legendSets}
+                renderCounter={renderCounter}
             />
         </div>
     )
@@ -23,6 +30,7 @@ PivotPlugin.propTypes = {
     legendSets: PropTypes.arrayOf(PropTypes.object).isRequired,
     responses: PropTypes.arrayOf(PropTypes.object).isRequired,
     visualization: PropTypes.object.isRequired,
+    id: PropTypes.number,
     style: PropTypes.object,
 }
 
