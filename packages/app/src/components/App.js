@@ -81,7 +81,12 @@ export class App extends Component {
                     getParentGraphMapFromVisualization(AO)
                 )
 
-                this.props.setVisualization(AO)
+                // clear visualization and current
+                // to avoid leave them "dirty" when navigating to
+                // /currentAnalyticalObject from a previous saved AO
+                this.props.clearVisualization()
+                this.props.clearCurrent()
+
                 this.props.setUiFromVisualization(AO)
                 this.props.setCurrentFromUi(this.props.ui)
             }
@@ -222,10 +227,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     setCurrentFromUi: ui =>
         dispatch(fromActions.fromCurrent.acSetCurrentFromUi(ui)),
-    setVisualization: visualization =>
-        dispatch(
-            fromActions.fromVisualization.acSetVisualization(visualization)
-        ),
+    clearVisualization: () => dispatch(fromActions.fromVisualization.acClear()),
+    clearCurrent: () => dispatch(fromActions.fromCurrent.acClear()),
     setUiFromVisualization: visualization =>
         dispatch(fromActions.fromUi.acSetUiFromVisualization(visualization)),
     addParentGraphMap: parentGraphMap =>
@@ -245,13 +248,14 @@ App.childContextTypes = {
 App.propTypes = {
     addParentGraphMap: PropTypes.func,
     baseUrl: PropTypes.string,
+    clearCurrent: PropTypes.func,
+    clearVisualization: PropTypes.func,
     current: PropTypes.object,
     d2: PropTypes.object,
     location: PropTypes.object,
     ouLevels: PropTypes.array,
     setCurrentFromUi: PropTypes.func,
     setUiFromVisualization: PropTypes.func,
-    setVisualization: PropTypes.func,
     settings: PropTypes.object,
     ui: PropTypes.object,
     userSettings: PropTypes.object,
