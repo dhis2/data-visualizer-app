@@ -1,3 +1,10 @@
+## [34.3.10](https://github.com/dhis2/data-visualizer-app/compare/v34.3.9...v34.3.10) (2020-03-03)
+
+
+### Bug Fixes
+
+* interpretations panel show for PT visualization type DHIS2-8300 ([#778](https://github.com/dhis2/data-visualizer-app/issues/778)) ([8cc1643](https://github.com/dhis2/data-visualizer-app/commit/8cc1643007a1cc847057ce1689a3f8e9b58bf3c0))
+
 ## [34.3.9](https://github.com/dhis2/data-visualizer-app/compare/v34.3.8...v34.3.9) (2020-03-02)
 
 
