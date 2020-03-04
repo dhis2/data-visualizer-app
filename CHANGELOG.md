@@ -1,3 +1,10 @@
+## [34.3.11](https://github.com/dhis2/data-visualizer-app/compare/v34.3.10...v34.3.11) (2020-03-04)
+
+
+### Bug Fixes
+
+* DEGS and RR combination error ([#758](https://github.com/dhis2/data-visualizer-app/issues/758)) ([8c4f11b](https://github.com/dhis2/data-visualizer-app/commit/8c4f11b2c797e7d928fb1c50873181f7bba026c5))
+
 ## [34.3.10](https://github.com/dhis2/data-visualizer-app/compare/v34.3.9...v34.3.10) (2020-03-03)
 
 
