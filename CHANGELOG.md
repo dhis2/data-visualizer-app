@@ -1,3 +1,10 @@
+## [34.3.14](https://github.com/dhis2/data-visualizer-app/compare/v34.3.13...v34.3.14) (2020-03-04)
+
+
+### Bug Fixes
+
+* support adaptive clipping for pivot tables ([#782](https://github.com/dhis2/data-visualizer-app/issues/782)) ([2b0cfa8](https://github.com/dhis2/data-visualizer-app/commit/2b0cfa81a8fc0befd9264ea48f7599d3af2c211b))
+
 ## [34.3.13](https://github.com/dhis2/data-visualizer-app/compare/v34.3.12...v34.3.13) (2020-03-04)
 
 
