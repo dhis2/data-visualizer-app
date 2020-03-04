@@ -52,9 +52,10 @@ describe('App', () => {
             },
 
             addParentGraphMap: jest.fn(),
-            setVisualization: jest.fn(),
             setUiFromVisualization: jest.fn(),
             setCurrentFromUi: jest.fn(),
+            clearVisualization: jest.fn(),
+            clearCurrent: jest.fn(),
         }
         shallowApp = undefined
 
@@ -137,9 +138,10 @@ describe('App', () => {
                 ).toBeCalledTimes(1)
 
                 expect(props.addParentGraphMap).toBeCalledTimes(1)
-                expect(props.setCurrentFromUi).toBeCalledTimes(1)
-                expect(props.setVisualization).toBeCalledTimes(1)
+                expect(props.clearVisualization).toBeCalledTimes(1)
+                expect(props.clearCurrent).toBeCalledTimes(1)
                 expect(props.setUiFromVisualization).toBeCalledTimes(1)
+                expect(props.setCurrentFromUi).toBeCalledTimes(1)
 
                 done()
             })
