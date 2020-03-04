@@ -23,6 +23,7 @@ import {
     AssignedCategoriesAsFilterError,
     MultipleIndicatorAsFilterError,
     NoDataOrDataElementGroupSetError,
+    CombinationDEGSRRError,
 } from '../../modules/error'
 import LoadingMask from './LoadingMask'
 
@@ -52,6 +53,9 @@ export class Visualization extends Component {
                     error = new NoDataOrDataElementGroupSetError(
                         this.props.visualization.type
                     )
+                    break
+                case 'E7112':
+                    error = new CombinationDEGSRRError()
                     break
                 default:
                     error = response
