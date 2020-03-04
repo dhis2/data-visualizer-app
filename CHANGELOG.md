@@ -1,3 +1,10 @@
+## [34.3.12](https://github.com/dhis2/data-visualizer-app/compare/v34.3.11...v34.3.12) (2020-03-04)
+
+
+### Bug Fixes
+
+* load /#/currentAnalyticalObject crash ([#779](https://github.com/dhis2/data-visualizer-app/issues/779)) ([472dd54](https://github.com/dhis2/data-visualizer-app/commit/472dd54db3e2d9eb74e78ad9205e368fc521ef9e))
+
 ## [34.3.11](https://github.com/dhis2/data-visualizer-app/compare/v34.3.10...v34.3.11) (2020-03-04)
 
 
