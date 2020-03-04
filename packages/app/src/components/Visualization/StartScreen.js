@@ -61,9 +61,7 @@ const StartScreen = ({ error, classes }) => {
                             {i18n.t('Add dimensions to the layout above')}
                         </li>
                         <li style={styles.guideItem}>
-                            {i18n.t(
-                                'Double click a dimension to add or remove items'
-                            )}
+                            {i18n.t('Click a dimension to add or remove items')}
                         </li>
                     </ul>
                 </div>
