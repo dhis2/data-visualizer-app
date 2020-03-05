@@ -1,3 +1,10 @@
+## [34.3.16](https://github.com/dhis2/data-visualizer-app/compare/v34.3.15...v34.3.16) (2020-03-05)
+
+
+### Bug Fixes
+
+* do not pass options intended for download request DHIS2-8401 ([#783](https://github.com/dhis2/data-visualizer-app/issues/783)) ([a223011](https://github.com/dhis2/data-visualizer-app/commit/a2230119dd2a20e2c3cb9a176646af43122b7878))
+
 ## [34.3.15](https://github.com/dhis2/data-visualizer-app/compare/v34.3.14...v34.3.15) (2020-03-05)
 
 
