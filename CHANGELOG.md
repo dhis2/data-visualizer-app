@@ -1,3 +1,10 @@
+## [34.3.15](https://github.com/dhis2/data-visualizer-app/compare/v34.3.14...v34.3.15) (2020-03-05)
+
+
+### Bug Fixes
+
+* updated the error and start page texts based on user feedback ([#781](https://github.com/dhis2/data-visualizer-app/issues/781)) ([a51b9e0](https://github.com/dhis2/data-visualizer-app/commit/a51b9e0100a2867ab7940e2e2a3d4fe642bea6fd))
+
 ## [34.3.14](https://github.com/dhis2/data-visualizer-app/compare/v34.3.13...v34.3.14) (2020-03-04)
 
 
