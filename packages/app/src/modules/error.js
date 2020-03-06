@@ -83,9 +83,9 @@ export class NoPeriodError extends VisualizationError {
     constructor(visType) {
         super(
             PeriodError,
-            i18n.t('No period set'),
+            i18n.t('No period selected'),
             i18n.t(
-                '{{visualizationType}} must have at least one period set in {{axes}}.',
+                '{{visualizationType}} must have at least one period selected in {{axes}}.',
                 {
                     visualizationType: getDisplayNameByVisType(visType),
                     axes: getAvailableAxesDescription(visType),
@@ -100,7 +100,7 @@ export class NoDataOrDataElementGroupSetError extends VisualizationError {
         const lockedAxis = getAxisPerLockedDimension(visType, DIMENSION_ID_DATA)
         super(
             DataError,
-            i18n.t('No data set'),
+            i18n.t('No data selected'),
             i18n.t(
                 '{{visualizationType}} must have at least one data item or data element group set item in {{axes}}.',
                 {
@@ -122,7 +122,7 @@ export class NoDataError extends VisualizationError {
         const lockedAxis = getAxisPerLockedDimension(visType, DIMENSION_ID_DATA)
         super(
             DataError,
-            i18n.t('No data set'),
+            i18n.t('No data selected'),
             i18n.t(
                 '{{visualizationType}} must have at least one data item in {{axes}}.',
                 {
@@ -151,11 +151,23 @@ export class MultipleIndicatorAsFilterError extends VisualizationError {
     }
 }
 
+export class CombinationDEGSRRError extends VisualizationError {
+    constructor() {
+        super(
+            DataError,
+            genericTitle,
+            i18n.t(
+                'Data Element Group Sets and Reporting Rates cannot be used together.'
+            )
+        )
+    }
+}
+
 export class GenericClientError extends VisualizationError {
     constructor(visType) {
         super(
             GenericError,
-            i18n.t('Something went wrong'),
+            genericTitle,
             i18n.t(
                 'There is a problem with this {{visualizationType}} visualization.',
                 {
@@ -170,7 +182,7 @@ export class GenericServerError extends VisualizationError {
     constructor() {
         super(
             GenericError,
-            i18n.t('Something went wrong'),
+            genericTitle,
             i18n.t('There was a problem getting the data from the server.')
         )
     }
@@ -199,6 +211,8 @@ export class AssignedCategoriesAsFilterError extends VisualizationError {
         )
     }
 }
+
+const genericTitle = i18n.t('Something went wrong')
 
 const getAvailableAxesDescription = visType => {
     const axes = getAvailableAxes(visType)

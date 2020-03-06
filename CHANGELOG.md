@@ -1,3 +1,52 @@
+## [34.3.16](https://github.com/dhis2/data-visualizer-app/compare/v34.3.15...v34.3.16) (2020-03-05)
+
+
+### Bug Fixes
+
+* do not pass options intended for download request DHIS2-8401 ([#783](https://github.com/dhis2/data-visualizer-app/issues/783)) ([a223011](https://github.com/dhis2/data-visualizer-app/commit/a2230119dd2a20e2c3cb9a176646af43122b7878))
+
+## [34.3.15](https://github.com/dhis2/data-visualizer-app/compare/v34.3.14...v34.3.15) (2020-03-05)
+
+
+### Bug Fixes
+
+* updated the error and start page texts based on user feedback ([#781](https://github.com/dhis2/data-visualizer-app/issues/781)) ([a51b9e0](https://github.com/dhis2/data-visualizer-app/commit/a51b9e0100a2867ab7940e2e2a3d4fe642bea6fd))
+
+## [34.3.14](https://github.com/dhis2/data-visualizer-app/compare/v34.3.13...v34.3.14) (2020-03-04)
+
+
+### Bug Fixes
+
+* support adaptive clipping for pivot tables ([#782](https://github.com/dhis2/data-visualizer-app/issues/782)) ([2b0cfa8](https://github.com/dhis2/data-visualizer-app/commit/2b0cfa81a8fc0befd9264ea48f7599d3af2c211b))
+
+## [34.3.13](https://github.com/dhis2/data-visualizer-app/compare/v34.3.12...v34.3.13) (2020-03-04)
+
+
+### Bug Fixes
+
+* bump @dhis2/analytics@4.3.4 to fix DHIS2-6562 ([#780](https://github.com/dhis2/data-visualizer-app/issues/780)) ([c586e40](https://github.com/dhis2/data-visualizer-app/commit/c586e408f4414f759ad5706aff8c95f60fc53d2f))
+
+## [34.3.12](https://github.com/dhis2/data-visualizer-app/compare/v34.3.11...v34.3.12) (2020-03-04)
+
+
+### Bug Fixes
+
+* load /#/currentAnalyticalObject crash ([#779](https://github.com/dhis2/data-visualizer-app/issues/779)) ([472dd54](https://github.com/dhis2/data-visualizer-app/commit/472dd54db3e2d9eb74e78ad9205e368fc521ef9e))
+
+## [34.3.11](https://github.com/dhis2/data-visualizer-app/compare/v34.3.10...v34.3.11) (2020-03-04)
+
+
+### Bug Fixes
+
+* DEGS and RR combination error ([#758](https://github.com/dhis2/data-visualizer-app/issues/758)) ([8c4f11b](https://github.com/dhis2/data-visualizer-app/commit/8c4f11b2c797e7d928fb1c50873181f7bba026c5))
+
+## [34.3.10](https://github.com/dhis2/data-visualizer-app/compare/v34.3.9...v34.3.10) (2020-03-03)
+
+
+### Bug Fixes
+
+* interpretations panel show for PT visualization type DHIS2-8300 ([#778](https://github.com/dhis2/data-visualizer-app/issues/778)) ([8cc1643](https://github.com/dhis2/data-visualizer-app/commit/8cc1643007a1cc847057ce1689a3f8e9b58bf3c0))
+
 ## [34.3.9](https://github.com/dhis2/data-visualizer-app/compare/v34.3.8...v34.3.9) (2020-03-02)
 
 
