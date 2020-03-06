@@ -1,3 +1,10 @@
+## [34.3.17](https://github.com/dhis2/data-visualizer-app/compare/v34.3.16...v34.3.17) (2020-03-06)
+
+
+### Bug Fixes
+
+* upgraded to Analytics v4.3.8 for title ellipsis ([#784](https://github.com/dhis2/data-visualizer-app/issues/784)) ([92fcbf5](https://github.com/dhis2/data-visualizer-app/commit/92fcbf56ec6ea26818816c97c8434140a95626ad))
+
 ## [34.3.16](https://github.com/dhis2/data-visualizer-app/compare/v34.3.15...v34.3.16) (2020-03-05)
 
 
