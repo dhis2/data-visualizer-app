@@ -4,6 +4,7 @@ export const apiFetchAnalytics = async (d2, current, options) => {
     const req = new d2.analytics.request()
         .fromModel(current)
         .withParameters(options)
+        .withIncludeNumDen(true)
 
     const rawResponse = await d2.analytics.aggregate.get(req)
 
