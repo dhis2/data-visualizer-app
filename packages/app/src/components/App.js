@@ -27,6 +27,11 @@ import './scrollbar.css'
 import { getParentGraphMapFromVisualization } from '../modules/ui'
 import AxisSetup from './AxisSetup/AxisSetup'
 import { APPROVAL_LEVEL_OPTION_AUTH } from './VisualizationOptions/Options/ApprovalLevel'
+import {
+    DEFAULT_VISUALIZATION,
+    sGetVisualization,
+} from '../reducers/visualization'
+import { DEFAULT_CURRENT } from '../reducers/current'
 
 export class App extends Component {
     unlisten = null
@@ -114,7 +119,7 @@ export class App extends Component {
 
     componentDidMount = async () => {
         const { store } = this.context
-        const { d2, userSettings } = this.props
+        const { d2, userSettings, visualization, current } = this.props
 
         await store.dispatch(
             fromActions.fromSettings.tAddSettings(userSettings)
@@ -152,7 +157,36 @@ export class App extends Component {
                 e.ctrlKey === true &&
                 this.props.setCurrentFromUi(this.props.ui)
         )
+        const t = this //TODO: Remove 't' once getVisualizationState and STATE_DIRTY are imported from an external file
+        window.addEventListener('beforeunload', event => {
+            if (
+                t.getVisualizationState(visualization, current) ===
+                t.STATE_DIRTY
+            ) {
+                event.preventDefault()
+                event.returnValue = i18n.t('You have unsaved changes.')
+            }
+        })
     }
+
+    //TODO: Move this....
+    getVisualizationState = (visualization, current) => {
+        if (current === DEFAULT_CURRENT) {
+            return this.STATE_EMPTY
+        } else if (visualization === DEFAULT_VISUALIZATION) {
+            return this.STATE_UNSAVED
+        } else if (current === visualization) {
+            return this.STATE_SAVED
+        } else {
+            return this.STATE_DIRTY
+        }
+    }
+
+    STATE_EMPTY = 'EMPTY'
+    STATE_SAVED = 'SAVED'
+    STATE_UNSAVED = 'UNSAVED'
+    STATE_DIRTY = 'DIRTY'
+    //TODO: ... all the way to this to a central location
 
     componentWillUnmount() {
         if (this.unlisten) {
@@ -222,6 +256,7 @@ const mapStateToProps = state => ({
     current: fromReducers.fromCurrent.sGetCurrent(state),
     interpretations: fromReducers.fromVisualization.sGetInterpretations(state),
     ui: fromReducers.fromUi.sGetUi(state),
+    visualization: sGetVisualization(state),
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -259,6 +294,7 @@ App.propTypes = {
     settings: PropTypes.object,
     ui: PropTypes.object,
     userSettings: PropTypes.object,
+    visualization: PropTypes.object,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
