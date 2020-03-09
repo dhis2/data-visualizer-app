@@ -27,11 +27,8 @@ import './scrollbar.css'
 import { getParentGraphMapFromVisualization } from '../modules/ui'
 import AxisSetup from './AxisSetup/AxisSetup'
 import { APPROVAL_LEVEL_OPTION_AUTH } from './VisualizationOptions/Options/ApprovalLevel'
-import {
-    DEFAULT_VISUALIZATION,
-    sGetVisualization,
-} from '../reducers/visualization'
-import { DEFAULT_CURRENT } from '../reducers/current'
+import { sGetVisualization } from '../reducers/visualization'
+import { STATE_DIRTY, getVisualizationState } from '../modules/visualization'
 
 export class App extends Component {
     unlisten = null
@@ -160,35 +157,16 @@ export class App extends Component {
         const t = this
         window.addEventListener('beforeunload', event => {
             if (
-                t.getVisualizationState(
+                getVisualizationState(
                     t.props.visualization,
                     t.props.current
-                ) === t.STATE_DIRTY
+                ) === STATE_DIRTY
             ) {
                 event.preventDefault()
                 event.returnValue = i18n.t('You have unsaved changes.')
             }
         })
     }
-
-    //TODO: Move this....
-    getVisualizationState = (visualization, current) => {
-        if (current === DEFAULT_CURRENT) {
-            return this.STATE_EMPTY
-        } else if (visualization === DEFAULT_VISUALIZATION) {
-            return this.STATE_UNSAVED
-        } else if (current === visualization) {
-            return this.STATE_SAVED
-        } else {
-            return this.STATE_DIRTY
-        }
-    }
-
-    STATE_EMPTY = 'EMPTY'
-    STATE_SAVED = 'SAVED'
-    STATE_UNSAVED = 'UNSAVED'
-    STATE_DIRTY = 'DIRTY'
-    //TODO: ... all the way to this to a central location
 
     componentWillUnmount() {
         if (this.unlisten) {
