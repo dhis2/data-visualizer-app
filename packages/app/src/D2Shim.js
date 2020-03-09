@@ -25,12 +25,16 @@ const configI18n = async userSettings => {
 }
 
 const initD2 = async ({ baseUrl, apiVersion }, initConfig) => {
+    const apiUrl = `${baseUrl}/api/${apiVersion}`
+
+    d2Config.baseUrl = apiUrl
+
     const userSettings = extractUserSettings(await getUserSettings())
     await configI18n(userSettings)
 
     const d2 = await d2Init({
         ...initConfig,
-        baseUrl: `${baseUrl}/api/${apiVersion}`,
+        baseUrl: apiUrl,
     })
 
     const ouLevels = await apiFetchOrganisationUnitLevels()
