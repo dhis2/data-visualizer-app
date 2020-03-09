@@ -2,7 +2,15 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
-import { CssVariables } from '@dhis2/ui-core'
+import {
+    CssVariables,
+    Modal,
+    ModalTitle,
+    ModalContent,
+    ModalActions,
+    ButtonStrip,
+    Button,
+} from '@dhis2/ui-core'
 
 import DndContext from './DndContext'
 import Snackbar from '../components/Snackbar/Snackbar'
@@ -38,6 +46,7 @@ export class App extends Component {
     state = {
         previousLocation: null,
         initialLoadIsComplete: false,
+        locationToConfirm: false,
     }
 
     /**
@@ -148,19 +157,14 @@ export class App extends Component {
                 getVisualizationState(
                     this.props.visualization,
                     this.props.current
-                ) === STATE_DIRTY
+                ) === STATE_DIRTY &&
+                this.state.locationToConfirm !== location
             ) {
-                if (
-                    !window.confirm(
-                        i18n.t(
-                            'Leave visualization? Changes that you made may not be saved.'
-                        )
-                    )
-                ) {
-                    return
-                }
+                this.setState({ locationToConfirm: location })
+            } else {
+                this.setState({ locationToConfirm: null })
+                this.loadVisualization(location)
             }
-            this.loadVisualization(location)
         })
 
         document.body.addEventListener(
@@ -170,6 +174,7 @@ export class App extends Component {
                 e.ctrlKey === true &&
                 this.props.setCurrentFromUi(this.props.ui)
         )
+
         const t = this
         window.addEventListener('beforeunload', event => {
             if (
@@ -240,6 +245,40 @@ export class App extends Component {
                         )}
                     </div>
                 </div>
+                {this.state.locationToConfirm && (
+                    <Modal small>
+                        <ModalTitle>Discard unsaved changes?</ModalTitle>
+                        <ModalContent>
+                            Are you sure you want to leave this visualization?
+                            Any unsaved changes will be lost.
+                        </ModalContent>
+                        <ModalActions>
+                            <ButtonStrip end>
+                                <Button
+                                    secondary
+                                    onClick={() =>
+                                        this.setState({
+                                            locationToConfirm: null,
+                                        })
+                                    }
+                                >
+                                    No, cancel
+                                </Button>
+
+                                <Button
+                                    onClick={() =>
+                                        history.push(
+                                            this.state.locationToConfirm
+                                        )
+                                    }
+                                    primary
+                                >
+                                    Yes, leave
+                                </Button>
+                            </ButtonStrip>
+                        </ModalActions>
+                    </Modal>
+                )}
                 <Snackbar />
                 <CssVariables colors spacers />
             </>
