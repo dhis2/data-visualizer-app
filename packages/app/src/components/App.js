@@ -144,6 +144,22 @@ export class App extends Component {
         this.loadVisualization(this.props.location)
 
         this.unlisten = history.listen(location => {
+            if (
+                getVisualizationState(
+                    this.props.visualization,
+                    this.props.current
+                ) === STATE_DIRTY
+            ) {
+                if (
+                    !window.confirm(
+                        i18n.t(
+                            'Leave visualization? Changes that you made may not be saved.'
+                        )
+                    )
+                ) {
+                    return
+                }
+            }
             this.loadVisualization(location)
         })
 
@@ -274,7 +290,7 @@ App.propTypes = {
     settings: PropTypes.object,
     ui: PropTypes.object,
     userSettings: PropTypes.object,
-    visualization: PropTypes.object, //eslint-disable-line react/no-unused-prop-types
+    visualization: PropTypes.object,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
