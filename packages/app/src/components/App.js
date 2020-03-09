@@ -119,7 +119,7 @@ export class App extends Component {
 
     componentDidMount = async () => {
         const { store } = this.context
-        const { d2, userSettings, visualization, current } = this.props
+        const { d2, userSettings } = this.props
 
         await store.dispatch(
             fromActions.fromSettings.tAddSettings(userSettings)
@@ -157,11 +157,13 @@ export class App extends Component {
                 e.ctrlKey === true &&
                 this.props.setCurrentFromUi(this.props.ui)
         )
-        const t = this //TODO: Remove 't' once getVisualizationState and STATE_DIRTY are imported from an external file
+        const t = this
         window.addEventListener('beforeunload', event => {
             if (
-                t.getVisualizationState(visualization, current) ===
-                t.STATE_DIRTY
+                t.getVisualizationState(
+                    t.props.visualization,
+                    t.props.current
+                ) === t.STATE_DIRTY
             ) {
                 event.preventDefault()
                 event.returnValue = i18n.t('You have unsaved changes.')
@@ -294,7 +296,7 @@ App.propTypes = {
     settings: PropTypes.object,
     ui: PropTypes.object,
     userSettings: PropTypes.object,
-    visualization: PropTypes.object,
+    visualization: PropTypes.object, //eslint-disable-line react/no-unused-prop-types
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
