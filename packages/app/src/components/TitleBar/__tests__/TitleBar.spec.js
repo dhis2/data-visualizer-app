@@ -6,7 +6,7 @@ import {
     STATE_UNSAVED,
     STATE_SAVED,
     STATE_DIRTY,
-} from '../../modules/visualization'
+} from '../../../modules/visualization'
 
 describe('TitleBar component', () => {
     let props
