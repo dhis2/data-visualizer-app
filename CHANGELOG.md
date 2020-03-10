@@ -1,3 +1,10 @@
+## [34.3.21](https://github.com/dhis2/data-visualizer-app/compare/v34.3.20...v34.3.21) (2020-03-10)
+
+
+### Bug Fixes
+
+* missing translation in sharing dialog (DHIS2-8249) ([#790](https://github.com/dhis2/data-visualizer-app/issues/790)) ([23a3cac](https://github.com/dhis2/data-visualizer-app/commit/23a3cacfa3844b1e212e89156774f80339ea7b16))
+
 ## [34.3.20](https://github.com/dhis2/data-visualizer-app/compare/v34.3.19...v34.3.20) (2020-03-10)
 
 
