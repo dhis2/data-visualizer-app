@@ -1,3 +1,10 @@
+## [34.3.26](https://github.com/dhis2/data-visualizer-app/compare/v34.3.25...v34.3.26) (2020-03-10)
+
+
+### Bug Fixes
+
+* upgrade analytics 4.3.11 -> 4.3.15 ([c6ed440](https://github.com/dhis2/data-visualizer-app/commit/c6ed440bdb9d7ee05ceabea2d9297c47d9976861))
+
 ## [34.3.25](https://github.com/dhis2/data-visualizer-app/compare/v34.3.24...v34.3.25) (2020-03-10)
 
 
