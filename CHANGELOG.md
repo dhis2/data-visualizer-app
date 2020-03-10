@@ -1,3 +1,10 @@
+## [34.3.24](https://github.com/dhis2/data-visualizer-app/compare/v34.3.23...v34.3.24) (2020-03-10)
+
+
+### Bug Fixes
+
+* show names for levels and groups in dimension chip tooltip ([#792](https://github.com/dhis2/data-visualizer-app/issues/792)) ([0e91268](https://github.com/dhis2/data-visualizer-app/commit/0e912686d64709f680520755ea573c283e363628))
+
 ## [34.3.23](https://github.com/dhis2/data-visualizer-app/compare/v34.3.22...v34.3.23) (2020-03-10)
 
 
