@@ -1,3 +1,10 @@
+## [34.3.25](https://github.com/dhis2/data-visualizer-app/compare/v34.3.24...v34.3.25) (2020-03-10)
+
+
+### Bug Fixes
+
+* include numerator and denominator in analytics requests ([#787](https://github.com/dhis2/data-visualizer-app/issues/787)) ([56ee4e8](https://github.com/dhis2/data-visualizer-app/commit/56ee4e86dab56c4d89e0be2b8621a3625b0aead5))
+
 ## [34.3.24](https://github.com/dhis2/data-visualizer-app/compare/v34.3.23...v34.3.24) (2020-03-10)
 
 
