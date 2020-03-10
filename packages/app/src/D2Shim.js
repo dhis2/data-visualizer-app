@@ -11,25 +11,31 @@ import { apiFetchOrganisationUnitLevels } from './api/organisationUnits'
 import history from './modules/history'
 import { ScreenCover, CircularLoader } from '@dhis2/ui-core'
 
-const configI18n = async () => {
+const configI18n = async userSettings => {
+    const uiLocale = userSettings.uiLocale
+
     // TODO: Remove and port to modern i18n
-    // if (uiLocale && uiLocale !== 'en') {
-    //     config.i18n.sources.add(
-    //         `./i18n_old/i18n_module_${uiLocale}.properties`
-    //     );
-    // }
+    if (uiLocale && uiLocale !== 'en') {
+        d2Config.i18n.sources.add(
+            `./i18n_old/i18n_module_${uiLocale}.properties`
+        )
+    }
 
     d2Config.i18n.sources.add('./i18n_old/i18n_module_en.properties')
 }
 
 const initD2 = async ({ baseUrl, apiVersion }, initConfig) => {
-    const d2 = await d2Init({
-        ...initConfig,
-        baseUrl: `${baseUrl}/api/${apiVersion}`,
-    })
+    const apiUrl = `${baseUrl}/api/${apiVersion}`
+
+    d2Config.baseUrl = apiUrl
 
     const userSettings = extractUserSettings(await getUserSettings())
     await configI18n(userSettings)
+
+    const d2 = await d2Init({
+        ...initConfig,
+        baseUrl: apiUrl,
+    })
 
     const ouLevels = await apiFetchOrganisationUnitLevels()
 
