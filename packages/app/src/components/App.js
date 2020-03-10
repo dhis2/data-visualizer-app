@@ -175,12 +175,11 @@ export class App extends Component {
                 this.props.setCurrentFromUi(this.props.ui)
         )
 
-        const t = this
         window.addEventListener('beforeunload', event => {
             if (
                 getVisualizationState(
-                    t.props.visualization,
-                    t.props.current
+                    this.props.visualization,
+                    this.props.current
                 ) === STATE_DIRTY
             ) {
                 event.preventDefault()
