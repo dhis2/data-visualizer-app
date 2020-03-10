@@ -1416,30 +1416,10 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^4.0.1":
-  version "4.3.6"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.3.6.tgz#67e301b45a81e12502051f0a1533ae07ad580b28"
-  integrity sha512-t4nI8oa3Mp5LlhPuYIEaV4TmdGLYnsa1zhCAHzC0dWjSmp9/fy/+0LXxCguBLagnJKL8ONrMob1X07L1GIvz4A==
-  dependencies:
-    "@dhis2/d2-i18n" "^1.0.4"
-    "@dhis2/d2-ui-org-unit-dialog" "^6.5.9"
-    "@dhis2/d2-ui-period-selector-dialog" "^6.5.7"
-    "@dhis2/ui-core" "^4.9.1"
-    "@material-ui/core" "^3.9.3"
-    "@material-ui/icons" "^3.0.2"
-    classnames "^2.2.6"
-    d2-utilizr "^0.2.16"
-    d3-color "^1.2.3"
-    highcharts "^7.2.1"
-    lodash "^4.17.13"
-    react-beautiful-dnd "^10.1.1"
-    resize-observer-polyfill "^1.5.1"
-    styled-jsx "^3.2.1"
-
-"@dhis2/analytics@^4.3.8":
-  version "4.3.8"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.3.8.tgz#3fca235bc36cd09d1df78e3f15946b3a46aec2f7"
-  integrity sha512-Gxm00ECiOzXNluJsPMp7J5VKCJUz0cIqENbmhu2Osm04MvfNtO2YmS9SghjfZIP7GB7eFJDDz/eRlomXDwy3yw==
+"@dhis2/analytics@^4.0.1", "@dhis2/analytics@^4.3.10":
+  version "4.3.10"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.3.10.tgz#32844e1832ba76db4cf570df96592643482036bf"
+  integrity sha512-yKu1QnnMJbI3I4eM7P4A0meSk533KfS4mzgB7HxaVxg/UTSQdPQk67jRWwSqfjjv/atv8pmWOpSQQ99Ni/ePug==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^6.5.9"
