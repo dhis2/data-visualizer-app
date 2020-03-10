@@ -523,6 +523,14 @@ msgstr ""
 msgid "Add at least one item to {{axisName}}."
 msgstr ""
 
+msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
+msgstr ""
+
+msgid ""
+"Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create "
+"a {{visualizationType}}."
+msgstr ""
+
 msgid "No period selected"
 msgstr ""
 
