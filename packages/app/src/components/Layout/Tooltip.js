@@ -47,7 +47,7 @@ export class Tooltip extends React.Component {
         const groupIds = []
         const itemDisplayNames = []
 
-        !displayLimitedAmount &&
+        if (!displayLimitedAmount) {
             itemIds.forEach(id => {
                 if (ouIdHelper.hasLevelPrefix(id)) {
                     levelIds.push(ouIdHelper.removePrefix(id))
@@ -58,15 +58,16 @@ export class Tooltip extends React.Component {
                 }
             })
 
-        levelIds.length &&
-            itemDisplayNames.push(
-                this.getNameList(levelIds, 'Levels', metadata)
-            )
+            levelIds.length &&
+                itemDisplayNames.push(
+                    this.getNameList(levelIds, 'Levels', metadata)
+                )
 
-        groupIds.length &&
-            itemDisplayNames.push(
-                this.getNameList(groupIds, 'Groups', metadata)
-            )
+            groupIds.length &&
+                itemDisplayNames.push(
+                    this.getNameList(groupIds, 'Groups', metadata)
+                )
+        }
 
         return itemDisplayNames
     }
