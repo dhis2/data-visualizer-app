@@ -1,3 +1,24 @@
+## [34.3.26](https://github.com/dhis2/data-visualizer-app/compare/v34.3.25...v34.3.26) (2020-03-10)
+
+
+### Bug Fixes
+
+* upgrade analytics 4.3.11 -> 4.3.15 ([c6ed440](https://github.com/dhis2/data-visualizer-app/commit/c6ed440bdb9d7ee05ceabea2d9297c47d9976861))
+
+## [34.3.25](https://github.com/dhis2/data-visualizer-app/compare/v34.3.24...v34.3.25) (2020-03-10)
+
+
+### Bug Fixes
+
+* include numerator and denominator in analytics requests ([#787](https://github.com/dhis2/data-visualizer-app/issues/787)) ([56ee4e8](https://github.com/dhis2/data-visualizer-app/commit/56ee4e86dab56c4d89e0be2b8621a3625b0aead5))
+
+## [34.3.24](https://github.com/dhis2/data-visualizer-app/compare/v34.3.23...v34.3.24) (2020-03-10)
+
+
+### Bug Fixes
+
+* show names for levels and groups in dimension chip tooltip ([#792](https://github.com/dhis2/data-visualizer-app/issues/792)) ([0e91268](https://github.com/dhis2/data-visualizer-app/commit/0e912686d64709f680520755ea573c283e363628))
+
 ## [34.3.23](https://github.com/dhis2/data-visualizer-app/compare/v34.3.22...v34.3.23) (2020-03-10)
 
 
