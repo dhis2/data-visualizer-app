@@ -1,3 +1,10 @@
+## [34.3.20](https://github.com/dhis2/data-visualizer-app/compare/v34.3.19...v34.3.20) (2020-03-10)
+
+
+### Bug Fixes
+
+* confirmation before navigating away from unsaved state (DHIS2-8432) ([#788](https://github.com/dhis2/data-visualizer-app/issues/788)) ([66e1dbc](https://github.com/dhis2/data-visualizer-app/commit/66e1dbc345d0681fd2512d82606b67199762e223))
+
 ## [34.3.19](https://github.com/dhis2/data-visualizer-app/compare/v34.3.18...v34.3.19) (2020-03-10)
 
 
