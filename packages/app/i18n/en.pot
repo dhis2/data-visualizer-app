@@ -5,13 +5,30 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-03-10T09:57:10.073Z\n"
-"PO-Revision-Date: 2020-03-10T09:57:10.073Z\n"
+"POT-Creation-Date: 2020-03-10T12:41:49.302Z\n"
+"PO-Revision-Date: 2020-03-10T12:41:49.302Z\n"
 
 msgid "Rename successful"
 msgstr ""
 
 msgid "\"{{what}}\" successfully deleted."
+msgstr ""
+
+msgid "You have unsaved changes."
+msgstr ""
+
+msgid "Discard unsaved changes?"
+msgstr ""
+
+msgid ""
+"Are you sure you want to leave this visualization? Any unsaved changes will "
+"be lost."
+msgstr ""
+
+msgid "No, cancel"
+msgstr ""
+
+msgid "Yes, leave"
 msgstr ""
 
 msgid "Axis 1"
