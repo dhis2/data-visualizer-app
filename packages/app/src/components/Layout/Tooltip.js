@@ -60,12 +60,12 @@ export class Tooltip extends React.Component {
 
             levelIds.length &&
                 itemDisplayNames.push(
-                    this.getNameList(levelIds, 'Levels', metadata)
+                    this.getNameList(levelIds, i18n.t('Levels'), metadata)
                 )
 
             groupIds.length &&
                 itemDisplayNames.push(
-                    this.getNameList(groupIds, 'Groups', metadata)
+                    this.getNameList(groupIds, i18n.t('Groups'), metadata)
                 )
         }
 
