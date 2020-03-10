@@ -3,9 +3,10 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import Popper from '@material-ui/core/Popper'
 import Paper from '@material-ui/core/Paper'
-import i18n from '@dhis2/d2-i18n'
 import LockIcon from '@material-ui/icons/Lock'
 import WarningIcon from '@material-ui/icons/Warning'
+import i18n from '@dhis2/d2-i18n'
+import { ouIdHelper } from '@dhis2/analytics'
 
 import { sGetMetadata } from '../../reducers/metadata'
 import { styles } from './styles/Tooltip.style'
@@ -30,11 +31,45 @@ export class Tooltip extends React.Component {
         return displayLimitedAmount ? warningLabel : null
     }
 
+    getNameList = (idList, label, metadata) =>
+        idList.reduce(
+            (levelString, levelId, index) =>
+                `${levelString}${index > 0 ? `, ` : ``}${
+                    metadata[levelId] ? metadata[levelId].name : levelId
+                }`,
+            `${label}: `
+        )
+
     getItemDisplayNames = () => {
         const { itemIds, metadata, displayLimitedAmount } = this.props
-        return itemIds.length && !displayLimitedAmount
-            ? itemIds.map(id => (metadata[id] ? metadata[id].name : id))
-            : []
+
+        const levelIds = []
+        const groupIds = []
+        const itemDisplayNames = []
+
+        if (!displayLimitedAmount) {
+            itemIds.forEach(id => {
+                if (ouIdHelper.hasLevelPrefix(id)) {
+                    levelIds.push(ouIdHelper.removePrefix(id))
+                } else if (ouIdHelper.hasGroupPrefix(id)) {
+                    groupIds.push(ouIdHelper.removePrefix(id))
+                } else {
+                    itemDisplayNames.push(metadata[id] ? metadata[id].name : id)
+                }
+            })
+
+            levelIds.length &&
+                itemDisplayNames.push(
+                    this.getNameList(levelIds, i18n.t('Levels'), metadata)
+                )
+
+            groupIds.length &&
+                itemDisplayNames.push(
+                    this.getNameList(groupIds, i18n.t('Groups'), metadata)
+                )
+        }
+
+        return itemDisplayNames
     }
 
     renderWarningLabel = warningLabel => (
