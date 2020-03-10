@@ -2,7 +2,15 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
-import { CssVariables } from '@dhis2/ui-core'
+import {
+    CssVariables,
+    Modal,
+    ModalTitle,
+    ModalContent,
+    ModalActions,
+    ButtonStrip,
+    Button,
+} from '@dhis2/ui-core'
 
 import DndContext from './DndContext'
 import Snackbar from '../components/Snackbar/Snackbar'
@@ -27,6 +35,8 @@ import './scrollbar.css'
 import { getParentGraphMapFromVisualization } from '../modules/ui'
 import AxisSetup from './AxisSetup/AxisSetup'
 import { APPROVAL_LEVEL_OPTION_AUTH } from './VisualizationOptions/Options/ApprovalLevel'
+import { sGetVisualization } from '../reducers/visualization'
+import { STATE_DIRTY, getVisualizationState } from '../modules/visualization'
 
 export class App extends Component {
     unlisten = null
@@ -36,6 +46,7 @@ export class App extends Component {
     state = {
         previousLocation: null,
         initialLoadIsComplete: false,
+        locationToConfirm: false,
     }
 
     /**
@@ -142,7 +153,20 @@ export class App extends Component {
         this.loadVisualization(this.props.location)
 
         this.unlisten = history.listen(location => {
-            this.loadVisualization(location)
+            const isSaving = location.state?.isSaving
+            if (
+                getVisualizationState(
+                    this.props.visualization,
+                    this.props.current
+                ) === STATE_DIRTY &&
+                this.state.locationToConfirm !== location &&
+                !isSaving
+            ) {
+                this.setState({ locationToConfirm: location })
+            } else {
+                this.setState({ locationToConfirm: null })
+                this.loadVisualization(location)
+            }
         })
 
         document.body.addEventListener(
@@ -152,6 +176,18 @@ export class App extends Component {
                 e.ctrlKey === true &&
                 this.props.setCurrentFromUi(this.props.ui)
         )
+
+        window.addEventListener('beforeunload', event => {
+            if (
+                getVisualizationState(
+                    this.props.visualization,
+                    this.props.current
+                ) === STATE_DIRTY
+            ) {
+                event.preventDefault()
+                event.returnValue = i18n.t('You have unsaved changes.')
+            }
+        })
     }
 
     componentWillUnmount() {
@@ -210,6 +246,43 @@ export class App extends Component {
                         )}
                     </div>
                 </div>
+                {this.state.locationToConfirm && (
+                    <Modal small>
+                        <ModalTitle>
+                            {i18n.t('Discard unsaved changes?')}
+                        </ModalTitle>
+                        <ModalContent>
+                            {i18n.t(
+                                'Are you sure you want to leave this visualization? Any unsaved changes will be lost.'
+                            )}
+                        </ModalContent>
+                        <ModalActions>
+                            <ButtonStrip end>
+                                <Button
+                                    secondary
+                                    onClick={() =>
+                                        this.setState({
+                                            locationToConfirm: null,
+                                        })
+                                    }
+                                >
+                                    {i18n.t('No, cancel')}
+                                </Button>
+
+                                <Button
+                                    onClick={() =>
+                                        history.push(
+                                            this.state.locationToConfirm
+                                        )
+                                    }
+                                    primary
+                                >
+                                    {i18n.t('Yes, leave')}
+                                </Button>
+                            </ButtonStrip>
+                        </ModalActions>
+                    </Modal>
+                )}
                 <Snackbar />
                 <CssVariables colors spacers />
             </>
@@ -222,6 +295,7 @@ const mapStateToProps = state => ({
     current: fromReducers.fromCurrent.sGetCurrent(state),
     interpretations: fromReducers.fromVisualization.sGetInterpretations(state),
     ui: fromReducers.fromUi.sGetUi(state),
+    visualization: sGetVisualization(state),
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -259,6 +333,7 @@ App.propTypes = {
     settings: PropTypes.object,
     ui: PropTypes.object,
     userSettings: PropTypes.object,
+    visualization: PropTypes.object,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

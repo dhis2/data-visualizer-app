@@ -1417,9 +1417,9 @@
     lodash.once "^4.1.1"
 
 "@dhis2/analytics@^4.0.1":
-  version "4.3.6"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.3.6.tgz#67e301b45a81e12502051f0a1533ae07ad580b28"
-  integrity sha512-t4nI8oa3Mp5LlhPuYIEaV4TmdGLYnsa1zhCAHzC0dWjSmp9/fy/+0LXxCguBLagnJKL8ONrMob1X07L1GIvz4A==
+  version "4.3.10"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.3.10.tgz#32844e1832ba76db4cf570df96592643482036bf"
+  integrity sha512-yKu1QnnMJbI3I4eM7P4A0meSk533KfS4mzgB7HxaVxg/UTSQdPQk67jRWwSqfjjv/atv8pmWOpSQQ99Ni/ePug==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^6.5.9"
@@ -1436,10 +1436,10 @@
     resize-observer-polyfill "^1.5.1"
     styled-jsx "^3.2.1"
 
-"@dhis2/analytics@^4.3.8":
-  version "4.3.8"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.3.8.tgz#3fca235bc36cd09d1df78e3f15946b3a46aec2f7"
-  integrity sha512-Gxm00ECiOzXNluJsPMp7J5VKCJUz0cIqENbmhu2Osm04MvfNtO2YmS9SghjfZIP7GB7eFJDDz/eRlomXDwy3yw==
+"@dhis2/analytics@^4.3.11":
+  version "4.3.11"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.3.11.tgz#72874f23478d9f76f906fd975ab101e37daac024"
+  integrity sha512-2uVw+4zoSpZv5xLbQFcXdeUzhh/JFjO0fJJ675d2L9k6hVZe6ZMlaBVEdhZe2m19ruP4kj/Z6fePCaORqc1Now==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^6.5.9"

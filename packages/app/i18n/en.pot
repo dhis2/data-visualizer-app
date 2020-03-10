@@ -5,13 +5,30 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-02-28T11:09:36.828Z\n"
-"PO-Revision-Date: 2020-02-28T11:09:36.828Z\n"
+"POT-Creation-Date: 2020-03-10T12:41:49.302Z\n"
+"PO-Revision-Date: 2020-03-10T12:41:49.302Z\n"
 
 msgid "Rename successful"
 msgstr ""
 
 msgid "\"{{what}}\" successfully deleted."
+msgstr ""
+
+msgid "You have unsaved changes."
+msgstr ""
+
+msgid "Discard unsaved changes?"
+msgstr ""
+
+msgid ""
+"Are you sure you want to leave this visualization? Any unsaved changes will "
+"be lost."
+msgstr ""
+
+msgid "No, cancel"
+msgstr ""
+
+msgid "Yes, leave"
 msgstr ""
 
 msgid "Axis 1"
@@ -160,7 +177,7 @@ msgstr ""
 msgid "Add dimensions to the layout above"
 msgstr ""
 
-msgid "Double click a dimension to add or remove items"
+msgid "Click a dimension to add or remove items"
 msgstr ""
 
 msgid "Your most viewed charts and tables"
@@ -506,13 +523,21 @@ msgstr ""
 msgid "Add at least one item to {{axisName}}."
 msgstr ""
 
-msgid "No period set"
+msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
 msgstr ""
 
-msgid "{{visualizationType}} must have at least one period set in {{axes}}."
+msgid ""
+"Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create "
+"a {{visualizationType}}."
 msgstr ""
 
-msgid "No data set"
+msgid "No period selected"
+msgstr ""
+
+msgid "{{visualizationType}} must have at least one period selected in {{axes}}."
+msgstr ""
+
+msgid "No data selected"
 msgstr ""
 
 msgid ""

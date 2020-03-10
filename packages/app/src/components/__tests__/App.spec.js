@@ -9,6 +9,7 @@ import { getStubContext } from '../../../../../config/testsContext'
 import { CURRENT_AO_KEY } from '../../api/userDataStore'
 import * as userDataStore from '../../api/userDataStore'
 import * as ui from '../../modules/ui'
+import { DEFAULT_CURRENT } from '../../reducers/current'
 
 jest.mock('../Visualization/Visualization', () => () => <div />)
 
@@ -40,7 +41,7 @@ describe('App', () => {
             snackbarMessage: '',
             loadError: null,
             interpretations: [],
-            current: {},
+            current: DEFAULT_CURRENT,
             ui: { rightSidebarOpen: false },
             location: { pathname: '/' },
             settings: {
