@@ -1,3 +1,10 @@
+## [34.3.18](https://github.com/dhis2/data-visualizer-app/compare/v34.3.17...v34.3.18) (2020-03-06)
+
+
+### Bug Fixes
+
+* upgraded to d2-ui-file-menu v6.5.10, improved open dialog vis types ([#786](https://github.com/dhis2/data-visualizer-app/issues/786)) ([3c8f80c](https://github.com/dhis2/data-visualizer-app/commit/3c8f80c9e0922388efe9113d79a616ac65c52008)), closes [dhis2/d2-ui#574](https://github.com/dhis2/d2-ui/issues/574)
+
 ## [34.3.17](https://github.com/dhis2/data-visualizer-app/compare/v34.3.16...v34.3.17) (2020-03-06)
 
 
