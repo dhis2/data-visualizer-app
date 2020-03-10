@@ -153,12 +153,14 @@ export class App extends Component {
         this.loadVisualization(this.props.location)
 
         this.unlisten = history.listen(location => {
+            const isSaving = location.state?.isSaving
             if (
                 getVisualizationState(
                     this.props.visualization,
                     this.props.current
                 ) === STATE_DIRTY &&
-                this.state.locationToConfirm !== location
+                this.state.locationToConfirm !== location &&
+                !isSaving
             ) {
                 this.setState({ locationToConfirm: location })
             } else {
