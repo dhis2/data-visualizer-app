@@ -79,6 +79,38 @@ export class NoCategoryError extends VisualizationError {
     }
 }
 
+export class NoSeriesOrCategoryError extends VisualizationError {
+    constructor(visType) {
+        super(
+            EmptyBox,
+            i18n.t(`{{columnsAxisName}} and {{rowsAxisName}} are empty`, {
+                columnsAxisName: getAxisNameByLayoutType(
+                    AXIS_ID_COLUMNS,
+                    getLayoutTypeByVisType(visType)
+                ),
+                rowsAxisName: getAxisNameByLayoutType(
+                    AXIS_ID_ROWS,
+                    getLayoutTypeByVisType(visType)
+                ),
+            }),
+            i18n.t(
+                'Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a {{visualizationType}}.',
+                {
+                    columnsAxisName: getAxisNameByLayoutType(
+                        AXIS_ID_COLUMNS,
+                        getLayoutTypeByVisType(visType)
+                    ),
+                    rowsAxisName: getAxisNameByLayoutType(
+                        AXIS_ID_ROWS,
+                        getLayoutTypeByVisType(visType)
+                    ),
+                    visualizationType: getDisplayNameByVisType(visType),
+                }
+            )
+        )
+    }
+}
+
 export class NoPeriodError extends VisualizationError {
     constructor(visType) {
         super(
