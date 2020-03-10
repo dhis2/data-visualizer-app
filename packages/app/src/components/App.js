@@ -247,10 +247,13 @@ export class App extends Component {
                 </div>
                 {this.state.locationToConfirm && (
                     <Modal small>
-                        <ModalTitle>Discard unsaved changes?</ModalTitle>
+                        <ModalTitle>
+                            {i18n.t('Discard unsaved changes?')}
+                        </ModalTitle>
                         <ModalContent>
-                            Are you sure you want to leave this visualization?
-                            Any unsaved changes will be lost.
+                            {i18n.t(
+                                'Are you sure you want to leave this visualization? Any unsaved changes will be lost.'
+                            )}
                         </ModalContent>
                         <ModalActions>
                             <ButtonStrip end>
@@ -262,7 +265,7 @@ export class App extends Component {
                                         })
                                     }
                                 >
-                                    No, cancel
+                                    {i18n.t('No, cancel')}
                                 </Button>
 
                                 <Button
@@ -273,7 +276,7 @@ export class App extends Component {
                                     }
                                     primary
                                 >
-                                    Yes, leave
+                                    {i18n.t('Yes, leave')}
                                 </Button>
                             </ButtonStrip>
                         </ModalActions>
