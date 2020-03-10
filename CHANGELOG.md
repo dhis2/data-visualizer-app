@@ -1,3 +1,10 @@
+## [34.3.23](https://github.com/dhis2/data-visualizer-app/compare/v34.3.22...v34.3.23) (2020-03-10)
+
+
+### Bug Fixes
+
+* saving incorrectly shows the confirmation  ([#791](https://github.com/dhis2/data-visualizer-app/issues/791)) ([b1d91ee](https://github.com/dhis2/data-visualizer-app/commit/b1d91ee04dac020aaa251f6918adf3b51b6e9b78))
+
 ## [34.3.22](https://github.com/dhis2/data-visualizer-app/compare/v34.3.21...v34.3.22) (2020-03-10)
 
 
