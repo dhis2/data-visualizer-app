@@ -1,3 +1,10 @@
+## [34.3.22](https://github.com/dhis2/data-visualizer-app/compare/v34.3.21...v34.3.22) (2020-03-10)
+
+
+### Bug Fixes
+
+* Pivot Table allow empty col or row ([#789](https://github.com/dhis2/data-visualizer-app/issues/789)) ([ee337a5](https://github.com/dhis2/data-visualizer-app/commit/ee337a5181cd201d81c455734c826058bde2db13))
+
 ## [34.3.21](https://github.com/dhis2/data-visualizer-app/compare/v34.3.20...v34.3.21) (2020-03-10)
 
 
