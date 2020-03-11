@@ -1,10 +1,12 @@
+import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
+
 const peId = 'pe'
 
 export const apiFetchAnalytics = async (d2, current, options) => {
     const req = new d2.analytics.request()
         .fromModel(current)
         .withParameters(options)
-        .withIncludeNumDen(true)
+        .withIncludeNumDen(current.type === VIS_TYPE_PIVOT_TABLE)
 
     const rawResponse = await d2.analytics.aggregate.get(req)
 
