@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-03-10T12:41:49.302Z\n"
+"POT-Creation-Date: 2020-03-11T02:52:13.220Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -25,7 +25,7 @@ msgid "You have unsaved changes."
 msgstr ""
 
 msgid "Discard unsaved changes?"
-msgstr ""
+msgstr "تجاهل التغييرات غير المحفوظة؟"
 
 msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
@@ -162,6 +162,12 @@ msgid "Only '{{- name}}' in use"
 msgstr ""
 
 msgid "Only '{{number}}' in use"
+msgstr ""
+
+msgid "Levels"
+msgstr ""
+
+msgid "Groups"
 msgstr ""
 
 msgid "Unsaved visualization"
@@ -539,7 +545,7 @@ msgid ""
 msgstr ""
 
 msgid "No period selected"
-msgstr ""
+msgstr "لم يتم اختيار فترة"
 
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
