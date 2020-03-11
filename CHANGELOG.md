@@ -1,3 +1,18 @@
+## [34.3.28](https://github.com/dhis2/data-visualizer-app/compare/v34.3.27...v34.3.28) (2020-03-11)
+
+
+### Bug Fixes
+
+* pivot table fixes, upgrade analytics, and fix en.pot ([#796](https://github.com/dhis2/data-visualizer-app/issues/796)) ([71c10ed](https://github.com/dhis2/data-visualizer-app/commit/71c10ed9c9fa4df02bd87ad76d36c806b2b5fac9))
+
+## [34.3.27](https://github.com/dhis2/data-visualizer-app/compare/v34.3.26...v34.3.27) (2020-03-11)
+
+
+### Bug Fixes
+
+* only request numDen for pivot tables ([#793](https://github.com/dhis2/data-visualizer-app/issues/793)) [skip ci] ([83fd843](https://github.com/dhis2/data-visualizer-app/commit/83fd8438afbecedf5966510e58dbbff81aa79db0))
+* upgrade d2 to latest ([#794](https://github.com/dhis2/data-visualizer-app/issues/794)) ([4cd9caf](https://github.com/dhis2/data-visualizer-app/commit/4cd9caf51ed0e60e1daeff546398d51d1433540e))
+
 ## [34.3.26](https://github.com/dhis2/data-visualizer-app/compare/v34.3.25...v34.3.26) (2020-03-10)
 
 
