@@ -1,3 +1,10 @@
+## [34.3.28](https://github.com/dhis2/data-visualizer-app/compare/v34.3.27...v34.3.28) (2020-03-11)
+
+
+### Bug Fixes
+
+* pivot table fixes, upgrade analytics, and fix en.pot ([#796](https://github.com/dhis2/data-visualizer-app/issues/796)) ([71c10ed](https://github.com/dhis2/data-visualizer-app/commit/71c10ed9c9fa4df02bd87ad76d36c806b2b5fac9))
+
 ## [34.3.27](https://github.com/dhis2/data-visualizer-app/compare/v34.3.26...v34.3.27) (2020-03-11)
 
 
