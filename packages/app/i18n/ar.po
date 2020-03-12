@@ -168,7 +168,7 @@ msgid "Levels"
 msgstr ""
 
 msgid "Groups"
-msgstr ""
+msgstr "المجموعات"
 
 msgid "Unsaved visualization"
 msgstr ""
