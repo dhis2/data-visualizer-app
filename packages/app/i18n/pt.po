@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-02-21T11:16:30.247Z\n"
+"POT-Creation-Date: 2020-03-11T02:52:13.220Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
@@ -19,6 +19,23 @@ msgid "Rename successful"
 msgstr ""
 
 msgid "\"{{what}}\" successfully deleted."
+msgstr ""
+
+msgid "You have unsaved changes."
+msgstr ""
+
+msgid "Discard unsaved changes?"
+msgstr "Eliminar as alterações não gravadas"
+
+msgid ""
+"Are you sure you want to leave this visualization? Any unsaved changes will "
+"be lost."
+msgstr ""
+
+msgid "No, cancel"
+msgstr ""
+
+msgid "Yes, leave"
 msgstr ""
 
 msgid "Axis 1"
@@ -147,6 +164,12 @@ msgstr ""
 msgid "Only '{{number}}' in use"
 msgstr ""
 
+msgid "Levels"
+msgstr ""
+
+msgid "Groups"
+msgstr "Grupos"
+
 msgid "Unsaved visualization"
 msgstr ""
 
@@ -167,7 +190,7 @@ msgstr ""
 msgid "Add dimensions to the layout above"
 msgstr ""
 
-msgid "Double click a dimension to add or remove items"
+msgid "Click a dimension to add or remove items"
 msgstr ""
 
 msgid "Your most viewed charts and tables"
@@ -350,7 +373,7 @@ msgstr ""
 msgid "Legend type"
 msgstr "Tipo de legenda"
 
-msgid "Use pre-defined legends set per data item"
+msgid "Use pre-defined legend per data item"
 msgstr ""
 
 msgid "Select a single legend for entire table"
@@ -513,13 +536,27 @@ msgstr ""
 msgid "Add at least one item to {{axisName}}."
 msgstr ""
 
-msgid "No period set"
+msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
 msgstr ""
 
-msgid "{{visualizationType}} must have at least one period set in {{axes}}."
+msgid ""
+"Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
+" {{visualizationType}}."
 msgstr ""
 
-msgid "No data set"
+msgid "No period selected"
+msgstr "Nenhum período seleccionado"
+
+msgid ""
+"{{visualizationType}} must have at least one period selected in {{axes}}."
+msgstr ""
+
+msgid "No data selected"
+msgstr ""
+
+msgid ""
+"{{visualizationType}} must have at least one data item or data element group"
+" set item in {{axes}}."
 msgstr ""
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
@@ -531,6 +568,9 @@ msgstr ""
 msgid ""
 "A single indicator must be the only data item when using indicators as Data "
 "in Filter."
+msgstr ""
+
+msgid "Data Element Group Sets and Reporting Rates cannot be used together."
 msgstr ""
 
 msgid "There is a problem with this {{visualizationType}} visualization."
