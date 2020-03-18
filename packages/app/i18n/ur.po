@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-02-27T10:29:24.823Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
+"POT-Creation-Date: 2020-03-11T02:52:13.220Z\n"
+"PO-Revision-Date: 2020-03-02 13:01+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Urdu (https://www.transifex.com/hisp-uio/teams/100509/ur/)\n"
 "MIME-Version: 1.0\n"
@@ -20,6 +20,23 @@ msgstr "نام تبدیل کریں"
 
 msgid "\"{{what}}\" successfully deleted."
 msgstr "\"{{what}}\" کامیابی سے حذف کر دیا گیا"
+
+msgid "You have unsaved changes."
+msgstr ""
+
+msgid "Discard unsaved changes?"
+msgstr "غیر محفوظ شدہ تبدیلیاں ختم کریں؟"
+
+msgid ""
+"Are you sure you want to leave this visualization? Any unsaved changes will "
+"be lost."
+msgstr ""
+
+msgid "No, cancel"
+msgstr ""
+
+msgid "Yes, leave"
+msgstr ""
 
 msgid "Axis 1"
 msgstr ""
@@ -39,7 +56,7 @@ msgid "Cancel"
 msgstr "منسوخ"
 
 msgid "Update"
-msgstr "اپ ڈیٹ"
+msgstr "اپڈیٹ"
 
 msgid "Add to {{axisName}}"
 msgstr ""
@@ -147,6 +164,12 @@ msgstr ""
 msgid "Only '{{number}}' in use"
 msgstr ""
 
+msgid "Levels"
+msgstr ""
+
+msgid "Groups"
+msgstr "گروپ"
+
 msgid "Unsaved visualization"
 msgstr ""
 
@@ -167,7 +190,7 @@ msgstr ""
 msgid "Add dimensions to the layout above"
 msgstr ""
 
-msgid "Double click a dimension to add or remove items"
+msgid "Click a dimension to add or remove items"
 msgstr ""
 
 msgid "Your most viewed charts and tables"
@@ -192,7 +215,7 @@ msgid "Average (sum in org unit hierarchy)"
 msgstr "اوسط (اختیاری یونٹ کے تنظیمی ڈھانچے میں)"
 
 msgid "Sum"
-msgstr "سم"
+msgstr "جمع"
 
 msgid "Last value"
 msgstr "آخری قیمت"
@@ -201,7 +224,7 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr "آخری قدر (اوسط یونٹ کے تنظیمی ڈھانچے میں اوسط)"
 
 msgid "Min"
-msgstr "منٹ"
+msgstr "کم سے کم"
 
 msgid "Max"
 msgstr "زیادہ سے زیادہ"
@@ -264,7 +287,7 @@ msgid "Digit group separator"
 msgstr "ڈیجیٹٹ گروپ الگ الگ"
 
 msgid "None"
-msgstr "کوئی بھی نہیں"
+msgstr "کوئی نہں"
 
 msgid "Space"
 msgstr "خلائی"
@@ -315,7 +338,7 @@ msgid "Before first and after last"
 msgstr "پہلے اور بعد میں آخری سے پہلے"
 
 msgid "All"
-msgstr "سب"
+msgstr "تمام"
 
 msgid "Hide empty rows"
 msgstr "خالی قطار چھپائیں"
@@ -350,7 +373,7 @@ msgstr "علامات سٹائل"
 msgid "Legend type"
 msgstr "علامات کی قسم"
 
-msgid "Use pre-defined legends set per data item"
+msgid "Use pre-defined legend per data item"
 msgstr ""
 
 msgid "Select a single legend for entire table"
@@ -513,13 +536,22 @@ msgstr ""
 msgid "Add at least one item to {{axisName}}."
 msgstr ""
 
-msgid "No period set"
+msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
 msgstr ""
 
-msgid "{{visualizationType}} must have at least one period set in {{axes}}."
+msgid ""
+"Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
+" {{visualizationType}}."
 msgstr ""
 
-msgid "No data set"
+msgid "No period selected"
+msgstr "کوئی مدت منتخب نہیں"
+
+msgid ""
+"{{visualizationType}} must have at least one period selected in {{axes}}."
+msgstr ""
+
+msgid "No data selected"
 msgstr ""
 
 msgid ""
@@ -536,6 +568,9 @@ msgstr ""
 msgid ""
 "A single indicator must be the only data item when using indicators as Data "
 "in Filter."
+msgstr ""
+
+msgid "Data Element Group Sets and Reporting Rates cannot be used together."
 msgstr ""
 
 msgid "There is a problem with this {{visualizationType}} visualization."
@@ -579,16 +614,16 @@ msgid "This week"
 msgstr "اس ہفتے"
 
 msgid "Last week"
-msgstr "پچھلا ہفتہ"
+msgstr "آخری ہفتہ"
 
 msgid "Last 4 weeks"
-msgstr "آخری 4 ہفتوں"
+msgstr "آخری ۴ ہفتے"
 
 msgid "Last 12 weeks"
-msgstr "آخری 12 ہفتوں"
+msgstr "آخری ۱۲ ہفتے"
 
 msgid "Last 52 weeks"
-msgstr "آخری 52 ہفتوں"
+msgstr "آخری ۵۲ ہفتے"
 
 msgid "Weeks this year"
 msgstr "اس سال ہفتہ"
@@ -597,19 +632,19 @@ msgid "This month"
 msgstr "اس مہینے"
 
 msgid "Last month"
-msgstr "پچھلے مہینے"
+msgstr "آخری ماہ"
 
 msgid "Last 3 months"
-msgstr "آخری 3 ماہ"
+msgstr "آخری ۳ ماہ"
 
 msgid "Last 6 months"
-msgstr "آخری 6 ماہ"
+msgstr "آخری ۶ ماہ"
 
 msgid "Last 12 months"
-msgstr "آخری 12 ماہ"
+msgstr "آخری ۱۲ ماہ"
 
 msgid "Months this year"
-msgstr "اس سال ماہ"
+msgstr "ماہ اس سال"
 
 msgid "This bimonth"
 msgstr "یہ مہینہ"
@@ -627,40 +662,40 @@ msgid "This quarter"
 msgstr "اس سہ ماہی"
 
 msgid "Last quarter"
-msgstr "آخری چوتھائی"
+msgstr "آخری سہ ماہ"
 
 msgid "Last 4 quarters"
-msgstr "آخری چار چوتھائی"
+msgstr "آخری ۴ سہ ماہی"
 
 msgid "Quarters this year"
-msgstr "اس سال سہ ماہی"
+msgstr "سہ ماہی اس سال"
 
 msgid "This six-month"
 msgstr "یہ چھ ماہ"
 
 msgid "Last six-month"
-msgstr "آخری چھ ماہ"
+msgstr "آخری ۶ ماہ"
 
 msgid "Last 2 six-months"
-msgstr "آخری 2 چھ ماہ"
+msgstr "آخری ۲ چھ ماہ"
 
 msgid "This financial year"
-msgstr "یہ مالی سال"
+msgstr "اس مالیاتی سال"
 
 msgid "Last financial year"
-msgstr "آخری مالی سال"
+msgstr "آخری مالیاتی سال"
 
 msgid "Last 5 financial years"
-msgstr "آخری 5 مالی سال"
+msgstr "آخری ۵ مالیاتی سال"
 
 msgid "This year"
 msgstr "اس سال"
 
 msgid "Last year"
-msgstr "پچھلے سال"
+msgstr "آخری سال"
 
 msgid "Last 5 years"
-msgstr "آخری 5 سال"
+msgstr "آخری ۵ سال"
 
 msgid "User org unit"
 msgstr "صارف کے اجزاء"
@@ -678,7 +713,7 @@ msgid "Axes"
 msgstr "محور"
 
 msgid "Style"
-msgstr "انداز"
+msgstr "Ø§ÙØ¯Ø§Ø²"
 
 msgid "Display"
 msgstr ""
