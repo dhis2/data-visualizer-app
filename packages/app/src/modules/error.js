@@ -187,7 +187,7 @@ export class CombinationDEGSRRError extends VisualizationError {
     constructor() {
         super(
             DataError,
-            genericTitle,
+            genericErrorTitle,
             i18n.t(
                 'Data Element Group Sets and Reporting Rates cannot be used together.'
             )
@@ -199,7 +199,7 @@ export class GenericClientError extends VisualizationError {
     constructor(visType) {
         super(
             GenericError,
-            genericTitle,
+            genericErrorTitle,
             i18n.t(
                 'There is a problem with this {{visualizationType}} visualization.',
                 {
@@ -214,7 +214,7 @@ export class GenericServerError extends VisualizationError {
     constructor() {
         super(
             GenericError,
-            genericTitle,
+            genericErrorTitle,
             i18n.t('There was a problem getting the data from the server.')
         )
     }
@@ -244,7 +244,7 @@ export class AssignedCategoriesAsFilterError extends VisualizationError {
     }
 }
 
-const genericTitle = i18n.t('Something went wrong')
+export const genericErrorTitle = i18n.t('Something went wrong')
 
 const getAvailableAxesDescription = visType => {
     const axes = getAvailableAxes(visType)
