@@ -1755,10 +1755,27 @@
   dependencies:
     prop-types "^15"
 
-"@dhis2/ui-core@^4.16.0", "@dhis2/ui-core@^4.6.1", "@dhis2/ui-core@^4.9.1":
+"@dhis2/ui-core@^4.16.0":
   version "4.16.0"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-4.16.0.tgz#868555c2d8758af3f26e168d2a469bde39c91b1d"
   integrity sha512-pa47/ZZrQa9SUXlOW4r8HKyuzfO/i4vENR1u2+2zrPfBtbFK4FPwXANmdVAw+V6epbWJU8k2Fi31j1ZMwauq/w==
+  dependencies:
+    "@dhis2/prop-types" "^1.5.0"
+    "@popperjs/core" "^2.1.0"
+    classnames "^2.2.6"
+
+"@dhis2/ui-core@^4.6.1":
+  version "4.6.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-4.6.1.tgz#62677590b3b32322dfa014b006e6226b637f0162"
+  integrity sha512-85ubddhmSRjDFPZqtSoTOZiPnfzHU1CyFyTXYmar/3lr8zl4mzY7aKScsEsTtJRWpN8ie86LWRqdGpbrV98VcQ==
+  dependencies:
+    "@dhis2/prop-types" "^1.5.0"
+    classnames "^2.2.6"
+
+"@dhis2/ui-core@^4.9.1":
+  version "4.15.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-4.15.0.tgz#a8de086dec1bc7831bd1ac6eb4ee569509b7e41f"
+  integrity sha512-aYVJN3pEX8ZcsKhwlfXusn3ZSltGdHTlHkTo+RHMfqVxYvwZ+fYEi6OPd9FpZARifD3ydPAnshHnPYnYzVUliw==
   dependencies:
     "@dhis2/prop-types" "^1.5.0"
     "@popperjs/core" "^2.1.0"
