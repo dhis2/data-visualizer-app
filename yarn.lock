@@ -1411,10 +1411,10 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^4.0.1", "@dhis2/analytics@^4.3.23":
-  version "4.3.23"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.3.23.tgz#680396daf046d7f50bfed47563c7a31a4c075bf3"
-  integrity sha512-IeS6tzZkdZweGgBMN8kmtpuTbTVe3ZVwABuv5hvyy+zRpl0QGYaQwWgfZQdZt0mfUQrpKuVo7dDkGUsQDCgqLA==
+"@dhis2/analytics@^4.0.1", "@dhis2/analytics@^4.3.24":
+  version "4.3.24"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.3.24.tgz#d31475dfb25671a367bed44ba81128ebbcfbabff"
+  integrity sha512-Ns1RyGMU+o0EOQhbKtBGX9oys/liUizB9gQz2XyjNyv2BYGkKfIpkRmsl8gt00owwPUC6oKFOk6pRw7OA84MlQ==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^6.5.9"
@@ -1765,9 +1765,9 @@
     classnames "^2.2.6"
 
 "@dhis2/ui-core@^4.9.1":
-  version "4.14.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-4.14.0.tgz#7ea25460d01cf5b9a830e9640373c49c3bc0fc07"
-  integrity sha512-nzhgUtxqJ5lr0mHbpN0/0AHtjhLCFHmdENn7+H9O2RHOiIRNsV1TzZBm6IqdJjFHfmS5l/y6Q+R1U1JJQwgwIA==
+  version "4.15.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-4.15.0.tgz#a8de086dec1bc7831bd1ac6eb4ee569509b7e41f"
+  integrity sha512-aYVJN3pEX8ZcsKhwlfXusn3ZSltGdHTlHkTo+RHMfqVxYvwZ+fYEi6OPd9FpZARifD3ydPAnshHnPYnYzVUliw==
   dependencies:
     "@dhis2/prop-types" "^1.5.0"
     "@popperjs/core" "^2.1.0"
@@ -12269,9 +12269,9 @@ react-is@^16.10.2, react-is@^16.8.4:
   integrity sha512-rPCkf/mWBtKc97aLL9/txD8DZdemK0vkA3JMLShjlJB3Pj3s+lpf1KaBzMfQrAmhMQB0n1cU/SUGgKKBCe837Q==
 
 react-is@^16.6.0, react-is@^16.6.3, react-is@^16.7.0, react-is@^16.8.1:
-  version "16.13.0"
-  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.0.tgz#0f37c3613c34fe6b37cd7f763a0d6293ab15c527"
-  integrity sha512-GFMtL0vHkiBv9HluwNZTggSn/sCyEt9n02aM0dSAjGGyqyNlAyftYm4phPxdvCigG15JreC5biwxCgTAJZ7yAA==
+  version "16.13.1"
+  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
+  integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
 react-is@^16.8.6, react-is@^16.9.0:
   version "16.10.1"
