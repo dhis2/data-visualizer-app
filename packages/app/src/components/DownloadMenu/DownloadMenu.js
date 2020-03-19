@@ -3,24 +3,21 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
 
-import Divider from '@material-ui/core/Divider'
-import Menu from '@material-ui/core/Menu'
-import MenuItem from '@material-ui/core/MenuItem'
-import ListItemIcon from '@material-ui/core/ListItemIcon'
-import ListItemText from '@material-ui/core/ListItemText'
-import ListSubheader from '@material-ui/core/ListSubheader'
-import ArrowRightIcon from '@material-ui/icons/ArrowRight'
+import { default as MuiButton } from '@material-ui/core/Button'
+
 import ImageIcon from '@material-ui/icons/Image'
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf'
 import ListIcon from '@material-ui/icons/List'
 import ListAltIcon from '@material-ui/icons/ListAlt'
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz'
 
+import { Menu, MenuItem, Divider, colors } from '@dhis2/ui-core'
+
 import i18n from '@dhis2/d2-i18n'
 
 import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
 
-import { styles } from './styles/DownloadMenu.style'
+import styles from './styles/DownloadMenu.module.css'
 
 import {
     sGetUiType,
@@ -41,30 +38,11 @@ export class DownloadMenu extends Component {
         super(props)
 
         this.state = {
-            anchorEl: null,
-            schemeSubmenu: {
-                anchorEl: null,
-                dataType: null,
-            },
-            advancedSubmenu: {
-                anchorEl: null,
-            },
+            dialogIsOpen: false,
         }
     }
 
-    toggleMenu = target => this.setState({ anchorEl: target || null })
-
-    toggleSubmenu = (id, target, dataType) => {
-        const key = `${id}Submenu`
-
-        const payload = { anchorEl: target || null }
-
-        if (id === 'scheme') {
-            payload.dataType = dataType || null
-        }
-
-        this.setState({ [key]: payload })
-    }
+    toggleMenu = () => this.setState({ dialogIsOpen: !this.state.dialogIsOpen })
 
     downloadImage = format => async () => {
         const { current, chart } = this.props
@@ -96,12 +74,6 @@ export class DownloadMenu extends Component {
             path,
         })
 
-        if (idScheme) {
-            this.toggleSubmenu('scheme')
-        } else {
-            this.toggleSubmenu('advanced')
-        }
-
         this.toggleMenu()
 
         window.open(url, format.match(/(xls|csv)/) ? '_top' : '_blank')
@@ -118,219 +90,191 @@ export class DownloadMenu extends Component {
             columns,
         })
 
+        this.toggleMenu()
+
         window.open(url, format === 'html' ? '_blank' : '_top')
     }
 
     graphicsMenuSection = () => (
-        <div>
-            <ListSubheader component="div">{i18n.t('Graphics')}</ListSubheader>
-            <MenuItem onClick={this.downloadImage('png')}>
-                <ListItemIcon>
-                    <ImageIcon />
-                </ListItemIcon>
-                <ListItemText>{i18n.t('Image (.png)')}</ListItemText>
-            </MenuItem>
-            <MenuItem onClick={this.downloadImage('pdf')}>
-                <ListItemIcon>
-                    <PictureAsPdfIcon />
-                </ListItemIcon>
-                <ListItemText>{i18n.t('PDF (.pdf)')}</ListItemText>
-            </MenuItem>
-        </div>
+        <Fragment>
+            <div className={styles.menuSectionTitle}>{i18n.t('Graphics')}</div>
+            <MenuItem
+                dense
+                icon={<ImageIcon style={{ color: colors.grey600 }} />}
+                label={i18n.t('Image (.png)')}
+                onClick={this.downloadImage('png')}
+            />
+            <MenuItem
+                dense
+                icon={<PictureAsPdfIcon style={{ color: colors.grey600 }} />}
+                label={i18n.t('PDF (.pdf)')}
+                onClick={this.downloadImage('pdf')}
+            />
+        </Fragment>
     )
 
     tableMenuSection = () => (
-        <div>
-            <ListSubheader component="div">
+        <Fragment>
+            <div className={styles.menuSectionTitle}>
                 {i18n.t('Table layout')}
-            </ListSubheader>
-            <MenuItem onClick={this.downloadTable('xls')}>
-                <ListItemIcon>
-                    <ListAltIcon />
-                </ListItemIcon>
-                <ListItemText>{i18n.t('Excel (.xls)')}</ListItemText>
-            </MenuItem>
-            <MenuItem onClick={this.downloadTable('csv')}>
-                <ListItemIcon>
-                    <ListAltIcon />
-                </ListItemIcon>
-                <ListItemText>{i18n.t('CSV (.csv)')}</ListItemText>
-            </MenuItem>
-            <MenuItem onClick={this.downloadTable('html')}>
-                <ListItemIcon>
-                    <ListAltIcon />
-                </ListItemIcon>
-                <ListItemText>{i18n.t('HTML (.html)')}</ListItemText>
-            </MenuItem>
-        </div>
+            </div>
+            <MenuItem
+                dense
+                icon={<ListAltIcon style={{ color: colors.grey600 }} />}
+                label={i18n.t('Excel (.xls)')}
+                onClick={this.downloadTable('xls')}
+            />
+            <MenuItem
+                dense
+                icon={<ListAltIcon style={{ color: colors.grey600 }} />}
+                label={i18n.t('CSV (.csv)')}
+                onClick={this.downloadTable('csv')}
+            />
+            <MenuItem
+                dense
+                icon={<ListAltIcon style={{ color: colors.grey600 }} />}
+                label={i18n.t('HTML (.html)')}
+                onClick={this.downloadTable('html')}
+            />
+        </Fragment>
+    )
+
+    plainDataSourceSubLevel = format => (
+        <Menu>
+            <div className={styles.menuSectionTitle}>
+                {i18n.t('Metadata ID scheme')}
+            </div>
+            <MenuItem label="ID" onClick={this.downloadData(format, 'UID')} />
+            <MenuItem
+                label="Code"
+                onClick={this.downloadData(format, 'CODE')}
+            />
+            <MenuItem
+                label="Name"
+                onClick={this.downloadData(format, 'NAME')}
+            />
+        </Menu>
     )
 
     render() {
         return (
-            <Fragment>
-                <MenuButton
-                    onClick={event => this.toggleMenu(event.currentTarget)}
-                    disabled={!this.props.current}
+            <div>
+                <MuiButton
+                    className={this.props.className}
+                    onClick={this.toggleMenu}
+                    style={{ position: 'relative' }}
                 >
                     {i18n.t('Download')}
-                </MenuButton>
-                <Menu
-                    open={Boolean(this.state.anchorEl)}
-                    anchorEl={this.state.anchorEl}
-                    anchorOrigin={styles.menuAnchorOrigin}
-                    getContentAnchorEl={null}
-                    onClose={() => this.toggleMenu()}
-                >
-                    {this.props.visType === VIS_TYPE_PIVOT_TABLE
-                        ? this.tableMenuSection()
-                        : this.graphicsMenuSection()}
-                    <Divider />
-                    <ListSubheader component="div">
-                        {i18n.t('Plain data source')}
-                    </ListSubheader>
-                    <MenuItem
-                        onClick={event =>
-                            this.toggleSubmenu(
-                                'scheme',
-                                event.currentTarget,
-                                'json'
-                            )
-                        }
-                    >
-                        <ListItemIcon>
-                            <ListIcon />
-                        </ListItemIcon>
-                        <ListItemText>JSON</ListItemText>
-                        <ArrowRightIcon style={styles.arrowIcon} />
-                    </MenuItem>
-                    <MenuItem
-                        onClick={event =>
-                            this.toggleSubmenu(
-                                'scheme',
-                                event.currentTarget,
-                                'xml'
-                            )
-                        }
-                    >
-                        <ListItemIcon>
-                            <ListIcon />
-                        </ListItemIcon>
-                        <ListItemText>XML</ListItemText>
-                        <ArrowRightIcon style={styles.arrowIcon} />
-                    </MenuItem>
-                    <MenuItem
-                        onClick={event =>
-                            this.toggleSubmenu(
-                                'scheme',
-                                event.currentTarget,
-                                'xls'
-                            )
-                        }
-                    >
-                        <ListItemIcon>
-                            <ListIcon />
-                        </ListItemIcon>
-                        <ListItemText>Excel</ListItemText>
-                        <ArrowRightIcon style={styles.arrowIcon} />
-                    </MenuItem>
-                    <MenuItem
-                        onClick={event =>
-                            this.toggleSubmenu(
-                                'scheme',
-                                event.currentTarget,
-                                'csv'
-                            )
-                        }
-                    >
-                        <ListItemIcon>
-                            <ListIcon />
-                        </ListItemIcon>
-                        <ListItemText>CSV</ListItemText>
-                        <ArrowRightIcon style={styles.arrowIcon} />
-                    </MenuItem>
-                    <MenuItem
-                        onClick={event =>
-                            this.toggleSubmenu('advanced', event.currentTarget)
-                        }
-                    >
-                        <ListItemIcon>
-                            <MoreHorizIcon />
-                        </ListItemIcon>
-                        <ListItemText>{i18n.t('Advanced')}</ListItemText>
-                        <ArrowRightIcon style={styles.arrowIcon} />
-                    </MenuItem>
-                </Menu>
-                <Menu
-                    open={Boolean(this.state.schemeSubmenu.anchorEl)}
-                    anchorEl={this.state.schemeSubmenu.anchorEl}
-                    anchorOrigin={styles.submenuAnchorOrigin}
-                    onClose={() => this.toggleSubmenu('scheme')}
-                >
-                    <ListSubheader component="div">
-                        {i18n.t('Metadata ID scheme')}
-                    </ListSubheader>
-                    <MenuItem
-                        onClick={this.downloadData(
-                            this.state.schemeSubmenu.dataType,
-                            'UID'
-                        )}
-                    >
-                        ID
-                    </MenuItem>
-                    <MenuItem
-                        onClick={this.downloadData(
-                            this.state.schemeSubmenu.dataType,
-                            'CODE'
-                        )}
-                    >
-                        Code
-                    </MenuItem>
-                    <MenuItem
-                        onClick={this.downloadData(
-                            this.state.schemeSubmenu.dataType,
-                            'NAME'
-                        )}
-                    >
-                        Name
-                    </MenuItem>
-                </Menu>
-                <Menu
-                    open={Boolean(this.state.advancedSubmenu.anchorEl)}
-                    anchorEl={this.state.advancedSubmenu.anchorEl}
-                    anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-                    onClose={() => this.toggleSubmenu('advanced')}
-                >
-                    <ListSubheader component="div">
-                        {i18n.t('Data value set')}
-                    </ListSubheader>
-                    <MenuItem
-                        onClick={this.downloadData(
-                            'json',
-                            null,
-                            'dataValueSet'
-                        )}
-                    >
-                        JSON
-                    </MenuItem>
-                    <MenuItem
-                        onClick={this.downloadData('xml', null, 'dataValueSet')}
-                    >
-                        XML
-                    </MenuItem>
-                    <Divider />
-                    <ListSubheader component="div">
-                        {i18n.t('Other formats')}
-                    </ListSubheader>
-                    <MenuItem onClick={this.downloadData('jrxml')}>
-                        JRXML
-                    </MenuItem>
-                    <MenuItem
-                        onClick={this.downloadData('sql', null, 'debug/sql')}
-                    >
-                        Raw data SQL
-                    </MenuItem>
-                </Menu>
-            </Fragment>
+                </MuiButton>
+                {this.state.dialogIsOpen && (
+                    <div className={styles.menuDiv}>
+                        <Menu>
+                            {this.props.visType === VIS_TYPE_PIVOT_TABLE
+                                ? this.tableMenuSection()
+                                : this.graphicsMenuSection()}
+                            <Divider />
+                            <div className={styles.menuSectionTitle}>
+                                {i18n.t('Plain data source')}
+                            </div>
+                            <MenuItem
+                                dense
+                                icon={
+                                    <ListIcon
+                                        style={{ color: colors.grey600 }}
+                                    />
+                                }
+                                label="JSON"
+                            >
+                                {this.plainDataSourceSubLevel('json')}
+                            </MenuItem>
+                            <MenuItem
+                                dense
+                                icon={
+                                    <ListIcon
+                                        style={{ color: colors.grey600 }}
+                                    />
+                                }
+                                label="XML"
+                            >
+                                {this.plainDataSourceSubLevel('xml')}
+                            </MenuItem>
+                            <MenuItem
+                                dense
+                                icon={
+                                    <ListIcon
+                                        style={{ color: colors.grey600 }}
+                                    />
+                                }
+                                label="Excel"
+                            >
+                                {this.plainDataSourceSubLevel('xls')}
+                            </MenuItem>
+                            <MenuItem
+                                dense
+                                icon={
+                                    <ListIcon
+                                        style={{ color: colors.grey600 }}
+                                    />
+                                }
+                                label="CSV"
+                            >
+                                {this.plainDataSourceSubLevel('csv')}
+                            </MenuItem>
+                            <MenuItem
+                                dense
+                                icon={
+                                    <MoreHorizIcon
+                                        style={{ color: colors.grey600 }}
+                                    />
+                                }
+                                label="Advanced"
+                            >
+                                <Menu>
+                                    <div className={styles.menuSectionTitle}>
+                                        {i18n.t('Data value set')}
+                                    </div>
+                                    <MenuItem
+                                        dense
+                                        label="JSON"
+                                        onClick={this.downloadData(
+                                            'json',
+                                            null,
+                                            'dataValueSet'
+                                        )}
+                                    />
+                                    <MenuItem
+                                        dense
+                                        label="XML"
+                                        onClick={this.downloadData(
+                                            'xml',
+                                            null,
+                                            'dataValueSet'
+                                        )}
+                                    />
+                                    <Divider />
+                                    <div className={styles.menuSectionTitle}>
+                                        {i18n.t('Other formats')}
+                                    </div>
+                                    <MenuItem
+                                        dense
+                                        label="JRXML"
+                                        onClick={this.downloadData('jrxml')}
+                                    />
+                                    <MenuItem
+                                        dense
+                                        label={i18n.t('Raw data SQL')}
+                                        onClick={this.downloadData(
+                                            'sql',
+                                            null,
+                                            'debug/sql'
+                                        )}
+                                    />
+                                </Menu>
+                            </MenuItem>
+                        </Menu>
+                    </div>
+                )}
+            </div>
         )
     }
 }
