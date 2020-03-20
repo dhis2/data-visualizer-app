@@ -1,3 +1,10 @@
+## [34.3.32](https://github.com/dhis2/data-visualizer-app/compare/v34.3.31...v34.3.32) (2020-03-20)
+
+
+### Bug Fixes
+
+* upgrade analytics for chart title fix [DHIS2-8473] ([#807](https://github.com/dhis2/data-visualizer-app/issues/807)) ([1a4955d](https://github.com/dhis2/data-visualizer-app/commit/1a4955d38bca6badd5a44815675c8a45dc188a93))
+
 ## [34.3.31](https://github.com/dhis2/data-visualizer-app/compare/v34.3.30...v34.3.31) (2020-03-18)
 
 
