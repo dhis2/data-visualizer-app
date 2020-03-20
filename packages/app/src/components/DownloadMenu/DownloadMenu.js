@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
@@ -9,7 +9,8 @@ import ImageIcon from '@material-ui/icons/Image'
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf'
 import ListIcon from '@material-ui/icons/List'
 import ListAltIcon from '@material-ui/icons/ListAlt'
-import MoreHorizIcon from '@material-ui/icons/MoreHoriz'
+
+import MoreHorizontalIcon from '../../assets/MoreHorizontalIcon'
 
 import { Menu, MenuItem, Divider, colors } from '@dhis2/ui-core'
 
@@ -32,6 +33,21 @@ import {
     apiDownloadTable,
 } from '../../api/analytics'
 import MenuButton from '../MenuButton/MenuButton'
+
+const DenseMenuItem = ({ Icon, children, ...rest }) => (
+    <MenuItem
+        dense
+        icon={Icon && <Icon style={{ color: colors.grey600 }} />}
+        {...rest}
+    >
+        {children}
+    </MenuItem>
+)
+
+DenseMenuItem.propTypes = {
+    Icon: PropTypes.element,
+    children: PropTypes.element,
+}
 
 export class DownloadMenu extends Component {
     constructor(props) {
@@ -96,47 +112,42 @@ export class DownloadMenu extends Component {
     }
 
     graphicsMenuSection = () => (
-        <Fragment>
+        <>
             <div className={styles.menuSectionTitle}>{i18n.t('Graphics')}</div>
-            <MenuItem
-                dense
-                icon={<ImageIcon style={{ color: colors.grey600 }} />}
+            <DenseMenuItem
+                Icon={ImageIcon}
                 label={i18n.t('Image (.png)')}
                 onClick={this.downloadImage('png')}
             />
-            <MenuItem
-                dense
-                icon={<PictureAsPdfIcon style={{ color: colors.grey600 }} />}
+            <DenseMenuItem
+                Icon={PictureAsPdfIcon}
                 label={i18n.t('PDF (.pdf)')}
                 onClick={this.downloadImage('pdf')}
             />
-        </Fragment>
+        </>
     )
 
     tableMenuSection = () => (
-        <Fragment>
+        <>
             <div className={styles.menuSectionTitle}>
                 {i18n.t('Table layout')}
             </div>
-            <MenuItem
-                dense
-                icon={<ListAltIcon style={{ color: colors.grey600 }} />}
+            <DenseMenuItem
+                Icon={ListAltIcon}
                 label={i18n.t('Excel (.xls)')}
                 onClick={this.downloadTable('xls')}
             />
-            <MenuItem
-                dense
-                icon={<ListAltIcon style={{ color: colors.grey600 }} />}
+            <DenseMenuItem
+                Icon={ListAltIcon}
                 label={i18n.t('CSV (.csv)')}
                 onClick={this.downloadTable('csv')}
             />
-            <MenuItem
-                dense
-                icon={<ListAltIcon style={{ color: colors.grey600 }} />}
+            <DenseMenuItem
+                Icon={ListAltIcon}
                 label={i18n.t('HTML (.html)')}
                 onClick={this.downloadTable('html')}
             />
-        </Fragment>
+        </>
     )
 
     plainDataSourceSubLevel = format => (
@@ -144,12 +155,15 @@ export class DownloadMenu extends Component {
             <div className={styles.menuSectionTitle}>
                 {i18n.t('Metadata ID scheme')}
             </div>
-            <MenuItem label="ID" onClick={this.downloadData(format, 'UID')} />
-            <MenuItem
+            <DenseMenuItem
+                label="ID"
+                onClick={this.downloadData(format, 'UID')}
+            />
+            <DenseMenuItem
                 label="Code"
                 onClick={this.downloadData(format, 'CODE')}
             />
-            <MenuItem
+            <DenseMenuItem
                 label="Name"
                 onClick={this.downloadData(format, 'NAME')}
             />
@@ -176,65 +190,27 @@ export class DownloadMenu extends Component {
                             <div className={styles.menuSectionTitle}>
                                 {i18n.t('Plain data source')}
                             </div>
-                            <MenuItem
-                                dense
-                                icon={
-                                    <ListIcon
-                                        style={{ color: colors.grey600 }}
-                                    />
-                                }
-                                label="JSON"
-                            >
+                            <DenseMenuItem Icon={ListIcon} label="JSON">
                                 {this.plainDataSourceSubLevel('json')}
-                            </MenuItem>
-                            <MenuItem
-                                dense
-                                icon={
-                                    <ListIcon
-                                        style={{ color: colors.grey600 }}
-                                    />
-                                }
-                                label="XML"
-                            >
+                            </DenseMenuItem>
+                            <DenseMenuItem Icon={ListIcon} label="XML">
                                 {this.plainDataSourceSubLevel('xml')}
-                            </MenuItem>
-                            <MenuItem
-                                dense
-                                icon={
-                                    <ListIcon
-                                        style={{ color: colors.grey600 }}
-                                    />
-                                }
-                                label="Excel"
-                            >
+                            </DenseMenuItem>
+                            <DenseMenuItem Icon={ListIcon} label="Excel">
                                 {this.plainDataSourceSubLevel('xls')}
-                            </MenuItem>
-                            <MenuItem
-                                dense
-                                icon={
-                                    <ListIcon
-                                        style={{ color: colors.grey600 }}
-                                    />
-                                }
-                                label="CSV"
-                            >
+                            </DenseMenuItem>
+                            <DenseMenuItem Icon={ListIcon} label="CSV">
                                 {this.plainDataSourceSubLevel('csv')}
-                            </MenuItem>
-                            <MenuItem
-                                dense
-                                icon={
-                                    <MoreHorizIcon
-                                        style={{ color: colors.grey600 }}
-                                    />
-                                }
+                            </DenseMenuItem>
+                            <DenseMenuItem
+                                Icon={MoreHorizontalIcon}
                                 label="Advanced"
                             >
                                 <Menu>
                                     <div className={styles.menuSectionTitle}>
                                         {i18n.t('Data value set')}
                                     </div>
-                                    <MenuItem
-                                        dense
+                                    <DenseMenuItem
                                         label="JSON"
                                         onClick={this.downloadData(
                                             'json',
@@ -242,8 +218,7 @@ export class DownloadMenu extends Component {
                                             'dataValueSet'
                                         )}
                                     />
-                                    <MenuItem
-                                        dense
+                                    <DenseMenuItem
                                         label="XML"
                                         onClick={this.downloadData(
                                             'xml',
@@ -255,13 +230,11 @@ export class DownloadMenu extends Component {
                                     <div className={styles.menuSectionTitle}>
                                         {i18n.t('Other formats')}
                                     </div>
-                                    <MenuItem
-                                        dense
+                                    <DenseMenuItem
                                         label="JRXML"
                                         onClick={this.downloadData('jrxml')}
                                     />
-                                    <MenuItem
-                                        dense
+                                    <DenseMenuItem
                                         label={i18n.t('Raw data SQL')}
                                         onClick={this.downloadData(
                                             'sql',
@@ -270,7 +243,7 @@ export class DownloadMenu extends Component {
                                         )}
                                     />
                                 </Menu>
-                            </MenuItem>
+                            </DenseMenuItem>
                         </Menu>
                     </div>
                 )}
