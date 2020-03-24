@@ -92,7 +92,6 @@ export const tDoLoadVisualization = ({
         clearVisualization(dispatch, getState, error)
 
         logError('tDoLoadVisualization', error)
-        dispatch(fromLoader.acSetLoadError())
     }
 }
 
