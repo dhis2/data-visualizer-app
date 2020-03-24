@@ -25,6 +25,7 @@ import history from '../modules/history'
 import { getVisualizationFromCurrent } from '../modules/visualization'
 import { convertOuLevelsToUids } from '../modules/orgUnit'
 import { apiPostDataStatistics } from '../api/dataStatistics'
+import { GenericServerError } from '../modules/error'
 
 export {
     fromVisualization,
@@ -40,9 +41,8 @@ export {
     fromLoader,
 }
 
-export const onError = (action, error) => {
+const logError = (action, error) => {
     console.log(`Error in action ${action}: ${error}`)
-    return error
 }
 
 // visualization, current, ui
@@ -80,16 +80,19 @@ export const tDoLoadVisualization = ({
 
     try {
         return onSuccess(await apiFetchVisualization(engine, id))
-    } catch (err) {
-        let error = err
+    } catch (errorResponse) {
+        let error = errorResponse
 
-        if (err && err.message) {
-            error = err.message
+        if (errorResponse && errorResponse.message) {
+            error = errorResponse.message
+        } else {
+            error = new GenericServerError()
         }
 
         clearVisualization(dispatch, getState, error)
 
-        return onError('tDoLoadVisualization', error)
+        logError('tDoLoadVisualization', error)
+        dispatch(fromLoader.acSetLoadError())
     }
 }
 
@@ -189,7 +192,12 @@ export const tDoSaveVisualization = ({ name, description }, copy) => async (
 
         return onSuccess(await apiSaveVisualization(engine, visualization))
     } catch (error) {
-        return onError('tDoSaveVisualization', error)
+        dispatch(fromLoader.acSetPluginLoading(false))
+        logError('tDoSaveVisualization', error)
+
+        // TODO: Once the API returns custom error codes for validation errors, make sure they're relayed properly to be displayed to the user
+        // In the meantime we only display a generic error (doesn't give any constructive information but at least it doesn't fail silently any more)
+        dispatch(fromLoader.acSetLoadError(new GenericServerError()))
     }
 }
 
