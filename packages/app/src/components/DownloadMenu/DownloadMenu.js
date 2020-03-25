@@ -46,7 +46,7 @@ const DenseMenuItem = ({ Icon, children, ...rest }) => (
 )
 
 DenseMenuItem.propTypes = {
-    Icon: PropTypes.element,
+    Icon: PropTypes.elementType,
     children: PropTypes.element,
 }
 
