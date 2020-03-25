@@ -8,7 +8,7 @@ import {
 } from '../Visualization'
 import StartScreen from '../StartScreen'
 import { GenericServerError } from '../../../modules/error'
-import LoadingMask from '../../widgets/LoadingMask'
+import LoadingMask from '../../../widgets/LoadingMask'
 
 jest.mock('@dhis2/data-visualizer-plugin', () => () => <div />)
 
