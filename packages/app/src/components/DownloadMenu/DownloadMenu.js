@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
@@ -49,20 +49,20 @@ DenseMenuItem.propTypes = {
     children: PropTypes.element,
 }
 
-export class DownloadMenu extends Component {
-    constructor(props) {
-        super(props)
+export const DownloadMenu = ({
+    current,
+    rows,
+    columns,
+    chart,
+    relativePeriodDate,
+    visType,
+    className,
+}) => {
+    const [dialogIsOpen, setDialogIsOpen] = useState(false)
 
-        this.state = {
-            dialogIsOpen: false,
-        }
-    }
+    const toggleMenu = () => setDialogIsOpen(!dialogIsOpen)
 
-    toggleMenu = () => this.setState({ dialogIsOpen: !this.state.dialogIsOpen })
-
-    downloadImage = format => async () => {
-        const { current, chart } = this.props
-
+    const downloadImage = format => async () => {
         const formData = new URLSearchParams()
 
         formData.append('filename', current.name)
@@ -74,14 +74,12 @@ export class DownloadMenu extends Component {
         const blob = await apiDownloadImage(format, formData)
         const url = URL.createObjectURL(blob)
 
-        this.toggleMenu()
+        toggleMenu()
 
         window.open(url, '_blank')
     }
 
-    downloadData = (format, idScheme, path) => async () => {
-        const { current, relativePeriodDate } = this.props
-
+    const downloadData = (format, idScheme, path) => async () => {
         const url = await apiDownloadData({
             current,
             format,
@@ -90,14 +88,12 @@ export class DownloadMenu extends Component {
             path,
         })
 
-        this.toggleMenu()
+        toggleMenu()
 
         window.open(url, format.match(/(xls|csv)/) ? '_top' : '_blank')
     }
 
-    downloadTable = format => async () => {
-        const { current, rows, columns, relativePeriodDate } = this.props
-
+    const downloadTable = format => async () => {
         const url = await apiDownloadTable({
             current,
             format,
@@ -106,28 +102,28 @@ export class DownloadMenu extends Component {
             columns,
         })
 
-        this.toggleMenu()
+        toggleMenu()
 
         window.open(url, format === 'html' ? '_blank' : '_top')
     }
 
-    graphicsMenuSection = () => (
+    const graphicsMenuSection = () => (
         <>
             <div className={styles.menuSectionTitle}>{i18n.t('Graphics')}</div>
             <DenseMenuItem
                 Icon={ImageIcon}
                 label={i18n.t('Image (.png)')}
-                onClick={this.downloadImage('png')}
+                onClick={downloadImage('png')}
             />
             <DenseMenuItem
                 Icon={PictureAsPdfIcon}
                 label={i18n.t('PDF (.pdf)')}
-                onClick={this.downloadImage('pdf')}
+                onClick={downloadImage('pdf')}
             />
         </>
     )
 
-    tableMenuSection = () => (
+    const tableMenuSection = () => (
         <>
             <div className={styles.menuSectionTitle}>
                 {i18n.t('Table layout')}
@@ -135,121 +131,116 @@ export class DownloadMenu extends Component {
             <DenseMenuItem
                 Icon={ListAltIcon}
                 label={i18n.t('Excel (.xls)')}
-                onClick={this.downloadTable('xls')}
+                onClick={downloadTable('xls')}
             />
             <DenseMenuItem
                 Icon={ListAltIcon}
                 label={i18n.t('CSV (.csv)')}
-                onClick={this.downloadTable('csv')}
+                onClick={downloadTable('csv')}
             />
             <DenseMenuItem
                 Icon={ListAltIcon}
                 label={i18n.t('HTML (.html)')}
-                onClick={this.downloadTable('html')}
+                onClick={downloadTable('html')}
             />
         </>
     )
 
-    plainDataSourceSubLevel = format => (
+    const plainDataSourceSubLevel = format => (
         <Menu>
             <div className={styles.menuSectionTitle}>
                 {i18n.t('Metadata ID scheme')}
             </div>
-            <DenseMenuItem
-                label="ID"
-                onClick={this.downloadData(format, 'UID')}
-            />
+            <DenseMenuItem label="ID" onClick={downloadData(format, 'UID')} />
             <DenseMenuItem
                 label="Code"
-                onClick={this.downloadData(format, 'CODE')}
+                onClick={downloadData(format, 'CODE')}
             />
             <DenseMenuItem
                 label="Name"
-                onClick={this.downloadData(format, 'NAME')}
+                onClick={downloadData(format, 'NAME')}
             />
         </Menu>
     )
 
-    render() {
-        return (
-            <div>
-                <MuiButton
-                    className={this.props.className}
-                    onClick={this.toggleMenu}
-                    style={{ position: 'relative' }}
-                >
-                    {i18n.t('Download')}
-                </MuiButton>
-                {this.state.dialogIsOpen && (
-                    <div className={styles.menuDiv}>
-                        <Menu>
-                            {this.props.visType === VIS_TYPE_PIVOT_TABLE
-                                ? this.tableMenuSection()
-                                : this.graphicsMenuSection()}
-                            <Divider />
-                            <div className={styles.menuSectionTitle}>
-                                {i18n.t('Plain data source')}
-                            </div>
-                            <DenseMenuItem Icon={ListIcon} label="JSON">
-                                {this.plainDataSourceSubLevel('json')}
-                            </DenseMenuItem>
-                            <DenseMenuItem Icon={ListIcon} label="XML">
-                                {this.plainDataSourceSubLevel('xml')}
-                            </DenseMenuItem>
-                            <DenseMenuItem Icon={ListIcon} label="Excel">
-                                {this.plainDataSourceSubLevel('xls')}
-                            </DenseMenuItem>
-                            <DenseMenuItem Icon={ListIcon} label="CSV">
-                                {this.plainDataSourceSubLevel('csv')}
-                            </DenseMenuItem>
-                            <DenseMenuItem
-                                Icon={MoreHorizontalIcon}
-                                label="Advanced"
-                            >
-                                <Menu>
-                                    <div className={styles.menuSectionTitle}>
-                                        {i18n.t('Data value set')}
-                                    </div>
-                                    <DenseMenuItem
-                                        label="JSON"
-                                        onClick={this.downloadData(
-                                            'json',
-                                            null,
-                                            'dataValueSet'
-                                        )}
-                                    />
-                                    <DenseMenuItem
-                                        label="XML"
-                                        onClick={this.downloadData(
-                                            'xml',
-                                            null,
-                                            'dataValueSet'
-                                        )}
-                                    />
-                                    <Divider />
-                                    <div className={styles.menuSectionTitle}>
-                                        {i18n.t('Other formats')}
-                                    </div>
-                                    <DenseMenuItem
-                                        label="JRXML"
-                                        onClick={this.downloadData('jrxml')}
-                                    />
-                                    <DenseMenuItem
-                                        label={i18n.t('Raw data SQL')}
-                                        onClick={this.downloadData(
-                                            'sql',
-                                            null,
-                                            'debug/sql'
-                                        )}
-                                    />
-                                </Menu>
-                            </DenseMenuItem>
-                        </Menu>
-                    </div>
-                )}
-            </div>
-        )
-    }
+    return (
+        <div>
+            <MuiButton
+                className={className}
+                onClick={toggleMenu}
+                style={{ position: 'relative' }}
+            >
+                {i18n.t('Download')}
+            </MuiButton>
+            {dialogIsOpen && (
+                <div className={styles.menuDiv}>
+                    <Menu>
+                        {visType === VIS_TYPE_PIVOT_TABLE
+                            ? tableMenuSection()
+                            : graphicsMenuSection()}
+                        <Divider />
+                        <div className={styles.menuSectionTitle}>
+                            {i18n.t('Plain data source')}
+                        </div>
+                        <DenseMenuItem Icon={ListIcon} label="JSON">
+                            {plainDataSourceSubLevel('json')}
+                        </DenseMenuItem>
+                        <DenseMenuItem Icon={ListIcon} label="XML">
+                            {plainDataSourceSubLevel('xml')}
+                        </DenseMenuItem>
+                        <DenseMenuItem Icon={ListIcon} label="Excel">
+                            {plainDataSourceSubLevel('xls')}
+                        </DenseMenuItem>
+                        <DenseMenuItem Icon={ListIcon} label="CSV">
+                            {plainDataSourceSubLevel('csv')}
+                        </DenseMenuItem>
+                        <DenseMenuItem
+                            Icon={MoreHorizontalIcon}
+                            label="Advanced"
+                        >
+                            <Menu>
+                                <div className={styles.menuSectionTitle}>
+                                    {i18n.t('Data value set')}
+                                </div>
+                                <DenseMenuItem
+                                    label="JSON"
+                                    onClick={downloadData(
+                                        'json',
+                                        null,
+                                        'dataValueSet'
+                                    )}
+                                />
+                                <DenseMenuItem
+                                    label="XML"
+                                    onClick={downloadData(
+                                        'xml',
+                                        null,
+                                        'dataValueSet'
+                                    )}
+                                />
+                                <Divider />
+                                <div className={styles.menuSectionTitle}>
+                                    {i18n.t('Other formats')}
+                                </div>
+                                <DenseMenuItem
+                                    label="JRXML"
+                                    onClick={downloadData('jrxml')}
+                                />
+                                <DenseMenuItem
+                                    label={i18n.t('Raw data SQL')}
+                                    onClick={downloadData(
+                                        'sql',
+                                        null,
+                                        'debug/sql'
+                                    )}
+                                />
+                            </Menu>
+                        </DenseMenuItem>
+                    </Menu>
+                </div>
+            )}
+        </div>
+    )
 }
 
 const relativePeriodDateSelector = createSelector(
@@ -275,4 +266,4 @@ const mapStateToProps = state => ({
     visType: sGetUiType(state),
 })
 
-export default connect(mapStateToProps, {})(DownloadMenu)
+export default connect(mapStateToProps)(DownloadMenu)
