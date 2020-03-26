@@ -153,7 +153,7 @@ describe('The DialogManager component', () => {
         )
     })
 
-    it('calls the closeDialog function', () => {
+    it.skip('calls the closeDialog function', () => {
         const dialog = dialogManager().setProps({
             dialogId: DIMENSION_ID_DATA,
         })
