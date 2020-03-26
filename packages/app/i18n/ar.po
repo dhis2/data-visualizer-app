@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 msgid "Rename successful"
-msgstr ""
+msgstr "تمت إعادة التسمية بنجاح"
 
 msgid "\"{{what}}\" successfully deleted."
 msgstr ""
@@ -26,13 +26,13 @@ msgid "Data Visualizer"
 msgstr "البيانات المرئية"
 
 msgid "Axis 1"
-msgstr ""
+msgstr "المحور 1"
 
 msgid "Axis 2"
-msgstr ""
+msgstr "المحور 2"
 
 msgid "Manage axes"
-msgstr ""
+msgstr "إدارة المحاور"
 
 msgid ""
 "A chart can have two axes. Each axis will have its own scale. Set the axis "
@@ -58,10 +58,10 @@ msgid "Graphics"
 msgstr "الرسومات"
 
 msgid "Image (.png)"
-msgstr ""
+msgstr "صورة (.png)"
 
 msgid "PDF (.pdf)"
-msgstr ""
+msgstr "بي دي اف (.pdf)"
 
 msgid "Plain data source"
 msgstr "مصدر البيانات الصريحة"
@@ -82,16 +82,16 @@ msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr ""
 
 msgid "Something went wrong"
-msgstr ""
+msgstr "هناك خطأ ما"
 
 msgid "Refresh to try again"
-msgstr ""
+msgstr "حدث للمحاولة مرة أخرى"
 
 msgid "Hide technical details"
-msgstr ""
+msgstr "إخفاء التفاصيل التقنية"
 
 msgid "Show technical details"
-msgstr ""
+msgstr "إظهار التفاصيل التقنية"
 
 msgid "The following information may be requested by technical support."
 msgstr ""
@@ -121,7 +121,7 @@ msgid "Unsaved chart"
 msgstr ""
 
 msgid "Edited"
-msgstr ""
+msgstr "تم التعديل"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
@@ -265,7 +265,7 @@ msgid "Chart subtitle"
 msgstr "العنوان الفرعي للمخطط البياني"
 
 msgid "Target line"
-msgstr ""
+msgstr "خط المستهدف"
 
 msgid "Target line title"
 msgstr "عنوان خط الهدف"
@@ -325,19 +325,19 @@ msgid "Year over year (column)"
 msgstr ""
 
 msgid "Reporting rate"
-msgstr ""
+msgstr "معدل التبليغ"
 
 msgid "Reporting rate on time"
-msgstr ""
+msgstr "معدل الإبلاغ في الوقت المحدد"
 
 msgid "Actual reports"
-msgstr ""
+msgstr "التبليغات الفعلية"
 
 msgid "Actual reports on time"
-msgstr ""
+msgstr "التبليغات الفعلية في الوقت المحدد"
 
 msgid "Expected reports"
-msgstr ""
+msgstr "الإبلاغات المتوقعة"
 
 msgid "Program"
 msgstr "البرنامج"
@@ -488,16 +488,16 @@ msgid "Months this year"
 msgstr "أشهر السنة الحالية"
 
 msgid "This bimonth"
-msgstr ""
+msgstr "ثنائي شهرين الحالي"
 
 msgid "Last bimonth"
-msgstr ""
+msgstr "آخر ثنائي شهري"
 
 msgid "Last 6 bimonths"
 msgstr ""
 
 msgid "Bimonths this year"
-msgstr ""
+msgstr "كل شهرين هذا العام"
 
 msgid "This quarter"
 msgstr "ربع السنة الحالي"
@@ -548,13 +548,13 @@ msgid "User org unit grand children"
 msgstr ""
 
 msgid "Weeks per year"
-msgstr ""
+msgstr "أسابيع في السنة"
 
 msgid "Months per year"
-msgstr ""
+msgstr "أشهر في السنة"
 
 msgid "Bimonths per year"
-msgstr ""
+msgstr "ثنائي شهري في السنة"
 
 msgid "Quarters per year"
-msgstr ""
+msgstr "ارباع في السنة"
