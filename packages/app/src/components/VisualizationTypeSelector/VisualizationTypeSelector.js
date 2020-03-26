@@ -1,11 +1,13 @@
-import React, { Component, Fragment } from 'react'
+import React, { useState, createRef } from 'react'
+import { createPortal } from 'react-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
-import Button from '@material-ui/core/Button'
-import Menu from '@material-ui/core/Menu'
+
 import { visTypeDisplayNames } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
+import { Card, Divider, Popper } from '@dhis2/ui-core'
 
 import { prepareCurrentAnalyticalObject } from '../../modules/currentAnalyticalObject'
 import { getAdaptedUiByType } from '../../modules/ui'
@@ -18,103 +20,92 @@ import {
     CURRENT_AO_KEY,
 } from '../../api/userDataStore'
 
-import VisualizationTypeMenuItem from './VisualizationTypeMenuItem'
+import VisualizationTypeListItem from './VisualizationTypeMenuItem'
 import MenuItemIcon from './MenuItemIcon'
-import styles from './styles/VisualizationTypeSelector.style'
+import styles from './styles/VisualizationTypeSelector.module.css'
 
 export const MAPS_APP_URL = 'dhis-web-maps'
 
-export const defaultState = {
-    anchorEl: null,
-}
+export const VisualizationTypeSelector = (
+    { visualizationType, ui, setUi, current, metadata },
+    context
+) => {
+    const baseUrl = context.baseUrl
 
-export class VisualizationTypeSelector extends Component {
-    constructor(props, context) {
-        super(props)
+    const [listIsOpen, setListIsOpen] = useState(false)
 
-        this.state = defaultState
-        this.baseUrl = context.baseUrl
+    const toggleList = () => setListIsOpen(!listIsOpen)
+
+    const handleListItemClick = type => () => {
+        setUi(getAdaptedUiByType({ ...ui, type }))
+        toggleList()
     }
 
-    handleButtonClick = event => {
-        this.setState({ anchorEl: event.currentTarget })
-    }
+    const handleOpenAsMapClick = async event => {
+        if (!current) {
+            event.stopPropagation()
+            return
+        }
 
-    handleMenuItemClick = type => () => {
-        this.props.setUi(getAdaptedUiByType({ ...this.props.ui, type }))
-        this.handleClose()
-    }
-
-    handleOpenAsMapClick = async () => {
         const currentAnalyticalObject = prepareCurrentAnalyticalObject(
-            this.props.current,
-            this.props.metadata,
-            this.props.ui
+            current,
+            metadata,
+            ui
         )
 
         await apiSaveAOInUserDataStore(currentAnalyticalObject)
 
-        window.location.href = `${this.baseUrl}/${MAPS_APP_URL}?${CURRENT_AO_KEY}=true`
+        window.location.href = `${baseUrl}/${MAPS_APP_URL}?${CURRENT_AO_KEY}=true`
     }
 
-    handleClose = () => {
-        this.setState({ anchorEl: null })
-    }
+    const getVisTypes = () => Object.keys(visTypeDisplayNames)
 
-    getVisTypes = () => Object.keys(visTypeDisplayNames)
-
-    render() {
-        const { anchorEl } = this.state
-        const { visualizationType } = this.props
-
-        return (
-            <Fragment>
-                <Button
-                    onClick={this.handleButtonClick}
-                    disableRipple
-                    disableFocusRipple
-                    fullWidth={true}
-                    size="small"
-                    style={styles.button}
-                >
-                    <MenuItemIcon iconType={visualizationType} />
-                    {visTypeDisplayNames[visualizationType]}
-                    <ArrowDropDownIcon style={styles.dropDownArrow} />
-                </Button>
-                <Menu
-                    open={Boolean(anchorEl)}
-                    anchorEl={anchorEl}
-                    anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
-                    onClose={this.handleClose}
-                    getContentAnchorEl={null}
-                    MenuListProps={{
-                        style: styles.menu,
-                    }}
-                >
-                    {this.getVisTypes().map(type => (
-                        <VisualizationTypeMenuItem
-                            key={type}
-                            iconType={type}
-                            label={visTypeDisplayNames[type]}
-                            isSelected={type === visualizationType}
-                            styles={styles}
-                            onClick={this.handleMenuItemClick(type)}
-                        />
-                    ))}
-                    <div style={styles.clearFix} />
-                    <hr style={styles.menuDivider} />
-                    <VisualizationTypeMenuItem
-                        key={'MAP'}
-                        iconType={'MAP'}
-                        label={i18n.t('Open as Map')} // TODO: Open as: Map when i18next nsSeparator fixed
-                        styles={styles}
-                        onClick={this.handleOpenAsMapClick}
-                        disabled={!this.props.current}
+    const VisTypesList = (
+        <Card>
+            <div className={styles.listContainer}>
+                {getVisTypes().map(type => (
+                    <VisualizationTypeListItem
+                        key={type}
+                        iconType={type}
+                        label={visTypeDisplayNames[type]}
+                        isSelected={type === visualizationType}
+                        onClick={handleListItemClick(type)}
                     />
-                </Menu>
-            </Fragment>
-        )
-    }
+                ))}
+                <Divider />
+                <VisualizationTypeListItem
+                    key={'MAP'}
+                    iconType={'MAP'}
+                    label={i18n.t('Open as Map')} // TODO: Open as: Map when i18next nsSeparator fixed
+                    onClick={handleOpenAsMapClick}
+                    disabled={!current}
+                />
+            </div>
+        </Card>
+    )
+
+    const buttonRef = createRef()
+
+    return (
+        <>
+            <div onClick={toggleList} ref={buttonRef} className={styles.button}>
+                <MenuItemIcon iconType={visualizationType} />
+                <span>{visTypeDisplayNames[visualizationType]}</span>
+                <ArrowDropDownIcon style={{ marginLeft: 'auto' }} />
+            </div>
+            {listIsOpen &&
+                createPortal(
+                    <div onClick={toggleList} className={styles.backdrop}>
+                        <Popper reference={buttonRef} placement="bottom-start">
+                            <div className={styles.cardContainer}>
+                                {VisTypesList}
+                            </div>
+                        </Popper>
+                    </div>,
+                    document.body
+                )}
+        </>
+    )
 }
 
 VisualizationTypeSelector.propTypes = {

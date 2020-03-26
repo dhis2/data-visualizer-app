@@ -3,7 +3,6 @@ import { shallow } from 'enzyme'
 import { VIS_TYPE_COLUMN } from '@dhis2/analytics'
 
 import VisualizationTypeMenuItem from '../VisualizationTypeMenuItem'
-import MenuItem from '@material-ui/core/MenuItem'
 import MenuItemIcon from '../MenuItemIcon'
 
 describe('VisualizationTypeMenuItem component ', () => {
@@ -21,15 +20,14 @@ describe('VisualizationTypeMenuItem component ', () => {
         props = {
             type: VIS_TYPE_COLUMN,
             visualizationType: VIS_TYPE_COLUMN,
-            styles: {},
         }
         shallowElement = undefined
     })
 
-    it('renders MenuItem', () => {
+    it('renders a div', () => {
         expect(
             element()
-                .find(MenuItem)
+                .find('div')
                 .first().length
         ).toEqual(1)
     })

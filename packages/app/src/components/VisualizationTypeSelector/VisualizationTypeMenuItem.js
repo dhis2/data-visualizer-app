@@ -1,40 +1,48 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import MenuItem from '@material-ui/core/MenuItem/MenuItem'
 
-import ListItemIcon from '@material-ui/core/ListItemIcon/ListItemIcon'
-import ListItemText from '@material-ui/core/ListItemText/ListItemText'
 import MenuItemIcon from './MenuItemIcon'
 
-const VisualizationTypeMenuItem = ({
-    iconType,
-    styles,
-    label,
-    isSelected,
-    ...props
-}) => (
-    <MenuItem
-        selected={Boolean(isSelected)}
-        style={styles.menuItem}
-        disableRipple
-        {...props}
-    >
-        <ListItemIcon style={styles.listItemIcon}>
-            <MenuItemIcon iconType={iconType} style={styles.listItemSvg} />
-        </ListItemIcon>
-        <ListItemText
-            primary={label}
-            disableTypography={true}
-            style={styles.listItemText}
-        />
-    </MenuItem>
-)
+import styles from './styles/VisualizationTypeSelector.module.css'
 
-VisualizationTypeMenuItem.propTypes = {
+const VisualizationTypeListItem = ({
+    iconType,
+    label,
+    disabled,
+    isSelected,
+    onClick,
+}) => {
+    const classNames = [styles.listItem]
+
+    if (isSelected) {
+        classNames.push(styles.listItemActive)
+    }
+
+    if (disabled) {
+        classNames.push(styles.listItemDisabled)
+    }
+
+    return (
+        <div className={classNames.join(' ')} onClick={onClick}>
+            <span className={styles.listItemIcon}>
+                {
+                    <MenuItemIcon
+                        iconType={iconType}
+                        style={{ width: 48, height: 48 }}
+                    />
+                }
+            </span>
+            <span className={styles.listItemText}>{label}</span>
+        </div>
+    )
+}
+
+VisualizationTypeListItem.propTypes = {
+    disabled: PropTypes.bool,
     iconType: PropTypes.string,
     isSelected: PropTypes.bool,
     label: PropTypes.string,
-    styles: PropTypes.object,
+    onClick: PropTypes.func,
 }
 
-export default VisualizationTypeMenuItem
+export default VisualizationTypeListItem
