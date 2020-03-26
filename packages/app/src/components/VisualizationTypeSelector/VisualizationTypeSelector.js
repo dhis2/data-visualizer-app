@@ -20,8 +20,8 @@ import {
     CURRENT_AO_KEY,
 } from '../../api/userDataStore'
 
-import VisualizationTypeListItem from './VisualizationTypeMenuItem'
-import MenuItemIcon from './MenuItemIcon'
+import VisualizationTypeListItem from './VisualizationTypeListItem'
+import ListItemIcon from './ListItemIcon'
 import styles from './styles/VisualizationTypeSelector.module.css'
 
 export const MAPS_APP_URL = 'dhis-web-maps'
@@ -89,7 +89,7 @@ export const VisualizationTypeSelector = (
     return (
         <>
             <div onClick={toggleList} ref={buttonRef} className={styles.button}>
-                <MenuItemIcon iconType={visualizationType} />
+                <ListItemIcon iconType={visualizationType} />
                 <span>{visTypeDisplayNames[visualizationType]}</span>
                 <ArrowDropDownIcon style={{ marginLeft: 'auto' }} />
             </div>

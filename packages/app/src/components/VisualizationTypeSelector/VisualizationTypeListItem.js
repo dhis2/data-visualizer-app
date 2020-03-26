@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import MenuItemIcon from './MenuItemIcon'
+import ListItemIcon from './ListItemIcon'
 
 import styles from './styles/VisualizationTypeSelector.module.css'
 
@@ -26,7 +26,7 @@ const VisualizationTypeListItem = ({
         <div className={classNames.join(' ')} onClick={onClick}>
             <span className={styles.listItemIcon}>
                 {
-                    <MenuItemIcon
+                    <ListItemIcon
                         iconType={iconType}
                         style={{ width: 48, height: 48 }}
                     />
