@@ -3,9 +3,6 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import debounce from 'lodash-es/debounce'
 import isEqual from 'lodash-es/isEqual'
-
-import Dialog from '@material-ui/core/Dialog'
-import DialogActions from '@material-ui/core/DialogActions'
 import i18n from '@dhis2/d2-i18n'
 import {
     DataDimension,
@@ -20,6 +17,13 @@ import {
     getDisplayNameByVisType,
     filterOutPredefinedDimensions,
 } from '@dhis2/analytics'
+import {
+    Modal,
+    ModalContent,
+    ModalActions,
+    ButtonStrip,
+    ModalTitle,
+} from '@dhis2/ui-core'
 
 import HideButton from '../../HideButton/HideButton'
 import AddToLayoutButton from './AddToLayoutButton/AddToLayoutButton'
@@ -195,7 +199,6 @@ export class DialogManager extends Component {
             displayNameProperty,
             dialogId,
             type,
-            dimensions,
             removeUiItems,
             setUiItems,
         } = this.props
@@ -277,14 +280,10 @@ export class DialogManager extends Component {
             )
 
             if (nonPredefinedDimensions.includes(dialogId)) {
-                const dialogTitle =
-                    dimensions[dialogId] && dimensions[dialogId].name
-
                 return (
                     <DynamicDimension
                         selectedItems={selectedItems}
                         dialogId={dialogId}
-                        dialogTitle={dialogTitle}
                         {...dimensionProps}
                         // TODO infoBoxMessage should ideally be implemented for all dimensions
                     />
@@ -322,23 +321,41 @@ export class DialogManager extends Component {
 
     render() {
         const { dialogId, dimensions } = this.props
-        const keepMounted = !dialogId || dialogId === DIMENSION_ID_ORGUNIT
+
+        const nonPredefinedDimensions = filterOutPredefinedDimensions(
+            Object.keys(this.props.dimensions)
+        )
+
+        let dialogTitle = ''
+
+        if (nonPredefinedDimensions.includes(dialogId)) {
+            dialogTitle = dimensions[dialogId] && dimensions[dialogId].name
+        }
+
+        // TODO: Add titles for other modal types here (Period etc)
 
         return (
-            <Dialog
-                data-test="dialog-manager"
-                open={dialogId in dimensions}
-                onClose={this.closeDialog}
-                maxWidth="lg"
-                disableEnforceFocus
-                keepMounted={keepMounted}
-            >
-                {this.renderDialogContent()}
-                <DialogActions>
-                    <HideButton onClick={this.closeDialog} />
-                    {dialogId && this.renderPrimaryButton(dialogId)}
-                </DialogActions>
-            </Dialog>
+            <Fragment>
+                {dialogId in dimensions && (
+                    <Modal
+                        onClose={this.closeDialog}
+                        data-test="dialog-manager"
+                        position="top"
+                        large
+                    >
+                        <ModalTitle>{dialogTitle}</ModalTitle>
+                        <ModalContent>
+                            {this.renderDialogContent()}
+                        </ModalContent>
+                        <ModalActions>
+                            <ButtonStrip>
+                                <HideButton onClick={this.closeDialog} />
+                                {dialogId && this.renderPrimaryButton(dialogId)}
+                            </ButtonStrip>
+                        </ModalActions>
+                    </Modal>
+                )}
+            </Fragment>
         )
     }
 }
