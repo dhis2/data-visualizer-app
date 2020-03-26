@@ -57,7 +57,6 @@ export class AddToLayoutButton extends Component {
 
         const ATLButton = availableAxes.length > 1 ? SplitButton : Button
 
-        // TODO: Fix bug with menu items rendering behind the dialog
         // TODO: Remove files Menu.s and DropDownButton.js (and their respective style.js) if they are now unused?
 
         return (
