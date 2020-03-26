@@ -2,6 +2,8 @@ import FileMenu from '../elements/FileMenu'
 import Dimensions from '../elements/Dimensions'
 import { chartTitleEl, chartContainer } from '../elements/Canvas'
 
+const HTTP_STATUS_OK = 200
+
 describe('Data visualizer', () => {
     let fileMenu
     before(() => {
@@ -18,7 +20,7 @@ describe('Data visualizer', () => {
         cy.title().should('equal', 'Data Visualizer | DHIS2')
     })
 
-    it('opens a chart', () => {
+    it.skip('opens a chart', () => {
         const chartTitle = 'ANC: 1-3 dropout rate Yearly'
 
         fileMenu.openFile(chartTitle)
@@ -51,12 +53,13 @@ describe('Data visualizer', () => {
 
             const dimensions = new Dimensions()
             dimensions.selectDimension('dx')
-            dimensions.selectIndicator('sB79w2hiLp8') //ANC 3 Coverage
+            // dimensions.selectItem('sB79w2hiLp8') //ANC 3 Coverage
+            dimensions.selectFirstItem()
             dimensions.clickUpdate()
 
             cy.wait('@getAnalytics')
                 .its('status')
-                .should('be', 200)
+                .should('be', HTTP_STATUS_OK)
 
             cy.get(chartContainer, {
                 log: false,

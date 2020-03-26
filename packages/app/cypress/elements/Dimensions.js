@@ -3,13 +3,17 @@ class Dimensions {
         cy.get(`[data-test=dimension-id-${dimension}]`).click()
     }
 
-    selectIndicator(indicator) {
-        cy.get(`[data-test=dimension-item-${indicator}]`).dblclick()
+    selectItem(itemId) {
+        cy.get(`[data-test=dimension-item-${itemId}]`).dblclick()
+    }
+
+    selectFirstItem() {
+        cy.get('.unselected-list li:first-child .unselected-item').dblclick()
     }
 
     clickUpdate() {
         cy.get(`[data-test=dialog-manager]`)
-            .find(`[data-test=update-button]`)
+            .contains('Update')
             .click()
     }
 }
