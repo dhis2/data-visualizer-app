@@ -1,11 +1,10 @@
 import React from 'react'
-import SvgIcon from '@material-ui/core/SvgIcon'
 import PropTypes from 'prop-types'
 
 const LineIcon = ({
     style = { paddingRight: '8px', width: 24, height: 24 },
 }) => (
-    <SvgIcon viewBox="0,0,48,48" style={style}>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0,0,48,48" style={style}>
         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
             <g>
                 <mask id="mask-line-icon" fill="white">
@@ -21,7 +20,7 @@ const LineIcon = ({
                 <rect fill="#9E9E9E" x="0" y="46" width="48" height="2" />
             </g>
         </g>
-    </SvgIcon>
+    </svg>
 )
 
 LineIcon.propTypes = {
