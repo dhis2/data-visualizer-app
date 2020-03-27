@@ -327,8 +327,11 @@ export class DialogManager extends Component {
         )
 
         let dialogTitle = ''
-
-        if (nonPredefinedDimensions.includes(dialogId)) {
+        if (dialogId === DIMENSION_ID_DATA) {
+            dialogTitle = i18n.t('Data')
+        } else if (dialogId === DIMENSION_ID_PERIOD) {
+            dialogTitle = i18n.t('Period')
+        } else if (nonPredefinedDimensions.includes(dialogId)) {
             dialogTitle = dimensions[dialogId] && dimensions[dialogId].name
         }
 
