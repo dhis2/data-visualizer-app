@@ -54,14 +54,12 @@ export class AddToLayoutButton extends Component {
 
     render() {
         const availableAxes = getAvailableAxes(this.props.visType)
-
-        const ATLButton = availableAxes.length > 1 ? SplitButton : Button
-
-        // TODO: Remove files Menu.s and DropDownButton.js (and their respective style.js) if they are now unused?
+        const AddToLayoutButton =
+            availableAxes.length > 1 ? SplitButton : Button
 
         return (
             <div ref={addToRef => (this.buttonRef = addToRef)}>
-                <ATLButton
+                <AddToLayoutButton
                     component={
                         availableAxes.length > 1 ? (
                             <Menu maxWidth="380px">
@@ -78,7 +76,7 @@ export class AddToLayoutButton extends Component {
                             getLayoutTypeByVisType(this.props.visType)
                         ),
                     })}
-                </ATLButton>
+                </AddToLayoutButton>
             </div>
         )
     }
