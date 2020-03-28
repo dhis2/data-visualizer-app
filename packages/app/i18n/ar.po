@@ -20,7 +20,7 @@ msgid "Rename successful"
 msgstr "تمت إعادة التسمية بنجاح"
 
 msgid "\"{{what}}\" successfully deleted."
-msgstr ""
+msgstr "تم حذف \"{{what}}\" بنجاح"
 
 msgid "Data Visualizer"
 msgstr "البيانات المرئية"
@@ -104,7 +104,7 @@ msgid "Show technical details"
 msgstr "إظهار التفاصيل التقنية"
 
 msgid "The following information may be requested by technical support."
-msgstr ""
+msgstr "قد يتم طلب المعلومات التالية من قبل الدعم الفني."
 
 msgid "Hide"
 msgstr "إخفاء"
@@ -128,7 +128,7 @@ msgid "Move to"
 msgstr ""
 
 msgid "None selected"
-msgstr ""
+msgstr "غير محدد"
 
 msgid "Unsaved chart"
 msgstr ""
@@ -137,7 +137,7 @@ msgid "Edited"
 msgstr "تم التعديل"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr ""
+msgstr "مشاهدة التفسير من  {{interpretationDate}}"
 
 msgid "Update"
 msgstr "تحديث"
@@ -492,7 +492,7 @@ msgid "Last bimonth"
 msgstr "آخر ثنائي شهري"
 
 msgid "Last 6 bimonths"
-msgstr ""
+msgstr "آخر 6 أزواج شهرية"
 
 msgid "Bimonths this year"
 msgstr "كل شهرين هذا العام"
