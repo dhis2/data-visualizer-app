@@ -20,7 +20,7 @@ msgid "Rename successful"
 msgstr "تمت إعادة التسمية بنجاح"
 
 msgid "\"{{what}}\" successfully deleted."
-msgstr ""
+msgstr "تم حذف \"{{what}}\" بنجاح"
 
 msgid "Data Visualizer"
 msgstr "البيانات المرئية"
@@ -38,6 +38,8 @@ msgid ""
 "A chart can have two axes. Each axis will have its own scale. Set the axis "
 "for each data selection below."
 msgstr ""
+"يمكن أن يحتوي المخطط على محورين. سيكون لكل محور مقياسه الخاص. قم بتعيين محور"
+" لكل مجموعة بيانات أدناه."
 
 msgid "Cancel"
 msgstr "إلغاء"
@@ -99,7 +101,7 @@ msgid "Show technical details"
 msgstr "إظهار التفاصيل التقنية"
 
 msgid "The following information may be requested by technical support."
-msgstr ""
+msgstr "قد يتم طلب المعلومات التالية من قبل الدعم الفني."
 
 msgid "Interpretations"
 msgstr "التفسيرات"
@@ -108,7 +110,7 @@ msgid "{{total}} of 1 selected"
 msgstr ""
 
 msgid "{{total}} selected"
-msgstr ""
+msgstr "{{total}} تم تحديدها"
 
 msgid "Series"
 msgstr "سلسلة"
@@ -123,7 +125,7 @@ msgid "Move to"
 msgstr ""
 
 msgid "None selected"
-msgstr ""
+msgstr "غير محدد"
 
 msgid "Only '{{name}}' in use"
 msgstr ""
@@ -135,7 +137,7 @@ msgid "Edited"
 msgstr "تم التعديل"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr ""
+msgstr "مشاهدة التفسير من  {{interpretationDate}}"
 
 msgid "Error validating layout"
 msgstr ""
@@ -517,7 +519,7 @@ msgid "Last bimonth"
 msgstr "آخر ثنائي شهري"
 
 msgid "Last 6 bimonths"
-msgstr ""
+msgstr "آخر 6 أزواج شهرية"
 
 msgid "Bimonths this year"
 msgstr "كل شهرين هذا العام"
