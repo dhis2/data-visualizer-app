@@ -169,7 +169,13 @@ export const DownloadMenu = ({
     return (
         <>
             <div ref={buttonRef}>
-                <MuiButton className={className} onClick={toggleMenu}>
+                <MuiButton
+                    className={className}
+                    onClick={toggleMenu}
+                    disableRipple={true}
+                    disableFocusRipple={true}
+                    disabled={!current}
+                >
                     {i18n.t('Download')}
                 </MuiButton>
             </div>
