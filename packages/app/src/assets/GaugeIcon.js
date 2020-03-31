@@ -1,11 +1,10 @@
 import React from 'react'
-import SvgIcon from '@material-ui/core/SvgIcon'
 import PropTypes from 'prop-types'
 
 const GaugeIcon = ({
     style = { paddingRight: '8px', width: 24, height: 24 },
 }) => (
-    <SvgIcon viewBox="0,0,48,48" style={style}>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0,0,48,48" style={style}>
         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
             <g transform="translate(0.000000, -12.000000)">
                 <path
@@ -20,7 +19,7 @@ const GaugeIcon = ({
                 />
             </g>
         </g>
-    </SvgIcon>
+    </svg>
 )
 
 GaugeIcon.propTypes = {

@@ -1,11 +1,10 @@
 import React from 'react'
-import SvgIcon from '@material-ui/core/SvgIcon'
 import PropTypes from 'prop-types'
 
 const PieIcon = ({
     style = { paddingRight: '8px', width: 24, height: 24 },
 }) => (
-    <SvgIcon viewBox="0,0,48,48" style={style}>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0,0,48,48" style={style}>
         <defs>
             <mask id="mask-4" fill="white">
                 <circle cx="24" cy="24" r="24" />
@@ -53,7 +52,7 @@ const PieIcon = ({
                 </g>
             </g>
         </g>
-    </SvgIcon>
+    </svg>
 )
 
 PieIcon.propTypes = {
