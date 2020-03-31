@@ -4,6 +4,7 @@ import i18n from '@dhis2/d2-i18n'
 import { withStyles } from '@material-ui/core/styles'
 import InfoIcon from '@material-ui/icons/InfoOutlined'
 import styles from './styles/FatalErrorBoundary.style'
+import { genericErrorTitle } from '../../modules/error'
 
 const translatedErrorHeading = i18n.t(
     'An error occurred in the DHIS2 Data Visualizer application.'
@@ -45,7 +46,7 @@ export class FatalErrorBoundary extends Component {
                     <div className={classes.container}>
                         <InfoIcon className={classes.icon} />
                         <div className={classes.message}>
-                            {i18n.t('Something went wrong')}
+                            {genericErrorTitle}
                         </div>
                         <div
                             className={classes.link}

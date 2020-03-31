@@ -1,3 +1,165 @@
+## [34.3.31](https://github.com/dhis2/data-visualizer-app/compare/v34.3.30...v34.3.31) (2020-03-18)
+
+
+### Bug Fixes
+
+* analytics@4.3.22 (DHIS2-8486) ([#805](https://github.com/dhis2/data-visualizer-app/issues/805)) ([490d8c7](https://github.com/dhis2/data-visualizer-app/commit/490d8c76af857b09ab51a84fa43069678bd9d3b9))
+
+## [34.3.30](https://github.com/dhis2/data-visualizer-app/compare/v34.3.29...v34.3.30) (2020-03-16)
+
+
+### Bug Fixes
+
+* update analytics dep ([#802](https://github.com/dhis2/data-visualizer-app/issues/802)) ([1df988f](https://github.com/dhis2/data-visualizer-app/commit/1df988f9278ba3d2359af33e531bf5dcc3c63c58))
+
+## [34.3.29](https://github.com/dhis2/data-visualizer-app/compare/v34.3.28...v34.3.29) (2020-03-16)
+
+
+### Bug Fixes
+
+* analytics@4.3.20 ([#801](https://github.com/dhis2/data-visualizer-app/issues/801)) ([87c6ca0](https://github.com/dhis2/data-visualizer-app/commit/87c6ca04ed02ef95f1c2c43e6d597f62c75d5e2f))
+
+## [34.3.28](https://github.com/dhis2/data-visualizer-app/compare/v34.3.27...v34.3.28) (2020-03-11)
+
+
+### Bug Fixes
+
+* pivot table fixes, upgrade analytics, and fix en.pot ([#796](https://github.com/dhis2/data-visualizer-app/issues/796)) ([71c10ed](https://github.com/dhis2/data-visualizer-app/commit/71c10ed9c9fa4df02bd87ad76d36c806b2b5fac9))
+
+## [34.3.27](https://github.com/dhis2/data-visualizer-app/compare/v34.3.26...v34.3.27) (2020-03-11)
+
+
+### Bug Fixes
+
+* only request numDen for pivot tables ([#793](https://github.com/dhis2/data-visualizer-app/issues/793)) [skip ci] ([83fd843](https://github.com/dhis2/data-visualizer-app/commit/83fd8438afbecedf5966510e58dbbff81aa79db0))
+* upgrade d2 to latest ([#794](https://github.com/dhis2/data-visualizer-app/issues/794)) ([4cd9caf](https://github.com/dhis2/data-visualizer-app/commit/4cd9caf51ed0e60e1daeff546398d51d1433540e))
+
+## [34.3.26](https://github.com/dhis2/data-visualizer-app/compare/v34.3.25...v34.3.26) (2020-03-10)
+
+
+### Bug Fixes
+
+* upgrade analytics 4.3.11 -> 4.3.15 ([c6ed440](https://github.com/dhis2/data-visualizer-app/commit/c6ed440bdb9d7ee05ceabea2d9297c47d9976861))
+
+## [34.3.25](https://github.com/dhis2/data-visualizer-app/compare/v34.3.24...v34.3.25) (2020-03-10)
+
+
+### Bug Fixes
+
+* include numerator and denominator in analytics requests ([#787](https://github.com/dhis2/data-visualizer-app/issues/787)) ([56ee4e8](https://github.com/dhis2/data-visualizer-app/commit/56ee4e86dab56c4d89e0be2b8621a3625b0aead5))
+
+## [34.3.24](https://github.com/dhis2/data-visualizer-app/compare/v34.3.23...v34.3.24) (2020-03-10)
+
+
+### Bug Fixes
+
+* show names for levels and groups in dimension chip tooltip ([#792](https://github.com/dhis2/data-visualizer-app/issues/792)) ([0e91268](https://github.com/dhis2/data-visualizer-app/commit/0e912686d64709f680520755ea573c283e363628))
+
+## [34.3.23](https://github.com/dhis2/data-visualizer-app/compare/v34.3.22...v34.3.23) (2020-03-10)
+
+
+### Bug Fixes
+
+* saving incorrectly shows the confirmation  ([#791](https://github.com/dhis2/data-visualizer-app/issues/791)) ([b1d91ee](https://github.com/dhis2/data-visualizer-app/commit/b1d91ee04dac020aaa251f6918adf3b51b6e9b78))
+
+## [34.3.22](https://github.com/dhis2/data-visualizer-app/compare/v34.3.21...v34.3.22) (2020-03-10)
+
+
+### Bug Fixes
+
+* Pivot Table allow empty col or row ([#789](https://github.com/dhis2/data-visualizer-app/issues/789)) ([ee337a5](https://github.com/dhis2/data-visualizer-app/commit/ee337a5181cd201d81c455734c826058bde2db13))
+
+## [34.3.21](https://github.com/dhis2/data-visualizer-app/compare/v34.3.20...v34.3.21) (2020-03-10)
+
+
+### Bug Fixes
+
+* missing translation in sharing dialog (DHIS2-8249) ([#790](https://github.com/dhis2/data-visualizer-app/issues/790)) ([23a3cac](https://github.com/dhis2/data-visualizer-app/commit/23a3cacfa3844b1e212e89156774f80339ea7b16))
+
+## [34.3.20](https://github.com/dhis2/data-visualizer-app/compare/v34.3.19...v34.3.20) (2020-03-10)
+
+
+### Bug Fixes
+
+* confirmation before navigating away from unsaved state (DHIS2-8432) ([#788](https://github.com/dhis2/data-visualizer-app/issues/788)) ([66e1dbc](https://github.com/dhis2/data-visualizer-app/commit/66e1dbc345d0681fd2512d82606b67199762e223))
+
+## [34.3.19](https://github.com/dhis2/data-visualizer-app/compare/v34.3.18...v34.3.19) (2020-03-10)
+
+
+### Bug Fixes
+
+* fix loading translations for share/translate dialogs (DHIS2-8249) ([#785](https://github.com/dhis2/data-visualizer-app/issues/785)) ([6184770](https://github.com/dhis2/data-visualizer-app/commit/618477081c8c011165cdfd92c73d7639bb855274))
+
+## [34.3.18](https://github.com/dhis2/data-visualizer-app/compare/v34.3.17...v34.3.18) (2020-03-06)
+
+
+### Bug Fixes
+
+* upgraded to d2-ui-file-menu v6.5.10, improved open dialog vis types ([#786](https://github.com/dhis2/data-visualizer-app/issues/786)) ([3c8f80c](https://github.com/dhis2/data-visualizer-app/commit/3c8f80c9e0922388efe9113d79a616ac65c52008)), closes [dhis2/d2-ui#574](https://github.com/dhis2/d2-ui/issues/574)
+
+## [34.3.17](https://github.com/dhis2/data-visualizer-app/compare/v34.3.16...v34.3.17) (2020-03-06)
+
+
+### Bug Fixes
+
+* upgraded to Analytics v4.3.8 for title ellipsis ([#784](https://github.com/dhis2/data-visualizer-app/issues/784)) ([92fcbf5](https://github.com/dhis2/data-visualizer-app/commit/92fcbf56ec6ea26818816c97c8434140a95626ad))
+
+## [34.3.16](https://github.com/dhis2/data-visualizer-app/compare/v34.3.15...v34.3.16) (2020-03-05)
+
+
+### Bug Fixes
+
+* do not pass options intended for download request DHIS2-8401 ([#783](https://github.com/dhis2/data-visualizer-app/issues/783)) ([a223011](https://github.com/dhis2/data-visualizer-app/commit/a2230119dd2a20e2c3cb9a176646af43122b7878))
+
+## [34.3.15](https://github.com/dhis2/data-visualizer-app/compare/v34.3.14...v34.3.15) (2020-03-05)
+
+
+### Bug Fixes
+
+* updated the error and start page texts based on user feedback ([#781](https://github.com/dhis2/data-visualizer-app/issues/781)) ([a51b9e0](https://github.com/dhis2/data-visualizer-app/commit/a51b9e0100a2867ab7940e2e2a3d4fe642bea6fd))
+
+## [34.3.14](https://github.com/dhis2/data-visualizer-app/compare/v34.3.13...v34.3.14) (2020-03-04)
+
+
+### Bug Fixes
+
+* support adaptive clipping for pivot tables ([#782](https://github.com/dhis2/data-visualizer-app/issues/782)) ([2b0cfa8](https://github.com/dhis2/data-visualizer-app/commit/2b0cfa81a8fc0befd9264ea48f7599d3af2c211b))
+
+## [34.3.13](https://github.com/dhis2/data-visualizer-app/compare/v34.3.12...v34.3.13) (2020-03-04)
+
+
+### Bug Fixes
+
+* bump @dhis2/analytics@4.3.4 to fix DHIS2-6562 ([#780](https://github.com/dhis2/data-visualizer-app/issues/780)) ([c586e40](https://github.com/dhis2/data-visualizer-app/commit/c586e408f4414f759ad5706aff8c95f60fc53d2f))
+
+## [34.3.12](https://github.com/dhis2/data-visualizer-app/compare/v34.3.11...v34.3.12) (2020-03-04)
+
+
+### Bug Fixes
+
+* load /#/currentAnalyticalObject crash ([#779](https://github.com/dhis2/data-visualizer-app/issues/779)) ([472dd54](https://github.com/dhis2/data-visualizer-app/commit/472dd54db3e2d9eb74e78ad9205e368fc521ef9e))
+
+## [34.3.11](https://github.com/dhis2/data-visualizer-app/compare/v34.3.10...v34.3.11) (2020-03-04)
+
+
+### Bug Fixes
+
+* DEGS and RR combination error ([#758](https://github.com/dhis2/data-visualizer-app/issues/758)) ([8c4f11b](https://github.com/dhis2/data-visualizer-app/commit/8c4f11b2c797e7d928fb1c50873181f7bba026c5))
+
+## [34.3.10](https://github.com/dhis2/data-visualizer-app/compare/v34.3.9...v34.3.10) (2020-03-03)
+
+
+### Bug Fixes
+
+* interpretations panel show for PT visualization type DHIS2-8300 ([#778](https://github.com/dhis2/data-visualizer-app/issues/778)) ([8cc1643](https://github.com/dhis2/data-visualizer-app/commit/8cc1643007a1cc847057ce1689a3f8e9b58bf3c0))
+
+## [34.3.9](https://github.com/dhis2/data-visualizer-app/compare/v34.3.8...v34.3.9) (2020-03-02)
+
+
+### Bug Fixes
+
+* @dhis2/analytics@4.3.1 ([#759](https://github.com/dhis2/data-visualizer-app/issues/759)) ([9277236](https://github.com/dhis2/data-visualizer-app/commit/9277236d3a6cab7d10a78dc9dbe0f2e91bf8c61b))
+
 ## [34.3.8](https://github.com/dhis2/data-visualizer-app/compare/v34.3.7...v34.3.8) (2020-02-27)
 
 

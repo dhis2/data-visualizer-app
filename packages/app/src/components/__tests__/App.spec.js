@@ -9,6 +9,7 @@ import { getStubContext } from '../../../../../config/testsContext'
 import { CURRENT_AO_KEY } from '../../api/userDataStore'
 import * as userDataStore from '../../api/userDataStore'
 import * as ui from '../../modules/ui'
+import { DEFAULT_CURRENT } from '../../reducers/current'
 
 jest.mock('../Visualization/Visualization', () => () => <div />)
 
@@ -40,7 +41,7 @@ describe('App', () => {
             snackbarMessage: '',
             loadError: null,
             interpretations: [],
-            current: {},
+            current: DEFAULT_CURRENT,
             ui: { rightSidebarOpen: false },
             location: { pathname: '/' },
             settings: {
@@ -52,9 +53,10 @@ describe('App', () => {
             },
 
             addParentGraphMap: jest.fn(),
-            setVisualization: jest.fn(),
             setUiFromVisualization: jest.fn(),
             setCurrentFromUi: jest.fn(),
+            clearVisualization: jest.fn(),
+            clearCurrent: jest.fn(),
         }
         shallowApp = undefined
 
@@ -137,9 +139,10 @@ describe('App', () => {
                 ).toBeCalledTimes(1)
 
                 expect(props.addParentGraphMap).toBeCalledTimes(1)
-                expect(props.setCurrentFromUi).toBeCalledTimes(1)
-                expect(props.setVisualization).toBeCalledTimes(1)
+                expect(props.clearVisualization).toBeCalledTimes(1)
+                expect(props.clearCurrent).toBeCalledTimes(1)
                 expect(props.setUiFromVisualization).toBeCalledTimes(1)
+                expect(props.setCurrentFromUi).toBeCalledTimes(1)
 
                 done()
             })

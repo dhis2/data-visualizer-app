@@ -87,7 +87,7 @@ export const options = {
     subtitle: { defaultValue: undefined, requestable: false, savable: true },
     title: { defaultValue: undefined, requestable: false, savable: true },
 
-    // only for PT XXX
+    // only for PT
     colTotals: { defaultValue: false, requestable: false, savable: true },
     colSubTotals: { defaultValue: false, requestable: false, savable: true },
     rowTotals: { defaultValue: false, requestable: false, savable: true },
@@ -97,14 +97,18 @@ export const options = {
         requestable: false,
         savable: true,
     },
-    hideEmptyColumns: { defaultValue: false, requestable: true, savable: true },
-    hideEmptyRows: { defaultValue: false, requestable: true, savable: true },
+    hideEmptyColumns: {
+        defaultValue: false,
+        requestable: false,
+        savable: true,
+    },
+    hideEmptyRows: { defaultValue: false, requestable: false, savable: true },
     skipRounding: { defaultValue: false, requestable: true, savable: true },
     numberType: { defaultValue: 'VALUE', requestable: false, savable: true },
     showHierarchy: { defaultValue: false, requestable: true, savable: true },
     legendSet: { defaultValue: undefined, requestable: false, savable: true },
     legendDisplayStrategy: {
-        defaultValue: undefined,
+        defaultValue: 'FIXED',
         requestable: false,
         savable: true,
     },
@@ -162,6 +166,7 @@ export const computedOptions = {
     baseLine: { defaultValue: false, requestable: false, savable: false },
     targetLine: { defaultValue: false, requestable: false, savable: false },
     axisRange: { defaultValue: undefined, requestable: false, savable: false },
+    legend: { defaultValue: undefined, requestable: false, savable: false },
 }
 
 export default options
