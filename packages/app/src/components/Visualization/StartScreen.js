@@ -8,7 +8,7 @@ import { apiFetchMostViewedVisualizations } from '../../api/mostViewedVisualizat
 import history from '../../modules/history'
 import { withStyles } from '@material-ui/core/styles'
 import { useDataEngine } from '@dhis2/app-runtime'
-import { VisualizationError } from '../../modules/error'
+import { VisualizationError, genericErrorTitle } from '../../modules/error'
 import { GenericError } from '../../assets/ErrorIcons'
 import { apiFetchVisualizations } from '../../api/visualization'
 import { visTypeIcons } from '@dhis2/analytics'
@@ -61,9 +61,7 @@ const StartScreen = ({ error, classes }) => {
                             {i18n.t('Add dimensions to the layout above')}
                         </li>
                         <li style={styles.guideItem}>
-                            {i18n.t(
-                                'Double click a dimension to add or remove items'
-                            )}
+                            {i18n.t('Click a dimension to add or remove items')}
                         </li>
                     </ul>
                 </div>
@@ -103,9 +101,7 @@ const StartScreen = ({ error, classes }) => {
         ) : (
             <div style={styles.errorContainer}>
                 <div style={styles.errorIcon}>{GenericError()}</div>
-                <p style={styles.errorTitle}>
-                    {i18n.t('Something went wrong')}
-                </p>
+                <p style={styles.errorTitle}>{genericErrorTitle}</p>
                 <p style={styles.errorDescription}>{error.message || error}</p>
             </div>
         )
