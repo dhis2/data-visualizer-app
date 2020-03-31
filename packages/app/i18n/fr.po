@@ -2,13 +2,14 @@
 # Viktor Varland <viktor@dhis2.org>, 2019
 # Bram Piot <bram.piot@gmail.com>, 2019
 # phil_dhis2, 2019
+# Karoline Tufte Lien <karoline@dhis2.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-02-26T13:21:17.550Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
-"Last-Translator: phil_dhis2, 2019\n"
+"Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -75,7 +76,7 @@ msgid "Advanced"
 msgstr "Avancé"
 
 msgid "Metadata ID scheme"
-msgstr ""
+msgstr "Schéma ID des métadata"
 
 msgid "Data value set"
 msgstr "Ensemble de valeurs de données"
@@ -183,7 +184,7 @@ msgid "Standard deviation"
 msgstr "Écart type"
 
 msgid "Variance"
-msgstr ""
+msgstr "Variance"
 
 msgid "Base line"
 msgstr ""
