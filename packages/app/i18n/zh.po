@@ -2,13 +2,14 @@
 # phil_dhis2, 2020
 # easylin <lin_xd@126.com>, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
+# 晓东 林 <13981924470@126.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-03-11T02:52:13.220Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -198,7 +199,7 @@ msgid "Your most viewed charts and tables"
 msgstr ""
 
 msgid "Aggregation type"
-msgstr ""
+msgstr "汇总类型"
 
 msgid "Determines how the values in the pivot table are aggregated."
 msgstr ""
@@ -213,7 +214,7 @@ msgid "Average"
 msgstr "平均"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr ""
+msgstr "平均 (按机构体系结构求和)"
 
 msgid "Sum"
 msgstr "求和"
@@ -222,7 +223,7 @@ msgid "Last value"
 msgstr ""
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr ""
+msgstr "最近值(按机构体系平均)"
 
 msgid "Min"
 msgstr "最小"
@@ -357,7 +358,7 @@ msgid "Auto generated"
 msgstr ""
 
 msgid "Custom"
-msgstr ""
+msgstr "定制"
 
 msgid "Table title"
 msgstr "表标题"
@@ -741,7 +742,7 @@ msgid "Display empty data"
 msgstr ""
 
 msgid "Labels"
-msgstr ""
+msgstr "标签"
 
 msgid "Limit values"
 msgstr ""
