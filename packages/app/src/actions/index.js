@@ -172,6 +172,7 @@ export const tDoSaveVisualization = ({ name, description }, copy) => async (
     }
 
     try {
+        dispatch(fromLoader.acSetPluginLoading(true))
         const visualization = getVisualizationFromCurrent(
             sGetCurrent(getState())
         )

@@ -10,7 +10,6 @@ import InterpretationsButton from '../Interpretations/InterpretationsButton'
 import VisualizationOptionsManager from '../VisualizationOptions/VisualizationOptionsManager'
 import UpdateVisualizationContainer from '../UpdateButton/UpdateVisualizationContainer'
 import * as fromActions from '../../actions'
-import * as fromLoader from '../../actions/loader'
 import { sGetCurrent } from '../../reducers/current'
 import history from '../../modules/history'
 import { parseError } from '../../modules/error'
@@ -78,10 +77,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     onRenameVisualization: details =>
         dispatch(fromActions.tDoRenameVisualization(details)),
-    onSaveVisualization: (details, copy) => {
-        dispatch(fromLoader.acSetPluginLoading(true))
-        dispatch(fromActions.tDoSaveVisualization(details, copy))
-    },
+    onSaveVisualization: (details, copy) =>
+        dispatch(fromActions.tDoSaveVisualization(details, copy)),
     onDeleteVisualization: () => dispatch(fromActions.tDoDeleteVisualization()),
     onError: error => {
         const { type, message } = parseError(error)
