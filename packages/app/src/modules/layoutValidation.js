@@ -6,6 +6,7 @@ import {
     VIS_TYPE_PIE,
     VIS_TYPE_GAUGE,
     VIS_TYPE_SINGLE_VALUE,
+    VIS_TYPE_PIVOT_TABLE,
     getPredefinedDimensionProp,
     dimensionIsValid,
     layoutGetDimension,
@@ -19,6 +20,7 @@ import {
     NoCategoryError,
     NoPeriodError,
     NoDataError,
+    NoSeriesOrCategoryError,
 } from './error'
 
 // Layout validation helper functions
@@ -51,6 +53,16 @@ const validateDefaultLayout = layout => {
     validateAxis(layout.rows, new NoCategoryError(layout.type))
     validateDimension(
         layoutGetDimension(layout, DIMENSION_ID_PERIOD), // TODO: old validation rule, refactor
+        new NoPeriodError(layout.type)
+    )
+}
+
+const validatePivotTableLayout = layout => {
+    if (!isAxisValid(layout.columns) && !isAxisValid(layout.rows)) {
+        throw new NoSeriesOrCategoryError(layout.type)
+    }
+    validateDimension(
+        layoutGetDimension(layout, DIMENSION_ID_PERIOD),
         new NoPeriodError(layout.type)
     )
 }
@@ -93,8 +105,6 @@ const validateSingleValueLayout = layout => {
     )
 }
 
-// TODO: Add validatePivotLayout
-
 export const validateLayout = layout => {
     switch (layout.type) {
         case VIS_TYPE_PIE:
@@ -105,6 +115,8 @@ export const validateLayout = layout => {
         case VIS_TYPE_SINGLE_VALUE:
         case VIS_TYPE_GAUGE:
             return validateSingleValueLayout(layout)
+        case VIS_TYPE_PIVOT_TABLE:
+            return validatePivotTableLayout(layout)
         default:
             return validateDefaultLayout(layout)
     }

@@ -3,9 +3,9 @@ import {
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
-    VIS_TYPE_COLUMN,
     DIMENSION_ID_ASSIGNED_CATEGORIES,
     canDimensionBeAddedToAxis,
+    defaultVisType,
 } from '@dhis2/analytics'
 
 import {
@@ -39,7 +39,7 @@ export const CLEAR_UI_INTERPRETATION = 'CLEAR_UI_INTERPRETATION'
 export const SET_AXES = 'SET_AXES'
 
 export const DEFAULT_UI = {
-    type: VIS_TYPE_COLUMN,
+    type: defaultVisType,
     options: getOptionsForUi(),
     layout: {
         columns: [DIMENSION_ID_DATA],
