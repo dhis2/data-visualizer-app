@@ -16,7 +16,6 @@ import {
     getAxisMaxNumberOfItems,
     getDisplayNameByVisType,
     filterOutPredefinedDimensions,
-    _testSelectFromAnalytics,
 } from '@dhis2/analytics'
 import {
     Modal,
@@ -24,8 +23,6 @@ import {
     ModalActions,
     ButtonStrip,
     ModalTitle,
-    SingleSelectField,
-    SingleSelectOption,
 } from '@dhis2/ui-core'
 
 import HideButton from '../../HideButton/HideButton'
@@ -351,20 +348,6 @@ export class DialogManager extends Component {
                     >
                         <ModalTitle>{dialogTitle}</ModalTitle>
                         <ModalContent>
-                            <h1>Test select in modal</h1>
-                            <_testSelectFromAnalytics></_testSelectFromAnalytics>
-                            <SingleSelectField label={'From DV'}>
-                                <SingleSelectOption
-                                    value="three"
-                                    key={3}
-                                    label="three"
-                                />
-                                <SingleSelectOption
-                                    value="four"
-                                    key={4}
-                                    label="four"
-                                />
-                            </SingleSelectField>
                             {this.renderDialogContent()}
                         </ModalContent>
                         <ModalActions>

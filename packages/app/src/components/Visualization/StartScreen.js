@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
-import styles from './styles/StartScreen.style'
-import { sGetLoadError } from '../../reducers/loader'
 import PropTypes from 'prop-types'
-import { apiFetchMostViewedVisualizations } from '../../api/mostViewedVisualizations'
-import history from '../../modules/history'
 import { withStyles } from '@material-ui/core/styles'
 import { useDataEngine } from '@dhis2/app-runtime'
+import { visTypeIcons } from '@dhis2/analytics'
+
+import styles from './styles/StartScreen.style'
+import { sGetLoadError } from '../../reducers/loader'
+import { apiFetchMostViewedVisualizations } from '../../api/mostViewedVisualizations'
+import history from '../../modules/history'
 import { VisualizationError, genericErrorTitle } from '../../modules/error'
 import { GenericError } from '../../assets/ErrorIcons'
 import { apiFetchVisualizations } from '../../api/visualization'
-import { visTypeIcons, _testSelectFromAnalytics } from '@dhis2/analytics'
-import { SingleSelectField, SingleSelectOption } from '@dhis2/ui-core'
 
 const StartScreen = ({ error, classes }) => {
     const [mostViewedVisualizations, setMostViewedVisualizations] = useState([])
@@ -109,12 +109,6 @@ const StartScreen = ({ error, classes }) => {
 
     return (
         <div style={styles.outer}>
-            <h1>Test outside of modal</h1>
-            <_testSelectFromAnalytics></_testSelectFromAnalytics>
-            <SingleSelectField label={'From DV'}>
-                <SingleSelectOption value="three" key={3} label="three" />
-                <SingleSelectOption value="four" key={4} label="four" />
-            </SingleSelectField>
             <div style={styles.inner}>{getContent()}</div>
         </div>
     )
