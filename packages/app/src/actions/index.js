@@ -17,6 +17,8 @@ import * as fromChart from './chart'
 import * as fromSnackbar from './snackbar'
 import * as fromLoader from './loader'
 
+import { VARIANT_SUCCESS } from '../components/Snackbar/Snackbar'
+
 import { sGetCurrent } from '../reducers/current'
 import { sGetVisualization } from '../reducers/visualization'
 import { sGetRootOrgUnit, sGetRelativePeriod } from '../reducers/settings'
@@ -143,8 +145,8 @@ export const tDoRenameVisualization = ({ name, description }) => (
 
     dispatch(
         fromSnackbar.acReceivedSnackbarMessage({
+            variant: VARIANT_SUCCESS,
             message: i18n.t('Rename successful'),
-            open: true,
             duration: 2000,
         })
     )
@@ -206,26 +208,13 @@ export const tDoDeleteVisualization = () => (dispatch, getState) => {
 
     dispatch(
         fromSnackbar.acReceivedSnackbarMessage({
+            variant: VARIANT_SUCCESS,
             message: i18n.t('"{{what}}" successfully deleted.', {
                 what: current.name,
             }),
-            open: true,
             duration: 2000,
         })
     )
 
     history.push('/')
-}
-
-// snackbar
-export const tDoCloseSnackbar = () => dispatch => {
-    dispatch(
-        fromSnackbar.acReceivedSnackbarMessage({
-            open: false,
-        })
-    )
-
-    // wait for the animation to complete to avoid
-    // "flashing" of the snackbar
-    setTimeout(() => dispatch(fromSnackbar.acCloseSnackbar()), 250)
 }
