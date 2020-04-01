@@ -75,9 +75,3 @@ body {
     overflow: hidden;
     position: relative;
 }
-
-/* Temporary fix for an issue with ui-core, https://github.com/dhis2/ui/issues/15
-TODO: Once the issue is fixed, remove this: */
-body > .backdrop {
-    z-index: 5000 !important;
-}
