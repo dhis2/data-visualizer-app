@@ -87,7 +87,6 @@ const mapDispatchToProps = dispatch => ({
             fromActions.fromSnackbar.acReceivedSnackbarMessage({
                 variant: type,
                 message,
-                open: true,
             })
         )
     },

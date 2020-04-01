@@ -19,6 +19,8 @@ import {
     EmptyBox,
 } from '../assets/ErrorIcons'
 
+import { VARIANT_ERROR, VARIANT_WARNING } from '../components/Snackbar/Snackbar'
+
 export class VisualizationError {
     constructor(icon, title, description) {
         this.icon = icon
@@ -265,5 +267,7 @@ const getAvailableAxesDescription = visType => {
 
 export const parseError = ({ message, httpStatusCode }) => ({
     message,
-    type: String(httpStatusCode).match(/50\d/) ? 'error' : 'warning',
+    type: String(httpStatusCode).match(/50\d/)
+        ? VARIANT_ERROR
+        : VARIANT_WARNING,
 })
