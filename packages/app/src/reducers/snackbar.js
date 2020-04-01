@@ -1,12 +1,9 @@
-import { VARIANT_INFORMATION } from '../components/Snackbar/Snackbar'
-
 export const RECEIVED_SNACKBAR_MESSAGE = 'RECEIVED_SNACKBAR_MESSAGE'
 export const CLEAR_SNACKBAR = 'CLEAR_SNACKBAR'
 
 export const DEFAULT_SNACKBAR = {
     message: null,
     duration: null,
-    variant: VARIANT_INFORMATION,
 }
 
 export default (state = DEFAULT_SNACKBAR, action) => {
