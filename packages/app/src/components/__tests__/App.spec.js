@@ -37,8 +37,6 @@ describe('App', () => {
                 },
             },
             baseUrl: undefined,
-            snackbarOpen: false,
-            snackbarMessage: '',
             loadError: null,
             interpretations: [],
             current: DEFAULT_CURRENT,
@@ -74,7 +72,15 @@ describe('App', () => {
         expect(app().find('div').length).toBeGreaterThan(0)
     })
 
-    it('renders a Snackbar', () => {
+    it('does not render a hidden Snackbar', () => {
+        expect(app().find(Snackbar)).toHaveLength(0)
+    })
+
+    it('renders a Snackbar when a message is set', () => {
+        props.snackbar = {
+            message: 'snackbar message',
+        }
+
         const snackbar = app().find(Snackbar)
         expect(snackbar.length).toBeGreaterThan(0)
     })

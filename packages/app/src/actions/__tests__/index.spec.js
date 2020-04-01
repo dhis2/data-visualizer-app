@@ -20,12 +20,11 @@ import {
     CLEAR_LOAD_ERROR,
     SET_PLUGIN_LOADING,
 } from '../../reducers/loader'
-import {
-    RECEIVED_SNACKBAR_MESSAGE,
-    CLOSE_SNACKBAR,
-} from '../../reducers/snackbar'
+import { RECEIVED_SNACKBAR_MESSAGE } from '../../reducers/snackbar'
 import * as selectors from '../../reducers/settings'
 import { GenericServerError } from '../../modules/error'
+
+import { VARIANT_SUCCESS } from '../../components/Snackbar/Snackbar'
 
 const middlewares = [thunk.withExtraArgument('dataEngine')]
 const mockStore = configureMockStore(middlewares)
@@ -236,8 +235,8 @@ describe('index', () => {
                     type: RECEIVED_SNACKBAR_MESSAGE,
                     value: {
                         message: '"delete test" successfully deleted.',
-                        open: true,
                         duration: 2000,
+                        variant: VARIANT_SUCCESS,
                     },
                 },
             ]
@@ -285,8 +284,8 @@ describe('index', () => {
                     type: RECEIVED_SNACKBAR_MESSAGE,
                     value: {
                         message: 'Rename successful',
-                        open: true,
                         duration: 2000,
+                        variant: VARIANT_SUCCESS,
                     },
                 },
             ]
@@ -315,8 +314,8 @@ describe('index', () => {
                     type: RECEIVED_SNACKBAR_MESSAGE,
                     value: {
                         message: 'Rename successful',
-                        open: true,
                         duration: 2000,
+                        variant: VARIANT_SUCCESS,
                     },
                 },
             ]
@@ -399,39 +398,6 @@ describe('index', () => {
                         state: { isSaving: true },
                     })
                 })
-        })
-    })
-
-    describe('tDoCloseSnackbar', () => {
-        it('dispatches the correct actions when closing the snackbar', () => {
-            const snackbar = {
-                message: 'test',
-                open: true,
-                variant: 'warning',
-            }
-
-            const store = mockStore({
-                snackbar,
-            })
-
-            const expectedActions = [
-                {
-                    type: RECEIVED_SNACKBAR_MESSAGE,
-                    value: {
-                        open: false,
-                    },
-                },
-                {
-                    type: CLOSE_SNACKBAR,
-                },
-            ]
-
-            store.dispatch(fromActions.tDoCloseSnackbar())
-
-            setTimeout(
-                () => expect(store.getActions()).toEqual(expectedActions),
-                350
-            )
         })
     })
 })
