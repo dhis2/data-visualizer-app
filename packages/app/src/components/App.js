@@ -283,7 +283,12 @@ export class App extends Component {
                         </ModalActions>
                     </Modal>
                 )}
-                <Snackbar />
+                {this.props.snackbar?.message && (
+                    <Snackbar
+                        {...this.props.snackbar}
+                        onClose={this.props.clearSnackbar}
+                    />
+                )}
                 <CssVariables colors spacers />
             </>
         )
@@ -296,6 +301,7 @@ const mapStateToProps = state => ({
     interpretations: fromReducers.fromVisualization.sGetInterpretations(state),
     ui: fromReducers.fromUi.sGetUi(state),
     visualization: sGetVisualization(state),
+    snackbar: fromReducers.fromSnackbar.sGetSnackbar(state),
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -307,6 +313,7 @@ const mapDispatchToProps = dispatch => ({
         dispatch(fromActions.fromUi.acSetUiFromVisualization(visualization)),
     addParentGraphMap: parentGraphMap =>
         dispatch(fromActions.fromUi.acAddParentGraphMap(parentGraphMap)),
+    clearSnackbar: () => dispatch(fromActions.fromSnackbar.acClearSnackbar()),
 })
 
 App.contextTypes = {
@@ -323,6 +330,7 @@ App.propTypes = {
     addParentGraphMap: PropTypes.func,
     baseUrl: PropTypes.string,
     clearCurrent: PropTypes.func,
+    clearSnackbar: PropTypes.func,
     clearVisualization: PropTypes.func,
     current: PropTypes.object,
     d2: PropTypes.object,
@@ -331,6 +339,7 @@ App.propTypes = {
     setCurrentFromUi: PropTypes.func,
     setUiFromVisualization: PropTypes.func,
     settings: PropTypes.object,
+    snackbar: PropTypes.object,
     ui: PropTypes.object,
     userSettings: PropTypes.object,
     visualization: PropTypes.object,
