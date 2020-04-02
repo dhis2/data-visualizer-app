@@ -90,13 +90,18 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    onSeriesChange: event => {
-        if (event.target.value.length) {
-            dispatch(acSetUiYearOverYearSeries(event.target.value))
+    onSeriesChange: ({ selected }) => {
+        if (selected && selected.length) {
+            dispatch(
+                acSetUiYearOverYearSeries(selected.map(({ value }) => value))
+            )
         }
     },
-    onCategoryChange: event =>
-        dispatch(acSetUiYearOverYearCategory(event.target.value)),
+    onCategoryChange: ({ selected }) => {
+        if (selected?.value) {
+            dispatch(acSetUiYearOverYearCategory(selected.value))
+        }
+    },
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Layout)
