@@ -16,7 +16,7 @@ const SinglePeriodSelector = ({ options, selected, onChange }) => (
             <SingleSelectOption
                 key={option.id}
                 value={option.id}
-                label={String(option.name)}
+                label={option.name}
             />
         ))}
     </SingleSelect>
@@ -34,7 +34,7 @@ const MultiPeriodSelector = ({ options, selected, onChange }) => (
             <MultiSelectOption
                 key={option.id}
                 value={option.id}
-                label={String(option.name)}
+                label={option.name}
             />
         ))}
     </MultiSelect>
