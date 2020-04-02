@@ -384,25 +384,25 @@ msgid "Legend type"
 msgstr "نوع مفتاح الخريطة"
 
 msgid "Use pre-defined legend per data item"
-msgstr ""
+msgstr "استخدم مفاتيح ايضاحية معرفة مسبقًا لكل عنصر بيانات"
 
 msgid "Select a single legend for entire table"
-msgstr ""
+msgstr "حدد مفتاح تفسيري واحد للجدول بالكامل"
 
 msgid "Legend changes background color"
-msgstr ""
+msgstr "المفتاح الإيضاحي يغير من لون الخلفية"
 
 msgid "Legend changes text color"
-msgstr ""
+msgstr "المفتاح الإيضاحي يغير من لون النص"
 
 msgid "Legend"
 msgstr "شروحات"
 
 msgid "Select from legends"
-msgstr ""
+msgstr "حدد من العناوين التفسيرية"
 
 msgid "Loading legends"
-msgstr ""
+msgstr "تحميل العناوين التفسيرية"
 
 msgid ""
 "You can set a minimum or maximum value. This will apply to the entire table,"
@@ -551,12 +551,14 @@ msgid "Add at least one item to {{axisName}}."
 msgstr "أضف عنصراً واحداً على الأقل إلى {{axisName}}."
 
 msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
-msgstr ""
+msgstr "{{columnsAxisName}} و {{rowsAxisName}} فارغة"
 
 msgid ""
 "Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
 " {{visualizationType}}."
 msgstr ""
+"أضف عنصرًا واحدًا على الأقل إلى {{columnsAxisName}} أو الـ {{rowsAxisName}} "
+"لإنشاء {{visualizationType}}."
 
 msgid "No period selected"
 msgstr "لم يتم اختيار فترة"
@@ -574,6 +576,8 @@ msgid ""
 "{{visualizationType}} must have at least one data item or data element group"
 " set item in {{axes}}."
 msgstr ""
+"يجب أن تحتوي {{visualizationType}} على عنصر بيانات واحد على الأقل أو عنصر "
+"مجموعة مجموعة بيانات واحد في {{axes}}."
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
 msgstr "{{visualizationType}} يجب ان تحتوي عنصر واحد على الأقل على {{axes}}."
@@ -588,26 +592,28 @@ msgstr ""
 "يجب أن يكون المؤشر عنصر البيانات الوحيد عند استخدام المؤشرات كعوامل تصفية."
 
 msgid "Data Element Group Sets and Reporting Rates cannot be used together."
-msgstr ""
+msgstr "لا يمكن استخدام مجموعات عناصر البيانات ومعدلات التقارير معاً."
 
 msgid "There is a problem with this {{visualizationType}} visualization."
-msgstr ""
+msgstr "توجد مشكلة مع {{visualizationType}} العرض المرئي"
 
 msgid "There was a problem getting the data from the server."
 msgstr "حدثت مشكلة في الحصول على البيانات من الخادم."
 
 msgid "Assigned Categories can only be used with data elements"
-msgstr ""
+msgstr "لا يمكن استخدام الفئات التي تم تعينها إلا مع عناصر البيانات"
 
 msgid ""
 "Fix this problem by selecting data elements or removing Assigned Categories."
 msgstr ""
+"قم بإصلاح هذه المشكلة عن طريق تحديد عناصر البيانات أو إزالة الفئات التي تم "
+"تعينها."
 
 msgid "Assigned Categories cannot be used as Filter"
-msgstr ""
+msgstr "الفئات المعينة لا يمكن أن تستخدم كعوامل تصفية"
 
 msgid "Fix this problem by moving or removing Assigned Categories."
-msgstr ""
+msgstr "قم بإصلاح هذه المشكلة عن طريق نقل أو إزالة الفئات التي تم تعينها."
 
 msgid "or"
 msgstr "أو"
