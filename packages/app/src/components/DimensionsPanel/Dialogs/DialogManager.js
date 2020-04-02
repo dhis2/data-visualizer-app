@@ -331,6 +331,8 @@ export class DialogManager extends Component {
             dialogTitle = i18n.t('Data')
         } else if (dialogId === DIMENSION_ID_PERIOD) {
             dialogTitle = i18n.t('Period')
+        } else if (dialogId === DIMENSION_ID_ORGUNIT) {
+            dialogTitle = i18n.t('Organisation units')
         } else if (nonPredefinedDimensions.includes(dialogId)) {
             dialogTitle = dimensions[dialogId] && dimensions[dialogId].name
         }
