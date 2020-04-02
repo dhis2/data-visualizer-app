@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-03-11T02:52:13.220Z\n"
-"PO-Revision-Date: 2020-03-11T02:52:13.220Z\n"
+"POT-Creation-Date: 2020-04-01T10:22:22.041Z\n"
+"PO-Revision-Date: 2020-04-01T10:22:22.041Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -64,6 +64,12 @@ msgid ""
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
 
+msgid "Data"
+msgstr ""
+
+msgid "Period"
+msgstr ""
+
 msgid "Main dimensions"
 msgstr ""
 
@@ -116,9 +122,6 @@ msgid "Other formats"
 msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr ""
-
-msgid "Something went wrong"
 msgstr ""
 
 msgid "Refresh to try again"
@@ -583,6 +586,9 @@ msgstr ""
 msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr ""
 
+msgid "Something went wrong"
+msgstr ""
+
 msgid "or"
 msgstr ""
 
@@ -695,9 +701,6 @@ msgid "User org unit children"
 msgstr ""
 
 msgid "User org unit grand children"
-msgstr ""
-
-msgid "Data"
 msgstr ""
 
 msgid "Axes"
