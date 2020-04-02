@@ -25,7 +25,7 @@ import {
     NoDataOrDataElementGroupSetError,
     CombinationDEGSRRError,
 } from '../../modules/error'
-import LoadingMask from './LoadingMask'
+import LoadingMask from '../../widgets/LoadingMask'
 
 export class Visualization extends Component {
     constructor(props) {

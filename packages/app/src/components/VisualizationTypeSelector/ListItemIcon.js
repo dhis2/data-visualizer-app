@@ -31,7 +31,7 @@ import SingleValueIcon from '../../assets/SingleValueIcon'
 import GlobeIcon from '../../assets/GlobeIcon'
 import PivotTableIcon from '../../assets/PivotTableIcon'
 
-const MenuItemIcon = ({ iconType, style }) => {
+const ListItemIcon = ({ iconType, style }) => {
     switch (iconType) {
         case VIS_TYPE_STACKED_COLUMN:
             return <StackedColumnIcon style={style} />
@@ -65,9 +65,9 @@ const MenuItemIcon = ({ iconType, style }) => {
     }
 }
 
-MenuItemIcon.propTypes = {
+ListItemIcon.propTypes = {
     iconType: PropTypes.string,
     style: PropTypes.object,
 }
 
-export default MenuItemIcon
+export default ListItemIcon

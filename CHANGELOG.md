@@ -1,3 +1,17 @@
+## [34.3.34](https://github.com/dhis2/data-visualizer-app/compare/v34.3.33...v34.3.34) (2020-03-31)
+
+
+### Bug Fixes
+
+* @dhis2/analytics@4.3.25 ([#837](https://github.com/dhis2/data-visualizer-app/issues/837)) ([856fa8a](https://github.com/dhis2/data-visualizer-app/commit/856fa8ae145bfd700cb085dd094ed831753c6e85))
+
+## [34.3.33](https://github.com/dhis2/data-visualizer-app/compare/v34.3.32...v34.3.33) (2020-03-31)
+
+
+### Bug Fixes
+
+* replace MUI with ui-core components - loading spinner (TECH-324) ([#814](https://github.com/dhis2/data-visualizer-app/issues/814)) ([8eeb16a](https://github.com/dhis2/data-visualizer-app/commit/8eeb16a59edd8cdb562797ddb0c380e04d99033c))
+
 ## [34.3.32](https://github.com/dhis2/data-visualizer-app/compare/v34.3.31...v34.3.32) (2020-03-20)
 
 

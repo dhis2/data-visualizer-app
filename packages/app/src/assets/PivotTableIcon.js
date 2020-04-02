@@ -1,11 +1,10 @@
 import React from 'react'
-import SvgIcon from '@material-ui/core/SvgIcon'
 import PropTypes from 'prop-types'
 
 const PivotTableIcon = ({
     style = { paddingRight: '8px', width: 24, height: 24 },
 }) => (
-    <SvgIcon viewBox="0,0,48,48" style={style}>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0,0,48,48" style={style}>
         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
             <polygon points="0 0 48 0 48 48 0 48" />
             <rect
@@ -21,7 +20,7 @@ const PivotTableIcon = ({
             <rect fill="#4A5768" x="8" y="24" width="32" height="2" />
             <rect fill="#4A5768" x="8" y="30" width="32" height="2" />
         </g>
-    </SvgIcon>
+    </svg>
 )
 
 PivotTableIcon.propTypes = {

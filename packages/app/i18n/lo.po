@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-02-18T09:08:26.548Z\n"
+"POT-Creation-Date: 2020-03-11T02:52:13.220Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Lao (https://www.transifex.com/hisp-uio/teams/100509/lo/)\n"
@@ -19,6 +19,23 @@ msgid "Rename successful"
 msgstr ""
 
 msgid "\"{{what}}\" successfully deleted."
+msgstr ""
+
+msgid "You have unsaved changes."
+msgstr ""
+
+msgid "Discard unsaved changes?"
+msgstr "ຈະລຶບການປ່ຽນແປງທີ່ບໍ່ທັນໄດ້ບັນທຶກບໍ່?"
+
+msgid ""
+"Are you sure you want to leave this visualization? Any unsaved changes will "
+"be lost."
+msgstr ""
+
+msgid "No, cancel"
+msgstr ""
+
+msgid "Yes, leave"
 msgstr ""
 
 msgid "Axis 1"
@@ -147,6 +164,12 @@ msgstr ""
 msgid "Only '{{number}}' in use"
 msgstr ""
 
+msgid "Levels"
+msgstr ""
+
+msgid "Groups"
+msgstr "ກຸ່ມ"
+
 msgid "Unsaved visualization"
 msgstr ""
 
@@ -167,7 +190,7 @@ msgstr ""
 msgid "Add dimensions to the layout above"
 msgstr ""
 
-msgid "Double click a dimension to add or remove items"
+msgid "Click a dimension to add or remove items"
 msgstr ""
 
 msgid "Your most viewed charts and tables"
@@ -341,10 +364,19 @@ msgstr "ຊື່ຂອງຕາຕະລາງ"
 msgid "Chart title"
 msgstr "ຫົວຂໍ້ເສັ້ນສະແດງ"
 
-msgid "Apply a legend to entire table"
+msgid "Display legend"
 msgstr ""
 
-msgid "Assign a unique legend to data elements"
+msgid "Legend style"
+msgstr "ຫວ່າງຂໍ້ມູນ"
+
+msgid "Legend type"
+msgstr ""
+
+msgid "Use pre-defined legend per data item"
+msgstr ""
+
+msgid "Select a single legend for entire table"
 msgstr ""
 
 msgid "Legend changes background color"
@@ -353,22 +385,13 @@ msgstr ""
 msgid "Legend changes text color"
 msgstr ""
 
-msgid "Select a legend"
-msgstr ""
+msgid "Legend"
+msgstr "ຫວ່າງຂໍ້ມູນ"
 
-msgid "Select from predefined legends"
+msgid "Select from legends"
 msgstr ""
 
 msgid "Loading legends"
-msgstr ""
-
-msgid "Display legend"
-msgstr ""
-
-msgid "Legend type"
-msgstr ""
-
-msgid "Legend setup"
 msgstr ""
 
 msgid ""
@@ -513,13 +536,27 @@ msgstr ""
 msgid "Add at least one item to {{axisName}}."
 msgstr ""
 
-msgid "No period set"
+msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
 msgstr ""
 
-msgid "{{visualizationType}} must have at least one period set in {{axes}}."
+msgid ""
+"Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
+" {{visualizationType}}."
 msgstr ""
 
-msgid "No data set"
+msgid "No period selected"
+msgstr "ບໍ່ໄດ້ເລືອກເວລາ"
+
+msgid ""
+"{{visualizationType}} must have at least one period selected in {{axes}}."
+msgstr ""
+
+msgid "No data selected"
+msgstr ""
+
+msgid ""
+"{{visualizationType}} must have at least one data item or data element group"
+" set item in {{axes}}."
 msgstr ""
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
@@ -531,6 +568,9 @@ msgstr ""
 msgid ""
 "A single indicator must be the only data item when using indicators as Data "
 "in Filter."
+msgstr ""
+
+msgid "Data Element Group Sets and Reporting Rates cannot be used together."
 msgstr ""
 
 msgid "There is a problem with this {{visualizationType}} visualization."
@@ -698,9 +738,6 @@ msgstr ""
 
 msgid "Display empty data"
 msgstr ""
-
-msgid "Legend"
-msgstr "ຫວ່າງຂໍ້ມູນ"
 
 msgid "Labels"
 msgstr ""

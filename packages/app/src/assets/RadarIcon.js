@@ -1,11 +1,10 @@
 import React from 'react'
-import SvgIcon from '@material-ui/core/SvgIcon'
 import PropTypes from 'prop-types'
 
 const RadarIcon = ({
     style = { paddingRight: '8px', width: 24, height: 24 },
 }) => (
-    <SvgIcon viewBox="0,0,48,48" style={style}>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0,0,48,48" style={style}>
         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
             <circle stroke="#9E9E9E" strokeWidth="2" cx="24" cy="24" r="23" />
             <circle stroke="#9E9E9E" strokeWidth="2" cx="24" cy="24" r="15" />
@@ -16,7 +15,7 @@ const RadarIcon = ({
             <circle fill="#004BA0" cx="39" cy="24" r="2" />
             <circle fill="#004BA0" cx="40" cy="40" r="2" />
         </g>
-    </SvgIcon>
+    </svg>
 )
 
 RadarIcon.propTypes = {
