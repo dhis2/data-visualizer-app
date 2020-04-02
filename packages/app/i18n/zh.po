@@ -18,10 +18,10 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Rename successful"
-msgstr ""
+msgstr "重命名成功"
 
 msgid "\"{{what}}\" successfully deleted."
-msgstr ""
+msgstr "\"{{what}}\" 被成功删除"
 
 msgid "Data Visualizer"
 msgstr "数据可视化图表工具"
@@ -69,49 +69,49 @@ msgid "Graphics"
 msgstr "图形"
 
 msgid "Image (.png)"
-msgstr ""
+msgstr "图像（.png）"
 
 msgid "PDF (.pdf)"
-msgstr ""
+msgstr "PDF (.pdf)"
 
 msgid "Plain data source"
 msgstr "普通数据源"
 
 msgid "Advanced"
-msgstr ""
+msgstr "高级"
 
 msgid "Metadata ID scheme"
-msgstr ""
+msgstr "元数据ID方案"
 
 msgid "Data value set"
-msgstr ""
+msgstr "数据值集"
 
 msgid "Other formats"
-msgstr ""
+msgstr "其它格式"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr ""
+msgstr "数据可视化应用发生错误"
 
 msgid "Something went wrong"
-msgstr ""
+msgstr "出了些问题"
 
 msgid "Refresh to try again"
-msgstr ""
+msgstr "刷新后再试"
 
 msgid "Hide technical details"
-msgstr ""
+msgstr "隐藏技术细节"
 
 msgid "Show technical details"
-msgstr ""
+msgstr "显示技术细节"
 
 msgid "The following information may be requested by technical support."
-msgstr ""
+msgstr "下列信息可能技术支持需要"
 
 msgid "Hide"
 msgstr "隐藏"
 
 msgid "Interpretations"
-msgstr ""
+msgstr "注释"
 
 msgid "selected"
 msgstr "选择的"
@@ -138,7 +138,7 @@ msgid "Edited"
 msgstr ""
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr ""
+msgstr "查看自{{interpretationDate}}的注释"
 
 msgid "Update"
 msgstr "更新"
@@ -171,7 +171,7 @@ msgid "Sum"
 msgstr "求和"
 
 msgid "Last value"
-msgstr ""
+msgstr "最近值"
 
 msgid "Last value (average in org unit hierarchy)"
 msgstr "最近值(按机构体系平均)"
@@ -192,31 +192,31 @@ msgid "Base line"
 msgstr ""
 
 msgid "Base line title"
-msgstr ""
+msgstr "基线标题"
 
 msgid "Base line value"
 msgstr "基线值"
 
 msgid "Use cumulative values"
-msgstr ""
+msgstr "使用汇总值"
 
 msgid "Domain axis title"
 msgstr "主轴标签"
 
 msgid "Hide empty categories"
-msgstr ""
+msgstr "隐藏空分类"
 
 msgid "None"
 msgstr "无"
 
 msgid "Before first"
-msgstr ""
+msgstr "第一个前面"
 
 msgid "After first"
 msgstr ""
 
 msgid "Before first and after last"
-msgstr ""
+msgstr "第一个前和最后一个后面"
 
 msgid "All"
 msgstr "全部"
@@ -234,7 +234,7 @@ msgid "No space between columns/bars"
 msgstr ""
 
 msgid "Use 100% stacked values"
-msgstr ""
+msgstr "使用 100% 堆叠值"
 
 msgid "Range axis decimals"
 msgstr ""
@@ -255,16 +255,16 @@ msgid "Trend line"
 msgstr "趋势线"
 
 msgid "Linear"
-msgstr ""
+msgstr "线性"
 
 msgid "Polynomial"
-msgstr ""
+msgstr "多项式曲线"
 
 msgid "Loess"
-msgstr ""
+msgstr "多项式回归拟合"
 
 msgid "Show values"
-msgstr ""
+msgstr "显示值"
 
 msgid "Sort order"
 msgstr "排序"
@@ -276,19 +276,19 @@ msgid "High to low"
 msgstr "由高到低"
 
 msgid "Chart subtitle"
-msgstr ""
+msgstr "图表子标题"
 
 msgid "Target line"
 msgstr ""
 
 msgid "Target line title"
-msgstr ""
+msgstr "目标线标题"
 
 msgid "Target line value"
 msgstr "目标线值"
 
 msgid "Chart title"
-msgstr ""
+msgstr "图表标题"
 
 msgid "Axis & legend"
 msgstr ""
@@ -390,10 +390,10 @@ msgid "[ All metrics ]"
 msgstr ""
 
 msgid "Event data items"
-msgstr ""
+msgstr "事件数据项"
 
 msgid "Program indicators"
-msgstr ""
+msgstr "项目指标"
 
 msgid "Organisation Unit"
 msgstr "组织机构"
@@ -511,7 +511,7 @@ msgid "Quarters this year"
 msgstr "今年的季度"
 
 msgid "This six-month"
-msgstr ""
+msgstr "本半年"
 
 msgid "Last six-month"
 msgstr "最近六个月"
@@ -520,7 +520,7 @@ msgid "Last 2 six-months"
 msgstr "最近两个半年"
 
 msgid "This financial year"
-msgstr ""
+msgstr "本财政年"
 
 msgid "Last financial year"
 msgstr "上一财政年"
