@@ -124,7 +124,7 @@ msgid "Move to"
 msgstr ""
 
 msgid "None selected"
-msgstr ""
+msgstr "没有选择"
 
 msgid "Only '{{name}}' in use"
 msgstr ""
@@ -133,7 +133,7 @@ msgid "Unsaved chart"
 msgstr ""
 
 msgid "Edited"
-msgstr ""
+msgstr "编辑"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "查看自{{interpretationDate}}的注释"
@@ -187,7 +187,7 @@ msgid "Variance"
 msgstr "方差"
 
 msgid "Base line"
-msgstr ""
+msgstr "基线"
 
 msgid "Base line title"
 msgstr "基线标题"
@@ -196,7 +196,7 @@ msgid "Base line value"
 msgstr "基线值"
 
 msgid "Only include completed events"
-msgstr ""
+msgstr "仅仅包括完成的事件"
 
 msgid "Use cumulative values"
 msgstr "使用汇总值"
@@ -283,7 +283,7 @@ msgid "Chart subtitle"
 msgstr "图表子标题"
 
 msgid "Target line"
-msgstr ""
+msgstr "目标线"
 
 msgid "Target line title"
 msgstr "目标线标题"
@@ -346,22 +346,22 @@ msgid "Single value"
 msgstr ""
 
 msgid "Open as Map"
-msgstr ""
+msgstr "打开为地图"
 
 msgid "Reporting rate"
-msgstr ""
+msgstr "上报率"
 
 msgid "Reporting rate on time"
-msgstr ""
+msgstr "准时上报率"
 
 msgid "Actual reports"
-msgstr ""
+msgstr "实际上报"
 
 msgid "Actual reports on time"
-msgstr ""
+msgstr "实际准时上报"
 
 msgid "Expected reports"
-msgstr ""
+msgstr "预期上报"
 
 msgid "Program"
 msgstr "项目"
@@ -512,16 +512,16 @@ msgid "Months this year"
 msgstr "今年的月份"
 
 msgid "This bimonth"
-msgstr ""
+msgstr "本俩月"
 
 msgid "Last bimonth"
-msgstr ""
+msgstr "最近俩月"
 
 msgid "Last 6 bimonths"
-msgstr ""
+msgstr "最近六个俩月"
 
 msgid "Bimonths this year"
-msgstr ""
+msgstr "今年的俩月"
 
 msgid "This quarter"
 msgstr "本季"
@@ -566,19 +566,19 @@ msgid "User org unit"
 msgstr "当前用户机构"
 
 msgid "User org unit children"
-msgstr ""
+msgstr "用户下属机构"
 
 msgid "User org unit grand children"
-msgstr ""
+msgstr "用户下下级机构"
 
 msgid "Weeks per year"
-msgstr ""
+msgstr "每年的周"
 
 msgid "Months per year"
-msgstr ""
+msgstr "每年的月"
 
 msgid "Bimonths per year"
-msgstr ""
+msgstr "每年的双月"
 
 msgid "Quarters per year"
-msgstr ""
+msgstr "每年的季度"
