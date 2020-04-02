@@ -1,44 +1,74 @@
 import React from 'react'
-import Select from '@material-ui/core/Select'
-import MenuItem from '@material-ui/core/MenuItem'
 import PropTypes from 'prop-types'
 
-import styles from './styles/YearOverYearSelect.style'
+import { seriesOptions, categoryOptions } from '../../../modules/yearOverYear'
 
-class YearOverYearSelect extends React.Component {
-    state = {
-        open: false,
-    }
+import {
+    MultiSelect,
+    MultiSelectOption,
+    SingleSelect,
+    SingleSelectOption,
+} from '@dhis2/ui-core'
 
-    handleClose = () => {
-        this.setState({ open: false })
-    }
+const SinglePeriodSelector = ({ options, selected, onChange }) => (
+    <SingleSelect onChange={onChange} selected={selected} dense>
+        {options.map(option => (
+            <SingleSelectOption
+                key={option.id}
+                value={option.id}
+                label={String(option.name)}
+            />
+        ))}
+    </SingleSelect>
+)
 
-    handleOpen = () => {
-        this.setState({ open: true })
-    }
+SinglePeriodSelector.propTypes = {
+    options: PropTypes.array,
+    selected: PropTypes.object,
+    onChange: PropTypes.func,
+}
 
-    render() {
-        return (
-            <Select
-                disableUnderline
-                multiple={Boolean(this.props.multiple)}
-                open={this.state.open}
-                onChange={this.props.onChange}
-                onClose={this.handleClose}
-                onOpen={this.handleOpen}
-                value={this.props.value}
-                SelectDisplayProps={{
-                    style: styles.displayProps,
-                }}
-            >
-                {this.props.options.map(option => (
-                    <MenuItem key={option.id} value={option.id}>
-                        {option.name}
-                    </MenuItem>
-                ))}
-            </Select>
-        )
+const MultiPeriodSelector = ({ options, selected, onChange }) => (
+    <MultiSelect onChange={onChange} selected={selected} dense>
+        {options.map(option => (
+            <MultiSelectOption
+                key={option.id}
+                value={option.id}
+                label={String(option.name)}
+            />
+        ))}
+    </MultiSelect>
+)
+
+MultiPeriodSelector.propTypes = {
+    options: PropTypes.array,
+    selected: PropTypes.array,
+    onChange: PropTypes.func,
+}
+
+const YearOverYearSelect = ({ multiple, value, ...props }) => {
+    if (multiple) {
+        const selected = []
+
+        if (value && value.length) {
+            value.forEach(value =>
+                selected.push({
+                    value,
+                    label: seriesOptions.find(({ id }) => id === value).name,
+                })
+            )
+        }
+
+        return <MultiPeriodSelector selected={selected} {...props} />
+    } else {
+        const selected = {}
+
+        if (value) {
+            selected.value = value
+            selected.label = categoryOptions.find(({ id }) => id === value).name
+        }
+
+        return <SinglePeriodSelector selected={selected} {...props} />
     }
 }
 
