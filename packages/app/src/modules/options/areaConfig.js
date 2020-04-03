@@ -11,8 +11,7 @@ import TargetLine from '../../components/VisualizationOptions/Options/TargetLine
 import BaseLine from '../../components/VisualizationOptions/Options/BaseLine'
 import SortOrder from '../../components/VisualizationOptions/Options/SortOrder'
 import AggregationType from '../../components/VisualizationOptions/Options/AggregationType'
-import RangeAxisMinValue from '../../components/VisualizationOptions/Options/RangeAxisMinValue'
-import RangeAxisMaxValue from '../../components/VisualizationOptions/Options/RangeAxisMaxValue'
+import AxisRange from '../../components/VisualizationOptions/Options/AxisRange'
 import RangeAxisSteps from '../../components/VisualizationOptions/Options/RangeAxisSteps'
 import RangeAxisDecimals from '../../components/VisualizationOptions/Options/RangeAxisDecimals'
 import RangeAxisLabel from '../../components/VisualizationOptions/Options/RangeAxisLabel'
@@ -55,15 +54,19 @@ export default [
         label: i18n.t('Axes'),
         content: [
             {
-                key: 'axes-section-1',
+                key: 'axes-vertical-axis',
+                label: i18n.t('Vertical (y) axis'),
                 content: React.Children.toArray([
-                    <RangeAxisMinValue />,
-                    <RangeAxisMaxValue />,
+                    <RangeAxisLabel />,
+                    <AxisRange />,
                     <RangeAxisSteps />,
                     <RangeAxisDecimals />,
-                    <RangeAxisLabel />,
-                    <DomainAxisLabel />,
                 ]),
+            },
+            {
+                key: 'axes-horizontal-axis',
+                label: i18n.t('Horizontal (x) axis'),
+                content: React.Children.toArray([<DomainAxisLabel />]),
             },
         ],
     },
