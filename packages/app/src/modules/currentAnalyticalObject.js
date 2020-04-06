@@ -68,6 +68,28 @@ export const appendDimensionItemNamesToAnalyticalObject = (
     }
 }
 
+export const appendDimensionItemTypeToAnalyticalObject = (
+    current,
+    metadata
+) => {
+    const appendDimensionType = dimension => ({
+        ...dimension,
+        items: dimension.items.map(item => ({
+            ...item,
+            dimensionItemType: metadata[item.id]
+                ? metadata[item.id].dimensionItemType
+                : undefined,
+        })),
+    })
+
+    return {
+        ...current,
+        columns: current.columns.map(appendDimensionType),
+        filters: current.filters.map(appendDimensionType),
+        rows: current.rows.map(appendDimensionType),
+    }
+}
+
 export const appendCompleteParentGraphMap = (current, { parentGraphMap }) => ({
     ...current,
     parentGraphMap: {
@@ -81,6 +103,7 @@ export const prepareCurrentAnalyticalObject = (current, metadata, ui) => {
 
     result = removeUnnecessaryAttributesFromAnalyticalObject(current)
     result = appendDimensionItemNamesToAnalyticalObject(result, metadata)
+    result = appendDimensionItemTypeToAnalyticalObject(result, metadata)
     result = appendPathsToOrgUnits(result, ui)
     result = appendCompleteParentGraphMap(result, ui)
 

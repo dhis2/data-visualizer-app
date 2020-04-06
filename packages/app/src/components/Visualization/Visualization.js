@@ -82,6 +82,7 @@ export class Visualization extends Component {
                     id,
                     name: item.name || item.displayName,
                     displayName: item.displayName,
+                    dimensionItemType: item.dimensionItemType,
                 }
             })
         })
