@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { App } from '../App'
-import Snackbar from '../Snackbar/Snackbar'
+import Snackbar, { VARIANT_ERROR } from '../Snackbar/Snackbar'
 import * as actions from '../../actions/'
 import history from '../../modules/history'
 
@@ -55,6 +55,7 @@ describe('App', () => {
             setCurrentFromUi: jest.fn(),
             clearVisualization: jest.fn(),
             clearCurrent: jest.fn(),
+            clearSnackbar: jest.fn(),
         }
         shallowApp = undefined
 
@@ -81,8 +82,19 @@ describe('App', () => {
             message: 'snackbar message',
         }
 
+        expect(app().find(Snackbar)).toHaveLength(1)
+    })
+
+    it('calls clearSnackbar when Snackbar onClose is triggered', () => {
+        props.snackbar = {
+            message: 'error message',
+            variant: VARIANT_ERROR,
+        }
+
         const snackbar = app().find(Snackbar)
-        expect(snackbar.length).toBeGreaterThan(0)
+        snackbar.invoke('onClose')()
+
+        expect(props.clearSnackbar).toBeCalledTimes(1)
     })
 
     describe('location pathname', () => {
