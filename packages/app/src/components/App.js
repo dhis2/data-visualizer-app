@@ -283,12 +283,7 @@ export class App extends Component {
                         </ModalActions>
                     </Modal>
                 )}
-                {this.props.snackbar?.message && (
-                    <Snackbar
-                        {...this.props.snackbar}
-                        onClose={this.props.clearSnackbar}
-                    />
-                )}
+                <Snackbar />
                 <CssVariables colors spacers />
             </>
         )
@@ -330,7 +325,6 @@ App.propTypes = {
     addParentGraphMap: PropTypes.func,
     baseUrl: PropTypes.string,
     clearCurrent: PropTypes.func,
-    clearSnackbar: PropTypes.func,
     clearVisualization: PropTypes.func,
     current: PropTypes.object,
     d2: PropTypes.object,
@@ -339,7 +333,6 @@ App.propTypes = {
     setCurrentFromUi: PropTypes.func,
     setUiFromVisualization: PropTypes.func,
     settings: PropTypes.object,
-    snackbar: PropTypes.object,
     ui: PropTypes.object,
     userSettings: PropTypes.object,
     visualization: PropTypes.object,
