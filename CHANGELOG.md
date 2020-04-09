@@ -1,3 +1,10 @@
+## [34.3.36](https://github.com/dhis2/data-visualizer-app/compare/v34.3.35...v34.3.36) (2020-04-09)
+
+
+### Bug Fixes
+
+* display loading spinner on save (DHIS2-8434) ([#811](https://github.com/dhis2/data-visualizer-app/issues/811)) ([c287eee](https://github.com/dhis2/data-visualizer-app/commit/c287eee1a426e6d72b1bf6bb8e7da8dc12a23fe7))
+
 ## [34.3.35](https://github.com/dhis2/data-visualizer-app/compare/v34.3.34...v34.3.35) (2020-04-06)
 
 
