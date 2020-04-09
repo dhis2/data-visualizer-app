@@ -19,15 +19,6 @@ export class AddToLayoutButton extends Component {
         this.buttonRef = React.createRef()
     }
 
-    state = { anchorEl: null }
-
-    onClose = () => this.setState({ anchorEl: null })
-
-    onToggle = event =>
-        this.state.anchorEl
-            ? this.onClose()
-            : this.setState({ anchorEl: event.currentTarget })
-
     onUpdate = axisId => {
         this.props.onAddDimension({
             [this.props.dialogId]: { axisId },
