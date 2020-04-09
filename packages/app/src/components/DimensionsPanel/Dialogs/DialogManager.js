@@ -16,6 +16,7 @@ import {
     getAxisMaxNumberOfItems,
     getDisplayNameByVisType,
     filterOutPredefinedDimensions,
+    apiFetchRecommendedIds,
 } from '@dhis2/analytics'
 import {
     Modal,
@@ -28,7 +29,6 @@ import {
 import HideButton from '../../HideButton/HideButton'
 import AddToLayoutButton from './AddToLayoutButton/AddToLayoutButton'
 import UpdateVisualizationContainer from '../../UpdateButton/UpdateVisualizationContainer'
-
 import {
     acSetUiActiveModalDialog,
     acRemoveUiItems,
@@ -38,7 +38,6 @@ import {
 } from '../../../actions/ui'
 import { acAddMetadata } from '../../../actions/metadata'
 import { acSetRecommendedIds } from '../../../actions/recommendedIds'
-
 import {
     sGetUiItems,
     sGetUiItemsByDimension,
@@ -51,7 +50,6 @@ import {
 import { sGetDimensions } from '../../../reducers/dimensions'
 import { sGetMetadata } from '../../../reducers/metadata'
 import { sGetSettingsDisplayNameProperty } from '../../../reducers/settings'
-import { apiFetchRecommendedIds } from '@dhis2/analytics'
 import { removeLastPathSegment, getOuPath } from '../../../modules/orgUnit'
 import UpdateButton from '../../UpdateButton/UpdateButton'
 
