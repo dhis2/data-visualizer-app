@@ -1,33 +1,13 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { withStyles } from '@material-ui/core/styles'
-import CircularProgress from '@material-ui/core/CircularProgress'
+import styles from './styles/LoadingMask.module.css'
+import { CircularLoader } from '@dhis2/ui-core'
 
-const styles = theme => ({
-    progress: {
-        margin: theme.spacing.unit * 2,
-        maxWidth: 200,
-        textAlign: 'center',
-        alignSelf: 'center',
-    },
-    outer: {
-        display: 'flex',
-        justifyContent: 'center',
-        height: '100%',
-    },
-})
-
-function CircularIndeterminate(props) {
-    const { classes } = props
+function LoadingMask() {
     return (
-        <div className={classes.outer}>
-            <CircularProgress className={classes.progress} />
+        <div className={styles.outer}>
+            <CircularLoader className={styles.progress} />
         </div>
     )
 }
 
-CircularIndeterminate.propTypes = {
-    classes: PropTypes.object.isRequired,
-}
-
-export default withStyles(styles)(CircularIndeterminate)
+export default LoadingMask

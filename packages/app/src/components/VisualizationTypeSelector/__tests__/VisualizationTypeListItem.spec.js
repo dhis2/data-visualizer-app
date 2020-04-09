@@ -2,17 +2,16 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { VIS_TYPE_COLUMN } from '@dhis2/analytics'
 
-import VisualizationTypeMenuItem from '../VisualizationTypeMenuItem'
-import MenuItem from '@material-ui/core/MenuItem'
-import MenuItemIcon from '../MenuItemIcon'
+import VisualizationTypeListItem from '../VisualizationTypeListItem'
+import ListItemIcon from '../ListItemIcon'
 
-describe('VisualizationTypeMenuItem component ', () => {
+describe('VisualizationTypeListItem component ', () => {
     let props
     let shallowElement
 
     const element = () => {
         if (!shallowElement) {
-            shallowElement = shallow(<VisualizationTypeMenuItem {...props} />)
+            shallowElement = shallow(<VisualizationTypeListItem {...props} />)
         }
         return shallowElement
     }
@@ -21,23 +20,22 @@ describe('VisualizationTypeMenuItem component ', () => {
         props = {
             type: VIS_TYPE_COLUMN,
             visualizationType: VIS_TYPE_COLUMN,
-            styles: {},
         }
         shallowElement = undefined
     })
 
-    it('renders MenuItem', () => {
+    it('renders a div', () => {
         expect(
             element()
-                .find(MenuItem)
+                .find('div')
                 .first().length
         ).toEqual(1)
     })
 
-    it('renders MenuItemIcon', () => {
+    it('renders ListItemIcon', () => {
         expect(
             element()
-                .find(MenuItemIcon)
+                .find(ListItemIcon)
                 .first().length
         ).toEqual(1)
     })
