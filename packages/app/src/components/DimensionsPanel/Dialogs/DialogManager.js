@@ -337,8 +337,6 @@ export class DialogManager extends Component {
             dialogTitle = dimensions[dialogId] && dimensions[dialogId].name
         }
 
-        // TODO: Add titles for other modal types here (Period etc)
-
         return (
             <Fragment>
                 {dialogId in dimensions && (
