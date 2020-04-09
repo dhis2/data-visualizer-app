@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import {
@@ -7,70 +7,64 @@ import {
     getLayoutTypeByVisType,
 } from '@dhis2/analytics'
 import { SplitButton, Menu, MenuItem, Button } from '@dhis2/ui-core'
+import i18n from '@dhis2/d2-i18n'
 
 import { sGetUiActiveModalDialog, sGetUiType } from '../../../../reducers/ui'
 import { acAddUiLayoutDimensions } from '../../../../actions/ui'
 
-import i18n from '@dhis2/d2-i18n'
+export const AddToLayoutButton = ({
+    dialogId,
+    visType,
+    onAddDimension,
+    onClick,
+}) => {
+    const availableAxes = getAvailableAxes(visType)
 
-export class AddToLayoutButton extends Component {
-    constructor(props) {
-        super(props)
-        this.buttonRef = React.createRef()
-    }
+    const AddToLayoutButton = availableAxes.length > 1 ? SplitButton : Button
 
-    onUpdate = axisId => {
-        this.props.onAddDimension({
-            [this.props.dialogId]: { axisId },
+    const clickHandler = axisId => {
+        onAddDimension({
+            [dialogId]: { axisId },
         })
 
-        this.props.onClick()
+        onClick()
     }
 
-    renderMenuItems = () =>
-        getAvailableAxes(this.props.visType)
-            .slice(1)
-            .map(axis => (
-                <MenuItem
-                    key={axis}
-                    onClick={() => this.onUpdate(axis)}
-                    label={i18n.t(`Add to {{axisName}}`, {
-                        axisName: getAxisNameByLayoutType(
-                            axis,
-                            getLayoutTypeByVisType(this.props.visType)
-                        ),
-                    })}
-                />
-            ))
+    const renderMenu = () => (
+        <Menu maxWidth="380px">
+            {getAvailableAxes(visType)
+                .slice(1)
+                .map(axis => (
+                    <MenuItem
+                        key={axis}
+                        onClick={() => clickHandler(axis)}
+                        label={i18n.t(`Add to {{axisName}}`, {
+                            axisName: getAxisNameByLayoutType(
+                                axis,
+                                getLayoutTypeByVisType(visType)
+                            ),
+                        })}
+                    />
+                ))}
+        </Menu>
+    )
 
-    render() {
-        const availableAxes = getAvailableAxes(this.props.visType)
-        const AddToLayoutButton =
-            availableAxes.length > 1 ? SplitButton : Button
-
-        return (
-            <div ref={addToRef => (this.buttonRef = addToRef)}>
-                <AddToLayoutButton
-                    component={
-                        availableAxes.length > 1 ? (
-                            <Menu maxWidth="380px">
-                                {this.renderMenuItems()}
-                            </Menu>
-                        ) : null
-                    }
-                    onClick={() => this.onUpdate(availableAxes[0])}
-                    primary
-                >
-                    {i18n.t(`Add to {{axisName}}`, {
-                        axisName: getAxisNameByLayoutType(
-                            availableAxes[0],
-                            getLayoutTypeByVisType(this.props.visType)
-                        ),
-                    })}
-                </AddToLayoutButton>
-            </div>
-        )
-    }
+    return (
+        <div>
+            <AddToLayoutButton
+                component={availableAxes.length > 1 ? renderMenu() : null}
+                onClick={() => clickHandler(availableAxes[0])}
+                primary
+            >
+                {i18n.t(`Add to {{axisName}}`, {
+                    axisName: getAxisNameByLayoutType(
+                        availableAxes[0],
+                        getLayoutTypeByVisType(visType)
+                    ),
+                })}
+            </AddToLayoutButton>
+        </div>
+    )
 }
 
 AddToLayoutButton.propTypes = {
