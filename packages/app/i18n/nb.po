@@ -50,7 +50,7 @@ msgid ""
 "'Single Value' is intended to show a single data item. Only the first item "
 "will be used and saved."
 msgstr ""
-"'Single Value' er ment å vise et enkelt dataelement. Bare det første "
+"'Enkeltverdi' er ment å vise et enkelt dataelement. Bare det første "
 "elementet vil bli brukt og lagret."
 
 msgid "Hide"
