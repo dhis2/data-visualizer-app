@@ -1,7 +1,7 @@
 import reducer, {
     DEFAULT_SNACKBAR,
     RECEIVED_SNACKBAR_MESSAGE,
-    CLOSE_SNACKBAR,
+    CLEAR_SNACKBAR,
 } from '../snackbar'
 
 import {
@@ -30,7 +30,6 @@ describe('reducer: snackbar', () => {
             variant: VARIANT_INFORMATION,
             message,
             duration: null,
-            open: false,
         }
 
         const actualState = reducer(DEFAULT_SNACKBAR, action)
@@ -52,14 +51,12 @@ describe('reducer: snackbar', () => {
             variant: VARIANT_INFORMATION,
             message,
             duration,
-            open: true,
         }
 
         const currentState = {
             variant: VARIANT_INFORMATION,
             message: 'You just won 1000 dollars',
             duration,
-            open: true,
         }
 
         const actualState = reducer(currentState, action)
@@ -69,14 +66,12 @@ describe('reducer: snackbar', () => {
     it('should handle RECEIVED_SNACKBAR_MESSAGE action object containing text and duration', () => {
         const message = 'Loading "tinkywinky" dashboard'
         const duration = 3000
-        const open = true
 
         const action = {
             type: RECEIVED_SNACKBAR_MESSAGE,
             value: {
                 message,
                 duration,
-                open,
             },
         }
 
@@ -84,7 +79,6 @@ describe('reducer: snackbar', () => {
             variant: VARIANT_INFORMATION,
             message,
             duration,
-            open,
         }
 
         const actualState = reducer(DEFAULT_SNACKBAR, action)
@@ -107,23 +101,21 @@ describe('reducer: snackbar', () => {
             variant,
             message,
             duration: null,
-            open: false,
         }
 
         const actualState = reducer(DEFAULT_SNACKBAR, action)
         expect(actualState).toEqual(expectedState)
     })
 
-    it('should handle the CLOSE_SNACKBAR action', () => {
+    it('should handle the CLEAR_SNACKBAR action', () => {
         const action = {
-            type: CLOSE_SNACKBAR,
+            type: CLEAR_SNACKBAR,
         }
 
         const currentState = {
             variant: VARIANT_ERROR,
             message: 'You just won 1000 dollars',
             duration: 3000,
-            open: true,
         }
 
         const actualState = reducer(currentState, action)

@@ -1,78 +1,52 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import MUISnackbar from '@material-ui/core/Snackbar'
-import MUISnackbarContent from '@material-ui/core/SnackbarContent'
-import { withStyles } from '@material-ui/core/styles'
 
-import InfoIcon from '@material-ui/icons/InfoOutlined'
-import CloseIcon from '@material-ui/icons/Close'
+import { AlertBar } from '@dhis2/ui-core'
+
+import styles from './styles/Snackbar.module.css'
+
 import { sGetSnackbar } from '../../reducers/snackbar'
-import { tDoCloseSnackbar } from '../../actions'
-import styles from './styles/Snackbar.style'
+import { acClearSnackbar } from '../../actions/snackbar'
 
-export const VARIANT_INFORMATION = 'information'
-export const VARIANT_WARNING = 'warning'
 export const VARIANT_ERROR = 'error'
+export const VARIANT_SUCCESS = 'success'
+export const VARIANT_WARNING = 'warning'
 
-export const Snackbar = ({
-    classes,
-    variant,
-    open,
-    message,
-    duration,
-    onClose,
-}) => (
-    <MUISnackbar open={open} autoHideDuration={duration} onClose={onClose}>
-        <MUISnackbarContent
-            className={classes[variant]}
-            message={
-                <span className={classes.container}>
-                    {variant === VARIANT_ERROR ? (
-                        <InfoIcon className={classes.icon} />
-                    ) : null}
+export const Snackbar = ({ snackbar, onClose }) => {
+    const { variant, message, duration } = snackbar
+
+    return (
+        message && (
+            <div className={styles.container}>
+                <AlertBar
+                    duration={duration}
+                    critical={variant === VARIANT_ERROR}
+                    success={variant === VARIANT_SUCCESS}
+                    warning={variant === VARIANT_WARNING}
+                    permanent={
+                        variant === VARIANT_ERROR || variant === VARIANT_WARNING
+                    }
+                    onHidden={onClose}
+                >
                     {message}
-                    {variant === VARIANT_WARNING ? (
-                        <CloseIcon
-                            className={classes.closeIcon}
-                            onClick={onClose}
-                        />
-                    ) : null}
-                </span>
-            }
-        />
-    </MUISnackbar>
-)
+                </AlertBar>
+            </div>
+        )
+    )
+}
 
 Snackbar.propTypes = {
-    classes: PropTypes.object.isRequired,
-    variant: PropTypes.oneOf([
-        VARIANT_INFORMATION,
-        VARIANT_WARNING,
-        VARIANT_ERROR,
-    ]).isRequired,
-    duration: PropTypes.number,
-    message: PropTypes.string,
-    open: PropTypes.bool,
+    snackbar: PropTypes.object,
     onClose: PropTypes.func,
 }
 
-const mapStateToProps = state => {
-    const { variant, message, duration, open } = sGetSnackbar(state)
-
-    return {
-        variant,
-        open,
-        message,
-        duration,
-    }
-}
-
-const mapDispatchToProps = dispatch => ({
-    onClose: () => dispatch(tDoCloseSnackbar()),
+const mapStateToProps = state => ({
+    snackbar: sGetSnackbar(state),
 })
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(withStyles(styles)(Snackbar))
+const mapDispatchToProps = dispatch => ({
+    onClose: () => dispatch(acClearSnackbar()),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Snackbar)
