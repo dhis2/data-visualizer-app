@@ -1,3 +1,10 @@
+## [34.3.37](https://github.com/dhis2/data-visualizer-app/compare/v34.3.36...v34.3.37) (2020-04-14)
+
+
+### Bug Fixes
+
+* fix axes options for line and area vis types ([#857](https://github.com/dhis2/data-visualizer-app/issues/857)) ([9463ea3](https://github.com/dhis2/data-visualizer-app/commit/9463ea31d7c9ca941edf77a736307fb85a39936e))
+
 ## [34.3.36](https://github.com/dhis2/data-visualizer-app/compare/v34.3.35...v34.3.36) (2020-04-09)
 
 
