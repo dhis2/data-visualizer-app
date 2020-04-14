@@ -298,20 +298,6 @@ export class DialogManager extends Component {
         )
     }
 
-    renderPrimaryButton = dialogId => (
-        <UpdateVisualizationContainer
-            renderComponent={handler =>
-                this.props.dimensionIdsInLayout.includes(dialogId) ? (
-                    <UpdateButton onClick={this.getPrimaryOnClick(handler)} />
-                ) : (
-                    <AddToLayoutButton
-                        onClick={this.getPrimaryOnClick(handler)}
-                    />
-                )
-            }
-        />
-    )
-
     getPrimaryOnClick = handler => () => {
         handler()
         this.closeDialog()
@@ -351,7 +337,25 @@ export class DialogManager extends Component {
                         <ModalActions>
                             <ButtonStrip>
                                 <HideButton onClick={this.closeDialog} />
-                                {dialogId && this.renderPrimaryButton(dialogId)}
+                                <UpdateVisualizationContainer
+                                    renderComponent={handler =>
+                                        this.props.dimensionIdsInLayout.includes(
+                                            dialogId
+                                        ) ? (
+                                            <UpdateButton
+                                                onClick={this.getPrimaryOnClick(
+                                                    handler
+                                                )}
+                                            />
+                                        ) : (
+                                            <AddToLayoutButton
+                                                onClick={this.getPrimaryOnClick(
+                                                    handler
+                                                )}
+                                            />
+                                        )
+                                    }
+                                />
                             </ButtonStrip>
                         </ModalActions>
                     </Modal>
