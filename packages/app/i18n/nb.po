@@ -22,7 +22,7 @@ msgid "\"{{what}}\" successfully deleted."
 msgstr "Sletting av \"{{what}}\" var vellykket."
 
 msgid "Data Visualizer"
-msgstr ""
+msgstr "Data Visualizer"
 
 msgid "Axis 1"
 msgstr "Akse 1"
@@ -50,6 +50,8 @@ msgid ""
 "'Single Value' is intended to show a single data item. Only the first item "
 "will be used and saved."
 msgstr ""
+"'Enkeltverdi' er ment å vise et enkelt dataelement. Bare det første "
+"elementet vil bli brukt og lagret."
 
 msgid "Hide"
 msgstr "Skjul"
@@ -97,22 +99,22 @@ msgid "Hide technical details"
 msgstr "Skjul tekniske detaljer"
 
 msgid "Show technical details"
-msgstr ""
+msgstr "Vis tekniske detaljer"
 
 msgid "The following information may be requested by technical support."
-msgstr ""
+msgstr "Følgende informasjon kan bli bedt om av teknisk support."
 
 msgid "Interpretations"
 msgstr "Tolkninger"
 
 msgid "{{total}} of 1 selected"
-msgstr ""
+msgstr "{{total}} av 1 valgt"
 
 msgid "{{total}} selected"
-msgstr ""
+msgstr "{{total}} valgt"
 
 msgid "Series"
-msgstr ""
+msgstr "Serie"
 
 msgid "Category"
 msgstr "Kategori"
@@ -121,34 +123,34 @@ msgid "Filter"
 msgstr "Filter"
 
 msgid "Move to"
-msgstr ""
+msgstr "Flytt til"
 
 msgid "None selected"
-msgstr ""
+msgstr "Ingen valgt"
 
 msgid "Only '{{name}}' in use"
-msgstr ""
+msgstr "Bare '{{name}}' er i bruk"
 
 msgid "Unsaved chart"
-msgstr ""
+msgstr "Ikke lagret diagram"
 
 msgid "Edited"
-msgstr ""
+msgstr "Redigert"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr ""
+msgstr "Viser tolkning fra {{interpretationDate}}"
 
 msgid "Error validating layout"
-msgstr ""
+msgstr "Feil ved validering av oppsett"
 
 msgid "Create a new visualization by adding dimensions to the layout"
-msgstr ""
+msgstr "Lag en ny visualisering ved å legge til dimensjoner i oppsettet"
 
 msgid "Chart error"
-msgstr ""
+msgstr "Diagramfeil"
 
 msgid "Error generating chart, please try again"
-msgstr ""
+msgstr "Feil ved generering av diagram, prøv igjen"
 
 msgid "Aggregation type"
 msgstr "Aggregasjonstype"
@@ -181,94 +183,94 @@ msgid "Max"
 msgstr "Max"
 
 msgid "Standard deviation"
-msgstr ""
+msgstr "Standardavvik"
 
 msgid "Variance"
 msgstr "Varians"
 
 msgid "Base line"
-msgstr ""
+msgstr "Grunnlinje"
 
 msgid "Base line title"
-msgstr ""
+msgstr "Grunnlinjetittel"
 
 msgid "Base line value"
-msgstr ""
+msgstr "Grunnlinjeverdi"
 
 msgid "Only include completed events"
-msgstr ""
+msgstr "Inkluder bare fullførte hendelser"
 
 msgid "Use cumulative values"
-msgstr ""
+msgstr "Bruk kumulative verdier"
 
 msgid "Domain axis title"
-msgstr ""
+msgstr "Domeneaksetittel"
 
 msgid "Hide empty categories"
-msgstr ""
+msgstr "Skjul tomme kategorier"
 
 msgid "None"
 msgstr "Ingen"
 
 msgid "Before first"
-msgstr ""
+msgstr "Før første"
 
 msgid "After last"
-msgstr ""
+msgstr "Etter siste"
 
 msgid "Before first and after last"
-msgstr ""
+msgstr "Før første og etter siste"
 
 msgid "All"
 msgstr "Alt"
 
 msgid "Hide chart legend"
-msgstr ""
+msgstr "Skjul diagrammets tegnforklaring"
 
 msgid "Hide subtitle"
-msgstr ""
+msgstr "Skjul undertittel"
 
 msgid "Hide title"
-msgstr ""
+msgstr "Skjul tittel"
 
 msgid "No space between columns/bars"
-msgstr ""
+msgstr "Ingen mellomrom mellom stolper"
 
 msgid "Use 100% stacked values"
-msgstr ""
+msgstr "Bruk 100% stablede verdier"
 
 msgid "Range axis decimals"
-msgstr ""
+msgstr "Desimaler for aksens rekkevidde"
 
 msgid "Range axis title"
-msgstr ""
+msgstr "Tittel for aksens rekkevidde"
 
 msgid "Range axis max"
-msgstr ""
+msgstr "Maks rekkevidde for akse"
 
 msgid "Range axis min"
-msgstr ""
+msgstr "Aksens min rekkevidde"
 
 msgid "Range axis tick steps"
-msgstr ""
+msgstr "Aksens rekkeviddeskalasteg"
 
 msgid "Tick steps may extend the chart beyond 'Range axis max'"
-msgstr ""
+msgstr "Skalasteg kan utvide diagrammet utenfor 'Maks rekkevidde for akse'"
 
 msgid "Trend line"
-msgstr ""
+msgstr "Trendlinje"
 
 msgid "Linear"
-msgstr ""
+msgstr "Lineær"
 
 msgid "Polynomial"
-msgstr ""
+msgstr "Polynom"
 
 msgid "Loess"
-msgstr ""
+msgstr "LOESS"
 
 msgid "Show values"
-msgstr ""
+msgstr "Vis verdier"
 
 msgid "Sort order"
 msgstr "Sorter etter"
@@ -280,25 +282,25 @@ msgid "High to low"
 msgstr "Høy til lav"
 
 msgid "Chart subtitle"
-msgstr ""
+msgstr "Diagrammets undertittel"
 
 msgid "Target line"
-msgstr ""
+msgstr "Mållinje"
 
 msgid "Target line title"
-msgstr ""
+msgstr "Mållinjetittel"
 
 msgid "Target line value"
-msgstr ""
+msgstr "Mållinjeverdi"
 
 msgid "Chart title"
-msgstr ""
+msgstr "Diagramtittel"
 
 msgid "Data"
 msgstr "Data"
 
 msgid "Axis & legend"
-msgstr ""
+msgstr "Akser og tegnforklaring"
 
 msgid "Style"
 msgstr "Stil"
@@ -307,67 +309,67 @@ msgid "Options"
 msgstr "Alternativer"
 
 msgid "Chart options"
-msgstr ""
+msgstr "Diagramalternativer"
 
 msgid "Column"
-msgstr ""
+msgstr "Stolpe"
 
 msgid "Stacked column"
-msgstr ""
+msgstr "Stablet stående stolpe"
 
 msgid "Bar"
-msgstr ""
+msgstr "Liggende stolpe"
 
 msgid "Stacked bar"
-msgstr ""
+msgstr "Liggende stablet stolpe"
 
 msgid "Line"
-msgstr ""
+msgstr "Linje"
 
 msgid "Area"
-msgstr ""
+msgstr "Areal"
 
 msgid "Pie"
-msgstr ""
+msgstr "Sektor"
 
 msgid "Radar"
-msgstr ""
+msgstr "Radar"
 
 msgid "Gauge"
-msgstr ""
+msgstr "Radialmåler"
 
 msgid "Year over year (line)"
-msgstr ""
+msgstr "År over år (linje)"
 
 msgid "Year over year (column)"
-msgstr ""
+msgstr "År over år (stolpe)"
 
 msgid "Single value"
-msgstr ""
+msgstr "Enkeltverdi"
 
 msgid "Open as Map"
-msgstr ""
+msgstr "Åpne som kart"
 
 msgid "Reporting rate"
-msgstr ""
+msgstr "Rapporteringfrekvens"
 
 msgid "Reporting rate on time"
-msgstr ""
+msgstr "Rapporteringsfrekvens i tide"
 
 msgid "Actual reports"
-msgstr ""
+msgstr "Faktiske rapporter"
 
 msgid "Actual reports on time"
-msgstr ""
+msgstr "Faktiske rapporter i tide"
 
 msgid "Expected reports"
-msgstr ""
+msgstr "Forventede rapporter"
 
 msgid "Program"
 msgstr "Program"
 
 msgid "Select a program"
-msgstr ""
+msgstr "Velg et program"
 
 msgid "Indicators"
 msgstr "Indikatorer"
@@ -376,7 +378,7 @@ msgid "Select indicator group"
 msgstr "Velg indikatorgruppe"
 
 msgid "[ All groups ]"
-msgstr ""
+msgstr "[ Alle grupper ]"
 
 msgid "Data elements"
 msgstr "Dataelementer"
@@ -385,7 +387,7 @@ msgid "Select data element group"
 msgstr "Velg dataelementgrupper"
 
 msgid "[ All data elements ]"
-msgstr ""
+msgstr "[ Alle dataelementer ]"
 
 msgid "Totals"
 msgstr "Totalsummer"
@@ -397,68 +399,69 @@ msgid "Data sets"
 msgstr "Datasett"
 
 msgid "Select data sets"
-msgstr ""
+msgstr "Velg datasett"
 
 msgid "[ All metrics ]"
-msgstr ""
+msgstr "[ Alle beregninger ]"
 
 msgid "Event data items"
-msgstr ""
+msgstr "Hendelsesdatapunkter"
 
 msgid "Program indicators"
-msgstr ""
+msgstr "Programindikatorer"
 
 msgid "Add to series"
-msgstr ""
+msgstr "Legg til i serie"
 
 msgid "Add to category"
-msgstr ""
+msgstr "Legg til kategori"
 
 msgid "Add to filter"
-msgstr ""
+msgstr "Legg til filter"
 
 msgid "series"
-msgstr ""
+msgstr "Serie"
 
 msgid "category"
-msgstr ""
+msgstr "kategori"
 
 msgid "filter"
-msgstr ""
+msgstr "filter"
 
 msgid "Please add at least one {{series}} dimension"
-msgstr ""
+msgstr "Legg til minst én {{series}} dimensjon"
 
 msgid "Please add at least one {{category}} dimension"
-msgstr ""
+msgstr "Legg til minst én {{category}} dimensjon"
 
 msgid ""
 "Please add at least one period as {{series}}, {{category}} or {{filter}}"
 msgstr ""
+"Legg til minst en periode som {{series}}, {{category}} eller {{filter}}"
 
 msgid "Please add {{data}} as {{category}} or {{filter}}"
-msgstr ""
+msgstr "Legg til {{data}} som {{category}} eller {{filter}}"
 
 msgid "Please add at least one period as {{series}} or {{filter}}"
-msgstr ""
+msgstr "Legg til minst en periode som {{series}} eller {{filter}}"
 
 msgid "Please add at least one {{filter}} dimension"
-msgstr ""
+msgstr "Legg til minst en {{filter}}-dimensjon"
 
 msgid "Please add at least one period as a {{series}} dimension"
-msgstr ""
+msgstr "Legg til minst en periode som en {{series}} dimensjon"
 
 msgid "Please add at least one period as a {{category}} dimension"
-msgstr ""
+msgstr "Legg til minst en periode som {{category}}-dimensjon"
 
 msgid "Please add {{data}} as a filter dimension"
-msgstr ""
+msgstr "Legg til {{data}} som en filterdimensjon"
 
 msgid "Please add one {{series}} dimension"
-msgstr ""
+msgstr "Legg til en {{series}} dimensjon"
 
 msgid "Please add at least one period as {{filter}}"
-msgstr ""
+msgstr "Legg til minst en periode som {{filter}}"
 
 msgid "Today"
 msgstr "I dag"
@@ -512,16 +515,16 @@ msgid "Months this year"
 msgstr "Måneder inneværende år"
 
 msgid "This bimonth"
-msgstr ""
+msgstr "Denne dobbelmåneden"
 
 msgid "Last bimonth"
-msgstr ""
+msgstr "Siste dobbelmåned"
 
 msgid "Last 6 bimonths"
-msgstr ""
+msgstr "Siste 6 dobbelmåneder"
 
 msgid "Bimonths this year"
-msgstr ""
+msgstr "Tomåneder inneværende år"
 
 msgid "This quarter"
 msgstr "Dette kvartalet"
@@ -566,19 +569,19 @@ msgid "User org unit"
 msgstr "Brukers org enhet"
 
 msgid "User org unit children"
-msgstr ""
+msgstr "Bruker underordnet org enhet"
 
 msgid "User org unit grand children"
-msgstr ""
+msgstr "Bruker under-underordnet org enhet"
 
 msgid "Weeks per year"
-msgstr ""
+msgstr "Uker per år"
 
 msgid "Months per year"
-msgstr ""
+msgstr "Måneder per år"
 
 msgid "Bimonths per year"
-msgstr ""
+msgstr "Tomåneder per år"
 
 msgid "Quarters per year"
-msgstr ""
+msgstr "Kvartal per år"
