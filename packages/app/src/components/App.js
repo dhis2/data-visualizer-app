@@ -296,6 +296,7 @@ const mapStateToProps = state => ({
     interpretations: fromReducers.fromVisualization.sGetInterpretations(state),
     ui: fromReducers.fromUi.sGetUi(state),
     visualization: sGetVisualization(state),
+    snackbar: fromReducers.fromSnackbar.sGetSnackbar(state),
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -307,6 +308,7 @@ const mapDispatchToProps = dispatch => ({
         dispatch(fromActions.fromUi.acSetUiFromVisualization(visualization)),
     addParentGraphMap: parentGraphMap =>
         dispatch(fromActions.fromUi.acAddParentGraphMap(parentGraphMap)),
+    clearSnackbar: () => dispatch(fromActions.fromSnackbar.acClearSnackbar()),
 })
 
 App.contextTypes = {

@@ -37,8 +37,6 @@ describe('App', () => {
                 },
             },
             baseUrl: undefined,
-            snackbarOpen: false,
-            snackbarMessage: '',
             loadError: null,
             interpretations: [],
             current: DEFAULT_CURRENT,
@@ -74,9 +72,8 @@ describe('App', () => {
         expect(app().find('div').length).toBeGreaterThan(0)
     })
 
-    it('renders a Snackbar', () => {
-        const snackbar = app().find(Snackbar)
-        expect(snackbar.length).toBeGreaterThan(0)
+    it('always renders a Snackbar', () => {
+        expect(app().find(Snackbar)).toHaveLength(1)
     })
 
     describe('location pathname', () => {
