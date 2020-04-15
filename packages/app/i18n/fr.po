@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-03-11T02:52:13.220Z\n"
+"POT-Creation-Date: 2020-04-14T11:38:31.639Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -74,6 +74,15 @@ msgid ""
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
 
+msgid "Data"
+msgstr "Données"
+
+msgid "Period"
+msgstr ""
+
+msgid "Organisation units"
+msgstr ""
+
 msgid "Main dimensions"
 msgstr ""
 
@@ -126,9 +135,6 @@ msgid "Other formats"
 msgstr "Autres formats"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr ""
-
-msgid "Something went wrong"
 msgstr ""
 
 msgid "Refresh to try again"
@@ -595,6 +601,9 @@ msgstr ""
 msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr ""
 
+msgid "Something went wrong"
+msgstr ""
+
 msgid "or"
 msgstr "ou"
 
@@ -709,10 +718,13 @@ msgstr ""
 msgid "User org unit grand children"
 msgstr ""
 
-msgid "Data"
-msgstr "Données"
-
 msgid "Axes"
+msgstr ""
+
+msgid "Vertical (y) axis"
+msgstr ""
+
+msgid "Horizontal (x) axis"
 msgstr ""
 
 msgid "Style"
@@ -722,12 +734,6 @@ msgid "Display"
 msgstr "Afficher"
 
 msgid "Lines"
-msgstr ""
-
-msgid "Vertical (y) axis"
-msgstr ""
-
-msgid "Horizontal (x) axis"
 msgstr ""
 
 msgid "Chart style"

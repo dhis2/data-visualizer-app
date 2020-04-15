@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-03-11T02:52:13.220Z\n"
+"POT-Creation-Date: 2020-04-14T11:38:31.639Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Persian (Afghanistan) (https://www.transifex.com/hisp-uio/teams/100509/fa_AF/)\n"
@@ -70,6 +70,15 @@ msgid ""
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
 
+msgid "Data"
+msgstr "دیتا"
+
+msgid "Period"
+msgstr ""
+
+msgid "Organisation units"
+msgstr ""
+
 msgid "Main dimensions"
 msgstr ""
 
@@ -122,9 +131,6 @@ msgid "Other formats"
 msgstr "فارمت های دیگر"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr ""
-
-msgid "Something went wrong"
 msgstr ""
 
 msgid "Refresh to try again"
@@ -591,6 +597,9 @@ msgstr ""
 msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr ""
 
+msgid "Something went wrong"
+msgstr ""
+
 msgid "or"
 msgstr "تنظیم"
 
@@ -705,11 +714,14 @@ msgstr ""
 msgid "User org unit grand children"
 msgstr ""
 
-msgid "Data"
-msgstr "دیتا"
-
 msgid "Axes"
 msgstr "محورونه"
+
+msgid "Vertical (y) axis"
+msgstr ""
+
+msgid "Horizontal (x) axis"
+msgstr ""
 
 msgid "Style"
 msgstr "استایل"
@@ -718,12 +730,6 @@ msgid "Display"
 msgstr "نمایش"
 
 msgid "Lines"
-msgstr ""
-
-msgid "Vertical (y) axis"
-msgstr ""
-
-msgid "Horizontal (x) axis"
 msgstr ""
 
 msgid "Chart style"
