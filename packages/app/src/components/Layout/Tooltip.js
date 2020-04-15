@@ -1,10 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import Popper from '@material-ui/core/Popper'
-import Paper from '@material-ui/core/Paper'
+//import Popper from '@material-ui/core/Popper'
+//import Paper from '@material-ui/core/Paper'
 import LockIcon from '@material-ui/icons/Lock'
 import WarningIcon from '@material-ui/icons/Warning'
+
+//import { Popover } from '@dhis2/ui-core'
+
 import i18n from '@dhis2/d2-i18n'
 import { ouIdHelper } from '@dhis2/analytics'
 
@@ -138,6 +141,17 @@ export class Tooltip extends React.Component {
         const hasNoItemsLabel = !itemDisplayNames.length && !warningLabel
 
         return (
+            <ul style={styles.list}>
+                {warningLabel &&
+                    this.renderWarningLabel(warningLabel)}
+                {this.props.lockedLabel && this.renderLockedLabel()}
+                {itemDisplayNames &&
+                    this.renderItems(itemDisplayNames)}
+                {hasNoItemsLabel && this.renderNoItemsLabel()}
+            </ul>
+        )
+        /*
+        return (
             <Popper
                 anchorEl={this.props.anchorEl}
                 open={this.props.open}
@@ -157,6 +171,7 @@ export class Tooltip extends React.Component {
                 </Paper>
             </Popper>
         )
+            */
     }
 }
 

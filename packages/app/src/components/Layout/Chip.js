@@ -1,8 +1,13 @@
 // TODO: Refactor chip to contain less logic
-import React from 'react'
+import React, { createRef } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+
 import WarningIcon from '@material-ui/icons/Warning'
 import LockIcon from '@material-ui/icons/Lock'
+
+import { Tooltip } from '@dhis2/ui-core'
+
 import i18n from '@dhis2/d2-i18n'
 import {
     getPredefinedDimensionProp,
@@ -15,10 +20,9 @@ import {
     isDimensionLocked,
     DIMENSION_PROP_NO_ITEMS,
 } from '@dhis2/analytics'
-import PropTypes from 'prop-types'
 
 import Menu from './Menu'
-import Tooltip from './Tooltip'
+import { Tooltip as TooltipContent } from './Tooltip'
 import { setDataTransfer } from '../../modules/dnd'
 import { sGetDimensions } from '../../reducers/dimensions'
 import { sGetUiItemsByDimension, sGetUiType } from '../../reducers/ui'
@@ -40,92 +44,81 @@ const WarningIconWrapper = (
     </div>
 )
 
-class Chip extends React.Component {
-    state = {
-        tooltipOpen: false,
-    }
+const Chip = ({
+    type,
+    dimensionId,
+    dimensionName,
+    axisId,
+    items,
+    getOpenHandler,
+}) => {
+    const id = Math.random().toString(36)
+    const ref = createRef()
+//    let timeout = null
+    const isLocked = () => isDimensionLocked(type, dimensionId)
 
-    id = Math.random().toString(36)
-
-    timeout = null
-
-    isLocked = () => isDimensionLocked(this.props.type, this.props.dimensionId)
-
-    getMaxNumberOfItems = () =>
-        getAxisMaxNumberOfItems(this.props.type, this.props.axisId)
-
-    handleMouseOver = () => {
-        if (this.timeout === null) {
-            this.timeout = setTimeout(
-                () =>
-                    this.setState({
-                        tooltipOpen: true,
-                    }),
-                TOOLTIP_ENTER_DELAY
-            )
+    const getMaxNumberOfItems = () =>
+        getAxisMaxNumberOfItems(type, axisId)
+/*
+    const handleMouseOut = () => {
+        if (typeof timeout === 'number') {
+            console.log('mouse out hide tooltip')
+            clearTimeout(timeout)
+            timeout = null
+            setTooltipIsOpen(false)
         }
     }
-
-    handleMouseOut = () => {
-        if (typeof this.timeout === 'number') {
-            clearTimeout(this.timeout)
-            this.timeout = null
-            this.setState({
-                tooltipOpen: false,
-            })
-        }
-    }
-
-    handleClick = () => {
+*/
+    const handleClick = () => {
         if (
             !getPredefinedDimensionProp(
-                this.props.dimensionId,
+                dimensionId,
                 DIMENSION_PROP_NO_ITEMS
             )
         ) {
-            this.props.getOpenHandler(this.props.dimensionId)
+            getOpenHandler(dimensionId)
         }
 
-        this.handleMouseOut()
+        /// XXX close the tooltip ?!
+        //handleMouseOut()
     }
 
-    getDragStartHandler = () => event => {
-        this.handleMouseOut()
+    const getDragStartHandler = () => event => {
+        // XXX close the tooltip ?!
+        //handleMouseOut()
 
-        setDataTransfer(event, this.props.axisId)
+        setDataTransfer(event, axisId)
     }
 
-    getAnchorEl = () => document.getElementById(this.id)
-
-    getWrapperStyles = () => ({
+    const getWrapperStyles = () => ({
         ...styles.chipWrapper,
         ...(!getPredefinedDimensionProp(
-            this.props.dimensionId,
+            dimensionId,
             DIMENSION_PROP_NO_ITEMS
-        ) && !this.props.items.length
+        ) && !items.length
             ? styles.chipEmpty
             : {}),
     })
 
-    renderChipLabelSuffix = () => {
-        const numberOfItems = this.props.items.length
+    const renderChipLabelSuffix = () => {
+        const numberOfItems = items.length
 
         const getItemsLabel =
-            !!this.getMaxNumberOfItems() &&
-            numberOfItems > this.getMaxNumberOfItems()
+            !!getMaxNumberOfItems() &&
+            numberOfItems > getMaxNumberOfItems()
                 ? i18n.t(`{{total}} of {{axisMaxNumberOfItems}} selected`, {
                       total: numberOfItems,
-                      axisMaxNumberOfItems: this.getMaxNumberOfItems(),
+                      axisMaxNumberOfItems: getMaxNumberOfItems(),
                   })
                 : i18n.t('{{total}} selected', {
                       total: numberOfItems,
                   })
 
-        return `${this.props.items.length > 0 ? `: ${getItemsLabel}` : ''}`
+        return `${items.length > 0 ? `: ${getItemsLabel}` : ''}`
     }
 
-    renderChipIcon = () => {
-        const Icon = getPredefinedDimensionProp(this.props.dimensionId, 'icon')
+    const renderChipIcon = () => {
+        const Icon = getPredefinedDimensionProp(dimensionId, 'icon')
         return Icon ? (
             <Icon style={styles.fixedDimensionIcon} />
         ) : (
@@ -133,79 +126,84 @@ class Chip extends React.Component {
         )
     }
 
-    renderMenu = () => (
+    const renderMenu = () => (
         <div style={styles.chipRight}>
             <Menu
-                dimensionId={this.props.dimensionId}
-                currentAxisId={this.props.axisId}
-                visType={this.props.type}
-                numberOfDimensionItems={this.props.items.length}
+                dimensionId={dimensionId}
+                currentAxisId={axisId}
+                visType={type}
+                numberOfDimensionItems={items.length}
             />
         </div>
     )
 
-    renderTooltip = () => {
-        if (this.props.dimensionId !== DIMENSION_ID_ASSIGNED_CATEGORIES) {
-            const activeItemIds = this.getMaxNumberOfItems()
-                ? this.props.items.slice(0, this.getMaxNumberOfItems())
-                : this.props.items
+    const renderTooltipContent = () => {
+        if (dimensionId !== DIMENSION_ID_ASSIGNED_CATEGORIES) {
+            const activeItemIds = getMaxNumberOfItems()
+                ? items.slice(0, getMaxNumberOfItems())
+                : items
 
-            const lockedLabel = this.isLocked()
+            const lockedLabel = isLocked()
                 ? i18n.t(
                       `{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}`,
                       {
-                          dimensionName: this.props.dimensionName,
+                          dimensionName: dimensionName,
                           axisName: getAxisNameByLayoutType(
-                              this.props.axisId,
-                              getLayoutTypeByVisType(this.props.type)
+                              axisId,
+                              getLayoutTypeByVisType(type)
                           ),
-                          visTypeName: getDisplayNameByVisType(this.props.type),
+                          visTypeName: getDisplayNameByVisType(type),
                       }
                   )
                 : null
 
             return (
-                <Tooltip
-                    dimensionId={this.props.dimensionId}
+                <TooltipContent
+                    dimensionId={dimensionId}
                     itemIds={activeItemIds}
                     lockedLabel={lockedLabel}
                     displayLimitedAmount={
-                        this.props.items.length > activeItemIds.length
+                        items.length > activeItemIds.length
                     }
-                    open={this.state.tooltipOpen}
-                    anchorEl={this.getAnchorEl()}
+                    open={tooltipIsOpen}
+                    anchorEl={ref}
                 />
             )
         }
     }
 
-    render = () => (
-        <div
-            style={this.getWrapperStyles()}
-            data-dimensionid={this.props.dimensionId}
-            draggable={!this.isLocked()}
-            onDragStart={this.getDragStartHandler()}
+    return (
+        <Tooltip
+            content={renderTooltipContent()}
+            ref={ref}
         >
-            <div
-                id={this.id}
-                style={styles.chipLeft}
-                onClick={this.handleClick}
-                onMouseOver={this.handleMouseOver}
-                onMouseOut={this.handleMouseOut}
-            >
-                <div style={styles.iconWrapper}>{this.renderChipIcon()}</div>
-                <span style={styles.label}>{this.props.dimensionName}</span>
-                <span>{this.renderChipLabelSuffix()}</span>
-                {hasAxisTooManyItems(
-                    this.props.type,
-                    this.props.axisId,
-                    this.props.items.length
-                ) && WarningIconWrapper}
-                {this.isLocked() && LockIconWrapper}
-            </div>
-            {!this.isLocked() && this.renderMenu()}
-            {this.getAnchorEl() && this.renderTooltip()}
-        </div>
+            {({ ref, onMouseOver, onMouseOut }) => (
+                <div
+                    style={getWrapperStyles()}
+                    data-dimensionid={dimensionId}
+                    draggable={!isLocked()}
+                    onDragStart={getDragStartHandler()}
+                    ref={ref}
+                >
+                    <div
+                        id={id}
+                        style={styles.chipLeft}
+                        onClick={handleClick}
+                    >
+                        <div style={styles.iconWrapper}>{renderChipIcon()}</div>
+                        <span style={styles.label}>{dimensionName}</span>
+                        <span>{renderChipLabelSuffix()}</span>
+                        {hasAxisTooManyItems(
+                            type,
+                            axisId,
+                            items.length
+                        ) && WarningIconWrapper}
+                        {isLocked() && LockIconWrapper}
+                    </div>
+                    {!isLocked() && renderMenu()}
+                </div>
+            )}
+        </Tooltip>
     )
 }
 
