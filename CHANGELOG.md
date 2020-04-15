@@ -1,3 +1,10 @@
+## [34.3.38](https://github.com/dhis2/data-visualizer-app/compare/v34.3.37...v34.3.38) (2020-04-15)
+
+
+### Bug Fixes
+
+* replace MUI with ui-core for dimension modals (TECH-318, TECH-319) ([#849](https://github.com/dhis2/data-visualizer-app/issues/849)) ([da42529](https://github.com/dhis2/data-visualizer-app/commit/da4252977e89618f966086992339efad43f1a137))
+
 ## [34.3.37](https://github.com/dhis2/data-visualizer-app/compare/v34.3.36...v34.3.37) (2020-04-14)
 
 
