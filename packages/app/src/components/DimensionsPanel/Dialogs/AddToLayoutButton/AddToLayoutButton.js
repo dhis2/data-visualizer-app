@@ -1,100 +1,73 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import Button from '@material-ui/core/Button'
-import MenuItem from '@material-ui/core/Button'
-import { withStyles } from '@material-ui/core/styles'
 import {
     getAvailableAxes,
     getAxisNameByLayoutType,
     getLayoutTypeByVisType,
 } from '@dhis2/analytics'
-
-import Menu from './Menu'
-import { sGetUiActiveModalDialog, sGetUiType } from '../../../../reducers/ui'
-import { acAddUiLayoutDimensions } from '../../../../actions/ui'
-
-import styles from './styles/AddToLayoutButton.style'
+import { SplitButton, Menu, MenuItem, Button } from '@dhis2/ui-core'
 import i18n from '@dhis2/d2-i18n'
 
-export class AddToLayoutButton extends Component {
-    constructor(props) {
-        super(props)
-        this.buttonRef = React.createRef()
-    }
+import { sGetUiActiveModalDialog, sGetUiType } from '../../../../reducers/ui'
+import { acAddUiLayoutDimensions } from '../../../../actions/ui'
+import styles from './styles/AddToLayoutButton.module.css'
 
-    state = { anchorEl: null }
+export const AddToLayoutButton = ({
+    dialogId,
+    visType,
+    onAddDimension,
+    onClick,
+}) => {
+    const availableAxes = getAvailableAxes(visType)
 
-    onClose = () => this.setState({ anchorEl: null })
+    const AddToLayoutButton = availableAxes.length > 1 ? SplitButton : Button
 
-    onToggle = event =>
-        this.state.anchorEl
-            ? this.onClose()
-            : this.setState({ anchorEl: event.currentTarget })
-
-    onUpdate = axisId => {
-        this.props.onAddDimension({
-            [this.props.dialogId]: { axisId },
+    const clickHandler = axisId => {
+        onAddDimension({
+            [dialogId]: { axisId },
         })
 
-        this.props.onClick()
+        onClick()
     }
 
-    renderMenuItems = () =>
-        getAvailableAxes(this.props.visType)
-            .slice(1)
-            .map(axis => (
-                <MenuItem
-                    className={this.props.classes.menuItem}
-                    component="li"
-                    key={axis}
-                    onClick={() => this.onUpdate(axis)}
-                >
-                    {i18n.t(`Add to {{axisName}}`, {
-                        axisName: getAxisNameByLayoutType(
-                            axis,
-                            getLayoutTypeByVisType(this.props.visType)
-                        ),
-                    })}
-                </MenuItem>
-            ))
-
-    render() {
-        const availableAxes = getAvailableAxes(this.props.visType)
-
-        return (
-            <div ref={addToRef => (this.buttonRef = addToRef)}>
-                <Button
-                    className={this.props.classes.button}
-                    variant="contained"
-                    color="primary"
-                    disableRipple
-                    disableFocusRipple
-                    onClick={() => this.onUpdate(availableAxes[0])}
-                >
-                    {i18n.t(`Add to {{axisName}}`, {
-                        axisName: getAxisNameByLayoutType(
-                            availableAxes[0],
-                            getLayoutTypeByVisType(this.props.visType)
-                        ),
-                    })}
-                </Button>
-                {availableAxes.length > 1 ? (
-                    <Menu
-                        onClose={this.onClose}
-                        onClick={this.onToggle}
-                        anchorEl={this.state.anchorEl}
-                        menuItems={this.renderMenuItems()}
-                        addToButtonRef={this.buttonRef}
+    const renderMenu = () => (
+        <Menu maxWidth="380px">
+            {getAvailableAxes(visType)
+                .slice(1)
+                .map(axis => (
+                    <MenuItem
+                        key={axis}
+                        onClick={() => clickHandler(axis)}
+                        label={i18n.t(`Add to {{axisName}}`, {
+                            axisName: getAxisNameByLayoutType(
+                                axis,
+                                getLayoutTypeByVisType(visType)
+                            ),
+                        })}
                     />
-                ) : null}
-            </div>
-        )
-    }
+                ))}
+        </Menu>
+    )
+
+    return (
+        <AddToLayoutButton
+            component={availableAxes.length > 1 ? renderMenu() : null}
+            onClick={() => clickHandler(availableAxes[0])}
+            primary
+            className={styles.button}
+        >
+            {i18n.t(`Add to {{axisName}}`, {
+                axisName: getAxisNameByLayoutType(
+                    availableAxes[0],
+                    getLayoutTypeByVisType(visType)
+                ),
+            })}
+        </AddToLayoutButton>
+    )
 }
 
 AddToLayoutButton.propTypes = {
-    classes: PropTypes.object.isRequired,
     dialogId: PropTypes.string.isRequired,
     visType: PropTypes.string.isRequired,
     onAddDimension: PropTypes.func.isRequired,
@@ -108,4 +81,4 @@ const mapStateToProps = state => ({
 
 export default connect(mapStateToProps, {
     onAddDimension: acAddUiLayoutDimensions,
-})(withStyles(styles)(AddToLayoutButton))
+})(AddToLayoutButton)

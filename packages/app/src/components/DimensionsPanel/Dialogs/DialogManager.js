@@ -3,9 +3,6 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import debounce from 'lodash-es/debounce'
 import isEqual from 'lodash-es/isEqual'
-
-import Dialog from '@material-ui/core/Dialog'
-import DialogActions from '@material-ui/core/DialogActions'
 import i18n from '@dhis2/d2-i18n'
 import {
     DataDimension,
@@ -19,12 +16,19 @@ import {
     getAxisMaxNumberOfItems,
     getDisplayNameByVisType,
     filterOutPredefinedDimensions,
+    apiFetchRecommendedIds,
 } from '@dhis2/analytics'
+import {
+    Modal,
+    ModalContent,
+    ModalActions,
+    ButtonStrip,
+    ModalTitle,
+} from '@dhis2/ui-core'
 
 import HideButton from '../../HideButton/HideButton'
 import AddToLayoutButton from './AddToLayoutButton/AddToLayoutButton'
 import UpdateVisualizationContainer from '../../UpdateButton/UpdateVisualizationContainer'
-
 import {
     acSetUiActiveModalDialog,
     acRemoveUiItems,
@@ -34,7 +38,6 @@ import {
 } from '../../../actions/ui'
 import { acAddMetadata } from '../../../actions/metadata'
 import { acSetRecommendedIds } from '../../../actions/recommendedIds'
-
 import {
     sGetUiItems,
     sGetUiItemsByDimension,
@@ -47,7 +50,6 @@ import {
 import { sGetDimensions } from '../../../reducers/dimensions'
 import { sGetMetadata } from '../../../reducers/metadata'
 import { sGetSettingsDisplayNameProperty } from '../../../reducers/settings'
-import { apiFetchRecommendedIds } from '@dhis2/analytics'
 import { removeLastPathSegment, getOuPath } from '../../../modules/orgUnit'
 import UpdateButton from '../../UpdateButton/UpdateButton'
 
@@ -195,7 +197,6 @@ export class DialogManager extends Component {
             displayNameProperty,
             dialogId,
             type,
-            dimensions,
             removeUiItems,
             setUiItems,
         } = this.props
@@ -277,14 +278,10 @@ export class DialogManager extends Component {
             )
 
             if (nonPredefinedDimensions.includes(dialogId)) {
-                const dialogTitle =
-                    dimensions[dialogId] && dimensions[dialogId].name
-
                 return (
                     <DynamicDimension
                         selectedItems={selectedItems}
                         dialogId={dialogId}
-                        dialogTitle={dialogTitle}
                         {...dimensionProps}
                         // TODO infoBoxMessage should ideally be implemented for all dimensions
                     />
@@ -301,20 +298,6 @@ export class DialogManager extends Component {
         )
     }
 
-    renderPrimaryButton = dialogId => (
-        <UpdateVisualizationContainer
-            renderComponent={handler =>
-                this.props.dimensionIdsInLayout.includes(dialogId) ? (
-                    <UpdateButton onClick={this.getPrimaryOnClick(handler)} />
-                ) : (
-                    <AddToLayoutButton
-                        onClick={this.getPrimaryOnClick(handler)}
-                    />
-                )
-            }
-        />
-    )
-
     getPrimaryOnClick = handler => () => {
         handler()
         this.closeDialog()
@@ -322,23 +305,62 @@ export class DialogManager extends Component {
 
     render() {
         const { dialogId, dimensions } = this.props
-        const keepMounted = !dialogId || dialogId === DIMENSION_ID_ORGUNIT
+
+        const nonPredefinedDimensions = filterOutPredefinedDimensions(
+            Object.keys(this.props.dimensions)
+        )
+
+        let dialogTitle = ''
+        if (dialogId === DIMENSION_ID_DATA) {
+            dialogTitle = i18n.t('Data')
+        } else if (dialogId === DIMENSION_ID_PERIOD) {
+            dialogTitle = i18n.t('Period')
+        } else if (dialogId === DIMENSION_ID_ORGUNIT) {
+            dialogTitle = i18n.t('Organisation units')
+        } else if (nonPredefinedDimensions.includes(dialogId)) {
+            dialogTitle = dimensions[dialogId] && dimensions[dialogId].name
+        }
 
         return (
-            <Dialog
-                data-test="dialog-manager"
-                open={dialogId in dimensions}
-                onClose={this.closeDialog}
-                maxWidth="lg"
-                disableEnforceFocus
-                keepMounted={keepMounted}
-            >
-                {this.renderDialogContent()}
-                <DialogActions>
-                    <HideButton onClick={this.closeDialog} />
-                    {dialogId && this.renderPrimaryButton(dialogId)}
-                </DialogActions>
-            </Dialog>
+            <Fragment>
+                {dialogId in dimensions && (
+                    <Modal
+                        onClose={this.closeDialog}
+                        data-test="dialog-manager"
+                        position="top"
+                        large
+                    >
+                        <ModalTitle>{dialogTitle}</ModalTitle>
+                        <ModalContent>
+                            {this.renderDialogContent()}
+                        </ModalContent>
+                        <ModalActions>
+                            <ButtonStrip>
+                                <HideButton onClick={this.closeDialog} />
+                                <UpdateVisualizationContainer
+                                    renderComponent={handler =>
+                                        this.props.dimensionIdsInLayout.includes(
+                                            dialogId
+                                        ) ? (
+                                            <UpdateButton
+                                                onClick={this.getPrimaryOnClick(
+                                                    handler
+                                                )}
+                                            />
+                                        ) : (
+                                            <AddToLayoutButton
+                                                onClick={this.getPrimaryOnClick(
+                                                    handler
+                                                )}
+                                            />
+                                        )
+                                    }
+                                />
+                            </ButtonStrip>
+                        </ModalActions>
+                    </Modal>
+                )}
+            </Fragment>
         )
     }
 }

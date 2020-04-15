@@ -8,16 +8,7 @@ import {
 } from '@dhis2/analytics'
 
 import { DialogManager } from '../DialogManager'
-
-jest.mock('@material-ui/core/Dialog', () => props => {
-    console.log('children', props.children)
-
-    return <div id="mock-mui-dialog">{props.children}</div>
-})
-
-jest.mock('@material-ui/core/DialogActions', () => props => (
-    <div id="mock-mui-dialog-actions">{props.children}</div>
-))
+import HideButton from '../../../HideButton/HideButton'
 
 jest.mock('@dhis2/analytics', () => {
     const dataId = 'dx'
@@ -61,6 +52,9 @@ describe('The DialogManager component', () => {
             dialogId: null,
             dimensions: {
                 test: {},
+                [DIMENSION_ID_ORGUNIT]: {},
+                [DIMENSION_ID_DATA]: {},
+                [DIMENSION_ID_PERIOD]: {},
             },
             dxIds: ['test'],
             ouIds: [],
@@ -158,8 +152,8 @@ describe('The DialogManager component', () => {
             dialogId: DIMENSION_ID_DATA,
         })
 
-        dialog.simulate('close')
+        dialog.find(HideButton).simulate('click')
 
-        expect(props.closeDialog).toHaveBeenCalled()
+        expect(props.closeDialog).toHaveBeenCalledTimes(1)
     })
 })

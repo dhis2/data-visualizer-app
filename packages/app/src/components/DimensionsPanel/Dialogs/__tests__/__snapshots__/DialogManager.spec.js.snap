@@ -1,199 +1,236 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The DialogManager component renders OUDimension content with display:none when previously mounted 1`] = `
-<Component
-  data-test="dialog-manager"
-  disableEnforceFocus={true}
-  keepMounted={true}
-  maxWidth="lg"
-  onClose={[Function]}
-  open={false}
->
-  <div
-    key="ou"
-    style={
-      Object {
-        "display": "block",
-      }
-    }
+<Fragment>
+  <Modal
+    data-test="dialog-manager"
+    dataTest="dhis2-uicore-modal"
+    large={true}
+    onClose={[Function]}
+    position="top"
   >
-    <OrgUnitDimension
-      onSelect={[Function]}
-      ouItems={Array []}
-    />
-  </div>
-  <Component>
-    <HideButton
-      onClick={[Function]}
-    />
-    <Connect(UpdateVisualizationContainer)
-      renderComponent={[Function]}
-    />
-  </Component>
-</Component>
+    <ModalTitle
+      dataTest="dhis2-uicore-modaltitle"
+    >
+      Organisation units
+    </ModalTitle>
+    <ModalContent
+      dataTest="dhis2-uicore-modalcontent"
+    >
+      <div
+        key="ou"
+        style={
+          Object {
+            "display": "block",
+          }
+        }
+      >
+        <OrgUnitDimension
+          onSelect={[Function]}
+          ouItems={Array []}
+        />
+      </div>
+    </ModalContent>
+    <ModalActions
+      dataTest="dhis2-uicore-modalactions"
+    >
+      <ButtonStrip
+        dataTest="dhis2-uicore-buttonstrip"
+      >
+        <HideButton
+          onClick={[Function]}
+        />
+        <Connect(UpdateVisualizationContainer)
+          renderComponent={[Function]}
+        />
+      </ButtonStrip>
+    </ModalActions>
+  </Modal>
+</Fragment>
 `;
 
-exports[`The DialogManager component renders OUDimension content with display:none when previously mounted 2`] = `
-<Component
-  data-test="dialog-manager"
-  disableEnforceFocus={true}
-  keepMounted={true}
-  maxWidth="lg"
-  onClose={[Function]}
-  open={false}
->
-  <div
-    key="ou"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
-  >
-    <OrgUnitDimension
-      onSelect={[Function]}
-      ouItems={Array []}
-    />
-  </div>
-  <Component>
-    <HideButton
-      onClick={[Function]}
-    />
-  </Component>
-</Component>
-`;
+exports[`The DialogManager component renders OUDimension content with display:none when previously mounted 2`] = `<Fragment />`;
 
 exports[`The DialogManager component renders OUDimension content with display:none when previously mounted 3`] = `
-<Component
-  data-test="dialog-manager"
-  disableEnforceFocus={true}
-  keepMounted={false}
-  maxWidth="lg"
-  onClose={[Function]}
-  open={false}
->
-  <div
-    key="ou"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
+<Fragment>
+  <Modal
+    data-test="dialog-manager"
+    dataTest="dhis2-uicore-modal"
+    large={true}
+    onClose={[Function]}
+    position="top"
   >
-    <OrgUnitDimension
-      onSelect={[Function]}
-      ouItems={Array []}
-    />
-  </div>
-  <DataDimension
-    onSelect={[Function]}
-    selectedDimensions={Array []}
-  />
-  <Component>
-    <HideButton
-      onClick={[Function]}
-    />
-    <Connect(UpdateVisualizationContainer)
-      renderComponent={[Function]}
-    />
-  </Component>
-</Component>
+    <ModalTitle
+      dataTest="dhis2-uicore-modaltitle"
+    >
+      Data
+    </ModalTitle>
+    <ModalContent
+      dataTest="dhis2-uicore-modalcontent"
+    >
+      <div
+        key="ou"
+        style={
+          Object {
+            "display": "none",
+          }
+        }
+      >
+        <OrgUnitDimension
+          onSelect={[Function]}
+          ouItems={Array []}
+        />
+      </div>
+      <DataDimension
+        onSelect={[Function]}
+        selectedDimensions={Array []}
+      />
+    </ModalContent>
+    <ModalActions
+      dataTest="dhis2-uicore-modalactions"
+    >
+      <ButtonStrip
+        dataTest="dhis2-uicore-buttonstrip"
+      >
+        <HideButton
+          onClick={[Function]}
+        />
+        <Connect(UpdateVisualizationContainer)
+          renderComponent={[Function]}
+        />
+      </ButtonStrip>
+    </ModalActions>
+  </Modal>
+</Fragment>
 `;
 
-exports[`The DialogManager component renders a closed dialog 1`] = `
-<Component
-  data-test="dialog-manager"
-  disableEnforceFocus={true}
-  keepMounted={true}
-  maxWidth="lg"
-  onClose={[Function]}
-  open={false}
->
-  <Component>
-    <HideButton
-      onClick={[Function]}
-    />
-  </Component>
-</Component>
-`;
+exports[`The DialogManager component renders a closed dialog 1`] = `<Fragment />`;
 
 exports[`The DialogManager component renders the DataDimension content in dialog 1`] = `
-<Component
-  data-test="dialog-manager"
-  disableEnforceFocus={true}
-  keepMounted={false}
-  maxWidth="lg"
-  onClose={[Function]}
-  open={false}
->
-  <DataDimension
-    onSelect={[Function]}
-    selectedDimensions={Array []}
-  />
-  <Component>
-    <HideButton
-      onClick={[Function]}
-    />
-    <Connect(UpdateVisualizationContainer)
-      renderComponent={[Function]}
-    />
-  </Component>
-</Component>
+<Fragment>
+  <Modal
+    data-test="dialog-manager"
+    dataTest="dhis2-uicore-modal"
+    large={true}
+    onClose={[Function]}
+    position="top"
+  >
+    <ModalTitle
+      dataTest="dhis2-uicore-modaltitle"
+    >
+      Data
+    </ModalTitle>
+    <ModalContent
+      dataTest="dhis2-uicore-modalcontent"
+    >
+      <DataDimension
+        onSelect={[Function]}
+        selectedDimensions={Array []}
+      />
+    </ModalContent>
+    <ModalActions
+      dataTest="dhis2-uicore-modalactions"
+    >
+      <ButtonStrip
+        dataTest="dhis2-uicore-buttonstrip"
+      >
+        <HideButton
+          onClick={[Function]}
+        />
+        <Connect(UpdateVisualizationContainer)
+          renderComponent={[Function]}
+        />
+      </ButtonStrip>
+    </ModalActions>
+  </Modal>
+</Fragment>
 `;
 
 exports[`The DialogManager component renders the OrgUnitDimension content in dialog 1`] = `
-<Component
-  data-test="dialog-manager"
-  disableEnforceFocus={true}
-  keepMounted={true}
-  maxWidth="lg"
-  onClose={[Function]}
-  open={false}
->
-  <div
-    key="ou"
-    style={
-      Object {
-        "display": "block",
-      }
-    }
+<Fragment>
+  <Modal
+    data-test="dialog-manager"
+    dataTest="dhis2-uicore-modal"
+    large={true}
+    onClose={[Function]}
+    position="top"
   >
-    <OrgUnitDimension
-      onSelect={[Function]}
-      ouItems={Array []}
-    />
-  </div>
-  <Component>
-    <HideButton
-      onClick={[Function]}
-    />
-    <Connect(UpdateVisualizationContainer)
-      renderComponent={[Function]}
-    />
-  </Component>
-</Component>
+    <ModalTitle
+      dataTest="dhis2-uicore-modaltitle"
+    >
+      Organisation units
+    </ModalTitle>
+    <ModalContent
+      dataTest="dhis2-uicore-modalcontent"
+    >
+      <div
+        key="ou"
+        style={
+          Object {
+            "display": "block",
+          }
+        }
+      >
+        <OrgUnitDimension
+          onSelect={[Function]}
+          ouItems={Array []}
+        />
+      </div>
+    </ModalContent>
+    <ModalActions
+      dataTest="dhis2-uicore-modalactions"
+    >
+      <ButtonStrip
+        dataTest="dhis2-uicore-buttonstrip"
+      >
+        <HideButton
+          onClick={[Function]}
+        />
+        <Connect(UpdateVisualizationContainer)
+          renderComponent={[Function]}
+        />
+      </ButtonStrip>
+    </ModalActions>
+  </Modal>
+</Fragment>
 `;
 
 exports[`The DialogManager component renders the PeriodDimension content in dialog 1`] = `
-<Component
-  data-test="dialog-manager"
-  disableEnforceFocus={true}
-  keepMounted={false}
-  maxWidth="lg"
-  onClose={[Function]}
-  open={false}
->
-  <PeriodDimension
-    onSelect={[Function]}
-    selectedPeriods={Array []}
-  />
-  <Component>
-    <HideButton
-      onClick={[Function]}
-    />
-    <Connect(UpdateVisualizationContainer)
-      renderComponent={[Function]}
-    />
-  </Component>
-</Component>
+<Fragment>
+  <Modal
+    data-test="dialog-manager"
+    dataTest="dhis2-uicore-modal"
+    large={true}
+    onClose={[Function]}
+    position="top"
+  >
+    <ModalTitle
+      dataTest="dhis2-uicore-modaltitle"
+    >
+      Period
+    </ModalTitle>
+    <ModalContent
+      dataTest="dhis2-uicore-modalcontent"
+    >
+      <PeriodDimension
+        onSelect={[Function]}
+        selectedPeriods={Array []}
+      />
+    </ModalContent>
+    <ModalActions
+      dataTest="dhis2-uicore-modalactions"
+    >
+      <ButtonStrip
+        dataTest="dhis2-uicore-buttonstrip"
+      >
+        <HideButton
+          onClick={[Function]}
+        />
+        <Connect(UpdateVisualizationContainer)
+          renderComponent={[Function]}
+        />
+      </ButtonStrip>
+    </ModalActions>
+  </Modal>
+</Fragment>
 `;

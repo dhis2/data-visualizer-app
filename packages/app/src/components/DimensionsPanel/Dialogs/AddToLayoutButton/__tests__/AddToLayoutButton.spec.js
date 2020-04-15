@@ -33,8 +33,7 @@ describe('The AddToLayoutButton component ', () => {
         expect(true).toBe(true)
     })
 
-    // new tests
-    // https://jira.dhis2.org/browse/DHIS2-7809
+    // TODO: Add new tests, https://jira.dhis2.org/browse/DHIS2-7809
 
     // it('renders an update button if dialogid exists in layout', () => {
     //     props.dialogId = 'dx';

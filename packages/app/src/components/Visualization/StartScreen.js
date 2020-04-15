@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
-import styles from './styles/StartScreen.style'
-import { sGetLoadError } from '../../reducers/loader'
 import PropTypes from 'prop-types'
-import { apiFetchMostViewedVisualizations } from '../../api/mostViewedVisualizations'
-import history from '../../modules/history'
 import { withStyles } from '@material-ui/core/styles'
 import { useDataEngine } from '@dhis2/app-runtime'
+import { visTypeIcons } from '@dhis2/analytics'
+
+import styles from './styles/StartScreen.style'
+import { sGetLoadError } from '../../reducers/loader'
+import { apiFetchMostViewedVisualizations } from '../../api/mostViewedVisualizations'
+import history from '../../modules/history'
 import { VisualizationError, genericErrorTitle } from '../../modules/error'
 import { GenericError } from '../../assets/ErrorIcons'
 import { apiFetchVisualizations } from '../../api/visualization'
-import { visTypeIcons } from '@dhis2/analytics'
 
 const StartScreen = ({ error, classes }) => {
     const [mostViewedVisualizations, setMostViewedVisualizations] = useState([])
