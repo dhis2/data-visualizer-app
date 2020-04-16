@@ -1,0 +1,88 @@
+.outer {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+.inner {
+    padding: var(--spacers-dp16) var(--spacers-dp24);
+    max-width: 600px;
+    box-sizing: border-box;
+    color: var(--colors-grey900);
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.errorContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.errorIcon {
+    width: 136px;
+    height: 136px;
+    margin: 0 auto 24px;
+}
+.errorTitle {
+    font-weight: 500px;
+    font-size: 20px;
+    color: var(--colors-grey800);
+    letter-spacing: 0.15px;
+    line-height: 24px;
+    width: 360px;
+    margin: 0 auto 12px;
+}
+.errorDescription {
+    font-weight: 400px;
+    font-size: 14px;
+    color: var(--colors-grey700);
+    line-height: 19px;
+    width: 360px;
+    margin: 0 auto;
+}
+.title {
+    font-weight: bold;
+    margin-top: 0px;
+    line-height: 22px;
+    color: var(--colors-grey700);
+}
+.section {
+    text-align: left;
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+.guide {
+    line-height: 18px;
+    letter-spacing: 0.1px;
+    list-style-position: outside;
+    margin: 0 0 0 12px;
+    padding: 0 0 0 10px;
+}
+.guideItem {
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.1px;
+    margin-bottom: 12px;
+}
+.visualization {
+    display: flex;
+    align-items: center;
+    margin: 0 0 12px 0px;
+    padding: 0px;
+    letter-spacing: 0.1px;
+    line-height: 16px;
+    cursor: pointer;
+    font-size: 14px;
+}
+.visualization :hover {
+    text-decoration: underline;
+}
+.visIcon {
+    height: 16px;
+}
+.visIcon svg {
+    height: 16px;
+    margin-right: 8px;
+}

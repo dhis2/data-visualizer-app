@@ -2,11 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
-import { withStyles } from '@material-ui/core/styles'
 import { useDataEngine } from '@dhis2/app-runtime'
 import { visTypeIcons } from '@dhis2/analytics'
 
-import styles from './styles/StartScreen.style'
+import styles from './styles/StartScreen.module.css'
 import { sGetLoadError } from '../../reducers/loader'
 import { apiFetchMostViewedVisualizations } from '../../api/mostViewedVisualizations'
 import history from '../../modules/history'
@@ -14,7 +13,7 @@ import { VisualizationError, genericErrorTitle } from '../../modules/error'
 import { GenericError } from '../../assets/ErrorIcons'
 import { apiFetchVisualizations } from '../../api/visualization'
 
-const StartScreen = ({ error, classes }) => {
+const StartScreen = ({ error }) => {
     const [mostViewedVisualizations, setMostViewedVisualizations] = useState([])
     const engine = useDataEngine()
 
@@ -50,37 +49,39 @@ const StartScreen = ({ error, classes }) => {
             getErrorContent()
         ) : (
             <div>
-                <div style={styles.section}>
-                    <h3 style={styles.title}>{i18n.t('Getting started')}</h3>
-                    <ul style={styles.guide}>
-                        <li style={styles.guideItem}>
+                <div className={styles.section}>
+                    <h3 className={styles.title}>
+                        {i18n.t('Getting started')}
+                    </h3>
+                    <ul className={styles.guide}>
+                        <li className={styles.guideItem}>
                             {i18n.t(
                                 'All dimensions that you can use to build visualizations are shown in the left sidebar'
                             )}
                         </li>
-                        <li style={styles.guideItem}>
+                        <li className={styles.guideItem}>
                             {i18n.t('Add dimensions to the layout above')}
                         </li>
-                        <li style={styles.guideItem}>
+                        <li className={styles.guideItem}>
                             {i18n.t('Click a dimension to add or remove items')}
                         </li>
                     </ul>
                 </div>
                 {mostViewedVisualizations.length > 0 && (
-                    <div style={styles.section}>
-                        <h3 style={styles.title}>
+                    <div className={styles.section}>
+                        <h3 className={styles.title}>
                             {i18n.t('Your most viewed charts and tables')}
                         </h3>
                         {mostViewedVisualizations.map(
                             (visualization, index) => (
                                 <p
                                     key={index}
-                                    className={classes.visualization}
+                                    className={styles.visualization}
                                     onClick={() =>
                                         history.push(`/${visualization.id}`)
                                     }
                                 >
-                                    <span className={classes.visIcon}>
+                                    <span className={styles.visIcon}>
                                         {visTypeIcons[visualization.type]}
                                     </span>
                                     <span>{visualization.name}</span>
@@ -94,28 +95,29 @@ const StartScreen = ({ error, classes }) => {
 
     const getErrorContent = () =>
         error instanceof VisualizationError ? (
-            <div style={styles.errorContainer}>
-                <div style={styles.errorIcon}>{error.icon()}</div>
-                <p style={styles.errorTitle}>{error.title}</p>
-                <p style={styles.errorDescription}>{error.description}</p>
+            <div className={styles.errorContainer}>
+                <div className={styles.errorIcon}>{error.icon()}</div>
+                <p className={styles.errorTitle}>{error.title}</p>
+                <p className={styles.errorDescription}>{error.description}</p>
             </div>
         ) : (
-            <div style={styles.errorContainer}>
-                <div style={styles.errorIcon}>{GenericError()}</div>
-                <p style={styles.errorTitle}>{genericErrorTitle}</p>
-                <p style={styles.errorDescription}>{error.message || error}</p>
+            <div className={styles.errorContainer}>
+                <div className={styles.errorIcon}>{GenericError()}</div>
+                <p className={styles.errorTitle}>{genericErrorTitle}</p>
+                <p className={styles.errorDescription}>
+                    {error.message || error}
+                </p>
             </div>
         )
 
     return (
-        <div style={styles.outer}>
-            <div style={styles.inner}>{getContent()}</div>
+        <div className={styles.outer}>
+            <div className={styles.inner}>{getContent()}</div>
         </div>
     )
 }
 
 StartScreen.propTypes = {
-    classes: PropTypes.object,
     error: PropTypes.object,
 }
 
@@ -123,4 +125,4 @@ const mapStateToProps = state => ({
     error: sGetLoadError(state),
 })
 
-export default connect(mapStateToProps)(withStyles(styles)(StartScreen))
+export default connect(mapStateToProps)(StartScreen)
