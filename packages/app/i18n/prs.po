@@ -74,10 +74,10 @@ msgid "Data"
 msgstr "دیتا"
 
 msgid "Period"
-msgstr ""
+msgstr "دوره"
 
 msgid "Organisation units"
-msgstr ""
+msgstr "واحد های سازمان"
 
 msgid "Main dimensions"
 msgstr ""

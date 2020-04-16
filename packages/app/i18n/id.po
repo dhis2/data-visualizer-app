@@ -77,10 +77,10 @@ msgid "Data"
 msgstr "Data"
 
 msgid "Period"
-msgstr ""
+msgstr "Periode"
 
 msgid "Organisation units"
-msgstr ""
+msgstr "Unit organisasi"
 
 msgid "Main dimensions"
 msgstr ""
