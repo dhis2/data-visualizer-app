@@ -24,7 +24,7 @@
     margin: 0 auto 24px;
 }
 .errorTitle {
-    font-weight: 500px;
+    font-weight: 500;
     font-size: 20px;
     color: var(--colors-grey800);
     letter-spacing: 0.15px;
@@ -33,7 +33,7 @@
     margin: 0 auto 12px;
 }
 .errorDescription {
-    font-weight: 400px;
+    font-weight: 400;
     font-size: 14px;
     color: var(--colors-grey700);
     line-height: 19px;
