@@ -81,7 +81,7 @@ msgid "Other formats"
 msgstr "صيغ أخرى"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr ""
+msgstr "حدث خطأ في تطبيق DHIS2 Data Visualizer."
 
 msgid "Something went wrong"
 msgstr "هناك خطأ ما"
@@ -114,13 +114,13 @@ msgid "Filter"
 msgstr "عامل التصفية"
 
 msgid "Move to"
-msgstr ""
+msgstr "نقل إلى"
 
 msgid "None selected"
 msgstr "غير محدد"
 
 msgid "Unsaved chart"
-msgstr ""
+msgstr "مخطط بياني غير محفوظ"
 
 msgid "Edited"
 msgstr "تم التعديل"
@@ -129,13 +129,13 @@ msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "مشاهدة التفسير من  {{interpretationDate}}"
 
 msgid "Create a new visualization by adding dimensions to the layout"
-msgstr ""
+msgstr "قم بإنشاء تخطيط بياني جديد من خلال إضافة أبعاد إلى التخطيط"
 
 msgid "Chart error"
 msgstr ""
 
 msgid "Error generating chart, please try again"
-msgstr ""
+msgstr "خطأ في إنشاء الرسم البياني ، يرجى المحاولة مرة أخرى"
 
 msgid "Aggregation type"
 msgstr "نوع التجميع"
@@ -210,10 +210,10 @@ msgid "Hide chart legend"
 msgstr "إخفاء وسيلة الإيضاح للمخطط البياني"
 
 msgid "Hide subtitle"
-msgstr ""
+msgstr "إخفاء العنوان الفرعي"
 
 msgid "Hide title"
-msgstr ""
+msgstr "إخفاء العنوان"
 
 msgid "No space between columns/bars"
 msgstr "لا توجد مساحة بين الأعمدة / الأشرطة"
