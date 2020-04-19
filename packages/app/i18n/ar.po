@@ -131,7 +131,7 @@ msgid "Other formats"
 msgstr "صيغ أخرى"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr ""
+msgstr "حدث خطأ في تطبيق DHIS2 Data Visualizer."
 
 msgid "Something went wrong"
 msgstr "هناك خطأ ما"
