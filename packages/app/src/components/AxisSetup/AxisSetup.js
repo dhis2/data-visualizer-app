@@ -109,7 +109,7 @@ class AxisSetup extends Component {
                                 <TableCell>{item.name}</TableCell>
                                 <TableCell>
                                     <Radio
-                                        onClick={() =>
+                                        onChange={() =>
                                             this.onAxisChange(item, axis1)
                                         }
                                         checked={item.axis === axis1}
@@ -117,7 +117,7 @@ class AxisSetup extends Component {
                                 </TableCell>
                                 <TableCell className={styles.centered}>
                                     <Radio
-                                        onClick={() =>
+                                        onChange={() =>
                                             this.onAxisChange(item, axis2)
                                         }
                                         checked={item.axis === axis2}
