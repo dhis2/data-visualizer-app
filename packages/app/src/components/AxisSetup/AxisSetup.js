@@ -7,14 +7,14 @@ import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import DialogContent from '@material-ui/core/DialogContent'
-import Button from '@material-ui/core/Button'
-import Radio from '@material-ui/core/Radio'
 import {
     Table,
     TableHead,
     TableRow,
     TableCell,
     TableBody,
+    Button,
+    Radio,
 } from '@dhis2/ui-core'
 
 import styles from './styles/AxisSetup.module.css'
@@ -83,7 +83,7 @@ class AxisSetup extends Component {
 
     renderTable() {
         return (
-            <Table>
+            <Table className={styles.table}>
                 <colgroup>
                     <col className={styles.nameColumn} />
                     <col className={styles.coloredColumn} />
@@ -92,8 +92,12 @@ class AxisSetup extends Component {
                 <TableHead>
                     <TableRow>
                         <TableCell />
-                        <TableCell align="center">{i18n.t('Axis 1')}</TableCell>
-                        <TableCell align="center">{i18n.t('Axis 2')}</TableCell>
+                        <TableCell className={styles.centered}>
+                            {i18n.t('Axis 1')}
+                        </TableCell>
+                        <TableCell className={styles.centered}>
+                            {i18n.t('Axis 2')}
+                        </TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -103,7 +107,7 @@ class AxisSetup extends Component {
                         return (
                             <TableRow key={`multiaxis-table-row-${id}`}>
                                 <TableCell>{item.name}</TableCell>
-                                <TableCell align="center">
+                                <TableCell>
                                     <Radio
                                         onClick={() =>
                                             this.onAxisChange(item, axis1)
@@ -111,7 +115,7 @@ class AxisSetup extends Component {
                                         checked={item.axis === axis1}
                                     />
                                 </TableCell>
-                                <TableCell align="center">
+                                <TableCell className={styles.centered}>
                                     <Radio
                                         onClick={() =>
                                             this.onAxisChange(item, axis2)
@@ -147,17 +151,9 @@ class AxisSetup extends Component {
                     {this.state.items && this.renderTable()}
                 </DialogContent>
                 <DialogActions>
+                    <Button onClick={onCancelClick}>{i18n.t('Cancel')}</Button>
                     <Button
-                        color="primary"
-                        disableRipple
-                        disableFocusRipple
-                        onClick={onCancelClick}
-                    >
-                        {i18n.t('Cancel')}
-                    </Button>
-                    <Button
-                        color="primary"
-                        variant="contained"
+                        primary
                         onClick={() =>
                             this.props.onUpdateClick(
                                 this.getAxes(),
