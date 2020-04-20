@@ -11,11 +11,13 @@ import DialogTitle from '@material-ui/core/DialogTitle'
 import DialogContent from '@material-ui/core/DialogContent'
 import Button from '@material-ui/core/Button'
 import Radio from '@material-ui/core/Radio'
-import Table from '@material-ui/core/Table'
-import TableHead from '@material-ui/core/TableHead'
-import TableRow from '@material-ui/core/TableRow'
-import TableCell from '@material-ui/core/TableCell'
-import TableBody from '@material-ui/core/TableBody'
+import {
+    Table,
+    TableHead,
+    TableRow,
+    TableCell,
+    TableBody,
+} from '@dhis2/ui-core'
 
 import styles from './styles/AxisSetup.style'
 import { axis1, axis2 } from './constants'
@@ -88,26 +90,14 @@ class AxisSetup extends Component {
             <Table>
                 <colgroup>
                     <col className={classes.nameColumn} />
-                    <col
-                        className={`${classes.axisColumn} ${classes.coloredColumn}`}
-                    />
+                    <col className={classes.coloredColumn} />
                     <col className={classes.axisColumn} />
                 </colgroup>
                 <TableHead>
                     <TableRow>
-                        <TableCell className={classes.head} />
-                        <TableCell
-                            className={`${classes.tableCell} ${classes.head}`}
-                            align="center"
-                        >
-                            {i18n.t('Axis 1')}
-                        </TableCell>
-                        <TableCell
-                            className={`${classes.tableCell} ${classes.head}`}
-                            align="center"
-                        >
-                            {i18n.t('Axis 2')}
-                        </TableCell>
+                        <TableCell />
+                        <TableCell align="center">{i18n.t('Axis 1')}</TableCell>
+                        <TableCell align="center">{i18n.t('Axis 2')}</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -116,31 +106,21 @@ class AxisSetup extends Component {
 
                         return (
                             <TableRow key={`multiaxis-table-row-${id}`}>
-                                <TableCell className={classes.tableCell}>
-                                    {item.name}
-                                </TableCell>
-                                <TableCell
-                                    className={classes.tableCell}
-                                    align="center"
-                                >
+                                <TableCell>{item.name}</TableCell>
+                                <TableCell align="center">
                                     <Radio
                                         onClick={() =>
                                             this.onAxisChange(item, axis1)
                                         }
                                         checked={item.axis === axis1}
-                                        className={classes.axisRadio}
                                     />
                                 </TableCell>
-                                <TableCell
-                                    className={classes.tableCell}
-                                    align="center"
-                                >
+                                <TableCell align="center">
                                     <Radio
                                         onClick={() =>
                                             this.onAxisChange(item, axis2)
                                         }
                                         checked={item.axis === axis2}
-                                        className={classes.axisRadio}
                                     />
                                 </TableCell>
                             </TableRow>
@@ -152,7 +132,7 @@ class AxisSetup extends Component {
     }
 
     render() {
-        const { classes, isOpen, dialogMaxWidth, onCancelClick } = this.props
+        const { isOpen, dialogMaxWidth, onCancelClick } = this.props
 
         return (
             <Dialog
@@ -162,17 +142,15 @@ class AxisSetup extends Component {
                 disableEnforceFocus
             >
                 <DialogTitle>{i18n.t('Manage axes')}</DialogTitle>
-                <DialogContent className={classes.dialogContent}>
-                    <p className={classes.helpText}>
+                <DialogContent>
+                    <p>
                         {i18n.t(
                             'A chart can have two axes. Each axis will have its own scale. Set the axis for each data selection below.'
                         )}
                     </p>
-                    <div className={classes.tableContainer}>
-                        {this.state.items && this.renderTable()}
-                    </div>
+                    {this.state.items && this.renderTable()}
                 </DialogContent>
-                <DialogActions className={classes.dialogActions}>
+                <DialogActions>
                     <Button
                         color="primary"
                         disableRipple
