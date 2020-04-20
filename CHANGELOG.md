@@ -1,3 +1,10 @@
+## [34.3.40](https://github.com/dhis2/data-visualizer-app/compare/v34.3.39...v34.3.40) (2020-04-20)
+
+
+### Bug Fixes
+
+* consistent scrollbar style ([#877](https://github.com/dhis2/data-visualizer-app/issues/877)) ([622a6d8](https://github.com/dhis2/data-visualizer-app/commit/622a6d8921fa99c2cdd8344226857646a9c4f54a))
+
 ## [34.3.39](https://github.com/dhis2/data-visualizer-app/compare/v34.3.38...v34.3.39) (2020-04-20)
 
 
