@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-03-11T02:52:13.220Z\n"
+"POT-Creation-Date: 2020-04-14T11:38:31.639Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
@@ -73,6 +73,15 @@ msgid ""
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
 
+msgid "Data"
+msgstr "Data"
+
+msgid "Period"
+msgstr "Periode"
+
+msgid "Organisation units"
+msgstr "Unit organisasi"
+
 msgid "Main dimensions"
 msgstr ""
 
@@ -126,9 +135,6 @@ msgstr "Format lain"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "Terjadi kesalahan dalam aplikasi DHIS2 Data Visualizer."
-
-msgid "Something went wrong"
-msgstr "Terjadi kesalahan"
 
 msgid "Refresh to try again"
 msgstr "Refresh untuk mencoba kembali"
@@ -594,6 +600,9 @@ msgstr ""
 msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr ""
 
+msgid "Something went wrong"
+msgstr "Terjadi kesalahan"
+
 msgid "or"
 msgstr "atau"
 
@@ -708,11 +717,14 @@ msgstr "Sub org unit user"
 msgid "User org unit grand children"
 msgstr "Sub-sub org unit pengguna"
 
-msgid "Data"
-msgstr "Data"
-
 msgid "Axes"
 msgstr "Sumbu"
+
+msgid "Vertical (y) axis"
+msgstr ""
+
+msgid "Horizontal (x) axis"
+msgstr ""
 
 msgid "Style"
 msgstr "Gaya"
@@ -721,12 +733,6 @@ msgid "Display"
 msgstr ""
 
 msgid "Lines"
-msgstr ""
-
-msgid "Vertical (y) axis"
-msgstr ""
-
-msgid "Horizontal (x) axis"
 msgstr ""
 
 msgid "Chart style"

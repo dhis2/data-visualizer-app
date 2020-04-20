@@ -32,7 +32,9 @@ const LegendDisplayStrategy = ({ value, onChange }) => (
             />
             <Radio
                 key={LEGEND_DISPLAY_STRATEGY_FIXED}
-                label={i18n.t('Select a single legend for entire table')}
+                label={i18n.t(
+                    'Select a single legend for the entire visualization'
+                )}
                 value={LEGEND_DISPLAY_STRATEGY_FIXED}
             />
         </RadioGroup>

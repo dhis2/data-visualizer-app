@@ -1,12 +1,12 @@
 # Translators:
-# phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
+# phil_dhis2, 2020
 # Hamza Assada <7amza.it@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-03-11T02:52:13.220Z\n"
+"POT-Creation-Date: 2020-04-14T11:38:31.639Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2020\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -79,6 +79,15 @@ msgstr ""
 "الغرض من \"{{visualiationType}}\" هو إظهار عدد عناصر {{maxNumber}} كحد أقصى."
 " سيتم استخدام وحفظ العناصر الـ {{maxNumber}} الأولى فقط."
 
+msgid "Data"
+msgstr "البيانات"
+
+msgid "Period"
+msgstr "الفترة الزمنية"
+
+msgid "Organisation units"
+msgstr "الوحدات التنظيمية"
+
 msgid "Main dimensions"
 msgstr "الأبعاد الرئيسية"
 
@@ -131,10 +140,7 @@ msgid "Other formats"
 msgstr "صيغ أخرى"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr ""
-
-msgid "Something went wrong"
-msgstr "هناك خطأ ما"
+msgstr "حدث خطأ في تطبيق DHIS2 Data Visualizer."
 
 msgid "Refresh to try again"
 msgstr "قم بالتحديث للمحاولة مرة أخرى"
@@ -615,6 +621,9 @@ msgstr "الفئات المعينة لا يمكن أن تستخدم كعوامل
 msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr "قم بإصلاح هذه المشكلة عن طريق نقل أو إزالة الفئات التي تم تعينها."
 
+msgid "Something went wrong"
+msgstr "هناك خطأ ما"
+
 msgid "or"
 msgstr "أو"
 
@@ -729,11 +738,14 @@ msgstr ""
 msgid "User org unit grand children"
 msgstr ""
 
-msgid "Data"
-msgstr "البيانات"
-
 msgid "Axes"
 msgstr "المحاور"
+
+msgid "Vertical (y) axis"
+msgstr "محور (ص) العمودي"
+
+msgid "Horizontal (x) axis"
+msgstr "محور (س) الأفقي"
 
 msgid "Style"
 msgstr "المظهر"
@@ -743,12 +755,6 @@ msgstr "العرض"
 
 msgid "Lines"
 msgstr "الخطوط"
-
-msgid "Vertical (y) axis"
-msgstr "محور (ص) العمودي"
-
-msgid "Horizontal (x) axis"
-msgstr "محور (س) الأفقي"
 
 msgid "Chart style"
 msgstr ""

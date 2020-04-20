@@ -1,13 +1,13 @@
 # Translators:
-# phil_dhis2, 2020
 # easylin <lin_xd@126.com>, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
+# phil_dhis2, 2020
 # 晓东 林 <13981924470@126.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-03-11T02:52:13.220Z\n"
+"POT-Creation-Date: 2020-04-14T11:38:31.639Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -73,6 +73,15 @@ msgid ""
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
 
+msgid "Data"
+msgstr "数据"
+
+msgid "Period"
+msgstr "期间"
+
+msgid "Organisation units"
+msgstr "组织机构"
+
 msgid "Main dimensions"
 msgstr "主要维度"
 
@@ -126,9 +135,6 @@ msgstr "其它格式"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "数据可视化应用发生错误"
-
-msgid "Something went wrong"
-msgstr "出了些问题"
 
 msgid "Refresh to try again"
 msgstr "刷新后再试"
@@ -596,6 +602,9 @@ msgstr "指派的分类不能作为过滤器"
 msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr "移动或移除分类以便解决问题"
 
+msgid "Something went wrong"
+msgstr "出了些问题"
+
 msgid "or"
 msgstr "或"
 
@@ -710,11 +719,14 @@ msgstr "用户下属机构"
 msgid "User org unit grand children"
 msgstr "用户下下级机构"
 
-msgid "Data"
-msgstr "数据"
-
 msgid "Axes"
 msgstr "轴"
+
+msgid "Vertical (y) axis"
+msgstr "垂轴（Y）"
+
+msgid "Horizontal (x) axis"
+msgstr "水平轴（X）"
 
 msgid "Style"
 msgstr "风格"
@@ -724,12 +736,6 @@ msgstr "显示"
 
 msgid "Lines"
 msgstr "线"
-
-msgid "Vertical (y) axis"
-msgstr "垂轴（Y）"
-
-msgid "Horizontal (x) axis"
-msgstr "水平轴（X）"
 
 msgid "Chart style"
 msgstr "图表风格"
