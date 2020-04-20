@@ -1,0 +1,9 @@
+.nameColumn {
+    width: 80%;
+}
+.axisColumn {
+    width: 10%;
+}
+.coloredColumn {
+    background-color: var(--colors-grey100);
+}

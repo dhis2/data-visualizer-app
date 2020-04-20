@@ -3,8 +3,6 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import isEqual from 'lodash-es/isEqual'
-
-import { withStyles } from '@material-ui/core/styles'
 import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
 import DialogTitle from '@material-ui/core/DialogTitle'
@@ -19,7 +17,7 @@ import {
     TableBody,
 } from '@dhis2/ui-core'
 
-import styles from './styles/AxisSetup.style'
+import styles from './styles/AxisSetup.module.css'
 import { axis1, axis2 } from './constants'
 import { sGetUiActiveModalDialog, DEFAULT_UI, sGetUi } from '../../reducers/ui'
 import { sGetAxisSetupItems } from '../../reducers'
@@ -84,14 +82,12 @@ class AxisSetup extends Component {
     }
 
     renderTable() {
-        const { classes } = this.props
-
         return (
             <Table>
                 <colgroup>
-                    <col className={classes.nameColumn} />
-                    <col className={classes.coloredColumn} />
-                    <col className={classes.axisColumn} />
+                    <col className={styles.nameColumn} />
+                    <col className={styles.coloredColumn} />
+                    <col className={styles.axisColumn} />
                 </colgroup>
                 <TableHead>
                     <TableRow>
@@ -180,7 +176,6 @@ class AxisSetup extends Component {
 AxisSetup.propTypes = {
     isOpen: PropTypes.bool.isRequired,
     onUpdateClick: PropTypes.func.isRequired,
-    classes: PropTypes.object,
     dialogMaxWidth: PropTypes.string,
     items: PropTypes.arrayOf(
         PropTypes.shape({
@@ -194,7 +189,6 @@ AxisSetup.propTypes = {
 }
 
 AxisSetup.defaultProps = {
-    classes: {},
     isOpen: false,
     items: [],
     onUpdateClick: Function.prototype,
@@ -222,7 +216,4 @@ const mapDispatchToProps = dispatch => ({
     onCancelClick: () => dispatch(acSetUiActiveModalDialog()),
 })
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(withStyles(styles)(AxisSetup))
+export default connect(mapStateToProps, mapDispatchToProps)(AxisSetup)
