@@ -1,3 +1,10 @@
+## [34.3.39](https://github.com/dhis2/data-visualizer-app/compare/v34.3.38...v34.3.39) (2020-04-20)
+
+
+### Bug Fixes
+
+* changed the text for a legend option to suit all vis types ([#873](https://github.com/dhis2/data-visualizer-app/issues/873)) ([92df843](https://github.com/dhis2/data-visualizer-app/commit/92df84385807d58249b358b41e7fac9143408aa2))
+
 ## [34.3.38](https://github.com/dhis2/data-visualizer-app/compare/v34.3.37...v34.3.38) (2020-04-15)
 
 
