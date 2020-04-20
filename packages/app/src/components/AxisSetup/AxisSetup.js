@@ -1,8 +1,7 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
-import isEqual from 'lodash-es/isEqual'
 import {
     Table,
     TableHead,
@@ -27,50 +26,31 @@ import { acSetCurrentFromUi } from '../../actions/current'
 
 export const AXIS_SETUP_DIALOG_ID = 'axisSetup'
 
-class AxisSetup extends Component {
-    state = {
-        items: undefined,
-    }
+const AxisSetup = ({ isOpen, onUpdateClick, initItems, ui, onCancelClick }) => {
+    const [items, setItems] = useState()
 
-    componentDidMount() {
-        this.setItems(this.props.items)
-    }
+    useEffect(() => {
+        setItems(
+            initItems.reduce((itemsMap, item) => {
+                itemsMap[item.id] = item
+                return itemsMap
+            }, {})
+        )
+    }, [initItems])
 
-    componentDidUpdate(prevProps) {
-        const oldItems = prevProps.items
-        const newItems = this.props.items
-
-        if (!isEqual(oldItems, newItems)) {
-            this.setItems(newItems)
-        }
-    }
-
-    setItems = items => {
-        const itemsMap = items.reduce((itemsMap, item) => {
-            itemsMap[item.id] = item
-            return itemsMap
-        }, {})
-
-        this.setState({
-            items: itemsMap,
-        })
-    }
-
-    onAxisChange = (item, axis) => {
-        this.setState({
-            items: {
-                ...this.state.items,
-                [item.id]: {
-                    ...item,
-                    axis,
-                },
+    const onAxisChange = (item, axis) => {
+        setItems({
+            ...items,
+            [item.id]: {
+                ...item,
+                axis,
             },
         })
     }
 
-    getAxes = () => {
-        const axes = Object.keys(this.state.items).reduce((map, id) => {
-            const axis = this.state.items[id].axis
+    const getAxes = () => {
+        const axes = Object.keys(items).reduce((map, id) => {
+            const axis = items[id].axis
 
             if (axis > 0) {
                 map[id] = axis
@@ -82,7 +62,7 @@ class AxisSetup extends Component {
         return Object.keys(axes).length > 0 ? axes : DEFAULT_UI.axes
     }
 
-    renderTable() {
+    const renderTable = () => {
         return (
             <Table className={styles.table}>
                 <colgroup>
@@ -102,8 +82,8 @@ class AxisSetup extends Component {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {Object.keys(this.state.items).map(id => {
-                        const item = this.state.items[id]
+                    {Object.keys(items).map(id => {
+                        const item = items[id]
 
                         return (
                             <TableRow key={`multiaxis-table-row-${id}`}>
@@ -111,7 +91,7 @@ class AxisSetup extends Component {
                                 <TableCell>
                                     <Radio
                                         onChange={() =>
-                                            this.onAxisChange(item, axis1)
+                                            onAxisChange(item, axis1)
                                         }
                                         checked={item.axis === axis1}
                                     />
@@ -119,7 +99,7 @@ class AxisSetup extends Component {
                                 <TableCell className={styles.centered}>
                                     <Radio
                                         onChange={() =>
-                                            this.onAxisChange(item, axis2)
+                                            onAxisChange(item, axis2)
                                         }
                                         checked={item.axis === axis2}
                                     />
@@ -131,50 +111,40 @@ class AxisSetup extends Component {
             </Table>
         )
     }
-
-    render() {
-        const { isOpen, onCancelClick } = this.props
-
-        return (
-            isOpen && (
-                <Modal onClose={onCancelClick}>
-                    <ModalTitle>{i18n.t('Manage axes')}</ModalTitle>
-                    <ModalContent>
-                        <p>
-                            {i18n.t(
-                                'A chart can have two axes. Each axis will have its own scale. Set the axis for each data selection below.'
-                            )}
-                        </p>
-                        {this.state.items && this.renderTable()}
-                    </ModalContent>
-                    <ModalActions>
-                        <ButtonStrip end>
-                            <Button onClick={onCancelClick}>
-                                {i18n.t('Cancel')}
-                            </Button>
-                            <Button
-                                primary
-                                onClick={() =>
-                                    this.props.onUpdateClick(
-                                        this.getAxes(),
-                                        this.props.ui
-                                    )
-                                }
-                            >
-                                {i18n.t('Update')}
-                            </Button>
-                        </ButtonStrip>
-                    </ModalActions>
-                </Modal>
-            )
+    return (
+        isOpen && (
+            <Modal onClose={onCancelClick}>
+                <ModalTitle>{i18n.t('Manage axes')}</ModalTitle>
+                <ModalContent>
+                    <p>
+                        {i18n.t(
+                            'A chart can have two axes. Each axis will have its own scale. Set the axis for each data selection below.'
+                        )}
+                    </p>
+                    {items && renderTable()}
+                </ModalContent>
+                <ModalActions>
+                    <ButtonStrip end>
+                        <Button onClick={onCancelClick}>
+                            {i18n.t('Cancel')}
+                        </Button>
+                        <Button
+                            primary
+                            onClick={() => onUpdateClick(getAxes(), ui)}
+                        >
+                            {i18n.t('Update')}
+                        </Button>
+                    </ButtonStrip>
+                </ModalActions>
+            </Modal>
         )
-    }
+    )
 }
 
 AxisSetup.propTypes = {
     isOpen: PropTypes.bool.isRequired,
     onUpdateClick: PropTypes.func.isRequired,
-    items: PropTypes.arrayOf(
+    initItems: PropTypes.arrayOf(
         PropTypes.shape({
             axis: PropTypes.number.isRequired,
             id: PropTypes.string.isRequired,
@@ -187,14 +157,14 @@ AxisSetup.propTypes = {
 
 AxisSetup.defaultProps = {
     isOpen: false,
-    items: [],
+    initItems: [],
     onUpdateClick: Function.prototype,
     onCancelClick: Function.prototype,
 }
 
 const mapStateToProps = state => ({
     isOpen: sGetUiActiveModalDialog(state) === AXIS_SETUP_DIALOG_ID,
-    items: sGetAxisSetupItems(state),
+    initItems: sGetAxisSetupItems(state),
     ui: sGetUi(state),
 })
 
