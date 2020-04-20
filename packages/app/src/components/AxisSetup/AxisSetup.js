@@ -3,10 +3,6 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import isEqual from 'lodash-es/isEqual'
-import Dialog from '@material-ui/core/Dialog'
-import DialogActions from '@material-ui/core/DialogActions'
-import DialogTitle from '@material-ui/core/DialogTitle'
-import DialogContent from '@material-ui/core/DialogContent'
 import {
     Table,
     TableHead,
@@ -15,6 +11,11 @@ import {
     TableBody,
     Button,
     Radio,
+    Modal,
+    ModalTitle,
+    ModalContent,
+    ModalActions,
+    ButtonStrip,
 } from '@dhis2/ui-core'
 
 import styles from './styles/AxisSetup.module.css'
@@ -132,39 +133,40 @@ class AxisSetup extends Component {
     }
 
     render() {
-        const { isOpen, dialogMaxWidth, onCancelClick } = this.props
+        const { isOpen, onCancelClick } = this.props
 
         return (
-            <Dialog
-                open={isOpen}
-                maxWidth={dialogMaxWidth}
-                onClose={onCancelClick}
-                disableEnforceFocus
-            >
-                <DialogTitle>{i18n.t('Manage axes')}</DialogTitle>
-                <DialogContent>
-                    <p>
-                        {i18n.t(
-                            'A chart can have two axes. Each axis will have its own scale. Set the axis for each data selection below.'
-                        )}
-                    </p>
-                    {this.state.items && this.renderTable()}
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={onCancelClick}>{i18n.t('Cancel')}</Button>
-                    <Button
-                        primary
-                        onClick={() =>
-                            this.props.onUpdateClick(
-                                this.getAxes(),
-                                this.props.ui
-                            )
-                        }
-                    >
-                        {i18n.t('Update')}
-                    </Button>
-                </DialogActions>
-            </Dialog>
+            isOpen && (
+                <Modal onClose={onCancelClick}>
+                    <ModalTitle>{i18n.t('Manage axes')}</ModalTitle>
+                    <ModalContent>
+                        <p>
+                            {i18n.t(
+                                'A chart can have two axes. Each axis will have its own scale. Set the axis for each data selection below.'
+                            )}
+                        </p>
+                        {this.state.items && this.renderTable()}
+                    </ModalContent>
+                    <ModalActions>
+                        <ButtonStrip end>
+                            <Button onClick={onCancelClick}>
+                                {i18n.t('Cancel')}
+                            </Button>
+                            <Button
+                                primary
+                                onClick={() =>
+                                    this.props.onUpdateClick(
+                                        this.getAxes(),
+                                        this.props.ui
+                                    )
+                                }
+                            >
+                                {i18n.t('Update')}
+                            </Button>
+                        </ButtonStrip>
+                    </ModalActions>
+                </Modal>
+            )
         )
     }
 }
@@ -172,7 +174,6 @@ class AxisSetup extends Component {
 AxisSetup.propTypes = {
     isOpen: PropTypes.bool.isRequired,
     onUpdateClick: PropTypes.func.isRequired,
-    dialogMaxWidth: PropTypes.string,
     items: PropTypes.arrayOf(
         PropTypes.shape({
             axis: PropTypes.number.isRequired,
@@ -189,7 +190,6 @@ AxisSetup.defaultProps = {
     items: [],
     onUpdateClick: Function.prototype,
     onCancelClick: Function.prototype,
-    dialogMaxWidth: 'md',
 }
 
 const mapStateToProps = state => ({
