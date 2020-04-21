@@ -205,7 +205,7 @@ export const DownloadMenu = ({
                                 </DenseMenuItem>
                                 <DenseMenuItem
                                     Icon={MoreHorizontalIcon}
-                                    label="Advanced"
+                                    label={i18n.t('Advanced')}
                                 >
                                     <Menu>
                                         <div
