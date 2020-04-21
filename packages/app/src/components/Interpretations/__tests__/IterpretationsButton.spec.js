@@ -1,9 +1,9 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { InterpretationsButton } from '../InterpretationsButton'
-import Button from '@material-ui/core/Button'
 import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft'
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight'
+import MenuButton from '../../MenuButton/MenuButton'
 
 describe('InterpretationsButton component', () => {
     let props
@@ -31,27 +31,27 @@ describe('InterpretationsButton component', () => {
         shallowInterpretationsButton = undefined
     })
 
-    it('renders a <Button>', () => {
+    it('renders a <MenuButton>', () => {
         expect(
             interpretationsButton()
-                .find(Button)
+                .find(MenuButton)
                 .first().length
         ).toEqual(1)
     })
 
-    it('renders a disabled <Button> if no id is passed', () => {
+    it('renders a disabled <MenuButton> if no id is passed', () => {
         props.id = null
 
         expect(
             interpretationsButton()
-                .find(Button)
+                .find(MenuButton)
                 .prop('disabled')
         ).toEqual(true)
     })
 
     it('it triggers onClick when the button is clicked', () => {
         interpretationsButton()
-            .find(Button)
+            .find(MenuButton)
             .simulate('click')
 
         expect(onClick).toHaveBeenCalled()
