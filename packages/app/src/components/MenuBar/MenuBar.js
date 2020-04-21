@@ -53,10 +53,10 @@ export const MenuBar = ({ classes, ...props }, context) => (
             onDelete={getOnDelete(props)}
             onError={getOnError(props)}
         />
-        <VisualizationOptionsManager className={classes.label} />
-        <DownloadMenu className={classes.label} />
+        <VisualizationOptionsManager />
+        <DownloadMenu />
         <div className={classes.grow} />
-        <InterpretationsButton className={classes.label} />
+        <InterpretationsButton />
     </div>
 )
 

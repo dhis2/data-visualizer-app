@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
 
-import Button from '@material-ui/core/Button'
 import Divider from '@material-ui/core/Divider'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
@@ -35,6 +34,7 @@ import {
     apiDownloadData,
     apiDownloadTable,
 } from '../../api/analytics'
+import MenuButton from '../MenuButton/MenuButton'
 
 export class DownloadMenu extends Component {
     constructor(props) {
@@ -168,15 +168,12 @@ export class DownloadMenu extends Component {
     render() {
         return (
             <Fragment>
-                <Button
-                    className={this.props.className}
+                <MenuButton
                     onClick={event => this.toggleMenu(event.currentTarget)}
-                    disableRipple={true}
-                    disableFocusRipple={true}
                     disabled={!this.props.current}
                 >
                     {i18n.t('Download')}
-                </Button>
+                </MenuButton>
                 <Menu
                     open={Boolean(this.state.anchorEl)}
                     anchorEl={this.state.anchorEl}
@@ -345,7 +342,6 @@ const relativePeriodDateSelector = createSelector(
 
 DownloadMenu.propTypes = {
     chart: PropTypes.string,
-    className: PropTypes.string,
     columns: PropTypes.array,
     current: PropTypes.object,
     relativePeriodDate: PropTypes.string,

@@ -11,11 +11,6 @@ export default theme => ({
     updateButton: {
         marginRight: theme.spacing.unit,
     },
-    label: {
-        fontSize: '15px',
-        fontWeight: 400,
-        textTransform: 'none',
-    },
     grow: {
         flex: '1 1 0%',
     },
