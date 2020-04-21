@@ -1,6 +1,4 @@
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2019
-# phil_dhis2, 2019
 # easylin <lin_xd@126.com>, 2020
 # 晓东 林 <13981924470@126.com>, 2020
 # 
@@ -10,11 +8,11 @@ msgstr ""
 "POT-Creation-Date: 2019-08-26T14:38:24.067Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
-"Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
+"Language-Team: Chinese (China) (https://www.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh\n"
+"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Rename successful"
@@ -24,7 +22,7 @@ msgid "\"{{what}}\" successfully deleted."
 msgstr "\"{{what}}\" 被成功删除"
 
 msgid "Data Visualizer"
-msgstr "数据可视化图表工具"
+msgstr ""
 
 msgid "Data"
 msgstr "数据"
@@ -39,10 +37,10 @@ msgid "Search"
 msgstr "搜索"
 
 msgid "Organisation units"
-msgstr "组织机构"
+msgstr ""
 
 msgid "Period"
-msgstr "周期"
+msgstr "期间"
 
 msgid "Selected Data"
 msgstr ""
@@ -51,7 +49,7 @@ msgid "Deselect All"
 msgstr ""
 
 msgid "Select All"
-msgstr "全选"
+msgstr ""
 
 msgid "Remove"
 msgstr "移除"
@@ -114,10 +112,10 @@ msgid "Interpretations"
 msgstr "注释"
 
 msgid "selected"
-msgstr "选择的"
+msgstr ""
 
 msgid "Series"
-msgstr "系列"
+msgstr ""
 
 msgid "Category"
 msgstr "分类"
@@ -126,13 +124,13 @@ msgid "Filter"
 msgstr "过滤器"
 
 msgid "Move to"
-msgstr "移动"
+msgstr ""
 
 msgid "None selected"
 msgstr "没有选择"
 
 msgid "Unsaved chart"
-msgstr "未保存图表"
+msgstr ""
 
 msgid "Edited"
 msgstr "编辑"
@@ -144,13 +142,13 @@ msgid "Update"
 msgstr "更新"
 
 msgid "Chart error"
-msgstr "图表财务"
+msgstr ""
 
 msgid "There is a problem with your chart"
 msgstr ""
 
 msgid "Error generating chart, please try again"
-msgstr "生成图表错误，请重试"
+msgstr ""
 
 msgid "Aggregation type"
 msgstr "汇总类型"
@@ -195,19 +193,19 @@ msgid "Base line title"
 msgstr "基线标题"
 
 msgid "Base line value"
-msgstr "基线值"
+msgstr ""
 
 msgid "Use cumulative values"
-msgstr "使用汇总值"
+msgstr ""
 
 msgid "Domain axis title"
-msgstr "主轴标签"
+msgstr ""
 
 msgid "Hide empty categories"
 msgstr "隐藏空分类"
 
 msgid "None"
-msgstr "无"
+msgstr "没有"
 
 msgid "Before first"
 msgstr "第一个前面"
@@ -222,34 +220,34 @@ msgid "All"
 msgstr "全部"
 
 msgid "Hide chart legend"
-msgstr "隐藏图例"
+msgstr ""
 
 msgid "Hide subtitle"
-msgstr "隐藏子标题"
+msgstr ""
 
 msgid "Hide title"
-msgstr "隐藏标题"
+msgstr ""
 
 msgid "No space between columns/bars"
-msgstr "列/柱之间无空隙"
+msgstr ""
 
 msgid "Use 100% stacked values"
-msgstr "使用 100% 堆叠值"
+msgstr ""
 
 msgid "Range axis decimals"
-msgstr "横轴精度"
+msgstr ""
 
 msgid "Range axis title"
-msgstr "范围轴标签"
+msgstr ""
 
 msgid "Range axis max"
-msgstr "横轴最多区间"
+msgstr ""
 
 msgid "Range axis min"
-msgstr "横轴最小值"
+msgstr ""
 
 msgid "Range axis tick steps"
-msgstr "横轴单位间隔"
+msgstr ""
 
 msgid "Trend line"
 msgstr "趋势线"
@@ -264,7 +262,7 @@ msgid "Loess"
 msgstr "多项式回归拟合"
 
 msgid "Show values"
-msgstr "显示值"
+msgstr ""
 
 msgid "Sort order"
 msgstr "排序"
@@ -285,13 +283,13 @@ msgid "Target line title"
 msgstr "目标线标题"
 
 msgid "Target line value"
-msgstr "目标线值"
+msgstr ""
 
 msgid "Chart title"
 msgstr "图表标题"
 
 msgid "Axis & legend"
-msgstr "轴和图例"
+msgstr ""
 
 msgid "Style"
 msgstr "风格"
@@ -300,40 +298,40 @@ msgid "Options"
 msgstr "选项"
 
 msgid "Chart options"
-msgstr "图表选项"
+msgstr ""
 
 msgid "Column"
-msgstr "列"
+msgstr ""
 
 msgid "Stacked column"
-msgstr "叠柱"
+msgstr ""
 
 msgid "Bar"
-msgstr "柱"
+msgstr ""
 
 msgid "Stacked bar"
-msgstr "叠柱"
+msgstr ""
 
 msgid "Line"
-msgstr "折线图"
+msgstr ""
 
 msgid "Area"
-msgstr "面积"
+msgstr ""
 
 msgid "Pie"
-msgstr "饼图"
+msgstr ""
 
 msgid "Radar"
-msgstr "雷达图"
+msgstr ""
 
 msgid "Gauge"
-msgstr "表盘图"
+msgstr ""
 
 msgid "Year over year (line)"
-msgstr "逐年折线图"
+msgstr ""
 
 msgid "Year over year (column)"
-msgstr "逐年（列）"
+msgstr ""
 
 msgid "Reporting rate"
 msgstr "上报率"
@@ -354,28 +352,28 @@ msgid "Program"
 msgstr "项目"
 
 msgid "Select a program"
-msgstr "选择一个项目"
+msgstr ""
 
 msgid "Indicators"
 msgstr "指标"
 
 msgid "Select indicator group"
-msgstr "选择指标组"
+msgstr ""
 
 msgid "[ All groups ]"
-msgstr "【所有组】"
+msgstr ""
 
 msgid "Data elements"
-msgstr "数据元"
+msgstr ""
 
 msgid "Select data element group"
-msgstr "选择数据元组"
+msgstr ""
 
 msgid "[ All data elements ]"
-msgstr "【所有数据元】"
+msgstr ""
 
 msgid "Totals"
-msgstr "总共"
+msgstr ""
 
 msgid "Details"
 msgstr "详情"
@@ -384,56 +382,56 @@ msgid "Data sets"
 msgstr "数据集"
 
 msgid "Select data sets"
-msgstr "选择数据集"
+msgstr ""
 
 msgid "[ All metrics ]"
-msgstr "【所有尺度】"
+msgstr ""
 
 msgid "Event data items"
-msgstr "事件数据项"
+msgstr ""
 
 msgid "Program indicators"
-msgstr "项目指标"
+msgstr ""
 
 msgid "Organisation Unit"
 msgstr "组织机构"
 
 msgid "Add to series"
-msgstr "添加到系列"
+msgstr ""
 
 msgid "Add to category"
-msgstr "添加到分类"
+msgstr ""
 
 msgid "Add to filter"
-msgstr "添加到过滤器"
+msgstr ""
 
 msgid "series"
-msgstr "系列"
+msgstr ""
 
 msgid "category"
-msgstr "分类"
+msgstr ""
 
 msgid "filter"
-msgstr "过滤器"
+msgstr ""
 
 msgid "Please add at least one {{series}} dimension"
-msgstr "请至少添加一个到系列维度"
+msgstr ""
 
 msgid "Please add at least one {{category}} dimension"
-msgstr "请至少添加一个到分类维度"
+msgstr ""
 
 msgid ""
 "Please add at least one period as {{series}}, {{category}} or {{filter}}"
-msgstr "至少添加一个期间为{{series}}, {{category}} 或{{filter}}"
+msgstr ""
 
 msgid "Please add at least one period as a {{series}} dimension"
-msgstr "至少添加一个期间为{{series}}维度"
+msgstr ""
 
 msgid "Please add at least one period as a {{category}} dimension"
-msgstr "至少添加一个期间为 {{category}} 维度"
+msgstr ""
 
 msgid "Please add {{data}} as a filter dimension"
-msgstr "请至少添加 {{data}}为过滤器 维度"
+msgstr ""
 
 msgid "Today"
 msgstr "今天"
@@ -535,7 +533,7 @@ msgid "Last year"
 msgstr "去年"
 
 msgid "Last 5 years"
-msgstr "最近5年"
+msgstr "最近五年"
 
 msgid "User org unit"
 msgstr "当前用户机构"
