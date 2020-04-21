@@ -132,7 +132,7 @@ msgid "Create a new visualization by adding dimensions to the layout"
 msgstr "قم بإنشاء تخطيط بياني جديد من خلال إضافة أبعاد إلى التخطيط"
 
 msgid "Chart error"
-msgstr ""
+msgstr "خطأ في التخطيط البياني"
 
 msgid "Error generating chart, please try again"
 msgstr "خطأ في إنشاء الرسم البياني ، يرجى المحاولة مرة أخرى"
@@ -198,7 +198,7 @@ msgid "Before first"
 msgstr "قبل الأول"
 
 msgid "After first"
-msgstr ""
+msgstr "بعد الأول"
 
 msgid "Before first and after last"
 msgstr "قبل الأول وبعد الأخير"
