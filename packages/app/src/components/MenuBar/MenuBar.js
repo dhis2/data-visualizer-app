@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import FileMenu from '@dhis2/d2-ui-file-menu'
-import { withStyles } from '@material-ui/core/styles'
 
 import UpdateButton from '../UpdateButton/UpdateButton'
 import DownloadMenu from '../DownloadMenu/DownloadMenu'
@@ -13,7 +12,7 @@ import * as fromActions from '../../actions'
 import { sGetCurrent } from '../../reducers/current'
 import history from '../../modules/history'
 import { parseError } from '../../modules/error'
-import styles from './styles/MenuBar.style'
+import styles from './styles/MenuBar.module.css'
 
 const onOpen = id => {
     const path = `/${id}`
@@ -30,12 +29,12 @@ const getOnSaveAs = props => details => props.onSaveVisualization(details, true)
 const getOnDelete = props => () => props.onDeleteVisualization()
 const getOnError = props => error => props.onError(error)
 
-export const MenuBar = ({ classes, ...props }, context) => (
-    <div className={classes.menuBar}>
+export const MenuBar = ({ ...props }, context) => (
+    <div className={styles.menuBar}>
         <UpdateVisualizationContainer
             renderComponent={handler => (
                 <UpdateButton
-                    className={classes.updateButton}
+                    className={styles.updateButton}
                     small
                     onClick={handler}
                 />
@@ -55,13 +54,12 @@ export const MenuBar = ({ classes, ...props }, context) => (
         />
         <VisualizationOptionsManager />
         <DownloadMenu />
-        <div className={classes.grow} />
+        <div className={styles.grow} />
         <InterpretationsButton />
     </div>
 )
 
 MenuBar.propTypes = {
-    classes: PropTypes.object.isRequired,
     apiObjectName: PropTypes.string,
     id: PropTypes.string,
 }
@@ -92,7 +90,4 @@ const mapDispatchToProps = dispatch => ({
     },
 })
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(withStyles(styles)(MenuBar))
+export default connect(mapStateToProps, mapDispatchToProps)(MenuBar)
