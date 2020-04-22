@@ -1,3 +1,10 @@
+## [34.3.41](https://github.com/dhis2/data-visualizer-app/compare/v34.3.40...v34.3.41) (2020-04-21)
+
+
+### Bug Fixes
+
+* rewrite MenuBar buttons (TECH-320) ([#879](https://github.com/dhis2/data-visualizer-app/issues/879)) ([45b3adb](https://github.com/dhis2/data-visualizer-app/commit/45b3adb6b01b8ac95761650d603ff92cfda410d7))
+
 ## [34.3.40](https://github.com/dhis2/data-visualizer-app/compare/v34.3.39...v34.3.40) (2020-04-20)
 
 
