@@ -51,7 +51,7 @@ export const DEFAULT_UI = {
         [DIMENSION_ID_PERIOD]: [],
     },
     yearOverYearSeries: [],
-    yearOverYearCategory: ['MONTHS_THIS_YEAR'],
+    yearOverYearCategory: [],
     parentGraphMap: {},
     activeModalDialog: null,
     rightSidebarOpen: false,
@@ -60,6 +60,7 @@ export const DEFAULT_UI = {
 }
 
 const PRESELECTED_YEAR_OVER_YEAR_SERIES = ['THIS_YEAR', 'LAST_YEAR']
+const PRESELECTED_YEAR_OVER_YEAR_CATEGORY = ['MONTHS_THIS_YEAR']
 
 export default (state = DEFAULT_UI, action) => {
     switch (action.type) {
@@ -234,6 +235,7 @@ export default (state = DEFAULT_UI, action) => {
                     [DIMENSION_ID_PERIOD]: [relativePeriod],
                 },
                 yearOverYearSeries: PRESELECTED_YEAR_OVER_YEAR_SERIES,
+                yearOverYearCategory: PRESELECTED_YEAR_OVER_YEAR_CATEGORY,
                 parentGraphMap,
             }
         }
