@@ -3,21 +3,13 @@ import { createPortal } from 'react-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
-
+import i18n from '@dhis2/d2-i18n'
 import ImageIcon from '@material-ui/icons/Image'
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf'
 import ListIcon from '@material-ui/icons/List'
 import ListAltIcon from '@material-ui/icons/ListAlt'
-
-import MoreHorizontalIcon from '../../assets/MoreHorizontalIcon'
-
 import { Menu, MenuItem, Divider, Popper, colors } from '@dhis2/ui-core'
-
-import i18n from '@dhis2/d2-i18n'
-
 import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
-
-import styles from './styles/DownloadMenu.module.css'
 
 import {
     sGetUiType,
@@ -32,6 +24,8 @@ import {
     apiDownloadTable,
 } from '../../api/analytics'
 import MenuButton from '../MenuButton/MenuButton'
+import MoreHorizontalIcon from '../../assets/MoreHorizontalIcon'
+import styles from './styles/DownloadMenu.module.css'
 
 const DenseMenuItem = ({ Icon, children, ...rest }) => (
     <MenuItem
