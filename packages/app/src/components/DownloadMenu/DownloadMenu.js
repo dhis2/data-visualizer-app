@@ -4,8 +4,6 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
 
-import { default as MuiButton } from '@material-ui/core/Button'
-
 import ImageIcon from '@material-ui/icons/Image'
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf'
 import ListIcon from '@material-ui/icons/List'
@@ -57,7 +55,6 @@ export const DownloadMenu = ({
     chart,
     relativePeriodDate,
     visType,
-    className,
 }) => {
     const [dialogIsOpen, setDialogIsOpen] = useState(false)
 
@@ -169,15 +166,9 @@ export const DownloadMenu = ({
     return (
         <>
             <div ref={buttonRef}>
-                <MuiButton
-                    className={className}
-                    onClick={toggleMenu}
-                    disableRipple={true}
-                    disableFocusRipple={true}
-                    disabled={!current}
-                >
+                <MenuButton onClick={toggleMenu} disabled={!current}>
                     {i18n.t('Download')}
-                </MuiButton>
+                </MenuButton>
             </div>
             {dialogIsOpen &&
                 createPortal(
