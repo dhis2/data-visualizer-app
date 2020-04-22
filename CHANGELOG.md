@@ -1,3 +1,24 @@
+## [34.3.41](https://github.com/dhis2/data-visualizer-app/compare/v34.3.40...v34.3.41) (2020-04-21)
+
+
+### Bug Fixes
+
+* rewrite MenuBar buttons (TECH-320) ([#879](https://github.com/dhis2/data-visualizer-app/issues/879)) ([45b3adb](https://github.com/dhis2/data-visualizer-app/commit/45b3adb6b01b8ac95761650d603ff92cfda410d7))
+
+## [34.3.40](https://github.com/dhis2/data-visualizer-app/compare/v34.3.39...v34.3.40) (2020-04-20)
+
+
+### Bug Fixes
+
+* consistent scrollbar style ([#877](https://github.com/dhis2/data-visualizer-app/issues/877)) ([622a6d8](https://github.com/dhis2/data-visualizer-app/commit/622a6d8921fa99c2cdd8344226857646a9c4f54a))
+
+## [34.3.39](https://github.com/dhis2/data-visualizer-app/compare/v34.3.38...v34.3.39) (2020-04-20)
+
+
+### Bug Fixes
+
+* changed the text for a legend option to suit all vis types ([#873](https://github.com/dhis2/data-visualizer-app/issues/873)) ([92df843](https://github.com/dhis2/data-visualizer-app/commit/92df84385807d58249b358b41e7fac9143408aa2))
+
 ## [34.3.38](https://github.com/dhis2/data-visualizer-app/compare/v34.3.37...v34.3.38) (2020-04-15)
 
 

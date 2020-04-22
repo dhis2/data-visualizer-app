@@ -1,10 +1,11 @@
 /* Width */
 ::-webkit-scrollbar {
-    width: 6px;
+    width: 7px;
+    height: 7px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #cbcdcf;
+    background: #d1d1d1;
     border-radius: 3px;
 }

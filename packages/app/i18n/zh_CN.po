@@ -1,772 +1,775 @@
 # Translators:
-# phil_dhis2, 2020
+# easylin <lin_xd@126.com>, 2020
+# 晓东 林 <13981924470@126.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-04-14T11:38:31.639Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: phil_dhis2, 2020\n"
-"Language-Team: Persian (Afghanistan) (https://www.transifex.com/hisp-uio/teams/100509/fa_AF/)\n"
+"Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
+"Language-Team: Chinese (China) (https://www.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fa_AF\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Rename successful"
-msgstr ""
+msgstr "重命名成功"
 
 msgid "\"{{what}}\" successfully deleted."
-msgstr ""
+msgstr "\"{{what}}\" 被成功删除"
 
 msgid "You have unsaved changes."
-msgstr ""
+msgstr "你没有保存修改"
 
 msgid "Discard unsaved changes?"
-msgstr "صرف نظر از تغیرات ثبت نشده؟"
+msgstr "放弃没有保存的修改?"
 
 msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
 "be lost."
-msgstr ""
+msgstr "你确信离开该可视化设计？所有修改都将丢失"
 
 msgid "No, cancel"
-msgstr ""
+msgstr "不，取消"
 
 msgid "Yes, leave"
-msgstr ""
+msgstr "是离开"
 
 msgid "Axis 1"
-msgstr ""
+msgstr "主轴1"
 
 msgid "Axis 2"
-msgstr ""
+msgstr "主轴2"
 
 msgid "Manage axes"
-msgstr ""
+msgstr "管理坐标轴"
 
 msgid ""
 "A chart can have two axes. Each axis will have its own scale. Set the axis "
 "for each data selection below."
-msgstr ""
+msgstr "一个图可以有两个轴，每个轴都有之间的比例尺，为下面的数据设置轴"
 
 msgid "Cancel"
-msgstr "لغو کردن"
+msgstr "取消"
 
 msgid "Update"
-msgstr "تجدید"
+msgstr "更新"
 
 msgid "Add to {{axisName}}"
-msgstr ""
+msgstr "添加到 {{axisName}}"
 
 msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
 "first item will be used and saved."
-msgstr ""
+msgstr "'{{visualizationType}}' 打算显示单个数据项，仅仅第一个条目将被使用和保存。"
 
 msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
 "items. Only the first {{maxNumber}} items will be used and saved."
-msgstr ""
+msgstr "'{{visualizationType}}' 打算显示最多{{maxNumber}}个数据项，仅其中第一个条目将被使用和保存。"
 
 msgid "Data"
-msgstr "دیتا"
+msgstr "数据"
 
 msgid "Period"
-msgstr "دوره"
+msgstr "期间"
 
 msgid "Organisation units"
-msgstr "واحد های سازمان"
+msgstr ""
 
 msgid "Main dimensions"
-msgstr ""
+msgstr "主要维度"
 
 msgid "Other dimensions"
-msgstr ""
+msgstr "其它维度"
 
 msgid "Your dimensions"
-msgstr ""
+msgstr "你的维度"
 
 msgid "Filter dimensions"
-msgstr ""
+msgstr "过滤器维度"
 
 msgid "Graphics"
-msgstr "اطلاعات گرافیکی"
+msgstr "图形"
 
 msgid "Image (.png)"
-msgstr ""
+msgstr "图像（.png）"
 
 msgid "PDF (.pdf)"
-msgstr ""
+msgstr "PDF (.pdf)"
 
 msgid "Table layout"
-msgstr "طرح جدول"
+msgstr "表布局"
 
 msgid "Excel (.xls)"
-msgstr ""
+msgstr "Excel (.xls)"
 
 msgid "CSV (.csv)"
-msgstr ""
+msgstr "CSV (.csv)"
 
 msgid "HTML (.html)"
-msgstr ""
+msgstr "HTML (.html)"
 
 msgid "Download"
-msgstr "دانلود"
+msgstr "下载"
 
 msgid "Plain data source"
-msgstr "منبع دیتا ساده"
+msgstr "普通数据源"
 
 msgid "Advanced"
-msgstr "پیشرفته"
+msgstr "高级"
 
 msgid "Metadata ID scheme"
-msgstr ""
+msgstr "元数据ID方案"
 
 msgid "Data value set"
-msgstr "سیت ارزش دیتا"
+msgstr "数据值集"
 
 msgid "Other formats"
-msgstr "فارمت های دیگر"
+msgstr "其它格式"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr ""
+msgstr "数据可视化应用发生错误"
 
 msgid "Refresh to try again"
-msgstr ""
+msgstr "刷新后再试"
 
 msgid "Hide technical details"
-msgstr ""
+msgstr "隐藏技术细节"
 
 msgid "Show technical details"
-msgstr ""
+msgstr "显示技术细节"
 
 msgid "The following information may be requested by technical support."
-msgstr ""
+msgstr "下列信息可能技术支持需要"
 
 msgid "Hide"
-msgstr "مخفی کردن"
+msgstr "隐藏"
 
 msgid "Interpretations"
-msgstr "تفسیر ها"
+msgstr "注释"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr ""
+msgstr "选择了 {{axisMaxNumberOfItems}} 中的{{total}} "
 
 msgid "{{total}} selected"
-msgstr ""
+msgstr "选择了 {{total}} "
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
-msgstr ""
+msgstr "{{dimensionName}} 被 {{axisName}} 为 {{visTypeName}} 锁住"
 
 msgid "None selected"
-msgstr ""
+msgstr "没有选择"
 
 msgid "Only '{{- name}}' in use"
-msgstr ""
+msgstr "仅'{{- name}}' 在使用"
 
 msgid "Only '{{number}}' in use"
-msgstr ""
+msgstr "仅 '{{number}}' 在使用"
 
 msgid "Levels"
-msgstr ""
+msgstr "等级"
 
 msgid "Groups"
-msgstr "ګروپونه"
+msgstr "组"
 
 msgid "Unsaved visualization"
-msgstr ""
+msgstr "没有保存可视化"
 
 msgid "Edited"
-msgstr ""
+msgstr "编辑"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr ""
+msgstr "查看自{{interpretationDate}}的注释"
 
 msgid "Getting started"
-msgstr ""
+msgstr "开始"
 
 msgid ""
 "All dimensions that you can use to build visualizations are shown in the "
 "left sidebar"
-msgstr ""
+msgstr "你可以用于可视化的维度显示在左边"
 
 msgid "Add dimensions to the layout above"
-msgstr ""
+msgstr "添加维度到上面的布局"
 
 msgid "Click a dimension to add or remove items"
-msgstr ""
+msgstr "点击维度添加或移除条目"
 
 msgid "Your most viewed charts and tables"
-msgstr ""
+msgstr "你最近查看最多的图表"
 
 msgid "Aggregation type"
-msgstr "نوع تجمع"
+msgstr "汇总类型"
 
 msgid "Determines how the values in the pivot table are aggregated."
-msgstr ""
+msgstr "确定值在透视表中如何汇总"
 
 msgid "By data element"
-msgstr "با دیتا ایلمنت"
+msgstr "按数据元"
 
 msgid "Count"
-msgstr "تعداد"
+msgstr "计数"
 
 msgid "Average"
-msgstr "اوسط"
+msgstr "平均"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr "اوسط ( مجموع در ساختار واحد سازمان)"
+msgstr "平均 (按机构体系结构求和)"
 
 msgid "Sum"
-msgstr "جمع"
+msgstr "求和"
 
 msgid "Last value"
-msgstr ""
+msgstr "最近值"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr ""
+msgstr "最近值(按机构体系平均)"
 
 msgid "Min"
-msgstr "کوچکتر"
+msgstr "最小"
 
 msgid "Max"
-msgstr "بزرگتر"
+msgstr "最大"
 
 msgid "Standard deviation"
-msgstr "معیاري انحراف"
+msgstr "标准差"
 
 msgid "Variance"
-msgstr "مغییرات"
+msgstr "方差"
 
 msgid "Data approved at level"
-msgstr "په سطحه کې د مالوماتو (ډاټا) منظورول"
+msgstr "数据确认等级"
 
 msgid "Select from predefined levels"
-msgstr ""
+msgstr "从预定义的等级中选择"
 
 msgid "Loading data approval levels"
-msgstr ""
+msgstr "载入数据审核等级"
 
 msgid "Axis range"
-msgstr ""
+msgstr "范围轴"
 
 msgid "Values outside of the range will not be displayed"
-msgstr ""
+msgstr "范围外的值将不显示"
 
 msgid "Base line"
-msgstr ""
+msgstr "基线"
 
 msgid "Value"
-msgstr "مقدار"
+msgstr "值"
 
 msgid "Title"
-msgstr "عنوان"
+msgstr "称谓"
 
 msgid "Base line title"
-msgstr ""
+msgstr "基线标题"
 
 msgid "Number"
-msgstr "نمبر"
+msgstr "数据"
 
 msgid "Column sub-totals"
-msgstr ""
+msgstr "列小计"
 
 msgid "Columns totals"
-msgstr ""
+msgstr "列合计"
 
 msgid "Event data"
-msgstr ""
+msgstr "事件数据"
 
 msgid "Only include completed events"
-msgstr ""
+msgstr "仅仅包括完成的事件"
 
 msgid "Include cumulative"
-msgstr "شامل تجمعی"
+msgstr "包括累计"
 
 msgid "Cumulative values"
-msgstr ""
+msgstr "汇总值"
 
 msgid "Digit group separator"
-msgstr "واحد سازی گروپ ارقام"
+msgstr "数字分隔符"
 
 msgid "None"
-msgstr "هیچ‌کدام"
+msgstr "没有"
 
 msgid "Space"
-msgstr "فاصله"
+msgstr "空格"
 
 msgid "Comma"
-msgstr "کامه"
+msgstr "逗号"
 
 msgid "Display density"
-msgstr "نمایش تراکم ها"
+msgstr "显示稀密度"
 
 msgid "Comfortable"
-msgstr "راحت"
+msgstr "舒适"
 
 msgid "Normal"
-msgstr "عادی"
+msgstr "适度"
 
 msgid "Compact"
-msgstr "متراکم"
+msgstr "紧凑"
 
 msgid "Axis title"
-msgstr ""
+msgstr "轴标题"
 
 msgid "Add a title"
-msgstr ""
+msgstr "添加标题"
 
 msgid "Font size"
-msgstr "سایز خط"
+msgstr "字体大小"
 
 msgid "Large"
-msgstr "بزرگ"
+msgstr "较大"
 
 msgid "Small"
-msgstr "کوچک"
+msgstr "小"
 
 msgid "Hide empty columns"
-msgstr ""
+msgstr "隐藏空列"
 
 msgid "Hide empty categories"
-msgstr "د تشو موضوعاتو د کټګوریو پټول"
+msgstr "隐藏空分类"
 
 msgid "Before first"
-msgstr "پیش از اول"
+msgstr "第一个前面"
 
 msgid "After last"
-msgstr "بعد از آخر"
+msgstr "最后一个后面"
 
 msgid "Before first and after last"
-msgstr "پیش از اول و بعد از آخر"
+msgstr "第一个前和最后一个后面"
 
 msgid "All"
-msgstr "همه"
+msgstr "全部"
 
 msgid "Hide empty rows"
-msgstr "پنهان کردن ردیف های خالی"
+msgstr "隐藏空行"
 
 msgid "Legend key"
-msgstr ""
+msgstr "图例键值"
 
 msgid "Table subtitle"
-msgstr ""
+msgstr "表子标题"
 
 msgid "Chart subtitle"
-msgstr "د چارټ عنوان"
+msgstr "图表子标题"
 
 msgid "Auto generated"
-msgstr ""
+msgstr "自动生成"
 
 msgid "Custom"
-msgstr "مروج"
+msgstr "定制"
 
 msgid "Table title"
-msgstr "جدول عنوان"
+msgstr "表标题"
 
 msgid "Chart title"
-msgstr "د چارټ عنوان"
+msgstr "图表标题"
 
 msgid "Display legend"
-msgstr ""
+msgstr "显示图例"
 
 msgid "Legend style"
-msgstr ""
+msgstr "图例风格"
 
 msgid "Legend type"
-msgstr "د نښو او علایمو ډول"
+msgstr "图例类型"
 
 msgid "Use pre-defined legend per data item"
-msgstr ""
+msgstr "每个数据项使用预定义的图例"
 
 msgid "Select a single legend for entire table"
-msgstr ""
+msgstr "为整个表选择一个图例"
 
 msgid "Legend changes background color"
-msgstr ""
+msgstr "图例改变背景色"
 
 msgid "Legend changes text color"
-msgstr ""
+msgstr "图例改变文本颜色"
 
 msgid "Legend"
-msgstr "داستان"
+msgstr "图例"
 
 msgid "Select from legends"
-msgstr ""
+msgstr "从图例选择"
 
 msgid "Loading legends"
-msgstr ""
+msgstr "载入图例"
 
 msgid ""
 "You can set a minimum or maximum value. This will apply to the entire table,"
 " all values outside of the minimum/maximum range will not be displayed"
-msgstr ""
+msgstr "你可以设置最大最小值，将被应用到整个表，范围外的值将不会显示"
 
 msgid "Minimum data value"
-msgstr ""
+msgstr "最小值"
 
 msgid "Maximum data value"
-msgstr ""
+msgstr "最大值"
 
 msgid "Clear min/max limits"
-msgstr ""
+msgstr "清除最大最小值"
 
 msgid "No space between bars/columns"
-msgstr ""
+msgstr "列和柱之间无空隙"
 
 msgid "Number type"
-msgstr "نوع اعداد"
+msgstr "数字值类型"
 
 msgid "Display the value of percentages of the total"
-msgstr ""
+msgstr "显示合计的百分比"
 
 msgid "Percentage of row"
-msgstr ""
+msgstr "行百分比"
 
 msgid "Percentage of column"
-msgstr ""
+msgstr "列百分比"
 
 msgid "Organisation unit"
-msgstr "واحد سازمان"
+msgstr "机构"
 
 msgid "Parent organisation unit"
-msgstr "سطح بالا واحد سازمان"
+msgstr "上级组织机构"
 
 msgid "Reporting period"
-msgstr "دوره راپور دهی"
+msgstr "报表周期"
 
 msgid "Stacked values add up to 100%"
-msgstr ""
+msgstr "堆叠值到100%"
 
 msgid "Decimals"
-msgstr ""
+msgstr "小数"
 
 msgid "Auto"
-msgstr ""
+msgstr "自动"
 
 msgid "The number of axis steps between the min and max values"
-msgstr ""
+msgstr "最大最小值之间的轴上的间隔步数"
 
 msgid "Steps"
-msgstr "مرحله"
+msgstr "步"
 
 msgid "Include regression"
-msgstr "شامل کردن برگشت"
+msgstr "包含回归分析"
 
 msgid "Trend line"
-msgstr "د محاسبې کرښې ښکاره کړئ"
+msgstr "趋势线"
 
 msgid "Linear"
-msgstr "د کرښې چارټ"
+msgstr "线性"
 
 msgid "Polynomial"
-msgstr ""
+msgstr "多项式曲线"
 
 msgid "Loess"
-msgstr ""
+msgstr "多项式回归拟合"
 
 msgid "Row sub-totals"
-msgstr ""
+msgstr "行小计"
 
 msgid "Row totals"
-msgstr ""
+msgstr "行合计"
 
 msgid "Value labels"
-msgstr ""
+msgstr "值标签"
 
 msgid "Dimension labels"
-msgstr ""
+msgstr "维度标签"
 
 msgid "Display organisation unit hierarchy"
-msgstr ""
+msgstr "显示机构层次"
 
 msgid "Skip rounding"
-msgstr "له ګردولو (راونډینګ) څخه تېر شئ"
+msgstr "跳过舍入"
 
 msgid "Custom sort order"
-msgstr ""
+msgstr "定制排序"
 
 msgid "Low to high"
-msgstr "پاین تا بالا"
+msgstr "从低到高"
 
 msgid "High to low"
-msgstr "بالا تا پاین"
+msgstr "由高到低"
 
 msgid "Add a subtitle"
-msgstr ""
+msgstr "添加子标题"
 
 msgid "Target line"
-msgstr ""
+msgstr "目标线"
 
 msgid "Target line title"
-msgstr ""
+msgstr "目标线标题"
 
 msgid "Top limit"
-msgstr "حد بالا"
+msgstr "最高限度"
 
 msgid "Options"
-msgstr "گزینه‌ها"
+msgstr "选项"
 
 msgid "Open as Map"
-msgstr ""
+msgstr "打开为地图"
 
 msgid "Reporting rate"
-msgstr ""
+msgstr "上报率"
 
 msgid "Reporting rate on time"
-msgstr ""
+msgstr "准时上报率"
 
 msgid "Actual reports"
-msgstr ""
+msgstr "实际上报"
 
 msgid "Actual reports on time"
-msgstr ""
+msgstr "实际准时上报"
 
 msgid "Expected reports"
-msgstr ""
+msgstr "预期上报"
 
 msgid "No data available"
-msgstr ""
+msgstr "没有值"
 
 msgid ""
 "The selected dimensions didn’t return any data. There may be no data, or you"
 " may not have access to it."
-msgstr ""
+msgstr "选择的维度没有返回任何值，可能没有数据，或者没有访问权限"
 
 msgid "{{axisName}} is empty"
-msgstr ""
+msgstr "{{axisName}} 为空"
 
 msgid "Add at least one item to {{axisName}}."
-msgstr ""
+msgstr "至少添加一个条目到 {{axisName}}."
 
 msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
-msgstr ""
+msgstr "{{columnsAxisName}} 和 {{rowsAxisName}} 轴为空"
 
 msgid ""
 "Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
 " {{visualizationType}}."
 msgstr ""
+"至少添加一个条目到  {{columnsAxisName}} 或{{rowsAxisName}} 才能创建  "
+"{{visualizationType}}。"
 
 msgid "No period selected"
-msgstr "هېڅ دوره نه ده غوره شوې"
+msgstr "没有选择期间"
 
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
-msgstr ""
+msgstr "{{visualizationType}} 必须至少选择一个期间到 {{axes}}."
 
 msgid "No data selected"
-msgstr ""
+msgstr "没有选择数据"
 
 msgid ""
 "{{visualizationType}} must have at least one data item or data element group"
 " set item in {{axes}}."
-msgstr ""
+msgstr "{{visualizationType}} 必须至少选择一个数据元或组集条目到  {{axes}}。"
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
-msgstr ""
+msgstr "布局有问题"
 
 msgid "There's a problem with the layout"
-msgstr ""
+msgstr "布局有问题"
 
 msgid ""
 "A single indicator must be the only data item when using indicators as Data "
 "in Filter."
-msgstr ""
+msgstr "当使用指标作为数据过滤器时，只能该唯一的指标作为数据项"
 
 msgid "Data Element Group Sets and Reporting Rates cannot be used together."
-msgstr ""
+msgstr "数据元组集和上报率不能同时使用"
 
 msgid "There is a problem with this {{visualizationType}} visualization."
-msgstr ""
+msgstr "该 {{visualizationType}} 可视化类型有些问题"
 
 msgid "There was a problem getting the data from the server."
-msgstr ""
+msgstr "从服务器获取数据有问题"
 
 msgid "Assigned Categories can only be used with data elements"
-msgstr ""
+msgstr "指派的分类只能作为数据元"
 
 msgid ""
 "Fix this problem by selecting data elements or removing Assigned Categories."
-msgstr ""
+msgstr "选择数据元或移除指派的分类来解决问题"
 
 msgid "Assigned Categories cannot be used as Filter"
-msgstr ""
+msgstr "指派的分类不能作为过滤器"
 
 msgid "Fix this problem by moving or removing Assigned Categories."
-msgstr ""
+msgstr "移动或移除分类以便解决问题"
 
 msgid "Something went wrong"
-msgstr ""
+msgstr "出了些问题"
 
 msgid "or"
-msgstr "تنظیم"
+msgstr "或"
 
 msgid "Today"
-msgstr "امروز"
+msgstr "今天"
 
 msgid "Yesterday"
-msgstr "دیروز"
+msgstr "昨天"
 
 msgid "Last 3 days"
-msgstr "3 روز گذشته"
+msgstr "最近3天"
 
 msgid "Last 7 days"
-msgstr "7 روز گذشته"
+msgstr "最近7天"
 
 msgid "Last 14 days"
-msgstr "14 روز گذشته"
+msgstr "最近14天"
 
 msgid "This week"
-msgstr "هفته جاری"
+msgstr "本周"
 
 msgid "Last week"
-msgstr "هفته گذشته"
+msgstr "上周"
 
 msgid "Last 4 weeks"
-msgstr "4 هفته گذشته"
+msgstr "最近四周"
 
 msgid "Last 12 weeks"
-msgstr "12 هفته گذشته"
+msgstr "最近12周"
 
 msgid "Last 52 weeks"
-msgstr "52 هفته گذشته"
+msgstr "最近52周"
 
 msgid "Weeks this year"
-msgstr ""
+msgstr "今年的星期"
 
 msgid "This month"
-msgstr "ماه جاری"
+msgstr "本月"
 
 msgid "Last month"
-msgstr "ماه گذشته"
+msgstr "上月"
 
 msgid "Last 3 months"
-msgstr "3 ماهه گذشته"
+msgstr "最近3个月"
 
 msgid "Last 6 months"
-msgstr "6 ماه گذشته"
+msgstr "最近六个月<br>"
 
 msgid "Last 12 months"
-msgstr "12 ماهه گذشته"
+msgstr "最近12月"
 
 msgid "Months this year"
-msgstr "ماه های سال هذا"
+msgstr "今年的月份"
 
 msgid "This bimonth"
-msgstr ""
+msgstr "本俩月"
 
 msgid "Last bimonth"
-msgstr ""
+msgstr "最近俩月"
 
 msgid "Last 6 bimonths"
-msgstr ""
+msgstr "最近六个俩月"
 
 msgid "Bimonths this year"
-msgstr ""
+msgstr "今年的俩月"
 
 msgid "This quarter"
-msgstr "سه ماهه جاری"
+msgstr "本季"
 
 msgid "Last quarter"
-msgstr "سه ماهه آخیر"
+msgstr "最近一季"
 
 msgid "Last 4 quarters"
-msgstr "4 سه ماهه آخیر"
+msgstr "最近四个季度"
 
 msgid "Quarters this year"
-msgstr "ربع های سال هذا"
+msgstr "今年的季度"
 
 msgid "This six-month"
-msgstr "شش-ماه جاری"
+msgstr "本半年"
 
 msgid "Last six-month"
-msgstr "شش-ماهه گذشته"
+msgstr "最近六个月"
 
 msgid "Last 2 six-months"
-msgstr "2 شش-ماهه گذشته"
+msgstr "最近两个半年"
 
 msgid "This financial year"
-msgstr "سال مالی جاری"
+msgstr "本财政年"
 
 msgid "Last financial year"
-msgstr "سال گذشته مالی"
+msgstr "上一财政年"
 
 msgid "Last 5 financial years"
-msgstr "5 سال گذشته مالی"
+msgstr "最近五个财政年"
 
 msgid "This year"
-msgstr "سال جاری"
+msgstr "今年"
 
 msgid "Last year"
-msgstr "سال گذشته"
+msgstr "去年"
 
 msgid "Last 5 years"
-msgstr "5 سال گذشته"
+msgstr "最近五年"
 
 msgid "User org unit"
-msgstr "واحد سازمان استفاده کننده گان"
+msgstr "当前用户机构"
 
 msgid "User org unit children"
-msgstr ""
+msgstr "用户下属机构"
 
 msgid "User org unit grand children"
-msgstr ""
+msgstr "用户下下级机构"
 
 msgid "Axes"
-msgstr "محورونه"
+msgstr "轴"
 
 msgid "Vertical (y) axis"
-msgstr ""
+msgstr "垂轴（Y）"
 
 msgid "Horizontal (x) axis"
-msgstr ""
+msgstr "水平轴（X）"
 
 msgid "Style"
-msgstr "استایل"
+msgstr "风格"
 
 msgid "Display"
-msgstr "نمایش"
+msgstr "显示"
 
 msgid "Lines"
-msgstr ""
+msgstr "线"
 
 msgid "Chart style"
-msgstr ""
+msgstr "图表风格"
 
 msgid "Titles"
-msgstr ""
+msgstr "标题"
 
 msgid "Display totals"
-msgstr ""
+msgstr "显示合计"
 
 msgid "Display empty data"
-msgstr ""
+msgstr "显示空数据"
 
 msgid "Labels"
-msgstr "برچسپ"
+msgstr "标签"
 
 msgid "Limit values"
-msgstr ""
+msgstr "限值"
 
 msgid "Limit number of values"
-msgstr ""
+msgstr "限定值数量"
 
 msgid "Limit minimum/maximum values"
-msgstr ""
+msgstr "限制最大最小值"
 
 msgid "Parameters"
-msgstr "پارامتر ها"
+msgstr "参数"
 
 msgid "Weeks per year"
-msgstr ""
+msgstr "每年的周"
 
 msgid "Months per year"
-msgstr ""
+msgstr "每年的月"
 
 msgid "Bimonths per year"
-msgstr ""
+msgstr "每年的双月"
 
 msgid "Quarters per year"
-msgstr ""
+msgstr "每年的季度"

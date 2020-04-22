@@ -1,13 +1,13 @@
 # Translators:
-# phil_dhis2, 2020
 # easylin <lin_xd@126.com>, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
+# phil_dhis2, 2020
 # 晓东 林 <13981924470@126.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-03-11T02:52:13.220Z\n"
+"POT-Creation-Date: 2020-04-14T11:38:31.639Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -66,12 +66,23 @@ msgstr "添加到 {{axisName}}"
 msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
 "first item will be used and saved."
-msgstr ""
+msgstr "'{{visualizationType}}' 打算显示单个数据项，仅仅第一个条目将被使用和保存。"
 
 msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
+"'{{visualizationType}}' 打算显示最多{{maxNumber}}个数据项，仅{{maxNumber}} "
+"个中第一个条目将被使用和保存。"
+
+msgid "Data"
+msgstr "数据"
+
+msgid "Period"
+msgstr "期间"
+
+msgid "Organisation units"
+msgstr "组织机构"
 
 msgid "Main dimensions"
 msgstr "主要维度"
@@ -126,9 +137,6 @@ msgstr "其它格式"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "数据可视化应用发生错误"
-
-msgid "Something went wrong"
-msgstr "出了些问题"
 
 msgid "Refresh to try again"
 msgstr "刷新后再试"
@@ -575,13 +583,13 @@ msgid ""
 msgstr "当使用指标作为数据过滤器时，只能该唯一的指标作为数据项"
 
 msgid "Data Element Group Sets and Reporting Rates cannot be used together."
-msgstr ""
+msgstr "数据元组集和上报率不能同时使用"
 
 msgid "There is a problem with this {{visualizationType}} visualization."
-msgstr ""
+msgstr "该 {{visualizationType}} 可视化类型有些问题"
 
 msgid "There was a problem getting the data from the server."
-msgstr ""
+msgstr "从服务器获取数据有问题"
 
 msgid "Assigned Categories can only be used with data elements"
 msgstr "指派的分类只能作为数据元"
@@ -595,6 +603,9 @@ msgstr "指派的分类不能作为过滤器"
 
 msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr "移动或移除分类以便解决问题"
+
+msgid "Something went wrong"
+msgstr "出了些问题"
 
 msgid "or"
 msgstr "或"
@@ -710,11 +721,14 @@ msgstr "用户下属机构"
 msgid "User org unit grand children"
 msgstr "用户下下级机构"
 
-msgid "Data"
-msgstr "数据"
-
 msgid "Axes"
 msgstr "轴"
+
+msgid "Vertical (y) axis"
+msgstr "垂轴（Y）"
+
+msgid "Horizontal (x) axis"
+msgstr "水平轴（X）"
 
 msgid "Style"
 msgstr "风格"
@@ -724,12 +738,6 @@ msgstr "显示"
 
 msgid "Lines"
 msgstr "线"
-
-msgid "Vertical (y) axis"
-msgstr "垂轴（Y）"
-
-msgid "Horizontal (x) axis"
-msgstr "水平轴（X）"
 
 msgid "Chart style"
 msgstr "图表风格"
