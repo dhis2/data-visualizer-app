@@ -91,11 +91,11 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     onSeriesChange: ({ selected }) => {
-        if (selected && selected.length) {
-            dispatch(
-                acSetUiYearOverYearSeries(selected.map(({ value }) => value))
+        dispatch(
+            acSetUiYearOverYearSeries(
+                selected?.length ? selected.map(({ value }) => value) : null
             )
-        }
+        )
     },
     onCategoryChange: ({ selected }) => {
         if (selected?.value) {

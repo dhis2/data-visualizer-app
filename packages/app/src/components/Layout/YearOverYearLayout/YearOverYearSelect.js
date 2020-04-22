@@ -47,10 +47,10 @@ MultiPeriodSelector.propTypes = {
 }
 
 const YearOverYearSelect = ({ multiple, value, ...props }) => {
-    if (multiple) {
+    if (multiple === 'true') {
         const selected = []
 
-        if (value && value.length) {
+        if (Array.isArray(value)) {
             value.forEach(value =>
                 selected.push({
                     value,
