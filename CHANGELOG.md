@@ -1,3 +1,10 @@
+## [34.3.42](https://github.com/dhis2/data-visualizer-app/compare/v34.3.41...v34.3.42) (2020-04-22)
+
+
+### Bug Fixes
+
+* AxisSetup MUI -> ui-core (TECH-359) ([#876](https://github.com/dhis2/data-visualizer-app/issues/876)) ([36e4a79](https://github.com/dhis2/data-visualizer-app/commit/36e4a79c9d6135db4e4f5871adf066c3296a780f))
+
 ## [34.3.41](https://github.com/dhis2/data-visualizer-app/compare/v34.3.40...v34.3.41) (2020-04-21)
 
 
