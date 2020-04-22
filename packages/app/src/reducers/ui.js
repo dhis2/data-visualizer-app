@@ -50,7 +50,7 @@ export const DEFAULT_UI = {
         [DIMENSION_ID_ORGUNIT]: [],
         [DIMENSION_ID_PERIOD]: [],
     },
-    yearOverYearSeries: ['THIS_YEAR', 'LAST_YEAR'],
+    yearOverYearSeries: [],
     yearOverYearCategory: ['MONTHS_THIS_YEAR'],
     parentGraphMap: {},
     activeModalDialog: null,
@@ -58,6 +58,8 @@ export const DEFAULT_UI = {
     interpretation: {},
     axes: null,
 }
+
+const PRESELECTED_YEAR_OVER_YEAR_SERIES = ['THIS_YEAR', 'LAST_YEAR']
 
 export default (state = DEFAULT_UI, action) => {
     switch (action.type) {
@@ -231,6 +233,7 @@ export default (state = DEFAULT_UI, action) => {
                     [DIMENSION_ID_ORGUNIT]: rootOrganisationUnits,
                     [DIMENSION_ID_PERIOD]: [relativePeriod],
                 },
+                yearOverYearSeries: PRESELECTED_YEAR_OVER_YEAR_SERIES,
                 parentGraphMap,
             }
         }
