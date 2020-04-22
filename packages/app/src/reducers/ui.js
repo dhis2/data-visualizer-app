@@ -59,7 +59,10 @@ export const DEFAULT_UI = {
     axes: null,
 }
 
-export const getPreselectedUi = options => {
+export const PRESELECTED_YEAR_OVER_YEAR_SERIES = ['THIS_YEAR', 'LAST_YEAR']
+export const PRESELECTED_YEAR_OVER_YEAR_CATEGORY = ['MONTHS_THIS_YEAR']
+
+const getPreselectedUi = options => {
     const { rootOrganisationUnit, relativePeriod } = options
 
     const rootOrganisationUnits = []
@@ -78,8 +81,8 @@ export const getPreselectedUi = options => {
             [DIMENSION_ID_ORGUNIT]: rootOrganisationUnits,
             [DIMENSION_ID_PERIOD]: [relativePeriod],
         },
-        yearOverYearSeries: ['THIS_YEAR', 'LAST_YEAR'],
-        yearOverYearCategory: ['MONTHS_THIS_YEAR'],
+        yearOverYearSeries: PRESELECTED_YEAR_OVER_YEAR_SERIES,
+        yearOverYearCategory: PRESELECTED_YEAR_OVER_YEAR_CATEGORY,
         parentGraphMap,
     }
 }

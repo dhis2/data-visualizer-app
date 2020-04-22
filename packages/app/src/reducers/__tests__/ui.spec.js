@@ -83,8 +83,8 @@ describe('reducer: ui', () => {
                 [DIMENSION_ID_ORGUNIT]: [settings.rootOrganisationUnit.id],
                 [DIMENSION_ID_PERIOD]: [settings.relativePeriod],
             },
-            yearOverYearSeries: ['THIS_YEAR', 'LAST_YEAR'],
-            yearOverYearCategory: ['MONTHS_THIS_YEAR'],
+            yearOverYearSeries: ui.PRESELECTED_YEAR_OVER_YEAR_SERIES,
+            yearOverYearCategory: ui.PRESELECTED_YEAR_OVER_YEAR_CATEGORY,
         })
     })
 
