@@ -29,7 +29,12 @@ SinglePeriodSelector.propTypes = {
 }
 
 const MultiPeriodSelector = ({ options, selected, onChange }) => (
-    <MultiSelect onChange={onChange} selected={selected} dense>
+    <MultiSelect
+        onChange={onChange}
+        selected={selected}
+        placeholder="Select years"
+        dense
+    >
         {options.map(option => (
             <MultiSelectOption
                 key={option.id}
