@@ -26,7 +26,7 @@ import { acSetCurrentFromUi } from '../../actions/current'
 
 export const AXIS_SETUP_DIALOG_ID = 'axisSetup'
 
-const AxisSetup = ({ isOpen, onUpdateClick, initItems, ui, onCancelClick }) => {
+const AxisSetup = ({ isOpen, onUpdateClick, initItems, onCancelClick }) => {
     const [items, setItems] = useState()
 
     useEffect(() => {
@@ -111,6 +111,7 @@ const AxisSetup = ({ isOpen, onUpdateClick, initItems, ui, onCancelClick }) => {
             </Table>
         )
     }
+
     return (
         isOpen && (
             <Modal onClose={onCancelClick}>
@@ -130,7 +131,7 @@ const AxisSetup = ({ isOpen, onUpdateClick, initItems, ui, onCancelClick }) => {
                         </Button>
                         <Button
                             primary
-                            onClick={() => onUpdateClick(getAxes(), ui)}
+                            onClick={() => onUpdateClick(getAxes())}
                         >
                             {i18n.t('Update')}
                         </Button>
@@ -151,7 +152,6 @@ AxisSetup.propTypes = {
             name: PropTypes.string.isRequired,
         })
     ),
-    ui: PropTypes.object,
     onCancelClick: PropTypes.func,
 }
 
@@ -165,21 +165,20 @@ AxisSetup.defaultProps = {
 const mapStateToProps = state => ({
     isOpen: sGetUiActiveModalDialog(state) === AXIS_SETUP_DIALOG_ID,
     initItems: sGetAxisSetupItems(state),
-    ui: sGetUi(state),
 })
 
-const mapDispatchToProps = dispatch => ({
-    onUpdateClick: (axes, ui) => {
+const mapDispatchToProps = {
+    onUpdateClick: axes => (dispatch, getState) => {
         dispatch(acSetAxes(axes))
         dispatch(
             acSetCurrentFromUi({
-                ...ui,
+                ...sGetUi(getState()),
                 axes,
             })
         )
         dispatch(acSetUiActiveModalDialog())
     },
-    onCancelClick: () => dispatch(acSetUiActiveModalDialog()),
-})
+    onCancelClick: () => dispatch => dispatch(acSetUiActiveModalDialog()),
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(AxisSetup)
