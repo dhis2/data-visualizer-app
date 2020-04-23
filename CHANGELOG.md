@@ -1,3 +1,10 @@
+## [34.3.43](https://github.com/dhis2/data-visualizer-app/compare/v34.3.42...v34.3.43) (2020-04-23)
+
+
+### Bug Fixes
+
+* temporary fix for orgunit and period selector modals not showing ([#872](https://github.com/dhis2/data-visualizer-app/issues/872)) ([594e27e](https://github.com/dhis2/data-visualizer-app/commit/594e27e350b2aeae2b5f38dc5c751231f33ab5bb))
+
 ## [34.3.42](https://github.com/dhis2/data-visualizer-app/compare/v34.3.41...v34.3.42) (2020-04-22)
 
 
