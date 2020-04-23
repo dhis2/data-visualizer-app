@@ -121,17 +121,17 @@ msgstr "Unduh"
 msgid "Plain data source"
 msgstr "Sumber data asli"
 
-msgid "Advanced"
-msgstr "Lebih Lanjut"
-
-msgid "Metadata ID scheme"
-msgstr "Skema ID metadata"
-
 msgid "Data value set"
 msgstr "Set nilai data"
 
 msgid "Other formats"
 msgstr "Format lain"
+
+msgid "Raw data SQL"
+msgstr ""
+
+msgid "Metadata ID scheme"
+msgstr "Skema ID metadata"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "Terjadi kesalahan dalam aplikasi DHIS2 Data Visualizer."
@@ -716,6 +716,9 @@ msgstr "Sub org unit user"
 
 msgid "User org unit grand children"
 msgstr "Sub-sub org unit pengguna"
+
+msgid "Advanced"
+msgstr "Lebih Lanjut"
 
 msgid "Axes"
 msgstr "Sumbu"
