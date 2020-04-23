@@ -112,16 +112,16 @@ msgstr ""
 msgid "Plain data source"
 msgstr ""
 
-msgid "Advanced"
-msgstr ""
-
-msgid "Metadata ID scheme"
-msgstr ""
-
 msgid "Data value set"
 msgstr ""
 
 msgid "Other formats"
+msgstr ""
+
+msgid "Raw data SQL"
+msgstr ""
+
+msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
@@ -704,6 +704,9 @@ msgid "User org unit children"
 msgstr ""
 
 msgid "User org unit grand children"
+msgstr ""
+
+msgid "Advanced"
 msgstr ""
 
 msgid "Axes"
