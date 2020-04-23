@@ -127,17 +127,17 @@ msgstr "تحميل"
 msgid "Plain data source"
 msgstr "مصدر البيانات الصريحة"
 
-msgid "Advanced"
-msgstr "متقدم"
-
-msgid "Metadata ID scheme"
-msgstr ""
-
 msgid "Data value set"
 msgstr "حزمة قيم البيانات"
 
 msgid "Other formats"
 msgstr "صيغ أخرى"
+
+msgid "Raw data SQL"
+msgstr ""
+
+msgid "Metadata ID scheme"
+msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "حدث خطأ في تطبيق DHIS2 Data Visualizer."
@@ -737,6 +737,9 @@ msgstr ""
 
 msgid "User org unit grand children"
 msgstr ""
+
+msgid "Advanced"
+msgstr "متقدم"
 
 msgid "Axes"
 msgstr "المحاور"

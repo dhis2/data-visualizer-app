@@ -119,17 +119,17 @@ msgstr "Скачать"
 msgid "Plain data source"
 msgstr "Источник данных"
 
-msgid "Advanced"
-msgstr "Расширенный"
-
-msgid "Metadata ID scheme"
-msgstr "ID Схема метаданных"
-
 msgid "Data value set"
 msgstr "Набор значений данных"
 
 msgid "Other formats"
 msgstr "Другие форматы"
+
+msgid "Raw data SQL"
+msgstr ""
+
+msgid "Metadata ID scheme"
+msgstr "ID Схема метаданных"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "Произошла ошибка в приложении Визуализатор Данных DHIS2."
@@ -717,6 +717,9 @@ msgstr "Потомки пользовательской организацион
 
 msgid "User org unit grand children"
 msgstr "Потомки 2го уровня пользовательской организационной единицы"
+
+msgid "Advanced"
+msgstr "Расширенный"
 
 msgid "Axes"
 msgstr "Оси"
