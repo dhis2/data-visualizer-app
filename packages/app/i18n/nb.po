@@ -127,17 +127,17 @@ msgstr "Last ned"
 msgid "Plain data source"
 msgstr "Ren datakilde"
 
-msgid "Advanced"
-msgstr "Avansert"
-
-msgid "Metadata ID scheme"
-msgstr "Metadata-ID-ordning"
-
 msgid "Data value set"
 msgstr "Dataverdisett"
 
 msgid "Other formats"
 msgstr "Andre formater"
+
+msgid "Raw data SQL"
+msgstr ""
+
+msgid "Metadata ID scheme"
+msgstr "Metadata-ID-ordning"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "Det oppstod en feil i DHIS2 Data Visualizer-applikasjonen."
@@ -737,6 +737,9 @@ msgstr "Bruker underordnet org enhet"
 
 msgid "User org unit grand children"
 msgstr "Bruker under-underordnet org enhet"
+
+msgid "Advanced"
+msgstr "Avansert"
 
 msgid "Axes"
 msgstr "Akser"

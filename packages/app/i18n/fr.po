@@ -122,17 +122,17 @@ msgstr "Télécharger"
 msgid "Plain data source"
 msgstr "Sourc de données brutes"
 
-msgid "Advanced"
-msgstr "Avancé"
-
-msgid "Metadata ID scheme"
-msgstr "Schéma ID des métadata"
-
 msgid "Data value set"
 msgstr "Ensemble de valeurs de données"
 
 msgid "Other formats"
 msgstr "Autres formats"
+
+msgid "Raw data SQL"
+msgstr ""
+
+msgid "Metadata ID scheme"
+msgstr "Schéma ID des métadata"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr ""
@@ -717,6 +717,9 @@ msgstr ""
 
 msgid "User org unit grand children"
 msgstr ""
+
+msgid "Advanced"
+msgstr "Avancé"
 
 msgid "Axes"
 msgstr ""

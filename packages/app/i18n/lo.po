@@ -119,17 +119,17 @@ msgstr "ດາວໂຫຼດ"
 msgid "Plain data source"
 msgstr "ສະເພາະຂໍ້ມູນພື້ນຖານ"
 
-msgid "Advanced"
-msgstr "ການຕັ້ງຄ່າຂັ້ນສູງ"
-
-msgid "Metadata ID scheme"
-msgstr ""
-
 msgid "Data value set"
 msgstr "ການຕັ້ງຄ່າຂໍ້ມູນ"
 
 msgid "Other formats"
 msgstr "ຮູບແບບອື່ນ"
+
+msgid "Raw data SQL"
+msgstr ""
+
+msgid "Metadata ID scheme"
+msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr ""
@@ -714,6 +714,9 @@ msgstr ""
 
 msgid "User org unit grand children"
 msgstr ""
+
+msgid "Advanced"
+msgstr "ການຕັ້ງຄ່າຂັ້ນສູງ"
 
 msgid "Axes"
 msgstr "ແກນ"
