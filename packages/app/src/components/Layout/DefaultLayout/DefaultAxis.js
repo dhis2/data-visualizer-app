@@ -7,13 +7,13 @@ import {
     getLayoutTypeByVisType,
     isDimensionLocked,
 } from '@dhis2/analytics'
-import { withStyles } from '@material-ui/core'
 
 import Chip from '../Chip'
 import { sGetUi, sGetUiLayout, sGetUiType } from '../../../reducers/ui'
 import { acSetUiActiveModalDialog } from '../../../actions/ui'
-
 import styles from './styles/DefaultAxis.style'
+import stylesModule from './styles/DefaultAxis.module.css'
+
 class Axis extends React.Component {
     onDragOver = e => {
         e.preventDefault()
@@ -38,7 +38,7 @@ class Axis extends React.Component {
                 <Droppable droppableId={axisId} direction="horizontal">
                     {provided => (
                         <div
-                            className={this.props.classes.content}
+                            className={stylesModule.content}
                             ref={provided.innerRef}
                             {...provided.droppableProps}
                         >
@@ -117,8 +117,4 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     }
 }
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-    mergeProps
-)(withStyles(styles)(Axis))
+export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(Axis)
