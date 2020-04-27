@@ -3,13 +3,14 @@
 # phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
 # Hamza Assada <7amza.it@gmail.com>, 2020
+# KRG HIS <antonia.bezenchek@informa.pro>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-03-11T02:52:13.220Z\n"
 "PO-Revision-Date: 2020-03-02 13:01+0000\n"
-"Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2020\n"
+"Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2020\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -123,7 +124,7 @@ msgid "Advanced"
 msgstr "متقدم"
 
 msgid "Metadata ID scheme"
-msgstr ""
+msgstr "مخطط معرف البيانات الوصفية"
 
 msgid "Data value set"
 msgstr "حزمة قيم البيانات"
@@ -253,7 +254,7 @@ msgid "Select from predefined levels"
 msgstr "اختر من مستويات المحددة مسبقًا"
 
 msgid "Loading data approval levels"
-msgstr ""
+msgstr "تحميل مستويات الموافقة على البيانات"
 
 msgid "Axis range"
 msgstr "نطاق المحور"
@@ -262,7 +263,7 @@ msgid "Values outside of the range will not be displayed"
 msgstr "لن يتم عرض القيم خارج النطاق"
 
 msgid "Base line"
-msgstr ""
+msgstr "خط الأساس"
 
 msgid "Value"
 msgstr "القيمة"
@@ -446,7 +447,7 @@ msgid "Reporting period"
 msgstr "الفترة الزمنية لإعداد التقرير"
 
 msgid "Stacked values add up to 100%"
-msgstr ""
+msgstr "تضيف القيم المكدسة ما يصل إلى 100٪"
 
 msgid "Decimals"
 msgstr "كسور العشرية"
@@ -725,10 +726,10 @@ msgid "User org unit"
 msgstr "الوحدة التنظيمية للمستخدم"
 
 msgid "User org unit children"
-msgstr ""
+msgstr "الوحدة التنظيمية للمستخدم العضو"
 
 msgid "User org unit grand children"
-msgstr ""
+msgstr "الوحدة التنظيمية الكبرى الأطفال"
 
 msgid "Data"
 msgstr "البيانات"
@@ -752,7 +753,7 @@ msgid "Horizontal (x) axis"
 msgstr "محور (س) الأفقي"
 
 msgid "Chart style"
-msgstr ""
+msgstr "نمط الرسم البياني"
 
 msgid "Titles"
 msgstr "العناوين"
