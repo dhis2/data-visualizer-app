@@ -1,3 +1,10 @@
+## [34.3.44](https://github.com/dhis2/data-visualizer-app/compare/v34.3.43...v34.3.44) (2020-04-27)
+
+
+### Bug Fixes
+
+* auto merge semver:minor ([#903](https://github.com/dhis2/data-visualizer-app/issues/903)) ([1c68594](https://github.com/dhis2/data-visualizer-app/commit/1c685945f87e5e77875dc577bcacd6fb692d7dfa))
+
 ## [34.3.43](https://github.com/dhis2/data-visualizer-app/compare/v34.3.42...v34.3.43) (2020-04-23)
 
 
