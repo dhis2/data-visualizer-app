@@ -111,16 +111,16 @@ msgid "Plain data source"
 msgstr "مصدر البيانات الصريحة"
 
 msgid "Advanced"
-msgstr ""
+msgstr "متقدم"
 
 msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "Data value set"
-msgstr ""
+msgstr "حزمة قيم البيانات"
 
 msgid "Other formats"
-msgstr ""
+msgstr "صيغ أخرى"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr ""
@@ -144,7 +144,7 @@ msgid "Hide"
 msgstr "إخفاء"
 
 msgid "Interpretations"
-msgstr ""
+msgstr "التفسيرات"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr ""
@@ -212,16 +212,16 @@ msgid "Average"
 msgstr "المتوسط"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr ""
+msgstr "المتوسط (المجموع في التسلسل الهرمي للوحدة التنظيمية)"
 
 msgid "Sum"
 msgstr "المجموع"
 
 msgid "Last value"
-msgstr ""
+msgstr "القيمة الأخيرة"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr ""
+msgstr "القيمة الأخيرة (المتوسط في التسلسل الهرمي للوحدة التنظيمية)"
 
 msgid "Min"
 msgstr "الأدنى"
@@ -254,10 +254,10 @@ msgid "Base line"
 msgstr ""
 
 msgid "Value"
-msgstr ""
+msgstr "القيمة"
 
 msgid "Title"
-msgstr ""
+msgstr "العنوان"
 
 msgid "Base line title"
 msgstr ""
@@ -338,7 +338,7 @@ msgid "Before first and after last"
 msgstr ""
 
 msgid "All"
-msgstr ""
+msgstr "الجميع"
 
 msgid "Hide empty rows"
 msgstr "إخفاء الصفوف الفارغة"
@@ -359,7 +359,7 @@ msgid "Custom"
 msgstr ""
 
 msgid "Table title"
-msgstr ""
+msgstr "عنوان الجدول"
 
 msgid "Chart title"
 msgstr ""
@@ -599,16 +599,16 @@ msgid "Today"
 msgstr "اليوم"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "الأمس"
 
 msgid "Last 3 days"
-msgstr ""
+msgstr "آخر 3 أيام"
 
 msgid "Last 7 days"
-msgstr ""
+msgstr "آخر 7 أيام"
 
 msgid "Last 14 days"
-msgstr ""
+msgstr "آخر 14 يوم"
 
 msgid "This week"
 msgstr "الأسبوع الحالي"
@@ -626,7 +626,7 @@ msgid "Last 52 weeks"
 msgstr "آخر 52 أسبوع"
 
 msgid "Weeks this year"
-msgstr ""
+msgstr "أسابيع السنة الحالية"
 
 msgid "This month"
 msgstr "الشهر الحالي"
@@ -644,7 +644,7 @@ msgid "Last 12 months"
 msgstr "آخر 12 شهر"
 
 msgid "Months this year"
-msgstr ""
+msgstr "أشهر السنة الحالية"
 
 msgid "This bimonth"
 msgstr ""
@@ -668,7 +668,7 @@ msgid "Last 4 quarters"
 msgstr "آخر 4 أرباع السنة"
 
 msgid "Quarters this year"
-msgstr ""
+msgstr "أرباع السنة الحالية"
 
 msgid "This six-month"
 msgstr "نصف السنة الحالي (فترة من ستة أشهر)"
