@@ -1,3 +1,4 @@
+# 
 # Translators:
 # phil_dhis2, 2020
 # 
@@ -118,17 +119,17 @@ msgstr "دانلود"
 msgid "Plain data source"
 msgstr "منبع دیتا ساده"
 
-msgid "Advanced"
-msgstr "پیشرفته"
-
-msgid "Metadata ID scheme"
-msgstr ""
-
 msgid "Data value set"
 msgstr "سیت ارزش دیتا"
 
 msgid "Other formats"
 msgstr "فارمت های دیگر"
+
+msgid "Raw data SQL"
+msgstr ""
+
+msgid "Metadata ID scheme"
+msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr ""
@@ -713,6 +714,9 @@ msgstr ""
 
 msgid "User org unit grand children"
 msgstr ""
+
+msgid "Advanced"
+msgstr "پیشرفته"
 
 msgid "Axes"
 msgstr "محورونه"

@@ -1,8 +1,5 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
-
-import { default as MuiButton } from '@material-ui/core/Button'
-
 import i18n from '@dhis2/d2-i18n'
 import {
     ButtonStrip,
@@ -16,6 +13,7 @@ import UpdateButton from '../UpdateButton/UpdateButton'
 import HideButton from '../HideButton/HideButton'
 import UpdateVisualizationContainer from '../UpdateButton/UpdateVisualizationContainer'
 import VisualizationOptions from './VisualizationOptions'
+import MenuButton from '../MenuButton/MenuButton'
 
 class VisualizationOptionsManager extends Component {
     constructor(props) {
@@ -42,12 +40,12 @@ class VisualizationOptionsManager extends Component {
     render() {
         return (
             <Fragment>
-                <MuiButton
+                <MenuButton
                     className={this.props.className}
                     onClick={this.toggleVisualizationOptionsDialog}
                 >
                     {i18n.t('Options')}
-                </MuiButton>
+                </MenuButton>
                 {this.state.dialogIsOpen && (
                     <Modal onClose={this.onClose} position="top" large>
                         <ModalTitle>{i18n.t('Options')}</ModalTitle>

@@ -1,3 +1,4 @@
+# 
 # Translators:
 # Viktor Varland <viktor@dhis2.org>, 2020
 # phil_dhis2, 2020
@@ -119,16 +120,16 @@ msgstr "Descarregar"
 msgid "Plain data source"
 msgstr "Fonte de dados simples"
 
-msgid "Advanced"
-msgstr "Avançado"
-
-msgid "Metadata ID scheme"
-msgstr ""
-
 msgid "Data value set"
 msgstr "Conjunto de valores de dados"
 
 msgid "Other formats"
+msgstr ""
+
+msgid "Raw data SQL"
+msgstr ""
+
+msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
@@ -714,6 +715,9 @@ msgstr ""
 
 msgid "User org unit grand children"
 msgstr ""
+
+msgid "Advanced"
+msgstr "Avançado"
 
 msgid "Axes"
 msgstr ""

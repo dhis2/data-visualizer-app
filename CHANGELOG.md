@@ -1,3 +1,52 @@
+## [34.3.45](https://github.com/dhis2/data-visualizer-app/compare/v34.3.44...v34.3.45) (2020-04-27)
+
+
+### Bug Fixes
+
+* remove ui prop in axis setup ([#886](https://github.com/dhis2/data-visualizer-app/issues/886)) ([f68b9a6](https://github.com/dhis2/data-visualizer-app/commit/f68b9a609eacd4acf75d8e17ba715094b3ba5920))
+
+## [34.3.44](https://github.com/dhis2/data-visualizer-app/compare/v34.3.43...v34.3.44) (2020-04-27)
+
+
+### Bug Fixes
+
+* auto merge semver:minor ([#903](https://github.com/dhis2/data-visualizer-app/issues/903)) ([1c68594](https://github.com/dhis2/data-visualizer-app/commit/1c685945f87e5e77875dc577bcacd6fb692d7dfa))
+
+## [34.3.43](https://github.com/dhis2/data-visualizer-app/compare/v34.3.42...v34.3.43) (2020-04-23)
+
+
+### Bug Fixes
+
+* temporary fix for orgunit and period selector modals not showing ([#872](https://github.com/dhis2/data-visualizer-app/issues/872)) ([594e27e](https://github.com/dhis2/data-visualizer-app/commit/594e27e350b2aeae2b5f38dc5c751231f33ab5bb))
+
+## [34.3.42](https://github.com/dhis2/data-visualizer-app/compare/v34.3.41...v34.3.42) (2020-04-22)
+
+
+### Bug Fixes
+
+* AxisSetup MUI -> ui-core (TECH-359) ([#876](https://github.com/dhis2/data-visualizer-app/issues/876)) ([36e4a79](https://github.com/dhis2/data-visualizer-app/commit/36e4a79c9d6135db4e4f5871adf066c3296a780f))
+
+## [34.3.41](https://github.com/dhis2/data-visualizer-app/compare/v34.3.40...v34.3.41) (2020-04-21)
+
+
+### Bug Fixes
+
+* rewrite MenuBar buttons (TECH-320) ([#879](https://github.com/dhis2/data-visualizer-app/issues/879)) ([45b3adb](https://github.com/dhis2/data-visualizer-app/commit/45b3adb6b01b8ac95761650d603ff92cfda410d7))
+
+## [34.3.40](https://github.com/dhis2/data-visualizer-app/compare/v34.3.39...v34.3.40) (2020-04-20)
+
+
+### Bug Fixes
+
+* consistent scrollbar style ([#877](https://github.com/dhis2/data-visualizer-app/issues/877)) ([622a6d8](https://github.com/dhis2/data-visualizer-app/commit/622a6d8921fa99c2cdd8344226857646a9c4f54a))
+
+## [34.3.39](https://github.com/dhis2/data-visualizer-app/compare/v34.3.38...v34.3.39) (2020-04-20)
+
+
+### Bug Fixes
+
+* changed the text for a legend option to suit all vis types ([#873](https://github.com/dhis2/data-visualizer-app/issues/873)) ([92df843](https://github.com/dhis2/data-visualizer-app/commit/92df84385807d58249b358b41e7fac9143408aa2))
+
 ## [34.3.38](https://github.com/dhis2/data-visualizer-app/compare/v34.3.37...v34.3.38) (2020-04-15)
 
 

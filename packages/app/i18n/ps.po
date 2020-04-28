@@ -1,3 +1,4 @@
+# 
 # Translators:
 # phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
@@ -119,17 +120,17 @@ msgstr "بارگیری"
 msgid "Plain data source"
 msgstr "د ډاټا یا مالوماتو ساده سرچینه"
 
-msgid "Advanced"
-msgstr "پرمختللي."
-
-msgid "Metadata ID scheme"
-msgstr ""
-
 msgid "Data value set"
 msgstr "د ډاټا یا مالوماتو د ارزښت ټولګه"
 
 msgid "Other formats"
 msgstr "نور فارمټونه یا نمونې"
+
+msgid "Raw data SQL"
+msgstr ""
+
+msgid "Metadata ID scheme"
+msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr ""
@@ -714,6 +715,9 @@ msgstr ""
 
 msgid "User org unit grand children"
 msgstr ""
+
+msgid "Advanced"
+msgstr "پرمختللي."
 
 msgid "Axes"
 msgstr "محورونه"
