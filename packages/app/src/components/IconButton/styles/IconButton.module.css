@@ -1,0 +1,16 @@
+.iconButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: none;
+    box-sizing: border-box;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    vertical-align: middle;
+}
+
+.iconButton:focus {
+    outline: none;
+}

@@ -1,0 +1,12 @@
+.content {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    min-height: 32px;
+}
+
+.content > div {
+    cursor: pointer;
+}

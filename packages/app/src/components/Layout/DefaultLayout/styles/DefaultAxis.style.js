@@ -23,15 +23,5 @@ export default {
         userSelect: 'none',
         letterSpacing: '0.2px',
     },
-    content: {
-        width: '100%',
-        display: 'flex',
-        alignItems: 'flex-start',
-        alignContent: 'flex-start',
-        flexWrap: 'wrap',
-        minHeight: 32,
-        '& > div': {
-            cursor: 'pointer',
-        },
-    },
 }
+// TODO: Refactor this file and all other affected files (DefaultLayout + everything in ../../styles/) to css modules
