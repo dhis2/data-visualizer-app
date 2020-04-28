@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import IconButton from '@material-ui/core/IconButton'
 import {
     DimensionMenu,
     DIMENSION_ID_ASSIGNED_CATEGORIES,
@@ -16,6 +15,7 @@ import {
     acRemoveUiLayoutDimensions,
 } from '../../actions/ui'
 import { AXIS_SETUP_DIALOG_ID } from '../AxisSetup/AxisSetup'
+import IconButton from '../IconButton/IconButton'
 
 class ChipMenu extends React.Component {
     state = {
@@ -38,8 +38,8 @@ class ChipMenu extends React.Component {
         return (
             <React.Fragment>
                 <IconButton
-                    aria-owns={this.state.anchorEl ? this.getMenuId() : null}
-                    aria-haspopup="true"
+                    ariaOwns={this.state.anchorEl ? this.getMenuId() : null}
+                    ariaHaspopup="true"
                     onClick={this.handleClick}
                     style={styles.icon}
                 >
