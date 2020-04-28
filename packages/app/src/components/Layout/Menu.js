@@ -45,6 +45,7 @@ class ChipMenu extends React.Component {
                 >
                     <MoreHorizontalIcon style={styles.icon} />
                 </IconButton>
+                {/* TODO: Fix bug with the first menu item getting selected when the menu is opened */}
                 <DimensionMenu
                     dimensionId={this.props.dimensionId}
                     currentAxisId={this.props.currentAxisId}
