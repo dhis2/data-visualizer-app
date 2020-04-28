@@ -1460,9 +1460,9 @@
     moment "^2.24.0"
 
 "@dhis2/app-runtime@*", "@dhis2/app-runtime@^2.0.4":
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-2.0.4.tgz#9ae202fef3313094aef33a3e38d2c6c5d799c808"
-  integrity sha512-w5+C/fHSsuF0am5Tpvz53+tigEZzfz9ahkjXH3BiWxGVxwZGtdHjWfso1T5bJRiKhDTgf76TxIsQiC11W20WyA==
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-2.1.2.tgz#493e6b462cdba1b5cb54db21bb3f331aa2306992"
+  integrity sha512-ynGxv/9T5fvva1TYY6haAkDmyelvfayzHtAJdHMy57Yvf8z14THJcBR3MeAFRfM+1njgGWeTk14evgmgpZkfeA==
 
 "@dhis2/app-shell@3.2.5":
   version "3.2.5"
@@ -5051,10 +5051,10 @@ cypress@^3.6.1:
     url "0.11.0"
     yauzl "2.10.0"
 
-d2-analysis@33.2.11:
-  version "33.2.11"
-  resolved "https://registry.yarnpkg.com/d2-analysis/-/d2-analysis-33.2.11.tgz#11d430df739fdbed60e5c22422b62f081f2e4048"
-  integrity sha512-nkAGQbGquEOBDA1o0f75tHKPhZjAiibdTMmeB25PZkqaZD7PeWp8gSuExLXSoBJAWhPCg5lJJRANelY67y8MeQ==
+d2-analysis@33.2.14:
+  version "33.2.14"
+  resolved "https://registry.yarnpkg.com/d2-analysis/-/d2-analysis-33.2.14.tgz#a830c7dce5dfcfd809110efc409c5d9487704026"
+  integrity sha512-H7SIq1FsVFj6EvuqaQY0a8xeRgLlnjUnd5umE1pcOlN1ik5axxIXkansypnWaxQklz5MQLY3dcU2Oxe2cu9N2w==
   dependencies:
     "@dhis2/d2-ui-rich-text" "^5.1.0"
     d2-utilizr "^0.2.16"
@@ -12413,10 +12413,10 @@ react-transition-group@^2.2.1:
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
 
-react@^16.8, react@^16.8.6:
-  version "16.12.0"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.12.0.tgz#0c0a9c6a142429e3614834d5a778e18aa78a0b83"
-  integrity sha512-fglqy3k5E+81pA8s+7K0/T3DBCF0ZDOher1elBFzF7O6arXJgzyu/FW+COxFvAWXJoJN9KIZbT2LXlukwphYTA==
+react@^16.13, react@^16.8.6:
+  version "16.13.1"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
+  integrity sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
