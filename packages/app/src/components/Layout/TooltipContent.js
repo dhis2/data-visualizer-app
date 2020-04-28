@@ -1,12 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-//import Popper from '@material-ui/core/Popper'
-//import Paper from '@material-ui/core/Paper'
+
 import LockIcon from '@material-ui/icons/Lock'
 import WarningIcon from '@material-ui/icons/Warning'
-
-//import { Popover } from '@dhis2/ui-core'
 
 import i18n from '@dhis2/d2-i18n'
 import { ouIdHelper } from '@dhis2/analytics'
@@ -20,7 +17,7 @@ const labels = {
     onlyLimitedNumberInUse: number =>
         i18n.t("Only '{{number}}' in use", { number }),
 }
-export class Tooltip extends React.Component {
+export class TooltipContent extends React.Component {
     getWarningLabel = () => {
         const { itemIds, metadata, displayLimitedAmount } = this.props
         const warningLabel =
@@ -45,7 +42,6 @@ export class Tooltip extends React.Component {
 
     getItemDisplayNames = () => {
         const { itemIds, metadata, displayLimitedAmount } = this.props
-
         const levelIds = []
         const groupIds = []
         const itemDisplayNames = []
@@ -142,44 +138,18 @@ export class Tooltip extends React.Component {
 
         return (
             <ul style={styles.list}>
-                {warningLabel &&
-                    this.renderWarningLabel(warningLabel)}
+                {warningLabel && this.renderWarningLabel(warningLabel)}
                 {this.props.lockedLabel && this.renderLockedLabel()}
-                {itemDisplayNames &&
-                    this.renderItems(itemDisplayNames)}
+                {itemDisplayNames && this.renderItems(itemDisplayNames)}
                 {hasNoItemsLabel && this.renderNoItemsLabel()}
             </ul>
         )
-        /*
-        return (
-            <Popper
-                anchorEl={this.props.anchorEl}
-                open={this.props.open}
-                placement="bottom-start"
-            >
-                <Paper style={styles.tooltip}>
-                    {
-                        <ul style={styles.list}>
-                            {warningLabel &&
-                                this.renderWarningLabel(warningLabel)}
-                            {this.props.lockedLabel && this.renderLockedLabel()}
-                            {itemDisplayNames &&
-                                this.renderItems(itemDisplayNames)}
-                            {hasNoItemsLabel && this.renderNoItemsLabel()}
-                        </ul>
-                    }
-                </Paper>
-            </Popper>
-        )
-            */
     }
 }
 
-Tooltip.propTypes = {
-    anchorEl: PropTypes.object.isRequired,
+TooltipContent.propTypes = {
     dimensionId: PropTypes.string.isRequired,
     metadata: PropTypes.object.isRequired,
-    open: PropTypes.bool.isRequired,
     displayLimitedAmount: PropTypes.bool,
     itemIds: PropTypes.array,
     lockedLabel: PropTypes.string,
@@ -189,4 +159,4 @@ const mapStateToProps = state => ({
     metadata: sGetMetadata(state),
 })
 
-export default connect(mapStateToProps)(Tooltip)
+export default connect(mapStateToProps)(TooltipContent)
