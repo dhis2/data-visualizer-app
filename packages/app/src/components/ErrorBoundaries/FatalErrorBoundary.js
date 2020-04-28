@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
-import { withStyles } from '@material-ui/core/styles'
 import InfoIcon from '@material-ui/icons/InfoOutlined'
-import styles from './styles/FatalErrorBoundary.style'
+import styles from './styles/FatalErrorBoundary.module.css'
 import { genericErrorTitle } from '../../modules/error'
 
 const translatedErrorHeading = i18n.t(
@@ -39,23 +38,23 @@ export class FatalErrorBoundary extends Component {
     }
 
     render() {
-        const { classes, children } = this.props
+        const { children } = this.props
         if (this.state.error) {
             return (
-                <div className={classes.mask}>
-                    <div className={classes.container}>
-                        <InfoIcon className={classes.icon} />
-                        <div className={classes.message}>
+                <div className={styles.mask}>
+                    <div className={styles.container}>
+                        <InfoIcon className={styles.icon} />
+                        <div className={styles.message}>
                             {genericErrorTitle}
                         </div>
                         <div
-                            className={classes.link}
+                            className={styles.link}
                             onClick={() => window.location.reload()}
                         >
                             {i18n.t('Refresh to try again')}
                         </div>
                         <div
-                            className={classes.drawerToggle}
+                            className={styles.drawerToggle}
                             onClick={this.toggleTechInfoDrawer}
                         >
                             {this.state.drawerOpen
@@ -65,18 +64,18 @@ export class FatalErrorBoundary extends Component {
                         <div
                             className={
                                 this.state.drawerOpen
-                                    ? classes.drawerVisible
-                                    : classes.drawerHidden
+                                    ? styles.drawerVisible
+                                    : styles.drawerHidden
                             }
                         >
-                            <div className={classes.errorIntro}>
+                            <div className={styles.errorIntro}>
                                 {translatedErrorHeading}
                                 <br />
                                 {i18n.t(
                                     'The following information may be requested by technical support.'
                                 )}
                             </div>
-                            <div className={classes.errorDetails}>
+                            <div className={styles.errorDetails}>
                                 {[
                                     replaceNewlinesWithBreaks(
                                         this.state.error.stack +
@@ -97,7 +96,6 @@ export class FatalErrorBoundary extends Component {
 
 FatalErrorBoundary.propTypes = {
     children: PropTypes.node.isRequired,
-    classes: PropTypes.object.isRequired,
 }
 
-export default withStyles(styles)(FatalErrorBoundary)
+export default FatalErrorBoundary
