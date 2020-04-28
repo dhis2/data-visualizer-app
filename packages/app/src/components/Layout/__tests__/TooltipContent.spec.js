@@ -1,31 +1,24 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Popper from '@material-ui/core/Popper'
-import { Tooltip } from '../Tooltip'
+import { TooltipContent } from '../TooltipContent'
 
-describe('Tooltip', () => {
+describe('TooltipContent', () => {
     let props
     let shallowTooltip
     const tooltip = () => {
         if (!shallowTooltip) {
-            shallowTooltip = shallow(<Tooltip {...props} />)
+            shallowTooltip = shallow(<TooltipContent {...props} />)
         }
         return shallowTooltip
     }
 
     beforeEach(() => {
         props = {
-            open: true,
-            anchorEl: {},
             dimensionId: 'abc',
             metadata: {},
             itemIds: [],
         }
         shallowTooltip = undefined
-    })
-
-    it('renders a Popper', () => {
-        expect(tooltip().find(Popper).length).toBeGreaterThan(0)
     })
 
     describe('no items provided', () => {
