@@ -1,5 +1,5 @@
 // TODO: Refactor chip to contain less logic
-import React, { createRef } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
@@ -22,15 +22,13 @@ import {
 } from '@dhis2/analytics'
 
 import Menu from './Menu'
-import { Tooltip as TooltipContent } from './Tooltip'
+import TooltipContent from './TooltipContent'
 import { setDataTransfer } from '../../modules/dnd'
 import { sGetDimensions } from '../../reducers/dimensions'
 import { sGetUiItemsByDimension, sGetUiType } from '../../reducers/ui'
 import DynamicDimensionIcon from '../../assets/DynamicDimensionIcon'
 import { styles } from './styles/Chip.style'
 import { acSetUiActiveModalDialog } from '../../actions/ui'
-
-const TOOLTIP_ENTER_DELAY = 500
 
 const LockIconWrapper = (
     <div style={styles.lockIconWrapper}>
@@ -53,49 +51,24 @@ const Chip = ({
     getOpenHandler,
 }) => {
     const id = Math.random().toString(36)
-    const ref = createRef()
-//    let timeout = null
     const isLocked = () => isDimensionLocked(type, dimensionId)
 
-    const getMaxNumberOfItems = () =>
-        getAxisMaxNumberOfItems(type, axisId)
-/*
-    const handleMouseOut = () => {
-        if (typeof timeout === 'number') {
-            console.log('mouse out hide tooltip')
-            clearTimeout(timeout)
-            timeout = null
-            setTooltipIsOpen(false)
-        }
-    }
-*/
+    const getMaxNumberOfItems = () => getAxisMaxNumberOfItems(type, axisId)
+
     const handleClick = () => {
-        if (
-            !getPredefinedDimensionProp(
-                dimensionId,
-                DIMENSION_PROP_NO_ITEMS
-            )
-        ) {
+        if (!getPredefinedDimensionProp(dimensionId, DIMENSION_PROP_NO_ITEMS)) {
             getOpenHandler(dimensionId)
         }
-
-        /// XXX close the tooltip ?!
-        //handleMouseOut()
     }
 
     const getDragStartHandler = () => event => {
-        // XXX close the tooltip ?!
-        //handleMouseOut()
-
         setDataTransfer(event, axisId)
     }
 
     const getWrapperStyles = () => ({
         ...styles.chipWrapper,
-        ...(!getPredefinedDimensionProp(
-            dimensionId,
-            DIMENSION_PROP_NO_ITEMS
-        ) && !items.length
+        ...(!getPredefinedDimensionProp(dimensionId, DIMENSION_PROP_NO_ITEMS) &&
+        !items.length
             ? styles.chipEmpty
             : {}),
     })
@@ -104,8 +77,7 @@ const Chip = ({
         const numberOfItems = items.length
 
         const getItemsLabel =
-            !!getMaxNumberOfItems() &&
-            numberOfItems > getMaxNumberOfItems()
+            !!getMaxNumberOfItems() && numberOfItems > getMaxNumberOfItems()
                 ? i18n.t(`{{total}} of {{axisMaxNumberOfItems}} selected`, {
                       total: numberOfItems,
                       axisMaxNumberOfItems: getMaxNumberOfItems(),
@@ -162,21 +134,14 @@ const Chip = ({
                     dimensionId={dimensionId}
                     itemIds={activeItemIds}
                     lockedLabel={lockedLabel}
-                    displayLimitedAmount={
-                        items.length > activeItemIds.length
-                    }
-                    open={tooltipIsOpen}
-                    anchorEl={ref}
+                    displayLimitedAmount={items.length > activeItemIds.length}
                 />
             )
         }
     }
 
     return (
-        <Tooltip
-            content={renderTooltipContent()}
-            ref={ref}
-        >
+        <Tooltip content={renderTooltipContent()} placement="bottom">
             {({ ref, onMouseOver, onMouseOut }) => (
                 <div
                     style={getWrapperStyles()}
@@ -184,20 +149,15 @@ const Chip = ({
                     draggable={!isLocked()}
                     onDragStart={getDragStartHandler()}
                     ref={ref}
+                    onMouseOver={onMouseOver}
+                    onMouseOut={onMouseOut}
                 >
-                    <div
-                        id={id}
-                        style={styles.chipLeft}
-                        onClick={handleClick}
-                    >
+                    <div id={id} style={styles.chipLeft} onClick={handleClick}>
                         <div style={styles.iconWrapper}>{renderChipIcon()}</div>
                         <span style={styles.label}>{dimensionName}</span>
                         <span>{renderChipLabelSuffix()}</span>
-                        {hasAxisTooManyItems(
-                            type,
-                            axisId,
-                            items.length
-                        ) && WarningIconWrapper}
+                        {hasAxisTooManyItems(type, axisId, items.length) &&
+                            WarningIconWrapper}
                         {isLocked() && LockIconWrapper}
                     </div>
                     {!isLocked() && renderMenu()}
