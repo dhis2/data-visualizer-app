@@ -101,11 +101,12 @@ export class Tooltip extends React.Component {
                     key={`${this.props.dimensionId}-render-limit`}
                     style={styles.item}
                 >
-                    {`And ${itemDisplayNames.length - renderLimit} ${
-                        itemDisplayNames.length - renderLimit > 1
-                            ? 'others'
-                            : 'other'
-                    }...`}
+                    {itemDisplayNames.length - renderLimit === 1
+                        ? i18n.t('And 1 other...')
+                        : i18n.t('And {{numberOfItems}} others...', {
+                              numberOfItems:
+                                  itemDisplayNames.length - renderLimit,
+                          })}
                 </li>
             )
         }
