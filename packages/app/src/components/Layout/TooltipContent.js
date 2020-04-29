@@ -17,9 +17,15 @@ const labels = {
     onlyLimitedNumberInUse: number =>
         i18n.t("Only '{{number}}' in use", { number }),
 }
-export class TooltipContent extends React.Component {
-    getWarningLabel = () => {
-        const { itemIds, metadata, displayLimitedAmount } = this.props
+
+export const TooltipContent = ({
+    dimensionId,
+    itemIds,
+    metadata,
+    displayLimitedAmount,
+    lockedLabel,
+}) => {
+    const getWarningLabel = () => {
         const warningLabel =
             itemIds.length === 1
                 ? labels.onlyOneInUse(
@@ -31,7 +37,7 @@ export class TooltipContent extends React.Component {
         return displayLimitedAmount ? warningLabel : null
     }
 
-    getNameList = (idList, label, metadata) =>
+    const getNameList = (idList, label, metadata) =>
         idList.reduce(
             (levelString, levelId, index) =>
                 `${levelString}${index > 0 ? `, ` : ``}${
@@ -40,8 +46,7 @@ export class TooltipContent extends React.Component {
             `${label}: `
         )
 
-    getItemDisplayNames = () => {
-        const { itemIds, metadata, displayLimitedAmount } = this.props
+    const getItemDisplayNames = () => {
         const levelIds = []
         const groupIds = []
         const itemDisplayNames = []
@@ -59,19 +64,19 @@ export class TooltipContent extends React.Component {
 
             levelIds.length &&
                 itemDisplayNames.push(
-                    this.getNameList(levelIds, i18n.t('Levels'), metadata)
+                    getNameList(levelIds, i18n.t('Levels'), metadata)
                 )
 
             groupIds.length &&
                 itemDisplayNames.push(
-                    this.getNameList(groupIds, i18n.t('Groups'), metadata)
+                    getNameList(groupIds, i18n.t('Groups'), metadata)
                 )
         }
 
         return itemDisplayNames
     }
 
-    renderWarningLabel = warningLabel => (
+    const renderWarningLabel = warningLabel => (
         <li style={styles.item}>
             <div style={styles.iconWrapper}>
                 <WarningIcon style={styles.icon} />
@@ -80,14 +85,14 @@ export class TooltipContent extends React.Component {
         </li>
     )
 
-    renderItems = itemDisplayNames => {
+    const renderItems = itemDisplayNames => {
         const renderLimit = 5
 
         const itemsToRender = itemDisplayNames
             .slice(0, renderLimit)
             .map(name => (
                 <li
-                    key={`${this.props.dimensionId}-${name}`}
+                    key={`${dimensionId}-${name}`}
                     style={styles.item}
                 >
                     {name}
@@ -97,7 +102,7 @@ export class TooltipContent extends React.Component {
         if (itemDisplayNames.length > renderLimit) {
             itemsToRender.push(
                 <li
-                    key={`${this.props.dimensionId}-render-limit`}
+                    key={`${dimensionId}-render-limit`}
                     style={styles.item}
                 >
                     {itemDisplayNames.length - renderLimit === 1
@@ -113,38 +118,33 @@ export class TooltipContent extends React.Component {
         return itemsToRender
     }
 
-    renderLockedLabel = () => (
+    const renderLockedLabel = () => (
         <li style={styles.item}>
             <div style={styles.iconWrapper}>
                 <LockIcon style={styles.icon} />
-                <span>{this.props.lockedLabel}</span>
+                <span>{lockedLabel}</span>
             </div>
         </li>
     )
 
-    renderNoItemsLabel = () => (
-        <li
-            key={`${this.props.dimensionId}-${labels.noneSelected}`}
-            style={styles.item}
-        >
+    const renderNoItemsLabel = () => (
+        <li key={`${dimensionId}-${labels.noneSelected}`} style={styles.item}>
             {labels.noneSelected}
         </li>
     )
 
-    render() {
-        const itemDisplayNames = this.getItemDisplayNames()
-        const warningLabel = this.getWarningLabel()
-        const hasNoItemsLabel = !itemDisplayNames.length && !warningLabel
+    const itemDisplayNames = getItemDisplayNames()
+    const warningLabel = getWarningLabel()
+    const hasNoItemsLabel = !itemDisplayNames.length && !warningLabel
 
-        return (
-            <ul style={styles.list}>
-                {warningLabel && this.renderWarningLabel(warningLabel)}
-                {this.props.lockedLabel && this.renderLockedLabel()}
-                {itemDisplayNames && this.renderItems(itemDisplayNames)}
-                {hasNoItemsLabel && this.renderNoItemsLabel()}
-            </ul>
-        )
-    }
+    return (
+        <ul style={styles.list}>
+            {warningLabel && renderWarningLabel(warningLabel)}
+            {lockedLabel && renderLockedLabel()}
+            {itemDisplayNames && renderItems(itemDisplayNames)}
+            {hasNoItemsLabel && renderNoItemsLabel()}
+        </ul>
+    )
 }
 
 TooltipContent.propTypes = {
