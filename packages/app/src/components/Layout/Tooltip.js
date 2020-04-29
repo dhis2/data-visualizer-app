@@ -11,28 +11,45 @@ import { styles } from './styles/Tooltip.style';
 
 const labels = {
     noneSelected: i18n.t('None selected'),
-    onlyOneInUse: name => i18n.t("Only '{{name}}' in use", { name }),
+    onlyOneInUse: (name) => i18n.t("Only '{{name}}' in use", { name }),
 };
 
 const emptyItems = [];
 
 export class Tooltip extends React.Component {
-    renderTooltip = names => (
+    renderItems = (itemDisplayNames) => {
+        const renderLimit = 5;
+
+        const itemsToRender = itemDisplayNames
+            .slice(0, renderLimit)
+            .map((name) => (
+                <li key={`${this.props.dimensionId}-${name}`}>{name}</li>
+            ));
+
+        if (itemDisplayNames.length > renderLimit) {
+            itemsToRender.push(
+                <li key={`${this.props.dimensionId}-render-limit`}>
+                    {itemDisplayNames.length - renderLimit === 1
+                        ? i18n.t('And 1 other...')
+                        : i18n.t('And {{numberOfItems}} others...', {
+                              numberOfItems:
+                                  itemDisplayNames.length - renderLimit,
+                          })}
+                </li>
+            );
+        }
+
+        return itemsToRender;
+    };
+
+    renderTooltip = (names) => (
         <Popper
             anchorEl={this.props.anchorEl}
             open={this.props.open}
             placement="bottom-start"
         >
             <Paper style={styles.tooltip}>
-                {
-                    <ul style={styles.list}>
-                        {names.map(name => (
-                            <li key={`${this.props.dimensionId}-${name}`}>
-                                {name}
-                            </li>
-                        ))}
-                    </ul>
-                }
+                {<ul style={styles.list}>{this.renderItems(names)}</ul>}
             </Paper>
         </Popper>
     );
@@ -49,12 +66,14 @@ export class Tooltip extends React.Component {
                     labels.onlyOneInUse(metadata[id] ? metadata[id].name : id),
                 ];
             } else {
-                names = activeItemIds.map(id =>
+                names = activeItemIds.map((id) =>
                     metadata[id] ? metadata[id].name : id
                 );
             }
         } else if (itemIds.length) {
-            names = itemIds.map(id => (metadata[id] ? metadata[id].name : id));
+            names = itemIds.map((id) =>
+                metadata[id] ? metadata[id].name : id
+            );
         } else {
             names = [labels.noneSelected];
         }
