@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-03-11T02:52:13.220Z\n"
-"PO-Revision-Date: 2020-03-11T02:52:13.220Z\n"
+"POT-Creation-Date: 2020-04-29T13:10:59.082Z\n"
+"PO-Revision-Date: 2020-04-29T13:10:59.082Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -118,9 +118,6 @@ msgstr ""
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr ""
 
-msgid "Something went wrong"
-msgstr ""
-
 msgid "Refresh to try again"
 msgstr ""
 
@@ -161,6 +158,12 @@ msgid "Levels"
 msgstr ""
 
 msgid "Groups"
+msgstr ""
+
+msgid "And 1 other..."
+msgstr ""
+
+msgid "And {{numberOfItems}} others..."
 msgstr ""
 
 msgid "Unsaved visualization"
@@ -581,6 +584,9 @@ msgid "Assigned Categories cannot be used as Filter"
 msgstr ""
 
 msgid "Fix this problem by moving or removing Assigned Categories."
+msgstr ""
+
+msgid "Something went wrong"
 msgstr ""
 
 msgid "or"
