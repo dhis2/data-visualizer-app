@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-03-11T02:52:13.220Z\n"
+"POT-Creation-Date: 2020-04-29T13:10:59.082Z\n"
 "PO-Revision-Date: 2020-03-02 13:01+0000\n"
 "Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2020\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -135,9 +135,6 @@ msgstr "صيغ أخرى"
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "حدث خطأ في تطبيق DHIS2 Data Visualizer."
 
-msgid "Something went wrong"
-msgstr "هناك خطأ ما"
-
 msgid "Refresh to try again"
 msgstr "حدث للمحاولة مرة أخرى"
 
@@ -179,6 +176,12 @@ msgstr "المستويات"
 
 msgid "Groups"
 msgstr "المجموعات"
+
+msgid "And 1 other..."
+msgstr ""
+
+msgid "And {{numberOfItems}} others..."
+msgstr ""
 
 msgid "Unsaved visualization"
 msgstr "مخطط عرض غير محفوظ"
@@ -616,6 +619,9 @@ msgstr "الفئات المعينة لا يمكن أن تستخدم كعوامل
 
 msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr "قم بإصلاح هذه المشكلة عن طريق نقل أو إزالة الفئات التي تم تعينها."
+
+msgid "Something went wrong"
+msgstr "هناك خطأ ما"
 
 msgid "or"
 msgstr "أو"

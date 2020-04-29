@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-03-11T02:52:13.220Z\n"
+"POT-Creation-Date: 2020-04-29T13:10:59.082Z\n"
 "PO-Revision-Date: 2020-03-02 13:01+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -134,9 +134,6 @@ msgstr "Andre formater"
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "Det oppstod en feil i DHIS2 Data Visualizer-applikasjonen."
 
-msgid "Something went wrong"
-msgstr "Noe gikk galt"
-
 msgid "Refresh to try again"
 msgstr "Oppdater for å prøve igjen"
 
@@ -178,6 +175,12 @@ msgstr "Nivå"
 
 msgid "Groups"
 msgstr "Grupper"
+
+msgid "And 1 other..."
+msgstr ""
+
+msgid "And {{numberOfItems}} others..."
+msgstr ""
 
 msgid "Unsaved visualization"
 msgstr "Ikke lagret visualisering"
@@ -615,6 +618,9 @@ msgstr "Tildelte kategorier kan ikke brukes som filter"
 
 msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr "Løs dette problemet ved å flytte eller fjerne Tildelte Kategorier."
+
+msgid "Something went wrong"
+msgstr "Noe gikk galt"
 
 msgid "or"
 msgstr "eller"
