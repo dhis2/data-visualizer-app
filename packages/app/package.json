@@ -8,7 +8,7 @@
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^3.2.5",
         "cypress": "^3.6.1",
-        "eslint-plugin-cypress": "^2.7.0",
+        "eslint-plugin-cypress": "^2.10.3",
         "redux-mock-store": "^1.5.4"
     },
     "dependencies": {
@@ -28,8 +28,8 @@
         "prop-types": "^15",
         "raf": "3.4.1",
         "react": "^16.13",
-        "react-beautiful-dnd": "^12.2.0",
-        "react-dom": "^16.8",
+        "react-beautiful-dnd": "^13.0.0",
+        "react-dom": "^16.13",
         "react-redux": "^5.1.0",
         "redux": "^4.0.5",
         "redux-actions": "^2.2.1",
