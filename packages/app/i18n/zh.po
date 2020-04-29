@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-03-11T02:52:13.220Z\n"
+"POT-Creation-Date: 2020-04-29T13:10:59.082Z\n"
 "PO-Revision-Date: 2020-03-02 13:01+0000\n"
 "Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -128,9 +128,6 @@ msgstr "其它格式"
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "数据可视化应用发生错误"
 
-msgid "Something went wrong"
-msgstr "出了些问题"
-
 msgid "Refresh to try again"
 msgstr "刷新后再试"
 
@@ -172,6 +169,12 @@ msgstr "等级"
 
 msgid "Groups"
 msgstr "组"
+
+msgid "And 1 other..."
+msgstr ""
+
+msgid "And {{numberOfItems}} others..."
+msgstr ""
 
 msgid "Unsaved visualization"
 msgstr "没有保存可视化"
@@ -596,6 +599,9 @@ msgstr "指派的分类不能作为过滤器"
 
 msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr "移动或移除分类以便解决问题"
+
+msgid "Something went wrong"
+msgstr "出了些问题"
 
 msgid "or"
 msgstr "或"
