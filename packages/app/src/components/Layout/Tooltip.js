@@ -11,18 +11,18 @@ import { styles } from './styles/Tooltip.style';
 
 const labels = {
     noneSelected: i18n.t('None selected'),
-    onlyOneInUse: name => i18n.t("Only '{{name}}' in use", { name }),
+    onlyOneInUse: (name) => i18n.t("Only '{{name}}' in use", { name }),
 };
 
 const emptyItems = [];
 
 export class Tooltip extends React.Component {
-    renderItems = itemDisplayNames => {
+    renderItems = (itemDisplayNames) => {
         const renderLimit = 5;
 
         const itemsToRender = itemDisplayNames
             .slice(0, renderLimit)
-            .map(name => (
+            .map((name) => (
                 <li key={`${this.props.dimensionId}-${name}`}>{name}</li>
             ));
 
@@ -42,7 +42,7 @@ export class Tooltip extends React.Component {
         return itemsToRender;
     };
 
-    renderTooltip = names => (
+    renderTooltip = (names) => (
         <Popper
             anchorEl={this.props.anchorEl}
             open={this.props.open}
@@ -66,12 +66,12 @@ export class Tooltip extends React.Component {
                     labels.onlyOneInUse(metadata[id] ? metadata[id].name : id),
                 ];
             } else {
-                names = activeItemIds.map(id =>
+                names = activeItemIds.map((id) =>
                     metadata[id] ? metadata[id].name : id
                 );
             }
         } else if (itemIds.length) {
-            names = itemIds.map(id =>
+            names = itemIds.map((id) =>
                 metadata[id] ? metadata[id].name : id
             );
         } else {
