@@ -81,12 +81,37 @@ export class Tooltip extends React.Component {
         </li>
     )
 
-    renderItems = itemDisplayNames =>
-        itemDisplayNames.map(name => (
-            <li key={`${this.props.dimensionId}-${name}`} style={styles.item}>
-                {name}
-            </li>
-        ))
+    renderItems = itemDisplayNames => {
+        const renderLimit = 5
+
+        const itemsToRender = itemDisplayNames
+            .slice(0, renderLimit)
+            .map(name => (
+                <li
+                    key={`${this.props.dimensionId}-${name}`}
+                    style={styles.item}
+                >
+                    {name}
+                </li>
+            ))
+
+        if (itemDisplayNames.length > renderLimit) {
+            itemsToRender.push(
+                <li
+                    key={`${this.props.dimensionId}-render-limit`}
+                    style={styles.item}
+                >
+                    {`And ${itemDisplayNames.length - renderLimit} ${
+                        itemDisplayNames.length - renderLimit > 1
+                            ? 'others'
+                            : 'other'
+                    }...`}
+                </li>
+            )
+        }
+
+        return itemsToRender
+    }
 
     renderLockedLabel = () => (
         <li style={styles.item}>
