@@ -1,15 +1,15 @@
 # 
 # Translators:
-# Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2019
-# Viktor Varland <viktor@dhis2.org>, 2019
 # phil_dhis2, 2019
+# Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2020
+# Viktor Varland <viktor@dhis2.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-06-21T08:47:33.000Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
-"Last-Translator: phil_dhis2, 2019\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +24,7 @@ msgid "\"{{what}}\" successfully deleted."
 msgstr "\"{{what}}\" berhasil dihapus."
 
 msgid "Data Visualizer"
-msgstr ""
+msgstr "Data Visualizer"
 
 msgid "Axis 1"
 msgstr "Aksis 1"
@@ -64,7 +64,7 @@ msgid "Image (.png)"
 msgstr "Gambar (.png)"
 
 msgid "PDF (.pdf)"
-msgstr ""
+msgstr "PDF (.pdf)"
 
 msgid "Plain data source"
 msgstr "Sumber data mentah"
@@ -163,7 +163,7 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr "Nilai terakhir (jumlah dalam hirarki unit org)"
 
 msgid "Min"
-msgstr ""
+msgstr "Min"
 
 msgid "Max"
 msgstr "Maks"
@@ -244,13 +244,13 @@ msgid "Trend line"
 msgstr "Garis tren"
 
 msgid "Linear"
-msgstr ""
+msgstr "Linier"
 
 msgid "Polynomial"
 msgstr "Polinomial"
 
 msgid "Loess"
-msgstr ""
+msgstr "Loess"
 
 msgid "Show values"
 msgstr "Tampilkan nilai"
@@ -274,13 +274,13 @@ msgid "Target line title"
 msgstr "Judul garis target"
 
 msgid "Target line value"
-msgstr ""
+msgstr "Nilai garis target"
 
 msgid "Chart title"
 msgstr "Sembunyikan item kategori yang kosong"
 
 msgid "Data"
-msgstr ""
+msgstr "Data"
 
 msgid "Axis & legend"
 msgstr "Aksis & legenda"
@@ -301,7 +301,7 @@ msgid "Stacked column"
 msgstr "Kolom tumpuk"
 
 msgid "Bar"
-msgstr ""
+msgstr "Bar"
 
 msgid "Stacked bar"
 msgstr "Bar tumpuk"
@@ -310,13 +310,13 @@ msgid "Line"
 msgstr "Garis"
 
 msgid "Area"
-msgstr ""
+msgstr "Area"
 
 msgid "Pie"
-msgstr ""
+msgstr "Pie"
 
 msgid "Radar"
-msgstr ""
+msgstr "Radar"
 
 msgid "Gauge"
 msgstr "Meteran"
@@ -355,7 +355,7 @@ msgid "Select indicator group"
 msgstr "Pilih grup indikator"
 
 msgid "[ All groups ]"
-msgstr ""
+msgstr "[ All groups ]"
 
 msgid "Data elements"
 msgstr "Data elemen"
@@ -364,7 +364,7 @@ msgid "Select data element group"
 msgstr "Pilih grup data elemen"
 
 msgid "[ All data elements ]"
-msgstr ""
+msgstr "[ All data elements ]"
 
 msgid "Totals"
 msgstr "Total"
@@ -379,7 +379,7 @@ msgid "Select data sets"
 msgstr "Pilih data set"
 
 msgid "[ All metrics ]"
-msgstr ""
+msgstr "[ All metrics ]"
 
 msgid "Event data items"
 msgstr "Item data event"
@@ -527,7 +527,7 @@ msgid "Last 2 six-months"
 msgstr "2 semester terakhir"
 
 msgid "This financial year"
-msgstr ""
+msgstr "Tahun finansial ini"
 
 msgid "Last financial year"
 msgstr "Tahun finansial kemarin"
