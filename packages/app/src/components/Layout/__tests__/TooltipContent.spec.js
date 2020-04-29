@@ -21,6 +21,10 @@ describe('TooltipContent', () => {
         shallowTooltip = undefined
     })
 
+    it('renders a <ul>', () => {
+        expect(tooltip().find('ul').length).toEqual(1)
+    })
+
     describe('no items provided', () => {
         it('renders a default list item', () => {
             const items = tooltip().find('li')
