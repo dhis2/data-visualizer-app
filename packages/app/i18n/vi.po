@@ -18,10 +18,10 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Rename successful"
-msgstr ""
+msgstr "Đổi tên thành công"
 
 msgid "\"{{what}}\" successfully deleted."
-msgstr ""
+msgstr "Xóa thành công"
 
 msgid "Data Visualizer"
 msgstr "Biểu đồ"
@@ -69,10 +69,10 @@ msgid "Graphics"
 msgstr "Hình ảnh"
 
 msgid "Image (.png)"
-msgstr ""
+msgstr "Hình ảnh (.png)"
 
 msgid "PDF (.pdf)"
-msgstr ""
+msgstr "PDF (.pdf)"
 
 msgid "Plain data source"
 msgstr "Nguồn dữ liệu gốc"
@@ -81,7 +81,7 @@ msgid "Advanced"
 msgstr "Nâng cao"
 
 msgid "Metadata ID scheme"
-msgstr ""
+msgstr "Lược đồ ID siêu dữ liệu"
 
 msgid "Data value set"
 msgstr "Bộ giá trị dữ liệu"
@@ -90,22 +90,22 @@ msgid "Other formats"
 msgstr "Định dạng khác"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr ""
+msgstr "Xảy ra lỗi ở ứng dụng trực quan hóa dữ liệu DHIS2"
 
 msgid "Something went wrong"
-msgstr ""
+msgstr "Có lỗi"
 
 msgid "Refresh to try again"
-msgstr ""
+msgstr "Thử lại"
 
 msgid "Hide technical details"
-msgstr ""
+msgstr "Ẩn chi tiết kỹ thuật"
 
 msgid "Show technical details"
-msgstr ""
+msgstr "Hiện chi tiết kỹ thuật"
 
 msgid "The following information may be requested by technical support."
-msgstr ""
+msgstr "Các thông tin sau có thể được yêu cầu bởi hỗ trợ kỹ thuật."
 
 msgid "Hide"
 msgstr "Ẩn"
@@ -129,13 +129,13 @@ msgid "Move to"
 msgstr ""
 
 msgid "None selected"
-msgstr ""
+msgstr "Chưa lựa chọn"
 
 msgid "Unsaved chart"
 msgstr ""
 
 msgid "Edited"
-msgstr ""
+msgstr "Chỉnh sửa"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
@@ -189,7 +189,7 @@ msgid "Variance"
 msgstr "Sự khác nhau"
 
 msgid "Base line"
-msgstr ""
+msgstr "Đường cơ sở"
 
 msgid "Base line title"
 msgstr "Tiêu đề đường căn bản"
@@ -279,7 +279,7 @@ msgid "Chart subtitle"
 msgstr "Tiêu đề phụ biểu đồ"
 
 msgid "Target line"
-msgstr ""
+msgstr "Dòng đích"
 
 msgid "Target line title"
 msgstr "Tiêu đề đường mục tiêu"
@@ -336,19 +336,19 @@ msgid "Year over year (column)"
 msgstr ""
 
 msgid "Reporting rate"
-msgstr ""
+msgstr "Tỉ lệ báo cáo"
 
 msgid "Reporting rate on time"
-msgstr ""
+msgstr "Tỉ lệ báo cáo đúng hạn"
 
 msgid "Actual reports"
-msgstr ""
+msgstr "Báo cáo thực tế"
 
 msgid "Actual reports on time"
-msgstr ""
+msgstr "Báo cáo thực tế đúng hạn"
 
 msgid "Expected reports"
-msgstr ""
+msgstr "Báo cáo dự kiến"
 
 msgid "Program"
 msgstr "Chương trình"
@@ -487,10 +487,10 @@ msgid "Months this year"
 msgstr "Tháng năm nay"
 
 msgid "This bimonth"
-msgstr ""
+msgstr "Hai tháng này"
 
 msgid "Last bimonth"
-msgstr ""
+msgstr "Hai tháng trước"
 
 msgid "Last 6 bimonths"
 msgstr ""
@@ -541,19 +541,19 @@ msgid "User org unit"
 msgstr "Đơn vị của người dùng"
 
 msgid "User org unit children"
-msgstr ""
+msgstr "Đơn vị con của người dùng"
 
 msgid "User org unit grand children"
-msgstr ""
+msgstr "Đơn vị cháu của người dùng"
 
 msgid "Weeks per year"
-msgstr ""
+msgstr "Hàng tuần mỗi năm"
 
 msgid "Months per year"
-msgstr ""
+msgstr "Tháng mỗi năm"
 
 msgid "Bimonths per year"
-msgstr ""
+msgstr "Hai tháng mỗi năm"
 
 msgid "Quarters per year"
-msgstr ""
+msgstr "Quý mỗi năm"
