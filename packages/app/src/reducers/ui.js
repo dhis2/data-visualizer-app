@@ -50,13 +50,41 @@ export const DEFAULT_UI = {
         [DIMENSION_ID_ORGUNIT]: [],
         [DIMENSION_ID_PERIOD]: [],
     },
-    yearOverYearSeries: ['THIS_YEAR', 'LAST_YEAR'],
-    yearOverYearCategory: ['MONTHS_THIS_YEAR'],
+    yearOverYearSeries: [],
+    yearOverYearCategory: [],
     parentGraphMap: {},
     activeModalDialog: null,
     rightSidebarOpen: false,
     interpretation: {},
     axes: null,
+}
+
+export const PRESELECTED_YEAR_OVER_YEAR_SERIES = ['THIS_YEAR', 'LAST_YEAR']
+export const PRESELECTED_YEAR_OVER_YEAR_CATEGORY = ['MONTHS_THIS_YEAR']
+
+const getPreselectedUi = options => {
+    const { rootOrganisationUnit, relativePeriod } = options
+
+    const rootOrganisationUnits = []
+    const parentGraphMap = { ...DEFAULT_UI.parentGraphMap }
+
+    if (rootOrganisationUnit && rootOrganisationUnit.id) {
+        rootOrganisationUnits.push(rootOrganisationUnit.id)
+
+        parentGraphMap[rootOrganisationUnit.id] = ''
+    }
+
+    return {
+        ...DEFAULT_UI,
+        itemsByDimension: {
+            ...DEFAULT_UI.itemsByDimension,
+            [DIMENSION_ID_ORGUNIT]: rootOrganisationUnits,
+            [DIMENSION_ID_PERIOD]: [relativePeriod],
+        },
+        yearOverYearSeries: PRESELECTED_YEAR_OVER_YEAR_SERIES,
+        yearOverYearCategory: PRESELECTED_YEAR_OVER_YEAR_CATEGORY,
+        parentGraphMap,
+    }
 }
 
 export default (state = DEFAULT_UI, action) => {
@@ -213,26 +241,7 @@ export default (state = DEFAULT_UI, action) => {
             }
         }
         case CLEAR_UI: {
-            const { rootOrganisationUnit, relativePeriod } = action.value
-
-            const rootOrganisationUnits = []
-            const parentGraphMap = { ...DEFAULT_UI.parentGraphMap }
-
-            if (rootOrganisationUnit && rootOrganisationUnit.id) {
-                rootOrganisationUnits.push(rootOrganisationUnit.id)
-
-                parentGraphMap[rootOrganisationUnit.id] = ''
-            }
-
-            return {
-                ...DEFAULT_UI,
-                itemsByDimension: {
-                    ...DEFAULT_UI.itemsByDimension,
-                    [DIMENSION_ID_ORGUNIT]: rootOrganisationUnits,
-                    [DIMENSION_ID_PERIOD]: [relativePeriod],
-                },
-                parentGraphMap,
-            }
+            return getPreselectedUi(action.value)
         }
         case TOGGLE_UI_RIGHT_SIDEBAR_OPEN:
             return {
