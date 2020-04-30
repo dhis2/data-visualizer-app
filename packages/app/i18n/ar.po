@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-04-14T11:38:31.639Z\n"
+"POT-Creation-Date: 2020-04-30T09:11:41.123Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2020\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -21,8 +21,8 @@ msgstr ""
 msgid "Rename successful"
 msgstr "تمت إعادة التسمية بنجاح"
 
-msgid "\"{{what}}\" successfully deleted."
-msgstr "تم حذف \"{{what}}\" بنجاح"
+msgid "\"{{deletedObject}}\" successfully deleted."
+msgstr ""
 
 msgid "You have unsaved changes."
 msgstr "لديك تغييرات غير محفوظة."
@@ -123,11 +123,17 @@ msgstr ""
 msgid "HTML (.html)"
 msgstr ""
 
+msgid "Metadata ID scheme"
+msgstr "مخطط معرف البيانات الوصفية"
+
 msgid "Download"
 msgstr "تحميل"
 
 msgid "Plain data source"
 msgstr "مصدر البيانات الصريحة"
+
+msgid "Advanced"
+msgstr "متقدم"
 
 msgid "Data value set"
 msgstr "حزمة قيم البيانات"
@@ -137,9 +143,6 @@ msgstr "صيغ أخرى"
 
 msgid "Raw data SQL"
 msgstr "للبيانات الأولية SQL "
-
-msgid "Metadata ID scheme"
-msgstr "مخطط معرف البيانات الوصفية"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "حدث خطأ في تطبيق DHIS2 Data Visualizer."
@@ -185,6 +188,12 @@ msgstr "المستويات"
 
 msgid "Groups"
 msgstr "المجموعات"
+
+msgid "And 1 other..."
+msgstr ""
+
+msgid "And {{numberOfItems}} others..."
+msgstr ""
 
 msgid "Unsaved visualization"
 msgstr "مخطط عرض غير محفوظ"
@@ -394,8 +403,8 @@ msgstr "نوع مفتاح الخريطة"
 msgid "Use pre-defined legend per data item"
 msgstr "استخدم مفتاح إيضاح معرف مسبقاً لكل عنصر بيانات"
 
-msgid "Select a single legend for entire table"
-msgstr "حدد مفتاح إيضاحي واحد للجدول بالكامل"
+msgid "Select a single legend for the entire visualization"
+msgstr ""
 
 msgid "Legend changes background color"
 msgstr "المفتاح الإيضاحي يغير من لون الخلفية"
@@ -739,9 +748,6 @@ msgstr "الوحدة التنظيمية للمستخدم العضو"
 
 msgid "User org unit grand children"
 msgstr "الوحدة التنظيمية الكبرى الأطفال"
-
-msgid "Advanced"
-msgstr "متقدم"
 
 msgid "Axes"
 msgstr "المحاور"

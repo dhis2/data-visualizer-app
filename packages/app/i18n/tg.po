@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-04-14T11:38:31.639Z\n"
+"POT-Creation-Date: 2020-04-30T09:11:41.123Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Tajik (https://www.transifex.com/hisp-uio/teams/100509/tg/)\n"
@@ -19,7 +19,7 @@ msgstr ""
 msgid "Rename successful"
 msgstr ""
 
-msgid "\"{{what}}\" successfully deleted."
+msgid "\"{{deletedObject}}\" successfully deleted."
 msgstr ""
 
 msgid "You have unsaved changes."
@@ -114,11 +114,17 @@ msgstr ""
 msgid "HTML (.html)"
 msgstr ""
 
+msgid "Metadata ID scheme"
+msgstr ""
+
 msgid "Download"
 msgstr "Боргирӣ"
 
 msgid "Plain data source"
 msgstr "Маъхази иттилооти оддӣ"
+
+msgid "Advanced"
+msgstr ""
 
 msgid "Data value set"
 msgstr ""
@@ -127,9 +133,6 @@ msgid "Other formats"
 msgstr ""
 
 msgid "Raw data SQL"
-msgstr ""
-
-msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
@@ -176,6 +179,12 @@ msgstr ""
 
 msgid "Groups"
 msgstr "Гурӯҳҳо"
+
+msgid "And 1 other..."
+msgstr ""
+
+msgid "And {{numberOfItems}} others..."
+msgstr ""
 
 msgid "Unsaved visualization"
 msgstr ""
@@ -383,7 +392,7 @@ msgstr "Навъи аломатҳои шартӣ"
 msgid "Use pre-defined legend per data item"
 msgstr ""
 
-msgid "Select a single legend for entire table"
+msgid "Select a single legend for the entire visualization"
 msgstr ""
 
 msgid "Legend changes background color"
@@ -714,9 +723,6 @@ msgid "User org unit children"
 msgstr ""
 
 msgid "User org unit grand children"
-msgstr ""
-
-msgid "Advanced"
 msgstr ""
 
 msgid "Axes"
