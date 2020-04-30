@@ -1,3 +1,10 @@
+## [34.3.46](https://github.com/dhis2/data-visualizer-app/compare/v34.3.45...v34.3.46) (2020-04-29)
+
+
+### Bug Fixes
+
+* display 'and x others...' on tooltip (DHIS2-8753) ([#925](https://github.com/dhis2/data-visualizer-app/issues/925)) ([adaa485](https://github.com/dhis2/data-visualizer-app/commit/adaa4854fc00f76f0d413cab186b865293ebb6e2))
+
 ## [34.3.45](https://github.com/dhis2/data-visualizer-app/compare/v34.3.44...v34.3.45) (2020-04-27)
 
 
