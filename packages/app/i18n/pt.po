@@ -2,13 +2,14 @@
 # Translators:
 # Viktor Varland <viktor@dhis2.org>, 2019
 # phil_dhis2, 2019
+# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-02-26T13:21:17.550Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
-"Last-Translator: phil_dhis2, 2019\n"
+"Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -312,37 +313,37 @@ msgid "Column"
 msgstr "Coluna"
 
 msgid "Stacked column"
-msgstr ""
+msgstr "Coluna empilhada"
 
 msgid "Bar"
-msgstr ""
+msgstr "Barra"
 
 msgid "Stacked bar"
-msgstr ""
+msgstr "Barra empilhada"
 
 msgid "Line"
-msgstr ""
+msgstr "Linha"
 
 msgid "Area"
-msgstr ""
+msgstr "Área"
 
 msgid "Pie"
-msgstr ""
+msgstr "Torta"
 
 msgid "Radar"
-msgstr ""
+msgstr "Radar"
 
 msgid "Gauge"
-msgstr ""
+msgstr "Calibre"
 
 msgid "Year over year (line)"
-msgstr ""
+msgstr "Ano após ano (linha)"
 
 msgid "Year over year (column)"
-msgstr ""
+msgstr "Ano após ano (coluna)"
 
 msgid "Single value"
-msgstr ""
+msgstr "Valor unico"
 
 msgid "Open as Map"
 msgstr ""
