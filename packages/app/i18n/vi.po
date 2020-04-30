@@ -18,13 +18,13 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Rename successful"
-msgstr ""
+msgstr "Đổi tên thành công"
 
 msgid "\"{{what}}\" successfully deleted."
-msgstr ""
+msgstr "Xóa thành công"
 
 msgid "You have unsaved changes."
-msgstr ""
+msgstr "Không lưu các thay đổi"
 
 msgid "Discard unsaved changes?"
 msgstr "Hủy bỏ các thay đổi?"
@@ -33,26 +33,30 @@ msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
 "be lost."
 msgstr ""
+"Bạn có muốn thoát khỏi ứng dụng trực quan hóa dữ liệu? Những thay đổi không "
+"được lưu sẽ bị mất."
 
 msgid "No, cancel"
-msgstr ""
+msgstr "Không"
 
 msgid "Yes, leave"
-msgstr ""
+msgstr "Có"
 
 msgid "Axis 1"
-msgstr ""
+msgstr "Trục 1"
 
 msgid "Axis 2"
-msgstr ""
+msgstr "Trục 2"
 
 msgid "Manage axes"
-msgstr ""
+msgstr "Quản lý trục tọa độ"
 
 msgid ""
 "A chart can have two axes. Each axis will have its own scale. Set the axis "
 "for each data selection below."
 msgstr ""
+"Một biểu đồ có thể có hai trục tọa độ. Mỗi trục sẽ có tỷ lệ riêng. Đặt trục "
+"cho mỗi lựa chọn dữ liệu bên dưới."
 
 msgid "Cancel"
 msgstr "Hủy"
@@ -61,7 +65,7 @@ msgid "Update"
 msgstr "Cập nhật"
 
 msgid "Add to {{axisName}}"
-msgstr ""
+msgstr "Thêm {{tên trục}"
 
 msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
@@ -74,37 +78,37 @@ msgid ""
 msgstr ""
 
 msgid "Main dimensions"
-msgstr ""
+msgstr "Các chiều chính"
 
 msgid "Other dimensions"
-msgstr ""
+msgstr "Các chiều khác"
 
 msgid "Your dimensions"
-msgstr ""
+msgstr "Các chiều của bạn"
 
 msgid "Filter dimensions"
-msgstr ""
+msgstr "Các chiều lọc"
 
 msgid "Graphics"
-msgstr "Hình ảnh"
+msgstr "Đồ họa"
 
 msgid "Image (.png)"
-msgstr ""
+msgstr "Hình ảnh (.png)"
 
 msgid "PDF (.pdf)"
-msgstr ""
+msgstr "PDF (.pdf)"
 
 msgid "Table layout"
-msgstr "Bảng bố trí"
+msgstr "Bố trí bảng"
 
 msgid "Excel (.xls)"
-msgstr ""
+msgstr "Excel (.xls)"
 
 msgid "CSV (.csv)"
-msgstr ""
+msgstr "CSV (.csv)"
 
 msgid "HTML (.html)"
-msgstr ""
+msgstr "HTML (.html)"
 
 msgid "Download"
 msgstr "Tải về"
@@ -116,7 +120,7 @@ msgid "Advanced"
 msgstr "Nâng cao"
 
 msgid "Metadata ID scheme"
-msgstr ""
+msgstr "Lược đồ ID siêu dữ liệu"
 
 msgid "Data value set"
 msgstr "Bộ giá trị dữ liệu"
@@ -125,25 +129,25 @@ msgid "Other formats"
 msgstr "Định dạng khác"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr ""
+msgstr "Xảy ra lỗi ở ứng dụng trực quan hóa dữ liệu DHIS2"
 
 msgid "Refresh to try again"
-msgstr ""
+msgstr "Thử lại"
 
 msgid "Hide technical details"
-msgstr ""
+msgstr "Ẩn chi tiết kỹ thuật"
 
 msgid "Show technical details"
-msgstr ""
+msgstr "Hiện chi tiết kỹ thuật"
 
 msgid "The following information may be requested by technical support."
-msgstr ""
+msgstr "Các thông tin sau có thể được yêu cầu bởi hỗ trợ kỹ thuật."
 
 msgid "Hide"
 msgstr "Ẩn"
 
 msgid "Interpretations"
-msgstr "Diễn giải báo cáo"
+msgstr "Diễn giải "
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr ""
@@ -155,7 +159,7 @@ msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr ""
 
 msgid "None selected"
-msgstr ""
+msgstr "Chưa lựa chọn"
 
 msgid "Only '{{- name}}' in use"
 msgstr ""
@@ -164,48 +168,50 @@ msgid "Only '{{number}}' in use"
 msgstr ""
 
 msgid "Levels"
-msgstr ""
+msgstr "Các cấp độ"
 
 msgid "Groups"
 msgstr "Các nhóm"
 
 msgid "And 1 other..."
-msgstr ""
+msgstr "Và 1..."
 
 msgid "And {{numberOfItems}} others..."
 msgstr ""
 
 msgid "Unsaved visualization"
-msgstr ""
+msgstr "Không lưu mô hình trực quan hóa"
 
 msgid "Edited"
-msgstr ""
+msgstr "Chỉnh sửa"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
 msgid "Getting started"
-msgstr ""
+msgstr "Bắt đầu"
 
 msgid ""
 "All dimensions that you can use to build visualizations are shown in the "
 "left sidebar"
 msgstr ""
+"Tất cả các chiều mà bạn có thể sử dụng để xây dựng mô hình trực quan hóa "
+"được hiển thị trong thanh bên trái"
 
 msgid "Add dimensions to the layout above"
-msgstr ""
+msgstr "Thêm chiều cho bố cục ở trên"
 
 msgid "Click a dimension to add or remove items"
-msgstr ""
+msgstr "Nhấn để thêm hoặc xóa các mục"
 
 msgid "Your most viewed charts and tables"
-msgstr ""
+msgstr "Biểu đồ và bảng được xem nhiều nhất của bạn"
 
 msgid "Aggregation type"
 msgstr "Kiểu tổng hợp"
 
 msgid "Determines how the values in the pivot table are aggregated."
-msgstr ""
+msgstr "Xác định cách các giá trị trong bảng xoay được tổng hợp"
 
 msgid "By data element"
 msgstr "Theo Phần Tử Dữ Liệu"
@@ -226,7 +232,7 @@ msgid "Last value"
 msgstr "Giá trị cuối"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr "Last value (average in org unit hierarchy)"
+msgstr "Giá trị cuối (trung bình theo cây đơn vị)"
 
 msgid "Min"
 msgstr "Nhỏ nhất"
@@ -238,25 +244,25 @@ msgid "Standard deviation"
 msgstr "Độ lệch chuẩn"
 
 msgid "Variance"
-msgstr "Sự khác nhau"
+msgstr "Phương sai"
 
 msgid "Data approved at level"
-msgstr "Dữ liệu đã được phê duyệt tại tuyến"
+msgstr "Dữ liệu đã được phê duyệt tại cấp"
 
 msgid "Select from predefined levels"
-msgstr ""
+msgstr "Chọn từ các cấp được xác định trước"
 
 msgid "Loading data approval levels"
-msgstr ""
+msgstr "Đang tải các cấp phê duyệt dữ liệu"
 
 msgid "Axis range"
-msgstr ""
+msgstr "Phạm vi trục"
 
 msgid "Values outside of the range will not be displayed"
-msgstr ""
+msgstr "Các giá trị ngoài phạm vi sẽ không được hiển thị"
 
 msgid "Base line"
-msgstr ""
+msgstr "Đường cơ sở"
 
 msgid "Value"
 msgstr "Giá trị"
@@ -265,31 +271,31 @@ msgid "Title"
 msgstr "Tiêu đề"
 
 msgid "Base line title"
-msgstr "Tiêu đề đường căn bản"
+msgstr "Tiêu đề đường cơ sở"
 
 msgid "Number"
 msgstr "Số"
 
 msgid "Column sub-totals"
-msgstr ""
+msgstr "Tổng phụ cột"
 
 msgid "Columns totals"
-msgstr ""
+msgstr "Tổng cột"
 
 msgid "Event data"
-msgstr ""
+msgstr "Dữ liệu sự kiện"
 
 msgid "Only include completed events"
-msgstr ""
+msgstr "Chỉ bao gồm các sự kiện đã được hoàn tất"
 
 msgid "Include cumulative"
-msgstr "Bao gồm các giá trị tính toán"
+msgstr "Bao gồm tích lũy"
 
 msgid "Cumulative values"
-msgstr ""
+msgstr "Các giá trị tích lũy"
 
 msgid "Digit group separator"
-msgstr "Khoảng cách nhóm chữ số"
+msgstr "Dấu tách nhóm chữ số"
 
 msgid "None"
 msgstr "Không"
@@ -313,10 +319,10 @@ msgid "Compact"
 msgstr "Gọn nhẹ"
 
 msgid "Axis title"
-msgstr ""
+msgstr "Tiêu đề trục"
 
 msgid "Add a title"
-msgstr ""
+msgstr "Thêm tiêu đề"
 
 msgid "Font size"
 msgstr "Cỡ chữ"
@@ -331,7 +337,7 @@ msgid "Hide empty columns"
 msgstr "Ẩn cột rỗng"
 
 msgid "Hide empty categories"
-msgstr "Ẩn phần không có số liệu"
+msgstr "Ẩn danh mục trống"
 
 msgid "Before first"
 msgstr "Trước giá trị đầu tiên"
@@ -349,16 +355,16 @@ msgid "Hide empty rows"
 msgstr "Ẩn dòng rỗng"
 
 msgid "Legend key"
-msgstr ""
+msgstr "Khóa chú giải"
 
 msgid "Table subtitle"
-msgstr ""
+msgstr "Tiêu đề phụ của bảng"
 
 msgid "Chart subtitle"
 msgstr "Tiêu đề phụ biểu đồ"
 
 msgid "Auto generated"
-msgstr ""
+msgstr "Tự động tạo"
 
 msgid "Custom"
 msgstr "Tùy chỉnh"
@@ -370,57 +376,60 @@ msgid "Chart title"
 msgstr "Tiêu đề của biểu đồ"
 
 msgid "Display legend"
-msgstr ""
+msgstr "Hiển thị chú giải"
 
 msgid "Legend style"
-msgstr "Mẫu chú thích"
+msgstr "Mẫu chú giải"
 
 msgid "Legend type"
-msgstr "Loại Chú Thích"
+msgstr "Loại chú giải"
 
 msgid "Use pre-defined legend per data item"
-msgstr ""
+msgstr "Sử dụng chú giải được xác định trước cho mỗi mục dữ liệu"
 
 msgid "Select a single legend for entire table"
-msgstr ""
+msgstr "Chọn một chú giải cho toàn bộ bảng"
 
 msgid "Legend changes background color"
-msgstr ""
+msgstr "Chú giải thay đổi màu nền"
 
 msgid "Legend changes text color"
-msgstr ""
+msgstr "Chú giải thay đổi màu chữ"
 
 msgid "Legend"
-msgstr "Chú Thích"
+msgstr "Chú giải"
 
 msgid "Select from legends"
-msgstr ""
+msgstr "Chọn từ các chú giải"
 
 msgid "Loading legends"
-msgstr ""
+msgstr "Tải các chú giải"
 
 msgid ""
 "You can set a minimum or maximum value. This will apply to the entire table,"
 " all values outside of the minimum/maximum range will not be displayed"
 msgstr ""
+"Bạn có thể đặt giá trị tối thiểu hoặc tối đa. Thiết lập này sẽ áp dụng cho "
+"toàn bộ bảng, tất cả các giá trị ngoài phạm vi tối thiểu/ tối đa sẽ không "
+"được hiển thị."
 
 msgid "Minimum data value"
-msgstr ""
+msgstr "Giá trị dữ liệu tối thiểu"
 
 msgid "Maximum data value"
-msgstr ""
+msgstr "Giá trị dữ liệu tối đa"
 
 msgid "Clear min/max limits"
-msgstr ""
+msgstr "Bỏ các giới hạn nhỏ nhất/lớn nhất"
 
 msgid "No space between bars/columns"
-msgstr ""
+msgstr "Không có khoảng cách giữa các thanh/cột"
 
 msgid "Number type"
 msgstr "Kiểu số"
 
 msgid "Display the value of percentages of the total"
-msgstr ""
+msgstr "Hiển thị giá trị phần trăm của tổng số"
 
 msgid "Percentage of row"
 msgstr "Phần trăm theo dòng"
@@ -438,16 +447,16 @@ msgid "Reporting period"
 msgstr "Thời điểm báo cáo"
 
 msgid "Stacked values add up to 100%"
-msgstr ""
+msgstr "Các giá trị được xếp chồng lên tới 100%"
 
 msgid "Decimals"
-msgstr ""
+msgstr "Số thập phân"
 
 msgid "Auto"
-msgstr ""
+msgstr "Tự động"
 
 msgid "The number of axis steps between the min and max values"
-msgstr ""
+msgstr "Số lượng các bước trục giữa giá trị tối thiểu và tối đa"
 
 msgid "Steps"
 msgstr "Bước"
@@ -456,7 +465,7 @@ msgid "Include regression"
 msgstr "Bao gồm các hồi quy"
 
 msgid "Trend line"
-msgstr "Đường Khuynh Hướng"
+msgstr "Đường xu hướng"
 
 msgid "Linear"
 msgstr "Tuyến tính"
@@ -465,28 +474,28 @@ msgid "Polynomial"
 msgstr "Đa thức"
 
 msgid "Loess"
-msgstr "Biểu đồ Loess"
+msgstr "Đường cong Loess"
 
 msgid "Row sub-totals"
-msgstr ""
+msgstr "Tổng phụ dòng"
 
 msgid "Row totals"
-msgstr ""
+msgstr "Tổng dòng"
 
 msgid "Value labels"
-msgstr ""
+msgstr "Nhãn giá trị"
 
 msgid "Dimension labels"
-msgstr ""
+msgstr "Nhãn chiều dữ liệu"
 
 msgid "Display organisation unit hierarchy"
-msgstr ""
+msgstr "Hiển thị cây đơn vị"
 
 msgid "Skip rounding"
 msgstr "Không làm tròn"
 
 msgid "Custom sort order"
-msgstr ""
+msgstr "Săp xếp tùy chỉnh"
 
 msgid "Low to high"
 msgstr "Thấp đến cao"
@@ -495,10 +504,10 @@ msgid "High to low"
 msgstr "Cao xuống thấp"
 
 msgid "Add a subtitle"
-msgstr ""
+msgstr "Thêm tiêu đề phụ"
 
 msgid "Target line"
-msgstr ""
+msgstr "Dòng đích"
 
 msgid "Target line title"
 msgstr "Tiêu đề đường mục tiêu"
@@ -510,30 +519,32 @@ msgid "Options"
 msgstr "Tùy chọn"
 
 msgid "Open as Map"
-msgstr ""
+msgstr "Mở dưới dạng bản đồ"
 
 msgid "Reporting rate"
-msgstr ""
+msgstr "Tỉ lệ báo cáo"
 
 msgid "Reporting rate on time"
-msgstr ""
+msgstr "Tỉ lệ báo cáo đúng hạn"
 
 msgid "Actual reports"
-msgstr ""
+msgstr "Báo cáo thực tế"
 
 msgid "Actual reports on time"
-msgstr ""
+msgstr "Báo cáo thực tế đúng hạn"
 
 msgid "Expected reports"
-msgstr ""
+msgstr "Báo cáo dự kiến"
 
 msgid "No data available"
-msgstr ""
+msgstr "Không có dữ liệu"
 
 msgid ""
 "The selected dimensions didn’t return any data. There may be no data, or you"
 " may not have access to it."
 msgstr ""
+"Các chiều được chọn không trả về bất kỳ dữ liệu nào. Có thể không có dữ liệu"
+" hoặc bạn có thể không có quyền truy cập dữ liệu."
 
 msgid "{{axisName}} is empty"
 msgstr ""
@@ -550,14 +561,14 @@ msgid ""
 msgstr ""
 
 msgid "No period selected"
-msgstr "Chưa chọn Thời Điểm"
+msgstr "Chưa chọn thời điểm"
 
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
 msgstr ""
 
 msgid "No data selected"
-msgstr ""
+msgstr "Chưa chọn dữ liệu"
 
 msgid ""
 "{{visualizationType}} must have at least one data item or data element group"
@@ -568,46 +579,52 @@ msgid "{{visualizationType}} must have at least one data item in {{axes}}."
 msgstr ""
 
 msgid "There's a problem with the layout"
-msgstr ""
+msgstr "Có lỗi bố cục"
 
 msgid ""
 "A single indicator must be the only data item when using indicators as Data "
 "in Filter."
 msgstr ""
+"Một chỉ số phải là mục dữ liệu duy nhất khi sử dụng các chỉ số làm dữ liệu "
+"trong bộ lọc."
 
 msgid "Data Element Group Sets and Reporting Rates cannot be used together."
 msgstr ""
+"Tập nhóm phần tử dữ liệu và tỷ lệ báo cáo không thể được sử dụng cùng nhau."
 
 msgid "There is a problem with this {{visualizationType}} visualization."
 msgstr ""
 
 msgid "There was a problem getting the data from the server."
-msgstr ""
+msgstr "Có vấn đề khi nhận dữ liệu từ máy chủ."
 
 msgid "Assigned Categories can only be used with data elements"
-msgstr ""
+msgstr "Chỉ sử dụng danh mục cho các phần tử dữ liệu"
 
 msgid ""
 "Fix this problem by selecting data elements or removing Assigned Categories."
 msgstr ""
+"Khắc phục vấn đề này bằng cách chọn các phần tử dữ liệu hoặc xóa danh mục "
+"được gán."
 
 msgid "Assigned Categories cannot be used as Filter"
-msgstr ""
+msgstr "Không thể sử dụng các danh mục cho bộ lọc"
 
 msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr ""
+"Khắc phục vấn đầy này bằng cách chuyển hoặc xoác các danh mục được gán"
 
 msgid "Something went wrong"
-msgstr ""
+msgstr "Có lỗi"
 
 msgid "or"
 msgstr "hoặc"
 
 msgid "Today"
-msgstr "Hôm Nay"
+msgstr "Hôm nay"
 
 msgid "Yesterday"
-msgstr "Hôm Qua"
+msgstr "Hôm qua"
 
 msgid "Last 3 days"
 msgstr "3 ngày trước"
@@ -655,10 +672,10 @@ msgid "Months this year"
 msgstr "Tháng năm nay"
 
 msgid "This bimonth"
-msgstr ""
+msgstr "Hai tháng này"
 
 msgid "Last bimonth"
-msgstr ""
+msgstr "Hai tháng trước"
 
 msgid "Last 6 bimonths"
 msgstr ""
@@ -673,13 +690,13 @@ msgid "Last quarter"
 msgstr "Quý trước"
 
 msgid "Last 4 quarters"
-msgstr "Trong 4 quý vừa qua"
+msgstr "Trong 4 quý trước"
 
 msgid "Quarters this year"
 msgstr "Quý năm nay"
 
 msgid "This six-month"
-msgstr "Lần Sáu-Tháng này"
+msgstr "6 tháng này"
 
 msgid "Last six-month"
 msgstr "6 tháng trước"
@@ -703,19 +720,19 @@ msgid "Last year"
 msgstr "Năm ngoái"
 
 msgid "Last 5 years"
-msgstr "Trong 5 năm vừa qua"
+msgstr "5 năm trước"
 
 msgid "User org unit"
 msgstr "Đơn vị của người dùng"
 
 msgid "User org unit children"
-msgstr ""
+msgstr "Đơn vị con của người dùng"
 
 msgid "User org unit grand children"
-msgstr ""
+msgstr "Đơn vị cháu của người dùng"
 
 msgid "Data"
-msgstr "Lấy dữ liệu"
+msgstr "Dữ liệu"
 
 msgid "Axes"
 msgstr "Trục"
@@ -727,49 +744,49 @@ msgid "Display"
 msgstr "Hiển thị"
 
 msgid "Lines"
-msgstr ""
+msgstr "Các đường"
 
 msgid "Vertical (y) axis"
-msgstr ""
+msgstr "Dục dọc (y)"
 
 msgid "Horizontal (x) axis"
-msgstr ""
+msgstr "Trục ngang (x)"
 
 msgid "Chart style"
-msgstr ""
+msgstr "Dạng biểu đồ"
 
 msgid "Titles"
-msgstr ""
+msgstr "Tiêu đề"
 
 msgid "Display totals"
-msgstr ""
+msgstr "Hiển thị tổng"
 
 msgid "Display empty data"
-msgstr ""
+msgstr "Ẩn dữ liệu rỗng"
 
 msgid "Labels"
 msgstr "Nhãn"
 
 msgid "Limit values"
-msgstr ""
+msgstr "Giá trị giới hạn"
 
 msgid "Limit number of values"
-msgstr ""
+msgstr "Giới hạn số lượng giá trị"
 
 msgid "Limit minimum/maximum values"
-msgstr ""
+msgstr "Giới hạn giá trị nhỏ nhất/lớn nhất"
 
 msgid "Parameters"
 msgstr "Tham số"
 
 msgid "Weeks per year"
-msgstr ""
+msgstr "Tuần mỗi năm"
 
 msgid "Months per year"
-msgstr ""
+msgstr "Tháng mỗi năm"
 
 msgid "Bimonths per year"
-msgstr ""
+msgstr "Hai tháng mỗi năm"
 
 msgid "Quarters per year"
-msgstr ""
+msgstr "Quý mỗi năm"
