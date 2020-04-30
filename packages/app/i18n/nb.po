@@ -177,10 +177,10 @@ msgid "Groups"
 msgstr "Grupper"
 
 msgid "And 1 other..."
-msgstr ""
+msgstr "Og 1 annen..."
 
 msgid "And {{numberOfItems}} others..."
-msgstr ""
+msgstr "Og {{numberOfItems}} andre..."
 
 msgid "Unsaved visualization"
 msgstr "Ikke lagret visualisering"
