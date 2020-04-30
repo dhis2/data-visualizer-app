@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-04-14T11:38:31.639Z\n"
+"POT-Creation-Date: 2020-04-30T09:11:41.123Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Urdu (https://www.transifex.com/hisp-uio/teams/100509/ur/)\n"
@@ -19,8 +19,8 @@ msgstr ""
 msgid "Rename successful"
 msgstr "نام تبدیل کریں"
 
-msgid "\"{{what}}\" successfully deleted."
-msgstr "\"{{what}}\" کامیابی سے حذف کر دیا گیا"
+msgid "\"{{deletedObject}}\" successfully deleted."
+msgstr ""
 
 msgid "You have unsaved changes."
 msgstr ""
@@ -114,11 +114,17 @@ msgstr ""
 msgid "HTML (.html)"
 msgstr ""
 
+msgid "Metadata ID scheme"
+msgstr ""
+
 msgid "Download"
 msgstr "ڈاؤن لوڈ کریں"
 
 msgid "Plain data source"
 msgstr "سادہ اعداد و شمار کا ذریعہ"
+
+msgid "Advanced"
+msgstr "اعلی درجے کی"
 
 msgid "Data value set"
 msgstr "ڈیٹا کی قیمت مقرر"
@@ -127,9 +133,6 @@ msgid "Other formats"
 msgstr "دیگر فارمیٹس"
 
 msgid "Raw data SQL"
-msgstr ""
-
-msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
@@ -176,6 +179,12 @@ msgstr ""
 
 msgid "Groups"
 msgstr "گروپ"
+
+msgid "And 1 other..."
+msgstr ""
+
+msgid "And {{numberOfItems}} others..."
+msgstr ""
 
 msgid "Unsaved visualization"
 msgstr ""
@@ -383,7 +392,7 @@ msgstr "علامات کی قسم"
 msgid "Use pre-defined legend per data item"
 msgstr ""
 
-msgid "Select a single legend for entire table"
+msgid "Select a single legend for the entire visualization"
 msgstr ""
 
 msgid "Legend changes background color"
@@ -715,9 +724,6 @@ msgstr "صارف کے اجزاء بچے"
 
 msgid "User org unit grand children"
 msgstr "یوزر ایو یونٹ گرینڈ بچوں"
-
-msgid "Advanced"
-msgstr "اعلی درجے کی"
 
 msgid "Axes"
 msgstr "محور"
