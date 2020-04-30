@@ -1,3 +1,10 @@
+## [34.3.47](https://github.com/dhis2/data-visualizer-app/compare/v34.3.46...v34.3.47) (2020-04-30)
+
+
+### Bug Fixes
+
+* remove @material-ui/core dep ([#935](https://github.com/dhis2/data-visualizer-app/issues/935)) ([17d34a4](https://github.com/dhis2/data-visualizer-app/commit/17d34a4d1a946947f3547c75c815d281176865f9))
+
 ## [34.3.46](https://github.com/dhis2/data-visualizer-app/compare/v34.3.45...v34.3.46) (2020-04-29)
 
 
