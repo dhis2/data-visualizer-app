@@ -71,9 +71,7 @@ export class Tooltip extends React.Component {
                 );
             }
         } else if (itemIds.length) {
-            names = itemIds.map(id =>
-                (metadata[id] ? metadata[id].name : id)
-            );
+            names = itemIds.map(id => (metadata[id] ? metadata[id].name : id));
         } else {
             names = [labels.noneSelected];
         }
