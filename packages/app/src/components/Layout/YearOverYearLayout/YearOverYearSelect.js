@@ -11,7 +11,12 @@ import {
 } from '@dhis2/ui-core'
 
 const SinglePeriodSelector = ({ options, selected, onChange }) => (
-    <SingleSelect onChange={onChange} selected={selected} dense>
+    <SingleSelect
+        onChange={onChange}
+        selected={selected}
+        placeholder="Select a period"
+        dense
+    >
         {options.map(option => (
             <SingleSelectOption
                 key={option.id}
