@@ -39,7 +39,7 @@ class ChipMenu extends React.Component {
             <React.Fragment>
                 <IconButton
                     ariaOwns={this.state.anchorEl ? this.getMenuId() : null}
-                    ariaHaspopup="true"
+                    ariaHaspopup={true}
                     onClick={this.handleClick}
                     style={styles.icon}
                 >
