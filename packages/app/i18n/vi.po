@@ -315,28 +315,28 @@ msgid "Column"
 msgstr "Cột"
 
 msgid "Stacked column"
-msgstr ""
+msgstr "Cột chồng"
 
 msgid "Bar"
-msgstr ""
+msgstr "Cột"
 
 msgid "Stacked bar"
-msgstr ""
+msgstr "Cột chồng"
 
 msgid "Line"
-msgstr ""
+msgstr "Đường"
 
 msgid "Area"
-msgstr ""
+msgstr "Khu vực"
 
 msgid "Pie"
-msgstr ""
+msgstr "Bánh"
 
 msgid "Radar"
-msgstr ""
+msgstr "Radar"
 
 msgid "Gauge"
-msgstr ""
+msgstr "Biểu đồ đo lường"
 
 msgid "Year over year (line)"
 msgstr ""
@@ -345,7 +345,7 @@ msgid "Year over year (column)"
 msgstr ""
 
 msgid "Single value"
-msgstr ""
+msgstr "Giá trị đơn"
 
 msgid "Open as Map"
 msgstr "Mở dưới dạng bản đồ"
