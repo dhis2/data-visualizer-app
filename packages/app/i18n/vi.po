@@ -298,28 +298,28 @@ msgid "Column"
 msgstr "Cột"
 
 msgid "Stacked column"
-msgstr ""
+msgstr "Cột chồng"
 
 msgid "Bar"
-msgstr ""
+msgstr "Cột"
 
 msgid "Stacked bar"
-msgstr ""
+msgstr "Cột chồng"
 
 msgid "Line"
-msgstr ""
+msgstr "Đường"
 
 msgid "Area"
-msgstr ""
+msgstr "Khu vực"
 
 msgid "Pie"
-msgstr ""
+msgstr "Bánh"
 
 msgid "Radar"
-msgstr ""
+msgstr "Radar"
 
 msgid "Gauge"
-msgstr ""
+msgstr "Biểu đồ đo lường"
 
 msgid "Year over year (line)"
 msgstr ""
