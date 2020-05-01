@@ -1733,10 +1733,10 @@
   dependencies:
     prop-types "^15"
 
-"@dhis2/ui-core@^4.16.0", "@dhis2/ui-core@^4.19.0", "@dhis2/ui-core@^4.6.1", "@dhis2/ui-core@^4.9.1":
-  version "4.19.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-4.19.0.tgz#c08ca66abe2dc67f86f0f0eacecae60bdeb4395d"
-  integrity sha512-XZ41oy1wBKpHk/aMgGLabexIIMV66CAX5T8tdU8anWZN7Bfw1G4UIqnulN/ytLuGhcVZqGATCDFZFRZPeHakpg==
+"@dhis2/ui-core@^4.16.0", "@dhis2/ui-core@^4.19.1", "@dhis2/ui-core@^4.6.1", "@dhis2/ui-core@^4.9.1":
+  version "4.19.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-4.19.1.tgz#3cf32b2a24f2435d527ebef1daa99b84396da4f8"
+  integrity sha512-jvX6h+lRhKaw18B46AQuwltDKIb06e1HxGaPpplFJS1vRrTs8Yvn1pP1BFUBhTgVD3/3zLlO+lD3IsUavJUqOg==
   dependencies:
     "@dhis2/prop-types" "^1.6.4"
     "@popperjs/core" "^2.1.0"
