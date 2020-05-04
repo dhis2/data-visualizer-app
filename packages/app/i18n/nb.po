@@ -391,7 +391,7 @@ msgid "Use pre-defined legend per data item"
 msgstr "Bruk forhåndsdefinert tegnforklaring per dataelement"
 
 msgid "Select a single legend for entire table"
-msgstr "Velg en enkelt tegnforklaring for hele tabellen"
+msgstr "Velg en enkel tegnforklaring for hele tabellen"
 
 msgid "Legend changes background color"
 msgstr "Tegnforklaringen endrer bakgrunnsfarge"
