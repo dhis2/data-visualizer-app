@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-02-26T13:21:17.550Z\n"
+"POT-Creation-Date: 2020-04-29T13:47:48.626Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2020\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
@@ -129,6 +129,12 @@ msgid "None selected"
 msgstr "Chưa lựa chọn"
 
 msgid "Only '{{name}}' in use"
+msgstr ""
+
+msgid "And 1 other..."
+msgstr ""
+
+msgid "And {{numberOfItems}} others..."
 msgstr ""
 
 msgid "Unsaved chart"
@@ -520,10 +526,10 @@ msgid "Last bimonth"
 msgstr "Hai tháng trước"
 
 msgid "Last 6 bimonths"
-msgstr ""
+msgstr "6 kỳ trước, 1 kỳ = 2 tháng"
 
 msgid "Bimonths this year"
-msgstr ""
+msgstr "Các kỳ trong năm này, 1 kỳ = 2 tháng"
 
 msgid "This quarter"
 msgstr "Quý này"
