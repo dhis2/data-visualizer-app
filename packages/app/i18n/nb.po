@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-02-26T13:21:17.550Z\n"
+"POT-Creation-Date: 2020-04-29T13:47:48.626Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -131,6 +131,12 @@ msgstr "Ingen valgt"
 
 msgid "Only '{{name}}' in use"
 msgstr "Bare '{{name}}' er i bruk"
+
+msgid "And 1 other..."
+msgstr ""
+
+msgid "And {{numberOfItems}} others..."
+msgstr ""
 
 msgid "Unsaved chart"
 msgstr "Ikke lagret diagram"
