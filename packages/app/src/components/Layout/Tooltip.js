@@ -16,6 +16,31 @@ const labels = {
 const emptyItems = [];
 
 export class Tooltip extends React.Component {
+    renderItems = itemDisplayNames => {
+        const renderLimit = 5;
+
+        const itemsToRender = itemDisplayNames
+            .slice(0, renderLimit)
+            .map(name => (
+                <li key={`${this.props.dimensionId}-${name}`}>{name}</li>
+            ));
+
+        if (itemDisplayNames.length > renderLimit) {
+            itemsToRender.push(
+                <li key={`${this.props.dimensionId}-render-limit`}>
+                    {itemDisplayNames.length - renderLimit === 1
+                        ? i18n.t('And 1 other...')
+                        : i18n.t('And {{numberOfItems}} others...', {
+                              numberOfItems:
+                                  itemDisplayNames.length - renderLimit,
+                          })}
+                </li>
+            );
+        }
+
+        return itemsToRender;
+    };
+
     renderTooltip = names => (
         <Popper
             anchorEl={this.props.anchorEl}
@@ -23,15 +48,7 @@ export class Tooltip extends React.Component {
             placement="bottom-start"
         >
             <Paper style={styles.tooltip}>
-                {
-                    <ul style={styles.list}>
-                        {names.map(name => (
-                            <li key={`${this.props.dimensionId}-${name}`}>
-                                {name}
-                            </li>
-                        ))}
-                    </ul>
-                }
+                {<ul style={styles.list}>{this.renderItems(names)}</ul>}
             </Paper>
         </Popper>
     );
