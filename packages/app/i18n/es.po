@@ -104,7 +104,7 @@ msgid "Interpretations"
 msgstr "Interpretaciones"
 
 msgid "selected"
-msgstr ""
+msgstr "seleccionado"
 
 msgid "Series"
 msgstr ""

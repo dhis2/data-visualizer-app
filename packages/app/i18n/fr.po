@@ -328,25 +328,25 @@ msgid "Year over year (column)"
 msgstr "Année après année (colonne)"
 
 msgid "Reporting rate"
-msgstr ""
+msgstr "Taux de déclaration"
 
 msgid "Reporting rate on time"
-msgstr ""
+msgstr "Taux de notification à temps"
 
 msgid "Actual reports"
-msgstr ""
+msgstr "Rapports réels"
 
 msgid "Actual reports on time"
-msgstr ""
+msgstr "Rapports réels à temps"
 
 msgid "Expected reports"
-msgstr ""
+msgstr "Rapports attendus"
 
 msgid "Program"
 msgstr "Programme"
 
 msgid "Select a program"
-msgstr ""
+msgstr "Sélectionnez un programme"
 
 msgid "Indicators"
 msgstr "Indicateurs"
@@ -355,7 +355,7 @@ msgid "Select indicator group"
 msgstr "Sélectionner groupe d'indicateurs"
 
 msgid "[ All groups ]"
-msgstr ""
+msgstr "[ Tous les groupes ]"
 
 msgid "Data elements"
 msgstr "Eléments de données"
@@ -364,7 +364,7 @@ msgid "Select data element group"
 msgstr "Sélectionner groupe d'éléments de données"
 
 msgid "[ All data elements ]"
-msgstr ""
+msgstr "[ Tous les éléments de données ]"
 
 msgid "Totals"
 msgstr "Totaux"
@@ -376,10 +376,10 @@ msgid "Data sets"
 msgstr "Ensembles de données"
 
 msgid "Select data sets"
-msgstr ""
+msgstr "Sélectionner des ensembles de données"
 
 msgid "[ All metrics ]"
-msgstr ""
+msgstr "[ Toutes les métriques ]"
 
 msgid "Event data items"
 msgstr "Eléments de données évènement"

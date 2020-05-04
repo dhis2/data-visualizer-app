@@ -497,10 +497,10 @@ msgid "Last bimonth"
 msgstr "Hai tháng trước"
 
 msgid "Last 6 bimonths"
-msgstr ""
+msgstr "6 kỳ trước, 1 kỳ = 2 tháng"
 
 msgid "Bimonths this year"
-msgstr ""
+msgstr "Các kỳ trong năm này, 1 kỳ = 2 tháng"
 
 msgid "This quarter"
 msgstr "Quý này"
