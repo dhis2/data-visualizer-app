@@ -35,6 +35,7 @@ export class DndDimensionsPanel extends Component {
                     onChange={this.onFilterTextChange}
                     onClear={this.onClearFilter}
                     disableUnderline={true}
+                    type="search"
                 />
                 <DndDimensionList
                     filterText={this.state.filterText}
