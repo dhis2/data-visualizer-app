@@ -684,16 +684,16 @@ msgid "Months this year"
 msgstr "Tháng năm nay"
 
 msgid "This bimonth"
-msgstr "Hai tháng này"
+msgstr "Kỳ này, 1 kỳ = 2 tháng"
 
 msgid "Last bimonth"
-msgstr "Hai tháng trước"
+msgstr "Kỳ trước, 1 kỳ = 2 tháng"
 
 msgid "Last 6 bimonths"
-msgstr ""
+msgstr "6 kỳ trước, 1 kỳ = 2 tháng"
 
 msgid "Bimonths this year"
-msgstr ""
+msgstr "Các kỳ trong năm nay, 1 kỳ = 2 tháng"
 
 msgid "This quarter"
 msgstr "Quý này"
@@ -795,7 +795,7 @@ msgid "Months per year"
 msgstr "Tháng mỗi năm"
 
 msgid "Bimonths per year"
-msgstr "Hai tháng mỗi năm"
+msgstr "Các kỳ hai tháng mỗi năm"
 
 msgid "Quarters per year"
 msgstr "Quý mỗi năm"
