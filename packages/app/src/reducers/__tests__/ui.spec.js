@@ -61,10 +61,10 @@ describe('reducer: ui', () => {
         expect(actualState).toEqual(newUi)
     })
 
-    it(`${ui.CLEAR_UI} sets the default state`, () => {
+    it(`${ui.CLEAR_UI} sets the preselected state`, () => {
         const settings = {
             rootOrganisationUnit: { id: 'ROOT_ORGUNIT' },
-            relativePeriod: 'LAST_12_MONTHS',
+            relativePeriod: 'SYSTEM_RELATIVE_PERIOD',
         }
 
         const actualState = reducer(
@@ -83,6 +83,8 @@ describe('reducer: ui', () => {
                 [DIMENSION_ID_ORGUNIT]: [settings.rootOrganisationUnit.id],
                 [DIMENSION_ID_PERIOD]: [settings.relativePeriod],
             },
+            yearOverYearSeries: ui.PRESELECTED_YEAR_OVER_YEAR_SERIES,
+            yearOverYearCategory: ui.PRESELECTED_YEAR_OVER_YEAR_CATEGORY,
         })
     })
 

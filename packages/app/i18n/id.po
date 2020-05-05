@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-04-14T11:38:31.639Z\n"
+"POT-Creation-Date: 2020-04-30T09:11:41.123Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
@@ -19,8 +19,8 @@ msgstr ""
 msgid "Rename successful"
 msgstr "Penamaan ulang berhasil"
 
-msgid "\"{{what}}\" successfully deleted."
-msgstr "\"{{what}}\" berhasil dihapus."
+msgid "\"{{deletedObject}}\" successfully deleted."
+msgstr ""
 
 msgid "You have unsaved changes."
 msgstr ""
@@ -116,11 +116,17 @@ msgstr ""
 msgid "HTML (.html)"
 msgstr ""
 
+msgid "Metadata ID scheme"
+msgstr "Skema ID metadata"
+
 msgid "Download"
 msgstr "Unduh"
 
 msgid "Plain data source"
 msgstr "Sumber data asli"
+
+msgid "Advanced"
+msgstr "Lebih Lanjut"
 
 msgid "Data value set"
 msgstr "Set nilai data"
@@ -130,9 +136,6 @@ msgstr "Format lain"
 
 msgid "Raw data SQL"
 msgstr ""
-
-msgid "Metadata ID scheme"
-msgstr "Skema ID metadata"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "Terjadi kesalahan dalam aplikasi DHIS2 Data Visualizer."
@@ -178,6 +181,12 @@ msgstr ""
 
 msgid "Groups"
 msgstr "banyak grup"
+
+msgid "And 1 other..."
+msgstr ""
+
+msgid "And {{numberOfItems}} others..."
+msgstr ""
 
 msgid "Unsaved visualization"
 msgstr ""
@@ -385,7 +394,7 @@ msgstr "Tipe legenda"
 msgid "Use pre-defined legend per data item"
 msgstr ""
 
-msgid "Select a single legend for entire table"
+msgid "Select a single legend for the entire visualization"
 msgstr ""
 
 msgid "Legend changes background color"
@@ -717,9 +726,6 @@ msgstr "Sub org unit user"
 
 msgid "User org unit grand children"
 msgstr "Sub-sub org unit pengguna"
-
-msgid "Advanced"
-msgstr "Lebih Lanjut"
 
 msgid "Axes"
 msgstr "Sumbu"

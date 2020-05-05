@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-04-14T11:38:31.639Z\n"
+"POT-Creation-Date: 2020-04-30T09:11:41.123Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2020\n"
 "Language-Team: Arabic (Iraq) (https://www.transifex.com/hisp-uio/teams/100509/ar_IQ/)\n"
@@ -18,7 +18,7 @@ msgstr ""
 msgid "Rename successful"
 msgstr ""
 
-msgid "\"{{what}}\" successfully deleted."
+msgid "\"{{deletedObject}}\" successfully deleted."
 msgstr ""
 
 msgid "You have unsaved changes."
@@ -113,11 +113,17 @@ msgstr ""
 msgid "HTML (.html)"
 msgstr ""
 
+msgid "Metadata ID scheme"
+msgstr ""
+
 msgid "Download"
 msgstr "تنزيل"
 
 msgid "Plain data source"
 msgstr "مصدر البيانات الصريحة"
+
+msgid "Advanced"
+msgstr "متقدم"
 
 msgid "Data value set"
 msgstr "حزمة قيم البيانات"
@@ -126,9 +132,6 @@ msgid "Other formats"
 msgstr "صيغ أخرى"
 
 msgid "Raw data SQL"
-msgstr ""
-
-msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
@@ -174,6 +177,12 @@ msgid "Levels"
 msgstr ""
 
 msgid "Groups"
+msgstr ""
+
+msgid "And 1 other..."
+msgstr ""
+
+msgid "And {{numberOfItems}} others..."
 msgstr ""
 
 msgid "Unsaved visualization"
@@ -382,7 +391,7 @@ msgstr ""
 msgid "Use pre-defined legend per data item"
 msgstr ""
 
-msgid "Select a single legend for entire table"
+msgid "Select a single legend for the entire visualization"
 msgstr ""
 
 msgid "Legend changes background color"
@@ -714,9 +723,6 @@ msgstr ""
 
 msgid "User org unit grand children"
 msgstr ""
-
-msgid "Advanced"
-msgstr "متقدم"
 
 msgid "Axes"
 msgstr ""
