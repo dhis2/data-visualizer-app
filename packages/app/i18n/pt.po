@@ -355,25 +355,25 @@ msgid "Open as Map"
 msgstr ""
 
 msgid "Reporting rate"
-msgstr ""
+msgstr "Taxa de relatórios"
 
 msgid "Reporting rate on time"
-msgstr ""
+msgstr "Taxa de relatórios no prazo"
 
 msgid "Actual reports"
-msgstr ""
+msgstr "Relatórios reais"
 
 msgid "Actual reports on time"
-msgstr ""
+msgstr "Relatórios reais dentro do prazo"
 
 msgid "Expected reports"
-msgstr ""
+msgstr "Relatórios esperados"
 
 msgid "Program"
 msgstr "Programa"
 
 msgid "Select a program"
-msgstr ""
+msgstr "Selecione um programa"
 
 msgid "Indicators"
 msgstr "Indicadores"
@@ -382,7 +382,7 @@ msgid "Select indicator group"
 msgstr "Seleccionar grupo de indicador"
 
 msgid "[ All groups ]"
-msgstr ""
+msgstr "[ Todos os grupos ]"
 
 msgid "Data elements"
 msgstr "Elementos de Dados"
@@ -391,7 +391,7 @@ msgid "Select data element group"
 msgstr "Seleccionar grupo de elementos de dados"
 
 msgid "[ All data elements ]"
-msgstr ""
+msgstr "[ Todos os elementos de dados ]"
 
 msgid "Totals"
 msgstr "Totais"
@@ -403,10 +403,10 @@ msgid "Data sets"
 msgstr "Agregação de Dados"
 
 msgid "Select data sets"
-msgstr ""
+msgstr "Selecionar conjuntos de dados"
 
 msgid "[ All metrics ]"
-msgstr ""
+msgstr "[ Todas as métricas ]"
 
 msgid "Event data items"
 msgstr "Itens de dados do evento"

@@ -133,10 +133,10 @@ msgid "Only '{{name}}' in use"
 msgstr "Bare '{{name}}' er i bruk"
 
 msgid "And 1 other..."
-msgstr ""
+msgstr "Og 1 annen..."
 
 msgid "And {{numberOfItems}} others..."
-msgstr ""
+msgstr "Og {{numberOfItems}} andre..."
 
 msgid "Unsaved chart"
 msgstr "Ikke lagret diagram"
