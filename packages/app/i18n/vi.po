@@ -93,7 +93,7 @@ msgid "Other dimensions"
 msgstr "Các chiều khác"
 
 msgid "Your dimensions"
-msgstr "Các chiều của bạn"
+msgstr "Các chiều dữ liệu khác"
 
 msgid "Filter dimensions"
 msgstr "Các chiều lọc"
