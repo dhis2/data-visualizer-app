@@ -31,10 +31,10 @@ msgid "Data"
 msgstr "Datos"
 
 msgid "Data Type"
-msgstr ""
+msgstr "Tipo de datos"
 
 msgid "Detail"
-msgstr ""
+msgstr "Detalle"
 
 msgid "Search"
 msgstr "Buscar"
