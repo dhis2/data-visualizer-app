@@ -40,7 +40,7 @@ export class DimensionOptions extends Component {
                     key: `add-to-${this.props.id}`,
                     id: ADD_TO_LAYOUT_OPTIONS[FILTER].axisKey,
                     onClick: this.addDimension,
-                    displayName: ADD_TO_LAYOUT_OPTIONS[FILTER].name,
+                    displayName: ADD_TO_LAYOUT_OPTIONS[FILTER].name(),
                 }),
             ];
         } else {
@@ -50,7 +50,7 @@ export class DimensionOptions extends Component {
                         key: `add-to-${axis.axisKey}`,
                         id: axis.axisKey,
                         onClick: this.addDimension,
-                        displayName: axis.name,
+                        displayName: axis.name(),
                     })
                 )
             );

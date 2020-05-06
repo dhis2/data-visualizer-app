@@ -10,9 +10,9 @@ export const SOURCE_DIMENSIONS = 'dimensions';
 
 // Keys and displayName for adding dimensions to layout
 export const ADD_TO_LAYOUT_OPTIONS = [
-    { axisKey: AXIS_NAME_COLUMNS, name: i18n.t('Add to series') },
-    { axisKey: AXIS_NAME_ROWS, name: i18n.t('Add to category') },
-    { axisKey: AXIS_NAME_FILTERS, name: i18n.t('Add to filter') },
+    { axisKey: AXIS_NAME_COLUMNS, name: () => i18n.t('Add to series') },
+    { axisKey: AXIS_NAME_ROWS, name: () => i18n.t('Add to category') },
+    { axisKey: AXIS_NAME_FILTERS, name: () => i18n.t('Add to filter') },
 ];
 
 export const menuLabels = {
