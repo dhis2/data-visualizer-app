@@ -1,3 +1,10 @@
+## [34.3.48](https://github.com/dhis2/data-visualizer-app/compare/v34.3.47...v34.3.48) (2020-05-06)
+
+
+### Bug Fixes
+
+* dimension panel search field is missing the 'x' to clear (DHIS2-8790) ([#948](https://github.com/dhis2/data-visualizer-app/issues/948)) ([d8881aa](https://github.com/dhis2/data-visualizer-app/commit/d8881aa2be62e19af7d729355e7f99ed2125333d))
+
 ## [34.3.47](https://github.com/dhis2/data-visualizer-app/compare/v34.3.46...v34.3.47) (2020-04-30)
 
 
