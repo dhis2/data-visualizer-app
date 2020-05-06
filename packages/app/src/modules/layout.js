@@ -15,12 +15,6 @@ export const ADD_TO_LAYOUT_OPTIONS = [
     { axisKey: AXIS_NAME_FILTERS, name: () => i18n.t('Add to filter') },
 ];
 
-export const menuLabels = {
-    columns: i18n.t('series'),
-    rows: i18n.t('category'),
-    filters: i18n.t('filter'),
-};
-
 export const getMenuLabel = axis => {
     const menuLabels = {
         [AXIS_NAME_COLUMNS]: i18n.t('series'),
