@@ -1,13 +1,25 @@
-import { FIXED_DIMENSIONS as DEFAULT_DIMENSIONS } from '@dhis2/analytics';
+import { FIXED_DIMENSIONS } from '@dhis2/analytics';
 
 export const SET_DIMENSIONS = 'SET_DIMENSIONS';
 export const SET_SELECTED_DIMENSION = 'SET_SELECTED_DIMENSION';
 
-export default (state = DEFAULT_DIMENSIONS, action) => {
+const getDefaultDimensions = () => {
+    return Object.keys(FIXED_DIMENSIONS).reduce((acc, key) => {
+        const dimObj = {
+            id: FIXED_DIMENSIONS[key].id,
+            iconName: FIXED_DIMENSIONS[key].iconName,
+            name: FIXED_DIMENSIONS[key].name(),
+        };
+        acc[key] = dimObj;
+        return acc;
+    }, {});
+};
+
+export default (state = getDefaultDimensions(), action) => {
     switch (action.type) {
         case SET_DIMENSIONS: {
             return {
-                ...DEFAULT_DIMENSIONS,
+                ...getDefaultDimensions(),
                 ...action.value,
             };
         }

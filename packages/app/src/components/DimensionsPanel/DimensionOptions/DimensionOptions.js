@@ -10,7 +10,7 @@ import {
     acSetUiActiveModalDialog,
 } from '../../../actions/ui';
 import { sGetUiLayout, sGetUiItemsByDimension } from '../../../reducers/ui';
-import { menuLabels, ADD_TO_LAYOUT_OPTIONS } from '../../../modules/layout';
+import { getMenuLabel, ADD_TO_LAYOUT_OPTIONS } from '../../../modules/layout';
 import { isYearOverYear } from '../../../modules/chartTypes';
 
 const FILTER = 2;
@@ -69,7 +69,7 @@ export class DimensionOptions extends Component {
         );
 
         return items.map(([key, axisIds]) => {
-            const label = menuLabels[key];
+            const label = getMenuLabel(key);
 
             return this.renderMenuItem({
                 key: `${this.props.id}-to-${key}`,

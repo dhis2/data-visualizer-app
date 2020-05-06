@@ -21,6 +21,15 @@ export const menuLabels = {
     filters: i18n.t('filter'),
 };
 
+export const getMenuLabel = axis => {
+    const menuLabels = {
+        [AXIS_NAME_COLUMNS]: i18n.t('series'),
+        [AXIS_NAME_ROWS]: i18n.t('category'),
+        [AXIS_NAME_FILTERS]: i18n.t('filter'),
+    };
+    return menuLabels[axis];
+};
+
 // Layout utility functions
 
 // Exclude one or many dimensions from layout

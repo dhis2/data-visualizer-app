@@ -24,9 +24,11 @@ const configI18n = async userSettings => {
     const uiLocale = userSettings.uiLocale;
 
     if (uiLocale && uiLocale !== 'en') {
+        console.log('uiLocale', uiLocale);
         config.i18n.sources.add(
             `./i18n_old/i18n_module_${uiLocale}.properties`
         );
+        console.log('config', config);
     }
 
     config.i18n.sources.add('./i18n_old/i18n_module_en.properties');

@@ -6,6 +6,9 @@ import {
     FIXED_DIMENSIONS,
     dimensionIsValid,
     layoutGetDimension,
+    AXIS_NAME_COLUMNS,
+    AXIS_NAME_ROWS,
+    AXIS_NAME_FILTERS,
 } from '@dhis2/analytics';
 
 import {
@@ -16,67 +19,71 @@ import {
     SINGLE_VALUE,
 } from './chartTypes';
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields';
-import { menuLabels } from './layout';
+import { getMenuLabel } from './layout';
 
-const dxName = FIXED_DIMENSIONS[DIMENSION_ID_DATA].name;
+const getErrorMessage = key => {
+    console.log('here', getMenuLabel(AXIS_NAME_COLUMNS));
+    const filterMenuLabel = getMenuLabel(AXIS_NAME_FILTERS);
+    const rowMenuLabel = getMenuLabel(AXIS_NAME_ROWS);
+    const columnMenuLabel = getMenuLabel(AXIS_NAME_COLUMNS);
 
-const errorLabels = {
-    defaultSeries: i18n.t('Please add at least one {{series}} dimension', {
-        series: menuLabels.columns,
-    }),
-    defaultCategory: i18n.t('Please add at least one {{category}} dimension', {
-        category: menuLabels.rows,
-    }),
-    defaultPe: i18n.t(
-        'Please add at least one period as {{series}}, {{category}} or {{filter}}',
-        {
-            series: menuLabels.columns,
-            category: menuLabels.rows,
-            filter: menuLabels.filters,
-        }
-    ),
-    pie: {
-        dx: i18n.t('Please add {{data}} as {{category}} or {{filter}}', {
-            data: dxName,
-            category: menuLabels.rows,
-            filter: menuLabels.filters,
+    const errorLabels = {
+        defaultSeries: i18n.t('Please add at least one {{series}} dimension', {
+            series: columnMenuLabel,
         }),
-        pe: i18n.t(
+        defaultCategory: i18n.t(
+            'Please add at least one {{category}} dimension',
+            {
+                category: rowMenuLabel,
+            }
+        ),
+        defaultPe: i18n.t(
+            'Please add at least one period as {{series}}, {{category}} or {{filter}}',
+            {
+                series: columnMenuLabel,
+                category: rowMenuLabel,
+                filter: filterMenuLabel,
+            }
+        ),
+        pieDx: i18n.t('Please add {{data}} as {{category}} or {{filter}}', {
+            data: FIXED_DIMENSIONS[DIMENSION_ID_DATA].name(),
+            category: rowMenuLabel,
+            filter: filterMenuLabel,
+        }),
+        piePe: i18n.t(
             'Please add at least one period as {{series}} or {{filter}}',
             {
-                series: menuLabels.columns,
-                filter: menuLabels.filters,
+                series: columnMenuLabel,
+                filter: filterMenuLabel,
             }
         ),
-        filter: i18n.t('Please add at least one {{filter}} dimension', {
-            filter: menuLabels.filters,
+        pieFilter: i18n.t('Please add at least one {{filter}} dimension', {
+            filter: filterMenuLabel,
         }),
-    },
-    yearOverYear: {
-        seriesPeriod: i18n.t(
+        yoySeriesPeriod: i18n.t(
             'Please add at least one period as a {{series}} dimension',
             {
-                series: menuLabels.columns,
+                series: columnMenuLabel,
             }
         ),
-        categoryPeriod: i18n.t(
+        yoyCategoryPeriod: i18n.t(
             'Please add at least one period as a {{category}} dimension',
             {
-                category: menuLabels.rows,
+                category: rowMenuLabel,
             }
         ),
-        dx: i18n.t('Please add {{data}} as a filter dimension', {
-            data: dxName,
+        yoyDx: i18n.t('Please add {{data}} as a filter dimension', {
+            data: FIXED_DIMENSIONS[DIMENSION_ID_DATA].name(),
         }),
-    },
-    singleValue: {
-        dx: i18n.t('Please add one {{series}} dimension', {
-            series: menuLabels.columns,
+        singleValueDx: i18n.t('Please add one {{series}} dimension', {
+            series: columnMenuLabel,
         }),
-        pe: i18n.t('Please add at least one period as {{filter}}', {
-            filter: menuLabels.filters,
+        singleValuePe: i18n.t('Please add at least one period as {{filter}}', {
+            filter: filterMenuLabel,
         }),
-    },
+    };
+
+    return errorLabels[key];
 };
 
 // Layout validation helper functions
@@ -85,23 +92,23 @@ const isAxisValid = axis =>
 
 const validateDimension = (dimension, message) => {
     if (!(dimension && dimensionIsValid(dimension, { requireItems: true }))) {
-        throw new Error(message);
+        throw new Error(getErrorMessage(message));
     }
 };
 
 const validateAxis = (axis, message) => {
     if (!isAxisValid(axis)) {
-        throw new Error(message);
+        throw new Error(getErrorMessage(message));
     }
 };
 
 // Layout validation
 const validateDefaultLayout = layout => {
-    validateAxis(layout.columns, errorLabels.defaultSeries);
-    validateAxis(layout.rows, errorLabels.defaultCategory);
+    validateAxis(layout.columns, 'defaultSeries');
+    validateAxis(layout.rows, 'defaultCategory');
     validateDimension(
         layoutGetDimension(layout, DIMENSION_ID_PERIOD),
-        errorLabels.defaultPe
+        'defaultPe'
     );
 };
 
@@ -112,28 +119,25 @@ const validateYearOverYearLayout = layout => {
             typeof layout[BASE_FIELD_YEARLY_SERIES][0] === 'string'
         )
     ) {
-        throw new Error(errorLabels.yearOverYear.seriesPeriod);
+        throw new Error(getErrorMessage('yoySeriesPeriod'));
     }
 
-    validateAxis(layout.rows, errorLabels.yearOverYear.categoryPeriod);
+    validateAxis(layout.rows, 'yoyCategoryPeriod');
 
-    validateAxis(layout.columns, errorLabels.yearOverYear.dx);
+    validateAxis(layout.columns, 'yoyDx');
 };
 
 const validatePieLayout = layout => {
-    validateAxis(layout.columns, errorLabels.defaultSeries);
-    validateAxis(layout.filters, errorLabels.pie.filter);
-    validateDimension(
-        layoutGetDimension(layout, DIMENSION_ID_PERIOD),
-        errorLabels.pie.pe
-    );
+    validateAxis(layout.columns, 'defaultSeries');
+    validateAxis(layout.filters, 'pieFilter');
+    validateDimension(layoutGetDimension(layout, DIMENSION_ID_PERIOD), 'piePe');
 };
 
 const validateSingleValueLayout = layout => {
-    validateAxis(layout.columns, errorLabels.singleValue.dx);
+    validateAxis(layout.columns, 'singleValueDx');
     validateDimension(
         layoutGetDimension(layout, DIMENSION_ID_PERIOD),
-        errorLabels.singleValue.pe
+        'singleValuePe'
     );
 };
 

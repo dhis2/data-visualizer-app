@@ -5,7 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem/MenuItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText/ListItemText';
 
-import { chartTypeDisplayNames } from '../../modules/chartTypes';
+import { getChartTypeDisplayName, chartTypes } from '../../modules/chartTypes';
 import VisualizationTypeIcon from './VisualizationTypeIcon';
 
 const VisualizationTypeMenuItem = ({
@@ -24,7 +24,7 @@ const VisualizationTypeMenuItem = ({
             <VisualizationTypeIcon type={type} style={styles.listItemSvg} />
         </ListItemIcon>
         <ListItemText
-            primary={chartTypeDisplayNames[type]}
+            primary={getChartTypeDisplayName(type)}
             disableTypography={true}
             style={styles.listItemText}
         />
@@ -32,8 +32,8 @@ const VisualizationTypeMenuItem = ({
 );
 
 VisualizationTypeMenuItem.propTypes = {
-    type: PropTypes.oneOf(Object.keys(chartTypeDisplayNames)),
-    visualizationType: PropTypes.oneOf(Object.keys(chartTypeDisplayNames)),
+    type: PropTypes.oneOf(chartTypes),
+    visualizationType: PropTypes.oneOf(chartTypes),
     styles: PropTypes.object,
 };
 
