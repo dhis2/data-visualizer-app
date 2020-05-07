@@ -93,7 +93,7 @@ msgid "Other dimensions"
 msgstr "Các chiều khác"
 
 msgid "Your dimensions"
-msgstr "Các chiều của bạn"
+msgstr "Các chiều dữ liệu khác"
 
 msgid "Filter dimensions"
 msgstr "Các chiều lọc"
@@ -684,16 +684,16 @@ msgid "Months this year"
 msgstr "Tháng năm nay"
 
 msgid "This bimonth"
-msgstr "Kỳ này, 1 kỳ = 2 tháng"
+msgstr "Kỳ 2 tháng này"
 
 msgid "Last bimonth"
-msgstr "Kỳ trước, 1 kỳ = 2 tháng"
+msgstr "Kỳ 2 tháng trước"
 
 msgid "Last 6 bimonths"
-msgstr "6 kỳ trước, 1 kỳ = 2 tháng"
+msgstr "6 kỳ 2 tháng trước"
 
 msgid "Bimonths this year"
-msgstr "Các kỳ trong năm nay, 1 kỳ = 2 tháng"
+msgstr "Các kỳ 2 tháng trong năm"
 
 msgid "This quarter"
 msgstr "Quý này"

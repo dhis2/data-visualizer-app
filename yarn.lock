@@ -1389,35 +1389,15 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^4.0.1":
-  version "4.3.26"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.3.26.tgz#93213eb908d85afe067ecb64ae3b281364626e24"
-  integrity sha512-39klE4G4CkO1vDezdUNTy4dXJA85g8KRGUduFROrLbJGbU+EtqIllzc5TsW08lZK2LaHqq6FmJNd0CF5iL1SLw==
+"@dhis2/analytics@^4.0.1", "@dhis2/analytics@^4.3.28":
+  version "4.3.28"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.3.28.tgz#4f8f98681de97970159e9e4886db558158231d12"
+  integrity sha512-VAbz1Fgd5azHfEXKH8fS8tMEHB7bO+TfJ6iI0+WXAjSjpZiF08g7fMK8vptLhwM0eTFjmofBZ5WgcLf1DACAJw==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^6.5.9"
     "@dhis2/d2-ui-period-selector-dialog" "^6.5.7"
-    "@dhis2/ui-core" "^4.9.1"
-    "@material-ui/core" "^3.9.3"
-    "@material-ui/icons" "^3.0.2"
-    classnames "^2.2.6"
-    d2-utilizr "^0.2.16"
-    d3-color "^1.2.3"
-    highcharts "^7.2.1"
-    lodash "^4.17.13"
-    react-beautiful-dnd "^10.1.1"
-    resize-observer-polyfill "^1.5.1"
-    styled-jsx "^3.2.1"
-
-"@dhis2/analytics@^4.3.27":
-  version "4.3.27"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.3.27.tgz#c388e58327a5d7372de3e4fdac887a4920fa779c"
-  integrity sha512-E2HI8bvox/6oR99mEvjJUEuVpMKynEpJJF0HhCpFgLPryjh4Npnrswk1eTOaYY5H16Fk5uexxOCfLsWd+uudWA==
-  dependencies:
-    "@dhis2/d2-i18n" "^1.0.4"
-    "@dhis2/d2-ui-org-unit-dialog" "^6.5.9"
-    "@dhis2/d2-ui-period-selector-dialog" "^6.5.7"
-    "@dhis2/ui-core" "^4.16.0"
+    "@dhis2/ui-core" "^4.19.1"
     "@material-ui/core" "^3.9.3"
     "@material-ui/icons" "^3.0.2"
     classnames "^2.2.6"
@@ -1438,9 +1418,22 @@
     moment "^2.24.0"
 
 "@dhis2/app-runtime@*", "@dhis2/app-runtime@^2.0.4":
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-2.1.2.tgz#493e6b462cdba1b5cb54db21bb3f331aa2306992"
-  integrity sha512-ynGxv/9T5fvva1TYY6haAkDmyelvfayzHtAJdHMy57Yvf8z14THJcBR3MeAFRfM+1njgGWeTk14evgmgpZkfeA==
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-2.2.1.tgz#9c2192c247bbca44e721c2ece1a0d6f8bcdf00d6"
+  integrity sha512-rX4+Dz31zov0OZNKxcOBbVdXwac5nxX0a4e6G0MKE2OCuHZtvASNbahl86IAasCjuNOclUSgLmIJpEhqlnUxpw==
+  dependencies:
+    "@dhis2/app-service-config" "2.2.1"
+    "@dhis2/app-service-data" "2.2.1"
+
+"@dhis2/app-service-config@2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-config/-/app-service-config-2.2.1.tgz#5417b6ec266fa0e3d84a9405010cee43ed6a0027"
+  integrity sha512-o841GSzjg/VaucWN/9Axo42Dv6CS4Wra3BAw+qFsMtZ7agFKbSssbxyloDiB0/TDv9moR8xivfAHn8kfcVwuNQ==
+
+"@dhis2/app-service-data@2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-data/-/app-service-data-2.2.1.tgz#b418a9624761cedded3ebddc3459db90bdaa3c16"
+  integrity sha512-XeAmjjt8sL1sbu8rsEEQDBQyc//cHww79kCGXpuFHR5tytzhT31cQ457/zNqU3DW61xKgv+bCWk845kuD26UbQ==
 
 "@dhis2/app-shell@3.2.5":
   version "3.2.5"
@@ -1733,7 +1726,7 @@
   dependencies:
     prop-types "^15"
 
-"@dhis2/ui-core@^4.16.0", "@dhis2/ui-core@^4.19.1", "@dhis2/ui-core@^4.6.1", "@dhis2/ui-core@^4.9.1":
+"@dhis2/ui-core@^4.19.1", "@dhis2/ui-core@^4.6.1":
   version "4.19.1"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-4.19.1.tgz#3cf32b2a24f2435d527ebef1daa99b84396da4f8"
   integrity sha512-jvX6h+lRhKaw18B46AQuwltDKIb06e1HxGaPpplFJS1vRrTs8Yvn1pP1BFUBhTgVD3/3zLlO+lD3IsUavJUqOg==
