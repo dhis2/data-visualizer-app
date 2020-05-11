@@ -66,7 +66,6 @@ export class DimensionOptions extends Component {
             return [];
         }
 
-        debugger;
         const layout = Object.entries(this.props.currentLayout);
         const items = layout.filter(
             ([key, axisIds]) => !axisIds.includes(this.props.id)
