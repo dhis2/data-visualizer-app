@@ -37,6 +37,7 @@ import AxisSetup from './AxisSetup/AxisSetup'
 import { APPROVAL_LEVEL_OPTION_AUTH } from './VisualizationOptions/Options/ApprovalLevel'
 import { sGetVisualization } from '../reducers/visualization'
 import { STATE_DIRTY, getVisualizationState } from '../modules/visualization'
+import HendriksTestComponent from './HendriksTestComponent.js'
 
 export class App extends Component {
     unlisten = null
@@ -207,6 +208,7 @@ export class App extends Component {
     render() {
         return (
             <>
+                <HendriksTestComponent />
                 <AxisSetup />
                 <div className="data-visualizer-app flex-ct flex-dir-col">
                     <div className="section-toolbar flex-ct">
