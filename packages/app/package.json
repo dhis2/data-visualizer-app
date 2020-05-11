@@ -27,7 +27,7 @@
     "dependencies": {
         "@dhis2/analytics": "^2.4.10-alpha.10",
         "@dhis2/d2-i18n": "^1.0.6",
-        "@dhis2/d2-ui-core": "^7.0.0",
+        "@dhis2/d2-ui-core": "^7.0.2",
         "@dhis2/d2-ui-file-menu": "^7.0.2",
         "@dhis2/d2-ui-interpretations": "^7.0.2",
         "@dhis2/data-visualizer-plugin": "^33.1.7",
