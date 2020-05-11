@@ -4989,10 +4989,10 @@ cypress@^3.6.1:
     url "0.11.0"
     yauzl "2.10.0"
 
-d2-analysis@33.2.14:
-  version "33.2.14"
-  resolved "https://registry.yarnpkg.com/d2-analysis/-/d2-analysis-33.2.14.tgz#a830c7dce5dfcfd809110efc409c5d9487704026"
-  integrity sha512-H7SIq1FsVFj6EvuqaQY0a8xeRgLlnjUnd5umE1pcOlN1ik5axxIXkansypnWaxQklz5MQLY3dcU2Oxe2cu9N2w==
+d2-analysis@33.2.15:
+  version "33.2.15"
+  resolved "https://registry.yarnpkg.com/d2-analysis/-/d2-analysis-33.2.15.tgz#6320e1b7d4a245a09785803992d01cffc14c5c67"
+  integrity sha512-oMMzwC58UEcFiLR+q/c1r5pdaiFE11AnIswkOhnqAtYIMUOMiMkjrjt413Z6c0cpUNJz8myvRgHk6GUfd7RsEA==
   dependencies:
     "@dhis2/d2-ui-rich-text" "^5.1.0"
     d2-utilizr "^0.2.16"
