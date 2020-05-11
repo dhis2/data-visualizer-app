@@ -4,7 +4,11 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import MenuItem from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
-import { AXIS_NAME_COLUMNS } from '@dhis2/analytics';
+import {
+    AXIS_NAME_COLUMNS,
+    AXIS_NAME_ROWS,
+    AXIS_NAME_FILTERS,
+} from '@dhis2/analytics';
 
 import UpdateButton from '../../../UpdateButton/UpdateButton';
 import Menu from './Menu';
@@ -21,15 +25,10 @@ import {
 import { acSetCurrentFromUi } from '../../../../actions/current';
 
 import { isYearOverYear } from '../../../../modules/chartTypes';
-import { ADD_TO_LAYOUT_OPTIONS } from '../../../../modules/layout';
+import { getAddToAxisLabel } from '../../../../modules/layout';
 import styles from './styles/AddToLayoutButton.style';
 
 const UNSELECTED_BUTTON_TYPE = -1;
-const seriesItem = ADD_TO_LAYOUT_OPTIONS[0];
-const filterItem = ADD_TO_LAYOUT_OPTIONS[2];
-const itemsWithoutSeries = ADD_TO_LAYOUT_OPTIONS.filter(
-    option => option.axisKey !== AXIS_NAME_COLUMNS
-);
 
 export class AddToLayoutButton extends Component {
     constructor(props) {
@@ -63,14 +62,14 @@ export class AddToLayoutButton extends Component {
     };
 
     renderMenuItems = () =>
-        itemsWithoutSeries.map(option => (
+        [AXIS_NAME_ROWS, AXIS_NAME_FILTERS].map(axisKey => (
             <MenuItem
                 className={this.props.classes.menuItem}
                 component="li"
-                key={option.axisKey}
-                onClick={() => this.onUpdate(option.axisKey)}
+                key={axisKey}
+                onClick={() => this.onUpdate(axisKey)}
             >
-                {option.name()}
+                {getAddToAxisLabel(axisKey)}
             </MenuItem>
         ));
 
@@ -82,9 +81,9 @@ export class AddToLayoutButton extends Component {
                 color="primary"
                 disableRipple
                 disableFocusRipple
-                onClick={() => this.onUpdate(filterItem.axisKey)}
+                onClick={() => this.onUpdate(AXIS_NAME_FILTERS)}
             >
-                {filterItem.name()}
+                {getAddToAxisLabel(AXIS_NAME_FILTERS)}
             </Button>
         ) : (
             <div ref={addToRef => (this.buttonRef = addToRef)}>
@@ -94,9 +93,9 @@ export class AddToLayoutButton extends Component {
                     color="primary"
                     disableRipple
                     disableFocusRipple
-                    onClick={() => this.onUpdate(seriesItem.axisKey)}
+                    onClick={() => this.onUpdate(AXIS_NAME_COLUMNS)}
                 >
-                    {seriesItem.name()}
+                    {getAddToAxisLabel(AXIS_NAME_COLUMNS)}
                 </Button>
                 <Menu
                     onClose={this.onClose}

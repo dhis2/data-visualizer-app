@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-05-07T00:06:58.721Z\n"
-"PO-Revision-Date: 2020-05-07T00:06:58.721Z\n"
+"POT-Creation-Date: 2020-05-11T21:39:28.881Z\n"
+"PO-Revision-Date: 2020-05-11T21:39:28.881Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -111,18 +111,6 @@ msgstr ""
 msgid "Filter"
 msgstr ""
 
-msgid "series"
-msgstr ""
-
-msgid "category"
-msgstr ""
-
-msgid "filter"
-msgstr ""
-
-msgid "Move to {{axis}}"
-msgstr ""
-
 msgid "None selected"
 msgstr ""
 
@@ -141,10 +129,10 @@ msgstr ""
 msgid "Error validating layout"
 msgstr ""
 
-msgid "Create a new visualization by adding dimensions to the layout"
+msgid "Chart error"
 msgstr ""
 
-msgid "Chart error"
+msgid "Create a new visualization by adding dimensions to the layout"
 msgstr ""
 
 msgid "Error generating chart, please try again"
@@ -355,6 +343,15 @@ msgid "Add to category"
 msgstr ""
 
 msgid "Add to filter"
+msgstr ""
+
+msgid "Move to series"
+msgstr ""
+
+msgid "Move to category"
+msgstr ""
+
+msgid "Move to filter"
 msgstr ""
 
 msgid "Please add at least one {{series}} dimension"

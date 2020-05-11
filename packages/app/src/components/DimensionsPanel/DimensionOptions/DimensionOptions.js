@@ -3,6 +3,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import i18n from '@dhis2/d2-i18n';
 import MenuItem from '@material-ui/core/MenuItem';
+import {
+    AXIS_NAME_COLUMNS,
+    AXIS_NAME_ROWS,
+    AXIS_NAME_FILTERS,
+} from '@dhis2/analytics';
 import ContextMenu from './ContextMenu';
 import {
     acAddUiLayoutDimensions,
@@ -10,10 +15,9 @@ import {
     acSetUiActiveModalDialog,
 } from '../../../actions/ui';
 import { sGetUiLayout, sGetUiItemsByDimension } from '../../../reducers/ui';
-import { getMenuLabel, ADD_TO_LAYOUT_OPTIONS } from '../../../modules/layout';
+import { getAddToAxisLabel, getMoveToAxisLabel } from '../../../modules/layout';
 import { isYearOverYear } from '../../../modules/chartTypes';
 
-const FILTER = 2;
 const emptyItems = [];
 
 export class DimensionOptions extends Component {
@@ -38,21 +42,20 @@ export class DimensionOptions extends Component {
             items = [
                 this.renderMenuItem({
                     key: `add-to-${this.props.id}`,
-                    id: ADD_TO_LAYOUT_OPTIONS[FILTER].axisKey,
+                    id: AXIS_NAME_FILTERS,
                     onClick: this.addDimension,
-                    displayName: ADD_TO_LAYOUT_OPTIONS[FILTER].name(),
+                    displayName: getAddToAxisLabel(AXIS_NAME_FILTERS),
                 }),
             ];
         } else {
-            items = Object.values(
-                ADD_TO_LAYOUT_OPTIONS.map(axis =>
+            items = [AXIS_NAME_COLUMNS, AXIS_NAME_ROWS, AXIS_NAME_FILTERS].map(
+                axis =>
                     this.renderMenuItem({
-                        key: `add-to-${axis.axisKey}`,
-                        id: axis.axisKey,
+                        key: `add-to-${axis}`,
+                        id: axis,
                         onClick: this.addDimension,
-                        displayName: axis.name(),
+                        displayName: getAddToAxisLabel(axis),
                     })
-                )
             );
         }
         return items;
@@ -63,19 +66,18 @@ export class DimensionOptions extends Component {
             return [];
         }
 
+        debugger;
         const layout = Object.entries(this.props.currentLayout);
         const items = layout.filter(
             ([key, axisIds]) => !axisIds.includes(this.props.id)
         );
 
         return items.map(([key, axisIds]) => {
-            const label = getMenuLabel(key);
-
             return this.renderMenuItem({
                 key: `${this.props.id}-to-${key}`,
                 id: key,
                 onClick: this.addDimension,
-                displayName: `${i18n.t(`Move to ${label}`, { label })}`,
+                displayName: getMoveToAxisLabel(key),
             });
         });
     };

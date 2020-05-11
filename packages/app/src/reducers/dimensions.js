@@ -3,8 +3,8 @@ import { FIXED_DIMENSIONS } from '@dhis2/analytics';
 export const SET_DIMENSIONS = 'SET_DIMENSIONS';
 export const SET_SELECTED_DIMENSION = 'SET_SELECTED_DIMENSION';
 
-const getDefaultDimensions = () => {
-    return Object.keys(FIXED_DIMENSIONS).reduce((acc, key) => {
+export const getDefaultDimensions = () =>
+    Object.keys(FIXED_DIMENSIONS).reduce((acc, key) => {
         const dimObj = {
             id: FIXED_DIMENSIONS[key].id,
             iconName: FIXED_DIMENSIONS[key].iconName,
@@ -13,7 +13,6 @@ const getDefaultDimensions = () => {
         acc[key] = dimObj;
         return acc;
     }, {});
-};
 
 export default (state = getDefaultDimensions(), action) => {
     switch (action.type) {

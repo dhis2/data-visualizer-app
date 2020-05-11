@@ -17,7 +17,7 @@ import {
     acRemoveUiLayoutDimensions,
     acSetUiActiveModalDialog,
 } from '../../../actions/ui';
-import { SOURCE_DIMENSIONS } from '../../../modules/layout';
+import { SOURCE_DIMENSIONS, getMoveToAxisLabel } from '../../../modules/layout';
 import { getAdaptedUiByType } from '../../../modules/ui';
 import { isYearOverYear, isDualAxisType } from '../../../modules/chartTypes';
 import { AXIS_SETUP_DIALOG_ID } from '../../AxisSetup/AxisSetup';
@@ -59,20 +59,14 @@ class Axis extends React.Component {
     isMoveSupported = () => !isYearOverYear(this.props.type);
 
     getAxisMenuItems = dimensionId => {
-        const menuLabels = {
-            columns: i18n.t('series'),
-            rows: i18n.t('category'),
-            filters: i18n.t('filter'),
-        };
-
         return AXIS_NAMES.filter(key => key !== this.props.axisName).map(
             key => (
                 <MenuItem
                     key={`${dimensionId}-to-${key}`}
                     onClick={this.props.getMoveHandler({ [dimensionId]: key })}
-                >{`${i18n.t('Move to {{axis}}', {
-                    axis: menuLabels[key],
-                })}`}</MenuItem>
+                >
+                    {getMoveToAxisLabel(key)}
+                </MenuItem>
             )
         );
     };

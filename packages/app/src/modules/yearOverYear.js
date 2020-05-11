@@ -3,7 +3,6 @@ import i18n from '@dhis2/d2-i18n';
 // Fixed years generator
 const getFixedYears = len => {
     const currentYear = new Date().getFullYear();
-
     return new Array(len).fill(null).map((n, i) => ({
         id: String(currentYear - i),
         name: () => currentYear - i,

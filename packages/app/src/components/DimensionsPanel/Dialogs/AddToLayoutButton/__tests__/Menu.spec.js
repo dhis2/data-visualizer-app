@@ -55,8 +55,8 @@ describe('The DropDownButton component ', () => {
     it('renders a Menu with children if prop anchorel is equal to a truthy value', () => {
         props.anchorEl = { getBoundingClientRect: () => ({ bottom: 100 }) };
 
-        props.menuItems = ADD_TO_LAYOUT_OPTIONS.map((option, i) => (
-            <MenuItem key={i} value={option.axisName} />
+        props.menuItems = ['columns', 'rows', 'filters'].map((option, i) => (
+            <MenuItem key={i} value={option} />
         ));
 
         const menu = dropDown()
