@@ -58,18 +58,15 @@ class Axis extends React.Component {
 
     isMoveSupported = () => !isYearOverYear(this.props.type);
 
-    getAxisMenuItems = dimensionId => {
-        return AXIS_NAMES.filter(key => key !== this.props.axisName).map(
-            key => (
-                <MenuItem
-                    key={`${dimensionId}-to-${key}`}
-                    onClick={this.props.getMoveHandler({ [dimensionId]: key })}
-                >
-                    {getMoveToAxisLabel(key)}
-                </MenuItem>
-            )
-        );
-    };
+    getAxisMenuItems = dimensionId =>
+        AXIS_NAMES.filter(key => key !== this.props.axisName).map(key => (
+            <MenuItem
+                key={`${dimensionId}-to-${key}`}
+                onClick={this.props.getMoveHandler({ [dimensionId]: key })}
+            >
+                {getMoveToAxisLabel(key)}
+            </MenuItem>
+        ));
 
     isSeries = () => this.props.axisName === AXIS_NAME_COLUMNS;
 
