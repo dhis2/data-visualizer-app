@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-05-04T22:21:01.539Z\n"
-"PO-Revision-Date: 2020-05-04T22:21:01.539Z\n"
+"POT-Creation-Date: 2020-05-07T00:06:58.721Z\n"
+"PO-Revision-Date: 2020-05-07T00:06:58.721Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -111,7 +111,16 @@ msgstr ""
 msgid "Filter"
 msgstr ""
 
-msgid "Move to"
+msgid "series"
+msgstr ""
+
+msgid "category"
+msgstr ""
+
+msgid "filter"
+msgstr ""
+
+msgid "Move to {{axis}}"
 msgstr ""
 
 msgid "None selected"
@@ -348,15 +357,6 @@ msgstr ""
 msgid "Add to filter"
 msgstr ""
 
-msgid "series"
-msgstr ""
-
-msgid "category"
-msgstr ""
-
-msgid "filter"
-msgstr ""
-
 msgid "Please add at least one {{series}} dimension"
 msgstr ""
 
@@ -490,15 +490,6 @@ msgid "Last year"
 msgstr ""
 
 msgid "Last 5 years"
-msgstr ""
-
-msgid "User org unit"
-msgstr ""
-
-msgid "User org unit children"
-msgstr ""
-
-msgid "User org unit grand children"
 msgstr ""
 
 msgid "Weeks per year"
