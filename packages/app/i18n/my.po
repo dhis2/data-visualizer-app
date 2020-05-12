@@ -1,14 +1,14 @@
 # 
 # Translators:
 # Viktor Varland <viktor@dhis2.org>, 2019
-# phil_dhis2, 2019
+# phil_dhis2, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-02-26T13:21:17.550Z\n"
+"POT-Creation-Date: 2020-04-29T13:47:48.626Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
-"Last-Translator: phil_dhis2, 2019\n"
+"Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Burmese (https://www.transifex.com/hisp-uio/teams/100509/my/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -126,6 +126,12 @@ msgid "None selected"
 msgstr ""
 
 msgid "Only '{{name}}' in use"
+msgstr ""
+
+msgid "And 1 other..."
+msgstr ""
+
+msgid "And {{numberOfItems}} others..."
 msgstr ""
 
 msgid "Unsaved chart"
@@ -478,7 +484,7 @@ msgid "This week"
 msgstr ""
 
 msgid "Last week"
-msgstr ""
+msgstr "Last week"
 
 msgid "Last 4 weeks"
 msgstr ""
@@ -502,7 +508,7 @@ msgid "Last 3 months"
 msgstr "လွန်ခဲ့သော ၁၂လ"
 
 msgid "Last 6 months"
-msgstr ""
+msgstr "Last 6 months"
 
 msgid "Last 12 months"
 msgstr "လွန်ခဲ့သော ၁၂လ"

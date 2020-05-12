@@ -4,13 +4,14 @@
 # Bram Piot <bram.piot@gmail.com>, 2019
 # phil_dhis2, 2019
 # Karoline Tufte Lien <karoline@dhis2.org>, 2020
+# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-02-26T13:21:17.550Z\n"
+"POT-Creation-Date: 2020-04-29T13:47:48.626Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
-"Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
+"Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -128,6 +129,12 @@ msgid "None selected"
 msgstr ""
 
 msgid "Only '{{name}}' in use"
+msgstr ""
+
+msgid "And 1 other..."
+msgstr ""
+
+msgid "And {{numberOfItems}} others..."
 msgstr ""
 
 msgid "Unsaved chart"
@@ -314,61 +321,61 @@ msgid "Column"
 msgstr "Colonne"
 
 msgid "Stacked column"
-msgstr ""
+msgstr "Colonne empilée"
 
 msgid "Bar"
-msgstr ""
+msgstr "Bar"
 
 msgid "Stacked bar"
-msgstr ""
+msgstr "Bar empilé"
 
 msgid "Line"
-msgstr ""
+msgstr "Ligne"
 
 msgid "Area"
 msgstr "Aire"
 
 msgid "Pie"
-msgstr ""
+msgstr "Tarte"
 
 msgid "Radar"
-msgstr ""
+msgstr "Radar"
 
 msgid "Gauge"
-msgstr ""
+msgstr "Jauge"
 
 msgid "Year over year (line)"
-msgstr ""
+msgstr "Année après année (ligne)"
 
 msgid "Year over year (column)"
-msgstr ""
+msgstr "Année après année (colonne)"
 
 msgid "Single value"
-msgstr ""
+msgstr "Valeur unique"
 
 msgid "Open as Map"
 msgstr ""
 
 msgid "Reporting rate"
-msgstr ""
+msgstr "Taux de déclaration"
 
 msgid "Reporting rate on time"
-msgstr ""
+msgstr "Taux de notification à temps"
 
 msgid "Actual reports"
-msgstr ""
+msgstr "Rapports réels"
 
 msgid "Actual reports on time"
-msgstr ""
+msgstr "Rapports réels à temps"
 
 msgid "Expected reports"
-msgstr ""
+msgstr "Rapports attendus"
 
 msgid "Program"
 msgstr "Programme"
 
 msgid "Select a program"
-msgstr ""
+msgstr "Sélectionnez un programme"
 
 msgid "Indicators"
 msgstr "Indicateurs"
@@ -377,7 +384,7 @@ msgid "Select indicator group"
 msgstr "Sélectionner groupe d'indicateurs"
 
 msgid "[ All groups ]"
-msgstr ""
+msgstr "[ Tous les groupes ]"
 
 msgid "Data elements"
 msgstr "Eléments de données"
@@ -386,7 +393,7 @@ msgid "Select data element group"
 msgstr "Sélectionner groupe d'éléments de données"
 
 msgid "[ All data elements ]"
-msgstr ""
+msgstr "[ Tous les éléments de données ]"
 
 msgid "Totals"
 msgstr "Totaux"
@@ -398,10 +405,10 @@ msgid "Data sets"
 msgstr "Ensembles de données"
 
 msgid "Select data sets"
-msgstr ""
+msgstr "Sélectionner des ensembles de données"
 
 msgid "[ All metrics ]"
-msgstr ""
+msgstr "[ Toutes les métriques ]"
 
 msgid "Event data items"
 msgstr "Eléments de données évènement"

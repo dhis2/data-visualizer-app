@@ -117,6 +117,12 @@ msgstr ""
 msgid "Only '{{name}}' in use"
 msgstr ""
 
+msgid "And 1 other..."
+msgstr ""
+
+msgid "And {{numberOfItems}} others..."
+msgstr ""
+
 msgid "Unsaved chart"
 msgstr ""
 
