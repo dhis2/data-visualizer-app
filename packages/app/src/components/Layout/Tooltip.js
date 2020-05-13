@@ -10,7 +10,7 @@ import { sGetMetadata } from '../../reducers/metadata';
 import { styles } from './styles/Tooltip.style';
 
 const labels = {
-    noneSelected: i18n.t('None selected'),
+    noneSelected: () => i18n.t('None selected'),
     onlyOneInUse: name => i18n.t("Only '{{name}}' in use", { name }),
 };
 
@@ -73,7 +73,7 @@ export class Tooltip extends React.Component {
         } else if (itemIds.length) {
             names = itemIds.map(id => (metadata[id] ? metadata[id].name : id));
         } else {
-            names = [labels.noneSelected];
+            names = [labels.noneSelected()];
         }
 
         return names.length ? this.renderTooltip(names) : '';
