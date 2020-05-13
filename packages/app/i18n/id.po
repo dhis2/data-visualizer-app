@@ -1,13 +1,12 @@
 # 
 # Translators:
-# phil_dhis2, 2019
 # Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-04-29T13:47:48.626Z\n"
+"POT-Creation-Date: 2020-05-13T19:08:48.461Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
@@ -82,11 +81,32 @@ msgstr "Lanjut"
 msgid "Metadata ID scheme"
 msgstr "Skema ID metadata"
 
+msgid "ID"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
 msgid "Data value set"
 msgstr "Set nilai data"
 
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
 msgid "Other formats"
 msgstr "Format lain"
+
+msgid "JRXML"
+msgstr ""
+
+msgid "Raw data SQL"
+msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "Terjadi kesalahan dalam aplikasi DHIS2 Data Visualizer."
@@ -124,9 +144,6 @@ msgstr "Kategori"
 msgid "Filter"
 msgstr "Saring"
 
-msgid "Move to"
-msgstr "Pindahkan ke"
-
 msgid "None selected"
 msgstr "Tidak ada yang terpilih"
 
@@ -151,11 +168,11 @@ msgstr "Melihat interpretasi dari {{interpretationDate}}"
 msgid "Error validating layout"
 msgstr ""
 
-msgid "Create a new visualization by adding dimensions to the layout"
-msgstr "Buat visualisasi baru dengan menambahkan dimensi ke dalam layout"
-
 msgid "Chart error"
 msgstr "Kesalahan pada grafik"
+
+msgid "Create a new visualization by adding dimensions to the layout"
+msgstr "Buat visualisasi baru dengan menambahkan dimensi ke dalam layout"
 
 msgid "Error generating chart, please try again"
 msgstr "Gagal menyajikan grafik, silakan coba kembali"
@@ -358,66 +375,6 @@ msgstr "Nilai tunggal"
 msgid "Open as Map"
 msgstr "Buka sebagai Peta"
 
-msgid "Reporting rate"
-msgstr "Tingkat pelaporan"
-
-msgid "Reporting rate on time"
-msgstr "Tingkat pelaporan tepat waktu"
-
-msgid "Actual reports"
-msgstr "Laporan sesungguhnya"
-
-msgid "Actual reports on time"
-msgstr "Laporan sesungguhnya yang tepat waktu"
-
-msgid "Expected reports"
-msgstr "Laporan yang diharapkan"
-
-msgid "Program"
-msgstr "Program"
-
-msgid "Select a program"
-msgstr "Pilih program"
-
-msgid "Indicators"
-msgstr "Indikator"
-
-msgid "Select indicator group"
-msgstr "Pilih grup indikator"
-
-msgid "[ All groups ]"
-msgstr "[ All groups ]"
-
-msgid "Data elements"
-msgstr "Data elemen"
-
-msgid "Select data element group"
-msgstr "Pilih grup data elemen"
-
-msgid "[ All data elements ]"
-msgstr "[ All data elements ]"
-
-msgid "Totals"
-msgstr "Total"
-
-msgid "Details"
-msgstr "Rincian"
-
-msgid "Data sets"
-msgstr "Data set"
-
-msgid "Select data sets"
-msgstr "Pilih data set"
-
-msgid "[ All metrics ]"
-msgstr "[ All metrics ]"
-
-msgid "Event data items"
-msgstr "Item data event"
-
-msgid "Program indicators"
-msgstr "Indikator program"
-
 msgid "Add to series"
 msgstr "Tambahkan ke seri"
 
@@ -426,6 +383,15 @@ msgstr "Tambahkan ke kategori"
 
 msgid "Add to filter"
 msgstr "Tambahkan ke penyaringan"
+
+msgid "Move to series"
+msgstr ""
+
+msgid "Move to category"
+msgstr ""
+
+msgid "Move to filter"
+msgstr ""
 
 msgid "series"
 msgstr "seri"
@@ -518,9 +484,6 @@ msgstr "3 bulan terakhir"
 msgid "Last 6 months"
 msgstr "6 bulan terakhir"
 
-msgid "Last 12 months"
-msgstr "12 bulan terakhir"
-
 msgid "Months this year"
 msgstr "Bulanan tahun ini"
 
@@ -575,17 +538,11 @@ msgstr "Tahun kemarin"
 msgid "Last 5 years"
 msgstr "5 tahun terakhir"
 
-msgid "User org unit"
-msgstr "Unit org pengguna"
-
-msgid "User org unit children"
-msgstr "Sub org unit user"
-
-msgid "User org unit grand children"
-msgstr "Sub-sub org unit pengguna"
-
 msgid "Weeks per year"
 msgstr "Minggu per tahun"
+
+msgid "Last 12 months"
+msgstr "12 bulan terakhir"
 
 msgid "Months per year"
 msgstr "Bulan per tahun"

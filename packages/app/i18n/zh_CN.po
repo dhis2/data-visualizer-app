@@ -1,14 +1,14 @@
 # 
 # Translators:
-# 晓东 林 <13981924470@126.com>, 2020
 # easylin <lin_xd@126.com>, 2020
+# 晓东 林 <13981924470@126.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-04-29T13:47:48.626Z\n"
+"POT-Creation-Date: 2020-05-13T19:08:48.461Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
-"Last-Translator: easylin <lin_xd@126.com>, 2020\n"
+"Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -77,11 +77,32 @@ msgstr "高级"
 msgid "Metadata ID scheme"
 msgstr "元数据ID方案"
 
+msgid "ID"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
 msgid "Data value set"
 msgstr "数据值集"
 
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
 msgid "Other formats"
 msgstr "其它格式"
+
+msgid "JRXML"
+msgstr ""
+
+msgid "Raw data SQL"
+msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "数据可视化应用发生错误"
@@ -119,9 +140,6 @@ msgstr "分类"
 msgid "Filter"
 msgstr "过滤器"
 
-msgid "Move to"
-msgstr ""
-
 msgid "None selected"
 msgstr "没有选择"
 
@@ -146,10 +164,10 @@ msgstr "查看自{{interpretationDate}}的注释"
 msgid "Error validating layout"
 msgstr ""
 
-msgid "Create a new visualization by adding dimensions to the layout"
+msgid "Chart error"
 msgstr ""
 
-msgid "Chart error"
+msgid "Create a new visualization by adding dimensions to the layout"
 msgstr ""
 
 msgid "Error generating chart, please try again"
@@ -353,66 +371,6 @@ msgstr ""
 msgid "Open as Map"
 msgstr "打开为地图"
 
-msgid "Reporting rate"
-msgstr "上报率"
-
-msgid "Reporting rate on time"
-msgstr "准时上报率"
-
-msgid "Actual reports"
-msgstr "实际上报"
-
-msgid "Actual reports on time"
-msgstr "实际准时上报"
-
-msgid "Expected reports"
-msgstr "预期上报"
-
-msgid "Program"
-msgstr "项目"
-
-msgid "Select a program"
-msgstr ""
-
-msgid "Indicators"
-msgstr "指标"
-
-msgid "Select indicator group"
-msgstr ""
-
-msgid "[ All groups ]"
-msgstr ""
-
-msgid "Data elements"
-msgstr "数据元"
-
-msgid "Select data element group"
-msgstr ""
-
-msgid "[ All data elements ]"
-msgstr ""
-
-msgid "Totals"
-msgstr "总共"
-
-msgid "Details"
-msgstr "详情"
-
-msgid "Data sets"
-msgstr "数据集"
-
-msgid "Select data sets"
-msgstr ""
-
-msgid "[ All metrics ]"
-msgstr ""
-
-msgid "Event data items"
-msgstr ""
-
-msgid "Program indicators"
-msgstr ""
-
 msgid "Add to series"
 msgstr ""
 
@@ -420,6 +378,15 @@ msgid "Add to category"
 msgstr ""
 
 msgid "Add to filter"
+msgstr ""
+
+msgid "Move to series"
+msgstr ""
+
+msgid "Move to category"
+msgstr ""
+
+msgid "Move to filter"
 msgstr ""
 
 msgid "series"
@@ -510,9 +477,6 @@ msgstr "最近3个月"
 msgid "Last 6 months"
 msgstr "最近六个月<br>"
 
-msgid "Last 12 months"
-msgstr "最近12月"
-
 msgid "Months this year"
 msgstr "今年的月份"
 
@@ -567,17 +531,11 @@ msgstr "去年"
 msgid "Last 5 years"
 msgstr "最近五年"
 
-msgid "User org unit"
-msgstr "当前用户机构"
-
-msgid "User org unit children"
-msgstr "用户下属机构"
-
-msgid "User org unit grand children"
-msgstr "用户下下级机构"
-
 msgid "Weeks per year"
 msgstr "每年的周"
+
+msgid "Last 12 months"
+msgstr "最近12月"
 
 msgid "Months per year"
 msgstr "每年的月"

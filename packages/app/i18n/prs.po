@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-04-29T13:47:48.626Z\n"
+"POT-Creation-Date: 2020-05-13T19:08:48.461Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: phil_dhis2, 2019\n"
 "Language-Team: Persian (Afghanistan) (https://www.transifex.com/hisp-uio/teams/100509/fa_AF/)\n"
@@ -76,11 +76,32 @@ msgstr "پیشرفته"
 msgid "Metadata ID scheme"
 msgstr ""
 
+msgid "ID"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
 msgid "Data value set"
 msgstr "سیت ارزش دیتا"
 
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
 msgid "Other formats"
 msgstr "فارمت های دیگر"
+
+msgid "JRXML"
+msgstr ""
+
+msgid "Raw data SQL"
+msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr ""
@@ -118,9 +139,6 @@ msgstr "دسته بندی"
 msgid "Filter"
 msgstr "فلتر"
 
-msgid "Move to"
-msgstr ""
-
 msgid "None selected"
 msgstr ""
 
@@ -145,10 +163,10 @@ msgstr ""
 msgid "Error validating layout"
 msgstr ""
 
-msgid "Create a new visualization by adding dimensions to the layout"
+msgid "Chart error"
 msgstr ""
 
-msgid "Chart error"
+msgid "Create a new visualization by adding dimensions to the layout"
 msgstr ""
 
 msgid "Error generating chart, please try again"
@@ -352,66 +370,6 @@ msgstr ""
 msgid "Open as Map"
 msgstr ""
 
-msgid "Reporting rate"
-msgstr ""
-
-msgid "Reporting rate on time"
-msgstr ""
-
-msgid "Actual reports"
-msgstr ""
-
-msgid "Actual reports on time"
-msgstr ""
-
-msgid "Expected reports"
-msgstr ""
-
-msgid "Program"
-msgstr "برنامه"
-
-msgid "Select a program"
-msgstr ""
-
-msgid "Indicators"
-msgstr "شاخص ها"
-
-msgid "Select indicator group"
-msgstr "انتخاب گروپ شاخص"
-
-msgid "[ All groups ]"
-msgstr ""
-
-msgid "Data elements"
-msgstr "دیتا ایلمنت ها"
-
-msgid "Select data element group"
-msgstr "انتخاب گروپ دیتا ایلمنت"
-
-msgid "[ All data elements ]"
-msgstr ""
-
-msgid "Totals"
-msgstr "مجموعه"
-
-msgid "Details"
-msgstr "جزئیات"
-
-msgid "Data sets"
-msgstr "دیتا سیت ها"
-
-msgid "Select data sets"
-msgstr ""
-
-msgid "[ All metrics ]"
-msgstr ""
-
-msgid "Event data items"
-msgstr "د پېښې د مالوماتو (ډاټا) موضوعات"
-
-msgid "Program indicators"
-msgstr "د پروګرام شاخصونه"
-
 msgid "Add to series"
 msgstr ""
 
@@ -419,6 +377,15 @@ msgid "Add to category"
 msgstr ""
 
 msgid "Add to filter"
+msgstr ""
+
+msgid "Move to series"
+msgstr ""
+
+msgid "Move to category"
+msgstr ""
+
+msgid "Move to filter"
 msgstr ""
 
 msgid "series"
@@ -509,9 +476,6 @@ msgstr "3 ماهه گذشته"
 msgid "Last 6 months"
 msgstr "6 ماه گذشته"
 
-msgid "Last 12 months"
-msgstr "12 ماهه گذشته"
-
 msgid "Months this year"
 msgstr "ماه های سال هذا"
 
@@ -566,17 +530,11 @@ msgstr "سال گذشته"
 msgid "Last 5 years"
 msgstr "5 سال گذشته"
 
-msgid "User org unit"
-msgstr "واحد سازمان استفاده کننده گان"
-
-msgid "User org unit children"
-msgstr ""
-
-msgid "User org unit grand children"
-msgstr ""
-
 msgid "Weeks per year"
 msgstr ""
+
+msgid "Last 12 months"
+msgstr "12 ماهه گذشته"
 
 msgid "Months per year"
 msgstr ""

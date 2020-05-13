@@ -3,13 +3,14 @@
 # Viktor Varland <viktor@dhis2.org>, 2019
 # phil_dhis2, 2019
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
+# Sheila André <sandre@saudigitus.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-04-29T13:47:48.626Z\n"
+"POT-Creation-Date: 2020-05-13T19:08:48.461Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
-"Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020\n"
+"Last-Translator: Sheila André <sandre@saudigitus.org>, 2020\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -78,17 +79,38 @@ msgstr "Avançado"
 msgid "Metadata ID scheme"
 msgstr ""
 
+msgid "ID"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
 msgid "Data value set"
 msgstr "Conjunto de valores de dados"
 
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
 msgid "Other formats"
+msgstr ""
+
+msgid "JRXML"
+msgstr ""
+
+msgid "Raw data SQL"
 msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr ""
 
 msgid "Something went wrong"
-msgstr ""
+msgstr "Ocorreu algo de errado"
 
 msgid "Refresh to try again"
 msgstr ""
@@ -120,9 +142,6 @@ msgstr "Categoria"
 msgid "Filter"
 msgstr "Filtro"
 
-msgid "Move to"
-msgstr ""
-
 msgid "None selected"
 msgstr ""
 
@@ -147,10 +166,10 @@ msgstr ""
 msgid "Error validating layout"
 msgstr ""
 
-msgid "Create a new visualization by adding dimensions to the layout"
+msgid "Chart error"
 msgstr ""
 
-msgid "Chart error"
+msgid "Create a new visualization by adding dimensions to the layout"
 msgstr ""
 
 msgid "Error generating chart, please try again"
@@ -354,66 +373,6 @@ msgstr "Valor unico"
 msgid "Open as Map"
 msgstr ""
 
-msgid "Reporting rate"
-msgstr "Taxa de relatórios"
-
-msgid "Reporting rate on time"
-msgstr "Taxa de relatórios no prazo"
-
-msgid "Actual reports"
-msgstr "Relatórios reais"
-
-msgid "Actual reports on time"
-msgstr "Relatórios reais dentro do prazo"
-
-msgid "Expected reports"
-msgstr "Relatórios esperados"
-
-msgid "Program"
-msgstr "Programa"
-
-msgid "Select a program"
-msgstr "Selecione um programa"
-
-msgid "Indicators"
-msgstr "Indicadores"
-
-msgid "Select indicator group"
-msgstr "Seleccionar grupo de indicador"
-
-msgid "[ All groups ]"
-msgstr "[ Todos os grupos ]"
-
-msgid "Data elements"
-msgstr "Elementos de Dados"
-
-msgid "Select data element group"
-msgstr "Seleccionar grupo de elementos de dados"
-
-msgid "[ All data elements ]"
-msgstr "[ Todos os elementos de dados ]"
-
-msgid "Totals"
-msgstr "Totais"
-
-msgid "Details"
-msgstr "Detalhes"
-
-msgid "Data sets"
-msgstr "Agregação de Dados"
-
-msgid "Select data sets"
-msgstr "Selecionar conjuntos de dados"
-
-msgid "[ All metrics ]"
-msgstr "[ Todas as métricas ]"
-
-msgid "Event data items"
-msgstr "Itens de dados do evento"
-
-msgid "Program indicators"
-msgstr "Indicador do programa"
-
 msgid "Add to series"
 msgstr ""
 
@@ -421,6 +380,15 @@ msgid "Add to category"
 msgstr ""
 
 msgid "Add to filter"
+msgstr ""
+
+msgid "Move to series"
+msgstr ""
+
+msgid "Move to category"
+msgstr ""
+
+msgid "Move to filter"
 msgstr ""
 
 msgid "series"
@@ -511,9 +479,6 @@ msgstr "Últimos três meses"
 msgid "Last 6 months"
 msgstr "Últimos seis meses"
 
-msgid "Last 12 months"
-msgstr "Últimos doze meses"
-
 msgid "Months this year"
 msgstr "Meses deste ano"
 
@@ -568,17 +533,11 @@ msgstr "Último ano"
 msgid "Last 5 years"
 msgstr "Últimos cinco anos"
 
-msgid "User org unit"
-msgstr "Unidade organizacional"
-
-msgid "User org unit children"
-msgstr ""
-
-msgid "User org unit grand children"
-msgstr ""
-
 msgid "Weeks per year"
 msgstr ""
+
+msgid "Last 12 months"
+msgstr "Últimos doze meses"
 
 msgid "Months per year"
 msgstr ""

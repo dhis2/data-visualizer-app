@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-04-29T13:47:48.626Z\n"
+"POT-Creation-Date: 2020-05-13T19:08:48.461Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2020\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
@@ -80,11 +80,32 @@ msgstr "Nâng cao"
 msgid "Metadata ID scheme"
 msgstr "Lược đồ ID siêu dữ liệu"
 
+msgid "ID"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
 msgid "Data value set"
 msgstr "Bộ giá trị dữ liệu"
 
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
 msgid "Other formats"
 msgstr "Định dạng khác"
+
+msgid "JRXML"
+msgstr ""
+
+msgid "Raw data SQL"
+msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "Xảy ra lỗi ở ứng dụng trực quan hóa dữ liệu DHIS2"
@@ -122,9 +143,6 @@ msgstr "Phân loại"
 msgid "Filter"
 msgstr "Lọc"
 
-msgid "Move to"
-msgstr ""
-
 msgid "None selected"
 msgstr "Chưa lựa chọn"
 
@@ -149,10 +167,10 @@ msgstr ""
 msgid "Error validating layout"
 msgstr ""
 
-msgid "Create a new visualization by adding dimensions to the layout"
+msgid "Chart error"
 msgstr ""
 
-msgid "Chart error"
+msgid "Create a new visualization by adding dimensions to the layout"
 msgstr ""
 
 msgid "Error generating chart, please try again"
@@ -356,66 +374,6 @@ msgstr "Giá trị đơn"
 msgid "Open as Map"
 msgstr "Mở dưới dạng bản đồ"
 
-msgid "Reporting rate"
-msgstr "Tỉ lệ báo cáo"
-
-msgid "Reporting rate on time"
-msgstr "Tỉ lệ báo cáo đúng hạn"
-
-msgid "Actual reports"
-msgstr "Báo cáo thực tế"
-
-msgid "Actual reports on time"
-msgstr "Báo cáo thực tế đúng hạn"
-
-msgid "Expected reports"
-msgstr "Báo cáo dự kiến"
-
-msgid "Program"
-msgstr "Chương trình"
-
-msgid "Select a program"
-msgstr ""
-
-msgid "Indicators"
-msgstr "Các chỉ số"
-
-msgid "Select indicator group"
-msgstr "Chọn nhóm chỉ số"
-
-msgid "[ All groups ]"
-msgstr ""
-
-msgid "Data elements"
-msgstr "Các phần tử dữ liệu"
-
-msgid "Select data element group"
-msgstr "Chọn nhóm yếu tố dữ liệu"
-
-msgid "[ All data elements ]"
-msgstr ""
-
-msgid "Totals"
-msgstr "Tổng"
-
-msgid "Details"
-msgstr "Chi tiết"
-
-msgid "Data sets"
-msgstr "Biểu nhập"
-
-msgid "Select data sets"
-msgstr ""
-
-msgid "[ All metrics ]"
-msgstr ""
-
-msgid "Event data items"
-msgstr "Mục dữ liệu sự kiện"
-
-msgid "Program indicators"
-msgstr "Chỉ Số Chương Trình"
-
 msgid "Add to series"
 msgstr ""
 
@@ -423,6 +381,15 @@ msgid "Add to category"
 msgstr ""
 
 msgid "Add to filter"
+msgstr ""
+
+msgid "Move to series"
+msgstr ""
+
+msgid "Move to category"
+msgstr ""
+
+msgid "Move to filter"
 msgstr ""
 
 msgid "series"
@@ -513,9 +480,6 @@ msgstr "3 tháng trước"
 msgid "Last 6 months"
 msgstr "6 tháng trước"
 
-msgid "Last 12 months"
-msgstr "Trong 12 tháng trước"
-
 msgid "Months this year"
 msgstr "Tháng năm nay"
 
@@ -570,17 +534,11 @@ msgstr "Năm ngoái"
 msgid "Last 5 years"
 msgstr "Trong 5 năm vừa qua"
 
-msgid "User org unit"
-msgstr "Đơn vị của người dùng"
-
-msgid "User org unit children"
-msgstr "Đơn vị con của người dùng"
-
-msgid "User org unit grand children"
-msgstr "Đơn vị cháu của người dùng"
-
 msgid "Weeks per year"
 msgstr "Hàng tuần mỗi năm"
+
+msgid "Last 12 months"
+msgstr "Trong 12 tháng trước"
 
 msgid "Months per year"
 msgstr "Tháng mỗi năm"
