@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-04-29T13:47:48.626Z\n"
-"PO-Revision-Date: 2020-04-29T13:47:48.626Z\n"
+"POT-Creation-Date: 2020-05-13T12:10:52.295Z\n"
+"PO-Revision-Date: 2020-05-13T12:10:52.295Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -69,10 +69,31 @@ msgstr ""
 msgid "Metadata ID scheme"
 msgstr ""
 
+msgid "ID"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
 msgid "Data value set"
 msgstr ""
 
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
 msgid "Other formats"
+msgstr ""
+
+msgid "JRXML"
+msgstr ""
+
+msgid "Raw data SQL"
 msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
@@ -111,9 +132,6 @@ msgstr ""
 msgid "Filter"
 msgstr ""
 
-msgid "Move to"
-msgstr ""
-
 msgid "None selected"
 msgstr ""
 
@@ -138,10 +156,10 @@ msgstr ""
 msgid "Error validating layout"
 msgstr ""
 
-msgid "Create a new visualization by adding dimensions to the layout"
+msgid "Chart error"
 msgstr ""
 
-msgid "Chart error"
+msgid "Create a new visualization by adding dimensions to the layout"
 msgstr ""
 
 msgid "Error generating chart, please try again"
@@ -345,66 +363,6 @@ msgstr ""
 msgid "Open as Map"
 msgstr ""
 
-msgid "Reporting rate"
-msgstr ""
-
-msgid "Reporting rate on time"
-msgstr ""
-
-msgid "Actual reports"
-msgstr ""
-
-msgid "Actual reports on time"
-msgstr ""
-
-msgid "Expected reports"
-msgstr ""
-
-msgid "Program"
-msgstr ""
-
-msgid "Select a program"
-msgstr ""
-
-msgid "Indicators"
-msgstr ""
-
-msgid "Select indicator group"
-msgstr ""
-
-msgid "[ All groups ]"
-msgstr ""
-
-msgid "Data elements"
-msgstr ""
-
-msgid "Select data element group"
-msgstr ""
-
-msgid "[ All data elements ]"
-msgstr ""
-
-msgid "Totals"
-msgstr ""
-
-msgid "Details"
-msgstr ""
-
-msgid "Data sets"
-msgstr ""
-
-msgid "Select data sets"
-msgstr ""
-
-msgid "[ All metrics ]"
-msgstr ""
-
-msgid "Event data items"
-msgstr ""
-
-msgid "Program indicators"
-msgstr ""
-
 msgid "Add to series"
 msgstr ""
 
@@ -412,6 +370,15 @@ msgid "Add to category"
 msgstr ""
 
 msgid "Add to filter"
+msgstr ""
+
+msgid "Move to series"
+msgstr ""
+
+msgid "Move to category"
+msgstr ""
+
+msgid "Move to filter"
 msgstr ""
 
 msgid "series"
@@ -556,15 +523,6 @@ msgid "Last year"
 msgstr ""
 
 msgid "Last 5 years"
-msgstr ""
-
-msgid "User org unit"
-msgstr ""
-
-msgid "User org unit children"
-msgstr ""
-
-msgid "User org unit grand children"
 msgstr ""
 
 msgid "Weeks per year"

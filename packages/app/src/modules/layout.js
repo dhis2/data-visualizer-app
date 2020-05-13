@@ -8,17 +8,24 @@ import {
 // Names for dnd sources
 export const SOURCE_DIMENSIONS = 'dimensions';
 
-// Keys and displayName for adding dimensions to layout
-export const ADD_TO_LAYOUT_OPTIONS = [
-    { axisKey: AXIS_NAME_COLUMNS, name: i18n.t('Add to series') },
-    { axisKey: AXIS_NAME_ROWS, name: i18n.t('Add to category') },
-    { axisKey: AXIS_NAME_FILTERS, name: i18n.t('Add to filter') },
-];
+export const getAddToAxisLabel = axis => {
+    const labels = {
+        [AXIS_NAME_COLUMNS]: i18n.t('Add to series'),
+        [AXIS_NAME_ROWS]: i18n.t('Add to category'),
+        [AXIS_NAME_FILTERS]: i18n.t('Add to filter'),
+    };
 
-export const menuLabels = {
-    columns: i18n.t('series'),
-    rows: i18n.t('category'),
-    filters: i18n.t('filter'),
+    return labels[axis];
+};
+
+export const getMoveToAxisLabel = axis => {
+    const labels = {
+        [AXIS_NAME_COLUMNS]: i18n.t('Move to series'),
+        [AXIS_NAME_ROWS]: i18n.t('Move to category'),
+        [AXIS_NAME_FILTERS]: i18n.t('Move to filter'),
+    };
+
+    return labels[axis];
 };
 
 // Layout utility functions
