@@ -111,7 +111,6 @@ class ChartPlugin extends Component {
 
             const extraOptions = {
                 dashboard: forDashboard,
-                noData: { text: i18n.t('No data') }
             };
 
             let responses = [];
