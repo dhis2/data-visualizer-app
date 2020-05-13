@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-04-29T13:47:48.626Z\n"
+"POT-Creation-Date: 2020-05-13T19:08:48.461Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2020\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -53,6 +53,8 @@ msgid ""
 "'Single Value' is intended to show a single data item. Only the first item "
 "will be used and saved."
 msgstr ""
+"'قيمة واحدة' يهدف إلى إظهار عنصر بيانات واحد. سيتم استخدام وحفظ العنصر الأول"
+" فقط."
 
 msgid "Hide"
 msgstr "إخفاء"
@@ -81,11 +83,32 @@ msgstr "متقدم"
 msgid "Metadata ID scheme"
 msgstr "مخطط معرف البيانات الوصفية"
 
+msgid "ID"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
 msgid "Data value set"
 msgstr "حزمة قيم البيانات"
 
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
 msgid "Other formats"
 msgstr "صيغ أخرى"
+
+msgid "JRXML"
+msgstr ""
+
+msgid "Raw data SQL"
+msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "حدث خطأ في تطبيق DHIS2 Data Visualizer."
@@ -123,9 +146,6 @@ msgstr "الفئة"
 msgid "Filter"
 msgstr "عامل التصفية"
 
-msgid "Move to"
-msgstr "نقل إلى"
-
 msgid "None selected"
 msgstr "غير محدد"
 
@@ -136,7 +156,7 @@ msgid "And 1 other..."
 msgstr ""
 
 msgid "And {{numberOfItems}} others..."
-msgstr ""
+msgstr "و {{numberOfItems}} أخرى..."
 
 msgid "Unsaved chart"
 msgstr "مخطط بياني غير محفوظ"
@@ -150,11 +170,11 @@ msgstr "مشاهدة التفسير من  {{interpretationDate}}"
 msgid "Error validating layout"
 msgstr "خطأ في التحقق من التخطيط"
 
-msgid "Create a new visualization by adding dimensions to the layout"
-msgstr "قم بإنشاء تخطيط بياني جديد من خلال إضافة أبعاد إلى التخطيط"
-
 msgid "Chart error"
 msgstr "خطأ في التخطيط البياني"
+
+msgid "Create a new visualization by adding dimensions to the layout"
+msgstr "قم بإنشاء تخطيط بياني جديد من خلال إضافة أبعاد إلى التخطيط"
 
 msgid "Error generating chart, please try again"
 msgstr "خطأ في إنشاء الرسم البياني ، يرجى المحاولة مرة أخرى"
@@ -357,66 +377,6 @@ msgstr "قيمة مفردة"
 msgid "Open as Map"
 msgstr "فتح كخريطة"
 
-msgid "Reporting rate"
-msgstr "معدل التبليغ"
-
-msgid "Reporting rate on time"
-msgstr "معدل الإبلاغ في الوقت المحدد"
-
-msgid "Actual reports"
-msgstr "التبليغات الفعلية"
-
-msgid "Actual reports on time"
-msgstr "التبليغات الفعلية في الوقت المحدد"
-
-msgid "Expected reports"
-msgstr "الإبلاغات المتوقعة"
-
-msgid "Program"
-msgstr "البرنامج"
-
-msgid "Select a program"
-msgstr "حدد برنامجاً"
-
-msgid "Indicators"
-msgstr "المؤشرات"
-
-msgid "Select indicator group"
-msgstr "تحديد مجموعة المؤشرات"
-
-msgid "[ All groups ]"
-msgstr "[ كل المجموعات ]"
-
-msgid "Data elements"
-msgstr "عناصر البيانات"
-
-msgid "Select data element group"
-msgstr "تحديد مجموعة عناصر البيانات"
-
-msgid "[ All data elements ]"
-msgstr "[ كل عناصر البيانات ]"
-
-msgid "Totals"
-msgstr "الإجمالي"
-
-msgid "Details"
-msgstr "التفاصيل"
-
-msgid "Data sets"
-msgstr "حزم البيانات"
-
-msgid "Select data sets"
-msgstr "حدد حزم بيانات"
-
-msgid "[ All metrics ]"
-msgstr "[جميع المقاييس]"
-
-msgid "Event data items"
-msgstr "عناصر بيانات الحدث"
-
-msgid "Program indicators"
-msgstr "مؤشرات البرنامج"
-
 msgid "Add to series"
 msgstr ""
 
@@ -424,6 +384,15 @@ msgid "Add to category"
 msgstr ""
 
 msgid "Add to filter"
+msgstr ""
+
+msgid "Move to series"
+msgstr ""
+
+msgid "Move to category"
+msgstr ""
+
+msgid "Move to filter"
 msgstr ""
 
 msgid "series"
@@ -514,9 +483,6 @@ msgstr "آخر 3 أشهر"
 msgid "Last 6 months"
 msgstr "آخر 6 أشهر"
 
-msgid "Last 12 months"
-msgstr "آخر 12 شهر"
-
 msgid "Months this year"
 msgstr "أشهر السنة الحالية"
 
@@ -571,17 +537,11 @@ msgstr "السنة الماضية"
 msgid "Last 5 years"
 msgstr "آخر 5 سنوات"
 
-msgid "User org unit"
-msgstr "الوحدة التنظيمية للمستخدم"
-
-msgid "User org unit children"
-msgstr "الوحدة التنظيمية للمستخدم العضو"
-
-msgid "User org unit grand children"
-msgstr "الوحدة التنظيمية الكبرى الأطفال"
-
 msgid "Weeks per year"
 msgstr "أسابيع في السنة"
+
+msgid "Last 12 months"
+msgstr "آخر 12 شهر"
 
 msgid "Months per year"
 msgstr "أشهر في السنة"

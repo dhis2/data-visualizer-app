@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-04-29T13:47:48.626Z\n"
+"POT-Creation-Date: 2020-05-13T19:08:48.461Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Tetum (Tetun) (https://www.transifex.com/hisp-uio/teams/100509/tet/)\n"
@@ -77,10 +77,31 @@ msgstr ""
 msgid "Metadata ID scheme"
 msgstr ""
 
+msgid "ID"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
 msgid "Data value set"
 msgstr ""
 
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
 msgid "Other formats"
+msgstr ""
+
+msgid "JRXML"
+msgstr ""
+
+msgid "Raw data SQL"
 msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
@@ -119,9 +140,6 @@ msgstr "Kategoria"
 msgid "Filter"
 msgstr "Filtru"
 
-msgid "Move to"
-msgstr ""
-
 msgid "None selected"
 msgstr ""
 
@@ -146,10 +164,10 @@ msgstr ""
 msgid "Error validating layout"
 msgstr ""
 
-msgid "Create a new visualization by adding dimensions to the layout"
+msgid "Chart error"
 msgstr ""
 
-msgid "Chart error"
+msgid "Create a new visualization by adding dimensions to the layout"
 msgstr ""
 
 msgid "Error generating chart, please try again"
@@ -353,66 +371,6 @@ msgstr ""
 msgid "Open as Map"
 msgstr ""
 
-msgid "Reporting rate"
-msgstr ""
-
-msgid "Reporting rate on time"
-msgstr ""
-
-msgid "Actual reports"
-msgstr ""
-
-msgid "Actual reports on time"
-msgstr ""
-
-msgid "Expected reports"
-msgstr ""
-
-msgid "Program"
-msgstr ""
-
-msgid "Select a program"
-msgstr ""
-
-msgid "Indicators"
-msgstr "Indikadores"
-
-msgid "Select indicator group"
-msgstr "Hili grupu indikadores"
-
-msgid "[ All groups ]"
-msgstr ""
-
-msgid "Data elements"
-msgstr "Elementus dadus"
-
-msgid "Select data element group"
-msgstr "Hili grupu elementus dadus"
-
-msgid "[ All data elements ]"
-msgstr ""
-
-msgid "Totals"
-msgstr "Totais"
-
-msgid "Details"
-msgstr "Detalles"
-
-msgid "Data sets"
-msgstr "Pakote dadus"
-
-msgid "Select data sets"
-msgstr ""
-
-msgid "[ All metrics ]"
-msgstr ""
-
-msgid "Event data items"
-msgstr ""
-
-msgid "Program indicators"
-msgstr ""
-
 msgid "Add to series"
 msgstr ""
 
@@ -420,6 +378,15 @@ msgid "Add to category"
 msgstr ""
 
 msgid "Add to filter"
+msgstr ""
+
+msgid "Move to series"
+msgstr ""
+
+msgid "Move to category"
+msgstr ""
+
+msgid "Move to filter"
 msgstr ""
 
 msgid "series"
@@ -510,9 +477,6 @@ msgstr "Fulan 3 ikus"
 msgid "Last 6 months"
 msgstr "Fulan 6 ikus"
 
-msgid "Last 12 months"
-msgstr "Fulan 12 ikus"
-
 msgid "Months this year"
 msgstr "Fulan sira tinan ida ne'e"
 
@@ -567,17 +531,11 @@ msgstr "Tinan kotuk"
 msgid "Last 5 years"
 msgstr "Tinan 5 kotuk"
 
-msgid "User org unit"
-msgstr "Utilizador nia unid org"
-
-msgid "User org unit children"
-msgstr ""
-
-msgid "User org unit grand children"
-msgstr ""
-
 msgid "Weeks per year"
 msgstr ""
+
+msgid "Last 12 months"
+msgstr "Fulan 12 ikus"
 
 msgid "Months per year"
 msgstr ""

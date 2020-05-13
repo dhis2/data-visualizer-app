@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-04-29T13:47:48.626Z\n"
+"POT-Creation-Date: 2020-05-13T19:08:48.461Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -80,11 +80,32 @@ msgstr "Avancé"
 msgid "Metadata ID scheme"
 msgstr "Schéma ID des métadata"
 
+msgid "ID"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
 msgid "Data value set"
 msgstr "Ensemble de valeurs de données"
 
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
 msgid "Other formats"
 msgstr "Autres formats"
+
+msgid "JRXML"
+msgstr ""
+
+msgid "Raw data SQL"
+msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr ""
@@ -122,9 +143,6 @@ msgstr "Catégorie"
 msgid "Filter"
 msgstr "Filtrer"
 
-msgid "Move to"
-msgstr ""
-
 msgid "None selected"
 msgstr ""
 
@@ -149,10 +167,10 @@ msgstr ""
 msgid "Error validating layout"
 msgstr ""
 
-msgid "Create a new visualization by adding dimensions to the layout"
+msgid "Chart error"
 msgstr ""
 
-msgid "Chart error"
+msgid "Create a new visualization by adding dimensions to the layout"
 msgstr ""
 
 msgid "Error generating chart, please try again"
@@ -356,66 +374,6 @@ msgstr "Valeur unique"
 msgid "Open as Map"
 msgstr ""
 
-msgid "Reporting rate"
-msgstr "Taux de déclaration"
-
-msgid "Reporting rate on time"
-msgstr "Taux de notification à temps"
-
-msgid "Actual reports"
-msgstr "Rapports réels"
-
-msgid "Actual reports on time"
-msgstr "Rapports réels à temps"
-
-msgid "Expected reports"
-msgstr "Rapports attendus"
-
-msgid "Program"
-msgstr "Programme"
-
-msgid "Select a program"
-msgstr "Sélectionnez un programme"
-
-msgid "Indicators"
-msgstr "Indicateurs"
-
-msgid "Select indicator group"
-msgstr "Sélectionner groupe d'indicateurs"
-
-msgid "[ All groups ]"
-msgstr "[ Tous les groupes ]"
-
-msgid "Data elements"
-msgstr "Eléments de données"
-
-msgid "Select data element group"
-msgstr "Sélectionner groupe d'éléments de données"
-
-msgid "[ All data elements ]"
-msgstr "[ Tous les éléments de données ]"
-
-msgid "Totals"
-msgstr "Totaux"
-
-msgid "Details"
-msgstr "Détails"
-
-msgid "Data sets"
-msgstr "Ensembles de données"
-
-msgid "Select data sets"
-msgstr "Sélectionner des ensembles de données"
-
-msgid "[ All metrics ]"
-msgstr "[ Toutes les métriques ]"
-
-msgid "Event data items"
-msgstr "Eléments de données évènement"
-
-msgid "Program indicators"
-msgstr "Indicateurs de programme"
-
 msgid "Add to series"
 msgstr ""
 
@@ -423,6 +381,15 @@ msgid "Add to category"
 msgstr ""
 
 msgid "Add to filter"
+msgstr ""
+
+msgid "Move to series"
+msgstr ""
+
+msgid "Move to category"
+msgstr ""
+
+msgid "Move to filter"
 msgstr ""
 
 msgid "series"
@@ -513,9 +480,6 @@ msgstr "3 derniers mois"
 msgid "Last 6 months"
 msgstr "6 derniers mois"
 
-msgid "Last 12 months"
-msgstr "12 derniers mois"
-
 msgid "Months this year"
 msgstr "Mois cette année"
 
@@ -570,17 +534,11 @@ msgstr "L'année passée"
 msgid "Last 5 years"
 msgstr "5 dernières années"
 
-msgid "User org unit"
-msgstr "Unité d'organisation utilisateur"
-
-msgid "User org unit children"
-msgstr ""
-
-msgid "User org unit grand children"
-msgstr ""
-
 msgid "Weeks per year"
 msgstr ""
+
+msgid "Last 12 months"
+msgstr "12 derniers mois"
 
 msgid "Months per year"
 msgstr ""
