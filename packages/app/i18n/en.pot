@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-05-13T12:10:52.295Z\n"
-"PO-Revision-Date: 2020-05-13T12:10:52.295Z\n"
+"POT-Creation-Date: 2020-05-13T19:08:48.461Z\n"
+"PO-Revision-Date: 2020-05-13T19:08:48.461Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -468,9 +468,6 @@ msgstr ""
 msgid "Last 6 months"
 msgstr ""
 
-msgid "Last 12 months"
-msgstr ""
-
 msgid "Months this year"
 msgstr ""
 
@@ -526,6 +523,9 @@ msgid "Last 5 years"
 msgstr ""
 
 msgid "Weeks per year"
+msgstr ""
+
+msgid "Last 12 months"
 msgstr ""
 
 msgid "Months per year"

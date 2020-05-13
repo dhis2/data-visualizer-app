@@ -10,7 +10,6 @@ import { setDataTransfer } from '../../modules/dnd';
 import { sGetDimensions } from '../../reducers/dimensions';
 import { sGetUiItemsByDimension, sGetUiType } from '../../reducers/ui';
 import DynamicDimensionIcon from '../../assets/DynamicDimensionIcon';
-import { sGetMetadata } from '../../reducers/metadata';
 import { styles } from './styles/Chip.style';
 import { isSingleValue } from '../../modules/chartTypes';
 
@@ -149,7 +148,6 @@ class Chip extends React.Component {
 const mapStateToProps = (state, ownProps) => ({
     dimensionName: (sGetDimensions(state)[ownProps.dimensionId] || {}).name,
     items: sGetUiItemsByDimension(state, ownProps.dimensionId) || emptyItems,
-    metadata: sGetMetadata(state),
     type: sGetUiType(state),
 });
 
