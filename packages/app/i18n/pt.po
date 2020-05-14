@@ -19,13 +19,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Rename successful"
-msgstr ""
+msgstr "Renomeado com sucesso"
 
 msgid "\"{{what}}\" successfully deleted."
 msgstr ""
 
 msgid "You have unsaved changes."
-msgstr ""
+msgstr "Tem alterações não gravadas."
 
 msgid "Discard unsaved changes?"
 msgstr "Eliminar as alterações não gravadas"
@@ -34,26 +34,30 @@ msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
 "be lost."
 msgstr ""
+"Tem certeza de que deseja sair dessa visualização? Quaisquer alterações não "
+"gravadas serão perdidas."
 
 msgid "No, cancel"
-msgstr ""
+msgstr "Não, cancelar"
 
 msgid "Yes, leave"
-msgstr ""
+msgstr "Sim, sair"
 
 msgid "Axis 1"
-msgstr ""
+msgstr "Eixo 1"
 
 msgid "Axis 2"
-msgstr ""
+msgstr "Eixo 2"
 
 msgid "Manage axes"
-msgstr ""
+msgstr "Gerir eixos"
 
 msgid ""
 "A chart can have two axes. Each axis will have its own scale. Set the axis "
 "for each data selection below."
 msgstr ""
+"Um gráfico pode ter dois eixos. Cada eixo terá sua própria escala. Defina o "
+"eixo para cada dado."
 
 msgid "Cancel"
 msgstr "Cancelar"
@@ -68,17 +72,21 @@ msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
 "first item will be used and saved."
 msgstr ""
+"'{{visualizationType}}' destina-se a mostrar um único item de dados. Somente"
+" o primeiro item será usado e gravado."
 
 msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
+"'{{visualiationType}}' destina-se a mostrar o número máximo de {{maxNumber}}"
+"  itens. Somente os primeiros itens {{maxNumber}} serão usados e gravados."
 
 msgid "Main dimensions"
-msgstr ""
+msgstr "Dimensões principais"
 
 msgid "Other dimensions"
-msgstr ""
+msgstr "Outras dimensões"
 
 msgid "Your dimensions"
 msgstr ""
