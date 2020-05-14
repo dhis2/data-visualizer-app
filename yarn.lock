@@ -164,10 +164,10 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@~2.4.12":
-  version "2.4.12"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.4.12.tgz#2e27a8a8d63d3d2f7795d044bf69a9f96e76362c"
-  integrity sha512-YM0ckmWZAJTNFxY8RkZr3EsekGkVGFbzpWL5lB2F9iPOep8CdqKJOBcQfO5LwY57JExbAqaVh1mwJY+m2Li0oQ==
+"@dhis2/analytics@~2.4.13":
+  version "2.4.13"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-2.4.13.tgz#5fa7abce0497dfeb3bdff299a6ddb88749f1546d"
+  integrity sha512-HB/Ixc19Rk2fFUkIR39JmFUNvfxoIq6DR5k0XiPcxGyATamX+AuucZ28wsz3R2ao5Lu/kTzsGeetfQnGaFlhCw==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.2"
     "@dhis2/ui-core" "^3.4.0"
