@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-13T19:08:48.461Z\n"
+"POT-Creation-Date: 2020-05-14T01:00:50.112Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2020\n"
 "Language-Team: Arabic (Iraq) (https://www.transifex.com/hisp-uio/teams/100509/ar_IQ/)\n"
@@ -476,6 +476,9 @@ msgstr "آخر 3 أشهر"
 msgid "Last 6 months"
 msgstr "آخر 6 أشهر"
 
+msgid "Last 12 months"
+msgstr "آخر 12 شهر"
+
 msgid "Months this year"
 msgstr "أشهر السنة الحالية"
 
@@ -530,11 +533,17 @@ msgstr "السنة الماضية"
 msgid "Last 5 years"
 msgstr "آخر 5 سنوات"
 
-msgid "Weeks per year"
+msgid "User org unit"
 msgstr ""
 
-msgid "Last 12 months"
-msgstr "آخر 12 شهر"
+msgid "User org unit children"
+msgstr ""
+
+msgid "User org unit grand children"
+msgstr ""
+
+msgid "Weeks per year"
+msgstr ""
 
 msgid "Months per year"
 msgstr ""

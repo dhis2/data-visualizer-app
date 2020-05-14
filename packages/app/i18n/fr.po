@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-13T19:08:48.461Z\n"
+"POT-Creation-Date: 2020-05-14T01:00:50.112Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: Djibril Dione <dione.djibril@gmail.com>, 2020\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -481,6 +481,9 @@ msgstr "3 derniers mois"
 msgid "Last 6 months"
 msgstr "6 derniers mois"
 
+msgid "Last 12 months"
+msgstr "12 derniers mois"
+
 msgid "Months this year"
 msgstr "Mois cette année"
 
@@ -535,11 +538,17 @@ msgstr "L'année passée"
 msgid "Last 5 years"
 msgstr "5 dernières années"
 
-msgid "Weeks per year"
+msgid "User org unit"
 msgstr ""
 
-msgid "Last 12 months"
-msgstr "12 derniers mois"
+msgid "User org unit children"
+msgstr ""
+
+msgid "User org unit grand children"
+msgstr ""
+
+msgid "Weeks per year"
+msgstr ""
 
 msgid "Months per year"
 msgstr ""
