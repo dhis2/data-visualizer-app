@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Rename successful"
-msgstr ""
+msgstr "Renomeado com sucesso"
 
 msgid "\"{{what}}\" successfully deleted."
 msgstr ""
@@ -28,18 +28,20 @@ msgid "Data Visualizer"
 msgstr "Visualização de Dados"
 
 msgid "Axis 1"
-msgstr ""
+msgstr "Eixo 1"
 
 msgid "Axis 2"
-msgstr ""
+msgstr "Eixo 2"
 
 msgid "Manage axes"
-msgstr ""
+msgstr "Gerir eixos"
 
 msgid ""
 "A chart can have two axes. Each axis will have its own scale. Set the axis "
 "for each data selection below."
 msgstr ""
+"Um gráfico pode ter dois eixos. Cada eixo terá sua própria escala. Defina o "
+"eixo para cada dado."
 
 msgid "Cancel"
 msgstr "Cancelar"
