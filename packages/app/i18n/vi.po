@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-13T19:08:48.461Z\n"
+"POT-Creation-Date: 2020-05-14T01:00:50.112Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
@@ -480,6 +480,9 @@ msgstr "3 tháng trước"
 msgid "Last 6 months"
 msgstr "6 tháng trước"
 
+msgid "Last 12 months"
+msgstr "Trong 12 tháng trước"
+
 msgid "Months this year"
 msgstr "Tháng năm nay"
 
@@ -534,11 +537,17 @@ msgstr "Năm ngoái"
 msgid "Last 5 years"
 msgstr "Trong 5 năm vừa qua"
 
+msgid "User org unit"
+msgstr ""
+
+msgid "User org unit children"
+msgstr ""
+
+msgid "User org unit grand children"
+msgstr ""
+
 msgid "Weeks per year"
 msgstr "Hàng tuần mỗi năm"
-
-msgid "Last 12 months"
-msgstr "Trong 12 tháng trước"
 
 msgid "Months per year"
 msgstr "Tháng mỗi năm"

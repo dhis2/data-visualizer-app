@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-13T19:08:48.461Z\n"
+"POT-Creation-Date: 2020-05-14T01:00:50.112Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
@@ -482,6 +482,9 @@ msgstr "Последние 3 месяца"
 msgid "Last 6 months"
 msgstr "Последние 6 месяцев"
 
+msgid "Last 12 months"
+msgstr "Последние 12 месяцев"
+
 msgid "Months this year"
 msgstr "Месяцы в этом году"
 
@@ -536,11 +539,17 @@ msgstr "Последний год"
 msgid "Last 5 years"
 msgstr "Последние 5 лет"
 
+msgid "User org unit"
+msgstr ""
+
+msgid "User org unit children"
+msgstr ""
+
+msgid "User org unit grand children"
+msgstr ""
+
 msgid "Weeks per year"
 msgstr "Недели за год"
-
-msgid "Last 12 months"
-msgstr "Последние 12 месяцев"
 
 msgid "Months per year"
 msgstr "Месяцы за год"

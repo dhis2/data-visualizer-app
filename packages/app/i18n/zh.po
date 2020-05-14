@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-13T19:08:48.461Z\n"
+"POT-Creation-Date: 2020-05-14T01:00:50.112Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -479,6 +479,9 @@ msgstr "最近3个月"
 msgid "Last 6 months"
 msgstr "最近六个月<br>"
 
+msgid "Last 12 months"
+msgstr "最近12月"
+
 msgid "Months this year"
 msgstr "今年的月份"
 
@@ -533,11 +536,17 @@ msgstr "去年"
 msgid "Last 5 years"
 msgstr "最近5年"
 
+msgid "User org unit"
+msgstr ""
+
+msgid "User org unit children"
+msgstr ""
+
+msgid "User org unit grand children"
+msgstr ""
+
 msgid "Weeks per year"
 msgstr "每年的周"
-
-msgid "Last 12 months"
-msgstr "最近12月"
 
 msgid "Months per year"
 msgstr "每年的月"

@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-13T19:08:48.461Z\n"
+"POT-Creation-Date: 2020-05-14T01:00:50.112Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -485,6 +485,9 @@ msgstr "Siste 3 måneder"
 msgid "Last 6 months"
 msgstr "Siste 6 måneder"
 
+msgid "Last 12 months"
+msgstr "Siste 12 måneder"
+
 msgid "Months this year"
 msgstr "Måneder inneværende år"
 
@@ -539,11 +542,17 @@ msgstr "I fjor"
 msgid "Last 5 years"
 msgstr "Siste 5 år"
 
+msgid "User org unit"
+msgstr ""
+
+msgid "User org unit children"
+msgstr ""
+
+msgid "User org unit grand children"
+msgstr ""
+
 msgid "Weeks per year"
 msgstr "Uker per år"
-
-msgid "Last 12 months"
-msgstr "Siste 12 måneder"
 
 msgid "Months per year"
 msgstr "Måneder per år"

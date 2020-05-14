@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-13T19:08:48.461Z\n"
+"POT-Creation-Date: 2020-05-14T01:00:50.112Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Swedish (https://www.transifex.com/hisp-uio/teams/100509/sv/)\n"
@@ -477,6 +477,9 @@ msgstr "Senaste 3 månaderna"
 msgid "Last 6 months"
 msgstr "Senaste 6 månaderna"
 
+msgid "Last 12 months"
+msgstr "Senaste 12 månaderna"
+
 msgid "Months this year"
 msgstr "Månader i år"
 
@@ -531,11 +534,17 @@ msgstr "Förra året"
 msgid "Last 5 years"
 msgstr "Senaste 5 år"
 
-msgid "Weeks per year"
+msgid "User org unit"
 msgstr ""
 
-msgid "Last 12 months"
-msgstr "Senaste 12 månaderna"
+msgid "User org unit children"
+msgstr ""
+
+msgid "User org unit grand children"
+msgstr ""
+
+msgid "Weeks per year"
+msgstr ""
 
 msgid "Months per year"
 msgstr ""
