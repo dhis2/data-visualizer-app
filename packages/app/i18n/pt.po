@@ -1,8 +1,8 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2019
-# phil_dhis2, 2019
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
+# phil_dhis2, 2020
+# Viktor Varland <viktor@dhis2.org>, 2020
 # Sheila André <sandre@saudigitus.org>, 2020
 # 
 msgid ""
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Rename successful"
-msgstr ""
+msgstr "Renomeado com sucesso"
 
 msgid "\"{{what}}\" successfully deleted."
 msgstr ""
@@ -28,18 +28,20 @@ msgid "Data Visualizer"
 msgstr "Visualização de Dados"
 
 msgid "Axis 1"
-msgstr ""
+msgstr "Eixo 1"
 
 msgid "Axis 2"
-msgstr ""
+msgstr "Eixo 2"
 
 msgid "Manage axes"
-msgstr ""
+msgstr "Gerir eixos"
 
 msgid ""
 "A chart can have two axes. Each axis will have its own scale. Set the axis "
 "for each data selection below."
 msgstr ""
+"Um gráfico pode ter dois eixos. Cada eixo terá sua própria escala. Defina o "
+"eixo para cada dado."
 
 msgid "Cancel"
 msgstr "Cancelar"
@@ -80,22 +82,22 @@ msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr ""
+msgstr "Id"
 
 msgid "Code"
-msgstr ""
+msgstr "Código"
 
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 msgid "Data value set"
 msgstr "Conjunto de valores de dados"
 
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 msgid "XML"
-msgstr ""
+msgstr "XML"
 
 msgid "Other formats"
 msgstr ""

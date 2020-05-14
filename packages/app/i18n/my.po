@@ -78,13 +78,13 @@ msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr ""
+msgstr "အိုင်ဒီ"
 
 msgid "Code"
-msgstr ""
+msgstr "ကုဒ်"
 
 msgid "Name"
-msgstr ""
+msgstr "အမည်"
 
 msgid "Data value set"
 msgstr ""
