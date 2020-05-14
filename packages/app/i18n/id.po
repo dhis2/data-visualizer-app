@@ -85,19 +85,19 @@ msgid "ID"
 msgstr ""
 
 msgid "Code"
-msgstr ""
+msgstr "Kode"
 
 msgid "Name"
-msgstr ""
+msgstr "Nama"
 
 msgid "Data value set"
 msgstr "Set nilai data"
 
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 msgid "XML"
-msgstr ""
+msgstr "XML"
 
 msgid "Other formats"
 msgstr "Format lain"

@@ -1,8 +1,8 @@
 # 
 # Translators:
 # Viktor Varland <viktor@dhis2.org>, 2019
-# phil_dhis2, 2019
 # easylin <lin_xd@126.com>, 2020
+# phil_dhis2, 2020
 # 晓东 林 <13981924470@126.com>, 2020
 # 
 msgid ""
@@ -80,22 +80,22 @@ msgid "Metadata ID scheme"
 msgstr "元数据ID方案"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Code"
-msgstr ""
+msgstr "代码"
 
 msgid "Name"
-msgstr ""
+msgstr "名称"
 
 msgid "Data value set"
 msgstr "数据值集"
 
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 msgid "XML"
-msgstr ""
+msgstr "XML"
 
 msgid "Other formats"
 msgstr "其它格式"

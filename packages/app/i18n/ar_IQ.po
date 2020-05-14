@@ -83,7 +83,7 @@ msgid "Code"
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "الاسم"
 
 msgid "Data value set"
 msgstr "حزمة قيم البيانات"
