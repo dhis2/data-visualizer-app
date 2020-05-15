@@ -231,7 +231,7 @@ export class App extends Component {
                                 </div>
                                 <div className="main-center-canvas flex-grow-1">
                                     {this.state.initialLoadIsComplete && (
-                                        <Visualization ouLevels={this.props.ouLevels} />
+                                        <Visualization />
                                     )}
                                 </div>
                             </div>
