@@ -1,8 +1,8 @@
 # 
 # Translators:
 # phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
 # Hamza Assada <7amza.it@gmail.com>, 2020
+# Viktor Varland <viktor@dhis2.org>, 2020
 # KRG HIS <antonia.bezenchek@informa.pro>, 2020
 # 
 msgid ""
@@ -541,13 +541,13 @@ msgid "Last 5 years"
 msgstr "آخر 5 سنوات"
 
 msgid "User org unit"
-msgstr ""
+msgstr "الوحدة التنظيمية للمستخدم"
 
 msgid "User org unit children"
-msgstr ""
+msgstr "الوحدة التنظيمية للمستخدم العضو"
 
 msgid "User org unit grand children"
-msgstr ""
+msgstr "الوحدة التنظيمية الكبرى الأطفال"
 
 msgid "Weeks per year"
 msgstr "أسابيع في السنة"

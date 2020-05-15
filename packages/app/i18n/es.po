@@ -539,7 +539,7 @@ msgid "Last 5 years"
 msgstr "Últimos 5 años"
 
 msgid "User org unit"
-msgstr ""
+msgstr "Unidad organizativa de usuario"
 
 msgid "User org unit children"
 msgstr ""

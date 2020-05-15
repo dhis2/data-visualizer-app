@@ -1,16 +1,16 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2019
-# easylin <lin_xd@126.com>, 2020
 # phil_dhis2, 2020
+# Viktor Varland <viktor@dhis2.org>, 2020
 # 晓东 林 <13981924470@126.com>, 2020
+# easylin <lin_xd@126.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-14T01:00:50.112Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
-"Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2020\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -149,10 +149,10 @@ msgid "Only '{{name}}' in use"
 msgstr "仅 '{{name}}' 在使用"
 
 msgid "And 1 other..."
-msgstr ""
+msgstr "和其它1个"
 
 msgid "And {{numberOfItems}} others..."
-msgstr ""
+msgstr "和其他{{numberOfItems}} 个"
 
 msgid "Unsaved chart"
 msgstr "未保存图表"
@@ -537,13 +537,13 @@ msgid "Last 5 years"
 msgstr "最近5年"
 
 msgid "User org unit"
-msgstr ""
+msgstr "当前用户机构"
 
 msgid "User org unit children"
-msgstr ""
+msgstr "用户下属机构"
 
 msgid "User org unit grand children"
-msgstr ""
+msgstr "用户下下级机构"
 
 msgid "Weeks per year"
 msgstr "每年的周"

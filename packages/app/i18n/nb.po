@@ -543,13 +543,13 @@ msgid "Last 5 years"
 msgstr "Siste 5 år"
 
 msgid "User org unit"
-msgstr ""
+msgstr "Org enhet"
 
 msgid "User org unit children"
-msgstr ""
+msgstr "Bruker underordnet org enhet"
 
 msgid "User org unit grand children"
-msgstr ""
+msgstr "Bruker under-underordnet org enhet"
 
 msgid "Weeks per year"
 msgstr "Uker per år"

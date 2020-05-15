@@ -535,7 +535,7 @@ msgid "Last 5 years"
 msgstr "5 ປີຍ້ອນຫຼັງ"
 
 msgid "User org unit"
-msgstr ""
+msgstr "ໜ່ວຍງານທີ່ຂຶ້ນກັບຕົນເອງ"
 
 msgid "User org unit children"
 msgstr ""
