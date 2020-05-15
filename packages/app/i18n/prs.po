@@ -534,7 +534,7 @@ msgid "Last 5 years"
 msgstr "5 سال گذشته"
 
 msgid "User org unit"
-msgstr ""
+msgstr "واحد سازمان استفاده کننده گان"
 
 msgid "User org unit children"
 msgstr ""

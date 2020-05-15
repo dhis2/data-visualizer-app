@@ -535,13 +535,13 @@ msgid "Last 5 years"
 msgstr "最近五年"
 
 msgid "User org unit"
-msgstr ""
+msgstr "当前用户机构"
 
 msgid "User org unit children"
-msgstr ""
+msgstr "用户下属机构"
 
 msgid "User org unit grand children"
-msgstr ""
+msgstr "用户下下级机构"
 
 msgid "Weeks per year"
 msgstr "每年的周"

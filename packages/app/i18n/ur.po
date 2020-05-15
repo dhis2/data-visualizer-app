@@ -535,13 +535,13 @@ msgid "Last 5 years"
 msgstr "آخری ۵ سال"
 
 msgid "User org unit"
-msgstr ""
+msgstr "صارف کے اجزاء"
 
 msgid "User org unit children"
-msgstr ""
+msgstr "صارف کے اجزاء بچے"
 
 msgid "User org unit grand children"
-msgstr ""
+msgstr "یوزر ایو یونٹ گرینڈ بچوں"
 
 msgid "Weeks per year"
 msgstr ""
