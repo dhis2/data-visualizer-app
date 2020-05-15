@@ -44,14 +44,14 @@ export const VisualizationPlugin = ({
 
     const onContextualMenuItemClick = args => {
         closeContextualMenu()
-console.log('contex click', args)
+        console.log('contex click', args)
         if (args.ou) {
-            const ouItems = [
-                {id: args.ou.id, name: args.ou.name}
-            ]
+            const ouItems = [{ id: args.ou.id, name: args.ou.name }]
 
             if (args.ou.level) {
-                const levelData = ouLevels.find(item => item.id === args.ou.level)
+                const levelData = ouLevels.find(
+                    item => item.id === args.ou.level
+                )
 
                 ouItems.push({
                     id: levelData.id,
@@ -93,14 +93,11 @@ console.log('contex click', args)
         [engine]
     )
 
-    const doFetchOuLevelsData = useCallback(
-        async () => {
-            const ouLevelsData = await apiFetchOrganisationUnitLevels(engine)
+    const doFetchOuLevelsData = useCallback(async () => {
+        const ouLevelsData = await apiFetchOrganisationUnitLevels(engine)
 
-            return ouLevelsData.orgUnitsLevels.organisationUnitLevels
-        },
-        [engine]
-    )
+        return ouLevelsData.orgUnitsLevels.organisationUnitLevels
+    }, [engine])
 
     useEffect(() => {
         const doFetch = async () => {
@@ -175,33 +172,37 @@ console.log('contex click', args)
 
     return (
         <>
-        {(!fetchResult.visualization.type ||
-        fetchResult.visualization.type === VIS_TYPE_PIVOT_TABLE) ?
-            <PivotPlugin
-                visualization={fetchResult.visualization}
-                responses={fetchResult.responses}
-                legendSets={fetchResult.legendSets}
-                onToggleContextualMenu={onToggleContextualMenu}
-                {...props}
-            />
-            :
-            <ChartPlugin
-                visualization={fetchResult.visualization}
-                responses={fetchResult.responses}
-                extraOptions={fetchResult.extraOptions}
-                legendSets={fetchResult.legendSets}
-                {...props}
-            />
-        }
-        {contextualMenuRef &&
-            createPortal(
-                <div onClick={closeContextualMenu} style={styles.backdrop}>
-                    <Popper reference={contextualMenuRef} placement="right">
-                        <ContextualMenu config={contextualMenuConfig} ouLevels={ouLevels} onClick={onContextualMenuItemClick} />
-                    </Popper>
-                </div>,
-                document.body
+            {!fetchResult.visualization.type ||
+            fetchResult.visualization.type === VIS_TYPE_PIVOT_TABLE ? (
+                <PivotPlugin
+                    visualization={fetchResult.visualization}
+                    responses={fetchResult.responses}
+                    legendSets={fetchResult.legendSets}
+                    onToggleContextualMenu={onToggleContextualMenu}
+                    {...props}
+                />
+            ) : (
+                <ChartPlugin
+                    visualization={fetchResult.visualization}
+                    responses={fetchResult.responses}
+                    extraOptions={fetchResult.extraOptions}
+                    legendSets={fetchResult.legendSets}
+                    {...props}
+                />
             )}
+            {contextualMenuRef &&
+                createPortal(
+                    <div onClick={closeContextualMenu} style={styles.backdrop}>
+                        <Popper reference={contextualMenuRef} placement="right">
+                            <ContextualMenu
+                                config={contextualMenuConfig}
+                                ouLevels={ouLevels}
+                                onClick={onContextualMenuItemClick}
+                            />
+                        </Popper>
+                    </div>,
+                    document.body
+                )}
         </>
     )
 }

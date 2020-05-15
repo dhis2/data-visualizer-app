@@ -6,5 +6,5 @@ export default {
         top: 0,
         left: 0,
         backgroundColor: 'transparent',
-    }
+    },
 }

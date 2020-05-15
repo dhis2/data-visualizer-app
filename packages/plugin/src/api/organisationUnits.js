@@ -4,8 +4,8 @@ const orgUnitLevelsQuery = {
         params: {
             fields: 'id,level,displayName~rename(name)',
             paging: 'false',
-        }
-    }
+        },
+    },
 }
 
 const orgUnitsQuery = {
@@ -13,7 +13,8 @@ const orgUnitsQuery = {
         resource: 'organisationUnits',
         id: ({ id }) => id,
         params: {
-            fields: 'id,level,displayName~rename(name),parent[id,displayName~rename(name)],children[level]',
+            fields:
+                'id,level,displayName~rename(name),parent[id,displayName~rename(name)],children[level]',
             paging: 'false',
             userDataViewFallback: 'true',
         },
