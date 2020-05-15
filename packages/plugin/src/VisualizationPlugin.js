@@ -112,7 +112,7 @@ export const VisualizationPlugin = ({
 
     useEffect(() => {
         setFetchResult(null)
-        console.log('in effect')
+
         const doFetchAll = async () => {
             const { responses, extraOptions } = await doFetchData(
                 visualization,

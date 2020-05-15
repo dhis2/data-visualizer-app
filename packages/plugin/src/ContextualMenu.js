@@ -5,7 +5,7 @@ import i18n from '@dhis2/d2-i18n'
 import { useDataEngine } from '@dhis2/app-runtime'
 import { Divider, Menu, MenuItem } from '@dhis2/ui-core'
 
-import { apiFetchOrganisationUnit } from '../api/organisationUnits'
+import { apiFetchOrganisationUnit } from './api/organisationUnits'
 
 export const ContextualMenu = ({ config, ouLevels, onClick }) => {
     const engine = useDataEngine()
