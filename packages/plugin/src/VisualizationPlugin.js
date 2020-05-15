@@ -2,13 +2,13 @@ import React, { useEffect, useState, useCallback } from 'react'
 import { createPortal } from 'react-dom'
 import PropTypes from 'prop-types'
 
-import i18n from '@dhis2/d2-i18n'
 import { useDataEngine } from '@dhis2/app-runtime'
-import { Divider, Menu, MenuItem, Popper } from '@dhis2/ui-core'
+import { Popper } from '@dhis2/ui-core'
 import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
 
 import { apiFetchLegendSets } from './api/legendSets'
 import { apiFetchOrganisationUnitLevels } from './api/organisationUnits'
+import ContextualMenu from './ContextualMenu'
 import ChartPlugin from './ChartPlugin'
 import PivotPlugin from './PivotPlugin'
 import { fetchData } from './modules/fetchData'
@@ -17,56 +17,6 @@ import styles from './styles/VisualizationPlugin.style.js'
 
 const LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM = 'BY_DATA_ITEM'
 const LEGEND_DISPLAY_STRATEGY_FIXED = 'FIXED'
-
-const ContextualMenu = ({ config, onClick }) => {
-    const engine = useDataEngine()
-    const [ouData, setOuData] = useState(undefined)
-
-    const doFetchOuData = useCallback(
-        async ouId => {
-            const ouData = await apiFetchOuData(engine, ouId)
-
-            return ouData
-        },
-        [engine]
-    )
-
-    useEffect(() => {
-        setOuData(null)
-
-        const doFetch = async () => {
-            const ouData = await doFetchOuData(config.ouId)
-
-            setOuData(ouData.orgUnits)
-        }
-
-        doFetch()
-
-        /* eslint-disable-next-line react-hooks/exhaustive-deps */
-    }, [config])
-
-    return (
-        <Menu>
-            {ouData &&
-                <MenuItem label={i18n.t('Org. unit drill down/up')}>
-                    <Menu>
-                        {
-                            Boolean(ouData?.children.length) && (
-                                <>
-                                    <MenuItem dense label={`Show level ${ouData.children[0].level} in ${ouData.name}`} onClick={() => onClick({ ou: { id: ouData.id, level: ouData.children[0].level } })}/>
-                                    {ouData?.parent && <Divider />}
-                                </>
-                            )
-                        }
-                        {ouData?.parent &&
-                                <MenuItem dense label={i18n.t('Show {{orgunit}}', { orgunit: ouData.parent.name })} onClick={() => onClick({ ou: { id: ouData.parent.id } })} />
-                        }
-                    </Menu>
-                </MenuItem>
-            }
-        </Menu>
-    )
-}
 
 export const VisualizationPlugin = ({
     d2,

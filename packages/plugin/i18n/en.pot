@@ -5,10 +5,13 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-05-13T11:50:49.800Z\n"
-"PO-Revision-Date: 2020-05-13T11:50:49.800Z\n"
+"POT-Creation-Date: 2020-05-15T13:23:18.512Z\n"
+"PO-Revision-Date: 2020-05-15T13:23:18.512Z\n"
 
 msgid "Org. unit drill down/up"
+msgstr ""
+
+msgid "Show {{level}} level in {{orgunit}}"
 msgstr ""
 
 msgid "Show {{orgunit}}"
