@@ -17,8 +17,6 @@ import { acSetLoadError, acSetPluginLoading } from '../../actions/loader'
 import { acSetUiItems } from '../../actions/ui'
 import { tSetCurrentFromUi } from '../../actions/current'
 
-import { replaceNumericOuLevelWithUid } from '../../modules/orgUnit'
-
 import StartScreen from './StartScreen'
 import {
     AssignedCategoriesDataElementsError,
@@ -98,27 +96,22 @@ export class Visualization extends Component {
         console.log('drill data', drillData)
 
         if (drillData?.ou) {
-            const itemIds = [
-                drillData.ou.id
-            ]
+            const itemIds = [drillData.ou.id]
 
             if (drillData.ou.level) {
-                itemIds.push(
-                    replaceNumericOuLevelWithUid(this.props.ouLevels, `LEVEL-${drillData.ou.level}`)
-                )
+                itemIds.push(`LEVEL-${drillData.ou.level}`)
             }
 
             this.props.setUiItems({
                 dimensionId: 'ou',
-                itemIds
+                itemIds,
             })
         }
 
         // TODO drillData?.pe
 
-        // potentially not needed if visualization is already updated in the plugin (4 dashboards)
+        // simulate an update for refreshing the visualization
         this.props.setCurrent()
-
     }
 
     getNewRenderId = () =>
@@ -187,10 +180,11 @@ Visualization.propTypes = {
     addMetadata: PropTypes.func,
     error: PropTypes.object,
     isLoading: PropTypes.bool,
-    ouLevels: PropTypes.array,
     rightSidebarOpen: PropTypes.bool,
     setChart: PropTypes.func,
+    setCurrent: PropTypes.func,
     setLoadError: PropTypes.func,
+    setUiItems: PropTypes.func,
     visFilters: PropTypes.object,
     visualization: PropTypes.object,
     onLoadingComplete: PropTypes.func,
