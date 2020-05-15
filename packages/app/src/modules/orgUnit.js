@@ -11,15 +11,15 @@ const isOuLevelIntId = id =>
         ? Number.isInteger(parseInt(ouIdHelper.removePrefix(id), 10))
         : false
 
-const replaceNumericOuLevelWithUid = ouLevels => item => {
-    if (!isOuLevelIntId(item.id)) {
-        return item
+export const replaceNumericOuLevelWithUid = (ouLevels, id) => {
+    if (!isOuLevelIntId(id)) {
+        return id
     }
 
-    const ouIntId = parseInt(ouIdHelper.removePrefix(item.id), 10)
+    const ouIntId = parseInt(ouIdHelper.removePrefix(id), 10)
     const ouUid = ouLevels.find(l => parseInt(l.level, 10) === ouIntId).id
 
-    return Object.assign({}, item, { id: ouIdHelper.addLevelPrefix(ouUid) })
+    return ouIdHelper.addLevelPrefix(ouUid)
 }
 
 export const convertOuLevelsToUids = (ouLevels, layout) => {
@@ -30,10 +30,12 @@ export const convertOuLevelsToUids = (ouLevels, layout) => {
         dimensionGetItems(ouDimension).some(item => isOuLevelIntId(item.id))
 
     if (hasNumericOuLevels) {
-        const replaceNumericOuLevel = replaceNumericOuLevelWithUid(ouLevels)
+//        const replaceNumericOuLevel = replaceNumericOuLevelWithUid(ouLevels)
 
-        const updatedOuItems = dimensionGetItems(ouDimension).map(
-            replaceNumericOuLevel
+        const updatedOuItems = dimensionGetItems(ouDimension).map(item => ({
+                ...item,
+                id: replaceNumericOuLevelWithUid(ouLevels, item.id)
+            })
         )
 
         return layoutReplaceDimension(

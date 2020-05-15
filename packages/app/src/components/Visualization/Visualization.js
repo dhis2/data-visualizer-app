@@ -14,6 +14,10 @@ import { sGetLoadError, sGetIsPluginLoading } from '../../reducers/loader'
 import { acAddMetadata } from '../../actions/metadata'
 import { acSetChart } from '../../actions/chart'
 import { acSetLoadError, acSetPluginLoading } from '../../actions/loader'
+import { acSetUiItems } from '../../actions/ui'
+import { tSetCurrentFromUi } from '../../actions/current'
+
+import { replaceNumericOuLevelWithUid } from '../../modules/orgUnit'
 
 import StartScreen from './StartScreen'
 import {
@@ -90,6 +94,33 @@ export class Visualization extends Component {
         this.props.addMetadata(forMetadata)
     }
 
+    onDrill = drillData => {
+        console.log('drill data', drillData)
+
+        if (drillData?.ou) {
+            const itemIds = [
+                drillData.ou.id
+            ]
+
+            if (drillData.ou.level) {
+                itemIds.push(
+                    replaceNumericOuLevelWithUid(this.props.ouLevels, `LEVEL-${drillData.ou.level}`)
+                )
+            }
+
+            this.props.setUiItems({
+                dimensionId: 'ou',
+                itemIds
+            })
+        }
+
+        // TODO drillData?.pe
+
+        // potentially not needed if visualization is already updated in the plugin (4 dashboards)
+        this.props.setCurrent()
+
+    }
+
     getNewRenderId = () =>
         this.setState({
             renderId:
@@ -140,6 +171,7 @@ export class Visualization extends Component {
                     onLoadingComplete={this.props.onLoadingComplete}
                     onResponsesReceived={this.onResponsesReceived}
                     onError={this.onError}
+                    onDrill={this.onDrill}
                     style={styles.chartCanvas}
                 />
             </Fragment>
@@ -155,6 +187,7 @@ Visualization.propTypes = {
     addMetadata: PropTypes.func,
     error: PropTypes.object,
     isLoading: PropTypes.bool,
+    ouLevels: PropTypes.array,
     rightSidebarOpen: PropTypes.bool,
     setChart: PropTypes.func,
     setLoadError: PropTypes.func,
@@ -190,6 +223,8 @@ const mapDispatchToProps = dispatch => ({
     addMetadata: metadata => dispatch(acAddMetadata(metadata)),
     setChart: chart => dispatch(acSetChart(chart)),
     setLoadError: error => dispatch(acSetLoadError(error)),
+    setUiItems: data => dispatch(acSetUiItems(data)),
+    setCurrent: () => dispatch(tSetCurrentFromUi()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Visualization)
