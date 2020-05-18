@@ -59,7 +59,7 @@ class Axis extends React.Component {
             <MenuItem
                 key={`${dimensionId}-to-${key}`}
                 onClick={this.props.getMoveHandler({ [dimensionId]: key })}
-            >{`${i18n.t('Move to')} ${menuLabels[key]}`}</MenuItem>
+            >{`${menuLabels[key]()}`}</MenuItem>
         ));
 
     isSeries = () => this.props.axisName === AXIS_NAME_COLUMNS;

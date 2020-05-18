@@ -70,7 +70,7 @@ export class AddToLayoutButton extends Component {
                 key={option.axisKey}
                 onClick={() => this.onUpdate(option.axisKey)}
             >
-                {option.name}
+                {option.name()}
             </MenuItem>
         ));
 
@@ -84,7 +84,7 @@ export class AddToLayoutButton extends Component {
                 disableFocusRipple
                 onClick={() => this.onUpdate(filterItem.axisKey)}
             >
-                {filterItem.name}
+                {filterItem.name()}
             </Button>
         ) : (
             <div ref={addToRef => (this.buttonRef = addToRef)}>
@@ -96,7 +96,7 @@ export class AddToLayoutButton extends Component {
                     disableFocusRipple
                     onClick={() => this.onUpdate(seriesItem.axisKey)}
                 >
-                    {seriesItem.name}
+                    {seriesItem.name()}
                 </Button>
                 <Menu
                     onClose={this.onClose}

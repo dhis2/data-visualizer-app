@@ -40,7 +40,7 @@ export class DimensionOptions extends Component {
                     key: `add-to-${this.props.id}`,
                     id: ADD_TO_LAYOUT_OPTIONS[FILTER].axisKey,
                     onClick: this.addDimension,
-                    displayName: ADD_TO_LAYOUT_OPTIONS[FILTER].name,
+                    displayName: ADD_TO_LAYOUT_OPTIONS[FILTER].name(),
                 }),
             ];
         } else {
@@ -50,7 +50,7 @@ export class DimensionOptions extends Component {
                         key: `add-to-${axis.axisKey}`,
                         id: axis.axisKey,
                         onClick: this.addDimension,
-                        displayName: axis.name,
+                        displayName: axis.name(),
                     })
                 )
             );
@@ -69,13 +69,11 @@ export class DimensionOptions extends Component {
         );
 
         return items.map(([key, axisIds]) => {
-            const label = menuLabels[key];
-
             return this.renderMenuItem({
                 key: `${this.props.id}-to-${key}`,
                 id: key,
                 onClick: this.addDimension,
-                displayName: `${i18n.t(`Move to ${label}`, { label })}`,
+                displayName: menuLabels[key](),
             });
         });
     };
