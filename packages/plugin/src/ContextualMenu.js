@@ -5,6 +5,9 @@ import i18n from '@dhis2/d2-i18n'
 import { useDataEngine } from '@dhis2/app-runtime'
 import { Divider, Menu, MenuItem } from '@dhis2/ui-core'
 
+import ArrowUpwardIcon from './assets/ArrowUpwardIcon'
+import ArrowDownwardIcon from './assets/ArrowDownwardIcon'
+
 import { apiFetchOrganisationUnit } from './api/organisationUnits'
 
 export const ContextualMenu = ({ config, ouLevels, onClick }) => {
@@ -60,6 +63,7 @@ export const ContextualMenu = ({ config, ouLevels, onClick }) => {
                             <>
                                 <MenuItem
                                     dense
+                                    icon={<ArrowDownwardIcon />}
                                     label={i18n.t(
                                         'Show {{level}} level in {{orgunit}}',
                                         {
@@ -82,6 +86,7 @@ export const ContextualMenu = ({ config, ouLevels, onClick }) => {
                         {ouData?.parent && (
                             <MenuItem
                                 dense
+                                icon={<ArrowUpwardIcon />}
                                 label={i18n.t('Show {{orgunit}}', {
                                     orgunit: ouData.parent.name,
                                 })}
