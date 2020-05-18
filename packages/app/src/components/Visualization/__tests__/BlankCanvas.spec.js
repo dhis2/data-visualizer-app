@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { BlankCanvas, defaultCanvasMessage } from '../BlankCanvas';
+import { BlankCanvas } from '../BlankCanvas';
 
 describe('BlankCanvas', () => {
     let props;
@@ -24,12 +24,12 @@ describe('BlankCanvas', () => {
         expect(canvas().find('div').length).toBeGreaterThan(0);
     });
 
-    it('renders the default message', () => {
+    it('renders a default message', () => {
         expect(
             canvas()
                 .find('p')
                 .text()
-        ).toEqual(defaultCanvasMessage);
+        ).toContain('new visualization');
     });
 
     it('renders the provided error message', () => {

@@ -14,19 +14,37 @@ export const YEAR_OVER_YEAR_LINE = 'YEAR_OVER_YEAR_LINE';
 export const YEAR_OVER_YEAR_COLUMN = 'YEAR_OVER_YEAR_COLUMN';
 export const OPEN_AS_MAP = 'OPEN_AS_MAP';
 
-export const chartTypeDisplayNames = {
-    [COLUMN]: i18n.t('Column'),
-    [STACKED_COLUMN]: i18n.t('Stacked column'),
-    [BAR]: i18n.t('Bar'),
-    [STACKED_BAR]: i18n.t('Stacked bar'),
-    [LINE]: i18n.t('Line'),
-    [AREA]: i18n.t('Area'),
-    [PIE]: i18n.t('Pie'),
-    [RADAR]: i18n.t('Radar'),
-    [GAUGE]: i18n.t('Gauge'),
-    [YEAR_OVER_YEAR_LINE]: i18n.t('Year over year (line)'),
-    [YEAR_OVER_YEAR_COLUMN]: i18n.t('Year over year (column)'),
-    [OPEN_AS_MAP]: i18n.t('Open as: Map'),
+export const chartTypes = [
+    COLUMN,
+    STACKED_COLUMN,
+    BAR,
+    STACKED_BAR,
+    LINE,
+    AREA,
+    PIE,
+    RADAR,
+    GAUGE,
+    YEAR_OVER_YEAR_LINE,
+    YEAR_OVER_YEAR_COLUMN,
+    OPEN_AS_MAP,
+];
+
+export const getChartTypeDisplayName = type => {
+    const chartTypes = {
+        [COLUMN]: i18n.t('Column'),
+        [STACKED_COLUMN]: i18n.t('Stacked column'),
+        [BAR]: i18n.t('Bar'),
+        [STACKED_BAR]: i18n.t('Stacked bar'),
+        [LINE]: i18n.t('Line'),
+        [AREA]: i18n.t('Area'),
+        [PIE]: i18n.t('Pie'),
+        [RADAR]: i18n.t('Radar'),
+        [GAUGE]: i18n.t('Gauge'),
+        [YEAR_OVER_YEAR_LINE]: i18n.t('Year over year (line)'),
+        [YEAR_OVER_YEAR_COLUMN]: i18n.t('Year over year (column)'),
+        [OPEN_AS_MAP]: i18n.t('Open as Map'), // TODO Open as: Map when i18next nsSeparator fixed
+    };
+    return chartTypes[type];
 };
 
 const stackedTypes = [STACKED_COLUMN, STACKED_BAR, AREA];

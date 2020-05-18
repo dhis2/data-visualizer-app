@@ -27,7 +27,7 @@ import {
     YEAR_OVER_YEAR_LINE,
     YEAR_OVER_YEAR_COLUMN,
     OPEN_AS_MAP,
-    chartTypeDisplayNames,
+    chartTypes,
 } from '../../modules/chartTypes';
 
 const VisualizationTypeIcon = ({ type = COLUMN, style }) => {
@@ -61,7 +61,7 @@ const VisualizationTypeIcon = ({ type = COLUMN, style }) => {
 };
 
 VisualizationTypeIcon.propTypes = {
-    type: PropTypes.oneOf(Object.keys(chartTypeDisplayNames)),
+    type: PropTypes.oneOf(chartTypes),
     style: PropTypes.object,
 };
 

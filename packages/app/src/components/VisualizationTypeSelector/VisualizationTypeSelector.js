@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 
 import {
-    chartTypeDisplayNames,
+    chartTypes,
     isOpenAsType,
     OPEN_AS_MAP,
 } from '../../modules/chartTypes';
@@ -74,7 +74,7 @@ export class VisualizationTypeSelector extends Component {
     };
 
     getChartTypes = () => {
-        return Object.keys(chartTypeDisplayNames).reduce(
+        return chartTypes.reduce(
             (result, type) => {
                 const chartType = isOpenAsType(type)
                     ? 'openAsTypes'
