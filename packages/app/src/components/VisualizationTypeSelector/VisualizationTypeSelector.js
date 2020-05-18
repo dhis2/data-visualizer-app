@@ -10,6 +10,7 @@ import {
     chartTypes,
     isOpenAsType,
     OPEN_AS_MAP,
+    getChartTypeDisplayName,
 } from '../../modules/chartTypes';
 import { prepareCurrentAnalyticalObject } from '../../modules/currentAnalyticalObject';
 import { sGetUi, sGetUiType } from '../../reducers/ui';
@@ -104,7 +105,7 @@ export class VisualizationTypeSelector extends Component {
                     style={styles.button}
                 >
                     <VisualizationTypeIcon type={visualizationType} />
-                    {chartTypeDisplayNames[visualizationType]}
+                    {getChartTypeDisplayName(visualizationType)}
                     <ArrowDropDownIcon style={styles.dropDownArrow} />
                 </Button>
                 <Menu
@@ -145,7 +146,7 @@ export class VisualizationTypeSelector extends Component {
 }
 
 VisualizationTypeSelector.propTypes = {
-    visualizationType: PropTypes.oneOf(Object.keys(chartTypeDisplayNames)),
+    visualizationType: PropTypes.oneOf(chartTypes),
     current: PropTypes.object,
     metadata: PropTypes.object,
     ui: PropTypes.object,

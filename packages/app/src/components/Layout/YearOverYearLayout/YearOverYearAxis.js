@@ -9,9 +9,13 @@ import {
 import defaultAxisStyles from '../DefaultLayout/styles/DefaultAxis.style';
 import YearOverYearAxisStyles from './styles/YearOverYearAxis.style';
 
-const axisLabels = {
-    yearOverYearSeries: i18n.t('Series'),
-    yearOverYearCategory: i18n.t('Category'),
+const getAxisLabel = axis => {
+    const axisLabels = {
+        yearOverYearSeries: i18n.t('Series'),
+        yearOverYearCategory: i18n.t('Category'),
+    };
+
+    return axisLabels[axis];
 };
 
 const YearOverYearAxis = props => (
@@ -20,7 +24,7 @@ const YearOverYearAxis = props => (
         style={{ ...defaultAxisStyles.axisContainer, ...props.style }}
     >
         <div className="label" style={defaultAxisStyles.label}>
-            {axisLabels[props.axisName]}
+            {getAxisLabel(props.axisName)}
         </div>
         <div
             className="content"
