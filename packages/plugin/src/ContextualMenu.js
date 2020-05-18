@@ -35,7 +35,9 @@ export const ContextualMenu = ({ config, ouLevels, onClick }) => {
             setOuData(orgUnit)
         }
 
-        doFetch()
+        if (config.ouId) {
+            doFetch()
+        }
 
         /* eslint-disable-next-line react-hooks/exhaustive-deps */
     }, [config])
@@ -57,7 +59,7 @@ export const ContextualMenu = ({ config, ouLevels, onClick }) => {
     return (
         <Menu>
             {ouData && (
-                <MenuItem label={i18n.t('Org. unit drill down/up')}>
+                <MenuItem dense label={i18n.t('Org. unit drill down/up')}>
                     <Menu>
                         {subLevelData && (
                             <>
