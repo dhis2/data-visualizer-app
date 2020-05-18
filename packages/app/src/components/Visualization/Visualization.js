@@ -93,8 +93,6 @@ export class Visualization extends Component {
     }
 
     onDrill = drillData => {
-        console.log('drill data', drillData)
-
         if (drillData?.ou) {
             const itemIds = [drillData.ou.id]
 

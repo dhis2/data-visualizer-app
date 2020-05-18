@@ -44,7 +44,7 @@ export const VisualizationPlugin = ({
 
     const onContextualMenuItemClick = args => {
         closeContextualMenu()
-        console.log('contex click', args)
+
         if (args.ou) {
             const ouItems = [{ id: args.ou.id, name: args.ou.name }]
 
