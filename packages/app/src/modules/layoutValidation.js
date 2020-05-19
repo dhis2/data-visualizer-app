@@ -1,12 +1,5 @@
+import isObject from 'lodash-es/isObject';
 import i18n from '@dhis2/d2-i18n';
-import {
-    AXIS,
-    DIMENSION_ID_DATA,
-    DIMENSION_ID_PERIOD,
-    FIXED_DIMENSIONS,
-    dimensionIsValid,
-    layoutGetDimension,
-} from '@dhis2/analytics';
 
 import {
     YEAR_OVER_YEAR_LINE,
@@ -15,12 +8,15 @@ import {
     GAUGE,
 } from './chartTypes';
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields';
+import { DIMENSION_ID_PROP_NAME, DIMENSION_ITEMS_PROP_NAME } from './layout';
+import { FIXED_DIMENSIONS } from './fixedDimensions';
+
+const peId = FIXED_DIMENSIONS.pe.id;
 
 const SERIES_MISSING = 'SERIES_MISSING';
 const CATEGORY_MISSING = 'CATEGORY_MISSING';
 const PE_MISSING = 'PE_MISSING';
 const PE_MISSING_ON_CATEGORY = 'PE_MISSING_ON_CATEGORY';
-const PIE_DX_MISSING = 'PIE_DX_MISSING';
 const PIE_PE_MISSING = 'PIE_PE_MISSING';
 const PIE_FILTER_MISSING = 'PIE_FILTER_MISSING';
 const YOY_PE_MISSING_ON_SERIES = 'YOY_PE_MISSING_ON_SERIES';
@@ -30,28 +26,23 @@ const getErrorMessage = key => {
     const series = i18n.t('series');
     const category = i18n.t('category');
     const filter = i18n.t('filter');
-
     const errorLabels = {
         [SERIES_MISSING]: i18n.t(
             'Please add at least one {{series}} dimension',
-            { series }
+            {
+                series,
+            }
         ),
         [CATEGORY_MISSING]: i18n.t(
             'Please add at least one {{category}} dimension',
-            { category }
+            {
+                category,
+            }
         ),
         [PE_MISSING]: i18n.t(
             'Please add at least one period as {{series}}, {{category}} or {{filter}}',
             {
                 series,
-                category,
-                filter,
-            }
-        ),
-        [PIE_DX_MISSING]: i18n.t(
-            'Please add {{data}} as {{category}} or {{filter}}',
-            {
-                data: FIXED_DIMENSIONS[DIMENSION_ID_DATA].name(),
                 category,
                 filter,
             }
@@ -65,20 +56,20 @@ const getErrorMessage = key => {
         ),
         [PIE_FILTER_MISSING]: i18n.t(
             'Please add at least one {{filter}} dimension',
-            { filter }
+            {
+                filter,
+            }
         ),
-        [YOY_PE_MISSING_ON_SERIES]: i18n.t(
+        YOY_PE_MISSING_ON_SERIES: i18n.t(
             'Please add at least one period as a {{series}} dimension',
-            { series }
+            {
+                series,
+            }
         ),
-        [PE_MISSING_ON_CATEGORY]: i18n.t(
-            'Please add at least one period as a {{category}} dimension',
-            { category }
-        ),
-        [YOY_DX_MISSING_ON_FILTER]: i18n.t(
+        YOY_DX_MISSING_ON_FILTER: i18n.t(
             'Please add {{data}} as a filter dimension',
             {
-                data: FIXED_DIMENSIONS[DIMENSION_ID_DATA].name(),
+                data: FIXED_DIMENSIONS.dx.name(),
             }
         ),
     };
@@ -87,11 +78,22 @@ const getErrorMessage = key => {
 };
 
 // Layout validation helper functions
+const isItemValid = item =>
+    Boolean(isObject(item) && typeof item.id === 'string');
+
+const isDimensionValid = dim =>
+    Boolean(
+        isObject(dim) &&
+            typeof dim[DIMENSION_ID_PROP_NAME] === 'string' &&
+            Array.isArray(dim[DIMENSION_ITEMS_PROP_NAME]) &&
+            isItemValid(dim[DIMENSION_ITEMS_PROP_NAME][0])
+    );
+
 const isAxisValid = axis =>
-    AXIS.isValid(axis) && dimensionIsValid(axis[0], { requireItems: true });
+    Boolean(Array.isArray(axis) && isDimensionValid(axis[0]));
 
 const validateDimension = (dimension, message) => {
-    if (!(dimension && dimensionIsValid(dimension, { requireItems: true }))) {
+    if (!(dimension && isDimensionValid(dimension))) {
         throw new Error(getErrorMessage(message));
     }
 };
@@ -102,15 +104,16 @@ const validateAxis = (axis, message) => {
     }
 };
 
+const findDimension = (layout, dimensionId) =>
+    [...layout.columns, ...layout.rows, ...layout.filters].find(
+        dim => dim.dimension === dimensionId
+    );
+
 // Layout validation
 const validateDefaultLayout = layout => {
-    console.log('validateDefaultLayout');
     validateAxis(layout.columns, SERIES_MISSING);
     validateAxis(layout.rows, CATEGORY_MISSING);
-    validateDimension(
-        layoutGetDimension(layout, DIMENSION_ID_PERIOD),
-        PE_MISSING
-    );
+    validateDimension(findDimension(layout, peId), PE_MISSING);
 };
 
 const validateYearOverYearLayout = layout => {
@@ -124,17 +127,13 @@ const validateYearOverYearLayout = layout => {
     }
 
     validateAxis(layout.rows, PE_MISSING_ON_CATEGORY);
-
     validateAxis(layout.columns, YOY_DX_MISSING_ON_FILTER);
 };
 
 const validatePieLayout = layout => {
     validateAxis(layout.columns, SERIES_MISSING);
     validateAxis(layout.filters, PIE_FILTER_MISSING);
-    validateDimension(
-        layoutGetDimension(layout, DIMENSION_ID_PERIOD),
-        PIE_PE_MISSING
-    );
+    validateDimension(findDimension(layout, peId), PIE_PE_MISSING);
 };
 
 export const validateLayout = layout => {
