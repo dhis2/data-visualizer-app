@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-06-21T08:47:33.000Z\n"
+"POT-Creation-Date: 2020-05-18T23:27:07.844Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -74,11 +74,32 @@ msgstr "Avansert"
 msgid "Metadata ID scheme"
 msgstr "Metadata-ID-ordning"
 
+msgid "ID"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
 msgid "Data value set"
 msgstr "Dataverdisett"
 
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
 msgid "Other formats"
 msgstr "Andre formater"
+
+msgid "JRXML"
+msgstr ""
+
+msgid "Raw data SQL"
+msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "Det oppstod en feil i DHIS2 Data Visualizer-applikasjonen."
@@ -113,9 +134,6 @@ msgstr "Kategori"
 msgid "Filter"
 msgstr "Filter"
 
-msgid "Move to"
-msgstr "Flytt til"
-
 msgid "None selected"
 msgstr "Ingen valgt"
 
@@ -128,11 +146,11 @@ msgstr "Redigert"
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "Viser tolkning fra {{interpretationDate}}"
 
-msgid "Create a new visualization by adding dimensions to the layout"
-msgstr "Lag en ny visualisering ved å legge til dimensjoner i oppsettet"
-
 msgid "Chart error"
 msgstr "Diagramfeil"
+
+msgid "Create a new visualization by adding dimensions to the layout"
+msgstr "Lag en ny visualisering ved å legge til dimensjoner i oppsettet"
 
 msgid "Error generating chart, please try again"
 msgstr "Feil ved generering av diagram, prøv igjen"
@@ -326,65 +344,8 @@ msgstr "År over år (linje)"
 msgid "Year over year (column)"
 msgstr "År over år (stolpe)"
 
-msgid "Reporting rate"
-msgstr "Rapporteringfrekvens"
-
-msgid "Reporting rate on time"
-msgstr "Rapporteringsfrekvens i tide"
-
-msgid "Actual reports"
-msgstr "Faktiske rapporter"
-
-msgid "Actual reports on time"
-msgstr "Faktiske rapporter i tide"
-
-msgid "Expected reports"
-msgstr "Forventede rapporter"
-
-msgid "Program"
-msgstr "Program"
-
-msgid "Select a program"
-msgstr "Velg et program"
-
-msgid "Indicators"
-msgstr "Indikatorer"
-
-msgid "Select indicator group"
-msgstr "Velg indikatorgruppe"
-
-msgid "[ All groups ]"
-msgstr "[ Alle grupper ]"
-
-msgid "Data elements"
-msgstr "Dataelementer"
-
-msgid "Select data element group"
-msgstr "Velg dataelementgrupper"
-
-msgid "[ All data elements ]"
-msgstr "{ Alle dataelementer ]"
-
-msgid "Totals"
-msgstr "Totalsummer"
-
-msgid "Details"
-msgstr "Detaljer"
-
-msgid "Data sets"
-msgstr "Datasett"
-
-msgid "Select data sets"
-msgstr "Velg datasett"
-
-msgid "[ All metrics ]"
-msgstr "[ Alle beregninger ]"
-
-msgid "Event data items"
-msgstr "Hendelsesdatapunkter"
-
-msgid "Program indicators"
-msgstr "Programindikatorer"
+msgid "Open as Map"
+msgstr ""
 
 msgid "Period"
 msgstr "Periode"
@@ -400,6 +361,15 @@ msgstr "Legg til kategori"
 
 msgid "Add to filter"
 msgstr "Legg til filter"
+
+msgid "Move to series"
+msgstr ""
+
+msgid "Move to category"
+msgstr ""
+
+msgid "Move to filter"
+msgstr ""
 
 msgid "series"
 msgstr "Serie"

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-06-21T08:47:33.000Z\n"
+"POT-Creation-Date: 2020-05-18T23:27:07.844Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2020\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
@@ -72,11 +72,32 @@ msgstr "高级"
 msgid "Metadata ID scheme"
 msgstr "元数据ID方案"
 
+msgid "ID"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
 msgid "Data value set"
 msgstr "数据值集"
 
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
 msgid "Other formats"
 msgstr "其它格式"
+
+msgid "JRXML"
+msgstr ""
+
+msgid "Raw data SQL"
+msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "数据可视化应用发生错误"
@@ -111,9 +132,6 @@ msgstr "分类"
 msgid "Filter"
 msgstr "过滤器"
 
-msgid "Move to"
-msgstr ""
-
 msgid "None selected"
 msgstr "没有选择"
 
@@ -126,10 +144,10 @@ msgstr "编辑"
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "查看自{{interpretationDate}}的注释"
 
-msgid "Create a new visualization by adding dimensions to the layout"
+msgid "Chart error"
 msgstr ""
 
-msgid "Chart error"
+msgid "Create a new visualization by adding dimensions to the layout"
 msgstr ""
 
 msgid "Error generating chart, please try again"
@@ -324,64 +342,7 @@ msgstr ""
 msgid "Year over year (column)"
 msgstr ""
 
-msgid "Reporting rate"
-msgstr "上报率"
-
-msgid "Reporting rate on time"
-msgstr "准时上报率"
-
-msgid "Actual reports"
-msgstr "实际上报"
-
-msgid "Actual reports on time"
-msgstr "实际准时上报"
-
-msgid "Expected reports"
-msgstr "预期上报"
-
-msgid "Program"
-msgstr "项目"
-
-msgid "Select a program"
-msgstr ""
-
-msgid "Indicators"
-msgstr "指标"
-
-msgid "Select indicator group"
-msgstr ""
-
-msgid "[ All groups ]"
-msgstr ""
-
-msgid "Data elements"
-msgstr "数据元"
-
-msgid "Select data element group"
-msgstr ""
-
-msgid "[ All data elements ]"
-msgstr ""
-
-msgid "Totals"
-msgstr "总共"
-
-msgid "Details"
-msgstr "详情"
-
-msgid "Data sets"
-msgstr "数据集"
-
-msgid "Select data sets"
-msgstr ""
-
-msgid "[ All metrics ]"
-msgstr ""
-
-msgid "Event data items"
-msgstr ""
-
-msgid "Program indicators"
+msgid "Open as Map"
 msgstr ""
 
 msgid "Period"
@@ -397,6 +358,15 @@ msgid "Add to category"
 msgstr ""
 
 msgid "Add to filter"
+msgstr ""
+
+msgid "Move to series"
+msgstr ""
+
+msgid "Move to category"
+msgstr ""
+
+msgid "Move to filter"
 msgstr ""
 
 msgid "series"

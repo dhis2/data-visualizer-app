@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-06-21T08:47:33.000Z\n"
+"POT-Creation-Date: 2020-05-18T23:27:07.844Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2020\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -76,11 +76,32 @@ msgstr "متقدم"
 msgid "Metadata ID scheme"
 msgstr "مخطط معرف البيانات الوصفية"
 
+msgid "ID"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
 msgid "Data value set"
 msgstr "حزمة قيم البيانات"
 
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
 msgid "Other formats"
 msgstr "صيغ أخرى"
+
+msgid "JRXML"
+msgstr ""
+
+msgid "Raw data SQL"
+msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "حدث خطأ في تطبيق DHIS2 Data Visualizer."
@@ -115,9 +136,6 @@ msgstr "الفئة"
 msgid "Filter"
 msgstr "عامل التصفية"
 
-msgid "Move to"
-msgstr "نقل إلى"
-
 msgid "None selected"
 msgstr "غير محدد"
 
@@ -130,11 +148,11 @@ msgstr "تم التعديل"
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "مشاهدة التفسير من  {{interpretationDate}}"
 
-msgid "Create a new visualization by adding dimensions to the layout"
-msgstr "قم بإنشاء تخطيط بياني جديد من خلال إضافة أبعاد إلى التخطيط"
-
 msgid "Chart error"
 msgstr "خطأ في التخطيط البياني"
+
+msgid "Create a new visualization by adding dimensions to the layout"
+msgstr "قم بإنشاء تخطيط بياني جديد من خلال إضافة أبعاد إلى التخطيط"
 
 msgid "Error generating chart, please try again"
 msgstr "خطأ في إنشاء الرسم البياني ، يرجى المحاولة مرة أخرى"
@@ -328,65 +346,8 @@ msgstr "عام بعد عام (خط)"
 msgid "Year over year (column)"
 msgstr "عام بعد عام (عمود)"
 
-msgid "Reporting rate"
-msgstr "معدل التبليغ"
-
-msgid "Reporting rate on time"
-msgstr "معدل الإبلاغ في الوقت المحدد"
-
-msgid "Actual reports"
-msgstr "التبليغات الفعلية"
-
-msgid "Actual reports on time"
-msgstr "التبليغات الفعلية في الوقت المحدد"
-
-msgid "Expected reports"
-msgstr "الإبلاغات المتوقعة"
-
-msgid "Program"
-msgstr "البرنامج"
-
-msgid "Select a program"
-msgstr "حدد برنامجاً"
-
-msgid "Indicators"
-msgstr "المؤشرات"
-
-msgid "Select indicator group"
-msgstr "تحديد مجموعة المؤشرات"
-
-msgid "[ All groups ]"
-msgstr "[ كل المجموعات ]"
-
-msgid "Data elements"
-msgstr "عناصر البيانات"
-
-msgid "Select data element group"
-msgstr "تحديد مجموعة عناصر البيانات"
-
-msgid "[ All data elements ]"
-msgstr "[ كل عناصر البيانات ]"
-
-msgid "Totals"
-msgstr "الإجمالي"
-
-msgid "Details"
-msgstr "التفاصيل"
-
-msgid "Data sets"
-msgstr "حزم البيانات"
-
-msgid "Select data sets"
-msgstr "حدد حزم بيانات"
-
-msgid "[ All metrics ]"
-msgstr "[جميع المقاييس]"
-
-msgid "Event data items"
-msgstr "عناصر بيانات الحدث"
-
-msgid "Program indicators"
-msgstr "مؤشرات البرنامج"
+msgid "Open as Map"
+msgstr ""
 
 msgid "Period"
 msgstr "الفترة الزمنية"
@@ -401,6 +362,15 @@ msgid "Add to category"
 msgstr ""
 
 msgid "Add to filter"
+msgstr ""
+
+msgid "Move to series"
+msgstr ""
+
+msgid "Move to category"
+msgstr ""
+
+msgid "Move to filter"
 msgstr ""
 
 msgid "series"
