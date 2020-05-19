@@ -170,6 +170,15 @@ export const VisualizationPlugin = ({
         return null
     }
 
+    const contextualMenuRect =
+        contextualMenuRef &&
+        contextualMenuRef.current &&
+        contextualMenuRef.current.getBoundingClientRect()
+
+    const virtualContextualMenuElement = contextualMenuRect
+        ? { getBoundingClientRect: () => contextualMenuRect }
+        : null
+
     return (
         <>
             {!fetchResult.visualization.type ||
@@ -190,10 +199,13 @@ export const VisualizationPlugin = ({
                     {...props}
                 />
             )}
-            {contextualMenuRef &&
+            {contextualMenuRect &&
                 createPortal(
                     <div onClick={closeContextualMenu} style={styles.backdrop}>
-                        <Popper reference={contextualMenuRef} placement="right">
+                        <Popper
+                            reference={virtualContextualMenuElement}
+                            placement="right"
+                        >
                             <ContextualMenu
                                 config={contextualMenuConfig}
                                 ouLevels={ouLevels}
