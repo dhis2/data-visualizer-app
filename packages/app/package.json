@@ -15,7 +15,7 @@
         "@dhis2/analytics": "^4.3.28",
         "@dhis2/app-runtime": "*",
         "@dhis2/d2-i18n": "*",
-        "@dhis2/d2-ui-file-menu": "^6.5.11",
+        "@dhis2/d2-ui-file-menu": "^7.0.3",
         "@dhis2/d2-ui-interpretations": "^6.5.11",
         "@dhis2/data-visualizer-plugin": "34.3.48",
         "@dhis2/ui-core": "^4.19.1",
