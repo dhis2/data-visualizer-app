@@ -1389,15 +1389,15 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^4.0.1", "@dhis2/analytics@^4.3.28":
-  version "4.3.28"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.3.28.tgz#4f8f98681de97970159e9e4886db558158231d12"
-  integrity sha512-VAbz1Fgd5azHfEXKH8fS8tMEHB7bO+TfJ6iI0+WXAjSjpZiF08g7fMK8vptLhwM0eTFjmofBZ5WgcLf1DACAJw==
+"@dhis2/analytics@^4.0.1":
+  version "4.3.29"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.3.29.tgz#4bcfe025c4ffccb1f2ff59c7097318781231ef3a"
+  integrity sha512-MgMIEioNL90P9BVix0u27SAL/0qe+GxE0Zk3vSyBYue3iQs3UrqPonbP0LPGKwoIjmxdL9/CSkeD8SWgS8BeWA==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^6.5.9"
     "@dhis2/d2-ui-period-selector-dialog" "^6.5.7"
-    "@dhis2/ui-core" "^4.19.1"
+    "@dhis2/ui-core" "^4.9.1"
     "@material-ui/core" "^3.9.3"
     "@material-ui/icons" "^3.0.2"
     classnames "^2.2.6"
@@ -1408,6 +1408,26 @@
     react-beautiful-dnd "^10.1.1"
     resize-observer-polyfill "^1.5.1"
     styled-jsx "^3.2.1"
+
+"@dhis2/analytics@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-5.1.0.tgz#2502c4e6053f97a38b9bcf51137b686e4e0febbd"
+  integrity sha512-OnlCZ/bUjK6lqu7kpf7UJbxQGLWCw6TfBpoBwHMZGnRSFgjnU4L2pcneZaGFRjsB7HqujNhxG3pkRYyvk3MuSw==
+  dependencies:
+    "@dhis2/d2-i18n" "^1.0.4"
+    "@dhis2/d2-ui-org-unit-dialog" "^7.0.3"
+    "@dhis2/d2-ui-period-selector-dialog" "^7.0.3"
+    "@dhis2/ui-core" "^4.20.0"
+    "@material-ui/core" "^3.9.3"
+    "@material-ui/icons" "^3.0.2"
+    classnames "^2.2.6"
+    d2-utilizr "^0.2.16"
+    d3-color "^1.2.3"
+    highcharts "^8.1.0"
+    lodash "^4.17.13"
+    react-beautiful-dnd "^10.1.1"
+    resize-observer-polyfill "^1.5.1"
+    styled-jsx "^3.3.0"
 
 "@dhis2/app-adapter@3.2.5":
   version "3.2.5"
@@ -1559,17 +1579,6 @@
     i18next "^10.3"
     moment "^2.24.0"
 
-"@dhis2/d2-ui-core@6.5.10":
-  version "6.5.10"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-6.5.10.tgz#cbe1f1a9edcfa1e7cc7c482b1f2197280e545bac"
-  integrity sha512-mAsO91UjW0zdSOntz0/YnbjmUlHSAhwJMqMoKZMhsKDsJeeeZly18NYLjqztQH6uBRgBFFaHcMROsPAlSI0XUQ==
-  dependencies:
-    babel-runtime "^6.26.0"
-    d2 "~31.7"
-    lodash "^4.17.10"
-    material-ui "^0.20.0"
-    rxjs "^5.5.7"
-
 "@dhis2/d2-ui-core@6.5.11":
   version "6.5.11"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-6.5.11.tgz#24cb5a81a0c178ca57574d42f83385f77c70cac6"
@@ -1650,22 +1659,42 @@
     prop-types "^15.6.2"
 
 "@dhis2/d2-ui-org-unit-dialog@^6.5.9":
-  version "6.5.10"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-dialog/-/d2-ui-org-unit-dialog-6.5.10.tgz#88c079870cc50d45a25886cdd791f445b3959f26"
-  integrity sha512-5E7GK+XYGlvmaSVKZqo4E5AiqRnhEPySCBRBOHdnEwRuB97YnKmTFvX9H44VoKx71cYqs26NMlJCiBbQuioVpQ==
+  version "6.5.11"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-dialog/-/d2-ui-org-unit-dialog-6.5.11.tgz#a48467e3d94c1e416d2c219e6be6b04ef90e5d10"
+  integrity sha512-vdxUsQAw87I2F9NtUmaFJ3agWQWJUF+HEnBhATSzlEfyOTWnEo1YN/UyXH0ucalaor6s/FpEG9kYNp2mgafjrQ==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.3"
-    "@dhis2/d2-ui-org-unit-tree" "6.5.10"
+    "@dhis2/d2-ui-org-unit-tree" "6.5.11"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     prop-types "^15.5.10"
 
-"@dhis2/d2-ui-org-unit-tree@6.5.10":
-  version "6.5.10"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-tree/-/d2-ui-org-unit-tree-6.5.10.tgz#df25a6cd872b1aab915e470594dc5888a8e04647"
-  integrity sha512-pqdfMVL2YCuxxzACLVBkdz/6M+CHV8CYzx/u5cEpDF/CIPgU9EGThJfTFH59h7am8QPa5fSd1lMVE1MhpN51Ig==
+"@dhis2/d2-ui-org-unit-dialog@^7.0.3":
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-dialog/-/d2-ui-org-unit-dialog-7.0.3.tgz#2eec30a569d5fb07f256d4727fa8986c7d91c047"
+  integrity sha512-+TkjfXXat2GIZRWDJqFqB+rF8CO6bA1If3tq7//1v3wuyznVA0kPvYqOC22JIxpDZ+tuEROGY1h1gt214buHzQ==
   dependencies:
-    "@dhis2/d2-ui-core" "6.5.10"
+    "@dhis2/d2-ui-org-unit-tree" "7.0.3"
+    "@material-ui/core" "^3.3.1"
+    "@material-ui/icons" "^3.0.1"
+    prop-types "^15.5.10"
+
+"@dhis2/d2-ui-org-unit-tree@6.5.11":
+  version "6.5.11"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-tree/-/d2-ui-org-unit-tree-6.5.11.tgz#7234b6417ac79f9f29e3057c942aea1c3207cb77"
+  integrity sha512-86+g0hPgIAcjiddtm1ov2l5ut7foM5+s7AxxbFYPKDKlgzZWbJoYtvP5q8L88aUsWYgXLfaPhxVAJPGqF2TD8Q==
+  dependencies:
+    "@dhis2/d2-ui-core" "6.5.11"
+    "@material-ui/core" "^3.3.1"
+    babel-runtime "^6.26.0"
+    prop-types "^15.5.10"
+
+"@dhis2/d2-ui-org-unit-tree@7.0.3":
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-tree/-/d2-ui-org-unit-tree-7.0.3.tgz#df16c7591a2c6b0dae22971604ffc653118b87ae"
+  integrity sha512-PI6nf94A/RjrQOIWwckXAgB8oQNstBVTidvfm//IzhPmQG3BGH7WF/74NKAVVeZ3Vr6QUAKiJr1PU+OEdnes4A==
+  dependencies:
+    "@dhis2/d2-ui-core" "7.0.3"
     "@material-ui/core" "^3.3.1"
     babel-runtime "^6.26.0"
     prop-types "^15.5.10"
@@ -1677,6 +1706,17 @@
   dependencies:
     "@dhis2/analytics" "^4.0.1"
     "@dhis2/d2-i18n" "^1.0.4"
+    "@material-ui/core" "^3.3.1"
+    "@material-ui/icons" "^3.0.1"
+    babel-runtime "^6.26.0"
+    prop-types "^15.6.0"
+
+"@dhis2/d2-ui-period-selector-dialog@^7.0.3":
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-period-selector-dialog/-/d2-ui-period-selector-dialog-7.0.3.tgz#95a6d9a470d04287484578d0db8dfa9083d87f36"
+  integrity sha512-uTqsKu6PsXb/MN8FxlGJeNZFrr1GkCbt/SQho0EvF1M62pvqI6dhYsrrusW3LWhiiVoTyNVZdF6NxUgGvMZMvQ==
+  dependencies:
+    "@dhis2/analytics" "^4.0.1"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     babel-runtime "^6.26.0"
@@ -1749,7 +1789,7 @@
   dependencies:
     prop-types "^15"
 
-"@dhis2/ui-core@^4.19.1", "@dhis2/ui-core@^4.21.1", "@dhis2/ui-core@^4.6.1":
+"@dhis2/ui-core@^4.20.0", "@dhis2/ui-core@^4.21.1", "@dhis2/ui-core@^4.6.1", "@dhis2/ui-core@^4.9.1":
   version "4.21.1"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-4.21.1.tgz#2b5518f6bd5de75404df3eefa83452e0c40852aa"
   integrity sha512-dpK4UwktLw9qcRkDe5wU76j35ntoulqKpcaBoxXZ1+/rzR2FeaJ+w4l+I+bg45jcK9WjLLsFClc1zi+O/MG1MA==
@@ -7312,6 +7352,11 @@ highcharts@^7.2.1:
   version "7.2.1"
   resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-7.2.1.tgz#313c434bbfd4525a72b76c6bfbd9c39dfe2d1993"
   integrity sha512-/fSUZiONmM+x49IQJNf8XwZGiNGOPRmxEOcd0xdJP9Xc3OlG46ZiUWgSLfhYQ9Oyhmzc3V3SKYCLud8+rKLi+w==
+
+highcharts@^8.1.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-8.1.0.tgz#f93adaf8d53b0f83c74c9854f0ad10baec010d97"
+  integrity sha512-4KXq9t2/PU0cqKUtET7om9Kh5AyOinIn4vYi62oYVsb4ql5wyUYW06f9Si/ERG2Thoy/rcwNmR77upKjg8xhqQ==
 
 history@^4.7.2:
   version "4.10.1"
@@ -14018,10 +14063,10 @@ style-loader@1.0.0:
     loader-utils "^1.2.3"
     schema-utils "^2.0.1"
 
-styled-jsx@^3.2.1:
-  version "3.2.5"
-  resolved "https://registry.yarnpkg.com/styled-jsx/-/styled-jsx-3.2.5.tgz#0172a3e13a0d6d8bf09167dcaf32cf7102d932ca"
-  integrity sha512-prEahkYwQHomUljJzXzrFnBmQrSMtWOBbXn8QeEkpfFkqMZQGshxzzp4H8ebBIsbVlHF/3+GSXMnmK/fp7qVYQ==
+styled-jsx@^3.2.1, styled-jsx@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/styled-jsx/-/styled-jsx-3.3.0.tgz#32335c1a3ecfc923ba4f9c056eeb3d4699006b09"
+  integrity sha512-sh8BI5eGKyJlwL4kNXHjb27/a/GJV8wP4ElRIkRXrGW3sHKOsY9Pa1VZRNxyvf3+lisdPwizD9JDkzVO9uGwZw==
   dependencies:
     "@babel/types" "7.8.3"
     babel-plugin-syntax-jsx "6.18.0"
