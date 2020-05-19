@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-06-21T08:47:33.000Z\n"
+"POT-Creation-Date: 2020-05-18T23:27:07.844Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2019\n"
 "Language-Team: Urdu (https://www.transifex.com/hisp-uio/teams/100509/ur/)\n"
@@ -72,11 +72,32 @@ msgstr "اعلی درجے کی"
 msgid "Metadata ID scheme"
 msgstr ""
 
+msgid "ID"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
 msgid "Data value set"
 msgstr "ڈیٹا کی قیمت مقرر"
 
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
 msgid "Other formats"
 msgstr "دیگر فارمیٹس"
+
+msgid "JRXML"
+msgstr ""
+
+msgid "Raw data SQL"
+msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr ""
@@ -111,9 +132,6 @@ msgstr "قسم"
 msgid "Filter"
 msgstr "فلٹر"
 
-msgid "Move to"
-msgstr "پر منتقل"
-
 msgid "None selected"
 msgstr "کوئی بھی منتخب نہیں"
 
@@ -126,10 +144,10 @@ msgstr ""
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
-msgid "Create a new visualization by adding dimensions to the layout"
+msgid "Chart error"
 msgstr ""
 
-msgid "Chart error"
+msgid "Create a new visualization by adding dimensions to the layout"
 msgstr ""
 
 msgid "Error generating chart, please try again"
@@ -324,65 +342,8 @@ msgstr ""
 msgid "Year over year (column)"
 msgstr ""
 
-msgid "Reporting rate"
+msgid "Open as Map"
 msgstr ""
-
-msgid "Reporting rate on time"
-msgstr ""
-
-msgid "Actual reports"
-msgstr "اصل رپورٹ"
-
-msgid "Actual reports on time"
-msgstr ""
-
-msgid "Expected reports"
-msgstr "متوقع رپورٹ"
-
-msgid "Program"
-msgstr "پروگرام"
-
-msgid "Select a program"
-msgstr ""
-
-msgid "Indicators"
-msgstr "اشارے"
-
-msgid "Select indicator group"
-msgstr "اشارے گروپ منتخب کریں"
-
-msgid "[ All groups ]"
-msgstr "[ تمام گروپ ]"
-
-msgid "Data elements"
-msgstr "ڈیٹا عنصر"
-
-msgid "Select data element group"
-msgstr "ڈیٹا عنصر گروپ منتخب کریں"
-
-msgid "[ All data elements ]"
-msgstr "[ تمام ڈیٹا عناصر ]"
-
-msgid "Totals"
-msgstr "مجموعی طور پر"
-
-msgid "Details"
-msgstr "تفصیلات"
-
-msgid "Data sets"
-msgstr "ڈیٹا سیٹس"
-
-msgid "Select data sets"
-msgstr "ڈیٹا سیٹ کا انتخاب کریں"
-
-msgid "[ All metrics ]"
-msgstr "[ تمام میٹرکس ]"
-
-msgid "Event data items"
-msgstr "واقعہ کے اعداد و شمار کی اشیاء"
-
-msgid "Program indicators"
-msgstr "پروگرام اشارے"
 
 msgid "Period"
 msgstr "مدت"
@@ -398,6 +359,15 @@ msgstr "زمرہ میں شامل کریں"
 
 msgid "Add to filter"
 msgstr "فلٹر میں شامل کریں"
+
+msgid "Move to series"
+msgstr ""
+
+msgid "Move to category"
+msgstr ""
+
+msgid "Move to filter"
+msgstr ""
 
 msgid "series"
 msgstr ""

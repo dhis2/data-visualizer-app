@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-06-21T08:47:33.000Z\n"
+"POT-Creation-Date: 2020-05-18T23:27:07.844Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
@@ -76,10 +76,31 @@ msgstr "Avanzado"
 msgid "Metadata ID scheme"
 msgstr ""
 
+msgid "ID"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
 msgid "Data value set"
 msgstr "Valor de los datos"
 
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
 msgid "Other formats"
+msgstr ""
+
+msgid "JRXML"
+msgstr ""
+
+msgid "Raw data SQL"
 msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
@@ -115,9 +136,6 @@ msgstr "Categoría"
 msgid "Filter"
 msgstr "filtro"
 
-msgid "Move to"
-msgstr ""
-
 msgid "None selected"
 msgstr ""
 
@@ -130,10 +148,10 @@ msgstr ""
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
-msgid "Create a new visualization by adding dimensions to the layout"
+msgid "Chart error"
 msgstr ""
 
-msgid "Chart error"
+msgid "Create a new visualization by adding dimensions to the layout"
 msgstr ""
 
 msgid "Error generating chart, please try again"
@@ -328,65 +346,8 @@ msgstr "Año tras año (línea)"
 msgid "Year over year (column)"
 msgstr "Año tras año (columna)"
 
-msgid "Reporting rate"
+msgid "Open as Map"
 msgstr ""
-
-msgid "Reporting rate on time"
-msgstr ""
-
-msgid "Actual reports"
-msgstr ""
-
-msgid "Actual reports on time"
-msgstr ""
-
-msgid "Expected reports"
-msgstr ""
-
-msgid "Program"
-msgstr "Programa"
-
-msgid "Select a program"
-msgstr ""
-
-msgid "Indicators"
-msgstr "Indicadores"
-
-msgid "Select indicator group"
-msgstr "Elija un grupo de indicadores"
-
-msgid "[ All groups ]"
-msgstr ""
-
-msgid "Data elements"
-msgstr "Elementos de datos"
-
-msgid "Select data element group"
-msgstr "Seleccionar grupo de elementos de datos"
-
-msgid "[ All data elements ]"
-msgstr ""
-
-msgid "Totals"
-msgstr "Totales"
-
-msgid "Details"
-msgstr "Detalles"
-
-msgid "Data sets"
-msgstr "Sets de datos"
-
-msgid "Select data sets"
-msgstr ""
-
-msgid "[ All metrics ]"
-msgstr ""
-
-msgid "Event data items"
-msgstr "Datos de eventos"
-
-msgid "Program indicators"
-msgstr "Indicadores de programa"
 
 msgid "Period"
 msgstr "Periodo"
@@ -401,6 +362,15 @@ msgid "Add to category"
 msgstr ""
 
 msgid "Add to filter"
+msgstr ""
+
+msgid "Move to series"
+msgstr ""
+
+msgid "Move to category"
+msgstr ""
+
+msgid "Move to filter"
 msgstr ""
 
 msgid "series"
