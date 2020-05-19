@@ -7,9 +7,10 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 
 import {
-    chartTypeDisplayNames,
+    chartTypes,
     isOpenAsType,
     OPEN_AS_MAP,
+    getChartTypeDisplayName,
 } from '../../modules/chartTypes';
 import { prepareCurrentAnalyticalObject } from '../../modules/currentAnalyticalObject';
 import { sGetUi, sGetUiType } from '../../reducers/ui';
@@ -74,7 +75,7 @@ export class VisualizationTypeSelector extends Component {
     };
 
     getChartTypes = () => {
-        return Object.keys(chartTypeDisplayNames).reduce(
+        return chartTypes.reduce(
             (result, type) => {
                 const chartType = isOpenAsType(type)
                     ? 'openAsTypes'
@@ -104,7 +105,7 @@ export class VisualizationTypeSelector extends Component {
                     style={styles.button}
                 >
                     <VisualizationTypeIcon type={visualizationType} />
-                    {chartTypeDisplayNames[visualizationType]}
+                    {getChartTypeDisplayName(visualizationType)}
                     <ArrowDropDownIcon style={styles.dropDownArrow} />
                 </Button>
                 <Menu
@@ -145,7 +146,7 @@ export class VisualizationTypeSelector extends Component {
 }
 
 VisualizationTypeSelector.propTypes = {
-    visualizationType: PropTypes.oneOf(Object.keys(chartTypeDisplayNames)),
+    visualizationType: PropTypes.oneOf(chartTypes),
     current: PropTypes.object,
     metadata: PropTypes.object,
     ui: PropTypes.object,

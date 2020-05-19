@@ -6,19 +6,19 @@ import OrgUnitIcon from '../assets/OrgUnitIcon';
 export const FIXED_DIMENSIONS = {
     dx: {
         id: 'dx',
-        name: i18n.t('Data'),
+        name: () => i18n.t('Data'),
         iconName: 'DataIcon',
         icon: DataIcon,
     },
     pe: {
         id: 'pe',
-        name: i18n.t('Period'),
+        name: () => i18n.t('Period'),
         iconName: 'PeriodIcon',
         icon: PeriodIcon,
     },
     ou: {
         id: 'ou',
-        name: i18n.t('Organisation Unit'),
+        name: () => i18n.t('Organisation Unit'),
         iconName: 'OrgUnitIcon',
         icon: OrgUnitIcon,
     },
