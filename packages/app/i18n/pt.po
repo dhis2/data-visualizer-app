@@ -3,13 +3,14 @@
 # Viktor Varland <viktor@dhis2.org>, 2019
 # phil_dhis2, 2019
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
+# Sheila André <sandre@saudigitus.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-06-21T08:47:33.000Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
-"Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020\n"
+"Last-Translator: Sheila André <sandre@saudigitus.org>, 2020\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Rename successful"
-msgstr ""
+msgstr "Renomeado com sucesso"
 
 msgid "\"{{what}}\" successfully deleted."
 msgstr ""
@@ -27,18 +28,20 @@ msgid "Data Visualizer"
 msgstr "Visualização de Dados"
 
 msgid "Axis 1"
-msgstr ""
+msgstr "Eixo 1"
 
 msgid "Axis 2"
-msgstr ""
+msgstr "Eixo 2"
 
 msgid "Manage axes"
-msgstr ""
+msgstr "Gerir eixos"
 
 msgid ""
 "A chart can have two axes. Each axis will have its own scale. Set the axis "
 "for each data selection below."
 msgstr ""
+"Um gráfico pode ter dois eixos. Cada eixo terá sua própria escala. Defina o "
+"eixo para cada dado."
 
 msgid "Cancel"
 msgstr "Cancelar"
@@ -83,7 +86,7 @@ msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr ""
 
 msgid "Something went wrong"
-msgstr ""
+msgstr "Ocorreu algo de errado"
 
 msgid "Refresh to try again"
 msgstr ""
@@ -326,25 +329,25 @@ msgid "Year over year (column)"
 msgstr "Ano após ano (coluna)"
 
 msgid "Reporting rate"
-msgstr ""
+msgstr "Taxa de relatórios"
 
 msgid "Reporting rate on time"
-msgstr ""
+msgstr "Taxa de relatórios no prazo"
 
 msgid "Actual reports"
-msgstr ""
+msgstr "Relatórios reais"
 
 msgid "Actual reports on time"
-msgstr ""
+msgstr "Relatórios reais dentro do prazo"
 
 msgid "Expected reports"
-msgstr ""
+msgstr "Relatórios esperados"
 
 msgid "Program"
 msgstr "Programa"
 
 msgid "Select a program"
-msgstr ""
+msgstr "Selecione um programa"
 
 msgid "Indicators"
 msgstr "Indicadores"
@@ -353,7 +356,7 @@ msgid "Select indicator group"
 msgstr "Seleccionar grupo de indicador"
 
 msgid "[ All groups ]"
-msgstr ""
+msgstr "[ Todos os grupos ]"
 
 msgid "Data elements"
 msgstr "Elementos de Dados"
@@ -362,7 +365,7 @@ msgid "Select data element group"
 msgstr "Seleccionar grupo de elementos de dados"
 
 msgid "[ All data elements ]"
-msgstr ""
+msgstr "[ Todos os elementos de dados ]"
 
 msgid "Totals"
 msgstr "Totais"
@@ -374,10 +377,10 @@ msgid "Data sets"
 msgstr "Agregação de Dados"
 
 msgid "Select data sets"
-msgstr ""
+msgstr "Selecionar conjuntos de dados"
 
 msgid "[ All metrics ]"
-msgstr ""
+msgstr "[ Todas as métricas ]"
 
 msgid "Event data items"
 msgstr "Itens de dados do evento"
