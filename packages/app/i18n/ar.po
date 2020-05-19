@@ -311,7 +311,7 @@ msgid "Cumulative values"
 msgstr "قيم تراكمية"
 
 msgid "Digit group separator"
-msgstr "فاصل مجموعة الخانات"
+msgstr "فاصل مجموعة الخانات الرقمية"
 
 msgid "None"
 msgstr "لا شيء"
