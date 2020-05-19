@@ -32,7 +32,6 @@ class AxisSetup extends Component {
     };
 
     componentDidMount() {
-        console.log('CDM Axis Setup items', this.props.items);
         this.setItems(this.props.items);
     }
 
