@@ -1,4 +1,4 @@
-import i18n from '@dhis2/d2-i18n'
+import i18n from '../locales'
 import { isYearOverYear } from '@dhis2/analytics'
 import {
     apiFetchAnalyticsForYearOverYear,

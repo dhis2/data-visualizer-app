@@ -6,7 +6,7 @@
     "private": true,
     "homepage": ".",
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^3.2.5",
+        "@dhis2/cli-app-scripts": "^4.0.7",
         "cypress": "^3.6.1",
         "eslint-plugin-cypress": "^2.7.0",
         "redux-mock-store": "^1.5.3"
@@ -15,9 +15,9 @@
         "@dhis2/analytics": "^4.3.18",
         "@dhis2/app-runtime": "*",
         "@dhis2/d2-i18n": "*",
-        "@dhis2/d2-ui-core": "^6.5.5",
-        "@dhis2/d2-ui-file-menu": "^6.5.10",
-        "@dhis2/d2-ui-interpretations": "^6.5.5",
+        "@dhis2/d2-ui-core": "^7.0.3",
+        "@dhis2/d2-ui-file-menu": "^7.0.3",
+        "@dhis2/d2-ui-interpretations": "^7.0.3",
         "@dhis2/data-visualizer-plugin": "34.3.27",
         "@dhis2/ui-core": "*",
         "@material-ui/core": "^3.1.2",
