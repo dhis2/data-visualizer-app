@@ -1,14 +1,14 @@
 # 
 # Translators:
 # Viktor Varland <viktor@dhis2.org>, 2019
-# phil_dhis2, 2019
+# phil_dhis2, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-18T23:27:07.844Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
-"Last-Translator: phil_dhis2, 2019\n"
+"Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -73,22 +73,22 @@ msgid "Metadata ID scheme"
 msgstr "ID Схема метаданных"
 
 msgid "ID"
-msgstr ""
+msgstr "Ид"
 
 msgid "Code"
-msgstr ""
+msgstr "Код"
 
 msgid "Name"
-msgstr ""
+msgstr "Название"
 
 msgid "Data value set"
 msgstr "Набор значений данных"
 
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 msgid "XML"
-msgstr ""
+msgstr "XML"
 
 msgid "Other formats"
 msgstr "Другие форматы"
@@ -135,6 +135,12 @@ msgstr "Фильтр"
 
 msgid "None selected"
 msgstr "Не выбрано"
+
+msgid "And 1 other..."
+msgstr ""
+
+msgid "And {{numberOfItems}} others..."
+msgstr ""
 
 msgid "Unsaved chart"
 msgstr "Несохраненная диаграмма"

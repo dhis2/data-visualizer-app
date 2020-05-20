@@ -1,16 +1,16 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2019
-# phil_dhis2, 2019
-# KRG HIS <antonia.bezenchek@informa.pro>, 2020
+# phil_dhis2, 2020
+# Viktor Varland <viktor@dhis2.org>, 2020
 # Hamza Assada <7amza.it@gmail.com>, 2020
+# KRG HIS <antonia.bezenchek@informa.pro>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-18T23:27:07.844Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
-"Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2020\n"
+"Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2020\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -77,22 +77,22 @@ msgid "Metadata ID scheme"
 msgstr "مخطط معرف البيانات الوصفية"
 
 msgid "ID"
-msgstr ""
+msgstr "المعرف"
 
 msgid "Code"
-msgstr ""
+msgstr "الرمز"
 
 msgid "Name"
-msgstr ""
+msgstr "الإسم"
 
 msgid "Data value set"
 msgstr "حزمة قيم البيانات"
 
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 msgid "XML"
-msgstr ""
+msgstr "XML"
 
 msgid "Other formats"
 msgstr "صيغ أخرى"
@@ -101,7 +101,7 @@ msgid "JRXML"
 msgstr ""
 
 msgid "Raw data SQL"
-msgstr ""
+msgstr "للبيانات الأولية SQL "
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "حدث خطأ في تطبيق DHIS2 Data Visualizer."
@@ -138,6 +138,12 @@ msgstr "عامل التصفية"
 
 msgid "None selected"
 msgstr "غير محدد"
+
+msgid "And 1 other..."
+msgstr ""
+
+msgid "And {{numberOfItems}} others..."
+msgstr ""
 
 msgid "Unsaved chart"
 msgstr "مخطط بياني غير محفوظ"
@@ -347,7 +353,7 @@ msgid "Year over year (column)"
 msgstr "عام بعد عام (عمود)"
 
 msgid "Open as Map"
-msgstr ""
+msgstr "فتح كخريطة"
 
 msgid "Period"
 msgstr "الفترة الزمنية"
