@@ -91,6 +91,7 @@ export const ContextualMenu = ({ config, ouLevels, onClick }) => {
                                     onClick({
                                         ou: {
                                             id: ouData.id,
+                                            path: ouData.path,
                                             level: subLevelData.id,
                                         },
                                     })
