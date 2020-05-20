@@ -59,41 +59,41 @@ export const ContextualMenu = ({ config, ouLevels, onClick }) => {
     return (
         <Menu>
             {ouData && (
-                <MenuItem dense label={i18n.t('Org. unit drill down/up')}>
-                    <Menu>
-                        {subLevelData && (
+                <MenuItem dense label={i18n.t('Org unit drill down/up')}>
+                    <Menu maxWidth="320px">
+                        {ouData?.parent && (
                             <>
                                 <MenuItem
                                     dense
-                                    icon={<ArrowDownwardIcon />}
-                                    label={i18n.t(
-                                        'Show {{level}} level in {{orgunit}}',
-                                        {
-                                            level: subLevelData.name,
-                                            orgunit: ouData.name,
-                                        }
-                                    )}
+                                    icon={<ArrowUpwardIcon />}
+                                    label={ouData.parent.name}
                                     onClick={() =>
                                         onClick({
-                                            ou: {
-                                                id: ouData.id,
-                                                level: subLevelData.id,
-                                            },
+                                            ou: { id: ouData.parent.id },
                                         })
                                     }
                                 />
-                                {ouData?.parent && <Divider />}
+                                {subLevelData && <Divider />}
                             </>
                         )}
-                        {ouData?.parent && (
+                        {subLevelData && (
                             <MenuItem
                                 dense
-                                icon={<ArrowUpwardIcon />}
-                                label={i18n.t('Show {{orgunit}}', {
-                                    orgunit: ouData.parent.name,
-                                })}
+                                icon={<ArrowDownwardIcon />}
+                                label={i18n.t(
+                                    '{{level}} level in {{orgunit}}',
+                                    {
+                                        level: subLevelData.name,
+                                        orgunit: ouData.name,
+                                    }
+                                )}
                                 onClick={() =>
-                                    onClick({ ou: { id: ouData.parent.id } })
+                                    onClick({
+                                        ou: {
+                                            id: ouData.id,
+                                            level: subLevelData.id,
+                                        },
+                                    })
                                 }
                             />
                         )}
