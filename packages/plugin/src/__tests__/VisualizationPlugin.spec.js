@@ -210,14 +210,10 @@ describe('VisualizationPlugin', () => {
                 const expectedExtraOptions = {
                     yearlySeries: mockYoYSeriesLabels,
                     xAxisLabels: ['period 1', 'period 2'],
-                    noData: { text: 'No data' },
                 }
 
                 expect(ChartPlugin.mock.calls[0][0].extraOptions).toEqual({
                     dashboard: false,
-                    noData: {
-                        text: 'No data',
-                    },
                     ...expectedExtraOptions,
                 })
             })
