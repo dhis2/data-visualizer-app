@@ -151,10 +151,10 @@ msgid "Only '{{name}}' in use"
 msgstr "Hanya '{{name}}'yang  digunakan"
 
 msgid "And 1 other..."
-msgstr ""
+msgstr "Dan 1 lainnya..."
 
 msgid "And {{numberOfItems}} others..."
-msgstr ""
+msgstr "Dan {{numberOfItems}} lainnya..."
 
 msgid "Unsaved chart"
 msgstr "Grafik yang belum disimpan"
