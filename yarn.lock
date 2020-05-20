@@ -1409,10 +1409,10 @@
     resize-observer-polyfill "^1.5.1"
     styled-jsx "^3.2.1"
 
-"@dhis2/analytics@^5.1.0":
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-5.1.0.tgz#2502c4e6053f97a38b9bcf51137b686e4e0febbd"
-  integrity sha512-OnlCZ/bUjK6lqu7kpf7UJbxQGLWCw6TfBpoBwHMZGnRSFgjnU4L2pcneZaGFRjsB7HqujNhxG3pkRYyvk3MuSw==
+"@dhis2/analytics@^5.1.1":
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-5.1.1.tgz#293e7a5adbf6aaad1df81d14504e511ee8d52129"
+  integrity sha512-u/7VwP0jK+c+NRN/mtKBfGElzl5wPyHPfHa9O3G90vFvIIwib8IRrNIvbf16dKMWv0FZPoZ+vjVPxuZDRDDvWg==
   dependencies:
     "@dhis2/d2-i18n" "^1.0.4"
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.3"
@@ -1571,7 +1571,7 @@
     moment "^2.22.1"
     rimraf "^2.6.2"
 
-"@dhis2/d2-i18n@*", "@dhis2/d2-i18n@^1.0.3", "@dhis2/d2-i18n@^1.0.4", "@dhis2/d2-i18n@^1.0.5", "@dhis2/d2-i18n@^1.0.6":
+"@dhis2/d2-i18n@*", "@dhis2/d2-i18n@^1.0.3", "@dhis2/d2-i18n@^1.0.4", "@dhis2/d2-i18n@^1.0.5":
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-i18n/-/d2-i18n-1.0.6.tgz#2914be8acf296f3a6bf7b51c76c46da6a120b0ff"
   integrity sha512-7YdA4ppFosjuyf7ZMm47BrdsA5TWLM9lmS0lUPgjcCVeeWfUgagqzf4W5JGB9XQ3w1vzK+yy5zH2Ij8IgRAGhA==
