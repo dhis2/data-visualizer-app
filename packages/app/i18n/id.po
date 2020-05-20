@@ -1,15 +1,16 @@
 # 
 # Translators:
 # phil_dhis2, 2020
-# Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
+# Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2020
+# Farida Sibuea <farida_sibuea@yahoo.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-04-29T13:10:59.082Z\n"
 "PO-Revision-Date: 2020-03-02 13:01+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"Last-Translator: Farida Sibuea <farida_sibuea@yahoo.com>, 2020\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +25,7 @@ msgid "\"{{what}}\" successfully deleted."
 msgstr "\"{{what}}\" berhasil dihapus."
 
 msgid "You have unsaved changes."
-msgstr ""
+msgstr "ada pesan belum disimpan"
 
 msgid "Discard unsaved changes?"
 msgstr "Buang perubahan yang belum disimpan?"
@@ -33,12 +34,13 @@ msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
 "be lost."
 msgstr ""
+"yakin meninggalkan gambar ini?perobahan yang belum tersimpan akan hilang"
 
 msgid "No, cancel"
-msgstr ""
+msgstr "tidak, batalkan"
 
 msgid "Yes, leave"
-msgstr ""
+msgstr "Ya, tinggalkan"
 
 msgid "Axis 1"
 msgstr "Aksis 1"
@@ -63,29 +65,33 @@ msgid "Update"
 msgstr "perbarui"
 
 msgid "Add to {{axisName}}"
-msgstr ""
+msgstr "Tambahkan ke {{axisName}}"
 
 msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
 "first item will be used and saved."
 msgstr ""
+"'{{visualizationType}}' digunakan untuk menunjukkan item data tunggal. Hanya"
+" item pertama yang akan digunakan dan disimpan."
 
 msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
+"'{{visualizationType}}' digunakan untuk menunjukkan maksimum {{maxNumber}} "
+"item. Hanya {{maxNumber}} item pertama yang akan digunakan dan disimpan."
 
 msgid "Main dimensions"
-msgstr ""
+msgstr "Dimensi utama"
 
 msgid "Other dimensions"
-msgstr ""
+msgstr "Dimensi lainnya"
 
 msgid "Your dimensions"
-msgstr ""
+msgstr "Dimensi Anda"
 
 msgid "Filter dimensions"
-msgstr ""
+msgstr "Filter dimensi"
 
 msgid "Graphics"
 msgstr "Grafis"
@@ -100,13 +106,13 @@ msgid "Table layout"
 msgstr "Layout tabel"
 
 msgid "Excel (.xls)"
-msgstr ""
+msgstr "Excel (.xls)"
 
 msgid "CSV (.csv)"
-msgstr ""
+msgstr "CSV (.csv)"
 
 msgid "HTML (.html)"
-msgstr ""
+msgstr "HTML (.html)"
 
 msgid "Download"
 msgstr "Unduh"
@@ -148,37 +154,37 @@ msgid "Interpretations"
 msgstr "Interpretasi"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr ""
+msgstr "{{total}} dari {{axisMaxNumberOfItems}} terpilih"
 
 msgid "{{total}} selected"
 msgstr "{{total}} terpilih"
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
-msgstr ""
+msgstr "{{dimensionName}} dikunci sebagai {{axisName}} untuk {{visTypeName}}"
 
 msgid "None selected"
 msgstr "Tidak ada yang terpilih"
 
 msgid "Only '{{- name}}' in use"
-msgstr ""
+msgstr "Hanya '{{- name}}' digunakan"
 
 msgid "Only '{{number}}' in use"
-msgstr ""
+msgstr "Hanya '{{number}}' digunakan"
 
 msgid "Levels"
-msgstr ""
+msgstr "Level"
 
 msgid "Groups"
 msgstr "banyak grup"
 
 msgid "And 1 other..."
-msgstr ""
+msgstr "Dan 1 lainnya..."
 
 msgid "And {{numberOfItems}} others..."
-msgstr ""
+msgstr "Dan {{numberOfItems}} lainnya..."
 
 msgid "Unsaved visualization"
-msgstr ""
+msgstr "Visualisasi belum disimpan"
 
 msgid "Edited"
 msgstr "Diedit"
@@ -187,27 +193,29 @@ msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "Melihat interpretasi dari {{interpretationDate}}"
 
 msgid "Getting started"
-msgstr ""
+msgstr "Mulai"
 
 msgid ""
 "All dimensions that you can use to build visualizations are shown in the "
 "left sidebar"
 msgstr ""
+"Semua dimensi yang dapat digunakan untuk membuat visualisasi disajikan di "
+"kolom sisi kiri"
 
 msgid "Add dimensions to the layout above"
-msgstr ""
+msgstr "Tambahkan dimensi ke tata letak di atas"
 
 msgid "Click a dimension to add or remove items"
-msgstr ""
+msgstr "Klik dimensi untuk menambah atau menghapus item"
 
 msgid "Your most viewed charts and tables"
-msgstr ""
+msgstr "Grafik dan tabel yang paling sering Anda lihat"
 
 msgid "Aggregation type"
 msgstr "Tipe agregasi"
 
 msgid "Determines how the values in the pivot table are aggregated."
-msgstr ""
+msgstr "Menentukan cara agregasi nilai di tabel pivot"
 
 msgid "By data element"
 msgstr "Berdasarkan elemen data"
@@ -246,16 +254,16 @@ msgid "Data approved at level"
 msgstr "Data disetujui di tingkat"
 
 msgid "Select from predefined levels"
-msgstr ""
+msgstr "Pilih dari level yang telah ditentukan"
 
 msgid "Loading data approval levels"
-msgstr ""
+msgstr "Memuat level persetujuan data"
 
 msgid "Axis range"
-msgstr ""
+msgstr "Jangkauan aksis"
 
 msgid "Values outside of the range will not be displayed"
-msgstr ""
+msgstr "Nilai di luar jangkauan tidak akan ditampilkan"
 
 msgid "Base line"
 msgstr "Baseline"
@@ -273,10 +281,10 @@ msgid "Number"
 msgstr "Angka"
 
 msgid "Column sub-totals"
-msgstr ""
+msgstr "Kolom sub-total"
 
 msgid "Columns totals"
-msgstr ""
+msgstr "Total kolom"
 
 msgid "Event data"
 msgstr ""
@@ -288,7 +296,7 @@ msgid "Include cumulative"
 msgstr "Masukkan kumulatif"
 
 msgid "Cumulative values"
-msgstr ""
+msgstr "Nilai Kumulatif"
 
 msgid "Digit group separator"
 msgstr "Pemisah kelompok digit"
@@ -315,10 +323,10 @@ msgid "Compact"
 msgstr "Padat"
 
 msgid "Axis title"
-msgstr ""
+msgstr "Judul sumbu X"
 
 msgid "Add a title"
-msgstr ""
+msgstr "Tambahkan judul"
 
 msgid "Font size"
 msgstr "Ukuran font"
@@ -396,10 +404,10 @@ msgid "Legend"
 msgstr "Legenda"
 
 msgid "Select from legends"
-msgstr ""
+msgstr "Pilih dari legenda"
 
 msgid "Loading legends"
-msgstr ""
+msgstr "Memuat legenda"
 
 msgid ""
 "You can set a minimum or maximum value. This will apply to the entire table,"
@@ -407,16 +415,16 @@ msgid ""
 msgstr ""
 
 msgid "Minimum data value"
-msgstr ""
+msgstr "Nilai Miinimum"
 
 msgid "Maximum data value"
-msgstr ""
+msgstr "Nilai maximum"
 
 msgid "Clear min/max limits"
 msgstr ""
 
 msgid "No space between bars/columns"
-msgstr ""
+msgstr "Tanpa spasi diantara batang/kolom"
 
 msgid "Number type"
 msgstr "Tipe nomer"
@@ -452,7 +460,7 @@ msgid "The number of axis steps between the min and max values"
 msgstr ""
 
 msgid "Steps"
-msgstr ""
+msgstr "langkah"
 
 msgid "Include regression"
 msgstr "Masukkan regresi"
@@ -729,31 +737,31 @@ msgid "Display"
 msgstr ""
 
 msgid "Lines"
-msgstr ""
+msgstr "Garis"
 
 msgid "Vertical (y) axis"
-msgstr ""
+msgstr "Sumbu Y"
 
 msgid "Horizontal (x) axis"
-msgstr ""
+msgstr "sumbu X"
 
 msgid "Chart style"
-msgstr ""
+msgstr "tipe grafik"
 
 msgid "Titles"
-msgstr ""
+msgstr "Judul"
 
 msgid "Display totals"
-msgstr ""
+msgstr "Munculkan total"
 
 msgid "Display empty data"
-msgstr ""
+msgstr "Munculkan data kosong"
 
 msgid "Labels"
-msgstr ""
+msgstr "label"
 
 msgid "Limit values"
-msgstr ""
+msgstr "batas nilai"
 
 msgid "Limit number of values"
 msgstr ""
