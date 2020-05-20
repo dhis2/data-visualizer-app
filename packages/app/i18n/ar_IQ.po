@@ -1,21 +1,19 @@
 # 
 # Translators:
-# Wanda <wanda@frontlineaids.org>, 2020
-# phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
+# KRG HIS <antonia.bezenchek@informa.pro>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-04-29T13:10:59.082Z\n"
 "PO-Revision-Date: 2020-03-02 13:01+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
-"Language-Team: Ukrainian (https://www.transifex.com/hisp-uio/teams/100509/uk/)\n"
+"Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2020\n"
+"Language-Team: Arabic (Iraq) (https://www.transifex.com/hisp-uio/teams/100509/ar_IQ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: uk\n"
-"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+"Language: ar_IQ\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -27,7 +25,7 @@ msgid "You have unsaved changes."
 msgstr ""
 
 msgid "Discard unsaved changes?"
-msgstr "Проігнорувати зміни, які не було збережено?"
+msgstr ""
 
 msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
@@ -55,10 +53,10 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr "Скасувати"
+msgstr "إلغاء"
 
 msgid "Update"
-msgstr "Оновити"
+msgstr "تحديث"
 
 msgid "Add to {{axisName}}"
 msgstr ""
@@ -86,7 +84,7 @@ msgid "Filter dimensions"
 msgstr ""
 
 msgid "Graphics"
-msgstr "Графіка"
+msgstr "الرسومات"
 
 msgid "Image (.png)"
 msgstr ""
@@ -95,7 +93,7 @@ msgid "PDF (.pdf)"
 msgstr ""
 
 msgid "Table layout"
-msgstr "Макет таблиці"
+msgstr "تنسيق الجدول"
 
 msgid "Excel (.xls)"
 msgstr ""
@@ -107,22 +105,22 @@ msgid "HTML (.html)"
 msgstr ""
 
 msgid "Download"
-msgstr "Завантажити"
+msgstr "تنزيل"
 
 msgid "Plain data source"
-msgstr "Джерело простих даних"
+msgstr "مصدر البيانات الصريحة"
 
 msgid "Advanced"
-msgstr "Розширені"
+msgstr "متقدم"
 
 msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "Data value set"
-msgstr "Набір значення даних"
+msgstr "حزمة قيم البيانات"
 
 msgid "Other formats"
-msgstr "Інші формати"
+msgstr "صيغ أخرى"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr ""
@@ -140,10 +138,10 @@ msgid "The following information may be requested by technical support."
 msgstr ""
 
 msgid "Hide"
-msgstr "Сховати"
+msgstr "إخفاء"
 
 msgid "Interpretations"
-msgstr "Інтерпретації"
+msgstr "التفسيرات"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr ""
@@ -202,46 +200,46 @@ msgid "Your most viewed charts and tables"
 msgstr ""
 
 msgid "Aggregation type"
-msgstr "Тип агрегації"
+msgstr "نوع التجميع"
 
 msgid "Determines how the values in the pivot table are aggregated."
 msgstr ""
 
 msgid "By data element"
-msgstr "За елементом даних"
+msgstr "بواسطة عنصر البيانات"
 
 msgid "Count"
-msgstr "Підрахунок"
+msgstr "العدد"
 
 msgid "Average"
-msgstr "Середнє"
+msgstr "المتوسط"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr "Середнє (сума в ієрархії організаційних підрозділів)"
+msgstr "المتوسط (المجموع في التسلسل الهرمي للوحدة التنظيمية)"
 
 msgid "Sum"
-msgstr "Сума"
+msgstr "المجموع"
 
 msgid "Last value"
-msgstr "Останнє значення"
+msgstr "القيمة الأخيرة"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr "Останнє значення (середнє в ієрархії організаційних підрозділів)"
+msgstr "القيمة الأخيرة (المتوسط في التسلسل الهرمي للوحدة التنظيمية)"
 
 msgid "Min"
-msgstr "Мін"
+msgstr "الأدنى"
 
 msgid "Max"
-msgstr "Макс"
+msgstr "الأعلى"
 
 msgid "Standard deviation"
-msgstr "Стандартне відхилення"
+msgstr ""
 
 msgid "Variance"
-msgstr "Коливання (варіативність)"
+msgstr "التباين"
 
 msgid "Data approved at level"
-msgstr "Дані затверджено на рівні"
+msgstr ""
 
 msgid "Select from predefined levels"
 msgstr ""
@@ -259,16 +257,16 @@ msgid "Base line"
 msgstr ""
 
 msgid "Value"
-msgstr "Значення"
+msgstr "القيمة"
 
 msgid "Title"
-msgstr "Назва"
+msgstr "العنوان"
 
 msgid "Base line title"
 msgstr ""
 
 msgid "Number"
-msgstr "Кількість"
+msgstr ""
 
 msgid "Column sub-totals"
 msgstr ""
@@ -283,34 +281,34 @@ msgid "Only include completed events"
 msgstr ""
 
 msgid "Include cumulative"
-msgstr "Включити сукупне значення"
+msgstr "تضمين التراكم"
 
 msgid "Cumulative values"
 msgstr ""
 
 msgid "Digit group separator"
-msgstr "Роздільник групи цифр"
+msgstr "فاصل مجموعة الخانات"
 
 msgid "None"
-msgstr "Жодного"
+msgstr "لا شيء"
 
 msgid "Space"
-msgstr "Пробіл"
+msgstr "مسافة"
 
 msgid "Comma"
-msgstr "Кома"
+msgstr "فاصلة"
 
 msgid "Display density"
-msgstr "Показати щільність"
+msgstr "كثافة العرض"
 
 msgid "Comfortable"
-msgstr "Зручний"
+msgstr "مريح"
 
 msgid "Normal"
-msgstr "Нормальний"
+msgstr "عادي"
 
 msgid "Compact"
-msgstr "Компактний"
+msgstr "مضغوط"
 
 msgid "Axis title"
 msgstr ""
@@ -319,16 +317,16 @@ msgid "Add a title"
 msgstr ""
 
 msgid "Font size"
-msgstr "Розмір шрифта"
+msgstr "حجم الخط"
 
 msgid "Large"
-msgstr "Великий"
+msgstr "كبير"
 
 msgid "Small"
-msgstr "Маленький"
+msgstr "صغير"
 
 msgid "Hide empty columns"
-msgstr "Сховати порожні стовпчики"
+msgstr ""
 
 msgid "Hide empty categories"
 msgstr ""
@@ -343,10 +341,10 @@ msgid "Before first and after last"
 msgstr ""
 
 msgid "All"
-msgstr "Всі"
+msgstr "الجميع"
 
 msgid "Hide empty rows"
-msgstr "Сховати порожні рядки"
+msgstr "إخفاء الصفوف الفارغة"
 
 msgid "Legend key"
 msgstr ""
@@ -361,10 +359,10 @@ msgid "Auto generated"
 msgstr ""
 
 msgid "Custom"
-msgstr "Налаштовуваний користувачем"
+msgstr ""
 
 msgid "Table title"
-msgstr "Назва таблиці"
+msgstr "عنوان الجدول"
 
 msgid "Chart title"
 msgstr ""
@@ -373,7 +371,7 @@ msgid "Display legend"
 msgstr ""
 
 msgid "Legend style"
-msgstr "Стиль умовних позначень"
+msgstr ""
 
 msgid "Legend type"
 msgstr ""
@@ -391,7 +389,7 @@ msgid "Legend changes text color"
 msgstr ""
 
 msgid "Legend"
-msgstr "Умовні позначення"
+msgstr ""
 
 msgid "Select from legends"
 msgstr ""
@@ -417,25 +415,25 @@ msgid "No space between bars/columns"
 msgstr ""
 
 msgid "Number type"
-msgstr "Тип числа"
+msgstr ""
 
 msgid "Display the value of percentages of the total"
 msgstr ""
 
 msgid "Percentage of row"
-msgstr "Відсоток рядка"
+msgstr ""
 
 msgid "Percentage of column"
-msgstr "Відсоток стовпчика"
+msgstr ""
 
 msgid "Organisation unit"
-msgstr "Організаційний підрозділ"
+msgstr "الوحدة التنظيمية"
 
 msgid "Parent organisation unit"
-msgstr "Батьківський організаційний підрозділ"
+msgstr "الوحدة التنظيمية الأصل"
 
 msgid "Reporting period"
-msgstr "Звітний період"
+msgstr "الفترة الزمنية لإعداد التقرير"
 
 msgid "Stacked values add up to 100%"
 msgstr ""
@@ -453,7 +451,7 @@ msgid "Steps"
 msgstr ""
 
 msgid "Include regression"
-msgstr "Включити регресію"
+msgstr "تضمين الانحدار"
 
 msgid "Trend line"
 msgstr ""
@@ -483,16 +481,16 @@ msgid "Display organisation unit hierarchy"
 msgstr ""
 
 msgid "Skip rounding"
-msgstr "Пропустити округлення"
+msgstr ""
 
 msgid "Custom sort order"
 msgstr ""
 
 msgid "Low to high"
-msgstr "Від низьких до високих"
+msgstr "من الأدنى إلى الأعلى"
 
 msgid "High to low"
-msgstr "Від високих до низьких"
+msgstr "من الأعلى إلى الأدنى"
 
 msgid "Add a subtitle"
 msgstr ""
@@ -504,10 +502,10 @@ msgid "Target line title"
 msgstr ""
 
 msgid "Top limit"
-msgstr "Верхня межа"
+msgstr "الحد الأعلى"
 
 msgid "Options"
-msgstr "Опції"
+msgstr "الخيارات"
 
 msgid "Open as Map"
 msgstr ""
@@ -604,55 +602,55 @@ msgid "or"
 msgstr ""
 
 msgid "Today"
-msgstr "Сьогодні"
+msgstr "اليوم"
 
 msgid "Yesterday"
-msgstr "Вчора"
+msgstr "الأمس"
 
 msgid "Last 3 days"
-msgstr "Минулі 3 дні"
+msgstr "آخر 3 أيام"
 
 msgid "Last 7 days"
-msgstr "Минулі 7 днів"
+msgstr "آخر 7 أيام"
 
 msgid "Last 14 days"
-msgstr "Минулі 14 днів"
+msgstr "آخر 14 يوم"
 
 msgid "This week"
-msgstr "Поточний тиждень"
+msgstr "الأسبوع الحالي"
 
 msgid "Last week"
-msgstr "Минулий тиждень"
+msgstr "الأسبوع الماضي"
 
 msgid "Last 4 weeks"
-msgstr "Останні 4 тижні"
+msgstr "آخر 4 أسابيع"
 
 msgid "Last 12 weeks"
-msgstr "Останні 12 тижнів"
+msgstr "آخر 12 أسبوع"
 
 msgid "Last 52 weeks"
-msgstr "Останні 52 тижні"
+msgstr "آخر 52 أسبوع"
 
 msgid "Weeks this year"
-msgstr "Тижні поточного року"
+msgstr "أسابيع السنة الحالية"
 
 msgid "This month"
-msgstr "Поточний місяць"
+msgstr "الشهر الحالي"
 
 msgid "Last month"
-msgstr "Останній місяць"
+msgstr "الشهر الماضي"
 
 msgid "Last 3 months"
-msgstr "Останні 3 місяці"
+msgstr "آخر 3 أشهر"
 
 msgid "Last 6 months"
-msgstr "Останні 6 місяців"
+msgstr "آخر 6 أشهر"
 
 msgid "Last 12 months"
-msgstr "Останні 12 місяців"
+msgstr "آخر 12 شهر"
 
 msgid "Months this year"
-msgstr "Місяців поточного року"
+msgstr "أشهر السنة الحالية"
 
 msgid "This bimonth"
 msgstr ""
@@ -667,46 +665,46 @@ msgid "Bimonths this year"
 msgstr ""
 
 msgid "This quarter"
-msgstr "Поточний квартал"
+msgstr "ربع السنة الحالي"
 
 msgid "Last quarter"
-msgstr "Минулий квартал"
+msgstr "ربع السنة الماضي"
 
 msgid "Last 4 quarters"
-msgstr "Останні 4 квартали"
+msgstr "آخر 4 أرباع السنة"
 
 msgid "Quarters this year"
-msgstr "Квартали поточного року"
+msgstr "أرباع السنة الحالية"
 
 msgid "This six-month"
-msgstr "Поточне півріччя"
+msgstr "نصف السنة الحالي (فترة من ستة أشهر)"
 
 msgid "Last six-month"
-msgstr "Останнє півріччя"
+msgstr "آخر ستة أشهر"
 
 msgid "Last 2 six-months"
-msgstr "Останні 2 півріччя"
+msgstr "آخر 2 ستة أشهر"
 
 msgid "This financial year"
-msgstr "Поточний фінансовий рік"
+msgstr "السنة المالية الحالية"
 
 msgid "Last financial year"
-msgstr "Минулий фінансовий рік"
+msgstr "السنة المالية الماضية"
 
 msgid "Last 5 financial years"
-msgstr "Останні 5 фінансових років"
+msgstr "آخر 5 سنوات مالية"
 
 msgid "This year"
-msgstr "Поточний рік"
+msgstr "السنة الحالية"
 
 msgid "Last year"
-msgstr "Минулий рік"
+msgstr "السنة الماضية"
 
 msgid "Last 5 years"
-msgstr "Останні 5 років"
+msgstr "آخر 5 سنوات"
 
 msgid "User org unit"
-msgstr "Організаційний підрозділ користувача"
+msgstr "الوحدة التنظيمية للمستخدم"
 
 msgid "User org unit children"
 msgstr ""
@@ -715,13 +713,13 @@ msgid "User org unit grand children"
 msgstr ""
 
 msgid "Data"
-msgstr "Дані"
+msgstr "البيانات"
 
 msgid "Axes"
 msgstr ""
 
 msgid "Style"
-msgstr "Стиль"
+msgstr "المظهر"
 
 msgid "Display"
 msgstr ""
@@ -760,7 +758,7 @@ msgid "Limit minimum/maximum values"
 msgstr ""
 
 msgid "Parameters"
-msgstr "Параметри"
+msgstr "المعاملات"
 
 msgid "Weeks per year"
 msgstr ""

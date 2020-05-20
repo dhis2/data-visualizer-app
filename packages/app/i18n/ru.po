@@ -1,3 +1,4 @@
+# 
 # Translators:
 # phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
@@ -5,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-02-21T11:16:30.247Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
+"POT-Creation-Date: 2020-04-29T13:10:59.082Z\n"
+"PO-Revision-Date: 2020-03-02 13:01+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -20,6 +21,23 @@ msgstr "Переименовать удачно"
 
 msgid "\"{{what}}\" successfully deleted."
 msgstr "\"{{what}}\" успешно удален."
+
+msgid "You have unsaved changes."
+msgstr ""
+
+msgid "Discard unsaved changes?"
+msgstr "Отменить несохраненные изменения?"
+
+msgid ""
+"Are you sure you want to leave this visualization? Any unsaved changes will "
+"be lost."
+msgstr ""
+
+msgid "No, cancel"
+msgstr ""
+
+msgid "Yes, leave"
+msgstr ""
 
 msgid "Axis 1"
 msgstr ""
@@ -36,7 +54,7 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr "Отменить"
+msgstr "Отмена"
 
 msgid "Update"
 msgstr "Обновить"
@@ -108,9 +126,6 @@ msgstr "Другие форматы"
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "Произошла ошибка в приложении Визуализатор Данных DHIS2."
 
-msgid "Something went wrong"
-msgstr "Что-то пошло не так"
-
 msgid "Refresh to try again"
 msgstr "Обновить и повторить попытку"
 
@@ -128,7 +143,7 @@ msgid "Hide"
 msgstr "Скрыть"
 
 msgid "Interpretations"
-msgstr "Интерпретации"
+msgstr "Interpretations"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr ""
@@ -146,6 +161,18 @@ msgid "Only '{{- name}}' in use"
 msgstr ""
 
 msgid "Only '{{number}}' in use"
+msgstr ""
+
+msgid "Levels"
+msgstr ""
+
+msgid "Groups"
+msgstr "Группы"
+
+msgid "And 1 other..."
+msgstr ""
+
+msgid "And {{numberOfItems}} others..."
 msgstr ""
 
 msgid "Unsaved visualization"
@@ -168,7 +195,7 @@ msgstr ""
 msgid "Add dimensions to the layout above"
 msgstr ""
 
-msgid "Double click a dimension to add or remove items"
+msgid "Click a dimension to add or remove items"
 msgstr ""
 
 msgid "Your most viewed charts and tables"
@@ -204,13 +231,13 @@ msgstr ""
 "единиц)"
 
 msgid "Min"
-msgstr "Мин"
+msgstr "Минимум"
 
 msgid "Max"
-msgstr "Макс"
+msgstr "Максимум"
 
 msgid "Standard deviation"
-msgstr "Среднеквадратическое отклонение"
+msgstr "Стандартное отклонение"
 
 msgid "Variance"
 msgstr "Дисперсия"
@@ -353,7 +380,7 @@ msgstr "Стиль легенды"
 msgid "Legend type"
 msgstr "Тип условных обозначений"
 
-msgid "Use pre-defined legends set per data item"
+msgid "Use pre-defined legend per data item"
 msgstr ""
 
 msgid "Select a single legend for entire table"
@@ -516,13 +543,27 @@ msgstr ""
 msgid "Add at least one item to {{axisName}}."
 msgstr ""
 
-msgid "No period set"
+msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
 msgstr ""
 
-msgid "{{visualizationType}} must have at least one period set in {{axes}}."
+msgid ""
+"Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
+" {{visualizationType}}."
 msgstr ""
 
-msgid "No data set"
+msgid "No period selected"
+msgstr "Не выбран период"
+
+msgid ""
+"{{visualizationType}} must have at least one period selected in {{axes}}."
+msgstr ""
+
+msgid "No data selected"
+msgstr ""
+
+msgid ""
+"{{visualizationType}} must have at least one data item or data element group"
+" set item in {{axes}}."
 msgstr ""
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
@@ -534,6 +575,9 @@ msgstr ""
 msgid ""
 "A single indicator must be the only data item when using indicators as Data "
 "in Filter."
+msgstr ""
+
+msgid "Data Element Group Sets and Reporting Rates cannot be used together."
 msgstr ""
 
 msgid "There is a problem with this {{visualizationType}} visualization."
@@ -554,6 +598,9 @@ msgstr ""
 
 msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr ""
+
+msgid "Something went wrong"
+msgstr "Что-то пошло не так"
 
 msgid "or"
 msgstr "или"
@@ -586,7 +633,7 @@ msgid "Last 12 weeks"
 msgstr "Прошлые 12 недель"
 
 msgid "Last 52 weeks"
-msgstr "Прошлые 52 недели"
+msgstr "Последние 52 недели"
 
 msgid "Weeks this year"
 msgstr "Недели этого года"
@@ -595,13 +642,13 @@ msgid "This month"
 msgstr "Этот месяц"
 
 msgid "Last month"
-msgstr "Прошлый месяц"
+msgstr "Последний месяц"
 
 msgid "Last 3 months"
 msgstr "Прошлые 3 месяца"
 
 msgid "Last 6 months"
-msgstr "Прошлые 6 месяцев"
+msgstr "Последние 6 месяцев"
 
 msgid "Last 12 months"
 msgstr "Прошлые 12 месяцев"
@@ -625,7 +672,7 @@ msgid "This quarter"
 msgstr "Этот квартал"
 
 msgid "Last quarter"
-msgstr "Прошлый квартал"
+msgstr "Последний квартал"
 
 msgid "Last 4 quarters"
 msgstr "Прошлые 4 квартала"
@@ -640,7 +687,7 @@ msgid "Last six-month"
 msgstr "Прошлое полугодие"
 
 msgid "Last 2 six-months"
-msgstr "Прошлые 2 полугодия"
+msgstr "Последние два полугодия"
 
 msgid "This financial year"
 msgstr "Этот финансовый год"

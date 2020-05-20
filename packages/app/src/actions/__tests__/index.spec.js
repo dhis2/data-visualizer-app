@@ -25,6 +25,7 @@ import {
     CLOSE_SNACKBAR,
 } from '../../reducers/snackbar'
 import * as selectors from '../../reducers/settings'
+import { GenericServerError } from '../../modules/error'
 
 const middlewares = [thunk.withExtraArgument('dataEngine')]
 const mockStore = configureMockStore(middlewares)
@@ -163,7 +164,7 @@ describe('index', () => {
         })
 
         it('dispatches the correct actions when fetch visualization fails', () => {
-            const error = 'I am not a teapot'
+            const error = new GenericServerError()
 
             api.apiFetchVisualization = () => Promise.reject(error)
 

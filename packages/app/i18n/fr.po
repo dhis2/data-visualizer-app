@@ -1,15 +1,16 @@
+# 
 # Translators:
-# Bram Piot <bram.piot@gmail.com>, 2019
-# mrwine <matthieu@pinard.no>, 2019
 # phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
+# Karoline Tufte Lien <karoline@dhis2.org>, 2020
+# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-02-18T09:08:26.548Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"POT-Creation-Date: 2020-04-29T13:10:59.082Z\n"
+"PO-Revision-Date: 2020-03-02 13:01+0000\n"
+"Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,6 +22,23 @@ msgid "Rename successful"
 msgstr ""
 
 msgid "\"{{what}}\" successfully deleted."
+msgstr ""
+
+msgid "You have unsaved changes."
+msgstr ""
+
+msgid "Discard unsaved changes?"
+msgstr "Abandonner les modifications non enregistrées?"
+
+msgid ""
+"Are you sure you want to leave this visualization? Any unsaved changes will "
+"be lost."
+msgstr ""
+
+msgid "No, cancel"
+msgstr ""
+
+msgid "Yes, leave"
 msgstr ""
 
 msgid "Axis 1"
@@ -44,7 +62,7 @@ msgid "Update"
 msgstr "Mettre à jour"
 
 msgid "Add to {{axisName}}"
-msgstr ""
+msgstr "Ajouter à {{nomdel'axe}} "
 
 msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
@@ -66,7 +84,7 @@ msgid "Your dimensions"
 msgstr ""
 
 msgid "Filter dimensions"
-msgstr ""
+msgstr "Dimensions du filtre"
 
 msgid "Graphics"
 msgstr "Graphisme"
@@ -99,7 +117,7 @@ msgid "Advanced"
 msgstr "Avancé"
 
 msgid "Metadata ID scheme"
-msgstr ""
+msgstr "Schéma ID des métadata"
 
 msgid "Data value set"
 msgstr "Ensemble de valeurs de données"
@@ -108,9 +126,6 @@ msgid "Other formats"
 msgstr "Autres formats"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr ""
-
-msgid "Something went wrong"
 msgstr ""
 
 msgid "Refresh to try again"
@@ -149,6 +164,18 @@ msgstr ""
 msgid "Only '{{number}}' in use"
 msgstr ""
 
+msgid "Levels"
+msgstr ""
+
+msgid "Groups"
+msgstr "Groupes"
+
+msgid "And 1 other..."
+msgstr ""
+
+msgid "And {{numberOfItems}} others..."
+msgstr ""
+
 msgid "Unsaved visualization"
 msgstr ""
 
@@ -169,7 +196,7 @@ msgstr ""
 msgid "Add dimensions to the layout above"
 msgstr ""
 
-msgid "Double click a dimension to add or remove items"
+msgid "Click a dimension to add or remove items"
 msgstr ""
 
 msgid "Your most viewed charts and tables"
@@ -212,7 +239,7 @@ msgid "Standard deviation"
 msgstr "Écart type"
 
 msgid "Variance"
-msgstr ""
+msgstr "Variance"
 
 msgid "Data approved at level"
 msgstr "Données approuvées au niveau"
@@ -343,10 +370,19 @@ msgstr "Titre du tableau"
 msgid "Chart title"
 msgstr "Titre du graphique"
 
-msgid "Apply a legend to entire table"
+msgid "Display legend"
 msgstr ""
 
-msgid "Assign a unique legend to data elements"
+msgid "Legend style"
+msgstr ""
+
+msgid "Legend type"
+msgstr "Type de légende"
+
+msgid "Use pre-defined legend per data item"
+msgstr ""
+
+msgid "Select a single legend for entire table"
 msgstr ""
 
 msgid "Legend changes background color"
@@ -355,22 +391,13 @@ msgstr ""
 msgid "Legend changes text color"
 msgstr ""
 
-msgid "Select a legend"
-msgstr ""
+msgid "Legend"
+msgstr "Légende"
 
-msgid "Select from predefined legends"
+msgid "Select from legends"
 msgstr ""
 
 msgid "Loading legends"
-msgstr ""
-
-msgid "Display legend"
-msgstr ""
-
-msgid "Legend type"
-msgstr "Type de légende"
-
-msgid "Legend setup"
 msgstr ""
 
 msgid ""
@@ -487,19 +514,19 @@ msgid "Open as Map"
 msgstr ""
 
 msgid "Reporting rate"
-msgstr ""
+msgstr "Taux de déclaration"
 
 msgid "Reporting rate on time"
-msgstr ""
+msgstr "Taux de notification à temps"
 
 msgid "Actual reports"
-msgstr ""
+msgstr "Rapports réels"
 
 msgid "Actual reports on time"
-msgstr ""
+msgstr "Rapports réels à temps"
 
 msgid "Expected reports"
-msgstr ""
+msgstr "Rapports attendus"
 
 msgid "No data available"
 msgstr ""
@@ -515,13 +542,27 @@ msgstr ""
 msgid "Add at least one item to {{axisName}}."
 msgstr ""
 
-msgid "No period set"
+msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
 msgstr ""
 
-msgid "{{visualizationType}} must have at least one period set in {{axes}}."
+msgid ""
+"Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
+" {{visualizationType}}."
 msgstr ""
 
-msgid "No data set"
+msgid "No period selected"
+msgstr "Aucune période n'est sélectionné"
+
+msgid ""
+"{{visualizationType}} must have at least one period selected in {{axes}}."
+msgstr ""
+
+msgid "No data selected"
+msgstr ""
+
+msgid ""
+"{{visualizationType}} must have at least one data item or data element group"
+" set item in {{axes}}."
 msgstr ""
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
@@ -533,6 +574,9 @@ msgstr ""
 msgid ""
 "A single indicator must be the only data item when using indicators as Data "
 "in Filter."
+msgstr ""
+
+msgid "Data Element Group Sets and Reporting Rates cannot be used together."
 msgstr ""
 
 msgid "There is a problem with this {{visualizationType}} visualization."
@@ -552,6 +596,9 @@ msgid "Assigned Categories cannot be used as Filter"
 msgstr ""
 
 msgid "Fix this problem by moving or removing Assigned Categories."
+msgstr ""
+
+msgid "Something went wrong"
 msgstr ""
 
 msgid "or"
@@ -700,9 +747,6 @@ msgstr ""
 
 msgid "Display empty data"
 msgstr ""
-
-msgid "Legend"
-msgstr "Légende"
 
 msgid "Labels"
 msgstr ""
