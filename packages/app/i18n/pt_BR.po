@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-06-21T08:47:33.000Z\n"
+"POT-Creation-Date: 2020-05-18T23:27:07.844Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: phil_dhis2, 2019\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/hisp-uio/teams/100509/pt_BR/)\n"
@@ -72,10 +72,31 @@ msgstr ""
 msgid "Metadata ID scheme"
 msgstr ""
 
+msgid "ID"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
 msgid "Data value set"
 msgstr ""
 
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
 msgid "Other formats"
+msgstr ""
+
+msgid "JRXML"
+msgstr ""
+
+msgid "Raw data SQL"
 msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
@@ -111,9 +132,6 @@ msgstr "Categoria"
 msgid "Filter"
 msgstr "Filtro"
 
-msgid "Move to"
-msgstr ""
-
 msgid "None selected"
 msgstr ""
 
@@ -126,10 +144,10 @@ msgstr ""
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
-msgid "Create a new visualization by adding dimensions to the layout"
+msgid "Chart error"
 msgstr ""
 
-msgid "Chart error"
+msgid "Create a new visualization by adding dimensions to the layout"
 msgstr ""
 
 msgid "Error generating chart, please try again"
@@ -324,64 +342,7 @@ msgstr ""
 msgid "Year over year (column)"
 msgstr ""
 
-msgid "Reporting rate"
-msgstr ""
-
-msgid "Reporting rate on time"
-msgstr ""
-
-msgid "Actual reports"
-msgstr ""
-
-msgid "Actual reports on time"
-msgstr ""
-
-msgid "Expected reports"
-msgstr ""
-
-msgid "Program"
-msgstr "Programa"
-
-msgid "Select a program"
-msgstr ""
-
-msgid "Indicators"
-msgstr "Indicadores"
-
-msgid "Select indicator group"
-msgstr ""
-
-msgid "[ All groups ]"
-msgstr ""
-
-msgid "Data elements"
-msgstr "Os elementos de dados"
-
-msgid "Select data element group"
-msgstr ""
-
-msgid "[ All data elements ]"
-msgstr ""
-
-msgid "Totals"
-msgstr "Totais"
-
-msgid "Details"
-msgstr "Detalhes"
-
-msgid "Data sets"
-msgstr "Agregação de Dados"
-
-msgid "Select data sets"
-msgstr ""
-
-msgid "[ All metrics ]"
-msgstr ""
-
-msgid "Event data items"
-msgstr ""
-
-msgid "Program indicators"
+msgid "Open as Map"
 msgstr ""
 
 msgid "Period"
@@ -397,6 +358,15 @@ msgid "Add to category"
 msgstr ""
 
 msgid "Add to filter"
+msgstr ""
+
+msgid "Move to series"
+msgstr ""
+
+msgid "Move to category"
+msgstr ""
+
+msgid "Move to filter"
 msgstr ""
 
 msgid "series"

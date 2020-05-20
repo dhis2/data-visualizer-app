@@ -212,7 +212,7 @@ export class DownloadMenu extends Component {
                             'UID'
                         )}
                     >
-                        ID
+                        {i18n.t('ID')}
                     </MenuItem>
                     <MenuItem
                         onClick={this.downloadData(
@@ -220,7 +220,7 @@ export class DownloadMenu extends Component {
                             'CODE'
                         )}
                     >
-                        Code
+                        {i18n.t('Code')}
                     </MenuItem>
                     <MenuItem
                         onClick={this.downloadData(
@@ -228,13 +228,16 @@ export class DownloadMenu extends Component {
                             'NAME'
                         )}
                     >
-                        Name
+                        {i18n.t('Name')}
                     </MenuItem>
                 </Menu>
                 <Menu
                     open={Boolean(this.state.advancedSubmenu.anchorEl)}
                     anchorEl={this.state.advancedSubmenu.anchorEl}
-                    anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+                    anchorOrigin={{
+                        vertical: 'top',
+                        horizontal: 'right',
+                    }}
                     onClose={event => this.toggleSubmenu('advanced')}
                 >
                     <ListSubheader component="div">
@@ -247,24 +250,24 @@ export class DownloadMenu extends Component {
                             'dataValueSet'
                         )}
                     >
-                        JSON
+                        {i18n.t('JSON')}
                     </MenuItem>
                     <MenuItem
                         onClick={this.downloadData('xml', null, 'dataValueSet')}
                     >
-                        XML
+                        {i18n.t('XML')}
                     </MenuItem>
                     <Divider />
                     <ListSubheader component="div">
                         {i18n.t('Other formats')}
                     </ListSubheader>
                     <MenuItem onClick={this.downloadData('jrxml')}>
-                        JRXML
+                        {i18n.t('JRXML')}
                     </MenuItem>
                     <MenuItem
                         onClick={this.downloadData('sql', null, 'debug/sql')}
                     >
-                        Raw data SQL
+                        {i18n.t('Raw data SQL')}
                     </MenuItem>
                 </Menu>
             </Fragment>

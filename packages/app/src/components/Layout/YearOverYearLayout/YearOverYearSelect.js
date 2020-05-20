@@ -33,7 +33,7 @@ class YearOverYearSelect extends React.Component {
             >
                 {this.props.options.map(option => (
                     <MenuItem key={option.id} value={option.id}>
-                        {option.name}
+                        {option.name()}
                     </MenuItem>
                 ))}
             </Select>

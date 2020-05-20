@@ -24,10 +24,14 @@ import { isYearOverYear, isDualAxisType } from '../../../modules/chartTypes';
 import { AXIS_SETUP_DIALOG_ID } from '../../AxisSetup/AxisSetup';
 import { FIXED_DIMENSIONS } from '../../../modules/fixedDimensions';
 
-const axisLabels = {
-    columns: i18n.t('Series'),
-    rows: i18n.t('Category'),
-    filters: i18n.t('Filter'),
+const getAxisLabel = axis => {
+    const axisLabels = {
+        columns: i18n.t('Series'),
+        rows: i18n.t('Category'),
+        filters: i18n.t('Filter'),
+    };
+
+    return axisLabels[axis];
 };
 
 class Axis extends React.Component {
@@ -59,7 +63,7 @@ class Axis extends React.Component {
             <MenuItem
                 key={`${dimensionId}-to-${key}`}
                 onClick={this.props.getMoveHandler({ [dimensionId]: key })}
-            >{`${i18n.t('Move to')} ${menuLabels[key]}`}</MenuItem>
+            >{`${menuLabels[key]()}`}</MenuItem>
         ));
 
     isSeries = () => this.props.axisName === AXIS_NAME_COLUMNS;
@@ -117,7 +121,7 @@ class Axis extends React.Component {
                 onDrop={this.onDrop}
             >
                 <div style={styles.label}>
-                    {axisLabels[this.props.axisName]}
+                    {getAxisLabel(this.props.axisName)}
                 </div>
                 <div style={styles.content}>
                     {this.props.axis.map(dimensionId => (

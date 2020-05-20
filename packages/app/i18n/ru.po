@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-06-21T08:47:33.000Z\n"
+"POT-Creation-Date: 2020-05-18T23:27:07.844Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: phil_dhis2, 2019\n"
 "Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
@@ -72,11 +72,32 @@ msgstr "Расширенный"
 msgid "Metadata ID scheme"
 msgstr "ID Схема метаданных"
 
+msgid "ID"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
 msgid "Data value set"
 msgstr "Набор значений данных"
 
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
 msgid "Other formats"
 msgstr "Другие форматы"
+
+msgid "JRXML"
+msgstr ""
+
+msgid "Raw data SQL"
+msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "Произошла ошибка в приложении Визуализатор Данных DHIS2."
@@ -112,9 +133,6 @@ msgstr "Категория"
 msgid "Filter"
 msgstr "Фильтр"
 
-msgid "Move to"
-msgstr "Переместить в"
-
 msgid "None selected"
 msgstr "Не выбрано"
 
@@ -127,11 +145,11 @@ msgstr "Редактированный"
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "Просмотр интерпретации с {{interpretationDate}}"
 
-msgid "Create a new visualization by adding dimensions to the layout"
-msgstr "Создайте новую визуализацию, добавив величины в макет"
-
 msgid "Chart error"
 msgstr "Ошибка диаграммы"
+
+msgid "Create a new visualization by adding dimensions to the layout"
+msgstr "Создайте новую визуализацию, добавив величины в макет"
 
 msgid "Error generating chart, please try again"
 msgstr ""
@@ -325,65 +343,8 @@ msgstr "Год за годом (линия)"
 msgid "Year over year (column)"
 msgstr "Год за годом (столбец)"
 
-msgid "Reporting rate"
-msgstr "Показатель отчетности"
-
-msgid "Reporting rate on time"
-msgstr "Показатель отчетности по времени"
-
-msgid "Actual reports"
-msgstr "Текущие отчеты"
-
-msgid "Actual reports on time"
-msgstr "Текущие отчеты по времени"
-
-msgid "Expected reports"
-msgstr "Ожидаемые отчеты"
-
-msgid "Program"
-msgstr "Программа"
-
-msgid "Select a program"
-msgstr "Выбрать программу"
-
-msgid "Indicators"
-msgstr "Индикаторы"
-
-msgid "Select indicator group"
-msgstr "Выбрать группу индикаторов"
-
-msgid "[ All groups ]"
-msgstr "[Все группы]"
-
-msgid "Data elements"
-msgstr "Элементы данных"
-
-msgid "Select data element group"
-msgstr "Выбрать группу элементов данных"
-
-msgid "[ All data elements ]"
-msgstr "[Все элементы данных]"
-
-msgid "Totals"
-msgstr "Итоги"
-
-msgid "Details"
-msgstr "Детали"
-
-msgid "Data sets"
-msgstr "Наборы данных"
-
-msgid "Select data sets"
-msgstr "Выбрать набор данных"
-
-msgid "[ All metrics ]"
-msgstr "[Все показатели]"
-
-msgid "Event data items"
-msgstr "Элементы данных событий"
-
-msgid "Program indicators"
-msgstr "Программные показатели"
+msgid "Open as Map"
+msgstr ""
 
 msgid "Period"
 msgstr "Период"
@@ -399,6 +360,15 @@ msgstr "Добавить в категорию"
 
 msgid "Add to filter"
 msgstr "Добавить в фильтр"
+
+msgid "Move to series"
+msgstr ""
+
+msgid "Move to category"
+msgstr ""
+
+msgid "Move to filter"
+msgstr ""
 
 msgid "series"
 msgstr "ряд"

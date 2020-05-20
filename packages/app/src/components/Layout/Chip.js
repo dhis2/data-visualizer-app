@@ -10,7 +10,6 @@ import { sGetUiItemsByDimension } from '../../reducers/ui';
 import { styles } from './styles/Chip.style';
 import { FIXED_DIMENSIONS } from '../../modules/fixedDimensions';
 import DynamicDimensionIcon from '../../assets/DynamicDimensionIcon';
-import { sGetMetadata } from '../../reducers/metadata';
 
 const TOOLTIP_ENTER_DELAY = 500;
 
@@ -125,7 +124,6 @@ class Chip extends React.Component {
 const mapStateToProps = (state, ownProps) => ({
     dimensionName: (sGetDimensions(state)[ownProps.dimensionId] || {}).name,
     items: sGetUiItemsByDimension(state, ownProps.dimensionId) || emptyItems,
-    metadata: sGetMetadata(state),
 });
 
 export default connect(mapStateToProps)(Chip);

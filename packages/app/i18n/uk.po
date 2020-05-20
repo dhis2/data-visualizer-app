@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-06-21T08:47:33.000Z\n"
+"POT-Creation-Date: 2020-05-18T23:27:07.844Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: phil_dhis2, 2019\n"
 "Language-Team: Ukrainian (https://www.transifex.com/hisp-uio/teams/100509/uk/)\n"
@@ -72,11 +72,32 @@ msgstr "Розширені"
 msgid "Metadata ID scheme"
 msgstr ""
 
+msgid "ID"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
 msgid "Data value set"
 msgstr "Набір значення даних"
 
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
 msgid "Other formats"
 msgstr "Інші формати"
+
+msgid "JRXML"
+msgstr ""
+
+msgid "Raw data SQL"
+msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr ""
@@ -111,9 +132,6 @@ msgstr "Категорія"
 msgid "Filter"
 msgstr "Фільтр"
 
-msgid "Move to"
-msgstr ""
-
 msgid "None selected"
 msgstr ""
 
@@ -126,10 +144,10 @@ msgstr ""
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
-msgid "Create a new visualization by adding dimensions to the layout"
+msgid "Chart error"
 msgstr ""
 
-msgid "Chart error"
+msgid "Create a new visualization by adding dimensions to the layout"
 msgstr ""
 
 msgid "Error generating chart, please try again"
@@ -324,65 +342,8 @@ msgstr ""
 msgid "Year over year (column)"
 msgstr ""
 
-msgid "Reporting rate"
+msgid "Open as Map"
 msgstr ""
-
-msgid "Reporting rate on time"
-msgstr ""
-
-msgid "Actual reports"
-msgstr ""
-
-msgid "Actual reports on time"
-msgstr ""
-
-msgid "Expected reports"
-msgstr ""
-
-msgid "Program"
-msgstr "Program"
-
-msgid "Select a program"
-msgstr ""
-
-msgid "Indicators"
-msgstr "Показники"
-
-msgid "Select indicator group"
-msgstr "Обрати групу показників"
-
-msgid "[ All groups ]"
-msgstr ""
-
-msgid "Data elements"
-msgstr "Елементи даних"
-
-msgid "Select data element group"
-msgstr "Обрати групу елементів даних"
-
-msgid "[ All data elements ]"
-msgstr ""
-
-msgid "Totals"
-msgstr "Підсумки"
-
-msgid "Details"
-msgstr "Деталі"
-
-msgid "Data sets"
-msgstr "Набори даних"
-
-msgid "Select data sets"
-msgstr ""
-
-msgid "[ All metrics ]"
-msgstr ""
-
-msgid "Event data items"
-msgstr "Складові дані події"
-
-msgid "Program indicators"
-msgstr "Програмні показники"
 
 msgid "Period"
 msgstr "Період"
@@ -397,6 +358,15 @@ msgid "Add to category"
 msgstr ""
 
 msgid "Add to filter"
+msgstr ""
+
+msgid "Move to series"
+msgstr ""
+
+msgid "Move to category"
+msgstr ""
+
+msgid "Move to filter"
 msgstr ""
 
 msgid "series"

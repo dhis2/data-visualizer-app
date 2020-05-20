@@ -1,13 +1,12 @@
 # 
 # Translators:
-# phil_dhis2, 2019
 # Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-06-21T08:47:33.000Z\n"
+"POT-Creation-Date: 2020-05-18T23:27:07.844Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
@@ -75,11 +74,32 @@ msgstr "Lanjut"
 msgid "Metadata ID scheme"
 msgstr "Skema ID metadata"
 
+msgid "ID"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
 msgid "Data value set"
 msgstr "Set nilai data"
 
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
 msgid "Other formats"
 msgstr "Format lain"
+
+msgid "JRXML"
+msgstr ""
+
+msgid "Raw data SQL"
+msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "Terjadi kesalahan dalam aplikasi DHIS2 Data Visualizer."
@@ -114,9 +134,6 @@ msgstr "Kategori"
 msgid "Filter"
 msgstr "Saring"
 
-msgid "Move to"
-msgstr "Pindahkan ke"
-
 msgid "None selected"
 msgstr "Tidak ada yang terpilih"
 
@@ -129,11 +146,11 @@ msgstr "Diedit"
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "Melihat interpretasi dari {{interpretationDate}}"
 
-msgid "Create a new visualization by adding dimensions to the layout"
-msgstr "Buat visualisasi baru dengan menambahkan dimensi ke dalam layout"
-
 msgid "Chart error"
 msgstr "Kesalahan pada grafik"
+
+msgid "Create a new visualization by adding dimensions to the layout"
+msgstr "Buat visualisasi baru dengan menambahkan dimensi ke dalam layout"
 
 msgid "Error generating chart, please try again"
 msgstr "Gagal menyajikan grafik, silakan coba kembali"
@@ -327,65 +344,8 @@ msgstr "Tahun ke tahun (garis)"
 msgid "Year over year (column)"
 msgstr "Tahun ke tahun (kolom)"
 
-msgid "Reporting rate"
-msgstr "Tingkat pelaporan"
-
-msgid "Reporting rate on time"
-msgstr "Tingkat pelaporan tepat waktu"
-
-msgid "Actual reports"
-msgstr "Laporan sesungguhnya"
-
-msgid "Actual reports on time"
-msgstr "Laporan sesungguhnya yang tepat waktu"
-
-msgid "Expected reports"
-msgstr "Laporan yang diharapkan"
-
-msgid "Program"
-msgstr "Program"
-
-msgid "Select a program"
-msgstr "Pilih program"
-
-msgid "Indicators"
-msgstr "Indikator"
-
-msgid "Select indicator group"
-msgstr "Pilih grup indikator"
-
-msgid "[ All groups ]"
-msgstr "[ All groups ]"
-
-msgid "Data elements"
-msgstr "Data elemen"
-
-msgid "Select data element group"
-msgstr "Pilih grup data elemen"
-
-msgid "[ All data elements ]"
-msgstr "[ All data elements ]"
-
-msgid "Totals"
-msgstr "Total"
-
-msgid "Details"
-msgstr "Rincian"
-
-msgid "Data sets"
-msgstr "Data set"
-
-msgid "Select data sets"
-msgstr "Pilih data set"
-
-msgid "[ All metrics ]"
-msgstr "[ All metrics ]"
-
-msgid "Event data items"
-msgstr "Item data event"
-
-msgid "Program indicators"
-msgstr "Indikator program"
+msgid "Open as Map"
+msgstr ""
 
 msgid "Period"
 msgstr "Periode"
@@ -401,6 +361,15 @@ msgstr "Tambahkan ke kategori"
 
 msgid "Add to filter"
 msgstr "Tambahkan ke penyaringan"
+
+msgid "Move to series"
+msgstr ""
+
+msgid "Move to category"
+msgstr ""
+
+msgid "Move to filter"
+msgstr ""
 
 msgid "series"
 msgstr "seri"

@@ -5,10 +5,6 @@ import styles from './styles/BlankCanvas.style';
 import { sGetLoadError } from '../../reducers/loader';
 import chartErrorImg from '../../assets/chart-error-graphic.png';
 
-export const defaultCanvasMessage = i18n.t(
-    'Create a new visualization by adding dimensions to the layout'
-);
-
 const getMessage = text => <p style={styles.title}>{text}</p>;
 
 export const BlankCanvas = ({ error }) => {
@@ -18,7 +14,11 @@ export const BlankCanvas = ({ error }) => {
             {getMessage(error)}
         </div>
     ) : (
-        getMessage(defaultCanvasMessage)
+        getMessage(
+            i18n.t(
+                'Create a new visualization by adding dimensions to the layout'
+            )
+        )
     );
 
     return (
