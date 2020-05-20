@@ -26,13 +26,13 @@ export class VisualizationOptions extends Component {
     }
 
     generateTabContent = sections =>
-        sections.map(({ key, label, content }) => (
+        sections.map(({ key, getLabel, content }) => (
             <div key={key} className={tabSection.className}>
                 <FieldSet>
-                    {label ? (
+                    {getLabel ? (
                         <Legend>
                             <span className={tabSectionTitle.className}>
-                                {label}
+                                {getLabel()}
                             </span>
                         </Legend>
                     ) : null}
@@ -42,9 +42,9 @@ export class VisualizationOptions extends Component {
         ))
 
     generateTabs = tabs =>
-        tabs.map(({ key, label, content }) => ({
+        tabs.map(({ key, getLabel, content }) => ({
             key,
-            label,
+            label: getLabel(),
             content: this.generateTabContent(content),
         }))
 
