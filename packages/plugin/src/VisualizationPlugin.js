@@ -45,21 +45,6 @@ export const VisualizationPlugin = ({
     const onContextualMenuItemClick = args => {
         closeContextualMenu()
 
-        if (args.ou) {
-            const ouItems = [{ id: args.ou.id, name: args.ou.name }]
-
-            if (args.ou.level) {
-                const levelData = ouLevels.find(
-                    item => item.id === args.ou.level
-                )
-
-                ouItems.push({
-                    id: levelData.id,
-                    name: levelData.name,
-                })
-            }
-        }
-
         onDrill(args)
     }
 
