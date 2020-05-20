@@ -11,12 +11,14 @@
     },
     "dependencies": {
         "@dhis2/analytics": "^5.1.0",
+        "@dhis2/ui-core": "^4.21.1",
         "d2-analysis": "33.2.15",
         "lodash-es": "^4.17.11"
     },
     "peerDependencies": {
         "react": "^16.8",
-        "react-dom": "^16.8"
+        "react-dom": "^16.8",
+        "@dhis2/d2-i18n": "*"
     },
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^3.2.5"

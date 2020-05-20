@@ -1571,7 +1571,7 @@
     moment "^2.22.1"
     rimraf "^2.6.2"
 
-"@dhis2/d2-i18n@*", "@dhis2/d2-i18n@^1.0.3", "@dhis2/d2-i18n@^1.0.4", "@dhis2/d2-i18n@^1.0.5":
+"@dhis2/d2-i18n@*", "@dhis2/d2-i18n@^1.0.3", "@dhis2/d2-i18n@^1.0.4", "@dhis2/d2-i18n@^1.0.5", "@dhis2/d2-i18n@^1.0.6":
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-i18n/-/d2-i18n-1.0.6.tgz#2914be8acf296f3a6bf7b51c76c46da6a120b0ff"
   integrity sha512-7YdA4ppFosjuyf7ZMm47BrdsA5TWLM9lmS0lUPgjcCVeeWfUgagqzf4W5JGB9XQ3w1vzK+yy5zH2Ij8IgRAGhA==
@@ -1700,9 +1700,9 @@
     prop-types "^15.5.10"
 
 "@dhis2/d2-ui-period-selector-dialog@^6.5.7":
-  version "6.5.10"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-period-selector-dialog/-/d2-ui-period-selector-dialog-6.5.10.tgz#af7af8839973e98298d65f7f2b4132ab1ef25a78"
-  integrity sha512-jlOcFgRPvJycT3TJxqPd4tncnVlWVzS107ZaUhKdKVPmRDbyThx1q48pWyGO2QlFyFBkyXso3aRDLiyZ52uhOA==
+  version "6.5.11"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-period-selector-dialog/-/d2-ui-period-selector-dialog-6.5.11.tgz#c54c227e0175164c63c61054b405d7a48ddc4b25"
+  integrity sha512-xHcbEDvhI/eGJZbvj1eL7z1iJZ2AYJxj2NS1a6CM58MZmvC0TJ/n3jbQMiaV42yJR2S3lWZlTpdOH35pdHKZeA==
   dependencies:
     "@dhis2/analytics" "^4.0.1"
     "@dhis2/d2-i18n" "^1.0.4"
