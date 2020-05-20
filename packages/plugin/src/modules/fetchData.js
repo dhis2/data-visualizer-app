@@ -1,4 +1,3 @@
-import i18n from '@dhis2/d2-i18n'
 import { isYearOverYear } from '@dhis2/analytics'
 import {
     apiFetchAnalyticsForYearOverYear,
@@ -17,7 +16,6 @@ export const fetchData = async ({
 
     const extraOptions = {
         dashboard: forDashboard,
-        noData: { text: i18n.t('No data') },
     }
 
     if (isYearOverYear(visualization.type)) {
