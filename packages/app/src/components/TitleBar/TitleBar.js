@@ -17,8 +17,8 @@ import {
     getVisualizationState,
 } from '../../modules/visualization'
 
-export const TITLE_UNSAVED = i18n.t('Unsaved visualization')
-export const TITLE_DIRTY = i18n.t('Edited')
+export const getTitleUnsaved = () => i18n.t('Unsaved visualization')
+export const getTitleDirty = () => i18n.t('Edited')
 
 const defaultTitleStyle = {
     ...styles.cell,
@@ -33,7 +33,7 @@ const defaultInterpretationStyle = {
 const getTitleText = (titleState, visualization) => {
     switch (titleState) {
         case STATE_UNSAVED:
-            return TITLE_UNSAVED
+            return getTitleUnsaved()
         case STATE_SAVED:
         case STATE_DIRTY:
             return visualization.name
@@ -60,7 +60,7 @@ const getSuffix = titleState => {
                         ...styles.suffix,
                         ...styles.titleDirty,
                     }}
-                >{`- ${TITLE_DIRTY}`}</div>
+                >{`- ${getTitleDirty()}`}</div>
             )
         default:
             return ''
