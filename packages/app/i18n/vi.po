@@ -1,6 +1,6 @@
 # 
 # Translators:
-# phil_dhis2, 2019
+# phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
 # Mai Nguyen <thanhmai.jica@gmail.com>, 2020
 # 
@@ -76,22 +76,22 @@ msgid "Metadata ID scheme"
 msgstr "Lược đồ ID siêu dữ liệu"
 
 msgid "ID"
-msgstr ""
+msgstr "Định danh"
 
 msgid "Code"
-msgstr ""
+msgstr "Mã"
 
 msgid "Name"
-msgstr ""
+msgstr "Tên"
 
 msgid "Data value set"
 msgstr "Bộ giá trị dữ liệu"
 
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 msgid "XML"
-msgstr ""
+msgstr "XML"
 
 msgid "Other formats"
 msgstr "Định dạng khác"
@@ -137,6 +137,12 @@ msgstr "Lọc"
 
 msgid "None selected"
 msgstr "Chưa lựa chọn"
+
+msgid "And 1 other..."
+msgstr ""
+
+msgid "And {{numberOfItems}} others..."
+msgstr ""
 
 msgid "Unsaved chart"
 msgstr ""
@@ -346,7 +352,7 @@ msgid "Year over year (column)"
 msgstr ""
 
 msgid "Open as Map"
-msgstr ""
+msgstr "Mở dưới dạng bản đồ"
 
 msgid "Period"
 msgstr "Thời điểm"

@@ -73,13 +73,13 @@ msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr ""
+msgstr "အိုင်ဒီ"
 
 msgid "Code"
-msgstr ""
+msgstr "ကုဒ်"
 
 msgid "Name"
-msgstr ""
+msgstr "အမည်"
 
 msgid "Data value set"
 msgstr ""
@@ -133,6 +133,12 @@ msgid "Filter"
 msgstr "ရှာဖွေထုတ်သည်"
 
 msgid "None selected"
+msgstr ""
+
+msgid "And 1 other..."
+msgstr ""
+
+msgid "And {{numberOfItems}} others..."
 msgstr ""
 
 msgid "Unsaved chart"

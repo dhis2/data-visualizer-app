@@ -1,14 +1,14 @@
 # 
 # Translators:
-# 晓东 林 <13981924470@126.com>, 2020
 # easylin <lin_xd@126.com>, 2020
+# 晓东 林 <13981924470@126.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-18T23:27:07.844Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
-"Last-Translator: easylin <lin_xd@126.com>, 2020\n"
+"Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -73,22 +73,22 @@ msgid "Metadata ID scheme"
 msgstr "元数据ID方案"
 
 msgid "ID"
-msgstr ""
+msgstr "Id"
 
 msgid "Code"
-msgstr ""
+msgstr "代码"
 
 msgid "Name"
-msgstr ""
+msgstr "名称"
 
 msgid "Data value set"
 msgstr "数据值集"
 
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 msgid "XML"
-msgstr ""
+msgstr "XML"
 
 msgid "Other formats"
 msgstr "其它格式"
@@ -134,6 +134,12 @@ msgstr "过滤器"
 
 msgid "None selected"
 msgstr "没有选择"
+
+msgid "And 1 other..."
+msgstr ""
+
+msgid "And {{numberOfItems}} others..."
+msgstr ""
 
 msgid "Unsaved chart"
 msgstr ""
@@ -343,7 +349,7 @@ msgid "Year over year (column)"
 msgstr ""
 
 msgid "Open as Map"
-msgstr ""
+msgstr "打开为地图"
 
 msgid "Period"
 msgstr "期间"

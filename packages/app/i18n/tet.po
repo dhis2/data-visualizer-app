@@ -73,13 +73,13 @@ msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr ""
+msgstr "Id"
 
 msgid "Code"
-msgstr ""
+msgstr "Kódigu"
 
 msgid "Name"
-msgstr ""
+msgstr "Naran"
 
 msgid "Data value set"
 msgstr ""
@@ -133,6 +133,12 @@ msgid "Filter"
 msgstr "Filtru"
 
 msgid "None selected"
+msgstr ""
+
+msgid "And 1 other..."
+msgstr ""
+
+msgid "And {{numberOfItems}} others..."
 msgstr ""
 
 msgid "Unsaved chart"
