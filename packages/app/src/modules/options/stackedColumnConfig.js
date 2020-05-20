@@ -25,11 +25,11 @@ import CompletedOnly from '../../components/VisualizationOptions/Options/Complet
 export default [
     {
         key: 'data-tab',
-        label: i18n.t('Data'),
+        getLabel: () => i18n.t('Data'),
         content: [
             {
                 key: 'data-display',
-                label: i18n.t('Display'),
+                getLabel: () => i18n.t('Display'),
                 content: React.Children.toArray([
                     <ShowData />,
                     <PercentStackedValues />,
@@ -40,7 +40,7 @@ export default [
             },
             {
                 key: 'data-lines',
-                label: i18n.t('Lines'),
+                getLabel: () => i18n.t('Lines'),
                 content: React.Children.toArray([
                     <RegressionType />,
                     <TargetLine />,
@@ -49,7 +49,7 @@ export default [
             },
             {
                 key: 'data-advanced',
-                label: i18n.t('Advanced'),
+                getLabel: () => i18n.t('Advanced'),
                 content: React.Children.toArray([
                     <AggregationType />,
                     <CompletedOnly />,
@@ -59,11 +59,11 @@ export default [
     },
     {
         key: 'axes-tab',
-        label: i18n.t('Axes'),
+        getLabel: () => i18n.t('Axes'),
         content: [
             {
                 key: 'axes-vertical-axis',
-                label: i18n.t('Vertical (y) axis'),
+                getLabel: () => i18n.t('Vertical (y) axis'),
                 content: React.Children.toArray([
                     <RangeAxisLabel />,
                     <AxisRange />,
@@ -73,18 +73,18 @@ export default [
             },
             {
                 key: 'axes-horizontal-axis',
-                label: i18n.t('Horizontal (x) axis'),
+                getLabel: () => i18n.t('Horizontal (x) axis'),
                 content: React.Children.toArray([<DomainAxisLabel />]),
             },
         ],
     },
     {
         key: 'style-tab',
-        label: i18n.t('Style'),
+        getLabel: () => i18n.t('Style'),
         content: [
             {
                 key: 'style-chart-style',
-                label: i18n.t('Chart style'),
+                getLabel: () => i18n.t('Chart style'),
                 content: React.Children.toArray([
                     <NoSpaceBetweenColumns />,
                     <HideLegend />,
@@ -93,7 +93,7 @@ export default [
             },
             {
                 key: 'style-titles',
-                label: i18n.t('Titles'),
+                getLabel: () => i18n.t('Titles'),
                 content: React.Children.toArray([
                     <HideTitle />,
                     <HideSubtitle />,

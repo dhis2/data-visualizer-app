@@ -32,7 +32,7 @@ import CompletedOnly from '../../components/VisualizationOptions/Options/Complet
 export default [
     {
         key: 'data-tab',
-        label: i18n.t('Data'),
+        getLabel: () => i18n.t('Data'),
         content: [
             {
                 key: 'data-section-1',
@@ -43,7 +43,7 @@ export default [
             },
             {
                 key: 'data-display-totals',
-                label: i18n.t('Display totals'),
+                getLabel: () => i18n.t('Display totals'),
                 content: React.Children.toArray([
                     <ColTotals />,
                     <ColSubTotals />,
@@ -53,7 +53,7 @@ export default [
             },
             {
                 key: 'data-display-empty-data',
-                label: i18n.t('Display empty data'),
+                getLabel: () => i18n.t('Display empty data'),
                 content: React.Children.toArray([
                     <HideEmptyColumns />,
                     <HideEmptyRows />,
@@ -61,7 +61,7 @@ export default [
             },
             {
                 key: 'data-advanced',
-                label: i18n.t('Advanced'),
+                getLabel: () => i18n.t('Advanced'),
                 content: React.Children.toArray([
                     <AggregationType />,
                     <NumberType />,
@@ -73,7 +73,7 @@ export default [
     },
     {
         key: 'legend-tab',
-        label: i18n.t('Legend'),
+        getLabel: () => i18n.t('Legend'),
         content: [
             {
                 key: 'legend-section-1',
@@ -83,7 +83,7 @@ export default [
     },
     {
         key: 'style-tab',
-        label: i18n.t('Style'),
+        getLabel: () => i18n.t('Style'),
         content: [
             {
                 key: 'style-section-1',
@@ -96,31 +96,31 @@ export default [
             },
             {
                 key: 'style-section-2',
-                label: i18n.t('Labels'),
+                getLabel: () => i18n.t('Labels'),
                 content: React.Children.toArray([<ShowHierarchy />]),
             },
         ],
     },
     {
         key: 'limitValues-tab',
-        label: i18n.t('Limit values'),
+        getLabel: () => i18n.t('Limit values'),
         content: [
             /*
             {
                 key: 'limitValues-limit-numbers',
-                label: i18n.t('Limit number of values'),
+                getLabel: () => i18n.t('Limit number of values'),
                 content: [<TopLimit />],
             },*/
             {
                 key: 'limitValues-limit-min-max',
-                label: i18n.t('Limit minimum/maximum values'),
+                getLabel: () => i18n.t('Limit minimum/maximum values'),
                 content: React.Children.toArray([<MeasureCriteria />]),
             },
         ],
     },
     {
         key: 'parameters-tab',
-        label: i18n.t('Parameters'),
+        getLabel: () => i18n.t('Parameters'),
         content: [
             {
                 key: 'parameters-section-1',

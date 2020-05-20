@@ -10,11 +10,11 @@ import CompletedOnly from '../../components/VisualizationOptions/Options/Complet
 export default [
     {
         key: 'data-tab',
-        label: i18n.t('Data'),
+        getLabel: () => i18n.t('Data'),
         content: [
             {
                 key: 'data-advanced',
-                label: i18n.t('Advanced'),
+                getLabel: () => i18n.t('Advanced'),
                 content: React.Children.toArray([
                     <AggregationType />,
                     <CompletedOnly />,
@@ -24,11 +24,11 @@ export default [
     },
     {
         key: 'style-tab',
-        label: i18n.t('Style'),
+        getLabel: () => i18n.t('Style'),
         content: [
             {
                 key: 'style-titles',
-                label: i18n.t('Titles'),
+                getLabel: () => i18n.t('Titles'),
                 content: React.Children.toArray([
                     <HideTitle />,
                     <HideSubtitle />,
