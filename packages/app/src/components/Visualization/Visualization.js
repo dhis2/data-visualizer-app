@@ -14,8 +14,9 @@ import { sGetLoadError, sGetIsPluginLoading } from '../../reducers/loader'
 import { acAddMetadata } from '../../actions/metadata'
 import { acSetChart } from '../../actions/chart'
 import { acSetLoadError, acSetPluginLoading } from '../../actions/loader'
-import { acSetUiItems } from '../../actions/ui'
+import { acSetUiItems, acAddParentGraphMap } from '../../actions/ui'
 import { tSetCurrentFromUi } from '../../actions/current'
+import { removeLastPathSegment } from '../../modules/orgUnit'
 
 import StartScreen from './StartScreen'
 import {
@@ -94,10 +95,21 @@ export class Visualization extends Component {
 
     onDrill = drillData => {
         if (drillData?.ou) {
-            const itemIds = [drillData.ou.id]
+            const ou = drillData.ou
 
-            if (drillData.ou.level) {
-                itemIds.push(`LEVEL-${drillData.ou.level}`)
+            const itemIds = [ou.id]
+
+            if (ou.level) {
+                itemIds.push(`LEVEL-${ou.level}`)
+            }
+
+            if (ou.path) {
+                const path = removeLastPathSegment(ou.path)
+
+                this.props.addParentGraphMap({
+                    [ou.id]:
+                        path === `/{${ou.id}` ? '' : path.replace(/^\//, ''),
+                })
             }
 
             this.props.setUiItems({
@@ -176,6 +188,7 @@ Visualization.contextTypes = {
 
 Visualization.propTypes = {
     addMetadata: PropTypes.func,
+    addParentGraphMap: PropTypes.func,
     error: PropTypes.object,
     isLoading: PropTypes.bool,
     rightSidebarOpen: PropTypes.bool,
@@ -213,6 +226,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     onLoadingComplete: () => dispatch(acSetPluginLoading(false)),
     addMetadata: metadata => dispatch(acAddMetadata(metadata)),
+    addParentGraphMap: parentGraphMap =>
+        dispatch(acAddParentGraphMap(parentGraphMap)),
     setChart: chart => dispatch(acSetChart(chart)),
     setLoadError: error => dispatch(acSetLoadError(error)),
     setUiItems: data => dispatch(acSetUiItems(data)),
