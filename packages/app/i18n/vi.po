@@ -139,7 +139,7 @@ msgid "None selected"
 msgstr "Chưa lựa chọn"
 
 msgid "And 1 other..."
-msgstr ""
+msgstr "Và 1..."
 
 msgid "And {{numberOfItems}} others..."
 msgstr ""
