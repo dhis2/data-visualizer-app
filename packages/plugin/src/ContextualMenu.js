@@ -56,17 +56,26 @@ export const ContextualMenu = ({ config, ouLevels, onClick }) => {
         /* eslint-disable-next-line react-hooks/exhaustive-deps */
     }, [ouData])
 
+    const menuItemStyle = {
+        display: 'inline-block',
+        minWidth: 200,
+    }
+
     return (
         <Menu>
             {ouData && (
                 <MenuItem dense label={i18n.t('Org unit drill down/up')}>
-                    <Menu maxWidth="320px">
+                    <Menu>
                         {ouData?.parent && (
                             <>
                                 <MenuItem
                                     dense
                                     icon={<ArrowUpwardIcon />}
-                                    label={ouData.parent.name}
+                                    label={
+                                        <span style={menuItemStyle}>
+                                            {ouData.parent.name}
+                                        </span>
+                                    }
                                     onClick={() =>
                                         onClick({
                                             ou: { id: ouData.parent.id },
@@ -80,13 +89,17 @@ export const ContextualMenu = ({ config, ouLevels, onClick }) => {
                             <MenuItem
                                 dense
                                 icon={<ArrowDownwardIcon />}
-                                label={i18n.t(
-                                    '{{level}} level in {{orgunit}}',
-                                    {
-                                        level: subLevelData.name,
-                                        orgunit: ouData.name,
-                                    }
-                                )}
+                                label={
+                                    <span style={menuItemStyle}>
+                                        {i18n.t(
+                                            '{{level}} level in {{orgunit}}',
+                                            {
+                                                level: subLevelData.name,
+                                                orgunit: ouData.name,
+                                            }
+                                        )}
+                                    </span>
+                                }
                                 onClick={() =>
                                     onClick({
                                         ou: {
