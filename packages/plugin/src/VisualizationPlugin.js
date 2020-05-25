@@ -2,12 +2,12 @@ import React, { useEffect, useState, useCallback } from 'react'
 import { createPortal } from 'react-dom'
 import PropTypes from 'prop-types'
 
-import { useDataEngine } from '@dhis2/app-runtime'
+import { useDataEngine, useDataQuery } from '@dhis2/app-runtime'
 import { Popper } from '@dhis2/ui-core'
 import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
 
 import { apiFetchLegendSets } from './api/legendSets'
-import { apiFetchOrganisationUnitLevels } from './api/organisationUnits'
+import { orgUnitLevelsQuery } from './api/organisationUnits'
 import ContextualMenu from './ContextualMenu'
 import ChartPlugin from './ChartPlugin'
 import PivotPlugin from './PivotPlugin'
@@ -33,7 +33,6 @@ export const VisualizationPlugin = ({
     const [fetchResult, setFetchResult] = useState(null)
     const [contextualMenuRef, setContextualMenuRef] = useState(undefined)
     const [contextualMenuConfig, setContextualMenuConfig] = useState({})
-    const [ouLevels, setOuLevels] = useState(null)
 
     const onToggleContextualMenu = (ref, data) => {
         setContextualMenuRef(ref)
@@ -47,6 +46,11 @@ export const VisualizationPlugin = ({
 
         onDrill(args)
     }
+
+    const { data: ouLevelsResponse } = useDataQuery(orgUnitLevelsQuery, {
+        onError,
+    })
+    const ouLevels = ouLevelsResponse?.orgUnitLevels.organisationUnitLevels
 
     const doFetchData = useCallback(async () => {
         const result = await fetchData({
@@ -77,23 +81,6 @@ export const VisualizationPlugin = ({
         },
         [engine]
     )
-
-    const doFetchOuLevelsData = useCallback(async () => {
-        const ouLevelsData = await apiFetchOrganisationUnitLevels(engine)
-
-        return ouLevelsData.orgUnitsLevels.organisationUnitLevels
-    }, [engine])
-
-    useEffect(() => {
-        const doFetch = async () => {
-            const orgUnitLevels = await doFetchOuLevelsData()
-
-            setOuLevels(orgUnitLevels)
-        }
-
-        doFetch().catch(error => onError(error))
-        /* eslint-disable-next-line react-hooks/exhaustive-deps */
-    }, [])
 
     useEffect(() => {
         setFetchResult(null)

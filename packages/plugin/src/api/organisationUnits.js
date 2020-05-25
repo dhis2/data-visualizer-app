@@ -1,5 +1,5 @@
-const orgUnitLevelsQuery = {
-    orgUnitsLevels: {
+export const orgUnitLevelsQuery = {
+    orgUnitLevels: {
         resource: 'organisationUnitLevels',
         params: {
             fields: 'id,level,displayName~rename(name)',
