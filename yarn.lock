@@ -1218,12 +1218,11 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^4.4.0-alpha.2":
-  version "4.4.0-alpha.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.4.0-alpha.2.tgz#0923cd631e3f50ebb7d22237742ba5d3d7712828"
-  integrity sha512-YuyZCArFqH0xOT/KOxN9qxIPmd9FYW4hsafuBTQwab43QX1DeUZhMhEq9fjWysTDpgh143KLsVODlWSsO2Y/Gg==
+"@dhis2/analytics@^4.4.1":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.4.1.tgz#cd916aca8617c3ba2bb79ae1cc908f07fca324e8"
+  integrity sha512-QDb9ExYpQAn1rCGhcBxeyXmHwiFz4de4fHlTRXEZlzXLFqW49X50h9dunk87LnoxGscAqTT6F6vwgVH52MWrEQ==
   dependencies:
-    "@dhis2/d2-i18n" "^1.0.6"
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.3"
     "@dhis2/ui-core" "^4.16.0"
     "@material-ui/core" "^3.9.3"
@@ -1361,7 +1360,7 @@
     semver "^7.1.1"
     yargs "^15.1.0"
 
-"@dhis2/d2-i18n@*", "@dhis2/d2-i18n@^1.0.5", "@dhis2/d2-i18n@^1.0.6":
+"@dhis2/d2-i18n@*", "@dhis2/d2-i18n@^1.0.5":
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-i18n/-/d2-i18n-1.0.6.tgz#2914be8acf296f3a6bf7b51c76c46da6a120b0ff"
   integrity sha512-7YdA4ppFosjuyf7ZMm47BrdsA5TWLM9lmS0lUPgjcCVeeWfUgagqzf4W5JGB9XQ3w1vzK+yy5zH2Ij8IgRAGhA==
