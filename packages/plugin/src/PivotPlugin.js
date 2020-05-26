@@ -9,6 +9,7 @@ const PivotPlugin = ({
     visualization,
     style,
     id: renderCounter,
+    onToggleContextualMenu,
 }) => {
     return (
         <div style={style}>
@@ -17,6 +18,7 @@ const PivotPlugin = ({
                 data={responses[0].response}
                 legendSets={legendSets}
                 renderCounter={renderCounter}
+                onToggleContextualMenu={onToggleContextualMenu}
             />
         </div>
     )
@@ -32,6 +34,7 @@ PivotPlugin.propTypes = {
     visualization: PropTypes.object.isRequired,
     id: PropTypes.number,
     style: PropTypes.object,
+    onToggleContextualMenu: PropTypes.func,
 }
 
 export default PivotPlugin
