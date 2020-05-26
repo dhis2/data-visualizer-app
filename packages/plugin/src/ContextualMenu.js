@@ -64,7 +64,7 @@ export const ContextualMenu = ({ config, ouLevels, onClick }) => {
     return (
         <Menu>
             {ouData && (
-                <MenuItem dense label={i18n.t('Org unit drill down/up')}>
+                <MenuItem dense label={i18n.t('Change org unit')}>
                     <Menu>
                         {ouData?.parent && (
                             <>
