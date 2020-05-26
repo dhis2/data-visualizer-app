@@ -8,7 +8,7 @@ msgstr ""
 "POT-Creation-Date: 2020-05-20T07:40:38.119Z\n"
 "PO-Revision-Date: 2020-05-20T07:40:38.119Z\n"
 
-msgid "Org unit drill down/up"
+msgid "Change org unit"
 msgstr ""
 
 msgid "{{level}} level in {{orgunit}}"
