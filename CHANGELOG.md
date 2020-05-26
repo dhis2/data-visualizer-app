@@ -1,3 +1,10 @@
+# [34.4.0](https://github.com/dhis2/data-visualizer-app/compare/v34.3.49...v34.4.0) (2020-05-26)
+
+
+### Features
+
+* drill down/up for pivot tables ([#999](https://github.com/dhis2/data-visualizer-app/issues/999)) ([747e6f7](https://github.com/dhis2/data-visualizer-app/commit/747e6f74f6dd0a973ff2d1bef03ff6b26cd10cba))
+
 ## [34.3.49](https://github.com/dhis2/data-visualizer-app/compare/v34.3.48...v34.3.49) (2020-05-20)
 
 
