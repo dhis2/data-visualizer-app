@@ -91,20 +91,14 @@ export const TooltipContent = ({
         const itemsToRender = itemDisplayNames
             .slice(0, renderLimit)
             .map(name => (
-                <li
-                    key={`${dimensionId}-${name}`}
-                    style={styles.item}
-                >
+                <li key={`${dimensionId}-${name}`} style={styles.item}>
                     {name}
                 </li>
             ))
 
         if (itemDisplayNames.length > renderLimit) {
             itemsToRender.push(
-                <li
-                    key={`${dimensionId}-render-limit`}
-                    style={styles.item}
-                >
+                <li key={`${dimensionId}-render-limit`} style={styles.item}>
                     {itemDisplayNames.length - renderLimit === 1
                         ? i18n.t('And 1 other...')
                         : i18n.t('And {{numberOfItems}} others...', {

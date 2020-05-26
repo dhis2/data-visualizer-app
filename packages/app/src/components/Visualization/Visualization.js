@@ -14,6 +14,9 @@ import { sGetLoadError, sGetIsPluginLoading } from '../../reducers/loader'
 import { acAddMetadata } from '../../actions/metadata'
 import { acSetChart } from '../../actions/chart'
 import { acSetLoadError, acSetPluginLoading } from '../../actions/loader'
+import { acSetUiItems, acAddParentGraphMap } from '../../actions/ui'
+import { tSetCurrentFromUi } from '../../actions/current'
+import { removeLastPathSegment } from '../../modules/orgUnit'
 
 import StartScreen from './StartScreen'
 import {
@@ -90,6 +93,37 @@ export class Visualization extends Component {
         this.props.addMetadata(forMetadata)
     }
 
+    onDrill = drillData => {
+        if (drillData?.ou) {
+            const ou = drillData.ou
+
+            const itemIds = [ou.id]
+
+            if (ou.level) {
+                itemIds.push(`LEVEL-${ou.level}`)
+            }
+
+            if (ou.path) {
+                const path = removeLastPathSegment(ou.path)
+
+                this.props.addParentGraphMap({
+                    [ou.id]:
+                        path === `/{${ou.id}` ? '' : path.replace(/^\//, ''),
+                })
+            }
+
+            this.props.setUiItems({
+                dimensionId: 'ou',
+                itemIds,
+            })
+        }
+
+        // TODO drillData?.pe
+
+        // simulate an update for refreshing the visualization
+        this.props.setCurrent()
+    }
+
     getNewRenderId = () =>
         this.setState({
             renderId:
@@ -140,6 +174,7 @@ export class Visualization extends Component {
                     onLoadingComplete={this.props.onLoadingComplete}
                     onResponsesReceived={this.onResponsesReceived}
                     onError={this.onError}
+                    onDrill={this.onDrill}
                     style={styles.chartCanvas}
                 />
             </Fragment>
@@ -153,11 +188,14 @@ Visualization.contextTypes = {
 
 Visualization.propTypes = {
     addMetadata: PropTypes.func,
+    addParentGraphMap: PropTypes.func,
     error: PropTypes.object,
     isLoading: PropTypes.bool,
     rightSidebarOpen: PropTypes.bool,
     setChart: PropTypes.func,
+    setCurrent: PropTypes.func,
     setLoadError: PropTypes.func,
+    setUiItems: PropTypes.func,
     visFilters: PropTypes.object,
     visualization: PropTypes.object,
     onLoadingComplete: PropTypes.func,
@@ -188,8 +226,12 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     onLoadingComplete: () => dispatch(acSetPluginLoading(false)),
     addMetadata: metadata => dispatch(acAddMetadata(metadata)),
+    addParentGraphMap: parentGraphMap =>
+        dispatch(acAddParentGraphMap(parentGraphMap)),
     setChart: chart => dispatch(acSetChart(chart)),
     setLoadError: error => dispatch(acSetLoadError(error)),
+    setUiItems: data => dispatch(acSetUiItems(data)),
+    setCurrent: () => dispatch(tSetCurrentFromUi()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Visualization)
