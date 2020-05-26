@@ -159,7 +159,9 @@ export const VisualizationPlugin = ({
                     visualization={fetchResult.visualization}
                     responses={fetchResult.responses}
                     legendSets={fetchResult.legendSets}
-                    onToggleContextualMenu={onToggleContextualMenu}
+                    onToggleContextualMenu={
+                        onDrill ? onToggleContextualMenu : undefined
+                    }
                     {...props}
                 />
             ) : (
@@ -194,7 +196,6 @@ export const VisualizationPlugin = ({
 VisualizationPlugin.defaultProps = {
     filters: {},
     forDashboard: false,
-    onDrill: Function.prototype,
     onError: Function.prototype,
     onLoadingComplete: Function.prototype,
     onResponsesReceived: Function.prototype,
