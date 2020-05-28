@@ -1,3 +1,17 @@
+# [35.0.0](https://github.com/dhis2/data-visualizer-app/compare/v34.5.0...v35.0.0) (2020-05-28)
+
+
+### Bug Fixes
+
+* yarn-deduplicate and remove unused d2-analysis ([#1027](https://github.com/dhis2/data-visualizer-app/issues/1027)) ([a48dd02](https://github.com/dhis2/data-visualizer-app/commit/a48dd02ca082daa6c882789f0fa9a093404c6d88))
+
+
+### BREAKING CHANGES
+
+* - Marked as a breaking change because we need to move to version 35 to follow the convention of major version matching DHIS2 version
+- removed d2-analysis from plugin dependencies since it is not in use
+- yarn-deduplicate
+
 # [34.5.0](https://github.com/dhis2/data-visualizer-app/compare/v34.4.1...v34.5.0) (2020-05-28)
 
 
