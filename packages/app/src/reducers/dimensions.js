@@ -3,13 +3,21 @@ import { getPredefinedDimensions } from '@dhis2/analytics'
 export const SET_DIMENSIONS = 'SET_DIMENSIONS'
 export const SET_SELECTED_DIMENSION = 'SET_SELECTED_DIMENSION'
 
-const DEFAULT_DIMENSIONS = getPredefinedDimensions()
+export const getDefaultDimensions = () =>
+    Object.values(getPredefinedDimensions()).reduce(
+        (acc, { id, iconName, name }) => {
+            return Object.assign({}, acc, {
+                [id]: { id, iconName, name: name() },
+            })
+        },
+        {}
+    )
 
-export default (state = DEFAULT_DIMENSIONS, action) => {
+export default (state = getDefaultDimensions(), action) => {
     switch (action.type) {
         case SET_DIMENSIONS: {
             return {
-                ...DEFAULT_DIMENSIONS,
+                ...getDefaultDimensions(),
                 ...action.value,
             }
         }

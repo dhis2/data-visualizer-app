@@ -10,6 +10,8 @@ import metadataMiddleware from './middleware/metadata'
 import App from './components/App'
 import muiTheme from './modules/theme'
 
+import './locales'
+
 const AppWrapper = () => {
     const engine = useDataEngine()
     const store = configureStore([

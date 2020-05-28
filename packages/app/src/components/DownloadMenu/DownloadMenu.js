@@ -203,7 +203,7 @@ export class DownloadMenu extends Component {
                         <ListItemIcon>
                             <ListIcon />
                         </ListItemIcon>
-                        <ListItemText>JSON</ListItemText>
+                        <ListItemText>{i18n.t('JSON')}</ListItemText>
                         <ArrowRightIcon style={styles.arrowIcon} />
                     </MenuItem>
                     <MenuItem
@@ -218,7 +218,7 @@ export class DownloadMenu extends Component {
                         <ListItemIcon>
                             <ListIcon />
                         </ListItemIcon>
-                        <ListItemText>XML</ListItemText>
+                        <ListItemText>{i18n.t('XML')}</ListItemText>
                         <ArrowRightIcon style={styles.arrowIcon} />
                     </MenuItem>
                     <MenuItem
@@ -233,7 +233,7 @@ export class DownloadMenu extends Component {
                         <ListItemIcon>
                             <ListIcon />
                         </ListItemIcon>
-                        <ListItemText>Excel</ListItemText>
+                        <ListItemText>{i18n.t('Excel')}</ListItemText>
                         <ArrowRightIcon style={styles.arrowIcon} />
                     </MenuItem>
                     <MenuItem
@@ -248,7 +248,7 @@ export class DownloadMenu extends Component {
                         <ListItemIcon>
                             <ListIcon />
                         </ListItemIcon>
-                        <ListItemText>CSV</ListItemText>
+                        <ListItemText>{i18n.t('CSV')}</ListItemText>
                         <ArrowRightIcon style={styles.arrowIcon} />
                     </MenuItem>
                     <MenuItem
@@ -278,7 +278,7 @@ export class DownloadMenu extends Component {
                             'UID'
                         )}
                     >
-                        ID
+                        {i18n.t('ID')}
                     </MenuItem>
                     <MenuItem
                         onClick={this.downloadData(
@@ -286,7 +286,7 @@ export class DownloadMenu extends Component {
                             'CODE'
                         )}
                     >
-                        Code
+                        {i18n.t('Code')}
                     </MenuItem>
                     <MenuItem
                         onClick={this.downloadData(
@@ -294,7 +294,7 @@ export class DownloadMenu extends Component {
                             'NAME'
                         )}
                     >
-                        Name
+                        {i18n.t('Name')}
                     </MenuItem>
                 </Menu>
                 <Menu
@@ -313,24 +313,24 @@ export class DownloadMenu extends Component {
                             'dataValueSet'
                         )}
                     >
-                        JSON
+                        {i18n.t('JSON')}
                     </MenuItem>
                     <MenuItem
                         onClick={this.downloadData('xml', null, 'dataValueSet')}
                     >
-                        XML
+                        {i18n.t('XML')}
                     </MenuItem>
                     <Divider />
                     <ListSubheader component="div">
                         {i18n.t('Other formats')}
                     </ListSubheader>
                     <MenuItem onClick={this.downloadData('jrxml')}>
-                        JRXML
+                        {i18n.t('JRXML')}
                     </MenuItem>
                     <MenuItem
                         onClick={this.downloadData('sql', null, 'debug/sql')}
                     >
-                        Raw data SQL
+                        {i18n.t('Raw data SQL')}
                     </MenuItem>
                 </Menu>
             </Fragment>
