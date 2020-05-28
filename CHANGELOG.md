@@ -1,3 +1,10 @@
+# [34.5.0](https://github.com/dhis2/data-visualizer-app/compare/v34.4.1...v34.5.0) (2020-05-28)
+
+
+### Features
+
+* implement latest Period Selector from Analytics (DHIS2-8807) ([#1026](https://github.com/dhis2/data-visualizer-app/issues/1026)) ([ee0cb75](https://github.com/dhis2/data-visualizer-app/commit/ee0cb7505b19b6c1af203ebf8feb912490e455a8))
+
 ## [34.4.1](https://github.com/dhis2/data-visualizer-app/compare/v34.4.0...v34.4.1) (2020-05-26)
 
 
