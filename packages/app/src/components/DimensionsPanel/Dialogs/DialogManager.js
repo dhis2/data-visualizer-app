@@ -267,7 +267,7 @@ export class DialogManager extends Component {
                 return (
                     <PeriodDimension
                         selectedPeriods={selectedItems}
-                        {...dimensionProps}
+                        onSelect={dimensionProps.onSelect}
                         // TODO infoBoxMessage should ideally be implemented for all dimensions
                     />
                 )
