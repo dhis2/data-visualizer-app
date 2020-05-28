@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-04-29T13:10:59.082Z\n"
+"POT-Creation-Date: 2020-05-25T18:22:35.064Z\n"
 "PO-Revision-Date: 2020-03-02 13:01+0000\n"
 "Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Pushto (https://www.transifex.com/hisp-uio/teams/100509/ps/)\n"
@@ -111,10 +111,31 @@ msgstr "بارگیری"
 msgid "Plain data source"
 msgstr "د ډاټا یا مالوماتو ساده سرچینه"
 
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
+msgid "Excel"
+msgstr ""
+
+msgid "CSV"
+msgstr ""
+
 msgid "Advanced"
 msgstr "پرمختللي."
 
 msgid "Metadata ID scheme"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Name"
 msgstr ""
 
 msgid "Data value set"
@@ -122,6 +143,12 @@ msgstr "د ډاټا یا مالوماتو د ارزښت ټولګه"
 
 msgid "Other formats"
 msgstr "نور فارمټونه یا نمونې"
+
+msgid "JRXML"
+msgstr ""
+
+msgid "Raw data SQL"
+msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr ""

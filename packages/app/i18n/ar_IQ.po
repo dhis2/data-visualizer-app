@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-04-29T13:10:59.082Z\n"
+"POT-Creation-Date: 2020-05-25T18:22:35.064Z\n"
 "PO-Revision-Date: 2020-03-02 13:01+0000\n"
 "Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2020\n"
 "Language-Team: Arabic (Iraq) (https://www.transifex.com/hisp-uio/teams/100509/ar_IQ/)\n"
@@ -110,10 +110,31 @@ msgstr "تنزيل"
 msgid "Plain data source"
 msgstr "مصدر البيانات الصريحة"
 
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
+msgid "Excel"
+msgstr ""
+
+msgid "CSV"
+msgstr ""
+
 msgid "Advanced"
 msgstr "متقدم"
 
 msgid "Metadata ID scheme"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Name"
 msgstr ""
 
 msgid "Data value set"
@@ -121,6 +142,12 @@ msgstr "حزمة قيم البيانات"
 
 msgid "Other formats"
 msgstr "صيغ أخرى"
+
+msgid "JRXML"
+msgstr ""
+
+msgid "Raw data SQL"
+msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr ""
