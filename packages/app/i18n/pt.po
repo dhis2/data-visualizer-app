@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-04-29T13:10:59.082Z\n"
+"POT-Creation-Date: 2020-05-25T18:22:35.064Z\n"
 "PO-Revision-Date: 2020-03-02 13:01+0000\n"
 "Last-Translator: Sheila André <sandre@saudigitus.org>, 2020\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
@@ -121,16 +121,43 @@ msgstr "Descarregar"
 msgid "Plain data source"
 msgstr "Fonte de dados simples"
 
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
+msgid "Excel"
+msgstr ""
+
+msgid "CSV"
+msgstr ""
+
 msgid "Advanced"
 msgstr "Avançado"
 
 msgid "Metadata ID scheme"
 msgstr ""
 
+msgid "ID"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
 msgid "Data value set"
 msgstr "Conjunto de valores de dados"
 
 msgid "Other formats"
+msgstr ""
+
+msgid "JRXML"
+msgstr ""
+
+msgid "Raw data SQL"
 msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."

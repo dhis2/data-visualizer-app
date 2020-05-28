@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-04-29T13:10:59.082Z\n"
+"POT-Creation-Date: 2020-05-25T18:22:35.064Z\n"
 "PO-Revision-Date: 2020-03-02 13:01+0000\n"
 "Last-Translator: Farida Sibuea <farida_sibuea@yahoo.com>, 2020\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
@@ -120,17 +120,44 @@ msgstr "Unduh"
 msgid "Plain data source"
 msgstr "Sumber data mentah"
 
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
+msgid "Excel"
+msgstr ""
+
+msgid "CSV"
+msgstr ""
+
 msgid "Advanced"
 msgstr "Lanjut"
 
 msgid "Metadata ID scheme"
 msgstr "Skema ID metadata"
 
+msgid "ID"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
 msgid "Data value set"
 msgstr "Set nilai data"
 
 msgid "Other formats"
 msgstr "Format lain"
+
+msgid "JRXML"
+msgstr ""
+
+msgid "Raw data SQL"
+msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "Terjadi kesalahan dalam aplikasi DHIS2 Data Visualizer."
