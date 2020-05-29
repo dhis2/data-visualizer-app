@@ -112,16 +112,16 @@ msgid "Plain data source"
 msgstr "ສະເພາະຂໍ້ມູນພື້ນຖານ"
 
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 msgid "XML"
-msgstr ""
+msgstr "XML"
 
 msgid "Excel"
 msgstr ""
 
 msgid "CSV"
-msgstr ""
+msgstr "CSV"
 
 msgid "Advanced"
 msgstr "ການຕັ້ງຄ່າຂັ້ນສູງ"
@@ -130,13 +130,13 @@ msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr ""
+msgstr "ລະຫັດ"
 
 msgid "Code"
-msgstr ""
+msgstr "ລະຫັດ"
 
 msgid "Name"
-msgstr ""
+msgstr "ຊື່"
 
 msgid "Data value set"
 msgstr "ການຕັ້ງຄ່າຂໍ້ມູນ"

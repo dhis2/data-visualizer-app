@@ -112,16 +112,16 @@ msgid "Plain data source"
 msgstr "普通数据源"
 
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 msgid "XML"
-msgstr ""
+msgstr "XML"
 
 msgid "Excel"
-msgstr ""
+msgstr "Excel"
 
 msgid "CSV"
-msgstr ""
+msgstr "CSV"
 
 msgid "Advanced"
 msgstr "高级"
@@ -130,13 +130,13 @@ msgid "Metadata ID scheme"
 msgstr "元数据ID方案"
 
 msgid "ID"
-msgstr ""
+msgstr "Id"
 
 msgid "Code"
-msgstr ""
+msgstr "代码"
 
 msgid "Name"
-msgstr ""
+msgstr "名称"
 
 msgid "Data value set"
 msgstr "数据值集"
