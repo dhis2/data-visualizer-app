@@ -38,6 +38,9 @@ jobs:
             - name: Build
               run: yarn build
 
+            - name: Test
+              run: yarn test
+
             - name: Publish to NPM
               run: npx @dhis2/cli-utils release --publish npm
         env:
