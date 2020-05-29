@@ -1,14 +1,13 @@
-name: 'DHIS2: Tests'
+name: 'dhis2: test (node)'
 
-on: pull_request
+on: push
 
 jobs:
-    pr:
-        name: Unit
+    unit:
         runs-on: ubuntu-latest
         if: "!contains(github.event.head_commit.message, '[skip ci]')"
         steps:
-            - uses: actions/checkout@v1
+            - uses: actions/checkout@v2
             - uses: actions/setup-node@v1
               with:
                   node-version: 12.x
@@ -16,6 +15,12 @@ jobs:
             - name: Install
               run: yarn install --frozen-lockfile
 
+            - name: Run linters
+              run: |
+                  yarn d2-style js check
+                  yarn d2-style text check
+
+            # Build is required by plugin tests below
             - name: Build
               run: yarn build
 
