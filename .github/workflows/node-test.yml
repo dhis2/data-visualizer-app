@@ -20,6 +20,9 @@ jobs:
                   yarn d2-style js check
                   yarn d2-style text check
 
+            - name: Build
+              run: yarn build
+
             - name: Test
               run: yarn test
         env:
