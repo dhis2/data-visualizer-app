@@ -20,6 +20,7 @@ jobs:
                   yarn d2-style js check
                   yarn d2-style text check
 
+            # Build is required by plugin tests below
             - name: Build
               run: yarn build
 
