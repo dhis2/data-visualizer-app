@@ -143,13 +143,16 @@ export const DownloadMenu = ({
             <div className={styles.menuSectionTitle}>
                 {i18n.t('Metadata ID scheme')}
             </div>
-            <DenseMenuItem label="ID" onClick={downloadData(format, 'UID')} />
             <DenseMenuItem
-                label="Code"
+                label={i18n.t('ID')}
+                onClick={downloadData(format, 'UID')}
+            />
+            <DenseMenuItem
+                label={i18n.t('Code')}
                 onClick={downloadData(format, 'CODE')}
             />
             <DenseMenuItem
-                label="Name"
+                label={i18n.t('Name')}
                 onClick={downloadData(format, 'NAME')}
             />
         </Menu>

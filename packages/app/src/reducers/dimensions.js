@@ -5,9 +5,9 @@ export const SET_SELECTED_DIMENSION = 'SET_SELECTED_DIMENSION'
 
 export const getDefaultDimensions = () =>
     Object.values(getPredefinedDimensions()).reduce(
-        (acc, { id, iconName, name }) => {
+        (acc, { id, iconName, getName }) => {
             return Object.assign({}, acc, {
-                [id]: { id, iconName, name: name() },
+                [id]: { id, iconName, name: getName() },
             })
         },
         {}

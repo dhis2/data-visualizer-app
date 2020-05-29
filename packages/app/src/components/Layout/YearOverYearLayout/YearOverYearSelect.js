@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import i18n from '@dhis2/d2-i18n'
 
 import { seriesOptions, categoryOptions } from '../../../modules/yearOverYear'
 
@@ -14,14 +15,14 @@ const SinglePeriodSelector = ({ options, selected, onChange }) => (
     <SingleSelect
         onChange={onChange}
         selected={selected}
-        placeholder="Select a period"
+        placeholder={i18n.t('Select a period')}
         dense
     >
         {options.map(option => (
             <SingleSelectOption
                 key={option.id}
                 value={option.id}
-                label={option.name}
+                label={option.getName()}
             />
         ))}
     </SingleSelect>
@@ -37,14 +38,14 @@ const MultiPeriodSelector = ({ options, selected, onChange }) => (
     <MultiSelect
         onChange={onChange}
         selected={selected}
-        placeholder="Select years"
+        placeholder={i18n.t('Select years')}
         dense
     >
         {options.map(option => (
             <MultiSelectOption
                 key={option.id}
                 value={option.id}
-                label={option.name}
+                label={option.getName()}
             />
         ))}
     </MultiSelect>
@@ -64,7 +65,9 @@ const YearOverYearSelect = ({ multiple, value, ...props }) => {
             value.forEach(value =>
                 selected.push({
                     value,
-                    label: seriesOptions.find(({ id }) => id === value).name,
+                    label: seriesOptions
+                        .find(({ id }) => id === value)
+                        .getName(),
                 })
             )
         }
@@ -75,7 +78,9 @@ const YearOverYearSelect = ({ multiple, value, ...props }) => {
 
         if (value) {
             selected.value = value
-            selected.label = categoryOptions.find(({ id }) => id === value).name
+            selected.label = categoryOptions
+                .find(({ id }) => id === value)
+                .getName()
         }
 
         return <SinglePeriodSelector selected={selected} {...props} />
