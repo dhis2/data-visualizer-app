@@ -305,32 +305,18 @@ export class DialogManager extends Component {
 
     render() {
         const { dialogId, dimensions } = this.props
-
-        const nonPredefinedDimensions = filterOutPredefinedDimensions(
-            Object.keys(this.props.dimensions)
-        )
-
-        let dialogTitle = ''
-        if (dialogId === DIMENSION_ID_DATA) {
-            dialogTitle = i18n.t('Data')
-        } else if (dialogId === DIMENSION_ID_PERIOD) {
-            dialogTitle = i18n.t('Period')
-        } else if (dialogId === DIMENSION_ID_ORGUNIT) {
-            dialogTitle = i18n.t('Organisation units')
-        } else if (nonPredefinedDimensions.includes(dialogId)) {
-            dialogTitle = dimensions[dialogId] && dimensions[dialogId].name
-        }
+        const dimension = dimensions[dialogId]
 
         return (
             <Fragment>
-                {dialogId in dimensions && (
+                {dimension && (
                     <Modal
                         onClose={this.closeDialog}
                         data-test="dialog-manager"
                         position="top"
                         large
                     >
-                        <ModalTitle>{dialogTitle}</ModalTitle>
+                        <ModalTitle>{dimension.name}</ModalTitle>
                         <ModalContent>
                             {this.renderDialogContent()}
                         </ModalContent>
