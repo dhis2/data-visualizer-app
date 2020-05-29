@@ -59,7 +59,7 @@ msgid "Remove"
 msgstr "Supprimer"
 
 msgid "Search dimensions"
-msgstr ""
+msgstr "Rechercher les dimensions"
 
 msgid "Dimension recommended with selected data"
 msgstr "Dimension recommandée avec les données sélectionnées"
