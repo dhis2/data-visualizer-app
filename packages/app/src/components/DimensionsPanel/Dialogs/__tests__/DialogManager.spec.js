@@ -52,9 +52,9 @@ describe('The DialogManager component', () => {
             dialogId: null,
             dimensions: {
                 test: {},
-                [DIMENSION_ID_ORGUNIT]: {},
-                [DIMENSION_ID_DATA]: {},
-                [DIMENSION_ID_PERIOD]: {},
+                [DIMENSION_ID_ORGUNIT]: { name: 'Organisation units' },
+                [DIMENSION_ID_DATA]: { name: 'Data' },
+                [DIMENSION_ID_PERIOD]: { name: 'Period' },
             },
             dxIds: ['test'],
             ouIds: [],
