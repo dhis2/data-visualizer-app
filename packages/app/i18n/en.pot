@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-06-02T03:48:34.157Z\n"
-"PO-Revision-Date: 2020-06-02T03:48:34.157Z\n"
+"POT-Creation-Date: 2020-06-02T04:24:38.833Z\n"
+"PO-Revision-Date: 2020-06-02T04:24:38.833Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -134,6 +134,9 @@ msgid "Data value set"
 msgstr ""
 
 msgid "Other formats"
+msgstr ""
+
+msgid "JRXML"
 msgstr ""
 
 msgid "Raw data SQL"

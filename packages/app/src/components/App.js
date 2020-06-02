@@ -139,16 +139,9 @@ export class App extends Component {
         const rootOrgUnit = this.props.settings.rootOrganisationUnit
 
         if (rootOrgUnit && rootOrgUnit.id) {
-            const defaultMetadataWithNames = Object.entries(
-                defaultMetadata
-            ).reduce(
-                (acc, [key, value]) => ({ ...acc, [key]: { name: value() } }),
-                {}
-            )
-
             store.dispatch(
                 fromActions.fromMetadata.acAddMetadata({
-                    ...defaultMetadataWithNames,
+                    ...defaultMetadata(),
                     [rootOrgUnit.id]: {
                         ...rootOrgUnit,
                         path: `/${rootOrgUnit.id}`,
