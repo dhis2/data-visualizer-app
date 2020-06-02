@@ -1214,12 +1214,12 @@
     resize-observer-polyfill "^1.5.1"
     styled-jsx "^3.3.0"
 
-"@dhis2/app-adapter@3.2.5":
-  version "3.2.5"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-adapter/-/app-adapter-3.2.5.tgz#a9aa3f03fae2e986bb0a75192618f3bd44657491"
-  integrity sha512-6kzgb1uUaskI7WiH9cEv5WxMEHWLM0CgnvNJqB6kCBipgI07RsJo2b1dkMcqUeuwB8PJ45fTNq2UZiJvd+DmnA==
+"@dhis2/app-adapter@4.0.7":
+  version "4.0.7"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-adapter/-/app-adapter-4.0.7.tgz#91da01be6941e93f3c9cadd94e54ec81739ff7a3"
+  integrity sha512-5fAH46tBczfW+1FK3v8MERDF25cjNmOgze4Kl03wkvUmNVv68tvPPcXQXdbcAwKjZdUC4bbuphucpm4tv5VTQQ==
   dependencies:
-    "@dhis2/ui-widgets" "^2.0.4"
+    "@dhis2/ui-widgets" "^2.1.1"
     moment "^2.24.0"
 
 "@dhis2/app-runtime@*", "@dhis2/app-runtime@^2.0.4":
@@ -1240,12 +1240,12 @@
   resolved "https://registry.yarnpkg.com/@dhis2/app-service-data/-/app-service-data-2.2.1.tgz#b418a9624761cedded3ebddc3459db90bdaa3c16"
   integrity sha512-XeAmjjt8sL1sbu8rsEEQDBQyc//cHww79kCGXpuFHR5tytzhT31cQ457/zNqU3DW61xKgv+bCWk845kuD26UbQ==
 
-"@dhis2/app-shell@3.2.5":
-  version "3.2.5"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-shell/-/app-shell-3.2.5.tgz#7cbc20f741635f7b9167931b60960d72da696193"
-  integrity sha512-j1BqAAZ/98A3Dd0suQF5auc1BmFQ7cq227Bkg4kMs4WRU9c7A9fcGKwFgA5H7EqfKFdB3TYIHCRJe5n6HN4HPw==
+"@dhis2/app-shell@4.0.7":
+  version "4.0.7"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-shell/-/app-shell-4.0.7.tgz#cbbe010fc4cf015ba4a09aceaeedeb566eda38da"
+  integrity sha512-JW1umtLWUpYwDLtN4Jk2bzW52o+hC6WV5dIUyFmXncWE+RJbp7h7/YxV/TkdXBKtvUXtHjx5z+mbaFtcmf2t3w==
   dependencies:
-    "@dhis2/app-adapter" "3.2.5"
+    "@dhis2/app-adapter" "4.0.7"
     "@dhis2/app-runtime" "^2.0.4"
     "@dhis2/d2-i18n" "^1.0.5"
     "@dhis2/ui-core" "^4.6.1"
@@ -1260,10 +1260,10 @@
     typeface-roboto "^0.0.75"
     typescript "^3.6.3"
 
-"@dhis2/cli-app-scripts@^3.2.5":
-  version "3.2.5"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-app-scripts/-/cli-app-scripts-3.2.5.tgz#8e6553ddfc2f57953bb53464b105b5cc370f303e"
-  integrity sha512-e1hDBfiRe+a2NAq8zv+txsey5M+XvnMDE2O+OwW0kb7jF+T4S+yHME2BmWHH9ma9V/lTEQUH63hdvmKNtGXvng==
+"@dhis2/cli-app-scripts@^4.0.7":
+  version "4.0.7"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-app-scripts/-/cli-app-scripts-4.0.7.tgz#df8eb37d4d84c684f02af4e3736a2a00a40b0d51"
+  integrity sha512-S3YqnTq1hj6HmLVxk4sPYrR1GD1H8OSz0wMdVdqsX4dzOULsFE+cJ8Y6Clb5q2pQ+ZW2rGOWmhgQ0roWVgJRZA==
   dependencies:
     "@babel/core" "^7.6.2"
     "@babel/plugin-proposal-class-properties" "^7.8.3"
@@ -1276,7 +1276,7 @@
     "@babel/preset-env" "^7.6.2"
     "@babel/preset-react" "^7.0.0"
     "@babel/preset-typescript" "^7.6.0"
-    "@dhis2/app-shell" "3.2.5"
+    "@dhis2/app-shell" "4.0.7"
     "@dhis2/cli-helpers-engine" "^1.5.0"
     archiver "^3.1.1"
     babel-jest "^24.9.0"
@@ -1302,6 +1302,7 @@
     rollup-plugin-postcss "^2.0.3"
     rollup-plugin-replace "^2.2.0"
     rollup-plugin-visualizer "^3.2.2"
+    styled-jsx "^3.2.5"
 
 "@dhis2/cli-helpers-engine@1.5.0", "@dhis2/cli-helpers-engine@^1.5.0":
   version "1.5.0"
@@ -1558,7 +1559,7 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/prop-types@^1.5", "@dhis2/prop-types@^1.6.4":
+"@dhis2/prop-types@^1.6", "@dhis2/prop-types@^1.6.4":
   version "1.6.4"
   resolved "https://registry.yarnpkg.com/@dhis2/prop-types/-/prop-types-1.6.4.tgz#ec4d256c9440d4d00071524422a727c61ddaa6f6"
   integrity sha512-qkVj8OuyjDmSxzYDlCWZllvC9hIbrIImMp79/U5CVsIRbjUF0zA/tfbv4rWnsWALmwEHOQFbzl5GnO5D8RNneA==
@@ -1576,12 +1577,12 @@
     react-popper "^2.2.3"
     resize-observer-polyfill "^1.5.1"
 
-"@dhis2/ui-widgets@^2.0.4":
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-widgets/-/ui-widgets-2.0.6.tgz#95247dbdfad0ec7d6836f3ccbe8ae85adf5f631d"
-  integrity sha512-4ZyR36UWk+BS8eAEBx9A6ze2lqowPjfUCqjvaAc3O2+XpWd7UL9kLHV1GQWaC2S6X8UQIdgghq8iKp86u4Ub0A==
+"@dhis2/ui-widgets@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-widgets/-/ui-widgets-2.1.1.tgz#23b1887c0190e83bb7a41e6b570dfd41ba99d838"
+  integrity sha512-tLLXgQ2x0IDVcCg2AdK4J8B0Zj6DHOimI/5xTtp/xoaLDYDwJN3VDIJU0TSh5YIEZPzUmh2nqmdmNHDUXereFw==
   dependencies:
-    "@dhis2/prop-types" "^1.5"
+    "@dhis2/prop-types" "^1.6"
     classnames "^2.2.6"
 
 "@emotion/babel-utils@^0.6.4":
@@ -13513,7 +13514,7 @@ style-loader@1.0.0:
     loader-utils "^1.2.3"
     schema-utils "^2.0.1"
 
-styled-jsx@^3.2.1, styled-jsx@^3.2.2, styled-jsx@^3.3.0:
+styled-jsx@^3.2.1, styled-jsx@^3.2.2, styled-jsx@^3.2.5, styled-jsx@^3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/styled-jsx/-/styled-jsx-3.3.0.tgz#32335c1a3ecfc923ba4f9c056eeb3d4699006b09"
   integrity sha512-sh8BI5eGKyJlwL4kNXHjb27/a/GJV8wP4ElRIkRXrGW3sHKOsY9Pa1VZRNxyvf3+lisdPwizD9JDkzVO9uGwZw==
