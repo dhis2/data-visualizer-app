@@ -1,4 +1,4 @@
-import reducer, { SET_DIMENSIONS, getDefaultDimensions } from '../dimensions'
+import reducer, { SET_DIMENSIONS, DEFAULT_DIMENSIONS } from '../dimensions'
 
 describe('reducer: dimensions', () => {
     const dimensionsToSet = {
@@ -10,7 +10,7 @@ describe('reducer: dimensions', () => {
 
     it('should return the default state', () => {
         const actualState = reducer(undefined, { type: 'NO_MATCH' })
-        expect(actualState).toEqual(getDefaultDimensions())
+        expect(actualState).toEqual(DEFAULT_DIMENSIONS)
     })
 
     it(`${SET_DIMENSIONS}: should set the new dimensions object`, () => {
@@ -23,7 +23,7 @@ describe('reducer: dimensions', () => {
         )
 
         const expectedState = {
-            ...getDefaultDimensions(),
+            ...DEFAULT_DIMENSIONS,
             ...dimensionsToSet,
         }
 
