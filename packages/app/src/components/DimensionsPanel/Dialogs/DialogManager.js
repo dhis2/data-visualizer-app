@@ -251,9 +251,9 @@ export class DialogManager extends Component {
                     item.isActive = index < axisMaxNumberOfItems
                 })
             }
-
+            let content = null
             if (dialogId === DIMENSION_ID_DATA) {
-                return (
+                content = (
                     <DataDimension
                         displayNameProp={displayNameProperty}
                         selectedDimensions={selectedItems}
@@ -261,33 +261,30 @@ export class DialogManager extends Component {
                         {...dimensionProps}
                     />
                 )
-            }
-
-            if (dialogId === DIMENSION_ID_PERIOD) {
-                return (
+            } else if (dialogId === DIMENSION_ID_PERIOD) {
+                content = (
                     <PeriodDimension
                         selectedPeriods={selectedItems}
                         onSelect={dimensionProps.onSelect}
-                        // TODO infoBoxMessage should ideally be implemented for all dimensions
+                        // TODO: infoBoxMessage should ideally be implemented for all dimensions
                     />
                 )
-            }
-
-            const nonPredefinedDimensions = filterOutPredefinedDimensions(
-                Object.keys(this.props.dimensions)
-            )
-
-            if (nonPredefinedDimensions.includes(dialogId)) {
-                return (
+            } else if (
+                filterOutPredefinedDimensions(
+                    Object.keys(this.props.dimensions)
+                ).includes(dialogId)
+            ) {
+                content = (
                     <DynamicDimension
                         selectedItems={selectedItems}
-                        dialogId={dialogId}
-                        {...dimensionProps}
-                        // TODO infoBoxMessage should ideally be implemented for all dimensions
+                        dimensionId={dialogId}
+                        onSelect={dimensionProps.onSelect}
+                        context={dimensionProps.d2}
+                        // TODO: infoBoxMessage should ideally be implemented for all dimensions
                     />
                 )
             }
-            return null
+            return content
         }
 
         return (
