@@ -980,18 +980,10 @@
     "@babel/helper-plugin-utils" "^7.8.3"
     "@babel/plugin-transform-typescript" "^7.9.0"
 
-"@babel/runtime-corejs2@^7.4.2":
-  version "7.10.1"
-  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs2/-/runtime-corejs2-7.10.1.tgz#53809ef921ea7019be5ee6166f324fb9b7884e7d"
-  integrity sha512-94v+EvClppy9BhjnLvTqfLmcHIFdrfwvfgQ1EvfkA/604JbuLaRLOhlfzhmgKjjbaIu49sJXH9fvYtZQ9pssQg==
-  dependencies:
-    core-js "^2.6.5"
-    regenerator-runtime "^0.13.4"
-
-"@babel/runtime-corejs2@^7.6.3":
-  version "7.9.6"
-  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs2/-/runtime-corejs2-7.9.6.tgz#acd5d6351384cc2828dc211aa5426a90476bf4a8"
-  integrity sha512-TcdM3xc7weMrwTawuG3BTjtVE3mQLXUPQ9CxTbSKOrhn3QAcqCJ2fz+IIv25wztzUnhNZat7hr655YJa61F3zg==
+"@babel/runtime-corejs2@^7.4.2", "@babel/runtime-corejs2@^7.6.3":
+  version "7.10.0"
+  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs2/-/runtime-corejs2-7.10.0.tgz#b81fcd81745b745c6b9aaed6ef69657180ef8cf2"
+  integrity sha512-sH02MTpZ4/f9glo0UNGXWQhl23e9gEB2MzjAqHZnKrztmY6eGxxPFJOniEHDOQisJwWZJlPAcBywi45lYc4h2w==
   dependencies:
     core-js "^2.6.5"
     regenerator-runtime "^0.13.4"
@@ -1011,17 +1003,10 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.2.0":
-  version "7.10.1"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.10.1.tgz#b6eb75cac279588d3100baecd1b9894ea2840822"
-  integrity sha512-nQbbCbQc9u/rpg1XCxoMYQTbSMVZjCDxErQ1ClCn9Pvcmv1lGads19ep0a2VsEiIJeHqjZley6EQGEC3Yo1xMA==
-  dependencies:
-    regenerator-runtime "^0.13.4"
-
-"@babel/runtime@^7.3.1", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4":
-  version "7.9.6"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.9.6.tgz#a9102eb5cadedf3f31d08a9ecf294af7827ea29f"
-  integrity sha512-64AF1xY3OAkFHqOb9s4jpgk1Mm5vDZ4L3acHvAml+53nO1XbXLuDodsVpO4OIUsmemlUHMxNdYMNJmsvOwLrvQ==
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.2.0", "@babel/runtime@^7.3.1", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4":
+  version "7.10.0"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.10.0.tgz#2cdcd6d7a391c24f7154235134c830cfb58ac0b1"
+  integrity sha512-tgYb3zVApHbLHYOPWtVwg25sBqHhfBXRKeKoTIyoheIxln1nA7oBl7SfHfiTG2GhDPI8EUBkOD/0wJCP/3HN4Q==
   dependencies:
     regenerator-runtime "^0.13.4"
 
@@ -1233,10 +1218,10 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^4.4.2":
-  version "4.4.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.4.2.tgz#bdb083740e40f6f9a4e29dd0f999f0f11b3d50f0"
-  integrity sha512-h4nfufAI753YKDlInyXi4XtS7Uv8lMUSSpf2A8lYRbJZWCRsg0SqVSYHVxeB4H7V5FasNCAmjlKfWMwohcoxWA==
+"@dhis2/analytics@4.5.0":
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.5.0.tgz#bfcd55330e645d6d672f9d99a9dc48bf9bd055ea"
+  integrity sha512-FLLMOHOWxrUxgge3b0octsvQ5Ge3g1ryMH1vziObhlKm0LwtCnuYWc4C5nMVF/kfA1GeWxYI8cm/o5JWsSmUFw==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.3"
     "@dhis2/ui-core" "^4.16.0"
@@ -1520,7 +1505,7 @@
   dependencies:
     prop-types "^15"
 
-"@dhis2/ui-core@*", "@dhis2/ui-core@^4.16.0", "@dhis2/ui-core@^4.6.1":
+"@dhis2/ui-core@*", "@dhis2/ui-core@^4.16.0", "@dhis2/ui-core@^4.21.1", "@dhis2/ui-core@^4.6.1":
   version "4.21.1"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-4.21.1.tgz#2b5518f6bd5de75404df3eefa83452e0c40852aa"
   integrity sha512-dpK4UwktLw9qcRkDe5wU76j35ntoulqKpcaBoxXZ1+/rzR2FeaJ+w4l+I+bg45jcK9WjLLsFClc1zi+O/MG1MA==
@@ -11803,9 +11788,9 @@ react-event-listener@^0.6.2:
     warning "^4.0.1"
 
 react-fast-compare@^3.0.1:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
-  integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.1.1.tgz#0becf31e3812fa70dc231e259f40d892d4767900"
+  integrity sha512-SCsAORWK59BvauR2L1BTdjQbJcSGJJz03U0awektk2hshLKrITDDFTlgGCqIZpTDlPC/NFlZee6xTMzXPVLiHw==
 
 react-input-autosize@^2.2.1:
   version "2.2.2"
