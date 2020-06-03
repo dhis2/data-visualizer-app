@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-05-14T06:49:01.865Z\n"
-"PO-Revision-Date: 2020-05-14T06:49:01.865Z\n"
+"POT-Creation-Date: 2020-06-02T04:24:38.833Z\n"
+"PO-Revision-Date: 2020-06-02T04:24:38.833Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -64,15 +64,6 @@ msgid ""
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
 
-msgid "Data"
-msgstr ""
-
-msgid "Period"
-msgstr ""
-
-msgid "Organisation units"
-msgstr ""
-
 msgid "Main dimensions"
 msgstr ""
 
@@ -109,10 +100,31 @@ msgstr ""
 msgid "Metadata ID scheme"
 msgstr ""
 
+msgid "ID"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
 msgid "Download"
 msgstr ""
 
 msgid "Plain data source"
+msgstr ""
+
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
+msgid "Excel"
+msgstr ""
+
+msgid "CSV"
 msgstr ""
 
 msgid "Advanced"
@@ -122,6 +134,9 @@ msgid "Data value set"
 msgstr ""
 
 msgid "Other formats"
+msgstr ""
+
+msgid "JRXML"
 msgstr ""
 
 msgid "Raw data SQL"
@@ -176,6 +191,12 @@ msgid "And 1 other..."
 msgstr ""
 
 msgid "And {{numberOfItems}} others..."
+msgstr ""
+
+msgid "Select a period"
+msgstr ""
+
+msgid "Select years"
 msgstr ""
 
 msgid "Unsaved visualization"
@@ -713,6 +734,9 @@ msgid "User org unit children"
 msgstr ""
 
 msgid "User org unit grand children"
+msgstr ""
+
+msgid "Data"
 msgstr ""
 
 msgid "Axes"

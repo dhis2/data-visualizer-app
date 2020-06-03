@@ -141,7 +141,7 @@ export class App extends Component {
         if (rootOrgUnit && rootOrgUnit.id) {
             store.dispatch(
                 fromActions.fromMetadata.acAddMetadata({
-                    ...defaultMetadata,
+                    ...defaultMetadata(),
                     [rootOrgUnit.id]: {
                         ...rootOrgUnit,
                         path: `/${rootOrgUnit.id}`,

@@ -10,7 +10,7 @@
         "access": "public"
     },
     "dependencies": {
-        "@dhis2/analytics": "^6.0.2",
+        "@dhis2/analytics": "^6.0.3",
         "@dhis2/ui-core": "^4.21.1",
         "lodash-es": "^4.17.11"
     },
@@ -20,7 +20,7 @@
         "react-dom": "^16.8"
     },
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^3.2.5"
+        "@dhis2/cli-app-scripts": "^4.0.7"
     },
     "scripts": {
         "clean": "rm -rf ./build/*",

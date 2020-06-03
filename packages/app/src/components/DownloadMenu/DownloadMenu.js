@@ -143,13 +143,16 @@ export const DownloadMenu = ({
             <div className={styles.menuSectionTitle}>
                 {i18n.t('Metadata ID scheme')}
             </div>
-            <DenseMenuItem label="ID" onClick={downloadData(format, 'UID')} />
             <DenseMenuItem
-                label="Code"
+                label={i18n.t('ID')}
+                onClick={downloadData(format, 'UID')}
+            />
+            <DenseMenuItem
+                label={i18n.t('Code')}
                 onClick={downloadData(format, 'CODE')}
             />
             <DenseMenuItem
-                label="Name"
+                label={i18n.t('Name')}
                 onClick={downloadData(format, 'NAME')}
             />
         </Menu>
@@ -176,16 +179,28 @@ export const DownloadMenu = ({
                                 <div className={styles.menuSectionTitle}>
                                     {i18n.t('Plain data source')}
                                 </div>
-                                <DenseMenuItem Icon={ListIcon} label="JSON">
+                                <DenseMenuItem
+                                    Icon={ListIcon}
+                                    label={i18n.t('JSON')}
+                                >
                                     {plainDataSourceSubLevel('json')}
                                 </DenseMenuItem>
-                                <DenseMenuItem Icon={ListIcon} label="XML">
+                                <DenseMenuItem
+                                    Icon={ListIcon}
+                                    label={i18n.t('XML')}
+                                >
                                     {plainDataSourceSubLevel('xml')}
                                 </DenseMenuItem>
-                                <DenseMenuItem Icon={ListIcon} label="Excel">
+                                <DenseMenuItem
+                                    Icon={ListIcon}
+                                    label={i18n.t('Excel')}
+                                >
                                     {plainDataSourceSubLevel('xls')}
                                 </DenseMenuItem>
-                                <DenseMenuItem Icon={ListIcon} label="CSV">
+                                <DenseMenuItem
+                                    Icon={ListIcon}
+                                    label={i18n.t('CSV')}
+                                >
                                     {plainDataSourceSubLevel('csv')}
                                 </DenseMenuItem>
                                 <DenseMenuItem
@@ -199,7 +214,7 @@ export const DownloadMenu = ({
                                             {i18n.t('Data value set')}
                                         </div>
                                         <DenseMenuItem
-                                            label="JSON"
+                                            label={i18n.t('JSON')}
                                             onClick={downloadData(
                                                 'json',
                                                 null,
@@ -207,7 +222,7 @@ export const DownloadMenu = ({
                                             )}
                                         />
                                         <DenseMenuItem
-                                            label="XML"
+                                            label={i18n.t('XML')}
                                             onClick={downloadData(
                                                 'xml',
                                                 null,
@@ -221,7 +236,7 @@ export const DownloadMenu = ({
                                             {i18n.t('Other formats')}
                                         </div>
                                         <DenseMenuItem
-                                            label="JRXML"
+                                            label={i18n.t('JRXML')}
                                             onClick={downloadData('jrxml')}
                                         />
                                         <DenseMenuItem

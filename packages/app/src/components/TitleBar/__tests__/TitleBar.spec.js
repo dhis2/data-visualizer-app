@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { TitleBar, TITLE_UNSAVED, TITLE_DIRTY } from '../TitleBar'
+import { TitleBar, getTitleUnsaved, getTitleDirty } from '../TitleBar'
 import {
     STATE_EMPTY,
     STATE_UNSAVED,
@@ -35,14 +35,14 @@ describe('TitleBar component', () => {
 
     it('renders "unsaved" state', () => {
         props.titleState = STATE_UNSAVED
-        props.titleText = TITLE_UNSAVED
+        props.titleText = getTitleUnsaved()
         expect(titleBar().find('div')).toHaveLength(2)
         expect(
             titleBar()
                 .find('div')
                 .first()
                 .text()
-        ).toEqual(TITLE_UNSAVED)
+        ).toEqual(getTitleUnsaved())
     })
 
     it('renders "saved" state', () => {
@@ -66,7 +66,7 @@ describe('TitleBar component', () => {
                 .find('div')
                 .first()
                 .text()
-        ).toEqual(`Yall- ${TITLE_DIRTY}`)
+        ).toEqual(`Yall- ${getTitleDirty()}`)
     })
 
     it('renders a <div> containing everything else', () => {
