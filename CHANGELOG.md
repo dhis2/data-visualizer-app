@@ -1,3 +1,10 @@
+## [35.0.2](https://github.com/dhis2/data-visualizer-app/compare/v35.0.1...v35.0.2) (2020-06-03)
+
+
+### Bug Fixes
+
+* complete translations master ([#1031](https://github.com/dhis2/data-visualizer-app/issues/1031)) ([d8ba752](https://github.com/dhis2/data-visualizer-app/commit/d8ba75229dc09c6cc15e3b3005660566ae42bcd1))
+
 ## [35.0.1](https://github.com/dhis2/data-visualizer-app/compare/v35.0.0...v35.0.1) (2020-06-02)
 
 
