@@ -2,15 +2,15 @@
 # Translators:
 # Bram Piot <bram.piot@gmail.com>, 2019
 # Matthieu Pinard <matthieu@pinard.no>, 2019
+# phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
 # Karoline Tufte Lien <karoline@dhis2.org>, 2020
-# phil_dhis2, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-14T06:49:01.865Z\n"
+"POT-Creation-Date: 2020-06-02T04:24:38.833Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -76,15 +76,6 @@ msgid ""
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
 
-msgid "Data"
-msgstr "Données"
-
-msgid "Period"
-msgstr "Période"
-
-msgid "Organisation units"
-msgstr "Unités d'organisation"
-
 msgid "Main dimensions"
 msgstr ""
 
@@ -121,11 +112,32 @@ msgstr ""
 msgid "Metadata ID scheme"
 msgstr "Schéma ID des métadata"
 
+msgid "ID"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
 msgid "Download"
 msgstr "Télécharger"
 
 msgid "Plain data source"
 msgstr "Sourc de données brutes"
+
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
+msgid "Excel"
+msgstr ""
+
+msgid "CSV"
+msgstr ""
 
 msgid "Advanced"
 msgstr "Avancé"
@@ -135,6 +147,9 @@ msgstr "Ensemble de valeurs de données"
 
 msgid "Other formats"
 msgstr "Autres formats"
+
+msgid "JRXML"
+msgstr ""
 
 msgid "Raw data SQL"
 msgstr ""
@@ -188,6 +203,12 @@ msgid "And 1 other..."
 msgstr ""
 
 msgid "And {{numberOfItems}} others..."
+msgstr ""
+
+msgid "Select a period"
+msgstr ""
+
+msgid "Select years"
 msgstr ""
 
 msgid "Unsaved visualization"
@@ -728,6 +749,9 @@ msgstr ""
 
 msgid "User org unit grand children"
 msgstr ""
+
+msgid "Data"
+msgstr "Données"
 
 msgid "Axes"
 msgstr ""

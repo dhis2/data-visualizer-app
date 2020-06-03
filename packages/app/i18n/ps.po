@@ -1,14 +1,14 @@
 # 
 # Translators:
-# phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
+# phil_dhis2, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-14T06:49:01.865Z\n"
+"POT-Creation-Date: 2020-06-02T04:24:38.833Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Pushto (https://www.transifex.com/hisp-uio/teams/100509/ps/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -72,15 +72,6 @@ msgid ""
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
 
-msgid "Data"
-msgstr "مالومات (ډاټا)"
-
-msgid "Period"
-msgstr "معیاد"
-
-msgid "Organisation units"
-msgstr "د سازمان واحدونه"
-
 msgid "Main dimensions"
 msgstr ""
 
@@ -117,11 +108,32 @@ msgstr ""
 msgid "Metadata ID scheme"
 msgstr ""
 
+msgid "ID"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
 msgid "Download"
 msgstr "بارگیری"
 
 msgid "Plain data source"
 msgstr "د ډاټا یا مالوماتو ساده سرچینه"
+
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
+msgid "Excel"
+msgstr ""
+
+msgid "CSV"
+msgstr ""
 
 msgid "Advanced"
 msgstr "پرمختللي."
@@ -131,6 +143,9 @@ msgstr "د ډاټا یا مالوماتو د ارزښت ټولګه"
 
 msgid "Other formats"
 msgstr "نور فارمټونه یا نمونې"
+
+msgid "JRXML"
+msgstr ""
 
 msgid "Raw data SQL"
 msgstr ""
@@ -184,6 +199,12 @@ msgid "And 1 other..."
 msgstr ""
 
 msgid "And {{numberOfItems}} others..."
+msgstr ""
+
+msgid "Select a period"
+msgstr ""
+
+msgid "Select years"
 msgstr ""
 
 msgid "Unsaved visualization"
@@ -724,6 +745,9 @@ msgstr ""
 
 msgid "User org unit grand children"
 msgstr ""
+
+msgid "Data"
+msgstr "مالومات (ډاټا)"
 
 msgid "Axes"
 msgstr "محورونه"

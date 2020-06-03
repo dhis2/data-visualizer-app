@@ -1,14 +1,14 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2020
 # phil_dhis2, 2020
+# Viktor Varland <viktor@dhis2.org>, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
 # Sheila André <sandre@saudigitus.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-14T06:49:01.865Z\n"
+"POT-Creation-Date: 2020-06-02T04:24:38.833Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Sheila André <sandre@saudigitus.org>, 2020\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
@@ -82,15 +82,6 @@ msgstr ""
 "'{{visualiationType}}' destina-se a mostrar o número máximo de {{maxNumber}}"
 "  itens. Somente os primeiros itens {{maxNumber}} serão usados e gravados."
 
-msgid "Data"
-msgstr "Dados"
-
-msgid "Period"
-msgstr "Período"
-
-msgid "Organisation units"
-msgstr "Unidades organizacionais"
-
 msgid "Main dimensions"
 msgstr "Dimensões principais"
 
@@ -127,11 +118,32 @@ msgstr ""
 msgid "Metadata ID scheme"
 msgstr ""
 
+msgid "ID"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
 msgid "Download"
 msgstr "Descarregar"
 
 msgid "Plain data source"
 msgstr "Fonte de dados simples"
+
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
+msgid "Excel"
+msgstr ""
+
+msgid "CSV"
+msgstr ""
 
 msgid "Advanced"
 msgstr "Avançado"
@@ -140,6 +152,9 @@ msgid "Data value set"
 msgstr "Conjunto de valores de dados"
 
 msgid "Other formats"
+msgstr ""
+
+msgid "JRXML"
 msgstr ""
 
 msgid "Raw data SQL"
@@ -194,6 +209,12 @@ msgid "And 1 other..."
 msgstr ""
 
 msgid "And {{numberOfItems}} others..."
+msgstr ""
+
+msgid "Select a period"
+msgstr ""
+
+msgid "Select years"
 msgstr ""
 
 msgid "Unsaved visualization"
@@ -734,6 +755,9 @@ msgstr ""
 
 msgid "User org unit grand children"
 msgstr ""
+
+msgid "Data"
+msgstr "Dados"
 
 msgid "Axes"
 msgstr ""

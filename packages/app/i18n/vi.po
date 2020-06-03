@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-14T06:49:01.865Z\n"
+"POT-Creation-Date: 2020-06-02T04:24:38.833Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2020\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
@@ -77,15 +77,6 @@ msgid ""
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
 
-msgid "Data"
-msgstr "Lấy dữ liệu"
-
-msgid "Period"
-msgstr "Thời điểm"
-
-msgid "Organisation units"
-msgstr "Đơn vị"
-
 msgid "Main dimensions"
 msgstr "Các chiều chính"
 
@@ -122,11 +113,32 @@ msgstr "HTML (.html)"
 msgid "Metadata ID scheme"
 msgstr "Lược đồ ID siêu dữ liệu"
 
+msgid "ID"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
 msgid "Download"
 msgstr "Tải về"
 
 msgid "Plain data source"
 msgstr "Nguồn dữ liệu gốc"
+
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
+msgid "Excel"
+msgstr ""
+
+msgid "CSV"
+msgstr ""
 
 msgid "Advanced"
 msgstr "Nâng cao"
@@ -136,6 +148,9 @@ msgstr "Bộ giá trị dữ liệu"
 
 msgid "Other formats"
 msgstr "Định dạng khác"
+
+msgid "JRXML"
+msgstr ""
 
 msgid "Raw data SQL"
 msgstr ""
@@ -189,6 +204,12 @@ msgid "And 1 other..."
 msgstr "Và 1..."
 
 msgid "And {{numberOfItems}} others..."
+msgstr ""
+
+msgid "Select a period"
+msgstr ""
+
+msgid "Select years"
 msgstr ""
 
 msgid "Unsaved visualization"
@@ -742,6 +763,9 @@ msgstr "Đơn vị con của người dùng"
 
 msgid "User org unit grand children"
 msgstr "Đơn vị cháu của người dùng"
+
+msgid "Data"
+msgstr "Lấy dữ liệu"
 
 msgid "Axes"
 msgstr "Trục"
