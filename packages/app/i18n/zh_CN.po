@@ -1,14 +1,14 @@
 # 
 # Translators:
-# 晓东 林 <13981924470@126.com>, 2020
 # easylin <lin_xd@126.com>, 2020
+# 晓东 林 <13981924470@126.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-14T06:49:01.865Z\n"
+"POT-Creation-Date: 2020-06-02T04:24:38.833Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: easylin <lin_xd@126.com>, 2020\n"
+"Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -72,15 +72,6 @@ msgid ""
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr "'{{visualizationType}}' 打算显示最多{{maxNumber}}个数据项，仅其中第一个条目将被使用和保存。"
 
-msgid "Data"
-msgstr "数据"
-
-msgid "Period"
-msgstr "期间"
-
-msgid "Organisation units"
-msgstr "组织机构"
-
 msgid "Main dimensions"
 msgstr "主要维度"
 
@@ -117,11 +108,32 @@ msgstr "HTML (.html)"
 msgid "Metadata ID scheme"
 msgstr "元数据ID方案"
 
+msgid "ID"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
 msgid "Download"
 msgstr "下载"
 
 msgid "Plain data source"
 msgstr "普通数据源"
+
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
+msgid "Excel"
+msgstr ""
+
+msgid "CSV"
+msgstr ""
 
 msgid "Advanced"
 msgstr "高级"
@@ -131,6 +143,9 @@ msgstr "数据值集"
 
 msgid "Other formats"
 msgstr "其它格式"
+
+msgid "JRXML"
+msgstr ""
 
 msgid "Raw data SQL"
 msgstr ""
@@ -184,6 +199,12 @@ msgid "And 1 other..."
 msgstr ""
 
 msgid "And {{numberOfItems}} others..."
+msgstr ""
+
+msgid "Select a period"
+msgstr ""
+
+msgid "Select years"
 msgstr ""
 
 msgid "Unsaved visualization"
@@ -726,6 +747,9 @@ msgstr "用户下属机构"
 
 msgid "User org unit grand children"
 msgstr "用户下下级机构"
+
+msgid "Data"
+msgstr "数据"
 
 msgid "Axes"
 msgstr "轴"

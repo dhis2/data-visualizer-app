@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-14T06:49:01.865Z\n"
+"POT-Creation-Date: 2020-06-02T04:24:38.833Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2020\n"
 "Language-Team: Arabic (Iraq) (https://www.transifex.com/hisp-uio/teams/100509/ar_IQ/)\n"
@@ -71,15 +71,6 @@ msgid ""
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
 
-msgid "Data"
-msgstr "البيانات"
-
-msgid "Period"
-msgstr ""
-
-msgid "Organisation units"
-msgstr "الوحدات التنظيمية"
-
 msgid "Main dimensions"
 msgstr ""
 
@@ -116,11 +107,32 @@ msgstr ""
 msgid "Metadata ID scheme"
 msgstr ""
 
+msgid "ID"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
 msgid "Download"
 msgstr "تنزيل"
 
 msgid "Plain data source"
 msgstr "مصدر البيانات الصريحة"
+
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
+msgid "Excel"
+msgstr ""
+
+msgid "CSV"
+msgstr ""
 
 msgid "Advanced"
 msgstr "متقدم"
@@ -130,6 +142,9 @@ msgstr "حزمة قيم البيانات"
 
 msgid "Other formats"
 msgstr "صيغ أخرى"
+
+msgid "JRXML"
+msgstr ""
 
 msgid "Raw data SQL"
 msgstr ""
@@ -183,6 +198,12 @@ msgid "And 1 other..."
 msgstr ""
 
 msgid "And {{numberOfItems}} others..."
+msgstr ""
+
+msgid "Select a period"
+msgstr ""
+
+msgid "Select years"
 msgstr ""
 
 msgid "Unsaved visualization"
@@ -723,6 +744,9 @@ msgstr ""
 
 msgid "User org unit grand children"
 msgstr ""
+
+msgid "Data"
+msgstr "البيانات"
 
 msgid "Axes"
 msgstr ""

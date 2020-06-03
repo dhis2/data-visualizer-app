@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-14T06:49:01.865Z\n"
+"POT-Creation-Date: 2020-06-02T04:24:38.833Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -80,15 +80,6 @@ msgstr ""
 "'{{visualiationType}}' er ment for å vise maksimalt {{maxNumber}} antall "
 "elementer. Bare de første {{maxNumber}} elementene vil bli brukt og lagret."
 
-msgid "Data"
-msgstr "Data"
-
-msgid "Period"
-msgstr "Periode"
-
-msgid "Organisation units"
-msgstr "Organisasjonsenheter"
-
 msgid "Main dimensions"
 msgstr "Hoveddimensjoner"
 
@@ -125,11 +116,32 @@ msgstr "HTML (.html)"
 msgid "Metadata ID scheme"
 msgstr "Metadata-ID-ordning"
 
+msgid "ID"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
 msgid "Download"
 msgstr "Last ned"
 
 msgid "Plain data source"
 msgstr "Ren datakilde"
+
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
+msgid "Excel"
+msgstr ""
+
+msgid "CSV"
+msgstr ""
 
 msgid "Advanced"
 msgstr "Avansert"
@@ -139,6 +151,9 @@ msgstr "Dataverdisett"
 
 msgid "Other formats"
 msgstr "Andre formater"
+
+msgid "JRXML"
+msgstr ""
 
 msgid "Raw data SQL"
 msgstr "Rådata SQL"
@@ -193,6 +208,12 @@ msgstr "Og 1 annen..."
 
 msgid "And {{numberOfItems}} others..."
 msgstr "Og {{numberOfItems}} andre..."
+
+msgid "Select a period"
+msgstr ""
+
+msgid "Select years"
+msgstr ""
 
 msgid "Unsaved visualization"
 msgstr "Ikke lagret visualisering"
@@ -747,6 +768,9 @@ msgstr "Bruker underordnet org enhet"
 
 msgid "User org unit grand children"
 msgstr "Bruker under-underordnet org enhet"
+
+msgid "Data"
+msgstr "Data"
 
 msgid "Axes"
 msgstr "Akser"
