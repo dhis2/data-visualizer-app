@@ -117,13 +117,13 @@ msgid "Metadata ID scheme"
 msgstr "Metadata-ID-ordning"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Code"
-msgstr ""
+msgstr "Kode"
 
 msgid "Name"
-msgstr ""
+msgstr "Navn"
 
 msgid "Download"
 msgstr "Last ned"
@@ -132,16 +132,16 @@ msgid "Plain data source"
 msgstr "Ren datakilde"
 
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 msgid "XML"
-msgstr ""
+msgstr "XML"
 
 msgid "Excel"
-msgstr ""
+msgstr "Excel"
 
 msgid "CSV"
-msgstr ""
+msgstr "CSV"
 
 msgid "Advanced"
 msgstr "Avansert"
@@ -153,7 +153,7 @@ msgid "Other formats"
 msgstr "Andre formater"
 
 msgid "JRXML"
-msgstr ""
+msgstr "JRXML"
 
 msgid "Raw data SQL"
 msgstr "Rådata SQL"
@@ -210,10 +210,10 @@ msgid "And {{numberOfItems}} others..."
 msgstr "Og {{numberOfItems}} andre..."
 
 msgid "Select a period"
-msgstr ""
+msgstr "Velg periode"
 
 msgid "Select years"
-msgstr ""
+msgstr "Velg år"
 
 msgid "Unsaved visualization"
 msgstr "Ikke lagret visualisering"

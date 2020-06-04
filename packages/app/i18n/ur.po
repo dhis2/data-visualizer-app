@@ -109,13 +109,13 @@ msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr ""
+msgstr "شناخت"
 
 msgid "Code"
-msgstr ""
+msgstr "کوڈ"
 
 msgid "Name"
-msgstr ""
+msgstr "ÙØ§Ù"
 
 msgid "Download"
 msgstr "ڈاؤن لوڈ کریں"
@@ -124,16 +124,16 @@ msgid "Plain data source"
 msgstr "سادہ اعداد و شمار کا ذریعہ"
 
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 msgid "XML"
-msgstr ""
+msgstr "XML"
 
 msgid "Excel"
 msgstr ""
 
 msgid "CSV"
-msgstr ""
+msgstr "CSV"
 
 msgid "Advanced"
 msgstr "اعلی درجے کی"

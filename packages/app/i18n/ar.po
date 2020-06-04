@@ -1,8 +1,8 @@
 # 
 # Translators:
+# KRG HIS <antonia.bezenchek@informa.pro>, 2020
 # phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
-# KRG HIS <antonia.bezenchek@informa.pro>, 2020
 # Hamza Assada <7amza.it@gmail.com>, 2020
 # 
 msgid ""
@@ -118,13 +118,13 @@ msgid "Metadata ID scheme"
 msgstr "مخطط معرف البيانات الوصفية"
 
 msgid "ID"
-msgstr ""
+msgstr "المعرف"
 
 msgid "Code"
-msgstr ""
+msgstr "الرمز"
 
 msgid "Name"
-msgstr ""
+msgstr "الإسم"
 
 msgid "Download"
 msgstr "تحميل"
@@ -133,16 +133,16 @@ msgid "Plain data source"
 msgstr "مصدر البيانات الصريحة"
 
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 msgid "XML"
-msgstr ""
+msgstr "XML"
 
 msgid "Excel"
-msgstr ""
+msgstr "إكسل"
 
 msgid "CSV"
-msgstr ""
+msgstr "CSV"
 
 msgid "Advanced"
 msgstr "متقدم"
