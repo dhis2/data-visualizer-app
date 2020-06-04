@@ -109,13 +109,13 @@ msgid "Metadata ID scheme"
 msgstr "ID Схема метаданных"
 
 msgid "ID"
-msgstr ""
+msgstr "Ид"
 
 msgid "Code"
-msgstr ""
+msgstr "Код"
 
 msgid "Name"
-msgstr ""
+msgstr "Название"
 
 msgid "Download"
 msgstr "Скачать"
@@ -124,16 +124,16 @@ msgid "Plain data source"
 msgstr "Источник данных"
 
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 msgid "XML"
-msgstr ""
+msgstr "XML"
 
 msgid "Excel"
-msgstr ""
+msgstr "Excel"
 
 msgid "CSV"
-msgstr ""
+msgstr "CSV"
 
 msgid "Advanced"
 msgstr "Расширенный"

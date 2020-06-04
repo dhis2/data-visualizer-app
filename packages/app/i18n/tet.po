@@ -109,13 +109,13 @@ msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr ""
+msgstr "Id"
 
 msgid "Code"
-msgstr ""
+msgstr "Kódigu"
 
 msgid "Name"
-msgstr ""
+msgstr "Naran"
 
 msgid "Download"
 msgstr "Hatun"

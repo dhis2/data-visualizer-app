@@ -114,7 +114,7 @@ msgid "Code"
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "الاسم"
 
 msgid "Download"
 msgstr "تنزيل"

@@ -108,13 +108,13 @@ msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr ""
+msgstr "آی دی"
 
 msgid "Code"
-msgstr ""
+msgstr "کوډ یا شفر"
 
 msgid "Name"
-msgstr ""
+msgstr "نام"
 
 msgid "Download"
 msgstr "دانلود"
@@ -123,16 +123,16 @@ msgid "Plain data source"
 msgstr "منبع دیتا ساده"
 
 msgid "JSON"
-msgstr ""
+msgstr "نشانه گذاری شی جاوااسکریپت"
 
 msgid "XML"
-msgstr ""
+msgstr "اکس‌ام‌ال"
 
 msgid "Excel"
 msgstr ""
 
 msgid "CSV"
-msgstr ""
+msgstr "مقادیر جداشده با کامه"
 
 msgid "Advanced"
 msgstr "پیشرفته"
