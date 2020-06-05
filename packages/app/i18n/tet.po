@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-14T06:49:01.865Z\n"
+"POT-Creation-Date: 2020-06-02T04:24:38.833Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Tetum (Tetun) (https://www.transifex.com/hisp-uio/teams/100509/tet/)\n"
@@ -72,15 +72,6 @@ msgid ""
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
 
-msgid "Data"
-msgstr "Dadus"
-
-msgid "Period"
-msgstr "Períodu"
-
-msgid "Organisation units"
-msgstr "Unidade organizasional"
-
 msgid "Main dimensions"
 msgstr ""
 
@@ -117,11 +108,32 @@ msgstr ""
 msgid "Metadata ID scheme"
 msgstr ""
 
+msgid "ID"
+msgstr "Id"
+
+msgid "Code"
+msgstr "Kódigu"
+
+msgid "Name"
+msgstr "Naran"
+
 msgid "Download"
 msgstr "Hatun"
 
 msgid "Plain data source"
 msgstr "Fonte dadus planu"
+
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
+msgid "Excel"
+msgstr ""
+
+msgid "CSV"
+msgstr ""
 
 msgid "Advanced"
 msgstr ""
@@ -130,6 +142,9 @@ msgid "Data value set"
 msgstr ""
 
 msgid "Other formats"
+msgstr ""
+
+msgid "JRXML"
 msgstr ""
 
 msgid "Raw data SQL"
@@ -184,6 +199,12 @@ msgid "And 1 other..."
 msgstr ""
 
 msgid "And {{numberOfItems}} others..."
+msgstr ""
+
+msgid "Select a period"
+msgstr ""
+
+msgid "Select years"
 msgstr ""
 
 msgid "Unsaved visualization"
@@ -724,6 +745,9 @@ msgstr ""
 
 msgid "User org unit grand children"
 msgstr ""
+
+msgid "Data"
+msgstr "Dadus"
 
 msgid "Axes"
 msgstr "Eixus"

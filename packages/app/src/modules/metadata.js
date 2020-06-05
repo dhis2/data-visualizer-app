@@ -1,6 +1,6 @@
 import i18n from '@dhis2/d2-i18n'
 
-export const relativePeriods = {
+const getRelativePeriods = () => ({
     TODAY: i18n.t('Today'),
     YESTERDAY: i18n.t('Yesterday'),
     LAST_3_DAYS: i18n.t('Last 3 days'),
@@ -35,18 +35,17 @@ export const relativePeriods = {
     THIS_YEAR: i18n.t('This year'),
     LAST_YEAR: i18n.t('Last year'),
     LAST_5_YEARS: i18n.t('Last 5 years'),
-}
+})
 
-export const organisationUnits = {
+const getOrganisationUnits = () => ({
     USER_ORGUNIT: i18n.t('User org unit'),
     USER_ORGUNIT_CHILDREN: i18n.t('User org unit children'),
     USER_ORGUNIT_GRANDCHILDREN: i18n.t('User org unit grand children'),
-}
+})
 
-// return {name: <string>} as value
-export default (function() {
+export default function() {
     return Object.entries({
-        ...relativePeriods,
-        ...organisationUnits,
+        ...getRelativePeriods(),
+        ...getOrganisationUnits(),
     }).reduce((obj, [key, value]) => ({ ...obj, [key]: { name: value } }), {})
-})()
+}

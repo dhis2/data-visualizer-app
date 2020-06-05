@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-14T06:49:01.865Z\n"
+"POT-Creation-Date: 2020-06-02T04:24:38.833Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Swedish (https://www.transifex.com/hisp-uio/teams/100509/sv/)\n"
@@ -72,15 +72,6 @@ msgid ""
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
 
-msgid "Data"
-msgstr "Data"
-
-msgid "Period"
-msgstr "Period"
-
-msgid "Organisation units"
-msgstr "Organisation enheter"
-
 msgid "Main dimensions"
 msgstr ""
 
@@ -117,11 +108,32 @@ msgstr ""
 msgid "Metadata ID scheme"
 msgstr ""
 
+msgid "ID"
+msgstr "id"
+
+msgid "Code"
+msgstr "Koda"
+
+msgid "Name"
+msgstr "Namn"
+
 msgid "Download"
 msgstr "Ladda ner"
 
 msgid "Plain data source"
 msgstr ""
+
+msgid "JSON"
+msgstr "JSON"
+
+msgid "XML"
+msgstr "XML"
+
+msgid "Excel"
+msgstr ""
+
+msgid "CSV"
+msgstr "CSV"
 
 msgid "Advanced"
 msgstr ""
@@ -130,6 +142,9 @@ msgid "Data value set"
 msgstr ""
 
 msgid "Other formats"
+msgstr ""
+
+msgid "JRXML"
 msgstr ""
 
 msgid "Raw data SQL"
@@ -184,6 +199,12 @@ msgid "And 1 other..."
 msgstr ""
 
 msgid "And {{numberOfItems}} others..."
+msgstr ""
+
+msgid "Select a period"
+msgstr ""
+
+msgid "Select years"
 msgstr ""
 
 msgid "Unsaved visualization"
@@ -724,6 +745,9 @@ msgstr ""
 
 msgid "User org unit grand children"
 msgstr ""
+
+msgid "Data"
+msgstr "Data"
 
 msgid "Axes"
 msgstr ""

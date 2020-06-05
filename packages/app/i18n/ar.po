@@ -1,14 +1,14 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2020
-# phil_dhis2, 2020
 # KRG HIS <antonia.bezenchek@informa.pro>, 2020
+# phil_dhis2, 2020
+# Viktor Varland <viktor@dhis2.org>, 2020
 # Hamza Assada <7amza.it@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-14T06:49:01.865Z\n"
+"POT-Creation-Date: 2020-06-02T04:24:38.833Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2020\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -81,15 +81,6 @@ msgstr ""
 "الغرض من \"{{visualiationType}}\" هو إظهار عدد عناصر {{maxNumber}} كحد أقصى."
 " سيتم استخدام وحفظ العناصر الـ {{maxNumber}} الأولى فقط."
 
-msgid "Data"
-msgstr "البيانات"
-
-msgid "Period"
-msgstr "الفترة الزمنية"
-
-msgid "Organisation units"
-msgstr "الوحدات التنظيمية"
-
 msgid "Main dimensions"
 msgstr "الأبعاد الرئيسية"
 
@@ -126,11 +117,32 @@ msgstr ""
 msgid "Metadata ID scheme"
 msgstr "مخطط معرف البيانات الوصفية"
 
+msgid "ID"
+msgstr "المعرف"
+
+msgid "Code"
+msgstr "الرمز"
+
+msgid "Name"
+msgstr "الإسم"
+
 msgid "Download"
 msgstr "تحميل"
 
 msgid "Plain data source"
 msgstr "مصدر البيانات الصريحة"
+
+msgid "JSON"
+msgstr "JSON"
+
+msgid "XML"
+msgstr "XML"
+
+msgid "Excel"
+msgstr "إكسل"
+
+msgid "CSV"
+msgstr "CSV"
 
 msgid "Advanced"
 msgstr "متقدم"
@@ -140,6 +152,9 @@ msgstr "حزمة قيم البيانات"
 
 msgid "Other formats"
 msgstr "صيغ أخرى"
+
+msgid "JRXML"
+msgstr ""
 
 msgid "Raw data SQL"
 msgstr "للبيانات الأولية SQL "
@@ -194,6 +209,12 @@ msgstr ""
 
 msgid "And {{numberOfItems}} others..."
 msgstr "و {{numberOfItems}} أخرى..."
+
+msgid "Select a period"
+msgstr ""
+
+msgid "Select years"
+msgstr ""
 
 msgid "Unsaved visualization"
 msgstr "مخطط عرض غير محفوظ"
@@ -748,6 +769,9 @@ msgstr "الوحدة التنظيمية للمستخدم العضو"
 
 msgid "User org unit grand children"
 msgstr "الوحدة التنظيمية الكبرى الأطفال"
+
+msgid "Data"
+msgstr "البيانات"
 
 msgid "Axes"
 msgstr "المحاور"

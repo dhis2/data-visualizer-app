@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-14T06:49:01.865Z\n"
+"POT-Creation-Date: 2020-06-02T04:24:38.833Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Persian (Afghanistan) (https://www.transifex.com/hisp-uio/teams/100509/fa_AF/)\n"
@@ -71,15 +71,6 @@ msgid ""
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
 
-msgid "Data"
-msgstr "دیتا"
-
-msgid "Period"
-msgstr "دوره"
-
-msgid "Organisation units"
-msgstr "واحد های سازمان"
-
 msgid "Main dimensions"
 msgstr ""
 
@@ -116,11 +107,32 @@ msgstr ""
 msgid "Metadata ID scheme"
 msgstr ""
 
+msgid "ID"
+msgstr "آی دی"
+
+msgid "Code"
+msgstr "کوډ یا شفر"
+
+msgid "Name"
+msgstr "نام"
+
 msgid "Download"
 msgstr "دانلود"
 
 msgid "Plain data source"
 msgstr "منبع دیتا ساده"
+
+msgid "JSON"
+msgstr "نشانه گذاری شی جاوااسکریپت"
+
+msgid "XML"
+msgstr "اکس‌ام‌ال"
+
+msgid "Excel"
+msgstr ""
+
+msgid "CSV"
+msgstr "مقادیر جداشده با کامه"
 
 msgid "Advanced"
 msgstr "پیشرفته"
@@ -130,6 +142,9 @@ msgstr "سیت ارزش دیتا"
 
 msgid "Other formats"
 msgstr "فارمت های دیگر"
+
+msgid "JRXML"
+msgstr ""
 
 msgid "Raw data SQL"
 msgstr ""
@@ -183,6 +198,12 @@ msgid "And 1 other..."
 msgstr ""
 
 msgid "And {{numberOfItems}} others..."
+msgstr ""
+
+msgid "Select a period"
+msgstr ""
+
+msgid "Select years"
 msgstr ""
 
 msgid "Unsaved visualization"
@@ -723,6 +744,9 @@ msgstr ""
 
 msgid "User org unit grand children"
 msgstr ""
+
+msgid "Data"
+msgstr "دیتا"
 
 msgid "Axes"
 msgstr "محورونه"

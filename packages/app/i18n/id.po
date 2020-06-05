@@ -1,15 +1,15 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2020
-# Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2020
 # Farida Sibuea <farida_sibuea@yahoo.com>, 2020
+# Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2020
+# Viktor Varland <viktor@dhis2.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-14T06:49:01.865Z\n"
+"POT-Creation-Date: 2020-06-02T04:24:38.833Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Farida Sibuea <farida_sibuea@yahoo.com>, 2020\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -80,15 +80,6 @@ msgstr ""
 "'{{visualizationType}}' digunakan untuk menunjukkan maksimum {{maxNumber}} "
 "item. Hanya {{maxNumber}} item pertama yang akan digunakan dan disimpan."
 
-msgid "Data"
-msgstr "Data"
-
-msgid "Period"
-msgstr "Periode"
-
-msgid "Organisation units"
-msgstr "Unit organisasi"
-
 msgid "Main dimensions"
 msgstr "Dimensi utama"
 
@@ -125,11 +116,32 @@ msgstr "HTML (.html)"
 msgid "Metadata ID scheme"
 msgstr "Skema ID metadata"
 
+msgid "ID"
+msgstr ""
+
+msgid "Code"
+msgstr "Kode"
+
+msgid "Name"
+msgstr "Nama"
+
 msgid "Download"
 msgstr "Unduh"
 
 msgid "Plain data source"
 msgstr "Sumber data asli"
+
+msgid "JSON"
+msgstr "JSON"
+
+msgid "XML"
+msgstr "XML"
+
+msgid "Excel"
+msgstr ""
+
+msgid "CSV"
+msgstr "CSV"
 
 msgid "Advanced"
 msgstr "Lebih Lanjut"
@@ -139,6 +151,9 @@ msgstr "Set nilai data"
 
 msgid "Other formats"
 msgstr "Format lain"
+
+msgid "JRXML"
+msgstr ""
 
 msgid "Raw data SQL"
 msgstr ""
@@ -193,6 +208,12 @@ msgstr "Dan 1 lainnya..."
 
 msgid "And {{numberOfItems}} others..."
 msgstr "Dan {{numberOfItems}} lainnya..."
+
+msgid "Select a period"
+msgstr ""
+
+msgid "Select years"
+msgstr ""
 
 msgid "Unsaved visualization"
 msgstr "Visualisasi belum disimpan"
@@ -734,6 +755,9 @@ msgstr "Sub org unit user"
 
 msgid "User org unit grand children"
 msgstr "Sub-sub org unit pengguna"
+
+msgid "Data"
+msgstr "Data"
 
 msgid "Axes"
 msgstr "Sumbu"

@@ -25,7 +25,7 @@ import CompletedOnly from '../../components/VisualizationOptions/Options/Complet
 export default [
     {
         key: 'data-tab',
-        label: i18n.t('Data'),
+        getLabel: () => i18n.t('Data'),
         content: [
             {
                 key: 'data-section-1',
@@ -42,14 +42,14 @@ export default [
             },
             {
                 key: 'data-advanced',
-                label: i18n.t('Advanced'),
+                getLabel: () => i18n.t('Advanced'),
                 content: React.Children.toArray([<CompletedOnly />]),
             },
         ],
     },
     {
         key: 'axes-tab',
-        label: i18n.t('Axes'),
+        getLabel: () => i18n.t('Axes'),
         content: [
             {
                 key: 'axes-vertical-axis',
@@ -70,7 +70,7 @@ export default [
     },
     {
         key: 'style-tab',
-        label: i18n.t('Style'),
+        getLabel: () => i18n.t('Style'),
         content: [
             {
                 key: 'style-section-1',
