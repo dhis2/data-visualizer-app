@@ -1,3 +1,32 @@
+## [34.6.2](https://github.com/dhis2/data-visualizer-app/compare/v34.6.1...v34.6.2) (2020-06-07)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (34.x) ([7f09d25](https://github.com/dhis2/data-visualizer-app/commit/7f09d25c2e30be2f83cb63471d3ee62d80772c33))
+
+## [34.6.1](https://github.com/dhis2/data-visualizer-app/compare/v34.6.0...v34.6.1) (2020-06-03)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (34.x) ([55d17c8](https://github.com/dhis2/data-visualizer-app/commit/55d17c82cff5811932a5fa463b74e7fa498b2629))
+
+# [34.6.0](https://github.com/dhis2/data-visualizer-app/compare/v34.5.2...v34.6.0) (2020-06-03)
+
+
+### Features
+
+* drill down/up for pivot tables [v34] ([#1023](https://github.com/dhis2/data-visualizer-app/issues/1023)) ([b7dae61](https://github.com/dhis2/data-visualizer-app/commit/b7dae6138f43e91a59fd0cf0beb9f35f0e4e80a3))
+
+## [34.5.2](https://github.com/dhis2/data-visualizer-app/compare/v34.5.1...v34.5.2) (2020-06-02)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (v34) ([bb15692](https://github.com/dhis2/data-visualizer-app/commit/bb15692c045abd7ab4440dd11236be48f2b44ee9))
+* complete translations [v34] ([#1014](https://github.com/dhis2/data-visualizer-app/issues/1014)) ([9f087a3](https://github.com/dhis2/data-visualizer-app/commit/9f087a3d523943515796d74d3ec9b28da2fb2781))
+
 ## [34.3.31](https://github.com/dhis2/data-visualizer-app/compare/v34.3.30...v34.3.31) (2020-03-18)
 
 
