@@ -3,7 +3,6 @@ import { seriesOptions } from '../yearOverYear'
 describe('yearOverYear', () => {
     it('year has matching id and name', () => {
         const lastOption = seriesOptions[seriesOptions.length - 1]
-        console.log('lastOption', lastOption.id, lastOption.getName())
         expect(lastOption.id).toEqual(lastOption.getName())
     })
 
