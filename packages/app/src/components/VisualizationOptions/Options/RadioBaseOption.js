@@ -2,23 +2,23 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import { Field, FieldGroupFF } from '@dhis2/ui'
+import { Field, Radio } from '@dhis2/ui'
 
 import { sGetUiOptions } from '../../../reducers/ui'
 import { acSetUiOptions } from '../../../actions/ui'
 
 export const RadioBaseOption = ({ option, label, value, onChange }) => (
-    <FieldGroupFF
-        name={option.name}
-        value={value}
-        onChange={({ value }) => onChange(value)}
-        label={label}
-        dense
-    >
+    <Field name={option.name} label={label} dense>
         {option.items.map(({ id, label }) => (
-            <Field type="radio" key={id} label={label} value={id} />
+            <Radio
+                key={id}
+                label={label}
+                value={id}
+                checked={value === id}
+                onChange={({ value }) => onChange(value)}
+            />
         ))}
-    </FieldGroupFF>
+    </Field>
 )
 
 RadioBaseOption.propTypes = {
