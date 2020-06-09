@@ -10,7 +10,7 @@ import {
     Label,
     SingleSelect,
     SingleSelectOption,
-} from '@dhis2/ui-core'
+} from '@dhis2/ui'
 import { sGetUiOptions } from '../../../reducers/ui'
 import { acSetUiOptions } from '../../../actions/ui'
 

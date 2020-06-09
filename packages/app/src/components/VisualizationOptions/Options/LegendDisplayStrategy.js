@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import i18n from '@dhis2/d2-i18n'
 
-import { RadioGroup, Radio } from '@dhis2/ui-core'
+import { FieldGroupFF, Field } from '@dhis2/ui'
 
 import LegendSet from './LegendSet'
 
@@ -19,25 +19,27 @@ import { tabSectionOptionToggleable } from '../styles/VisualizationOptions.style
 
 const LegendDisplayStrategy = ({ value, onChange }) => (
     <Fragment>
-        <RadioGroup
+        <FieldGroupFF
             name={LEGEND_DISPLAY_STRATEGY_OPTION_NAME}
             value={value}
             onChange={onChange}
             dense
         >
-            <Radio
+            <Field
+                type="radio"
                 key={LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM}
                 label={i18n.t('Use pre-defined legend per data item')}
                 value={LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM}
             />
-            <Radio
+            <Field
+                type="radio"
                 key={LEGEND_DISPLAY_STRATEGY_FIXED}
                 label={i18n.t(
                     'Select a single legend for the entire visualization'
                 )}
                 value={LEGEND_DISPLAY_STRATEGY_FIXED}
             />
-        </RadioGroup>
+        </FieldGroupFF>
         {value === LEGEND_DISPLAY_STRATEGY_FIXED ? (
             <div className={tabSectionOptionToggleable.className}>
                 <LegendSet />

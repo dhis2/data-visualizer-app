@@ -9,7 +9,7 @@ import {
     MultiSelectOption,
     SingleSelect,
     SingleSelectOption,
-} from '@dhis2/ui-core'
+} from '@dhis2/ui'
 
 const SinglePeriodSelector = ({ options, selected, onChange }) => (
     <SingleSelect

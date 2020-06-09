@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import { AlertBar } from '@dhis2/ui-core'
+import { AlertBar } from '@dhis2/ui'
 
 import styles from './styles/Snackbar.module.css'
 

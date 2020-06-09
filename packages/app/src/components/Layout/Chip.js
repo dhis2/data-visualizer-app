@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import WarningIcon from '@material-ui/icons/Warning'
 import LockIcon from '@material-ui/icons/Lock'
 
-import { Tooltip } from '@dhis2/ui-core'
+import { Tooltip } from '@dhis2/ui'
 
 import i18n from '@dhis2/d2-i18n'
 import {

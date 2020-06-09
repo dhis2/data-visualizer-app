@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom'
 import PropTypes from 'prop-types'
 
 import { useDataEngine, useDataQuery } from '@dhis2/app-runtime'
-import { Popper } from '@dhis2/ui-core'
+import { Popper } from '@dhis2/ui'
 import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
 
 import { apiFetchLegendSets } from './api/legendSets'

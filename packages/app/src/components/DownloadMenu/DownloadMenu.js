@@ -8,7 +8,7 @@ import ImageIcon from '@material-ui/icons/Image'
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf'
 import ListIcon from '@material-ui/icons/List'
 import ListAltIcon from '@material-ui/icons/ListAlt'
-import { Menu, MenuItem, Divider, Popper, colors } from '@dhis2/ui-core'
+import { Menu, MenuItem, Divider, Popper, colors } from '@dhis2/ui'
 import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
 
 import {

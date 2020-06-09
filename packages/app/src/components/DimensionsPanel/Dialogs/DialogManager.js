@@ -24,7 +24,7 @@ import {
     ModalActions,
     ButtonStrip,
     ModalTitle,
-} from '@dhis2/ui-core'
+} from '@dhis2/ui'
 
 import HideButton from '../../HideButton/HideButton'
 import AddToLayoutButton from './AddToLayoutButton/AddToLayoutButton'

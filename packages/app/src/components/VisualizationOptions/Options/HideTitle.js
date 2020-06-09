@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
 
 import i18n from '@dhis2/d2-i18n'
-import { Label, Radio, RadioGroup } from '@dhis2/ui-core'
+import { Label, Field, FieldGroupFF } from '@dhis2/ui'
 
 import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
 import { sGetUiOptions, sGetUiType } from '../../../reducers/ui'
@@ -30,7 +30,7 @@ class HideTitle extends Component {
         this.state = props.value ? { value: props.value } : this.defaultState
     }
 
-    onRadioGroupChange = ({ value }) => {
+    onGroupChange = ({ value }) => {
         this.setState({ value })
         this.props.onChange(
             value === HIDE_TITLE_NONE,
@@ -51,9 +51,9 @@ class HideTitle extends Component {
                         ? i18n.t('Table title')
                         : i18n.t('Chart title')}
                 </Label>
-                <RadioGroup
+                <FieldGroupFF
                     name="hideTitle-selector"
-                    onChange={this.onRadioGroupChange}
+                    onChange={this.onGroupChange}
                     value={value}
                     dense
                 >
@@ -65,9 +65,15 @@ class HideTitle extends Component {
                         { id: HIDE_TITLE_NONE, label: i18n.t('None') },
                         { id: HIDE_TITLE_CUSTOM, label: i18n.t('Custom') },
                     ].map(({ id, label }) => (
-                        <Radio key={id} label={label} value={id} dense />
+                        <Field
+                            type="radio"
+                            key={id}
+                            label={label}
+                            value={id}
+                            dense
+                        />
                     ))}
-                </RadioGroup>
+                </FieldGroupFF>
                 {value === HIDE_TITLE_CUSTOM ? (
                     <div className={tabSectionOptionToggleable.className}>
                         <Title inline />

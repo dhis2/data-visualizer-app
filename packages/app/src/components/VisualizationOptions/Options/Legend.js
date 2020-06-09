@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import i18n from '@dhis2/d2-i18n'
-import { Checkbox, FieldSet, Legend as UiCoreLegend } from '@dhis2/ui-core'
+import { Checkbox, FieldSet, Legend as UiCoreLegend } from '@dhis2/ui'
 
 import LegendDisplayStyle, {
     LEGEND_DISPLAY_STYLE_OPTION_NAME,

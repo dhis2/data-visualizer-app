@@ -6,7 +6,7 @@ import {
     getAxisNameByLayoutType,
     getLayoutTypeByVisType,
 } from '@dhis2/analytics'
-import { SplitButton, Menu, MenuItem, Button } from '@dhis2/ui-core'
+import { SplitButton, Menu, MenuItem, Button } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 
 import { sGetUiActiveModalDialog, sGetUiType } from '../../../../reducers/ui'

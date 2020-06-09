@@ -7,7 +7,7 @@ import {
     ModalTitle,
     ModalContent,
     ModalActions,
-} from '@dhis2/ui-core'
+} from '@dhis2/ui'
 
 import UpdateButton from '../UpdateButton/UpdateButton'
 import HideButton from '../HideButton/HideButton'

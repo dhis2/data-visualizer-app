@@ -5,7 +5,7 @@ import { createSelector } from 'reselect'
 
 import i18n from '@dhis2/d2-i18n'
 
-import { SingleSelectField, SingleSelectOption } from '@dhis2/ui-core'
+import { SingleSelectField, SingleSelectOption } from '@dhis2/ui'
 import { useDataEngine } from '@dhis2/app-runtime'
 
 import { sGetUserAuthorities } from '../../../reducers/user'

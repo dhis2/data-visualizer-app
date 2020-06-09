@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import { Checkbox, SingleSelectField, SingleSelectOption } from '@dhis2/ui-core'
+import { Checkbox, SingleSelectField, SingleSelectOption } from '@dhis2/ui'
 
 import { SelectBaseOption } from '../Options/SelectBaseOption'
 

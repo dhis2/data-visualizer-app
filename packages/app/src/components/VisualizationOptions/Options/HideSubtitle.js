@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
 
 import i18n from '@dhis2/d2-i18n'
-import { Label, Radio, RadioGroup } from '@dhis2/ui-core'
+import { Label, Radio, FieldGroupFF } from '@dhis2/ui'
 
 import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
 import { sGetUiOptions, sGetUiType } from '../../../reducers/ui'
@@ -51,7 +51,7 @@ class HideSubtitle extends Component {
                         ? i18n.t('Table subtitle')
                         : i18n.t('Chart subtitle')}
                 </Label>
-                <RadioGroup
+                <FieldGroupFF
                     name="hideSubtitle-selector"
                     onChange={this.onChange}
                     value={value}
@@ -67,7 +67,7 @@ class HideSubtitle extends Component {
                     ].map(({ id, label }) => (
                         <Radio key={id} label={label} value={id} dense />
                     ))}
-                </RadioGroup>
+                </FieldGroupFF>
                 {value === HIDE_SUBTITLE_CUSTOM ? (
                     <div className={tabSectionOptionToggleable.className}>
                         <Subtitle inline />

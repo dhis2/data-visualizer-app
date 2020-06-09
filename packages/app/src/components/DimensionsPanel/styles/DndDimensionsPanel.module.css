@@ -3,6 +3,10 @@
     display: flex;
     flex-direction: column;
     background-color: #f4f6f8;
-    padding: 8px 0 0 8px;
+    padding: var(--spacers-dp8) 0 0 var(--spacers-dp8);
     overflow: hidden;
+}
+
+.container > div:first-child {
+    margin-bottom: var(--spacers-dp16);
 }

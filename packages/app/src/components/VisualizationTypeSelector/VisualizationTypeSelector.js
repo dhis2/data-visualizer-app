@@ -7,7 +7,7 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
 
 import { visTypeDisplayNames } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
-import { Card, Divider, Popper } from '@dhis2/ui-core'
+import { Card, Divider, Popper } from '@dhis2/ui'
 
 import { prepareCurrentAnalyticalObject } from '../../modules/currentAnalyticalObject'
 import { getAdaptedUiByType } from '../../modules/ui'
