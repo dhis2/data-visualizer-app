@@ -20,10 +20,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid "Rename successful"
-msgstr ""
+msgstr "Renomear com êxito"
 
 msgid "\"{{what}}\" successfully deleted."
-msgstr ""
+msgstr "\"{{what}}\" excluído com sucesso."
 
 msgid "Data Visualizer"
 msgstr "Visualiseur de données"
@@ -71,10 +71,10 @@ msgid "Graphics"
 msgstr "Graphisme"
 
 msgid "Image (.png)"
-msgstr ""
+msgstr "Image (.png)"
 
 msgid "PDF (.pdf)"
-msgstr ""
+msgstr "PDF (.pdf)"
 
 msgid "Plain data source"
 msgstr "Sourc de données brutes"
@@ -92,22 +92,23 @@ msgid "Other formats"
 msgstr "Autres formats"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr ""
+msgstr "An error occurred in the Application Visualiseur de Données DHIS2"
 
 msgid "Something went wrong"
 msgstr ""
 
 msgid "Refresh to try again"
-msgstr ""
+msgstr "Actualiser pour réessayer"
 
 msgid "Hide technical details"
-msgstr ""
+msgstr "Cacher les détails techniques"
 
 msgid "Show technical details"
-msgstr ""
+msgstr "Afficher les détails techniques"
 
 msgid "The following information may be requested by technical support."
 msgstr ""
+"Les informations suivantes peuvent être demandées par support technique."
 
 msgid "Hide"
 msgstr "Masquer"
@@ -131,16 +132,16 @@ msgid "Move to"
 msgstr ""
 
 msgid "None selected"
-msgstr ""
+msgstr "Aucune sélection"
 
 msgid "Unsaved chart"
 msgstr ""
 
 msgid "Edited"
-msgstr ""
+msgstr "Édité"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr ""
+msgstr "Affichage de l'interprétation de {{interpretationDate}}"
 
 msgid "Update"
 msgstr "Mettre à jour"
@@ -173,10 +174,11 @@ msgid "Sum"
 msgstr "Somme"
 
 msgid "Last value"
-msgstr ""
+msgstr "Dernière valeur"
 
 msgid "Last value (average in org unit hierarchy)"
 msgstr ""
+"Dernière valeur (moyenne dans la hiérarchie des unités d'organisation)"
 
 msgid "Min"
 msgstr "Min"
@@ -191,10 +193,10 @@ msgid "Variance"
 msgstr "Variance"
 
 msgid "Base line"
-msgstr ""
+msgstr "Ligne de base"
 
 msgid "Base line title"
-msgstr ""
+msgstr "Titre de la ligne de base"
 
 msgid "Base line value"
 msgstr "Valeur de la ligne de réference"
@@ -212,13 +214,13 @@ msgid "None"
 msgstr "Aucun"
 
 msgid "Before first"
-msgstr ""
+msgstr "Avant le premier"
 
 msgid "After first"
 msgstr ""
 
 msgid "Before first and after last"
-msgstr ""
+msgstr "Avant premier et après dernier "
 
 msgid "All"
 msgstr "Tout"
@@ -260,7 +262,7 @@ msgid "Linear"
 msgstr "Linéaire"
 
 msgid "Polynomial"
-msgstr ""
+msgstr "Polynôme"
 
 msgid "Loess"
 msgstr ""
@@ -278,7 +280,7 @@ msgid "High to low"
 msgstr "Décroissant"
 
 msgid "Chart subtitle"
-msgstr ""
+msgstr "Sous-titre du graphique"
 
 msgid "Target line"
 msgstr ""
