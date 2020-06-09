@@ -1,9 +1,9 @@
 import { seriesOptions } from '../yearOverYear'
 
-const intVal = val => parseInt(val, 10)
 describe('yearOverYear', () => {
-    it('has matching year number and string', () => {
+    it('year has matching id and name', () => {
         const lastOption = seriesOptions[seriesOptions.length - 1]
+        console.log('lastOption', lastOption.id, lastOption.getName())
         expect(lastOption.id).toEqual(lastOption.getName())
     })
 
@@ -11,8 +11,8 @@ describe('yearOverYear', () => {
         const lastOption = seriesOptions[seriesOptions.length - 1]
         const secondLastOption = seriesOptions[seriesOptions.length - 2]
 
-        expect(intVal(lastOption.getName())).toEqual(
-            intVal(secondLastOption.getName()) - 1
+        expect(parseInt(lastOption.getName(), 10)).toEqual(
+            secondLastOption.getName() - 1
         )
     })
 })
