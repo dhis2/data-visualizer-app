@@ -1,3 +1,10 @@
+## [35.1.1](https://github.com/dhis2/data-visualizer-app/compare/v35.1.0...v35.1.1) (2020-06-09)
+
+
+### Bug Fixes
+
+* yoy chart mismatch between layout years, and chart years ([#1070](https://github.com/dhis2/data-visualizer-app/issues/1070)) ([4a18e56](https://github.com/dhis2/data-visualizer-app/commit/4a18e56d90704daa74873678545fe1646ad9f027))
+
 # [35.1.0](https://github.com/dhis2/data-visualizer-app/compare/v35.0.5...v35.1.0) (2020-06-09)
 
 
