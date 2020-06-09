@@ -11,7 +11,7 @@ describe('yearOverYear', () => {
         const secondLastOption = seriesOptions[seriesOptions.length - 2]
 
         expect(parseInt(lastOption.getName(), 10)).toEqual(
-            secondLastOption.getName() - 1
+            parseInt(secondLastOption.getName(), 10) - 1
         )
     })
 })
