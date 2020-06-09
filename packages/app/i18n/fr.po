@@ -2,17 +2,17 @@
 # Translators:
 # Bram Piot <bram.piot@gmail.com>, 2019
 # Karoline Tufte Lien <karoline@dhis2.org>, 2020
-# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
 # phil_dhis2, 2020
 # Djibril Dione <dione.djibril@gmail.com>, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
+# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-14T01:00:50.112Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,27 +21,29 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid "Rename successful"
-msgstr ""
+msgstr "Renomear com êxito"
 
 msgid "\"{{what}}\" successfully deleted."
-msgstr ""
+msgstr "\"{{what}}\" excluído com sucesso."
 
 msgid "Data Visualizer"
 msgstr "Visualiseur de données"
 
 msgid "Axis 1"
-msgstr ""
+msgstr "Axe 1"
 
 msgid "Axis 2"
-msgstr ""
+msgstr "Axe 2"
 
 msgid "Manage axes"
-msgstr ""
+msgstr "Gérer les axes"
 
 msgid ""
 "A chart can have two axes. Each axis will have its own scale. Set the axis "
 "for each data selection below."
 msgstr ""
+"Un graphique peut avoir deux axes. Chaque axe aura sa propre échelle. "
+"Définissez l'axe pour chaque sélection de données ci-dessous."
 
 msgid "Cancel"
 msgstr "Annuler"
@@ -67,10 +69,10 @@ msgid "Graphics"
 msgstr "Graphisme"
 
 msgid "Image (.png)"
-msgstr ""
+msgstr "Image (.png)"
 
 msgid "PDF (.pdf)"
-msgstr ""
+msgstr "PDF (.pdf)"
 
 msgid "Plain data source"
 msgstr "Sourc de données brutes"
@@ -103,28 +105,29 @@ msgid "Other formats"
 msgstr "Autres formats"
 
 msgid "JRXML"
-msgstr ""
+msgstr "JRXML"
 
 msgid "Raw data SQL"
-msgstr ""
+msgstr "Données brutes SQL"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr ""
+msgstr "An error occurred in the Application Visualiseur de Données DHIS2"
 
 msgid "Something went wrong"
 msgstr ""
 
 msgid "Refresh to try again"
-msgstr ""
+msgstr "Actualiser pour réessayer"
 
 msgid "Hide technical details"
-msgstr ""
+msgstr "Cacher les détails techniques"
 
 msgid "Show technical details"
-msgstr ""
+msgstr "Afficher les détails techniques"
 
 msgid "The following information may be requested by technical support."
 msgstr ""
+"Les informations suivantes peuvent être demandées par support technique."
 
 msgid "Interpretations"
 msgstr "interprétations"
@@ -133,7 +136,7 @@ msgid "{{total}} of 1 selected"
 msgstr ""
 
 msgid "{{total}} selected"
-msgstr ""
+msgstr "{{total}} choisi"
 
 msgid "Series"
 msgstr "Séries"
@@ -145,25 +148,25 @@ msgid "Filter"
 msgstr "Filtrer"
 
 msgid "None selected"
-msgstr ""
+msgstr "Aucune sélection"
 
 msgid "Only '{{name}}' in use"
 msgstr ""
 
 msgid "And 1 other..."
-msgstr ""
+msgstr "Et 1 autre..."
 
 msgid "And {{numberOfItems}} others..."
-msgstr ""
+msgstr "Et {{numberOfItems}} autres..."
 
 msgid "Unsaved chart"
 msgstr ""
 
 msgid "Edited"
-msgstr ""
+msgstr "Édité"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr ""
+msgstr "Affichage de l'interprétation de {{interpretationDate}}"
 
 msgid "Error validating layout"
 msgstr ""
@@ -196,10 +199,11 @@ msgid "Sum"
 msgstr "Somme"
 
 msgid "Last value"
-msgstr ""
+msgstr "Dernière valeur"
 
 msgid "Last value (average in org unit hierarchy)"
 msgstr ""
+"Dernière valeur (moyenne dans la hiérarchie des unités d'organisation)"
 
 msgid "Min"
 msgstr "Min"
@@ -214,16 +218,16 @@ msgid "Variance"
 msgstr "Variance"
 
 msgid "Base line"
-msgstr ""
+msgstr "Ligne de base"
 
 msgid "Base line title"
-msgstr ""
+msgstr "Titre de la ligne de base"
 
 msgid "Base line value"
 msgstr "Valeur de la ligne de réference"
 
 msgid "Only include completed events"
-msgstr ""
+msgstr "Inclure uniquement les événements terminés"
 
 msgid "Use cumulative values"
 msgstr ""
@@ -238,13 +242,13 @@ msgid "None"
 msgstr "Aucun"
 
 msgid "Before first"
-msgstr ""
+msgstr "Avant le premier"
 
 msgid "After last"
-msgstr ""
+msgstr "Après la dernière"
 
 msgid "Before first and after last"
-msgstr ""
+msgstr "Avant premier et après dernier "
 
 msgid "All"
 msgstr "Tout"
@@ -289,7 +293,7 @@ msgid "Linear"
 msgstr "Linéaire"
 
 msgid "Polynomial"
-msgstr ""
+msgstr "Polynôme"
 
 msgid "Loess"
 msgstr ""
@@ -307,7 +311,7 @@ msgid "High to low"
 msgstr "Décroissant"
 
 msgid "Chart subtitle"
-msgstr ""
+msgstr "Sous-titre du graphique"
 
 msgid "Target line"
 msgstr ""
