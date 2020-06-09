@@ -4,8 +4,10 @@ import i18n from '@dhis2/d2-i18n'
 const getFixedYears = len => {
     let year = new Date().getFullYear()
     return new Array(len).fill(null).map(() => {
-        const yearString = String(year--)
-        return { id: String(year), getName: () => yearString }
+        const yearId = String(year)
+        const yearName = String(year)
+        --year
+        return { id: yearId, getName: () => yearName }
     })
 }
 
