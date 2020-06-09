@@ -1,3 +1,10 @@
+# [35.1.0](https://github.com/dhis2/data-visualizer-app/compare/v35.0.5...v35.1.0) (2020-06-09)
+
+
+### Features
+
+* implements latest Dynamic Dimension selector from Analytics ([#1046](https://github.com/dhis2/data-visualizer-app/issues/1046)) ([8582d09](https://github.com/dhis2/data-visualizer-app/commit/8582d09b29d32002c04ac88a4007b51691c16cd3))
+
 ## [35.0.5](https://github.com/dhis2/data-visualizer-app/compare/v35.0.4...v35.0.5) (2020-06-07)
 
 
