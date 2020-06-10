@@ -20,39 +20,34 @@ const query = {
                 'displayName~rename(name)',
                 'legends[id,displayName~rename(name),startValue,endValue,color]',
             ],
-            paging: false,
+            paging: 'false',
         },
     },
 }
 
-const LegendSetSelect = ({ value, loading, options, onFocus, onChange }) => {
-    const selected =
-        value && value.id ? { value: value.id, label: value.displayName } : {}
-
-    return (
-        <SingleSelectField
-            name="legendSetSelect"
-            label={i18n.t('Legend')}
-            selected={selected}
-            inputWidth="280px"
-            placeholder={i18n.t('Select from legends')}
-            loadingText={i18n.t('Loading legends')}
-            loading={loading}
-            dense
-            onFocus={onFocus}
-            onChange={({ selected }) =>
-                onChange({
-                    id: selected.value,
-                    displayName: selected.label,
-                })
-            }
-        >
-            {options.map(({ value, label }) => (
-                <SingleSelectOption key={value} value={value} label={label} />
-            ))}
-        </SingleSelectField>
-    )
-}
+const LegendSetSelect = ({ value, loading, options, onFocus, onChange }) => (
+    <SingleSelectField
+        name="legendSetSelect"
+        label={i18n.t('Legend')}
+        selected={value?.id}
+        inputWidth="280px"
+        placeholder={i18n.t('Select from legends')}
+        loadingText={i18n.t('Loading legends')}
+        loading={loading}
+        dense
+        onFocus={onFocus}
+        onChange={({ selected }) =>
+            onChange({
+                id: selected.value, // FIXME: Broken, as selected only returns the value as { 'foo' } instead of { value: 'foo', label: 'bar' }
+                displayName: selected.label,
+            })
+        }
+    >
+        {options.map(({ value, label }) => (
+            <SingleSelectOption key={value} value={value} label={label} />
+        ))}
+    </SingleSelectField>
+)
 
 LegendSetSelect.propTypes = {
     loading: PropTypes.bool,
