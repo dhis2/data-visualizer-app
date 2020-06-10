@@ -114,7 +114,7 @@ msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "An error occurred in the Application Visualiseur de Données DHIS2"
 
 msgid "Something went wrong"
-msgstr ""
+msgstr "Quelque chose a mal tourné"
 
 msgid "Refresh to try again"
 msgstr "Actualiser pour réessayer"
@@ -296,7 +296,7 @@ msgid "Polynomial"
 msgstr "Polynôme"
 
 msgid "Loess"
-msgstr ""
+msgstr "Lœss"
 
 msgid "Show values"
 msgstr "Afficher les valeurs"
@@ -314,10 +314,10 @@ msgid "Chart subtitle"
 msgstr "Sous-titre du graphique"
 
 msgid "Target line"
-msgstr ""
+msgstr "Ligne cible"
 
 msgid "Target line title"
-msgstr ""
+msgstr "Titre de la ligne cible"
 
 msgid "Target line value"
 msgstr "Ligne valeur cible"
@@ -471,7 +471,7 @@ msgid "Last 52 weeks"
 msgstr "52 dernières semaines"
 
 msgid "Weeks this year"
-msgstr ""
+msgstr "Semaines cette année"
 
 msgid "This month"
 msgstr "Ce mois-ci"
@@ -492,10 +492,10 @@ msgid "Months this year"
 msgstr "Mois cette année"
 
 msgid "This bimonth"
-msgstr ""
+msgstr "Ce bimestre"
 
 msgid "Last bimonth"
-msgstr ""
+msgstr "Dernier bimestre"
 
 msgid "Last 6 bimonths"
 msgstr ""
