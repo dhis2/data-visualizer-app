@@ -15,9 +15,7 @@ import styles from './styles/Interpretations.style';
 export class Interpretations extends Component {
     onInterpretationChange = interpretation => {
         if (interpretation) {
-            const interpretationUrl = `/${this.props.id}/interpretation/${
-                interpretation.id
-            }`;
+            const interpretationUrl = `/${this.props.id}/interpretation/${interpretation.id}`;
 
             // this covers the case when the URL contains already an interpretation id,
             // the Interpretations component loads it and fires this callback passing the interpretation

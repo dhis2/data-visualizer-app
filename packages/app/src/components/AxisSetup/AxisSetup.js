@@ -89,9 +89,7 @@ class AxisSetup extends Component {
                 <colgroup>
                     <col className={classes.nameColumn} />
                     <col
-                        className={`${classes.axisColumn} ${
-                            classes.coloredColumn
-                        }`}
+                        className={`${classes.axisColumn} ${classes.coloredColumn}`}
                     />
                     <col className={classes.axisColumn} />
                 </colgroup>

@@ -65,9 +65,7 @@ export class VisualizationTypeSelector extends Component {
 
         await apiSaveAOInUserDataStore(currentAnalyticalObject);
 
-        window.location.href = `${
-            this.baseUrl
-        }/${MAPS_APP_URL}?${CURRENT_AO_KEY}=true`;
+        window.location.href = `${this.baseUrl}/${MAPS_APP_URL}?${CURRENT_AO_KEY}=true`;
     };
 
     handleClose = () => {
