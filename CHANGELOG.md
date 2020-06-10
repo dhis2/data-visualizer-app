@@ -1,3 +1,10 @@
+## [35.1.3](https://github.com/dhis2/data-visualizer-app/compare/v35.1.2...v35.1.3) (2020-06-10)
+
+
+### Bug Fixes
+
+* add deploy-build ([#1069](https://github.com/dhis2/data-visualizer-app/issues/1069)) ([c8b9170](https://github.com/dhis2/data-visualizer-app/commit/c8b91707b3c4231bd635d6b89c159c58c6c384c4))
+
 ## [35.1.2](https://github.com/dhis2/data-visualizer-app/compare/v35.1.1...v35.1.2) (2020-06-09)
 
 
