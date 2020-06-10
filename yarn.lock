@@ -1302,11 +1302,10 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-7.0.0.tgz#1e2d11875fa06e88b2549ba01bf10b595c77a280"
-  integrity sha512-t6l4gxhhPUjL4EkJrBs8ThHdop52LvUiwJxIvQRESo5kC9hswbODe3siTLyfPugonWw8V5HbN8ew/lt8TX6Frw==
-  version "7.0.1"
+"@dhis2/analytics@^7.0.2":
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-7.0.2.tgz#a1f18f2b094b8030bd9b655b24adc8f1f901df74"
+  integrity sha512-8CIfRLvNY+oGD587oId5nGklnN4BJ2JYzQLCjYEJBndzAKpFHCG4vJ0I6HKrfcMN30LiIzJx4AU/BaoTGENfnw==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.4"
     "@dhis2/ui" "^5.0.1"
@@ -1444,7 +1443,11 @@
     semver "^6.3.0"
     yargs "^14.2.0"
 
+<<<<<<< HEAD
 "@dhis2/d2-i18n@*", "@dhis2/d2-i18n@^1", "@dhis2/d2-i18n@^1.0.5":
+=======
+"@dhis2/d2-i18n@*", "@dhis2/d2-i18n@^1.0.5":
+>>>>>>> master
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-i18n/-/d2-i18n-1.0.6.tgz#2914be8acf296f3a6bf7b51c76c46da6a120b0ff"
   integrity sha512-7YdA4ppFosjuyf7ZMm47BrdsA5TWLM9lmS0lUPgjcCVeeWfUgagqzf4W5JGB9XQ3w1vzK+yy5zH2Ij8IgRAGhA==
