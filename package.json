@@ -4,7 +4,7 @@
     "private": true,
     "license": "BSD-3-Clause",
     "devDependencies": {
-        "@dhis2/cli-style": "^7.0.0",
+        "@dhis2/cli-style": "~5.0.2",
         "@dhis2/d2-i18n-extract": "^1.0.8",
         "@dhis2/d2-i18n-generate": "^1.1.1",
         "babel-preset-env": "^1.6.1",
