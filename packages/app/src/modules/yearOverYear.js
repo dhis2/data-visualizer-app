@@ -5,7 +5,7 @@ const getFixedYears = len => {
     let year = new Date().getFullYear()
     return new Array(len).fill(null).map(() => {
         const yearString = String(year--)
-        return { id: String(year), getName: () => yearString }
+        return { id: yearString, getName: () => yearString }
     })
 }
 
