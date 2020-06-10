@@ -1,0 +1,33 @@
+name: 'dhis2: store artifact (node)'
+
+on: push
+
+env:
+    GH_TOKEN: ${{secrets.DHIS2_BOT_GITHUB_TOKEN}}
+
+jobs:
+    publish:
+        runs-on: ubuntu-latest
+        if: "!contains(github.event.head_commit.message, '[skip ci]')"
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 12.x
+
+            - name: Install
+              run: yarn install --frozen-lockfile
+
+            - name: Lint
+              run: yarn lint
+
+            - name: Build
+              run: yarn build
+
+            - name: Test
+              run: yarn test
+
+            - uses: dhis2/deploy-build@master
+              with:
+                  build-dir: build/app
+                  github-token: ${{ env.GH_TOKEN }}
