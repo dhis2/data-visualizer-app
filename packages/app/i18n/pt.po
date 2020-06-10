@@ -4,13 +4,14 @@
 # phil_dhis2, 2019
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
 # Sheila André <sandre@saudigitus.org>, 2020
+# Ge Joao <gsimango@saudigitus.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-08-26T14:38:24.067Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
-"Last-Translator: Sheila André <sandre@saudigitus.org>, 2020\n"
+"Last-Translator: Ge Joao <gsimango@saudigitus.org>, 2020\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -88,7 +89,7 @@ msgid "Data value set"
 msgstr "Conjunto de valores de dados"
 
 msgid "Other formats"
-msgstr ""
+msgstr "Outros formatos"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr ""
@@ -443,13 +444,13 @@ msgid "Yesterday"
 msgstr "Ontém"
 
 msgid "Last 3 days"
-msgstr ""
+msgstr "Últimos 3 dias"
 
 msgid "Last 7 days"
 msgstr "Últimos 7 dias"
 
 msgid "Last 14 days"
-msgstr ""
+msgstr "Últimos 14  dias"
 
 msgid "This week"
 msgstr "Esta semana"
@@ -467,7 +468,7 @@ msgid "Last 52 weeks"
 msgstr "Últimas 52 semanas"
 
 msgid "Weeks this year"
-msgstr ""
+msgstr "Semanas deste ano "
 
 msgid "This month"
 msgstr "Este mês"
