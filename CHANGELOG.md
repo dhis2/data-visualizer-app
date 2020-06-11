@@ -1,3 +1,10 @@
+## [35.1.5](https://github.com/dhis2/data-visualizer-app/compare/v35.1.4...v35.1.5) (2020-06-11)
+
+
+### Bug Fixes
+
+* fix paging query parameter passed to data engine ([#1083](https://github.com/dhis2/data-visualizer-app/issues/1083)) ([df10e99](https://github.com/dhis2/data-visualizer-app/commit/df10e997c02d10261b1b468aabae67815650b341))
+
 ## [35.1.4](https://github.com/dhis2/data-visualizer-app/compare/v35.1.3...v35.1.4) (2020-06-10)
 
 
