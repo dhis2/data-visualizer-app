@@ -6,13 +6,14 @@
 # Djibril Dione <dione.djibril@gmail.com>, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
+# Edem Kossi <ekossi@hispwca.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-14T01:00:50.112Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
-"Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020\n"
+"Last-Translator: Edem Kossi <ekossi@hispwca.org>, 2020\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -160,7 +161,7 @@ msgid "And {{numberOfItems}} others..."
 msgstr "Et {{numberOfItems}} autres..."
 
 msgid "Unsaved chart"
-msgstr ""
+msgstr "Graphique non enregistré"
 
 msgid "Edited"
 msgstr "Édité"
@@ -172,13 +173,14 @@ msgid "Error validating layout"
 msgstr ""
 
 msgid "Chart error"
-msgstr ""
+msgstr "Erreur de graphique"
 
 msgid "Create a new visualization by adding dimensions to the layout"
 msgstr ""
+"Créer une nouvelle visualisation en ajoutant des dimension à la disposition"
 
 msgid "Error generating chart, please try again"
-msgstr ""
+msgstr "Erreur lors de la génération du graphique, veuillez réessayer"
 
 msgid "Aggregation type"
 msgstr "Type d'agrégation"
@@ -193,7 +195,7 @@ msgid "Average"
 msgstr "Moyenne"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr ""
+msgstr "Moyenne (somme dans l'arborescence d'org unit)"
 
 msgid "Sum"
 msgstr "Somme"
@@ -230,7 +232,7 @@ msgid "Only include completed events"
 msgstr "Inclure uniquement les événements terminés"
 
 msgid "Use cumulative values"
-msgstr ""
+msgstr "Utiliser des valeurs cumulatives"
 
 msgid "Domain axis title"
 msgstr "Titre de l'axe des abscisses"
@@ -257,16 +259,16 @@ msgid "Hide chart legend"
 msgstr "Masquer légende du graphique"
 
 msgid "Hide subtitle"
-msgstr ""
+msgstr "Masquer le sous-titre"
 
 msgid "Hide title"
-msgstr ""
+msgstr "Masquer le titre"
 
 msgid "No space between columns/bars"
-msgstr ""
+msgstr "Pas d'espace entre barres"
 
 msgid "Use 100% stacked values"
-msgstr ""
+msgstr "Utiliser des valeurs empilées à 100%"
 
 msgid "Range axis decimals"
 msgstr ""
@@ -329,7 +331,7 @@ msgid "Data"
 msgstr "Données"
 
 msgid "Axis & legend"
-msgstr ""
+msgstr "Axe et légende"
 
 msgid "Style"
 msgstr "Style"
