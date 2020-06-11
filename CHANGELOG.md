@@ -1,3 +1,10 @@
+## [34.6.6](https://github.com/dhis2/data-visualizer-app/compare/v34.6.5...v34.6.6) (2020-06-11)
+
+
+### Bug Fixes
+
+* year-over-year translations [34.x] ([#1071](https://github.com/dhis2/data-visualizer-app/issues/1071)) ([ff8f268](https://github.com/dhis2/data-visualizer-app/commit/ff8f2681fbd3f8fab1bd0830460e8d1841609674))
+
 ## [34.6.5](https://github.com/dhis2/data-visualizer-app/compare/v34.6.4...v34.6.5) (2020-06-10)
 
 
