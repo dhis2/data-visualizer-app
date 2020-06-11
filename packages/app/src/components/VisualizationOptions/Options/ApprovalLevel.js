@@ -47,8 +47,9 @@ const ApprovalLevelSelect = ({
         onFocus={onFocus}
         onChange={({ selected }) =>
             onChange({
-                id: selected.value, // FIXME: Broken, as selected only returns the value as { 'foo' } instead of { value: 'foo', label: 'bar' }
-                displayName: selected.label,
+                id: selected,
+                displayName: options.find(option => option.value === selected)
+                    .label,
             })
         }
     >
