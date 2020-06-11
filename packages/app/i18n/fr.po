@@ -437,7 +437,7 @@ msgid "Select a single legend for the entire visualization"
 msgstr ""
 
 msgid "Legend changes background color"
-msgstr ""
+msgstr "La légende change la couleur d'arrière-plan"
 
 msgid "Legend changes text color"
 msgstr "La légende change la couleur du texte"
@@ -520,7 +520,7 @@ msgid "Polynomial"
 msgstr "Polynôme"
 
 msgid "Loess"
-msgstr ""
+msgstr "Lœss"
 
 msgid "Row sub-totals"
 msgstr "Sous-totaux de ligne"
@@ -532,7 +532,7 @@ msgid "Value labels"
 msgstr "Étiquettes de valeur"
 
 msgid "Dimension labels"
-msgstr ""
+msgstr "Étiquettes de dimension"
 
 msgid "Display organisation unit hierarchy"
 msgstr ""
@@ -541,7 +541,7 @@ msgid "Skip rounding"
 msgstr "Ne pas arondir"
 
 msgid "Custom sort order"
-msgstr ""
+msgstr "Ordre de tri personnalisé"
 
 msgid "Low to high"
 msgstr "Croissant"
@@ -550,13 +550,13 @@ msgid "High to low"
 msgstr "Décroissant"
 
 msgid "Add a subtitle"
-msgstr ""
+msgstr "Ajouter un sous-titre"
 
 msgid "Target line"
-msgstr ""
+msgstr "Ligne cible"
 
 msgid "Target line title"
-msgstr ""
+msgstr "Titre de la ligne cible"
 
 msgid "Top limit"
 msgstr "Limite supérieure"
@@ -583,26 +583,30 @@ msgid "Expected reports"
 msgstr "Rapports attendus"
 
 msgid "No data available"
-msgstr ""
+msgstr "Pas de données disponibles"
 
 msgid ""
 "The selected dimensions didn’t return any data. There may be no data, or you"
 " may not have access to it."
 msgstr ""
+"The selected dimensions didn’t return any data. Il peut ne pas y avoir de "
+"données, ou vous pourriez ne pas y avoir accès."
 
 msgid "{{axisName}} is empty"
-msgstr ""
+msgstr "{{axisName}} est vide"
 
 msgid "Add at least one item to {{axisName}}."
-msgstr ""
+msgstr "Ajouter au moins un élément à {{axisName}}."
 
 msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
-msgstr ""
+msgstr "{{columnsAxisName}} et {{rowsAxisName}} sont vides"
 
 msgid ""
 "Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
 " {{visualizationType}}."
 msgstr ""
+"Ajouter au moins un élément à {{columnsAxisName}} ou {{rowsAxisName}} créer "
+"un {{visualizationType}}."
 
 msgid "No period selected"
 msgstr "Aucune période n'est sélectionné"
@@ -610,20 +614,26 @@ msgstr "Aucune période n'est sélectionné"
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
 msgstr ""
+"{{visualizationType}} doit avoir au moins une période sélectionnée dans "
+"{{axes}}."
 
 msgid "No data selected"
-msgstr ""
+msgstr "Aucune donnée sélectionnée"
 
 msgid ""
 "{{visualizationType}} must have at least one data item or data element group"
 " set item in {{axes}}."
 msgstr ""
+"{{visualizationType}} doit avoir au moins un élément de données ou un "
+"élément de groupe d'éléments de données dans {{axes}}."
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
 msgstr ""
+"{{visualizationType}} doit contenir au moins un élément de données dans "
+"{{axes}}."
 
 msgid "There's a problem with the layout"
-msgstr ""
+msgstr "Il y a un problème avec la mise en page"
 
 msgid ""
 "A single indicator must be the only data item when using indicators as Data "
@@ -634,26 +644,32 @@ msgid "Data Element Group Sets and Reporting Rates cannot be used together."
 msgstr ""
 
 msgid "There is a problem with this {{visualizationType}} visualization."
-msgstr ""
+msgstr "Il y a un problème avec cela {{visualizationType}} visualisation."
 
 msgid "There was a problem getting the data from the server."
-msgstr ""
+msgstr "Un problème est survenu lors de l'obtention des données du serveur."
 
 msgid "Assigned Categories can only be used with data elements"
 msgstr ""
+"Les catégories attribuées ne peuvent être utilisées qu'avec des éléments de "
+"données"
 
 msgid ""
 "Fix this problem by selecting data elements or removing Assigned Categories."
 msgstr ""
+"Résoudre ce problème en sélectionnant des éléments de données ou supprimer "
+"des Catégories Attribuées."
 
 msgid "Assigned Categories cannot be used as Filter"
-msgstr ""
+msgstr "Catégories Attribuées ne peuvent pas être utilisées comme Filtre"
 
 msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr ""
+"Résoudre ce problème en déplaçant ou en supprimant les Catégories "
+"Attribuées."
 
 msgid "Something went wrong"
-msgstr ""
+msgstr "Quelque chose a mal tourné"
 
 msgid "or"
 msgstr "ou"
@@ -689,7 +705,7 @@ msgid "Last 52 weeks"
 msgstr "52 dernières semaines"
 
 msgid "Weeks this year"
-msgstr ""
+msgstr "Semaines cette année"
 
 msgid "This month"
 msgstr "Ce mois-ci"
@@ -710,10 +726,10 @@ msgid "Months this year"
 msgstr "Mois cette année"
 
 msgid "This bimonth"
-msgstr ""
+msgstr "Ce bimestre"
 
 msgid "Last bimonth"
-msgstr ""
+msgstr "Dernier bimestre"
 
 msgid "Last 6 bimonths"
 msgstr ""
@@ -788,7 +804,7 @@ msgid "Display"
 msgstr "Afficher"
 
 msgid "Lines"
-msgstr ""
+msgstr "Lignes"
 
 msgid "Chart style"
 msgstr ""
