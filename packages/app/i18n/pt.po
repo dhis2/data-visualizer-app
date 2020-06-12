@@ -317,16 +317,16 @@ msgid "Number"
 msgstr "Número"
 
 msgid "Column sub-totals"
-msgstr ""
+msgstr "Coluna de subtotais"
 
 msgid "Columns totals"
-msgstr ""
+msgstr "Coluna de totais "
 
 msgid "Event data"
-msgstr ""
+msgstr "Dados de eventos "
 
 msgid "Only include completed events"
-msgstr ""
+msgstr "Incluir apenas eventos completados "
 
 msgid "Include cumulative"
 msgstr "Incluir cumulativos"
