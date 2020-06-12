@@ -224,7 +224,7 @@ msgid "Base line value"
 msgstr "Valor da linha de meta"
 
 msgid "Only include completed events"
-msgstr ""
+msgstr "Incluir apenas eventos completados "
 
 msgid "Use cumulative values"
 msgstr "Use valores cumulativos"
