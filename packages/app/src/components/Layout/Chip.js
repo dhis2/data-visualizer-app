@@ -21,7 +21,7 @@ import {
     DIMENSION_PROP_NO_ITEMS,
 } from '@dhis2/analytics'
 
-import Menu from './Menu'
+import ChipMenu from './ChipMenu'
 import TooltipContent from './TooltipContent'
 import { setDataTransfer } from '../../modules/dnd'
 import { sGetDimensions } from '../../reducers/dimensions'
@@ -100,7 +100,7 @@ const Chip = ({
 
     const renderMenu = () => (
         <div style={styles.chipRight}>
-            <Menu
+            <ChipMenu
                 dimensionId={dimensionId}
                 currentAxisId={axisId}
                 visType={type}
