@@ -147,10 +147,10 @@ msgid "Other formats"
 msgstr "其它格式"
 
 msgid "JRXML"
-msgstr ""
+msgstr "JRXML"
 
 msgid "Raw data SQL"
-msgstr ""
+msgstr "原生数据SQL"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "数据可视化应用发生错误"
