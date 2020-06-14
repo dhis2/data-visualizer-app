@@ -214,7 +214,7 @@ msgid "Before first"
 msgstr "第一个前面"
 
 msgid "After first"
-msgstr ""
+msgstr "第一之后"
 
 msgid "Before first and after last"
 msgstr "第一个前和最后一个后面"
