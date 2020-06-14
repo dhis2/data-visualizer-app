@@ -22,7 +22,7 @@ msgid "Rename successful"
 msgstr "重命名成功"
 
 msgid "\"{{deletedObject}}\" successfully deleted."
-msgstr ""
+msgstr "\"{{deletedObject}}\" 被成功删除"
 
 msgid "You have unsaved changes."
 msgstr "你没有保存修改"
@@ -149,10 +149,10 @@ msgid "Other formats"
 msgstr "其它格式"
 
 msgid "JRXML"
-msgstr ""
+msgstr "JRXML"
 
 msgid "Raw data SQL"
-msgstr ""
+msgstr "原生数据SQL"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "数据可视化应用发生错误"
@@ -206,10 +206,10 @@ msgid "And {{numberOfItems}} others..."
 msgstr "和其他{{numberOfItems}} 个"
 
 msgid "Select a period"
-msgstr ""
+msgstr "选择期间"
 
 msgid "Select years"
-msgstr ""
+msgstr "选择年份"
 
 msgid "Unsaved visualization"
 msgstr "没有保存可视化"
@@ -418,7 +418,7 @@ msgid "Use pre-defined legend per data item"
 msgstr "每个数据项使用预定义的图例"
 
 msgid "Select a single legend for the entire visualization"
-msgstr ""
+msgstr "选择整个可视化图表单个图例"
 
 msgid "Legend changes background color"
 msgstr "图例改变背景色"
