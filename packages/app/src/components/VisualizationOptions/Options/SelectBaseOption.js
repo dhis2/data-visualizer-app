@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import { Checkbox, SingleSelectField, SingleSelectOption } from '@dhis2/ui-core'
+import { Checkbox, SingleSelectField, SingleSelectOption } from '@dhis2/ui'
 
 import { sGetUiOptions } from '../../../reducers/ui'
 import { acSetUiOptions } from '../../../actions/ui'
@@ -21,11 +21,8 @@ export const SelectBaseOption = ({
     onChange,
 }) => {
     const defaultValue = option.defaultValue
-
     const [enabled, setEnabled] = useState(value !== defaultValue)
-
-    const selected = option.items.find(item => item.value === value) || {}
-
+    const selected = option.items.find(item => item.value === value)?.value
     const onToggle = checked => {
         setEnabled(checked)
 
@@ -54,7 +51,7 @@ export const SelectBaseOption = ({
                     <SingleSelectField
                         name={`${option.name}-select`}
                         label={toggleable ? '' : label}
-                        onChange={({ selected }) => onChange(selected.value)}
+                        onChange={({ selected }) => onChange(selected)}
                         selected={selected}
                         helpText={helpText}
                         inputWidth="280px"

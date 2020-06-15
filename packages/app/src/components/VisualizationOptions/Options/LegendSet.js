@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import i18n from '@dhis2/d2-i18n'
-import { SingleSelectField, SingleSelectOption } from '@dhis2/ui-core'
+import { SingleSelectField, SingleSelectOption } from '@dhis2/ui'
 import { useDataEngine } from '@dhis2/app-runtime'
 
 import { sGetUiOptions } from '../../../reducers/ui'
@@ -25,34 +25,30 @@ const query = {
     },
 }
 
-const LegendSetSelect = ({ value, loading, options, onFocus, onChange }) => {
-    const selected =
-        value && value.id ? { value: value.id, label: value.displayName } : {}
-
-    return (
-        <SingleSelectField
-            name="legendSetSelect"
-            label={i18n.t('Legend')}
-            selected={selected}
-            inputWidth="280px"
-            placeholder={i18n.t('Select from legends')}
-            loadingText={i18n.t('Loading legends')}
-            loading={loading}
-            dense
-            onFocus={onFocus}
-            onChange={({ selected }) =>
-                onChange({
-                    id: selected.value,
-                    displayName: selected.label,
-                })
-            }
-        >
-            {options.map(({ value, label }) => (
-                <SingleSelectOption key={value} value={value} label={label} />
-            ))}
-        </SingleSelectField>
-    )
-}
+const LegendSetSelect = ({ value, loading, options, onFocus, onChange }) => (
+    <SingleSelectField
+        name="legendSetSelect"
+        label={i18n.t('Legend')}
+        selected={value?.id}
+        inputWidth="280px"
+        placeholder={i18n.t('Select from legends')}
+        loadingText={i18n.t('Loading legends')}
+        loading={loading}
+        dense
+        onFocus={onFocus}
+        onChange={({ selected }) =>
+            onChange({
+                id: selected,
+                displayName: options.find(option => option.value === selected)
+                    .label,
+            })
+        }
+    >
+        {options.map(({ value, label }) => (
+            <SingleSelectOption key={value} value={value} label={label} />
+        ))}
+    </SingleSelectField>
+)
 
 LegendSetSelect.propTypes = {
     loading: PropTypes.bool,

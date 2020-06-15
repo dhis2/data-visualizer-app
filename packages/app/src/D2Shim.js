@@ -9,7 +9,7 @@ import { extractUserSettings } from './modules/settings'
 import { apiFetchOrganisationUnitLevels } from './api/organisationUnits'
 
 import history from './modules/history'
-import { ScreenCover, CircularLoader } from '@dhis2/ui-core'
+import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
 
 const configI18n = async userSettings => {
     const uiLocale = userSettings.uiLocale
@@ -52,9 +52,11 @@ export const D2Shim = ({ children, ...initConfig }) => {
 
     if (!params) {
         return (
-            <ScreenCover>
-                <CircularLoader />
-            </ScreenCover>
+            <Layer translucent>
+                <CenteredContent>
+                    <CircularLoader />
+                </CenteredContent>
+            </Layer>
         )
     }
     return children(params)

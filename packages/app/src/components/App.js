@@ -10,7 +10,7 @@ import {
     ModalActions,
     ButtonStrip,
     Button,
-} from '@dhis2/ui-core'
+} from '@dhis2/ui'
 
 import DndContext from './DndContext'
 import Snackbar from '../components/Snackbar/Snackbar'

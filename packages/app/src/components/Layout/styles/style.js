@@ -1,4 +1,4 @@
-import { colors, theme } from '@dhis2/ui-core'
+import { colors, theme } from '@dhis2/ui'
 
 // Layout
 export const LAYOUT_HEIGHT = '78px'

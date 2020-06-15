@@ -1,7 +1,7 @@
 import React from 'react'
 
 import i18n from '@dhis2/d2-i18n'
-import { Label, Help } from '@dhis2/ui-core'
+import { Label, Help } from '@dhis2/ui'
 
 import RangeAxisMinValue from './RangeAxisMinValue'
 import RangeAxisMaxValue from './RangeAxisMaxValue'
