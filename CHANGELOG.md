@@ -1,3 +1,10 @@
+# [35.2.0](https://github.com/dhis2/data-visualizer-app/compare/v35.1.8...v35.2.0) (2020-06-15)
+
+
+### Features
+
+* upgrade to ui@5 (TECH-389) ([#1068](https://github.com/dhis2/data-visualizer-app/issues/1068)) ([2352d52](https://github.com/dhis2/data-visualizer-app/commit/2352d52c5c9755c6dc3fa14368e14c9a5d22d94e))
+
 ## [35.1.8](https://github.com/dhis2/data-visualizer-app/compare/v35.1.7...v35.1.8) (2020-06-14)
 
 
