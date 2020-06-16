@@ -60,3 +60,14 @@ export const singleValueLayoutAdapter = layout => {
         ].filter(dim => dim !== DIMENSION_ID_DATA),
     }
 }
+
+// Transform from ui.layout to multi category layout format
+export const multiCategoryLayoutAdapter = layout => {
+    const columns = layout[AXIS_ID_COLUMNS].slice()
+
+    return {
+        [AXIS_ID_COLUMNS]: columns.length ? [columns.shift()] : columns,
+        [AXIS_ID_ROWS]: [...layout[AXIS_ID_ROWS]],
+        [AXIS_ID_FILTERS]: [...layout[AXIS_ID_FILTERS], ...columns],
+    }
+}

@@ -9,6 +9,7 @@ import {
     VIS_TYPE_GAUGE,
     VIS_TYPE_SINGLE_VALUE,
     VIS_TYPE_PIVOT_TABLE,
+    VIS_TYPE_COLUMN,
     defaultVisType,
     isYearOverYear,
 } from '@dhis2/analytics'
@@ -21,6 +22,7 @@ import {
     pieLayoutAdapter,
     yearOverYearLayoutAdapter,
     singleValueLayoutAdapter,
+    multiCategoryLayoutAdapter,
 } from './layoutAdapters'
 import { removeLastPathSegment } from './orgUnit'
 import { getIdAxisMap } from './optionalAxes'
@@ -77,6 +79,11 @@ export const singleValueUiAdapter = ui => ({
     layout: singleValueLayoutAdapter(ui.layout),
 })
 
+export const multiCategoryUiAdapter = ui => ({
+    ...ui,
+    layout: multiCategoryLayoutAdapter(ui.layout),
+})
+
 export const getAdaptedUiByType = ui => {
     switch (ui.type) {
         case VIS_TYPE_YEAR_OVER_YEAR_LINE:
@@ -92,6 +99,8 @@ export const getAdaptedUiByType = ui => {
         }
         case VIS_TYPE_PIVOT_TABLE:
             return ui
+        case VIS_TYPE_COLUMN:
+            return multiCategoryUiAdapter(ui)
         default:
             return defaultUiAdapter(ui)
     }
