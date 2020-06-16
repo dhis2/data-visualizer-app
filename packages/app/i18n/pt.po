@@ -332,7 +332,7 @@ msgid "Include cumulative"
 msgstr "Incluir cumulativos"
 
 msgid "Cumulative values"
-msgstr ""
+msgstr "Valores cumulativos "
 
 msgid "Digit group separator"
 msgstr "Separador de grupo de dígitos"
@@ -359,10 +359,10 @@ msgid "Compact"
 msgstr "Compacto"
 
 msgid "Axis title"
-msgstr ""
+msgstr "Título do eixo"
 
 msgid "Add a title"
-msgstr ""
+msgstr "Adicionar titulo"
 
 msgid "Font size"
 msgstr "Tamanho da fonte"
@@ -395,16 +395,16 @@ msgid "Hide empty rows"
 msgstr "Esconder linhas vazias"
 
 msgid "Legend key"
-msgstr ""
+msgstr "chave da legenda"
 
 msgid "Table subtitle"
-msgstr ""
+msgstr "Subtitulo da tabela"
 
 msgid "Chart subtitle"
 msgstr "Subtítulo do gráfico"
 
 msgid "Auto generated"
-msgstr ""
+msgstr "Gerado automaticamente"
 
 msgid "Custom"
 msgstr "Customizar "
@@ -416,63 +416,66 @@ msgid "Chart title"
 msgstr "Título do gráfico"
 
 msgid "Display legend"
-msgstr ""
+msgstr "Legenda de exibição"
 
 msgid "Legend style"
-msgstr ""
+msgstr "Titulo da Legenda "
 
 msgid "Legend type"
 msgstr "Tipo de legenda"
 
 msgid "Use pre-defined legend per data item"
-msgstr ""
+msgstr "Use legenda predefinida por item de dados"
 
 msgid "Select a single legend for the entire visualization"
 msgstr ""
 
 msgid "Legend changes background color"
-msgstr ""
+msgstr "A legenda muda a cor do plano de fundo"
 
 msgid "Legend changes text color"
-msgstr ""
+msgstr "A legenda muda a cor do texto"
 
 msgid "Legend"
 msgstr "Legenda"
 
 msgid "Select from legends"
-msgstr ""
+msgstr "Selecionar das legendas"
 
 msgid "Loading legends"
-msgstr ""
+msgstr "Carregando legendas"
 
 msgid ""
 "You can set a minimum or maximum value. This will apply to the entire table,"
 " all values outside of the minimum/maximum range will not be displayed"
 msgstr ""
+"Você pode definir um valor mínimo ou máximo. Isso se aplicará a toda a "
+"tabela, todos os valores fora do intervalo mínimo / máximo não serão "
+"exibidos."
 
 msgid "Minimum data value"
-msgstr ""
+msgstr "Valor mínimo de dados"
 
 msgid "Maximum data value"
-msgstr ""
+msgstr "Valor máximo de dados"
 
 msgid "Clear min/max limits"
-msgstr ""
+msgstr "Limites mínimos / máximos claros"
 
 msgid "No space between bars/columns"
-msgstr ""
+msgstr "Não há espaço entre barras / colunas"
 
 msgid "Number type"
 msgstr "Tipo de número"
 
 msgid "Display the value of percentages of the total"
-msgstr ""
+msgstr "Exibe o valor das porcentagens do total"
 
 msgid "Percentage of row"
-msgstr ""
+msgstr "Porcentagem de linha"
 
 msgid "Percentage of column"
-msgstr ""
+msgstr "Percentagem da coluna "
 
 msgid "Organisation unit"
 msgstr "Unidade organizacional"
@@ -484,16 +487,16 @@ msgid "Reporting period"
 msgstr "Período de reportagem"
 
 msgid "Stacked values add up to 100%"
-msgstr ""
+msgstr "Valores empilhados somam 100%"
 
 msgid "Decimals"
-msgstr ""
+msgstr "Decimais "
 
 msgid "Auto"
-msgstr ""
+msgstr "Automatico "
 
 msgid "The number of axis steps between the min and max values"
-msgstr ""
+msgstr "O número de etapas do eixo entre os valores mínimo e máximo"
 
 msgid "Steps"
 msgstr "Passos"
@@ -514,25 +517,25 @@ msgid "Loess"
 msgstr "Loess"
 
 msgid "Row sub-totals"
-msgstr ""
+msgstr "Subtotais de linha"
 
 msgid "Row totals"
-msgstr ""
+msgstr "Totais de linha"
 
 msgid "Value labels"
-msgstr ""
+msgstr "Etiquetas de valor"
 
 msgid "Dimension labels"
-msgstr ""
+msgstr "Etiquetas de dimensão"
 
 msgid "Display organisation unit hierarchy"
-msgstr ""
+msgstr "Exibir hierarquia da unidade organizacional"
 
 msgid "Skip rounding"
 msgstr "Não arrendondar"
 
 msgid "Custom sort order"
-msgstr ""
+msgstr "Ordem de classificação personalizada"
 
 msgid "Low to high"
 msgstr "Ascendente"
@@ -541,7 +544,7 @@ msgid "High to low"
 msgstr "Descendente"
 
 msgid "Add a subtitle"
-msgstr ""
+msgstr "Adicionar subtitulo"
 
 msgid "Target line"
 msgstr "Linha alvo"
@@ -574,26 +577,30 @@ msgid "Expected reports"
 msgstr "Relatórios esperados"
 
 msgid "No data available"
-msgstr ""
+msgstr "Sem dados disponiveis "
 
 msgid ""
 "The selected dimensions didn’t return any data. There may be no data, or you"
 " may not have access to it."
 msgstr ""
+"As dimensões selecionadas não retornaram dados. Pode não haver dados ou você"
+" pode não ter acesso a eles."
 
 msgid "{{axisName}} is empty"
-msgstr ""
+msgstr "{{axisName}} está vazio"
 
 msgid "Add at least one item to {{axisName}}."
-msgstr ""
+msgstr "Adicione pelo menos um item ao {{axisName}}."
 
 msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
-msgstr ""
+msgstr "{{columnAxisName}} e {{linesAxisName}} estão vazias"
 
 msgid ""
 "Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
 " {{visualizationType}}."
 msgstr ""
+"Adicione pelo menos um item a {{columnAxisName}} ou {{linesAxisName}} para "
+"criar um {{visualizationType}}."
 
 msgid "No period selected"
 msgstr "Nenhum período seleccionado"
@@ -601,47 +608,56 @@ msgstr "Nenhum período seleccionado"
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
 msgstr ""
+"O {{visualizationType}} deve ter pelo menos um período selecionado em "
+"{{axes}}. "
 
 msgid "No data selected"
-msgstr ""
+msgstr "Nenhum dado selecionado "
 
 msgid ""
 "{{visualizationType}} must have at least one data item or data element group"
 " set item in {{axes}}."
 msgstr ""
+"O {{visualizationType}} deve ter pelo menos um item de dados ou item de "
+"conjunto de grupos de elementos de dados em {{axes}}."
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
 msgstr ""
+"O {{visualizationType}} deve ter pelo menos um item de dados em {{axes}}."
 
 msgid "There's a problem with the layout"
-msgstr ""
+msgstr "Há um problema com o disposição"
 
 msgid ""
 "A single indicator must be the only data item when using indicators as Data "
 "in Filter."
 msgstr ""
+"Um único indicador deve ser o único item de dados ao usar indicadores como "
+"Dados no filtro."
 
 msgid "Data Element Group Sets and Reporting Rates cannot be used together."
-msgstr ""
+msgstr "Data Element Group Sets and Reporting Rates cannot be used together."
 
 msgid "There is a problem with this {{visualizationType}} visualization."
-msgstr ""
+msgstr "Há um problema com esta visualização {{visualizationType}}."
 
 msgid "There was a problem getting the data from the server."
-msgstr ""
+msgstr "Ocorreu um problema ao obter os dados do servidor."
 
 msgid "Assigned Categories can only be used with data elements"
-msgstr ""
+msgstr "Categorias atribuídas podem ser usadas apenas com elementos de dados"
 
 msgid ""
 "Fix this problem by selecting data elements or removing Assigned Categories."
 msgstr ""
+"Corrija esse problema selecionando elementos de dados ou removendo "
+"categorias atribuídas."
 
 msgid "Assigned Categories cannot be used as Filter"
-msgstr ""
+msgstr "Categorias atribuídas não podem ser usadas como filtro"
 
 msgid "Fix this problem by moving or removing Assigned Categories."
-msgstr ""
+msgstr "Corrija esse problema movendo ou removendo categorias atribuídas."
 
 msgid "Something went wrong"
 msgstr "Ocorreu algo de errado"
@@ -767,10 +783,10 @@ msgid "Axes"
 msgstr "Machados"
 
 msgid "Vertical (y) axis"
-msgstr ""
+msgstr "Eixo vertical (y)"
 
 msgid "Horizontal (x) axis"
-msgstr ""
+msgstr "Eixo Horizontal (x) "
 
 msgid "Style"
 msgstr "Estilo"
@@ -779,28 +795,28 @@ msgid "Display"
 msgstr "Exibir"
 
 msgid "Lines"
-msgstr ""
+msgstr "Linhas "
 
 msgid "Chart style"
-msgstr ""
+msgstr "Estilo de graficos"
 
 msgid "Titles"
-msgstr ""
+msgstr "Titulos"
 
 msgid "Display totals"
-msgstr ""
+msgstr "Totais de exibição"
 
 msgid "Display empty data"
-msgstr ""
+msgstr "Exibir dados vazios"
 
 msgid "Labels"
-msgstr ""
+msgstr "Etiquetas"
 
 msgid "Limit values"
-msgstr ""
+msgstr "Valores limite"
 
 msgid "Limit number of values"
-msgstr ""
+msgstr "Número limite de valores"
 
 msgid "Limit minimum/maximum values"
 msgstr ""
