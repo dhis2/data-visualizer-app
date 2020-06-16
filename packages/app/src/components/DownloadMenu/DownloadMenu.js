@@ -8,7 +8,7 @@ import ImageIcon from '@material-ui/icons/Image'
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf'
 import ListIcon from '@material-ui/icons/List'
 import ListAltIcon from '@material-ui/icons/ListAlt'
-import { Menu, MenuItem, Divider, Popper, colors } from '@dhis2/ui-core'
+import { FlyoutMenu, MenuItem, Divider, Popper, colors } from '@dhis2/ui'
 import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
 
 import {
@@ -139,7 +139,7 @@ export const DownloadMenu = ({
     )
 
     const plainDataSourceSubLevel = format => (
-        <Menu>
+        <FlyoutMenu>
             <div className={styles.menuSectionTitle}>
                 {i18n.t('Metadata ID scheme')}
             </div>
@@ -155,7 +155,7 @@ export const DownloadMenu = ({
                 label={i18n.t('Name')}
                 onClick={downloadData(format, 'NAME')}
             />
-        </Menu>
+        </FlyoutMenu>
     )
 
     const buttonRef = createRef()
@@ -171,7 +171,7 @@ export const DownloadMenu = ({
                 createPortal(
                     <div onClick={toggleMenu} className={styles.backdrop}>
                         <Popper reference={buttonRef} placement="bottom-start">
-                            <Menu>
+                            <FlyoutMenu>
                                 {visType === VIS_TYPE_PIVOT_TABLE
                                     ? tableMenuSection()
                                     : graphicsMenuSection()}
@@ -207,7 +207,7 @@ export const DownloadMenu = ({
                                     Icon={MoreHorizontalIcon}
                                     label={i18n.t('Advanced')}
                                 >
-                                    <Menu>
+                                    <FlyoutMenu>
                                         <div
                                             className={styles.menuSectionTitle}
                                         >
@@ -247,9 +247,9 @@ export const DownloadMenu = ({
                                                 'debug/sql'
                                             )}
                                         />
-                                    </Menu>
+                                    </FlyoutMenu>
                                 </DenseMenuItem>
-                            </Menu>
+                            </FlyoutMenu>
                         </Popper>
                     </div>,
                     document.body

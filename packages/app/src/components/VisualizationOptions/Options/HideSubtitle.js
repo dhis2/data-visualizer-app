@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
 
 import i18n from '@dhis2/d2-i18n'
-import { Label, Radio, RadioGroup } from '@dhis2/ui-core'
+import { Label, Radio, Field } from '@dhis2/ui'
 
 import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
 import { sGetUiOptions, sGetUiType } from '../../../reducers/ui'
@@ -30,7 +30,7 @@ class HideSubtitle extends Component {
         this.state = props.value ? { value: props.value } : this.defaultState
     }
 
-    onChange = ({ value }) => {
+    onGroupChange = ({ value }) => {
         this.setState({ value })
         this.props.onChange(
             value === HIDE_SUBTITLE_NONE,
@@ -51,12 +51,7 @@ class HideSubtitle extends Component {
                         ? i18n.t('Table subtitle')
                         : i18n.t('Chart subtitle')}
                 </Label>
-                <RadioGroup
-                    name="hideSubtitle-selector"
-                    onChange={this.onChange}
-                    value={value}
-                    dense
-                >
+                <Field name="hideSubtitle-selector" dense>
                     {[
                         {
                             id: HIDE_SUBTITLE_AUTO,
@@ -65,9 +60,16 @@ class HideSubtitle extends Component {
                         { id: HIDE_SUBTITLE_NONE, label: i18n.t('None') },
                         { id: HIDE_SUBTITLE_CUSTOM, label: i18n.t('Custom') },
                     ].map(({ id, label }) => (
-                        <Radio key={id} label={label} value={id} dense />
+                        <Radio
+                            key={id}
+                            label={label}
+                            value={id}
+                            dense
+                            onChange={this.onGroupChange}
+                            checked={value === id}
+                        />
                     ))}
-                </RadioGroup>
+                </Field>
                 {value === HIDE_SUBTITLE_CUSTOM ? (
                     <div className={tabSectionOptionToggleable.className}>
                         <Subtitle inline />

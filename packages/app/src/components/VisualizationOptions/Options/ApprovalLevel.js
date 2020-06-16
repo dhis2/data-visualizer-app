@@ -5,7 +5,7 @@ import { createSelector } from 'reselect'
 
 import i18n from '@dhis2/d2-i18n'
 
-import { SingleSelectField, SingleSelectOption } from '@dhis2/ui-core'
+import { SingleSelectField, SingleSelectOption } from '@dhis2/ui'
 import { useDataEngine } from '@dhis2/app-runtime'
 
 import { sGetUserAuthorities } from '../../../reducers/user'
@@ -34,34 +34,30 @@ const ApprovalLevelSelect = ({
     options,
     onFocus,
     onChange,
-}) => {
-    const selected =
-        value && value.id ? { value: value.id, label: value.displayName } : {}
-
-    return (
-        <SingleSelectField
-            name="approvalLevelSelect"
-            label={i18n.t('Data approved at level')}
-            selected={selected}
-            inputWidth="280px"
-            placeholder={i18n.t('Select from predefined levels')}
-            loadingText={i18n.t('Loading data approval levels')}
-            loading={loading}
-            dense
-            onFocus={onFocus}
-            onChange={({ selected }) =>
-                onChange({
-                    id: selected.value,
-                    displayName: selected.label,
-                })
-            }
-        >
-            {options.map(({ value, label }) => (
-                <SingleSelectOption key={value} value={value} label={label} />
-            ))}
-        </SingleSelectField>
-    )
-}
+}) => (
+    <SingleSelectField
+        name="approvalLevelSelect"
+        label={i18n.t('Data approved at level')}
+        selected={value?.id}
+        inputWidth="280px"
+        placeholder={i18n.t('Select from predefined levels')}
+        loadingText={i18n.t('Loading data approval levels')}
+        loading={loading}
+        dense
+        onFocus={onFocus}
+        onChange={({ selected }) =>
+            onChange({
+                id: selected,
+                displayName: options.find(option => option.value === selected)
+                    .label,
+            })
+        }
+    >
+        {options.map(({ value, label }) => (
+            <SingleSelectOption key={value} value={value} label={label} />
+        ))}
+    </SingleSelectField>
+)
 
 ApprovalLevelSelect.propTypes = {
     loading: PropTypes.bool,

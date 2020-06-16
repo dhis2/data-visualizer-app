@@ -2,14 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 
-import { seriesOptions, categoryOptions } from '../../../modules/yearOverYear'
-
 import {
     MultiSelect,
     MultiSelectOption,
     SingleSelect,
     SingleSelectOption,
-} from '@dhis2/ui-core'
+} from '@dhis2/ui'
 
 const SinglePeriodSelector = ({ options, selected, onChange }) => (
     <SingleSelect
@@ -30,7 +28,7 @@ const SinglePeriodSelector = ({ options, selected, onChange }) => (
 
 SinglePeriodSelector.propTypes = {
     options: PropTypes.array,
-    selected: PropTypes.object,
+    selected: PropTypes.string,
     onChange: PropTypes.func,
 }
 
@@ -57,35 +55,12 @@ MultiPeriodSelector.propTypes = {
     onChange: PropTypes.func,
 }
 
-const YearOverYearSelect = ({ multiple, value, ...props }) => {
-    if (multiple === 'true') {
-        const selected = []
-
-        if (Array.isArray(value)) {
-            value.forEach(value =>
-                selected.push({
-                    value,
-                    label: seriesOptions
-                        .find(({ id }) => id === value)
-                        .getName(),
-                })
-            )
-        }
-
-        return <MultiPeriodSelector selected={selected} {...props} />
-    } else {
-        const selected = {}
-
-        if (value) {
-            selected.value = value
-            selected.label = categoryOptions
-                .find(({ id }) => id === value)
-                .getName()
-        }
-
-        return <SinglePeriodSelector selected={selected} {...props} />
-    }
-}
+const YearOverYearSelect = ({ multiple, value, ...props }) =>
+    multiple === 'true' ? (
+        <MultiPeriodSelector selected={value} {...props} />
+    ) : (
+        <SinglePeriodSelector selected={value} {...props} />
+    )
 
 YearOverYearSelect.propTypes = {
     multiple: PropTypes.string,

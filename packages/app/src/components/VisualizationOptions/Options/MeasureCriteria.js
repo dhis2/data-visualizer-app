@@ -10,7 +10,7 @@ import {
     Label,
     SingleSelect,
     SingleSelectOption,
-} from '@dhis2/ui-core'
+} from '@dhis2/ui'
 import { sGetUiOptions } from '../../../reducers/ui'
 import { acSetUiOptions } from '../../../actions/ui'
 
@@ -29,23 +29,14 @@ const OperatorSelect = ({ name, value, onChange }) => {
         { id: 'LE', label: '<=' },
     ]
 
-    const selected = options.find(option => option.id === value)
-
     return (
         <div style={{ width: '112px' }}>
             <SingleSelect
                 name={name}
                 onChange={({ selected }) => {
-                    onChange(selected.value)
+                    onChange(selected)
                 }}
-                selected={
-                    selected
-                        ? {
-                              value: selected.id,
-                              label: selected.label,
-                          }
-                        : undefined
-                }
+                selected={value}
                 tabIndex="0"
                 inputMaxWidth="106px"
                 dense

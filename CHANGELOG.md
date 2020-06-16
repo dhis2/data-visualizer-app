@@ -1,3 +1,38 @@
+# [35.2.0](https://github.com/dhis2/data-visualizer-app/compare/v35.1.8...v35.2.0) (2020-06-15)
+
+
+### Features
+
+* upgrade to ui@5 (TECH-389) ([#1068](https://github.com/dhis2/data-visualizer-app/issues/1068)) ([2352d52](https://github.com/dhis2/data-visualizer-app/commit/2352d52c5c9755c6dc3fa14368e14c9a5d22d94e))
+
+## [35.1.8](https://github.com/dhis2/data-visualizer-app/compare/v35.1.7...v35.1.8) (2020-06-14)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([2ad12df](https://github.com/dhis2/data-visualizer-app/commit/2ad12dfcb62a75e66e31512058cfc13ca634687e))
+
+## [35.1.7](https://github.com/dhis2/data-visualizer-app/compare/v35.1.6...v35.1.7) (2020-06-12)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([a8fbfbe](https://github.com/dhis2/data-visualizer-app/commit/a8fbfbe0e3d78f20eaa5f0d3e2f79d059c3d688a))
+
+## [35.1.6](https://github.com/dhis2/data-visualizer-app/compare/v35.1.5...v35.1.6) (2020-06-11)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([a93c48a](https://github.com/dhis2/data-visualizer-app/commit/a93c48a740f625225167d894aa4a19ad644ee0d0))
+
+## [35.1.5](https://github.com/dhis2/data-visualizer-app/compare/v35.1.4...v35.1.5) (2020-06-11)
+
+
+### Bug Fixes
+
+* fix paging query parameter passed to data engine ([#1083](https://github.com/dhis2/data-visualizer-app/issues/1083)) ([df10e99](https://github.com/dhis2/data-visualizer-app/commit/df10e997c02d10261b1b468aabae67815650b341))
+
 ## [35.1.4](https://github.com/dhis2/data-visualizer-app/compare/v35.1.3...v35.1.4) (2020-06-10)
 
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import { Tab, TabBar } from '@dhis2/ui-core'
+import { Tab, TabBar } from '@dhis2/ui'
 
 import { VisualizationOptions } from '../VisualizationOptions'
 import { getOptionsByType } from '../../../modules/options/config'

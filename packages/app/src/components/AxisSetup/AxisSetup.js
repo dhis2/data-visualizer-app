@@ -15,7 +15,7 @@ import {
     ModalContent,
     ModalActions,
     ButtonStrip,
-} from '@dhis2/ui-core'
+} from '@dhis2/ui'
 
 import styles from './styles/AxisSetup.module.css'
 import { axis1, axis2 } from './constants'
