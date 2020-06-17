@@ -35,6 +35,7 @@ import './scrollbar.css'
 import { getParentGraphMapFromVisualization } from '../modules/ui'
 import AxisSetup from './AxisSetup/AxisSetup'
 import { APPROVAL_LEVEL_OPTION_AUTH } from './VisualizationOptions/Options/ApprovalLevel'
+import OptionsSidebar from './VisualizationOptions/OptionsSidebar'
 import { sGetVisualization } from '../reducers/visualization'
 import { STATE_DIRTY, getVisualizationState } from '../modules/visualization'
 
@@ -236,6 +237,9 @@ export class App extends Component {
                                 </div>
                             </div>
                         </DndContext>
+                        <div style={{ width: '420px' }}>
+                            <OptionsSidebar />
+                        </div>
                         {this.props.ui.rightSidebarOpen && this.props.current && (
                             <div className="main-right">
                                 <Interpretations

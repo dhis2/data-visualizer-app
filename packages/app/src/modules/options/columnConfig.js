@@ -23,8 +23,23 @@ import CompletedOnly from '../../components/VisualizationOptions/Options/Complet
 
 export default [
     {
+        key: 'quick-tab',
+        getLabel: () => i18n.t('Quick options'),
+        content: [
+            {
+                key: 'data-lines',
+                getLabel: () => i18n.t('Quick options'),
+                content: React.Children.toArray([
+                    <RegressionType />,
+                    <TargetLine />,
+                    <BaseLine />,
+                ]),
+            },
+        ],
+    },
+    {
         key: 'data-tab',
-        getLabel: () => i18n.t('Data'),
+        getLabel: () => i18n.t('Data options'),
         content: [
             {
                 key: 'data-display',
@@ -56,7 +71,7 @@ export default [
     },
     {
         key: 'axes-tab',
-        getLabel: () => i18n.t('Axes'),
+        getLabel: () => i18n.t('Axes options'),
         content: [
             {
                 key: 'axes-vertical-axis',
@@ -77,7 +92,7 @@ export default [
     },
     {
         key: 'style-tab',
-        getLabel: () => i18n.t('Style'),
+        getLabel: () => i18n.t('Style options'),
         content: [
             {
                 key: 'style-chart-style',
