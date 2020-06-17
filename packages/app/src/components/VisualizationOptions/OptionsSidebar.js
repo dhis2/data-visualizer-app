@@ -15,12 +15,11 @@ import {
     tabSection,
     tabSectionTitle,
     tabSectionOption,
-    tabSectionOptionItem,
     tabSectionOptionToggleable,
     tabSectionOptionComplexInline,
     tabSectionOptionText,
 } from './styles/VisualizationOptions.style.js'
-
+import styles from './styles/OptionsSidebar.module.css'
 import { sGetUiType } from '../../reducers/ui'
 import { getOptionsByType } from '../../modules/options/config'
 
@@ -28,15 +27,7 @@ import { getOptionsByType } from '../../modules/options/config'
 const testSeries = ['ANC 1 Coverage', 'ANC 2 Coverage', 'ANC LLITN']
 
 const OptionsButton = ({ label, onClick }) => (
-    <div
-        onClick={() => onClick()}
-        style={{
-            cursor: 'pointer',
-            padding: '10px',
-            border: '1px solid #e0e2e4',
-            marginTop: '10px',
-        }}
-    >
+    <div onClick={() => onClick()} className={styles.optionsButton}>
         {label}
     </div>
 )
@@ -92,49 +83,22 @@ export class OptionsSidebar extends Component {
         }
 
         return (
-            <div
-                style={{
-                    height: '100%',
-                    position: 'relative',
-                }}
-            >
-                <div
-                    style={{
-                        padding: '10px',
-                        marginRight: '10px',
-                        borderLeft: '1px solid #e0e2e4',
-                        position: 'absolute',
-                        width: '100%',
-                        height: '100%',
-                        overflow: 'auto',
-                    }}
-                >
-                    <h3 style={{ margin: '0 0 16px' }}>{i18n.t('Options')}</h3>
+            <div className={styles.container}>
+                <div className={styles.wrapper}>
+                    <h3 className={styles.title}>{i18n.t('Options')}</h3>
                     {!activeTabIndex ? (
                         <>
-                            <div
-                                style={{
-                                    background: '#fff',
-                                    padding: '10px',
-                                    border: '1px solid #e0e2e4',
-                                }}
-                            >
-                                <h4 style={{ margin: '0 0 16px' }}>
+                            <div className={styles.section}>
+                                <h4 className={styles.sectionHeader}>
                                     {i18n.t('Chart options')}
                                 </h4>
-                                <p style={{ color: '#7F8895' }}>
+                                <p className={styles.description}>
                                     {i18n.t(
                                         'These options apply to the entire chart, but can be overriden per-axis or per-series below'
                                     )}
                                 </p>
                                 {tabs.find(tab => tab.key === 'quick-tab') && (
-                                    <div
-                                        style={{
-                                            background: '#fff',
-                                            padding: '10px',
-                                            border: '1px solid #e0e2e4',
-                                        }}
-                                    >
+                                    <div className={styles.section}>
                                         {
                                             tabs.find(
                                                 tab => tab.key === 'quick-tab'
@@ -152,51 +116,28 @@ export class OptionsSidebar extends Component {
                                         />
                                     ))}
                             </div>
-                            <div
-                                style={{
-                                    background: '#fff',
-                                    padding: '10px',
-                                    border: '1px solid #e0e2e4',
-                                    marginTop: '10px',
-                                }}
-                            >
-                                <h4 style={{ margin: '0 0 16px' }}>
+                            <div className={styles.section}>
+                                <h4 className={styles.sectionHeader}>
                                     {i18n.t('Axis options')}
                                 </h4>
-                                <p style={{ color: '#7F8895' }}>
+                                <p className={styles.description}>
                                     {i18n.t(
                                         'These options apply to each axis and will override chart options set above'
                                     )}
                                 </p>
                             </div>
-                            <div
-                                style={{
-                                    background: '#fff',
-                                    padding: '10px',
-                                    border: '1px solid #e0e2e4',
-                                    marginTop: '10px',
-                                    marginBottom: '10px',
-                                }}
-                            >
-                                <h4 style={{ margin: '0 0 16px' }}>
+                            <div className={styles.section}>
+                                <h4 className={styles.sectionHeader}>
                                     {i18n.t('Series options')}
                                 </h4>
-                                <p style={{ color: '#7F8895' }}>
+                                <p className={styles.description}>
                                     {i18n.t(
                                         'These options apply to each series and will override both chart options and axis options set above'
                                     )}
                                 </p>
                                 {testSeries.map(item => (
-                                    <div
-                                        key={item}
-                                        style={{
-                                            background: '#fff',
-                                            padding: '10px',
-                                            border: '1px solid #e0e2e4',
-                                            marginTop: '10px',
-                                        }}
-                                    >
-                                        <h4 style={{ margin: '0 0 16px' }}>
+                                    <div key={item} className={styles.section}>
+                                        <h4 className={styles.sectionHeader}>
                                             {item}
                                         </h4>
                                         <SingleSelectField
@@ -223,19 +164,12 @@ export class OptionsSidebar extends Component {
                             <Button onClick={() => this.selectTab()}>
                                 {i18n.t('Back to all options')}
                             </Button>
-                            <div
-                                style={{
-                                    background: '#fff',
-                                    padding: '10px',
-                                    marginTop: '10px',
-                                    border: '1px solid #e0e2e4',
-                                }}
-                            >
-                                <h4 style={{ margin: '0 0 16px' }}>
+                            <div className={styles.section}>
+                                <h4 className={styles.sectionHeader}>
                                     {i18n.t('Chart options')} {' > '}
                                     {tabs[activeTabIndex].label}
                                 </h4>
-                                <p style={{ color: '#7F8895' }}>
+                                <p className={styles.description}>
                                     {i18n.t(
                                         'These options apply to the entire chart'
                                     )}
@@ -247,7 +181,6 @@ export class OptionsSidebar extends Component {
                     {tabSection.styles}
                     {tabSectionTitle.styles}
                     {tabSectionOption.styles}
-                    {tabSectionOptionItem.styles}
                     {tabSectionOptionToggleable.styles}
                     {tabSectionOptionComplexInline.styles}
                     {tabSectionOptionText.styles}

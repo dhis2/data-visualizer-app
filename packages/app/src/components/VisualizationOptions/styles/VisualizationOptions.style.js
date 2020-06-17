@@ -3,6 +3,8 @@ import css from 'styled-jsx/css'
 
 import { colors, spacers } from '@dhis2/ui'
 
+// TODO: remove exports that aren't used anymore
+
 export const tabBar = css.resolve`
     div {
         position: sticky;

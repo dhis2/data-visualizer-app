@@ -1,0 +1,41 @@
+.optionsButton {
+    cursor: pointer;
+    padding: var(--spacers-dp8);
+    border: 1px solid var(--colors-grey300);
+    margin-top: var(--spacers-dp8);
+}
+
+.container {
+    height: 100%;
+    position: relative;
+}
+
+.wrapper {
+    padding: var(--spacers-dp8);
+    margin-right: var(--spacers-dp8);
+    border-left: 1px solid var(--colors-grey300);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.wrapper > .section:not(:last-child),
+.section .section:not(:last-child) {
+    margin-bottom: var(--spacers-dp8);
+}
+
+.section {
+    background: var(--colors-white);
+    padding: var(--spacers-dp8);
+    border: 1px solid var(--colors-grey300);
+}
+
+.title,
+.sectionHeader {
+    margin: 0 0 var(--spacers-dp16);
+}
+
+.description {
+    color: var(--colors-grey700);
+}

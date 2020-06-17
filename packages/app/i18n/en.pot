@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-06-02T04:24:38.833Z\n"
-"PO-Revision-Date: 2020-06-02T04:24:38.833Z\n"
+"POT-Creation-Date: 2020-06-17T14:52:52.227Z\n"
+"PO-Revision-Date: 2020-06-17T14:52:52.228Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -533,6 +533,37 @@ msgstr ""
 msgid "Options"
 msgstr ""
 
+msgid "Chart options"
+msgstr ""
+
+msgid ""
+"These options apply to the entire chart, but can be overriden per-axis or "
+"per-series below"
+msgstr ""
+
+msgid "Axis options"
+msgstr ""
+
+msgid "These options apply to each axis and will override chart options set above"
+msgstr ""
+
+msgid "Series options"
+msgstr ""
+
+msgid ""
+"These options apply to each series and will override both chart options and "
+"axis options set above"
+msgstr ""
+
+msgid "Chart type"
+msgstr ""
+
+msgid "Back to all options"
+msgstr ""
+
+msgid "These options apply to the entire chart"
+msgstr ""
+
 msgid "Open as Map"
 msgstr ""
 
@@ -751,10 +782,22 @@ msgstr ""
 msgid "Style"
 msgstr ""
 
+msgid "Quick options"
+msgstr ""
+
+msgid "Data options"
+msgstr ""
+
 msgid "Display"
 msgstr ""
 
 msgid "Lines"
+msgstr ""
+
+msgid "Axes options"
+msgstr ""
+
+msgid "Style options"
 msgstr ""
 
 msgid "Chart style"
