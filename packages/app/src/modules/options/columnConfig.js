@@ -30,9 +30,11 @@ export default [
                 key: 'data-lines',
                 getLabel: () => i18n.t('Quick options'),
                 content: React.Children.toArray([
-                    <RegressionType />,
+                    <ShowData />,
                     <TargetLine />,
                     <BaseLine />,
+                    <HideTitle />,
+                    <HideSubtitle />,
                 ]),
             },
         ],
