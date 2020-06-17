@@ -1,3 +1,10 @@
+## [34.6.11](https://github.com/dhis2/data-visualizer-app/compare/v34.6.10...v34.6.11) (2020-06-17)
+
+
+### Bug Fixes
+
+* set cwd ([#1119](https://github.com/dhis2/data-visualizer-app/issues/1119)) ([26e6b33](https://github.com/dhis2/data-visualizer-app/commit/26e6b33aa7215ce273c2e4f4e9be8d6511fe0c17))
+
 ## [34.6.10](https://github.com/dhis2/data-visualizer-app/compare/v34.6.9...v34.6.10) (2020-06-16)
 
 
