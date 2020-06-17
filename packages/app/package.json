@@ -94,7 +94,7 @@
         "prebuild": "npm run lint && npm run prettier-ci && npm run coverage && rimraf build && mkdirp build && npm run manifest",
         "build": "npm run localize && node scripts/build.js",
         "postbuild": "cp -r public/i18n build && cp -r public/i18n_old build && cp public/icon.png build && cp package.json build && npm run manifest",
-        "lint": "eslint --config=../../.eslintrc.json src",
+        "lint": "d2-style js check || d2-style text check",
         "prettier-ci": "prettier \"./src/{**/*,*}.js\" --list-different",
         "prettier-write": "prettier \"./src/{**/*,*}.js\" --write",
         "localize": "npm run extract-pot && d2-i18n-generate -n default -p ./i18n/ -o ./src/locales/",
