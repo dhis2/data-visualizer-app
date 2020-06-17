@@ -3,7 +3,13 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 
-import { FieldSet, Legend, Button } from '@dhis2/ui'
+import {
+    FieldSet,
+    Legend,
+    Button,
+    SingleSelectField,
+    SingleSelectOption,
+} from '@dhis2/ui'
 
 import {
     tabSection,
@@ -17,6 +23,9 @@ import {
 
 import { sGetUiType } from '../../reducers/ui'
 import { getOptionsByType } from '../../modules/options/config'
+
+//const testAxes = ['Axis One', 'Axis Two']
+const testSeries = ['ANC 1 Coverage', 'ANC 2 Coverage', 'ANC LLITN']
 
 const OptionsButton = ({ label, onClick }) => (
     <div
@@ -177,6 +186,36 @@ export class OptionsSidebar extends Component {
                                         'These options apply to each series and will override both chart options and axis options set above'
                                     )}
                                 </p>
+                                {testSeries.map(item => (
+                                    <div
+                                        key={item}
+                                        style={{
+                                            background: '#fff',
+                                            padding: '10px',
+                                            border: '1px solid #e0e2e4',
+                                            marginTop: '10px',
+                                        }}
+                                    >
+                                        <h4 style={{ margin: '0 0 16px' }}>
+                                            {item}
+                                        </h4>
+                                        <SingleSelectField
+                                            label={i18n.t('Chart type')}
+                                            selected={'Column'}
+                                        >
+                                            <SingleSelectOption
+                                                key={'Line'}
+                                                value={'Line'}
+                                                label={'Line'}
+                                            />
+                                            <SingleSelectOption
+                                                key={'Column'}
+                                                value={'Column'}
+                                                label={'Column'}
+                                            />
+                                        </SingleSelectField>
+                                    </div>
+                                ))}
                             </div>
                         </>
                     ) : (
