@@ -31,4 +31,6 @@ jobs:
 
             - uses: dhis2/deploy-build@master
               with:
+                  cwd: ./packages/app
+                  build-dir: build
                   github-token: ${{ env.GH_TOKEN }}
