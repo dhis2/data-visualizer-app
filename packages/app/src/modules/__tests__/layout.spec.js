@@ -13,7 +13,7 @@ describe('layout', () => {
                 xyz: { axisId: 'rows' },
             }
 
-            expect(getRetransfer(layout, transfer, 'COLUMN')).toMatchObject({
+            expect(getRetransfer(layout, transfer, 'AREA')).toMatchObject({
                 pe: {
                     axisId: 'filters',
                 },
@@ -25,11 +25,19 @@ describe('layout', () => {
                 abc: { axisId: 'rows' },
             }
 
-            expect(getRetransfer(layout, transfer, 'COLUMN')).toMatchObject({
+            expect(getRetransfer(layout, transfer, 'AREA')).toMatchObject({
                 pe: {
                     axisId: 'filters',
                 },
             })
+        })
+
+        it('does not transfer "pe" to filters when a new category is added', () => {
+            const transfer = {
+                xyz: { axisId: 'rows' },
+            }
+
+            expect(getRetransfer(layout, transfer, 'COLUMN')).toMatchObject({})
         })
     })
 })
