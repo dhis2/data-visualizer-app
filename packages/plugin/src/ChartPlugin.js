@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import isEqual from 'lodash-es/isEqual';
-import i18n from '@dhis2/d2-i18n';
 import { createVisualization } from '@dhis2/analytics';
 
 import { apiFetchVisualization } from './api/visualization';
