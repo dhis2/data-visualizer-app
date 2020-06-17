@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 
-import { FieldSet, Legend, TabBar, Tab } from '@dhis2/ui'
+import { FieldSet, Legend, Button } from '@dhis2/ui'
 
 import {
     tabSection,
@@ -13,7 +13,6 @@ import {
     tabSectionOptionToggleable,
     tabSectionOptionComplexInline,
     tabSectionOptionText,
-    tabBar,
 } from './styles/VisualizationOptions.style.js'
 
 import { sGetUiType } from '../../reducers/ui'
@@ -102,22 +101,8 @@ export class OptionsSidebar extends Component {
                     }}
                 >
                     <h3 style={{ margin: '0 0 16px' }}>{i18n.t('Options')}</h3>
-                    <div
-                        style={{
-                            background: '#fff',
-                            padding: '10px',
-                            border: '1px solid #e0e2e4',
-                        }}
-                    >
-                        <h4 style={{ margin: '0 0 16px' }}>
-                            {i18n.t('Chart options')}
-                        </h4>
-                        <p style={{ color: '#7F8895' }}>
-                            {i18n.t(
-                                'These options apply to the entire chart, but can be overriden per-axis or per-series below'
-                            )}
-                        </p>
-                        {tabs.find(tab => tab.key === 'quick-tab') && (
+                    {!activeTabIndex ? (
+                        <>
                             <div
                                 style={{
                                     background: '#fff',
@@ -125,74 +110,101 @@ export class OptionsSidebar extends Component {
                                     border: '1px solid #e0e2e4',
                                 }}
                             >
-                                {
-                                    tabs.find(tab => tab.key === 'quick-tab')
-                                        .content
-                                }
+                                <h4 style={{ margin: '0 0 16px' }}>
+                                    {i18n.t('Chart options')}
+                                </h4>
+                                <p style={{ color: '#7F8895' }}>
+                                    {i18n.t(
+                                        'These options apply to the entire chart, but can be overriden per-axis or per-series below'
+                                    )}
+                                </p>
+                                {tabs.find(tab => tab.key === 'quick-tab') && (
+                                    <div
+                                        style={{
+                                            background: '#fff',
+                                            padding: '10px',
+                                            border: '1px solid #e0e2e4',
+                                        }}
+                                    >
+                                        {
+                                            tabs.find(
+                                                tab => tab.key === 'quick-tab'
+                                            ).content
+                                        }
+                                    </div>
+                                )}
+                                {tabs
+                                    .filter(item => item.key !== 'quick-tab')
+                                    .map(({ key, label }) => (
+                                        <OptionsButton
+                                            key={key}
+                                            label={label}
+                                            onClick={() => this.selectTab(key)}
+                                        />
+                                    ))}
                             </div>
-                        )}
-                        {tabs
-                            .filter(item => item.key !== 'quick-tab')
-                            .map(({ key, label }) => (
-                                <OptionsButton
-                                    key={key}
-                                    label={label}
-                                    onClick={() =>
-                                        console.log('clicked ' + key)
-                                    }
-                                />
-                            ))}
-                    </div>
-                    <div
-                        style={{
-                            background: '#fff',
-                            padding: '10px',
-                            border: '1px solid #e0e2e4',
-                            marginTop: '10px',
-                        }}
-                    >
-                        <h4 style={{ margin: '0 0 16px' }}>
-                            {i18n.t('Axis options')}
-                        </h4>
-                        <p style={{ color: '#7F8895' }}>
-                            {i18n.t(
-                                'These options apply to each axis and will override chart options set above'
-                            )}
-                        </p>
-                    </div>
-                    <div
-                        style={{
-                            background: '#fff',
-                            padding: '10px',
-                            border: '1px solid #e0e2e4',
-                            marginTop: '10px',
-                            marginBottom: '10px',
-                        }}
-                    >
-                        <h4 style={{ margin: '0 0 16px' }}>
-                            {i18n.t('Series options')}
-                        </h4>
-                        <p style={{ color: '#7F8895' }}>
-                            {i18n.t(
-                                'These options apply to each series and will override both chart options and axis options set above'
-                            )}
-                        </p>
-                    </div>
-                    <div className={tabBar.className}>
-                        <TabBar>
-                            {tabs.map(({ key, label }, index) => (
-                                <Tab
-                                    key={key}
-                                    onClick={() => this.selectTab(key)}
-                                    selected={index === activeTabIndex}
-                                >
-                                    {label}
-                                </Tab>
-                            ))}
-                        </TabBar>
-                        {tabBar.styles}
-                    </div>
-                    {tabs[activeTabIndex].content}
+                            <div
+                                style={{
+                                    background: '#fff',
+                                    padding: '10px',
+                                    border: '1px solid #e0e2e4',
+                                    marginTop: '10px',
+                                }}
+                            >
+                                <h4 style={{ margin: '0 0 16px' }}>
+                                    {i18n.t('Axis options')}
+                                </h4>
+                                <p style={{ color: '#7F8895' }}>
+                                    {i18n.t(
+                                        'These options apply to each axis and will override chart options set above'
+                                    )}
+                                </p>
+                            </div>
+                            <div
+                                style={{
+                                    background: '#fff',
+                                    padding: '10px',
+                                    border: '1px solid #e0e2e4',
+                                    marginTop: '10px',
+                                    marginBottom: '10px',
+                                }}
+                            >
+                                <h4 style={{ margin: '0 0 16px' }}>
+                                    {i18n.t('Series options')}
+                                </h4>
+                                <p style={{ color: '#7F8895' }}>
+                                    {i18n.t(
+                                        'These options apply to each series and will override both chart options and axis options set above'
+                                    )}
+                                </p>
+                            </div>
+                        </>
+                    ) : (
+                        <>
+                            <Button onClick={() => this.selectTab()}>
+                                {i18n.t('Back to all options')}
+                            </Button>
+                            <div
+                                style={{
+                                    background: '#fff',
+                                    padding: '10px',
+                                    marginTop: '10px',
+                                    border: '1px solid #e0e2e4',
+                                }}
+                            >
+                                <h4 style={{ margin: '0 0 16px' }}>
+                                    {i18n.t('Chart options')} {' > '}
+                                    {tabs[activeTabIndex].label}
+                                </h4>
+                                <p style={{ color: '#7F8895' }}>
+                                    {i18n.t(
+                                        'These options apply to the entire chart'
+                                    )}
+                                </p>
+                                {tabs[activeTabIndex].content}
+                            </div>
+                        </>
+                    )}
                     {tabSection.styles}
                     {tabSectionTitle.styles}
                     {tabSectionOption.styles}
