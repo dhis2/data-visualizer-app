@@ -13,12 +13,18 @@ export const tabBar = css.resolve`
 `
 
 export const tabSection = css.resolve`
-    div {
+    div:not(:first-child):not(:last-child) {
         padding: ${spacers.dp16} 0;
     }
     div:not(:last-child) {
         border-bottom: 1px solid ${colors.grey300};
         margin-bottom: ${spacers.dp8};
+    }
+    div:first-child {
+        paddingtop: 0;
+    }
+    div:last-child {
+        paddingbottom: 0;
     }
 `
 

@@ -39,3 +39,18 @@
 .description {
     color: var(--colors-grey700);
 }
+
+.backButton {
+    margin-bottom: var(--spacers-dp8);
+}
+
+.addButton  {
+    margin-top: var(--spacers-dp8);
+}
+
+.advancedOptionsButton {
+    margin: var(--spacers-dp16) 0 var(--spacers-dp8);
+    text-decoration: underline;
+    color: var(--colors-blue800);
+    font-size: 14px;
+}

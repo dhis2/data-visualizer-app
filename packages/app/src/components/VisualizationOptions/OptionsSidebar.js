@@ -9,6 +9,7 @@ import {
     Button,
     SingleSelectField,
     SingleSelectOption,
+    InputField,
 } from '@dhis2/ui'
 
 import {
@@ -23,7 +24,8 @@ import styles from './styles/OptionsSidebar.module.css'
 import { sGetUiType } from '../../reducers/ui'
 import { getOptionsByType } from '../../modules/options/config'
 
-//const testAxes = ['Axis One', 'Axis Two']
+const testAxes = ['Axis One', 'Axis Two']
+const testTypes = ['Column', 'Line']
 const testSeries = ['ANC 1 Coverage', 'ANC 2 Coverage', 'ANC LLITN']
 
 const OptionsButton = ({ label, onClick }) => (
@@ -125,6 +127,27 @@ export class OptionsSidebar extends Component {
                                         'These options apply to each axis and will override chart options set above'
                                     )}
                                 </p>
+                                {testAxes.map(item => (
+                                    <div key={item} className={styles.section}>
+                                        <InputField
+                                            placeholder={i18n.t('Axis title')}
+                                            type="text"
+                                        />
+                                        <p
+                                            className={
+                                                styles.advancedOptionsButton
+                                            }
+                                        >
+                                            {i18n.t('Advanced axis options')}
+                                        </p>
+                                    </div>
+                                ))}
+                                <Button
+                                    onClick={() => console.log('add axis')}
+                                    className={styles.addButton}
+                                >
+                                    {i18n.t('Add axis')}
+                                </Button>
                             </div>
                             <div className={styles.section}>
                                 <h4 className={styles.sectionHeader}>
@@ -142,18 +165,18 @@ export class OptionsSidebar extends Component {
                                         </h4>
                                         <SingleSelectField
                                             label={i18n.t('Chart type')}
-                                            selected={'Column'}
+                                            selected={testTypes[0]}
+                                            onChange={() =>
+                                                console.log('changed')
+                                            }
                                         >
-                                            <SingleSelectOption
-                                                key={'Line'}
-                                                value={'Line'}
-                                                label={'Line'}
-                                            />
-                                            <SingleSelectOption
-                                                key={'Column'}
-                                                value={'Column'}
-                                                label={'Column'}
-                                            />
+                                            {testTypes.map(type => (
+                                                <SingleSelectOption
+                                                    key={type}
+                                                    value={type}
+                                                    label={type}
+                                                />
+                                            ))}
                                         </SingleSelectField>
                                     </div>
                                 ))}
@@ -161,7 +184,10 @@ export class OptionsSidebar extends Component {
                         </>
                     ) : (
                         <>
-                            <Button onClick={() => this.selectTab()}>
+                            <Button
+                                onClick={() => this.selectTab()}
+                                className={styles.backButton}
+                            >
                                 {i18n.t('Back to all options')}
                             </Button>
                             <div className={styles.section}>
