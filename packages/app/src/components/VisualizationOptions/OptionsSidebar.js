@@ -28,7 +28,6 @@ import { sGetAxisSetupItems } from '../../reducers'
 // FIXME: Dummy data
 const testAxes = ['Axis One', 'Axis Two']
 const testTypes = ['Column', 'Line']
-const testSeries = ['ANC 1 Coverage', 'ANC 2 Coverage', 'ANC LLITN']
 
 const OptionsButton = ({ label, onClick }) => (
     <div onClick={() => onClick()} className={styles.optionsButton}>
@@ -41,7 +40,7 @@ OptionsButton.propTypes = {
     onClick: PropTypes.func.isRequired,
 }
 
-const OptionsSidebar = ({ axisItems, visualizationType }) => {
+const OptionsSidebar = ({ seriesItems, visualizationType }) => {
     const [activeSection, setActiveSection] = useState()
 
     const generateSectionContent = sections =>
@@ -140,26 +139,41 @@ const OptionsSidebar = ({ axisItems, visualizationType }) => {
                                     'These options apply to each series and will override both chart options and axis options set above'
                                 )}
                             </p>
-                            {testSeries.map(item => (
-                                <div key={item} className={styles.section}>
-                                    <h4 className={styles.sectionHeader}>
-                                        {item}
-                                    </h4>
-                                    <SingleSelectField
-                                        label={i18n.t('Chart type')}
-                                        selected={testTypes[0]}
-                                        onChange={() => console.log('changed')}
+                            {seriesItems && seriesItems.length ? (
+                                seriesItems.map(item => (
+                                    <div
+                                        key={item.id}
+                                        className={styles.section}
                                     >
-                                        {testTypes.map(type => (
-                                            <SingleSelectOption
-                                                key={type}
-                                                value={type}
-                                                label={type}
-                                            />
-                                        ))}
-                                    </SingleSelectField>
-                                </div>
-                            ))}
+                                        <h4 className={styles.sectionHeader}>
+                                            {item.name}
+                                        </h4>
+                                        <SingleSelectField
+                                            label={i18n.t('Chart type')}
+                                            selected={testTypes[0]}
+                                            onChange={() =>
+                                                console.log('changed')
+                                            }
+                                        >
+                                            {testTypes.map(type => (
+                                                <SingleSelectOption
+                                                    key={type}
+                                                    value={type}
+                                                    label={type}
+                                                />
+                                            ))}
+                                        </SingleSelectField>
+                                        {/* TODO: Add an axis selector here, which lists the available axes and lets the user choose (just like the Manage axes modal) */}
+                                    </div>
+                                ))
+                            ) : (
+                                <p className={styles.description}>
+                                    {/* //TODO: Get a better help message from @joecooper */}
+                                    {i18n.t(
+                                        'Please select items for the series dimension first'
+                                    )}
+                                </p>
+                            )}
                         </div>
                     </>
                 ) : (
@@ -196,7 +210,7 @@ const OptionsSidebar = ({ axisItems, visualizationType }) => {
 }
 
 OptionsSidebar.propTypes = {
-    axisItems: PropTypes.arrayOf(
+    seriesItems: PropTypes.arrayOf(
         PropTypes.shape({
             axis: PropTypes.number.isRequired,
             id: PropTypes.string.isRequired,
@@ -208,7 +222,7 @@ OptionsSidebar.propTypes = {
 
 const mapStateToProps = state => ({
     visualizationType: sGetUiType(state),
-    axisItems: sGetAxisSetupItems(state),
+    seriesItems: sGetAxisSetupItems(state),
 })
 
 export default connect(mapStateToProps)(OptionsSidebar)
