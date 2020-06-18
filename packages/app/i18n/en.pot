@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-06-17T14:52:52.227Z\n"
-"PO-Revision-Date: 2020-06-17T14:52:52.228Z\n"
+"POT-Creation-Date: 2020-06-18T11:41:22.506Z\n"
+"PO-Revision-Date: 2020-06-18T11:41:22.506Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -545,6 +545,12 @@ msgid "Axis options"
 msgstr ""
 
 msgid "These options apply to each axis and will override chart options set above"
+msgstr ""
+
+msgid "Advanced axis options"
+msgstr ""
+
+msgid "Add axis"
 msgstr ""
 
 msgid "Series options"
