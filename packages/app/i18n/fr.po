@@ -404,41 +404,44 @@ msgid "Organisation Unit"
 msgstr "Unité d'organisation"
 
 msgid "Add to series"
-msgstr ""
+msgstr "Ajouter aux séries"
 
 msgid "Add to category"
-msgstr ""
+msgstr "Ajouter à la catégorie"
 
 msgid "Add to filter"
-msgstr ""
+msgstr "Ajouter au filtre"
 
 msgid "series"
-msgstr ""
+msgstr "séries"
 
 msgid "category"
-msgstr ""
+msgstr "catégorie"
 
 msgid "filter"
-msgstr ""
+msgstr "filtre"
 
 msgid "Please add at least one {{series}} dimension"
-msgstr ""
+msgstr "Veuillez ajouter au moins dimension de {{series}}"
 
 msgid "Please add at least one {{category}} dimension"
-msgstr ""
+msgstr "Veuillez ajouter au moins une dimension de {{category}}"
 
 msgid ""
 "Please add at least one period as {{series}}, {{category}} or {{filter}}"
 msgstr ""
+"Veuillez ajouter au moins une période comme {{series}}, {{category}} ou "
+"{{filter}}"
 
 msgid "Please add at least one period as a {{series}} dimension"
-msgstr ""
+msgstr "Veuillez ajouter au moins une période comme dimension de {{series}} "
 
 msgid "Please add at least one period as a {{category}} dimension"
 msgstr ""
+"Veuillez ajouter au moins une période comme dimension de  {{category}}"
 
 msgid "Please add {{data}} as a filter dimension"
-msgstr ""
+msgstr "Veuillez ajouter {{data}} comme une dimension de filtre"
 
 msgid "Today"
 msgstr "Aujourd'hui"
@@ -498,10 +501,10 @@ msgid "Last bimonth"
 msgstr "Dernier bimestre"
 
 msgid "Last 6 bimonths"
-msgstr ""
+msgstr "6 derniers mois"
 
 msgid "Bimonths this year"
-msgstr ""
+msgstr "Bimestres cette année"
 
 msgid "This quarter"
 msgstr "Ce trimestre"
@@ -546,19 +549,19 @@ msgid "User org unit"
 msgstr "Unité d'organisation utilisateur"
 
 msgid "User org unit children"
-msgstr ""
+msgstr "Org unit filles de l'utilisateur"
 
 msgid "User org unit grand children"
-msgstr ""
+msgstr "Org unit petites-filles de l'utilisateur"
 
 msgid "Weeks per year"
-msgstr ""
+msgstr "Semaines par an"
 
 msgid "Months per year"
-msgstr ""
+msgstr "Mois par an"
 
 msgid "Bimonths per year"
-msgstr ""
+msgstr "Bimestre par an"
 
 msgid "Quarters per year"
-msgstr ""
+msgstr "Trimestres par an"
