@@ -558,7 +558,7 @@ msgid "Options"
 msgstr "Options"
 
 msgid "Open as Map"
-msgstr ""
+msgstr "Ouvrir comme carte"
 
 msgid "Reporting rate"
 msgstr "Taux de déclaration"
@@ -725,10 +725,10 @@ msgid "Last bimonth"
 msgstr "Dernier bimestre"
 
 msgid "Last 6 bimonths"
-msgstr ""
+msgstr "6 derniers mois"
 
 msgid "Bimonths this year"
-msgstr ""
+msgstr "Bimestres cette année"
 
 msgid "This quarter"
 msgstr "Ce trimestre"
@@ -773,10 +773,10 @@ msgid "User org unit"
 msgstr "Unité d'organisation utilisateur"
 
 msgid "User org unit children"
-msgstr ""
+msgstr "Org unit filles de l'utilisateur"
 
 msgid "User org unit grand children"
-msgstr ""
+msgstr "Org unit petites-filles de l'utilisateur"
 
 msgid "Data"
 msgstr "Données"
@@ -827,13 +827,13 @@ msgid "Parameters"
 msgstr "Paramètres"
 
 msgid "Weeks per year"
-msgstr ""
+msgstr "Semaines par an"
 
 msgid "Months per year"
-msgstr ""
+msgstr "Mois par an"
 
 msgid "Bimonths per year"
-msgstr ""
+msgstr "Bimestre par an"
 
 msgid "Quarters per year"
-msgstr ""
+msgstr "Trimestres par an"
