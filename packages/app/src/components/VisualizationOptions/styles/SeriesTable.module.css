@@ -1,0 +1,15 @@
+.table label {
+    justify-content: center;
+}
+.nameColumn {
+    width: 70%;
+}
+.axisColumn {
+    width: 15%;
+}
+.coloredColumn {
+    background-color: var(--colors-grey100);
+}
+.centered {
+    text-align: center;
+}
