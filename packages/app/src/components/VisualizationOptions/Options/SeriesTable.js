@@ -41,9 +41,7 @@ const SeriesTable = ({ initItems, saveAxes }) => {
         setItems(updatedItems)
 
         const axes = Object.values(updatedItems).reduce((map, item) => {
-            if (item.axis > 0) {
-                map[item.id] = item.axis
-            }
+            map[item.id] = item.axis
             return map
         }, {})
 
