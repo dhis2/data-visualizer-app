@@ -92,7 +92,7 @@ export const getOptionsFromUi = ui => {
 }
 
 export const getSeriesFromUi = ui => {
-    return ui.options.series ? [...ui.options.series] : {}
+    return ui.options.series ? [...ui.options.series] : []
 }
 
 export const getSingleValueCurrentFromUi = (state, action) => {
