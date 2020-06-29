@@ -94,7 +94,6 @@ Axis.propTypes = {
     style: PropTypes.object,
     type: PropTypes.string,
     ui: PropTypes.object,
-    onOpenAxisSetup: PropTypes.func,
 }
 
 const mapStateToProps = state => ({

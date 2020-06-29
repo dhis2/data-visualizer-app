@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-06-02T04:24:38.833Z\n"
-"PO-Revision-Date: 2020-06-02T04:24:38.833Z\n"
+"POT-Creation-Date: 2020-06-29T10:59:15.923Z\n"
+"PO-Revision-Date: 2020-06-29T10:59:15.923Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -29,26 +29,6 @@ msgid "No, cancel"
 msgstr ""
 
 msgid "Yes, leave"
-msgstr ""
-
-msgid "Axis 1"
-msgstr ""
-
-msgid "Axis 2"
-msgstr ""
-
-msgid "Manage axes"
-msgstr ""
-
-msgid ""
-"A chart can have two axes. Each axis will have its own scale. Set the axis "
-"for each data selection below."
-msgstr ""
-
-msgid "Cancel"
-msgstr ""
-
-msgid "Update"
 msgstr ""
 
 msgid "Add to {{axisName}}"
@@ -206,6 +186,9 @@ msgid "Edited"
 msgstr ""
 
 msgid "Viewing interpretation from {{interpretationDate}}"
+msgstr ""
+
+msgid "Update"
 msgstr ""
 
 msgid "Getting started"
@@ -497,6 +480,12 @@ msgstr ""
 msgid "Row totals"
 msgstr ""
 
+msgid "Axis {{axisId}}"
+msgstr ""
+
+msgid "Series is empty"
+msgstr ""
+
 msgid "Value labels"
 msgstr ""
 
@@ -755,6 +744,9 @@ msgid "Display"
 msgstr ""
 
 msgid "Lines"
+msgstr ""
+
+msgid "Series"
 msgstr ""
 
 msgid "Chart style"

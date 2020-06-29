@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import i18n from '@dhis2/d2-i18n'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
@@ -12,42 +12,28 @@ import {
 } from '@dhis2/ui'
 
 import styles from '../styles/SeriesTable.module.css'
-import { DEFAULT_UI } from '../../../reducers/ui'
-import { sGetAxisSetupItems } from '../../../reducers'
-import { acSetAxes } from '../../../actions/ui'
+import { acSetUiOptions } from '../../../actions/ui'
+import { sGetUiOptions } from '../../../reducers/ui'
+import { sGetSeriesSetupItems } from '../../../reducers'
 
 const availableAxes = [0, 1, 2, 3]
 
-const SeriesTable = ({ initItems, saveAxes }) => {
-    const [items, setItems] = useState([])
-
+const SeriesTable = ({ generateInitItems, items, onChange }) => {
     useEffect(() => {
-        setItems(
-            initItems.reduce((itemsMap, item) => {
-                itemsMap[item.id] = item
-                return itemsMap
-            }, {})
-        )
-    }, [initItems])
-
-    const onAxisChange = (item, axis) => {
-        const updatedItems = {
-            ...items,
-            [item.id]: {
-                ...item,
-                axis,
-            },
+        if (!items) {
+            generateInitItems()
         }
-        setItems(updatedItems)
+    }, [])
 
-        const axes = Object.values(updatedItems).reduce((map, item) => {
-            map[item.id] = item.axis
-            return map
-        }, {})
-
-        saveAxes(Object.keys(axes).length > 0 ? axes : DEFAULT_UI.axes)
+    const onAxisChange = (changedItem, newAxis) => {
+        const series = [...items]
+        series.find(
+            item => item.dimensionItem == changedItem.dimensionItem
+        ).axis = newAxis
+        onChange(series)
     }
 
+    // TODO: Add type dropdown
     const renderTable = () => {
         return (
             <Table className={styles.table}>
@@ -69,25 +55,23 @@ const SeriesTable = ({ initItems, saveAxes }) => {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {Object.keys(items).map(id => {
-                        const item = items[id]
-
-                        return (
-                            <TableRow key={`multiaxis-table-row-${id}`}>
-                                <TableCell>{item.name}</TableCell>
-                                {availableAxes.map(axis => (
-                                    <TableCell key={axis}>
-                                        <Radio
-                                            onChange={() =>
-                                                onAxisChange(item, axis)
-                                            }
-                                            checked={item.axis === axis}
-                                        />
-                                    </TableCell>
-                                ))}
-                            </TableRow>
-                        )
-                    })}
+                    {items.map(item => (
+                        <TableRow
+                            key={`multiaxis-table-row-${item.dimensionItem}`}
+                        >
+                            <TableCell>{item.name}</TableCell>
+                            {availableAxes.map(axis => (
+                                <TableCell key={axis}>
+                                    <Radio
+                                        onChange={() =>
+                                            onAxisChange(item, axis)
+                                        }
+                                        checked={item.axis === axis}
+                                    />
+                                </TableCell>
+                            ))}
+                        </TableRow>
+                    ))}
                 </TableBody>
             </Table>
         )
@@ -102,27 +86,20 @@ const SeriesTable = ({ initItems, saveAxes }) => {
 }
 
 SeriesTable.propTypes = {
-    saveAxes: PropTypes.func.isRequired,
-    initItems: PropTypes.arrayOf(
-        PropTypes.shape({
-            axis: PropTypes.number.isRequired,
-            id: PropTypes.string.isRequired,
-            name: PropTypes.string.isRequired,
-        })
-    ),
-}
-
-SeriesTable.defaultProps = {
-    initItems: [],
+    generateInitItems: PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
+    items: PropTypes.array,
 }
 
 const mapStateToProps = state => ({
-    initItems: sGetAxisSetupItems(state),
+    items: sGetUiOptions(state).series,
 })
 
 const mapDispatchToProps = {
-    saveAxes: axes => dispatch => {
-        dispatch(acSetAxes(axes))
+    generateInitItems: () => (dispatch, getState) =>
+        dispatch(acSetUiOptions({ series: sGetSeriesSetupItems(getState()) })),
+    onChange: value => dispatch => {
+        dispatch(acSetUiOptions({ series: value }))
     },
 }
 

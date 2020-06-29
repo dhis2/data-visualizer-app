@@ -10,11 +10,9 @@ import * as fromReducers from '../../reducers'
 import MoreHorizontalIcon from '../../assets/MoreHorizontalIcon'
 import { styles } from './styles/Menu.style'
 import {
-    acSetUiActiveModalDialog,
     acAddUiLayoutDimensions,
     acRemoveUiLayoutDimensions,
 } from '../../actions/ui'
-import { AXIS_SETUP_DIALOG_ID } from '../AxisSetup/AxisSetup'
 import IconButton from '../IconButton/IconButton'
 
 class ChipMenu extends React.Component {
@@ -51,7 +49,6 @@ class ChipMenu extends React.Component {
                     currentAxisId={this.props.currentAxisId}
                     visType={this.props.visType}
                     numberOfDimensionItems={this.props.numberOfDimensionItems}
-                    dualAxisItemHandler={this.props.dualAxisItemHandler}
                     isAssignedCategoriesInLayout={
                         this.props.layoutHasAssignedCategories
                     }
@@ -76,7 +73,6 @@ ChipMenu.propTypes = {
     axisItemHandler: PropTypes.func,
     currentAxisId: PropTypes.string,
     dimensionId: PropTypes.string,
-    dualAxisItemHandler: PropTypes.func,
     id: PropTypes.string,
     layoutHasAssignedCategories: PropTypes.bool,
     numberOfDimensionItems: PropTypes.number,
@@ -93,8 +89,6 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    dualAxisItemHandler: () =>
-        dispatch(acSetUiActiveModalDialog(AXIS_SETUP_DIALOG_ID)),
     axisItemHandler: ({ dimensionId, axisId }) => {
         dispatch(acAddUiLayoutDimensions({ [dimensionId]: { axisId } }))
     },

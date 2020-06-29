@@ -12,7 +12,7 @@ import {
     getPieCurrentFromUi,
     getYearOverYearCurrentFromUi,
     getSingleValueCurrentFromUi,
-    getOptionalAxesFromUi,
+    getSeriesFromUi,
 } from '../modules/current'
 import { BASE_FIELD_TYPE } from '../modules/fields/baseFields'
 
@@ -25,14 +25,14 @@ export const DEFAULT_CURRENT = null
 const getDefaultFromUi = (state, action) => {
     const axesFromUi = getAxesFromUi(action.value)
     const optionsFromUi = getOptionsFromUi(action.value)
-    const optionalAxes = getOptionalAxesFromUi(action.value)
+    const series = getSeriesFromUi(action.value)
 
     return {
         ...state,
         [BASE_FIELD_TYPE]: action.value.type,
         ...axesFromUi,
         ...optionsFromUi,
-        optionalAxes,
+        series,
     }
 }
 

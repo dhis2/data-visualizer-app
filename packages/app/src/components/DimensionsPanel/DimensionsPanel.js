@@ -11,7 +11,6 @@ import DndDimensionsPanel from './DndDimensionsPanel'
 import * as fromReducers from '../../reducers'
 
 import { styles } from './styles/DimensionsPanel.style'
-import { AXIS_SETUP_DIALOG_ID } from '../AxisSetup/AxisSetup'
 import {
     acSetUiActiveModalDialog,
     acAddUiLayoutDimensions,
@@ -55,7 +54,6 @@ export class Dimensions extends Component {
                     )}
                     visType={this.props.ui.type}
                     numberOfDimensionItems={this.getNumberOfDimensionItems()}
-                    dualAxisItemHandler={this.props.dualAxisItemHandler}
                     isAssignedCategoriesInLayout={
                         this.props.layoutHasAssignedCategories
                     }
@@ -79,7 +77,6 @@ export class Dimensions extends Component {
 Dimensions.propTypes = {
     assignedCategoriesItemHandler: PropTypes.func,
     axisItemHandler: PropTypes.func,
-    dualAxisItemHandler: PropTypes.func,
     getCurrentAxisId: PropTypes.func,
     itemsByDimension: PropTypes.object,
     layoutHasAssignedCategories: PropTypes.bool,
@@ -100,8 +97,6 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    dualAxisItemHandler: () =>
-        dispatch(acSetUiActiveModalDialog(AXIS_SETUP_DIALOG_ID)),
     axisItemHandler: ({
         dimensionId,
         axisId,
