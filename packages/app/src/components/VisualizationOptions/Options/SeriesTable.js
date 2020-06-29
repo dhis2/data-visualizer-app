@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import i18n from '@dhis2/d2-i18n'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
@@ -18,13 +18,7 @@ import { sGetSeriesSetupItems } from '../../../reducers'
 
 const availableAxes = [0, 1, 2, 3]
 
-const SeriesTable = ({ generateInitItems, items, onChange }) => {
-    useEffect(() => {
-        if (!items) {
-            generateInitItems()
-        }
-    }, [])
-
+const SeriesTable = ({ items, onChange }) => {
     const onAxisChange = (changedItem, newAxis) => {
         const series = [...items]
         series.find(
@@ -86,18 +80,15 @@ const SeriesTable = ({ generateInitItems, items, onChange }) => {
 }
 
 SeriesTable.propTypes = {
-    generateInitItems: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,
     items: PropTypes.array,
 }
 
 const mapStateToProps = state => ({
-    items: sGetUiOptions(state).series,
+    items: sGetUiOptions(state).series || sGetSeriesSetupItems(state),
 })
 
 const mapDispatchToProps = {
-    generateInitItems: () => (dispatch, getState) =>
-        dispatch(acSetUiOptions({ series: sGetSeriesSetupItems(getState()) })),
     onChange: value => dispatch => {
         dispatch(acSetUiOptions({ series: value }))
     },
