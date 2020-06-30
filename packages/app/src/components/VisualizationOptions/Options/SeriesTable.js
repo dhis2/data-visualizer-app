@@ -24,21 +24,11 @@ const SeriesTable = ({ layoutItems, optionItems, onChange }) => {
             onChange(layoutItems)
         } else {
             const tempItems = []
-            layoutItems.map(item => {
-                if (
-                    optionItems.some(
-                        option => option.dimensionItem === item.dimensionItem
-                    )
-                ) {
-                    tempItems.push(
-                        optionItems.find(
-                            option =>
-                                option.dimensionItem === item.dimensionItem
-                        )
-                    )
-                } else {
-                    tempItems.push(item)
-                }
+            layoutItems.forEach(item => {
+                const matchedItem = optionItems.find(
+                    option => option.dimensionItem === item.dimensionItem
+                )
+                tempItems.push(matchedItem || item)
             })
             onChange(tempItems)
         }
