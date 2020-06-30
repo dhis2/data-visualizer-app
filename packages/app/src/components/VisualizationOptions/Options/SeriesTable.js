@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import i18n from '@dhis2/d2-i18n'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
@@ -18,7 +18,33 @@ import { sGetSeriesSetupItems } from '../../../reducers'
 
 const availableAxes = [0, 1, 2, 3]
 
-const SeriesTable = ({ items, onChange }) => {
+const SeriesTable = ({ layoutItems, optionItems, onChange }) => {
+    const [items, setItems] = useState([])
+
+    useEffect(() => {
+        if (!optionItems || !optionItems.length) {
+            setItems(layoutItems)
+        } else {
+            const tempItems = layoutItems
+            tempItems.map(item => {
+                if (
+                    !optionItems.some(
+                        option => option.dimensionItem === item.dimensionItem
+                    )
+                ) {
+                    optionItems.push(item)
+                }
+            })
+            setItems(tempItems)
+        }
+    }, [])
+
+    useEffect(() => {
+        if (optionItems && optionItems.length) {
+            setItems(optionItems)
+        }
+    }, [optionItems])
+
     const onAxisChange = (changedItem, newAxis) => {
         const series = [...items]
         series.find(
@@ -72,7 +98,10 @@ const SeriesTable = ({ items, onChange }) => {
     }
     return (
         <>
-            {items && Object.keys(items).length
+            {layoutItems &&
+            Object.keys(layoutItems).length &&
+            items &&
+            items.length
                 ? renderTable()
                 : i18n.t('Series is empty')}
         </>
@@ -81,11 +110,13 @@ const SeriesTable = ({ items, onChange }) => {
 
 SeriesTable.propTypes = {
     onChange: PropTypes.func.isRequired,
-    items: PropTypes.array,
+    layoutItems: PropTypes.array,
+    optionItems: PropTypes.array,
 }
 
 const mapStateToProps = state => ({
-    items: sGetUiOptions(state).series || sGetSeriesSetupItems(state),
+    layoutItems: sGetSeriesSetupItems(state),
+    optionItems: sGetUiOptions(state).series,
 })
 
 const mapDispatchToProps = {
