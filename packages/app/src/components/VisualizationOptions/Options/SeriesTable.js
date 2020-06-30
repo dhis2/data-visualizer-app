@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import i18n from '@dhis2/d2-i18n'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
@@ -19,34 +19,33 @@ import { sGetSeriesSetupItems } from '../../../reducers'
 const availableAxes = [0, 1, 2, 3]
 
 const SeriesTable = ({ layoutItems, optionItems, onChange }) => {
-    const [items, setItems] = useState([])
-
     useEffect(() => {
         if (!optionItems || !optionItems.length) {
-            setItems(layoutItems)
+            onChange(layoutItems)
         } else {
-            const tempItems = layoutItems
-            tempItems.map(item => {
+            const tempItems = []
+            layoutItems.map(item => {
                 if (
-                    !optionItems.some(
+                    optionItems.some(
                         option => option.dimensionItem === item.dimensionItem
                     )
                 ) {
-                    optionItems.push(item)
+                    tempItems.push(
+                        optionItems.find(
+                            option =>
+                                option.dimensionItem === item.dimensionItem
+                        )
+                    )
+                } else {
+                    tempItems.push(item)
                 }
             })
-            setItems(tempItems)
+            onChange(tempItems)
         }
     }, [])
 
-    useEffect(() => {
-        if (optionItems && optionItems.length) {
-            setItems(optionItems)
-        }
-    }, [optionItems])
-
     const onAxisChange = (changedItem, newAxis) => {
-        const series = [...items]
+        const series = [...optionItems]
         series.find(
             item => item.dimensionItem == changedItem.dimensionItem
         ).axis = newAxis
@@ -75,7 +74,7 @@ const SeriesTable = ({ layoutItems, optionItems, onChange }) => {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {items.map(item => (
+                    {optionItems.map(item => (
                         <TableRow
                             key={`multiaxis-table-row-${item.dimensionItem}`}
                         >
@@ -100,8 +99,8 @@ const SeriesTable = ({ layoutItems, optionItems, onChange }) => {
         <>
             {layoutItems &&
             Object.keys(layoutItems).length &&
-            items &&
-            items.length
+            optionItems &&
+            optionItems.length
                 ? renderTable()
                 : i18n.t('Series is empty')}
         </>
