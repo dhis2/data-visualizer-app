@@ -21,6 +21,7 @@ import Title from '../../components/VisualizationOptions/Options/Title'
 import HideSubtitle from '../../components/VisualizationOptions/Options/HideSubtitle'
 import Subtitle from '../../components/VisualizationOptions/Options/Subtitle'
 import CompletedOnly from '../../components/VisualizationOptions/Options/CompletedOnly'
+import SeriesTable from '../../components/VisualizationOptions/Options/SeriesTable'
 
 export default [
     {
@@ -65,6 +66,16 @@ export default [
                 key: 'axes-horizontal-axis',
                 label: i18n.t('Horizontal (x) axis'),
                 content: React.Children.toArray([<DomainAxisLabel />]),
+            },
+        ],
+    },
+    {
+        key: 'series-tab',
+        getLabel: () => i18n.t('Series'),
+        content: [
+            {
+                key: 'series-table',
+                content: React.Children.toArray([<SeriesTable />]),
             },
         ],
     },
