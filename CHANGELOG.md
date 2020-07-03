@@ -1,3 +1,10 @@
+## [35.2.3](https://github.com/dhis2/data-visualizer-app/compare/v35.2.2...v35.2.3) (2020-07-03)
+
+
+### Bug Fixes
+
+* avoid unnecessary rerender (TECH-412) ([#1138](https://github.com/dhis2/data-visualizer-app/issues/1138)) ([d4ff1cd](https://github.com/dhis2/data-visualizer-app/commit/d4ff1cd752365b413a82e6fab30244c71ae2a2bd))
+
 ## [35.2.2](https://github.com/dhis2/data-visualizer-app/compare/v35.2.1...v35.2.2) (2020-06-19)
 
 
