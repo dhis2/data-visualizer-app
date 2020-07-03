@@ -54,7 +54,6 @@ const SeriesTable = ({ layoutItems, optionItems, onChange, visType }) => {
         onChange(series)
     }
 
-    // TODO: Add type dropdown
     const renderTable = () => {
         return (
             <Table className={styles.table}>
