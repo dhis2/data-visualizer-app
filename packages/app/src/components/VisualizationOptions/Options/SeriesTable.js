@@ -13,12 +13,21 @@ import {
 
 import styles from '../styles/SeriesTable.module.css'
 import { acSetUiOptions } from '../../../actions/ui'
-import { sGetUiOptions } from '../../../reducers/ui'
+import { sGetUiOptions, sGetUiType } from '../../../reducers/ui'
 import { sGetSeriesSetupItems } from '../../../reducers'
+import { VIS_TYPE_COLUMN, VIS_TYPE_LINE } from '@dhis2/analytics'
 
-const availableAxes = [0, 1, 2, 3]
+const allTypes = [VIS_TYPE_COLUMN, VIS_TYPE_LINE]
+const TYPE_PROP = 'type'
+const AXIS_PROP = 'axis'
 
-const SeriesTable = ({ layoutItems, optionItems, onChange }) => {
+const SeriesTable = ({ layoutItems, optionItems, onChange, visType }) => {
+    const availableAxes = [0, 1, 2, 3]
+    const availableTypes = [
+        visType,
+        ...allTypes.filter(type => type !== visType),
+    ]
+
     useEffect(() => {
         if (!optionItems || !optionItems.length) {
             onChange(layoutItems)
@@ -33,11 +42,11 @@ const SeriesTable = ({ layoutItems, optionItems, onChange }) => {
         }
     }, [])
 
-    const onAxisChange = (changedItem, newAxis) => {
+    const onItemChange = (changedItem, value, prop) => {
         const series = [...optionItems]
-        series.find(
-            item => item.dimensionItem == changedItem.dimensionItem
-        ).axis = newAxis
+        series.find(item => item.dimensionItem == changedItem.dimensionItem)[
+            prop
+        ] = value
         onChange(series)
     }
 
@@ -52,7 +61,8 @@ const SeriesTable = ({ layoutItems, optionItems, onChange }) => {
                 </colgroup>
                 <TableHead>
                     <TableRow>
-                        <TableCell />
+                        <TableCell>{i18n.t('Data item')}</TableCell>
+                        <TableCell>{i18n.t('Chart type')}</TableCell>
                         {availableAxes.map((axis, index) => (
                             <TableCell key={index} className={styles.centered}>
                                 {i18n.t('Axis {{axisId}}', {
@@ -68,11 +78,33 @@ const SeriesTable = ({ layoutItems, optionItems, onChange }) => {
                             key={`multiaxis-table-row-${item.dimensionItem}`}
                         >
                             <TableCell>{item.name}</TableCell>
+                            <TableCell>
+                                {availableTypes.map(type => (
+                                    <>
+                                        <span>{type}</span>
+                                        <Radio
+                                            key={type}
+                                            onChange={() =>
+                                                onItemChange(
+                                                    item,
+                                                    type,
+                                                    TYPE_PROP
+                                                )
+                                            }
+                                            checked={
+                                                item.type
+                                                    ? item.type === type
+                                                    : visType === type
+                                            }
+                                        />
+                                    </>
+                                ))}
+                            </TableCell>
                             {availableAxes.map(axis => (
                                 <TableCell key={axis}>
                                     <Radio
                                         onChange={() =>
-                                            onAxisChange(item, axis)
+                                            onItemChange(item, axis, AXIS_PROP)
                                         }
                                         checked={item.axis === axis}
                                     />
@@ -97,6 +129,7 @@ const SeriesTable = ({ layoutItems, optionItems, onChange }) => {
 }
 
 SeriesTable.propTypes = {
+    visType: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     layoutItems: PropTypes.array,
     optionItems: PropTypes.array,
@@ -105,6 +138,7 @@ SeriesTable.propTypes = {
 const mapStateToProps = state => ({
     layoutItems: sGetSeriesSetupItems(state),
     optionItems: sGetUiOptions(state).series,
+    visType: sGetUiType(state),
 })
 
 const mapDispatchToProps = {
