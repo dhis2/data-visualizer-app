@@ -44,9 +44,13 @@ const SeriesTable = ({ layoutItems, optionItems, onChange, visType }) => {
 
     const onItemChange = (changedItem, value, prop) => {
         const series = [...optionItems]
-        series.find(item => item.dimensionItem == changedItem.dimensionItem)[
-            prop
-        ] = value
+        const item = series.find(
+            item => item.dimensionItem == changedItem.dimensionItem
+        )
+        item[prop] = value
+        if (prop === TYPE_PROP) {
+            item.zIndex = value === VIS_TYPE_LINE ? 1 : undefined
+        }
         onChange(series)
     }
 
@@ -80,7 +84,7 @@ const SeriesTable = ({ layoutItems, optionItems, onChange, visType }) => {
                             <TableCell>{item.name}</TableCell>
                             <TableCell>
                                 {availableTypes.map(type => (
-                                    <>
+                                    <div key={type}>
                                         <span>{type}</span>
                                         <Radio
                                             key={type}
@@ -97,7 +101,7 @@ const SeriesTable = ({ layoutItems, optionItems, onChange, visType }) => {
                                                     : visType === type
                                             }
                                         />
-                                    </>
+                                    </div>
                                 ))}
                             </TableCell>
                             {availableAxes.map(axis => (
