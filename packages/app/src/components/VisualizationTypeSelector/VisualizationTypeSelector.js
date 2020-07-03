@@ -11,10 +11,10 @@ import { Card, Divider, Popper } from '@dhis2/ui'
 
 import { prepareCurrentAnalyticalObject } from '../../modules/currentAnalyticalObject'
 import { getAdaptedUiByType } from '../../modules/ui'
-import { sGetUi, sGetUiType } from '../../reducers/ui'
+import { sGetUi, sGetUiType, sGetUiOptions } from '../../reducers/ui'
 import { sGetCurrent } from '../../reducers/current'
 import { sGetMetadata } from '../../reducers/metadata'
-import { acSetUi } from '../../actions/ui'
+import { acSetUi, acSetUiOptions } from '../../actions/ui'
 import {
     apiSaveAOInUserDataStore,
     CURRENT_AO_KEY,
@@ -27,7 +27,7 @@ import styles from './styles/VisualizationTypeSelector.module.css'
 export const MAPS_APP_URL = 'dhis-web-maps'
 
 export const VisualizationTypeSelector = (
-    { visualizationType, ui, setUi, current, metadata },
+    { visualizationType, ui, uiSeries, setUi, setUiSeries, current, metadata },
     context
 ) => {
     const baseUrl = context.baseUrl
@@ -38,6 +38,15 @@ export const VisualizationTypeSelector = (
 
     const handleListItemClick = type => () => {
         setUi(getAdaptedUiByType({ ...ui, type }))
+        setUiSeries(
+            uiSeries.map(item => {
+                const tempItem = { ...item }
+                if (tempItem.type) {
+                    delete tempItem.type
+                }
+                return tempItem
+            })
+        )
         toggleList()
     }
 
@@ -112,7 +121,9 @@ VisualizationTypeSelector.propTypes = {
     current: PropTypes.object,
     metadata: PropTypes.object,
     setUi: PropTypes.func,
+    setUiSeries: PropTypes.func,
     ui: PropTypes.object,
+    uiSeries: PropTypes.array,
     visualizationType: PropTypes.oneOf(Object.keys(visTypeDisplayNames)),
 }
 
@@ -125,10 +136,12 @@ const mapStateToProps = state => ({
     current: sGetCurrent(state),
     metadata: sGetMetadata(state),
     ui: sGetUi(state),
+    uiSeries: sGetUiOptions(state).series,
 })
 
 const mapDispatchToProps = dispatch => ({
     setUi: ui => dispatch(acSetUi(ui)),
+    setUiSeries: value => dispatch(acSetUiOptions({ series: value })),
 })
 
 export default connect(
