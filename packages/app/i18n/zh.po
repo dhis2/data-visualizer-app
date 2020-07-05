@@ -31,10 +31,10 @@ msgid "Data"
 msgstr "数据"
 
 msgid "Data Type"
-msgstr ""
+msgstr "数据类型"
 
 msgid "Detail"
-msgstr ""
+msgstr "详情"
 
 msgid "Search"
 msgstr "搜索"
@@ -46,10 +46,10 @@ msgid "Period"
 msgstr "周期"
 
 msgid "Selected Data"
-msgstr ""
+msgstr "选择的数据"
 
 msgid "Deselect All"
-msgstr ""
+msgstr "去全选"
 
 msgid "Select All"
 msgstr "全选"
@@ -58,10 +58,10 @@ msgid "Remove"
 msgstr "移除"
 
 msgid "Search dimensions"
-msgstr ""
+msgstr "搜索维度"
 
 msgid "Dimension recommended with selected data"
-msgstr ""
+msgstr "选择的数据的推荐维度"
 
 msgid "Download"
 msgstr "下载"
