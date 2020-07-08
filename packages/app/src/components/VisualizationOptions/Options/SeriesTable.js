@@ -21,7 +21,14 @@ const allTypes = [VIS_TYPE_COLUMN, VIS_TYPE_LINE]
 const TYPE_PROP = 'type'
 const AXIS_PROP = 'axis'
 
-const SeriesTable = ({ layoutItems, optionItems, onChange, visType }) => {
+const SeriesTable = ({
+    layoutItems,
+    optionItems,
+    onChange,
+    visType,
+    showAxisOptions,
+    showTypeOptions,
+}) => {
     const availableAxes = [0, 1, 2, 3]
     const availableTypes = [
         visType,
@@ -55,33 +62,34 @@ const SeriesTable = ({ layoutItems, optionItems, onChange, visType }) => {
         onChange(series)
     }
 
-    const renderTable = () => {
-        return (
-            <Table className={styles.table}>
-                <colgroup>
-                    <col className={styles.nameColumn} />
-                    <col className={styles.coloredColumn} />
-                    <col className={styles.axisColumn} />
-                </colgroup>
-                <TableHead>
-                    <TableRow>
-                        <TableCell>{i18n.t('Data item')}</TableCell>
+    const renderTable = () => (
+        <Table className={styles.table}>
+            <colgroup>
+                <col className={styles.nameColumn} />
+                <col className={styles.coloredColumn} />
+                <col className={styles.axisColumn} />
+            </colgroup>
+            <TableHead>
+                <TableRow>
+                    <TableCell>{i18n.t('Data item')}</TableCell>
+                    {showTypeOptions && (
                         <TableCell>{i18n.t('Chart type')}</TableCell>
-                        {availableAxes.map((axis, index) => (
+                    )}
+                    {showAxisOptions &&
+                        availableAxes.map((axis, index) => (
                             <TableCell key={index} className={styles.centered}>
                                 {i18n.t('Axis {{axisId}}', {
                                     axisId: index + 1,
                                 })}
                             </TableCell>
                         ))}
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {optionItems.map(item => (
-                        <TableRow
-                            key={`multiaxis-table-row-${item.dimensionItem}`}
-                        >
-                            <TableCell>{item.name}</TableCell>
+                </TableRow>
+            </TableHead>
+            <TableBody>
+                {optionItems.map(item => (
+                    <TableRow key={`multiaxis-table-row-${item.dimensionItem}`}>
+                        <TableCell>{item.name}</TableCell>
+                        {showTypeOptions && (
                             <TableCell>
                                 {availableTypes.map(type => (
                                     <div key={type}>
@@ -104,7 +112,9 @@ const SeriesTable = ({ layoutItems, optionItems, onChange, visType }) => {
                                     </div>
                                 ))}
                             </TableCell>
-                            {availableAxes.map(axis => (
+                        )}
+                        {showAxisOptions &&
+                            availableAxes.map(axis => (
                                 <TableCell key={axis}>
                                     <Radio
                                         onChange={() =>
@@ -114,22 +124,26 @@ const SeriesTable = ({ layoutItems, optionItems, onChange, visType }) => {
                                     />
                                 </TableCell>
                             ))}
-                        </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
+                    </TableRow>
+                ))}
+            </TableBody>
+        </Table>
+    )
+    if (!showAxisOptions && !showTypeOptions) {
+        return i18n.t('No Series options') // TODO: Add the proper design here
+    } else {
+        return (
+            <>
+                {layoutItems &&
+                Object.keys(layoutItems).length &&
+                optionItems &&
+                optionItems.length
+                    ? renderTable()
+                    : i18n.t('Series is empty') // TODO: Add the proper design here
+                }
+            </>
         )
     }
-    return (
-        <>
-            {layoutItems &&
-            Object.keys(layoutItems).length &&
-            optionItems &&
-            optionItems.length
-                ? renderTable()
-                : i18n.t('Series is empty')}
-        </>
-    )
 }
 
 SeriesTable.propTypes = {
@@ -137,6 +151,13 @@ SeriesTable.propTypes = {
     onChange: PropTypes.func.isRequired,
     layoutItems: PropTypes.array,
     optionItems: PropTypes.array,
+    showAxisOptions: PropTypes.bool,
+    showTypeOptions: PropTypes.bool,
+}
+
+SeriesTable.defaultProps = {
+    showAxisOptions: false,
+    showTypeOptions: false,
 }
 
 const mapStateToProps = state => ({

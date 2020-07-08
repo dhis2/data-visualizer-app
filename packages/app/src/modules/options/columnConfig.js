@@ -82,7 +82,12 @@ export default [
         content: [
             {
                 key: 'series-table',
-                content: React.Children.toArray([<SeriesTable />]),
+                content: React.Children.toArray([
+                    <SeriesTable
+                        showAxisOptions={true}
+                        showTypeOptions={true}
+                    />,
+                ]),
             },
         ],
     },

@@ -10,6 +10,7 @@ import HideSubtitle from '../../components/VisualizationOptions/Options/HideSubt
 import AxisRange from '../../components/VisualizationOptions/Options/AxisRange'
 import Legend from '../../components/VisualizationOptions/Options/Legend'
 import CompletedOnly from '../../components/VisualizationOptions/Options/CompletedOnly'
+import SeriesTable from '../../components/VisualizationOptions/Options/SeriesTable'
 
 export default [
     {
@@ -49,6 +50,16 @@ export default [
                 key: 'axes-vertical-axis',
                 getLabel: () => i18n.t('Vertical (y) axis'),
                 content: React.Children.toArray([<AxisRange />]),
+            },
+        ],
+    },
+    {
+        key: 'series-tab',
+        getLabel: () => i18n.t('Series'),
+        content: [
+            {
+                key: 'series-table',
+                content: React.Children.toArray([<SeriesTable />]),
             },
         ],
     },
