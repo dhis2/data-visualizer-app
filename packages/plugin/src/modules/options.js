@@ -86,6 +86,7 @@ export const options = {
     sortOrder: { defaultValue: '0', requestable: false, savable: true },
     subtitle: { defaultValue: undefined, requestable: false, savable: true },
     title: { defaultValue: undefined, requestable: false, savable: true },
+    series: { defaultValue: [], requestable: false, savable: true },
 
     // only for PT
     colTotals: { defaultValue: false, requestable: false, savable: true },
