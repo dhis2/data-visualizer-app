@@ -36,6 +36,10 @@ const SeriesTable = ({ layoutItems, optionItems, onChange, visType }) => {
                 const matchedItem = optionItems.find(
                     option => option.dimensionItem === item.dimensionItem
                 )
+                if (matchedItem) {
+                    matchedItem.name = item.name
+                }
+
                 return matchedItem || item
             })
             onChange(matchedItems)
