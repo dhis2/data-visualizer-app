@@ -52,9 +52,6 @@ const SeriesTable = ({ layoutItems, optionItems, onChange, visType }) => {
             item => item.dimensionItem == changedItem.dimensionItem
         )
         item[prop] = value
-        if (prop === TYPE_PROP) {
-            item.zIndex = value === VIS_TYPE_LINE ? 1 : undefined
-        }
         onChange(series)
     }
 
