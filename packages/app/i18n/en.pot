@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-07-02T08:23:19.716Z\n"
-"PO-Revision-Date: 2020-07-02T08:23:19.716Z\n"
+"POT-Creation-Date: 2020-07-08T19:40:15.848Z\n"
+"PO-Revision-Date: 2020-07-08T19:40:15.848Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -492,6 +492,15 @@ msgstr ""
 msgid "Series is empty"
 msgstr ""
 
+msgid "Options for selected items will be available here"
+msgstr ""
+
+msgid "No Series options"
+msgstr ""
+
+msgid "There aren't any Series options for this chart type"
+msgstr ""
+
 msgid "Value labels"
 msgstr ""
 
@@ -743,6 +752,9 @@ msgstr ""
 msgid "Horizontal (x) axis"
 msgstr ""
 
+msgid "Series"
+msgstr ""
+
 msgid "Style"
 msgstr ""
 
@@ -750,9 +762,6 @@ msgid "Display"
 msgstr ""
 
 msgid "Lines"
-msgstr ""
-
-msgid "Series"
 msgstr ""
 
 msgid "Chart style"

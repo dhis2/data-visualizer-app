@@ -10,12 +10,13 @@ import {
     TableBody,
     Radio,
 } from '@dhis2/ui'
+import { VIS_TYPE_COLUMN, VIS_TYPE_LINE } from '@dhis2/analytics'
 
 import styles from '../styles/SeriesTable.module.css'
 import { acSetUiOptions } from '../../../actions/ui'
 import { sGetUiOptions, sGetUiType } from '../../../reducers/ui'
 import { sGetSeriesSetupItems } from '../../../reducers'
-import { VIS_TYPE_COLUMN, VIS_TYPE_LINE } from '@dhis2/analytics'
+import { EmptySeries, EmptyBox } from '../../../assets/ErrorIcons'
 
 const allTypes = [VIS_TYPE_COLUMN, VIS_TYPE_LINE]
 const TYPE_PROP = 'type'
@@ -129,20 +130,38 @@ const SeriesTable = ({
             </TableBody>
         </Table>
     )
-    if (!showAxisOptions && !showTypeOptions) {
-        return i18n.t('No Series options') // TODO: Add the proper design here
-    } else {
-        return (
-            <>
-                {layoutItems &&
-                Object.keys(layoutItems).length &&
-                optionItems &&
-                optionItems.length
-                    ? renderTable()
-                    : i18n.t('Series is empty') // TODO: Add the proper design here
-                }
-            </>
+
+    const renderError = (title, description, icon) => (
+        <div className={styles.errorContainer}>
+            <div className={styles.errorIcon}>{icon}</div>
+            <p className={styles.errorTitle}>{title}</p>
+            <p className={styles.errorDescription}>{description}</p>
+        </div>
+    )
+
+    const renderEmptySeriesError = () =>
+        renderError(
+            i18n.t('Series is empty'),
+            i18n.t('Options for selected items will be available here'),
+            EmptySeries()
         )
+
+    const renderNoSeriesOptionsError = () =>
+        renderError(
+            i18n.t('No Series options'),
+            i18n.t("There aren't any Series options for this chart type"),
+            EmptyBox()
+        )
+
+    if (!showAxisOptions && !showTypeOptions) {
+        return renderNoSeriesOptionsError()
+    } else {
+        return layoutItems &&
+            Object.keys(layoutItems).length &&
+            optionItems &&
+            optionItems.length
+            ? renderTable()
+            : renderEmptySeriesError()
     }
 }
 
