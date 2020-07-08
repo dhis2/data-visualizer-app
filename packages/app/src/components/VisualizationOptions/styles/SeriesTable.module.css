@@ -1,18 +1,35 @@
-.table label {
-    justify-content: center;
-}
 .nameColumn {
-    width: 70%;
+    width: 45%;
 }
-.axisColumn {
-    width: 15%;
+.typeColumn {
+    width: 25%;
 }
-.coloredColumn {
-    background-color: var(--colors-grey100);
+
+.tableHead {
+    background-color: var(--colors-grey200);
 }
-.centered {
-    text-align: center;
+
+.tableHead .tableCell {
+    padding: var(--spacers-dp8);
+    line-height: normal;
+    height: auto;
+    vertical-align: unset;
 }
+
+.typeContainer {
+    display: inline-block;
+}
+
+.typeContainer:not(:last-child) {
+    margin-right: var(--spacers-dp16);
+}
+
+.axisIcon {
+    display: flex;
+    justify-content: center;
+    padding-top: var(--spacers-dp4);
+}
+
 .errorContainer {
     min-height: 450px;
     justify-content: center;

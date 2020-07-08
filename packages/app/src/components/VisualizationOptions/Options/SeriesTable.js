@@ -17,6 +17,14 @@ import { acSetUiOptions } from '../../../actions/ui'
 import { sGetUiOptions, sGetUiType } from '../../../reducers/ui'
 import { sGetSeriesSetupItems } from '../../../reducers'
 import { EmptySeries, EmptyBox } from '../../../assets/ErrorIcons'
+import {
+    AxisOne,
+    AxisTwo,
+    AxisThree,
+    AxisFour,
+} from '../../../assets/AxisIcons'
+import ColumnIcon from '../../../assets/ColumnIcon' // TODO: Replace this and the Line icon with new ones from @joecooper
+import LineIcon from '../../../assets/LineIcon'
 
 const allTypes = [VIS_TYPE_COLUMN, VIS_TYPE_LINE]
 const TYPE_PROP = 'type'
@@ -63,25 +71,33 @@ const SeriesTable = ({
         onChange(series)
     }
 
+    // TODO: Remove zebra striping from table
     const renderTable = () => (
         <Table className={styles.table}>
             <colgroup>
                 <col className={styles.nameColumn} />
-                <col className={styles.coloredColumn} />
+                <col className={styles.typeColumn} />
                 <col className={styles.axisColumn} />
             </colgroup>
-            <TableHead>
-                <TableRow>
-                    <TableCell>{i18n.t('Data item')}</TableCell>
+            <TableHead className={styles.tableHead}>
+                <TableRow className={styles.tableRow}>
+                    <TableCell className={styles.tableCell}>
+                        {i18n.t('Data item')}
+                    </TableCell>
                     {showTypeOptions && (
-                        <TableCell>{i18n.t('Chart type')}</TableCell>
+                        <TableCell className={styles.tableCell}>
+                            {i18n.t('Chart type')}
+                        </TableCell>
                     )}
                     {showAxisOptions &&
                         availableAxes.map((axis, index) => (
-                            <TableCell key={index} className={styles.centered}>
+                            <TableCell key={index} className={styles.tableCell}>
                                 {i18n.t('Axis {{axisId}}', {
                                     axisId: index + 1,
                                 })}
+                                <div className={styles.axisIcon}>
+                                    {renderAxisIcon(index + 1)}
+                                </div>
                             </TableCell>
                         ))}
                 </TableRow>
@@ -93,8 +109,10 @@ const SeriesTable = ({
                         {showTypeOptions && (
                             <TableCell>
                                 {availableTypes.map(type => (
-                                    <div key={type}>
-                                        <span>{type}</span>
+                                    <div
+                                        className={styles.typeContainer}
+                                        key={type}
+                                    >
                                         <Radio
                                             key={type}
                                             onChange={() =>
@@ -109,6 +127,7 @@ const SeriesTable = ({
                                                     ? item.type === type
                                                     : visType === type
                                             }
+                                            label={renderTypeIcon(type)}
                                         />
                                     </div>
                                 ))}
@@ -130,6 +149,28 @@ const SeriesTable = ({
             </TableBody>
         </Table>
     )
+
+    const renderTypeIcon = type => {
+        switch (type) {
+            case VIS_TYPE_LINE:
+                return <LineIcon />
+            case VIS_TYPE_COLUMN:
+                return <ColumnIcon />
+        }
+    }
+
+    const renderAxisIcon = axis => {
+        switch (axis) {
+            case 1:
+                return <AxisOne />
+            case 2:
+                return <AxisTwo />
+            case 3:
+                return <AxisThree />
+            case 4:
+                return <AxisFour />
+        }
+    }
 
     const renderError = (title, description, icon) => (
         <div className={styles.errorContainer}>
