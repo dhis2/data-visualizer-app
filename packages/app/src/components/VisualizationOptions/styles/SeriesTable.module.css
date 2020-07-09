@@ -16,12 +16,24 @@
     vertical-align: unset;
 }
 
+.tableBody .itemName {
+    padding-left: var(--spacers-dp8);
+    padding-right: var(--spacers-dp8);
+}
+
 .typeContainer {
     display: inline-block;
 }
 
 .typeContainer:not(:last-child) {
     margin-right: var(--spacers-dp16);
+}
+
+.visIcon {
+    height: 18px;
+}
+.visIcon svg {
+    height: 18px;
 }
 
 .axisIcon {

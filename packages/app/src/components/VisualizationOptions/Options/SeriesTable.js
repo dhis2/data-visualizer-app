@@ -10,7 +10,7 @@ import {
     TableBody,
     Radio,
 } from '@dhis2/ui'
-import { VIS_TYPE_COLUMN, VIS_TYPE_LINE } from '@dhis2/analytics'
+import { VIS_TYPE_COLUMN, VIS_TYPE_LINE, visTypeIcons } from '@dhis2/analytics'
 
 import styles from '../styles/SeriesTable.module.css'
 import { acSetUiOptions } from '../../../actions/ui'
@@ -23,8 +23,6 @@ import {
     AxisThree,
     AxisFour,
 } from '../../../assets/AxisIcons'
-import ColumnIcon from '../../../assets/ColumnIcon' // TODO: Replace this and the Line icon with new ones from @joecooper
-import LineIcon from '../../../assets/LineIcon'
 
 const allTypes = [VIS_TYPE_COLUMN, VIS_TYPE_LINE]
 const TYPE_PROP = 'type'
@@ -102,18 +100,21 @@ const SeriesTable = ({
                         ))}
                 </TableRow>
             </TableHead>
-            <TableBody>
+            <TableBody className={styles.tableBody}>
                 {optionItems.map(item => (
                     <TableRow key={`multiaxis-table-row-${item.dimensionItem}`}>
-                        <TableCell>{item.name}</TableCell>
+                        <TableCell className={styles.itemName}>
+                            {item.name}
+                        </TableCell>
                         {showTypeOptions && (
-                            <TableCell>
+                            <TableCell className={styles.itemType}>
                                 {availableTypes.map(type => (
                                     <div
                                         className={styles.typeContainer}
                                         key={type}
                                     >
                                         <Radio
+                                            className={styles.radioInput}
                                             key={type}
                                             onChange={() =>
                                                 onItemChange(
@@ -127,7 +128,13 @@ const SeriesTable = ({
                                                     ? item.type === type
                                                     : visType === type
                                             }
-                                            label={renderTypeIcon(type)}
+                                            label={
+                                                <span
+                                                    className={styles.visIcon}
+                                                >
+                                                    {visTypeIcons[type]}
+                                                </span>
+                                            }
                                         />
                                     </div>
                                 ))}
@@ -135,7 +142,10 @@ const SeriesTable = ({
                         )}
                         {showAxisOptions &&
                             availableAxes.map(axis => (
-                                <TableCell key={axis}>
+                                <TableCell
+                                    key={axis}
+                                    className={styles.itemAxis}
+                                >
                                     <Radio
                                         onChange={() =>
                                             onItemChange(item, axis, AXIS_PROP)
@@ -149,15 +159,6 @@ const SeriesTable = ({
             </TableBody>
         </Table>
     )
-
-    const renderTypeIcon = type => {
-        switch (type) {
-            case VIS_TYPE_LINE:
-                return <LineIcon />
-            case VIS_TYPE_COLUMN:
-                return <ColumnIcon />
-        }
-    }
 
     const renderAxisIcon = axis => {
         switch (axis) {
