@@ -1,6 +1,7 @@
 .nameColumn {
     width: 45%;
 }
+
 .typeColumn {
     width: 25%;
 }
@@ -32,6 +33,7 @@
 .visIcon {
     height: 18px;
 }
+
 .visIcon svg {
     height: 18px;
 }
@@ -50,11 +52,13 @@
     align-items: center;
     text-align: center;
 }
+
 .errorIcon {
     width: 136px;
     height: 136px;
     margin: 0 auto var(--spacers-dp24);
 }
+
 .errorTitle {
     font-weight: 500;
     font-size: 20px;
@@ -64,6 +68,7 @@
     width: 360px;
     margin: 0 auto var(--spacers-dp12);
 }
+
 .errorDescription {
     font-weight: 400;
     font-size: 14px;
