@@ -58,7 +58,7 @@ const ChartPlugin = ({
     }, [visualization, responses, extraOptions])
 
     useEffect(() => {
-        renderVisualization(0)
+        renderCounter !== null && renderVisualization(0)
 
         /* eslint-disable-next-line react-hooks/exhaustive-deps */
     }, [renderCounter, style])
