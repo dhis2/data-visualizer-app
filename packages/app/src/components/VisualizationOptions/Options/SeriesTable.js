@@ -82,11 +82,11 @@ const SeriesTable = ({
                     <TableCell className={styles.tableCell}>
                         {i18n.t('Data item')}
                     </TableCell>
-                    {showTypeOptions && (
-                        <TableCell className={styles.tableCell}>
-                            {i18n.t('Chart type')}
-                        </TableCell>
-                    )}
+
+                    <TableCell className={styles.tableCell}>
+                        {showTypeOptions && i18n.t('Chart type')}
+                    </TableCell>
+
                     {showAxisOptions &&
                         availableAxes.map((axis, index) => (
                             <TableCell key={index} className={styles.tableCell}>
@@ -106,9 +106,9 @@ const SeriesTable = ({
                         <TableCell className={styles.itemName}>
                             {item.name}
                         </TableCell>
-                        {showTypeOptions && (
-                            <TableCell className={styles.itemType}>
-                                {availableTypes.map(type => (
+                        <TableCell className={styles.itemType}>
+                            {showTypeOptions &&
+                                availableTypes.map(type => (
                                     <div
                                         className={styles.typeContainer}
                                         key={type}
@@ -138,8 +138,7 @@ const SeriesTable = ({
                                         />
                                     </div>
                                 ))}
-                            </TableCell>
-                        )}
+                        </TableCell>
                         {showAxisOptions &&
                             availableAxes.map(axis => (
                                 <TableCell
