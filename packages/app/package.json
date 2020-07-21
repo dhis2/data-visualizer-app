@@ -18,7 +18,7 @@
         "@dhis2/d2-ui-file-menu": "^7.0.4",
         "@dhis2/d2-ui-interpretations": "^7.0.4",
         "@dhis2/data-visualizer-plugin": "35.2.3",
-        "@dhis2/ui": "^5.0.7",
+        "@dhis2/ui": "^5.1.2",
         "@material-ui/icons": "^3.0.1",
         "d2": "31.8.1",
         "history": "^4.7.2",
@@ -34,7 +34,7 @@
         "redux-logger": "^3.0.6",
         "redux-thunk": "^2.2.0",
         "reselect": "^4.0.0",
-        "whatwg-fetch": "^3.1.1"
+        "whatwg-fetch": "^3.2.0"
     },
     "scripts": {
         "start": "d2-app-scripts start",
