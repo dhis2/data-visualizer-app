@@ -49,8 +49,8 @@ export default [
                 key: 'data-advanced',
                 getLabel: () => i18n.t('Advanced'),
                 content: React.Children.toArray([
-                    <CompletedOnly />,
                     <AggregationType />,
+                    <CompletedOnly />,
                 ]),
             },
         ],
