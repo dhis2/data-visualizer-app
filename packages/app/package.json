@@ -28,7 +28,7 @@
         "react": "^16.13",
         "react-beautiful-dnd": "^13.0.0",
         "react-dom": "^16.13",
-        "react-redux": "^5.1.0",
+        "react-redux": "^7.2.0",
         "redux": "^4.0.5",
         "redux-actions": "^2.2.1",
         "redux-logger": "^3.0.6",
