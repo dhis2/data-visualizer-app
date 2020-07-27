@@ -31,7 +31,6 @@ export default [
                 key: 'data-display',
                 getLabel: () => i18n.t('Display'),
                 content: React.Children.toArray([
-                    <ShowData />,
                     <PercentStackedValues />,
                     <CumulativeValues />,
                     <HideEmptyRowItems />,
@@ -86,6 +85,7 @@ export default [
                 key: 'style-chart-style',
                 getLabel: () => i18n.t('Chart style'),
                 content: React.Children.toArray([
+                    <ShowData />,
                     <NoSpaceBetweenColumns />,
                     <HideLegend />,
                     /* TODO new option <BackgroundLines /> */
