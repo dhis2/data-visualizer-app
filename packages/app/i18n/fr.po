@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-06-02T04:24:38.833Z\n"
+"POT-Creation-Date: 2020-07-21T09:20:20.828Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Edem Kossi <ekossi@hispwca.org>, 2020\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -255,9 +255,8 @@ msgstr ""
 msgid "Aggregation type"
 msgstr "Type d'agrégation"
 
-msgid "Determines how the values in the pivot table are aggregated."
+msgid "Overrides aggregation type for all data values."
 msgstr ""
-"Détermine comment les valeurs du tableau croisé dynamique sont agrégées."
 
 msgid "By data element"
 msgstr "Par élément de donnée"
@@ -401,8 +400,8 @@ msgstr "Tout"
 msgid "Hide empty rows"
 msgstr "Cacher lignes vides"
 
-msgid "Legend key"
-msgstr "Touche de légende"
+msgid "Show legend key"
+msgstr ""
 
 msgid "Table subtitle"
 msgstr "Sous-titre du tableau"
@@ -789,6 +788,12 @@ msgstr "Org unit petites-filles de l'utilisateur"
 msgid "Data"
 msgstr "Données"
 
+msgid "Display"
+msgstr "Afficher"
+
+msgid "Lines"
+msgstr "Lignes"
+
 msgid "Axes"
 msgstr ""
 
@@ -800,12 +805,6 @@ msgstr ""
 
 msgid "Style"
 msgstr "Style"
-
-msgid "Display"
-msgstr "Afficher"
-
-msgid "Lines"
-msgstr "Lignes"
 
 msgid "Chart style"
 msgstr ""

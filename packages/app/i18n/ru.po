@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-06-02T04:24:38.833Z\n"
+"POT-Creation-Date: 2020-07-21T09:20:20.828Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
@@ -237,7 +237,7 @@ msgstr ""
 msgid "Aggregation type"
 msgstr "Тип агрегирования"
 
-msgid "Determines how the values in the pivot table are aggregated."
+msgid "Overrides aggregation type for all data values."
 msgstr ""
 
 msgid "By data element"
@@ -383,7 +383,7 @@ msgstr "Все"
 msgid "Hide empty rows"
 msgstr "Скрыть незаполненные строки"
 
-msgid "Legend key"
+msgid "Show legend key"
 msgstr ""
 
 msgid "Table subtitle"
@@ -752,6 +752,12 @@ msgstr "Потомки 2го уровня пользовательской ор�
 msgid "Data"
 msgstr "Данные"
 
+msgid "Display"
+msgstr "Показать"
+
+msgid "Lines"
+msgstr ""
+
 msgid "Axes"
 msgstr "Оси"
 
@@ -763,12 +769,6 @@ msgstr ""
 
 msgid "Style"
 msgstr "Стиль"
-
-msgid "Display"
-msgstr "Показать"
-
-msgid "Lines"
-msgstr ""
 
 msgid "Chart style"
 msgstr ""
