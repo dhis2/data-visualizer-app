@@ -17,9 +17,7 @@ import RangeAxisLabel from '../../components/VisualizationOptions/Options/RangeA
 import DomainAxisLabel from '../../components/VisualizationOptions/Options/DomainAxisLabel'
 import HideLegend from '../../components/VisualizationOptions/Options/HideLegend'
 import HideTitle from '../../components/VisualizationOptions/Options/HideTitle'
-import Title from '../../components/VisualizationOptions/Options/Title'
 import HideSubtitle from '../../components/VisualizationOptions/Options/HideSubtitle'
-import Subtitle from '../../components/VisualizationOptions/Options/Subtitle'
 import CompletedOnly from '../../components/VisualizationOptions/Options/CompletedOnly'
 
 export default [
@@ -28,22 +26,30 @@ export default [
         getLabel: () => i18n.t('Data'),
         content: [
             {
-                key: 'data-section-1',
+                key: 'data-display',
+                getLabel: () => i18n.t('Display'),
                 content: React.Children.toArray([
-                    <ShowData />,
                     <CumulativeValues />,
                     <HideEmptyRowItems />,
+                    <SortOrder />,
+                ]),
+            },
+            {
+                key: 'data-lines',
+                getLabel: () => i18n.t('Lines'),
+                content: React.Children.toArray([
                     <RegressionType />,
                     <TargetLine />,
                     <BaseLine />,
-                    <SortOrder />,
-                    <AggregationType />,
                 ]),
             },
             {
                 key: 'data-advanced',
                 getLabel: () => i18n.t('Advanced'),
-                content: React.Children.toArray([<CompletedOnly />]),
+                content: React.Children.toArray([
+                    <AggregationType />,
+                    <CompletedOnly />,
+                ]),
             },
         ],
     },
@@ -53,7 +59,7 @@ export default [
         content: [
             {
                 key: 'axes-vertical-axis',
-                label: i18n.t('Vertical (y) axis'),
+                getLabel: () => i18n.t('Vertical (y) axis'),
                 content: React.Children.toArray([
                     <RangeAxisLabel />,
                     <AxisRange />,
@@ -63,7 +69,7 @@ export default [
             },
             {
                 key: 'axes-horizontal-axis',
-                label: i18n.t('Horizontal (x) axis'),
+                getLabel: () => i18n.t('Horizontal (x) axis'),
                 content: React.Children.toArray([<DomainAxisLabel />]),
             },
         ],
@@ -73,12 +79,15 @@ export default [
         getLabel: () => i18n.t('Style'),
         content: [
             {
-                key: 'style-section-1',
+                key: 'style-chart-style',
+                getLabel: () => i18n.t('Chart style'),
+                content: React.Children.toArray([<ShowData />, <HideLegend />]),
+            },
+            {
+                key: 'style-titles',
+                getLabel: () => i18n.t('Titles'),
                 content: React.Children.toArray([
-                    <HideLegend />,
-                    <Title />,
                     <HideTitle />,
-                    <Subtitle />,
                     <HideSubtitle />,
                 ]),
             },
