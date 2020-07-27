@@ -69,9 +69,8 @@ const SeriesTable = ({
         onChange(series)
     }
 
-    // TODO: Remove zebra striping from table
     const renderTable = () => (
-        <Table className={styles.table}>
+        <Table suppressZebraStriping className={styles.table}>
             <colgroup>
                 <col className={styles.nameColumn} />
                 <col className={styles.typeColumn} />
