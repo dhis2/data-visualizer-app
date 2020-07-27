@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-07-21T07:25:00.802Z\n"
-"PO-Revision-Date: 2020-07-21T07:25:00.802Z\n"
+"POT-Creation-Date: 2020-07-21T09:20:20.828Z\n"
+"PO-Revision-Date: 2020-07-21T09:20:20.828Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -739,6 +739,12 @@ msgstr ""
 msgid "Data"
 msgstr ""
 
+msgid "Display"
+msgstr ""
+
+msgid "Lines"
+msgstr ""
+
 msgid "Axes"
 msgstr ""
 
@@ -749,12 +755,6 @@ msgid "Horizontal (x) axis"
 msgstr ""
 
 msgid "Style"
-msgstr ""
-
-msgid "Display"
-msgstr ""
-
-msgid "Lines"
 msgstr ""
 
 msgid "Chart style"
