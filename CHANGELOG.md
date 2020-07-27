@@ -1,3 +1,10 @@
+## [35.2.4](https://github.com/dhis2/data-visualizer-app/compare/v35.2.3...v35.2.4) (2020-07-27)
+
+
+### Bug Fixes
+
+* reorder options for consistency (DHIS2-9004) ([#1153](https://github.com/dhis2/data-visualizer-app/issues/1153)) ([519b0ba](https://github.com/dhis2/data-visualizer-app/commit/519b0bab3d0958649186073b249d05eb0fa7d85c))
+
 ## [35.2.3](https://github.com/dhis2/data-visualizer-app/compare/v35.2.2...v35.2.3) (2020-07-03)
 
 
