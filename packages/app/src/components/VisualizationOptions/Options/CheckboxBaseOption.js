@@ -6,14 +6,24 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { sGetUiOptions } from '../../../reducers/ui';
 import { acSetUiOptions } from '../../../actions/ui';
 
-export const CheckboxBaseOption = ({ className, option, value, onChange }) => (
+export const CheckboxBaseOption = ({
+    className,
+    option,
+    value,
+    onChange,
+    inverted,
+}) => (
     <FormControlLabel
         className={className}
         control={
             <Checkbox
-                checked={value}
+                checked={inverted ? !value : value}
                 color={'primary'}
-                onChange={event => onChange(event.target.checked)}
+                onChange={event =>
+                    onChange(
+                        inverted ? !event.target.checked : event.target.checked
+                    )
+                }
             />
         }
         label={option.label}
@@ -22,6 +32,7 @@ export const CheckboxBaseOption = ({ className, option, value, onChange }) => (
 
 CheckboxBaseOption.propTypes = {
     className: PropTypes.string,
+    inverted: PropTypes.bool,
     option: PropTypes.object,
     value: PropTypes.bool,
     onChange: PropTypes.func,

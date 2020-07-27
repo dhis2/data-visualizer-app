@@ -6,8 +6,9 @@ const HideLegend = () => (
     <CheckboxBaseOption
         option={{
             name: 'hideLegend',
-            label: i18n.t('Hide chart legend'),
+            label: i18n.t('Show legend key'),
         }}
+        inverted
     />
 );
 
