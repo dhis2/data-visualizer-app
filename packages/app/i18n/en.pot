@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-07-08T19:40:15.848Z\n"
-"PO-Revision-Date: 2020-07-08T19:40:15.848Z\n"
+"POT-Creation-Date: 2020-07-27T07:45:29.024Z\n"
+"PO-Revision-Date: 2020-07-27T07:45:29.024Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -483,7 +483,7 @@ msgstr ""
 msgid "Data item"
 msgstr ""
 
-msgid "Chart type"
+msgid "Visualization type"
 msgstr ""
 
 msgid "Axis {{axisId}}"
@@ -498,7 +498,7 @@ msgstr ""
 msgid "No Series options"
 msgstr ""
 
-msgid "There aren't any Series options for this chart type"
+msgid "There aren't any Series options for this visualization type"
 msgstr ""
 
 msgid "Value labels"

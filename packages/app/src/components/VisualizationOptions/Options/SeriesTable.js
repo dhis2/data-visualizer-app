@@ -84,7 +84,7 @@ const SeriesTable = ({
                     </TableCell>
 
                     <TableCell className={styles.tableCell}>
-                        {showTypeOptions && i18n.t('Chart type')}
+                        {showTypeOptions && i18n.t('Visualization type')}
                     </TableCell>
 
                     {showAxisOptions &&
@@ -190,7 +190,9 @@ const SeriesTable = ({
     const renderNoSeriesOptionsError = () =>
         renderError(
             i18n.t('No Series options'),
-            i18n.t("There aren't any Series options for this chart type"),
+            i18n.t(
+                "There aren't any Series options for this visualization type"
+            ),
             EmptyBox()
         )
 
