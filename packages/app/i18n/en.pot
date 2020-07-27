@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-05-18T23:27:07.844Z\n"
-"PO-Revision-Date: 2020-05-18T23:27:07.844Z\n"
+"POT-Creation-Date: 2020-09-09T09:35:45.664Z\n"
+"PO-Revision-Date: 2020-09-09T09:35:45.664Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -220,7 +220,7 @@ msgstr ""
 msgid "All"
 msgstr ""
 
-msgid "Hide chart legend"
+msgid "Show legend key"
 msgstr ""
 
 msgid "Hide subtitle"
@@ -385,9 +385,6 @@ msgstr ""
 msgid "Please add at least one period as {{series}}, {{category}} or {{filter}}"
 msgstr ""
 
-msgid "Please add {{data}} as {{category}} or {{filter}}"
-msgstr ""
-
 msgid "Please add at least one period as {{series}} or {{filter}}"
 msgstr ""
 
@@ -395,9 +392,6 @@ msgid "Please add at least one {{filter}} dimension"
 msgstr ""
 
 msgid "Please add at least one period as a {{series}} dimension"
-msgstr ""
-
-msgid "Please add at least one period as a {{category}} dimension"
 msgstr ""
 
 msgid "Please add {{data}} as a filter dimension"
