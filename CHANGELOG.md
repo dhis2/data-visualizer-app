@@ -1,3 +1,10 @@
+## [35.2.6](https://github.com/dhis2/data-visualizer-app/compare/v35.2.5...v35.2.6) (2020-07-27)
+
+
+### Bug Fixes
+
+* change help text for aggregation type ([#1151](https://github.com/dhis2/data-visualizer-app/issues/1151)) ([d321577](https://github.com/dhis2/data-visualizer-app/commit/d321577891b62381b8eb6aa28366d7afb5043fcf))
+
 ## [35.2.5](https://github.com/dhis2/data-visualizer-app/compare/v35.2.4...v35.2.5) (2020-07-27)
 
 
