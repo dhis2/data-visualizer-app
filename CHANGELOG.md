@@ -1,3 +1,10 @@
+## [35.2.8](https://github.com/dhis2/data-visualizer-app/compare/v35.2.7...v35.2.8) (2020-07-28)
+
+
+### Bug Fixes
+
+* set visualization type selector z-index ([#1150](https://github.com/dhis2/data-visualizer-app/issues/1150)) ([9af9bda](https://github.com/dhis2/data-visualizer-app/commit/9af9bdacd5184c161959f92de8924d2551967b1d))
+
 ## [35.2.7](https://github.com/dhis2/data-visualizer-app/compare/v35.2.6...v35.2.7) (2020-07-27)
 
 
