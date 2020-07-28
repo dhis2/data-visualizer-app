@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-06-02T04:24:38.833Z\n"
+"POT-Creation-Date: 2020-07-21T09:20:20.828Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Ge Joao <gsimango@saudigitus.org>, 2020\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
@@ -250,8 +250,8 @@ msgstr "Seus gráficos e tabelas mais vistos"
 msgid "Aggregation type"
 msgstr "Tipo de agregacão"
 
-msgid "Determines how the values in the pivot table are aggregated."
-msgstr "Determina como os valores na tabela dinâmica são agregados."
+msgid "Overrides aggregation type for all data values."
+msgstr ""
 
 msgid "By data element"
 msgstr "Por elemento de dado"
@@ -394,8 +394,8 @@ msgstr "Tudo"
 msgid "Hide empty rows"
 msgstr "Esconder linhas vazias"
 
-msgid "Legend key"
-msgstr "chave da legenda"
+msgid "Show legend key"
+msgstr ""
 
 msgid "Table subtitle"
 msgstr "Subtitulo da tabela"
@@ -779,6 +779,12 @@ msgstr "Filhos da unidade organizacional do usuário"
 msgid "Data"
 msgstr "Dados"
 
+msgid "Display"
+msgstr "Exibir"
+
+msgid "Lines"
+msgstr "Linhas "
+
 msgid "Axes"
 msgstr "Machados"
 
@@ -790,12 +796,6 @@ msgstr "Eixo Horizontal (x) "
 
 msgid "Style"
 msgstr "Estilo"
-
-msgid "Display"
-msgstr "Exibir"
-
-msgid "Lines"
-msgstr "Linhas "
 
 msgid "Chart style"
 msgstr "Estilo de graficos"

@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-06-02T04:24:38.833Z\n"
+"POT-Creation-Date: 2020-07-21T09:20:20.828Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
@@ -243,8 +243,8 @@ msgstr "Biểu đồ và bảng được xem nhiều nhất của bạn"
 msgid "Aggregation type"
 msgstr "Kiểu tổng hợp"
 
-msgid "Determines how the values in the pivot table are aggregated."
-msgstr "Xác định cách các giá trị trong bảng xoay được tổng hợp"
+msgid "Overrides aggregation type for all data values."
+msgstr ""
 
 msgid "By data element"
 msgstr "Theo Phần Tử Dữ Liệu"
@@ -387,8 +387,8 @@ msgstr "Tất cả"
 msgid "Hide empty rows"
 msgstr "Ẩn dòng rỗng"
 
-msgid "Legend key"
-msgstr "Khóa chú giải"
+msgid "Show legend key"
+msgstr ""
 
 msgid "Table subtitle"
 msgstr "Tiêu đề phụ của bảng"
@@ -767,6 +767,12 @@ msgstr "Đơn vị cháu của người dùng"
 msgid "Data"
 msgstr "Lấy dữ liệu"
 
+msgid "Display"
+msgstr "Hiển thị"
+
+msgid "Lines"
+msgstr "Các đường"
+
 msgid "Axes"
 msgstr "Trục"
 
@@ -778,12 +784,6 @@ msgstr "Trục ngang (x)"
 
 msgid "Style"
 msgstr "Kiểu dáng"
-
-msgid "Display"
-msgstr "Hiển thị"
-
-msgid "Lines"
-msgstr "Các đường"
 
 msgid "Chart style"
 msgstr "Dạng biểu đồ"

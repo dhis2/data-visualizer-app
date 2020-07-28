@@ -1,3 +1,24 @@
+## [35.2.7](https://github.com/dhis2/data-visualizer-app/compare/v35.2.6...v35.2.7) (2020-07-27)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([5c9fe2f](https://github.com/dhis2/data-visualizer-app/commit/5c9fe2f915c02981fe5a225abd3ce8246f8f61c9))
+
+## [35.2.6](https://github.com/dhis2/data-visualizer-app/compare/v35.2.5...v35.2.6) (2020-07-27)
+
+
+### Bug Fixes
+
+* change help text for aggregation type ([#1151](https://github.com/dhis2/data-visualizer-app/issues/1151)) ([d321577](https://github.com/dhis2/data-visualizer-app/commit/d321577891b62381b8eb6aa28366d7afb5043fcf))
+
+## [35.2.5](https://github.com/dhis2/data-visualizer-app/compare/v35.2.4...v35.2.5) (2020-07-27)
+
+
+### Bug Fixes
+
+* rename and invert the hide legend option ([#1152](https://github.com/dhis2/data-visualizer-app/issues/1152)) ([0d6e163](https://github.com/dhis2/data-visualizer-app/commit/0d6e163a2a5337b1c9652c4e3a5637653de485a3))
+
 ## [35.2.4](https://github.com/dhis2/data-visualizer-app/compare/v35.2.3...v35.2.4) (2020-07-27)
 
 
