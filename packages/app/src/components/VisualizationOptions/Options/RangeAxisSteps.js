@@ -8,7 +8,7 @@ export const RangeAxisSteps = () => (
     <PositiveNumberBaseType
         width="96px"
         helpText={i18n.t(
-            'The number of axis steps between the min and max values'
+            'Number of axis tick steps, including the min and max. A value of 2 or lower will be ignored.'
         )}
         label={i18n.t('Steps')}
         placeholder={i18n.t('Auto')}
