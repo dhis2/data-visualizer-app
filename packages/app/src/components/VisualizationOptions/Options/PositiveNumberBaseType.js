@@ -22,7 +22,7 @@ export const PositiveNumberBaseType = ({
                 type="number"
                 label={label}
                 onChange={({ value }) => {
-                    parseInt(value, 10) && value >= 0
+                    parseInt(value, 10) >= 0
                         ? onChange(Math.round(value))
                         : onChange()
                 }}
