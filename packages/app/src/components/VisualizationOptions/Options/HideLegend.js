@@ -6,10 +6,11 @@ import CheckboxBaseOption from './CheckboxBaseOption'
 
 const HideLegend = () => (
     <CheckboxBaseOption
-        label={i18n.t('Legend key')}
+        label={i18n.t('Show legend key')}
         option={{
             name: 'hideLegend',
         }}
+        inverted={true}
     />
 )
 
