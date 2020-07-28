@@ -23,7 +23,7 @@ import pieConfig from './pieConfig'
 import gaugeConfig from './gaugeConfig'
 import singleValueConfig from './singleValueConfig'
 import barConfig from './barConfig'
-import yoyConfig from './yoyConfig'
+import yearOverYearConfig from './yearOverYearConfig'
 
 export const getOptionsByType = type => {
     switch (type) {
@@ -33,7 +33,7 @@ export const getOptionsByType = type => {
             return barConfig
         case VIS_TYPE_YEAR_OVER_YEAR_LINE:
         case VIS_TYPE_YEAR_OVER_YEAR_COLUMN:
-            return yoyConfig
+            return yearOverYearConfig
         case VIS_TYPE_STACKED_COLUMN:
         case VIS_TYPE_STACKED_BAR:
             return stackedColumnConfig
