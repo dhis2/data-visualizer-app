@@ -43,7 +43,7 @@ const SeriesTable = ({
     ]
 
     useEffect(() => {
-        if (!optionItems || !optionItems.length) {
+        if (!optionItems.length) {
             onChange(layoutItems)
         } else {
             const matchedItems = layoutItems.map(item => {
@@ -202,7 +202,6 @@ const SeriesTable = ({
     } else {
         return layoutItems &&
             Object.keys(layoutItems).length &&
-            optionItems &&
             optionItems.length
             ? renderTable()
             : renderEmptySeriesError()
@@ -219,6 +218,7 @@ SeriesTable.propTypes = {
 }
 
 SeriesTable.defaultProps = {
+    optionItems: [],
     showAxisOptions: false,
     showTypeOptions: false,
 }
