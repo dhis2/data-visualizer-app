@@ -134,6 +134,7 @@ const SeriesTable = ({
                                                     {visTypeIcons[type]}
                                                 </span>
                                             }
+                                            dense
                                         />
                                     </div>
                                 ))}
@@ -149,6 +150,7 @@ const SeriesTable = ({
                                             onItemChange(item, axis, AXIS_PROP)
                                         }
                                         checked={item.axis === axis}
+                                        dense
                                     />
                                 </TableCell>
                             ))}
