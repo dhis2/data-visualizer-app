@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-06-02T04:24:38.833Z\n"
+"POT-Creation-Date: 2020-07-21T09:20:20.828Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -246,8 +246,8 @@ msgstr "Dine mest viste diagrammer og tabeller"
 msgid "Aggregation type"
 msgstr "Aggregasjonstype"
 
-msgid "Determines how the values in the pivot table are aggregated."
-msgstr "Bestemmer hvordan verdiene i pivottabellen aggregeres."
+msgid "Overrides aggregation type for all data values."
+msgstr ""
 
 msgid "By data element"
 msgstr "Per datalement"
@@ -390,8 +390,8 @@ msgstr "Alt"
 msgid "Hide empty rows"
 msgstr "Skjul tomme rader"
 
-msgid "Legend key"
-msgstr "Tegnforklaring"
+msgid "Show legend key"
+msgstr ""
 
 msgid "Table subtitle"
 msgstr "Tabellundertittel"
@@ -772,6 +772,12 @@ msgstr "Bruker under-underordnet org enhet"
 msgid "Data"
 msgstr "Data"
 
+msgid "Display"
+msgstr "Vis"
+
+msgid "Lines"
+msgstr "Linjer"
+
 msgid "Axes"
 msgstr "Akser"
 
@@ -783,12 +789,6 @@ msgstr "Horisontal (x) akse"
 
 msgid "Style"
 msgstr "Stil"
-
-msgid "Display"
-msgstr "Vis"
-
-msgid "Lines"
-msgstr "Linjer"
 
 msgid "Chart style"
 msgstr "Diagramstil"

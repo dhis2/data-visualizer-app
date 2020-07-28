@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-06-02T04:24:38.833Z\n"
+"POT-Creation-Date: 2020-07-21T09:20:20.828Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2020\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -247,8 +247,8 @@ msgstr "الرسوم البيانية والجداول الأكثر مشاهدة
 msgid "Aggregation type"
 msgstr "نوع التجميع"
 
-msgid "Determines how the values in the pivot table are aggregated."
-msgstr "يحدد كيفية تجميع القيم في الجدول المحوري."
+msgid "Overrides aggregation type for all data values."
+msgstr ""
 
 msgid "By data element"
 msgstr "بواسطة عنصر البيانات"
@@ -391,8 +391,8 @@ msgstr "الجميع"
 msgid "Hide empty rows"
 msgstr "إخفاء الصفوف الفارغة"
 
-msgid "Legend key"
-msgstr "مفتاح إيضاحي"
+msgid "Show legend key"
+msgstr ""
 
 msgid "Table subtitle"
 msgstr "العنوان الفرعي للجدول"
@@ -773,6 +773,12 @@ msgstr "الوحدة التنظيمية الكبرى الأطفال"
 msgid "Data"
 msgstr "البيانات"
 
+msgid "Display"
+msgstr "العرض"
+
+msgid "Lines"
+msgstr "الخطوط"
+
 msgid "Axes"
 msgstr "المحاور"
 
@@ -784,12 +790,6 @@ msgstr "محور (س) الأفقي"
 
 msgid "Style"
 msgstr "المظهر"
-
-msgid "Display"
-msgstr "العرض"
-
-msgid "Lines"
-msgstr "الخطوط"
 
 msgid "Chart style"
 msgstr "نمط الرسم البياني"
