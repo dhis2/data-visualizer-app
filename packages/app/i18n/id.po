@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-06-02T04:24:38.833Z\n"
+"POT-Creation-Date: 2020-07-21T09:20:20.828Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
@@ -246,8 +246,8 @@ msgstr "Grafik dan tabel yang paling sering Anda lihat"
 msgid "Aggregation type"
 msgstr "Tipe agregasi"
 
-msgid "Determines how the values in the pivot table are aggregated."
-msgstr "Menentukan cara agregasi nilai di tabel pivot"
+msgid "Overrides aggregation type for all data values."
+msgstr ""
 
 msgid "By data element"
 msgstr "Berdasarkan data elemen"
@@ -390,7 +390,7 @@ msgstr "Semua"
 msgid "Hide empty rows"
 msgstr "Sembunyikan baris kosong"
 
-msgid "Legend key"
+msgid "Show legend key"
 msgstr ""
 
 msgid "Table subtitle"
@@ -759,6 +759,12 @@ msgstr "Sub-sub org unit pengguna"
 msgid "Data"
 msgstr "Data"
 
+msgid "Display"
+msgstr ""
+
+msgid "Lines"
+msgstr "Garis"
+
 msgid "Axes"
 msgstr "Sumbu"
 
@@ -770,12 +776,6 @@ msgstr "sumbu X"
 
 msgid "Style"
 msgstr "Gaya"
-
-msgid "Display"
-msgstr ""
-
-msgid "Lines"
-msgstr "Garis"
 
 msgid "Chart style"
 msgstr "tipe grafik"

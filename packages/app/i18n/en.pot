@@ -211,7 +211,7 @@ msgstr ""
 msgid "Aggregation type"
 msgstr ""
 
-msgid "Determines how the values in the pivot table are aggregated."
+msgid "Overrides aggregation type for all data values."
 msgstr ""
 
 msgid "By data element"
@@ -355,7 +355,7 @@ msgstr ""
 msgid "Hide empty rows"
 msgstr ""
 
-msgid "Legend key"
+msgid "Show legend key"
 msgstr ""
 
 msgid "Table subtitle"

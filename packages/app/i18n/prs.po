@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-06-02T04:24:38.833Z\n"
+"POT-Creation-Date: 2020-07-21T09:20:20.828Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Persian (Afghanistan) (https://www.transifex.com/hisp-uio/teams/100509/fa_AF/)\n"
@@ -235,7 +235,7 @@ msgstr ""
 msgid "Aggregation type"
 msgstr "نوع تجمع"
 
-msgid "Determines how the values in the pivot table are aggregated."
+msgid "Overrides aggregation type for all data values."
 msgstr ""
 
 msgid "By data element"
@@ -379,7 +379,7 @@ msgstr "همه"
 msgid "Hide empty rows"
 msgstr "پنهان کردن ردیف های خالی"
 
-msgid "Legend key"
+msgid "Show legend key"
 msgstr ""
 
 msgid "Table subtitle"
@@ -748,6 +748,12 @@ msgstr ""
 msgid "Data"
 msgstr "دیتا"
 
+msgid "Display"
+msgstr "نمایش"
+
+msgid "Lines"
+msgstr ""
+
 msgid "Axes"
 msgstr "محورونه"
 
@@ -759,12 +765,6 @@ msgstr ""
 
 msgid "Style"
 msgstr "استایل"
-
-msgid "Display"
-msgstr "نمایش"
-
-msgid "Lines"
-msgstr ""
 
 msgid "Chart style"
 msgstr ""

@@ -141,18 +141,22 @@ const Chip = ({
     }
 
     return (
-        <Tooltip content={renderTooltipContent()} placement="bottom">
-            {({ ref, onMouseOver, onMouseOut }) => (
-                <div
-                    style={getWrapperStyles()}
-                    data-dimensionid={dimensionId}
-                    draggable={!isLocked()}
-                    onDragStart={getDragStartHandler()}
-                    ref={ref}
-                    onMouseOver={onMouseOver}
-                    onMouseOut={onMouseOut}
-                >
-                    <div id={id} style={styles.chipLeft} onClick={handleClick}>
+        <div
+            style={getWrapperStyles()}
+            data-dimensionid={dimensionId}
+            draggable={!isLocked()}
+            onDragStart={getDragStartHandler()}
+        >
+            <Tooltip content={renderTooltipContent()} placement="bottom">
+                {({ ref, onMouseOver, onMouseOut }) => (
+                    <div
+                        id={id}
+                        style={styles.chipLeft}
+                        onClick={handleClick}
+                        ref={ref}
+                        onMouseOver={onMouseOver}
+                        onMouseOut={onMouseOut}
+                    >
                         <div style={styles.iconWrapper}>{renderChipIcon()}</div>
                         <span style={styles.label}>{dimensionName}</span>
                         <span>{renderChipLabelSuffix()}</span>
@@ -160,10 +164,10 @@ const Chip = ({
                             WarningIconWrapper}
                         {isLocked() && LockIconWrapper}
                     </div>
-                    {!isLocked() && renderMenu()}
-                </div>
-            )}
-        </Tooltip>
+                )}
+            </Tooltip>
+            {!isLocked() && renderMenu()}
+        </div>
     )
 }
 
