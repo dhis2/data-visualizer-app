@@ -1,3 +1,10 @@
+## [35.2.9](https://github.com/dhis2/data-visualizer-app/compare/v35.2.8...v35.2.9) (2020-07-28)
+
+
+### Bug Fixes
+
+* fix stuck tooltips in dimension chips DHIS2-9063 ([#1159](https://github.com/dhis2/data-visualizer-app/issues/1159)) ([16c0f5c](https://github.com/dhis2/data-visualizer-app/commit/16c0f5ca26e54fa198d591da7403fb522deb1e90))
+
 ## [35.2.8](https://github.com/dhis2/data-visualizer-app/compare/v35.2.7...v35.2.8) (2020-07-28)
 
 
