@@ -11,6 +11,7 @@ import {
     VIS_TYPE_PIVOT_TABLE,
     defaultVisType,
     isYearOverYear,
+    isDualCategoryChartType,
 } from '@dhis2/analytics'
 
 import { getInverseLayout } from './layout'
@@ -18,6 +19,7 @@ import { getOptionsFromVisualization } from './options'
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields'
 import {
     defaultLayoutAdapter,
+    dualCategoryLayoutAdapter,
     pieLayoutAdapter,
     yearOverYearLayoutAdapter,
     singleValueLayoutAdapter,
@@ -50,6 +52,12 @@ export const defaultUiAdapter = ui => ({
     layout: defaultLayoutAdapter(ui.layout),
 })
 
+// Transform from store.ui to dual category format
+export const dualCategoryUiAdapter = ui => ({
+    ...ui,
+    layout: dualCategoryLayoutAdapter(ui.layout),
+})
+
 // Transform from store.ui to pie format
 export const pieUiAdapter = ui => ({
     ...ui,
@@ -76,6 +84,10 @@ export const singleValueUiAdapter = ui => ({
 })
 
 export const getAdaptedUiByType = ui => {
+    if (isDualCategoryChartType(ui.type) && ui.layout.rows.length > 1) {
+        return dualCategoryUiAdapter(ui)
+    }
+
     switch (ui.type) {
         case VIS_TYPE_YEAR_OVER_YEAR_LINE:
         case VIS_TYPE_YEAR_OVER_YEAR_COLUMN: {
