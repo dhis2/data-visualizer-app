@@ -200,9 +200,7 @@ const SeriesTable = ({
     if (!showAxisOptions && !showTypeOptions) {
         return renderNoSeriesOptionsError()
     } else {
-        return layoutItems &&
-            Object.keys(layoutItems).length &&
-            optionItems.length
+        return Object.keys(layoutItems).length && optionItems.length
             ? renderTable()
             : renderEmptySeriesError()
     }
@@ -218,6 +216,7 @@ SeriesTable.propTypes = {
 }
 
 SeriesTable.defaultProps = {
+    layoutItems: [],
     optionItems: [],
     showAxisOptions: false,
     showTypeOptions: false,
@@ -230,8 +229,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
-    onChange: value => dispatch => {
-        dispatch(acSetUiOptions({ series: value }))
+    onChange: series => dispatch => {
+        dispatch(acSetUiOptions({ series }))
     },
 }
 
