@@ -27,7 +27,7 @@ import styles from './styles/VisualizationTypeSelector.module.css'
 export const MAPS_APP_URL = 'dhis-web-maps'
 
 export const VisualizationTypeSelector = (
-    { visualizationType, ui, uiSeries, setUi, setUiSeries, current, metadata },
+    { visualizationType, ui, setUi, resetSeriesTypes, current, metadata },
     context
 ) => {
     const baseUrl = context.baseUrl
@@ -38,15 +38,7 @@ export const VisualizationTypeSelector = (
 
     const handleListItemClick = type => () => {
         setUi(getAdaptedUiByType({ ...ui, type }))
-        setUiSeries(
-            uiSeries.map(item => {
-                const tempItem = { ...item }
-                if (tempItem.type) {
-                    delete tempItem.type
-                }
-                return tempItem
-            })
-        )
+        resetSeriesTypes()
         toggleList()
     }
 
@@ -120,10 +112,9 @@ export const VisualizationTypeSelector = (
 VisualizationTypeSelector.propTypes = {
     current: PropTypes.object,
     metadata: PropTypes.object,
+    resetSeriesTypes: PropTypes.func,
     setUi: PropTypes.func,
-    setUiSeries: PropTypes.func,
     ui: PropTypes.object,
-    uiSeries: PropTypes.array,
     visualizationType: PropTypes.oneOf(Object.keys(visTypeDisplayNames)),
 }
 
@@ -136,13 +127,22 @@ const mapStateToProps = state => ({
     current: sGetCurrent(state),
     metadata: sGetMetadata(state),
     ui: sGetUi(state),
-    uiSeries: sGetUiOptions(state).series,
 })
 
-const mapDispatchToProps = dispatch => ({
-    setUi: ui => dispatch(acSetUi(ui)),
-    setUiSeries: value => dispatch(acSetUiOptions({ series: value })),
-})
+const mapDispatchToProps = {
+    setUi: ui => dispatch => dispatch(acSetUi(ui)),
+    resetSeriesTypes: () => (dispatch, getState) => {
+        const series = sGetUiOptions(getState()).series
+        series.map(item => {
+            const tempItem = { ...item }
+            if (tempItem.type) {
+                delete tempItem.type
+            }
+            return tempItem
+        })
+        dispatch(acSetUiOptions({ series }))
+    },
+}
 
 export default connect(
     mapStateToProps,
