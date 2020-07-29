@@ -19,6 +19,7 @@ import {
     SET_UI_RIGHT_SIDEBAR_OPEN,
     SET_UI_INTERPRETATION,
     CLEAR_UI_INTERPRETATION,
+    CLEAR_SERIES_TYPE,
 } from '../reducers/ui'
 
 export const acSetUi = value => ({
@@ -116,4 +117,8 @@ export const acSetUiInterpretation = value => ({
 
 export const acClearUiInterpretation = () => ({
     type: CLEAR_UI_INTERPRETATION,
+})
+
+export const acClearSeriesType = () => ({
+    type: CLEAR_SERIES_TYPE,
 })

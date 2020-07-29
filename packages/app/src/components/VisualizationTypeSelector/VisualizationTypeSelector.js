@@ -11,10 +11,10 @@ import { Card, Divider, Popper } from '@dhis2/ui'
 
 import { prepareCurrentAnalyticalObject } from '../../modules/currentAnalyticalObject'
 import { getAdaptedUiByType } from '../../modules/ui'
-import { sGetUi, sGetUiType, sGetUiOptions } from '../../reducers/ui'
+import { sGetUi, sGetUiType } from '../../reducers/ui'
 import { sGetCurrent } from '../../reducers/current'
 import { sGetMetadata } from '../../reducers/metadata'
-import { acSetUi, acSetUiOptions } from '../../actions/ui'
+import { acSetUi, acClearSeriesType } from '../../actions/ui'
 import {
     apiSaveAOInUserDataStore,
     CURRENT_AO_KEY,
@@ -27,7 +27,7 @@ import styles from './styles/VisualizationTypeSelector.module.css'
 export const MAPS_APP_URL = 'dhis-web-maps'
 
 export const VisualizationTypeSelector = (
-    { visualizationType, ui, setUi, resetSeriesTypes, current, metadata },
+    { visualizationType, ui, setUi, clearSeriesTypes, current, metadata },
     context
 ) => {
     const baseUrl = context.baseUrl
@@ -38,7 +38,7 @@ export const VisualizationTypeSelector = (
 
     const handleListItemClick = type => () => {
         setUi(getAdaptedUiByType({ ...ui, type }))
-        resetSeriesTypes()
+        clearSeriesTypes()
         toggleList()
     }
 
@@ -110,9 +110,9 @@ export const VisualizationTypeSelector = (
 }
 
 VisualizationTypeSelector.propTypes = {
+    clearSeriesTypes: PropTypes.func,
     current: PropTypes.object,
     metadata: PropTypes.object,
-    resetSeriesTypes: PropTypes.func,
     setUi: PropTypes.func,
     ui: PropTypes.object,
     visualizationType: PropTypes.oneOf(Object.keys(visTypeDisplayNames)),
@@ -129,23 +129,10 @@ const mapStateToProps = state => ({
     ui: sGetUi(state),
 })
 
-const mapDispatchToProps = {
-    setUi: ui => dispatch => dispatch(acSetUi(ui)),
-    resetSeriesTypes: () => (dispatch, getState) => {
-        const series = sGetUiOptions(getState()).series
-        dispatch(
-            acSetUiOptions({
-                series: series.map(item => {
-                    const tempItem = { ...item }
-                    if (tempItem.type) {
-                        delete tempItem.type
-                    }
-                    return tempItem
-                }),
-            })
-        )
-    },
-}
+const mapDispatchToProps = dispatch => ({
+    setUi: ui => dispatch(acSetUi(ui)),
+    clearSeriesTypes: () => dispatch(acClearSeriesType()),
+})
 
 export default connect(
     mapStateToProps,
