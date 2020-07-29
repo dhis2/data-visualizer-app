@@ -24,6 +24,7 @@ import {
     AxisFour,
 } from '../../../assets/AxisIcons'
 
+const availableAxes = [0, 1, 2, 3]
 const allTypes = [VIS_TYPE_COLUMN, VIS_TYPE_LINE]
 const TYPE_PROP = 'type'
 const AXIS_PROP = 'axis'
@@ -36,7 +37,6 @@ const SeriesTable = ({
     showAxisOptions,
     showTypeOptions,
 }) => {
-    const availableAxes = [0, 1, 2, 3]
     const availableTypes = [
         visType,
         ...allTypes.filter(type => type !== visType),
