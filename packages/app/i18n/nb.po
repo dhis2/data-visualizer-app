@@ -247,7 +247,7 @@ msgid "Aggregation type"
 msgstr "Aggregasjonstype"
 
 msgid "Overrides aggregation type for all data values."
-msgstr ""
+msgstr "Overstyrer aggregeringstype for alle dataverdier."
 
 msgid "By data element"
 msgstr "Per datalement"
@@ -391,7 +391,7 @@ msgid "Hide empty rows"
 msgstr "Skjul tomme rader"
 
 msgid "Show legend key"
-msgstr ""
+msgstr "Vis tegnforklaring"
 
 msgid "Table subtitle"
 msgstr "Tabellundertittel"
