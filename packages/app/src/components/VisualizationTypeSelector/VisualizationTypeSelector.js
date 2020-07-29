@@ -27,7 +27,7 @@ import styles from './styles/VisualizationTypeSelector.module.css'
 export const MAPS_APP_URL = 'dhis-web-maps'
 
 export const VisualizationTypeSelector = (
-    { visualizationType, ui, setUi, clearSeriesTypes, current, metadata },
+    { visualizationType, ui, setUi, onItemClick, current, metadata },
     context
 ) => {
     const baseUrl = context.baseUrl
@@ -38,7 +38,7 @@ export const VisualizationTypeSelector = (
 
     const handleListItemClick = type => () => {
         setUi(getAdaptedUiByType({ ...ui, type }))
-        clearSeriesTypes()
+        onItemClick()
         toggleList()
     }
 
@@ -110,12 +110,12 @@ export const VisualizationTypeSelector = (
 }
 
 VisualizationTypeSelector.propTypes = {
-    clearSeriesTypes: PropTypes.func,
     current: PropTypes.object,
     metadata: PropTypes.object,
     setUi: PropTypes.func,
     ui: PropTypes.object,
     visualizationType: PropTypes.oneOf(Object.keys(visTypeDisplayNames)),
+    onItemClick: PropTypes.func,
 }
 
 VisualizationTypeSelector.contextTypes = {
@@ -131,7 +131,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     setUi: ui => dispatch(acSetUi(ui)),
-    clearSeriesTypes: () => dispatch(acClearSeriesType()),
+    onItemClick: () => dispatch(acClearSeriesType()),
 })
 
 export default connect(
