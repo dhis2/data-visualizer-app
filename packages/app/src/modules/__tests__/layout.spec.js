@@ -13,7 +13,7 @@ describe('layout', () => {
                 xyz: { axisId: 'rows' },
             }
 
-            expect(getRetransfer(layout, transfer, 'COLUMN')).toMatchObject({
+            expect(getRetransfer(layout, transfer, 'LINE')).toMatchObject({
                 pe: {
                     axisId: 'filters',
                 },
@@ -25,7 +25,7 @@ describe('layout', () => {
                 abc: { axisId: 'rows' },
             }
 
-            expect(getRetransfer(layout, transfer, 'COLUMN')).toMatchObject({
+            expect(getRetransfer(layout, transfer, 'LINE')).toMatchObject({
                 pe: {
                     axisId: 'filters',
                 },

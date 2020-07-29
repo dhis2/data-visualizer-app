@@ -6,6 +6,7 @@ import {
     AXIS_ID_ROWS,
     AXIS_ID_FILTERS,
     VIS_TYPE_COLUMN,
+    VIS_TYPE_LINE,
     VIS_TYPE_BAR,
 } from '@dhis2/analytics'
 
@@ -156,7 +157,7 @@ describe('reducer: ui', () => {
 
     it(`${ui.ADD_UI_LAYOUT_DIMENSIONS}: should swap layout dimensions`, () => {
         const state = {
-            type: VIS_TYPE_COLUMN,
+            type: VIS_TYPE_LINE,
             layout: {
                 columns: [DIMENSION_ID_DATA],
                 rows: [DIMENSION_ID_PERIOD],
