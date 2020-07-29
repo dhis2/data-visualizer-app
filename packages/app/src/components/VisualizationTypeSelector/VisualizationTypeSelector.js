@@ -133,14 +133,17 @@ const mapDispatchToProps = {
     setUi: ui => dispatch => dispatch(acSetUi(ui)),
     resetSeriesTypes: () => (dispatch, getState) => {
         const series = sGetUiOptions(getState()).series
-        series.map(item => {
-            const tempItem = { ...item }
-            if (tempItem.type) {
-                delete tempItem.type
-            }
-            return tempItem
-        })
-        dispatch(acSetUiOptions({ series }))
+        dispatch(
+            acSetUiOptions({
+                series: series.map(item => {
+                    const tempItem = { ...item }
+                    if (tempItem.type) {
+                        delete tempItem.type
+                    }
+                    return tempItem
+                }),
+            })
+        )
     },
 }
 
