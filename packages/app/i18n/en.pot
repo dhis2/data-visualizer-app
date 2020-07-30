@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-07-28T10:55:58.947Z\n"
-"PO-Revision-Date: 2020-07-28T10:55:58.947Z\n"
+"POT-Creation-Date: 2020-07-30T11:04:58.548Z\n"
+"PO-Revision-Date: 2020-07-30T11:04:58.548Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -538,6 +538,9 @@ msgid "Options"
 msgstr ""
 
 msgid "Open as Map"
+msgstr ""
+
+msgid "Visually plot data on a world map. Data elements use separate map layers."
 msgstr ""
 
 msgid "Reporting rate"
