@@ -5,18 +5,16 @@ const YearOverYearColumnIcon = ({
     style = { paddingRight: '8px', width: 24, height: 24 },
 }) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0,0,48,48" style={style}>
-        <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-            <g>
-                <polygon points="0 0 48 0 48 48 0 48" />
-                <polygon fill="#63A4FF" points="6 14 11 14 11 46 6 46" />
-                <polygon fill="#63A4FF" points="20 23 25 23 25 46 20 46" />
-                <polygon fill="#63A4FF" points="34 30 39 30 39 46 34 46" />
-                <polygon fill="#004BA0" points="11 26 16 26 16 46 11 46" />
-                <polygon fill="#004BA0" points="25 16 30 16 30 46 25 46" />
-                <polygon fill="#004BA0" points="39 9 44 9 44 46 39 46" />
-                <polygon fill="#9E9E9E" points="0 0 2 0 2 48 0 48" />
-                <polygon fill="#9E9E9E" points="0 46 48 46 48 48 0 48" />
-            </g>
+        <g fill="none" fillRule="evenodd">
+            <polygon points="0 0 48 0 48 48 0 48" />
+            <polygon fill="#FFC324" points="15 20 18 20 18 36 15 36" />
+            <polygon fill="#147CD7" points="12 14 15 14 15 36 12 36" />
+            <polygon fill="#147CD7" points="22 22 25 22 25 36 22 36" />
+            <polygon fill="#FFC324" points="25 12 28 12 28 36 25 36" />
+            <polygon fill="#147CD7" points="32 14 35 14 35 36 32 36" />
+            <polygon fill="#FFC324" points="35 27 38 27 38 36 35 36" />
+            <polygon fill="#4A5768" points="6 6 8 6 8 42 6 42" />
+            <polygon fill="#4A5768" points="6 40 42 40 42 42 6 42" />
         </g>
     </svg>
 )
