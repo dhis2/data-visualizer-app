@@ -16,8 +16,6 @@ import options from './options'
 import {} from './layout'
 import { BASE_FIELD_TYPE, BASE_FIELD_YEARLY_SERIES } from './fields/baseFields'
 import { pieLayoutAdapter, singleValueLayoutAdapter } from './layoutAdapters'
-import { mergeUiMaps } from './ui'
-import { OPTIONAL_AXES_DIMENSIONAL_ITEM } from './optionalAxes'
 
 const hasItems = (object, id) => Array.isArray(object[id]) && object[id].length
 
@@ -93,18 +91,8 @@ export const getOptionsFromUi = ui => {
     return optionsFromUi
 }
 
-// expand to support series types later
-export const getOptionalAxesFromUi = ui => {
-    const optionalAxes = {}
-
-    // axes
-    mergeUiMaps(optionalAxes, ui.axes, 'axis')
-
-    return Object.entries(optionalAxes).reduce((arr, [key, value]) => {
-        value[OPTIONAL_AXES_DIMENSIONAL_ITEM] = key
-        arr.push(value)
-        return arr
-    }, [])
+export const getSeriesFromUi = ui => {
+    return ui.options.series ? [...ui.options.series] : []
 }
 
 export const getSingleValueCurrentFromUi = (state, action) => {

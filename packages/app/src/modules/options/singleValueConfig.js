@@ -7,6 +7,7 @@ import HideTitle from '../../components/VisualizationOptions/Options/HideTitle'
 import HideSubtitle from '../../components/VisualizationOptions/Options/HideSubtitle'
 import Legend from '../../components/VisualizationOptions/Options/Legend'
 import CompletedOnly from '../../components/VisualizationOptions/Options/CompletedOnly'
+import SeriesTable from '../../components/VisualizationOptions/Options/SeriesTable'
 
 export default [
     {
@@ -32,6 +33,16 @@ export default [
                 content: React.Children.toArray([
                     <Legend hideStyleOptions={true} />,
                 ]),
+            },
+        ],
+    },
+    {
+        key: 'series-tab',
+        getLabel: () => i18n.t('Series'),
+        content: [
+            {
+                key: 'series-table',
+                content: React.Children.toArray([<SeriesTable />]),
             },
         ],
     },

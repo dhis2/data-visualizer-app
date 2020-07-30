@@ -1,0 +1,79 @@
+.nameColumn {
+    width: 45%;
+}
+
+.typeColumn {
+    width: 25%;
+}
+
+.tableHead {
+    background-color: var(--colors-grey200);
+}
+
+.tableHead .tableCell {
+    padding: var(--spacers-dp8);
+    line-height: normal;
+    height: auto;
+    vertical-align: unset;
+}
+
+.tableBody .itemName {
+    padding-left: var(--spacers-dp8);
+    padding-right: var(--spacers-dp8);
+}
+
+.typeContainer {
+    display: inline-block;
+}
+
+.typeContainer:not(:last-child) {
+    margin-right: var(--spacers-dp16);
+}
+
+.visIcon {
+    height: 18px;
+}
+
+.visIcon svg {
+    height: 18px;
+}
+
+.axisIcon {
+    display: flex;
+    justify-content: center;
+    padding-top: var(--spacers-dp4);
+}
+
+.errorContainer {
+    min-height: 450px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.errorIcon {
+    width: 136px;
+    height: 136px;
+    margin: 0 auto var(--spacers-dp24);
+}
+
+.errorTitle {
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--colors-grey800);
+    letter-spacing: 0.15px;
+    line-height: 24px;
+    width: 360px;
+    margin: 0 auto var(--spacers-dp12);
+}
+
+.errorDescription {
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--colors-grey700);
+    line-height: 19px;
+    width: 360px;
+    margin: 0 auto;
+}

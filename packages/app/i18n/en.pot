@@ -31,26 +31,6 @@ msgstr ""
 msgid "Yes, leave"
 msgstr ""
 
-msgid "Axis 1"
-msgstr ""
-
-msgid "Axis 2"
-msgstr ""
-
-msgid "Manage axes"
-msgstr ""
-
-msgid ""
-"A chart can have two axes. Each axis will have its own scale. Set the axis "
-"for each data selection below."
-msgstr ""
-
-msgid "Cancel"
-msgstr ""
-
-msgid "Update"
-msgstr ""
-
 msgid "Add to {{axisName}}"
 msgstr ""
 
@@ -206,6 +186,9 @@ msgid "Edited"
 msgstr ""
 
 msgid "Viewing interpretation from {{interpretationDate}}"
+msgstr ""
+
+msgid "Update"
 msgstr ""
 
 msgid "Getting started"
@@ -499,6 +482,27 @@ msgstr ""
 msgid "Row totals"
 msgstr ""
 
+msgid "Data item"
+msgstr ""
+
+msgid "Visualization type"
+msgstr ""
+
+msgid "Axis {{axisId}}"
+msgstr ""
+
+msgid "Series is empty"
+msgstr ""
+
+msgid "Options for selected items will be available here"
+msgstr ""
+
+msgid "No Series options"
+msgstr ""
+
+msgid "There aren't any Series options for this visualization type"
+msgstr ""
+
 msgid "Value labels"
 msgstr ""
 
@@ -754,6 +758,9 @@ msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Horizontal (x) axis"
+msgstr ""
+
+msgid "Series"
 msgstr ""
 
 msgid "Style"

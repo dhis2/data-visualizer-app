@@ -6,6 +6,7 @@ import AggregationType from '../../components/VisualizationOptions/Options/Aggre
 import HideTitle from '../../components/VisualizationOptions/Options/HideTitle'
 import HideSubtitle from '../../components/VisualizationOptions/Options/HideSubtitle'
 import CompletedOnly from '../../components/VisualizationOptions/Options/CompletedOnly'
+import SeriesTable from '../../components/VisualizationOptions/Options/SeriesTable'
 
 export default [
     {
@@ -19,6 +20,16 @@ export default [
                     <AggregationType />,
                     <CompletedOnly />,
                 ]),
+            },
+        ],
+    },
+    {
+        key: 'series-tab',
+        getLabel: () => i18n.t('Series'),
+        content: [
+            {
+                key: 'series-table',
+                content: React.Children.toArray([<SeriesTable />]),
             },
         ],
     },

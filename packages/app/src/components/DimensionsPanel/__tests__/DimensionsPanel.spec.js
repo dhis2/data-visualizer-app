@@ -22,7 +22,6 @@ describe('Dimensions component ', () => {
                 type: '',
             },
             itemsByDimension: {},
-            dualAxisItemHandler: () => {},
             axisItemHandler: () => {},
             removeItemHandler: () => {},
             getCurrentAxisId: () => '',

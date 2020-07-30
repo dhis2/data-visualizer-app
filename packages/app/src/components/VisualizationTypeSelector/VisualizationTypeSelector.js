@@ -14,7 +14,7 @@ import { getAdaptedUiByType } from '../../modules/ui'
 import { sGetUi, sGetUiType } from '../../reducers/ui'
 import { sGetCurrent } from '../../reducers/current'
 import { sGetMetadata } from '../../reducers/metadata'
-import { acSetUi } from '../../actions/ui'
+import { acSetUi, acClearSeriesType } from '../../actions/ui'
 import {
     apiSaveAOInUserDataStore,
     CURRENT_AO_KEY,
@@ -27,7 +27,7 @@ import styles from './styles/VisualizationTypeSelector.module.css'
 export const MAPS_APP_URL = 'dhis-web-maps'
 
 export const VisualizationTypeSelector = (
-    { visualizationType, ui, setUi, current, metadata },
+    { visualizationType, ui, setUi, onItemClick, current, metadata },
     context
 ) => {
     const baseUrl = context.baseUrl
@@ -38,6 +38,7 @@ export const VisualizationTypeSelector = (
 
     const handleListItemClick = type => () => {
         setUi(getAdaptedUiByType({ ...ui, type }))
+        onItemClick()
         toggleList()
     }
 
@@ -114,6 +115,7 @@ VisualizationTypeSelector.propTypes = {
     setUi: PropTypes.func,
     ui: PropTypes.object,
     visualizationType: PropTypes.oneOf(Object.keys(visTypeDisplayNames)),
+    onItemClick: PropTypes.func,
 }
 
 VisualizationTypeSelector.contextTypes = {
@@ -129,6 +131,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     setUi: ui => dispatch(acSetUi(ui)),
+    onItemClick: () => dispatch(acClearSeriesType()),
 })
 
 export default connect(
