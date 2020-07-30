@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-07-21T09:20:20.828Z\n"
+"POT-Creation-Date: 2020-07-28T10:55:58.947Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2020\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -41,28 +41,6 @@ msgstr "لا، الغاء"
 
 msgid "Yes, leave"
 msgstr "نعم، غادر"
-
-msgid "Axis 1"
-msgstr "المحور 1"
-
-msgid "Axis 2"
-msgstr "المحور 2"
-
-msgid "Manage axes"
-msgstr "إدارة المحاور"
-
-msgid ""
-"A chart can have two axes. Each axis will have its own scale. Set the axis "
-"for each data selection below."
-msgstr ""
-"يمكن أن يحتوي المخطط على محورين. سيكون لكل محور مقياسه الخاص. قم بتعيين محور"
-" لكل مجموعة بيانات أدناه."
-
-msgid "Cancel"
-msgstr "إلغاء"
-
-msgid "Update"
-msgstr "تحديث"
 
 msgid "Add to {{axisName}}"
 msgstr "إضافة إلى {{axisName}}"
@@ -224,6 +202,9 @@ msgstr "تم التعديل"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "مشاهدة التفسير من  {{interpretationDate}}"
+
+msgid "Update"
+msgstr "تحديث"
 
 msgid "Getting started"
 msgstr "الشروع في العمل"
@@ -518,6 +499,27 @@ msgstr "المجاميع الفرعية للصف"
 msgid "Row totals"
 msgstr "إجماليات الصف"
 
+msgid "Data item"
+msgstr ""
+
+msgid "Visualization type"
+msgstr ""
+
+msgid "Axis {{axisId}}"
+msgstr ""
+
+msgid "Series is empty"
+msgstr ""
+
+msgid "Options for selected items will be available here"
+msgstr ""
+
+msgid "No Series options"
+msgstr ""
+
+msgid "There aren't any Series options for this visualization type"
+msgstr ""
+
 msgid "Value labels"
 msgstr "تسميات القيمة"
 
@@ -787,6 +789,9 @@ msgstr "محور (ص) العمودي"
 
 msgid "Horizontal (x) axis"
 msgstr "محور (س) الأفقي"
+
+msgid "Series"
+msgstr ""
 
 msgid "Style"
 msgstr "المظهر"

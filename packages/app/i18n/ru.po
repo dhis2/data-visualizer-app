@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-07-21T09:20:20.828Z\n"
+"POT-Creation-Date: 2020-07-28T10:55:58.947Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
@@ -38,26 +38,6 @@ msgstr ""
 
 msgid "Yes, leave"
 msgstr ""
-
-msgid "Axis 1"
-msgstr ""
-
-msgid "Axis 2"
-msgstr ""
-
-msgid "Manage axes"
-msgstr ""
-
-msgid ""
-"A chart can have two axes. Each axis will have its own scale. Set the axis "
-"for each data selection below."
-msgstr ""
-
-msgid "Cancel"
-msgstr "Отменить"
-
-msgid "Update"
-msgstr "Обновить"
 
 msgid "Add to {{axisName}}"
 msgstr ""
@@ -216,6 +196,9 @@ msgstr "Редактированный"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "Просмотр интерпретации с {{interpretationDate}}"
+
+msgid "Update"
+msgstr "Обновить"
 
 msgid "Getting started"
 msgstr ""
@@ -508,6 +491,27 @@ msgstr ""
 msgid "Row totals"
 msgstr ""
 
+msgid "Data item"
+msgstr ""
+
+msgid "Visualization type"
+msgstr ""
+
+msgid "Axis {{axisId}}"
+msgstr ""
+
+msgid "Series is empty"
+msgstr ""
+
+msgid "Options for selected items will be available here"
+msgstr ""
+
+msgid "No Series options"
+msgstr ""
+
+msgid "There aren't any Series options for this visualization type"
+msgstr ""
+
 msgid "Value labels"
 msgstr ""
 
@@ -765,6 +769,9 @@ msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Horizontal (x) axis"
+msgstr ""
+
+msgid "Series"
 msgstr ""
 
 msgid "Style"

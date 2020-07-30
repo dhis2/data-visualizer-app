@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-07-21T09:20:20.828Z\n"
+"POT-Creation-Date: 2020-07-28T10:55:58.947Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -40,28 +40,6 @@ msgstr "Nei, avbryt"
 
 msgid "Yes, leave"
 msgstr "Ja, avslutt"
-
-msgid "Axis 1"
-msgstr "Akse 1"
-
-msgid "Axis 2"
-msgstr "Akse 2"
-
-msgid "Manage axes"
-msgstr "Administrer akser"
-
-msgid ""
-"A chart can have two axes. Each axis will have its own scale. Set the axis "
-"for each data selection below."
-msgstr ""
-"Et diagram kan ha to akser. Hver akse vil ha sin egen skala. Sett aksen for "
-"hvert datavalg nedenfor."
-
-msgid "Cancel"
-msgstr "Avbryt"
-
-msgid "Update"
-msgstr "Oppdater"
 
 msgid "Add to {{axisName}}"
 msgstr "Legg til {{axisName}}"
@@ -223,6 +201,9 @@ msgstr "Redigert"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "Viser tolkning fra {{interpretationDate}}"
+
+msgid "Update"
+msgstr "Oppdater"
 
 msgid "Getting started"
 msgstr "Komme i gang"
@@ -517,6 +498,27 @@ msgstr "Raddelsummer"
 msgid "Row totals"
 msgstr "Radsummer"
 
+msgid "Data item"
+msgstr ""
+
+msgid "Visualization type"
+msgstr ""
+
+msgid "Axis {{axisId}}"
+msgstr ""
+
+msgid "Series is empty"
+msgstr ""
+
+msgid "Options for selected items will be available here"
+msgstr ""
+
+msgid "No Series options"
+msgstr ""
+
+msgid "There aren't any Series options for this visualization type"
+msgstr ""
+
 msgid "Value labels"
 msgstr "Verdietiketter"
 
@@ -786,6 +788,9 @@ msgstr "Vertikal (y) akse"
 
 msgid "Horizontal (x) axis"
 msgstr "Horisontal (x) akse"
+
+msgid "Series"
+msgstr ""
 
 msgid "Style"
 msgstr "Stil"

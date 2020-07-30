@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-07-21T09:20:20.828Z\n"
+"POT-Creation-Date: 2020-07-28T10:55:58.947Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Edem Kossi <ekossi@hispwca.org>, 2020\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -46,28 +46,6 @@ msgstr "Non, annuler"
 
 msgid "Yes, leave"
 msgstr "Oui, abandon"
-
-msgid "Axis 1"
-msgstr "Axe 1"
-
-msgid "Axis 2"
-msgstr "Axe 2"
-
-msgid "Manage axes"
-msgstr "Gérer les axes"
-
-msgid ""
-"A chart can have two axes. Each axis will have its own scale. Set the axis "
-"for each data selection below."
-msgstr ""
-"Un graphique peut avoir deux axes. Chaque axe aura sa propre échelle. "
-"Définissez l'axe pour chaque sélection de données ci-dessous."
-
-msgid "Cancel"
-msgstr "Annuler"
-
-msgid "Update"
-msgstr "Mettre à jour"
 
 msgid "Add to {{axisName}}"
 msgstr "Ajouter à {{nomdel'axe}} "
@@ -232,6 +210,9 @@ msgstr "Édité"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "Affichage de l'interprétation de {{interpretationDate}}"
+
+msgid "Update"
+msgstr "Mettre à jour"
 
 msgid "Getting started"
 msgstr "Commencer"
@@ -528,6 +509,27 @@ msgstr "Sous-totaux de ligne"
 msgid "Row totals"
 msgstr "Totaux de ligne"
 
+msgid "Data item"
+msgstr ""
+
+msgid "Visualization type"
+msgstr ""
+
+msgid "Axis {{axisId}}"
+msgstr ""
+
+msgid "Series is empty"
+msgstr ""
+
+msgid "Options for selected items will be available here"
+msgstr ""
+
+msgid "No Series options"
+msgstr ""
+
+msgid "There aren't any Series options for this visualization type"
+msgstr ""
+
 msgid "Value labels"
 msgstr "Étiquettes de valeur"
 
@@ -801,6 +803,9 @@ msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Horizontal (x) axis"
+msgstr ""
+
+msgid "Series"
 msgstr ""
 
 msgid "Style"
