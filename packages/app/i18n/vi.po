@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-07-21T09:20:20.828Z\n"
+"POT-Creation-Date: 2020-07-28T10:55:58.947Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
@@ -41,28 +41,6 @@ msgstr "Không"
 
 msgid "Yes, leave"
 msgstr "Có"
-
-msgid "Axis 1"
-msgstr "Trục 1"
-
-msgid "Axis 2"
-msgstr "Trục 2"
-
-msgid "Manage axes"
-msgstr "Quản lý trục tọa độ"
-
-msgid ""
-"A chart can have two axes. Each axis will have its own scale. Set the axis "
-"for each data selection below."
-msgstr ""
-"Một biểu đồ có thể có hai trục tọa độ. Mỗi trục sẽ có tỷ lệ riêng. Đặt trục "
-"cho mỗi lựa chọn dữ liệu bên dưới."
-
-msgid "Cancel"
-msgstr "Hủy"
-
-msgid "Update"
-msgstr "Cập nhật"
 
 msgid "Add to {{axisName}}"
 msgstr "Thêm {{tên trục}"
@@ -220,6 +198,9 @@ msgstr "Chỉnh sửa"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
+
+msgid "Update"
+msgstr "Cập nhật"
 
 msgid "Getting started"
 msgstr "Bắt đầu"
@@ -515,6 +496,27 @@ msgstr "Tổng phụ dòng"
 msgid "Row totals"
 msgstr "Tổng dòng"
 
+msgid "Data item"
+msgstr ""
+
+msgid "Visualization type"
+msgstr ""
+
+msgid "Axis {{axisId}}"
+msgstr ""
+
+msgid "Series is empty"
+msgstr ""
+
+msgid "Options for selected items will be available here"
+msgstr ""
+
+msgid "No Series options"
+msgstr ""
+
+msgid "There aren't any Series options for this visualization type"
+msgstr ""
+
 msgid "Value labels"
 msgstr "Nhãn giá trị"
 
@@ -781,6 +783,9 @@ msgstr "Dục dọc (y)"
 
 msgid "Horizontal (x) axis"
 msgstr "Trục ngang (x)"
+
+msgid "Series"
+msgstr ""
 
 msgid "Style"
 msgstr "Kiểu dáng"
