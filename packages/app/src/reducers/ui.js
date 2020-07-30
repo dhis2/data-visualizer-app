@@ -1,3 +1,5 @@
+/*eslint no-unused-vars: ["error", { "ignoreRestSiblings": true }]*/
+
 import castArray from 'lodash-es/castArray'
 import {
     DIMENSION_ID_DATA,
@@ -36,7 +38,7 @@ export const TOGGLE_UI_RIGHT_SIDEBAR_OPEN = 'TOGGLE_UI_RIGHT_SIDEBAR_OPEN'
 export const SET_UI_RIGHT_SIDEBAR_OPEN = 'SET_UI_RIGHT_SIDEBAR_OPEN'
 export const SET_UI_INTERPRETATION = 'SET_UI_INTERPRETATION'
 export const CLEAR_UI_INTERPRETATION = 'CLEAR_UI_INTERPRETATION'
-export const SET_AXES = 'SET_AXES'
+export const CLEAR_SERIES_TYPE = 'CLEAR_SERIES_TYPE'
 
 export const DEFAULT_UI = {
     type: defaultVisType,
@@ -56,7 +58,6 @@ export const DEFAULT_UI = {
     activeModalDialog: null,
     rightSidebarOpen: false,
     interpretation: {},
-    axes: null,
 }
 
 export const PRESELECTED_YEAR_OVER_YEAR_SERIES = ['THIS_YEAR', 'LAST_YEAR']
@@ -263,10 +264,15 @@ export default (state = DEFAULT_UI, action) => {
                 ...state,
                 interpretation: DEFAULT_UI.interpretation,
             }
-        case SET_AXES:
+        case CLEAR_SERIES_TYPE:
             return {
                 ...state,
-                axes: action.value,
+                options: {
+                    ...state.options,
+                    series: state.options.series.map(
+                        ({ type, ...rest }) => rest
+                    ),
+                },
             }
         default:
             return state

@@ -15,6 +15,7 @@ import RangeAxisSteps from '../../components/VisualizationOptions/Options/RangeA
 import RangeAxisDecimals from '../../components/VisualizationOptions/Options/RangeAxisDecimals'
 import RangeAxisLabel from '../../components/VisualizationOptions/Options/RangeAxisLabel'
 import DomainAxisLabel from '../../components/VisualizationOptions/Options/DomainAxisLabel'
+import NoSpaceBetweenColumns from '../../components/VisualizationOptions/Options/NoSpaceBetweenColumns'
 import HideLegend from '../../components/VisualizationOptions/Options/HideLegend'
 import HideTitle from '../../components/VisualizationOptions/Options/HideTitle'
 import HideSubtitle from '../../components/VisualizationOptions/Options/HideSubtitle'
@@ -81,12 +82,7 @@ export default [
         content: [
             {
                 key: 'series-table',
-                content: React.Children.toArray([
-                    <SeriesTable
-                        showAxisOptions={true}
-                        showTypeOptions={true}
-                    />,
-                ]),
+                content: React.Children.toArray([<SeriesTable />]),
             },
         ],
     },
@@ -97,7 +93,12 @@ export default [
             {
                 key: 'style-chart-style',
                 getLabel: () => i18n.t('Chart style'),
-                content: React.Children.toArray([<ShowData />, <HideLegend />]),
+                content: React.Children.toArray([
+                    <ShowData />,
+                    <NoSpaceBetweenColumns />,
+                    <HideLegend />,
+                    /* TODO new option <BackgroundLines /> */
+                ]),
             },
             {
                 key: 'style-titles',

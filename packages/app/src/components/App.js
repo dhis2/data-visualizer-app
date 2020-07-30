@@ -33,7 +33,6 @@ import {
 import './App.css'
 import './scrollbar.css'
 import { getParentGraphMapFromVisualization } from '../modules/ui'
-import AxisSetup from './AxisSetup/AxisSetup'
 import { APPROVAL_LEVEL_OPTION_AUTH } from './VisualizationOptions/Options/ApprovalLevel'
 import { sGetVisualization } from '../reducers/visualization'
 import { STATE_DIRTY, getVisualizationState } from '../modules/visualization'
@@ -207,7 +206,6 @@ export class App extends Component {
     render() {
         return (
             <>
-                <AxisSetup />
                 <div className="data-visualizer-app flex-ct flex-dir-col">
                     <div className="section-toolbar flex-ct">
                         <div className="toolbar-type">

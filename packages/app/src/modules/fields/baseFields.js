@@ -22,7 +22,6 @@ export const fieldsByType = {
     ],
     chart: [
         getFieldObject('category', { excluded: true }),
-        getFieldObject('series', { excluded: true }),
         getFieldObject(BASE_FIELD_YEARLY_SERIES),
     ],
     eventReport: [getFieldObject('dataType')],
@@ -53,7 +52,7 @@ export const fieldsByType = {
         getFieldObject('rangeAxisMinValue', { option: true }),
         getFieldObject('rangeAxisSteps', { option: true }),
         getFieldObject('regressionType', { option: true }),
-        getFieldObject('optionalAxes'),
+        getFieldObject('series', { option: true }),
         getFieldObject('showData', { option: true }),
         getFieldObject('targetLineLabel', { option: true }),
         getFieldObject('targetLineValue', { option: true }),
