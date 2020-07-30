@@ -1,3 +1,10 @@
+# [35.3.0](https://github.com/dhis2/data-visualizer-app/compare/v35.2.10...v35.3.0) (2020-07-30)
+
+
+### Features
+
+* column and line combined (DHIS2-9103, DHIS2-6385) ([#1143](https://github.com/dhis2/data-visualizer-app/issues/1143)) ([3928472](https://github.com/dhis2/data-visualizer-app/commit/39284723242a5fd5c91368fddc6f33e261d446bd))
+
 ## [35.2.10](https://github.com/dhis2/data-visualizer-app/compare/v35.2.9...v35.2.10) (2020-07-29)
 
 
