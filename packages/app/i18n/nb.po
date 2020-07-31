@@ -499,7 +499,7 @@ msgid "Row totals"
 msgstr "Radsummer"
 
 msgid "Data item"
-msgstr ""
+msgstr "Datapunkt"
 
 msgid "Visualization type"
 msgstr ""
@@ -790,7 +790,7 @@ msgid "Horizontal (x) axis"
 msgstr "Horisontal (x) akse"
 
 msgid "Series"
-msgstr ""
+msgstr "Serie"
 
 msgid "Style"
 msgstr "Stil"

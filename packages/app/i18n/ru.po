@@ -772,7 +772,7 @@ msgid "Horizontal (x) axis"
 msgstr ""
 
 msgid "Series"
-msgstr ""
+msgstr "Ряды"
 
 msgid "Style"
 msgstr "Стиль"

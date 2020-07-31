@@ -769,7 +769,7 @@ msgid "Horizontal (x) axis"
 msgstr ""
 
 msgid "Series"
-msgstr ""
+msgstr "سیریز"
 
 msgid "Style"
 msgstr "انداز"

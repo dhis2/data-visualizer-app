@@ -768,7 +768,7 @@ msgid "Horizontal (x) axis"
 msgstr ""
 
 msgid "Series"
-msgstr ""
+msgstr "سلسله (لړۍ)"
 
 msgid "Style"
 msgstr "استایل"
