@@ -17,7 +17,7 @@ import {
 
 import { sGetUiType, sGetUi } from '../../reducers/ui'
 import { getOptionsByType } from '../../modules/options/config'
-import { hasCustomAxes } from '@dhis2/analytics'
+import { isDualAxisType, hasCustomAxes } from '@dhis2/analytics'
 
 export class VisualizationOptions extends Component {
     state = { activeTabKey: undefined }
@@ -69,10 +69,14 @@ export class VisualizationOptions extends Component {
                 layoutItem => layoutItem === seriesItem.dimensionItem
             )
         )
-        const test = hasCustomAxes(filteredSeries)
-        console.log('hasCustomAxes: ' + test)
+        const _hasCustomAxes =
+            isDualAxisType(visualizationType) && hasCustomAxes(filteredSeries)
+        console.log('hasCustomAxes: ' + _hasCustomAxes)
 
-        const optionsConfig = getOptionsByType(visualizationType, test)
+        const optionsConfig = getOptionsByType(
+            visualizationType,
+            _hasCustomAxes
+        )
 
         const tabs = this.generateTabs(optionsConfig)
 
