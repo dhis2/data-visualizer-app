@@ -785,7 +785,7 @@ msgid "Horizontal (x) axis"
 msgstr "Trục ngang (x)"
 
 msgid "Series"
-msgstr ""
+msgstr "Chuỗi Dữ Liệu"
 
 msgid "Style"
 msgstr "Kiểu dáng"
