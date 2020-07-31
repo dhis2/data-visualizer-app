@@ -15,8 +15,9 @@ import {
     tabBar,
 } from './styles/VisualizationOptions.style.js'
 
-import { sGetUiType } from '../../reducers/ui'
+import { sGetUiType, sGetUi } from '../../reducers/ui'
 import { getOptionsByType } from '../../modules/options/config'
+import { hasCustomAxes } from '@dhis2/analytics'
 
 export class VisualizationOptions extends Component {
     state = { activeTabKey: undefined }
@@ -26,7 +27,7 @@ export class VisualizationOptions extends Component {
     }
 
     generateTabContent = sections =>
-        sections.map(({ key, getLabel, content }) => (
+        sections.map(({ key, getLabel, content, helpText }) => (
             <div key={key} className={tabSection.className}>
                 <FieldSet>
                     {getLabel ? (
@@ -37,6 +38,13 @@ export class VisualizationOptions extends Component {
                         </Legend>
                     ) : null}
                     {content}
+                    {helpText ? (
+                        <Legend>
+                            <span className={tabSectionOptionText.className}>
+                                {helpText}
+                            </span>
+                        </Legend>
+                    ) : null}
                 </FieldSet>
             </div>
         ))
@@ -49,9 +57,22 @@ export class VisualizationOptions extends Component {
         }))
 
     render() {
-        const { visualizationType } = this.props
+        const { visualizationType, ui } = this.props
 
-        const optionsConfig = getOptionsByType(visualizationType)
+        const seriesDimension = ui.layout.columns[0]
+        const layoutItems = ui.itemsByDimension[seriesDimension]
+        const series = ui.options.series
+        //TODO: can this be simplified? reuse an exisiting fn?
+        // use layoutGetAxisIdDimensionIdsObject?
+        const filteredSeries = series.filter(seriesItem =>
+            layoutItems.some(
+                layoutItem => layoutItem === seriesItem.dimensionItem
+            )
+        )
+        const test = hasCustomAxes(filteredSeries)
+        console.log('hasCustomAxes: ' + test)
+
+        const optionsConfig = getOptionsByType(visualizationType, test)
 
         const tabs = this.generateTabs(optionsConfig)
 
@@ -94,10 +115,12 @@ export class VisualizationOptions extends Component {
 
 VisualizationOptions.propTypes = {
     visualizationType: PropTypes.string.isRequired,
+    ui: PropTypes.object,
 }
 
 const mapStateToProps = state => ({
     visualizationType: sGetUiType(state),
+    ui: sGetUi(state),
 })
 
 export default connect(mapStateToProps)(VisualizationOptions)

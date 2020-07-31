@@ -25,10 +25,10 @@ import singleValueConfig from './singleValueConfig'
 import barConfig from './barConfig'
 import yearOverYearConfig from './yearOverYearConfig'
 
-export const getOptionsByType = type => {
+export const getOptionsByType = (type, hasCustomAxes) => {
     switch (type) {
         case VIS_TYPE_COLUMN:
-            return columnConfig
+            return columnConfig(hasCustomAxes)
         case VIS_TYPE_BAR:
             return barConfig
         case VIS_TYPE_YEAR_OVER_YEAR_LINE:
