@@ -26,11 +26,7 @@ export const TextBaseOption = ({
     enabled,
     inline,
 }) => (
-    <div
-        className={
-            !toggleable || enabled || inline ? '' : tabSectionOption.className
-        }
-    >
+    <div className={inline ? '' : tabSectionOption.className}>
         {toggleable ? (
             <Checkbox
                 checked={enabled}

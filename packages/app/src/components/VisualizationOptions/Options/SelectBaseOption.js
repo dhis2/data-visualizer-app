@@ -30,9 +30,7 @@ export const SelectBaseOption = ({
     }
 
     return (
-        <div
-            className={!toggleable || enabled ? '' : tabSectionOption.className}
-        >
+        <div className={tabSectionOption.className}>
             {toggleable ? (
                 <Checkbox
                     checked={enabled}
