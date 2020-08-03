@@ -5,6 +5,7 @@ import { Tab, TabBar } from '@dhis2/ui'
 
 import { VisualizationOptions } from '../VisualizationOptions'
 import { getOptionsByType } from '../../../modules/options/config'
+import { AXIS_ID_COLUMNS } from '@dhis2/analytics'
 
 describe('VisualizationOptions', () => {
     let props
@@ -23,22 +24,13 @@ describe('VisualizationOptions', () => {
     beforeEach(() => {
         props = {
             visualizationType: 'COLUMN',
-            ui: {
-                layout: {
-                    columns: ['dx'],
+            columnDimensionItems: ['aaa', 'bbb'],
+            series: [
+                {
+                    dimensionItem: 'aaa',
+                    axis: 0,
                 },
-                itemsByDimension: {
-                    dx: ['abcdef'],
-                },
-                options: {
-                    series: [
-                        {
-                            dimensionItem: 'abcdef',
-                            axis: 0,
-                        },
-                    ],
-                },
-            },
+            ],
         }
 
         shallowVisualizationOptions = undefined
