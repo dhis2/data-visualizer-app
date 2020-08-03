@@ -68,11 +68,16 @@ const config = hasCustomAxes => [
             {
                 key: 'axes-vertical-axis',
                 getLabel: () => i18n.t('Vertical (y) axis'),
+                helpText: hasCustomAxes
+                    ? i18n.t(
+                          'Vertical axis options are not supported yet when using multiple axes'
+                      )
+                    : null,
                 content: React.Children.toArray([
-                    <RangeAxisLabel />,
-                    <AxisRange />,
-                    <RangeAxisSteps />,
-                    <RangeAxisDecimals />,
+                    <RangeAxisLabel disabled={hasCustomAxes} />,
+                    <AxisRange disabled={hasCustomAxes} />,
+                    <RangeAxisSteps disabled={hasCustomAxes} />,
+                    <RangeAxisDecimals disabled={hasCustomAxes} />,
                 ]),
             },
             {
