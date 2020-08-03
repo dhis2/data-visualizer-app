@@ -12,7 +12,7 @@ import Legend from '../../components/VisualizationOptions/Options/Legend'
 import CompletedOnly from '../../components/VisualizationOptions/Options/CompletedOnly'
 import SeriesTable from '../../components/VisualizationOptions/Options/SeriesTable'
 
-export default [
+export default () => [
     {
         key: 'data-tab',
         getLabel: () => i18n.t('Data'),

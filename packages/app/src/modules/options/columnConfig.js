@@ -22,15 +22,14 @@ import HideSubtitle from '../../components/VisualizationOptions/Options/HideSubt
 import CompletedOnly from '../../components/VisualizationOptions/Options/CompletedOnly'
 import SeriesTable from '../../components/VisualizationOptions/Options/SeriesTable'
 
-//TODO: POC for hasCustomAxes -> disabled. Refactor all configs to follow the same pattern?
-const config = hasCustomAxes => [
+export default hasCustomAxes => [
     {
         key: 'data-tab',
         getLabel: () => i18n.t('Data'),
         content: [
             {
                 key: 'data-display',
-                getLabel: () => i18n.t('Display'),
+                getLabel: () => i18n.t('Display'), //TODO: change to "label" now that the whole config is wrapped in a fn?
                 content: React.Children.toArray([
                     <CumulativeValues />,
                     <HideEmptyRowItems />,
@@ -39,7 +38,7 @@ const config = hasCustomAxes => [
             },
             {
                 key: 'data-lines',
-                getLabel: () => i18n.t('Lines'), //TODO: change to "label" now that the whole config is wrapped in a fn?
+                getLabel: () => i18n.t('Lines'),
                 helpText: hasCustomAxes
                     ? i18n.t(
                           'Lines are not supported yet when using multiple axes'
@@ -127,5 +126,3 @@ const config = hasCustomAxes => [
         ],
     },
 ]
-
-export default config
