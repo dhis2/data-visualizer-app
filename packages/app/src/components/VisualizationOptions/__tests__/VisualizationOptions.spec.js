@@ -5,7 +5,6 @@ import { Tab, TabBar } from '@dhis2/ui'
 
 import { VisualizationOptions } from '../VisualizationOptions'
 import { getOptionsByType } from '../../../modules/options/config'
-import { AXIS_ID_COLUMNS } from '@dhis2/analytics'
 
 describe('VisualizationOptions', () => {
     let props
