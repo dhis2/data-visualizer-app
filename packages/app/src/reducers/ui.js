@@ -305,6 +305,9 @@ export const getAxisIdByDimensionId = (state, dimensionId) =>
 export const sGetUiItemsByDimension = (state, dimension) =>
     sGetUiItems(state)[dimension] || DEFAULT_UI.itemsByDimension[dimension]
 
+export const sGetDimensionItemsByAxis = (state, axisId) =>
+    sGetUiItemsByDimension(state, (sGetUiLayout(state) || {})[axisId]) || []
+
 export const sGetDimensionIdsFromLayout = state =>
     Object.values(sGetUiLayout(state)).reduce(
         (ids, axisDimensionIds) => ids.concat(axisDimensionIds),

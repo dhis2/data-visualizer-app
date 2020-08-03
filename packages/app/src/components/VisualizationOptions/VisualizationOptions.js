@@ -15,9 +15,17 @@ import {
     tabBar,
 } from './styles/VisualizationOptions.style.js'
 
-import { sGetUiType, sGetUi } from '../../reducers/ui'
+import {
+    sGetUiType,
+    sGetUiOptions,
+    sGetDimensionItemsByAxis,
+} from '../../reducers/ui'
 import { getOptionsByType } from '../../modules/options/config'
-import { isDualAxisType, hasCustomAxes } from '@dhis2/analytics'
+import {
+    isDualAxisType,
+    hasCustomAxes,
+    AXIS_ID_COLUMNS,
+} from '@dhis2/analytics'
 
 export class VisualizationOptions extends Component {
     state = { activeTabKey: undefined }
@@ -57,25 +65,15 @@ export class VisualizationOptions extends Component {
         }))
 
     render() {
-        const { visualizationType, ui } = this.props
-
-        const seriesDimension = ui.layout.columns[0]
-        const layoutItems = ui.itemsByDimension[seriesDimension]
-        const series = ui.options.series
-        //TODO: can this be simplified? reuse an exisiting fn?
-        // use layoutGetAxisIdDimensionIdsObject?
+        const { visualizationType, columnDimensionItems, series } = this.props
         const filteredSeries = series.filter(seriesItem =>
-            layoutItems.some(
+            columnDimensionItems.some(
                 layoutItem => layoutItem === seriesItem.dimensionItem
             )
         )
-        const _hasCustomAxes =
-            isDualAxisType(visualizationType) && hasCustomAxes(filteredSeries)
-        console.log('hasCustomAxes: ' + _hasCustomAxes)
-
         const optionsConfig = getOptionsByType(
             visualizationType,
-            _hasCustomAxes
+            isDualAxisType(visualizationType) && hasCustomAxes(filteredSeries)
         )
 
         const tabs = this.generateTabs(optionsConfig)
@@ -119,12 +117,14 @@ export class VisualizationOptions extends Component {
 
 VisualizationOptions.propTypes = {
     visualizationType: PropTypes.string.isRequired,
-    ui: PropTypes.object,
+    columnDimensionItems: PropTypes.array,
+    series: PropTypes.object,
 }
 
 const mapStateToProps = state => ({
     visualizationType: sGetUiType(state),
-    ui: sGetUi(state),
+    columnDimensionItems: sGetDimensionItemsByAxis(state, AXIS_ID_COLUMNS),
+    series: sGetUiOptions(state).series,
 })
 
 export default connect(mapStateToProps)(VisualizationOptions)
