@@ -5,21 +5,16 @@ import i18n from '@dhis2/d2-i18n'
 import CumulativeValues from '../../components/VisualizationOptions/Options/CumulativeValues'
 import ShowData from '../../components/VisualizationOptions/Options/ShowData'
 import HideEmptyRowItems from '../../components/VisualizationOptions/Options/HideEmptyRowItems'
-import RegressionType from '../../components/VisualizationOptions/Options/RegressionType'
-import TargetLine from '../../components/VisualizationOptions/Options/TargetLine'
-import BaseLine from '../../components/VisualizationOptions/Options/BaseLine'
 import SortOrder from '../../components/VisualizationOptions/Options/SortOrder'
 import AggregationType from '../../components/VisualizationOptions/Options/AggregationType'
-import AxisRange from '../../components/VisualizationOptions/Options/AxisRange'
-import RangeAxisSteps from '../../components/VisualizationOptions/Options/RangeAxisSteps'
-import RangeAxisDecimals from '../../components/VisualizationOptions/Options/RangeAxisDecimals'
-import RangeAxisLabel from '../../components/VisualizationOptions/Options/RangeAxisLabel'
 import DomainAxisLabel from '../../components/VisualizationOptions/Options/DomainAxisLabel'
 import HideLegend from '../../components/VisualizationOptions/Options/HideLegend'
 import HideTitle from '../../components/VisualizationOptions/Options/HideTitle'
 import HideSubtitle from '../../components/VisualizationOptions/Options/HideSubtitle'
 import CompletedOnly from '../../components/VisualizationOptions/Options/CompletedOnly'
 import SeriesTable from '../../components/VisualizationOptions/Options/SeriesTable'
+import getLinesSection from './sections/lines'
+import getVerticalAxisSection from './sections/verticalAxis'
 
 export default hasCustomAxes => [
     {
@@ -35,20 +30,7 @@ export default hasCustomAxes => [
                     <SortOrder />,
                 ]),
             },
-            {
-                key: 'data-lines',
-                getLabel: () => i18n.t('Lines'),
-                helpText: hasCustomAxes
-                    ? i18n.t(
-                          'Lines are not supported yet when using multiple axes'
-                      )
-                    : null,
-                content: React.Children.toArray([
-                    <RegressionType disabled={hasCustomAxes} />,
-                    <TargetLine disabled={hasCustomAxes} />,
-                    <BaseLine disabled={hasCustomAxes} />,
-                ]),
-            },
+            getLinesSection(hasCustomAxes),
             {
                 key: 'data-advanced',
                 getLabel: () => i18n.t('Advanced'),
@@ -63,21 +45,7 @@ export default hasCustomAxes => [
         key: 'axes-tab',
         getLabel: () => i18n.t('Axes'),
         content: [
-            {
-                key: 'axes-vertical-axis',
-                getLabel: () => i18n.t('Vertical (y) axis'),
-                helpText: hasCustomAxes
-                    ? i18n.t(
-                          'Vertical axis options are not supported yet when using multiple axes'
-                      )
-                    : null,
-                content: React.Children.toArray([
-                    <RangeAxisLabel disabled={hasCustomAxes} />,
-                    <AxisRange disabled={hasCustomAxes} />,
-                    <RangeAxisSteps disabled={hasCustomAxes} />,
-                    <RangeAxisDecimals disabled={hasCustomAxes} />,
-                ]),
-            },
+            getVerticalAxisSection(hasCustomAxes),
             {
                 key: 'axes-horizontal-axis',
                 getLabel: () => i18n.t('Horizontal (x) axis'),

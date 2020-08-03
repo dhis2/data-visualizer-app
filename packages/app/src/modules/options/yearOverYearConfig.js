@@ -5,15 +5,8 @@ import i18n from '@dhis2/d2-i18n'
 import CumulativeValues from '../../components/VisualizationOptions/Options/CumulativeValues'
 import ShowData from '../../components/VisualizationOptions/Options/ShowData'
 import HideEmptyRowItems from '../../components/VisualizationOptions/Options/HideEmptyRowItems'
-import RegressionType from '../../components/VisualizationOptions/Options/RegressionType'
-import TargetLine from '../../components/VisualizationOptions/Options/TargetLine'
-import BaseLine from '../../components/VisualizationOptions/Options/BaseLine'
 import SortOrder from '../../components/VisualizationOptions/Options/SortOrder'
 import AggregationType from '../../components/VisualizationOptions/Options/AggregationType'
-import AxisRange from '../../components/VisualizationOptions/Options/AxisRange'
-import RangeAxisSteps from '../../components/VisualizationOptions/Options/RangeAxisSteps'
-import RangeAxisDecimals from '../../components/VisualizationOptions/Options/RangeAxisDecimals'
-import RangeAxisLabel from '../../components/VisualizationOptions/Options/RangeAxisLabel'
 import DomainAxisLabel from '../../components/VisualizationOptions/Options/DomainAxisLabel'
 import NoSpaceBetweenColumns from '../../components/VisualizationOptions/Options/NoSpaceBetweenColumns'
 import HideLegend from '../../components/VisualizationOptions/Options/HideLegend'
@@ -21,6 +14,8 @@ import HideTitle from '../../components/VisualizationOptions/Options/HideTitle'
 import HideSubtitle from '../../components/VisualizationOptions/Options/HideSubtitle'
 import CompletedOnly from '../../components/VisualizationOptions/Options/CompletedOnly'
 import SeriesTable from '../../components/VisualizationOptions/Options/SeriesTable'
+import getLinesSection from './sections/lines'
+import getVerticalAxisSection from './sections/verticalAxis'
 
 export default () => [
     {
@@ -36,15 +31,7 @@ export default () => [
                     <SortOrder />,
                 ]),
             },
-            {
-                key: 'data-lines',
-                getLabel: () => i18n.t('Lines'),
-                content: React.Children.toArray([
-                    <RegressionType />,
-                    <TargetLine />,
-                    <BaseLine />,
-                ]),
-            },
+            getLinesSection(),
             {
                 key: 'data-advanced',
                 getLabel: () => i18n.t('Advanced'),
@@ -59,16 +46,7 @@ export default () => [
         key: 'axes-tab',
         getLabel: () => i18n.t('Axes'),
         content: [
-            {
-                key: 'axes-vertical-axis',
-                getLabel: () => i18n.t('Vertical (y) axis'),
-                content: React.Children.toArray([
-                    <RangeAxisLabel />,
-                    <AxisRange />,
-                    <RangeAxisSteps />,
-                    <RangeAxisDecimals />,
-                ]),
-            },
+            getVerticalAxisSection(),
             {
                 key: 'axes-horizontal-axis',
                 getLabel: () => i18n.t('Horizontal (x) axis'),
