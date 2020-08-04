@@ -1524,10 +1524,10 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^8.3.0-alpha.2":
-  version "8.3.0-alpha.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-8.3.0-alpha.2.tgz#810c93b86eafa2df3b209e83917d61effe37d1f9"
-  integrity sha512-h7IpgqIsnWK3Jr76sncSC2H16hTil5tVNa8ox5IgUEPhvTwXzRrdAknyLG5b8yD4KQzeda53NDDD6e1AsTWydQ==
+"@dhis2/analytics@^8.3.0-alpha.3":
+  version "8.3.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-8.3.0-alpha.3.tgz#5959f17d91f252c22335bf7742e829220ff3ef36"
+  integrity sha512-YLJWKhL5gjOg6y9lfiah+6Z5qJEnlFqwY59GcC3t7tMS4j19yYk+bB0vkSuLg2dkEdfB5Vgk1dnYZgNUo0R0eA==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.4"
     "@dhis2/ui" "^5.3.0"
