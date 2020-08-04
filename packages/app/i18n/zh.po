@@ -1,8 +1,8 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2020
 # easylin <lin_xd@126.com>, 2020
 # phil_dhis2, 2020
+# Viktor Varland <viktor@dhis2.org>, 2020
 # 晓东 林 <13981924470@126.com>, 2020
 # 
 msgid ""
@@ -493,7 +493,7 @@ msgid "Row totals"
 msgstr "行合计"
 
 msgid "Data item"
-msgstr ""
+msgstr "数据条目"
 
 msgid "Visualization type"
 msgstr ""
@@ -775,7 +775,7 @@ msgid "Horizontal (x) axis"
 msgstr "水平轴（X）"
 
 msgid "Series"
-msgstr ""
+msgstr "系列"
 
 msgid "Style"
 msgstr "风格"

@@ -504,7 +504,7 @@ msgid "Row totals"
 msgstr "Totais de linha"
 
 msgid "Data item"
-msgstr ""
+msgstr "Item de dados"
 
 msgid "Visualization type"
 msgstr ""
@@ -797,7 +797,7 @@ msgid "Horizontal (x) axis"
 msgstr "Eixo Horizontal (x) "
 
 msgid "Series"
-msgstr ""
+msgstr "Série"
 
 msgid "Style"
 msgstr "Estilo"
