@@ -20,11 +20,11 @@ import getVerticalAxisSection from './sections/verticalAxis'
 export default () => [
     {
         key: 'data-tab',
-        getLabel: () => i18n.t('Data'),
+        label: i18n.t('Data'),
         content: [
             {
                 key: 'data-display',
-                getLabel: () => i18n.t('Display'),
+                label: i18n.t('Display'),
                 content: React.Children.toArray([
                     <CumulativeValues />,
                     <HideEmptyRowItems />,
@@ -34,7 +34,7 @@ export default () => [
             getLinesSection(),
             {
                 key: 'data-advanced',
-                getLabel: () => i18n.t('Advanced'),
+                label: i18n.t('Advanced'),
                 content: React.Children.toArray([
                     <AggregationType />,
                     <CompletedOnly />,
@@ -44,19 +44,19 @@ export default () => [
     },
     {
         key: 'axes-tab',
-        getLabel: () => i18n.t('Axes'),
+        label: i18n.t('Axes'),
         content: [
             getVerticalAxisSection(),
             {
                 key: 'axes-horizontal-axis',
-                getLabel: () => i18n.t('Horizontal (x) axis'),
+                label: i18n.t('Horizontal (x) axis'),
                 content: React.Children.toArray([<DomainAxisLabel />]),
             },
         ],
     },
     {
         key: 'series-tab',
-        getLabel: () => i18n.t('Series'),
+        label: i18n.t('Series'),
         content: [
             {
                 key: 'series-table',
@@ -66,11 +66,11 @@ export default () => [
     },
     {
         key: 'style-tab',
-        getLabel: () => i18n.t('Style'),
+        label: i18n.t('Style'),
         content: [
             {
                 key: 'style-chart-style',
-                getLabel: () => i18n.t('Chart style'),
+                label: i18n.t('Chart style'),
                 content: React.Children.toArray([
                     <ShowData />,
                     <NoSpaceBetweenColumns />,
@@ -80,7 +80,7 @@ export default () => [
             },
             {
                 key: 'style-titles',
-                getLabel: () => i18n.t('Titles'),
+                label: i18n.t('Titles'),
                 content: React.Children.toArray([
                     <HideTitle />,
                     <HideSubtitle />,

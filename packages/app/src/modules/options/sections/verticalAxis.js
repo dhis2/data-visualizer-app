@@ -9,7 +9,7 @@ import RangeAxisDecimals from '../../../components/VisualizationOptions/Options/
 
 export default hasCustomAxes => ({
     key: 'axes-vertical-axis',
-    getLabel: () => i18n.t('Vertical (y) axis'),
+    label: i18n.t('Vertical (y) axis'),
     helpText: hasCustomAxes
         ? i18n.t(
               'Vertical axis options are not supported yet when using multiple axes'

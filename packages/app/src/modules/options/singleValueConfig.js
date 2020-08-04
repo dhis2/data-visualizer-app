@@ -12,11 +12,11 @@ import SeriesTable from '../../components/VisualizationOptions/Options/SeriesTab
 export default () => [
     {
         key: 'data-tab',
-        getLabel: () => i18n.t('Data'),
+        label: i18n.t('Data'),
         content: [
             {
                 key: 'data-advanced',
-                getLabel: () => i18n.t('Advanced'),
+                label: i18n.t('Advanced'),
                 content: React.Children.toArray([
                     <AggregationType />,
                     <CompletedOnly />,
@@ -26,7 +26,7 @@ export default () => [
     },
     {
         key: 'legend-tab',
-        getLabel: () => i18n.t('Legend'),
+        label: i18n.t('Legend'),
         content: [
             {
                 key: 'legend-section-1',
@@ -38,7 +38,7 @@ export default () => [
     },
     {
         key: 'series-tab',
-        getLabel: () => i18n.t('Series'),
+        label: i18n.t('Series'),
         content: [
             {
                 key: 'series-table',
@@ -48,11 +48,11 @@ export default () => [
     },
     {
         key: 'style-tab',
-        getLabel: () => i18n.t('Style'),
+        label: i18n.t('Style'),
         content: [
             {
                 key: 'style-titles',
-                getLabel: () => i18n.t('Titles'),
+                label: i18n.t('Titles'),
                 content: React.Children.toArray([
                     <HideTitle />,
                     <HideSubtitle />,

@@ -8,7 +8,7 @@ import BaseLine from '../../../components/VisualizationOptions/Options/BaseLine'
 
 export default hasCustomAxes => ({
     key: 'data-lines',
-    getLabel: () => i18n.t('Lines'),
+    label: i18n.t('Lines'),
     helpText: hasCustomAxes
         ? i18n.t('Lines are not supported yet when using multiple axes')
         : null,
