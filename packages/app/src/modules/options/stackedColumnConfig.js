@@ -18,7 +18,7 @@ import SeriesTable from '../../components/VisualizationOptions/Options/SeriesTab
 import getLinesSection from './sections/lines'
 import getVerticalAxisSection from './sections/verticalAxis'
 
-export default () => [
+export default hasCustomAxes => [
     {
         key: 'data-tab',
         label: i18n.t('Data'),
@@ -33,7 +33,7 @@ export default () => [
                     <SortOrder />,
                 ]),
             },
-            getLinesSection(),
+            getLinesSection(hasCustomAxes),
             {
                 key: 'data-advanced',
                 label: i18n.t('Advanced'),
@@ -48,7 +48,7 @@ export default () => [
         key: 'axes-tab',
         label: i18n.t('Axes'),
         content: [
-            getVerticalAxisSection(),
+            getVerticalAxisSection(hasCustomAxes),
             {
                 key: 'axes-horizontal-axis',
                 label: i18n.t('Horizontal (x) axis'),
