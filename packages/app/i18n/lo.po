@@ -769,7 +769,7 @@ msgid "Horizontal (x) axis"
 msgstr ""
 
 msgid "Series"
-msgstr ""
+msgstr "ແທ່ງ"
 
 msgid "Style"
 msgstr "ແບບ"
