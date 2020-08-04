@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import { FieldSet, Legend, TabBar, Tab } from '@dhis2/ui'
+import { FieldSet, Legend, TabBar, Tab, Help } from '@dhis2/ui'
 
 import {
     tabSection,
@@ -48,9 +48,9 @@ export class VisualizationOptions extends Component {
                     {content}
                     {helpText ? (
                         <Legend>
-                            <span className={tabSectionOptionText.className}>
+                            <Help className={tabSectionOptionText.className}>
                                 {helpText}
-                            </span>
+                            </Help>
                         </Legend>
                     ) : null}
                 </FieldSet>
