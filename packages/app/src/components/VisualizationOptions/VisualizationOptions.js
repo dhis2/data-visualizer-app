@@ -118,7 +118,7 @@ export class VisualizationOptions extends Component {
 VisualizationOptions.propTypes = {
     visualizationType: PropTypes.string.isRequired,
     columnDimensionItems: PropTypes.array,
-    series: PropTypes.object,
+    series: PropTypes.array,
 }
 
 const mapStateToProps = state => ({
