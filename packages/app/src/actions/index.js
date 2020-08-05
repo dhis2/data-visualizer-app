@@ -1,4 +1,5 @@
 import i18n from '@dhis2/d2-i18n'
+import { defaultFontStyle } from '@dhis2/analytics'
 
 import {
     apiFetchVisualization,
@@ -70,6 +71,10 @@ export const tDoLoadVisualization = ({
                 dispatch(fromUi.acSetUiInterpretation(interpretation))
                 dispatch(fromUi.acSetUiRightSidebarOpen())
             }
+        }
+
+        if (!visualization.fontStyle) {
+            visualization.fontStyle = defaultFontStyle
         }
 
         apiPostDataStatistics(visualization.id)
