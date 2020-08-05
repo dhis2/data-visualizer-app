@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    margin: var(--spacers-dp8) 0;
+}
+
+.container > *:not(:last-child) {
+    margin-right: var(--spacers-dp8);
+}
+
+.fontSizeSelect,
+.textAlignSelect {
+    min-width: 180px;
+}
+
+.textColorLabel {
+    height: 28px;
+    font-size: 14px;
+    line-height: 16px;
+    border: 1px solid var(--colors-grey400);
+    border-radius: 4px;
+}
+
+.textColorInput {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+}
+
+/* TODO: temporary fix, remove this once https://jira.dhis2.org/browse/TECH-392 is implemented in @dhis2/ui */
+.buttonActive {
+    background: var(--colors-grey400) !important;
+}

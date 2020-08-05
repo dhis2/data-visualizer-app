@@ -6,11 +6,11 @@ import { Checkbox, Box, Input, InputField } from '@dhis2/ui'
 
 import { sGetUiOptions } from '../../../reducers/ui'
 import { acSetUiOptions } from '../../../actions/ui'
-
 import {
     tabSectionOption,
     tabSectionOptionToggleable,
 } from '../styles/VisualizationOptions.style.js'
+import TextStyle from './TextStyle'
 
 export const TextBaseOption = ({
     type,
@@ -22,6 +22,7 @@ export const TextBaseOption = ({
     value,
     onChange,
     onToggle,
+    fontStyle,
     toggleable,
     enabled,
     inline,
@@ -70,6 +71,7 @@ export const TextBaseOption = ({
                         dense
                     />
                 )}
+                {fontStyle ? <TextStyle fontStyle={fontStyle} /> : null}
             </div>
         ) : null}
     </div>
@@ -77,6 +79,7 @@ export const TextBaseOption = ({
 
 TextBaseOption.propTypes = {
     enabled: PropTypes.bool,
+    fontStyle: PropTypes.string,
     helpText: PropTypes.string,
     inline: PropTypes.bool,
     label: PropTypes.string,
