@@ -4,6 +4,7 @@ import i18n from '@dhis2/d2-i18n'
 
 import TextBaseOption from './TextBaseOption'
 import { options } from '../../../modules/options'
+import { FONT_STYLE_VERTICAL_AXIS_TITLE } from '@dhis2/analytics'
 
 const optionName = 'rangeAxisLabel'
 const defaultValue = options[optionName].defaultValue
@@ -19,6 +20,7 @@ const RangeAxisLabel = () => (
             defaultValue: defaultValue,
         }}
         toggleable={true}
+        fontStyle={FONT_STYLE_VERTICAL_AXIS_TITLE}
     />
 )
 
