@@ -1,5 +1,4 @@
 import pick from 'lodash-es/pick'
-import { defaultFontStyle } from '@dhis2/analytics'
 
 export const options = {
     baseLineLabel: {
@@ -89,7 +88,7 @@ export const options = {
     title: { defaultValue: undefined, requestable: false, savable: true },
     series: { defaultValue: [], requestable: false, savable: true },
     fontStyle: {
-        defaultValue: defaultFontStyle,
+        defaultValue: {},
         requestable: false,
         savable: true,
     },
