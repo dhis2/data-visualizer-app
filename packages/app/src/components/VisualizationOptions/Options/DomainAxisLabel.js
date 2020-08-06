@@ -19,7 +19,7 @@ const DomainAxisLabel = () => (
             defaultValue: defaultValue,
         }}
         toggleable={true}
-        fontStyle={FONT_STYLE_HORIZONTAL_AXIS_TITLE}
+        fontStyleKey={FONT_STYLE_HORIZONTAL_AXIS_TITLE}
     />
 )
 

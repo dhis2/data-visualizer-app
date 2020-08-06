@@ -20,7 +20,7 @@ const RangeAxisLabel = () => (
             defaultValue: defaultValue,
         }}
         toggleable={true}
-        fontStyle={FONT_STYLE_VERTICAL_AXIS_TITLE}
+        fontStyleKey={FONT_STYLE_VERTICAL_AXIS_TITLE}
     />
 )
 

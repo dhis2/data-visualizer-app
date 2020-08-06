@@ -22,7 +22,7 @@ export const TextBaseOption = ({
     value,
     onChange,
     onToggle,
-    fontStyle,
+    fontStyleKey,
     toggleable,
     enabled,
     inline,
@@ -71,7 +71,9 @@ export const TextBaseOption = ({
                         dense
                     />
                 )}
-                {fontStyle ? <TextStyle fontStyle={fontStyle} /> : null}
+                {fontStyleKey ? (
+                    <TextStyle fontStyleKey={fontStyleKey} />
+                ) : null}
             </div>
         ) : null}
     </div>
@@ -79,7 +81,7 @@ export const TextBaseOption = ({
 
 TextBaseOption.propTypes = {
     enabled: PropTypes.bool,
-    fontStyle: PropTypes.string,
+    fontStyleKey: PropTypes.string,
     helpText: PropTypes.string,
     inline: PropTypes.bool,
     label: PropTypes.string,

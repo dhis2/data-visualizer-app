@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 import { SingleSelect, SingleSelectOption, Button } from '@dhis2/ui'
 import {
     getFontSizeOptions,
     getTextAlignOptions,
-    defaultFontStyle,
     FONT_STYLE_OPTION_FONT_SIZE,
     FONT_STYLE_OPTION_BOLD,
     FONT_STYLE_OPTION_ITALIC,
@@ -17,22 +17,24 @@ import styles from '../styles/TextStyle.module.css'
 import FontColorIcon from '../../../assets/FontColorIcon'
 import BoldIcon from '../../../assets/BoldIcon'
 import ItalicIcon from '../../../assets/ItalicIcon'
+import { sGetConsolidatedUiFontStyle } from '../../../reducers/ui'
+import { acSetUiFontStyle } from '../../../actions/ui'
 
-const TextStyle = ({ fontStyle }) => {
+// eslint-disable-next-line no-unused-vars
+const TextStyle = ({ fontStyleKey, fontStyle, onChange }) => {
     const fontSizeOptions = Object.values(getFontSizeOptions())
     const textAlignOptions = Object.values(getTextAlignOptions())
-    const defaultStyle = defaultFontStyle[fontStyle]
     const [fontSize, setFontSize] = useState(
-        defaultStyle[FONT_STYLE_OPTION_FONT_SIZE]
+        fontStyle[FONT_STYLE_OPTION_FONT_SIZE]
     )
     const [textAlign, setTextAlign] = useState(
-        defaultStyle[FONT_STYLE_OPTION_TEXT_ALIGN]
+        fontStyle[FONT_STYLE_OPTION_TEXT_ALIGN]
     )
     const [textColor, setTextColor] = useState(
-        defaultStyle[FONT_STYLE_OPTION_TEXT_COLOR]
+        fontStyle[FONT_STYLE_OPTION_TEXT_COLOR]
     )
-    const [bold, setBold] = useState(defaultStyle[FONT_STYLE_OPTION_BOLD])
-    const [italic, setItalic] = useState(defaultStyle[FONT_STYLE_OPTION_ITALIC])
+    const [bold, setBold] = useState(fontStyle[FONT_STYLE_OPTION_BOLD])
+    const [italic, setItalic] = useState(fontStyle[FONT_STYLE_OPTION_ITALIC])
 
     return (
         <div className={styles.container}>
@@ -76,7 +78,11 @@ const TextStyle = ({ fontStyle }) => {
                 <input
                     type="color"
                     value={textColor}
-                    onChange={e => setTextColor(e.target.value)}
+                    onChange={e => {
+                        const value = e.target.value
+                        setTextColor(value)
+                        onChange(FONT_STYLE_OPTION_TEXT_COLOR, value)
+                    }}
                     className={styles.textColorInput}
                 />
                 <FontColorIcon color={textColor} />
@@ -106,7 +112,25 @@ const TextStyle = ({ fontStyle }) => {
 }
 
 TextStyle.propTypes = {
-    fontStyle: PropTypes.string.isRequired,
+    fontStyleKey: PropTypes.string.isRequired,
+    fontStyle: PropTypes.object,
+    onChange: PropTypes.func,
 }
 
-export default TextStyle
+const mapStateToProps = (state, ownProps) => ({
+    fontStyle: sGetConsolidatedUiFontStyle(state, ownProps.fontStyleKey),
+})
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+    onChange: (option, value) => {
+        dispatch(
+            acSetUiFontStyle({
+                fontStyleKey: ownProps.fontStyleKey,
+                option,
+                value,
+            })
+        )
+    },
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(TextStyle)
