@@ -9,6 +9,7 @@ import {
     canDimensionBeAddedToAxis,
     defaultVisType,
     defaultFontStyle,
+    deleteFontStyleOption,
 } from '@dhis2/analytics'
 
 import {
@@ -119,17 +120,29 @@ export default (state = DEFAULT_UI, action) => {
         }
         case SET_UI_FONT_STYLE: {
             const { fontStyleKey, option, value } = action.value
+            let fontStyle = {}
+            if (defaultFontStyle[fontStyleKey][option] !== value) {
+                // custom value: save it
+                fontStyle = {
+                    ...(state.options.fontStyle || {}),
+                    [fontStyleKey]: {
+                        ...(state.options.fontStyle || {})[fontStyleKey],
+                        [option]: value,
+                    },
+                }
+            } else {
+                // default value: remove the previous value
+                fontStyle = deleteFontStyleOption(
+                    state.options.fontStyle,
+                    fontStyleKey,
+                    option
+                )
+            }
             return {
                 ...state,
                 options: {
                     ...state.options,
-                    fontStyle: {
-                        ...(state.options.fontStyle || {}),
-                        [fontStyleKey]: {
-                            ...(state.options.fontStyle || {})[fontStyleKey],
-                            [option]: value,
-                        },
-                    },
+                    fontStyle: { ...fontStyle },
                 },
             }
         }
