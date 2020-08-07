@@ -20,6 +20,8 @@ import ItalicIcon from '../../../assets/ItalicIcon'
 import { sGetConsolidatedUiFontStyle } from '../../../reducers/ui'
 import { acSetUiFontStyle } from '../../../actions/ui'
 
+const stringToBool = string => string === 'true'
+
 // eslint-disable-next-line no-unused-vars
 const TextStyle = ({ fontStyleKey, fontStyle, onChange }) => {
     const fontSizeOptions = Object.values(getFontSizeOptions())
@@ -87,12 +89,13 @@ const TextStyle = ({ fontStyleKey, fontStyle, onChange }) => {
                 />
                 <FontColorIcon color={textColor} />
             </label>
+            {/* TODO: temporary solution, use toggle instead of Button once https://jira.dhis2.org/browse/TECH-392 is implemented in @dhis2/ui */}
             <Button
                 icon={<BoldIcon />}
-                value={bold}
+                value={bold.toString()}
                 onClick={({ value }) => {
-                    setBold(!value)
-                    onChange(FONT_STYLE_OPTION_BOLD, !value)
+                    setBold(!stringToBool(value))
+                    onChange(FONT_STYLE_OPTION_BOLD, !stringToBool(value))
                 }}
                 className={bold ? styles.buttonActive : ''}
                 small
@@ -100,10 +103,10 @@ const TextStyle = ({ fontStyleKey, fontStyle, onChange }) => {
             />
             <Button
                 icon={<ItalicIcon />}
-                value={italic}
+                value={italic.toString()}
                 onClick={({ value }) => {
-                    setItalic(!value)
-                    onChange(FONT_STYLE_OPTION_ITALIC, !value)
+                    setItalic(!stringToBool(value))
+                    onChange(FONT_STYLE_OPTION_ITALIC, !stringToBool(value))
                 }}
                 className={italic ? styles.buttonActive : ''}
                 small
