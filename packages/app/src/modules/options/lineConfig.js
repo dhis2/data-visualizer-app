@@ -5,77 +5,67 @@ import i18n from '@dhis2/d2-i18n'
 import CumulativeValues from '../../components/VisualizationOptions/Options/CumulativeValues'
 import ShowData from '../../components/VisualizationOptions/Options/ShowData'
 import HideEmptyRowItems from '../../components/VisualizationOptions/Options/HideEmptyRowItems'
-import RegressionType from '../../components/VisualizationOptions/Options/RegressionType'
-import TargetLine from '../../components/VisualizationOptions/Options/TargetLine'
-import BaseLine from '../../components/VisualizationOptions/Options/BaseLine'
 import SortOrder from '../../components/VisualizationOptions/Options/SortOrder'
 import AggregationType from '../../components/VisualizationOptions/Options/AggregationType'
-import RangeAxisMinValue from '../../components/VisualizationOptions/Options/RangeAxisMinValue'
-import RangeAxisMaxValue from '../../components/VisualizationOptions/Options/RangeAxisMaxValue'
-import RangeAxisSteps from '../../components/VisualizationOptions/Options/RangeAxisSteps'
-import RangeAxisDecimals from '../../components/VisualizationOptions/Options/RangeAxisDecimals'
-import RangeAxisLabel from '../../components/VisualizationOptions/Options/RangeAxisLabel'
 import DomainAxisLabel from '../../components/VisualizationOptions/Options/DomainAxisLabel'
 import HideLegend from '../../components/VisualizationOptions/Options/HideLegend'
 import HideTitle from '../../components/VisualizationOptions/Options/HideTitle'
-import Title from '../../components/VisualizationOptions/Options/Title'
 import HideSubtitle from '../../components/VisualizationOptions/Options/HideSubtitle'
-import Subtitle from '../../components/VisualizationOptions/Options/Subtitle'
 import CompletedOnly from '../../components/VisualizationOptions/Options/CompletedOnly'
+import getLinesSection from './sections/lines'
+import getVerticalAxisSection from './sections/verticalAxis'
 
-export default [
+export default hasCustomAxes => [
     {
         key: 'data-tab',
-        getLabel: () => i18n.t('Data'),
+        label: i18n.t('Data'),
         content: [
             {
-                key: 'data-section-1',
+                key: 'data-display',
+                label: i18n.t('Display'),
                 content: React.Children.toArray([
-                    <ShowData />,
                     <CumulativeValues />,
                     <HideEmptyRowItems />,
-                    <RegressionType />,
-                    <TargetLine />,
-                    <BaseLine />,
                     <SortOrder />,
-                    <AggregationType />,
                 ]),
             },
+            getLinesSection(hasCustomAxes),
             {
                 key: 'data-advanced',
-                getLabel: () => i18n.t('Advanced'),
-                content: React.Children.toArray([<CompletedOnly />]),
+                label: i18n.t('Advanced'),
+                content: React.Children.toArray([
+                    <AggregationType />,
+                    <CompletedOnly />,
+                ]),
             },
         ],
     },
     {
         key: 'axes-tab',
-        getLabel: () => i18n.t('Axes'),
+        label: i18n.t('Axes'),
         content: [
+            getVerticalAxisSection(hasCustomAxes),
             {
-                key: 'axes-section-1',
-                content: React.Children.toArray([
-                    <RangeAxisMinValue />,
-                    <RangeAxisMaxValue />,
-                    <RangeAxisSteps />,
-                    <RangeAxisDecimals />,
-                    <RangeAxisLabel />,
-                    <DomainAxisLabel />,
-                ]),
+                key: 'axes-horizontal-axis',
+                label: i18n.t('Horizontal (x) axis'),
+                content: React.Children.toArray([<DomainAxisLabel />]),
             },
         ],
     },
     {
         key: 'style-tab',
-        getLabel: () => i18n.t('Style'),
+        label: i18n.t('Style'),
         content: [
             {
-                key: 'style-section-1',
+                key: 'style-chart-style',
+                label: i18n.t('Chart style'),
+                content: React.Children.toArray([<ShowData />, <HideLegend />]),
+            },
+            {
+                key: 'style-titles',
+                label: i18n.t('Titles'),
                 content: React.Children.toArray([
-                    <HideLegend />,
-                    <Title />,
                     <HideTitle />,
-                    <Subtitle />,
                     <HideSubtitle />,
                 ]),
             },

@@ -62,30 +62,34 @@ const Legend = ({
             {legendEnabled ? (
                 <div className={tabSectionOptionToggleable.className}>
                     {!hideStyleOptions ? (
+                        <div className={tabSectionOption.className}>
+                            <FieldSet>
+                                <UiCoreLegend>
+                                    <span
+                                        className={tabSectionTitle.className}
+                                        style={{ marginTop: 8 }}
+                                    >
+                                        {i18n.t('Legend style')}
+                                    </span>
+                                </UiCoreLegend>
+                                <div className={tabSectionOption.className}>
+                                    <LegendDisplayStyle />
+                                </div>
+                            </FieldSet>
+                        </div>
+                    ) : null}
+                    <div>
                         <FieldSet>
                             <UiCoreLegend>
-                                <span
-                                    className={tabSectionTitle.className}
-                                    style={{ marginTop: 8 }}
-                                >
-                                    {i18n.t('Legend style')}
+                                <span className={tabSectionTitle.className}>
+                                    {i18n.t('Legend type')}
                                 </span>
                             </UiCoreLegend>
                             <div className={tabSectionOption.className}>
-                                <LegendDisplayStyle />
+                                <LegendDisplayStrategy />
                             </div>
                         </FieldSet>
-                    ) : null}
-                    <FieldSet>
-                        <UiCoreLegend>
-                            <span className={tabSectionTitle.className}>
-                                {i18n.t('Legend type')}
-                            </span>
-                        </UiCoreLegend>
-                        <div className={tabSectionOption.className}>
-                            <LegendDisplayStrategy />
-                        </div>
-                    </FieldSet>
+                    </div>
                 </div>
             ) : null}
         </div>

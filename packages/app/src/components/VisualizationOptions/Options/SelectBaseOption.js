@@ -19,33 +19,32 @@ export const SelectBaseOption = ({
     toggleable,
     value,
     onChange,
+    disabled,
 }) => {
     const defaultValue = option.defaultValue
-
-    const [enabled, setEnabled] = useState(value !== defaultValue)
-
+    const [checked, setChecked] = useState(value !== defaultValue)
     const selected = option.items.find(item => item.value === value) || {}
-
     const onToggle = checked => {
-        setEnabled(checked)
+        setChecked(checked)
 
         onChange(checked ? option.items[0].value : defaultValue)
     }
 
     return (
         <div
-            className={!toggleable || enabled ? '' : tabSectionOption.className}
+            className={!toggleable || checked ? '' : tabSectionOption.className}
         >
             {toggleable ? (
                 <Checkbox
-                    checked={enabled}
+                    checked={checked}
                     label={label}
                     name={`${option.name}-toggle`}
                     onChange={({ checked }) => onToggle(checked)}
                     dense
+                    disabled={disabled}
                 />
             ) : null}
-            {!toggleable || enabled ? (
+            {(!toggleable || checked) && !disabled ? (
                 <div
                     className={
                         toggleable ? tabSectionOptionToggleable.className : ''
@@ -78,6 +77,7 @@ SelectBaseOption.propTypes = {
     option: PropTypes.object.isRequired,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     onChange: PropTypes.func.isRequired,
+    disabled: PropTypes.bool,
     helpText: PropTypes.string,
     label: PropTypes.string,
     toggleable: PropTypes.bool,
