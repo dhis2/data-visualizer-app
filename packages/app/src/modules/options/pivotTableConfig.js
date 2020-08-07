@@ -30,10 +30,10 @@ import ShowHierarchy from '../../components/VisualizationOptions/Options/ShowHie
 import CompletedOnly from '../../components/VisualizationOptions/Options/CompletedOnly'
 import SeriesTable from '../../components/VisualizationOptions/Options/SeriesTable'
 
-export default [
+export default () => [
     {
         key: 'data-tab',
-        getLabel: () => i18n.t('Data'),
+        label: i18n.t('Data'),
         content: [
             {
                 key: 'data-section-1',
@@ -44,7 +44,7 @@ export default [
             },
             {
                 key: 'data-display-totals',
-                getLabel: () => i18n.t('Display totals'),
+                label: i18n.t('Display totals'),
                 content: React.Children.toArray([
                     <ColTotals />,
                     <ColSubTotals />,
@@ -54,7 +54,7 @@ export default [
             },
             {
                 key: 'data-display-empty-data',
-                getLabel: () => i18n.t('Display empty data'),
+                label: i18n.t('Display empty data'),
                 content: React.Children.toArray([
                     <HideEmptyColumns />,
                     <HideEmptyRows />,
@@ -62,7 +62,7 @@ export default [
             },
             {
                 key: 'data-advanced',
-                getLabel: () => i18n.t('Advanced'),
+                label: i18n.t('Advanced'),
                 content: React.Children.toArray([
                     <AggregationType />,
                     <NumberType />,
@@ -74,7 +74,7 @@ export default [
     },
     {
         key: 'legend-tab',
-        getLabel: () => i18n.t('Legend'),
+        label: i18n.t('Legend'),
         content: [
             {
                 key: 'legend-section-1',
@@ -84,7 +84,7 @@ export default [
     },
     {
         key: 'series-tab',
-        getLabel: () => i18n.t('Series'),
+        label: i18n.t('Series'),
         content: [
             {
                 key: 'series-table',
@@ -94,7 +94,7 @@ export default [
     },
     {
         key: 'style-tab',
-        getLabel: () => i18n.t('Style'),
+        label: i18n.t('Style'),
         content: [
             {
                 key: 'style-section-1',
@@ -107,31 +107,31 @@ export default [
             },
             {
                 key: 'style-section-2',
-                getLabel: () => i18n.t('Labels'),
+                label: i18n.t('Labels'),
                 content: React.Children.toArray([<ShowHierarchy />]),
             },
         ],
     },
     {
         key: 'limitValues-tab',
-        getLabel: () => i18n.t('Limit values'),
+        label: i18n.t('Limit values'),
         content: [
             /*
             {
                 key: 'limitValues-limit-numbers',
-                getLabel: () => i18n.t('Limit number of values'),
+                label: i18n.t('Limit number of values'),
                 content: [<TopLimit />],
             },*/
             {
                 key: 'limitValues-limit-min-max',
-                getLabel: () => i18n.t('Limit minimum/maximum values'),
+                label: i18n.t('Limit minimum/maximum values'),
                 content: React.Children.toArray([<MeasureCriteria />]),
             },
         ],
     },
     {
         key: 'parameters-tab',
-        getLabel: () => i18n.t('Parameters'),
+        label: i18n.t('Parameters'),
         content: [
             {
                 key: 'parameters-section-1',

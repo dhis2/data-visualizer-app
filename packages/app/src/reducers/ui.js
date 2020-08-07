@@ -299,11 +299,14 @@ export const sGetAxes = state => sGetUi(state).axes
 
 // Selectors level 2
 
-export const getAxisIdByDimensionId = (state, dimensionId) =>
+export const sGetAxisIdByDimensionId = (state, dimensionId) =>
     (getInverseLayout(sGetUiLayout(state)) || {})[dimensionId]
 
 export const sGetUiItemsByDimension = (state, dimension) =>
     sGetUiItems(state)[dimension] || DEFAULT_UI.itemsByDimension[dimension]
+
+export const sGetDimensionItemsByAxis = (state, axisId) =>
+    sGetUiItemsByDimension(state, (sGetUiLayout(state) || {})[axisId]) || []
 
 export const sGetDimensionIdsFromLayout = state =>
     Object.values(sGetUiLayout(state)).reduce(

@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import { FieldSet, Legend, TabBar, Tab } from '@dhis2/ui'
+import { FieldSet, Legend, TabBar, Tab, Help } from '@dhis2/ui'
 
 import {
     tabSection,
@@ -15,8 +15,17 @@ import {
     tabBar,
 } from './styles/VisualizationOptions.style.js'
 
-import { sGetUiType } from '../../reducers/ui'
+import {
+    sGetUiType,
+    sGetUiOptions,
+    sGetDimensionItemsByAxis,
+} from '../../reducers/ui'
 import { getOptionsByType } from '../../modules/options/config'
+import {
+    isDualAxisType,
+    hasCustomAxes,
+    AXIS_ID_COLUMNS,
+} from '@dhis2/analytics'
 
 export class VisualizationOptions extends Component {
     state = { activeTabKey: undefined }
@@ -26,32 +35,46 @@ export class VisualizationOptions extends Component {
     }
 
     generateTabContent = sections =>
-        sections.map(({ key, getLabel, content }) => (
+        sections.map(({ key, label, content, helpText }) => (
             <div key={key} className={tabSection.className}>
                 <FieldSet>
-                    {getLabel ? (
+                    {label ? (
                         <Legend>
                             <span className={tabSectionTitle.className}>
-                                {getLabel()}
+                                {label}
                             </span>
                         </Legend>
                     ) : null}
                     {content}
+                    {helpText ? (
+                        <Legend>
+                            <Help className={tabSectionOptionText.className}>
+                                {helpText}
+                            </Help>
+                        </Legend>
+                    ) : null}
                 </FieldSet>
             </div>
         ))
 
     generateTabs = tabs =>
-        tabs.map(({ key, getLabel, content }) => ({
+        tabs.map(({ key, label, content }) => ({
             key,
-            label: getLabel(),
+            label,
             content: this.generateTabContent(content),
         }))
 
     render() {
-        const { visualizationType } = this.props
-
-        const optionsConfig = getOptionsByType(visualizationType)
+        const { visualizationType, columnDimensionItems, series } = this.props
+        const filteredSeries = series.filter(seriesItem =>
+            columnDimensionItems.some(
+                layoutItem => layoutItem === seriesItem.dimensionItem
+            )
+        )
+        const optionsConfig = getOptionsByType(
+            visualizationType,
+            isDualAxisType(visualizationType) && hasCustomAxes(filteredSeries)
+        )
 
         const tabs = this.generateTabs(optionsConfig)
 
@@ -94,10 +117,14 @@ export class VisualizationOptions extends Component {
 
 VisualizationOptions.propTypes = {
     visualizationType: PropTypes.string.isRequired,
+    columnDimensionItems: PropTypes.array,
+    series: PropTypes.array,
 }
 
 const mapStateToProps = state => ({
     visualizationType: sGetUiType(state),
+    columnDimensionItems: sGetDimensionItemsByAxis(state, AXIS_ID_COLUMNS),
+    series: sGetUiOptions(state).series,
 })
 
 export default connect(mapStateToProps)(VisualizationOptions)
