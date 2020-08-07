@@ -28,5 +28,9 @@
 
 /* TODO: temporary fix, remove this once https://jira.dhis2.org/browse/TECH-392 is implemented in @dhis2/ui */
 .buttonActive {
-    background: var(--colors-grey400) !important;
+    background: var(--colors-grey700) !important;
+}
+
+.buttonActive path {
+    fill: var(--colors-white);
 }
