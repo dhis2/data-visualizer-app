@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-07-28T10:55:58.947Z\n"
+"POT-Creation-Date: 2020-08-03T14:19:51.289Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
@@ -772,14 +772,8 @@ msgstr "Lấy dữ liệu"
 msgid "Display"
 msgstr "Hiển thị"
 
-msgid "Lines"
-msgstr "Các đường"
-
 msgid "Axes"
 msgstr "Trục"
-
-msgid "Vertical (y) axis"
-msgstr "Dục dọc (y)"
 
 msgid "Horizontal (x) axis"
 msgstr "Trục ngang (x)"
@@ -795,6 +789,12 @@ msgstr "Dạng biểu đồ"
 
 msgid "Titles"
 msgstr "Tiêu đề"
+
+msgid "Lines"
+msgstr "Các đường"
+
+msgid "Vertical (y) axis"
+msgstr "Dục dọc (y)"
 
 msgid "Display totals"
 msgstr "Hiển thị tổng"
@@ -816,6 +816,12 @@ msgstr "Giới hạn giá trị nhỏ nhất/lớn nhất"
 
 msgid "Parameters"
 msgstr "Tham số"
+
+msgid "Lines are not supported yet when using multiple axes"
+msgstr ""
+
+msgid "Vertical axis options are not supported yet when using multiple axes"
+msgstr ""
 
 msgid "Weeks per year"
 msgstr "Hàng tuần mỗi năm"

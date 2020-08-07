@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-07-28T10:55:58.947Z\n"
+"POT-Creation-Date: 2020-08-03T14:19:51.289Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
@@ -758,14 +758,8 @@ msgstr "Datos"
 msgid "Display"
 msgstr "Mostrar"
 
-msgid "Lines"
-msgstr ""
-
 msgid "Axes"
 msgstr "Ejes"
-
-msgid "Vertical (y) axis"
-msgstr ""
 
 msgid "Horizontal (x) axis"
 msgstr ""
@@ -780,6 +774,12 @@ msgid "Chart style"
 msgstr ""
 
 msgid "Titles"
+msgstr ""
+
+msgid "Lines"
+msgstr ""
+
+msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Display totals"
@@ -802,6 +802,12 @@ msgstr ""
 
 msgid "Parameters"
 msgstr "Parámetros"
+
+msgid "Lines are not supported yet when using multiple axes"
+msgstr ""
+
+msgid "Vertical axis options are not supported yet when using multiple axes"
+msgstr ""
 
 msgid "Weeks per year"
 msgstr ""
