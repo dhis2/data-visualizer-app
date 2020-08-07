@@ -5,7 +5,10 @@ import { Checkbox } from '@dhis2/ui'
 
 import { sGetUiOptions } from '../../../reducers/ui'
 import { acSetUiOptions } from '../../../actions/ui'
-import { tabSectionOption } from '../styles/VisualizationOptions.style.js'
+import {
+    tabSectionOption,
+    tabSectionOptionToggleable,
+} from '../styles/VisualizationOptions.style.js'
 import TextStyle from './TextStyle'
 
 export const CheckboxBaseOption = ({
@@ -25,7 +28,9 @@ export const CheckboxBaseOption = ({
             dense
         />
         {((!inverted && value) || (inverted && !value)) && fontStyleKey ? (
-            <TextStyle fontStyleKey={fontStyleKey} />
+            <div className={tabSectionOptionToggleable.className}>
+                <TextStyle fontStyleKey={fontStyleKey} />
+            </div>
         ) : null}
     </div>
 )
