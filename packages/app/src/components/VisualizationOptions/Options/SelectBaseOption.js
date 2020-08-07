@@ -22,10 +22,10 @@ export const SelectBaseOption = ({
     disabled,
 }) => {
     const defaultValue = option.defaultValue
-    const [checked, setchecked] = useState(value !== defaultValue)
+    const [checked, setChecked] = useState(value !== defaultValue)
     const selected = option.items.find(item => item.value === value)?.value
     const onToggle = checked => {
-        setchecked(checked)
+        setChecked(checked)
 
         onChange(checked ? option.items[0].value : defaultValue)
     }
