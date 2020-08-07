@@ -24,7 +24,7 @@ export default hasCustomAxes => [
         content: [
             {
                 key: 'data-display',
-                label: i18n.t('Display'), //TODO: change to "label" now that the whole config is wrapped in a fn?
+                label: i18n.t('Display'),
                 content: React.Children.toArray([
                     <CumulativeValues />,
                     <HideEmptyRowItems />,
