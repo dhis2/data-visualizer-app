@@ -40,8 +40,8 @@ const TextStyle = ({ fontStyleKey, fontStyle, onChange }) => {
         <div className={styles.container}>
             <SingleSelect
                 onChange={({ selected }) => {
-                    console.log('size changed to ' + selected)
                     setFontSize(selected)
+                    onChange(FONT_STYLE_OPTION_FONT_SIZE, selected)
                 }}
                 selected={fontSize}
                 prefix={i18n.t('Size')}
@@ -58,8 +58,8 @@ const TextStyle = ({ fontStyleKey, fontStyle, onChange }) => {
             </SingleSelect>
             <SingleSelect
                 onChange={({ selected }) => {
-                    console.log('position changed to ' + selected)
                     setTextAlign(selected)
+                    onChange(FONT_STYLE_OPTION_TEXT_ALIGN, selected)
                 }}
                 selected={textAlign}
                 prefix={i18n.t('Position')}
@@ -92,6 +92,7 @@ const TextStyle = ({ fontStyleKey, fontStyle, onChange }) => {
                 value={bold}
                 onClick={({ value }) => {
                     setBold(!value)
+                    onChange(FONT_STYLE_OPTION_BOLD, !value)
                 }}
                 className={bold ? styles.buttonActive : ''}
                 small
@@ -102,6 +103,7 @@ const TextStyle = ({ fontStyleKey, fontStyle, onChange }) => {
                 value={italic}
                 onClick={({ value }) => {
                     setItalic(!value)
+                    onChange(FONT_STYLE_OPTION_ITALIC, !value)
                 }}
                 className={italic ? styles.buttonActive : ''}
                 small
