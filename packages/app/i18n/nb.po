@@ -502,22 +502,22 @@ msgid "Data item"
 msgstr "Datapunkt"
 
 msgid "Visualization type"
-msgstr ""
+msgstr "Visualiseringstype"
 
 msgid "Axis {{axisId}}"
-msgstr ""
+msgstr "Akse {{axisId}}"
 
 msgid "Series is empty"
-msgstr ""
+msgstr "Serie er tom"
 
 msgid "Options for selected items will be available here"
-msgstr ""
+msgstr "Alternativer for valgte elementer vil være tilgjengelige her"
 
 msgid "No Series options"
-msgstr ""
+msgstr "Ingen seriealternativer"
 
 msgid "There aren't any Series options for this visualization type"
-msgstr ""
+msgstr "Det er ingen seriealternativer for denne visualiseringstypen"
 
 msgid "Value labels"
 msgstr "Verdietiketter"
@@ -823,10 +823,11 @@ msgid "Parameters"
 msgstr "Parametere"
 
 msgid "Lines are not supported yet when using multiple axes"
-msgstr ""
+msgstr "Linjer støttes ikke ennå ved bruk av flere akser"
 
 msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr ""
+"Alternativer for vertikal akse støttes ikke ennå ved bruk av flere akser"
 
 msgid "Weeks per year"
 msgstr "Uker per år"
