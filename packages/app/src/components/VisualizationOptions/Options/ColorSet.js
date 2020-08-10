@@ -46,6 +46,10 @@ const ColorSet = ({ value, onChange, disabled }) => (
                         id: COLOR_SET_COLOR_BLIND,
                         label: i18n.t('Color blind'),
                     },
+                    {
+                        id: COLOR_SET_MONO_PATTERNS,
+                        label: i18n.t('Mono patterns'),
+                    },
                 ].map(({ id, label }) => (
                     <span key={id}>
                         <Radio
@@ -53,29 +57,19 @@ const ColorSet = ({ value, onChange, disabled }) => (
                                 <>
                                     {label}
                                     <ColorSetPreview
-                                        id={id}
+                                        colorSet={colorSets[id]}
                                         disabled={disabled}
                                     />
                                 </>
                             }
                             value={id}
                             dense
-                            onChange={onChange}
+                            onChange={({ value }) => onChange(value)}
                             checked={value === id}
                             disabled={disabled}
                         />
                     </span>
                 )),
-                <span key={COLOR_SET_MONO_PATTERNS}>
-                    <Radio
-                        label={i18n.t('Mono patterns')}
-                        value={COLOR_SET_MONO_PATTERNS}
-                        dense
-                        onChange={onChange}
-                        checked={value === COLOR_SET_MONO_PATTERNS}
-                        disabled={disabled}
-                    />
-                </span>,
             ]}
         </Field>
     </div>
@@ -87,21 +81,39 @@ ColorSet.propTypes = {
     disabled: PropTypes.bool,
 }
 
-const ColorSetPreview = ({ id, disabled }) => (
+const ColorSetPreview = ({ colorSet, disabled }) => (
     <div
         style={{ display: 'flex', marginLeft: 4, opacity: disabled ? 0.3 : 1 }}
     >
-        {colorSets[id].colors.map(color => (
-            <div
-                key={color}
-                style={{ backgroundColor: color, width: 14, height: 14 }}
-            ></div>
-        ))}
+        {colorSet?.patterns &&
+            colorSet.patterns.map((pattern, index) => (
+                <div key={`pattern-${index}`}>
+                    <svg
+                        width={14}
+                        height={14}
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d={pattern.path}
+                            stroke={pattern.color}
+                            strokeWidth={2}
+                            fill="none"
+                        />
+                    </svg>
+                </div>
+            ))}
+        {colorSet?.colors &&
+            colorSet.colors.map(color => (
+                <div
+                    key={color}
+                    style={{ backgroundColor: color, width: 14, height: 14 }}
+                />
+            ))}
     </div>
 )
 
 ColorSetPreview.propTypes = {
-    id: PropTypes.string.isRequired,
+    colorSet: PropTypes.object.isRequired,
     disabled: PropTypes.bool,
 }
 
