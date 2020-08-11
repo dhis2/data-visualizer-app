@@ -22,38 +22,55 @@
 
 .cardContainer {
     margin: 1px 0;
-    max-width: 600px;
     min-height: 200px;
 }
 
 .listContainer {
-    height: 85vh;
-    overflow: auto;
+    max-width: 888px;
+    box-shadow: 0 0 1px 0 rgba(64, 75, 90, 0.29),
+        0 3px 8px -2px rgba(64, 75, 90, 0.3);
+    border-radius: 3px;
+    padding: 12px 16px;
+}
+
+.listSection {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .listItem {
-    height: 120px;
-    width: 126px;
-    margin: var(--spacers-dp8);
-    padding: 0;
+    width: 280px;
+    background: #fff;
+    border: 1px solid var(--colors-grey300);
+    border-radius: 3px;
+    padding: var(--spacers-dp8);
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-radius: var(--spacers-dp8);
-    float: left;
+    align-items: flex-start;
+    margin-bottom: var(--spacers-dp8);
     cursor: pointer;
 }
 
+.listItem:nth-child(3n + 1) {
+    margin-right: var(--spacers-dp8);
+}
+
+.listItem:nth-child(3n + 3) {
+    margin-left: var(--spacers-dp8);
+}
+
 .listItem:hover {
-    background-color: #fafafa;
+    background: var(--colors-grey050);
+    border-color: var(--colors-grey400);
 }
 
 .listItemActive {
-    background-color: #d9eceb;
+    background: var(--colors-teal050);
+    border: 2px solid var(--colors-teal300);
 }
 
 .listItemDisabled {
     opacity: 0.5;
+    cursor: not-allowed;
 }
 
 .listItemDisabled:hover {
@@ -66,14 +83,20 @@
 }
 
 .listItemIcon {
-    margin: 0 auto;
-    margin-bottom: 15px;
+    width: 48px;
+    height: 48px;
+    margin-right: var(--spacers-dp8);
 }
 
-.listItemText {
+.listItemName {
     font-size: 14px;
-    flex: none;
-    padding: 0;
-    white-space: normal;
-    text-align: center;
+    font-weight: 500;
+    margin: 4px 0;
+}
+
+.listItemDescription {
+    font-size: 12px;
+    color: var(--colors-grey700);
+    margin: 0;
+    line-height: 1.4;
 }

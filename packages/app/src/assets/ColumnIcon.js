@@ -4,13 +4,14 @@ import PropTypes from 'prop-types'
 const ColumnIcon = ({
     style = { paddingRight: '8px', width: 24, height: 24 },
 }) => (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0,0,48,48" style={style}>
-        <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-            <rect fill="#63A4FF" x="6" y="14" width="10" height="32" />
-            <rect fill="#1976D2" x="20" y="24" width="10" height="22" />
-            <rect fill="#004BA0" x="36" y="4" width="10" height="42" />
-            <rect fill="#9E9E9E" x="0" y="0" width="2" height="48" />
-            <rect fill="#9E9E9E" x="0" y="46" width="48" height="2" />
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" style={style}>
+        <g fill="none" fillRule="evenodd">
+            <polygon points="0 0 48 0 48 48 0 48" />
+            <polygon fill="#147CD7" points="12 12 18 12 18 36 12 36" />
+            <polygon fill="#147CD7" points="22 22 28 22 28 36 22 36" />
+            <polygon fill="#147CD7" points="32 7 38 7 38 36 32 36" />
+            <polygon fill="#4A5768" points="6 6 8 6 8 42 6 42" />
+            <polygon fill="#4A5768" points="6 40 42 40 42 42 6 42" />
         </g>
     </svg>
 )
