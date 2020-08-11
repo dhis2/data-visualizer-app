@@ -42,18 +42,18 @@ const TextStyle = ({ fontStyleKey, fontStyle, onChange }) => {
         <div className={styles.container}>
             <SingleSelect
                 onChange={({ selected }) => {
-                    setFontSize(selected)
-                    onChange(FONT_STYLE_OPTION_FONT_SIZE, selected)
+                    setFontSize(Number(selected))
+                    onChange(FONT_STYLE_OPTION_FONT_SIZE, Number(selected))
                 }}
-                selected={fontSize}
+                selected={fontSize.toString()}
                 prefix={i18n.t('Size')}
                 dense
                 className={styles.fontSizeSelect}
             >
                 {fontSizeOptions.map(option => (
                     <SingleSelectOption
-                        key={option.value}
-                        value={option.value}
+                        key={option.value?.toString()}
+                        value={option.value?.toString()}
                         label={option.label}
                     />
                 ))}
