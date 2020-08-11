@@ -1,6 +1,6 @@
 import React from 'react'
-
 import i18n from '@dhis2/d2-i18n'
+import PropTypes from 'prop-types'
 
 import SelectBaseOption from './SelectBaseOption'
 import { options } from '../../../modules/options'
@@ -8,10 +8,11 @@ import { options } from '../../../modules/options'
 const optionName = 'regressionType'
 const defaultValue = options[optionName].defaultValue
 
-const RegressionType = () => (
+const RegressionType = ({ disabled }) => (
     <SelectBaseOption
         toggleable={true}
         label={i18n.t('Trend line')}
+        disabled={disabled}
         option={{
             name: optionName,
             defaultValue: defaultValue,
@@ -23,5 +24,9 @@ const RegressionType = () => (
         }}
     />
 )
+
+RegressionType.propTypes = {
+    disabled: PropTypes.bool,
+}
 
 export default RegressionType

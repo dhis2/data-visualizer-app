@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-07-21T09:20:20.828Z\n"
+"POT-Creation-Date: 2020-08-03T14:19:51.289Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2020\n"
 "Language-Team: Arabic (Iraq) (https://www.transifex.com/hisp-uio/teams/100509/ar_IQ/)\n"
@@ -37,26 +37,6 @@ msgstr ""
 
 msgid "Yes, leave"
 msgstr ""
-
-msgid "Axis 1"
-msgstr ""
-
-msgid "Axis 2"
-msgstr ""
-
-msgid "Manage axes"
-msgstr ""
-
-msgid ""
-"A chart can have two axes. Each axis will have its own scale. Set the axis "
-"for each data selection below."
-msgstr ""
-
-msgid "Cancel"
-msgstr "إلغاء"
-
-msgid "Update"
-msgstr "تحديث"
 
 msgid "Add to {{axisName}}"
 msgstr ""
@@ -214,6 +194,9 @@ msgstr ""
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
+
+msgid "Update"
+msgstr "تحديث"
 
 msgid "Getting started"
 msgstr ""
@@ -504,6 +487,27 @@ msgstr ""
 msgid "Row totals"
 msgstr ""
 
+msgid "Data item"
+msgstr ""
+
+msgid "Visualization type"
+msgstr ""
+
+msgid "Axis {{axisId}}"
+msgstr ""
+
+msgid "Series is empty"
+msgstr ""
+
+msgid "Options for selected items will be available here"
+msgstr ""
+
+msgid "No Series options"
+msgstr ""
+
+msgid "There aren't any Series options for this visualization type"
+msgstr ""
+
 msgid "Value labels"
 msgstr ""
 
@@ -751,16 +755,13 @@ msgstr "البيانات"
 msgid "Display"
 msgstr ""
 
-msgid "Lines"
-msgstr ""
-
 msgid "Axes"
 msgstr ""
 
-msgid "Vertical (y) axis"
+msgid "Horizontal (x) axis"
 msgstr ""
 
-msgid "Horizontal (x) axis"
+msgid "Series"
 msgstr ""
 
 msgid "Style"
@@ -770,6 +771,12 @@ msgid "Chart style"
 msgstr ""
 
 msgid "Titles"
+msgstr ""
+
+msgid "Lines"
+msgstr ""
+
+msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Display totals"
@@ -792,6 +799,12 @@ msgstr ""
 
 msgid "Parameters"
 msgstr "المعاملات"
+
+msgid "Lines are not supported yet when using multiple axes"
+msgstr ""
+
+msgid "Vertical axis options are not supported yet when using multiple axes"
+msgstr ""
 
 msgid "Weeks per year"
 msgstr ""

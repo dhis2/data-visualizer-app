@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-07-21T09:20:20.828Z\n"
+"POT-Creation-Date: 2020-08-03T14:19:51.289Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -40,28 +40,6 @@ msgstr "Nei, avbryt"
 
 msgid "Yes, leave"
 msgstr "Ja, avslutt"
-
-msgid "Axis 1"
-msgstr "Akse 1"
-
-msgid "Axis 2"
-msgstr "Akse 2"
-
-msgid "Manage axes"
-msgstr "Administrer akser"
-
-msgid ""
-"A chart can have two axes. Each axis will have its own scale. Set the axis "
-"for each data selection below."
-msgstr ""
-"Et diagram kan ha to akser. Hver akse vil ha sin egen skala. Sett aksen for "
-"hvert datavalg nedenfor."
-
-msgid "Cancel"
-msgstr "Avbryt"
-
-msgid "Update"
-msgstr "Oppdater"
 
 msgid "Add to {{axisName}}"
 msgstr "Legg til {{axisName}}"
@@ -223,6 +201,9 @@ msgstr "Redigert"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "Viser tolkning fra {{interpretationDate}}"
+
+msgid "Update"
+msgstr "Oppdater"
 
 msgid "Getting started"
 msgstr "Komme i gang"
@@ -517,6 +498,27 @@ msgstr "Raddelsummer"
 msgid "Row totals"
 msgstr "Radsummer"
 
+msgid "Data item"
+msgstr "Datapunkt"
+
+msgid "Visualization type"
+msgstr "Visualiseringstype"
+
+msgid "Axis {{axisId}}"
+msgstr "Akse {{axisId}}"
+
+msgid "Series is empty"
+msgstr "Serie er tom"
+
+msgid "Options for selected items will be available here"
+msgstr "Alternativer for valgte elementer vil være tilgjengelige her"
+
+msgid "No Series options"
+msgstr "Ingen seriealternativer"
+
+msgid "There aren't any Series options for this visualization type"
+msgstr "Det er ingen seriealternativer for denne visualiseringstypen"
+
 msgid "Value labels"
 msgstr "Verdietiketter"
 
@@ -775,17 +777,14 @@ msgstr "Data"
 msgid "Display"
 msgstr "Vis"
 
-msgid "Lines"
-msgstr "Linjer"
-
 msgid "Axes"
 msgstr "Akser"
 
-msgid "Vertical (y) axis"
-msgstr "Vertikal (y) akse"
-
 msgid "Horizontal (x) axis"
 msgstr "Horisontal (x) akse"
+
+msgid "Series"
+msgstr "Serie"
 
 msgid "Style"
 msgstr "Stil"
@@ -795,6 +794,12 @@ msgstr "Diagramstil"
 
 msgid "Titles"
 msgstr "Titler"
+
+msgid "Lines"
+msgstr "Linjer"
+
+msgid "Vertical (y) axis"
+msgstr "Vertikal (y) akse"
 
 msgid "Display totals"
 msgstr "Vis totalsummer"
@@ -816,6 +821,13 @@ msgstr "Begrens minimum/maksimumsverdier"
 
 msgid "Parameters"
 msgstr "Parametere"
+
+msgid "Lines are not supported yet when using multiple axes"
+msgstr "Linjer støttes ikke ennå ved bruk av flere akser"
+
+msgid "Vertical axis options are not supported yet when using multiple axes"
+msgstr ""
+"Alternativer for vertikal akse støttes ikke ennå ved bruk av flere akser"
 
 msgid "Weeks per year"
 msgstr "Uker per år"
