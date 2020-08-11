@@ -23,7 +23,7 @@ import { acSetUiFontStyle } from '../../../actions/ui'
 const stringToBool = string => string === 'true'
 
 // eslint-disable-next-line no-unused-vars
-const TextStyle = ({ fontStyleKey, fontStyle, onChange }) => {
+const TextStyle = ({ fontStyleKey, fontStyle, onChange, disabled }) => {
     const fontSizeOptions = Object.values(getFontSizeOptions())
     const textAlignOptions = Object.values(getTextAlignOptions())
     const [fontSize, setFontSize] = useState(
@@ -40,84 +40,100 @@ const TextStyle = ({ fontStyleKey, fontStyle, onChange }) => {
 
     return (
         <div className={styles.container}>
-            <SingleSelect
-                onChange={({ selected }) => {
-                    setFontSize(Number(selected))
-                    onChange(FONT_STYLE_OPTION_FONT_SIZE, Number(selected))
-                }}
-                selected={fontSize.toString()}
-                prefix={i18n.t('Size')}
-                dense
-                className={styles.fontSizeSelect}
-            >
-                {fontSizeOptions.map(option => (
-                    <SingleSelectOption
-                        key={option.value?.toString()}
-                        value={option.value?.toString()}
-                        label={option.label}
-                    />
-                ))}
-            </SingleSelect>
-            <SingleSelect
-                onChange={({ selected }) => {
-                    setTextAlign(selected)
-                    onChange(FONT_STYLE_OPTION_TEXT_ALIGN, selected)
-                }}
-                selected={textAlign}
-                prefix={i18n.t('Position')}
-                dense
-                className={styles.textAlignSelect}
-            >
-                {textAlignOptions.map(option => (
-                    <SingleSelectOption
-                        key={option.value}
-                        value={option.value}
-                        label={option.label}
-                    />
-                ))}
-            </SingleSelect>
-            <label className={styles.textColorLabel}>
-                <input
-                    type="color"
-                    value={textColor}
-                    onChange={e => {
-                        const value = e.target.value
-                        setTextColor(value)
-                        onChange(FONT_STYLE_OPTION_TEXT_COLOR, value)
+            {fontSize && (
+                <SingleSelect
+                    onChange={({ selected }) => {
+                        setFontSize(Number(selected))
+                        onChange(FONT_STYLE_OPTION_FONT_SIZE, Number(selected))
                     }}
-                    className={styles.textColorInput}
-                />
-                <FontColorIcon color={textColor} />
-            </label>
+                    selected={fontSize.toString()}
+                    prefix={i18n.t('Size')}
+                    dense
+                    className={styles.fontSizeSelect}
+                    disabled={disabled}
+                >
+                    {fontSizeOptions.map(option => (
+                        <SingleSelectOption
+                            key={option.value?.toString()}
+                            value={option.value?.toString()}
+                            label={option.label}
+                        />
+                    ))}
+                </SingleSelect>
+            )}
+            {textAlign && (
+                <SingleSelect
+                    onChange={({ selected }) => {
+                        setTextAlign(selected)
+                        onChange(FONT_STYLE_OPTION_TEXT_ALIGN, selected)
+                    }}
+                    selected={textAlign}
+                    prefix={i18n.t('Position')}
+                    dense
+                    className={styles.textAlignSelect}
+                    disabled={disabled}
+                >
+                    {textAlignOptions.map(option => (
+                        <SingleSelectOption
+                            key={option.value}
+                            value={option.value}
+                            label={option.label}
+                        />
+                    ))}
+                </SingleSelect>
+            )}
+            {textColor && (
+                <label className={styles.textColorLabel}>
+                    <input
+                        type="color"
+                        value={textColor}
+                        onChange={e => {
+                            const value = e.target.value
+                            setTextColor(value)
+                            onChange(FONT_STYLE_OPTION_TEXT_COLOR, value)
+                        }}
+                        className={styles.textColorInput}
+                        disabled={disabled}
+                    />
+                    <FontColorIcon color={textColor} />
+                </label>
+            )}
             {/* TODO: temporary solution, use toggle instead of Button once https://jira.dhis2.org/browse/TECH-392 is implemented in @dhis2/ui */}
-            <Button
-                icon={<BoldIcon />}
-                value={bold.toString()}
-                onClick={({ value }) => {
-                    setBold(!stringToBool(value))
-                    onChange(FONT_STYLE_OPTION_BOLD, !stringToBool(value))
-                }}
-                className={bold ? styles.buttonActive : ''}
-                small
-                secondary
-            />
-            <Button
-                icon={<ItalicIcon />}
-                value={italic.toString()}
-                onClick={({ value }) => {
-                    setItalic(!stringToBool(value))
-                    onChange(FONT_STYLE_OPTION_ITALIC, !stringToBool(value))
-                }}
-                className={italic ? styles.buttonActive : ''}
-                small
-                secondary
-            />
+            {bold != null && (
+                <Button
+                    icon={<BoldIcon />}
+                    value={bold.toString()}
+                    onClick={({ value }) => {
+                        setBold(!stringToBool(value))
+                        onChange(FONT_STYLE_OPTION_BOLD, !stringToBool(value))
+                    }}
+                    className={bold ? styles.buttonActive : ''}
+                    small
+                    secondary
+                    disabled={disabled}
+                />
+            )}
+            {italic != null && (
+                <Button
+                    icon={<ItalicIcon />}
+                    value={italic.toString()}
+                    onClick={({ value }) => {
+                        setItalic(!stringToBool(value))
+                        onChange(FONT_STYLE_OPTION_ITALIC, !stringToBool(value))
+                    }}
+                    className={italic ? styles.buttonActive : ''}
+                    small
+                    secondary
+                    disabled={disabled}
+                />
+            )}
         </div>
     )
 }
 
 TextStyle.propTypes = {
     fontStyleKey: PropTypes.string.isRequired,
+    disabled: PropTypes.bool,
     fontStyle: PropTypes.object,
     onChange: PropTypes.func,
 }

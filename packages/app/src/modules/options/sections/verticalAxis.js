@@ -6,6 +6,7 @@ import RangeAxisLabel from '../../../components/VisualizationOptions/Options/Ran
 import AxisRange from '../../../components/VisualizationOptions/Options/AxisRange'
 import RangeAxisSteps from '../../../components/VisualizationOptions/Options/RangeAxisSteps'
 import RangeAxisDecimals from '../../../components/VisualizationOptions/Options/RangeAxisDecimals'
+import SeriesAxisLabels from '../../../components/VisualizationOptions/Options/SeriesAxisLabels'
 
 export default hasCustomAxes => ({
     key: 'axes-vertical-axis',
@@ -20,5 +21,6 @@ export default hasCustomAxes => ({
         <AxisRange disabled={hasCustomAxes} />,
         <RangeAxisSteps disabled={hasCustomAxes} />,
         <RangeAxisDecimals disabled={hasCustomAxes} />,
+        <SeriesAxisLabels disabled={hasCustomAxes} />,
     ]),
 })

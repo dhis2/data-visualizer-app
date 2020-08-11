@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-08-05T12:51:04.793Z\n"
-"PO-Revision-Date: 2020-08-05T12:51:04.793Z\n"
+"POT-Creation-Date: 2020-08-11T10:04:07.515Z\n"
+"PO-Revision-Date: 2020-08-11T10:04:07.515Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -275,6 +275,9 @@ msgid "Base line title"
 msgstr ""
 
 msgid "Number"
+msgstr ""
+
+msgid "Labels"
 msgstr ""
 
 msgid "Column sub-totals"
@@ -780,9 +783,6 @@ msgid "Display totals"
 msgstr ""
 
 msgid "Display empty data"
-msgstr ""
-
-msgid "Labels"
 msgstr ""
 
 msgid "Limit values"
