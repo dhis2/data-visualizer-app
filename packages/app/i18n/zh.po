@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-07-28T10:55:58.947Z\n"
+"POT-Creation-Date: 2020-08-03T14:19:51.289Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -762,14 +762,8 @@ msgstr "数据"
 msgid "Display"
 msgstr "显示"
 
-msgid "Lines"
-msgstr "线"
-
 msgid "Axes"
 msgstr "轴"
-
-msgid "Vertical (y) axis"
-msgstr "垂轴（Y）"
 
 msgid "Horizontal (x) axis"
 msgstr "水平轴（X）"
@@ -785,6 +779,12 @@ msgstr "图表风格"
 
 msgid "Titles"
 msgstr "标题"
+
+msgid "Lines"
+msgstr "线"
+
+msgid "Vertical (y) axis"
+msgstr "垂轴（Y）"
 
 msgid "Display totals"
 msgstr "显示合计"
@@ -806,6 +806,12 @@ msgstr "限制最大最小值"
 
 msgid "Parameters"
 msgstr "参数"
+
+msgid "Lines are not supported yet when using multiple axes"
+msgstr ""
+
+msgid "Vertical axis options are not supported yet when using multiple axes"
+msgstr ""
 
 msgid "Weeks per year"
 msgstr "每年的周"

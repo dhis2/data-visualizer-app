@@ -24,24 +24,22 @@ export const TextBaseOption = ({
     onToggle,
     fontStyleKey,
     toggleable,
-    enabled,
+    checked,
     inline,
+    disabled,
 }) => (
-    <div
-        className={
-            !toggleable || enabled || inline ? '' : tabSectionOption.className
-        }
-    >
+    <div className={inline ? '' : tabSectionOption.className}>
         {toggleable ? (
             <Checkbox
-                checked={enabled}
+                checked={checked}
                 label={label}
                 name={`${option.name}-toggle`}
                 onChange={({ checked }) => onToggle(checked)}
                 dense
+                disabled={disabled}
             />
         ) : null}
-        {!toggleable || enabled ? (
+        {!toggleable || checked ? (
             <div
                 className={
                     toggleable ? tabSectionOptionToggleable.className : ''
@@ -56,6 +54,7 @@ export const TextBaseOption = ({
                             value={value}
                             placeholder={placeholder}
                             dense
+                            disabled={disabled}
                         />
                     </Box>
                 ) : (
@@ -65,10 +64,11 @@ export const TextBaseOption = ({
                         onChange={({ value }) => onChange(value)}
                         name={option.name}
                         value={value}
-                        helpText={helpText}
+                        helpText={disabled ? '' : helpText}
                         placeholder={placeholder}
                         inputWidth={width}
                         dense
+                        disabled={disabled}
                     />
                 )}
                 {fontStyleKey ? (
@@ -80,8 +80,9 @@ export const TextBaseOption = ({
 )
 
 TextBaseOption.propTypes = {
-    enabled: PropTypes.bool,
     fontStyleKey: PropTypes.string,
+    checked: PropTypes.bool,
+    disabled: PropTypes.bool,
     helpText: PropTypes.string,
     inline: PropTypes.bool,
     label: PropTypes.string,
@@ -97,7 +98,7 @@ TextBaseOption.propTypes = {
 
 const mapStateToProps = (state, ownProps) => ({
     value: sGetUiOptions(state)[ownProps.option.name] || '',
-    enabled: sGetUiOptions(state)[ownProps.option.name] !== undefined,
+    checked: sGetUiOptions(state)[ownProps.option.name] !== undefined,
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

@@ -16,16 +16,17 @@ import {
     tabSectionOptionComplexInline,
 } from '../styles/VisualizationOptions.style.js'
 
-export const BaseLine = ({ enabled, onChange }) => (
+export const BaseLine = ({ checked, onChange, disabled }) => (
     <div className={tabSectionOption.className}>
         <Checkbox
-            checked={enabled}
+            checked={checked}
             label={i18n.t('Base line')}
             name="baseLine-toggle"
             onChange={({ checked }) => onChange(checked)}
             dense
+            disabled={disabled}
         />
-        {enabled ? (
+        {checked && !disabled ? (
             <div
                 className={`${tabSectionOptionToggleable.className} ${tabSectionOptionComplexInline.className}`}
             >
@@ -43,16 +44,17 @@ export const BaseLine = ({ enabled, onChange }) => (
 )
 
 BaseLine.propTypes = {
-    enabled: PropTypes.bool.isRequired,
+    checked: PropTypes.bool.isRequired,
     onChange: PropTypes.func.isRequired,
+    disabled: PropTypes.bool,
 }
 
 const mapStateToProps = state => ({
-    enabled: sGetUiOptions(state).baseLine,
+    checked: sGetUiOptions(state).baseLine,
 })
 
 const mapDispatchToProps = dispatch => ({
-    onChange: enabled => dispatch(acSetUiOptions({ baseLine: enabled })),
+    onChange: checked => dispatch(acSetUiOptions({ baseLine: checked })),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(BaseLine)

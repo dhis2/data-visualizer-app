@@ -23,6 +23,13 @@ describe('VisualizationOptions', () => {
     beforeEach(() => {
         props = {
             visualizationType: 'COLUMN',
+            columnDimensionItems: ['aaa', 'bbb'],
+            series: [
+                {
+                    dimensionItem: 'aaa',
+                    axis: 0,
+                },
+            ],
         }
 
         shallowVisualizationOptions = undefined
