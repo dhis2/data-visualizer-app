@@ -5,36 +5,16 @@ const StackedColumnIcon = ({
     style = { paddingRight: '8px', width: 24, height: 24 },
 }) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0,0,48,48" style={style}>
-        <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-            <rect fill="#63A4FF" x="6" y="14" width="10" height="32" />
-            <rect
-                fill="#9EC6FF"
-                transform="translate(11.000000, 16.500000) scale(1, -1) translate(-11.000000, -16.500000) "
-                x="6"
-                y="7"
-                width="10"
-                height="19"
-            />
-            <rect fill="#1976D2" x="20" y="20" width="10" height="26" />
-            <rect
-                fill="#63A4FF"
-                transform="translate(25.000000, 15.500000) scale(1, -1) translate(-25.000000, -15.500000) "
-                x="20"
-                y="11"
-                width="10"
-                height="9"
-            />
-            <rect fill="#004BA0" x="36" y="33" width="10" height="13" />
-            <rect
-                fill="#1976D2"
-                transform="translate(41.000000, 23.500000) scale(1, -1) translate(-41.000000, -23.500000) "
-                x="36"
-                y="14"
-                width="10"
-                height="19"
-            />
-            <rect fill="#9E9E9E" x="0" y="0" width="2" height="48" />
-            <rect fill="#9E9E9E" x="0" y="46" width="48" height="2" />
+        <g fill="none" fillRule="evenodd">
+            <polygon points="0 0 48 0 48 48 0 48" />
+            <polygon fill="#147CD7" points="12 25 18 25 18 36 12 36" />
+            <polygon fill="#FFC324" points="12 15 18 15 18 25 12 25" />
+            <polygon fill="#147CD7" points="22 29 28 29 28 36 22 36" />
+            <polygon fill="#FFC324" points="22 17 28 17 28 29 22 29" />
+            <polygon fill="#147CD7" points="32 27 38 27 38 36 32 36" />
+            <polygon fill="#FFC324" points="32 9 38 9 38 27 32 27" />
+            <polygon fill="#4A5768" points="6 6 8 6 8 42 6 42" />
+            <polygon fill="#4A5768" points="6 40 42 40 42 42 6 42" />
         </g>
     </svg>
 )
