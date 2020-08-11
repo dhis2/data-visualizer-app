@@ -1,3 +1,10 @@
+# [35.5.0](https://github.com/dhis2/data-visualizer-app/compare/v35.4.0...v35.5.0) (2020-08-11)
+
+
+### Features
+
+* new vis type for stacked area (DHIS2-9217) ([#1185](https://github.com/dhis2/data-visualizer-app/issues/1185)) ([6fd734f](https://github.com/dhis2/data-visualizer-app/commit/6fd734f77b3c7b0832888e148f4c09552ecd199d))
+
 # [35.4.0](https://github.com/dhis2/data-visualizer-app/compare/v35.3.5...v35.4.0) (2020-08-11)
 
 
