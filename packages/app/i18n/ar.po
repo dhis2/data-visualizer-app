@@ -559,6 +559,10 @@ msgstr "الخيارات"
 msgid "Open as Map"
 msgstr "فتح كخريطة"
 
+msgid ""
+"Visually plot data on a world map. Data elements use separate map layers."
+msgstr ""
+
 msgid "Reporting rate"
 msgstr "معدل الإبلاغ"
 

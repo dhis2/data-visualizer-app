@@ -548,6 +548,10 @@ msgstr "ຈັດການ"
 msgid "Open as Map"
 msgstr ""
 
+msgid ""
+"Visually plot data on a world map. Data elements use separate map layers."
+msgstr ""
+
 msgid "Reporting rate"
 msgstr ""
 
