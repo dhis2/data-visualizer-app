@@ -80,9 +80,9 @@ export const TextBaseOption = ({
 )
 
 TextBaseOption.propTypes = {
-    fontStyleKey: PropTypes.string,
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
+    fontStyleKey: PropTypes.string,
     helpText: PropTypes.string,
     inline: PropTypes.bool,
     label: PropTypes.string,
