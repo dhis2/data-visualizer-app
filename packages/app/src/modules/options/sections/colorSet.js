@@ -6,7 +6,7 @@ import ColorSet from '../../../components/VisualizationOptions/Options/ColorSet'
 
 export default hasCustomAxes => ({
     key: 'style-color-set',
-    getLabel: () => i18n.t('Color set'),
+    label: i18n.t('Color set'),
     helpText: hasCustomAxes
         ? i18n.t('Color sets are not supported yet when using multiple axes')
         : null,
