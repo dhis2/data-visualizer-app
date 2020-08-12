@@ -7,6 +7,7 @@ import {
     VIS_TYPE_LINE,
     VIS_TYPE_RADAR,
     VIS_TYPE_AREA,
+    VIS_TYPE_STACKED_AREA,
     VIS_TYPE_PIE,
     VIS_TYPE_GAUGE,
     VIS_TYPE_YEAR_OVER_YEAR_LINE,
@@ -41,6 +42,7 @@ export const getOptionsByType = (type, hasCustomAxes) => {
         case VIS_TYPE_RADAR:
             return lineConfig(hasCustomAxes)
         case VIS_TYPE_AREA:
+        case VIS_TYPE_STACKED_AREA:
             return areaConfig(hasCustomAxes)
         case VIS_TYPE_GAUGE:
             return gaugeConfig(hasCustomAxes)

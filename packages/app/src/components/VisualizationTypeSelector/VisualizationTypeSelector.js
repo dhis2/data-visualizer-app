@@ -2,10 +2,8 @@ import React, { useState, createRef } from 'react'
 import { createPortal } from 'react-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
-
-import { visTypeDisplayNames } from '@dhis2/analytics'
+import { visTypeDisplayNames, visTypeDescriptions } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import { Card, Divider, Popper } from '@dhis2/ui'
 
@@ -19,7 +17,6 @@ import {
     apiSaveAOInUserDataStore,
     CURRENT_AO_KEY,
 } from '../../api/userDataStore'
-
 import VisualizationTypeListItem from './VisualizationTypeListItem'
 import ListItemIcon from './ListItemIcon'
 import styles from './styles/VisualizationTypeSelector.module.css'
@@ -64,23 +61,31 @@ export const VisualizationTypeSelector = (
     const VisTypesList = (
         <Card>
             <div className={styles.listContainer}>
-                {getVisTypes().map(type => (
-                    <VisualizationTypeListItem
-                        key={type}
-                        iconType={type}
-                        label={visTypeDisplayNames[type]}
-                        isSelected={type === visualizationType}
-                        onClick={handleListItemClick(type)}
-                    />
-                ))}
+                <div className={styles.listSection}>
+                    {getVisTypes().map(type => (
+                        <VisualizationTypeListItem
+                            key={type}
+                            iconType={type}
+                            label={visTypeDisplayNames[type]}
+                            description={visTypeDescriptions[type]}
+                            isSelected={type === visualizationType}
+                            onClick={handleListItemClick(type)}
+                        />
+                    ))}
+                </div>
                 <Divider />
-                <VisualizationTypeListItem
-                    key={'MAP'}
-                    iconType={'MAP'}
-                    label={i18n.t('Open as Map')} // TODO: Open as: Map when i18next nsSeparator fixed
-                    onClick={handleOpenAsMapClick}
-                    disabled={!current}
-                />
+                <div className={styles.listSection}>
+                    <VisualizationTypeListItem
+                        key={'MAP'}
+                        iconType={'MAP'}
+                        label={i18n.t('Open as Map')} // TODO: Open as: Map when i18next nsSeparator fixed
+                        description={i18n.t(
+                            'Visually plot data on a world map. Data elements use separate map layers.'
+                        )}
+                        onClick={handleOpenAsMapClick}
+                        disabled={!current}
+                    />
+                </div>
             </div>
         </Card>
     )

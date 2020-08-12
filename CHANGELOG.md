@@ -1,3 +1,24 @@
+## [35.5.1](https://github.com/dhis2/data-visualizer-app/compare/v35.5.0...v35.5.1) (2020-08-11)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([8e34d13](https://github.com/dhis2/data-visualizer-app/commit/8e34d13d50fd4dc5c570b0d7f004bf7d3ea0e21f))
+
+# [35.5.0](https://github.com/dhis2/data-visualizer-app/compare/v35.4.0...v35.5.0) (2020-08-11)
+
+
+### Features
+
+* new vis type for stacked area (DHIS2-9217) ([#1185](https://github.com/dhis2/data-visualizer-app/issues/1185)) ([6fd734f](https://github.com/dhis2/data-visualizer-app/commit/6fd734f77b3c7b0832888e148f4c09552ecd199d))
+
+# [35.4.0](https://github.com/dhis2/data-visualizer-app/compare/v35.3.5...v35.4.0) (2020-08-11)
+
+
+### Features
+
+* new vis type selector design (DHIS2-7855) ([#1169](https://github.com/dhis2/data-visualizer-app/issues/1169)) ([50939b5](https://github.com/dhis2/data-visualizer-app/commit/50939b5265385ff267cdc663cfaaf0aa07b22665))
+
 ## [35.3.5](https://github.com/dhis2/data-visualizer-app/compare/v35.3.4...v35.3.5) (2020-08-10)
 
 

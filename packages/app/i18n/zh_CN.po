@@ -548,6 +548,10 @@ msgstr "选项"
 msgid "Open as Map"
 msgstr "打开为地图"
 
+msgid ""
+"Visually plot data on a world map. Data elements use separate map layers."
+msgstr ""
+
 msgid "Reporting rate"
 msgstr "上报率"
 

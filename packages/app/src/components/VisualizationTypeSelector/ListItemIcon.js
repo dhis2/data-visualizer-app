@@ -7,6 +7,7 @@ import {
     VIS_TYPE_STACKED_BAR,
     VIS_TYPE_LINE,
     VIS_TYPE_AREA,
+    VIS_TYPE_STACKED_AREA,
     VIS_TYPE_PIE,
     VIS_TYPE_RADAR,
     VIS_TYPE_GAUGE,
@@ -24,6 +25,7 @@ import PieIcon from '../../assets/PieIcon'
 import GaugeIcon from '../../assets/GaugeIcon'
 import LineIcon from '../../assets/LineIcon'
 import AreaIcon from '../../assets/AreaIcon'
+import StackedAreaIcon from '../../assets/StackedAreaIcon'
 import RadarIcon from '../../assets/RadarIcon'
 import YearOverYearLineIcon from '../../assets/YearOverYearLineIcon'
 import YearOverYearColumnIcon from '../../assets/YearOverYearColumnIcon'
@@ -47,6 +49,8 @@ const ListItemIcon = ({ iconType, style }) => {
             return <LineIcon style={style} />
         case VIS_TYPE_AREA:
             return <AreaIcon style={style} />
+        case VIS_TYPE_STACKED_AREA:
+            return <StackedAreaIcon style={style} />
         case VIS_TYPE_RADAR:
             return <RadarIcon style={style} />
         case VIS_TYPE_YEAR_OVER_YEAR_LINE:

@@ -569,6 +569,10 @@ msgstr "Options"
 msgid "Open as Map"
 msgstr "Ouvrir comme carte"
 
+msgid ""
+"Visually plot data on a world map. Data elements use separate map layers."
+msgstr ""
+
 msgid "Reporting rate"
 msgstr "Taux de déclaration"
 
