@@ -100,7 +100,9 @@ const TextStyle = ({ fontStyleKey, fontStyle, onChange, disabled }) => {
                         className={styles.textColorInput}
                         disabled={disabled}
                     />
-                    <FontColorIcon color={textColor} />
+                    <div className={styles.textColorIcon}>
+                        <FontColorIcon color={textColor} />
+                    </div>
                 </label>
             )}
             {/* TODO: temporary solution, use toggle instead of Button once https://jira.dhis2.org/browse/TECH-392 is implemented in @dhis2/ui */}

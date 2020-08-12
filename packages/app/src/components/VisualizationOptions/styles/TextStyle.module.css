@@ -19,12 +19,17 @@
     border: 1px solid var(--colors-grey400);
     border-radius: 4px;
     cursor: pointer;
+    padding: 0 1px;
 }
 
 .textColorInput {
     opacity: 0;
     pointer-events: none;
     position: absolute;
+}
+
+.textColorIcon {
+    margin-top: 1px;
 }
 
 /* TODO: temporary fix, remove this once https://jira.dhis2.org/browse/TECH-392 is implemented in @dhis2/ui */
