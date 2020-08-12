@@ -18,6 +18,7 @@
     line-height: 16px;
     border: 1px solid var(--colors-grey400);
     border-radius: 4px;
+    cursor: pointer;
 }
 
 .textColorInput {
@@ -33,4 +34,13 @@
 
 .buttonActive path {
     fill: var(--colors-white);
+}
+
+.disabled {
+    background-color: var(--colors-grey100);
+    box-shadow: none;
+    color: var(--colors-grey600);
+    fill: var(--colors-grey600);
+    border-color: var(--colors-grey400);
+    cursor: not-allowed;
 }

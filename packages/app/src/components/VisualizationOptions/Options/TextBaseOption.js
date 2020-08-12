@@ -72,7 +72,10 @@ export const TextBaseOption = ({
                     />
                 )}
                 {fontStyleKey ? (
-                    <TextStyle fontStyleKey={fontStyleKey} />
+                    <TextStyle
+                        fontStyleKey={fontStyleKey}
+                        disabled={disabled}
+                    />
                 ) : null}
             </div>
         ) : null}

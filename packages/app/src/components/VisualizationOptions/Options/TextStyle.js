@@ -12,6 +12,7 @@ import {
     FONT_STYLE_OPTION_TEXT_COLOR,
     FONT_STYLE_OPTION_TEXT_ALIGN,
 } from '@dhis2/analytics'
+import cx from 'classnames'
 
 import styles from '../styles/TextStyle.module.css'
 import FontColorIcon from '../../../assets/FontColorIcon'
@@ -83,7 +84,11 @@ const TextStyle = ({ fontStyleKey, fontStyle, onChange, disabled }) => {
                 </SingleSelect>
             )}
             {textColor && (
-                <label className={styles.textColorLabel}>
+                <label
+                    className={cx(styles.textColorLabel, {
+                        [styles.disabled]: disabled,
+                    })}
+                >
                     <input
                         type="color"
                         value={textColor}
@@ -107,7 +112,9 @@ const TextStyle = ({ fontStyleKey, fontStyle, onChange, disabled }) => {
                         setBold(!stringToBool(value))
                         onChange(FONT_STYLE_OPTION_BOLD, !stringToBool(value))
                     }}
-                    className={bold ? styles.buttonActive : ''}
+                    className={cx({
+                        [styles.buttonActive]: bold,
+                    })}
                     small
                     secondary
                     disabled={disabled}
@@ -121,7 +128,9 @@ const TextStyle = ({ fontStyleKey, fontStyle, onChange, disabled }) => {
                         setItalic(!stringToBool(value))
                         onChange(FONT_STYLE_OPTION_ITALIC, !stringToBool(value))
                     }}
-                    className={italic ? styles.buttonActive : ''}
+                    className={cx({
+                        [styles.buttonActive]: italic,
+                    })}
                     small
                     secondary
                     disabled={disabled}
