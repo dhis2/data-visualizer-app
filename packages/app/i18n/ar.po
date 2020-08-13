@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-08-03T14:19:51.289Z\n"
+"POT-Creation-Date: 2020-08-12T08:23:07.514Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -299,6 +299,24 @@ msgstr "إجماليات العمود الفرعية"
 
 msgid "Columns totals"
 msgstr "إجماليات الأعمدة"
+
+msgid "Default"
+msgstr ""
+
+msgid "Bright"
+msgstr ""
+
+msgid "Dark"
+msgstr ""
+
+msgid "Gray"
+msgstr ""
+
+msgid "Color blind"
+msgstr ""
+
+msgid "Mono patterns"
+msgstr ""
 
 msgid "Event data"
 msgstr "بيانات الحدث"
@@ -826,6 +844,12 @@ msgstr "الحد من القيم الدنيا / القصوى"
 
 msgid "Parameters"
 msgstr "المعاملات"
+
+msgid "Color set"
+msgstr ""
+
+msgid "Color sets are not supported yet when using multiple axes"
+msgstr ""
 
 msgid "Lines are not supported yet when using multiple axes"
 msgstr ""
