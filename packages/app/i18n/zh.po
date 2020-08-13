@@ -2,15 +2,15 @@
 # Translators:
 # easylin <lin_xd@126.com>, 2020
 # phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
 # 晓东 林 <13981924470@126.com>, 2020
+# Viktor Varland <viktor@dhis2.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-08-03T14:19:51.289Z\n"
+"POT-Creation-Date: 2020-08-12T08:23:07.514Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -294,6 +294,24 @@ msgstr "列小计"
 
 msgid "Columns totals"
 msgstr "列合计"
+
+msgid "Default"
+msgstr "默认"
+
+msgid "Bright"
+msgstr ""
+
+msgid "Dark"
+msgstr ""
+
+msgid "Gray"
+msgstr ""
+
+msgid "Color blind"
+msgstr ""
+
+msgid "Mono patterns"
+msgstr ""
 
 msgid "Event data"
 msgstr "事件数据"
@@ -810,6 +828,12 @@ msgstr "限制最大最小值"
 
 msgid "Parameters"
 msgstr "参数"
+
+msgid "Color set"
+msgstr ""
+
+msgid "Color sets are not supported yet when using multiple axes"
+msgstr ""
 
 msgid "Lines are not supported yet when using multiple axes"
 msgstr ""
