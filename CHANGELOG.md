@@ -1,3 +1,10 @@
+# [35.6.0](https://github.com/dhis2/data-visualizer-app/compare/v35.5.1...v35.6.0) (2020-08-13)
+
+
+### Features
+
+* implement colorSet option (DHIS2-670) ([#1177](https://github.com/dhis2/data-visualizer-app/issues/1177)) ([d855d0e](https://github.com/dhis2/data-visualizer-app/commit/d855d0e4e90df7f464ff2eeb071c2996b1c0b9b2))
+
 ## [35.5.1](https://github.com/dhis2/data-visualizer-app/compare/v35.5.0...v35.5.1) (2020-08-11)
 
 
