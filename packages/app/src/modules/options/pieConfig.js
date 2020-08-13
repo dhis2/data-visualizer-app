@@ -7,6 +7,7 @@ import HideTitle from '../../components/VisualizationOptions/Options/HideTitle'
 import HideSubtitle from '../../components/VisualizationOptions/Options/HideSubtitle'
 import CompletedOnly from '../../components/VisualizationOptions/Options/CompletedOnly'
 import SeriesTable from '../../components/VisualizationOptions/Options/SeriesTable'
+import getColorSetSection from './sections/colorSet'
 
 export default () => [
     {
@@ -45,6 +46,7 @@ export default () => [
                     <HideSubtitle />,
                 ]),
             },
+            getColorSetSection(),
         ],
     },
 ]
