@@ -22,10 +22,9 @@ import ItalicIcon from '../../../assets/ItalicIcon'
 import { sGetConsolidatedUiFontStyle } from '../../../reducers/ui'
 import { acSetUiFontStyle } from '../../../actions/ui'
 
-// eslint-disable-next-line no-unused-vars
 const TextStyle = ({ fontStyleKey, fontStyle, onChange, disabled }) => {
     const fontSizeOptions = Object.values(getFontSizeOptions())
-    const textAlignOptions = Object.values(getTextAlignOptions())
+    const textAlignOptions = Object.values(getTextAlignOptions(fontStyleKey))
     const [fontSize, setFontSize] = useState(
         fontStyle[FONT_STYLE_OPTION_FONT_SIZE]
     )
