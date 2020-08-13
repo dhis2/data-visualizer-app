@@ -13,6 +13,7 @@ import {
     FONT_STYLE_OPTION_TEXT_ALIGN,
 } from '@dhis2/analytics'
 import cx from 'classnames'
+import debounce from 'lodash-es/debounce'
 
 import styles from '../styles/TextStyle.module.css'
 import FontColorIcon from '../../../assets/FontColorIcon'
@@ -38,6 +39,11 @@ const TextStyle = ({ fontStyleKey, fontStyle, onChange, disabled }) => {
     )
     const [bold, setBold] = useState(fontStyle[FONT_STYLE_OPTION_BOLD])
     const [italic, setItalic] = useState(fontStyle[FONT_STYLE_OPTION_ITALIC])
+
+    const onChangeColor = debounce(value => {
+        setTextColor(value)
+        onChange(FONT_STYLE_OPTION_TEXT_COLOR, value)
+    }, 100)
 
     return (
         <div className={styles.container}>
@@ -92,11 +98,7 @@ const TextStyle = ({ fontStyleKey, fontStyle, onChange, disabled }) => {
                     <input
                         type="color"
                         value={textColor}
-                        onChange={e => {
-                            const value = e.target.value
-                            setTextColor(value)
-                            onChange(FONT_STYLE_OPTION_TEXT_COLOR, value)
-                        }}
+                        onChange={e => onChangeColor(e.target.value)}
                         className={styles.textColorInput}
                         disabled={disabled}
                     />
