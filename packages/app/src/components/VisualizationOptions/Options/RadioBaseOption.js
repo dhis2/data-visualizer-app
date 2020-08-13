@@ -7,7 +7,13 @@ import { Field, Radio } from '@dhis2/ui'
 import { sGetUiOptions } from '../../../reducers/ui'
 import { acSetUiOptions } from '../../../actions/ui'
 
-export const RadioBaseOption = ({ option, label, value, onChange }) => (
+export const RadioBaseOption = ({
+    option,
+    label,
+    value,
+    onChange,
+    disabled,
+}) => (
     <Field name={option.name} label={label} dense>
         {option.items.map(({ id, label }) => (
             <Radio
@@ -16,6 +22,7 @@ export const RadioBaseOption = ({ option, label, value, onChange }) => (
                 value={id}
                 checked={value === id}
                 onChange={({ value }) => onChange(value)}
+                disabled={disabled}
             />
         ))}
     </Field>
@@ -25,6 +32,7 @@ RadioBaseOption.propTypes = {
     option: PropTypes.object.isRequired,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     onChange: PropTypes.func.isRequired,
+    disabled: PropTypes.bool,
     label: PropTypes.string,
 }
 

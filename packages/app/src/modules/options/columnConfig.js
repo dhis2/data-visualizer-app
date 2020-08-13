@@ -17,6 +17,7 @@ import SeriesTable from '../../components/VisualizationOptions/Options/SeriesTab
 import getLinesSection from './sections/lines'
 import getVerticalAxisSection from './sections/verticalAxis'
 import CategoryAxisLabels from '../../components/VisualizationOptions/Options/CategoryAxisLabels'
+import getColorSetSection from './sections/colorSet'
 
 export default hasCustomAxes => [
     {
@@ -95,6 +96,7 @@ export default hasCustomAxes => [
                     <HideSubtitle />,
                 ]),
             },
+            getColorSetSection(hasCustomAxes),
         ],
     },
 ]
