@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-08-03T14:19:51.289Z\n"
-"PO-Revision-Date: 2020-08-03T14:19:51.289Z\n"
+"POT-Creation-Date: 2020-08-12T08:23:07.514Z\n"
+"PO-Revision-Date: 2020-08-12T08:23:07.514Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -281,6 +281,24 @@ msgid "Column sub-totals"
 msgstr ""
 
 msgid "Columns totals"
+msgstr ""
+
+msgid "Default"
+msgstr ""
+
+msgid "Bright"
+msgstr ""
+
+msgid "Dark"
+msgstr ""
+
+msgid "Gray"
+msgstr ""
+
+msgid "Color blind"
+msgstr ""
+
+msgid "Mono patterns"
 msgstr ""
 
 msgid "Event data"
@@ -792,6 +810,12 @@ msgid "Limit minimum/maximum values"
 msgstr ""
 
 msgid "Parameters"
+msgstr ""
+
+msgid "Color set"
+msgstr ""
+
+msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
 
 msgid "Lines are not supported yet when using multiple axes"

@@ -1,5 +1,7 @@
 import pick from 'lodash-es/pick'
 
+import { COLOR_SET_DEFAULT } from '@dhis2/analytics'
+
 export const options = {
     baseLineLabel: {
         defaultValue: undefined,
@@ -11,7 +13,11 @@ export const options = {
         requestable: false,
         savable: true,
     },
-    // colorSet:
+    colorSet: {
+        defaultValue: COLOR_SET_DEFAULT,
+        requestable: false,
+        savable: true,
+    },
     cumulativeValues: {
         defaultValue: false,
         requestable: false,
