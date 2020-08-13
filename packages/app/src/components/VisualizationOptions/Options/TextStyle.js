@@ -22,8 +22,6 @@ import ItalicIcon from '../../../assets/ItalicIcon'
 import { sGetConsolidatedUiFontStyle } from '../../../reducers/ui'
 import { acSetUiFontStyle } from '../../../actions/ui'
 
-const stringToBool = string => string === 'true'
-
 // eslint-disable-next-line no-unused-vars
 const TextStyle = ({ fontStyleKey, fontStyle, onChange, disabled }) => {
     const fontSizeOptions = Object.values(getFontSizeOptions())
@@ -107,37 +105,30 @@ const TextStyle = ({ fontStyleKey, fontStyle, onChange, disabled }) => {
                     </div>
                 </label>
             )}
-            {/* TODO: temporary solution, use toggle instead of Button once https://jira.dhis2.org/browse/TECH-392 is implemented in @dhis2/ui */}
             {bold != null && (
                 <Button
                     icon={<BoldIcon />}
-                    value={bold.toString()}
-                    onClick={({ value }) => {
-                        setBold(!stringToBool(value))
-                        onChange(FONT_STYLE_OPTION_BOLD, !stringToBool(value))
+                    onClick={() => {
+                        onChange(FONT_STYLE_OPTION_BOLD, !bold)
+                        setBold(!bold)
                     }}
-                    className={cx({
-                        [styles.buttonActive]: bold,
-                    })}
                     small
                     secondary
+                    toggled={bold}
                     disabled={disabled}
                 />
             )}
             {italic != null && (
                 <Button
                     icon={<ItalicIcon />}
-                    value={italic.toString()}
-                    onClick={({ value }) => {
-                        setItalic(!stringToBool(value))
-                        onChange(FONT_STYLE_OPTION_ITALIC, !stringToBool(value))
+                    onClick={() => {
+                        onChange(FONT_STYLE_OPTION_ITALIC, !italic)
+                        setItalic(!italic)
                     }}
-                    className={cx({
-                        [styles.buttonActive]: italic,
-                    })}
                     small
                     secondary
                     disabled={disabled}
+                    toggled={italic}
                 />
             )}
         </div>

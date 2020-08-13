@@ -9,7 +9,7 @@ const ItalicIcon = () => (
     >
         <path
             d="m13.5 7h-3.5v-2h9v2h-3.5l-5 10h3.5v2h-9v-2h3.5z"
-            fill="#6e7a8a"
+            fill="#inherit"
         />
     </svg>
 )
