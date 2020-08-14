@@ -1,3 +1,10 @@
+# [35.7.0](https://github.com/dhis2/data-visualizer-app/compare/v35.6.1...v35.7.0) (2020-08-14)
+
+
+### Features
+
+* support for two category charts [DHIS2-7876] ([#1164](https://github.com/dhis2/data-visualizer-app/issues/1164)) ([2aef8b1](https://github.com/dhis2/data-visualizer-app/commit/2aef8b1af3d05e9eb303730fd21fbf76aaf9892b))
+
 ## [35.6.1](https://github.com/dhis2/data-visualizer-app/compare/v35.6.0...v35.6.1) (2020-08-13)
 
 
