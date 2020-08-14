@@ -9,6 +9,7 @@ import {
 
 import {
     defaultLayoutAdapter,
+    dualCategoryLayoutAdapter,
     pieLayoutAdapter,
     yearOverYearLayoutAdapter,
 } from '../layoutAdapters'
@@ -39,6 +40,26 @@ describe('defaultLayoutAdapter', () => {
                 otherId,
                 someId,
             ],
+        }
+
+        expect(actualState).toEqual(expectedState)
+    })
+})
+
+describe('dualCategoryLayoutAdapter', () => {
+    it('should keep the 2nd category in rows and move the others to filters (if any),', () => {
+        const initialState = {
+            [AXIS_ID_COLUMNS]: [DIMENSION_ID_DATA],
+            [AXIS_ID_ROWS]: [DIMENSION_ID_PERIOD, otherId, someId],
+            [AXIS_ID_FILTERS]: [DIMENSION_ID_ORGUNIT],
+        }
+
+        const actualState = dualCategoryLayoutAdapter(initialState)
+
+        const expectedState = {
+            [AXIS_ID_COLUMNS]: [DIMENSION_ID_DATA],
+            [AXIS_ID_ROWS]: [DIMENSION_ID_PERIOD, otherId],
+            [AXIS_ID_FILTERS]: [DIMENSION_ID_ORGUNIT, someId],
         }
 
         expect(actualState).toEqual(expectedState)

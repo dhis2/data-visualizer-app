@@ -18,6 +18,19 @@ export const defaultLayoutAdapter = layout => {
     }
 }
 
+// Transform from ui.layout to dual category layout format
+export const dualCategoryLayoutAdapter = layout => {
+    const columns = layout[AXIS_ID_COLUMNS].slice()
+    const rows = layout[AXIS_ID_ROWS].slice()
+
+    return {
+        [AXIS_ID_COLUMNS]: columns.length ? [columns.shift()] : columns,
+        [AXIS_ID_ROWS]:
+            rows.length > 2 ? rows.splice(0, 2) : rows.splice(0, rows.length),
+        [AXIS_ID_FILTERS]: [...layout[AXIS_ID_FILTERS], ...columns, ...rows],
+    }
+}
+
 // Transform from ui.layout to pie layout format
 export const pieLayoutAdapter = layout => {
     const columns = layout[AXIS_ID_COLUMNS].slice()
