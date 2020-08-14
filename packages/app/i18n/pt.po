@@ -494,8 +494,10 @@ msgstr "Decimais "
 msgid "Auto"
 msgstr "Automatico "
 
-msgid "The number of axis steps between the min and max values"
-msgstr "O número de etapas do eixo entre os valores mínimo e máximo"
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
+msgstr ""
 
 msgid "Steps"
 msgstr "Passos"

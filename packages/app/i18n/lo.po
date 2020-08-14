@@ -1,14 +1,14 @@
 # 
 # Translators:
-# phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
+# phil_dhis2, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-08-12T08:23:07.514Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Lao (https://www.transifex.com/hisp-uio/teams/100509/lo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -292,7 +292,7 @@ msgid "Columns totals"
 msgstr ""
 
 msgid "Default"
-msgstr ""
+msgstr "ຄ່າຕັ້ງຕົ້ນ"
 
 msgid "Bright"
 msgstr ""
@@ -479,7 +479,9 @@ msgstr ""
 msgid "Auto"
 msgstr ""
 
-msgid "The number of axis steps between the min and max values"
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
 msgstr ""
 
 msgid "Steps"

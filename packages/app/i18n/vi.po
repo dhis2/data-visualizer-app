@@ -487,8 +487,10 @@ msgstr "Số thập phân"
 msgid "Auto"
 msgstr "Tự động"
 
-msgid "The number of axis steps between the min and max values"
-msgstr "Số lượng các bước trục giữa giá trị tối thiểu và tối đa"
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
+msgstr ""
 
 msgid "Steps"
 msgstr "Bước"
