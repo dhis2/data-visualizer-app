@@ -93,7 +93,7 @@ const mapStateToProps = state => ({
         state
     ),
     getCurrentAxisId: dimensionId =>
-        fromReducers.fromUi.getAxisIdByDimensionId(state, dimensionId),
+        fromReducers.fromUi.sGetAxisIdByDimensionId(state, dimensionId),
 })
 
 const mapDispatchToProps = dispatch => ({

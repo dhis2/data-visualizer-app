@@ -15,6 +15,7 @@ export const PositiveNumberBaseType = ({
     option,
     value,
     onChange,
+    disabled,
 }) => (
     <div className={tabSectionOption.className}>
         <div>
@@ -33,12 +34,14 @@ export const PositiveNumberBaseType = ({
                 placeholder={placeholder}
                 inputWidth={width}
                 dense
+                disabled={disabled}
             />
         </div>
     </div>
 )
 
 PositiveNumberBaseType.propTypes = {
+    disabled: PropTypes.bool,
     helpText: PropTypes.string,
     label: PropTypes.string,
     option: PropTypes.object,

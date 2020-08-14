@@ -1,16 +1,16 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2020
 # easylin <lin_xd@126.com>, 2020
 # phil_dhis2, 2020
 # 晓东 林 <13981924470@126.com>, 2020
+# Viktor Varland <viktor@dhis2.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-07-21T09:20:20.828Z\n"
+"POT-Creation-Date: 2020-08-12T08:23:07.514Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -40,26 +40,6 @@ msgstr "不，取消"
 
 msgid "Yes, leave"
 msgstr "是离开"
-
-msgid "Axis 1"
-msgstr "主轴1"
-
-msgid "Axis 2"
-msgstr "主轴2"
-
-msgid "Manage axes"
-msgstr "管理坐标轴"
-
-msgid ""
-"A chart can have two axes. Each axis will have its own scale. Set the axis "
-"for each data selection below."
-msgstr "一个图可以有两个轴，每个轴都有之间的比例尺，为下面的数据设置轴"
-
-msgid "Cancel"
-msgstr "取消"
-
-msgid "Update"
-msgstr "更新"
 
 msgid "Add to {{axisName}}"
 msgstr "添加到 {{axisName}}"
@@ -220,6 +200,9 @@ msgstr "编辑"
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "查看自{{interpretationDate}}的注释"
 
+msgid "Update"
+msgstr "更新"
+
 msgid "Getting started"
 msgstr "开始"
 
@@ -311,6 +294,24 @@ msgstr "列小计"
 
 msgid "Columns totals"
 msgstr "列合计"
+
+msgid "Default"
+msgstr "默认"
+
+msgid "Bright"
+msgstr ""
+
+msgid "Dark"
+msgstr ""
+
+msgid "Gray"
+msgstr ""
+
+msgid "Color blind"
+msgstr ""
+
+msgid "Mono patterns"
+msgstr ""
 
 msgid "Event data"
 msgstr "事件数据"
@@ -509,6 +510,27 @@ msgstr "行小计"
 msgid "Row totals"
 msgstr "行合计"
 
+msgid "Data item"
+msgstr "数据条目"
+
+msgid "Visualization type"
+msgstr ""
+
+msgid "Axis {{axisId}}"
+msgstr ""
+
+msgid "Series is empty"
+msgstr ""
+
+msgid "Options for selected items will be available here"
+msgstr ""
+
+msgid "No Series options"
+msgstr ""
+
+msgid "There aren't any Series options for this visualization type"
+msgstr ""
+
 msgid "Value labels"
 msgstr "值标签"
 
@@ -547,6 +569,10 @@ msgstr "选项"
 
 msgid "Open as Map"
 msgstr "打开为地图"
+
+msgid ""
+"Visually plot data on a world map. Data elements use separate map layers."
+msgstr ""
 
 msgid "Reporting rate"
 msgstr "上报率"
@@ -758,17 +784,14 @@ msgstr "数据"
 msgid "Display"
 msgstr "显示"
 
-msgid "Lines"
-msgstr "线"
-
 msgid "Axes"
 msgstr "轴"
 
-msgid "Vertical (y) axis"
-msgstr "垂轴（Y）"
-
 msgid "Horizontal (x) axis"
 msgstr "水平轴（X）"
+
+msgid "Series"
+msgstr "系列"
 
 msgid "Style"
 msgstr "风格"
@@ -778,6 +801,12 @@ msgstr "图表风格"
 
 msgid "Titles"
 msgstr "标题"
+
+msgid "Lines"
+msgstr "线"
+
+msgid "Vertical (y) axis"
+msgstr "垂轴（Y）"
 
 msgid "Display totals"
 msgstr "显示合计"
@@ -799,6 +828,18 @@ msgstr "限制最大最小值"
 
 msgid "Parameters"
 msgstr "参数"
+
+msgid "Color set"
+msgstr ""
+
+msgid "Color sets are not supported yet when using multiple axes"
+msgstr ""
+
+msgid "Lines are not supported yet when using multiple axes"
+msgstr ""
+
+msgid "Vertical axis options are not supported yet when using multiple axes"
+msgstr ""
 
 msgid "Weeks per year"
 msgstr "每年的周"

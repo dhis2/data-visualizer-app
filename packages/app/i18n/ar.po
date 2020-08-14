@@ -2,15 +2,15 @@
 # Translators:
 # KRG HIS <antonia.bezenchek@informa.pro>, 2020
 # phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
 # Hamza Assada <7amza.it@gmail.com>, 2020
+# Viktor Varland <viktor@dhis2.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-07-21T09:20:20.828Z\n"
+"POT-Creation-Date: 2020-08-12T08:23:07.514Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2020\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,28 +41,6 @@ msgstr "لا، الغاء"
 
 msgid "Yes, leave"
 msgstr "نعم، غادر"
-
-msgid "Axis 1"
-msgstr "المحور 1"
-
-msgid "Axis 2"
-msgstr "المحور 2"
-
-msgid "Manage axes"
-msgstr "إدارة المحاور"
-
-msgid ""
-"A chart can have two axes. Each axis will have its own scale. Set the axis "
-"for each data selection below."
-msgstr ""
-"يمكن أن يحتوي المخطط على محورين. سيكون لكل محور مقياسه الخاص. قم بتعيين محور"
-" لكل مجموعة بيانات أدناه."
-
-msgid "Cancel"
-msgstr "إلغاء"
-
-msgid "Update"
-msgstr "تحديث"
 
 msgid "Add to {{axisName}}"
 msgstr "إضافة إلى {{axisName}}"
@@ -225,6 +203,9 @@ msgstr "تم التعديل"
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "مشاهدة التفسير من  {{interpretationDate}}"
 
+msgid "Update"
+msgstr "تحديث"
+
 msgid "Getting started"
 msgstr "الشروع في العمل"
 
@@ -318,6 +299,24 @@ msgstr "إجماليات العمود الفرعية"
 
 msgid "Columns totals"
 msgstr "إجماليات الأعمدة"
+
+msgid "Default"
+msgstr ""
+
+msgid "Bright"
+msgstr ""
+
+msgid "Dark"
+msgstr ""
+
+msgid "Gray"
+msgstr ""
+
+msgid "Color blind"
+msgstr ""
+
+msgid "Mono patterns"
+msgstr ""
 
 msgid "Event data"
 msgstr "بيانات الحدث"
@@ -518,6 +517,27 @@ msgstr "المجاميع الفرعية للصف"
 msgid "Row totals"
 msgstr "إجماليات الصف"
 
+msgid "Data item"
+msgstr ""
+
+msgid "Visualization type"
+msgstr ""
+
+msgid "Axis {{axisId}}"
+msgstr ""
+
+msgid "Series is empty"
+msgstr ""
+
+msgid "Options for selected items will be available here"
+msgstr ""
+
+msgid "No Series options"
+msgstr ""
+
+msgid "There aren't any Series options for this visualization type"
+msgstr ""
+
 msgid "Value labels"
 msgstr "تسميات القيمة"
 
@@ -556,6 +576,10 @@ msgstr "الخيارات"
 
 msgid "Open as Map"
 msgstr "فتح كخريطة"
+
+msgid ""
+"Visually plot data on a world map. Data elements use separate map layers."
+msgstr ""
 
 msgid "Reporting rate"
 msgstr "معدل الإبلاغ"
@@ -776,17 +800,14 @@ msgstr "البيانات"
 msgid "Display"
 msgstr "العرض"
 
-msgid "Lines"
-msgstr "الخطوط"
-
 msgid "Axes"
 msgstr "المحاور"
 
-msgid "Vertical (y) axis"
-msgstr "محور (ص) العمودي"
-
 msgid "Horizontal (x) axis"
 msgstr "محور (س) الأفقي"
+
+msgid "Series"
+msgstr "سلسلة"
 
 msgid "Style"
 msgstr "المظهر"
@@ -796,6 +817,12 @@ msgstr "نمط الرسم البياني"
 
 msgid "Titles"
 msgstr "العناوين"
+
+msgid "Lines"
+msgstr "الخطوط"
+
+msgid "Vertical (y) axis"
+msgstr "محور (ص) العمودي"
 
 msgid "Display totals"
 msgstr "عرض الإجماليات"
@@ -817,6 +844,18 @@ msgstr "الحد من القيم الدنيا / القصوى"
 
 msgid "Parameters"
 msgstr "المعاملات"
+
+msgid "Color set"
+msgstr ""
+
+msgid "Color sets are not supported yet when using multiple axes"
+msgstr ""
+
+msgid "Lines are not supported yet when using multiple axes"
+msgstr ""
+
+msgid "Vertical axis options are not supported yet when using multiple axes"
+msgstr ""
 
 msgid "Weeks per year"
 msgstr "أسابيع في السنة"

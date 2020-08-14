@@ -1,3 +1,73 @@
+## [35.6.1](https://github.com/dhis2/data-visualizer-app/compare/v35.6.0...v35.6.1) (2020-08-13)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([1ac0b22](https://github.com/dhis2/data-visualizer-app/commit/1ac0b2222645f1edd3777790057bf71cfb720ba6))
+
+# [35.6.0](https://github.com/dhis2/data-visualizer-app/compare/v35.5.1...v35.6.0) (2020-08-13)
+
+
+### Features
+
+* implement colorSet option (DHIS2-670) ([#1177](https://github.com/dhis2/data-visualizer-app/issues/1177)) ([d855d0e](https://github.com/dhis2/data-visualizer-app/commit/d855d0e4e90df7f464ff2eeb071c2996b1c0b9b2))
+
+## [35.5.1](https://github.com/dhis2/data-visualizer-app/compare/v35.5.0...v35.5.1) (2020-08-11)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([8e34d13](https://github.com/dhis2/data-visualizer-app/commit/8e34d13d50fd4dc5c570b0d7f004bf7d3ea0e21f))
+
+# [35.5.0](https://github.com/dhis2/data-visualizer-app/compare/v35.4.0...v35.5.0) (2020-08-11)
+
+
+### Features
+
+* new vis type for stacked area (DHIS2-9217) ([#1185](https://github.com/dhis2/data-visualizer-app/issues/1185)) ([6fd734f](https://github.com/dhis2/data-visualizer-app/commit/6fd734f77b3c7b0832888e148f4c09552ecd199d))
+
+# [35.4.0](https://github.com/dhis2/data-visualizer-app/compare/v35.3.5...v35.4.0) (2020-08-11)
+
+
+### Features
+
+* new vis type selector design (DHIS2-7855) ([#1169](https://github.com/dhis2/data-visualizer-app/issues/1169)) ([50939b5](https://github.com/dhis2/data-visualizer-app/commit/50939b5265385ff267cdc663cfaaf0aa07b22665))
+
+## [35.3.5](https://github.com/dhis2/data-visualizer-app/compare/v35.3.4...v35.3.5) (2020-08-10)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([67a2386](https://github.com/dhis2/data-visualizer-app/commit/67a238637c9fcded38b92e99cd98cf98129ebbd9))
+
+## [35.3.4](https://github.com/dhis2/data-visualizer-app/compare/v35.3.3...v35.3.4) (2020-08-07)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([db89052](https://github.com/dhis2/data-visualizer-app/commit/db890521eb081a47624784877677e11231c9ead2))
+
+## [35.3.3](https://github.com/dhis2/data-visualizer-app/compare/v35.3.2...v35.3.3) (2020-08-07)
+
+
+### Bug Fixes
+
+* disable lines and vertical axis options for multi axes (DHIS2-9010, DHIS2-9013, DHIS2-9014) ([#1171](https://github.com/dhis2/data-visualizer-app/issues/1171)) ([7062fc5](https://github.com/dhis2/data-visualizer-app/commit/7062fc5a3d15175386158cd07ca799cbb9732a3f))
+
+## [35.3.2](https://github.com/dhis2/data-visualizer-app/compare/v35.3.1...v35.3.2) (2020-07-31)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([2f234e6](https://github.com/dhis2/data-visualizer-app/commit/2f234e690aaba17049a6d9feaf380003f5644202))
+
+## [35.3.1](https://github.com/dhis2/data-visualizer-app/compare/v35.3.0...v35.3.1) (2020-07-30)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([cf24d93](https://github.com/dhis2/data-visualizer-app/commit/cf24d934f3bbba662c01fe97b9f64620092969fa))
+
 # [35.3.0](https://github.com/dhis2/data-visualizer-app/compare/v35.2.10...v35.3.0) (2020-07-30)
 
 

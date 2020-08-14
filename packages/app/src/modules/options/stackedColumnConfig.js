@@ -6,15 +6,8 @@ import CumulativeValues from '../../components/VisualizationOptions/Options/Cumu
 import PercentStackedValues from '../../components/VisualizationOptions/Options/PercentStackedValues'
 import ShowData from '../../components/VisualizationOptions/Options/ShowData'
 import HideEmptyRowItems from '../../components/VisualizationOptions/Options/HideEmptyRowItems'
-import RegressionType from '../../components/VisualizationOptions/Options/RegressionType'
-import TargetLine from '../../components/VisualizationOptions/Options/TargetLine'
-import BaseLine from '../../components/VisualizationOptions/Options/BaseLine'
 import SortOrder from '../../components/VisualizationOptions/Options/SortOrder'
 import AggregationType from '../../components/VisualizationOptions/Options/AggregationType'
-import AxisRange from '../../components/VisualizationOptions/Options/AxisRange'
-import RangeAxisSteps from '../../components/VisualizationOptions/Options/RangeAxisSteps'
-import RangeAxisDecimals from '../../components/VisualizationOptions/Options/RangeAxisDecimals'
-import RangeAxisLabel from '../../components/VisualizationOptions/Options/RangeAxisLabel'
 import DomainAxisLabel from '../../components/VisualizationOptions/Options/DomainAxisLabel'
 import NoSpaceBetweenColumns from '../../components/VisualizationOptions/Options/NoSpaceBetweenColumns'
 import HideLegend from '../../components/VisualizationOptions/Options/HideLegend'
@@ -22,15 +15,18 @@ import HideTitle from '../../components/VisualizationOptions/Options/HideTitle'
 import HideSubtitle from '../../components/VisualizationOptions/Options/HideSubtitle'
 import CompletedOnly from '../../components/VisualizationOptions/Options/CompletedOnly'
 import SeriesTable from '../../components/VisualizationOptions/Options/SeriesTable'
+import getLinesSection from './sections/lines'
+import getVerticalAxisSection from './sections/verticalAxis'
+import getColorSetSection from './sections/colorSet'
 
-export default [
+export default hasCustomAxes => [
     {
         key: 'data-tab',
-        getLabel: () => i18n.t('Data'),
+        label: i18n.t('Data'),
         content: [
             {
                 key: 'data-display',
-                getLabel: () => i18n.t('Display'),
+                label: i18n.t('Display'),
                 content: React.Children.toArray([
                     <PercentStackedValues />,
                     <CumulativeValues />,
@@ -38,18 +34,10 @@ export default [
                     <SortOrder />,
                 ]),
             },
-            {
-                key: 'data-lines',
-                getLabel: () => i18n.t('Lines'),
-                content: React.Children.toArray([
-                    <RegressionType />,
-                    <TargetLine />,
-                    <BaseLine />,
-                ]),
-            },
+            getLinesSection(hasCustomAxes),
             {
                 key: 'data-advanced',
-                getLabel: () => i18n.t('Advanced'),
+                label: i18n.t('Advanced'),
                 content: React.Children.toArray([
                     <AggregationType />,
                     <CompletedOnly />,
@@ -59,28 +47,19 @@ export default [
     },
     {
         key: 'axes-tab',
-        getLabel: () => i18n.t('Axes'),
+        label: i18n.t('Axes'),
         content: [
-            {
-                key: 'axes-vertical-axis',
-                getLabel: () => i18n.t('Vertical (y) axis'),
-                content: React.Children.toArray([
-                    <RangeAxisLabel />,
-                    <AxisRange />,
-                    <RangeAxisSteps />,
-                    <RangeAxisDecimals />,
-                ]),
-            },
+            getVerticalAxisSection(hasCustomAxes),
             {
                 key: 'axes-horizontal-axis',
-                getLabel: () => i18n.t('Horizontal (x) axis'),
+                label: i18n.t('Horizontal (x) axis'),
                 content: React.Children.toArray([<DomainAxisLabel />]),
             },
         ],
     },
     {
         key: 'series-tab',
-        getLabel: () => i18n.t('Series'),
+        label: i18n.t('Series'),
         content: [
             {
                 key: 'series-table',
@@ -90,11 +69,11 @@ export default [
     },
     {
         key: 'style-tab',
-        getLabel: () => i18n.t('Style'),
+        label: i18n.t('Style'),
         content: [
             {
                 key: 'style-chart-style',
-                getLabel: () => i18n.t('Chart style'),
+                label: i18n.t('Chart style'),
                 content: React.Children.toArray([
                     <ShowData />,
                     <NoSpaceBetweenColumns />,
@@ -104,12 +83,13 @@ export default [
             },
             {
                 key: 'style-titles',
-                getLabel: () => i18n.t('Titles'),
+                label: i18n.t('Titles'),
                 content: React.Children.toArray([
                     <HideTitle />,
                     <HideSubtitle />,
                 ]),
             },
+            getColorSetSection(hasCustomAxes),
         ],
     },
 ]

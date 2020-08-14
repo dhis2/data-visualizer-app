@@ -5,22 +5,16 @@ const StackedBarIcon = ({
     style = { paddingRight: '8px', width: 24, height: 24 },
 }) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0,0,48,48" style={style}>
-        <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-            <rect fill="#63A4FF" x="2" y="4" width="17" height="10" />
-            <rect
-                fill="#9EC6FF"
-                transform="translate(23.500000, 9.000000) scale(-1, 1) translate(-23.500000, -9.000000) "
-                x="19"
-                y="4"
-                width="9"
-                height="10"
-            />
-            <rect fill="#1976D2" x="2" y="18" width="34" height="10" />
-            <rect fill="#63A4FF" x="13" y="18" width="23" height="10" />
-            <rect fill="#004BA0" x="2" y="32" width="40" height="10" />
-            <rect fill="#1976D2" x="33" y="32" width="9" height="10" />
-            <rect fill="#9E9E9E" x="0" y="0" width="2" height="48" />
-            <rect fill="#9E9E9E" x="0" y="46" width="48" height="2" />
+        <g fill="none" fillRule="evenodd" transform="matrix(0 -1 -1 0 48 48)">
+            <polygon points="0 0 48 0 48 48 0 48" />
+            <polygon fill="#147CD7" points="12 19 18 19 18 36 12 36" />
+            <polygon fill="#FFC324" points="12 10 18 10 18 19 12 19" />
+            <polygon fill="#147CD7" points="22 25 28 25 28 36 22 36" />
+            <polygon fill="#FFC324" points="22 15 28 15 28 25 22 25" />
+            <polygon fill="#147CD7" points="32 21 38 21 38 36 32 36" />
+            <polygon fill="#FFC324" points="32 12 38 12 38 21 32 21" />
+            <polygon fill="#4A5768" points="6 6 8 6 8 42 6 42" />
+            <polygon fill="#4A5768" points="6 40 42 40 42 42 6 42" />
         </g>
     </svg>
 )

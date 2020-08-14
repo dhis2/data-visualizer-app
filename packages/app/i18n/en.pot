@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-07-28T11:59:27.684Z\n"
-"PO-Revision-Date: 2020-07-28T11:59:27.684Z\n"
+"POT-Creation-Date: 2020-08-12T08:23:07.514Z\n"
+"PO-Revision-Date: 2020-08-12T08:23:07.514Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -283,6 +283,24 @@ msgstr ""
 msgid "Columns totals"
 msgstr ""
 
+msgid "Default"
+msgstr ""
+
+msgid "Bright"
+msgstr ""
+
+msgid "Dark"
+msgstr ""
+
+msgid "Gray"
+msgstr ""
+
+msgid "Color blind"
+msgstr ""
+
+msgid "Mono patterns"
+msgstr ""
+
 msgid "Event data"
 msgstr ""
 
@@ -542,6 +560,9 @@ msgstr ""
 msgid "Open as Map"
 msgstr ""
 
+msgid "Visually plot data on a world map. Data elements use separate map layers."
+msgstr ""
+
 msgid "Reporting rate"
 msgstr ""
 
@@ -748,13 +769,7 @@ msgstr ""
 msgid "Display"
 msgstr ""
 
-msgid "Lines"
-msgstr ""
-
 msgid "Axes"
-msgstr ""
-
-msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Horizontal (x) axis"
@@ -770,6 +785,12 @@ msgid "Chart style"
 msgstr ""
 
 msgid "Titles"
+msgstr ""
+
+msgid "Lines"
+msgstr ""
+
+msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Display totals"
@@ -791,6 +812,18 @@ msgid "Limit minimum/maximum values"
 msgstr ""
 
 msgid "Parameters"
+msgstr ""
+
+msgid "Color set"
+msgstr ""
+
+msgid "Color sets are not supported yet when using multiple axes"
+msgstr ""
+
+msgid "Lines are not supported yet when using multiple axes"
+msgstr ""
+
+msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr ""
 
 msgid "Weeks per year"

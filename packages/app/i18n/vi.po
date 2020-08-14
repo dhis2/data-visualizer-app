@@ -1,15 +1,15 @@
 # 
 # Translators:
 # Mai Nguyen <thanhmai.jica@gmail.com>, 2020
-# phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
+# phil_dhis2, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-07-21T09:20:20.828Z\n"
+"POT-Creation-Date: 2020-08-12T08:23:07.514Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,28 +41,6 @@ msgstr "Không"
 
 msgid "Yes, leave"
 msgstr "Có"
-
-msgid "Axis 1"
-msgstr "Trục 1"
-
-msgid "Axis 2"
-msgstr "Trục 2"
-
-msgid "Manage axes"
-msgstr "Quản lý trục tọa độ"
-
-msgid ""
-"A chart can have two axes. Each axis will have its own scale. Set the axis "
-"for each data selection below."
-msgstr ""
-"Một biểu đồ có thể có hai trục tọa độ. Mỗi trục sẽ có tỷ lệ riêng. Đặt trục "
-"cho mỗi lựa chọn dữ liệu bên dưới."
-
-msgid "Cancel"
-msgstr "Hủy"
-
-msgid "Update"
-msgstr "Cập nhật"
 
 msgid "Add to {{axisName}}"
 msgstr "Thêm {{tên trục}"
@@ -221,6 +199,9 @@ msgstr "Chỉnh sửa"
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
+msgid "Update"
+msgstr "Cập nhật"
+
 msgid "Getting started"
 msgstr "Bắt đầu"
 
@@ -314,6 +295,24 @@ msgstr "Tổng số cột phụ"
 
 msgid "Columns totals"
 msgstr "Tổng cột"
+
+msgid "Default"
+msgstr "Mặc định"
+
+msgid "Bright"
+msgstr ""
+
+msgid "Dark"
+msgstr ""
+
+msgid "Gray"
+msgstr ""
+
+msgid "Color blind"
+msgstr ""
+
+msgid "Mono patterns"
+msgstr ""
 
 msgid "Event data"
 msgstr "Dữ liệu sự kiện"
@@ -515,6 +514,27 @@ msgstr "Tổng phụ dòng"
 msgid "Row totals"
 msgstr "Tổng dòng"
 
+msgid "Data item"
+msgstr ""
+
+msgid "Visualization type"
+msgstr ""
+
+msgid "Axis {{axisId}}"
+msgstr ""
+
+msgid "Series is empty"
+msgstr ""
+
+msgid "Options for selected items will be available here"
+msgstr ""
+
+msgid "No Series options"
+msgstr ""
+
+msgid "There aren't any Series options for this visualization type"
+msgstr ""
+
 msgid "Value labels"
 msgstr "Nhãn giá trị"
 
@@ -553,6 +573,10 @@ msgstr "Tùy chọn"
 
 msgid "Open as Map"
 msgstr "Mở dưới dạng bản đồ"
+
+msgid ""
+"Visually plot data on a world map. Data elements use separate map layers."
+msgstr ""
 
 msgid "Reporting rate"
 msgstr "Tỉ lệ báo cáo"
@@ -770,17 +794,14 @@ msgstr "Lấy dữ liệu"
 msgid "Display"
 msgstr "Hiển thị"
 
-msgid "Lines"
-msgstr "Các đường"
-
 msgid "Axes"
 msgstr "Trục"
 
-msgid "Vertical (y) axis"
-msgstr "Dục dọc (y)"
-
 msgid "Horizontal (x) axis"
 msgstr "Trục ngang (x)"
+
+msgid "Series"
+msgstr "Chuỗi Dữ Liệu"
 
 msgid "Style"
 msgstr "Kiểu dáng"
@@ -790,6 +811,12 @@ msgstr "Dạng biểu đồ"
 
 msgid "Titles"
 msgstr "Tiêu đề"
+
+msgid "Lines"
+msgstr "Các đường"
+
+msgid "Vertical (y) axis"
+msgstr "Dục dọc (y)"
 
 msgid "Display totals"
 msgstr "Hiển thị tổng"
@@ -811,6 +838,18 @@ msgstr "Giới hạn giá trị nhỏ nhất/lớn nhất"
 
 msgid "Parameters"
 msgstr "Tham số"
+
+msgid "Color set"
+msgstr ""
+
+msgid "Color sets are not supported yet when using multiple axes"
+msgstr ""
+
+msgid "Lines are not supported yet when using multiple axes"
+msgstr ""
+
+msgid "Vertical axis options are not supported yet when using multiple axes"
+msgstr ""
 
 msgid "Weeks per year"
 msgstr "Hàng tuần mỗi năm"

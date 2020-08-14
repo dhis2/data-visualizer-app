@@ -1,15 +1,15 @@
 # 
 # Translators:
 # Farida Sibuea <farida_sibuea@yahoo.com>, 2020
-# Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
+# Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-07-21T09:20:20.828Z\n"
+"POT-Creation-Date: 2020-08-12T08:23:07.514Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"Last-Translator: Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2020\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -40,28 +40,6 @@ msgstr "tidak, batalkan"
 
 msgid "Yes, leave"
 msgstr "Ya, tinggalkan"
-
-msgid "Axis 1"
-msgstr "Aksis 1"
-
-msgid "Axis 2"
-msgstr "Aksis 2"
-
-msgid "Manage axes"
-msgstr "Kelola aksis"
-
-msgid ""
-"A chart can have two axes. Each axis will have its own scale. Set the axis "
-"for each data selection below."
-msgstr ""
-"Sebuah grafik bisa memiliki dua aksis. Setiap aksis memiliki skalanya "
-"masing-masing. Tentukan aksis untuk masing-masing pilihan data berikut."
-
-msgid "Cancel"
-msgstr "Batalkan"
-
-msgid "Update"
-msgstr "Perbarui"
 
 msgid "Add to {{axisName}}"
 msgstr "Tambahkan ke {{axisName}}"
@@ -224,6 +202,9 @@ msgstr "Diedit"
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "Melihat interpretasi dari {{interpretationDate}}"
 
+msgid "Update"
+msgstr "Perbarui"
+
 msgid "Getting started"
 msgstr "Mulai"
 
@@ -317,6 +298,24 @@ msgstr "Kolom sub-total"
 
 msgid "Columns totals"
 msgstr "Total kolom"
+
+msgid "Default"
+msgstr "Default"
+
+msgid "Bright"
+msgstr ""
+
+msgid "Dark"
+msgstr ""
+
+msgid "Gray"
+msgstr ""
+
+msgid "Color blind"
+msgstr ""
+
+msgid "Mono patterns"
+msgstr ""
 
 msgid "Event data"
 msgstr ""
@@ -515,6 +514,27 @@ msgstr ""
 msgid "Row totals"
 msgstr ""
 
+msgid "Data item"
+msgstr ""
+
+msgid "Visualization type"
+msgstr ""
+
+msgid "Axis {{axisId}}"
+msgstr ""
+
+msgid "Series is empty"
+msgstr ""
+
+msgid "Options for selected items will be available here"
+msgstr ""
+
+msgid "No Series options"
+msgstr ""
+
+msgid "There aren't any Series options for this visualization type"
+msgstr ""
+
 msgid "Value labels"
 msgstr ""
 
@@ -553,6 +573,10 @@ msgstr "Opsi"
 
 msgid "Open as Map"
 msgstr "Buka sebagai Peta"
+
+msgid ""
+"Visually plot data on a world map. Data elements use separate map layers."
+msgstr ""
 
 msgid "Reporting rate"
 msgstr "Tingkat pelaporan"
@@ -762,17 +786,14 @@ msgstr "Data"
 msgid "Display"
 msgstr ""
 
-msgid "Lines"
-msgstr "Garis"
-
 msgid "Axes"
 msgstr "Sumbu"
 
-msgid "Vertical (y) axis"
-msgstr "Sumbu Y"
-
 msgid "Horizontal (x) axis"
 msgstr "sumbu X"
+
+msgid "Series"
+msgstr "Seri"
 
 msgid "Style"
 msgstr "Gaya"
@@ -782,6 +803,12 @@ msgstr "tipe grafik"
 
 msgid "Titles"
 msgstr "Judul"
+
+msgid "Lines"
+msgstr "Garis"
+
+msgid "Vertical (y) axis"
+msgstr "Sumbu Y"
 
 msgid "Display totals"
 msgstr "Munculkan total"
@@ -803,6 +830,18 @@ msgstr ""
 
 msgid "Parameters"
 msgstr "Parameter"
+
+msgid "Color set"
+msgstr ""
+
+msgid "Color sets are not supported yet when using multiple axes"
+msgstr ""
+
+msgid "Lines are not supported yet when using multiple axes"
+msgstr ""
+
+msgid "Vertical axis options are not supported yet when using multiple axes"
+msgstr ""
 
 msgid "Weeks per year"
 msgstr "Minggu per tahun"

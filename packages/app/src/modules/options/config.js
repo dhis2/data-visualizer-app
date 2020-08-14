@@ -7,6 +7,7 @@ import {
     VIS_TYPE_LINE,
     VIS_TYPE_RADAR,
     VIS_TYPE_AREA,
+    VIS_TYPE_STACKED_AREA,
     VIS_TYPE_PIE,
     VIS_TYPE_GAUGE,
     VIS_TYPE_YEAR_OVER_YEAR_LINE,
@@ -25,33 +26,34 @@ import singleValueConfig from './singleValueConfig'
 import barConfig from './barConfig'
 import yearOverYearConfig from './yearOverYearConfig'
 
-export const getOptionsByType = type => {
+export const getOptionsByType = (type, hasCustomAxes) => {
     switch (type) {
         case VIS_TYPE_COLUMN:
-            return columnConfig
+            return columnConfig(hasCustomAxes)
         case VIS_TYPE_BAR:
-            return barConfig
+            return barConfig(hasCustomAxes)
         case VIS_TYPE_YEAR_OVER_YEAR_LINE:
         case VIS_TYPE_YEAR_OVER_YEAR_COLUMN:
-            return yearOverYearConfig
+            return yearOverYearConfig(hasCustomAxes)
         case VIS_TYPE_STACKED_COLUMN:
         case VIS_TYPE_STACKED_BAR:
-            return stackedColumnConfig
+            return stackedColumnConfig(hasCustomAxes)
         case VIS_TYPE_LINE:
         case VIS_TYPE_RADAR:
-            return lineConfig
+            return lineConfig(hasCustomAxes)
         case VIS_TYPE_AREA:
-            return areaConfig
+        case VIS_TYPE_STACKED_AREA:
+            return areaConfig(hasCustomAxes)
         case VIS_TYPE_GAUGE:
-            return gaugeConfig
+            return gaugeConfig(hasCustomAxes)
         case VIS_TYPE_PIE:
-            return pieConfig
+            return pieConfig(hasCustomAxes)
         case VIS_TYPE_SINGLE_VALUE:
-            return singleValueConfig
+            return singleValueConfig(hasCustomAxes)
         case VIS_TYPE_PIVOT_TABLE:
-            return pivotTableConfig
+            return pivotTableConfig(hasCustomAxes)
         default:
             // return all the options
-            return stackedColumnConfig
+            return stackedColumnConfig(hasCustomAxes)
     }
 }
