@@ -1,3 +1,4 @@
+/*eslint no-unused-vars: ["error", { "ignoreRestSiblings": true }]*/
 import React, { useEffect } from 'react'
 import i18n from '@dhis2/d2-i18n'
 import { connect } from 'react-redux'
@@ -11,6 +12,7 @@ import {
     Radio,
 } from '@dhis2/ui'
 import { VIS_TYPE_COLUMN, VIS_TYPE_LINE, visTypeIcons } from '@dhis2/analytics'
+import cloneDeep from 'lodash/cloneDeep'
 
 import styles from '../styles/SeriesTable.module.css'
 import { acSetUiOptions } from '../../../actions/ui'
@@ -62,11 +64,19 @@ const SeriesTable = ({
     }, [])
 
     const onItemChange = (changedItem, value, prop) => {
-        const series = [...optionItems]
-        const item = series.find(
+        const series = cloneDeep(optionItems)
+
+        const itemIndex = series.findIndex(
             item => item.dimensionItem == changedItem.dimensionItem
         )
-        item[prop] = value
+
+        if (prop === TYPE_PROP && value === visType) {
+            const { [prop]: remove, ...rest } = series[itemIndex]
+            series[itemIndex] = { ...rest }
+        } else {
+            series[itemIndex][prop] = value
+        }
+
         onChange(series)
     }
 
