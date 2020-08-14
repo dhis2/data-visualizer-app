@@ -3,7 +3,6 @@ import React from 'react'
 import i18n from '@dhis2/d2-i18n'
 
 import CumulativeValues from '../../components/VisualizationOptions/Options/CumulativeValues'
-import PercentStackedValues from '../../components/VisualizationOptions/Options/PercentStackedValues'
 import ShowData from '../../components/VisualizationOptions/Options/ShowData'
 import HideEmptyRowItems from '../../components/VisualizationOptions/Options/HideEmptyRowItems'
 import SortOrder from '../../components/VisualizationOptions/Options/SortOrder'
@@ -27,7 +26,6 @@ export default hasCustomAxes => [
                 key: 'data-display',
                 label: i18n.t('Display'),
                 content: React.Children.toArray([
-                    <PercentStackedValues />,
                     <CumulativeValues />,
                     <HideEmptyRowItems />,
                     <SortOrder />,
@@ -62,7 +60,9 @@ export default hasCustomAxes => [
         content: [
             {
                 key: 'series-table',
-                content: React.Children.toArray([<SeriesTable />]),
+                content: React.Children.toArray([
+                    <SeriesTable showAxisOptions={true} />,
+                ]),
             },
         ],
     },
