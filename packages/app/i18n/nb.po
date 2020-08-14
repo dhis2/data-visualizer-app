@@ -300,7 +300,7 @@ msgid "Columns totals"
 msgstr "Kolonnesummer"
 
 msgid "Default"
-msgstr ""
+msgstr "Standard"
 
 msgid "Bright"
 msgstr ""
@@ -489,8 +489,10 @@ msgstr "Desimaler"
 msgid "Auto"
 msgstr "Auto"
 
-msgid "The number of axis steps between the min and max values"
-msgstr "Antall aksetrinn mellom min- og maksverdiene"
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
+msgstr ""
 
 msgid "Steps"
 msgstr "Trinn"
