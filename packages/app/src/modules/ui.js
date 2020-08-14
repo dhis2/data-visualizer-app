@@ -11,7 +11,7 @@ import {
     VIS_TYPE_PIVOT_TABLE,
     defaultVisType,
     isYearOverYear,
-    isDualCategoryChartType,
+    isTwoCategoryChartType,
 } from '@dhis2/analytics'
 
 import { getInverseLayout } from './layout'
@@ -84,7 +84,7 @@ export const singleValueUiAdapter = ui => ({
 })
 
 export const getAdaptedUiByType = ui => {
-    if (isDualCategoryChartType(ui.type) && ui.layout.rows.length > 1) {
+    if (isTwoCategoryChartType(ui.type) && ui.layout.rows.length > 1) {
         return dualCategoryUiAdapter(ui)
     }
 
