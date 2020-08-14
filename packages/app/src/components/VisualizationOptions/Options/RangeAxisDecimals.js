@@ -2,11 +2,10 @@ import React from 'react'
 
 import i18n from '@dhis2/d2-i18n'
 
-import TextBaseOption from './TextBaseOption'
+import PositiveNumberBaseType from './PositiveNumberBaseType'
 
 const RangeAxisDecimals = () => (
-    <TextBaseOption
-        type="number"
+    <PositiveNumberBaseType
         width="96px"
         label={i18n.t('Decimals')}
         placeholder={i18n.t('Auto')}
