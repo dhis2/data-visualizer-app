@@ -20,11 +20,13 @@ import columnConfig from './columnConfig'
 import stackedColumnConfig from './stackedColumnConfig'
 import lineConfig from './lineConfig'
 import areaConfig from './areaConfig'
+import stackedAreaConfig from './stackedAreaConfig'
 import pieConfig from './pieConfig'
 import gaugeConfig from './gaugeConfig'
 import singleValueConfig from './singleValueConfig'
 import barConfig from './barConfig'
 import yearOverYearConfig from './yearOverYearConfig'
+import radarConfig from './radarConfig'
 
 export const getOptionsByType = (type, hasCustomAxes) => {
     switch (type) {
@@ -39,11 +41,13 @@ export const getOptionsByType = (type, hasCustomAxes) => {
         case VIS_TYPE_STACKED_BAR:
             return stackedColumnConfig(hasCustomAxes)
         case VIS_TYPE_LINE:
-        case VIS_TYPE_RADAR:
             return lineConfig(hasCustomAxes)
+        case VIS_TYPE_RADAR:
+            return radarConfig(hasCustomAxes)
         case VIS_TYPE_AREA:
-        case VIS_TYPE_STACKED_AREA:
             return areaConfig(hasCustomAxes)
+        case VIS_TYPE_STACKED_AREA:
+            return stackedAreaConfig(hasCustomAxes)
         case VIS_TYPE_GAUGE:
             return gaugeConfig(hasCustomAxes)
         case VIS_TYPE_PIE:
