@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-08-03T14:19:51.289Z\n"
+"POT-Creation-Date: 2020-08-12T08:23:07.514Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -299,6 +299,24 @@ msgstr "Kolonnedelsummer"
 msgid "Columns totals"
 msgstr "Kolonnesummer"
 
+msgid "Default"
+msgstr "Standard"
+
+msgid "Bright"
+msgstr ""
+
+msgid "Dark"
+msgstr ""
+
+msgid "Gray"
+msgstr ""
+
+msgid "Color blind"
+msgstr ""
+
+msgid "Mono patterns"
+msgstr ""
+
 msgid "Event data"
 msgstr "Hendelsesdata"
 
@@ -471,8 +489,10 @@ msgstr "Desimaler"
 msgid "Auto"
 msgstr "Auto"
 
-msgid "The number of axis steps between the min and max values"
-msgstr "Antall aksetrinn mellom min- og maksverdiene"
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
+msgstr ""
 
 msgid "Steps"
 msgstr "Trinn"
@@ -825,6 +845,12 @@ msgstr "Begrens minimum/maksimumsverdier"
 
 msgid "Parameters"
 msgstr "Parametere"
+
+msgid "Color set"
+msgstr ""
+
+msgid "Color sets are not supported yet when using multiple axes"
+msgstr ""
 
 msgid "Lines are not supported yet when using multiple axes"
 msgstr "Linjer støttes ikke ennå ved bruk av flere akser"

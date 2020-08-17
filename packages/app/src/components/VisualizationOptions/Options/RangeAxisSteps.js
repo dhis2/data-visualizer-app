@@ -2,14 +2,13 @@ import React from 'react'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 
-import TextBaseOption from './TextBaseOption'
+import PositiveNumberBaseType from './PositiveNumberBaseType'
 
 export const RangeAxisSteps = ({ disabled }) => (
-    <TextBaseOption
-        type="number"
+    <PositiveNumberBaseType
         width="96px"
         helpText={i18n.t(
-            'The number of axis steps between the min and max values'
+            'Number of axis tick steps, including the min and max. A value of 2 or lower will be ignored.'
         )}
         label={i18n.t('Steps')}
         disabled={disabled}

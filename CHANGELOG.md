@@ -1,3 +1,31 @@
+## [35.7.2](https://github.com/dhis2/data-visualizer-app/compare/v35.7.1...v35.7.2) (2020-08-14)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([0d6272d](https://github.com/dhis2/data-visualizer-app/commit/0d6272dfa98a7d7f000fa08473759ebe710c83e1))
+
+## [35.7.1](https://github.com/dhis2/data-visualizer-app/compare/v35.7.0...v35.7.1) (2020-08-14)
+
+
+### Bug Fixes
+
+* Decimals and Steps options only allow positive values (DHIS2-9002, DHIS2-9194) ([#1161](https://github.com/dhis2/data-visualizer-app/issues/1161)) ([f29e13c](https://github.com/dhis2/data-visualizer-app/commit/f29e13c8b7e14ddc916a5d314a86704a8b61c4a2))
+
+# [35.7.0](https://github.com/dhis2/data-visualizer-app/compare/v35.6.1...v35.7.0) (2020-08-14)
+
+
+### Features
+
+* support for two category charts [DHIS2-7876] ([#1164](https://github.com/dhis2/data-visualizer-app/issues/1164)) ([2aef8b1](https://github.com/dhis2/data-visualizer-app/commit/2aef8b1af3d05e9eb303730fd21fbf76aaf9892b))
+
+## [35.6.1](https://github.com/dhis2/data-visualizer-app/compare/v35.6.0...v35.6.1) (2020-08-13)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([1ac0b22](https://github.com/dhis2/data-visualizer-app/commit/1ac0b2222645f1edd3777790057bf71cfb720ba6))
+
 # [35.6.0](https://github.com/dhis2/data-visualizer-app/compare/v35.5.1...v35.6.0) (2020-08-13)
 
 
