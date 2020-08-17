@@ -1,3 +1,10 @@
+# [35.8.0](https://github.com/dhis2/data-visualizer-app/compare/v35.7.2...v35.8.0) (2020-08-17)
+
+
+### Features
+
+* bump cli-app-scripts, ui and analytics (TECH-397) ([#1197](https://github.com/dhis2/data-visualizer-app/issues/1197)) ([5c27fa0](https://github.com/dhis2/data-visualizer-app/commit/5c27fa03da0f6ab05f4573eaaf176d65f6c32a0e))
+
 ## [35.7.2](https://github.com/dhis2/data-visualizer-app/compare/v35.7.1...v35.7.2) (2020-08-14)
 
 
