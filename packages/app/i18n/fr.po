@@ -500,8 +500,10 @@ msgstr "Décimales"
 msgid "Auto"
 msgstr "Auto"
 
-msgid "The number of axis steps between the min and max values"
-msgstr "Le nombre de pas d'axe entre les valeurs min et max"
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
+msgstr ""
 
 msgid "Steps"
 msgstr "Étapes"
