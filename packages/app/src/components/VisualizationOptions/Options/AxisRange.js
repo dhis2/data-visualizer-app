@@ -16,7 +16,9 @@ const AxisRange = ({ disabled }) => (
         <Label>{i18n.t('Axis range')}</Label>
         <div className={tabSectionOptionComplexInline.className}>
             <RangeAxisMinValue disabled={disabled} />
-            {'\u00A0\u2013\u00A0'}
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+                {'\u00A0\u2013\u00A0'}
+            </div>
             <RangeAxisMaxValue disabled={disabled} />
         </div>
         {!disabled ? (
