@@ -4,12 +4,9 @@ import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
 import i18n from '@dhis2/d2-i18n'
 import { Label, Field, Radio } from '@dhis2/ui'
-import {
-    VIS_TYPE_PIVOT_TABLE,
-    FONT_STYLE_VISUALIZATION_TITLE,
-} from '@dhis2/analytics'
+import { FONT_STYLE_VISUALIZATION_TITLE } from '@dhis2/analytics'
 
-import { sGetUiOptions, sGetUiType } from '../../../reducers/ui'
+import { sGetUiOptions } from '../../../reducers/ui'
 import { acSetUiOptions } from '../../../actions/ui'
 import Title from './Title'
 import {
@@ -43,16 +40,10 @@ class HideTitle extends Component {
 
     render() {
         const { value } = this.state
-        const { visualizationType } = this.props
 
         return (
             <div className={tabSectionOption.className}>
-                <Label>
-                    {/* TODO: Remove this check? PT doesn't use this component anyway */}
-                    {visualizationType === VIS_TYPE_PIVOT_TABLE
-                        ? i18n.t('Table title')
-                        : i18n.t('Chart title')}
-                </Label>
+                <Label>{i18n.t('Chart title')}</Label>
                 <Field name="hideTitle-selector" dense>
                     {[
                         {
@@ -92,7 +83,6 @@ class HideTitle extends Component {
 HideTitle.propTypes = {
     title: PropTypes.string,
     value: PropTypes.string,
-    visualizationType: PropTypes.string,
     onChange: PropTypes.func,
 }
 
@@ -105,7 +95,6 @@ const hideTitleSelector = createSelector([sGetUiOptions], uiOptions =>
 )
 
 const mapStateToProps = state => ({
-    visualizationType: sGetUiType(state),
     value: hideTitleSelector(state),
     title: sGetUiOptions(state).title,
 })
