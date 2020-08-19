@@ -1,3 +1,10 @@
+# [35.9.0](https://github.com/dhis2/data-visualizer-app/compare/v35.8.1...v35.9.0) (2020-08-19)
+
+
+### Features
+
+* font styles for text options (DHIS2-8426) ([#1184](https://github.com/dhis2/data-visualizer-app/issues/1184)) ([1e0a474](https://github.com/dhis2/data-visualizer-app/commit/1e0a47486486984046c6d041f7e3e2795a5eb011))
+
 ## [35.8.1](https://github.com/dhis2/data-visualizer-app/compare/v35.8.0...v35.8.1) (2020-08-19)
 
 
