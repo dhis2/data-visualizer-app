@@ -20,6 +20,7 @@ import {
     SET_UI_INTERPRETATION,
     CLEAR_UI_INTERPRETATION,
     CLEAR_SERIES_TYPE,
+    UPDATE_UI_SERIES_ITEM,
 } from '../reducers/ui'
 
 export const acSetUi = value => ({
@@ -44,6 +45,11 @@ export const acSetUiType = value => ({
 
 export const acSetUiOptions = value => ({
     type: SET_UI_OPTIONS,
+    value,
+})
+
+export const acUpdateUiSeriesItem = value => ({
+    type: UPDATE_UI_SERIES_ITEM,
     value,
 })
 

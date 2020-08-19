@@ -39,6 +39,7 @@ export const SET_UI_RIGHT_SIDEBAR_OPEN = 'SET_UI_RIGHT_SIDEBAR_OPEN'
 export const SET_UI_INTERPRETATION = 'SET_UI_INTERPRETATION'
 export const CLEAR_UI_INTERPRETATION = 'CLEAR_UI_INTERPRETATION'
 export const CLEAR_SERIES_TYPE = 'CLEAR_SERIES_TYPE'
+export const UPDATE_UI_SERIES_ITEM = 'UPDATE_UI_SERIES_ITEM'
 
 export const DEFAULT_UI = {
     type: defaultVisType,
@@ -274,6 +275,31 @@ export default (state = DEFAULT_UI, action) => {
                     ),
                 },
             }
+        case UPDATE_UI_SERIES_ITEM: {
+            const { changedItem, value, prop } = action.value
+            const series = [...state.options.series]
+
+            const itemIndex = series.findIndex(
+                item => item.dimensionItem == changedItem.dimensionItem
+            )
+
+            if (prop === 'type' && value === state.type) {
+                const { [prop]: remove, ...rest } = series[itemIndex]
+                series[itemIndex] = { ...rest }
+            } else {
+                series[itemIndex] = Object.assign({}, series[itemIndex], {
+                    [prop]: value,
+                })
+            }
+
+            return {
+                ...state,
+                options: {
+                    ...state.options,
+                    series,
+                },
+            }
+        }
         default:
             return state
     }

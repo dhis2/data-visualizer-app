@@ -12,10 +12,9 @@ import {
     Radio,
 } from '@dhis2/ui'
 import { VIS_TYPE_COLUMN, VIS_TYPE_LINE, visTypeIcons } from '@dhis2/analytics'
-import cloneDeep from 'lodash/cloneDeep'
 
 import styles from '../styles/SeriesTable.module.css'
-import { acSetUiOptions } from '../../../actions/ui'
+import { acSetUiOptions, acUpdateUiSeriesItem } from '../../../actions/ui'
 import { sGetUiOptions, sGetUiType } from '../../../reducers/ui'
 import { sGetSeriesSetupItems } from '../../../reducers'
 import { EmptySeries, EmptyBox } from '../../../assets/ErrorIcons'
@@ -35,6 +34,7 @@ const SeriesTable = ({
     layoutItems,
     optionItems,
     onChange,
+    onItemChange,
     visType,
     showAxisOptions,
     showTypeOptions,
@@ -62,23 +62,6 @@ const SeriesTable = ({
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-
-    const onItemChange = (changedItem, value, prop) => {
-        const series = cloneDeep(optionItems)
-
-        const itemIndex = series.findIndex(
-            item => item.dimensionItem == changedItem.dimensionItem
-        )
-
-        if (prop === TYPE_PROP && value === visType) {
-            const { [prop]: remove, ...rest } = series[itemIndex]
-            series[itemIndex] = { ...rest }
-        } else {
-            series[itemIndex][prop] = value
-        }
-
-        onChange(series)
-    }
 
     const renderTable = () => (
         <Table suppressZebraStriping className={styles.table}>
@@ -127,11 +110,11 @@ const SeriesTable = ({
                                             className={styles.radioInput}
                                             key={type}
                                             onChange={() =>
-                                                onItemChange(
-                                                    item,
-                                                    type,
-                                                    TYPE_PROP
-                                                )
+                                                onItemChange({
+                                                    changedItem: item,
+                                                    value: type,
+                                                    prop: TYPE_PROP,
+                                                })
                                             }
                                             checked={
                                                 item.type
@@ -158,7 +141,11 @@ const SeriesTable = ({
                                 >
                                     <Radio
                                         onChange={() =>
-                                            onItemChange(item, axis, AXIS_PROP)
+                                            onItemChange({
+                                                changedItem: item,
+                                                value: axis,
+                                                prop: AXIS_PROP,
+                                            })
                                         }
                                         checked={item.axis === axis}
                                         dense
@@ -220,6 +207,7 @@ const SeriesTable = ({
 SeriesTable.propTypes = {
     visType: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
+    onItemChange: PropTypes.func.isRequired,
     layoutItems: PropTypes.array,
     optionItems: PropTypes.array,
     showAxisOptions: PropTypes.bool,
@@ -242,6 +230,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
     onChange: series => dispatch => {
         dispatch(acSetUiOptions({ series }))
+    },
+    onItemChange: ({ changedItem, value, prop }) => dispatch => {
+        dispatch(acUpdateUiSeriesItem({ changedItem, value, prop }))
     },
 }
 
