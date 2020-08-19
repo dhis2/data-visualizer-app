@@ -288,6 +288,9 @@ msgstr "Заголовок базисной линии"
 msgid "Number"
 msgstr "Число"
 
+msgid "Labels"
+msgstr "Метки"
+
 msgid "Column sub-totals"
 msgstr ""
 
@@ -562,6 +565,12 @@ msgstr "Линия цели"
 msgid "Target line title"
 msgstr "Значение линии цели"
 
+msgid "Size"
+msgstr ""
+
+msgid "Position"
+msgstr ""
+
 msgid "Top limit"
 msgstr "Верхний предел"
 
@@ -812,9 +821,6 @@ msgstr ""
 
 msgid "Display empty data"
 msgstr ""
-
-msgid "Labels"
-msgstr "Метки"
 
 msgid "Limit values"
 msgstr ""

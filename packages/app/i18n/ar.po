@@ -1,16 +1,16 @@
 # 
 # Translators:
 # KRG HIS <antonia.bezenchek@informa.pro>, 2020
-# Hamza Assada <7amza.it@gmail.com>, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
 # phil_dhis2, 2020
+# Hamza Assada <7amza.it@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-08-12T08:23:07.514Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: phil_dhis2, 2020\n"
+"Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2020\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -294,6 +294,9 @@ msgstr "عنوان خط الأساس"
 msgid "Number"
 msgstr "العدد"
 
+msgid "Labels"
+msgstr "التسميات"
+
 msgid "Column sub-totals"
 msgstr "إجماليات العمود الفرعية"
 
@@ -570,6 +573,12 @@ msgstr "خط المستهدف"
 msgid "Target line title"
 msgstr "عنوان خط الهدف"
 
+msgid "Size"
+msgstr "الحجم"
+
+msgid "Position"
+msgstr ""
+
 msgid "Top limit"
 msgstr "الحد الأعلى"
 
@@ -831,9 +840,6 @@ msgstr "عرض الإجماليات"
 
 msgid "Display empty data"
 msgstr "عرض البيانات الفارغة"
-
-msgid "Labels"
-msgstr "التسميات"
 
 msgid "Limit values"
 msgstr "حدد حدود القيم"
