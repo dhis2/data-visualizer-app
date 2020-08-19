@@ -1,6 +1,6 @@
 import React from 'react'
-
 import i18n from '@dhis2/d2-i18n'
+import { FONT_STYLE_HORIZONTAL_AXIS_TITLE } from '@dhis2/analytics'
 
 import TextBaseOption from './TextBaseOption'
 import { options } from '../../../modules/options'
@@ -19,6 +19,7 @@ const DomainAxisLabel = () => (
             defaultValue: defaultValue,
         }}
         toggleable={true}
+        fontStyleKey={FONT_STYLE_HORIZONTAL_AXIS_TITLE}
     />
 )
 

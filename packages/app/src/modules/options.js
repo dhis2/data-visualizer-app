@@ -93,6 +93,11 @@ export const options = {
     subtitle: { defaultValue: undefined, requestable: false, savable: true },
     title: { defaultValue: undefined, requestable: false, savable: true },
     series: { defaultValue: [], requestable: false, savable: true },
+    fontStyle: {
+        defaultValue: {},
+        requestable: false,
+        savable: true,
+    },
 
     // only for PT
     colTotals: { defaultValue: false, requestable: false, savable: true },

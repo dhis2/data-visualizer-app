@@ -2,20 +2,18 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
-
 import i18n from '@dhis2/d2-i18n'
 import { Label, Field, Radio } from '@dhis2/ui'
+import { FONT_STYLE_VISUALIZATION_TITLE } from '@dhis2/analytics'
 
-import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
-import { sGetUiOptions, sGetUiType } from '../../../reducers/ui'
+import { sGetUiOptions } from '../../../reducers/ui'
 import { acSetUiOptions } from '../../../actions/ui'
-
 import Title from './Title'
-
 import {
     tabSectionOption,
     tabSectionOptionToggleable,
 } from '../styles/VisualizationOptions.style.js'
+import TextStyle from './TextStyle'
 
 const HIDE_TITLE_AUTO = 'AUTO'
 const HIDE_TITLE_NONE = 'NONE'
@@ -42,15 +40,10 @@ class HideTitle extends Component {
 
     render() {
         const { value } = this.state
-        const { visualizationType } = this.props
 
         return (
             <div className={tabSectionOption.className}>
-                <Label>
-                    {visualizationType === VIS_TYPE_PIVOT_TABLE
-                        ? i18n.t('Table title')
-                        : i18n.t('Chart title')}
-                </Label>
+                <Label>{i18n.t('Chart title')}</Label>
                 <Field name="hideTitle-selector" dense>
                     {[
                         {
@@ -75,6 +68,13 @@ class HideTitle extends Component {
                         <Title inline />
                     </div>
                 ) : null}
+                {value === HIDE_TITLE_AUTO || value === HIDE_TITLE_CUSTOM ? (
+                    <div className={tabSectionOptionToggleable.className}>
+                        <TextStyle
+                            fontStyleKey={FONT_STYLE_VISUALIZATION_TITLE}
+                        />
+                    </div>
+                ) : null}
             </div>
         )
     }
@@ -83,7 +83,6 @@ class HideTitle extends Component {
 HideTitle.propTypes = {
     title: PropTypes.string,
     value: PropTypes.string,
-    visualizationType: PropTypes.string,
     onChange: PropTypes.func,
 }
 
@@ -96,7 +95,6 @@ const hideTitleSelector = createSelector([sGetUiOptions], uiOptions =>
 )
 
 const mapStateToProps = state => ({
-    visualizationType: sGetUiType(state),
     value: hideTitleSelector(state),
     title: sGetUiOptions(state).title,
 })

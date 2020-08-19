@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 
 import TextBaseOption from './TextBaseOption'
 import { options } from '../../../modules/options'
+import { FONT_STYLE_VERTICAL_AXIS_TITLE } from '@dhis2/analytics'
 
 const optionName = 'rangeAxisLabel'
 const defaultValue = options[optionName].defaultValue
@@ -20,6 +21,7 @@ const RangeAxisLabel = ({ disabled }) => (
             defaultValue: defaultValue,
         }}
         toggleable={true}
+        fontStyleKey={FONT_STYLE_VERTICAL_AXIS_TITLE}
     />
 )
 
