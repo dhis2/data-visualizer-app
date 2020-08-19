@@ -162,7 +162,7 @@ export class App extends Component {
                 !isSaving
             ) {
                 this.setState({ locationToConfirm: location })
-            } else {
+            } else if (!location || location.pathname !== '/') {
                 this.setState({ locationToConfirm: null })
                 this.loadVisualization(location)
             }
