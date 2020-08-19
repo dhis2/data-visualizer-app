@@ -285,6 +285,9 @@ msgstr "بیس لائن کا عنوان"
 msgid "Number"
 msgstr "نمبر"
 
+msgid "Labels"
+msgstr "لیبل"
+
 msgid "Column sub-totals"
 msgstr ""
 
@@ -559,6 +562,12 @@ msgstr "ہدف لائن"
 msgid "Target line title"
 msgstr "ہدف لائن کا عنوان"
 
+msgid "Size"
+msgstr ""
+
+msgid "Position"
+msgstr ""
+
 msgid "Top limit"
 msgstr "اوپر کی حد"
 
@@ -809,9 +818,6 @@ msgstr ""
 
 msgid "Display empty data"
 msgstr ""
-
-msgid "Labels"
-msgstr "لیبل"
 
 msgid "Limit values"
 msgstr ""

@@ -285,6 +285,9 @@ msgstr "基线标题"
 msgid "Number"
 msgstr "数据"
 
+msgid "Labels"
+msgstr "标签"
+
 msgid "Column sub-totals"
 msgstr "列小计"
 
@@ -559,6 +562,12 @@ msgstr "目标线"
 msgid "Target line title"
 msgstr "目标线标题"
 
+msgid "Size"
+msgstr ""
+
+msgid "Position"
+msgstr "位置"
+
 msgid "Top limit"
 msgstr "最高限度"
 
@@ -811,9 +820,6 @@ msgstr "显示合计"
 
 msgid "Display empty data"
 msgstr "显示空数据"
-
-msgid "Labels"
-msgstr "标签"
 
 msgid "Limit values"
 msgstr "限值"

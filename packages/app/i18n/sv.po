@@ -285,6 +285,9 @@ msgstr ""
 msgid "Number"
 msgstr "Antal"
 
+msgid "Labels"
+msgstr ""
+
 msgid "Column sub-totals"
 msgstr ""
 
@@ -559,6 +562,12 @@ msgstr ""
 msgid "Target line title"
 msgstr ""
 
+msgid "Size"
+msgstr ""
+
+msgid "Position"
+msgstr ""
+
 msgid "Top limit"
 msgstr ""
 
@@ -808,9 +817,6 @@ msgid "Display totals"
 msgstr ""
 
 msgid "Display empty data"
-msgstr ""
-
-msgid "Labels"
 msgstr ""
 
 msgid "Limit values"
