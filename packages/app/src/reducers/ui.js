@@ -16,7 +16,11 @@ import {
     getRetransfer,
 } from '../modules/layout'
 import { getOptionsForUi } from '../modules/options'
-import { getAdaptedUiByType, getUiFromVisualization } from '../modules/ui'
+import {
+    getAdaptedUiByType,
+    getUiFromVisualization,
+    SERIES_ITEM_TYPE_PROP,
+} from '../modules/ui'
 
 export const SET_UI = 'SET_UI'
 export const SET_UI_FROM_VISUALIZATION = 'SET_UI_FROM_VISUALIZATION'
@@ -283,7 +287,7 @@ export default (state = DEFAULT_UI, action) => {
                 item => item.dimensionItem == changedItem.dimensionItem
             )
 
-            if (prop === 'type' && value === state.type) {
+            if (prop === SERIES_ITEM_TYPE_PROP && value === state.type) {
                 const { [prop]: remove, ...rest } = series[itemIndex]
                 series[itemIndex] = { ...rest }
             } else {

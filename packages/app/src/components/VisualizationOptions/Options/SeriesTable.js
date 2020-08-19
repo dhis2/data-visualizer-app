@@ -24,11 +24,13 @@ import {
     AxisThree,
     AxisFour,
 } from '../../../assets/AxisIcons'
+import {
+    SERIES_ITEM_TYPE_PROP,
+    SERIES_ITEM_AXIS_PROP,
+} from '../../../modules/ui'
 
 const availableAxes = [0, 1, 2, 3]
 const allTypes = [VIS_TYPE_COLUMN, VIS_TYPE_LINE]
-const TYPE_PROP = 'type'
-const AXIS_PROP = 'axis'
 
 const SeriesTable = ({
     layoutItems,
@@ -113,7 +115,7 @@ const SeriesTable = ({
                                                 onItemChange({
                                                     changedItem: item,
                                                     value: type,
-                                                    prop: TYPE_PROP,
+                                                    prop: SERIES_ITEM_TYPE_PROP,
                                                 })
                                             }
                                             checked={
@@ -144,7 +146,7 @@ const SeriesTable = ({
                                             onItemChange({
                                                 changedItem: item,
                                                 value: axis,
-                                                prop: AXIS_PROP,
+                                                prop: SERIES_ITEM_AXIS_PROP,
                                             })
                                         }
                                         checked={item.axis === axis}

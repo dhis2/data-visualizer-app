@@ -26,6 +26,9 @@ import {
 } from './layoutAdapters'
 import { removeLastPathSegment } from './orgUnit'
 
+export const SERIES_ITEM_TYPE_PROP = 'type'
+export const SERIES_ITEM_AXIS_PROP = 'axis'
+
 // Transform from backend model to store.ui format
 export const getUiFromVisualization = (vis, currentState = {}) => ({
     ...currentState,
