@@ -1,3 +1,10 @@
+## [35.8.1](https://github.com/dhis2/data-visualizer-app/compare/v35.8.0...v35.8.1) (2020-08-19)
+
+
+### Bug Fixes
+
+* option configs for various vis types ([#1192](https://github.com/dhis2/data-visualizer-app/issues/1192)) ([620ec92](https://github.com/dhis2/data-visualizer-app/commit/620ec92b97eb2d953d88e262a336ee6ee3f1de7c))
+
 # [35.8.0](https://github.com/dhis2/data-visualizer-app/compare/v35.7.2...v35.8.0) (2020-08-17)
 
 
