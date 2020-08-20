@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-08-12T08:23:07.514Z\n"
-"PO-Revision-Date: 2020-08-12T08:23:07.514Z\n"
+"POT-Creation-Date: 2020-08-20T14:16:41.716Z\n"
+"PO-Revision-Date: 2020-08-20T14:16:41.716Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -389,9 +389,6 @@ msgid "Auto generated"
 msgstr ""
 
 msgid "Custom"
-msgstr ""
-
-msgid "Table title"
 msgstr ""
 
 msgid "Chart title"
@@ -806,6 +803,9 @@ msgid "Display totals"
 msgstr ""
 
 msgid "Display empty data"
+msgstr ""
+
+msgid "Table title"
 msgstr ""
 
 msgid "Limit values"
