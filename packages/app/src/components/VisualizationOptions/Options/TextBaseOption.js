@@ -18,7 +18,13 @@ export const TextBaseOption = ({
         disabled={!enabled}
         type={type}
         label={option.label}
-        onChange={event => onChange(event.target.value)}
+        onChange={event =>
+            onChange(
+                type === 'number'
+                    ? parseInt(event.target.value, 10)
+                    : event.target.value
+            )
+        }
         value={value}
         helperText={option.helperText}
     />
