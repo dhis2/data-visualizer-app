@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-08-12T08:23:07.514Z\n"
+"POT-Creation-Date: 2020-08-19T13:40:23.821Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Lao (https://www.transifex.com/hisp-uio/teams/100509/lo/)\n"
@@ -399,9 +399,6 @@ msgstr ""
 msgid "Custom"
 msgstr ""
 
-msgid "Table title"
-msgstr "ຊື່ຂອງຕາຕະລາງ"
-
 msgid "Chart title"
 msgstr "ຫົວຂໍ້ເສັ້ນສະແດງ"
 
@@ -666,6 +663,14 @@ msgstr ""
 msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr ""
 
+msgid "Visualization not found"
+msgstr ""
+
+msgid ""
+"The visualization you are trying to view could not be found, the ID could be"
+" incorrect or it could have been deleted."
+msgstr ""
+
 msgid "Something went wrong"
 msgstr ""
 
@@ -818,6 +823,9 @@ msgstr ""
 
 msgid "Display empty data"
 msgstr ""
+
+msgid "Table title"
+msgstr "ຊື່ຂອງຕາຕະລາງ"
 
 msgid "Limit values"
 msgstr ""
