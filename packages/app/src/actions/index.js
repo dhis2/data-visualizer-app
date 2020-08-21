@@ -27,7 +27,10 @@ import history from '../modules/history'
 import { getVisualizationFromCurrent } from '../modules/visualization'
 import { convertOuLevelsToUids } from '../modules/orgUnit'
 import { apiPostDataStatistics } from '../api/dataStatistics'
-import { GenericServerError } from '../modules/error'
+import {
+    GenericServerError,
+    VisualizationNotFoundError,
+} from '../modules/error'
 
 export {
     fromVisualization,
@@ -85,12 +88,13 @@ export const tDoLoadVisualization = ({
     } catch (errorResponse) {
         let error = errorResponse
 
-        if (errorResponse && errorResponse.message) {
+        if (errorResponse?.details?.httpStatusCode === 404) {
+            error = new VisualizationNotFoundError()
+        } else if (errorResponse?.message) {
             error = errorResponse.message
         } else {
             error = new GenericServerError()
         }
-
         clearVisualization(dispatch, getState, error)
 
         logError('tDoLoadVisualization', error)

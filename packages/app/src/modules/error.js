@@ -246,6 +246,18 @@ export class AssignedCategoriesAsFilterError extends VisualizationError {
     }
 }
 
+export class VisualizationNotFoundError extends VisualizationError {
+    constructor() {
+        super(
+            GenericError,
+            i18n.t('Visualization not found'),
+            i18n.t(
+                'The visualization you are trying to view could not be found, the ID could be incorrect or it could have been deleted.'
+            )
+        )
+    }
+}
+
 export const genericErrorTitle = i18n.t('Something went wrong')
 
 const getAvailableAxesDescription = visType => {
