@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-08-12T08:23:07.514Z\n"
+"POT-Creation-Date: 2020-08-19T13:40:23.821Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2020\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -403,9 +403,6 @@ msgstr "自动生成"
 msgid "Custom"
 msgstr "定制"
 
-msgid "Table title"
-msgstr "表标题"
-
 msgid "Chart title"
 msgstr "图表标题"
 
@@ -672,6 +669,14 @@ msgstr "指派的分类不能作为过滤器"
 msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr "移动或移除分类以便解决问题"
 
+msgid "Visualization not found"
+msgstr ""
+
+msgid ""
+"The visualization you are trying to view could not be found, the ID could be"
+" incorrect or it could have been deleted."
+msgstr ""
+
 msgid "Something went wrong"
 msgstr "出了些问题"
 
@@ -824,6 +829,9 @@ msgstr "显示合计"
 
 msgid "Display empty data"
 msgstr "显示空数据"
+
+msgid "Table title"
+msgstr "表标题"
 
 msgid "Limit values"
 msgstr "限值"

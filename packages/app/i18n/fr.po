@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-08-12T08:23:07.514Z\n"
+"POT-Creation-Date: 2020-08-19T13:40:23.821Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -417,9 +417,6 @@ msgstr "Genere automatiquement"
 msgid "Custom"
 msgstr "Personnalisé"
 
-msgid "Table title"
-msgstr "Titre du tableau"
-
 msgid "Chart title"
 msgstr "Titre du graphique"
 
@@ -703,6 +700,14 @@ msgstr ""
 "Résoudre ce problème en déplaçant ou en supprimant les Catégories "
 "Attribuées."
 
+msgid "Visualization not found"
+msgstr ""
+
+msgid ""
+"The visualization you are trying to view could not be found, the ID could be"
+" incorrect or it could have been deleted."
+msgstr ""
+
 msgid "Something went wrong"
 msgstr "Quelque chose a mal tourné"
 
@@ -855,6 +860,9 @@ msgstr ""
 
 msgid "Display empty data"
 msgstr ""
+
+msgid "Table title"
+msgstr "Titre du tableau"
 
 msgid "Limit values"
 msgstr ""

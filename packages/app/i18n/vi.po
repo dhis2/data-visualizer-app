@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-08-12T08:23:07.514Z\n"
+"POT-Creation-Date: 2020-08-19T13:40:23.821Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
@@ -404,9 +404,6 @@ msgstr "Tự động tạo"
 msgid "Custom"
 msgstr "Tùy chỉnh"
 
-msgid "Table title"
-msgstr "Tiêu đề bảng"
-
 msgid "Chart title"
 msgstr "Tiêu đề của biểu đồ"
 
@@ -682,6 +679,14 @@ msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr ""
 "Khắc phục vấn đầy này bằng cách chuyển hoặc xoác các danh mục được gán"
 
+msgid "Visualization not found"
+msgstr ""
+
+msgid ""
+"The visualization you are trying to view could not be found, the ID could be"
+" incorrect or it could have been deleted."
+msgstr ""
+
 msgid "Something went wrong"
 msgstr "Có lỗi"
 
@@ -834,6 +839,9 @@ msgstr "Hiển thị tổng"
 
 msgid "Display empty data"
 msgstr "Ẩn dữ liệu rỗng"
+
+msgid "Table title"
+msgstr "Tiêu đề bảng"
 
 msgid "Limit values"
 msgstr "Giá trị giới hạn"
