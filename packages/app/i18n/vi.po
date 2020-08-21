@@ -290,6 +290,9 @@ msgstr "Tiêu đề đường căn bản"
 msgid "Number"
 msgstr "Số"
 
+msgid "Labels"
+msgstr "Nhãn"
+
 msgid "Column sub-totals"
 msgstr "Tổng số cột phụ"
 
@@ -567,6 +570,12 @@ msgstr "Dòng đích"
 msgid "Target line title"
 msgstr "Tiêu đề đường mục tiêu"
 
+msgid "Size"
+msgstr ""
+
+msgid "Position"
+msgstr ""
+
 msgid "Top limit"
 msgstr "Giới hạn trên"
 
@@ -825,9 +834,6 @@ msgstr "Hiển thị tổng"
 
 msgid "Display empty data"
 msgstr "Ẩn dữ liệu rỗng"
-
-msgid "Labels"
-msgstr "Nhãn"
 
 msgid "Limit values"
 msgstr "Giá trị giới hạn"

@@ -1,14 +1,14 @@
 # 
 # Translators:
-# Caroline Hesthagen Holen <caroline@devotta.no>, 2020
 # Karoline Tufte Lien <karoline@dhis2.org>, 2020
+# Caroline Hesthagen Holen <caroline@devotta.no>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-08-12T08:23:07.514Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
+"Last-Translator: Caroline Hesthagen Holen <caroline@devotta.no>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -293,6 +293,9 @@ msgstr "Grunnlinjetittel"
 msgid "Number"
 msgstr "Nummer"
 
+msgid "Labels"
+msgstr "Etiketter"
+
 msgid "Column sub-totals"
 msgstr "Kolonnedelsummer"
 
@@ -569,6 +572,12 @@ msgstr "Mållinje"
 msgid "Target line title"
 msgstr "Mållinjetittel"
 
+msgid "Size"
+msgstr "Størrelse"
+
+msgid "Position"
+msgstr "Posisjon"
+
 msgid "Top limit"
 msgstr "Toppgrense"
 
@@ -830,9 +839,6 @@ msgstr "Vis totalsummer"
 
 msgid "Display empty data"
 msgstr "Vis tom data"
-
-msgid "Labels"
-msgstr "Etiketter"
 
 msgid "Limit values"
 msgstr "Begrens verdier"

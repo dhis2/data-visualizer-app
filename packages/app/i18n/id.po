@@ -293,6 +293,9 @@ msgstr "Judul garis dasar"
 msgid "Number"
 msgstr "Angka"
 
+msgid "Labels"
+msgstr "label"
+
 msgid "Column sub-totals"
 msgstr "Kolom sub-total"
 
@@ -567,6 +570,12 @@ msgstr "Garis sasaran"
 msgid "Target line title"
 msgstr "Judul garis target"
 
+msgid "Size"
+msgstr ""
+
+msgid "Position"
+msgstr ""
+
 msgid "Top limit"
 msgstr "Batas atas"
 
@@ -817,9 +826,6 @@ msgstr "Munculkan total"
 
 msgid "Display empty data"
 msgstr "Munculkan data kosong"
-
-msgid "Labels"
-msgstr "label"
 
 msgid "Limit values"
 msgstr "batas nilai"
