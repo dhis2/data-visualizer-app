@@ -1,3 +1,45 @@
+## [35.10.1](https://github.com/dhis2/data-visualizer-app/compare/v35.10.0...v35.10.1) (2020-08-21)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([9fbe412](https://github.com/dhis2/data-visualizer-app/commit/9fbe412e03df6ece541a1a1b0cf1cf50da5f4b70))
+
+# [35.10.0](https://github.com/dhis2/data-visualizer-app/compare/v35.9.2...v35.10.0) (2020-08-21)
+
+
+### Features
+
+* handle 404 (DHIS2-9273) ([#1203](https://github.com/dhis2/data-visualizer-app/issues/1203)) ([89e3152](https://github.com/dhis2/data-visualizer-app/commit/89e3152ac09bbcc281ffe668385b9090642511ae))
+
+## [35.9.2](https://github.com/dhis2/data-visualizer-app/compare/v35.9.1...v35.9.2) (2020-08-20)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([3534c29](https://github.com/dhis2/data-visualizer-app/commit/3534c2979af622280396fbbb8eb8983787bed916))
+
+## [35.9.1](https://github.com/dhis2/data-visualizer-app/compare/v35.9.0...v35.9.1) (2020-08-19)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([8c1d5bd](https://github.com/dhis2/data-visualizer-app/commit/8c1d5bdb0cc47890029baea6ed7d2436fea6cb80))
+
+# [35.9.0](https://github.com/dhis2/data-visualizer-app/compare/v35.8.1...v35.9.0) (2020-08-19)
+
+
+### Features
+
+* font styles for text options (DHIS2-8426) ([#1184](https://github.com/dhis2/data-visualizer-app/issues/1184)) ([1e0a474](https://github.com/dhis2/data-visualizer-app/commit/1e0a47486486984046c6d041f7e3e2795a5eb011))
+
+## [35.8.1](https://github.com/dhis2/data-visualizer-app/compare/v35.8.0...v35.8.1) (2020-08-19)
+
+
+### Bug Fixes
+
+* option configs for various vis types ([#1192](https://github.com/dhis2/data-visualizer-app/issues/1192)) ([620ec92](https://github.com/dhis2/data-visualizer-app/commit/620ec92b97eb2d953d88e262a336ee6ee3f1de7c))
+
 # [35.8.0](https://github.com/dhis2/data-visualizer-app/compare/v35.7.2...v35.8.0) (2020-08-17)
 
 

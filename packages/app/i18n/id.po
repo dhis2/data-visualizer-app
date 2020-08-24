@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-08-12T08:23:07.514Z\n"
+"POT-Creation-Date: 2020-08-19T13:40:23.821Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2020\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
@@ -293,6 +293,9 @@ msgstr "Judul garis dasar"
 msgid "Number"
 msgstr "Angka"
 
+msgid "Labels"
+msgstr "label"
+
 msgid "Column sub-totals"
 msgstr "Kolom sub-total"
 
@@ -403,9 +406,6 @@ msgstr ""
 
 msgid "Custom"
 msgstr ""
-
-msgid "Table title"
-msgstr "Judul tabel"
 
 msgid "Chart title"
 msgstr "Judul grafik"
@@ -567,6 +567,12 @@ msgstr "Garis sasaran"
 msgid "Target line title"
 msgstr "Judul garis target"
 
+msgid "Size"
+msgstr ""
+
+msgid "Position"
+msgstr ""
+
 msgid "Top limit"
 msgstr "Batas atas"
 
@@ -663,6 +669,14 @@ msgid "Assigned Categories cannot be used as Filter"
 msgstr ""
 
 msgid "Fix this problem by moving or removing Assigned Categories."
+msgstr ""
+
+msgid "Visualization not found"
+msgstr ""
+
+msgid ""
+"The visualization you are trying to view could not be found, the ID could be"
+" incorrect or it could have been deleted."
 msgstr ""
 
 msgid "Something went wrong"
@@ -818,8 +832,8 @@ msgstr "Munculkan total"
 msgid "Display empty data"
 msgstr "Munculkan data kosong"
 
-msgid "Labels"
-msgstr "label"
+msgid "Table title"
+msgstr "Judul tabel"
 
 msgid "Limit values"
 msgstr "batas nilai"

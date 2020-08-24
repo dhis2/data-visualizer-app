@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-08-12T08:23:07.514Z\n"
+"POT-Creation-Date: 2020-08-19T13:40:23.821Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Swedish (https://www.transifex.com/hisp-uio/teams/100509/sv/)\n"
@@ -285,6 +285,9 @@ msgstr ""
 msgid "Number"
 msgstr "Antal"
 
+msgid "Labels"
+msgstr ""
+
 msgid "Column sub-totals"
 msgstr ""
 
@@ -395,9 +398,6 @@ msgstr ""
 
 msgid "Custom"
 msgstr "Beställnings"
-
-msgid "Table title"
-msgstr ""
 
 msgid "Chart title"
 msgstr ""
@@ -559,6 +559,12 @@ msgstr ""
 msgid "Target line title"
 msgstr ""
 
+msgid "Size"
+msgstr ""
+
+msgid "Position"
+msgstr ""
+
 msgid "Top limit"
 msgstr ""
 
@@ -655,6 +661,14 @@ msgid "Assigned Categories cannot be used as Filter"
 msgstr ""
 
 msgid "Fix this problem by moving or removing Assigned Categories."
+msgstr ""
+
+msgid "Visualization not found"
+msgstr ""
+
+msgid ""
+"The visualization you are trying to view could not be found, the ID could be"
+" incorrect or it could have been deleted."
 msgstr ""
 
 msgid "Something went wrong"
@@ -810,7 +824,7 @@ msgstr ""
 msgid "Display empty data"
 msgstr ""
 
-msgid "Labels"
+msgid "Table title"
 msgstr ""
 
 msgid "Limit values"

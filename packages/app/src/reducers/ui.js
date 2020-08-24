@@ -8,6 +8,8 @@ import {
     DIMENSION_ID_ASSIGNED_CATEGORIES,
     canDimensionBeAddedToAxis,
     defaultVisType,
+    defaultFontStyle,
+    deleteFontStyleOption,
 } from '@dhis2/analytics'
 
 import {
@@ -26,6 +28,7 @@ export const SET_UI = 'SET_UI'
 export const SET_UI_FROM_VISUALIZATION = 'SET_UI_FROM_VISUALIZATION'
 export const SET_UI_TYPE = 'SET_UI_TYPE'
 export const SET_UI_OPTIONS = 'SET_UI_OPTIONS'
+export const SET_UI_FONT_STYLE = 'SET_UI_FONT_STYLE'
 export const SET_UI_LAYOUT = 'SET_UI_LAYOUT'
 export const ADD_UI_LAYOUT_DIMENSIONS = 'ADD_UI_LAYOUT_DIMENSIONS'
 export const REMOVE_UI_LAYOUT_DIMENSIONS = 'REMOVE_UI_LAYOUT_DIMENSIONS'
@@ -117,6 +120,34 @@ export default (state = DEFAULT_UI, action) => {
                 options: {
                     ...state.options,
                     ...action.value,
+                },
+            }
+        }
+        case SET_UI_FONT_STYLE: {
+            const { fontStyleKey, option, value } = action.value
+            let fontStyle = {}
+            if (defaultFontStyle[fontStyleKey][option] !== value) {
+                // custom value: save it
+                fontStyle = {
+                    ...(state.options.fontStyle || {}),
+                    [fontStyleKey]: {
+                        ...(state.options.fontStyle || {})[fontStyleKey],
+                        [option]: value,
+                    },
+                }
+            } else {
+                // default value: remove the previous value
+                fontStyle = deleteFontStyleOption(
+                    state.options.fontStyle,
+                    fontStyleKey,
+                    option
+                )
+            }
+            return {
+                ...state,
+                options: {
+                    ...state.options,
+                    fontStyle: { ...fontStyle },
                 },
             }
         }
@@ -362,3 +393,11 @@ export const sGetAxisSetup = state => {
           }))
         : []
 }
+
+export const sGetUiFontStyle = (state, key) =>
+    (sGetUiOptions(state).fontStyle || {})[key]
+
+export const sGetConsolidatedUiFontStyle = (state, key) => ({
+    ...defaultFontStyle[key],
+    ...sGetUiFontStyle(state, key),
+})

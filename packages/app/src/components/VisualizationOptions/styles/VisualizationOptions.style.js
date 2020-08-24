@@ -65,6 +65,5 @@ export const tabSectionOptionToggleable = css.resolve`
 export const tabSectionOptionComplexInline = css.resolve`
     div {
         display: flex;
-        align-items: center;
     }
 `

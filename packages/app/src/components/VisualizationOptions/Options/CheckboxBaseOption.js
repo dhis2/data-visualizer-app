@@ -1,13 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-
 import { Checkbox } from '@dhis2/ui'
 
 import { sGetUiOptions } from '../../../reducers/ui'
 import { acSetUiOptions } from '../../../actions/ui'
-
-import { tabSectionOption } from '../styles/VisualizationOptions.style.js'
+import {
+    tabSectionOption,
+    tabSectionOptionToggleable,
+} from '../styles/VisualizationOptions.style.js'
+import TextStyle from './TextStyle'
 
 export const CheckboxBaseOption = ({
     option,
@@ -15,6 +17,7 @@ export const CheckboxBaseOption = ({
     value,
     onChange,
     inverted,
+    fontStyleKey,
 }) => (
     <div className={tabSectionOption.className}>
         <Checkbox
@@ -24,10 +27,16 @@ export const CheckboxBaseOption = ({
             onChange={({ checked }) => onChange(inverted ? !checked : checked)}
             dense
         />
+        {((!inverted && value) || (inverted && !value)) && fontStyleKey ? (
+            <div className={tabSectionOptionToggleable.className}>
+                <TextStyle fontStyleKey={fontStyleKey} />
+            </div>
+        ) : null}
     </div>
 )
 
 CheckboxBaseOption.propTypes = {
+    fontStyleKey: PropTypes.string,
     inverted: PropTypes.bool,
     label: PropTypes.string,
     option: PropTypes.object,

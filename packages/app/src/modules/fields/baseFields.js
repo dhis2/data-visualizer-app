@@ -42,6 +42,7 @@ export const fieldsByType = {
         getFieldObject('colorSet', { option: true }),
         getFieldObject('cumulativeValues', { option: true }),
         getFieldObject('domainAxisLabel', { option: true }),
+        getFieldObject('fontStyle', { option: true }),
         getFieldObject('hideEmptyRowItems', { option: true }),
         getFieldObject('hideLegend', { option: true }),
         getFieldObject('noSpaceBetweenColumns', { option: true }),

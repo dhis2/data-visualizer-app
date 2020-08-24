@@ -6,7 +6,10 @@ import { createSelector } from 'reselect'
 import i18n from '@dhis2/d2-i18n'
 import { Label, Radio, Field } from '@dhis2/ui'
 
-import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
+import {
+    VIS_TYPE_PIVOT_TABLE,
+    FONT_STYLE_VISUALIZATION_SUBTITLE,
+} from '@dhis2/analytics'
 import { sGetUiOptions, sGetUiType } from '../../../reducers/ui'
 import { acSetUiOptions } from '../../../actions/ui'
 
@@ -16,6 +19,7 @@ import {
     tabSectionOption,
     tabSectionOptionToggleable,
 } from '../styles/VisualizationOptions.style.js'
+import TextStyle from './TextStyle'
 
 const HIDE_SUBTITLE_AUTO = 'AUTO'
 const HIDE_SUBTITLE_NONE = 'NONE'
@@ -73,6 +77,14 @@ class HideSubtitle extends Component {
                 {value === HIDE_SUBTITLE_CUSTOM ? (
                     <div className={tabSectionOptionToggleable.className}>
                         <Subtitle inline />
+                    </div>
+                ) : null}
+                {value === HIDE_SUBTITLE_AUTO ||
+                value === HIDE_SUBTITLE_CUSTOM ? (
+                    <div className={tabSectionOptionToggleable.className}>
+                        <TextStyle
+                            fontStyleKey={FONT_STYLE_VISUALIZATION_SUBTITLE}
+                        />
                     </div>
                 ) : null}
             </div>
