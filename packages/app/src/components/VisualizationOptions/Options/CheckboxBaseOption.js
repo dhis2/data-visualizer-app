@@ -9,19 +9,26 @@ import { acSetUiOptions } from '../../../actions/ui'
 
 import { tabSectionOption } from '../styles/VisualizationOptions.style.js'
 
-export const CheckboxBaseOption = ({ option, label, value, onChange }) => (
+export const CheckboxBaseOption = ({
+    option,
+    label,
+    value,
+    onChange,
+    inverted,
+}) => (
     <div className={tabSectionOption.className}>
         <Checkbox
-            checked={value}
+            checked={inverted ? !value : value}
             label={label}
             name={option.name}
-            onChange={({ checked }) => onChange(checked)}
+            onChange={({ checked }) => onChange(inverted ? !checked : checked)}
             dense
         />
     </div>
 )
 
 CheckboxBaseOption.propTypes = {
+    inverted: PropTypes.bool,
     label: PropTypes.string,
     option: PropTypes.object,
     value: PropTypes.bool,
