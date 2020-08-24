@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-08-12T08:23:07.514Z\n"
+"POT-Creation-Date: 2020-08-19T13:40:23.821Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2020\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -408,9 +408,6 @@ msgstr "توليد تلقائي"
 msgid "Custom"
 msgstr "مخصص"
 
-msgid "Table title"
-msgstr "عنوان الجدول"
-
 msgid "Chart title"
 msgstr "عنوان المخطط البياني"
 
@@ -688,6 +685,14 @@ msgstr "الفئات المعينة لا يمكن أن تستخدم كعوامل
 msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr "قم بإصلاح هذه المشكلة عن طريق نقل أو إزالة الفئات التي تم تعينها."
 
+msgid "Visualization not found"
+msgstr ""
+
+msgid ""
+"The visualization you are trying to view could not be found, the ID could be"
+" incorrect or it could have been deleted."
+msgstr ""
+
 msgid "Something went wrong"
 msgstr "هناك خطأ ما"
 
@@ -840,6 +845,9 @@ msgstr "عرض الإجماليات"
 
 msgid "Display empty data"
 msgstr "عرض البيانات الفارغة"
+
+msgid "Table title"
+msgstr "عنوان الجدول"
 
 msgid "Limit values"
 msgstr "حدد حدود القيم"

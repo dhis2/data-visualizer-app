@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-08-12T08:23:07.514Z\n"
+"POT-Creation-Date: 2020-08-19T13:40:23.821Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Ge Joao <gsimango@saudigitus.org>, 2020\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
@@ -411,9 +411,6 @@ msgstr "Gerado automaticamente"
 msgid "Custom"
 msgstr "Customizar "
 
-msgid "Table title"
-msgstr "Titulo da tabela"
-
 msgid "Chart title"
 msgstr "Título do gráfico"
 
@@ -694,6 +691,14 @@ msgstr "Categorias atribuídas não podem ser usadas como filtro"
 msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr "Corrija esse problema movendo ou removendo categorias atribuídas."
 
+msgid "Visualization not found"
+msgstr ""
+
+msgid ""
+"The visualization you are trying to view could not be found, the ID could be"
+" incorrect or it could have been deleted."
+msgstr ""
+
 msgid "Something went wrong"
 msgstr "Ocorreu algo de errado"
 
@@ -846,6 +851,9 @@ msgstr "Totais de exibição"
 
 msgid "Display empty data"
 msgstr "Exibir dados vazios"
+
+msgid "Table title"
+msgstr "Titulo da tabela"
 
 msgid "Limit values"
 msgstr "Valores limite"

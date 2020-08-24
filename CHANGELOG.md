@@ -1,3 +1,24 @@
+## [35.10.1](https://github.com/dhis2/data-visualizer-app/compare/v35.10.0...v35.10.1) (2020-08-21)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([9fbe412](https://github.com/dhis2/data-visualizer-app/commit/9fbe412e03df6ece541a1a1b0cf1cf50da5f4b70))
+
+# [35.10.0](https://github.com/dhis2/data-visualizer-app/compare/v35.9.2...v35.10.0) (2020-08-21)
+
+
+### Features
+
+* handle 404 (DHIS2-9273) ([#1203](https://github.com/dhis2/data-visualizer-app/issues/1203)) ([89e3152](https://github.com/dhis2/data-visualizer-app/commit/89e3152ac09bbcc281ffe668385b9090642511ae))
+
+## [35.9.2](https://github.com/dhis2/data-visualizer-app/compare/v35.9.1...v35.9.2) (2020-08-20)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([3534c29](https://github.com/dhis2/data-visualizer-app/commit/3534c2979af622280396fbbb8eb8983787bed916))
+
 ## [35.9.1](https://github.com/dhis2/data-visualizer-app/compare/v35.9.0...v35.9.1) (2020-08-19)
 
 
