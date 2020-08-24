@@ -1,3 +1,10 @@
+## [35.10.2](https://github.com/dhis2/data-visualizer-app/compare/v35.10.1...v35.10.2) (2020-08-24)
+
+
+### Bug Fixes
+
+* prevent series from saving global vis type as custom type (DHIS2-6385) ([#1193](https://github.com/dhis2/data-visualizer-app/issues/1193)) ([317d25c](https://github.com/dhis2/data-visualizer-app/commit/317d25c15a6d3f377e335820198884f5a09f84de))
+
 ## [35.10.1](https://github.com/dhis2/data-visualizer-app/compare/v35.10.0...v35.10.1) (2020-08-21)
 
 
