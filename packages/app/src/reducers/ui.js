@@ -18,7 +18,11 @@ import {
     getRetransfer,
 } from '../modules/layout'
 import { getOptionsForUi } from '../modules/options'
-import { getAdaptedUiByType, getUiFromVisualization } from '../modules/ui'
+import {
+    getAdaptedUiByType,
+    getUiFromVisualization,
+    SERIES_ITEM_TYPE_PROP,
+} from '../modules/ui'
 
 export const SET_UI = 'SET_UI'
 export const SET_UI_FROM_VISUALIZATION = 'SET_UI_FROM_VISUALIZATION'
@@ -42,6 +46,7 @@ export const SET_UI_RIGHT_SIDEBAR_OPEN = 'SET_UI_RIGHT_SIDEBAR_OPEN'
 export const SET_UI_INTERPRETATION = 'SET_UI_INTERPRETATION'
 export const CLEAR_UI_INTERPRETATION = 'CLEAR_UI_INTERPRETATION'
 export const CLEAR_SERIES_TYPE = 'CLEAR_SERIES_TYPE'
+export const UPDATE_UI_SERIES_ITEM = 'UPDATE_UI_SERIES_ITEM'
 
 export const DEFAULT_UI = {
     type: defaultVisType,
@@ -305,6 +310,31 @@ export default (state = DEFAULT_UI, action) => {
                     ),
                 },
             }
+        case UPDATE_UI_SERIES_ITEM: {
+            const { changedItem, value, prop } = action.value
+            const series = [...state.options.series]
+
+            const itemIndex = series.findIndex(
+                item => item.dimensionItem == changedItem.dimensionItem
+            )
+
+            if (prop === SERIES_ITEM_TYPE_PROP && value === state.type) {
+                const { [prop]: remove, ...rest } = series[itemIndex]
+                series[itemIndex] = { ...rest }
+            } else {
+                series[itemIndex] = Object.assign({}, series[itemIndex], {
+                    [prop]: value,
+                })
+            }
+
+            return {
+                ...state,
+                options: {
+                    ...state.options,
+                    series,
+                },
+            }
+        }
         default:
             return state
     }
