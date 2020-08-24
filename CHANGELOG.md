@@ -1,3 +1,10 @@
+## [35.10.3](https://github.com/dhis2/data-visualizer-app/compare/v35.10.2...v35.10.3) (2020-08-24)
+
+
+### Bug Fixes
+
+* bump Analytics to get latest ui with fix for selected items style ([#1221](https://github.com/dhis2/data-visualizer-app/issues/1221)) ([86d7fc1](https://github.com/dhis2/data-visualizer-app/commit/86d7fc1bce97ba2ddcaebd5be3091b390a29ea0d))
+
 ## [35.10.2](https://github.com/dhis2/data-visualizer-app/compare/v35.10.1...v35.10.2) (2020-08-24)
 
 
