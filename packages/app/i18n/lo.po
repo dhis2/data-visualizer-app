@@ -374,7 +374,7 @@ msgstr "ທັງໝົດ"
 msgid "Hide empty rows"
 msgstr "ເຊື່ອງແຖວທີ່ເປົ່າຫວ່າງ"
 
-msgid "Legend key"
+msgid "Show legend key"
 msgstr ""
 
 msgid "Table subtitle"

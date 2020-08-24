@@ -378,7 +378,7 @@ msgstr "Todos"
 msgid "Hide empty rows"
 msgstr "Ocultar filas vacías"
 
-msgid "Legend key"
+msgid "Show legend key"
 msgstr ""
 
 msgid "Table subtitle"

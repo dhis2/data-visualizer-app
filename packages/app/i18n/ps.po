@@ -374,7 +374,7 @@ msgstr "ټول"
 msgid "Hide empty rows"
 msgstr "خالي یا تش کتارونه پټ کړئ"
 
-msgid "Legend key"
+msgid "Show legend key"
 msgstr ""
 
 msgid "Table subtitle"

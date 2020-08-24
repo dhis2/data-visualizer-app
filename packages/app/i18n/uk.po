@@ -375,7 +375,7 @@ msgstr "Всі"
 msgid "Hide empty rows"
 msgstr "Сховати порожні рядки"
 
-msgid "Legend key"
+msgid "Show legend key"
 msgstr ""
 
 msgid "Table subtitle"

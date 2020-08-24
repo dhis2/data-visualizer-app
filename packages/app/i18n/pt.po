@@ -388,8 +388,8 @@ msgstr "Tudo"
 msgid "Hide empty rows"
 msgstr "Esconder linhas vazias"
 
-msgid "Legend key"
-msgstr "chave da legenda"
+msgid "Show legend key"
+msgstr ""
 
 msgid "Table subtitle"
 msgstr "Subtitulo da tabela"

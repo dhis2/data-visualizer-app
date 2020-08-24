@@ -374,7 +374,7 @@ msgstr "Hotu"
 msgid "Hide empty rows"
 msgstr ""
 
-msgid "Legend key"
+msgid "Show legend key"
 msgstr ""
 
 msgid "Table subtitle"
