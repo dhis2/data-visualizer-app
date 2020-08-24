@@ -381,8 +381,8 @@ msgstr "Tất cả"
 msgid "Hide empty rows"
 msgstr "Ẩn dòng rỗng"
 
-msgid "Legend key"
-msgstr "Khóa chú giải"
+msgid "Show legend key"
+msgstr ""
 
 msgid "Table subtitle"
 msgstr "Tiêu đề phụ của bảng"

@@ -373,7 +373,7 @@ msgstr "همه"
 msgid "Hide empty rows"
 msgstr "پنهان کردن ردیف های خالی"
 
-msgid "Legend key"
+msgid "Show legend key"
 msgstr ""
 
 msgid "Table subtitle"

@@ -374,7 +374,7 @@ msgstr "Ҳама"
 msgid "Hide empty rows"
 msgstr "Пинҳон кардани сатрҳои холӣ"
 
-msgid "Legend key"
+msgid "Show legend key"
 msgstr ""
 
 msgid "Table subtitle"

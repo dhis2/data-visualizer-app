@@ -385,8 +385,8 @@ msgstr "الجميع"
 msgid "Hide empty rows"
 msgstr "إخفاء الصفوف الفارغة"
 
-msgid "Legend key"
-msgstr "شروحات"
+msgid "Show legend key"
+msgstr ""
 
 msgid "Table subtitle"
 msgstr "العنوان الفرعي للجدول"

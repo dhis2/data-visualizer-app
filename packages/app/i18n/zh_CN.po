@@ -374,8 +374,8 @@ msgstr "全部"
 msgid "Hide empty rows"
 msgstr "隐藏空行"
 
-msgid "Legend key"
-msgstr "图例键值"
+msgid "Show legend key"
+msgstr ""
 
 msgid "Table subtitle"
 msgstr "表子标题"

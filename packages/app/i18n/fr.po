@@ -393,8 +393,8 @@ msgstr "Tout"
 msgid "Hide empty rows"
 msgstr "Cacher lignes vides"
 
-msgid "Legend key"
-msgstr "Touche de légende"
+msgid "Show legend key"
+msgstr ""
 
 msgid "Table subtitle"
 msgstr "Sous-titre du tableau"
