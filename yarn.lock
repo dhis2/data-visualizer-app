@@ -1524,20 +1524,20 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^8.9.5":
-  version "8.9.5"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-8.9.5.tgz#902e2abcbfd490e805763b85f5289f5e51860b30"
-  integrity sha512-p6dM87NHaEXaiHvL15QC0/8VImcy1i20EOB0UZIiJ9xN40ntRZOGAfrh3kv6TpKM7DDo73pHVH/hvi3hu9Frfw==
+"@dhis2/analytics@^8.9.6":
+  version "8.9.6"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-8.9.6.tgz#22050cf44dee666312235816427b476d14e39e9b"
+  integrity sha512-7tBfFIQtaZ19WbeQTUA5R1qvRj1c8N+AwHJbsMdNArWLyEL5R7H+A4PjK93hDm1iiBbstuyL1BuN2uwBb85keA==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.4"
-    "@dhis2/ui" "^5.5.0"
+    "@dhis2/ui" "^5.5.1"
     "@material-ui/core" "^3.9.3"
     "@material-ui/icons" "^3.0.2"
     classnames "^2.2.6"
     d2-utilizr "^0.2.16"
     d3-color "^1.2.3"
-    highcharts "^8.1.2"
-    lodash "^4.17.19"
+    highcharts "^8.2.0"
+    lodash "^4.17.20"
     react-beautiful-dnd "^10.1.1"
     resize-observer-polyfill "^1.5.1"
     styled-jsx "^3.3.0"
@@ -1854,7 +1854,7 @@
     "@dhis2/prop-types" "^1.6.4"
     classnames "^2.2.6"
 
-"@dhis2/ui@^5.4.2", "@dhis2/ui@^5.5.0", "@dhis2/ui@^5.5.1":
+"@dhis2/ui@^5.4.2", "@dhis2/ui@^5.5.1":
   version "5.5.1"
   resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-5.5.1.tgz#eda3d681fbb248e347de3ec43d74eb68c022a96c"
   integrity sha512-3Yzf4hGDgSR+qCZOH/xIEAaTNVZWxWm9FgeHIqEnprxKiMjtCoxeY8uOehch/9hImidM6/dJXvlNo0VVnvFYWA==
@@ -7206,10 +7206,10 @@ hex-color-regex@^1.1.0:
   resolved "https://registry.yarnpkg.com/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
 
-highcharts@^8.1.2:
-  version "8.1.2"
-  resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-8.1.2.tgz#a4e7d74a6140028e676a3a54f5fd0ea6ccbcc90e"
-  integrity sha512-Q124Lj+2+bVY2MKMd7d8uSVAmhZVzWgknUUzUBEC27S94dCyK6PBgahuwiMP/ET4w7qSFBBi4OC77ZUb0Vnuyg==
+highcharts@^8.2.0:
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-8.2.0.tgz#3d4893015caf1a7c9ed85284d983911e844649f3"
+  integrity sha512-s3R7UEaMWUDJNxFfdjuiOtI8rnSvhEZUNN4TA7LiDRc9Tw7DUKvTv5WXSTYzxojokLbybwwlf9t3jg/meAUTnQ==
 
 history@^4.7.2:
   version "4.10.1"
@@ -9396,10 +9396,10 @@ lodash@4.17.15:
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
 
-"lodash@>=3.5 <5", lodash@^4.0.0, lodash@^4.15.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.5, lodash@^4.2.1, lodash@~4.17.12:
-  version "4.17.19"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
-  integrity sha512-JNvd8XER9GQX0v2qJgsaN/mzFCNA5BRe/j8JN9d+tWyGLSodKQHKFicdwNYzWwI3wjRnaKPsGj1XkBjx/F96DQ==
+"lodash@>=3.5 <5", lodash@^4.0.0, lodash@^4.15.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.20, lodash@^4.17.5, lodash@^4.2.1, lodash@~4.17.12:
+  version "4.17.20"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
+  integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
 
 log-symbols@2.2.0:
   version "2.2.0"
