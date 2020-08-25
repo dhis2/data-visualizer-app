@@ -1,3 +1,10 @@
+## [32.1.6](https://github.com/dhis2/data-visualizer-app/compare/v32.1.5...v32.1.6) (2020-08-25)
+
+
+### Bug Fixes
+
+* pass number value as number ([#1216](https://github.com/dhis2/data-visualizer-app/issues/1216)) ([f7ca3cd](https://github.com/dhis2/data-visualizer-app/commit/f7ca3cdb0be44a6411325c5af65b3283075eddfb))
+
 ## [32.1.5](https://github.com/dhis2/data-visualizer-app/compare/v32.1.4...v32.1.5) (2020-06-19)
 
 
