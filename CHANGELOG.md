@@ -1,3 +1,10 @@
+## [35.10.4](https://github.com/dhis2/data-visualizer-app/compare/v35.10.3...v35.10.4) (2020-08-25)
+
+
+### Bug Fixes
+
+* fix double bottom border in Download menu ([#1226](https://github.com/dhis2/data-visualizer-app/issues/1226)) ([1c05032](https://github.com/dhis2/data-visualizer-app/commit/1c050327d9cd302a9725199c1e8f5e614380f15e))
+
 ## [35.10.3](https://github.com/dhis2/data-visualizer-app/compare/v35.10.2...v35.10.3) (2020-08-24)
 
 
