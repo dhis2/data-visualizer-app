@@ -1,3 +1,12 @@
+## [34.6.14](https://github.com/dhis2/data-visualizer-app/compare/v34.6.13...v34.6.14) (2020-08-25)
+
+
+### Bug Fixes
+
+* change help text for aggregation type ([#1151](https://github.com/dhis2/data-visualizer-app/issues/1151)) ([#1209](https://github.com/dhis2/data-visualizer-app/issues/1209)) ([b9c3519](https://github.com/dhis2/data-visualizer-app/commit/b9c351904a34b80c5372a78e8fd3b35c91a02092))
+* Decimals and Steps options only allow positive values (DHIS2-9002, DHIS2-9194) ([#1161](https://github.com/dhis2/data-visualizer-app/issues/1161)) v34 ([#1210](https://github.com/dhis2/data-visualizer-app/issues/1210)) ([b099607](https://github.com/dhis2/data-visualizer-app/commit/b0996072769123a02249c63cb41cf347d90ad2f2))
+* reorder options for consistency (DHIS2-9004) (519b0ba) v34 ([#1211](https://github.com/dhis2/data-visualizer-app/issues/1211)) ([8c59852](https://github.com/dhis2/data-visualizer-app/commit/8c59852b9a241847b73a77f5d107e863226509dc))
+
 ## [34.6.13](https://github.com/dhis2/data-visualizer-app/compare/v34.6.12...v34.6.13) (2020-08-24)
 
 
