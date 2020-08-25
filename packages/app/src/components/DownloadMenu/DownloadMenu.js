@@ -1,5 +1,4 @@
 import React, { useState, createRef } from 'react'
-import { createPortal } from 'react-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
@@ -12,7 +11,7 @@ import {
     FlyoutMenu,
     MenuSectionHeader,
     MenuItem,
-    Popper,
+    Popover,
     colors,
 } from '@dhis2/ui'
 import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
@@ -31,7 +30,6 @@ import {
 } from '../../api/analytics'
 import MenuButton from '../MenuButton/MenuButton'
 import MoreHorizontalIcon from '../../assets/MoreHorizontalIcon'
-import styles from './styles/DownloadMenu.module.css'
 
 const DenseMenuItem = ({ Icon, children, ...rest }) => (
     <MenuItem
@@ -168,85 +166,70 @@ export const DownloadMenu = ({
                     {i18n.t('Download')}
                 </MenuButton>
             </div>
-            {dialogIsOpen &&
-                createPortal(
-                    <div onClick={toggleMenu} className={styles.backdrop}>
-                        <Popper reference={buttonRef} placement="bottom-start">
-                            <FlyoutMenu>
-                                {visType === VIS_TYPE_PIVOT_TABLE
-                                    ? tableMenuSection()
-                                    : graphicsMenuSection()}
-                                <MenuSectionHeader
-                                    label={i18n.t('Plain data source')}
-                                />
-                                <DenseMenuItem
-                                    Icon={ListIcon}
-                                    label={i18n.t('JSON')}
-                                >
-                                    {plainDataSourceSubLevel('json')}
-                                </DenseMenuItem>
-                                <DenseMenuItem
-                                    Icon={ListIcon}
-                                    label={i18n.t('XML')}
-                                >
-                                    {plainDataSourceSubLevel('xml')}
-                                </DenseMenuItem>
-                                <DenseMenuItem
-                                    Icon={ListIcon}
-                                    label={i18n.t('Excel')}
-                                >
-                                    {plainDataSourceSubLevel('xls')}
-                                </DenseMenuItem>
-                                <DenseMenuItem
-                                    Icon={ListIcon}
-                                    label={i18n.t('CSV')}
-                                >
-                                    {plainDataSourceSubLevel('csv')}
-                                </DenseMenuItem>
-                                <DenseMenuItem
-                                    Icon={MoreHorizontalIcon}
-                                    label={i18n.t('Advanced')}
-                                >
-                                    <MenuSectionHeader
-                                        label={i18n.t('Data value set')}
-                                    />
-                                    <DenseMenuItem
-                                        label={i18n.t('JSON')}
-                                        onClick={downloadData(
-                                            'json',
-                                            null,
-                                            'dataValueSet'
-                                        )}
-                                    />
-                                    <DenseMenuItem
-                                        label={i18n.t('XML')}
-                                        onClick={downloadData(
-                                            'xml',
-                                            null,
-                                            'dataValueSet'
-                                        )}
-                                    />
-                                    <MenuSectionHeader
-                                        label={i18n.t('Other formats')}
-                                    />
-                                    <DenseMenuItem
-                                        label={i18n.t('JRXML')}
-                                        onClick={downloadData('jrxml')}
-                                    />
-                                    <DenseMenuItem
-                                        label={i18n.t('Raw data SQL')}
-                                        onClick={downloadData(
-                                            'sql',
-                                            null,
-                                            'debug/sql'
-                                        )}
-                                    />
-                                </DenseMenuItem>
-                            </FlyoutMenu>
-                        </Popper>
-                    </div>,
-                    document.body
-                )}
+            {dialogIsOpen && (
+                <Popover
+                    arrow={false}
+                    reference={buttonRef}
+                    placement="bottom-start"
+                    onClickOutside={toggleMenu}
+                >
+                    <FlyoutMenu>
+                        {visType === VIS_TYPE_PIVOT_TABLE
+                            ? tableMenuSection()
+                            : graphicsMenuSection()}
+                        <MenuSectionHeader
+                            label={i18n.t('Plain data source')}
+                        />
+                        <DenseMenuItem Icon={ListIcon} label={i18n.t('JSON')}>
+                            {plainDataSourceSubLevel('json')}
+                        </DenseMenuItem>
+                        <DenseMenuItem Icon={ListIcon} label={i18n.t('XML')}>
+                            {plainDataSourceSubLevel('xml')}
+                        </DenseMenuItem>
+                        <DenseMenuItem Icon={ListIcon} label={i18n.t('Excel')}>
+                            {plainDataSourceSubLevel('xls')}
+                        </DenseMenuItem>
+                        <DenseMenuItem Icon={ListIcon} label={i18n.t('CSV')}>
+                            {plainDataSourceSubLevel('csv')}
+                        </DenseMenuItem>
+                        <DenseMenuItem
+                            Icon={MoreHorizontalIcon}
+                            label={i18n.t('Advanced')}
+                        >
+                            <MenuSectionHeader
+                                label={i18n.t('Data value set')}
+                            />
+                            <DenseMenuItem
+                                label={i18n.t('JSON')}
+                                onClick={downloadData(
+                                    'json',
+                                    null,
+                                    'dataValueSet'
+                                )}
+                            />
+                            <DenseMenuItem
+                                label={i18n.t('XML')}
+                                onClick={downloadData(
+                                    'xml',
+                                    null,
+                                    'dataValueSet'
+                                )}
+                            />
+                            <MenuSectionHeader
+                                label={i18n.t('Other formats')}
+                            />
+                            <DenseMenuItem
+                                label={i18n.t('JRXML')}
+                                onClick={downloadData('jrxml')}
+                            />
+                            <DenseMenuItem
+                                label={i18n.t('Raw data SQL')}
+                                onClick={downloadData('sql', null, 'debug/sql')}
+                            />
+                        </DenseMenuItem>
+                    </FlyoutMenu>
+                </Popover>
+            )}
         </>
     )
 }
