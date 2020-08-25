@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-25T18:22:35.064Z\n"
+"POT-Creation-Date: 2020-08-21T09:51:29.294Z\n"
 "PO-Revision-Date: 2020-03-02 13:01+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -240,8 +240,8 @@ msgstr "Dine mest viste diagrammer og tabeller"
 msgid "Aggregation type"
 msgstr "Aggregasjonstype"
 
-msgid "Determines how the values in the pivot table are aggregated."
-msgstr "Bestemmer hvordan verdiene i pivottabellen aggregeres."
+msgid "Overrides aggregation type for all data values."
+msgstr "Overstyrer aggregeringstype for alle dataverdier."
 
 msgid "By data element"
 msgstr "Per datalement"
@@ -484,8 +484,10 @@ msgstr "Desimaler"
 msgid "Auto"
 msgstr "Auto"
 
-msgid "The number of axis steps between the min and max values"
-msgstr "Antall aksetrinn mellom min- og maksverdiene"
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
+msgstr ""
 
 msgid "Steps"
 msgstr "Trinn"
@@ -766,23 +768,23 @@ msgstr "Bruker under-underordnet org enhet"
 msgid "Data"
 msgstr "Data"
 
-msgid "Axes"
-msgstr "Akser"
-
-msgid "Style"
-msgstr "Stil"
-
 msgid "Display"
 msgstr "Vis"
 
 msgid "Lines"
 msgstr "Linjer"
 
+msgid "Axes"
+msgstr "Akser"
+
 msgid "Vertical (y) axis"
 msgstr "Vertical (y) axis"
 
 msgid "Horizontal (x) axis"
 msgstr "Horisontal (x) akse"
+
+msgid "Style"
+msgstr "Stil"
 
 msgid "Chart style"
 msgstr "Diagramstil"

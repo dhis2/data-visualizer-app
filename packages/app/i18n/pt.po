@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-25T18:22:35.064Z\n"
+"POT-Creation-Date: 2020-08-21T09:51:29.294Z\n"
 "PO-Revision-Date: 2020-03-02 13:01+0000\n"
 "Last-Translator: Ge Joao <gsimango@saudigitus.org>, 2020\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
@@ -244,8 +244,8 @@ msgstr "Seus gráficos e tabelas mais vistos"
 msgid "Aggregation type"
 msgstr "Tipo de agregacão"
 
-msgid "Determines how the values in the pivot table are aggregated."
-msgstr "Determina como os valores na tabela dinâmica são agregados."
+msgid "Overrides aggregation type for all data values."
+msgstr ""
 
 msgid "By data element"
 msgstr "Por elemento de dado"
@@ -489,8 +489,10 @@ msgstr "Decimais "
 msgid "Auto"
 msgstr "Automatico "
 
-msgid "The number of axis steps between the min and max values"
-msgstr "O número de etapas do eixo entre os valores mínimo e máximo"
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
+msgstr ""
 
 msgid "Steps"
 msgstr "Passos"
@@ -775,23 +777,23 @@ msgstr "Filhos da unidade organizacional do usuário"
 msgid "Data"
 msgstr "Dados"
 
-msgid "Axes"
-msgstr "Machados"
-
-msgid "Style"
-msgstr "Estilo"
-
 msgid "Display"
 msgstr "Exibir"
 
 msgid "Lines"
 msgstr "Linhas "
 
+msgid "Axes"
+msgstr "Machados"
+
 msgid "Vertical (y) axis"
 msgstr "Eixo vertical (y)"
 
 msgid "Horizontal (x) axis"
 msgstr "Eixo Horizontal (x) "
+
+msgid "Style"
+msgstr "Estilo"
 
 msgid "Chart style"
 msgstr "Estilo de graficos"

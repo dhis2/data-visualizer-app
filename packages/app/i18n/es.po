@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-25T18:22:35.064Z\n"
+"POT-Creation-Date: 2020-08-21T09:51:29.294Z\n"
 "PO-Revision-Date: 2020-03-02 13:01+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
@@ -234,7 +234,7 @@ msgstr ""
 msgid "Aggregation type"
 msgstr "Tipo de agregación"
 
-msgid "Determines how the values in the pivot table are aggregated."
+msgid "Overrides aggregation type for all data values."
 msgstr ""
 
 msgid "By data element"
@@ -476,7 +476,9 @@ msgstr ""
 msgid "Auto"
 msgstr ""
 
-msgid "The number of axis steps between the min and max values"
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
 msgstr ""
 
 msgid "Steps"
@@ -747,23 +749,23 @@ msgstr ""
 msgid "Data"
 msgstr "Datos"
 
-msgid "Axes"
-msgstr "Ejes"
-
-msgid "Style"
-msgstr "Estilo"
-
 msgid "Display"
 msgstr "Mostrar"
 
 msgid "Lines"
 msgstr ""
 
+msgid "Axes"
+msgstr "Ejes"
+
 msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Horizontal (x) axis"
 msgstr ""
+
+msgid "Style"
+msgstr "Estilo"
 
 msgid "Chart style"
 msgstr ""
