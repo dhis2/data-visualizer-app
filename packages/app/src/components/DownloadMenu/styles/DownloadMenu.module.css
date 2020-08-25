@@ -6,9 +6,3 @@
     left: 0;
     background-color: transparent;
 }
-
-.menuSectionTitle {
-    font-size: 14px;
-    font-weight: 500;
-    padding: var(--spacers-dp8) var(--spacers-dp12);
-}
