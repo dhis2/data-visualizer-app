@@ -62,8 +62,11 @@ export default () => [
                 content: React.Children.toArray([
                     <HideTitle />,
                     <HideSubtitle />,
-                    <DigitGroupSeparator />,
                 ]),
+            },
+            {
+                key: 'style-section-2',
+                content: React.Children.toArray([<DigitGroupSeparator />]),
             },
         ],
     },
