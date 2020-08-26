@@ -8,12 +8,18 @@ import HideSubtitle from '../../components/VisualizationOptions/Options/HideSubt
 import Legend from '../../components/VisualizationOptions/Options/Legend'
 import CompletedOnly from '../../components/VisualizationOptions/Options/CompletedOnly'
 import SeriesTable from '../../components/VisualizationOptions/Options/SeriesTable'
+import SkipRounding from '../../components/VisualizationOptions/Options/SkipRounding'
+import DigitGroupSeparator from '../../components/VisualizationOptions/Options/DigitGroupSeparator'
 
 export default () => [
     {
         key: 'data-tab',
         label: i18n.t('Data'),
         content: [
+            {
+                key: 'data-section-1',
+                content: React.Children.toArray([<SkipRounding />]),
+            },
             {
                 key: 'data-advanced',
                 label: i18n.t('Advanced'),
@@ -56,6 +62,7 @@ export default () => [
                 content: React.Children.toArray([
                     <HideTitle />,
                     <HideSubtitle />,
+                    <DigitGroupSeparator />,
                 ]),
             },
         ],
