@@ -68,11 +68,6 @@ const validatePivotTableLayout = layout => {
 }
 
 const validateYearOverYearLayout = layout => {
-    validateDimension(
-        layoutGetDimension(layout, DIMENSION_ID_DATA),
-        new NoDataError(layout.type)
-    )
-
     if (
         !(
             Array.isArray(layout[BASE_FIELD_YEARLY_SERIES]) &&
