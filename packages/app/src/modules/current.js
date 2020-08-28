@@ -145,16 +145,12 @@ export const getYearOverYearCurrentFromUi = (state, action) => {
         ui.yearOverYearCategory
     )
 
-    const filtersWithoutPeriod = getAxesFromUi(ui).filters.filter(
-        f => f.dimension !== DIMENSION_ID_PERIOD
-    )
-
     return {
         ...state,
         [BASE_FIELD_TYPE]: ui.type,
         [AXIS_ID_COLUMNS]: [],
         [AXIS_ID_ROWS]: [periodDimension],
-        [AXIS_ID_FILTERS]: filtersWithoutPeriod,
+        [AXIS_ID_FILTERS]: getAxesFromUi(ui).filters,
         [[BASE_FIELD_YEARLY_SERIES]]: ui.yearOverYearSeries,
         ...getOptionsFromUi(ui),
     }

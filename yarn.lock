@@ -1302,8 +1302,10 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^8.9.6", "@dhis2/analytics@file:../analytics":
-  version "8.9.6"
+"@dhis2/analytics@^9.0.0":
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-9.0.0.tgz#ea4574ea6c79f7149c0ba1b2fe987dba6178158b"
+  integrity sha512-/lConSxUdMbYyw/vhPzAtw5tbNkZ2CHujzKCSmeDbrISzdJT+9adFzN3vIq6ouvS7AjnlbZpN1PnCHA9GTZanA==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.4"
     "@dhis2/ui" "^5.5.2"
