@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-08-19T13:40:23.821Z\n"
-"PO-Revision-Date: 2020-08-19T13:40:23.821Z\n"
+"POT-Creation-Date: 2020-08-28T08:43:36.773Z\n"
+"PO-Revision-Date: 2020-08-28T08:43:36.773Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -177,6 +177,11 @@ msgid "Select a period"
 msgstr ""
 
 msgid "Select years"
+msgstr ""
+
+msgid ""
+"This visualization can't be deleted because it is used on one or more "
+"dashboards"
 msgstr ""
 
 msgid "Unsaved visualization"
