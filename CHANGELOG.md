@@ -1,3 +1,10 @@
+# [35.11.0](https://github.com/dhis2/data-visualizer-app/compare/v35.10.4...v35.11.0) (2020-08-28)
+
+
+### Features
+
+* allow YOY without dx ([#1230](https://github.com/dhis2/data-visualizer-app/issues/1230)) ([35de0fa](https://github.com/dhis2/data-visualizer-app/commit/35de0fa9911f2dc97f902a88fb2eeef635178bd7))
+
 ## [35.10.4](https://github.com/dhis2/data-visualizer-app/compare/v35.10.3...v35.10.4) (2020-08-25)
 
 
