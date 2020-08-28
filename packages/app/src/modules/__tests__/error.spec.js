@@ -1,6 +1,6 @@
-import { parseError } from '../error'
+import { getErrorVariantByStatusCode } from '../error'
 
-describe('parseError', () => {
+describe('getErrorVariantByStatusCode', () => {
     let error
 
     beforeEach(() => {
@@ -12,32 +12,29 @@ describe('parseError', () => {
         }
     })
 
-    it('should return an object with type and message', () => {
-        const expectedResult = {
-            type: 'warning',
-            message: 'test',
-        }
+    it('should return type warning by default', () => {
+        const expectedResult = 'warning'
 
-        expect(parseError(error)).toEqual(expectedResult)
+        expect(getErrorVariantByStatusCode(error.httpStatusCode)).toEqual(
+            expectedResult
+        )
     })
 
-    it('should return a warning type error when HTTP status code is not 500', () => {
-        const expectedResult = {
-            type: 'warning',
-            message: 'test',
-        }
+    it('should return type warning when HTTP status code is not 500', () => {
+        const expectedResult = 'warning'
 
-        expect(parseError(error)).toEqual(expectedResult)
+        expect(getErrorVariantByStatusCode(error.httpStatusCode)).toEqual(
+            expectedResult
+        )
     })
 
-    it('should return a error type when HTTP status code is 500', () => {
+    it('should return type error when HTTP status code is 500', () => {
         error.httpStatusCode = 500
 
-        const expectedResult = {
-            type: 'error',
-            message: 'test',
-        }
+        const expectedResult = 'error'
 
-        expect(parseError(error)).toEqual(expectedResult)
+        expect(getErrorVariantByStatusCode(error.httpStatusCode)).toEqual(
+            expectedResult
+        )
     })
 })
