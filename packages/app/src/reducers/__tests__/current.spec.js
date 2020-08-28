@@ -113,12 +113,7 @@ describe('reducer: current', () => {
         const expectedState = {
             ...getOptionsFromUi(ui),
             type: ui.type,
-            columns: [
-                {
-                    dimension: DIMENSION_ID_DATA,
-                    items: [{ id: 'dxItemId1' }],
-                },
-            ],
+            columns: [],
             rows: [
                 {
                     dimension: DIMENSION_ID_PERIOD,
@@ -126,6 +121,10 @@ describe('reducer: current', () => {
                 },
             ],
             filters: [
+                {
+                    dimension: DIMENSION_ID_DATA,
+                    items: [{ id: 'dxItemId1' }, { id: 'dxItemId2' }],
+                },
                 {
                     dimension: DIMENSION_ID_ORGUNIT,
                     items: [{ id: 'ouItemId1' }, { id: 'ouItemId2' }],
