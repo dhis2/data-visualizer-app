@@ -188,23 +188,17 @@ export const tDoSaveVisualization = ({ name, description }, copy) => async (
         if (copy) {
             delete visualization.id
         }
-        if (name) {
-            visualization.name = name
-        } else {
-            visualization.name = i18n.t(
-                'Untitled {{visualizationType}} visualization, {{date}}',
-                {
-                    visualizationType: getDisplayNameByVisType(
-                        visualization.type
-                    ),
-                    date: new Date().toLocaleDateString(undefined, {
-                        year: 'numeric',
-                        month: 'short',
-                        day: '2-digit',
-                    }),
-                }
-            )
-        }
+
+        visualization.name =
+            name ||
+            i18n.t('Untitled {{visualizationType}} visualization, {{date}}', {
+                visualizationType: getDisplayNameByVisType(visualization.type),
+                date: new Date().toLocaleDateString(undefined, {
+                    year: 'numeric',
+                    month: 'short',
+                    day: '2-digit',
+                }),
+            })
 
         if (description) {
             visualization.description = description
