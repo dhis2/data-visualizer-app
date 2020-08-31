@@ -84,7 +84,9 @@ SelectBaseOption.propTypes = {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    value: sGetUiOptions(state)[ownProps.option.name],
+    value:
+        sGetUiOptions(state)[ownProps.option.name] ||
+        ownProps.option.defaultValue,
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
