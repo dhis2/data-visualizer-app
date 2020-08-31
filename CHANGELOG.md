@@ -1,3 +1,10 @@
+## [35.12.1](https://github.com/dhis2/data-visualizer-app/compare/v35.12.0...v35.12.1) (2020-08-31)
+
+
+### Bug Fixes
+
+* set a default name if saved vis is untitled (DHIS2-9360) ([#1232](https://github.com/dhis2/data-visualizer-app/issues/1232)) ([f9fc26b](https://github.com/dhis2/data-visualizer-app/commit/f9fc26b9b25dbf9f43a71d13cc67c257db213b1c))
+
 # [35.12.0](https://github.com/dhis2/data-visualizer-app/compare/v35.11.1...v35.12.0) (2020-08-28)
 
 
