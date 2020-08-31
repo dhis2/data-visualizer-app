@@ -24,6 +24,7 @@ import { sGetRootOrgUnit, sGetRelativePeriod } from '../reducers/settings';
 import history from '../modules/history';
 import { convertOuLevelsToUids } from '../modules/orgUnit';
 import { apiPostDataStatistics } from '../api/dataStatistics';
+import { getChartTypeDisplayName } from '../modules/chartTypes';
 
 export {
     fromVisualization,
@@ -161,9 +162,16 @@ export const tDoSaveVisualization = (
             delete visualization.id;
         }
 
-        if (name) {
-            visualization.name = name;
-        }
+        visualization.name =
+            name ||
+            i18n.t('Untitled {{visualizationType}} visualization, {{date}}', {
+                visualizationType: getChartTypeDisplayName(visualization.type),
+                date: new Date().toLocaleDateString(undefined, {
+                    year: 'numeric',
+                    month: 'short',
+                    day: '2-digit',
+                }),
+            });
 
         if (description) {
             visualization.description = description;

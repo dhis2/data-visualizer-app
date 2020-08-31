@@ -5,10 +5,13 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-05-14T01:00:50.112Z\n"
-"PO-Revision-Date: 2020-05-14T01:00:50.112Z\n"
+"POT-Creation-Date: 2020-09-09T12:16:43.738Z\n"
+"PO-Revision-Date: 2020-09-09T12:16:43.738Z\n"
 
 msgid "Rename successful"
+msgstr ""
+
+msgid "Untitled {{visualizationType}} visualization, {{date}}"
 msgstr ""
 
 msgid "\"{{what}}\" successfully deleted."
