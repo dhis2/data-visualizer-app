@@ -10,7 +10,7 @@
         "enzyme-adapter-react-16": "^1.15.3",
         "eslint-plugin-react-hooks": "^3.0.0",
         "jest-enzyme": "^7.1.2",
-        "loglevel": "^1.6.8"
+        "loglevel": "^1.7.0"
     },
     "scripts": {
         "build-plugin": "cd packages/plugin && yarn build",
