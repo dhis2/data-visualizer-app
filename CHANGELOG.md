@@ -1,3 +1,17 @@
+# [35.12.0](https://github.com/dhis2/data-visualizer-app/compare/v35.11.1...v35.12.0) (2020-08-28)
+
+
+### Features
+
+* move dx to filter for YOY which allows for multiple dx items (DHIS2-8808) ([#1229](https://github.com/dhis2/data-visualizer-app/issues/1229)) ([9a4723c](https://github.com/dhis2/data-visualizer-app/commit/9a4723caac37019ba0d4be24d9059829f9a3543f))
+
+## [35.11.1](https://github.com/dhis2/data-visualizer-app/compare/v35.11.0...v35.11.1) (2020-08-28)
+
+
+### Bug Fixes
+
+* enable skipRounding and digitGroupSeparator options for SV (DHIS2-9340) ([#1228](https://github.com/dhis2/data-visualizer-app/issues/1228)) ([b77a8b7](https://github.com/dhis2/data-visualizer-app/commit/b77a8b70ae28702f08e8f6cf888715a43ee8280f))
+
 # [35.11.0](https://github.com/dhis2/data-visualizer-app/compare/v35.10.4...v35.11.0) (2020-08-28)
 
 
