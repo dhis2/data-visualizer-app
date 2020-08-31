@@ -31,6 +31,7 @@ import {
     GenericServerError,
     VisualizationNotFoundError,
 } from '../modules/error'
+import { getDisplayNameByVisType } from '@dhis2/analytics'
 
 export {
     fromVisualization,
@@ -188,9 +189,16 @@ export const tDoSaveVisualization = ({ name, description }, copy) => async (
             delete visualization.id
         }
 
-        if (name) {
-            visualization.name = name
-        }
+        visualization.name =
+            name ||
+            i18n.t('Untitled {{visualizationType}} visualization, {{date}}', {
+                visualizationType: getDisplayNameByVisType(visualization.type),
+                date: new Date().toLocaleDateString(undefined, {
+                    year: 'numeric',
+                    month: 'short',
+                    day: '2-digit',
+                }),
+            })
 
         if (description) {
             visualization.description = description
