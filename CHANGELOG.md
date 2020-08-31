@@ -1,3 +1,10 @@
+## [35.12.2](https://github.com/dhis2/data-visualizer-app/compare/v35.12.1...v35.12.2) (2020-08-31)
+
+
+### Bug Fixes
+
+* digit group separator default from system settings (DHIS2-6328) ([#1233](https://github.com/dhis2/data-visualizer-app/issues/1233)) ([d6d5d0a](https://github.com/dhis2/data-visualizer-app/commit/d6d5d0a839f52a2dfa83d9d0766a50fac2493610))
+
 ## [35.12.1](https://github.com/dhis2/data-visualizer-app/compare/v35.12.0...v35.12.1) (2020-08-31)
 
 
