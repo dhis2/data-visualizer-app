@@ -40,7 +40,7 @@ const Dimensions = ({
 
     const openOptionsMenuForDimension = (event, id, ref) => {
         event.stopPropagation()
-        setRef(ref)
+        setRef(ref.current)
         setDimensionId(id)
         toggleMenu()
     }
