@@ -17,7 +17,7 @@ import {
     acRemoveUiLayoutDimensions,
 } from '../../actions/ui'
 
-const Dimensions = ({
+export const Dimensions = ({
     assignedCategoriesItemHandler,
     axisItemHandler,
     getCurrentAxisId,
