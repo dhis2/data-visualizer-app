@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import {
@@ -26,15 +26,21 @@ const Dimensions = ({
     removeItemHandler,
     ui,
 }) => {
-    const buttonRef = useRef()
     const [dialogIsOpen, setDialogIsOpen] = useState(false)
     const [dimensionId, setDimensionId] = useState(null)
+    const [ref, setRef] = useState()
 
-    const toggleMenu = () => setDialogIsOpen(!dialogIsOpen)
+    const toggleMenu = () => {
+        if (dialogIsOpen) {
+            setDimensionId(null)
+            setRef(null)
+        }
+        setDialogIsOpen(!dialogIsOpen)
+    }
 
-    const openOptionsMenuForDimension = (event, id) => {
+    const openOptionsMenuForDimension = (event, id, ref) => {
         event.stopPropagation()
-
+        setRef(ref)
         setDimensionId(id)
         toggleMenu()
     }
@@ -47,12 +53,9 @@ const Dimensions = ({
             <DndDimensionsPanel
                 onDimensionOptionsClick={openOptionsMenuForDimension}
             />
-            {
-                //TODO: ref={buttonRef} needs to be added to the menu invoking element
-            }
-            {dialogIsOpen && dimensionId && (
+            {dialogIsOpen && dimensionId && ref && (
                 <Popover
-                    reference={buttonRef}
+                    reference={ref}
                     placement="bottom-start"
                     onClickOutside={toggleMenu}
                     arrow={false}
