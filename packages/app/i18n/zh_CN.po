@@ -50,7 +50,7 @@ msgid "Deselect All"
 msgstr ""
 
 msgid "Select All"
-msgstr ""
+msgstr "全选"
 
 msgid "Remove"
 msgstr "移除"
