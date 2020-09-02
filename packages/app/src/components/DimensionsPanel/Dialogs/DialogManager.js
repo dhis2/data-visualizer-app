@@ -279,7 +279,6 @@ export class DialogManager extends Component {
                         selectedItems={selectedItems}
                         dimensionId={dialogId}
                         onSelect={dimensionProps.onSelect}
-                        context={dimensionProps.d2}
                         dimensionTitle={this.props.dimensions[dialogId].name}
                         // TODO: infoBoxMessage should ideally be implemented for all dimensions
                     />
