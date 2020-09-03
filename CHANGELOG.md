@@ -1,3 +1,10 @@
+## [35.12.5](https://github.com/dhis2/data-visualizer-app/compare/v35.12.4...v35.12.5) (2020-09-03)
+
+
+### Bug Fixes
+
+* Custom error message for deleting an AO used in Dashboards (DHIS2-9310) ([#1231](https://github.com/dhis2/data-visualizer-app/issues/1231)) ([f909ae5](https://github.com/dhis2/data-visualizer-app/commit/f909ae51ecf3c7292c01e5f00cbefff44d7b924a))
+
 ## [35.12.4](https://github.com/dhis2/data-visualizer-app/compare/v35.12.3...v35.12.4) (2020-09-02)
 
 

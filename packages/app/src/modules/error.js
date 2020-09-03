@@ -277,9 +277,5 @@ const getAvailableAxesDescription = visType => {
     return axesDescription
 }
 
-export const parseError = ({ message, httpStatusCode }) => ({
-    message,
-    type: String(httpStatusCode).match(/50\d/)
-        ? VARIANT_ERROR
-        : VARIANT_WARNING,
-})
+export const getErrorVariantByStatusCode = statusCode =>
+    String(statusCode).match(/50\d/) ? VARIANT_ERROR : VARIANT_WARNING
