@@ -1,15 +1,15 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import {
     DimensionMenu,
     DIMENSION_ID_ASSIGNED_CATEGORIES,
 } from '@dhis2/analytics'
-import PropTypes from 'prop-types'
+import { Popover } from '@dhis2/ui'
 
 import DialogManager from './Dialogs/DialogManager'
 import DndDimensionsPanel from './DndDimensionsPanel'
 import * as fromReducers from '../../reducers'
-
 import { styles } from './styles/DimensionsPanel.style'
 import {
     acSetUiActiveModalDialog,
@@ -17,61 +17,72 @@ import {
     acRemoveUiLayoutDimensions,
 } from '../../actions/ui'
 
-export class Dimensions extends Component {
-    state = {
-        dimensionMenuAnchorEl: null,
-        dimensionId: null,
+export const Dimensions = ({
+    assignedCategoriesItemHandler,
+    axisItemHandler,
+    getCurrentAxisId,
+    itemsByDimension,
+    layoutHasAssignedCategories,
+    removeItemHandler,
+    ui,
+}) => {
+    const [dialogIsOpen, setDialogIsOpen] = useState(false)
+    const [dimensionId, setDimensionId] = useState(null)
+    const [ref, setRef] = useState()
+
+    const toggleMenu = () => {
+        if (dialogIsOpen) {
+            setDimensionId(null)
+            setRef(null)
+        }
+        setDialogIsOpen(!dialogIsOpen)
     }
 
-    openOptionsMenuForDimension = (event, id) => {
+    const openOptionsMenuForDimension = (event, id, ref) => {
         event.stopPropagation()
-
-        this.setState({
-            dimensionMenuAnchorEl: event.currentTarget,
-            dimensionId: id,
-        })
+        setRef(ref.current)
+        setDimensionId(id)
+        toggleMenu()
     }
 
-    closeOptionsMenuForDimension = () =>
-        this.setState({
-            dimensionMenuAnchorEl: null,
-            dimensionId: null,
-        })
+    const getNumberOfDimensionItems = () =>
+        (itemsByDimension[dimensionId] || []).length
 
-    getNumberOfDimensionItems = () =>
-        (this.props.itemsByDimension[this.state.dimensionId] || []).length
-
-    render() {
-        return (
-            <div style={styles.divContainer}>
-                <DndDimensionsPanel
-                    onDimensionOptionsClick={this.openOptionsMenuForDimension}
-                />
-                <DimensionMenu
-                    dimensionId={this.state.dimensionId}
-                    currentAxisId={this.props.getCurrentAxisId(
-                        this.state.dimensionId
-                    )}
-                    visType={this.props.ui.type}
-                    numberOfDimensionItems={this.getNumberOfDimensionItems()}
-                    isAssignedCategoriesInLayout={
-                        this.props.layoutHasAssignedCategories
-                    }
-                    assignedCategoriesItemHandler={destination =>
-                        this.props.assignedCategoriesItemHandler(
-                            this.props.layoutHasAssignedCategories,
-                            destination
-                        )
-                    }
-                    axisItemHandler={this.props.axisItemHandler}
-                    removeItemHandler={this.props.removeItemHandler}
-                    anchorEl={this.state.dimensionMenuAnchorEl}
-                    onClose={this.closeOptionsMenuForDimension}
-                />
-                <DialogManager />
-            </div>
-        )
-    }
+    return (
+        <div style={styles.divContainer}>
+            <DndDimensionsPanel
+                onDimensionOptionsClick={openOptionsMenuForDimension}
+            />
+            {dialogIsOpen && dimensionId && ref && (
+                <Popover
+                    reference={ref}
+                    placement="bottom-start"
+                    onClickOutside={toggleMenu}
+                    arrow={false}
+                >
+                    <DimensionMenu
+                        dimensionId={dimensionId}
+                        currentAxisId={getCurrentAxisId(dimensionId)}
+                        visType={ui.type}
+                        numberOfDimensionItems={getNumberOfDimensionItems()}
+                        isAssignedCategoriesInLayout={
+                            layoutHasAssignedCategories
+                        }
+                        assignedCategoriesItemHandler={destination =>
+                            assignedCategoriesItemHandler(
+                                layoutHasAssignedCategories,
+                                destination
+                            )
+                        }
+                        axisItemHandler={axisItemHandler}
+                        removeItemHandler={removeItemHandler}
+                        onClose={toggleMenu}
+                    />
+                </Popover>
+            )}
+            <DialogManager />
+        </div>
+    )
 }
 
 Dimensions.propTypes = {

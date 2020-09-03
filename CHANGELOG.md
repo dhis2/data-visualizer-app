@@ -1,3 +1,10 @@
+## [35.12.6](https://github.com/dhis2/data-visualizer-app/compare/v35.12.5...v35.12.6) (2020-09-03)
+
+
+### Bug Fixes
+
+* dimension context menu to use @dhis2/ui (DHIS2-9365) ([#1237](https://github.com/dhis2/data-visualizer-app/issues/1237)) ([e7d9d40](https://github.com/dhis2/data-visualizer-app/commit/e7d9d40601bce8ed95c0c5577fa084fd5951606d))
+
 ## [35.12.5](https://github.com/dhis2/data-visualizer-app/compare/v35.12.4...v35.12.5) (2020-09-03)
 
 
