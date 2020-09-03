@@ -21,7 +21,11 @@ import { VARIANT_SUCCESS } from '../components/Snackbar/Snackbar'
 
 import { sGetCurrent } from '../reducers/current'
 import { sGetVisualization } from '../reducers/visualization'
-import { sGetRootOrgUnit, sGetRelativePeriod } from '../reducers/settings'
+import {
+    sGetRootOrgUnit,
+    sGetRelativePeriod,
+    sGetSettingsDigitGroupSeparator,
+} from '../reducers/settings'
 
 import history from '../modules/history'
 import { getVisualizationFromCurrent } from '../modules/visualization'
@@ -114,8 +118,15 @@ export const clearVisualization = (dispatch, getState, error = null) => {
 
     const rootOrganisationUnit = sGetRootOrgUnit(getState())
     const relativePeriod = sGetRelativePeriod(getState())
+    const digitGroupSeparator = sGetSettingsDigitGroupSeparator(getState())
 
-    dispatch(fromUi.acClear({ rootOrganisationUnit, relativePeriod }))
+    dispatch(
+        fromUi.acClear({
+            rootOrganisationUnit,
+            relativePeriod,
+            digitGroupSeparator,
+        })
+    )
 }
 
 export const tDoRenameVisualization = ({ name, description }) => (
