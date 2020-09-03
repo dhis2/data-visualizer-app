@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-08-19T13:40:23.821Z\n"
+"POT-Creation-Date: 2020-08-28T12:56:12.965Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2020\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -20,6 +20,9 @@ msgstr ""
 
 msgid "Rename successful"
 msgstr "重命名成功"
+
+msgid "Untitled {{visualizationType}} visualization, {{date}}"
+msgstr "无标题的{{visualizationType}}可视化，{{date}}"
 
 msgid "\"{{deletedObject}}\" successfully deleted."
 msgstr "\"{{deletedObject}}\" 被成功删除"
@@ -224,7 +227,7 @@ msgid "Aggregation type"
 msgstr "汇总类型"
 
 msgid "Overrides aggregation type for all data values."
-msgstr ""
+msgstr "覆盖所有数据值的聚合类型。"
 
 msgid "By data element"
 msgstr "按数据元"
@@ -302,19 +305,19 @@ msgid "Default"
 msgstr "默认"
 
 msgid "Bright"
-msgstr ""
+msgstr "明亮"
 
 msgid "Dark"
-msgstr ""
+msgstr "黑暗"
 
 msgid "Gray"
-msgstr ""
+msgstr "灰色"
 
 msgid "Color blind"
-msgstr ""
+msgstr "色盲"
 
 msgid "Mono patterns"
-msgstr ""
+msgstr "单声道模式"
 
 msgid "Event data"
 msgstr "事件数据"
@@ -389,7 +392,7 @@ msgid "Hide empty rows"
 msgstr "隐藏空行"
 
 msgid "Show legend key"
-msgstr ""
+msgstr "显示图例键值"
 
 msgid "Table subtitle"
 msgstr "表子标题"
@@ -486,7 +489,7 @@ msgstr "自动"
 msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
-msgstr ""
+msgstr "轴刻度步数，包括最小值和最大值。小于等于2的值将被忽略。"
 
 msgid "Steps"
 msgstr "步"
@@ -516,22 +519,22 @@ msgid "Data item"
 msgstr "数据条目"
 
 msgid "Visualization type"
-msgstr ""
+msgstr "可视化类型"
 
 msgid "Axis {{axisId}}"
 msgstr "轴{{axisId}}"
 
 msgid "Series is empty"
-msgstr ""
+msgstr "系列为空"
 
 msgid "Options for selected items will be available here"
-msgstr ""
+msgstr "所选项目的选项将在此处提供"
 
 msgid "No Series options"
-msgstr ""
+msgstr "没有系列选项"
 
 msgid "There aren't any Series options for this visualization type"
-msgstr ""
+msgstr "该可视化类型没有任何系列选项"
 
 msgid "Value labels"
 msgstr "值标签"
@@ -580,7 +583,7 @@ msgstr "打开为地图"
 
 msgid ""
 "Visually plot data on a world map. Data elements use separate map layers."
-msgstr ""
+msgstr "在世界地图上直观地绘制数据。数据元素使用单独的地图图层。"
 
 msgid "Reporting rate"
 msgstr "上报率"
@@ -670,12 +673,12 @@ msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr "移动或移除分类以便解决问题"
 
 msgid "Visualization not found"
-msgstr ""
+msgstr "找不到可视化"
 
 msgid ""
 "The visualization you are trying to view could not be found, the ID could be"
 " incorrect or it could have been deleted."
-msgstr ""
+msgstr "找不到您尝试查看的可视化文件，该ID可能不正确或已被删除。"
 
 msgid "Something went wrong"
 msgstr "出了些问题"
@@ -846,16 +849,16 @@ msgid "Parameters"
 msgstr "参数"
 
 msgid "Color set"
-msgstr ""
+msgstr "颜色集"
 
 msgid "Color sets are not supported yet when using multiple axes"
-msgstr ""
+msgstr "使用多轴时尚不支持颜色设置"
 
 msgid "Lines are not supported yet when using multiple axes"
-msgstr ""
+msgstr "使用多轴时尚不支持线型"
 
 msgid "Vertical axis options are not supported yet when using multiple axes"
-msgstr ""
+msgstr "使用多轴时尚不支持垂直轴选项"
 
 msgid "Weeks per year"
 msgstr "每年的周"
