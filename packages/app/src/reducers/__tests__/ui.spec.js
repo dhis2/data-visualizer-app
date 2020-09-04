@@ -65,6 +65,7 @@ describe('reducer: ui', () => {
         const settings = {
             rootOrganisationUnit: { id: 'ROOT_ORGUNIT' },
             relativePeriod: 'LAST_12_MONTHS',
+            digitGroupSeparator: 'SPACE',
         }
 
         const actualState = reducer(
@@ -74,6 +75,10 @@ describe('reducer: ui', () => {
 
         expect(actualState).toEqual({
             ...ui.DEFAULT_UI,
+            options: {
+                ...ui.DEFAULT_UI.options,
+                digitGroupSeparator: settings.digitGroupSeparator,
+            },
             parentGraphMap: {
                 ...ui.DEFAULT_UI.parentGraphMap,
                 [settings.rootOrganisationUnit.id]: '',

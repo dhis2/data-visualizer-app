@@ -124,7 +124,7 @@ export const options = {
     },
     fontSize: { defaultValue: 'NORMAL', requestable: false, savable: true },
     digitGroupSeparator: {
-        defaultValue: undefined,
+        defaultValue: 'SPACE',
         requestable: false,
         savable: true,
     },
