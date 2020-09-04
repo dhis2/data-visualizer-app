@@ -190,6 +190,11 @@ msgstr ""
 msgid "Select years"
 msgstr ""
 
+msgid ""
+"This visualization can't be deleted because it is used on one or more "
+"dashboards"
+msgstr ""
+
 msgid "Unsaved visualization"
 msgstr "没有保存可视化"
 

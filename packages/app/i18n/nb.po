@@ -196,6 +196,11 @@ msgstr "Velg periode"
 msgid "Select years"
 msgstr "Velg år"
 
+msgid ""
+"This visualization can't be deleted because it is used on one or more "
+"dashboards"
+msgstr ""
+
 msgid "Unsaved visualization"
 msgstr "Ikke lagret visualisering"
 
