@@ -31,8 +31,10 @@ const mockStore = configureMockStore(middlewares)
 
 const rootOrganisationUnit = 'abc123'
 const relativePeriod = 'xyzpdq'
+const digitGroupSeparator = 'COMMA'
 selectors.sGetRootOrgUnit = () => rootOrganisationUnit
 selectors.sGetRelativePeriod = () => relativePeriod
+selectors.sGetSettingsDigitGroupSeparator = () => digitGroupSeparator
 
 jest.mock('../../modules/orgUnit', () => ({
     convertOuLevelsToUids: (ouLevels, vis) => vis,
@@ -176,6 +178,7 @@ describe('index', () => {
                     value: {
                         rootOrganisationUnit,
                         relativePeriod,
+                        digitGroupSeparator,
                     },
                 },
             ]
@@ -206,6 +209,7 @@ describe('index', () => {
                     value: {
                         rootOrganisationUnit,
                         relativePeriod,
+                        digitGroupSeparator,
                     },
                 },
             ]
