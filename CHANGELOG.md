@@ -1,3 +1,10 @@
+## [35.12.8](https://github.com/dhis2/data-visualizer-app/compare/v35.12.7...v35.12.8) (2020-09-04)
+
+
+### Bug Fixes
+
+* DGS default from settings (DHIS2-9328) ([#1244](https://github.com/dhis2/data-visualizer-app/issues/1244)) ([33939bd](https://github.com/dhis2/data-visualizer-app/commit/33939bd9e7e5f5253aa5aa4188bc9602dd89225a))
+
 ## [35.12.7](https://github.com/dhis2/data-visualizer-app/compare/v35.12.6...v35.12.7) (2020-09-03)
 
 
