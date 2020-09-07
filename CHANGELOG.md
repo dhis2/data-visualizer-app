@@ -1,3 +1,87 @@
+## [35.12.9](https://github.com/dhis2/data-visualizer-app/compare/v35.12.8...v35.12.9) (2020-09-07)
+
+
+### Bug Fixes
+
+* bump Analytics to latest ([#1247](https://github.com/dhis2/data-visualizer-app/issues/1247)) ([3a2d667](https://github.com/dhis2/data-visualizer-app/commit/3a2d667abd9b0900e611290f547a0dcf4c8dcf0b))
+
+## [35.12.8](https://github.com/dhis2/data-visualizer-app/compare/v35.12.7...v35.12.8) (2020-09-04)
+
+
+### Bug Fixes
+
+* DGS default from settings (DHIS2-9328) ([#1244](https://github.com/dhis2/data-visualizer-app/issues/1244)) ([33939bd](https://github.com/dhis2/data-visualizer-app/commit/33939bd9e7e5f5253aa5aa4188bc9602dd89225a))
+
+## [35.12.7](https://github.com/dhis2/data-visualizer-app/compare/v35.12.6...v35.12.7) (2020-09-03)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([1d9bae4](https://github.com/dhis2/data-visualizer-app/commit/1d9bae4708f9d80a2bde1e62faebec961de761c6))
+
+## [35.12.6](https://github.com/dhis2/data-visualizer-app/compare/v35.12.5...v35.12.6) (2020-09-03)
+
+
+### Bug Fixes
+
+* dimension context menu to use @dhis2/ui (DHIS2-9365) ([#1237](https://github.com/dhis2/data-visualizer-app/issues/1237)) ([e7d9d40](https://github.com/dhis2/data-visualizer-app/commit/e7d9d40601bce8ed95c0c5577fa084fd5951606d))
+
+## [35.12.5](https://github.com/dhis2/data-visualizer-app/compare/v35.12.4...v35.12.5) (2020-09-03)
+
+
+### Bug Fixes
+
+* Custom error message for deleting an AO used in Dashboards (DHIS2-9310) ([#1231](https://github.com/dhis2/data-visualizer-app/issues/1231)) ([f909ae5](https://github.com/dhis2/data-visualizer-app/commit/f909ae51ecf3c7292c01e5f00cbefff44d7b924a))
+
+## [35.12.4](https://github.com/dhis2/data-visualizer-app/compare/v35.12.3...v35.12.4) (2020-09-02)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([b3d3804](https://github.com/dhis2/data-visualizer-app/commit/b3d38044c592d8acdab302f5b98d9a864deaf729))
+
+## [35.12.3](https://github.com/dhis2/data-visualizer-app/compare/v35.12.2...v35.12.3) (2020-08-31)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([2070ae6](https://github.com/dhis2/data-visualizer-app/commit/2070ae61292066bccd33ea1d9b89874d502333fd))
+
+## [35.12.2](https://github.com/dhis2/data-visualizer-app/compare/v35.12.1...v35.12.2) (2020-08-31)
+
+
+### Bug Fixes
+
+* digit group separator default from system settings (DHIS2-6328) ([#1233](https://github.com/dhis2/data-visualizer-app/issues/1233)) ([d6d5d0a](https://github.com/dhis2/data-visualizer-app/commit/d6d5d0a839f52a2dfa83d9d0766a50fac2493610))
+
+## [35.12.1](https://github.com/dhis2/data-visualizer-app/compare/v35.12.0...v35.12.1) (2020-08-31)
+
+
+### Bug Fixes
+
+* set a default name if saved vis is untitled (DHIS2-9360) ([#1232](https://github.com/dhis2/data-visualizer-app/issues/1232)) ([f9fc26b](https://github.com/dhis2/data-visualizer-app/commit/f9fc26b9b25dbf9f43a71d13cc67c257db213b1c))
+
+# [35.12.0](https://github.com/dhis2/data-visualizer-app/compare/v35.11.1...v35.12.0) (2020-08-28)
+
+
+### Features
+
+* move dx to filter for YOY which allows for multiple dx items (DHIS2-8808) ([#1229](https://github.com/dhis2/data-visualizer-app/issues/1229)) ([9a4723c](https://github.com/dhis2/data-visualizer-app/commit/9a4723caac37019ba0d4be24d9059829f9a3543f))
+
+## [35.11.1](https://github.com/dhis2/data-visualizer-app/compare/v35.11.0...v35.11.1) (2020-08-28)
+
+
+### Bug Fixes
+
+* enable skipRounding and digitGroupSeparator options for SV (DHIS2-9340) ([#1228](https://github.com/dhis2/data-visualizer-app/issues/1228)) ([b77a8b7](https://github.com/dhis2/data-visualizer-app/commit/b77a8b70ae28702f08e8f6cf888715a43ee8280f))
+
+# [35.11.0](https://github.com/dhis2/data-visualizer-app/compare/v35.10.4...v35.11.0) (2020-08-28)
+
+
+### Features
+
+* allow YOY without dx ([#1230](https://github.com/dhis2/data-visualizer-app/issues/1230)) ([35de0fa](https://github.com/dhis2/data-visualizer-app/commit/35de0fa9911f2dc97f902a88fb2eeef635178bd7))
+
 ## [35.10.4](https://github.com/dhis2/data-visualizer-app/compare/v35.10.3...v35.10.4) (2020-08-25)
 
 

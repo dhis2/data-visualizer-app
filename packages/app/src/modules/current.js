@@ -140,20 +140,17 @@ export const getPieCurrentFromUi = (state, action) => {
 export const getYearOverYearCurrentFromUi = (state, action) => {
     const ui = action.value
 
-    const dxItem = ui.itemsByDimension[DIMENSION_ID_DATA]
-        ? [ui.itemsByDimension[DIMENSION_ID_DATA][0]]
-        : []
+    const periodDimension = dimensionCreate(
+        DIMENSION_ID_PERIOD,
+        ui.yearOverYearCategory
+    )
 
     return {
         ...state,
         [BASE_FIELD_TYPE]: ui.type,
-        [AXIS_ID_COLUMNS]: [dimensionCreate(DIMENSION_ID_DATA, dxItem)],
-        [AXIS_ID_ROWS]: [
-            dimensionCreate(DIMENSION_ID_PERIOD, ui.yearOverYearCategory),
-        ],
-        [AXIS_ID_FILTERS]: getAxesFromUi(ui).filters.filter(
-            f => ![DIMENSION_ID_DATA, DIMENSION_ID_PERIOD].includes(f.dimension)
-        ),
+        [AXIS_ID_COLUMNS]: [],
+        [AXIS_ID_ROWS]: [periodDimension],
+        [AXIS_ID_FILTERS]: getAxesFromUi(ui).filters,
         [[BASE_FIELD_YEARLY_SERIES]]: ui.yearOverYearSeries,
         ...getOptionsFromUi(ui),
     }

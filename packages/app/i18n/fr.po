@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-08-19T13:40:23.821Z\n"
+"POT-Creation-Date: 2020-08-28T12:56:12.965Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -24,6 +24,9 @@ msgstr ""
 
 msgid "Rename successful"
 msgstr "Renomear com êxito"
+
+msgid "Untitled {{visualizationType}} visualization, {{date}}"
+msgstr ""
 
 msgid "\"{{deletedObject}}\" successfully deleted."
 msgstr ""
@@ -200,6 +203,11 @@ msgid "Select a period"
 msgstr ""
 
 msgid "Select years"
+msgstr ""
+
+msgid ""
+"This visualization can't be deleted because it is used on one or more "
+"dashboards"
 msgstr ""
 
 msgid "Unsaved visualization"
