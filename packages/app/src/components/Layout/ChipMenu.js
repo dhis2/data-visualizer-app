@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import {
     DimensionMenu,
     DIMENSION_ID_ASSIGNED_CATEGORIES,
 } from '@dhis2/analytics'
-import PropTypes from 'prop-types'
-import * as fromReducers from '../../reducers'
+import { Popover } from '@dhis2/ui'
 
+import * as fromReducers from '../../reducers'
 import MoreHorizontalIcon from '../../assets/MoreHorizontalIcon'
 import { styles } from './styles/Menu.style'
 import {
@@ -15,57 +16,66 @@ import {
 } from '../../actions/ui'
 import IconButton from '../IconButton/IconButton'
 
-class ChipMenu extends React.Component {
-    state = {
-        anchorEl: null,
-    }
+const ChipMenu = ({
+    assignedCategoriesItemHandler,
+    axisItemHandler,
+    currentAxisId,
+    dimensionId,
+    id,
+    layoutHasAssignedCategories,
+    numberOfDimensionItems,
+    removeItemHandler,
+    visType,
+}) => {
+    const buttonRef = useRef()
+    const [dialogIsOpen, setDialogIsOpen] = useState(false)
 
-    handleClick = event => {
-        event.stopPropagation()
-        this.setState({ anchorEl: event.currentTarget })
-    }
+    const toggleMenu = () => setDialogIsOpen(!dialogIsOpen)
 
-    handleClose = () => {
-        // event.stopPropagation();
-        this.setState({ anchorEl: null })
-    }
+    const getMenuId = () => `menu-for-${id}`
 
-    getMenuId = () => `menu-for-${this.props.id}`
-
-    render() {
-        return (
-            <React.Fragment>
+    return (
+        <>
+            <div ref={buttonRef}>
                 <IconButton
-                    ariaOwns={this.state.anchorEl ? this.getMenuId() : null}
+                    ariaOwns={dialogIsOpen ? getMenuId() : null}
                     ariaHaspopup={true}
-                    onClick={this.handleClick}
+                    onClick={toggleMenu}
                     style={styles.icon}
                 >
                     <MoreHorizontalIcon style={styles.icon} />
                 </IconButton>
-                {/* TODO: Fix bug with the first menu item getting selected when the menu is opened */}
-                <DimensionMenu
-                    dimensionId={this.props.dimensionId}
-                    currentAxisId={this.props.currentAxisId}
-                    visType={this.props.visType}
-                    numberOfDimensionItems={this.props.numberOfDimensionItems}
-                    isAssignedCategoriesInLayout={
-                        this.props.layoutHasAssignedCategories
-                    }
-                    assignedCategoriesItemHandler={destination =>
-                        this.props.assignedCategoriesItemHandler(
-                            this.props.layoutHasAssignedCategories,
-                            destination
-                        )
-                    }
-                    axisItemHandler={this.props.axisItemHandler}
-                    removeItemHandler={this.props.removeItemHandler}
-                    anchorEl={this.state.anchorEl}
-                    onClose={this.handleClose}
-                />
-            </React.Fragment>
-        )
-    }
+            </div>
+            {/* TODO: Fix bug with the first menu item getting selected when the menu is opened */}
+            {dialogIsOpen && (
+                <Popover
+                    reference={buttonRef}
+                    placement="bottom-start"
+                    onClickOutside={toggleMenu}
+                    arrow={false}
+                >
+                    <DimensionMenu
+                        dimensionId={dimensionId}
+                        currentAxisId={currentAxisId}
+                        visType={visType}
+                        numberOfDimensionItems={numberOfDimensionItems}
+                        isAssignedCategoriesInLayout={
+                            layoutHasAssignedCategories
+                        }
+                        assignedCategoriesItemHandler={destination =>
+                            assignedCategoriesItemHandler(
+                                layoutHasAssignedCategories,
+                                destination
+                            )
+                        }
+                        axisItemHandler={axisItemHandler}
+                        removeItemHandler={removeItemHandler}
+                        onClose={toggleMenu}
+                    />
+                </Popover>
+            )}
+        </>
+    )
 }
 
 ChipMenu.propTypes = {

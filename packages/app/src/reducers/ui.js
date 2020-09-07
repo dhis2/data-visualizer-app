@@ -72,7 +72,11 @@ export const PRESELECTED_YEAR_OVER_YEAR_SERIES = ['THIS_YEAR', 'LAST_YEAR']
 export const PRESELECTED_YEAR_OVER_YEAR_CATEGORY = ['MONTHS_THIS_YEAR']
 
 const getPreselectedUi = options => {
-    const { rootOrganisationUnit, relativePeriod } = options
+    const {
+        rootOrganisationUnit,
+        relativePeriod,
+        digitGroupSeparator,
+    } = options
 
     const rootOrganisationUnits = []
     const parentGraphMap = { ...DEFAULT_UI.parentGraphMap }
@@ -85,6 +89,10 @@ const getPreselectedUi = options => {
 
     return {
         ...DEFAULT_UI,
+        options: {
+            ...DEFAULT_UI.options,
+            digitGroupSeparator,
+        },
         itemsByDimension: {
             ...DEFAULT_UI.itemsByDimension,
             [DIMENSION_ID_ORGUNIT]: rootOrganisationUnits,

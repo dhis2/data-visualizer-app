@@ -1,3 +1,38 @@
+## [35.12.9](https://github.com/dhis2/data-visualizer-app/compare/v35.12.8...v35.12.9) (2020-09-07)
+
+
+### Bug Fixes
+
+* bump Analytics to latest ([#1247](https://github.com/dhis2/data-visualizer-app/issues/1247)) ([3a2d667](https://github.com/dhis2/data-visualizer-app/commit/3a2d667abd9b0900e611290f547a0dcf4c8dcf0b))
+
+## [35.12.8](https://github.com/dhis2/data-visualizer-app/compare/v35.12.7...v35.12.8) (2020-09-04)
+
+
+### Bug Fixes
+
+* DGS default from settings (DHIS2-9328) ([#1244](https://github.com/dhis2/data-visualizer-app/issues/1244)) ([33939bd](https://github.com/dhis2/data-visualizer-app/commit/33939bd9e7e5f5253aa5aa4188bc9602dd89225a))
+
+## [35.12.7](https://github.com/dhis2/data-visualizer-app/compare/v35.12.6...v35.12.7) (2020-09-03)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([1d9bae4](https://github.com/dhis2/data-visualizer-app/commit/1d9bae4708f9d80a2bde1e62faebec961de761c6))
+
+## [35.12.6](https://github.com/dhis2/data-visualizer-app/compare/v35.12.5...v35.12.6) (2020-09-03)
+
+
+### Bug Fixes
+
+* dimension context menu to use @dhis2/ui (DHIS2-9365) ([#1237](https://github.com/dhis2/data-visualizer-app/issues/1237)) ([e7d9d40](https://github.com/dhis2/data-visualizer-app/commit/e7d9d40601bce8ed95c0c5577fa084fd5951606d))
+
+## [35.12.5](https://github.com/dhis2/data-visualizer-app/compare/v35.12.4...v35.12.5) (2020-09-03)
+
+
+### Bug Fixes
+
+* Custom error message for deleting an AO used in Dashboards (DHIS2-9310) ([#1231](https://github.com/dhis2/data-visualizer-app/issues/1231)) ([f909ae5](https://github.com/dhis2/data-visualizer-app/commit/f909ae51ecf3c7292c01e5f00cbefff44d7b924a))
+
 ## [35.12.4](https://github.com/dhis2/data-visualizer-app/compare/v35.12.3...v35.12.4) (2020-09-02)
 
 

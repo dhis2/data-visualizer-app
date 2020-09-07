@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import FileMenu from '@dhis2/d2-ui-file-menu'
+import i18n from '@dhis2/d2-i18n'
 
 import UpdateButton from '../UpdateButton/UpdateButton'
 import DownloadMenu from '../DownloadMenu/DownloadMenu'
@@ -11,7 +12,8 @@ import UpdateVisualizationContainer from '../UpdateButton/UpdateVisualizationCon
 import * as fromActions from '../../actions'
 import { sGetCurrent } from '../../reducers/current'
 import history from '../../modules/history'
-import { parseError } from '../../modules/error'
+import { getErrorVariantByStatusCode } from '../../modules/error'
+
 import styles from './styles/MenuBar.module.css'
 
 const onOpen = id => {
@@ -79,11 +81,17 @@ const mapDispatchToProps = dispatch => ({
         dispatch(fromActions.tDoSaveVisualization(details, copy)),
     onDeleteVisualization: () => dispatch(fromActions.tDoDeleteVisualization()),
     onError: error => {
-        const { type, message } = parseError(error)
+        const message =
+            error.errorCode === 'E4030'
+                ? i18n.t(
+                      "This visualization can't be deleted because it is used on one or more dashboards"
+                  )
+                : error.message
+        const variant = getErrorVariantByStatusCode(error.httpStatusCode)
 
         dispatch(
             fromActions.fromSnackbar.acReceivedSnackbarMessage({
-                variant: type,
+                variant,
                 message,
             })
         )
