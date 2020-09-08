@@ -6,7 +6,7 @@
     "private": true,
     "homepage": ".",
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^5.0.0",
+        "@dhis2/cli-app-scripts": "^5.1.0",
         "cypress": "^3.6.1",
         "eslint-plugin-cypress": "^2.11.1",
         "redux-mock-store": "^1.5.4"
@@ -34,7 +34,7 @@
         "redux-logger": "^3.0.6",
         "redux-thunk": "^2.2.0",
         "reselect": "^4.0.0",
-        "whatwg-fetch": "^3.4.0"
+        "whatwg-fetch": "^3.4.1"
     },
     "scripts": {
         "start": "d2-app-scripts start",
