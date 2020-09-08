@@ -1,3 +1,10 @@
+## [35.12.10](https://github.com/dhis2/data-visualizer-app/compare/v35.12.9...v35.12.10) (2020-09-08)
+
+
+### Bug Fixes
+
+* update d2-ui and analytics deps ([#1251](https://github.com/dhis2/data-visualizer-app/issues/1251)) ([8f37893](https://github.com/dhis2/data-visualizer-app/commit/8f37893827dd297e60ce3e77841461a57c2352b3))
+
 ## [35.12.9](https://github.com/dhis2/data-visualizer-app/compare/v35.12.8...v35.12.9) (2020-09-07)
 
 
