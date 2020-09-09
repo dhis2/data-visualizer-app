@@ -1,3 +1,10 @@
+## [34.6.18](https://github.com/dhis2/data-visualizer-app/compare/v34.6.17...v34.6.18) (2020-09-09)
+
+
+### Bug Fixes
+
+* digit group separator for Single Value (DHIS2-9328, DHIS2-9340) v34 ([#1238](https://github.com/dhis2/data-visualizer-app/issues/1238)) ([6a11743](https://github.com/dhis2/data-visualizer-app/commit/6a11743962ca895d8f070ee4731f2e6a92a05fca))
+
 ## [34.6.17](https://github.com/dhis2/data-visualizer-app/compare/v34.6.16...v34.6.17) (2020-09-08)
 
 
