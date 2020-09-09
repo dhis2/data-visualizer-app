@@ -213,7 +213,11 @@ export default (state = DEFAULT_UI, action) => {
             }
         }
         case CLEAR_UI: {
-            const { rootOrganisationUnit, relativePeriod } = action.value
+            const {
+                rootOrganisationUnit,
+                relativePeriod,
+                digitGroupSeparator,
+            } = action.value
 
             const rootOrganisationUnits = []
             const parentGraphMap = { ...DEFAULT_UI.parentGraphMap }
@@ -226,6 +230,10 @@ export default (state = DEFAULT_UI, action) => {
 
             return {
                 ...DEFAULT_UI,
+                options: {
+                    ...DEFAULT_UI.options,
+                    digitGroupSeparator,
+                },
                 itemsByDimension: {
                     ...DEFAULT_UI.itemsByDimension,
                     [DIMENSION_ID_ORGUNIT]: rootOrganisationUnits,
