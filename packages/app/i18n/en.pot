@@ -252,6 +252,9 @@ msgstr ""
 msgid "Use 100% stacked values"
 msgstr ""
 
+msgid "Auto"
+msgstr ""
+
 msgid "Range axis decimals"
 msgstr ""
 
@@ -262,6 +265,11 @@ msgid "Range axis max"
 msgstr ""
 
 msgid "Range axis min"
+msgstr ""
+
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
 msgstr ""
 
 msgid "Range axis tick steps"
