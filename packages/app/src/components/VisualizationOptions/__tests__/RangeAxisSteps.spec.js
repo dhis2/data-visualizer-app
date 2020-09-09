@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import TextBaseOption from '../Options/TextBaseOption';
+import PositiveNumberBaseType from '../Options/PositiveNumberBaseType';
 import { RangeAxisSteps } from '../Options/RangeAxisSteps';
 
 describe('DV > Options > RangeAxisSteps', () => {
@@ -22,14 +22,16 @@ describe('DV > Options > RangeAxisSteps', () => {
         shallowRangeAxisSteps = undefined;
     });
 
-    it('renders a <TextBaseOption />', () => {
-        expect(rangeAxisSteps(props).find(TextBaseOption)).toHaveLength(1);
+    it('renders a <PositiveNumberBaseType />', () => {
+        expect(rangeAxisSteps(props).find(PositiveNumberBaseType)).toHaveLength(
+            1
+        );
     });
 
     it('sets the label prop to what passed in the option prop', () => {
         expect(
             rangeAxisSteps(props)
-                .find(TextBaseOption)
+                .find(PositiveNumberBaseType)
                 .props().option.label
         ).toEqual('Range axis tick steps');
     });
@@ -37,7 +39,7 @@ describe('DV > Options > RangeAxisSteps', () => {
     it('does not show the helper text when showHelperText is false', () => {
         expect(
             rangeAxisSteps(props)
-                .find(TextBaseOption)
+                .find(PositiveNumberBaseType)
                 .props().option.helperText
         ).toBe(null);
     });
@@ -47,8 +49,10 @@ describe('DV > Options > RangeAxisSteps', () => {
 
         expect(
             rangeAxisSteps(props)
-                .find(TextBaseOption)
+                .find(PositiveNumberBaseType)
                 .props().option.helperText
-        ).toEqual(`Tick steps may extend the chart beyond 'Range axis max'`);
+        ).toEqual(
+            'Number of axis tick steps, including the min and max. A value of 2 or lower will be ignored.'
+        );
     });
 });
