@@ -10,7 +10,7 @@
         "access": "public"
     },
     "dependencies": {
-        "@dhis2/analytics": "4.5.7-alpha.3",
+        "@dhis2/analytics": "4.5.8-alpha.1",
         "@dhis2/ui-core": "^4.21.1",
         "d2-analysis": "33.2.11",
         "lodash-es": "^4.17.11"
