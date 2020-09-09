@@ -5,10 +5,13 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-08-24T11:15:11.138Z\n"
-"PO-Revision-Date: 2020-08-24T11:15:11.138Z\n"
+"POT-Creation-Date: 2020-09-09T14:22:42.172Z\n"
+"PO-Revision-Date: 2020-09-09T14:22:42.172Z\n"
 
 msgid "Rename successful"
+msgstr ""
+
+msgid "Untitled {{visualizationType}} visualization, {{date}}"
 msgstr ""
 
 msgid "\"{{what}}\" successfully deleted."
@@ -222,7 +225,7 @@ msgstr ""
 msgid "Aggregation type"
 msgstr ""
 
-msgid "Determines how the values in the pivot table are aggregated."
+msgid "Overrides aggregation type for all data values."
 msgstr ""
 
 msgid "By data element"
@@ -366,7 +369,7 @@ msgstr ""
 msgid "Hide empty rows"
 msgstr ""
 
-msgid "Legend key"
+msgid "Show legend key"
 msgstr ""
 
 msgid "Table subtitle"
@@ -464,7 +467,9 @@ msgstr ""
 msgid "Auto"
 msgstr ""
 
-msgid "The number of axis steps between the min and max values"
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
 msgstr ""
 
 msgid "Steps"
