@@ -1,4 +1,5 @@
 import i18n from '@dhis2/d2-i18n'
+import { getDisplayNameByVisType } from '@dhis2/analytics'
 
 import {
     apiFetchVisualization,
@@ -193,9 +194,16 @@ export const tDoSaveVisualization = ({ name, description }, copy) => async (
             delete visualization.id
         }
 
-        if (name) {
-            visualization.name = name
-        }
+        visualization.name =
+            name ||
+            i18n.t('Untitled {{visualizationType}} visualization, {{date}}', {
+                visualizationType: getDisplayNameByVisType(visualization.type),
+                date: new Date().toLocaleDateString(undefined, {
+                    year: 'numeric',
+                    month: 'short',
+                    day: '2-digit',
+                }),
+            })
 
         if (description) {
             visualization.description = description
