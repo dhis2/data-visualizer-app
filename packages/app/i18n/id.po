@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-18T23:27:07.844Z\n"
+"POT-Creation-Date: 2020-09-09T08:33:44.489Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2020\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
@@ -245,6 +245,9 @@ msgstr "Tanpa jarak antar kolom/bar"
 msgid "Use 100% stacked values"
 msgstr "Gunakan nilai bertumpuk 100%"
 
+msgid "Auto"
+msgstr "Otomatis"
+
 msgid "Range axis decimals"
 msgstr "Desimal jangkauan aksis"
 
@@ -260,8 +263,10 @@ msgstr "Minimal jangkauan aksis"
 msgid "Range axis tick steps"
 msgstr "Tanda jangkauan aksis"
 
-msgid "Tick steps may extend the chart beyond 'Range axis max'"
-msgstr "Tanda aksis dapat melebihi 'Maksimal jangkauan aksis' dalam grafik"
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
+msgstr ""
 
 msgid "Trend line"
 msgstr "Garis tren"
@@ -398,9 +403,6 @@ msgstr ""
 "Silakan tambahkan setidaknya satu periode sebagai {{series}}, {{category}} "
 "atau {{filter}}"
 
-msgid "Please add {{data}} as {{category}} or {{filter}}"
-msgstr "Silakan tambahkan {{data}} sebagai {{category}} atau {{filter}}"
-
 msgid "Please add at least one period as {{series}} or {{filter}}"
 msgstr ""
 "Silakan tambahkan setidaknya satu periode sebagai {{series}} atau {{filter}}"
@@ -410,9 +412,6 @@ msgstr "Silakan tambahkan setidaknya satu dimensi {{filter}}"
 
 msgid "Please add at least one period as a {{series}} dimension"
 msgstr "Silakan tambahkan setidaknya satu periode sebagai dimensi {{series}}"
-
-msgid "Please add at least one period as a {{category}} dimension"
-msgstr "Silakan tambahkan satu periode sebagai dimensi {{category}}"
 
 msgid "Please add {{data}} as a filter dimension"
 msgstr "Silakan tambahkan {{data}} sebagai dimensi penyaringan"

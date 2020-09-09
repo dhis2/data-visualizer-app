@@ -1,14 +1,14 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2019
 # phil_dhis2, 2020
+# Viktor Varland <viktor@dhis2.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-18T23:27:07.844Z\n"
+"POT-Creation-Date: 2020-09-09T08:33:44.489Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
-"Last-Translator: phil_dhis2, 2020\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -244,6 +244,9 @@ msgstr "Отсутствует пробел между столбцами / ст
 msgid "Use 100% stacked values"
 msgstr "Отображение в виде многослойной диаграммы (в сумме дает 100%)"
 
+msgid "Auto"
+msgstr "Авто"
+
 msgid "Range axis decimals"
 msgstr "Количество десятичных знаков для значений оси диапазона."
 
@@ -259,7 +262,9 @@ msgstr "Минимальное значение оси диапазона."
 msgid "Range axis tick steps"
 msgstr "Количество меток на оси диапазона."
 
-msgid "Tick steps may extend the chart beyond 'Range axis max'"
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
 msgstr ""
 
 msgid "Trend line"
@@ -397,9 +402,6 @@ msgstr ""
 "Пожалуйста, добавьте хотя бы один период в виде {{series}}, {{category}} или"
 " {{filter}}"
 
-msgid "Please add {{data}} as {{category}} or {{filter}}"
-msgstr "Пожалуйста, добавьте {{data}} как {{category}} или {{filter}}"
-
 msgid "Please add at least one period as {{series}} or {{filter}}"
 msgstr ""
 "Пожалуйста, добавьте хотя бы один период в виде {{series}} или {{filter}}"
@@ -410,9 +412,6 @@ msgstr "Пожалуйста, добавьте хотя бы одну велич
 msgid "Please add at least one period as a {{series}} dimension"
 msgstr ""
 "Пожалуйста, добавьте хотя бы один период в качестве величины {{series}}"
-
-msgid "Please add at least one period as a {{category}} dimension"
-msgstr "Пожалуйста, добавьте хотя бы один период как величину {{category}}"
 
 msgid "Please add {{data}} as a filter dimension"
 msgstr "Пожалуйста, добавьте {{data}} в качестве фильтра"
