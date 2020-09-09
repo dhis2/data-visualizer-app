@@ -235,6 +235,9 @@ msgstr ""
 msgid "Use 100% stacked values"
 msgstr ""
 
+msgid "Auto"
+msgstr ""
+
 msgid "Range axis decimals"
 msgstr ""
 
@@ -250,7 +253,9 @@ msgstr ""
 msgid "Range axis tick steps"
 msgstr ""
 
-msgid "Tick steps may extend the chart beyond 'Range axis max'"
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
 msgstr ""
 
 msgid "Trend line"
