@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-08-21T09:51:29.294Z\n"
+"POT-Creation-Date: 2020-09-09T11:24:52.544Z\n"
 "PO-Revision-Date: 2020-03-02 13:01+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2020\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -20,6 +20,9 @@ msgstr ""
 
 msgid "Rename successful"
 msgstr "重命名成功"
+
+msgid "Untitled {{visualizationType}} visualization, {{date}}"
+msgstr "无标题的{{visualizationType}}可视化，{{date}}"
 
 msgid "\"{{what}}\" successfully deleted."
 msgstr "\"{{what}}\" 被成功删除"
