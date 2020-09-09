@@ -7,9 +7,7 @@ import SelectBaseOption from './SelectBaseOption'
 const AggregationType = () => (
     <SelectBaseOption
         label={i18n.t('Aggregation type')}
-        helpText={i18n.t(
-            'Determines how the values in the pivot table are aggregated.'
-        )}
+        helpText={i18n.t('Overrides aggregation type for all data values.')}
         option={{
             name: 'aggregationType',
             items: [

@@ -34,6 +34,9 @@ export const sGetSettings = state => state.settings
 export const sGetSettingsDisplayNameProperty = state =>
     sGetSettings(state).displayNameProperty
 
+export const sGetSettingsDigitGroupSeparator = state =>
+    sGetSettings(state).keyAnalysisDigitGroupSeparator
+
 export const sGetRootOrgUnit = state => sGetSettings(state).rootOrganisationUnit
 
 export const sGetRelativePeriod = state =>

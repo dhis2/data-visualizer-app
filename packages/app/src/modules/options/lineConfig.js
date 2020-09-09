@@ -50,6 +50,11 @@ export default hasCustomAxes => [
                 label: i18n.t('Horizontal (x) axis'),
                 content: React.Children.toArray([<DomainAxisLabel />]),
             },
+            {
+                key: 'axes-horizontal-axis',
+                getLabel: () => i18n.t('Horizontal (x) axis'),
+                content: React.Children.toArray([<DomainAxisLabel />]),
+            },
         ],
     },
     {

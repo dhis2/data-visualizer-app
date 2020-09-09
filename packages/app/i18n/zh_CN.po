@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-25T18:22:35.064Z\n"
+"POT-Creation-Date: 2020-08-21T09:51:29.294Z\n"
 "PO-Revision-Date: 2020-03-02 13:01+0000\n"
 "Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
@@ -230,8 +230,8 @@ msgstr "你最近查看最多的图表"
 msgid "Aggregation type"
 msgstr "汇总类型"
 
-msgid "Determines how the values in the pivot table are aggregated."
-msgstr "确定值在透视表中如何汇总"
+msgid "Overrides aggregation type for all data values."
+msgstr ""
 
 msgid "By data element"
 msgstr "按数据元"
@@ -374,8 +374,8 @@ msgstr "全部"
 msgid "Hide empty rows"
 msgstr "隐藏空行"
 
-msgid "Legend key"
-msgstr "图例键值"
+msgid "Show legend key"
+msgstr ""
 
 msgid "Table subtitle"
 msgstr "表子标题"
@@ -472,8 +472,10 @@ msgstr "小数"
 msgid "Auto"
 msgstr "自动"
 
-msgid "The number of axis steps between the min and max values"
-msgstr "最大最小值之间的轴上的间隔步数"
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
+msgstr ""
 
 msgid "Steps"
 msgstr "步"
@@ -745,23 +747,23 @@ msgstr "用户下下级机构"
 msgid "Data"
 msgstr "数据"
 
-msgid "Axes"
-msgstr "轴"
-
-msgid "Style"
-msgstr "风格"
-
 msgid "Display"
 msgstr "显示"
 
 msgid "Lines"
 msgstr "线"
 
+msgid "Axes"
+msgstr "轴"
+
 msgid "Vertical (y) axis"
 msgstr "垂轴（Y）"
 
 msgid "Horizontal (x) axis"
 msgstr "水平轴（X）"
+
+msgid "Style"
+msgstr "风格"
 
 msgid "Chart style"
 msgstr "图表风格"

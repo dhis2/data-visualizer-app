@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-25T18:22:35.064Z\n"
+"POT-Creation-Date: 2020-08-21T09:51:29.294Z\n"
 "PO-Revision-Date: 2020-03-02 13:01+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
@@ -241,8 +241,8 @@ msgstr "Grafik dan tabel yang paling sering Anda lihat"
 msgid "Aggregation type"
 msgstr "Tipe agregasi"
 
-msgid "Determines how the values in the pivot table are aggregated."
-msgstr "Menentukan cara agregasi nilai di tabel pivot"
+msgid "Overrides aggregation type for all data values."
+msgstr ""
 
 msgid "By data element"
 msgstr "Berdasarkan elemen data"
@@ -385,7 +385,7 @@ msgstr "Semua"
 msgid "Hide empty rows"
 msgstr "Sembunyikan baris kosong"
 
-msgid "Legend key"
+msgid "Show legend key"
 msgstr ""
 
 msgid "Table subtitle"
@@ -483,7 +483,9 @@ msgstr ""
 msgid "Auto"
 msgstr "Otomatis"
 
-msgid "The number of axis steps between the min and max values"
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
 msgstr ""
 
 msgid "Steps"
@@ -754,23 +756,23 @@ msgstr "Sub-sub org unit pengguna"
 msgid "Data"
 msgstr "Data"
 
-msgid "Axes"
-msgstr "Sumbu"
-
-msgid "Style"
-msgstr "Gaya"
-
 msgid "Display"
 msgstr ""
 
 msgid "Lines"
 msgstr "Garis"
 
+msgid "Axes"
+msgstr "Sumbu"
+
 msgid "Vertical (y) axis"
 msgstr "Sumbu Y"
 
 msgid "Horizontal (x) axis"
 msgstr "sumbu X"
+
+msgid "Style"
+msgstr "Gaya"
 
 msgid "Chart style"
 msgstr "tipe grafik"

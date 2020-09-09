@@ -26,7 +26,6 @@ export default hasCustomAxes => [
                 key: 'data-display',
                 label: i18n.t('Display'),
                 content: React.Children.toArray([
-                    <ShowData />,
                     <PercentStackedValues />,
                     <CumulativeValues />,
                     <HideEmptyRowItems />,
@@ -64,6 +63,7 @@ export default hasCustomAxes => [
                 key: 'style-chart-style',
                 label: i18n.t('Chart style'),
                 content: React.Children.toArray([
+                    <ShowData />,
                     <NoSpaceBetweenColumns />,
                     <HideLegend />,
                     /* TODO new option <BackgroundLines /> */

@@ -1,3 +1,55 @@
+## [34.6.19](https://github.com/dhis2/data-visualizer-app/compare/v34.6.18...v34.6.19) (2020-09-09)
+
+
+### Bug Fixes
+
+* set a default name if saved vis is untitled (DHIS2-9360) v34 ([#1258](https://github.com/dhis2/data-visualizer-app/issues/1258)) ([e00eca8](https://github.com/dhis2/data-visualizer-app/commit/e00eca8abe4b0c66db1e0c0b3b21914eb0e9ecf3))
+
+## [34.6.18](https://github.com/dhis2/data-visualizer-app/compare/v34.6.17...v34.6.18) (2020-09-09)
+
+
+### Bug Fixes
+
+* digit group separator for Single Value (DHIS2-9328, DHIS2-9340) v34 ([#1238](https://github.com/dhis2/data-visualizer-app/issues/1238)) ([6a11743](https://github.com/dhis2/data-visualizer-app/commit/6a11743962ca895d8f070ee4731f2e6a92a05fca))
+
+## [34.6.17](https://github.com/dhis2/data-visualizer-app/compare/v34.6.16...v34.6.17) (2020-09-08)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (34.x) ([1546998](https://github.com/dhis2/data-visualizer-app/commit/1546998d09720876d6e0a8324a1504204fe5fd78))
+
+## [34.6.16](https://github.com/dhis2/data-visualizer-app/compare/v34.6.15...v34.6.16) (2020-09-02)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (34.x) ([7423d64](https://github.com/dhis2/data-visualizer-app/commit/7423d64239cc474f71774ee61e1cd76552c77832))
+
+## [34.6.15](https://github.com/dhis2/data-visualizer-app/compare/v34.6.14...v34.6.15) (2020-08-25)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (34.x) ([da7b180](https://github.com/dhis2/data-visualizer-app/commit/da7b180c59cd06e6173237e3888354cd728937d0))
+
+## [34.6.14](https://github.com/dhis2/data-visualizer-app/compare/v34.6.13...v34.6.14) (2020-08-25)
+
+
+### Bug Fixes
+
+* change help text for aggregation type ([#1151](https://github.com/dhis2/data-visualizer-app/issues/1151)) ([#1209](https://github.com/dhis2/data-visualizer-app/issues/1209)) ([b9c3519](https://github.com/dhis2/data-visualizer-app/commit/b9c351904a34b80c5372a78e8fd3b35c91a02092))
+* Decimals and Steps options only allow positive values (DHIS2-9002, DHIS2-9194) ([#1161](https://github.com/dhis2/data-visualizer-app/issues/1161)) v34 ([#1210](https://github.com/dhis2/data-visualizer-app/issues/1210)) ([b099607](https://github.com/dhis2/data-visualizer-app/commit/b0996072769123a02249c63cb41cf347d90ad2f2))
+* reorder options for consistency (DHIS2-9004) (519b0ba) v34 ([#1211](https://github.com/dhis2/data-visualizer-app/issues/1211)) ([8c59852](https://github.com/dhis2/data-visualizer-app/commit/8c59852b9a241847b73a77f5d107e863226509dc))
+
+## [34.6.13](https://github.com/dhis2/data-visualizer-app/compare/v34.6.12...v34.6.13) (2020-08-24)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (34.x) ([9a21bb7](https://github.com/dhis2/data-visualizer-app/commit/9a21bb7ae679c5c6ef998eeae2e346ae9a717366))
+* rename and invert the hide legend option ([#1152](https://github.com/dhis2/data-visualizer-app/issues/1152)) ([#1208](https://github.com/dhis2/data-visualizer-app/issues/1208)) ([71f5841](https://github.com/dhis2/data-visualizer-app/commit/71f58410aadb7ddc844bb26cf79e6e010f5abe85))
+
 ## [34.6.12](https://github.com/dhis2/data-visualizer-app/compare/v34.6.11...v34.6.12) (2020-06-19)
 
 
