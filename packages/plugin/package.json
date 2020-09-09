@@ -11,7 +11,7 @@
     },
     "dependencies": {
         "@dhis2/analytics": "^10.0.3",
-        "@dhis2/ui": "^5.5.4",
+        "@dhis2/ui": "^5.5.5",
         "lodash-es": "^4.17.11"
     },
     "peerDependencies": {
