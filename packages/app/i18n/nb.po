@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-14T01:00:50.112Z\n"
+"POT-Creation-Date: 2020-09-09T07:57:02.674Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -265,6 +265,9 @@ msgstr "Ingen mellomrom mellom stolper"
 msgid "Use 100% stacked values"
 msgstr "Bruk 100% stablede verdier"
 
+msgid "Auto"
+msgstr "Auto"
+
 msgid "Range axis decimals"
 msgstr "Antall desimaler for verdiaksen"
 
@@ -276,6 +279,11 @@ msgstr "Verdiaksens maksimumsverdi"
 
 msgid "Range axis min"
 msgstr "Verdiaksens minimumsverdi"
+
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
+msgstr ""
 
 msgid "Range axis tick steps"
 msgstr "Antall datapunkter for verdiaksen"
