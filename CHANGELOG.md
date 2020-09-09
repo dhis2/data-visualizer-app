@@ -1,3 +1,10 @@
+## [32.1.7](https://github.com/dhis2/data-visualizer-app/compare/v32.1.6...v32.1.7) (2020-09-09)
+
+
+### Bug Fixes
+
+* Decimals and Steps options only allow positive values (DHIS2-9002, DHIS2-9194) v32 ([#1255](https://github.com/dhis2/data-visualizer-app/issues/1255)) ([6574e1e](https://github.com/dhis2/data-visualizer-app/commit/6574e1e32e399ec3c279fb27256ab9236df47006))
+
 ## [32.1.6](https://github.com/dhis2/data-visualizer-app/compare/v32.1.5...v32.1.6) (2020-08-25)
 
 
