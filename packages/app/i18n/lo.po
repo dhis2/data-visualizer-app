@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-18T23:27:07.844Z\n"
+"POT-Creation-Date: 2020-09-09T08:33:44.489Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Lao (https://www.transifex.com/hisp-uio/teams/100509/lo/)\n"
@@ -243,6 +243,9 @@ msgstr ""
 msgid "Use 100% stacked values"
 msgstr "ໃຊ້ຄ່າທີ່ຊ້ອນກັນ 100%"
 
+msgid "Auto"
+msgstr ""
+
 msgid "Range axis decimals"
 msgstr ""
 
@@ -258,7 +261,9 @@ msgstr ""
 msgid "Range axis tick steps"
 msgstr ""
 
-msgid "Tick steps may extend the chart beyond 'Range axis max'"
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
 msgstr ""
 
 msgid "Trend line"
@@ -394,9 +399,6 @@ msgid ""
 "Please add at least one period as {{series}}, {{category}} or {{filter}}"
 msgstr ""
 
-msgid "Please add {{data}} as {{category}} or {{filter}}"
-msgstr ""
-
 msgid "Please add at least one period as {{series}} or {{filter}}"
 msgstr ""
 
@@ -404,9 +406,6 @@ msgid "Please add at least one {{filter}} dimension"
 msgstr ""
 
 msgid "Please add at least one period as a {{series}} dimension"
-msgstr ""
-
-msgid "Please add at least one period as a {{category}} dimension"
 msgstr ""
 
 msgid "Please add {{data}} as a filter dimension"

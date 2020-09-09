@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-18T23:27:07.844Z\n"
+"POT-Creation-Date: 2020-09-09T08:33:44.489Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: Ge Joao <gsimango@saudigitus.org>, 2020\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
@@ -248,6 +248,9 @@ msgstr "Não há espaço entre colunas / barras"
 msgid "Use 100% stacked values"
 msgstr "Use valores empilhados 100%"
 
+msgid "Auto"
+msgstr "Automatico "
+
 msgid "Range axis decimals"
 msgstr "Decimais do eixo do intervalo"
 
@@ -263,9 +266,10 @@ msgstr "Min. Eixo da faixa"
 msgid "Range axis tick steps"
 msgstr "Etapas de escala do eixo da faixa"
 
-msgid "Tick steps may extend the chart beyond 'Range axis max'"
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
 msgstr ""
-"As etapas de marcação podem estender o gráfico além de 'Max. Eixo da faixa'"
 
 msgid "Trend line"
 msgstr "Linha de tendência"
@@ -402,9 +406,6 @@ msgstr ""
 "Adicione pelo menos um período como {{series}}, {{categorias}} ou "
 "{{filtros}}"
 
-msgid "Please add {{data}} as {{category}} or {{filter}}"
-msgstr "Adicione {{dados}} como {{categorias}} ou {{filtros}}"
-
 msgid "Please add at least one period as {{series}} or {{filter}}"
 msgstr "Adicione pelo menos um período como {{series}} ou {{filtros}}"
 
@@ -413,9 +414,6 @@ msgstr "Adicione pelo menos uma dimensão {{filtros}}"
 
 msgid "Please add at least one period as a {{series}} dimension"
 msgstr "Adicione pelo menos um período como uma dimensão {{series}}"
-
-msgid "Please add at least one period as a {{category}} dimension"
-msgstr "Adicione pelo menos um período como uma dimensão {{categoria}"
 
 msgid "Please add {{data}} as a filter dimension"
 msgstr "Adicione {{dados}} como uma dimensão de filtro"

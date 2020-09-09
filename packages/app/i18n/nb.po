@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-18T23:27:07.844Z\n"
+"POT-Creation-Date: 2020-09-09T08:33:44.489Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -245,6 +245,9 @@ msgstr "Ingen mellomrom mellom stolper"
 msgid "Use 100% stacked values"
 msgstr "Bruk 100% stablede verdier"
 
+msgid "Auto"
+msgstr "Auto"
+
 msgid "Range axis decimals"
 msgstr "Desimaler for rekkeviddeaksen"
 
@@ -260,8 +263,10 @@ msgstr "Aksens min rekkevidde"
 msgid "Range axis tick steps"
 msgstr "Aksens rekkeviddeskalasteg"
 
-msgid "Tick steps may extend the chart beyond 'Range axis max'"
-msgstr "Skalasteg kan utvide diagrammet utenfor 'Maks rekkevidde for akse'"
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
+msgstr ""
 
 msgid "Trend line"
 msgstr "Trendlinje"
@@ -397,9 +402,6 @@ msgid ""
 msgstr ""
 "Legg til minst en periode som {{series}}, {{category}} eller {{filter}}"
 
-msgid "Please add {{data}} as {{category}} or {{filter}}"
-msgstr "Legg til {{data}} som {{category}} eller {{filter}}"
-
 msgid "Please add at least one period as {{series}} or {{filter}}"
 msgstr "Legg til minst en periode som {{series}} eller {{filter}}"
 
@@ -408,9 +410,6 @@ msgstr "Legg til minst en {{filter}}-dimensjon"
 
 msgid "Please add at least one period as a {{series}} dimension"
 msgstr "Legg til minst en periode som en {{series}} dimensjon"
-
-msgid "Please add at least one period as a {{category}} dimension"
-msgstr "Legg til minst en periode som {{category}}dimensjon"
 
 msgid "Please add {{data}} as a filter dimension"
 msgstr "Legg til {{data}} som en filterdimensjon"

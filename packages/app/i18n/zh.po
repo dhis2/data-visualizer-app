@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-18T23:27:07.844Z\n"
+"POT-Creation-Date: 2020-09-09T08:33:44.489Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -245,6 +245,9 @@ msgstr "列/柱之间无空隙"
 msgid "Use 100% stacked values"
 msgstr "使用 100% 堆叠值"
 
+msgid "Auto"
+msgstr "自动"
+
 msgid "Range axis decimals"
 msgstr "横轴精度"
 
@@ -260,8 +263,10 @@ msgstr "横轴最小值"
 msgid "Range axis tick steps"
 msgstr "横轴单位间隔"
 
-msgid "Tick steps may extend the chart beyond 'Range axis max'"
-msgstr "单位间隔可以扩展到最大值之外"
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
+msgstr "轴刻度步数，包括最小值和最大值。小于等于2的值将被忽略。"
 
 msgid "Trend line"
 msgstr "趋势线"
@@ -396,9 +401,6 @@ msgid ""
 "Please add at least one period as {{series}}, {{category}} or {{filter}}"
 msgstr "至少添加一个期间为{{series}}, {{category}} 或{{filter}}"
 
-msgid "Please add {{data}} as {{category}} or {{filter}}"
-msgstr "至少添加{{data}} 为 {{category}} 或{{filter}}"
-
 msgid "Please add at least one period as {{series}} or {{filter}}"
 msgstr "至少添加一个期间为{{series}}或{{filter}}"
 
@@ -407,9 +409,6 @@ msgstr "请至少添加一个到 {{filter}} 维度"
 
 msgid "Please add at least one period as a {{series}} dimension"
 msgstr "至少添加一个期间为{{series}}维度"
-
-msgid "Please add at least one period as a {{category}} dimension"
-msgstr "至少添加一个期间为 {{category}} 维度"
 
 msgid "Please add {{data}} as a filter dimension"
 msgstr "请至少添加 {{data}}为过滤器 维度"
