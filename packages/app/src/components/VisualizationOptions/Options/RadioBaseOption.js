@@ -23,6 +23,7 @@ export const RadioBaseOption = ({
                 checked={value === id}
                 onChange={({ value }) => onChange(value)}
                 disabled={disabled}
+                dense
             />
         ))}
     </Field>
