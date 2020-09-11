@@ -51,8 +51,11 @@ export const tabSectionOptionItem = css.resolve`
 
 export const tabSectionOptionText = css.resolve`
     p {
-        font-size: ${spacers.dp14};
-        padding-bottom: ${spacers.dp16};
+        margin: 0;
+        padding-bottom: ${spacers.dp8};
+        font-size: 14px;
+        line-height: 19px;
+        color: ${colors.grey700};
     }
 `
 

@@ -48,9 +48,7 @@ export class VisualizationOptions extends Component {
                     {content}
                     {helpText ? (
                         <Legend>
-                            <Help className={tabSectionOptionText.className}>
-                                {helpText}
-                            </Help>
+                            <Help>{helpText}</Help>
                         </Legend>
                     ) : null}
                 </FieldSet>
