@@ -159,6 +159,7 @@ export class App extends Component {
 
         this.unlisten = history.listen(location => {
             const isSaving = location.state?.isSaving
+            const isOpening = location.state?.isOpening
             const { interpretationId } = this.parseLocation(location)
 
             if (
@@ -178,6 +179,7 @@ export class App extends Component {
             } else {
                 if (
                     isSaving ||
+                    isOpening ||
                     this.state.previousLocation !== location.pathname
                 ) {
                     this.loadVisualization(location)
