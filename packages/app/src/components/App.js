@@ -176,7 +176,10 @@ export class App extends Component {
             ) {
                 this.setState({ locationToConfirm: location })
             } else {
-                if (this.state.previousLocation !== location.pathname) {
+                if (
+                    isSaving ||
+                    this.state.previousLocation !== location.pathname
+                ) {
                     this.loadVisualization(location)
                 }
 
