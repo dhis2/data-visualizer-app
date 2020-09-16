@@ -1,3 +1,11 @@
+## [33.1.16](https://github.com/dhis2/data-visualizer-app/compare/v33.1.15...v33.1.16) (2020-09-16)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (33.x) ([3a22486](https://github.com/dhis2/data-visualizer-app/commit/3a22486ceabd94105ddb51cbab50d6f0ee70e9cf))
+* rename and invert the hide legend option ([#1152](https://github.com/dhis2/data-visualizer-app/issues/1152)) (DHIS2-9003) v33 ([#1256](https://github.com/dhis2/data-visualizer-app/issues/1256)) ([4c60c36](https://github.com/dhis2/data-visualizer-app/commit/4c60c367b95f3815380023b85203d2247e4310b8))
+
 ## [33.1.15](https://github.com/dhis2/data-visualizer-app/compare/v33.1.14...v33.1.15) (2020-09-09)
 
 
