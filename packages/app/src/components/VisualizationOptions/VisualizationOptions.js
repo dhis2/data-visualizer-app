@@ -11,6 +11,7 @@ import {
     tabSectionOptionItem,
     tabSectionOptionToggleable,
     tabSectionOptionComplexInline,
+    tabSectionOptionText,
     tabBar,
 } from './styles/VisualizationOptions.style.js'
 
@@ -106,6 +107,7 @@ export class VisualizationOptions extends Component {
                 {tabSectionOptionItem.styles}
                 {tabSectionOptionToggleable.styles}
                 {tabSectionOptionComplexInline.styles}
+                {tabSectionOptionText.styles}
             </Fragment>
         )
     }
