@@ -29,7 +29,7 @@ const TextStyle = ({
     onChange,
     disabled,
 }) => {
-    const fontSizeOptions = Object.values(getFontSizeOptions())
+    const fontSizeOptions = Object.values(getFontSizeOptions(fontStyleKey))
     const textAlignOptions = getTextAlignOptions(fontStyleKey, visType)
     const [fontSize, setFontSize] = useState(
         fontStyle[FONT_STYLE_OPTION_FONT_SIZE]
