@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-09-09T08:33:44.489Z\n"
+"POT-Creation-Date: 2020-09-09T09:35:45.664Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
@@ -228,7 +228,7 @@ msgstr "第一个前和最后一个后面"
 msgid "All"
 msgstr "全部"
 
-msgid "Hide chart legend"
+msgid "Show legend key"
 msgstr ""
 
 msgid "Hide subtitle"
