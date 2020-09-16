@@ -240,7 +240,7 @@ msgstr ""
 msgid "All"
 msgstr ""
 
-msgid "Hide chart legend"
+msgid "Show legend key"
 msgstr ""
 
 msgid "Hide subtitle"
