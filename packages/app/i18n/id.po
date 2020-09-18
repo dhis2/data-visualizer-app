@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-08-28T12:56:12.965Z\n"
+"POT-Creation-Date: 2020-09-15T13:59:55.564Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2020\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
@@ -325,7 +325,7 @@ msgstr ""
 msgid "Color blind"
 msgstr ""
 
-msgid "Mono patterns"
+msgid "Patterns"
 msgstr ""
 
 msgid "Event data"
@@ -834,11 +834,11 @@ msgstr "Garis"
 msgid "Vertical (y) axis"
 msgstr "Sumbu Y"
 
-msgid "Display totals"
-msgstr "Munculkan total"
+msgid "Totals"
+msgstr "Total"
 
-msgid "Display empty data"
-msgstr "Munculkan data kosong"
+msgid "Empty data"
+msgstr ""
 
 msgid "Table title"
 msgstr "Judul tabel"

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-08-28T12:56:12.965Z\n"
+"POT-Creation-Date: 2020-09-15T13:59:55.564Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Persian (Afghanistan) (https://www.transifex.com/hisp-uio/teams/100509/fa_AF/)\n"
@@ -316,7 +316,7 @@ msgstr ""
 msgid "Color blind"
 msgstr ""
 
-msgid "Mono patterns"
+msgid "Patterns"
 msgstr ""
 
 msgid "Event data"
@@ -825,10 +825,10 @@ msgstr ""
 msgid "Vertical (y) axis"
 msgstr ""
 
-msgid "Display totals"
-msgstr ""
+msgid "Totals"
+msgstr "مجموعه"
 
-msgid "Display empty data"
+msgid "Empty data"
 msgstr ""
 
 msgid "Table title"

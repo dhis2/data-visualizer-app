@@ -1,16 +1,16 @@
 # 
 # Translators:
 # phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
 # 晓东 林 <13981924470@126.com>, 2020
 # easylin <lin_xd@126.com>, 2020
+# Viktor Varland <viktor@dhis2.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-08-28T12:56:12.965Z\n"
+"POT-Creation-Date: 2020-09-15T13:59:55.564Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: easylin <lin_xd@126.com>, 2020\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -321,8 +321,8 @@ msgstr "灰色"
 msgid "Color blind"
 msgstr "色盲"
 
-msgid "Mono patterns"
-msgstr "单声道模式"
+msgid "Patterns"
+msgstr ""
 
 msgid "Event data"
 msgstr "事件数据"
@@ -832,11 +832,11 @@ msgstr "线"
 msgid "Vertical (y) axis"
 msgstr "垂轴（Y）"
 
-msgid "Display totals"
-msgstr "显示合计"
+msgid "Totals"
+msgstr "总共"
 
-msgid "Display empty data"
-msgstr "显示空数据"
+msgid "Empty data"
+msgstr ""
 
 msgid "Table title"
 msgstr "表标题"
