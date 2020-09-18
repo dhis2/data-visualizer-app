@@ -1635,7 +1635,7 @@
     "@dhis2/prop-types" "^1.6.4"
     classnames "^2.2.6"
 
-"@dhis2/ui@^5.4.2", "@dhis2/ui@^5.5.5", "@dhis2/ui@^5.5.6":
+"@dhis2/ui@^5.4.2", "@dhis2/ui@^5.5.6":
   version "5.5.6"
   resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-5.5.6.tgz#c717e01473eda0564ce12db564a50b5c6cd0a47f"
   integrity sha512-p8mW1aLdZa15kPW2+SWtVN00LUCzRfBGFKUPIaV3XqTlTnRVKuaWf24rmiP6OiUwocXbrpjXFvep9oTLz1JPqQ==
