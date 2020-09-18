@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-08-28T12:56:12.965Z\n"
+"POT-Creation-Date: 2020-09-15T13:59:55.564Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -325,7 +325,7 @@ msgstr "Grå"
 msgid "Color blind"
 msgstr "Fargeblind"
 
-msgid "Mono patterns"
+msgid "Patterns"
 msgstr ""
 
 msgid "Event data"
@@ -848,11 +848,11 @@ msgstr "Linjer"
 msgid "Vertical (y) axis"
 msgstr "Vertikal (y) akse"
 
-msgid "Display totals"
-msgstr "Vis totalsummer"
+msgid "Totals"
+msgstr "Totalsummer"
 
-msgid "Display empty data"
-msgstr "Vis tom data"
+msgid "Empty data"
+msgstr ""
 
 msgid "Table title"
 msgstr "Tabelltittel"
