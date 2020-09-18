@@ -17,6 +17,7 @@ import SeriesTable from '../../components/VisualizationOptions/Options/SeriesTab
 import getLinesSection from './sections/lines'
 import getVerticalAxisSection from './sections/verticalAxis'
 import getColorSetSection from './sections/colorSet'
+import CategoryAxisLabels from '../../components/VisualizationOptions/Options/CategoryAxisLabels'
 
 export default hasCustomAxes => [
     {
@@ -52,7 +53,10 @@ export default hasCustomAxes => [
             {
                 key: 'axes-horizontal-axis',
                 label: i18n.t('Horizontal (x) axis'),
-                content: React.Children.toArray([<DomainAxisLabel />]),
+                content: React.Children.toArray([
+                    <DomainAxisLabel />,
+                    <CategoryAxisLabels />,
+                ]),
             },
         ],
     },

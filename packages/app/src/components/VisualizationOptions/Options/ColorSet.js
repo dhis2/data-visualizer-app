@@ -11,7 +11,7 @@ import {
     COLOR_SET_DARK,
     COLOR_SET_GRAY,
     COLOR_SET_COLOR_BLIND,
-    COLOR_SET_MONO_PATTERNS,
+    COLOR_SET_PATTERNS,
 } from '@dhis2/analytics'
 
 import { sGetUiOptions } from '../../../reducers/ui'
@@ -47,8 +47,8 @@ const ColorSet = ({ value, onChange, disabled }) => (
                         label: i18n.t('Color blind'),
                     },
                     {
-                        id: COLOR_SET_MONO_PATTERNS,
-                        label: i18n.t('Mono patterns'),
+                        id: COLOR_SET_PATTERNS,
+                        label: i18n.t('Patterns'),
                     },
                 ].map(({ id, label }) => (
                     <span key={id}>

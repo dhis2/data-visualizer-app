@@ -1302,13 +1302,13 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^10.0.5":
-  version "10.0.5"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-10.0.5.tgz#de2962956fe1df5674f78a4ddc5767deb1b19c72"
-  integrity sha512-SkP8Qd/3yNuuk9BhGPqpidL6PRCBflZNMfa0sQJgxlXO1zO5sP0m4UikpiLWq0IqcfnlfqC4IDv1R2lmsy1t+w==
+"@dhis2/analytics@^11.0.0":
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-11.0.0.tgz#a63a2e9f36ae98c17bced08818089e42dac8c94e"
+  integrity sha512-JuD7E4Ty5xgWED5aQ8Q4kp5K8Bq7iu2VQ5j7E4yxOE8TGDqGbfIjnz/TVSQtyebXF4ub9Vyv5F8Mb7khF29qjQ==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.5"
-    "@dhis2/ui" "^5.5.5"
+    "@dhis2/ui" "^5.5.6"
     "@material-ui/core" "^3.9.3"
     "@material-ui/icons" "^3.0.2"
     classnames "^2.2.6"
@@ -1635,7 +1635,7 @@
     "@dhis2/prop-types" "^1.6.4"
     classnames "^2.2.6"
 
-"@dhis2/ui@^5.4.2", "@dhis2/ui@^5.5.5", "@dhis2/ui@^5.5.6":
+"@dhis2/ui@^5.4.2", "@dhis2/ui@^5.5.6":
   version "5.5.6"
   resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-5.5.6.tgz#c717e01473eda0564ce12db564a50b5c6cd0a47f"
   integrity sha512-p8mW1aLdZa15kPW2+SWtVN00LUCzRfBGFKUPIaV3XqTlTnRVKuaWf24rmiP6OiUwocXbrpjXFvep9oTLz1JPqQ==

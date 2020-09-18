@@ -17,7 +17,8 @@ export default () => [
         label: i18n.t('Data'),
         content: [
             {
-                key: 'data-section-1',
+                key: 'data-display',
+                label: i18n.t('Display'),
                 content: React.Children.toArray([<SkipRounding />]),
             },
             {

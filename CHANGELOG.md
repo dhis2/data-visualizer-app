@@ -1,3 +1,17 @@
+## [35.12.12](https://github.com/dhis2/data-visualizer-app/compare/v35.12.11...v35.12.12) (2020-09-18)
+
+
+### Bug Fixes
+
+* solve font style related issues ([#1266](https://github.com/dhis2/data-visualizer-app/issues/1266)) ([4087c08](https://github.com/dhis2/data-visualizer-app/commit/4087c08e2f523fe63c9b01eafc6580508ea2ba6e))
+
+## [35.12.11](https://github.com/dhis2/data-visualizer-app/compare/v35.12.10...v35.12.11) (2020-09-17)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([819bf40](https://github.com/dhis2/data-visualizer-app/commit/819bf400273b6779a294e2dc9eee07e2b36e6a38))
+
 ## [35.12.10](https://github.com/dhis2/data-visualizer-app/compare/v35.12.9...v35.12.10) (2020-09-08)
 
 
