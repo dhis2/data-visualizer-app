@@ -15,11 +15,7 @@ import {
     VIS_TYPE_COLUMN,
     VIS_TYPE_LINE,
     visTypeIcons,
-    ouIdHelper,
-    getRelativePeriodIds,
-    DIMENSION_ID_ASSIGNED_CATEGORIES,
-    DIMENSION_ID_ORGUNIT,
-    DIMENSION_ID_PERIOD,
+    hasRelativeItems,
 } from '@dhis2/analytics'
 
 import styles from '../styles/SeriesTable.module.css'
@@ -219,23 +215,9 @@ const SeriesTable = ({
     if (!showAxisOptions && !showTypeOptions) {
         return renderNoSeriesOptionsError()
     } else if (
-        columns.find(item => item === DIMENSION_ID_ASSIGNED_CATEGORIES)
-    ) {
-        return renderRelativeItemsError()
-    } else if (
-        columns.find(item => item === DIMENSION_ID_ORGUNIT) &&
-        layoutItems.find(
-            item =>
-                ouIdHelper.hasLevelPrefix(item.dimensionItem) ||
-                ouIdHelper.hasGroupPrefix(item.dimensionItem) ||
-                item.dimensionItem.startsWith('USER_ORGUNIT')
-        )
-    ) {
-        return renderRelativeItemsError()
-    } else if (
-        columns.find(item => item === DIMENSION_ID_PERIOD) &&
-        layoutItems.find(item =>
-            getRelativePeriodIds().includes(item.dimensionItem)
+        hasRelativeItems(
+            columns[0],
+            layoutItems.map(item => item.dimensionItem)
         )
     ) {
         return renderRelativeItemsError()
