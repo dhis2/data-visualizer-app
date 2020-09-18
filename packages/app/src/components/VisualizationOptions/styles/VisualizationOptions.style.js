@@ -7,6 +7,7 @@ export const tabBar = css.resolve`
     div {
         position: sticky;
         top: 0;
+        z-index: 1;
     }
 `
 
