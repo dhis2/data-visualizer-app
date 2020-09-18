@@ -19,11 +19,13 @@ import {
     sGetUiType,
     sGetUiOptions,
     sGetDimensionItemsByAxis,
+    sGetUiLayout,
 } from '../../reducers/ui'
 import { getOptionsByType } from '../../modules/options/config'
 import {
     isDualAxisType,
     hasCustomAxes,
+    hasRelativeItems,
     AXIS_ID_COLUMNS,
 } from '@dhis2/analytics'
 
@@ -65,7 +67,12 @@ export class VisualizationOptions extends Component {
         }))
 
     render() {
-        const { visualizationType, columnDimensionItems, series } = this.props
+        const {
+            visualizationType,
+            columnDimensionItems,
+            series,
+            columns,
+        } = this.props
         const filteredSeries = series.filter(seriesItem =>
             columnDimensionItems.some(
                 layoutItem => layoutItem === seriesItem.dimensionItem
@@ -73,7 +80,9 @@ export class VisualizationOptions extends Component {
         )
         const optionsConfig = getOptionsByType(
             visualizationType,
-            isDualAxisType(visualizationType) && hasCustomAxes(filteredSeries)
+            isDualAxisType(visualizationType) &&
+                hasCustomAxes(filteredSeries) &&
+                !hasRelativeItems(columns[0], columnDimensionItems)
         )
 
         const tabs = this.generateTabs(optionsConfig)
@@ -118,6 +127,7 @@ export class VisualizationOptions extends Component {
 VisualizationOptions.propTypes = {
     visualizationType: PropTypes.string.isRequired,
     columnDimensionItems: PropTypes.array,
+    columns: PropTypes.array,
     series: PropTypes.array,
 }
 
@@ -125,6 +135,7 @@ const mapStateToProps = state => ({
     visualizationType: sGetUiType(state),
     columnDimensionItems: sGetDimensionItemsByAxis(state, AXIS_ID_COLUMNS),
     series: sGetUiOptions(state).series,
+    columns: sGetUiLayout(state).columns,
 })
 
 export default connect(mapStateToProps)(VisualizationOptions)
