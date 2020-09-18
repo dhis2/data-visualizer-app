@@ -1,7 +1,7 @@
 import { LAYOUT_HEIGHT } from '../../styles/style'
 
 // Axis
-export const FILTER_AXIS_WIDTH = '67%'
+export const FILTER_AXIS_WIDTH = '50%'
 export const DIMENSION_AXIS_CONTENT_HEIGHT = '36px'
 
 // Axis (generated)
