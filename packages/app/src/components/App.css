@@ -75,8 +75,3 @@ body {
     overflow: hidden;
     position: relative;
 }
-
-/* FIXME: Temporary fix for @dhis2/d2-ui-period-selector-dialog and @dhis2/d2-ui-org-unit-dialog modal z-index */
-[class^='MuiModal-root'] {
-    z-index: 4000 !important;
-}
