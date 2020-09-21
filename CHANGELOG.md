@@ -1,3 +1,10 @@
+## [35.12.15](https://github.com/dhis2/data-visualizer-app/compare/v35.12.14...v35.12.15) (2020-09-20)
+
+
+### Bug Fixes
+
+* org unit dialog zindex ([#1277](https://github.com/dhis2/data-visualizer-app/issues/1277)) ([f970122](https://github.com/dhis2/data-visualizer-app/commit/f970122cede02e7113c2d2e641394c65c5eb5f5e))
+
 ## [35.12.14](https://github.com/dhis2/data-visualizer-app/compare/v35.12.13...v35.12.14) (2020-09-19)
 
 
