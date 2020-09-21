@@ -1,3 +1,10 @@
+## [35.12.17](https://github.com/dhis2/data-visualizer-app/compare/v35.12.16...v35.12.17) (2020-09-21)
+
+
+### Bug Fixes
+
+* make series options unavailable for relative items ([#1280](https://github.com/dhis2/data-visualizer-app/issues/1280)) ([e8b7cad](https://github.com/dhis2/data-visualizer-app/commit/e8b7cad8f036da795de33afc9b14516003c9e23c))
+
 ## [35.12.16](https://github.com/dhis2/data-visualizer-app/compare/v35.12.15...v35.12.16) (2020-09-21)
 
 
