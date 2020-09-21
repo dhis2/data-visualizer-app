@@ -19,7 +19,7 @@ import styles from './styles/MenuBar.module.css'
 const onOpen = id => {
     const path = `/${id}`
     if (history.location.pathname === path) {
-        history.replace(path)
+        history.replace({ pathname: path, state: { isOpening: true } })
     } else {
         history.push(path)
     }
