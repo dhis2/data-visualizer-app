@@ -1302,10 +1302,10 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^11.0.2":
-  version "11.0.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-11.0.2.tgz#04c73faff4bba79291a873f4be0ed9c749148968"
-  integrity sha512-WzQXY5vQ5nfIn6mEq4qK9a0YmizWVrDieRAiNayrPfCPuXCiMw02B3+Ms+kCBZmmW0dReCYtyJgvSHEhKIM+cw==
+"@dhis2/analytics@^11.0.4":
+  version "11.0.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-11.0.4.tgz#7e181b5bf11abdeb708a3b7405870c87f1191d2b"
+  integrity sha512-0QCTAoIJWRaqjlNT4tuQYWu8BbigbV2319AQSOvVaWviHNODM6AlVRBnv/yFsj4YgPCcY200ifiHjQ3mY0nEdw==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.8"
     "@dhis2/ui" "^5.5.6"
