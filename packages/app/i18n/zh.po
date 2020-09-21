@@ -541,6 +541,14 @@ msgstr "没有系列选项"
 msgid "There aren't any Series options for this visualization type"
 msgstr "该可视化类型没有任何系列选项"
 
+msgid "Series options unavailable"
+msgstr ""
+
+msgid ""
+"Series options are not available when using relative selections for periods,"
+" org.units or categories"
+msgstr ""
+
 msgid "Value labels"
 msgstr "值标签"
 

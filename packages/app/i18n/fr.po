@@ -558,6 +558,14 @@ msgstr ""
 msgid "There aren't any Series options for this visualization type"
 msgstr ""
 
+msgid "Series options unavailable"
+msgstr ""
+
+msgid ""
+"Series options are not available when using relative selections for periods,"
+" org.units or categories"
+msgstr ""
+
 msgid "Value labels"
 msgstr "Étiquettes de valeur"
 
