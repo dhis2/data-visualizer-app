@@ -1,3 +1,10 @@
+## [35.12.16](https://github.com/dhis2/data-visualizer-app/compare/v35.12.15...v35.12.16) (2020-09-21)
+
+
+### Bug Fixes
+
+* keep the visualization name when re-saving after edit ([#1273](https://github.com/dhis2/data-visualizer-app/issues/1273)) ([0ad8768](https://github.com/dhis2/data-visualizer-app/commit/0ad8768a2b641e22cd09fed722d6d8f2437252c5))
+
 ## [35.12.15](https://github.com/dhis2/data-visualizer-app/compare/v35.12.14...v35.12.15) (2020-09-20)
 
 
