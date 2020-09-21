@@ -207,7 +207,7 @@ const SeriesTable = ({
         renderError(
             i18n.t('Series options unavailable'),
             i18n.t(
-                'Series options are not available when using relative selections for periods, org.units or categories'
+                'Series options are not available when using relative selections for periods, org units or categories'
             ),
             GenericError()
         )
