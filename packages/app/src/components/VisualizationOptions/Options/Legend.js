@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import cx from 'classnames'
 
 import i18n from '@dhis2/d2-i18n'
 import { Checkbox, FieldSet, Legend as UiCoreLegend } from '@dhis2/ui'
@@ -23,6 +24,7 @@ import {
     tabSectionOptionToggleable,
     tabSectionOption,
     tabSectionTitle,
+    tabSectionTitleMargin,
 } from '../styles/VisualizationOptions.style.js'
 
 const Legend = ({
@@ -66,8 +68,12 @@ const Legend = ({
                             <FieldSet>
                                 <UiCoreLegend>
                                     <span
-                                        className={tabSectionTitle.className}
-                                        style={{ marginTop: 8 }}
+                                        className={cx(
+                                            tabSectionTitle.className,
+                                            {
+                                                [tabSectionTitleMargin.className]: true,
+                                            }
+                                        )}
                                     >
                                         {i18n.t('Legend style')}
                                     </span>
@@ -82,10 +88,9 @@ const Legend = ({
                         <FieldSet>
                             <UiCoreLegend>
                                 <span
-                                    className={tabSectionTitle.className}
-                                    style={{
-                                        marginTop: hideStyleOptions ? 8 : 0,
-                                    }}
+                                    className={cx(tabSectionTitle.className, {
+                                        [tabSectionTitleMargin.className]: hideStyleOptions,
+                                    })}
                                 >
                                     {i18n.t('Legend type')}
                                 </span>
