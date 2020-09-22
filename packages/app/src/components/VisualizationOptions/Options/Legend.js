@@ -70,9 +70,7 @@ const Legend = ({
                                     <span
                                         className={cx(
                                             tabSectionTitle.className,
-                                            {
-                                                [tabSectionTitleMargin.className]: true,
-                                            }
+                                            tabSectionTitleMargin.className
                                         )}
                                     >
                                         {i18n.t('Legend style')}
