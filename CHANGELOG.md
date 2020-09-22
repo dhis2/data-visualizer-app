@@ -1,3 +1,10 @@
+## [35.12.19](https://github.com/dhis2/data-visualizer-app/compare/v35.12.18...v35.12.19) (2020-09-22)
+
+
+### Bug Fixes
+
+* bump Analytics to v11.0.5 ([88b28fe](https://github.com/dhis2/data-visualizer-app/commit/88b28fe2e77b6c021d7e91189ca669bb6f5a8f64))
+
 ## [35.12.18](https://github.com/dhis2/data-visualizer-app/compare/v35.12.17...v35.12.18) (2020-09-21)
 
 
