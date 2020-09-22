@@ -81,7 +81,12 @@ const Legend = ({
                     <div>
                         <FieldSet>
                             <UiCoreLegend>
-                                <span className={tabSectionTitle.className}>
+                                <span
+                                    className={tabSectionTitle.className}
+                                    style={{
+                                        marginTop: hideStyleOptions ? 8 : 0,
+                                    }}
+                                >
                                     {i18n.t('Legend type')}
                                 </span>
                             </UiCoreLegend>
