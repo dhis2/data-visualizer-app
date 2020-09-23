@@ -38,6 +38,12 @@ export const tabSectionTitle = css.resolve`
     }
 `
 
+export const tabSectionTitleMargin = css.resolve`
+    span {
+        margin-top: ${spacers.dp8};
+    }
+`
+
 export const tabSectionOption = css.resolve`
     div:not(:last-child):not(.inline) {
         padding-bottom: ${spacers.dp16};

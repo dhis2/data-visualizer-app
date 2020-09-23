@@ -7,6 +7,7 @@ import { FieldSet, Legend, TabBar, Tab, Help } from '@dhis2/ui'
 import {
     tabSection,
     tabSectionTitle,
+    tabSectionTitleMargin,
     tabSectionOption,
     tabSectionOptionItem,
     tabSectionOptionToggleable,
@@ -112,6 +113,7 @@ export class VisualizationOptions extends Component {
                 {tabs[activeTabIndex].content}
                 {tabSection.styles}
                 {tabSectionTitle.styles}
+                {tabSectionTitleMargin.styles}
                 {tabSectionOption.styles}
                 {tabSectionOptionItem.styles}
                 {tabSectionOptionToggleable.styles}
