@@ -4,6 +4,7 @@ import { AXIS_ID_COLUMNS, AXIS_ID_FILTERS } from '@dhis2/analytics'
 import DefaultAxis from '../DefaultLayout/DefaultAxis'
 import defaultAxisStyles from '../DefaultLayout/styles/DefaultAxis.style'
 import defaultLayoutStyles from '../DefaultLayout/styles/DefaultLayout.style'
+import pieLayoutStyles from './styles/PieLayout.style'
 
 const Layout = () => (
     <div id="layout-ct" style={defaultLayoutStyles.ct}>
@@ -11,7 +12,7 @@ const Layout = () => (
             id="axis-group-1"
             style={{
                 ...defaultLayoutStyles.axisGroup,
-                ...defaultLayoutStyles.axisGroupLeft,
+                ...pieLayoutStyles.axisGroupLeft,
             }}
         >
             <DefaultAxis
@@ -26,7 +27,7 @@ const Layout = () => (
             id="axis-group-2"
             style={{
                 ...defaultLayoutStyles.axisGroup,
-                ...defaultLayoutStyles.axisGroupRight,
+                ...pieLayoutStyles.axisGroupRight,
             }}
         >
             <DefaultAxis

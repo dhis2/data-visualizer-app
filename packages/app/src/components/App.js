@@ -72,6 +72,13 @@ export class App extends Component {
         return false
     }
 
+    parseLocation = location => {
+        const pathParts = location.pathname.slice(1).split('/')
+        const id = pathParts[0]
+        const interpretationId = pathParts[2]
+        return { id, interpretationId }
+    }
+
     loadVisualization = async location => {
         const { store } = this.context
 
@@ -79,9 +86,8 @@ export class App extends Component {
             // /currentAnalyticalObject
             // /${id}/
             // /${id}/interpretation/${interpretationId}
-            const pathParts = location.pathname.slice(1).split('/')
-            const id = pathParts[0]
-            const interpretationId = pathParts[2]
+            const { id, interpretationId } = this.parseLocation(location)
+
             const urlContainsCurrentAOKey = id === CURRENT_AO_KEY
 
             if (urlContainsCurrentAOKey) {
@@ -153,18 +159,33 @@ export class App extends Component {
 
         this.unlisten = history.listen(location => {
             const isSaving = location.state?.isSaving
+            const isOpening = location.state?.isOpening
+            const { interpretationId } = this.parseLocation(location)
+
             if (
+                // currently editing
                 getVisualizationState(
                     this.props.visualization,
                     this.props.current
                 ) === STATE_DIRTY &&
-                this.state.locationToConfirm !== location &&
+                // wanting to navigate elsewhere
+                this.state.previousLocation !== location.pathname &&
+                // currently *not* viewing an interpretation
+                !(this.props.interpretation.id || interpretationId) &&
+                // not saving
                 !isSaving
             ) {
                 this.setState({ locationToConfirm: location })
             } else {
+                if (
+                    isSaving ||
+                    isOpening ||
+                    this.state.previousLocation !== location.pathname
+                ) {
+                    this.loadVisualization(location)
+                }
+
                 this.setState({ locationToConfirm: null })
-                this.loadVisualization(location)
             }
         })
 
@@ -258,21 +279,27 @@ export class App extends Component {
                             <ButtonStrip end>
                                 <Button
                                     secondary
-                                    onClick={() =>
+                                    onClick={() => {
                                         this.setState({
                                             locationToConfirm: null,
                                         })
-                                    }
+
+                                        history.goBack()
+                                    }}
                                 >
                                     {i18n.t('No, cancel')}
                                 </Button>
 
                                 <Button
-                                    onClick={() =>
-                                        history.push(
+                                    onClick={() => {
+                                        this.loadVisualization(
                                             this.state.locationToConfirm
                                         )
-                                    }
+
+                                        this.setState({
+                                            locationToConfirm: null,
+                                        })
+                                    }}
                                     primary
                                 >
                                     {i18n.t('Yes, leave')}
@@ -291,7 +318,7 @@ export class App extends Component {
 const mapStateToProps = state => ({
     settings: fromReducers.fromSettings.sGetSettings(state),
     current: fromReducers.fromCurrent.sGetCurrent(state),
-    interpretations: fromReducers.fromVisualization.sGetInterpretations(state),
+    interpretation: fromReducers.fromUi.sGetUiInterpretation(state),
     ui: fromReducers.fromUi.sGetUi(state),
     visualization: sGetVisualization(state),
     snackbar: fromReducers.fromSnackbar.sGetSnackbar(state),
@@ -326,6 +353,7 @@ App.propTypes = {
     clearVisualization: PropTypes.func,
     current: PropTypes.object,
     d2: PropTypes.object,
+    interpretation: PropTypes.object,
     location: PropTypes.object,
     ouLevels: PropTypes.array,
     setCurrentFromUi: PropTypes.func,

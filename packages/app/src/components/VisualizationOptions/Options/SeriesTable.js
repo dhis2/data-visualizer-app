@@ -11,13 +11,18 @@ import {
     TableBody,
     Radio,
 } from '@dhis2/ui'
-import { VIS_TYPE_COLUMN, VIS_TYPE_LINE, visTypeIcons } from '@dhis2/analytics'
+import {
+    VIS_TYPE_COLUMN,
+    VIS_TYPE_LINE,
+    visTypeIcons,
+    hasRelativeItems,
+} from '@dhis2/analytics'
 
 import styles from '../styles/SeriesTable.module.css'
 import { acSetUiOptions, acUpdateUiSeriesItem } from '../../../actions/ui'
-import { sGetUiOptions, sGetUiType } from '../../../reducers/ui'
+import { sGetUiLayout, sGetUiOptions, sGetUiType } from '../../../reducers/ui'
 import { sGetSeriesSetupItems } from '../../../reducers'
-import { EmptySeries, EmptyBox } from '../../../assets/ErrorIcons'
+import { EmptySeries, EmptyBox, GenericError } from '../../../assets/ErrorIcons'
 import {
     AxisOne,
     AxisTwo,
@@ -33,6 +38,7 @@ const availableAxes = [0, 1, 2, 3]
 const allTypes = [VIS_TYPE_COLUMN, VIS_TYPE_LINE]
 
 const SeriesTable = ({
+    columns,
     layoutItems,
     optionItems,
     onChange,
@@ -197,8 +203,24 @@ const SeriesTable = ({
             EmptyBox()
         )
 
+    const renderRelativeItemsError = () =>
+        renderError(
+            i18n.t('Series options unavailable'),
+            i18n.t(
+                'Series options are not available when using relative selections for periods, org units or categories'
+            ),
+            GenericError()
+        )
+
     if (!showAxisOptions && !showTypeOptions) {
         return renderNoSeriesOptionsError()
+    } else if (
+        hasRelativeItems(
+            columns[0],
+            layoutItems.map(item => item.dimensionItem)
+        )
+    ) {
+        return renderRelativeItemsError()
     } else {
         return Object.keys(layoutItems).length && optionItems.length
             ? renderTable()
@@ -207,6 +229,7 @@ const SeriesTable = ({
 }
 
 SeriesTable.propTypes = {
+    columns: PropTypes.array.isRequired,
     visType: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     onItemChange: PropTypes.func.isRequired,
@@ -225,6 +248,7 @@ SeriesTable.defaultProps = {
 
 const mapStateToProps = state => ({
     layoutItems: sGetSeriesSetupItems(state),
+    columns: sGetUiLayout(state).columns,
     optionItems: sGetUiOptions(state).series,
     visType: sGetUiType(state),
 })

@@ -19,12 +19,18 @@ import styles from '../styles/TextStyle.module.css'
 import FontColorIcon from '../../../assets/FontColorIcon'
 import BoldIcon from '../../../assets/BoldIcon'
 import ItalicIcon from '../../../assets/ItalicIcon'
-import { sGetConsolidatedUiFontStyle } from '../../../reducers/ui'
+import { sGetConsolidatedUiFontStyle, sGetUiType } from '../../../reducers/ui'
 import { acSetUiFontStyle } from '../../../actions/ui'
 
-const TextStyle = ({ fontStyleKey, fontStyle, onChange, disabled }) => {
-    const fontSizeOptions = Object.values(getFontSizeOptions())
-    const textAlignOptions = Object.values(getTextAlignOptions(fontStyleKey))
+const TextStyle = ({
+    fontStyleKey,
+    fontStyle,
+    visType,
+    onChange,
+    disabled,
+}) => {
+    const fontSizeOptions = Object.values(getFontSizeOptions(fontStyleKey))
+    const textAlignOptions = getTextAlignOptions(fontStyleKey, visType)
     const [fontSize, setFontSize] = useState(
         fontStyle[FONT_STYLE_OPTION_FONT_SIZE]
     )
@@ -138,11 +144,13 @@ TextStyle.propTypes = {
     fontStyleKey: PropTypes.string.isRequired,
     disabled: PropTypes.bool,
     fontStyle: PropTypes.object,
+    visType: PropTypes.string,
     onChange: PropTypes.func,
 }
 
 const mapStateToProps = (state, ownProps) => ({
     fontStyle: sGetConsolidatedUiFontStyle(state, ownProps.fontStyleKey),
+    visType: sGetUiType(state),
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
