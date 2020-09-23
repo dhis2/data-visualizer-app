@@ -1,3 +1,10 @@
+## [35.12.21](https://github.com/dhis2/data-visualizer-app/compare/v35.12.20...v35.12.21) (2020-09-23)
+
+
+### Bug Fixes
+
+* modal is bumped up when the color picker is opened ([#1299](https://github.com/dhis2/data-visualizer-app/issues/1299)) ([e4d2b83](https://github.com/dhis2/data-visualizer-app/commit/e4d2b836b536cf97cf81bf3e1f44364120e231a4))
+
 ## [35.12.20](https://github.com/dhis2/data-visualizer-app/compare/v35.12.19...v35.12.20) (2020-09-22)
 
 
