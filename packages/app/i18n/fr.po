@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-09-15T13:59:55.564Z\n"
+"POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -563,7 +563,7 @@ msgstr ""
 
 msgid ""
 "Series options are not available when using relative selections for periods,"
-" org.units or categories"
+" org units or categories"
 msgstr ""
 
 msgid "Value labels"
