@@ -284,6 +284,8 @@ msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
 msgstr ""
+"Antall trinn for akse-kryss, inkludert min og maks. En verdi på 2 eller "
+"lavere vil bli ignorert."
 
 msgid "Range axis tick steps"
 msgstr "Antall datapunkter for verdiaksen"
