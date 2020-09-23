@@ -1302,10 +1302,10 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^11.0.6":
-  version "11.0.6"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-11.0.6.tgz#31f9c4a00a09a2c14b42a7d17da72aed568fe0d0"
-  integrity sha512-LoKJe5hJCYhozVe1Bs+ZYy4xmK1rcjfmF0R198eal+kETTM6/qYOCRE4CklQC2k9ziZrUJebhTRXyWXOQvk3Tw==
+"@dhis2/analytics@^11.0.7":
+  version "11.0.7"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-11.0.7.tgz#7184796a830a9adb4b3078875df0f96ea4864bfa"
+  integrity sha512-ADMS9r00XacjBfYkAtxqsRYN2uzvwMz1NI47Y7akMvTBL3eowY3omICXJn0FAAtNm6WfYp34FlDdawZCHpsXnw==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.8"
     "@dhis2/ui" "^5.5.6"
@@ -4922,7 +4922,7 @@ debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.9:
   dependencies:
     ms "2.0.0"
 
-debug@3.2.6, debug@^3.0.0, debug@^3.1.0, debug@^3.1.1, debug@^3.2.5:
+debug@3.2.6, debug@^3.1.0, debug@^3.1.1, debug@^3.2.5:
   version "3.2.6"
   resolved "https://registry.yarnpkg.com/debug/-/debug-3.2.6.tgz#e83d17de16d8a7efb7717edbe5fb10135eee629b"
   integrity sha512-mel+jf7nrtEl5Pn1Qx46zARXKDpBbvzezse7p7LqINmdoIk8PYP5SySaxEmYv6TZ0JyEKA1hsCId6DIhgITtWQ==
