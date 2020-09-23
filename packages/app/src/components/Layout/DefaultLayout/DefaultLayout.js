@@ -1,4 +1,9 @@
 import React from 'react'
+import {
+    AXIS_ID_COLUMNS,
+    AXIS_ID_ROWS,
+    AXIS_ID_FILTERS,
+} from '@dhis2/analytics'
 
 import DefaultAxis from './DefaultAxis'
 import styles from './styles/DefaultLayout.style'
@@ -11,14 +16,14 @@ const Layout = () => (
             style={{ ...styles.axisGroup, ...styles.axisGroupLeft }}
         >
             <DefaultAxis
-                axisId="columns"
+                axisId={AXIS_ID_COLUMNS}
                 style={{
                     ...styles.columns,
                     ...defaultAxisStyles.axisContainerLeft,
                 }}
             />
             <DefaultAxis
-                axisId="rows"
+                axisId={AXIS_ID_ROWS}
                 style={{
                     ...styles.rows,
                     ...defaultAxisStyles.axisContainerLeft,
@@ -29,7 +34,7 @@ const Layout = () => (
             id="axis-group-2"
             style={{ ...styles.axisGroup, ...styles.axisGroupRight }}
         >
-            <DefaultAxis axisId="filters" style={styles.filters} />
+            <DefaultAxis axisId={AXIS_ID_FILTERS} style={styles.filters} />
         </div>
     </div>
 )
