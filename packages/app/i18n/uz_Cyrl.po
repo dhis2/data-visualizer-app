@@ -25,7 +25,7 @@ msgid "Data Visualizer"
 msgstr ""
 
 msgid "Data"
-msgstr ""
+msgstr "Маълумот"
 
 msgid "Data Type"
 msgstr ""
@@ -37,7 +37,7 @@ msgid "Search"
 msgstr "Излаш"
 
 msgid "Organisation units"
-msgstr ""
+msgstr "Ташкилий бирликлар"
 
 msgid "Period"
 msgstr ""
@@ -64,7 +64,7 @@ msgid "Download"
 msgstr "Юклаш"
 
 msgid "Graphics"
-msgstr ""
+msgstr "Графика"
 
 msgid "Image (.png)"
 msgstr ""
@@ -73,7 +73,7 @@ msgid "PDF (.pdf)"
 msgstr ""
 
 msgid "Plain data source"
-msgstr ""
+msgstr "Оддий маълумотлар манбаи"
 
 msgid "Advanced"
 msgstr ""
@@ -106,7 +106,7 @@ msgid "The following information may be requested by technical support."
 msgstr ""
 
 msgid "Hide"
-msgstr ""
+msgstr "Яшириш"
 
 msgid "Interpretations"
 msgstr "Шарҳлар"
@@ -121,7 +121,7 @@ msgid "Category"
 msgstr "Категория"
 
 msgid "Filter"
-msgstr ""
+msgstr "Фильтр"
 
 msgid "Move to"
 msgstr ""
@@ -139,7 +139,7 @@ msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
 msgid "Update"
-msgstr ""
+msgstr "Янгилаш"
 
 msgid "Chart error"
 msgstr ""
@@ -154,7 +154,7 @@ msgid "Aggregation type"
 msgstr "Бирлаштириш тури"
 
 msgid "By data element"
-msgstr ""
+msgstr "Маълумотлар элементи бўйича"
 
 msgid "Count"
 msgstr "Ҳисоблаш"
@@ -265,13 +265,13 @@ msgid "Show values"
 msgstr ""
 
 msgid "Sort order"
-msgstr ""
+msgstr "Саралаш тартиби"
 
 msgid "Low to high"
-msgstr ""
+msgstr "Пастдан юқорига"
 
 msgid "High to low"
-msgstr ""
+msgstr "Юқоридан пастга"
 
 msgid "Chart subtitle"
 msgstr ""
@@ -292,7 +292,7 @@ msgid "Axis & legend"
 msgstr ""
 
 msgid "Style"
-msgstr ""
+msgstr "Услуб"
 
 msgid "Options"
 msgstr "Вариант"
@@ -301,7 +301,7 @@ msgid "Chart options"
 msgstr ""
 
 msgid "Column"
-msgstr ""
+msgstr "Устун"
 
 msgid "Stacked column"
 msgstr ""
@@ -358,7 +358,7 @@ msgid "Indicators"
 msgstr "Индикаторлар"
 
 msgid "Select indicator group"
-msgstr ""
+msgstr "Индикатор гуруҳини танлаш"
 
 msgid "[ All groups ]"
 msgstr ""
@@ -367,19 +367,19 @@ msgid "Data elements"
 msgstr "Маълумот элементлари"
 
 msgid "Select data element group"
-msgstr ""
+msgstr "Маълумотлар элементи гуруҳини танлаш"
 
 msgid "[ All data elements ]"
 msgstr ""
 
 msgid "Totals"
-msgstr ""
+msgstr "Жами"
 
 msgid "Details"
 msgstr "Тафсилотлари"
 
 msgid "Data sets"
-msgstr ""
+msgstr "Маълумотлар тўплами"
 
 msgid "Select data sets"
 msgstr ""
@@ -449,13 +449,13 @@ msgid "Last 14 days"
 msgstr "Охирги 14 кун"
 
 msgid "This week"
-msgstr ""
+msgstr "Ушбу ҳафта"
 
 msgid "Last week"
-msgstr ""
+msgstr "Охирги ҳафта"
 
 msgid "Last 4 weeks"
-msgstr ""
+msgstr "Охирги 4 ҳафта"
 
 msgid "Last 12 weeks"
 msgstr "Охирги 12 ҳафта"
@@ -467,7 +467,7 @@ msgid "Weeks this year"
 msgstr "Ҳафталар айни йилда "
 
 msgid "This month"
-msgstr ""
+msgstr "Ушбу ой"
 
 msgid "Last month"
 msgstr "Охирги ой"
@@ -497,7 +497,7 @@ msgid "Bimonths this year"
 msgstr ""
 
 msgid "This quarter"
-msgstr ""
+msgstr "Ушбу квартал"
 
 msgid "Last quarter"
 msgstr "Охирги квартал"
@@ -509,7 +509,7 @@ msgid "Quarters this year"
 msgstr ""
 
 msgid "This six-month"
-msgstr ""
+msgstr "Ушбу ярим йиллик"
 
 msgid "Last six-month"
 msgstr "Охирги 6 ой"
@@ -518,7 +518,7 @@ msgid "Last 2 six-months"
 msgstr "Охирги 2 та 6 ойлик"
 
 msgid "This financial year"
-msgstr ""
+msgstr "Ушбу молиявий йил"
 
 msgid "Last financial year"
 msgstr "Охирги молиявий йил"
@@ -527,7 +527,7 @@ msgid "Last 5 financial years"
 msgstr "Охирги 5 молиявий йиллар"
 
 msgid "This year"
-msgstr ""
+msgstr "Ушбу йил"
 
 msgid "Last year"
 msgstr "Охирги йил"
@@ -536,7 +536,7 @@ msgid "Last 5 years"
 msgstr "Охирги 5 йил"
 
 msgid "User org unit"
-msgstr ""
+msgstr "Фойдаланувчи ташкилот бўлими"
 
 msgid "User org unit children"
 msgstr ""
