@@ -1,3 +1,10 @@
+## [35.12.23](https://github.com/dhis2/data-visualizer-app/compare/v35.12.22...v35.12.23) (2020-09-23)
+
+
+### Bug Fixes
+
+* layout width for pie layout ([#1302](https://github.com/dhis2/data-visualizer-app/issues/1302)) ([93e7eb8](https://github.com/dhis2/data-visualizer-app/commit/93e7eb84c13217ddb3bf60946db7be3719b00353))
+
 ## [35.12.22](https://github.com/dhis2/data-visualizer-app/compare/v35.12.21...v35.12.22) (2020-09-23)
 
 
