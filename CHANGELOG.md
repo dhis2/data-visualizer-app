@@ -1,3 +1,10 @@
+## [35.12.22](https://github.com/dhis2/data-visualizer-app/compare/v35.12.21...v35.12.22) (2020-09-23)
+
+
+### Bug Fixes
+
+* legend type spacing in SV options ([#1298](https://github.com/dhis2/data-visualizer-app/issues/1298)) ([4477292](https://github.com/dhis2/data-visualizer-app/commit/44772924d013d5a05c2ab5e95a2e614bb9621a42))
+
 ## [35.12.21](https://github.com/dhis2/data-visualizer-app/compare/v35.12.20...v35.12.21) (2020-09-23)
 
 
