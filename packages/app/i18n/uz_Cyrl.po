@@ -66,7 +66,7 @@ msgid "Plain data source"
 msgstr "Оддий маълумотлар манбаи"
 
 msgid "Advanced"
-msgstr ""
+msgstr "Илғор"
 
 msgid "Metadata ID scheme"
 msgstr ""
@@ -81,7 +81,7 @@ msgid "Name"
 msgstr "Исми"
 
 msgid "Data value set"
-msgstr ""
+msgstr "Маълумотлар қиймати ўрнатилган"
 
 msgid "JSON"
 msgstr ""
@@ -90,7 +90,7 @@ msgid "XML"
 msgstr ""
 
 msgid "Other formats"
-msgstr ""
+msgstr "Бошқа шакллар"
 
 msgid "JRXML"
 msgstr ""
@@ -102,7 +102,7 @@ msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr ""
 
 msgid "Something went wrong"
-msgstr ""
+msgstr "Нимадир нотўғри бажарилди"
 
 msgid "Refresh to try again"
 msgstr ""
@@ -120,7 +120,7 @@ msgid "Interpretations"
 msgstr "Шарҳлар"
 
 msgid "selected"
-msgstr ""
+msgstr "танланган"
 
 msgid "Series"
 msgstr ""
@@ -177,10 +177,10 @@ msgid "Sum"
 msgstr "Жамлаш"
 
 msgid "Last value"
-msgstr ""
+msgstr "Охирги қиймат"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr ""
+msgstr "Охирги қиймат (ташкилий бирликлар иерархияси ўртача қиймати)"
 
 msgid "Min"
 msgstr "Минимум"
@@ -225,7 +225,7 @@ msgid "Before first and after last"
 msgstr ""
 
 msgid "All"
-msgstr ""
+msgstr "Барчаси"
 
 msgid "Show legend key"
 msgstr ""
@@ -411,7 +411,7 @@ msgid "Please add {{data}} as a filter dimension"
 msgstr ""
 
 msgid "Today"
-msgstr ""
+msgstr "бугун"
 
 msgid "Yesterday"
 msgstr "Кеча"
@@ -483,7 +483,7 @@ msgid "Last 4 quarters"
 msgstr "Охирги 4 квартал"
 
 msgid "Quarters this year"
-msgstr ""
+msgstr "Ушбу йилдаги кварталлар"
 
 msgid "This six-month"
 msgstr "Ушбу ярим йиллик"
