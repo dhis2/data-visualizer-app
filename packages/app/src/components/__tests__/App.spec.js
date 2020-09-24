@@ -112,13 +112,32 @@ describe('App', () => {
             })
         })
 
-        it('reloads visualization when same pathname pushed', done => {
+        it('reloads visualization when opening the same visualization', done => {
             props.location.pathname = '/fluttershy'
 
             app()
 
             setTimeout(() => {
-                history.replace('/fluttershy')
+                history.replace({
+                    pathname: '/fluttershy',
+                    state: { isOpening: true },
+                })
+                expect(actions.tDoLoadVisualization).toBeCalledTimes(2)
+
+                done()
+            })
+        })
+
+        it('reloads visualization when same pathname pushed when saving', done => {
+            props.location.pathname = '/fluttershy'
+
+            app()
+
+            setTimeout(() => {
+                history.replace({
+                    pathname: '/fluttershy',
+                    state: { isSaving: true },
+                })
                 expect(actions.tDoLoadVisualization).toBeCalledTimes(2)
 
                 done()

@@ -82,7 +82,10 @@ export const getOptionsFromUi = ui => {
         'rangeAxisMaxValue',
     ].forEach(option => {
         if (Object.prototype.hasOwnProperty.call(optionsFromUi, option)) {
-            if (optionsFromUi[option] !== undefined) {
+            if (
+                optionsFromUi[option] !== undefined &&
+                optionsFromUi[option] !== ''
+            ) {
                 optionsFromUi[option] = Number(optionsFromUi[option])
             }
         }

@@ -36,15 +36,16 @@ export default () => [
         label: i18n.t('Data'),
         content: [
             {
-                key: 'data-section-1',
+                key: 'data-display',
+                label: i18n.t('Display'),
                 content: React.Children.toArray([
                     <ShowDimensionLabels />,
                     <SkipRounding />,
                 ]),
             },
             {
-                key: 'data-display-totals',
-                label: i18n.t('Display totals'),
+                key: 'data-totals',
+                label: i18n.t('Totals'),
                 content: React.Children.toArray([
                     <ColTotals />,
                     <ColSubTotals />,
@@ -53,8 +54,8 @@ export default () => [
                 ]),
             },
             {
-                key: 'data-display-empty-data',
-                label: i18n.t('Display empty data'),
+                key: 'data-empty-data',
+                label: i18n.t('Empty data'),
                 content: React.Children.toArray([
                     <HideEmptyColumns />,
                     <HideEmptyRows />,

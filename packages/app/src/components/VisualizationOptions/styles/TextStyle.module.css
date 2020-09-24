@@ -1,5 +1,6 @@
 .container {
     display: flex;
+    position: relative;
     margin: var(--spacers-dp8) 0;
 }
 

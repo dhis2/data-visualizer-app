@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-08-28T12:56:12.965Z\n"
-"PO-Revision-Date: 2020-08-28T12:56:12.965Z\n"
+"POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
+"PO-Revision-Date: 2020-09-21T14:48:25.130Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -309,7 +309,7 @@ msgstr ""
 msgid "Color blind"
 msgstr ""
 
-msgid "Mono patterns"
+msgid "Patterns"
 msgstr ""
 
 msgid "Event data"
@@ -527,6 +527,14 @@ msgid "No Series options"
 msgstr ""
 
 msgid "There aren't any Series options for this visualization type"
+msgstr ""
+
+msgid "Series options unavailable"
+msgstr ""
+
+msgid ""
+"Series options are not available when using relative selections for "
+"periods, org units or categories"
 msgstr ""
 
 msgid "Value labels"
@@ -815,10 +823,10 @@ msgstr ""
 msgid "Vertical (y) axis"
 msgstr ""
 
-msgid "Display totals"
+msgid "Totals"
 msgstr ""
 
-msgid "Display empty data"
+msgid "Empty data"
 msgstr ""
 
 msgid "Table title"
