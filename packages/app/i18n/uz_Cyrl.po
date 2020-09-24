@@ -28,7 +28,7 @@ msgid "You have unsaved changes."
 msgstr ""
 
 msgid "Discard unsaved changes?"
-msgstr ""
+msgstr "Сақланмаган ўзгаришлар бекор қилинсинми?"
 
 msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
@@ -126,7 +126,7 @@ msgid "CSV"
 msgstr ""
 
 msgid "Advanced"
-msgstr ""
+msgstr "Илғор"
 
 msgid "Metadata ID scheme"
 msgstr ""
@@ -141,10 +141,10 @@ msgid "Name"
 msgstr "Исми"
 
 msgid "Data value set"
-msgstr ""
+msgstr "Маълумотлар қиймати ўрнатилган"
 
 msgid "Other formats"
-msgstr ""
+msgstr "Бошқа шакллар"
 
 msgid "JRXML"
 msgstr ""
@@ -251,10 +251,10 @@ msgid "Sum"
 msgstr "Жамлаш"
 
 msgid "Last value"
-msgstr ""
+msgstr "Охирги қиймат"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr ""
+msgstr "Охирги қиймат (ташкилий бирликлар иерархияси ўртача қиймати)"
 
 msgid "Min"
 msgstr "Минимум"
@@ -269,7 +269,7 @@ msgid "Variance"
 msgstr "Номувофиқлик"
 
 msgid "Data approved at level"
-msgstr ""
+msgstr "Маълумотлар тасдиқланган даража"
 
 msgid "Select from predefined levels"
 msgstr ""
@@ -290,7 +290,7 @@ msgid "Value"
 msgstr "Қиймат"
 
 msgid "Title"
-msgstr ""
+msgstr "Сарлавҳа"
 
 msgid "Base line title"
 msgstr ""
@@ -323,10 +323,10 @@ msgid "None"
 msgstr "Йўқ"
 
 msgid "Space"
-msgstr ""
+msgstr "Оралиқ (майдон)"
 
 msgid "Comma"
-msgstr ""
+msgstr "Вергул"
 
 msgid "Display density"
 msgstr "Кўриниш зичлиги"
@@ -371,7 +371,7 @@ msgid "Before first and after last"
 msgstr ""
 
 msgid "All"
-msgstr ""
+msgstr "Барчаси"
 
 msgid "Hide empty rows"
 msgstr "Бўш қаторларни беркитиш"
@@ -392,7 +392,7 @@ msgid "Custom"
 msgstr "Одатий"
 
 msgid "Table title"
-msgstr ""
+msgstr "Жадвал сарлавҳаси"
 
 msgid "Chart title"
 msgstr ""
@@ -401,7 +401,7 @@ msgid "Display legend"
 msgstr ""
 
 msgid "Legend style"
-msgstr ""
+msgstr "Таъриф тури"
 
 msgid "Legend type"
 msgstr ""
@@ -419,7 +419,7 @@ msgid "Legend changes text color"
 msgstr ""
 
 msgid "Legend"
-msgstr ""
+msgstr "Таъриф"
 
 msgid "Select from legends"
 msgstr ""
@@ -451,10 +451,10 @@ msgid "Display the value of percentages of the total"
 msgstr ""
 
 msgid "Percentage of row"
-msgstr ""
+msgstr "Қатор фоизи"
 
 msgid "Percentage of column"
-msgstr ""
+msgstr "Устун фоизи"
 
 msgid "Organisation unit"
 msgstr "Ташкилий бирлик"
@@ -513,7 +513,7 @@ msgid "Display organisation unit hierarchy"
 msgstr ""
 
 msgid "Skip rounding"
-msgstr ""
+msgstr "Соддалаштириш ўтказиб юборилсин"
 
 msgid "Custom sort order"
 msgstr ""
@@ -628,13 +628,13 @@ msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr ""
 
 msgid "Something went wrong"
-msgstr ""
+msgstr "Нимадир нотўғри бажарилди"
 
 msgid "or"
 msgstr ""
 
 msgid "Today"
-msgstr ""
+msgstr "бугун"
 
 msgid "Yesterday"
 msgstr "Кеча"
@@ -706,7 +706,7 @@ msgid "Last 4 quarters"
 msgstr "Охирги 4 квартал"
 
 msgid "Quarters this year"
-msgstr ""
+msgstr "Ушбу йилдаги кварталлар"
 
 msgid "This six-month"
 msgstr "Ушбу ярим йиллик"
