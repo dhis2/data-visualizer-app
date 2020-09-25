@@ -1,3 +1,10 @@
+## [33.1.20](https://github.com/dhis2/data-visualizer-app/compare/v33.1.19...v33.1.20) (2020-09-25)
+
+
+### Bug Fixes
+
+* rich text parsing issue (DHIS2-9382) v33 ([#1264](https://github.com/dhis2/data-visualizer-app/issues/1264)) ([91c76cf](https://github.com/dhis2/data-visualizer-app/commit/91c76cfe191731bf9e03ec73e91caa17231934de)), closes [dhis2/d2-ui#624](https://github.com/dhis2/d2-ui/issues/624)
+
 ## [33.1.19](https://github.com/dhis2/data-visualizer-app/compare/v33.1.18...v33.1.19) (2020-09-25)
 
 
