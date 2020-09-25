@@ -1,3 +1,11 @@
+## [34.6.25](https://github.com/dhis2/data-visualizer-app/compare/v34.6.24...v34.6.25) (2020-09-25)
+
+
+### Bug Fixes
+
+* rich text parsing issue (DHIS2-9382) ([#1263](https://github.com/dhis2/data-visualizer-app/issues/1263)) ([f8b2f88](https://github.com/dhis2/data-visualizer-app/commit/f8b2f88358c92acd57d39e88c560a27f60b29d2e)), closes [dhis2/d2-ui#624](https://github.com/dhis2/d2-ui/issues/624)
+* set a default name if saved vis is untitled ([#1314](https://github.com/dhis2/data-visualizer-app/issues/1314)) ([41c264e](https://github.com/dhis2/data-visualizer-app/commit/41c264e74cb28812c071016fd412015cab8b6935)), closes [#1273](https://github.com/dhis2/data-visualizer-app/issues/1273)
+
 ## [34.6.24](https://github.com/dhis2/data-visualizer-app/compare/v34.6.23...v34.6.24) (2020-09-24)
 
 
