@@ -5,10 +5,13 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-09-10T12:10:24.719Z\n"
-"PO-Revision-Date: 2020-09-10T12:10:24.719Z\n"
+"POT-Creation-Date: 2020-09-25T09:27:28.489Z\n"
+"PO-Revision-Date: 2020-09-25T09:27:28.489Z\n"
 
 msgid "Rename successful"
+msgstr ""
+
+msgid "Untitled {{visualizationType}} visualization, {{date}}"
 msgstr ""
 
 msgid "\"{{what}}\" successfully deleted."
@@ -237,7 +240,7 @@ msgstr ""
 msgid "All"
 msgstr ""
 
-msgid "Hide chart legend"
+msgid "Show legend key"
 msgstr ""
 
 msgid "Hide subtitle"

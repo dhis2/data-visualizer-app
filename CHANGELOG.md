@@ -1,3 +1,34 @@
+## [33.1.19](https://github.com/dhis2/data-visualizer-app/compare/v33.1.18...v33.1.19) (2020-09-25)
+
+
+### Bug Fixes
+
+* set a default name if saved vis is untitled (DHIS2-9360) v33 ([#1259](https://github.com/dhis2/data-visualizer-app/issues/1259)) ([263f328](https://github.com/dhis2/data-visualizer-app/commit/263f328a4a1c80698f6e9803f098db4e13fa015a)), closes [#1314](https://github.com/dhis2/data-visualizer-app/issues/1314)
+* **translations:** sync translations from transifex (33.x) ([086b12c](https://github.com/dhis2/data-visualizer-app/commit/086b12ce65078a5852d420e6d01fb75d8adf2e6b))
+
+## [33.1.18](https://github.com/dhis2/data-visualizer-app/compare/v33.1.17...v33.1.18) (2020-09-23)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (33.x) ([931d27f](https://github.com/dhis2/data-visualizer-app/commit/931d27ff7ab9d5a195cadcb5286db7b16d37ee4f))
+
+## [33.1.17](https://github.com/dhis2/data-visualizer-app/compare/v33.1.16...v33.1.17) (2020-09-21)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (33.x) ([0604f41](https://github.com/dhis2/data-visualizer-app/commit/0604f41b7298b61da948681751c7db2b7b5a9b98))
+* **translations:** sync translations from transifex (33.x) ([afa126d](https://github.com/dhis2/data-visualizer-app/commit/afa126db6f5647f0a7ee82d7165b8e2dea24b314))
+
+## [33.1.16](https://github.com/dhis2/data-visualizer-app/compare/v33.1.15...v33.1.16) (2020-09-16)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (33.x) ([3a22486](https://github.com/dhis2/data-visualizer-app/commit/3a22486ceabd94105ddb51cbab50d6f0ee70e9cf))
+* rename and invert the hide legend option ([#1152](https://github.com/dhis2/data-visualizer-app/issues/1152)) (DHIS2-9003) v33 ([#1256](https://github.com/dhis2/data-visualizer-app/issues/1256)) ([4c60c36](https://github.com/dhis2/data-visualizer-app/commit/4c60c367b95f3815380023b85203d2247e4310b8))
+
 ## [33.1.15](https://github.com/dhis2/data-visualizer-app/compare/v33.1.14...v33.1.15) (2020-09-09)
 
 
