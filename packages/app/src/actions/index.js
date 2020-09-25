@@ -163,7 +163,11 @@ export const tDoSaveVisualization = (
         }
 
         visualization.name =
+            // name provided in the Save dialog
             name ||
+            // existing name when saving the same modified visualization
+            visualization.name ||
+            // new visualization with no name provided in Save dialog
             i18n.t('Untitled {{visualizationType}} visualization, {{date}}', {
                 visualizationType: getChartTypeDisplayName(visualization.type),
                 date: new Date().toLocaleDateString(undefined, {
