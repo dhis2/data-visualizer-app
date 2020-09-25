@@ -1,3 +1,11 @@
+## [33.1.19](https://github.com/dhis2/data-visualizer-app/compare/v33.1.18...v33.1.19) (2020-09-25)
+
+
+### Bug Fixes
+
+* set a default name if saved vis is untitled (DHIS2-9360) v33 ([#1259](https://github.com/dhis2/data-visualizer-app/issues/1259)) ([263f328](https://github.com/dhis2/data-visualizer-app/commit/263f328a4a1c80698f6e9803f098db4e13fa015a)), closes [#1314](https://github.com/dhis2/data-visualizer-app/issues/1314)
+* **translations:** sync translations from transifex (33.x) ([086b12c](https://github.com/dhis2/data-visualizer-app/commit/086b12ce65078a5852d420e6d01fb75d8adf2e6b))
+
 ## [33.1.18](https://github.com/dhis2/data-visualizer-app/compare/v33.1.17...v33.1.18) (2020-09-23)
 
 
