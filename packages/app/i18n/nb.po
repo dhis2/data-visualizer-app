@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-09-09T09:01:48.270Z\n"
+"POT-Creation-Date: 2020-09-25T09:27:28.489Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -19,6 +19,9 @@ msgstr ""
 
 msgid "Rename successful"
 msgstr "Navneendring vellykket"
+
+msgid "Untitled {{visualizationType}} visualization, {{date}}"
+msgstr "{{visualizationType}} visualisering uten navn, {{date}}"
 
 msgid "\"{{what}}\" successfully deleted."
 msgstr "Sletting av \"{{what}}\" var vellykket."
@@ -280,20 +283,15 @@ msgstr "Verdiaksens maksimumsverdi"
 msgid "Range axis min"
 msgstr "Verdiaksens minimumsverdi"
 
+msgid "Range axis tick steps"
+msgstr "Antall datapunkter for verdiaksen"
+
 msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
 msgstr ""
 "Antall trinn for akse-kryss, inkludert min og maks. En verdi på 2 eller "
 "lavere vil bli ignorert."
-
-msgid "Range axis tick steps"
-msgstr "Antall datapunkter for verdiaksen"
-
-msgid "Tick steps may extend the chart beyond 'Range axis max'"
-msgstr ""
-"Et stort antall datapunkter kan utvide diagrammet utover verdiaksens "
-"maksimumsverdi"
 
 msgid "Trend line"
 msgstr "Trendlinje"

@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-09-09T09:01:48.270Z\n"
+"POT-Creation-Date: 2020-09-25T09:27:28.489Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: Ge Joao <gsimango@saudigitus.org>, 2020\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
@@ -21,6 +21,9 @@ msgstr ""
 
 msgid "Rename successful"
 msgstr "Renomeado com sucesso"
+
+msgid "Untitled {{visualizationType}} visualization, {{date}}"
+msgstr ""
 
 msgid "\"{{what}}\" successfully deleted."
 msgstr "\"{{O que}}\" excluído com sucesso."
@@ -280,17 +283,13 @@ msgstr "Max. Eixo da faixa"
 msgid "Range axis min"
 msgstr "Min. Eixo da faixa"
 
+msgid "Range axis tick steps"
+msgstr "Etapas de escala do eixo da faixa"
+
 msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
 msgstr ""
-
-msgid "Range axis tick steps"
-msgstr "Etapas de escala do eixo da faixa"
-
-msgid "Tick steps may extend the chart beyond 'Range axis max'"
-msgstr ""
-"As etapas de marcação podem estender o gráfico além de 'Max. Eixo da faixa'"
 
 msgid "Trend line"
 msgstr "Linha de tendência"

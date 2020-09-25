@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-09-09T09:01:48.270Z\n"
+"POT-Creation-Date: 2020-09-25T09:27:28.489Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2020\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
@@ -18,6 +18,9 @@ msgstr ""
 
 msgid "Rename successful"
 msgstr "Penamaan ulang berhasil"
+
+msgid "Untitled {{visualizationType}} visualization, {{date}}"
+msgstr ""
 
 msgid "\"{{what}}\" successfully deleted."
 msgstr "\"{{what}}\" berhasil dihapus."
@@ -279,16 +282,13 @@ msgstr "Maksimal jangkauan aksis"
 msgid "Range axis min"
 msgstr "Minimal jangkauan aksis"
 
+msgid "Range axis tick steps"
+msgstr "Tanda jangkauan aksis"
+
 msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
 msgstr ""
-
-msgid "Range axis tick steps"
-msgstr "Tanda jangkauan aksis"
-
-msgid "Tick steps may extend the chart beyond 'Range axis max'"
-msgstr "Tanda aksis dapat melebihi 'Maksimal jangkauan aksis' dalam grafik"
 
 msgid "Trend line"
 msgstr "Garis tren"

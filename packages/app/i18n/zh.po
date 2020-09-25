@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-09-09T09:01:48.270Z\n"
+"POT-Creation-Date: 2020-09-25T09:27:28.489Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2020\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -20,6 +20,9 @@ msgstr ""
 
 msgid "Rename successful"
 msgstr "重命名成功"
+
+msgid "Untitled {{visualizationType}} visualization, {{date}}"
+msgstr "无标题的{{visualizationType}}可视化，{{date}}"
 
 msgid "\"{{what}}\" successfully deleted."
 msgstr "\"{{what}}\" 被成功删除"
@@ -277,16 +280,13 @@ msgstr "横轴最多区间"
 msgid "Range axis min"
 msgstr "横轴最小值"
 
+msgid "Range axis tick steps"
+msgstr "横轴单位间隔"
+
 msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
 msgstr "轴刻度步数，包括最小值和最大值。小于等于2的值将被忽略。"
-
-msgid "Range axis tick steps"
-msgstr "横轴单位间隔"
-
-msgid "Tick steps may extend the chart beyond 'Range axis max'"
-msgstr "单位间隔可以扩展到最大值之外"
 
 msgid "Trend line"
 msgstr "趋势线"
