@@ -110,35 +110,44 @@ const Chip = ({
     )
 
     const renderTooltipContent = () => {
-        if (dimensionId !== DIMENSION_ID_ASSIGNED_CATEGORIES) {
-            const activeItemIds = getMaxNumberOfItems()
-                ? items.slice(0, getMaxNumberOfItems())
-                : items
+        const activeItemIds = getMaxNumberOfItems()
+            ? items.slice(0, getMaxNumberOfItems())
+            : items
 
-            const lockedLabel = isLocked()
-                ? i18n.t(
-                      `{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}`,
-                      {
-                          dimensionName: dimensionName,
-                          axisName: getAxisNameByLayoutType(
-                              axisId,
-                              getLayoutTypeByVisType(type)
-                          ),
-                          visTypeName: getDisplayNameByVisType(type),
-                      }
-                  )
-                : null
+        const lockedLabel = isLocked()
+            ? i18n.t(
+                  `{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}`,
+                  {
+                      dimensionName: dimensionName,
+                      axisName: getAxisNameByLayoutType(
+                          axisId,
+                          getLayoutTypeByVisType(type)
+                      ),
+                      visTypeName: getDisplayNameByVisType(type),
+                  }
+              )
+            : null
 
-            return (
-                <TooltipContent
-                    dimensionId={dimensionId}
-                    itemIds={activeItemIds}
-                    lockedLabel={lockedLabel}
-                    displayLimitedAmount={items.length > activeItemIds.length}
-                />
-            )
-        }
+        return (
+            <TooltipContent
+                dimensionId={dimensionId}
+                itemIds={activeItemIds}
+                lockedLabel={lockedLabel}
+                displayLimitedAmount={items.length > activeItemIds.length}
+            />
+        )
     }
+
+    const renderChipContent = () => (
+        <>
+            <div style={styles.iconWrapper}>{renderChipIcon()}</div>
+            <span style={styles.label}>{dimensionName}</span>
+            <span>{renderChipLabelSuffix()}</span>
+            {hasAxisTooManyItems(type, axisId, items.length) &&
+                WarningIconWrapper}
+            {isLocked() && LockIconWrapper}
+        </>
+    )
 
     return (
         <div
@@ -147,25 +156,26 @@ const Chip = ({
             draggable={!isLocked()}
             onDragStart={getDragStartHandler()}
         >
-            <Tooltip content={renderTooltipContent()} placement="bottom">
-                {({ ref, onMouseOver, onMouseOut }) => (
-                    <div
-                        id={id}
-                        style={styles.chipLeft}
-                        onClick={handleClick}
-                        ref={ref}
-                        onMouseOver={onMouseOver}
-                        onMouseOut={onMouseOut}
-                    >
-                        <div style={styles.iconWrapper}>{renderChipIcon()}</div>
-                        <span style={styles.label}>{dimensionName}</span>
-                        <span>{renderChipLabelSuffix()}</span>
-                        {hasAxisTooManyItems(type, axisId, items.length) &&
-                            WarningIconWrapper}
-                        {isLocked() && LockIconWrapper}
-                    </div>
-                )}
-            </Tooltip>
+            {dimensionId !== DIMENSION_ID_ASSIGNED_CATEGORIES ? (
+                <Tooltip content={renderTooltipContent()} placement="bottom">
+                    {({ ref, onMouseOver, onMouseOut }) => (
+                        <div
+                            id={id}
+                            style={styles.chipLeft}
+                            onClick={handleClick}
+                            ref={ref}
+                            onMouseOver={onMouseOver}
+                            onMouseOut={onMouseOut}
+                        >
+                            {renderChipContent()}
+                        </div>
+                    )}
+                </Tooltip>
+            ) : (
+                <div id={id} style={styles.chipLeft} onClick={handleClick}>
+                    {renderChipContent()}
+                </div>
+            )}
             {!isLocked() && renderMenu()}
         </div>
     )
