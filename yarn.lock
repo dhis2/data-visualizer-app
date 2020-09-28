@@ -1233,24 +1233,6 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@4.5.11":
-  version "4.5.11"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.5.11.tgz#6328e9cefe88f3cb70595cafe7d6503c7c8b1e6e"
-  integrity sha512-7g6DWf//ZgR11mFvlSf7wGplTCFEOhVhjA/G4eNmgkT5knZO8yCdN1qbCT4p2L3HOH3MSdGWPPdCU+72Af84lg==
-  dependencies:
-    "@dhis2/d2-ui-org-unit-dialog" "^7.0.4"
-    "@dhis2/ui-core" "^4.16.0"
-    "@material-ui/core" "^3.9.3"
-    "@material-ui/icons" "^3.0.2"
-    classnames "^2.2.6"
-    d2-utilizr "^0.2.16"
-    d3-color "^1.2.3"
-    highcharts "^7.2.1"
-    lodash "^4.17.13"
-    react-beautiful-dnd "^10.1.1"
-    resize-observer-polyfill "^1.5.1"
-    styled-jsx "^3.2.1"
-
 "@dhis2/analytics@4.x":
   version "4.5.12"
   resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.5.12.tgz#2c3a02cdbcf5da45a466899e977c020f8bd8011c"
