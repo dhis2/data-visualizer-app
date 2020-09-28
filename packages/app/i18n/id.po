@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-09-09T11:24:52.544Z\n"
+"POT-Creation-Date: 2020-09-09T14:22:42.172Z\n"
 "PO-Revision-Date: 2020-03-02 13:01+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
@@ -762,14 +762,8 @@ msgstr "Data"
 msgid "Display"
 msgstr ""
 
-msgid "Lines"
-msgstr "Garis"
-
 msgid "Axes"
 msgstr "Sumbu"
-
-msgid "Vertical (y) axis"
-msgstr "Sumbu Y"
 
 msgid "Horizontal (x) axis"
 msgstr "sumbu X"
@@ -782,6 +776,12 @@ msgstr "tipe grafik"
 
 msgid "Titles"
 msgstr "Judul"
+
+msgid "Lines"
+msgstr "Garis"
+
+msgid "Vertical (y) axis"
+msgstr "Sumbu Y"
 
 msgid "Display totals"
 msgstr "Munculkan total"
@@ -803,6 +803,12 @@ msgstr ""
 
 msgid "Parameters"
 msgstr "Parameter"
+
+msgid "Lines are not supported yet when using multiple axes"
+msgstr ""
+
+msgid "Vertical axis options are not supported yet when using multiple axes"
+msgstr ""
 
 msgid "Weeks per year"
 msgstr "Minggu per tahun"

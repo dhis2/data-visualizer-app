@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-09-09T11:24:52.544Z\n"
+"POT-Creation-Date: 2020-09-09T14:22:42.172Z\n"
 "PO-Revision-Date: 2020-03-02 13:01+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -776,14 +776,8 @@ msgstr "Data"
 msgid "Display"
 msgstr "Vis"
 
-msgid "Lines"
-msgstr "Linjer"
-
 msgid "Axes"
 msgstr "Akser"
-
-msgid "Vertical (y) axis"
-msgstr "Vertical (y) axis"
 
 msgid "Horizontal (x) axis"
 msgstr "Horisontal (x) akse"
@@ -796,6 +790,12 @@ msgstr "Diagramstil"
 
 msgid "Titles"
 msgstr "Titler"
+
+msgid "Lines"
+msgstr "Linjer"
+
+msgid "Vertical (y) axis"
+msgstr "Vertical (y) axis"
 
 msgid "Display totals"
 msgstr "Vis totalsummer"
@@ -817,6 +817,13 @@ msgstr "Begrens minimum/maksimumsverdier"
 
 msgid "Parameters"
 msgstr "Parametere"
+
+msgid "Lines are not supported yet when using multiple axes"
+msgstr "Linjer støttes ikke ennå ved bruk av flere akser"
+
+msgid "Vertical axis options are not supported yet when using multiple axes"
+msgstr ""
+"Alternativer for vertikal akse støttes ikke ennå ved bruk av flere akser"
 
 msgid "Weeks per year"
 msgstr "Uker per år"
