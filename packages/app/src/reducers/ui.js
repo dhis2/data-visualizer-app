@@ -288,11 +288,11 @@ export const sGetUiParentGraphMap = state => sGetUi(state).parentGraphMap
 export const sGetUiActiveModalDialog = state => sGetUi(state).activeModalDialog
 export const sGetUiRightSidebarOpen = state => sGetUi(state).rightSidebarOpen
 export const sGetUiInterpretation = state => sGetUi(state).interpretation
-export const sGetAxes = state => sGetUi(state).axes
+export const sGetAxes = state => sGetUi(state).axes || {}
 
 // Selectors level 2
 
-export const getAxisIdByDimensionId = (state, dimensionId) =>
+export const sGetAxisIdByDimensionId = (state, dimensionId) =>
     (getInverseLayout(sGetUiLayout(state)) || {})[dimensionId]
 
 export const sGetUiItemsByDimension = (state, dimension) =>

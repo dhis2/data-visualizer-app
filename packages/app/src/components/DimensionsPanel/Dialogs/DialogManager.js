@@ -41,7 +41,7 @@ import {
     sGetUiActiveModalDialog,
     sGetUiParentGraphMap,
     sGetUiType,
-    getAxisIdByDimensionId,
+    sGetAxisIdByDimensionId,
     sGetDimensionIdsFromLayout,
 } from '../../../reducers/ui'
 import { sGetDimensions } from '../../../reducers/dimensions'
@@ -383,7 +383,7 @@ const mapStateToProps = state => ({
     selectedItems: sGetUiItems(state),
     type: sGetUiType(state),
     getAxisIdByDimensionId: dimensionId =>
-        getAxisIdByDimensionId(state, dimensionId),
+        sGetAxisIdByDimensionId(state, dimensionId),
     dimensionIdsInLayout: sGetDimensionIdsFromLayout(state),
 })
 

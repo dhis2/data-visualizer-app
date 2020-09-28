@@ -134,8 +134,8 @@ describe('DV > Options > TextBaseOption', () => {
             expect(textBaseOption(props).find(InputField)).toHaveLength(0)
         })
 
-        it('does render a <InputField /> when the checkbox is enabled', () => {
-            props.enabled = true
+        it('does render a <InputField /> when the checkbox is checked', () => {
+            props.checked = true
 
             const text = textBaseOption(props)
             expect(text.find(InputField)).toHaveLength(1)

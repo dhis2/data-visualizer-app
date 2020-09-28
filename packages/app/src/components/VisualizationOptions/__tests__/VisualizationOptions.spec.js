@@ -23,6 +23,7 @@ describe('VisualizationOptions', () => {
     beforeEach(() => {
         props = {
             visualizationType: 'COLUMN',
+            optionalAxes: {},
         }
 
         shallowVisualizationOptions = undefined

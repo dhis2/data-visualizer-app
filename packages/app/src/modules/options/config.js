@@ -23,31 +23,31 @@ import pieConfig from './pieConfig'
 import gaugeConfig from './gaugeConfig'
 import singleValueConfig from './singleValueConfig'
 
-export const getOptionsByType = type => {
+export const getOptionsByType = (type, hasCustomAxes) => {
     switch (type) {
         case VIS_TYPE_COLUMN:
         case VIS_TYPE_BAR:
         case VIS_TYPE_YEAR_OVER_YEAR_LINE:
         case VIS_TYPE_YEAR_OVER_YEAR_COLUMN:
-            return columnConfig
+            return columnConfig(hasCustomAxes)
         case VIS_TYPE_STACKED_COLUMN:
         case VIS_TYPE_STACKED_BAR:
-            return stackedColumnConfig
+            return stackedColumnConfig(hasCustomAxes)
         case VIS_TYPE_LINE:
         case VIS_TYPE_RADAR:
-            return lineConfig
+            return lineConfig(hasCustomAxes)
         case VIS_TYPE_AREA:
-            return areaConfig
+            return areaConfig(hasCustomAxes)
         case VIS_TYPE_GAUGE:
-            return gaugeConfig
+            return gaugeConfig(hasCustomAxes)
         case VIS_TYPE_PIE:
-            return pieConfig
+            return pieConfig(hasCustomAxes)
         case VIS_TYPE_SINGLE_VALUE:
-            return singleValueConfig
+            return singleValueConfig(hasCustomAxes)
         case VIS_TYPE_PIVOT_TABLE:
-            return pivotTableConfig
+            return pivotTableConfig(hasCustomAxes)
         default:
             // return all the options
-            return stackedColumnConfig
+            return stackedColumnConfig(hasCustomAxes)
     }
 }
