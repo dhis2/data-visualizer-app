@@ -1,3 +1,10 @@
+## [35.12.28](https://github.com/dhis2/data-visualizer-app/compare/v35.12.27...v35.12.28) (2020-09-28)
+
+
+### Bug Fixes
+
+* prevent empty content for ac with conditional rendering ([#1315](https://github.com/dhis2/data-visualizer-app/issues/1315)) ([dbe7b28](https://github.com/dhis2/data-visualizer-app/commit/dbe7b28252f37fd8c95fdae6fa38872fb05c5faa))
+
 ## [35.12.27](https://github.com/dhis2/data-visualizer-app/compare/v35.12.26...v35.12.27) (2020-09-25)
 
 
