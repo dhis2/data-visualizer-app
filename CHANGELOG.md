@@ -1,3 +1,11 @@
+## [34.6.27](https://github.com/dhis2/data-visualizer-app/compare/v34.6.26...v34.6.27) (2020-09-28)
+
+
+### Bug Fixes
+
+* disable lines and vertical axis options for multi axes (DHIS2-9010, DHIS2-9013, DHIS2-9014) ([#1171](https://github.com/dhis2/data-visualizer-app/issues/1171)) v34 ([#1220](https://github.com/dhis2/data-visualizer-app/issues/1220)) ([8acbe7f](https://github.com/dhis2/data-visualizer-app/commit/8acbe7f070aca91408762bff15368d95024922e5))
+* upgrade analytics to 4.5.11 (use .x version range) ([#1327](https://github.com/dhis2/data-visualizer-app/issues/1327)) ([b0ac818](https://github.com/dhis2/data-visualizer-app/commit/b0ac818fb5cbae716f23face552cf571084afbe8))
+
 ## [34.6.26](https://github.com/dhis2/data-visualizer-app/compare/v34.6.25...v34.6.26) (2020-09-25)
 
 
