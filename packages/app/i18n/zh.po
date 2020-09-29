@@ -2,15 +2,15 @@
 # Translators:
 # phil_dhis2, 2020
 # 晓东 林 <13981924470@126.com>, 2020
-# easylin <lin_xd@126.com>, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
+# easylin <lin_xd@126.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2020\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -197,7 +197,7 @@ msgstr "选择年份"
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
-msgstr ""
+msgstr "无法删除此可视化，因为它已在一个或多个仪表板上使用"
 
 msgid "Unsaved visualization"
 msgstr "没有保存可视化"
@@ -322,7 +322,7 @@ msgid "Color blind"
 msgstr "色盲"
 
 msgid "Patterns"
-msgstr ""
+msgstr "模式"
 
 msgid "Event data"
 msgstr "事件数据"
@@ -542,12 +542,12 @@ msgid "There aren't any Series options for this visualization type"
 msgstr "该可视化类型没有任何系列选项"
 
 msgid "Series options unavailable"
-msgstr ""
+msgstr "系列选项不可用"
 
 msgid ""
 "Series options are not available when using relative selections for periods,"
 " org units or categories"
-msgstr ""
+msgstr "在对期间，组织单位或类别使用相对选择时，系列选项不可用"
 
 msgid "Value labels"
 msgstr "值标签"
@@ -844,7 +844,7 @@ msgid "Totals"
 msgstr "总共"
 
 msgid "Empty data"
-msgstr ""
+msgstr "空数据"
 
 msgid "Table title"
 msgstr "表标题"
