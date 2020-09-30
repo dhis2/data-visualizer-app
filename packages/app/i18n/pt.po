@@ -53,7 +53,7 @@ msgid "Deselect All"
 msgstr "Desmarcar todos"
 
 msgid "Select All"
-msgstr ""
+msgstr "Selecionar todos "
 
 msgid "Remove"
 msgstr "Remover"
