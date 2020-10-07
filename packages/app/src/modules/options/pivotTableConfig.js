@@ -28,7 +28,7 @@ import TopLimit from '../../components/VisualizationOptions/Options/TopLimit'
 import ApprovalLevel from '../../components/VisualizationOptions/Options/ApprovalLevel'
 import ShowHierarchy from '../../components/VisualizationOptions/Options/ShowHierarchy'
 import CompletedOnly from '../../components/VisualizationOptions/Options/CompletedOnly'
-import SeriesTable from '../../components/VisualizationOptions/Options/SeriesTable'
+import getSeriesTab from './tabs/series'
 
 export default () => [
     {
@@ -83,16 +83,7 @@ export default () => [
             },
         ],
     },
-    {
-        key: 'series-tab',
-        label: i18n.t('Series'),
-        content: [
-            {
-                key: 'series-table',
-                content: React.Children.toArray([<SeriesTable />]),
-            },
-        ],
-    },
+    getSeriesTab(),
     {
         key: 'style-tab',
         label: i18n.t('Style'),

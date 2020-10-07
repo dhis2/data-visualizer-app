@@ -12,11 +12,11 @@ import HideLegend from '../../components/VisualizationOptions/Options/HideLegend
 import HideTitle from '../../components/VisualizationOptions/Options/HideTitle'
 import HideSubtitle from '../../components/VisualizationOptions/Options/HideSubtitle'
 import CompletedOnly from '../../components/VisualizationOptions/Options/CompletedOnly'
-import SeriesTable from '../../components/VisualizationOptions/Options/SeriesTable'
+import CategoryAxisLabels from '../../components/VisualizationOptions/Options/CategoryAxisLabels'
 import getLinesSection from './sections/lines'
 import getVerticalAxisSection from './sections/verticalAxis'
-import CategoryAxisLabels from '../../components/VisualizationOptions/Options/CategoryAxisLabels'
 import getColorSetSection from './sections/colorSet'
+import getSeriesTab from './tabs/series'
 
 export default hasCustomAxes => [
     {
@@ -58,18 +58,7 @@ export default hasCustomAxes => [
             },
         ],
     },
-    {
-        key: 'series-tab',
-        label: i18n.t('Series'),
-        content: [
-            {
-                key: 'series-table',
-                content: React.Children.toArray([
-                    <SeriesTable showAxisOptions />,
-                ]),
-            },
-        ],
-    },
+    getSeriesTab({ showAxisOptions: true }),
     {
         key: 'style-tab',
         label: i18n.t('Style'),
