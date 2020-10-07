@@ -207,7 +207,7 @@ msgid "Use cumulative values"
 msgstr ""
 
 msgid "Domain axis title"
-msgstr ""
+msgstr "Тегишли соҳа ўқи сарлавҳаси"
 
 msgid "Hide empty categories"
 msgstr ""
@@ -249,7 +249,7 @@ msgid "Range axis decimals"
 msgstr ""
 
 msgid "Range axis title"
-msgstr ""
+msgstr "Танлов соҳаси ўқи сарлавҳаси"
 
 msgid "Range axis max"
 msgstr ""
@@ -278,7 +278,7 @@ msgid "Loess"
 msgstr ""
 
 msgid "Show values"
-msgstr ""
+msgstr "Қийматлар кўрсатилсин"
 
 msgid "Sort order"
 msgstr "Саралаш тартиби"
@@ -299,7 +299,7 @@ msgid "Target line title"
 msgstr ""
 
 msgid "Target line value"
-msgstr ""
+msgstr "Қатордаги мақсад қиймати"
 
 msgid "Chart title"
 msgstr ""
@@ -359,7 +359,7 @@ msgid "Period"
 msgstr ""
 
 msgid "Organisation Unit"
-msgstr "Ташкилий бирлик"
+msgstr "Ташкилий Бўлим"
 
 msgid "Add to series"
 msgstr ""
