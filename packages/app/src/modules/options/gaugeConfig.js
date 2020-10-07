@@ -7,7 +7,6 @@ import BaseLine from '../../components/VisualizationOptions/Options/BaseLine'
 import HideTitle from '../../components/VisualizationOptions/Options/HideTitle'
 import HideSubtitle from '../../components/VisualizationOptions/Options/HideSubtitle'
 import AxisRange from '../../components/VisualizationOptions/Options/AxisRange'
-import Legend from '../../components/VisualizationOptions/Options/Legend'
 import SeriesAxisLabels from '../../components/VisualizationOptions/Options/SeriesAxisLabels'
 import getSeriesTab from './tabs/series'
 import getAxesTab from './tabs/axes'
@@ -15,6 +14,7 @@ import getVerticalAxisTemplate from './templates/verticalAxis'
 import getDataTab from './tabs/data'
 import getAdvancedSection from './sections/advanced'
 import getLinesTemplate from './templates/lines'
+import getLegendTab from './tabs/legend'
 
 export default () => [
     getDataTab([
@@ -23,16 +23,7 @@ export default () => [
         }),
         getAdvancedSection(),
     ]),
-    {
-        key: 'legend-tab',
-        label: i18n.t('Legend'),
-        content: [
-            {
-                key: 'legend-section-1',
-                content: React.Children.toArray([<Legend />]),
-            },
-        ],
-    },
+    getLegendTab(),
     getAxesTab([
         getVerticalAxisTemplate({
             content: React.Children.toArray([

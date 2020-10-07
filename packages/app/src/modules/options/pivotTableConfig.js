@@ -12,7 +12,6 @@ import RowSubTotals from '../../components/VisualizationOptions/Options/RowSubTo
 import HideEmptyColumns from '../../components/VisualizationOptions/Options/HideEmptyColumns'
 import HideEmptyRows from '../../components/VisualizationOptions/Options/HideEmptyRows'
 import NumberType from '../../components/VisualizationOptions/Options/NumberType'
-import Legend from '../../components/VisualizationOptions/Options/Legend'
 import Title from '../../components/VisualizationOptions/Options/Title'
 import DisplayDensity from '../../components/VisualizationOptions/Options/DisplayDensity'
 import FontSize from '../../components/VisualizationOptions/Options/FontSize'
@@ -34,6 +33,7 @@ import getAdvancedTemplate from './templates/advanced'
 import getDisplayTemplate from './templates/display'
 import getTotalsTemplate from './templates/totals'
 import getEmptyDataTemplate from './templates/emptyData'
+import getLegendTab from './tabs/legend'
 
 export default () => [
     getDataTab([
@@ -66,16 +66,7 @@ export default () => [
             ]),
         }),
     ]),
-    {
-        key: 'legend-tab',
-        label: i18n.t('Legend'),
-        content: [
-            {
-                key: 'legend-section-1',
-                content: React.Children.toArray([<Legend />]),
-            },
-        ],
-    },
+    getLegendTab(),
     getSeriesTab(),
     {
         key: 'style-tab',

@@ -4,13 +4,13 @@ import i18n from '@dhis2/d2-i18n'
 
 import HideTitle from '../../components/VisualizationOptions/Options/HideTitle'
 import HideSubtitle from '../../components/VisualizationOptions/Options/HideSubtitle'
-import Legend from '../../components/VisualizationOptions/Options/Legend'
 import SkipRounding from '../../components/VisualizationOptions/Options/SkipRounding'
 import DigitGroupSeparator from '../../components/VisualizationOptions/Options/DigitGroupSeparator'
 import getSeriesTab from './tabs/series'
 import getDataTab from './tabs/data'
 import getAdvancedSection from './sections/advanced'
 import getDisplayTemplate from './templates/display'
+import getLegendTab from './tabs/legend'
 
 export default () => [
     getDataTab([
@@ -19,18 +19,7 @@ export default () => [
         }),
         getAdvancedSection(),
     ]),
-    {
-        key: 'legend-tab',
-        label: i18n.t('Legend'),
-        content: [
-            {
-                key: 'legend-section-1',
-                content: React.Children.toArray([
-                    <Legend hideStyleOptions={true} />,
-                ]),
-            },
-        ],
-    },
+    getLegendTab({ hideStyleOptions: true }),
     getSeriesTab(),
     {
         key: 'style-tab',
