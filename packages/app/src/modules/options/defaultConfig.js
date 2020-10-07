@@ -19,7 +19,7 @@ export default ({
     isStacked,
 } = {}) => [
     getDataTab([
-        getDisplaySection({ isStacked }),
+        getDisplaySection(isStacked),
         getLinesSection(hasDisabledSections),
         getAdvancedSection(),
     ]),
@@ -32,7 +32,7 @@ export default ({
         showTypeOptions: showSeriesTypeOptions,
     }),
     getStyleTab([
-        getChartStyleSection({ isColumnBased }),
+        getChartStyleSection(isColumnBased),
         getTitlesSection(),
         getColorSetSection(hasDisabledSections),
     ]),
