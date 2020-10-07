@@ -65,7 +65,7 @@ export default hasCustomAxes => [
             {
                 key: 'series-table',
                 content: React.Children.toArray([
-                    <SeriesTable showAxisOptions={true} />,
+                    <SeriesTable showAxisOptions />,
                 ]),
             },
         ],
