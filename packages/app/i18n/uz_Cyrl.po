@@ -28,16 +28,16 @@ msgid "Data"
 msgstr "Маълумот"
 
 msgid "Data Type"
-msgstr ""
+msgstr "Маълумот тури"
 
 msgid "Detail"
-msgstr ""
+msgstr "Тафсилот"
 
 msgid "Search"
 msgstr "Излаш"
 
 msgid "Organisation units"
-msgstr "Ташкилий бирликлар"
+msgstr "Ташкилий бўлимлар"
 
 msgid "Period"
 msgstr ""
@@ -199,7 +199,7 @@ msgid "Use cumulative values"
 msgstr ""
 
 msgid "Domain axis title"
-msgstr ""
+msgstr "Тегишли соҳа ўқи сарлавҳаси"
 
 msgid "Hide empty categories"
 msgstr ""
@@ -220,7 +220,7 @@ msgid "All"
 msgstr "Барчаси"
 
 msgid "Hide chart legend"
-msgstr ""
+msgstr "Диаграмма таърифи яширилсин"
 
 msgid "Hide subtitle"
 msgstr ""
@@ -238,7 +238,7 @@ msgid "Range axis decimals"
 msgstr ""
 
 msgid "Range axis title"
-msgstr ""
+msgstr "Танлов соҳаси ўқи сарлавҳаси"
 
 msgid "Range axis max"
 msgstr ""
@@ -262,7 +262,7 @@ msgid "Loess"
 msgstr ""
 
 msgid "Show values"
-msgstr ""
+msgstr "Қийматлар кўрсатилсин"
 
 msgid "Sort order"
 msgstr "Саралаш тартиби"
@@ -283,7 +283,7 @@ msgid "Target line title"
 msgstr ""
 
 msgid "Target line value"
-msgstr ""
+msgstr "Қатордаги мақсад қиймати"
 
 msgid "Chart title"
 msgstr ""
