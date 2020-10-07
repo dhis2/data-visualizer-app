@@ -4,7 +4,7 @@ import i18n from '@dhis2/d2-i18n'
 
 import SeriesTable from '../../../components/VisualizationOptions/Options/SeriesTable'
 
-export default ({ showAxisOptions, showTypeOptions }) => ({
+export default ({ showAxisOptions, showTypeOptions } = {}) => ({
     key: 'series-tab',
     label: i18n.t('Series'),
     content: [
