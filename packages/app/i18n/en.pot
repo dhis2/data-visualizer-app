@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-10-07T11:24:15.855Z\n"
-"PO-Revision-Date: 2020-10-07T11:24:15.855Z\n"
+"POT-Creation-Date: 2020-10-07T12:18:28.397Z\n"
+"PO-Revision-Date: 2020-10-07T12:18:28.397Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -793,12 +793,6 @@ msgstr ""
 msgid "User org unit grand children"
 msgstr ""
 
-msgid "Data"
-msgstr ""
-
-msgid "Display"
-msgstr ""
-
 msgid "Style"
 msgstr ""
 
@@ -806,15 +800,6 @@ msgid "Chart style"
 msgstr ""
 
 msgid "Titles"
-msgstr ""
-
-msgid "Lines"
-msgstr ""
-
-msgid "Totals"
-msgstr ""
-
-msgid "Empty data"
 msgstr ""
 
 msgid "Table title"
@@ -847,13 +832,28 @@ msgstr ""
 msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr ""
 
-msgid "Vertical (y) axis"
-msgstr ""
-
 msgid "Axes"
 msgstr ""
 
+msgid "Data"
+msgstr ""
+
 msgid "Series"
+msgstr ""
+
+msgid "Display"
+msgstr ""
+
+msgid "Empty data"
+msgstr ""
+
+msgid "Lines"
+msgstr ""
+
+msgid "Totals"
+msgstr ""
+
+msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Weeks per year"

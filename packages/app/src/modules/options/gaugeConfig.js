@@ -4,37 +4,25 @@ import i18n from '@dhis2/d2-i18n'
 
 import TargetLine from '../../components/VisualizationOptions/Options/TargetLine'
 import BaseLine from '../../components/VisualizationOptions/Options/BaseLine'
-import AggregationType from '../../components/VisualizationOptions/Options/AggregationType'
 import HideTitle from '../../components/VisualizationOptions/Options/HideTitle'
 import HideSubtitle from '../../components/VisualizationOptions/Options/HideSubtitle'
 import AxisRange from '../../components/VisualizationOptions/Options/AxisRange'
 import Legend from '../../components/VisualizationOptions/Options/Legend'
-import CompletedOnly from '../../components/VisualizationOptions/Options/CompletedOnly'
 import SeriesAxisLabels from '../../components/VisualizationOptions/Options/SeriesAxisLabels'
 import getSeriesTab from './tabs/series'
 import getAxesTab from './tabs/axes'
 import getVerticalAxisTemplate from './templates/verticalAxis'
+import getDataTab from './tabs/data'
+import getAdvancedSection from './sections/advanced'
+import getLinesTemplate from './templates/lines'
 
 export default () => [
-    {
-        key: 'data-tab',
-        label: i18n.t('Data'),
-        content: [
-            {
-                key: 'data-lines',
-                label: i18n.t('Lines'),
-                content: React.Children.toArray([<TargetLine />, <BaseLine />]),
-            },
-            {
-                key: 'data-advanced',
-                label: i18n.t('Advanced'),
-                content: React.Children.toArray([
-                    <AggregationType />,
-                    <CompletedOnly />,
-                ]),
-            },
-        ],
-    },
+    getDataTab([
+        getLinesTemplate({
+            content: React.Children.toArray([<TargetLine />, <BaseLine />]),
+        }),
+        getAdvancedSection(),
+    ]),
     {
         key: 'legend-tab',
         label: i18n.t('Legend'),

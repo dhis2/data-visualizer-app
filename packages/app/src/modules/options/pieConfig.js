@@ -2,28 +2,15 @@
 import React from 'react'
 import i18n from '@dhis2/d2-i18n'
 
-import AggregationType from '../../components/VisualizationOptions/Options/AggregationType'
 import HideTitle from '../../components/VisualizationOptions/Options/HideTitle'
 import HideSubtitle from '../../components/VisualizationOptions/Options/HideSubtitle'
-import CompletedOnly from '../../components/VisualizationOptions/Options/CompletedOnly'
 import getColorSetSection from './sections/colorSet'
 import getSeriesTab from './tabs/series'
+import getDataTab from './tabs/data'
+import getAdvancedSection from './sections/advanced'
 
 export default () => [
-    {
-        key: 'data-tab',
-        label: i18n.t('Data'),
-        content: [
-            {
-                key: 'data-advanced',
-                label: i18n.t('Advanced'),
-                content: React.Children.toArray([
-                    <AggregationType />,
-                    <CompletedOnly />,
-                ]),
-            },
-        ],
-    },
+    getDataTab([getAdvancedSection()]),
     getSeriesTab(),
     {
         key: 'style-tab',

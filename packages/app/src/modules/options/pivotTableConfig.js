@@ -29,50 +29,43 @@ import ApprovalLevel from '../../components/VisualizationOptions/Options/Approva
 import ShowHierarchy from '../../components/VisualizationOptions/Options/ShowHierarchy'
 import CompletedOnly from '../../components/VisualizationOptions/Options/CompletedOnly'
 import getSeriesTab from './tabs/series'
+import getDataTab from './tabs/data'
+import getAdvancedTemplate from './templates/advanced'
+import getDisplayTemplate from './templates/display'
+import getTotalsTemplate from './templates/totals'
+import getEmptyDataTemplate from './templates/emptyData'
 
 export default () => [
-    {
-        key: 'data-tab',
-        label: i18n.t('Data'),
-        content: [
-            {
-                key: 'data-display',
-                label: i18n.t('Display'),
-                content: React.Children.toArray([
-                    <ShowDimensionLabels />,
-                    <SkipRounding />,
-                ]),
-            },
-            {
-                key: 'data-totals',
-                label: i18n.t('Totals'),
-                content: React.Children.toArray([
-                    <ColTotals />,
-                    <ColSubTotals />,
-                    <RowTotals />,
-                    <RowSubTotals />,
-                ]),
-            },
-            {
-                key: 'data-empty-data',
-                label: i18n.t('Empty data'),
-                content: React.Children.toArray([
-                    <HideEmptyColumns />,
-                    <HideEmptyRows />,
-                ]),
-            },
-            {
-                key: 'data-advanced',
-                label: i18n.t('Advanced'),
-                content: React.Children.toArray([
-                    <AggregationType />,
-                    <NumberType />,
-                    <CompletedOnly />,
-                    <ApprovalLevel />,
-                ]),
-            },
-        ],
-    },
+    getDataTab([
+        getDisplayTemplate({
+            content: React.Children.toArray([
+                <ShowDimensionLabels />,
+                <SkipRounding />,
+            ]),
+        }),
+        getTotalsTemplate({
+            content: React.Children.toArray([
+                <ColTotals />,
+                <ColSubTotals />,
+                <RowTotals />,
+                <RowSubTotals />,
+            ]),
+        }),
+        getEmptyDataTemplate({
+            content: React.Children.toArray([
+                <HideEmptyColumns />,
+                <HideEmptyRows />,
+            ]),
+        }),
+        getAdvancedTemplate({
+            content: React.Children.toArray([
+                <AggregationType />,
+                <NumberType />,
+                <CompletedOnly />,
+                <ApprovalLevel />,
+            ]),
+        }),
+    ]),
     {
         key: 'legend-tab',
         label: i18n.t('Legend'),

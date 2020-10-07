@@ -2,35 +2,23 @@
 import React from 'react'
 import i18n from '@dhis2/d2-i18n'
 
-import AggregationType from '../../components/VisualizationOptions/Options/AggregationType'
 import HideTitle from '../../components/VisualizationOptions/Options/HideTitle'
 import HideSubtitle from '../../components/VisualizationOptions/Options/HideSubtitle'
 import Legend from '../../components/VisualizationOptions/Options/Legend'
-import CompletedOnly from '../../components/VisualizationOptions/Options/CompletedOnly'
 import SkipRounding from '../../components/VisualizationOptions/Options/SkipRounding'
 import DigitGroupSeparator from '../../components/VisualizationOptions/Options/DigitGroupSeparator'
 import getSeriesTab from './tabs/series'
+import getDataTab from './tabs/data'
+import getAdvancedSection from './sections/advanced'
+import getDisplayTemplate from './templates/display'
 
 export default () => [
-    {
-        key: 'data-tab',
-        label: i18n.t('Data'),
-        content: [
-            {
-                key: 'data-display',
-                label: i18n.t('Display'),
-                content: React.Children.toArray([<SkipRounding />]),
-            },
-            {
-                key: 'data-advanced',
-                label: i18n.t('Advanced'),
-                content: React.Children.toArray([
-                    <AggregationType />,
-                    <CompletedOnly />,
-                ]),
-            },
-        ],
-    },
+    getDataTab([
+        getDisplayTemplate({
+            content: React.Children.toArray([<SkipRounding />]),
+        }),
+        getAdvancedSection(),
+    ]),
     {
         key: 'legend-tab',
         label: i18n.t('Legend'),
