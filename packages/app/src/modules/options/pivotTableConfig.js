@@ -34,6 +34,7 @@ import getDisplayTemplate from './templates/display'
 import getTotalsTemplate from './templates/totals'
 import getEmptyDataTemplate from './templates/emptyData'
 import getLegendTab from './tabs/legend'
+import getStyleTab from './tabs/style'
 
 export default () => [
     getDataTab([
@@ -68,26 +69,22 @@ export default () => [
     ]),
     getLegendTab(),
     getSeriesTab(),
-    {
-        key: 'style-tab',
-        label: i18n.t('Style'),
-        content: [
-            {
-                key: 'style-section-1',
-                content: React.Children.toArray([
-                    <Title label={i18n.t('Table title')} />,
-                    <DisplayDensity />,
-                    <FontSize />,
-                    <DigitGroupSeparator />,
-                ]),
-            },
-            {
-                key: 'style-section-2',
-                label: i18n.t('Labels'),
-                content: React.Children.toArray([<ShowHierarchy />]),
-            },
-        ],
-    },
+    getStyleTab([
+        {
+            key: 'style-section-1',
+            content: React.Children.toArray([
+                <Title label={i18n.t('Table title')} />,
+                <DisplayDensity />,
+                <FontSize />,
+                <DigitGroupSeparator />,
+            ]),
+        },
+        {
+            key: 'style-section-2',
+            label: i18n.t('Labels'),
+            content: React.Children.toArray([<ShowHierarchy />]),
+        },
+    ]),
     {
         key: 'limitValues-tab',
         label: i18n.t('Limit values'),
