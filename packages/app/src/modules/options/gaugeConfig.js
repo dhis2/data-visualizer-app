@@ -12,6 +12,8 @@ import Legend from '../../components/VisualizationOptions/Options/Legend'
 import CompletedOnly from '../../components/VisualizationOptions/Options/CompletedOnly'
 import SeriesAxisLabels from '../../components/VisualizationOptions/Options/SeriesAxisLabels'
 import getSeriesTab from './tabs/series'
+import getAxesTab from './tabs/axes'
+import getVerticalAxisTemplate from './templates/verticalAxis'
 
 export default () => [
     {
@@ -43,20 +45,14 @@ export default () => [
             },
         ],
     },
-    {
-        key: 'axes-tab',
-        label: i18n.t('Axes'),
-        content: [
-            {
-                key: 'axes-vertical-axis',
-                label: i18n.t('Vertical (y) axis'),
-                content: React.Children.toArray([
-                    <AxisRange />,
-                    <SeriesAxisLabels />,
-                ]),
-            },
-        ],
-    },
+    getAxesTab([
+        getVerticalAxisTemplate({
+            content: React.Children.toArray([
+                <AxisRange />,
+                <SeriesAxisLabels />,
+            ]),
+        }),
+    ]),
     getSeriesTab(),
     {
         key: 'style-tab',

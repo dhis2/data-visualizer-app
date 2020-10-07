@@ -7,16 +7,16 @@ import ShowData from '../../components/VisualizationOptions/Options/ShowData'
 import HideEmptyRowItems from '../../components/VisualizationOptions/Options/HideEmptyRowItems'
 import SortOrder from '../../components/VisualizationOptions/Options/SortOrder'
 import AggregationType from '../../components/VisualizationOptions/Options/AggregationType'
-import DomainAxisLabel from '../../components/VisualizationOptions/Options/DomainAxisLabel'
 import HideLegend from '../../components/VisualizationOptions/Options/HideLegend'
 import HideTitle from '../../components/VisualizationOptions/Options/HideTitle'
 import HideSubtitle from '../../components/VisualizationOptions/Options/HideSubtitle'
 import CompletedOnly from '../../components/VisualizationOptions/Options/CompletedOnly'
-import CategoryAxisLabels from '../../components/VisualizationOptions/Options/CategoryAxisLabels'
 import getLinesSection from './sections/lines'
 import getVerticalAxisSection from './sections/verticalAxis'
+import getHorizontalAxisSection from './sections/horizontalAxis'
 import getColorSetSection from './sections/colorSet'
 import getSeriesTab from './tabs/series'
+import getAxesTab from './tabs/axes'
 
 export default hasCustomAxes => [
     {
@@ -43,21 +43,10 @@ export default hasCustomAxes => [
             },
         ],
     },
-    {
-        key: 'axes-tab',
-        label: i18n.t('Axes'),
-        content: [
-            getVerticalAxisSection(hasCustomAxes),
-            {
-                key: 'axes-horizontal-axis',
-                label: i18n.t('Horizontal (x) axis'),
-                content: React.Children.toArray([
-                    <DomainAxisLabel />,
-                    <CategoryAxisLabels />,
-                ]),
-            },
-        ],
-    },
+    getAxesTab([
+        getVerticalAxisSection(hasCustomAxes),
+        getHorizontalAxisSection(),
+    ]),
     getSeriesTab({ showAxisOptions: true }),
     {
         key: 'style-tab',

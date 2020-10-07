@@ -7,20 +7,21 @@ import AxisRange from '../../../components/VisualizationOptions/Options/AxisRang
 import RangeAxisSteps from '../../../components/VisualizationOptions/Options/RangeAxisSteps'
 import RangeAxisDecimals from '../../../components/VisualizationOptions/Options/RangeAxisDecimals'
 import SeriesAxisLabels from '../../../components/VisualizationOptions/Options/SeriesAxisLabels'
+import getVerticalAxisTemplate from '../templates/verticalAxis'
 
 export default hasCustomAxes => ({
-    key: 'axes-vertical-axis',
-    label: i18n.t('Vertical (y) axis'),
-    helpText: hasCustomAxes
-        ? i18n.t(
-              'Vertical axis options are not supported yet when using multiple axes'
-          )
-        : null,
-    content: React.Children.toArray([
-        <RangeAxisLabel disabled={hasCustomAxes} />,
-        <AxisRange disabled={hasCustomAxes} />,
-        <RangeAxisSteps disabled={hasCustomAxes} />,
-        <RangeAxisDecimals disabled={hasCustomAxes} />,
-        <SeriesAxisLabels disabled={hasCustomAxes} />,
-    ]),
+    ...getVerticalAxisTemplate({
+        helpText: hasCustomAxes
+            ? i18n.t(
+                  'Vertical axis options are not supported yet when using multiple axes'
+              )
+            : null,
+        content: React.Children.toArray([
+            <RangeAxisLabel disabled={hasCustomAxes} />,
+            <AxisRange disabled={hasCustomAxes} />,
+            <RangeAxisSteps disabled={hasCustomAxes} />,
+            <RangeAxisDecimals disabled={hasCustomAxes} />,
+            <SeriesAxisLabels disabled={hasCustomAxes} />,
+        ]),
+    }),
 })

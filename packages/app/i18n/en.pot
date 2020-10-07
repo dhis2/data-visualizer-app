@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
-"PO-Revision-Date: 2020-09-21T14:48:25.130Z\n"
+"POT-Creation-Date: 2020-10-07T11:24:15.855Z\n"
+"PO-Revision-Date: 2020-10-07T11:24:15.855Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -799,15 +799,6 @@ msgstr ""
 msgid "Display"
 msgstr ""
 
-msgid "Axes"
-msgstr ""
-
-msgid "Horizontal (x) axis"
-msgstr ""
-
-msgid "Series"
-msgstr ""
-
 msgid "Style"
 msgstr ""
 
@@ -818,9 +809,6 @@ msgid "Titles"
 msgstr ""
 
 msgid "Lines"
-msgstr ""
-
-msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Totals"
@@ -850,10 +838,22 @@ msgstr ""
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
 
+msgid "Horizontal (x) axis"
+msgstr ""
+
 msgid "Lines are not supported yet when using multiple axes"
 msgstr ""
 
 msgid "Vertical axis options are not supported yet when using multiple axes"
+msgstr ""
+
+msgid "Vertical (y) axis"
+msgstr ""
+
+msgid "Axes"
+msgstr ""
+
+msgid "Series"
 msgstr ""
 
 msgid "Weeks per year"
