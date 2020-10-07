@@ -6,13 +6,19 @@ import NoSpaceBetweenColumns from '../../../components/VisualizationOptions/Opti
 import ShowData from '../../../components/VisualizationOptions/Options/ShowData'
 import getChartStyleTemplate from '../templates/chartStyle'
 
-export default () => ({
+const defaultContent = [<ShowData />, <HideLegend />]
+
+const columnContent = [
+    <ShowData />,
+    <NoSpaceBetweenColumns />,
+    <HideLegend />,
+    /* TODO new option <BackgroundLines /> */
+]
+
+export default ({ isColumnBased } = {}) => ({
     ...getChartStyleTemplate({
         content: React.Children.toArray([
-            <ShowData />,
-            <NoSpaceBetweenColumns />,
-            <HideLegend />,
-            /* TODO new option <BackgroundLines /> */
+            isColumnBased ? columnContent : defaultContent,
         ]),
     }),
 })

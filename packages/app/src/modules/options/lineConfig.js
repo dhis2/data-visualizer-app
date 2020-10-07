@@ -1,8 +1,3 @@
-/* eslint-disable react/jsx-key */
-import React from 'react'
-
-import ShowData from '../../components/VisualizationOptions/Options/ShowData'
-import HideLegend from '../../components/VisualizationOptions/Options/HideLegend'
 import getLinesSection from './sections/lines'
 import getVerticalAxisSection from './sections/verticalAxis'
 import getHorizontalAxisSection from './sections/horizontalAxis'
@@ -14,7 +9,7 @@ import getDisplaySection from './sections/display'
 import getAdvancedSection from './sections/advanced'
 import getStyleTab from './tabs/style'
 import getTitlesSection from './sections/titles'
-import getChartStyleTemplate from './templates/chartStyle'
+import getChartStyleSection from './sections/chartStyle'
 
 export default hasCustomAxes => [
     getDataTab([
@@ -28,9 +23,7 @@ export default hasCustomAxes => [
     ]),
     getSeriesTab({ showAxisOptions: true, showTypeOptions: true }),
     getStyleTab([
-        getChartStyleTemplate({
-            content: React.Children.toArray([<ShowData />, <HideLegend />]),
-        }),
+        getChartStyleSection(),
         getTitlesSection(),
         getColorSetSection(hasCustomAxes),
     ]),

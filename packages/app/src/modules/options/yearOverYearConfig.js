@@ -23,7 +23,7 @@ export default hasCustomAxes => [
     ]),
     getSeriesTab(),
     getStyleTab([
-        getChartStyleSection(),
+        getChartStyleSection({ isColumnBased: true }),
         getTitlesSection(),
         getColorSetSection(hasCustomAxes),
     ]),
