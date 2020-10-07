@@ -11,20 +11,29 @@ import getStyleTab from './tabs/style'
 import getTitlesSection from './sections/titles'
 import getChartStyleSection from './sections/chartStyle'
 
-export default hasCustomAxes => [
+export default ({
+    hasDisabledSections,
+    showSeriesAxisOptions,
+    showSeriesTypeOptions,
+    isColumnBased,
+    isStacked,
+} = {}) => [
     getDataTab([
-        getDisplaySection({ isStacked: true }),
-        getLinesSection(hasCustomAxes),
+        getDisplaySection({ isStacked }),
+        getLinesSection(hasDisabledSections),
         getAdvancedSection(),
     ]),
     getAxesTab([
-        getVerticalAxisSection(hasCustomAxes),
+        getVerticalAxisSection(hasDisabledSections),
         getHorizontalAxisSection(),
     ]),
-    getSeriesTab(),
+    getSeriesTab({
+        showAxisOptions: showSeriesAxisOptions,
+        showTypeOptions: showSeriesTypeOptions,
+    }),
     getStyleTab([
-        getChartStyleSection(),
+        getChartStyleSection({ isColumnBased }),
         getTitlesSection(),
-        getColorSetSection(hasCustomAxes),
+        getColorSetSection(hasDisabledSections),
     ]),
 ]
