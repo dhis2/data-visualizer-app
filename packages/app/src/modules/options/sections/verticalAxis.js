@@ -9,19 +9,19 @@ import RangeAxisDecimals from '../../../components/VisualizationOptions/Options/
 import SeriesAxisLabels from '../../../components/VisualizationOptions/Options/SeriesAxisLabels'
 import getVerticalAxisTemplate from '../templates/verticalAxis'
 
-export default hasCustomAxes => ({
+export default hasDisabledSections => ({
     ...getVerticalAxisTemplate({
-        helpText: hasCustomAxes
+        helpText: hasDisabledSections
             ? i18n.t(
                   'Vertical axis options are not supported yet when using multiple axes'
               )
             : null,
         content: React.Children.toArray([
-            <RangeAxisLabel disabled={hasCustomAxes} />,
-            <AxisRange disabled={hasCustomAxes} />,
-            <RangeAxisSteps disabled={hasCustomAxes} />,
-            <RangeAxisDecimals disabled={hasCustomAxes} />,
-            <SeriesAxisLabels disabled={hasCustomAxes} />,
+            <RangeAxisLabel disabled={hasDisabledSections} />,
+            <AxisRange disabled={hasDisabledSections} />,
+            <RangeAxisSteps disabled={hasDisabledSections} />,
+            <RangeAxisDecimals disabled={hasDisabledSections} />,
+            <SeriesAxisLabels disabled={hasDisabledSections} />,
         ]),
     }),
 })
