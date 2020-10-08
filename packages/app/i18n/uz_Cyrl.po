@@ -84,10 +84,10 @@ msgid "Data value set"
 msgstr "Маълумотлар қиймати ўрнатилган"
 
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 msgid "XML"
-msgstr ""
+msgstr "XML"
 
 msgid "Other formats"
 msgstr "Бошқа шакллар"
