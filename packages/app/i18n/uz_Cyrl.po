@@ -106,16 +106,16 @@ msgid "Plain data source"
 msgstr "Оддий маълумотлар манбаи"
 
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 msgid "XML"
-msgstr ""
+msgstr "XML"
 
 msgid "Excel"
 msgstr ""
 
 msgid "CSV"
-msgstr ""
+msgstr "CSV"
 
 msgid "Advanced"
 msgstr "Илғор"
@@ -578,7 +578,7 @@ msgid "Size"
 msgstr ""
 
 msgid "Position"
-msgstr ""
+msgstr "Лавозими"
 
 msgid "Top limit"
 msgstr "Юқори чегара"
