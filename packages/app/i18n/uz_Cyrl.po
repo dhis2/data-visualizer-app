@@ -151,7 +151,7 @@ msgid "Hide"
 msgstr "Яшириш"
 
 msgid "Interpretations"
-msgstr "Шарҳлар"
+msgstr "Талқинлар"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr ""
@@ -469,7 +469,7 @@ msgid "Percentage of column"
 msgstr "Устун фоизи"
 
 msgid "Organisation unit"
-msgstr "Ташкилий бирлик"
+msgstr "Ташкилий бўлим"
 
 msgid "Parent organisation unit"
 msgstr "Юқори ташкилот бўлими"
