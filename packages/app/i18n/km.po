@@ -1,5 +1,6 @@
 # 
 # Translators:
+# Viktor Varland <viktor@dhis2.org>, 2020
 # phil_dhis2, 2020
 # 
 msgid ""
@@ -8,12 +9,12 @@ msgstr ""
 "POT-Creation-Date: 2020-09-09T14:22:42.172Z\n"
 "PO-Revision-Date: 2020-03-02 13:01+0000\n"
 "Last-Translator: phil_dhis2, 2020\n"
-"Language-Team: Danish (https://www.transifex.com/hisp-uio/teams/100509/da/)\n"
+"Language-Team: Khmer (https://www.transifex.com/hisp-uio/teams/100509/km/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: da\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: km\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -56,10 +57,10 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr "Cancel"
+msgstr "បោះបង់"
 
 msgid "Update"
-msgstr "Update"
+msgstr "ធ្វើ​បច្ចុប្បន្នភាព"
 
 msgid "Add to {{axisName}}"
 msgstr ""
@@ -132,13 +133,13 @@ msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr ""
+msgstr "​លេខ​សម្គាល់"
 
 msgid "Code"
-msgstr "Code"
+msgstr ""
 
 msgid "Name"
-msgstr "Name"
+msgstr "ឈ្មោះ"
 
 msgid "Data value set"
 msgstr ""
@@ -171,7 +172,7 @@ msgid "Hide"
 msgstr ""
 
 msgid "Interpretations"
-msgstr "Interpretations"
+msgstr "កន្លែងសន្ទនារ"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr ""
@@ -239,16 +240,16 @@ msgid "By data element"
 msgstr ""
 
 msgid "Count"
-msgstr ""
+msgstr "ផលរាប់"
 
 msgid "Average"
-msgstr ""
+msgstr "ផលមធ្យម"
 
 msgid "Average (sum in org unit hierarchy)"
 msgstr ""
 
 msgid "Sum"
-msgstr ""
+msgstr "ផល​បូក"
 
 msgid "Last value"
 msgstr ""
@@ -257,10 +258,10 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr ""
 
 msgid "Min"
-msgstr "Min"
+msgstr "អប្បបរមា"
 
 msgid "Max"
-msgstr "Max"
+msgstr "អតិបរមា"
 
 msgid "Standard deviation"
 msgstr ""
@@ -287,16 +288,16 @@ msgid "Base line"
 msgstr ""
 
 msgid "Value"
-msgstr ""
+msgstr "តម្លៃ"
 
 msgid "Title"
-msgstr "Title"
+msgstr "ចំណងជើង"
 
 msgid "Base line title"
 msgstr ""
 
 msgid "Number"
-msgstr "Number"
+msgstr "តួរលេខ"
 
 msgid "Column sub-totals"
 msgstr ""
@@ -320,7 +321,7 @@ msgid "Digit group separator"
 msgstr ""
 
 msgid "None"
-msgstr "None"
+msgstr "គ្មាន"
 
 msgid "Space"
 msgstr ""
@@ -335,7 +336,7 @@ msgid "Comfortable"
 msgstr ""
 
 msgid "Normal"
-msgstr "Normal"
+msgstr ""
 
 msgid "Compact"
 msgstr ""
@@ -371,7 +372,7 @@ msgid "Before first and after last"
 msgstr ""
 
 msgid "All"
-msgstr "All"
+msgstr "ទាំងអស់"
 
 msgid "Hide empty rows"
 msgstr ""
@@ -389,7 +390,7 @@ msgid "Auto generated"
 msgstr ""
 
 msgid "Custom"
-msgstr "Custom"
+msgstr ""
 
 msgid "Table title"
 msgstr ""
@@ -457,10 +458,10 @@ msgid "Percentage of column"
 msgstr ""
 
 msgid "Organisation unit"
-msgstr "Organisation unit"
+msgstr "ផ្នែក​នៃ​អង្គការ"
 
 msgid "Parent organisation unit"
-msgstr ""
+msgstr "Parent organisation unit"
 
 msgid "Reporting period"
 msgstr ""
@@ -652,7 +653,7 @@ msgid "This week"
 msgstr ""
 
 msgid "Last week"
-msgstr "Last week"
+msgstr ""
 
 msgid "Last 4 weeks"
 msgstr ""
@@ -670,16 +671,16 @@ msgid "This month"
 msgstr ""
 
 msgid "Last month"
-msgstr "Last month"
+msgstr ""
 
 msgid "Last 3 months"
-msgstr "Last 3 months"
+msgstr ""
 
 msgid "Last 6 months"
-msgstr "Last 6 months"
+msgstr ""
 
 msgid "Last 12 months"
-msgstr "Last 12 months"
+msgstr ""
 
 msgid "Months this year"
 msgstr ""
@@ -745,7 +746,7 @@ msgid "User org unit grand children"
 msgstr ""
 
 msgid "Data"
-msgstr ""
+msgstr "Data"
 
 msgid "Display"
 msgstr ""
@@ -757,7 +758,7 @@ msgid "Horizontal (x) axis"
 msgstr ""
 
 msgid "Style"
-msgstr "Style"
+msgstr "​រចនាបទ"
 
 msgid "Chart style"
 msgstr ""
