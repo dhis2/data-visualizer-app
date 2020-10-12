@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-13T19:08:48.461Z\n"
+"POT-Creation-Date: 2020-09-25T09:27:28.489Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Khmer (https://www.transifex.com/hisp-uio/teams/100509/km/)\n"
@@ -17,6 +17,9 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Rename successful"
+msgstr ""
+
+msgid "Untitled {{visualizationType}} visualization, {{date}}"
 msgstr ""
 
 msgid "\"{{what}}\" successfully deleted."
@@ -245,7 +248,7 @@ msgstr ""
 msgid "All"
 msgstr "ទាំងអស់"
 
-msgid "Hide chart legend"
+msgid "Show legend key"
 msgstr ""
 
 msgid "Hide subtitle"
@@ -258,6 +261,9 @@ msgid "No space between columns/bars"
 msgstr ""
 
 msgid "Use 100% stacked values"
+msgstr ""
+
+msgid "Auto"
 msgstr ""
 
 msgid "Range axis decimals"
@@ -275,7 +281,9 @@ msgstr ""
 msgid "Range axis tick steps"
 msgstr ""
 
-msgid "Tick steps may extend the chart beyond 'Range axis max'"
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
 msgstr ""
 
 msgid "Trend line"
@@ -477,6 +485,9 @@ msgstr ""
 msgid "Last 6 months"
 msgstr ""
 
+msgid "Last 12 months"
+msgstr ""
+
 msgid "Months this year"
 msgstr ""
 
@@ -531,10 +542,16 @@ msgstr ""
 msgid "Last 5 years"
 msgstr ""
 
-msgid "Weeks per year"
+msgid "User org unit"
 msgstr ""
 
-msgid "Last 12 months"
+msgid "User org unit children"
+msgstr ""
+
+msgid "User org unit grand children"
+msgstr ""
+
+msgid "Weeks per year"
 msgstr ""
 
 msgid "Months per year"
