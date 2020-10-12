@@ -293,7 +293,7 @@ msgid "Title"
 msgstr "Сарлавҳа"
 
 msgid "Base line title"
-msgstr ""
+msgstr "Асосий қатор қиймати"
 
 msgid "Number"
 msgstr "Тартиб рақами"
@@ -359,16 +359,16 @@ msgid "Hide empty columns"
 msgstr "Бўш устунларни беркитиш"
 
 msgid "Hide empty categories"
-msgstr ""
+msgstr "Бўш категорияларни беркитиш"
 
 msgid "Before first"
-msgstr ""
+msgstr "Олдинги бет"
 
 msgid "After last"
-msgstr ""
+msgstr "Охиргидан кейинги"
 
 msgid "Before first and after last"
-msgstr ""
+msgstr "Биринчидан олдинги ва охиргидан кейинги"
 
 msgid "All"
 msgstr "Барчаси"
@@ -383,7 +383,7 @@ msgid "Table subtitle"
 msgstr ""
 
 msgid "Chart subtitle"
-msgstr ""
+msgstr "Диаграмма шарҳи"
 
 msgid "Auto generated"
 msgstr ""
@@ -395,7 +395,7 @@ msgid "Table title"
 msgstr "Жадвал сарлавҳаси"
 
 msgid "Chart title"
-msgstr ""
+msgstr "Диаграмма сарлавҳаси"
 
 msgid "Display legend"
 msgstr ""
@@ -486,16 +486,16 @@ msgid "Include regression"
 msgstr "Регрессияни ўз ичига олади"
 
 msgid "Trend line"
-msgstr ""
+msgstr "Йўналиш қатори"
 
 msgid "Linear"
-msgstr ""
+msgstr "Чизиқли"
 
 msgid "Polynomial"
-msgstr ""
+msgstr "Кўп бўғимли"
 
 msgid "Loess"
-msgstr ""
+msgstr "Силжувчи"
 
 msgid "Row sub-totals"
 msgstr ""
@@ -531,7 +531,7 @@ msgid "Target line"
 msgstr ""
 
 msgid "Target line title"
-msgstr ""
+msgstr "Мақсадли қатор сарлавҳаси"
 
 msgid "Top limit"
 msgstr "Юқори чегара"
@@ -751,7 +751,7 @@ msgid "Display"
 msgstr ""
 
 msgid "Axes"
-msgstr ""
+msgstr "Ўқлар"
 
 msgid "Horizontal (x) axis"
 msgstr ""
