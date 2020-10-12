@@ -123,7 +123,7 @@ msgid "selected"
 msgstr "танланган"
 
 msgid "Series"
-msgstr ""
+msgstr "Кетма-кетликлар"
 
 msgid "Category"
 msgstr "Категория"
@@ -198,31 +198,31 @@ msgid "Base line"
 msgstr ""
 
 msgid "Base line title"
-msgstr ""
+msgstr "Асосий қатор қиймати"
 
 msgid "Base line value"
-msgstr ""
+msgstr "Асосий қатор қиймати"
 
 msgid "Use cumulative values"
-msgstr ""
+msgstr "Кумулятив қийматлардан фойдаланинг"
 
 msgid "Domain axis title"
 msgstr "Тегишли соҳа ўқи сарлавҳаси"
 
 msgid "Hide empty categories"
-msgstr ""
+msgstr "Бўш категорияларни беркитиш"
 
 msgid "None"
 msgstr "Йўқ"
 
 msgid "Before first"
-msgstr ""
+msgstr "Олдинги бет"
 
 msgid "After first"
 msgstr ""
 
 msgid "Before first and after last"
-msgstr ""
+msgstr "Биринчидан олдинги ва охиргидан кейинги"
 
 msgid "All"
 msgstr "Барчаси"
@@ -240,7 +240,7 @@ msgid "No space between columns/bars"
 msgstr ""
 
 msgid "Use 100% stacked values"
-msgstr ""
+msgstr "100% йиғма қийматлардан фойдаланинг"
 
 msgid "Auto"
 msgstr ""
@@ -266,16 +266,16 @@ msgid ""
 msgstr ""
 
 msgid "Trend line"
-msgstr ""
+msgstr "Йўналиш қатори"
 
 msgid "Linear"
-msgstr ""
+msgstr "Чизиқли"
 
 msgid "Polynomial"
-msgstr ""
+msgstr "Кўп бўғимли"
 
 msgid "Loess"
-msgstr ""
+msgstr "Силжувчи"
 
 msgid "Show values"
 msgstr "Қийматлар кўрсатилсин"
@@ -290,19 +290,19 @@ msgid "High to low"
 msgstr "Юқоридан пастга"
 
 msgid "Chart subtitle"
-msgstr ""
+msgstr "Диаграмма шарҳи"
 
 msgid "Target line"
 msgstr ""
 
 msgid "Target line title"
-msgstr ""
+msgstr "Мақсадли қатор сарлавҳаси"
 
 msgid "Target line value"
 msgstr "Қатордаги мақсад қиймати"
 
 msgid "Chart title"
-msgstr ""
+msgstr "Диаграмма сарлавҳаси"
 
 msgid "Data"
 msgstr "Маълумот"
@@ -317,7 +317,7 @@ msgid "Options"
 msgstr "Вариант"
 
 msgid "Chart options"
-msgstr ""
+msgstr "Диаграмма хусусиятлари"
 
 msgid "Column"
 msgstr "Устун"
@@ -356,7 +356,7 @@ msgid "Open as Map"
 msgstr ""
 
 msgid "Period"
-msgstr ""
+msgstr "давр"
 
 msgid "Organisation Unit"
 msgstr "Ташкилий Бўлим"
