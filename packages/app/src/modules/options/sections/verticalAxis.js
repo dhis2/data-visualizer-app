@@ -7,7 +7,7 @@ import AxisRange from '../../../components/VisualizationOptions/Options/AxisRang
 import RangeAxisSteps from '../../../components/VisualizationOptions/Options/RangeAxisSteps'
 import RangeAxisDecimals from '../../../components/VisualizationOptions/Options/RangeAxisDecimals'
 import SeriesAxisLabels from '../../../components/VisualizationOptions/Options/SeriesAxisLabels'
-import getVerticalAxisTemplate from '../templates/verticalAxis'
+import getVerticalAxisTemplate from './templates/verticalAxis'
 
 export default hasDisabledSections => ({
     ...getVerticalAxisTemplate({

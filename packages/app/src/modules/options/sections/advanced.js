@@ -3,7 +3,7 @@ import React from 'react'
 
 import AggregationType from '../../../components/VisualizationOptions/Options/AggregationType'
 import CompletedOnly from '../../../components/VisualizationOptions/Options/CompletedOnly'
-import getAdvancedTemplate from '../templates/advanced'
+import getAdvancedTemplate from './templates/advanced'
 
 export default () => ({
     ...getAdvancedTemplate({

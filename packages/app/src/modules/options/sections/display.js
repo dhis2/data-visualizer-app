@@ -5,7 +5,7 @@ import CumulativeValues from '../../../components/VisualizationOptions/Options/C
 import HideEmptyRowItems from '../../../components/VisualizationOptions/Options/HideEmptyRowItems'
 import PercentStackedValues from '../../../components/VisualizationOptions/Options/PercentStackedValues'
 import SortOrder from '../../../components/VisualizationOptions/Options/SortOrder'
-import getDisplayTemplate from '../templates/display'
+import getDisplayTemplate from './templates/display'
 
 const defaultContent = [
     <CumulativeValues />,

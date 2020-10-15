@@ -6,7 +6,7 @@ import DigitGroupSeparator from '../../components/VisualizationOptions/Options/D
 import getSeriesTab from './tabs/series'
 import getDataTab from './tabs/data'
 import getAdvancedSection from './sections/advanced'
-import getDisplayTemplate from './templates/display'
+import getDisplayTemplate from './sections/templates/display'
 import getLegendTab from './tabs/legend'
 import getStyleTab from './tabs/style'
 import getTitlesSection from './sections/titles'
