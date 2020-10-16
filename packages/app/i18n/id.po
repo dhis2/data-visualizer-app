@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
+"POT-Creation-Date: 2020-10-07T13:26:38.182Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2020\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
@@ -812,42 +812,6 @@ msgstr "Sub org unit user"
 msgid "User org unit grand children"
 msgstr "Sub-sub org unit pengguna"
 
-msgid "Data"
-msgstr "Data"
-
-msgid "Display"
-msgstr ""
-
-msgid "Axes"
-msgstr "Sumbu"
-
-msgid "Horizontal (x) axis"
-msgstr "sumbu X"
-
-msgid "Series"
-msgstr "Seri"
-
-msgid "Style"
-msgstr "Gaya"
-
-msgid "Chart style"
-msgstr "tipe grafik"
-
-msgid "Titles"
-msgstr "Judul"
-
-msgid "Lines"
-msgstr "Garis"
-
-msgid "Vertical (y) axis"
-msgstr "Sumbu Y"
-
-msgid "Totals"
-msgstr "Total"
-
-msgid "Empty data"
-msgstr ""
-
 msgid "Table title"
 msgstr "Judul tabel"
 
@@ -869,11 +833,47 @@ msgstr ""
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
 
+msgid "Horizontal (x) axis"
+msgstr "sumbu X"
+
 msgid "Lines are not supported yet when using multiple axes"
 msgstr ""
 
+msgid "Titles"
+msgstr "Judul"
+
 msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr ""
+
+msgid "Axes"
+msgstr "Sumbu"
+
+msgid "Data"
+msgstr "Data"
+
+msgid "Series"
+msgstr "Seri"
+
+msgid "Style"
+msgstr "Gaya"
+
+msgid "Chart style"
+msgstr "tipe grafik"
+
+msgid "Display"
+msgstr ""
+
+msgid "Empty data"
+msgstr ""
+
+msgid "Lines"
+msgstr "Garis"
+
+msgid "Totals"
+msgstr "Total"
+
+msgid "Vertical (y) axis"
+msgstr "Sumbu Y"
 
 msgid "Weeks per year"
 msgstr "Minggu per tahun"

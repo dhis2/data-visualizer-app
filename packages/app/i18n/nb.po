@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
+"POT-Creation-Date: 2020-10-07T13:26:38.182Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -834,42 +834,6 @@ msgstr "Bruker underordnet org enhet"
 msgid "User org unit grand children"
 msgstr "Bruker under-underordnet org enhet"
 
-msgid "Data"
-msgstr "Data"
-
-msgid "Display"
-msgstr "Vis"
-
-msgid "Axes"
-msgstr "Akser"
-
-msgid "Horizontal (x) axis"
-msgstr "Horisontal (x) akse"
-
-msgid "Series"
-msgstr "Serie"
-
-msgid "Style"
-msgstr "Stil"
-
-msgid "Chart style"
-msgstr "Diagramstil"
-
-msgid "Titles"
-msgstr "Titler"
-
-msgid "Lines"
-msgstr "Linjer"
-
-msgid "Vertical (y) axis"
-msgstr "Vertikal (y) akse"
-
-msgid "Totals"
-msgstr "Totalsummer"
-
-msgid "Empty data"
-msgstr "Tomme data"
-
 msgid "Table title"
 msgstr "Tabelltittel"
 
@@ -891,12 +855,48 @@ msgstr "Fargesett"
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr "Fargesett støttes ikke ennå ved bruk av flere akser"
 
+msgid "Horizontal (x) axis"
+msgstr "Horisontal (x) akse"
+
 msgid "Lines are not supported yet when using multiple axes"
 msgstr "Linjer støttes ikke ennå ved bruk av flere akser"
+
+msgid "Titles"
+msgstr "Titler"
 
 msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr ""
 "Alternativer for vertikal akse støttes ikke ennå ved bruk av flere akser"
+
+msgid "Axes"
+msgstr "Akser"
+
+msgid "Data"
+msgstr "Data"
+
+msgid "Series"
+msgstr "Serie"
+
+msgid "Style"
+msgstr "Stil"
+
+msgid "Chart style"
+msgstr "Diagramstil"
+
+msgid "Display"
+msgstr "Vis"
+
+msgid "Empty data"
+msgstr "Tomme data"
+
+msgid "Lines"
+msgstr "Linjer"
+
+msgid "Totals"
+msgstr "Totalsummer"
+
+msgid "Vertical (y) axis"
+msgstr "Vertikal (y) akse"
 
 msgid "Weeks per year"
 msgstr "Uker per år"

@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
+"POT-Creation-Date: 2020-10-07T13:26:38.182Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -826,42 +826,6 @@ msgstr "الوحدة التنظيمية للمستخدم العضو"
 msgid "User org unit grand children"
 msgstr "الوحدة التنظيمية الكبرى الأطفال"
 
-msgid "Data"
-msgstr "البيانات"
-
-msgid "Display"
-msgstr "العرض"
-
-msgid "Axes"
-msgstr "المحاور"
-
-msgid "Horizontal (x) axis"
-msgstr "محور (س) الأفقي"
-
-msgid "Series"
-msgstr "سلسلة"
-
-msgid "Style"
-msgstr "المظهر"
-
-msgid "Chart style"
-msgstr "نمط الرسم البياني"
-
-msgid "Titles"
-msgstr "العناوين"
-
-msgid "Lines"
-msgstr "الخطوط"
-
-msgid "Vertical (y) axis"
-msgstr "محور (ص) العمودي"
-
-msgid "Totals"
-msgstr "الإجمالي"
-
-msgid "Empty data"
-msgstr ""
-
 msgid "Table title"
 msgstr "عنوان الجدول"
 
@@ -883,11 +847,47 @@ msgstr ""
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
 
+msgid "Horizontal (x) axis"
+msgstr "محور (س) الأفقي"
+
 msgid "Lines are not supported yet when using multiple axes"
 msgstr ""
 
+msgid "Titles"
+msgstr "العناوين"
+
 msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr ""
+
+msgid "Axes"
+msgstr "المحاور"
+
+msgid "Data"
+msgstr "البيانات"
+
+msgid "Series"
+msgstr "سلسلة"
+
+msgid "Style"
+msgstr "المظهر"
+
+msgid "Chart style"
+msgstr "نمط الرسم البياني"
+
+msgid "Display"
+msgstr "العرض"
+
+msgid "Empty data"
+msgstr ""
+
+msgid "Lines"
+msgstr "الخطوط"
+
+msgid "Totals"
+msgstr "الإجمالي"
+
+msgid "Vertical (y) axis"
+msgstr "محور (ص) العمودي"
 
 msgid "Weeks per year"
 msgstr "أسابيع في السنة"

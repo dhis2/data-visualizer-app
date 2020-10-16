@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
+"POT-Creation-Date: 2020-10-07T13:26:38.182Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Ibatov <ibatovk@who.int>, 2020\n"
 "Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
@@ -803,42 +803,6 @@ msgstr ""
 msgid "User org unit grand children"
 msgstr ""
 
-msgid "Data"
-msgstr "Маълумот"
-
-msgid "Display"
-msgstr ""
-
-msgid "Axes"
-msgstr "Ўқлар"
-
-msgid "Horizontal (x) axis"
-msgstr ""
-
-msgid "Series"
-msgstr "Кетма-кетликлар"
-
-msgid "Style"
-msgstr "Услуб"
-
-msgid "Chart style"
-msgstr ""
-
-msgid "Titles"
-msgstr ""
-
-msgid "Lines"
-msgstr ""
-
-msgid "Vertical (y) axis"
-msgstr ""
-
-msgid "Totals"
-msgstr "Жами"
-
-msgid "Empty data"
-msgstr ""
-
 msgid "Table title"
 msgstr "Жадвал сарлавҳаси"
 
@@ -860,10 +824,46 @@ msgstr ""
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
 
+msgid "Horizontal (x) axis"
+msgstr ""
+
 msgid "Lines are not supported yet when using multiple axes"
 msgstr ""
 
+msgid "Titles"
+msgstr ""
+
 msgid "Vertical axis options are not supported yet when using multiple axes"
+msgstr ""
+
+msgid "Axes"
+msgstr "Ўқлар"
+
+msgid "Data"
+msgstr "Маълумот"
+
+msgid "Series"
+msgstr "Кетма-кетликлар"
+
+msgid "Style"
+msgstr "Услуб"
+
+msgid "Chart style"
+msgstr ""
+
+msgid "Display"
+msgstr ""
+
+msgid "Empty data"
+msgstr ""
+
+msgid "Lines"
+msgstr ""
+
+msgid "Totals"
+msgstr "Жами"
+
+msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Weeks per year"
