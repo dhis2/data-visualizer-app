@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
+"POT-Creation-Date: 2020-10-07T13:26:38.182Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
@@ -820,42 +820,6 @@ msgstr "Đơn vị con của người dùng"
 msgid "User org unit grand children"
 msgstr "Đơn vị cháu của người dùng"
 
-msgid "Data"
-msgstr "Lấy dữ liệu"
-
-msgid "Display"
-msgstr "Hiển thị"
-
-msgid "Axes"
-msgstr "Trục"
-
-msgid "Horizontal (x) axis"
-msgstr "Trục ngang (x)"
-
-msgid "Series"
-msgstr "Chuỗi Dữ Liệu"
-
-msgid "Style"
-msgstr "Kiểu dáng"
-
-msgid "Chart style"
-msgstr "Dạng biểu đồ"
-
-msgid "Titles"
-msgstr "Tiêu đề"
-
-msgid "Lines"
-msgstr "Các đường"
-
-msgid "Vertical (y) axis"
-msgstr "Dục dọc (y)"
-
-msgid "Totals"
-msgstr "Tổng"
-
-msgid "Empty data"
-msgstr ""
-
 msgid "Table title"
 msgstr "Tiêu đề bảng"
 
@@ -877,11 +841,47 @@ msgstr ""
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
 
+msgid "Horizontal (x) axis"
+msgstr "Trục ngang (x)"
+
 msgid "Lines are not supported yet when using multiple axes"
 msgstr ""
 
+msgid "Titles"
+msgstr "Tiêu đề"
+
 msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr ""
+
+msgid "Axes"
+msgstr "Trục"
+
+msgid "Data"
+msgstr "Lấy dữ liệu"
+
+msgid "Series"
+msgstr "Chuỗi Dữ Liệu"
+
+msgid "Style"
+msgstr "Kiểu dáng"
+
+msgid "Chart style"
+msgstr "Dạng biểu đồ"
+
+msgid "Display"
+msgstr "Hiển thị"
+
+msgid "Empty data"
+msgstr ""
+
+msgid "Lines"
+msgstr "Các đường"
+
+msgid "Totals"
+msgstr "Tổng"
+
+msgid "Vertical (y) axis"
+msgstr "Dục dọc (y)"
 
 msgid "Weeks per year"
 msgstr "Hàng tuần mỗi năm"

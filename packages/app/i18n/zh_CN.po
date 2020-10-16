@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
+"POT-Creation-Date: 2020-10-07T13:26:38.182Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2020\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
@@ -806,42 +806,6 @@ msgstr "用户下属机构"
 msgid "User org unit grand children"
 msgstr "用户下下级机构"
 
-msgid "Data"
-msgstr "数据"
-
-msgid "Display"
-msgstr "显示"
-
-msgid "Axes"
-msgstr "轴"
-
-msgid "Horizontal (x) axis"
-msgstr "水平轴（X）"
-
-msgid "Series"
-msgstr ""
-
-msgid "Style"
-msgstr "风格"
-
-msgid "Chart style"
-msgstr "图表风格"
-
-msgid "Titles"
-msgstr "标题"
-
-msgid "Lines"
-msgstr "线"
-
-msgid "Vertical (y) axis"
-msgstr "垂轴（Y）"
-
-msgid "Totals"
-msgstr "总共"
-
-msgid "Empty data"
-msgstr ""
-
 msgid "Table title"
 msgstr "表标题"
 
@@ -863,11 +827,47 @@ msgstr ""
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
 
+msgid "Horizontal (x) axis"
+msgstr "水平轴（X）"
+
 msgid "Lines are not supported yet when using multiple axes"
 msgstr ""
 
+msgid "Titles"
+msgstr "标题"
+
 msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr ""
+
+msgid "Axes"
+msgstr "轴"
+
+msgid "Data"
+msgstr "数据"
+
+msgid "Series"
+msgstr ""
+
+msgid "Style"
+msgstr "风格"
+
+msgid "Chart style"
+msgstr "图表风格"
+
+msgid "Display"
+msgstr "显示"
+
+msgid "Empty data"
+msgstr ""
+
+msgid "Lines"
+msgstr "线"
+
+msgid "Totals"
+msgstr "总共"
+
+msgid "Vertical (y) axis"
+msgstr "垂轴（Y）"
 
 msgid "Weeks per year"
 msgstr "每年的周"

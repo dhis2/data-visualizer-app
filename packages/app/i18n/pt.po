@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
+"POT-Creation-Date: 2020-10-07T13:26:38.182Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
@@ -832,42 +832,6 @@ msgstr "Filhos da unidade organizacional do usuário"
 msgid "User org unit grand children"
 msgstr "Filhos da unidade organizacional do usuário"
 
-msgid "Data"
-msgstr "Dados"
-
-msgid "Display"
-msgstr "Exibir"
-
-msgid "Axes"
-msgstr "Machados"
-
-msgid "Horizontal (x) axis"
-msgstr "Eixo Horizontal (x) "
-
-msgid "Series"
-msgstr "Série"
-
-msgid "Style"
-msgstr "Estilo"
-
-msgid "Chart style"
-msgstr "Estilo de graficos"
-
-msgid "Titles"
-msgstr "Titulos"
-
-msgid "Lines"
-msgstr "Linhas "
-
-msgid "Vertical (y) axis"
-msgstr "Eixo vertical (y)"
-
-msgid "Totals"
-msgstr "Totais"
-
-msgid "Empty data"
-msgstr ""
-
 msgid "Table title"
 msgstr "Titulo da tabela"
 
@@ -889,11 +853,47 @@ msgstr ""
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
 
+msgid "Horizontal (x) axis"
+msgstr "Eixo Horizontal (x) "
+
 msgid "Lines are not supported yet when using multiple axes"
 msgstr ""
 
+msgid "Titles"
+msgstr "Titulos"
+
 msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr ""
+
+msgid "Axes"
+msgstr "Machados"
+
+msgid "Data"
+msgstr "Dados"
+
+msgid "Series"
+msgstr "Série"
+
+msgid "Style"
+msgstr "Estilo"
+
+msgid "Chart style"
+msgstr "Estilo de graficos"
+
+msgid "Display"
+msgstr "Exibir"
+
+msgid "Empty data"
+msgstr ""
+
+msgid "Lines"
+msgstr "Linhas "
+
+msgid "Totals"
+msgstr "Totais"
+
+msgid "Vertical (y) axis"
+msgstr "Eixo vertical (y)"
 
 msgid "Weeks per year"
 msgstr "Semanas por ano"
