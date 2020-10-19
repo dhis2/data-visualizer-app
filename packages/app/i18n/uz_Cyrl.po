@@ -22,7 +22,7 @@ msgid "\"{{what}}\" successfully deleted."
 msgstr ""
 
 msgid "Data Visualizer"
-msgstr ""
+msgstr "Маълумотлар визуализатори"
 
 msgid "Axis 1"
 msgstr ""
