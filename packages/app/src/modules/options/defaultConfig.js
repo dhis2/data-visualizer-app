@@ -10,6 +10,7 @@ import getAdvancedSection from './sections/advanced'
 import getStyleTab from './tabs/style'
 import getTitlesSection from './sections/titles'
 import getChartStyleSection from './sections/chartStyle'
+import getLegendTab from './tabs/legend'
 
 export default ({
     hasDisabledSections,
@@ -17,12 +18,14 @@ export default ({
     showSeriesTypeOptions,
     isColumnBased,
     isStacked,
+    hasLegend,
 } = {}) => [
     getDataTab([
         getDisplaySection(isStacked),
         getLinesSection(hasDisabledSections),
         getAdvancedSection(),
     ]),
+    hasLegend ? getLegendTab({ hideStyleOptions: true }) : {},
     getAxesTab([
         getVerticalAxisSection(hasDisabledSections),
         getHorizontalAxisSection(),

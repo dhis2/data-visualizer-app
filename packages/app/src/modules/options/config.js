@@ -29,12 +29,14 @@ export const getOptionsByType = (type, hasDisabledSections) => {
                 showSeriesAxisOptions: true,
                 showSeriesTypeOptions: true,
                 isColumnBased: true,
+                hasLegend: true,
             })
         case VIS_TYPE_BAR:
             return defaultConfig({
                 hasDisabledSections,
                 showSeriesAxisOptions: true,
                 isColumnBased: true,
+                hasLegend: true,
             })
         case VIS_TYPE_YEAR_OVER_YEAR_COLUMN:
             return defaultConfig({
