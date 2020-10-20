@@ -5,25 +5,16 @@ import {
     layoutGetDimensionIdItemIdsObject,
     VIS_TYPE_YEAR_OVER_YEAR_LINE,
     VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
-    VIS_TYPE_PIE,
-    VIS_TYPE_GAUGE,
-    VIS_TYPE_SINGLE_VALUE,
     VIS_TYPE_PIVOT_TABLE,
     defaultVisType,
     isYearOverYear,
     isTwoCategoryChartType,
+    layoutGetAdaptedLayoutForType,
 } from '@dhis2/analytics'
 
 import { getInverseLayout } from './layout'
 import { getOptionsFromVisualization } from './options'
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields'
-import {
-    defaultLayoutAdapter,
-    dualCategoryLayoutAdapter,
-    pieLayoutAdapter,
-    yearOverYearLayoutAdapter,
-    singleValueLayoutAdapter,
-} from './layoutAdapters'
 import { removeLastPathSegment } from './orgUnit'
 
 export const SERIES_ITEM_TYPE_PROP = 'type'
@@ -52,19 +43,7 @@ export const getUiFromVisualization = (vis, currentState = {}) => ({
 // Transform from store.ui to default format
 export const defaultUiAdapter = ui => ({
     ...ui,
-    layout: defaultLayoutAdapter(ui.layout),
-})
-
-// Transform from store.ui to dual category format
-export const dualCategoryUiAdapter = ui => ({
-    ...ui,
-    layout: dualCategoryLayoutAdapter(ui.layout),
-})
-
-// Transform from store.ui to pie format
-export const pieUiAdapter = ui => ({
-    ...ui,
-    layout: pieLayoutAdapter(ui.layout),
+    layout: layoutGetAdaptedLayoutForType(ui.layout, ui.type),
 })
 
 // Transform from store.ui to year on year format
@@ -76,32 +55,22 @@ export const yearOverYearUiAdapter = ui => {
 
     return {
         ...state,
-        layout: yearOverYearLayoutAdapter(ui.layout),
+        layout: layoutGetAdaptedLayoutForType(ui.layout, ui.type),
         itemsByDimension: items,
     }
 }
 
-export const singleValueUiAdapter = ui => ({
-    ...ui,
-    layout: singleValueLayoutAdapter(ui.layout),
-})
-
 export const getAdaptedUiByType = ui => {
+    console.log('getAdaptedUiByType', ui)
+
     if (isTwoCategoryChartType(ui.type) && ui.layout.rows.length > 1) {
-        return dualCategoryUiAdapter(ui)
+        return defaultUiAdapter(ui)
     }
 
     switch (ui.type) {
         case VIS_TYPE_YEAR_OVER_YEAR_LINE:
         case VIS_TYPE_YEAR_OVER_YEAR_COLUMN: {
             return yearOverYearUiAdapter(ui)
-        }
-        case VIS_TYPE_PIE: {
-            return pieUiAdapter(ui)
-        }
-        case VIS_TYPE_SINGLE_VALUE:
-        case VIS_TYPE_GAUGE: {
-            return singleValueUiAdapter(ui)
         }
         case VIS_TYPE_PIVOT_TABLE:
             return ui

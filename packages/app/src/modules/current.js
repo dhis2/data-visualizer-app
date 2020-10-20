@@ -5,17 +5,19 @@ import {
     AXIS_ID_FILTERS,
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
+    VIS_TYPE_SINGLE_VALUE,
+    VIS_TYPE_PIE,
     dimensionCreate,
     layoutGetDimensionItems,
     layoutReplaceDimension,
     getPredefinedDimensionProp,
     DIMENSION_PROP_NO_ITEMS,
+    layoutGetAdaptedLayoutForType,
 } from '@dhis2/analytics'
 
 import options from './options'
 import {} from './layout'
 import { BASE_FIELD_TYPE, BASE_FIELD_YEARLY_SERIES } from './fields/baseFields'
-import { pieLayoutAdapter, singleValueLayoutAdapter } from './layoutAdapters'
 
 const hasItems = (object, id) => Array.isArray(object[id]) && object[id].length
 
@@ -102,7 +104,10 @@ export const getSingleValueCurrentFromUi = (state, action) => {
     const ui = {
         ...action.value,
         layout: {
-            ...singleValueLayoutAdapter(action.value.layout),
+            ...layoutGetAdaptedLayoutForType(
+                action.value.layout,
+                VIS_TYPE_SINGLE_VALUE
+            ),
         },
     }
 
@@ -128,7 +133,7 @@ export const getPieCurrentFromUi = (state, action) => {
     const ui = {
         ...action.value,
         layout: {
-            ...pieLayoutAdapter(action.value.layout),
+            ...layoutGetAdaptedLayoutForType(action.value.layout, VIS_TYPE_PIE),
         },
     }
 
