@@ -14,25 +14,25 @@ import getLegendTab from './tabs/legend'
 
 export default ({
     hasDisabledSections,
-    showSeriesAxisOptions,
-    showSeriesTypeOptions,
+    supportsMultiAxes,
+    supportsMultiType,
     isColumnBased,
     isStacked,
-    hasLegend,
+    supportsLegends,
 } = {}) => [
     getDataTab([
         getDisplaySection(isStacked),
         getLinesSection(hasDisabledSections),
         getAdvancedSection(),
     ]),
-    hasLegend ? getLegendTab({ hideStyleOptions: true }) : {},
+    supportsLegends ? getLegendTab({ hideStyleOptions: true }) : {},
     getAxesTab([
         getVerticalAxisSection(hasDisabledSections),
         getHorizontalAxisSection(),
     ]),
     getSeriesTab({
-        showAxisOptions: showSeriesAxisOptions,
-        showTypeOptions: showSeriesTypeOptions,
+        showAxisOptions: supportsMultiAxes,
+        showTypeOptions: supportsMultiType,
     }),
     getStyleTab([
         getChartStyleSection(isColumnBased),

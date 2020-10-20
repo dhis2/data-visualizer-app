@@ -1,18 +1,13 @@
 import {
-    VIS_TYPE_COLUMN,
-    VIS_TYPE_BAR,
-    VIS_TYPE_STACKED_COLUMN,
-    VIS_TYPE_STACKED_BAR,
     VIS_TYPE_PIVOT_TABLE,
-    VIS_TYPE_LINE,
-    VIS_TYPE_RADAR,
-    VIS_TYPE_AREA,
-    VIS_TYPE_STACKED_AREA,
     VIS_TYPE_PIE,
     VIS_TYPE_GAUGE,
-    VIS_TYPE_YEAR_OVER_YEAR_LINE,
-    VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
     VIS_TYPE_SINGLE_VALUE,
+    isStacked as getIsStacked,
+    isLegendSetType,
+    isMultiType,
+    isDualAxisType,
+    isColumnBasedType,
 } from '@dhis2/analytics'
 
 import pivotTableConfig from './pivotTableConfig'
@@ -22,64 +17,31 @@ import singleValueConfig from './singleValueConfig'
 import defaultConfig from './defaultConfig'
 
 export const getOptionsByType = (type, hasDisabledSections) => {
+    const isStacked = getIsStacked(type)
+    const isColumnBased = isColumnBasedType(type)
+    const supportsLegends = isLegendSetType(type)
+    const supportsMultiAxes = isDualAxisType(type)
+    const supportsMultiType = isMultiType(type)
+
+    const defaultProps = {
+        hasDisabledSections,
+        isStacked,
+        isColumnBased,
+        supportsLegends,
+        supportsMultiAxes,
+        supportsMultiType,
+    }
+
     switch (type) {
-        case VIS_TYPE_COLUMN:
-            return defaultConfig({
-                hasDisabledSections,
-                showSeriesAxisOptions: true,
-                showSeriesTypeOptions: true,
-                isColumnBased: true,
-                hasLegend: true,
-            })
-        case VIS_TYPE_BAR:
-            return defaultConfig({
-                hasDisabledSections,
-                showSeriesAxisOptions: true,
-                isColumnBased: true,
-                hasLegend: true,
-            })
-        case VIS_TYPE_YEAR_OVER_YEAR_COLUMN:
-            return defaultConfig({
-                hasDisabledSections,
-                isColumnBased: true,
-            })
-        case VIS_TYPE_LINE:
-            return defaultConfig({
-                hasDisabledSections,
-                showSeriesAxisOptions: true,
-                showSeriesTypeOptions: true,
-            })
-        case VIS_TYPE_RADAR:
-        case VIS_TYPE_YEAR_OVER_YEAR_LINE:
-            return defaultConfig({
-                hasDisabledSections,
-            })
-        case VIS_TYPE_AREA:
-            return defaultConfig({
-                hasDisabledSections,
-                showSeriesAxisOptions: true,
-            })
-        case VIS_TYPE_STACKED_AREA:
-            return defaultConfig({
-                hasDisabledSections,
-                isStacked: true,
-            })
         case VIS_TYPE_GAUGE:
-            return gaugeConfig(hasDisabledSections)
+            return gaugeConfig()
         case VIS_TYPE_PIE:
-            return pieConfig(hasDisabledSections)
+            return pieConfig()
         case VIS_TYPE_SINGLE_VALUE:
-            return singleValueConfig(hasDisabledSections)
+            return singleValueConfig()
         case VIS_TYPE_PIVOT_TABLE:
-            return pivotTableConfig(hasDisabledSections)
-        case VIS_TYPE_STACKED_COLUMN:
-        case VIS_TYPE_STACKED_BAR:
+            return pivotTableConfig()
         default:
-            // default return all the options except series
-            return defaultConfig({
-                hasDisabledSections,
-                isStacked: true,
-                isColumnBased: true,
-            })
+            return defaultConfig(defaultProps)
     }
 }
