@@ -61,8 +61,6 @@ export const yearOverYearUiAdapter = ui => {
 }
 
 export const getAdaptedUiByType = ui => {
-    console.log('getAdaptedUiByType', ui)
-
     if (isTwoCategoryChartType(ui.type) && ui.layout.rows.length > 1) {
         return defaultUiAdapter(ui)
     }
