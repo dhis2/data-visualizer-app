@@ -3,7 +3,7 @@ import {
     VIS_TYPE_PIE,
     VIS_TYPE_GAUGE,
     VIS_TYPE_SINGLE_VALUE,
-    isStacked as getIsStacked,
+    isStacked as isStackedType,
     isLegendSetType,
     isMultiType,
     isDualAxisType,
@@ -17,7 +17,7 @@ import singleValueConfig from './singleValueConfig'
 import defaultConfig from './defaultConfig'
 
 export const getOptionsByType = (type, hasDisabledSections) => {
-    const isStacked = getIsStacked(type)
+    const isStacked = isStackedType(type)
     const isColumnBased = isColumnBasedType(type)
     const supportsLegends = isLegendSetType(type)
     const supportsMultiAxes = isDualAxisType(type)
