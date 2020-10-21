@@ -516,7 +516,7 @@ msgid "Row totals"
 msgstr ""
 
 msgid "Data item"
-msgstr ""
+msgstr "Маълумот элементи"
 
 msgid "Visualization type"
 msgstr ""
@@ -575,7 +575,7 @@ msgid "Target line title"
 msgstr "Мақсадли қатор сарлавҳаси"
 
 msgid "Size"
-msgstr ""
+msgstr "Ўлчам"
 
 msgid "Position"
 msgstr "Лавозими"
