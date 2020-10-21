@@ -1,30 +1,28 @@
-import { getInstance } from 'd2'
 import { onError } from './index'
 
-export const apiFetchOrganisationUnitRoot = () => {
-    const endPoint = '/organisationUnits'
-    const fields = ['id', 'displayName', 'name']
-    const url = `${endPoint}?paging=false&userDataViewFallback=true&fields=${fields.join(
-        ','
-    )}`
-
-    return getInstance()
-        .then(d2 => d2.Api.getApi().get(url))
-        .then(({ organisationUnits }) => organisationUnits[0])
-        .catch(onError)
+const orgUnitRootsQuery = {
+    orgUnitRoots: {
+        resource: 'organisationUnits',
+        params: {
+            fields: 'id,displayName,name',
+            paging: false,
+            userDataViewFallback: true,
+        },
+    },
 }
 
-/**
- * Fetch organisation unit levels
- * @returns {Promise}
- */
-export const apiFetchOrganisationUnitLevels = () => {
-    const endPoint = '/organisationUnitLevels'
-    const fields = ['id', 'name', 'displayName', 'level']
-    const url = `${endPoint}?paging=false&fields=${fields.join(',')}`
-
-    return getInstance()
-        .then(d2 => d2.Api.getApi().get(url))
-        .then(({ organisationUnitLevels }) => organisationUnitLevels)
-        .catch(onError)
+const orgUnitLevelsQuery = {
+    orgUnitLevels: {
+        resource: 'organisationUnitLevels',
+        params: {
+            fields: 'id,name,displayName,level',
+            paging: false,
+        },
+    },
 }
+
+export const apiFetchOrganisationUnitRoots = dataEngine =>
+    dataEngine.query(orgUnitRootsQuery, { onError })
+
+export const apiFetchOrganisationUnitLevels = dataEngine =>
+    dataEngine.query(orgUnitLevelsQuery, { onError })

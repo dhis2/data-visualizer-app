@@ -1,6 +1,6 @@
 import { SET_SETTINGS, ADD_SETTINGS } from '../reducers/settings'
 import { apiFetchSystemSettings } from '../api/settings'
-import { apiFetchOrganisationUnitRoot } from '../api/organisationUnits'
+import { apiFetchOrganisationUnitRoots } from '../api/organisationUnits'
 
 export const acSetSettings = value => ({
     type: SET_SETTINGS,
@@ -12,7 +12,11 @@ export const acAddSettings = value => ({
     value,
 })
 
-export const tAddSettings = (...extraSettings) => async dispatch => {
+export const tAddSettings = (...extraSettings) => async (
+    dispatch,
+    getState,
+    engine
+) => {
     const onSuccess = fetchedSettings => {
         dispatch(
             acAddSettings(Object.assign({}, fetchedSettings, ...extraSettings))
@@ -25,12 +29,12 @@ export const tAddSettings = (...extraSettings) => async dispatch => {
     }
 
     try {
-        const systemSettings = await apiFetchSystemSettings()
-        const rootOrganisationUnit = await apiFetchOrganisationUnitRoot()
+        const systemSettingsData = await apiFetchSystemSettings(engine)
+        const ouData = await apiFetchOrganisationUnitRoots(engine)
 
         return onSuccess({
-            ...systemSettings,
-            rootOrganisationUnit,
+            ...systemSettingsData.systemSettings,
+            rootOrganisationUnit: ouData.orgUnitRoots[0], // multiple roots?
         })
     } catch (err) {
         return onError(err)
