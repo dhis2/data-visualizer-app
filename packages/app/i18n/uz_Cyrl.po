@@ -105,16 +105,16 @@ msgid "Something went wrong"
 msgstr "Нимадир нотўғри бажарилди"
 
 msgid "Refresh to try again"
-msgstr ""
+msgstr "Ыайтиб уриниб кщрин учун аввал янгиланг"
 
 msgid "Hide technical details"
-msgstr ""
+msgstr "Техник деталларни яшириш"
 
 msgid "Show technical details"
-msgstr ""
+msgstr "Техник деталларни кўрсатиш"
 
 msgid "The following information may be requested by technical support."
-msgstr ""
+msgstr "Қуйидаги ахборот техник ёрдамчилар томонидан сўралиши мумкин"
 
 msgid "Interpretations"
 msgstr "Шарҳлар"
@@ -147,7 +147,7 @@ msgid "Edited"
 msgstr ""
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr ""
+msgstr " {{ТалқинВақт}} дан талқинни кўриш"
 
 msgid "Chart error"
 msgstr ""
@@ -335,7 +335,7 @@ msgid "Line"
 msgstr ""
 
 msgid "Area"
-msgstr ""
+msgstr "Майдон"
 
 msgid "Pie"
 msgstr ""
