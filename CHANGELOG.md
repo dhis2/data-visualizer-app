@@ -1,3 +1,10 @@
+# [35.13.0](https://github.com/dhis2/data-visualizer-app/compare/v35.12.34...v35.13.0) (2020-10-21)
+
+
+### Features
+
+* enable legend tab for column and bar (DHIS2-147) ([#1355](https://github.com/dhis2/data-visualizer-app/issues/1355)) ([04bb5a6](https://github.com/dhis2/data-visualizer-app/commit/04bb5a67b4b4507c26b8774221a9badb2faac267))
+
 ## [35.12.34](https://github.com/dhis2/data-visualizer-app/compare/v35.12.33...v35.12.34) (2020-10-20)
 
 
