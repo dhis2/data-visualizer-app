@@ -12,7 +12,7 @@ import {
     layoutReplaceDimension,
     getPredefinedDimensionProp,
     DIMENSION_PROP_NO_ITEMS,
-    layoutGetAdaptedLayoutForType,
+    layoutGetAdaptedLayoutByType,
 } from '@dhis2/analytics'
 
 import options from './options'
@@ -104,7 +104,7 @@ export const getSingleValueCurrentFromUi = (state, action) => {
     const ui = {
         ...action.value,
         layout: {
-            ...layoutGetAdaptedLayoutForType(
+            ...layoutGetAdaptedLayoutByType(
                 action.value.layout,
                 VIS_TYPE_SINGLE_VALUE
             ),
@@ -133,7 +133,7 @@ export const getPieCurrentFromUi = (state, action) => {
     const ui = {
         ...action.value,
         layout: {
-            ...layoutGetAdaptedLayoutForType(action.value.layout, VIS_TYPE_PIE),
+            ...layoutGetAdaptedLayoutByType(action.value.layout, VIS_TYPE_PIE),
         },
     }
 

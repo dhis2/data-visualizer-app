@@ -8,8 +8,7 @@ import {
     VIS_TYPE_PIVOT_TABLE,
     defaultVisType,
     isYearOverYear,
-    isTwoCategoryChartType,
-    layoutGetAdaptedLayoutForType,
+    layoutGetAdaptedLayoutByType,
 } from '@dhis2/analytics'
 
 import { getInverseLayout } from './layout'
@@ -41,13 +40,13 @@ export const getUiFromVisualization = (vis, currentState = {}) => ({
 })
 
 // Transform from store.ui to default format
-export const defaultUiAdapter = ui => ({
+const defaultUiAdapter = ui => ({
     ...ui,
-    layout: layoutGetAdaptedLayoutForType(ui.layout, ui.type),
+    layout: layoutGetAdaptedLayoutByType(ui.layout, ui.type),
 })
 
 // Transform from store.ui to year on year format
-export const yearOverYearUiAdapter = ui => {
+const yearOverYearUiAdapter = ui => {
     const state = Object.assign({}, ui)
 
     const items = Object.assign({}, state.itemsByDimension)
@@ -55,16 +54,12 @@ export const yearOverYearUiAdapter = ui => {
 
     return {
         ...state,
-        layout: layoutGetAdaptedLayoutForType(ui.layout, ui.type),
+        layout: layoutGetAdaptedLayoutByType(ui.layout, ui.type),
         itemsByDimension: items,
     }
 }
 
 export const getAdaptedUiByType = ui => {
-    if (isTwoCategoryChartType(ui.type) && ui.layout.rows.length > 1) {
-        return defaultUiAdapter(ui)
-    }
-
     switch (ui.type) {
         case VIS_TYPE_YEAR_OVER_YEAR_LINE:
         case VIS_TYPE_YEAR_OVER_YEAR_COLUMN: {
