@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-10-07T13:26:38.182Z\n"
+"POT-Creation-Date: 2020-10-19T12:05:53.414Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2020\n"
 "Language-Team: Arabic (Iraq) (https://www.transifex.com/hisp-uio/teams/100509/ar_IQ/)\n"
@@ -830,24 +830,6 @@ msgstr ""
 msgid "Lines are not supported yet when using multiple axes"
 msgstr ""
 
-msgid "Titles"
-msgstr ""
-
-msgid "Vertical axis options are not supported yet when using multiple axes"
-msgstr ""
-
-msgid "Axes"
-msgstr ""
-
-msgid "Data"
-msgstr "البيانات"
-
-msgid "Series"
-msgstr ""
-
-msgid "Style"
-msgstr "المظهر"
-
 msgid "Chart style"
 msgstr ""
 
@@ -865,6 +847,24 @@ msgstr "الإجماليات"
 
 msgid "Vertical (y) axis"
 msgstr ""
+
+msgid "Titles"
+msgstr ""
+
+msgid "Vertical axis options are not supported yet when using multiple axes"
+msgstr ""
+
+msgid "Axes"
+msgstr ""
+
+msgid "Data"
+msgstr "البيانات"
+
+msgid "Series"
+msgstr ""
+
+msgid "Style"
+msgstr "المظهر"
 
 msgid "Weeks per year"
 msgstr ""

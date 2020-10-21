@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-10-07T13:26:38.182Z\n"
+"POT-Creation-Date: 2020-10-19T12:05:53.414Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Ibatov <ibatovk@who.int>, 2020\n"
 "Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
@@ -136,16 +136,16 @@ msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr ""
 
 msgid "Refresh to try again"
-msgstr ""
+msgstr "Ыайтиб уриниб кщрин учун аввал янгиланг"
 
 msgid "Hide technical details"
-msgstr ""
+msgstr "Техник деталларни яшириш"
 
 msgid "Show technical details"
-msgstr ""
+msgstr "Техник деталларни кўрсатиш"
 
 msgid "The following information may be requested by technical support."
-msgstr ""
+msgstr "Қуйидаги ахборот техник ёрдамчилар томонидан сўралиши мумкин"
 
 msgid "Hide"
 msgstr "Яшириш"
@@ -175,7 +175,7 @@ msgid "Levels"
 msgstr ""
 
 msgid "Groups"
-msgstr ""
+msgstr "Гуруҳлар"
 
 msgid "And 1 other..."
 msgstr ""
@@ -201,7 +201,7 @@ msgid "Edited"
 msgstr ""
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr ""
+msgstr " {{ТалқинВақт}} дан талқинни кўриш"
 
 msgid "Update"
 msgstr "Янгилаш"
@@ -293,7 +293,7 @@ msgid "Number"
 msgstr "Тартиб рақами"
 
 msgid "Labels"
-msgstr ""
+msgstr "Ёрлиқлар"
 
 msgid "Column sub-totals"
 msgstr ""
@@ -492,7 +492,7 @@ msgid ""
 msgstr ""
 
 msgid "Steps"
-msgstr ""
+msgstr "Қадамлар"
 
 msgid "Include regression"
 msgstr "Регрессияни ўз ичига олади"
@@ -830,24 +830,6 @@ msgstr ""
 msgid "Lines are not supported yet when using multiple axes"
 msgstr ""
 
-msgid "Titles"
-msgstr ""
-
-msgid "Vertical axis options are not supported yet when using multiple axes"
-msgstr ""
-
-msgid "Axes"
-msgstr "Ўқлар"
-
-msgid "Data"
-msgstr "Маълумот"
-
-msgid "Series"
-msgstr "Кетма-кетликлар"
-
-msgid "Style"
-msgstr "Услуб"
-
 msgid "Chart style"
 msgstr ""
 
@@ -865,6 +847,24 @@ msgstr "Жами"
 
 msgid "Vertical (y) axis"
 msgstr ""
+
+msgid "Titles"
+msgstr ""
+
+msgid "Vertical axis options are not supported yet when using multiple axes"
+msgstr ""
+
+msgid "Axes"
+msgstr "Ўқлар"
+
+msgid "Data"
+msgstr "Маълумот"
+
+msgid "Series"
+msgstr "Кетма-кетликлар"
+
+msgid "Style"
+msgstr "Услуб"
 
 msgid "Weeks per year"
 msgstr ""
