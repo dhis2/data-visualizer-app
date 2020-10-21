@@ -50,6 +50,10 @@ jest.mock('../../api/organisationUnits', () => ({
         ]),
 }))
 
+jest.mock('../../api/dataStatistics', () => ({
+    apiPostDataStatistics: () => Promise.resolve(),
+}))
+
 describe('index', () => {
     describe('tDoLoadVisualization', () => {
         it('dispatches the correct actions after successfully fetching visualization', () => {
