@@ -62,7 +62,7 @@ msgid "Update"
 msgstr "Янгилаш"
 
 msgid "Add to {{axisName}}"
-msgstr ""
+msgstr "{{axisName}} га қўшинг"
 
 msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
@@ -75,16 +75,16 @@ msgid ""
 msgstr ""
 
 msgid "Main dimensions"
-msgstr ""
+msgstr "Умумий ўлчамлар"
 
 msgid "Other dimensions"
 msgstr ""
 
 msgid "Your dimensions"
-msgstr ""
+msgstr "Сизнинг созламаларингиз"
 
 msgid "Filter dimensions"
-msgstr ""
+msgstr "Фильтр созламалари"
 
 msgid "Graphics"
 msgstr "Графика"
@@ -269,7 +269,7 @@ msgid "Variance"
 msgstr "Номувофиқлик"
 
 msgid "Data approved at level"
-msgstr "Маълумотлар тасдиқланган даража"
+msgstr "Маълумотлар тасдиқланган поғона"
 
 msgid "Select from predefined levels"
 msgstr ""
@@ -543,19 +543,19 @@ msgid "Open as Map"
 msgstr ""
 
 msgid "Reporting rate"
-msgstr ""
+msgstr "Ҳисоботдаги ставка"
 
 msgid "Reporting rate on time"
-msgstr ""
+msgstr "Ҳисоботдаги ставка ўз вақтида"
 
 msgid "Actual reports"
-msgstr ""
+msgstr "Ҳақиқий ҳисоботлар"
 
 msgid "Actual reports on time"
-msgstr ""
+msgstr "Ҳақиқий ҳисоботлар ўз вақтида"
 
 msgid "Expected reports"
-msgstr ""
+msgstr "Кутилаётган ҳисоботлар"
 
 msgid "No data available"
 msgstr ""
@@ -748,7 +748,7 @@ msgid "Data"
 msgstr "Маълумот"
 
 msgid "Display"
-msgstr ""
+msgstr "Намойиш қилиш"
 
 msgid "Axes"
 msgstr "Ўқлар"
