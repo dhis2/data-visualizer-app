@@ -43,10 +43,10 @@ msgid "Period"
 msgstr "давр"
 
 msgid "Selected Data"
-msgstr ""
+msgstr "Танланган маълумот"
 
 msgid "Deselect All"
-msgstr ""
+msgstr "Барчасини танланганлигини бекор қилиш"
 
 msgid "Select All"
 msgstr ""
@@ -55,10 +55,10 @@ msgid "Remove"
 msgstr "Ўчириш"
 
 msgid "Search dimensions"
-msgstr ""
+msgstr "Қидирув созламалари"
 
 msgid "Dimension recommended with selected data"
-msgstr ""
+msgstr "Танланган маълумотлар учун созламалар тавсия этилади"
 
 msgid "Download"
 msgstr "Юклаш"
@@ -304,55 +304,55 @@ msgid "Column"
 msgstr "Устун"
 
 msgid "Stacked column"
-msgstr ""
+msgstr "Йиғилган устун"
 
 msgid "Bar"
-msgstr ""
+msgstr "Бар"
 
 msgid "Stacked bar"
-msgstr ""
+msgstr "Йиғилган тизимча"
 
 msgid "Line"
-msgstr ""
+msgstr "Қатор"
 
 msgid "Area"
 msgstr "Майдон"
 
 msgid "Pie"
-msgstr ""
+msgstr "Бутун айлана"
 
 msgid "Radar"
-msgstr ""
+msgstr "Радар"
 
 msgid "Gauge"
-msgstr ""
+msgstr "Ҳисоблагич"
 
 msgid "Year over year (line)"
-msgstr ""
+msgstr "Йилдан йилга (қатор)"
 
 msgid "Year over year (column)"
-msgstr ""
+msgstr "Йилдан йилга (устун)"
 
 msgid "Reporting rate"
-msgstr ""
+msgstr "Ҳисоботдаги ставка"
 
 msgid "Reporting rate on time"
-msgstr ""
+msgstr "Ҳисоботдаги ставка ўз вақтида"
 
 msgid "Actual reports"
-msgstr ""
+msgstr "Ҳақиқий ҳисоботлар"
 
 msgid "Actual reports on time"
-msgstr ""
+msgstr "Ҳақиқий ҳисоботлар ўз вақтида"
 
 msgid "Expected reports"
-msgstr ""
+msgstr "Кутилаётган ҳисоботлар"
 
 msgid "Program"
 msgstr "Программа"
 
 msgid "Select a program"
-msgstr ""
+msgstr "Дастурни танланг"
 
 msgid "Indicators"
 msgstr "Индикаторлар"
@@ -361,7 +361,7 @@ msgid "Select indicator group"
 msgstr "Индикатор гуруҳини танлаш"
 
 msgid "[ All groups ]"
-msgstr ""
+msgstr "[Барча гуруҳлар]"
 
 msgid "Data elements"
 msgstr "Маълумот элементлари"
@@ -370,7 +370,7 @@ msgid "Select data element group"
 msgstr "Маълумотлар элементи гуруҳини танлаш"
 
 msgid "[ All data elements ]"
-msgstr ""
+msgstr "[Маълумотлар барча  элементлари]"
 
 msgid "Totals"
 msgstr "Жами"
@@ -382,10 +382,10 @@ msgid "Data sets"
 msgstr "Маълумотлар тўплами"
 
 msgid "Select data sets"
-msgstr ""
+msgstr "Маълумотлар тўпламларини танланг"
 
 msgid "[ All metrics ]"
-msgstr ""
+msgstr "[Барча ўлчовлар]"
 
 msgid "Event data items"
 msgstr "Ҳодисалар ҳақида маълумот элементлари"
