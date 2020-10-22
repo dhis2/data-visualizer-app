@@ -343,37 +343,37 @@ msgid "Column"
 msgstr "Устун"
 
 msgid "Stacked column"
-msgstr ""
+msgstr "Йиғилган устун"
 
 msgid "Bar"
-msgstr ""
+msgstr "Бар"
 
 msgid "Stacked bar"
-msgstr ""
+msgstr "Йиғилган тизимча"
 
 msgid "Line"
-msgstr ""
+msgstr "Қатор"
 
 msgid "Area"
 msgstr "Майдон"
 
 msgid "Pie"
-msgstr ""
+msgstr "Бутун айлана"
 
 msgid "Radar"
-msgstr ""
+msgstr "Радар"
 
 msgid "Gauge"
-msgstr ""
+msgstr "Ҳисоблагич"
 
 msgid "Year over year (line)"
-msgstr ""
+msgstr "Йилдан йилга (қатор)"
 
 msgid "Year over year (column)"
-msgstr ""
+msgstr "Йилдан йилга (устун)"
 
 msgid "Single value"
-msgstr ""
+msgstr "Ягона қиймат"
 
 msgid "Open as Map"
 msgstr ""
