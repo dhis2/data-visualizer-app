@@ -40,4 +40,4 @@ export default ({
             getTitlesSection(),
             getColorSetSection(hasDisabledSections),
         ]),
-    ].filter(Boolean)
+    ].filter(Boolean) // strip undefined values
