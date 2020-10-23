@@ -19,24 +19,25 @@ export default ({
     isColumnBased,
     isStacked,
     supportsLegends,
-} = {}) => [
-    getDataTab([
-        getDisplaySection(isStacked),
-        getLinesSection(hasDisabledSections),
-        getAdvancedSection(),
-    ]),
-    supportsLegends ? getLegendTab({ hideStyleOptions: true }) : {},
-    getAxesTab([
-        getVerticalAxisSection(hasDisabledSections),
-        getHorizontalAxisSection(),
-    ]),
-    getSeriesTab({
-        showAxisOptions: supportsMultiAxes,
-        showTypeOptions: supportsMultiType,
-    }),
-    getStyleTab([
-        getChartStyleSection(isColumnBased),
-        getTitlesSection(),
-        getColorSetSection(hasDisabledSections),
-    ]),
-]
+} = {}) =>
+    [
+        getDataTab([
+            getDisplaySection(isStacked),
+            getLinesSection(hasDisabledSections),
+            getAdvancedSection(),
+        ]),
+        supportsLegends && getLegendTab({ hideStyleOptions: true }),
+        getAxesTab([
+            getVerticalAxisSection(hasDisabledSections),
+            getHorizontalAxisSection(),
+        ]),
+        getSeriesTab({
+            showAxisOptions: supportsMultiAxes,
+            showTypeOptions: supportsMultiType,
+        }),
+        getStyleTab([
+            getChartStyleSection(isColumnBased),
+            getTitlesSection(),
+            getColorSetSection(hasDisabledSections),
+        ]),
+    ].filter(Boolean)
