@@ -1,5 +1,7 @@
+import { toolbar } from './Canvas'
+
 export const clickFileMenu = () => {
-    cy.get('button')
+    cy.get(toolbar)
         .contains('File')
         .click()
 }

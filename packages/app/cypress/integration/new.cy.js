@@ -1,13 +1,15 @@
 import { createNewAO } from '../elements/FileMenu'
-import { selectDimension } from '../elements/DimensionsPanel'
+import { openDimension } from '../elements/DimensionsPanel'
 import { selectIndicator, clickUpdate } from '../elements/DimensionsModal'
-import { chartContainer } from '../elements/Canvas'
+import { chartContainer, startScreen } from '../elements/Canvas'
+import { startScreenText } from '../elements/Texts'
+
+const dimensionName = 'Data'
+const indicatorName = 'ANC 3 Coverage'
 
 describe('new AO', () => {
-    it('adds a data dimension', () => {
-        const dimensionName = 'Data'
-        const indicatorName = 'ANC 3 Coverage'
-
+    it('creates a new AO', () => {
+        cy.get(startScreen).contains(startScreenText)
         createNewAO()
 
         cy.getReduxState('current').should('be.null')
@@ -19,7 +21,12 @@ describe('new AO', () => {
             .should('not.be.visible')
             .should('have.length', 0)
 
-        selectDimension(dimensionName)
+        cy.get(startScreen).contains(startScreenText)
+
+        // TODO: Select another vistype
+        // TODO: Make the test dynamic so it can be looped through and run for all vis types
+
+        openDimension(dimensionName)
         selectIndicator(indicatorName)
         clickUpdate()
 
@@ -31,5 +38,8 @@ describe('new AO', () => {
         cy.getReduxState('current')
             .its('columns')
             .should('have.length', 1)
+
+        // TODO: Check that title is 'unsaved visualization'
+        // TODO: Check that the chart contains the indicatorName in the highcharts legend (for column etc only)
     })
 })
