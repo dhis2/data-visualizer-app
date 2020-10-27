@@ -7,4 +7,10 @@ module.exports = {
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'warn',
     },
+    globals: {
+        Cypress: 'readonly',
+        after: 'readonly',
+        before: 'readonly',
+        cy: 'readonly',
+    },
 }
