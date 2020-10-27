@@ -9,7 +9,7 @@ describe('Data visualizer', () => {
     })
 
     it('loads', () => {
-        cy.visit('')
+        cy.visit('') // TODO: Move this to run before each test
         cy.title().should('equal', 'Data Visualizer | DHIS2')
     })
 
@@ -41,17 +41,10 @@ describe('Data visualizer', () => {
                 .should('not.be.visible')
                 .should('have.length', 0)
 
-            cy.server()
-            cy.route(/\/analytics\.json.*/).as('getAnalytics')
-
             const dimensions = new Dimensions()
             dimensions.selectDimension('dx')
             dimensions.selectIndicator('sB79w2hiLp8') //ANC 3 Coverage
             dimensions.clickUpdate()
-
-            cy.wait('@getAnalytics')
-                .its('status')
-                .should('be', 200)
 
             cy.get(chartContainer, {
                 log: false,
