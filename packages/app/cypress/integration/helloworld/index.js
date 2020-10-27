@@ -1,14 +1,9 @@
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 
-const myRoute = '/'
+const myRoute = '#/LW0O27b7TdD'
 
 Given('I say hello', () => {
-    cy.visit(myRoute).then(() => {
-        //cy.get('#server').type(Cypress.env('dhis2_base_url'))
-        cy.get('#j_username').type(Cypress.env('dhis2_username'))
-        cy.get('#j_password').type(Cypress.env('dhis2_password'))
-        cy.get('form').submit()
-    })
+    cy.visit(myRoute)
 })
 
 Then('the response is world', () => {
