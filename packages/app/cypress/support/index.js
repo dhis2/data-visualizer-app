@@ -14,4 +14,5 @@ beforeEach(() => {
         Related Cypress issue https://github.com/cypress-io/cypress/issues/408
     */
     cy.clearCookies({ domain: null })
+    cy.visit('')
 })
