@@ -5,16 +5,11 @@ import { chartTitleEl, chartContainer } from '../elements/Canvas'
 describe('Data visualizer', () => {
     let fileMenu
     before(() => {
-        cy.login()
-        cy.loadPage()
-
         fileMenu = new FileMenu()
-    })
-    beforeEach(() => {
-        cy.persistLogin()
     })
 
     it('loads', () => {
+        cy.visit('')
         cy.title().should('equal', 'Data Visualizer | DHIS2')
     })
 
