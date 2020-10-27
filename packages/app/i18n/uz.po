@@ -404,7 +404,7 @@ msgid "Legend style"
 msgstr "Таъриф тури"
 
 msgid "Legend type"
-msgstr ""
+msgstr "Таъриф тури"
 
 msgid "Use pre-defined legend per data item"
 msgstr ""
@@ -580,7 +580,7 @@ msgid ""
 msgstr ""
 
 msgid "No period selected"
-msgstr ""
+msgstr "Давр танланмаган"
 
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
