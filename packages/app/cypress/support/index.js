@@ -1,4 +1,5 @@
 import '@dhis2/cli-utils-cypress/support'
+import './commands'
 
 import { enableNetworkShim, loginAndPersistSession } from './server'
 
