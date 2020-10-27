@@ -257,7 +257,7 @@ msgid "Hide title"
 msgstr ""
 
 msgid "No space between columns/bars"
-msgstr ""
+msgstr "Устун/чизиқлар орасида бўш жой йўқ"
 
 msgid "Use 100% stacked values"
 msgstr "100% йиғма қийматлардан фойдаланинг"
