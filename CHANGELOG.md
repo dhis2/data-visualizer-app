@@ -1,3 +1,10 @@
+## [35.13.5](https://github.com/dhis2/data-visualizer-app/compare/v35.13.4...v35.13.5) (2020-10-27)
+
+
+### Bug Fixes
+
+* prevent options from crashing by filtering out empty objects (DHIS2-147) ([#1381](https://github.com/dhis2/data-visualizer-app/issues/1381)) ([9297b26](https://github.com/dhis2/data-visualizer-app/commit/9297b2671049cf2b3de1b5b0ad472385f2e494ca))
+
 ## [35.13.4](https://github.com/dhis2/data-visualizer-app/compare/v35.13.3...v35.13.4) (2020-10-27)
 
 
