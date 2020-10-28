@@ -1,16 +1,16 @@
 import { openSavedAO } from '../elements/FileMenu'
-import { chartTitleEl, chartContainer } from '../elements/Canvas'
+import { chartTitle, chartContainer } from '../elements/Canvas'
 
 describe('open', () => {
     it('loads a saved AO', () => {
-        const chartTitle = 'ANC: 1-3 dropout rate Yearly'
+        const title = 'ANC: 1-3 dropout rate Yearly'
 
-        openSavedAO(chartTitle)
+        openSavedAO(title)
 
-        cy.get(chartTitleEl)
+        cy.get(chartTitle)
             .should('have.length', 1)
             .should('be.visible')
-            .contains(chartTitle)
+            .contains(title)
 
         cy.get(chartContainer)
             .should('have.length', 1)

@@ -96,7 +96,9 @@ export const VisualizationTypeSelector = (
         <>
             <div onClick={toggleList} ref={buttonRef} className={styles.button}>
                 <ListItemIcon iconType={visualizationType} />
-                <span>{visTypeDisplayNames[visualizationType]}</span>
+                <span data-test="vst-button-text">
+                    {visTypeDisplayNames[visualizationType]}
+                </span>
                 <ArrowDropDownIcon style={{ marginLeft: 'auto' }} />
             </div>
             {listIsOpen &&
