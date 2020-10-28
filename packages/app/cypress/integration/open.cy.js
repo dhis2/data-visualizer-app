@@ -1,19 +1,17 @@
 import { openSavedAO } from '../elements/FileMenu'
-import { chartTitle, chartContainer } from '../elements/Canvas'
+import {
+    expectChartTitleToBeValue,
+    expectChartToBeVisible,
+} from '../elements/Chart'
 
 describe('open', () => {
     it('loads a saved AO', () => {
-        const title = 'ANC: 1-3 dropout rate Yearly'
+        const AOName = 'ANC: 1-3 dropout rate Yearly'
 
-        openSavedAO(title)
+        openSavedAO(AOName)
 
-        cy.get(chartTitle)
-            .should('have.length', 1)
-            .should('be.visible')
-            .contains(title)
+        expectChartTitleToBeValue(AOName)
 
-        cy.get(chartContainer)
-            .should('have.length', 1)
-            .should('be.visible')
+        expectChartToBeVisible()
     })
 })

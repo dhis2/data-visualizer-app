@@ -1,3 +1,5 @@
+const openModal = '*[class^="MuiDialogContent"]' // TODO: Add data-test to FileMenu to target this better
+
 export const clickFileMenu = () => {
     cy.get('.toolbar-menubar')
         .contains('File')
@@ -9,7 +11,9 @@ export const openSavedAO = ao => {
     cy.get('div')
         .contains('Open')
         .click()
-    cy.contains(ao).click()
+    cy.get(openModal)
+        .contains(ao)
+        .click()
 }
 
 export const createNewAO = () => {

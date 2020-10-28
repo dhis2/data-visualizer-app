@@ -26,6 +26,13 @@ export const expectLegendToContainItem = item =>
         .should('be.visible')
         .contains(item)
 
+export const expectChartTitleToBeValue = value =>
+    cy
+        .get(chartTitle)
+        .should('have.length', 1)
+        .should('be.visible')
+        .contains(value)
+
 export const expectChartTitleToBeUnsaved = () =>
     cy
         .get(chartTitle)
