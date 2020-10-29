@@ -10,6 +10,7 @@ export const selectRandomIndicators = amount => {
             .then(size => {
                 cy.get(dimensionsModalEl)
                     .find(unselectedListEl)
+                    .children()
                     .eq(Math.floor(Math.random() * size))
                     .dblclick()
             })
