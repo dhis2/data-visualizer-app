@@ -1,9 +1,24 @@
 const dimensionsModalEl = '[data-test="dhis2-uicore-modal"]' // TODO: Add data-test specific to this modal
-const unselectedEl = '.unselected-list'
+const unselectedListEl = '.unselected-list'
+const unselectedItemEl = '.unselected-list-item'
+
+export const selectRandomIndicators = amount => {
+    for (let i = 0; i < amount; i++) {
+        cy.get(dimensionsModalEl)
+            .find(unselectedItemEl)
+            .its('length')
+            .then(size => {
+                cy.get(dimensionsModalEl)
+                    .find(unselectedListEl)
+                    .eq(Math.floor(Math.random() * size))
+                    .dblclick()
+            })
+    }
+}
 
 export const selectIndicator = indicator => {
     cy.get(dimensionsModalEl)
-        .find(unselectedEl)
+        .find(unselectedListEl)
         .contains(indicator)
         .dblclick()
 }
