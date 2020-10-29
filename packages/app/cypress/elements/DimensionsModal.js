@@ -1,5 +1,11 @@
+const dimensionsModalEl = '[data-test="dhis2-uicore-modal"]' // TODO: Add data-test specific to this modal
+const unselectedEl = '.unselected-list'
+
 export const selectIndicator = indicator => {
-    cy.contains(indicator).dblclick()
+    cy.get(dimensionsModalEl)
+        .find(unselectedEl)
+        .contains(indicator)
+        .dblclick()
 }
 
 export const clickUpdate = () => {

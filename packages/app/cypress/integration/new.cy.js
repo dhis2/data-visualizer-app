@@ -16,40 +16,46 @@ import {
     expectChartToNotBeVisible,
     expectLegendToContainItem,
 } from '../elements/Chart'
+import { visTypes } from '../utils/visTypes'
 
 const dimensionName = 'Data'
 const indicators = ['ANC 3 Coverage', 'ANC IPT 2 Coverage']
-const visType = 'Stacked bar'
 
 describe('new AO', () => {
     it('goes to DV', () => {
         cy.visit('')
         expectStartScreenToBeVisible()
     })
-    it('creates a new AO', () => {
-        createNewAO()
-        expectStoreCurrentToBeEmpty()
-        expectChartToNotBeVisible()
+    const availableVisTypes = visTypes.slice(1, 3)
+    availableVisTypes.forEach(visType => {
+        describe(visType, () => {
+            it('creates a new AO', () => {
+                createNewAO()
+                expectStoreCurrentToBeEmpty()
+                expectChartToNotBeVisible()
 
-        expectStartScreenToBeVisible()
-        expectVisTypeToBeDefault()
-    })
-    it('changes vis type', () => {
-        changeVisType(visType)
-        // TODO: Make the test dynamic so it can be looped through and run for all vis types
-    })
-    it('adds dimensions', () => {
-        openDimension(dimensionName)
-        indicators.forEach(indicator => selectIndicator(indicator))
+                expectStartScreenToBeVisible()
+                expectVisTypeToBeDefault()
+            })
+            it('changes vis type', () => {
+                changeVisType(visType)
+            })
+            it('adds dimensions', () => {
+                openDimension(dimensionName)
+                indicators.forEach(indicator => selectIndicator(indicator))
 
-        clickUpdate()
+                clickUpdate()
 
-        expectChartToBeVisible()
+                expectChartToBeVisible()
 
-        expectStoreCurrentToHaveColumnsLength(1)
+                expectStoreCurrentToHaveColumnsLength(1)
 
-        expectChartTitleToBeUnsaved()
+                expectChartTitleToBeUnsaved()
 
-        indicators.forEach(indicator => expectLegendToContainItem(indicator))
+                indicators.forEach(indicator =>
+                    expectLegendToContainItem(indicator)
+                )
+            })
+        })
     })
 })
