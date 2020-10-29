@@ -16,10 +16,9 @@ import { openDimension } from '../elements/DimensionsPanel'
 const AMOUNT_OF_INDICATORS_TO_ADD = 3
 
 describe('open', () => {
-    it.only('goes to DV', () => {
+    it('goes to DV', () => {
         cy.visit('')
         expectStartScreenToBeVisible()
-        openRandomSavedAOCreatedByYou()
     })
     it('loads a saved AO', () => {
         const AOName = 'ANC: 1-3 dropout rate Yearly'
@@ -37,11 +36,8 @@ describe('open', () => {
         selectRandomIndicators(AMOUNT_OF_INDICATORS_TO_ADD)
         clickUpdate()
     })
-    it('', () => {})
-
     /*  TODO: 
-        Add new Data dim
-        Check that Data dim shows up in legend
+        Check that new Data dims shows up in legend
         Check that AO name is "Edited"
         Change vis type
         Save
@@ -51,4 +47,12 @@ describe('open', () => {
         1) AO "Created by you", can save
         2) AO "Created by others", can't save 
     */
+    it('loads a random saved AO', () => {
+        openRandomSavedAOCreatedByYou()
+        expectChartToBeVisible()
+        /*  TODO: 
+            Click the Discard changes button
+            Expect chart title not to bed "Edited"
+        */
+    })
 })
