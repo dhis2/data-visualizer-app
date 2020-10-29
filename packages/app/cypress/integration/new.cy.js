@@ -22,19 +22,23 @@ const indicators = ['ANC 3 Coverage', 'ANC IPT 2 Coverage']
 const visType = 'Stacked bar'
 
 describe('new AO', () => {
-    it('creates a new AO', () => {
+    it('goes to DV', () => {
+        cy.visit('')
         expectStartScreenToBeVisible()
-
+    })
+    it('creates a new AO', () => {
         createNewAO()
         expectStoreCurrentToBeEmpty()
         expectChartToNotBeVisible()
 
         expectStartScreenToBeVisible()
         expectVisTypeToBeDefault()
-
+    })
+    it('changes vis type', () => {
         changeVisType(visType)
         // TODO: Make the test dynamic so it can be looped through and run for all vis types
-
+    })
+    it('adds dimensions', () => {
         openDimension(dimensionName)
         indicators.forEach(indicator => selectIndicator(indicator))
 

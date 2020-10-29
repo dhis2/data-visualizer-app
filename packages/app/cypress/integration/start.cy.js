@@ -1,17 +1,32 @@
 import { expectChartToNotBeVisible } from '../elements/Chart'
-import { expectStartScreenToBeVisible } from '../elements/StartScreen'
+import {
+    expectMostViewedToBeVisible,
+    expectMostViewedToHaveItems,
+    expectStartScreenToBeVisible,
+} from '../elements/StartScreen'
 import { expectVisTypeToBeDefault } from '../elements/VisualizationTypeSelector'
 import { expectWindowTitleToBeDefault } from '../elements/Window'
 import { expectStoreCurrentToBeEmpty } from '../utils/store'
 
 describe('start screen', () => {
-    it('loads', () => {
-        expectWindowTitleToBeDefault()
-        expectStoreCurrentToBeEmpty()
-        expectChartToNotBeVisible()
+    it('goes to DV', () => {
+        cy.visit('')
         expectStartScreenToBeVisible()
+    })
+    it('window has a title', () => {
+        expectWindowTitleToBeDefault()
+    })
+    it('store is empty', () => {
+        expectStoreCurrentToBeEmpty()
+    })
+    it('no chart is visible', () => {
+        expectChartToNotBeVisible()
+    })
+    it('displays most viewed section', () => {
+        expectMostViewedToBeVisible()
+        expectMostViewedToHaveItems()
+    })
+    it('vis type is default', () => {
         expectVisTypeToBeDefault()
-
-        // TODO: Check that 'Your most viewed charts and tables' contains 6 items
     })
 })
