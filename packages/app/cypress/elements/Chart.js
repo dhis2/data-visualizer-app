@@ -1,5 +1,6 @@
 const chartContainerEl = '.highcharts-container'
 const highchartsLegendEl = '.highcharts-legend'
+//const higchartsLegendItemEl = '.highcharts-legend-item'
 const unsavedVisualizationTitleText = 'Unsaved visualization'
 const chartTitleEl = 'chart-title'
 const chartTitleDirtyEl = 'chart-title-dirty'

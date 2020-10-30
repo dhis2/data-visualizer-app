@@ -1,16 +1,17 @@
+const menubarEl = 'app-menubar'
 const openModalEl = '*[class^="MuiDialogContent"]' // TODO: Add data-test to FileMenu to target this better
 const openModalToolbarEl = '*[class^="MuiToolbar-root"]'
 const createdByYouEl = '[data-value="byme"]'
 const openModalItemContainerEl = '*[class^="MuiTableBody"]'
 
 const clickFileMenu = () => {
-    cy.get('.toolbar-menubar')
+    cy.getBySel(menubarEl)
         .contains('File')
         .click()
 }
 
 const clickOpen = () => {
-    cy.get('div')
+    cy.get('div') // TODO: Change once new FileMenu is in place
         .contains('Open')
         .click()
 }
@@ -64,7 +65,7 @@ export const openSavedAO = ao => {
 
 export const createNewAO = () => {
     clickFileMenu()
-    cy.get('div')
+    cy.get('div') // TODO: Change once new FileMenu is in place
         .contains('New')
         .click()
 }

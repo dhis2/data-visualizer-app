@@ -1,7 +1,6 @@
 import { expectChartToNotBeVisible } from '../elements/Chart'
 import {
     expectMostViewedToBeVisible,
-    expectMostViewedToHaveItems,
     expectStartScreenToBeVisible,
 } from '../elements/StartScreen'
 import { expectVisTypeToBeDefault } from '../elements/VisualizationTypeSelector'
@@ -24,7 +23,6 @@ describe('start screen', () => {
     })
     it('displays most viewed section', () => {
         expectMostViewedToBeVisible()
-        expectMostViewedToHaveItems()
     })
     it('vis type is default', () => {
         expectVisTypeToBeDefault()

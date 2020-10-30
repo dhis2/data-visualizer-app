@@ -1,26 +1,26 @@
-const visTypeSelector = '*[class^="VisualizationTypeSelector_listContainer"]'
-const visTypeSelectorButton = '*[class^="VisualizationTypeSelector"]'
-const visTypeSelectorButtonText = 'vst-button-text'
+const vstCardEl = 'visualization-type-selector-card'
+const vstButtonEl = 'visualization-type-selector-button'
+const vstButtonTextEl = 'visualization-type-selector-currently-selected-text'
 const defaultVisTypeName = 'Column'
 
 export const clickVisTypeSelector = () => {
-    cy.get(visTypeSelectorButton).click()
+    cy.getBySel(vstButtonEl).click()
 }
 
 export const changeVisType = visTypeName => {
     clickVisTypeSelector()
-    cy.get(visTypeSelector)
+    cy.getBySel(vstCardEl)
         .contains(visTypeName)
         .click()
     expectVisTypeToBeValue(visTypeName)
 }
 
 export const expectVisTypeToBeValue = value =>
-    cy.getBySel(visTypeSelectorButtonText).should(elem => {
+    cy.getBySel(vstButtonTextEl).should(elem => {
         expect(elem.text()).to.equal(value)
     })
 
 export const expectVisTypeToBeDefault = () =>
-    cy.getBySel(visTypeSelectorButtonText).should(elem => {
+    cy.getBySel(vstButtonTextEl).should(elem => {
         expect(elem.text()).to.equal(defaultVisTypeName)
     })

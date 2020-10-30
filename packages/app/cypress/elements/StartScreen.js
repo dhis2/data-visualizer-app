@@ -1,32 +1,24 @@
 //const startScreen = '*[class^="StartScreen_outer"]'
-const startScreenTitleText = 'Getting started'
-const startScreenTitleEl = '*[class^="StartScreen_title"]'
-const startScreenSectionEl = '*[class^="StartScreen_section"]'
-const mostViewedTitleText = 'Your most viewed charts and tables'
-const mostViewedItemAmount = 6
-const mostViewedItemEl = '*[class^="StartScreen_visualization"]'
+const primaryTitleText = 'Getting started'
+const primaryTitleEl = 'start-screen-primary-section-title'
+const secondaryTitleText = 'Your most viewed charts and tables'
+const secondaryTitleEl = 'start-screen-secondary-section-title'
+const mostViewedListItemAmount = 6
+const mostViewedListItemEl = 'start-screen-most-viewed-list-item'
 
 export const expectStartScreenToBeVisible = () =>
-    cy
-        .get(startScreenSectionEl)
-        .eq(0)
-        .children(startScreenTitleEl)
-        .should(elem => {
-            expect(elem.text()).to.equal(startScreenTitleText)
-        })
+    cy.getBySel(primaryTitleEl).should(elem => {
+        expect(elem.text()).to.equal(primaryTitleText)
+    })
 
-export const expectMostViewedToBeVisible = () =>
-    cy
-        .get(startScreenSectionEl)
-        .eq(1)
-        .children(startScreenTitleEl)
-        .should(elem => {
-            expect(elem.text()).to.equal(mostViewedTitleText)
-        })
+export const expectMostViewedToBeVisible = () => {
+    cy.getBySel(secondaryTitleEl).should(elem => {
+        expect(elem.text()).to.equal(secondaryTitleText)
+    })
+    expectMostViewedToHaveItems()
+}
 
 export const expectMostViewedToHaveItems = () =>
     cy
-        .get(startScreenSectionEl)
-        .eq(1)
-        .children(mostViewedItemEl)
-        .should('have.length', mostViewedItemAmount)
+        .getBySel(mostViewedListItemEl)
+        .should('have.length', mostViewedListItemAmount)
