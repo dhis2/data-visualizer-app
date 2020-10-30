@@ -34,9 +34,9 @@ describe('open', () => {
         expectChartTitleToNotBeDirty()
     })
     it(`adds ${AMOUNT_OF_INDICATORS_TO_ADD} indicators`, () => {
-        const dimensionName = 'Data'
+        const dimensionId = 'dx'
 
-        openDimension(dimensionName)
+        openDimension(dimensionId)
         selectRandomIndicators(AMOUNT_OF_INDICATORS_TO_ADD)
         clickUpdate()
         expectChartTitleToBeDirty()
