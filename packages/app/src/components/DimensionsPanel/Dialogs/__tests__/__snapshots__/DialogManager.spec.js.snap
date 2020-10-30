@@ -3,19 +3,18 @@
 exports[`The DialogManager component renders OUDimension content with display:none when previously mounted 1`] = `
 <Fragment>
   <Modal
-    data-test="dialog-manager"
-    dataTest="dhis2-uicore-modal"
+    dataTest="dialog-manager"
     large={true}
     onClose={[Function]}
     position="top"
   >
     <ModalTitle
-      dataTest="dhis2-uicore-modaltitle"
+      dataTest="dialog-manager-modal-title"
     >
       Organisation units
     </ModalTitle>
     <ModalContent
-      dataTest="dhis2-uicore-modalcontent"
+      dataTest="dialog-manager-modal-content"
     >
       <div
         key="ou"
@@ -32,12 +31,13 @@ exports[`The DialogManager component renders OUDimension content with display:no
       </div>
     </ModalContent>
     <ModalActions
-      dataTest="dhis2-uicore-modalactions"
+      dataTest="dialog-manager-modal-actions"
     >
       <ButtonStrip
         dataTest="dhis2-uicore-buttonstrip"
       >
         <HideButton
+          dataTest="dialog-manager-modal-action-cancel"
           onClick={[Function]}
         />
         <Connect(UpdateVisualizationContainer)
@@ -54,19 +54,18 @@ exports[`The DialogManager component renders OUDimension content with display:no
 exports[`The DialogManager component renders OUDimension content with display:none when previously mounted 3`] = `
 <Fragment>
   <Modal
-    data-test="dialog-manager"
-    dataTest="dhis2-uicore-modal"
+    dataTest="dialog-manager"
     large={true}
     onClose={[Function]}
     position="top"
   >
     <ModalTitle
-      dataTest="dhis2-uicore-modaltitle"
+      dataTest="dialog-manager-modal-title"
     >
       Data
     </ModalTitle>
     <ModalContent
-      dataTest="dhis2-uicore-modalcontent"
+      dataTest="dialog-manager-modal-content"
     >
       <div
         key="ou"
@@ -87,12 +86,13 @@ exports[`The DialogManager component renders OUDimension content with display:no
       />
     </ModalContent>
     <ModalActions
-      dataTest="dhis2-uicore-modalactions"
+      dataTest="dialog-manager-modal-actions"
     >
       <ButtonStrip
         dataTest="dhis2-uicore-buttonstrip"
       >
         <HideButton
+          dataTest="dialog-manager-modal-action-cancel"
           onClick={[Function]}
         />
         <Connect(UpdateVisualizationContainer)
@@ -109,19 +109,18 @@ exports[`The DialogManager component renders a closed dialog 1`] = `<Fragment />
 exports[`The DialogManager component renders the DataDimension content in dialog 1`] = `
 <Fragment>
   <Modal
-    data-test="dialog-manager"
-    dataTest="dhis2-uicore-modal"
+    dataTest="dialog-manager"
     large={true}
     onClose={[Function]}
     position="top"
   >
     <ModalTitle
-      dataTest="dhis2-uicore-modaltitle"
+      dataTest="dialog-manager-modal-title"
     >
       Data
     </ModalTitle>
     <ModalContent
-      dataTest="dhis2-uicore-modalcontent"
+      dataTest="dialog-manager-modal-content"
     >
       <DataDimension
         onSelect={[Function]}
@@ -129,12 +128,13 @@ exports[`The DialogManager component renders the DataDimension content in dialog
       />
     </ModalContent>
     <ModalActions
-      dataTest="dhis2-uicore-modalactions"
+      dataTest="dialog-manager-modal-actions"
     >
       <ButtonStrip
         dataTest="dhis2-uicore-buttonstrip"
       >
         <HideButton
+          dataTest="dialog-manager-modal-action-cancel"
           onClick={[Function]}
         />
         <Connect(UpdateVisualizationContainer)
@@ -149,19 +149,18 @@ exports[`The DialogManager component renders the DataDimension content in dialog
 exports[`The DialogManager component renders the OrgUnitDimension content in dialog 1`] = `
 <Fragment>
   <Modal
-    data-test="dialog-manager"
-    dataTest="dhis2-uicore-modal"
+    dataTest="dialog-manager"
     large={true}
     onClose={[Function]}
     position="top"
   >
     <ModalTitle
-      dataTest="dhis2-uicore-modaltitle"
+      dataTest="dialog-manager-modal-title"
     >
       Organisation units
     </ModalTitle>
     <ModalContent
-      dataTest="dhis2-uicore-modalcontent"
+      dataTest="dialog-manager-modal-content"
     >
       <div
         key="ou"
@@ -178,12 +177,13 @@ exports[`The DialogManager component renders the OrgUnitDimension content in dia
       </div>
     </ModalContent>
     <ModalActions
-      dataTest="dhis2-uicore-modalactions"
+      dataTest="dialog-manager-modal-actions"
     >
       <ButtonStrip
         dataTest="dhis2-uicore-buttonstrip"
       >
         <HideButton
+          dataTest="dialog-manager-modal-action-cancel"
           onClick={[Function]}
         />
         <Connect(UpdateVisualizationContainer)
@@ -198,19 +198,18 @@ exports[`The DialogManager component renders the OrgUnitDimension content in dia
 exports[`The DialogManager component renders the PeriodDimension content in dialog 1`] = `
 <Fragment>
   <Modal
-    data-test="dialog-manager"
-    dataTest="dhis2-uicore-modal"
+    dataTest="dialog-manager"
     large={true}
     onClose={[Function]}
     position="top"
   >
     <ModalTitle
-      dataTest="dhis2-uicore-modaltitle"
+      dataTest="dialog-manager-modal-title"
     >
       Period
     </ModalTitle>
     <ModalContent
-      dataTest="dhis2-uicore-modalcontent"
+      dataTest="dialog-manager-modal-content"
     >
       <PeriodDimension
         onSelect={[Function]}
@@ -218,12 +217,13 @@ exports[`The DialogManager component renders the PeriodDimension content in dial
       />
     </ModalContent>
     <ModalActions
-      dataTest="dhis2-uicore-modalactions"
+      dataTest="dialog-manager-modal-actions"
     >
       <ButtonStrip
         dataTest="dhis2-uicore-buttonstrip"
       >
         <HideButton
+          dataTest="dialog-manager-modal-action-cancel"
           onClick={[Function]}
         />
         <Connect(UpdateVisualizationContainer)
