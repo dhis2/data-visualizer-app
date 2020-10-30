@@ -1,0 +1,5 @@
+// const columnsAxisEl = '[data-test="columns-axis"]'
+// const rowsAxisEl = '[data-test="rows-axis"]'
+// const filtersAxisEl = '[data-test="filters-axis"]'
+// const chipEl = '[data-test="layout-chip"]'
+// const chipMenuEl = '[data-test="layout-chip-menu-button"]'

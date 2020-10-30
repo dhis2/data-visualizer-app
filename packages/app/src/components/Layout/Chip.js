@@ -160,6 +160,7 @@ const Chip = ({
                 <Tooltip content={renderTooltipContent()} placement="bottom">
                     {({ ref, onMouseOver, onMouseOut }) => (
                         <div
+                            data-test="layout-chip"
                             id={id}
                             style={styles.chipLeft}
                             onClick={handleClick}

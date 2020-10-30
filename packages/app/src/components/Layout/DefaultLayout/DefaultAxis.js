@@ -25,6 +25,7 @@ class Axis extends React.Component {
         return (
             <div
                 id={axisId}
+                data-test={`${axisId}-axis`}
                 style={{ ...styles.axisContainer, ...style }}
                 onDragOver={this.onDragOver}
             >
