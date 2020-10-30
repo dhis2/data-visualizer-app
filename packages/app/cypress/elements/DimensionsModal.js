@@ -1,7 +1,8 @@
 const dimensionsModalEl = 'dialog-manager'
 const dimensionsModalUpdateButtonEl = 'dialog-manager-modal-action-confirm'
-const unselectedListEl = '.unselected-list'
-const unselectedItemEl = '.unselected-list-item'
+const unselectedListEl = 'data-dimension-item-selector-unselected-items-list'
+const unselectedItemEl =
+    'data-dimension-item-selector-unselected-items-list-item'
 
 export const expectDimensionsModalToBeVisible = () =>
     cy.getBySel(dimensionsModalEl).should('be.visible')
@@ -12,12 +13,10 @@ export const expectDimensionsModalToNotBeVisible = () =>
 export const selectRandomIndicators = amount => {
     expectDimensionsModalToBeVisible()
     for (let i = 0; i < amount; i++) {
-        cy.getBySel(dimensionsModalEl)
-            .find(unselectedItemEl)
+        cy.getBySel(unselectedItemEl)
             .its('length')
             .then(size => {
-                cy.getBySel(dimensionsModalEl)
-                    .find(unselectedListEl)
+                cy.getBySel(unselectedListEl)
                     .children()
                     .eq(Math.floor(Math.random() * size))
                     .dblclick()
@@ -27,8 +26,7 @@ export const selectRandomIndicators = amount => {
 
 export const selectIndicator = indicator => {
     expectDimensionsModalToBeVisible()
-    cy.getBySel(dimensionsModalEl)
-        .find(unselectedListEl)
+    cy.getBySel(unselectedListEl)
         .contains(indicator)
         .dblclick()
 }
