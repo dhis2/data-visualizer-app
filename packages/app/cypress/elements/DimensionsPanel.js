@@ -1,14 +1,8 @@
-const dimensionsPanel = '.main-left'
+import { expectDimensionsModalToBeVisible } from './DimensionsModal'
 
-export const openDimension = dimensionName => {
-    cy.get(dimensionsPanel)
-        .contains(dimensionName)
-        .click()
-}
+const dimensionButton = 'dimensions-panel-list-dimension-item-button'
 
-export const removeDimension = dimensionName => {
-    // TODO: Implement removing the dim from the layout
-    cy.get(dimensionsPanel)
-        .contains(dimensionName)
-        .click()
+export const openDimension = dimensionId => {
+    cy.getBySel(`${dimensionButton}-${dimensionId}`).click()
+    expectDimensionsModalToBeVisible()
 }

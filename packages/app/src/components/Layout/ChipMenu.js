@@ -72,6 +72,7 @@ const ChipMenu = ({
                         axisItemHandler={axisItemHandler}
                         removeItemHandler={removeItemHandler}
                         onClose={toggleMenu}
+                        dataTest={'layout-chip-menu-dimension-menu'}
                     />
                 </Popover>
             )}

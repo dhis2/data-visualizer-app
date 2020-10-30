@@ -18,7 +18,7 @@ import {
 } from '../elements/Chart'
 import { visTypes } from '../utils/visTypes'
 
-const dimensionName = 'Data'
+const dimensionId = 'dx'
 const indicators = ['ANC 3 Coverage', 'ANC IPT 2 Coverage']
 
 describe('new AO', () => {

@@ -43,6 +43,7 @@ export class DndDimensionList extends Component {
             isRecommended: this.isRecommendedDimension(id),
             onClick: this.props.onDimensionClick,
             onOptionsClick: this.props.onDimensionOptionsClick,
+            dataTest: `${this.props.dataTest}-dimension-item`,
         }
 
         return (
@@ -85,13 +86,17 @@ export class DndDimensionList extends Component {
                         className={styles.container}
                         ref={provided.innerRef}
                         {...provided.droppableProps}
+                        data-test={this.props.dataTest}
                     >
                         <div className={styles.wrapper}>
                             <div className={styles.section}>
                                 <h3 className={styles.header}>
                                     {i18n.t('Main dimensions')}
                                 </h3>
-                                <ul className={styles.list}>
+                                <ul
+                                    className={styles.list}
+                                    data-test={`${this.props.dataTest}-fixed-dimensions`}
+                                >
                                     {fixedDimensions}
                                 </ul>
                             </div>
@@ -99,7 +104,10 @@ export class DndDimensionList extends Component {
                                 <h3 className={styles.header}>
                                     {i18n.t('Other dimensions')}
                                 </h3>
-                                <ul className={styles.list}>
+                                <ul
+                                    className={styles.list}
+                                    data-test={`${this.props.dataTest}-dynamic-dimensions`}
+                                >
                                     {dynamicDimensions}
                                 </ul>
                             </div>
@@ -107,7 +115,10 @@ export class DndDimensionList extends Component {
                                 <h3 className={styles.header}>
                                     {i18n.t('Your dimensions')}
                                 </h3>
-                                <ul className={styles.list}>
+                                <ul
+                                    className={styles.list}
+                                    data-test={`${this.props.dataTest}-non-predefined-dimensions`}
+                                >
                                     {nonPredefinedDimensions}
                                 </ul>
                             </div>
@@ -121,6 +132,7 @@ export class DndDimensionList extends Component {
 }
 
 DndDimensionList.propTypes = {
+    dataTest: PropTypes.string,
     dimensions: PropTypes.array,
     disallowedDimensions: PropTypes.array,
     filterText: PropTypes.string,
