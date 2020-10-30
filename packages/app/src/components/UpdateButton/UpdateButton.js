@@ -5,13 +5,7 @@ import { Button } from '@dhis2/ui'
 
 const UpdateButton = ({ onClick, ...props }) => {
     return (
-        <Button
-            data-test="update-button"
-            {...props}
-            onClick={onClick}
-            type="button"
-            primary
-        >
+        <Button {...props} onClick={onClick} type="button" primary>
             {i18n.t('Update')}
         </Button>
     )

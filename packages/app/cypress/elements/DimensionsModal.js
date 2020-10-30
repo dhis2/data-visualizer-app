@@ -1,8 +1,16 @@
-const dimensionsModalEl = 'dhis2-uicore-modal' // TODO: Add data-test specific to this modal
+const dimensionsModalEl = 'dialog-manager'
+const dimensionsModalUpdateButtonEl = 'dialog-manager-modal-action-confirm'
 const unselectedListEl = '.unselected-list'
 const unselectedItemEl = '.unselected-list-item'
 
+export const expectDimensionsModalToBeVisible = () =>
+    cy.getBySel(dimensionsModalEl).should('be.visible')
+
+export const expectDimensionsModalToNotBeVisible = () =>
+    cy.getBySel(dimensionsModalEl).should('not.be.visible')
+
 export const selectRandomIndicators = amount => {
+    expectDimensionsModalToBeVisible()
     for (let i = 0; i < amount; i++) {
         cy.getBySel(dimensionsModalEl)
             .find(unselectedItemEl)
@@ -18,6 +26,7 @@ export const selectRandomIndicators = amount => {
 }
 
 export const selectIndicator = indicator => {
+    expectDimensionsModalToBeVisible()
     cy.getBySel(dimensionsModalEl)
         .find(unselectedListEl)
         .contains(indicator)
@@ -25,8 +34,7 @@ export const selectIndicator = indicator => {
 }
 
 export const clickUpdate = () => {
-    cy.getBySel('dhis2-uicore-buttonstrip') // TODO: Add a data-test to the modal to target this better
-        .find('[data-test=dhis2-uicore-button]') // TODO: Add data-test to Update button to trigger it directly
-        .eq(1)
-        .click()
+    expectDimensionsModalToBeVisible()
+    cy.getBySel(dimensionsModalUpdateButtonEl).click()
+    expectDimensionsModalToNotBeVisible()
 }

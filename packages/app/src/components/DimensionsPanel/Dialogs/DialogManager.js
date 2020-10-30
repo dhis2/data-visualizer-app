@@ -309,17 +309,24 @@ export class DialogManager extends Component {
                 {dimension && (
                     <Modal
                         onClose={this.closeDialog}
-                        data-test="dialog-manager"
+                        dataTest="dialog-manager"
                         position="top"
                         large
                     >
-                        <ModalTitle>{dimension.name}</ModalTitle>
-                        <ModalContent>
+                        <ModalTitle dataTest={'dialog-manager-modal-title'}>
+                            {dimension.name}
+                        </ModalTitle>
+                        <ModalContent dataTest={'dialog-manager-modal-content'}>
                             {this.renderDialogContent()}
                         </ModalContent>
-                        <ModalActions>
+                        <ModalActions dataTest={'dialog-manager-modal-actions'}>
                             <ButtonStrip>
-                                <HideButton onClick={this.closeDialog} />
+                                <HideButton
+                                    onClick={this.closeDialog}
+                                    dataTest={
+                                        'dialog-manager-modal-action-cancel'
+                                    }
+                                />
                                 <UpdateVisualizationContainer
                                     renderComponent={handler =>
                                         this.props.dimensionIdsInLayout.includes(
@@ -329,12 +336,18 @@ export class DialogManager extends Component {
                                                 onClick={this.getPrimaryOnClick(
                                                     handler
                                                 )}
+                                                dataTest={
+                                                    'dialog-manager-modal-action-confirm'
+                                                }
                                             />
                                         ) : (
                                             <AddToLayoutButton
                                                 onClick={this.getPrimaryOnClick(
                                                     handler
                                                 )}
+                                                dataTest={
+                                                    'dialog-manager-modal-action-confirm'
+                                                }
                                             />
                                         )
                                     }
