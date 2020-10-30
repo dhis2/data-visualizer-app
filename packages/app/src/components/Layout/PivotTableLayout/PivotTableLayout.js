@@ -21,7 +21,6 @@ const Layout = () => (
         >
             <DefaultAxis
                 axisId={AXIS_ID_COLUMNS}
-                data-test={`${AXIS_ID_COLUMNS}-axis`}
                 style={{
                     ...defaultLayoutStyles.columns,
                     ...defaultAxisStyles.axisContainerLeft,
@@ -29,7 +28,6 @@ const Layout = () => (
             />
             <DefaultAxis
                 axisId={AXIS_ID_ROWS}
-                data-test={`${AXIS_ID_ROWS}-axis`}
                 style={{
                     ...defaultLayoutStyles.rows,
                     ...defaultAxisStyles.axisContainerLeft,
@@ -45,7 +43,6 @@ const Layout = () => (
         >
             <DefaultAxis
                 axisId={AXIS_ID_FILTERS}
-                data-test={`${AXIS_ID_FILTERS}-axis`}
                 style={defaultLayoutStyles.filters}
             />
         </div>
