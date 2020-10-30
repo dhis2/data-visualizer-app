@@ -286,7 +286,9 @@ export class App extends Component {
 
                                         history.goBack()
                                     }}
-                                    dataTest={'option-cancel'}
+                                    dataTest={
+                                        'confirm-leave-modal-option-cancel'
+                                    }
                                 >
                                     {i18n.t('No, cancel')}
                                 </Button>
@@ -302,7 +304,9 @@ export class App extends Component {
                                         })
                                     }}
                                     primary
-                                    dataTest={'option-confirm'}
+                                    dataTest={
+                                        'confirm-leave-modal-option-confirm'
+                                    }
                                 >
                                     {i18n.t('Yes, leave')}
                                 </Button>

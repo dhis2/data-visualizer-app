@@ -1,9 +1,7 @@
-const confirmLeaveModalEl = '[data-test="confirm-leave-modal"]'
-const optionCancel = '[data-test="option-cancel"]'
-const optionConfirm = '[data-test="option-confirm"]'
+//const confirmLeaveModalEl = 'confirm-leave-modal'
+const optionCancel = 'confirm-leave-modal-option-cancel'
+const optionConfirm = 'confirm-leave-modal-option-confirm'
 
 export const confirmLeave = shouldLeave => {
-    cy.get(confirmLeaveModalEl)
-        .find(shouldLeave ? optionConfirm : optionCancel)
-        .click()
+    cy.getBySel(shouldLeave ? optionConfirm : optionCancel).click()
 }

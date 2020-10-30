@@ -1,8 +1,8 @@
 const chartContainerEl = '.highcharts-container'
 const highchartsLegendEl = '.highcharts-legend'
 const unsavedVisualizationTitleText = 'Unsaved visualization'
-const chartTitleEl = '[data-test="chart-title"]'
-const chartTitleDirtyEl = '[data-test="chart-title-dirty"]'
+const chartTitleEl = 'chart-title'
+const chartTitleDirtyEl = 'chart-title-dirty'
 
 export const expectChartToNotBeVisible = () =>
     cy
@@ -29,26 +29,26 @@ export const expectLegendToContainItem = item =>
 
 export const expectChartTitleToBeValue = value =>
     cy
-        .get(chartTitleEl)
+        .getBySel(chartTitleEl)
         .should('have.length', 1)
         .should('be.visible')
         .contains(value)
 
 export const expectChartTitleToBeUnsaved = () =>
     cy
-        .get(chartTitleEl)
+        .getBySel(chartTitleEl)
         .should('have.length', 1)
         .should('be.visible')
         .contains(unsavedVisualizationTitleText)
 
 export const expectChartTitleToBeDirty = () =>
     cy
-        .get(chartTitleDirtyEl)
+        .getBySel(chartTitleDirtyEl)
         .should('have.length', 1)
         .should('be.visible')
 
 export const expectChartTitleToNotBeDirty = () =>
     cy
-        .get(chartTitleDirtyEl)
+        .getBySel(chartTitleDirtyEl)
         .should('have.length', 0)
         .should('not.be.visible')
