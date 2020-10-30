@@ -266,7 +266,7 @@ export class App extends Component {
                     </div>
                 </div>
                 {this.state.locationToConfirm && (
-                    <Modal small>
+                    <Modal small dataTest={'confirm-leave-modal'}>
                         <ModalTitle>
                             {i18n.t('Discard unsaved changes?')}
                         </ModalTitle>
@@ -286,6 +286,7 @@ export class App extends Component {
 
                                         history.goBack()
                                     }}
+                                    dataTest={'option-cancel'}
                                 >
                                     {i18n.t('No, cancel')}
                                 </Button>
@@ -301,6 +302,7 @@ export class App extends Component {
                                         })
                                     }}
                                     primary
+                                    dataTest={'option-confirm'}
                                 >
                                     {i18n.t('Yes, leave')}
                                 </Button>

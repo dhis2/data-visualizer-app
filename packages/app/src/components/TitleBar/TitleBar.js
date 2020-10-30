@@ -60,6 +60,7 @@ const getSuffix = titleState => {
                         ...styles.suffix,
                         ...styles.titleDirty,
                     }}
+                    data-test="chart-title-dirty"
                 >{`- ${getTitleDirty()}`}</div>
             )
         default:

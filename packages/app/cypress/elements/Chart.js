@@ -1,11 +1,12 @@
-const chartContainer = '.highcharts-container'
-const highchartsLegend = '.highcharts-legend'
-const unsavedVisualizationTitle = 'Unsaved visualization'
-const chartTitle = '[data-test="chart-title"]'
+const chartContainerEl = '.highcharts-container'
+const highchartsLegendEl = '.highcharts-legend'
+const unsavedVisualizationTitleText = 'Unsaved visualization'
+const chartTitleEl = '[data-test="chart-title"]'
+const chartTitleDirtyEl = '[data-test="chart-title-dirty"]'
 
 export const expectChartToNotBeVisible = () =>
     cy
-        .get(chartContainer, {
+        .get(chartContainerEl, {
             log: false,
             timeout: 10000,
         })
@@ -14,7 +15,7 @@ export const expectChartToNotBeVisible = () =>
 
 export const expectChartToBeVisible = () =>
     cy
-        .get(chartContainer, {
+        .get(chartContainerEl, {
             log: false,
             timeout: 10000,
         })
@@ -22,20 +23,32 @@ export const expectChartToBeVisible = () =>
 
 export const expectLegendToContainItem = item =>
     cy
-        .get(highchartsLegend)
+        .get(highchartsLegendEl)
         .should('be.visible')
         .contains(item)
 
 export const expectChartTitleToBeValue = value =>
     cy
-        .get(chartTitle)
+        .get(chartTitleEl)
         .should('have.length', 1)
         .should('be.visible')
         .contains(value)
 
 export const expectChartTitleToBeUnsaved = () =>
     cy
-        .get(chartTitle)
+        .get(chartTitleEl)
         .should('have.length', 1)
         .should('be.visible')
-        .contains(unsavedVisualizationTitle)
+        .contains(unsavedVisualizationTitleText)
+
+export const expectChartTitleToBeDirty = () =>
+    cy
+        .get(chartTitleDirtyEl)
+        .should('have.length', 1)
+        .should('be.visible')
+
+export const expectChartTitleToNotBeDirty = () =>
+    cy
+        .get(chartTitleDirtyEl)
+        .should('have.length', 0)
+        .should('not.be.visible')

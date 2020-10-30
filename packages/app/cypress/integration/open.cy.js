@@ -3,7 +3,9 @@ import {
     openSavedAO,
 } from '../elements/FileMenu'
 import {
+    expectChartTitleToBeDirty,
     expectChartTitleToBeValue,
+    expectChartTitleToNotBeDirty,
     expectChartToBeVisible,
 } from '../elements/Chart'
 import { expectStartScreenToBeVisible } from '../elements/StartScreen'
@@ -12,6 +14,7 @@ import {
     selectRandomIndicators,
 } from '../elements/DimensionsModal'
 import { openDimension } from '../elements/DimensionsPanel'
+import { confirmLeave } from '../elements/ConfirmLeaveModal'
 
 const AMOUNT_OF_INDICATORS_TO_ADD = 3
 
@@ -28,6 +31,7 @@ describe('open', () => {
         expectChartTitleToBeValue(AOName)
 
         expectChartToBeVisible()
+        expectChartTitleToNotBeDirty()
     })
     it(`adds ${AMOUNT_OF_INDICATORS_TO_ADD} indicators`, () => {
         const dimensionName = 'Data'
@@ -35,6 +39,7 @@ describe('open', () => {
         openDimension(dimensionName)
         selectRandomIndicators(AMOUNT_OF_INDICATORS_TO_ADD)
         clickUpdate()
+        expectChartTitleToBeDirty()
     })
     /*  TODO: 
         Check that new Data dims shows up in legend
@@ -47,12 +52,18 @@ describe('open', () => {
         1) AO "Created by you", can save
         2) AO "Created by others", can't save 
     */
-    it('loads a random saved AO', () => {
+    it('loads a random saved AO and cancel leave', () => {
+        expectChartTitleToBeDirty()
         openRandomSavedAOCreatedByYou()
+        confirmLeave(false)
+        expectChartTitleToBeDirty()
         expectChartToBeVisible()
-        /*  TODO: 
-            Click the Discard changes button
-            Expect chart title not to bed "Edited"
-        */
+    })
+    it('loads a random saved AO and confirm leave', () => {
+        expectChartTitleToBeDirty()
+        openRandomSavedAOCreatedByYou()
+        confirmLeave(true)
+        expectChartTitleToNotBeDirty()
+        expectChartToBeVisible()
     })
 })
