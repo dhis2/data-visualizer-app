@@ -600,7 +600,7 @@ msgid "Reporting rate on time"
 msgstr ""
 
 msgid "Actual reports"
-msgstr ""
+msgstr "Aktuální zprávy"
 
 msgid "Actual reports on time"
 msgstr ""
@@ -780,7 +780,7 @@ msgid "This financial year"
 msgstr ""
 
 msgid "Last financial year"
-msgstr ""
+msgstr "Poslední finanční rok"
 
 msgid "Last 5 financial years"
 msgstr ""
@@ -843,7 +843,7 @@ msgid "Lines"
 msgstr ""
 
 msgid "Totals"
-msgstr ""
+msgstr "Součty"
 
 msgid "Vertical (y) axis"
 msgstr ""
@@ -858,10 +858,10 @@ msgid "Axes"
 msgstr ""
 
 msgid "Data"
-msgstr ""
+msgstr "Data"
 
 msgid "Series"
-msgstr ""
+msgstr "Série"
 
 msgid "Style"
 msgstr ""
