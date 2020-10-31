@@ -46,7 +46,7 @@ msgid "Selected Data"
 msgstr ""
 
 msgid "Deselect All"
-msgstr ""
+msgstr "Odznačit vše"
 
 msgid "Select All"
 msgstr ""
@@ -217,7 +217,7 @@ msgid "Before first and after last"
 msgstr ""
 
 msgid "All"
-msgstr ""
+msgstr "Vše"
 
 msgid "Hide chart legend"
 msgstr ""
@@ -307,7 +307,7 @@ msgid "Stacked column"
 msgstr ""
 
 msgid "Bar"
-msgstr ""
+msgstr "LIšta"
 
 msgid "Stacked bar"
 msgstr ""
@@ -379,7 +379,7 @@ msgid "Details"
 msgstr ""
 
 msgid "Data sets"
-msgstr ""
+msgstr "Datové sady"
 
 msgid "Select data sets"
 msgstr ""
