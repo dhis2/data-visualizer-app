@@ -25,22 +25,22 @@ msgid "Data Visualizer"
 msgstr "Data Visualizer"
 
 msgid "Data"
-msgstr ""
+msgstr "Data"
 
 msgid "Data Type"
 msgstr ""
 
 msgid "Detail"
-msgstr ""
+msgstr "Detail"
 
 msgid "Search"
-msgstr ""
+msgstr "Hledat"
 
 msgid "Organisation units"
 msgstr "Organizační jednotky"
 
 msgid "Period"
-msgstr ""
+msgstr "Období"
 
 msgid "Selected Data"
 msgstr ""
@@ -52,7 +52,7 @@ msgid "Select All"
 msgstr ""
 
 msgid "Remove"
-msgstr ""
+msgstr "Odebrat"
 
 msgid "Search dimensions"
 msgstr ""
@@ -115,13 +115,13 @@ msgid "selected"
 msgstr ""
 
 msgid "Series"
-msgstr ""
+msgstr "Série"
 
 msgid "Category"
 msgstr "Kategorie"
 
 msgid "Filter"
-msgstr ""
+msgstr "Filtr"
 
 msgid "Move to"
 msgstr ""
@@ -301,7 +301,7 @@ msgid "Chart options"
 msgstr ""
 
 msgid "Column"
-msgstr ""
+msgstr "Sloupec"
 
 msgid "Stacked column"
 msgstr ""
@@ -319,19 +319,19 @@ msgid "Area"
 msgstr ""
 
 msgid "Pie"
-msgstr ""
+msgstr "Koláč"
 
 msgid "Radar"
-msgstr ""
+msgstr "Radar"
 
 msgid "Gauge"
-msgstr ""
+msgstr "Gauge"
 
 msgid "Year over year (line)"
 msgstr ""
 
 msgid "Year over year (column)"
-msgstr ""
+msgstr "Rok po roce (sloupec)"
 
 msgid "Reporting rate"
 msgstr ""
@@ -340,7 +340,7 @@ msgid "Reporting rate on time"
 msgstr ""
 
 msgid "Actual reports"
-msgstr ""
+msgstr "Aktuální zprávy"
 
 msgid "Actual reports on time"
 msgstr ""
@@ -349,34 +349,34 @@ msgid "Expected reports"
 msgstr ""
 
 msgid "Program"
-msgstr ""
+msgstr "Program"
 
 msgid "Select a program"
 msgstr ""
 
 msgid "Indicators"
-msgstr ""
+msgstr "Indikátory"
 
 msgid "Select indicator group"
 msgstr ""
 
 msgid "[ All groups ]"
-msgstr ""
+msgstr "[ Všechny skupiny ]"
 
 msgid "Data elements"
 msgstr ""
 
 msgid "Select data element group"
-msgstr ""
+msgstr "Vybrat skupinu datových prvků"
 
 msgid "[ All data elements ]"
 msgstr ""
 
 msgid "Totals"
-msgstr ""
+msgstr "Součty"
 
 msgid "Details"
-msgstr ""
+msgstr "Detaily"
 
 msgid "Data sets"
 msgstr "Datové sady"
@@ -521,7 +521,7 @@ msgid "This financial year"
 msgstr ""
 
 msgid "Last financial year"
-msgstr ""
+msgstr "Poslední finanční rok"
 
 msgid "Last 5 financial years"
 msgstr ""
