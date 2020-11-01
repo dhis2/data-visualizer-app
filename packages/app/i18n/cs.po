@@ -56,7 +56,7 @@ msgid "Hide"
 msgstr ""
 
 msgid "Remove"
-msgstr ""
+msgstr "Odebrat"
 
 msgid "Download"
 msgstr ""
@@ -134,13 +134,13 @@ msgid "{{total}} selected"
 msgstr ""
 
 msgid "Series"
-msgstr ""
+msgstr "Série"
 
 msgid "Category"
 msgstr "Kategorie"
 
 msgid "Filter"
-msgstr ""
+msgstr "Filtr"
 
 msgid "None selected"
 msgstr ""
@@ -325,7 +325,7 @@ msgid "Chart title"
 msgstr ""
 
 msgid "Data"
-msgstr ""
+msgstr "Data"
 
 msgid "Axis & legend"
 msgstr ""
@@ -340,7 +340,7 @@ msgid "Chart options"
 msgstr ""
 
 msgid "Column"
-msgstr ""
+msgstr "Sloupec"
 
 msgid "Stacked column"
 msgstr ""
@@ -358,19 +358,19 @@ msgid "Area"
 msgstr ""
 
 msgid "Pie"
-msgstr ""
+msgstr "Koláč"
 
 msgid "Radar"
-msgstr ""
+msgstr "Radar"
 
 msgid "Gauge"
-msgstr ""
+msgstr "Gauge"
 
 msgid "Year over year (line)"
 msgstr ""
 
 msgid "Year over year (column)"
-msgstr ""
+msgstr "Rok po roce (sloupec)"
 
 msgid "Single value"
 msgstr ""
@@ -527,7 +527,7 @@ msgid "This financial year"
 msgstr ""
 
 msgid "Last financial year"
-msgstr ""
+msgstr "Poslední finanční rok"
 
 msgid "Last 5 financial years"
 msgstr ""
