@@ -1,4 +1,4 @@
-import { expectChartToNotBeVisible } from '../elements/Chart'
+import { expectVisualizationToNotBeVisible } from '../elements/Chart'
 import {
     expectMostViewedToBeVisible,
     expectStartScreenToBeVisible,
@@ -19,7 +19,7 @@ describe('start screen', () => {
         expectStoreCurrentToBeEmpty()
     })
     it('no chart is visible', () => {
-        expectChartToNotBeVisible()
+        expectVisualizationToNotBeVisible()
     })
     it('displays most viewed section', () => {
         expectMostViewedToBeVisible()

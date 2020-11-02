@@ -6,7 +6,7 @@ import {
     expectChartTitleToBeDirty,
     expectChartTitleToBeValue,
     expectChartTitleToNotBeDirty,
-    expectChartToBeVisible,
+    expectVisualizationToBeVisible,
 } from '../elements/Chart'
 import { expectStartScreenToBeVisible } from '../elements/StartScreen'
 import {
@@ -15,6 +15,7 @@ import {
 } from '../elements/DimensionsModal'
 import { openDimension } from '../elements/DimensionsPanel'
 import { confirmLeave } from '../elements/ConfirmLeaveModal'
+import { VIS_TYPE_COLUMN } from '@dhis2/analytics'
 
 const AMOUNT_OF_INDICATORS_TO_ADD = 3
 
@@ -30,7 +31,7 @@ describe('open', () => {
 
         expectChartTitleToBeValue(AOName)
 
-        expectChartToBeVisible()
+        expectVisualizationToBeVisible(VIS_TYPE_COLUMN) //TODO: Figure out which visType the AO has and pass to fn
         expectChartTitleToNotBeDirty()
     })
     it(`adds ${AMOUNT_OF_INDICATORS_TO_ADD} indicators`, () => {
@@ -57,13 +58,13 @@ describe('open', () => {
         openRandomSavedAOCreatedByYou()
         confirmLeave(false)
         expectChartTitleToBeDirty()
-        expectChartToBeVisible()
+        expectVisualizationToBeVisible(VIS_TYPE_COLUMN) //TODO: Figure out which visType the previous AO has and pass to fn
     })
     it('loads a random saved AO and confirm leave', () => {
         expectChartTitleToBeDirty()
         openRandomSavedAOCreatedByYou()
         confirmLeave(true)
         expectChartTitleToNotBeDirty()
-        expectChartToBeVisible()
+        expectVisualizationToBeVisible() //TODO: Figure out which visType the new AO has and pass to fn
     })
 })
