@@ -14,7 +14,7 @@ import {
     expectChartTitleToBeUnsaved,
     expectVisualizationToBeVisible,
     expectVisualizationToNotBeVisible,
-    expectChartToContainItem,
+    expectChartToContainDimensionItem,
 } from '../elements/Chart'
 import { visTypes } from '../utils/visTypes'
 import {
@@ -71,7 +71,7 @@ describe('new AO', () => {
 
                 // TODO: PT, Pie, Gauge, SV needs another way of checking that the indicators were added
                 dataItems.forEach(item =>
-                    expectChartToContainItem(visType, item)
+                    expectChartToContainDimensionItem(visType, item)
                 )
             })
         })

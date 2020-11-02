@@ -51,7 +51,8 @@ const expectChartContainerToNotBeVisible = () =>
         .should('not.be.visible')
         .should('have.length', 0)
 
-export const expectChartToContainItem = (visType, itemName) => {
+// TODO: Expand to support items that are not in Column
+export const expectChartToContainDimensionItem = (visType, itemName) => {
     switch (visType) {
         case VIS_TYPE_GAUGE:
         case VIS_TYPE_YEAR_OVER_YEAR_COLUMN:
@@ -67,12 +68,16 @@ export const expectChartToContainItem = (visType, itemName) => {
             })
             break
         case VIS_TYPE_PIVOT_TABLE:
-            // TODO: Test if item is in one of the "visualization-column-header"
-            cy.contains('TODO').should('exist')
+            cy.getBySel('visualization-column-header')
+                .contains(itemName)
+                .should('have.length', 1)
+                .should('be.visible')
             break
         case VIS_TYPE_PIE:
-            // TODO: Test if item is in one of the ".highcharts-label"
-            cy.contains('TODO').should('exist')
+            cy.get('.highcharts-label')
+                .contains(itemName)
+                .should('have.length', 1)
+                .should('be.visible')
             break
         default:
             cy.get(highchartsLegendEl)
