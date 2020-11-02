@@ -25,7 +25,7 @@ export default ({
         getLinesSection(hasDisabledSections),
         getAdvancedSection(),
     ]),
-    supportsLegends ? getLegendTab({ hideStyleOptions: true }) : {},
+    ...(supportsLegends ? [getLegendTab({ hideStyleOptions: true })] : []),
     getAxesTab([
         getVerticalAxisSection(hasDisabledSections),
         getHorizontalAxisSection(),
