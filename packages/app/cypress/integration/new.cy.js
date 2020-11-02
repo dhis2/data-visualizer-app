@@ -1,4 +1,4 @@
-import { createNewAO } from '../elements/FileMenu'
+//import { createNewAO } from '../elements/FileMenu'
 import { openDimension } from '../elements/DimensionsPanel'
 import { selectDataElements, clickUpdate } from '../elements/DimensionsModal'
 import {
@@ -23,7 +23,6 @@ import {
     getAxisMaxNumberOfItems,
     isYearOverYear,
     visTypeDisplayNames,
-    VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
 } from '@dhis2/analytics'
 
 const dimensionId = DIMENSION_ID_DATA
@@ -35,7 +34,7 @@ describe('new AO', () => {
         cy.visit('')
         expectStartScreenToBeVisible()
     })
-    const availableVisTypes = [VIS_TYPE_YEAR_OVER_YEAR_COLUMN] // visTypes
+    const availableVisTypes = visTypes
     availableVisTypes.forEach(visType => {
         const columnsMaxNumberOfItems = getAxisMaxNumberOfItems(visType, axisId)
         const visTypeName = visTypeDisplayNames[visType]
