@@ -71,7 +71,6 @@ describe('new AO', () => {
                     : expectChartTitleToBeUnsaved()
 
                 // TODO: PT, Pie, Gauge, SV needs another way of checking that the indicators were added
-                // TODO: YoY can't add indicators since it can't have more than 1 indicator as filter, use data element instead?
                 dataItems.forEach(item =>
                     expectChartToContainItem(visType, item)
                 )
