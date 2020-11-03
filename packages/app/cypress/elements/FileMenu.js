@@ -1,3 +1,9 @@
+import {
+    expectChartTitleToBeValue,
+    expectVisualizationToBeVisible,
+} from './Chart'
+import { expectVisTypeToBeValue } from './VisualizationTypeSelector'
+
 const menubarEl = 'app-menubar'
 const openModalEl = '*[class^="MuiDialogContent"]' // TODO: Add data-test to FileMenu to target this better
 const openModalToolbarEl = '*[class^="MuiToolbar-root"]'
@@ -42,17 +48,40 @@ export const openRandomSavedAOCreatedByYou = () => {
         when the filter has been applied.
     */
 
+    clickRandomSavedAO()
+}
+
+export const openRandomSavedAO = () => {
+    clickFileMenu()
+    clickOpen()
+    clickRandomSavedAO()
+}
+
+const clickRandomSavedAO = () => {
     cy.get(openModalEl)
         .find(openModalItemContainerEl)
         .children()
         .eq(Math.floor(Math.random() * 10)) // TODO: This assumes that there are 10 items, but what happens if there are less?
-        .find('td')
+        .as('selectedAO')
+        .click()
+    cy.get('@selectedAO').then(selected => {
+        selected
+            .first()
+            .children()
+            .eq(0)
+            .then(el => {
+                expectChartTitleToBeValue(el.text())
+            })
+    })
+
+    cy.get('@selectedAO')
+        .find('svg')
         .eq(0)
-        .then(item => {
-            cy.get(openModalEl)
-                .contains(new RegExp(item.text(), 'g'))
-                .click()
+        .invoke('attr', 'title')
+        .then(title => {
+            expectVisTypeToBeValue(title)
         })
+    expectVisualizationToBeVisible()
 }
 
 export const openSavedAO = ao => {

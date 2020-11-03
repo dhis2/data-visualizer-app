@@ -1,4 +1,5 @@
 import {
+    openRandomSavedAO,
     openRandomSavedAOCreatedByYou,
     openSavedAO,
 } from '../elements/FileMenu'
@@ -14,15 +15,16 @@ import {
     selectRandomIndicators,
 } from '../elements/DimensionsModal'
 import { openDimension } from '../elements/DimensionsPanel'
-import { confirmLeave } from '../elements/ConfirmLeaveModal'
 import { VIS_TYPE_COLUMN } from '@dhis2/analytics'
 
 const AMOUNT_OF_INDICATORS_TO_ADD = 3
 
 describe('open', () => {
-    it('goes to DV', () => {
+    it.only('goes to DV', () => {
         cy.visit('')
         expectStartScreenToBeVisible()
+
+        openRandomSavedAO()
     })
     it('loads a saved AO', () => {
         const AOName = 'ANC: 1-3 dropout rate Yearly'
@@ -42,29 +44,10 @@ describe('open', () => {
         clickUpdate()
         expectChartTitleToBeDirty()
     })
-    /*  TODO: 
-        Check that new Data dims shows up in legend
-        Check that AO name is "Edited"
-        Change vis type
-        Save
-        Check that name is not "Edited"
-
-        Run this test twice,
-        1) AO "Created by you", can save
-        2) AO "Created by others", can't save 
+    /*  TODO:
+        Open a random AO (regardless of creator)
+        Check that visType matches that of the AO
+            - Either grab it from the icon in the open dialog
+            - or grab it from the server response
     */
-    it('loads a random saved AO and cancel leave', () => {
-        expectChartTitleToBeDirty()
-        openRandomSavedAOCreatedByYou()
-        confirmLeave(false)
-        expectChartTitleToBeDirty()
-        expectVisualizationToBeVisible(VIS_TYPE_COLUMN) //TODO: Figure out which visType the previous AO has and pass to fn
-    })
-    it('loads a random saved AO and confirm leave', () => {
-        expectChartTitleToBeDirty()
-        openRandomSavedAOCreatedByYou()
-        confirmLeave(true)
-        expectChartTitleToNotBeDirty()
-        expectVisualizationToBeVisible() //TODO: Figure out which visType the new AO has and pass to fn
-    })
 })

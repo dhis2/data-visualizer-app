@@ -69,7 +69,6 @@ describe('new AO', () => {
                     ? expectStoreCurrentColumnsToHaveLength(1)
                     : expectChartTitleToBeUnsaved()
 
-                // TODO: PT, Pie, Gauge, SV needs another way of checking that the indicators were added
                 dataItems.forEach(item =>
                     expectChartToContainDimensionItem(visType, item)
                 )
