@@ -1,14 +1,9 @@
-import {
-    expectChartTitleToBeValue,
-    expectVisualizationToBeVisible,
-} from './Chart'
-import { expectVisTypeToBeValue } from './VisualizationTypeSelector'
-
 const menubarEl = 'app-menubar'
 const openModalEl = '*[class^="MuiDialogContent"]' // TODO: Add data-test to FileMenu to target this better
-const openModalToolbarEl = '*[class^="MuiToolbar-root"]'
-const createdByYouEl = '[data-value="byme"]'
-const openModalItemContainerEl = '*[class^="MuiTableBody"]'
+const menuItemEl = '*[role="menuitem"]'
+// const openModalToolbarEl = '*[class^="MuiToolbar-root"]'
+// const createdByYouEl = '[data-value="byme"]'
+// const openModalItemContainerEl = '*[class^="MuiTableBody"]'
 
 const clickFileMenu = () => {
     cy.getBySel(menubarEl)
@@ -17,7 +12,7 @@ const clickFileMenu = () => {
 }
 
 const clickOpen = () => {
-    cy.get('div') // TODO: Change once new FileMenu is in place
+    cy.get(menuItemEl) // TODO: Change once new FileMenu is in place
         .contains('Open')
         .click()
 }
@@ -56,13 +51,17 @@ export const openSavedAOByName = name => {
     clickOpen()
     // FIXME: Add step to search for AO using the search field
     cy.get(openModalEl)
+        .find('*[type="search"]')
+        .clear()
+        .type(name)
+    cy.get(openModalEl)
         .contains(name)
         .click()
 }
 
 export const createNewAO = () => {
     clickFileMenu()
-    cy.get('div') // TODO: Change once new FileMenu is in place
+    cy.get(menuItemEl) // TODO: Change once new FileMenu is in place
         .contains('New')
         .click()
 }

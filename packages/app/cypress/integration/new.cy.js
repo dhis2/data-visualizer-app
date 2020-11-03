@@ -1,6 +1,9 @@
 //import { createNewAO } from '../elements/FileMenu'
 import { openDimension } from '../elements/DimensionsPanel'
-import { selectDataElements, clickUpdate } from '../elements/DimensionsModal'
+import {
+    selectDataElements,
+    clickModalUpdateButton,
+} from '../elements/DimensionsModal'
 import {
     changeVisType,
     expectVisTypeToBeDefault,
@@ -61,7 +64,7 @@ describe('new AO', () => {
 
                 selectDataElements(dataItems)
 
-                clickUpdate()
+                clickModalUpdateButton()
 
                 expectVisualizationToBeVisible(visType)
 

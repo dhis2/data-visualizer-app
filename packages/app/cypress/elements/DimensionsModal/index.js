@@ -7,7 +7,7 @@ export const expectDimensionsModalToBeVisible = () =>
 export const expectDimensionsModalToNotBeVisible = () =>
     cy.getBySel(dimensionsModalEl).should('not.be.visible')
 
-export const clickUpdate = () => {
+export const clickModalUpdateButton = () => {
     expectDimensionsModalToBeVisible()
     cy.getBySel(dimensionsModalUpdateButtonEl).click()
     expectDimensionsModalToNotBeVisible()

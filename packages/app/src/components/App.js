@@ -232,11 +232,11 @@ export class App extends Component {
                         <div className="toolbar-type">
                             <VisualizationTypeSelector />
                         </div>
-                        <div
-                            className="toolbar-menubar flex-grow-1"
-                            data-test="app-menubar"
-                        >
-                            <MenuBar apiObjectName={this.apiObjectName} />
+                        <div className="toolbar-menubar flex-grow-1">
+                            <MenuBar
+                                apiObjectName={this.apiObjectName}
+                                dataTest={'app-menubar'}
+                            />
                         </div>
                     </div>
                     <div className="section-main flex-grow-1 flex-ct">
