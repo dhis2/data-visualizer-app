@@ -1,7 +1,7 @@
 import {
     openRandomSavedAO,
     openRandomSavedAOCreatedByYou,
-    openSavedAO,
+    openSavedAOByName,
 } from '../elements/FileMenu'
 import {
     expectChartTitleToBeDirty,
@@ -10,44 +10,33 @@ import {
     expectVisualizationToBeVisible,
 } from '../elements/Chart'
 import { expectStartScreenToBeVisible } from '../elements/StartScreen'
-import {
-    clickUpdate,
-    selectRandomIndicators,
-} from '../elements/DimensionsModal'
+import { clickUpdate, selectRelativePeriods } from '../elements/DimensionsModal'
 import { openDimension } from '../elements/DimensionsPanel'
 import { VIS_TYPE_COLUMN } from '@dhis2/analytics'
 
-const AMOUNT_OF_INDICATORS_TO_ADD = 3
-
 describe('open', () => {
-    it.only('goes to DV', () => {
+    it('goes to DV', () => {
         cy.visit('')
         expectStartScreenToBeVisible()
-
-        openRandomSavedAO()
     })
-    it('loads a saved AO', () => {
-        const AOName = 'ANC: 1-3 dropout rate Yearly'
+    const ao = {
+        name: 'ANC: 1-3 dropout rate Yearly',
+        type: VIS_TYPE_COLUMN,
+    }
+    // TODO: Loop through a bunch of AOs
 
-        openSavedAO(AOName)
+    it('loads a saved AO and displays correct title and type', () => {
+        openSavedAOByName(ao.name)
 
-        expectChartTitleToBeValue(AOName)
+        expectChartTitleToBeValue(ao.name)
 
-        expectVisualizationToBeVisible(VIS_TYPE_COLUMN) //TODO: Figure out which visType the AO has and pass to fn
+        expectVisualizationToBeVisible(ao.type)
         expectChartTitleToNotBeDirty()
     })
-    it(`adds ${AMOUNT_OF_INDICATORS_TO_ADD} indicators`, () => {
-        const dimensionId = 'dx'
-
-        openDimension(dimensionId)
-        selectRandomIndicators(AMOUNT_OF_INDICATORS_TO_ADD)
+    it(`adds a period and displays dirty state`, () => {
+        openDimension('pe')
+        selectRelativePeriods(['Last six-month'], 'Six-months')
         clickUpdate()
         expectChartTitleToBeDirty()
     })
-    /*  TODO:
-        Open a random AO (regardless of creator)
-        Check that visType matches that of the AO
-            - Either grab it from the icon in the open dialog
-            - or grab it from the server response
-    */
 })

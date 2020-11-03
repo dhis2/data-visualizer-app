@@ -18,3 +18,5 @@ export {
     selectDataElements,
     selectIndicators,
 } from './dataDimension'
+
+export { selectRelativePeriods, selectFixedPeriods } from './periodDimension'

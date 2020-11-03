@@ -63,6 +63,8 @@ export const expectChartToContainDimensionItem = (visType, itemName) => {
             break
         case VIS_TYPE_SINGLE_VALUE:
             // FIXME: Change to test if item is in title OR subtitle
+            // use something like cy.get('selector-one, selector-two').find(`:contains("${text}")`).should('exist') ?
+            // TODO: Replace all text expect in all tests with the should above
             cy.getBySel(visualizationTitleEl).should(elem => {
                 expect(elem.text()).to.equal(itemName)
             })
