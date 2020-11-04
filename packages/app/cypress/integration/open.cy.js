@@ -10,7 +10,7 @@ import { expectStartScreenToBeVisible } from '../elements/StartScreen'
 import {
     clickModalUpdateButton,
     selectRelativePeriods,
-} from '../elements/DimensionsModal'
+} from '../elements/DimensionModal'
 import { openDimension } from '../elements/DimensionsPanel'
 import { TEST_AOS } from '../utils/data'
 import { isYearOverYear, visTypeDisplayNames } from '@dhis2/analytics'

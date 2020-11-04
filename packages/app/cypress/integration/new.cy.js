@@ -3,7 +3,7 @@ import { openDimension } from '../elements/DimensionsPanel'
 import {
     selectDataElements,
     clickModalUpdateButton,
-} from '../elements/DimensionsModal'
+} from '../elements/DimensionModal'
 import {
     changeVisType,
     expectVisTypeToBeDefault,

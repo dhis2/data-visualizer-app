@@ -44,3 +44,11 @@ export const TEST_AOS = [
         type: VIS_TYPE_PIVOT_TABLE,
     },
 ]
+
+export const TEST_DATA_ELEMENTS = [
+    { id: 'dGdeotKpRed', name: 'ART enrollment stage 2' },
+    { id: 'soACnRV9gOI', name: 'ART entry point: No transfer out' },
+    { id: 'QrhlrvV6Xs8', name: 'ART new clients started on ARV' },
+    { id: 'HLPuaFB7Frw', name: 'Anaemia new' },
+    { id: 's46m5MS0hxu', name: 'BCG doses given' },
+]

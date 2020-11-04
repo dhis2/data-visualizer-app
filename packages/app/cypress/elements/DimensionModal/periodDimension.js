@@ -1,4 +1,5 @@
-import { expectDimensionsModalToBeVisible } from '.'
+import { DIMENSION_ID_PERIOD } from '@dhis2/analytics'
+import { expectDimensionModalToBeVisible } from '.'
 
 const sourceOptionsListEl = 'dhis2-uicore-transfer-sourceoptions'
 //const pickedOptionsListEl = 'dhis2-uicore-transfer-pickedoptions'
@@ -12,23 +13,34 @@ const fixedPeriodsPeriodTypeButtonEl =
     'period-dimension-fixed-period-filter-period-type-content'
 // fixed periods period type options = 'period-dimension-fixed-period-filter-period-type-option-DAILY'
 const periodTypeMenuEl = 'dhis2-uicore-select-menu-menuwrapper'
-const fixedPeriodsYearEl = 'period-dimension-fixed-period-filter-year-content'
+//const fixedPeriodsYearEl = 'period-dimension-fixed-period-filter-year-content'
+
+const removeAllButtonEl = 'dhis2-uicore-transfer-actions-removeall'
+//const addAllButtonEl = 'dhis2-uicore-transfer-actions-addall'
+
+export const expectPeriodDimensionModalToBeVisible = () =>
+    expectDimensionModalToBeVisible(DIMENSION_ID_PERIOD)
+
+export const removeAllPeriodItems = () => {
+    expectPeriodDimensionModalToBeVisible()
+    cy.getBySel(removeAllButtonEl).click()
+}
 
 export const selectRelativePeriods = (periods, periodType) => {
-    expectDimensionsModalToBeVisible()
+    expectPeriodDimensionModalToBeVisible()
     cy.getBySel(relativePeriodsButtonEl).click()
     if (periodType !== 'Months') {
-        // Because of https://jira.dhis2.org/browse/TECH-396
+        // Temp fix for https://jira.dhis2.org/browse/TECH-396
         switchToPeriodType(relativePeriodsPeriodTypeButtonEl, periodType)
     }
     periods.forEach(item => clickSourceOption(item))
 }
 
 export const selectFixedPeriods = (periods, periodType) => {
-    expectDimensionsModalToBeVisible()
+    expectPeriodDimensionModalToBeVisible()
     cy.getBySel(fixedPeriodsButtonEl).click()
     if (periodType !== 'Monthly') {
-        // Because of https://jira.dhis2.org/browse/TECH-396
+        // Temp fix for https://jira.dhis2.org/browse/TECH-396
         switchToPeriodType(fixedPeriodsPeriodTypeButtonEl, periodType)
     }
     periods.forEach(item => clickSourceOption(item))
