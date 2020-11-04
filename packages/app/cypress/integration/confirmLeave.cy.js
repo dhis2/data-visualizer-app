@@ -1,7 +1,7 @@
 import { DIMENSION_ID_DATA } from '@dhis2/analytics'
 import {
-    expectChartTitleToBeDirty,
-    expectChartTitleToNotBeDirty,
+    expectAOTitleToBeDirty,
+    expectAOTitleToNotBeDirty,
     expectVisualizationToNotBeVisible,
 } from '../elements/Chart'
 import {
@@ -25,14 +25,14 @@ describe('confirm leave', () => {
     })
     it('loads a random saved AO', () => {
         openRandomSavedAO()
-        expectChartTitleToNotBeDirty()
+        expectAOTitleToNotBeDirty()
     })
     it('replaces the data items', () => {
         openDimension(DIMENSION_ID_DATA)
         removeAllDataItems()
         selectDataElements([TEST_DATA_ELEMENTS[0].name])
         clickModalUpdateButton()
-        expectChartTitleToBeDirty()
+        expectAOTitleToBeDirty()
     })
     it('tries to open a new AO', () => {
         createNewAO()
@@ -40,7 +40,7 @@ describe('confirm leave', () => {
     })
     it('cancel leave', () => {
         confirmLeave(false)
-        expectChartTitleToBeDirty()
+        expectAOTitleToBeDirty()
     })
     it('tries to open a new AO', () => {
         createNewAO()
@@ -48,7 +48,7 @@ describe('confirm leave', () => {
     })
     it('confirm leave', () => {
         confirmLeave(true)
-        expectChartTitleToNotBeDirty()
+        expectAOTitleToNotBeDirty()
         expectVisualizationToNotBeVisible()
         expectStartScreenToBeVisible()
     })

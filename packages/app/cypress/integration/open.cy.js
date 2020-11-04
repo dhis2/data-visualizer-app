@@ -1,9 +1,9 @@
 import { createNewAO, openSavedAOByName } from '../elements/FileMenu'
 import { confirmLeave } from '../elements/ConfirmLeaveModal'
 import {
-    expectChartTitleToBeDirty,
-    expectChartTitleToBeValue,
-    expectChartTitleToNotBeDirty,
+    expectAOTitleToBeDirty,
+    expectAOTitleToBeValue,
+    expectAOTitleToNotBeDirty,
     expectVisualizationToBeVisible,
 } from '../elements/Chart'
 import { expectStartScreenToBeVisible } from '../elements/StartScreen'
@@ -27,10 +27,10 @@ describe('open', () => {
             it('loads a saved AO and displays correct title and type', () => {
                 openSavedAOByName(ao.name)
 
-                expectChartTitleToBeValue(ao.name)
+                expectAOTitleToBeValue(ao.name)
 
                 expectVisualizationToBeVisible(ao.type)
-                expectChartTitleToNotBeDirty()
+                expectAOTitleToNotBeDirty()
             })
             it(`adds a period and displays dirty state`, () => {
                 if (isYearOverYear(ao.type)) {
@@ -42,7 +42,7 @@ describe('open', () => {
                     clickModalUpdateButton()
                 }
 
-                expectChartTitleToBeDirty()
+                expectAOTitleToBeDirty()
             })
             it('displays the updated visualization', () => {
                 expectVisualizationToBeVisible(ao.type)

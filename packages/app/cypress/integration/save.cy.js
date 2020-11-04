@@ -27,7 +27,8 @@ import {
 } from '../elements/DimensionModal'
 import { changeVisType } from '../elements/VisualizationTypeSelector'
 import {
-    expectChartTitleToBeUnsaved,
+    expectAOTitleToBeUnsaved,
+    expectAOTitleToBeValue,
     expectVisualizationToBeVisible,
 } from '../elements/Chart'
 import {
@@ -76,31 +77,33 @@ describe('save AO', () => {
             })
             it('displays an unsaved visualization', () => {
                 expectVisualizationToBeVisible(visType)
-                expectChartTitleToBeUnsaved()
+                expectAOTitleToBeUnsaved()
             })
             it('checks that Save as is disabled', () => {
                 expectSaveAsButtonToBeDisabled()
             })
             it('saves new AO', () => {
                 saveNewAO(TEST_VIS_NAME, TEST_VIS_DESCRIPTION)
+                expectAOTitleToBeValue(TEST_VIS_NAME)
+                expectVisualizationToBeVisible(visType)
+                // TODO: Check that url has changed
             })
-            // Checks that the AO name is the name
-            it('Save as button is enabled', () => {
+            it('checks that Save as button is enabled', () => {
                 expectSaveAsButtonToBeEnabled()
             })
-            it('Delete button is enabled', () => {
+            it('checks that Delete button is enabled', () => {
                 expectDeleteButtonToBeEnabled()
             })
-            it('Rename button is enabled', () => {
+            it('checks that Rename button is enabled', () => {
                 expectRenameButtonToBeEnabled()
             })
-            it('Translate button is enabled', () => {
+            it('checks that Translate button is enabled', () => {
                 expectTranslateButtonToBeEnabled()
             })
-            it('Share button is enabled', () => {
+            it('checks that Share button is enabled', () => {
                 expectShareButtonToBeEnabled()
             })
-            it('Get link button is enabled', () => {
+            it('checks that Get link button is enabled', () => {
                 expectGetLinkButtonToBeEnabled()
             })
             // ---- Loop through the steps below for both new and previously saved AOs

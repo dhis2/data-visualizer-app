@@ -15,8 +15,8 @@ const highchartsLegendEl = '.highcharts-legend'
 const highchartsTitleEl = '.highcharts-title'
 //const higchartsLegendItemEl = '.highcharts-legend-item'
 const unsavedVisualizationTitleText = 'Unsaved visualization'
-const chartTitleEl = 'chart-title'
-const chartTitleDirtyEl = 'chart-title-dirty'
+const AOTitleEl = 'AO-title'
+const AOTitleDirtyEl = 'AO-title-dirty'
 
 const TIMEOUT_PARAMS = {
     log: false,
@@ -86,28 +86,28 @@ export const expectChartToContainDimensionItem = (visType, itemName) => {
                 .and('contain', itemName)
     }
 }
-export const expectChartTitleToBeValue = value =>
+export const expectAOTitleToBeValue = value =>
     cy
-        .getBySel(chartTitleEl)
+        .getBySel(AOTitleEl)
         .should('have.length', 1)
         .and('be.visible')
         .and('contain', value)
 
-export const expectChartTitleToBeUnsaved = () =>
+export const expectAOTitleToBeUnsaved = () =>
     cy
-        .getBySel(chartTitleEl)
+        .getBySel(AOTitleEl)
         .should('have.length', 1)
         .and('be.visible')
         .and('contain', unsavedVisualizationTitleText)
 
-export const expectChartTitleToBeDirty = () =>
+export const expectAOTitleToBeDirty = () =>
     cy
-        .getBySel(chartTitleDirtyEl)
+        .getBySel(AOTitleDirtyEl)
         .should('have.length', 1)
         .and('be.visible')
 
-export const expectChartTitleToNotBeDirty = () =>
+export const expectAOTitleToNotBeDirty = () =>
     cy
-        .getBySel(chartTitleDirtyEl)
+        .getBySel(AOTitleDirtyEl)
         .should('have.length', 0)
         .and('not.be.visible')

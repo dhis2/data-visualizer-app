@@ -14,7 +14,7 @@ import {
     expectStoreCurrentColumnsToHaveLength,
 } from '../utils/store'
 import {
-    expectChartTitleToBeUnsaved,
+    expectAOTitleToBeUnsaved,
     expectVisualizationToBeVisible,
     expectVisualizationToNotBeVisible,
     expectChartToContainDimensionItem,
@@ -71,7 +71,7 @@ describe('new AO', () => {
 
                 !isYearOverYear(visType)
                     ? expectStoreCurrentColumnsToHaveLength(1)
-                    : expectChartTitleToBeUnsaved()
+                    : expectAOTitleToBeUnsaved()
 
                 dataElements.forEach(item =>
                     expectChartToContainDimensionItem(visType, item)
