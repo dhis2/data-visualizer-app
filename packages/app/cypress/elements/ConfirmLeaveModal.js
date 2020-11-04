@@ -9,4 +9,4 @@ export const expectConfirmLeaveModalToBeVisible = () =>
     cy
         .getBySel(confirmLeaveModalEl)
         .should('have.length', 1)
-        .should('be.visible')
+        .and('be.visible')

@@ -18,7 +18,7 @@ export const expectAxisToHaveDimension = (axisId, dimensionId) => {
         cy.getBySel(getAxisEl(axisId))
             .findBySel(getDimensionChipEl(dimensionId))
             .should('have.length', 1)
-            .should('be.visible')
+            .and('be.visible')
     } else {
         throw new Error('axisId and dimensionId not provided')
     }
@@ -34,7 +34,7 @@ export const expectDimensionToHaveItemAmount = (
                   .getBySel(getDimensionChipEl(dimensionId))
                   .contains(`${itemAmount} selected`)
                   .should('have.length', 1)
-                  .should('be.visible')
+                  .and('be.visible')
             : cy
                   .getBySel(getDimensionChipEl(dimensionId))
                   .contains(`selected`)

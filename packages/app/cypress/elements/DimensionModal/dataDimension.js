@@ -32,13 +32,13 @@ export const expectNoDataItemsToBeSelected = () =>
     cy
         .getBySel(selectedItemEl)
         .should('not.be.visible')
-        .should('have.length', 0)
+        .and('have.length', 0)
 
 export const expectDataItemsAmountToBeSelected = amount =>
     cy
         .getBySel(selectedItemEl)
         .should('not.be.visible')
-        .should('have.length', amount)
+        .and('have.length', amount)
 
 // const selectRandomDataElements = amount => {
 //     switchToDataType(dataElementsOptionEl)
