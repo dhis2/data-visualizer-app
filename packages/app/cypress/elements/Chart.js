@@ -9,6 +9,7 @@ import {
 
 const visualizationContainerEl = 'visualization-container'
 const visualizationTitleEl = 'visualization-title'
+const visualizationSubtitleEl = 'visualization-subtitle'
 const chartContainerEl = '.highcharts-container'
 const highchartsLegendEl = '.highcharts-legend'
 const highchartsTitleEl = '.highcharts-title'
@@ -51,7 +52,7 @@ const expectChartContainerToNotBeVisible = () =>
         .should('not.be.visible')
         .and('have.length', 0)
 
-// TODO: Expand to support items that are not in Column
+// TODO: Expand to support items that are not in Columns
 export const expectChartToContainDimensionItem = (visType, itemName) => {
     switch (visType) {
         case VIS_TYPE_GAUGE:
@@ -62,12 +63,10 @@ export const expectChartToContainDimensionItem = (visType, itemName) => {
                 .and('contain', itemName)
             break
         case VIS_TYPE_SINGLE_VALUE:
-            // FIXME: Change to test if item is in title OR subtitle
-            // use something like cy.get('selector-one, selector-two').find(`:contains("${text}")`).should('exist') ?
-            // TODO: Replace all text expect in all tests with the should above
-            cy.getBySel(visualizationTitleEl).should(elem => {
-                expect(elem.text()).to.equal(itemName)
-            })
+            cy.getBySel(visualizationTitleEl, visualizationSubtitleEl).should(
+                'contain',
+                itemName
+            )
             break
         case VIS_TYPE_PIVOT_TABLE:
             cy.getBySel('visualization-column-header')

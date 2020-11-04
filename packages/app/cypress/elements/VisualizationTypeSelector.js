@@ -16,11 +16,7 @@ export const changeVisType = visTypeName => {
 }
 
 export const expectVisTypeToBeValue = value =>
-    cy.getBySel(vstButtonTextEl).should(elem => {
-        expect(elem.text()).to.equal(value)
-    })
+    cy.getBySel(vstButtonTextEl).should('contain', value)
 
 export const expectVisTypeToBeDefault = () =>
-    cy.getBySel(vstButtonTextEl).should(elem => {
-        expect(elem.text()).to.equal(defaultVisTypeName)
-    })
+    cy.getBySel(vstButtonTextEl).should('contain', defaultVisTypeName)

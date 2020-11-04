@@ -51,9 +51,7 @@ export const openRandomSavedAO = () => {
 //         .click()
 //     cy.get(createdByYouEl).click()
 
-//     cy.get('@owner').should(elem => {
-//         expect(elem.text()).to.equal('Created by you')
-//     })
+//     cy.get('@owner').should('contain', 'Created by you')
 
 //     // eslint-disable-next-line
 //     cy.wait(500) // FIXME: This is a hack
