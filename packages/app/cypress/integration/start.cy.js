@@ -8,6 +8,14 @@ import {
 } from '@dhis2/analytics'
 import { expectVisualizationToNotBeVisible } from '../elements/Chart'
 import {
+    expectDeleteButtonToBeDisabled,
+    expectSaveAsButtonToBeDisabled,
+    expectRenameButtonToBeDisabled,
+    expectTranslateButtonToBeDisabled,
+    expectShareButtonToBeDisabled,
+    expectGetLinkButtonToBeDisabled,
+} from '../elements/FileMenu'
+import {
     expectAxisToHaveDimension,
     expectDimensionToHaveItemAmount,
     expectDimensionToNotHaveItems,
@@ -40,22 +48,40 @@ describe('start screen', () => {
     it('vis type is default', () => {
         expectVisTypeToBeDefault()
     })
-    it(`axis series has data dimension`, () => {
+    it('axis series has data dimension', () => {
         expectAxisToHaveDimension(AXIS_ID_COLUMNS, DIMENSION_ID_DATA)
     })
-    it(`data dimension has no items`, () => {
+    it('data dimension has no items', () => {
         expectDimensionToNotHaveItems(DIMENSION_ID_DATA)
     })
-    it(`axis category has period dimension`, () => {
+    it('axis category has period dimension', () => {
         expectAxisToHaveDimension(AXIS_ID_ROWS, DIMENSION_ID_PERIOD)
     })
-    it(`period dimension has 1 item`, () => {
+    it('period dimension has 1 item', () => {
         expectDimensionToHaveItemAmount(DIMENSION_ID_PERIOD, 1)
     })
-    it(`axis filter has orgunit dimension`, () => {
+    it('axis filter has orgunit dimension', () => {
         expectAxisToHaveDimension(AXIS_ID_FILTERS, DIMENSION_ID_ORGUNIT)
     })
-    it(`orgunit dimension has 1 item`, () => {
+    it('orgunit dimension has 1 item', () => {
         expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 1)
+    })
+    it('Save as button is disabled', () => {
+        expectSaveAsButtonToBeDisabled()
+    })
+    it('Delete button is disabled', () => {
+        expectDeleteButtonToBeDisabled()
+    })
+    it('Rename button is disabled', () => {
+        expectRenameButtonToBeDisabled()
+    })
+    it('Translate button is disabled', () => {
+        expectTranslateButtonToBeDisabled()
+    })
+    it('Share button is disabled', () => {
+        expectShareButtonToBeDisabled()
+    })
+    it('Get link button is disabled', () => {
+        expectGetLinkButtonToBeDisabled()
     })
 })

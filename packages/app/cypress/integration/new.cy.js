@@ -27,10 +27,11 @@ import {
     isYearOverYear,
     visTypeDisplayNames,
 } from '@dhis2/analytics'
+import { TEST_DATA_ELEMENTS } from '../utils/data'
 
 const dimensionId = DIMENSION_ID_DATA
 const axisId = AXIS_ID_COLUMNS
-const dataItems = ['ANC 2nd visit', 'All other new']
+const dataElements = TEST_DATA_ELEMENTS.slice(0, 2).map(item => item.name)
 
 describe('new AO', () => {
     it('goes to DV', () => {
@@ -59,10 +60,10 @@ describe('new AO', () => {
 
                 if (columnsMaxNumberOfItems === 1) {
                     // Gauge and SV can only have 1 data item
-                    dataItems.splice(1)
+                    dataElements.splice(1)
                 }
 
-                selectDataElements(dataItems)
+                selectDataElements(dataElements)
 
                 clickModalUpdateButton()
 
@@ -72,7 +73,7 @@ describe('new AO', () => {
                     ? expectStoreCurrentColumnsToHaveLength(1)
                     : expectChartTitleToBeUnsaved()
 
-                dataItems.forEach(item =>
+                dataElements.forEach(item =>
                     expectChartToContainDimensionItem(visType, item)
                 )
             })

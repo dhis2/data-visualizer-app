@@ -1,7 +1,16 @@
 import { generateRandomChar, generateRandomNumber } from '../utils/random'
 
+/*  FIXME:
+    Most of the element selection in this file is quite poor because 
+    of the FileMenu being old and still uses MUI.
+    This can be refactored to use proper data-test selectors once the new
+    FileMenu component is in place.
+*/
+
 const menubarEl = 'app-menubar'
-const openModalEl = '*[class^="MuiDialogContent"]' // TODO: Add data-test to FileMenu to target this better
+const openModalEl = '*[class^="MuiDialogContent"]' // TODO: Add data-test to open modal to target this better
+const saveModalEl = '*[class^="MuiDialog-container"]' // TODO: Add data-test to save modal to target this better
+const saveModalSaveButtonEl = '[type="submit"]'
 const menuItemEl = '*[role="menuitem"]'
 // const openModalToolbarEl = '*[class^="MuiToolbar-root"]'
 // const createdByYouEl = '[data-value="byme"]'
@@ -80,6 +89,88 @@ export const createNewAO = () => {
         .contains('New')
         .click()
 }
+
+export const saveNewAO = (name, description) => {
+    clickFileMenu()
+    cy.get(menuItemEl)
+        .contains('Save')
+        .click()
+    cy.get(saveModalEl)
+        .find('input')
+        .type(name)
+    cy.get(saveModalEl)
+        .find('textarea')
+        .eq(2)
+        .type(description)
+    cy.get(saveModalEl)
+        .find(saveModalSaveButtonEl)
+        .click()
+}
+export const saveExisitngAO = () => cy.get('STILL-TODO').should('exist')
+
+export const saveExistingAOAs = (name, description) =>
+    saveNewAO(name, description)
+
+const expectButtonButtonToBeDisabled = (buttonName, inverse) => {
+    clickFileMenu()
+    cy.get(menuItemEl)
+        .contains(buttonName)
+        .parents('li')
+        .invoke('attr', 'class')
+        .should(inverse ? 'not.contain' : 'contain', 'disabled')
+    cy.get(menuItemEl)
+        .contains(buttonName)
+        .parents('ul')
+        .type('{esc}')
+}
+
+// Save as
+export const expectSaveAsButtonToBeDisabled = inverse => {
+    expectButtonButtonToBeDisabled('Save as...', inverse)
+}
+
+export const expectSaveAsButtonToBeEnabled = () =>
+    expectSaveAsButtonToBeDisabled(true)
+
+// Rename
+export const expectRenameButtonToBeEnabled = () =>
+    expectRenameButtonToBeDisabled(true)
+
+export const expectRenameButtonToBeDisabled = inverse => {
+    expectButtonButtonToBeDisabled('Rename', inverse)
+}
+
+// Translate
+export const expectTranslateButtonToBeEnabled = () =>
+    expectTranslateButtonToBeDisabled(true)
+
+export const expectTranslateButtonToBeDisabled = inverse => {
+    expectButtonButtonToBeDisabled('Translate', inverse)
+}
+
+// Share
+export const expectShareButtonToBeEnabled = () =>
+    expectShareButtonToBeDisabled(true)
+
+export const expectShareButtonToBeDisabled = inverse => {
+    expectButtonButtonToBeDisabled('Share', inverse)
+}
+
+// Get link
+export const expectGetLinkButtonToBeEnabled = () =>
+    expectGetLinkButtonToBeDisabled(true)
+
+export const expectGetLinkButtonToBeDisabled = inverse => {
+    expectButtonButtonToBeDisabled('Get link', inverse)
+}
+
+// Delete
+export const expectDeleteButtonToBeDisabled = inverse => {
+    expectButtonButtonToBeDisabled('Delete', inverse)
+}
+
+export const expectDeleteButtonToBeEnabled = () =>
+    expectDeleteButtonToBeDisabled(true)
 
 const searchAOByName = name =>
     cy
