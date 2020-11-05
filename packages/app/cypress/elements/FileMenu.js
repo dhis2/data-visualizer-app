@@ -106,7 +106,8 @@ export const saveNewAO = (name, description) => {
         .find(saveModalSaveButtonEl)
         .click()
 }
-export const saveExisitngAO = () => cy.get('STILL-TODO').should('exist')
+export const saveExistingAO = () => cy.get('STILL-TODO').should('exist')
+// TODO: Implement a Save where the button is clicked but no name needs to be entered
 
 export const saveExistingAOAs = (name, description) =>
     saveNewAO(name, description)

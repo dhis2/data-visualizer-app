@@ -110,6 +110,7 @@ describe('save AO', () => {
             it('checks that Get link button is enabled', () => {
                 expectGetLinkButtonToBeEnabled()
             })
+            // TODO:
             // ---- Loop through the steps below for both new and previously saved AOs
             // Change vis type
             // Check that AO name is "Edited"
