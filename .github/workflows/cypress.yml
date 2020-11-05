@@ -1,38 +1,38 @@
-name: "dhis2: test (cypress)"
+name: 'dhis2: test (cypress)'
 
 on:
-  push:
-    branches:
-      - master
-  pull_request:
+    push:
+        branches:
+            - master
+    pull_request:
 
 env:
-  SERVER_START_CMD: "yarn cypress:start"
-  SERVER_URL: "http://localhost:3000"
-  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-  cypress_dhis2_base_url: ${{ secrets.REACT_APP_DHIS2_BASE_URL }}
-  REACT_APP_DHIS2_BASE_URL: ${{ secrets.REACT_APP_DHIS2_BASE_URL }}
+    SERVER_START_CMD: 'yarn cypress:start'
+    SERVER_URL: 'http://localhost:3000'
+    CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+    cypress_dhis2_base_url: ${{ secrets.REACT_APP_DHIS2_BASE_URL }}
+    REACT_APP_DHIS2_BASE_URL: ${{ secrets.REACT_APP_DHIS2_BASE_URL }}
 
 jobs:
-  e2e:
-    runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[skip ci]')"
-    strategy:
-      matrix:
-        containers: [1, 2, 3]
+    e2e:
+        runs-on: ubuntu-latest
+        if: "!contains(github.event.head_commit.message, '[skip ci]')"
+        strategy:
+            matrix:
+                containers: [1, 2, 3]
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
 
-      - name: Tests
-        uses: cypress-io/github-action@v2
-        with:
-          record: true
-          parallel: true
-          start: ${{ env.SERVER_START_CMD }}
-          wait-on: ${{ env.SERVER_URL }}
-          wait-on-timeout: 60
-          group: "e2e"
-        env:
-          CI: true
+            - name: Tests
+              uses: cypress-io/github-action@v2
+              with:
+                  record: true
+                  parallel: true
+                  start: ${{ env.SERVER_START_CMD }}
+                  wait-on: ${{ env.SERVER_URL }}
+                  wait-on-timeout: 60
+                  group: 'e2e'
+              env:
+                  CI: true

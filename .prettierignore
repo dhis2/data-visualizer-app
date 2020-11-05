@@ -4,3 +4,4 @@
 /packages/app/build/*
 /packages/plugin/build/*
 /coverage/*
+/cypress/fixtures
