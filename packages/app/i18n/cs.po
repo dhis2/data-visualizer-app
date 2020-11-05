@@ -112,7 +112,7 @@ msgid "Interpretations"
 msgstr "Interpretace"
 
 msgid "selected"
-msgstr ""
+msgstr "vybráno"
 
 msgid "Series"
 msgstr "Série"
