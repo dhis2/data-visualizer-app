@@ -9,6 +9,12 @@ import {
     VIS_TYPE_YEAR_OVER_YEAR_LINE,
 } from '@dhis2/analytics'
 
+//const getTestAOsFromEndpoint = () => {
+// fetch AOs from endpoint
+// find one AO per vis type
+// return AOs
+//}
+
 export const TEST_AOS = [
     {
         name: 'Commodities: Child health consumption districts this year',

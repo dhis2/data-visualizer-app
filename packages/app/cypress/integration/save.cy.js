@@ -47,6 +47,7 @@ import {
     expectShareButtonToBeEnabled,
     expectGetLinkButtonToBeEnabled,
 } from '../elements/FileMenu'
+import { expectRouteToBeAOId, expectRouteToBeEmpty } from '../elements/Route'
 
 const dimensionId = DIMENSION_ID_DATA
 const dataElements = TEST_DATA_ELEMENTS.slice(1, 2).map(item => item.name)
@@ -78,6 +79,7 @@ describe('save AO', () => {
             it('displays an unsaved visualization', () => {
                 expectVisualizationToBeVisible(visType)
                 expectAOTitleToBeUnsaved()
+                expectRouteToBeEmpty()
             })
             it('checks that Save as is disabled', () => {
                 expectSaveAsButtonToBeDisabled()
@@ -86,7 +88,9 @@ describe('save AO', () => {
                 saveNewAO(TEST_VIS_NAME, TEST_VIS_DESCRIPTION)
                 expectAOTitleToBeValue(TEST_VIS_NAME)
                 expectVisualizationToBeVisible(visType)
-                // TODO: Check that url has changed
+            })
+            it('checks that the url was changed', () => {
+                expectRouteToBeAOId()
             })
             it('checks that Save as button is enabled', () => {
                 expectSaveAsButtonToBeEnabled()
