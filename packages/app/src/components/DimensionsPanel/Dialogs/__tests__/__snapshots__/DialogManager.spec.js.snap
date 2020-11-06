@@ -3,7 +3,7 @@
 exports[`The DialogManager component renders OUDimension content with display:none when previously mounted 1`] = `
 <Fragment>
   <Modal
-    dataTest="dialog-manager"
+    dataTest="dialog-manager-undefined"
     large={true}
     onClose={[Function]}
     position="top"
@@ -54,7 +54,7 @@ exports[`The DialogManager component renders OUDimension content with display:no
 exports[`The DialogManager component renders OUDimension content with display:none when previously mounted 3`] = `
 <Fragment>
   <Modal
-    dataTest="dialog-manager"
+    dataTest="dialog-manager-undefined"
     large={true}
     onClose={[Function]}
     position="top"
@@ -109,7 +109,7 @@ exports[`The DialogManager component renders a closed dialog 1`] = `<Fragment />
 exports[`The DialogManager component renders the DataDimension content in dialog 1`] = `
 <Fragment>
   <Modal
-    dataTest="dialog-manager"
+    dataTest="dialog-manager-undefined"
     large={true}
     onClose={[Function]}
     position="top"
@@ -149,7 +149,7 @@ exports[`The DialogManager component renders the DataDimension content in dialog
 exports[`The DialogManager component renders the OrgUnitDimension content in dialog 1`] = `
 <Fragment>
   <Modal
-    dataTest="dialog-manager"
+    dataTest="dialog-manager-undefined"
     large={true}
     onClose={[Function]}
     position="top"
@@ -198,7 +198,7 @@ exports[`The DialogManager component renders the OrgUnitDimension content in dia
 exports[`The DialogManager component renders the PeriodDimension content in dialog 1`] = `
 <Fragment>
   <Modal
-    dataTest="dialog-manager"
+    dataTest="dialog-manager-undefined"
     large={true}
     onClose={[Function]}
     position="top"
