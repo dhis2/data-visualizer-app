@@ -1,25 +1,3 @@
-/*  TODO: 
-        Start with one of the following cases:
-        1a) Start from scratch, can save
-        1b) Start from scratch, can save as
-        2a) AO "Created by you", can save
-        2b) AO "Created by you", can save as
-        3a) AO "Created by others", can't save 
-        3b) AO "Created by others", can't save as
-
-        Check that vis is loaded
-        Check that AO name is not "Edited"
-        Change vis type
-        Check that AO name is "Edited"
-        Save with "name"
-        Check that name is not "Edited"
-        Check that name is "name"
-        Save as with "other name"
-        Check that name is not "Edited"
-        Check that name is "other name"
-    */
-
-//import { createNewAO } from '../elements/FileMenu'
 import { openDimension } from '../elements/DimensionsPanel'
 import {
     selectDataElements,
@@ -42,6 +20,7 @@ import {
 import { TEST_DATA_ELEMENTS } from '../utils/data'
 import {
     expectSaveAsButtonToBeDisabled,
+    //expectSaveButtonToBeDisabled,
     saveNewAO,
     expectSaveAsButtonToBeEnabled,
     expectDeleteButtonToBeEnabled,
@@ -55,6 +34,7 @@ import {
     saveExistingAO,
     openSavedAOByName,
     deleteAO,
+    //openRandomSavedAOCreatedByOthers,
 } from '../elements/FileMenu'
 import { expectRouteToBeAOId, expectRouteToBeEmpty } from '../elements/Route'
 import { getRandomVisType } from '../utils/random'
@@ -181,12 +161,20 @@ describe('"save" and "save as" for a saved AO created by you', () => {
     })
 })
 
-// New describe
-
-// Open AO created by others
-// Add period
-// Check that name is "Edited"
-// Check that save is disabled
-// Save as "new name"
-// Check that name is "new name"
-// Delete
+/*
+describe('"save" for a saved AO created by others', () => {
+    it('navigates to the start page', () => {
+        cy.visit('')
+    })
+    it('opens a random AO created by others', () => {
+        openRandomSavedAOCreatedByOthers()
+    })
+    it('checks that Save is disabled - WIP', () => {
+        openFileMenu()
+        expectSaveButtonToBeDisabled()
+        // TODO: This is not always true, as different AOs can have different sharing settings.
+        // @edoardo will add additional tests here later
+        closeFileMenu()
+    })
+})
+*/
