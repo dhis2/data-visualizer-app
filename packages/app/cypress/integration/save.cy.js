@@ -50,131 +50,133 @@ const TEST_VIS_TYPE_NAME = visTypeDisplayNames[TEST_VIS_TYPE]
 
 // TODO: Add test to check that the description is saved and shown in the interpretations panel
 
-describe('"save" and "save as" for a new AO', () => {
-    it('navigates to the start page', () => {
-        cy.visit('')
-    })
-    it(`changes vis type to ${TEST_VIS_TYPE_NAME}`, () => {
-        changeVisType(TEST_VIS_TYPE_NAME)
-    })
-    it('adds Data dimension items', () => {
-        openDimension(DIMENSION_ID_DATA)
-        selectDataElements(
-            TEST_DATA_ELEMENTS.slice(1, 2).map(item => item.name)
-        )
-        clickModalUpdateButton()
-    })
-    it('displays an unsaved visualization', () => {
-        expectVisualizationToBeVisible(TEST_VIS_TYPE)
-        expectAOTitleToBeUnsaved()
-        expectRouteToBeEmpty()
-    })
-    it('checks that Save as is disabled', () => {
-        openFileMenu()
-        expectFileMenuButtonToBeDisabled(FILE_MENU_BUTTON_SAVEAS)
-        closeFileMenu()
-    })
-    it('saves new AO using "Save"', () => {
-        saveNewAO(TEST_VIS_NAME, TEST_VIS_DESCRIPTION)
-        expectAOTitleToBeValue(TEST_VIS_NAME)
-        expectVisualizationToBeVisible(TEST_VIS_TYPE)
-    })
-    it('checks that the url was changed', () => {
-        expectRouteToBeAOId()
-    })
-    it('opens File menu', () => {
-        openFileMenu()
-    })
-    it('checks that Save as button is enabled', () => {
-        expectFileMenuButtonToBeEnabled(FILE_MENU_BUTTON_SAVEAS)
-    })
-    it('checks that Delete button is enabled', () => {
-        expectFileMenuButtonToBeEnabled(FILE_MENU_BUTTON_DELETE)
-    })
-    it('checks that Rename button is enabled', () => {
-        expectFileMenuButtonToBeEnabled(FILE_MENU_BUTTON_RENAME)
-    })
-    it('checks that Translate button is enabled', () => {
-        expectFileMenuButtonToBeEnabled(FILE_MENU_BUTTON_TRANSLATE)
-    })
-    it('checks that Share button is enabled', () => {
-        expectFileMenuButtonToBeEnabled(FILE_MENU_BUTTON_SHARE)
-    })
-    it('checks that Get link button is enabled', () => {
-        expectFileMenuButtonToBeEnabled(FILE_MENU_BUTTON_GETLINK)
-    })
-    it('closes File menu', () => {
-        closeFileMenu()
-    })
-    it(`changes the period`, () => {
-        if (isYearOverYear(TEST_VIS_TYPE)) {
-            selectYoyCategoryOption('Last 2 six-months')
-            clickMenuBarUpdateButton()
-        } else {
-            openDimension('pe')
-            selectRelativePeriods(['Last six-month'], 'Six-months')
+describe('saving an AO', () => {
+    describe('"save" and "save as" for a new AO', () => {
+        it('navigates to the start page', () => {
+            cy.visit('')
+        })
+        it(`changes vis type to ${TEST_VIS_TYPE_NAME}`, () => {
+            changeVisType(TEST_VIS_TYPE_NAME)
+        })
+        it('adds Data dimension items', () => {
+            openDimension(DIMENSION_ID_DATA)
+            selectDataElements(
+                TEST_DATA_ELEMENTS.slice(1, 2).map(item => item.name)
+            )
             clickModalUpdateButton()
-        }
-        expectAOTitleToBeDirty()
+        })
+        it('displays an unsaved visualization', () => {
+            expectVisualizationToBeVisible(TEST_VIS_TYPE)
+            expectAOTitleToBeUnsaved()
+            expectRouteToBeEmpty()
+        })
+        it('checks that Save as is disabled', () => {
+            openFileMenu()
+            expectFileMenuButtonToBeDisabled(FILE_MENU_BUTTON_SAVEAS)
+            closeFileMenu()
+        })
+        it('saves new AO using "Save"', () => {
+            saveNewAO(TEST_VIS_NAME, TEST_VIS_DESCRIPTION)
+            expectAOTitleToBeValue(TEST_VIS_NAME)
+            expectVisualizationToBeVisible(TEST_VIS_TYPE)
+        })
+        it('checks that the url was changed', () => {
+            expectRouteToBeAOId()
+        })
+        it('opens File menu', () => {
+            openFileMenu()
+        })
+        it('checks that Save as button is enabled', () => {
+            expectFileMenuButtonToBeEnabled(FILE_MENU_BUTTON_SAVEAS)
+        })
+        it('checks that Delete button is enabled', () => {
+            expectFileMenuButtonToBeEnabled(FILE_MENU_BUTTON_DELETE)
+        })
+        it('checks that Rename button is enabled', () => {
+            expectFileMenuButtonToBeEnabled(FILE_MENU_BUTTON_RENAME)
+        })
+        it('checks that Translate button is enabled', () => {
+            expectFileMenuButtonToBeEnabled(FILE_MENU_BUTTON_TRANSLATE)
+        })
+        it('checks that Share button is enabled', () => {
+            expectFileMenuButtonToBeEnabled(FILE_MENU_BUTTON_SHARE)
+        })
+        it('checks that Get link button is enabled', () => {
+            expectFileMenuButtonToBeEnabled(FILE_MENU_BUTTON_GETLINK)
+        })
+        it('closes File menu', () => {
+            closeFileMenu()
+        })
+        it(`changes the period`, () => {
+            if (isYearOverYear(TEST_VIS_TYPE)) {
+                selectYoyCategoryOption('Last 2 six-months')
+                clickMenuBarUpdateButton()
+            } else {
+                openDimension('pe')
+                selectRelativePeriods(['Last six-month'], 'Six-months')
+                clickModalUpdateButton()
+            }
+            expectAOTitleToBeDirty()
+        })
+        it('saves AO using "Save"', () => {
+            saveExistingAO()
+            expectAOTitleToNotBeDirty()
+            expectAOTitleToBeValue(TEST_VIS_NAME)
+            expectVisualizationToBeVisible(TEST_VIS_TYPE)
+        })
+        it('saves AO using "Save As"', () => {
+            saveAOAs(TEST_VIS_NAME_UPDATED)
+            expectAOTitleToBeValue(TEST_VIS_NAME_UPDATED)
+            expectVisualizationToBeVisible(TEST_VIS_TYPE)
+        })
     })
-    it('saves AO using "Save"', () => {
-        saveExistingAO()
-        expectAOTitleToNotBeDirty()
-        expectAOTitleToBeValue(TEST_VIS_NAME)
-        expectVisualizationToBeVisible(TEST_VIS_TYPE)
-    })
-    it('saves AO using "Save As"', () => {
-        saveAOAs(TEST_VIS_NAME_UPDATED)
-        expectAOTitleToBeValue(TEST_VIS_NAME_UPDATED)
-        expectVisualizationToBeVisible(TEST_VIS_TYPE)
-    })
-})
 
-describe('"save" and "save as" for a saved AO created by you', () => {
-    it('navigates to the start page', () => {
-        cy.visit('')
+    describe('"save" and "save as" for a saved AO created by you', () => {
+        it('navigates to the start page', () => {
+            cy.visit('')
+        })
+        it('opens a saved AO ', () => {
+            openAOByName(TEST_VIS_NAME_UPDATED)
+        })
+        it(`changes the period`, () => {
+            if (isYearOverYear(TEST_VIS_TYPE)) {
+                selectYoyCategoryOption('Quarters per year')
+                clickMenuBarUpdateButton()
+            } else {
+                openDimension('pe')
+                selectRelativePeriods(['Last quarter'], 'Quarters')
+                clickModalUpdateButton()
+            }
+            expectAOTitleToBeDirty()
+        })
+        it('saves AO using "Save"', () => {
+            saveExistingAO()
+            expectAOTitleToNotBeDirty()
+            expectAOTitleToBeValue(TEST_VIS_NAME)
+            expectVisualizationToBeVisible(TEST_VIS_TYPE)
+        })
+        it('deletes AO', () => {
+            deleteAO()
+            expectRouteToBeEmpty()
+            expectStartScreenToBeVisible()
+        })
     })
-    it('opens a saved AO ', () => {
-        openAOByName(TEST_VIS_NAME_UPDATED)
-    })
-    it(`changes the period`, () => {
-        if (isYearOverYear(TEST_VIS_TYPE)) {
-            selectYoyCategoryOption('Quarters per year')
-            clickMenuBarUpdateButton()
-        } else {
-            openDimension('pe')
-            selectRelativePeriods(['Last quarter'], 'Quarters')
-            clickModalUpdateButton()
-        }
-        expectAOTitleToBeDirty()
-    })
-    it('saves AO using "Save"', () => {
-        saveExistingAO()
-        expectAOTitleToNotBeDirty()
-        expectAOTitleToBeValue(TEST_VIS_NAME)
-        expectVisualizationToBeVisible(TEST_VIS_TYPE)
-    })
-    it('deletes AO', () => {
-        deleteAO()
-        expectRouteToBeEmpty()
-        expectStartScreenToBeVisible()
-    })
-})
 
-/*
-describe('"save" for a saved AO created by others', () => {
-    it('navigates to the start page', () => {
-        cy.visit('')
+    /*
+    describe('"save" for a saved AO created by others', () => {
+        it('navigates to the start page', () => {
+            cy.visit('')
+        })
+        it('opens a random AO created by others', () => {
+            openRandomAOCreatedByOthers()
+        })
+        it('checks that Save is disabled - WIP', () => {
+            openFileMenu()
+            expectFileMenuButtonToBeDisabled(FILE_MENU_BUTTON_SAVEAS)
+            // TODO: This is not always true, as different AOs can have different sharing settings.
+            // @edoardo will add additional tests here later
+            closeFileMenu()
+        })
     })
-    it('opens a random AO created by others', () => {
-        openRandomAOCreatedByOthers()
-    })
-    it('checks that Save is disabled - WIP', () => {
-        openFileMenu()
-        expectFileMenuButtonToBeDisabled(FILE_MENU_BUTTON_SAVEAS)
-        // TODO: This is not always true, as different AOs can have different sharing settings.
-        // @edoardo will add additional tests here later
-        closeFileMenu()
-    })
+    */
 })
-*/

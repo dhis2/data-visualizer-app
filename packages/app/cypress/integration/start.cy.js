@@ -31,7 +31,7 @@ import { expectVisTypeToBeDefault } from '../elements/VisualizationTypeSelector'
 import { expectWindowTitleToBeDefault } from '../elements/Window'
 import { expectStoreCurrentToBeEmpty } from '../utils/store'
 
-describe('start screen', () => {
+describe('viewing the start screen', () => {
     it('navigates to the start page', () => {
         cy.visit('')
         expectStartScreenToBeVisible()

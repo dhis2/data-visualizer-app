@@ -18,7 +18,7 @@ import { selectYoyCategoryOption } from '../elements/Layout'
 import { clickMenuBarUpdateButton } from '../elements/MenuBar'
 import { expectRouteToBeAOId, expectRouteToBeEmpty } from '../elements/Route'
 
-describe('open', () => {
+describe('opening a saved AO', () => {
     it('navigates to the start page', () => {
         cy.visit('')
         expectStartScreenToBeVisible()
