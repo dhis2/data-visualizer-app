@@ -1,4 +1,4 @@
-import { createNewAO, openSavedAOByName } from '../elements/FileMenu'
+import { createNewAO, openAOByName } from '../elements/FileMenu'
 import { confirmLeave } from '../elements/ConfirmLeaveModal'
 import {
     expectAOTitleToBeDirty,
@@ -26,7 +26,7 @@ describe('open', () => {
     TEST_AOS.forEach(ao => {
         describe(visTypeDisplayNames[ao.type], () => {
             it('opens a saved AO ', () => {
-                openSavedAOByName(ao.name)
+                openAOByName(ao.name)
                 expectRouteToBeAOId()
             })
             it('displays correct title and type', () => {

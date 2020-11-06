@@ -19,13 +19,13 @@ import {
 } from '@dhis2/analytics'
 import { TEST_DATA_ELEMENTS } from '../utils/data'
 import {
-    //openRandomSavedAOCreatedByOthers,
+    //openRandomAOCreatedByOthers,
     saveNewAO,
     openFileMenu,
     closeFileMenu,
     saveAOAs,
     saveExistingAO,
-    openSavedAOByName,
+    openAOByName,
     deleteAO,
     expectFileMenuButtonToBeEnabled,
     expectFileMenuButtonToBeDisabled,
@@ -135,7 +135,7 @@ describe('"save" and "save as" for a saved AO created by you', () => {
         cy.visit('')
     })
     it('opens a saved AO ', () => {
-        openSavedAOByName(TEST_VIS_NAME_UPDATED)
+        openAOByName(TEST_VIS_NAME_UPDATED)
     })
     it(`changes the period`, () => {
         if (isYearOverYear(TEST_VIS_TYPE)) {
@@ -167,7 +167,7 @@ describe('"save" for a saved AO created by others', () => {
         cy.visit('')
     })
     it('opens a random AO created by others', () => {
-        openRandomSavedAOCreatedByOthers()
+        openRandomAOCreatedByOthers()
     })
     it('checks that Save is disabled - WIP', () => {
         openFileMenu()

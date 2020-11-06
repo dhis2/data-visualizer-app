@@ -14,7 +14,7 @@ import {
     selectDataElements,
 } from '../elements/DimensionModal'
 import { openDimension } from '../elements/DimensionsPanel'
-import { createNewAO, openRandomSavedAO } from '../elements/FileMenu'
+import { createNewAO, openRandomAO } from '../elements/FileMenu'
 import { expectStartScreenToBeVisible } from '../elements/StartScreen'
 import { TEST_DATA_ELEMENTS } from '../utils/data'
 
@@ -24,7 +24,7 @@ describe('confirm leave modal', () => {
         expectStartScreenToBeVisible()
     })
     it('loads a random saved AO', () => {
-        openRandomSavedAO()
+        openRandomAO()
         expectAOTitleToNotBeDirty()
     })
     it('replaces the data items', () => {
