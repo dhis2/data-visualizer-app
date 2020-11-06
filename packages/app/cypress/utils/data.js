@@ -58,3 +58,18 @@ export const TEST_DATA_ELEMENTS = [
     { id: 'HLPuaFB7Frw', name: 'Anaemia new' },
     { id: 's46m5MS0hxu', name: 'BCG doses given' },
 ]
+
+export const TEST_CUSTOM_DIMENSIONS = [
+    {
+        id: 'uIuxlbV1vRT',
+        name: 'Area',
+    },
+    {
+        id: 'gtuVl6NbXQV',
+        name: 'Commodities',
+    },
+    {
+        id: 'jp826jAJHUc',
+        name: 'Diagnosis',
+    },
+]

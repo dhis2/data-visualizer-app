@@ -309,7 +309,7 @@ export class DialogManager extends Component {
                 {dimension && (
                     <Modal
                         onClose={this.closeDialog}
-                        dataTest="dialog-manager"
+                        dataTest={`dialog-manager-${dimension.id}`}
                         position="top"
                         large
                     >

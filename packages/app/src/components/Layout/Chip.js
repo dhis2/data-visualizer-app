@@ -173,7 +173,12 @@ const Chip = ({
                     )}
                 </Tooltip>
             ) : (
-                <div id={id} style={styles.chipLeft} onClick={handleClick}>
+                <div
+                    id={id}
+                    style={styles.chipLeft}
+                    data-test={`layout-chip-${dimensionId}`}
+                    onClick={handleClick}
+                >
                     {renderChipContent()}
                 </div>
             )}
