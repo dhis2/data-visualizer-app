@@ -14,6 +14,8 @@ import {
     expectTranslateButtonToBeDisabled,
     expectShareButtonToBeDisabled,
     expectGetLinkButtonToBeDisabled,
+    openFileMenu,
+    closeFileMenu,
 } from '../elements/FileMenu'
 import {
     expectAxisToHaveDimension,
@@ -29,7 +31,7 @@ import { expectWindowTitleToBeDefault } from '../elements/Window'
 import { expectStoreCurrentToBeEmpty } from '../utils/store'
 
 describe('start screen', () => {
-    it('goes to DV', () => {
+    it('navigates to the start page', () => {
         cy.visit('')
         expectStartScreenToBeVisible()
     })
@@ -66,6 +68,9 @@ describe('start screen', () => {
     it('orgunit dimension has 1 item', () => {
         expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 1)
     })
+    it('opens File menu', () => {
+        openFileMenu()
+    })
     it('Save as button is disabled', () => {
         expectSaveAsButtonToBeDisabled()
     })
@@ -83,5 +88,8 @@ describe('start screen', () => {
     })
     it('Get link button is disabled', () => {
         expectGetLinkButtonToBeDisabled()
+    })
+    it('closes File menu', () => {
+        closeFileMenu()
     })
 })

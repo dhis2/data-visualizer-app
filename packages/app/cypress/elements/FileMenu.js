@@ -10,16 +10,24 @@ import { generateRandomChar, generateRandomNumber } from '../utils/random'
 const menubarEl = 'app-menubar'
 const openModalEl = '*[class^="MuiDialogContent"]' // TODO: Add data-test to open modal to target this better
 const saveModalEl = '*[class^="MuiDialog-container"]' // TODO: Add data-test to save modal to target this better
+const deleteModalEl = '*[class^="MuiDialog-container"]'
 const saveModalSaveButtonEl = '[type="submit"]'
 const menuItemEl = '*[role="menuitem"]'
 // const openModalToolbarEl = '*[class^="MuiToolbar-root"]'
 // const createdByYouEl = '[data-value="byme"]'
 const openModalItemContainerEl = '*[class^="MuiTableBody"]'
 
-const clickFileMenu = () => {
+export const openFileMenu = () => {
     cy.getBySel(menubarEl)
         .contains('File')
         .click()
+}
+
+export const closeFileMenu = () => {
+    cy.get(menuItemEl)
+        .contains('New')
+        .parents('ul')
+        .type('{esc}')
 }
 
 const clickOpen = () => {
@@ -29,7 +37,7 @@ const clickOpen = () => {
 }
 
 export const openRandomSavedAO = () => {
-    clickFileMenu()
+    openFileMenu()
     clickOpen()
     searchAOByName(generateRandomChar())
     // eslint-disable-next-line
@@ -48,7 +56,7 @@ export const openRandomSavedAO = () => {
 }
 
 // export const openRandomSavedAOCreatedByYou = () => {
-//     clickFileMenu()
+//     openFileMenu()
 //     clickOpen()
 //     cy.get(openModalEl)
 //         .find(openModalToolbarEl)
@@ -75,7 +83,7 @@ export const openRandomSavedAO = () => {
 // }
 
 export const openSavedAOByName = name => {
-    clickFileMenu()
+    openFileMenu()
     clickOpen()
     searchAOByName(name)
     cy.get(openModalEl)
@@ -84,19 +92,31 @@ export const openSavedAOByName = name => {
 }
 
 export const createNewAO = () => {
-    clickFileMenu()
+    openFileMenu()
     cy.get(menuItemEl) // TODO: Change once new FileMenu is in place
         .contains('New')
         .click()
 }
 
+export const deleteAO = () => {
+    openFileMenu()
+    cy.get(menuItemEl)
+        .contains('Delete')
+        .click()
+    cy.get(deleteModalEl)
+        .find('button')
+        .contains('Delete')
+        .click()
+}
+
 export const saveNewAO = (name, description) => {
-    clickFileMenu()
+    openFileMenu()
     cy.get(menuItemEl)
         .contains('Save')
         .click()
     cy.get(saveModalEl)
         .find('input')
+        .clear()
         .type(name)
     cy.get(saveModalEl)
         .find('textarea')
@@ -106,28 +126,47 @@ export const saveNewAO = (name, description) => {
         .find(saveModalSaveButtonEl)
         .click()
 }
-export const saveExistingAO = () => cy.get('STILL-TODO').should('exist')
-// TODO: Implement a Save where the button is clicked but no name needs to be entered
+export const saveExistingAO = () => {
+    openFileMenu()
+    cy.get(menuItemEl)
+        .contains('Save')
+        .click()
+}
 
-export const saveExistingAOAs = (name, description) =>
-    saveNewAO(name, description)
+export const saveAOAs = (name, description) => {
+    openFileMenu()
+    cy.get(menuItemEl)
+        .contains('Save as...')
+        .click()
+    if (name) {
+        cy.get(saveModalEl)
+            .find('input')
+            .clear()
+            .type(name)
+    }
+    if (description) {
+        cy.get(saveModalEl)
+            .find('textarea')
+            .eq(2)
+            .clear()
+            .type(description)
+    }
+    cy.get(saveModalEl)
+        .find(saveModalSaveButtonEl)
+        .click()
+}
 
-const expectButtonButtonToBeDisabled = (buttonName, inverse) => {
-    clickFileMenu()
+const expectButtonToBeDisabled = (buttonName, inverse) => {
     cy.get(menuItemEl)
         .contains(buttonName)
         .parents('li')
         .invoke('attr', 'class')
         .should(inverse ? 'not.contain' : 'contain', 'disabled')
-    cy.get(menuItemEl)
-        .contains(buttonName)
-        .parents('ul')
-        .type('{esc}')
 }
 
 // Save as
 export const expectSaveAsButtonToBeDisabled = inverse => {
-    expectButtonButtonToBeDisabled('Save as...', inverse)
+    expectButtonToBeDisabled('Save as...', inverse)
 }
 
 export const expectSaveAsButtonToBeEnabled = () =>
@@ -138,7 +177,7 @@ export const expectRenameButtonToBeEnabled = () =>
     expectRenameButtonToBeDisabled(true)
 
 export const expectRenameButtonToBeDisabled = inverse => {
-    expectButtonButtonToBeDisabled('Rename', inverse)
+    expectButtonToBeDisabled('Rename', inverse)
 }
 
 // Translate
@@ -146,7 +185,7 @@ export const expectTranslateButtonToBeEnabled = () =>
     expectTranslateButtonToBeDisabled(true)
 
 export const expectTranslateButtonToBeDisabled = inverse => {
-    expectButtonButtonToBeDisabled('Translate', inverse)
+    expectButtonToBeDisabled('Translate', inverse)
 }
 
 // Share
@@ -154,7 +193,7 @@ export const expectShareButtonToBeEnabled = () =>
     expectShareButtonToBeDisabled(true)
 
 export const expectShareButtonToBeDisabled = inverse => {
-    expectButtonButtonToBeDisabled('Share', inverse)
+    expectButtonToBeDisabled('Share', inverse)
 }
 
 // Get link
@@ -162,12 +201,12 @@ export const expectGetLinkButtonToBeEnabled = () =>
     expectGetLinkButtonToBeDisabled(true)
 
 export const expectGetLinkButtonToBeDisabled = inverse => {
-    expectButtonButtonToBeDisabled('Get link', inverse)
+    expectButtonToBeDisabled('Get link', inverse)
 }
 
 // Delete
 export const expectDeleteButtonToBeDisabled = inverse => {
-    expectButtonButtonToBeDisabled('Delete', inverse)
+    expectButtonToBeDisabled('Delete', inverse)
 }
 
 export const expectDeleteButtonToBeEnabled = () =>

@@ -33,8 +33,8 @@ const dimensionId = DIMENSION_ID_DATA
 const axisId = AXIS_ID_COLUMNS
 const dataElements = TEST_DATA_ELEMENTS.slice(0, 2).map(item => item.name)
 
-describe('new AO', () => {
-    it('goes to DV', () => {
+describe('creating a new AO', () => {
+    it('navigates to the start page', () => {
         cy.visit('')
         expectStartScreenToBeVisible()
     })

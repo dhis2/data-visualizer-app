@@ -18,8 +18,8 @@ import { createNewAO, openRandomSavedAO } from '../elements/FileMenu'
 import { expectStartScreenToBeVisible } from '../elements/StartScreen'
 import { TEST_DATA_ELEMENTS } from '../utils/data'
 
-describe('confirm leave', () => {
-    it('goes to DV', () => {
+describe('confirm leave modal', () => {
+    it('navigates to the start page', () => {
         cy.visit('')
         expectStartScreenToBeVisible()
     })

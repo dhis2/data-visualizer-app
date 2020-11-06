@@ -19,13 +19,13 @@ import { clickMenuBarUpdateButton } from '../elements/MenuBar'
 import { expectRouteToBeAOId, expectRouteToBeEmpty } from '../elements/Route'
 
 describe('open', () => {
-    it('goes to DV', () => {
+    it('navigates to the start page', () => {
         cy.visit('')
         expectStartScreenToBeVisible()
     })
     TEST_AOS.forEach(ao => {
         describe(visTypeDisplayNames[ao.type], () => {
-            it('loads a saved AO ', () => {
+            it('opens a saved AO ', () => {
                 openSavedAOByName(ao.name)
                 expectRouteToBeAOId()
             })
