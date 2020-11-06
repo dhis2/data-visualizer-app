@@ -19,22 +19,22 @@ import {
 } from '@dhis2/analytics'
 import { TEST_DATA_ELEMENTS } from '../utils/data'
 import {
-    expectSaveAsButtonToBeDisabled,
-    //expectSaveButtonToBeDisabled,
+    //openRandomSavedAOCreatedByOthers,
     saveNewAO,
-    expectSaveAsButtonToBeEnabled,
-    expectDeleteButtonToBeEnabled,
-    expectRenameButtonToBeEnabled,
-    expectTranslateButtonToBeEnabled,
-    expectShareButtonToBeEnabled,
-    expectGetLinkButtonToBeEnabled,
     openFileMenu,
     closeFileMenu,
     saveAOAs,
     saveExistingAO,
     openSavedAOByName,
     deleteAO,
-    //openRandomSavedAOCreatedByOthers,
+    expectFileMenuButtonToBeEnabled,
+    expectFileMenuButtonToBeDisabled,
+    FILE_MENU_BUTTON_SAVEAS,
+    FILE_MENU_BUTTON_DELETE,
+    FILE_MENU_BUTTON_RENAME,
+    FILE_MENU_BUTTON_TRANSLATE,
+    FILE_MENU_BUTTON_SHARE,
+    FILE_MENU_BUTTON_GETLINK,
 } from '../elements/FileMenu'
 import { expectRouteToBeAOId, expectRouteToBeEmpty } from '../elements/Route'
 import { getRandomVisType } from '../utils/random'
@@ -71,7 +71,7 @@ describe('"save" and "save as" for a new AO', () => {
     })
     it('checks that Save as is disabled', () => {
         openFileMenu()
-        expectSaveAsButtonToBeDisabled()
+        expectFileMenuButtonToBeDisabled(FILE_MENU_BUTTON_SAVEAS)
         closeFileMenu()
     })
     it('saves new AO using "Save"', () => {
@@ -86,22 +86,22 @@ describe('"save" and "save as" for a new AO', () => {
         openFileMenu()
     })
     it('checks that Save as button is enabled', () => {
-        expectSaveAsButtonToBeEnabled()
+        expectFileMenuButtonToBeEnabled(FILE_MENU_BUTTON_SAVEAS)
     })
     it('checks that Delete button is enabled', () => {
-        expectDeleteButtonToBeEnabled()
+        expectFileMenuButtonToBeEnabled(FILE_MENU_BUTTON_DELETE)
     })
     it('checks that Rename button is enabled', () => {
-        expectRenameButtonToBeEnabled()
+        expectFileMenuButtonToBeEnabled(FILE_MENU_BUTTON_RENAME)
     })
     it('checks that Translate button is enabled', () => {
-        expectTranslateButtonToBeEnabled()
+        expectFileMenuButtonToBeEnabled(FILE_MENU_BUTTON_TRANSLATE)
     })
     it('checks that Share button is enabled', () => {
-        expectShareButtonToBeEnabled()
+        expectFileMenuButtonToBeEnabled(FILE_MENU_BUTTON_SHARE)
     })
     it('checks that Get link button is enabled', () => {
-        expectGetLinkButtonToBeEnabled()
+        expectFileMenuButtonToBeEnabled(FILE_MENU_BUTTON_GETLINK)
     })
     it('closes File menu', () => {
         closeFileMenu()
@@ -171,7 +171,7 @@ describe('"save" for a saved AO created by others', () => {
     })
     it('checks that Save is disabled - WIP', () => {
         openFileMenu()
-        expectSaveButtonToBeDisabled()
+        expectFileMenuButtonToBeDisabled(FILE_MENU_BUTTON_SAVEAS)
         // TODO: This is not always true, as different AOs can have different sharing settings.
         // @edoardo will add additional tests here later
         closeFileMenu()

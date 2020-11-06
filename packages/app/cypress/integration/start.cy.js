@@ -8,14 +8,15 @@ import {
 } from '@dhis2/analytics'
 import { expectVisualizationToNotBeVisible } from '../elements/Chart'
 import {
-    expectDeleteButtonToBeDisabled,
-    expectSaveAsButtonToBeDisabled,
-    expectRenameButtonToBeDisabled,
-    expectTranslateButtonToBeDisabled,
-    expectShareButtonToBeDisabled,
-    expectGetLinkButtonToBeDisabled,
     openFileMenu,
     closeFileMenu,
+    expectFileMenuButtonToBeDisabled,
+    FILE_MENU_BUTTON_SAVEAS,
+    FILE_MENU_BUTTON_GETLINK,
+    FILE_MENU_BUTTON_SHARE,
+    FILE_MENU_BUTTON_TRANSLATE,
+    FILE_MENU_BUTTON_RENAME,
+    FILE_MENU_BUTTON_DELETE,
 } from '../elements/FileMenu'
 import {
     expectAxisToHaveDimension,
@@ -71,23 +72,23 @@ describe('start screen', () => {
     it('opens File menu', () => {
         openFileMenu()
     })
-    it('Save as button is disabled', () => {
-        expectSaveAsButtonToBeDisabled()
+    it('checks that Save as button is disabled', () => {
+        expectFileMenuButtonToBeDisabled(FILE_MENU_BUTTON_SAVEAS)
     })
-    it('Delete button is disabled', () => {
-        expectDeleteButtonToBeDisabled()
+    it('checks that Delete button is disabled', () => {
+        expectFileMenuButtonToBeDisabled(FILE_MENU_BUTTON_DELETE)
     })
-    it('Rename button is disabled', () => {
-        expectRenameButtonToBeDisabled()
+    it('checks that Rename button is disabled', () => {
+        expectFileMenuButtonToBeDisabled(FILE_MENU_BUTTON_RENAME)
     })
-    it('Translate button is disabled', () => {
-        expectTranslateButtonToBeDisabled()
+    it('checks that Translate button is disabled', () => {
+        expectFileMenuButtonToBeDisabled(FILE_MENU_BUTTON_TRANSLATE)
     })
-    it('Share button is disabled', () => {
-        expectShareButtonToBeDisabled()
+    it('checks that Share button is disabled', () => {
+        expectFileMenuButtonToBeDisabled(FILE_MENU_BUTTON_SHARE)
     })
-    it('Get link button is disabled', () => {
-        expectGetLinkButtonToBeDisabled()
+    it('checks that Get link button is disabled', () => {
+        expectFileMenuButtonToBeDisabled(FILE_MENU_BUTTON_GETLINK)
     })
     it('closes File menu', () => {
         closeFileMenu()

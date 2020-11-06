@@ -18,6 +18,16 @@ const openModalToolbarEl = '*[class^="MuiToolbar-root"]'
 const createdByOthersEl = '[data-value="byothers"]'
 const openModalItemContainerEl = '*[class^="MuiTableBody"]'
 
+export const FILE_MENU_BUTTON_NEW = 'New'
+export const FILE_MENU_BUTTON_OPEN = 'Open'
+export const FILE_MENU_BUTTON_SAVE = 'Save'
+export const FILE_MENU_BUTTON_SAVEAS = 'Save as...'
+export const FILE_MENU_BUTTON_RENAME = 'Rename'
+export const FILE_MENU_BUTTON_TRANSLATE = 'Translate'
+export const FILE_MENU_BUTTON_SHARE = 'Share'
+export const FILE_MENU_BUTTON_GETLINK = 'Get link'
+export const FILE_MENU_BUTTON_DELETE = 'Delete'
+
 export const openFileMenu = () => {
     cy.getBySel(menubarEl)
         .contains('File')
@@ -26,14 +36,14 @@ export const openFileMenu = () => {
 
 export const closeFileMenu = () => {
     cy.get(menuItemEl)
-        .contains('New')
+        .contains(FILE_MENU_BUTTON_NEW)
         .parents('ul')
         .type('{esc}')
 }
 
 const clickOpen = () => {
     cy.get(menuItemEl) // TODO: Change once new FileMenu is in place
-        .contains('Open')
+        .contains(FILE_MENU_BUTTON_OPEN)
         .click()
 }
 
@@ -161,7 +171,7 @@ export const saveAOAs = (name, description) => {
         .click()
 }
 
-const expectButtonToBeDisabled = (buttonName, inverse) => {
+export const expectFileMenuButtonToBeDisabled = (buttonName, inverse) => {
     cy.get(menuItemEl)
         .contains(buttonName)
         .parents('li')
@@ -169,61 +179,8 @@ const expectButtonToBeDisabled = (buttonName, inverse) => {
         .should(inverse ? 'not.contain' : 'contain', 'disabled')
 }
 
-// Save
-export const expectSaveButtonToBeDisabled = inverse => {
-    expectButtonToBeDisabled('Save', inverse)
-}
-
-export const expectSaveButtonToBeEnabled = () =>
-    expectSaveButtonToBeDisabled(true)
-
-// Save as
-export const expectSaveAsButtonToBeDisabled = inverse => {
-    expectButtonToBeDisabled('Save as...', inverse)
-}
-
-export const expectSaveAsButtonToBeEnabled = () =>
-    expectSaveAsButtonToBeDisabled(true)
-
-// Rename
-export const expectRenameButtonToBeEnabled = () =>
-    expectRenameButtonToBeDisabled(true)
-
-export const expectRenameButtonToBeDisabled = inverse => {
-    expectButtonToBeDisabled('Rename', inverse)
-}
-
-// Translate
-export const expectTranslateButtonToBeEnabled = () =>
-    expectTranslateButtonToBeDisabled(true)
-
-export const expectTranslateButtonToBeDisabled = inverse => {
-    expectButtonToBeDisabled('Translate', inverse)
-}
-
-// Share
-export const expectShareButtonToBeEnabled = () =>
-    expectShareButtonToBeDisabled(true)
-
-export const expectShareButtonToBeDisabled = inverse => {
-    expectButtonToBeDisabled('Share', inverse)
-}
-
-// Get link
-export const expectGetLinkButtonToBeEnabled = () =>
-    expectGetLinkButtonToBeDisabled(true)
-
-export const expectGetLinkButtonToBeDisabled = inverse => {
-    expectButtonToBeDisabled('Get link', inverse)
-}
-
-// Delete
-export const expectDeleteButtonToBeDisabled = inverse => {
-    expectButtonToBeDisabled('Delete', inverse)
-}
-
-export const expectDeleteButtonToBeEnabled = () =>
-    expectDeleteButtonToBeDisabled(true)
+export const expectFileMenuButtonToBeEnabled = buttonName =>
+    expectFileMenuButtonToBeDisabled(buttonName, true)
 
 const searchAOByName = name =>
     cy
