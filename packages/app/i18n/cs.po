@@ -148,7 +148,7 @@ msgid "The following information may be requested by technical support."
 msgstr ""
 
 msgid "Hide"
-msgstr ""
+msgstr "Skrýt"
 
 msgid "Interpretations"
 msgstr "Interpretace"
