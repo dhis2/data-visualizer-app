@@ -135,7 +135,7 @@ msgid "ID"
 msgstr "ID"
 
 msgid "Code"
-msgstr ""
+msgstr "Kód"
 
 msgid "Name"
 msgstr "Název"
@@ -230,7 +230,7 @@ msgid "Your most viewed charts and tables"
 msgstr ""
 
 msgid "Aggregation type"
-msgstr ""
+msgstr "Typ agregace"
 
 msgid "Overrides aggregation type for all data values."
 msgstr ""
@@ -239,16 +239,16 @@ msgid "By data element"
 msgstr ""
 
 msgid "Count"
-msgstr ""
+msgstr "Počet"
 
 msgid "Average"
-msgstr ""
+msgstr "Průměr"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr ""
+msgstr "Průměr (součet v hierarchii organizačních jednotek)"
 
 msgid "Sum"
-msgstr ""
+msgstr "Součet"
 
 msgid "Last value"
 msgstr ""
@@ -263,10 +263,10 @@ msgid "Max"
 msgstr "Max"
 
 msgid "Standard deviation"
-msgstr ""
+msgstr "Standardní odchylka"
 
 msgid "Variance"
-msgstr ""
+msgstr "Rozptyl"
 
 msgid "Data approved at level"
 msgstr ""
@@ -296,7 +296,7 @@ msgid "Base line title"
 msgstr ""
 
 msgid "Number"
-msgstr ""
+msgstr "Číslo"
 
 msgid "Column sub-totals"
 msgstr ""
@@ -320,7 +320,7 @@ msgid "Digit group separator"
 msgstr ""
 
 msgid "None"
-msgstr ""
+msgstr "Žádný"
 
 msgid "Space"
 msgstr ""
@@ -389,7 +389,7 @@ msgid "Auto generated"
 msgstr ""
 
 msgid "Custom"
-msgstr ""
+msgstr "Vlastní"
 
 msgid "Table title"
 msgstr ""
@@ -537,7 +537,7 @@ msgid "Top limit"
 msgstr ""
 
 msgid "Options"
-msgstr ""
+msgstr "Možnosti"
 
 msgid "Open as Map"
 msgstr ""
