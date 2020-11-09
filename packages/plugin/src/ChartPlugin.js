@@ -10,6 +10,7 @@ const ChartPlugin = ({
     id: renderCounter,
     style,
     onChartGenerated,
+    onConfigGenerated,
     animation: defaultAnimation,
 }) => {
     const canvasRef = useRef(undefined)
@@ -39,12 +40,14 @@ const ChartPlugin = ({
                         sourceWidth: 1024,
                     })
                 )
+                onConfigGenerated(visualizationConfig.visualization)
             }
         },
         [
             canvasRef,
             visualization,
             onChartGenerated,
+            onConfigGenerated,
             responses,
             extraOptions,
             legendSets,
@@ -72,6 +75,7 @@ ChartPlugin.defaultProps = {
     style: {},
     animation: 200,
     onChartGenerated: Function.prototype,
+    onConfigGenerated: Function.prototype,
 }
 
 ChartPlugin.propTypes = {
@@ -83,6 +87,7 @@ ChartPlugin.propTypes = {
     id: PropTypes.number,
     style: PropTypes.object,
     onChartGenerated: PropTypes.func,
+    onConfigGenerated: PropTypes.func,
 }
 
 export default ChartPlugin
