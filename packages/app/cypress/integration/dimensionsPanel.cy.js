@@ -12,8 +12,8 @@
     Test the context menu: 
         AC for Data
       ✓ Add dimensions
-        Move dimensions
-        Remove dimensions
+      ✓ Move dimensions
+      ✓ Remove dimensions
     Check the green recommended dot
 
 */
@@ -26,6 +26,7 @@ import {
     DIMENSION_ID_ORGUNIT,
     AXIS_ID_COLUMNS,
     DIMENSION_ID_ASSIGNED_CATEGORIES,
+    AXIS_ID_ROWS,
 } from '@dhis2/analytics'
 import {
     expectDimensionModalToBeVisible,
@@ -42,6 +43,9 @@ import {
     filterDimensionsByText,
     expectFixedDimensionsToHaveLength,
     clearDimensionsFilter,
+    clickContextMenuMove,
+    expectDimensionToNotHaveSelectedStyle,
+    expectDimensionToHaveSelectedStyle,
 } from '../elements/DimensionsPanel'
 import { expectAxisToHaveDimension } from '../elements/Layout'
 import { expectStartScreenToBeVisible } from '../elements/StartScreen'
@@ -50,7 +54,7 @@ import { getRandomArrayItem } from '../utils/random'
 
 const TEST_FIXED_DIMS = Object.values(getFixedDimensions())
 const TEST_DYNAMIC_DIMS = Object.values(getDynamicDimensions())
-const TEST_CUSTOM_DIMS = TEST_CUSTOM_DIMENSIONS.slice(0, 1)
+const TEST_CUSTOM_DIMS = [getRandomArrayItem(TEST_CUSTOM_DIMENSIONS)]
 
 describe('interacting with the dimensions panel', () => {
     it('navigates to the start page', () => {
@@ -61,6 +65,7 @@ describe('interacting with the dimensions panel', () => {
         it('removes data', () => {
             openContextMenu(DIMENSION_ID_DATA)
             clickContextMenuRemove(DIMENSION_ID_DATA)
+            expectDimensionToNotHaveSelectedStyle(DIMENSION_ID_DATA)
         })
         it('removes period and period items', () => {
             openDimension(DIMENSION_ID_PERIOD)
@@ -68,6 +73,7 @@ describe('interacting with the dimensions panel', () => {
             clickModalUpdateButton()
             openContextMenu(DIMENSION_ID_PERIOD)
             clickContextMenuRemove(DIMENSION_ID_PERIOD)
+            expectDimensionToNotHaveSelectedStyle(DIMENSION_ID_PERIOD)
         })
         it('removes org unit and org unit items', () => {
             openDimension(DIMENSION_ID_ORGUNIT)
@@ -75,6 +81,7 @@ describe('interacting with the dimensions panel', () => {
             clickModalUpdateButton()
             openContextMenu(DIMENSION_ID_ORGUNIT)
             clickContextMenuRemove(DIMENSION_ID_ORGUNIT)
+            expectDimensionToNotHaveSelectedStyle(DIMENSION_ID_ORGUNIT)
         })
     })
     describe('clicking dimensions', () => {
@@ -103,7 +110,7 @@ describe('interacting with the dimensions panel', () => {
                 it('opens the context menu', () => {
                     openContextMenu(dim.id)
                 })
-                it('clicks "Add to Series"', () => {
+                it(`adds to ${TEST_AXIS} axis`, () => {
                     clickContextMenuAdd(dim.id, TEST_AXIS)
                 })
                 if (dim.id !== DIMENSION_ID_ASSIGNED_CATEGORIES) {
@@ -114,9 +121,41 @@ describe('interacting with the dimensions panel', () => {
                         clickModalUHideButton()
                     })
                 }
+                it(`${dim.name} has selected style`, () => {
+                    expectDimensionToHaveSelectedStyle(dim.id)
+                })
                 it(`${TEST_AXIS} axis has dimension`, () => {
                     expectAxisToHaveDimension(TEST_AXIS, dim.id)
                 })
+            })
+        })
+    })
+    describe('moving through context menu', () => {
+        const TEST_AXIS = AXIS_ID_ROWS
+        const TEST_DIM = getRandomArrayItem(TEST_FIXED_DIMS)
+        describe(`${TEST_DIM.name}`, () => {
+            it('opens the context menu', () => {
+                openContextMenu(TEST_DIM.id)
+            })
+            it(`moves to ${TEST_AXIS} axis`, () => {
+                clickContextMenuMove(TEST_DIM.id, TEST_AXIS)
+            })
+            it(`${TEST_AXIS} axis has dimension`, () => {
+                expectAxisToHaveDimension(TEST_AXIS, TEST_DIM.id)
+            })
+        })
+    })
+    describe('removing through context menu', () => {
+        const TEST_DIM = getRandomArrayItem(TEST_FIXED_DIMS)
+        describe(`${TEST_DIM.name}`, () => {
+            it('opens the context menu', () => {
+                openContextMenu(TEST_DIM.id)
+            })
+            it(`removes ${TEST_DIM.name}`, () => {
+                clickContextMenuRemove(TEST_DIM.id)
+            })
+            it(`${TEST_DIM.name} is removed`, () => {
+                expectDimensionToNotHaveSelectedStyle(TEST_DIM.id)
             })
         })
     })

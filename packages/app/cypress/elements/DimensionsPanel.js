@@ -8,6 +8,7 @@ const dimContextMenuActionOptionEl =
     'dimensions-panel-dimension-menu-item-action'
 const filterInputEl = 'dimensions-panel-filter'
 const fixedDimsWrapperEl = 'dimensions-panel-list-fixed-dimensions'
+const dimSelectedBackgroundColor = 'rgb(224, 242, 241)'
 
 export const openContextMenu = dimensionId =>
     cy.getBySel(`${dimContextMenuButtonEl}-${dimensionId}`).click()
@@ -52,3 +53,16 @@ export const expectFixedDimensionsToHaveLength = length =>
         .getBySel(fixedDimsWrapperEl)
         .children()
         .should('have.length', length)
+
+export const expectDimensionToHaveSelectedStyle = dimensionId =>
+    cy
+        .getBySel(`${dimButtonEl}-${dimensionId}`)
+        .parent()
+        .should('have.css', 'background-color', dimSelectedBackgroundColor)
+// FIXME: -FRAGILE- set in Analytics but will break if @dhis2/ui changes their theme colors
+
+export const expectDimensionToNotHaveSelectedStyle = dimensionId =>
+    cy
+        .getBySel(`${dimButtonEl}-${dimensionId}`)
+        .parent()
+        .should('not.have.css', 'background-color', dimSelectedBackgroundColor)
