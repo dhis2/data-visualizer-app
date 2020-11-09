@@ -6,7 +6,7 @@ const dimContextMenuRemoveOptionEl =
     'dimensions-panel-dimension-menu-item-remove'
 const dimContextMenuActionOptionEl =
     'dimensions-panel-dimension-menu-item-action'
-const dimContextMenuACMenuOptionEl =
+const dimContextMenuSubMenuOptionEl =
     'dimensions-panel-dimension-menu-item-DIMENSIONID-menu'
 const filterInputEl = 'dimensions-panel-filter'
 const fixedDimsWrapperEl = 'dimensions-panel-list-fixed-dimensions'
@@ -45,7 +45,7 @@ export const clickContextMenuRemove = dimensionId =>
 export const clickContextMenuDimSubMenu = dimensionId =>
     cy
         .getBySel(
-            `${dimContextMenuACMenuOptionEl.replace(
+            `${dimContextMenuSubMenuOptionEl.replace(
                 'DIMENSIONID',
                 dimensionId
             )}`

@@ -42,7 +42,7 @@ const ChipMenu = ({
                     ariaHaspopup={true}
                     onClick={toggleMenu}
                     style={styles.icon}
-                    dataTest={'layout-chip-menu-button'}
+                    dataTest={`layout-chip-menu-button-${dimensionId}`}
                 >
                     <MoreHorizontalIcon style={styles.icon} />
                 </IconButton>
