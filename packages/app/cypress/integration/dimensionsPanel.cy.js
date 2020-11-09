@@ -10,7 +10,7 @@
   ✓ Test that the "Filter dimensions" field works
     Test drag-and-drop to the layout
     Test the context menu: 
-        AC for Data
+      ✓ AC for Data
       ✓ Add dimensions
       ✓ Move dimensions
       ✓ Remove dimensions
@@ -46,6 +46,7 @@ import {
     clickContextMenuMove,
     expectDimensionToNotHaveSelectedStyle,
     expectDimensionToHaveSelectedStyle,
+    clickContextMenuDimSubMenu,
 } from '../elements/DimensionsPanel'
 import { expectAxisToHaveDimension } from '../elements/Layout'
 import { expectStartScreenToBeVisible } from '../elements/StartScreen'
@@ -84,7 +85,7 @@ describe('interacting with the dimensions panel', () => {
             expectDimensionToNotHaveSelectedStyle(DIMENSION_ID_ORGUNIT)
         })
     })
-    describe('clicking dimensions', () => {
+    describe('clicking list items', () => {
         ;[...TEST_FIXED_DIMS, ...TEST_CUSTOM_DIMS].forEach(dim => {
             describe(`${dim.name}`, () => {
                 it('clicks the dimension', () => {
@@ -157,6 +158,24 @@ describe('interacting with the dimensions panel', () => {
             it(`${TEST_DIM.name} is removed`, () => {
                 expectDimensionToNotHaveSelectedStyle(TEST_DIM.id)
             })
+        })
+    })
+    describe('handling AC through the Data context menu', () => {
+        const TEST_DIM = TEST_DYNAMIC_DIMS.find(
+            dim => dim.id === DIMENSION_ID_ASSIGNED_CATEGORIES
+        )
+        it(`removes ${TEST_DIM.name}`, () => {
+            openContextMenu(DIMENSION_ID_DATA)
+            clickContextMenuRemove(TEST_DIM.id)
+            expectDimensionToNotHaveSelectedStyle(TEST_DIM.id)
+        })
+        it(`adds ${TEST_DIM.name}`, () => {
+            const TEST_AXIS = AXIS_ID_COLUMNS
+            openContextMenu(DIMENSION_ID_DATA)
+            clickContextMenuDimSubMenu(TEST_DIM.id)
+            clickContextMenuAdd(TEST_DIM.id, TEST_AXIS)
+            expectDimensionToHaveSelectedStyle(TEST_DIM.id)
+            expectAxisToHaveDimension(TEST_AXIS, TEST_DIM.id)
         })
     })
     describe('filtering dimensions', () => {

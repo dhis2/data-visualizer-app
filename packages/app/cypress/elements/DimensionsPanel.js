@@ -6,6 +6,8 @@ const dimContextMenuRemoveOptionEl =
     'dimensions-panel-dimension-menu-item-remove'
 const dimContextMenuActionOptionEl =
     'dimensions-panel-dimension-menu-item-action'
+const dimContextMenuACMenuOptionEl =
+    'dimensions-panel-dimension-menu-item-DIMENSIONID-menu'
 const filterInputEl = 'dimensions-panel-filter'
 const fixedDimsWrapperEl = 'dimensions-panel-list-fixed-dimensions'
 const dimSelectedBackgroundColor = 'rgb(224, 242, 241)'
@@ -34,6 +36,17 @@ export const clickContextMenuRemove = dimensionId =>
     cy
         .getBySel(`${dimContextMenuRemoveOptionEl}-${dimensionId}`)
         .should('contain', 'Remove')
+        .click()
+
+export const clickContextMenuDimSubMenu = dimensionId =>
+    cy
+        .getBySel(
+            `${dimContextMenuACMenuOptionEl.replace(
+                'DIMENSIONID',
+                dimensionId
+            )}`
+        )
+        .should('contain', 'Add')
         .click()
 
 export const filterDimensionsByText = searchInput =>
