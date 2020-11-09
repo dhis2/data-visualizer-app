@@ -7,7 +7,7 @@
         org unit
         assigned categories
         dynamic dimension
-    Test that the "Filter dimensions" field works
+  ✓ Test that the "Filter dimensions" field works
     Test drag-and-drop to the layout
     Test the context menu: 
         AC for Data
@@ -39,10 +39,14 @@ import {
     openContextMenu,
     clickContextMenuAdd,
     clickContextMenuRemove,
+    filterDimensionsByText,
+    expectFixedDimensionsToHaveLength,
+    clearDimensionsFilter,
 } from '../elements/DimensionsPanel'
 import { expectAxisToHaveDimension } from '../elements/Layout'
 import { expectStartScreenToBeVisible } from '../elements/StartScreen'
 import { TEST_CUSTOM_DIMENSIONS } from '../utils/data'
+import { getRandomArrayItem } from '../utils/random'
 
 const TEST_FIXED_DIMS = Object.values(getFixedDimensions())
 const TEST_DYNAMIC_DIMS = Object.values(getDynamicDimensions())
@@ -114,6 +118,20 @@ describe('interacting with the dimensions panel', () => {
                     expectAxisToHaveDimension(TEST_AXIS, dim.id)
                 })
             })
+        })
+    })
+    describe('filtering dimensions', () => {
+        const TEST_DEFAULT_FIXED_DIMS_LENGTH = TEST_FIXED_DIMS.length
+        const TEST_FILTER_SEARCH_TERM = getRandomArrayItem(TEST_FIXED_DIMS).name
+
+        it(`applies dimension filter "${TEST_FILTER_SEARCH_TERM}"`, () => {
+            expectFixedDimensionsToHaveLength(TEST_DEFAULT_FIXED_DIMS_LENGTH)
+            filterDimensionsByText(TEST_FILTER_SEARCH_TERM)
+            expectFixedDimensionsToHaveLength(1)
+        })
+        it('clears filter', () => {
+            clearDimensionsFilter()
+            expectFixedDimensionsToHaveLength(TEST_DEFAULT_FIXED_DIMS_LENGTH)
         })
     })
 })
