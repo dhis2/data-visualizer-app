@@ -91,19 +91,19 @@ msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr ""
 
 msgid "Something went wrong"
-msgstr ""
+msgstr "Něco se pokazilo"
 
 msgid "Refresh to try again"
-msgstr ""
+msgstr "Obnovte akci a zkuste to znovu"
 
 msgid "Hide technical details"
-msgstr ""
+msgstr "Skrýt technické podrobnosti"
 
 msgid "Show technical details"
 msgstr "Zobrazit technické podrobnosti"
 
 msgid "The following information may be requested by technical support."
-msgstr ""
+msgstr "Následující informace mohou být požadovány technickou podporou."
 
 msgid "Hide"
 msgstr "Skrýt"
@@ -136,7 +136,7 @@ msgid "Edited"
 msgstr ""
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr ""
+msgstr "Prohlížení interpretací od {{interpretDate}}"
 
 msgid "Update"
 msgstr "Aktualizovat"
@@ -154,7 +154,7 @@ msgid "Aggregation type"
 msgstr "Typ agregace"
 
 msgid "By data element"
-msgstr ""
+msgstr "Podle datového prvku"
 
 msgid "Count"
 msgstr "Počet"
@@ -292,7 +292,7 @@ msgid "Axis & legend"
 msgstr ""
 
 msgid "Style"
-msgstr ""
+msgstr "Styl"
 
 msgid "Options"
 msgstr "Možnosti"
@@ -515,7 +515,7 @@ msgid "Last six-month"
 msgstr "Poslední půlrok"
 
 msgid "Last 2 six-months"
-msgstr ""
+msgstr "Poslední 2 šestiměsíce"
 
 msgid "This financial year"
 msgstr "Tento fiskální rok"
