@@ -73,3 +73,18 @@ export const TEST_CUSTOM_DIMENSIONS = [
         name: 'Diagnosis',
     },
 ]
+
+export const TEST_DEFAULT_RECOMMENDED_DIMENSIONS = [
+    {
+        id: 'uIuxlbV1vRT',
+        name: 'Area',
+    },
+    {
+        id: 'Bpx0589u8y0',
+        name: 'Facility Ownership',
+    },
+    {
+        id: 'J5jldMd8OHv',
+        name: 'Facility Type',
+    },
+]

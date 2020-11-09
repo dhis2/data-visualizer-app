@@ -2,19 +2,19 @@
 //  TODO:
 
   ✓ Test that the following can be added by clicking on the item in the panel:
-        data item
-        period
-        org unit
-        assigned categories
-        dynamic dimension
+      ✓ data item
+      ✓ period
+      ✓ org unit
+      ✓ assigned categories
+      ✓ dynamic dimension
   ✓ Test that the "Filter dimensions" field works
     Test drag-and-drop to the layout
-    Test the context menu: 
+  ✓ Test the context menu: 
       ✓ AC for Data
       ✓ Add dimensions
       ✓ Move dimensions
       ✓ Remove dimensions
-    Check the green recommended dot
+  ✓ Check the green recommended dot
 
 */
 
@@ -47,10 +47,14 @@ import {
     expectDimensionToNotHaveSelectedStyle,
     expectDimensionToHaveSelectedStyle,
     clickContextMenuDimSubMenu,
+    expectRecommendedIconToBeVisible,
 } from '../elements/DimensionsPanel'
 import { expectAxisToHaveDimension } from '../elements/Layout'
 import { expectStartScreenToBeVisible } from '../elements/StartScreen'
-import { TEST_CUSTOM_DIMENSIONS } from '../utils/data'
+import {
+    TEST_CUSTOM_DIMENSIONS,
+    TEST_DEFAULT_RECOMMENDED_DIMENSIONS,
+} from '../utils/data'
 import { getRandomArrayItem } from '../utils/random'
 
 const TEST_FIXED_DIMS = Object.values(getFixedDimensions())
@@ -61,6 +65,16 @@ describe('interacting with the dimensions panel', () => {
     it('navigates to the start page', () => {
         cy.visit('')
         expectStartScreenToBeVisible()
+    })
+    describe('displays recommended icons', () => {
+        ;[getRandomArrayItem(TEST_DEFAULT_RECOMMENDED_DIMENSIONS)].forEach(
+            dim =>
+                describe(`${dim.name}`, () => {
+                    it('displays the recommended icon', () => {
+                        expectRecommendedIconToBeVisible(dim.id)
+                    })
+                })
+        )
     })
     describe('removes all default items from the layout', () => {
         it('removes data', () => {

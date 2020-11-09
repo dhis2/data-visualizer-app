@@ -10,13 +10,17 @@ const dimContextMenuACMenuOptionEl =
     'dimensions-panel-dimension-menu-item-DIMENSIONID-menu'
 const filterInputEl = 'dimensions-panel-filter'
 const fixedDimsWrapperEl = 'dimensions-panel-list-fixed-dimensions'
+const recommendedIconEl =
+    'dimensions-panel-list-dimension-item-recommended-icon'
 const dimSelectedBackgroundColor = 'rgb(224, 242, 241)'
+
+const getDimensionButtonById = dimensionId => `${dimButtonEl}-${dimensionId}`
 
 export const openContextMenu = dimensionId =>
     cy.getBySel(`${dimContextMenuButtonEl}-${dimensionId}`).click()
 
 export const openDimension = dimensionId => {
-    cy.getBySel(`${dimButtonEl}-${dimensionId}`).click()
+    cy.getBySel(getDimensionButtonById(dimensionId)).click()
     expectDimensionModalToBeVisible(dimensionId)
 }
 
@@ -69,13 +73,20 @@ export const expectFixedDimensionsToHaveLength = length =>
 
 export const expectDimensionToHaveSelectedStyle = dimensionId =>
     cy
-        .getBySel(`${dimButtonEl}-${dimensionId}`)
+        .getBySel(getDimensionButtonById(dimensionId))
         .parent()
         .should('have.css', 'background-color', dimSelectedBackgroundColor)
 // FIXME: -FRAGILE- set in Analytics but will break if @dhis2/ui changes their theme colors
 
 export const expectDimensionToNotHaveSelectedStyle = dimensionId =>
     cy
-        .getBySel(`${dimButtonEl}-${dimensionId}`)
+        .getBySel(getDimensionButtonById(dimensionId))
         .parent()
         .should('not.have.css', 'background-color', dimSelectedBackgroundColor)
+
+export const expectRecommendedIconToBeVisible = dimensionId =>
+    cy
+        .getBySel(getDimensionButtonById(dimensionId))
+        .findBySel(recommendedIconEl)
+        .should('have.length', 1)
+        .and('be.visible')
