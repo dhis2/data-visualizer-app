@@ -136,16 +136,16 @@ msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr ""
 
 msgid "Refresh to try again"
-msgstr ""
+msgstr "Obnovte akci a zkuste to znovu"
 
 msgid "Hide technical details"
-msgstr ""
+msgstr "Skrýt technické podrobnosti"
 
 msgid "Show technical details"
 msgstr "Zobrazit technické podrobnosti"
 
 msgid "The following information may be requested by technical support."
-msgstr ""
+msgstr "Následující informace mohou být požadovány technickou podporou."
 
 msgid "Hide"
 msgstr "Skrýt"
@@ -175,7 +175,7 @@ msgid "Levels"
 msgstr ""
 
 msgid "Groups"
-msgstr ""
+msgstr "Skupiny"
 
 msgid "And 1 other..."
 msgstr ""
@@ -201,7 +201,7 @@ msgid "Edited"
 msgstr ""
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr ""
+msgstr "Prohlížení interpretací od {{interpretDate}}"
 
 msgid "Update"
 msgstr "Aktualizovat"
@@ -230,7 +230,7 @@ msgid "Overrides aggregation type for all data values."
 msgstr ""
 
 msgid "By data element"
-msgstr ""
+msgstr "Podle datového prvku"
 
 msgid "Count"
 msgstr "Počet"
@@ -284,7 +284,7 @@ msgid "Value"
 msgstr "Hodnota"
 
 msgid "Title"
-msgstr ""
+msgstr "Titul"
 
 msgid "Base line title"
 msgstr ""
@@ -492,7 +492,7 @@ msgid ""
 msgstr ""
 
 msgid "Steps"
-msgstr ""
+msgstr "Kroky"
 
 msgid "Include regression"
 msgstr ""
@@ -575,7 +575,7 @@ msgid "Target line title"
 msgstr ""
 
 msgid "Size"
-msgstr ""
+msgstr "Velikost"
 
 msgid "Position"
 msgstr ""
@@ -687,7 +687,7 @@ msgid ""
 msgstr ""
 
 msgid "Something went wrong"
-msgstr ""
+msgstr "Něco se pokazilo"
 
 msgid "or"
 msgstr ""
@@ -774,7 +774,7 @@ msgid "Last six-month"
 msgstr "Poslední půlrok"
 
 msgid "Last 2 six-months"
-msgstr ""
+msgstr "Poslední 2 šestiměsíce"
 
 msgid "This financial year"
 msgstr "Tento fiskální rok"
@@ -864,7 +864,7 @@ msgid "Series"
 msgstr "Série"
 
 msgid "Style"
-msgstr ""
+msgstr "Styl"
 
 msgid "Weeks per year"
 msgstr ""
