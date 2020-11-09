@@ -45,7 +45,7 @@ msgid "Update"
 msgstr "Aktualizovat"
 
 msgid "Hide"
-msgstr ""
+msgstr "Skrýt"
 
 msgid "Remove"
 msgstr "Odebrat"
