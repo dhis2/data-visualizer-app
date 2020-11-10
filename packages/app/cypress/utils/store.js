@@ -1,3 +1,5 @@
+import { CONFIG_PROP, TITLE_PROP } from './config'
+
 export const expectStoreCurrentToBeEmpty = () =>
     cy.getReduxState('current').should('be.null')
 
@@ -6,6 +8,12 @@ export const expectStoreCurrentColumnsToHaveLength = length =>
         .getReduxState('current')
         .its('columns')
         .should('have.length', length)
+
+export const expectTitleToBeValue = value =>
+    cy
+        .getReduxState(CONFIG_PROP)
+        .its(TITLE_PROP)
+        .should('eql', value)
 
 // export const expectStoreCurrentFilterDimensionToHaveItemsLength = (
 //     filterDimension,

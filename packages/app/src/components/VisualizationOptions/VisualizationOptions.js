@@ -97,7 +97,7 @@ export class VisualizationOptions extends Component {
         return (
             <Fragment>
                 <div className={tabBar.className}>
-                    <TabBar>
+                    <TabBar dataTest={'options-modal-tab-bar'}>
                         {tabs.map(({ key, label }, index) => (
                             <Tab
                                 key={key}

@@ -5,7 +5,8 @@
     FileMenu component is in place.
 */
 
-const menubarEl = 'app-menubar'
+import { clickMenuBarFileButton } from '../MenuBar'
+
 const deleteModalEl = '*[class^="MuiDialog-container"]'
 const fileMenuItemEl = '*[role="menuitem"]'
 
@@ -18,12 +19,6 @@ export const FILE_MENU_BUTTON_TRANSLATE = 'Translate'
 export const FILE_MENU_BUTTON_SHARE = 'Share'
 export const FILE_MENU_BUTTON_GETLINK = 'Get link'
 export const FILE_MENU_BUTTON_DELETE = 'Delete'
-
-export const openFileMenu = () => {
-    cy.getBySel(menubarEl)
-        .contains('File')
-        .click()
-}
 
 export const closeFileMenu = () => {
     cy.get(fileMenuItemEl)
@@ -39,14 +34,14 @@ export const clickFileMenuButton = buttonName => {
 }
 
 export const createNewAO = () => {
-    openFileMenu()
+    clickMenuBarFileButton()
     cy.get(fileMenuItemEl) // TODO: Change once new FileMenu is in place
         .contains('New')
         .click()
 }
 
 export const deleteAO = () => {
-    openFileMenu()
+    clickMenuBarFileButton()
     cy.get(fileMenuItemEl)
         .contains('Delete')
         .click()

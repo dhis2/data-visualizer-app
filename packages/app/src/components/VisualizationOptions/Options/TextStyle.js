@@ -28,6 +28,7 @@ const TextStyle = ({
     visType,
     onChange,
     disabled,
+    dataTest,
 }) => {
     const fontSizeOptions = Object.values(getFontSizeOptions(fontStyleKey))
     const textAlignOptions = getTextAlignOptions(fontStyleKey, visType)
@@ -49,7 +50,7 @@ const TextStyle = ({
     }, 100)
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} data-test={dataTest}>
             {fontSize && (
                 <SingleSelect
                     onChange={({ selected }) => {
@@ -61,6 +62,7 @@ const TextStyle = ({
                     dense
                     className={styles.fontSizeSelect}
                     disabled={disabled}
+                    dataTest={`${dataTest}-font-size-select`}
                 >
                     {fontSizeOptions.map(option => (
                         <SingleSelectOption
@@ -142,6 +144,7 @@ const TextStyle = ({
 
 TextStyle.propTypes = {
     fontStyleKey: PropTypes.string.isRequired,
+    dataTest: PropTypes.string,
     disabled: PropTypes.bool,
     fontStyle: PropTypes.object,
     visType: PropTypes.string,

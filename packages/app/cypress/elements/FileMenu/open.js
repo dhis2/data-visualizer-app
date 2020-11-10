@@ -1,5 +1,6 @@
-import { openFileMenu, FILE_MENU_BUTTON_OPEN, clickFileMenuButton } from '.'
+import { FILE_MENU_BUTTON_OPEN, clickFileMenuButton } from '.'
 import { generateRandomChar, generateRandomNumber } from '../../utils/random'
+import { clickMenuBarFileButton } from '../MenuBar'
 
 const openModalEl = '*[class^="MuiDialogContent"]' // TODO: Add data-test to open modal to target this better
 const openModalFooterEl = '*[class^="MuiTableFooter"]'
@@ -23,7 +24,7 @@ const clickRandomAO = () =>
         .click()
 
 export const openRandomAO = () => {
-    openFileMenu()
+    clickMenuBarFileButton()
     clickFileMenuButton(FILE_MENU_BUTTON_OPEN)
     searchAOByName(generateRandomChar())
     // eslint-disable-next-line
@@ -36,7 +37,7 @@ export const openRandomAO = () => {
 }
 
 export const openRandomAOCreatedByOthers = () => {
-    openFileMenu()
+    clickMenuBarFileButton()
     clickFileMenuButton(FILE_MENU_BUTTON_OPEN)
     cy.get(openModalEl)
         .find(openModalToolbarEl)
@@ -65,7 +66,7 @@ export const openRandomAOCreatedByOthers = () => {
 }
 
 export const openAOByName = name => {
-    openFileMenu()
+    clickMenuBarFileButton()
     clickFileMenuButton(FILE_MENU_BUTTON_OPEN)
     searchAOByName(name)
     cy.get(openModalEl)

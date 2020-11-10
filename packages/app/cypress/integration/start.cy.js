@@ -8,7 +8,6 @@ import {
 } from '@dhis2/analytics'
 import { expectVisualizationToNotBeVisible } from '../elements/Chart'
 import {
-    openFileMenu,
     closeFileMenu,
     expectFileMenuButtonToBeDisabled,
     FILE_MENU_BUTTON_SAVEAS,
@@ -23,6 +22,7 @@ import {
     expectDimensionToHaveItemAmount,
     expectDimensionToNotHaveItems,
 } from '../elements/Layout'
+import { clickMenuBarFileButton } from '../elements/MenuBar'
 import {
     expectMostViewedToBeVisible,
     expectStartScreenToBeVisible,
@@ -70,7 +70,7 @@ describe('viewing the start screen', () => {
         expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 1)
     })
     it('opens File menu', () => {
-        openFileMenu()
+        clickMenuBarFileButton()
     })
     it('checks that Save as button is disabled', () => {
         expectFileMenuButtonToBeDisabled(FILE_MENU_BUTTON_SAVEAS)

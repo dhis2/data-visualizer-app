@@ -21,7 +21,6 @@ import { TEST_DATA_ELEMENTS } from '../utils/data'
 import {
     //openRandomAOCreatedByOthers,
     saveNewAO,
-    openFileMenu,
     closeFileMenu,
     saveAOAs,
     saveExistingAO,
@@ -38,7 +37,10 @@ import {
 } from '../elements/FileMenu'
 import { expectRouteToBeAOId, expectRouteToBeEmpty } from '../elements/Route'
 import { getRandomVisType } from '../utils/random'
-import { clickMenuBarUpdateButton } from '../elements/MenuBar'
+import {
+    clickMenuBarFileButton,
+    clickMenuBarUpdateButton,
+} from '../elements/MenuBar'
 import { selectYoyCategoryOption } from '../elements/Layout'
 import { expectStartScreenToBeVisible } from '../elements/StartScreen'
 
@@ -71,7 +73,7 @@ describe('saving an AO', () => {
             expectRouteToBeEmpty()
         })
         it('checks that Save as is disabled', () => {
-            openFileMenu()
+            clickMenuBarFileButton()
             expectFileMenuButtonToBeDisabled(FILE_MENU_BUTTON_SAVEAS)
             closeFileMenu()
         })
@@ -84,7 +86,7 @@ describe('saving an AO', () => {
             expectRouteToBeAOId()
         })
         it('opens File menu', () => {
-            openFileMenu()
+            clickMenuBarFileButton()
         })
         it('checks that Save as button is enabled', () => {
             expectFileMenuButtonToBeEnabled(FILE_MENU_BUTTON_SAVEAS)
@@ -171,7 +173,7 @@ describe('saving an AO', () => {
             openRandomAOCreatedByOthers()
         })
         it('checks that Save is disabled - WIP', () => {
-            openFileMenu()
+            clickMenuBarFileButton()
             expectFileMenuButtonToBeDisabled(FILE_MENU_BUTTON_SAVEAS)
             // TODO: This is not always true, as different AOs can have different sharing settings.
             // @edoardo will add additional tests here later

@@ -1,15 +1,15 @@
 import {
     clickFileMenuButton,
-    openFileMenu,
     FILE_MENU_BUTTON_SAVE,
     FILE_MENU_BUTTON_SAVEAS,
 } from '.'
+import { clickMenuBarFileButton } from '../MenuBar'
 
 const saveModalEl = '*[class^="MuiDialog-container"]' // TODO: Add data-test to save modal to target this better
 const saveModalSaveButtonEl = '[type="submit"]'
 
 export const saveNewAO = (name, description) => {
-    openFileMenu()
+    clickMenuBarFileButton()
     clickFileMenuButton(FILE_MENU_BUTTON_SAVE)
     cy.get(saveModalEl)
         .find('input')
@@ -24,12 +24,12 @@ export const saveNewAO = (name, description) => {
         .click()
 }
 export const saveExistingAO = () => {
-    openFileMenu()
+    clickMenuBarFileButton()
     clickFileMenuButton(FILE_MENU_BUTTON_SAVE)
 }
 
 export const saveAOAs = (name, description) => {
-    openFileMenu()
+    clickMenuBarFileButton()
     clickFileMenuButton(FILE_MENU_BUTTON_SAVEAS)
     if (name) {
         cy.get(saveModalEl)

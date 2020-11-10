@@ -1,4 +1,5 @@
 import {
+    VIS_TYPE_COLUMN,
     VIS_TYPE_GAUGE,
     VIS_TYPE_PIE,
     VIS_TYPE_PIVOT_TABLE,
@@ -24,7 +25,7 @@ const TIMEOUT_PARAMS = {
 }
 const NON_HIGHCHARTS_TYPES = [VIS_TYPE_PIVOT_TABLE, VIS_TYPE_SINGLE_VALUE]
 
-export const expectVisualizationToBeVisible = visType =>
+export const expectVisualizationToBeVisible = (visType = VIS_TYPE_COLUMN) =>
     NON_HIGHCHARTS_TYPES.includes(visType)
         ? expectVisualizationContainerToBeVisible()
         : expectChartContainerToBeVisible()

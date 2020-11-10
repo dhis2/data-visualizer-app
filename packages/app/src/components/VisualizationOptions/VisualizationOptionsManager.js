@@ -43,6 +43,7 @@ class VisualizationOptionsManager extends Component {
                 <MenuButton
                     className={this.props.className}
                     onClick={this.toggleVisualizationOptionsDialog}
+                    dataTest={'app-menubar-options-button'}
                 >
                     {i18n.t('Options')}
                 </MenuButton>
