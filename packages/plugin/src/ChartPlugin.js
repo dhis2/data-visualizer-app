@@ -40,7 +40,7 @@ const ChartPlugin = ({
                         sourceWidth: 1024,
                     })
                 )
-                onConfigGenerated(visualizationConfig.visualization)
+                onConfigGenerated(visualizationConfig.config.getConfig())
             }
         },
         [
