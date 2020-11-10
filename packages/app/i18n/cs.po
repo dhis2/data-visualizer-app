@@ -94,7 +94,7 @@ msgid "ID"
 msgstr "ID"
 
 msgid "Code"
-msgstr ""
+msgstr "Kód"
 
 msgid "Name"
 msgstr "Název"
@@ -136,19 +136,19 @@ msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr ""
 
 msgid "Refresh to try again"
-msgstr ""
+msgstr "Obnovte akci a zkuste to znovu"
 
 msgid "Hide technical details"
-msgstr ""
+msgstr "Skrýt technické podrobnosti"
 
 msgid "Show technical details"
 msgstr "Zobrazit technické podrobnosti"
 
 msgid "The following information may be requested by technical support."
-msgstr ""
+msgstr "Následující informace mohou být požadovány technickou podporou."
 
 msgid "Hide"
-msgstr ""
+msgstr "Skrýt"
 
 msgid "Interpretations"
 msgstr "Interpretace"
@@ -175,7 +175,7 @@ msgid "Levels"
 msgstr ""
 
 msgid "Groups"
-msgstr ""
+msgstr "Skupiny"
 
 msgid "And 1 other..."
 msgstr ""
@@ -201,7 +201,7 @@ msgid "Edited"
 msgstr ""
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr ""
+msgstr "Prohlížení interpretací od {{interpretDate}}"
 
 msgid "Update"
 msgstr "Aktualizovat"
@@ -224,25 +224,25 @@ msgid "Your most viewed charts and tables"
 msgstr ""
 
 msgid "Aggregation type"
-msgstr ""
+msgstr "Typ agregace"
 
 msgid "Overrides aggregation type for all data values."
 msgstr ""
 
 msgid "By data element"
-msgstr ""
+msgstr "Podle datového prvku"
 
 msgid "Count"
-msgstr ""
+msgstr "Počet"
 
 msgid "Average"
-msgstr ""
+msgstr "Průměr"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr ""
+msgstr "Průměr (součet v hierarchii organizačních jednotek)"
 
 msgid "Sum"
-msgstr ""
+msgstr "Součet"
 
 msgid "Last value"
 msgstr ""
@@ -257,10 +257,10 @@ msgid "Max"
 msgstr "Max"
 
 msgid "Standard deviation"
-msgstr ""
+msgstr "Standardní odchylka"
 
 msgid "Variance"
-msgstr ""
+msgstr "Rozptyl"
 
 msgid "Data approved at level"
 msgstr ""
@@ -284,13 +284,13 @@ msgid "Value"
 msgstr "Hodnota"
 
 msgid "Title"
-msgstr ""
+msgstr "Titul"
 
 msgid "Base line title"
 msgstr ""
 
 msgid "Number"
-msgstr ""
+msgstr "Číslo"
 
 msgid "Labels"
 msgstr "Štítky"
@@ -302,7 +302,7 @@ msgid "Columns totals"
 msgstr ""
 
 msgid "Default"
-msgstr ""
+msgstr "Výchozí"
 
 msgid "Bright"
 msgstr ""
@@ -335,7 +335,7 @@ msgid "Digit group separator"
 msgstr ""
 
 msgid "None"
-msgstr ""
+msgstr "Žádný"
 
 msgid "Space"
 msgstr ""
@@ -404,7 +404,7 @@ msgid "Auto generated"
 msgstr ""
 
 msgid "Custom"
-msgstr ""
+msgstr "Vlastní"
 
 msgid "Chart title"
 msgstr ""
@@ -492,7 +492,7 @@ msgid ""
 msgstr ""
 
 msgid "Steps"
-msgstr ""
+msgstr "Kroky"
 
 msgid "Include regression"
 msgstr ""
@@ -575,7 +575,7 @@ msgid "Target line title"
 msgstr ""
 
 msgid "Size"
-msgstr ""
+msgstr "Velikost"
 
 msgid "Position"
 msgstr ""
@@ -584,7 +584,7 @@ msgid "Top limit"
 msgstr ""
 
 msgid "Options"
-msgstr ""
+msgstr "Možnosti"
 
 msgid "Open as Map"
 msgstr ""
@@ -687,7 +687,7 @@ msgid ""
 msgstr ""
 
 msgid "Something went wrong"
-msgstr ""
+msgstr "Něco se pokazilo"
 
 msgid "or"
 msgstr ""
@@ -774,7 +774,7 @@ msgid "Last six-month"
 msgstr "Poslední půlrok"
 
 msgid "Last 2 six-months"
-msgstr ""
+msgstr "Poslední 2 šestiměsíce"
 
 msgid "This financial year"
 msgstr "Tento fiskální rok"
@@ -864,7 +864,7 @@ msgid "Series"
 msgstr "Série"
 
 msgid "Style"
-msgstr ""
+msgstr "Styl"
 
 msgid "Weeks per year"
 msgstr ""
