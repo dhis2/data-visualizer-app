@@ -16,7 +16,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 msgid "Rename successful"
-msgstr ""
+msgstr "Přejmenování bylo úspěšné"
 
 msgid "\"{{what}}\" successfully deleted."
 msgstr ""
@@ -54,22 +54,22 @@ msgid "Download"
 msgstr "Stáhnout"
 
 msgid "Graphics"
-msgstr ""
+msgstr "Grafika"
 
 msgid "Image (.png)"
 msgstr ""
 
 msgid "PDF (.pdf)"
-msgstr ""
+msgstr "PDF (.pdf)"
 
 msgid "Plain data source"
-msgstr ""
+msgstr "Prostý zdroj dat"
 
 msgid "Advanced"
-msgstr ""
+msgstr "Pokročilý"
 
 msgid "Metadata ID scheme"
-msgstr ""
+msgstr "Schéma metadata ID"
 
 msgid "ID"
 msgstr "ID"
@@ -81,7 +81,7 @@ msgid "Name"
 msgstr "Název"
 
 msgid "Data value set"
-msgstr ""
+msgstr "Sada datových hodnot"
 
 msgid "JSON"
 msgstr ""
@@ -90,7 +90,7 @@ msgid "XML"
 msgstr ""
 
 msgid "Other formats"
-msgstr ""
+msgstr "Jiné formáty"
 
 msgid "JRXML"
 msgstr ""
@@ -99,7 +99,7 @@ msgid "Raw data SQL"
 msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr ""
+msgstr "V aplikaci DHIS2 Data Visualizer došlo k chybě."
 
 msgid "Something went wrong"
 msgstr "Něco se pokazilo"
@@ -132,7 +132,7 @@ msgid "Filter"
 msgstr "Filtr"
 
 msgid "None selected"
-msgstr ""
+msgstr "Není vybrán žádný"
 
 msgid "And 1 other..."
 msgstr ""
@@ -144,7 +144,7 @@ msgid "Unsaved chart"
 msgstr ""
 
 msgid "Edited"
-msgstr ""
+msgstr "Upraveno"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "Prohlížení interpretací od {{interpretDate}}"
@@ -177,10 +177,10 @@ msgid "Sum"
 msgstr "Součet"
 
 msgid "Last value"
-msgstr ""
+msgstr "Poslední hodnota"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr ""
+msgstr "Poslední hodnota (průměr v hierarchii organizačních jednotek)"
 
 msgid "Min"
 msgstr "Min"
@@ -195,34 +195,34 @@ msgid "Variance"
 msgstr "Rozptyl"
 
 msgid "Base line"
-msgstr ""
+msgstr "Základní linie"
 
 msgid "Base line title"
-msgstr ""
+msgstr "Název základní čáry"
 
 msgid "Base line value"
-msgstr ""
+msgstr "Základní hodnota"
 
 msgid "Use cumulative values"
-msgstr ""
+msgstr "Použít kumulativní hodnoty"
 
 msgid "Domain axis title"
-msgstr ""
+msgstr "Název osy domény"
 
 msgid "Hide empty categories"
-msgstr ""
+msgstr "Skrýt prázdné kategorie"
 
 msgid "None"
 msgstr "Žádný"
 
 msgid "Before first"
-msgstr ""
+msgstr "Před první"
 
 msgid "After first"
 msgstr ""
 
 msgid "Before first and after last"
-msgstr ""
+msgstr "Před první a po poslední"
 
 msgid "All"
 msgstr "Vše"
@@ -237,10 +237,10 @@ msgid "Hide title"
 msgstr ""
 
 msgid "No space between columns/bars"
-msgstr ""
+msgstr "Mezi sloupci / pruhy není mezera"
 
 msgid "Use 100% stacked values"
-msgstr ""
+msgstr "Použít 100% skládané hodnoty"
 
 msgid "Auto"
 msgstr ""
@@ -249,7 +249,7 @@ msgid "Range axis decimals"
 msgstr ""
 
 msgid "Range axis title"
-msgstr ""
+msgstr "Název osy rozsahu"
 
 msgid "Range axis max"
 msgstr ""
@@ -266,43 +266,43 @@ msgid ""
 msgstr ""
 
 msgid "Trend line"
-msgstr ""
+msgstr "Trendová čára"
 
 msgid "Linear"
-msgstr ""
+msgstr "Lineární"
 
 msgid "Polynomial"
-msgstr ""
+msgstr "Polynomiální"
 
 msgid "Loess"
-msgstr ""
+msgstr "Spraše"
 
 msgid "Show values"
-msgstr ""
+msgstr "Zobrazit hodnoty"
 
 msgid "Sort order"
-msgstr ""
+msgstr "Pořadí řazení"
 
 msgid "Low to high"
-msgstr ""
+msgstr "Od nízkého po vysoký"
 
 msgid "High to low"
-msgstr ""
+msgstr "Od nejvyšší k nejnižší"
 
 msgid "Chart subtitle"
-msgstr ""
+msgstr "Podtitul grafu"
 
 msgid "Target line"
-msgstr ""
+msgstr "Cílová linie"
 
 msgid "Target line title"
-msgstr ""
+msgstr "Název cílového řádku"
 
 msgid "Target line value"
-msgstr ""
+msgstr "Hodnota cílového řádku"
 
 msgid "Chart title"
-msgstr ""
+msgstr "Název grafu"
 
 msgid "Data"
 msgstr "Data"
@@ -317,7 +317,7 @@ msgid "Options"
 msgstr "Možnosti"
 
 msgid "Chart options"
-msgstr ""
+msgstr "Možnosti grafu"
 
 msgid "Column"
 msgstr "Sloupec"
@@ -462,16 +462,16 @@ msgid "Months this year"
 msgstr "Měsíce tohoto roku"
 
 msgid "This bimonth"
-msgstr ""
+msgstr "Tento dvouměsíc"
 
 msgid "Last bimonth"
-msgstr ""
+msgstr "Poslední dvouměsíční"
 
 msgid "Last 6 bimonths"
-msgstr ""
+msgstr "Posledních 6 dvouměsíců"
 
 msgid "Bimonths this year"
-msgstr ""
+msgstr "Dvouměsíční tento rok"
 
 msgid "This quarter"
 msgstr "Toto čtvrtletí"
@@ -513,22 +513,22 @@ msgid "Last 5 years"
 msgstr "Posledních 5 let"
 
 msgid "User org unit"
-msgstr ""
+msgstr "Organizační jednotka uživatele"
 
 msgid "User org unit children"
-msgstr ""
+msgstr "Uživatel podřízené uživatelské jednotky"
 
 msgid "User org unit grand children"
-msgstr ""
+msgstr " Uživatel druhé podřazené úrovně organizační jednotky"
 
 msgid "Weeks per year"
-msgstr ""
+msgstr "Týdnů za rok"
 
 msgid "Months per year"
-msgstr ""
+msgstr "Měsíců za rok"
 
 msgid "Bimonths per year"
-msgstr ""
+msgstr "Dvouměsíční za rok"
 
 msgid "Quarters per year"
-msgstr ""
+msgstr "Čtvrtletí za rok"
