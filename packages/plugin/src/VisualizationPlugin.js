@@ -2,12 +2,14 @@ import React, { useEffect, useState, useCallback } from 'react'
 import { createPortal } from 'react-dom'
 import PropTypes from 'prop-types'
 
-import { useDataEngine, useDataQuery } from '@dhis2/app-runtime'
+import { useDataEngine } from '@dhis2/app-runtime'
 import { Popper } from '@dhis2/ui'
-import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
+import {
+    VIS_TYPE_PIVOT_TABLE,
+    apiFetchOrganisationUnitLevels,
+} from '@dhis2/analytics'
 
 import { apiFetchLegendSets } from './api/legendSets'
-import { orgUnitLevelsQuery } from './api/organisationUnits'
 import ContextualMenu from './ContextualMenu'
 import ChartPlugin from './ChartPlugin'
 import PivotPlugin from './PivotPlugin'
@@ -19,7 +21,6 @@ const LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM = 'BY_DATA_ITEM'
 const LEGEND_DISPLAY_STRATEGY_FIXED = 'FIXED'
 
 export const VisualizationPlugin = ({
-    d2,
     visualization,
     filters,
     forDashboard,
@@ -30,6 +31,7 @@ export const VisualizationPlugin = ({
     ...props
 }) => {
     const engine = useDataEngine()
+    const [ouLevels, setOuLevels] = useState(undefined)
     const [fetchResult, setFetchResult] = useState(null)
     const [contextualMenuRef, setContextualMenuRef] = useState(undefined)
     const [contextualMenuConfig, setContextualMenuConfig] = useState({})
@@ -47,16 +49,11 @@ export const VisualizationPlugin = ({
         onDrill(args)
     }
 
-    const { data: ouLevelsResponse } = useDataQuery(orgUnitLevelsQuery, {
-        onError,
-    })
-    const ouLevels = ouLevelsResponse?.orgUnitLevels.organisationUnitLevels
-
     const doFetchData = useCallback(async () => {
         const result = await fetchData({
+            dataEngine: engine,
             visualization,
             filters,
-            d2,
             forDashboard,
         })
 
@@ -65,7 +62,7 @@ export const VisualizationPlugin = ({
         }
 
         return result
-    }, [d2, filters, forDashboard, onResponsesReceived, visualization])
+    }, [engine, filters, forDashboard, onResponsesReceived, visualization])
 
     const doFetchLegendSets = useCallback(
         async legendSetIds => {
@@ -73,14 +70,22 @@ export const VisualizationPlugin = ({
                 return []
             }
 
-            const response = await apiFetchLegendSets(engine, legendSetIds)
+            const legendSets = await apiFetchLegendSets(engine, legendSetIds)
 
-            if (response && response.legendSets) {
-                return response.legendSets.legendSets
-            }
+            return legendSets
         },
         [engine]
     )
+
+    useEffect(() => {
+        const doFetchOuLevels = async () => {
+            const ouLevels = await apiFetchOrganisationUnitLevels(engine)
+
+            setOuLevels(ouLevels)
+        }
+
+        doFetchOuLevels()
+    }, [engine])
 
     useEffect(() => {
         setFetchResult(null)
@@ -202,7 +207,6 @@ VisualizationPlugin.defaultProps = {
     visualization: {},
 }
 VisualizationPlugin.propTypes = {
-    d2: PropTypes.object.isRequired,
     visualization: PropTypes.object.isRequired,
     filters: PropTypes.object,
     forDashboard: PropTypes.bool,
