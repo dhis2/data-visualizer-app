@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
@@ -14,6 +14,7 @@ import {
     tabSectionOptionComplexInline,
     tabSectionOptionText,
     tabBar,
+    tabContent,
 } from './styles/VisualizationOptions.style.js'
 
 import {
@@ -95,7 +96,7 @@ export class VisualizationOptions extends Component {
         }
 
         return (
-            <Fragment>
+            <>
                 <div className={tabBar.className}>
                     <TabBar dataTest={'options-modal-tab-bar'}>
                         {tabs.map(({ key, label }, index) => (
@@ -110,16 +111,19 @@ export class VisualizationOptions extends Component {
                     </TabBar>
                     {tabBar.styles}
                 </div>
-                {tabs[activeTabIndex].content}
-                {tabSection.styles}
-                {tabSectionTitle.styles}
-                {tabSectionTitleMargin.styles}
-                {tabSectionOption.styles}
-                {tabSectionOptionItem.styles}
-                {tabSectionOptionToggleable.styles}
-                {tabSectionOptionComplexInline.styles}
-                {tabSectionOptionText.styles}
-            </Fragment>
+                <div className={tabContent.className}>
+                    {tabs[activeTabIndex].content}
+                    {tabContent.styles}
+                    {tabSection.styles}
+                    {tabSectionTitle.styles}
+                    {tabSectionTitleMargin.styles}
+                    {tabSectionOption.styles}
+                    {tabSectionOptionItem.styles}
+                    {tabSectionOptionToggleable.styles}
+                    {tabSectionOptionComplexInline.styles}
+                    {tabSectionOptionText.styles}
+                </div>
+            </>
         )
     }
 }

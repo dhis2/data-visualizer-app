@@ -9,6 +9,7 @@ import {
     ModalActions,
 } from '@dhis2/ui'
 
+import styles from './styles/VisualizationOptionsManager.module.css'
 import UpdateButton from '../UpdateButton/UpdateButton'
 import HideButton from '../HideButton/HideButton'
 import UpdateVisualizationContainer from '../UpdateButton/UpdateVisualizationContainer'
@@ -50,7 +51,7 @@ class VisualizationOptionsManager extends Component {
                 {this.state.dialogIsOpen && (
                     <Modal onClose={this.onClose} position="top" large>
                         <ModalTitle>{i18n.t('Options')}</ModalTitle>
-                        <ModalContent>
+                        <ModalContent className={styles.modalContent}>
                             <VisualizationOptions />
                         </ModalContent>
                         <ModalActions>
