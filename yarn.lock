@@ -1335,22 +1335,22 @@
     moment "^2.24.0"
 
 "@dhis2/app-runtime@*", "@dhis2/app-runtime@^2.2.2":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-2.3.0.tgz#b059981e4d68734f3d486184ff01789769abc0e6"
-  integrity sha512-cWK3Y70CmEj7tdmrJDm5jo4th1mPBVHJ85QWpebAMQjmmoFW1MK4CLEycp5G2VIyvHMxXz853MqbvTIE+19Xng==
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-2.5.0.tgz#85b4faf1f63124a2f7a0a04ecbd117cca0e07c61"
+  integrity sha512-T4s77Fkwvn7GvEQPEvFQiE5vGCRwa+N+7hB/l969Ssf28vLy/eFcv6q6NcsZHIvORDU7Oqiz7Bi4x7MYc67+oQ==
   dependencies:
-    "@dhis2/app-service-config" "2.3.0"
-    "@dhis2/app-service-data" "2.3.0"
+    "@dhis2/app-service-config" "2.5.0"
+    "@dhis2/app-service-data" "2.5.0"
 
-"@dhis2/app-service-config@2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-service-config/-/app-service-config-2.3.0.tgz#4ae6dcfa1e49eb90cb292bad204a447e8f01f736"
-  integrity sha512-c0nsKBjGYAEv5+04R5BrI7oKMholoONA+yiToVrkohRxbPY4XDQWvRy2tRmlx1W66xCGrk+utOvsp3NWNJH/sA==
+"@dhis2/app-service-config@2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-config/-/app-service-config-2.5.0.tgz#fd137fe8052e8fe49596ed883f155d024d64dbf6"
+  integrity sha512-NFpD951Q3eGpsD3CYp+WwKX6vrByB3Hz/7dhLQV2D5TTuUvHbQ8ksJsEpC8efwXtSDs+kZPwkhLkI2FlLJP5FA==
 
-"@dhis2/app-service-data@2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-service-data/-/app-service-data-2.3.0.tgz#35b270ce969705889121ed8394e382ffb74d2b66"
-  integrity sha512-H20qRT8jGOJxLyBHLx8huxW0csJmjqdE4/Fy0MQhyS2AJRBsQ5yPWOmcguup2yAtPHg+Do1c47+TshpEbyc8Rg==
+"@dhis2/app-service-data@2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-data/-/app-service-data-2.5.0.tgz#95d37b172aee8c0285876df6aafeac4c9fb04dd9"
+  integrity sha512-nv/zyyeADoks5ilDNp8VbWNuzuSZ/VG/yQaKbuwvuMw/KOALWtxhHgi6ZMv8cQ/HmClof9Z4d88786mgvHZ5bA==
 
 "@dhis2/app-shell@5.2.0":
   version "5.2.0"
