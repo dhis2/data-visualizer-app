@@ -19,7 +19,7 @@ msgid "Rename successful"
 msgstr "Přejmenování bylo úspěšné"
 
 msgid "\"{{what}}\" successfully deleted."
-msgstr ""
+msgstr "\"{{what}}\"  úspěšně smazáno."
 
 msgid "Data Visualizer"
 msgstr "Data Visualizer"
@@ -49,7 +49,7 @@ msgid "Deselect All"
 msgstr "Odznačit vše"
 
 msgid "Select All"
-msgstr ""
+msgstr "Vybrat vše"
 
 msgid "Remove"
 msgstr "Odebrat"
@@ -67,7 +67,7 @@ msgid "Graphics"
 msgstr "Grafika"
 
 msgid "Image (.png)"
-msgstr ""
+msgstr "Obrázek (.png)"
 
 msgid "PDF (.pdf)"
 msgstr "PDF (.pdf)"
@@ -124,13 +124,13 @@ msgid "Filter"
 msgstr "Filtr"
 
 msgid "Move to"
-msgstr ""
+msgstr "Přesunout do"
 
 msgid "None selected"
 msgstr "Není vybrán žádný"
 
 msgid "Unsaved chart"
-msgstr ""
+msgstr "Neuložený graf"
 
 msgid "Edited"
 msgstr "Upraveno"
@@ -142,13 +142,13 @@ msgid "Update"
 msgstr "Aktualizovat"
 
 msgid "Chart error"
-msgstr ""
+msgstr "Chyba grafu"
 
 msgid "There is a problem with your chart"
-msgstr ""
+msgstr "Došlo k problému s grafem"
 
 msgid "Error generating chart, please try again"
-msgstr ""
+msgstr "Při generování grafu došlo k chybě, zkuste to prosím znovu"
 
 msgid "Aggregation type"
 msgstr "Typ agregace"
@@ -211,7 +211,7 @@ msgid "Before first"
 msgstr "Před první"
 
 msgid "After first"
-msgstr ""
+msgstr "Po prvním"
 
 msgid "Before first and after last"
 msgstr "Před první a po poslední"
@@ -223,10 +223,10 @@ msgid "Hide chart legend"
 msgstr "Skrýt legendu grafu"
 
 msgid "Hide subtitle"
-msgstr ""
+msgstr "Skrýt podnadpis"
 
 msgid "Hide title"
-msgstr ""
+msgstr "Skrýt název"
 
 msgid "No space between columns/bars"
 msgstr "Mezi sloupci / pruhy není mezera"
@@ -235,19 +235,19 @@ msgid "Use 100% stacked values"
 msgstr "Použít 100% skládané hodnoty"
 
 msgid "Range axis decimals"
-msgstr ""
+msgstr "Desetinný rozsah osy "
 
 msgid "Range axis title"
 msgstr "Název osy rozsahu"
 
 msgid "Range axis max"
-msgstr ""
+msgstr "Max. rozsah Osy"
 
 msgid "Range axis min"
-msgstr ""
+msgstr "Osa dosahu min"
 
 msgid "Range axis tick steps"
-msgstr ""
+msgstr "Kroky osy rozsahu"
 
 msgid "Trend line"
 msgstr "Trendová čára"
@@ -289,7 +289,7 @@ msgid "Chart title"
 msgstr "Název grafu"
 
 msgid "Axis & legend"
-msgstr ""
+msgstr "Osa a legenda"
 
 msgid "Style"
 msgstr "Styl"
@@ -397,41 +397,42 @@ msgid "Organisation Unit"
 msgstr "Organizační jednotka"
 
 msgid "Add to series"
-msgstr ""
+msgstr "Přidat do série"
 
 msgid "Add to category"
-msgstr ""
+msgstr "Přidat do kategorie"
 
 msgid "Add to filter"
-msgstr ""
+msgstr "Přidat do filtru"
 
 msgid "series"
-msgstr ""
+msgstr "série"
 
 msgid "category"
-msgstr ""
+msgstr "kategorie"
 
 msgid "filter"
-msgstr ""
+msgstr "filtr"
 
 msgid "Please add at least one {{series}} dimension"
-msgstr ""
+msgstr "Přidejte prosím alespoň jednu dimenzi {{series}}"
 
 msgid "Please add at least one {{category}} dimension"
-msgstr ""
+msgstr "Přidejte alespoň jednu dimenzi {{category}}"
 
 msgid ""
 "Please add at least one period as {{series}}, {{category}} or {{filter}}"
 msgstr ""
+"Přidejte alespoň jedno období jako {{series}}, {{category}} nebo {{filter}}"
 
 msgid "Please add at least one period as a {{series}} dimension"
-msgstr ""
+msgstr "Přidejte alespoň jedno období jako dimenzi {{series}}"
 
 msgid "Please add at least one period as a {{category}} dimension"
-msgstr ""
+msgstr "Přidejte prosím alespoň jedno období jako dimenzi {{category}}"
 
 msgid "Please add {{data}} as a filter dimension"
-msgstr ""
+msgstr "Přidejte {{data}} jako dimenzi filtru "
 
 msgid "Today"
 msgstr "Dnes"
