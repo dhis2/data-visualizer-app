@@ -1,13 +1,19 @@
 const legendSetsQuery = {
-    legendSets: {
-        resource: 'legendSets',
-        params: ({ ids }) => ({
-            fields:
-                'id,displayName~rename(name),legends[id,displayName~rename(name),startValue,endValue,color]',
-            filter: `id:in:[${ids.join(',')}]`,
-        }),
-    },
+    resource: 'legendSets',
+    params: ({ ids }) => ({
+        fields:
+            'id,legends[id,displayName~rename(name),startValue,endValue,color]',
+        filter: `id:in:[${ids.join(',')}]`,
+    }),
 }
 
-export const apiFetchLegendSets = (dataEngine, ids) =>
-    dataEngine.query(legendSetsQuery, { variables: { ids } })
+export const apiFetchLegendSets = async (dataEngine, ids) => {
+    const legendSetsData = await dataEngine.query(
+        { legendSets: legendSetsQuery },
+        {
+            variables: { ids },
+        }
+    )
+
+    return legendSetsData.legendSets.legendSets
+}
