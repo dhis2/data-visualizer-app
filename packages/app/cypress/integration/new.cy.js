@@ -2,7 +2,7 @@
 import { openDimension } from '../elements/DimensionsPanel'
 import {
     selectDataElements,
-    clickModalUpdateButton,
+    clickDimensionModalUpdateButton,
 } from '../elements/DimensionModal'
 import {
     changeVisType,
@@ -65,7 +65,7 @@ describe('creating a new AO', () => {
 
                 selectDataElements(dataElements)
 
-                clickModalUpdateButton()
+                clickDimensionModalUpdateButton()
 
                 expectVisualizationToBeVisible(visType)
 

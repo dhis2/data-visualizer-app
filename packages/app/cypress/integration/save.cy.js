@@ -1,7 +1,7 @@
 import { openDimension } from '../elements/DimensionsPanel'
 import {
     selectDataElements,
-    clickModalUpdateButton,
+    clickDimensionModalUpdateButton,
     selectRelativePeriods,
 } from '../elements/DimensionModal'
 import { changeVisType } from '../elements/VisualizationTypeSelector'
@@ -65,7 +65,7 @@ describe('saving an AO', () => {
             selectDataElements(
                 TEST_DATA_ELEMENTS.slice(1, 2).map(item => item.name)
             )
-            clickModalUpdateButton()
+            clickDimensionModalUpdateButton()
         })
         it('displays an unsaved visualization', () => {
             expectVisualizationToBeVisible(TEST_VIS_TYPE)
@@ -116,7 +116,7 @@ describe('saving an AO', () => {
             } else {
                 openDimension('pe')
                 selectRelativePeriods(['Last six-month'], 'Six-months')
-                clickModalUpdateButton()
+                clickDimensionModalUpdateButton()
             }
             expectAOTitleToBeDirty()
         })
@@ -147,7 +147,7 @@ describe('saving an AO', () => {
             } else {
                 openDimension('pe')
                 selectRelativePeriods(['Last quarter'], 'Quarters')
-                clickModalUpdateButton()
+                clickDimensionModalUpdateButton()
             }
             expectAOTitleToBeDirty()
         })

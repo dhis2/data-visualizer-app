@@ -69,6 +69,7 @@ const TextStyle = ({
                             key={option.value?.toString()}
                             value={option.value?.toString()}
                             label={option.label}
+                            dataTest={`${dataTest}-font-size-option-${option.value?.toString()}`}
                         />
                     ))}
                 </SingleSelect>

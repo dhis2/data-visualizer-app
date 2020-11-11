@@ -9,12 +9,12 @@ export const expectDimensionModalToBeVisible = dimensionId =>
 export const expectDimensionModalToNotBeVisible = () =>
     cy.getBySelLike(dimensionModalEl).should('not.be.visible')
 
-export const clickModalUpdateButton = () => {
+export const clickDimensionModalUpdateButton = () => {
     cy.getBySel(dimensionModalUpdateButtonEl).click()
     expectDimensionModalToNotBeVisible()
 }
 
-export const clickModalUHideButton = () => {
+export const clickDimensionModalHideButton = () => {
     cy.getBySel(dimensionModalHideButtonEl).click()
     expectDimensionModalToNotBeVisible()
 }

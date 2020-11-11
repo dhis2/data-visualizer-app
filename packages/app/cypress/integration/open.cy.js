@@ -8,7 +8,7 @@ import {
 } from '../elements/Chart'
 import { expectStartScreenToBeVisible } from '../elements/StartScreen'
 import {
-    clickModalUpdateButton,
+    clickDimensionModalUpdateButton,
     selectRelativePeriods,
 } from '../elements/DimensionModal'
 import { openDimension } from '../elements/DimensionsPanel'
@@ -42,7 +42,7 @@ describe('opening a saved AO', () => {
                 } else {
                     openDimension('pe')
                     selectRelativePeriods(['Last six-month'], 'Six-months')
-                    clickModalUpdateButton()
+                    clickDimensionModalUpdateButton()
                 }
             })
             it(`displays dirty state`, () => {

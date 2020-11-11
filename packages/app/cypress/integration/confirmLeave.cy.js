@@ -9,7 +9,7 @@ import {
     expectConfirmLeaveModalToBeVisible,
 } from '../elements/ConfirmLeaveModal'
 import {
-    clickModalUpdateButton,
+    clickDimensionModalUpdateButton,
     removeAllDataItems,
     selectDataElements,
 } from '../elements/DimensionModal'
@@ -31,7 +31,7 @@ describe('confirm leave modal', () => {
         openDimension(DIMENSION_ID_DATA)
         removeAllDataItems()
         selectDataElements([TEST_DATA_ELEMENTS[0].name])
-        clickModalUpdateButton()
+        clickDimensionModalUpdateButton()
         expectAOTitleToBeDirty()
     })
     it('tries to open a new AO', () => {

@@ -2,17 +2,23 @@
 import { openDimension } from '../elements/DimensionsPanel'
 import {
     selectDataElements,
-    clickModalUpdateButton,
+    clickDimensionModalUpdateButton,
 } from '../elements/DimensionModal'
 import { expectStartScreenToBeVisible } from '../elements/StartScreen'
 import { expectTitleToBeValue } from '../utils/store'
 import { expectVisualizationToBeVisible } from '../elements/Chart'
-import { DIMENSION_ID_DATA, VIS_TYPE_COLUMN } from '@dhis2/analytics'
+import {
+    DIMENSION_ID_DATA,
+    FONT_STYLE_VISUALIZATION_TITLE,
+    getFontSizeOptions,
+    VIS_TYPE_COLUMN,
+} from '@dhis2/analytics'
 import { TEST_DATA_ELEMENTS } from '../utils/data'
 import { CONFIG_DEFAULT_TITLE } from '../utils/config'
 import { clickMenuBarOptionsButton } from '../elements/MenuBar'
 import {
     changeTitleFontSizeOption,
+    clickOptionsModalUpdateButton,
     clickOptionsTab,
     OPTIONS_TAB_STYLE,
 } from '../elements/OptionsModal'
@@ -30,11 +36,14 @@ describe('font styles', () => {
 
         selectDataElements(dataElements)
 
-        clickModalUpdateButton()
+        clickDimensionModalUpdateButton()
 
         expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
     })
     describe('title', () => {
+        const fontSizeOption = Object.values(
+            getFontSizeOptions(FONT_STYLE_VISUALIZATION_TITLE)
+        )[0]
         it('has default value', () => {
             expectTitleToBeValue(CONFIG_DEFAULT_TITLE)
         })
@@ -43,8 +52,11 @@ describe('font styles', () => {
             clickOptionsTab(OPTIONS_TAB_STYLE)
         })
         it('changes the font size', () => {
-            changeTitleFontSizeOption()
+            changeTitleFontSizeOption(fontSizeOption.label)
+            clickOptionsModalUpdateButton()
         })
+        // expect fontsize to match fontSizeOption.value
+
         // click style tab
         // set new size, position, color, bold, italic for title
         // check the result in the config

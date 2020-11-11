@@ -11,7 +11,7 @@ import {
 } from '@dhis2/analytics'
 import {
     expectDimensionModalToBeVisible,
-    clickModalUHideButton,
+    clickDimensionModalHideButton,
 } from '../elements/DimensionModal'
 import {
     openDimension,
@@ -45,7 +45,7 @@ describe('interacting with the dimensions panel', () => {
                     expectDimensionModalToBeVisible(dim.id)
                 })
                 it('clicks the modal hide button', () => {
-                    clickModalUHideButton()
+                    clickDimensionModalHideButton()
                 })
             })
         })

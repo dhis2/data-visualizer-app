@@ -12,9 +12,9 @@ import {
 } from '@dhis2/analytics'
 import {
     expectDimensionModalToBeVisible,
-    clickModalUHideButton,
+    clickDimensionModalHideButton,
     clickOrgUnitTreeItem,
-    clickModalUpdateButton,
+    clickDimensionModalUpdateButton,
 } from '../elements/DimensionModal'
 import { removeAllPeriodItems } from '../elements/DimensionModal/periodDimension'
 import {
@@ -67,7 +67,7 @@ describe('interacting with the dimensions panel', () => {
         it('removes period and period items', () => {
             openDimension(DIMENSION_ID_PERIOD)
             removeAllPeriodItems()
-            clickModalUpdateButton()
+            clickDimensionModalUpdateButton()
             openContextMenu(DIMENSION_ID_PERIOD)
             clickContextMenuRemove(DIMENSION_ID_PERIOD)
             expectDimensionToNotHaveSelectedStyle(DIMENSION_ID_PERIOD)
@@ -75,7 +75,7 @@ describe('interacting with the dimensions panel', () => {
         it('removes org unit and org unit items', () => {
             openDimension(DIMENSION_ID_ORGUNIT)
             clickOrgUnitTreeItem('Sierra Leone')
-            clickModalUpdateButton()
+            clickDimensionModalUpdateButton()
             openContextMenu(DIMENSION_ID_ORGUNIT)
             clickContextMenuRemove(DIMENSION_ID_ORGUNIT)
             expectDimensionToNotHaveSelectedStyle(DIMENSION_ID_ORGUNIT)
@@ -91,7 +91,7 @@ describe('interacting with the dimensions panel', () => {
                     expectDimensionModalToBeVisible(dim.id)
                 })
                 it('clicks the modal hide button', () => {
-                    clickModalUHideButton()
+                    clickDimensionModalHideButton()
                 })
             })
         })
@@ -115,7 +115,7 @@ describe('interacting with the dimensions panel', () => {
                         expectDimensionModalToBeVisible(dim.id)
                     })
                     it('clicks the modal hide button', () => {
-                        clickModalUHideButton()
+                        clickDimensionModalHideButton()
                     })
                 }
                 it(`${dim.name} has selected style`, () => {

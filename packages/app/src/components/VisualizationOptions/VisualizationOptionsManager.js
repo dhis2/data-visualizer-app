@@ -49,20 +49,31 @@ class VisualizationOptionsManager extends Component {
                     {i18n.t('Options')}
                 </MenuButton>
                 {this.state.dialogIsOpen && (
-                    <Modal onClose={this.onClose} position="top" large>
+                    <Modal
+                        onClose={this.onClose}
+                        position="top"
+                        large
+                        dataTest={'options-modal'}
+                    >
                         <ModalTitle>{i18n.t('Options')}</ModalTitle>
                         <ModalContent className={styles.modalContent}>
                             <VisualizationOptions />
                         </ModalContent>
-                        <ModalActions>
+                        <ModalActions dataTest={'options-modal-actions'}>
                             <ButtonStrip>
-                                <HideButton onClick={this.onClose} />
+                                <HideButton
+                                    onClick={this.onClose}
+                                    dataTest={'options-modal-action-cancel'}
+                                />
                                 <UpdateVisualizationContainer
                                     renderComponent={handler => (
                                         <UpdateButton
                                             onClick={this.getPrimaryOnClick(
                                                 handler
                                             )}
+                                            dataTest={
+                                                'options-modal-action-confirm'
+                                            }
                                         />
                                     )}
                                 />
