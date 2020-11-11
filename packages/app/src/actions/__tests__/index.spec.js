@@ -40,16 +40,6 @@ jest.mock('../../modules/orgUnit', () => ({
     convertOuLevelsToUids: (ouLevels, vis) => vis,
 }))
 
-jest.mock('../../api/organisationUnits', () => ({
-    apiFetchOrganisationUnitLevels: () =>
-        Promise.resolve([
-            {
-                level: 2,
-                id: '2nd-floor',
-            },
-        ]),
-}))
-
 jest.mock('../../api/dataStatistics', () => ({
     apiPostDataStatistics: () => Promise.resolve(),
 }))
