@@ -2,13 +2,14 @@
 # Translators:
 # Viktor Varland <viktor@dhis2.org>, 2019
 # phil_dhis2, 2019
+# Ulanbek Abakirov <ulans@mail.ru>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-08-26T14:38:24.067Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
-"Last-Translator: phil_dhis2, 2019\n"
+"Last-Translator: Ulanbek Abakirov <ulans@mail.ru>, 2020\n"
 "Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,10 +30,10 @@ msgid "Data"
 msgstr "Данные"
 
 msgid "Data Type"
-msgstr ""
+msgstr "Тип данных"
 
 msgid "Detail"
-msgstr ""
+msgstr "Подробнее"
 
 msgid "Search"
 msgstr "Поиск"
@@ -44,10 +45,10 @@ msgid "Period"
 msgstr "Период"
 
 msgid "Selected Data"
-msgstr ""
+msgstr "Избранные данные"
 
 msgid "Deselect All"
-msgstr ""
+msgstr "Отменить выбор всех"
 
 msgid "Select All"
 msgstr "Выбрать все"
@@ -56,10 +57,10 @@ msgid "Remove"
 msgstr "Удалить"
 
 msgid "Search dimensions"
-msgstr ""
+msgstr "Измерения для поиска"
 
 msgid "Dimension recommended with selected data"
-msgstr ""
+msgstr "Рекомендованное измерение с выбранными данными"
 
 msgid "Download"
 msgstr "Загрузить"
