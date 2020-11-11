@@ -7,7 +7,7 @@ import { D2Shim } from './D2Shim'
 import configureStore from './configureStore'
 import metadataMiddleware from './middleware/metadata'
 import App from './components/App'
-import { apiFetchOrganisationUnitLevels } from './api/organisationUnits'
+import { apiFetchOrganisationUnitLevels } from '@dhis2/analytics'
 import './locales'
 
 const AppWrapper = () => {
@@ -24,9 +24,9 @@ const AppWrapper = () => {
     const [ouLevels, setOuLevels] = useState(null)
 
     const doFetchOuLevelsData = useCallback(async () => {
-        const ouLevelsRes = await apiFetchOrganisationUnitLevels(engine)
+        const ouLevels = await apiFetchOrganisationUnitLevels(engine)
 
-        return ouLevelsRes?.orgUnitLevels.organisationUnitLevels
+        return ouLevels
     }, [engine])
 
     useEffect(() => {
@@ -46,7 +46,9 @@ const AppWrapper = () => {
     return (
         <Provider store={store}>
             <D2Shim schemas={schemas}>
-                {params => <App {...params} ouLevels={ouLevels} />}
+                {params => (
+                    <App {...params} dataEngine={engine} ouLevels={ouLevels} />
+                )}
             </D2Shim>
         </Provider>
     )
