@@ -11,7 +11,9 @@ import {
     DIMENSION_ID_DATA,
     FONT_STYLE_VISUALIZATION_TITLE,
     getFontSizeOptions,
+    getTextAlignOptions,
     VIS_TYPE_COLUMN,
+    TEXT_ALIGN_LEFT,
 } from '@dhis2/analytics'
 import { TEST_DATA_ELEMENTS } from '../utils/data'
 import { CONFIG_DEFAULT_TITLE } from '../utils/config'
@@ -21,6 +23,7 @@ import {
     clickOptionsModalUpdateButton,
     clickOptionsTab,
     OPTIONS_TAB_STYLE,
+    changeTitleTextAlignOption,
 } from '../elements/OptionsModal'
 
 const dimensionId = DIMENSION_ID_DATA
@@ -44,6 +47,9 @@ describe('font styles', () => {
         const fontSizeOption = Object.values(
             getFontSizeOptions(FONT_STYLE_VISUALIZATION_TITLE)
         )[0]
+        const textAlignOption = Object.values(
+            getTextAlignOptions(FONT_STYLE_VISUALIZATION_TITLE, VIS_TYPE_COLUMN)
+        ).find(option => option.value === TEXT_ALIGN_LEFT)
         it('has default value', () => {
             expectStoreConfigTitleToBeValue(CONFIG_DEFAULT_TITLE)
         })
@@ -53,12 +59,18 @@ describe('font styles', () => {
         })
         it('changes the font size', () => {
             changeTitleFontSizeOption(fontSizeOption.label)
+        })
+        it('changes the font size', () => {
+            changeTitleTextAlignOption(textAlignOption.label)
+        })
+        it('click the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
-        // TODO: set new position, color, bold, italic for title
-        it(`config has font size ${fontSizeOption.value}`, () => {
+        // TODO: set new color, bold, italic for title
+        it(`config has font size ${fontSizeOption.value}, text align left`, () => {
             const updatedTitle = {
                 ...CONFIG_DEFAULT_TITLE,
+                align: 'left',
                 style: {
                     ...CONFIG_DEFAULT_TITLE.style,
                     fontSize: `${fontSizeOption.value}px`,

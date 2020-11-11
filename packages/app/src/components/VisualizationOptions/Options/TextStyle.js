@@ -85,12 +85,14 @@ const TextStyle = ({
                     dense
                     className={styles.textAlignSelect}
                     disabled={disabled}
+                    dataTest={`${dataTest}-text-align-select`}
                 >
                     {textAlignOptions.map(option => (
                         <SingleSelectOption
                             key={option.value}
                             value={option.value}
                             label={option.label}
+                            dataTest={`${dataTest}-text-align-option-${option.value?.toString()}`}
                         />
                     ))}
                 </SingleSelect>
@@ -107,6 +109,7 @@ const TextStyle = ({
                         onChange={e => onChangeColor(e.target.value)}
                         className={styles.textColorInput}
                         disabled={disabled}
+                        data-test={`${dataTest}-text-color-picker`}
                     />
                     <div className={styles.textColorIcon}>
                         <FontColorIcon color={textColor} />
@@ -124,6 +127,7 @@ const TextStyle = ({
                     secondary
                     toggled={bold}
                     disabled={disabled}
+                    dataTest={`${dataTest}-bold-toggle`}
                 />
             )}
             {italic != null && (
@@ -137,6 +141,7 @@ const TextStyle = ({
                     secondary
                     disabled={disabled}
                     toggled={italic}
+                    dataTest={`${dataTest}-italic-toggle`}
                 />
             )}
         </div>

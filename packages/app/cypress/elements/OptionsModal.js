@@ -26,6 +26,13 @@ export const clickOptionssModalHideButton = () => {
     expectOptionsModalToNotBeVisible()
 }
 
+export const changeTitleTextAlignOption = optionName => {
+    cy.getBySel('option-chart-title-text-style-text-align-select').click()
+    cy.getBySelLike('option-chart-title-text-style-text-align-option')
+        .contains(optionName)
+        .click()
+}
+
 export const changeTitleFontSizeOption = optionName => {
     cy.getBySel('option-chart-title-text-style-font-size-select').click()
     cy.getBySelLike('option-chart-title-text-style-font-size-option')
