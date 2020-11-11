@@ -50,6 +50,7 @@ describe('font styles', () => {
         const textAlignOption = Object.values(
             getTextAlignOptions(FONT_STYLE_VISUALIZATION_TITLE, VIS_TYPE_COLUMN)
         ).find(option => option.value === TEXT_ALIGN_LEFT)
+
         it('has default value', () => {
             expectStoreConfigTitleToBeValue(CONFIG_DEFAULT_TITLE)
         })
@@ -63,10 +64,15 @@ describe('font styles', () => {
         it('changes the font size', () => {
             changeTitleTextAlignOption(textAlignOption.label)
         })
+        it('changes font to bold', () => {
+            // TODO: click the bold button
+        })
+        it('changes font to italic', () => {
+            // TODO: click the italic button
+        })
         it('click the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
-        // TODO: set new color, bold, italic for title
         it(`config has font size ${fontSizeOption.value}, text align left`, () => {
             const updatedTitle = {
                 ...CONFIG_DEFAULT_TITLE,
@@ -74,6 +80,7 @@ describe('font styles', () => {
                 style: {
                     ...CONFIG_DEFAULT_TITLE.style,
                     fontSize: `${fontSizeOption.value}px`,
+                    // TODO: add bold and italic
                 },
             }
             expectStoreConfigTitleToBeValue(updatedTitle)

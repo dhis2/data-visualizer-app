@@ -102,6 +102,7 @@ const TextStyle = ({
                     className={cx(styles.textColorLabel, {
                         [styles.disabled]: disabled,
                     })}
+                    data-test={`${dataTest}-text-color-picker`}
                 >
                     <input
                         type="color"
@@ -109,7 +110,6 @@ const TextStyle = ({
                         onChange={e => onChangeColor(e.target.value)}
                         className={styles.textColorInput}
                         disabled={disabled}
-                        data-test={`${dataTest}-text-color-picker`}
                     />
                     <div className={styles.textColorIcon}>
                         <FontColorIcon color={textColor} />

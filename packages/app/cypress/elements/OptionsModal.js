@@ -39,3 +39,11 @@ export const changeTitleFontSizeOption = optionName => {
         .contains(optionName)
         .click()
 }
+
+// FIXME: Find a way to test the color picker
+// export const changeTitleColorOption = color => {
+//     cy.getBySel('option-chart-title-text-style-text-color-picker')
+//         .invoke('val', color)
+//         .trigger('change')
+//         .blur()
+// }
