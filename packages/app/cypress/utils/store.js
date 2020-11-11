@@ -1,3 +1,5 @@
+// TODO: Rename file to Store and move to /elements?
+
 import { CONFIG_PROP, TITLE_PROP } from './config'
 
 export const expectStoreCurrentToBeEmpty = () =>
@@ -9,7 +11,7 @@ export const expectStoreCurrentColumnsToHaveLength = length =>
         .its('columns')
         .should('have.length', length)
 
-export const expectTitleToBeValue = value =>
+export const expectStoreConfigTitleToBeValue = value =>
     cy
         .getReduxState(CONFIG_PROP)
         .its(TITLE_PROP)

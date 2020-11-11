@@ -5,7 +5,7 @@ import {
     clickDimensionModalUpdateButton,
 } from '../elements/DimensionModal'
 import { expectStartScreenToBeVisible } from '../elements/StartScreen'
-import { expectTitleToBeValue } from '../utils/store'
+import { expectStoreConfigTitleToBeValue } from '../utils/store'
 import { expectVisualizationToBeVisible } from '../elements/Chart'
 import {
     DIMENSION_ID_DATA,
@@ -45,7 +45,7 @@ describe('font styles', () => {
             getFontSizeOptions(FONT_STYLE_VISUALIZATION_TITLE)
         )[0]
         it('has default value', () => {
-            expectTitleToBeValue(CONFIG_DEFAULT_TITLE)
+            expectStoreConfigTitleToBeValue(CONFIG_DEFAULT_TITLE)
         })
         it(`opens Options -> ${OPTIONS_TAB_STYLE}`, () => {
             clickMenuBarOptionsButton()
@@ -55,10 +55,16 @@ describe('font styles', () => {
             changeTitleFontSizeOption(fontSizeOption.label)
             clickOptionsModalUpdateButton()
         })
-        // expect fontsize to match fontSizeOption.value
-
-        // click style tab
-        // set new size, position, color, bold, italic for title
-        // check the result in the config
+        // TODO: set new position, color, bold, italic for title
+        it(`config has font size ${fontSizeOption.value}`, () => {
+            const updatedTitle = {
+                ...CONFIG_DEFAULT_TITLE,
+                style: {
+                    ...CONFIG_DEFAULT_TITLE.style,
+                    fontSize: `${fontSizeOption.value}px`,
+                },
+            }
+            expectStoreConfigTitleToBeValue(updatedTitle)
+        })
     })
 })
