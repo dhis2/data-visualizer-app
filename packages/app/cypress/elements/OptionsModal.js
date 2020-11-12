@@ -4,6 +4,7 @@ const optionsModalUpdateButtonEl = 'options-modal-action-confirm'
 const optionsModalHideButtonEl = 'options-modal-action-cancel'
 
 export const OPTIONS_TAB_STYLE = 'Style'
+export const OPTIONS_TAB_DATA = 'Data'
 export const TYPE_TITLE = 'title'
 export const TYPE_SUBTITLE = 'subtitle'
 
@@ -28,6 +29,8 @@ export const clickOptionsModalHideButton = () => {
     expectOptionsModalToNotBeVisible()
 }
 
+// font styles //
+
 export const changeTextAlignOption = (type, optionName) => {
     cy.getBySel(`option-chart-${type}-text-style-text-align-select`).click()
     cy.getBySelLike(`option-chart-${type}-text-style-text-align-option`)
@@ -48,6 +51,16 @@ export const clickBoldButton = type =>
 export const clickItalicButton = type =>
     cy.getBySel(`option-chart-${type}-text-style-italic-toggle`).click()
 
+// FIXME: Find a way to test the color picker
+// export const changeTitleColorOption = color => {
+//     cy.getBySel('option-chart-title-text-style-text-color-picker')
+//         .invoke('val', color)
+//         .trigger('change')
+//         .blur()
+// }
+
+// subtitle //
+
 export const setCustomSubtitle = text => {
     cy.getBySel('option-chart-subtitle-type-radios')
         .contains('Custom')
@@ -57,10 +70,16 @@ export const setCustomSubtitle = text => {
         .type(text)
 }
 
-// FIXME: Find a way to test the color picker
-// export const changeTitleColorOption = color => {
-//     cy.getBySel('option-chart-title-text-style-text-color-picker')
-//         .invoke('val', color)
-//         .trigger('change')
-//         .blur()
-// }
+// lines //
+
+export const enableTrendLine = () =>
+    cy.getBySel('option-trend-line-checkbox').click()
+
+export const selectTrendLineType = optionName => {
+    cy.getBySel('option-trend-line-select')
+        .findBySel('dhis2-uicore-select')
+        .click()
+    cy.getBySel('option-trend-line-option')
+        .contains(optionName)
+        .click()
+}

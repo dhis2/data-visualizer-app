@@ -1,9 +1,10 @@
 import React from 'react'
 import i18n from '@dhis2/d2-i18n'
+import PropTypes from 'prop-types'
 
 import TextBaseOption from './TextBaseOption'
 
-const TargetLineValue = () => (
+const TargetLineValue = ({ dataTest }) => (
     <TextBaseOption
         type="number"
         width="96px"
@@ -13,7 +14,12 @@ const TargetLineValue = () => (
             name: 'targetLineValue',
         }}
         inline
+        dataTest={dataTest}
     />
 )
+
+TargetLineValue.propTypes = {
+    dataTest: PropTypes.string,
+}
 
 export default TargetLineValue

@@ -79,6 +79,7 @@ export const TextBaseOption = ({
                     <TextStyle
                         fontStyleKey={fontStyleKey}
                         disabled={disabled}
+                        dataTest={`${dataTest}-text-style`}
                     />
                 ) : null}
             </div>

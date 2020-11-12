@@ -1,6 +1,7 @@
 export const CONFIG_PROP = 'config'
 export const TITLE_PROP = 'title'
 export const SUBTITLE_PROP = 'subtitle'
+export const SERIES_PROP = 'series'
 
 export const CONFIG_DEFAULT_TITLE = {
     margin: 30,
@@ -89,3 +90,18 @@ export const CONFIG_DEFAULT_TARGET_LINE = {
 }
 
 export const CONFIG_DEFAULT_BASE_LINE = CONFIG_DEFAULT_TARGET_LINE
+
+export const CONFIG_DEFAULT_TREND_LINE = {
+    type: 'line',
+    //name: 'some name (trend)',
+    dashStyle: 'solid',
+    //color: 'rgb(141, 160, 30)',
+    lineWidth: 1,
+    marker: {
+        enabled: false,
+        symbol: 'circle',
+        radius: 2,
+    },
+    zIndex: 1,
+    // data: []
+}

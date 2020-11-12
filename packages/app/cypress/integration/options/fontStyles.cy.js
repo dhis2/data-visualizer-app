@@ -67,7 +67,7 @@ const getModifiedStyle = ({
     return modifiedStyle
 }
 
-describe('font styles', () => {
+describe('Options - Font styles', () => {
     it('navigates to the start page', () => {
         cy.visit('')
         expectStartScreenToBeVisible()
@@ -89,13 +89,14 @@ describe('font styles', () => {
             getTextAlignOptions(FONT_STYLE_VISUALIZATION_TITLE, VIS_TYPE_COLUMN)
         ).find(option => option.value === TEXT_ALIGN_LEFT)
         const type = TYPE_TITLE
+        const optionsTab = OPTIONS_TAB_STYLE
 
         it('has default value', () => {
             expectStoreConfigTitleToBeValue(CONFIG_DEFAULT_TITLE)
         })
-        it(`opens Options -> ${OPTIONS_TAB_STYLE}`, () => {
+        it(`opens Options -> ${optionsTab}`, () => {
             clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_STYLE)
+            clickOptionsTab(optionsTab)
         })
         it('changes the font size', () => {
             changeFontSizeOption(type, fontSizeOption.label)
