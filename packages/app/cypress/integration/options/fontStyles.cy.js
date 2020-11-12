@@ -173,4 +173,13 @@ describe('font styles', () => {
             expectStoreConfigSubtitleToBeValue(updatedSubtitle)
         })
     })
+    /*  TODO: 
+        legend key
+        target line
+        base line
+        vertical axis title
+        vertical labels
+        horizontal axis title
+        horizontal labels
+    */
 })
