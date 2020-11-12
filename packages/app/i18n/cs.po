@@ -19,27 +19,29 @@ msgid "Rename successful"
 msgstr "Přejmenování bylo úspěšné"
 
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
-msgstr ""
+msgstr "Vizualizace bez názvu {{visualizationType}}, {{date}}"
 
 msgid "\"{{what}}\" successfully deleted."
-msgstr ""
+msgstr "\"{{what}}\"  úspěšně smazáno."
 
 msgid "Data Visualizer"
 msgstr "Data Visualizer"
 
 msgid "Axis 1"
-msgstr ""
+msgstr "Osa 1"
 
 msgid "Axis 2"
-msgstr ""
+msgstr "Osa 2"
 
 msgid "Manage axes"
-msgstr ""
+msgstr "Spravujte osy"
 
 msgid ""
 "A chart can have two axes. Each axis will have its own scale. Set the axis "
 "for each data selection below."
 msgstr ""
+"Graf může mít dvě osy. Každá osa bude mít vlastní měřítko. Níže nastavte osu"
+" pro každý výběr dat."
 
 msgid "Cancel"
 msgstr "Zrušit"
@@ -51,6 +53,8 @@ msgid ""
 "'Single Value' is intended to show a single data item. Only the first item "
 "will be used and saved."
 msgstr ""
+"'Single Value'  má zobrazit jednu datovou položku. Bude použita a uložena "
+"pouze první položka."
 
 msgid "Hide"
 msgstr "Skrýt"
@@ -65,7 +69,7 @@ msgid "Graphics"
 msgstr "Grafika"
 
 msgid "Image (.png)"
-msgstr ""
+msgstr "Obrázek (.png)"
 
 msgid "PDF (.pdf)"
 msgstr "PDF (.pdf)"
@@ -92,19 +96,19 @@ msgid "Data value set"
 msgstr "Sada datových hodnot"
 
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 msgid "XML"
-msgstr ""
+msgstr "XML"
 
 msgid "Other formats"
 msgstr "Jiné formáty"
 
 msgid "JRXML"
-msgstr ""
+msgstr "JRXML"
 
 msgid "Raw data SQL"
-msgstr ""
+msgstr "Nezpracovaná data SQL"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "V aplikaci DHIS2 Data Visualizer došlo k chybě."
@@ -128,10 +132,10 @@ msgid "Interpretations"
 msgstr "Interpretace"
 
 msgid "{{total}} of 1 selected"
-msgstr ""
+msgstr "Vybráno {{total}} z 1"
 
 msgid "{{total}} selected"
-msgstr ""
+msgstr "Vybráno: {{total}}"
 
 msgid "Series"
 msgstr "Série"
@@ -146,16 +150,16 @@ msgid "None selected"
 msgstr "Není vybrán žádný"
 
 msgid "Only '{{name}}' in use"
-msgstr ""
+msgstr "Používá se pouze '{{name}}' "
 
 msgid "And 1 other..."
-msgstr ""
+msgstr "A 1 další ..."
 
 msgid "And {{numberOfItems}} others..."
-msgstr ""
+msgstr "A {{numberOfItems}} dalších ..."
 
 msgid "Unsaved chart"
-msgstr ""
+msgstr "Neuložený graf"
 
 msgid "Edited"
 msgstr "Upraveno"
@@ -164,16 +168,16 @@ msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "Prohlížení interpretací od {{interpretDate}}"
 
 msgid "Error validating layout"
-msgstr ""
+msgstr "Chyba při ověřování rozložení"
 
 msgid "Chart error"
-msgstr ""
+msgstr "Chyba grafu"
 
 msgid "Create a new visualization by adding dimensions to the layout"
-msgstr ""
+msgstr "Vytvořte novou vizualizaci přidáním dimenzí do rozložení"
 
 msgid "Error generating chart, please try again"
-msgstr ""
+msgstr "Při generování grafu došlo k chybě, zkuste to prosím znovu"
 
 msgid "Aggregation type"
 msgstr "Typ agregace"
@@ -221,7 +225,7 @@ msgid "Base line value"
 msgstr "Základní hodnota"
 
 msgid "Only include completed events"
-msgstr ""
+msgstr "Zahrnout pouze dokončené události"
 
 msgid "Use cumulative values"
 msgstr "Použít kumulativní hodnoty"
@@ -248,13 +252,13 @@ msgid "All"
 msgstr "Vše"
 
 msgid "Show legend key"
-msgstr ""
+msgstr "Zobrazit klíč legendy"
 
 msgid "Hide subtitle"
-msgstr ""
+msgstr "Skrýt podnadpis"
 
 msgid "Hide title"
-msgstr ""
+msgstr "Skrýt název"
 
 msgid "No space between columns/bars"
 msgstr "Mezi sloupci / pruhy není mezera"
@@ -263,27 +267,28 @@ msgid "Use 100% stacked values"
 msgstr "Použít 100% skládané hodnoty"
 
 msgid "Auto"
-msgstr ""
+msgstr "Automaticky"
 
 msgid "Range axis decimals"
-msgstr ""
+msgstr "Desetinný rozsah osy "
 
 msgid "Range axis title"
 msgstr "Název osy rozsahu"
 
 msgid "Range axis max"
-msgstr ""
+msgstr "Max. rozsah Osy"
 
 msgid "Range axis min"
-msgstr ""
+msgstr "Min. rozsah osy"
 
 msgid "Range axis tick steps"
-msgstr ""
+msgstr "Kroky rozsahu osy "
 
 msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
 msgstr ""
+"Počet kroků osy, včetně min a max. Hodnota 2 nebo nižší bude ignorována."
 
 msgid "Trend line"
 msgstr "Trendová čára"
@@ -328,7 +333,7 @@ msgid "Data"
 msgstr "Data"
 
 msgid "Axis & legend"
-msgstr ""
+msgstr "Osa a legenda"
 
 msgid "Style"
 msgstr "Styl"
@@ -376,68 +381,69 @@ msgid "Single value"
 msgstr "Jedna hodnota"
 
 msgid "Open as Map"
-msgstr ""
+msgstr "Otevřít jako mapu"
 
 msgid "Add to series"
-msgstr ""
+msgstr "Přidat do série"
 
 msgid "Add to category"
-msgstr ""
+msgstr "Přidat do kategorie"
 
 msgid "Add to filter"
-msgstr ""
+msgstr "Přidat do filtru"
 
 msgid "Move to series"
-msgstr ""
+msgstr "Přesunout do série"
 
 msgid "Move to category"
-msgstr ""
+msgstr "Přesunout do kategorie"
 
 msgid "Move to filter"
-msgstr ""
+msgstr "Přesunout do filtru"
 
 msgid "series"
-msgstr ""
+msgstr "série"
 
 msgid "category"
-msgstr ""
+msgstr "kategorie"
 
 msgid "filter"
-msgstr ""
+msgstr "filtr"
 
 msgid "Please add at least one {{series}} dimension"
-msgstr ""
+msgstr "Přidejte prosím alespoň jednu dimenzi {{series}}"
 
 msgid "Please add at least one {{category}} dimension"
-msgstr ""
+msgstr "Přidejte alespoň jednu dimenzi {{category}}"
 
 msgid ""
 "Please add at least one period as {{series}}, {{category}} or {{filter}}"
 msgstr ""
+"Přidejte alespoň jedno období jako {{series}}, {{category}} nebo {{filter}}"
 
 msgid "Please add {{data}} as {{category}} or {{filter}}"
-msgstr ""
+msgstr "Přidejte prosím {{data}} jako {{category}} nebo {{filter}}"
 
 msgid "Please add at least one period as {{series}} or {{filter}}"
-msgstr ""
+msgstr "Přidejte alespoň jedno období jako {{series}} nebo {{filter}}"
 
 msgid "Please add at least one {{filter}} dimension"
-msgstr ""
+msgstr "Přidejte alespoň jednu dimenzi {{filter}}"
 
 msgid "Please add at least one period as a {{series}} dimension"
-msgstr ""
+msgstr "Přidejte alespoň jedno období jako dimenzi {{series}}"
 
 msgid "Please add at least one period as a {{category}} dimension"
-msgstr ""
+msgstr "Přidejte alespoň jedno období jako dimenzi {{category}}"
 
 msgid "Please add {{data}} as a filter dimension"
-msgstr ""
+msgstr "Přidejte {{data}} jako dimenzi filtru "
 
 msgid "Please add one {{series}} dimension"
-msgstr ""
+msgstr "Přidejte prosím jednu dimenzi {{series}}"
 
 msgid "Please add at least one period as {{filter}}"
-msgstr ""
+msgstr "Přidejte alespoň jedno období jako {{filter}}"
 
 msgid "Today"
 msgstr "Dnes"
