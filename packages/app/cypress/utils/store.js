@@ -1,6 +1,6 @@
 // TODO: Rename file to Store and move to /elements?
 
-import { CONFIG_PROP, TITLE_PROP } from './config'
+import { CONFIG_PROP, TITLE_PROP, SUBTITLE_PROP } from './config'
 
 export const expectStoreCurrentToBeEmpty = () =>
     cy.getReduxState('current').should('be.null')
@@ -15,6 +15,12 @@ export const expectStoreConfigTitleToBeValue = value =>
     cy
         .getReduxState(CONFIG_PROP)
         .its(TITLE_PROP)
+        .should('eql', value)
+
+export const expectStoreConfigSubtitleToBeValue = value =>
+    cy
+        .getReduxState(CONFIG_PROP)
+        .its(SUBTITLE_PROP)
         .should('eql', value)
 
 // export const expectStoreCurrentFilterDimensionToHaveItemsLength = (

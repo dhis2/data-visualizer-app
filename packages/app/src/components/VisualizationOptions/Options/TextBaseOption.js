@@ -27,6 +27,7 @@ export const TextBaseOption = ({
     checked,
     inline,
     disabled,
+    dataTest,
 }) => (
     <div className={inline ? '' : tabSectionOption.className}>
         {toggleable ? (
@@ -37,6 +38,7 @@ export const TextBaseOption = ({
                 onChange={({ checked }) => onToggle(checked)}
                 dense
                 disabled={disabled}
+                dataTest={dataTest}
             />
         ) : null}
         {!toggleable || checked ? (
@@ -55,6 +57,7 @@ export const TextBaseOption = ({
                             placeholder={placeholder}
                             dense
                             disabled={disabled}
+                            dataTest={dataTest}
                         />
                     </Box>
                 ) : (
@@ -69,6 +72,7 @@ export const TextBaseOption = ({
                         inputWidth={width}
                         dense
                         disabled={disabled}
+                        dataTest={dataTest}
                     />
                 )}
                 {fontStyleKey ? (
@@ -84,6 +88,7 @@ export const TextBaseOption = ({
 
 TextBaseOption.propTypes = {
     checked: PropTypes.bool,
+    dataTest: PropTypes.string,
     disabled: PropTypes.bool,
     fontStyleKey: PropTypes.string,
     helpText: PropTypes.string,
