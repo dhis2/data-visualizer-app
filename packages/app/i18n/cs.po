@@ -19,13 +19,13 @@ msgid "Rename successful"
 msgstr "Přejmenování bylo úspěšné"
 
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
-msgstr ""
+msgstr "Vizualizace bez názvu {{visualizationType}}, {{date}}"
 
 msgid "\"{{what}}\" successfully deleted."
-msgstr ""
+msgstr "\"{{what}}\"  úspěšně smazáno."
 
 msgid "You have unsaved changes."
-msgstr ""
+msgstr "Máte neuložené změny."
 
 msgid "Discard unsaved changes?"
 msgstr "Zahodit neuložené změny?"
@@ -34,26 +34,30 @@ msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
 "be lost."
 msgstr ""
+"Opravdu chcete tuto vizualizaci opustit? Všechny neuložené změny budou "
+"ztraceny."
 
 msgid "No, cancel"
-msgstr ""
+msgstr "Ne, zrušit"
 
 msgid "Yes, leave"
-msgstr ""
+msgstr "Ano, odejít"
 
 msgid "Axis 1"
-msgstr ""
+msgstr "Osa 1"
 
 msgid "Axis 2"
-msgstr ""
+msgstr "Osa 2"
 
 msgid "Manage axes"
-msgstr ""
+msgstr "Spravujte osy"
 
 msgid ""
 "A chart can have two axes. Each axis will have its own scale. Set the axis "
 "for each data selection below."
 msgstr ""
+"Graf může mít dvě osy. Každá osa bude mít vlastní měřítko. Níže nastavte osu"
+" pro každý výběr dat."
 
 msgid "Cancel"
 msgstr "Zrušit"
@@ -68,17 +72,21 @@ msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
 "first item will be used and saved."
 msgstr ""
+"'{{visualizationType}}' je určen k zobrazení jedné datové položky. Bude "
+"použita a uložena pouze první položka."
 
 msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
+"'{{visualiationType}}' má zobrazit maximální počet položek {{maxNumber}}. "
+"Bude použito a uloženo pouze prvních {{maxNumber}} položek."
 
 msgid "Main dimensions"
 msgstr "Hlavní rozměry"
 
 msgid "Other dimensions"
-msgstr ""
+msgstr "Jiné dimenze"
 
 msgid "Your dimensions"
 msgstr "Vaše rozměry"
@@ -90,7 +98,7 @@ msgid "Graphics"
 msgstr "Grafika"
 
 msgid "Image (.png)"
-msgstr ""
+msgstr "Obrázek (.png)"
 
 msgid "PDF (.pdf)"
 msgstr "PDF (.pdf)"
@@ -99,13 +107,13 @@ msgid "Table layout"
 msgstr "Rozložení tabulky"
 
 msgid "Excel (.xls)"
-msgstr ""
+msgstr "Excel (.xls)"
 
 msgid "CSV (.csv)"
-msgstr ""
+msgstr "CSV (.csv)"
 
 msgid "HTML (.html)"
-msgstr ""
+msgstr "HTML (.html)"
 
 msgid "Download"
 msgstr "Stáhnout"
@@ -114,16 +122,16 @@ msgid "Plain data source"
 msgstr "Prostý zdroj dat"
 
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 msgid "XML"
-msgstr ""
+msgstr "XML"
 
 msgid "Excel"
-msgstr ""
+msgstr "Excel"
 
 msgid "CSV"
-msgstr ""
+msgstr "CSV"
 
 msgid "Advanced"
 msgstr "Pokročilý"
@@ -147,10 +155,10 @@ msgid "Other formats"
 msgstr "Jiné formáty"
 
 msgid "JRXML"
-msgstr ""
+msgstr "JRXML"
 
 msgid "Raw data SQL"
-msgstr ""
+msgstr "Nezpracovaná data SQL"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "V aplikaci DHIS2 Data Visualizer došlo k chybě."
@@ -174,37 +182,37 @@ msgid "Interpretations"
 msgstr "Interpretace"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr ""
+msgstr "Je vybráno {{total}} z {{axisMaxNumberOfItems}}"
 
 msgid "{{total}} selected"
-msgstr ""
+msgstr "Vybráno: {{total}}"
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
-msgstr ""
+msgstr "{{dimensionName}} je pro {{visTypeName}} uzamčen na {{axisName}}"
 
 msgid "None selected"
 msgstr "Není vybrán žádný"
 
 msgid "Only '{{- name}}' in use"
-msgstr ""
+msgstr "Používá se pouze '{{- name}}' "
 
 msgid "Only '{{number}}' in use"
-msgstr ""
+msgstr "Používá se pouze '{{number}}' "
 
 msgid "Levels"
-msgstr ""
+msgstr "Úrovně"
 
 msgid "Groups"
 msgstr "Skupiny"
 
 msgid "And 1 other..."
-msgstr ""
+msgstr "A 1 další ..."
 
 msgid "And {{numberOfItems}} others..."
-msgstr ""
+msgstr "A {{numberOfItems}} dalších ..."
 
 msgid "Unsaved visualization"
-msgstr ""
+msgstr "Neuložená vizualizace"
 
 msgid "Edited"
 msgstr "Upraveno"
@@ -213,27 +221,29 @@ msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "Prohlížení interpretací od {{interpretDate}}"
 
 msgid "Getting started"
-msgstr ""
+msgstr "Začínáme"
 
 msgid ""
 "All dimensions that you can use to build visualizations are shown in the "
 "left sidebar"
 msgstr ""
+"Všechny dimenze, které můžete použít k vytváření vizualizací, se zobrazují "
+"na levém postranním panelu"
 
 msgid "Add dimensions to the layout above"
-msgstr ""
+msgstr "Přidejte rozměry do výše uvedeného rozložení"
 
 msgid "Click a dimension to add or remove items"
-msgstr ""
+msgstr "Kliknutím na dimenzi přidáte nebo odeberete položky"
 
 msgid "Your most viewed charts and tables"
-msgstr ""
+msgstr "Vaše nejsledovanější grafy a tabulky"
 
 msgid "Aggregation type"
 msgstr "Typ agregace"
 
 msgid "Overrides aggregation type for all data values."
-msgstr ""
+msgstr "Přepíše typ agregace pro všechny datové hodnoty."
 
 msgid "By data element"
 msgstr "Podle datového prvku"
@@ -272,16 +282,16 @@ msgid "Data approved at level"
 msgstr "Data schválena na úrovni"
 
 msgid "Select from predefined levels"
-msgstr ""
+msgstr "Vybrat z předdefinovaných úrovní"
 
 msgid "Loading data approval levels"
-msgstr ""
+msgstr "Načítání úrovní schválení dat"
 
 msgid "Axis range"
-msgstr ""
+msgstr "Rozsah os"
 
 msgid "Values outside of the range will not be displayed"
-msgstr ""
+msgstr "Hodnoty mimo rozsah se nezobrazí"
 
 msgid "Base line"
 msgstr "Základní linie"
@@ -299,22 +309,22 @@ msgid "Number"
 msgstr "Číslo"
 
 msgid "Column sub-totals"
-msgstr ""
+msgstr "Mezisoučty sloupců"
 
 msgid "Columns totals"
-msgstr ""
+msgstr "Součty sloupců"
 
 msgid "Event data"
-msgstr ""
+msgstr "Data události"
 
 msgid "Only include completed events"
-msgstr ""
+msgstr "Zahrnout pouze dokončené události"
 
 msgid "Include cumulative"
 msgstr "Zahrnout kumulativní"
 
 msgid "Cumulative values"
-msgstr ""
+msgstr "Kumulativní hodnoty"
 
 msgid "Digit group separator"
 msgstr "Oddělovač skupin číslic"
@@ -341,10 +351,10 @@ msgid "Compact"
 msgstr "Kompaktní"
 
 msgid "Axis title"
-msgstr ""
+msgstr "Název osy"
 
 msgid "Add a title"
-msgstr ""
+msgstr "Přidat název"
 
 msgid "Font size"
 msgstr "Velikost písma"
@@ -377,16 +387,16 @@ msgid "Hide empty rows"
 msgstr "Skrýt prázdné řádky"
 
 msgid "Show legend key"
-msgstr ""
+msgstr "Zobrazit klíč legendy"
 
 msgid "Table subtitle"
-msgstr ""
+msgstr "Podtitul tabulky"
 
 msgid "Chart subtitle"
 msgstr "Podtitul grafu"
 
 msgid "Auto generated"
-msgstr ""
+msgstr "Automaticky generováno"
 
 msgid "Custom"
 msgstr "Vlastní"
@@ -398,57 +408,60 @@ msgid "Chart title"
 msgstr "Název grafu"
 
 msgid "Display legend"
-msgstr ""
+msgstr "Zobrazit legendu"
 
 msgid "Legend style"
 msgstr "Styl Legendy"
 
 msgid "Legend type"
-msgstr ""
+msgstr "Typ legendy"
 
 msgid "Use pre-defined legend per data item"
-msgstr ""
+msgstr "Použijte předdefinovanou legendu na datovou položku"
 
 msgid "Select a single legend for entire table"
-msgstr ""
+msgstr "Vyberte jednu legendu pro celou tabulku"
 
 msgid "Legend changes background color"
-msgstr ""
+msgstr "Legenda mění barvu pozadí"
 
 msgid "Legend changes text color"
-msgstr ""
+msgstr "Legenda mění barvu textu"
 
 msgid "Legend"
 msgstr "Legenda"
 
 msgid "Select from legends"
-msgstr ""
+msgstr "Vybrat si z legend"
 
 msgid "Loading legends"
-msgstr ""
+msgstr "Načítání legend"
 
 msgid ""
 "You can set a minimum or maximum value. This will apply to the entire table,"
 " all values outside of the minimum/maximum range will not be displayed"
 msgstr ""
+"Můžete nastavit minimální nebo maximální hodnotu. Toto bude platit pro celou"
+" tabulku, nebudou zobrazeny všechny hodnoty mimo minimální / maximální "
+"rozsah"
 
 msgid "Minimum data value"
-msgstr ""
+msgstr "Minimální hodnota dat"
 
 msgid "Maximum data value"
-msgstr ""
+msgstr "Maximální hodnota dat"
 
 msgid "Clear min/max limits"
-msgstr ""
+msgstr "Vymazat minimální / maximální limity"
 
 msgid "No space between bars/columns"
-msgstr ""
+msgstr "Mezi pruhy / sloupy není mezera"
 
 msgid "Number type"
 msgstr "Typ čísla"
 
 msgid "Display the value of percentages of the total"
-msgstr ""
+msgstr "Zobrazit hodnotu procent z celkové částky"
 
 msgid "Percentage of row"
 msgstr "Procento řádku"
@@ -466,18 +479,19 @@ msgid "Reporting period"
 msgstr "Doba ohlášení"
 
 msgid "Stacked values add up to 100%"
-msgstr ""
+msgstr "Skládané hodnoty se doplňují až do 100%"
 
 msgid "Decimals"
-msgstr ""
+msgstr "Desetinná místa"
 
 msgid "Auto"
-msgstr ""
+msgstr "Automaticky"
 
 msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
 msgstr ""
+"Počet kroků osy, včetně min a max. Hodnota 2 nebo nižší bude ignorována."
 
 msgid "Steps"
 msgstr "Kroky"
@@ -498,25 +512,25 @@ msgid "Loess"
 msgstr "Spraše"
 
 msgid "Row sub-totals"
-msgstr ""
+msgstr "Mezisoučty řádků"
 
 msgid "Row totals"
-msgstr ""
+msgstr "Součty řádků"
 
 msgid "Value labels"
-msgstr ""
+msgstr "Hodnotové štítky"
 
 msgid "Dimension labels"
-msgstr ""
+msgstr "Štítky dimenzí"
 
 msgid "Display organisation unit hierarchy"
-msgstr ""
+msgstr "Zobrazit hierarchii organizačních jednotek"
 
 msgid "Skip rounding"
 msgstr "Přeskočit zaokrouhlování"
 
 msgid "Custom sort order"
-msgstr ""
+msgstr "Vlastní řazení pořadí"
 
 msgid "Low to high"
 msgstr "Od nízkého po vysoký"
@@ -525,7 +539,7 @@ msgid "High to low"
 msgstr "Od nejvyšší k nejnižší"
 
 msgid "Add a subtitle"
-msgstr ""
+msgstr "Přidat podtitul"
 
 msgid "Target line"
 msgstr "Cílová linie"
@@ -540,7 +554,7 @@ msgid "Options"
 msgstr "Možnosti"
 
 msgid "Open as Map"
-msgstr ""
+msgstr "Otevřít jako mapu"
 
 msgid "Reporting rate"
 msgstr "Míra hlášení"
@@ -558,80 +572,93 @@ msgid "Expected reports"
 msgstr "Očekávané zprávy"
 
 msgid "No data available"
-msgstr ""
+msgstr "Údaje nejsou k dispozici"
 
 msgid ""
 "The selected dimensions didn’t return any data. There may be no data, or you"
 " may not have access to it."
 msgstr ""
+"Vybrané dimenze nevrátily žádné údaje. Možná nejsou k dispozici žádná data "
+"nebo k nim nemáte přístup."
 
 msgid "{{axisName}} is empty"
-msgstr ""
+msgstr "{{axisName}} je prázdný"
 
 msgid "Add at least one item to {{axisName}}."
-msgstr ""
+msgstr "Přidat alespoň jednu položku do {{axisName}}."
 
 msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
-msgstr ""
+msgstr "{{columnsAxisName}} a {{linesAxisName}} jsou prázdné"
 
 msgid ""
 "Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
 " {{visualizationType}}."
 msgstr ""
+"Přidejte alespoň jednu položku do {{columnsAxisName}} nebo {{linesAxisName}}"
+" a vytvořte {{visualizationType}}."
 
 msgid "No period selected"
-msgstr ""
+msgstr "Není vybráno žádné období"
 
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
 msgstr ""
+"{{visualizationType}} musí mít alespoň jedno období vybrané v {{axes}}."
 
 msgid "No data selected"
-msgstr ""
+msgstr "Nejsou vybrána žádná data"
 
 msgid ""
 "{{visualizationType}} must have at least one data item or data element group"
 " set item in {{axes}}."
 msgstr ""
+"{{visualizationType}} musí mít v {{axes}} alespoň jednu datovou položku nebo"
+" položku skupiny datových prvků."
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
 msgstr ""
+"{{visualizationType}} musí mít alespoň jednu datovou položku v {{axes}}."
 
 msgid "There's a problem with the layout"
-msgstr ""
+msgstr "Došlo k problému s rozvržením"
 
 msgid ""
 "A single indicator must be the only data item when using indicators as Data "
 "in Filter."
 msgstr ""
+"Jediný indikátor musí být jedinou datovou položkou, když používáte "
+"indikátory jako Data ve filtru."
 
 msgid "Data Element Group Sets and Reporting Rates cannot be used together."
-msgstr ""
+msgstr "Sady skupin datových prvků a sazby hlášení nelze použít společně."
 
 msgid "There is a problem with this {{visualizationType}} visualization."
-msgstr ""
+msgstr "S touto vizualizací {{visualizationType}} je problém."
 
 msgid "There was a problem getting the data from the server."
-msgstr ""
+msgstr "Při načítání dat ze serveru došlo k problému."
 
 msgid "Assigned Categories can only be used with data elements"
-msgstr ""
+msgstr "Přiřazené kategorie lze použít pouze s datovými prvky"
 
 msgid ""
 "Fix this problem by selecting data elements or removing Assigned Categories."
 msgstr ""
+"Opravte tento problém výběrem datových prvků nebo odebráním přiřazených "
+"kategorií."
 
 msgid "Assigned Categories cannot be used as Filter"
-msgstr ""
+msgstr "Přiřazené kategorie nelze použít jako filtr"
 
 msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr ""
+"Opravte tento problém přesunutím nebo odebráním přiřazených kategorií."
 
 msgid "Something went wrong"
 msgstr "Něco se pokazilo"
 
 msgid "or"
-msgstr ""
+msgstr "nebo"
 
 msgid "Today"
 msgstr "Dnes"
@@ -748,55 +775,55 @@ msgid "Data"
 msgstr "Data"
 
 msgid "Display"
-msgstr ""
+msgstr "Zobrazit"
 
 msgid "Axes"
 msgstr "Osy"
 
 msgid "Horizontal (x) axis"
-msgstr ""
+msgstr "Vodorovná (x) osa"
 
 msgid "Style"
 msgstr "Styl"
 
 msgid "Chart style"
-msgstr ""
+msgstr "Styl grafu"
 
 msgid "Titles"
-msgstr ""
+msgstr "Tituly"
 
 msgid "Lines"
-msgstr ""
+msgstr "Linie"
 
 msgid "Vertical (y) axis"
-msgstr ""
+msgstr "Svislá osa (y)"
 
 msgid "Display totals"
-msgstr ""
+msgstr "Zobrazit součty"
 
 msgid "Display empty data"
-msgstr ""
+msgstr "Zobrazit prázdná data"
 
 msgid "Labels"
 msgstr "Štítky"
 
 msgid "Limit values"
-msgstr ""
+msgstr "Mezní hodnoty"
 
 msgid "Limit number of values"
-msgstr ""
+msgstr "Omezit počet hodnot"
 
 msgid "Limit minimum/maximum values"
-msgstr ""
+msgstr "Mezní minimální / maximální hodnoty"
 
 msgid "Parameters"
 msgstr "Parametry"
 
 msgid "Lines are not supported yet when using multiple axes"
-msgstr ""
+msgstr "Při použití více os ještě nejsou řádky podporovány"
 
 msgid "Vertical axis options are not supported yet when using multiple axes"
-msgstr ""
+msgstr "Možnosti svislé osy ještě nejsou podporovány při použití více os"
 
 msgid "Weeks per year"
 msgstr "Týdnů za rok"
