@@ -1,6 +1,6 @@
 {
     "name": "@dhis2/data-visualizer-plugin",
-    "version": "35.13.7",
+    "version": "35.13.16",
     "description": "DHIS2 Data Visualizer plugin",
     "main": "./build/cjs/lib.js",
     "module": "./build/es/lib.js",
@@ -10,7 +10,7 @@
         "access": "public"
     },
     "dependencies": {
-        "@dhis2/analytics": "^11.1.1",
+        "@dhis2/analytics": "^11.2.0",
         "@dhis2/ui": "^5.6.1",
         "lodash-es": "^4.17.11"
     },
