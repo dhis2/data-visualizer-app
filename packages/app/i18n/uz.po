@@ -16,16 +16,16 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Rename successful"
-msgstr ""
+msgstr "Муваффақиятли қайта номлаш"
 
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
-msgstr ""
+msgstr "Номсиз {{visualizationType}} визуализация, {{date}}"
 
 msgid "\"{{deletedObject}}\" successfully deleted."
-msgstr ""
+msgstr "{{deletedObject}}\" муваффақиятли ўчирилди."
 
 msgid "You have unsaved changes."
-msgstr ""
+msgstr "Сизда сақланмаган ўзгартиришлар мавжуд."
 
 msgid "Discard unsaved changes?"
 msgstr "Сақланмаган ўзгаришлар бекор қилинсинми?"
@@ -34,12 +34,14 @@ msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
 "be lost."
 msgstr ""
+"Ҳақиқатдан ҳам ушбу визуализацияни тарк этмоқчимисиз? Ҳар қандай сақланмаган"
+" ўзгартиришлар йўқотилади."
 
 msgid "No, cancel"
-msgstr ""
+msgstr "Йўқ, бекор қилинг"
 
 msgid "Yes, leave"
-msgstr ""
+msgstr "Ҳа, қолдириб кетиш"
 
 msgid "Add to {{axisName}}"
 msgstr "{{axisName}} га қўшинг"
@@ -48,17 +50,22 @@ msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
 "first item will be used and saved."
 msgstr ""
+"'{{visualizationType}}' битта маълумот элементини кўрсатишга мўлжалланган. "
+"Фақат биринчи элемент ишлатилади ва сақланади."
 
 msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
+"'{{visualiationType}}' максимал {{maxNumber}} та сонни кўрсатишга "
+"мўлжалланган. Фақат биринчи {{maxNumber}} та элемент ишлатилади ва "
+"сақланади."
 
 msgid "Main dimensions"
 msgstr "Умумий ўлчамлар"
 
 msgid "Other dimensions"
-msgstr ""
+msgstr "Бошқа ўлчамлар"
 
 msgid "Your dimensions"
 msgstr "Сизнинг созламаларингиз"
@@ -70,25 +77,25 @@ msgid "Graphics"
 msgstr "Графика"
 
 msgid "Image (.png)"
-msgstr ""
+msgstr "Расм (.png)"
 
 msgid "PDF (.pdf)"
-msgstr ""
+msgstr "PDF (.pdf)"
 
 msgid "Table layout"
 msgstr "Жадвал макети"
 
 msgid "Excel (.xls)"
-msgstr ""
+msgstr "Excel (.xls)"
 
 msgid "CSV (.csv)"
-msgstr ""
+msgstr "CSV (.csv)"
 
 msgid "HTML (.html)"
-msgstr ""
+msgstr "HTML (.html)"
 
 msgid "Metadata ID scheme"
-msgstr ""
+msgstr "МетаМаълумот ID схемаси"
 
 msgid "ID"
 msgstr "ID"
@@ -112,7 +119,7 @@ msgid "XML"
 msgstr "XML"
 
 msgid "Excel"
-msgstr ""
+msgstr "Excel"
 
 msgid "CSV"
 msgstr "CSV"
@@ -127,13 +134,13 @@ msgid "Other formats"
 msgstr "Бошқа шакллар"
 
 msgid "JRXML"
-msgstr ""
+msgstr "JRXML"
 
 msgid "Raw data SQL"
-msgstr ""
+msgstr "Хом маълумотлар SQL"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr ""
+msgstr "DHIS2 Маълумотлар Визуализатор дастурида хатолик юз берди."
 
 msgid "Refresh to try again"
 msgstr "Ыайтиб уриниб кщрин учун аввал янгиланг"
@@ -154,16 +161,16 @@ msgid "Interpretations"
 msgstr "Талқинлар"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr ""
+msgstr "{{total}} / {{axisMaxNumberOfItems}} дан танланди"
 
 msgid "{{total}} selected"
-msgstr ""
+msgstr "{{total}} танланди"
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
-msgstr ""
+msgstr "{{dimensionName}} {{visTypeName}} учун {{axisName}} да қулфланган"
 
 msgid "None selected"
-msgstr ""
+msgstr "Бирор нима танланмаган"
 
 msgid "Only '{{- name}}' in use"
 msgstr ""
