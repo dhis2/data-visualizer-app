@@ -12,13 +12,19 @@ export const changeVisType = visTypeName => {
     cy.getBySel(vstCardEl)
         .contains(visTypeName)
         .click()
-        .then(() => {
-            expectVisTypeToBeValue(visTypeName)
-        })
+    expectVisTypeToBeValue(visTypeName)
 }
 
 export const expectVisTypeToBeValue = value =>
-    cy.getBySel(vstButtonTextEl).should('contain', value)
+    cy
+        .getBySel(vstButtonTextEl)
+        .contains(value)
+        .should('have.length', 1)
+        .and('be.visible')
 
 export const expectVisTypeToBeDefault = () =>
-    cy.getBySel(vstButtonTextEl).should('contain', defaultVisTypeName)
+    cy
+        .getBySel(vstButtonTextEl)
+        .contains(defaultVisTypeName)
+        .should('have.length', 1)
+        .and('be.visible')
