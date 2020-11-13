@@ -8,7 +8,7 @@ import {
     changeVisType,
     expectVisTypeToBeDefault,
 } from '../elements/VisualizationTypeSelector'
-import { expectStartScreenToBeVisible } from '../elements/StartScreen'
+import { goToStartPage } from '../elements/StartScreen'
 import {
     expectStoreCurrentToBeEmpty,
     expectStoreCurrentColumnsToHaveLength,
@@ -35,8 +35,7 @@ const dataElements = TEST_DATA_ELEMENTS.slice(0, 2).map(item => item.name)
 
 describe('creating a new AO', () => {
     it('navigates to the start page', () => {
-        cy.visit('')
-        expectStartScreenToBeVisible()
+        goToStartPage()
     })
     const availableVisTypes = visTypes
     availableVisTypes.forEach(visType => {
@@ -45,11 +44,9 @@ describe('creating a new AO', () => {
         describe(visTypeName, () => {
             it('creates a new AO', () => {
                 //createNewAO()
-                cy.visit('') // FIXME: Use visit since the "New" button is currently broken
+                goToStartPage() // FIXME: Use this since the "New" button is currently broken
                 expectStoreCurrentToBeEmpty()
                 expectVisualizationToNotBeVisible()
-
-                expectStartScreenToBeVisible()
                 expectVisTypeToBeDefault()
             })
             it('changes vis type', () => {

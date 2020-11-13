@@ -43,7 +43,10 @@ import {
     clickMenuBarUpdateButton,
 } from '../elements/MenuBar'
 import { selectYoyCategoryOption } from '../elements/Layout'
-import { expectStartScreenToBeVisible } from '../elements/StartScreen'
+import {
+    expectStartScreenToBeVisible,
+    goToStartPage,
+} from '../elements/StartScreen'
 
 const TEST_VIS_NAME = `TEST ${new Date().toLocaleString()}`
 const TEST_VIS_NAME_UPDATED = `${TEST_VIS_NAME} - updated`
@@ -56,8 +59,7 @@ const TEST_VIS_TYPE_NAME = visTypeDisplayNames[TEST_VIS_TYPE]
 describe('saving an AO', () => {
     describe('"save" and "save as" for a new AO', () => {
         it('navigates to the start page', () => {
-            cy.visit('')
-            expectStartScreenToBeVisible()
+            goToStartPage()
         })
         it(`changes vis type to ${TEST_VIS_TYPE_NAME}`, () => {
             changeVisType(TEST_VIS_TYPE_NAME)
@@ -137,8 +139,7 @@ describe('saving an AO', () => {
 
     describe('"save" and "save as" for a saved AO created by you', () => {
         it('navigates to the start page', () => {
-            cy.visit('')
-            expectStartScreenToBeVisible()
+            goToStartPage()
         })
         it('opens a saved AO ', () => {
             openAOByName(TEST_VIS_NAME_UPDATED)
@@ -170,8 +171,7 @@ describe('saving an AO', () => {
     /*
     describe('"save" for a saved AO created by others', () => {
         it('navigates to the start page', () => {
-            cy.visit('')
-            expectStartScreenToBeVisible()
+            goToStartPage()
         })
         it('opens a random AO created by others', () => {
             openRandomAOCreatedByOthers()

@@ -25,15 +25,14 @@ import {
     expectAxisToNotHaveDimension,
     expectLayoutToNotHaveDimension,
 } from '../elements/Layout'
-import { expectStartScreenToBeVisible } from '../elements/StartScreen'
+import { goToStartPage } from '../elements/StartScreen'
 
 const TEST_FIXED_DIMS = Object.values(getFixedDimensions())
 const TEST_DYNAMIC_DIMS = Object.values(getDynamicDimensions())
 
 describe('interacting with the dimensions panel', () => {
     it('navigates to the start page', () => {
-        cy.visit('')
-        expectStartScreenToBeVisible()
+        goToStartPage()
     })
     describe('clicking layout items', () => {
         TEST_FIXED_DIMS.forEach(dim => {

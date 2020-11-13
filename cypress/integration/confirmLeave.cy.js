@@ -15,13 +15,15 @@ import {
 } from '../elements/DimensionModal'
 import { openDimension } from '../elements/DimensionsPanel'
 import { createNewAO, openRandomAO } from '../elements/FileMenu'
-import { expectStartScreenToBeVisible } from '../elements/StartScreen'
+import {
+    expectStartScreenToBeVisible,
+    goToStartPage,
+} from '../elements/StartScreen'
 import { TEST_DATA_ELEMENTS } from '../utils/data'
 
 describe('confirm leave modal', () => {
     it('navigates to the start page', () => {
-        cy.visit('')
-        expectStartScreenToBeVisible()
+        goToStartPage()
     })
     it('loads a random saved AO', () => {
         openRandomAO()

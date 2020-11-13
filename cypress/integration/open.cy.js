@@ -6,7 +6,7 @@ import {
     expectAOTitleToNotBeDirty,
     expectVisualizationToBeVisible,
 } from '../elements/Chart'
-import { expectStartScreenToBeVisible } from '../elements/StartScreen'
+import { goToStartPage } from '../elements/StartScreen'
 import {
     clickDimensionModalUpdateButton,
     selectRelativePeriods,
@@ -20,8 +20,7 @@ import { expectRouteToBeAOId, expectRouteToBeEmpty } from '../elements/Route'
 
 describe('opening a saved AO', () => {
     it('navigates to the start page', () => {
-        cy.visit('')
-        expectStartScreenToBeVisible()
+        goToStartPage()
     })
     TEST_AOS.forEach(ao => {
         describe(visTypeDisplayNames[ao.type], () => {

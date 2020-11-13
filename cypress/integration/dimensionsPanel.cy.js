@@ -32,7 +32,7 @@ import {
     expectRecommendedIconToBeVisible,
 } from '../elements/DimensionsPanel'
 import { expectAxisToHaveDimension } from '../elements/Layout'
-import { expectStartScreenToBeVisible } from '../elements/StartScreen'
+import { goToStartPage } from '../elements/StartScreen'
 import {
     TEST_CUSTOM_DIMENSIONS,
     TEST_DEFAULT_RECOMMENDED_DIMENSIONS,
@@ -45,8 +45,7 @@ const TEST_CUSTOM_DIMS = [getRandomArrayItem(TEST_CUSTOM_DIMENSIONS)]
 
 describe('interacting with the dimensions panel', () => {
     it('navigates to the start page', () => {
-        cy.visit('')
-        expectStartScreenToBeVisible()
+        goToStartPage()
     })
     describe('displays recommended icons', () => {
         ;[getRandomArrayItem(TEST_DEFAULT_RECOMMENDED_DIMENSIONS)].forEach(

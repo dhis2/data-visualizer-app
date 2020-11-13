@@ -6,6 +6,11 @@ const secondaryTitleEl = 'start-screen-secondary-section-title'
 const mostViewedListItemAmount = 6
 const mostViewedListItemEl = 'start-screen-most-viewed-list-item'
 
+export const goToStartPage = () => {
+    cy.visit('')
+    expectStartScreenToBeVisible()
+}
+
 export const expectStartScreenToBeVisible = () =>
     cy
         .getBySel(primaryTitleEl, {

@@ -4,7 +4,7 @@ import {
     selectDataElements,
     clickDimensionModalUpdateButton,
 } from '../../elements/DimensionModal'
-import { expectStartScreenToBeVisible } from '../../elements/StartScreen'
+import { goToStartPage } from '../../elements/StartScreen'
 import {
     expectStoreConfigSeriesToHaveTrendline,
     expectStoreConfigSeriesToNotHaveTrendline,
@@ -27,8 +27,7 @@ const dataElements = TEST_DATA_ELEMENTS.slice(3, 5).map(item => item.name)
 
 describe('Options - Lines', () => {
     it('navigates to the start page', () => {
-        cy.visit('')
-        expectStartScreenToBeVisible()
+        goToStartPage()
     })
     it('adds dimensions', () => {
         openDimension(dimensionId)

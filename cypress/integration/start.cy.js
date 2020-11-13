@@ -25,7 +25,7 @@ import {
 import { clickMenuBarFileButton } from '../elements/MenuBar'
 import {
     expectMostViewedToBeVisible,
-    expectStartScreenToBeVisible,
+    goToStartPage,
 } from '../elements/StartScreen'
 import { expectVisTypeToBeDefault } from '../elements/VisualizationTypeSelector'
 import { expectWindowTitleToBeDefault } from '../elements/Window'
@@ -33,8 +33,7 @@ import { expectStoreCurrentToBeEmpty } from '../utils/store'
 
 describe('viewing the start screen', () => {
     it('navigates to the start page', () => {
-        cy.visit('')
-        expectStartScreenToBeVisible()
+        goToStartPage()
     })
     it('window has a title', () => {
         expectWindowTitleToBeDefault()

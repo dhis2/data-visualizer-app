@@ -4,7 +4,7 @@ import {
     selectDataElements,
     clickDimensionModalUpdateButton,
 } from '../../elements/DimensionModal'
-import { expectStartScreenToBeVisible } from '../../elements/StartScreen'
+import { goToStartPage } from '../../elements/StartScreen'
 import {
     expectStoreConfigSubtitleToBeValue,
     expectStoreConfigTitleToBeValue,
@@ -73,8 +73,7 @@ const getModifiedStyle = ({
 
 describe('Options - Font styles', () => {
     it('navigates to the start page', () => {
-        cy.visit('')
-        expectStartScreenToBeVisible()
+        goToStartPage()
     })
     it('adds dimensions', () => {
         openDimension(dimensionId)
