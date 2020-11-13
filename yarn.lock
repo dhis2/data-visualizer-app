@@ -2050,10 +2050,10 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^11.2.0":
-  version "11.2.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-11.2.0.tgz#977ca4af5e25f825816474b7a7855b9abbb757af"
-  integrity sha512-JAINZQEdXbGqIQUotu6q1/8MAwFpsweMzgB3SCrekOJ3W7K8tJlXDC6FJ3qImppu2OaSv36HQjS6APCCw0y3sA==
+"@dhis2/analytics@^11.2.4":
+  version "11.2.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-11.2.4.tgz#a8bd769d9fae6bea4d8eab7dfe9fc0cf1f6dfce2"
+  integrity sha512-6EwRn8w5k9MvVPSKGgnZ/YEcJjo3IPquF0nTnaZn00GKf46QVGeLp0OzesAcquTP2MFk849etR4FeNy4O0dFPw==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.8"
     "@dhis2/ui" "^5.5.6"
@@ -13698,6 +13698,11 @@ regenerator-runtime@^0.11.0:
   version "0.11.1"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
   integrity sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==
+
+regenerator-runtime@^0.12.0:
+  version "0.12.1"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.12.1.tgz#fa1a71544764c036f8c49b13a08b2594c9f8a0de"
+  integrity sha512-odxIc1/vDlo4iZcfXqRYFj0vpXFNoGdKMAUieAlFYO6m/nl5e9KR/beGf41z4a1FI+aQgtjhuaSlDxQ0hmkrHg==
 
 regenerator-runtime@^0.13.3:
   version "0.13.5"
