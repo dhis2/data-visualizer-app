@@ -1,3 +1,9 @@
+import {
+    DIMENSION_ID_DATA,
+    isYearOverYear,
+    visTypeDisplayNames,
+} from '@dhis2/analytics'
+
 import { openDimension } from '../elements/DimensionsPanel'
 import {
     selectDataElements,
@@ -12,11 +18,6 @@ import {
     expectAOTitleToNotBeDirty,
     expectVisualizationToBeVisible,
 } from '../elements/Chart'
-import {
-    DIMENSION_ID_DATA,
-    isYearOverYear,
-    visTypeDisplayNames,
-} from '@dhis2/analytics'
 import { TEST_DATA_ELEMENTS } from '../utils/data'
 import {
     //openRandomAOCreatedByOthers,
@@ -56,6 +57,7 @@ describe('saving an AO', () => {
     describe('"save" and "save as" for a new AO', () => {
         it('navigates to the start page', () => {
             cy.visit('')
+            expectStartScreenToBeVisible()
         })
         it(`changes vis type to ${TEST_VIS_TYPE_NAME}`, () => {
             changeVisType(TEST_VIS_TYPE_NAME)
@@ -136,6 +138,7 @@ describe('saving an AO', () => {
     describe('"save" and "save as" for a saved AO created by you', () => {
         it('navigates to the start page', () => {
             cy.visit('')
+            expectStartScreenToBeVisible()
         })
         it('opens a saved AO ', () => {
             openAOByName(TEST_VIS_NAME_UPDATED)
@@ -168,6 +171,7 @@ describe('saving an AO', () => {
     describe('"save" for a saved AO created by others', () => {
         it('navigates to the start page', () => {
             cy.visit('')
+            expectStartScreenToBeVisible()
         })
         it('opens a random AO created by others', () => {
             openRandomAOCreatedByOthers()
