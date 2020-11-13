@@ -2429,7 +2429,7 @@
     "@dhis2/prop-types" "^1.6.4"
     classnames "^2.2.6"
 
-"@dhis2/ui@^5.4.2", "@dhis2/ui@^5.6.1":
+"@dhis2/ui@^5.4.2":
   version "5.6.1"
   resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-5.6.1.tgz#f5fe55de9b7a2e553c50f21a76544f42c242d5b3"
   integrity sha512-C/tJ0tn8uIXkJlFGx01NiZt2Cn5pFRy3onlvz7t70PH3E5dddaAOgcdVxlAPSS2WkESdv2iDIh26w8AZtoO7VQ==
@@ -2440,7 +2440,7 @@
     "@dhis2/ui-icons" "5.6.1"
     "@dhis2/ui-widgets" "5.6.1"
 
-"@dhis2/ui@^5.5.6":
+"@dhis2/ui@^5.5.6", "@dhis2/ui@^5.7.3":
   version "5.7.3"
   resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-5.7.3.tgz#78c6abdf2482a9ebb487f6d6666111a59f4ebb06"
   integrity sha512-MXc9JxTJ5Z9tmDJbzNKsjcTJfvUWkypdTV2fGmaMpx3HInx+w8Y3FhivUrcsFXtpARmG/58YerWwYZaWS0OyBQ==
