@@ -16,7 +16,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Rename successful"
-msgstr ""
+msgstr "Муваффақиятли қайта номлаш"
 
 msgid "\"{{what}}\" successfully deleted."
 msgstr ""
@@ -67,10 +67,10 @@ msgid "Graphics"
 msgstr "Графика"
 
 msgid "Image (.png)"
-msgstr ""
+msgstr "Расм (.png)"
 
 msgid "PDF (.pdf)"
-msgstr ""
+msgstr "PDF (.pdf)"
 
 msgid "Plain data source"
 msgstr "Оддий маълумотлар манбаи"
@@ -79,7 +79,7 @@ msgid "Advanced"
 msgstr "Илғор"
 
 msgid "Metadata ID scheme"
-msgstr ""
+msgstr "МетаМаълумот ID схемаси"
 
 msgid "Data value set"
 msgstr "Маълумотлар қиймати ўрнатилган"
@@ -88,7 +88,7 @@ msgid "Other formats"
 msgstr "Бошқа шакллар"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr ""
+msgstr "DHIS2 Маълумотлар Визуализатор дастурида хатолик юз берди."
 
 msgid "Something went wrong"
 msgstr "Нимадир нотўғри бажарилди"
@@ -127,7 +127,7 @@ msgid "Move to"
 msgstr ""
 
 msgid "None selected"
-msgstr ""
+msgstr "Ҳеч ким танламади"
 
 msgid "Unsaved chart"
 msgstr ""
