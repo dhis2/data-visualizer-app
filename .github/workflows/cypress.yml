@@ -7,11 +7,13 @@ on:
     pull_request:
 
 env:
-    SERVER_START_CMD: 'yarn --cwd packages/app cypress:start'
+    SERVER_START_CMD: 'yarn cypress:start'
     SERVER_URL: 'http://localhost:3000'
     CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
     cypress_dhis2_base_url: ${{ secrets.REACT_APP_DHIS2_BASE_URL }}
     REACT_APP_DHIS2_BASE_URL: ${{ secrets.REACT_APP_DHIS2_BASE_URL }}
+    dhis2_username: ${{ secrets.DHIS2_USERNAME }}
+    dhis2_password: ${{ secrets.DHIS_PASSWORD }}
 
 jobs:
     e2e:
