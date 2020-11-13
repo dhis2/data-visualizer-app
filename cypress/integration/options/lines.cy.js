@@ -43,8 +43,8 @@ describe('Options - Lines', () => {
         const optionsTab = OPTIONS_TAB_DATA
         const trendLineTypes = [
             { name: 'Polynomial', type: 'spline' },
-            //{ name: 'Loess', type: 'spline' },
-            //{ name: 'Linear', type: 'line' },
+            { name: 'Loess', type: 'spline' },
+            { name: 'Linear', type: 'line' },
         ]
 
         it('has default value', () => {

@@ -73,7 +73,11 @@ export const setCustomSubtitle = text => {
 // lines //
 
 export const enableTrendLine = () =>
-    cy.getBySel('option-trend-line-checkbox').click()
+    cy
+        .getBySel('option-trend-line-checkbox')
+        .find('[type="checkbox"]')
+        .check({ force: true })
+        .should('be.checked')
 
 export const selectTrendLineType = optionName => {
     cy.getBySel('option-trend-line-select')
