@@ -58,7 +58,6 @@ describe('Options - Lines', () => {
                 })
                 it('enable trendline', () => {
                     enableTrendLine()
-                    // FIXME: only check if it isn't checked
                 })
                 it('select trendline type', () => {
                     selectTrendLineType(trendLineType.name)
@@ -79,4 +78,5 @@ describe('Options - Lines', () => {
             })
         })
     })
+    // TODO: Base line and target line
 })
