@@ -7,7 +7,11 @@ const mostViewedListItemAmount = 6
 const mostViewedListItemEl = 'start-screen-most-viewed-list-item'
 
 export const expectStartScreenToBeVisible = () =>
-    cy.getBySel(primaryTitleEl).should('contain', primaryTitleText)
+    cy
+        .getBySel(primaryTitleEl, {
+            timeout: 10000,
+        })
+        .should('contain', primaryTitleText)
 
 export const expectMostViewedToBeVisible = () => {
     cy.getBySel(secondaryTitleEl).should('contain', secondaryTitleText)

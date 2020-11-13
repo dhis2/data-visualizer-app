@@ -20,7 +20,6 @@ const AOTitleEl = 'AO-title'
 const AOTitleDirtyEl = 'AO-title-dirty'
 
 const TIMEOUT_PARAMS = {
-    log: false,
     timeout: 10000,
 }
 const NON_HIGHCHARTS_TYPES = [VIS_TYPE_PIVOT_TABLE, VIS_TYPE_SINGLE_VALUE]
