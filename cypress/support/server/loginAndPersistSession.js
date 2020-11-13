@@ -1,6 +1,6 @@
-import { getDefaultMode, isStubMode, getApiBaseUrl } from './utils.js'
+import { getApiBaseUrl } from './utils.js'
 
-export default function loginAndPersistSession(mode = getDefaultMode()) {
+export default function loginAndPersistSession() {
     const baseUrl = getApiBaseUrl()
 
     beforeEach(() => {
@@ -13,10 +13,7 @@ export default function loginAndPersistSession(mode = getDefaultMode()) {
         Cypress.Cookies.preserveOnce('JSESSIONID')
     })
 
-    if (!isStubMode(mode)) {
-        // log in if using a live backend
-        before(() => {
-            cy.login()
-        })
-    }
+    before(() => {
+        cy.login()
+    })
 }
