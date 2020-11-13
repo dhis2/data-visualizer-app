@@ -1,27 +1,21 @@
-//import { createNewAO } from '../elements/FileMenu'
-import { openDimension } from '../elements/DimensionsPanel'
+import { openDimension } from '../../elements/DimensionsPanel'
+//import { createNewAO } from '../../elements/FileMenu'
 import {
     selectDataElements,
     clickDimensionModalUpdateButton,
-} from '../elements/DimensionModal'
-import { expectStartScreenToBeVisible } from '../elements/StartScreen'
+} from '../../elements/DimensionModal'
+import { expectStartScreenToBeVisible } from '../../elements/StartScreen'
 import {
     expectStoreConfigSubtitleToBeValue,
     expectStoreConfigTitleToBeValue,
-} from '../utils/store'
-import { expectVisualizationToBeVisible } from '../elements/Chart'
+} from '../../utils/store'
+import { expectVisualizationToBeVisible } from '../../elements/Chart'
+import { TEST_DATA_ELEMENTS } from '../../utils/data'
 import {
-    DIMENSION_ID_DATA,
-    FONT_STYLE_VISUALIZATION_TITLE,
-    getFontSizeOptions,
-    getTextAlignOptions,
-    VIS_TYPE_COLUMN,
-    TEXT_ALIGN_LEFT,
-    FONT_STYLE_VISUALIZATION_SUBTITLE,
-} from '@dhis2/analytics'
-import { TEST_DATA_ELEMENTS } from '../utils/data'
-import { CONFIG_DEFAULT_SUBTITLE, CONFIG_DEFAULT_TITLE } from '../utils/config'
-import { clickMenuBarOptionsButton } from '../elements/MenuBar'
+    CONFIG_DEFAULT_SUBTITLE,
+    CONFIG_DEFAULT_TITLE,
+} from '../../utils/config'
+import { clickMenuBarOptionsButton } from '../../elements/MenuBar'
 import {
     changeFontSizeOption,
     clickOptionsModalUpdateButton,
@@ -33,7 +27,17 @@ import {
     TYPE_TITLE,
     TYPE_SUBTITLE,
     setCustomSubtitle,
-} from '../elements/OptionsModal'
+} from '../../elements/OptionsModal'
+
+import {
+    DIMENSION_ID_DATA,
+    FONT_STYLE_VISUALIZATION_TITLE,
+    getFontSizeOptions,
+    getTextAlignOptions,
+    VIS_TYPE_COLUMN,
+    TEXT_ALIGN_LEFT,
+    FONT_STYLE_VISUALIZATION_SUBTITLE,
+} from '@dhis2/analytics'
 
 const dimensionId = DIMENSION_ID_DATA
 const dataElements = TEST_DATA_ELEMENTS.slice(0, 2).map(item => item.name)
