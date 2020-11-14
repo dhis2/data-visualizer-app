@@ -82,7 +82,7 @@ msgid "Advanced"
 msgstr "متقدم"
 
 msgid "Metadata ID scheme"
-msgstr "مخطط معرف البيانات الوصفية"
+msgstr "مخطط ID البيانات الوصفية"
 
 msgid "Data value set"
 msgstr "حزمة قيم البيانات"
@@ -223,7 +223,7 @@ msgid "All"
 msgstr "الجميع"
 
 msgid "Hide chart legend"
-msgstr "إخفاء وسيلة الإيضاح للمخطط البياني"
+msgstr "إخفاء مفتاح الإيضاح للمخطط البياني"
 
 msgid "Hide subtitle"
 msgstr "إخفاء العنوان الفرعي"
@@ -238,19 +238,19 @@ msgid "Use 100% stacked values"
 msgstr "استخدم قيم مكدسة بنسبة 100٪"
 
 msgid "Range axis decimals"
-msgstr ""
+msgstr "عشريات محور المدى"
 
 msgid "Range axis title"
 msgstr "عنوان محور المجال"
 
 msgid "Range axis max"
-msgstr ""
+msgstr "أعلى قيمة لمحور المدى"
 
 msgid "Range axis min"
-msgstr ""
+msgstr "أدنى قيمة لمحور المدى"
 
 msgid "Range axis tick steps"
-msgstr ""
+msgstr "خطوات علامة محور المدى"
 
 msgid "Trend line"
 msgstr "خط الاتجاه"
@@ -262,7 +262,7 @@ msgid "Polynomial"
 msgstr "متعدد الحدود"
 
 msgid "Loess"
-msgstr ""
+msgstr "Loess"
 
 msgid "Show values"
 msgstr "إظهار القيم"
@@ -292,7 +292,7 @@ msgid "Chart title"
 msgstr "عنوان المخطط البياني"
 
 msgid "Axis & legend"
-msgstr ""
+msgstr "المحور والمفتاح الإيضاحي"
 
 msgid "Style"
 msgstr "المظهر"
@@ -400,41 +400,43 @@ msgid "Organisation Unit"
 msgstr "الوحدة التنظيمية"
 
 msgid "Add to series"
-msgstr ""
+msgstr "إضافة للسلسة"
 
 msgid "Add to category"
-msgstr ""
+msgstr "إضافة للفئة"
 
 msgid "Add to filter"
-msgstr ""
+msgstr "إضافة لعامل التصفية"
 
 msgid "series"
-msgstr ""
+msgstr "سلسلة"
 
 msgid "category"
-msgstr ""
+msgstr "فئة"
 
 msgid "filter"
-msgstr ""
+msgstr "عامل تصفية"
 
 msgid "Please add at least one {{series}} dimension"
-msgstr ""
+msgstr "الرجاء إضافة بُعد {{series}} واحد على الأقل"
 
 msgid "Please add at least one {{category}} dimension"
-msgstr ""
+msgstr "الرجاء إضافة بُعد {{category}} واحد على الأقل"
 
 msgid ""
 "Please add at least one period as {{series}}, {{category}} or {{filter}}"
 msgstr ""
+"الرجاء إضافة فترة واحدة على الأقل كـ {{series}} أو {{category}} أو "
+"{{filter}}"
 
 msgid "Please add at least one period as a {{series}} dimension"
-msgstr ""
+msgstr "الرجاء إضافة فترة واحدة على الأقل كبُعد {{series}}"
 
 msgid "Please add at least one period as a {{category}} dimension"
-msgstr ""
+msgstr "الرجاء إضافة فترة واحدة على الأقل كبُعد {{category}}"
 
 msgid "Please add {{data}} as a filter dimension"
-msgstr ""
+msgstr "الرجاء إضافة {{data}} كبُعد عامل تصفية"
 
 msgid "Today"
 msgstr "اليوم"
