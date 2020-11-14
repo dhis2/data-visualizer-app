@@ -2,15 +2,15 @@
 # Translators:
 # phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
-# Hamza Assada <7amza.it@gmail.com>, 2020
 # KRG HIS <antonia.bezenchek@informa.pro>, 2020
+# Hamza Assada <7amza.it@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-09T14:22:42.172Z\n"
 "PO-Revision-Date: 2020-03-02 13:01+0000\n"
-"Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2020\n"
+"Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2020\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +22,7 @@ msgid "Rename successful"
 msgstr "تمت إعادة التسمية بنجاح"
 
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
-msgstr ""
+msgstr "عرض مرئي {{visualizationType}} بلا عنوان ، {{date}}"
 
 msgid "\"{{what}}\" successfully deleted."
 msgstr "تم حذف \"{{what}}\" بنجاح"
@@ -112,10 +112,10 @@ msgid "Excel (.xls)"
 msgstr "إكسل (.xls)"
 
 msgid "CSV (.csv)"
-msgstr ""
+msgstr "CSV (.csv)"
 
 msgid "HTML (.html)"
-msgstr ""
+msgstr "HTML (.html)"
 
 msgid "Download"
 msgstr "تحميل"
@@ -139,13 +139,13 @@ msgid "Advanced"
 msgstr "متقدم"
 
 msgid "Metadata ID scheme"
-msgstr "مخطط معرف البيانات الوصفية"
+msgstr "مخطط ID البيانات الوصفية"
 
 msgid "ID"
-msgstr "المعرف"
+msgstr "ID"
 
 msgid "Code"
-msgstr "الرمز"
+msgstr "الكود"
 
 msgid "Name"
 msgstr "الإسم"
@@ -157,7 +157,7 @@ msgid "Other formats"
 msgstr "صيغ أخرى"
 
 msgid "JRXML"
-msgstr ""
+msgstr "JRXML"
 
 msgid "Raw data SQL"
 msgstr "للبيانات الأولية SQL "
@@ -208,7 +208,7 @@ msgid "Groups"
 msgstr "المجموعات"
 
 msgid "And 1 other..."
-msgstr ""
+msgstr "و 1 غيرها ..."
 
 msgid "And {{numberOfItems}} others..."
 msgstr "و {{numberOfItems}} أخرى..."
@@ -245,7 +245,7 @@ msgid "Aggregation type"
 msgstr "نوع التجميع"
 
 msgid "Overrides aggregation type for all data values."
-msgstr ""
+msgstr "إعادة كتابة نوع التجميع لكل قيم البيانات."
 
 msgid "By data element"
 msgstr "بواسطة عنصر البيانات"
@@ -389,7 +389,7 @@ msgid "Hide empty rows"
 msgstr "إخفاء الصفوف الفارغة"
 
 msgid "Show legend key"
-msgstr ""
+msgstr "إظهار المفتاح الإيضاحي"
 
 msgid "Table subtitle"
 msgstr "العنوان الفرعي للجدول"
@@ -492,6 +492,8 @@ msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
 msgstr ""
+"عدد خطوات علامة المحور ، بما في ذلك الحد الأدنى والحد الأقصى. سيتم تجاهل 2 "
+"خطوة أو أقل."
 
 msgid "Steps"
 msgstr "الخطوات"
@@ -509,7 +511,7 @@ msgid "Polynomial"
 msgstr "متعدد الحدود"
 
 msgid "Loess"
-msgstr ""
+msgstr "Loess"
 
 msgid "Row sub-totals"
 msgstr "المجاميع الفرعية للصف"
@@ -818,10 +820,10 @@ msgid "Parameters"
 msgstr "المعاملات"
 
 msgid "Lines are not supported yet when using multiple axes"
-msgstr ""
+msgstr "مازال الرسم الخطي غير مدعوم عند استخدام محاور متعددة"
 
 msgid "Vertical axis options are not supported yet when using multiple axes"
-msgstr ""
+msgstr "مازالت خيارات المحور الرأسي غير مدعومة عند استخدام محاور متعددة"
 
 msgid "Weeks per year"
 msgstr "أسابيع في السنة"
