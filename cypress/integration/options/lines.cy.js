@@ -1,3 +1,5 @@
+import { DIMENSION_ID_DATA, VIS_TYPE_COLUMN } from '@dhis2/analytics'
+
 //import { createNewAO } from '../elements/FileMenu'
 import { openDimension } from '../../elements/DimensionsPanel'
 import {
@@ -10,7 +12,6 @@ import {
     expectStoreConfigSeriesToNotHaveTrendline,
 } from '../../utils/store'
 import { expectVisualizationToBeVisible } from '../../elements/Chart'
-import { DIMENSION_ID_DATA, VIS_TYPE_COLUMN } from '@dhis2/analytics'
 import { TEST_DATA_ELEMENTS } from '../../utils/data'
 import { clickMenuBarOptionsButton } from '../../elements/MenuBar'
 import {

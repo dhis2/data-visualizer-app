@@ -2,6 +2,7 @@ export const CONFIG_PROP = 'config'
 export const TITLE_PROP = 'title'
 export const SUBTITLE_PROP = 'subtitle'
 export const SERIES_PROP = 'series'
+export const Y_AXIS_PROP = 'yAxis'
 
 export const CONFIG_DEFAULT_TITLE = {
     margin: 30,

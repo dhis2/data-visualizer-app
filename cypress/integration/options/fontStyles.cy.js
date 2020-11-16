@@ -1,3 +1,13 @@
+import {
+    DIMENSION_ID_DATA,
+    FONT_STYLE_VISUALIZATION_TITLE,
+    getFontSizeOptions,
+    getTextAlignOptions,
+    VIS_TYPE_COLUMN,
+    TEXT_ALIGN_LEFT,
+    FONT_STYLE_VISUALIZATION_SUBTITLE,
+} from '@dhis2/analytics'
+
 import { openDimension } from '../../elements/DimensionsPanel'
 //import { createNewAO } from '../../elements/FileMenu'
 import {
@@ -28,16 +38,6 @@ import {
     TYPE_SUBTITLE,
     setCustomSubtitle,
 } from '../../elements/OptionsModal'
-
-import {
-    DIMENSION_ID_DATA,
-    FONT_STYLE_VISUALIZATION_TITLE,
-    getFontSizeOptions,
-    getTextAlignOptions,
-    VIS_TYPE_COLUMN,
-    TEXT_ALIGN_LEFT,
-    FONT_STYLE_VISUALIZATION_SUBTITLE,
-} from '@dhis2/analytics'
 
 const dimensionId = DIMENSION_ID_DATA
 const dataElements = TEST_DATA_ELEMENTS.slice(0, 2).map(item => item.name)

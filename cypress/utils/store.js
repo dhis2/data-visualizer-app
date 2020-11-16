@@ -1,6 +1,12 @@
 // TODO: Rename file to Store and move to /elements?
 
-import { CONFIG_PROP, TITLE_PROP, SUBTITLE_PROP, SERIES_PROP } from './config'
+import {
+    CONFIG_PROP,
+    TITLE_PROP,
+    SUBTITLE_PROP,
+    SERIES_PROP,
+    Y_AXIS_PROP,
+} from './config'
 
 export const expectStoreCurrentToBeEmpty = () =>
     cy.getReduxState('current').should('be.null')
@@ -51,6 +57,15 @@ export const expectStoreConfigSeriesToHaveTrendline = expectedTL =>
             expect(actualTL.marker).to.eql(expectedTL.marker)
             expect(actualTL.zIndex).to.eq(expectedTL.zIndex)
         })
+
+export const expectStoreConfigYAxisToHaveTitleText = text => {
+    cy.getReduxState(CONFIG_PROP)
+        .its(Y_AXIS_PROP)
+        .then(yAxes => {
+            const yAxis = yAxes[0]
+            expect(yAxis.title.text).to.eq(text)
+        })
+}
 
 // export const expectStoreCurrentFilterDimensionToHaveItemsLength = (
 //     filterDimension,

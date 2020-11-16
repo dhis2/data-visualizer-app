@@ -5,6 +5,7 @@ const optionsModalHideButtonEl = 'options-modal-action-cancel'
 
 export const OPTIONS_TAB_STYLE = 'Style'
 export const OPTIONS_TAB_DATA = 'Data'
+export const OPTIONS_TAB_AXES = 'Axes'
 export const TYPE_TITLE = 'title'
 export const TYPE_SUBTITLE = 'subtitle'
 
@@ -58,6 +59,21 @@ export const clickItalicButton = type =>
 //         .trigger('change')
 //         .blur()
 // }
+
+// vertical axis title
+
+export const enableVerticalAxisTitle = () =>
+    cy
+        .getBySel('option-vertical-axis-title-checkbox')
+        .find('[type="checkbox"]')
+        .check({ force: true })
+        .should('be.checked')
+
+export const setVerticalAxisTitle = text =>
+    cy
+        .getBySel('option-vertical-axis-title-input')
+        .find('input')
+        .type(text)
 
 // subtitle //
 

@@ -38,7 +38,7 @@ export const TextBaseOption = ({
                 onChange={({ checked }) => onToggle(checked)}
                 dense
                 disabled={disabled}
-                dataTest={dataTest}
+                dataTest={`${dataTest}-checkbox`}
             />
         ) : null}
         {!toggleable || checked ? (
@@ -57,7 +57,7 @@ export const TextBaseOption = ({
                             placeholder={placeholder}
                             dense
                             disabled={disabled}
-                            dataTest={dataTest}
+                            dataTest={`${dataTest}-input`}
                         />
                     </Box>
                 ) : (
@@ -72,7 +72,7 @@ export const TextBaseOption = ({
                         inputWidth={width}
                         dense
                         disabled={disabled}
-                        dataTest={dataTest}
+                        dataTest={`${dataTest}-input`}
                     />
                 )}
                 {fontStyleKey ? (
