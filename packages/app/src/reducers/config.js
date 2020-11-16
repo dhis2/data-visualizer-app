@@ -11,5 +11,3 @@ export default (state = DEFAULT_CONFIG, action) => {
             return state
     }
 }
-
-export const sGetVisConfig = state => state.visConfig
