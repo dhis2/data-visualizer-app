@@ -79,5 +79,9 @@ describe('Options - Lines', () => {
             })
         })
     })
-    // TODO: Base line and target line
+    /*  TODO: 
+        - Test base line and target line like trend line (above)
+        - Pie, PT, SV shouldn't have the lines section in options
+        - Gauge should only display base and target line (no trend line)
+    */
 })
