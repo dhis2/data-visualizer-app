@@ -118,8 +118,6 @@ export const expectDimensionToNotHaveSelectedStyle = dimensionId =>
 
 export const clickContextMenuDimSubMenu = dimensionId =>
     cy
-        .getBySel(
-            `${chipMenuSubMenuOptionEl.replace('DIMENSIONID', dimensionId)}`
-        )
+        .getBySel(chipMenuSubMenuOptionEl.replace('DIMENSIONID', dimensionId))
         .should('contain', 'Add')
         .click()
