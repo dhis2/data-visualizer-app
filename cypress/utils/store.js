@@ -58,14 +58,32 @@ export const expectStoreConfigSeriesToHaveTrendline = expectedTL =>
             expect(actualTL.zIndex).to.eq(expectedTL.zIndex)
         })
 
-export const expectStoreConfigYAxisToHaveTitleText = text => {
-    cy.getReduxState(CONFIG_PROP)
+export const expectStoreConfigYAxisToHaveTitleText = text =>
+    cy
+        .getReduxState(CONFIG_PROP)
         .its(Y_AXIS_PROP)
         .then(yAxes => {
             const yAxis = yAxes[0]
             expect(yAxis.title.text).to.eq(text)
         })
-}
+
+export const expectStoreConfigYAxisToHaveRangeMinValue = value =>
+    cy
+        .getReduxState(CONFIG_PROP)
+        .its(Y_AXIS_PROP)
+        .then(yAxes => {
+            const yAxis = yAxes[0]
+            expect(yAxis.min).to.eq(value)
+        })
+
+export const expectStoreConfigYAxisToHaveRangeMaxValue = value =>
+    cy
+        .getReduxState(CONFIG_PROP)
+        .its(Y_AXIS_PROP)
+        .then(yAxes => {
+            const yAxis = yAxes[0]
+            expect(yAxis.max).to.eq(value)
+        })
 
 // export const expectStoreCurrentFilterDimensionToHaveItemsLength = (
 //     filterDimension,

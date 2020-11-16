@@ -14,9 +14,15 @@ import {
     clickOptionsTab,
     enableVerticalAxisTitle,
     OPTIONS_TAB_AXES,
+    setVerticalAxisRangeMaxValue,
+    setVerticalAxisRangeMinValue,
     setVerticalAxisTitle,
 } from '../../elements/OptionsModal'
-import { expectStoreConfigYAxisToHaveTitleText } from '../../utils/store'
+import {
+    expectStoreConfigYAxisToHaveRangeMinValue,
+    expectStoreConfigYAxisToHaveRangeMaxValue,
+    expectStoreConfigYAxisToHaveTitleText,
+} from '../../utils/store'
 
 const dimensionId = DIMENSION_ID_DATA
 const dataElements = TEST_DATA_ELEMENTS.slice(3, 5).map(item => item.name)
@@ -44,7 +50,7 @@ describe('Options - Vertical axis', () => {
         it('enable title', () => {
             enableVerticalAxisTitle()
         })
-        it('select trendline type', () => {
+        it('set custom title', () => {
             setVerticalAxisTitle(TEST_TITLE)
         })
         it('click the modal update button', () => {
@@ -52,6 +58,30 @@ describe('Options - Vertical axis', () => {
         })
         it(`config has vertical axis title "${TEST_TITLE}"`, () => {
             expectStoreConfigYAxisToHaveTitleText(TEST_TITLE)
+        })
+    })
+    describe('range', () => {
+        const optionsTab = OPTIONS_TAB_AXES
+        const TEST_MIN_VALUE = 4895
+        const TEST_MAX_VALUE = 20578
+        it(`opens Options -> ${optionsTab}`, () => {
+            clickMenuBarOptionsButton()
+            clickOptionsTab(optionsTab)
+        })
+        it('set min value', () => {
+            setVerticalAxisRangeMinValue(TEST_MIN_VALUE)
+        })
+        it('set max value', () => {
+            setVerticalAxisRangeMaxValue(TEST_MAX_VALUE)
+        })
+        it('click the modal update button', () => {
+            clickOptionsModalUpdateButton()
+        })
+        it(`config has range min value "${TEST_MIN_VALUE}"`, () => {
+            expectStoreConfigYAxisToHaveRangeMinValue(TEST_MIN_VALUE)
+        })
+        it(`config has range max value "${TEST_MAX_VALUE}"`, () => {
+            expectStoreConfigYAxisToHaveRangeMaxValue(TEST_MAX_VALUE)
         })
     })
     // TODO: range, steps, decimals, labels

@@ -14,6 +14,7 @@ const RangeAxisMinValue = ({ disabled }) => (
             name: 'rangeAxisMinValue',
         }}
         inline
+        dataTest={'option-vertical-axis-range-min'}
     />
 )
 

@@ -14,6 +14,7 @@ const RangeAxisMaxValue = ({ disabled }) => (
             name: 'rangeAxisMaxValue',
         }}
         inline
+        dataTest={'option-vertical-axis-range-max'}
     />
 )
 

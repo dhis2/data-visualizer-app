@@ -37,7 +37,12 @@ export {
     clickItalicButton,
 } from './fontStyles'
 
-export { enableVerticalAxisTitle, setVerticalAxisTitle } from './verticalAxis'
+export {
+    enableVerticalAxisTitle,
+    setVerticalAxisTitle,
+    setVerticalAxisRangeMinValue,
+    setVerticalAxisRangeMaxValue,
+} from './verticalAxis'
 
 export { enableTrendLine, selectTrendLineType } from './lines'
 
