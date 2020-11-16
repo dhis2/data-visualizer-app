@@ -36,7 +36,7 @@ Cypress is used for e2e browser tests. This automatically runs on CI for PRs, th
 
 ```sh
 {
-    "dhis2_base_url": "https://debug.dhis2.org/dev",
+    "dhis2_base_url": "localhost:8080",
     "dhis2_username": "admin",
     "dhis2_password": "district",
     "dhis2_datatest_prefix": "dhis2-datavisualizer"
