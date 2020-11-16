@@ -30,35 +30,29 @@ Run unit tests with coverage report
 $ yarn coverage
 ```
 
-#### Browser tests
+#### e2e tests
 
-We use Cypress for our browser tests.
-
-Before running cypress, start the development server in another terminal session.
-Ensure that you specify the correct DHIS2_BASE_URL.
+Cypress is used for e2e browser tests. This automatically runs on CI for PRs, the result can be seen on the [Cypress dashboard](https://dashboard.cypress.io/projects/sojh88/). To run the tests locally, define the following in a local `cypress.env.json` file, e.g.:
 
 ```sh
-> DHIS2_BASE_URL=http://localhost:8080 yarn start
+{
+    "dhis2_base_url": "https://debug.dhis2.org/dev",
+    "dhis2_username": "admin",
+    "dhis2_password": "district",
+    "dhis2_datatest_prefix": "dhis2-datavisualizer"
+}
 ```
 
-There are plans to make this configurable. In order to run the tests, you need to define three environment variables:
+Run tests interactively (Cypress UI):
 
 ```
-CYPRESS_LOGIN_URL=http://localhost:8080 # This must match DHIS2_BASE_URL
-CYPRESS_DHIS2_USERNAME=myusername
-CYPRESS_DHIS2_PASSWORD=mypassword
+yarn cy:open
 ```
 
-Run tests interactively:
+Run tests in CI mode (headless):
 
 ```
-cd packages/app && yarn cy:e2e:open
-```
-
-Run tests in ci mode:
-
-```
-cd packages/app && yarn cy:e2e:run
+yarn cy:run
 ```
 
 #### Linting and Formatting
