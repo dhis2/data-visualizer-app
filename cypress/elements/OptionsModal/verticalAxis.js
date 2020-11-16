@@ -16,14 +16,35 @@ export const setVerticalAxisTitle = text =>
         .find('input')
         .type(text)
 
+export const expectVerticalAxisTitleToBeValue = value =>
+    cy
+        .getBySel(titleInputEl)
+        .find('input')
+        .should('be.visible')
+        .and('have.value', value)
+
 export const setVerticalAxisRangeMinValue = value =>
     cy
         .getBySel(rangeMinInputEl)
         .find('input')
         .type(value)
 
+export const expectVerticalAxisRangeMinToBeValue = value =>
+    cy
+        .getBySel(rangeMinInputEl)
+        .find('input')
+        .should('be.visible')
+        .and('have.value', value)
+
 export const setVerticalAxisRangeMaxValue = value =>
     cy
         .getBySel(rangeMaxInputEl)
         .find('input')
         .type(value)
+
+export const expectVerticalAxisRangeMaxToBeValue = value =>
+    cy
+        .getBySel(rangeMaxInputEl)
+        .find('input')
+        .should('be.visible')
+        .and('have.value', value)

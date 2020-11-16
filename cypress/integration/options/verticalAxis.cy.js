@@ -13,6 +13,9 @@ import {
     clickOptionsModalUpdateButton,
     clickOptionsTab,
     enableVerticalAxisTitle,
+    expectVerticalAxisRangeMaxToBeValue,
+    expectVerticalAxisRangeMinToBeValue,
+    expectVerticalAxisTitleToBeValue,
     OPTIONS_TAB_AXES,
     setVerticalAxisRangeMaxValue,
     setVerticalAxisRangeMinValue,
@@ -26,6 +29,10 @@ import {
 
 const dimensionId = DIMENSION_ID_DATA
 const dataElements = TEST_DATA_ELEMENTS.slice(3, 5).map(item => item.name)
+const optionsTab = OPTIONS_TAB_AXES
+const TEST_TITLE = 'Vert title'
+const TEST_MIN_VALUE = 4895
+const TEST_MAX_VALUE = 20578
 
 describe('Options - Vertical axis', () => {
     it('navigates to the start page', () => {
@@ -41,8 +48,6 @@ describe('Options - Vertical axis', () => {
         expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
     })
     describe('title', () => {
-        const optionsTab = OPTIONS_TAB_AXES
-        const TEST_TITLE = 'Vert title'
         it(`opens Options -> ${optionsTab}`, () => {
             clickMenuBarOptionsButton()
             clickOptionsTab(optionsTab)
@@ -61,9 +66,6 @@ describe('Options - Vertical axis', () => {
         })
     })
     describe('range', () => {
-        const optionsTab = OPTIONS_TAB_AXES
-        const TEST_MIN_VALUE = 4895
-        const TEST_MAX_VALUE = 20578
         it(`opens Options -> ${optionsTab}`, () => {
             clickMenuBarOptionsButton()
             clickOptionsTab(optionsTab)
@@ -84,5 +86,20 @@ describe('Options - Vertical axis', () => {
             expectStoreConfigYAxisToHaveRangeMaxValue(TEST_MAX_VALUE)
         })
     })
-    // TODO: range, steps, decimals, labels
+    // TODO: steps, decimals, labels
+    describe('options modal keeps changes', () => {
+        it(`opens Options -> ${optionsTab}`, () => {
+            clickMenuBarOptionsButton()
+            clickOptionsTab(optionsTab)
+        })
+        it(`title is "${TEST_TITLE}"`, () => {
+            expectVerticalAxisTitleToBeValue(TEST_TITLE)
+        })
+        it(`range min is "${TEST_MIN_VALUE}"`, () => {
+            expectVerticalAxisRangeMinToBeValue(TEST_MIN_VALUE)
+        })
+        it(`range max is "${TEST_MAX_VALUE}"`, () => {
+            expectVerticalAxisRangeMaxToBeValue(TEST_MAX_VALUE)
+        })
+    })
 })

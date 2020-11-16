@@ -40,8 +40,11 @@ export {
 export {
     enableVerticalAxisTitle,
     setVerticalAxisTitle,
+    expectVerticalAxisTitleToBeValue,
     setVerticalAxisRangeMinValue,
+    expectVerticalAxisRangeMinToBeValue,
     setVerticalAxisRangeMaxValue,
+    expectVerticalAxisRangeMaxToBeValue,
 } from './verticalAxis'
 
 export { enableTrendLine, selectTrendLineType } from './lines'
