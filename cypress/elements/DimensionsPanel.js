@@ -1,5 +1,3 @@
-import { expectDimensionModalToBeVisible } from './DimensionModal'
-
 const dimButtonEl = 'dimensions-panel-list-dimension-item-button'
 const dimContextMenuButtonEl = 'dimensions-panel-list-dimension-item-menu'
 const dimContextMenuRemoveOptionEl =
@@ -19,10 +17,8 @@ const getDimensionButtonById = dimensionId => `${dimButtonEl}-${dimensionId}`
 export const openContextMenu = dimensionId =>
     cy.getBySel(`${dimContextMenuButtonEl}-${dimensionId}`).click()
 
-export const openDimension = dimensionId => {
+export const openDimension = dimensionId =>
     cy.getBySel(getDimensionButtonById(dimensionId)).click()
-    expectDimensionModalToBeVisible(dimensionId)
-}
 
 export const clickContextMenuAdd = (dimensionId, axisId) =>
     cy

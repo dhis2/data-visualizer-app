@@ -1,5 +1,3 @@
-import { expectDimensionModalToBeVisible } from './DimensionModal'
-
 const yoyCategorySelectEl = 'yoy-layout-rows-select'
 const youCategorySelectOptionEl = 'yoy-layout-rows-select-option'
 const chipEl = 'layout-chip'
@@ -77,10 +75,8 @@ export const expectDimensionToHaveItemAmount = (
 export const expectDimensionToNotHaveItems = dimensionId =>
     expectDimensionToHaveItemAmount(dimensionId)
 
-export const openDimension = dimensionId => {
+export const openDimension = dimensionId =>
     cy.getBySel(getDimensionChipEl(dimensionId)).click()
-    expectDimensionModalToBeVisible(dimensionId)
-}
 
 export const openContextMenu = dimensionId =>
     cy.getBySel(`${chipMenuButtonEl}-${dimensionId}`).click()

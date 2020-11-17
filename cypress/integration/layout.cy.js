@@ -12,6 +12,7 @@ import {
 import {
     expectDimensionModalToBeVisible,
     clickDimensionModalHideButton,
+    expectDimensionModalToNotBeVisible,
 } from '../elements/DimensionModal'
 import {
     openDimension,
@@ -45,6 +46,7 @@ describe('interacting with the dimensions panel', () => {
                 })
                 it('clicks the modal hide button', () => {
                     clickDimensionModalHideButton()
+                    expectDimensionModalToNotBeVisible()
                 })
             })
         })

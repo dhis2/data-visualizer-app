@@ -16,10 +16,7 @@ const removeAllButtonEl =
 export const expectDataDimensionModalToBeVisible = () =>
     expectDimensionModalToBeVisible(DIMENSION_ID_DATA)
 
-export const removeAllDataItems = () => {
-    cy.getBySel(removeAllButtonEl).click()
-    expectNoDataItemsToBeSelected()
-}
+export const removeAllDataItems = () => cy.getBySel(removeAllButtonEl).click()
 
 // export const replaceDataItemsWithRandomDataElements = amount => {
 //     expectDataDimensionModalToBeVisible()
@@ -59,15 +56,12 @@ export const expectDataItemsAmountToBeSelected = amount =>
 // }
 
 export const selectDataElements = dataElements => {
-    expectDataDimensionModalToBeVisible()
     switchToDataType(dataElementsOptionEl)
     dataElements.forEach(item => clickUnselectedItem(item))
 }
 
-export const selectIndicators = indicators => {
-    expectDataDimensionModalToBeVisible()
+export const selectIndicators = indicators =>
     indicators.forEach(item => clickUnselectedItem(item))
-}
 
 const clickUnselectedItem = item =>
     cy

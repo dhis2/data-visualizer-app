@@ -6,10 +6,9 @@ const orgUnitModalEl = 'dialog-manager-ou'
 export const expectOrgUnitDimensionModalToBeVisible = () =>
     expectDimensionModalToBeVisible(DIMENSION_ID_ORGUNIT)
 
-export const clickOrgUnitTreeItem = itemName => {
-    expectOrgUnitDimensionModalToBeVisible()
-    cy.getBySel(orgUnitModalEl)
+export const clickOrgUnitTreeItem = itemName =>
+    cy
+        .getBySel(orgUnitModalEl)
         .find('*[role="button"]')
         .contains(itemName)
         .click()
-}

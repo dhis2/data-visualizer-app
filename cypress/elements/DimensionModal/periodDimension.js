@@ -21,13 +21,9 @@ const removeAllButtonEl = 'dhis2-uicore-transfer-actions-removeall'
 export const expectPeriodDimensionModalToBeVisible = () =>
     expectDimensionModalToBeVisible(DIMENSION_ID_PERIOD)
 
-export const removeAllPeriodItems = () => {
-    expectPeriodDimensionModalToBeVisible()
-    cy.getBySel(removeAllButtonEl).click()
-}
+export const removeAllPeriodItems = () => cy.getBySel(removeAllButtonEl).click()
 
 export const selectRelativePeriods = (periods, periodType) => {
-    expectPeriodDimensionModalToBeVisible()
     cy.getBySel(relativePeriodsButtonEl).click()
     if (periodType !== 'Months') {
         // Temp fix for https://jira.dhis2.org/browse/TECH-396
@@ -37,7 +33,6 @@ export const selectRelativePeriods = (periods, periodType) => {
 }
 
 export const selectFixedPeriods = (periods, periodType) => {
-    expectPeriodDimensionModalToBeVisible()
     cy.getBySel(fixedPeriodsButtonEl).click()
     if (periodType !== 'Monthly') {
         // Temp fix for https://jira.dhis2.org/browse/TECH-396

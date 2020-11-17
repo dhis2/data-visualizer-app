@@ -13,6 +13,7 @@ import {
     removeAllDataItems,
     selectDataElements,
 } from '../elements/DimensionModal'
+import { expectNoDataItemsToBeSelected } from '../elements/DimensionModal/dataDimension'
 import { openDimension } from '../elements/DimensionsPanel'
 import { createNewAO, openRandomAO } from '../elements/FileMenu'
 import {
@@ -32,6 +33,7 @@ describe('confirm leave modal', () => {
     it('replaces the data items', () => {
         openDimension(DIMENSION_ID_DATA)
         removeAllDataItems()
+        expectNoDataItemsToBeSelected()
         selectDataElements([TEST_DATA_ELEMENTS[0].name])
         clickDimensionModalUpdateButton()
         expectAOTitleToBeDirty()

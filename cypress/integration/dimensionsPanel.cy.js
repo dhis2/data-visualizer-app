@@ -15,6 +15,7 @@ import {
     clickDimensionModalHideButton,
     clickOrgUnitTreeItem,
     clickDimensionModalUpdateButton,
+    expectDimensionModalToNotBeVisible,
 } from '../elements/DimensionModal'
 import { removeAllPeriodItems } from '../elements/DimensionModal/periodDimension'
 import {
@@ -115,6 +116,7 @@ describe('interacting with the dimensions panel', () => {
                     })
                     it('clicks the modal hide button', () => {
                         clickDimensionModalHideButton()
+                        expectDimensionModalToNotBeVisible()
                     })
                 }
                 it(`${dim.name} has selected style`, () => {

@@ -7,6 +7,7 @@ import {
 import {
     changeVisType,
     expectVisTypeToBeDefault,
+    expectVisTypeToBeValue,
 } from '../elements/VisualizationTypeSelector'
 import { goToStartPage } from '../elements/StartScreen'
 import {
@@ -51,6 +52,7 @@ describe('creating a new AO', () => {
             })
             it('changes vis type', () => {
                 changeVisType(visTypeName)
+                expectVisTypeToBeValue(visTypeName)
             })
             it('adds dimensions', () => {
                 openDimension(dimensionId)

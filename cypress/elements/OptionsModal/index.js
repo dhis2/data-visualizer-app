@@ -21,14 +21,11 @@ export const expectOptionsModalToBeVisible = () =>
 export const expectOptionsModalToNotBeVisible = () =>
     cy.getBySelLike(optionsModalEl).should('not.be.visible')
 
-export const clickOptionsModalUpdateButton = () => {
+export const clickOptionsModalUpdateButton = () =>
     cy.getBySel(optionsModalUpdateButtonEl).click()
-    expectOptionsModalToNotBeVisible()
-}
-export const clickOptionsModalHideButton = () => {
+
+export const clickOptionsModalHideButton = () =>
     cy.getBySel(optionsModalHideButtonEl).click()
-    expectOptionsModalToNotBeVisible()
-}
 
 export {
     changeTextAlignOption,

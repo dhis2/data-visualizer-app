@@ -12,7 +12,6 @@ export const changeVisType = visTypeName => {
     cy.getBySel(vstCardEl)
         .contains(visTypeName)
         .click()
-    expectVisTypeToBeValue(visTypeName)
 }
 
 export const expectVisTypeToBeValue = value =>
