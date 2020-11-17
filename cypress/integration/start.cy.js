@@ -32,7 +32,7 @@ import { expectWindowTitleToBeDefault } from '../elements/Window'
 import { expectStoreCurrentToBeEmpty } from '../utils/store'
 
 describe('viewing the start screen', () => {
-    it('navigates to the start page', () => {
+    before(() => {
         goToStartPage()
     })
     it('window has a title', () => {
@@ -68,28 +68,17 @@ describe('viewing the start screen', () => {
     it('orgunit dimension has 1 item', () => {
         expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 1)
     })
-    it('opens File menu', () => {
+    it('File menu buttons are disabled', () => {
         clickMenuBarFileButton()
-    })
-    it('checks that Save as button is disabled', () => {
-        expectFileMenuButtonToBeDisabled(FILE_MENU_BUTTON_SAVEAS)
-    })
-    it('checks that Delete button is disabled', () => {
-        expectFileMenuButtonToBeDisabled(FILE_MENU_BUTTON_DELETE)
-    })
-    it('checks that Rename button is disabled', () => {
-        expectFileMenuButtonToBeDisabled(FILE_MENU_BUTTON_RENAME)
-    })
-    it('checks that Translate button is disabled', () => {
-        expectFileMenuButtonToBeDisabled(FILE_MENU_BUTTON_TRANSLATE)
-    })
-    it('checks that Share button is disabled', () => {
-        expectFileMenuButtonToBeDisabled(FILE_MENU_BUTTON_SHARE)
-    })
-    it('checks that Get link button is disabled', () => {
-        expectFileMenuButtonToBeDisabled(FILE_MENU_BUTTON_GETLINK)
-    })
-    it('closes File menu', () => {
+        const buttons = [
+            FILE_MENU_BUTTON_SAVEAS,
+            FILE_MENU_BUTTON_RENAME,
+            FILE_MENU_BUTTON_TRANSLATE,
+            FILE_MENU_BUTTON_SHARE,
+            FILE_MENU_BUTTON_GETLINK,
+            FILE_MENU_BUTTON_DELETE,
+        ]
+        buttons.forEach(button => expectFileMenuButtonToBeDisabled(button))
         closeFileMenu()
     })
 })
