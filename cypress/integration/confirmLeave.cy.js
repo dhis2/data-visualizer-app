@@ -23,10 +23,8 @@ import {
 import { TEST_DATA_ELEMENTS } from '../utils/data'
 
 describe('confirm leave modal', () => {
-    before(() => {
+    it('navigates to the start page and loads a random saved AO', () => {
         goToStartPage()
-    })
-    it('loads a random saved AO', () => {
         openRandomAO()
         expectAOTitleToNotBeDirty()
     })

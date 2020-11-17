@@ -32,7 +32,7 @@ import { expectWindowTitleToBeDefault } from '../elements/Window'
 import { expectStoreCurrentToBeEmpty } from '../utils/store'
 
 describe('viewing the start screen', () => {
-    before(() => {
+    it('navigates to the start page', () => {
         goToStartPage()
     })
     it('window has a title', () => {

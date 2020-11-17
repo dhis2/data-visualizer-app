@@ -27,7 +27,7 @@ const dimensionId = DIMENSION_ID_DATA
 const dataElements = TEST_DATA_ELEMENTS.slice(3, 5).map(item => item.name)
 
 describe('Options - Lines', () => {
-    before(() => {
+    it('navigates to the start page and adds data items', () => {
         goToStartPage()
         openDimension(dimensionId)
         selectDataElements(dataElements)
@@ -42,7 +42,7 @@ describe('Options - Lines', () => {
             { name: 'Linear', type: 'line' },
         ]
 
-        before(() => {
+        it('has no trend line', () => {
             expectStoreConfigSeriesToNotHaveTrendline()
         })
 

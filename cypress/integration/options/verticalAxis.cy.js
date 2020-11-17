@@ -35,7 +35,7 @@ const TEST_MIN_VALUE = 4895
 const TEST_MAX_VALUE = 20578
 
 describe('Options - Vertical axis', () => {
-    before(() => {
+    it('navigates to the start page and adds data items', () => {
         goToStartPage()
         openDimension(dimensionId)
         selectDataElements(dataElements)

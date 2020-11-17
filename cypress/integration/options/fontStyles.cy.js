@@ -74,7 +74,7 @@ const getModifiedStyle = ({
 // TODO: Refactor to use the "describe - describe - it" model
 
 describe('Options - Font styles', () => {
-    before(() => {
+    it('navigates to the start page and adds data items', () => {
         goToStartPage()
         openDimension(dimensionId)
         selectDataElements(dataElements)

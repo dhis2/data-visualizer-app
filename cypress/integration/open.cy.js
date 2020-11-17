@@ -19,7 +19,7 @@ import { clickMenuBarUpdateButton } from '../elements/MenuBar'
 import { expectRouteToBeAOId, expectRouteToBeEmpty } from '../elements/Route'
 
 describe('opening a saved AO', () => {
-    before(() => {
+    it('navigates to the start page', () => {
         goToStartPage()
     })
     TEST_AOS.forEach(ao => {

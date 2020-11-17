@@ -32,7 +32,7 @@ const TEST_FIXED_DIMS = Object.values(getFixedDimensions())
 const TEST_DYNAMIC_DIMS = Object.values(getDynamicDimensions())
 
 describe('interacting with the dimensions panel', () => {
-    before(() => {
+    it('navigates to the start page', () => {
         goToStartPage()
     })
     describe('opening items by clicking them', () => {

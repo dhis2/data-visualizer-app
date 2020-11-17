@@ -45,7 +45,7 @@ const TEST_DYNAMIC_DIMS = Object.values(getDynamicDimensions())
 const TEST_CUSTOM_DIMS = [getRandomArrayItem(TEST_CUSTOM_DIMENSIONS)]
 
 describe('interacting with the dimensions panel', () => {
-    before(() => {
+    it('navigates to the start page', () => {
         goToStartPage()
     })
     describe('displays recommended icons', () => {

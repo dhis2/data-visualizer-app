@@ -58,7 +58,7 @@ const TEST_VIS_TYPE_NAME = visTypeDisplayNames[TEST_VIS_TYPE]
 
 describe('saving an AO', () => {
     describe('"save" and "save as" for a new AO', () => {
-        before(() => {
+        it('navigates to the start page', () => {
             goToStartPage()
         })
         it(`changes vis type to ${TEST_VIS_TYPE_NAME}`, () => {
@@ -127,10 +127,8 @@ describe('saving an AO', () => {
     })
 
     describe('"save" and "save as" for a saved AO created by you', () => {
-        before(() => {
+        it('navigates to the start page and opens a saved AO', () => {
             goToStartPage()
-        })
-        it('opens a saved AO ', () => {
             openAOByName(TEST_VIS_NAME_UPDATED)
         })
         it(`changes the period`, () => {
