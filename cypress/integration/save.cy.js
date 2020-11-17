@@ -58,7 +58,7 @@ const TEST_VIS_TYPE_NAME = visTypeDisplayNames[TEST_VIS_TYPE]
 
 describe('saving an AO', () => {
     describe('"save" and "save as" for a new AO', () => {
-        it('navigates to the start page', () => {
+        before(() => {
             goToStartPage()
         })
         it(`changes vis type to ${TEST_VIS_TYPE_NAME}`, () => {
@@ -89,28 +89,17 @@ describe('saving an AO', () => {
         it('checks that the url was changed', () => {
             expectRouteToBeAOId()
         })
-        it('opens File menu', () => {
+        it('all File menu buttons are enabled', () => {
             clickMenuBarFileButton()
-        })
-        it('checks that Save as button is enabled', () => {
-            expectFileMenuButtonToBeEnabled(FILE_MENU_BUTTON_SAVEAS)
-        })
-        it('checks that Delete button is enabled', () => {
-            expectFileMenuButtonToBeEnabled(FILE_MENU_BUTTON_DELETE)
-        })
-        it('checks that Rename button is enabled', () => {
-            expectFileMenuButtonToBeEnabled(FILE_MENU_BUTTON_RENAME)
-        })
-        it('checks that Translate button is enabled', () => {
-            expectFileMenuButtonToBeEnabled(FILE_MENU_BUTTON_TRANSLATE)
-        })
-        it('checks that Share button is enabled', () => {
-            expectFileMenuButtonToBeEnabled(FILE_MENU_BUTTON_SHARE)
-        })
-        it('checks that Get link button is enabled', () => {
-            expectFileMenuButtonToBeEnabled(FILE_MENU_BUTTON_GETLINK)
-        })
-        it('closes File menu', () => {
+            const buttons = [
+                FILE_MENU_BUTTON_SAVEAS,
+                FILE_MENU_BUTTON_RENAME,
+                FILE_MENU_BUTTON_TRANSLATE,
+                FILE_MENU_BUTTON_SHARE,
+                FILE_MENU_BUTTON_GETLINK,
+                FILE_MENU_BUTTON_DELETE,
+            ]
+            buttons.forEach(button => expectFileMenuButtonToBeEnabled(button))
             closeFileMenu()
         })
         it(`changes the period`, () => {
@@ -138,7 +127,7 @@ describe('saving an AO', () => {
     })
 
     describe('"save" and "save as" for a saved AO created by you', () => {
-        it('navigates to the start page', () => {
+        before(() => {
             goToStartPage()
         })
         it('opens a saved AO ', () => {

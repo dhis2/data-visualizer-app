@@ -45,7 +45,7 @@ const TEST_DYNAMIC_DIMS = Object.values(getDynamicDimensions())
 const TEST_CUSTOM_DIMS = [getRandomArrayItem(TEST_CUSTOM_DIMENSIONS)]
 
 describe('interacting with the dimensions panel', () => {
-    it('navigates to the start page', () => {
+    before(() => {
         goToStartPage()
     })
     describe('displays recommended icons', () => {
@@ -81,93 +81,64 @@ describe('interacting with the dimensions panel', () => {
             expectDimensionToNotHaveSelectedStyle(DIMENSION_ID_ORGUNIT)
         })
     })
-    describe('clicking list items', () => {
+    describe('opening items by clicking them', () => {
         ;[...TEST_FIXED_DIMS, ...TEST_CUSTOM_DIMS].forEach(dim => {
-            describe(`${dim.name}`, () => {
-                it('clicks the dimension', () => {
-                    openDimension(dim.id)
-                })
-                it('shows the dimension modal', () => {
-                    expectDimensionModalToBeVisible(dim.id)
-                })
-                it('clicks the modal hide button', () => {
-                    clickDimensionModalHideButton()
-                })
+            it(`opens and closes ${dim.name}`, () => {
+                openDimension(dim.id)
+                expectDimensionModalToBeVisible(dim.id)
+                clickDimensionModalHideButton()
             })
         })
     })
-    describe('adding through context menu', () => {
+    describe('adding items by using the context menu', () => {
         const TEST_AXIS = AXIS_ID_COLUMNS
         ;[
             ...TEST_FIXED_DIMS,
             ...TEST_DYNAMIC_DIMS,
             ...TEST_CUSTOM_DIMS,
         ].forEach(dim => {
-            describe(`${dim.name}`, () => {
-                it('opens the context menu', () => {
-                    openContextMenu(dim.id)
-                })
-                it(`adds to ${TEST_AXIS} axis`, () => {
-                    clickContextMenuAdd(dim.id, TEST_AXIS)
-                })
+            it(`adds ${dim.name} to ${TEST_AXIS} axis`, () => {
+                openContextMenu(dim.id)
+                clickContextMenuAdd(dim.id, TEST_AXIS)
+                expectDimensionToHaveSelectedStyle(dim.id)
+                expectAxisToHaveDimension(TEST_AXIS, dim.id)
                 if (dim.id !== DIMENSION_ID_ASSIGNED_CATEGORIES) {
-                    it('shows the dimension modal', () => {
-                        expectDimensionModalToBeVisible(dim.id)
-                    })
-                    it('clicks the modal hide button', () => {
-                        clickDimensionModalHideButton()
-                        expectDimensionModalToNotBeVisible()
-                    })
+                    expectDimensionModalToBeVisible(dim.id)
+                    clickDimensionModalHideButton()
+                    expectDimensionModalToNotBeVisible()
                 }
-                it(`${dim.name} has selected style`, () => {
-                    expectDimensionToHaveSelectedStyle(dim.id)
-                })
-                it(`${TEST_AXIS} axis has dimension`, () => {
-                    expectAxisToHaveDimension(TEST_AXIS, dim.id)
-                })
             })
         })
     })
-    describe('moving through context menu', () => {
+    describe('moving items by using the context menu', () => {
         const TEST_AXIS = AXIS_ID_ROWS
         const TEST_DIM = getRandomArrayItem(TEST_FIXED_DIMS)
-        describe(`${TEST_DIM.name}`, () => {
-            it('opens the context menu', () => {
-                openContextMenu(TEST_DIM.id)
-            })
-            it(`moves to ${TEST_AXIS} axis`, () => {
-                clickContextMenuMove(TEST_DIM.id, TEST_AXIS)
-            })
-            it(`${TEST_AXIS} axis has dimension`, () => {
-                expectAxisToHaveDimension(TEST_AXIS, TEST_DIM.id)
-            })
+        it(`moves ${TEST_DIM.name} to ${TEST_AXIS} axis`, () => {
+            openContextMenu(TEST_DIM.id)
+            clickContextMenuMove(TEST_DIM.id, TEST_AXIS)
+            expectAxisToHaveDimension(TEST_AXIS, TEST_DIM.id)
         })
     })
-    describe('removing through context menu', () => {
+    describe('removing by using the context menu', () => {
         const TEST_DIM = getRandomArrayItem(TEST_FIXED_DIMS)
-        describe(`${TEST_DIM.name}`, () => {
-            it('opens the context menu', () => {
-                openContextMenu(TEST_DIM.id)
-            })
-            it(`removes ${TEST_DIM.name}`, () => {
-                clickContextMenuRemove(TEST_DIM.id)
-            })
-            it(`${TEST_DIM.name} is removed`, () => {
-                expectDimensionToNotHaveSelectedStyle(TEST_DIM.id)
-            })
-        })
-    })
-    describe('handling AC through the Data context menu', () => {
-        const TEST_DIM = TEST_DYNAMIC_DIMS.find(
-            dim => dim.id === DIMENSION_ID_ASSIGNED_CATEGORIES
-        )
         it(`removes ${TEST_DIM.name}`, () => {
-            openContextMenu(DIMENSION_ID_DATA)
+            openContextMenu(TEST_DIM.id)
             clickContextMenuRemove(TEST_DIM.id)
             expectDimensionToNotHaveSelectedStyle(TEST_DIM.id)
         })
-        it(`adds ${TEST_DIM.name}`, () => {
+    })
+    describe('handling AC by using the Data item context menu', () => {
+        const TEST_DIM = TEST_DYNAMIC_DIMS.find(
+            dim => dim.id === DIMENSION_ID_ASSIGNED_CATEGORIES
+        )
+        it(`removes and adds ${TEST_DIM.name}`, () => {
             const TEST_AXIS = AXIS_ID_COLUMNS
+            // remove
+            openContextMenu(DIMENSION_ID_DATA)
+            clickContextMenuRemove(TEST_DIM.id)
+            expectDimensionToNotHaveSelectedStyle(TEST_DIM.id)
+
+            // add
             openContextMenu(DIMENSION_ID_DATA)
             clickContextMenuDimSubMenu(TEST_DIM.id)
             clickContextMenuAdd(TEST_DIM.id, TEST_AXIS)
@@ -179,12 +150,13 @@ describe('interacting with the dimensions panel', () => {
         const TEST_DEFAULT_FIXED_DIMS_LENGTH = TEST_FIXED_DIMS.length
         const TEST_FILTER_SEARCH_TERM = getRandomArrayItem(TEST_FIXED_DIMS).name
 
-        it(`applies dimension filter "${TEST_FILTER_SEARCH_TERM}"`, () => {
+        it(`applies dimension filter "${TEST_FILTER_SEARCH_TERM} and clears it"`, () => {
+            // apply
             expectFixedDimensionsToHaveLength(TEST_DEFAULT_FIXED_DIMS_LENGTH)
             filterDimensionsByText(TEST_FILTER_SEARCH_TERM)
             expectFixedDimensionsToHaveLength(1)
-        })
-        it('clears filter', () => {
+
+            // clear
             clearDimensionsFilter()
             expectFixedDimensionsToHaveLength(TEST_DEFAULT_FIXED_DIMS_LENGTH)
         })

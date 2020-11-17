@@ -19,7 +19,7 @@ import { clickMenuBarUpdateButton } from '../elements/MenuBar'
 import { expectRouteToBeAOId, expectRouteToBeEmpty } from '../elements/Route'
 
 describe('opening a saved AO', () => {
-    it('navigates to the start page', () => {
+    before(() => {
         goToStartPage()
     })
     TEST_AOS.forEach(ao => {
@@ -27,10 +27,7 @@ describe('opening a saved AO', () => {
             it('opens a saved AO ', () => {
                 openAOByName(ao.name)
                 expectRouteToBeAOId()
-            })
-            it('displays correct title and type', () => {
                 expectAOTitleToBeValue(ao.name)
-
                 expectVisualizationToBeVisible(ao.type)
                 expectAOTitleToNotBeDirty()
             })
@@ -43,11 +40,7 @@ describe('opening a saved AO', () => {
                     selectRelativePeriods(['Last six-month'], 'Six-months')
                     clickDimensionModalUpdateButton()
                 }
-            })
-            it(`displays dirty state`, () => {
                 expectAOTitleToBeDirty()
-            })
-            it('displays the updated visualization', () => {
                 expectVisualizationToBeVisible(ao.type)
             })
             it('resets to a new AO', () => {

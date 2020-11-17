@@ -71,17 +71,14 @@ const getModifiedStyle = ({
     return modifiedStyle
 }
 
+// TODO: Refactor to use the "describe - describe - it" model
+
 describe('Options - Font styles', () => {
-    it('navigates to the start page', () => {
+    before(() => {
         goToStartPage()
-    })
-    it('adds dimensions', () => {
         openDimension(dimensionId)
-
         selectDataElements(dataElements)
-
         clickDimensionModalUpdateButton()
-
         expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
     })
     describe('title', () => {

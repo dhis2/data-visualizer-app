@@ -23,7 +23,7 @@ import {
 import { TEST_DATA_ELEMENTS } from '../utils/data'
 
 describe('confirm leave modal', () => {
-    it('navigates to the start page', () => {
+    before(() => {
         goToStartPage()
     })
     it('loads a random saved AO', () => {

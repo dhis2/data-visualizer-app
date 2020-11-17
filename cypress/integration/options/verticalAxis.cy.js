@@ -35,16 +35,11 @@ const TEST_MIN_VALUE = 4895
 const TEST_MAX_VALUE = 20578
 
 describe('Options - Vertical axis', () => {
-    it('navigates to the start page', () => {
+    before(() => {
         goToStartPage()
-    })
-    it('adds dimensions', () => {
         openDimension(dimensionId)
-
         selectDataElements(dataElements)
-
         clickDimensionModalUpdateButton()
-
         expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
     })
     describe('title', () => {

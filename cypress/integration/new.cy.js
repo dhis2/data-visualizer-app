@@ -35,7 +35,7 @@ const axisId = AXIS_ID_COLUMNS
 const dataElements = TEST_DATA_ELEMENTS.slice(0, 2).map(item => item.name)
 
 describe('creating a new AO', () => {
-    it('navigates to the start page', () => {
+    before(() => {
         goToStartPage()
     })
     const availableVisTypes = visTypes

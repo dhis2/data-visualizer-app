@@ -27,16 +27,11 @@ const dimensionId = DIMENSION_ID_DATA
 const dataElements = TEST_DATA_ELEMENTS.slice(3, 5).map(item => item.name)
 
 describe('Options - Lines', () => {
-    it('navigates to the start page', () => {
+    before(() => {
         goToStartPage()
-    })
-    it('adds dimensions', () => {
         openDimension(dimensionId)
-
         selectDataElements(dataElements)
-
         clickDimensionModalUpdateButton()
-
         expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
     })
     describe('trendline', () => {
@@ -47,7 +42,7 @@ describe('Options - Lines', () => {
             { name: 'Linear', type: 'line' },
         ]
 
-        it('has default value', () => {
+        before(() => {
             expectStoreConfigSeriesToNotHaveTrendline()
         })
 
