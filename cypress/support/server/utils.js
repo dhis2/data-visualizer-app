@@ -5,7 +5,10 @@ import {
 } from './constants.js'
 
 export const getApiBaseUrl = () => {
-    const baseUrl = Cypress.env('dhis2_base_url')
+    const baseUrl =
+        Cypress.env('dhis2_base_url') ||
+        Cypress.env('cypress_dhis2_base_url') ||
+        ''
 
     if (!baseUrl) {
         throw new Error(
