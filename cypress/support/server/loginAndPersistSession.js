@@ -11,9 +11,6 @@ export default function loginAndPersistSession() {
         localStorage.setItem('DHIS2_BASE_URL', baseUrl)
 
         Cypress.Cookies.preserveOnce('JSESSIONID')
-        Cypress.Cookies.defaults({
-            whitelist: 'JSESSIONID',
-        })
     })
 
     before(() => {

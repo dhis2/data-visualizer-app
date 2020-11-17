@@ -1,7 +1,6 @@
-import { registerCommands } from '@dhis2/cypress-commands'
+import '@dhis2/cli-utils-cypress/support'
 
 import './commands'
 import { loginAndPersistSession } from './server'
 
-registerCommands()
 loginAndPersistSession()
