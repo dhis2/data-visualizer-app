@@ -1,4 +1,5 @@
 import { DIMENSION_ID_DATA } from '@dhis2/analytics'
+
 import {
     expectAOTitleToBeDirty,
     expectAOTitleToNotBeDirty,
@@ -21,6 +22,7 @@ import {
     goToStartPage,
 } from '../elements/StartScreen'
 import { TEST_DATA_ELEMENTS } from '../utils/data'
+import { getRandomArrayItem } from '../utils/random'
 
 describe('confirm leave modal', () => {
     it('navigates to the start page and loads a random saved AO', () => {
@@ -31,7 +33,7 @@ describe('confirm leave modal', () => {
     it('replaces the data items', () => {
         openDimension(DIMENSION_ID_DATA)
         removeAllDataItems().then(() => expectNoDataItemsToBeSelected())
-        selectDataElements([TEST_DATA_ELEMENTS[0].name])
+        selectDataElements([getRandomArrayItem(TEST_DATA_ELEMENTS).name])
         clickDimensionModalUpdateButton()
         expectAOTitleToBeDirty()
     })

@@ -1,4 +1,4 @@
-import { visTypes } from './visTypes'
+import { visTypeDisplayNames } from '@dhis2/analytics'
 
 export const generateRandomChar = () =>
     Math.random()
@@ -12,4 +12,5 @@ export const generateRandomNumber = (min, max) =>
 export const getRandomArrayItem = array =>
     array[generateRandomNumber(0, array.length - 1)]
 
-export const getRandomVisType = () => getRandomArrayItem(visTypes)
+export const getRandomVisType = () =>
+    getRandomArrayItem(Object.keys(visTypeDisplayNames))

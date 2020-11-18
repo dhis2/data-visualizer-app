@@ -9,6 +9,7 @@ import {
     getFixedDimensions,
     getDynamicDimensions,
 } from '@dhis2/analytics'
+
 import {
     expectDimensionModalToBeVisible,
     clickDimensionModalHideButton,

@@ -23,19 +23,19 @@ import {
 } from '../../elements/OptionsModal'
 import { CONFIG_DEFAULT_TREND_LINE } from '../../utils/config'
 
-const dimensionId = DIMENSION_ID_DATA
-const dataElements = TEST_DATA_ELEMENTS.slice(3, 5).map(item => item.name)
+const TEST_DATA_ELEMENT_NAMES = TEST_DATA_ELEMENTS.slice(2, 4).map(
+    item => item.name
+)
 
 describe('Options - Lines', () => {
     it('navigates to the start page and adds data items', () => {
         goToStartPage()
-        openDimension(dimensionId)
-        selectDataElements(dataElements)
+        openDimension(DIMENSION_ID_DATA)
+        selectDataElements(TEST_DATA_ELEMENT_NAMES)
         clickDimensionModalUpdateButton()
         expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
     })
     describe('trendline', () => {
-        const optionsTab = OPTIONS_TAB_DATA
         const trendLineTypes = [
             { name: 'Polynomial', type: 'spline' },
             { name: 'Loess', type: 'spline' },
@@ -48,9 +48,9 @@ describe('Options - Lines', () => {
 
         trendLineTypes.forEach(trendLineType => {
             describe(trendLineType.name, () => {
-                it(`opens Options -> ${optionsTab}`, () => {
+                it('opens Options -> Data', () => {
                     clickMenuBarOptionsButton()
-                    clickOptionsTab(optionsTab)
+                    clickOptionsTab(OPTIONS_TAB_DATA)
                 })
                 it('enable trendline', () => {
                     enableTrendLine()
@@ -61,7 +61,7 @@ describe('Options - Lines', () => {
                 it('click the modal update button', () => {
                     clickOptionsModalUpdateButton()
                 })
-                dataElements.forEach(dataElement => {
+                TEST_DATA_ELEMENT_NAMES.forEach(dataElement => {
                     it(`config has ${dataElement} trendline`, () => {
                         const trendline = {
                             ...CONFIG_DEFAULT_TREND_LINE,

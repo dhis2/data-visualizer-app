@@ -1,3 +1,9 @@
+import {
+    isYearOverYear,
+    visTypeDisplayNames,
+    DIMENSION_ID_PERIOD,
+} from '@dhis2/analytics'
+
 import { createNewAO, openAOByName } from '../elements/FileMenu'
 import { confirmLeave } from '../elements/ConfirmLeaveModal'
 import {
@@ -13,7 +19,6 @@ import {
 } from '../elements/DimensionModal'
 import { openDimension } from '../elements/DimensionsPanel'
 import { TEST_AOS } from '../utils/data'
-import { isYearOverYear, visTypeDisplayNames } from '@dhis2/analytics'
 import { selectYoyCategoryOption } from '../elements/Layout'
 import { clickMenuBarUpdateButton } from '../elements/MenuBar'
 import { expectRouteToBeAOId, expectRouteToBeEmpty } from '../elements/Route'
@@ -33,11 +38,14 @@ describe('opening a saved AO', () => {
             })
             it(`adds a period`, () => {
                 if (isYearOverYear(ao.type)) {
-                    selectYoyCategoryOption('Last 2 six-months')
+                    const TEST_PERIOD = 'Last 2 six-months'
+                    selectYoyCategoryOption(TEST_PERIOD)
                     clickMenuBarUpdateButton()
                 } else {
-                    openDimension('pe')
-                    selectRelativePeriods(['Last six-month'], 'Six-months')
+                    const TEST_PERIOD_TYPE = 'Six-months'
+                    const TEST_PERIOD = 'Last six-month'
+                    openDimension(DIMENSION_ID_PERIOD)
+                    selectRelativePeriods([TEST_PERIOD], TEST_PERIOD_TYPE)
                     clickDimensionModalUpdateButton()
                 }
                 expectAOTitleToBeDirty()

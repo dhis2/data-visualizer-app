@@ -38,9 +38,9 @@ import {
     TYPE_SUBTITLE,
     setCustomSubtitle,
 } from '../../elements/OptionsModal'
+import { getRandomArrayItem } from '../../utils/random'
 
-const dimensionId = DIMENSION_ID_DATA
-const dataElements = TEST_DATA_ELEMENTS.slice(0, 2).map(item => item.name)
+const TEST_DATA_ELEMENT_NAME = getRandomArrayItem(TEST_DATA_ELEMENTS).name
 
 const getModifiedStyle = ({
     originalStyle,
@@ -74,35 +74,34 @@ const getModifiedStyle = ({
 // TODO: Refactor to use the "describe - describe - it" model
 
 describe('Options - Font styles', () => {
-    it('navigates to the start page and adds data items', () => {
+    it('navigates to the start page and adds a data item', () => {
         goToStartPage()
-        openDimension(dimensionId)
-        selectDataElements(dataElements)
+        openDimension(DIMENSION_ID_DATA)
+        selectDataElements([TEST_DATA_ELEMENT_NAME])
         clickDimensionModalUpdateButton()
         expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
     })
     describe('title', () => {
-        const fontSizeOption = Object.values(
+        const TEST_FONT_SIZE_OPTION = Object.values(
             getFontSizeOptions(FONT_STYLE_VISUALIZATION_TITLE)
         )[0]
-        const textAlignOption = Object.values(
+        const TEST_TEXT_ALIGN_OPTION = Object.values(
             getTextAlignOptions(FONT_STYLE_VISUALIZATION_TITLE, VIS_TYPE_COLUMN)
         ).find(option => option.value === TEXT_ALIGN_LEFT)
         const type = TYPE_TITLE
-        const optionsTab = OPTIONS_TAB_STYLE
 
         it('has default value', () => {
             expectStoreConfigTitleToBeValue(CONFIG_DEFAULT_TITLE)
         })
-        it(`opens Options -> ${optionsTab}`, () => {
+        it('opens Options -> Style', () => {
             clickMenuBarOptionsButton()
-            clickOptionsTab(optionsTab)
+            clickOptionsTab(OPTIONS_TAB_STYLE)
         })
         it('changes the font size', () => {
-            changeFontSizeOption(type, fontSizeOption.label)
+            changeFontSizeOption(type, TEST_FONT_SIZE_OPTION.label)
         })
         it('changes the font size', () => {
-            changeTextAlignOption(type, textAlignOption.label)
+            changeTextAlignOption(type, TEST_TEXT_ALIGN_OPTION.label)
         })
         it('changes font to bold', () => {
             clickBoldButton(type)
@@ -113,10 +112,10 @@ describe('Options - Font styles', () => {
         it('click the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
-        it(`config has font size ${fontSizeOption.value}, text align left, bold true, italic true`, () => {
+        it(`config has font size ${TEST_FONT_SIZE_OPTION.value}, text align left, bold true, italic true`, () => {
             const updatedTitle = getModifiedStyle({
                 originalStyle: CONFIG_DEFAULT_TITLE,
-                fontSize: fontSizeOption.value,
+                fontSize: TEST_FONT_SIZE_OPTION.value,
                 textAlign: 'left',
                 isBold: true,
                 isItalic: true,
@@ -125,10 +124,10 @@ describe('Options - Font styles', () => {
         })
     })
     describe('subtitle', () => {
-        const fontSizeOption = Object.values(
+        const TEST_FONT_SIZE_OPTION = Object.values(
             getFontSizeOptions(FONT_STYLE_VISUALIZATION_SUBTITLE)
         )[0]
-        const textAlignOption = Object.values(
+        const TEST_TEXT_ALIGN_OPTION = Object.values(
             getTextAlignOptions(
                 FONT_STYLE_VISUALIZATION_SUBTITLE,
                 VIS_TYPE_COLUMN
@@ -140,7 +139,7 @@ describe('Options - Font styles', () => {
         it('has default value', () => {
             expectStoreConfigSubtitleToBeValue(CONFIG_DEFAULT_SUBTITLE)
         })
-        it(`opens Options -> ${OPTIONS_TAB_STYLE}`, () => {
+        it('opens Options -> Style', () => {
             clickMenuBarOptionsButton()
             clickOptionsTab(OPTIONS_TAB_STYLE)
         })
@@ -148,10 +147,10 @@ describe('Options - Font styles', () => {
             setCustomSubtitle(TEST_SUBTITLE_TEXT)
         })
         it('changes the font size', () => {
-            changeFontSizeOption(type, fontSizeOption.label)
+            changeFontSizeOption(type, TEST_FONT_SIZE_OPTION.label)
         })
         it('changes the font size', () => {
-            changeTextAlignOption(type, textAlignOption.label)
+            changeTextAlignOption(type, TEST_TEXT_ALIGN_OPTION.label)
         })
         it('changes font to bold', () => {
             clickBoldButton(type)
@@ -162,10 +161,10 @@ describe('Options - Font styles', () => {
         it('click the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
-        it(`config has font size ${fontSizeOption.value}, text align left, bold true, italic true`, () => {
+        it(`config has font size ${TEST_FONT_SIZE_OPTION.value}, text align left, bold true, italic true`, () => {
             const updatedSubtitle = getModifiedStyle({
                 originalStyle: CONFIG_DEFAULT_SUBTITLE,
-                fontSize: fontSizeOption.value,
+                fontSize: TEST_FONT_SIZE_OPTION.value,
                 textAlign: 'left',
                 isBold: true,
                 isItalic: true,

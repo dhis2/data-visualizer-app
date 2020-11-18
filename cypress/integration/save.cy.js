@@ -1,5 +1,6 @@
 import {
     DIMENSION_ID_DATA,
+    DIMENSION_ID_PERIOD,
     isYearOverYear,
     visTypeDisplayNames,
 } from '@dhis2/analytics'
@@ -91,7 +92,7 @@ describe('saving an AO', () => {
         })
         it('all File menu buttons are enabled', () => {
             clickMenuBarFileButton()
-            const buttons = [
+            const enabledButtons = [
                 FILE_MENU_BUTTON_SAVEAS,
                 FILE_MENU_BUTTON_RENAME,
                 FILE_MENU_BUTTON_TRANSLATE,
@@ -99,16 +100,21 @@ describe('saving an AO', () => {
                 FILE_MENU_BUTTON_GETLINK,
                 FILE_MENU_BUTTON_DELETE,
             ]
-            buttons.forEach(button => expectFileMenuButtonToBeEnabled(button))
+            enabledButtons.forEach(button =>
+                expectFileMenuButtonToBeEnabled(button)
+            )
             closeFileMenu()
         })
         it(`changes the period`, () => {
             if (isYearOverYear(TEST_VIS_TYPE)) {
-                selectYoyCategoryOption('Last 2 six-months')
+                const TEST_PERIOD = 'Last 2 six-months'
+                selectYoyCategoryOption(TEST_PERIOD)
                 clickMenuBarUpdateButton()
             } else {
-                openDimension('pe')
-                selectRelativePeriods(['Last six-month'], 'Six-months')
+                const TEST_PERIOD_TYPE = 'Six-months'
+                const TEST_PERIOD = 'Last six-month'
+                openDimension(DIMENSION_ID_PERIOD)
+                selectRelativePeriods([TEST_PERIOD], TEST_PERIOD_TYPE)
                 clickDimensionModalUpdateButton()
             }
             expectAOTitleToBeDirty()

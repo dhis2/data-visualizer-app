@@ -6,6 +6,7 @@ import {
     DIMENSION_ID_ORGUNIT,
     DIMENSION_ID_PERIOD,
 } from '@dhis2/analytics'
+
 import { expectVisualizationToNotBeVisible } from '../elements/Chart'
 import {
     closeFileMenu,
@@ -70,7 +71,7 @@ describe('viewing the start screen', () => {
     })
     it('File menu buttons are disabled', () => {
         clickMenuBarFileButton()
-        const buttons = [
+        const disabledButtons = [
             FILE_MENU_BUTTON_SAVEAS,
             FILE_MENU_BUTTON_RENAME,
             FILE_MENU_BUTTON_TRANSLATE,
@@ -78,7 +79,9 @@ describe('viewing the start screen', () => {
             FILE_MENU_BUTTON_GETLINK,
             FILE_MENU_BUTTON_DELETE,
         ]
-        buttons.forEach(button => expectFileMenuButtonToBeDisabled(button))
+        disabledButtons.forEach(button =>
+            expectFileMenuButtonToBeDisabled(button)
+        )
         closeFileMenu()
     })
 })

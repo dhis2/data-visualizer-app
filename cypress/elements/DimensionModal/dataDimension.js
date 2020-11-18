@@ -1,4 +1,5 @@
 import { DIMENSION_ID_DATA } from '@dhis2/analytics'
+
 import { expectDimensionModalToBeVisible } from '.'
 
 const unselectedListEl = 'data-dimension-item-selector-unselected-items-list'

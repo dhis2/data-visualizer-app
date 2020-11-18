@@ -1,3 +1,11 @@
+import {
+    AXIS_ID_COLUMNS,
+    DIMENSION_ID_DATA,
+    getAxisMaxNumberOfItems,
+    isYearOverYear,
+    visTypeDisplayNames,
+} from '@dhis2/analytics'
+
 //import { createNewAO } from '../elements/FileMenu'
 import { openDimension } from '../elements/DimensionsPanel'
 import {
@@ -20,27 +28,18 @@ import {
     expectVisualizationToNotBeVisible,
     expectChartToContainDimensionItem,
 } from '../elements/Chart'
-import { visTypes } from '../utils/visTypes'
-import {
-    AXIS_ID_COLUMNS,
-    DIMENSION_ID_DATA,
-    getAxisMaxNumberOfItems,
-    isYearOverYear,
-    visTypeDisplayNames,
-} from '@dhis2/analytics'
 import { TEST_DATA_ELEMENTS } from '../utils/data'
 
-const dimensionId = DIMENSION_ID_DATA
-const axisId = AXIS_ID_COLUMNS
-const dataElements = TEST_DATA_ELEMENTS.slice(0, 2).map(item => item.name)
+const TEST_AXIS_ID = AXIS_ID_COLUMNS
+const TEST_DATA_ELEMENT_NAMES = TEST_DATA_ELEMENTS.slice(2, 4).map(
+    item => item.name
+)
 
 describe('creating a new AO', () => {
     it('navigates to the start page', () => {
         goToStartPage()
     })
-    const availableVisTypes = visTypes
-    availableVisTypes.forEach(visType => {
-        const columnsMaxNumberOfItems = getAxisMaxNumberOfItems(visType, axisId)
+    Object.keys(visTypeDisplayNames).forEach(visType => {
         const visTypeName = visTypeDisplayNames[visType]
         describe(visTypeName, () => {
             it('creates a new AO', () => {
@@ -55,14 +54,14 @@ describe('creating a new AO', () => {
                 expectVisTypeToBeValue(visTypeName)
             })
             it('adds dimensions', () => {
-                openDimension(dimensionId)
+                openDimension(DIMENSION_ID_DATA)
 
-                if (columnsMaxNumberOfItems === 1) {
+                if (getAxisMaxNumberOfItems(visType, TEST_AXIS_ID) === 1) {
                     // Gauge and SV can only have 1 data item
-                    dataElements.splice(1)
+                    TEST_DATA_ELEMENT_NAMES.splice(1)
                 }
 
-                selectDataElements(dataElements)
+                selectDataElements(TEST_DATA_ELEMENT_NAMES)
 
                 clickDimensionModalUpdateButton()
 
@@ -72,7 +71,7 @@ describe('creating a new AO', () => {
                     ? expectStoreCurrentColumnsToHaveLength(1)
                     : expectAOTitleToBeUnsaved()
 
-                dataElements.forEach(item =>
+                TEST_DATA_ELEMENT_NAMES.forEach(item =>
                     expectChartToContainDimensionItem(visType, item)
                 )
             })

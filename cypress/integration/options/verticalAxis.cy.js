@@ -26,26 +26,25 @@ import {
     expectStoreConfigYAxisToHaveRangeMaxValue,
     expectStoreConfigYAxisToHaveTitleText,
 } from '../../utils/store'
+import { generateRandomNumber, getRandomArrayItem } from '../../utils/random'
 
-const dimensionId = DIMENSION_ID_DATA
-const dataElements = TEST_DATA_ELEMENTS.slice(3, 5).map(item => item.name)
-const optionsTab = OPTIONS_TAB_AXES
+const TEST_DATA_ELEMENT_NAME = getRandomArrayItem(TEST_DATA_ELEMENTS).name
 const TEST_TITLE = 'Vert title'
-const TEST_MIN_VALUE = 4895
-const TEST_MAX_VALUE = 20578
+const TEST_MIN_VALUE = generateRandomNumber(-1000, 1000)
+const TEST_MAX_VALUE = generateRandomNumber(2000, 5000)
 
 describe('Options - Vertical axis', () => {
-    it('navigates to the start page and adds data items', () => {
+    it('navigates to the start page and add a data item', () => {
         goToStartPage()
-        openDimension(dimensionId)
-        selectDataElements(dataElements)
+        openDimension(DIMENSION_ID_DATA)
+        selectDataElements([TEST_DATA_ELEMENT_NAME])
         clickDimensionModalUpdateButton()
         expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
     })
     describe('title', () => {
-        it(`opens Options -> ${optionsTab}`, () => {
+        it('opens Options -> Axes', () => {
             clickMenuBarOptionsButton()
-            clickOptionsTab(optionsTab)
+            clickOptionsTab(OPTIONS_TAB_AXES)
         })
         it('enable title', () => {
             enableVerticalAxisTitle()
@@ -61,9 +60,9 @@ describe('Options - Vertical axis', () => {
         })
     })
     describe('range', () => {
-        it(`opens Options -> ${optionsTab}`, () => {
+        it('opens Options -> Axes', () => {
             clickMenuBarOptionsButton()
-            clickOptionsTab(optionsTab)
+            clickOptionsTab(OPTIONS_TAB_AXES)
         })
         it('set min value', () => {
             setVerticalAxisRangeMinValue(TEST_MIN_VALUE)
@@ -83,9 +82,9 @@ describe('Options - Vertical axis', () => {
     })
     // TODO: steps, decimals, labels
     describe('options modal keeps changes', () => {
-        it(`opens Options -> ${optionsTab}`, () => {
+        it('opens Options -> Axes', () => {
             clickMenuBarOptionsButton()
-            clickOptionsTab(optionsTab)
+            clickOptionsTab(OPTIONS_TAB_AXES)
         })
         it(`title is "${TEST_TITLE}"`, () => {
             expectVerticalAxisTitleToBeValue(TEST_TITLE)

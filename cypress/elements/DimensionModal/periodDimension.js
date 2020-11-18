@@ -1,4 +1,5 @@
 import { DIMENSION_ID_PERIOD } from '@dhis2/analytics'
+
 import { expectDimensionModalToBeVisible } from '.'
 
 const sourceOptionsListEl = 'dhis2-uicore-transfer-sourceoptions'

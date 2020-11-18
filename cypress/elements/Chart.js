@@ -18,14 +18,13 @@ const highchartsTitleEl = '.highcharts-title'
 const unsavedVisualizationTitleText = 'Unsaved visualization'
 const AOTitleEl = 'AO-title'
 const AOTitleDirtyEl = 'AO-title-dirty'
-
-const TIMEOUT_PARAMS = {
+const timeout = {
     timeout: 10000,
 }
-const NON_HIGHCHARTS_TYPES = [VIS_TYPE_PIVOT_TABLE, VIS_TYPE_SINGLE_VALUE]
+const nonHighchartsTypes = [VIS_TYPE_PIVOT_TABLE, VIS_TYPE_SINGLE_VALUE]
 
 export const expectVisualizationToBeVisible = (visType = VIS_TYPE_COLUMN) =>
-    NON_HIGHCHARTS_TYPES.includes(visType)
+    nonHighchartsTypes.includes(visType)
         ? expectVisualizationContainerToBeVisible()
         : expectChartContainerToBeVisible()
 
@@ -35,20 +34,20 @@ export const expectVisualizationToNotBeVisible = () => {
 }
 
 const expectVisualizationContainerToBeVisible = () =>
-    cy.getBySel(visualizationContainerEl, TIMEOUT_PARAMS).should('be.visible')
+    cy.getBySel(visualizationContainerEl, timeout).should('be.visible')
 
 const expectVisualizationContainerToNotBeVisible = () =>
     cy
-        .getBySel(visualizationContainerEl, TIMEOUT_PARAMS)
+        .getBySel(visualizationContainerEl, timeout)
         .should('not.be.visible')
         .and('have.length', 0)
 
 const expectChartContainerToBeVisible = () =>
-    cy.get(chartContainerEl, TIMEOUT_PARAMS).should('be.visible')
+    cy.get(chartContainerEl, timeout).should('be.visible')
 
 const expectChartContainerToNotBeVisible = () =>
     cy
-        .get(chartContainerEl, TIMEOUT_PARAMS)
+        .get(chartContainerEl, timeout)
         .should('not.be.visible')
         .and('have.length', 0)
 
