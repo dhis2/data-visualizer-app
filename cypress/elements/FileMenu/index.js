@@ -20,18 +20,18 @@ export const FILE_MENU_BUTTON_SHARE = 'Share'
 export const FILE_MENU_BUTTON_GETLINK = 'Get link'
 export const FILE_MENU_BUTTON_DELETE = 'Delete'
 
-export const closeFileMenu = () => {
-    cy.get(fileMenuItemEl)
+export const closeFileMenu = () =>
+    cy
+        .get(fileMenuItemEl)
         .contains(FILE_MENU_BUTTON_NEW)
         .parents('ul')
         .type('{esc}')
-}
 
-export const clickFileMenuButton = buttonName => {
-    cy.get(fileMenuItemEl) // TODO: Change once new FileMenu is in place
+export const clickFileMenuButton = buttonName =>
+    cy
+        .get(fileMenuItemEl) // TODO: Change once new FileMenu is in place
         .contains(buttonName)
         .click()
-}
 
 export const createNewAO = () => {
     clickMenuBarFileButton()
@@ -51,13 +51,13 @@ export const deleteAO = () => {
         .click()
 }
 
-export const expectFileMenuButtonToBeDisabled = (buttonName, inverse) => {
-    cy.get(fileMenuItemEl)
+export const expectFileMenuButtonToBeDisabled = (buttonName, inverse) =>
+    cy
+        .get(fileMenuItemEl)
         .contains(buttonName)
         .parents('li')
         .invoke('attr', 'class')
         .should(inverse ? 'not.contain' : 'contain', 'disabled')
-}
 
 export const expectFileMenuButtonToBeEnabled = buttonName =>
     expectFileMenuButtonToBeDisabled(buttonName, true)

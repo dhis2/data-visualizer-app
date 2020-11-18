@@ -1,26 +1,26 @@
-Cypress.Commands.add('getReduxState', prop => {
-    cy.window()
+Cypress.Commands.add('getReduxState', prop =>
+    cy
+        .window()
         .its('store')
         .invoke('getState')
         .its(prop)
-})
+)
 
-Cypress.Commands.add('getBySel', (selector, ...args) => {
-    return cy.get(`[data-test=${selector}]`, ...args)
-})
+Cypress.Commands.add('getBySel', (selector, ...args) =>
+    cy.get(`[data-test=${selector}]`, ...args)
+)
 
-Cypress.Commands.add('getBySelLike', (selector, ...args) => {
-    return cy.get(`[data-test*=${selector}]`, ...args)
-})
+Cypress.Commands.add('getBySelLike', (selector, ...args) =>
+    cy.get(`[data-test*=${selector}]`, ...args)
+)
 
 Cypress.Commands.add(
     'findBySel',
     {
         prevSubject: true,
     },
-    (subject, selector, ...args) => {
-        return cy.wrap(subject).find(`[data-test=${selector}]`, ...args)
-    }
+    (subject, selector, ...args) =>
+        cy.wrap(subject).find(`[data-test=${selector}]`, ...args)
 )
 
 Cypress.Commands.add(
@@ -28,9 +28,8 @@ Cypress.Commands.add(
     {
         prevSubject: true,
     },
-    (subject, selector, ...args) => {
-        return cy.wrap(subject).find(`[data-test*=${selector}]`, ...args)
-    }
+    (subject, selector, ...args) =>
+        cy.wrap(subject).find(`[data-test*=${selector}]`, ...args)
 )
 
 /* 
@@ -40,8 +39,7 @@ Cypress.Commands.add(
     {
         prevSubject: true,
     },
-    (subject, selector) => {
-        return cy.wrap(subject).contains(new RegExp(`^${selector}$`, 'g'))
-    }
+    (subject, selector) => 
+        cy.wrap(subject).contains(new RegExp(`^${selector}$`, 'g'))
 )
 */

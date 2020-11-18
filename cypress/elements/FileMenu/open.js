@@ -31,7 +31,7 @@ export const openRandomAO = () => {
     cy.wait(500) // FIXME: This is a hack
     /* 
                 Without the wait Cypress will race the DOM to update the list of available AOs 
-                Hopefully this can be solved once the Open dialog is changed to @dhis2(ui instead)
+                Hopefully this can be solved once the Open dialog is changed to @dhis2/ui instead)
             */
     clickRandomAO()
 }
@@ -47,8 +47,9 @@ export const openRandomAOCreatedByOthers = () => {
         .find('*[class^="MuiSelect-select"]')
         .as('owner')
         .click()
-        .then(() => {
-            cy.get(createdByOthersEl)
+        .then(() =>
+            cy
+                .get(createdByOthersEl)
                 .click()
                 .then(() => {
                     cy.get(openModalEl)
@@ -62,7 +63,7 @@ export const openRandomAOCreatedByOthers = () => {
                         */
                     clickRandomAO()
                 })
-        })
+        )
 }
 
 export const openAOByName = name => {

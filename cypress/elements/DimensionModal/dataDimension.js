@@ -9,7 +9,6 @@ const dataTypesSelectButtonEl = 'data-dimension-data-types-select-field-content'
 const selectedItemEl = 'data-dimension-item-selector-selected-items-list-item'
 const dataElementsOptionEl =
     'data-dimension-data-types-select-field-option-dataElements'
-
 const removeAllButtonEl =
     'data-dimension-item-selector-selected-items-deselect-all-button'
 //const addAllButtonEl = 'data-dimension-item-selector-unselected-items-select-all-button'
@@ -18,13 +17,6 @@ export const expectDataDimensionModalToBeVisible = () =>
     expectDimensionModalToBeVisible(DIMENSION_ID_DATA)
 
 export const removeAllDataItems = () => cy.getBySel(removeAllButtonEl).click()
-
-// export const replaceDataItemsWithRandomDataElements = amount => {
-//     expectDataDimensionModalToBeVisible()
-//     removeAllDataItems()
-//     selectRandomDataElements(amount)
-//     expectDataItemsAmountToBeSelected(amount)
-// }
 
 export const expectNoDataItemsToBeSelected = () =>
     cy
@@ -37,24 +29,6 @@ export const expectDataItemsAmountToBeSelected = amount =>
         .getBySel(selectedItemEl)
         .should('not.be.visible')
         .and('have.length', amount)
-
-// const selectRandomDataElements = amount => {
-//     switchToDataType(dataElementsOptionEl)
-//     selectRandomItems(amount)
-// }
-
-// const selectRandomItems = amount => {
-//     for (let i = 0; i < amount; i++) {
-//         cy.getBySel(unselectedItemEl)
-//             .its('length')
-//             .then(size => {
-//                 cy.getBySel(unselectedListEl)
-//                     .children()
-//                     .eq(generateRandomNumber(0, size - 1))
-//                     .dblclick()
-//             })
-//     }
-// }
 
 export const selectDataElements = dataElements => {
     switchToDataType(dataElementsOptionEl)
@@ -74,3 +48,30 @@ const switchToDataType = dataType => {
     cy.getBySel(dataTypesSelectButtonEl).click()
     cy.getBySel(dataType).click()
 }
+
+/* TODO: Find a way to use random items
+    export const replaceDataItemsWithRandomDataElements = amount => {
+        expectDataDimensionModalToBeVisible()
+        removeAllDataItems()
+        selectRandomDataElements(amount)
+        expectDataItemsAmountToBeSelected(amount)
+    }
+
+    const selectRandomDataElements = amount => {
+        switchToDataType(dataElementsOptionEl)
+        selectRandomItems(amount)
+    }
+
+    const selectRandomItems = amount => {
+        for (let i = 0; i < amount; i++) {
+            cy.getBySel(unselectedItemEl)
+                .its('length')
+                .then(size => {
+                    cy.getBySel(unselectedListEl)
+                        .children()
+                        .eq(generateRandomNumber(0, size - 1))
+                        .dblclick()
+                })
+        }
+    }
+*/

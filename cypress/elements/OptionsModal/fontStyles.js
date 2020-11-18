@@ -31,10 +31,10 @@ export const clickBoldButton = type =>
 export const clickItalicButton = type =>
     cy.getBySel(getItalicButtonElByType(type)).click()
 
-// FIXME: Find a way to test the color picker
-// export const changeTitleColorOption = color => {
-//     cy.getBySel('option-chart-title-text-style-text-color-picker')
-//         .invoke('val', color)
-//         .trigger('change')
-//         .blur()
-// }
+/*FIXME: Find a way to test the color picker
+    export const changeTitleColorOption = color => 
+        cy.getBySel('option-chart-title-text-style-text-color-picker')
+            .invoke('val', color)
+            .trigger('change')
+            .blur()
+*/

@@ -23,6 +23,7 @@ export const saveNewAO = (name, description) => {
         .find(saveModalSaveButtonEl)
         .click()
 }
+
 export const saveExistingAO = () => {
     clickMenuBarFileButton()
     clickFileMenuButton(FILE_MENU_BUTTON_SAVE)

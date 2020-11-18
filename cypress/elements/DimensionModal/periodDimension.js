@@ -4,7 +4,6 @@ import { expectDimensionModalToBeVisible } from '.'
 
 const sourceOptionsListEl = 'dhis2-uicore-transfer-sourceoptions'
 //const pickedOptionsListEl = 'dhis2-uicore-transfer-pickedoptions'
-
 const relativePeriodsButtonEl = 'period-dimension-relative-periods-button'
 const fixedPeriodsButtonEl = 'period-dimension-fixed-periods-button'
 const relativePeriodsPeriodTypeButtonEl =
@@ -15,7 +14,6 @@ const fixedPeriodsPeriodTypeButtonEl =
 // fixed periods period type options = 'period-dimension-fixed-period-filter-period-type-option-DAILY'
 const periodTypeMenuEl = 'dhis2-uicore-select-menu-menuwrapper'
 //const fixedPeriodsYearEl = 'period-dimension-fixed-period-filter-year-content'
-
 const removeAllButtonEl = 'dhis2-uicore-transfer-actions-removeall'
 //const addAllButtonEl = 'dhis2-uicore-transfer-actions-addall'
 
@@ -27,7 +25,7 @@ export const removeAllPeriodItems = () => cy.getBySel(removeAllButtonEl).click()
 export const selectRelativePeriods = (periods, periodType) => {
     cy.getBySel(relativePeriodsButtonEl).click()
     if (periodType !== 'Months') {
-        // Temp fix for https://jira.dhis2.org/browse/TECH-396
+        // Temp fix for https://jira.dhis2.org/browse/TECH-396, as Months is the default option and can't be clicked
         switchToPeriodType(relativePeriodsPeriodTypeButtonEl, periodType)
     }
     periods.forEach(item => clickSourceOption(item))
@@ -36,7 +34,7 @@ export const selectRelativePeriods = (periods, periodType) => {
 export const selectFixedPeriods = (periods, periodType) => {
     cy.getBySel(fixedPeriodsButtonEl).click()
     if (periodType !== 'Monthly') {
-        // Temp fix for https://jira.dhis2.org/browse/TECH-396
+        // Temp fix for https://jira.dhis2.org/browse/TECH-396, as Monthly is the default option and can't be clicked
         switchToPeriodType(fixedPeriodsPeriodTypeButtonEl, periodType)
     }
     periods.forEach(item => clickSourceOption(item))

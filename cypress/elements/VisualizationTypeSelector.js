@@ -3,9 +3,7 @@ const vstButtonEl = 'visualization-type-selector-button'
 const vstButtonTextEl = 'visualization-type-selector-currently-selected-text'
 const defaultVisTypeName = 'Column'
 
-export const clickVisTypeSelector = () => {
-    cy.getBySel(vstButtonEl).click()
-}
+export const clickVisTypeSelector = () => cy.getBySel(vstButtonEl).click()
 
 export const changeVisType = visTypeName => {
     clickVisTypeSelector()

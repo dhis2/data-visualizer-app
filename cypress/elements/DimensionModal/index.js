@@ -1,7 +1,6 @@
 const dimensionModalEl = 'dialog-manager'
 const dimensionModalUpdateButtonEl = 'dialog-manager-modal-action-confirm'
 const dimensionModalHideButtonEl = 'dialog-manager-modal-action-cancel'
-//const dimensionModalTitleEl = 'dialog-manager-modal-title'
 
 export const expectDimensionModalToBeVisible = dimensionId =>
     cy.getBySel(`${dimensionModalEl}-${dimensionId}`).should('be.visible')
