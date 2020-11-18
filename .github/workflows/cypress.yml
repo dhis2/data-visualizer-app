@@ -14,8 +14,6 @@ env:
     cypress_dhis2_base_url: ${{ secrets.REACT_APP_DHIS2_BASE_URL }}
     cypress_dhis2_username: ${{ secrets.DHIS2_USERNAME }}
     cypress_dhis2_password: ${{ secrets.DHIS_PASSWORD }}
-    cypress_withprefix: 'this is with prefix - cypress_withprefix'
-    withoutprefix: 'this is without prefix - withoutprefix'
 
 jobs:
     e2e:
