@@ -30,8 +30,7 @@ describe('confirm leave modal', () => {
     })
     it('replaces the data items', () => {
         openDimension(DIMENSION_ID_DATA)
-        removeAllDataItems()
-        expectNoDataItemsToBeSelected()
+        removeAllDataItems().then(() => expectNoDataItemsToBeSelected())
         selectDataElements([TEST_DATA_ELEMENTS[0].name])
         clickDimensionModalUpdateButton()
         expectAOTitleToBeDirty()
