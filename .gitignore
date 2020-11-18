@@ -8,7 +8,6 @@
 .netlify
 packages/app/cypress/videos/
 packages/app/cypress/screenshots/
-cypress.env.json
 
 # production
 packages/**/build
