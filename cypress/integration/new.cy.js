@@ -6,18 +6,18 @@ import {
     visTypeDisplayNames,
 } from '@dhis2/analytics'
 
-//import { createNewAO } from '../elements/FileMenu'
-import { openDimension } from '../elements/DimensionsPanel'
+//import { createNewAO } from '../elements/fileMenu'
+import { openDimension } from '../elements/dimensionsPanel'
 import {
     selectDataElements,
     clickDimensionModalUpdateButton,
-} from '../elements/DimensionModal'
+} from '../elements/dimensionModal'
 import {
     changeVisType,
     expectVisTypeToBeDefault,
     expectVisTypeToBeValue,
-} from '../elements/VisualizationTypeSelector'
-import { goToStartPage } from '../elements/StartScreen'
+} from '../elements/visualizationTypeSelector'
+import { goToStartPage } from '../elements/startScreen'
 import {
     expectStoreCurrentToBeEmpty,
     expectStoreCurrentColumnsToHaveLength,
@@ -27,7 +27,7 @@ import {
     expectVisualizationToBeVisible,
     expectVisualizationToNotBeVisible,
     expectChartToContainDimensionItem,
-} from '../elements/Chart'
+} from '../elements/chart'
 import { TEST_DATA_ELEMENTS } from '../utils/data'
 
 const TEST_AXIS_ID = AXIS_ID_COLUMNS

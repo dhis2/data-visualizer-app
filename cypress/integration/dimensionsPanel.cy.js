@@ -17,8 +17,8 @@ import {
     clickOrgUnitTreeItem,
     clickDimensionModalUpdateButton,
     expectDimensionModalToNotBeVisible,
-} from '../elements/DimensionModal'
-import { removeAllPeriodItems } from '../elements/DimensionModal/periodDimension'
+} from '../elements/dimensionModal'
+import { removeAllPeriodItems } from '../elements/dimensionModal/periodDimension'
 import {
     openDimension,
     openContextMenu,
@@ -32,9 +32,9 @@ import {
     expectDimensionToHaveSelectedStyle,
     clickContextMenuDimSubMenu,
     expectRecommendedIconToBeVisible,
-} from '../elements/DimensionsPanel'
-import { expectAxisToHaveDimension } from '../elements/Layout'
-import { goToStartPage } from '../elements/StartScreen'
+} from '../elements/dimensionsPanel'
+import { expectAxisToHaveDimension } from '../elements/layout'
+import { goToStartPage } from '../elements/startScreen'
 import {
     TEST_CUSTOM_DIMENSIONS,
     TEST_DEFAULT_RECOMMENDED_DIMENSIONS,

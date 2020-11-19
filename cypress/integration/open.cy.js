@@ -4,24 +4,24 @@ import {
     DIMENSION_ID_PERIOD,
 } from '@dhis2/analytics'
 
-import { createNewAO, openAOByName } from '../elements/FileMenu'
-import { confirmLeave } from '../elements/ConfirmLeaveModal'
+import { createNewAO, openAOByName } from '../elements/fileMenu'
+import { confirmLeave } from '../elements/confirmLeaveModal'
 import {
     expectAOTitleToBeDirty,
     expectAOTitleToBeValue,
     expectAOTitleToNotBeDirty,
     expectVisualizationToBeVisible,
-} from '../elements/Chart'
-import { goToStartPage } from '../elements/StartScreen'
+} from '../elements/chart'
+import { goToStartPage } from '../elements/startScreen'
 import {
     clickDimensionModalUpdateButton,
     selectRelativePeriods,
-} from '../elements/DimensionModal'
-import { openDimension } from '../elements/DimensionsPanel'
+} from '../elements/dimensionModal'
+import { openDimension } from '../elements/dimensionsPanel'
 import { TEST_AOS } from '../utils/data'
-import { selectYoyCategoryOption } from '../elements/Layout'
-import { clickMenuBarUpdateButton } from '../elements/MenuBar'
-import { expectRouteToBeAOId, expectRouteToBeEmpty } from '../elements/Route'
+import { selectYoyCategoryOption } from '../elements/layout'
+import { clickMenuBarUpdateButton } from '../elements/menuBar'
+import { expectRouteToBeAOId, expectRouteToBeEmpty } from '../elements/route'
 
 describe('opening a saved AO', () => {
     it('navigates to the start page', () => {

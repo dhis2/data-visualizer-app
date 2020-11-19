@@ -4,23 +4,23 @@ import {
     expectAOTitleToBeDirty,
     expectAOTitleToNotBeDirty,
     expectVisualizationToNotBeVisible,
-} from '../elements/Chart'
+} from '../elements/chart'
 import {
     confirmLeave,
     expectConfirmLeaveModalToBeVisible,
-} from '../elements/ConfirmLeaveModal'
+} from '../elements/confirmLeaveModal'
 import {
     clickDimensionModalUpdateButton,
     removeAllDataItems,
     selectDataElements,
-} from '../elements/DimensionModal'
-import { expectNoDataItemsToBeSelected } from '../elements/DimensionModal/dataDimension'
-import { openDimension } from '../elements/DimensionsPanel'
-import { createNewAO, openRandomAO } from '../elements/FileMenu'
+} from '../elements/dimensionModal'
+import { expectNoDataItemsToBeSelected } from '../elements/dimensionModal/dataDimension'
+import { openDimension } from '../elements/dimensionsPanel'
+import { createNewAO, openRandomAO } from '../elements/fileMenu'
 import {
     expectStartScreenToBeVisible,
     goToStartPage,
-} from '../elements/StartScreen'
+} from '../elements/startScreen'
 import { TEST_DATA_ELEMENTS } from '../utils/data'
 import { getRandomArrayItem } from '../utils/random'
 

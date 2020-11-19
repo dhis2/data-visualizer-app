@@ -14,7 +14,7 @@ import {
     expectDimensionModalToBeVisible,
     clickDimensionModalHideButton,
     expectDimensionModalToNotBeVisible,
-} from '../elements/DimensionModal'
+} from '../elements/dimensionModal'
 import {
     openDimension,
     openContextMenu,
@@ -26,8 +26,8 @@ import {
     expectAxisToHaveDimension,
     expectAxisToNotHaveDimension,
     expectLayoutToNotHaveDimension,
-} from '../elements/Layout'
-import { goToStartPage } from '../elements/StartScreen'
+} from '../elements/layout'
+import { goToStartPage } from '../elements/startScreen'
 
 const TEST_FIXED_DIMS = Object.values(getFixedDimensions())
 const TEST_DYNAMIC_DIMS = Object.values(getDynamicDimensions())

@@ -5,20 +5,20 @@ import {
     visTypeDisplayNames,
 } from '@dhis2/analytics'
 
-import { openDimension } from '../elements/DimensionsPanel'
+import { openDimension } from '../elements/dimensionsPanel'
 import {
     selectDataElements,
     clickDimensionModalUpdateButton,
     selectRelativePeriods,
-} from '../elements/DimensionModal'
-import { changeVisType } from '../elements/VisualizationTypeSelector'
+} from '../elements/dimensionModal'
+import { changeVisType } from '../elements/visualizationTypeSelector'
 import {
     expectAOTitleToBeDirty,
     expectAOTitleToBeUnsaved,
     expectAOTitleToBeValue,
     expectAOTitleToNotBeDirty,
     expectVisualizationToBeVisible,
-} from '../elements/Chart'
+} from '../elements/chart'
 import { TEST_DATA_ELEMENTS } from '../utils/data'
 import {
     //openRandomAOCreatedByOthers,
@@ -36,18 +36,18 @@ import {
     FILE_MENU_BUTTON_TRANSLATE,
     FILE_MENU_BUTTON_SHARE,
     FILE_MENU_BUTTON_GETLINK,
-} from '../elements/FileMenu'
-import { expectRouteToBeAOId, expectRouteToBeEmpty } from '../elements/Route'
+} from '../elements/fileMenu'
+import { expectRouteToBeAOId, expectRouteToBeEmpty } from '../elements/route'
 import { getRandomVisType } from '../utils/random'
 import {
     clickMenuBarFileButton,
     clickMenuBarUpdateButton,
-} from '../elements/MenuBar'
-import { selectYoyCategoryOption } from '../elements/Layout'
+} from '../elements/menuBar'
+import { selectYoyCategoryOption } from '../elements/layout'
 import {
     expectStartScreenToBeVisible,
     goToStartPage,
-} from '../elements/StartScreen'
+} from '../elements/startScreen'
 
 const TEST_VIS_NAME = `TEST ${new Date().toLocaleString()}`
 const TEST_VIS_NAME_UPDATED = `${TEST_VIS_NAME} - updated`

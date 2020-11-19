@@ -7,7 +7,7 @@ import {
     DIMENSION_ID_PERIOD,
 } from '@dhis2/analytics'
 
-import { expectVisualizationToNotBeVisible } from '../elements/Chart'
+import { expectVisualizationToNotBeVisible } from '../elements/chart'
 import {
     closeFileMenu,
     expectFileMenuButtonToBeDisabled,
@@ -17,19 +17,19 @@ import {
     FILE_MENU_BUTTON_TRANSLATE,
     FILE_MENU_BUTTON_RENAME,
     FILE_MENU_BUTTON_DELETE,
-} from '../elements/FileMenu'
+} from '../elements/fileMenu'
 import {
     expectAxisToHaveDimension,
     expectDimensionToHaveItemAmount,
     expectDimensionToNotHaveItems,
-} from '../elements/Layout'
-import { clickMenuBarFileButton } from '../elements/MenuBar'
+} from '../elements/layout'
+import { clickMenuBarFileButton } from '../elements/menuBar'
 import {
     expectMostViewedToBeVisible,
     goToStartPage,
-} from '../elements/StartScreen'
-import { expectVisTypeToBeDefault } from '../elements/VisualizationTypeSelector'
-import { expectWindowTitleToBeDefault } from '../elements/Window'
+} from '../elements/startScreen'
+import { expectVisTypeToBeDefault } from '../elements/visualizationTypeSelector'
+import { expectWindowTitleToBeDefault } from '../elements/window'
 import { expectStoreCurrentToBeEmpty } from '../utils/store'
 
 describe('viewing the start screen', () => {

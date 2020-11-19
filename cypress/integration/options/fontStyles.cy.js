@@ -8,24 +8,24 @@ import {
     FONT_STYLE_VISUALIZATION_SUBTITLE,
 } from '@dhis2/analytics'
 
-import { openDimension } from '../../elements/DimensionsPanel'
-//import { createNewAO } from '../../elements/FileMenu'
+import { openDimension } from '../../elements/dimensionsPanel'
+//import { createNewAO } from '../../elements/fileMenu'
 import {
     selectDataElements,
     clickDimensionModalUpdateButton,
-} from '../../elements/DimensionModal'
-import { goToStartPage } from '../../elements/StartScreen'
+} from '../../elements/dimensionModal'
+import { goToStartPage } from '../../elements/startScreen'
 import {
     expectStoreConfigSubtitleToBeValue,
     expectStoreConfigTitleToBeValue,
 } from '../../utils/store'
-import { expectVisualizationToBeVisible } from '../../elements/Chart'
+import { expectVisualizationToBeVisible } from '../../elements/chart'
 import { TEST_DATA_ELEMENTS } from '../../utils/data'
 import {
     CONFIG_DEFAULT_SUBTITLE,
     CONFIG_DEFAULT_TITLE,
 } from '../../utils/config'
-import { clickMenuBarOptionsButton } from '../../elements/MenuBar'
+import { clickMenuBarOptionsButton } from '../../elements/menuBar'
 import {
     changeFontSizeOption,
     clickOptionsModalUpdateButton,
@@ -37,7 +37,7 @@ import {
     TYPE_TITLE,
     TYPE_SUBTITLE,
     setCustomSubtitle,
-} from '../../elements/OptionsModal'
+} from '../../elements/optionsModal'
 import { getRandomArrayItem } from '../../utils/random'
 
 const TEST_DATA_ELEMENT_NAME = getRandomArrayItem(TEST_DATA_ELEMENTS).name
