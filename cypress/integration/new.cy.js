@@ -6,7 +6,7 @@ import {
     visTypeDisplayNames,
 } from '@dhis2/analytics'
 
-//import { createNewAO } from '../elements/fileMenu'
+import { createNewAO } from '../elements/fileMenu'
 import { openDimension } from '../elements/dimensionsPanel'
 import {
     selectDataElements,
@@ -43,8 +43,7 @@ describe('creating a new AO', () => {
         const visTypeName = visTypeDisplayNames[visType]
         describe(visTypeName, () => {
             it('creates a new AO', () => {
-                //createNewAO()
-                goToStartPage() // FIXME: Use this since the "New" button is currently broken
+                createNewAO()
                 expectStoreCurrentToBeEmpty()
                 expectVisualizationToNotBeVisible()
                 expectVisTypeToBeDefault()

@@ -9,7 +9,6 @@ import {
 } from '@dhis2/analytics'
 
 import { openDimension } from '../../elements/dimensionsPanel'
-//import { createNewAO } from '../../elements/fileMenu'
 import {
     selectDataElements,
     clickDimensionModalUpdateButton,

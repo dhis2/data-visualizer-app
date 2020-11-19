@@ -36,18 +36,18 @@ export const clickFileMenuButton = buttonName =>
 export const createNewAO = () => {
     clickMenuBarFileButton()
     cy.get(fileMenuItemEl) // TODO: Change once new FileMenu is in place
-        .contains('New')
+        .contains(FILE_MENU_BUTTON_NEW)
         .click()
 }
 
 export const deleteAO = () => {
     clickMenuBarFileButton()
     cy.get(fileMenuItemEl)
-        .contains('Delete')
+        .contains(FILE_MENU_BUTTON_DELETE)
         .click()
     cy.get(deleteModalEl)
         .find('button')
-        .contains('Delete')
+        .contains(FILE_MENU_BUTTON_DELETE)
         .click()
 }
 
