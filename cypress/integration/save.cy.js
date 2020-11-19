@@ -118,6 +118,7 @@ describe('saving an AO', () => {
                 clickDimensionModalUpdateButton()
             }
             expectAOTitleToBeDirty()
+            expectVisualizationToBeVisible(TEST_VIS_TYPE)
         })
         it('saves AO using "Save"', () => {
             saveExistingAO()
