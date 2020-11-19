@@ -1,3 +1,10 @@
+## [35.13.19](https://github.com/dhis2/data-visualizer-app/compare/v35.13.18...v35.13.19) (2020-11-19)
+
+
+### Bug Fixes
+
+* reset app when New is clicked (DHIS2-9876) ([#1406](https://github.com/dhis2/data-visualizer-app/issues/1406)) ([0dc16ed](https://github.com/dhis2/data-visualizer-app/commit/0dc16ed35c83cd4f558e982eb61bf10c67741127))
+
 ## [35.13.18](https://github.com/dhis2/data-visualizer-app/compare/v35.13.17...v35.13.18) (2020-11-15)
 
 
