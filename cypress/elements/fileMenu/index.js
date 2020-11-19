@@ -5,7 +5,7 @@
     FileMenu component is in place.
 */
 
-import { clickMenuBarFileButton } from '../MenuBar'
+import { clickMenuBarFileButton } from '../menuBar'
 
 const deleteModalEl = '*[class^="MuiDialog-container"]'
 const fileMenuItemEl = '*[role="menuitem"]'

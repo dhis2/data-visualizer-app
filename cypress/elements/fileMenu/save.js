@@ -3,7 +3,7 @@ import {
     FILE_MENU_BUTTON_SAVE,
     FILE_MENU_BUTTON_SAVEAS,
 } from '.'
-import { clickMenuBarFileButton } from '../MenuBar'
+import { clickMenuBarFileButton } from '../menuBar'
 
 const saveModalEl = '*[class^="MuiDialog-container"]' // TODO: Add data-test to save modal to target this better
 const saveModalSaveButtonEl = '[type="submit"]'

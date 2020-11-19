@@ -1,6 +1,6 @@
 import { FILE_MENU_BUTTON_OPEN, clickFileMenuButton } from '.'
 import { generateRandomChar, generateRandomNumber } from '../../utils/random'
-import { clickMenuBarFileButton } from '../MenuBar'
+import { clickMenuBarFileButton } from '../menuBar'
 
 const openModalEl = '*[class^="MuiDialogContent"]' // TODO: Add data-test to open modal to target this better
 const openModalFooterEl = '*[class^="MuiTableFooter"]'
