@@ -89,7 +89,7 @@
     semver "^5.4.1"
     source-map "^0.5.0"
 
-"@babel/generator@^7.10.1", "@babel/generator@^7.12.1", "@babel/generator@^7.12.5", "@babel/generator@^7.4.0", "@babel/generator@^7.4.4", "@babel/generator@^7.9.0":
+"@babel/generator@^7.10.1", "@babel/generator@^7.12.5", "@babel/generator@^7.4.0", "@babel/generator@^7.4.4", "@babel/generator@^7.9.0":
   version "7.12.5"
   resolved "https://registry.yarnpkg.com/@babel/generator/-/generator-7.12.5.tgz#a2c50de5c8b6d708ab95be5e6053936c1884a4de"
   integrity sha512-m16TQQJ8hPt7E+OS/XVQg/7U184MLXtvuGbCdA7na61vha+ImkyyNM/9DDA0unYCVZn3ZOhng+qz48/KBOT96A==
@@ -321,7 +321,7 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@babel/parser@^7.1.0", "@babel/parser@^7.10.1", "@babel/parser@^7.10.4", "@babel/parser@^7.12.1", "@babel/parser@^7.12.5", "@babel/parser@^7.4.3", "@babel/parser@^7.4.5", "@babel/parser@^7.7.0", "@babel/parser@^7.9.0":
+"@babel/parser@^7.1.0", "@babel/parser@^7.10.1", "@babel/parser@^7.10.4", "@babel/parser@^7.12.5", "@babel/parser@^7.4.3", "@babel/parser@^7.4.5", "@babel/parser@^7.7.0", "@babel/parser@^7.9.0":
   version "7.12.5"
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.12.5.tgz#b4af32ddd473c0bfa643bd7ff0728b8e71b81ea0"
   integrity sha512-FVM6RZQ0mn2KCf1VUED7KepYeUWoVShczewOCfm3nzoBybaih51h+sYVVGthW9M6lPByEPTQf+xm27PBdlpwmQ==
@@ -1768,30 +1768,12 @@
   dependencies:
     prop-types "^15"
 
-"@dhis2/ui-constants@5.7.3":
-  version "5.7.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-constants/-/ui-constants-5.7.3.tgz#6c484133fdb17e0b71ddb6d621c472b510b3093f"
-  integrity sha512-bs7Y9KPtC/7z9usIUSJxtNqNMGW3f1gZ3tYqGdHnPNknr3RyKPVzgF9VH8r5bNVZUJqSN4EbwtjB2i53EsNHFA==
-  dependencies:
-    "@dhis2/prop-types" "^1.6.4"
-
 "@dhis2/ui-constants@5.7.7":
   version "5.7.7"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-constants/-/ui-constants-5.7.7.tgz#b62c7f2b79a8f912d80ca44323d918dd10442087"
   integrity sha512-HLQU0uTBBzUDyuk4S5ZS1G0TmnMwgUhciz697geZLkz6u1MctdAUPOm3fllUPiNram80zFbFYUYogg8Zb1NO6g==
   dependencies:
     "@dhis2/prop-types" "^1.6.4"
-
-"@dhis2/ui-core@5.7.3":
-  version "5.7.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-5.7.3.tgz#0b20723de22b1ac2ef4a7d9a91bd909573d044a8"
-  integrity sha512-2kP/D61amgCrr0FZZBTniWLGLCdMlQbQxAC7WCP1NVYufFmIHcjLyRvhGLZbHfqsFppHF0CNiQOxZB6oKI3gvg==
-  dependencies:
-    "@dhis2/prop-types" "^1.6.4"
-    "@popperjs/core" "^2.5.3"
-    classnames "^2.2.6"
-    react-popper "^2.2.3"
-    resize-observer-polyfill "^1.5.1"
 
 "@dhis2/ui-core@5.7.7":
   version "5.7.7"
@@ -1804,16 +1786,6 @@
     react-popper "^2.2.3"
     resize-observer-polyfill "^1.5.1"
 
-"@dhis2/ui-forms@5.7.3":
-  version "5.7.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-forms/-/ui-forms-5.7.3.tgz#cb84339089234d9565654937611fd70dbacdd9c9"
-  integrity sha512-sKBvolbcffC01+t1krDrA2y8oEmsenkLSFi6AyXmQN8M8YD2x8SECoJILLGUVVaeMXQ81tvgFzfnjh1XZjaI4A==
-  dependencies:
-    "@dhis2/prop-types" "^1.6.4"
-    classnames "^2.2.6"
-    final-form "^4.20.1"
-    react-final-form "^6.5.1"
-
 "@dhis2/ui-forms@5.7.7":
   version "5.7.7"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-forms/-/ui-forms-5.7.7.tgz#1be798c53306e5337a5c3f8bf463fc6cc1ca9786"
@@ -1824,27 +1796,12 @@
     final-form "^4.20.1"
     react-final-form "^6.5.1"
 
-"@dhis2/ui-icons@5.7.3":
-  version "5.7.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-icons/-/ui-icons-5.7.3.tgz#d6df117b0001a405caa874d5f887c4f088bc1357"
-  integrity sha512-UGBhF41JmVrZcz2Acliv7TCJhTP1tu7zv3iQQgzm9QG4iwXj6sD0veiLgOUwenw12gqPcv0HfErqjigYflyVLw==
-  dependencies:
-    "@dhis2/prop-types" "^1.6.4"
-
 "@dhis2/ui-icons@5.7.7":
   version "5.7.7"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-icons/-/ui-icons-5.7.7.tgz#e462c9011a849eef529075c2c37dbeae2a2387bd"
   integrity sha512-rjlxqMRjJbwq/pPNEhISeeMNdNWbUK0FCkHonHuAPqv4L2UDjUTZpszvAEQyOKxRXiK2tqF48EIImyUc2EJL1w==
   dependencies:
     "@dhis2/prop-types" "^1.6.4"
-
-"@dhis2/ui-widgets@5.7.3":
-  version "5.7.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-widgets/-/ui-widgets-5.7.3.tgz#89fdb5a693968da53cb673df22d27dee7bec8164"
-  integrity sha512-J5xHpR502/yi+mZl4x19PxlRnFlcparIgICD0FuAhwWazbjWKi2xJr3fcff2kej+qWdPQx+oum2d4UYPfkUOCg==
-  dependencies:
-    "@dhis2/prop-types" "^1.6.4"
-    classnames "^2.2.6"
 
 "@dhis2/ui-widgets@5.7.7":
   version "5.7.7"
@@ -3951,7 +3908,7 @@ browserslist@4.10.0:
     node-releases "^1.1.52"
     pkg-up "^3.1.0"
 
-browserslist@^4.0.0, browserslist@^4.12.0, browserslist@^4.14.6, browserslist@^4.6.0, browserslist@^4.6.2, browserslist@^4.6.4, browserslist@^4.8.5, browserslist@^4.9.1:
+browserslist@^4.0.0, browserslist@^4.12.0, browserslist@^4.14.6, browserslist@^4.6.0, browserslist@^4.6.2, browserslist@^4.6.4, browserslist@^4.9.1:
   version "4.14.7"
   resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.14.7.tgz#c071c1b3622c1c2e790799a37bb09473a4351cb6"
   integrity sha512-BSVRLCeG3Xt/j/1cCGj1019Wbty0H+Yvu2AOuZSuoaUWn3RatbL33Cxk+Q4jRMRAbOm0p7SLravLjpnT6s0vzQ==
@@ -4198,7 +4155,7 @@ caniuse-api@^3.0.0:
     lodash.memoize "^4.1.2"
     lodash.uniq "^4.5.0"
 
-caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001035, caniuse-lite@^1.0.30001061, caniuse-lite@^1.0.30001135, caniuse-lite@^1.0.30001157:
+caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001035, caniuse-lite@^1.0.30001061, caniuse-lite@^1.0.30001157:
   version "1.0.30001158"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001158.tgz#fce86d321369603c2bc855ee0e901a7f49f8310b"
   integrity sha512-s5loVYY+yKpuVA3HyW8BarzrtJvwHReuzugQXlv1iR3LKSReoFXRm86mT6hT7PEF5RxW+XQZg+6nYjlywYzQ+g==
@@ -6039,7 +5996,7 @@ ejs@^3.0.2:
   dependencies:
     jake "^10.6.1"
 
-electron-to-chromium@^1.3.378, electron-to-chromium@^1.3.571, electron-to-chromium@^1.3.591:
+electron-to-chromium@^1.3.378, electron-to-chromium@^1.3.591:
   version "1.3.597"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.597.tgz#0d30fd4c0f5437149c28a6044c4e119357ae56aa"
   integrity sha512-VJI21MucKaqyFw0oe3j9BIg+nDF4MHzUZAmUwZzrxho+s8zPCD13Fds07Rgu+MTtAadO4tYTKFdAUksKYUyIJw==
@@ -6294,7 +6251,7 @@ es6-symbol@^3.1.1, es6-symbol@~3.1.3:
     d "^1.0.1"
     ext "^1.1.2"
 
-escalade@^3.1.0, escalade@^3.1.1:
+escalade@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/escalade/-/escalade-3.1.1.tgz#d8cfdc7000965c5a0174b4a82eaa5c0552742e40"
   integrity sha512-k0er2gUkLf8O0zKJiAhmkTnJlTvINGv7ygDNPbeIsX/TJjGJZHuh9B2UxbsaEkmlEo9MfhrSzmhIlhRlI2GXnw==
@@ -8385,7 +8342,7 @@ is-color-stop@^1.0.0:
     rgb-regex "^1.0.1"
     rgba-regex "^1.0.0"
 
-is-core-module@^2.0.0, is-core-module@^2.1.0:
+is-core-module@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.1.0.tgz#a4cc031d9b1aca63eecbd18a650e13cb4eeab946"
   integrity sha512-YcV7BgVMRFRua2FqQzKtTDMz8iCuLEyGKjr70q8Zm1yy2qKcurbFEd79PAdHV77oL3NrAaOVQIbMmiHQCHB7ZA==
@@ -10691,7 +10648,7 @@ node-notifier@^5.4.2:
     shellwords "^0.1.1"
     which "^1.3.0"
 
-node-releases@^1.1.52, node-releases@^1.1.61, node-releases@^1.1.66:
+node-releases@^1.1.52, node-releases@^1.1.66:
   version "1.1.67"
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.67.tgz#28ebfcccd0baa6aad8e8d4d8fe4cbc49ae239c12"
   integrity sha512-V5QF9noGFl3EymEwUYzO+3NTDpGfQB4ve6Qfnzf3UNydMhjQRVPR1DZTuvWiLzaFJYw2fmDwAfnRNEVb64hSIg==
