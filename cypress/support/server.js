@@ -1,6 +1,4 @@
-import { getApiBaseUrl } from './utils.js'
-
-export default function loginAndPersistSession() {
+export const loginAndPersistSession = () => {
     const baseUrl = getApiBaseUrl()
 
     beforeEach(() => {
@@ -16,4 +14,16 @@ export default function loginAndPersistSession() {
     before(() => {
         cy.login()
     })
+}
+
+const getApiBaseUrl = () => {
+    const baseUrl = Cypress.env('dhis2_base_url') || ''
+
+    if (!baseUrl) {
+        throw new Error(
+            'No `dhis2_base_url` found. Please make sure to add it to `cypress.env.json`'
+        )
+    }
+
+    return baseUrl
 }
