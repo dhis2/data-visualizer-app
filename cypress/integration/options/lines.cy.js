@@ -1,6 +1,5 @@
 import { DIMENSION_ID_DATA, VIS_TYPE_COLUMN } from '@dhis2/analytics'
 
-//import { createNewAO } from '../elements/fileMenu'
 import { openDimension } from '../../elements/dimensionsPanel'
 import {
     selectDataElements,

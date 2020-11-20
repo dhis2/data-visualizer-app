@@ -84,19 +84,19 @@ export const openContextMenu = dimensionId =>
 export const clickContextMenuAdd = (dimensionId, axisId) =>
     cy
         .getBySel(`${chipMenuActionOptionEl}-${dimensionId}-to-${axisId}`)
-        .should('contain', 'Add to')
+        .contains('Add to')
         .click()
 
 export const clickContextMenuMove = (dimensionId, axisId) =>
     cy
         .getBySel(`${chipMenuActionOptionEl}-${dimensionId}-to-${axisId}`)
-        .should('contain', 'Move to')
+        .contains('Move to')
         .click()
 
 export const clickContextMenuRemove = dimensionId =>
     cy
         .getBySel(`${chipMenuRemoveOptionEl}-${dimensionId}`)
-        .should('contain', 'Remove')
+        .contains('Remove')
         .click()
 
 export const expectDimensionToHaveSelectedStyle = dimensionId =>
@@ -115,5 +115,5 @@ export const expectDimensionToNotHaveSelectedStyle = dimensionId =>
 export const clickContextMenuDimSubMenu = dimensionId =>
     cy
         .getBySel(chipMenuSubMenuOptionEl.replace('DIMENSIONID', dimensionId))
-        .should('contain', 'Add')
+        .contains('Add')
         .click()

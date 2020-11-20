@@ -7,7 +7,7 @@ export const enableVerticalAxisTitle = () =>
     cy
         .getBySel(titleCheckboxEl)
         .find('[type="checkbox"]')
-        .check({ force: true })
+        .check({ force: true }) // FIXME: Find another way to check the checkbox without force
         .should('be.checked')
 
 export const setVerticalAxisTitle = text =>

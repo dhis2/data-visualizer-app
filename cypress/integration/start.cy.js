@@ -11,12 +11,16 @@ import { expectVisualizationToNotBeVisible } from '../elements/chart'
 import {
     closeFileMenu,
     expectFileMenuButtonToBeDisabled,
+    FILE_MENU_BUTTON_NEW,
+    FILE_MENU_BUTTON_OPEN,
+    FILE_MENU_BUTTON_SAVE,
     FILE_MENU_BUTTON_SAVEAS,
     FILE_MENU_BUTTON_GETLINK,
     FILE_MENU_BUTTON_SHARE,
     FILE_MENU_BUTTON_TRANSLATE,
     FILE_MENU_BUTTON_RENAME,
     FILE_MENU_BUTTON_DELETE,
+    expectFileMenuButtonToBeEnabled,
 } from '../elements/fileMenu'
 import {
     expectAxisToHaveDimension,
@@ -69,7 +73,19 @@ describe('viewing the start screen', () => {
     it('orgunit dimension has 1 item', () => {
         expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 1)
     })
-    it('File menu buttons are disabled', () => {
+    it('primary File menu buttons are enabled', () => {
+        clickMenuBarFileButton()
+        const enabledButtons = [
+            FILE_MENU_BUTTON_NEW,
+            FILE_MENU_BUTTON_OPEN,
+            FILE_MENU_BUTTON_SAVE,
+        ]
+        enabledButtons.forEach(button =>
+            expectFileMenuButtonToBeEnabled(button)
+        )
+        closeFileMenu()
+    })
+    it('secondary File menu buttons are disabled', () => {
         clickMenuBarFileButton()
         const disabledButtons = [
             FILE_MENU_BUTTON_SAVEAS,

@@ -99,7 +99,7 @@ describe('Options - Font styles', () => {
         it('changes the font size', () => {
             changeFontSizeOption(type, TEST_FONT_SIZE_OPTION.label)
         })
-        it('changes the font size', () => {
+        it('changes the text align', () => {
             changeTextAlignOption(type, TEST_TEXT_ALIGN_OPTION.label)
         })
         it('changes font to bold', () => {
@@ -148,7 +148,7 @@ describe('Options - Font styles', () => {
         it('changes the font size', () => {
             changeFontSizeOption(type, TEST_FONT_SIZE_OPTION.label)
         })
-        it('changes the font size', () => {
+        it('changes the text align', () => {
             changeTextAlignOption(type, TEST_TEXT_ALIGN_OPTION.label)
         })
         it('changes font to bold', () => {

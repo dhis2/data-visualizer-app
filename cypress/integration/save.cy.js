@@ -30,6 +30,9 @@ import {
     deleteAO,
     expectFileMenuButtonToBeEnabled,
     expectFileMenuButtonToBeDisabled,
+    FILE_MENU_BUTTON_NEW,
+    FILE_MENU_BUTTON_OPEN,
+    FILE_MENU_BUTTON_SAVE,
     FILE_MENU_BUTTON_SAVEAS,
     FILE_MENU_BUTTON_DELETE,
     FILE_MENU_BUTTON_RENAME,
@@ -93,6 +96,9 @@ describe('saving an AO', () => {
         it('all File menu buttons are enabled', () => {
             clickMenuBarFileButton()
             const enabledButtons = [
+                FILE_MENU_BUTTON_NEW,
+                FILE_MENU_BUTTON_OPEN,
+                FILE_MENU_BUTTON_SAVE,
                 FILE_MENU_BUTTON_SAVEAS,
                 FILE_MENU_BUTTON_RENAME,
                 FILE_MENU_BUTTON_TRANSLATE,

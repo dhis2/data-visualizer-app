@@ -9,11 +9,16 @@ import {
     VIS_TYPE_YEAR_OVER_YEAR_LINE,
 } from '@dhis2/analytics'
 
-//const getTestAOsFromEndpoint = () => {
-// fetch AOs from endpoint
-// find one AO per vis type
-// return AOs
-//}
+/*
+    TODO:   Generate all content in this file based on endpoint results instead of hardcoding
+            e.g. TEST_AOS could be generated like this:
+
+    const getTestAOsFromEndpoint = () => {
+        // fetch AOs from endpoint
+        // find one AO per vis type
+        // return AOs
+    }
+*/
 
 export const TEST_AOS = [
     {
