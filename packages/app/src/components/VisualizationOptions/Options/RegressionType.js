@@ -22,6 +22,7 @@ const RegressionType = ({ disabled }) => (
                 { value: 'LOESS', label: i18n.t('Loess') },
             ],
         }}
+        dataTest={'option-trend-line'}
     />
 )
 

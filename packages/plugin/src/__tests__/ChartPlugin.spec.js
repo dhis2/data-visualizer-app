@@ -82,6 +82,9 @@ const createVisualizationMock = {
     visualization: {
         getSVGForExport: () => '<svg />',
     },
+    config: {
+        getConfig: () => {},
+    },
 }
 
 const isSingleValueMockResponse = visType => {

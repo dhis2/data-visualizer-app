@@ -20,6 +20,7 @@ export const SelectBaseOption = ({
     value,
     onChange,
     disabled,
+    dataTest,
 }) => {
     const defaultValue = option.defaultValue
     const [checked, setChecked] = useState(value !== defaultValue)
@@ -40,6 +41,7 @@ export const SelectBaseOption = ({
                     onChange={({ checked }) => onToggle(checked)}
                     dense
                     disabled={disabled}
+                    dataTest={`${dataTest}-checkbox`}
                 />
             ) : null}
             {(!toggleable || checked) && !disabled ? (
@@ -56,12 +58,14 @@ export const SelectBaseOption = ({
                         helpText={helpText}
                         inputWidth="280px"
                         dense
+                        dataTest={`${dataTest}-select`}
                     >
                         {option.items.map(({ value, label }) => (
                             <SingleSelectOption
                                 key={value}
                                 value={value}
                                 label={label}
+                                dataTest={`${dataTest}-option`}
                             />
                         ))}
                     </SingleSelectField>
@@ -75,6 +79,7 @@ SelectBaseOption.propTypes = {
     option: PropTypes.object.isRequired,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     onChange: PropTypes.func.isRequired,
+    dataTest: PropTypes.string,
     disabled: PropTypes.bool,
     helpText: PropTypes.string,
     label: PropTypes.string,

@@ -235,7 +235,10 @@ export class App extends Component {
                             <VisualizationTypeSelector />
                         </div>
                         <div className="toolbar-menubar flex-grow-1">
-                            <MenuBar apiObjectName={this.apiObjectName} />
+                            <MenuBar
+                                apiObjectName={this.apiObjectName}
+                                dataTest={'app-menubar'}
+                            />
                         </div>
                     </div>
                     <div className="section-main flex-grow-1 flex-ct">
@@ -268,7 +271,7 @@ export class App extends Component {
                     </div>
                 </div>
                 {this.state.locationToConfirm && (
-                    <Modal small>
+                    <Modal small dataTest={'confirm-leave-modal'}>
                         <ModalTitle>
                             {i18n.t('Discard unsaved changes?')}
                         </ModalTitle>
@@ -288,6 +291,9 @@ export class App extends Component {
 
                                         history.goBack()
                                     }}
+                                    dataTest={
+                                        'confirm-leave-modal-option-cancel'
+                                    }
                                 >
                                     {i18n.t('No, cancel')}
                                 </Button>
@@ -303,6 +309,9 @@ export class App extends Component {
                                         })
                                     }}
                                     primary
+                                    dataTest={
+                                        'confirm-leave-modal-option-confirm'
+                                    }
                                 >
                                     {i18n.t('Yes, leave')}
                                 </Button>

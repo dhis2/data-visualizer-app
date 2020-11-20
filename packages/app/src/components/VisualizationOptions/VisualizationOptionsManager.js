@@ -9,6 +9,7 @@ import {
     ModalActions,
 } from '@dhis2/ui'
 
+import styles from './styles/VisualizationOptionsManager.module.css'
 import UpdateButton from '../UpdateButton/UpdateButton'
 import HideButton from '../HideButton/HideButton'
 import UpdateVisualizationContainer from '../UpdateButton/UpdateVisualizationContainer'
@@ -43,24 +44,36 @@ class VisualizationOptionsManager extends Component {
                 <MenuButton
                     className={this.props.className}
                     onClick={this.toggleVisualizationOptionsDialog}
+                    dataTest={'app-menubar-options-button'}
                 >
                     {i18n.t('Options')}
                 </MenuButton>
                 {this.state.dialogIsOpen && (
-                    <Modal onClose={this.onClose} position="top" large>
+                    <Modal
+                        onClose={this.onClose}
+                        position="top"
+                        large
+                        dataTest={'options-modal'}
+                    >
                         <ModalTitle>{i18n.t('Options')}</ModalTitle>
-                        <ModalContent>
+                        <ModalContent className={styles.modalContent}>
                             <VisualizationOptions />
                         </ModalContent>
-                        <ModalActions>
+                        <ModalActions dataTest={'options-modal-actions'}>
                             <ButtonStrip>
-                                <HideButton onClick={this.onClose} />
+                                <HideButton
+                                    onClick={this.onClose}
+                                    dataTest={'options-modal-action-cancel'}
+                                />
                                 <UpdateVisualizationContainer
                                     renderComponent={handler => (
                                         <UpdateButton
                                             onClick={this.getPrimaryOnClick(
                                                 handler
                                             )}
+                                            dataTest={
+                                                'options-modal-action-confirm'
+                                            }
                                         />
                                     )}
                                 />

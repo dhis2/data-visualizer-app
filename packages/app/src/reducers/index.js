@@ -10,6 +10,7 @@ import user, * as fromUser from './user'
 import snackbar, * as fromSnackbar from './snackbar'
 import loader, * as fromLoader from './loader'
 import chart, * as fromChart from './chart'
+import config, * as fromConfig from './config'
 
 // Reducers
 
@@ -25,6 +26,7 @@ export default combineReducers({
     snackbar,
     loader,
     chart,
+    config,
 })
 
 // Selectors
@@ -41,6 +43,7 @@ export {
     fromSnackbar,
     fromLoader,
     fromChart,
+    fromConfig,
 }
 
 export const sGetSeriesSetupItems = state =>

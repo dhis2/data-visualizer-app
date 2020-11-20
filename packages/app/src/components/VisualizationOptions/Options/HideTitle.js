@@ -42,7 +42,10 @@ class HideTitle extends Component {
         const { value } = this.state
 
         return (
-            <div className={tabSectionOption.className}>
+            <div
+                className={tabSectionOption.className}
+                data-test={'option-chart-title'}
+            >
                 <Label>{i18n.t('Chart title')}</Label>
                 <Field name="hideTitle-selector" dense>
                     {[
@@ -72,6 +75,7 @@ class HideTitle extends Component {
                     <div className={tabSectionOptionToggleable.className}>
                         <TextStyle
                             fontStyleKey={FONT_STYLE_VISUALIZATION_TITLE}
+                            dataTest={'option-chart-title-text-style'}
                         />
                     </div>
                 ) : null}

@@ -22,6 +22,7 @@ const RangeAxisLabel = ({ disabled }) => (
         }}
         toggleable={true}
         fontStyleKey={FONT_STYLE_VERTICAL_AXIS_TITLE}
+        dataTest={'option-vertical-axis-title'}
     />
 )
 
