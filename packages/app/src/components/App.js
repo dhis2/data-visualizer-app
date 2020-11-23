@@ -160,6 +160,7 @@ export class App extends Component {
         this.unlisten = history.listen(location => {
             const isSaving = location.state?.isSaving
             const isOpening = location.state?.isOpening
+            const isResetting = location.state?.isResetting
             const { interpretationId } = this.parseLocation(location)
 
             if (
@@ -180,6 +181,7 @@ export class App extends Component {
                 if (
                     isSaving ||
                     isOpening ||
+                    isResetting ||
                     this.state.previousLocation !== location.pathname
                 ) {
                     this.loadVisualization(location)
@@ -233,7 +235,10 @@ export class App extends Component {
                             <VisualizationTypeSelector />
                         </div>
                         <div className="toolbar-menubar flex-grow-1">
-                            <MenuBar apiObjectName={this.apiObjectName} />
+                            <MenuBar
+                                apiObjectName={this.apiObjectName}
+                                dataTest={'app-menubar'}
+                            />
                         </div>
                     </div>
                     <div className="section-main flex-grow-1 flex-ct">
@@ -266,7 +271,7 @@ export class App extends Component {
                     </div>
                 </div>
                 {this.state.locationToConfirm && (
-                    <Modal small>
+                    <Modal small dataTest={'confirm-leave-modal'}>
                         <ModalTitle>
                             {i18n.t('Discard unsaved changes?')}
                         </ModalTitle>
@@ -286,6 +291,9 @@ export class App extends Component {
 
                                         history.goBack()
                                     }}
+                                    dataTest={
+                                        'confirm-leave-modal-option-cancel'
+                                    }
                                 >
                                     {i18n.t('No, cancel')}
                                 </Button>
@@ -301,6 +309,9 @@ export class App extends Component {
                                         })
                                     }}
                                     primary
+                                    dataTest={
+                                        'confirm-leave-modal-option-confirm'
+                                    }
                                 >
                                     {i18n.t('Yes, leave')}
                                 </Button>

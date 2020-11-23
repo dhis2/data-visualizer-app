@@ -1,0 +1,880 @@
+# 
+# Translators:
+# Viktor Varland <viktor@dhis2.org>, 2020
+# phil_dhis2, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2020-10-21T10:41:39.373Z\n"
+"PO-Revision-Date: 2019-06-25 18:46+0000\n"
+"Last-Translator: phil_dhis2, 2020\n"
+"Language-Team: Khmer (https://www.transifex.com/hisp-uio/teams/100509/km/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: km\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Rename successful"
+msgstr ""
+
+msgid "Untitled {{visualizationType}} visualization, {{date}}"
+msgstr ""
+
+msgid "\"{{deletedObject}}\" successfully deleted."
+msgstr ""
+
+msgid "You have unsaved changes."
+msgstr ""
+
+msgid "Discard unsaved changes?"
+msgstr ""
+
+msgid ""
+"Are you sure you want to leave this visualization? Any unsaved changes will "
+"be lost."
+msgstr ""
+
+msgid "No, cancel"
+msgstr ""
+
+msgid "Yes, leave"
+msgstr ""
+
+msgid "Add to {{axisName}}"
+msgstr ""
+
+msgid ""
+"'{{visualizationType}}' is intended to show a single data item. Only the "
+"first item will be used and saved."
+msgstr ""
+
+msgid ""
+"'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
+"items. Only the first {{maxNumber}} items will be used and saved."
+msgstr ""
+
+msgid "Main dimensions"
+msgstr ""
+
+msgid "Other dimensions"
+msgstr ""
+
+msgid "Your dimensions"
+msgstr ""
+
+msgid "Filter dimensions"
+msgstr ""
+
+msgid "Graphics"
+msgstr ""
+
+msgid "Image (.png)"
+msgstr ""
+
+msgid "PDF (.pdf)"
+msgstr ""
+
+msgid "Table layout"
+msgstr ""
+
+msgid "Excel (.xls)"
+msgstr ""
+
+msgid "CSV (.csv)"
+msgstr ""
+
+msgid "HTML (.html)"
+msgstr ""
+
+msgid "Metadata ID scheme"
+msgstr ""
+
+msgid "ID"
+msgstr "​លេខ​សម្គាល់"
+
+msgid "Code"
+msgstr ""
+
+msgid "Name"
+msgstr "ឈ្មោះ"
+
+msgid "Download"
+msgstr ""
+
+msgid "Plain data source"
+msgstr ""
+
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
+msgid "Excel"
+msgstr ""
+
+msgid "CSV"
+msgstr ""
+
+msgid "Advanced"
+msgstr ""
+
+msgid "Data value set"
+msgstr ""
+
+msgid "Other formats"
+msgstr ""
+
+msgid "JRXML"
+msgstr ""
+
+msgid "Raw data SQL"
+msgstr ""
+
+msgid "An error occurred in the DHIS2 Data Visualizer application."
+msgstr ""
+
+msgid "Refresh to try again"
+msgstr ""
+
+msgid "Hide technical details"
+msgstr ""
+
+msgid "Show technical details"
+msgstr ""
+
+msgid "The following information may be requested by technical support."
+msgstr ""
+
+msgid "Hide"
+msgstr ""
+
+msgid "Interpretations"
+msgstr "កន្លែងសន្ទនារ"
+
+msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
+msgstr ""
+
+msgid "{{total}} selected"
+msgstr ""
+
+msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
+msgstr ""
+
+msgid "None selected"
+msgstr ""
+
+msgid "Only '{{- name}}' in use"
+msgstr ""
+
+msgid "Only '{{number}}' in use"
+msgstr ""
+
+msgid "Levels"
+msgstr ""
+
+msgid "Groups"
+msgstr ""
+
+msgid "And 1 other..."
+msgstr ""
+
+msgid "And {{numberOfItems}} others..."
+msgstr ""
+
+msgid "Select a period"
+msgstr ""
+
+msgid "Select years"
+msgstr ""
+
+msgid ""
+"This visualization can't be deleted because it is used on one or more "
+"dashboards"
+msgstr ""
+
+msgid "Unsaved visualization"
+msgstr ""
+
+msgid "Edited"
+msgstr ""
+
+msgid "Viewing interpretation from {{interpretationDate}}"
+msgstr ""
+
+msgid "Update"
+msgstr "ធ្វើ​បច្ចុប្បន្នភាព"
+
+msgid "Getting started"
+msgstr ""
+
+msgid ""
+"All dimensions that you can use to build visualizations are shown in the "
+"left sidebar"
+msgstr ""
+
+msgid "Add dimensions to the layout above"
+msgstr ""
+
+msgid "Click a dimension to add or remove items"
+msgstr ""
+
+msgid "Your most viewed charts and tables"
+msgstr ""
+
+msgid "Aggregation type"
+msgstr ""
+
+msgid "Overrides aggregation type for all data values."
+msgstr ""
+
+msgid "By data element"
+msgstr ""
+
+msgid "Count"
+msgstr "ផលរាប់"
+
+msgid "Average"
+msgstr "ផលមធ្យម"
+
+msgid "Average (sum in org unit hierarchy)"
+msgstr ""
+
+msgid "Sum"
+msgstr "ផល​បូក"
+
+msgid "Last value"
+msgstr ""
+
+msgid "Last value (average in org unit hierarchy)"
+msgstr ""
+
+msgid "Min"
+msgstr "អប្បបរមា"
+
+msgid "Max"
+msgstr "អតិបរមា"
+
+msgid "Standard deviation"
+msgstr ""
+
+msgid "Variance"
+msgstr ""
+
+msgid "Data approved at level"
+msgstr ""
+
+msgid "Select from predefined levels"
+msgstr ""
+
+msgid "Loading data approval levels"
+msgstr ""
+
+msgid "Axis range"
+msgstr ""
+
+msgid "Values outside of the range will not be displayed"
+msgstr ""
+
+msgid "Base line"
+msgstr ""
+
+msgid "Value"
+msgstr "តម្លៃ"
+
+msgid "Title"
+msgstr "ចំណងជើង"
+
+msgid "Base line title"
+msgstr ""
+
+msgid "Number"
+msgstr "តួរលេខ"
+
+msgid "Labels"
+msgstr ""
+
+msgid "Column sub-totals"
+msgstr ""
+
+msgid "Columns totals"
+msgstr ""
+
+msgid "Default"
+msgstr "​លំនាំដើម"
+
+msgid "Bright"
+msgstr ""
+
+msgid "Dark"
+msgstr ""
+
+msgid "Gray"
+msgstr ""
+
+msgid "Color blind"
+msgstr ""
+
+msgid "Patterns"
+msgstr ""
+
+msgid "Event data"
+msgstr ""
+
+msgid "Only include completed events"
+msgstr ""
+
+msgid "Include cumulative"
+msgstr ""
+
+msgid "Cumulative values"
+msgstr ""
+
+msgid "Digit group separator"
+msgstr ""
+
+msgid "None"
+msgstr "គ្មាន"
+
+msgid "Space"
+msgstr ""
+
+msgid "Comma"
+msgstr ""
+
+msgid "Display density"
+msgstr ""
+
+msgid "Comfortable"
+msgstr ""
+
+msgid "Normal"
+msgstr ""
+
+msgid "Compact"
+msgstr ""
+
+msgid "Axis title"
+msgstr ""
+
+msgid "Add a title"
+msgstr ""
+
+msgid "Font size"
+msgstr ""
+
+msgid "Large"
+msgstr ""
+
+msgid "Small"
+msgstr ""
+
+msgid "Hide empty columns"
+msgstr ""
+
+msgid "Hide empty categories"
+msgstr ""
+
+msgid "Before first"
+msgstr ""
+
+msgid "After last"
+msgstr ""
+
+msgid "Before first and after last"
+msgstr ""
+
+msgid "All"
+msgstr "ទាំងអស់"
+
+msgid "Hide empty rows"
+msgstr ""
+
+msgid "Show legend key"
+msgstr ""
+
+msgid "Table subtitle"
+msgstr ""
+
+msgid "Chart subtitle"
+msgstr ""
+
+msgid "Auto generated"
+msgstr ""
+
+msgid "Custom"
+msgstr ""
+
+msgid "Chart title"
+msgstr ""
+
+msgid "Display legend"
+msgstr ""
+
+msgid "Legend style"
+msgstr ""
+
+msgid "Legend type"
+msgstr ""
+
+msgid "Use pre-defined legend per data item"
+msgstr ""
+
+msgid "Select a single legend for the entire visualization"
+msgstr ""
+
+msgid "Legend changes background color"
+msgstr ""
+
+msgid "Legend changes text color"
+msgstr ""
+
+msgid "Legend"
+msgstr ""
+
+msgid "Select from legends"
+msgstr ""
+
+msgid "Loading legends"
+msgstr ""
+
+msgid ""
+"You can set a minimum or maximum value. This will apply to the entire table,"
+" all values outside of the minimum/maximum range will not be displayed"
+msgstr ""
+
+msgid "Minimum data value"
+msgstr ""
+
+msgid "Maximum data value"
+msgstr ""
+
+msgid "Clear min/max limits"
+msgstr ""
+
+msgid "No space between bars/columns"
+msgstr ""
+
+msgid "Number type"
+msgstr ""
+
+msgid "Display the value of percentages of the total"
+msgstr ""
+
+msgid "Percentage of row"
+msgstr ""
+
+msgid "Percentage of column"
+msgstr ""
+
+msgid "Organisation unit"
+msgstr "ផ្នែក​នៃ​អង្គការ"
+
+msgid "Parent organisation unit"
+msgstr "Parent organisation unit"
+
+msgid "Reporting period"
+msgstr ""
+
+msgid "Stacked values add up to 100%"
+msgstr ""
+
+msgid "Decimals"
+msgstr ""
+
+msgid "Auto"
+msgstr ""
+
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
+msgstr ""
+
+msgid "Steps"
+msgstr ""
+
+msgid "Include regression"
+msgstr ""
+
+msgid "Trend line"
+msgstr ""
+
+msgid "Linear"
+msgstr ""
+
+msgid "Polynomial"
+msgstr ""
+
+msgid "Loess"
+msgstr ""
+
+msgid "Row sub-totals"
+msgstr ""
+
+msgid "Row totals"
+msgstr ""
+
+msgid "Data item"
+msgstr ""
+
+msgid "Visualization type"
+msgstr ""
+
+msgid "Axis {{axisId}}"
+msgstr ""
+
+msgid "Series is empty"
+msgstr ""
+
+msgid "Options for selected items will be available here"
+msgstr ""
+
+msgid "No Series options"
+msgstr ""
+
+msgid "There aren't any Series options for this visualization type"
+msgstr ""
+
+msgid "Series options unavailable"
+msgstr ""
+
+msgid ""
+"Series options are not available when using relative selections for periods,"
+" org units or categories"
+msgstr ""
+
+msgid "Value labels"
+msgstr ""
+
+msgid "Dimension labels"
+msgstr ""
+
+msgid "Display organisation unit hierarchy"
+msgstr ""
+
+msgid "Skip rounding"
+msgstr ""
+
+msgid "Custom sort order"
+msgstr ""
+
+msgid "Low to high"
+msgstr ""
+
+msgid "High to low"
+msgstr ""
+
+msgid "Add a subtitle"
+msgstr ""
+
+msgid "Target line"
+msgstr ""
+
+msgid "Target line title"
+msgstr ""
+
+msgid "Size"
+msgstr ""
+
+msgid "Position"
+msgstr ""
+
+msgid "Top limit"
+msgstr ""
+
+msgid "Options"
+msgstr ""
+
+msgid "Open as Map"
+msgstr ""
+
+msgid ""
+"Visually plot data on a world map. Data elements use separate map layers."
+msgstr ""
+
+msgid "Reporting rate"
+msgstr ""
+
+msgid "Reporting rate on time"
+msgstr ""
+
+msgid "Actual reports"
+msgstr ""
+
+msgid "Actual reports on time"
+msgstr ""
+
+msgid "Expected reports"
+msgstr ""
+
+msgid "No data available"
+msgstr ""
+
+msgid ""
+"The selected dimensions didn’t return any data. There may be no data, or you"
+" may not have access to it."
+msgstr ""
+
+msgid "{{axisName}} is empty"
+msgstr ""
+
+msgid "Add at least one item to {{axisName}}."
+msgstr ""
+
+msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
+msgstr ""
+
+msgid ""
+"Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
+" {{visualizationType}}."
+msgstr ""
+
+msgid "No period selected"
+msgstr ""
+
+msgid ""
+"{{visualizationType}} must have at least one period selected in {{axes}}."
+msgstr ""
+
+msgid "No data selected"
+msgstr ""
+
+msgid ""
+"{{visualizationType}} must have at least one data item or data element group"
+" set item in {{axes}}."
+msgstr ""
+
+msgid "{{visualizationType}} must have at least one data item in {{axes}}."
+msgstr ""
+
+msgid "There's a problem with the layout"
+msgstr ""
+
+msgid ""
+"A single indicator must be the only data item when using indicators as Data "
+"in Filter."
+msgstr ""
+
+msgid "Data Element Group Sets and Reporting Rates cannot be used together."
+msgstr ""
+
+msgid "There is a problem with this {{visualizationType}} visualization."
+msgstr ""
+
+msgid "There was a problem getting the data from the server."
+msgstr ""
+
+msgid "Assigned Categories can only be used with data elements"
+msgstr ""
+
+msgid ""
+"Fix this problem by selecting data elements or removing Assigned Categories."
+msgstr ""
+
+msgid "Assigned Categories cannot be used as Filter"
+msgstr ""
+
+msgid "Fix this problem by moving or removing Assigned Categories."
+msgstr ""
+
+msgid "Visualization not found"
+msgstr ""
+
+msgid ""
+"The visualization you are trying to view could not be found, the ID could be"
+" incorrect or it could have been deleted."
+msgstr ""
+
+msgid "Something went wrong"
+msgstr ""
+
+msgid "or"
+msgstr ""
+
+msgid "Today"
+msgstr ""
+
+msgid "Yesterday"
+msgstr ""
+
+msgid "Last 3 days"
+msgstr ""
+
+msgid "Last 7 days"
+msgstr ""
+
+msgid "Last 14 days"
+msgstr ""
+
+msgid "This week"
+msgstr ""
+
+msgid "Last week"
+msgstr ""
+
+msgid "Last 4 weeks"
+msgstr ""
+
+msgid "Last 12 weeks"
+msgstr ""
+
+msgid "Last 52 weeks"
+msgstr ""
+
+msgid "Weeks this year"
+msgstr ""
+
+msgid "This month"
+msgstr ""
+
+msgid "Last month"
+msgstr ""
+
+msgid "Last 3 months"
+msgstr ""
+
+msgid "Last 6 months"
+msgstr ""
+
+msgid "Last 12 months"
+msgstr ""
+
+msgid "Months this year"
+msgstr ""
+
+msgid "This bimonth"
+msgstr ""
+
+msgid "Last bimonth"
+msgstr ""
+
+msgid "Last 6 bimonths"
+msgstr ""
+
+msgid "Bimonths this year"
+msgstr ""
+
+msgid "This quarter"
+msgstr ""
+
+msgid "Last quarter"
+msgstr ""
+
+msgid "Last 4 quarters"
+msgstr ""
+
+msgid "Quarters this year"
+msgstr ""
+
+msgid "This six-month"
+msgstr ""
+
+msgid "Last six-month"
+msgstr ""
+
+msgid "Last 2 six-months"
+msgstr ""
+
+msgid "This financial year"
+msgstr ""
+
+msgid "Last financial year"
+msgstr ""
+
+msgid "Last 5 financial years"
+msgstr ""
+
+msgid "This year"
+msgstr ""
+
+msgid "Last year"
+msgstr ""
+
+msgid "Last 5 years"
+msgstr ""
+
+msgid "User org unit"
+msgstr ""
+
+msgid "User org unit children"
+msgstr ""
+
+msgid "User org unit grand children"
+msgstr ""
+
+msgid "Table title"
+msgstr ""
+
+msgid "Limit values"
+msgstr ""
+
+msgid "Limit number of values"
+msgstr ""
+
+msgid "Limit minimum/maximum values"
+msgstr ""
+
+msgid "Parameters"
+msgstr ""
+
+msgid "Color set"
+msgstr ""
+
+msgid "Color sets are not supported yet when using multiple axes"
+msgstr ""
+
+msgid "Horizontal (x) axis"
+msgstr ""
+
+msgid "Lines are not supported yet when using multiple axes"
+msgstr ""
+
+msgid "Chart style"
+msgstr ""
+
+msgid "Display"
+msgstr ""
+
+msgid "Empty data"
+msgstr ""
+
+msgid "Lines"
+msgstr ""
+
+msgid "Totals"
+msgstr ""
+
+msgid "Vertical (y) axis"
+msgstr ""
+
+msgid "Titles"
+msgstr ""
+
+msgid "Vertical axis options are not supported yet when using multiple axes"
+msgstr ""
+
+msgid "Axes"
+msgstr ""
+
+msgid "Data"
+msgstr "Data"
+
+msgid "Series"
+msgstr ""
+
+msgid "Style"
+msgstr "​រចនាបទ"
+
+msgid "Weeks per year"
+msgstr ""
+
+msgid "Months per year"
+msgstr ""
+
+msgid "Bimonths per year"
+msgstr ""
+
+msgid "Quarters per year"
+msgstr ""

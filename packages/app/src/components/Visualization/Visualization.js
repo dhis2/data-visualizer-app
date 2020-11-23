@@ -13,6 +13,7 @@ import { sGetLoadError, sGetIsPluginLoading } from '../../reducers/loader'
 
 import { acAddMetadata } from '../../actions/metadata'
 import { acSetChart } from '../../actions/chart'
+import { acSetConfig } from '../../actions/config'
 import { acSetLoadError, acSetPluginLoading } from '../../actions/loader'
 import { acSetUiItems, acAddParentGraphMap } from '../../actions/ui'
 import { tSetCurrentFromUi } from '../../actions/current'
@@ -176,6 +177,9 @@ export class Visualization extends Component {
                     onError={this.onError}
                     onDrill={this.onDrill}
                     style={styles.chartCanvas}
+                    onConfigGenerated={config =>
+                        this.props.setVisConfig(config)
+                    }
                 />
             </Fragment>
         )
@@ -196,6 +200,7 @@ Visualization.propTypes = {
     setCurrent: PropTypes.func,
     setLoadError: PropTypes.func,
     setUiItems: PropTypes.func,
+    setVisConfig: PropTypes.func,
     visFilters: PropTypes.object,
     visualization: PropTypes.object,
     onLoadingComplete: PropTypes.func,
@@ -232,6 +237,7 @@ const mapDispatchToProps = dispatch => ({
     setLoadError: error => dispatch(acSetLoadError(error)),
     setUiItems: data => dispatch(acSetUiItems(data)),
     setCurrent: () => dispatch(tSetCurrentFromUi()),
+    setVisConfig: config => dispatch(acSetConfig(config)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Visualization)

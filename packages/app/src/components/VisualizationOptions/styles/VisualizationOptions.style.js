@@ -5,9 +5,14 @@ import { colors, spacers } from '@dhis2/ui'
 
 export const tabBar = css.resolve`
     div {
-        position: sticky;
-        top: 0;
-        z-index: 1;
+        padding-right: ${spacers.dp24};
+    }
+`
+
+export const tabContent = css.resolve`
+    div {
+        overflow: auto;
+        padding-right: ${spacers.dp24};
     }
 `
 

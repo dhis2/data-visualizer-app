@@ -16,6 +16,7 @@ import YearOverYearAxisStyles from './styles/YearOverYearAxis.style'
 const YearOverYearAxis = props => (
     <div
         id={props.axisId}
+        data-test={`${props.axisId}-axis`}
         style={{ ...defaultAxisStyles.axisContainer, ...props.style }}
     >
         <div className="label" style={defaultAxisStyles.label}>

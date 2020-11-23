@@ -60,6 +60,7 @@ const getSuffix = titleState => {
                         ...styles.suffix,
                         ...styles.titleDirty,
                     }}
+                    data-test="AO-title-dirty"
                 >{`- ${getTitleDirty()}`}</div>
             )
         default:
@@ -74,7 +75,7 @@ export const TitleBar = ({ titleState, titleText, interpretationDate }) => {
     }
 
     return titleText ? (
-        <div data-test="chart-title" style={styles.titleBar}>
+        <div data-test="AO-title" style={styles.titleBar}>
             <div style={titleStyle}>
                 {titleText}
                 {getSuffix(titleState)}

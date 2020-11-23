@@ -28,6 +28,7 @@ const TextStyle = ({
     visType,
     onChange,
     disabled,
+    dataTest,
 }) => {
     const fontSizeOptions = Object.values(getFontSizeOptions(fontStyleKey))
     const textAlignOptions = getTextAlignOptions(fontStyleKey, visType)
@@ -49,7 +50,7 @@ const TextStyle = ({
     }, 100)
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} data-test={dataTest}>
             {fontSize && (
                 <SingleSelect
                     onChange={({ selected }) => {
@@ -61,12 +62,14 @@ const TextStyle = ({
                     dense
                     className={styles.fontSizeSelect}
                     disabled={disabled}
+                    dataTest={`${dataTest}-font-size-select`}
                 >
                     {fontSizeOptions.map(option => (
                         <SingleSelectOption
                             key={option.value?.toString()}
                             value={option.value?.toString()}
                             label={option.label}
+                            dataTest={`${dataTest}-font-size-option-${option.value?.toString()}`}
                         />
                     ))}
                 </SingleSelect>
@@ -82,12 +85,14 @@ const TextStyle = ({
                     dense
                     className={styles.textAlignSelect}
                     disabled={disabled}
+                    dataTest={`${dataTest}-text-align-select`}
                 >
                     {textAlignOptions.map(option => (
                         <SingleSelectOption
                             key={option.value}
                             value={option.value}
                             label={option.label}
+                            dataTest={`${dataTest}-text-align-option-${option.value?.toString()}`}
                         />
                     ))}
                 </SingleSelect>
@@ -97,6 +102,7 @@ const TextStyle = ({
                     className={cx(styles.textColorLabel, {
                         [styles.disabled]: disabled,
                     })}
+                    data-test={`${dataTest}-text-color-picker`}
                 >
                     <input
                         type="color"
@@ -121,6 +127,7 @@ const TextStyle = ({
                     secondary
                     toggled={bold}
                     disabled={disabled}
+                    dataTest={`${dataTest}-bold-toggle`}
                 />
             )}
             {italic != null && (
@@ -134,6 +141,7 @@ const TextStyle = ({
                     secondary
                     disabled={disabled}
                     toggled={italic}
+                    dataTest={`${dataTest}-italic-toggle`}
                 />
             )}
         </div>
@@ -142,6 +150,7 @@ const TextStyle = ({
 
 TextStyle.propTypes = {
     fontStyleKey: PropTypes.string.isRequired,
+    dataTest: PropTypes.string,
     disabled: PropTypes.bool,
     fontStyle: PropTypes.object,
     visType: PropTypes.string,

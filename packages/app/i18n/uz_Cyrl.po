@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
+"POT-Creation-Date: 2020-10-19T12:05:53.414Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Ibatov <ibatovk@who.int>, 2020\n"
 "Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
@@ -42,7 +42,7 @@ msgid "Yes, leave"
 msgstr ""
 
 msgid "Add to {{axisName}}"
-msgstr ""
+msgstr "{{axisName}} га қўшинг"
 
 msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
@@ -55,16 +55,16 @@ msgid ""
 msgstr ""
 
 msgid "Main dimensions"
-msgstr ""
+msgstr "Умумий ўлчамлар"
 
 msgid "Other dimensions"
 msgstr ""
 
 msgid "Your dimensions"
-msgstr ""
+msgstr "Сизнинг созламаларингиз"
 
 msgid "Filter dimensions"
-msgstr ""
+msgstr "Фильтр созламалари"
 
 msgid "Graphics"
 msgstr "Графика"
@@ -106,16 +106,16 @@ msgid "Plain data source"
 msgstr "Оддий маълумотлар манбаи"
 
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 msgid "XML"
-msgstr ""
+msgstr "XML"
 
 msgid "Excel"
 msgstr ""
 
 msgid "CSV"
-msgstr ""
+msgstr "CSV"
 
 msgid "Advanced"
 msgstr "Илғор"
@@ -136,16 +136,16 @@ msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr ""
 
 msgid "Refresh to try again"
-msgstr ""
+msgstr "Ыайтиб уриниб кщрин учун аввал янгиланг"
 
 msgid "Hide technical details"
-msgstr ""
+msgstr "Техник деталларни яшириш"
 
 msgid "Show technical details"
-msgstr ""
+msgstr "Техник деталларни кўрсатиш"
 
 msgid "The following information may be requested by technical support."
-msgstr ""
+msgstr "Қуйидаги ахборот техник ёрдамчилар томонидан сўралиши мумкин"
 
 msgid "Hide"
 msgstr "Яшириш"
@@ -175,7 +175,7 @@ msgid "Levels"
 msgstr ""
 
 msgid "Groups"
-msgstr ""
+msgstr "Гуруҳлар"
 
 msgid "And 1 other..."
 msgstr ""
@@ -201,7 +201,7 @@ msgid "Edited"
 msgstr ""
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr ""
+msgstr " {{ТалқинВақт}} дан талқинни кўриш"
 
 msgid "Update"
 msgstr "Янгилаш"
@@ -287,13 +287,13 @@ msgid "Title"
 msgstr "Сарлавҳа"
 
 msgid "Base line title"
-msgstr ""
+msgstr "Асосий қатор қиймати"
 
 msgid "Number"
 msgstr "Тартиб рақами"
 
 msgid "Labels"
-msgstr ""
+msgstr "Ёрлиқлар"
 
 msgid "Column sub-totals"
 msgstr ""
@@ -374,16 +374,16 @@ msgid "Hide empty columns"
 msgstr "Бўш устунларни беркитиш"
 
 msgid "Hide empty categories"
-msgstr ""
+msgstr "Бўш категорияларни беркитиш"
 
 msgid "Before first"
-msgstr ""
+msgstr "Олдинги бет"
 
 msgid "After last"
-msgstr ""
+msgstr "Охиргидан кейинги"
 
 msgid "Before first and after last"
-msgstr ""
+msgstr "Биринчидан олдинги ва охиргидан кейинги"
 
 msgid "All"
 msgstr "Барчаси"
@@ -398,7 +398,7 @@ msgid "Table subtitle"
 msgstr ""
 
 msgid "Chart subtitle"
-msgstr ""
+msgstr "Диаграмма шарҳи"
 
 msgid "Auto generated"
 msgstr ""
@@ -407,7 +407,7 @@ msgid "Custom"
 msgstr "Одатий"
 
 msgid "Chart title"
-msgstr ""
+msgstr "Диаграмма сарлавҳаси"
 
 msgid "Display legend"
 msgstr ""
@@ -492,22 +492,22 @@ msgid ""
 msgstr ""
 
 msgid "Steps"
-msgstr ""
+msgstr "Қадамлар"
 
 msgid "Include regression"
 msgstr "Регрессияни ўз ичига олади"
 
 msgid "Trend line"
-msgstr ""
+msgstr "Йўналиш қатори"
 
 msgid "Linear"
-msgstr ""
+msgstr "Чизиқли"
 
 msgid "Polynomial"
-msgstr ""
+msgstr "Кўп бўғимли"
 
 msgid "Loess"
-msgstr ""
+msgstr "Силжувчи"
 
 msgid "Row sub-totals"
 msgstr ""
@@ -516,13 +516,13 @@ msgid "Row totals"
 msgstr ""
 
 msgid "Data item"
-msgstr ""
+msgstr "Маълумот элементи"
 
 msgid "Visualization type"
 msgstr ""
 
 msgid "Axis {{axisId}}"
-msgstr ""
+msgstr "Ўқлар {{axisId}}"
 
 msgid "Series is empty"
 msgstr ""
@@ -572,13 +572,13 @@ msgid "Target line"
 msgstr ""
 
 msgid "Target line title"
-msgstr ""
+msgstr "Мақсадли қатор сарлавҳаси"
 
 msgid "Size"
-msgstr ""
+msgstr "Ўлчам"
 
 msgid "Position"
-msgstr ""
+msgstr "Лавозими"
 
 msgid "Top limit"
 msgstr "Юқори чегара"
@@ -594,19 +594,19 @@ msgid ""
 msgstr ""
 
 msgid "Reporting rate"
-msgstr ""
+msgstr "Ҳисоботдаги ставка"
 
 msgid "Reporting rate on time"
-msgstr ""
+msgstr "Ҳисоботдаги ставка ўз вақтида"
 
 msgid "Actual reports"
-msgstr ""
+msgstr "Ҳақиқий ҳисоботлар"
 
 msgid "Actual reports on time"
-msgstr ""
+msgstr "Ҳақиқий ҳисоботлар ўз вақтида"
 
 msgid "Expected reports"
-msgstr ""
+msgstr "Кутилаётган ҳисоботлар"
 
 msgid "No data available"
 msgstr ""
@@ -803,42 +803,6 @@ msgstr ""
 msgid "User org unit grand children"
 msgstr ""
 
-msgid "Data"
-msgstr "Маълумот"
-
-msgid "Display"
-msgstr ""
-
-msgid "Axes"
-msgstr ""
-
-msgid "Horizontal (x) axis"
-msgstr ""
-
-msgid "Series"
-msgstr ""
-
-msgid "Style"
-msgstr "Услуб"
-
-msgid "Chart style"
-msgstr ""
-
-msgid "Titles"
-msgstr ""
-
-msgid "Lines"
-msgstr ""
-
-msgid "Vertical (y) axis"
-msgstr ""
-
-msgid "Totals"
-msgstr "Жами"
-
-msgid "Empty data"
-msgstr ""
-
 msgid "Table title"
 msgstr "Жадвал сарлавҳаси"
 
@@ -860,11 +824,47 @@ msgstr ""
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
 
+msgid "Horizontal (x) axis"
+msgstr ""
+
 msgid "Lines are not supported yet when using multiple axes"
+msgstr ""
+
+msgid "Chart style"
+msgstr ""
+
+msgid "Display"
+msgstr "Намойиш қилиш"
+
+msgid "Empty data"
+msgstr ""
+
+msgid "Lines"
+msgstr ""
+
+msgid "Totals"
+msgstr "Жами"
+
+msgid "Vertical (y) axis"
+msgstr ""
+
+msgid "Titles"
 msgstr ""
 
 msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr ""
+
+msgid "Axes"
+msgstr "Ўқлар"
+
+msgid "Data"
+msgstr "Маълумот"
+
+msgid "Series"
+msgstr "Кетма-кетликлар"
+
+msgid "Style"
+msgstr "Услуб"
 
 msgid "Weeks per year"
 msgstr ""

@@ -24,21 +24,28 @@ const onOpen = id => {
         history.push(path)
     }
 }
-const onNew = () => history.push('/')
+const onNew = () => {
+    if (history.location.pathname === '/') {
+        history.replace({ pathname: '/', state: { isResetting: true } })
+    } else {
+        history.push('/')
+    }
+}
 const getOnRename = props => details => props.onRenameVisualization(details)
 const getOnSave = props => details => props.onSaveVisualization(details, false)
 const getOnSaveAs = props => details => props.onSaveVisualization(details, true)
 const getOnDelete = props => () => props.onDeleteVisualization()
 const getOnError = props => error => props.onError(error)
 
-export const MenuBar = ({ ...props }, context) => (
-    <div className={styles.menuBar}>
+export const MenuBar = ({ dataTest, ...props }, context) => (
+    <div className={styles.menuBar} data-test={dataTest}>
         <UpdateVisualizationContainer
             renderComponent={handler => (
                 <UpdateButton
                     className={styles.updateButton}
                     small
                     onClick={handler}
+                    dataTest={`${dataTest}-update-button`}
                 />
             )}
         />
@@ -63,6 +70,7 @@ export const MenuBar = ({ ...props }, context) => (
 
 MenuBar.propTypes = {
     apiObjectName: PropTypes.string,
+    dataTest: PropTypes.string,
     id: PropTypes.string,
 }
 

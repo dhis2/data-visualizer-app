@@ -9,35 +9,39 @@ import {
     SingleSelectOption,
 } from '@dhis2/ui'
 
-const SinglePeriodSelector = ({ options, selected, onChange }) => (
+const SinglePeriodSelector = ({ options, selected, onChange, dataTest }) => (
     <SingleSelect
         onChange={onChange}
         selected={selected}
         placeholder={i18n.t('Select a period')}
         dense
+        dataTest={dataTest}
     >
         {options.map(option => (
             <SingleSelectOption
                 key={option.id}
                 value={option.id}
                 label={option.getName()}
+                dataTest={`${dataTest}-option-${option.id}`}
             />
         ))}
     </SingleSelect>
 )
 
 SinglePeriodSelector.propTypes = {
+    dataTest: PropTypes.string,
     options: PropTypes.array,
     selected: PropTypes.string,
     onChange: PropTypes.func,
 }
 
-const MultiPeriodSelector = ({ options, selected, onChange }) => (
+const MultiPeriodSelector = ({ options, selected, onChange, dataTest }) => (
     <MultiSelect
         onChange={onChange}
         selected={selected}
         placeholder={i18n.t('Select years')}
         dense
+        dataTest={dataTest}
     >
         {options.map(option => (
             <MultiSelectOption
@@ -50,6 +54,7 @@ const MultiPeriodSelector = ({ options, selected, onChange }) => (
 )
 
 MultiPeriodSelector.propTypes = {
+    dataTest: PropTypes.string,
     options: PropTypes.array,
     selected: PropTypes.array,
     onChange: PropTypes.func,
@@ -63,6 +68,7 @@ const YearOverYearSelect = ({ multiple, value, ...props }) =>
     )
 
 YearOverYearSelect.propTypes = {
+    dataTest: PropTypes.string,
     multiple: PropTypes.string,
     options: PropTypes.array,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),

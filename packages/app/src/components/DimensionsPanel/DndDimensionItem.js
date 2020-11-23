@@ -17,6 +17,7 @@ export class DndDimensionItem extends Component {
             isRecommended,
             onClick,
             onOptionsClick,
+            dataTest,
         } = this.props
 
         const itemCommonProps = {
@@ -26,6 +27,7 @@ export class DndDimensionItem extends Component {
             isLocked,
             isDeactivated,
             isRecommended,
+            dataTest,
         }
 
         return (
@@ -63,6 +65,7 @@ export class DndDimensionItem extends Component {
 }
 
 DndDimensionItem.propTypes = {
+    dataTest: PropTypes.string,
     id: PropTypes.string,
     index: PropTypes.number,
     isDeactivated: PropTypes.bool,

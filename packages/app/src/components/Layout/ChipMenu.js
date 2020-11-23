@@ -42,6 +42,7 @@ const ChipMenu = ({
                     ariaHaspopup={true}
                     onClick={toggleMenu}
                     style={styles.icon}
+                    dataTest={`layout-chip-menu-button-${dimensionId}`}
                 >
                     <MoreHorizontalIcon style={styles.icon} />
                 </IconButton>
@@ -71,6 +72,7 @@ const ChipMenu = ({
                         axisItemHandler={axisItemHandler}
                         removeItemHandler={removeItemHandler}
                         onClose={toggleMenu}
+                        dataTest={'layout-chip-menu-dimension-menu'}
                     />
                 </Popover>
             )}

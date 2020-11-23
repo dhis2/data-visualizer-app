@@ -1,63 +1,47 @@
 import {
-    VIS_TYPE_COLUMN,
-    VIS_TYPE_BAR,
-    VIS_TYPE_STACKED_COLUMN,
-    VIS_TYPE_STACKED_BAR,
     VIS_TYPE_PIVOT_TABLE,
-    VIS_TYPE_LINE,
-    VIS_TYPE_RADAR,
-    VIS_TYPE_AREA,
-    VIS_TYPE_STACKED_AREA,
     VIS_TYPE_PIE,
     VIS_TYPE_GAUGE,
-    VIS_TYPE_YEAR_OVER_YEAR_LINE,
-    VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
     VIS_TYPE_SINGLE_VALUE,
+    isStacked as isStackedType,
+    isLegendSetType,
+    isMultiType,
+    isDualAxisType,
+    isColumnBasedType,
 } from '@dhis2/analytics'
 
 import pivotTableConfig from './pivotTableConfig'
-import columnConfig from './columnConfig'
-import stackedColumnConfig from './stackedColumnConfig'
-import lineConfig from './lineConfig'
-import areaConfig from './areaConfig'
-import stackedAreaConfig from './stackedAreaConfig'
 import pieConfig from './pieConfig'
 import gaugeConfig from './gaugeConfig'
 import singleValueConfig from './singleValueConfig'
-import barConfig from './barConfig'
-import yearOverYearConfig from './yearOverYearConfig'
-import radarConfig from './radarConfig'
+import defaultConfig from './defaultConfig'
 
-export const getOptionsByType = (type, hasCustomAxes) => {
+export const getOptionsByType = (type, hasDisabledSections) => {
+    const isStacked = isStackedType(type)
+    const isColumnBased = isColumnBasedType(type)
+    const supportsLegends = isLegendSetType(type)
+    const supportsMultiAxes = isDualAxisType(type)
+    const supportsMultiType = isMultiType(type)
+
+    const defaultProps = {
+        hasDisabledSections,
+        isStacked,
+        isColumnBased,
+        supportsLegends,
+        supportsMultiAxes,
+        supportsMultiType,
+    }
+
     switch (type) {
-        case VIS_TYPE_COLUMN:
-            return columnConfig(hasCustomAxes)
-        case VIS_TYPE_BAR:
-            return barConfig(hasCustomAxes)
-        case VIS_TYPE_YEAR_OVER_YEAR_LINE:
-        case VIS_TYPE_YEAR_OVER_YEAR_COLUMN:
-            return yearOverYearConfig(hasCustomAxes)
-        case VIS_TYPE_STACKED_COLUMN:
-        case VIS_TYPE_STACKED_BAR:
-            return stackedColumnConfig(hasCustomAxes)
-        case VIS_TYPE_LINE:
-            return lineConfig(hasCustomAxes)
-        case VIS_TYPE_RADAR:
-            return radarConfig(hasCustomAxes)
-        case VIS_TYPE_AREA:
-            return areaConfig(hasCustomAxes)
-        case VIS_TYPE_STACKED_AREA:
-            return stackedAreaConfig(hasCustomAxes)
         case VIS_TYPE_GAUGE:
-            return gaugeConfig(hasCustomAxes)
+            return gaugeConfig()
         case VIS_TYPE_PIE:
-            return pieConfig(hasCustomAxes)
+            return pieConfig()
         case VIS_TYPE_SINGLE_VALUE:
-            return singleValueConfig(hasCustomAxes)
+            return singleValueConfig()
         case VIS_TYPE_PIVOT_TABLE:
-            return pivotTableConfig(hasCustomAxes)
+            return pivotTableConfig()
         default:
-            // return all the options
-            return stackedColumnConfig(hasCustomAxes)
+            return defaultConfig(defaultProps)
     }
 }

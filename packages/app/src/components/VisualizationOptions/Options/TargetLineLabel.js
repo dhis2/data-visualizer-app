@@ -1,10 +1,11 @@
 import React from 'react'
 import i18n from '@dhis2/d2-i18n'
 import { FONT_STYLE_TARGET_LINE_LABEL } from '@dhis2/analytics'
+import PropTypes from 'prop-types'
 
 import TextBaseOption from './TextBaseOption'
 
-const TargetLineLabel = () => (
+const TargetLineLabel = ({ dataTest }) => (
     <TextBaseOption
         type="text"
         width="280px"
@@ -15,7 +16,12 @@ const TargetLineLabel = () => (
         }}
         inline
         fontStyleKey={FONT_STYLE_TARGET_LINE_LABEL}
+        dataTest={dataTest}
     />
 )
+
+TargetLineLabel.propTypes = {
+    dataTest: PropTypes.string,
+}
 
 export default TargetLineLabel

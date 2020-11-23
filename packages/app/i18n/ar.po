@@ -2,15 +2,15 @@
 # Translators:
 # KRG HIS <antonia.bezenchek@informa.pro>, 2020
 # phil_dhis2, 2020
-# Hamza Assada <7amza.it@gmail.com>, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
+# Hamza Assada <7amza.it@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
+"POT-Creation-Date: 2020-10-21T10:41:39.373Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2020\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +22,7 @@ msgid "Rename successful"
 msgstr "تمت إعادة التسمية بنجاح"
 
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
-msgstr ""
+msgstr "عرض مرئي {{visualizationType}} بلا عنوان ، {{date}}"
 
 msgid "\"{{deletedObject}}\" successfully deleted."
 msgstr "تم حذف \"{{deletedObject}}\" بنجاح."
@@ -90,19 +90,19 @@ msgid "Excel (.xls)"
 msgstr "إكسل (.xls)"
 
 msgid "CSV (.csv)"
-msgstr ""
+msgstr "CSV (.csv)"
 
 msgid "HTML (.html)"
-msgstr ""
+msgstr "HTML (.html)"
 
 msgid "Metadata ID scheme"
 msgstr "مخطط معرف البيانات الوصفية"
 
 msgid "ID"
-msgstr "المعرف"
+msgstr "ID"
 
 msgid "Code"
-msgstr "الرمز"
+msgstr "الكود"
 
 msgid "Name"
 msgstr "الإسم"
@@ -135,7 +135,7 @@ msgid "Other formats"
 msgstr "صيغ أخرى"
 
 msgid "JRXML"
-msgstr ""
+msgstr "JRXML"
 
 msgid "Raw data SQL"
 msgstr "للبيانات الأولية SQL "
@@ -186,21 +186,21 @@ msgid "Groups"
 msgstr "المجموعات"
 
 msgid "And 1 other..."
-msgstr ""
+msgstr "و 1 غيرها ..."
 
 msgid "And {{numberOfItems}} others..."
 msgstr "و {{numberOfItems}} أخرى..."
 
 msgid "Select a period"
-msgstr ""
+msgstr "حدد فترة"
 
 msgid "Select years"
-msgstr ""
+msgstr "حدد الأعوام"
 
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
-msgstr ""
+msgstr "لا يمكن حذف هذا المرئيات لأنها مستخدمة في لوحة معلومات واحدة أو أكثر"
 
 msgid "Unsaved visualization"
 msgstr "مخطط عرض غير محفوظ"
@@ -237,7 +237,7 @@ msgid "Aggregation type"
 msgstr "نوع التجميع"
 
 msgid "Overrides aggregation type for all data values."
-msgstr ""
+msgstr "إعادة كتابة نوع التجميع لكل قيم البيانات."
 
 msgid "By data element"
 msgstr "بواسطة عنصر البيانات"
@@ -315,19 +315,19 @@ msgid "Default"
 msgstr "الافتراضي"
 
 msgid "Bright"
-msgstr ""
+msgstr "براق"
 
 msgid "Dark"
-msgstr ""
+msgstr "داكن"
 
 msgid "Gray"
-msgstr ""
+msgstr "رمادي"
 
 msgid "Color blind"
-msgstr ""
+msgstr "عمى اللون"
 
 msgid "Patterns"
-msgstr ""
+msgstr "أنماط"
 
 msgid "Event data"
 msgstr "بيانات الحدث"
@@ -402,7 +402,7 @@ msgid "Hide empty rows"
 msgstr "إخفاء الصفوف الفارغة"
 
 msgid "Show legend key"
-msgstr ""
+msgstr "إظهار المفتاح الإيضاحي"
 
 msgid "Table subtitle"
 msgstr "العنوان الفرعي للجدول"
@@ -502,6 +502,8 @@ msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
 msgstr ""
+"عدد خطوات علامة المحور ، بما في ذلك الحد الأدنى والحد الأقصى. سيتم تجاهل 2 "
+"خطوة أو أقل."
 
 msgid "Steps"
 msgstr "الخطوات"
@@ -519,7 +521,7 @@ msgid "Polynomial"
 msgstr "متعدد الحدود"
 
 msgid "Loess"
-msgstr ""
+msgstr "Loess"
 
 msgid "Row sub-totals"
 msgstr "المجاميع الفرعية للصف"
@@ -528,33 +530,35 @@ msgid "Row totals"
 msgstr "إجماليات الصف"
 
 msgid "Data item"
-msgstr ""
+msgstr "عنصر بيانات"
 
 msgid "Visualization type"
-msgstr ""
+msgstr "نوع العرض المرئي"
 
 msgid "Axis {{axisId}}"
-msgstr ""
+msgstr "محور {{axisId}}"
 
 msgid "Series is empty"
-msgstr ""
+msgstr "السلسلة فارغة"
 
 msgid "Options for selected items will be available here"
-msgstr ""
+msgstr "ستكون خيارات العناصر المحددة متاحة هنا"
 
 msgid "No Series options"
-msgstr ""
+msgstr "لا توجد خيارات سلسلة"
 
 msgid "There aren't any Series options for this visualization type"
-msgstr ""
+msgstr "لا توجد أي خيارات سلسلة لهذا لنوع هذا العرض المرئي"
 
 msgid "Series options unavailable"
-msgstr ""
+msgstr "خيارات السلسلة غير متاحة"
 
 msgid ""
 "Series options are not available when using relative selections for periods,"
 " org units or categories"
 msgstr ""
+"لا تتوفر خيارات التسلسل عند استخدام تحديدات نسبية للفترات أو الوحدات "
+"التنظيمية أو الفئات"
 
 msgid "Value labels"
 msgstr "تسميات القيمة"
@@ -590,7 +594,7 @@ msgid "Size"
 msgstr "الحجم"
 
 msgid "Position"
-msgstr ""
+msgstr "موضع"
 
 msgid "Top limit"
 msgstr "الحد الأعلى"
@@ -604,6 +608,8 @@ msgstr "فتح كخريطة"
 msgid ""
 "Visually plot data on a world map. Data elements use separate map layers."
 msgstr ""
+"رسم البيانات بصريًا على خريطة العالم. تستخدم عناصر البيانات طبقات خريطة "
+"منفصلة."
 
 msgid "Reporting rate"
 msgstr "معدل الإبلاغ"
@@ -702,12 +708,14 @@ msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr "قم بإصلاح هذه المشكلة عن طريق نقل أو إزالة الفئات التي تم تعينها."
 
 msgid "Visualization not found"
-msgstr ""
+msgstr "لم يتم إيجاد عرض مرئي"
 
 msgid ""
 "The visualization you are trying to view could not be found, the ID could be"
 " incorrect or it could have been deleted."
 msgstr ""
+"تعذر العثور على المرئيات التي تحاول عرضها، ربما يكون الـ ID غير صحيح أو ربما"
+" تم حذفه."
 
 msgid "Something went wrong"
 msgstr "هناك خطأ ما"
@@ -826,42 +834,6 @@ msgstr "الوحدة التنظيمية للمستخدم العضو"
 msgid "User org unit grand children"
 msgstr "الوحدة التنظيمية الكبرى الأطفال"
 
-msgid "Data"
-msgstr "البيانات"
-
-msgid "Display"
-msgstr "العرض"
-
-msgid "Axes"
-msgstr "المحاور"
-
-msgid "Horizontal (x) axis"
-msgstr "محور (س) الأفقي"
-
-msgid "Series"
-msgstr "سلسلة"
-
-msgid "Style"
-msgstr "المظهر"
-
-msgid "Chart style"
-msgstr "نمط الرسم البياني"
-
-msgid "Titles"
-msgstr "العناوين"
-
-msgid "Lines"
-msgstr "الخطوط"
-
-msgid "Vertical (y) axis"
-msgstr "محور (ص) العمودي"
-
-msgid "Totals"
-msgstr "الإجمالي"
-
-msgid "Empty data"
-msgstr ""
-
 msgid "Table title"
 msgstr "عنوان الجدول"
 
@@ -878,16 +850,52 @@ msgid "Parameters"
 msgstr "المعاملات"
 
 msgid "Color set"
-msgstr ""
+msgstr "مجموعة لونية"
 
 msgid "Color sets are not supported yet when using multiple axes"
-msgstr ""
+msgstr "مازالت المجموعات اللونية غير مدعومة عند استخدام محاور متعددة"
+
+msgid "Horizontal (x) axis"
+msgstr "محور (س) الأفقي"
 
 msgid "Lines are not supported yet when using multiple axes"
-msgstr ""
+msgstr "مازال الرسم الخطي غير مدعوم عند استخدام محاور متعددة"
+
+msgid "Chart style"
+msgstr "نمط الرسم البياني"
+
+msgid "Display"
+msgstr "العرض"
+
+msgid "Empty data"
+msgstr "بيانات فارغة"
+
+msgid "Lines"
+msgstr "الخطوط"
+
+msgid "Totals"
+msgstr "الإجمالي"
+
+msgid "Vertical (y) axis"
+msgstr "محور (ص) العمودي"
+
+msgid "Titles"
+msgstr "العناوين"
 
 msgid "Vertical axis options are not supported yet when using multiple axes"
-msgstr ""
+msgstr "مازالت خيارات المحور الرأسي غير مدعومة عند استخدام محاور متعددة"
+
+msgid "Axes"
+msgstr "المحاور"
+
+msgid "Data"
+msgstr "البيانات"
+
+msgid "Series"
+msgstr "سلسلة"
+
+msgid "Style"
+msgstr "المظهر"
 
 msgid "Weeks per year"
 msgstr "أسابيع في السنة"

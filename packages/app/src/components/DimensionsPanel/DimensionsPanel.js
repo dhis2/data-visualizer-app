@@ -77,6 +77,7 @@ export const Dimensions = ({
                         axisItemHandler={axisItemHandler}
                         removeItemHandler={removeItemHandler}
                         onClose={toggleMenu}
+                        dataTest={'dimensions-panel-dimension-menu'}
                     />
                 </Popover>
             )}

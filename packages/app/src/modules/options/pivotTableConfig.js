@@ -12,7 +12,6 @@ import RowSubTotals from '../../components/VisualizationOptions/Options/RowSubTo
 import HideEmptyColumns from '../../components/VisualizationOptions/Options/HideEmptyColumns'
 import HideEmptyRows from '../../components/VisualizationOptions/Options/HideEmptyRows'
 import NumberType from '../../components/VisualizationOptions/Options/NumberType'
-import Legend from '../../components/VisualizationOptions/Options/Legend'
 import Title from '../../components/VisualizationOptions/Options/Title'
 import DisplayDensity from '../../components/VisualizationOptions/Options/DisplayDensity'
 import FontSize from '../../components/VisualizationOptions/Options/FontSize'
@@ -28,91 +27,64 @@ import TopLimit from '../../components/VisualizationOptions/Options/TopLimit'
 import ApprovalLevel from '../../components/VisualizationOptions/Options/ApprovalLevel'
 import ShowHierarchy from '../../components/VisualizationOptions/Options/ShowHierarchy'
 import CompletedOnly from '../../components/VisualizationOptions/Options/CompletedOnly'
-import SeriesTable from '../../components/VisualizationOptions/Options/SeriesTable'
+import getSeriesTab from './tabs/series'
+import getDataTab from './tabs/data'
+import getAdvancedTemplate from './sections/templates/advanced'
+import getDisplayTemplate from './sections/templates/display'
+import getTotalsTemplate from './sections/templates/totals'
+import getEmptyDataTemplate from './sections/templates/emptyData'
+import getLegendTab from './tabs/legend'
+import getStyleTab from './tabs/style'
 
 export default () => [
-    {
-        key: 'data-tab',
-        label: i18n.t('Data'),
-        content: [
-            {
-                key: 'data-display',
-                label: i18n.t('Display'),
-                content: React.Children.toArray([
-                    <ShowDimensionLabels />,
-                    <SkipRounding />,
-                ]),
-            },
-            {
-                key: 'data-totals',
-                label: i18n.t('Totals'),
-                content: React.Children.toArray([
-                    <ColTotals />,
-                    <ColSubTotals />,
-                    <RowTotals />,
-                    <RowSubTotals />,
-                ]),
-            },
-            {
-                key: 'data-empty-data',
-                label: i18n.t('Empty data'),
-                content: React.Children.toArray([
-                    <HideEmptyColumns />,
-                    <HideEmptyRows />,
-                ]),
-            },
-            {
-                key: 'data-advanced',
-                label: i18n.t('Advanced'),
-                content: React.Children.toArray([
-                    <AggregationType />,
-                    <NumberType />,
-                    <CompletedOnly />,
-                    <ApprovalLevel />,
-                ]),
-            },
-        ],
-    },
-    {
-        key: 'legend-tab',
-        label: i18n.t('Legend'),
-        content: [
-            {
-                key: 'legend-section-1',
-                content: React.Children.toArray([<Legend />]),
-            },
-        ],
-    },
-    {
-        key: 'series-tab',
-        label: i18n.t('Series'),
-        content: [
-            {
-                key: 'series-table',
-                content: React.Children.toArray([<SeriesTable />]),
-            },
-        ],
-    },
-    {
-        key: 'style-tab',
-        label: i18n.t('Style'),
-        content: [
-            {
-                key: 'style-section-1',
-                content: React.Children.toArray([
-                    <Title label={i18n.t('Table title')} />,
-                    <DisplayDensity />,
-                    <FontSize />,
-                    <DigitGroupSeparator />,
-                ]),
-            },
-            {
-                key: 'style-section-2',
-                label: i18n.t('Labels'),
-                content: React.Children.toArray([<ShowHierarchy />]),
-            },
-        ],
-    },
+    getDataTab([
+        getDisplayTemplate({
+            content: React.Children.toArray([
+                <ShowDimensionLabels />,
+                <SkipRounding />,
+            ]),
+        }),
+        getTotalsTemplate({
+            content: React.Children.toArray([
+                <ColTotals />,
+                <ColSubTotals />,
+                <RowTotals />,
+                <RowSubTotals />,
+            ]),
+        }),
+        getEmptyDataTemplate({
+            content: React.Children.toArray([
+                <HideEmptyColumns />,
+                <HideEmptyRows />,
+            ]),
+        }),
+        getAdvancedTemplate({
+            content: React.Children.toArray([
+                <AggregationType />,
+                <NumberType />,
+                <CompletedOnly />,
+                <ApprovalLevel />,
+            ]),
+        }),
+    ]),
+    getLegendTab(),
+    getSeriesTab(),
+    getStyleTab([
+        {
+            key: 'style-section-1',
+            content: React.Children.toArray([
+                <Title label={i18n.t('Table title')} />,
+                <DisplayDensity />,
+                <FontSize />,
+                <DigitGroupSeparator />,
+            ]),
+        },
+        {
+            key: 'style-section-2',
+            label: i18n.t('Labels'),
+            content: React.Children.toArray([<ShowHierarchy />]),
+        },
+    ]),
     {
         key: 'limitValues-tab',
         label: i18n.t('Limit values'),

@@ -44,6 +44,7 @@ const Layout = props => (
                     value={props.yearOverYearSeries}
                     onChange={props.onSeriesChange}
                     options={seriesOptions}
+                    dataTest={`yoy-layout-${AXIS_ID_COLUMNS}-select`}
                 />
             </YearOverYearAxis>
             <YearOverYearAxis
@@ -57,6 +58,7 @@ const Layout = props => (
                     value={props.yearOverYearCategory[0]}
                     onChange={props.onCategoryChange}
                     options={categoryOptions}
+                    dataTest={`yoy-layout-${AXIS_ID_ROWS}-select`}
                 />
             </YearOverYearAxis>
         </div>

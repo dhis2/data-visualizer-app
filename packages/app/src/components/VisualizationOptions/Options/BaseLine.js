@@ -25,6 +25,7 @@ export const BaseLine = ({ checked, onChange, disabled }) => (
             onChange={({ checked }) => onChange(checked)}
             dense
             disabled={disabled}
+            dataTest={'option-base-line-checkbox'}
         />
         {checked && !disabled ? (
             <div
@@ -32,11 +33,11 @@ export const BaseLine = ({ checked, onChange, disabled }) => (
             >
                 <div>
                     <Label>{i18n.t('Value')}</Label>
-                    <BaseLineValue />
+                    <BaseLineValue dataTest={'option-base-line-value'} />
                 </div>
                 <div>
                     <Label>{i18n.t('Title')}</Label>
-                    <BaseLineLabel />
+                    <BaseLineLabel dataTest={'option-base-line-label'} />
                 </div>
             </div>
         ) : null}
