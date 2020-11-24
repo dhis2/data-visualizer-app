@@ -1,24 +1,15 @@
-import { isYearOverYear, DIMENSION_ID_PERIOD } from '@dhis2/analytics'
-
 import {
     expectAOTitleToBeDirty,
     expectAOTitleToNotBeDirty,
     expectVisualizationToBeVisible,
     expectVisualizationToNotBeVisible,
 } from '../elements/chart'
+import { replacePeriodItems } from '../elements/common'
 import {
     confirmLeave,
     expectConfirmLeaveModalToBeVisible,
 } from '../elements/confirmLeaveModal'
-import {
-    clickDimensionModalUpdateButton,
-    selectRelativePeriods,
-} from '../elements/dimensionModal'
-import { removeAllPeriodItems } from '../elements/dimensionModal/periodDimension'
-import { openDimension } from '../elements/dimensionsPanel'
 import { createNewAO, openAOByName } from '../elements/fileMenu'
-import { selectYoyCategoryOption } from '../elements/layout'
-import { clickMenuBarUpdateButton } from '../elements/menuBar'
 import {
     expectStartScreenToBeVisible,
     goToStartPage,
@@ -35,18 +26,7 @@ describe('confirm leave modal', () => {
         expectAOTitleToNotBeDirty()
     })
     it(`replaces the selected period`, () => {
-        if (isYearOverYear(TEST_AO.type)) {
-            const TEST_PERIOD = 'Last 2 six-months'
-            selectYoyCategoryOption(TEST_PERIOD)
-            clickMenuBarUpdateButton()
-        } else {
-            const TEST_PERIOD_TYPE = 'Six-months'
-            const TEST_PERIOD = 'Last six-month'
-            openDimension(DIMENSION_ID_PERIOD)
-            removeAllPeriodItems()
-            selectRelativePeriods([TEST_PERIOD], TEST_PERIOD_TYPE)
-            clickDimensionModalUpdateButton()
-        }
+        replacePeriodItems(TEST_AO.type)
         expectVisualizationToBeVisible(TEST_AO.type)
         expectAOTitleToBeDirty()
     })
