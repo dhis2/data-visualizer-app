@@ -6,6 +6,8 @@ import {
     getAvailableAxes,
     isAxisFull,
     getTransferableDimension,
+    AXIS_ID_VERTICAL,
+    AXIS_ID_HORIZONTAL,
 } from '@dhis2/analytics'
 
 // Names for dnd sources
@@ -17,15 +19,26 @@ export const SOURCE_DIMENSIONS = 'dimensions'
 export const getFilteredLayout = (layout, excludedIds) => {
     const ids = Array.isArray(excludedIds) ? excludedIds : [excludedIds]
 
-    return {
-        [AXIS_ID_COLUMNS]: layout[AXIS_ID_COLUMNS].filter(
-            dim => !ids.includes(dim)
-        ),
-        [AXIS_ID_ROWS]: layout[AXIS_ID_ROWS].filter(dim => !ids.includes(dim)),
-        [AXIS_ID_FILTERS]: layout[AXIS_ID_FILTERS].filter(
-            dim => !ids.includes(dim)
-        ),
+    const filteredLayout = {
+        [AXIS_ID_COLUMNS]:
+            layout[AXIS_ID_COLUMNS]?.filter(dim => !ids.includes(dim)) || [],
+        [AXIS_ID_ROWS]:
+            layout[AXIS_ID_ROWS]?.filter(dim => !ids.includes(dim)) || [],
+        [AXIS_ID_FILTERS]:
+            layout[AXIS_ID_FILTERS]?.filter(dim => !ids.includes(dim)) || [],
     }
+    if (layout[AXIS_ID_VERTICAL]) {
+        filteredLayout[AXIS_ID_VERTICAL] = layout[AXIS_ID_VERTICAL].filter(
+            dim => !ids.includes(dim)
+        )
+    }
+    if (layout[AXIS_ID_HORIZONTAL]) {
+        filteredLayout[AXIS_ID_HORIZONTAL] = layout[AXIS_ID_HORIZONTAL].filter(
+            dim => !ids.includes(dim)
+        )
+    }
+
+    return filteredLayout
 }
 
 // Accepts layout: { columns: ['dx'] }

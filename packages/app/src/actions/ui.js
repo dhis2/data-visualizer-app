@@ -15,6 +15,8 @@ import {
     SET_UI_ACTIVE_MODAL_DIALOG,
     SET_UI_YEAR_ON_YEAR_SERIES,
     SET_UI_YEAR_ON_YEAR_CATEGORY,
+    SET_UI_VERTICAL,
+    SET_UI_HORIZONTAL,
     TOGGLE_UI_RIGHT_SIDEBAR_OPEN,
     SET_UI_RIGHT_SIDEBAR_OPEN,
     SET_UI_INTERPRETATION,
@@ -96,6 +98,16 @@ export const acSetUiYearOverYearSeries = value => ({
 
 export const acSetUiYearOverYearCategory = value => ({
     type: SET_UI_YEAR_ON_YEAR_CATEGORY,
+    value,
+})
+
+export const acSetUiVertical = value => ({
+    type: SET_UI_VERTICAL,
+    value,
+})
+
+export const acSetUiHorizontal = value => ({
+    type: SET_UI_HORIZONTAL,
     value,
 })
 

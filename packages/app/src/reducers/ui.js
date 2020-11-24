@@ -40,6 +40,8 @@ export const ADD_UI_PARENT_GRAPH_MAP = 'ADD_UI_PARENT_GRAPH_MAP'
 export const SET_UI_ACTIVE_MODAL_DIALOG = 'SET_UI_ACTIVE_MODAL_DIALOG'
 export const SET_UI_YEAR_ON_YEAR_SERIES = 'SET_UI_YEAR_ON_YEAR_SERIES'
 export const SET_UI_YEAR_ON_YEAR_CATEGORY = 'SET_UI_YEAR_ON_YEAR_CATEGORY'
+export const SET_UI_VERTICAL = 'SET_UI_VERTICAL'
+export const SET_UI_HORIZONTAL = 'SET_UI_HORIZONTAL'
 export const CLEAR_UI = 'CLEAR_UI'
 export const TOGGLE_UI_RIGHT_SIDEBAR_OPEN = 'TOGGLE_UI_RIGHT_SIDEBAR_OPEN'
 export const SET_UI_RIGHT_SIDEBAR_OPEN = 'SET_UI_RIGHT_SIDEBAR_OPEN'
@@ -62,6 +64,8 @@ export const DEFAULT_UI = {
     },
     yearOverYearSeries: [],
     yearOverYearCategory: [],
+    vertical: [],
+    horizontal: [],
     parentGraphMap: {},
     activeModalDialog: null,
     rightSidebarOpen: false,
@@ -262,6 +266,18 @@ export default (state = DEFAULT_UI, action) => {
                 yearOverYearCategory: action.value
                     ? castArray(action.value)
                     : DEFAULT_UI.yearOverYearCategory,
+            }
+        }
+        case SET_UI_VERTICAL: {
+            return {
+                ...state,
+                vertical: action.value || DEFAULT_UI.vertical,
+            }
+        }
+        case SET_UI_HORIZONTAL: {
+            return {
+                ...state,
+                horizontal: action.value || DEFAULT_UI.horizontal,
             }
         }
         case SET_UI_PARENT_GRAPH_MAP: {
