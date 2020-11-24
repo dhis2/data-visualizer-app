@@ -126,7 +126,7 @@ describe('saving an AO', () => {
             openAOByName(TEST_VIS_NAME_UPDATED)
         })
         it(`replaces the selected period`, () => {
-            replacePeriodItems(TEST_VIS_TYPE, true)
+            replacePeriodItems(TEST_VIS_TYPE, { useAltData: true })
             expectAOTitleToBeDirty()
         })
         it('saves AO using "Save"', () => {

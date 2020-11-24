@@ -8,7 +8,11 @@ import {
 } from './dimensionModal/periodDimension'
 import { clickDimensionModalUpdateButton } from './dimensionModal'
 
-export const replacePeriodItems = (visType, useAltData) => {
+export const replacePeriodItems = (
+    visType,
+    options = { useAltData: false }
+) => {
+    const useAltData = options.useAltData
     if (isYearOverYear(visType)) {
         const TEST_PERIOD = !useAltData
             ? 'Last 2 six-months'
