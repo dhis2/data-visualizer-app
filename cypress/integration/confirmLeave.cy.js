@@ -1,8 +1,9 @@
-import { DIMENSION_ID_DATA } from '@dhis2/analytics'
+import { isYearOverYear, DIMENSION_ID_PERIOD } from '@dhis2/analytics'
 
 import {
     expectAOTitleToBeDirty,
     expectAOTitleToNotBeDirty,
+    expectVisualizationToBeVisible,
     expectVisualizationToNotBeVisible,
 } from '../elements/chart'
 import {
@@ -11,30 +12,42 @@ import {
 } from '../elements/confirmLeaveModal'
 import {
     clickDimensionModalUpdateButton,
-    removeAllDataItems,
-    selectDataElements,
+    selectRelativePeriods,
 } from '../elements/dimensionModal'
-import { expectNoDataItemsToBeSelected } from '../elements/dimensionModal/dataDimension'
+import { removeAllPeriodItems } from '../elements/dimensionModal/periodDimension'
 import { openDimension } from '../elements/dimensionsPanel'
-import { createNewAO, openRandomAO } from '../elements/fileMenu'
+import { createNewAO, openAOByName } from '../elements/fileMenu'
+import { selectYoyCategoryOption } from '../elements/layout'
+import { clickMenuBarUpdateButton } from '../elements/menuBar'
 import {
     expectStartScreenToBeVisible,
     goToStartPage,
 } from '../elements/startScreen'
-import { TEST_DATA_ELEMENTS } from '../utils/data'
+import { TEST_AOS } from '../utils/data'
 import { getRandomArrayItem } from '../utils/random'
 
 describe('confirm leave modal', () => {
+    const TEST_AO = getRandomArrayItem(TEST_AOS)
+
     it('navigates to the start page and loads a random saved AO', () => {
         goToStartPage()
-        openRandomAO()
+        openAOByName(TEST_AO.name)
         expectAOTitleToNotBeDirty()
     })
-    it('replaces the data items', () => {
-        openDimension(DIMENSION_ID_DATA)
-        removeAllDataItems().then(() => expectNoDataItemsToBeSelected())
-        selectDataElements([getRandomArrayItem(TEST_DATA_ELEMENTS).name])
-        clickDimensionModalUpdateButton()
+    it(`replaces the selected period`, () => {
+        if (isYearOverYear(TEST_AO.type)) {
+            const TEST_PERIOD = 'Last 2 six-months'
+            selectYoyCategoryOption(TEST_PERIOD)
+            clickMenuBarUpdateButton()
+        } else {
+            const TEST_PERIOD_TYPE = 'Six-months'
+            const TEST_PERIOD = 'Last six-month'
+            openDimension(DIMENSION_ID_PERIOD)
+            removeAllPeriodItems()
+            selectRelativePeriods([TEST_PERIOD], TEST_PERIOD_TYPE)
+            clickDimensionModalUpdateButton()
+        }
+        expectVisualizationToBeVisible(TEST_AO.type)
         expectAOTitleToBeDirty()
     })
     it('tries to open a new AO', () => {
