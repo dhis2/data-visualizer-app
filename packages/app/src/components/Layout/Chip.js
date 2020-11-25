@@ -17,7 +17,6 @@ import {
     getAxisNameByLayoutType,
     getLayoutTypeByVisType,
     DIMENSION_ID_ASSIGNED_CATEGORIES,
-    isDimensionLocked,
     DIMENSION_PROP_NO_ITEMS,
 } from '@dhis2/analytics'
 
@@ -49,9 +48,10 @@ const Chip = ({
     axisId,
     items,
     getOpenHandler,
+    isLocked,
+    axisName,
 }) => {
     const id = Math.random().toString(36)
-    const isLocked = () => isDimensionLocked(type, dimensionId)
 
     const getMaxNumberOfItems = () => getAxisMaxNumberOfItems(type, axisId)
 
@@ -113,16 +113,17 @@ const Chip = ({
         const activeItemIds = getMaxNumberOfItems()
             ? items.slice(0, getMaxNumberOfItems())
             : items
-
-        const lockedLabel = isLocked()
+        const lockedLabel = isLocked
             ? i18n.t(
                   `{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}`,
                   {
                       dimensionName: dimensionName,
-                      axisName: getAxisNameByLayoutType(
-                          axisId,
-                          getLayoutTypeByVisType(type)
-                      ),
+                      axisName:
+                          axisName ||
+                          getAxisNameByLayoutType(
+                              axisId,
+                              getLayoutTypeByVisType(type)
+                          ),
                       visTypeName: getDisplayNameByVisType(type),
                   }
               )
@@ -145,7 +146,7 @@ const Chip = ({
             <span>{renderChipLabelSuffix()}</span>
             {hasAxisTooManyItems(type, axisId, items.length) &&
                 WarningIconWrapper}
-            {isLocked() && LockIconWrapper}
+            {isLocked && LockIconWrapper}
         </>
     )
 
@@ -153,7 +154,7 @@ const Chip = ({
         <div
             style={getWrapperStyles()}
             data-dimensionid={dimensionId}
-            draggable={!isLocked()}
+            draggable={!isLocked}
             onDragStart={getDragStartHandler()}
         >
             {dimensionId !== DIMENSION_ID_ASSIGNED_CATEGORIES ? (
@@ -182,7 +183,7 @@ const Chip = ({
                     {renderChipContent()}
                 </div>
             )}
-            {!isLocked() && renderMenu()}
+            {!isLocked && renderMenu()}
         </div>
     )
 }
@@ -192,7 +193,9 @@ Chip.propTypes = {
     dimensionId: PropTypes.string.isRequired,
     dimensionName: PropTypes.string.isRequired,
     getOpenHandler: PropTypes.func.isRequired,
+    isLocked: PropTypes.bool.isRequired,
     type: PropTypes.string.isRequired,
+    axisName: PropTypes.string,
     items: PropTypes.array,
 }
 
@@ -202,7 +205,10 @@ Chip.defaultProps = {
 
 const mapStateToProps = (state, ownProps) => ({
     dimensionName: (sGetDimensions(state)[ownProps.dimensionId] || {}).name,
-    items: sGetUiItemsByDimension(state, ownProps.dimensionId) || [],
+    items:
+        ownProps.items ||
+        sGetUiItemsByDimension(state, ownProps.dimensionId) ||
+        [],
     type: sGetUiType(state),
 })
 

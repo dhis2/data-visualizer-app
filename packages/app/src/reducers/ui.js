@@ -376,6 +376,8 @@ export const sGetUiYearOverYearSeries = state =>
     sGetUi(state).yearOverYearSeries
 export const sGetUiYearOverYearCategory = state =>
     sGetUi(state).yearOverYearCategory
+export const sGetUiVertical = state => sGetUi(state).vertical
+export const sGetUiHorizontal = state => sGetUi(state).horizontal
 export const sGetUiParentGraphMap = state => sGetUi(state).parentGraphMap
 export const sGetUiActiveModalDialog = state => sGetUi(state).activeModalDialog
 export const sGetUiRightSidebarOpen = state => sGetUi(state).rightSidebarOpen

@@ -68,6 +68,10 @@ class Axis extends React.Component {
                                                     )}
                                                     axisId={axisId}
                                                     dimensionId={dimensionId}
+                                                    isLocked={isDimensionLocked(
+                                                        type,
+                                                        dimensionId
+                                                    )}
                                                 />
                                             </div>
                                         )}
@@ -108,13 +112,11 @@ const mapDispatchToProps = dispatch => ({
         dispatch(acSetUiActiveModalDialog(dimensionId)),
 })
 
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
-    return {
-        ...stateProps,
-        ...dispatchProps,
-        ...ownProps,
-        axis: stateProps.ui.layout[ownProps.axisId],
-    }
-}
+const mergeProps = (stateProps, dispatchProps, ownProps) => ({
+    ...stateProps,
+    ...dispatchProps,
+    ...ownProps,
+    axis: stateProps.ui.layout[ownProps.axisId],
+})
 
 export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(Axis)

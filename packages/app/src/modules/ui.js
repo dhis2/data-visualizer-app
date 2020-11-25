@@ -1,11 +1,13 @@
 import {
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
+    DIMENSION_ID_DATA,
     layoutGetAxisIdDimensionIdsObject,
     layoutGetDimensionIdItemIdsObject,
     VIS_TYPE_YEAR_OVER_YEAR_LINE,
     VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
     VIS_TYPE_PIVOT_TABLE,
+    VIS_TYPE_SCATTER,
     defaultVisType,
     isYearOverYear,
     getAdaptedUiLayoutByType,
@@ -59,6 +61,28 @@ const yearOverYearUiAdapter = ui => {
     }
 }
 
+// TODO: Needs refactoring to the new itemAttr format
+
+// Transform from store.ui to scatter format
+const scatterUiAdapter = ui => {
+    const adaptedUi = {
+        ...ui,
+        layout: getAdaptedUiLayoutByType(ui.layout, ui.type),
+    }
+
+    const dataItems = ui.itemsByDimension[DIMENSION_ID_DATA]
+
+    adaptedUi.vertical = dataItems[0] ? [dataItems[0]] : []
+    adaptedUi.horizontal = dataItems[1] ? [dataItems[1]] : []
+
+    const items = Object.assign({}, ui.itemsByDimension)
+    items[DIMENSION_ID_DATA] = dataItems.slice(0, 2)
+
+    adaptedUi.itemsByDimension = items
+
+    return adaptedUi
+}
+
 export const getAdaptedUiByType = ui => {
     switch (ui.type) {
         case VIS_TYPE_YEAR_OVER_YEAR_LINE:
@@ -67,6 +91,8 @@ export const getAdaptedUiByType = ui => {
         }
         case VIS_TYPE_PIVOT_TABLE:
             return ui
+        case VIS_TYPE_SCATTER:
+            return scatterUiAdapter(ui)
         default:
             return defaultUiAdapter(ui)
     }
