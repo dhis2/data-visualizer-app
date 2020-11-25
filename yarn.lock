@@ -1470,13 +1470,13 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^11.2.5":
-  version "11.2.5"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-11.2.5.tgz#a1d1eb606ad9b8dfa1b93dace64e6901176f5a75"
-  integrity sha512-lkcssGSdzqNsSboVlRlqYQ6wj8Q4+hyLKDFLS6o4GFv1Z/8ObPfj2a13OElYO8Xmp4qVCFDqFZw8T00cKtKsbw==
+"@dhis2/analytics@^11.2.9":
+  version "11.2.9"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-11.2.9.tgz#d31dff17d5dc7dc7425e3021cb9269530a9e7d40"
+  integrity sha512-KqF9qTOShhWdlrmppjepuLqV6oUXe/y5p8NeZ8wB9V3jyiquiGLCEASpJbcr3m3A66gnApCCG+MwTuq+VYAklg==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.8"
-    "@dhis2/ui" "^5.7.3"
+    "@dhis2/ui" "^5.7.7"
     "@material-ui/core" "^3.9.3"
     "@material-ui/icons" "^3.0.2"
     classnames "^2.2.6"
@@ -1486,7 +1486,7 @@
     lodash "^4.17.20"
     react-beautiful-dnd "^10.1.1"
     resize-observer-polyfill "^1.5.1"
-    styled-jsx "^3.3.0"
+    styled-jsx "^3.3.2"
 
 "@dhis2/app-adapter@5.2.0":
   version "5.2.0"
@@ -1817,7 +1817,7 @@
     "@dhis2/prop-types" "^1.6.4"
     classnames "^2.2.6"
 
-"@dhis2/ui@^5.4.2", "@dhis2/ui@^5.7.3":
+"@dhis2/ui@^5.4.2", "@dhis2/ui@^5.7.3", "@dhis2/ui@^5.7.7":
   version "5.7.7"
   resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-5.7.7.tgz#36a7d1e580441f3d7731cffb92f3f1afbc736458"
   integrity sha512-wcW9DmQ3zzO5eVEqzegL5kKRzCjJ1q6vpDAHx6hpabrwIwCJUmU7tIygahU9gVfhT0DqWa+r9A0I3dHydKyDwQ==
@@ -14501,10 +14501,10 @@ style-loader@0.23.1:
     loader-utils "^1.1.0"
     schema-utils "^1.0.0"
 
-styled-jsx@^3.2.2, styled-jsx@^3.2.5, styled-jsx@^3.3.0:
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/styled-jsx/-/styled-jsx-3.3.1.tgz#d79f306c42c99cefbe8e76f35dad8100dc5c9ecc"
-  integrity sha512-RhW71t3k95E3g7Zq3lEBk+kmf+p4ZME7c5tfsYf9M5mq6CgIvFXkbvhawL2gWriXLRlMyKAYACE89Qa2JnTqUw==
+styled-jsx@^3.2.2, styled-jsx@^3.2.5, styled-jsx@^3.3.2:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/styled-jsx/-/styled-jsx-3.3.2.tgz#2474601a26670a6049fb4d3f94bd91695b3ce018"
+  integrity sha512-daAkGd5mqhbBhLd6jYAjYBa9LpxYCzsgo/f6qzPdFxVB8yoGbhxvzQgkC0pfmCVvW3JuAEBn0UzFLBfkHVZG1g==
   dependencies:
     "@babel/types" "7.8.3"
     babel-plugin-syntax-jsx "6.18.0"
