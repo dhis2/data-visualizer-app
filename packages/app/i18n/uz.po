@@ -19,7 +19,7 @@ msgid "Rename successful"
 msgstr "Муваффақиятли қайта номлаш"
 
 msgid "\"{{what}}\" successfully deleted."
-msgstr ""
+msgstr "\"{{what}}\" муваффақиятли ўчирилди"
 
 msgid "Data Visualizer"
 msgstr "Маълумотлар визуализатори"
@@ -133,7 +133,7 @@ msgid "Unsaved chart"
 msgstr ""
 
 msgid "Edited"
-msgstr ""
+msgstr "Таҳрирланган"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr " {{ТалқинВақт}} дан талқинни кўриш"
@@ -187,7 +187,7 @@ msgid "Variance"
 msgstr "Номувофиқлик"
 
 msgid "Base line"
-msgstr ""
+msgstr "базавий чизиқ"
 
 msgid "Base line title"
 msgstr "Асосий қатор қиймати"
@@ -277,7 +277,7 @@ msgid "Chart subtitle"
 msgstr "Диаграмма шарҳи"
 
 msgid "Target line"
-msgstr ""
+msgstr "Мақсад чегара чизиғи"
 
 msgid "Target line title"
 msgstr "Мақсадли қатор сарлавҳаси"
@@ -485,16 +485,16 @@ msgid "Months this year"
 msgstr "Ойлар айни йилда"
 
 msgid "This bimonth"
-msgstr ""
+msgstr "Ушбу жуфт ойлик"
 
 msgid "Last bimonth"
-msgstr ""
+msgstr "Охирги жуфт ойлик"
 
 msgid "Last 6 bimonths"
-msgstr ""
+msgstr "Охирги жуфт ярим йиллик"
 
 msgid "Bimonths this year"
-msgstr ""
+msgstr "Ушбу йилдаги жуфт ойлар"
 
 msgid "This quarter"
 msgstr "Ушбу квартал"
@@ -539,19 +539,19 @@ msgid "User org unit"
 msgstr "Фойдаланувчи ташкилот бўлими"
 
 msgid "User org unit children"
-msgstr ""
+msgstr "Фойдаланувчи ташкилий бўлими қуйи бўлимлари "
 
 msgid "User org unit grand children"
-msgstr ""
+msgstr "Фойдаланувчи ташкилий бўлими 2 поғона қуйи бўлимлари "
 
 msgid "Weeks per year"
-msgstr ""
+msgstr "Йил ичида ҳафталар"
 
 msgid "Months per year"
-msgstr ""
+msgstr "Йил ичида ойлар"
 
 msgid "Bimonths per year"
-msgstr ""
+msgstr "Йил ичида жуфт ойлар"
 
 msgid "Quarters per year"
-msgstr ""
+msgstr "Йил ичида чораклар"
