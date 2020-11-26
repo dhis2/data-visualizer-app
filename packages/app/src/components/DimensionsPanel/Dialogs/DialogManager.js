@@ -17,6 +17,7 @@ import {
     getDisplayNameByVisType,
     filterOutPredefinedDimensions,
     apiFetchRecommendedIds,
+    VIS_TYPE_SCATTER,
 } from '@dhis2/analytics'
 import {
     Modal,
@@ -46,12 +47,17 @@ import {
     sGetUiType,
     sGetAxisIdByDimensionId,
     sGetDimensionIdsFromLayout,
+    sGetUiItemsByAttribute,
 } from '../../../reducers/ui'
 import { sGetDimensions } from '../../../reducers/dimensions'
 import { sGetMetadata } from '../../../reducers/metadata'
 import { sGetSettingsDisplayNameProperty } from '../../../reducers/settings'
 import { removeLastPathSegment, getOuPath } from '../../../modules/orgUnit'
 import UpdateButton from '../../UpdateButton/UpdateButton'
+import {
+    ITEM_ATTRIBUTE_HORIZONTAL,
+    ITEM_ATTRIBUTE_VERTICAL,
+} from '../../../modules/ui'
 
 export class DialogManager extends Component {
     state = {
@@ -135,15 +141,22 @@ export class DialogManager extends Component {
 
     closeDialog = () => this.props.closeDialog(null)
 
-    getSelectedItems = dialogId => {
-        return this.props.selectedItems[dialogId]
-            ? this.props.selectedItems[dialogId]
-                  .filter(id => this.props.metadata[id])
-                  .map(id => ({
-                      id,
-                      name: this.props.metadata[id].name,
-                  }))
-            : []
+    getSelectedItems = (dialogId, visType) => {
+        const items =
+            visType === VIS_TYPE_SCATTER &&
+            [ITEM_ATTRIBUTE_VERTICAL, ITEM_ATTRIBUTE_HORIZONTAL].includes(
+                dialogId
+            )
+                ? this.props.getItemsByAttribute(dialogId)
+                : this.props.selectedItems[dialogId]
+        return (
+            items
+                .filter(id => this.props.metadata[id])
+                .map(id => ({
+                    id,
+                    name: this.props.metadata[id].name,
+                })) || []
+        )
     }
 
     getOrgUnitsFromIds = (ids, metadata, parentGraphMap) =>
@@ -209,7 +222,7 @@ export class DialogManager extends Component {
         }
 
         const dynamicContent = () => {
-            const selectedItems = this.getSelectedItems(dialogId)
+            const selectedItems = this.getSelectedItems(dialogId, type)
             let infoBoxMessage
 
             const axisId = this.props.getAxisIdByDimensionId(dialogId)
@@ -252,7 +265,12 @@ export class DialogManager extends Component {
                 })
             }
             let content = null
-            if (dialogId === DIMENSION_ID_DATA) {
+            if (
+                dialogId === DIMENSION_ID_DATA ||
+                [ITEM_ATTRIBUTE_VERTICAL, ITEM_ATTRIBUTE_HORIZONTAL].includes(
+                    dialogId
+                )
+            ) {
                 content = (
                     <DataDimension
                         displayNameProp={displayNameProperty}
@@ -302,7 +320,12 @@ export class DialogManager extends Component {
 
     render() {
         const { dialogId, dimensions } = this.props
-        const dimension = dimensions[dialogId]
+        const dimension = [
+            ITEM_ATTRIBUTE_VERTICAL,
+            ITEM_ATTRIBUTE_HORIZONTAL,
+        ].includes(dialogId)
+            ? DIMENSION_ID_DATA
+            : dimensions[dialogId]
 
         return (
             <Fragment>
@@ -331,7 +354,11 @@ export class DialogManager extends Component {
                                     renderComponent={handler =>
                                         this.props.dimensionIdsInLayout.includes(
                                             dialogId
-                                        ) ? (
+                                        ) ||
+                                        [
+                                            ITEM_ATTRIBUTE_VERTICAL,
+                                            ITEM_ATTRIBUTE_HORIZONTAL,
+                                        ].includes(dialogId) ? (
                                             <UpdateButton
                                                 onClick={this.getPrimaryOnClick(
                                                     handler
@@ -377,6 +404,7 @@ DialogManager.propTypes = {
     displayNameProperty: PropTypes.string,
     dxIds: PropTypes.array,
     getAxisIdByDimensionId: PropTypes.func,
+    getItemsByAttribute: PropTypes.func,
     metadata: PropTypes.object,
     parentGraphMap: PropTypes.object,
     removeUiItems: PropTypes.func,
@@ -403,6 +431,7 @@ const mapStateToProps = state => ({
     getAxisIdByDimensionId: dimensionId =>
         sGetAxisIdByDimensionId(state, dimensionId),
     dimensionIdsInLayout: sGetDimensionIdsFromLayout(state),
+    getItemsByAttribute: attribute => sGetUiItemsByAttribute(state, attribute),
 })
 
 export default connect(mapStateToProps, {

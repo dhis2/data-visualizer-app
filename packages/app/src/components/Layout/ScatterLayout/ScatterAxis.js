@@ -6,11 +6,17 @@ import Chip from '../Chip'
 import { sGetUi, sGetUiLayout } from '../../../reducers/ui'
 import { acSetUiActiveModalDialog } from '../../../actions/ui'
 import styles from './styles/ScatterAxis.style'
-import { AXIS_ID_COLUMNS } from '@dhis2/analytics'
+import { AXIS_ID_COLUMNS, DIMENSION_ID_DATA } from '@dhis2/analytics'
 
 class Axis extends React.Component {
     render() {
-        const { axis, axisId, label, style, getOpenHandler, items } = this.props
+        const {
+            label,
+            style,
+            getOpenHandler,
+            items,
+            itemAttribute,
+        } = this.props
 
         return (
             <div
@@ -20,30 +26,22 @@ class Axis extends React.Component {
                 onDragOver={this.onDragOver}
             >
                 <div style={styles.label}>{label}</div>
-                {axis.map(dimensionId => {
-                    const key = `${axisId}-${label}-${dimensionId}`
-                    return (
-                        <div key={key}>
-                            <Chip
-                                axisId={AXIS_ID_COLUMNS}
-                                axisName={label}
-                                onClick={getOpenHandler(dimensionId)}
-                                dimensionId={dimensionId}
-                                items={items}
-                                isLocked={true}
-                            />
-                        </div>
-                    )
-                })}
+                <Chip
+                    axisId={AXIS_ID_COLUMNS}
+                    axisName={label}
+                    onClick={getOpenHandler(itemAttribute)}
+                    dimensionId={DIMENSION_ID_DATA}
+                    items={items}
+                    isLocked={true}
+                />
             </div>
         )
     }
 }
 
 Axis.propTypes = {
-    axis: PropTypes.array,
-    axisId: PropTypes.string,
     getOpenHandler: PropTypes.func,
+    itemAttribute: PropTypes.string,
     items: PropTypes.array,
     label: PropTypes.string,
     style: PropTypes.object,
@@ -55,15 +53,14 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    getOpenHandler: dimensionId => () =>
-        dispatch(acSetUiActiveModalDialog(dimensionId)),
+    getOpenHandler: dialogId => () =>
+        dispatch(acSetUiActiveModalDialog(dialogId)),
 })
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => ({
     ...stateProps,
     ...dispatchProps,
     ...ownProps,
-    axis: stateProps.ui.layout[ownProps.axisId],
 })
 
 export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(Axis)

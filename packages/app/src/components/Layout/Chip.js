@@ -27,7 +27,6 @@ import { sGetDimensions } from '../../reducers/dimensions'
 import { sGetUiItemsByDimension, sGetUiType } from '../../reducers/ui'
 import DynamicDimensionIcon from '../../assets/DynamicDimensionIcon'
 import { styles } from './styles/Chip.style'
-import { acSetUiActiveModalDialog } from '../../actions/ui'
 
 const LockIconWrapper = (
     <div style={styles.lockIconWrapper}>
@@ -47,7 +46,7 @@ const Chip = ({
     dimensionName,
     axisId,
     items,
-    getOpenHandler,
+    onClick,
     isLocked,
     axisName,
 }) => {
@@ -57,7 +56,7 @@ const Chip = ({
 
     const handleClick = () => {
         if (!getPredefinedDimensionProp(dimensionId, DIMENSION_PROP_NO_ITEMS)) {
-            getOpenHandler(dimensionId)
+            onClick()
         }
     }
 
@@ -192,9 +191,9 @@ Chip.propTypes = {
     axisId: PropTypes.string.isRequired,
     dimensionId: PropTypes.string.isRequired,
     dimensionName: PropTypes.string.isRequired,
-    getOpenHandler: PropTypes.func.isRequired,
     isLocked: PropTypes.bool.isRequired,
     type: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired,
     axisName: PropTypes.string,
     items: PropTypes.array,
 }
@@ -212,9 +211,4 @@ const mapStateToProps = (state, ownProps) => ({
     type: sGetUiType(state),
 })
 
-const mapDispatchToProps = dispatch => ({
-    getOpenHandler: dimensionId =>
-        dispatch(acSetUiActiveModalDialog(dimensionId)),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Chip)
+export default connect(mapStateToProps)(Chip)

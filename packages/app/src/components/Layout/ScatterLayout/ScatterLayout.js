@@ -1,10 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {
-    AXIS_ID_COLUMNS,
-    AXIS_ID_FILTERS,
-    AXIS_ID_ROWS,
-} from '@dhis2/analytics'
+import { AXIS_ID_FILTERS, AXIS_ID_ROWS } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 
@@ -14,8 +10,12 @@ import defaultAxisStyles from '../DefaultLayout/styles/DefaultAxis.style'
 import defaultLayoutStyles from '../DefaultLayout/styles/DefaultLayout.style'
 import ScatterAxis from './ScatterAxis'
 import scatterLayoutStyles from './styles/ScatterLayout.style'
+import {
+    ITEM_ATTRIBUTE_HORIZONTAL,
+    ITEM_ATTRIBUTE_VERTICAL,
+} from '../../../modules/ui'
 
-const Layout = ({ verticalItems, horizontalItems }) => (
+const Layout = ({ getItemsByAttribute }) => (
     <div id="layout-ct" style={defaultLayoutStyles.ct}>
         <div
             id="axis-group-1"
@@ -29,14 +29,14 @@ const Layout = ({ verticalItems, horizontalItems }) => (
                     ...defaultLayoutStyles.filters,
                     ...defaultAxisStyles.axisContainerLeft,
                 }}
-                axisId={AXIS_ID_COLUMNS}
-                items={verticalItems}
+                itemAttribute={ITEM_ATTRIBUTE_VERTICAL}
+                items={getItemsByAttribute(ITEM_ATTRIBUTE_VERTICAL)}
                 label={i18n.t('Vertical')}
             />
             <ScatterAxis
                 style={defaultLayoutStyles.filters}
-                axisId={AXIS_ID_COLUMNS}
-                items={horizontalItems}
+                itemAttribute={ITEM_ATTRIBUTE_HORIZONTAL}
+                items={getItemsByAttribute(ITEM_ATTRIBUTE_HORIZONTAL)}
                 label={i18n.t('Horizontal')}
             />
         </div>
@@ -63,13 +63,11 @@ const Layout = ({ verticalItems, horizontalItems }) => (
 )
 
 Layout.propTypes = {
-    horizontalItems: PropTypes.array,
-    verticalItems: PropTypes.array,
+    getItemsByAttribute: PropTypes.func,
 }
 
 const mapStateToProps = state => ({
-    verticalItems: sGetUiItemsByAttribute(state, 'VERTICAL'),
-    horizontalItems: sGetUiItemsByAttribute(state, 'HORIZONTAL'),
+    getItemsByAttribute: attribute => sGetUiItemsByAttribute(state, attribute),
 })
 
 export default connect(mapStateToProps)(Layout)

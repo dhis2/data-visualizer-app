@@ -20,6 +20,8 @@ import { removeLastPathSegment } from './orgUnit'
 
 export const SERIES_ITEM_TYPE_PROP = 'type'
 export const SERIES_ITEM_AXIS_PROP = 'axis'
+export const ITEM_ATTRIBUTE_VERTICAL = 'VERTICAL'
+export const ITEM_ATTRIBUTE_HORIZONTAL = 'HORIZONTAL'
 
 // Transform from backend model to store.ui format
 export const getUiFromVisualization = (vis, currentState = {}) => ({
@@ -61,8 +63,6 @@ const yearOverYearUiAdapter = ui => {
     }
 }
 
-// TODO: Needs refactoring to the new itemAttr format
-
 // Transform from store.ui to scatter format
 const scatterUiAdapter = ui => {
     const adaptedUi = {
@@ -73,9 +73,12 @@ const scatterUiAdapter = ui => {
     const dataItems = ui.itemsByDimension[DIMENSION_ID_DATA]
 
     adaptedUi.itemAttributes = [
-        ...(dataItems[0] ? [{ id: dataItems[0], attribute: 'VERTICAL' }] : []), // TODO: refactor string to exported const
+        // TODO: This needs to be cleared for all other uiAdapters
+        ...(dataItems[0]
+            ? [{ id: dataItems[0], attribute: ITEM_ATTRIBUTE_VERTICAL }]
+            : []),
         ...(dataItems[1]
-            ? [{ id: dataItems[1], attribute: 'HORIZONTAL' }]
+            ? [{ id: dataItems[1], attribute: ITEM_ATTRIBUTE_HORIZONTAL }]
             : []),
     ]
 
