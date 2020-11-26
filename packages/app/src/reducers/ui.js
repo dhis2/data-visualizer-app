@@ -40,8 +40,7 @@ export const ADD_UI_PARENT_GRAPH_MAP = 'ADD_UI_PARENT_GRAPH_MAP'
 export const SET_UI_ACTIVE_MODAL_DIALOG = 'SET_UI_ACTIVE_MODAL_DIALOG'
 export const SET_UI_YEAR_ON_YEAR_SERIES = 'SET_UI_YEAR_ON_YEAR_SERIES'
 export const SET_UI_YEAR_ON_YEAR_CATEGORY = 'SET_UI_YEAR_ON_YEAR_CATEGORY'
-export const SET_UI_VERTICAL = 'SET_UI_VERTICAL'
-export const SET_UI_HORIZONTAL = 'SET_UI_HORIZONTAL'
+export const SET_UI_ITEM_ATTRIBUTES = 'SET_UI_ITEM_ATTRIBUTES'
 export const CLEAR_UI = 'CLEAR_UI'
 export const TOGGLE_UI_RIGHT_SIDEBAR_OPEN = 'TOGGLE_UI_RIGHT_SIDEBAR_OPEN'
 export const SET_UI_RIGHT_SIDEBAR_OPEN = 'SET_UI_RIGHT_SIDEBAR_OPEN'
@@ -64,8 +63,7 @@ export const DEFAULT_UI = {
     },
     yearOverYearSeries: [],
     yearOverYearCategory: [],
-    vertical: [],
-    horizontal: [],
+    itemAttributes: [],
     parentGraphMap: {},
     activeModalDialog: null,
     rightSidebarOpen: false,
@@ -268,16 +266,10 @@ export default (state = DEFAULT_UI, action) => {
                     : DEFAULT_UI.yearOverYearCategory,
             }
         }
-        case SET_UI_VERTICAL: {
+        case SET_UI_ITEM_ATTRIBUTES: {
             return {
                 ...state,
-                vertical: action.value || DEFAULT_UI.vertical,
-            }
-        }
-        case SET_UI_HORIZONTAL: {
-            return {
-                ...state,
-                horizontal: action.value || DEFAULT_UI.horizontal,
+                itemAttributes: action.value || DEFAULT_UI.itemAttributes,
             }
         }
         case SET_UI_PARENT_GRAPH_MAP: {
@@ -376,8 +368,10 @@ export const sGetUiYearOverYearSeries = state =>
     sGetUi(state).yearOverYearSeries
 export const sGetUiYearOverYearCategory = state =>
     sGetUi(state).yearOverYearCategory
-export const sGetUiVertical = state => sGetUi(state).vertical
-export const sGetUiHorizontal = state => sGetUi(state).horizontal
+export const sGetUiItemsByAttribute = (state, attribute) =>
+    (sGetUi(state).itemAttributes || [])
+        .filter(item => item.attribute === attribute)
+        .map(item => item.id)
 export const sGetUiParentGraphMap = state => sGetUi(state).parentGraphMap
 export const sGetUiActiveModalDialog = state => sGetUi(state).activeModalDialog
 export const sGetUiRightSidebarOpen = state => sGetUi(state).rightSidebarOpen

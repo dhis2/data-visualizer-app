@@ -72,8 +72,12 @@ const scatterUiAdapter = ui => {
 
     const dataItems = ui.itemsByDimension[DIMENSION_ID_DATA]
 
-    adaptedUi.vertical = dataItems[0] ? [dataItems[0]] : []
-    adaptedUi.horizontal = dataItems[1] ? [dataItems[1]] : []
+    adaptedUi.itemAttributes = [
+        ...(dataItems[0] ? [{ id: dataItems[0], attribute: 'VERTICAL' }] : []), // TODO: refactor string to exported const
+        ...(dataItems[1]
+            ? [{ id: dataItems[1], attribute: 'HORIZONTAL' }]
+            : []),
+    ]
 
     const items = Object.assign({}, ui.itemsByDimension)
     items[DIMENSION_ID_DATA] = dataItems.slice(0, 2)

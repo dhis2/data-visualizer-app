@@ -8,14 +8,14 @@ import {
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 
-import { sGetUiVertical, sGetUiHorizontal } from '../../../reducers/ui'
+import { sGetUiItemsByAttribute } from '../../../reducers/ui'
 import DefaultAxis from '../DefaultLayout/DefaultAxis'
 import defaultAxisStyles from '../DefaultLayout/styles/DefaultAxis.style'
 import defaultLayoutStyles from '../DefaultLayout/styles/DefaultLayout.style'
 import ScatterAxis from './ScatterAxis'
 import scatterLayoutStyles from './styles/ScatterLayout.style'
 
-const Layout = ({ vertical, horizontal }) => (
+const Layout = ({ verticalItems, horizontalItems }) => (
     <div id="layout-ct" style={defaultLayoutStyles.ct}>
         <div
             id="axis-group-1"
@@ -30,13 +30,13 @@ const Layout = ({ vertical, horizontal }) => (
                     ...defaultAxisStyles.axisContainerLeft,
                 }}
                 axisId={AXIS_ID_COLUMNS}
-                items={vertical}
+                items={verticalItems}
                 label={i18n.t('Vertical')}
             />
             <ScatterAxis
                 style={defaultLayoutStyles.filters}
                 axisId={AXIS_ID_COLUMNS}
-                items={horizontal}
+                items={horizontalItems}
                 label={i18n.t('Horizontal')}
             />
         </div>
@@ -63,13 +63,13 @@ const Layout = ({ vertical, horizontal }) => (
 )
 
 Layout.propTypes = {
-    horizontal: PropTypes.array,
-    vertical: PropTypes.array,
+    horizontalItems: PropTypes.array,
+    verticalItems: PropTypes.array,
 }
 
 const mapStateToProps = state => ({
-    vertical: sGetUiVertical(state),
-    horizontal: sGetUiHorizontal(state),
+    verticalItems: sGetUiItemsByAttribute(state, 'VERTICAL'),
+    horizontalItems: sGetUiItemsByAttribute(state, 'HORIZONTAL'),
 })
 
 export default connect(mapStateToProps)(Layout)
