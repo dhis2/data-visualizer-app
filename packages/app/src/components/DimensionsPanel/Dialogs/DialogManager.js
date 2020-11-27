@@ -282,29 +282,29 @@ export class DialogManager extends Component {
                     dialogId
                 )
             ) {
-                const props = dimensionProps
-                if (
-                    [
-                        ITEM_ATTRIBUTE_VERTICAL,
-                        ITEM_ATTRIBUTE_HORIZONTAL,
-                    ].includes(dialogId)
-                ) {
-                    props.onSelect = defaultProps =>
-                        this.selectUiItems({
-                            ...defaultProps,
-                            itemAttribute: dialogId,
-                        })
-                    props.onDeselect = defaultProps =>
-                        removeUiItemAttributes({
-                            ...defaultProps,
-                            attribute: dialogId,
-                        })
-                    props.onReorder = defaultProps =>
-                        setUiItemAttributes({
-                            ...defaultProps,
-                            attribute: dialogId,
-                        })
-                }
+                const props = [
+                    ITEM_ATTRIBUTE_VERTICAL,
+                    ITEM_ATTRIBUTE_HORIZONTAL,
+                ].includes(dialogId)
+                    ? {
+                          ...dimensionProps,
+                          onSelect: defaultProps =>
+                              this.selectUiItems({
+                                  ...defaultProps,
+                                  itemAttribute: dialogId,
+                              }),
+                          onDeselect: defaultProps =>
+                              removeUiItemAttributes({
+                                  ...defaultProps,
+                                  attribute: dialogId,
+                              }),
+                          onReorder: defaultProps =>
+                              setUiItemAttributes({
+                                  ...defaultProps,
+                                  attribute: dialogId,
+                              }),
+                      }
+                    : dimensionProps
                 content = (
                     <DataDimension
                         displayNameProp={displayNameProperty}
