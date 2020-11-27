@@ -16,6 +16,7 @@ import {
     SET_UI_YEAR_ON_YEAR_SERIES,
     SET_UI_YEAR_ON_YEAR_CATEGORY,
     SET_UI_ITEM_ATTRIBUTES,
+    REMOVE_UI_ITEM_ATTRIBUTES,
     TOGGLE_UI_RIGHT_SIDEBAR_OPEN,
     SET_UI_RIGHT_SIDEBAR_OPEN,
     SET_UI_INTERPRETATION,
@@ -102,6 +103,11 @@ export const acSetUiYearOverYearCategory = value => ({
 
 export const acSetUiItemAttributes = value => ({
     type: SET_UI_ITEM_ATTRIBUTES,
+    value,
+})
+
+export const acRemoveUiItemAttributes = value => ({
+    type: REMOVE_UI_ITEM_ATTRIBUTES,
     value,
 })
 

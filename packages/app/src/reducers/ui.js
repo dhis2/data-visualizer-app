@@ -41,6 +41,7 @@ export const SET_UI_ACTIVE_MODAL_DIALOG = 'SET_UI_ACTIVE_MODAL_DIALOG'
 export const SET_UI_YEAR_ON_YEAR_SERIES = 'SET_UI_YEAR_ON_YEAR_SERIES'
 export const SET_UI_YEAR_ON_YEAR_CATEGORY = 'SET_UI_YEAR_ON_YEAR_CATEGORY'
 export const SET_UI_ITEM_ATTRIBUTES = 'SET_UI_ITEM_ATTRIBUTES'
+export const REMOVE_UI_ITEM_ATTRIBUTES = 'REMOVE_UI_ITEM_ATTRIBUTES'
 export const CLEAR_UI = 'CLEAR_UI'
 export const TOGGLE_UI_RIGHT_SIDEBAR_OPEN = 'TOGGLE_UI_RIGHT_SIDEBAR_OPEN'
 export const SET_UI_RIGHT_SIDEBAR_OPEN = 'SET_UI_RIGHT_SIDEBAR_OPEN'
@@ -224,6 +225,7 @@ export default (state = DEFAULT_UI, action) => {
             }
         }
         case ADD_UI_ITEMS: {
+            // FIXME: Unused, remove?
             const { dimensionId, itemIds } = action.value
             const currentItemIds = state.itemsByDimension[dimensionId] || []
             const dxItems = [...new Set([...currentItemIds, ...itemIds])]
@@ -267,9 +269,50 @@ export default (state = DEFAULT_UI, action) => {
             }
         }
         case SET_UI_ITEM_ATTRIBUTES: {
+            const { attribute, itemIds, dimensionId } = action.value
+
             return {
                 ...state,
-                itemAttributes: action.value || DEFAULT_UI.itemAttributes,
+                itemsByDimension: {
+                    ...state.itemsByDimension,
+                    [dimensionId]: [
+                        ...new Set([
+                            ...itemIds,
+                            ...state.itemsByDimension[dimensionId],
+                        ]),
+                    ],
+                },
+                itemAttributes: [
+                    ...state.itemAttributes.filter(
+                        item => item.attribute !== attribute
+                    ),
+                    ...itemIds.map(id => ({ id, attribute })),
+                ],
+            }
+        }
+        case REMOVE_UI_ITEM_ATTRIBUTES: {
+            const { dimensionId, itemIdsToRemove, attribute } = action.value
+
+            const itemAttributes = (state.itemAttributes || []).filter(
+                ({ id: itemId, attribute: itemAttribute }) =>
+                    !(
+                        itemIdsToRemove.includes(itemId) &&
+                        itemAttribute === attribute
+                    )
+            )
+            const dxItems = (state.itemsByDimension[dimensionId] || []).filter(
+                id =>
+                    itemAttributes.some(({ id: itemId }) => itemId === id) ||
+                    !itemIdsToRemove.includes(id)
+            )
+
+            return {
+                ...state,
+                itemsByDimension: {
+                    ...state.itemsByDimension,
+                    [dimensionId]: dxItems,
+                },
+                itemAttributes,
             }
         }
         case SET_UI_PARENT_GRAPH_MAP: {

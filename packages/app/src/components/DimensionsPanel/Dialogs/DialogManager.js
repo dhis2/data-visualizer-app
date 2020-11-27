@@ -33,9 +33,10 @@ import UpdateVisualizationContainer from '../../UpdateButton/UpdateVisualization
 import {
     acSetUiActiveModalDialog,
     acRemoveUiItems,
-    acAddUiItems,
     acSetUiItems,
     acAddParentGraphMap,
+    acSetUiItemAttributes,
+    acRemoveUiItemAttributes,
 } from '../../../actions/ui'
 import { acAddMetadata } from '../../../actions/metadata'
 import { acSetRecommendedIds } from '../../../actions/recommendedIds'
@@ -91,11 +92,19 @@ export class DialogManager extends Component {
         this.props.setRecommendedIds(ids)
     }, 1000)
 
-    selectUiItems = ({ dimensionId, items }) => {
-        this.props.setUiItems({
-            dimensionId,
-            itemIds: items.map(item => item.id),
-        })
+    selectUiItems = ({ dimensionId, items, itemAttribute }) => {
+        if (itemAttribute) {
+            this.props.setUiItemAttributes({
+                dimensionId,
+                attribute: itemAttribute,
+                itemIds: items.map(item => item.id),
+            })
+        } else {
+            this.props.setUiItems({
+                dimensionId,
+                itemIds: items.map(item => item.id),
+            })
+        }
 
         switch (dimensionId) {
             case DIMENSION_ID_ORGUNIT: {
@@ -212,6 +221,8 @@ export class DialogManager extends Component {
             type,
             removeUiItems,
             setUiItems,
+            setUiItemAttributes,
+            removeUiItemAttributes,
         } = this.props
 
         const dimensionProps = {
@@ -271,12 +282,35 @@ export class DialogManager extends Component {
                     dialogId
                 )
             ) {
+                const props = dimensionProps
+                if (
+                    [
+                        ITEM_ATTRIBUTE_VERTICAL,
+                        ITEM_ATTRIBUTE_HORIZONTAL,
+                    ].includes(dialogId)
+                ) {
+                    props.onSelect = defaultProps =>
+                        this.selectUiItems({
+                            ...defaultProps,
+                            itemAttribute: dialogId,
+                        })
+                    props.onDeselect = defaultProps =>
+                        removeUiItemAttributes({
+                            ...defaultProps,
+                            attribute: dialogId,
+                        })
+                    props.onReorder = defaultProps =>
+                        setUiItemAttributes({
+                            ...defaultProps,
+                            attribute: dialogId,
+                        })
+                }
                 content = (
                     <DataDimension
                         displayNameProp={displayNameProperty}
                         selectedDimensions={selectedItems}
                         infoBoxMessage={infoBoxMessage}
-                        {...dimensionProps}
+                        {...props}
                     />
                 )
             } else if (dialogId === DIMENSION_ID_PERIOD) {
@@ -324,7 +358,7 @@ export class DialogManager extends Component {
             ITEM_ATTRIBUTE_VERTICAL,
             ITEM_ATTRIBUTE_HORIZONTAL,
         ].includes(dialogId)
-            ? DIMENSION_ID_DATA
+            ? dimensions[DIMENSION_ID_DATA]
             : dimensions[dialogId]
 
         return (
@@ -407,8 +441,10 @@ DialogManager.propTypes = {
     getItemsByAttribute: PropTypes.func,
     metadata: PropTypes.object,
     parentGraphMap: PropTypes.object,
+    removeUiItemAttributes: PropTypes.func,
     removeUiItems: PropTypes.func,
     selectedItems: PropTypes.object,
+    setUiItemAttributes: PropTypes.func,
     setUiItems: PropTypes.func,
     type: PropTypes.string,
 }
@@ -439,7 +475,8 @@ export default connect(mapStateToProps, {
     setRecommendedIds: acSetRecommendedIds,
     setUiItems: acSetUiItems,
     addMetadata: acAddMetadata,
-    addUiItems: acAddUiItems,
     removeUiItems: acRemoveUiItems,
     addParentGraphMap: acAddParentGraphMap,
+    setUiItemAttributes: acSetUiItemAttributes,
+    removeUiItemAttributes: acRemoveUiItemAttributes,
 })(DialogManager)
