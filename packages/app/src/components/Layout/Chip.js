@@ -18,6 +18,8 @@ import {
     getLayoutTypeByVisType,
     DIMENSION_ID_ASSIGNED_CATEGORIES,
     DIMENSION_PROP_NO_ITEMS,
+    VIS_TYPE_SCATTER,
+    DIMENSION_ID_DATA,
 } from '@dhis2/analytics'
 
 import ChipMenu from './ChipMenu'
@@ -27,6 +29,7 @@ import { sGetDimensions } from '../../reducers/dimensions'
 import { sGetUiItemsByDimension, sGetUiType } from '../../reducers/ui'
 import DynamicDimensionIcon from '../../assets/DynamicDimensionIcon'
 import { styles } from './styles/Chip.style'
+import { sGetMetadata } from '../../reducers/metadata'
 
 const LockIconWrapper = (
     <div style={styles.lockIconWrapper}>
@@ -49,8 +52,12 @@ const Chip = ({
     onClick,
     isLocked,
     axisName,
+    metadata,
 }) => {
     const id = Math.random().toString(36)
+
+    const isSplitAxis =
+        type === VIS_TYPE_SCATTER && dimensionId === DIMENSION_ID_DATA
 
     const getMaxNumberOfItems = () => getAxisMaxNumberOfItems(type, axisId)
 
@@ -81,6 +88,8 @@ const Chip = ({
                       total: numberOfItems,
                       axisMaxNumberOfItems: getMaxNumberOfItems(),
                   })
+                : isSplitAxis
+                ? i18n.t(metadata[items[0]]?.name || '')
                 : i18n.t('{{total}} selected', {
                       total: numberOfItems,
                   })
@@ -141,8 +150,12 @@ const Chip = ({
     const renderChipContent = () => (
         <>
             <div style={styles.iconWrapper}>{renderChipIcon()}</div>
-            <span style={styles.label}>{dimensionName}</span>
-            <span>{renderChipLabelSuffix()}</span>
+            <span style={!isSplitAxis ? styles.label : {}}>
+                {dimensionName}
+            </span>
+            <span style={isSplitAxis ? styles.label : {}}>
+                {renderChipLabelSuffix()}
+            </span>
             {hasAxisTooManyItems(type, axisId, items.length) &&
                 WarningIconWrapper}
             {isLocked && LockIconWrapper}
@@ -192,6 +205,7 @@ Chip.propTypes = {
     dimensionId: PropTypes.string.isRequired,
     dimensionName: PropTypes.string.isRequired,
     isLocked: PropTypes.bool.isRequired,
+    metadata: PropTypes.object.isRequired,
     type: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
     axisName: PropTypes.string,
@@ -209,6 +223,7 @@ const mapStateToProps = (state, ownProps) => ({
         sGetUiItemsByDimension(state, ownProps.dimensionId) ||
         [],
     type: sGetUiType(state),
+    metadata: sGetMetadata(state),
 })
 
 export default connect(mapStateToProps)(Chip)
