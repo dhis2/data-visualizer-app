@@ -158,14 +158,12 @@ export class DialogManager extends Component {
             )
                 ? this.props.getItemsByAttribute(dialogId)
                 : this.props.selectedItems[dialogId]
-        return (
-            items
-                .filter(id => this.props.metadata[id])
-                .map(id => ({
-                    id,
-                    name: this.props.metadata[id].name,
-                })) || []
-        )
+        return (items || [])
+            .filter(id => this.props.metadata[id])
+            .map(id => ({
+                id,
+                name: this.props.metadata[id].name,
+            }))
     }
 
     getOrgUnitsFromIds = (ids, metadata, parentGraphMap) =>
