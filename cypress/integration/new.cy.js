@@ -54,6 +54,7 @@ describe('creating a new AO', () => {
             })
             it('adds dimensions', () => {
                 openDimension(DIMENSION_ID_DATA)
+                // FIXME: Won't work for Scatter, needs to add both vertical and horizontal items
 
                 if (getAxisMaxNumberOfItems(visType, TEST_AXIS_ID) === 1) {
                     // Gauge and SV can only have 1 data item

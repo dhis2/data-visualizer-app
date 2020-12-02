@@ -60,6 +60,7 @@ describe('saving an AO', () => {
             changeVisType(TEST_VIS_TYPE_NAME)
         })
         it('adds Data dimension items', () => {
+            // FIXME: Won't work for Scatter, needs to add both vertical and horizontal items
             openDimension(DIMENSION_ID_DATA)
             selectDataElements(
                 TEST_DATA_ELEMENTS.slice(1, 2).map(item => item.name)
