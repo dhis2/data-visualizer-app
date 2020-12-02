@@ -169,12 +169,14 @@ export class NoHorizontalError extends VisualizationError {
     }
 }
 
-export class ToBeNamedError extends VisualizationError {
+export class DuplicateItemsError extends VisualizationError {
     constructor() {
         super(
             DataError,
-            i18n.t('ADD TITLE HERE'),
-            i18n.t('ADD DESCRIPTION HERE')
+            i18n.t('Axes data items are the same'),
+            i18n.t(
+                'The horizontal and vertical axes have the same data item. Scatter chart axes must have different data for each axis.'
+            )
         )
     }
 }

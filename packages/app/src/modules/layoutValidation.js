@@ -25,7 +25,7 @@ import {
     NoPointsError,
     NoVerticalError,
     NoHorizontalError,
-    ToBeNamedError,
+    DuplicateItemsError,
 } from './error'
 import { ITEM_ATTRIBUTE_HORIZONTAL, ITEM_ATTRIBUTE_VERTICAL } from './ui'
 
@@ -120,7 +120,7 @@ const validateScatterLayout = layout => {
     } else if (!horizontalItems.length) {
         throw new NoHorizontalError()
     } else if (verticalItems[0].id === horizontalItems[0].id) {
-        throw new ToBeNamedError()
+        throw new DuplicateItemsError()
     }
     validateAxis(layout.rows, new NoPointsError(layout.type))
     validateDimension(
