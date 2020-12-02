@@ -129,6 +129,56 @@ export class NoPeriodError extends VisualizationError {
     }
 }
 
+export class NoPointsError extends VisualizationError {
+    constructor(visType) {
+        super(
+            EmptyBox,
+            i18n.t(`{{axisName}} is empty`, {
+                axisName: getAxisNameByLayoutType(
+                    AXIS_ID_ROWS,
+                    getLayoutTypeByVisType(visType)
+                ),
+            }),
+            i18n.t('Add organisation units to {{axisName}}.', {
+                axisName: getAxisNameByLayoutType(
+                    AXIS_ID_ROWS,
+                    getLayoutTypeByVisType(visType)
+                ),
+            })
+        )
+    }
+}
+
+export class NoVerticalError extends VisualizationError {
+    constructor() {
+        super(
+            EmptyBox,
+            i18n.t('Vertical is empty'),
+            i18n.t('Add a data item to the vertical axis.')
+        )
+    }
+}
+
+export class NoHorizontalError extends VisualizationError {
+    constructor() {
+        super(
+            EmptyBox,
+            i18n.t('Horizontal is empty'),
+            i18n.t('Add a data item to the horizontal axis.')
+        )
+    }
+}
+
+export class ToBeNamedError extends VisualizationError {
+    constructor() {
+        super(
+            DataError,
+            i18n.t('ADD TITLE HERE'),
+            i18n.t('ADD DESCRIPTION HERE')
+        )
+    }
+}
+
 export class NoDataOrDataElementGroupSetError extends VisualizationError {
     constructor(visType) {
         const lockedAxis = getAxisPerLockedDimension(visType, DIMENSION_ID_DATA)

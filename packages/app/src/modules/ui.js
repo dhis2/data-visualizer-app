@@ -70,10 +70,10 @@ const scatterUiAdapter = ui => {
         layout: getAdaptedUiLayoutByType(ui.layout, ui.type),
     }
 
-    const dataItems = ui.itemsByDimension[DIMENSION_ID_DATA]
+    const dataItems = ui.itemsByDimension[DIMENSION_ID_DATA] || []
 
     adaptedUi.itemAttributes = [
-        // TODO: This needs to be cleared for all other uiAdapters
+        // TODO: Should this be cleared for all other uiAdapters?
         ...(dataItems[0]
             ? [{ id: dataItems[0], attribute: ITEM_ATTRIBUTE_VERTICAL }]
             : []),
