@@ -80,6 +80,26 @@ exports[`The DialogManager component renders OUDimension content with display:no
           ouItems={Array []}
         />
       </div>
+      <TabBar
+        dataTest="options-modal-tab-bar"
+      >
+        <Tab
+          dataTest="dhis2-uicore-tab"
+          key="VERTICAL"
+          onClick={[Function]}
+          selected={true}
+        >
+          Vertical
+        </Tab>
+        <Tab
+          dataTest="dhis2-uicore-tab"
+          key="HORIZONTAL"
+          onClick={[Function]}
+          selected={false}
+        >
+          Horizontal
+        </Tab>
+      </TabBar>
       <DataDimension
         onSelect={[Function]}
         selectedDimensions={Array []}
@@ -122,6 +142,26 @@ exports[`The DialogManager component renders the DataDimension content in dialog
     <ModalContent
       dataTest="dialog-manager-modal-content"
     >
+      <TabBar
+        dataTest="options-modal-tab-bar"
+      >
+        <Tab
+          dataTest="dhis2-uicore-tab"
+          key="VERTICAL"
+          onClick={[Function]}
+          selected={true}
+        >
+          Vertical
+        </Tab>
+        <Tab
+          dataTest="dhis2-uicore-tab"
+          key="HORIZONTAL"
+          onClick={[Function]}
+          selected={false}
+        >
+          Horizontal
+        </Tab>
+      </TabBar>
       <DataDimension
         onSelect={[Function]}
         selectedDimensions={Array []}
