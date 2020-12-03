@@ -25,6 +25,7 @@ describe('Dimensions component ', () => {
             axisItemHandler: () => {},
             removeItemHandler: () => {},
             getCurrentAxisId: () => '',
+            onDimensionClick: () => {},
         }
     })
 

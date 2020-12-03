@@ -154,23 +154,13 @@ export class DialogManager extends Component {
     closeDialog = () => this.props.changeDialog(null)
 
     getSelectedItems = (dialogId, visType) => {
-        let items
-
-        if (
+        const items =
             visType === VIS_TYPE_SCATTER &&
             [ITEM_ATTRIBUTE_VERTICAL, ITEM_ATTRIBUTE_HORIZONTAL].includes(
                 dialogId
             )
-        ) {
-            items = this.props.getItemsByAttribute(dialogId)
-        } else if (
-            visType === VIS_TYPE_SCATTER &&
-            dialogId === DIMENSION_ID_DATA
-        ) {
-            items = this.props.getItemsByAttribute(ITEM_ATTRIBUTE_VERTICAL)
-        } else {
-            items = this.props.selectedItems[dialogId]
-        }
+                ? this.props.getItemsByAttribute(dialogId)
+                : this.props.selectedItems[dialogId]
         return (items || [])
             .filter(id => this.props.metadata[id])
             .map(id => ({
@@ -324,44 +314,34 @@ export class DialogManager extends Component {
                         {...props}
                     />
                 )
-                const dataTabs =
-                    [
-                        ITEM_ATTRIBUTE_VERTICAL,
-                        ITEM_ATTRIBUTE_HORIZONTAL,
-                    ].includes(dialogId) ||
-                    (dialogId === DIMENSION_ID_DATA &&
-                        type === VIS_TYPE_SCATTER) ? (
-                        <TabBar
-                            dataTest={'options-modal-tab-bar'}
-                            className={styles.tabs}
-                        >
-                            {[
-                                {
-                                    key: ITEM_ATTRIBUTE_VERTICAL,
-                                    label: i18n.t('Vertical'),
-                                },
-                                {
-                                    key: ITEM_ATTRIBUTE_HORIZONTAL,
-                                    label: i18n.t('Horizontal'),
-                                },
-                            ].map(({ key, label }) => (
-                                <Tab
-                                    key={key}
-                                    onClick={() => this.props.changeDialog(key)}
-                                    selected={
-                                        [
-                                            ITEM_ATTRIBUTE_VERTICAL,
-                                            ITEM_ATTRIBUTE_HORIZONTAL,
-                                        ].includes(dialogId)
-                                            ? key === dialogId
-                                            : key === ITEM_ATTRIBUTE_VERTICAL
-                                    }
-                                >
-                                    {label}
-                                </Tab>
-                            ))}
-                        </TabBar>
-                    ) : null
+                const dataTabs = [
+                    ITEM_ATTRIBUTE_VERTICAL,
+                    ITEM_ATTRIBUTE_HORIZONTAL,
+                ].includes(dialogId) ? (
+                    <TabBar
+                        dataTest={'options-modal-tab-bar'}
+                        className={styles.tabs}
+                    >
+                        {[
+                            {
+                                key: ITEM_ATTRIBUTE_VERTICAL,
+                                label: i18n.t('Vertical'),
+                            },
+                            {
+                                key: ITEM_ATTRIBUTE_HORIZONTAL,
+                                label: i18n.t('Horizontal'),
+                            },
+                        ].map(({ key, label }) => (
+                            <Tab
+                                key={key}
+                                onClick={() => this.props.changeDialog(key)}
+                                selected={key === dialogId}
+                            >
+                                {label}
+                            </Tab>
+                        ))}
+                    </TabBar>
+                ) : null
                 content = dataTabs ? (
                     <>
                         {dataTabs}
