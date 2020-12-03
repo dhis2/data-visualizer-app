@@ -49,7 +49,7 @@ msgid "Deselect All"
 msgstr "Барчасини танланганлигини бекор қилиш"
 
 msgid "Select All"
-msgstr ""
+msgstr "Барчасини танлаш"
 
 msgid "Remove"
 msgstr "Ўчириш"
