@@ -12,6 +12,7 @@ const dataElementsOptionEl =
 const removeAllButtonEl =
     'data-dimension-item-selector-selected-items-deselect-all-button'
 //const addAllButtonEl = 'data-dimension-item-selector-unselected-items-select-all-button'
+const tabbarEl = 'dialog-manager-modal-tabs'
 
 export const expectDataDimensionModalToBeVisible = () =>
     expectDimensionModalToBeVisible(DIMENSION_ID_DATA)
@@ -37,6 +38,12 @@ export const selectDataElements = dataElements => {
 
 export const selectIndicators = indicators =>
     indicators.forEach(item => clickUnselectedItem(item))
+
+export const switchDataTab = tabName =>
+    cy
+        .getBySel(tabbarEl)
+        .contains(tabName)
+        .click()
 
 const clickUnselectedItem = item =>
     cy

@@ -14,7 +14,12 @@ export const clickDimensionModalUpdateButton = () =>
 export const clickDimensionModalHideButton = () =>
     cy.getBySel(dimensionModalHideButtonEl).click()
 
-export { selectDataElements, removeAllDataItems } from './dataDimension'
+export {
+    selectDataElements,
+    removeAllDataItems,
+    selectIndicators,
+    switchDataTab,
+} from './dataDimension'
 
 export { selectRelativePeriods, selectFixedPeriods } from './periodDimension'
 

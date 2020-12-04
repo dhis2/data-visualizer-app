@@ -319,7 +319,7 @@ export class DialogManager extends Component {
                     ITEM_ATTRIBUTE_HORIZONTAL,
                 ].includes(dialogId) ? (
                     <TabBar
-                        dataTest={'options-modal-tab-bar'}
+                        dataTest={'dialog-manager-modal-tabs'}
                         className={styles.tabs}
                     >
                         {[
