@@ -1,6 +1,6 @@
 // TODO move into component StartScreen?
 // most likely is not needed anywhere else
-export const apiFetchMostViewedVisualizations = (engine, pageSize) => {
+export const apiFetchMostViewedVisualizations = (dataEngine, pageSize) => {
     const visualizationQuery = {
         resource: 'dataStatistics/favorites',
         params: {
@@ -9,5 +9,5 @@ export const apiFetchMostViewedVisualizations = (engine, pageSize) => {
         },
     }
 
-    return engine.query({ visualization: visualizationQuery })
+    return dataEngine.query({ visualization: visualizationQuery })
 }
