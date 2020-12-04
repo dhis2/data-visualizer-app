@@ -124,13 +124,13 @@ msgid "Filter"
 msgstr "Фильтр"
 
 msgid "Move to"
-msgstr ""
+msgstr "Ўтиш"
 
 msgid "None selected"
 msgstr "Ҳеч ким танламади"
 
 msgid "Unsaved chart"
-msgstr ""
+msgstr "Сақланмаган диаграмма"
 
 msgid "Edited"
 msgstr "Таҳрирланган"
@@ -142,13 +142,13 @@ msgid "Update"
 msgstr "Янгилаш"
 
 msgid "Chart error"
-msgstr ""
+msgstr "Диаграммада хатолик"
 
 msgid "There is a problem with your chart"
-msgstr ""
+msgstr "Графикангизда хатолик бор"
 
 msgid "Error generating chart, please try again"
-msgstr ""
+msgstr "Диаграммани яратишда хатолик юз берди, Илтимос, қайта уриниб кўринг"
 
 msgid "Aggregation type"
 msgstr "Бирлаштириш тури"
@@ -211,7 +211,7 @@ msgid "Before first"
 msgstr "Олдинги бет"
 
 msgid "After first"
-msgstr ""
+msgstr "Биринчисидан кейин"
 
 msgid "Before first and after last"
 msgstr "Биринчидан олдинги ва охиргидан кейинги"
@@ -223,10 +223,10 @@ msgid "Hide chart legend"
 msgstr "Диаграмма таърифи яширилсин"
 
 msgid "Hide subtitle"
-msgstr ""
+msgstr "Таглавҳани беркитиш"
 
 msgid "Hide title"
-msgstr ""
+msgstr "Сарлавҳани беркитиш"
 
 msgid "No space between columns/bars"
 msgstr "Устун/чизиқлар орасида бўш жой йўқ"
@@ -235,19 +235,19 @@ msgid "Use 100% stacked values"
 msgstr "100% йиғма қийматлардан фойдаланинг"
 
 msgid "Range axis decimals"
-msgstr ""
+msgstr "Ўқ диапазони ўнлик белгилари"
 
 msgid "Range axis title"
 msgstr "Танлов соҳаси ўқи сарлавҳаси"
 
 msgid "Range axis max"
-msgstr ""
+msgstr "Ўқнинг максимал диапазони"
 
 msgid "Range axis min"
-msgstr ""
+msgstr "Ўқнинг минимал диапазони"
 
 msgid "Range axis tick steps"
-msgstr ""
+msgstr "Ўқ қадами бирликлари диапазони"
 
 msgid "Trend line"
 msgstr "Йўналиш қатори"
@@ -289,7 +289,7 @@ msgid "Chart title"
 msgstr "Диаграмма сарлавҳаси"
 
 msgid "Axis & legend"
-msgstr ""
+msgstr "Ўқ ва таъриф"
 
 msgid "Style"
 msgstr "Услуб"
@@ -397,41 +397,43 @@ msgid "Organisation Unit"
 msgstr "Ташкилий бирлик"
 
 msgid "Add to series"
-msgstr ""
+msgstr "Серияга қўшиш"
 
 msgid "Add to category"
-msgstr ""
+msgstr "Категорияга қўшиш"
 
 msgid "Add to filter"
-msgstr ""
+msgstr "Фильтрга қўшиш"
 
 msgid "series"
-msgstr ""
+msgstr "серия"
 
 msgid "category"
-msgstr ""
+msgstr "категория"
 
 msgid "filter"
-msgstr ""
+msgstr "фильтр"
 
 msgid "Please add at least one {{series}} dimension"
-msgstr ""
+msgstr "Илтимос, Камида битта параметр қўшинг {{серия}}"
 
 msgid "Please add at least one {{category}} dimension"
-msgstr ""
+msgstr "Илтимос, Камида битта параметр қўшинг {{категория}}"
 
 msgid ""
 "Please add at least one period as {{series}}, {{category}} or {{filter}}"
 msgstr ""
+"Илтимос, Камида битта давр қўшинг, {{серия}}, {{категория}} ёки {{фильтр}}  "
+"сифатлари учун"
 
 msgid "Please add at least one period as a {{series}} dimension"
-msgstr ""
+msgstr "Илтимос, Камида битта давр қўшинг, {{серия}} сифатлари учун"
 
 msgid "Please add at least one period as a {{category}} dimension"
-msgstr ""
+msgstr "Илтимос, Камида битта давр қўшинг, {{категория}} сифатлари учун"
 
 msgid "Please add {{data}} as a filter dimension"
-msgstr ""
+msgstr "Илтимос, {{маълумотлар}} ни фильтр ўлчови сифатида қўшинг"
 
 msgid "Today"
 msgstr "бугун"
