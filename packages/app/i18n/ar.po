@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-10-21T10:41:39.373Z\n"
+"POT-Creation-Date: 2020-12-02T14:36:01.703Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2020\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -169,6 +169,12 @@ msgstr "{{total}} تم تحديدها"
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr "{{dimensionName}} مقفل على {{axisName}} لـ {{visTypeName}}"
+
+msgid "Vertical"
+msgstr ""
+
+msgid "Horizontal"
+msgstr ""
 
 msgid "None selected"
 msgstr "غير محدد"
@@ -660,6 +666,29 @@ msgid ""
 msgstr ""
 "{{visualizationType}} يجب ان تحتوي على فترة واحدة على الأقل محددة على "
 "{{axes}}."
+
+msgid "Add organisation units to {{axisName}}."
+msgstr ""
+
+msgid "Vertical is empty"
+msgstr ""
+
+msgid "Add a data item to the vertical axis."
+msgstr ""
+
+msgid "Horizontal is empty"
+msgstr ""
+
+msgid "Add a data item to the horizontal axis."
+msgstr ""
+
+msgid "Axes data items are the same"
+msgstr ""
+
+msgid ""
+"The horizontal and vertical axes have the same data item. Scatter chart axes"
+" must have different data for each axis."
+msgstr ""
 
 msgid "No data selected"
 msgstr "لم يتم اختيار أي بيانات"

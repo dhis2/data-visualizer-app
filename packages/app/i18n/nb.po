@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-10-21T10:41:39.373Z\n"
+"POT-Creation-Date: 2020-12-02T14:36:01.703Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -168,6 +168,12 @@ msgstr "{{total}} valgt"
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr "{{dimensionName}} er låst til {{axisName}} for {{visTypeName}}"
+
+msgid "Vertical"
+msgstr ""
+
+msgid "Horizontal"
+msgstr ""
 
 msgid "None selected"
 msgstr "Ingen valgt"
@@ -658,6 +664,29 @@ msgstr "Ingen periode valgt"
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
 msgstr "{{visualizationType}} må ha minst en periode valgt i {{axes}}."
+
+msgid "Add organisation units to {{axisName}}."
+msgstr ""
+
+msgid "Vertical is empty"
+msgstr ""
+
+msgid "Add a data item to the vertical axis."
+msgstr ""
+
+msgid "Horizontal is empty"
+msgstr ""
+
+msgid "Add a data item to the horizontal axis."
+msgstr ""
+
+msgid "Axes data items are the same"
+msgstr ""
+
+msgid ""
+"The horizontal and vertical axes have the same data item. Scatter chart axes"
+" must have different data for each axis."
+msgstr ""
 
 msgid "No data selected"
 msgstr "Ingen data valgt"

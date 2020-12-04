@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-10-21T10:41:39.373Z\n"
+"POT-Creation-Date: 2020-12-02T14:36:01.703Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2020\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
@@ -162,6 +162,12 @@ msgstr "选择了 {{total}} "
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr "{{dimensionName}} 被 {{axisName}} 为 {{visTypeName}} 锁住"
+
+msgid "Vertical"
+msgstr ""
+
+msgid "Horizontal"
+msgstr ""
 
 msgid "None selected"
 msgstr "没有选择"
@@ -639,6 +645,29 @@ msgstr "没有选择期间"
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
 msgstr "{{visualizationType}} 必须至少选择一个期间到 {{axes}}."
+
+msgid "Add organisation units to {{axisName}}."
+msgstr ""
+
+msgid "Vertical is empty"
+msgstr ""
+
+msgid "Add a data item to the vertical axis."
+msgstr ""
+
+msgid "Horizontal is empty"
+msgstr ""
+
+msgid "Add a data item to the horizontal axis."
+msgstr ""
+
+msgid "Axes data items are the same"
+msgstr ""
+
+msgid ""
+"The horizontal and vertical axes have the same data item. Scatter chart axes"
+" must have different data for each axis."
+msgstr ""
 
 msgid "No data selected"
 msgstr "没有选择数据"
