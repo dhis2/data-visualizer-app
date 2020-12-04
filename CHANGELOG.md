@@ -1,3 +1,10 @@
+# [35.14.0](https://github.com/dhis2/data-visualizer-app/compare/v35.13.19...v35.14.0) (2020-12-04)
+
+
+### Features
+
+* implement scatter layout (DHIS2-10003) ([#1472](https://github.com/dhis2/data-visualizer-app/issues/1472)) ([65a1b8e](https://github.com/dhis2/data-visualizer-app/commit/65a1b8e0de277bade23813ca8863d3acc014ce64))
+
 ## [35.13.19](https://github.com/dhis2/data-visualizer-app/compare/v35.13.18...v35.13.19) (2020-11-19)
 
 
