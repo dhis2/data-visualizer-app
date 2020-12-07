@@ -72,6 +72,13 @@ export const expectDimensionToHaveItemAmount = (
     }
 }
 
+export const expectDimensionToBeLockedToAxis = (dimensionId, axisId) =>
+    cy
+        .getBySel(getAxisEl(axisId))
+        .findBySel(`${getDimensionChipEl(dimensionId)}-lock-icon`)
+        .should('have.length', 1)
+        .and('be.visible')
+
 export const expectDimensionToNotHaveItems = dimensionId =>
     expectDimensionToHaveItemAmount(dimensionId)
 
@@ -116,4 +123,10 @@ export const clickContextMenuDimSubMenu = dimensionId =>
     cy
         .getBySel(chipMenuSubMenuOptionEl.replace('DIMENSIONID', dimensionId))
         .contains('Add')
+        .click()
+
+export const clickContextMenuSwap = (fromId, toId) =>
+    cy
+        .getBySel(`${chipMenuActionOptionEl}-${fromId}-to-${toId}`)
+        .contains('Swap')
         .click()

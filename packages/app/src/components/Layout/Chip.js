@@ -30,18 +30,6 @@ import DynamicDimensionIcon from '../../assets/DynamicDimensionIcon'
 import { styles } from './styles/Chip.style'
 import { sGetMetadata } from '../../reducers/metadata'
 
-const LockIconWrapper = (
-    <div style={styles.lockIconWrapper}>
-        <LockIcon style={styles.lockIcon} />
-    </div>
-)
-
-const WarningIconWrapper = (
-    <div style={styles.warningIconWrapper}>
-        <WarningIcon style={styles.warningIcon} />
-    </div>
-)
-
 const Chip = ({
     type,
     dimensionId,
@@ -55,6 +43,23 @@ const Chip = ({
     contextMenu,
 }) => {
     const id = Math.random().toString(36)
+
+    const dataTest = `layout-chip-${dimensionId}`
+
+    const LockIconWrapper = (
+        <div style={styles.lockIconWrapper} data-test={`${dataTest}-lock-icon`}>
+            <LockIcon style={styles.lockIcon} />
+        </div>
+    )
+
+    const WarningIconWrapper = (
+        <div
+            style={styles.warningIconWrapper}
+            data-test={`${dataTest}-warning-icon`}
+        >
+            <WarningIcon style={styles.warningIcon} />
+        </div>
+    )
 
     const isSplitAxis =
         type === VIS_TYPE_SCATTER && dimensionId === DIMENSION_ID_DATA
@@ -162,7 +167,7 @@ const Chip = ({
                 <Tooltip content={renderTooltipContent()} placement="bottom">
                     {({ ref, onMouseOver, onMouseOut }) => (
                         <div
-                            data-test={`layout-chip-${dimensionId}`}
+                            data-test={dataTest}
                             id={id}
                             style={styles.chipLeft}
                             onClick={handleClick}
@@ -178,7 +183,7 @@ const Chip = ({
                 <div
                     id={id}
                     style={styles.chipLeft}
-                    data-test={`layout-chip-${dimensionId}`}
+                    data-test={dataTest}
                     onClick={handleClick}
                 >
                     {renderChipContent()}

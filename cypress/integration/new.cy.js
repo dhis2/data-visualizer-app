@@ -5,6 +5,8 @@ import {
     isYearOverYear,
     visTypeDisplayNames,
     VIS_TYPE_SCATTER,
+    VIS_TYPE_SINGLE_VALUE,
+    VIS_TYPE_GAUGE,
 } from '@dhis2/analytics'
 
 import { createNewAO } from '../elements/fileMenu'
@@ -32,6 +34,7 @@ import {
     expectChartToContainDimensionItem,
 } from '../elements/chart'
 import { TEST_DATA_ELEMENTS, TEST_INDICATORS } from '../utils/data'
+import { expectDimensionToBeLockedToAxis } from '../elements/layout'
 
 const TEST_AXIS_ID = AXIS_ID_COLUMNS
 const TEST_DATA_ELEMENT_NAMES = TEST_DATA_ELEMENTS.slice(2, 4).map(
@@ -86,6 +89,14 @@ describe('creating a new AO', () => {
                     )
                 }
             })
+            if ([VIS_TYPE_SINGLE_VALUE, VIS_TYPE_GAUGE].includes(visType)) {
+                it('Data is locked to Series', () => {
+                    expectDimensionToBeLockedToAxis(
+                        DIMENSION_ID_DATA,
+                        AXIS_ID_COLUMNS
+                    )
+                })
+            }
         })
     })
 })
