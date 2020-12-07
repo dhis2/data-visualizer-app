@@ -68,10 +68,17 @@ export const expectDimensionToHaveItemAmount = (
     }
 }
 
-export const expectDimensionToBeLockedToAxis = (dimensionId, axisId) =>
+export const expectDimensionOnAxisToHaveLockIcon = (dimensionId, axisId) =>
     cy
         .getBySel(getAxisEl(axisId))
         .findBySel(`${getDimensionChipEl(dimensionId)}-lock-icon`)
+        .should('have.length', 1)
+        .and('be.visible')
+
+export const expectDimensionOnAxisToHaveWarningIcon = (dimensionId, axisId) =>
+    cy
+        .getBySel(getAxisEl(axisId))
+        .findBySel(`${getDimensionChipEl(dimensionId)}-warning-icon`)
         .should('have.length', 1)
         .and('be.visible')
 
@@ -80,6 +87,12 @@ export const expectDimensionToNotHaveItems = dimensionId =>
 
 export const openDimension = dimensionId =>
     cy.getBySel(getDimensionChipEl(dimensionId)).click()
+
+export const openDimensionOnAxis = (dimensionId, axisId) =>
+    cy
+        .getBySel(getAxisEl(axisId))
+        .findBySel(getDimensionChipEl(dimensionId))
+        .click()
 
 export const openContextMenu = dimensionId =>
     cy.getBySel(`${chipMenuButtonEl}-${dimensionId}`).click()
