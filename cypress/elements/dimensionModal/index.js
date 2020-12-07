@@ -6,7 +6,7 @@ export const expectDimensionModalToBeVisible = dimensionId =>
     cy.getBySel(`${dimensionModalEl}-${dimensionId}`).should('be.visible')
 
 export const expectDimensionModalToNotBeVisible = () =>
-    cy.getBySelLike(dimensionModalEl).should('not.be.visible')
+    cy.getBySelLike(dimensionModalEl).should('not.exist')
 
 export const clickDimensionModalUpdateButton = () =>
     cy.getBySel(dimensionModalUpdateButtonEl).click()

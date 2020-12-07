@@ -33,8 +33,7 @@ export const expectAxisToNotHaveDimension = (axisId, dimensionId) => {
     if (axisId && dimensionId) {
         cy.getBySel(getAxisEl(axisId))
             .findBySel(getDimensionChipEl(dimensionId))
-            .should('have.length', 0)
-            .and('not.be.visible')
+            .should('not.exist')
     } else {
         throw new Error('axisId and dimensionId not provided')
     }
@@ -47,10 +46,7 @@ export const expectLayoutToHaveDimension = dimensionId =>
         .and('be.visible')
 
 export const expectLayoutToNotHaveDimension = dimensionId =>
-    cy
-        .getBySel(getDimensionChipEl(dimensionId))
-        .should('have.length', 0)
-        .and('not.be.visible')
+    cy.getBySel(getDimensionChipEl(dimensionId)).should('not.exist')
 
 export const expectDimensionToHaveItemAmount = (
     dimensionId,

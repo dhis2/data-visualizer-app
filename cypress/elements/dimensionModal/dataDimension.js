@@ -22,13 +22,13 @@ export const removeAllDataItems = () => cy.getBySel(removeAllButtonEl).click()
 export const expectNoDataItemsToBeSelected = () =>
     cy
         .getBySel(selectedItemEl)
-        .should('not.be.visible')
+        .should('be.visible')
         .and('have.length', 0)
 
 export const expectDataItemsAmountToBeSelected = amount =>
     cy
         .getBySel(selectedItemEl)
-        .should('not.be.visible')
+        .should('be.visible')
         .and('have.length', amount)
 
 export const selectDataElements = dataElements => {
