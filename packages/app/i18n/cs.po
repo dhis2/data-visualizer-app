@@ -169,10 +169,10 @@ msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr "{{dimensionName}} je pro {{visTypeName}} uzamčen na {{axisName}}"
 
 msgid "Vertical"
-msgstr ""
+msgstr "Vertikální"
 
 msgid "Horizontal"
-msgstr ""
+msgstr "Horizontální"
 
 msgid "None selected"
 msgstr "Není vybrán žádný"
@@ -667,27 +667,29 @@ msgstr ""
 "{{visualizationType}} musí mít alespoň jedno období vybrané v {{axes}}."
 
 msgid "Add organisation units to {{axisName}}."
-msgstr ""
+msgstr "Přidejte do {{axisName}} organizační jednotky."
 
 msgid "Vertical is empty"
-msgstr ""
+msgstr "Vertikální je prázdný"
 
 msgid "Add a data item to the vertical axis."
-msgstr ""
+msgstr "Přidejte datovou položku na svislou osu."
 
 msgid "Horizontal is empty"
-msgstr ""
+msgstr "Horizontální je prázdný"
 
 msgid "Add a data item to the horizontal axis."
-msgstr ""
+msgstr "Přidejte datovou položku na vodorovnou osu."
 
 msgid "Axes data items are the same"
-msgstr ""
+msgstr "Datové položky os jsou stejné"
 
 msgid ""
 "The horizontal and vertical axes have the same data item. Scatter chart axes"
 " must have different data for each axis."
 msgstr ""
+"Vodorovná a svislá osa mají stejnou datovou položku. Osy bodového grafu musí"
+" mít pro každou osu různá data."
 
 msgid "No data selected"
 msgstr "Nejsou vybrána žádná data"
