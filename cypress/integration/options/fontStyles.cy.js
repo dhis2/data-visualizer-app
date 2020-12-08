@@ -111,7 +111,7 @@ describe('Options - Font styles', () => {
         it('click the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
-        it(`config has font size ${TEST_FONT_SIZE_OPTION.value}, text align left, bold true, italic true`, () => {
+        it(`config has font size "${TEST_FONT_SIZE_OPTION.value}", text align left, bold true, italic true`, () => {
             const updatedTitle = getModifiedStyle({
                 originalStyle: CONFIG_DEFAULT_TITLE,
                 fontSize: TEST_FONT_SIZE_OPTION.value,
@@ -160,7 +160,7 @@ describe('Options - Font styles', () => {
         it('click the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
-        it(`config has font size ${TEST_FONT_SIZE_OPTION.value}, text align left, bold true, italic true`, () => {
+        it(`config has font size "${TEST_FONT_SIZE_OPTION.value}", text align left, bold true, italic true`, () => {
             const updatedSubtitle = getModifiedStyle({
                 originalStyle: CONFIG_DEFAULT_SUBTITLE,
                 fontSize: TEST_FONT_SIZE_OPTION.value,

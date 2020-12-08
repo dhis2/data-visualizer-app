@@ -100,22 +100,30 @@ const StartScreen = ({ error }) => {
             </div>
         )
 
-    const getErrorContent = () =>
-        error instanceof VisualizationError ? (
-            <div className={styles.errorContainer}>
-                <div className={styles.errorIcon}>{error.icon()}</div>
-                <p className={styles.errorTitle}>{error.title}</p>
-                <p className={styles.errorDescription}>{error.description}</p>
-            </div>
-        ) : (
-            <div className={styles.errorContainer}>
-                <div className={styles.errorIcon}>{GenericError()}</div>
-                <p className={styles.errorTitle}>{genericErrorTitle}</p>
-                <p className={styles.errorDescription}>
-                    {error.message || error}
-                </p>
-            </div>
-        )
+    const getErrorContent = () => (
+        <div
+            className={styles.errorContainer}
+            data-test="start-screen-error-container"
+        >
+            {error instanceof VisualizationError ? (
+                <>
+                    <div className={styles.errorIcon}>{error.icon()}</div>
+                    <p className={styles.errorTitle}>{error.title}</p>
+                    <p className={styles.errorDescription}>
+                        {error.description}
+                    </p>
+                </>
+            ) : (
+                <>
+                    <div className={styles.errorIcon}>{GenericError()}</div>
+                    <p className={styles.errorTitle}>{genericErrorTitle}</p>
+                    <p className={styles.errorDescription}>
+                        {error.message || error}
+                    </p>
+                </>
+            )}
+        </div>
+    )
 
     return (
         <div className={styles.outer}>

@@ -51,7 +51,6 @@ const Layout = ({ getItemsByAttribute }) => (
                 axisId={AXIS_ID_ROWS}
                 style={{
                     ...defaultLayoutStyles.filters,
-                    ...defaultAxisStyles.axisContainerLeft,
                 }}
             />
             <DefaultAxis

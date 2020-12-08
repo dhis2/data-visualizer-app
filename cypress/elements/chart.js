@@ -37,19 +37,13 @@ const expectVisualizationContainerToBeVisible = () =>
     cy.getBySel(visualizationContainerEl, timeout).should('be.visible')
 
 const expectVisualizationContainerToNotBeVisible = () =>
-    cy
-        .getBySel(visualizationContainerEl, timeout)
-        .should('not.be.visible')
-        .and('have.length', 0)
+    cy.getBySel(visualizationContainerEl, timeout).should('not.exist')
 
 const expectChartContainerToBeVisible = () =>
     cy.get(chartContainerEl, timeout).should('be.visible')
 
 const expectChartContainerToNotBeVisible = () =>
-    cy
-        .get(chartContainerEl, timeout)
-        .should('not.be.visible')
-        .and('have.length', 0)
+    cy.get(chartContainerEl, timeout).should('not.exist')
 
 // TODO: Expand to support items that are not in Columns
 export const expectChartToContainDimensionItem = (visType, itemName) => {
@@ -106,7 +100,4 @@ export const expectAOTitleToBeDirty = () =>
         .and('be.visible')
 
 export const expectAOTitleToNotBeDirty = () =>
-    cy
-        .getBySel(AOTitleDirtyEl)
-        .should('have.length', 0)
-        .and('not.be.visible')
+    cy.getBySel(AOTitleDirtyEl).should('not.exist')

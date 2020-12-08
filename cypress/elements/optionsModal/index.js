@@ -19,7 +19,7 @@ export const expectOptionsModalToBeVisible = () =>
     cy.getBySel(optionsModalEl).should('be.visible')
 
 export const expectOptionsModalToNotBeVisible = () =>
-    cy.getBySelLike(optionsModalEl).should('not.be.visible')
+    cy.getBySelLike(optionsModalEl).should('not.exist')
 
 export const clickOptionsModalUpdateButton = () =>
     cy.getBySel(optionsModalUpdateButtonEl).click()

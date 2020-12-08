@@ -22,26 +22,13 @@ import {
     DIMENSION_ID_DATA,
 } from '@dhis2/analytics'
 
-import ChipMenu from './ChipMenu'
 import TooltipContent from './TooltipContent'
 import { setDataTransfer } from '../../modules/dnd'
 import { sGetDimensions } from '../../reducers/dimensions'
-import { sGetUiItemsByDimension, sGetUiType } from '../../reducers/ui'
+import { sGetUiType } from '../../reducers/ui'
 import DynamicDimensionIcon from '../../assets/DynamicDimensionIcon'
 import { styles } from './styles/Chip.style'
 import { sGetMetadata } from '../../reducers/metadata'
-
-const LockIconWrapper = (
-    <div style={styles.lockIconWrapper}>
-        <LockIcon style={styles.lockIcon} />
-    </div>
-)
-
-const WarningIconWrapper = (
-    <div style={styles.warningIconWrapper}>
-        <WarningIcon style={styles.warningIcon} />
-    </div>
-)
 
 const Chip = ({
     type,
@@ -53,8 +40,26 @@ const Chip = ({
     isLocked,
     axisName,
     metadata,
+    contextMenu,
 }) => {
     const id = Math.random().toString(36)
+
+    const dataTest = `layout-chip-${dimensionId}`
+
+    const LockIconWrapper = (
+        <div style={styles.lockIconWrapper} data-test={`${dataTest}-lock-icon`}>
+            <LockIcon style={styles.lockIcon} />
+        </div>
+    )
+
+    const WarningIconWrapper = (
+        <div
+            style={styles.warningIconWrapper}
+            data-test={`${dataTest}-warning-icon`}
+        >
+            <WarningIcon style={styles.warningIcon} />
+        </div>
+    )
 
     const isSplitAxis =
         type === VIS_TYPE_SCATTER && dimensionId === DIMENSION_ID_DATA
@@ -105,17 +110,6 @@ const Chip = ({
             <DynamicDimensionIcon style={styles.dynamicDimensionIcon} />
         )
     }
-
-    const renderMenu = () => (
-        <div style={styles.chipRight}>
-            <ChipMenu
-                dimensionId={dimensionId}
-                currentAxisId={axisId}
-                visType={type}
-                numberOfDimensionItems={items.length}
-            />
-        </div>
-    )
 
     const renderTooltipContent = () => {
         const activeItemIds = getMaxNumberOfItems()
@@ -173,7 +167,7 @@ const Chip = ({
                 <Tooltip content={renderTooltipContent()} placement="bottom">
                     {({ ref, onMouseOver, onMouseOut }) => (
                         <div
-                            data-test={`layout-chip-${dimensionId}`}
+                            data-test={dataTest}
                             id={id}
                             style={styles.chipLeft}
                             onClick={handleClick}
@@ -189,13 +183,13 @@ const Chip = ({
                 <div
                     id={id}
                     style={styles.chipLeft}
-                    data-test={`layout-chip-${dimensionId}`}
+                    data-test={dataTest}
                     onClick={handleClick}
                 >
                     {renderChipContent()}
                 </div>
             )}
-            {!isLocked && renderMenu()}
+            {contextMenu && <div style={styles.chipRight}> {contextMenu}</div>}
         </div>
     )
 }
@@ -209,6 +203,7 @@ Chip.propTypes = {
     type: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
     axisName: PropTypes.string,
+    contextMenu: PropTypes.object,
     items: PropTypes.array,
 }
 
@@ -218,10 +213,6 @@ Chip.defaultProps = {
 
 const mapStateToProps = (state, ownProps) => ({
     dimensionName: (sGetDimensions(state)[ownProps.dimensionId] || {}).name,
-    items:
-        ownProps.items ||
-        sGetUiItemsByDimension(state, ownProps.dimensionId) ||
-        [],
     type: sGetUiType(state),
     metadata: sGetMetadata(state),
 })

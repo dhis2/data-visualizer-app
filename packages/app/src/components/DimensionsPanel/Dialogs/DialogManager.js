@@ -25,6 +25,8 @@ import {
     ModalActions,
     ButtonStrip,
     ModalTitle,
+    TabBar,
+    Tab,
 } from '@dhis2/ui'
 
 import HideButton from '../../HideButton/HideButton'
@@ -59,6 +61,7 @@ import {
     ITEM_ATTRIBUTE_HORIZONTAL,
     ITEM_ATTRIBUTE_VERTICAL,
 } from '../../../modules/ui'
+import styles from './styles/DialogManager.module.css'
 
 export class DialogManager extends Component {
     state = {
@@ -148,7 +151,7 @@ export class DialogManager extends Component {
         }
     }
 
-    closeDialog = () => this.props.closeDialog(null)
+    closeDialog = () => this.props.changeDialog(null)
 
     getSelectedItems = (dialogId, visType) => {
         const items =
@@ -303,13 +306,49 @@ export class DialogManager extends Component {
                               }),
                       }
                     : dimensionProps
-                content = (
+                const dimensionSelector = (
                     <DataDimension
                         displayNameProp={displayNameProperty}
                         selectedDimensions={selectedItems}
                         infoBoxMessage={infoBoxMessage}
                         {...props}
                     />
+                )
+                const dataTabs = [
+                    ITEM_ATTRIBUTE_VERTICAL,
+                    ITEM_ATTRIBUTE_HORIZONTAL,
+                ].includes(dialogId) ? (
+                    <TabBar
+                        dataTest={'dialog-manager-modal-tabs'}
+                        className={styles.tabs}
+                    >
+                        {[
+                            {
+                                key: ITEM_ATTRIBUTE_VERTICAL,
+                                label: i18n.t('Vertical'),
+                            },
+                            {
+                                key: ITEM_ATTRIBUTE_HORIZONTAL,
+                                label: i18n.t('Horizontal'),
+                            },
+                        ].map(({ key, label }) => (
+                            <Tab
+                                key={key}
+                                onClick={() => this.props.changeDialog(key)}
+                                selected={key === dialogId}
+                            >
+                                {label}
+                            </Tab>
+                        ))}
+                    </TabBar>
+                ) : null
+                content = dataTabs ? (
+                    <>
+                        {dataTabs}
+                        {dimensionSelector}
+                    </>
+                ) : (
+                    dimensionSelector
                 )
             } else if (dialogId === DIMENSION_ID_PERIOD) {
                 content = (
@@ -425,7 +464,7 @@ DialogManager.contextTypes = {
 }
 
 DialogManager.propTypes = {
-    closeDialog: PropTypes.func.isRequired,
+    changeDialog: PropTypes.func.isRequired,
     dimensionIdsInLayout: PropTypes.array.isRequired,
     ouIds: PropTypes.array.isRequired,
     setRecommendedIds: PropTypes.func.isRequired,
@@ -469,7 +508,7 @@ const mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps, {
-    closeDialog: acSetUiActiveModalDialog,
+    changeDialog: acSetUiActiveModalDialog,
     setRecommendedIds: acSetRecommendedIds,
     setUiItems: acSetUiItems,
     addMetadata: acAddMetadata,
