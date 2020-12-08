@@ -1,3 +1,10 @@
+# [35.15.0](https://github.com/dhis2/data-visualizer-app/compare/v35.14.0...v35.15.0) (2020-12-08)
+
+
+### Features
+
+* scatter context menu + data tabs (DHIS2-10073) ([#1490](https://github.com/dhis2/data-visualizer-app/issues/1490)) ([c4aaf30](https://github.com/dhis2/data-visualizer-app/commit/c4aaf30a9d5997053e03db42e19e0bfd10f59435))
+
 # [35.14.0](https://github.com/dhis2/data-visualizer-app/compare/v35.13.19...v35.14.0) (2020-12-04)
 
 
