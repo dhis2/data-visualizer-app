@@ -20,10 +20,7 @@ export const expectDataDimensionModalToBeVisible = () =>
 export const removeAllDataItems = () => cy.getBySel(removeAllButtonEl).click()
 
 export const expectNoDataItemsToBeSelected = () =>
-    cy
-        .getBySel(selectedItemEl)
-        .should('be.visible')
-        .and('have.length', 0)
+    cy.getBySel(selectedItemEl).should('not.exist')
 
 export const expectDataItemsAmountToBeSelected = amount =>
     cy
