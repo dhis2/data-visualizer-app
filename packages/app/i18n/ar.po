@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-02T14:36:01.703Z\n"
+"POT-Creation-Date: 2020-12-04T09:59:53.185Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2020\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -61,6 +61,12 @@ msgid ""
 msgstr ""
 "الغرض من \"{{visualiationType}}\" هو إظهار عدد عناصر {{maxNumber}} كحد أقصى."
 " سيتم استخدام وحفظ العناصر الـ {{maxNumber}} الأولى فقط."
+
+msgid "Vertical"
+msgstr ""
+
+msgid "Horizontal"
+msgstr ""
 
 msgid "Main dimensions"
 msgstr "الأبعاد الرئيسية"
@@ -170,10 +176,19 @@ msgstr "{{total}} تم تحديدها"
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr "{{dimensionName}} مقفل على {{axisName}} لـ {{visTypeName}}"
 
-msgid "Vertical"
+msgid "Not available for Scatter"
 msgstr ""
 
-msgid "Horizontal"
+msgid "Add Assigned Categories"
+msgstr "إضافة فئات معينة"
+
+msgid "Swap with {{axisName}} axis"
+msgstr ""
+
+msgid "vertical"
+msgstr ""
+
+msgid "horizontal"
 msgstr ""
 
 msgid "None selected"

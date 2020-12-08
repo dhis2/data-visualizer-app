@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-02T14:36:01.703Z\n"
+"POT-Creation-Date: 2020-12-04T09:59:53.185Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -60,6 +60,12 @@ msgid ""
 msgstr ""
 "'{{visualiationType}}' er ment for å vise maksimalt {{maxNumber}} antall "
 "elementer. Bare de første {{maxNumber}} elementene vil bli brukt og lagret."
+
+msgid "Vertical"
+msgstr ""
+
+msgid "Horizontal"
+msgstr ""
 
 msgid "Main dimensions"
 msgstr "Hoveddimensjoner"
@@ -169,10 +175,19 @@ msgstr "{{total}} valgt"
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr "{{dimensionName}} er låst til {{axisName}} for {{visTypeName}}"
 
-msgid "Vertical"
+msgid "Not available for Scatter"
 msgstr ""
 
-msgid "Horizontal"
+msgid "Add Assigned Categories"
+msgstr "Legg tildelte kategorier"
+
+msgid "Swap with {{axisName}} axis"
+msgstr ""
+
+msgid "vertical"
+msgstr ""
+
+msgid "horizontal"
 msgstr ""
 
 msgid "None selected"

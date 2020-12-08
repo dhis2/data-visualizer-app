@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-02T14:36:01.703Z\n"
+"POT-Creation-Date: 2020-12-04T09:59:53.185Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Pablo Pajuelo Cabezas <ppajuelo@quadram.mobi>, 2020\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
@@ -56,6 +56,12 @@ msgstr ""
 msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
 "items. Only the first {{maxNumber}} items will be used and saved."
+msgstr ""
+
+msgid "Vertical"
+msgstr ""
+
+msgid "Horizontal"
 msgstr ""
 
 msgid "Main dimensions"
@@ -166,10 +172,19 @@ msgstr ""
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr ""
 
-msgid "Vertical"
+msgid "Not available for Scatter"
 msgstr ""
 
-msgid "Horizontal"
+msgid "Add Assigned Categories"
+msgstr ""
+
+msgid "Swap with {{axisName}} axis"
+msgstr ""
+
+msgid "vertical"
+msgstr ""
+
+msgid "horizontal"
 msgstr ""
 
 msgid "None selected"
