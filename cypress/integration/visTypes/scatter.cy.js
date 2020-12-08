@@ -90,7 +90,7 @@ describe('using a Scatter chart', () => {
     it('adds a second item to horizontal and displays warning messages', () => {
         openDimensionOnAxis(DIMENSION_ID_DATA, 'Horizontal')
         selectIndicators([TEST_INDICATOR_NAMES[2]])
-        // TODO: expect the Data dimension selected list to display a warning message
+        // TODO: expect the Data dimension selected list to display a warning message (next PR)
         clickDimensionModalUpdateButton()
         expectDimensionOnAxisToHaveWarningIcon(DIMENSION_ID_DATA, 'Horizontal')
     })
