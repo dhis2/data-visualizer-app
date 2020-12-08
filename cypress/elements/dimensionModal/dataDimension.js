@@ -13,6 +13,7 @@ const removeAllButtonEl =
     'data-dimension-item-selector-selected-items-deselect-all-button'
 //const addAllButtonEl = 'data-dimension-item-selector-unselected-items-select-all-button'
 const tabbarEl = 'dialog-manager-modal-tabs'
+const infoBoxEl = 'data-dimension-item-selector-selected-items-info-box'
 
 export const expectDataDimensionModalToBeVisible = () =>
     expectDimensionModalToBeVisible(DIMENSION_ID_DATA)
@@ -27,6 +28,12 @@ export const expectDataItemsAmountToBeSelected = amount =>
         .getBySel(selectedItemEl)
         .should('be.visible')
         .and('have.length', amount)
+
+export const expectDataDimensionModalWarningToContain = text =>
+    cy.getBySel(infoBoxEl).should('contain', text)
+
+export const expectDataItemToBeInactive = id =>
+    cy.getBySel(`dimension-item-${id}`).should('have.class', 'inactive-item')
 
 export const selectDataElements = dataElements => {
     switchToDataType(dataElementsOptionEl)
