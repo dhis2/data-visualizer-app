@@ -15,6 +15,7 @@ import {
 import { changeVisType } from '../../elements/visualizationTypeSelector'
 import {
     expectErrorToContainTitle,
+    expectStartScreenToBeVisible,
     goToStartPage,
 } from '../../elements/startScreen'
 import { expectStoreCurrentColumnsToHaveLength } from '../../utils/store'
@@ -28,7 +29,8 @@ import {
     openContextMenu,
     openDimensionOnAxis,
 } from '../../elements/layout'
-import { saveNewAO } from '../../elements/fileMenu'
+import { deleteAO, saveExistingAO, saveNewAO } from '../../elements/fileMenu'
+import { expectRouteToBeEmpty } from '../../elements/route'
 
 const TEST_INDICATOR_NAMES = TEST_INDICATORS.slice(1, 4).map(item => item.name)
 const TEST_VIS_NAME = `TEST SCATTER ${new Date().toLocaleString()}`
@@ -99,14 +101,27 @@ describe('using a Scatter chart', () => {
         expectVisualizationToBeVisible(VIS_TYPE_SCATTER)
         expectVerticalToContainDimensionLabel(TEST_INDICATOR_NAMES[1])
         expectHorizontalToContainDimensionLabel(TEST_INDICATOR_NAMES[0])
-        // FIXME: This actually fails, instead of saving items "Vert 1, Hori 1", it saves "Hori 1, Hori 2"
     })
-    /* TODO: Add tests for...
-        Swapping again
-        Saving again (make sure the swap persists)
-        Loading
-        Deleting
-    */
+    it('swaps vertical with horizontal', () => {
+        openContextMenu('HORIZONTAL')
+        clickContextMenuSwap('HORIZONTAL', 'VERTICAL')
+        clickMenuBarUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_SCATTER)
+
+        expectVerticalToContainDimensionLabel(TEST_INDICATOR_NAMES[0])
+        expectHorizontalToContainDimensionLabel(TEST_INDICATOR_NAMES[1])
+    })
+    it('saves and displays items in the correct places', () => {
+        saveExistingAO()
+        expectVisualizationToBeVisible(VIS_TYPE_SCATTER)
+        expectVerticalToContainDimensionLabel(TEST_INDICATOR_NAMES[0])
+        expectHorizontalToContainDimensionLabel(TEST_INDICATOR_NAMES[1])
+    })
+    it('deletes saved scatter AO', () => {
+        deleteAO()
+        expectRouteToBeEmpty()
+        expectStartScreenToBeVisible()
+    })
 })
 
 const expectVerticalToContainDimensionLabel = label =>
