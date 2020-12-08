@@ -61,7 +61,7 @@ describe('Options - Lines', () => {
                     clickOptionsModalUpdateButton()
                 })
                 TEST_DATA_ELEMENT_NAMES.forEach(dataElement => {
-                    it(`config has ${dataElement} trendline`, () => {
+                    it(`config has "${dataElement}" trendline`, () => {
                         const trendline = {
                             ...CONFIG_DEFAULT_TREND_LINE,
                             type: trendLineType.type,
