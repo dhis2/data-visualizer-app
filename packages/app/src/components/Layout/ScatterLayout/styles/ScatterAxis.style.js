@@ -22,6 +22,8 @@ export default {
         color: colors.grey700,
         userSelect: 'none',
         letterSpacing: '0.2px',
+        display: 'flex',
+        flexDirection: 'column',
     },
 }
 // TODO: Refactor this file and all other affected files (DefaultLayout + everything in ../../styles/) to css modules

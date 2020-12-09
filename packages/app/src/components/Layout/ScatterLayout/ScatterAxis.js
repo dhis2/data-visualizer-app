@@ -20,6 +20,8 @@ import {
     acRemoveUiItemAttributes,
 } from '../../../actions/ui'
 import { sGetUiItemsByAttribute } from '../../../reducers/ui'
+import VerticalIcon from '../../../assets/VerticalIcon'
+import HorizontalIcon from '../../../assets/HorizontalIcon'
 
 const Axis = ({
     label,
@@ -124,13 +126,23 @@ const Axis = ({
         </>
     )
 
+    const renderIcon = () =>
+        itemAttribute === ITEM_ATTRIBUTE_VERTICAL ? (
+            <VerticalIcon />
+        ) : (
+            <HorizontalIcon />
+        )
+
     return (
         <div
             id={label}
             data-test={`${label}-axis`}
             style={{ ...styles.axisContainer, ...style }}
         >
-            <div style={styles.label}>{label}</div>
+            <div style={styles.label}>
+                {label}
+                {renderIcon()}
+            </div>
             <Chip
                 axisId={AXIS_ID_COLUMNS}
                 axisName={label}
