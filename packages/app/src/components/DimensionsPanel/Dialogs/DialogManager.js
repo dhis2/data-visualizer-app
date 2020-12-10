@@ -17,7 +17,6 @@ import {
     getDisplayNameByVisType,
     filterOutPredefinedDimensions,
     apiFetchRecommendedIds,
-    VIS_TYPE_SCATTER,
 } from '@dhis2/analytics'
 import {
     Modal,
@@ -62,6 +61,9 @@ import {
     ITEM_ATTRIBUTE_VERTICAL,
 } from '../../../modules/ui'
 import styles from './styles/DialogManager.module.css'
+
+const isScatterAttribute = dialogId =>
+    [ITEM_ATTRIBUTE_VERTICAL, ITEM_ATTRIBUTE_HORIZONTAL].includes(dialogId)
 
 export class DialogManager extends Component {
     state = {
@@ -153,14 +155,10 @@ export class DialogManager extends Component {
 
     closeDialog = () => this.props.changeDialog(null)
 
-    getSelectedItems = (dialogId, visType) => {
-        const items =
-            visType === VIS_TYPE_SCATTER &&
-            [ITEM_ATTRIBUTE_VERTICAL, ITEM_ATTRIBUTE_HORIZONTAL].includes(
-                dialogId
-            )
-                ? this.props.getItemsByAttribute(dialogId)
-                : this.props.selectedItems[dialogId]
+    getSelectedItems = dialogId => {
+        const items = isScatterAttribute(dialogId)
+            ? this.props.getItemsByAttribute(dialogId)
+            : this.props.selectedItems[dialogId]
         return (items || [])
             .filter(id => this.props.metadata[id])
             .map(id => ({
@@ -234,7 +232,7 @@ export class DialogManager extends Component {
         }
 
         const dynamicContent = () => {
-            const selectedItems = this.getSelectedItems(dialogId, type)
+            const selectedItems = this.getSelectedItems(dialogId)
             let infoBoxMessage
 
             const axisId = this.props.getAxisIdByDimensionId(dialogId)
@@ -275,18 +273,20 @@ export class DialogManager extends Component {
                 selectedItems.forEach((item, index) => {
                     item.isActive = index < axisMaxNumberOfItems
                 })
+            } else if (isScatterAttribute(dialogId) && numberOfItems > 1) {
+                infoBoxMessage = i18n.t(
+                    `'Scatter' is intended to show a single data item per axis. Only the first item will be used and saved.`
+                )
+                selectedItems.forEach((item, index) => {
+                    item.isActive = index < 1
+                })
             }
             let content = null
             if (
                 dialogId === DIMENSION_ID_DATA ||
-                [ITEM_ATTRIBUTE_VERTICAL, ITEM_ATTRIBUTE_HORIZONTAL].includes(
-                    dialogId
-                )
+                isScatterAttribute(dialogId)
             ) {
-                const props = [
-                    ITEM_ATTRIBUTE_VERTICAL,
-                    ITEM_ATTRIBUTE_HORIZONTAL,
-                ].includes(dialogId)
+                const props = isScatterAttribute(dialogId)
                     ? {
                           ...dimensionProps,
                           onSelect: defaultProps =>
@@ -314,10 +314,7 @@ export class DialogManager extends Component {
                         {...props}
                     />
                 )
-                const dataTabs = [
-                    ITEM_ATTRIBUTE_VERTICAL,
-                    ITEM_ATTRIBUTE_HORIZONTAL,
-                ].includes(dialogId) ? (
+                const dataTabs = isScatterAttribute(dialogId) ? (
                     <TabBar
                         dataTest={'dialog-manager-modal-tabs'}
                         className={styles.tabs}
@@ -391,10 +388,7 @@ export class DialogManager extends Component {
 
     render() {
         const { dialogId, dimensions } = this.props
-        const dimension = [
-            ITEM_ATTRIBUTE_VERTICAL,
-            ITEM_ATTRIBUTE_HORIZONTAL,
-        ].includes(dialogId)
+        const dimension = isScatterAttribute(dialogId)
             ? dimensions[DIMENSION_ID_DATA]
             : dimensions[dialogId]
 
@@ -425,11 +419,7 @@ export class DialogManager extends Component {
                                     renderComponent={handler =>
                                         this.props.dimensionIdsInLayout.includes(
                                             dialogId
-                                        ) ||
-                                        [
-                                            ITEM_ATTRIBUTE_VERTICAL,
-                                            ITEM_ATTRIBUTE_HORIZONTAL,
-                                        ].includes(dialogId) ? (
+                                        ) || isScatterAttribute(dialogId) ? (
                                             <UpdateButton
                                                 onClick={this.getPrimaryOnClick(
                                                     handler

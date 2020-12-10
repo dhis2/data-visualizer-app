@@ -19,6 +19,8 @@ export {
     removeAllDataItems,
     selectIndicators,
     switchDataTab,
+    expectDataDimensionModalWarningToContain,
+    expectDataItemToBeInactive,
 } from './dataDimension'
 
 export { selectRelativePeriods, selectFixedPeriods } from './periodDimension'
