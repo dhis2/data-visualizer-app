@@ -2,15 +2,15 @@
 # Translators:
 # phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
-# easylin <lin_xd@126.com>, 2020
 # 晓东 林 <13981924470@126.com>, 2020
+# easylin <lin_xd@126.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-04T09:59:53.185Z\n"
+"POT-Creation-Date: 2020-12-08T15:58:00.833Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2020\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,11 +59,16 @@ msgstr ""
 "'{{visualizationType}}' 打算显示最多{{maxNumber}}个数据项，仅{{maxNumber}} "
 "个中第一个条目将被使用和保存。"
 
-msgid "Vertical"
+msgid ""
+"'Scatter' is intended to show a single data item per axis. Only the first "
+"item will be used and saved."
 msgstr ""
 
+msgid "Vertical"
+msgstr "垂直"
+
 msgid "Horizontal"
-msgstr ""
+msgstr "水平"
 
 msgid "Main dimensions"
 msgstr "主要维度"
@@ -174,19 +179,19 @@ msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr "{{dimensionName}} 被 {{axisName}} 为 {{visTypeName}} 锁住"
 
 msgid "Not available for Scatter"
-msgstr ""
+msgstr "不适用于散点图"
 
 msgid "Add Assigned Categories"
 msgstr "添加指定的分类"
 
 msgid "Swap with {{axisName}} axis"
-msgstr ""
+msgstr "与{{axisName}}轴交换"
 
 msgid "vertical"
-msgstr ""
+msgstr "垂直"
 
 msgid "horizontal"
-msgstr ""
+msgstr "水平的"
 
 msgid "None selected"
 msgstr "没有选择"
@@ -666,27 +671,27 @@ msgid ""
 msgstr "{{visualizationType}} 必须至少选择一个期间到 {{axes}}."
 
 msgid "Add organisation units to {{axisName}}."
-msgstr ""
+msgstr "将组织单位添加到{{axisName}}。"
 
 msgid "Vertical is empty"
-msgstr ""
+msgstr "垂直为空"
 
 msgid "Add a data item to the vertical axis."
-msgstr ""
+msgstr "将数据项添加到垂直轴。"
 
 msgid "Horizontal is empty"
-msgstr ""
+msgstr "水平为空"
 
 msgid "Add a data item to the horizontal axis."
-msgstr ""
+msgstr "将数据项添加到水平轴。"
 
 msgid "Axes data items are the same"
-msgstr ""
+msgstr "轴数据项相同"
 
 msgid ""
 "The horizontal and vertical axes have the same data item. Scatter chart axes"
 " must have different data for each axis."
-msgstr ""
+msgstr "水平轴和垂直轴具有相同的数据项。散点图轴的每个轴必须具有不同的数据。"
 
 msgid "No data selected"
 msgstr "没有选择数据"

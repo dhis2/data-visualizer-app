@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-04T09:59:53.185Z\n"
+"POT-Creation-Date: 2020-12-08T15:58:00.833Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Ibatov <ibatovk@who.int>, 2020\n"
 "Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
@@ -61,11 +61,16 @@ msgstr ""
 "мўлжалланган. Фақат биринчи {{maxNumber}} та элемент ишлатилади ва "
 "сақланади."
 
-msgid "Vertical"
+msgid ""
+"'Scatter' is intended to show a single data item per axis. Only the first "
+"item will be used and saved."
 msgstr ""
 
+msgid "Vertical"
+msgstr "Вертикал"
+
 msgid "Horizontal"
-msgstr ""
+msgstr "Горизонтал"
 
 msgid "Main dimensions"
 msgstr "Умумий ўлчамлар"
@@ -176,19 +181,19 @@ msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr "{{dimensionName}} {{visTypeName}} учун {{axisName}} да қулфланган"
 
 msgid "Not available for Scatter"
-msgstr ""
+msgstr "Тарқатиш учун мавжуд эмас"
 
 msgid "Add Assigned Categories"
 msgstr "Белгиланган категориялар қўшилсин"
 
 msgid "Swap with {{axisName}} axis"
-msgstr ""
+msgstr "{{AxisName}} ўқлари жойини алмаштириш"
 
 msgid "vertical"
-msgstr ""
+msgstr "вертикал"
 
 msgid "horizontal"
-msgstr ""
+msgstr "горизонтал"
 
 msgid "None selected"
 msgstr "Бирор нима танланмаган"
@@ -686,27 +691,30 @@ msgstr ""
 "{{axes}}."
 
 msgid "Add organisation units to {{axisName}}."
-msgstr ""
+msgstr "{{AxisName}} ўқига ташкилий бўлимлар қўшиш"
 
 msgid "Vertical is empty"
-msgstr ""
+msgstr "Вертикал ўқ бўш"
 
 msgid "Add a data item to the vertical axis."
-msgstr ""
+msgstr "Вертикал ўққа малумотлар элементини қўшиш."
 
 msgid "Horizontal is empty"
-msgstr ""
+msgstr "Горизонтал ўқ бўш"
 
 msgid "Add a data item to the horizontal axis."
-msgstr ""
+msgstr "Горизонтал ўққа малумотлар элементини қўшиш."
 
 msgid "Axes data items are the same"
-msgstr ""
+msgstr "Ўқларнинг маълумотлар элементи тўғри келади"
 
 msgid ""
 "The horizontal and vertical axes have the same data item. Scatter chart axes"
 " must have different data for each axis."
 msgstr ""
+"Горизонтал ва вертикал ўқлар бир хил маълумотлар элементини сақлайди. "
+"Нуқтали диаграмма ўқлари ҳар қайси ўқ учун алоҳида маълумотларга эга бўлиши "
+"лозим."
 
 msgid "No data selected"
 msgstr "Маълумот танланмаган"
