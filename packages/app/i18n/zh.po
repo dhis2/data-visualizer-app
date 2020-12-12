@@ -62,7 +62,7 @@ msgstr ""
 msgid ""
 "'Scatter' is intended to show a single data item per axis. Only the first "
 "item will be used and saved."
-msgstr ""
+msgstr "“散点图”用于在每个轴上显示单个数据项。仅第一项将被使用和保存。"
 
 msgid "Vertical"
 msgstr "垂直"
@@ -791,7 +791,7 @@ msgid "Last 3 months"
 msgstr "最近3个月"
 
 msgid "Last 6 months"
-msgstr "最近六个月<br>"
+msgstr "最近6个月"
 
 msgid "Last 12 months"
 msgstr "最近12月"
@@ -806,7 +806,7 @@ msgid "Last bimonth"
 msgstr "最近俩月"
 
 msgid "Last 6 bimonths"
-msgstr "最近六个俩月"
+msgstr "最近6个俩月"
 
 msgid "Bimonths this year"
 msgstr "今年的俩月"
