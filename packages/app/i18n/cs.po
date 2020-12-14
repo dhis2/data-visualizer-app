@@ -64,6 +64,8 @@ msgid ""
 "'Scatter' is intended to show a single data item per axis. Only the first "
 "item will be used and saved."
 msgstr ""
+"'Rozptyl' je určen k zobrazení jedné datové položky na osu. Bude použita a "
+"uložena pouze první položka."
 
 msgid "Vertical"
 msgstr "Vertikální"
@@ -180,19 +182,19 @@ msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr "{{dimensionName}} je pro {{visTypeName}} uzamčen na {{axisName}}"
 
 msgid "Not available for Scatter"
-msgstr ""
+msgstr "Není k dispozici pro Rozptyl"
 
 msgid "Add Assigned Categories"
 msgstr "Přidat přiřazené kategorie"
 
 msgid "Swap with {{axisName}} axis"
-msgstr ""
+msgstr "Prohodit s osou {{axisName}}"
 
 msgid "vertical"
-msgstr ""
+msgstr "vertikální"
 
 msgid "horizontal"
-msgstr ""
+msgstr "horizontální"
 
 msgid "None selected"
 msgstr "Není vybrán žádný"
