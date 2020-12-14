@@ -45,7 +45,6 @@ describe('Options - Lines', () => {
         ]
 
         it('has no trend line', () => {
-            // cy.get(highchartsTitleEl).should('be.visible')
             expectChartTitleToBeVisible()
             expectStoreConfigSeriesToNotHaveTrendline()
         })
@@ -64,7 +63,6 @@ describe('Options - Lines', () => {
                 })
                 it('click the modal update button', () => {
                     clickOptionsModalUpdateButton()
-                    // cy.get(highchartsTitleEl).should('be.visible')
                     expectChartTitleToBeVisible()
                 })
                 TEST_DATA_ELEMENT_NAMES.forEach(dataElement => {
