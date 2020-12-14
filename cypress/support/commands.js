@@ -7,11 +7,11 @@ Cypress.Commands.add('getReduxState', prop =>
 )
 
 Cypress.Commands.add('getBySel', (selector, ...args) =>
-    cy.get(`[data-test=${selector}]`, ...args)
+    cy.get(`[data-test="${selector}"]`, ...args)
 )
 
 Cypress.Commands.add('getBySelLike', (selector, ...args) =>
-    cy.get(`[data-test*=${selector}]`, ...args)
+    cy.get(`[data-test*="${selector}"]`, ...args)
 )
 
 Cypress.Commands.add(
@@ -20,7 +20,7 @@ Cypress.Commands.add(
         prevSubject: true,
     },
     (subject, selector, ...args) =>
-        cy.wrap(subject).find(`[data-test=${selector}]`, ...args)
+        cy.wrap(subject).find(`[data-test="${selector}"]`, ...args)
 )
 
 Cypress.Commands.add(
@@ -29,7 +29,7 @@ Cypress.Commands.add(
         prevSubject: true,
     },
     (subject, selector, ...args) =>
-        cy.wrap(subject).find(`[data-test*=${selector}]`, ...args)
+        cy.wrap(subject).find(`[data-test*="${selector}"]`, ...args)
 )
 
 /* 
