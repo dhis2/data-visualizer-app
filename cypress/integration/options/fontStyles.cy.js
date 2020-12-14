@@ -20,8 +20,8 @@ import {
 } from '../../utils/store'
 import {
     expectVisualizationToBeVisible,
-    highchartsTitleEl,
-    highchartsSubtitleEl,
+    expectChartTitleToBeVisible,
+    expectChartSubtitleToBeVisible,
 } from '../../elements/chart'
 import { TEST_DATA_ELEMENTS } from '../../utils/data'
 import {
@@ -94,7 +94,7 @@ describe('Options - Font styles', () => {
         const type = TYPE_TITLE
 
         it('has default value', () => {
-            cy.get(highchartsTitleEl).should('be.visible')
+            expectChartTitleToBeVisible()
             expectStoreConfigTitleToBeValue(CONFIG_DEFAULT_TITLE)
         })
         it('opens Options -> Style', () => {
@@ -125,8 +125,7 @@ describe('Options - Font styles', () => {
                 isItalic: true,
             })
 
-            cy.get(highchartsTitleEl).should('be.visible')
-
+            expectChartTitleToBeVisible()
             expectStoreConfigTitleToBeValue(updatedTitle)
         })
     })
@@ -144,7 +143,7 @@ describe('Options - Font styles', () => {
         const TEST_SUBTITLE_TEXT = 'Test subtitle'
 
         it('has default value', () => {
-            cy.get(highchartsSubtitleEl).should('be.visible')
+            expectChartSubtitleToBeVisible()
             expectStoreConfigSubtitleToBeValue(CONFIG_DEFAULT_SUBTITLE)
         })
         it('opens Options -> Style', () => {
@@ -178,7 +177,7 @@ describe('Options - Font styles', () => {
                 isItalic: true,
                 text: TEST_SUBTITLE_TEXT,
             })
-            cy.get(highchartsSubtitleEl).should('be.visible')
+            expectChartSubtitleToBeVisible()
             expectStoreConfigSubtitleToBeValue(updatedSubtitle)
         })
     })

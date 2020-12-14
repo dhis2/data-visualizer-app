@@ -13,8 +13,8 @@ const visualizationTitleEl = 'visualization-title'
 const visualizationSubtitleEl = 'visualization-subtitle'
 const chartContainerEl = '.highcharts-container'
 const highchartsLegendEl = '.highcharts-legend'
-export const highchartsTitleEl = '.highcharts-title'
-export const highchartsSubtitleEl = '.highcharts-subtitle'
+const highchartsTitleEl = '.highcharts-title'
+const highchartsSubtitleEl = '.highcharts-subtitle'
 //const higchartsLegendItemEl = '.highcharts-legend-item'
 const unsavedVisualizationTitleText = 'Unsaved visualization'
 const AOTitleEl = 'AO-title'
@@ -42,6 +42,12 @@ const expectVisualizationContainerToNotBeVisible = () =>
 
 const expectChartContainerToBeVisible = () =>
     cy.get(chartContainerEl, timeout).should('be.visible')
+
+export const expectChartTitleToBeVisible = () =>
+    cy.get(highchartsTitleEl, timeout).should('be.visible')
+
+export const expectChartSubtitleToBeVisible = () =>
+    cy.get(highchartsSubtitleEl, timeout).should('be.visible')
 
 const expectChartContainerToNotBeVisible = () =>
     cy.get(chartContainerEl, timeout).should('not.exist')
