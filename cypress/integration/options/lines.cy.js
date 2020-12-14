@@ -10,7 +10,10 @@ import {
     expectStoreConfigSeriesToHaveTrendline,
     expectStoreConfigSeriesToNotHaveTrendline,
 } from '../../utils/store'
-import { expectVisualizationToBeVisible } from '../../elements/chart'
+import {
+    expectVisualizationToBeVisible,
+    expectChartTitleToBeVisible,
+} from '../../elements/chart'
 import { TEST_DATA_ELEMENTS } from '../../utils/data'
 import { clickMenuBarOptionsButton } from '../../elements/menuBar'
 import {
@@ -42,6 +45,8 @@ describe('Options - Lines', () => {
         ]
 
         it('has no trend line', () => {
+            // cy.get(highchartsTitleEl).should('be.visible')
+            expectChartTitleToBeVisible()
             expectStoreConfigSeriesToNotHaveTrendline()
         })
 
@@ -59,6 +64,8 @@ describe('Options - Lines', () => {
                 })
                 it('click the modal update button', () => {
                     clickOptionsModalUpdateButton()
+                    // cy.get(highchartsTitleEl).should('be.visible')
+                    expectChartTitleToBeVisible()
                 })
                 TEST_DATA_ELEMENT_NAMES.forEach(dataElement => {
                     it(`config has "${dataElement}" trendline`, () => {
