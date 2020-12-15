@@ -246,13 +246,13 @@ msgid "Click a dimension to add or remove items"
 msgstr "Cliquez sur une dimension pour ajouter ou supprimer des éléments"
 
 msgid "Your most viewed charts and tables"
-msgstr ""
+msgstr "Vos graphiques et tableaux les plus vus"
 
 msgid "Aggregation type"
 msgstr "Type d'agrégation"
 
 msgid "Overrides aggregation type for all data values."
-msgstr ""
+msgstr "Remplace le type d'agrégation pour toutes les valeurs de données."
 
 msgid "By data element"
 msgstr "Par élément de donnée"
@@ -397,7 +397,7 @@ msgid "Hide empty rows"
 msgstr "Cacher lignes vides"
 
 msgid "Show legend key"
-msgstr ""
+msgstr "Afficher la clé de légende"
 
 msgid "Table subtitle"
 msgstr "Sous-titre du tableau"
@@ -501,6 +501,8 @@ msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
 msgstr ""
+"Nombre de pas de cochage des axes, y compris le min et le max. Une valeur "
+"inférieure ou égale à 2 sera ignorée."
 
 msgid "Steps"
 msgstr "Étapes"
@@ -533,7 +535,7 @@ msgid "Dimension labels"
 msgstr "Étiquettes de dimension"
 
 msgid "Display organisation unit hierarchy"
-msgstr ""
+msgstr "Afficher la hiérarchie des unités d'organisation"
 
 msgid "Skip rounding"
 msgstr "Ne pas arondir"
@@ -637,9 +639,13 @@ msgid ""
 "A single indicator must be the only data item when using indicators as Data "
 "in Filter."
 msgstr ""
+"Un indicateur unique doit être le seul élément de données en cas "
+"d'utilisation des indicateurs comme Données dans le filtre."
 
 msgid "Data Element Group Sets and Reporting Rates cannot be used together."
 msgstr ""
+"Les Ensembles de Groupes d'éléments de données et les Taux de déclaration ne"
+" peuvent pas être utilisés simultanément."
 
 msgid "There is a problem with this {{visualizationType}} visualization."
 msgstr "Il y a un problème avec cela {{visualizationType}} visualisation."
@@ -793,7 +799,7 @@ msgid "Axes"
 msgstr "Axes"
 
 msgid "Horizontal (x) axis"
-msgstr ""
+msgstr "Axe horizontal (x)"
 
 msgid "Style"
 msgstr "Style"
@@ -808,25 +814,25 @@ msgid "Lines"
 msgstr "Lignes"
 
 msgid "Vertical (y) axis"
-msgstr ""
+msgstr "Axe vertical (y)"
 
 msgid "Display totals"
-msgstr ""
+msgstr "Afficher les totaux"
 
 msgid "Display empty data"
-msgstr ""
+msgstr "Afficher les données vides"
 
 msgid "Labels"
 msgstr "Étiquettes"
 
 msgid "Limit values"
-msgstr ""
+msgstr "Valeurs seuils"
 
 msgid "Limit number of values"
-msgstr ""
+msgstr "Nombre limite de valeurs"
 
 msgid "Limit minimum/maximum values"
-msgstr ""
+msgstr "Valeurs seuils minimales/maximales"
 
 msgid "Parameters"
 msgstr "Paramètres"
