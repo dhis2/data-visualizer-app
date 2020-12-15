@@ -4,15 +4,16 @@ import { mount } from 'enzyme'
 import * as analytics from '@dhis2/analytics'
 
 import { VisualizationPlugin } from '../VisualizationPlugin'
-
 import * as api from '../api/analytics'
 import * as options from '../modules/options'
 
 import ChartPlugin from '../ChartPlugin'
 
+jest.mock('@dhis2/analytics')
+jest.mock('../api/analytics')
 jest.mock('../ChartPlugin', () => jest.fn(() => null))
 jest.mock('../PivotPlugin', () => jest.fn(() => null))
-jest.mock('@dhis2/analytics')
+jest.mock('../modules/options')
 
 const dxMock = {
     dimension: 'dx',
@@ -92,10 +93,10 @@ const isYearOverYearMockResponse = visType => {
 }
 
 describe('VisualizationPlugin', () => {
-    options.getOptionsForRequest = () => [
+    options.getOptionsForRequest.mockReturnValue([
         ['option1', { defaultValue: 'abc' }],
         ['option2', { defaultValue: null }],
-    ]
+    ])
     const defaultProps = {
         visualization: {},
         filters: {},
@@ -124,12 +125,14 @@ describe('VisualizationPlugin', () => {
         defaultProps.onResponsesReceived.mockClear()
         defaultProps.onError.mockClear()
 
-        api.apiFetchAnalytics = jest
-            .fn()
-            .mockResolvedValue([new MockAnalyticsResponse()])
+        api.apiFetchAnalytics.mockResolvedValue([new MockAnalyticsResponse()])
     })
 
     describe('API Data Fetch', () => {
+        beforeEach(() => {
+            api.apiFetchAnalytics.mockClear()
+        })
+
         it('includes only options that do not have default value in request', async () => {
             await canvas({
                 visualization: {
@@ -155,7 +158,7 @@ describe('VisualizationPlugin', () => {
         })
 
         it('calls onError callback when an exception is thrown', async () => {
-            api.apiFetchAnalytics = jest.fn().mockRejectedValue('error')
+            api.apiFetchAnalytics.mockRejectedValue('error')
 
             await canvas()
 
@@ -172,6 +175,7 @@ describe('VisualizationPlugin', () => {
             })
 
             expect(api.apiFetchAnalytics).toHaveBeenCalled()
+
             expect(api.apiFetchAnalytics.mock.calls[0][2]).toHaveProperty(
                 'relativePeriodDate',
                 period
@@ -182,11 +186,13 @@ describe('VisualizationPlugin', () => {
             beforeEach(() => {
                 ChartPlugin.mockClear()
 
-                api.apiFetchAnalyticsForYearOverYear = jest
-                    .fn()
-                    .mockResolvedValue(new MockYoYAnalyticsResponse())
+                api.apiFetchAnalyticsForYearOverYear.mockResolvedValue(
+                    new MockYoYAnalyticsResponse()
+                )
 
-                analytics.isYearOverYear = jest.fn(isYearOverYearMockResponse)
+                analytics.isYearOverYear.mockImplementation(
+                    isYearOverYearMockResponse
+                )
             })
 
             it('makes year-on-year analytics request', async () => {

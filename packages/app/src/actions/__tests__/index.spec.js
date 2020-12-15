@@ -32,9 +32,8 @@ const mockStore = configureMockStore(middlewares)
 const rootOrganisationUnit = 'abc123'
 const relativePeriod = 'xyzpdq'
 const digitGroupSeparator = 'COMMA'
-selectors.sGetRootOrgUnit = () => rootOrganisationUnit
-selectors.sGetRelativePeriod = () => relativePeriod
-selectors.sGetSettingsDigitGroupSeparator = () => digitGroupSeparator
+
+jest.mock('../../reducers/settings')
 
 jest.mock('../../modules/orgUnit', () => ({
     convertOuLevelsToUids: (ouLevels, vis) => vis,
@@ -43,8 +42,17 @@ jest.mock('../../modules/orgUnit', () => ({
 jest.mock('../../api/dataStatistics', () => ({
     apiPostDataStatistics: () => Promise.resolve(),
 }))
+jest.mock('../../api/visualization')
 
 describe('index', () => {
+    beforeEach(() => {
+        selectors.sGetRootOrgUnit.mockReturnValue(rootOrganisationUnit)
+        selectors.sGetRelativePeriod.mockReturnValue(relativePeriod)
+        selectors.sGetSettingsDigitGroupSeparator.mockReturnValue(
+            digitGroupSeparator
+        )
+    })
+
     describe('tDoLoadVisualization', () => {
         it('dispatches the correct actions after successfully fetching visualization', () => {
             const vis = {
@@ -52,8 +60,7 @@ describe('index', () => {
                 interpretations: [{ id: 1, created: '2018-12-03' }],
             }
 
-            api.apiFetchVisualization = () =>
-                Promise.resolve({ visualization: vis })
+            api.apiFetchVisualization.mockResolvedValue({ visualization: vis })
 
             const expectedActions = [
                 {
@@ -94,8 +101,7 @@ describe('index', () => {
                 interpretations: [interpretation],
             }
 
-            api.apiFetchVisualization = () =>
-                Promise.resolve({ visualization: vis })
+            api.apiFetchVisualization.mockResolvedValue({ visualization: vis })
 
             const expectedActions = [
                 {
@@ -139,8 +145,9 @@ describe('index', () => {
 
         it('dispatches CLEAR_LOAD_ERROR last', () => {
             const vis = { name: 'hey' }
-            api.apiFetchVisualization = () =>
-                Promise.resolve({ visualization: vis })
+            api.apiFetchVisualization.mockResolvedValue({
+                visualization: vis,
+            })
 
             const store = mockStore({})
 
@@ -161,7 +168,7 @@ describe('index', () => {
         it('dispatches the correct actions when fetch visualization fails', () => {
             const error = new GenericServerError()
 
-            api.apiFetchVisualization = () => Promise.reject(error)
+            api.apiFetchVisualization.mockRejectedValue(error)
 
             const expectedActions = [
                 { type: SET_LOAD_ERROR, value: error },
@@ -342,13 +349,11 @@ describe('index', () => {
         history.default.push = jest.fn()
         history.default.replace = jest.fn()
 
-        api.apiSaveVisualization = jest.fn(() => {
-            return Promise.resolve({
-                status: 'OK',
-                response: {
-                    uid,
-                },
-            })
+        api.apiSaveVisualization.mockResolvedValue({
+            status: 'OK',
+            response: {
+                uid,
+            },
         })
 
         it('replaces the location in history on successful save', () => {

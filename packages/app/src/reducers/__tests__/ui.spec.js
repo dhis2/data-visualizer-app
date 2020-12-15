@@ -452,7 +452,7 @@ describe('reducer: ui', () => {
         })
     })
 
-    it(`${ui.ET_UI_YEAR_ON_YEAR_SERIES} sets new yearOverYearSeries`, () => {
+    it(`${ui.SET_UI_YEAR_ON_YEAR_SERIES} sets new yearOverYearSeries`, () => {
         const series = ['LAST_YEAR']
 
         const actualState = reducer(ui.DEFAULT_UI, {
