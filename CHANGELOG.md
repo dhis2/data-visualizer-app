@@ -1,3 +1,11 @@
+## [33.1.39](https://github.com/dhis2/data-visualizer-app/compare/v33.1.38...v33.1.39) (2020-12-15)
+
+
+### Bug Fixes
+
+* upgrade d2-ui-interpretations to fix interpretations translations [v33] ([#1516](https://github.com/dhis2/data-visualizer-app/issues/1516)) ([d93a759](https://github.com/dhis2/data-visualizer-app/commit/d93a7597d10a28faf0e71e749fc07b88e7eff877))
+* **translations:** sync translations from transifex (33.x) ([08e4126](https://github.com/dhis2/data-visualizer-app/commit/08e41262741e432c206598bd294ed57b1557b91f))
+
 ## [33.1.38](https://github.com/dhis2/data-visualizer-app/compare/v33.1.37...v33.1.38) (2020-12-06)
 
 
