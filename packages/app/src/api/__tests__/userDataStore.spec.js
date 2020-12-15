@@ -29,7 +29,7 @@ describe('api: user data store', () => {
                 },
             },
         }
-        d2lib.getInstance = () => Promise.resolve(mockD2)
+        d2lib.getInstance.prop = () => Promise.resolve(mockD2)
     })
 
     describe('hasNamespace', () => {
@@ -85,7 +85,8 @@ describe('api: user data store', () => {
 
     describe('apiSaveAoInUserDataStore', () => {
         beforeEach(() => {
-            userDataStore.getNamespace = () => Promise.resolve(mockNamespace)
+            userDataStore.getNamespace.prop = () =>
+                Promise.resolve(mockNamespace)
         })
 
         it('uses default key unless specified', async () => {
@@ -100,7 +101,8 @@ describe('api: user data store', () => {
 
     describe('apiFetchAOFromUserDataStore', () => {
         beforeEach(() => {
-            userDataStore.getNamespace = () => Promise.resolve(mockNamespace)
+            userDataStore.getNamespace.prop = () =>
+                Promise.resolve(mockNamespace)
         })
 
         it('uses default key unless specified', async () => {
