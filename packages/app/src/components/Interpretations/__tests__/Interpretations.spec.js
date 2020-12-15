@@ -34,11 +34,7 @@ describe('Interpretations component', () => {
     })
 
     it('renders nothing with null id', () => {
-        expect(
-            component()
-                .find(InterpretationsComponent)
-                .exists()
-        ).toBe(false)
+        expect(component().find(InterpretationsComponent).exists()).toBe(false)
     })
 
     it('renders <InterpretationsComponent /> when id is not null', () => {
@@ -46,9 +42,7 @@ describe('Interpretations component', () => {
         context = { d2: {} }
 
         expect(
-            component(props, context)
-                .find(InterpretationsComponent)
-                .exists()
+            component(props, context).find(InterpretationsComponent).exists()
         ).toBe(true)
     })
 })

@@ -39,26 +39,20 @@ describe('DV > Options > TextBaseOption', () => {
         })
 
         it('sets the type prop to what passed in the prop', () => {
-            expect(
-                textBaseOption(props)
-                    .find(InputField)
-                    .props().type
-            ).toEqual(props.type)
+            expect(textBaseOption(props).find(InputField).props().type).toEqual(
+                props.type
+            )
         })
 
         it('sets the label prop to what passed in the prop', () => {
             expect(
-                textBaseOption(props)
-                    .find(InputField)
-                    .props().label
+                textBaseOption(props).find(InputField).props().label
             ).toEqual(props.label)
         })
 
         it('sets the value to what passed in the prop', () => {
             expect(
-                textBaseOption(props)
-                    .find(InputField)
-                    .props().value
+                textBaseOption(props).find(InputField).props().value
             ).toEqual(props.value)
         })
 
@@ -66,9 +60,7 @@ describe('DV > Options > TextBaseOption', () => {
             props.helpText = 'helper text'
 
             expect(
-                textBaseOption(props)
-                    .find(InputField)
-                    .props().helpText
+                textBaseOption(props).find(InputField).props().helpText
             ).toEqual(props.helpText)
         })
 
@@ -76,9 +68,7 @@ describe('DV > Options > TextBaseOption', () => {
             props.placeholder = 'placeholder text'
 
             expect(
-                textBaseOption(props)
-                    .find(InputField)
-                    .props().placeholder
+                textBaseOption(props).find(InputField).props().placeholder
             ).toEqual(props.placeholder)
         })
 
@@ -86,9 +76,7 @@ describe('DV > Options > TextBaseOption', () => {
             props.width = '105px'
 
             expect(
-                textBaseOption(props)
-                    .find(InputField)
-                    .props().inputWidth
+                textBaseOption(props).find(InputField).props().inputWidth
             ).toEqual(props.width)
         })
 
