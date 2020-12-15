@@ -1,3 +1,10 @@
+## [34.6.47](https://github.com/dhis2/data-visualizer-app/compare/v34.6.46...v34.6.47) (2020-12-15)
+
+
+### Bug Fixes
+
+* upgrade d2-ui dependencies to fix interpretations translations [v34]  ([#1515](https://github.com/dhis2/data-visualizer-app/issues/1515)) ([00f9e40](https://github.com/dhis2/data-visualizer-app/commit/00f9e406cf7828b9493d76d0fcf860734c35adb5))
+
 ## [34.6.46](https://github.com/dhis2/data-visualizer-app/compare/v34.6.45...v34.6.46) (2020-12-15)
 
 
