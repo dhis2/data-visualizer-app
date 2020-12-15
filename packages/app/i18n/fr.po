@@ -6,15 +6,16 @@
 # Edem Kossi <ekossi@hispwca.org>, 2020
 # Karoline Tufte Lien <karoline@dhis2.org>, 2020
 # phil_dhis2, 2020
-# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
+# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
+# Yao Selom SAKA <saka.yao@yahoo.fr>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-10-21T10:41:39.373Z\n"
+"POT-Creation-Date: 2020-12-08T15:58:00.833Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"Last-Translator: Yao Selom SAKA <saka.yao@yahoo.fr>, 2020\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,10 +27,10 @@ msgid "Rename successful"
 msgstr "Renomear com êxito"
 
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
-msgstr ""
+msgstr "Visualisation {{visualizationType}} sans titre, {{date}}"
 
 msgid "\"{{deletedObject}}\" successfully deleted."
-msgstr ""
+msgstr "\"{{deletedObject}}\" supprimé avec succès."
 
 msgid "You have unsaved changes."
 msgstr "Vous avez des changements non enregistrés."
@@ -67,6 +68,17 @@ msgstr ""
 "'{{visualiationType}}' est destiné à montrer le maximum {{maxNumber}} nombre"
 " d'éléments  . Seul le premier {{maxNumber}} les éléments seront utilisés et"
 " enregistrés."
+
+msgid ""
+"'Scatter' is intended to show a single data item per axis. Only the first "
+"item will be used and saved."
+msgstr ""
+
+msgid "Vertical"
+msgstr "Vertical"
+
+msgid "Horizontal"
+msgstr "Horizontal"
 
 msgid "Main dimensions"
 msgstr "Dimensions principales"
@@ -178,6 +190,21 @@ msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr ""
 "{{dimensionName}} est verrouillé sur {{axisName}} pour {{visTypeName}}"
 
+msgid "Not available for Scatter"
+msgstr "Non disponible pour Scatter"
+
+msgid "Add Assigned Categories"
+msgstr "Ajouter des Catégories Affectées"
+
+msgid "Swap with {{axisName}} axis"
+msgstr "Intervertir avec l'axe {{axisName}}"
+
+msgid "vertical"
+msgstr "vertical"
+
+msgid "horizontal"
+msgstr "horizontal"
+
 msgid "None selected"
 msgstr "Aucune sélection"
 
@@ -200,10 +227,10 @@ msgid "And {{numberOfItems}} others..."
 msgstr "Et {{numberOfItems}} autres..."
 
 msgid "Select a period"
-msgstr ""
+msgstr "Sélectionner une période"
 
 msgid "Select years"
-msgstr ""
+msgstr "Sélectionner des années"
 
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
@@ -312,7 +339,7 @@ msgid "Number"
 msgstr "Nombre"
 
 msgid "Labels"
-msgstr ""
+msgstr "Étiquettes"
 
 msgid "Column sub-totals"
 msgstr "Sous-totaux de colonne"
@@ -336,7 +363,7 @@ msgid "Color blind"
 msgstr ""
 
 msgid "Patterns"
-msgstr ""
+msgstr "Schémas"
 
 msgid "Event data"
 msgstr "Données d'événement"
@@ -541,10 +568,10 @@ msgid "Data item"
 msgstr "Elément de données"
 
 msgid "Visualization type"
-msgstr ""
+msgstr "Type de visualisation"
 
 msgid "Axis {{axisId}}"
-msgstr ""
+msgstr "Axe {{axisId}}"
 
 msgid "Series is empty"
 msgstr ""
@@ -664,6 +691,29 @@ msgid ""
 msgstr ""
 "{{visualizationType}} doit avoir au moins une période sélectionnée dans "
 "{{axes}}."
+
+msgid "Add organisation units to {{axisName}}."
+msgstr ""
+
+msgid "Vertical is empty"
+msgstr ""
+
+msgid "Add a data item to the vertical axis."
+msgstr ""
+
+msgid "Horizontal is empty"
+msgstr ""
+
+msgid "Add a data item to the horizontal axis."
+msgstr ""
+
+msgid "Axes data items are the same"
+msgstr ""
+
+msgid ""
+"The horizontal and vertical axes have the same data item. Scatter chart axes"
+" must have different data for each axis."
+msgstr ""
 
 msgid "No data selected"
 msgstr "Aucune donnée sélectionnée"
@@ -857,19 +907,23 @@ msgid "Parameters"
 msgstr "Paramètres"
 
 msgid "Color set"
-msgstr ""
+msgstr "Jeu de Couleurs"
 
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
+"Les jeux de couleurs ne sont pas encore pris en charge en cas d'utilisation "
+"de plusieurs axes"
 
 msgid "Horizontal (x) axis"
 msgstr ""
 
 msgid "Lines are not supported yet when using multiple axes"
 msgstr ""
+"Les lignes ne sont pas encore prises en charge en cas d'utilisation de "
+"plusieurs axes"
 
 msgid "Chart style"
-msgstr ""
+msgstr "Style de graphique"
 
 msgid "Display"
 msgstr "Afficher"
@@ -887,13 +941,15 @@ msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Titles"
-msgstr ""
+msgstr "Titres"
 
 msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr ""
+"Les options relatives aux axes verticaux ne sont pas encore prises en charge"
+" en cas d'utilisation de plusieurs axes"
 
 msgid "Axes"
-msgstr ""
+msgstr "Axes"
 
 msgid "Data"
 msgstr "Données"
