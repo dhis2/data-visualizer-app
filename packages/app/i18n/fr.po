@@ -6,13 +6,14 @@
 # Djibril Dione <dione.djibril@gmail.com>, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
 # Edem Kossi <ekossi@hispwca.org>, 2020
+# Yao Selom SAKA <saka.yao@yahoo.fr>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-09T14:22:42.172Z\n"
 "PO-Revision-Date: 2020-03-02 13:01+0000\n"
-"Last-Translator: Edem Kossi <ekossi@hispwca.org>, 2020\n"
+"Last-Translator: Yao Selom SAKA <saka.yao@yahoo.fr>, 2020\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +25,7 @@ msgid "Rename successful"
 msgstr "Renommer avec succès"
 
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
-msgstr ""
+msgstr "Visualisation {{visualizationType}} sans titre, {{date}}"
 
 msgid "\"{{what}}\" successfully deleted."
 msgstr "\"{{what}}\" supprimé avec succès."
@@ -789,7 +790,7 @@ msgid "Display"
 msgstr "Afficher"
 
 msgid "Axes"
-msgstr ""
+msgstr "Axes"
 
 msgid "Horizontal (x) axis"
 msgstr ""
@@ -798,10 +799,10 @@ msgid "Style"
 msgstr "Style"
 
 msgid "Chart style"
-msgstr ""
+msgstr "Style de graphique"
 
 msgid "Titles"
-msgstr ""
+msgstr "Titres"
 
 msgid "Lines"
 msgstr "Lignes"
@@ -816,7 +817,7 @@ msgid "Display empty data"
 msgstr ""
 
 msgid "Labels"
-msgstr ""
+msgstr "Étiquettes"
 
 msgid "Limit values"
 msgstr ""
@@ -832,9 +833,13 @@ msgstr "Paramètres"
 
 msgid "Lines are not supported yet when using multiple axes"
 msgstr ""
+"Les lignes ne sont pas encore prises en charge en cas d'utilisation de "
+"plusieurs axes"
 
 msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr ""
+"Les options relatives aux axes verticaux ne sont pas encore prises en charge"
+" en cas d'utilisation de plusieurs axes"
 
 msgid "Weeks per year"
 msgstr "Semaines par an"
