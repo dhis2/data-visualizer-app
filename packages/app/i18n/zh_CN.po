@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-10-21T10:41:39.373Z\n"
+"POT-Creation-Date: 2020-12-08T15:58:00.833Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2020\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
@@ -54,6 +54,17 @@ msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr "'{{visualizationType}}' 打算显示最多{{maxNumber}}个数据项，仅其中第一个条目将被使用和保存。"
+
+msgid ""
+"'Scatter' is intended to show a single data item per axis. Only the first "
+"item will be used and saved."
+msgstr ""
+
+msgid "Vertical"
+msgstr ""
+
+msgid "Horizontal"
+msgstr ""
 
 msgid "Main dimensions"
 msgstr "主要维度"
@@ -162,6 +173,21 @@ msgstr "选择了 {{total}} "
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr "{{dimensionName}} 被 {{axisName}} 为 {{visTypeName}} 锁住"
+
+msgid "Not available for Scatter"
+msgstr ""
+
+msgid "Add Assigned Categories"
+msgstr ""
+
+msgid "Swap with {{axisName}} axis"
+msgstr ""
+
+msgid "vertical"
+msgstr ""
+
+msgid "horizontal"
+msgstr ""
 
 msgid "None selected"
 msgstr "没有选择"
@@ -639,6 +665,29 @@ msgstr "没有选择期间"
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
 msgstr "{{visualizationType}} 必须至少选择一个期间到 {{axes}}."
+
+msgid "Add organisation units to {{axisName}}."
+msgstr ""
+
+msgid "Vertical is empty"
+msgstr ""
+
+msgid "Add a data item to the vertical axis."
+msgstr ""
+
+msgid "Horizontal is empty"
+msgstr ""
+
+msgid "Add a data item to the horizontal axis."
+msgstr ""
+
+msgid "Axes data items are the same"
+msgstr ""
+
+msgid ""
+"The horizontal and vertical axes have the same data item. Scatter chart axes"
+" must have different data for each axis."
+msgstr ""
 
 msgid "No data selected"
 msgstr "没有选择数据"
