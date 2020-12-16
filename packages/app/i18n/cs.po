@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-10-21T10:41:39.373Z\n"
+"POT-Creation-Date: 2020-12-08T15:58:00.833Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: trendspotter, 2020\n"
 "Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
@@ -59,6 +59,19 @@ msgid ""
 msgstr ""
 "'{{visualiationType}}' má zobrazit maximální počet položek {{maxNumber}}. "
 "Bude použito a uloženo pouze prvních {{maxNumber}} položek."
+
+msgid ""
+"'Scatter' is intended to show a single data item per axis. Only the first "
+"item will be used and saved."
+msgstr ""
+"'Rozptyl' je určen k zobrazení jedné datové položky na osu. Bude použita a "
+"uložena pouze první položka."
+
+msgid "Vertical"
+msgstr "Vertikální"
+
+msgid "Horizontal"
+msgstr "Horizontální"
 
 msgid "Main dimensions"
 msgstr "Hlavní rozměry"
@@ -167,6 +180,21 @@ msgstr "Vybráno: {{total}}"
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr "{{dimensionName}} je pro {{visTypeName}} uzamčen na {{axisName}}"
+
+msgid "Not available for Scatter"
+msgstr "Není k dispozici pro Rozptyl"
+
+msgid "Add Assigned Categories"
+msgstr "Přidat přiřazené kategorie"
+
+msgid "Swap with {{axisName}} axis"
+msgstr "Prohodit s osou {{axisName}}"
+
+msgid "vertical"
+msgstr "vertikální"
+
+msgid "horizontal"
+msgstr "horizontální"
 
 msgid "None selected"
 msgstr "Není vybrán žádný"
@@ -659,6 +687,31 @@ msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
 msgstr ""
 "{{visualizationType}} musí mít alespoň jedno období vybrané v {{axes}}."
+
+msgid "Add organisation units to {{axisName}}."
+msgstr "Přidejte do {{axisName}} organizační jednotky."
+
+msgid "Vertical is empty"
+msgstr "Vertikální je prázdný"
+
+msgid "Add a data item to the vertical axis."
+msgstr "Přidejte datovou položku na svislou osu."
+
+msgid "Horizontal is empty"
+msgstr "Horizontální je prázdný"
+
+msgid "Add a data item to the horizontal axis."
+msgstr "Přidejte datovou položku na vodorovnou osu."
+
+msgid "Axes data items are the same"
+msgstr "Datové položky os jsou stejné"
+
+msgid ""
+"The horizontal and vertical axes have the same data item. Scatter chart axes"
+" must have different data for each axis."
+msgstr ""
+"Vodorovná a svislá osa mají stejnou datovou položku. Osy bodového grafu musí"
+" mít pro každou osu různá data."
 
 msgid "No data selected"
 msgstr "Nejsou vybrána žádná data"

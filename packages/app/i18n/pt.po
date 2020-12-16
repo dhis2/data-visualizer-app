@@ -2,16 +2,16 @@
 # Translators:
 # Sheila André <sandre@saudigitus.org>, 2020
 # phil_dhis2, 2020
-# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
 # Ge Joao <gsimango@saudigitus.org>, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
+# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-10-21T10:41:39.373Z\n"
+"POT-Creation-Date: 2020-12-08T15:58:00.833Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -63,6 +63,17 @@ msgid ""
 msgstr ""
 "'{{visualiationType}}' destina-se a mostrar o número máximo de {{maxNumber}}"
 "  itens. Somente os primeiros itens {{maxNumber}} serão usados e gravados."
+
+msgid ""
+"'Scatter' is intended to show a single data item per axis. Only the first "
+"item will be used and saved."
+msgstr ""
+
+msgid "Vertical"
+msgstr ""
+
+msgid "Horizontal"
+msgstr ""
 
 msgid "Main dimensions"
 msgstr "Dimensões principais"
@@ -172,6 +183,21 @@ msgstr "{{Total}} selecionados "
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr ""
 "{{dimension Name}} está bloqueado para {{axisName}} para {{visTypeName}}"
+
+msgid "Not available for Scatter"
+msgstr ""
+
+msgid "Add Assigned Categories"
+msgstr "Adicionar categorias atribuídas"
+
+msgid "Swap with {{axisName}} axis"
+msgstr ""
+
+msgid "vertical"
+msgstr ""
+
+msgid "horizontal"
+msgstr ""
 
 msgid "None selected"
 msgstr "Nenhum selecionado"
@@ -658,6 +684,29 @@ msgid ""
 msgstr ""
 "O {{visualizationType}} deve ter pelo menos um período selecionado em "
 "{{axes}}. "
+
+msgid "Add organisation units to {{axisName}}."
+msgstr ""
+
+msgid "Vertical is empty"
+msgstr ""
+
+msgid "Add a data item to the vertical axis."
+msgstr ""
+
+msgid "Horizontal is empty"
+msgstr ""
+
+msgid "Add a data item to the horizontal axis."
+msgstr ""
+
+msgid "Axes data items are the same"
+msgstr ""
+
+msgid ""
+"The horizontal and vertical axes have the same data item. Scatter chart axes"
+" must have different data for each axis."
+msgstr ""
 
 msgid "No data selected"
 msgstr "Nenhum dado selecionado "
