@@ -7,13 +7,14 @@
 # Djibril Dione <dione.djibril@gmail.com>, 2020
 # Edem Kossi <ekossi@hispwca.org>, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
+# Yao Selom SAKA <saka.yao@yahoo.fr>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-09T09:35:45.664Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
-"Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020\n"
+"Last-Translator: Yao Selom SAKA <saka.yao@yahoo.fr>, 2020\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -230,7 +231,7 @@ msgid "Before first"
 msgstr "Avant le premier"
 
 msgid "After first"
-msgstr ""
+msgstr "Après le premier"
 
 msgid "Before first and after last"
 msgstr "Avant premier et après dernier "
@@ -239,7 +240,7 @@ msgid "All"
 msgstr "Tout"
 
 msgid "Show legend key"
-msgstr ""
+msgstr "Afficher la clé de légende"
 
 msgid "Hide subtitle"
 msgstr "Masquer le sous-titre"
@@ -257,24 +258,26 @@ msgid "Auto"
 msgstr "Auto"
 
 msgid "Range axis decimals"
-msgstr ""
+msgstr "Décimales de l'axe des plages"
 
 msgid "Range axis title"
 msgstr "Titre de l'axe des ordonnées"
 
 msgid "Range axis max"
-msgstr ""
+msgstr "Le maximum pour l'axe des plages"
 
 msgid "Range axis min"
-msgstr ""
+msgstr "Le minimum pour l'axe des plages"
 
 msgid "Range axis tick steps"
-msgstr ""
+msgstr "Pas de cochage de l'axe des plages"
 
 msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
 msgstr ""
+"Nombre de pas de cochage des axes, y compris le min et le max. Une valeur "
+"inférieure ou égale à 2 sera ignorée."
 
 msgid "Trend line"
 msgstr "Courbe de tendance"
