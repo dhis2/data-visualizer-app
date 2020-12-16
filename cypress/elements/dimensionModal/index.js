@@ -27,6 +27,5 @@ export { selectRelativePeriods, selectFixedPeriods } from './periodDimension'
 
 export {
     expectOrgUnitDimensionModalToBeVisible,
-    removeAllOrgUnitItems,
     clickOrgUnitTreeItem,
 } from './orgUnitDimension'
