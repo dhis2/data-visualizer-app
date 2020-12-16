@@ -23,13 +23,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid "Rename successful"
-msgstr "Renomear com êxito"
+msgstr "Renommer avec succès"
 
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
 msgstr "Visualisation {{visualizationType}} sans titre, {{date}}"
 
 msgid "\"{{what}}\" successfully deleted."
-msgstr "\"{{what}}\" excluído com sucesso."
+msgstr "\"{{what}}\" supprimé avec succès."
 
 msgid "Data Visualizer"
 msgstr "Visualiseur de données"
@@ -60,6 +60,8 @@ msgid ""
 "'Single Value' is intended to show a single data item. Only the first item "
 "will be used and saved."
 msgstr ""
+"La 'Valeur unique' est destinée à afficher un seul élément de données. Seul "
+"le premier élément sera utilisé et enregistré."
 
 msgid "Hide"
 msgstr "Masquer"
@@ -138,7 +140,7 @@ msgid "Interpretations"
 msgstr "interprétations"
 
 msgid "{{total}} of 1 selected"
-msgstr ""
+msgstr "{{total}} de 1 choisi"
 
 msgid "{{total}} selected"
 msgstr "{{total}} choisi"
@@ -156,7 +158,7 @@ msgid "None selected"
 msgstr "Aucune sélection"
 
 msgid "Only '{{name}}' in use"
-msgstr ""
+msgstr "Uniquement '{{nom}}' en cours d'utilisation"
 
 msgid "And 1 other..."
 msgstr "Et 1 autre..."
@@ -174,7 +176,7 @@ msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "Affichage de l'interprétation de {{interpretationDate}}"
 
 msgid "Error validating layout"
-msgstr ""
+msgstr "Erreur de validation de la mise en page"
 
 msgid "Chart error"
 msgstr "Erreur de graphique"
@@ -260,7 +262,7 @@ msgid "All"
 msgstr "Tout"
 
 msgid "Show legend key"
-msgstr ""
+msgstr "Afficher la clé de légende"
 
 msgid "Hide subtitle"
 msgstr "Masquer le sous-titre"
@@ -278,24 +280,26 @@ msgid "Auto"
 msgstr "Auto"
 
 msgid "Range axis decimals"
-msgstr ""
+msgstr "Décimales de l'axe des plages"
 
 msgid "Range axis title"
 msgstr "Titre de l'axe des ordonnées"
 
 msgid "Range axis max"
-msgstr ""
+msgstr "Le maximum pour l'axe des plages"
 
 msgid "Range axis min"
-msgstr ""
+msgstr "Le minimum pour l'axe des plages"
 
 msgid "Range axis tick steps"
-msgstr ""
+msgstr "Pas de cochage de l'axe des plages"
 
 msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
 msgstr ""
+"Nombre de pas de cochage des axes, y compris le min et le max. Une valeur "
+"inférieure ou égale à 2 sera ignorée."
 
 msgid "Trend line"
 msgstr "Courbe de tendance"
@@ -449,10 +453,10 @@ msgid "Please add {{data}} as a filter dimension"
 msgstr "Veuillez ajouter {{data}} comme une dimension de filtre"
 
 msgid "Please add one {{series}} dimension"
-msgstr ""
+msgstr "Veuillez ajouter une dimension {{série}}"
 
 msgid "Please add at least one period as {{filter}}"
-msgstr ""
+msgstr "Veuillez ajouter au moins une période comme {{filtre}}"
 
 msgid "Today"
 msgstr "Aujourd'hui"
