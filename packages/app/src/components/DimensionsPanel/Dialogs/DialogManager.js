@@ -312,7 +312,7 @@ export class DialogManager extends Component {
                         selectedDimensions={selectedItems}
                         infoBoxMessage={infoBoxMessage}
                         dataEngine={this.context.dataEngine}
-                        {...dimensionProps}
+                        {...props}
                     />
                 )
                 const dataTabs = isScatterAttribute(dialogId) ? (
