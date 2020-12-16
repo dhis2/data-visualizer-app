@@ -11,7 +11,6 @@ import * as userDataStore from '../../api/userDataStore'
 import * as ui from '../../modules/ui'
 import { DEFAULT_CURRENT } from '../../reducers/current'
 
-jest.mock('../../actions')
 jest.mock(
     '../Visualization/Visualization',
     () =>
@@ -65,8 +64,12 @@ describe('App', () => {
         }
         shallowApp = undefined
 
-        userDataStore.apiFetchAOFromUserDataStore.prop = jest.fn()
-        ui.getParentGraphMapFromVisualization.prop = jest.fn()
+        /* eslint-disable no-import-assign, import/namespace */
+        actions.tDoLoadVisualization = jest.fn()
+        actions.clearVisualization = jest.fn()
+        userDataStore.apiFetchAOFromUserDataStore = jest.fn()
+        ui.getParentGraphMapFromVisualization = jest.fn()
+        /* esling-enable no-import-assign, import/namespace */
     })
 
     afterEach(() => {

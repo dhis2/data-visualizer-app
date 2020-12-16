@@ -7,8 +7,6 @@ import * as api from '../api/analytics'
 import * as options from '../modules/options'
 
 jest.mock('@dhis2/analytics')
-jest.mock('../api/analytics')
-jest.mock('../modules/options')
 
 const dxMock = {
     dimension: 'dx',
@@ -94,13 +92,11 @@ const isSingleValueMockResponse = visType => {
 }
 
 describe('ChartPlugin', () => {
-    api.apiFetchAnalytics.mockResolvedValue([new MockAnalyticsResponse()])
-
-    options.getOptionsForRequest.mockReturnValue([
+    // eslint-disable-next-line no-import-assign, import/namespace
+    options.getOptionsForRequest = () => [
         ['option1', { defaultValue: 'abc' }],
         ['option2', { defaultValue: null }],
-    ])
-
+    ]
     let props
     let chartPlugin
     const canvas = () => {
@@ -120,16 +116,19 @@ describe('ChartPlugin', () => {
             legendSets: [],
         }
         chartPlugin = undefined
+
+        // eslint-disable-next-line no-import-assign, import/namespace
+        api.apiFetchAnalytics = jest
+            .fn()
+            .mockResolvedValue([new MockAnalyticsResponse()])
     })
 
     describe('createVisualization success', () => {
         beforeEach(() => {
-            api.apiFetchAnalytics.mockClear()
-            analytics.createVisualization.mockClear()
-
-            analytics.createVisualization.mockReturnValue(
-                createVisualizationMock
-            )
+            // eslint-disable-next-line no-import-assign
+            analytics.createVisualization = jest
+                .fn()
+                .mockReturnValue(createVisualizationMock)
         })
 
         it('renders a div', done => {
@@ -178,9 +177,12 @@ describe('ChartPlugin', () => {
                     ...singleValueCurrentMock,
                 }
 
-                analytics.isSingleValue.mockReturnValue(
-                    isSingleValueMockResponse(props.visualization.type)
-                )
+                // eslint-disable-next-line no-import-assign
+                analytics.isSingleValue = jest
+                    .fn()
+                    .mockReturnValue(
+                        isSingleValueMockResponse(props.visualization.type)
+                    )
             })
 
             it('provides dhis as output format to createChart', done => {
@@ -188,6 +190,7 @@ describe('ChartPlugin', () => {
 
                 setTimeout(() => {
                     expect(analytics.createVisualization).toHaveBeenCalled()
+
                     expect(
                         analytics.createVisualization.mock.calls[0][6]
                     ).toEqual('dhis')

@@ -4,16 +4,15 @@ import { mount } from 'enzyme'
 import * as analytics from '@dhis2/analytics'
 
 import { VisualizationPlugin } from '../VisualizationPlugin'
+
 import * as api from '../api/analytics'
 import * as options from '../modules/options'
 
 import ChartPlugin from '../ChartPlugin'
 
-jest.mock('@dhis2/analytics')
-jest.mock('../api/analytics')
 jest.mock('../ChartPlugin', () => jest.fn(() => null))
 jest.mock('../PivotPlugin', () => jest.fn(() => null))
-jest.mock('../modules/options')
+jest.mock('@dhis2/analytics')
 
 const dxMock = {
     dimension: 'dx',
@@ -93,10 +92,11 @@ const isYearOverYearMockResponse = visType => {
 }
 
 describe('VisualizationPlugin', () => {
-    options.getOptionsForRequest.mockReturnValue([
+    // eslint-disable-next-line no-import-assign, import/namespace
+    options.getOptionsForRequest = () => [
         ['option1', { defaultValue: 'abc' }],
         ['option2', { defaultValue: null }],
-    ])
+    ]
     const defaultProps = {
         visualization: {},
         filters: {},
@@ -125,14 +125,13 @@ describe('VisualizationPlugin', () => {
         defaultProps.onResponsesReceived.mockClear()
         defaultProps.onError.mockClear()
 
-        api.apiFetchAnalytics.mockResolvedValue([new MockAnalyticsResponse()])
+        // eslint-disable-next-line no-import-assign, import/namespace
+        api.apiFetchAnalytics = jest
+            .fn()
+            .mockResolvedValue([new MockAnalyticsResponse()])
     })
 
     describe('API Data Fetch', () => {
-        beforeEach(() => {
-            api.apiFetchAnalytics.mockClear()
-        })
-
         it('includes only options that do not have default value in request', async () => {
             await canvas({
                 visualization: {
@@ -158,7 +157,8 @@ describe('VisualizationPlugin', () => {
         })
 
         it('calls onError callback when an exception is thrown', async () => {
-            api.apiFetchAnalytics.mockRejectedValue('error')
+            // eslint-disable-next-line no-import-assign, import/namespace
+            api.apiFetchAnalytics = jest.fn().mockRejectedValue('error')
 
             await canvas()
 
@@ -175,7 +175,6 @@ describe('VisualizationPlugin', () => {
             })
 
             expect(api.apiFetchAnalytics).toHaveBeenCalled()
-
             expect(api.apiFetchAnalytics.mock.calls[0][2]).toHaveProperty(
                 'relativePeriodDate',
                 period
@@ -186,13 +185,13 @@ describe('VisualizationPlugin', () => {
             beforeEach(() => {
                 ChartPlugin.mockClear()
 
-                api.apiFetchAnalyticsForYearOverYear.mockResolvedValue(
-                    new MockYoYAnalyticsResponse()
-                )
+                /* eslint-disable no-import-assign, import/namespace */
+                api.apiFetchAnalyticsForYearOverYear = jest
+                    .fn()
+                    .mockResolvedValue(new MockYoYAnalyticsResponse())
 
-                analytics.isYearOverYear.mockImplementation(
-                    isYearOverYearMockResponse
-                )
+                analytics.isYearOverYear = jest.fn(isYearOverYearMockResponse)
+                /* eslint-enable no-import-assign, import/namespace */
             })
 
             it('makes year-on-year analytics request', async () => {

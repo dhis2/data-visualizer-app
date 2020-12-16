@@ -1,8 +1,11 @@
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
+
+import * as analytics from '@dhis2/analytics'
 import * as fromActions from '../index'
 import * as api from '../../api/visualization'
 import * as history from '../../modules/history'
+import DataEngineMock from '../__mocks__/DataEngine'
 
 import {
     SET_VISUALIZATION,
@@ -26,33 +29,31 @@ import { GenericServerError } from '../../modules/error'
 
 import { VARIANT_SUCCESS } from '../../components/Snackbar/Snackbar'
 
-const middlewares = [thunk.withExtraArgument('dataEngine')]
+const dataEngineMock = new DataEngineMock()
+const middlewares = [thunk.withExtraArgument(dataEngineMock)]
 const mockStore = configureMockStore(middlewares)
 
 const rootOrganisationUnit = 'abc123'
 const relativePeriod = 'xyzpdq'
 const digitGroupSeparator = 'COMMA'
-
-jest.mock('../../reducers/settings')
+/* eslint-disable no-import-assign, import/namespace */
+selectors.sGetRootOrgUnit = () => rootOrganisationUnit
+selectors.sGetRelativePeriod = () => relativePeriod
+selectors.sGetSettingsDigitGroupSeparator = () => digitGroupSeparator
+analytics.apiFetchOrganisationUnitLevels = () =>
+    Promise.resolve([
+        {
+            level: 2,
+            id: '2nd-floor',
+        },
+    ])
+/* eslint-enable no-import-assign, import/namespace */
 
 jest.mock('../../modules/orgUnit', () => ({
     convertOuLevelsToUids: (ouLevels, vis) => vis,
 }))
 
-jest.mock('../../api/dataStatistics', () => ({
-    apiPostDataStatistics: () => Promise.resolve(),
-}))
-jest.mock('../../api/visualization')
-
 describe('index', () => {
-    beforeEach(() => {
-        selectors.sGetRootOrgUnit.mockReturnValue(rootOrganisationUnit)
-        selectors.sGetRelativePeriod.mockReturnValue(relativePeriod)
-        selectors.sGetSettingsDigitGroupSeparator.mockReturnValue(
-            digitGroupSeparator
-        )
-    })
-
     describe('tDoLoadVisualization', () => {
         it('dispatches the correct actions after successfully fetching visualization', () => {
             const vis = {
@@ -60,7 +61,9 @@ describe('index', () => {
                 interpretations: [{ id: 1, created: '2018-12-03' }],
             }
 
-            api.apiFetchVisualization.mockResolvedValue({ visualization: vis })
+            // eslint-disable-next-line no-import-assign, import/namespace
+            api.apiFetchVisualization = () =>
+                Promise.resolve({ visualization: vis })
 
             const expectedActions = [
                 {
@@ -101,7 +104,9 @@ describe('index', () => {
                 interpretations: [interpretation],
             }
 
-            api.apiFetchVisualization.mockResolvedValue({ visualization: vis })
+            // eslint-disable-next-line no-import-assign, import/namespace
+            api.apiFetchVisualization = () =>
+                Promise.resolve({ visualization: vis })
 
             const expectedActions = [
                 {
@@ -145,9 +150,9 @@ describe('index', () => {
 
         it('dispatches CLEAR_LOAD_ERROR last', () => {
             const vis = { name: 'hey' }
-            api.apiFetchVisualization.mockResolvedValue({
-                visualization: vis,
-            })
+            // eslint-disable-next-line no-import-assign, import/namespace
+            api.apiFetchVisualization = () =>
+                Promise.resolve({ visualization: vis })
 
             const store = mockStore({})
 
@@ -168,7 +173,8 @@ describe('index', () => {
         it('dispatches the correct actions when fetch visualization fails', () => {
             const error = new GenericServerError()
 
-            api.apiFetchVisualization.mockRejectedValue(error)
+            // eslint-disable-next-line no-import-assign, import/namespace
+            api.apiFetchVisualization = () => Promise.reject(error)
 
             const expectedActions = [
                 { type: SET_LOAD_ERROR, value: error },
@@ -349,11 +355,14 @@ describe('index', () => {
         history.default.push = jest.fn()
         history.default.replace = jest.fn()
 
-        api.apiSaveVisualization.mockResolvedValue({
-            status: 'OK',
-            response: {
-                uid,
-            },
+        // eslint-disable-next-line no-import-assign, import/namespace
+        api.apiSaveVisualization = jest.fn(() => {
+            return Promise.resolve({
+                status: 'OK',
+                response: {
+                    uid,
+                },
+            })
         })
 
         it('replaces the location in history on successful save', () => {
@@ -367,7 +376,7 @@ describe('index', () => {
                 .then(() => {
                     expect(api.apiSaveVisualization).toHaveBeenCalled()
                     expect(api.apiSaveVisualization).toHaveBeenCalledWith(
-                        'dataEngine',
+                        dataEngineMock,
                         expectedVis
                     )
                     expect(history.default.replace).toHaveBeenCalled()
@@ -392,7 +401,7 @@ describe('index', () => {
                 .then(() => {
                     expect(api.apiSaveVisualization).toHaveBeenCalled()
                     expect(api.apiSaveVisualization).toHaveBeenCalledWith(
-                        'dataEngine',
+                        dataEngineMock,
                         expectedVis
                     )
                     expect(history.default.push).toHaveBeenCalled()
