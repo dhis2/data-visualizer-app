@@ -12,22 +12,13 @@ export const expectStoreCurrentToBeEmpty = () =>
     cy.getReduxState('current').should('be.null')
 
 export const expectStoreCurrentColumnsToHaveLength = length =>
-    cy
-        .getReduxState('current')
-        .its('columns')
-        .should('have.length', length)
+    cy.getReduxState('current').its('columns').should('have.length', length)
 
 export const expectStoreConfigTitleToBeValue = value =>
-    cy
-        .getReduxState(CONFIG_PROP)
-        .its(TITLE_PROP)
-        .should('eql', value)
+    cy.getReduxState(CONFIG_PROP).its(TITLE_PROP).should('eql', value)
 
 export const expectStoreConfigSubtitleToBeValue = value =>
-    cy
-        .getReduxState(CONFIG_PROP)
-        .its(SUBTITLE_PROP)
-        .should('eql', value)
+    cy.getReduxState(CONFIG_PROP).its(SUBTITLE_PROP).should('eql', value)
 
 export const expectStoreConfigSeriesToNotHaveTrendline = () =>
     cy

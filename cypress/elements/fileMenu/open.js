@@ -9,11 +9,7 @@ const createdByOthersEl = '[data-value="byothers"]'
 const openModalItemContainerEl = '*[class^="MuiTableBody"]'
 
 const searchAOByName = name =>
-    cy
-        .get(openModalEl)
-        .find('*[type="search"]')
-        .clear()
-        .type(name)
+    cy.get(openModalEl).find('*[type="search"]').clear().type(name)
 
 const clickRandomAO = () =>
     cy
@@ -70,7 +66,5 @@ export const openAOByName = name => {
     clickMenuBarFileButton()
     clickFileMenuButton(FILE_MENU_BUTTON_OPEN)
     searchAOByName(name)
-    cy.get(openModalEl)
-        .contains(name)
-        .click()
+    cy.get(openModalEl).contains(name).click()
 }
