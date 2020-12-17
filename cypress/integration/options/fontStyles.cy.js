@@ -18,7 +18,11 @@ import {
     expectStoreConfigSubtitleToBeValue,
     expectStoreConfigTitleToBeValue,
 } from '../../utils/store'
-import { expectVisualizationToBeVisible } from '../../elements/chart'
+import {
+    expectVisualizationToBeVisible,
+    expectChartTitleToBeVisible,
+    expectChartSubtitleToBeVisible,
+} from '../../elements/chart'
 import { TEST_DATA_ELEMENTS } from '../../utils/data'
 import {
     CONFIG_DEFAULT_SUBTITLE,
@@ -90,6 +94,7 @@ describe('Options - Font styles', () => {
         const type = TYPE_TITLE
 
         it('has default value', () => {
+            expectChartTitleToBeVisible()
             expectStoreConfigTitleToBeValue(CONFIG_DEFAULT_TITLE)
         })
         it('opens Options -> Style', () => {
@@ -119,6 +124,8 @@ describe('Options - Font styles', () => {
                 isBold: true,
                 isItalic: true,
             })
+
+            expectChartTitleToBeVisible()
             expectStoreConfigTitleToBeValue(updatedTitle)
         })
     })
@@ -136,6 +143,7 @@ describe('Options - Font styles', () => {
         const TEST_SUBTITLE_TEXT = 'Test subtitle'
 
         it('has default value', () => {
+            expectChartSubtitleToBeVisible()
             expectStoreConfigSubtitleToBeValue(CONFIG_DEFAULT_SUBTITLE)
         })
         it('opens Options -> Style', () => {
@@ -169,6 +177,7 @@ describe('Options - Font styles', () => {
                 isItalic: true,
                 text: TEST_SUBTITLE_TEXT,
             })
+            expectChartSubtitleToBeVisible()
             expectStoreConfigSubtitleToBeValue(updatedSubtitle)
         })
     })
