@@ -409,7 +409,7 @@ msgid "Chart title"
 msgstr "Диаграмма сарлавҳаси"
 
 msgid "Display legend"
-msgstr "Таърифни кўрсатиш"
+msgstr "Таърифни экранда кўрсатиш"
 
 msgid "Legend style"
 msgstr "Таъриф тури"
@@ -444,7 +444,7 @@ msgid ""
 msgstr ""
 "Минимал ёки максимал қийматни белгилашингиз мумкин. Бу бутун жадвалга "
 "тааллуқлидир, минимал/максимал диапазондан ташқарисидаги барча қийматлар "
-"кўрсатилмайди."
+"экранда кўрсатилмайди."
 
 msgid "Minimum data value"
 msgstr "Маълумотларнинг минимал қиймати"
@@ -462,7 +462,7 @@ msgid "Number type"
 msgstr "Рақам тури "
 
 msgid "Display the value of percentages of the total"
-msgstr "Жамидан фоизлар қийматини кўрсатиш"
+msgstr "Жамидан фоизлар қийматини экранда кўрсатиш"
 
 msgid "Percentage of row"
 msgstr "Қатор фоизи"
@@ -526,7 +526,7 @@ msgid "Dimension labels"
 msgstr "Ўлчам қийматлари"
 
 msgid "Display organisation unit hierarchy"
-msgstr "Ташкилий бўлим иерархиясини намойиш қилиш"
+msgstr "Ташкилий бўлим иерархиясини экранда кўрсатиш"
 
 msgid "Skip rounding"
 msgstr "Соддалаштириш ўтказиб юборилсин"
@@ -784,7 +784,7 @@ msgid "Data"
 msgstr "Маълумот"
 
 msgid "Display"
-msgstr "Намойиш қилиш"
+msgstr "Экранда кўрсатиш"
 
 msgid "Axes"
 msgstr "Ўқлар"
@@ -808,10 +808,10 @@ msgid "Vertical (y) axis"
 msgstr "Вертикал (y) ўқи"
 
 msgid "Display totals"
-msgstr "жами кўрсатгичларни кўрсатиш"
+msgstr "Жами кўрсатгичларни экранда кўрсатиш"
 
 msgid "Display empty data"
-msgstr "Бўш маълумотларни кўрсатиш"
+msgstr "Бўш маълумотларни экранда кўрсатиш"
 
 msgid "Labels"
 msgstr "Ёрлиқлар"
