@@ -928,7 +928,7 @@ msgid "Chart style"
 msgstr "Диаграмма услуби"
 
 msgid "Display"
-msgstr "Намойиш қилиш"
+msgstr "Экранда кўрсатиш"
 
 msgid "Empty data"
 msgstr "Бўш маълумотлар"
