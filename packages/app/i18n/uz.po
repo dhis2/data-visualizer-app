@@ -97,7 +97,7 @@ msgid "Refresh to try again"
 msgstr "Ыайтиб уриниб кщрин учун аввал янгиланг"
 
 msgid "Hide technical details"
-msgstr "Техник деталларни яшириш"
+msgstr "Техник деталларни беркитиш"
 
 msgid "Show technical details"
 msgstr "Техник деталларни кўрсатиш"
@@ -106,7 +106,7 @@ msgid "The following information may be requested by technical support."
 msgstr "Қуйидаги ахборот техник ёрдамчилар томонидан сўралиши мумкин"
 
 msgid "Hide"
-msgstr "Яшириш"
+msgstr "Беркитиш"
 
 msgid "Interpretations"
 msgstr "Шарҳлар"
