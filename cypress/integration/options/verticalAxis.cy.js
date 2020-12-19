@@ -25,10 +25,10 @@ import {
     setVerticalAxisTitle,
 } from '../../elements/optionsModal'
 import {
-    expectStoreConfigYAxisToHaveRangeMinValue,
-    expectStoreConfigYAxisToHaveRangeMaxValue,
-    expectStoreConfigYAxisToHaveTitleText,
-} from '../../utils/store'
+    expectWindowConfigYAxisToHaveRangeMinValue,
+    expectWindowConfigYAxisToHaveRangeMaxValue,
+    expectWindowConfigYAxisToHaveTitleText,
+} from '../../utils/window'
 import { generateRandomNumber, getRandomArrayItem } from '../../utils/random'
 
 const TEST_DATA_ELEMENT_NAME = getRandomArrayItem(TEST_DATA_ELEMENTS).name
@@ -60,7 +60,7 @@ describe('Options - Vertical axis', () => {
             expectChartTitleToBeVisible()
         })
         it(`config has vertical axis title "${TEST_TITLE}"`, () => {
-            expectStoreConfigYAxisToHaveTitleText(TEST_TITLE)
+            expectWindowConfigYAxisToHaveTitleText(TEST_TITLE)
         })
     })
     describe('range', () => {
@@ -79,10 +79,10 @@ describe('Options - Vertical axis', () => {
             expectChartTitleToBeVisible()
         })
         it(`config has range min value "${TEST_MIN_VALUE}"`, () => {
-            expectStoreConfigYAxisToHaveRangeMinValue(TEST_MIN_VALUE)
+            expectWindowConfigYAxisToHaveRangeMinValue(TEST_MIN_VALUE)
         })
         it(`config has range max value "${TEST_MAX_VALUE}"`, () => {
-            expectStoreConfigYAxisToHaveRangeMaxValue(TEST_MAX_VALUE)
+            expectWindowConfigYAxisToHaveRangeMaxValue(TEST_MAX_VALUE)
         })
     })
     // TODO: steps, decimals, labels

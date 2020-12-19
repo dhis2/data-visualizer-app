@@ -7,13 +7,13 @@ import {
 } from '../../elements/dimensionModal'
 import { goToStartPage } from '../../elements/startScreen'
 import {
-    expectStoreConfigSeriesToHaveTrendline,
-    expectStoreConfigSeriesToNotHaveTrendline,
-} from '../../utils/store'
-import {
     expectVisualizationToBeVisible,
     expectChartTitleToBeVisible,
 } from '../../elements/chart'
+import {
+    expectWindowConfigSeriesToHaveTrendline,
+    expectWindowConfigSeriesToNotHaveTrendline,
+} from '../../utils/window'
 import { TEST_DATA_ELEMENTS } from '../../utils/data'
 import { clickMenuBarOptionsButton } from '../../elements/menuBar'
 import {
@@ -46,7 +46,7 @@ describe('Options - Lines', () => {
 
         it('has no trend line', () => {
             expectChartTitleToBeVisible()
-            expectStoreConfigSeriesToNotHaveTrendline()
+            expectWindowConfigSeriesToNotHaveTrendline()
         })
 
         trendLineTypes.forEach(trendLineType => {
@@ -72,7 +72,7 @@ describe('Options - Lines', () => {
                             type: trendLineType.type,
                             name: `${dataElement} (trend)`,
                         }
-                        expectStoreConfigSeriesToHaveTrendline(trendline)
+                        expectWindowConfigSeriesToHaveTrendline(trendline)
                     })
                 })
             })

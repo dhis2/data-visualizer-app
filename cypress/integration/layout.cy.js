@@ -32,7 +32,7 @@ import { goToStartPage } from '../elements/startScreen'
 const TEST_FIXED_DIMS = Object.values(getFixedDimensions())
 const TEST_DYNAMIC_DIMS = Object.values(getDynamicDimensions())
 
-describe('interacting with the dimensions panel', () => {
+describe('interacting with the layout', () => {
     it('navigates to the start page', () => {
         goToStartPage()
     })
