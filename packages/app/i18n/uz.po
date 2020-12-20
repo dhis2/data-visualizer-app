@@ -52,7 +52,7 @@ msgid "Select All"
 msgstr "Барчасини танлаш"
 
 msgid "Remove"
-msgstr "Ўчириш"
+msgstr "Олиб ташлаш"
 
 msgid "Search dimensions"
 msgstr "Қидирув созламалари"
