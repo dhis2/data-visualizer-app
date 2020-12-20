@@ -65,6 +65,8 @@ msgid ""
 "'Scatter' is intended to show a single data item per axis. Only the first "
 "item will be used and saved."
 msgstr ""
+"\"Тақсимловчи\" ҳар бир ўқда ягона маълумотлар элементини кўрсатиш учун "
+"мўлжалланган. Фақат биринчи элементдан фойдаланилади ва сақланади"
 
 msgid "Vertical"
 msgstr "Вертикал"
