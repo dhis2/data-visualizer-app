@@ -60,7 +60,7 @@ msgid "Hide"
 msgstr "Беркитиш"
 
 msgid "Remove"
-msgstr "Ўчириш"
+msgstr "Олиб ташлаш"
 
 msgid "Download"
 msgstr "Юклаш"
