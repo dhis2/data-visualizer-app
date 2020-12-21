@@ -28,7 +28,7 @@
         "raf": "3.4.1",
         "react": "^16.13",
         "react-beautiful-dnd": "^13.0.0",
-        "react-dom": "^16.13",
+        "react-dom": "^17.0",
         "react-redux": "^5.1.0",
         "redux": "^4.0.5",
         "redux-actions": "^2.2.1",
