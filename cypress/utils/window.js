@@ -3,10 +3,18 @@ import { TITLE_PROP, SUBTITLE_PROP, SERIES_PROP, Y_AXIS_PROP } from './config'
 const CONFIG_PROP = '$config'
 
 export const expectWindowConfigTitleToBeValue = value =>
-    cy.window().its(CONFIG_PROP).its(TITLE_PROP).should('eql', value)
+    cy
+        .window()
+        .its(CONFIG_PROP)
+        .its(TITLE_PROP)
+        .should('eql', value)
 
 export const expectWindowConfigSubtitleToBeValue = value =>
-    cy.window().its(CONFIG_PROP).its(SUBTITLE_PROP).should('eql', value)
+    cy
+        .window()
+        .its(CONFIG_PROP)
+        .its(SUBTITLE_PROP)
+        .should('eql', value)
 
 export const expectWindowConfigSeriesToNotHaveTrendline = () =>
     cy
