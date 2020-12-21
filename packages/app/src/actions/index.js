@@ -14,7 +14,6 @@ import * as fromMetadata from './metadata'
 import * as fromSettings from './settings'
 import * as fromUser from './user'
 import * as fromChart from './chart'
-import * as fromConfig from './config'
 import * as fromSnackbar from './snackbar'
 import * as fromLoader from './loader'
 
@@ -48,7 +47,6 @@ export {
     fromSettings,
     fromUser,
     fromChart,
-    fromConfig,
     fromSnackbar,
     fromLoader,
 }
@@ -82,7 +80,7 @@ export const tDoLoadVisualization = ({
             }
         }
 
-        apiPostDataStatistics(visualization.id)
+        apiPostDataStatistics(engine, visualization.id)
 
         dispatch(fromVisualization.acSetVisualization(visualization))
         dispatch(fromCurrent.acSetCurrent(visualization))

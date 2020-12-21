@@ -7,6 +7,7 @@ import {
     VIS_TYPE_PIVOT_TABLE,
     VIS_TYPE_STACKED_COLUMN,
     VIS_TYPE_YEAR_OVER_YEAR_LINE,
+    VIS_TYPE_SCATTER,
 } from '@dhis2/analytics'
 
 /*
@@ -54,6 +55,10 @@ export const TEST_AOS = [
         name: 'Commodities: Child health last 12 months',
         type: VIS_TYPE_PIVOT_TABLE,
     },
+    {
+        name: 'Measles: Dropout rate v Coverage <1y per district',
+        type: VIS_TYPE_SCATTER,
+    },
 ]
 
 export const TEST_DATA_ELEMENTS = [
@@ -62,6 +67,14 @@ export const TEST_DATA_ELEMENTS = [
     { id: 'QrhlrvV6Xs8', name: 'ART new clients started on ARV' },
     { id: 'HLPuaFB7Frw', name: 'Anaemia new' },
     { id: 's46m5MS0hxu', name: 'BCG doses given' },
+]
+
+export const TEST_INDICATORS = [
+    { id: 'Uvn6LCg7dVU', name: 'ANC 1 Coverage' },
+    { id: 'ReUHfIn0pTQ', name: 'ANC 1-3 Dropout Rate' },
+    { id: 'OdiHJayrsKo', name: 'ANC 2 Coverage' },
+    { id: 'sB79w2hiLp8', name: 'ANC 3 Coverage' },
+    { id: 'AUqdhY4mpvp', name: 'ANC => 4 Coverage' },
 ]
 
 export const TEST_CUSTOM_DIMENSIONS = [

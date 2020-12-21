@@ -11,7 +11,13 @@ import * as userDataStore from '../../api/userDataStore'
 import * as ui from '../../modules/ui'
 import { DEFAULT_CURRENT } from '../../reducers/current'
 
-jest.mock('../Visualization/Visualization', () => () => <div />)
+jest.mock(
+    '../Visualization/Visualization',
+    () =>
+        function Vis() {
+            return <div />
+        }
+)
 
 describe('App', () => {
     let props
@@ -58,10 +64,12 @@ describe('App', () => {
         }
         shallowApp = undefined
 
+        /* eslint-disable no-import-assign, import/namespace */
         actions.tDoLoadVisualization = jest.fn()
         actions.clearVisualization = jest.fn()
         userDataStore.apiFetchAOFromUserDataStore = jest.fn()
         ui.getParentGraphMapFromVisualization = jest.fn()
+        /* esling-enable no-import-assign, import/namespace */
     })
 
     afterEach(() => {

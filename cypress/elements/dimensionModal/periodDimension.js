@@ -41,14 +41,9 @@ export const selectFixedPeriods = (periods, periodType) => {
 }
 
 const clickSourceOption = itemName =>
-    cy
-        .getBySel(sourceOptionsListEl)
-        .contains(itemName)
-        .dblclick()
+    cy.getBySel(sourceOptionsListEl).contains(itemName).dblclick()
 
 const switchToPeriodType = (periodTypeEl, periodTypeOption) => {
     cy.getBySel(periodTypeEl).click()
-    cy.getBySel(periodTypeMenuEl)
-        .contains(periodTypeOption)
-        .click()
+    cy.getBySel(periodTypeMenuEl).contains(periodTypeOption).click()
 }

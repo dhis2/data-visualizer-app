@@ -5,6 +5,7 @@ const secondaryTitleText = 'Your most viewed charts and tables'
 const secondaryTitleEl = 'start-screen-secondary-section-title'
 const mostViewedListItemAmount = 6
 const mostViewedListItemEl = 'start-screen-most-viewed-list-item'
+const errorContainerEl = 'start-screen-error-container'
 
 export const goToStartPage = () => {
     cy.visit('')
@@ -27,3 +28,6 @@ export const expectMostViewedToHaveItems = () =>
     cy
         .getBySel(mostViewedListItemEl)
         .should('have.length', mostViewedListItemAmount)
+
+export const expectErrorToContainTitle = errorTitle =>
+    cy.getBySel(errorContainerEl).should('contain', errorTitle)

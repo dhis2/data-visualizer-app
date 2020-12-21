@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-10-21T10:41:39.373Z\n"
+"POT-Creation-Date: 2020-12-08T15:58:00.833Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -60,6 +60,17 @@ msgid ""
 msgstr ""
 "'{{visualiationType}}' er ment for å vise maksimalt {{maxNumber}} antall "
 "elementer. Bare de første {{maxNumber}} elementene vil bli brukt og lagret."
+
+msgid ""
+"'Scatter' is intended to show a single data item per axis. Only the first "
+"item will be used and saved."
+msgstr ""
+
+msgid "Vertical"
+msgstr "Vertikal"
+
+msgid "Horizontal"
+msgstr "Horisontal"
 
 msgid "Main dimensions"
 msgstr "Hoveddimensjoner"
@@ -168,6 +179,21 @@ msgstr "{{total}} valgt"
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr "{{dimensionName}} er låst til {{axisName}} for {{visTypeName}}"
+
+msgid "Not available for Scatter"
+msgstr "Ikke tilgjengelig for Spredning"
+
+msgid "Add Assigned Categories"
+msgstr "Legg tildelte kategorier"
+
+msgid "Swap with {{axisName}} axis"
+msgstr "Bytt med {{axisName}} -aksen"
+
+msgid "vertical"
+msgstr "vertikal"
+
+msgid "horizontal"
+msgstr "horisontal"
 
 msgid "None selected"
 msgstr "Ingen valgt"
@@ -658,6 +684,31 @@ msgstr "Ingen periode valgt"
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
 msgstr "{{visualizationType}} må ha minst en periode valgt i {{axes}}."
+
+msgid "Add organisation units to {{axisName}}."
+msgstr "Legg til organisasjonsenheter i {{axisName}}."
+
+msgid "Vertical is empty"
+msgstr "Vertikal er tom"
+
+msgid "Add a data item to the vertical axis."
+msgstr "Legg til et datapunkt i den vertikale aksen."
+
+msgid "Horizontal is empty"
+msgstr "Horisontal er tom"
+
+msgid "Add a data item to the horizontal axis."
+msgstr "Legg til et datapunkt i den horisontale aksen."
+
+msgid "Axes data items are the same"
+msgstr "Aksedatapunktene er de samme"
+
+msgid ""
+"The horizontal and vertical axes have the same data item. Scatter chart axes"
+" must have different data for each axis."
+msgstr ""
+"De horisontale og vertikale aksene har samme datapunkt. "
+"Spredningsdiagramaksene må ha forskjellige data for hver akse."
 
 msgid "No data selected"
 msgstr "Ingen data valgt"

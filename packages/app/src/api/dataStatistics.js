@@ -1,12 +1,15 @@
-import { getInstance } from 'd2'
+import { onError } from './index'
 
 const EVENT_TYPE_CHART_VIEW = 'CHART_VIEW'
 
-export const apiPostDataStatistics = async id => {
-    const d2 = await getInstance()
-    const api = d2.Api.getApi()
-
-    const url = `/dataStatistics?eventType=${EVENT_TYPE_CHART_VIEW}&favorite=${id}`
-
-    return api.post(url)
+const dataStatisticMutation = {
+    resource: 'dataStatistics',
+    params: ({ id }) => ({
+        favorite: id,
+        eventType: EVENT_TYPE_CHART_VIEW,
+    }),
+    type: 'create',
 }
+
+export const apiPostDataStatistics = (dataEngine, id) =>
+    dataEngine.mutate(dataStatisticMutation, { variables: { id }, onError })

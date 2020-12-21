@@ -9,10 +9,16 @@ import {
 } from '@dhis2/analytics'
 
 import Chip from '../Chip'
-import { sGetUi, sGetUiLayout, sGetUiType } from '../../../reducers/ui'
+import {
+    sGetUi,
+    sGetUiItemsByDimension,
+    sGetUiLayout,
+    sGetUiType,
+} from '../../../reducers/ui'
 import { acSetUiActiveModalDialog } from '../../../actions/ui'
 import styles from './styles/DefaultAxis.style'
 import stylesModule from './styles/DefaultAxis.module.css'
+import ChipMenu from '../ChipMenu'
 
 class Axis extends React.Component {
     onDragOver = e => {
@@ -20,7 +26,14 @@ class Axis extends React.Component {
     }
 
     render() {
-        const { axisId, axis, style, type, getOpenHandler } = this.props
+        const {
+            axisId,
+            axis,
+            style,
+            type,
+            getOpenHandler,
+            getItemsByDimension,
+        } = this.props
 
         return (
             <div
@@ -46,15 +59,19 @@ class Axis extends React.Component {
                             {axis.map((dimensionId, index) => {
                                 const key = `${axisId}-${dimensionId}`
 
+                                const isLocked = isDimensionLocked(
+                                    type,
+                                    dimensionId
+                                )
+
+                                const items = getItemsByDimension(dimensionId)
+
                                 return (
                                     <Draggable
                                         key={key}
                                         draggableId={key}
                                         index={index}
-                                        isDragDisabled={isDimensionLocked(
-                                            type,
-                                            dimensionId
-                                        )}
+                                        isDragDisabled={isLocked}
                                     >
                                         {provided => (
                                             <div
@@ -68,6 +85,24 @@ class Axis extends React.Component {
                                                     )}
                                                     axisId={axisId}
                                                     dimensionId={dimensionId}
+                                                    isLocked={isLocked}
+                                                    items={items}
+                                                    contextMenu={
+                                                        !isLocked ? (
+                                                            <ChipMenu
+                                                                dimensionId={
+                                                                    dimensionId
+                                                                }
+                                                                currentAxisId={
+                                                                    axisId
+                                                                }
+                                                                visType={type}
+                                                                numberOfDimensionItems={
+                                                                    items.length
+                                                                }
+                                                            />
+                                                        ) : null
+                                                    }
                                                 />
                                             </div>
                                         )}
@@ -87,6 +122,7 @@ Axis.propTypes = {
     axis: PropTypes.array,
     axisId: PropTypes.string,
     classes: PropTypes.object,
+    getItemsByDimension: PropTypes.func,
     getMoveHandler: PropTypes.func,
     getOpenHandler: PropTypes.func,
     getRemoveHandler: PropTypes.func,
@@ -101,6 +137,8 @@ const mapStateToProps = state => ({
     ui: sGetUi(state),
     type: sGetUiType(state),
     layout: sGetUiLayout(state),
+    getItemsByDimension: dimensionId =>
+        sGetUiItemsByDimension(state, dimensionId) || [],
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -108,13 +146,11 @@ const mapDispatchToProps = dispatch => ({
         dispatch(acSetUiActiveModalDialog(dimensionId)),
 })
 
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
-    return {
-        ...stateProps,
-        ...dispatchProps,
-        ...ownProps,
-        axis: stateProps.ui.layout[ownProps.axisId],
-    }
-}
+const mergeProps = (stateProps, dispatchProps, ownProps) => ({
+    ...stateProps,
+    ...dispatchProps,
+    ...ownProps,
+    axis: stateProps.ui.layout[ownProps.axisId],
+})
 
 export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(Axis)

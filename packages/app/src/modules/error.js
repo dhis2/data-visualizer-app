@@ -129,6 +129,58 @@ export class NoPeriodError extends VisualizationError {
     }
 }
 
+export class NoPointsError extends VisualizationError {
+    constructor(visType) {
+        super(
+            EmptyBox,
+            i18n.t(`{{axisName}} is empty`, {
+                axisName: getAxisNameByLayoutType(
+                    AXIS_ID_ROWS,
+                    getLayoutTypeByVisType(visType)
+                ),
+            }),
+            i18n.t('Add organisation units to {{axisName}}.', {
+                axisName: getAxisNameByLayoutType(
+                    AXIS_ID_ROWS,
+                    getLayoutTypeByVisType(visType)
+                ),
+            })
+        )
+    }
+}
+
+export class NoVerticalError extends VisualizationError {
+    constructor() {
+        super(
+            EmptyBox,
+            i18n.t('Vertical is empty'),
+            i18n.t('Add a data item to the vertical axis.')
+        )
+    }
+}
+
+export class NoHorizontalError extends VisualizationError {
+    constructor() {
+        super(
+            EmptyBox,
+            i18n.t('Horizontal is empty'),
+            i18n.t('Add a data item to the horizontal axis.')
+        )
+    }
+}
+
+export class DuplicateItemsError extends VisualizationError {
+    constructor() {
+        super(
+            DataError,
+            i18n.t('Axes data items are the same'),
+            i18n.t(
+                'The horizontal and vertical axes have the same data item. Scatter chart axes must have different data for each axis.'
+            )
+        )
+    }
+}
+
 export class NoDataOrDataElementGroupSetError extends VisualizationError {
     constructor(visType) {
         const lockedAxis = getAxisPerLockedDimension(visType, DIMENSION_ID_DATA)

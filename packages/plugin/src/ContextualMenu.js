@@ -8,7 +8,7 @@ import { Divider, FlyoutMenu, MenuItem } from '@dhis2/ui'
 import ArrowUpwardIcon from './assets/ArrowUpwardIcon'
 import ArrowDownwardIcon from './assets/ArrowDownwardIcon'
 
-import { apiFetchOrganisationUnit } from './api/organisationUnits'
+import { apiFetchOrganisationUnit } from '@dhis2/analytics'
 
 export const ContextualMenu = ({ config, ouLevels, onClick }) => {
     const engine = useDataEngine()
@@ -19,9 +19,9 @@ export const ContextualMenu = ({ config, ouLevels, onClick }) => {
 
     const doFetchOuData = useCallback(
         async ouId => {
-            const ouData = await apiFetchOrganisationUnit(engine, ouId)
+            const orgUnit = await apiFetchOrganisationUnit(engine, ouId)
 
-            return ouData.orgUnits
+            return orgUnit
         },
         [engine]
     )

@@ -7,9 +7,9 @@ import { computeGenericPeriodNames } from './analytics'
 import { getRequestOptions } from './getRequestOptions'
 
 export const fetchData = async ({
+    dataEngine,
     visualization,
     filters,
-    d2,
     forDashboard,
 }) => {
     const options = getRequestOptions(visualization, filters)
@@ -22,7 +22,11 @@ export const fetchData = async ({
         const {
             responses,
             yearlySeriesLabels,
-        } = await apiFetchAnalyticsForYearOverYear(d2, visualization, options)
+        } = await apiFetchAnalyticsForYearOverYear(
+            dataEngine,
+            visualization,
+            options
+        )
 
         return {
             responses,
@@ -35,7 +39,7 @@ export const fetchData = async ({
     }
 
     return {
-        responses: await apiFetchAnalytics(d2, visualization, options),
+        responses: await apiFetchAnalytics(dataEngine, visualization, options),
         extraOptions,
     }
 }

@@ -17,30 +17,18 @@ import {
     getAxisNameByLayoutType,
     getLayoutTypeByVisType,
     DIMENSION_ID_ASSIGNED_CATEGORIES,
-    isDimensionLocked,
     DIMENSION_PROP_NO_ITEMS,
+    VIS_TYPE_SCATTER,
+    DIMENSION_ID_DATA,
 } from '@dhis2/analytics'
 
-import ChipMenu from './ChipMenu'
 import TooltipContent from './TooltipContent'
 import { setDataTransfer } from '../../modules/dnd'
 import { sGetDimensions } from '../../reducers/dimensions'
-import { sGetUiItemsByDimension, sGetUiType } from '../../reducers/ui'
+import { sGetUiType } from '../../reducers/ui'
 import DynamicDimensionIcon from '../../assets/DynamicDimensionIcon'
 import { styles } from './styles/Chip.style'
-import { acSetUiActiveModalDialog } from '../../actions/ui'
-
-const LockIconWrapper = (
-    <div style={styles.lockIconWrapper}>
-        <LockIcon style={styles.lockIcon} />
-    </div>
-)
-
-const WarningIconWrapper = (
-    <div style={styles.warningIconWrapper}>
-        <WarningIcon style={styles.warningIcon} />
-    </div>
-)
+import { sGetMetadata } from '../../reducers/metadata'
 
 const Chip = ({
     type,
@@ -48,16 +36,39 @@ const Chip = ({
     dimensionName,
     axisId,
     items,
-    getOpenHandler,
+    onClick,
+    isLocked,
+    axisName,
+    metadata,
+    contextMenu,
 }) => {
     const id = Math.random().toString(36)
-    const isLocked = () => isDimensionLocked(type, dimensionId)
+
+    const dataTest = `layout-chip-${dimensionId}`
+
+    const LockIconWrapper = (
+        <div style={styles.lockIconWrapper} data-test={`${dataTest}-lock-icon`}>
+            <LockIcon style={styles.lockIcon} />
+        </div>
+    )
+
+    const WarningIconWrapper = (
+        <div
+            style={styles.warningIconWrapper}
+            data-test={`${dataTest}-warning-icon`}
+        >
+            <WarningIcon style={styles.warningIcon} />
+        </div>
+    )
+
+    const isSplitAxis =
+        type === VIS_TYPE_SCATTER && dimensionId === DIMENSION_ID_DATA
 
     const getMaxNumberOfItems = () => getAxisMaxNumberOfItems(type, axisId)
 
     const handleClick = () => {
         if (!getPredefinedDimensionProp(dimensionId, DIMENSION_PROP_NO_ITEMS)) {
-            getOpenHandler(dimensionId)
+            onClick()
         }
     }
 
@@ -82,6 +93,8 @@ const Chip = ({
                       total: numberOfItems,
                       axisMaxNumberOfItems: getMaxNumberOfItems(),
                   })
+                : isSplitAxis
+                ? i18n.t(metadata[items[0]]?.name || '')
                 : i18n.t('{{total}} selected', {
                       total: numberOfItems,
                   })
@@ -98,31 +111,21 @@ const Chip = ({
         )
     }
 
-    const renderMenu = () => (
-        <div style={styles.chipRight}>
-            <ChipMenu
-                dimensionId={dimensionId}
-                currentAxisId={axisId}
-                visType={type}
-                numberOfDimensionItems={items.length}
-            />
-        </div>
-    )
-
     const renderTooltipContent = () => {
         const activeItemIds = getMaxNumberOfItems()
             ? items.slice(0, getMaxNumberOfItems())
             : items
-
-        const lockedLabel = isLocked()
+        const lockedLabel = isLocked
             ? i18n.t(
                   `{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}`,
                   {
                       dimensionName: dimensionName,
-                      axisName: getAxisNameByLayoutType(
-                          axisId,
-                          getLayoutTypeByVisType(type)
-                      ),
+                      axisName:
+                          axisName ||
+                          getAxisNameByLayoutType(
+                              axisId,
+                              getLayoutTypeByVisType(type)
+                          ),
                       visTypeName: getDisplayNameByVisType(type),
                   }
               )
@@ -141,11 +144,15 @@ const Chip = ({
     const renderChipContent = () => (
         <>
             <div style={styles.iconWrapper}>{renderChipIcon()}</div>
-            <span style={styles.label}>{dimensionName}</span>
-            <span>{renderChipLabelSuffix()}</span>
+            <span style={!isSplitAxis ? styles.label : {}}>
+                {dimensionName}
+            </span>
+            <span style={isSplitAxis ? styles.label : {}}>
+                {renderChipLabelSuffix()}
+            </span>
             {hasAxisTooManyItems(type, axisId, items.length) &&
                 WarningIconWrapper}
-            {isLocked() && LockIconWrapper}
+            {isLocked && LockIconWrapper}
         </>
     )
 
@@ -153,14 +160,14 @@ const Chip = ({
         <div
             style={getWrapperStyles()}
             data-dimensionid={dimensionId}
-            draggable={!isLocked()}
+            draggable={!isLocked}
             onDragStart={getDragStartHandler()}
         >
             {dimensionId !== DIMENSION_ID_ASSIGNED_CATEGORIES ? (
                 <Tooltip content={renderTooltipContent()} placement="bottom">
                     {({ ref, onMouseOver, onMouseOut }) => (
                         <div
-                            data-test={`layout-chip-${dimensionId}`}
+                            data-test={dataTest}
                             id={id}
                             style={styles.chipLeft}
                             onClick={handleClick}
@@ -176,13 +183,13 @@ const Chip = ({
                 <div
                     id={id}
                     style={styles.chipLeft}
-                    data-test={`layout-chip-${dimensionId}`}
+                    data-test={dataTest}
                     onClick={handleClick}
                 >
                     {renderChipContent()}
                 </div>
             )}
-            {!isLocked() && renderMenu()}
+            {contextMenu && <div style={styles.chipRight}> {contextMenu}</div>}
         </div>
     )
 }
@@ -191,8 +198,12 @@ Chip.propTypes = {
     axisId: PropTypes.string.isRequired,
     dimensionId: PropTypes.string.isRequired,
     dimensionName: PropTypes.string.isRequired,
-    getOpenHandler: PropTypes.func.isRequired,
+    isLocked: PropTypes.bool.isRequired,
+    metadata: PropTypes.object.isRequired,
     type: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired,
+    axisName: PropTypes.string,
+    contextMenu: PropTypes.object,
     items: PropTypes.array,
 }
 
@@ -202,13 +213,8 @@ Chip.defaultProps = {
 
 const mapStateToProps = (state, ownProps) => ({
     dimensionName: (sGetDimensions(state)[ownProps.dimensionId] || {}).name,
-    items: sGetUiItemsByDimension(state, ownProps.dimensionId) || [],
     type: sGetUiType(state),
+    metadata: sGetMetadata(state),
 })
 
-const mapDispatchToProps = dispatch => ({
-    getOpenHandler: dimensionId =>
-        dispatch(acSetUiActiveModalDialog(dimensionId)),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Chip)
+export default connect(mapStateToProps)(Chip)

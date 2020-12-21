@@ -33,6 +33,7 @@ export class DndDimensionsPanel extends Component {
                 <DndDimensionList
                     filterText={this.state.filterText}
                     onDimensionOptionsClick={this.props.onDimensionOptionsClick}
+                    onDimensionClick={this.props.onDimensionClick}
                     dataTest="dimensions-panel-list"
                 />
             </div>
@@ -41,6 +42,7 @@ export class DndDimensionsPanel extends Component {
 }
 
 DndDimensionsPanel.propTypes = {
+    onDimensionClick: PropTypes.func,
     onDimensionOptionsClick: PropTypes.func,
 }
 

@@ -24,6 +24,8 @@ import {
     ModalActions,
     ButtonStrip,
     ModalTitle,
+    TabBar,
+    Tab,
 } from '@dhis2/ui'
 
 import HideButton from '../../HideButton/HideButton'
@@ -32,9 +34,10 @@ import UpdateVisualizationContainer from '../../UpdateButton/UpdateVisualization
 import {
     acSetUiActiveModalDialog,
     acRemoveUiItems,
-    acAddUiItems,
     acSetUiItems,
     acAddParentGraphMap,
+    acSetUiItemAttributes,
+    acRemoveUiItemAttributes,
 } from '../../../actions/ui'
 import { acAddMetadata } from '../../../actions/metadata'
 import { acSetRecommendedIds } from '../../../actions/recommendedIds'
@@ -46,12 +49,21 @@ import {
     sGetUiType,
     sGetAxisIdByDimensionId,
     sGetDimensionIdsFromLayout,
+    sGetUiItemsByAttribute,
 } from '../../../reducers/ui'
 import { sGetDimensions } from '../../../reducers/dimensions'
 import { sGetMetadata } from '../../../reducers/metadata'
 import { sGetSettingsDisplayNameProperty } from '../../../reducers/settings'
 import { removeLastPathSegment, getOuPath } from '../../../modules/orgUnit'
 import UpdateButton from '../../UpdateButton/UpdateButton'
+import {
+    ITEM_ATTRIBUTE_HORIZONTAL,
+    ITEM_ATTRIBUTE_VERTICAL,
+} from '../../../modules/ui'
+import styles from './styles/DialogManager.module.css'
+
+const isScatterAttribute = dialogId =>
+    [ITEM_ATTRIBUTE_VERTICAL, ITEM_ATTRIBUTE_HORIZONTAL].includes(dialogId)
 
 export class DialogManager extends Component {
     state = {
@@ -77,7 +89,7 @@ export class DialogManager extends Component {
 
     fetchRecommended = debounce(async () => {
         const ids = await apiFetchRecommendedIds(
-            this.context.d2,
+            this.context.dataEngine,
             this.props.dxIds,
             this.props.ouIds
         )
@@ -85,11 +97,19 @@ export class DialogManager extends Component {
         this.props.setRecommendedIds(ids)
     }, 1000)
 
-    selectUiItems = ({ dimensionId, items }) => {
-        this.props.setUiItems({
-            dimensionId,
-            itemIds: items.map(item => item.id),
-        })
+    selectUiItems = ({ dimensionId, items, itemAttribute }) => {
+        if (itemAttribute) {
+            this.props.setUiItemAttributes({
+                dimensionId,
+                attribute: itemAttribute,
+                itemIds: items.map(item => item.id),
+            })
+        } else {
+            this.props.setUiItems({
+                dimensionId,
+                itemIds: items.map(item => item.id),
+            })
+        }
 
         switch (dimensionId) {
             case DIMENSION_ID_ORGUNIT: {
@@ -133,17 +153,18 @@ export class DialogManager extends Component {
         }
     }
 
-    closeDialog = () => this.props.closeDialog(null)
+    closeDialog = () => this.props.changeDialog(null)
 
     getSelectedItems = dialogId => {
-        return this.props.selectedItems[dialogId]
-            ? this.props.selectedItems[dialogId]
-                  .filter(id => this.props.metadata[id])
-                  .map(id => ({
-                      id,
-                      name: this.props.metadata[id].name,
-                  }))
-            : []
+        const items = isScatterAttribute(dialogId)
+            ? this.props.getItemsByAttribute(dialogId)
+            : this.props.selectedItems[dialogId]
+        return (items || [])
+            .filter(id => this.props.metadata[id])
+            .map(id => ({
+                id,
+                name: this.props.metadata[id].name,
+            }))
     }
 
     getOrgUnitsFromIds = (ids, metadata, parentGraphMap) =>
@@ -199,6 +220,8 @@ export class DialogManager extends Component {
             type,
             removeUiItems,
             setUiItems,
+            setUiItemAttributes,
+            removeUiItemAttributes,
         } = this.props
 
         const dimensionProps = {
@@ -250,16 +273,80 @@ export class DialogManager extends Component {
                 selectedItems.forEach((item, index) => {
                     item.isActive = index < axisMaxNumberOfItems
                 })
+            } else if (isScatterAttribute(dialogId) && numberOfItems > 1) {
+                infoBoxMessage = i18n.t(
+                    `'Scatter' is intended to show a single data item per axis. Only the first item will be used and saved.`
+                )
+                selectedItems.forEach((item, index) => {
+                    item.isActive = index < 1
+                })
             }
             let content = null
-            if (dialogId === DIMENSION_ID_DATA) {
-                content = (
+            if (
+                dialogId === DIMENSION_ID_DATA ||
+                isScatterAttribute(dialogId)
+            ) {
+                const props = isScatterAttribute(dialogId)
+                    ? {
+                          ...dimensionProps,
+                          onSelect: defaultProps =>
+                              this.selectUiItems({
+                                  ...defaultProps,
+                                  itemAttribute: dialogId,
+                              }),
+                          onDeselect: defaultProps =>
+                              removeUiItemAttributes({
+                                  ...defaultProps,
+                                  attribute: dialogId,
+                              }),
+                          onReorder: defaultProps =>
+                              setUiItemAttributes({
+                                  ...defaultProps,
+                                  attribute: dialogId,
+                              }),
+                      }
+                    : dimensionProps
+                const dimensionSelector = (
                     <DataDimension
                         displayNameProp={displayNameProperty}
                         selectedDimensions={selectedItems}
                         infoBoxMessage={infoBoxMessage}
-                        {...dimensionProps}
+                        dataEngine={this.context.dataEngine}
+                        {...props}
                     />
+                )
+                const dataTabs = isScatterAttribute(dialogId) ? (
+                    <TabBar
+                        dataTest={'dialog-manager-modal-tabs'}
+                        className={styles.tabs}
+                    >
+                        {[
+                            {
+                                key: ITEM_ATTRIBUTE_VERTICAL,
+                                label: i18n.t('Vertical'),
+                            },
+                            {
+                                key: ITEM_ATTRIBUTE_HORIZONTAL,
+                                label: i18n.t('Horizontal'),
+                            },
+                        ].map(({ key, label }) => (
+                            <Tab
+                                key={key}
+                                onClick={() => this.props.changeDialog(key)}
+                                selected={key === dialogId}
+                            >
+                                {label}
+                            </Tab>
+                        ))}
+                    </TabBar>
+                ) : null
+                content = dataTabs ? (
+                    <>
+                        {dataTabs}
+                        {dimensionSelector}
+                    </>
+                ) : (
+                    dimensionSelector
                 )
             } else if (dialogId === DIMENSION_ID_PERIOD) {
                 content = (
@@ -279,7 +366,6 @@ export class DialogManager extends Component {
                         selectedItems={selectedItems}
                         dimensionId={dialogId}
                         onSelect={dimensionProps.onSelect}
-                        context={dimensionProps.d2}
                         // TODO: infoBoxMessage should ideally be implemented for all dimensions
                     />
                 )
@@ -302,7 +388,9 @@ export class DialogManager extends Component {
 
     render() {
         const { dialogId, dimensions } = this.props
-        const dimension = dimensions[dialogId]
+        const dimension = isScatterAttribute(dialogId)
+            ? dimensions[DIMENSION_ID_DATA]
+            : dimensions[dialogId]
 
         return (
             <Fragment>
@@ -331,7 +419,7 @@ export class DialogManager extends Component {
                                     renderComponent={handler =>
                                         this.props.dimensionIdsInLayout.includes(
                                             dialogId
-                                        ) ? (
+                                        ) || isScatterAttribute(dialogId) ? (
                                             <UpdateButton
                                                 onClick={this.getPrimaryOnClick(
                                                     handler
@@ -363,10 +451,11 @@ export class DialogManager extends Component {
 
 DialogManager.contextTypes = {
     d2: PropTypes.object,
+    dataEngine: PropTypes.object,
 }
 
 DialogManager.propTypes = {
-    closeDialog: PropTypes.func.isRequired,
+    changeDialog: PropTypes.func.isRequired,
     dimensionIdsInLayout: PropTypes.array.isRequired,
     ouIds: PropTypes.array.isRequired,
     setRecommendedIds: PropTypes.func.isRequired,
@@ -377,10 +466,13 @@ DialogManager.propTypes = {
     displayNameProperty: PropTypes.string,
     dxIds: PropTypes.array,
     getAxisIdByDimensionId: PropTypes.func,
+    getItemsByAttribute: PropTypes.func,
     metadata: PropTypes.object,
     parentGraphMap: PropTypes.object,
+    removeUiItemAttributes: PropTypes.func,
     removeUiItems: PropTypes.func,
     selectedItems: PropTypes.object,
+    setUiItemAttributes: PropTypes.func,
     setUiItems: PropTypes.func,
     type: PropTypes.string,
 }
@@ -403,14 +495,16 @@ const mapStateToProps = state => ({
     getAxisIdByDimensionId: dimensionId =>
         sGetAxisIdByDimensionId(state, dimensionId),
     dimensionIdsInLayout: sGetDimensionIdsFromLayout(state),
+    getItemsByAttribute: attribute => sGetUiItemsByAttribute(state, attribute),
 })
 
 export default connect(mapStateToProps, {
-    closeDialog: acSetUiActiveModalDialog,
+    changeDialog: acSetUiActiveModalDialog,
     setRecommendedIds: acSetRecommendedIds,
     setUiItems: acSetUiItems,
     addMetadata: acAddMetadata,
-    addUiItems: acAddUiItems,
     removeUiItems: acRemoveUiItems,
     addParentGraphMap: acAddParentGraphMap,
+    setUiItemAttributes: acSetUiItemAttributes,
+    removeUiItemAttributes: acRemoveUiItemAttributes,
 })(DialogManager)

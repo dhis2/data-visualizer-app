@@ -1,3 +1,46 @@
+## [35.16.3](https://github.com/dhis2/data-visualizer-app/compare/v35.16.2...v35.16.3) (2020-12-21)
+
+
+### Bug Fixes
+
+* bump Analytics dep ([#1538](https://github.com/dhis2/data-visualizer-app/issues/1538)) ([2053a04](https://github.com/dhis2/data-visualizer-app/commit/2053a045ce7ae625f0c11dce67d6f3ca0a01c2c0))
+* use config from window instead of from store ([#1532](https://github.com/dhis2/data-visualizer-app/issues/1532)) ([2bab417](https://github.com/dhis2/data-visualizer-app/commit/2bab417f15388d5fd8085eee9305030ed7eec907))
+
+## [35.16.2](https://github.com/dhis2/data-visualizer-app/compare/v35.16.1...v35.16.2) (2020-12-16)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#1521](https://github.com/dhis2/data-visualizer-app/issues/1521)) ([0d5bf3d](https://github.com/dhis2/data-visualizer-app/commit/0d5bf3df2085c5865512d664f1973e7f1d09e1b7))
+
+## [35.16.1](https://github.com/dhis2/data-visualizer-app/compare/v35.16.0...v35.16.1) (2020-12-15)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#1483](https://github.com/dhis2/data-visualizer-app/issues/1483)) ([ede1f20](https://github.com/dhis2/data-visualizer-app/commit/ede1f207c1940953e7dc3e37ab23e6a96756b99c))
+
+# [35.16.0](https://github.com/dhis2/data-visualizer-app/compare/v35.15.0...v35.16.0) (2020-12-10)
+
+
+### Features
+
+* scatter layout pt2 ([#1501](https://github.com/dhis2/data-visualizer-app/issues/1501)) ([f1de13e](https://github.com/dhis2/data-visualizer-app/commit/f1de13e8e99f8954a491e840f7e252dd4334676c))
+
+# [35.15.0](https://github.com/dhis2/data-visualizer-app/compare/v35.14.0...v35.15.0) (2020-12-08)
+
+
+### Features
+
+* scatter context menu + data tabs (DHIS2-10073) ([#1490](https://github.com/dhis2/data-visualizer-app/issues/1490)) ([c4aaf30](https://github.com/dhis2/data-visualizer-app/commit/c4aaf30a9d5997053e03db42e19e0bfd10f59435))
+
+# [35.14.0](https://github.com/dhis2/data-visualizer-app/compare/v35.13.19...v35.14.0) (2020-12-04)
+
+
+### Features
+
+* implement scatter layout (DHIS2-10003) ([#1472](https://github.com/dhis2/data-visualizer-app/issues/1472)) ([65a1b8e](https://github.com/dhis2/data-visualizer-app/commit/65a1b8e0de277bade23813ca8863d3acc014ce64))
+
 ## [35.13.19](https://github.com/dhis2/data-visualizer-app/compare/v35.13.18...v35.13.19) (2020-11-19)
 
 
