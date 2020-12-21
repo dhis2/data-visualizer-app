@@ -80,7 +80,7 @@ export const tDoLoadVisualization = ({
             }
         }
 
-        apiPostDataStatistics(visualization.id)
+        apiPostDataStatistics(engine, visualization.id)
 
         dispatch(fromVisualization.acSetVisualization(visualization))
         dispatch(fromCurrent.acSetCurrent(visualization))

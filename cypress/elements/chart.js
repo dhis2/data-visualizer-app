@@ -101,10 +101,7 @@ export const expectAOTitleToBeUnsaved = () =>
         .and('contain', unsavedVisualizationTitleText)
 
 export const expectAOTitleToBeDirty = () =>
-    cy
-        .getBySel(AOTitleDirtyEl)
-        .should('have.length', 1)
-        .and('be.visible')
+    cy.getBySel(AOTitleDirtyEl).should('have.length', 1).and('be.visible')
 
 export const expectAOTitleToNotBeDirty = () =>
     cy.getBySel(AOTitleDirtyEl).should('not.exist')

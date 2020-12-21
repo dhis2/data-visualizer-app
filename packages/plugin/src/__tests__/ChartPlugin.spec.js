@@ -92,6 +92,7 @@ const isSingleValueMockResponse = visType => {
 }
 
 describe('ChartPlugin', () => {
+    // eslint-disable-next-line no-import-assign, import/namespace
     options.getOptionsForRequest = () => [
         ['option1', { defaultValue: 'abc' }],
         ['option2', { defaultValue: null }],
@@ -116,6 +117,7 @@ describe('ChartPlugin', () => {
         }
         chartPlugin = undefined
 
+        // eslint-disable-next-line no-import-assign, import/namespace
         api.apiFetchAnalytics = jest
             .fn()
             .mockResolvedValue([new MockAnalyticsResponse()])
@@ -123,6 +125,7 @@ describe('ChartPlugin', () => {
 
     describe('createVisualization success', () => {
         beforeEach(() => {
+            // eslint-disable-next-line no-import-assign
             analytics.createVisualization = jest
                 .fn()
                 .mockReturnValue(createVisualizationMock)
@@ -134,11 +137,7 @@ describe('ChartPlugin', () => {
         })
 
         it('uses the style passed as prop', done => {
-            expect(
-                canvas()
-                    .find('div')
-                    .prop('style')
-            ).toEqual(props.style)
+            expect(canvas().find('div').prop('style')).toEqual(props.style)
             done()
         })
 
@@ -178,6 +177,7 @@ describe('ChartPlugin', () => {
                     ...singleValueCurrentMock,
                 }
 
+                // eslint-disable-next-line no-import-assign
                 analytics.isSingleValue = jest
                     .fn()
                     .mockReturnValue(

@@ -13,9 +13,7 @@ const getDimensionChipEl = dimensionId => `${chipEl}-${dimensionId}`
 
 export const selectYoyCategoryOption = option => {
     cy.getBySel(yoyCategorySelectEl).click()
-    cy.getBySelLike(youCategorySelectOptionEl)
-        .contains(option)
-        .click()
+    cy.getBySelLike(youCategorySelectOptionEl).contains(option).click()
 }
 
 export const expectAxisToHaveDimension = (axisId, dimensionId) => {

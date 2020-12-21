@@ -92,6 +92,7 @@ const isYearOverYearMockResponse = visType => {
 }
 
 describe('VisualizationPlugin', () => {
+    // eslint-disable-next-line no-import-assign, import/namespace
     options.getOptionsForRequest = () => [
         ['option1', { defaultValue: 'abc' }],
         ['option2', { defaultValue: null }],
@@ -124,6 +125,7 @@ describe('VisualizationPlugin', () => {
         defaultProps.onResponsesReceived.mockClear()
         defaultProps.onError.mockClear()
 
+        // eslint-disable-next-line no-import-assign, import/namespace
         api.apiFetchAnalytics = jest
             .fn()
             .mockResolvedValue([new MockAnalyticsResponse()])
@@ -155,6 +157,7 @@ describe('VisualizationPlugin', () => {
         })
 
         it('calls onError callback when an exception is thrown', async () => {
+            // eslint-disable-next-line no-import-assign, import/namespace
             api.apiFetchAnalytics = jest.fn().mockRejectedValue('error')
 
             await canvas()
@@ -182,11 +185,13 @@ describe('VisualizationPlugin', () => {
             beforeEach(() => {
                 ChartPlugin.mockClear()
 
+                /* eslint-disable no-import-assign, import/namespace */
                 api.apiFetchAnalyticsForYearOverYear = jest
                     .fn()
                     .mockResolvedValue(new MockYoYAnalyticsResponse())
 
                 analytics.isYearOverYear = jest.fn(isYearOverYearMockResponse)
+                /* eslint-enable no-import-assign, import/namespace */
             })
 
             it('makes year-on-year analytics request', async () => {

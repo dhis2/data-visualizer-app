@@ -167,7 +167,6 @@ export class Visualization extends Component {
                 ) : null}
                 <VisualizationPlugin
                     id={renderId}
-                    d2={this.context.d2}
                     visualization={visualization}
                     filters={visFilters}
                     onChartGenerated={this.onChartGenerated}
@@ -180,10 +179,6 @@ export class Visualization extends Component {
             </Fragment>
         )
     }
-}
-
-Visualization.contextTypes = {
-    d2: PropTypes.object,
 }
 
 Visualization.propTypes = {

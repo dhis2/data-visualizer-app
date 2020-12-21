@@ -1,9 +1,5 @@
 Cypress.Commands.add('getReduxState', prop =>
-    cy
-        .window()
-        .its('store')
-        .invoke('getState')
-        .its(prop)
+    cy.window().its('store').invoke('getState').its(prop)
 )
 
 Cypress.Commands.add('getBySel', (selector, ...args) =>

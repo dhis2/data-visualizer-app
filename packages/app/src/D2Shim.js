@@ -6,7 +6,6 @@ import { useState } from 'react'
 import { init as d2Init, config as d2Config, getUserSettings } from 'd2'
 
 import { extractUserSettings } from './modules/settings'
-import { apiFetchOrganisationUnitLevels } from './api/organisationUnits'
 
 import history from './modules/history'
 import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
@@ -37,9 +36,12 @@ const initD2 = async ({ baseUrl, apiVersion }, initConfig) => {
         baseUrl: apiUrl,
     })
 
-    const ouLevels = await apiFetchOrganisationUnitLevels()
-
-    return { location: history.location, baseUrl, d2, userSettings, ouLevels }
+    return {
+        location: history.location,
+        baseUrl,
+        d2,
+        userSettings,
+    }
 }
 
 export const D2Shim = ({ children, ...initConfig }) => {

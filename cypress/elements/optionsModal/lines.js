@@ -10,10 +10,6 @@ export const enableTrendLine = () =>
         .should('be.checked')
 
 export const selectTrendLineType = optionName => {
-    cy.getBySel(trendLineSelectEl)
-        .findBySel('dhis2-uicore-select')
-        .click()
-    cy.getBySel(trendLineSelectOptionEl)
-        .contains(optionName)
-        .click()
+    cy.getBySel(trendLineSelectEl).findBySel('dhis2-uicore-select').click()
+    cy.getBySel(trendLineSelectOptionEl).contains(optionName).click()
 }

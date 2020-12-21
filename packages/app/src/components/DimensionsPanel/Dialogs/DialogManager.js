@@ -89,7 +89,7 @@ export class DialogManager extends Component {
 
     fetchRecommended = debounce(async () => {
         const ids = await apiFetchRecommendedIds(
-            this.context.d2,
+            this.context.dataEngine,
             this.props.dxIds,
             this.props.ouIds
         )
@@ -311,6 +311,7 @@ export class DialogManager extends Component {
                         displayNameProp={displayNameProperty}
                         selectedDimensions={selectedItems}
                         infoBoxMessage={infoBoxMessage}
+                        dataEngine={this.context.dataEngine}
                         {...props}
                     />
                 )
@@ -365,7 +366,6 @@ export class DialogManager extends Component {
                         selectedItems={selectedItems}
                         dimensionId={dialogId}
                         onSelect={dimensionProps.onSelect}
-                        context={dimensionProps.d2}
                         // TODO: infoBoxMessage should ideally be implemented for all dimensions
                     />
                 )
@@ -451,6 +451,7 @@ export class DialogManager extends Component {
 
 DialogManager.contextTypes = {
     d2: PropTypes.object,
+    dataEngine: PropTypes.object,
 }
 
 DialogManager.propTypes = {

@@ -24,10 +24,7 @@ export const expectNoDataItemsToBeSelected = () =>
     cy.getBySel(selectedItemEl).should('not.exist')
 
 export const expectDataItemsAmountToBeSelected = amount =>
-    cy
-        .getBySel(selectedItemEl)
-        .should('be.visible')
-        .and('have.length', amount)
+    cy.getBySel(selectedItemEl).should('be.visible').and('have.length', amount)
 
 export const expectDataDimensionModalWarningToContain = text =>
     cy.getBySel(infoBoxEl).should('contain', text)
@@ -44,16 +41,10 @@ export const selectIndicators = indicators =>
     indicators.forEach(item => clickUnselectedItem(item))
 
 export const switchDataTab = tabName =>
-    cy
-        .getBySel(tabbarEl)
-        .contains(tabName)
-        .click()
+    cy.getBySel(tabbarEl).contains(tabName).click()
 
 const clickUnselectedItem = item =>
-    cy
-        .getBySel(unselectedListEl)
-        .contains(item)
-        .dblclick()
+    cy.getBySel(unselectedListEl).contains(item).dblclick()
 
 const switchToDataType = dataType => {
     cy.getBySel(dataTypesSelectButtonEl).click()
