@@ -277,8 +277,8 @@ export default (state = DEFAULT_UI, action) => {
                     ...state.itemsByDimension,
                     [dimensionId]: [
                         ...new Set([
-                            ...itemIds,
                             ...state.itemsByDimension[dimensionId],
+                            ...itemIds,
                         ]),
                     ],
                 },
