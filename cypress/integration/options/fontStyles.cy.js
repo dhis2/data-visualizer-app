@@ -15,10 +15,14 @@ import {
 } from '../../elements/dimensionModal'
 import { goToStartPage } from '../../elements/startScreen'
 import {
-    expectStoreConfigSubtitleToBeValue,
-    expectStoreConfigTitleToBeValue,
-} from '../../utils/store'
-import { expectVisualizationToBeVisible } from '../../elements/chart'
+    expectVisualizationToBeVisible,
+    expectChartTitleToBeVisible,
+    expectChartSubtitleToBeVisible,
+} from '../../elements/chart'
+import {
+    expectWindowConfigSubtitleToBeValue,
+    expectWindowConfigTitleToBeValue,
+} from '../../utils/window'
 import { TEST_DATA_ELEMENTS } from '../../utils/data'
 import {
     CONFIG_DEFAULT_SUBTITLE,
@@ -90,7 +94,8 @@ describe('Options - Font styles', () => {
         const type = TYPE_TITLE
 
         it('has default value', () => {
-            expectStoreConfigTitleToBeValue(CONFIG_DEFAULT_TITLE)
+            expectChartTitleToBeVisible()
+            expectWindowConfigTitleToBeValue(CONFIG_DEFAULT_TITLE)
         })
         it('opens Options -> Style', () => {
             clickMenuBarOptionsButton()
@@ -111,7 +116,7 @@ describe('Options - Font styles', () => {
         it('click the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
-        it(`config has font size ${TEST_FONT_SIZE_OPTION.value}, text align left, bold true, italic true`, () => {
+        it(`config has font size "${TEST_FONT_SIZE_OPTION.value}", text align left, bold true, italic true`, () => {
             const updatedTitle = getModifiedStyle({
                 originalStyle: CONFIG_DEFAULT_TITLE,
                 fontSize: TEST_FONT_SIZE_OPTION.value,
@@ -119,7 +124,9 @@ describe('Options - Font styles', () => {
                 isBold: true,
                 isItalic: true,
             })
-            expectStoreConfigTitleToBeValue(updatedTitle)
+
+            expectChartTitleToBeVisible()
+            expectWindowConfigTitleToBeValue(updatedTitle)
         })
     })
     describe('subtitle', () => {
@@ -136,7 +143,8 @@ describe('Options - Font styles', () => {
         const TEST_SUBTITLE_TEXT = 'Test subtitle'
 
         it('has default value', () => {
-            expectStoreConfigSubtitleToBeValue(CONFIG_DEFAULT_SUBTITLE)
+            expectChartSubtitleToBeVisible()
+            expectWindowConfigSubtitleToBeValue(CONFIG_DEFAULT_SUBTITLE)
         })
         it('opens Options -> Style', () => {
             clickMenuBarOptionsButton()
@@ -160,7 +168,7 @@ describe('Options - Font styles', () => {
         it('click the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
-        it(`config has font size ${TEST_FONT_SIZE_OPTION.value}, text align left, bold true, italic true`, () => {
+        it(`config has font size "${TEST_FONT_SIZE_OPTION.value}", text align left, bold true, italic true`, () => {
             const updatedSubtitle = getModifiedStyle({
                 originalStyle: CONFIG_DEFAULT_SUBTITLE,
                 fontSize: TEST_FONT_SIZE_OPTION.value,
@@ -169,7 +177,8 @@ describe('Options - Font styles', () => {
                 isItalic: true,
                 text: TEST_SUBTITLE_TEXT,
             })
-            expectStoreConfigSubtitleToBeValue(updatedSubtitle)
+            expectChartSubtitleToBeVisible()
+            expectWindowConfigSubtitleToBeValue(updatedSubtitle)
         })
     })
     /*  TODO: 

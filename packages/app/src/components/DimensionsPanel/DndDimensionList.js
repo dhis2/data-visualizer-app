@@ -14,7 +14,6 @@ import i18n from '@dhis2/d2-i18n'
 
 import DndDimensionItem from './DndDimensionItem'
 import * as fromReducers from '../../reducers'
-import { acSetUiActiveModalDialog } from '../../actions/ui'
 import { SOURCE_DIMENSIONS } from '../../modules/layout'
 
 import styles from './styles/DndDimensionList.module.css'
@@ -163,8 +162,4 @@ const mapStateToProps = state => ({
     lockedDimensions: getisLockedDimensionsMemo(state),
 })
 
-const mapDispatchToProps = dispatch => ({
-    onDimensionClick: id => dispatch(acSetUiActiveModalDialog(id)),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(DndDimensionList)
+export default connect(mapStateToProps)(DndDimensionList)

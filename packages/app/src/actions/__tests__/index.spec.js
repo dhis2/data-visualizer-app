@@ -1,8 +1,11 @@
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
+
+import * as analytics from '@dhis2/analytics'
 import * as fromActions from '../index'
 import * as api from '../../api/visualization'
 import * as history from '../../modules/history'
+import DataEngineMock from '../__mocks__/DataEngine'
 
 import {
     SET_VISUALIZATION,
@@ -26,28 +29,28 @@ import { GenericServerError } from '../../modules/error'
 
 import { VARIANT_SUCCESS } from '../../components/Snackbar/Snackbar'
 
-const middlewares = [thunk.withExtraArgument('dataEngine')]
+const dataEngineMock = new DataEngineMock()
+const middlewares = [thunk.withExtraArgument(dataEngineMock)]
 const mockStore = configureMockStore(middlewares)
 
 const rootOrganisationUnit = 'abc123'
 const relativePeriod = 'xyzpdq'
 const digitGroupSeparator = 'COMMA'
+/* eslint-disable no-import-assign, import/namespace */
 selectors.sGetRootOrgUnit = () => rootOrganisationUnit
 selectors.sGetRelativePeriod = () => relativePeriod
 selectors.sGetSettingsDigitGroupSeparator = () => digitGroupSeparator
+analytics.apiFetchOrganisationUnitLevels = () =>
+    Promise.resolve([
+        {
+            level: 2,
+            id: '2nd-floor',
+        },
+    ])
+/* eslint-enable no-import-assign, import/namespace */
 
 jest.mock('../../modules/orgUnit', () => ({
     convertOuLevelsToUids: (ouLevels, vis) => vis,
-}))
-
-jest.mock('../../api/organisationUnits', () => ({
-    apiFetchOrganisationUnitLevels: () =>
-        Promise.resolve([
-            {
-                level: 2,
-                id: '2nd-floor',
-            },
-        ]),
 }))
 
 describe('index', () => {
@@ -58,6 +61,7 @@ describe('index', () => {
                 interpretations: [{ id: 1, created: '2018-12-03' }],
             }
 
+            // eslint-disable-next-line no-import-assign, import/namespace
             api.apiFetchVisualization = () =>
                 Promise.resolve({ visualization: vis })
 
@@ -100,6 +104,7 @@ describe('index', () => {
                 interpretations: [interpretation],
             }
 
+            // eslint-disable-next-line no-import-assign, import/namespace
             api.apiFetchVisualization = () =>
                 Promise.resolve({ visualization: vis })
 
@@ -145,6 +150,7 @@ describe('index', () => {
 
         it('dispatches CLEAR_LOAD_ERROR last', () => {
             const vis = { name: 'hey' }
+            // eslint-disable-next-line no-import-assign, import/namespace
             api.apiFetchVisualization = () =>
                 Promise.resolve({ visualization: vis })
 
@@ -167,6 +173,7 @@ describe('index', () => {
         it('dispatches the correct actions when fetch visualization fails', () => {
             const error = new GenericServerError()
 
+            // eslint-disable-next-line no-import-assign, import/namespace
             api.apiFetchVisualization = () => Promise.reject(error)
 
             const expectedActions = [
@@ -348,6 +355,7 @@ describe('index', () => {
         history.default.push = jest.fn()
         history.default.replace = jest.fn()
 
+        // eslint-disable-next-line no-import-assign, import/namespace
         api.apiSaveVisualization = jest.fn(() => {
             return Promise.resolve({
                 status: 'OK',
@@ -368,7 +376,7 @@ describe('index', () => {
                 .then(() => {
                     expect(api.apiSaveVisualization).toHaveBeenCalled()
                     expect(api.apiSaveVisualization).toHaveBeenCalledWith(
-                        'dataEngine',
+                        dataEngineMock,
                         expectedVis
                     )
                     expect(history.default.replace).toHaveBeenCalled()
@@ -393,7 +401,7 @@ describe('index', () => {
                 .then(() => {
                     expect(api.apiSaveVisualization).toHaveBeenCalled()
                     expect(api.apiSaveVisualization).toHaveBeenCalledWith(
-                        'dataEngine',
+                        dataEngineMock,
                         expectedVis
                     )
                     expect(history.default.push).toHaveBeenCalled()

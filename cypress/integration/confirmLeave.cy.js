@@ -1,40 +1,35 @@
-import { DIMENSION_ID_DATA } from '@dhis2/analytics'
-
 import {
     expectAOTitleToBeDirty,
     expectAOTitleToNotBeDirty,
+    expectVisualizationToBeVisible,
     expectVisualizationToNotBeVisible,
+    expectChartTitleToBeVisible,
 } from '../elements/chart'
+import { replacePeriodItems } from '../elements/common'
 import {
     confirmLeave,
     expectConfirmLeaveModalToBeVisible,
 } from '../elements/confirmLeaveModal'
-import {
-    clickDimensionModalUpdateButton,
-    removeAllDataItems,
-    selectDataElements,
-} from '../elements/dimensionModal'
-import { expectNoDataItemsToBeSelected } from '../elements/dimensionModal/dataDimension'
-import { openDimension } from '../elements/dimensionsPanel'
-import { createNewAO, openRandomAO } from '../elements/fileMenu'
+import { createNewAO, openAOByName } from '../elements/fileMenu'
 import {
     expectStartScreenToBeVisible,
     goToStartPage,
 } from '../elements/startScreen'
-import { TEST_DATA_ELEMENTS } from '../utils/data'
+import { TEST_AOS } from '../utils/data'
 import { getRandomArrayItem } from '../utils/random'
 
 describe('confirm leave modal', () => {
+    const TEST_AO = getRandomArrayItem(TEST_AOS)
+
     it('navigates to the start page and loads a random saved AO', () => {
         goToStartPage()
-        openRandomAO()
+        openAOByName(TEST_AO.name)
+        expectChartTitleToBeVisible()
         expectAOTitleToNotBeDirty()
     })
-    it('replaces the data items', () => {
-        openDimension(DIMENSION_ID_DATA)
-        removeAllDataItems().then(() => expectNoDataItemsToBeSelected())
-        selectDataElements([getRandomArrayItem(TEST_DATA_ELEMENTS).name])
-        clickDimensionModalUpdateButton()
+    it(`replaces the selected period`, () => {
+        replacePeriodItems(TEST_AO.type)
+        expectVisualizationToBeVisible(TEST_AO.type)
         expectAOTitleToBeDirty()
     })
     it('tries to open a new AO', () => {
@@ -43,6 +38,7 @@ describe('confirm leave modal', () => {
     })
     it('cancel leave', () => {
         confirmLeave(false)
+        expectChartTitleToBeVisible()
         expectAOTitleToBeDirty()
     })
     it('tries to open a new AO', () => {
@@ -51,8 +47,8 @@ describe('confirm leave modal', () => {
     })
     it('confirm leave', () => {
         confirmLeave(true)
-        expectAOTitleToNotBeDirty()
-        expectVisualizationToNotBeVisible()
         expectStartScreenToBeVisible()
+        expectVisualizationToNotBeVisible()
+        expectAOTitleToNotBeDirty()
     })
 })

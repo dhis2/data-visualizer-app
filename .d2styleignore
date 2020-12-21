@@ -1,7 +1,8 @@
 /node_modules/*
+/coverage/*
 /packages/app/node_modules/*
 /packages/plugin/node_modules/*
 /packages/app/build/*
 /packages/plugin/build/*
-/coverage/*
-/cypress/fixtures
+/packages/app/src/locales/*
+/packages/plugin/src/locales/*

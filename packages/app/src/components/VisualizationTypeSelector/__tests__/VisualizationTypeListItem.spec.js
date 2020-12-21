@@ -25,18 +25,10 @@ describe('VisualizationTypeListItem component ', () => {
     })
 
     it('renders a div', () => {
-        expect(
-            element()
-                .find('div')
-                .first().length
-        ).toEqual(1)
+        expect(element().find('div').first().length).toEqual(1)
     })
 
     it('renders ListItemIcon', () => {
-        expect(
-            element()
-                .find(ListItemIcon)
-                .first().length
-        ).toEqual(1)
+        expect(element().find(ListItemIcon).first().length).toEqual(1)
     })
 })

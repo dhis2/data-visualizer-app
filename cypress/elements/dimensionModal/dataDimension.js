@@ -12,6 +12,8 @@ const dataElementsOptionEl =
 const removeAllButtonEl =
     'data-dimension-item-selector-selected-items-deselect-all-button'
 //const addAllButtonEl = 'data-dimension-item-selector-unselected-items-select-all-button'
+const tabbarEl = 'dialog-manager-modal-tabs'
+const infoBoxEl = 'data-dimension-item-selector-selected-items-info-box'
 
 export const expectDataDimensionModalToBeVisible = () =>
     expectDimensionModalToBeVisible(DIMENSION_ID_DATA)
@@ -19,16 +21,16 @@ export const expectDataDimensionModalToBeVisible = () =>
 export const removeAllDataItems = () => cy.getBySel(removeAllButtonEl).click()
 
 export const expectNoDataItemsToBeSelected = () =>
-    cy
-        .getBySel(selectedItemEl)
-        .should('not.be.visible')
-        .and('have.length', 0)
+    cy.getBySel(selectedItemEl).should('not.exist')
 
 export const expectDataItemsAmountToBeSelected = amount =>
-    cy
-        .getBySel(selectedItemEl)
-        .should('not.be.visible')
-        .and('have.length', amount)
+    cy.getBySel(selectedItemEl).should('be.visible').and('have.length', amount)
+
+export const expectDataDimensionModalWarningToContain = text =>
+    cy.getBySel(infoBoxEl).should('contain', text)
+
+export const expectDataItemToBeInactive = id =>
+    cy.getBySel(`dimension-item-${id}`).should('have.class', 'inactive-item')
 
 export const selectDataElements = dataElements => {
     switchToDataType(dataElementsOptionEl)
@@ -38,11 +40,11 @@ export const selectDataElements = dataElements => {
 export const selectIndicators = indicators =>
     indicators.forEach(item => clickUnselectedItem(item))
 
+export const switchDataTab = tabName =>
+    cy.getBySel(tabbarEl).contains(tabName).click()
+
 const clickUnselectedItem = item =>
-    cy
-        .getBySel(unselectedListEl)
-        .contains(item)
-        .dblclick()
+    cy.getBySel(unselectedListEl).contains(item).dblclick()
 
 const switchToDataType = dataType => {
     cy.getBySel(dataTypesSelectButtonEl).click()

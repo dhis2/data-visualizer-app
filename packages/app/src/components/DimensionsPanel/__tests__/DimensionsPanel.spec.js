@@ -25,6 +25,7 @@ describe('Dimensions component ', () => {
             axisItemHandler: () => {},
             removeItemHandler: () => {},
             getCurrentAxisId: () => '',
+            onDimensionClick: () => {},
         }
     })
 
@@ -33,9 +34,7 @@ describe('Dimensions component ', () => {
     })
 
     it('renders a div containing everything else', () => {
-        const wrappingDiv = dimensionsComponent()
-            .find('div')
-            .first()
+        const wrappingDiv = dimensionsComponent().find('div').first()
 
         expect(wrappingDiv.children()).toEqual(dimensionsComponent().children())
     })

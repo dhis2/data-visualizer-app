@@ -50,22 +50,13 @@ export const clickContextMenuDimSubMenu = dimensionId =>
         .click()
 
 export const filterDimensionsByText = searchInput =>
-    cy
-        .getBySel(filterInputEl)
-        .find('input')
-        .type(searchInput)
+    cy.getBySel(filterInputEl).find('input').type(searchInput)
 
 export const clearDimensionsFilter = () =>
-    cy
-        .getBySel(filterInputEl)
-        .find('input')
-        .clear()
+    cy.getBySel(filterInputEl).find('input').clear()
 
 export const expectFixedDimensionsToHaveLength = length =>
-    cy
-        .getBySel(fixedDimsWrapperEl)
-        .children()
-        .should('have.length', length)
+    cy.getBySel(fixedDimsWrapperEl).children().should('have.length', length)
 
 export const expectDimensionToHaveSelectedStyle = dimensionId =>
     cy

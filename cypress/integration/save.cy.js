@@ -1,15 +1,9 @@
-import {
-    DIMENSION_ID_DATA,
-    DIMENSION_ID_PERIOD,
-    isYearOverYear,
-    visTypeDisplayNames,
-} from '@dhis2/analytics'
+import { DIMENSION_ID_DATA, visTypeDisplayNames } from '@dhis2/analytics'
 
 import { openDimension } from '../elements/dimensionsPanel'
 import {
     selectDataElements,
     clickDimensionModalUpdateButton,
-    selectRelativePeriods,
 } from '../elements/dimensionModal'
 import { changeVisType } from '../elements/visualizationTypeSelector'
 import {
@@ -42,15 +36,12 @@ import {
 } from '../elements/fileMenu'
 import { expectRouteToBeAOId, expectRouteToBeEmpty } from '../elements/route'
 import { getRandomVisType } from '../utils/random'
-import {
-    clickMenuBarFileButton,
-    clickMenuBarUpdateButton,
-} from '../elements/menuBar'
-import { selectYoyCategoryOption } from '../elements/layout'
+import { clickMenuBarFileButton } from '../elements/menuBar'
 import {
     expectStartScreenToBeVisible,
     goToStartPage,
 } from '../elements/startScreen'
+import { replacePeriodItems } from '../elements/common'
 
 const TEST_VIS_NAME = `TEST ${new Date().toLocaleString()}`
 const TEST_VIS_NAME_UPDATED = `${TEST_VIS_NAME} - updated`
@@ -69,6 +60,7 @@ describe('saving an AO', () => {
             changeVisType(TEST_VIS_TYPE_NAME)
         })
         it('adds Data dimension items', () => {
+            // FIXME: Won't work for Scatter, needs to add both vertical and horizontal items
             openDimension(DIMENSION_ID_DATA)
             selectDataElements(
                 TEST_DATA_ELEMENTS.slice(1, 2).map(item => item.name)
@@ -111,18 +103,8 @@ describe('saving an AO', () => {
             )
             closeFileMenu()
         })
-        it(`changes the period`, () => {
-            if (isYearOverYear(TEST_VIS_TYPE)) {
-                const TEST_PERIOD = 'Last 2 six-months'
-                selectYoyCategoryOption(TEST_PERIOD)
-                clickMenuBarUpdateButton()
-            } else {
-                const TEST_PERIOD_TYPE = 'Six-months'
-                const TEST_PERIOD = 'Last six-month'
-                openDimension(DIMENSION_ID_PERIOD)
-                selectRelativePeriods([TEST_PERIOD], TEST_PERIOD_TYPE)
-                clickDimensionModalUpdateButton()
-            }
+        it(`replaces the selected period`, () => {
+            replacePeriodItems(TEST_VIS_TYPE)
             expectAOTitleToBeDirty()
             expectVisualizationToBeVisible(TEST_VIS_TYPE)
         })
@@ -144,15 +126,8 @@ describe('saving an AO', () => {
             goToStartPage()
             openAOByName(TEST_VIS_NAME_UPDATED)
         })
-        it(`changes the period`, () => {
-            if (isYearOverYear(TEST_VIS_TYPE)) {
-                selectYoyCategoryOption('Quarters per year')
-                clickMenuBarUpdateButton()
-            } else {
-                openDimension('pe')
-                selectRelativePeriods(['Last quarter'], 'Quarters')
-                clickDimensionModalUpdateButton()
-            }
+        it(`replaces the selected period`, () => {
+            replacePeriodItems(TEST_VIS_TYPE, { useAltData: true })
             expectAOTitleToBeDirty()
         })
         it('saves AO using "Save"', () => {
@@ -161,7 +136,8 @@ describe('saving an AO', () => {
             expectAOTitleToBeValue(TEST_VIS_NAME)
             expectVisualizationToBeVisible(TEST_VIS_TYPE)
         })
-        it('deletes AO', () => {
+        it.skip('deletes AO', () => {
+            // FIXME: Unskip once https://jira.dhis2.org/browse/DHIS2-10140 is done
             deleteAO()
             expectRouteToBeEmpty()
             expectStartScreenToBeVisible()

@@ -7,6 +7,7 @@ import {
     VIS_TYPE_GAUGE,
     VIS_TYPE_SINGLE_VALUE,
     VIS_TYPE_PIVOT_TABLE,
+    VIS_TYPE_SCATTER,
     getPredefinedDimensionProp,
     dimensionIsValid,
     layoutGetDimension,
@@ -21,7 +22,12 @@ import {
     NoPeriodError,
     NoDataError,
     NoSeriesOrCategoryError,
+    NoPointsError,
+    NoVerticalError,
+    NoHorizontalError,
+    DuplicateItemsError,
 } from './error'
+import { ITEM_ATTRIBUTE_HORIZONTAL, ITEM_ATTRIBUTE_VERTICAL } from './ui'
 
 // Layout validation helper functions
 const isAxisValid = axis =>
@@ -100,6 +106,29 @@ const validateSingleValueLayout = layout => {
     )
 }
 
+const validateScatterLayout = layout => {
+    const verticalItems =
+        layout.ui.itemAttributes?.filter(
+            item => item.attribute === ITEM_ATTRIBUTE_VERTICAL
+        ) || []
+    const horizontalItems =
+        layout.ui.itemAttributes?.filter(
+            item => item.attribute === ITEM_ATTRIBUTE_HORIZONTAL
+        ) || []
+    if (!verticalItems.length) {
+        throw new NoVerticalError()
+    } else if (!horizontalItems.length) {
+        throw new NoHorizontalError()
+    } else if (verticalItems[0].id === horizontalItems[0].id) {
+        throw new DuplicateItemsError()
+    }
+    validateAxis(layout.rows, new NoPointsError(layout.type))
+    validateDimension(
+        layoutGetDimension(layout, DIMENSION_ID_PERIOD),
+        new NoPeriodError(layout.type)
+    )
+}
+
 export const validateLayout = layout => {
     switch (layout.type) {
         case VIS_TYPE_PIE:
@@ -112,6 +141,8 @@ export const validateLayout = layout => {
             return validateSingleValueLayout(layout)
         case VIS_TYPE_PIVOT_TABLE:
             return validatePivotTableLayout(layout)
+        case VIS_TYPE_SCATTER:
+            return validateScatterLayout(layout)
         default:
             return validateDefaultLayout(layout)
     }

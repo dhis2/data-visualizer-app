@@ -42,9 +42,7 @@ export const createNewAO = () => {
 
 export const deleteAO = () => {
     clickMenuBarFileButton()
-    cy.get(fileMenuItemEl)
-        .contains(FILE_MENU_BUTTON_DELETE)
-        .click()
+    cy.get(fileMenuItemEl).contains(FILE_MENU_BUTTON_DELETE).click()
     cy.get(deleteModalEl)
         .find('button')
         .contains(FILE_MENU_BUTTON_DELETE)

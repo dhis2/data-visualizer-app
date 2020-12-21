@@ -11,10 +11,7 @@ export const enableVerticalAxisTitle = () =>
         .should('be.checked')
 
 export const setVerticalAxisTitle = text =>
-    cy
-        .getBySel(titleInputEl)
-        .find('input')
-        .type(text)
+    cy.getBySel(titleInputEl).find('input').type(text)
 
 export const expectVerticalAxisTitleToBeValue = value =>
     cy
@@ -24,10 +21,7 @@ export const expectVerticalAxisTitleToBeValue = value =>
         .and('have.value', value)
 
 export const setVerticalAxisRangeMinValue = value =>
-    cy
-        .getBySel(rangeMinInputEl)
-        .find('input')
-        .type(value)
+    cy.getBySel(rangeMinInputEl).find('input').type(value)
 
 export const expectVerticalAxisRangeMinToBeValue = value =>
     cy
@@ -37,10 +31,7 @@ export const expectVerticalAxisRangeMinToBeValue = value =>
         .and('have.value', value)
 
 export const setVerticalAxisRangeMaxValue = value =>
-    cy
-        .getBySel(rangeMaxInputEl)
-        .find('input')
-        .type(value)
+    cy.getBySel(rangeMaxInputEl).find('input').type(value)
 
 export const expectVerticalAxisRangeMaxToBeValue = value =>
     cy

@@ -37,42 +37,27 @@ describe('TitleBar component', () => {
         props.titleState = STATE_UNSAVED
         props.titleText = getTitleUnsaved()
         expect(titleBar().find('div')).toHaveLength(2)
-        expect(
-            titleBar()
-                .find('div')
-                .first()
-                .text()
-        ).toEqual(getTitleUnsaved())
+        expect(titleBar().find('div').first().text()).toEqual(getTitleUnsaved())
     })
 
     it('renders "saved" state', () => {
         props.titleState = STATE_SAVED
         props.titleText = 'Yall'
         expect(titleBar().find('div')).toHaveLength(2)
-        expect(
-            titleBar()
-                .find('div')
-                .first()
-                .text()
-        ).toEqual('Yall')
+        expect(titleBar().find('div').first().text()).toEqual('Yall')
     })
 
     it('renders "dirty" state', () => {
         props.titleState = STATE_DIRTY
         props.titleText = 'Yall'
         expect(titleBar().find('div')).toHaveLength(3)
-        expect(
-            titleBar()
-                .find('div')
-                .first()
-                .text()
-        ).toEqual(`Yall- ${getTitleDirty()}`)
+        expect(titleBar().find('div').first().text()).toEqual(
+            `Yall- ${getTitleDirty()}`
+        )
     })
 
     it('renders a <div> containing everything else', () => {
-        const wrappingDiv = titleBar()
-            .find('div')
-            .first()
+        const wrappingDiv = titleBar().find('div').first()
 
         expect(wrappingDiv.children()).toEqual(titleBar().children())
     })
@@ -82,11 +67,8 @@ describe('TitleBar component', () => {
         props.titleText = 'Yall'
         props.interpretationDate = 'aeons ago'
         expect(titleBar().find('div')).toHaveLength(5)
-        expect(
-            titleBar()
-                .find('div')
-                .last()
-                .text()
-        ).toEqual(`Viewing interpretation from ${props.interpretationDate}`)
+        expect(titleBar().find('div').last().text()).toEqual(
+            `Viewing interpretation from ${props.interpretationDate}`
+        )
     })
 })

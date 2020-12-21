@@ -30,19 +30,15 @@ describe('DV > Options > CheckboxBaseOption', () => {
     })
 
     it('renders a label for checkbox', () => {
-        expect(
-            checkboxBaseOption(props)
-                .find(Checkbox)
-                .props().label
-        ).toEqual(props.label)
+        expect(checkboxBaseOption(props).find(Checkbox).props().label).toEqual(
+            props.label
+        )
     })
 
     it('renders the checkbox with the correct checked state', () => {
-        expect(
-            checkboxBaseOption(props)
-                .find(Checkbox)
-                .props().checked
-        ).toBe(props.value)
+        expect(checkboxBaseOption(props).find(Checkbox).props().checked).toBe(
+            props.value
+        )
     })
 
     it('should trigger the onChange callback on checkbox change', () => {

@@ -6,7 +6,4 @@ export const confirmLeave = shouldLeave =>
     cy.getBySel(shouldLeave ? optionConfirm : optionCancel).click()
 
 export const expectConfirmLeaveModalToBeVisible = () =>
-    cy
-        .getBySel(confirmLeaveModalEl)
-        .should('have.length', 1)
-        .and('be.visible')
+    cy.getBySel(confirmLeaveModalEl).should('have.length', 1).and('be.visible')

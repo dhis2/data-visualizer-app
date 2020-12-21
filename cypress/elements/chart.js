@@ -14,6 +14,7 @@ const visualizationSubtitleEl = 'visualization-subtitle'
 const chartContainerEl = '.highcharts-container'
 const highchartsLegendEl = '.highcharts-legend'
 const highchartsTitleEl = '.highcharts-title'
+const highchartsSubtitleEl = '.highcharts-subtitle'
 //const higchartsLegendItemEl = '.highcharts-legend-item'
 const unsavedVisualizationTitleText = 'Unsaved visualization'
 const AOTitleEl = 'AO-title'
@@ -37,19 +38,19 @@ const expectVisualizationContainerToBeVisible = () =>
     cy.getBySel(visualizationContainerEl, timeout).should('be.visible')
 
 const expectVisualizationContainerToNotBeVisible = () =>
-    cy
-        .getBySel(visualizationContainerEl, timeout)
-        .should('not.be.visible')
-        .and('have.length', 0)
+    cy.getBySel(visualizationContainerEl, timeout).should('not.exist')
 
 const expectChartContainerToBeVisible = () =>
     cy.get(chartContainerEl, timeout).should('be.visible')
 
+export const expectChartTitleToBeVisible = () =>
+    cy.get(highchartsTitleEl, timeout).should('be.visible')
+
+export const expectChartSubtitleToBeVisible = () =>
+    cy.get(highchartsSubtitleEl, timeout).should('be.visible')
+
 const expectChartContainerToNotBeVisible = () =>
-    cy
-        .get(chartContainerEl, timeout)
-        .should('not.be.visible')
-        .and('have.length', 0)
+    cy.get(chartContainerEl, timeout).should('not.exist')
 
 // TODO: Expand to support items that are not in Columns
 export const expectChartToContainDimensionItem = (visType, itemName) => {
@@ -100,13 +101,7 @@ export const expectAOTitleToBeUnsaved = () =>
         .and('contain', unsavedVisualizationTitleText)
 
 export const expectAOTitleToBeDirty = () =>
-    cy
-        .getBySel(AOTitleDirtyEl)
-        .should('have.length', 1)
-        .and('be.visible')
+    cy.getBySel(AOTitleDirtyEl).should('have.length', 1).and('be.visible')
 
 export const expectAOTitleToNotBeDirty = () =>
-    cy
-        .getBySel(AOTitleDirtyEl)
-        .should('have.length', 0)
-        .and('not.be.visible')
+    cy.getBySel(AOTitleDirtyEl).should('not.exist')

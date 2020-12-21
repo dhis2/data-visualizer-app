@@ -139,7 +139,7 @@ export class App extends Component {
         store.dispatch(
             fromActions.fromUser.tLoadUserAuthority(APPROVAL_LEVEL_OPTION_AUTH)
         )
-        store.dispatch(fromActions.fromDimensions.tSetDimensions(d2))
+        store.dispatch(fromActions.fromDimensions.tSetDimensions())
 
         const rootOrgUnit = this.props.settings.rootOrganisationUnit
 
@@ -223,6 +223,7 @@ export class App extends Component {
             baseUrl: this.props.baseUrl,
             i18n,
             d2: this.props.d2,
+            dataEngine: this.props.dataEngine,
         }
     }
 
@@ -353,6 +354,7 @@ App.contextTypes = {
 
 App.childContextTypes = {
     d2: PropTypes.object,
+    dataEngine: PropTypes.object,
     baseUrl: PropTypes.string,
     i18n: PropTypes.object,
 }
@@ -364,6 +366,7 @@ App.propTypes = {
     clearVisualization: PropTypes.func,
     current: PropTypes.object,
     d2: PropTypes.object,
+    dataEngine: PropTypes.object,
     interpretation: PropTypes.object,
     location: PropTypes.object,
     ouLevels: PropTypes.array,

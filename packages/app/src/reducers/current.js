@@ -4,6 +4,7 @@ import {
     VIS_TYPE_PIE,
     VIS_TYPE_GAUGE,
     VIS_TYPE_SINGLE_VALUE,
+    VIS_TYPE_SCATTER,
 } from '@dhis2/analytics'
 
 import {
@@ -13,6 +14,7 @@ import {
     getYearOverYearCurrentFromUi,
     getSingleValueCurrentFromUi,
     getSeriesFromUi,
+    getScatterCurrentFromUi,
 } from '../modules/current'
 import { BASE_FIELD_TYPE } from '../modules/fields/baseFields'
 
@@ -51,6 +53,8 @@ export default (state = DEFAULT_CURRENT, action) => {
                 case VIS_TYPE_YEAR_OVER_YEAR_LINE:
                 case VIS_TYPE_YEAR_OVER_YEAR_COLUMN:
                     return getYearOverYearCurrentFromUi(state, action)
+                case VIS_TYPE_SCATTER:
+                    return getScatterCurrentFromUi(state, action)
                 default: {
                     return getDefaultFromUi(state, action)
                 }
@@ -78,6 +82,8 @@ export const sGetCurrentFromUi = state => {
         case VIS_TYPE_YEAR_OVER_YEAR_LINE:
         case VIS_TYPE_YEAR_OVER_YEAR_COLUMN:
             return getYearOverYearCurrentFromUi(state, { value: ui })
+        case VIS_TYPE_SCATTER:
+            return getScatterCurrentFromUi(state, { value: ui })
         default: {
             return getDefaultFromUi(state, { value: ui })
         }

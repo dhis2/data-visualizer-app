@@ -10,16 +10,13 @@ export const TYPE_TITLE = 'title'
 export const TYPE_SUBTITLE = 'subtitle'
 
 export const clickOptionsTab = name =>
-    cy
-        .getBySel(tabBarEl)
-        .contains(name)
-        .click()
+    cy.getBySel(tabBarEl).contains(name).click()
 
 export const expectOptionsModalToBeVisible = () =>
     cy.getBySel(optionsModalEl).should('be.visible')
 
 export const expectOptionsModalToNotBeVisible = () =>
-    cy.getBySelLike(optionsModalEl).should('not.be.visible')
+    cy.getBySelLike(optionsModalEl).should('not.exist')
 
 export const clickOptionsModalUpdateButton = () =>
     cy.getBySel(optionsModalUpdateButtonEl).click()

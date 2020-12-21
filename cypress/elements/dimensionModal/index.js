@@ -6,7 +6,7 @@ export const expectDimensionModalToBeVisible = dimensionId =>
     cy.getBySel(`${dimensionModalEl}-${dimensionId}`).should('be.visible')
 
 export const expectDimensionModalToNotBeVisible = () =>
-    cy.getBySelLike(dimensionModalEl).should('not.be.visible')
+    cy.getBySelLike(dimensionModalEl).should('not.exist')
 
 export const clickDimensionModalUpdateButton = () =>
     cy.getBySel(dimensionModalUpdateButtonEl).click()
@@ -14,12 +14,18 @@ export const clickDimensionModalUpdateButton = () =>
 export const clickDimensionModalHideButton = () =>
     cy.getBySel(dimensionModalHideButtonEl).click()
 
-export { selectDataElements, removeAllDataItems } from './dataDimension'
+export {
+    selectDataElements,
+    removeAllDataItems,
+    selectIndicators,
+    switchDataTab,
+    expectDataDimensionModalWarningToContain,
+    expectDataItemToBeInactive,
+} from './dataDimension'
 
 export { selectRelativePeriods, selectFixedPeriods } from './periodDimension'
 
 export {
     expectOrgUnitDimensionModalToBeVisible,
-    removeAllOrgUnitItems,
     clickOrgUnitTreeItem,
 } from './orgUnitDimension'

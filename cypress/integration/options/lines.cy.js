@@ -7,10 +7,13 @@ import {
 } from '../../elements/dimensionModal'
 import { goToStartPage } from '../../elements/startScreen'
 import {
-    expectStoreConfigSeriesToHaveTrendline,
-    expectStoreConfigSeriesToNotHaveTrendline,
-} from '../../utils/store'
-import { expectVisualizationToBeVisible } from '../../elements/chart'
+    expectVisualizationToBeVisible,
+    expectChartTitleToBeVisible,
+} from '../../elements/chart'
+import {
+    expectWindowConfigSeriesToHaveTrendline,
+    expectWindowConfigSeriesToNotHaveTrendline,
+} from '../../utils/window'
 import { TEST_DATA_ELEMENTS } from '../../utils/data'
 import { clickMenuBarOptionsButton } from '../../elements/menuBar'
 import {
@@ -42,7 +45,8 @@ describe('Options - Lines', () => {
         ]
 
         it('has no trend line', () => {
-            expectStoreConfigSeriesToNotHaveTrendline()
+            expectChartTitleToBeVisible()
+            expectWindowConfigSeriesToNotHaveTrendline()
         })
 
         trendLineTypes.forEach(trendLineType => {
@@ -59,15 +63,16 @@ describe('Options - Lines', () => {
                 })
                 it('click the modal update button', () => {
                     clickOptionsModalUpdateButton()
+                    expectChartTitleToBeVisible()
                 })
                 TEST_DATA_ELEMENT_NAMES.forEach(dataElement => {
-                    it(`config has ${dataElement} trendline`, () => {
+                    it(`config has "${dataElement}" trendline`, () => {
                         const trendline = {
                             ...CONFIG_DEFAULT_TREND_LINE,
                             type: trendLineType.type,
                             name: `${dataElement} (trend)`,
                         }
-                        expectStoreConfigSeriesToHaveTrendline(trendline)
+                        expectWindowConfigSeriesToHaveTrendline(trendline)
                     })
                 })
             })
