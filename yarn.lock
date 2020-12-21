@@ -1473,7 +1473,7 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^12.0.2", "@dhis2/analytics@^12.1.0":
+"@dhis2/analytics@^12.1.0":
   version "12.1.0"
   resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-12.1.0.tgz#920b6299152fab4a92b81fe70ab9bcfdf5e47ba6"
   integrity sha512-2GjP0oBS6/own3mer+7MkzjaL3jKaTq+YIu+BTLi4g/Kvv4xO1oKRNJCn3B/g92X97sjsdW6yP49S8Ml1FYiig==
@@ -13165,7 +13165,7 @@ react-transition-group@^2.2.1:
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
 
-react@^16.13, react@^16.8.6:
+react@^16.8.6:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
   integrity sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w==
@@ -13173,6 +13173,14 @@ react@^16.13, react@^16.8.6:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
+
+react@^17.0:
+  version "17.0.1"
+  resolved "https://registry.yarnpkg.com/react/-/react-17.0.1.tgz#6e0600416bd57574e3f86d92edba3d9008726127"
+  integrity sha512-lG9c9UuMHdcAexXtigOZLX8exLWkW0Ku29qPRU8uhF2R9BN96dLCt0psvzPLlHc5OWkgymP3qwTRgbnw5BKx3w==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
 
 read-only-stream@^2.0.0:
   version "2.0.0"
