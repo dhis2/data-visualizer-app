@@ -15,14 +15,14 @@ import {
 } from '../../elements/dimensionModal'
 import { goToStartPage } from '../../elements/startScreen'
 import {
-    expectStoreConfigSubtitleToBeValue,
-    expectStoreConfigTitleToBeValue,
-} from '../../utils/store'
-import {
     expectVisualizationToBeVisible,
     expectChartTitleToBeVisible,
     expectChartSubtitleToBeVisible,
 } from '../../elements/chart'
+import {
+    expectWindowConfigSubtitleToBeValue,
+    expectWindowConfigTitleToBeValue,
+} from '../../utils/window'
 import { TEST_DATA_ELEMENTS } from '../../utils/data'
 import {
     CONFIG_DEFAULT_SUBTITLE,
@@ -95,7 +95,7 @@ describe('Options - Font styles', () => {
 
         it('has default value', () => {
             expectChartTitleToBeVisible()
-            expectStoreConfigTitleToBeValue(CONFIG_DEFAULT_TITLE)
+            expectWindowConfigTitleToBeValue(CONFIG_DEFAULT_TITLE)
         })
         it('opens Options -> Style', () => {
             clickMenuBarOptionsButton()
@@ -126,7 +126,7 @@ describe('Options - Font styles', () => {
             })
 
             expectChartTitleToBeVisible()
-            expectStoreConfigTitleToBeValue(updatedTitle)
+            expectWindowConfigTitleToBeValue(updatedTitle)
         })
     })
     describe('subtitle', () => {
@@ -144,7 +144,7 @@ describe('Options - Font styles', () => {
 
         it('has default value', () => {
             expectChartSubtitleToBeVisible()
-            expectStoreConfigSubtitleToBeValue(CONFIG_DEFAULT_SUBTITLE)
+            expectWindowConfigSubtitleToBeValue(CONFIG_DEFAULT_SUBTITLE)
         })
         it('opens Options -> Style', () => {
             clickMenuBarOptionsButton()
@@ -178,7 +178,7 @@ describe('Options - Font styles', () => {
                 text: TEST_SUBTITLE_TEXT,
             })
             expectChartSubtitleToBeVisible()
-            expectStoreConfigSubtitleToBeValue(updatedSubtitle)
+            expectWindowConfigSubtitleToBeValue(updatedSubtitle)
         })
     })
     /*  TODO: 
