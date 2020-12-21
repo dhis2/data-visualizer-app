@@ -1,3 +1,11 @@
+## [35.16.3](https://github.com/dhis2/data-visualizer-app/compare/v35.16.2...v35.16.3) (2020-12-21)
+
+
+### Bug Fixes
+
+* bump Analytics dep ([#1538](https://github.com/dhis2/data-visualizer-app/issues/1538)) ([2053a04](https://github.com/dhis2/data-visualizer-app/commit/2053a045ce7ae625f0c11dce67d6f3ca0a01c2c0))
+* use config from window instead of from store ([#1532](https://github.com/dhis2/data-visualizer-app/issues/1532)) ([2bab417](https://github.com/dhis2/data-visualizer-app/commit/2bab417f15388d5fd8085eee9305030ed7eec907))
+
 ## [35.16.2](https://github.com/dhis2/data-visualizer-app/compare/v35.16.1...v35.16.2) (2020-12-16)
 
 
