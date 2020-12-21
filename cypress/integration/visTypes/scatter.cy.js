@@ -20,8 +20,10 @@ import {
     expectStartScreenToBeVisible,
     goToStartPage,
 } from '../../elements/startScreen'
-import { expectStoreCurrentColumnsToHaveLength } from '../../utils/store'
-import { expectVisualizationToBeVisible } from '../../elements/chart'
+import {
+    expectVisualizationToBeVisible,
+    expectChartTitleToBeVisible,
+} from '../../elements/chart'
 import { TEST_INDICATORS } from '../../utils/data'
 import { clickMenuBarUpdateButton } from '../../elements/menuBar'
 import {
@@ -60,7 +62,8 @@ describe('using a Scatter chart', () => {
         selectIndicators([TEST_INDICATOR_NAMES[1]])
         clickDimensionModalUpdateButton()
         expectVisualizationToBeVisible(VIS_TYPE_SCATTER)
-        expectStoreCurrentColumnsToHaveLength(1)
+        expectChartTitleToBeVisible()
+        //expectStoreCurrentColumnsToHaveLength(1) // FIXME: Store is always in default state
         expectVerticalToContainDimensionLabel(TEST_INDICATOR_NAMES[0])
         expectHorizontalToContainDimensionLabel(TEST_INDICATOR_NAMES[1])
     })
