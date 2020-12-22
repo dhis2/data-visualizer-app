@@ -1,17 +1,17 @@
 # 
 # Translators:
-# Sheila André <sandre@saudigitus.org>, 2020
 # phil_dhis2, 2020
+# Viktor Varland <viktor@dhis2.org>, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
 # Ge Joao <gsimango@saudigitus.org>, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
+# Sheila André <sandre@saudigitus.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"PO-Revision-Date: 2020-12-22 22:14+0000\n"
+"Last-Translator: Sheila André <sandre@saudigitus.org>, 2020\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -101,7 +101,7 @@ msgid "Metadata ID scheme"
 msgstr "Esquema de ID de metadados"
 
 msgid "ID"
-msgstr "Id"
+msgstr "ID"
 
 msgid "Code"
 msgstr "Código"
@@ -258,7 +258,7 @@ msgid "Sum"
 msgstr "Soma"
 
 msgid "Last value"
-msgstr "Ultimo valor "
+msgstr "Último valor"
 
 msgid "Last value (average in org unit hierarchy)"
 msgstr "Último valor (média na hierarquia da unidade organizacional)"
@@ -684,7 +684,9 @@ msgstr ""
 "Dados no filtro."
 
 msgid "Data Element Group Sets and Reporting Rates cannot be used together."
-msgstr "Data Element Group Sets and Reporting Rates cannot be used together."
+msgstr ""
+"Conjuntos de grupos de elementos de dados e taxas de relatório não podem ser"
+" usados ​​juntos."
 
 msgid "There is a problem with this {{visualizationType}} visualization."
 msgstr "Há um problema com esta visualização {{visualizationType}}."

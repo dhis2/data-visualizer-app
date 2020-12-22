@@ -1,16 +1,16 @@
 # 
 # Translators:
-# phil_dhis2, 2020
-# 晓东 林 <13981924470@126.com>, 2020
 # easylin <lin_xd@126.com>, 2020
+# phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
+# 晓东 林 <13981924470@126.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"PO-Revision-Date: 2020-12-22 22:14+0000\n"
+"Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -129,7 +129,7 @@ msgid "Data value set"
 msgstr "数据值集"
 
 msgid "Other formats"
-msgstr "其它格式"
+msgstr "Other formats"
 
 msgid "JRXML"
 msgstr "JRXML"
@@ -156,7 +156,7 @@ msgid "Hide"
 msgstr "隐藏"
 
 msgid "Interpretations"
-msgstr "注释"
+msgstr "解释"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr "选择了 {{axisMaxNumberOfItems}} 中的{{total}} "
@@ -197,7 +197,7 @@ msgstr "选择年份"
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
-msgstr ""
+msgstr "无法删除此可视化，因为它已在一个或多个仪表板上使用"
 
 msgid "Unsaved visualization"
 msgstr "没有保存可视化"
@@ -244,7 +244,7 @@ msgid "Average"
 msgstr "平均"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr "平均 (按机构体系结构求和)"
+msgstr "平均 (按机构体系求和)"
 
 msgid "Sum"
 msgstr "求和"
@@ -253,7 +253,7 @@ msgid "Last value"
 msgstr "最近值"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr "最近值(按机构体系平均)"
+msgstr "最近值 (按机构体系求平均)"
 
 msgid "Min"
 msgstr "最小"
@@ -265,7 +265,7 @@ msgid "Standard deviation"
 msgstr "标准差"
 
 msgid "Variance"
-msgstr "方差"
+msgstr "差异"
 
 msgid "Data approved at level"
 msgstr "数据确认等级"
@@ -295,7 +295,7 @@ msgid "Base line title"
 msgstr "基线标题"
 
 msgid "Number"
-msgstr "数字"
+msgstr "数据"
 
 msgid "Labels"
 msgstr "标签"
@@ -322,7 +322,7 @@ msgid "Color blind"
 msgstr "色盲"
 
 msgid "Patterns"
-msgstr ""
+msgstr "模式"
 
 msgid "Event data"
 msgstr "事件数据"
@@ -340,7 +340,7 @@ msgid "Digit group separator"
 msgstr "数字分隔符"
 
 msgid "None"
-msgstr "无"
+msgstr "没有"
 
 msgid "Space"
 msgstr "空格"
@@ -474,7 +474,7 @@ msgid "Percentage of column"
 msgstr "列百分比"
 
 msgid "Organisation unit"
-msgstr "组织机构"
+msgstr "机构"
 
 msgid "Parent organisation unit"
 msgstr "上级组织机构"
@@ -542,12 +542,12 @@ msgid "There aren't any Series options for this visualization type"
 msgstr "该可视化类型没有任何系列选项"
 
 msgid "Series options unavailable"
-msgstr ""
+msgstr "系列选项不可用"
 
 msgid ""
 "Series options are not available when using relative selections for periods,"
 " org units or categories"
-msgstr ""
+msgstr "在对期间，组织单位或类别使用相对选择时，系列选项不可用"
 
 msgid "Value labels"
 msgstr "值标签"
@@ -706,7 +706,7 @@ msgid "Yesterday"
 msgstr "昨天"
 
 msgid "Last 3 days"
-msgstr "最近3天"
+msgstr "最近三天"
 
 msgid "Last 7 days"
 msgstr "最近7天"
@@ -715,7 +715,7 @@ msgid "Last 14 days"
 msgstr "最近14天"
 
 msgid "This week"
-msgstr "本周"
+msgstr "本年"
 
 msgid "Last week"
 msgstr "上周"
@@ -730,7 +730,7 @@ msgid "Last 52 weeks"
 msgstr "最近52周"
 
 msgid "Weeks this year"
-msgstr "今年的星期"
+msgstr "今年的几周"
 
 msgid "This month"
 msgstr "本月"
@@ -742,7 +742,7 @@ msgid "Last 3 months"
 msgstr "最近3个月"
 
 msgid "Last 6 months"
-msgstr "最近六个月<br>"
+msgstr "最近6个月"
 
 msgid "Last 12 months"
 msgstr "最近12月"
@@ -757,34 +757,34 @@ msgid "Last bimonth"
 msgstr "最近俩月"
 
 msgid "Last 6 bimonths"
-msgstr "最近六个俩月"
+msgstr "最近6个俩月"
 
 msgid "Bimonths this year"
 msgstr "今年的俩月"
 
 msgid "This quarter"
-msgstr "本季"
+msgstr "本季度"
 
 msgid "Last quarter"
 msgstr "最近一季"
 
 msgid "Last 4 quarters"
-msgstr "最近四个季度"
+msgstr "最近4个季度"
 
 msgid "Quarters this year"
 msgstr "今年的季度"
 
 msgid "This six-month"
-msgstr "本半年"
+msgstr "本六个月"
 
 msgid "Last six-month"
 msgstr "最近六个月"
 
 msgid "Last 2 six-months"
-msgstr "最近两个半年"
+msgstr "最近2个半年"
 
 msgid "This financial year"
-msgstr "本财政年"
+msgstr "本财年"
 
 msgid "Last financial year"
 msgstr "上一财政年"
@@ -844,7 +844,7 @@ msgid "Totals"
 msgstr "总共"
 
 msgid "Empty data"
-msgstr ""
+msgstr "空数据"
 
 msgid "Table title"
 msgstr "表标题"

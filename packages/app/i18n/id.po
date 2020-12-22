@@ -1,15 +1,17 @@
 # 
 # Translators:
-# Farida Sibuea <farida_sibuea@yahoo.com>, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
+# Guardian Sanjaya <gysanjaya@ugm.ac.id>, 2020
 # Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2020
+# phil_dhis2, 2020
+# Viktor Varland <viktor@dhis2.org>, 2020
+# Farida Sibuea <farida_sibuea@yahoo.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2020\n"
+"PO-Revision-Date: 2020-12-22 22:14+0000\n"
+"Last-Translator: Farida Sibuea <farida_sibuea@yahoo.com>, 2020\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -74,7 +76,7 @@ msgid "Filter dimensions"
 msgstr "Filter dimensi"
 
 msgid "Graphics"
-msgstr "Grafik"
+msgstr "Grafis"
 
 msgid "Image (.png)"
 msgstr "Gambar (.png)"
@@ -110,7 +112,7 @@ msgid "Download"
 msgstr "Unduh"
 
 msgid "Plain data source"
-msgstr "Sumber data asli"
+msgstr "Sumber data mentah"
 
 msgid "JSON"
 msgstr "JSON"
@@ -125,7 +127,7 @@ msgid "CSV"
 msgstr "CSV"
 
 msgid "Advanced"
-msgstr "Lebih Lanjut"
+msgstr "Lanjut"
 
 msgid "Data value set"
 msgstr "Set nilai data"
@@ -182,7 +184,7 @@ msgid "Levels"
 msgstr "Level"
 
 msgid "Groups"
-msgstr "banyak grup"
+msgstr "Banyak grup"
 
 msgid "And 1 other..."
 msgstr "Dan 1 lainnya..."
@@ -211,7 +213,7 @@ msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "Melihat interpretasi dari {{interpretationDate}}"
 
 msgid "Update"
-msgstr "Perbarui"
+msgstr "perbarui"
 
 msgid "Getting started"
 msgstr "Mulai"
@@ -221,7 +223,7 @@ msgid ""
 "left sidebar"
 msgstr ""
 "Semua dimensi yang dapat digunakan untuk membuat visualisasi disajikan di "
-"sidebar kiri"
+"kolom sisi kiri"
 
 msgid "Add dimensions to the layout above"
 msgstr "Tambahkan dimensi ke tata letak di atas"
@@ -239,16 +241,16 @@ msgid "Overrides aggregation type for all data values."
 msgstr ""
 
 msgid "By data element"
-msgstr "Berdasarkan data elemen"
+msgstr "Berdasarkan elemen data"
 
 msgid "Count"
 msgstr "Hitung"
 
 msgid "Average"
-msgstr "Rerata"
+msgstr "Rata-rata"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr "Rerata (jumlah dalam hirarki org unit)"
+msgstr "Rerata (jumlah dalam hirarki unit org)"
 
 msgid "Sum"
 msgstr "Jumlah"
@@ -257,7 +259,7 @@ msgid "Last value"
 msgstr "Nilai terakhir"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr "Nilai terakhir (rerata dalam hirarki org unit)"
+msgstr "Nilai terakhir (jumlah dalam hirarki unit org)"
 
 msgid "Min"
 msgstr "Min"
@@ -269,7 +271,7 @@ msgid "Standard deviation"
 msgstr "Standar deviasi"
 
 msgid "Variance"
-msgstr "Varians"
+msgstr "Varian"
 
 msgid "Data approved at level"
 msgstr "Data disetujui di tingkat"
@@ -383,16 +385,16 @@ msgid "Hide empty columns"
 msgstr "Sembunyikan kolom kosong"
 
 msgid "Hide empty categories"
-msgstr "Sembunyikan kategori yang kosong"
+msgstr "Sembunyikan kategori kosong"
 
 msgid "Before first"
-msgstr "Sebelum yang pertama"
+msgstr "Sebelum pertama"
 
 msgid "After last"
 msgstr "Setelah terakhir"
 
 msgid "Before first and after last"
-msgstr "Sebelum yang pertama dan sesudah yang terakhir"
+msgstr "Sebelum pertama dan setelah terakhir"
 
 msgid "All"
 msgstr "Semua"
@@ -416,7 +418,7 @@ msgid "Custom"
 msgstr ""
 
 msgid "Chart title"
-msgstr "Judul grafik"
+msgstr "Sembunyikan item kategori yang kosong"
 
 msgid "Display legend"
 msgstr ""
@@ -732,7 +734,7 @@ msgid "Last 52 weeks"
 msgstr "52 minggu terakhir"
 
 msgid "Weeks this year"
-msgstr "Minggu dalam tahun ini"
+msgstr "Mingguan tahun ini"
 
 msgid "This month"
 msgstr "Bulan ini"
@@ -741,16 +743,16 @@ msgid "Last month"
 msgstr "Bulan lalu"
 
 msgid "Last 3 months"
-msgstr "3 bulan lalu"
+msgstr "3 bulan terakhir"
 
 msgid "Last 6 months"
-msgstr "6 bulan lalu"
+msgstr "6 bulan terakhir"
 
 msgid "Last 12 months"
-msgstr "12 bulan lalu"
+msgstr "12 bulan terakhir"
 
 msgid "Months this year"
-msgstr "Bulan dalam tahun ini"
+msgstr "Bulanan tahun ini"
 
 msgid "This bimonth"
 msgstr "Dwiwulan ini"
@@ -771,40 +773,40 @@ msgid "Last quarter"
 msgstr "Triwulan yang lalu"
 
 msgid "Last 4 quarters"
-msgstr "4 triwulan yang lalu"
+msgstr "4 triwulan terakhir"
 
 msgid "Quarters this year"
-msgstr "Triwulan dalam tahun ini"
+msgstr "Triwulanan tahun ini"
 
 msgid "This six-month"
-msgstr "Semester ini"
+msgstr "6 bulan ini"
 
 msgid "Last six-month"
-msgstr "Semester yang lalu"
+msgstr "Semester lalu"
 
 msgid "Last 2 six-months"
-msgstr "2 semester yang lalu"
+msgstr "2 semester terakhir"
 
 msgid "This financial year"
-msgstr "Tahun fiskal ini"
+msgstr "Tahun finansial ini"
 
 msgid "Last financial year"
-msgstr "Tahun fiskal lalu"
+msgstr "Tahun finansial kemarin"
 
 msgid "Last 5 financial years"
-msgstr "5 tahun fiskal yang lalu"
+msgstr "5 tahun finansial terakhir"
 
 msgid "This year"
 msgstr "Tahun ini"
 
 msgid "Last year"
-msgstr "Tahun lalu"
+msgstr "Tahun kemarin"
 
 msgid "Last 5 years"
 msgstr "5 tahun terakhir"
 
 msgid "User org unit"
-msgstr "Org unit user"
+msgstr "Unit org pengguna"
 
 msgid "User org unit children"
 msgstr "Sub org unit user"

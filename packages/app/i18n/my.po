@@ -1,13 +1,14 @@
+# 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2019
-# phil_dhis2, 2019
+# phil_dhis2, 2020
+# Viktor Varland <viktor@dhis2.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-11-29T10:59:48.425Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: phil_dhis2, 2019\n"
+"POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
+"PO-Revision-Date: 2020-12-22 22:14+0000\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Burmese (https://www.transifex.com/hisp-uio/teams/100509/my/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,34 +19,34 @@ msgstr ""
 msgid "Rename successful"
 msgstr ""
 
-msgid "\"{{what}}\" successfully deleted."
+msgid "Untitled {{visualizationType}} visualization, {{date}}"
 msgstr ""
 
-msgid "Data Visualizer"
-msgstr "ဂရပ် ပုံစံများ"
-
-msgid "Axis 1"
+msgid "\"{{deletedObject}}\" successfully deleted."
 msgstr ""
 
-msgid "Axis 2"
+msgid "You have unsaved changes."
 msgstr ""
 
-msgid "Manage axes"
+msgid "Discard unsaved changes?"
 msgstr ""
 
 msgid ""
-"A chart can have two axes. Each axis will have its own scale. Set the axis "
-"for each data selection below."
+"Are you sure you want to leave this visualization? Any unsaved changes will "
+"be lost."
 msgstr ""
 
-msgid "Cancel"
-msgstr "ပယ်ဖျက်သည်"
+msgid "No, cancel"
+msgstr ""
 
-msgid "Update"
-msgstr "‌နောက်ဆုံးသတင်းကိုရစေခြင်း"
+msgid "Yes, leave"
+msgstr ""
+
+msgid "Add to {{axisName}}"
+msgstr ""
 
 msgid ""
-"'{{visualiationType}}' is intended to show a single data item. Only the "
+"'{{visualizationType}}' is intended to show a single data item. Only the "
 "first item will be used and saved."
 msgstr ""
 
@@ -54,10 +55,16 @@ msgid ""
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
 
-msgid "Hide"
+msgid "Main dimensions"
 msgstr ""
 
-msgid "Download"
+msgid "Other dimensions"
+msgstr ""
+
+msgid "Your dimensions"
+msgstr ""
+
+msgid "Filter dimensions"
 msgstr ""
 
 msgid "Graphics"
@@ -69,13 +76,49 @@ msgstr ""
 msgid "PDF (.pdf)"
 msgstr ""
 
-msgid "Plain data source"
+msgid "Table layout"
 msgstr ""
 
-msgid "Advanced"
+msgid "Excel (.xls)"
+msgstr ""
+
+msgid "CSV (.csv)"
+msgstr ""
+
+msgid "HTML (.html)"
 msgstr ""
 
 msgid "Metadata ID scheme"
+msgstr ""
+
+msgid "ID"
+msgstr "အိုင်ဒီ"
+
+msgid "Code"
+msgstr "ကုဒ်"
+
+msgid "Name"
+msgstr "အမည်"
+
+msgid "Download"
+msgstr ""
+
+msgid "Plain data source"
+msgstr ""
+
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
+msgid "Excel"
+msgstr ""
+
+msgid "CSV"
+msgstr ""
+
+msgid "Advanced"
 msgstr ""
 
 msgid "Data value set"
@@ -84,10 +127,13 @@ msgstr ""
 msgid "Other formats"
 msgstr ""
 
-msgid "An error occurred in the DHIS2 Data Visualizer application."
+msgid "JRXML"
 msgstr ""
 
-msgid "Something went wrong"
+msgid "Raw data SQL"
+msgstr ""
+
+msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr ""
 
 msgid "Refresh to try again"
@@ -102,10 +148,13 @@ msgstr ""
 msgid "The following information may be requested by technical support."
 msgstr ""
 
-msgid "Interpretations"
-msgstr "Interpretations"
+msgid "Hide"
+msgstr ""
 
-msgid "{{total}} of {{maxNumberOfItemsPerAxis}} selected"
+msgid "Interpretations"
+msgstr "ဘာသာပြန်ခြင်းများ"
+
+msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr ""
 
 msgid "{{total}} selected"
@@ -114,22 +163,39 @@ msgstr ""
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr ""
 
-msgid "Move to"
-msgstr ""
-
-msgid "Remove"
-msgstr "ဖယ်ရှားခြင်း"
-
 msgid "None selected"
 msgstr ""
 
-msgid "Only '{{name}}' in use"
+msgid "Only '{{- name}}' in use"
 msgstr ""
 
 msgid "Only '{{number}}' in use"
 msgstr ""
 
-msgid "Unsaved chart"
+msgid "Levels"
+msgstr ""
+
+msgid "Groups"
+msgstr ""
+
+msgid "And 1 other..."
+msgstr ""
+
+msgid "And {{numberOfItems}} others..."
+msgstr ""
+
+msgid "Select a period"
+msgstr ""
+
+msgid "Select years"
+msgstr ""
+
+msgid ""
+"This visualization can't be deleted because it is used on one or more "
+"dashboards"
+msgstr ""
+
+msgid "Unsaved visualization"
 msgstr ""
 
 msgid "Edited"
@@ -138,19 +204,30 @@ msgstr ""
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
-msgid "Error validating layout"
+msgid "Update"
+msgstr "‌နောက်ဆုံးသတင်းကိုရစေခြင်း"
+
+msgid "Getting started"
 msgstr ""
 
-msgid "Create a new visualization by adding dimensions to the layout"
+msgid ""
+"All dimensions that you can use to build visualizations are shown in the "
+"left sidebar"
 msgstr ""
 
-msgid "Chart error"
+msgid "Add dimensions to the layout above"
 msgstr ""
 
-msgid "Error generating chart, please try again"
+msgid "Click a dimension to add or remove items"
+msgstr ""
+
+msgid "Your most viewed charts and tables"
 msgstr ""
 
 msgid "Aggregation type"
+msgstr ""
+
+msgid "Overrides aggregation type for all data values."
 msgstr ""
 
 msgid "By data element"
@@ -186,26 +263,119 @@ msgstr ""
 msgid "Variance"
 msgstr ""
 
+msgid "Data approved at level"
+msgstr ""
+
+msgid "Select from predefined levels"
+msgstr ""
+
+msgid "Loading data approval levels"
+msgstr ""
+
+msgid "Axis range"
+msgstr ""
+
+msgid "Values outside of the range will not be displayed"
+msgstr ""
+
 msgid "Base line"
 msgstr ""
+
+msgid "Value"
+msgstr "တန်ဖိုး"
+
+msgid "Title"
+msgstr "ခေါင်းစဉ်"
 
 msgid "Base line title"
 msgstr ""
 
-msgid "Base line value"
+msgid "Number"
+msgstr "ဂဏန်း"
+
+msgid "Labels"
 msgstr ""
 
-msgid "Use cumulative values"
+msgid "Column sub-totals"
 msgstr ""
 
-msgid "Domain axis title"
-msgstr "Domain axis အမည်"
+msgid "Columns totals"
+msgstr ""
 
-msgid "Hide empty categories"
+msgid "Default"
+msgstr "Default"
+
+msgid "Bright"
+msgstr ""
+
+msgid "Dark"
+msgstr ""
+
+msgid "Gray"
+msgstr ""
+
+msgid "Color blind"
+msgstr ""
+
+msgid "Patterns"
+msgstr ""
+
+msgid "Event data"
+msgstr ""
+
+msgid "Only include completed events"
+msgstr ""
+
+msgid "Include cumulative"
+msgstr ""
+
+msgid "Cumulative values"
+msgstr ""
+
+msgid "Digit group separator"
 msgstr ""
 
 msgid "None"
 msgstr "တစ်ခုမှမဟုတ်"
+
+msgid "Space"
+msgstr ""
+
+msgid "Comma"
+msgstr ""
+
+msgid "Display density"
+msgstr ""
+
+msgid "Comfortable"
+msgstr ""
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid "Compact"
+msgstr ""
+
+msgid "Axis title"
+msgstr ""
+
+msgid "Add a title"
+msgstr ""
+
+msgid "Font size"
+msgstr ""
+
+msgid "Large"
+msgstr ""
+
+msgid "Small"
+msgstr ""
+
+msgid "Hide empty columns"
+msgstr ""
+
+msgid "Hide empty categories"
+msgstr ""
 
 msgid "Before first"
 msgstr ""
@@ -219,37 +389,113 @@ msgstr ""
 msgid "All"
 msgstr "အားလုံး"
 
-msgid "Hide chart legend"
-msgstr "ပုံအညွှန်းကို ဝှက်ထားပါ။"
-
-msgid "Hide subtitle"
+msgid "Hide empty rows"
 msgstr ""
 
-msgid "Hide title"
+msgid "Show legend key"
 msgstr ""
 
-msgid "No space between columns/bars"
+msgid "Table subtitle"
 msgstr ""
 
-msgid "Use 100% stacked values"
+msgid "Chart subtitle"
 msgstr ""
 
-msgid "Range axis decimals"
+msgid "Auto generated"
 msgstr ""
 
-msgid "Range axis title"
-msgstr "Range axis အမည်"
+msgid "Custom"
+msgstr "Custom"
 
-msgid "Range axis max"
+msgid "Chart title"
 msgstr ""
 
-msgid "Range axis min"
+msgid "Display legend"
 msgstr ""
 
-msgid "Range axis tick steps"
+msgid "Legend style"
 msgstr ""
 
-msgid "Tick steps may extend the chart beyond 'Range axis max'"
+msgid "Legend type"
+msgstr ""
+
+msgid "Use pre-defined legend per data item"
+msgstr ""
+
+msgid "Select a single legend for the entire visualization"
+msgstr ""
+
+msgid "Legend changes background color"
+msgstr ""
+
+msgid "Legend changes text color"
+msgstr ""
+
+msgid "Legend"
+msgstr ""
+
+msgid "Select from legends"
+msgstr ""
+
+msgid "Loading legends"
+msgstr ""
+
+msgid ""
+"You can set a minimum or maximum value. This will apply to the entire table,"
+" all values outside of the minimum/maximum range will not be displayed"
+msgstr ""
+
+msgid "Minimum data value"
+msgstr ""
+
+msgid "Maximum data value"
+msgstr ""
+
+msgid "Clear min/max limits"
+msgstr ""
+
+msgid "No space between bars/columns"
+msgstr ""
+
+msgid "Number type"
+msgstr "ကိန်းဂဏန်းအရေတွက်"
+
+msgid "Display the value of percentages of the total"
+msgstr ""
+
+msgid "Percentage of row"
+msgstr ""
+
+msgid "Percentage of column"
+msgstr ""
+
+msgid "Organisation unit"
+msgstr "Organisation unit"
+
+msgid "Parent organisation unit"
+msgstr "Parent organisation unit"
+
+msgid "Reporting period"
+msgstr ""
+
+msgid "Stacked values add up to 100%"
+msgstr ""
+
+msgid "Decimals"
+msgstr ""
+
+msgid "Auto"
+msgstr ""
+
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
+msgstr ""
+
+msgid "Steps"
+msgstr ""
+
+msgid "Include regression"
 msgstr ""
 
 msgid "Trend line"
@@ -264,10 +510,54 @@ msgstr ""
 msgid "Loess"
 msgstr ""
 
-msgid "Show values"
+msgid "Row sub-totals"
 msgstr ""
 
-msgid "Sort order"
+msgid "Row totals"
+msgstr ""
+
+msgid "Data item"
+msgstr ""
+
+msgid "Visualization type"
+msgstr ""
+
+msgid "Axis {{axisId}}"
+msgstr ""
+
+msgid "Series is empty"
+msgstr ""
+
+msgid "Options for selected items will be available here"
+msgstr ""
+
+msgid "No Series options"
+msgstr ""
+
+msgid "There aren't any Series options for this visualization type"
+msgstr ""
+
+msgid "Series options unavailable"
+msgstr ""
+
+msgid ""
+"Series options are not available when using relative selections for periods,"
+" org units or categories"
+msgstr ""
+
+msgid "Value labels"
+msgstr ""
+
+msgid "Dimension labels"
+msgstr ""
+
+msgid "Display organisation unit hierarchy"
+msgstr ""
+
+msgid "Skip rounding"
+msgstr ""
+
+msgid "Custom sort order"
 msgstr ""
 
 msgid "Low to high"
@@ -276,7 +566,7 @@ msgstr ""
 msgid "High to low"
 msgstr ""
 
-msgid "Chart subtitle"
+msgid "Add a subtitle"
 msgstr ""
 
 msgid "Target line"
@@ -285,28 +575,23 @@ msgstr ""
 msgid "Target line title"
 msgstr ""
 
-msgid "Target line value"
-msgstr "ဦးတည်ချက် တန်ဖိုး"
-
-msgid "Chart title"
+msgid "Size"
 msgstr ""
 
-msgid "Data"
-msgstr "အချက်အလက်"
-
-msgid "Axis & legend"
+msgid "Position"
 msgstr ""
 
-msgid "Style"
-msgstr "ပုံစံ"
+msgid "Top limit"
+msgstr ""
 
 msgid "Options"
 msgstr ""
 
-msgid "Chart options"
-msgstr "Chart အတွက်ရွေးချယ်စရာများ"
-
 msgid "Open as Map"
+msgstr ""
+
+msgid ""
+"Visually plot data on a world map. Data elements use separate map layers."
 msgstr ""
 
 msgid "Reporting rate"
@@ -324,102 +609,89 @@ msgstr ""
 msgid "Expected reports"
 msgstr ""
 
-msgid "Program"
-msgstr ""
-
-msgid "Select a program"
-msgstr ""
-
-msgid "Indicators"
-msgstr "အညွှန်းများ"
-
-msgid "Select indicator group"
-msgstr ""
-
-msgid "[ All groups ]"
-msgstr ""
-
-msgid "Data elements"
-msgstr "အချက်အလတ်အစိတ်အပိုင်းများ"
-
-msgid "Select data element group"
-msgstr ""
-
-msgid "[ All data elements ]"
-msgstr ""
-
-msgid "Totals"
-msgstr ""
-
-msgid "Details"
-msgstr "အသေးစိတ်များ"
-
-msgid "Data sets"
-msgstr "စီမံချက်"
-
-msgid "Select data sets"
-msgstr ""
-
-msgid "[ All metrics ]"
-msgstr ""
-
-msgid "Event data items"
-msgstr ""
-
-msgid "Program indicators"
-msgstr ""
-
-msgid "Add to series"
-msgstr ""
-
-msgid "Add to category"
-msgstr ""
-
-msgid "Add to filter"
-msgstr ""
-
-msgid "series"
-msgstr ""
-
-msgid "category"
-msgstr ""
-
-msgid "filter"
-msgstr ""
-
-msgid "Please add at least one {{series}} dimension"
-msgstr ""
-
-msgid "Please add at least one {{category}} dimension"
+msgid "No data available"
 msgstr ""
 
 msgid ""
-"Please add at least one period as {{series}}, {{category}} or {{filter}}"
+"The selected dimensions didn’t return any data. There may be no data, or you"
+" may not have access to it."
 msgstr ""
 
-msgid "Please add {{data}} as {{category}} or {{filter}}"
+msgid "{{axisName}} is empty"
 msgstr ""
 
-msgid "Please add at least one period as {{series}} or {{filter}}"
+msgid "Add at least one item to {{axisName}}."
 msgstr ""
 
-msgid "Please add at least one {{filter}} dimension"
+msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
 msgstr ""
 
-msgid "Please add at least one period as a {{series}} dimension"
+msgid ""
+"Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
+" {{visualizationType}}."
 msgstr ""
 
-msgid "Please add at least one period as a {{category}} dimension"
+msgid "No period selected"
 msgstr ""
 
-msgid "Please add {{data}} as a filter dimension"
+msgid ""
+"{{visualizationType}} must have at least one period selected in {{axes}}."
 msgstr ""
 
-msgid "Please add one {{series}} dimension"
+msgid "No data selected"
 msgstr ""
 
-msgid "Please add at least one period as {{filter}}"
+msgid ""
+"{{visualizationType}} must have at least one data item or data element group"
+" set item in {{axes}}."
 msgstr ""
+
+msgid "{{visualizationType}} must have at least one data item in {{axes}}."
+msgstr ""
+
+msgid "There's a problem with the layout"
+msgstr ""
+
+msgid ""
+"A single indicator must be the only data item when using indicators as Data "
+"in Filter."
+msgstr ""
+
+msgid "Data Element Group Sets and Reporting Rates cannot be used together."
+msgstr ""
+
+msgid "There is a problem with this {{visualizationType}} visualization."
+msgstr ""
+
+msgid "There was a problem getting the data from the server."
+msgstr ""
+
+msgid "Assigned Categories can only be used with data elements"
+msgstr ""
+
+msgid ""
+"Fix this problem by selecting data elements or removing Assigned Categories."
+msgstr ""
+
+msgid "Assigned Categories cannot be used as Filter"
+msgstr ""
+
+msgid "Fix this problem by moving or removing Assigned Categories."
+msgstr ""
+
+msgid "Visualization not found"
+msgstr ""
+
+msgid ""
+"The visualization you are trying to view could not be found, the ID could be"
+" incorrect or it could have been deleted."
+msgstr ""
+
+msgid "Something went wrong"
+msgstr ""
+
+msgid "or"
+msgstr "သို့မဟုတ်"
 
 msgid "Today"
 msgstr ""
@@ -440,7 +712,7 @@ msgid "This week"
 msgstr ""
 
 msgid "Last week"
-msgstr ""
+msgstr "Last week"
 
 msgid "Last 4 weeks"
 msgstr ""
@@ -464,7 +736,7 @@ msgid "Last 3 months"
 msgstr "လွန်ခဲ့သော ၁၂လ"
 
 msgid "Last 6 months"
-msgstr ""
+msgstr "Last 6 months"
 
 msgid "Last 12 months"
 msgstr "လွန်ခဲ့သော ၁၂လ"
@@ -530,6 +802,69 @@ msgid "User org unit children"
 msgstr ""
 
 msgid "User org unit grand children"
+msgstr ""
+
+msgid "Data"
+msgstr "အချက်အလက်"
+
+msgid "Display"
+msgstr ""
+
+msgid "Axes"
+msgstr ""
+
+msgid "Horizontal (x) axis"
+msgstr ""
+
+msgid "Series"
+msgstr "အစဉ်အတန်းများ"
+
+msgid "Style"
+msgstr "ပုံစံ"
+
+msgid "Chart style"
+msgstr ""
+
+msgid "Titles"
+msgstr ""
+
+msgid "Lines"
+msgstr ""
+
+msgid "Vertical (y) axis"
+msgstr ""
+
+msgid "Totals"
+msgstr ""
+
+msgid "Empty data"
+msgstr ""
+
+msgid "Table title"
+msgstr ""
+
+msgid "Limit values"
+msgstr ""
+
+msgid "Limit number of values"
+msgstr ""
+
+msgid "Limit minimum/maximum values"
+msgstr ""
+
+msgid "Parameters"
+msgstr ""
+
+msgid "Color set"
+msgstr ""
+
+msgid "Color sets are not supported yet when using multiple axes"
+msgstr ""
+
+msgid "Lines are not supported yet when using multiple axes"
+msgstr ""
+
+msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr ""
 
 msgid "Weeks per year"
