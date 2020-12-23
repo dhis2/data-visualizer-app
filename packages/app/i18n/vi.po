@@ -97,10 +97,10 @@ msgid "Other formats"
 msgstr "Định dạng khác"
 
 msgid "JRXML"
-msgstr ""
+msgstr "JRXML"
 
 msgid "Raw data SQL"
-msgstr ""
+msgstr "Dữ liệu thô SQL"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "Xảy ra lỗi ở ứng dụng trực quan hóa dữ liệu DHIS2"
@@ -142,25 +142,25 @@ msgid "And 1 other..."
 msgstr "Và 1..."
 
 msgid "And {{numberOfItems}} others..."
-msgstr ""
+msgstr "Và {{numberOfItems}} khác ..."
 
 msgid "Unsaved chart"
-msgstr ""
+msgstr "Biểu đồ chưa được lưu"
 
 msgid "Edited"
 msgstr "Chỉnh sửa"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr ""
+msgstr "Xem phần diễn giải từ {{interpretationDate}}"
 
 msgid "Chart error"
-msgstr ""
+msgstr "Lỗi biểu đồ"
 
 msgid "Create a new visualization by adding dimensions to the layout"
-msgstr ""
+msgstr "Tạo hình ảnh trực quan mới bằng cách thêm các chiều vào bố cục"
 
 msgid "Error generating chart, please try again"
-msgstr ""
+msgstr "Lỗi khi tạo biểu đồ, vui lòng thử lại"
 
 msgid "Aggregation type"
 msgstr "Kiểu tổng hợp"
@@ -223,7 +223,7 @@ msgid "Before first"
 msgstr "Trước giá trị đầu tiên"
 
 msgid "After first"
-msgstr ""
+msgstr "Sau lần đầu tiên"
 
 msgid "Before first and after last"
 msgstr "Trước giá trị đầu tiên và sau giá trị cuối cùng"
@@ -232,16 +232,16 @@ msgid "All"
 msgstr "Tất cả"
 
 msgid "Show legend key"
-msgstr ""
+msgstr "Hiển thị khóa chú giải"
 
 msgid "Hide subtitle"
-msgstr ""
+msgstr "Ẩn phụ đề"
 
 msgid "Hide title"
-msgstr ""
+msgstr "Ẩn tiêu đề"
 
 msgid "No space between columns/bars"
-msgstr ""
+msgstr "Không có khoảng cách giữa các cột / thanh"
 
 msgid "Use 100% stacked values"
 msgstr "Dùng 100% giá trị chồng"
@@ -250,24 +250,26 @@ msgid "Auto"
 msgstr "Tự động"
 
 msgid "Range axis decimals"
-msgstr ""
+msgstr " Phạm vi số thập phân trục"
 
 msgid "Range axis title"
 msgstr "Tiêu đề trục hoành"
 
 msgid "Range axis max"
-msgstr ""
+msgstr "Phạm vi tối đa trục"
 
 msgid "Range axis min"
-msgstr ""
+msgstr "Phạm vi tối thiểu trục"
 
 msgid "Range axis tick steps"
-msgstr ""
+msgstr " Phạm vi các bước đánh dấu trục"
 
 msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
 msgstr ""
+"Số bước đánh dấu trục, bao gồm số tối thiểu và tối đa. Giá trị từ 2 trở "
+"xuống sẽ bị bỏ qua."
 
 msgid "Trend line"
 msgstr "Đường Khuynh Hướng"
@@ -312,7 +314,7 @@ msgid "Data"
 msgstr "Lấy dữ liệu"
 
 msgid "Axis & legend"
-msgstr ""
+msgstr "Trục & chú giải"
 
 msgid "Style"
 msgstr "Kiểu dáng"
@@ -351,10 +353,10 @@ msgid "Gauge"
 msgstr "Biểu đồ đo lường"
 
 msgid "Year over year (line)"
-msgstr ""
+msgstr "Năm qua năm (dòng)"
 
 msgid "Year over year (column)"
-msgstr ""
+msgstr "Năm qua năm (cột)"
 
 msgid "Open as Map"
 msgstr "Mở dưới dạng bản đồ"
@@ -366,53 +368,56 @@ msgid "Organisation Unit"
 msgstr "Đơn vị"
 
 msgid "Add to series"
-msgstr ""
+msgstr "Thêm vào chuỗi"
 
 msgid "Add to category"
-msgstr ""
+msgstr "Thêm vào phân loại"
 
 msgid "Add to filter"
-msgstr ""
+msgstr "Thêm vào bộ lọc"
 
 msgid "Move to series"
-msgstr ""
+msgstr "Chuyển đến chuỗi"
 
 msgid "Move to category"
-msgstr ""
+msgstr "Di chuyển đến phân loại"
 
 msgid "Move to filter"
-msgstr ""
+msgstr "Di chuyển đến bộ lọc"
 
 msgid "series"
-msgstr ""
+msgstr "chuỗi"
 
 msgid "category"
-msgstr ""
+msgstr "phân loại"
 
 msgid "filter"
-msgstr ""
+msgstr "bộ lọc"
 
 msgid "Please add at least one {{series}} dimension"
-msgstr ""
+msgstr "Vui lòng thêm ít nhất một chiều {{series}}"
 
 msgid "Please add at least one {{category}} dimension"
-msgstr ""
+msgstr "Vui lòng thêm ít nhất một chiều {{category}}"
 
 msgid ""
 "Please add at least one period as {{series}}, {{category}} or {{filter}}"
 msgstr ""
+"Vui lòng thêm ít nhất một thời điểm dưới dạng {{series}}, {{category}} hoặc "
+"{{filter}}"
 
 msgid "Please add at least one period as {{series}} or {{filter}}"
 msgstr ""
+"Vui lòng thêm ít nhất một thời điểm dưới dạng {{series}} hoặc {{filter}}"
 
 msgid "Please add at least one {{filter}} dimension"
-msgstr ""
+msgstr "Vui lòng thêm ít nhất một chiều {{filter}}"
 
 msgid "Please add at least one period as a {{series}} dimension"
-msgstr ""
+msgstr "Vui lòng thêm ít nhất một thời điểm làm chiều {{series}}"
 
 msgid "Please add {{data}} as a filter dimension"
-msgstr ""
+msgstr "Vui lòng thêm {{data}} làm chiều bộ lọc"
 
 msgid "Today"
 msgstr "Hôm Nay"
