@@ -30,10 +30,10 @@ msgid "Data"
 msgstr "Lấy dữ liệu"
 
 msgid "Data Type"
-msgstr ""
+msgstr "Loại dữ liệu"
 
 msgid "Detail"
-msgstr ""
+msgstr "Chi tiết"
 
 msgid "Search"
 msgstr "Tìm kiếm"
@@ -45,22 +45,22 @@ msgid "Period"
 msgstr "Thời điểm"
 
 msgid "Selected Data"
-msgstr ""
+msgstr "Dữ liệu đã chọn"
 
 msgid "Deselect All"
-msgstr ""
+msgstr "Bỏ chọn tất cả"
 
 msgid "Select All"
-msgstr ""
+msgstr "Chọn tất cả"
 
 msgid "Remove"
 msgstr "Tháo ra"
 
 msgid "Search dimensions"
-msgstr ""
+msgstr "Chiều tìm kiếm"
 
 msgid "Dimension recommended with selected data"
-msgstr ""
+msgstr "Chiều được đề xuất với dữ liệu đã chọn"
 
 msgid "Download"
 msgstr "Tải về"
@@ -126,31 +126,31 @@ msgid "Filter"
 msgstr "Lọc"
 
 msgid "Move to"
-msgstr ""
+msgstr "Chuyển tới"
 
 msgid "None selected"
 msgstr "Chưa lựa chọn"
 
 msgid "Unsaved chart"
-msgstr ""
+msgstr "Biểu đồ chưa được lưu"
 
 msgid "Edited"
 msgstr "Chỉnh sửa"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr ""
+msgstr "Xem phần diễn giải từ {{interpretationDate}}"
 
 msgid "Update"
 msgstr "Cập nhật"
 
 msgid "Chart error"
-msgstr ""
+msgstr "Lỗi biểu đồ"
 
 msgid "There is a problem with your chart"
-msgstr ""
+msgstr "Có sự cố với biểu đồ của bạn"
 
 msgid "Error generating chart, please try again"
-msgstr ""
+msgstr "Lỗi khi tạo biểu đồ, vui lòng thử lại"
 
 msgid "Aggregation type"
 msgstr "Kiểu tổng hợp"
@@ -213,7 +213,7 @@ msgid "Before first"
 msgstr "Trước giá trị đầu tiên"
 
 msgid "After first"
-msgstr ""
+msgstr "Sau lần đầu tiên"
 
 msgid "Before first and after last"
 msgstr "Trước giá trị đầu tiên và sau giá trị cuối cùng"
@@ -225,31 +225,31 @@ msgid "Hide chart legend"
 msgstr "Ẩn chú thích"
 
 msgid "Hide subtitle"
-msgstr ""
+msgstr "Ẩn phụ đề"
 
 msgid "Hide title"
-msgstr ""
+msgstr "Ẩn tiêu đề"
 
 msgid "No space between columns/bars"
-msgstr ""
+msgstr "Không có khoảng cách giữa các cột / thanh"
 
 msgid "Use 100% stacked values"
 msgstr "Dùng 100% giá trị chồng"
 
 msgid "Range axis decimals"
-msgstr ""
+msgstr " Phạm vi số thập phân trục"
 
 msgid "Range axis title"
 msgstr "Tiêu đề trục hoành"
 
 msgid "Range axis max"
-msgstr ""
+msgstr "Phạm vi tối đa trục"
 
 msgid "Range axis min"
-msgstr ""
+msgstr "Phạm vi tối thiểu trục"
 
 msgid "Range axis tick steps"
-msgstr ""
+msgstr " Phạm vi các bước đánh dấu trục"
 
 msgid "Trend line"
 msgstr "Đường Khuynh Hướng"
@@ -291,7 +291,7 @@ msgid "Chart title"
 msgstr "Tiêu đề của biểu đồ"
 
 msgid "Axis & legend"
-msgstr ""
+msgstr "Trục & chú giải"
 
 msgid "Style"
 msgstr "Kiểu dáng"
@@ -330,10 +330,10 @@ msgid "Gauge"
 msgstr "Biểu đồ đo lường"
 
 msgid "Year over year (line)"
-msgstr ""
+msgstr "Năm qua năm (dòng)"
 
 msgid "Year over year (column)"
-msgstr ""
+msgstr "Năm qua năm (cột)"
 
 msgid "Reporting rate"
 msgstr "Tỉ lệ báo cáo"
@@ -354,7 +354,7 @@ msgid "Program"
 msgstr "Chương trình"
 
 msgid "Select a program"
-msgstr ""
+msgstr "Chọn một chương trình"
 
 msgid "Indicators"
 msgstr "Các chỉ số"
@@ -363,7 +363,7 @@ msgid "Select indicator group"
 msgstr "Chọn nhóm chỉ số"
 
 msgid "[ All groups ]"
-msgstr ""
+msgstr "[Tất cả các nhóm]"
 
 msgid "Data elements"
 msgstr "Các phần tử dữ liệu"
@@ -372,7 +372,7 @@ msgid "Select data element group"
 msgstr "Chọn nhóm yếu tố dữ liệu"
 
 msgid "[ All data elements ]"
-msgstr ""
+msgstr "[Tất cả các phần tử dữ liệu]"
 
 msgid "Totals"
 msgstr "Tổng"
@@ -384,10 +384,10 @@ msgid "Data sets"
 msgstr "Biểu nhập"
 
 msgid "Select data sets"
-msgstr ""
+msgstr "Chọn tập dữ liệu"
 
 msgid "[ All metrics ]"
-msgstr ""
+msgstr "[Tất cả các chỉ số]"
 
 msgid "Event data items"
 msgstr "Mục dữ liệu sự kiện"
@@ -399,41 +399,43 @@ msgid "Organisation Unit"
 msgstr "Đơn vị"
 
 msgid "Add to series"
-msgstr ""
+msgstr "Thêm vào chuỗi"
 
 msgid "Add to category"
-msgstr ""
+msgstr "Thêm vào phân loại"
 
 msgid "Add to filter"
-msgstr ""
+msgstr "Thêm vào bộ lọc"
 
 msgid "series"
-msgstr ""
+msgstr "chuỗi"
 
 msgid "category"
-msgstr ""
+msgstr "phân loại"
 
 msgid "filter"
-msgstr ""
+msgstr "bộ lọc"
 
 msgid "Please add at least one {{series}} dimension"
-msgstr ""
+msgstr "Vui lòng thêm ít nhất một chiều {{series}}"
 
 msgid "Please add at least one {{category}} dimension"
-msgstr ""
+msgstr "Vui lòng thêm ít nhất một chiều {{category}}"
 
 msgid ""
 "Please add at least one period as {{series}}, {{category}} or {{filter}}"
 msgstr ""
+"Vui lòng thêm ít nhất một thời điểm dưới dạng {{series}}, {{category}} hoặc "
+"{{filter}}"
 
 msgid "Please add at least one period as a {{series}} dimension"
-msgstr ""
+msgstr "Vui lòng thêm ít nhất một thời điểm làm chiều {{series}}"
 
 msgid "Please add at least one period as a {{category}} dimension"
-msgstr ""
+msgstr "Vui lòng thêm ít nhất một thời điểm làm chiều {{category}}"
 
 msgid "Please add {{data}} as a filter dimension"
-msgstr ""
+msgstr "Vui lòng thêm {{data}} làm chiều bộ lọc"
 
 msgid "Today"
 msgstr "Hôm Nay"
