@@ -1,15 +1,15 @@
 # 
 # Translators:
-# Mai Nguyen <thanhmai.jica@gmail.com>, 2020
 # phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
+# Mai Nguyen <thanhmai.jica@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"PO-Revision-Date: 2020-12-22 22:14+0000\n"
+"Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2020\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,8 +36,8 @@ msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
 "be lost."
 msgstr ""
-"Bạn có muốn thoát khỏi ứng dụng trực quan hóa? Những thay đổi không được lưu"
-" sẽ bị mất."
+"Bạn có muốn thoát khỏi ứng dụng trực quan hóa dữ liệu? Những thay đổi không "
+"được lưu sẽ bị mất."
 
 msgid "No, cancel"
 msgstr "Không"
@@ -71,7 +71,7 @@ msgid "Filter dimensions"
 msgstr "Các chiều lọc"
 
 msgid "Graphics"
-msgstr "Hình ảnh"
+msgstr "Đồ họa"
 
 msgid "Image (.png)"
 msgstr "Hình ảnh (.png)"
@@ -80,7 +80,7 @@ msgid "PDF (.pdf)"
 msgstr "PDF (.pdf)"
 
 msgid "Table layout"
-msgstr "Bảng bố trí"
+msgstr "Bố trí bảng"
 
 msgid "Excel (.xls)"
 msgstr "Excel (.xls)"
@@ -155,7 +155,7 @@ msgid "Hide"
 msgstr "Ẩn"
 
 msgid "Interpretations"
-msgstr "Diễn giải báo cáo"
+msgstr "Diễn giải "
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr ""
@@ -254,7 +254,7 @@ msgid "Last value"
 msgstr "Giá trị cuối"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr "Last value (average in org unit hierarchy)"
+msgstr "Giá trị cuối (trung bình theo cây đơn vị)"
 
 msgid "Min"
 msgstr "Nhỏ nhất"
@@ -266,10 +266,10 @@ msgid "Standard deviation"
 msgstr "Độ lệch chuẩn"
 
 msgid "Variance"
-msgstr "Sự khác nhau"
+msgstr "Phương sai"
 
 msgid "Data approved at level"
-msgstr "Dữ liệu đã được phê duyệt tại tuyến"
+msgstr "Dữ liệu đã được phê duyệt tại cấp"
 
 msgid "Select from predefined levels"
 msgstr "Chọn từ các cấp được xác định trước"
@@ -293,7 +293,7 @@ msgid "Title"
 msgstr "Tiêu đề"
 
 msgid "Base line title"
-msgstr "Tiêu đề đường căn bản"
+msgstr "Tiêu đề đường cơ sở"
 
 msgid "Number"
 msgstr "Số"
@@ -302,7 +302,7 @@ msgid "Labels"
 msgstr "Nhãn"
 
 msgid "Column sub-totals"
-msgstr "Tổng số cột phụ"
+msgstr "Tổng phụ cột"
 
 msgid "Columns totals"
 msgstr "Tổng cột"
@@ -332,13 +332,13 @@ msgid "Only include completed events"
 msgstr "Chỉ bao gồm các sự kiện đã được hoàn tất"
 
 msgid "Include cumulative"
-msgstr "Bao gồm các giá trị tính toán"
+msgstr "Bao gồm tích lũy"
 
 msgid "Cumulative values"
 msgstr "Các giá trị tích lũy"
 
 msgid "Digit group separator"
-msgstr "Khoảng cách nhóm chữ số"
+msgstr "Dấu tách nhóm chữ số"
 
 msgid "None"
 msgstr "Không"
@@ -380,7 +380,7 @@ msgid "Hide empty columns"
 msgstr "Ẩn cột rỗng"
 
 msgid "Hide empty categories"
-msgstr "Ẩn phần không có số liệu"
+msgstr "Ẩn danh mục trống"
 
 msgid "Before first"
 msgstr "Trước giá trị đầu tiên"
@@ -419,10 +419,10 @@ msgid "Display legend"
 msgstr "Hiển thị chú giải"
 
 msgid "Legend style"
-msgstr "Mẫu chú thích"
+msgstr "Mẫu chú giải"
 
 msgid "Legend type"
-msgstr "Loại Chú Thích"
+msgstr "Loại chú giải"
 
 msgid "Use pre-defined legend per data item"
 msgstr "Sử dụng chú giải được xác định trước cho mỗi mục dữ liệu"
@@ -437,7 +437,7 @@ msgid "Legend changes text color"
 msgstr "Chú giải thay đổi màu chữ"
 
 msgid "Legend"
-msgstr "Chú Thích"
+msgstr "Chú giải"
 
 msgid "Select from legends"
 msgstr "Chọn từ các chú giải"
@@ -507,7 +507,7 @@ msgid "Include regression"
 msgstr "Bao gồm các hồi quy"
 
 msgid "Trend line"
-msgstr "Đường Khuynh Hướng"
+msgstr "Đường xu hướng"
 
 msgid "Linear"
 msgstr "Tuyến tính"
@@ -516,7 +516,7 @@ msgid "Polynomial"
 msgstr "Đa thức"
 
 msgid "Loess"
-msgstr "Biểu đồ Loess"
+msgstr "Đường cong Loess"
 
 msgid "Row sub-totals"
 msgstr "Tổng phụ dòng"
@@ -642,7 +642,7 @@ msgid ""
 msgstr ""
 
 msgid "No period selected"
-msgstr "Chưa chọn Thời Điểm"
+msgstr "Chưa chọn thời điểm"
 
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
@@ -710,10 +710,10 @@ msgid "or"
 msgstr "hoặc"
 
 msgid "Today"
-msgstr "Hôm Nay"
+msgstr "Hôm nay"
 
 msgid "Yesterday"
-msgstr "Hôm Qua"
+msgstr "Hôm qua"
 
 msgid "Last 3 days"
 msgstr "3 ngày trước"
@@ -779,25 +779,25 @@ msgid "Last quarter"
 msgstr "Quý trước"
 
 msgid "Last 4 quarters"
-msgstr "Trong 4 quý vừa qua"
+msgstr "4 quý trước"
 
 msgid "Quarters this year"
 msgstr "Quý năm nay"
 
 msgid "This six-month"
-msgstr "Lần Sáu-Tháng này"
+msgstr "6 tháng này"
 
 msgid "Last six-month"
 msgstr "6 tháng trước"
 
 msgid "Last 2 six-months"
-msgstr "2 sáu-tháng trước"
+msgstr "2 lần sáu-tháng trước"
 
 msgid "This financial year"
 msgstr "Năm tài chính này"
 
 msgid "Last financial year"
-msgstr "Năm tài chính trước đó"
+msgstr "Năm tài chính trước"
 
 msgid "Last 5 financial years"
 msgstr "5 năm tài chính trước"
@@ -809,7 +809,7 @@ msgid "Last year"
 msgstr "Năm ngoái"
 
 msgid "Last 5 years"
-msgstr "Trong 5 năm vừa qua"
+msgstr "5 năm trước"
 
 msgid "User org unit"
 msgstr "Đơn vị của người dùng"
@@ -821,7 +821,7 @@ msgid "User org unit grand children"
 msgstr "Đơn vị cháu của người dùng"
 
 msgid "Data"
-msgstr "Lấy dữ liệu"
+msgstr "Dữ liệu"
 
 msgid "Display"
 msgstr "Hiển thị"
@@ -884,7 +884,7 @@ msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr ""
 
 msgid "Weeks per year"
-msgstr "Hàng tuần mỗi năm"
+msgstr "Tuần mỗi năm"
 
 msgid "Months per year"
 msgstr "Tháng mỗi năm"
