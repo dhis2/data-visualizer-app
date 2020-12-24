@@ -21,7 +21,7 @@ msgid "Rename successful"
 msgstr "Đổi tên thành công"
 
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
-msgstr ""
+msgstr "Mô hình hóa {{loại mô hình}} không có tiêu đề, {{ngày}}"
 
 msgid "\"{{what}}\" successfully deleted."
 msgstr "Xóa thành công"
@@ -74,11 +74,15 @@ msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
 "first item will be used and saved."
 msgstr ""
+"'{{loại mô hình hóa}}' nhằm hiển thị một mục dữ liệu. Chỉ mục đầu tiên sẽ "
+"được sử dụng và lưu."
 
 msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
+"'{{Loại mô hình hóa}}' nhằm hiển thị số lượng mục tối đa {{số lượng tối "
+"đa}}. Chỉ {{số lượng tối đa}} mục đầu tiên sẽ được sử dụng và lưu."
 
 msgid "Main dimensions"
 msgstr "Các chiều chính"
@@ -126,7 +130,7 @@ msgid "XML"
 msgstr "XML"
 
 msgid "Excel"
-msgstr ""
+msgstr "Excel"
 
 msgid "CSV"
 msgstr "CSV"
@@ -153,10 +157,10 @@ msgid "Other formats"
 msgstr "Định dạng khác"
 
 msgid "JRXML"
-msgstr ""
+msgstr "JRXML"
 
 msgid "Raw data SQL"
-msgstr ""
+msgstr "Dữ liệu thô SQL"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "Xảy ra lỗi ở ứng dụng trực quan hóa dữ liệu DHIS2"
@@ -180,13 +184,13 @@ msgid "Interpretations"
 msgstr "Diễn giải "
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr ""
+msgstr "{{tổng}} / {{axisMaxNumberOfItems}}Đã chọn "
 
 msgid "{{total}} selected"
-msgstr ""
+msgstr "Đã chọn {{tổng}}"
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
-msgstr ""
+msgstr "{{mensName}} bị khóa với {{axisName}} cho {{visTypeName}}"
 
 msgid "None selected"
 msgstr "Chưa lựa chọn"
@@ -195,7 +199,7 @@ msgid "Only '{{- name}}' in use"
 msgstr "Chỉ sử dụng tên"
 
 msgid "Only '{{number}}' in use"
-msgstr ""
+msgstr "Chỉ  '{{number}}' được sử dụng"
 
 msgid "Levels"
 msgstr "Các cấp độ"
@@ -207,7 +211,7 @@ msgid "And 1 other..."
 msgstr "Và 1..."
 
 msgid "And {{numberOfItems}} others..."
-msgstr ""
+msgstr "Và {{numberOfItems}} khác ..."
 
 msgid "Unsaved visualization"
 msgstr "Không lưu mô hình trực quan hóa"
@@ -216,7 +220,7 @@ msgid "Edited"
 msgstr "Chỉnh sửa"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr ""
+msgstr "Xem phần diễn giải từ {{interpretationDate}}"
 
 msgid "Getting started"
 msgstr "Bắt đầu"
@@ -241,7 +245,7 @@ msgid "Aggregation type"
 msgstr "Kiểu tổng hợp"
 
 msgid "Overrides aggregation type for all data values."
-msgstr ""
+msgstr "Ghi đè kiểu tổng hợp cho tất cả các giá trị dữ liệu."
 
 msgid "By data element"
 msgstr "Theo Phần Tử Dữ Liệu"
@@ -385,7 +389,7 @@ msgid "Hide empty rows"
 msgstr "Ẩn dòng rỗng"
 
 msgid "Show legend key"
-msgstr ""
+msgstr "Hiển thị khóa chú giải"
 
 msgid "Table subtitle"
 msgstr "Tiêu đề phụ của bảng"
@@ -489,6 +493,8 @@ msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
 msgstr ""
+"Số bước đánh dấu trục, bao gồm số tối thiểu và tối đa. Giá trị từ 2 trở "
+"xuống sẽ bị bỏ qua."
 
 msgid "Steps"
 msgstr "Bước"
@@ -579,18 +585,20 @@ msgstr ""
 " hoặc bạn có thể không có quyền truy cập dữ liệu."
 
 msgid "{{axisName}} is empty"
-msgstr ""
+msgstr "{{axisName}} trống"
 
 msgid "Add at least one item to {{axisName}}."
-msgstr ""
+msgstr "Thêm ít nhất một mục vào {{axisName}}."
 
 msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
-msgstr ""
+msgstr "{{columnAxisName}} và {{rowsAxisName}} trống"
 
 msgid ""
 "Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
 " {{visualizationType}}."
 msgstr ""
+"Thêm ít nhất một mục vào {{columnAxisName}} hoặc {{rowAxisName}} để tạo "
+"{{visualizationType}}."
 
 msgid "No period selected"
 msgstr "Chưa chọn thời điểm"
@@ -598,6 +606,8 @@ msgstr "Chưa chọn thời điểm"
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
 msgstr ""
+"{{visualizationType}} phải có ít nhất một thời điểm được chọn trong "
+"{{axis}}."
 
 msgid "No data selected"
 msgstr "Chưa chọn dữ liệu"
@@ -606,9 +616,11 @@ msgid ""
 "{{visualizationType}} must have at least one data item or data element group"
 " set item in {{axes}}."
 msgstr ""
+"{{visualizationType}} phải có ít nhất một mục dữ liệu hoặc mục nhóm phần tử "
+"dữ liệu trong {{axis}}."
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
-msgstr ""
+msgstr "{{visualizationType}} phải có ít nhất một mục dữ liệu trong {{axis}}."
 
 msgid "There's a problem with the layout"
 msgstr "Có lỗi bố cục"
@@ -625,7 +637,7 @@ msgstr ""
 "Tập nhóm phần tử dữ liệu và tỷ lệ báo cáo không thể được sử dụng cùng nhau."
 
 msgid "There is a problem with this {{visualizationType}} visualization."
-msgstr ""
+msgstr "Đã xảy ra sự cố với mô hình hóa {{visualizationType}} này."
 
 msgid "There was a problem getting the data from the server."
 msgstr "Có vấn đề khi nhận dữ liệu từ máy chủ."
@@ -812,10 +824,10 @@ msgid "Parameters"
 msgstr "Tham số"
 
 msgid "Lines are not supported yet when using multiple axes"
-msgstr ""
+msgstr "Đường chưa được hỗ trợ khi sử dụng nhiều trục"
 
 msgid "Vertical axis options are not supported yet when using multiple axes"
-msgstr ""
+msgstr "Tùy chọn trục dọc chưa được hỗ trợ khi sử dụng nhiều trục"
 
 msgid "Weeks per year"
 msgstr "Tuần mỗi năm"
