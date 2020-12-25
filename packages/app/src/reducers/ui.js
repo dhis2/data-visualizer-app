@@ -11,6 +11,8 @@ import {
     defaultFontStyle,
     deleteFontStyleOption,
     FONT_STYLE_LEGEND,
+    FONT_STYLE_VISUALIZATION_TITLE,
+    FONT_STYLE_VISUALIZATION_SUBTITLE,
 } from '@dhis2/analytics'
 
 import {
@@ -30,7 +32,6 @@ export const SET_UI_FROM_VISUALIZATION = 'SET_UI_FROM_VISUALIZATION'
 export const SET_UI_TYPE = 'SET_UI_TYPE'
 export const SET_UI_OPTIONS = 'SET_UI_OPTIONS'
 export const SET_UI_OPTION = 'SET_UI_OPTION'
-export const SET_UI_FONT_STYLE = 'SET_UI_FONT_STYLE'
 export const SET_UI_LAYOUT = 'SET_UI_LAYOUT'
 export const ADD_UI_LAYOUT_DIMENSIONS = 'ADD_UI_LAYOUT_DIMENSIONS'
 export const REMOVE_UI_LAYOUT_DIMENSIONS = 'REMOVE_UI_LAYOUT_DIMENSIONS'
@@ -179,7 +180,34 @@ export default (state = DEFAULT_UI, action) => {
                         }
                         break
                     }
-
+                    case FONT_STYLE_VISUALIZATION_TITLE:
+                    case FONT_STYLE_VISUALIZATION_SUBTITLE: {
+                        const fontStyleOption = value.option
+                        const fontStyleValue = value.value
+                        let fontStyle = {}
+                        if (
+                            defaultFontStyle[option][fontStyleOption] !==
+                            fontStyleValue
+                        ) {
+                            // custom value: save it
+                            fontStyle = {
+                                ...(state.options.fontStyle || {}),
+                                [option]: {
+                                    ...(state.options.fontStyle || {})[option],
+                                    [fontStyleOption]: fontStyleValue,
+                                },
+                            }
+                        } else {
+                            // default value: remove the previous value
+                            fontStyle = deleteFontStyleOption(
+                                state.options.fontStyle,
+                                option,
+                                fontStyleOption
+                            )
+                        }
+                        options.fontStyle = fontStyle
+                        break
+                    }
                     default: {
                         options[option] = value
                         break
@@ -192,34 +220,6 @@ export default (state = DEFAULT_UI, action) => {
                 options: {
                     ...state.options,
                     ...options,
-                },
-            }
-        }
-        case SET_UI_FONT_STYLE: {
-            const { fontStyleKey, option, value } = action.value
-            let fontStyle = {}
-            if (defaultFontStyle[fontStyleKey][option] !== value) {
-                // custom value: save it
-                fontStyle = {
-                    ...(state.options.fontStyle || {}),
-                    [fontStyleKey]: {
-                        ...(state.options.fontStyle || {})[fontStyleKey],
-                        [option]: value,
-                    },
-                }
-            } else {
-                // default value: remove the previous value
-                fontStyle = deleteFontStyleOption(
-                    state.options.fontStyle,
-                    fontStyleKey,
-                    option
-                )
-            }
-            return {
-                ...state,
-                options: {
-                    ...state.options,
-                    fontStyle: { ...fontStyle },
                 },
             }
         }
@@ -528,8 +528,14 @@ export const sGetUiOption = (state, option) => {
                 return options.legend?.hidden
             case FONT_STYLE_LEGEND:
                 return {
-                    ...defaultFontStyle[FONT_STYLE_LEGEND],
+                    ...defaultFontStyle[option.id],
                     ...(options.legend?.label?.fontStyle || {}),
+                }
+            case FONT_STYLE_VISUALIZATION_TITLE:
+            case FONT_STYLE_VISUALIZATION_SUBTITLE:
+                return {
+                    ...defaultFontStyle[option.id],
+                    ...(options.fontStyle || {})[option.id],
                 }
             // TODO: Add back support for all other font styles
         }

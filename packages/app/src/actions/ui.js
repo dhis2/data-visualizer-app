@@ -23,7 +23,6 @@ import {
     CLEAR_UI_INTERPRETATION,
     CLEAR_SERIES_TYPE,
     UPDATE_UI_SERIES_ITEM,
-    SET_UI_FONT_STYLE,
     SET_UI_OPTION,
 } from '../reducers/ui'
 
@@ -59,11 +58,6 @@ export const acSetUiOption = value => ({
 
 export const acUpdateUiSeriesItem = value => ({
     type: UPDATE_UI_SERIES_ITEM,
-    value,
-})
-
-export const acSetUiFontStyle = value => ({
-    type: SET_UI_FONT_STYLE,
     value,
 })
 
