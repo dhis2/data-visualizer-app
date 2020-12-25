@@ -139,81 +139,97 @@ export default (state = DEFAULT_UI, action) => {
         }
         case SET_UI_OPTION: {
             const options = {}
-            Object.keys(action.value).forEach(option => {
-                const value = action.value[option]
-                switch (option) {
-                    case 'HIDE_LEGEND_OPTION':
+            const value = action.value.value
+            const optionId = action.value.optionId
+            const [axisType, axisIndex] = (action.value.axisId || '').split('_')
+            const fontStyleOption = action.value.fontStyleOption
+            switch (optionId) {
+                case 'STEPS': {
+                    const axis = (options.axes || []).find(
+                        axis =>
+                            axis.index === axisIndex && axis.type === axisType
+                    ) || { index: axisIndex, type: axisType }
+
+                    if (value) {
+                        axis.steps = value
+                    } else {
+                        delete axis.steps
+                    }
+                    options.axes = [
+                        ...(options.axes || []).filter(
+                            axis =>
+                                axis.index === axisIndex &&
+                                axis.type === axisType
+                        ),
+                    ]
+                    if (
+                        Object.keys(axis).filter(
+                            key => !['type', 'index'].includes(key)
+                        ).length
+                    ) {
+                        options.axes.push(axis)
+                    }
+                    break
+                }
+                case 'HIDE_LEGEND_OPTION':
+                    options.legend = {
+                        ...state.options.legend,
+                        hidden: value,
+                    }
+                    break
+                case FONT_STYLE_LEGEND: {
+                    const fontStyle = {
+                        ...state.options.legend?.label?.fontStyle,
+                    }
+
+                    if (defaultFontStyle[optionId][fontStyleOption] !== value) {
+                        // custom value: save it
+                        fontStyle[fontStyleOption] = value
+                    } else {
+                        // default value: remove the previous value
+                        delete fontStyle[fontStyleOption]
+                    }
+                    if (Object.keys(fontStyle).length) {
                         options.legend = {
                             ...state.options.legend,
-                            hidden: value,
+                            label: {
+                                fontStyle,
+                            },
                         }
-                        break
-                    case FONT_STYLE_LEGEND: {
-                        const fontStyleOption = value.option
-                        const fontStyleValue = value.value
-                        const fontStyle = {
-                            ...state.options.legend?.label?.fontStyle,
+                    } else {
+                        options.legend = {
+                            ...state.options.legend,
                         }
-
-                        if (
-                            defaultFontStyle[option][fontStyleOption] !==
-                            fontStyleValue
-                        ) {
-                            // custom value: save it
-                            fontStyle[fontStyleOption] = fontStyleValue
-                        } else {
-                            // default value: remove the previous value
-                            delete fontStyle[fontStyleOption]
-                        }
-                        if (Object.keys(fontStyle).length) {
-                            options.legend = {
-                                ...state.options.legend,
-                                label: {
-                                    fontStyle,
-                                },
-                            }
-                        } else {
-                            options.legend = {
-                                ...state.options.legend,
-                            }
-                            delete options.legend.label
-                        }
-                        break
+                        delete options.legend.label
                     }
-                    case FONT_STYLE_VISUALIZATION_TITLE:
-                    case FONT_STYLE_VISUALIZATION_SUBTITLE: {
-                        const fontStyleOption = value.option
-                        const fontStyleValue = value.value
-                        let fontStyle = {}
-                        if (
-                            defaultFontStyle[option][fontStyleOption] !==
-                            fontStyleValue
-                        ) {
-                            // custom value: save it
-                            fontStyle = {
-                                ...(state.options.fontStyle || {}),
-                                [option]: {
-                                    ...(state.options.fontStyle || {})[option],
-                                    [fontStyleOption]: fontStyleValue,
-                                },
-                            }
-                        } else {
-                            // default value: remove the previous value
-                            fontStyle = deleteFontStyleOption(
-                                state.options.fontStyle,
-                                option,
-                                fontStyleOption
-                            )
-                        }
-                        options.fontStyle = fontStyle
-                        break
-                    }
-                    default: {
-                        options[option] = value
-                        break
-                    }
+                    break
                 }
-            })
+                case FONT_STYLE_VISUALIZATION_TITLE:
+                case FONT_STYLE_VISUALIZATION_SUBTITLE: {
+                    if (defaultFontStyle[optionId][fontStyleOption] !== value) {
+                        // custom value: save it
+                        options.fontStyle = {
+                            ...(state.options.fontStyle || {}),
+                            [optionId]: {
+                                ...(state.options.fontStyle || {})[optionId],
+                                [fontStyleOption]: value,
+                            },
+                        }
+                    } else {
+                        // default value: remove the previous value
+                        options.fontStyle = deleteFontStyleOption(
+                            state.options.fontStyle,
+                            optionId,
+                            fontStyleOption
+                        )
+                    }
+                    break
+                }
+                default: {
+                    options[optionId] = value
+                    break
+                }
+            }
             // TODO: Add back support for all other font styles
             return {
                 ...state,
@@ -520,10 +536,18 @@ export const sGetAxisSetup = state => {
 
 export const sGetUiOption = (state, option) => {
     const options = sGetUi(state).options
+    const [axisType, axisIndex] = (option.axisId || '').split('_')
     if (option.name) {
         return options[option.name]
     } else if (option.id) {
         switch (option.id) {
+            case 'STEPS':
+                return (
+                    (options.axes || []).find(
+                        axis =>
+                            axis.index === axisIndex && axis.type === axisType
+                    ) || {}
+                ).steps
             case 'HIDE_LEGEND_OPTION':
                 return options.legend?.hidden
             case FONT_STYLE_LEGEND:

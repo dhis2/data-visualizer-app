@@ -52,7 +52,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     onChange: checked =>
         dispatch(
             acSetUiOption({
-                [ownProps.option.id || ownProps.option.name]: checked,
+                optionId: ownProps.option.id || ownProps.option.name,
+                value: checked,
             })
         ),
 })

@@ -14,7 +14,8 @@ export const RangeAxisSteps = ({ disabled }) => (
         disabled={disabled}
         placeholder={i18n.t('Auto')}
         option={{
-            name: 'rangeAxisSteps',
+            id: 'STEPS',
+            axisId: 'RANGE_0',
         }}
     />
 )

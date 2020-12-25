@@ -167,7 +167,14 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
     onChange: (option, value) =>
-        dispatch(acSetUiOption({ [ownProps.fontStyleKey]: { option, value } })),
+        dispatch(
+            acSetUiOption({
+                optionId: ownProps.fontStyleKey,
+                axisId: ownProps.axisId,
+                fontStyleOption: option,
+                value,
+            })
+        ),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TextStyle)
