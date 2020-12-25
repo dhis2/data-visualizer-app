@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Checkbox } from '@dhis2/ui'
 
-import { sGetUiOptions } from '../../../reducers/ui'
-import { acSetUiOptions } from '../../../actions/ui'
+import { sGetUiOption } from '../../../reducers/ui'
+import { acSetUiOption } from '../../../actions/ui'
 import {
     tabSectionOption,
     tabSectionOptionToggleable,
@@ -45,12 +45,16 @@ CheckboxBaseOption.propTypes = {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    value: sGetUiOptions(state)[ownProps.option.name] || false,
+    value: sGetUiOption(state, ownProps.option) || false,
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
     onChange: checked =>
-        dispatch(acSetUiOptions({ [ownProps.option.name]: checked })),
+        dispatch(
+            acSetUiOption({
+                [ownProps.option.id || ownProps.option.name]: checked,
+            })
+        ),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CheckboxBaseOption)

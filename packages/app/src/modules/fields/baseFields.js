@@ -37,6 +37,7 @@ export const fieldsByType = {
         getFieldObject('showHierarchy', { option: true }),
     ],
     chart_eventChart: [
+        getFieldObject('axes', { option: true }),
         getFieldObject('baseLineLabel', { option: true }),
         getFieldObject('baseLineValue', { option: true }),
         getFieldObject('colorSet', { option: true }),
@@ -45,6 +46,7 @@ export const fieldsByType = {
         getFieldObject('fontStyle', { option: true }),
         getFieldObject('hideEmptyRowItems', { option: true }),
         getFieldObject('hideLegend', { option: true }),
+        getFieldObject('legend', { option: true }),
         getFieldObject('noSpaceBetweenColumns', { option: true }),
         getFieldObject('percentStackedValues', { option: true }),
         getFieldObject('rangeAxisDecimals', { option: true }),

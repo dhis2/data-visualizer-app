@@ -8,7 +8,7 @@ const HideLegend = () => (
     <CheckboxBaseOption
         label={i18n.t('Show legend key')}
         option={{
-            name: 'hideLegend',
+            id: 'HIDE_LEGEND_OPTION', //TODO: import as const
         }}
         inverted={true}
         fontStyleKey={FONT_STYLE_LEGEND}

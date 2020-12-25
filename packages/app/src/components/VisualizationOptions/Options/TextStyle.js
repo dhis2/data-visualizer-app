@@ -19,8 +19,8 @@ import styles from '../styles/TextStyle.module.css'
 import FontColorIcon from '../../../assets/FontColorIcon'
 import BoldIcon from '../../../assets/BoldIcon'
 import ItalicIcon from '../../../assets/ItalicIcon'
-import { sGetConsolidatedUiFontStyle, sGetUiType } from '../../../reducers/ui'
-import { acSetUiFontStyle } from '../../../actions/ui'
+import { sGetUiOption, sGetUiType } from '../../../reducers/ui'
+import { acSetUiOption } from '../../../actions/ui'
 
 const TextStyle = ({
     fontStyleKey,
@@ -158,20 +158,16 @@ TextStyle.propTypes = {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    fontStyle: sGetConsolidatedUiFontStyle(state, ownProps.fontStyleKey),
+    fontStyle:
+        sGetUiOption(state, {
+            id: ownProps.fontStyleKey,
+        }) || {},
     visType: sGetUiType(state),
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onChange: (option, value) => {
-        dispatch(
-            acSetUiFontStyle({
-                fontStyleKey: ownProps.fontStyleKey,
-                option,
-                value,
-            })
-        )
-    },
+    onChange: (option, value) =>
+        dispatch(acSetUiOption({ [ownProps.fontStyleKey]: { option, value } })),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TextStyle)

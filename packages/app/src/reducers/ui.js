@@ -10,6 +10,7 @@ import {
     defaultVisType,
     defaultFontStyle,
     deleteFontStyleOption,
+    FONT_STYLE_LEGEND,
 } from '@dhis2/analytics'
 
 import {
@@ -28,6 +29,7 @@ export const SET_UI = 'SET_UI'
 export const SET_UI_FROM_VISUALIZATION = 'SET_UI_FROM_VISUALIZATION'
 export const SET_UI_TYPE = 'SET_UI_TYPE'
 export const SET_UI_OPTIONS = 'SET_UI_OPTIONS'
+export const SET_UI_OPTION = 'SET_UI_OPTION'
 export const SET_UI_FONT_STYLE = 'SET_UI_FONT_STYLE'
 export const SET_UI_LAYOUT = 'SET_UI_LAYOUT'
 export const ADD_UI_LAYOUT_DIMENSIONS = 'ADD_UI_LAYOUT_DIMENSIONS'
@@ -131,6 +133,65 @@ export default (state = DEFAULT_UI, action) => {
                 options: {
                     ...state.options,
                     ...action.value,
+                },
+            }
+        }
+        case SET_UI_OPTION: {
+            const options = {}
+            Object.keys(action.value).forEach(option => {
+                const value = action.value[option]
+                switch (option) {
+                    case 'HIDE_LEGEND_OPTION':
+                        options.legend = {
+                            ...state.options.legend,
+                            hidden: value,
+                        }
+                        break
+                    case FONT_STYLE_LEGEND: {
+                        const fontStyleOption = value.option
+                        const fontStyleValue = value.value
+                        const fontStyle = {
+                            ...state.options.legend?.label?.fontStyle,
+                        }
+
+                        if (
+                            defaultFontStyle[option][fontStyleOption] !==
+                            fontStyleValue
+                        ) {
+                            // custom value: save it
+                            fontStyle[fontStyleOption] = fontStyleValue
+                        } else {
+                            // default value: remove the previous value
+                            delete fontStyle[fontStyleOption]
+                        }
+                        if (Object.keys(fontStyle).length) {
+                            options.legend = {
+                                ...state.options.legend,
+                                label: {
+                                    fontStyle,
+                                },
+                            }
+                        } else {
+                            options.legend = {
+                                ...state.options.legend,
+                            }
+                            delete options.legend.label
+                        }
+                        break
+                    }
+
+                    default: {
+                        options[option] = value
+                        break
+                    }
+                }
+            })
+            // TODO: Add back support for all other font styles
+            return {
+                ...state,
+                options: {
+                    ...state.options,
+                    ...options,
                 },
             }
         }
@@ -457,10 +518,20 @@ export const sGetAxisSetup = state => {
         : []
 }
 
-export const sGetUiFontStyle = (state, key) =>
-    (sGetUiOptions(state).fontStyle || {})[key]
-
-export const sGetConsolidatedUiFontStyle = (state, key) => ({
-    ...defaultFontStyle[key],
-    ...sGetUiFontStyle(state, key),
-})
+export const sGetUiOption = (state, option) => {
+    const options = sGetUi(state).options
+    if (option.name) {
+        return options[option.name]
+    } else if (option.id) {
+        switch (option.id) {
+            case 'HIDE_LEGEND_OPTION':
+                return options.legend?.hidden
+            case FONT_STYLE_LEGEND:
+                return {
+                    ...defaultFontStyle[FONT_STYLE_LEGEND],
+                    ...(options.legend?.label?.fontStyle || {}),
+                }
+            // TODO: Add back support for all other font styles
+        }
+    }
+}

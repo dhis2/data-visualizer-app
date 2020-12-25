@@ -3,6 +3,7 @@ import pick from 'lodash-es/pick'
 import { COLOR_SET_DEFAULT } from '@dhis2/analytics'
 
 export const options = {
+    axes: { requestable: false, savable: true },
     baseLineLabel: {
         defaultValue: undefined,
         requestable: false,
@@ -34,6 +35,7 @@ export const options = {
         savable: true,
     },
     hideLegend: { defaultValue: false, requestable: false, savable: true },
+    legend: { requestable: false, savable: true },
     noSpaceBetweenColumns: {
         defaultValue: false,
         requestable: false,
