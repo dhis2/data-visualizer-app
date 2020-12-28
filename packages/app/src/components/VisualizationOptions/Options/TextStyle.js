@@ -170,7 +170,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
         dispatch(
             acSetUiOption({
                 optionId: ownProps.fontStyleKey,
-                axisId: ownProps.axisId,
+                axisId: ownProps.axisId, //FIXME: Should axisId be listed in propTypes?
                 fontStyleOption: option,
                 value,
             })

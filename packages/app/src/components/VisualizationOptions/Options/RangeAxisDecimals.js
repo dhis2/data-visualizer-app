@@ -3,6 +3,7 @@ import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 
 import PositiveNumberBaseType from './PositiveNumberBaseType'
+import { OPTION_DECIMALS } from '../../../modules/options'
 
 const RangeAxisDecimals = ({ disabled }) => (
     <PositiveNumberBaseType
@@ -11,7 +12,8 @@ const RangeAxisDecimals = ({ disabled }) => (
         disabled={disabled}
         placeholder={i18n.t('Auto')}
         option={{
-            name: 'rangeAxisDecimals',
+            id: OPTION_DECIMALS,
+            axisId: 'RANGE_0',
         }}
     />
 )

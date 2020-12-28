@@ -2,6 +2,10 @@ import pick from 'lodash-es/pick'
 
 import { COLOR_SET_DEFAULT } from '@dhis2/analytics'
 
+export const OPTION_STEPS = 'STEPS'
+export const OPTION_HIDE_LEGEND = 'HIDE_LEGEND'
+export const OPTION_DECIMALS = 'DECIMALS'
+
 export const options = {
     axes: { requestable: false, savable: true },
     baseLineLabel: {

@@ -20,7 +20,12 @@ import {
     getInverseLayout,
     getRetransfer,
 } from '../modules/layout'
-import { getOptionsForUi } from '../modules/options'
+import {
+    getOptionsForUi,
+    OPTION_DECIMALS,
+    OPTION_HIDE_LEGEND,
+    OPTION_STEPS,
+} from '../modules/options'
 import {
     getAdaptedUiByType,
     getUiFromVisualization,
@@ -144,22 +149,23 @@ export default (state = DEFAULT_UI, action) => {
             const [axisType, axisIndex] = (action.value.axisId || '').split('_')
             const fontStyleOption = action.value.fontStyleOption
             switch (optionId) {
-                case 'STEPS': {
-                    const axis = (options.axes || []).find(
+                case OPTION_DECIMALS: {
+                    const axis = (state.options.axes || []).find(
                         axis =>
-                            axis.index === axisIndex && axis.type === axisType
-                    ) || { index: axisIndex, type: axisType }
+                            axis.index === Number(axisIndex) &&
+                            axis.type === axisType
+                    ) || { index: Number(axisIndex), type: axisType }
 
                     if (value) {
-                        axis.steps = value
+                        axis.decimals = value
                     } else {
-                        delete axis.steps
+                        delete axis.decimals
                     }
                     options.axes = [
-                        ...(options.axes || []).filter(
+                        ...(state.options.axes || []).filter(
                             axis =>
-                                axis.index === axisIndex &&
-                                axis.type === axisType
+                                axis.index !== Number(axisIndex) &&
+                                axis.type !== axisType
                         ),
                     ]
                     if (
@@ -171,7 +177,35 @@ export default (state = DEFAULT_UI, action) => {
                     }
                     break
                 }
-                case 'HIDE_LEGEND_OPTION':
+                case OPTION_STEPS: {
+                    const axis = (state.options.axes || []).find(
+                        axis =>
+                            axis.index === Number(axisIndex) &&
+                            axis.type === axisType
+                    ) || { index: Number(axisIndex), type: axisType }
+
+                    if (value) {
+                        axis.steps = value
+                    } else {
+                        delete axis.steps
+                    }
+                    options.axes = [
+                        ...(state.options.axes || []).filter(
+                            axis =>
+                                axis.index !== Number(axisIndex) &&
+                                axis.type !== axisType
+                        ),
+                    ]
+                    if (
+                        Object.keys(axis).filter(
+                            key => !['type', 'index'].includes(key)
+                        ).length
+                    ) {
+                        options.axes.push(axis)
+                    }
+                    break
+                }
+                case OPTION_HIDE_LEGEND:
                     options.legend = {
                         ...state.options.legend,
                         hidden: value,
@@ -541,14 +575,23 @@ export const sGetUiOption = (state, option) => {
         return options[option.name]
     } else if (option.id) {
         switch (option.id) {
-            case 'STEPS':
+            case OPTION_DECIMALS:
                 return (
                     (options.axes || []).find(
                         axis =>
-                            axis.index === axisIndex && axis.type === axisType
+                            axis.index === Number(axisIndex) &&
+                            axis.type === axisType
+                    ) || {}
+                ).decimals
+            case OPTION_STEPS:
+                return (
+                    (options.axes || []).find(
+                        axis =>
+                            axis.index === Number(axisIndex) &&
+                            axis.type === axisType
                     ) || {}
                 ).steps
-            case 'HIDE_LEGEND_OPTION':
+            case OPTION_HIDE_LEGEND:
                 return options.legend?.hidden
             case FONT_STYLE_LEGEND:
                 return {
