@@ -149,45 +149,18 @@ export default (state = DEFAULT_UI, action) => {
             const [axisType, axisIndex] = (action.value.axisId || '').split('_')
             const fontStyleOption = action.value.fontStyleOption
             switch (optionId) {
-                case OPTION_DECIMALS: {
-                    const axis = (state.options.axes || []).find(
-                        axis =>
-                            axis.index === Number(axisIndex) &&
-                            axis.type === axisType
-                    ) || { index: Number(axisIndex), type: axisType }
-
-                    if (value) {
-                        axis.decimals = value
-                    } else {
-                        delete axis.decimals
-                    }
-                    options.axes = [
-                        ...(state.options.axes || []).filter(
-                            axis =>
-                                axis.index !== Number(axisIndex) &&
-                                axis.type !== axisType
-                        ),
-                    ]
-                    if (
-                        Object.keys(axis).filter(
-                            key => !['type', 'index'].includes(key)
-                        ).length
-                    ) {
-                        options.axes.push(axis)
-                    }
-                    break
-                }
+                case OPTION_DECIMALS:
                 case OPTION_STEPS: {
-                    const axis = (state.options.axes || []).find(
-                        axis =>
-                            axis.index === Number(axisIndex) &&
-                            axis.type === axisType
+                    const axis = getAxis(
+                        state.options.axes,
+                        Number(axisIndex),
+                        axisType
                     ) || { index: Number(axisIndex), type: axisType }
 
                     if (value) {
-                        axis.steps = value
+                        axis[optionId] = value
                     } else {
-                        delete axis.steps
+                        delete axis[optionId]
                     }
                     options.axes = [
                         ...(state.options.axes || []).filter(
@@ -576,21 +549,10 @@ export const sGetUiOption = (state, option) => {
     } else if (option.id) {
         switch (option.id) {
             case OPTION_DECIMALS:
-                return (
-                    (options.axes || []).find(
-                        axis =>
-                            axis.index === Number(axisIndex) &&
-                            axis.type === axisType
-                    ) || {}
-                ).decimals
+                return getAxis(options.axes, Number(axisIndex), axisType)
+                    ?.decimals
             case OPTION_STEPS:
-                return (
-                    (options.axes || []).find(
-                        axis =>
-                            axis.index === Number(axisIndex) &&
-                            axis.type === axisType
-                    ) || {}
-                ).steps
+                return getAxis(options.axes, Number(axisIndex), axisType)?.steps
             case OPTION_HIDE_LEGEND:
                 return options.legend?.hidden
             case FONT_STYLE_LEGEND:
@@ -608,3 +570,6 @@ export const sGetUiOption = (state, option) => {
         }
     }
 }
+
+const getAxis = (axes = [], axisIndex, axisType) =>
+    axes.find(axis => axis.index === axisIndex && axis.type === axisType)
