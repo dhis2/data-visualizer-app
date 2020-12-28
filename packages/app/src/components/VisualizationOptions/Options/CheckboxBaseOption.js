@@ -53,6 +53,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
         dispatch(
             acSetUiOption({
                 optionId: ownProps.option.id || ownProps.option.name,
+                axisId: ownProps.option.axisId,
                 value: checked,
             })
         ),

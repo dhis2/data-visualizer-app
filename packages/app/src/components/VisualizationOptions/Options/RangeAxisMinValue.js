@@ -3,6 +3,7 @@ import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 
 import TextBaseOption from './TextBaseOption'
+import { OPTION_AXIS_MIN_VALUE } from '../../../modules/options'
 
 const RangeAxisMinValue = ({ disabled }) => (
     <TextBaseOption
@@ -11,7 +12,8 @@ const RangeAxisMinValue = ({ disabled }) => (
         placeholder={i18n.t('Min')}
         disabled={disabled}
         option={{
-            name: 'rangeAxisMinValue',
+            id: OPTION_AXIS_MIN_VALUE,
+            axisId: 'RANGE_0',
         }}
         inline
         dataTest={'option-vertical-axis-range-min'}

@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 
 import { Checkbox, Box, Input, InputField } from '@dhis2/ui'
 
-import { sGetUiOptions } from '../../../reducers/ui'
-import { acSetUiOptions } from '../../../actions/ui'
+import { sGetUiOption } from '../../../reducers/ui'
+import { acSetUiOption } from '../../../actions/ui'
 import {
     tabSectionOption,
     tabSectionOptionToggleable,
@@ -106,17 +106,25 @@ TextBaseOption.propTypes = {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    value: sGetUiOptions(state)[ownProps.option.name] || '',
-    checked: sGetUiOptions(state)[ownProps.option.name] !== undefined,
+    value: sGetUiOption(state, ownProps.option) || '',
+    checked: sGetUiOption(state, ownProps.option) !== undefined,
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
     onChange: value =>
-        dispatch(acSetUiOptions({ [ownProps.option.name]: value })),
+        dispatch(
+            acSetUiOption({
+                optionId: ownProps.option.id || ownProps.option.name,
+                axisId: ownProps.option.axisId,
+                value: ownProps.type === 'number' ? Number(value) : value,
+            })
+        ),
     onToggle: checked =>
         dispatch(
-            acSetUiOptions({
-                [ownProps.option.name]: checked ? '' : undefined,
+            acSetUiOption({
+                optionId: ownProps.option.id || ownProps.option.name,
+                axisId: ownProps.option.axisId,
+                value: checked ? '' : undefined,
             })
         ),
 })

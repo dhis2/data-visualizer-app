@@ -22,9 +22,11 @@ import {
 } from '../modules/layout'
 import {
     getOptionsForUi,
-    OPTION_DECIMALS,
+    OPTION_AXIS_DECIMALS,
     OPTION_HIDE_LEGEND,
-    OPTION_STEPS,
+    OPTION_AXIS_MAX_VALUE,
+    OPTION_AXIS_MIN_VALUE,
+    OPTION_AXIS_STEPS,
 } from '../modules/options'
 import {
     getAdaptedUiByType,
@@ -149,8 +151,10 @@ export default (state = DEFAULT_UI, action) => {
             const [axisType, axisIndex] = (action.value.axisId || '').split('_')
             const fontStyleOption = action.value.fontStyleOption
             switch (optionId) {
-                case OPTION_DECIMALS:
-                case OPTION_STEPS: {
+                case OPTION_AXIS_DECIMALS:
+                case OPTION_AXIS_STEPS:
+                case OPTION_AXIS_MAX_VALUE:
+                case OPTION_AXIS_MIN_VALUE: {
                     const axis = getAxis(
                         state.options.axes,
                         Number(axisIndex),
@@ -548,10 +552,16 @@ export const sGetUiOption = (state, option) => {
         return options[option.name]
     } else if (option.id) {
         switch (option.id) {
-            case OPTION_DECIMALS:
+            case OPTION_AXIS_MAX_VALUE:
+                return getAxis(options.axes, Number(axisIndex), axisType)
+                    ?.maxValue
+            case OPTION_AXIS_MIN_VALUE:
+                return getAxis(options.axes, Number(axisIndex), axisType)
+                    ?.minValue
+            case OPTION_AXIS_DECIMALS:
                 return getAxis(options.axes, Number(axisIndex), axisType)
                     ?.decimals
-            case OPTION_STEPS:
+            case OPTION_AXIS_STEPS:
                 return getAxis(options.axes, Number(axisIndex), axisType)?.steps
             case OPTION_HIDE_LEGEND:
                 return options.legend?.hidden
