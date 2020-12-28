@@ -553,16 +553,12 @@ export const sGetUiOption = (state, option) => {
     } else if (option.id) {
         switch (option.id) {
             case OPTION_AXIS_MAX_VALUE:
-                return getAxis(options.axes, Number(axisIndex), axisType)
-                    ?.maxValue
             case OPTION_AXIS_MIN_VALUE:
-                return getAxis(options.axes, Number(axisIndex), axisType)
-                    ?.minValue
             case OPTION_AXIS_DECIMALS:
-                return getAxis(options.axes, Number(axisIndex), axisType)
-                    ?.decimals
             case OPTION_AXIS_STEPS:
-                return getAxis(options.axes, Number(axisIndex), axisType)?.steps
+                return getAxis(options.axes, Number(axisIndex), axisType)?.[
+                    option.id
+                ]
             case OPTION_HIDE_LEGEND:
                 return options.legend?.hidden
             case FONT_STYLE_LEGEND:
