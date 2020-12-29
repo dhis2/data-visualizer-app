@@ -161,6 +161,7 @@ const mapStateToProps = (state, ownProps) => ({
     fontStyle:
         sGetUiOption(state, {
             id: ownProps.fontStyleKey,
+            axisId: ownProps.axisId,
         }) || {},
     visType: sGetUiType(state),
 })

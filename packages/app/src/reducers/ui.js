@@ -13,6 +13,7 @@ import {
     FONT_STYLE_LEGEND,
     FONT_STYLE_VISUALIZATION_TITLE,
     FONT_STYLE_VISUALIZATION_SUBTITLE,
+    FONT_STYLE_AXIS_LABELS,
 } from '@dhis2/analytics'
 
 import {
@@ -169,7 +170,7 @@ export default (state = DEFAULT_UI, action) => {
                     options.axes = [
                         ...(state.options.axes || []).filter(
                             axis =>
-                                axis.index !== Number(axisIndex) &&
+                                axis.index !== Number(axisIndex) ||
                                 axis.type !== axisType
                         ),
                     ]
@@ -188,6 +189,45 @@ export default (state = DEFAULT_UI, action) => {
                         hidden: value,
                     }
                     break
+                case FONT_STYLE_AXIS_LABELS: {
+                    const axis = getAxis(
+                        state.options.axes,
+                        Number(axisIndex),
+                        axisType
+                    ) || { index: Number(axisIndex), type: axisType }
+
+                    const fontStyle = { ...axis.label?.fontStyle }
+
+                    if (defaultFontStyle[optionId][fontStyleOption] !== value) {
+                        // custom value: save it
+                        fontStyle[fontStyleOption] = value
+                    } else {
+                        // default value: remove the previous value
+                        delete fontStyle[fontStyleOption]
+                    }
+                    if (Object.keys(fontStyle).length) {
+                        axis.label = {
+                            fontStyle,
+                        }
+                    } else {
+                        delete axis.label
+                    }
+                    options.axes = [
+                        ...(state.options.axes || []).filter(
+                            axis =>
+                                axis.index !== Number(axisIndex) ||
+                                axis.type !== axisType
+                        ),
+                    ]
+                    if (
+                        Object.keys(axis).filter(
+                            key => !['type', 'index'].includes(key)
+                        ).length
+                    ) {
+                        options.axes.push(axis)
+                    }
+                    break
+                }
                 case FONT_STYLE_LEGEND: {
                     const fontStyle = {
                         ...state.options.legend?.label?.fontStyle,
@@ -562,16 +602,22 @@ export const sGetUiOption = (state, option) => {
             case OPTION_HIDE_LEGEND:
                 return options.legend?.hidden
             case FONT_STYLE_LEGEND:
-                return {
-                    ...defaultFontStyle[option.id],
-                    ...(options.legend?.label?.fontStyle || {}),
-                }
+                return getConsolidatedFontStyle(
+                    option.id,
+                    options.legend?.label?.fontStyle
+                )
+            case FONT_STYLE_AXIS_LABELS:
+                return getConsolidatedFontStyle(
+                    option.id,
+                    getAxis(options.axes, Number(axisIndex), axisType)?.label
+                        ?.fontStyle
+                )
             case FONT_STYLE_VISUALIZATION_TITLE:
             case FONT_STYLE_VISUALIZATION_SUBTITLE:
-                return {
-                    ...defaultFontStyle[option.id],
-                    ...(options.fontStyle || {})[option.id],
-                }
+                return getConsolidatedFontStyle(
+                    option.id,
+                    (options.fontStyle || {})[option.id]
+                )
             // TODO: Add back support for all other font styles
         }
     }
@@ -579,3 +625,8 @@ export const sGetUiOption = (state, option) => {
 
 const getAxis = (axes = [], axisIndex, axisType) =>
     axes.find(axis => axis.index === axisIndex && axis.type === axisType)
+
+const getConsolidatedFontStyle = (fontStyleKey, fontStyle) => ({
+    ...defaultFontStyle[fontStyleKey],
+    ...(fontStyle || {}),
+})

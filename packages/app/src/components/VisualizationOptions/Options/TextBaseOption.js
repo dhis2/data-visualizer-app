@@ -53,7 +53,7 @@ export const TextBaseOption = ({
                             type={type}
                             onChange={({ value }) => onChange(value)}
                             name={option.name}
-                            value={value}
+                            value={value.toString()}
                             placeholder={placeholder}
                             dense
                             disabled={disabled}
