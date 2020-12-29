@@ -7,6 +7,7 @@ export const OPTION_AXIS_STEPS = 'steps'
 export const OPTION_AXIS_DECIMALS = 'decimals'
 export const OPTION_AXIS_MAX_VALUE = 'maxValue'
 export const OPTION_AXIS_MIN_VALUE = 'minValue'
+export const OPTION_AXIS_TITLE = 'axisTitle'
 
 export const options = {
     axes: { requestable: false, savable: true },

@@ -14,6 +14,8 @@ import {
     FONT_STYLE_VISUALIZATION_TITLE,
     FONT_STYLE_VISUALIZATION_SUBTITLE,
     FONT_STYLE_AXIS_LABELS,
+    FONT_STYLE_HORIZONTAL_AXIS_TITLE,
+    FONT_STYLE_VERTICAL_AXIS_TITLE,
 } from '@dhis2/analytics'
 
 import {
@@ -28,6 +30,7 @@ import {
     OPTION_AXIS_MAX_VALUE,
     OPTION_AXIS_MIN_VALUE,
     OPTION_AXIS_STEPS,
+    OPTION_AXIS_TITLE,
 } from '../modules/options'
 import {
     getAdaptedUiByType,
@@ -160,25 +163,19 @@ export default (state = DEFAULT_UI, action) => {
                         state.options.axes,
                         Number(axisIndex),
                         axisType
-                    ) || { index: Number(axisIndex), type: axisType }
+                    )
 
                     if (value) {
                         axis[optionId] = value
                     } else {
                         delete axis[optionId]
                     }
-                    options.axes = [
-                        ...(state.options.axes || []).filter(
-                            axis =>
-                                axis.index !== Number(axisIndex) ||
-                                axis.type !== axisType
-                        ),
-                    ]
-                    if (
-                        Object.keys(axis).filter(
-                            key => !['type', 'index'].includes(key)
-                        ).length
-                    ) {
+
+                    options.axes = filterAxes(state.options.axes, {
+                        index: axisIndex,
+                        type: axisType,
+                    })
+                    if (axisHasProps(axis)) {
                         options.axes.push(axis)
                     }
                     break
@@ -189,12 +186,80 @@ export default (state = DEFAULT_UI, action) => {
                         hidden: value,
                     }
                     break
+                case OPTION_AXIS_TITLE: {
+                    const axis = getAxis(
+                        state.options.axes,
+                        Number(axisIndex),
+                        axisType
+                    )
+
+                    // title.text
+                    if (value || value === '') {
+                        axis.title = {
+                            ...axis.title,
+                            text: value,
+                        }
+                    } else if (axis.title) {
+                        delete axis.title.text
+
+                        if (!Object.keys(axis.title).length) {
+                            delete axis.title
+                        }
+                    }
+                    options.axes = filterAxes(state.options.axes, {
+                        index: axisIndex,
+                        type: axisType,
+                    })
+                    if (axisHasProps(axis)) {
+                        options.axes.push(axis)
+                    }
+                    break
+                }
+                case FONT_STYLE_VERTICAL_AXIS_TITLE:
+                case FONT_STYLE_HORIZONTAL_AXIS_TITLE: {
+                    const axis = getAxis(
+                        state.options.axes,
+                        Number(axisIndex),
+                        axisType
+                    )
+                    const fontStyle = {
+                        ...axis.title?.fontStyle,
+                    }
+
+                    if (defaultFontStyle[optionId][fontStyleOption] !== value) {
+                        // custom value: save it
+                        fontStyle[fontStyleOption] = value
+                    } else {
+                        // default value: remove the previous value
+                        delete fontStyle[fontStyleOption]
+                    }
+                    if (Object.keys(fontStyle).length) {
+                        axis.title = {
+                            ...axis.title,
+                            fontStyle,
+                        }
+                    } else if (axis.title) {
+                        delete axis.title.fontStyle
+
+                        if (!Object.keys(axis.title).length) {
+                            delete axis.title
+                        }
+                    }
+                    options.axes = filterAxes(state.options.axes, {
+                        index: axisIndex,
+                        type: axisType,
+                    })
+                    if (axisHasProps(axis)) {
+                        options.axes.push(axis)
+                    }
+                    break
+                }
                 case FONT_STYLE_AXIS_LABELS: {
                     const axis = getAxis(
                         state.options.axes,
                         Number(axisIndex),
                         axisType
-                    ) || { index: Number(axisIndex), type: axisType }
+                    )
 
                     const fontStyle = { ...axis.label?.fontStyle }
 
@@ -212,18 +277,11 @@ export default (state = DEFAULT_UI, action) => {
                     } else {
                         delete axis.label
                     }
-                    options.axes = [
-                        ...(state.options.axes || []).filter(
-                            axis =>
-                                axis.index !== Number(axisIndex) ||
-                                axis.type !== axisType
-                        ),
-                    ]
-                    if (
-                        Object.keys(axis).filter(
-                            key => !['type', 'index'].includes(key)
-                        ).length
-                    ) {
+                    options.axes = filterAxes(state.options.axes, {
+                        index: axisIndex,
+                        type: axisType,
+                    })
+                    if (axisHasProps(axis)) {
                         options.axes.push(axis)
                     }
                     break
@@ -596,9 +654,12 @@ export const sGetUiOption = (state, option) => {
             case OPTION_AXIS_MIN_VALUE:
             case OPTION_AXIS_DECIMALS:
             case OPTION_AXIS_STEPS:
-                return getAxis(options.axes, Number(axisIndex), axisType)?.[
+                return getAxis(options.axes, Number(axisIndex), axisType)[
                     option.id
                 ]
+            case OPTION_AXIS_TITLE:
+                return getAxis(options.axes, Number(axisIndex), axisType).title
+                    ?.text
             case OPTION_HIDE_LEGEND:
                 return options.legend?.hidden
             case FONT_STYLE_LEGEND:
@@ -609,8 +670,14 @@ export const sGetUiOption = (state, option) => {
             case FONT_STYLE_AXIS_LABELS:
                 return getConsolidatedFontStyle(
                     option.id,
-                    getAxis(options.axes, Number(axisIndex), axisType)?.label
+                    getAxis(options.axes, Number(axisIndex), axisType).label
                         ?.fontStyle
+                )
+            case FONT_STYLE_VERTICAL_AXIS_TITLE:
+            case FONT_STYLE_HORIZONTAL_AXIS_TITLE:
+                return getConsolidatedFontStyle(
+                    option.id,
+                    options.title?.fontStyle
                 )
             case FONT_STYLE_VISUALIZATION_TITLE:
             case FONT_STYLE_VISUALIZATION_SUBTITLE:
@@ -623,8 +690,23 @@ export const sGetUiOption = (state, option) => {
     }
 }
 
-const getAxis = (axes = [], axisIndex, axisType) =>
-    axes.find(axis => axis.index === axisIndex && axis.type === axisType)
+const getAxis = (axes = [], axisIndex, axisType) => ({
+    ...(axes.find(
+        axis => axis.index === axisIndex && axis.type === axisType
+    ) || {
+        index: Number(axisIndex),
+        type: axisType,
+    }),
+})
+
+const axisHasProps = axis =>
+    Object.keys(axis).filter(key => !['type', 'index'].includes(key)).length
+
+const filterAxes = (axes, filter) => [
+    ...(axes || []).filter(
+        axis => axis.index !== Number(filter.index) || axis.type !== filter.type
+    ),
+]
 
 const getConsolidatedFontStyle = (fontStyleKey, fontStyle) => ({
     ...defaultFontStyle[fontStyleKey],

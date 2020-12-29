@@ -80,6 +80,7 @@ export const TextBaseOption = ({
                         fontStyleKey={fontStyleKey}
                         disabled={disabled}
                         dataTest={`${dataTest}-text-style`}
+                        axisId={option.axisId}
                     />
                 ) : null}
             </div>
