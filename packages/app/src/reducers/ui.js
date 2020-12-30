@@ -16,6 +16,7 @@ import {
     FONT_STYLE_AXIS_LABELS,
     FONT_STYLE_HORIZONTAL_AXIS_TITLE,
     FONT_STYLE_VERTICAL_AXIS_TITLE,
+    FONT_STYLE_REGRESSION_LINE_LABEL,
 } from '@dhis2/analytics'
 
 import {
@@ -33,6 +34,7 @@ import {
     OPTION_AXIS_TITLE,
     OPTION_BASE_LINE_TITLE,
     OPTION_BASE_LINE_VALUE,
+    OPTION_BASE_LINE_TITLE_FONT_STYLE,
 } from '../modules/options'
 import {
     getAdaptedUiByType,
@@ -262,6 +264,44 @@ export default (state = DEFAULT_UI, action) => {
                         if (!Object.keys(axis.baseLine).length) {
                             delete axis.baseLine
                         }
+                    }
+                    options.axes = filterAxes(state.options.axes, {
+                        index: axisIndex,
+                        type: axisType,
+                    })
+                    if (axisHasProps(axis)) {
+                        options.axes.push(axis)
+                    }
+                    break
+                }
+                case OPTION_BASE_LINE_TITLE_FONT_STYLE: {
+                    const axis = getAxis(
+                        state.options.axes,
+                        Number(axisIndex),
+                        axisType
+                    )
+                    const fontStyle = {
+                        ...axis.baseLine?.title?.fontStyle,
+                    }
+
+                    if (
+                        defaultFontStyle[FONT_STYLE_REGRESSION_LINE_LABEL][
+                            fontStyleOption
+                        ] !== value
+                    ) {
+                        // custom value: save it
+                        fontStyle[fontStyleOption] = value
+                    } else {
+                        // default value: remove the previous value
+                        delete fontStyle[fontStyleOption]
+                    }
+                    if (Object.keys(fontStyle).length) {
+                        axis.baseLine.title = {
+                            ...axis.baseLine.title,
+                            fontStyle,
+                        }
+                    } else {
+                        delete axis.baseLine.title.fontStyle
                     }
                     options.axes = filterAxes(state.options.axes, {
                         index: axisIndex,
@@ -703,54 +743,72 @@ export const sGetAxisSetup = state => {
 export const sGetUiOption = (state, option) => {
     const options = sGetUi(state).options
     const [axisType, axisIndex] = (option.axisId || '').split('_')
+    let value
     if (option.name) {
-        return options[option.name]
+        value = options[option.name]
     } else if (option.id) {
         switch (option.id) {
             case OPTION_AXIS_MAX_VALUE:
             case OPTION_AXIS_MIN_VALUE:
             case OPTION_AXIS_DECIMALS:
             case OPTION_AXIS_STEPS:
-                return getAxis(options.axes, Number(axisIndex), axisType)[
+                value = getAxis(options.axes, Number(axisIndex), axisType)[
                     option.id
                 ]
+                break
             case OPTION_AXIS_TITLE:
-                return getAxis(options.axes, Number(axisIndex), axisType).title
+                value = getAxis(options.axes, Number(axisIndex), axisType).title
                     ?.text
+                break
             case OPTION_HIDE_LEGEND:
-                return options.legend?.hidden
+                value = options.legend?.hidden
+                break
             case FONT_STYLE_LEGEND:
-                return getConsolidatedFontStyle(
+                value = getConsolidatedFontStyle(
                     option.id,
                     options.legend?.label?.fontStyle
                 )
+                break
             case OPTION_BASE_LINE_TITLE:
-                return getAxis(options.axes, Number(axisIndex), axisType)
+                value = getAxis(options.axes, Number(axisIndex), axisType)
                     .baseLine?.title?.text
+                break
             case OPTION_BASE_LINE_VALUE:
-                return getAxis(options.axes, Number(axisIndex), axisType)
+                value = getAxis(options.axes, Number(axisIndex), axisType)
                     .baseLine?.value
+                break
+            case OPTION_BASE_LINE_TITLE_FONT_STYLE:
+                value = getConsolidatedFontStyle(
+                    FONT_STYLE_REGRESSION_LINE_LABEL,
+                    getAxis(options.axes, Number(axisIndex), axisType).baseLine
+                        ?.title?.fontStyle
+                )
+                break
             case FONT_STYLE_AXIS_LABELS:
-                return getConsolidatedFontStyle(
+                value = getConsolidatedFontStyle(
                     option.id,
                     getAxis(options.axes, Number(axisIndex), axisType).label
                         ?.fontStyle
                 )
+                break
             case FONT_STYLE_VERTICAL_AXIS_TITLE:
             case FONT_STYLE_HORIZONTAL_AXIS_TITLE:
-                return getConsolidatedFontStyle(
+                value = getConsolidatedFontStyle(
                     option.id,
                     options.title?.fontStyle
                 )
+                break
             case FONT_STYLE_VISUALIZATION_TITLE:
             case FONT_STYLE_VISUALIZATION_SUBTITLE:
-                return getConsolidatedFontStyle(
+                value = getConsolidatedFontStyle(
                     option.id,
                     (options.fontStyle || {})[option.id]
                 )
+                break
             // TODO: Add back support for all other font styles
         }
     }
+    return value
 }
 
 const getAxis = (axes = [], axisIndex, axisType) => ({

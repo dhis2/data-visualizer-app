@@ -1,6 +1,6 @@
 import React from 'react'
 import i18n from '@dhis2/d2-i18n'
-import { FONT_STYLE_TARGET_LINE_LABEL } from '@dhis2/analytics'
+import { FONT_STYLE_REGRESSION_LINE_LABEL } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
 
 import TextBaseOption from './TextBaseOption'
@@ -15,7 +15,7 @@ const TargetLineLabel = ({ dataTest }) => (
             name: 'targetLineLabel',
         }}
         inline
-        fontStyleKey={FONT_STYLE_TARGET_LINE_LABEL}
+        fontStyleKey={FONT_STYLE_REGRESSION_LINE_LABEL}
         dataTest={dataTest}
     />
 )

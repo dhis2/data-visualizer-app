@@ -10,6 +10,7 @@ export const OPTION_AXIS_MIN_VALUE = 'minValue'
 export const OPTION_AXIS_TITLE = 'axisTitle'
 export const OPTION_BASE_LINE_TITLE = 'baseLineTitle'
 export const OPTION_BASE_LINE_VALUE = 'baseLineValue'
+export const OPTION_BASE_LINE_TITLE_FONT_STYLE = 'baseLineTitleFontStyle'
 
 export const options = {
     axes: { requestable: false, savable: true },

@@ -1,10 +1,12 @@
 import React from 'react'
 import i18n from '@dhis2/d2-i18n'
-import { FONT_STYLE_BASE_LINE_LABEL } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
 
 import TextBaseOption from './TextBaseOption'
-import { OPTION_BASE_LINE_TITLE } from '../../../modules/options'
+import {
+    OPTION_BASE_LINE_TITLE,
+    OPTION_BASE_LINE_TITLE_FONT_STYLE,
+} from '../../../modules/options'
 
 const BaseLineLabel = ({ dataTest, axisId }) => (
     <TextBaseOption
@@ -17,7 +19,7 @@ const BaseLineLabel = ({ dataTest, axisId }) => (
             axisId,
         }}
         inline
-        fontStyleKey={FONT_STYLE_BASE_LINE_LABEL}
+        fontStyleKey={OPTION_BASE_LINE_TITLE_FONT_STYLE}
         dataTest={dataTest}
     />
 )
