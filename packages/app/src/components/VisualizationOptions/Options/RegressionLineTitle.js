@@ -1,27 +1,30 @@
 import React from 'react'
 import i18n from '@dhis2/d2-i18n'
-import { FONT_STYLE_REGRESSION_LINE_LABEL } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
 
 import TextBaseOption from './TextBaseOption'
 
-const TargetLineLabel = ({ dataTest }) => (
+const RegressionLineTitle = ({ dataTest, axisId, fontStyleKey, id }) => (
     <TextBaseOption
         type="text"
         width="280px"
         label={i18n.t('Title')}
-        placeholder={i18n.t('Target line title')}
+        placeholder={i18n.t('Add a title')}
         option={{
-            name: 'targetLineLabel',
+            id,
+            axisId,
         }}
         inline
-        fontStyleKey={FONT_STYLE_REGRESSION_LINE_LABEL}
+        fontStyleKey={fontStyleKey}
         dataTest={dataTest}
     />
 )
 
-TargetLineLabel.propTypes = {
+RegressionLineTitle.propTypes = {
+    axisId: PropTypes.string,
     dataTest: PropTypes.string,
+    fontStyleKey: PropTypes.string,
+    id: PropTypes.string,
 }
 
-export default TargetLineLabel
+export default RegressionLineTitle

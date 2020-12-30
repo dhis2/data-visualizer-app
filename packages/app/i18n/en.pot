@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-12-22T11:18:55.789Z\n"
-"PO-Revision-Date: 2020-12-22T11:18:55.789Z\n"
+"POT-Creation-Date: 2020-12-30T13:05:55.908Z\n"
+"PO-Revision-Date: 2020-12-30T13:05:55.908Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -299,18 +299,6 @@ msgstr ""
 msgid "Base line"
 msgstr ""
 
-msgid "Value"
-msgstr ""
-
-msgid "Title"
-msgstr ""
-
-msgid "Base line title"
-msgstr ""
-
-msgid "Number"
-msgstr ""
-
 msgid "Labels"
 msgstr ""
 
@@ -481,6 +469,9 @@ msgstr ""
 msgid "Display the value of percentages of the total"
 msgstr ""
 
+msgid "Value"
+msgstr ""
+
 msgid "Percentage of row"
 msgstr ""
 
@@ -514,6 +505,12 @@ msgid "Steps"
 msgstr ""
 
 msgid "Include regression"
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "Number"
 msgstr ""
 
 msgid "Trend line"
@@ -588,9 +585,6 @@ msgid "Add a subtitle"
 msgstr ""
 
 msgid "Target line"
-msgstr ""
-
-msgid "Target line title"
 msgstr ""
 
 msgid "Size"
