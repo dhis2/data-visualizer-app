@@ -117,7 +117,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
             acSetUiOption({
                 optionId: ownProps.option.id || ownProps.option.name,
                 axisId: ownProps.option.axisId,
-                value: ownProps.type === 'number' ? Number(value) : value,
+                value,
             })
         ),
     onToggle: checked =>

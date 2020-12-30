@@ -31,6 +31,8 @@ import {
     OPTION_AXIS_MIN_VALUE,
     OPTION_AXIS_STEPS,
     OPTION_AXIS_TITLE,
+    OPTION_BASE_LINE_TITLE,
+    OPTION_BASE_LINE_VALUE,
 } from '../modules/options'
 import {
     getAdaptedUiByType,
@@ -165,7 +167,7 @@ export default (state = DEFAULT_UI, action) => {
                         axisType
                     )
 
-                    if (value) {
+                    if (value || value === 0) {
                         axis[optionId] = value
                     } else {
                         delete axis[optionId]
@@ -204,6 +206,61 @@ export default (state = DEFAULT_UI, action) => {
 
                         if (!Object.keys(axis.title).length) {
                             delete axis.title
+                        }
+                    }
+                    options.axes = filterAxes(state.options.axes, {
+                        index: axisIndex,
+                        type: axisType,
+                    })
+                    if (axisHasProps(axis)) {
+                        options.axes.push(axis)
+                    }
+                    break
+                }
+                case OPTION_BASE_LINE_TITLE: {
+                    const axis = getAxis(
+                        state.options.axes,
+                        Number(axisIndex),
+                        axisType
+                    )
+
+                    if (value || value === '') {
+                        axis.baseLine = {
+                            ...axis.baseLine,
+                            title: {
+                                ...axis.baseLine?.title,
+                                text: value,
+                            },
+                        }
+                    } else {
+                        delete axis.baseLine
+                    }
+                    options.axes = filterAxes(state.options.axes, {
+                        index: axisIndex,
+                        type: axisType,
+                    })
+                    if (axisHasProps(axis)) {
+                        options.axes.push(axis)
+                    }
+                    break
+                }
+                case OPTION_BASE_LINE_VALUE: {
+                    const axis = getAxis(
+                        state.options.axes,
+                        Number(axisIndex),
+                        axisType
+                    )
+
+                    if (value || value === 0) {
+                        axis.baseLine = {
+                            ...axis.baseLine,
+                            value,
+                        }
+                    } else if (axis.baseLine) {
+                        delete axis.baseLine.value
+
+                        if (!Object.keys(axis.baseLine).length) {
+                            delete axis.baseLine
                         }
                     }
                     options.axes = filterAxes(state.options.axes, {
@@ -667,6 +724,12 @@ export const sGetUiOption = (state, option) => {
                     option.id,
                     options.legend?.label?.fontStyle
                 )
+            case OPTION_BASE_LINE_TITLE:
+                return getAxis(options.axes, Number(axisIndex), axisType)
+                    .baseLine?.title?.text
+            case OPTION_BASE_LINE_VALUE:
+                return getAxis(options.axes, Number(axisIndex), axisType)
+                    .baseLine?.value
             case FONT_STYLE_AXIS_LABELS:
                 return getConsolidatedFontStyle(
                     option.id,

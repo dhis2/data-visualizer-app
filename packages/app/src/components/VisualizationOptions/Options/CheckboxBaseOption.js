@@ -49,12 +49,12 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onChange: checked =>
+    onChange: value =>
         dispatch(
             acSetUiOption({
                 optionId: ownProps.option.id || ownProps.option.name,
                 axisId: ownProps.option.axisId,
-                value: checked,
+                value,
             })
         ),
 })

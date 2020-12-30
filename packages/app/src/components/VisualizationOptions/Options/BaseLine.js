@@ -1,12 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-
 import i18n from '@dhis2/d2-i18n'
 import { Checkbox, Label } from '@dhis2/ui'
 
-import { sGetUiOptions } from '../../../reducers/ui'
-import { acSetUiOptions } from '../../../actions/ui'
+import { sGetUiOption } from '../../../reducers/ui'
+import { acSetUiOption } from '../../../actions/ui'
 import BaseLineValue from './BaseLineValue'
 import BaseLineLabel from './BaseLineLabel'
 
@@ -15,14 +14,17 @@ import {
     tabSectionOptionToggleable,
     tabSectionOptionComplexInline,
 } from '../styles/VisualizationOptions.style.js'
+import { OPTION_BASE_LINE_TITLE } from '../../../modules/options'
 
-export const BaseLine = ({ checked, onChange, disabled }) => (
+const axisId = 'RANGE_0'
+
+export const BaseLine = ({ checked, onToggle, disabled }) => (
     <div className={tabSectionOption.className}>
         <Checkbox
             checked={checked}
             label={i18n.t('Base line')}
             name="baseLine-toggle"
-            onChange={({ checked }) => onChange(checked)}
+            onChange={({ checked }) => onToggle(checked)}
             dense
             disabled={disabled}
             dataTest={'option-base-line-checkbox'}
@@ -33,11 +35,17 @@ export const BaseLine = ({ checked, onChange, disabled }) => (
             >
                 <div>
                     <Label>{i18n.t('Value')}</Label>
-                    <BaseLineValue dataTest={'option-base-line-value'} />
+                    <BaseLineValue
+                        dataTest={'option-base-line-value'}
+                        axisId={axisId}
+                    />
                 </div>
                 <div>
                     <Label>{i18n.t('Title')}</Label>
-                    <BaseLineLabel dataTest={'option-base-line-label'} />
+                    <BaseLineLabel
+                        dataTest={'option-base-line-label'}
+                        axisId={axisId}
+                    />
                 </div>
             </div>
         ) : null}
@@ -46,16 +54,25 @@ export const BaseLine = ({ checked, onChange, disabled }) => (
 
 BaseLine.propTypes = {
     checked: PropTypes.bool.isRequired,
-    onChange: PropTypes.func.isRequired,
+    onToggle: PropTypes.func.isRequired,
     disabled: PropTypes.bool,
 }
 
 const mapStateToProps = state => ({
-    checked: sGetUiOptions(state).baseLine,
+    checked:
+        sGetUiOption(state, { axisId, id: OPTION_BASE_LINE_TITLE }) !==
+        undefined,
 })
 
 const mapDispatchToProps = dispatch => ({
-    onChange: checked => dispatch(acSetUiOptions({ baseLine: checked })),
+    onToggle: checked =>
+        dispatch(
+            acSetUiOption({
+                optionId: OPTION_BASE_LINE_TITLE,
+                axisId,
+                value: checked ? '' : undefined,
+            })
+        ),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(BaseLine)

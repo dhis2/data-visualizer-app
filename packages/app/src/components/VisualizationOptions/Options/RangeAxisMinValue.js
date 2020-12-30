@@ -2,12 +2,11 @@ import React from 'react'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 
-import TextBaseOption from './TextBaseOption'
+import NumberBaseType from './NumberBaseType'
 import { OPTION_AXIS_MIN_VALUE } from '../../../modules/options'
 
 const RangeAxisMinValue = ({ disabled }) => (
-    <TextBaseOption
-        type="number"
+    <NumberBaseType
         width="100px"
         placeholder={i18n.t('Min')}
         disabled={disabled}

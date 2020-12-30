@@ -8,6 +8,8 @@ export const OPTION_AXIS_DECIMALS = 'decimals'
 export const OPTION_AXIS_MAX_VALUE = 'maxValue'
 export const OPTION_AXIS_MIN_VALUE = 'minValue'
 export const OPTION_AXIS_TITLE = 'axisTitle'
+export const OPTION_BASE_LINE_TITLE = 'baseLineTitle'
+export const OPTION_BASE_LINE_VALUE = 'baseLineValue'
 
 export const options = {
     axes: { requestable: false, savable: true },
@@ -184,6 +186,7 @@ export const options = {
 }
 
 export const computedOptions = {
+    // FIXME: Remove all of these as they're now part of legend and axes?
     baseLine: { defaultValue: false, requestable: false, savable: false },
     targetLine: { defaultValue: false, requestable: false, savable: false },
     axisRange: { defaultValue: undefined, requestable: false, savable: false },

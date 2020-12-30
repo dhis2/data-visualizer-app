@@ -4,15 +4,17 @@ import { FONT_STYLE_BASE_LINE_LABEL } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
 
 import TextBaseOption from './TextBaseOption'
+import { OPTION_BASE_LINE_TITLE } from '../../../modules/options'
 
-const BaseLineLabel = ({ dataTest }) => (
+const BaseLineLabel = ({ dataTest, axisId }) => (
     <TextBaseOption
         type="text"
         width="280px"
         label={i18n.t('Title')}
         placeholder={i18n.t('Base line title')}
         option={{
-            name: 'baseLineLabel',
+            id: OPTION_BASE_LINE_TITLE,
+            axisId,
         }}
         inline
         fontStyleKey={FONT_STYLE_BASE_LINE_LABEL}
@@ -21,6 +23,7 @@ const BaseLineLabel = ({ dataTest }) => (
 )
 
 BaseLineLabel.propTypes = {
+    axisId: PropTypes.string,
     dataTest: PropTypes.string,
 }
 
