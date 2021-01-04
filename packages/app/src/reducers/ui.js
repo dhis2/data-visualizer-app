@@ -828,7 +828,8 @@ export const sGetUiOption = (state, option) => {
             case FONT_STYLE_HORIZONTAL_AXIS_TITLE:
                 value = getConsolidatedFontStyle(
                     option.id,
-                    options.title?.fontStyle
+                    getAxis(options.axes, Number(axisIndex), axisType).title
+                        ?.fontStyle
                 )
                 break
             case FONT_STYLE_VISUALIZATION_TITLE:
