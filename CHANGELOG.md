@@ -1,3 +1,10 @@
+## [35.16.4](https://github.com/dhis2/data-visualizer-app/compare/v35.16.3...v35.16.4) (2020-12-21)
+
+
+### Bug Fixes
+
+* change order of item attr when added ([#1542](https://github.com/dhis2/data-visualizer-app/issues/1542)) ([373808e](https://github.com/dhis2/data-visualizer-app/commit/373808e09489a88b2a0710e9f8dc1e9efb5f988b))
+
 ## [35.16.3](https://github.com/dhis2/data-visualizer-app/compare/v35.16.2...v35.16.3) (2020-12-21)
 
 
