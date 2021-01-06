@@ -11,6 +11,7 @@ import {
     FONT_STYLE_OPTION_ITALIC,
     FONT_STYLE_OPTION_TEXT_COLOR,
     FONT_STYLE_OPTION_TEXT_ALIGN,
+    isVerticalType,
 } from '@dhis2/analytics'
 import cx from 'classnames'
 import debounce from 'lodash-es/debounce'
@@ -29,9 +30,13 @@ const TextStyle = ({
     onChange,
     disabled,
     dataTest,
+    isVertical,
 }) => {
     const fontSizeOptions = Object.values(getFontSizeOptions(fontStyleKey))
-    const textAlignOptions = getTextAlignOptions(fontStyleKey, visType)
+    const textAlignOptions = getTextAlignOptions(
+        fontStyleKey,
+        isVertical || isVerticalType(visType)
+    )
     const [fontSize, setFontSize] = useState(
         fontStyle[FONT_STYLE_OPTION_FONT_SIZE]
     )
@@ -153,6 +158,7 @@ TextStyle.propTypes = {
     dataTest: PropTypes.string,
     disabled: PropTypes.bool,
     fontStyle: PropTypes.object,
+    isVertical: PropTypes.bool,
     visType: PropTypes.string,
     onChange: PropTypes.func,
 }

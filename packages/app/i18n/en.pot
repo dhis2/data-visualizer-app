@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-12-30T13:05:55.908Z\n"
-"PO-Revision-Date: 2020-12-30T13:05:55.908Z\n"
+"POT-Creation-Date: 2021-01-05T15:25:06.841Z\n"
+"PO-Revision-Date: 2021-01-05T15:25:06.841Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -290,16 +290,36 @@ msgstr ""
 msgid "Loading data approval levels"
 msgstr ""
 
+msgid "Decimals"
+msgstr ""
+
+msgid "Auto"
+msgstr ""
+
+msgid "Labels"
+msgstr ""
+
 msgid "Axis range"
 msgstr ""
 
 msgid "Values outside of the range will not be displayed"
 msgstr ""
 
-msgid "Base line"
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
 msgstr ""
 
-msgid "Labels"
+msgid "Steps"
+msgstr ""
+
+msgid "Axis title"
+msgstr ""
+
+msgid "Add a title"
+msgstr ""
+
+msgid "Base line"
 msgstr ""
 
 msgid "Column sub-totals"
@@ -360,12 +380,6 @@ msgid "Normal"
 msgstr ""
 
 msgid "Compact"
-msgstr ""
-
-msgid "Axis title"
-msgstr ""
-
-msgid "Add a title"
 msgstr ""
 
 msgid "Font size"
@@ -488,20 +502,6 @@ msgid "Reporting period"
 msgstr ""
 
 msgid "Stacked values add up to 100%"
-msgstr ""
-
-msgid "Decimals"
-msgstr ""
-
-msgid "Auto"
-msgstr ""
-
-msgid ""
-"Number of axis tick steps, including the min and max. A value of 2 or lower "
-"will be ignored."
-msgstr ""
-
-msgid "Steps"
 msgstr ""
 
 msgid "Include regression"
@@ -849,6 +849,12 @@ msgid "Limit minimum/maximum values"
 msgstr ""
 
 msgid "Parameters"
+msgstr ""
+
+msgid "Vertical axis"
+msgstr ""
+
+msgid "Horizontal axis"
 msgstr ""
 
 msgid "Color set"

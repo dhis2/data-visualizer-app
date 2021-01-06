@@ -4,7 +4,13 @@ import PropTypes from 'prop-types'
 
 import TextBaseOption from './TextBaseOption'
 
-const RegressionLineTitle = ({ dataTest, axisId, fontStyleKey, id }) => (
+const RegressionLineTitle = ({
+    dataTest,
+    axisId,
+    fontStyleKey,
+    id,
+    isVertical,
+}) => (
     <TextBaseOption
         type="text"
         width="280px"
@@ -17,6 +23,7 @@ const RegressionLineTitle = ({ dataTest, axisId, fontStyleKey, id }) => (
         inline
         fontStyleKey={fontStyleKey}
         dataTest={dataTest}
+        isVertical={isVertical}
     />
 )
 
@@ -25,6 +32,7 @@ RegressionLineTitle.propTypes = {
     dataTest: PropTypes.string,
     fontStyleKey: PropTypes.string,
     id: PropTypes.string,
+    isVertical: PropTypes.bool,
 }
 
 export default RegressionLineTitle

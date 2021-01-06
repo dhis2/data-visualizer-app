@@ -9,7 +9,7 @@ import {
 } from '../../../modules/options'
 import RegressionLine from './RegressionLine'
 
-export const TargetLine = ({ disabled }) => (
+export const TargetLine = ({ disabled, axisId, isVertical }) => (
     <RegressionLine
         disabled={disabled}
         label={i18n.t('Target line')}
@@ -17,11 +17,15 @@ export const TargetLine = ({ disabled }) => (
         fontStyleKey={OPTION_TARGET_LINE_TITLE_FONT_STYLE}
         titleId={OPTION_TARGET_LINE_TITLE}
         valueId={OPTION_TARGET_LINE_VALUE}
+        axisId={axisId}
+        isVertical={isVertical}
     />
 )
 
 TargetLine.propTypes = {
+    axisId: PropTypes.string,
     disabled: PropTypes.bool,
+    isVertical: PropTypes.bool,
 }
 
 export default TargetLine

@@ -1,12 +1,11 @@
 import React from 'react'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
-import { FONT_STYLE_VERTICAL_AXIS_TITLE } from '@dhis2/analytics'
 
 import TextBaseOption from './TextBaseOption'
 import { OPTION_AXIS_TITLE } from '../../../modules/options'
 
-const RangeAxisLabel = ({ disabled }) => (
+const AxisTitle = ({ disabled, axisId, fontStyleKey }) => (
     <TextBaseOption
         type="text"
         width="280px"
@@ -15,16 +14,18 @@ const RangeAxisLabel = ({ disabled }) => (
         placeholder={i18n.t('Add a title')}
         option={{
             id: OPTION_AXIS_TITLE,
-            axisId: 'RANGE_0',
+            axisId,
         }}
         toggleable={true}
-        fontStyleKey={FONT_STYLE_VERTICAL_AXIS_TITLE}
-        dataTest={'option-vertical-axis-title'}
+        fontStyleKey={fontStyleKey}
+        dataTest={'option-axis-title'}
     />
 )
 
-RangeAxisLabel.propTypes = {
+AxisTitle.propTypes = {
+    axisId: PropTypes.string,
     disabled: PropTypes.bool,
+    fontStyleKey: PropTypes.string,
 }
 
-export default RangeAxisLabel
+export default AxisTitle

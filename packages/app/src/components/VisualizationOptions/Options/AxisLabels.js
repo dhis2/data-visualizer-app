@@ -7,19 +7,20 @@ import { FONT_STYLE_AXIS_LABELS } from '@dhis2/analytics'
 import { tabSectionOption } from '../styles/VisualizationOptions.style.js'
 import TextStyle from './TextStyle'
 
-const SeriesAxisLabels = ({ disabled }) => (
+const AxisLabels = ({ disabled, axisId }) => (
     <div className={tabSectionOption.className}>
         <Label>{i18n.t('Labels')}</Label>
         <TextStyle
             fontStyleKey={FONT_STYLE_AXIS_LABELS}
             disabled={disabled}
-            axisId="RANGE_0"
+            axisId={axisId}
         />
     </div>
 )
 
-SeriesAxisLabels.propTypes = {
+AxisLabels.propTypes = {
+    axisId: PropTypes.string,
     disabled: PropTypes.bool,
 }
 
-export default SeriesAxisLabels
+export default AxisLabels

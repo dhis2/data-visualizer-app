@@ -15,8 +15,6 @@ import {
     tabSectionOptionComplexInline,
 } from '../styles/VisualizationOptions.style.js'
 
-const axisId = 'RANGE_0'
-
 export const RegressionLine = ({
     checked,
     onToggle,
@@ -26,6 +24,8 @@ export const RegressionLine = ({
     fontStyleKey,
     valueId,
     titleId,
+    axisId,
+    isVertical,
 }) => (
     <div className={tabSectionOption.className}>
         <Checkbox
@@ -56,6 +56,7 @@ export const RegressionLine = ({
                         axisId={axisId}
                         fontStyleKey={fontStyleKey}
                         id={titleId}
+                        isVertical={isVertical}
                     />
                 </div>
             </div>
@@ -66,9 +67,11 @@ export const RegressionLine = ({
 RegressionLine.propTypes = {
     checked: PropTypes.bool.isRequired,
     onToggle: PropTypes.func.isRequired,
+    axisId: PropTypes.string,
     dataTest: PropTypes.string,
     disabled: PropTypes.bool,
     fontStyleKey: PropTypes.string,
+    isVertical: PropTypes.bool,
     label: PropTypes.string,
     titleId: PropTypes.string,
     valueId: PropTypes.string,
@@ -76,7 +79,10 @@ RegressionLine.propTypes = {
 
 const mapStateToProps = (state, ownProps) => ({
     checked:
-        sGetUiOption(state, { axisId, id: ownProps.titleId }) !== undefined,
+        sGetUiOption(state, {
+            axisId: ownProps.axisId,
+            id: ownProps.titleId,
+        }) !== undefined,
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
@@ -84,7 +90,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
         dispatch(
             acSetUiOption({
                 optionId: ownProps.titleId,
-                axisId,
+                axisId: ownProps.axisId,
                 value: checked ? '' : undefined,
             })
         ),

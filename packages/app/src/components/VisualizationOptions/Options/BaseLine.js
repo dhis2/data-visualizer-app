@@ -9,7 +9,7 @@ import {
 } from '../../../modules/options'
 import RegressionLine from './RegressionLine'
 
-export const BaseLine = ({ disabled }) => (
+export const BaseLine = ({ disabled, axisId, isVertical }) => (
     <RegressionLine
         disabled={disabled}
         label={i18n.t('Base line')}
@@ -17,11 +17,15 @@ export const BaseLine = ({ disabled }) => (
         fontStyleKey={OPTION_BASE_LINE_TITLE_FONT_STYLE}
         titleId={OPTION_BASE_LINE_TITLE}
         valueId={OPTION_BASE_LINE_VALUE}
+        axisId={axisId}
+        isVertical={isVertical}
     />
 )
 
 BaseLine.propTypes = {
+    axisId: PropTypes.string,
     disabled: PropTypes.bool,
+    isVertical: PropTypes.bool,
 }
 
 export default BaseLine

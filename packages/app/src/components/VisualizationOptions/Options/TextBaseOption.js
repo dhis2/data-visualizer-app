@@ -28,6 +28,7 @@ export const TextBaseOption = ({
     inline,
     disabled,
     dataTest,
+    isVertical,
 }) => (
     <div className={inline ? '' : tabSectionOption.className}>
         {toggleable ? (
@@ -81,6 +82,7 @@ export const TextBaseOption = ({
                         disabled={disabled}
                         dataTest={`${dataTest}-text-style`}
                         axisId={option.axisId}
+                        isVertical={isVertical}
                     />
                 ) : null}
             </div>
@@ -95,6 +97,7 @@ TextBaseOption.propTypes = {
     fontStyleKey: PropTypes.string,
     helpText: PropTypes.string,
     inline: PropTypes.bool,
+    isVertical: PropTypes.bool,
     label: PropTypes.string,
     option: PropTypes.object,
     placeholder: PropTypes.string,

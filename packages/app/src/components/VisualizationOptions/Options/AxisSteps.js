@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import PositiveNumberBaseType from './PositiveNumberBaseType'
 import { OPTION_AXIS_STEPS } from '../../../modules/options'
 
-export const RangeAxisSteps = ({ disabled }) => (
+export const AxisSteps = ({ disabled, axisId }) => (
     <PositiveNumberBaseType
         width="96px"
         helpText={i18n.t(
@@ -16,13 +16,14 @@ export const RangeAxisSteps = ({ disabled }) => (
         placeholder={i18n.t('Auto')}
         option={{
             id: OPTION_AXIS_STEPS,
-            axisId: 'RANGE_0', //FIXME: RANGE_0: default vertical axis. But this should be replaced by a prop once implemented by Scatter
+            axisId,
         }}
     />
 )
 
-RangeAxisSteps.propTypes = {
+AxisSteps.propTypes = {
+    axisId: PropTypes.string,
     disabled: PropTypes.bool,
 }
 
-export default RangeAxisSteps
+export default AxisSteps

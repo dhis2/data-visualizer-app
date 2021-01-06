@@ -5,22 +5,23 @@ import PropTypes from 'prop-types'
 import NumberBaseType from './NumberBaseType'
 import { OPTION_AXIS_MIN_VALUE } from '../../../modules/options'
 
-const RangeAxisMinValue = ({ disabled }) => (
+const AxisMinValue = ({ disabled, axisId }) => (
     <NumberBaseType
         width="100px"
         placeholder={i18n.t('Min')}
         disabled={disabled}
         option={{
             id: OPTION_AXIS_MIN_VALUE,
-            axisId: 'RANGE_0',
+            axisId,
         }}
         inline
-        dataTest={'option-vertical-axis-range-min'}
+        dataTest={'option-axis-range-min'}
     />
 )
 
-RangeAxisMinValue.propTypes = {
+AxisMinValue.propTypes = {
+    axisId: PropTypes.string,
     disabled: PropTypes.bool,
 }
 
-export default RangeAxisMinValue
+export default AxisMinValue
