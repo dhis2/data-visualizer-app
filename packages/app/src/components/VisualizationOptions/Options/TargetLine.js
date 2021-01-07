@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 
 import {
+    OPTION_TARGET_LINE_ENABLED,
     OPTION_TARGET_LINE_TITLE,
     OPTION_TARGET_LINE_TITLE_FONT_STYLE,
     OPTION_TARGET_LINE_VALUE,
@@ -17,6 +18,7 @@ export const TargetLine = ({ disabled, axisId, isVertical }) => (
         fontStyleKey={OPTION_TARGET_LINE_TITLE_FONT_STYLE}
         titleId={OPTION_TARGET_LINE_TITLE}
         valueId={OPTION_TARGET_LINE_VALUE}
+        enabledId={OPTION_TARGET_LINE_ENABLED}
         axisId={axisId}
         isVertical={isVertical}
     />

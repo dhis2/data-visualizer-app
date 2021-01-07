@@ -80,8 +80,8 @@ RegressionLine.propTypes = {
 const mapStateToProps = (state, ownProps) => ({
     checked:
         sGetUiOption(state, {
+            id: ownProps.enabledId,
             axisId: ownProps.axisId,
-            id: ownProps.titleId,
         }) !== undefined,
 })
 
@@ -89,9 +89,9 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     onToggle: checked =>
         dispatch(
             acSetUiOption({
-                optionId: ownProps.titleId,
+                optionId: ownProps.enabledId,
                 axisId: ownProps.axisId,
-                value: checked ? '' : undefined,
+                value: checked,
             })
         ),
 })

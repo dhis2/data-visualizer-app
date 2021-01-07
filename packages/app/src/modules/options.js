@@ -1,5 +1,4 @@
 import pick from 'lodash-es/pick'
-
 import { COLOR_SET_DEFAULT } from '@dhis2/analytics'
 
 export const OPTION_HIDE_LEGEND = 'hideLegend'
@@ -8,9 +7,11 @@ export const OPTION_AXIS_DECIMALS = 'decimals'
 export const OPTION_AXIS_MAX_VALUE = 'maxValue'
 export const OPTION_AXIS_MIN_VALUE = 'minValue'
 export const OPTION_AXIS_TITLE = 'axisTitle'
+export const OPTION_BASE_LINE_ENABLED = 'baseLineEnabled'
 export const OPTION_BASE_LINE_TITLE = 'baseLineTitle'
 export const OPTION_BASE_LINE_VALUE = 'baseLineValue'
 export const OPTION_BASE_LINE_TITLE_FONT_STYLE = 'baseLineTitleFontStyle'
+export const OPTION_TARGET_LINE_ENABLED = 'targetLineEnabled'
 export const OPTION_TARGET_LINE_TITLE = 'targetLineTitle'
 export const OPTION_TARGET_LINE_VALUE = 'targetLineValue'
 export const OPTION_TARGET_LINE_TITLE_FONT_STYLE = 'targetLineTitleFontStyle'
@@ -168,6 +169,15 @@ export const getOptionsFromVisualization = visualization => {
         ...getOptionsForUi(),
         ...pick(visualization, Object.keys(options)),
     }
+
+    optionsFromVisualization.axes?.forEach(axis => {
+        if (axis.targetLine) {
+            axis.targetLine.enabled = true
+        }
+        if (axis.baseLine) {
+            axis.baseLine.enabled = true
+        }
+    })
 
     // nested options under reportingParams
     if (visualization.reportingParams) {

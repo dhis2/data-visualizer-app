@@ -51,15 +51,14 @@ export const getAxesFromUi = ui =>
 export const getOptionsFromUi = ui => {
     const optionsFromUi = pick(ui.options, Object.keys(options))
 
-    if (ui.options.targetLine === false) {
-        optionsFromUi.targetLineLabel = options.targetLineLabel.defaultValue
-        optionsFromUi.targetLineValue = options.targetLineValue.defaultValue
-    }
-
-    if (ui.options.baseLine === false) {
-        optionsFromUi.baseLineLabel = options.baseLineLabel.defaultValue
-        optionsFromUi.baseLineValue = options.baseLineValue.defaultValue
-    }
+    optionsFromUi.axes?.forEach(axis => {
+        if (axis.targetLine) {
+            delete axis.targetLine.enabled
+        }
+        if (axis.baseLine) {
+            delete axis.baseLine.enabled
+        }
+    })
 
     // approvalLevel is stored as an object { id, level, displayName }
     // only pass approvalLevel id
@@ -80,14 +79,7 @@ export const getOptionsFromUi = ui => {
     })
 
     // cast option values to Number for some options
-    ;[
-        'baseLineValue',
-        'targetLineValue',
-        'sortOrder',
-        'topLimit',
-        'rangeAxisMinValue',
-        'rangeAxisMaxValue',
-    ].forEach(option => {
+    ;['sortOrder', 'topLimit'].forEach(option => {
         if (Object.prototype.hasOwnProperty.call(optionsFromUi, option)) {
             if (
                 optionsFromUi[option] !== undefined &&
