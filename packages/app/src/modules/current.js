@@ -53,18 +53,20 @@ export const getAxesFromUi = ui =>
 export const getOptionsFromUi = ui => {
     const optionsFromUi = pick(ui.options, Object.keys(options))
 
-    optionsFromUi.axes = [...optionsFromUi.axes.map(axis => ({ ...axis }))]
+    if (optionsFromUi.axes && optionsFromUi.axes.length) {
+        optionsFromUi.axes = [...optionsFromUi.axes.map(axis => ({ ...axis }))]
 
-    optionsFromUi.axes.forEach(axis => {
-        if (axis.targetLine) {
-            const { enabled, ...rest } = axis.targetLine
-            axis.targetLine = { ...rest }
-        }
-        if (axis.baseLine) {
-            const { enabled, ...rest } = axis.baseLine
-            axis.baseLine = { ...rest }
-        }
-    })
+        optionsFromUi.axes.forEach(axis => {
+            if (axis.targetLine) {
+                const { enabled, ...rest } = axis.targetLine
+                axis.targetLine = { ...rest }
+            }
+            if (axis.baseLine) {
+                const { enabled, ...rest } = axis.baseLine
+                axis.baseLine = { ...rest }
+            }
+        })
+    }
 
     // approvalLevel is stored as an object { id, level, displayName }
     // only pass approvalLevel id
