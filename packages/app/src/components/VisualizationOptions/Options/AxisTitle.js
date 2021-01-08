@@ -3,7 +3,10 @@ import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 
 import TextBaseOption from './TextBaseOption'
-import { OPTION_AXIS_TITLE } from '../../../modules/options'
+import {
+    OPTION_AXIS_TITLE,
+    OPTION_AXIS_TITLE_ENABLED,
+} from '../../../modules/options'
 
 const AxisTitle = ({ disabled, axisId, fontStyleKey }) => (
     <TextBaseOption
@@ -14,6 +17,7 @@ const AxisTitle = ({ disabled, axisId, fontStyleKey }) => (
         placeholder={i18n.t('Add a title')}
         option={{
             id: OPTION_AXIS_TITLE,
+            enabledId: OPTION_AXIS_TITLE_ENABLED,
             axisId,
         }}
         toggleable={true}

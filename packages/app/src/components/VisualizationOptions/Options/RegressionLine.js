@@ -82,7 +82,7 @@ const mapStateToProps = (state, ownProps) => ({
         sGetUiOption(state, {
             id: ownProps.enabledId,
             axisId: ownProps.axisId,
-        }) !== undefined,
+        }) || false,
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

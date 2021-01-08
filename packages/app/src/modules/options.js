@@ -7,6 +7,7 @@ export const OPTION_AXIS_DECIMALS = 'decimals'
 export const OPTION_AXIS_MAX_VALUE = 'maxValue'
 export const OPTION_AXIS_MIN_VALUE = 'minValue'
 export const OPTION_AXIS_TITLE = 'axisTitle'
+export const OPTION_AXIS_TITLE_ENABLED = 'axisTitleEnabled'
 export const OPTION_BASE_LINE_ENABLED = 'baseLineEnabled'
 export const OPTION_BASE_LINE_TITLE = 'baseLineTitle'
 export const OPTION_BASE_LINE_VALUE = 'baseLineValue'
@@ -171,6 +172,9 @@ export const getOptionsFromVisualization = visualization => {
     }
 
     optionsFromVisualization.axes?.forEach(axis => {
+        if (axis.title) {
+            axis.title.enabled = true
+        }
         if (axis.targetLine) {
             axis.targetLine.enabled = true
         }

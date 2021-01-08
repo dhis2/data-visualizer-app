@@ -90,6 +90,10 @@ export const TextBaseOption = ({
     </div>
 )
 
+TextBaseOption.defaultProps = {
+    option: {},
+}
+
 TextBaseOption.propTypes = {
     checked: PropTypes.bool,
     dataTest: PropTypes.string,
@@ -111,7 +115,11 @@ TextBaseOption.propTypes = {
 
 const mapStateToProps = (state, ownProps) => ({
     value: sGetUiOption(state, ownProps.option) || '',
-    checked: sGetUiOption(state, ownProps.option) !== undefined,
+    checked:
+        sGetUiOption(state, {
+            id: ownProps.option.enabledId,
+            axisId: ownProps.option.axisId,
+        }) || false,
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
@@ -126,9 +134,9 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     onToggle: checked =>
         dispatch(
             acSetUiOption({
-                optionId: ownProps.option.id || ownProps.option.name,
+                optionId: ownProps.option.enabledId,
                 axisId: ownProps.option.axisId,
-                value: checked ? '' : undefined,
+                value: checked,
             })
         ),
 })
