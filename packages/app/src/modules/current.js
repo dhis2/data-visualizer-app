@@ -1,3 +1,5 @@
+/*eslint no-unused-vars: ["error", { "ignoreRestSiblings": true }]*/
+
 import pick from 'lodash-es/pick'
 import {
     AXIS_ID_COLUMNS,
@@ -51,12 +53,16 @@ export const getAxesFromUi = ui =>
 export const getOptionsFromUi = ui => {
     const optionsFromUi = pick(ui.options, Object.keys(options))
 
-    optionsFromUi.axes?.forEach(axis => {
+    optionsFromUi.axes = [...optionsFromUi.axes.map(axis => ({ ...axis }))]
+
+    optionsFromUi.axes.forEach(axis => {
         if (axis.targetLine) {
-            delete axis.targetLine.enabled
+            const { enabled, ...rest } = axis.targetLine
+            axis.targetLine = { ...rest }
         }
         if (axis.baseLine) {
-            delete axis.baseLine.enabled
+            const { enabled, ...rest } = axis.baseLine
+            axis.baseLine = { ...rest }
         }
     })
 

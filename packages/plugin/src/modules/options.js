@@ -3,7 +3,7 @@ import pick from 'lodash-es/pick'
 import { COLOR_SET_DEFAULT } from '@dhis2/analytics'
 
 export const options = {
-    axes: { requestable: false, savable: true },
+    axes: { requestable: false, savable: true, defaultValue: [] },
     colorSet: {
         defaultValue: COLOR_SET_DEFAULT,
         requestable: false,

@@ -17,7 +17,7 @@ export const OPTION_TARGET_LINE_VALUE = 'targetLineValue'
 export const OPTION_TARGET_LINE_TITLE_FONT_STYLE = 'targetLineTitleFontStyle'
 
 export const options = {
-    axes: { requestable: false, savable: true },
+    axes: { requestable: false, savable: true, defaultValue: [] },
     colorSet: {
         defaultValue: COLOR_SET_DEFAULT,
         requestable: false,
