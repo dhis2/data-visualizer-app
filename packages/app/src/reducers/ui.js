@@ -9,7 +9,6 @@ import {
     canDimensionBeAddedToAxis,
     defaultVisType,
     defaultFontStyle,
-    deleteFontStyleOption,
     FONT_STYLE_LEGEND,
     FONT_STYLE_VISUALIZATION_TITLE,
     FONT_STYLE_VISUALIZATION_SUBTITLE,
@@ -160,7 +159,11 @@ export default (state = DEFAULT_UI, action) => {
             }
         }
         case SET_UI_OPTION: {
-            const options = { axes: state.options.axes || [] }
+            const options = {
+                axes: state.options.axes || [],
+                legend: state.options.legend || {},
+                fontStyle: state.options.fontStyle || {},
+            }
             const value = action.value.value
             const optionId = action.value.optionId
             const [axisType, axisIndex] = (action.value.axisId || '').split('_')
@@ -187,7 +190,7 @@ export default (state = DEFAULT_UI, action) => {
                 }
                 case OPTION_HIDE_LEGEND:
                     options.legend = {
-                        ...state.options.legend,
+                        ...options.legend,
                         hidden: value,
                     }
                     break
@@ -326,71 +329,49 @@ export default (state = DEFAULT_UI, action) => {
                         Number(axisIndex),
                         axisType
                     )
-
-                    const fontStyle = { ...axis.label?.fontStyle }
-
-                    if (defaultFontStyle[optionId][fontStyleOption] !== value) {
-                        // custom value: save it
-                        fontStyle[fontStyleOption] = value
-                    } else {
-                        // default value: remove the previous value
-                        delete fontStyle[fontStyleOption]
-                    }
-                    if (Object.keys(fontStyle).length) {
-                        axis.label = {
-                            fontStyle,
-                        }
-                    } else {
-                        delete axis.label
+                    axis.label = {
+                        ...axis.label,
+                        fontStyle: {
+                            ...axis.label?.fontStyle,
+                            [fontStyleOption]:
+                                defaultFontStyle[optionId][fontStyleOption] !==
+                                value
+                                    ? value
+                                    : undefined,
+                        },
                     }
                     pushAxis(axis)
                     break
                 }
                 case FONT_STYLE_LEGEND: {
-                    const fontStyle = {
-                        ...state.options.legend?.label?.fontStyle,
-                    }
-
-                    if (defaultFontStyle[optionId][fontStyleOption] !== value) {
-                        // custom value: save it
-                        fontStyle[fontStyleOption] = value
-                    } else {
-                        // default value: remove the previous value
-                        delete fontStyle[fontStyleOption]
-                    }
-                    if (Object.keys(fontStyle).length) {
-                        options.legend = {
-                            ...state.options.legend,
-                            label: {
-                                fontStyle,
+                    options.legend = {
+                        ...options.legend,
+                        label: {
+                            fontStyle: {
+                                ...options.legend.label?.fontStyle,
+                                [fontStyleOption]:
+                                    defaultFontStyle[optionId][
+                                        fontStyleOption
+                                    ] !== value
+                                        ? value
+                                        : undefined,
                             },
-                        }
-                    } else {
-                        options.legend = {
-                            ...state.options.legend,
-                        }
-                        delete options.legend.label
+                        },
                     }
                     break
                 }
                 case FONT_STYLE_VISUALIZATION_TITLE:
                 case FONT_STYLE_VISUALIZATION_SUBTITLE: {
-                    if (defaultFontStyle[optionId][fontStyleOption] !== value) {
-                        // custom value: save it
-                        options.fontStyle = {
-                            ...(state.options.fontStyle || {}),
-                            [optionId]: {
-                                ...(state.options.fontStyle || {})[optionId],
-                                [fontStyleOption]: value,
-                            },
-                        }
-                    } else {
-                        // default value: remove the previous value
-                        options.fontStyle = deleteFontStyleOption(
-                            state.options.fontStyle,
-                            optionId,
-                            fontStyleOption
-                        )
+                    options.fontStyle = {
+                        ...options.fontStyle,
+                        [optionId]: {
+                            ...options.fontStyle[optionId],
+                            [fontStyleOption]:
+                                defaultFontStyle[optionId][fontStyleOption] !==
+                                value
+                                    ? value
+                                    : undefined,
+                        },
                     }
                     break
                 }
@@ -400,6 +381,8 @@ export default (state = DEFAULT_UI, action) => {
                 }
             }
 
+            options.fontStyle = deepClean(options.fontStyle)
+            options.legend = deepClean(options.legend)
             options.axes = options.axes
                 .map(axis => {
                     const cleanAxis = deepClean(axis)
