@@ -35,6 +35,7 @@ import getTotalsTemplate from './sections/templates/totals'
 import getEmptyDataTemplate from './sections/templates/emptyData'
 import getLegendTab from './tabs/legend'
 import getStyleTab from './tabs/style'
+import getLimitValuesTab from './tabs/limitValues'
 
 export default () => [
     getDataTab([
@@ -85,23 +86,7 @@ export default () => [
             content: React.Children.toArray([<ShowHierarchy />]),
         },
     ]),
-    {
-        key: 'limitValues-tab',
-        label: i18n.t('Limit values'),
-        content: [
-            /*
-            {
-                key: 'limitValues-limit-numbers',
-                label: i18n.t('Limit number of values'),
-                content: [<TopLimit />],
-            },*/
-            {
-                key: 'limitValues-limit-min-max',
-                label: i18n.t('Limit minimum/maximum values'),
-                content: React.Children.toArray([<MeasureCriteria />]),
-            },
-        ],
-    },
+    getLimitValuesTab(),
     {
         key: 'parameters-tab',
         label: i18n.t('Parameters'),
