@@ -5,6 +5,7 @@ import {
     FONT_STYLE_HORIZONTAL_AXIS_TITLE,
     FONT_STYLE_VERTICAL_AXIS_TITLE,
 } from '@dhis2/analytics'
+import { Help } from '@dhis2/ui'
 
 import getSeriesTab from './tabs/series'
 import getStyleTab from './tabs/style'
@@ -12,6 +13,7 @@ import getTitlesSection from './sections/titles'
 import getColorSetSection from './sections/colorSet'
 import getAxesTab from './tabs/axes'
 import getOutliersTab from './tabs/outliers'
+import SkipRounding from '../../components/VisualizationOptions/Options/SkipRounding'
 import AxisTitle from '../../components/VisualizationOptions/Options/AxisTitle'
 import AxisRange from '../../components/VisualizationOptions/Options/AxisRange'
 import AxisSteps from '../../components/VisualizationOptions/Options/AxisSteps'
@@ -19,11 +21,37 @@ import AxisDecimals from '../../components/VisualizationOptions/Options/AxisDeci
 import AxisLabels from '../../components/VisualizationOptions/Options/AxisLabels'
 import TargetLine from '../../components/VisualizationOptions/Options/TargetLine'
 import BaseLine from '../../components/VisualizationOptions/Options/BaseLine'
+import getDataTab from './tabs/data'
+import getAdvancedSection from './sections/advanced'
+import getDisplayTemplate from './sections/templates/display'
+import getLinesTemplate from './sections/templates/lines'
+import { tabSectionOption } from '../../components/VisualizationOptions/styles/VisualizationOptions.style.js'
 
 const verticalAxisId = 'RANGE_0'
 const horisontalAxisId = 'RANGE_1'
 
+// FIXME: Add info text icon and correct text styling
+const regressionLineInfoText = () => (
+    <div className={tabSectionOption.className}>
+        <Help>
+            {i18n.t(
+                'Base and target lines are available on the Axes tab for scatter charts'
+            )}
+        </Help>
+    </div>
+)
+
 export default () => [
+    getDataTab([
+        getDisplayTemplate({
+            content: React.Children.toArray([<SkipRounding />]),
+        }),
+        getLinesTemplate({
+            // TODO: Add trend line?
+            content: React.Children.toArray([regressionLineInfoText()]),
+        }),
+        getAdvancedSection(),
+    ]),
     getAxesTab([
         {
             key: 'axes-vertical-axis',
