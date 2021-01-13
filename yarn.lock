@@ -2010,6 +2010,13 @@
   dependencies:
     "@dhis2/prop-types" "^1.6.4"
 
+"@dhis2/ui-icons@^6.1.2":
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-icons/-/ui-icons-6.1.2.tgz#eee4bcbe1733230f9ab39e3945c9c92c32e03807"
+  integrity sha512-eEIw0YrGfcSDB6PA0QEBUL6FHe0EC6PsmqoDRfItdGTcipCnANObEc8Us+nz9JufFW9CoJ63Y9sBN6uX03QCLg==
+  dependencies:
+    "@dhis2/prop-types" "^1.6.4"
+
 "@dhis2/ui-widgets@5.7.8":
   version "5.7.8"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-widgets/-/ui-widgets-5.7.8.tgz#77318381dd92848f9ab2cbc5414a2b57599309fe"

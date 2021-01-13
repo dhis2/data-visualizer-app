@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-01-05T15:25:06.841Z\n"
-"PO-Revision-Date: 2021-01-05T15:25:06.841Z\n"
+"POT-Creation-Date: 2021-01-13T08:13:16.512Z\n"
+"PO-Revision-Date: 2021-01-13T08:13:16.512Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -849,6 +849,9 @@ msgid "Limit minimum/maximum values"
 msgstr ""
 
 msgid "Parameters"
+msgstr ""
+
+msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
 
 msgid "Vertical axis"

@@ -5,7 +5,6 @@ import {
     FONT_STYLE_HORIZONTAL_AXIS_TITLE,
     FONT_STYLE_VERTICAL_AXIS_TITLE,
 } from '@dhis2/analytics'
-import { Help } from '@dhis2/ui'
 
 import getSeriesTab from './tabs/series'
 import getStyleTab from './tabs/style'
@@ -25,21 +24,10 @@ import getDataTab from './tabs/data'
 import getAdvancedSection from './sections/advanced'
 import getDisplayTemplate from './sections/templates/display'
 import getLinesTemplate from './sections/templates/lines'
-import { tabSectionOption } from '../../components/VisualizationOptions/styles/VisualizationOptions.style.js'
+import InfoText from '../../components/VisualizationOptions/Options/InfoText'
 
 const verticalAxisId = 'RANGE_0'
 const horisontalAxisId = 'RANGE_1'
-
-// FIXME: Add info text icon and correct text styling
-const regressionLineInfoText = () => (
-    <div className={tabSectionOption.className}>
-        <Help>
-            {i18n.t(
-                'Base and target lines are available on the Axes tab for scatter charts'
-            )}
-        </Help>
-    </div>
-)
 
 export default () => [
     getDataTab([
@@ -48,7 +36,13 @@ export default () => [
         }),
         getLinesTemplate({
             // TODO: Add trend line?
-            content: React.Children.toArray([regressionLineInfoText()]),
+            content: React.Children.toArray([
+                <InfoText
+                    text={i18n.t(
+                        'Base and target lines are available on the Axes tab for scatter charts'
+                    )}
+                />,
+            ]),
         }),
         getAdvancedSection(),
     ]),
