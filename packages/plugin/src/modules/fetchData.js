@@ -1,8 +1,5 @@
 import {
     isYearOverYear,
-    getRelativePeriodsOptionsById,
-    WEEKS,
-    DAYS,
     DIMENSION_ID_PERIOD,
     layoutGetDimensionItems,
 } from '@dhis2/analytics'
@@ -14,6 +11,7 @@ import {
     computeGenericPeriodNames,
     computeYoYMatrix,
     computeGenericPeriodNamesFromMatrix,
+    getRelativePeriodTypeUsed,
 } from './analytics'
 import { getRequestOptions } from './getRequestOptions'
 
@@ -43,17 +41,12 @@ export const fetchData = async ({
             visualization,
             DIMENSION_ID_PERIOD
         )
-        const usesRelativeWeeksPeriod = getRelativePeriodsOptionsById(WEEKS)
-            .getPeriods()
-            .find(p => p.id === peItems[0].id)
-        const usesRelativeDaysPeriod = getRelativePeriodsOptionsById(DAYS)
-            .getPeriods()
-            .find(p => p.id === peItems[0].id)
+
+        const relativePeriodTypeUsed = getRelativePeriodTypeUsed(peItems)
 
         const periodKeyAxisIndexMatrix = computeYoYMatrix(
             responses,
-            usesRelativeWeeksPeriod,
-            usesRelativeDaysPeriod
+            relativePeriodTypeUsed
         )
         const periodKeyAxisIndexMap = periodKeyAxisIndexMatrix.reduce(
             (map, periodKeys, index) => {
@@ -65,14 +58,12 @@ export const fetchData = async ({
         )
         console.log('periodKeyAxisIndexMap', periodKeyAxisIndexMap)
 
-        const xAxisLabels =
-            usesRelativeWeeksPeriod || usesRelativeDaysPeriod
-                ? computeGenericPeriodNamesFromMatrix(
-                      periodKeyAxisIndexMatrix,
-                      usesRelativeWeeksPeriod,
-                      usesRelativeDaysPeriod
-                  )
-                : computeGenericPeriodNames(responses)
+        const xAxisLabels = relativePeriodTypeUsed
+            ? computeGenericPeriodNamesFromMatrix(
+                  periodKeyAxisIndexMatrix,
+                  relativePeriodTypeUsed
+              )
+            : computeGenericPeriodNames(responses)
 
         return {
             responses,

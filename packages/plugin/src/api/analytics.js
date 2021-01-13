@@ -2,10 +2,11 @@ import {
     Analytics,
     VIS_TYPE_PIVOT_TABLE,
     layoutGetDimensionItems,
-    getRelativePeriodsOptionsById,
-    WEEKS,
     DIMENSION_ID_PERIOD,
+    WEEKS,
 } from '@dhis2/analytics'
+
+import { getRelativePeriodTypeUsed } from '../modules/analytics'
 
 const peId = DIMENSION_ID_PERIOD
 
@@ -56,11 +57,7 @@ export const apiFetchAnalyticsForYearOverYear = async (
     console.log('pe items', peItems)
 
     // relative week period in use
-    if (
-        getRelativePeriodsOptionsById(WEEKS)
-            .getPeriods()
-            .find(p => p.id === peItems[0].id)
-    ) {
+    if (getRelativePeriodTypeUsed(peItems) === WEEKS) {
         console.log('relative weeks period in use')
         const relativeWeeksData = await prepareRequestsForRelativeWeeks({
             analyticsEngine,

@@ -1,15 +1,13 @@
-export const computeYoYMatrix = (
-    responses,
-    usesRelativeWeeksPeriod,
-    usesRelativeDaysPeriod
-) => {
+import { getRelativePeriodsOptionsById, WEEKS, DAYS } from '@dhis2/analytics'
+
+export const computeYoYMatrix = (responses, relativePeriodTypeUsed) => {
     const periodGroups = responses.reduce((list, res) => {
         list.push(res.metaData.dimensions.pe)
 
         return list
     }, [])
 
-    if (usesRelativeWeeksPeriod) {
+    if (relativePeriodTypeUsed === WEEKS) {
         periodGroups.sort((a, b) => b[0].split('W')[1] - a[0].split('W')[1])
         console.log('periodGroups', periodGroups)
 
@@ -111,23 +109,23 @@ export const computeYoYMatrix = (
 
 export const computeGenericPeriodNamesFromMatrix = (
     periodKeyAxisIndexMatrix,
-    usesRelativeWeeksPeriod,
-    usesRelativeDaysPeriod
+    relativePeriodTypeUsed
 ) => {
-    if (usesRelativeWeeksPeriod) {
-        return (
-            periodKeyAxisIndexMatrix
-                // remove year, return "Wnn"
-                .map(periodKeys => periodKeys[0].substr(4))
-                .flat()
-        )
-    } else if (usesRelativeDaysPeriod) {
-        return periodKeyAxisIndexMatrix
-            .map(periodKeys =>
-                // remove year, return "dd-mm"
-                periodKeys[0].substr(4).replace(/(\d{2})(\d{2})/, '$2-$1')
+    switch (relativePeriodTypeUsed) {
+        case WEEKS:
+            return (
+                periodKeyAxisIndexMatrix
+                    // remove year, return "Wnn"
+                    .map(periodKeys => periodKeys[0].substr(4))
+                    .flat()
             )
-            .flat()
+        case DAYS:
+            return periodKeyAxisIndexMatrix
+                .map(periodKeys =>
+                    // remove year, return "dd-mm"
+                    periodKeys[0].substr(4).replace(/(\d{2})(\d{2})/, '$2-$1')
+                )
+                .flat()
     }
 }
 
@@ -159,4 +157,20 @@ export const computeGenericPeriodNames = responses => {
 
         return genericPeriodNames
     }, [])
+}
+
+export const getRelativePeriodTypeUsed = peItems => {
+    if (
+        getRelativePeriodsOptionsById(WEEKS)
+            .getPeriods()
+            .find(p => p.id === peItems[0].id)
+    ) {
+        return WEEKS
+    } else if (
+        getRelativePeriodsOptionsById(DAYS)
+            .getPeriods()
+            .find(p => p.id === peItems[0].id)
+    ) {
+        return DAYS
+    }
 }
