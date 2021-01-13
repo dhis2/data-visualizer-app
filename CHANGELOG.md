@@ -1,3 +1,10 @@
+## [35.16.5](https://github.com/dhis2/data-visualizer-app/compare/v35.16.4...v35.16.5) (2021-01-13)
+
+
+### Bug Fixes
+
+* add missing name for legend sets ([#1561](https://github.com/dhis2/data-visualizer-app/issues/1561)) ([1c51726](https://github.com/dhis2/data-visualizer-app/commit/1c517261f65753a3c6f677898d4645bb93e3a7be))
+
 ## [35.16.4](https://github.com/dhis2/data-visualizer-app/compare/v35.16.3...v35.16.4) (2020-12-21)
 
 
