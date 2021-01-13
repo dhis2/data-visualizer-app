@@ -5,6 +5,7 @@ import { Label, Help } from '@dhis2/ui'
 
 import AxisMinValue from './AxisMinValue'
 import AxisMaxValue from './AxisMaxValue'
+import styles from '../styles/AxisRange.module.css'
 
 import {
     tabSectionOption,
@@ -13,7 +14,7 @@ import {
 
 const AxisRange = ({ disabled, axisId }) => (
     <div className={tabSectionOption.className}>
-        <Label>{i18n.t('Axis range')}</Label>
+        <Label className={styles.label}>{i18n.t('Axis range')}</Label>
         <div className={tabSectionOptionComplexInline.className}>
             <AxisMinValue disabled={disabled} axisId={axisId} />
             <div style={{ display: 'flex', alignItems: 'center' }}>
