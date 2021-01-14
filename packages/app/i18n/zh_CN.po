@@ -1,14 +1,14 @@
 # 
 # Translators:
-# easylin <lin_xd@126.com>, 2020
 # 晓东 林 <13981924470@126.com>, 2020
+# easylin <lin_xd@126.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-25T09:27:28.489Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
-"Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2021\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,7 +26,7 @@ msgid "\"{{what}}\" successfully deleted."
 msgstr "\"{{what}}\" 被成功删除"
 
 msgid "Data Visualizer"
-msgstr ""
+msgstr "数据可视化图表工具"
 
 msgid "Axis 1"
 msgstr "主轴1"
@@ -341,7 +341,7 @@ msgid "Chart options"
 msgstr ""
 
 msgid "Column"
-msgstr ""
+msgstr "列"
 
 msgid "Stacked column"
 msgstr ""
@@ -356,7 +356,7 @@ msgid "Line"
 msgstr ""
 
 msgid "Area"
-msgstr ""
+msgstr "面积"
 
 msgid "Pie"
 msgstr ""
