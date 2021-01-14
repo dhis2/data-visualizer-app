@@ -21,7 +21,9 @@ export const replacePeriodItems = (
         clickMenuBarUpdateButton()
     } else {
         const TEST_PERIOD_TYPE = !useAltData ? 'Six-months' : 'Quarters'
-        const TEST_PERIOD = !useAltData ? 'Last six-month' : 'Last quarter'
+        const TEST_PERIOD = !useAltData
+            ? 'Last 2 six-month'
+            : 'Quarters this year'
         openDimension(DIMENSION_ID_PERIOD)
         removeAllPeriodItems()
         selectRelativePeriods([TEST_PERIOD], TEST_PERIOD_TYPE)

@@ -136,8 +136,7 @@ describe('saving an AO', () => {
             expectAOTitleToBeValue(TEST_VIS_NAME)
             expectVisualizationToBeVisible(TEST_VIS_TYPE)
         })
-        it.skip('deletes AO', () => {
-            // FIXME: Unskip once https://jira.dhis2.org/browse/DHIS2-10140 is done
+        it('deletes AO', () => {
             deleteAO()
             expectRouteToBeEmpty()
             expectStartScreenToBeVisible()
