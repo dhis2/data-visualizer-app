@@ -1,3 +1,10 @@
+## [35.16.6](https://github.com/dhis2/data-visualizer-app/compare/v35.16.5...v35.16.6) (2021-01-14)
+
+
+### Bug Fixes
+
+* bump Analytics dep ([#1565](https://github.com/dhis2/data-visualizer-app/issues/1565)) ([46a1075](https://github.com/dhis2/data-visualizer-app/commit/46a1075302075292e4985a7dae477ed3382e9f38))
+
 ## [35.16.5](https://github.com/dhis2/data-visualizer-app/compare/v35.16.4...v35.16.5) (2021-01-13)
 
 
