@@ -118,8 +118,7 @@ describe('using a Scatter chart', () => {
         expectVerticalToContainDimensionLabel(TEST_INDICATOR_NAMES[0])
         expectHorizontalToContainDimensionLabel(TEST_INDICATOR_NAMES[1])
     })
-    it.skip('deletes saved scatter AO', () => {
-        // FIXME: Unskip once https://jira.dhis2.org/browse/DHIS2-10140 is done
+    it('deletes saved scatter AO', () => {
         deleteAO()
         expectRouteToBeEmpty()
         expectStartScreenToBeVisible()
