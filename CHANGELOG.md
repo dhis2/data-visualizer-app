@@ -1,3 +1,24 @@
+## [35.16.7](https://github.com/dhis2/data-visualizer-app/compare/v35.16.6...v35.16.7) (2021-01-14)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#1527](https://github.com/dhis2/data-visualizer-app/issues/1527)) ([d3a6ac5](https://github.com/dhis2/data-visualizer-app/commit/d3a6ac57d4fc22e5c182041827271b186f212ac2))
+
+## [35.16.6](https://github.com/dhis2/data-visualizer-app/compare/v35.16.5...v35.16.6) (2021-01-14)
+
+
+### Bug Fixes
+
+* bump Analytics dep ([#1565](https://github.com/dhis2/data-visualizer-app/issues/1565)) ([46a1075](https://github.com/dhis2/data-visualizer-app/commit/46a1075302075292e4985a7dae477ed3382e9f38))
+
+## [35.16.5](https://github.com/dhis2/data-visualizer-app/compare/v35.16.4...v35.16.5) (2021-01-13)
+
+
+### Bug Fixes
+
+* add missing name for legend sets ([#1561](https://github.com/dhis2/data-visualizer-app/issues/1561)) ([1c51726](https://github.com/dhis2/data-visualizer-app/commit/1c517261f65753a3c6f677898d4645bb93e3a7be))
+
 ## [35.16.4](https://github.com/dhis2/data-visualizer-app/compare/v35.16.3...v35.16.4) (2020-12-21)
 
 
