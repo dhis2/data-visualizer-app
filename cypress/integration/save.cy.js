@@ -125,6 +125,7 @@ describe('saving an AO', () => {
         it('navigates to the start page and opens a saved AO', () => {
             goToStartPage()
             openAOByName(TEST_VIS_NAME_UPDATED)
+            expectAOTitleToBeValue(TEST_VIS_NAME_UPDATED)
         })
         it(`replaces the selected period`, () => {
             replacePeriodItems(TEST_VIS_TYPE, { useAltData: true })
