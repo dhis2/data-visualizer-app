@@ -3,7 +3,6 @@ import {
     expectAOTitleToNotBeDirty,
     expectVisualizationToBeVisible,
     expectVisualizationToNotBeVisible,
-    expectChartTitleToBeVisible,
 } from '../elements/chart'
 import { replacePeriodItems } from '../elements/common'
 import {
@@ -24,7 +23,7 @@ describe('confirm leave modal', () => {
     it('navigates to the start page and loads a random saved AO', () => {
         goToStartPage()
         openAOByName(TEST_AO.name)
-        expectChartTitleToBeVisible()
+        expectVisualizationToBeVisible(TEST_AO.type)
         expectAOTitleToNotBeDirty()
     })
     it(`replaces the selected period`, () => {
@@ -38,7 +37,7 @@ describe('confirm leave modal', () => {
     })
     it('cancel leave', () => {
         confirmLeave(false)
-        expectChartTitleToBeVisible()
+        expectVisualizationToBeVisible(TEST_AO.type)
         expectAOTitleToBeDirty()
     })
     it('tries to open a new AO', () => {

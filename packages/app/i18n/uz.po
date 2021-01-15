@@ -65,6 +65,8 @@ msgid ""
 "'Scatter' is intended to show a single data item per axis. Only the first "
 "item will be used and saved."
 msgstr ""
+"\"Тақсимловчи\" ҳар бир ўқда ягона маълумотлар элементини кўрсатиш учун "
+"мўлжалланган. Фақат биринчи элементдан фойдаланилади ва сақланади"
 
 msgid "Vertical"
 msgstr "Вертикал"
@@ -157,7 +159,7 @@ msgid "Refresh to try again"
 msgstr "Ыайтиб уриниб кщрин учун аввал янгиланг"
 
 msgid "Hide technical details"
-msgstr "Техник деталларни яшириш"
+msgstr "Техник деталларни беркитиш"
 
 msgid "Show technical details"
 msgstr "Техник деталларни кўрсатиш"
@@ -166,7 +168,7 @@ msgid "The following information may be requested by technical support."
 msgstr "Қуйидаги ахборот техник ёрдамчилар томонидан сўралиши мумкин"
 
 msgid "Hide"
-msgstr "Яшириш"
+msgstr "Беркитиш"
 
 msgid "Interpretations"
 msgstr "Талқинлар"
@@ -928,7 +930,7 @@ msgid "Chart style"
 msgstr "Диаграмма услуби"
 
 msgid "Display"
-msgstr "Намойиш қилиш"
+msgstr "Экранда кўрсатиш"
 
 msgid "Empty data"
 msgstr "Бўш маълумотлар"
