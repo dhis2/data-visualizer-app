@@ -10,7 +10,7 @@
         "enzyme-adapter-react-16": "^1.15.5",
         "eslint-plugin-react-hooks": "^3.0.0",
         "jest-enzyme": "^7.1.2",
-        "loglevel": "^1.7.0"
+        "loglevel": "^1.7.1"
     },
     "scripts": {
         "build-plugin": "cd packages/plugin && yarn build",
@@ -33,5 +33,5 @@
     "workspaces": [
         "packages/*"
     ],
-    "version": "35.16.7"
+    "version": "35.16.8"
 }
