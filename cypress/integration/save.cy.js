@@ -125,6 +125,7 @@ describe('saving an AO', () => {
         it('navigates to the start page and opens a saved AO', () => {
             goToStartPage()
             openAOByName(TEST_VIS_NAME_UPDATED)
+            expectAOTitleToBeValue(TEST_VIS_NAME_UPDATED)
         })
         it(`replaces the selected period`, () => {
             replacePeriodItems(TEST_VIS_TYPE, { useAltData: true })
@@ -136,8 +137,7 @@ describe('saving an AO', () => {
             expectAOTitleToBeValue(TEST_VIS_NAME)
             expectVisualizationToBeVisible(TEST_VIS_TYPE)
         })
-        it.skip('deletes AO', () => {
-            // FIXME: Unskip once https://jira.dhis2.org/browse/DHIS2-10140 is done
+        it('deletes AO', () => {
             deleteAO()
             expectRouteToBeEmpty()
             expectStartScreenToBeVisible()
