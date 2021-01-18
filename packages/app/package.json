@@ -6,7 +6,7 @@
     "private": true,
     "homepage": ".",
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^5.5.0",
+        "@dhis2/cli-app-scripts": "^5.5.1",
         "@dhis2/cli-utils-cypress": "^4.0.0",
         "@dhis2/cypress-commands": "^5.0.0",
         "eslint-plugin-cypress": "^2.11.2",
