@@ -5,8 +5,14 @@ import { colors, spacers } from '@dhis2/ui'
 
 export const tabBar = css.resolve`
     div {
-        position: sticky;
-        top: 0;
+        padding-right: ${spacers.dp24};
+    }
+`
+
+export const tabContent = css.resolve`
+    div {
+        overflow: auto;
+        padding-right: ${spacers.dp24};
     }
 `
 
@@ -37,6 +43,12 @@ export const tabSectionTitle = css.resolve`
     }
 `
 
+export const tabSectionTitleMargin = css.resolve`
+    span {
+        margin-top: ${spacers.dp8};
+    }
+`
+
 export const tabSectionOption = css.resolve`
     div:not(:last-child):not(.inline) {
         padding-bottom: ${spacers.dp16};
@@ -51,8 +63,11 @@ export const tabSectionOptionItem = css.resolve`
 
 export const tabSectionOptionText = css.resolve`
     p {
-        font-size: ${spacers.dp14};
-        padding-bottom: ${spacers.dp16};
+        margin: 0;
+        padding-bottom: ${spacers.dp8};
+        font-size: 14px;
+        line-height: 19px;
+        color: ${colors.grey700};
     }
 `
 

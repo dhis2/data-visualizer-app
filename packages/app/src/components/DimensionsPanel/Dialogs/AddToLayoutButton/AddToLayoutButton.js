@@ -18,6 +18,7 @@ export const AddToLayoutButton = ({
     visType,
     onAddDimension,
     onClick,
+    dataTest,
 }) => {
     const availableAxes = getAvailableAxes(visType)
 
@@ -32,12 +33,13 @@ export const AddToLayoutButton = ({
     }
 
     const renderMenu = () => (
-        <FlyoutMenu maxWidth="380px">
+        <FlyoutMenu maxWidth="380px" dataTest={`${dataTest}-flyout-menu`}>
             {getAvailableAxes(visType)
                 .slice(1)
                 .map(axis => (
                     <MenuItem
                         key={axis}
+                        dataTest={`${dataTest}-flyout-menu-option-${axis}`}
                         onClick={() => clickHandler(axis)}
                         label={i18n.t(`Add to {{axisName}}`, {
                             axisName: getAxisNameByLayoutType(
@@ -56,6 +58,7 @@ export const AddToLayoutButton = ({
             onClick={() => clickHandler(availableAxes[0])}
             primary
             className={styles.button}
+            dataTest={dataTest}
         >
             {i18n.t(`Add to {{axisName}}`, {
                 axisName: getAxisNameByLayoutType(
@@ -72,6 +75,7 @@ AddToLayoutButton.propTypes = {
     visType: PropTypes.string.isRequired,
     onAddDimension: PropTypes.func.isRequired,
     onClick: PropTypes.func.isRequired,
+    dataTest: PropTypes.string,
 }
 
 const mapStateToProps = state => ({

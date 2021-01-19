@@ -11,7 +11,13 @@ import * as userDataStore from '../../api/userDataStore'
 import * as ui from '../../modules/ui'
 import { DEFAULT_CURRENT } from '../../reducers/current'
 
-jest.mock('../Visualization/Visualization', () => () => <div />)
+jest.mock(
+    '../Visualization/Visualization',
+    () =>
+        function Vis() {
+            return <div />
+        }
+)
 
 describe('App', () => {
     let props
@@ -58,10 +64,12 @@ describe('App', () => {
         }
         shallowApp = undefined
 
+        /* eslint-disable no-import-assign, import/namespace */
         actions.tDoLoadVisualization = jest.fn()
         actions.clearVisualization = jest.fn()
         userDataStore.apiFetchAOFromUserDataStore = jest.fn()
         ui.getParentGraphMapFromVisualization = jest.fn()
+        /* esling-enable no-import-assign, import/namespace */
     })
 
     afterEach(() => {
@@ -112,13 +120,32 @@ describe('App', () => {
             })
         })
 
-        it('reloads visualization when same pathname pushed', done => {
+        it('reloads visualization when opening the same visualization', done => {
             props.location.pathname = '/fluttershy'
 
             app()
 
             setTimeout(() => {
-                history.replace('/fluttershy')
+                history.replace({
+                    pathname: '/fluttershy',
+                    state: { isOpening: true },
+                })
+                expect(actions.tDoLoadVisualization).toBeCalledTimes(2)
+
+                done()
+            })
+        })
+
+        it('reloads visualization when same pathname pushed when saving', done => {
+            props.location.pathname = '/fluttershy'
+
+            app()
+
+            setTimeout(() => {
+                history.replace({
+                    pathname: '/fluttershy',
+                    state: { isSaving: true },
+                })
                 expect(actions.tDoLoadVisualization).toBeCalledTimes(2)
 
                 done()

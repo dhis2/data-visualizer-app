@@ -14,7 +14,6 @@ import i18n from '@dhis2/d2-i18n'
 
 import DndDimensionItem from './DndDimensionItem'
 import * as fromReducers from '../../reducers'
-import { acSetUiActiveModalDialog } from '../../actions/ui'
 import { SOURCE_DIMENSIONS } from '../../modules/layout'
 
 import styles from './styles/DndDimensionList.module.css'
@@ -43,6 +42,7 @@ export class DndDimensionList extends Component {
             isRecommended: this.isRecommendedDimension(id),
             onClick: this.props.onDimensionClick,
             onOptionsClick: this.props.onDimensionOptionsClick,
+            dataTest: `${this.props.dataTest}-dimension-item`,
         }
 
         return (
@@ -85,13 +85,17 @@ export class DndDimensionList extends Component {
                         className={styles.container}
                         ref={provided.innerRef}
                         {...provided.droppableProps}
+                        data-test={this.props.dataTest}
                     >
                         <div className={styles.wrapper}>
                             <div className={styles.section}>
                                 <h3 className={styles.header}>
                                     {i18n.t('Main dimensions')}
                                 </h3>
-                                <ul className={styles.list}>
+                                <ul
+                                    className={styles.list}
+                                    data-test={`${this.props.dataTest}-fixed-dimensions`}
+                                >
                                     {fixedDimensions}
                                 </ul>
                             </div>
@@ -99,7 +103,10 @@ export class DndDimensionList extends Component {
                                 <h3 className={styles.header}>
                                     {i18n.t('Other dimensions')}
                                 </h3>
-                                <ul className={styles.list}>
+                                <ul
+                                    className={styles.list}
+                                    data-test={`${this.props.dataTest}-dynamic-dimensions`}
+                                >
                                     {dynamicDimensions}
                                 </ul>
                             </div>
@@ -107,7 +114,10 @@ export class DndDimensionList extends Component {
                                 <h3 className={styles.header}>
                                     {i18n.t('Your dimensions')}
                                 </h3>
-                                <ul className={styles.list}>
+                                <ul
+                                    className={styles.list}
+                                    data-test={`${this.props.dataTest}-non-predefined-dimensions`}
+                                >
                                     {nonPredefinedDimensions}
                                 </ul>
                             </div>
@@ -121,6 +131,7 @@ export class DndDimensionList extends Component {
 }
 
 DndDimensionList.propTypes = {
+    dataTest: PropTypes.string,
     dimensions: PropTypes.array,
     disallowedDimensions: PropTypes.array,
     filterText: PropTypes.string,
@@ -151,8 +162,4 @@ const mapStateToProps = state => ({
     lockedDimensions: getisLockedDimensionsMemo(state),
 })
 
-const mapDispatchToProps = dispatch => ({
-    onDimensionClick: id => dispatch(acSetUiActiveModalDialog(id)),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(DndDimensionList)
+export default connect(mapStateToProps)(DndDimensionList)

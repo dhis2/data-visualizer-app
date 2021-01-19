@@ -1,6 +1,6 @@
 import { SET_SETTINGS, ADD_SETTINGS } from '../reducers/settings'
 import { apiFetchSystemSettings } from '../api/settings'
-import { apiFetchOrganisationUnitRoot } from '../api/organisationUnits'
+import { apiFetchOrganisationUnitRoots } from '@dhis2/analytics'
 
 export const acSetSettings = value => ({
     type: SET_SETTINGS,
@@ -12,7 +12,11 @@ export const acAddSettings = value => ({
     value,
 })
 
-export const tAddSettings = (...extraSettings) => async dispatch => {
+export const tAddSettings = (...extraSettings) => async (
+    dispatch,
+    getState,
+    engine
+) => {
     const onSuccess = fetchedSettings => {
         dispatch(
             acAddSettings(Object.assign({}, fetchedSettings, ...extraSettings))
@@ -25,12 +29,18 @@ export const tAddSettings = (...extraSettings) => async dispatch => {
     }
 
     try {
-        const systemSettings = await apiFetchSystemSettings()
-        const rootOrganisationUnit = await apiFetchOrganisationUnitRoot()
+        const fetchSystemSettings = apiFetchSystemSettings(engine)
+        const fetchOrgUnitRoots = apiFetchOrganisationUnitRoots(engine)
+
+        // run in parallel
+        const [systemSettings, orgUnitRoots] = await Promise.all([
+            fetchSystemSettings,
+            fetchOrgUnitRoots,
+        ])
 
         return onSuccess({
             ...systemSettings,
-            rootOrganisationUnit,
+            rootOrganisationUnit: orgUnitRoots[0],
         })
     } catch (err) {
         return onError(err)

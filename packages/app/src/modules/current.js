@@ -5,17 +5,24 @@ import {
     AXIS_ID_FILTERS,
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
+    VIS_TYPE_SINGLE_VALUE,
+    VIS_TYPE_PIE,
     dimensionCreate,
     layoutGetDimensionItems,
     layoutReplaceDimension,
     getPredefinedDimensionProp,
     DIMENSION_PROP_NO_ITEMS,
+    getAdaptedUiLayoutByType,
+    VIS_TYPE_SCATTER,
 } from '@dhis2/analytics'
 
 import options from './options'
 import {} from './layout'
 import { BASE_FIELD_TYPE, BASE_FIELD_YEARLY_SERIES } from './fields/baseFields'
-import { pieLayoutAdapter, singleValueLayoutAdapter } from './layoutAdapters'
+import {
+    ITEM_ATTRIBUTE_HORIZONTAL,
+    ITEM_ATTRIBUTE_VERTICAL,
+} from '../modules/ui'
 
 const hasItems = (object, id) => Array.isArray(object[id]) && object[id].length
 
@@ -82,7 +89,10 @@ export const getOptionsFromUi = ui => {
         'rangeAxisMaxValue',
     ].forEach(option => {
         if (Object.prototype.hasOwnProperty.call(optionsFromUi, option)) {
-            if (optionsFromUi[option] !== undefined) {
+            if (
+                optionsFromUi[option] !== undefined &&
+                optionsFromUi[option] !== ''
+            ) {
                 optionsFromUi[option] = Number(optionsFromUi[option])
             }
         }
@@ -99,7 +109,10 @@ export const getSingleValueCurrentFromUi = (state, action) => {
     const ui = {
         ...action.value,
         layout: {
-            ...singleValueLayoutAdapter(action.value.layout),
+            ...getAdaptedUiLayoutByType(
+                action.value.layout,
+                VIS_TYPE_SINGLE_VALUE
+            ),
         },
     }
 
@@ -121,11 +134,44 @@ export const getSingleValueCurrentFromUi = (state, action) => {
     }
 }
 
+export const getScatterCurrentFromUi = (state, action) => {
+    const ui = {
+        ...action.value,
+        layout: {
+            ...getAdaptedUiLayoutByType(action.value.layout, VIS_TYPE_SCATTER),
+        },
+    }
+
+    const axesFromUi = getAxesFromUi(ui)
+
+    // only save first vertical and first horizontal dx items
+    const verticalItem =
+        ui.itemAttributes.find(
+            item => item.attribute === ITEM_ATTRIBUTE_VERTICAL
+        ) || {}
+    const horizontalItem =
+        ui.itemAttributes.find(
+            item => item.attribute === ITEM_ATTRIBUTE_HORIZONTAL
+        ) || {}
+    const scatterAxesFromUi = layoutReplaceDimension(
+        axesFromUi,
+        DIMENSION_ID_DATA,
+        [verticalItem, horizontalItem].map(item => ({ id: item.id }))
+    )
+
+    return {
+        ...state,
+        [BASE_FIELD_TYPE]: ui.type,
+        ...scatterAxesFromUi,
+        ...getOptionsFromUi(ui),
+    }
+}
+
 export const getPieCurrentFromUi = (state, action) => {
     const ui = {
         ...action.value,
         layout: {
-            ...pieLayoutAdapter(action.value.layout),
+            ...getAdaptedUiLayoutByType(action.value.layout, VIS_TYPE_PIE),
         },
     }
 

@@ -9,7 +9,7 @@ export const acSetDimensions = dimensions => ({
     value: keyBy(sortBy(dimensions, [d => d.name.toLowerCase()]), 'id'),
 })
 
-export const tSetDimensions = d2 => async (dispatch, getState) => {
+export const tSetDimensions = () => async (dispatch, getState, engine) => {
     const onSuccess = dimensions => {
         dispatch(acSetDimensions(dimensions))
     }
@@ -21,7 +21,7 @@ export const tSetDimensions = d2 => async (dispatch, getState) => {
 
     try {
         const displayNameProp = sGetSettingsDisplayNameProperty(getState())
-        const dimensions = await apiFetchDimensions(d2, displayNameProp)
+        const dimensions = await apiFetchDimensions(engine, displayNameProp)
         return onSuccess(dimensions)
     } catch (err) {
         return onError(err)

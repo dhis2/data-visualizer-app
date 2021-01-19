@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import {
     DimensionMenu,
     DIMENSION_ID_ASSIGNED_CATEGORIES,
+    DIMENSION_ID_DATA,
+    VIS_TYPE_SCATTER,
 } from '@dhis2/analytics'
 import { Popover } from '@dhis2/ui'
 
@@ -16,6 +18,7 @@ import {
     acAddUiLayoutDimensions,
     acRemoveUiLayoutDimensions,
 } from '../../actions/ui'
+import { ITEM_ATTRIBUTE_VERTICAL } from '../../modules/ui'
 
 export const Dimensions = ({
     assignedCategoriesItemHandler,
@@ -25,6 +28,7 @@ export const Dimensions = ({
     layoutHasAssignedCategories,
     removeItemHandler,
     ui,
+    onDimensionClick,
 }) => {
     const [dialogIsOpen, setDialogIsOpen] = useState(false)
     const [dimensionId, setDimensionId] = useState(null)
@@ -45,12 +49,20 @@ export const Dimensions = ({
         toggleMenu()
     }
 
+    const openDimensionModal = id =>
+        onDimensionClick(
+            ui.type === VIS_TYPE_SCATTER && id === DIMENSION_ID_DATA
+                ? ITEM_ATTRIBUTE_VERTICAL
+                : id
+        )
+
     const getNumberOfDimensionItems = () =>
         (itemsByDimension[dimensionId] || []).length
 
     return (
         <div style={styles.divContainer}>
             <DndDimensionsPanel
+                onDimensionClick={openDimensionModal}
                 onDimensionOptionsClick={openOptionsMenuForDimension}
             />
             {dialogIsOpen && dimensionId && ref && (
@@ -77,6 +89,7 @@ export const Dimensions = ({
                         axisItemHandler={axisItemHandler}
                         removeItemHandler={removeItemHandler}
                         onClose={toggleMenu}
+                        dataTest={'dimensions-panel-dimension-menu'}
                     />
                 </Popover>
             )}
@@ -93,6 +106,7 @@ Dimensions.propTypes = {
     layoutHasAssignedCategories: PropTypes.bool,
     removeItemHandler: PropTypes.func,
     ui: PropTypes.object,
+    onDimensionClick: PropTypes.func,
 }
 
 const mapStateToProps = state => ({
@@ -137,6 +151,7 @@ const mapDispatchToProps = dispatch => ({
                   })
         )
     },
+    onDimensionClick: id => dispatch(acSetUiActiveModalDialog(id)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dimensions)

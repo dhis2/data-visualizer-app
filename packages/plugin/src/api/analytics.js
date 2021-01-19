@@ -1,25 +1,29 @@
-import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
+import { Analytics, VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
 
 const peId = 'pe'
 
-export const apiFetchAnalytics = async (d2, current, options) => {
-    const req = new d2.analytics.request()
-        .fromModel(current)
+export const apiFetchAnalytics = async (dataEngine, visualization, options) => {
+    const analyticsEngine = Analytics.getAnalytics(dataEngine)
+
+    const req = new analyticsEngine.request()
+        .fromVisualization(visualization)
         .withParameters(options)
-        .withIncludeNumDen(current.type === VIS_TYPE_PIVOT_TABLE)
+        .withIncludeNumDen(visualization.type === VIS_TYPE_PIVOT_TABLE)
 
-    const rawResponse = await d2.analytics.aggregate.get(req)
+    const rawResponse = await analyticsEngine.aggregate.get(req)
 
-    return [new d2.analytics.response(rawResponse)]
+    return [new analyticsEngine.response(rawResponse)]
 }
 
 export const apiFetchAnalyticsForYearOverYear = async (
-    d2,
-    current,
+    dataEngine,
+    visualization,
     options
 ) => {
-    let yearlySeriesReq = new d2.analytics.request()
-        .addPeriodDimension(current.yearlySeries)
+    const analyticsEngine = Analytics.getAnalytics(dataEngine)
+
+    let yearlySeriesReq = new analyticsEngine.request()
+        .addPeriodDimension(visualization.yearlySeries)
         .withSkipData(true)
         .withSkipMeta(false)
         .withIncludeMetadataDetails(true)
@@ -30,7 +34,9 @@ export const apiFetchAnalyticsForYearOverYear = async (
         )
     }
 
-    const yearlySeriesRes = await d2.analytics.aggregate.fetch(yearlySeriesReq)
+    const yearlySeriesRes = await analyticsEngine.aggregate.fetch(
+        yearlySeriesReq
+    )
 
     const requests = []
     const yearlySeriesLabels = []
@@ -44,16 +50,16 @@ export const apiFetchAnalyticsForYearOverYear = async (
 
         const startDate = `${period}-${currentMonth}-${currentDay}`
 
-        const req = new d2.analytics.request()
-            .fromModel(current)
+        const req = new analyticsEngine.request()
+            .fromVisualization(visualization)
             .withParameters(options)
             .withRelativePeriodDate(startDate)
 
-        requests.push(d2.analytics.aggregate.get(req))
+        requests.push(analyticsEngine.aggregate.get(req))
     })
 
     return Promise.all(requests).then(responses => ({
-        responses: responses.map(res => new d2.analytics.response(res)),
+        responses: responses.map(res => new analyticsEngine.response(res)),
         yearlySeriesLabels,
     }))
 }

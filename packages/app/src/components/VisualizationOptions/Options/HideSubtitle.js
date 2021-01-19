@@ -55,7 +55,11 @@ class HideSubtitle extends Component {
                         ? i18n.t('Table subtitle')
                         : i18n.t('Chart subtitle')}
                 </Label>
-                <Field name="hideSubtitle-selector" dense>
+                <Field
+                    name="hideSubtitle-selector"
+                    dense
+                    dataTest={'option-chart-subtitle-type-radios'}
+                >
                     {[
                         {
                             id: HIDE_SUBTITLE_AUTO,
@@ -76,7 +80,10 @@ class HideSubtitle extends Component {
                 </Field>
                 {value === HIDE_SUBTITLE_CUSTOM ? (
                     <div className={tabSectionOptionToggleable.className}>
-                        <Subtitle inline />
+                        <Subtitle
+                            inline
+                            dataTest={'option-chart-subtitle-text'}
+                        />
                     </div>
                 ) : null}
                 {value === HIDE_SUBTITLE_AUTO ||
@@ -84,6 +91,7 @@ class HideSubtitle extends Component {
                     <div className={tabSectionOptionToggleable.className}>
                         <TextStyle
                             fontStyleKey={FONT_STYLE_VISUALIZATION_SUBTITLE}
+                            dataTest={'option-chart-subtitle-text-style'}
                         />
                     </div>
                 ) : null}

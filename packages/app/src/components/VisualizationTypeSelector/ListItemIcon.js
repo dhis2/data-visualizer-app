@@ -15,6 +15,7 @@ import {
     VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
     VIS_TYPE_SINGLE_VALUE,
     VIS_TYPE_PIVOT_TABLE,
+    VIS_TYPE_SCATTER,
 } from '@dhis2/analytics'
 
 import ColumnIcon from '../../assets/ColumnIcon'
@@ -32,6 +33,7 @@ import YearOverYearColumnIcon from '../../assets/YearOverYearColumnIcon'
 import SingleValueIcon from '../../assets/SingleValueIcon'
 import GlobeIcon from '../../assets/GlobeIcon'
 import PivotTableIcon from '../../assets/PivotTableIcon'
+import ScatterIcon from '../../assets/ScatterIcon'
 
 const ListItemIcon = ({ iconType, style }) => {
     switch (iconType) {
@@ -63,6 +65,8 @@ const ListItemIcon = ({ iconType, style }) => {
             return <GlobeIcon style={style} />
         case VIS_TYPE_PIVOT_TABLE:
             return <PivotTableIcon style={style} />
+        case VIS_TYPE_SCATTER:
+            return <ScatterIcon style={style} />
         case VIS_TYPE_COLUMN:
         default:
             return <ColumnIcon style={style} />

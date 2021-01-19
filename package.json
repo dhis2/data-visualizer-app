@@ -4,13 +4,13 @@
     "private": true,
     "license": "BSD-3-Clause",
     "devDependencies": {
-        "@dhis2/cli-style": "^5.0.2",
+        "@dhis2/cli-style": "^7.2.2",
         "concurrently": "^5.3.0",
         "enzyme": "^3.11.0",
-        "enzyme-adapter-react-16": "^1.15.4",
+        "enzyme-adapter-react-16": "^1.15.5",
         "eslint-plugin-react-hooks": "^3.0.0",
         "jest-enzyme": "^7.1.2",
-        "loglevel": "^1.7.0"
+        "loglevel": "^1.7.1"
     },
     "scripts": {
         "build-plugin": "cd packages/plugin && yarn build",
@@ -25,10 +25,16 @@
         "test": "yarn test-plugin && yarn test-app",
         "coverage": "yarn test-plugin --coverage && yarn test-app --coverage",
         "validate-commit": "d2-style js check --staged && d2-style text check --staged",
-        "validate-push": "yarn test"
+        "validate-push": "yarn test",
+        "cypress:start": "BROWSER=none yarn start",
+        "cy:open": "d2-utils-cypress open --appStart 'yarn cypress:start'",
+        "cy:run": "d2-utils-cypress run --appStart 'yarn cypress:start'"
     },
     "workspaces": [
         "packages/*"
     ],
-    "version": "35.12.9"
+    "version": "35.16.9",
+    "resolutions": {
+        "@dhis2/ui": "^6.1.3"
+    }
 }

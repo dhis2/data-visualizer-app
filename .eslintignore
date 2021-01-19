@@ -1,6 +1,0 @@
-/node_modules/*
-/packages/app/node_modules/*
-/packages/plugin/node_modules/*
-/packages/app/build/*
-/packages/plugin/build/*
-/coverage/*

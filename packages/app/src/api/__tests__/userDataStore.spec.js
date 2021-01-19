@@ -29,6 +29,7 @@ describe('api: user data store', () => {
                 },
             },
         }
+        // eslint-disable-next-line no-import-assign
         d2lib.getInstance = () => Promise.resolve(mockD2)
     })
 
@@ -85,6 +86,7 @@ describe('api: user data store', () => {
 
     describe('apiSaveAoInUserDataStore', () => {
         beforeEach(() => {
+            // eslint-disable-next-line no-import-assign, import/namespace
             userDataStore.getNamespace = () => Promise.resolve(mockNamespace)
         })
 
@@ -100,6 +102,7 @@ describe('api: user data store', () => {
 
     describe('apiFetchAOFromUserDataStore', () => {
         beforeEach(() => {
+            // eslint-disable-next-line no-import-assign, import/namespace
             userDataStore.getNamespace = () => Promise.resolve(mockNamespace)
         })
 

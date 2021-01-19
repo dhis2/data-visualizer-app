@@ -59,7 +59,7 @@ export const VisualizationTypeSelector = (
     const getVisTypes = () => Object.keys(visTypeDisplayNames)
 
     const VisTypesList = (
-        <Card>
+        <Card dataTest={'visualization-type-selector-card'}>
             <div className={styles.listContainer}>
                 <div className={styles.listSection}>
                     {getVisTypes().map(type => (
@@ -94,9 +94,16 @@ export const VisualizationTypeSelector = (
 
     return (
         <>
-            <div onClick={toggleList} ref={buttonRef} className={styles.button}>
+            <div
+                onClick={toggleList}
+                ref={buttonRef}
+                className={styles.button}
+                data-test={'visualization-type-selector-button'}
+            >
                 <ListItemIcon iconType={visualizationType} />
-                <span>{visTypeDisplayNames[visualizationType]}</span>
+                <span data-test="visualization-type-selector-currently-selected-text">
+                    {visTypeDisplayNames[visualizationType]}
+                </span>
                 <ArrowDropDownIcon style={{ marginLeft: 'auto' }} />
             </div>
             {listIsOpen &&

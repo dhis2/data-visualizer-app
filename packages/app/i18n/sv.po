@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-08-28T12:56:12.965Z\n"
+"POT-Creation-Date: 2020-12-08T15:58:00.833Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Swedish (https://www.transifex.com/hisp-uio/teams/100509/sv/)\n"
@@ -53,6 +53,17 @@ msgstr ""
 msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
 "items. Only the first {{maxNumber}} items will be used and saved."
+msgstr ""
+
+msgid ""
+"'Scatter' is intended to show a single data item per axis. Only the first "
+"item will be used and saved."
+msgstr ""
+
+msgid "Vertical"
+msgstr ""
+
+msgid "Horizontal"
 msgstr ""
 
 msgid "Main dimensions"
@@ -161,6 +172,21 @@ msgid "{{total}} selected"
 msgstr ""
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
+msgstr ""
+
+msgid "Not available for Scatter"
+msgstr ""
+
+msgid "Add Assigned Categories"
+msgstr ""
+
+msgid "Swap with {{axisName}} axis"
+msgstr ""
+
+msgid "vertical"
+msgstr ""
+
+msgid "horizontal"
 msgstr ""
 
 msgid "None selected"
@@ -317,7 +343,7 @@ msgstr ""
 msgid "Color blind"
 msgstr ""
 
-msgid "Mono patterns"
+msgid "Patterns"
 msgstr ""
 
 msgid "Event data"
@@ -537,6 +563,14 @@ msgstr ""
 msgid "There aren't any Series options for this visualization type"
 msgstr ""
 
+msgid "Series options unavailable"
+msgstr ""
+
+msgid ""
+"Series options are not available when using relative selections for periods,"
+" org units or categories"
+msgstr ""
+
 msgid "Value labels"
 msgstr ""
 
@@ -628,6 +662,29 @@ msgstr "Ingen valda perioden"
 
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
+msgstr ""
+
+msgid "Add organisation units to {{axisName}}."
+msgstr ""
+
+msgid "Vertical is empty"
+msgstr ""
+
+msgid "Add a data item to the vertical axis."
+msgstr ""
+
+msgid "Horizontal is empty"
+msgstr ""
+
+msgid "Add a data item to the horizontal axis."
+msgstr ""
+
+msgid "Axes data items are the same"
+msgstr ""
+
+msgid ""
+"The horizontal and vertical axes have the same data item. Scatter chart axes"
+" must have different data for each axis."
 msgstr ""
 
 msgid "No data selected"
@@ -796,42 +853,6 @@ msgstr ""
 msgid "User org unit grand children"
 msgstr ""
 
-msgid "Data"
-msgstr "Data"
-
-msgid "Display"
-msgstr ""
-
-msgid "Axes"
-msgstr ""
-
-msgid "Horizontal (x) axis"
-msgstr ""
-
-msgid "Series"
-msgstr ""
-
-msgid "Style"
-msgstr "Stil"
-
-msgid "Chart style"
-msgstr ""
-
-msgid "Titles"
-msgstr ""
-
-msgid "Lines"
-msgstr ""
-
-msgid "Vertical (y) axis"
-msgstr ""
-
-msgid "Display totals"
-msgstr ""
-
-msgid "Display empty data"
-msgstr ""
-
 msgid "Table title"
 msgstr ""
 
@@ -853,11 +874,47 @@ msgstr ""
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
 
+msgid "Horizontal (x) axis"
+msgstr ""
+
 msgid "Lines are not supported yet when using multiple axes"
+msgstr ""
+
+msgid "Chart style"
+msgstr ""
+
+msgid "Display"
+msgstr ""
+
+msgid "Empty data"
+msgstr ""
+
+msgid "Lines"
+msgstr ""
+
+msgid "Totals"
+msgstr "Totals"
+
+msgid "Vertical (y) axis"
+msgstr ""
+
+msgid "Titles"
 msgstr ""
 
 msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr ""
+
+msgid "Axes"
+msgstr ""
+
+msgid "Data"
+msgstr "Data"
+
+msgid "Series"
+msgstr ""
+
+msgid "Style"
+msgstr "Stil"
 
 msgid "Weeks per year"
 msgstr ""

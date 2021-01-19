@@ -48,9 +48,12 @@ const StartScreen = ({ error }) => {
         error ? (
             getErrorContent()
         ) : (
-            <div>
+            <div data-test="start-screen">
                 <div className={styles.section}>
-                    <h3 className={styles.title}>
+                    <h3
+                        className={styles.title}
+                        data-test="start-screen-primary-section-title"
+                    >
                         {i18n.t('Getting started')}
                     </h3>
                     <ul className={styles.guide}>
@@ -69,7 +72,10 @@ const StartScreen = ({ error }) => {
                 </div>
                 {mostViewedVisualizations.length > 0 && (
                     <div className={styles.section}>
-                        <h3 className={styles.title}>
+                        <h3
+                            className={styles.title}
+                            data-test="start-screen-secondary-section-title"
+                        >
                             {i18n.t('Your most viewed charts and tables')}
                         </h3>
                         {mostViewedVisualizations.map(
@@ -80,6 +86,7 @@ const StartScreen = ({ error }) => {
                                     onClick={() =>
                                         history.push(`/${visualization.id}`)
                                     }
+                                    data-test="start-screen-most-viewed-list-item"
                                 >
                                     <span className={styles.visIcon}>
                                         {visTypeIcons[visualization.type]}
@@ -93,22 +100,30 @@ const StartScreen = ({ error }) => {
             </div>
         )
 
-    const getErrorContent = () =>
-        error instanceof VisualizationError ? (
-            <div className={styles.errorContainer}>
-                <div className={styles.errorIcon}>{error.icon()}</div>
-                <p className={styles.errorTitle}>{error.title}</p>
-                <p className={styles.errorDescription}>{error.description}</p>
-            </div>
-        ) : (
-            <div className={styles.errorContainer}>
-                <div className={styles.errorIcon}>{GenericError()}</div>
-                <p className={styles.errorTitle}>{genericErrorTitle}</p>
-                <p className={styles.errorDescription}>
-                    {error.message || error}
-                </p>
-            </div>
-        )
+    const getErrorContent = () => (
+        <div
+            className={styles.errorContainer}
+            data-test="start-screen-error-container"
+        >
+            {error instanceof VisualizationError ? (
+                <>
+                    <div className={styles.errorIcon}>{error.icon()}</div>
+                    <p className={styles.errorTitle}>{error.title}</p>
+                    <p className={styles.errorDescription}>
+                        {error.description}
+                    </p>
+                </>
+            ) : (
+                <>
+                    <div className={styles.errorIcon}>{GenericError()}</div>
+                    <p className={styles.errorTitle}>{genericErrorTitle}</p>
+                    <p className={styles.errorDescription}>
+                        {error.message || error}
+                    </p>
+                </>
+            )}
+        </div>
+    )
 
     return (
         <div className={styles.outer}>

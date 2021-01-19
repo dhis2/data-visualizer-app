@@ -1,33 +1,27 @@
 import {
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
+    DIMENSION_ID_DATA,
     layoutGetAxisIdDimensionIdsObject,
     layoutGetDimensionIdItemIdsObject,
     VIS_TYPE_YEAR_OVER_YEAR_LINE,
     VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
-    VIS_TYPE_PIE,
-    VIS_TYPE_GAUGE,
-    VIS_TYPE_SINGLE_VALUE,
     VIS_TYPE_PIVOT_TABLE,
+    VIS_TYPE_SCATTER,
     defaultVisType,
     isYearOverYear,
-    isTwoCategoryChartType,
+    getAdaptedUiLayoutByType,
 } from '@dhis2/analytics'
 
 import { getInverseLayout } from './layout'
 import { getOptionsFromVisualization } from './options'
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields'
-import {
-    defaultLayoutAdapter,
-    dualCategoryLayoutAdapter,
-    pieLayoutAdapter,
-    yearOverYearLayoutAdapter,
-    singleValueLayoutAdapter,
-} from './layoutAdapters'
 import { removeLastPathSegment } from './orgUnit'
 
 export const SERIES_ITEM_TYPE_PROP = 'type'
 export const SERIES_ITEM_AXIS_PROP = 'axis'
+export const ITEM_ATTRIBUTE_VERTICAL = 'VERTICAL'
+export const ITEM_ATTRIBUTE_HORIZONTAL = 'HORIZONTAL'
 
 // Transform from backend model to store.ui format
 export const getUiFromVisualization = (vis, currentState = {}) => ({
@@ -50,25 +44,13 @@ export const getUiFromVisualization = (vis, currentState = {}) => ({
 })
 
 // Transform from store.ui to default format
-export const defaultUiAdapter = ui => ({
+const defaultUiAdapter = ui => ({
     ...ui,
-    layout: defaultLayoutAdapter(ui.layout),
-})
-
-// Transform from store.ui to dual category format
-export const dualCategoryUiAdapter = ui => ({
-    ...ui,
-    layout: dualCategoryLayoutAdapter(ui.layout),
-})
-
-// Transform from store.ui to pie format
-export const pieUiAdapter = ui => ({
-    ...ui,
-    layout: pieLayoutAdapter(ui.layout),
+    layout: getAdaptedUiLayoutByType(ui.layout, ui.type),
 })
 
 // Transform from store.ui to year on year format
-export const yearOverYearUiAdapter = ui => {
+const yearOverYearUiAdapter = ui => {
     const state = Object.assign({}, ui)
 
     const items = Object.assign({}, state.itemsByDimension)
@@ -76,35 +58,48 @@ export const yearOverYearUiAdapter = ui => {
 
     return {
         ...state,
-        layout: yearOverYearLayoutAdapter(ui.layout),
+        layout: getAdaptedUiLayoutByType(ui.layout, ui.type),
         itemsByDimension: items,
     }
 }
 
-export const singleValueUiAdapter = ui => ({
-    ...ui,
-    layout: singleValueLayoutAdapter(ui.layout),
-})
-
-export const getAdaptedUiByType = ui => {
-    if (isTwoCategoryChartType(ui.type) && ui.layout.rows.length > 1) {
-        return dualCategoryUiAdapter(ui)
+// Transform from store.ui to scatter format
+const scatterUiAdapter = ui => {
+    const adaptedUi = {
+        ...ui,
+        layout: getAdaptedUiLayoutByType(ui.layout, ui.type),
     }
 
+    const dataItems = ui.itemsByDimension[DIMENSION_ID_DATA] || []
+
+    adaptedUi.itemAttributes = [
+        // TODO: Should this be cleared for all other uiAdapters?
+        ...(dataItems[0]
+            ? [{ id: dataItems[0], attribute: ITEM_ATTRIBUTE_VERTICAL }]
+            : []),
+        ...(dataItems[1]
+            ? [{ id: dataItems[1], attribute: ITEM_ATTRIBUTE_HORIZONTAL }]
+            : []),
+    ]
+
+    const items = Object.assign({}, ui.itemsByDimension)
+    items[DIMENSION_ID_DATA] = dataItems.slice(0, 2)
+
+    adaptedUi.itemsByDimension = items
+
+    return adaptedUi
+}
+
+export const getAdaptedUiByType = ui => {
     switch (ui.type) {
         case VIS_TYPE_YEAR_OVER_YEAR_LINE:
         case VIS_TYPE_YEAR_OVER_YEAR_COLUMN: {
             return yearOverYearUiAdapter(ui)
         }
-        case VIS_TYPE_PIE: {
-            return pieUiAdapter(ui)
-        }
-        case VIS_TYPE_SINGLE_VALUE:
-        case VIS_TYPE_GAUGE: {
-            return singleValueUiAdapter(ui)
-        }
         case VIS_TYPE_PIVOT_TABLE:
             return ui
+        case VIS_TYPE_SCATTER:
+            return scatterUiAdapter(ui)
         default:
             return defaultUiAdapter(ui)
     }

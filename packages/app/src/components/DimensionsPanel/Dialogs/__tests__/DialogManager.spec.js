@@ -65,10 +65,11 @@ describe('The DialogManager component', () => {
             },
             d2: {},
             metadata: {},
-            closeDialog: jest.fn(),
+            changeDialog: jest.fn(),
             setRecommendedIds: jest.fn(),
             getAxisIdByDimensionId: () => {},
             dimensionIdsInLayout: [],
+            getItemsByAttribute: jest.fn(),
         }
         shallowDialog = undefined
     })
@@ -147,13 +148,13 @@ describe('The DialogManager component', () => {
         )
     })
 
-    it('calls the closeDialog function', () => {
+    it('calls the changeDialog function', () => {
         const dialog = dialogManager().setProps({
             dialogId: DIMENSION_ID_DATA,
         })
 
         dialog.find(HideButton).simulate('click')
 
-        expect(props.closeDialog).toHaveBeenCalledTimes(1)
+        expect(props.changeDialog).toHaveBeenCalledTimes(1)
     })
 })

@@ -19,12 +19,19 @@ import styles from '../styles/TextStyle.module.css'
 import FontColorIcon from '../../../assets/FontColorIcon'
 import BoldIcon from '../../../assets/BoldIcon'
 import ItalicIcon from '../../../assets/ItalicIcon'
-import { sGetConsolidatedUiFontStyle } from '../../../reducers/ui'
+import { sGetConsolidatedUiFontStyle, sGetUiType } from '../../../reducers/ui'
 import { acSetUiFontStyle } from '../../../actions/ui'
 
-const TextStyle = ({ fontStyleKey, fontStyle, onChange, disabled }) => {
-    const fontSizeOptions = Object.values(getFontSizeOptions())
-    const textAlignOptions = Object.values(getTextAlignOptions(fontStyleKey))
+const TextStyle = ({
+    fontStyleKey,
+    fontStyle,
+    visType,
+    onChange,
+    disabled,
+    dataTest,
+}) => {
+    const fontSizeOptions = Object.values(getFontSizeOptions(fontStyleKey))
+    const textAlignOptions = getTextAlignOptions(fontStyleKey, visType)
     const [fontSize, setFontSize] = useState(
         fontStyle[FONT_STYLE_OPTION_FONT_SIZE]
     )
@@ -43,7 +50,7 @@ const TextStyle = ({ fontStyleKey, fontStyle, onChange, disabled }) => {
     }, 100)
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} data-test={dataTest}>
             {fontSize && (
                 <SingleSelect
                     onChange={({ selected }) => {
@@ -55,12 +62,14 @@ const TextStyle = ({ fontStyleKey, fontStyle, onChange, disabled }) => {
                     dense
                     className={styles.fontSizeSelect}
                     disabled={disabled}
+                    dataTest={`${dataTest}-font-size-select`}
                 >
                     {fontSizeOptions.map(option => (
                         <SingleSelectOption
                             key={option.value?.toString()}
                             value={option.value?.toString()}
                             label={option.label}
+                            dataTest={`${dataTest}-font-size-option-${option.value?.toString()}`}
                         />
                     ))}
                 </SingleSelect>
@@ -76,12 +85,14 @@ const TextStyle = ({ fontStyleKey, fontStyle, onChange, disabled }) => {
                     dense
                     className={styles.textAlignSelect}
                     disabled={disabled}
+                    dataTest={`${dataTest}-text-align-select`}
                 >
                     {textAlignOptions.map(option => (
                         <SingleSelectOption
                             key={option.value}
                             value={option.value}
                             label={option.label}
+                            dataTest={`${dataTest}-text-align-option-${option.value?.toString()}`}
                         />
                     ))}
                 </SingleSelect>
@@ -91,6 +102,7 @@ const TextStyle = ({ fontStyleKey, fontStyle, onChange, disabled }) => {
                     className={cx(styles.textColorLabel, {
                         [styles.disabled]: disabled,
                     })}
+                    data-test={`${dataTest}-text-color-picker`}
                 >
                     <input
                         type="color"
@@ -115,6 +127,7 @@ const TextStyle = ({ fontStyleKey, fontStyle, onChange, disabled }) => {
                     secondary
                     toggled={bold}
                     disabled={disabled}
+                    dataTest={`${dataTest}-bold-toggle`}
                 />
             )}
             {italic != null && (
@@ -128,6 +141,7 @@ const TextStyle = ({ fontStyleKey, fontStyle, onChange, disabled }) => {
                     secondary
                     disabled={disabled}
                     toggled={italic}
+                    dataTest={`${dataTest}-italic-toggle`}
                 />
             )}
         </div>
@@ -136,13 +150,16 @@ const TextStyle = ({ fontStyleKey, fontStyle, onChange, disabled }) => {
 
 TextStyle.propTypes = {
     fontStyleKey: PropTypes.string.isRequired,
+    dataTest: PropTypes.string,
     disabled: PropTypes.bool,
     fontStyle: PropTypes.object,
+    visType: PropTypes.string,
     onChange: PropTypes.func,
 }
 
 const mapStateToProps = (state, ownProps) => ({
     fontStyle: sGetConsolidatedUiFontStyle(state, ownProps.fontStyleKey),
+    visType: sGetUiType(state),
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

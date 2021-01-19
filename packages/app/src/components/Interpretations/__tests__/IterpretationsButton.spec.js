@@ -32,36 +32,28 @@ describe('InterpretationsButton component', () => {
     })
 
     it('renders a <MenuButton>', () => {
-        expect(
-            interpretationsButton()
-                .find(MenuButton)
-                .first().length
-        ).toEqual(1)
+        expect(interpretationsButton().find(MenuButton).first().length).toEqual(
+            1
+        )
     })
 
     it('renders a disabled <MenuButton> if no id is passed', () => {
         props.id = null
 
         expect(
-            interpretationsButton()
-                .find(MenuButton)
-                .prop('disabled')
+            interpretationsButton().find(MenuButton).prop('disabled')
         ).toEqual(true)
     })
 
     it('it triggers onClick when the button is clicked', () => {
-        interpretationsButton()
-            .find(MenuButton)
-            .simulate('click')
+        interpretationsButton().find(MenuButton).simulate('click')
 
         expect(onClick).toHaveBeenCalled()
     })
 
     it('uses the correct arrow icon based on props', () => {
         expect(
-            interpretationsButton()
-                .find(KeyboardArrowLeftIcon)
-                .first().length
+            interpretationsButton().find(KeyboardArrowLeftIcon).first().length
         ).toEqual(1)
     })
 
@@ -69,9 +61,7 @@ describe('InterpretationsButton component', () => {
         props.rightSidebarOpen = true
 
         expect(
-            interpretationsButton()
-                .find(KeyboardArrowRightIcon)
-                .first().length
+            interpretationsButton().find(KeyboardArrowRightIcon).first().length
         ).toEqual(1)
     })
 })

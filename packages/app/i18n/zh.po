@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-08-28T12:56:12.965Z\n"
+"POT-Creation-Date: 2020-12-08T15:58:00.833Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2020\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -58,6 +58,17 @@ msgid ""
 msgstr ""
 "'{{visualizationType}}' 打算显示最多{{maxNumber}}个数据项，仅{{maxNumber}} "
 "个中第一个条目将被使用和保存。"
+
+msgid ""
+"'Scatter' is intended to show a single data item per axis. Only the first "
+"item will be used and saved."
+msgstr "“散点图”用于在每个轴上显示单个数据项。仅第一项将被使用和保存。"
+
+msgid "Vertical"
+msgstr "垂直"
+
+msgid "Horizontal"
+msgstr "水平"
 
 msgid "Main dimensions"
 msgstr "主要维度"
@@ -167,6 +178,21 @@ msgstr "选择了 {{total}} "
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr "{{dimensionName}} 被 {{axisName}} 为 {{visTypeName}} 锁住"
 
+msgid "Not available for Scatter"
+msgstr "不适用于散点图"
+
+msgid "Add Assigned Categories"
+msgstr "添加指定的分类"
+
+msgid "Swap with {{axisName}} axis"
+msgstr "与{{axisName}}轴交换"
+
+msgid "vertical"
+msgstr "垂直"
+
+msgid "horizontal"
+msgstr "水平的"
+
 msgid "None selected"
 msgstr "没有选择"
 
@@ -197,7 +223,7 @@ msgstr "选择年份"
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
-msgstr ""
+msgstr "无法删除此可视化，因为它已在一个或多个仪表板上使用"
 
 msgid "Unsaved visualization"
 msgstr "没有保存可视化"
@@ -321,8 +347,8 @@ msgstr "灰色"
 msgid "Color blind"
 msgstr "色盲"
 
-msgid "Mono patterns"
-msgstr "单声道模式"
+msgid "Patterns"
+msgstr "模式"
 
 msgid "Event data"
 msgstr "事件数据"
@@ -541,6 +567,14 @@ msgstr "没有系列选项"
 msgid "There aren't any Series options for this visualization type"
 msgstr "该可视化类型没有任何系列选项"
 
+msgid "Series options unavailable"
+msgstr "系列选项不可用"
+
+msgid ""
+"Series options are not available when using relative selections for periods,"
+" org units or categories"
+msgstr "在对期间，组织单位或类别使用相对选择时，系列选项不可用"
+
 msgid "Value labels"
 msgstr "值标签"
 
@@ -635,6 +669,29 @@ msgstr "没有选择期间"
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
 msgstr "{{visualizationType}} 必须至少选择一个期间到 {{axes}}."
+
+msgid "Add organisation units to {{axisName}}."
+msgstr "将组织单位添加到{{axisName}}。"
+
+msgid "Vertical is empty"
+msgstr "垂直为空"
+
+msgid "Add a data item to the vertical axis."
+msgstr "将数据项添加到垂直轴。"
+
+msgid "Horizontal is empty"
+msgstr "水平为空"
+
+msgid "Add a data item to the horizontal axis."
+msgstr "将数据项添加到水平轴。"
+
+msgid "Axes data items are the same"
+msgstr "轴数据项相同"
+
+msgid ""
+"The horizontal and vertical axes have the same data item. Scatter chart axes"
+" must have different data for each axis."
+msgstr "水平轴和垂直轴具有相同的数据项。散点图轴的每个轴必须具有不同的数据。"
 
 msgid "No data selected"
 msgstr "没有选择数据"
@@ -734,7 +791,7 @@ msgid "Last 3 months"
 msgstr "最近3个月"
 
 msgid "Last 6 months"
-msgstr "最近六个月<br>"
+msgstr "最近6个月"
 
 msgid "Last 12 months"
 msgstr "最近12月"
@@ -749,7 +806,7 @@ msgid "Last bimonth"
 msgstr "最近俩月"
 
 msgid "Last 6 bimonths"
-msgstr "最近六个俩月"
+msgstr "最近6个俩月"
 
 msgid "Bimonths this year"
 msgstr "今年的俩月"
@@ -802,42 +859,6 @@ msgstr "用户下属机构"
 msgid "User org unit grand children"
 msgstr "用户下下级机构"
 
-msgid "Data"
-msgstr "数据"
-
-msgid "Display"
-msgstr "显示"
-
-msgid "Axes"
-msgstr "轴"
-
-msgid "Horizontal (x) axis"
-msgstr "水平轴（X）"
-
-msgid "Series"
-msgstr "系列"
-
-msgid "Style"
-msgstr "风格"
-
-msgid "Chart style"
-msgstr "图表风格"
-
-msgid "Titles"
-msgstr "标题"
-
-msgid "Lines"
-msgstr "线"
-
-msgid "Vertical (y) axis"
-msgstr "垂轴（Y）"
-
-msgid "Display totals"
-msgstr "显示合计"
-
-msgid "Display empty data"
-msgstr "显示空数据"
-
 msgid "Table title"
 msgstr "表标题"
 
@@ -859,11 +880,47 @@ msgstr "颜色集"
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr "使用多轴时尚不支持颜色设置"
 
+msgid "Horizontal (x) axis"
+msgstr "水平轴（X）"
+
 msgid "Lines are not supported yet when using multiple axes"
 msgstr "使用多轴时尚不支持线型"
 
+msgid "Chart style"
+msgstr "图表风格"
+
+msgid "Display"
+msgstr "显示"
+
+msgid "Empty data"
+msgstr "空数据"
+
+msgid "Lines"
+msgstr "线"
+
+msgid "Totals"
+msgstr "总共"
+
+msgid "Vertical (y) axis"
+msgstr "垂轴（Y）"
+
+msgid "Titles"
+msgstr "标题"
+
 msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr "使用多轴时尚不支持垂直轴选项"
+
+msgid "Axes"
+msgstr "轴"
+
+msgid "Data"
+msgstr "数据"
+
+msgid "Series"
+msgstr "系列"
+
+msgid "Style"
+msgstr "风格"
 
 msgid "Weeks per year"
 msgstr "每年的周"

@@ -1,14 +1,14 @@
 # 
 # Translators:
-# Karoline Tufte Lien <karoline@dhis2.org>, 2020
 # Caroline Hesthagen Holen <caroline@devotta.no>, 2020
+# Karoline Tufte Lien <karoline@dhis2.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-08-28T12:56:12.965Z\n"
+"POT-Creation-Date: 2020-12-08T15:58:00.833Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Caroline Hesthagen Holen <caroline@devotta.no>, 2020\n"
+"Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +20,7 @@ msgid "Rename successful"
 msgstr "Navneendring vellykket"
 
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
-msgstr ""
+msgstr "{{visualizationType}} visualisering uten navn, {{date}}"
 
 msgid "\"{{deletedObject}}\" successfully deleted."
 msgstr "Sletting av \"{{what}}\" var vellykket."
@@ -60,6 +60,17 @@ msgid ""
 msgstr ""
 "'{{visualiationType}}' er ment for å vise maksimalt {{maxNumber}} antall "
 "elementer. Bare de første {{maxNumber}} elementene vil bli brukt og lagret."
+
+msgid ""
+"'Scatter' is intended to show a single data item per axis. Only the first "
+"item will be used and saved."
+msgstr ""
+
+msgid "Vertical"
+msgstr "Vertikal"
+
+msgid "Horizontal"
+msgstr "Horisontal"
 
 msgid "Main dimensions"
 msgstr "Hoveddimensjoner"
@@ -169,6 +180,21 @@ msgstr "{{total}} valgt"
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr "{{dimensionName}} er låst til {{axisName}} for {{visTypeName}}"
 
+msgid "Not available for Scatter"
+msgstr "Ikke tilgjengelig for Spredning"
+
+msgid "Add Assigned Categories"
+msgstr "Legg tildelte kategorier"
+
+msgid "Swap with {{axisName}} axis"
+msgstr "Bytt med {{axisName}} -aksen"
+
+msgid "vertical"
+msgstr "vertikal"
+
+msgid "horizontal"
+msgstr "horisontal"
+
 msgid "None selected"
 msgstr "Ingen valgt"
 
@@ -200,6 +226,8 @@ msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
 msgstr ""
+"Denne visualiseringen kan ikke slettes fordi den brukes på ett eller flere "
+"dashbord"
 
 msgid "Unsaved visualization"
 msgstr "Ikke lagret visualisering"
@@ -314,19 +342,19 @@ msgid "Default"
 msgstr "Standard"
 
 msgid "Bright"
-msgstr ""
+msgstr "Lys"
 
 msgid "Dark"
-msgstr ""
+msgstr "Mørk"
 
 msgid "Gray"
-msgstr ""
+msgstr "Grå"
 
 msgid "Color blind"
-msgstr ""
+msgstr "Fargeblind"
 
-msgid "Mono patterns"
-msgstr ""
+msgid "Patterns"
+msgstr "Mønster"
 
 msgid "Event data"
 msgstr "Hendelsesdata"
@@ -501,6 +529,8 @@ msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
 msgstr ""
+"Antall trinn for akse-kryss, inkludert min og maks. En verdi på 2 eller "
+"lavere vil bli ignorert."
 
 msgid "Steps"
 msgstr "Trinn"
@@ -546,6 +576,16 @@ msgstr "Ingen seriealternativer"
 
 msgid "There aren't any Series options for this visualization type"
 msgstr "Det er ingen seriealternativer for denne visualiseringstypen"
+
+msgid "Series options unavailable"
+msgstr "Seriealternativer utilgjengelige"
+
+msgid ""
+"Series options are not available when using relative selections for periods,"
+" org units or categories"
+msgstr ""
+"Seriealternativer er ikke tilgjengelige når du bruker relative valg for "
+"perioder, organisasjonsenheter eller kategorier"
 
 msgid "Value labels"
 msgstr "Verdietiketter"
@@ -595,6 +635,7 @@ msgstr "Åpne som kart"
 msgid ""
 "Visually plot data on a world map. Data elements use separate map layers."
 msgstr ""
+"Vis data på et verdenskart visuelt. Dataelementer bruker separate kartlag."
 
 msgid "Reporting rate"
 msgstr "Rapporteringfrekvens"
@@ -643,6 +684,31 @@ msgstr "Ingen periode valgt"
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
 msgstr "{{visualizationType}} må ha minst en periode valgt i {{axes}}."
+
+msgid "Add organisation units to {{axisName}}."
+msgstr "Legg til organisasjonsenheter i {{axisName}}."
+
+msgid "Vertical is empty"
+msgstr "Vertikal er tom"
+
+msgid "Add a data item to the vertical axis."
+msgstr "Legg til et datapunkt i den vertikale aksen."
+
+msgid "Horizontal is empty"
+msgstr "Horisontal er tom"
+
+msgid "Add a data item to the horizontal axis."
+msgstr "Legg til et datapunkt i den horisontale aksen."
+
+msgid "Axes data items are the same"
+msgstr "Aksedatapunktene er de samme"
+
+msgid ""
+"The horizontal and vertical axes have the same data item. Scatter chart axes"
+" must have different data for each axis."
+msgstr ""
+"De horisontale og vertikale aksene har samme datapunkt. "
+"Spredningsdiagramaksene må ha forskjellige data for hver akse."
 
 msgid "No data selected"
 msgstr "Ingen data valgt"
@@ -693,12 +759,14 @@ msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr "Løs dette problemet ved å flytte eller fjerne Tildelte Kategorier."
 
 msgid "Visualization not found"
-msgstr ""
+msgstr "Fant ikke visualisering"
 
 msgid ""
 "The visualization you are trying to view could not be found, the ID could be"
 " incorrect or it could have been deleted."
 msgstr ""
+"Visualiseringen du prøver å vise, ble ikke funnet, ID-en kan være feil, "
+"eller den kan ha blitt slettet."
 
 msgid "Something went wrong"
 msgstr "Noe gikk galt"
@@ -817,42 +885,6 @@ msgstr "Bruker underordnet org enhet"
 msgid "User org unit grand children"
 msgstr "Bruker under-underordnet org enhet"
 
-msgid "Data"
-msgstr "Data"
-
-msgid "Display"
-msgstr "Vis"
-
-msgid "Axes"
-msgstr "Akser"
-
-msgid "Horizontal (x) axis"
-msgstr "Horisontal (x) akse"
-
-msgid "Series"
-msgstr "Serie"
-
-msgid "Style"
-msgstr "Stil"
-
-msgid "Chart style"
-msgstr "Diagramstil"
-
-msgid "Titles"
-msgstr "Titler"
-
-msgid "Lines"
-msgstr "Linjer"
-
-msgid "Vertical (y) axis"
-msgstr "Vertikal (y) akse"
-
-msgid "Display totals"
-msgstr "Vis totalsummer"
-
-msgid "Display empty data"
-msgstr "Vis tom data"
-
 msgid "Table title"
 msgstr "Tabelltittel"
 
@@ -869,17 +901,53 @@ msgid "Parameters"
 msgstr "Parametere"
 
 msgid "Color set"
-msgstr ""
+msgstr "Fargesett"
 
 msgid "Color sets are not supported yet when using multiple axes"
-msgstr ""
+msgstr "Fargesett støttes ikke ennå ved bruk av flere akser"
+
+msgid "Horizontal (x) axis"
+msgstr "Horisontal (x) akse"
 
 msgid "Lines are not supported yet when using multiple axes"
 msgstr "Linjer støttes ikke ennå ved bruk av flere akser"
 
+msgid "Chart style"
+msgstr "Diagramstil"
+
+msgid "Display"
+msgstr "Vis"
+
+msgid "Empty data"
+msgstr "Tomme data"
+
+msgid "Lines"
+msgstr "Linjer"
+
+msgid "Totals"
+msgstr "Totalsummer"
+
+msgid "Vertical (y) axis"
+msgstr "Vertikal (y) akse"
+
+msgid "Titles"
+msgstr "Titler"
+
 msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr ""
 "Alternativer for vertikal akse støttes ikke ennå ved bruk av flere akser"
+
+msgid "Axes"
+msgstr "Akser"
+
+msgid "Data"
+msgstr "Data"
+
+msgid "Series"
+msgstr "Serie"
+
+msgid "Style"
+msgstr "Stil"
 
 msgid "Weeks per year"
 msgstr "Uker per år"

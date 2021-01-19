@@ -26,6 +26,7 @@ const LegendDisplayStrategy = ({ value, onChange }) => (
                 value={LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM}
                 checked={value === LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM}
                 onChange={onChange}
+                dense
             />
             <Radio
                 key={LEGEND_DISPLAY_STRATEGY_FIXED}
@@ -35,6 +36,7 @@ const LegendDisplayStrategy = ({ value, onChange }) => (
                 value={LEGEND_DISPLAY_STRATEGY_FIXED}
                 checked={value === LEGEND_DISPLAY_STRATEGY_FIXED}
                 onChange={onChange}
+                dense
             />
         </Field>
         {value === LEGEND_DISPLAY_STRATEGY_FIXED ? (

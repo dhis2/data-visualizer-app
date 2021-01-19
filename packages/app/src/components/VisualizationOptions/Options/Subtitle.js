@@ -1,10 +1,10 @@
 import React from 'react'
-
+import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 
 import TextBaseOption from './TextBaseOption'
 
-const Subtitle = () => (
+const Subtitle = ({ dataTest }) => (
     <TextBaseOption
         type="text"
         width="280px"
@@ -12,7 +12,12 @@ const Subtitle = () => (
         option={{
             name: 'subtitle',
         }}
+        dataTest={dataTest}
     />
 )
+
+Subtitle.propTypes = {
+    dataTest: PropTypes.string,
+}
 
 export default Subtitle

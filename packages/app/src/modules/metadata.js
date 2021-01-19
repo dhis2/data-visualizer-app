@@ -43,7 +43,7 @@ const getOrganisationUnits = () => ({
     USER_ORGUNIT_GRANDCHILDREN: i18n.t('User org unit grand children'),
 })
 
-export default function() {
+export default function () {
     return Object.entries({
         ...getRelativePeriods(),
         ...getOrganisationUnits(),

@@ -10,7 +10,13 @@ import StartScreen from '../StartScreen'
 import { GenericServerError } from '../../../modules/error'
 import LoadingMask from '../../../widgets/LoadingMask'
 
-jest.mock('@dhis2/data-visualizer-plugin', () => () => <div />)
+jest.mock(
+    '@dhis2/data-visualizer-plugin',
+    () =>
+        function DVPlugin() {
+            return <div />
+        }
+)
 
 describe('Visualization', () => {
     describe('component', () => {
@@ -47,20 +53,12 @@ describe('Visualization', () => {
 
         it('renders the loading indicator when loading', () => {
             props.isLoading = true
-            expect(
-                vis()
-                    .find(LoadingMask)
-                    .exists()
-            ).toBeTruthy()
+            expect(vis().find(LoadingMask).exists()).toBeTruthy()
         })
 
         it('hides the loading indicator when not loading', () => {
             props.isLoading = false
-            expect(
-                vis()
-                    .find(LoadingMask)
-                    .exists()
-            ).toBeFalsy()
+            expect(vis().find(LoadingMask).exists()).toBeFalsy()
         })
 
         it('renders a VisualizationPlugin when no error and visualization available', () => {
@@ -85,9 +83,7 @@ describe('Visualization', () => {
         it('triggers setChart action when chart has been generated', () => {
             const svg = 'coolChart'
 
-            vis()
-                .instance()
-                .onChartGenerated(svg)
+            vis().instance().onChartGenerated(svg)
 
             expect(props.setChart).toHaveBeenCalled()
             expect(props.setChart).toHaveBeenCalledWith(svg)

@@ -1,22 +1,20 @@
-import { getInstance } from 'd2'
 import { onError } from './index'
 import { SYSTEM_SETTINGS } from '../modules/settings'
 
-export const apiFetchSystemSettings = () => {
-    const endPoint = '/systemSettings'
-    const url = `${endPoint}?${SYSTEM_SETTINGS.map(s => `key=${s}`).join('&')}`
-
-    return getInstance()
-        .then(d2 => d2.Api.getApi().get(url))
-        .catch(onError)
+const systemSettingsQuery = {
+    resource: 'systemSettings',
+    params: {
+        key: SYSTEM_SETTINGS,
+    },
 }
 
-export const apiFetchUserSettings = () => {
-    // "key" params not supported in the backend yet
-    // update: now it is, should be used here
-    const endPoint = '/userSettings'
+export const apiFetchSystemSettings = async dataEngine => {
+    const systemSettingsData = await dataEngine.query(
+        { systemSettings: systemSettingsQuery },
+        {
+            onError,
+        }
+    )
 
-    return getInstance()
-        .then(d2 => d2.Api.getApi().get(endPoint))
-        .catch(onError)
+    return systemSettingsData.systemSettings
 }

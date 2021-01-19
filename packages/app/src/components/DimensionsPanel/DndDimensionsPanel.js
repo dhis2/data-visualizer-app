@@ -20,7 +20,7 @@ export class DndDimensionsPanel extends Component {
 
     render() {
         return (
-            <div className={styles.container}>
+            <div className={styles.container} data-test="dimensions-panel">
                 <DimensionFilter
                     placeholder={i18n.t('Filter dimensions')}
                     text={this.state.filterText}
@@ -28,10 +28,13 @@ export class DndDimensionsPanel extends Component {
                     onClear={this.onClearFilter}
                     disableUnderline={true}
                     type="search"
+                    dataTest="dimensions-panel-filter"
                 />
                 <DndDimensionList
                     filterText={this.state.filterText}
                     onDimensionOptionsClick={this.props.onDimensionOptionsClick}
+                    onDimensionClick={this.props.onDimensionClick}
+                    dataTest="dimensions-panel-list"
                 />
             </div>
         )
@@ -39,6 +42,7 @@ export class DndDimensionsPanel extends Component {
 }
 
 DndDimensionsPanel.propTypes = {
+    onDimensionClick: PropTypes.func,
     onDimensionOptionsClick: PropTypes.func,
 }
 

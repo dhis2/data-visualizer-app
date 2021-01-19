@@ -5,8 +5,8 @@ import reducer, {
 } from '../snackbar'
 
 import {
-    VARIANT_INFORMATION,
     VARIANT_ERROR,
+    VARIANT_WARNING,
 } from '../../components/Snackbar/Snackbar'
 
 describe('reducer: snackbar', () => {
@@ -27,7 +27,6 @@ describe('reducer: snackbar', () => {
         }
 
         const expectedState = {
-            variant: VARIANT_INFORMATION,
             message,
             duration: null,
         }
@@ -48,13 +47,11 @@ describe('reducer: snackbar', () => {
         }
 
         const expectedState = {
-            variant: VARIANT_INFORMATION,
             message,
             duration,
         }
 
         const currentState = {
-            variant: VARIANT_INFORMATION,
             message: 'You just won 1000 dollars',
             duration,
         }
@@ -76,7 +73,6 @@ describe('reducer: snackbar', () => {
         }
 
         const expectedState = {
-            variant: VARIANT_INFORMATION,
             message,
             duration,
         }
@@ -87,7 +83,7 @@ describe('reducer: snackbar', () => {
 
     it('should handle the RECEIVED_SNACKBAR_MESSAGE action when passing a variant', () => {
         const message = 'Cannot delete because used in dashboard'
-        const variant = 'warning'
+        const variant = VARIANT_WARNING
 
         const action = {
             type: RECEIVED_SNACKBAR_MESSAGE,
