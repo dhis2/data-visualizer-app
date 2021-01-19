@@ -1,3 +1,10 @@
+## [35.16.9](https://github.com/dhis2/data-visualizer-app/compare/v35.16.8...v35.16.9) (2021-01-19)
+
+
+### Bug Fixes
+
+* ui resolution and analytics bump ([#1578](https://github.com/dhis2/data-visualizer-app/issues/1578)) ([0a9a02f](https://github.com/dhis2/data-visualizer-app/commit/0a9a02f98a74b5138d30fdf669a9b4f4dbad0e14))
+
 ## [35.16.8](https://github.com/dhis2/data-visualizer-app/compare/v35.16.7...v35.16.8) (2021-01-18)
 
 
