@@ -9,7 +9,6 @@ import {
 import getSeriesTab from './tabs/series'
 import getStyleTab from './tabs/style'
 import getTitlesSection from './sections/titles'
-import getColorSetSection from './sections/colorSet'
 import getAxesTab from './tabs/axes'
 import getOutliersTab from './tabs/outliers'
 import SkipRounding from '../../components/VisualizationOptions/Options/SkipRounding'
@@ -81,7 +80,7 @@ export default () => [
         },
     ]),
     getSeriesTab(),
-    getStyleTab([getTitlesSection(), getColorSetSection()]),
+    getStyleTab([getTitlesSection()]),
     getOutliersTab([
         {
             key: 'outlier-analysis',
