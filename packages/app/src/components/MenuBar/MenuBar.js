@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import FileMenu from '@dhis2/d2-ui-file-menu'
 import i18n from '@dhis2/d2-i18n'
 
 import UpdateButton from '../UpdateButton/UpdateButton'
@@ -13,6 +12,7 @@ import * as fromActions from '../../actions'
 import { sGetCurrent } from '../../reducers/current'
 import history from '../../modules/history'
 import { getErrorVariantByStatusCode } from '../../modules/error'
+import FileMenu from './FileMenu/FileMenu'
 
 import styles from './styles/MenuBar.module.css'
 

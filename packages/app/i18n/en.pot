@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-12-08T15:58:00.833Z\n"
-"PO-Revision-Date: 2020-12-08T15:58:00.833Z\n"
+"POT-Creation-Date: 2021-01-21T16:46:45.700Z\n"
+"PO-Revision-Date: 2021-01-21T16:46:45.700Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -206,6 +206,66 @@ msgid "Select a period"
 msgstr ""
 
 msgid "Select years"
+msgstr ""
+
+msgid "Delete {{what}}"
+msgstr ""
+
+msgid "This {{what}} will be deleted. Continue?"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "File"
+msgstr ""
+
+msgid "Open in this app"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Get link"
+msgstr ""
+
+msgid "New"
+msgstr ""
+
+msgid "Open"
+msgstr ""
+
+msgid "Rename {{what}}"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Rename"
+msgstr ""
+
+msgid "Save {{what}} as"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Save as..."
+msgstr ""
+
+msgid "Share"
+msgstr ""
+
+msgid "Translate"
+msgstr ""
+
+msgid "Write interpretation"
+msgstr ""
+
+msgid "Post"
 msgstr ""
 
 msgid ""
