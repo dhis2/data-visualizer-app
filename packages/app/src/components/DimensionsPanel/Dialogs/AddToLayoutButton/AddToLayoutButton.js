@@ -11,7 +11,6 @@ import i18n from '@dhis2/d2-i18n'
 
 import { sGetUiActiveModalDialog, sGetUiType } from '../../../../reducers/ui'
 import { acAddUiLayoutDimensions } from '../../../../actions/ui'
-import styles from './styles/AddToLayoutButton.module.css'
 
 export const AddToLayoutButton = ({
     dialogId,
@@ -57,7 +56,6 @@ export const AddToLayoutButton = ({
             component={availableAxes.length > 1 ? renderMenu() : null}
             onClick={() => clickHandler(availableAxes[0])}
             primary
-            className={styles.button}
             dataTest={dataTest}
         >
             {i18n.t(`Add to {{axisName}}`, {
