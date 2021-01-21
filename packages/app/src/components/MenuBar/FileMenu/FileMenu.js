@@ -1,13 +1,12 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import { withStyles } from '@material-ui/core/styles';
 import Menu from '@material-ui/core/Menu';
-import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 
 import i18n from '@dhis2/d2-i18n';
 
+import MenuButton from '../../MenuButton/MenuButton'
 import NewMenuItem from './NewMenuItem';
 import OpenMenuItem from './OpenMenuItem';
 import SaveMenuItem from './SaveMenuItem';
@@ -135,12 +134,9 @@ export class FileMenu extends Component {
 
         return (
             <Fragment>
-                <Button
-                    className={classes.menuButton}
-                    onClick={this.toggleMenu}
-                >
+                <MenuButton onClick={this.toggleMenu}>
                     {i18n.t('File')}
-                </Button>
+                </MenuButton>
                 <Menu
                     disableEnforceFocus
                     open={this.state.menuIsOpen}
@@ -273,12 +269,4 @@ FileMenu.propTypes = {
     onError: PropTypes.func,
 };
 
-const styles = theme => ({
-    menuButton: {
-        textTransform: 'none',
-        fontSize: 15,
-        fontWeight: 400,
-    },
-});
-
-export default withStyles(styles)(FileMenu);
+export default FileMenu
