@@ -1,4 +1,0 @@
-.button:first-child {
-    /* FIXME: Temporary fix while ui-core ButtonStrip doesn't add margin to SplitButton */
-    margin-left: var(--spacers-dp16);
-}

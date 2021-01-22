@@ -1,3 +1,10 @@
+# [35.17.0](https://github.com/dhis2/data-visualizer-app/compare/v35.16.9...v35.17.0) (2021-01-21)
+
+
+### Features
+
+* paging of dynamic dimension items (DHIS2-9274) ([#1239](https://github.com/dhis2/data-visualizer-app/issues/1239)) ([8c5b893](https://github.com/dhis2/data-visualizer-app/commit/8c5b893d2b04fd61c23974a50418ed71efe17126))
+
 ## [35.16.9](https://github.com/dhis2/data-visualizer-app/compare/v35.16.8...v35.16.9) (2021-01-19)
 
 
