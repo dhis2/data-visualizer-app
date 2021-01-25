@@ -32,7 +32,8 @@ const onNew = () => {
     }
 }
 const getOnRename = props => details => props.onRenameVisualization(details)
-const getOnSave = props => details => props.onSaveVisualization(details, false)
+const getOnSave = props => (details = {}) =>
+    props.onSaveVisualization(details, false)
 const getOnSaveAs = props => details => props.onSaveVisualization(details, true)
 const getOnDelete = props => () => props.onDeleteVisualization()
 const getOnError = props => error => props.onError(error)
@@ -70,8 +71,8 @@ export const MenuBar = ({ dataTest, ...props }, context) => (
 
 MenuBar.propTypes = {
     apiObjectName: PropTypes.string,
-    dataTest: PropTypes.string,
     current: PropTypes.object,
+    dataTest: PropTypes.string,
 }
 
 MenuBar.contextTypes = {
