@@ -34,7 +34,7 @@ export const options = {
         requestable: false,
         savable: true,
     },
-    legend: { requestable: false, savable: true },
+    legend: { defaultValue: {}, requestable: false, savable: true },
     noSpaceBetweenColumns: {
         defaultValue: false,
         requestable: false,
@@ -140,23 +140,13 @@ export const options = {
     topLimit: { defaultValue: '0', requestable: false, savable: true },
 }
 
-export const computedOptions = {
-    // FIXME: Remove axisRange as it's now part of axes?
-    axisRange: { defaultValue: undefined, requestable: false, savable: false },
-    legend: { defaultValue: undefined, requestable: false, savable: false },
-}
-
 export default options
 
 export const getOptionsForUi = () => {
-    return Object.entries({ ...options, ...computedOptions }).reduce(
-        (map, [option, props]) => {
-            map[option] = props.defaultValue
-
-            return map
-        },
-        {}
-    )
+    return Object.entries({ ...options }).reduce((map, [option, props]) => {
+        map[option] = props.defaultValue
+        return map
+    }, {})
 }
 
 export const getOptionsForRequest = () => {
