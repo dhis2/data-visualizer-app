@@ -7,6 +7,7 @@ import ImageIcon from '@material-ui/icons/Image'
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf'
 import ListIcon from '@material-ui/icons/List'
 import ListAltIcon from '@material-ui/icons/ListAlt'
+import { useConfig, useDataEngine } from '@dhis2/app-runtime'
 import {
     FlyoutMenu,
     MenuSectionHeader,
@@ -54,6 +55,8 @@ export const DownloadMenu = ({
     relativePeriodDate,
     visType,
 }) => {
+    const dataEngine = useDataEngine()
+    const { baseUrl } = useConfig()
     const [dialogIsOpen, setDialogIsOpen] = useState(false)
 
     const toggleMenu = () => setDialogIsOpen(!dialogIsOpen)
@@ -67,7 +70,11 @@ export const DownloadMenu = ({
             formData.append('svg', chart)
         }
 
-        const blob = await apiDownloadImage(format, formData)
+        const blob = await apiDownloadImage({
+            baseUrl,
+            type: format,
+            formData,
+        })
         const url = URL.createObjectURL(blob)
 
         toggleMenu()
@@ -77,7 +84,9 @@ export const DownloadMenu = ({
 
     const downloadData = (format, idScheme, path) => async () => {
         const url = await apiDownloadData({
-            current,
+            baseUrl,
+            dataEngine,
+            visualization: current,
             format,
             options: { relativePeriodDate },
             idScheme,
@@ -91,7 +100,9 @@ export const DownloadMenu = ({
 
     const downloadTable = format => async () => {
         const url = await apiDownloadTable({
-            current,
+            baseUrl,
+            dataEngine,
+            visualization: current,
             format,
             options: { relativePeriodDate },
             rows,
