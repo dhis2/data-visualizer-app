@@ -171,15 +171,24 @@ export const getOptionsFromVisualization = visualization => {
         ...pick(visualization, Object.keys(options)),
     }
 
-    optionsFromVisualization.axes?.forEach(axis => {
-        if (axis.title) {
-            axis.title.enabled = true
-        }
-        if (axis.targetLine) {
-            axis.targetLine.enabled = true
-        }
-        if (axis.baseLine) {
-            axis.baseLine.enabled = true
+    optionsFromVisualization.axes = optionsFromVisualization.axes?.map(axis => {
+        if (axis.title || axis.targetLine || axis.baseLine) {
+            const clonedAxis = { ...axis }
+            if (clonedAxis.title) {
+                clonedAxis.title = { ...clonedAxis.title, enabled: true }
+            }
+            if (clonedAxis.targetLine) {
+                clonedAxis.targetLine = {
+                    ...clonedAxis.targetLine,
+                    enabled: true,
+                }
+            }
+            if (clonedAxis.baseLine) {
+                clonedAxis.baseLine = { ...clonedAxis.baseLine, enabled: true }
+            }
+            return clonedAxis
+        } else {
+            return axis
         }
     })
 
