@@ -6,7 +6,7 @@ import {
     tabSectionOption,
     tabSectionOptionText,
     tabSectionOptionIcon,
-} from '../styles/VisualizationOptions.style.js'
+} from './styles/VisualizationOptions.style.js'
 
 export const InfoText = ({ text }) => (
     <div className={tabSectionOption.className}>

@@ -23,7 +23,7 @@ import getDataTab from './tabs/data'
 import getAdvancedSection from './sections/advanced'
 import getDisplayTemplate from './sections/templates/display'
 import getLinesTemplate from './sections/templates/lines'
-import InfoText from '../../components/VisualizationOptions/Options/InfoText'
+import InfoText from '../../components/VisualizationOptions/InfoText'
 
 const verticalAxisId = 'RANGE_0'
 const horisontalAxisId = 'RANGE_1'
