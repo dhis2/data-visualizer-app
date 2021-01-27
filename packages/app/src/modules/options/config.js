@@ -3,6 +3,7 @@ import {
     VIS_TYPE_PIE,
     VIS_TYPE_GAUGE,
     VIS_TYPE_SINGLE_VALUE,
+    VIS_TYPE_SCATTER,
     isStacked as isStackedType,
     isLegendSetType,
     isMultiType,
@@ -15,6 +16,7 @@ import pieConfig from './pieConfig'
 import gaugeConfig from './gaugeConfig'
 import singleValueConfig from './singleValueConfig'
 import defaultConfig from './defaultConfig'
+import scatterConfig from './scatterConfig'
 
 export const getOptionsByType = (type, hasDisabledSections) => {
     const isStacked = isStackedType(type)
@@ -41,6 +43,8 @@ export const getOptionsByType = (type, hasDisabledSections) => {
             return singleValueConfig()
         case VIS_TYPE_PIVOT_TABLE:
             return pivotTableConfig()
+        case VIS_TYPE_SCATTER:
+            return scatterConfig()
         default:
             return defaultConfig(defaultProps)
     }

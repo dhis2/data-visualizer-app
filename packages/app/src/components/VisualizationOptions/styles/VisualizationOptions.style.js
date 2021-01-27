@@ -82,3 +82,11 @@ export const tabSectionOptionComplexInline = css.resolve`
         display: flex;
     }
 `
+
+export const tabSectionOptionIcon = css.resolve`
+    span {
+        vertical-align: top;
+        margin-right: ${spacers.dp4};
+        color: ${colors.grey600};
+    }
+`

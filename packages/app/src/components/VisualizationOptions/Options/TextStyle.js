@@ -11,6 +11,7 @@ import {
     FONT_STYLE_OPTION_ITALIC,
     FONT_STYLE_OPTION_TEXT_COLOR,
     FONT_STYLE_OPTION_TEXT_ALIGN,
+    isVerticalType,
 } from '@dhis2/analytics'
 import cx from 'classnames'
 import debounce from 'lodash-es/debounce'
@@ -19,8 +20,8 @@ import styles from '../styles/TextStyle.module.css'
 import FontColorIcon from '../../../assets/FontColorIcon'
 import BoldIcon from '../../../assets/BoldIcon'
 import ItalicIcon from '../../../assets/ItalicIcon'
-import { sGetConsolidatedUiFontStyle, sGetUiType } from '../../../reducers/ui'
-import { acSetUiFontStyle } from '../../../actions/ui'
+import { sGetUiOption, sGetUiType } from '../../../reducers/ui'
+import { acSetUiOption } from '../../../actions/ui'
 
 const TextStyle = ({
     fontStyleKey,
@@ -29,9 +30,13 @@ const TextStyle = ({
     onChange,
     disabled,
     dataTest,
+    isVertical,
 }) => {
     const fontSizeOptions = Object.values(getFontSizeOptions(fontStyleKey))
-    const textAlignOptions = getTextAlignOptions(fontStyleKey, visType)
+    const textAlignOptions = getTextAlignOptions(
+        fontStyleKey,
+        isVertical || isVerticalType(visType)
+    )
     const [fontSize, setFontSize] = useState(
         fontStyle[FONT_STYLE_OPTION_FONT_SIZE]
     )
@@ -153,25 +158,30 @@ TextStyle.propTypes = {
     dataTest: PropTypes.string,
     disabled: PropTypes.bool,
     fontStyle: PropTypes.object,
+    isVertical: PropTypes.bool,
     visType: PropTypes.string,
     onChange: PropTypes.func,
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    fontStyle: sGetConsolidatedUiFontStyle(state, ownProps.fontStyleKey),
+    fontStyle:
+        sGetUiOption(state, {
+            id: ownProps.fontStyleKey,
+            axisId: ownProps.axisId,
+        }) || {},
     visType: sGetUiType(state),
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onChange: (option, value) => {
+    onChange: (option, value) =>
         dispatch(
-            acSetUiFontStyle({
-                fontStyleKey: ownProps.fontStyleKey,
-                option,
+            acSetUiOption({
+                optionId: ownProps.fontStyleKey,
+                axisId: ownProps.axisId, //FIXME: Should axisId be listed in propTypes?
+                fontStyleOption: option,
                 value,
             })
-        )
-    },
+        ),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TextStyle)

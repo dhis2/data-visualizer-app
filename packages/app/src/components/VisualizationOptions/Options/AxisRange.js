@@ -3,23 +3,24 @@ import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import { Label, Help } from '@dhis2/ui'
 
-import RangeAxisMinValue from './RangeAxisMinValue'
-import RangeAxisMaxValue from './RangeAxisMaxValue'
+import AxisMinValue from './AxisMinValue'
+import AxisMaxValue from './AxisMaxValue'
+import styles from '../styles/AxisRange.module.css'
 
 import {
     tabSectionOption,
     tabSectionOptionComplexInline,
 } from '../styles/VisualizationOptions.style.js'
 
-const AxisRange = ({ disabled }) => (
+const AxisRange = ({ disabled, axisId }) => (
     <div className={tabSectionOption.className}>
-        <Label>{i18n.t('Axis range')}</Label>
+        <Label className={styles.label}>{i18n.t('Axis range')}</Label>
         <div className={tabSectionOptionComplexInline.className}>
-            <RangeAxisMinValue disabled={disabled} />
+            <AxisMinValue disabled={disabled} axisId={axisId} />
             <div style={{ display: 'flex', alignItems: 'center' }}>
                 {'\u00A0\u2013\u00A0'}
             </div>
-            <RangeAxisMaxValue disabled={disabled} />
+            <AxisMaxValue disabled={disabled} axisId={axisId} />
         </div>
         {!disabled ? (
             <Help>
@@ -30,6 +31,7 @@ const AxisRange = ({ disabled }) => (
 )
 
 AxisRange.propTypes = {
+    axisId: PropTypes.string,
     disabled: PropTypes.bool,
 }
 

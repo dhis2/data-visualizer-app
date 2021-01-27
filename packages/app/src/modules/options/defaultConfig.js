@@ -12,6 +12,8 @@ import getTitlesSection from './sections/titles'
 import getChartStyleSection from './sections/chartStyle'
 import getLegendTab from './tabs/legend'
 
+const verticalAxisId = 'RANGE_0'
+
 export default ({
     hasDisabledSections,
     supportsMultiAxes,
@@ -22,7 +24,7 @@ export default ({
 } = {}) => [
     getDataTab([
         getDisplaySection(isStacked),
-        getLinesSection(hasDisabledSections),
+        getLinesSection(hasDisabledSections, verticalAxisId),
         getAdvancedSection(),
     ]),
     ...(supportsLegends ? [getLegendTab({ hideStyleOptions: true })] : []),

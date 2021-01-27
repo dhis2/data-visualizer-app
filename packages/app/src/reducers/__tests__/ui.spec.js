@@ -146,6 +146,108 @@ describe('reducer: ui', () => {
         expect(actualState).toEqual(expectedState)
     })
 
+    it(`${ui.SET_UI_OPTION} sets axes option`, () => {
+        const expectedState = {
+            ...ui.DEFAULT_UI,
+            options: {
+                ...ui.DEFAULT_UI.options,
+                axes: [
+                    {
+                        index: 0,
+                        type: 'RANGE',
+                        maxValue: 2000,
+                    },
+                ],
+            },
+        }
+        const actualState = reducer(ui.DEFAULT_UI, {
+            type: ui.SET_UI_OPTION,
+            value: {
+                optionId: 'maxValue',
+                axisId: 'RANGE_0',
+                value: 2000,
+            },
+        })
+
+        expect(actualState).toEqual(expectedState)
+    })
+
+    it(`${ui.SET_UI_OPTION} sets axes font style option`, () => {
+        const expectedState = {
+            ...ui.DEFAULT_UI,
+            options: {
+                ...ui.DEFAULT_UI.options,
+                axes: [
+                    {
+                        index: 0,
+                        type: 'DOMAIN',
+                        label: {
+                            fontStyle: {
+                                bold: true,
+                            },
+                        },
+                    },
+                ],
+            },
+        }
+        const actualState = reducer(ui.DEFAULT_UI, {
+            type: ui.SET_UI_OPTION,
+            value: {
+                optionId: 'axisLabel',
+                axisId: 'DOMAIN_0',
+                fontStyleOption: 'bold',
+                value: true,
+            },
+        })
+
+        expect(actualState).toEqual(expectedState)
+    })
+
+    it(`${ui.SET_UI_OPTION} sets font style option`, () => {
+        const expectedState = {
+            ...ui.DEFAULT_UI,
+            options: {
+                ...ui.DEFAULT_UI.options,
+                fontStyle: {
+                    visualizationTitle: {
+                        bold: true,
+                    },
+                },
+            },
+        }
+        const actualState = reducer(ui.DEFAULT_UI, {
+            type: ui.SET_UI_OPTION,
+            value: {
+                optionId: 'visualizationTitle',
+                fontStyleOption: 'bold',
+                value: true,
+            },
+        })
+
+        expect(actualState).toEqual(expectedState)
+    })
+
+    it(`${ui.SET_UI_OPTION} sets legend option hideLegend`, () => {
+        const expectedState = {
+            ...ui.DEFAULT_UI,
+            options: {
+                ...ui.DEFAULT_UI.options,
+                legend: {
+                    hidden: true,
+                },
+            },
+        }
+        const actualState = reducer(ui.DEFAULT_UI, {
+            type: ui.SET_UI_OPTION,
+            value: {
+                optionId: 'hideLegend',
+                value: true,
+            },
+        })
+
+        expect(actualState).toEqual(expectedState)
+    })
+
     it(`${ui.SET_UI_LAYOUT} sets layout`, () => {
         const newLayout = {}
         const expectedState = {

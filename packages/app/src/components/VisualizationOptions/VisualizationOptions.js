@@ -15,6 +15,7 @@ import {
     tabSectionOptionText,
     tabBar,
     tabContent,
+    tabSectionOptionIcon,
 } from './styles/VisualizationOptions.style.js'
 
 import {
@@ -122,6 +123,7 @@ export class VisualizationOptions extends Component {
                     {tabSectionOptionToggleable.styles}
                     {tabSectionOptionComplexInline.styles}
                     {tabSectionOptionText.styles}
+                    {tabSectionOptionIcon.styles}
                 </div>
             </>
         )

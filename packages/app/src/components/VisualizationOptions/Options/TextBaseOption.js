@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 
 import { Checkbox, Box, Input, InputField } from '@dhis2/ui'
 
-import { sGetUiOptions } from '../../../reducers/ui'
-import { acSetUiOptions } from '../../../actions/ui'
+import { sGetUiOption } from '../../../reducers/ui'
+import { acSetUiOption } from '../../../actions/ui'
 import {
     tabSectionOption,
     tabSectionOptionToggleable,
@@ -28,6 +28,7 @@ export const TextBaseOption = ({
     inline,
     disabled,
     dataTest,
+    isVertical,
 }) => (
     <div className={inline ? '' : tabSectionOption.className}>
         {toggleable ? (
@@ -53,7 +54,7 @@ export const TextBaseOption = ({
                             type={type}
                             onChange={({ value }) => onChange(value)}
                             name={option.name}
-                            value={value}
+                            value={value.toString()}
                             placeholder={placeholder}
                             dense
                             disabled={disabled}
@@ -80,12 +81,18 @@ export const TextBaseOption = ({
                         fontStyleKey={fontStyleKey}
                         disabled={disabled}
                         dataTest={`${dataTest}-text-style`}
+                        axisId={option.axisId}
+                        isVertical={isVertical}
                     />
                 ) : null}
             </div>
         ) : null}
     </div>
 )
+
+TextBaseOption.defaultProps = {
+    option: {},
+}
 
 TextBaseOption.propTypes = {
     checked: PropTypes.bool,
@@ -94,6 +101,7 @@ TextBaseOption.propTypes = {
     fontStyleKey: PropTypes.string,
     helpText: PropTypes.string,
     inline: PropTypes.bool,
+    isVertical: PropTypes.bool,
     label: PropTypes.string,
     option: PropTypes.object,
     placeholder: PropTypes.string,
@@ -106,17 +114,29 @@ TextBaseOption.propTypes = {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    value: sGetUiOptions(state)[ownProps.option.name] || '',
-    checked: sGetUiOptions(state)[ownProps.option.name] !== undefined,
+    value: sGetUiOption(state, ownProps.option) || '',
+    checked:
+        sGetUiOption(state, {
+            id: ownProps.option.enabledId,
+            axisId: ownProps.option.axisId,
+        }) || false,
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
     onChange: value =>
-        dispatch(acSetUiOptions({ [ownProps.option.name]: value })),
+        dispatch(
+            acSetUiOption({
+                optionId: ownProps.option.id || ownProps.option.name,
+                axisId: ownProps.option.axisId,
+                value,
+            })
+        ),
     onToggle: checked =>
         dispatch(
-            acSetUiOptions({
-                [ownProps.option.name]: checked ? '' : undefined,
+            acSetUiOption({
+                optionId: ownProps.option.enabledId,
+                axisId: ownProps.option.axisId,
+                value: checked,
             })
         ),
 })

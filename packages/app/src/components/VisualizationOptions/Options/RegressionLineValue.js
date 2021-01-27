@@ -2,24 +2,26 @@ import React from 'react'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 
-import TextBaseOption from './TextBaseOption'
+import NumberBaseType from './NumberBaseType'
 
-const BaseLineValue = ({ dataTest }) => (
-    <TextBaseOption
-        type="number"
+const RegressionLineValue = ({ dataTest, axisId, id }) => (
+    <NumberBaseType
         width="96px"
         label={i18n.t('Value')}
         placeholder={i18n.t('Number')}
         option={{
-            name: 'baseLineValue',
+            id,
+            axisId,
         }}
         inline
         dataTest={dataTest}
     />
 )
 
-BaseLineValue.propTypes = {
+RegressionLineValue.propTypes = {
+    axisId: PropTypes.string,
     dataTest: PropTypes.string,
+    id: PropTypes.string,
 }
 
-export default BaseLineValue
+export default RegressionLineValue

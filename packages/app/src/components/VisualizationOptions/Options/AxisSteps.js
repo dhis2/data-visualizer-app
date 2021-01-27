@@ -3,8 +3,9 @@ import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 
 import PositiveNumberBaseType from './PositiveNumberBaseType'
+import { OPTION_AXIS_STEPS } from '../../../modules/options'
 
-export const RangeAxisSteps = ({ disabled }) => (
+export const AxisSteps = ({ disabled, axisId }) => (
     <PositiveNumberBaseType
         width="96px"
         helpText={i18n.t(
@@ -14,13 +15,15 @@ export const RangeAxisSteps = ({ disabled }) => (
         disabled={disabled}
         placeholder={i18n.t('Auto')}
         option={{
-            name: 'rangeAxisSteps',
+            id: OPTION_AXIS_STEPS,
+            axisId,
         }}
     />
 )
 
-RangeAxisSteps.propTypes = {
+AxisSteps.propTypes = {
+    axisId: PropTypes.string,
     disabled: PropTypes.bool,
 }
 
-export default RangeAxisSteps
+export default AxisSteps
