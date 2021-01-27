@@ -109,7 +109,7 @@ class MeasureCriteria extends Component {
             <div className={tabSectionOption.className}>
                 <p className={tabSectionOptionText.className}>
                     {i18n.t(
-                        'You can set a minimum or maximum value. This will apply to the entire table, all values outside of the minimum/maximum range will not be displayed'
+                        'You can set a minimum or maximum value. This will apply to the entire visualization, all values outside of the minimum/maximum range will not be displayed'
                     )}
                 </p>
                 <div className={tabSectionOptionComplexInline.className}>
