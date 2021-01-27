@@ -1,10 +1,11 @@
 import { getInstance } from 'd2'
+import { Analytics } from '@dhis2/analytics'
 
-export const apiDownloadImage = async (type, formData) => {
+export const apiDownloadImage = async ({ baseUrl, type, formData }) => {
     const d2 = await getInstance()
     const api = d2.Api.getApi()
 
-    const url = `${api.baseUrl}/svg.${type}`
+    const url = `${baseUrl}/api/svg.${type}`
 
     return api
         .fetch(url, {
@@ -15,20 +16,20 @@ export const apiDownloadImage = async (type, formData) => {
         .then(res => res.blob())
 }
 
-const addCommonParameters = (req, current, options) => {
+const addCommonParameters = (req, visualization, options) => {
     req = req
-        .withSkipRounding(current.skipRounding)
-        .withAggregationType(current.aggregationType)
-        .withMeasureCriteria(current.measureCriteria)
-        .withParameters({ completedOnly: current.completedOnly })
+        .withSkipRounding(visualization.skipRounding)
+        .withAggregationType(visualization.aggregationType)
+        .withMeasureCriteria(visualization.measureCriteria)
+        .withParameters({ completedOnly: visualization.completedOnly })
     //        .withUserOrgUnit(?) TODO
 
-    if (current.displayProperty) {
-        req = req.withDisplayProperty(current.displayProperty)
+    if (visualization.displayProperty) {
+        req = req.withDisplayProperty(visualization.displayProperty)
     }
 
-    if (current.approvalLevel) {
-        req = req.withApprovalLevel(current.approvalLevel)
+    if (visualization.approvalLevel) {
+        req = req.withApprovalLevel(visualization.approvalLevel)
     }
 
     if (options.relativePeriodDate) {
@@ -38,39 +39,40 @@ const addCommonParameters = (req, current, options) => {
     return req
 }
 
-export const apiDownloadTable = async ({
-    current,
+export const apiDownloadTable = ({
+    dataEngine,
+    baseUrl,
+    visualization,
     format,
     options,
     rows,
     columns,
 }) => {
-    const d2 = await getInstance()
-    const api = d2.Api.getApi()
+    const analyticsEngine = Analytics.getAnalytics(dataEngine)
 
-    let req = new d2.analytics.request()
-        .fromModel(current)
+    let req = new analyticsEngine.request()
+        .fromVisualization(visualization)
         .withFormat(format)
         .withTableLayout()
         .withRows(rows.join(';'))
         .withColumns(columns.join(';'))
 
-    req = addCommonParameters(req, current, options)
+    req = addCommonParameters(req, visualization, options)
 
-    if (current.hideEmptyColumns) {
+    if (visualization.hideEmptyColumns) {
         req = req.withHideEmptyColumns()
     }
 
-    if (current.hideEmptyRows) {
+    if (visualization.hideEmptyRows) {
         req = req.withHideEmptyRows()
     }
 
-    if (current.showHierarchy) {
+    if (visualization.showHierarchy) {
         req = req.withShowHierarchy()
     }
 
     const url = new URL(
-        `${api.baseUrl}/${req.buildUrl()}`,
+        `${baseUrl}/api/${req.buildUrl()}`,
         `${window.location.origin}${window.location.pathname}`
     )
 
@@ -81,25 +83,26 @@ export const apiDownloadTable = async ({
     return url
 }
 
-export const apiDownloadData = async ({
-    current,
+export const apiDownloadData = ({
+    baseUrl,
+    dataEngine,
+    visualization,
     format,
     options,
     idScheme,
     path,
 }) => {
-    const d2 = await getInstance()
-    const api = d2.Api.getApi()
+    const analyticsEngine = Analytics.getAnalytics(dataEngine)
 
-    let req = new d2.analytics.request()
-        .fromModel(current, path === 'dataValueSet')
+    let req = new analyticsEngine.request()
+        .fromVisualization(visualization, path === 'dataValueSet')
         .withFormat(format)
-        .withShowHierarchy(current.showHierarchy)
-        .withHierarchyMeta(current.showHierarchy)
+        .withShowHierarchy(visualization.showHierarchy)
+        .withHierarchyMeta(visualization.showHierarchy)
         .withIncludeMetadataDetails(true)
         .withIncludeNumDen()
-    //.withApprovalLevel(current.?) TODO
-    req = addCommonParameters(req, current, options)
+    //.withApprovalLevel(visualization.?) TODO
+    req = addCommonParameters(req, visualization, options)
 
     if (path) {
         req = req.withPath(path)
@@ -110,7 +113,7 @@ export const apiDownloadData = async ({
     }
 
     const url = new URL(
-        `${api.baseUrl}/${req.buildUrl()}`,
+        `${baseUrl}/api/${req.buildUrl()}`,
         `${window.location.origin}${window.location.pathname}`
     )
 
