@@ -15,7 +15,7 @@ const AxisMaxValue = ({ disabled, axisId }) => (
             axisId,
         }}
         inline
-        dataTest={'option-axis-range-max'}
+        dataTest={`${axisId}-axis-range-max`}
     />
 )
 

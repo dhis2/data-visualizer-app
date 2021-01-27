@@ -1,7 +1,7 @@
-const titleCheckboxEl = 'option-vertical-axis-title-checkbox'
-const titleInputEl = 'option-vertical-axis-title-input'
-const rangeMinInputEl = 'option-vertical-axis-range-min-input'
-const rangeMaxInputEl = 'option-vertical-axis-range-max-input'
+const titleCheckboxEl = 'RANGE_0-axis-title-checkbox'
+const titleInputEl = 'RANGE_0-axis-title-input'
+const rangeMinInputEl = 'RANGE_0-axis-range-min-input'
+const rangeMaxInputEl = 'RANGE_0-axis-range-max-input'
 
 export const enableVerticalAxisTitle = () =>
     cy

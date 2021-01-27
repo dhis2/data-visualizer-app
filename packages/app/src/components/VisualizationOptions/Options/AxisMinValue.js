@@ -15,7 +15,7 @@ const AxisMinValue = ({ disabled, axisId }) => (
             axisId,
         }}
         inline
-        dataTest={'option-axis-range-min'}
+        dataTest={`${axisId}-axis-range-min`}
     />
 )
 

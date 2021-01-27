@@ -7,7 +7,7 @@ import { sGetUiOption } from '../../../reducers/ui'
 import { acSetUiOption } from '../../../actions/ui'
 import { tabSectionOption } from '../styles/VisualizationOptions.style.js'
 
-export const NumberBaseType = ({
+const NumberBaseType = ({
     label,
     placeholder,
     helpText,

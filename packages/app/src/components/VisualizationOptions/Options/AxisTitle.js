@@ -22,7 +22,7 @@ const AxisTitle = ({ disabled, axisId, fontStyleKey }) => (
         }}
         toggleable={true}
         fontStyleKey={fontStyleKey}
-        dataTest={'option-axis-title'}
+        dataTest={`${axisId}-axis-title`}
     />
 )
 
