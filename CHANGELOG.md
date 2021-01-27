@@ -1,3 +1,38 @@
+# [35.18.0](https://github.com/dhis2/data-visualizer-app/compare/v35.17.1...v35.18.0) (2021-01-27)
+
+
+### Features
+
+* scatter options (DHIS2-10006) ([#1552](https://github.com/dhis2/data-visualizer-app/issues/1552)) ([9a4233e](https://github.com/dhis2/data-visualizer-app/commit/9a4233e55e619cf6a5eefe2689106732f0ea2027))
+
+## [35.17.1](https://github.com/dhis2/data-visualizer-app/compare/v35.17.0...v35.17.1) (2021-01-27)
+
+
+### Bug Fixes
+
+* use the download links for dataValueSet via analytics DHIS2-9789 ([#1581](https://github.com/dhis2/data-visualizer-app/issues/1581)) ([cbd3e5c](https://github.com/dhis2/data-visualizer-app/commit/cbd3e5c0505452622e2b2067860865bf02132f95))
+
+# [35.17.0](https://github.com/dhis2/data-visualizer-app/compare/v35.16.9...v35.17.0) (2021-01-21)
+
+
+### Features
+
+* paging of dynamic dimension items (DHIS2-9274) ([#1239](https://github.com/dhis2/data-visualizer-app/issues/1239)) ([8c5b893](https://github.com/dhis2/data-visualizer-app/commit/8c5b893d2b04fd61c23974a50418ed71efe17126))
+
+## [35.16.9](https://github.com/dhis2/data-visualizer-app/compare/v35.16.8...v35.16.9) (2021-01-19)
+
+
+### Bug Fixes
+
+* ui resolution and analytics bump ([#1578](https://github.com/dhis2/data-visualizer-app/issues/1578)) ([0a9a02f](https://github.com/dhis2/data-visualizer-app/commit/0a9a02f98a74b5138d30fdf669a9b4f4dbad0e14))
+
+## [35.16.8](https://github.com/dhis2/data-visualizer-app/compare/v35.16.7...v35.16.8) (2021-01-18)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([27683e6](https://github.com/dhis2/data-visualizer-app/commit/27683e6a0959176c0dd182fe2e39c6b9764bbf02))
+
 ## [35.16.7](https://github.com/dhis2/data-visualizer-app/compare/v35.16.6...v35.16.7) (2021-01-14)
 
 

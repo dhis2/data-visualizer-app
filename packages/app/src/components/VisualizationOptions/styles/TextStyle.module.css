@@ -1,11 +1,11 @@
 .container {
     display: flex;
     position: relative;
-    margin: var(--spacers-dp8) 0;
+    margin: var(--spacers-dp4) 0;
 }
 
 .container > *:not(:last-child) {
-    margin-right: var(--spacers-dp8);
+    margin-right: var(--spacers-dp4);
 }
 
 .fontSizeSelect,

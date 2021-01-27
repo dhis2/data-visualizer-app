@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { InputField } from '@dhis2/ui'
 
-import { sGetUiOptions } from '../../../reducers/ui'
-import { acSetUiOptions } from '../../../actions/ui'
+import { sGetUiOption } from '../../../reducers/ui'
+import { acSetUiOption } from '../../../actions/ui'
 import { tabSectionOption } from '../styles/VisualizationOptions.style.js'
 
 export const PositiveNumberBaseType = ({
@@ -52,13 +52,18 @@ PositiveNumberBaseType.propTypes = {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    value: sGetUiOptions(state)[ownProps.option.name],
-    enabled: sGetUiOptions(state)[ownProps.option.name] !== undefined,
+    value: sGetUiOption(state, ownProps.option),
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
     onChange: value =>
-        dispatch(acSetUiOptions({ [ownProps.option.name]: value })),
+        dispatch(
+            acSetUiOption({
+                optionId: ownProps.option.id || ownProps.option.name,
+                axisId: ownProps.option.axisId,
+                value,
+            })
+        ),
 })
 
 export default connect(

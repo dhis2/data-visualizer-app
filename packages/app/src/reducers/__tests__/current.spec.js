@@ -57,6 +57,7 @@ describe('reducer: current', () => {
             options,
         }
 
+        ui.options.axes = []
         ui.options.series = []
 
         const expectedState = {
@@ -108,6 +109,7 @@ describe('reducer: current', () => {
             yearOverYearCategory: ['MONTHS_THIS_YEAR'],
         }
 
+        ui.options.axes = []
         ui.options.series = []
 
         const expectedState = {

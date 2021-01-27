@@ -290,28 +290,36 @@ msgstr ""
 msgid "Loading data approval levels"
 msgstr ""
 
+msgid "Decimals"
+msgstr ""
+
+msgid "Auto"
+msgstr ""
+
+msgid "Labels"
+msgstr ""
+
 msgid "Axis range"
 msgstr ""
 
 msgid "Values outside of the range will not be displayed"
 msgstr ""
 
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
+msgstr ""
+
+msgid "Steps"
+msgstr ""
+
+msgid "Axis title"
+msgstr ""
+
+msgid "Add a title"
+msgstr ""
+
 msgid "Base line"
-msgstr ""
-
-msgid "Value"
-msgstr ""
-
-msgid "Title"
-msgstr ""
-
-msgid "Base line title"
-msgstr ""
-
-msgid "Number"
-msgstr ""
-
-msgid "Labels"
 msgstr ""
 
 msgid "Column sub-totals"
@@ -372,12 +380,6 @@ msgid "Normal"
 msgstr ""
 
 msgid "Compact"
-msgstr ""
-
-msgid "Axis title"
-msgstr ""
-
-msgid "Add a title"
 msgstr ""
 
 msgid "Font size"
@@ -481,6 +483,9 @@ msgstr ""
 msgid "Display the value of percentages of the total"
 msgstr ""
 
+msgid "Value"
+msgstr ""
+
 msgid "Percentage of row"
 msgstr ""
 
@@ -499,21 +504,13 @@ msgstr ""
 msgid "Stacked values add up to 100%"
 msgstr ""
 
-msgid "Decimals"
-msgstr ""
-
-msgid "Auto"
-msgstr ""
-
-msgid ""
-"Number of axis tick steps, including the min and max. A value of 2 or lower "
-"will be ignored."
-msgstr ""
-
-msgid "Steps"
-msgstr ""
-
 msgid "Include regression"
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "Number"
 msgstr ""
 
 msgid "Trend line"
@@ -588,9 +585,6 @@ msgid "Add a subtitle"
 msgstr ""
 
 msgid "Target line"
-msgstr ""
-
-msgid "Target line title"
 msgstr ""
 
 msgid "Size"
@@ -848,6 +842,15 @@ msgstr ""
 msgid "Parameters"
 msgstr ""
 
+msgid "Base and target lines are available on the Axes tab for scatter charts"
+msgstr ""
+
+msgid "Vertical axis"
+msgstr ""
+
+msgid "Horizontal axis"
+msgstr ""
+
 msgid "Color set"
 msgstr ""
 
@@ -897,6 +900,9 @@ msgid "Limit number of values"
 msgstr ""
 
 msgid "Limit minimum/maximum values"
+msgstr ""
+
+msgid "Outliers"
 msgstr ""
 
 msgid "Series"

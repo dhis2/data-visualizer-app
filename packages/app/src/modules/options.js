@@ -1,18 +1,24 @@
 import pick from 'lodash-es/pick'
-
 import { COLOR_SET_DEFAULT } from '@dhis2/analytics'
 
+export const OPTION_HIDE_LEGEND = 'hideLegend'
+export const OPTION_AXIS_STEPS = 'steps'
+export const OPTION_AXIS_DECIMALS = 'decimals'
+export const OPTION_AXIS_MAX_VALUE = 'maxValue'
+export const OPTION_AXIS_MIN_VALUE = 'minValue'
+export const OPTION_AXIS_TITLE = 'axisTitle'
+export const OPTION_AXIS_TITLE_ENABLED = 'axisTitleEnabled'
+export const OPTION_BASE_LINE_ENABLED = 'baseLineEnabled'
+export const OPTION_BASE_LINE_TITLE = 'baseLineTitle'
+export const OPTION_BASE_LINE_VALUE = 'baseLineValue'
+export const OPTION_BASE_LINE_TITLE_FONT_STYLE = 'baseLineTitleFontStyle'
+export const OPTION_TARGET_LINE_ENABLED = 'targetLineEnabled'
+export const OPTION_TARGET_LINE_TITLE = 'targetLineTitle'
+export const OPTION_TARGET_LINE_VALUE = 'targetLineValue'
+export const OPTION_TARGET_LINE_TITLE_FONT_STYLE = 'targetLineTitleFontStyle'
+
 export const options = {
-    baseLineLabel: {
-        defaultValue: undefined,
-        requestable: false,
-        savable: true,
-    },
-    baseLineValue: {
-        defaultValue: undefined,
-        requestable: false,
-        savable: true,
-    },
+    axes: { requestable: false, savable: true, defaultValue: [] },
     colorSet: {
         defaultValue: COLOR_SET_DEFAULT,
         requestable: false,
@@ -23,17 +29,12 @@ export const options = {
         requestable: false,
         savable: true,
     },
-    domainAxisLabel: {
-        defaultValue: undefined,
-        requestable: false,
-        savable: true,
-    },
     hideEmptyRowItems: {
         defaultValue: 'NONE',
         requestable: false,
         savable: true,
     },
-    hideLegend: { defaultValue: false, requestable: false, savable: true },
+    legend: { defaultValue: {}, requestable: false, savable: true },
     noSpaceBetweenColumns: {
         defaultValue: false,
         requestable: false,
@@ -44,43 +45,8 @@ export const options = {
         requestable: false,
         savable: true,
     },
-    rangeAxisDecimals: {
-        defaultValue: undefined,
-        requestable: false,
-        savable: true,
-    },
-    rangeAxisLabel: {
-        defaultValue: undefined,
-        requestable: false,
-        savable: true,
-    },
-    rangeAxisMaxValue: {
-        defaultValue: undefined,
-        requestable: false,
-        savable: true,
-    },
-    rangeAxisMinValue: {
-        defaultValue: undefined,
-        requestable: false,
-        savable: true,
-    },
-    rangeAxisSteps: {
-        defaultValue: undefined,
-        requestable: false,
-        savable: true,
-    },
     regressionType: { defaultValue: 'NONE', requestable: false, savable: true },
     showData: { defaultValue: true, requestable: false, savable: true },
-    targetLineLabel: {
-        defaultValue: undefined,
-        requestable: false,
-        savable: true,
-    },
-    targetLineValue: {
-        defaultValue: undefined,
-        requestable: false,
-        savable: true,
-    },
     aggregationType: {
         defaultValue: 'DEFAULT',
         requestable: true,
@@ -174,36 +140,18 @@ export const options = {
     topLimit: { defaultValue: '0', requestable: false, savable: true },
 }
 
-export const computedOptions = {
-    baseLine: { defaultValue: false, requestable: false, savable: false },
-    targetLine: { defaultValue: false, requestable: false, savable: false },
-    axisRange: { defaultValue: undefined, requestable: false, savable: false },
-    legend: { defaultValue: undefined, requestable: false, savable: false },
-}
-
 export default options
 
 export const getOptionsForUi = () => {
-    return Object.entries({ ...options, ...computedOptions }).reduce(
-        (map, [option, props]) => {
-            map[option] = props.defaultValue
-
-            return map
-        },
-        {}
-    )
+    return Object.entries({ ...options }).reduce((map, [option, props]) => {
+        map[option] = props.defaultValue
+        return map
+    }, {})
 }
 
 export const getOptionsForRequest = () => {
     return Object.entries(options).filter(
         entry => entry[1].requestable // entry = [option, props]
-    )
-}
-
-const isNotDefault = (optionsFromVisualization, prop) => {
-    return Boolean(
-        optionsFromVisualization[prop] &&
-            optionsFromVisualization[prop] !== options[prop].defaultValue
     )
 }
 
@@ -213,13 +161,26 @@ export const getOptionsFromVisualization = visualization => {
         ...pick(visualization, Object.keys(options)),
     }
 
-    optionsFromVisualization.baseLine =
-        isNotDefault(optionsFromVisualization, 'baseLineLabel') ||
-        isNotDefault(optionsFromVisualization, 'baseLineValue')
-
-    optionsFromVisualization.targetLine =
-        isNotDefault(optionsFromVisualization, 'targetLineLabel') ||
-        isNotDefault(optionsFromVisualization, 'targetLineValue')
+    optionsFromVisualization.axes = optionsFromVisualization.axes.map(axis => {
+        if (axis.title || axis.targetLine || axis.baseLine) {
+            const clonedAxis = { ...axis }
+            if (clonedAxis.title) {
+                clonedAxis.title = { ...clonedAxis.title, enabled: true }
+            }
+            if (clonedAxis.targetLine) {
+                clonedAxis.targetLine = {
+                    ...clonedAxis.targetLine,
+                    enabled: true,
+                }
+            }
+            if (clonedAxis.baseLine) {
+                clonedAxis.baseLine = { ...clonedAxis.baseLine, enabled: true }
+            }
+            return clonedAxis
+        } else {
+            return axis
+        }
+    })
 
     // nested options under reportingParams
     if (visualization.reportingParams) {
@@ -234,13 +195,11 @@ export const getOptionsFromVisualization = visualization => {
     }
 
     // cast option values from Number for some options
-    ;['baseLineValue', 'targetLineValue', 'sortOrder', 'topLimit'].forEach(
-        option => {
-            if (Object.prototype.hasOwnProperty.call(visualization, option)) {
-                optionsFromVisualization[option] = String(visualization[option])
-            }
+    ;['sortOrder', 'topLimit'].forEach(option => {
+        if (Object.prototype.hasOwnProperty.call(visualization, option)) {
+            optionsFromVisualization[option] = String(visualization[option])
         }
-    )
+    })
 
     return optionsFromVisualization
 }

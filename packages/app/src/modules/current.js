@@ -1,3 +1,5 @@
+/*eslint no-unused-vars: ["error", { "ignoreRestSiblings": true }]*/
+
 import pick from 'lodash-es/pick'
 import {
     AXIS_ID_COLUMNS,
@@ -51,14 +53,23 @@ export const getAxesFromUi = ui =>
 export const getOptionsFromUi = ui => {
     const optionsFromUi = pick(ui.options, Object.keys(options))
 
-    if (ui.options.targetLine === false) {
-        optionsFromUi.targetLineLabel = options.targetLineLabel.defaultValue
-        optionsFromUi.targetLineValue = options.targetLineValue.defaultValue
-    }
+    if (optionsFromUi.axes && optionsFromUi.axes.length) {
+        optionsFromUi.axes = [...optionsFromUi.axes.map(axis => ({ ...axis }))]
 
-    if (ui.options.baseLine === false) {
-        optionsFromUi.baseLineLabel = options.baseLineLabel.defaultValue
-        optionsFromUi.baseLineValue = options.baseLineValue.defaultValue
+        optionsFromUi.axes.forEach(axis => {
+            if (axis.title) {
+                const { enabled, ...rest } = axis.title
+                axis.title = { ...rest }
+            }
+            if (axis.targetLine) {
+                const { enabled, ...rest } = axis.targetLine
+                axis.targetLine = { ...rest }
+            }
+            if (axis.baseLine) {
+                const { enabled, ...rest } = axis.baseLine
+                axis.baseLine = { ...rest }
+            }
+        })
     }
 
     // approvalLevel is stored as an object { id, level, displayName }
@@ -80,14 +91,7 @@ export const getOptionsFromUi = ui => {
     })
 
     // cast option values to Number for some options
-    ;[
-        'baseLineValue',
-        'targetLineValue',
-        'sortOrder',
-        'topLimit',
-        'rangeAxisMinValue',
-        'rangeAxisMaxValue',
-    ].forEach(option => {
+    ;['sortOrder', 'topLimit'].forEach(option => {
         if (Object.prototype.hasOwnProperty.call(optionsFromUi, option)) {
             if (
                 optionsFromUi[option] !== undefined &&
