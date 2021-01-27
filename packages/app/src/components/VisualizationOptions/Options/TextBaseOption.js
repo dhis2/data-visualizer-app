@@ -12,7 +12,7 @@ import {
 } from '../styles/VisualizationOptions.style.js'
 import TextStyle from './TextStyle'
 
-const TextBaseOption = ({
+export const TextBaseOption = ({
     type,
     label,
     placeholder,
