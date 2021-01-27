@@ -1,3 +1,10 @@
+## [35.17.1](https://github.com/dhis2/data-visualizer-app/compare/v35.17.0...v35.17.1) (2021-01-27)
+
+
+### Bug Fixes
+
+* use the download links for dataValueSet via analytics DHIS2-9789 ([#1581](https://github.com/dhis2/data-visualizer-app/issues/1581)) ([cbd3e5c](https://github.com/dhis2/data-visualizer-app/commit/cbd3e5c0505452622e2b2067860865bf02132f95))
+
 # [35.17.0](https://github.com/dhis2/data-visualizer-app/compare/v35.16.9...v35.17.0) (2021-01-21)
 
 
