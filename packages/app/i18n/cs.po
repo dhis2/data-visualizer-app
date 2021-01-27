@@ -1,13 +1,13 @@
 # 
 # Translators:
-# Jiří Podhorecký, 2020
+# Jiří Podhorecký, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-08T15:58:00.833Z\n"
+"POT-Creation-Date: 2021-01-13T08:13:16.512Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Jiří Podhorecký, 2020\n"
+"Last-Translator: Jiří Podhorecký, 2021\n"
 "Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -309,29 +309,38 @@ msgstr "Vybrat z předdefinovaných úrovní"
 msgid "Loading data approval levels"
 msgstr "Načítání úrovní schválení dat"
 
+msgid "Decimals"
+msgstr "Desetinná místa"
+
+msgid "Auto"
+msgstr "Automaticky"
+
+msgid "Labels"
+msgstr "Štítky"
+
 msgid "Axis range"
 msgstr "Rozsah os"
 
 msgid "Values outside of the range will not be displayed"
 msgstr "Hodnoty mimo rozsah se nezobrazí"
 
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
+msgstr ""
+"Počet kroků osy, včetně min a max. Hodnota 2 nebo nižší bude ignorována."
+
+msgid "Steps"
+msgstr "Kroky"
+
+msgid "Axis title"
+msgstr "Název osy"
+
+msgid "Add a title"
+msgstr "Přidat název"
+
 msgid "Base line"
 msgstr "Základní linie"
-
-msgid "Value"
-msgstr "Hodnota"
-
-msgid "Title"
-msgstr "Titul"
-
-msgid "Base line title"
-msgstr "Název základní čáry"
-
-msgid "Number"
-msgstr "Číslo"
-
-msgid "Labels"
-msgstr "Štítky"
 
 msgid "Column sub-totals"
 msgstr "Mezisoučty sloupců"
@@ -392,12 +401,6 @@ msgstr "Normální"
 
 msgid "Compact"
 msgstr "Kompaktní"
-
-msgid "Axis title"
-msgstr "Název osy"
-
-msgid "Add a title"
-msgstr "Přidat název"
 
 msgid "Font size"
 msgstr "Velikost písma"
@@ -503,6 +506,9 @@ msgstr "Typ čísla"
 msgid "Display the value of percentages of the total"
 msgstr "Zobrazit hodnotu procent z celkové částky"
 
+msgid "Value"
+msgstr "Hodnota"
+
 msgid "Percentage of row"
 msgstr "Procento řádku"
 
@@ -521,23 +527,14 @@ msgstr "Doba ohlášení"
 msgid "Stacked values add up to 100%"
 msgstr "Skládané hodnoty se doplňují až do 100%"
 
-msgid "Decimals"
-msgstr "Desetinná místa"
-
-msgid "Auto"
-msgstr "Automaticky"
-
-msgid ""
-"Number of axis tick steps, including the min and max. A value of 2 or lower "
-"will be ignored."
-msgstr ""
-"Počet kroků osy, včetně min a max. Hodnota 2 nebo nižší bude ignorována."
-
-msgid "Steps"
-msgstr "Kroky"
-
 msgid "Include regression"
 msgstr "Zahrnout regresi"
+
+msgid "Title"
+msgstr "Titul"
+
+msgid "Number"
+msgstr "Číslo"
 
 msgid "Trend line"
 msgstr "Trendová čára"
@@ -614,9 +611,6 @@ msgstr "Přidat podtitul"
 
 msgid "Target line"
 msgstr "Cílová linie"
-
-msgid "Target line title"
-msgstr "Název cílového řádku"
 
 msgid "Size"
 msgstr "Velikost"
@@ -904,6 +898,15 @@ msgstr "Mezní minimální / maximální hodnoty"
 msgid "Parameters"
 msgstr "Parametry"
 
+msgid "Base and target lines are available on the Axes tab for scatter charts"
+msgstr ""
+
+msgid "Vertical axis"
+msgstr ""
+
+msgid "Horizontal axis"
+msgstr ""
+
 msgid "Color set"
 msgstr "Barevná sada"
 
@@ -945,6 +948,9 @@ msgstr "Osy"
 
 msgid "Data"
 msgstr "Data"
+
+msgid "Outliers"
+msgstr "Odlehlé hodnoty"
 
 msgid "Series"
 msgstr "Série"

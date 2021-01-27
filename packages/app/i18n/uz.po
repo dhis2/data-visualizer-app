@@ -1,13 +1,13 @@
 # 
 # Translators:
-# Ibatov <ibatovk@who.int>, 2020
+# Ibatov <ibatovk@who.int>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-08T15:58:00.833Z\n"
+"POT-Creation-Date: 2021-01-13T08:13:16.512Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Ibatov <ibatovk@who.int>, 2020\n"
+"Last-Translator: Ibatov <ibatovk@who.int>, 2021\n"
 "Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -311,29 +311,39 @@ msgstr "олдиндан белгиланган даражалардан тан�
 msgid "Loading data approval levels"
 msgstr "Маълумотларни тасдиқлаш даражалари юкланмоқда"
 
+msgid "Decimals"
+msgstr "Ўнли касрлар"
+
+msgid "Auto"
+msgstr "Авто"
+
+msgid "Labels"
+msgstr "Ёрлиқлар"
+
 msgid "Axis range"
 msgstr "Ўқлар диапазони"
 
 msgid "Values outside of the range will not be displayed"
 msgstr "Диапазондан ташқари қийматлар акс эттирилмайди"
 
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
+msgstr ""
+"Ўқ бўйича қадамлар сони, минимум ва максимумни ичига олган ҳолда. 2 ва ундан"
+" паст қиймат қабул қилинмайди."
+
+msgid "Steps"
+msgstr "Қадамлар"
+
+msgid "Axis title"
+msgstr "Ўқ сарлавҳаси"
+
+msgid "Add a title"
+msgstr "Сарлавҳа қўшиш"
+
 msgid "Base line"
 msgstr "Базавий чизиқ"
-
-msgid "Value"
-msgstr "Қиймат"
-
-msgid "Title"
-msgstr "Сарлавҳа"
-
-msgid "Base line title"
-msgstr "Асосий қатор қиймати"
-
-msgid "Number"
-msgstr "Тартиб рақами"
-
-msgid "Labels"
-msgstr "Ёрлиқлар"
 
 msgid "Column sub-totals"
 msgstr "Устуннинг оралиқ йиғиндилари"
@@ -394,12 +404,6 @@ msgstr "Меъёрий"
 
 msgid "Compact"
 msgstr "Зич"
-
-msgid "Axis title"
-msgstr "Ўқ сарлавҳаси"
-
-msgid "Add a title"
-msgstr "Сарлавҳа қўшиш"
 
 msgid "Font size"
 msgstr "Шрифт ўлчами"
@@ -505,6 +509,9 @@ msgstr "Рақам тури "
 msgid "Display the value of percentages of the total"
 msgstr "Жамидан фоизлар қийматини кўрсатиш"
 
+msgid "Value"
+msgstr "Қиймат"
+
 msgid "Percentage of row"
 msgstr "Қатор фоизи"
 
@@ -523,24 +530,14 @@ msgstr "Ҳисобот даври"
 msgid "Stacked values add up to 100%"
 msgstr "Умумий йиғиндиси 100% ни ташкил этади"
 
-msgid "Decimals"
-msgstr "Ўнли касрлар"
-
-msgid "Auto"
-msgstr "Авто"
-
-msgid ""
-"Number of axis tick steps, including the min and max. A value of 2 or lower "
-"will be ignored."
-msgstr ""
-"Ўқ бўйича қадамлар сони, минимум ва максимумни ичига олган ҳолда. 2 ва ундан"
-" паст қиймат қабул қилинмайди."
-
-msgid "Steps"
-msgstr "Қадамлар"
-
 msgid "Include regression"
 msgstr "Регрессияни ўз ичига олади"
+
+msgid "Title"
+msgstr "Сарлавҳа"
+
+msgid "Number"
+msgstr "Тартиб рақами"
 
 msgid "Trend line"
 msgstr "Йўналиш қатори"
@@ -617,9 +614,6 @@ msgstr "Таглавҳа қўшинг"
 
 msgid "Target line"
 msgstr "Мақсад чегара чизиғи"
-
-msgid "Target line title"
-msgstr "Мақсадли қатор сарлавҳаси"
 
 msgid "Size"
 msgstr "Ўлчам"
@@ -914,6 +908,15 @@ msgstr "Минимал/максимал қийматларни чеклаш"
 msgid "Parameters"
 msgstr "Параметрлар"
 
+msgid "Base and target lines are available on the Axes tab for scatter charts"
+msgstr ""
+
+msgid "Vertical axis"
+msgstr ""
+
+msgid "Horizontal axis"
+msgstr ""
+
 msgid "Color set"
 msgstr "Ранглар тўплами"
 
@@ -957,6 +960,9 @@ msgstr "Ўқлар"
 
 msgid "Data"
 msgstr "Маълумот"
+
+msgid "Outliers"
+msgstr "Чекинишлар"
 
 msgid "Series"
 msgstr "Кетма-кетликлар"

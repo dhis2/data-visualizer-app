@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-08T15:58:00.833Z\n"
+"POT-Creation-Date: 2021-01-13T08:13:16.512Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -308,29 +308,39 @@ msgstr "Velg fra forhåndsdefinerte nivåer"
 msgid "Loading data approval levels"
 msgstr "Laster nivåer for godkjenning av data"
 
+msgid "Decimals"
+msgstr "Desimaler"
+
+msgid "Auto"
+msgstr "Auto"
+
+msgid "Labels"
+msgstr "Etiketter"
+
 msgid "Axis range"
 msgstr "Akserekkevidde"
 
 msgid "Values outside of the range will not be displayed"
 msgstr "Verdier utenfor rekkevidden vises ikke"
 
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
+msgstr ""
+"Antall trinn for akse-kryss, inkludert min og maks. En verdi på 2 eller "
+"lavere vil bli ignorert."
+
+msgid "Steps"
+msgstr "Trinn"
+
+msgid "Axis title"
+msgstr "Akseltittel"
+
+msgid "Add a title"
+msgstr "Legg til en tittel"
+
 msgid "Base line"
 msgstr "Grunnlinje"
-
-msgid "Value"
-msgstr "Verdi"
-
-msgid "Title"
-msgstr "Tittel"
-
-msgid "Base line title"
-msgstr "Grunnlinjetittel"
-
-msgid "Number"
-msgstr "Nummer"
-
-msgid "Labels"
-msgstr "Etiketter"
 
 msgid "Column sub-totals"
 msgstr "Kolonnedelsummer"
@@ -391,12 +401,6 @@ msgstr "Normal"
 
 msgid "Compact"
 msgstr "Kompakt"
-
-msgid "Axis title"
-msgstr "Akseltittel"
-
-msgid "Add a title"
-msgstr "Legg til en tittel"
 
 msgid "Font size"
 msgstr "Skriftstørrelse"
@@ -501,6 +505,9 @@ msgstr "Nummertype"
 msgid "Display the value of percentages of the total"
 msgstr "Vis verdien av prosenter av totalen"
 
+msgid "Value"
+msgstr "Verdi"
+
 msgid "Percentage of row"
 msgstr "Prosentandel av rad"
 
@@ -519,24 +526,14 @@ msgstr "Rapporteringsperiode"
 msgid "Stacked values add up to 100%"
 msgstr "Stablede verdier er til sammen 100%"
 
-msgid "Decimals"
-msgstr "Desimaler"
-
-msgid "Auto"
-msgstr "Auto"
-
-msgid ""
-"Number of axis tick steps, including the min and max. A value of 2 or lower "
-"will be ignored."
-msgstr ""
-"Antall trinn for akse-kryss, inkludert min og maks. En verdi på 2 eller "
-"lavere vil bli ignorert."
-
-msgid "Steps"
-msgstr "Trinn"
-
 msgid "Include regression"
 msgstr "Inkluder regresjon"
+
+msgid "Title"
+msgstr "Tittel"
+
+msgid "Number"
+msgstr "Nummer"
 
 msgid "Trend line"
 msgstr "Trendlinje"
@@ -613,9 +610,6 @@ msgstr "Legg til en undertittel"
 
 msgid "Target line"
 msgstr "Mållinje"
-
-msgid "Target line title"
-msgstr "Mållinjetittel"
 
 msgid "Size"
 msgstr "Størrelse"
@@ -900,6 +894,15 @@ msgstr "Begrens minimum/maksimumsverdier"
 msgid "Parameters"
 msgstr "Parametere"
 
+msgid "Base and target lines are available on the Axes tab for scatter charts"
+msgstr ""
+
+msgid "Vertical axis"
+msgstr ""
+
+msgid "Horizontal axis"
+msgstr ""
+
 msgid "Color set"
 msgstr "Fargesett"
 
@@ -942,6 +945,9 @@ msgstr "Akser"
 
 msgid "Data"
 msgstr "Data"
+
+msgid "Outliers"
+msgstr ""
 
 msgid "Series"
 msgstr "Serie"

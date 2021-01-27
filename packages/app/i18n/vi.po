@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-08T15:58:00.833Z\n"
+"POT-Creation-Date: 2021-01-13T08:13:16.512Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2020\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
@@ -311,29 +311,39 @@ msgstr "Chọn từ các cấp được xác định trước"
 msgid "Loading data approval levels"
 msgstr "Đang tải các cấp phê duyệt dữ liệu"
 
+msgid "Decimals"
+msgstr "Số thập phân"
+
+msgid "Auto"
+msgstr "Tự động"
+
+msgid "Labels"
+msgstr "Nhãn"
+
 msgid "Axis range"
 msgstr "Phạm vi trục"
 
 msgid "Values outside of the range will not be displayed"
 msgstr "Các giá trị ngoài phạm vi sẽ không được hiển thị"
 
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
+msgstr ""
+"Số bước đánh dấu trục, bao gồm số tối thiểu và tối đa. Giá trị từ 2 trở "
+"xuống sẽ bị bỏ qua."
+
+msgid "Steps"
+msgstr "Bước"
+
+msgid "Axis title"
+msgstr "Tiêu đề trục"
+
+msgid "Add a title"
+msgstr "Thêm tiêu đề"
+
 msgid "Base line"
 msgstr "Đường cơ sở"
-
-msgid "Value"
-msgstr "Giá trị"
-
-msgid "Title"
-msgstr "Tiêu đề"
-
-msgid "Base line title"
-msgstr "Tiêu đề đường căn bản"
-
-msgid "Number"
-msgstr "Số"
-
-msgid "Labels"
-msgstr "Nhãn"
 
 msgid "Column sub-totals"
 msgstr "Tổng số cột phụ"
@@ -394,12 +404,6 @@ msgstr "Thường"
 
 msgid "Compact"
 msgstr "Gọn nhẹ"
-
-msgid "Axis title"
-msgstr "Tiêu đề trục"
-
-msgid "Add a title"
-msgstr "Thêm tiêu đề"
 
 msgid "Font size"
 msgstr "Cỡ chữ"
@@ -505,6 +509,9 @@ msgstr "Kiểu số"
 msgid "Display the value of percentages of the total"
 msgstr "Hiển thị giá trị phần trăm của tổng số"
 
+msgid "Value"
+msgstr "Giá trị"
+
 msgid "Percentage of row"
 msgstr "Phần trăm theo dòng"
 
@@ -523,24 +530,14 @@ msgstr "Thời điểm báo cáo"
 msgid "Stacked values add up to 100%"
 msgstr "Các giá trị được xếp chồng lên tới 100%"
 
-msgid "Decimals"
-msgstr "Số thập phân"
-
-msgid "Auto"
-msgstr "Tự động"
-
-msgid ""
-"Number of axis tick steps, including the min and max. A value of 2 or lower "
-"will be ignored."
-msgstr ""
-"Số bước đánh dấu trục, bao gồm số tối thiểu và tối đa. Giá trị từ 2 trở "
-"xuống sẽ bị bỏ qua."
-
-msgid "Steps"
-msgstr "Bước"
-
 msgid "Include regression"
 msgstr "Bao gồm các hồi quy"
+
+msgid "Title"
+msgstr "Tiêu đề"
+
+msgid "Number"
+msgstr "Số"
 
 msgid "Trend line"
 msgstr "Đường Khuynh Hướng"
@@ -617,9 +614,6 @@ msgstr "Thêm tiêu đề phụ"
 
 msgid "Target line"
 msgstr "Dòng đích"
-
-msgid "Target line title"
-msgstr "Tiêu đề đường mục tiêu"
 
 msgid "Size"
 msgstr "Kích thước"
@@ -908,6 +902,15 @@ msgstr "Giới hạn giá trị nhỏ nhất/lớn nhất"
 msgid "Parameters"
 msgstr "Tham số"
 
+msgid "Base and target lines are available on the Axes tab for scatter charts"
+msgstr ""
+
+msgid "Vertical axis"
+msgstr ""
+
+msgid "Horizontal axis"
+msgstr ""
+
 msgid "Color set"
 msgstr "Bộ màu"
 
@@ -949,6 +952,9 @@ msgstr "Trục"
 
 msgid "Data"
 msgstr "Lấy dữ liệu"
+
+msgid "Outliers"
+msgstr ""
 
 msgid "Series"
 msgstr "Chuỗi Dữ Liệu"

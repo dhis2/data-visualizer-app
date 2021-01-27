@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-08T15:58:00.833Z\n"
+"POT-Creation-Date: 2021-01-13T08:13:16.512Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2020\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
@@ -306,29 +306,37 @@ msgstr "Pilih dari level yang telah ditentukan"
 msgid "Loading data approval levels"
 msgstr "Memuat level persetujuan data"
 
+msgid "Decimals"
+msgstr ""
+
+msgid "Auto"
+msgstr "Otomatis"
+
+msgid "Labels"
+msgstr "label"
+
 msgid "Axis range"
 msgstr "Jangkauan aksis"
 
 msgid "Values outside of the range will not be displayed"
 msgstr "Nilai di luar jangkauan tidak akan ditampilkan"
 
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
+msgstr ""
+
+msgid "Steps"
+msgstr "langkah"
+
+msgid "Axis title"
+msgstr "Judul sumbu X"
+
+msgid "Add a title"
+msgstr "Tambahkan judul"
+
 msgid "Base line"
 msgstr "Baseline"
-
-msgid "Value"
-msgstr "Nilai"
-
-msgid "Title"
-msgstr "Judul"
-
-msgid "Base line title"
-msgstr "Judul garis dasar"
-
-msgid "Number"
-msgstr "Angka"
-
-msgid "Labels"
-msgstr "label"
 
 msgid "Column sub-totals"
 msgstr "Kolom sub-total"
@@ -389,12 +397,6 @@ msgstr "Normal"
 
 msgid "Compact"
 msgstr "Padat"
-
-msgid "Axis title"
-msgstr "Judul sumbu X"
-
-msgid "Add a title"
-msgstr "Tambahkan judul"
 
 msgid "Font size"
 msgstr "Ukuran font"
@@ -497,6 +499,9 @@ msgstr "Tipe nomer"
 msgid "Display the value of percentages of the total"
 msgstr ""
 
+msgid "Value"
+msgstr "Nilai"
+
 msgid "Percentage of row"
 msgstr "Persentase baris"
 
@@ -515,22 +520,14 @@ msgstr "Periode pelaporan"
 msgid "Stacked values add up to 100%"
 msgstr ""
 
-msgid "Decimals"
-msgstr ""
-
-msgid "Auto"
-msgstr "Otomatis"
-
-msgid ""
-"Number of axis tick steps, including the min and max. A value of 2 or lower "
-"will be ignored."
-msgstr ""
-
-msgid "Steps"
-msgstr "langkah"
-
 msgid "Include regression"
 msgstr "Masukkan regresi"
+
+msgid "Title"
+msgstr "Judul"
+
+msgid "Number"
+msgstr "Angka"
 
 msgid "Trend line"
 msgstr "Garis tren"
@@ -605,9 +602,6 @@ msgstr ""
 
 msgid "Target line"
 msgstr "Garis sasaran"
-
-msgid "Target line title"
-msgstr "Judul garis target"
 
 msgid "Size"
 msgstr ""
@@ -876,6 +870,15 @@ msgstr ""
 msgid "Parameters"
 msgstr "Parameter"
 
+msgid "Base and target lines are available on the Axes tab for scatter charts"
+msgstr ""
+
+msgid "Vertical axis"
+msgstr ""
+
+msgid "Horizontal axis"
+msgstr ""
+
 msgid "Color set"
 msgstr ""
 
@@ -917,6 +920,9 @@ msgstr "Sumbu"
 
 msgid "Data"
 msgstr "Data"
+
+msgid "Outliers"
+msgstr ""
 
 msgid "Series"
 msgstr "Seri"
