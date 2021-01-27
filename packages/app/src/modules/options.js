@@ -161,7 +161,7 @@ export const getOptionsFromVisualization = visualization => {
         ...pick(visualization, Object.keys(options)),
     }
 
-    optionsFromVisualization.axes = optionsFromVisualization.axes?.map(axis => {
+    optionsFromVisualization.axes = optionsFromVisualization.axes.map(axis => {
         if (axis.title || axis.targetLine || axis.baseLine) {
             const clonedAxis = { ...axis }
             if (clonedAxis.title) {
