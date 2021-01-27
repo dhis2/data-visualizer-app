@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { IconInfo16 } from '@dhis2/ui-icons'
+import { IconInfo16 } from '@dhis2/ui'
 
 import {
     tabSectionOption,
