@@ -1,3 +1,10 @@
+# [35.18.0](https://github.com/dhis2/data-visualizer-app/compare/v35.17.1...v35.18.0) (2021-01-27)
+
+
+### Features
+
+* scatter options (DHIS2-10006) ([#1552](https://github.com/dhis2/data-visualizer-app/issues/1552)) ([9a4233e](https://github.com/dhis2/data-visualizer-app/commit/9a4233e55e619cf6a5eefe2689106732f0ea2027))
+
 ## [35.17.1](https://github.com/dhis2/data-visualizer-app/compare/v35.17.0...v35.17.1) (2021-01-27)
 
 
