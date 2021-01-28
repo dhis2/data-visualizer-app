@@ -11,6 +11,8 @@ import {
     defaultVisType,
     isYearOverYear,
     getAdaptedUiLayoutByType,
+    VIS_TYPE_GAUGE,
+    VIS_TYPE_SINGLE_VALUE,
 } from '@dhis2/analytics'
 
 import { getInverseLayout } from './layout'
@@ -63,6 +65,12 @@ const yearOverYearUiAdapter = ui => {
     }
 }
 
+const singleValueUiAdapter = ui => {
+    const adaptedUi = defaultUiAdapter(ui)
+    adaptedUi.options.measureCriteria = undefined
+    return adaptedUi
+}
+
 // Transform from store.ui to scatter format
 const scatterUiAdapter = ui => {
     const adaptedUi = {
@@ -87,6 +95,8 @@ const scatterUiAdapter = ui => {
 
     adaptedUi.itemsByDimension = items
 
+    adaptedUi.options.measureCriteria = undefined
+
     return adaptedUi
 }
 
@@ -98,6 +108,9 @@ export const getAdaptedUiByType = ui => {
         }
         case VIS_TYPE_PIVOT_TABLE:
             return ui
+        case VIS_TYPE_GAUGE:
+        case VIS_TYPE_SINGLE_VALUE:
+            return singleValueUiAdapter(ui)
         case VIS_TYPE_SCATTER:
             return scatterUiAdapter(ui)
         default:

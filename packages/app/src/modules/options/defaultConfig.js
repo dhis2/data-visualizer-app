@@ -11,6 +11,7 @@ import getStyleTab from './tabs/style'
 import getTitlesSection from './sections/titles'
 import getChartStyleSection from './sections/chartStyle'
 import getLegendTab from './tabs/legend'
+import getLimitValuesTab from './tabs/limitValues'
 
 const verticalAxisId = 'RANGE_0'
 
@@ -41,4 +42,5 @@ export default ({
         getTitlesSection(),
         getColorSetSection(hasDisabledSections),
     ]),
+    getLimitValuesTab(),
 ]

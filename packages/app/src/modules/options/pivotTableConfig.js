@@ -16,7 +16,6 @@ import Title from '../../components/VisualizationOptions/Options/Title'
 import DisplayDensity from '../../components/VisualizationOptions/Options/DisplayDensity'
 import FontSize from '../../components/VisualizationOptions/Options/FontSize'
 import DigitGroupSeparator from '../../components/VisualizationOptions/Options/DigitGroupSeparator'
-import MeasureCriteria from '../../components/VisualizationOptions/Options/MeasureCriteria'
 import ParamReportingPeriod from '../../components/VisualizationOptions/Options/ParamReportingPeriod'
 import ParamOrganisationUnit from '../../components/VisualizationOptions/Options/ParamOrganisationUnit'
 import ParamParentOrganisationUnit from '../../components/VisualizationOptions/Options/ParamParentOrganisationUnit'
@@ -35,6 +34,7 @@ import getTotalsTemplate from './sections/templates/totals'
 import getEmptyDataTemplate from './sections/templates/emptyData'
 import getLegendTab from './tabs/legend'
 import getStyleTab from './tabs/style'
+import getLimitValuesTab from './tabs/limitValues'
 
 export default () => [
     getDataTab([
@@ -85,23 +85,7 @@ export default () => [
             content: React.Children.toArray([<ShowHierarchy />]),
         },
     ]),
-    {
-        key: 'limitValues-tab',
-        label: i18n.t('Limit values'),
-        content: [
-            /*
-            {
-                key: 'limitValues-limit-numbers',
-                label: i18n.t('Limit number of values'),
-                content: [<TopLimit />],
-            },*/
-            {
-                key: 'limitValues-limit-min-max',
-                label: i18n.t('Limit minimum/maximum values'),
-                content: React.Children.toArray([<MeasureCriteria />]),
-            },
-        ],
-    },
+    getLimitValuesTab(),
     {
         key: 'parameters-tab',
         label: i18n.t('Parameters'),

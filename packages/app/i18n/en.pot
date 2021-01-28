@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-01-13T08:13:16.512Z\n"
-"PO-Revision-Date: 2021-01-13T08:13:16.512Z\n"
+"POT-Creation-Date: 2021-01-27T16:04:47.179Z\n"
+"PO-Revision-Date: 2021-01-27T16:04:47.179Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -462,7 +462,8 @@ msgstr ""
 
 msgid ""
 "You can set a minimum or maximum value. This will apply to the entire "
-"table, all values outside of the minimum/maximum range will not be displayed"
+"visualization, all values outside of the minimum/maximum range will not be "
+"displayed"
 msgstr ""
 
 msgid "Minimum data value"
@@ -839,15 +840,6 @@ msgstr ""
 msgid "Table title"
 msgstr ""
 
-msgid "Limit values"
-msgstr ""
-
-msgid "Limit number of values"
-msgstr ""
-
-msgid "Limit minimum/maximum values"
-msgstr ""
-
 msgid "Parameters"
 msgstr ""
 
@@ -900,6 +892,15 @@ msgid "Axes"
 msgstr ""
 
 msgid "Data"
+msgstr ""
+
+msgid "Limit values"
+msgstr ""
+
+msgid "Limit number of values"
+msgstr ""
+
+msgid "Limit minimum/maximum values"
 msgstr ""
 
 msgid "Outliers"
