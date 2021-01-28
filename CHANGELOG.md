@@ -1,3 +1,10 @@
+## [35.18.2](https://github.com/dhis2/data-visualizer-app/compare/v35.18.1...v35.18.2) (2021-01-28)
+
+
+### Bug Fixes
+
+* limit values (DHIS2-10249) and skip rounding (DHIS2-10251) ([#1559](https://github.com/dhis2/data-visualizer-app/issues/1559)) ([9a9e17e](https://github.com/dhis2/data-visualizer-app/commit/9a9e17e04b9d69c55a3b87cacaa80f4629f68471))
+
 ## [35.18.1](https://github.com/dhis2/data-visualizer-app/compare/v35.18.0...v35.18.1) (2021-01-28)
 
 
