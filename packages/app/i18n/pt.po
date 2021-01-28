@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-01-13T08:13:16.512Z\n"
+"POT-Creation-Date: 2021-01-27T16:04:47.179Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Ge Joao <gsimango@saudigitus.org>, 2021\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
@@ -481,12 +481,10 @@ msgid "Loading legends"
 msgstr "Carregando legendas"
 
 msgid ""
-"You can set a minimum or maximum value. This will apply to the entire table,"
-" all values outside of the minimum/maximum range will not be displayed"
+"You can set a minimum or maximum value. This will apply to the entire "
+"visualization, all values outside of the minimum/maximum range will not be "
+"displayed"
 msgstr ""
-"Você pode definir um valor mínimo ou máximo. Isso se aplicará a toda a "
-"tabela, todos os valores fora do intervalo mínimo / máximo não serão "
-"exibidos."
 
 msgid "Minimum data value"
 msgstr "Valor mínimo de dados"
@@ -878,15 +876,6 @@ msgstr "Filhos da unidade organizacional do usuário"
 msgid "Table title"
 msgstr "Titulo da tabela"
 
-msgid "Limit values"
-msgstr "Valores limite"
-
-msgid "Limit number of values"
-msgstr "Número limite de valores"
-
-msgid "Limit minimum/maximum values"
-msgstr ""
-
 msgid "Parameters"
 msgstr "Parâmetros"
 
@@ -940,6 +929,15 @@ msgstr "Machados"
 
 msgid "Data"
 msgstr "Dados"
+
+msgid "Limit values"
+msgstr "Valores limite"
+
+msgid "Limit number of values"
+msgstr "Número limite de valores"
+
+msgid "Limit minimum/maximum values"
+msgstr ""
 
 msgid "Outliers"
 msgstr "Completude"

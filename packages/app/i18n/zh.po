@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-01-13T08:13:16.512Z\n"
+"POT-Creation-Date: 2021-01-27T16:04:47.179Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2021\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -473,9 +473,10 @@ msgid "Loading legends"
 msgstr "载入图例"
 
 msgid ""
-"You can set a minimum or maximum value. This will apply to the entire table,"
-" all values outside of the minimum/maximum range will not be displayed"
-msgstr "你可以设置最大最小值，将被应用到整个表，范围外的值将不会显示"
+"You can set a minimum or maximum value. This will apply to the entire "
+"visualization, all values outside of the minimum/maximum range will not be "
+"displayed"
+msgstr ""
 
 msgid "Minimum data value"
 msgstr "最小值"
@@ -856,26 +857,17 @@ msgstr "用户下下级机构"
 msgid "Table title"
 msgstr "表标题"
 
-msgid "Limit values"
-msgstr "限值"
-
-msgid "Limit number of values"
-msgstr "限定值数量"
-
-msgid "Limit minimum/maximum values"
-msgstr "限制最大最小值"
-
 msgid "Parameters"
 msgstr "参数"
 
 msgid "Base and target lines are available on the Axes tab for scatter charts"
-msgstr ""
+msgstr "散点图的“轴”选项卡上提供了基准线和目标线"
 
 msgid "Vertical axis"
-msgstr ""
+msgstr "垂直轴"
 
 msgid "Horizontal axis"
-msgstr ""
+msgstr "横轴"
 
 msgid "Color set"
 msgstr "颜色集"
@@ -918,6 +910,15 @@ msgstr "轴"
 
 msgid "Data"
 msgstr "数据"
+
+msgid "Limit values"
+msgstr "限值"
+
+msgid "Limit number of values"
+msgstr "限定值数量"
+
+msgid "Limit minimum/maximum values"
+msgstr "限制最大最小值"
 
 msgid "Outliers"
 msgstr "离群值"

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-01-13T08:13:16.512Z\n"
+"POT-Creation-Date: 2021-01-27T16:04:47.179Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -481,11 +481,10 @@ msgid "Loading legends"
 msgstr "Laster tegnforklaringer"
 
 msgid ""
-"You can set a minimum or maximum value. This will apply to the entire table,"
-" all values outside of the minimum/maximum range will not be displayed"
+"You can set a minimum or maximum value. This will apply to the entire "
+"visualization, all values outside of the minimum/maximum range will not be "
+"displayed"
 msgstr ""
-"Du kan angi en minimums- eller maksimalverdi. Dette vil gjelde for hele "
-"tabellen, alle verdier utenfor minimums-/ maksimalrekkevidden vises ikke"
 
 msgid "Minimum data value"
 msgstr "Minimum dataverdi"
@@ -882,15 +881,6 @@ msgstr "Bruker under-underordnet org enhet"
 msgid "Table title"
 msgstr "Tabelltittel"
 
-msgid "Limit values"
-msgstr "Begrens verdier"
-
-msgid "Limit number of values"
-msgstr "Begrens antall verdier"
-
-msgid "Limit minimum/maximum values"
-msgstr "Begrens minimum/maksimumsverdier"
-
 msgid "Parameters"
 msgstr "Parametere"
 
@@ -945,6 +935,15 @@ msgstr "Akser"
 
 msgid "Data"
 msgstr "Data"
+
+msgid "Limit values"
+msgstr "Begrens verdier"
+
+msgid "Limit number of values"
+msgstr "Begrens antall verdier"
+
+msgid "Limit minimum/maximum values"
+msgstr "Begrens minimum/maksimumsverdier"
 
 msgid "Outliers"
 msgstr ""

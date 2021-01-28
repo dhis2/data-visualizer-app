@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-01-13T08:13:16.512Z\n"
+"POT-Creation-Date: 2021-01-27T16:04:47.179Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Ibatov <ibatovk@who.int>, 2021\n"
 "Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
@@ -484,12 +484,10 @@ msgid "Loading legends"
 msgstr "Таърифлар юкланмоқда"
 
 msgid ""
-"You can set a minimum or maximum value. This will apply to the entire table,"
-" all values outside of the minimum/maximum range will not be displayed"
+"You can set a minimum or maximum value. This will apply to the entire "
+"visualization, all values outside of the minimum/maximum range will not be "
+"displayed"
 msgstr ""
-"Минимал ёки максимал қийматни белгилашингиз мумкин. Бу бутун жадвалга "
-"тааллуқлидир, минимал/максимал диапазондан ташқарисидаги барча қийматлар "
-"кўрсатилмайди."
 
 msgid "Minimum data value"
 msgstr "Маълумотларнинг минимал қиймати"
@@ -896,15 +894,6 @@ msgstr "Фойдаланувчи ташкилий бўлими 2 поғона қ
 msgid "Table title"
 msgstr "Жадвал сарлавҳаси"
 
-msgid "Limit values"
-msgstr "Чекланган қийматлар"
-
-msgid "Limit number of values"
-msgstr "Қийматларнинг чекланган сони"
-
-msgid "Limit minimum/maximum values"
-msgstr "Минимал/максимал қийматларни чеклаш"
-
 msgid "Parameters"
 msgstr "Параметрлар"
 
@@ -960,6 +949,15 @@ msgstr "Ўқлар"
 
 msgid "Data"
 msgstr "Маълумот"
+
+msgid "Limit values"
+msgstr "Чекланган қийматлар"
+
+msgid "Limit number of values"
+msgstr "Қийматларнинг чекланган сони"
+
+msgid "Limit minimum/maximum values"
+msgstr "Минимал/максимал қийматларни чеклаш"
 
 msgid "Outliers"
 msgstr "Чекинишлар"
