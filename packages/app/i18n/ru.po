@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-08T15:58:00.833Z\n"
+"POT-Creation-Date: 2021-01-13T08:13:16.512Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Ulanbek Abakirov <ulans@mail.ru>, 2020\n"
 "Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
@@ -302,29 +302,37 @@ msgstr ""
 msgid "Loading data approval levels"
 msgstr ""
 
+msgid "Decimals"
+msgstr ""
+
+msgid "Auto"
+msgstr "Авто"
+
+msgid "Labels"
+msgstr "Метки"
+
 msgid "Axis range"
 msgstr ""
 
 msgid "Values outside of the range will not be displayed"
 msgstr ""
 
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
+msgstr ""
+
+msgid "Steps"
+msgstr "Шаги"
+
+msgid "Axis title"
+msgstr ""
+
+msgid "Add a title"
+msgstr ""
+
 msgid "Base line"
 msgstr "Базисная линия"
-
-msgid "Value"
-msgstr "Значение"
-
-msgid "Title"
-msgstr "Название"
-
-msgid "Base line title"
-msgstr "Заголовок базисной линии"
-
-msgid "Number"
-msgstr "Число"
-
-msgid "Labels"
-msgstr "Метки"
 
 msgid "Column sub-totals"
 msgstr ""
@@ -385,12 +393,6 @@ msgstr "Стандартный"
 
 msgid "Compact"
 msgstr "Компактный"
-
-msgid "Axis title"
-msgstr ""
-
-msgid "Add a title"
-msgstr ""
 
 msgid "Font size"
 msgstr "Размер шрифта"
@@ -493,6 +495,9 @@ msgstr "Тип числа"
 msgid "Display the value of percentages of the total"
 msgstr ""
 
+msgid "Value"
+msgstr "Значение"
+
 msgid "Percentage of row"
 msgstr "Процент строки"
 
@@ -511,22 +516,14 @@ msgstr "Отчетный период"
 msgid "Stacked values add up to 100%"
 msgstr ""
 
-msgid "Decimals"
-msgstr ""
-
-msgid "Auto"
-msgstr "Авто"
-
-msgid ""
-"Number of axis tick steps, including the min and max. A value of 2 or lower "
-"will be ignored."
-msgstr ""
-
-msgid "Steps"
-msgstr "Шаги"
-
 msgid "Include regression"
 msgstr "Включить регрессию"
+
+msgid "Title"
+msgstr "Название"
+
+msgid "Number"
+msgstr "Число"
 
 msgid "Trend line"
 msgstr "Линия тренда"
@@ -601,9 +598,6 @@ msgstr ""
 
 msgid "Target line"
 msgstr "Линия цели"
-
-msgid "Target line title"
-msgstr "Значение линии цели"
 
 msgid "Size"
 msgstr ""
@@ -872,6 +866,15 @@ msgstr ""
 msgid "Parameters"
 msgstr "Параметры"
 
+msgid "Base and target lines are available on the Axes tab for scatter charts"
+msgstr ""
+
+msgid "Vertical axis"
+msgstr ""
+
+msgid "Horizontal axis"
+msgstr ""
+
 msgid "Color set"
 msgstr ""
 
@@ -913,6 +916,9 @@ msgstr "Оси"
 
 msgid "Data"
 msgstr "Данные"
+
+msgid "Outliers"
+msgstr ""
 
 msgid "Series"
 msgstr "Ряды"

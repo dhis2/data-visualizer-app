@@ -2,16 +2,16 @@
 # Translators:
 # Sheila André <sandre@saudigitus.org>, 2020
 # phil_dhis2, 2020
-# Ge Joao <gsimango@saudigitus.org>, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
+# Ge Joao <gsimango@saudigitus.org>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-08T15:58:00.833Z\n"
+"POT-Creation-Date: 2021-01-13T08:13:16.512Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020\n"
+"Last-Translator: Ge Joao <gsimango@saudigitus.org>, 2021\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -310,29 +310,37 @@ msgstr "Selecione entre níveis predefinidos"
 msgid "Loading data approval levels"
 msgstr "Carregando níveis de aprovação de dados"
 
+msgid "Decimals"
+msgstr "Decimais "
+
+msgid "Auto"
+msgstr "Automatico "
+
+msgid "Labels"
+msgstr "Etiquetas"
+
 msgid "Axis range"
 msgstr "Gama de eixos"
 
 msgid "Values outside of the range will not be displayed"
 msgstr "Valores fora do intervalo não serão exibidos"
 
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
+msgstr ""
+
+msgid "Steps"
+msgstr "Passos"
+
+msgid "Axis title"
+msgstr "Título do eixo"
+
+msgid "Add a title"
+msgstr "Adicionar titulo"
+
 msgid "Base line"
 msgstr "Linha de base "
-
-msgid "Value"
-msgstr "Valor"
-
-msgid "Title"
-msgstr "Título"
-
-msgid "Base line title"
-msgstr "Título da linha de base"
-
-msgid "Number"
-msgstr "Número"
-
-msgid "Labels"
-msgstr "Etiquetas"
 
 msgid "Column sub-totals"
 msgstr "Coluna de subtotais"
@@ -393,12 +401,6 @@ msgstr "Normal"
 
 msgid "Compact"
 msgstr "Compacto"
-
-msgid "Axis title"
-msgstr "Título do eixo"
-
-msgid "Add a title"
-msgstr "Adicionar titulo"
 
 msgid "Font size"
 msgstr "Tamanho da fonte"
@@ -504,6 +506,9 @@ msgstr "Tipo de número"
 msgid "Display the value of percentages of the total"
 msgstr "Exibe o valor das porcentagens do total"
 
+msgid "Value"
+msgstr "Valor"
+
 msgid "Percentage of row"
 msgstr "Porcentagem de linha"
 
@@ -522,22 +527,14 @@ msgstr "Período de reportagem"
 msgid "Stacked values add up to 100%"
 msgstr "Valores empilhados somam 100%"
 
-msgid "Decimals"
-msgstr "Decimais "
-
-msgid "Auto"
-msgstr "Automatico "
-
-msgid ""
-"Number of axis tick steps, including the min and max. A value of 2 or lower "
-"will be ignored."
-msgstr ""
-
-msgid "Steps"
-msgstr "Passos"
-
 msgid "Include regression"
 msgstr "Incluir regressão"
+
+msgid "Title"
+msgstr "Título"
+
+msgid "Number"
+msgstr "Número"
 
 msgid "Trend line"
 msgstr "Linha de tendência"
@@ -612,9 +609,6 @@ msgstr "Adicionar subtitulo"
 
 msgid "Target line"
 msgstr "Linha alvo"
-
-msgid "Target line title"
-msgstr "Título da linha de destino"
 
 msgid "Size"
 msgstr "Tamanho"
@@ -896,6 +890,15 @@ msgstr ""
 msgid "Parameters"
 msgstr "Parâmetros"
 
+msgid "Base and target lines are available on the Axes tab for scatter charts"
+msgstr ""
+
+msgid "Vertical axis"
+msgstr ""
+
+msgid "Horizontal axis"
+msgstr ""
+
 msgid "Color set"
 msgstr ""
 
@@ -937,6 +940,9 @@ msgstr "Machados"
 
 msgid "Data"
 msgstr "Dados"
+
+msgid "Outliers"
+msgstr "Completude"
 
 msgid "Series"
 msgstr "Série"

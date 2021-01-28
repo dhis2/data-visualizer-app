@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-08T15:58:00.833Z\n"
+"POT-Creation-Date: 2021-01-13T08:13:16.512Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2020\n"
 "Language-Team: Arabic (Iraq) (https://www.transifex.com/hisp-uio/teams/100509/ar_IQ/)\n"
@@ -297,28 +297,36 @@ msgstr ""
 msgid "Loading data approval levels"
 msgstr ""
 
+msgid "Decimals"
+msgstr ""
+
+msgid "Auto"
+msgstr ""
+
+msgid "Labels"
+msgstr ""
+
 msgid "Axis range"
 msgstr ""
 
 msgid "Values outside of the range will not be displayed"
 msgstr ""
 
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
+msgstr ""
+
+msgid "Steps"
+msgstr ""
+
+msgid "Axis title"
+msgstr ""
+
+msgid "Add a title"
+msgstr ""
+
 msgid "Base line"
-msgstr ""
-
-msgid "Value"
-msgstr "القيمة"
-
-msgid "Title"
-msgstr "العنوان"
-
-msgid "Base line title"
-msgstr ""
-
-msgid "Number"
-msgstr ""
-
-msgid "Labels"
 msgstr ""
 
 msgid "Column sub-totals"
@@ -380,12 +388,6 @@ msgstr "عادي"
 
 msgid "Compact"
 msgstr "مضغوط"
-
-msgid "Axis title"
-msgstr ""
-
-msgid "Add a title"
-msgstr ""
 
 msgid "Font size"
 msgstr "حجم الخط"
@@ -488,6 +490,9 @@ msgstr ""
 msgid "Display the value of percentages of the total"
 msgstr ""
 
+msgid "Value"
+msgstr "القيمة"
+
 msgid "Percentage of row"
 msgstr ""
 
@@ -506,22 +511,14 @@ msgstr "الفترة الزمنية لإعداد التقرير"
 msgid "Stacked values add up to 100%"
 msgstr ""
 
-msgid "Decimals"
-msgstr ""
-
-msgid "Auto"
-msgstr ""
-
-msgid ""
-"Number of axis tick steps, including the min and max. A value of 2 or lower "
-"will be ignored."
-msgstr ""
-
-msgid "Steps"
-msgstr ""
-
 msgid "Include regression"
 msgstr "تضمين الانحدار"
+
+msgid "Title"
+msgstr "العنوان"
+
+msgid "Number"
+msgstr ""
 
 msgid "Trend line"
 msgstr ""
@@ -595,9 +592,6 @@ msgid "Add a subtitle"
 msgstr ""
 
 msgid "Target line"
-msgstr ""
-
-msgid "Target line title"
 msgstr ""
 
 msgid "Size"
@@ -867,6 +861,15 @@ msgstr ""
 msgid "Parameters"
 msgstr "المعاملات"
 
+msgid "Base and target lines are available on the Axes tab for scatter charts"
+msgstr ""
+
+msgid "Vertical axis"
+msgstr ""
+
+msgid "Horizontal axis"
+msgstr ""
+
 msgid "Color set"
 msgstr ""
 
@@ -908,6 +911,9 @@ msgstr ""
 
 msgid "Data"
 msgstr "البيانات"
+
+msgid "Outliers"
+msgstr ""
 
 msgid "Series"
 msgstr ""

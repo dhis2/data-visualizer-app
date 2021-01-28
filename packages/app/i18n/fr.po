@@ -13,7 +13,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-08T15:58:00.833Z\n"
+"POT-Creation-Date: 2021-01-13T08:13:16.512Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Yao Selom SAKA <saka.yao@yahoo.fr>, 2020\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -321,29 +321,39 @@ msgstr "Sélectionnez parmi les niveaux prédéfinis"
 msgid "Loading data approval levels"
 msgstr "Chargement des niveaux d'approbation des données"
 
+msgid "Decimals"
+msgstr "Décimales"
+
+msgid "Auto"
+msgstr "Auto"
+
+msgid "Labels"
+msgstr "Étiquettes"
+
 msgid "Axis range"
 msgstr "Gamme d'axes"
 
 msgid "Values outside of the range will not be displayed"
 msgstr "Valeurs en dehors de la plage ne seront pas affichées"
 
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
+msgstr ""
+"Nombre de pas de cochage des axes, y compris le min et le max. Une valeur "
+"inférieure ou égale à 2 sera ignorée."
+
+msgid "Steps"
+msgstr "Étapes"
+
+msgid "Axis title"
+msgstr "Titre de l'axe"
+
+msgid "Add a title"
+msgstr "Ajouter un titre"
+
 msgid "Base line"
 msgstr "Ligne de base"
-
-msgid "Value"
-msgstr "Valeur"
-
-msgid "Title"
-msgstr "Titre"
-
-msgid "Base line title"
-msgstr "Titre de la ligne de base"
-
-msgid "Number"
-msgstr "Nombre"
-
-msgid "Labels"
-msgstr "Étiquettes"
 
 msgid "Column sub-totals"
 msgstr "Sous-totaux de colonne"
@@ -404,12 +414,6 @@ msgstr "Normal"
 
 msgid "Compact"
 msgstr "Compact"
-
-msgid "Axis title"
-msgstr "Titre de l'axe"
-
-msgid "Add a title"
-msgstr "Ajouter un titre"
 
 msgid "Font size"
 msgstr "Taille de la police"
@@ -515,6 +519,9 @@ msgstr "Type numérique"
 msgid "Display the value of percentages of the total"
 msgstr "Afficher la valeur des pourcentages du total"
 
+msgid "Value"
+msgstr "Valeur"
+
 msgid "Percentage of row"
 msgstr "Pourcentage de ligne"
 
@@ -533,24 +540,14 @@ msgstr "Période de rapportage"
 msgid "Stacked values add up to 100%"
 msgstr "Les valeurs empilées totalisent jusqu'à 100%"
 
-msgid "Decimals"
-msgstr "Décimales"
-
-msgid "Auto"
-msgstr "Auto"
-
-msgid ""
-"Number of axis tick steps, including the min and max. A value of 2 or lower "
-"will be ignored."
-msgstr ""
-"Nombre de pas de cochage des axes, y compris le min et le max. Une valeur "
-"inférieure ou égale à 2 sera ignorée."
-
-msgid "Steps"
-msgstr "Étapes"
-
 msgid "Include regression"
 msgstr "Inclure régression"
+
+msgid "Title"
+msgstr "Titre"
+
+msgid "Number"
+msgstr "Nombre"
 
 msgid "Trend line"
 msgstr "Courbe de tendance"
@@ -629,9 +626,6 @@ msgstr "Ajouter un sous-titre"
 
 msgid "Target line"
 msgstr "Ligne cible"
-
-msgid "Target line title"
-msgstr "Titre de la ligne cible"
 
 msgid "Size"
 msgstr "Taille"
@@ -927,6 +921,15 @@ msgstr "Valeurs seuils minimales/maximales"
 msgid "Parameters"
 msgstr "Paramètres"
 
+msgid "Base and target lines are available on the Axes tab for scatter charts"
+msgstr ""
+
+msgid "Vertical axis"
+msgstr ""
+
+msgid "Horizontal axis"
+msgstr ""
+
 msgid "Color set"
 msgstr "Jeu de Couleurs"
 
@@ -974,6 +977,9 @@ msgstr "Axes"
 
 msgid "Data"
 msgstr "Données"
+
+msgid "Outliers"
+msgstr ""
 
 msgid "Series"
 msgstr "Séries"

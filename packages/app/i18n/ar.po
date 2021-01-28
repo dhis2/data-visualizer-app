@@ -3,14 +3,14 @@
 # KRG HIS <antonia.bezenchek@informa.pro>, 2020
 # phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
-# Hamza Assada <7amza.it@gmail.com>, 2020
+# Hamza Assada <7amza.it@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-08T15:58:00.833Z\n"
+"POT-Creation-Date: 2021-01-13T08:13:16.512Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2020\n"
+"Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2021\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -307,29 +307,39 @@ msgstr "اختر من مستويات محددة مسبقاً"
 msgid "Loading data approval levels"
 msgstr "تحميل مستويات الموافقة على البيانات"
 
+msgid "Decimals"
+msgstr "كسور عشرية"
+
+msgid "Auto"
+msgstr "تلقائي"
+
+msgid "Labels"
+msgstr "التسميات"
+
 msgid "Axis range"
 msgstr "نطاق المحور"
 
 msgid "Values outside of the range will not be displayed"
 msgstr "لن يتم عرض القيم خارج النطاق"
 
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
+msgstr ""
+"عدد خطوات علامة المحور ، بما في ذلك الحد الأدنى والحد الأقصى. سيتم تجاهل 2 "
+"خطوة أو أقل."
+
+msgid "Steps"
+msgstr "الخطوات"
+
+msgid "Axis title"
+msgstr "عنوان المحور"
+
+msgid "Add a title"
+msgstr "إضافة عنوان"
+
 msgid "Base line"
 msgstr "خط الأساس"
-
-msgid "Value"
-msgstr "القيمة"
-
-msgid "Title"
-msgstr "العنوان"
-
-msgid "Base line title"
-msgstr "عنوان خط الأساس"
-
-msgid "Number"
-msgstr "العدد"
-
-msgid "Labels"
-msgstr "التسميات"
 
 msgid "Column sub-totals"
 msgstr "إجماليات العمود الفرعية"
@@ -390,12 +400,6 @@ msgstr "عادي"
 
 msgid "Compact"
 msgstr "مضغوط"
-
-msgid "Axis title"
-msgstr "عنوان المحور"
-
-msgid "Add a title"
-msgstr "إضافة عنوان"
 
 msgid "Font size"
 msgstr "حجم الخط"
@@ -500,6 +504,9 @@ msgstr "نوع العدد"
 msgid "Display the value of percentages of the total"
 msgstr "اعرض قيمة النسب المئوية من الإجمالي"
 
+msgid "Value"
+msgstr "القيمة"
+
 msgid "Percentage of row"
 msgstr "النسبة المئوية للصف"
 
@@ -518,24 +525,14 @@ msgstr "الفترة الزمنية لإعداد التقرير"
 msgid "Stacked values add up to 100%"
 msgstr "تضيف القيم المكدسة ما يصل إلى 100٪"
 
-msgid "Decimals"
-msgstr "كسور عشرية"
-
-msgid "Auto"
-msgstr "تلقائي"
-
-msgid ""
-"Number of axis tick steps, including the min and max. A value of 2 or lower "
-"will be ignored."
-msgstr ""
-"عدد خطوات علامة المحور ، بما في ذلك الحد الأدنى والحد الأقصى. سيتم تجاهل 2 "
-"خطوة أو أقل."
-
-msgid "Steps"
-msgstr "الخطوات"
-
 msgid "Include regression"
 msgstr "تضمين الانحدار"
+
+msgid "Title"
+msgstr "العنوان"
+
+msgid "Number"
+msgstr "العدد"
 
 msgid "Trend line"
 msgstr "خط الاتجاه"
@@ -612,9 +609,6 @@ msgstr "إضافة عنوان فرعي"
 
 msgid "Target line"
 msgstr "خط المستهدف"
-
-msgid "Target line title"
-msgstr "عنوان خط الهدف"
 
 msgid "Size"
 msgstr "الحجم"
@@ -898,6 +892,15 @@ msgstr "الحد من القيم الدنيا / القصوى"
 msgid "Parameters"
 msgstr "المعاملات"
 
+msgid "Base and target lines are available on the Axes tab for scatter charts"
+msgstr ""
+
+msgid "Vertical axis"
+msgstr ""
+
+msgid "Horizontal axis"
+msgstr ""
+
 msgid "Color set"
 msgstr "مجموعة لونية"
 
@@ -939,6 +942,9 @@ msgstr "المحاور"
 
 msgid "Data"
 msgstr "البيانات"
+
+msgid "Outliers"
+msgstr "القيم المتطرفة"
 
 msgid "Series"
 msgstr "سلسلة"
