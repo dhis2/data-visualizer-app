@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-08T15:58:00.833Z\n"
+"POT-Creation-Date: 2021-01-13T08:13:16.512Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Pushto (https://www.transifex.com/hisp-uio/teams/100509/ps/)\n"
@@ -298,28 +298,36 @@ msgstr ""
 msgid "Loading data approval levels"
 msgstr ""
 
+msgid "Decimals"
+msgstr ""
+
+msgid "Auto"
+msgstr ""
+
+msgid "Labels"
+msgstr ""
+
 msgid "Axis range"
 msgstr ""
 
 msgid "Values outside of the range will not be displayed"
 msgstr ""
 
-msgid "Base line"
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
 msgstr ""
 
-msgid "Value"
-msgstr "ارزښت یا رقم"
+msgid "Steps"
+msgstr "ګامونه"
 
-msgid "Title"
-msgstr "عنوان"
+msgid "Axis title"
+msgstr ""
 
-msgid "Base line title"
-msgstr "د بنسټیزې کرښې عنوان"
+msgid "Add a title"
+msgstr ""
 
-msgid "Number"
-msgstr "عدد [ بشپړ عدد ]"
-
-msgid "Labels"
+msgid "Base line"
 msgstr ""
 
 msgid "Column sub-totals"
@@ -381,12 +389,6 @@ msgstr "نورمال"
 
 msgid "Compact"
 msgstr "متراکم"
-
-msgid "Axis title"
-msgstr ""
-
-msgid "Add a title"
-msgstr ""
 
 msgid "Font size"
 msgstr "د ليکنې اندازه"
@@ -489,6 +491,9 @@ msgstr "Number type"
 msgid "Display the value of percentages of the total"
 msgstr ""
 
+msgid "Value"
+msgstr "ارزښت یا رقم"
+
 msgid "Percentage of row"
 msgstr ""
 
@@ -507,22 +512,14 @@ msgstr "د راپور ورکولو موده"
 msgid "Stacked values add up to 100%"
 msgstr ""
 
-msgid "Decimals"
-msgstr ""
-
-msgid "Auto"
-msgstr ""
-
-msgid ""
-"Number of axis tick steps, including the min and max. A value of 2 or lower "
-"will be ignored."
-msgstr ""
-
-msgid "Steps"
-msgstr "ګامونه"
-
 msgid "Include regression"
 msgstr "شا ته تګ په کې شامل کړئ"
+
+msgid "Title"
+msgstr "عنوان"
+
+msgid "Number"
+msgstr "عدد [ بشپړ عدد ]"
 
 msgid "Trend line"
 msgstr "د محاسبې کرښې ښکاره کړئ"
@@ -597,9 +594,6 @@ msgstr ""
 
 msgid "Target line"
 msgstr ""
-
-msgid "Target line title"
-msgstr "د ټاکلې کرښې عنوان"
 
 msgid "Size"
 msgstr ""
@@ -868,6 +862,15 @@ msgstr ""
 msgid "Parameters"
 msgstr "پارامیټرونه"
 
+msgid "Base and target lines are available on the Axes tab for scatter charts"
+msgstr ""
+
+msgid "Vertical axis"
+msgstr ""
+
+msgid "Horizontal axis"
+msgstr ""
+
 msgid "Color set"
 msgstr ""
 
@@ -909,6 +912,9 @@ msgstr "محورونه"
 
 msgid "Data"
 msgstr "مالومات (ډاټا)"
+
+msgid "Outliers"
+msgstr ""
 
 msgid "Series"
 msgstr "سلسله (لړۍ)"

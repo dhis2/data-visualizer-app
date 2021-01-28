@@ -3,14 +3,14 @@
 # phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
 # 晓东 林 <13981924470@126.com>, 2020
-# easylin <lin_xd@126.com>, 2020
+# easylin <lin_xd@126.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-12-08T15:58:00.833Z\n"
+"POT-Creation-Date: 2021-01-13T08:13:16.512Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: easylin <lin_xd@126.com>, 2020\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2021\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -302,29 +302,37 @@ msgstr "从预定义的等级中选择"
 msgid "Loading data approval levels"
 msgstr "载入数据审核等级"
 
+msgid "Decimals"
+msgstr "小数"
+
+msgid "Auto"
+msgstr "自动"
+
+msgid "Labels"
+msgstr "标签"
+
 msgid "Axis range"
 msgstr "范围轴"
 
 msgid "Values outside of the range will not be displayed"
 msgstr "范围外的值将不显示"
 
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
+msgstr "轴刻度步数，包括最小值和最大值。小于等于2的值将被忽略。"
+
+msgid "Steps"
+msgstr "步"
+
+msgid "Axis title"
+msgstr "轴标题"
+
+msgid "Add a title"
+msgstr "添加标题"
+
 msgid "Base line"
 msgstr "基线"
-
-msgid "Value"
-msgstr "值"
-
-msgid "Title"
-msgstr "称谓"
-
-msgid "Base line title"
-msgstr "基线标题"
-
-msgid "Number"
-msgstr "数字"
-
-msgid "Labels"
-msgstr "标签"
 
 msgid "Column sub-totals"
 msgstr "列小计"
@@ -385,12 +393,6 @@ msgstr "适度"
 
 msgid "Compact"
 msgstr "紧凑"
-
-msgid "Axis title"
-msgstr "轴标题"
-
-msgid "Add a title"
-msgstr "添加标题"
 
 msgid "Font size"
 msgstr "字体大小"
@@ -493,6 +495,9 @@ msgstr "数字值类型"
 msgid "Display the value of percentages of the total"
 msgstr "显示合计的百分比"
 
+msgid "Value"
+msgstr "值"
+
 msgid "Percentage of row"
 msgstr "行百分比"
 
@@ -511,22 +516,14 @@ msgstr "报表周期"
 msgid "Stacked values add up to 100%"
 msgstr "堆叠值到100%"
 
-msgid "Decimals"
-msgstr "小数"
-
-msgid "Auto"
-msgstr "自动"
-
-msgid ""
-"Number of axis tick steps, including the min and max. A value of 2 or lower "
-"will be ignored."
-msgstr "轴刻度步数，包括最小值和最大值。小于等于2的值将被忽略。"
-
-msgid "Steps"
-msgstr "步"
-
 msgid "Include regression"
 msgstr "包含回归分析"
+
+msgid "Title"
+msgstr "称谓"
+
+msgid "Number"
+msgstr "数字"
 
 msgid "Trend line"
 msgstr "趋势线"
@@ -601,9 +598,6 @@ msgstr "添加子标题"
 
 msgid "Target line"
 msgstr "目标线"
-
-msgid "Target line title"
-msgstr "目标线标题"
 
 msgid "Size"
 msgstr "大小"
@@ -874,6 +868,15 @@ msgstr "限制最大最小值"
 msgid "Parameters"
 msgstr "参数"
 
+msgid "Base and target lines are available on the Axes tab for scatter charts"
+msgstr ""
+
+msgid "Vertical axis"
+msgstr ""
+
+msgid "Horizontal axis"
+msgstr ""
+
 msgid "Color set"
 msgstr "颜色集"
 
@@ -915,6 +918,9 @@ msgstr "轴"
 
 msgid "Data"
 msgstr "数据"
+
+msgid "Outliers"
+msgstr "离群值"
 
 msgid "Series"
 msgstr "系列"
