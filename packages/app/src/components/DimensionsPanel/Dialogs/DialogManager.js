@@ -37,7 +37,6 @@ import {
     acSetUiItems,
     acAddParentGraphMap,
     acSetUiItemAttributes,
-    acRemoveUiItemAttributes,
 } from '../../../actions/ui'
 import { acAddMetadata } from '../../../actions/metadata'
 import { acSetRecommendedIds } from '../../../actions/recommendedIds'
@@ -220,8 +219,6 @@ export class DialogManager extends Component {
             type,
             removeUiItems,
             setUiItems,
-            setUiItemAttributes,
-            removeUiItemAttributes,
         } = this.props
 
         const dimensionProps = {
@@ -286,33 +283,19 @@ export class DialogManager extends Component {
                 dialogId === DIMENSION_ID_DATA ||
                 isScatterAttribute(dialogId)
             ) {
-                const props = isScatterAttribute(dialogId)
-                    ? {
-                          ...dimensionProps,
-                          onSelect: defaultProps =>
-                              this.selectUiItems({
-                                  ...defaultProps,
-                                  itemAttribute: dialogId,
-                              }),
-                          onDeselect: defaultProps =>
-                              removeUiItemAttributes({
-                                  ...defaultProps,
-                                  attribute: dialogId,
-                              }),
-                          onReorder: defaultProps =>
-                              setUiItemAttributes({
-                                  ...defaultProps,
-                                  attribute: dialogId,
-                              }),
-                      }
-                    : dimensionProps
+                const onSelect = isScatterAttribute(dialogId)
+                    ? defaultProps =>
+                          this.selectUiItems({
+                              ...defaultProps,
+                              itemAttribute: dialogId,
+                          })
+                    : dimensionProps.onSelect
                 const dimensionSelector = (
                     <DataDimension
                         displayNameProp={displayNameProperty}
                         selectedDimensions={selectedItems}
                         infoBoxMessage={infoBoxMessage}
-                        dataEngine={this.context.dataEngine}
-                        {...props}
+                        onSelect={onSelect}
                     />
                 )
                 const dataTabs = isScatterAttribute(dialogId) ? (
@@ -470,7 +453,6 @@ DialogManager.propTypes = {
     getItemsByAttribute: PropTypes.func,
     metadata: PropTypes.object,
     parentGraphMap: PropTypes.object,
-    removeUiItemAttributes: PropTypes.func,
     removeUiItems: PropTypes.func,
     selectedItems: PropTypes.object,
     setUiItemAttributes: PropTypes.func,
@@ -507,5 +489,4 @@ export default connect(mapStateToProps, {
     removeUiItems: acRemoveUiItems,
     addParentGraphMap: acAddParentGraphMap,
     setUiItemAttributes: acSetUiItemAttributes,
-    removeUiItemAttributes: acRemoveUiItemAttributes,
 })(DialogManager)
