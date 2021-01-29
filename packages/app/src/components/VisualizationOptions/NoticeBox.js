@@ -4,26 +4,19 @@ import { NoticeBox as UiNoticeBox } from '@dhis2/ui'
 
 import { tabSectionOption } from './styles/VisualizationOptions.style.js'
 
-const NoticeBox = ({ title, text, type }) => {
-    const props = {
-        title,
-    }
-
-    if (type) {
-        props[type] = true
-    }
-
-    return (
-        <div className={tabSectionOption.className}>
-            <UiNoticeBox {...props}>{text}</UiNoticeBox>
-        </div>
-    )
-}
+const NoticeBox = ({ title, text, warning = false, error = false }) => (
+    <div className={tabSectionOption.className}>
+        <UiNoticeBox title={title} warning={warning} error={error}>
+            {text}
+        </UiNoticeBox>
+    </div>
+)
 
 NoticeBox.propTypes = {
+    error: PropTypes.bool,
     text: PropTypes.string,
     title: PropTypes.string,
-    type: PropTypes.string,
+    warning: PropTypes.bool,
 }
 
 export default NoticeBox

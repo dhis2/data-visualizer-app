@@ -99,7 +99,7 @@ export default () => [
                             'These options only apply to legacy tables like standard reports. Options set here will have no effect on tables made in Data Visualizer.'
                         )}
                         title={i18n.t('Applies to standard reports only')}
-                        type="warning"
+                        warning
                     />,
                     <ParamReportingPeriod />,
                     <ParamOrganisationUnit />,
