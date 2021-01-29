@@ -1,3 +1,10 @@
+## [35.18.3](https://github.com/dhis2/data-visualizer-app/compare/v35.18.2...v35.18.3) (2021-01-29)
+
+
+### Bug Fixes
+
+* add a warning in PT Parameters tab (DHIS2-10269) ([#1591](https://github.com/dhis2/data-visualizer-app/issues/1591)) ([5631105](https://github.com/dhis2/data-visualizer-app/commit/5631105975c68b01daa62bae8732a2abe9038841))
+
 ## [35.18.2](https://github.com/dhis2/data-visualizer-app/compare/v35.18.1...v35.18.2) (2021-01-28)
 
 
