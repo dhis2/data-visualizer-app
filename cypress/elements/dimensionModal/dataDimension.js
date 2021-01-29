@@ -2,18 +2,15 @@ import { DIMENSION_ID_DATA } from '@dhis2/analytics'
 
 import { expectDimensionModalToBeVisible } from '.'
 
-const unselectedListEl = 'data-dimension-item-selector-unselected-items-list'
-//const unselectedItemEl = 'data-dimension-item-selector-unselected-items-list-item'
+const unselectedListEl = 'data-dimension-transfer-sourceoptions'
 const dataTypesSelectButtonEl = 'data-dimension-data-types-select-field-content'
-//const selctedListEl = 'data-dimension-item-selector-selected-items-list'
-const selectedItemEl = 'data-dimension-item-selector-selected-items-list-item'
+const selectedItemEl = 'data-dimension-transfer-pickedoptions'
 const dataElementsOptionEl =
-    'data-dimension-data-types-select-field-option-dataElements'
-const removeAllButtonEl =
-    'data-dimension-item-selector-selected-items-deselect-all-button'
+    'data-dimension-data-types-select-field-option-DATA_ELEMENT'
+const removeAllButtonEl = 'data-dimension-transfer-actions-removeall'
 //const addAllButtonEl = 'data-dimension-item-selector-unselected-items-select-all-button'
 const tabbarEl = 'dialog-manager-modal-tabs'
-const infoBoxEl = 'data-dimension-item-selector-selected-items-info-box'
+const rightHeaderEl = 'data-dimension-transfer-rightheader'
 
 export const expectDataDimensionModalToBeVisible = () =>
     expectDimensionModalToBeVisible(DIMENSION_ID_DATA)
@@ -27,10 +24,14 @@ export const expectDataItemsAmountToBeSelected = amount =>
     cy.getBySel(selectedItemEl).should('be.visible').and('have.length', amount)
 
 export const expectDataDimensionModalWarningToContain = text =>
-    cy.getBySel(infoBoxEl).should('contain', text)
+    cy.getBySel(rightHeaderEl).should('contain', text)
 
 export const expectDataItemToBeInactive = id =>
-    cy.getBySel(`dimension-item-${id}`).should('have.class', 'inactive-item')
+    cy
+        .get(`[data-value="${id}"]`)
+        .children()
+        .first()
+        .should('have.class', 'inactive')
 
 export const selectDataElements = dataElements => {
     switchToDataType(dataElementsOptionEl)
@@ -44,6 +45,7 @@ export const switchDataTab = tabName =>
     cy.getBySel(tabbarEl).contains(tabName).click()
 
 const clickUnselectedItem = item =>
+    //FIXME: Wait for the loading spinner to disappear before trying to click an item
     cy.getBySel(unselectedListEl).contains(item).dblclick()
 
 const switchToDataType = dataType => {
