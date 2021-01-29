@@ -485,6 +485,9 @@ msgid ""
 "visualization, all values outside of the minimum/maximum range will not be "
 "displayed"
 msgstr ""
+"Můžete nastavit minimální nebo maximální hodnotu. To bude platit pro celou "
+"vizualizaci, nebudou se zobrazovat všechny hodnoty mimo minimální / "
+"maximální rozsah"
 
 msgid "Minimum data value"
 msgstr "Minimální hodnota dat"
@@ -888,13 +891,13 @@ msgid "Parameters"
 msgstr "Parametry"
 
 msgid "Base and target lines are available on the Axes tab for scatter charts"
-msgstr ""
+msgstr "Základní a cílové čáry jsou k dispozici na kartě Osy pro bodové grafy"
 
 msgid "Vertical axis"
-msgstr ""
+msgstr "Svislá osa"
 
 msgid "Horizontal axis"
-msgstr ""
+msgstr "Horizontální osa"
 
 msgid "Color set"
 msgstr "Barevná sada"
