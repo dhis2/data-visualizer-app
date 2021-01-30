@@ -50,7 +50,7 @@ export const apiFetchAnalyticsForYearOverYear = async (
     const periodDates = []
     const yearlySeriesLabels = []
 
-    const now = new Date('2020-03-01')
+    const now = new Date()
     const currentDay = ('' + now.getDate()).padStart(2, 0)
     const currentMonth = ('' + (now.getMonth() + 1)).padStart(2, 0)
 
