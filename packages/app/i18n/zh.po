@@ -476,7 +476,7 @@ msgid ""
 "You can set a minimum or maximum value. This will apply to the entire "
 "visualization, all values outside of the minimum/maximum range will not be "
 "displayed"
-msgstr ""
+msgstr "您可以设置最小值或最大值。这将应用于整个可视化，不会显示超出最小/最大范围的所有值"
 
 msgid "Minimum data value"
 msgstr "最小值"

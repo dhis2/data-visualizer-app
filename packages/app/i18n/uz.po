@@ -488,6 +488,9 @@ msgid ""
 "visualization, all values outside of the minimum/maximum range will not be "
 "displayed"
 msgstr ""
+"Минимал ёки максимал қийматни белгилашингиз мумкин. Бу бутун кўринишга "
+"тааллуқлидир, минимал/максимал диапазондан ташқарисидаги барча қийматлар "
+"экранда кўрсатилмайди."
 
 msgid "Minimum data value"
 msgstr "Маълумотларнинг минимал қиймати"
@@ -899,12 +902,13 @@ msgstr "Параметрлар"
 
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
+"Тарқатма жадваллар учун Ўқлар ёрлиғида асосий ва мақсадли қаторлар мавжуд"
 
 msgid "Vertical axis"
-msgstr ""
+msgstr "Вертикал ўқ"
 
 msgid "Horizontal axis"
-msgstr ""
+msgstr "Горизонтал ўқ"
 
 msgid "Color set"
 msgstr "Ранглар тўплами"
