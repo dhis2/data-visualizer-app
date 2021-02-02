@@ -1,5 +1,3 @@
-/* TODO: Fetch the colors from ui-core, once the same is done for the FileMenu (@dhis2/d2-ui-file-menu)  */
-
 .menuButton {
     display: inline-flex;
     position: relative;
@@ -9,7 +7,7 @@
     font-weight: 400;
     text-transform: none;
     padding: 6px 8px;
-    color: #000000; /* var(--colors-grey900) */
+    color: var(--colors-grey900);
     min-width: 64px;
     box-sizing: border-box;
     line-height: 1.75;
@@ -20,11 +18,11 @@
 }
 
 .menuButton:hover:enabled {
-    background-color: rgba(0, 0, 0, 0.08); /* var(--colors-grey300) */
+    background-color: var(--colors-grey300);
 }
 
 .menuButton:disabled {
-    color: #e0e0e0; /* var(--colors-grey400); */
+    color: var(--colors-grey400);
 }
 .menuButton:focus {
     outline: none;

@@ -3,16 +3,16 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
 import i18n from '@dhis2/d2-i18n'
-import ImageIcon from '@material-ui/icons/Image'
-import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf'
-import ListIcon from '@material-ui/icons/List'
-import ListAltIcon from '@material-ui/icons/ListAlt'
 import { useConfig, useDataEngine } from '@dhis2/app-runtime'
 import {
     FlyoutMenu,
+    Layer,
     MenuSectionHeader,
     MenuItem,
-    Popover,
+    Popper,
+    IconImage24,
+    IconFileDocument24,
+    IconMore24,
     colors,
 } from '@dhis2/ui'
 import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
@@ -30,14 +30,9 @@ import {
     apiDownloadTable,
 } from '../../api/analytics'
 import MenuButton from '../MenuButton/MenuButton'
-import MoreHorizontalIcon from '../../assets/MoreHorizontalIcon'
 
 const DenseMenuItem = ({ Icon, children, ...rest }) => (
-    <MenuItem
-        dense
-        icon={Icon && <Icon style={{ color: colors.grey600 }} />}
-        {...rest}
-    >
+    <MenuItem dense icon={Icon && <Icon color={colors.grey600} />} {...rest}>
         {children}
     </MenuItem>
 )
@@ -119,12 +114,12 @@ export const DownloadMenu = ({
         React.Children.toArray([
             <MenuSectionHeader label={i18n.t('Graphics')} />,
             <DenseMenuItem
-                Icon={ImageIcon}
+                Icon={IconImage24}
                 label={i18n.t('Image (.png)')}
                 onClick={downloadImage('png')}
             />,
             <DenseMenuItem
-                Icon={PictureAsPdfIcon}
+                Icon={IconFileDocument24}
                 label={i18n.t('PDF (.pdf)')}
                 onClick={downloadImage('pdf')}
             />,
@@ -134,17 +129,14 @@ export const DownloadMenu = ({
         React.Children.toArray([
             <MenuSectionHeader label={i18n.t('Table layout')} />,
             <DenseMenuItem
-                Icon={ListAltIcon}
                 label={i18n.t('Excel (.xls)')}
                 onClick={downloadTable('xls')}
             />,
             <DenseMenuItem
-                Icon={ListAltIcon}
                 label={i18n.t('CSV (.csv)')}
                 onClick={downloadTable('csv')}
             />,
             <DenseMenuItem
-                Icon={ListAltIcon}
                 label={i18n.t('HTML (.html)')}
                 onClick={downloadTable('html')}
             />,
@@ -178,68 +170,69 @@ export const DownloadMenu = ({
                 </MenuButton>
             </div>
             {dialogIsOpen && (
-                <Popover
-                    arrow={false}
-                    reference={buttonRef}
-                    placement="bottom-start"
-                    onClickOutside={toggleMenu}
-                >
-                    <FlyoutMenu>
-                        {visType === VIS_TYPE_PIVOT_TABLE
-                            ? tableMenuSection()
-                            : graphicsMenuSection()}
-                        <MenuSectionHeader
-                            label={i18n.t('Plain data source')}
-                        />
-                        <DenseMenuItem Icon={ListIcon} label={i18n.t('JSON')}>
-                            {plainDataSourceSubLevel('json')}
-                        </DenseMenuItem>
-                        <DenseMenuItem Icon={ListIcon} label={i18n.t('XML')}>
-                            {plainDataSourceSubLevel('xml')}
-                        </DenseMenuItem>
-                        <DenseMenuItem Icon={ListIcon} label={i18n.t('Excel')}>
-                            {plainDataSourceSubLevel('xls')}
-                        </DenseMenuItem>
-                        <DenseMenuItem Icon={ListIcon} label={i18n.t('CSV')}>
-                            {plainDataSourceSubLevel('csv')}
-                        </DenseMenuItem>
-                        <DenseMenuItem
-                            Icon={MoreHorizontalIcon}
-                            label={i18n.t('Advanced')}
-                        >
+                <Layer position="fixed" level={2000} onClick={toggleMenu}>
+                    <Popper reference={buttonRef} placement="bottom-start">
+                        <FlyoutMenu>
+                            {visType === VIS_TYPE_PIVOT_TABLE
+                                ? tableMenuSection()
+                                : graphicsMenuSection()}
                             <MenuSectionHeader
-                                label={i18n.t('Data value set')}
+                                label={i18n.t('Plain data source')}
                             />
+                            <DenseMenuItem label={i18n.t('JSON')}>
+                                {plainDataSourceSubLevel('json')}
+                            </DenseMenuItem>
+                            <DenseMenuItem label={i18n.t('XML')}>
+                                {plainDataSourceSubLevel('xml')}
+                            </DenseMenuItem>
+                            <DenseMenuItem label={i18n.t('Excel')}>
+                                {plainDataSourceSubLevel('xls')}
+                            </DenseMenuItem>
+                            <DenseMenuItem label={i18n.t('CSV')}>
+                                {plainDataSourceSubLevel('csv')}
+                            </DenseMenuItem>
                             <DenseMenuItem
-                                label={i18n.t('JSON')}
-                                onClick={downloadData(
-                                    'json',
-                                    null,
-                                    'dataValueSet'
-                                )}
-                            />
-                            <DenseMenuItem
-                                label={i18n.t('XML')}
-                                onClick={downloadData(
-                                    'xml',
-                                    null,
-                                    'dataValueSet'
-                                )}
-                            />
-                            <MenuSectionHeader
-                                label={i18n.t('Other formats')}
-                            />
-                            <DenseMenuItem
-                                label={i18n.t('JRXML')}
-                                onClick={downloadData('jrxml')}
-                            />
-                            <DenseMenuItem
-                                label={i18n.t('Raw data SQL')}
-                                onClick={downloadData('sql', null, 'debug/sql')}
-                            />
-                        </DenseMenuItem>
-                    </FlyoutMenu>
-                </Popover>
+                                Icon={IconMore24}
+                                label={i18n.t('Advanced')}
+                            >
+                                <MenuSectionHeader
+                                    label={i18n.t('Data value set')}
+                                />
+                                <DenseMenuItem
+                                    label={i18n.t('JSON')}
+                                    onClick={downloadData(
+                                        'json',
+                                        null,
+                                        'dataValueSet'
+                                    )}
+                                />
+                                <DenseMenuItem
+                                    label={i18n.t('XML')}
+                                    onClick={downloadData(
+                                        'xml',
+                                        null,
+                                        'dataValueSet'
+                                    )}
+                                />
+                                <MenuSectionHeader
+                                    label={i18n.t('Other formats')}
+                                />
+                                <DenseMenuItem
+                                    label={i18n.t('JRXML')}
+                                    onClick={downloadData('jrxml')}
+                                />
+                                <DenseMenuItem
+                                    label={i18n.t('Raw data SQL')}
+                                    onClick={downloadData(
+                                        'sql',
+                                        null,
+                                        'debug/sql'
+                                    )}
+                                />
+                            </DenseMenuItem>
+                        </FlyoutMenu>
+                    </Popper>
+                </Layer>
             )}
         </>
     )
