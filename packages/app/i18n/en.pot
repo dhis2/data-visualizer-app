@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-01-27T16:04:47.179Z\n"
-"PO-Revision-Date: 2021-01-27T16:04:47.179Z\n"
+"POT-Creation-Date: 2021-02-02T10:49:34.913Z\n"
+"PO-Revision-Date: 2021-02-02T10:49:34.913Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -841,6 +841,14 @@ msgid "Table title"
 msgstr ""
 
 msgid "Parameters"
+msgstr ""
+
+msgid ""
+"These options only apply to legacy tables like standard reports. Options "
+"set here will have no effect on tables made in Data Visualizer."
+msgstr ""
+
+msgid "Applies to standard reports only"
 msgstr ""
 
 msgid "Base and target lines are available on the Axes tab for scatter charts"
