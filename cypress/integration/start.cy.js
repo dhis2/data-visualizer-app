@@ -13,7 +13,7 @@ import {
     expectFileMenuButtonToBeDisabled,
     FILE_MENU_BUTTON_NEW,
     FILE_MENU_BUTTON_OPEN,
-    FILE_MENU_BUTTON_SAVE,
+    FILE_MENU_BUTTON_SAVE_NEW,
     FILE_MENU_BUTTON_SAVEAS,
     FILE_MENU_BUTTON_GETLINK,
     FILE_MENU_BUTTON_SHARE,
@@ -78,7 +78,7 @@ describe('viewing the start screen', () => {
         const enabledButtons = [
             FILE_MENU_BUTTON_NEW,
             FILE_MENU_BUTTON_OPEN,
-            FILE_MENU_BUTTON_SAVE,
+            FILE_MENU_BUTTON_SAVE_NEW,
         ]
         enabledButtons.forEach(button =>
             expectFileMenuButtonToBeEnabled(button)

@@ -7,25 +7,27 @@
 
 import { clickMenuBarFileButton } from '../menuBar'
 
-const deleteModalEl = '*[class^="MuiDialog-container"]'
-const fileMenuItemEl = '*[role="menuitem"]'
+const deleteModalEl = '[data-test="file-menu-delete-modal"]'
+const fileMenuItemEl = '[data-test="file-menu-container"] li'
 
 export const FILE_MENU_BUTTON_NEW = 'New'
-export const FILE_MENU_BUTTON_OPEN = 'Open'
-export const FILE_MENU_BUTTON_SAVE = 'Save'
-export const FILE_MENU_BUTTON_SAVEAS = 'Save as...'
-export const FILE_MENU_BUTTON_RENAME = 'Rename'
-export const FILE_MENU_BUTTON_TRANSLATE = 'Translate'
-export const FILE_MENU_BUTTON_SHARE = 'Share'
-export const FILE_MENU_BUTTON_GETLINK = 'Get link'
+export const FILE_MENU_BUTTON_OPEN = 'Open…'
+export const FILE_MENU_BUTTON_SAVE_EXISTING = 'Save'
+export const FILE_MENU_BUTTON_SAVE_NEW = 'Save…'
+export const FILE_MENU_BUTTON_SAVEAS = 'Save as…'
+export const FILE_MENU_BUTTON_RENAME = 'Rename…'
+export const FILE_MENU_BUTTON_TRANSLATE = 'Translate…'
+export const FILE_MENU_BUTTON_SHARE = 'Share…'
+export const FILE_MENU_BUTTON_GETLINK = 'Get link…'
 export const FILE_MENU_BUTTON_DELETE = 'Delete'
 
 export const closeFileMenu = () =>
-    cy
-        .get(fileMenuItemEl)
-        .contains(FILE_MENU_BUTTON_NEW)
-        .parents('ul')
-        .type('{esc}')
+    cy.get('[data-test="file-menu-toggle-layer"]').click('topLeft')
+//    cy
+//        .get(fileMenuItemEl)
+//        .contains(FILE_MENU_BUTTON_NEW)
+//        .parents('ul')
+//        .type('{esc}')
 
 export const clickFileMenuButton = buttonName =>
     cy
