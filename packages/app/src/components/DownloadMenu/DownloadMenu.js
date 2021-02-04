@@ -52,9 +52,15 @@ export const DownloadMenu = ({
 }) => {
     const dataEngine = useDataEngine()
     const { baseUrl } = useConfig()
-    const [dialogIsOpen, setDialogIsOpen] = useState(false)
+    const [menuIsOpen, setMenuIsOpen] = useState(false)
 
-    const toggleMenu = () => setDialogIsOpen(!dialogIsOpen)
+    const onKeyDown = e => {
+        if (e?.keyCode === 27) {
+            setMenuIsOpen(false)
+        }
+    }
+
+    const toggleMenu = () => setMenuIsOpen(!menuIsOpen)
 
     const downloadImage = format => async () => {
         const formData = new URLSearchParams()
@@ -163,13 +169,13 @@ export const DownloadMenu = ({
     const buttonRef = createRef()
 
     return (
-        <>
+        <div onKeyDown={onKeyDown}>
             <div ref={buttonRef}>
                 <MenuButton onClick={toggleMenu} disabled={!current}>
                     {i18n.t('Download')}
                 </MenuButton>
             </div>
-            {dialogIsOpen && (
+            {menuIsOpen && (
                 <Layer position="fixed" level={2000} onClick={toggleMenu}>
                     <Popper reference={buttonRef} placement="bottom-start">
                         <FlyoutMenu>
@@ -234,7 +240,7 @@ export const DownloadMenu = ({
                     </Popper>
                 </Layer>
             )}
-        </>
+        </div>
     )
 }
 
