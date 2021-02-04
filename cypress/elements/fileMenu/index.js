@@ -1,10 +1,3 @@
-/*  FIXME:
-    Most of the element selection in this file is quite poor because 
-    of the FileMenu being old and still uses MUI.
-    This can be refactored to use proper data-test selectors once the new
-    FileMenu component is in place.
-*/
-
 import { clickMenuBarFileButton } from '../menuBar'
 
 const deleteModalEl = '[data-test="file-menu-delete-modal"]'
@@ -22,24 +15,17 @@ export const FILE_MENU_BUTTON_GETLINK = 'Get link…'
 export const FILE_MENU_BUTTON_DELETE = 'Delete'
 
 export const closeFileMenu = () =>
-    cy.get('[data-test="file-menu-toggle-layer"]').click('topLeft')
-//    cy
-//        .get(fileMenuItemEl)
-//        .contains(FILE_MENU_BUTTON_NEW)
-//        .parents('ul')
-//        .type('{esc}')
+    cy
+        .get(fileMenuItemEl)
+        .contains(FILE_MENU_BUTTON_NEW)
+        .type('{esc}', { force: true })
 
 export const clickFileMenuButton = buttonName =>
-    cy
-        .get(fileMenuItemEl) // TODO: Change once new FileMenu is in place
-        .contains(buttonName)
-        .click()
+    cy.get(fileMenuItemEl).contains(buttonName).click()
 
 export const createNewAO = () => {
     clickMenuBarFileButton()
-    cy.get(fileMenuItemEl) // TODO: Change once new FileMenu is in place
-        .contains(FILE_MENU_BUTTON_NEW)
-        .click()
+    cy.get(fileMenuItemEl).contains(FILE_MENU_BUTTON_NEW).click()
 }
 
 export const deleteAO = () => {
