@@ -1499,12 +1499,16 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^14.0.0":
-  version "14.0.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-14.0.0.tgz#f173748dda6ec0711ced4cc0529c67f8ef84eb94"
-  integrity sha512-e25vbhtsSzGEqsdztwrV5QILgxVjIlLUHVDh7T2zJF/u/whEZIgezybFq9AuhbcyIDMwmtDMpDKY+PNABUJbxg==
+"@dhis2/analytics@^14.1.4":
+  version "14.1.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-14.1.4.tgz#4c1f70ed5b034b357cdd3e16b48701351ed68e34"
+  integrity sha512-rHnTQtS9JMACM79xqjsiynjaRrcqw0b1kECAqPfIclqr47L/xz6GjS5oRDHGoPOT31M+nzQI612IdbLF7Aumeg==
   dependencies:
+    "@dhis2/app-runtime" "^2.6.1"
+    "@dhis2/d2-ui-favorites-dialog" "^7.1.3"
     "@dhis2/d2-ui-org-unit-dialog" "^7.1.3"
+    "@dhis2/d2-ui-sharing-dialog" "^7.1.3"
+    "@dhis2/d2-ui-translation-dialog" "^7.1.3"
     "@dhis2/ui" "^6.1.3"
     "@material-ui/core" "^3.9.3"
     "@material-ui/icons" "^3.0.2"
@@ -1728,6 +1732,21 @@
     redux-logger "^3.0.6"
     redux-thunk "^2.2.0"
 
+"@dhis2/d2-ui-favorites-dialog@^7.1.3":
+  version "7.1.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-favorites-dialog/-/d2-ui-favorites-dialog-7.1.3.tgz#abfab187634c6f09006cb1c2e5b57f0f0818ec71"
+  integrity sha512-mLhn/A70ZC0MZ2Xrv/mMY+ybp4H2az4y+VtVp/ujpGYdoth4vaoQt7G7ERgx+oM50gK1B6yJNMfEDCd3WZVDyQ==
+  dependencies:
+    "@dhis2/d2-ui-sharing-dialog" "7.1.3"
+    "@material-ui/core" "^3.3.1"
+    "@material-ui/icons" "^3.0.1"
+    babel-runtime "^6.26.0"
+    prop-types "^15.6.0"
+    react-redux "^5.0.7"
+    redux "^3.7.2"
+    redux-logger "^3.0.6"
+    redux-thunk "^2.2.0"
+
 "@dhis2/d2-ui-file-menu@^7.1.0":
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-file-menu/-/d2-ui-file-menu-7.1.0.tgz#92da470ffa4bff740826a758b6eda9e10f272094"
@@ -1809,7 +1828,7 @@
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
-"@dhis2/d2-ui-sharing-dialog@7.1.3":
+"@dhis2/d2-ui-sharing-dialog@7.1.3", "@dhis2/d2-ui-sharing-dialog@^7.1.3":
   version "7.1.3"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-sharing-dialog/-/d2-ui-sharing-dialog-7.1.3.tgz#27412a4e52dc636f167b0548ee5344f8957a3bb1"
   integrity sha512-vTe1IuGRwgBt8jQeGQoa3pGSd4j0lOuY6q9oyblVvT7IQ7GyBecwHS4YT8sK/kM9LwTZ+xDc4VgHVAzoFESVng==
@@ -1829,6 +1848,20 @@
   integrity sha512-gaQ6RhMHUTOsRbfUasqpN297syTk/j+aHQWALHk/+N46IqAslUaWkB3QO1HK9NHPAeL+/b5nLmWs4MpIYatgBQ==
   dependencies:
     "@dhis2/d2-ui-core" "7.1.0"
+    "@material-ui/core" "^3.3.1"
+    "@material-ui/icons" "^3.0.1"
+    babel-runtime "^6.26.0"
+    d2-utilizr "^0.2.15"
+    prop-types "^15.5.10"
+    react-select "^2.0.0"
+    rxjs "^5.5.7"
+
+"@dhis2/d2-ui-translation-dialog@^7.1.3":
+  version "7.1.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-translation-dialog/-/d2-ui-translation-dialog-7.1.3.tgz#6ae4befc6e1541a16c0554f5b54f52d7947b5809"
+  integrity sha512-N5BhTYCkcU32m9RhMEItclNxMr7khgrAQms3s5+4XRrGvdGcJo35CoulRmOU1Zs4e8KNhQg3QJMdCIxcvzsFeQ==
+  dependencies:
+    "@dhis2/d2-ui-core" "7.1.3"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     babel-runtime "^6.26.0"
