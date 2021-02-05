@@ -32,8 +32,7 @@ const onNew = () => {
     }
 }
 const getOnRename = props => details => props.onRenameVisualization(details)
-const getOnSave = props => (details = {}) =>
-    props.onSaveVisualization(details, false)
+const getOnSave = props => details => props.onSaveVisualization(details, false)
 const getOnSaveAs = props => details => props.onSaveVisualization(details, true)
 const getOnDelete = props => () => props.onDeleteVisualization()
 const getOnError = props => error => props.onError(error)
@@ -86,7 +85,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     onRenameVisualization: details =>
         dispatch(fromActions.tDoRenameVisualization(details)),
-    onSaveVisualization: (details, copy) =>
+    onSaveVisualization: (details = {}, copy) =>
         dispatch(fromActions.tDoSaveVisualization(details, copy)),
     onDeleteVisualization: () => dispatch(fromActions.tDoDeleteVisualization()),
     onError: error => {

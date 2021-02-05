@@ -5,7 +5,7 @@ import { clickMenuBarFileButton } from '../menuBar'
 const openModalEl = '*[class^="MuiDialogContent"]' // TODO: Add data-test to open modal to target this better
 const openModalFooterEl = '*[class^="MuiTableFooter"]'
 const openModalToolbarEl = '*[class^="MuiToolbar-root"]'
-const createdByOthersEl = '[data-value="byothers"]'
+const createdByOthersEl = 'byothers'
 const openModalItemContainerEl = '*[class^="MuiTableBody"]'
 
 const searchAOByName = name =>
@@ -45,7 +45,7 @@ export const openRandomAOCreatedByOthers = () => {
         .click()
         .then(() =>
             cy
-                .get(createdByOthersEl)
+                .getBySel(createdByOthersEl)
                 .click()
                 .then(() => {
                     cy.get(openModalEl)

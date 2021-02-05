@@ -1,7 +1,7 @@
 import { clickMenuBarFileButton } from '../menuBar'
 
-const deleteModalEl = '[data-test="file-menu-delete-modal"]'
-const fileMenuItemEl = '[data-test="file-menu-container"] li'
+const deleteModalEl = 'file-menu-delete-modal'
+const fileMenuItemEl = 'file-menu-container'
 
 export const FILE_MENU_BUTTON_NEW = 'New'
 export const FILE_MENU_BUTTON_OPEN = 'Open…'
@@ -16,22 +16,29 @@ export const FILE_MENU_BUTTON_DELETE = 'Delete'
 
 export const closeFileMenu = () =>
     cy
-        .get(fileMenuItemEl)
+        .getBySel(fileMenuItemEl)
+        .find('li')
         .contains(FILE_MENU_BUTTON_NEW)
         .type('{esc}', { force: true })
 
 export const clickFileMenuButton = buttonName =>
-    cy.get(fileMenuItemEl).contains(buttonName).click()
+    cy.getBySel(fileMenuItemEl).find('li').contains(buttonName).click()
 
 export const createNewAO = () => {
     clickMenuBarFileButton()
-    cy.get(fileMenuItemEl).contains(FILE_MENU_BUTTON_NEW).click()
+    cy.getBySel(fileMenuItemEl)
+        .find('li')
+        .contains(FILE_MENU_BUTTON_NEW)
+        .click()
 }
 
 export const deleteAO = () => {
     clickMenuBarFileButton()
-    cy.get(fileMenuItemEl).contains(FILE_MENU_BUTTON_DELETE).click()
-    cy.get(deleteModalEl)
+    cy.getBySel(fileMenuItemEl)
+        .find('li')
+        .contains(FILE_MENU_BUTTON_DELETE)
+        .click()
+    cy.getBySel(deleteModalEl)
         .find('button')
         .contains(FILE_MENU_BUTTON_DELETE)
         .click()
@@ -39,7 +46,8 @@ export const deleteAO = () => {
 
 export const expectFileMenuButtonToBeDisabled = (buttonName, inverse) =>
     cy
-        .get(fileMenuItemEl)
+        .getBySel(fileMenuItemEl)
+        .find('li')
         .contains(buttonName)
         .parents('li')
         .invoke('attr', 'class')
