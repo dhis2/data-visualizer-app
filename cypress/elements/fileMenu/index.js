@@ -15,12 +15,13 @@ export const FILE_MENU_BUTTON_GETLINK = 'Get link…'
 export const FILE_MENU_BUTTON_DELETE = 'Delete'
 
 export const closeFileMenu = () =>
-    cy
+    cy.get('[data-test="file-menu-toggle-layer"]').click('topLeft')
+/*    cy
         .getBySel(fileMenuItemEl)
         .find('li')
         .contains(FILE_MENU_BUTTON_NEW)
         .type('{esc}', { force: true })
-
+*/
 export const clickFileMenuButton = buttonName =>
     cy.getBySel(fileMenuItemEl).find('li').contains(buttonName).click()
 
