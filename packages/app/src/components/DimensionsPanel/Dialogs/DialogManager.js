@@ -143,6 +143,7 @@ export class DialogManager extends Component {
                             id: item.id,
                             name: item.name || item.displayName,
                             displayName: item.displayName,
+                            type: item.type,
                         }
 
                         return obj
@@ -163,6 +164,7 @@ export class DialogManager extends Component {
             .map(id => ({
                 id,
                 name: this.props.metadata[id].name,
+                type: this.props.metadata[id].type,
             }))
     }
 
