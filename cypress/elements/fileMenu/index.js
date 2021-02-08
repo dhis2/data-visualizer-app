@@ -1,7 +1,9 @@
 import { clickMenuBarFileButton } from '../menuBar'
 
 const deleteModalEl = 'file-menu-delete-modal'
-const fileMenuItemEl = 'file-menu-container'
+const fileMenuContainerEl = 'file-menu-container'
+const fileMenuToggleEl = 'file-menu-toggle'
+const fileMenuToggleLayerEl = 'file-menu-toggle-layer'
 
 export const FILE_MENU_BUTTON_NEW = 'New'
 export const FILE_MENU_BUTTON_OPEN = 'Open…'
@@ -14,31 +16,23 @@ export const FILE_MENU_BUTTON_SHARE = 'Share…'
 export const FILE_MENU_BUTTON_GETLINK = 'Get link…'
 export const FILE_MENU_BUTTON_DELETE = 'Delete'
 
-export const closeFileMenu = () =>
-    cy.get('[data-test="file-menu-toggle-layer"]').click('topLeft')
-/*    cy
-        .getBySel(fileMenuItemEl)
-        .find('li')
-        .contains(FILE_MENU_BUTTON_NEW)
-        .type('{esc}', { force: true })
-*/
+export const closeFileMenuWithClick = () =>
+    cy.getBySel(fileMenuToggleLayerEl).click('topLeft')
+
+export const closeFileMenuWithEsc = () =>
+    cy.getBySel(fileMenuToggleEl).type('{esc}', { force: true })
+
 export const clickFileMenuButton = buttonName =>
-    cy.getBySel(fileMenuItemEl).find('li').contains(buttonName).click()
+    cy.getBySel(fileMenuContainerEl).find('li').contains(buttonName).click()
 
 export const createNewAO = () => {
     clickMenuBarFileButton()
-    cy.getBySel(fileMenuItemEl)
-        .find('li')
-        .contains(FILE_MENU_BUTTON_NEW)
-        .click()
+    cy.getBySel(fileMenuContainerEl).contains(FILE_MENU_BUTTON_NEW).click()
 }
 
 export const deleteAO = () => {
     clickMenuBarFileButton()
-    cy.getBySel(fileMenuItemEl)
-        .find('li')
-        .contains(FILE_MENU_BUTTON_DELETE)
-        .click()
+    cy.getBySel(fileMenuContainerEl).contains(FILE_MENU_BUTTON_DELETE).click()
     cy.getBySel(deleteModalEl)
         .find('button')
         .contains(FILE_MENU_BUTTON_DELETE)
@@ -47,8 +41,7 @@ export const deleteAO = () => {
 
 export const expectFileMenuButtonToBeDisabled = (buttonName, inverse) =>
     cy
-        .getBySel(fileMenuItemEl)
-        .find('li')
+        .getBySel(fileMenuContainerEl)
         .contains(buttonName)
         .parents('li')
         .invoke('attr', 'class')

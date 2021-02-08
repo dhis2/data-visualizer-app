@@ -9,7 +9,8 @@ import {
 
 import { expectVisualizationToNotBeVisible } from '../elements/chart'
 import {
-    closeFileMenu,
+    closeFileMenuWithEsc,
+    closeFileMenuWithClick,
     expectFileMenuButtonToBeDisabled,
     FILE_MENU_BUTTON_NEW,
     FILE_MENU_BUTTON_OPEN,
@@ -83,7 +84,7 @@ describe('viewing the start screen', () => {
         enabledButtons.forEach(button =>
             expectFileMenuButtonToBeEnabled(button)
         )
-        closeFileMenu()
+        closeFileMenuWithEsc()
     })
     it('secondary File menu buttons are disabled', () => {
         clickMenuBarFileButton()
@@ -98,6 +99,6 @@ describe('viewing the start screen', () => {
         disabledButtons.forEach(button =>
             expectFileMenuButtonToBeDisabled(button)
         )
-        closeFileMenu()
+        closeFileMenuWithClick()
     })
 })
