@@ -12,7 +12,6 @@ import {
     Popper,
     IconImage24,
     IconFileDocument24,
-    IconMore24,
     colors,
 } from '@dhis2/ui'
 import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
@@ -197,10 +196,7 @@ export const DownloadMenu = ({
                             <DenseMenuItem label={i18n.t('CSV')}>
                                 {plainDataSourceSubLevel('csv')}
                             </DenseMenuItem>
-                            <DenseMenuItem
-                                Icon={IconMore24}
-                                label={i18n.t('Advanced')}
-                            >
+                            <DenseMenuItem label={i18n.t('Advanced')}>
                                 <MenuSectionHeader
                                     label={i18n.t('Data value set')}
                                 />
