@@ -23,7 +23,7 @@ export const closeFileMenuWithEsc = () =>
     cy.getBySel(fileMenuToggleEl).type('{esc}', { force: true })
 
 export const clickFileMenuButton = buttonName =>
-    cy.getBySel(fileMenuContainerEl).find('li').contains(buttonName).click()
+    cy.getBySel(fileMenuContainerEl).contains(buttonName).click()
 
 export const createNewAO = () => {
     clickMenuBarFileButton()
