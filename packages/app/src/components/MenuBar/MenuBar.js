@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import FileMenu from '@dhis2/d2-ui-file-menu'
+import { FileMenu } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 
 import UpdateButton from '../UpdateButton/UpdateButton'
@@ -51,8 +51,8 @@ export const MenuBar = ({ dataTest, ...props }, context) => (
         />
         <FileMenu
             d2={context.d2}
-            fileId={props.id || null}
             fileType={props.apiObjectName}
+            fileObject={props.current}
             onOpen={onOpen}
             onNew={onNew}
             onRename={getOnRename(props)}
@@ -70,8 +70,8 @@ export const MenuBar = ({ dataTest, ...props }, context) => (
 
 MenuBar.propTypes = {
     apiObjectName: PropTypes.string,
+    current: PropTypes.object,
     dataTest: PropTypes.string,
-    id: PropTypes.string,
 }
 
 MenuBar.contextTypes = {
@@ -79,13 +79,13 @@ MenuBar.contextTypes = {
 }
 
 const mapStateToProps = state => ({
-    id: (sGetCurrent(state) || {}).id,
+    current: sGetCurrent(state),
 })
 
 const mapDispatchToProps = dispatch => ({
     onRenameVisualization: details =>
         dispatch(fromActions.tDoRenameVisualization(details)),
-    onSaveVisualization: (details, copy) =>
+    onSaveVisualization: (details = {}, copy) =>
         dispatch(fromActions.tDoSaveVisualization(details, copy)),
     onDeleteVisualization: () => dispatch(fromActions.tDoDeleteVisualization()),
     onError: error => {
