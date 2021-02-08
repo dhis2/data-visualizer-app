@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-01-27T16:04:47.179Z\n"
+"POT-Creation-Date: 2021-02-02T10:49:34.913Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Jiří Podhorecký, 2021\n"
 "Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
@@ -889,6 +889,14 @@ msgstr "Název tabulky"
 
 msgid "Parameters"
 msgstr "Parametry"
+
+msgid ""
+"These options only apply to legacy tables like standard reports. Options set"
+" here will have no effect on tables made in Data Visualizer."
+msgstr ""
+
+msgid "Applies to standard reports only"
+msgstr ""
 
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr "Základní a cílové čáry jsou k dispozici na kartě Osy pro bodové grafy"

@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-01-27T16:04:47.179Z\n"
+"POT-Creation-Date: 2021-02-02T10:49:34.913Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2021\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -881,6 +881,14 @@ msgstr "عنوان الجدول"
 
 msgid "Parameters"
 msgstr "المعاملات"
+
+msgid ""
+"These options only apply to legacy tables like standard reports. Options set"
+" here will have no effect on tables made in Data Visualizer."
+msgstr ""
+
+msgid "Applies to standard reports only"
+msgstr ""
 
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
