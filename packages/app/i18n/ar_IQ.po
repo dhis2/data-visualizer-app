@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-01-13T08:13:16.512Z\n"
+"POT-Creation-Date: 2021-02-02T10:49:34.913Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2020\n"
 "Language-Team: Arabic (Iraq) (https://www.transifex.com/hisp-uio/teams/100509/ar_IQ/)\n"
@@ -468,8 +468,9 @@ msgid "Loading legends"
 msgstr ""
 
 msgid ""
-"You can set a minimum or maximum value. This will apply to the entire table,"
-" all values outside of the minimum/maximum range will not be displayed"
+"You can set a minimum or maximum value. This will apply to the entire "
+"visualization, all values outside of the minimum/maximum range will not be "
+"displayed"
 msgstr ""
 
 msgid "Minimum data value"
@@ -849,17 +850,16 @@ msgstr ""
 msgid "Table title"
 msgstr "عنوان الجدول"
 
-msgid "Limit values"
-msgstr ""
-
-msgid "Limit number of values"
-msgstr ""
-
-msgid "Limit minimum/maximum values"
-msgstr ""
-
 msgid "Parameters"
 msgstr "المعاملات"
+
+msgid ""
+"These options only apply to legacy tables like standard reports. Options set"
+" here will have no effect on tables made in Data Visualizer."
+msgstr ""
+
+msgid "Applies to standard reports only"
+msgstr ""
 
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
@@ -911,6 +911,15 @@ msgstr ""
 
 msgid "Data"
 msgstr "البيانات"
+
+msgid "Limit values"
+msgstr ""
+
+msgid "Limit number of values"
+msgstr ""
+
+msgid "Limit minimum/maximum values"
+msgstr ""
 
 msgid "Outliers"
 msgstr ""

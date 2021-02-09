@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-01-13T08:13:16.512Z\n"
+"POT-Creation-Date: 2021-02-02T10:49:34.913Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2020\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
@@ -477,8 +477,9 @@ msgid "Loading legends"
 msgstr "Memuat legenda"
 
 msgid ""
-"You can set a minimum or maximum value. This will apply to the entire table,"
-" all values outside of the minimum/maximum range will not be displayed"
+"You can set a minimum or maximum value. This will apply to the entire "
+"visualization, all values outside of the minimum/maximum range will not be "
+"displayed"
 msgstr ""
 
 msgid "Minimum data value"
@@ -858,17 +859,16 @@ msgstr "Sub-sub org unit pengguna"
 msgid "Table title"
 msgstr "Judul tabel"
 
-msgid "Limit values"
-msgstr "batas nilai"
-
-msgid "Limit number of values"
-msgstr ""
-
-msgid "Limit minimum/maximum values"
-msgstr ""
-
 msgid "Parameters"
 msgstr "Parameter"
+
+msgid ""
+"These options only apply to legacy tables like standard reports. Options set"
+" here will have no effect on tables made in Data Visualizer."
+msgstr ""
+
+msgid "Applies to standard reports only"
+msgstr ""
 
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
@@ -920,6 +920,15 @@ msgstr "Sumbu"
 
 msgid "Data"
 msgstr "Data"
+
+msgid "Limit values"
+msgstr "batas nilai"
+
+msgid "Limit number of values"
+msgstr ""
+
+msgid "Limit minimum/maximum values"
+msgstr ""
 
 msgid "Outliers"
 msgstr ""
