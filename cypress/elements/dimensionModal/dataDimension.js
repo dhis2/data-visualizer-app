@@ -2,26 +2,35 @@ import { DIMENSION_ID_DATA } from '@dhis2/analytics'
 
 import { expectDimensionModalToBeVisible } from '.'
 
-const unselectedListEl = 'data-dimension-transfer-sourceoptions'
+const optionEl = 'data-dimension-transfer-option'
+const selectableItemsEl = 'data-dimension-transfer-sourceoptions'
+const selectedItemsEl = 'data-dimension-transfer-pickedoptions'
 const dataTypesSelectButtonEl = 'data-dimension-data-types-select-field-content'
-const selectedItemEl = 'data-dimension-transfer-pickedoptions'
+const groupSelectButtonEl = 'data-dimension-groups-select-field-content'
 const dataElementsOptionEl =
     'data-dimension-data-types-select-field-option-DATA_ELEMENT'
+const addAllButtonEl = 'data-dimension-transfer-actions-addall'
 const removeAllButtonEl = 'data-dimension-transfer-actions-removeall'
-//const addAllButtonEl = 'data-dimension-item-selector-unselected-items-select-all-button'
 const tabbarEl = 'dialog-manager-modal-tabs'
 const rightHeaderEl = 'data-dimension-transfer-rightheader'
 
 export const expectDataDimensionModalToBeVisible = () =>
     expectDimensionModalToBeVisible(DIMENSION_ID_DATA)
 
-export const removeAllDataItems = () => cy.getBySel(removeAllButtonEl).click()
-
 export const expectNoDataItemsToBeSelected = () =>
-    cy.getBySel(selectedItemEl).should('not.exist')
+    cy.getBySel(selectedItemsEl).should('contain', 'No items selected')
 
-export const expectDataItemsAmountToBeSelected = amount =>
-    cy.getBySel(selectedItemEl).should('be.visible').and('have.length', amount)
+export const expectDataItemsSelectedAmountToBeLeast = amount =>
+    cy
+        .getBySel(selectedItemsEl)
+        .findBySel(optionEl)
+        .should('have.length.least', amount)
+
+export const expectDataItemsSelectableAmountToBeLeast = amount =>
+    cy
+        .getBySel(selectableItemsEl)
+        .findBySel(optionEl)
+        .should('have.length.least', amount)
 
 export const expectDataDimensionModalWarningToContain = text =>
     cy.getBySel(rightHeaderEl).should('contain', text)
@@ -38,15 +47,34 @@ export const selectDataElements = dataElements => {
     dataElements.forEach(item => clickUnselectedItem(item))
 }
 
+export const expectDataItemToBeSelected = dataItem =>
+    cy.getBySel(selectedItemsEl).should('contain', dataItem)
+
+export const expectDataItemToBeSelectable = dataItem =>
+    cy.getBySel(selectableItemsEl).should('contain', dataItem)
+
+export const selectAllDataItems = () => cy.getBySel(addAllButtonEl).click()
+
+export const unselectAllDataItems = () => cy.getBySel(removeAllButtonEl).click()
+
 export const selectIndicators = indicators =>
     indicators.forEach(item => clickUnselectedItem(item))
 
 export const switchDataTab = tabName =>
     cy.getBySel(tabbarEl).contains(tabName).click()
 
-const clickUnselectedItem = item =>
+export const clickUnselectedItem = item =>
     //FIXME: Wait for the loading spinner to disappear before trying to click an item
-    cy.getBySel(unselectedListEl).contains(item).dblclick()
+    cy.getBySel(selectableItemsEl).contains(item).dblclick()
+
+export const clickSelectedItem = item =>
+    cy.getBySel(selectedItemsEl).contains(item).dblclick()
+
+export const expectDataTypeToBe = type =>
+    cy.getBySel(dataTypesSelectButtonEl).should('contain', type)
+
+export const expectGroupSelectToNotBeVisible = () =>
+    cy.getBySel(groupSelectButtonEl).should('not.exist')
 
 const switchToDataType = dataType => {
     cy.getBySel(dataTypesSelectButtonEl).click()
@@ -56,7 +84,7 @@ const switchToDataType = dataType => {
 /* TODO: Find a way to use random items
     export const replaceDataItemsWithRandomDataElements = amount => {
         expectDataDimensionModalToBeVisible()
-        removeAllDataItems()
+        unselectAllDataItems()
         selectRandomDataElements(amount)
         expectDataItemsAmountToBeSelected(amount)
     }
@@ -68,10 +96,10 @@ const switchToDataType = dataType => {
 
     const selectRandomItems = amount => {
         for (let i = 0; i < amount; i++) {
-            cy.getBySel(unselectedItemEl)
+            cy.getBySel(selectableItemsEl)
                 .its('length')
                 .then(size => {
-                    cy.getBySel(unselectedListEl)
+                    cy.getBySel(selectableItemsEl)
                         .children()
                         .eq(generateRandomNumber(0, size - 1))
                         .dblclick()

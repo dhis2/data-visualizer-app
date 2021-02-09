@@ -1,6 +1,7 @@
 const dimensionModalEl = 'dialog-manager'
 const dimensionModalUpdateButtonEl = 'dialog-manager-modal-action-confirm'
 const dimensionModalHideButtonEl = 'dialog-manager-modal-action-cancel'
+const dimensionModalTitleEl = 'dialog-manager-modal-title'
 
 export const expectDimensionModalToBeVisible = dimensionId =>
     cy.getBySel(`${dimensionModalEl}-${dimensionId}`).should('be.visible')
@@ -14,9 +15,11 @@ export const clickDimensionModalUpdateButton = () =>
 export const clickDimensionModalHideButton = () =>
     cy.getBySel(dimensionModalHideButtonEl).click()
 
+export const expectDimensionModalToContain = text =>
+    cy.getBySel(dimensionModalTitleEl).should('contain', text)
+
 export {
     selectDataElements,
-    removeAllDataItems,
     selectIndicators,
     switchDataTab,
     expectDataDimensionModalWarningToContain,

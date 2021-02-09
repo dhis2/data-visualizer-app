@@ -62,9 +62,9 @@ export const TEST_AOS = [
 ]
 
 export const TEST_DATA_ELEMENTS = [
-    { id: 'dGdeotKpRed', name: 'ART enrollment stage 2' },
-    { id: 'soACnRV9gOI', name: 'ART entry point: No transfer out' },
-    { id: 'QrhlrvV6Xs8', name: 'ART new clients started on ARV' },
+    { id: 'RUv0hqER0zV', name: 'All other follow-ups' },
+    { id: 'A2VfEfPflHV', name: 'All other new' },
+    { id: 'laZLQdnucV1', name: 'All other referrals' },
     { id: 'HLPuaFB7Frw', name: 'Anaemia new' },
     { id: 's46m5MS0hxu', name: 'BCG doses given' },
 ]
