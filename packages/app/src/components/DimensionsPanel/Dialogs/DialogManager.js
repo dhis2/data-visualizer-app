@@ -164,7 +164,9 @@ export class DialogManager extends Component {
             .map(id => ({
                 id,
                 name: this.props.metadata[id].name,
-                type: this.props.metadata[id].type,
+                type:
+                    this.props.metadata[id].type ||
+                    this.props.metadata[id].dimensionItemType,
             }))
     }
 
