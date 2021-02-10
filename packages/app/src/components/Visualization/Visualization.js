@@ -42,7 +42,7 @@ export class Visualization extends Component {
     onError = response => {
         let error
         if (response) {
-            switch (response.errorCode) {
+            switch (response.details?.errorCode) {
                 case 'E7114':
                     error = new AssignedCategoriesDataElementsError()
                     break

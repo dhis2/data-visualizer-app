@@ -21,7 +21,7 @@ import { TEST_DATA_ELEMENTS } from '../utils/data'
 import {
     //openRandomAOCreatedByOthers,
     saveNewAO,
-    closeFileMenu,
+    closeFileMenuWithClick,
     saveAOAs,
     saveExistingAO,
     openAOByName,
@@ -30,7 +30,7 @@ import {
     expectFileMenuButtonToBeDisabled,
     FILE_MENU_BUTTON_NEW,
     FILE_MENU_BUTTON_OPEN,
-    FILE_MENU_BUTTON_SAVE,
+    FILE_MENU_BUTTON_SAVE_EXISTING,
     FILE_MENU_BUTTON_SAVEAS,
     FILE_MENU_BUTTON_DELETE,
     FILE_MENU_BUTTON_RENAME,
@@ -84,7 +84,7 @@ describe('saving an AO', () => {
         it('checks that Save as is disabled', () => {
             clickMenuBarFileButton()
             expectFileMenuButtonToBeDisabled(FILE_MENU_BUTTON_SAVEAS)
-            closeFileMenu()
+            closeFileMenuWithClick()
         })
         it('saves new AO using "Save"', () => {
             saveNewAO(TEST_VIS_NAME, TEST_VIS_DESCRIPTION)
@@ -99,7 +99,7 @@ describe('saving an AO', () => {
             const enabledButtons = [
                 FILE_MENU_BUTTON_NEW,
                 FILE_MENU_BUTTON_OPEN,
-                FILE_MENU_BUTTON_SAVE,
+                FILE_MENU_BUTTON_SAVE_EXISTING,
                 FILE_MENU_BUTTON_SAVEAS,
                 FILE_MENU_BUTTON_RENAME,
                 FILE_MENU_BUTTON_TRANSLATE,
@@ -110,7 +110,7 @@ describe('saving an AO', () => {
             enabledButtons.forEach(button =>
                 expectFileMenuButtonToBeEnabled(button)
             )
-            closeFileMenu()
+            closeFileMenuWithClick()
         })
         it(`replaces the selected period`, () => {
             replacePeriodItems(TEST_VIS_TYPE)
@@ -166,7 +166,7 @@ describe('saving an AO', () => {
             expectFileMenuButtonToBeDisabled(FILE_MENU_BUTTON_SAVEAS)
             // TODO: This is not always true, as different AOs can have different sharing settings.
             // @edoardo will add additional tests here later
-            closeFileMenu()
+            closeFileMenuWithClick()
         })
     })
     */

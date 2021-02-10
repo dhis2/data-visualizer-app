@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-01-13T08:13:16.512Z\n"
+"POT-Creation-Date: 2021-02-02T10:49:34.913Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2020\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
@@ -484,12 +484,10 @@ msgid "Loading legends"
 msgstr "Tải các chú giải"
 
 msgid ""
-"You can set a minimum or maximum value. This will apply to the entire table,"
-" all values outside of the minimum/maximum range will not be displayed"
+"You can set a minimum or maximum value. This will apply to the entire "
+"visualization, all values outside of the minimum/maximum range will not be "
+"displayed"
 msgstr ""
-"Bạn có thể đặt giá trị tối thiểu hoặc tối đa. Thiết lập này sẽ áp dụng cho "
-"toàn bộ bảng, tất cả các giá trị ngoài phạm vi tối thiểu/ tối đa sẽ không "
-"được hiển thị."
 
 msgid "Minimum data value"
 msgstr "Giá trị dữ liệu tối thiểu"
@@ -890,17 +888,16 @@ msgstr "Đơn vị cháu của người dùng"
 msgid "Table title"
 msgstr "Tiêu đề bảng"
 
-msgid "Limit values"
-msgstr "Giá trị giới hạn"
-
-msgid "Limit number of values"
-msgstr "Giới hạn số lượng giá trị"
-
-msgid "Limit minimum/maximum values"
-msgstr "Giới hạn giá trị nhỏ nhất/lớn nhất"
-
 msgid "Parameters"
 msgstr "Tham số"
+
+msgid ""
+"These options only apply to legacy tables like standard reports. Options set"
+" here will have no effect on tables made in Data Visualizer."
+msgstr ""
+
+msgid "Applies to standard reports only"
+msgstr ""
 
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
@@ -952,6 +949,15 @@ msgstr "Trục"
 
 msgid "Data"
 msgstr "Lấy dữ liệu"
+
+msgid "Limit values"
+msgstr "Giá trị giới hạn"
+
+msgid "Limit number of values"
+msgstr "Giới hạn số lượng giá trị"
+
+msgid "Limit minimum/maximum values"
+msgstr "Giới hạn giá trị nhỏ nhất/lớn nhất"
 
 msgid "Outliers"
 msgstr ""

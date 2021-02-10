@@ -9,11 +9,12 @@ import {
 
 import { expectVisualizationToNotBeVisible } from '../elements/chart'
 import {
-    closeFileMenu,
+    closeFileMenuWithEsc,
+    closeFileMenuWithClick,
     expectFileMenuButtonToBeDisabled,
     FILE_MENU_BUTTON_NEW,
     FILE_MENU_BUTTON_OPEN,
-    FILE_MENU_BUTTON_SAVE,
+    FILE_MENU_BUTTON_SAVE_NEW,
     FILE_MENU_BUTTON_SAVEAS,
     FILE_MENU_BUTTON_GETLINK,
     FILE_MENU_BUTTON_SHARE,
@@ -73,19 +74,19 @@ describe('viewing the start screen', () => {
     it('orgunit dimension has 1 item', () => {
         expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 1)
     })
-    it('primary File menu buttons are enabled', () => {
+    it('primary File menu buttons are enabled and menu is closed with click', () => {
         clickMenuBarFileButton()
         const enabledButtons = [
             FILE_MENU_BUTTON_NEW,
             FILE_MENU_BUTTON_OPEN,
-            FILE_MENU_BUTTON_SAVE,
+            FILE_MENU_BUTTON_SAVE_NEW,
         ]
         enabledButtons.forEach(button =>
             expectFileMenuButtonToBeEnabled(button)
         )
-        closeFileMenu()
+        closeFileMenuWithClick()
     })
-    it('secondary File menu buttons are disabled', () => {
+    it('secondary File menu buttons are disabled and menu is closed with click', () => {
         clickMenuBarFileButton()
         const disabledButtons = [
             FILE_MENU_BUTTON_SAVEAS,
@@ -98,6 +99,10 @@ describe('viewing the start screen', () => {
         disabledButtons.forEach(button =>
             expectFileMenuButtonToBeDisabled(button)
         )
-        closeFileMenu()
+        closeFileMenuWithClick()
+    })
+    it('Fle menu is closed with Escape', () => {
+        clickMenuBarFileButton()
+        closeFileMenuWithEsc()
     })
 })
