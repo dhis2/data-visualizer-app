@@ -1,3 +1,10 @@
+## [35.18.6](https://github.com/dhis2/data-visualizer-app/compare/v35.18.5...v35.18.6) (2021-02-10)
+
+
+### Bug Fixes
+
+* get the errorCode for the analytics response in the right place ([#1603](https://github.com/dhis2/data-visualizer-app/issues/1603)) ([4a8a422](https://github.com/dhis2/data-visualizer-app/commit/4a8a422c217aeae0d9b361f1b19ba90e833a4b20))
+
 ## [35.18.5](https://github.com/dhis2/data-visualizer-app/compare/v35.18.4...v35.18.5) (2021-02-09)
 
 
