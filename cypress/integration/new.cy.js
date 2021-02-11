@@ -43,7 +43,7 @@ describe('creating a new AO', () => {
     it('navigates to the start page', () => {
         goToStartPage()
     })
-    Object.keys({ [VIS_TYPE_SCATTER]: true }).forEach(visType => {
+    Object.keys(visTypeDisplayNames).forEach(visType => {
         const visTypeName = visTypeDisplayNames[visType]
         describe(visTypeName, () => {
             it('creates a new AO', () => {
