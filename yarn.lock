@@ -1499,10 +1499,10 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^14.1.6":
-  version "14.1.6"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-14.1.6.tgz#026b1b3e63169fdedb023d8b55c20df9a856a310"
-  integrity sha512-Oz96F6zvKtdWcX+nyEAgkjrEvnTJD0jB7YHzOwP25/1Lpy//l2J4ftY1HmUnBpmm2h+6O8iXfILNI6fukZ8oMg==
+"@dhis2/analytics@^14.1.8":
+  version "14.1.8"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-14.1.8.tgz#95f7ca48c1e77ea94c7da08cc289eedc5dc387f2"
+  integrity sha512-N0ItcJrkF7PjozDSa2bQqMoYmNS4hrwEIlv6YvdjsjigT4YVXxVazcGRZP7PFFWy+ME+Qf2AphXzjK6VBqZmyA==
   dependencies:
     "@dhis2/app-runtime" "^2.6.1"
     "@dhis2/d2-ui-favorites-dialog" "^7.1.3"
