@@ -3,10 +3,13 @@ import { DIMENSION_ID_DATA } from '@dhis2/analytics'
 import { expectDimensionModalToBeVisible } from '.'
 
 const optionEl = 'data-dimension-transfer-option'
+const optionContentEl = 'data-dimension-transfer-option-content'
 const selectableItemsEl = 'data-dimension-transfer-sourceoptions'
 const selectedItemsEl = 'data-dimension-transfer-pickedoptions'
 const dataTypesSelectButtonEl = 'data-dimension-data-types-select-field-content'
 const groupSelectButtonEl = 'data-dimension-groups-select-field-content'
+const indicatorsOptionEl =
+    'data-dimension-data-types-select-field-option-INDICATOR'
 const dataElementsOptionEl =
     'data-dimension-data-types-select-field-option-DATA_ELEMENT'
 const addAllButtonEl = 'data-dimension-transfer-actions-addall'
@@ -38,8 +41,7 @@ export const expectDataDimensionModalWarningToContain = text =>
 export const expectDataItemToBeInactive = id =>
     cy
         .get(`[data-value="${id}"]`)
-        .children()
-        .first()
+        .findBySel(optionContentEl)
         .should('have.class', 'inactive')
 
 export const selectDataElements = dataElements => {
@@ -57,8 +59,10 @@ export const selectAllDataItems = () => cy.getBySel(addAllButtonEl).click()
 
 export const unselectAllDataItems = () => cy.getBySel(removeAllButtonEl).click()
 
-export const selectIndicators = indicators =>
+export const selectIndicators = indicators => {
+    switchToDataType(indicatorsOptionEl)
     indicators.forEach(item => clickUnselectedItem(item))
+}
 
 export const switchDataTab = tabName =>
     cy.getBySel(tabbarEl).contains(tabName).click()
