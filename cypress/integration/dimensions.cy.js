@@ -30,6 +30,12 @@ import {
     scrollSourceToBottom,
     unselectItemByButton,
     selectItemByButton,
+    expectDisaggregationSelectToBeVisible,
+    expectDisaggregationSelectToBe,
+    switchDisaggregationTo,
+    expectMetricSelectToBeVisible,
+    expectMetricSelectToBe,
+    switchMetricTo,
 } from '../elements/dimensionModal'
 import { openDimension } from '../elements/dimensionsPanel'
 import { goToStartPage } from '../elements/startScreen'
@@ -163,8 +169,10 @@ describe('Data dimension', () => {
         {
             name: 'Data elements',
             testGroup: { name: 'Measles', itemAmount: 3 },
+            testSubGroup: { name: 'Details only', itemAmount: '10' },
             testItem: { name: TEST_DATA_ELEMENTS[2].name },
             defaultGroup: { name: 'All groups' },
+            defaultSubGroup: { name: 'Totals only' },
             endpoint: {
                 hasMultiplePages: true,
                 requestUrl: '/dataElements',
@@ -174,8 +182,10 @@ describe('Data dimension', () => {
         {
             name: 'Data sets',
             testGroup: { name: 'Child Health', itemAmount: 5 },
+            testSubGroup: { name: 'Actual reports', itemAmount: 1 },
             testItem: { name: TEST_DATA_SETS[2].name },
             defaultGroup: { name: 'All data sets' },
+            defaultSubGroup: { name: 'All metrics' },
             endpoint: {
                 hasMultiplePages: false,
                 requestUrl: '/dataSets',
@@ -263,7 +273,61 @@ describe('Data dimension', () => {
                     testDataType.testGroup.itemAmount - 1
                 )
             })
-            // TODO: Add details and metric for Data elements and Datasets
+            if (testDataType.name === 'Data elements') {
+                // FIXME: Refactor to use the same fn for both disaggregation and metrics
+                // Use subGroupSelectButtonEl instead of detailSelectButtonEl and metricSelectButtonEl
+                it('disaggregation select is visible', () => {
+                    expectDisaggregationSelectToBeVisible()
+                    expectDisaggregationSelectToBe(
+                        testDataType.defaultSubGroup.name
+                    )
+                })
+                it(`disaggregation can be changed to "${testDataType.testSubGroup.name}"`, () => {
+                    switchDisaggregationTo(testDataType.testSubGroup.name)
+                    expectDisaggregationSelectToBe(
+                        testDataType.testSubGroup.name
+                    )
+                    expectDataItemsSelectableAmountToBe(
+                        testDataType.testSubGroup.itemAmount
+                    )
+                    expectDataItemToBeSelected(testDataType.testItem.name)
+                })
+                it(`disaggregation can be changed back to "${testDataType.defaultSubGroup.name}"`, () => {
+                    switchDisaggregationTo(testDataType.defaultSubGroup.name)
+                    expectDisaggregationSelectToBe(
+                        testDataType.defaultSubGroup.name
+                    )
+                    // FIXME: Backend bug! https://jira.dhis2.org/browse/DHIS2-10480
+                    cy.log(
+                        '--- BACKEND BUG --- The following steps fail because the pager of /dataElementOperands is incorrect'
+                    )
+                    expectDataItemsSelectableAmountToBe(
+                        testDataType.testGroup.itemAmount - 1
+                    )
+                    expectDataItemToBeSelected(testDataType.testItem.name)
+                })
+            } else if (testDataType.name === 'Data sets') {
+                it('metric select is visible', () => {
+                    expectMetricSelectToBeVisible()
+                    expectMetricSelectToBe(testDataType.defaultSubGroup.name)
+                })
+                it(`metric can be changed to "${testDataType.testSubGroup.name}"`, () => {
+                    switchMetricTo(testDataType.testSubGroup.name)
+                    expectMetricSelectToBe(testDataType.testSubGroup.name)
+                    expectDataItemsSelectableAmountToBe(
+                        testDataType.testSubGroup.itemAmount
+                    )
+                    expectDataItemToBeSelected(testDataType.testItem.name)
+                })
+                it(`metric can be changed back to "${testDataType.defaultSubGroup.name}"`, () => {
+                    switchMetricTo(testDataType.defaultSubGroup.name)
+                    expectMetricSelectToBe(testDataType.defaultSubGroup.name)
+                    expectDataItemsSelectableAmountToBe(
+                        testDataType.testGroup.itemAmount - 1
+                    )
+                    expectDataItemToBeSelected(testDataType.testItem.name)
+                })
+            }
             it('search displays a correct error message', () => {
                 const testSearchTermWithNoMatch = 'nomatch'
                 inputSearchTerm(testSearchTermWithNoMatch)

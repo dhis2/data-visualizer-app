@@ -14,8 +14,14 @@ const groupSelectButtonEl =
     'data-dimension-left-header-groups-select-field-content'
 const groupSelectOptionEl =
     'data-dimension-left-header-groups-select-field-option'
-//const metricSelectButtonEl = 'data-dimension-left-header-metric-select-field-content'
-//const detailSelectButonEl = 'data-dimension-left-header-detail-select-field-content'
+const detailSelectButtonEl =
+    'data-dimension-left-header-detail-select-field-content'
+const detailSelectOptionEl =
+    'data-dimension-left-header-detail-select-field-option'
+const metricSelectButtonEl =
+    'data-dimension-left-header-metric-select-field-content'
+const metricSelectOptionEl =
+    'data-dimension-left-header-metric-select-field-option'
 const addAllButtonEl = 'data-dimension-transfer-actions-addall'
 const removeAllButtonEl = 'data-dimension-transfer-actions-removeall'
 const addOneButtonEl = 'data-dimension-transfer-actions-addindividual'
@@ -142,6 +148,30 @@ export const switchGroupTo = group => {
 export const switchGroupToAll = () => {
     cy.getBySel(groupSelectButtonEl).click()
     cy.getBySelLike(groupSelectOptionEl).eq(0).click()
+    expectSourceToNotBeLoading()
+}
+
+export const expectDisaggregationSelectToBeVisible = () =>
+    cy.getBySel(detailSelectButtonEl).should('exist')
+
+export const expectDisaggregationSelectToBe = group =>
+    cy.getBySel(detailSelectButtonEl).should('contain', group)
+
+export const switchDisaggregationTo = group => {
+    cy.getBySel(detailSelectButtonEl).click()
+    cy.getBySelLike(detailSelectOptionEl).contains(group).click()
+    expectSourceToNotBeLoading()
+}
+
+export const expectMetricSelectToBeVisible = () =>
+    cy.getBySel(metricSelectButtonEl).should('exist')
+
+export const expectMetricSelectToBe = group =>
+    cy.getBySel(metricSelectButtonEl).should('contain', group)
+
+export const switchMetricTo = group => {
+    cy.getBySel(metricSelectButtonEl).click()
+    cy.getBySelLike(metricSelectOptionEl).contains(group).click()
     expectSourceToNotBeLoading()
 }
 

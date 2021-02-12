@@ -51,6 +51,12 @@ export {
     scrollSourceToBottom,
     unselectItemByButton,
     selectItemByButton,
+    expectDisaggregationSelectToBeVisible,
+    expectDisaggregationSelectToBe,
+    switchDisaggregationTo,
+    expectMetricSelectToBeVisible,
+    expectMetricSelectToBe,
+    switchMetricTo,
 } from './dataDimension'
 
 export { selectRelativePeriods, selectFixedPeriods } from './periodDimension'
