@@ -1,9 +1,10 @@
 import { DIMENSION_ID_DATA } from '@dhis2/analytics'
-import { expectDimensionModalToContain } from '../elements/dimensionModal'
-
 import {
-    clickUnselectedItem,
-    clickSelectedItem,
+    clickDimensionModalHideButton,
+    expectDimensionModalToContain,
+    expectDimensionModalToNotBeVisible,
+    unselectItemByDoubleClick,
+    selectItemByDoubleClick,
     expectDataDimensionModalToBeVisible,
     expectDataItemToBeSelected,
     expectDataTypeToBe,
@@ -12,26 +13,33 @@ import {
     selectAllDataItems,
     unselectAllDataItems,
     expectDataItemsSelectedAmountToBeLeast,
+    expectDataItemsSelectedAmountToBe,
     expectDataItemToBeSelectable,
+    expectDataItemsSelectableAmountToBe,
+    inputSearchTerm,
+    switchDataTypeTo,
+    clearSearchTerm,
     expectDataItemsSelectableAmountToBeLeast,
-} from '../elements/dimensionModal/dataDimension' // TODO: Export in index.js an import from there instead of directly from dataDimension
+    expectGroupSelectToBeVisible,
+    switchGroupTo,
+    selectFirstDataItem,
+    expectGroupSelectToBe,
+    expectEmptySourceMessageToBe,
+    switchGroupToAll,
+    switchDataTypeToAll,
+    scrollSourceToBottom,
+    unselectItemByButton,
+    selectItemByButton,
+} from '../elements/dimensionModal'
 import { openDimension } from '../elements/dimensionsPanel'
 import { goToStartPage } from '../elements/startScreen'
-import { TEST_INDICATORS } from '../utils/data'
+import {
+    TEST_DATA_ELEMENTS,
+    TEST_DATA_SETS,
+    TEST_INDICATORS,
+} from '../utils/data'
 
-// Data:
-// Data type
-// Indicator groups
-// Data element groups
-// Data element detail
-// Data sets
-// Event data items programs
-// Program indicator programs
-// Search
-// Select all button
-// Deselect all button
-// Select one button
-// Deselect one button
+const PAGE_SIZE = 50
 
 describe('Data dimension', () => {
     describe('initial state', () => {
@@ -43,8 +51,8 @@ describe('Data dimension', () => {
             openDimension(DIMENSION_ID_DATA)
             cy.wait('@dataItems').then(({ request, response }) => {
                 expect(request.url).to.contain('page=1')
-                expect(response.statusCode).to.eq(302) // FIXME: Backend bug, should be 200
-                expect(response.body.dataItems.length).to.eq(50)
+                expect(response.statusCode).to.eq(200)
+                expect(response.body.dataItems.length).to.eq(PAGE_SIZE)
             })
             expectDataDimensionModalToBeVisible()
         })
@@ -61,12 +69,20 @@ describe('Data dimension', () => {
             expectGroupSelectToNotBeVisible()
         })
         const firstPageItemName = TEST_INDICATORS[0].name
-        it('an item can be selected', () => {
-            clickUnselectedItem(firstPageItemName)
+        it('an item can be selected by double click', () => {
+            selectItemByDoubleClick(firstPageItemName)
             expectDataItemToBeSelected(firstPageItemName)
         })
-        it('an item can be unselected', () => {
-            clickSelectedItem(firstPageItemName)
+        it('an item can be unselected by double click', () => {
+            unselectItemByDoubleClick(firstPageItemName)
+            expectNoDataItemsToBeSelected()
+        })
+        it('an item can be selected by button', () => {
+            selectItemByButton(firstPageItemName)
+            expectDataItemToBeSelected(firstPageItemName)
+        })
+        it('an item can be unselected by button', () => {
+            unselectItemByButton(firstPageItemName)
             expectNoDataItemsToBeSelected()
         })
     })
@@ -75,62 +91,202 @@ describe('Data dimension', () => {
         it('all items can be selected', () => {
             cy.intercept('GET', '/dataItems').as('dataItems')
             selectAllDataItems()
-            expectDataItemsSelectedAmountToBeLeast(50)
+            expectDataItemsSelectedAmountToBeLeast(PAGE_SIZE)
             cy.wait('@dataItems').then(({ request, response }) => {
                 expect(request.url).to.contain('page=2')
-                expect(response.statusCode).to.eq(302) // FIXME: Backend bug, should be 200
-                expect(response.body.dataItems.length).to.eq(50)
+                expect(response.statusCode).to.eq(200)
+                expect(response.body.dataItems.length).to.eq(PAGE_SIZE)
             })
         })
         it('more items are fetched', () => {
-            // TODO: expect /dataItems to have been called
-            expectDataItemsSelectableAmountToBeLeast(47) // FIXME: Backend bug, should be 50
-            // FIXME: /dataItems returns 3 items from page 1 on page 2, so only 47 new items are added
+            expectDataItemsSelectableAmountToBeLeast(PAGE_SIZE)
             expectDataItemToBeSelectable(secondPageItemName)
         })
         it('all items can be unselected', () => {
             unselectAllDataItems()
             expectNoDataItemsToBeSelected()
         })
+        it('more items are fetched when scrolling down', () => {
+            cy.intercept('GET', '/dataItems').as('request')
+            scrollSourceToBottom()
+            cy.wait('@request').then(({ request, response }) => {
+                expect(request.url).to.contain('page=3')
+                expect(response.statusCode).to.eq(200)
+                expect(response.body.dataItems.length).to.eq(PAGE_SIZE)
+            })
+            expectDataItemsSelectableAmountToBeLeast(PAGE_SIZE * 3)
+        })
     })
-    describe('selecting Data elements', () => {
-        it('', () => {})
+    describe('global search', () => {
+        const testSearchTerm = 'Dispenser' // Use a data element for the third step to work
+        it('recieves a search term', () => inputSearchTerm(testSearchTerm))
+        it('search result is displayed', () => {
+            expectDataItemsSelectableAmountToBe(1)
+            expectDataItemToBeSelectable(testSearchTerm)
+        })
+        it('search result is maintained when switching data type', () => {
+            switchDataTypeTo('Data elements')
+            expectDataItemsSelectableAmountToBe(1)
+            expectDataItemToBeSelectable(testSearchTerm)
+            clearSearchTerm()
+            switchDataTypeToAll()
+            expectDataItemsSelectableAmountToBeLeast(PAGE_SIZE)
+        })
+        it('search displays a correct error message', () => {
+            const testSearchTermWithNoMatch = 'nomatch'
+            inputSearchTerm(testSearchTermWithNoMatch)
+            expectEmptySourceMessageToBe(
+                `Nothing found for "${testSearchTermWithNoMatch}"`
+            )
+        })
+        it('search result can be cleared', () => {
+            clearSearchTerm()
+            expectDataItemsSelectableAmountToBeLeast(PAGE_SIZE)
+        })
+        it('modal is closed', () => {
+            clickDimensionModalHideButton()
+            expectDimensionModalToNotBeVisible()
+        })
     })
-
-    it('', () => {})
-    it('', () => {})
-    it('', () => {})
-    it('', () => {})
-    //it('', () => {})
+    const testDataTypes = [
+        {
+            name: 'Indicators',
+            testGroup: { name: 'Facility infrastructure', itemAmount: 3 },
+            testItem: { name: TEST_INDICATORS[2].name },
+            defaultGroup: { name: 'All groups' },
+            endpoint: {
+                hasMultiplePages: true,
+                requestUrl: '/indicators',
+                responseBody: 'indicators',
+            },
+        },
+        {
+            name: 'Data elements',
+            testGroup: { name: 'Measles', itemAmount: 3 },
+            testItem: { name: TEST_DATA_ELEMENTS[2].name },
+            defaultGroup: { name: 'All groups' },
+            endpoint: {
+                hasMultiplePages: true,
+                requestUrl: '/dataElements',
+                responseBody: 'dataElements',
+            },
+        },
+        {
+            name: 'Data sets',
+            testGroup: { name: 'Child Health', itemAmount: 5 },
+            testItem: { name: TEST_DATA_SETS[2].name },
+            defaultGroup: { name: 'All data sets' },
+            endpoint: {
+                hasMultiplePages: false,
+                requestUrl: '/dataSets',
+                responseBody: 'dataSets',
+            },
+        },
+        {
+            name: 'Event data items',
+            testGroup: { name: 'Information Campaign', itemAmount: 6 },
+            testItem: { name: 'Child Programme MCH OPV dose' },
+            defaultGroup: { name: 'All programs' },
+            endpoint: {
+                hasMultiplePages: true,
+                requestUrl: '/dataItems',
+                responseBody: 'dataItems',
+            },
+        },
+        {
+            name: 'Program indicators',
+            testGroup: { name: 'Malaria focus investigation', itemAmount: 3 },
+            testItem: { name: 'BMI male' },
+            defaultGroup: { name: 'All programs' },
+            endpoint: {
+                hasMultiplePages: true,
+                requestUrl: '/dataItems',
+                responseBody: 'dataItems',
+            },
+        },
+    ]
+    testDataTypes.forEach(testDataType => {
+        describe(`${testDataType.name}`, () => {
+            it('opens the data dimension modal', () => {
+                openDimension(DIMENSION_ID_DATA)
+                expectDataDimensionModalToBeVisible()
+            })
+            it(`switches to ${testDataType.name}`, () => {
+                switchDataTypeTo(testDataType.name)
+                expectDataItemsSelectableAmountToBeLeast(PAGE_SIZE)
+            })
+            it('group select is visible', () => {
+                expectGroupSelectToBeVisible()
+                expectGroupSelectToBe(testDataType.defaultGroup.name)
+            })
+            if (testDataType.endpoint.hasMultiplePages) {
+                it('more items are fetched when scrolling down', () => {
+                    cy.intercept('GET', testDataType.endpoint.requestUrl).as(
+                        'request'
+                    )
+                    scrollSourceToBottom()
+                    cy.wait('@request').then(({ request, response }) => {
+                        expect(request.url).to.contain('page=2')
+                        expect(response.statusCode).to.eq(200)
+                        expect(
+                            response.body[testDataType.endpoint.responseBody]
+                                .length
+                        ).to.be.least(1)
+                    })
+                    expectDataItemsSelectableAmountToBeLeast(PAGE_SIZE + 1)
+                })
+            }
+            it('an item can be selected', () => {
+                selectItemByDoubleClick(testDataType.testItem.name)
+                expectDataItemToBeSelected(testDataType.testItem.name)
+            })
+            if (testDataType.name === 'Event data items') {
+                // FIXME: Backend bug! @Maikel will fix this
+                it(`--- BACKEND BUG ---`, () => {
+                    cy.log(
+                        'The following steps fail because qDkgAbB5Jlk.Z1rLc1rVHK8 is returned on both page 1 and 2'
+                    )
+                })
+            }
+            it(`group can be changed to "${testDataType.testGroup.name}"`, () => {
+                switchGroupTo(testDataType.testGroup.name)
+                expectGroupSelectToBe(testDataType.testGroup.name)
+                expectDataItemsSelectableAmountToBe(
+                    testDataType.testGroup.itemAmount
+                )
+                expectDataItemToBeSelected(testDataType.testItem.name)
+            })
+            it('the first item can be selected', () => {
+                selectFirstDataItem()
+                expectDataItemsSelectedAmountToBe(2)
+                expectDataItemsSelectableAmountToBe(
+                    testDataType.testGroup.itemAmount - 1
+                )
+            })
+            // TODO: Add details and metric for Data elements and Datasets
+            it('search displays a correct error message', () => {
+                const testSearchTermWithNoMatch = 'nomatch'
+                inputSearchTerm(testSearchTermWithNoMatch)
+                expectEmptySourceMessageToBe(
+                    `No ${testDataType.name.toLowerCase()} found for "${testSearchTermWithNoMatch}"`
+                )
+            })
+            it('selection and filter can be reset', () => {
+                unselectAllDataItems()
+                expectNoDataItemsToBeSelected()
+                clearSearchTerm()
+                expectDataItemsSelectableAmountToBe(
+                    testDataType.testGroup.itemAmount
+                )
+                switchGroupToAll()
+                expectDataItemsSelectableAmountToBeLeast(PAGE_SIZE)
+                switchDataTypeToAll()
+                expectDataItemsSelectableAmountToBeLeast(PAGE_SIZE)
+            })
+            it('modal is closed', () => {
+                clickDimensionModalHideButton()
+                expectDimensionModalToNotBeVisible()
+            })
+        })
+    })
 })
-
-/*  TODO:
-    Check that each dimension can be opened and that all options can be accessed 
-    (especially dropdowns due to the reoccuring bug with duplicates of @dhis2/ui)
-   
-    Period:
-        Relative period type
-        Fixed period type
-        Fixed period year
-        Select all button
-        Deselect all button
-        Select one button
-        Deselect one button
-        Reorder buttons
-
-    Dynamic dimensions:
-        Search
-        Select all button
-        Deselect all button
-        Select one button
-        Deselect one button
-        Reorder buttons
-
-    Org unit:
-        User org unit / sub-units / sub-x2-units checkboxes
-        Checking items in the tree
-        Right click tree - "Select all org units below"
-        Deselect all button
-        Level
-        Group
-*/

@@ -24,6 +24,33 @@ export {
     switchDataTab,
     expectDataDimensionModalWarningToContain,
     expectDataItemToBeInactive,
+    unselectItemByDoubleClick,
+    selectItemByDoubleClick,
+    expectDataDimensionModalToBeVisible,
+    expectDataItemToBeSelected,
+    expectDataTypeToBe,
+    expectGroupSelectToNotBeVisible,
+    expectNoDataItemsToBeSelected,
+    selectAllDataItems,
+    unselectAllDataItems,
+    expectDataItemsSelectedAmountToBeLeast,
+    expectDataItemsSelectedAmountToBe,
+    expectDataItemToBeSelectable,
+    expectDataItemsSelectableAmountToBe,
+    inputSearchTerm,
+    switchDataTypeTo,
+    clearSearchTerm,
+    expectDataItemsSelectableAmountToBeLeast,
+    expectGroupSelectToBeVisible,
+    switchGroupTo,
+    selectFirstDataItem,
+    expectGroupSelectToBe,
+    expectEmptySourceMessageToBe,
+    switchGroupToAll,
+    switchDataTypeToAll,
+    scrollSourceToBottom,
+    unselectItemByButton,
+    selectItemByButton,
 } from './dataDimension'
 
 export { selectRelativePeriods, selectFixedPeriods } from './periodDimension'
@@ -32,3 +59,34 @@ export {
     expectOrgUnitDimensionModalToBeVisible,
     clickOrgUnitTreeItem,
 } from './orgUnitDimension'
+
+/*  TODO:
+    Check that each dimension can be opened and that all options can be accessed 
+    (especially dropdowns due to the reoccuring bug with duplicates of @dhis2/ui)
+   
+    Period:
+        Relative period type
+        Fixed period type
+        Fixed period year
+        Select all button
+        Deselect all button
+        Select one button
+        Deselect one button
+        Reorder buttons
+
+    Dynamic dimensions:
+        Search
+        Select all button
+        Deselect all button
+        Select one button
+        Deselect one button
+        Reorder buttons
+
+    Org unit:
+        User org unit / sub-units / sub-x2-units checkboxes
+        Checking items in the tree
+        Right click tree - "Select all org units below"
+        Deselect all button
+        Level
+        Group
+*/

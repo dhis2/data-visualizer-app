@@ -77,6 +77,26 @@ export const TEST_INDICATORS = [
     { id: 'AUqdhY4mpvp', name: 'ANC => 4 Coverage' },
 ]
 
+export const TEST_DATA_SETS = [
+    {
+        id: 'VTdjfLXXmoi.REPORTING_RATE',
+        name: 'Clinical Monitoring Checklist – Reporting rate',
+    },
+    {
+        id: 'TuL8IOPzpHh.EXPECTED_REPORTS',
+        name: 'EPI Stock – Expected reports',
+    },
+    {
+        id: 'V8MHeZHIrcP.REPORTING_RATE_ON_TIME',
+        name: 'Facility Assessment – Reporting rate on time',
+    },
+    {
+        id: 'VTdjfLXXmoi.ACTUAL_REPORTS',
+        name: 'Clinical Monitoring Checklist – Actual reports',
+    },
+    { id: 'rsyjyJmYD4J.REPORTING_RATE', name: 'Expenditures – Reporting rate' },
+]
+
 export const TEST_CUSTOM_DIMENSIONS = [
     {
         id: 'uIuxlbV1vRT',

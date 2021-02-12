@@ -6,16 +6,26 @@ const optionEl = 'data-dimension-transfer-option'
 const optionContentEl = 'data-dimension-transfer-option-content'
 const selectableItemsEl = 'data-dimension-transfer-sourceoptions'
 const selectedItemsEl = 'data-dimension-transfer-pickedoptions'
-const dataTypesSelectButtonEl = 'data-dimension-data-types-select-field-content'
-const groupSelectButtonEl = 'data-dimension-groups-select-field-content'
-const indicatorsOptionEl =
-    'data-dimension-data-types-select-field-option-INDICATOR'
-const dataElementsOptionEl =
-    'data-dimension-data-types-select-field-option-DATA_ELEMENT'
+const dataTypesSelectButtonEl =
+    'data-dimension-left-header-data-types-select-field-content'
+const dataTypeSelectOptionEl =
+    'data-dimension-left-header-data-types-select-field-option'
+const groupSelectButtonEl =
+    'data-dimension-left-header-groups-select-field-content'
+const groupSelectOptionEl =
+    'data-dimension-left-header-groups-select-field-option'
+//const metricSelectButtonEl = 'data-dimension-left-header-metric-select-field-content'
+//const detailSelectButonEl = 'data-dimension-left-header-detail-select-field-content'
 const addAllButtonEl = 'data-dimension-transfer-actions-addall'
 const removeAllButtonEl = 'data-dimension-transfer-actions-removeall'
+const addOneButtonEl = 'data-dimension-transfer-actions-addindividual'
+const removeOneButtonEl = 'data-dimension-transfer-actions-removeindividual'
 const tabbarEl = 'dialog-manager-modal-tabs'
 const rightHeaderEl = 'data-dimension-transfer-rightheader'
+const searchFieldEl = 'data-dimension-left-header-filter-input-field-content'
+const emptySourceEl = 'data-dimension-empty-source'
+const leftContainerEl = 'data-dimension-transfer-leftside'
+const loadingEl = 'dhis2-uicore-circularloader'
 
 export const expectDataDimensionModalToBeVisible = () =>
     expectDimensionModalToBeVisible(DIMENSION_ID_DATA)
@@ -35,6 +45,18 @@ export const expectDataItemsSelectableAmountToBeLeast = amount =>
         .findBySel(optionEl)
         .should('have.length.least', amount)
 
+export const expectDataItemsSelectableAmountToBe = amount =>
+    cy
+        .getBySel(selectableItemsEl)
+        .findBySel(optionEl)
+        .should('have.length', amount)
+
+export const expectDataItemsSelectedAmountToBe = amount =>
+    cy
+        .getBySel(selectedItemsEl)
+        .findBySel(optionEl)
+        .should('have.length', amount)
+
 export const expectDataDimensionModalWarningToContain = text =>
     cy.getBySel(rightHeaderEl).should('contain', text)
 
@@ -44,9 +66,14 @@ export const expectDataItemToBeInactive = id =>
         .findBySel(optionContentEl)
         .should('have.class', 'inactive')
 
+export const scrollSourceToBottom = () => {
+    cy.getBySel(selectableItemsEl).scrollTo('bottom')
+    expectSourceToNotBeLoading()
+}
+
 export const selectDataElements = dataElements => {
-    switchToDataType(dataElementsOptionEl)
-    dataElements.forEach(item => clickUnselectedItem(item))
+    switchDataTypeTo('Data elements')
+    dataElements.forEach(item => selectItemByDoubleClick(item))
 }
 
 export const expectDataItemToBeSelected = dataItem =>
@@ -55,24 +82,44 @@ export const expectDataItemToBeSelected = dataItem =>
 export const expectDataItemToBeSelectable = dataItem =>
     cy.getBySel(selectableItemsEl).should('contain', dataItem)
 
-export const selectAllDataItems = () => cy.getBySel(addAllButtonEl).click()
-
-export const unselectAllDataItems = () => cy.getBySel(removeAllButtonEl).click()
-
-export const selectIndicators = indicators => {
-    switchToDataType(indicatorsOptionEl)
-    indicators.forEach(item => clickUnselectedItem(item))
+export const selectAllDataItems = () => {
+    cy.getBySel(addAllButtonEl).click()
+    expectSourceToNotBeLoading()
 }
 
-export const switchDataTab = tabName =>
-    cy.getBySel(tabbarEl).contains(tabName).click()
+export const selectFirstDataItem = () =>
+    cy.getBySel(selectableItemsEl).findBySel(optionContentEl).eq(0).dblclick()
 
-export const clickUnselectedItem = item =>
-    //FIXME: Wait for the loading spinner to disappear before trying to click an item
+export const unselectAllDataItems = () => {
+    cy.getBySel(removeAllButtonEl).click()
+    expectSourceToNotBeLoading()
+}
+
+export const selectIndicators = indicators => {
+    switchDataTypeTo('Indicators')
+    indicators.forEach(item => selectItemByDoubleClick(item))
+}
+
+export const switchDataTab = tabName => {
+    cy.getBySel(tabbarEl).contains(tabName).click()
+    expectSourceToNotBeLoading()
+}
+
+export const unselectItemByDoubleClick = item =>
+    cy.getBySel(selectedItemsEl).contains(item).dblclick()
+
+export const selectItemByDoubleClick = item =>
     cy.getBySel(selectableItemsEl).contains(item).dblclick()
 
-export const clickSelectedItem = item =>
-    cy.getBySel(selectedItemsEl).contains(item).dblclick()
+export const unselectItemByButton = item => {
+    cy.getBySel(selectedItemsEl).contains(item).click()
+    cy.getBySel(removeOneButtonEl).click()
+}
+
+export const selectItemByButton = item => {
+    cy.getBySel(selectableItemsEl).contains(item).click()
+    cy.getBySel(addOneButtonEl).click()
+}
 
 export const expectDataTypeToBe = type =>
     cy.getBySel(dataTypesSelectButtonEl).should('contain', type)
@@ -80,10 +127,52 @@ export const expectDataTypeToBe = type =>
 export const expectGroupSelectToNotBeVisible = () =>
     cy.getBySel(groupSelectButtonEl).should('not.exist')
 
-const switchToDataType = dataType => {
-    cy.getBySel(dataTypesSelectButtonEl).click()
-    cy.getBySel(dataType).click()
+export const expectGroupSelectToBeVisible = () =>
+    cy.getBySel(groupSelectButtonEl).should('exist')
+
+export const expectGroupSelectToBe = group =>
+    cy.getBySel(groupSelectButtonEl).should('contain', group)
+
+export const switchGroupTo = group => {
+    cy.getBySel(groupSelectButtonEl).click()
+    cy.getBySelLike(groupSelectOptionEl).contains(group).click()
+    expectSourceToNotBeLoading()
 }
+
+export const switchGroupToAll = () => {
+    cy.getBySel(groupSelectButtonEl).click()
+    cy.getBySelLike(groupSelectOptionEl).eq(0).click()
+    expectSourceToNotBeLoading()
+}
+
+export const switchDataTypeTo = dataType => {
+    cy.getBySel(dataTypesSelectButtonEl).click()
+    cy.getBySelLike(dataTypeSelectOptionEl).contains(dataType).click()
+    expectSourceToNotBeLoading()
+}
+
+export const switchDataTypeToAll = () => {
+    cy.getBySel(dataTypesSelectButtonEl).click()
+    cy.getBySelLike(dataTypeSelectOptionEl).eq(0).click()
+    expectSourceToNotBeLoading()
+}
+
+export const inputSearchTerm = searchTerm => {
+    cy.getBySel(searchFieldEl).find('input').type(searchTerm)
+    expectSourceToNotBeLoading()
+}
+
+export const clearSearchTerm = () => {
+    cy.getBySel(searchFieldEl).find('input').clear()
+    expectSourceToNotBeLoading()
+}
+
+export const expectEmptySourceMessageToBe = message => {
+    cy.getBySel(emptySourceEl).should('contain', message)
+}
+
+const expectSourceToNotBeLoading = () =>
+    cy.getBySel(leftContainerEl).findBySel(loadingEl).should('not.exist')
 
 /* TODO: Find a way to use random items
     export const replaceDataItemsWithRandomDataElements = amount => {
@@ -94,7 +183,7 @@ const switchToDataType = dataType => {
     }
 
     const selectRandomDataElements = amount => {
-        switchToDataType(dataElementsOptionEl)
+        switchDataTypeTo("Data elements")
         selectRandomItems(amount)
     }
 
