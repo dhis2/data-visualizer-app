@@ -19,7 +19,7 @@ export const computeYoYMatrix = (responses, relativePeriodTypeUsed) => {
         periodGroups.forEach(periodGroup => {
             console.log('processing', periodGroup)
 
-            periodGroup.forEach((periodId, index) => {
+            periodGroup.forEach(periodId => {
                 const [year, week] = periodId.split('W')
 
                 console.log('period', year, week)
@@ -50,7 +50,7 @@ export const computeYoYMatrix = (responses, relativePeriodTypeUsed) => {
                     )
 
                     if (indexForW2 !== -1) {
-                        periodKeyAxisMatrix[indexForW2].push(periodId)
+                        periodKeyAxisIndexMatrix[indexForW2].push(periodId)
                     } else {
                         periodKeyAxisIndexMatrix.push([periodId])
                     }
