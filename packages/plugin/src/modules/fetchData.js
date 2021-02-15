@@ -56,7 +56,6 @@ export const fetchData = async ({
             },
             {}
         )
-        console.log('periodKeyAxisIndexMap', periodKeyAxisIndexMap)
 
         const xAxisLabels = relativePeriodTypeUsed
             ? computeGenericPeriodNamesFromMatrix(
