@@ -8,7 +8,7 @@ import {
 
 import { getRelativePeriodTypeUsed } from '../modules/analytics'
 
-const peId = DIMENSION_ID_PERIOD
+const periodId = DIMENSION_ID_PERIOD
 
 export const apiFetchAnalytics = async (dataEngine, visualization, options) => {
     const analyticsEngine = Analytics.getAnalytics(dataEngine)
@@ -53,10 +53,10 @@ export const apiFetchAnalyticsForYearOverYear = async (
     const currentDay = ('' + now.getDate()).padStart(2, 0)
     const currentMonth = ('' + (now.getMonth() + 1)).padStart(2, 0)
 
-    const peItems = layoutGetDimensionItems(visualization, peId)
+    const periodItems = layoutGetDimensionItems(visualization, periodId)
 
     // relative week period in use
-    if (getRelativePeriodTypeUsed(peItems) === WEEKS) {
+    if (getRelativePeriodTypeUsed(periodItems) === WEEKS) {
         const relativeWeeksData = await prepareRequestsForRelativeWeeks({
             analyticsEngine,
             visualization,
@@ -72,7 +72,7 @@ export const apiFetchAnalyticsForYearOverYear = async (
         // relative day period in use
         // similar to the above to handle the Feb 29 extra day
     } else {
-        yearlySeriesRes.metaData.dimensions[peId]
+        yearlySeriesRes.metaData.dimensions[periodId]
             .sort()
             .reverse()
             .forEach(year => {
@@ -118,7 +118,7 @@ const prepareRequestsForRelativeWeeks = async ({
     const yearlySeriesLabels = []
     const periodDates = []
 
-    const yearlySeriesIds = yearlySeriesRes.metaData.dimensions[peId]
+    const yearlySeriesIds = yearlySeriesRes.metaData.dimensions[periodId]
         .slice()
         .sort()
         .reverse()
@@ -154,7 +154,7 @@ const prepareRequestsForRelativeWeeks = async ({
     // 2. extract the last week number of the LAST_x_WEEKS period
     //    special handling for the week 53 case as not all years have 53 weeks
     const referenceWeekPeriod = referencePeriodRes.metaData.dimensions[
-        peId
+        periodId
     ].pop()
     const [referenceWeekYear, referenceWeekNumber] = referenceWeekPeriod.split(
         'W'
@@ -190,7 +190,7 @@ const prepareRequestsForRelativeWeeks = async ({
         //    this is done by adding 1 day to the endDate of the week period obtained above
         const seenYears = []
 
-        weekPeriodsRes.metaData.dimensions[peId]
+        weekPeriodsRes.metaData.dimensions[periodId]
             .sort()
             .reverse()
             .forEach(period => {

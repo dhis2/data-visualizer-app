@@ -126,17 +126,17 @@ export const computeGenericPeriodNames = responses => {
     }, [])
 }
 
-export const getRelativePeriodTypeUsed = peItems => {
+export const getRelativePeriodTypeUsed = periodItems => {
     if (
         getRelativePeriodsOptionsById(WEEKS)
             .getPeriods()
-            .find(p => p.id === peItems[0].id)
+            .find(period => period.id === periodItems[0].id)
     ) {
         return WEEKS
     } else if (
         getRelativePeriodsOptionsById(DAYS)
             .getPeriods()
-            .find(p => p.id === peItems[0].id)
+            .find(period => period.id === periodItems[0].id)
     ) {
         return DAYS
     }
