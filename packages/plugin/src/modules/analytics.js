@@ -9,44 +9,28 @@ export const computeYoYMatrix = (responses, relativePeriodTypeUsed) => {
 
     if (relativePeriodTypeUsed === WEEKS) {
         periodGroups.sort((a, b) => b[0].split('W')[1] - a[0].split('W')[1])
-        console.log('periodGroups', periodGroups)
 
         const periodKeyAxisIndexMatrix = periodGroups
             .shift()
             .map(periodId => [periodId])
 
-        console.log('xAxis map start', periodKeyAxisIndexMatrix)
         periodGroups.forEach(periodGroup => {
-            console.log('processing', periodGroup)
-
             periodGroup.forEach(periodId => {
                 const [year, week] = periodId.split('W')
 
-                console.log('period', year, week)
-
                 // find week number in 1st "serie"
                 const xAxisIndexForPeriod = periodKeyAxisIndexMatrix.findIndex(
-                    periodKeys => {
-                        console.log(
-                            `lookup for same week (W${week}) in`,
-                            periodKeys
-                        )
-                        return periodKeys[0].split('W')[1] === week
-                    }
+                    periodKeys => periodKeys[0].split('W')[1] === week
                 )
 
                 if (xAxisIndexForPeriod !== -1) {
                     periodKeyAxisIndexMatrix[xAxisIndexForPeriod].push(periodId)
                 } else if (week === '1') {
                     const indexForW2 = periodKeyAxisIndexMatrix.findIndex(
-                        periodKeys => {
-                            console.log('lookup for W2 in ', periodKeys)
-                            return (
-                                periodKeys.findIndex(periodKey => {
-                                    return /W2$/.test(periodKey)
-                                }) !== -1
-                            )
-                        }
+                        periodKeys =>
+                            periodKeys.findIndex(periodKey =>
+                                /W2$/.test(periodKey)
+                            ) !== -1
                     )
 
                     if (indexForW2 !== -1) {
@@ -57,20 +41,10 @@ export const computeYoYMatrix = (responses, relativePeriodTypeUsed) => {
                 } else {
                     // find the right spot considering also the year
                     const indexForPrevWeekInYear = periodKeyAxisIndexMatrix.findIndex(
-                        periodKeys => {
-                            console.log(
-                                `lookup for prev week (W${
-                                    week - 1
-                                }) of year ${year} in`,
-                                periodKeys
-                            )
-                            return (
-                                periodKeys.findIndex(periodKey => {
-                                    console.log('pk', periodKey)
-                                    return periodKey === `${year}W${week - 1}`
-                                }) !== -1
-                            )
-                        }
+                        periodKeys =>
+                            periodKeys.findIndex(
+                                periodKey => periodKey === `${year}W${week - 1}`
+                            ) !== -1
                     )
 
                     periodKeyAxisIndexMatrix.splice(
@@ -82,15 +56,9 @@ export const computeYoYMatrix = (responses, relativePeriodTypeUsed) => {
             })
         })
 
-        console.log('periodKeyAxisIndexMatrix', periodKeyAxisIndexMatrix)
         return periodKeyAxisIndexMatrix
         // TODO daily case (Feb 29th)
     } else {
-        console.log('non week-day relative periods')
-        console.log(
-            'assuming all period groups having the same amount of values'
-        )
-
         const periodKeyAxisIndexMatrix = periodGroups.reduce(
             (list, periodGroup) => {
                 periodGroup.forEach((periodId, index) => {
@@ -102,7 +70,6 @@ export const computeYoYMatrix = (responses, relativePeriodTypeUsed) => {
             Array.from({ length: periodGroups[0].length }, () => [])
         )
 
-        console.log('periodKeyAxisIndexMatrix', periodKeyAxisIndexMatrix)
         return periodKeyAxisIndexMatrix
     }
 }

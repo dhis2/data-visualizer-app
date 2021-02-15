@@ -54,11 +54,9 @@ export const apiFetchAnalyticsForYearOverYear = async (
     const currentMonth = ('' + (now.getMonth() + 1)).padStart(2, 0)
 
     const peItems = layoutGetDimensionItems(visualization, peId)
-    console.log('pe items', peItems)
 
     // relative week period in use
     if (getRelativePeriodTypeUsed(peItems) === WEEKS) {
-        console.log('relative weeks period in use')
         const relativeWeeksData = await prepareRequestsForRelativeWeeks({
             analyticsEngine,
             visualization,
@@ -85,8 +83,6 @@ export const apiFetchAnalyticsForYearOverYear = async (
                 periodDates.push(`${year}-${currentMonth}-${currentDay}`)
             })
     }
-
-    console.log('periodDates', periodDates)
 
     // request analytics data/metaData for each year in the serie with its own specific relativePeriodDate
     const requests = periodDates.reduce((list, periodDate) => {
@@ -134,7 +130,6 @@ const prepareRequestsForRelativeWeeks = async ({
     //    this is done by adding 1 day to the endDate of the week period obtained above
     // 4. request analytics data/metaData for each year in the serie with its own specific relativePeriodDate
     const referencePeriodYear = yearlySeriesIds.shift()
-    console.log('ref period year', referencePeriodYear)
 
     yearlySeriesLabels.push(
         yearlySeriesRes.metaData.items[referencePeriodYear].name
@@ -156,8 +151,6 @@ const prepareRequestsForRelativeWeeks = async ({
         referencePeriodReq
     )
 
-    console.log('ref period res', referencePeriodRes)
-
     // 2. extract the last week number of the LAST_x_WEEKS period
     //    special handling for the week 53 case as not all years have 53 weeks
     const referenceWeekPeriod = referencePeriodRes.metaData.dimensions[
@@ -166,9 +159,7 @@ const prepareRequestsForRelativeWeeks = async ({
     const [referenceWeekYear, referenceWeekNumber] = referenceWeekPeriod.split(
         'W'
     )
-    console.log('ref week number', referenceWeekNumber)
     const referenceWeekYearDelta = referencePeriodYear - referenceWeekYear
-    console.log('ref week year delta', referenceWeekYearDelta)
 
     const weekPeriods = yearlySeriesIds.reduce((periods, year) => {
         yearlySeriesLabels.push(yearlySeriesRes.metaData.items[year].name)
@@ -182,7 +173,6 @@ const prepareRequestsForRelativeWeeks = async ({
 
         return periods
     }, [])
-    console.log('week periods', weekPeriods)
 
     if (weekPeriods.length) {
         // 3. request metadata for the same week number for each one of the other years of the serie
@@ -195,7 +185,6 @@ const prepareRequestsForRelativeWeeks = async ({
         const weekPeriodsRes = await analyticsEngine.aggregate.fetch(
             weekPeriodsReq
         )
-        console.log('res week periods', weekPeriodsRes)
 
         // 3. compute relativePeriodDate for each other year of the serie:
         //    this is done by adding 1 day to the endDate of the week period obtained above
