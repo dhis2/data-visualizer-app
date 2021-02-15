@@ -1,5 +1,8 @@
 import { WEEKS } from '@dhis2/analytics'
-import { computeYoYMatrix } from '../modules/analytics'
+import {
+    computeYoYMatrix,
+    computeGenericPeriodNamesFromMatrix,
+} from '../modules/analytics'
 
 // 2020 has 53 weeks, while 2019 52
 // last 4 weeks from 27th january 2021 are different for the 2 years
@@ -169,9 +172,21 @@ describe('YOY edge cases testing: LAST_4_WEEKS across 2 years', () => {
         ],
     ]
 
+    const expectedPeriodNames = [
+        ['W52', 'W53', 'W1', 'W2', 'W3'],
+        ['W49', 'W50', 'W51', 'W52'],
+        ['W49', 'W50', 'W51', 'W52', 'W53'],
+        ['W50', 'W51', 'W52', 'W53', 'W1'],
+    ]
+
     testCases.forEach((testCase, index) =>
         it('generated correct matrix from analytics responses', () => {
-            expect(computeYoYMatrix(testCase, WEEKS)).toEqual(expected[index])
+            const matrix = computeYoYMatrix(testCase, WEEKS)
+
+            expect(matrix).toEqual(expected[index])
+            expect(computeGenericPeriodNamesFromMatrix(matrix, WEEKS)).toEqual(
+                expectedPeriodNames[index]
+            )
         })
     )
 })
