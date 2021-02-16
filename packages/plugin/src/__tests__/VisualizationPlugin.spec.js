@@ -7,6 +7,7 @@ import { VisualizationPlugin } from '../VisualizationPlugin'
 
 import * as api from '../api/analytics'
 import * as options from '../modules/options'
+import * as moduleAnalytics from '../modules/analytics'
 
 import ChartPlugin from '../ChartPlugin'
 
@@ -52,6 +53,7 @@ const yearOverYearCurrentMock = {
     type: analytics.VIS_TYPE_YEAR_OVER_YEAR_LINE,
     columns: [dxMock],
     rows: [peMock],
+    filters: [ouMock],
     yearlySeries: ['LAST_YEAR'],
 }
 
@@ -111,6 +113,7 @@ describe('VisualizationPlugin', () => {
             ...props,
         }
         let plugin
+
         await act(async () => {
             plugin = mount(<VisualizationPlugin {...combinedProps} />)
             await new Promise(resolve => {
@@ -186,6 +189,15 @@ describe('VisualizationPlugin', () => {
                 ChartPlugin.mockClear()
 
                 /* eslint-disable no-import-assign, import/namespace */
+                moduleAnalytics.getRelativePeriodTypeUsed = jest
+                    .fn()
+                    .mockReturnValue(undefined)
+
+                analytics.layoutGetDimensionItems = jest
+                    .fn()
+                    .mockReturnValue(peMock.items)
+
+                /* eslint-disable no-import-assign, import/namespace */
                 api.apiFetchAnalyticsForYearOverYear = jest
                     .fn()
                     .mockResolvedValue(new MockYoYAnalyticsResponse())
@@ -215,6 +227,7 @@ describe('VisualizationPlugin', () => {
                 const expectedExtraOptions = {
                     yearlySeries: mockYoYSeriesLabels,
                     xAxisLabels: ['period 1', 'period 2'],
+                    periodKeyAxisIndexMap: { p1: 0, p2: 1 },
                 }
 
                 expect(ChartPlugin.mock.calls[0][0].extraOptions).toEqual({
