@@ -4,39 +4,6 @@ import {
     computeGenericPeriodNamesFromMatrix,
 } from '../modules/analytics'
 
-// 2020 has 53 weeks, while 2019 52
-// last 4 weeks from 27th january 2021 are different for the 2 years
-// for 2021: W53 of 2020 and weeks 1 to 3 of 2021
-// for 2020: W52 of 2019 and weeks 1 to 3 of 2020
-const responses20210127 = [
-    {
-        metaData: {
-            dimensions: {
-                pe: ['2020W53', '2021W1', '2021W2', '2021W3'],
-            },
-            items: {
-                '2020W53': { name: 'Week 53 2020' },
-                '2021W1': { name: 'Week 1 2021' },
-                '2021W2': { name: 'Week 2 2021' },
-                '2021W3': { name: 'Week 3 2021' },
-            },
-        },
-    },
-    {
-        metaData: {
-            dimensions: {
-                pe: ['2019W52', '2020W1', '2020W2', '2020W3'],
-            },
-            items: {
-                '2019W52': { name: 'Week 52 2019' },
-                '2020W1': { name: 'Week 1 2020' },
-                '2020W2': { name: 'Week 2 2020' },
-                '2020W3': { name: 'Week 3 2020' },
-            },
-        },
-    },
-]
-
 // 1st january 2021 is in week 53, so last 4 weeks from that date are
 // all in 2020, starting from W52 and counting 4 weeks backwards
 // to avoid the 2 series to refer to the same year (2020), data for the same 4 weeks of 2019
@@ -66,6 +33,39 @@ const responses20210101 = [
                 '2019W50': { name: 'Week 50 2019' },
                 '2019W51': { name: 'Week 51 2019' },
                 '2019W52': { name: 'Week 52 2019' },
+            },
+        },
+    },
+]
+
+// 2020 has 53 weeks, while 2019 52
+// last 4 weeks from 27th january 2021 are different for the 2 years
+// for 2021: W53 of 2020 and weeks 1 to 3 of 2021
+// for 2020: W52 of 2019 and weeks 1 to 3 of 2020
+const responses20210127 = [
+    {
+        metaData: {
+            dimensions: {
+                pe: ['2020W53', '2021W1', '2021W2', '2021W3'],
+            },
+            items: {
+                '2020W53': { name: 'Week 53 2020' },
+                '2021W1': { name: 'Week 1 2021' },
+                '2021W2': { name: 'Week 2 2021' },
+                '2021W3': { name: 'Week 3 2021' },
+            },
+        },
+    },
+    {
+        metaData: {
+            dimensions: {
+                pe: ['2019W52', '2020W1', '2020W2', '2020W3'],
+            },
+            items: {
+                '2019W52': { name: 'Week 52 2019' },
+                '2020W1': { name: 'Week 1 2020' },
+                '2020W2': { name: 'Week 2 2020' },
+                '2020W3': { name: 'Week 3 2020' },
             },
         },
     },
@@ -136,56 +136,59 @@ const responses20160111 = [
 
 describe('YOY edge cases testing: LAST_4_WEEKS across 2 years', () => {
     const testCases = [
-        responses20210127,
-        responses20210101,
-        responses20160104,
-        responses20160111,
+        {
+            responses: responses20210101,
+            expectedMatrix: [
+                ['2020W49', '2019W49'],
+                ['2020W50', '2019W50'],
+                ['2020W51', '2019W51'],
+                ['2020W52', '2019W52'],
+            ],
+            expectedPeriodNames: ['W49', 'W50', 'W51', 'W52'],
+        },
+        {
+            responses: responses20210127,
+            expectedMatrix: [
+                ['2019W52'],
+                ['2020W53'],
+                ['2021W1', '2020W1'],
+                ['2021W2', '2020W2'],
+                ['2021W3', '2020W3'],
+            ],
+            expectedPeriodNames: ['W52', 'W53', 'W1', 'W2', 'W3'],
+        },
+        {
+            responses: responses20160104,
+            expectedMatrix: [
+                ['2014W49'],
+                ['2015W50', '2014W50'],
+                ['2015W51', '2014W51'],
+                ['2015W52', '2014W52'],
+                ['2015W53'],
+            ],
+
+            expectedPeriodNames: ['W49', 'W50', 'W51', 'W52', 'W53'],
+        },
+        {
+            responses: responses20160111,
+            expectedMatrix: [
+                ['2014W50'],
+                ['2015W51', '2014W51'],
+                ['2015W52', '2014W52'],
+                ['2015W53'],
+                ['2016W1', '2015W1'],
+            ],
+            expectedPeriodNames: ['W50', 'W51', 'W52', 'W53', 'W1'],
+        },
     ]
 
-    const expected = [
-        [
-            ['2019W52'],
-            ['2020W53'],
-            ['2021W1', '2020W1'],
-            ['2021W2', '2020W2'],
-            ['2021W3', '2020W3'],
-        ],
-        [
-            ['2020W49', '2019W49'],
-            ['2020W50', '2019W50'],
-            ['2020W51', '2019W51'],
-            ['2020W52', '2019W52'],
-        ],
-        [
-            ['2014W49'],
-            ['2015W50', '2014W50'],
-            ['2015W51', '2014W51'],
-            ['2015W52', '2014W52'],
-            ['2015W53'],
-        ],
-        [
-            ['2014W50'],
-            ['2015W51', '2014W51'],
-            ['2015W52', '2014W52'],
-            ['2015W53'],
-            ['2016W1', '2015W1'],
-        ],
-    ]
-
-    const expectedPeriodNames = [
-        ['W52', 'W53', 'W1', 'W2', 'W3'],
-        ['W49', 'W50', 'W51', 'W52'],
-        ['W49', 'W50', 'W51', 'W52', 'W53'],
-        ['W50', 'W51', 'W52', 'W53', 'W1'],
-    ]
-
-    testCases.forEach((testCase, index) =>
+    testCases.forEach(testCase =>
         it('generated correct matrix from analytics responses', () => {
-            const matrix = computeYoYMatrix(testCase, WEEKS)
+            const matrix = computeYoYMatrix(testCase.responses, WEEKS)
 
-            expect(matrix).toEqual(expected[index])
+            expect(matrix).toEqual(testCase.expectedMatrix)
             expect(computeGenericPeriodNamesFromMatrix(matrix, WEEKS)).toEqual(
-                expectedPeriodNames[index]
+                testCase.expectedPeriodNames
             )
         })
     )
