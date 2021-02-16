@@ -1,9 +1,18 @@
-import { isYearOverYear } from '@dhis2/analytics'
+import {
+    isYearOverYear,
+    DIMENSION_ID_PERIOD,
+    layoutGetDimensionItems,
+} from '@dhis2/analytics'
 import {
     apiFetchAnalyticsForYearOverYear,
     apiFetchAnalytics,
 } from '../api/analytics'
-import { computeGenericPeriodNames } from './analytics'
+import {
+    computeGenericPeriodNames,
+    computeYoYMatrix,
+    computeGenericPeriodNamesFromMatrix,
+    getRelativePeriodTypeUsed,
+} from './analytics'
 import { getRequestOptions } from './getRequestOptions'
 
 export const fetchData = async ({
@@ -28,12 +37,40 @@ export const fetchData = async ({
             options
         )
 
+        const peItems = layoutGetDimensionItems(
+            visualization,
+            DIMENSION_ID_PERIOD
+        )
+
+        const relativePeriodTypeUsed = getRelativePeriodTypeUsed(peItems)
+
+        const periodKeyAxisIndexMatrix = computeYoYMatrix(
+            responses,
+            relativePeriodTypeUsed
+        )
+        const periodKeyAxisIndexMap = periodKeyAxisIndexMatrix.reduce(
+            (map, periodKeys, index) => {
+                periodKeys.forEach(periodKey => (map[periodKey] = index))
+
+                return map
+            },
+            {}
+        )
+
+        const xAxisLabels = relativePeriodTypeUsed
+            ? computeGenericPeriodNamesFromMatrix(
+                  periodKeyAxisIndexMatrix,
+                  relativePeriodTypeUsed
+              )
+            : computeGenericPeriodNames(responses)
+
         return {
             responses,
             extraOptions: {
                 ...extraOptions,
                 yearlySeries: yearlySeriesLabels,
-                xAxisLabels: computeGenericPeriodNames(responses),
+                xAxisLabels,
+                periodKeyAxisIndexMap,
             },
         }
     }
