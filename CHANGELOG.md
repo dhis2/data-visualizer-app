@@ -1,3 +1,10 @@
+## [35.18.9](https://github.com/dhis2/data-visualizer-app/compare/v35.18.8...v35.18.9) (2021-02-16)
+
+
+### Bug Fixes
+
+* YOY charts with relative week periods DHIS2-9729 ([#1560](https://github.com/dhis2/data-visualizer-app/issues/1560)) ([9cbf649](https://github.com/dhis2/data-visualizer-app/commit/9cbf649e7eaebe55ee595f97353415b88b795f60))
+
 ## [35.18.8](https://github.com/dhis2/data-visualizer-app/compare/v35.18.7...v35.18.8) (2021-02-16)
 
 
