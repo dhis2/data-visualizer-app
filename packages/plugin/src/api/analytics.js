@@ -70,7 +70,7 @@ export const apiFetchAnalyticsForYearOverYear = async (
         periodDates.push(...relativeWeeksData.periodDates)
         yearlySeriesLabels.push(...relativeWeeksData.yearlySeriesLabels)
     } else if (getRelativePeriodTypeUsed(periodItems) === DAYS) {
-        const relativeDaysData = await prepareRequestsForRelativeDays({
+        const relativeDaysData = prepareRequestsForRelativeDays({
             yearlySeriesRes,
             currentMonth,
             currentDay,
@@ -109,7 +109,7 @@ export const apiFetchAnalyticsForYearOverYear = async (
     }))
 }
 
-const prepareRequestsForRelativeDays = async ({
+const prepareRequestsForRelativeDays = ({
     yearlySeriesRes,
     currentMonth,
     currentDay,
