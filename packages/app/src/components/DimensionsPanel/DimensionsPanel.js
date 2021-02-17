@@ -7,7 +7,7 @@ import {
     DIMENSION_ID_DATA,
     VIS_TYPE_SCATTER,
 } from '@dhis2/analytics'
-import { Popover } from '@dhis2/ui'
+import { Layer, Popper } from '@dhis2/ui'
 
 import DialogManager from './Dialogs/DialogManager'
 import DndDimensionsPanel from './DndDimensionsPanel'
@@ -66,32 +66,29 @@ export const Dimensions = ({
                 onDimensionOptionsClick={openOptionsMenuForDimension}
             />
             {dialogIsOpen && dimensionId && ref && (
-                <Popover
-                    reference={ref}
-                    placement="bottom-start"
-                    onClickOutside={toggleMenu}
-                    arrow={false}
-                >
-                    <DimensionMenu
-                        dimensionId={dimensionId}
-                        currentAxisId={getCurrentAxisId(dimensionId)}
-                        visType={ui.type}
-                        numberOfDimensionItems={getNumberOfDimensionItems()}
-                        isAssignedCategoriesInLayout={
-                            layoutHasAssignedCategories
-                        }
-                        assignedCategoriesItemHandler={destination =>
-                            assignedCategoriesItemHandler(
-                                layoutHasAssignedCategories,
-                                destination
-                            )
-                        }
-                        axisItemHandler={axisItemHandler}
-                        removeItemHandler={removeItemHandler}
-                        onClose={toggleMenu}
-                        dataTest={'dimensions-panel-dimension-menu'}
-                    />
-                </Popover>
+                <Layer position="fixed" level={2000} onClick={toggleMenu}>
+                    <Popper reference={ref} placement="bottom-start">
+                        <DimensionMenu
+                            dimensionId={dimensionId}
+                            currentAxisId={getCurrentAxisId(dimensionId)}
+                            visType={ui.type}
+                            numberOfDimensionItems={getNumberOfDimensionItems()}
+                            isAssignedCategoriesInLayout={
+                                layoutHasAssignedCategories
+                            }
+                            assignedCategoriesItemHandler={destination =>
+                                assignedCategoriesItemHandler(
+                                    layoutHasAssignedCategories,
+                                    destination
+                                )
+                            }
+                            axisItemHandler={axisItemHandler}
+                            removeItemHandler={removeItemHandler}
+                            onClose={toggleMenu}
+                            dataTest={'dimensions-panel-dimension-menu'}
+                        />
+                    </Popper>
+                </Layer>
             )}
             <DialogManager />
         </div>
