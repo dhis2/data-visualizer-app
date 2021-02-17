@@ -1,3 +1,10 @@
+## [35.18.10](https://github.com/dhis2/data-visualizer-app/compare/v35.18.9...v35.18.10) (2021-02-17)
+
+
+### Bug Fixes
+
+* feb 29 in YOY with daily relative period (DHIS2-9729) ([#1590](https://github.com/dhis2/data-visualizer-app/issues/1590)) ([c1466d9](https://github.com/dhis2/data-visualizer-app/commit/c1466d96ba49b09562eabe702ec9b6d6eb504784))
+
 ## [35.18.9](https://github.com/dhis2/data-visualizer-app/compare/v35.18.8...v35.18.9) (2021-02-16)
 
 
