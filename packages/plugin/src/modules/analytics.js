@@ -8,9 +8,7 @@ export const computeYoYMatrix = (responses, relativePeriodTypeUsed) => {
     }, [])
 
     if (relativePeriodTypeUsed === DAYS) {
-        console.log('periodGroups before sort', periodGroups)
         periodGroups.sort((a, b) => a[0].substr(-2) - b[0].substr(-2))
-        console.log('periodGroups', periodGroups)
 
         const periodKeyAxisIndexMatrix = periodGroups
             .shift()
@@ -25,13 +23,7 @@ export const computeYoYMatrix = (responses, relativePeriodTypeUsed) => {
 
                 // find same month/day in 1st "serie"
                 const xAxisIndexForPeriod = periodKeyAxisIndexMatrix.findIndex(
-                    periodKeys => {
-                        console.log(
-                            `lookup for same month/day (${month}/${day}) in`,
-                            periodKeys
-                        )
-                        return periodKeys[0].substr(4) === `${month}${day}`
-                    }
+                    periodKeys => periodKeys[0].substr(4) === `${month}${day}`
                 )
 
                 if (xAxisIndexForPeriod !== -1) {
@@ -40,33 +32,25 @@ export const computeYoYMatrix = (responses, relativePeriodTypeUsed) => {
                     // February 29 special case
                     // find index for february 28
                     const indexForFeb28 = periodKeyAxisIndexMatrix.findIndex(
-                        periodKeys => {
-                            console.log('lookup for Feb 28 in ', periodKeys)
-                            return (
-                                periodKeys.findIndex(periodKey => {
-                                    return /0228$/.test(periodKey)
-                                }) !== -1
-                            )
-                        }
+                        periodKeys =>
+                            periodKeys.findIndex(periodKey =>
+                                /0228$/.test(periodKey)
+                            ) !== -1
                     )
 
                     if (indexForFeb28 !== -1) {
-                        console.log('feb 28 found at index', indexForFeb28)
                         periodKeyAxisIndexMatrix.splice(indexForFeb28 + 1, 0, [
                             periodId,
                         ])
                     } else {
-                        console.log('feb 28 index not found, append feb 29')
                         periodKeyAxisIndexMatrix.push([periodId])
                     }
                 } else {
-                    console.log('non feb 29 day, append')
                     periodKeyAxisIndexMatrix.push([periodId])
                 }
             })
         })
 
-        console.log('periodKeyAxisIndexMatrix', periodKeyAxisIndexMatrix)
         return periodKeyAxisIndexMatrix
     } else if (relativePeriodTypeUsed === WEEKS) {
         periodGroups.sort((a, b) => b[0].split('W')[1] - a[0].split('W')[1])
