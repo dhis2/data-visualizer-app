@@ -5,7 +5,7 @@ import {
     DimensionMenu,
     DIMENSION_ID_ASSIGNED_CATEGORIES,
 } from '@dhis2/analytics'
-import { Popover } from '@dhis2/ui'
+import { Layer, Popper } from '@dhis2/ui'
 
 import * as fromReducers from '../../reducers'
 import MoreHorizontalIcon from '../../assets/MoreHorizontalIcon'
@@ -28,9 +28,9 @@ const ChipMenu = ({
     visType,
 }) => {
     const buttonRef = useRef()
-    const [dialogIsOpen, setDialogIsOpen] = useState(false)
+    const [menuIsOpen, setMenuIsOpen] = useState(false)
 
-    const toggleMenu = () => setDialogIsOpen(!dialogIsOpen)
+    const toggleMenu = () => setMenuIsOpen(!menuIsOpen)
 
     const getMenuId = () => `menu-for-${id}`
 
@@ -38,7 +38,7 @@ const ChipMenu = ({
         <>
             <div ref={buttonRef}>
                 <IconButton
-                    ariaOwns={dialogIsOpen ? getMenuId() : null}
+                    ariaOwns={menuIsOpen ? getMenuId() : null}
                     ariaHaspopup={true}
                     onClick={toggleMenu}
                     style={styles.icon}
@@ -48,33 +48,30 @@ const ChipMenu = ({
                 </IconButton>
             </div>
             {/* TODO: Fix bug with the first menu item getting selected when the menu is opened */}
-            {dialogIsOpen && (
-                <Popover
-                    reference={buttonRef}
-                    placement="bottom-start"
-                    onClickOutside={toggleMenu}
-                    arrow={false}
-                >
-                    <DimensionMenu
-                        dimensionId={dimensionId}
-                        currentAxisId={currentAxisId}
-                        visType={visType}
-                        numberOfDimensionItems={numberOfDimensionItems}
-                        isAssignedCategoriesInLayout={
-                            layoutHasAssignedCategories
-                        }
-                        assignedCategoriesItemHandler={destination =>
-                            assignedCategoriesItemHandler(
-                                layoutHasAssignedCategories,
-                                destination
-                            )
-                        }
-                        axisItemHandler={axisItemHandler}
-                        removeItemHandler={removeItemHandler}
-                        onClose={toggleMenu}
-                        dataTest={'layout-chip-menu-dimension-menu'}
-                    />
-                </Popover>
+            {menuIsOpen && (
+                <Layer position="fixed" level={2000} onClick={toggleMenu}>
+                    <Popper reference={buttonRef} placement="bottom-start">
+                        <DimensionMenu
+                            dimensionId={dimensionId}
+                            currentAxisId={currentAxisId}
+                            visType={visType}
+                            numberOfDimensionItems={numberOfDimensionItems}
+                            isAssignedCategoriesInLayout={
+                                layoutHasAssignedCategories
+                            }
+                            assignedCategoriesItemHandler={destination =>
+                                assignedCategoriesItemHandler(
+                                    layoutHasAssignedCategories,
+                                    destination
+                                )
+                            }
+                            axisItemHandler={axisItemHandler}
+                            removeItemHandler={removeItemHandler}
+                            onClose={toggleMenu}
+                            dataTest={'layout-chip-menu-dimension-menu'}
+                        />
+                    </Popper>
+                </Layer>
             )}
         </>
     )
