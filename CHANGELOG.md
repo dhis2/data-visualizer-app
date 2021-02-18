@@ -1,3 +1,10 @@
+## [35.18.12](https://github.com/dhis2/data-visualizer-app/compare/v35.18.11...v35.18.12) (2021-02-18)
+
+
+### Bug Fixes
+
+* avoid double border in contextual menu DHIS2-10514 ([#1615](https://github.com/dhis2/data-visualizer-app/issues/1615)) ([04c8409](https://github.com/dhis2/data-visualizer-app/commit/04c8409a27c2842df1af3c57019972c409aa439c))
+
 ## [35.18.11](https://github.com/dhis2/data-visualizer-app/compare/v35.18.10...v35.18.11) (2021-02-18)
 
 
