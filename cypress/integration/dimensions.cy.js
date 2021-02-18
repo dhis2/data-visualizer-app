@@ -123,6 +123,7 @@ describe('Data dimension', () => {
     describe('global search', () => {
         const testSearchTerm = 'Dispenser' // Use a data element for the third step to work
         it('recieves a search term', () => inputSearchTerm(testSearchTerm))
+        // TODO: Test that the search is only called once, i.e. debounce works
         it('search result is displayed', () => {
             expectDataItemsSelectableAmountToBe(1)
             expectDataItemToBeSelectable(testSearchTerm)
