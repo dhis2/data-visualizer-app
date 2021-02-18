@@ -30,16 +30,16 @@ export const Dimensions = ({
     ui,
     onDimensionClick,
 }) => {
-    const [dialogIsOpen, setDialogIsOpen] = useState(false)
+    const [menuIsOpen, setMenuIsOpen] = useState(false)
     const [dimensionId, setDimensionId] = useState(null)
     const [ref, setRef] = useState()
 
     const toggleMenu = () => {
-        if (dialogIsOpen) {
+        if (menuIsOpen) {
             setDimensionId(null)
             setRef(null)
         }
-        setDialogIsOpen(!dialogIsOpen)
+        setMenuIsOpen(!menuIsOpen)
     }
 
     const openOptionsMenuForDimension = (event, id, ref) => {
@@ -65,7 +65,7 @@ export const Dimensions = ({
                 onDimensionClick={openDimensionModal}
                 onDimensionOptionsClick={openOptionsMenuForDimension}
             />
-            {dialogIsOpen && dimensionId && ref && (
+            {menuIsOpen && dimensionId && ref && (
                 <Layer position="fixed" level={2000} onClick={toggleMenu}>
                     <Popper reference={ref} placement="bottom-start">
                         <DimensionMenu

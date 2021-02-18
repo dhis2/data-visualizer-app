@@ -28,9 +28,9 @@ const ChipMenu = ({
     visType,
 }) => {
     const buttonRef = useRef()
-    const [dialogIsOpen, setDialogIsOpen] = useState(false)
+    const [menuIsOpen, setMenuIsOpen] = useState(false)
 
-    const toggleMenu = () => setDialogIsOpen(!dialogIsOpen)
+    const toggleMenu = () => setMenuIsOpen(!menuIsOpen)
 
     const getMenuId = () => `menu-for-${id}`
 
@@ -38,7 +38,7 @@ const ChipMenu = ({
         <>
             <div ref={buttonRef}>
                 <IconButton
-                    ariaOwns={dialogIsOpen ? getMenuId() : null}
+                    ariaOwns={menuIsOpen ? getMenuId() : null}
                     ariaHaspopup={true}
                     onClick={toggleMenu}
                     style={styles.icon}
@@ -48,7 +48,7 @@ const ChipMenu = ({
                 </IconButton>
             </div>
             {/* TODO: Fix bug with the first menu item getting selected when the menu is opened */}
-            {dialogIsOpen && (
+            {menuIsOpen && (
                 <Layer position="fixed" level={2000} onClick={toggleMenu}>
                     <Popper reference={buttonRef} placement="bottom-start">
                         <DimensionMenu
