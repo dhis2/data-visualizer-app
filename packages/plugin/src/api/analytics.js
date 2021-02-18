@@ -3,6 +3,7 @@ import {
     VIS_TYPE_PIVOT_TABLE,
     layoutGetDimensionItems,
     DIMENSION_ID_PERIOD,
+    DAYS,
     WEEKS,
 } from '@dhis2/analytics'
 
@@ -68,9 +69,15 @@ export const apiFetchAnalyticsForYearOverYear = async (
 
         periodDates.push(...relativeWeeksData.periodDates)
         yearlySeriesLabels.push(...relativeWeeksData.yearlySeriesLabels)
-        // TODO
-        // relative day period in use
-        // similar to the above to handle the Feb 29 extra day
+    } else if (getRelativePeriodTypeUsed(periodItems) === DAYS) {
+        const relativeDaysData = prepareRequestsForRelativeDays({
+            yearlySeriesRes,
+            currentMonth,
+            currentDay,
+        })
+
+        periodDates.push(...relativeDaysData.periodDates)
+        yearlySeriesLabels.push(...relativeDaysData.yearlySeriesLabels)
     } else {
         yearlySeriesRes.metaData.dimensions[periodId]
             .sort()
@@ -100,6 +107,39 @@ export const apiFetchAnalyticsForYearOverYear = async (
         responses: responses.map(res => new analyticsEngine.response(res)),
         yearlySeriesLabels,
     }))
+}
+
+const prepareRequestsForRelativeDays = ({
+    yearlySeriesRes,
+    currentMonth,
+    currentDay,
+}) => {
+    const yearlySeriesLabels = []
+    const periodDates = []
+
+    const yearlySeriesIds = yearlySeriesRes.metaData.dimensions[periodId]
+        .slice()
+        .sort()
+        .reverse()
+
+    const isFeb29 = currentMonth === '02' && currentDay === '29'
+
+    yearlySeriesIds.forEach(year => {
+        yearlySeriesLabels.push(yearlySeriesRes.metaData.items[year].name)
+
+        const isLeapYear = new Date(year, 1, 29).getDate() === 29
+
+        // 1. check if current date is feb 29
+        // 2. check if current year is NOT a leap year
+        if (isFeb29 && !isLeapYear) {
+            // 3. use feb 28 for that year as relativePeriodDate
+            periodDates.push(`${year}-02-28`)
+        } else {
+            periodDates.push(`${year}-${currentMonth}-${currentDay}`)
+        }
+    })
+
+    return { yearlySeriesLabels, periodDates }
 }
 
 // special handling for when a relative weeks period is selected as category

@@ -7,7 +7,52 @@ export const computeYoYMatrix = (responses, relativePeriodTypeUsed) => {
         return list
     }, [])
 
-    if (relativePeriodTypeUsed === WEEKS) {
+    if (relativePeriodTypeUsed === DAYS) {
+        periodGroups.sort((a, b) => a[0].substr(-2) - b[0].substr(-2))
+
+        const periodKeyAxisIndexMatrix = periodGroups
+            .shift()
+            .map(periodId => [periodId])
+
+        periodGroups.forEach(periodGroup => {
+            periodGroup.forEach(periodId => {
+                const matchGroups = periodId.match(/(\d{4})(\d{2})(\d{2})/)
+
+                const month = matchGroups[2]
+                const day = matchGroups[3]
+
+                // find same month/day in 1st "serie"
+                const xAxisIndexForPeriod = periodKeyAxisIndexMatrix.findIndex(
+                    periodKeys => periodKeys[0].substr(4) === `${month}${day}`
+                )
+
+                if (xAxisIndexForPeriod !== -1) {
+                    periodKeyAxisIndexMatrix[xAxisIndexForPeriod].push(periodId)
+                } else if (month === '02' && day === '29') {
+                    // February 29 special case
+                    // find index for february 28
+                    const indexForFeb28 = periodKeyAxisIndexMatrix.findIndex(
+                        periodKeys =>
+                            periodKeys.findIndex(periodKey =>
+                                /0228$/.test(periodKey)
+                            ) !== -1
+                    )
+
+                    if (indexForFeb28 !== -1) {
+                        periodKeyAxisIndexMatrix.splice(indexForFeb28 + 1, 0, [
+                            periodId,
+                        ])
+                    } else {
+                        periodKeyAxisIndexMatrix.push([periodId])
+                    }
+                } else {
+                    periodKeyAxisIndexMatrix.push([periodId])
+                }
+            })
+        })
+
+        return periodKeyAxisIndexMatrix
+    } else if (relativePeriodTypeUsed === WEEKS) {
         periodGroups.sort((a, b) => b[0].split('W')[1] - a[0].split('W')[1])
 
         const periodKeyAxisIndexMatrix = periodGroups
@@ -57,7 +102,6 @@ export const computeYoYMatrix = (responses, relativePeriodTypeUsed) => {
         })
 
         return periodKeyAxisIndexMatrix
-        // TODO daily case (Feb 29th)
     } else {
         const periodKeyAxisIndexMatrix = periodGroups.reduce(
             (list, periodGroup) => {

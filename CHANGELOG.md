@@ -1,3 +1,24 @@
+## [35.18.12](https://github.com/dhis2/data-visualizer-app/compare/v35.18.11...v35.18.12) (2021-02-18)
+
+
+### Bug Fixes
+
+* avoid double border in contextual menu DHIS2-10514 ([#1615](https://github.com/dhis2/data-visualizer-app/issues/1615)) ([04c8409](https://github.com/dhis2/data-visualizer-app/commit/04c8409a27c2842df1af3c57019972c409aa439c))
+
+## [35.18.11](https://github.com/dhis2/data-visualizer-app/compare/v35.18.10...v35.18.11) (2021-02-18)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([4e02b37](https://github.com/dhis2/data-visualizer-app/commit/4e02b37d7059140e1a8988bb695a54f1796adcd0))
+
+## [35.18.10](https://github.com/dhis2/data-visualizer-app/compare/v35.18.9...v35.18.10) (2021-02-17)
+
+
+### Bug Fixes
+
+* feb 29 in YOY with daily relative period (DHIS2-9729) ([#1590](https://github.com/dhis2/data-visualizer-app/issues/1590)) ([c1466d9](https://github.com/dhis2/data-visualizer-app/commit/c1466d96ba49b09562eabe702ec9b6d6eb504784))
+
 ## [35.18.9](https://github.com/dhis2/data-visualizer-app/compare/v35.18.8...v35.18.9) (2021-02-16)
 
 
