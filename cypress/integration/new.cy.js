@@ -62,7 +62,7 @@ describe('creating a new AO', () => {
                 if (visType === VIS_TYPE_SCATTER) {
                     selectIndicators(TEST_INDICATOR_NAMES.slice(0, 1))
                     switchDataTab('Horizontal')
-                    selectIndicators(TEST_INDICATOR_NAMES.slice(1, 2))
+                    selectDataElements(TEST_DATA_ELEMENT_NAMES.slice(0, 1))
                 } else {
                     if (getAxisMaxNumberOfItems(visType, TEST_AXIS_ID) === 1) {
                         // Gauge and SV can only have 1 data item

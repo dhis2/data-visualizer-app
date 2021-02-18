@@ -1,4 +1,8 @@
-import { DIMENSION_ID_DATA, visTypeDisplayNames } from '@dhis2/analytics'
+import {
+    DIMENSION_ID_DATA,
+    visTypeDisplayNames,
+    VIS_TYPE_SCATTER,
+} from '@dhis2/analytics'
 
 import { openDimension } from '../elements/dimensionsPanel'
 import {
@@ -60,6 +64,11 @@ describe('saving an AO', () => {
             changeVisType(TEST_VIS_TYPE_NAME)
         })
         it('adds Data dimension items', () => {
+            if (TEST_VIS_TYPE_NAME === VIS_TYPE_SCATTER) {
+                cy.contains(
+                    'Scatter was randomly picked but this has not been implemented for Scatter yet, please rerun the test'
+                ).should('exist')
+            }
             // FIXME: Won't work for Scatter, needs to add both vertical and horizontal items
             openDimension(DIMENSION_ID_DATA)
             selectDataElements(

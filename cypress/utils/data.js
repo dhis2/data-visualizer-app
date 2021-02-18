@@ -62,9 +62,9 @@ export const TEST_AOS = [
 ]
 
 export const TEST_DATA_ELEMENTS = [
-    { id: 'dGdeotKpRed', name: 'ART enrollment stage 2' },
-    { id: 'soACnRV9gOI', name: 'ART entry point: No transfer out' },
-    { id: 'QrhlrvV6Xs8', name: 'ART new clients started on ARV' },
+    { id: 'RUv0hqER0zV', name: 'All other follow-ups' },
+    { id: 'A2VfEfPflHV', name: 'All other new' },
+    { id: 'laZLQdnucV1', name: 'All other referrals' },
     { id: 'HLPuaFB7Frw', name: 'Anaemia new' },
     { id: 's46m5MS0hxu', name: 'BCG doses given' },
 ]
@@ -75,6 +75,26 @@ export const TEST_INDICATORS = [
     { id: 'OdiHJayrsKo', name: 'ANC 2 Coverage' },
     { id: 'sB79w2hiLp8', name: 'ANC 3 Coverage' },
     { id: 'AUqdhY4mpvp', name: 'ANC => 4 Coverage' },
+]
+
+export const TEST_DATA_SETS = [
+    {
+        id: 'VTdjfLXXmoi.REPORTING_RATE',
+        name: 'Clinical Monitoring Checklist – Reporting rate',
+    },
+    {
+        id: 'TuL8IOPzpHh.EXPECTED_REPORTS',
+        name: 'EPI Stock – Expected reports',
+    },
+    {
+        id: 'V8MHeZHIrcP.REPORTING_RATE_ON_TIME',
+        name: 'Facility Assessment – Reporting rate on time',
+    },
+    {
+        id: 'VTdjfLXXmoi.ACTUAL_REPORTS',
+        name: 'Clinical Monitoring Checklist – Actual reports',
+    },
+    { id: 'rsyjyJmYD4J.REPORTING_RATE', name: 'Expenditures – Reporting rate' },
 ]
 
 export const TEST_CUSTOM_DIMENSIONS = [
