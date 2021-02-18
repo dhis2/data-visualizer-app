@@ -192,7 +192,7 @@ describe('Data dimension', () => {
         {
             name: 'Event data items',
             testGroup: { name: 'Information Campaign', itemAmount: 6 },
-            testItem: { name: 'Child Programme MCH OPV dose' },
+            testItem: { name: 'Diagnosis (ICD-10)' },
             defaultGroup: { name: 'All programs' },
             endpoint: {
                 hasMultiplePages: true,
