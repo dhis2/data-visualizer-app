@@ -1,3 +1,10 @@
+# [35.19.0](https://github.com/dhis2/data-visualizer-app/compare/v35.18.12...v35.19.0) (2021-02-18)
+
+
+### Features
+
+* new data dim selector (DHIS2-7943) ([#1604](https://github.com/dhis2/data-visualizer-app/issues/1604)) ([de92dc9](https://github.com/dhis2/data-visualizer-app/commit/de92dc9f8c00f0940a5edaee8d8933607d1d89c4))
+
 ## [35.18.12](https://github.com/dhis2/data-visualizer-app/compare/v35.18.11...v35.18.12) (2021-02-18)
 
 
