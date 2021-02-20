@@ -894,9 +894,12 @@ msgid ""
 "These options only apply to legacy tables like standard reports. Options set"
 " here will have no effect on tables made in Data Visualizer."
 msgstr ""
+"Tyto možnosti se vztahují pouze na starší tabulky, jako jsou standardní "
+"sestavy. Možnosti zde nastavené nebudou mít žádný vliv na tabulky vytvořené "
+"v nástroji Data Visualizer."
 
 msgid "Applies to standard reports only"
-msgstr ""
+msgstr "Platí pouze pro standardní zprávy"
 
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr "Základní a cílové čáry jsou k dispozici na kartě Osy pro bodové grafy"
