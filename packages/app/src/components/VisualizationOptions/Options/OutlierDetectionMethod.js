@@ -12,9 +12,9 @@ import {
 } from '../../../modules/options'
 import { tabSectionOption } from '../styles/VisualizationOptions.style.js'
 
-const ODM_IQR = 'IQR'
-const ODM_STANDARD_Z_SCORE = 'STANDARD_Z_SCORE'
-const ODM_MODIFIED_Z_SCORE = 'MODIFIED_Z_SCORE'
+export const ODM_IQR = 'IQR'
+export const ODM_STANDARD_Z_SCORE = 'STANDARD_Z_SCORE'
+export const ODM_MODIFIED_Z_SCORE = 'MODIFIED_Z_SCORE'
 const items = [
     {
         id: ODM_IQR,
@@ -32,7 +32,6 @@ const items = [
         defaultThreshold: 3,
     },
 ]
-const defaultItem = items.find(item => item.id === ODM_IQR)
 
 const OutlierDetectionMethod = ({ method, threshold, onChange }) => (
     <>
@@ -45,15 +44,12 @@ const OutlierDetectionMethod = ({ method, threshold, onChange }) => (
                         value={id}
                         checked={method === id}
                         onChange={({ value }) => {
-                            onChange({
-                                optionId: OPTION_OUTLIER_ANALYSIS_METHOD,
-                                value,
-                            })
-                            onChange({
-                                optionId: OPTION_OUTLIER_ANALYSIS_THRESHOLD,
-                                value: items.find(item => item.id === value)
-                                    .defaultThreshold,
-                            })
+                            onChange(OPTION_OUTLIER_ANALYSIS_METHOD, value)
+                            onChange(
+                                OPTION_OUTLIER_ANALYSIS_THRESHOLD,
+                                items.find(item => item.id === value)
+                                    .defaultThreshold
+                            )
                         }}
                         dense
                     />
@@ -65,12 +61,13 @@ const OutlierDetectionMethod = ({ method, threshold, onChange }) => (
             type="number"
             label={i18n.t('Threshold factor')}
             onChange={({ value }) =>
-                onChange({
-                    optionId: OPTION_OUTLIER_ANALYSIS_THRESHOLD,
-                    value,
-                })
+                // FIXME: Replace with steps and min once ui supports it
+                onChange(
+                    OPTION_OUTLIER_ANALYSIS_THRESHOLD,
+                    Number(value) >= 0.5 ? Number(value) : null
+                )
             }
-            value={threshold}
+            value={threshold?.toString() || ''}
             helpText={i18n.t(
                 'A high value is more sensitive so fewer data items will be identified as outliers'
             )}
@@ -83,21 +80,17 @@ const OutlierDetectionMethod = ({ method, threshold, onChange }) => (
 
 OutlierDetectionMethod.propTypes = {
     method: PropTypes.string.isRequired,
-    threshold: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
+    threshold: PropTypes.number,
 }
 
 const mapStateToProps = state => ({
-    method:
-        sGetUiOption(state, { id: OPTION_OUTLIER_ANALYSIS_METHOD }) ||
-        defaultItem.id,
-    threshold:
-        sGetUiOption(state, { id: OPTION_OUTLIER_ANALYSIS_THRESHOLD }) ||
-        defaultItem.defaultThreshold,
+    method: sGetUiOption(state, { id: OPTION_OUTLIER_ANALYSIS_METHOD }),
+    threshold: sGetUiOption(state, { id: OPTION_OUTLIER_ANALYSIS_THRESHOLD }),
 })
 
 const mapDispatchToProps = dispatch => ({
-    onChange: ({ optionId, value }) =>
+    onChange: (optionId, value) =>
         dispatch(
             acSetUiOption({
                 optionId,

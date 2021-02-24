@@ -12,6 +12,8 @@ import {
 } from '../../../modules/options'
 import { tabSectionOption } from '../styles/VisualizationOptions.style.js'
 
+const DEFAULT_VALUE = '1'
+
 const ExtremeLines = ({ enabled, value, onChange }) => (
     <>
         <div className={tabSectionOption.className}>
@@ -37,13 +39,20 @@ const ExtremeLines = ({ enabled, value, onChange }) => (
                 <InputField
                     type="number"
                     label={i18n.t('Extreme line % detection')}
-                    onChange={input =>
-                        onChange(
-                            OPTION_OUTLIER_ANALYSIS_EXTREME_LINES_VALUE,
-                            input.value
-                        )
-                    }
-                    value={value}
+                    onChange={input => {
+                        // FIXME: Replace with steps and min once ui supports it
+                        const parsedValue = Number(input.value)
+                        parsedValue >= 0.1
+                            ? onChange(
+                                  OPTION_OUTLIER_ANALYSIS_EXTREME_LINES_VALUE,
+                                  parsedValue
+                              )
+                            : onChange(
+                                  OPTION_OUTLIER_ANALYSIS_EXTREME_LINES_VALUE,
+                                  parsedValue ? 0 : null
+                              )
+                    }}
+                    value={value?.toString() || ''}
                     placeholder={i18n.t('Value')}
                     inputWidth="96px"
                     dense
@@ -60,12 +69,14 @@ ExtremeLines.propTypes = {
 }
 
 const mapStateToProps = state => ({
-    enabled: sGetUiOption(state, {
-        id: OPTION_OUTLIER_ANALYSIS_EXTREME_LINES_ENABLED,
-    }),
-    value: sGetUiOption(state, {
-        id: OPTION_OUTLIER_ANALYSIS_EXTREME_LINES_VALUE,
-    }),
+    enabled:
+        sGetUiOption(state, {
+            id: OPTION_OUTLIER_ANALYSIS_EXTREME_LINES_ENABLED,
+        }) || false,
+    value:
+        sGetUiOption(state, {
+            id: OPTION_OUTLIER_ANALYSIS_EXTREME_LINES_VALUE,
+        }) || DEFAULT_VALUE,
 })
 
 const mapDispatchToProps = dispatch => ({

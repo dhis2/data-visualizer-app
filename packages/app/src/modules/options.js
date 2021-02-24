@@ -72,7 +72,11 @@ export const options = {
         requestable: false,
         savable: true,
     },
-    outlierAnalysis: { requestable: false, savable: true, defaultValue: [] },
+    outlierAnalysis: {
+        requestable: false,
+        savable: true,
+        defaultValue: {},
+    },
 
     // only for PT
     colTotals: { defaultValue: false, requestable: false, savable: true },

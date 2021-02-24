@@ -16,6 +16,16 @@ import ExtremeLines from './ExtremeLines'
 import { OPTION_OUTLIER_ANALYSIS_ENABLED } from '../../../modules/options'
 import styles from '../styles/Outliers.module.css'
 
+// const DEFAULT_OUTLIER_ANALYSIS = {
+//     enabled: false,
+//     method: ODM_IQR,
+//     thresholdFactor: 1.5,
+//     extremeLines: {
+//         enabled: false,
+//         value: 1,
+//     },
+// }
+
 const Outliers = ({ enabled, onChange }) => {
     return (
         <div className={tabSectionOption.className}>
