@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 import { Checkbox, FieldSet, Help, Legend } from '@dhis2/ui'
 
-import { sGetUiOption } from '../../../reducers/ui'
-import { acSetUiOption } from '../../../actions/ui'
+import { sGetUiOptions } from '../../../reducers/ui'
+import { acSetUiOptions } from '../../../actions/ui'
 import {
     tabSectionOptionToggleable,
     tabSectionOption,
@@ -13,29 +13,67 @@ import {
 } from '../styles/VisualizationOptions.style.js'
 import OutlierDetectionMethod from './OutlierDetectionMethod'
 import ExtremeLines from './ExtremeLines'
-import { OPTION_OUTLIER_ANALYSIS_ENABLED } from '../../../modules/options'
 import styles from '../styles/Outliers.module.css'
 
-// const DEFAULT_OUTLIER_ANALYSIS = {
-//     enabled: false,
-//     method: ODM_IQR,
-//     thresholdFactor: 1.5,
-//     extremeLines: {
-//         enabled: false,
-//         value: 1,
-//     },
-// }
+const ENABLED_PROP = 'enabled'
+const METHOD_PROP = 'method'
+const THRESHOLD_PROP = 'thresholdFactor'
+const EL_ENABLED_PROP = 'enabled'
+const EL_VALUE_PROP = 'value'
 
-const Outliers = ({ enabled, onChange }) => {
+const OUTLIER_ANALYSIS_OPTION_NAME = 'outlierAnalysis'
+
+const METHOD_IQR = 'IQR'
+const METHOD_STANDARD_Z_SCORE = 'STANDARD_Z_SCORE'
+const METHOD_MODIFIED_Z_SCORE = 'MODIFIED_Z_SCORE'
+const methods = [
+    {
+        id: METHOD_IQR,
+        label: i18n.t('Interquartile Range (IQR)'),
+        defaultThreshold: 1.5,
+    },
+    {
+        id: METHOD_STANDARD_Z_SCORE,
+        label: i18n.t('Z-score / Standard score'),
+        defaultThreshold: 3,
+    },
+    {
+        id: METHOD_MODIFIED_Z_SCORE,
+        label: i18n.t('Modified Z-score'),
+        defaultThreshold: 3,
+    },
+]
+
+const DEFAULT_STATE = {
+    [ENABLED_PROP]: false,
+    [METHOD_PROP]: METHOD_IQR,
+    [THRESHOLD_PROP]: 1.5,
+    extremeLines: {
+        [EL_ENABLED_PROP]: false,
+        [EL_VALUE_PROP]: 1,
+    },
+}
+
+const Outliers = ({ outlierAnalysis, onChange }) => {
+    const storeProp = (prop, value) =>
+        onChange({ ...outlierAnalysis, [prop]: value })
+
+    const storeExtremeLinesProp = (prop, value) =>
+        onChange({
+            ...outlierAnalysis,
+            extremeLines: {
+                ...outlierAnalysis.extremeLines,
+                [prop]: value,
+            },
+        })
+
     return (
         <div className={tabSectionOption.className}>
             <div className={tabSectionOption.className}>
                 <Checkbox
-                    checked={enabled}
+                    checked={outlierAnalysis[ENABLED_PROP]}
                     label={i18n.t('Outlier analysis')}
-                    onChange={({ checked }) =>
-                        onChange(OPTION_OUTLIER_ANALYSIS_ENABLED, checked)
-                    }
+                    onChange={({ checked }) => storeProp(ENABLED_PROP, checked)}
                     dense
                 />
                 <Help>
@@ -44,7 +82,7 @@ const Outliers = ({ enabled, onChange }) => {
                     )}
                 </Help>
             </div>
-            {enabled ? (
+            {outlierAnalysis[ENABLED_PROP] ? (
                 <>
                     <div className={tabSectionOptionToggleable.className}>
                         <div className={tabSectionOption.className}>
@@ -55,7 +93,27 @@ const Outliers = ({ enabled, onChange }) => {
                                     </span>
                                 </Legend>
                                 <div className={tabSectionOption.className}>
-                                    <OutlierDetectionMethod />
+                                    <OutlierDetectionMethod
+                                        methods={methods}
+                                        onMethodChange={value =>
+                                            onChange({
+                                                ...outlierAnalysis,
+                                                [METHOD_PROP]: value,
+                                                [THRESHOLD_PROP]: methods.find(
+                                                    item => item.id === value
+                                                ).defaultThreshold,
+                                            })
+                                        }
+                                        onThresholdChange={value =>
+                                            storeProp(THRESHOLD_PROP, value)
+                                        }
+                                        currentMethodId={
+                                            outlierAnalysis[METHOD_PROP]
+                                        }
+                                        currentThreshold={
+                                            outlierAnalysis[THRESHOLD_PROP]
+                                        }
+                                    />
                                 </div>
                             </FieldSet>
                         </div>
@@ -70,7 +128,30 @@ const Outliers = ({ enabled, onChange }) => {
                                     </span>
                                 </Legend>
                                 <div className={tabSectionOption.className}>
-                                    <ExtremeLines />
+                                    <ExtremeLines
+                                        isEnabled={
+                                            outlierAnalysis.extremeLines[
+                                                EL_ENABLED_PROP
+                                            ]
+                                        }
+                                        onEnabledChange={value =>
+                                            storeExtremeLinesProp(
+                                                EL_ENABLED_PROP,
+                                                value
+                                            )
+                                        }
+                                        currentValue={
+                                            outlierAnalysis.extremeLines[
+                                                EL_VALUE_PROP
+                                            ]
+                                        }
+                                        onValueChange={value =>
+                                            storeExtremeLinesProp(
+                                                EL_VALUE_PROP,
+                                                value
+                                            )
+                                        }
+                                    />
                                 </div>
                             </FieldSet>
                         </div>
@@ -82,23 +163,18 @@ const Outliers = ({ enabled, onChange }) => {
 }
 
 Outliers.propTypes = {
+    outlierAnalysis: PropTypes.object.isRequired,
     onChange: PropTypes.func.isRequired,
-    enabled: PropTypes.bool,
 }
 
 const mapStateToProps = state => ({
-    enabled:
-        sGetUiOption(state, { id: OPTION_OUTLIER_ANALYSIS_ENABLED }) || false,
+    outlierAnalysis:
+        sGetUiOptions(state)[OUTLIER_ANALYSIS_OPTION_NAME] || DEFAULT_STATE,
 })
 
 const mapDispatchToProps = dispatch => ({
-    onChange: (optionId, value) =>
-        dispatch(
-            acSetUiOption({
-                optionId,
-                value,
-            })
-        ),
+    onChange: value =>
+        dispatch(acSetUiOptions({ [OUTLIER_ANALYSIS_OPTION_NAME]: value })),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Outliers)
