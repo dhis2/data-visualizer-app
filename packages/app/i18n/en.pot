@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-02-02T10:49:34.913Z\n"
-"PO-Revision-Date: 2021-02-02T10:49:34.913Z\n"
+"POT-Creation-Date: 2021-02-24T10:49:34.538Z\n"
+"PO-Revision-Date: 2021-02-24T10:49:34.538Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -382,6 +382,18 @@ msgstr ""
 msgid "Compact"
 msgstr ""
 
+msgid "Extreme lines"
+msgstr ""
+
+msgid "Calculated as a percent, usually 1%, of the total values along an axis"
+msgstr ""
+
+msgid "Extreme line % detection"
+msgstr ""
+
+msgid "Value"
+msgstr ""
+
 msgid "Font size"
 msgstr ""
 
@@ -484,13 +496,38 @@ msgstr ""
 msgid "Display the value of percentages of the total"
 msgstr ""
 
-msgid "Value"
-msgstr ""
-
 msgid "Percentage of row"
 msgstr ""
 
 msgid "Percentage of column"
+msgstr ""
+
+msgid "Interquartile Range (IQR)"
+msgstr ""
+
+msgid "Z-score / Standard score"
+msgstr ""
+
+msgid "Modified Z-score"
+msgstr ""
+
+msgid "Threshold factor"
+msgstr ""
+
+msgid ""
+"A high value is more sensitive so fewer data items will be identified as "
+"outliers"
+msgstr ""
+
+msgid "Outlier analysis"
+msgstr ""
+
+msgid ""
+"Outlier analysis detects and highlights data items that are markedly "
+"differnt from the rest of the data"
+msgstr ""
+
+msgid "Outlier detection method"
 msgstr ""
 
 msgid "Organisation unit"

@@ -41,6 +41,11 @@ import {
     OPTION_TARGET_LINE_TITLE,
     OPTION_BASE_LINE_ENABLED,
     OPTION_TARGET_LINE_ENABLED,
+    OPTION_OUTLIER_ANALYSIS_ENABLED,
+    OPTION_OUTLIER_ANALYSIS_METHOD,
+    OPTION_OUTLIER_ANALYSIS_THRESHOLD,
+    OPTION_OUTLIER_ANALYSIS_EXTREME_LINES_ENABLED,
+    OPTION_OUTLIER_ANALYSIS_EXTREME_LINES_VALUE,
 } from '../modules/options'
 import {
     getAdaptedUiByType,
@@ -163,6 +168,7 @@ export default (state = DEFAULT_UI, action) => {
                 axes: state.options.axes || [],
                 legend: state.options.legend || {},
                 fontStyle: state.options.fontStyle || {},
+                outlierAnalysis: state.options.outlierAnalysis || {},
             }
             const value = action.value.value
             const optionId = action.value.optionId
@@ -375,6 +381,42 @@ export default (state = DEFAULT_UI, action) => {
                     }
                     break
                 }
+                case OPTION_OUTLIER_ANALYSIS_ENABLED:
+                    options.outlierAnalysis = {
+                        ...options.outlierAnalysis,
+                        enabled: value || false,
+                    }
+                    break
+                case OPTION_OUTLIER_ANALYSIS_METHOD:
+                    options.outlierAnalysis = {
+                        ...options.outlierAnalysis,
+                        method: value,
+                    }
+                    break
+                case OPTION_OUTLIER_ANALYSIS_THRESHOLD:
+                    options.outlierAnalysis = {
+                        ...options.outlierAnalysis,
+                        thresholdFactor: value,
+                    }
+                    break
+                case OPTION_OUTLIER_ANALYSIS_EXTREME_LINES_ENABLED:
+                    options.outlierAnalysis = {
+                        ...options.outlierAnalysis,
+                        extremeLines: {
+                            ...options.outlierAnalysis.extremeLines,
+                            enabled: value,
+                        },
+                    }
+                    break
+                case OPTION_OUTLIER_ANALYSIS_EXTREME_LINES_VALUE:
+                    options.outlierAnalysis = {
+                        ...options.outlierAnalysis,
+                        extremeLines: {
+                            ...options.outlierAnalysis.extremeLines,
+                            value,
+                        },
+                    }
+                    break
                 default: {
                     options[optionId] = value
                     break
@@ -790,7 +832,21 @@ export const sGetUiOption = (state, option) => {
                     (options.fontStyle || {})[option.id]
                 )
                 break
-            // TODO: Add back support for all other font styles
+            case OPTION_OUTLIER_ANALYSIS_ENABLED:
+                value = options.outlierAnalysis?.enabled
+                break
+            case OPTION_OUTLIER_ANALYSIS_METHOD:
+                value = options.outlierAnalysis?.method
+                break
+            case OPTION_OUTLIER_ANALYSIS_THRESHOLD:
+                value = options.outlierAnalysis?.thresholdFactor
+                break
+            case OPTION_OUTLIER_ANALYSIS_EXTREME_LINES_ENABLED:
+                value = options.outlierAnalysis?.extremeLines?.enabled
+                break
+            case OPTION_OUTLIER_ANALYSIS_EXTREME_LINES_VALUE:
+                value = options.outlierAnalysis?.extremeLines?.value
+                break
         }
     }
     return value

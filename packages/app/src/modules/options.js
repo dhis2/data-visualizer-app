@@ -16,6 +16,14 @@ export const OPTION_TARGET_LINE_ENABLED = 'targetLineEnabled'
 export const OPTION_TARGET_LINE_TITLE = 'targetLineTitle'
 export const OPTION_TARGET_LINE_VALUE = 'targetLineValue'
 export const OPTION_TARGET_LINE_TITLE_FONT_STYLE = 'targetLineTitleFontStyle'
+export const OPTION_OUTLIER_ANALYSIS_ENABLED = 'outlierAnalysisEnabled'
+export const OPTION_OUTLIER_ANALYSIS_METHOD = 'outlierAnalysisMethod'
+export const OPTION_OUTLIER_ANALYSIS_THRESHOLD =
+    'outlierAnalysisThresholdFactor'
+export const OPTION_OUTLIER_ANALYSIS_EXTREME_LINES_ENABLED =
+    'outlierAnalysisExtremeLinesEnabled'
+export const OPTION_OUTLIER_ANALYSIS_EXTREME_LINES_VALUE =
+    'outlierAnalysisExtremeLinesValue'
 
 export const options = {
     axes: { requestable: false, savable: true, defaultValue: [] },
@@ -64,6 +72,7 @@ export const options = {
         requestable: false,
         savable: true,
     },
+    outlierAnalysis: { requestable: false, savable: true, defaultValue: [] },
 
     // only for PT
     colTotals: { defaultValue: false, requestable: false, savable: true },

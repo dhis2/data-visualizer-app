@@ -24,6 +24,7 @@ import getAdvancedSection from './sections/advanced'
 import getDisplayTemplate from './sections/templates/display'
 import getLinesTemplate from './sections/templates/lines'
 import InfoText from '../../components/VisualizationOptions/InfoText'
+import Outliers from '../../components/VisualizationOptions/Options/Outliers'
 
 const verticalAxisId = 'RANGE_0'
 const horisontalAxisId = 'RANGE_1'
@@ -84,7 +85,7 @@ export default () => [
     getOutliersTab([
         {
             key: 'outlier-analysis',
-            content: React.Children.toArray([]),
+            content: React.Children.toArray([<Outliers />]),
         },
     ]),
 ]
