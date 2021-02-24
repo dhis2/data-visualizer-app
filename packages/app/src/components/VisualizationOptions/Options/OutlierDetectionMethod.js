@@ -41,7 +41,7 @@ const OutlierDetectionMethod = ({
             helpText={i18n.t(
                 'A high value is more sensitive so fewer data items will be identified as outliers'
             )}
-            placeholder={i18n.t('Value')}
+            placeholder={i18n.t('Number')}
             inputWidth="96px"
             dense
         />

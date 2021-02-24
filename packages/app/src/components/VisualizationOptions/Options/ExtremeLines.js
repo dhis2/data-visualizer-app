@@ -38,7 +38,7 @@ const ExtremeLines = ({
                             : onValueChange(parsedValue ? 0 : null)
                     }}
                     value={currentValue?.toString() || ''}
-                    placeholder={i18n.t('Value')}
+                    placeholder={i18n.t('Number')}
                     inputWidth="96px"
                     dense
                 />
