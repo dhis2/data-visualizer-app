@@ -67,7 +67,7 @@ export const options = {
     outlierAnalysis: {
         requestable: false,
         savable: true,
-        defaultValue: undefined,
+        defaultValue: null,
     },
 
     // only for PT

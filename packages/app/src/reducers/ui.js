@@ -93,6 +93,7 @@ export const DEFAULT_UI = {
     activeModalDialog: null,
     rightSidebarOpen: false,
     interpretation: {},
+    outlierAnalysis: null,
 }
 
 export const PRESELECTED_YEAR_OVER_YEAR_SERIES = ['THIS_YEAR', 'LAST_YEAR']
@@ -163,7 +164,6 @@ export default (state = DEFAULT_UI, action) => {
                 axes: state.options.axes || [],
                 legend: state.options.legend || {},
                 fontStyle: state.options.fontStyle || {},
-                outlierAnalysis: state.options.outlierAnalysis || {},
             }
             const value = action.value.value
             const optionId = action.value.optionId
