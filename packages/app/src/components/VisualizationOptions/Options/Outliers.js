@@ -78,7 +78,7 @@ const Outliers = ({ outlierAnalysis, onChange }) => {
                 />
                 <Help>
                     {i18n.t(
-                        'Outlier analysis detects and highlights data items that are markedly differnt from the rest of the data'
+                        'Outlier analysis detects and highlights data items that are markedly different from the rest of the data'
                     )}
                 </Help>
             </div>
