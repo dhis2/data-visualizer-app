@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-02-24T10:49:34.538Z\n"
-"PO-Revision-Date: 2021-02-24T10:49:34.538Z\n"
+"POT-Creation-Date: 2021-02-24T14:44:21.575Z\n"
+"PO-Revision-Date: 2021-02-24T14:44:21.575Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -502,6 +502,14 @@ msgstr ""
 msgid "Percentage of column"
 msgstr ""
 
+msgid "Threshold factor"
+msgstr ""
+
+msgid ""
+"A high value is more sensitive so fewer data items will be identified as "
+"outliers"
+msgstr ""
+
 msgid "Interquartile Range (IQR)"
 msgstr ""
 
@@ -509,14 +517,6 @@ msgid "Z-score / Standard score"
 msgstr ""
 
 msgid "Modified Z-score"
-msgstr ""
-
-msgid "Threshold factor"
-msgstr ""
-
-msgid ""
-"A high value is more sensitive so fewer data items will be identified as "
-"outliers"
 msgstr ""
 
 msgid "Outlier analysis"
