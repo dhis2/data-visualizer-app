@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-02-24T14:57:09.318Z\n"
-"PO-Revision-Date: 2021-02-24T14:57:09.318Z\n"
+"POT-Creation-Date: 2021-02-25T08:13:26.611Z\n"
+"PO-Revision-Date: 2021-02-25T08:13:26.611Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -391,7 +391,7 @@ msgstr ""
 msgid "Extreme line % detection"
 msgstr ""
 
-msgid "Value"
+msgid "Number"
 msgstr ""
 
 msgid "Font size"
@@ -496,6 +496,9 @@ msgstr ""
 msgid "Display the value of percentages of the total"
 msgstr ""
 
+msgid "Value"
+msgstr ""
+
 msgid "Percentage of row"
 msgstr ""
 
@@ -546,9 +549,6 @@ msgid "Include regression"
 msgstr ""
 
 msgid "Title"
-msgstr ""
-
-msgid "Number"
 msgstr ""
 
 msgid "Trend line"
