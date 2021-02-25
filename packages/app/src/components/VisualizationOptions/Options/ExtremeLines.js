@@ -30,13 +30,7 @@ const ExtremeLines = ({
                 <InputField
                     type="number"
                     label={i18n.t('Extreme line % detection')}
-                    onChange={input => {
-                        // FIXME: Replace with steps and min once ui supports it
-                        const parsedValue = Number(input.value)
-                        parsedValue >= 0.1
-                            ? onValueChange(parsedValue)
-                            : onValueChange(parsedValue ? 0 : null)
-                    }}
+                    onChange={input => onValueChange(Number(input.value))}
                     value={currentValue?.toString() || ''}
                     placeholder={i18n.t('Number')}
                     inputWidth="96px"

@@ -33,10 +33,7 @@ const OutlierDetectionMethod = ({
         <InputField
             type="number"
             label={i18n.t('Threshold factor')}
-            onChange={({ value }) =>
-                // FIXME: Replace with steps and min once ui supports it
-                onThresholdChange(Number(value) >= 0.5 ? Number(value) : null)
-            }
+            onChange={({ value }) => onThresholdChange(Number(value))}
             value={currentThreshold?.toString() || ''}
             helpText={i18n.t(
                 'A high value is more sensitive so fewer data items will be identified as outliers'
