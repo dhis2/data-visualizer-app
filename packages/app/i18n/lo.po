@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-02T10:49:34.913Z\n"
+"POT-Creation-Date: 2021-02-25T08:13:26.611Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Somkhit Bouavong <bouavongk@gmail.com>, 2021\n"
 "Language-Team: Lao (https://www.transifex.com/hisp-uio/teams/100509/lo/)\n"
@@ -391,6 +391,18 @@ msgstr "ປົກກະຕິ"
 msgid "Compact"
 msgstr "ໜາແໜ້ນ"
 
+msgid "Extreme lines"
+msgstr ""
+
+msgid "Calculated as a percent, usually 1%, of the total values along an axis"
+msgstr ""
+
+msgid "Extreme line % detection"
+msgstr ""
+
+msgid "Number"
+msgstr "ຈຳນວນ"
+
 msgid "Font size"
 msgstr "ຂະຫນາດຕົວອັກສອນ"
 
@@ -502,6 +514,34 @@ msgstr ""
 msgid "Percentage of column"
 msgstr ""
 
+msgid "Threshold factor"
+msgstr ""
+
+msgid ""
+"A high value is more sensitive so fewer data items will be identified as "
+"outliers"
+msgstr ""
+
+msgid "Interquartile Range (IQR)"
+msgstr ""
+
+msgid "Z-score / Standard score"
+msgstr ""
+
+msgid "Modified Z-score"
+msgstr ""
+
+msgid "Outlier analysis"
+msgstr ""
+
+msgid ""
+"Outlier analysis detects and highlights data items that are markedly "
+"different from the rest of the data"
+msgstr ""
+
+msgid "Outlier detection method"
+msgstr ""
+
 msgid "Organisation unit"
 msgstr "​ຫົວ​ໜ່ວຍ​ການ​ຈັດ​ຕັ້ງ"
 
@@ -519,9 +559,6 @@ msgstr "​ລວມ​ທັງ​ອັນທີ່​ຊ້ຳ​ກັນ"
 
 msgid "Title"
 msgstr "ຫົວຂໍ້"
-
-msgid "Number"
-msgstr "ຈຳນວນ"
 
 msgid "Trend line"
 msgstr "ເສັ້ນແນວໂນ້ມ"

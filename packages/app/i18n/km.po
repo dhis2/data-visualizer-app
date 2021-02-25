@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-02T10:49:34.913Z\n"
+"POT-Creation-Date: 2021-02-25T08:13:26.611Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Khmer (https://www.transifex.com/hisp-uio/teams/100509/km/)\n"
@@ -390,6 +390,18 @@ msgstr ""
 msgid "Compact"
 msgstr ""
 
+msgid "Extreme lines"
+msgstr ""
+
+msgid "Calculated as a percent, usually 1%, of the total values along an axis"
+msgstr ""
+
+msgid "Extreme line % detection"
+msgstr ""
+
+msgid "Number"
+msgstr "តួរលេខ"
+
 msgid "Font size"
 msgstr ""
 
@@ -501,6 +513,34 @@ msgstr ""
 msgid "Percentage of column"
 msgstr ""
 
+msgid "Threshold factor"
+msgstr ""
+
+msgid ""
+"A high value is more sensitive so fewer data items will be identified as "
+"outliers"
+msgstr ""
+
+msgid "Interquartile Range (IQR)"
+msgstr ""
+
+msgid "Z-score / Standard score"
+msgstr ""
+
+msgid "Modified Z-score"
+msgstr ""
+
+msgid "Outlier analysis"
+msgstr ""
+
+msgid ""
+"Outlier analysis detects and highlights data items that are markedly "
+"different from the rest of the data"
+msgstr ""
+
+msgid "Outlier detection method"
+msgstr ""
+
 msgid "Organisation unit"
 msgstr "ផ្នែក​នៃ​អង្គការ"
 
@@ -518,9 +558,6 @@ msgstr ""
 
 msgid "Title"
 msgstr "ចំណងជើង"
-
-msgid "Number"
-msgstr "តួរលេខ"
 
 msgid "Trend line"
 msgstr ""
