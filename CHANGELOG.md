@@ -1,3 +1,10 @@
+# [35.20.0](https://github.com/dhis2/data-visualizer-app/compare/v35.19.3...v35.20.0) (2021-02-25)
+
+
+### Features
+
+* outlier options (DHIS2-1369) ([#1620](https://github.com/dhis2/data-visualizer-app/issues/1620)) ([b349a0a](https://github.com/dhis2/data-visualizer-app/commit/b349a0a91a6bd792bb573d1557bf9f9fa46ced29))
+
 ## [35.19.3](https://github.com/dhis2/data-visualizer-app/compare/v35.19.2...v35.19.3) (2021-02-25)
 
 
