@@ -120,8 +120,8 @@ describe('using a Scatter chart', () => {
     })
     it('deletes saved scatter AO', () => {
         deleteAO()
-        expectRouteToBeEmpty()
         expectStartScreenToBeVisible()
+        expectRouteToBeEmpty()
     })
 })
 

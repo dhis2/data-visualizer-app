@@ -93,6 +93,7 @@ export const DEFAULT_UI = {
     activeModalDialog: null,
     rightSidebarOpen: false,
     interpretation: {},
+    outlierAnalysis: null,
 }
 
 export const PRESELECTED_YEAR_OVER_YEAR_SERIES = ['THIS_YEAR', 'LAST_YEAR']
@@ -790,7 +791,6 @@ export const sGetUiOption = (state, option) => {
                     (options.fontStyle || {})[option.id]
                 )
                 break
-            // TODO: Add back support for all other font styles
         }
     }
     return value

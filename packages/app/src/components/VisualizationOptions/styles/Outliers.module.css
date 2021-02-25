@@ -1,0 +1,4 @@
+.divider {
+    margin: var(--spacers-dp16) 22px;
+    border-bottom: 1px solid var(--colors-grey300);
+}
