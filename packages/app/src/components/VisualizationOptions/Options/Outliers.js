@@ -16,7 +16,7 @@ import ExtremeLines from './ExtremeLines'
 import styles from '../styles/Outliers.module.css'
 
 const ENABLED_PROP = 'enabled'
-const METHOD_PROP = 'method'
+const METHOD_PROP = 'outlierMethod'
 const THRESHOLD_PROP = 'thresholdFactor'
 const EL_ENABLED_PROP = 'enabled'
 const EL_VALUE_PROP = 'value'
