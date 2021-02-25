@@ -33,7 +33,7 @@
     "workspaces": [
         "packages/*"
     ],
-    "version": "35.19.1",
+    "version": "35.19.2",
     "resolutions": {
         "@dhis2/ui": "^6.2.2"
     }

@@ -1,3 +1,10 @@
+## [35.19.2](https://github.com/dhis2/data-visualizer-app/compare/v35.19.1...v35.19.2) (2021-02-25)
+
+
+### Bug Fixes
+
+* data dim selector improvements (DHIS2-7943) ([#1619](https://github.com/dhis2/data-visualizer-app/issues/1619)) ([cfee302](https://github.com/dhis2/data-visualizer-app/commit/cfee3023e8b225ddf3c468b2de5de8eac84c196c))
+
 ## [35.19.1](https://github.com/dhis2/data-visualizer-app/compare/v35.19.0...v35.19.1) (2021-02-22)
 
 
