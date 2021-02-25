@@ -74,11 +74,6 @@ export class Visualization extends Component {
 
     onResponsesReceived = responses => {
         const forMetadata = {}
-        if (
-            !responses.some(response => response.rows && response.rows.length)
-        ) {
-            throw new EmptyResponseError()
-        }
         responses.forEach(response => {
             Object.entries(response.metaData.items).forEach(([id, item]) => {
                 forMetadata[id] = {
@@ -91,6 +86,12 @@ export class Visualization extends Component {
         })
 
         this.props.addMetadata(forMetadata)
+
+        if (
+            !responses.some(response => response.rows && response.rows.length)
+        ) {
+            throw new EmptyResponseError()
+        }
     }
 
     onDrill = drillData => {
