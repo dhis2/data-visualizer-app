@@ -1,3 +1,10 @@
+## [35.19.3](https://github.com/dhis2/data-visualizer-app/compare/v35.19.2...v35.19.3) (2021-02-25)
+
+
+### Bug Fixes
+
+* store metadata always, also when no data returned ([#1624](https://github.com/dhis2/data-visualizer-app/issues/1624)) ([053b5b5](https://github.com/dhis2/data-visualizer-app/commit/053b5b5bd88916867b2f1d6e6a6b3a1dfdb77955))
+
 ## [35.19.2](https://github.com/dhis2/data-visualizer-app/compare/v35.19.1...v35.19.2) (2021-02-25)
 
 
