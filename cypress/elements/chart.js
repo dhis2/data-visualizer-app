@@ -20,7 +20,7 @@ const unsavedVisualizationTitleText = 'Unsaved visualization'
 const AOTitleEl = 'AO-title'
 const AOTitleDirtyEl = 'AO-title-dirty'
 const timeout = {
-    timeout: 10000,
+    timeout: 20000,
 }
 const nonHighchartsTypes = [VIS_TYPE_PIVOT_TABLE, VIS_TYPE_SINGLE_VALUE]
 

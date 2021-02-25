@@ -268,51 +268,31 @@ describe('Data dimension', () => {
                     expectSubGroupSelectToBeVisible()
                     expectSubGroupSelectToBe(testDataType.defaultSubGroup.name)
                 })
-                if (testDataType.name === 'Data elements') {
-                    // FIXME: Backend bug! https://jira.dhis2.org/browse/DHIS2-10480
-                    it(`--- BACKEND BUG ---`, () => {
-                        cy.log(
-                            '--- BACKEND BUG --- The following steps fail because the pager of /dataElementOperands is incorrect'
-                        )
-                    })
-                } else {
-                    it(`sub group can be changed to "${testDataType.testSubGroup.name}"`, () => {
-                        switchSubGroupTo(testDataType.testSubGroup.name)
-                        expectSubGroupSelectToBe(testDataType.testSubGroup.name)
-                        expectDataItemsSelectableAmountToBe(
-                            testDataType.testSubGroup.itemAmount
-                        )
-                        expectDataItemToBeSelected(testDataType.testItem.name)
-                    })
-                    it(`sub group can be changed back to "${testDataType.defaultSubGroup.name}"`, () => {
-                        switchSubGroupTo(testDataType.defaultSubGroup.name)
-                        expectSubGroupSelectToBe(
-                            testDataType.defaultSubGroup.name
-                        )
-                        expectDataItemsSelectableAmountToBe(
-                            testDataType.testGroup.itemAmount - 1
-                        )
-                        expectDataItemToBeSelected(testDataType.testItem.name)
-                    })
-                }
-            }
-            if (
-                testDataType.name === 'Event data items' ||
-                testDataType.name === 'Program indicators'
-            ) {
-                // FIXME: Backend bug! @Maikel will fix this
-                it(`--- BACKEND BUG ---`, () => {
-                    cy.log('Backend throws an error regarding "programIdOR"')
-                })
-            } else {
-                it('search displays a correct error message', () => {
-                    const testSearchTermWithNoMatch = 'nomatch'
-                    inputSearchTerm(testSearchTermWithNoMatch)
-                    expectEmptySourceMessageToBe(
-                        `No ${testDataType.name.toLowerCase()} found for "${testSearchTermWithNoMatch}"`
+
+                it(`sub group can be changed to "${testDataType.testSubGroup.name}"`, () => {
+                    switchSubGroupTo(testDataType.testSubGroup.name)
+                    expectSubGroupSelectToBe(testDataType.testSubGroup.name)
+                    expectDataItemsSelectableAmountToBe(
+                        testDataType.testSubGroup.itemAmount
                     )
+                    expectDataItemToBeSelected(testDataType.testItem.name)
+                })
+                it(`sub group can be changed back to "${testDataType.defaultSubGroup.name}"`, () => {
+                    switchSubGroupTo(testDataType.defaultSubGroup.name)
+                    expectSubGroupSelectToBe(testDataType.defaultSubGroup.name)
+                    expectDataItemsSelectableAmountToBe(
+                        testDataType.testGroup.itemAmount - 1
+                    )
+                    expectDataItemToBeSelected(testDataType.testItem.name)
                 })
             }
+            it('search displays a correct error message', () => {
+                const testSearchTermWithNoMatch = 'nomatch'
+                inputSearchTerm(testSearchTermWithNoMatch)
+                expectEmptySourceMessageToBe(
+                    `No ${testDataType.name.toLowerCase()} found for "${testSearchTermWithNoMatch}"`
+                )
+            })
             it('selection and filter can be reset', () => {
                 unselectAllDataItems()
                 expectNoDataItemsToBeSelected()
