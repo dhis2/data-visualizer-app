@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-02-02T10:49:34.913Z\n"
-"PO-Revision-Date: 2021-02-02T10:49:34.913Z\n"
+"POT-Creation-Date: 2021-02-25T08:13:26.611Z\n"
+"PO-Revision-Date: 2021-02-25T08:13:26.611Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -382,6 +382,18 @@ msgstr ""
 msgid "Compact"
 msgstr ""
 
+msgid "Extreme lines"
+msgstr ""
+
+msgid "Calculated as a percent, usually 1%, of the total values along an axis"
+msgstr ""
+
+msgid "Extreme line % detection"
+msgstr ""
+
+msgid "Number"
+msgstr ""
+
 msgid "Font size"
 msgstr ""
 
@@ -493,6 +505,34 @@ msgstr ""
 msgid "Percentage of column"
 msgstr ""
 
+msgid "Threshold factor"
+msgstr ""
+
+msgid ""
+"A high value is more sensitive so fewer data items will be identified as "
+"outliers"
+msgstr ""
+
+msgid "Interquartile Range (IQR)"
+msgstr ""
+
+msgid "Z-score / Standard score"
+msgstr ""
+
+msgid "Modified Z-score"
+msgstr ""
+
+msgid "Outlier analysis"
+msgstr ""
+
+msgid ""
+"Outlier analysis detects and highlights data items that are markedly "
+"different from the rest of the data"
+msgstr ""
+
+msgid "Outlier detection method"
+msgstr ""
+
 msgid "Organisation unit"
 msgstr ""
 
@@ -509,9 +549,6 @@ msgid "Include regression"
 msgstr ""
 
 msgid "Title"
-msgstr ""
-
-msgid "Number"
 msgstr ""
 
 msgid "Trend line"
