@@ -1809,30 +1809,12 @@
   dependencies:
     prop-types "^15"
 
-"@dhis2/ui-constants@5.7.8":
-  version "5.7.8"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-constants/-/ui-constants-5.7.8.tgz#3356de03c5e9ddc0b5fac5087df8ccd97f0dc3c0"
-  integrity sha512-Ca9PvKP8s0jcWtqLl5tyAyhoy0F6rAohAiLvoJvRmx1M7lXzxwpHjLZnaQ4b1js3tn7BPB7HRdvv+SREqYY+PA==
-  dependencies:
-    "@dhis2/prop-types" "^1.6.4"
-
 "@dhis2/ui-constants@6.5.0":
   version "6.5.0"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-constants/-/ui-constants-6.5.0.tgz#1066710d565417378248ee2d4e3a1e611088a7c3"
   integrity sha512-9vvIABl3vSucPCWopObdOKRk4uYOsclnEMR2ZXHJVjUJ24CW3S0WV4sgqoIsSJRDPJbCfvYvYHa/scaELfP2Kg==
   dependencies:
     "@dhis2/prop-types" "^1.6.4"
-
-"@dhis2/ui-core@5.7.8":
-  version "5.7.8"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-5.7.8.tgz#063f8a10e583803d8b85d168ddbfb52e1f72750b"
-  integrity sha512-ijmXT8QlBS6RjHsbPOsBzaAb9j5DOvQeoLkhFo5eQZswavug2gW+S/Vh2tgxfNP8gybZ0tHKaJXeXN3bkg7Xnw==
-  dependencies:
-    "@dhis2/prop-types" "^1.6.4"
-    "@popperjs/core" "^2.5.3"
-    classnames "^2.2.6"
-    react-popper "^2.2.3"
-    resize-observer-polyfill "^1.5.1"
 
 "@dhis2/ui-core@6.5.0":
   version "6.5.0"
@@ -1845,16 +1827,6 @@
     react-popper "^2.2.3"
     resize-observer-polyfill "^1.5.1"
 
-"@dhis2/ui-forms@5.7.8":
-  version "5.7.8"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-forms/-/ui-forms-5.7.8.tgz#7b4489b796e2a79bebd1a24b8c1df59103e566c0"
-  integrity sha512-8c7IKJAqGL+IIZ7sjUbTrlwGHFpwX6KfF8eToDxXkkNONyyRIiFo7uVI43+rHii7+WmFwEhacWWjeYhfVBICfg==
-  dependencies:
-    "@dhis2/prop-types" "^1.6.4"
-    classnames "^2.2.6"
-    final-form "^4.20.1"
-    react-final-form "^6.5.1"
-
 "@dhis2/ui-forms@6.5.0":
   version "6.5.0"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-forms/-/ui-forms-6.5.0.tgz#c1f104a0209797ba4c315c1b6dbaa7df901b92d7"
@@ -1865,27 +1837,12 @@
     final-form "^4.20.1"
     react-final-form "^6.5.1"
 
-"@dhis2/ui-icons@5.7.8":
-  version "5.7.8"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-icons/-/ui-icons-5.7.8.tgz#cb18c1bfbbcf49b2dae4c2b3ff7a3aeff46aa7f2"
-  integrity sha512-3P/Ptsf6HEdi0q8q6ba4Hcr8yuK+Y29PJn1Z56IZNZ+sZmFYiU7vxk5aMwA+s1EnjcPWQjrdwLzqqBAJE2W3Qg==
-  dependencies:
-    "@dhis2/prop-types" "^1.6.4"
-
 "@dhis2/ui-icons@6.5.0":
   version "6.5.0"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-icons/-/ui-icons-6.5.0.tgz#e75b64d1ae7ac717d792f64c3d1a0681bac7b04c"
   integrity sha512-4/pOH6a2el9M2y8GWnXd9faQB9zpln+nHEcCWahY/O+gRSdaQpe3pLH18aKapGJygJt/Jp9lrCDjOop4klCXNw==
   dependencies:
     "@dhis2/prop-types" "^1.6.4"
-
-"@dhis2/ui-widgets@5.7.8":
-  version "5.7.8"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-widgets/-/ui-widgets-5.7.8.tgz#77318381dd92848f9ab2cbc5414a2b57599309fe"
-  integrity sha512-QVLOdB836uUXBRw4OT6x/z1WR7j2ykxpMyat4g9sOXngj6t9+2UXZUO7Zegudj/HsZjTMDiN9A285zwxsd+khQ==
-  dependencies:
-    "@dhis2/prop-types" "^1.6.4"
-    classnames "^2.2.6"
 
 "@dhis2/ui-widgets@6.5.0":
   version "6.5.0"
@@ -1895,18 +1852,7 @@
     "@dhis2/prop-types" "^1.6.4"
     classnames "^2.2.6"
 
-"@dhis2/ui@^5.7.2":
-  version "5.7.8"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-5.7.8.tgz#17604580d02cd4a7756552154a089e730a0fdf02"
-  integrity sha512-FHyTP6geAkR/jwX1/xG8yl8PvGaNhms8zUmaNiBLQ0mUmD9oJb47U8YXhJ5nVd0SFJnmuckOWgAWMt3meZGJTA==
-  dependencies:
-    "@dhis2/ui-constants" "5.7.8"
-    "@dhis2/ui-core" "5.7.8"
-    "@dhis2/ui-forms" "5.7.8"
-    "@dhis2/ui-icons" "5.7.8"
-    "@dhis2/ui-widgets" "5.7.8"
-
-"@dhis2/ui@^6.5.0":
+"@dhis2/ui@^5.7.2", "@dhis2/ui@^6.5.0":
   version "6.5.0"
   resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-6.5.0.tgz#8972d1c42f6445976965b6653571070d8e588726"
   integrity sha512-zW6jl3qMDe6D29WuZtqd4p43mDsKTo49rYEgccbCx7S/ZEfs8KNi/aQsvhkphjjrtp6QqncBmp853WAvGxfdvw==
@@ -2487,7 +2433,7 @@
     schema-utils "^2.6.5"
     source-map "^0.7.3"
 
-"@popperjs/core@^2.5.3", "@popperjs/core@^2.6.0":
+"@popperjs/core@^2.6.0":
   version "2.8.4"
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.8.4.tgz#6f1744b0f69f507a433f42874cc3b2eb4b11b337"
   integrity sha512-h0lY7g36rhjNV8KVHKS3/BEOgfsxu0AiRI8+ry5IFBGEsQFkpjxtcpVc9ndN8zrKUeMZXAWMc7eQMepfgykpxQ==
