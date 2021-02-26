@@ -30,6 +30,8 @@ const ExtremeLines = ({
                 <InputField
                     type="number"
                     label={i18n.t('Extreme line % detection')}
+                    min="0.1"
+                    step="0.1"
                     onChange={input => onValueChange(Number(input.value))}
                     value={currentValue?.toString() || ''}
                     placeholder={i18n.t('Number')}
