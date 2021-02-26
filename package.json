@@ -35,6 +35,6 @@
     ],
     "version": "35.20.0",
     "resolutions": {
-        "@dhis2/ui": "^6.2.2"
+        "@dhis2/ui": "^6.5.0"
     }
 }
