@@ -1,3 +1,10 @@
+## [35.20.1](https://github.com/dhis2/data-visualizer-app/compare/v35.20.0...v35.20.1) (2021-02-26)
+
+
+### Bug Fixes
+
+* min/step settings for outliers options ([#1627](https://github.com/dhis2/data-visualizer-app/issues/1627)) ([56ace8c](https://github.com/dhis2/data-visualizer-app/commit/56ace8c8ed6f355c2e3e40b912cd54b205137935))
+
 # [35.20.0](https://github.com/dhis2/data-visualizer-app/compare/v35.19.3...v35.20.0) (2021-02-25)
 
 
