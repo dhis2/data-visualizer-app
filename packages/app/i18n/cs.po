@@ -403,13 +403,13 @@ msgid "Compact"
 msgstr "Kompaktní"
 
 msgid "Extreme lines"
-msgstr ""
+msgstr "Extrémní linie"
 
 msgid "Calculated as a percent, usually 1%, of the total values along an axis"
-msgstr ""
+msgstr "Vypočítáno jako procento, obvykle 1%, z celkových hodnot podél osy"
 
 msgid "Extreme line % detection"
-msgstr ""
+msgstr "Detekce extrémní linie %"
 
 msgid "Number"
 msgstr "Číslo"
@@ -529,32 +529,36 @@ msgid "Percentage of column"
 msgstr "Procento sloupce"
 
 msgid "Threshold factor"
-msgstr ""
+msgstr "Faktor prahu"
 
 msgid ""
 "A high value is more sensitive so fewer data items will be identified as "
 "outliers"
 msgstr ""
+"Vysoká hodnota je citlivější, takže méně datových položek bude "
+"identifikováno jako odlehlé hodnoty"
 
 msgid "Interquartile Range (IQR)"
-msgstr ""
+msgstr "Interquartile Rozsah (IQR)"
 
 msgid "Z-score / Standard score"
-msgstr ""
+msgstr "Z-skóre / standardní skóre"
 
 msgid "Modified Z-score"
-msgstr ""
+msgstr "Upravené Z-skóre"
 
 msgid "Outlier analysis"
-msgstr ""
+msgstr "Analýza odlehlých hodnot"
 
 msgid ""
 "Outlier analysis detects and highlights data items that are markedly "
 "different from the rest of the data"
 msgstr ""
+"Analýza odlehlých hodnot detekuje a zdůrazňuje datové položky, které se "
+"výrazně liší od ostatních dat"
 
 msgid "Outlier detection method"
-msgstr ""
+msgstr "Metoda detekce odlehlých hodnot"
 
 msgid "Organisation unit"
 msgstr "Organizační jednotka"
