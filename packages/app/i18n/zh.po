@@ -395,13 +395,13 @@ msgid "Compact"
 msgstr "紧凑"
 
 msgid "Extreme lines"
-msgstr ""
+msgstr "极限线"
 
 msgid "Calculated as a percent, usually 1%, of the total values along an axis"
-msgstr ""
+msgstr "计算为沿轴的总值的百分比，通常为1％"
 
 msgid "Extreme line % detection"
-msgstr ""
+msgstr "极限线％检测"
 
 msgid "Number"
 msgstr "数字"
@@ -518,32 +518,32 @@ msgid "Percentage of column"
 msgstr "列百分比"
 
 msgid "Threshold factor"
-msgstr ""
+msgstr "阈值系数"
 
 msgid ""
 "A high value is more sensitive so fewer data items will be identified as "
 "outliers"
-msgstr ""
+msgstr "高值更敏感，因此较少数据项将被识别为异常值"
 
 msgid "Interquartile Range (IQR)"
-msgstr ""
+msgstr "四分位间距（IQR）"
 
 msgid "Z-score / Standard score"
-msgstr ""
+msgstr "Z分数/标准分数"
 
 msgid "Modified Z-score"
-msgstr ""
+msgstr "修改后的Z评分"
 
 msgid "Outlier analysis"
-msgstr ""
+msgstr "离群分析"
 
 msgid ""
 "Outlier analysis detects and highlights data items that are markedly "
 "different from the rest of the data"
-msgstr ""
+msgstr "离群值分析检测并突出显示与其余数据明显不同的数据项"
 
 msgid "Outlier detection method"
-msgstr ""
+msgstr "离群值检测方法"
 
 msgid "Organisation unit"
 msgstr "组织机构"
