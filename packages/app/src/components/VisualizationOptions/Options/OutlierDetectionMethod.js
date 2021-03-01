@@ -28,7 +28,11 @@ const OutlierDetectionMethod = ({
                     />
                 ))}
             </Field>
-            <Help>{i18n.t('TODO: Help text goes here')}</Help>
+            <Help>
+                {i18n.t(
+                    'Each method identifies outliers in different ways and suits different data. Check the documentation for help to choose the right outlier method'
+                )}
+            </Help>
         </div>
         <InputField
             type="number"

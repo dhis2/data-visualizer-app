@@ -7,7 +7,7 @@ import { Checkbox, FieldSet, Help, Legend } from '@dhis2/ui'
 import { sGetUiOptions } from '../../../reducers/ui'
 import { acSetUiOptions } from '../../../actions/ui'
 import {
-    tabSectionOptionToggleable,
+    tabSectionToggleableSubsection,
     tabSectionOption,
     tabSectionTitle,
 } from '../styles/VisualizationOptions.style.js'
@@ -82,9 +82,9 @@ const Outliers = ({ outlierAnalysis, onChange }) => {
                     )}
                 </Help>
             </div>
-            {outlierAnalysis[ENABLED_PROP] ? (
+            {outlierAnalysis[ENABLED_PROP] && (
                 <>
-                    <div className={tabSectionOptionToggleable.className}>
+                    <div className={tabSectionToggleableSubsection.className}>
                         <div className={tabSectionOption.className}>
                             <FieldSet>
                                 <Legend>
@@ -119,7 +119,7 @@ const Outliers = ({ outlierAnalysis, onChange }) => {
                         </div>
                     </div>
                     <div className={styles.divider}></div>
-                    <div className={tabSectionOptionToggleable.className}>
+                    <div className={tabSectionToggleableSubsection.className}>
                         <div className={tabSectionOption.className}>
                             <FieldSet>
                                 <Legend>
@@ -157,7 +157,7 @@ const Outliers = ({ outlierAnalysis, onChange }) => {
                         </div>
                     </div>
                 </>
-            ) : null}
+            )}
         </div>
     )
 }

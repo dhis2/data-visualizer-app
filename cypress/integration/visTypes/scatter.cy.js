@@ -118,6 +118,8 @@ describe('using a Scatter chart', () => {
         expectVerticalToContainDimensionLabel(TEST_INDICATOR_NAMES[0])
         expectHorizontalToContainDimensionLabel(TEST_INDICATOR_NAMES[1])
     })
+    // TODO: Set outlier options
+    // TODO: Click update, intercept the data returned, check that the $config has the correct data
     it('deletes saved scatter AO', () => {
         deleteAO()
         expectStartScreenToBeVisible()
