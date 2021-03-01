@@ -54,6 +54,8 @@ const DEFAULT_STATE = {
     },
 }
 
+const dataTest = 'option-outliers'
+
 const Outliers = ({ outlierAnalysis, onChange }) => {
     const storeProp = (prop, value) =>
         onChange({ ...outlierAnalysis, [prop]: value })
@@ -75,6 +77,7 @@ const Outliers = ({ outlierAnalysis, onChange }) => {
                     label={i18n.t('Outlier analysis')}
                     onChange={({ checked }) => storeProp(ENABLED_PROP, checked)}
                     dense
+                    dataTest={`${dataTest}-enabled-checkbox`}
                 />
                 <Help>
                     {i18n.t(

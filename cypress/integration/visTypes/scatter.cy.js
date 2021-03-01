@@ -25,7 +25,10 @@ import {
     expectChartTitleToBeVisible,
 } from '../../elements/chart'
 import { TEST_INDICATORS } from '../../utils/data'
-import { clickMenuBarUpdateButton } from '../../elements/menuBar'
+import {
+    clickMenuBarOptionsButton,
+    clickMenuBarUpdateButton,
+} from '../../elements/menuBar'
 import {
     clickContextMenuSwap,
     expectDimensionOnAxisToHaveLockIcon,
@@ -35,6 +38,12 @@ import {
 } from '../../elements/layout'
 import { deleteAO, saveExistingAO, saveNewAO } from '../../elements/fileMenu'
 import { expectRouteToBeEmpty } from '../../elements/route'
+import {
+    clickOptionsModalUpdateButton,
+    clickOptionsTab,
+    enableOutliers,
+    OPTIONS_TAB_OUTLIERS,
+} from '../../elements/optionsModal'
 
 const TEST_INDICATOR_NAMES = TEST_INDICATORS.slice(1, 4).map(item => item.name)
 const TEST_VIS_NAME = `TEST SCATTER ${new Date().toLocaleString()}`
@@ -112,14 +121,26 @@ describe('using a Scatter chart', () => {
         expectVerticalToContainDimensionLabel(TEST_INDICATOR_NAMES[0])
         expectHorizontalToContainDimensionLabel(TEST_INDICATOR_NAMES[1])
     })
+    it('opens Options -> Outliers', () => {
+        clickMenuBarOptionsButton()
+        clickOptionsTab(OPTIONS_TAB_OUTLIERS)
+    })
+    it('enables outliers', () => {
+        enableOutliers()
+    })
+    // TODO: Set more outlier options
+    it('click the modal update button', () => {
+        clickOptionsModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_SCATTER)
+        // TODO: Intercept the data returned to simplify / standardise it, then check that the $config has the correct data
+    })
     it('saves and displays items in the correct places', () => {
         saveExistingAO()
         expectVisualizationToBeVisible(VIS_TYPE_SCATTER)
         expectVerticalToContainDimensionLabel(TEST_INDICATOR_NAMES[0])
         expectHorizontalToContainDimensionLabel(TEST_INDICATOR_NAMES[1])
     })
-    // TODO: Set outlier options
-    // TODO: Click update, intercept the data returned, check that the $config has the correct data
+    // TODO: Open outlier options again and check that everything was saved correctly
     it('deletes saved scatter AO', () => {
         deleteAO()
         expectStartScreenToBeVisible()

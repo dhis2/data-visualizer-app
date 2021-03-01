@@ -6,6 +6,7 @@ const optionsModalHideButtonEl = 'options-modal-action-cancel'
 export const OPTIONS_TAB_STYLE = 'Style'
 export const OPTIONS_TAB_DATA = 'Data'
 export const OPTIONS_TAB_AXES = 'Axes'
+export const OPTIONS_TAB_OUTLIERS = 'Outliers'
 export const TYPE_TITLE = 'title'
 export const TYPE_SUBTITLE = 'subtitle'
 
@@ -44,3 +45,5 @@ export {
 export { enableTrendLine, selectTrendLineType } from './lines'
 
 export { setCustomSubtitle } from './subtitle'
+
+export { enableOutliers } from './outliers'
