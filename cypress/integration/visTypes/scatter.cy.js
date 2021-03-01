@@ -44,12 +44,14 @@ import {
     enableOutliers,
     OPTIONS_TAB_AXES,
     OPTIONS_TAB_OUTLIERS,
-    setVerticalAxisRangeMaxValue,
-    setVerticalAxisRangeMinValue,
+    setAxisRangeMaxValue,
+    setAxisRangeMinValue,
 } from '../../elements/optionsModal'
 import {
     expectWindowConfigYAxisToHaveRangeMaxValue,
     expectWindowConfigYAxisToHaveRangeMinValue,
+    expectWindowConfigXAxisToHaveRangeMaxValue,
+    expectWindowConfigXAxisToHaveRangeMinValue,
 } from '../../utils/window'
 
 const TEST_INDICATOR_NAMES = TEST_INDICATORS.slice(1, 4).map(item => item.name)
@@ -129,16 +131,22 @@ describe('using a Scatter chart', () => {
         expectHorizontalToContainDimensionLabel(TEST_INDICATOR_NAMES[1])
     })
     it('Options -> Axes -> sets min/max range', () => {
-        const TEST_MIN_VALUE = 50,
-            TEST_MAX_VALUE = 150
+        const TEST_AXES = [
+            { axis: 'RANGE_0', min: 50, max: 150 },
+            { axis: 'RANGE_1', min: 100, max: 200 },
+        ]
         clickMenuBarOptionsButton()
         clickOptionsTab(OPTIONS_TAB_AXES)
-        setVerticalAxisRangeMinValue(TEST_MIN_VALUE)
-        setVerticalAxisRangeMaxValue(TEST_MAX_VALUE)
+        TEST_AXES.forEach(test => {
+            setAxisRangeMinValue(test.axis, test.min)
+            setAxisRangeMaxValue(test.axis, test.max)
+        })
         clickOptionsModalUpdateButton()
         expectVisualizationToBeVisible(VIS_TYPE_SCATTER)
-        expectWindowConfigYAxisToHaveRangeMinValue(TEST_MIN_VALUE)
-        expectWindowConfigYAxisToHaveRangeMaxValue(TEST_MAX_VALUE)
+        expectWindowConfigYAxisToHaveRangeMinValue(TEST_AXES[0].min)
+        expectWindowConfigYAxisToHaveRangeMaxValue(TEST_AXES[0].max)
+        expectWindowConfigXAxisToHaveRangeMinValue(TEST_AXES[1].min)
+        expectWindowConfigXAxisToHaveRangeMaxValue(TEST_AXES[1].max)
     })
     it('Options -> Outliers -> enables outliers', () => {
         clickMenuBarOptionsButton()

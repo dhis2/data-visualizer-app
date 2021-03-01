@@ -33,14 +33,14 @@ export {
 } from './fontStyles'
 
 export {
-    enableVerticalAxisTitle,
-    setVerticalAxisTitle,
-    expectVerticalAxisTitleToBeValue,
-    setVerticalAxisRangeMinValue,
-    expectVerticalAxisRangeMinToBeValue,
-    setVerticalAxisRangeMaxValue,
-    expectVerticalAxisRangeMaxToBeValue,
-} from './verticalAxis'
+    enableAxisTitle,
+    setAxisTitle,
+    expectAxisTitleToBeValue,
+    setAxisRangeMinValue,
+    expectAxisRangeMinToBeValue,
+    setAxisRangeMaxValue,
+    expectAxisRangeMaxToBeValue,
+} from './axes'
 
 export { enableTrendLine, selectTrendLineType } from './lines'
 
