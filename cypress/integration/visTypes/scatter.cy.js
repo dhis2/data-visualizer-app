@@ -42,8 +42,15 @@ import {
     clickOptionsModalUpdateButton,
     clickOptionsTab,
     enableOutliers,
+    OPTIONS_TAB_AXES,
     OPTIONS_TAB_OUTLIERS,
+    setVerticalAxisRangeMaxValue,
+    setVerticalAxisRangeMinValue,
 } from '../../elements/optionsModal'
+import {
+    expectWindowConfigYAxisToHaveRangeMaxValue,
+    expectWindowConfigYAxisToHaveRangeMinValue,
+} from '../../utils/window'
 
 const TEST_INDICATOR_NAMES = TEST_INDICATORS.slice(1, 4).map(item => item.name)
 const TEST_VIS_NAME = `TEST SCATTER ${new Date().toLocaleString()}`
@@ -121,15 +128,23 @@ describe('using a Scatter chart', () => {
         expectVerticalToContainDimensionLabel(TEST_INDICATOR_NAMES[0])
         expectHorizontalToContainDimensionLabel(TEST_INDICATOR_NAMES[1])
     })
-    it('opens Options -> Outliers', () => {
+    it('Options -> Axes -> sets min/max range', () => {
+        const TEST_MIN_VALUE = 50,
+            TEST_MAX_VALUE = 150
+        clickMenuBarOptionsButton()
+        clickOptionsTab(OPTIONS_TAB_AXES)
+        setVerticalAxisRangeMinValue(TEST_MIN_VALUE)
+        setVerticalAxisRangeMaxValue(TEST_MAX_VALUE)
+        clickOptionsModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_SCATTER)
+        expectWindowConfigYAxisToHaveRangeMinValue(TEST_MIN_VALUE)
+        expectWindowConfigYAxisToHaveRangeMaxValue(TEST_MAX_VALUE)
+    })
+    it('Options -> Outliers -> enables outliers', () => {
         clickMenuBarOptionsButton()
         clickOptionsTab(OPTIONS_TAB_OUTLIERS)
-    })
-    it('enables outliers', () => {
         enableOutliers()
-    })
-    // TODO: Set more outlier options
-    it('click the modal update button', () => {
+        // TODO: Set more outlier options
         clickOptionsModalUpdateButton()
         expectVisualizationToBeVisible(VIS_TYPE_SCATTER)
         // TODO: Intercept the data returned to simplify / standardise it, then check that the $config has the correct data
