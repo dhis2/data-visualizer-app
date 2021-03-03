@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-25T08:13:26.611Z\n"
+"POT-Creation-Date: 2021-03-03T10:40:06.300Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2021\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -529,6 +529,12 @@ msgstr "Prosentandel av rad"
 
 msgid "Percentage of column"
 msgstr "Prosentandel av kolonne"
+
+msgid ""
+"Each detection method identifies outliers in different ways and suits "
+"different data. Check the documentation for help to choose the right outlier"
+" detection method"
+msgstr ""
 
 msgid "Threshold factor"
 msgstr ""

@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-25T08:13:26.611Z\n"
+"POT-Creation-Date: 2021-03-03T10:40:06.300Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2020\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
@@ -527,6 +527,12 @@ msgstr "Phần trăm theo dòng"
 
 msgid "Percentage of column"
 msgstr "Phần trăm theo cột"
+
+msgid ""
+"Each detection method identifies outliers in different ways and suits "
+"different data. Check the documentation for help to choose the right outlier"
+" detection method"
+msgstr ""
 
 msgid "Threshold factor"
 msgstr ""
