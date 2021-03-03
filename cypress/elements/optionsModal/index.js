@@ -6,6 +6,7 @@ const optionsModalHideButtonEl = 'options-modal-action-cancel'
 export const OPTIONS_TAB_STYLE = 'Style'
 export const OPTIONS_TAB_DATA = 'Data'
 export const OPTIONS_TAB_AXES = 'Axes'
+export const OPTIONS_TAB_OUTLIERS = 'Outliers'
 export const TYPE_TITLE = 'title'
 export const TYPE_SUBTITLE = 'subtitle'
 
@@ -32,15 +33,17 @@ export {
 } from './fontStyles'
 
 export {
-    enableVerticalAxisTitle,
-    setVerticalAxisTitle,
-    expectVerticalAxisTitleToBeValue,
-    setVerticalAxisRangeMinValue,
-    expectVerticalAxisRangeMinToBeValue,
-    setVerticalAxisRangeMaxValue,
-    expectVerticalAxisRangeMaxToBeValue,
-} from './verticalAxis'
+    enableAxisTitle,
+    setAxisTitle,
+    expectAxisTitleToBeValue,
+    setAxisRangeMinValue,
+    expectAxisRangeMinToBeValue,
+    setAxisRangeMaxValue,
+    expectAxisRangeMaxToBeValue,
+} from './axes'
 
-export { enableTrendLine, selectTrendLineType } from './lines'
+export { clickTrendLineCheckbox, selectTrendLineType } from './lines'
 
 export { setCustomSubtitle } from './subtitle'
+
+export { enableOutliers } from './outliers'

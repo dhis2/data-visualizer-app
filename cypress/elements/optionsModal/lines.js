@@ -2,11 +2,11 @@ const trendLineCheckboxEl = 'option-trend-line-checkbox'
 const trendLineSelectEl = 'option-trend-line-select'
 const trendLineSelectOptionEl = 'option-trend-line-option'
 
-export const enableTrendLine = () =>
+export const clickTrendLineCheckbox = () =>
     cy
         .getBySel(trendLineCheckboxEl)
+        .click()
         .find('[type="checkbox"]')
-        .check({ force: true })
         .should('be.checked')
 
 export const selectTrendLineType = optionName => {
