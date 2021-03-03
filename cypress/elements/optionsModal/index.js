@@ -42,7 +42,7 @@ export {
     expectAxisRangeMaxToBeValue,
 } from './axes'
 
-export { enableTrendLine, selectTrendLineType } from './lines'
+export { clickTrendLineCheckbox, selectTrendLineType } from './lines'
 
 export { setCustomSubtitle } from './subtitle'
 
