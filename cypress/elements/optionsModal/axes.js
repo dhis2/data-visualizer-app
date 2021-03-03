@@ -8,8 +8,8 @@ const getAxisSelector = (axis, selector) => `${axis}-${selector}`
 export const enableAxisTitle = axis =>
     cy
         .getBySel(getAxisSelector(axis, titleCheckboxEl))
+        .click()
         .find('[type="checkbox"]')
-        .check({ force: true }) // FIXME: Find another way to check the checkbox without force
         .should('be.checked')
 
 export const setAxisTitle = (axis, text) =>
