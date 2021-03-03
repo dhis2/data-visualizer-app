@@ -1,3 +1,10 @@
+## [35.20.2](https://github.com/dhis2/data-visualizer-app/compare/v35.20.1...v35.20.2) (2021-03-03)
+
+
+### Bug Fixes
+
+* use nameprop for dynamic dimensions and /analytics ([#1634](https://github.com/dhis2/data-visualizer-app/issues/1634)) ([520be2b](https://github.com/dhis2/data-visualizer-app/commit/520be2b846f5e14c33e4bf923a0c258158d1def2))
+
 ## [35.20.1](https://github.com/dhis2/data-visualizer-app/compare/v35.20.0...v35.20.1) (2021-02-26)
 
 
