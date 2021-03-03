@@ -130,7 +130,7 @@ describe('Options - Horizontal axis', () => {
             clickOptionsModalUpdateButton()
             expectChartTitleToBeVisible()
         })
-        it(`config has vertical axis title "${TEST_TITLE}"`, () => {
+        it(`config has horizontal axis title "${TEST_TITLE}"`, () => {
             expectWindowConfigXAxisToHaveTitleText(TEST_TITLE)
         })
     })
