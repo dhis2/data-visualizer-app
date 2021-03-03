@@ -30,7 +30,7 @@ const OutlierDetectionMethod = ({
             </Field>
             <Help>
                 {i18n.t(
-                    'Each method identifies outliers in different ways and suits different data. Check the documentation for help to choose the right outlier method'
+                    'Each detection method identifies outliers in different ways and suits different data. Check the documentation for help to choose the right outlier detection method'
                 )}
             </Help>
         </div>
