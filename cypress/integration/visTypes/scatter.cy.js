@@ -41,7 +41,7 @@ import { expectRouteToBeEmpty } from '../../elements/route'
 import {
     clickOptionsModalUpdateButton,
     clickOptionsTab,
-    enableOutliers,
+    clickOutliersCheckbox,
     OPTIONS_TAB_AXES,
     OPTIONS_TAB_OUTLIERS,
     setAxisRangeMaxValue,
@@ -151,7 +151,7 @@ describe('using a Scatter chart', () => {
     it('Options -> Outliers -> enables outliers', () => {
         clickMenuBarOptionsButton()
         clickOptionsTab(OPTIONS_TAB_OUTLIERS)
-        enableOutliers()
+        clickOutliersCheckbox()
         // TODO: Set more outlier options
         clickOptionsModalUpdateButton()
         expectVisualizationToBeVisible(VIS_TYPE_SCATTER)

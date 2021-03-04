@@ -1,6 +1,8 @@
 export const TITLE_PROP = 'title'
 export const SUBTITLE_PROP = 'subtitle'
 export const SERIES_PROP = 'series'
+export const LEGEND_PROP = 'legend'
+export const PLOT_LINES_PROP = 'plotLines'
 export const Y_AXIS_PROP = 'yAxis'
 export const X_AXIS_PROP = 'xAxis'
 
@@ -75,7 +77,7 @@ export const CONFIG_DEFAULT_TARGET_LINE = {
     color: '#212934',
     width: 2,
     zIndex: 4,
-    //"value": 123,
+    value: 123,
     label: {
         y: -7,
         style: {
@@ -84,7 +86,7 @@ export const CONFIG_DEFAULT_TARGET_LINE = {
             fontWeight: 'normal',
             fontStyle: 'normal',
         },
-        //"text": "some text",
+        text: 'some text',
         align: 'left',
         x: 10,
     },

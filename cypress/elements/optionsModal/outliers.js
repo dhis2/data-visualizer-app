@@ -1,6 +1,6 @@
 const outliersCheckboxEl = 'option-outliers-enabled-checkbox'
 
-export const enableOutliers = () =>
+export const clickOutliersCheckbox = () =>
     cy
         .getBySel(outliersCheckboxEl)
         .click()

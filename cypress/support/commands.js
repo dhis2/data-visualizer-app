@@ -37,5 +37,6 @@ Cypress.Commands.add(
     },
     (subject, selector) => 
         cy.wrap(subject).contains(new RegExp(`^${selector}$`, 'g'))
+        //negative lookbehind and negative lookahead: (?<!.)${selector}(?!.)`
 )
 */
