@@ -8,6 +8,11 @@ import {
 } from './dimensionModal/periodDimension'
 import { clickDimensionModalUpdateButton } from './dimensionModal'
 
+const loadingEl = 'dhis2-uicore-circularloader'
+
+export const expectAppToNotBeLoading = () =>
+    cy.getBySel(loadingEl).should('not.exist')
+
 export const replacePeriodItems = (
     visType,
     options = { useAltData: false }
