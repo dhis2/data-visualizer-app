@@ -10,8 +10,8 @@
         "access": "public"
     },
     "dependencies": {
-        "@dhis2/analytics": "^16.0.3",
-        "@dhis2/ui": "^6.5.0",
+        "@dhis2/analytics": "^16.0.6",
+        "@dhis2/ui": "^6.5.1",
         "lodash-es": "^4.17.11"
     },
     "peerDependencies": {
