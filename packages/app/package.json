@@ -1,6 +1,6 @@
 {
     "name": "data-visualizer-app",
-    "version": "35.20.5",
+    "version": "35.20.6",
     "description": "DHIS2 Data Visualizer app",
     "license": "BSD-3-Clause",
     "private": true,
@@ -17,7 +17,7 @@
         "@dhis2/app-runtime": "*",
         "@dhis2/d2-i18n": "*",
         "@dhis2/d2-ui-interpretations": "^7.1.5",
-        "@dhis2/data-visualizer-plugin": "35.20.5",
+        "@dhis2/data-visualizer-plugin": "35.20.6",
         "@dhis2/ui": "^6.5.1",
         "@material-ui/icons": "^3.0.1",
         "d2": "31.8.2",
