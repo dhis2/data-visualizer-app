@@ -498,8 +498,8 @@ describe('Options - Font styles', () => {
     })
 })
 
-/* TODO:    All axes based options for Scatter
-            Regression lines and vertical axis labels for Gauge
-            Axes based options for a vertical type (e.g. Bar)
-
+/* TODO:    Add tests for all axes based options for Scatter
+            Add tests for regression lines and vertical axis labels for Gauge
+            Add tests for axes based options for a vertical type (e.g. Bar)
+            Test the color picker
 */
