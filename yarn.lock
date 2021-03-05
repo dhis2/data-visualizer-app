@@ -1852,7 +1852,7 @@
     "@dhis2/prop-types" "^1.6.4"
     classnames "^2.2.6"
 
-"@dhis2/ui@^5.7.2", "@dhis2/ui@^6.5.0", "@dhis2/ui@^6.5.1":
+"@dhis2/ui@^5.7.2", "@dhis2/ui@^6.5.1":
   version "6.5.1"
   resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-6.5.1.tgz#958d8aeefdea5a4bc320d0034181ee1df5c8f5d9"
   integrity sha512-O5Hv/RbGD7Jscq2lehaRk3d/Uv+8ydMPe4/NPvFL+nR8lKPCfcVTXeuTsZNDCZsGySGpPTP8KVW266VkDSfSbw==
