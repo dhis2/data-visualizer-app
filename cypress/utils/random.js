@@ -14,3 +14,5 @@ export const getRandomArrayItem = array =>
 
 export const getRandomVisType = () =>
     getRandomArrayItem(Object.keys(visTypeDisplayNames))
+
+export const generateRandomBool = () => Math.random() < 0.5

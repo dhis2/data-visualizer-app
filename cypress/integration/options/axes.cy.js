@@ -38,7 +38,7 @@ const TEST_MAX_VALUE = generateRandomNumber(2000, 5000)
 
 describe('Options - Vertical axis', () => {
     const TEST_AXIS = 'RANGE_0'
-    const TEST_TITLE = 'Vert title'
+    const TEST_TITLE = 'VT'
     it('navigates to the start page and add a data item', () => {
         goToStartPage()
         openDimension(DIMENSION_ID_DATA)
@@ -107,7 +107,7 @@ describe('Options - Vertical axis', () => {
 
 describe('Options - Horizontal axis', () => {
     const TEST_AXIS = 'DOMAIN_0'
-    const TEST_TITLE = 'Hori title'
+    const TEST_TITLE = 'HT'
     it('navigates to the start page and add a data item', () => {
         goToStartPage()
         openDimension(DIMENSION_ID_DATA)
