@@ -46,6 +46,9 @@ export {
     clickTargetLineCheckbox,
     setTargetLineValue,
     setTargetLineLabel,
+    clickBaseLineCheckbox,
+    setBaseLineLabel,
+    setBaseLineValue,
 } from './lines'
 
 export { setCustomSubtitle } from './subtitle'

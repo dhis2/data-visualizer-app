@@ -5,6 +5,7 @@ export const LEGEND_PROP = 'legend'
 export const PLOT_LINES_PROP = 'plotLines'
 export const Y_AXIS_PROP = 'yAxis'
 export const X_AXIS_PROP = 'xAxis'
+export const LABELS_PROP = 'labels'
 
 export const CONFIG_DEFAULT_TITLE = {
     margin: 30,
@@ -48,7 +49,7 @@ export const CONFIG_DEFAULT_LEGEND = {
     },
 }
 
-export const CONFIG_DEFAULT_SERIES_AXIS_LABELS = {
+export const CONFIG_DEFAULT_AXIS_LABELS = {
     style: {
         color: '#404b5a',
         fontSize: '11px',
@@ -56,8 +57,6 @@ export const CONFIG_DEFAULT_SERIES_AXIS_LABELS = {
         fontStyle: 'normal',
     },
 }
-
-export const CONFIG_DEFAULT_CATEGORY_AXIS_LABELS = CONFIG_DEFAULT_SERIES_AXIS_LABELS
 
 export const CONFIG_DEFAULT_VERTICAL_AXIS_TITLE = {
     align: 'middle',
@@ -68,7 +67,7 @@ export const CONFIG_DEFAULT_VERTICAL_AXIS_TITLE = {
         fontWeight: 'normal',
         fontStyle: 'normal',
     },
-    //"text": "some text"
+    text: 'some text',
 }
 
 export const CONFIG_DEFAULT_HORIZONTAL_AXIS_TITLE = CONFIG_DEFAULT_VERTICAL_AXIS_TITLE

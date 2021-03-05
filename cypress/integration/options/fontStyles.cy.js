@@ -16,6 +16,8 @@ import {
     expectWindowConfigTitleToBeValue,
     expectWindowConfigLegendToBeValue,
     expectWindowConfigAxisPlotLinesToBeValue,
+    expectWindowConfigAxisTitleToBeValue,
+    expectWindowConfigAxisLabelsToBeValue,
 } from '../../utils/window'
 import { TEST_DATA_ELEMENTS } from '../../utils/data'
 import {
@@ -23,21 +25,31 @@ import {
     CONFIG_DEFAULT_TITLE,
     CONFIG_DEFAULT_LEGEND,
     CONFIG_DEFAULT_TARGET_LINE,
+    CONFIG_DEFAULT_BASE_LINE,
+    CONFIG_DEFAULT_VERTICAL_AXIS_TITLE,
+    CONFIG_DEFAULT_HORIZONTAL_AXIS_TITLE,
+    CONFIG_DEFAULT_AXIS_LABELS,
 } from '../../utils/config'
 import { clickMenuBarOptionsButton } from '../../elements/menuBar'
 import {
     changeFontSizeOption,
     clickOptionsModalUpdateButton,
     clickOptionsTab,
-    OPTIONS_TAB_STYLE,
     changeTextAlignOption,
     clickBoldButton,
     clickItalicButton,
     setCustomSubtitle,
+    OPTIONS_TAB_STYLE,
     OPTIONS_TAB_DATA,
+    OPTIONS_TAB_AXES,
     clickTargetLineCheckbox,
     setTargetLineValue,
     setTargetLineLabel,
+    clickBaseLineCheckbox,
+    setBaseLineLabel,
+    setBaseLineValue,
+    enableAxisTitle,
+    setAxisTitle,
 } from '../../elements/optionsModal'
 import {
     generateRandomBool,
@@ -50,6 +62,11 @@ const TITLE_PREFIX = 'option-chart-title'
 const SUBTITLE_PREFIX = 'option-chart-subtitle'
 const LEGEND_PREFIX = 'option-legend-key'
 const TARGET_LINE_PREFIX = 'option-target-line-label'
+const BASE_LINE_PREFIX = 'option-base-line-label'
+const VERTICAL_AXIS_TITLE_PREFIX = 'RANGE_0-axis-title'
+const HORIZONTAL_AXIS_TITLE_PREFIX = 'DOMAIN_0-axis-title'
+const VERTICAL_AXIS_LABELS_PREFIX = 'option-axis-label-RANGE_0'
+const HORIZONTAL_AXIS_LABELS_PREFIX = 'option-axis-label-DOMAIN_0'
 
 const randomizeBoldOption = () => {
     const useBold = generateRandomBool()
@@ -60,8 +77,6 @@ const randomizeItalicOption = () => {
     const useItalic = generateRandomBool()
     return { input: useItalic, output: useItalic ? 'italic' : 'normal' }
 }
-
-// TODO: Refactor to use the "describe - describe - it" model
 
 describe('Options - Font styles', () => {
     it('navigates to the start page and adds a data item', () => {
@@ -107,7 +122,7 @@ describe('Options - Font styles', () => {
         it('click the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
-        it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold true, italic true`, () => {
+        it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
             expectChartTitleToBeVisible()
             expectWindowConfigTitleToBeValue({
                 ...CONFIG_DEFAULT_TITLE,
@@ -129,7 +144,7 @@ describe('Options - Font styles', () => {
         const TEST_BOLD_OPTION = randomizeBoldOption()
         const TEST_ITALIC_OPTION = randomizeItalicOption()
         const prefix = SUBTITLE_PREFIX
-        const TEST_SUBTITLE_TEXT = 'Test subtitle'
+        const TEST_SUBTITLE_TEXT = 'S'
 
         it('has default value', () => {
             expectChartSubtitleToBeVisible()
@@ -161,7 +176,7 @@ describe('Options - Font styles', () => {
         it('click the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
-        it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold true, italic true`, () => {
+        it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
             expectChartSubtitleToBeVisible()
             expectWindowConfigSubtitleToBeValue({
                 ...CONFIG_DEFAULT_SUBTITLE,
@@ -183,7 +198,7 @@ describe('Options - Font styles', () => {
             : { input: 'Right', output: 'right', x: -10 }
         const TEST_BOLD_OPTION = randomizeBoldOption()
         const TEST_ITALIC_OPTION = randomizeItalicOption()
-        const TEST_LABEL = 'Test target line'
+        const TEST_LABEL = 'TL'
         const TEST_VALUE = generateRandomNumber(10, 100)
         const prefix = TARGET_LINE_PREFIX
 
@@ -215,7 +230,7 @@ describe('Options - Font styles', () => {
         it('click the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
-        it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold true, italic true`, () => {
+        it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
             expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
             expectWindowConfigAxisPlotLinesToBeValue('yAxis', 0, {
                 ...CONFIG_DEFAULT_TARGET_LINE,
@@ -227,6 +242,65 @@ describe('Options - Font styles', () => {
                     align: TEST_TEXT_ALIGN_OPTION.output,
                     style: {
                         ...CONFIG_DEFAULT_TARGET_LINE.label.style,
+                        fontSize: TEST_FONT_SIZE_OPTION.output,
+                        fontWeight: TEST_BOLD_OPTION.output,
+                        fontStyle: TEST_ITALIC_OPTION.output,
+                    },
+                },
+            })
+        })
+    })
+    describe('base line', () => {
+        const TEST_FONT_SIZE_OPTION = { input: 'Large', output: '18px' }
+        const TEST_TEXT_ALIGN_OPTION = generateRandomBool()
+            ? { input: 'Center', output: 'center', x: 0 }
+            : { input: 'Right', output: 'right', x: -10 }
+        const TEST_BOLD_OPTION = randomizeBoldOption()
+        const TEST_ITALIC_OPTION = randomizeItalicOption()
+        const TEST_LABEL = 'BL'
+        const TEST_VALUE = generateRandomNumber(10, 100)
+        const prefix = BASE_LINE_PREFIX
+
+        it('opens Options -> Data', () => {
+            clickMenuBarOptionsButton()
+            clickOptionsTab(OPTIONS_TAB_DATA)
+        })
+        it(`sets base line to ${TEST_VALUE}: "${TEST_LABEL}"`, () => {
+            clickBaseLineCheckbox()
+            setBaseLineLabel(TEST_LABEL)
+            setBaseLineValue(TEST_VALUE)
+        })
+        it(`changes the font size to ${TEST_FONT_SIZE_OPTION.input}`, () => {
+            changeFontSizeOption(prefix, TEST_FONT_SIZE_OPTION.input)
+        })
+        it(`changes the text align to ${TEST_TEXT_ALIGN_OPTION.input}`, () => {
+            changeTextAlignOption(prefix, TEST_TEXT_ALIGN_OPTION.input)
+        })
+        if (TEST_BOLD_OPTION.input) {
+            it('changes font to bold', () => {
+                clickBoldButton(prefix)
+            })
+        }
+        if (TEST_ITALIC_OPTION.input) {
+            it('changes font to italic', () => {
+                clickItalicButton(prefix)
+            })
+        }
+        it('click the modal update button', () => {
+            clickOptionsModalUpdateButton()
+        })
+        it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
+            expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+            expectWindowConfigAxisPlotLinesToBeValue('yAxis', 0, {
+                ...CONFIG_DEFAULT_BASE_LINE,
+                value: TEST_VALUE,
+                label: {
+                    ...CONFIG_DEFAULT_BASE_LINE.label,
+                    x: TEST_TEXT_ALIGN_OPTION.x,
+                    text: TEST_LABEL,
+                    align: TEST_TEXT_ALIGN_OPTION.output,
+                    style: {
+                        ...CONFIG_DEFAULT_BASE_LINE.label.style,
                         fontSize: TEST_FONT_SIZE_OPTION.output,
                         fontWeight: TEST_BOLD_OPTION.output,
                         fontStyle: TEST_ITALIC_OPTION.output,
@@ -267,7 +341,7 @@ describe('Options - Font styles', () => {
         it('click the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
-        it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold true, italic true`, () => {
+        it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
             expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
             expectWindowConfigLegendToBeValue({
                 ...CONFIG_DEFAULT_LEGEND,
@@ -281,12 +355,189 @@ describe('Options - Font styles', () => {
             })
         })
     })
+    describe('vertical axis labels', () => {
+        const TEST_FONT_SIZE_OPTION = { input: 'Regular', output: '13px' }
+        const TEST_BOLD_OPTION = randomizeBoldOption()
+        const TEST_ITALIC_OPTION = randomizeItalicOption()
+        const prefix = VERTICAL_AXIS_LABELS_PREFIX
 
-    /*  TODO: 
-        base line - option-base-line-label-text-style-font-size-select
-        vertical axis title - RANGE_0-axis-title-text-style-font-size-select
-        vertical labels - option-axis-label-RANGE_0-text-style-font-size-select
-        horizontal axis title - DOMAIN_0-axis-title-text-style-font-size-select
-        horizontal labels - option-axis-label-DOMAIN_0-text-style-font-size-select
-    */
+        it('opens Options -> Axes', () => {
+            clickMenuBarOptionsButton()
+            clickOptionsTab(OPTIONS_TAB_AXES)
+        })
+        it(`changes the font size to ${TEST_FONT_SIZE_OPTION.input}`, () => {
+            changeFontSizeOption(prefix, TEST_FONT_SIZE_OPTION.input)
+        })
+        if (TEST_BOLD_OPTION.input) {
+            it('changes font to bold', () => {
+                clickBoldButton(prefix)
+            })
+        }
+        if (TEST_ITALIC_OPTION.input) {
+            it('changes font to italic', () => {
+                clickItalicButton(prefix)
+            })
+        }
+        it('click the modal update button', () => {
+            clickOptionsModalUpdateButton()
+        })
+        it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
+            expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+            expectWindowConfigAxisLabelsToBeValue('yAxis', 0, {
+                ...CONFIG_DEFAULT_AXIS_LABELS,
+                style: {
+                    ...CONFIG_DEFAULT_AXIS_LABELS.style,
+                    fontSize: TEST_FONT_SIZE_OPTION.output,
+                    fontWeight: TEST_BOLD_OPTION.output,
+                    fontStyle: TEST_ITALIC_OPTION.output,
+                },
+            })
+        })
+    })
+    describe('horizontal axis labels', () => {
+        const TEST_FONT_SIZE_OPTION = { input: 'Large', output: '18px' }
+        const TEST_BOLD_OPTION = randomizeBoldOption()
+        const TEST_ITALIC_OPTION = randomizeItalicOption()
+        const prefix = HORIZONTAL_AXIS_LABELS_PREFIX
+
+        it('opens Options -> Axes', () => {
+            clickMenuBarOptionsButton()
+            clickOptionsTab(OPTIONS_TAB_AXES)
+        })
+        it(`changes the font size to ${TEST_FONT_SIZE_OPTION.input}`, () => {
+            changeFontSizeOption(prefix, TEST_FONT_SIZE_OPTION.input)
+        })
+        if (TEST_BOLD_OPTION.input) {
+            it('changes font to bold', () => {
+                clickBoldButton(prefix)
+            })
+        }
+        if (TEST_ITALIC_OPTION.input) {
+            it('changes font to italic', () => {
+                clickItalicButton(prefix)
+            })
+        }
+        it('click the modal update button', () => {
+            clickOptionsModalUpdateButton()
+        })
+        it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
+            expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+            expectWindowConfigAxisLabelsToBeValue('xAxis', 0, {
+                ...CONFIG_DEFAULT_AXIS_LABELS,
+                style: {
+                    ...CONFIG_DEFAULT_AXIS_LABELS.style,
+                    fontSize: TEST_FONT_SIZE_OPTION.output,
+                    fontWeight: TEST_BOLD_OPTION.output,
+                    fontStyle: TEST_ITALIC_OPTION.output,
+                },
+            })
+        })
+    })
+    describe('horizontal axis title', () => {
+        const TEST_FONT_SIZE_OPTION = { input: 'Extra Small', output: '9px' }
+        const TEST_TEXT_ALIGN_OPTION = generateRandomBool()
+            ? { input: 'Start', output: 'low' }
+            : { input: 'End', output: 'high' }
+        const TEST_BOLD_OPTION = randomizeBoldOption()
+        const TEST_ITALIC_OPTION = randomizeItalicOption()
+        const TEST_TITLE = 'HT'
+        const TEST_AXIS = 'DOMAIN_0'
+        const prefix = HORIZONTAL_AXIS_TITLE_PREFIX
+
+        it('opens Options -> Axes', () => {
+            clickMenuBarOptionsButton()
+            clickOptionsTab(OPTIONS_TAB_AXES)
+        })
+        it(`sets horizontal axis title to "${TEST_TITLE}"`, () => {
+            enableAxisTitle(TEST_AXIS)
+            setAxisTitle(TEST_AXIS, TEST_TITLE)
+        })
+        it(`changes the font size to ${TEST_FONT_SIZE_OPTION.input}`, () => {
+            changeFontSizeOption(prefix, TEST_FONT_SIZE_OPTION.input)
+        })
+        it(`changes the text align to ${TEST_TEXT_ALIGN_OPTION.input}`, () => {
+            changeTextAlignOption(prefix, TEST_TEXT_ALIGN_OPTION.input)
+        })
+        if (TEST_BOLD_OPTION.input) {
+            it('changes font to bold', () => {
+                clickBoldButton(prefix)
+            })
+        }
+        if (TEST_ITALIC_OPTION.input) {
+            it('changes font to italic', () => {
+                clickItalicButton(prefix)
+            })
+        }
+        it('click the modal update button', () => {
+            clickOptionsModalUpdateButton()
+        })
+
+        it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
+            expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+            expectWindowConfigAxisTitleToBeValue('xAxis', 0, {
+                ...CONFIG_DEFAULT_HORIZONTAL_AXIS_TITLE,
+                text: TEST_TITLE,
+                align: TEST_TEXT_ALIGN_OPTION.output,
+                style: {
+                    ...CONFIG_DEFAULT_HORIZONTAL_AXIS_TITLE.style,
+                    fontSize: TEST_FONT_SIZE_OPTION.output,
+                    fontWeight: TEST_BOLD_OPTION.output,
+                    fontStyle: TEST_ITALIC_OPTION.output,
+                },
+            })
+        })
+    })
+    describe('vertical axis title', () => {
+        const TEST_FONT_SIZE_OPTION = { input: 'Large', output: '18px' }
+        const TEST_TEXT_ALIGN_OPTION = generateRandomBool()
+            ? { input: 'Start', output: 'low' }
+            : { input: 'End', output: 'high' }
+        const TEST_BOLD_OPTION = randomizeBoldOption()
+        const TEST_ITALIC_OPTION = randomizeItalicOption()
+        const TEST_TITLE = 'VT'
+        const TEST_AXIS = 'RANGE_0'
+        const prefix = VERTICAL_AXIS_TITLE_PREFIX
+
+        it('opens Options -> Axes', () => {
+            clickMenuBarOptionsButton()
+            clickOptionsTab(OPTIONS_TAB_AXES)
+        })
+        it(`sets vertical axis title to "${TEST_TITLE}"`, () => {
+            enableAxisTitle(TEST_AXIS)
+            setAxisTitle(TEST_AXIS, TEST_TITLE)
+        })
+        it(`changes the font size to ${TEST_FONT_SIZE_OPTION.input}`, () => {
+            changeFontSizeOption(prefix, TEST_FONT_SIZE_OPTION.input)
+        })
+        it(`changes the text align to ${TEST_TEXT_ALIGN_OPTION.input}`, () => {
+            changeTextAlignOption(prefix, TEST_TEXT_ALIGN_OPTION.input)
+        })
+        if (TEST_BOLD_OPTION.input) {
+            it('changes font to bold', () => {
+                clickBoldButton(prefix)
+            })
+        }
+        if (TEST_ITALIC_OPTION.input) {
+            it('changes font to italic', () => {
+                clickItalicButton(prefix)
+            })
+        }
+        it('click the modal update button', () => {
+            clickOptionsModalUpdateButton()
+        })
+        it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
+            expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+            expectWindowConfigAxisTitleToBeValue('yAxis', 0, {
+                ...CONFIG_DEFAULT_VERTICAL_AXIS_TITLE,
+                text: TEST_TITLE,
+                align: TEST_TEXT_ALIGN_OPTION.output,
+                style: {
+                    ...CONFIG_DEFAULT_VERTICAL_AXIS_TITLE.style,
+                    fontSize: TEST_FONT_SIZE_OPTION.output,
+                    fontWeight: TEST_BOLD_OPTION.output,
+                    fontStyle: TEST_ITALIC_OPTION.output,
+                },
+            })
+        })
+    })
 })
