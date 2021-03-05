@@ -1,3 +1,5 @@
+import { clearInput, typeInput } from './common'
+
 const dimButtonEl = 'dimensions-panel-list-dimension-item-button'
 const dimContextMenuButtonEl = 'dimensions-panel-list-dimension-item-menu'
 const dimContextMenuRemoveOptionEl =
@@ -50,10 +52,9 @@ export const clickContextMenuDimSubMenu = dimensionId =>
         .click()
 
 export const filterDimensionsByText = searchInput =>
-    cy.getBySel(filterInputEl).find('input').type(searchInput)
+    typeInput(filterInputEl, searchInput)
 
-export const clearDimensionsFilter = () =>
-    cy.getBySel(filterInputEl).find('input').clear()
+export const clearDimensionsFilter = () => clearInput(filterInputEl)
 
 export const expectFixedDimensionsToHaveLength = length =>
     cy.getBySel(fixedDimsWrapperEl).children().should('have.length', length)

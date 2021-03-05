@@ -1,6 +1,7 @@
 import { DIMENSION_ID_DATA } from '@dhis2/analytics'
 
 import { expectDimensionModalToBeVisible } from '.'
+import { clearInput, typeInput } from '../common'
 
 const optionEl = 'data-dimension-transfer-option'
 const optionContentEl = 'data-dimension-transfer-option-content'
@@ -172,12 +173,12 @@ export const switchDataTypeToAll = () => {
 }
 
 export const inputSearchTerm = searchTerm => {
-    cy.getBySel(searchFieldEl).find('input').type(searchTerm)
+    typeInput(searchFieldEl, searchTerm)
     expectSourceToNotBeLoading()
 }
 
 export const clearSearchTerm = () => {
-    cy.getBySel(searchFieldEl).find('input').clear()
+    clearInput(searchFieldEl)
     expectSourceToNotBeLoading()
 }
 
