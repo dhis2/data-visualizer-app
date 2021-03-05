@@ -4,6 +4,9 @@ import {
     SERIES_PROP,
     Y_AXIS_PROP,
     X_AXIS_PROP,
+    LEGEND_PROP,
+    PLOT_LINES_PROP,
+    LABELS_PROP,
 } from './config'
 
 const CONFIG_PROP = '$config'
@@ -13,6 +16,50 @@ export const expectWindowConfigTitleToBeValue = value =>
 
 export const expectWindowConfigSubtitleToBeValue = value =>
     cy.window().its(CONFIG_PROP).its(SUBTITLE_PROP).should('eql', value)
+
+export const expectWindowConfigLegendToBeValue = value =>
+    cy.window().its(CONFIG_PROP).its(LEGEND_PROP).should('eql', value)
+
+export const expectWindowConfigAxisPlotLinesToBeValue = ({
+    axisType,
+    axisIndex,
+    lineIndex,
+    value,
+}) =>
+    cy
+        .window()
+        .its(CONFIG_PROP)
+        .its(axisType)
+        .its(axisIndex)
+        .its(PLOT_LINES_PROP)
+        .its(lineIndex)
+        .should('eql', value)
+
+export const expectWindowConfigAxisTitleToBeValue = (
+    axisType,
+    axisIndex,
+    value
+) =>
+    cy
+        .window()
+        .its(CONFIG_PROP)
+        .its(axisType)
+        .its(axisIndex)
+        .its(TITLE_PROP)
+        .should('eql', value)
+
+export const expectWindowConfigAxisLabelsToBeValue = (
+    axisType,
+    axisIndex,
+    value
+) =>
+    cy
+        .window()
+        .its(CONFIG_PROP)
+        .its(axisType)
+        .its(axisIndex)
+        .its(LABELS_PROP)
+        .should('eql', value)
 
 export const expectWindowConfigSeriesToNotHaveTrendline = () =>
     cy
