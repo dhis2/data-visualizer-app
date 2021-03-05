@@ -78,6 +78,29 @@ const randomizeItalicOption = () => {
     return { input: useItalic, output: useItalic ? 'italic' : 'normal' }
 }
 
+const setFontStyleOptions = ({ fontSize, textAlign, bold, italic, prefix }) => {
+    if (fontSize) {
+        it(`changes the font size to ${fontSize}`, () => {
+            changeFontSizeOption(prefix, fontSize)
+        })
+    }
+    if (textAlign) {
+        it(`changes the text align to ${textAlign}`, () => {
+            changeTextAlignOption(prefix, textAlign)
+        })
+    }
+    if (bold) {
+        it('changes font to bold', () => {
+            clickBoldButton(prefix)
+        })
+    }
+    if (italic) {
+        it('changes font to italic', () => {
+            clickItalicButton(prefix)
+        })
+    }
+}
+
 describe('Options - Font styles', () => {
     it('navigates to the start page and adds a data item', () => {
         goToStartPage()
@@ -103,22 +126,13 @@ describe('Options - Font styles', () => {
             clickMenuBarOptionsButton()
             clickOptionsTab(OPTIONS_TAB_STYLE)
         })
-        it(`changes the font size to ${TEST_FONT_SIZE_OPTION.input}`, () => {
-            changeFontSizeOption(prefix, TEST_FONT_SIZE_OPTION.input)
+        setFontStyleOptions({
+            fontSize: TEST_FONT_SIZE_OPTION.input,
+            textAlign: TEST_TEXT_ALIGN_OPTION.input,
+            bold: TEST_BOLD_OPTION.input,
+            italic: TEST_ITALIC_OPTION.input,
+            prefix,
         })
-        it(`changes the text align to ${TEST_TEXT_ALIGN_OPTION.input}`, () => {
-            changeTextAlignOption(prefix, TEST_TEXT_ALIGN_OPTION.input)
-        })
-        if (TEST_BOLD_OPTION.input) {
-            it('changes font to bold', () => {
-                clickBoldButton(prefix)
-            })
-        }
-        if (TEST_ITALIC_OPTION.input) {
-            it('changes font to italic', () => {
-                clickItalicButton(prefix)
-            })
-        }
         it('click the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
@@ -157,22 +171,13 @@ describe('Options - Font styles', () => {
         it('sets a custom subtitle', () => {
             setCustomSubtitle(TEST_SUBTITLE_TEXT)
         })
-        it(`changes the font size to ${TEST_FONT_SIZE_OPTION.input}`, () => {
-            changeFontSizeOption(prefix, TEST_FONT_SIZE_OPTION.input)
+        setFontStyleOptions({
+            fontSize: TEST_FONT_SIZE_OPTION.input,
+            textAlign: TEST_TEXT_ALIGN_OPTION.input,
+            bold: TEST_BOLD_OPTION.input,
+            italic: TEST_ITALIC_OPTION.input,
+            prefix,
         })
-        it(`changes the text align to ${TEST_TEXT_ALIGN_OPTION.input}`, () => {
-            changeTextAlignOption(prefix, TEST_TEXT_ALIGN_OPTION.input)
-        })
-        if (TEST_BOLD_OPTION.input) {
-            it('changes font to bold', () => {
-                clickBoldButton(prefix)
-            })
-        }
-        if (TEST_ITALIC_OPTION.input) {
-            it('changes font to italic', () => {
-                clickItalicButton(prefix)
-            })
-        }
         it('click the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
@@ -211,22 +216,13 @@ describe('Options - Font styles', () => {
             setTargetLineLabel(TEST_LABEL)
             setTargetLineValue(TEST_VALUE)
         })
-        it(`changes the font size to ${TEST_FONT_SIZE_OPTION.input}`, () => {
-            changeFontSizeOption(prefix, TEST_FONT_SIZE_OPTION.input)
+        setFontStyleOptions({
+            fontSize: TEST_FONT_SIZE_OPTION.input,
+            textAlign: TEST_TEXT_ALIGN_OPTION.input,
+            bold: TEST_BOLD_OPTION.input,
+            italic: TEST_ITALIC_OPTION.input,
+            prefix,
         })
-        it(`changes the text align to ${TEST_TEXT_ALIGN_OPTION.input}`, () => {
-            changeTextAlignOption(prefix, TEST_TEXT_ALIGN_OPTION.input)
-        })
-        if (TEST_BOLD_OPTION.input) {
-            it('changes font to bold', () => {
-                clickBoldButton(prefix)
-            })
-        }
-        if (TEST_ITALIC_OPTION.input) {
-            it('changes font to italic', () => {
-                clickItalicButton(prefix)
-            })
-        } // TODO: Refactor the 4 option steps above to a function to avoid repetition
         it('click the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
@@ -275,22 +271,13 @@ describe('Options - Font styles', () => {
             setBaseLineLabel(TEST_LABEL)
             setBaseLineValue(TEST_VALUE)
         })
-        it(`changes the font size to ${TEST_FONT_SIZE_OPTION.input}`, () => {
-            changeFontSizeOption(prefix, TEST_FONT_SIZE_OPTION.input)
+        setFontStyleOptions({
+            fontSize: TEST_FONT_SIZE_OPTION.input,
+            textAlign: TEST_TEXT_ALIGN_OPTION.input,
+            bold: TEST_BOLD_OPTION.input,
+            italic: TEST_ITALIC_OPTION.input,
+            prefix,
         })
-        it(`changes the text align to ${TEST_TEXT_ALIGN_OPTION.input}`, () => {
-            changeTextAlignOption(prefix, TEST_TEXT_ALIGN_OPTION.input)
-        })
-        if (TEST_BOLD_OPTION.input) {
-            it('changes font to bold', () => {
-                clickBoldButton(prefix)
-            })
-        }
-        if (TEST_ITALIC_OPTION.input) {
-            it('changes font to italic', () => {
-                clickItalicButton(prefix)
-            })
-        }
         it('click the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
@@ -332,22 +319,13 @@ describe('Options - Font styles', () => {
             clickMenuBarOptionsButton()
             clickOptionsTab(OPTIONS_TAB_STYLE)
         })
-        it(`changes the font size to ${TEST_FONT_SIZE_OPTION.input}`, () => {
-            changeFontSizeOption(prefix, TEST_FONT_SIZE_OPTION.input)
+        setFontStyleOptions({
+            fontSize: TEST_FONT_SIZE_OPTION.input,
+            textAlign: TEST_TEXT_ALIGN_OPTION.input,
+            bold: TEST_BOLD_OPTION.input,
+            italic: TEST_ITALIC_OPTION.input,
+            prefix,
         })
-        it(`changes the text align to ${TEST_TEXT_ALIGN_OPTION.input}`, () => {
-            changeTextAlignOption(prefix, TEST_TEXT_ALIGN_OPTION.input)
-        })
-        if (TEST_BOLD_OPTION.input) {
-            it('changes font to bold', () => {
-                clickBoldButton(prefix)
-            })
-        }
-        if (TEST_ITALIC_OPTION.input) {
-            it('changes font to italic', () => {
-                clickItalicButton(prefix)
-            })
-        }
         it('click the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
@@ -375,19 +353,12 @@ describe('Options - Font styles', () => {
             clickMenuBarOptionsButton()
             clickOptionsTab(OPTIONS_TAB_AXES)
         })
-        it(`changes the font size to ${TEST_FONT_SIZE_OPTION.input}`, () => {
-            changeFontSizeOption(prefix, TEST_FONT_SIZE_OPTION.input)
+        setFontStyleOptions({
+            fontSize: TEST_FONT_SIZE_OPTION.input,
+            bold: TEST_BOLD_OPTION.input,
+            italic: TEST_ITALIC_OPTION.input,
+            prefix,
         })
-        if (TEST_BOLD_OPTION.input) {
-            it('changes font to bold', () => {
-                clickBoldButton(prefix)
-            })
-        }
-        if (TEST_ITALIC_OPTION.input) {
-            it('changes font to italic', () => {
-                clickItalicButton(prefix)
-            })
-        }
         it('click the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
@@ -414,19 +385,12 @@ describe('Options - Font styles', () => {
             clickMenuBarOptionsButton()
             clickOptionsTab(OPTIONS_TAB_AXES)
         })
-        it(`changes the font size to ${TEST_FONT_SIZE_OPTION.input}`, () => {
-            changeFontSizeOption(prefix, TEST_FONT_SIZE_OPTION.input)
+        setFontStyleOptions({
+            fontSize: TEST_FONT_SIZE_OPTION.input,
+            bold: TEST_BOLD_OPTION.input,
+            italic: TEST_ITALIC_OPTION.input,
+            prefix,
         })
-        if (TEST_BOLD_OPTION.input) {
-            it('changes font to bold', () => {
-                clickBoldButton(prefix)
-            })
-        }
-        if (TEST_ITALIC_OPTION.input) {
-            it('changes font to italic', () => {
-                clickItalicButton(prefix)
-            })
-        }
         it('click the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
@@ -462,22 +426,13 @@ describe('Options - Font styles', () => {
             enableAxisTitle(TEST_AXIS)
             setAxisTitle(TEST_AXIS, TEST_TITLE)
         })
-        it(`changes the font size to ${TEST_FONT_SIZE_OPTION.input}`, () => {
-            changeFontSizeOption(prefix, TEST_FONT_SIZE_OPTION.input)
+        setFontStyleOptions({
+            fontSize: TEST_FONT_SIZE_OPTION.input,
+            textAlign: TEST_TEXT_ALIGN_OPTION.input,
+            bold: TEST_BOLD_OPTION.input,
+            italic: TEST_ITALIC_OPTION.input,
+            prefix,
         })
-        it(`changes the text align to ${TEST_TEXT_ALIGN_OPTION.input}`, () => {
-            changeTextAlignOption(prefix, TEST_TEXT_ALIGN_OPTION.input)
-        })
-        if (TEST_BOLD_OPTION.input) {
-            it('changes font to bold', () => {
-                clickBoldButton(prefix)
-            })
-        }
-        if (TEST_ITALIC_OPTION.input) {
-            it('changes font to italic', () => {
-                clickItalicButton(prefix)
-            })
-        }
         it('click the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
@@ -516,22 +471,13 @@ describe('Options - Font styles', () => {
             enableAxisTitle(TEST_AXIS)
             setAxisTitle(TEST_AXIS, TEST_TITLE)
         })
-        it(`changes the font size to ${TEST_FONT_SIZE_OPTION.input}`, () => {
-            changeFontSizeOption(prefix, TEST_FONT_SIZE_OPTION.input)
+        setFontStyleOptions({
+            fontSize: TEST_FONT_SIZE_OPTION.input,
+            textAlign: TEST_TEXT_ALIGN_OPTION.input,
+            bold: TEST_BOLD_OPTION.input,
+            italic: TEST_ITALIC_OPTION.input,
+            prefix,
         })
-        it(`changes the text align to ${TEST_TEXT_ALIGN_OPTION.input}`, () => {
-            changeTextAlignOption(prefix, TEST_TEXT_ALIGN_OPTION.input)
-        })
-        if (TEST_BOLD_OPTION.input) {
-            it('changes font to bold', () => {
-                clickBoldButton(prefix)
-            })
-        }
-        if (TEST_ITALIC_OPTION.input) {
-            it('changes font to italic', () => {
-                clickItalicButton(prefix)
-            })
-        }
         it('click the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
