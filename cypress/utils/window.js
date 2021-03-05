@@ -20,18 +20,19 @@ export const expectWindowConfigSubtitleToBeValue = value =>
 export const expectWindowConfigLegendToBeValue = value =>
     cy.window().its(CONFIG_PROP).its(LEGEND_PROP).should('eql', value)
 
-export const expectWindowConfigAxisPlotLinesToBeValue = (
+export const expectWindowConfigAxisPlotLinesToBeValue = ({
     axisType,
     axisIndex,
-    value
-) =>
+    lineIndex,
+    value,
+}) =>
     cy
         .window()
         .its(CONFIG_PROP)
         .its(axisType)
         .its(axisIndex)
         .its(PLOT_LINES_PROP)
-        .its(0)
+        .its(lineIndex)
         .should('eql', value)
 
 export const expectWindowConfigAxisTitleToBeValue = (

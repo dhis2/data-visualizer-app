@@ -192,7 +192,7 @@ describe('Options - Font styles', () => {
         })
     })
     describe('target line', () => {
-        const TEST_FONT_SIZE_OPTION = { input: 'Large', output: '18px' }
+        const TEST_FONT_SIZE_OPTION = { input: 'Small', output: '11px' }
         const TEST_TEXT_ALIGN_OPTION = generateRandomBool()
             ? { input: 'Center', output: 'center', x: 0 }
             : { input: 'Right', output: 'right', x: -10 }
@@ -232,19 +232,24 @@ describe('Options - Font styles', () => {
         })
         it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
             expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
-            expectWindowConfigAxisPlotLinesToBeValue('yAxis', 0, {
-                ...CONFIG_DEFAULT_TARGET_LINE,
-                value: TEST_VALUE,
-                label: {
-                    ...CONFIG_DEFAULT_TARGET_LINE.label,
-                    x: TEST_TEXT_ALIGN_OPTION.x,
-                    text: TEST_LABEL,
-                    align: TEST_TEXT_ALIGN_OPTION.output,
-                    style: {
-                        ...CONFIG_DEFAULT_TARGET_LINE.label.style,
-                        fontSize: TEST_FONT_SIZE_OPTION.output,
-                        fontWeight: TEST_BOLD_OPTION.output,
-                        fontStyle: TEST_ITALIC_OPTION.output,
+            expectWindowConfigAxisPlotLinesToBeValue({
+                axisType: 'yAxis',
+                axisIndex: 0,
+                lineIndex: 0,
+                value: {
+                    ...CONFIG_DEFAULT_TARGET_LINE,
+                    value: TEST_VALUE,
+                    label: {
+                        ...CONFIG_DEFAULT_TARGET_LINE.label,
+                        x: TEST_TEXT_ALIGN_OPTION.x,
+                        text: TEST_LABEL,
+                        align: TEST_TEXT_ALIGN_OPTION.output,
+                        style: {
+                            ...CONFIG_DEFAULT_TARGET_LINE.label.style,
+                            fontSize: TEST_FONT_SIZE_OPTION.output,
+                            fontWeight: TEST_BOLD_OPTION.output,
+                            fontStyle: TEST_ITALIC_OPTION.output,
+                        },
                     },
                 },
             })
@@ -291,19 +296,24 @@ describe('Options - Font styles', () => {
         })
         it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
             expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
-            expectWindowConfigAxisPlotLinesToBeValue('yAxis', 0, {
-                ...CONFIG_DEFAULT_BASE_LINE,
-                value: TEST_VALUE,
-                label: {
-                    ...CONFIG_DEFAULT_BASE_LINE.label,
-                    x: TEST_TEXT_ALIGN_OPTION.x,
-                    text: TEST_LABEL,
-                    align: TEST_TEXT_ALIGN_OPTION.output,
-                    style: {
-                        ...CONFIG_DEFAULT_BASE_LINE.label.style,
-                        fontSize: TEST_FONT_SIZE_OPTION.output,
-                        fontWeight: TEST_BOLD_OPTION.output,
-                        fontStyle: TEST_ITALIC_OPTION.output,
+            expectWindowConfigAxisPlotLinesToBeValue({
+                axisType: 'yAxis',
+                axisIndex: 0,
+                lineIndex: 1,
+                value: {
+                    ...CONFIG_DEFAULT_BASE_LINE,
+                    value: TEST_VALUE,
+                    label: {
+                        ...CONFIG_DEFAULT_BASE_LINE.label,
+                        x: TEST_TEXT_ALIGN_OPTION.x,
+                        text: TEST_LABEL,
+                        align: TEST_TEXT_ALIGN_OPTION.output,
+                        style: {
+                            ...CONFIG_DEFAULT_BASE_LINE.label.style,
+                            fontSize: TEST_FONT_SIZE_OPTION.output,
+                            fontWeight: TEST_BOLD_OPTION.output,
+                            fontStyle: TEST_ITALIC_OPTION.output,
+                        },
                     },
                 },
             })
@@ -541,3 +551,9 @@ describe('Options - Font styles', () => {
         })
     })
 })
+
+/* TODO:    All axes based options for Scatter
+            Regression lines and vertical axis labels for Gauge
+            Axes based options for a vertical type (e.g. Bar)
+
+*/
