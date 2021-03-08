@@ -1,3 +1,10 @@
+## [35.20.11](https://github.com/dhis2/data-visualizer-app/compare/v35.20.10...v35.20.11) (2021-03-08)
+
+
+### Bug Fixes
+
+* fix double border in chip menu for scatter ([#1646](https://github.com/dhis2/data-visualizer-app/issues/1646)) ([39a5820](https://github.com/dhis2/data-visualizer-app/commit/39a582084f97fb195aa04339f7f0854e89e4b517))
+
 ## [35.20.10](https://github.com/dhis2/data-visualizer-app/compare/v35.20.9...v35.20.10) (2021-03-08)
 
 
