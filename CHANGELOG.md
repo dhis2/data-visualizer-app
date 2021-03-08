@@ -1,3 +1,38 @@
+## [35.20.9](https://github.com/dhis2/data-visualizer-app/compare/v35.20.8...v35.20.9) (2021-03-08)
+
+
+### Bug Fixes
+
+* set outlier threshold min to 0 ([#1644](https://github.com/dhis2/data-visualizer-app/issues/1644)) ([45a8a51](https://github.com/dhis2/data-visualizer-app/commit/45a8a518d28ac0e26e11dda27afea9db162bd170))
+
+## [35.20.8](https://github.com/dhis2/data-visualizer-app/compare/v35.20.7...v35.20.8) (2021-03-08)
+
+
+### Bug Fixes
+
+* @dhis2/analytics@16.0.8 ([#1643](https://github.com/dhis2/data-visualizer-app/issues/1643)) ([6758a06](https://github.com/dhis2/data-visualizer-app/commit/6758a0649888c6369db9319a913caf549f6e20f2))
+
+## [35.20.7](https://github.com/dhis2/data-visualizer-app/compare/v35.20.6...v35.20.7) (2021-03-08)
+
+
+### Bug Fixes
+
+* include outlierAnalysis in AO request ([#1642](https://github.com/dhis2/data-visualizer-app/issues/1642)) ([47f6795](https://github.com/dhis2/data-visualizer-app/commit/47f67950f2537a1f9f0b8d56babdd236be8a49b2))
+
+## [35.20.6](https://github.com/dhis2/data-visualizer-app/compare/v35.20.5...v35.20.6) (2021-03-05)
+
+
+### Bug Fixes
+
+* bump analytics and ui to latest ([#1640](https://github.com/dhis2/data-visualizer-app/issues/1640)) ([8f01ccf](https://github.com/dhis2/data-visualizer-app/commit/8f01ccf42c830b38bb82c5d5aa3473bc4be89bc9))
+
+## [35.20.5](https://github.com/dhis2/data-visualizer-app/compare/v35.20.4...v35.20.5) (2021-03-05)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#1626](https://github.com/dhis2/data-visualizer-app/issues/1626)) ([c7912af](https://github.com/dhis2/data-visualizer-app/commit/c7912af09b4b1541328f4c6c9933e5ee6503b7d9))
+
 ## [35.20.4](https://github.com/dhis2/data-visualizer-app/compare/v35.20.3...v35.20.4) (2021-03-04)
 
 

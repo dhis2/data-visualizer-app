@@ -7,8 +7,6 @@ export const OPTIONS_TAB_STYLE = 'Style'
 export const OPTIONS_TAB_DATA = 'Data'
 export const OPTIONS_TAB_AXES = 'Axes'
 export const OPTIONS_TAB_OUTLIERS = 'Outliers'
-export const TYPE_TITLE = 'title'
-export const TYPE_SUBTITLE = 'subtitle'
 
 export const clickOptionsTab = name =>
     cy.getBySel(tabBarEl).contains(name).click()
@@ -42,8 +40,17 @@ export {
     expectAxisRangeMaxToBeValue,
 } from './axes'
 
-export { clickTrendLineCheckbox, selectTrendLineType } from './lines'
+export {
+    clickTrendLineCheckbox,
+    selectTrendLineType,
+    clickTargetLineCheckbox,
+    setTargetLineValue,
+    setTargetLineLabel,
+    clickBaseLineCheckbox,
+    setBaseLineLabel,
+    setBaseLineValue,
+} from './lines'
 
 export { setCustomSubtitle } from './subtitle'
 
-export { enableOutliers } from './outliers'
+export { clickOutliersCheckbox } from './outliers'

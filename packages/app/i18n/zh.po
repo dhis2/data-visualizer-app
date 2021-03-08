@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-02T10:49:34.913Z\n"
+"POT-Creation-Date: 2021-03-03T10:40:06.300Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2021\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -394,6 +394,18 @@ msgstr "适度"
 msgid "Compact"
 msgstr "紧凑"
 
+msgid "Extreme lines"
+msgstr "极限线"
+
+msgid "Calculated as a percent, usually 1%, of the total values along an axis"
+msgstr "计算为沿轴的总值的百分比，通常为1％"
+
+msgid "Extreme line % detection"
+msgstr "极限线％检测"
+
+msgid "Number"
+msgstr "数字"
+
 msgid "Font size"
 msgstr "字体大小"
 
@@ -505,6 +517,40 @@ msgstr "行百分比"
 msgid "Percentage of column"
 msgstr "列百分比"
 
+msgid ""
+"Each detection method identifies outliers in different ways and suits "
+"different data. Check the documentation for help to choose the right outlier"
+" detection method"
+msgstr ""
+
+msgid "Threshold factor"
+msgstr "阈值系数"
+
+msgid ""
+"A high value is more sensitive so fewer data items will be identified as "
+"outliers"
+msgstr "高值更敏感，因此较少数据项将被识别为异常值"
+
+msgid "Interquartile Range (IQR)"
+msgstr "四分位间距（IQR）"
+
+msgid "Z-score / Standard score"
+msgstr "Z分数/标准分数"
+
+msgid "Modified Z-score"
+msgstr "修改后的Z评分"
+
+msgid "Outlier analysis"
+msgstr "离群分析"
+
+msgid ""
+"Outlier analysis detects and highlights data items that are markedly "
+"different from the rest of the data"
+msgstr "离群值分析检测并突出显示与其余数据明显不同的数据项"
+
+msgid "Outlier detection method"
+msgstr "离群值检测方法"
+
 msgid "Organisation unit"
 msgstr "组织机构"
 
@@ -522,9 +568,6 @@ msgstr "包含回归分析"
 
 msgid "Title"
 msgstr "称谓"
-
-msgid "Number"
-msgstr "数字"
 
 msgid "Trend line"
 msgstr "趋势线"

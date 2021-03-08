@@ -66,13 +66,13 @@ const Axis = ({
         )
         setItemAttributes(
             DIMENSION_ID_DATA,
-            verticalItems,
-            ITEM_ATTRIBUTE_HORIZONTAL
+            horizontalItems,
+            ITEM_ATTRIBUTE_VERTICAL
         )
         setItemAttributes(
             DIMENSION_ID_DATA,
-            horizontalItems,
-            ITEM_ATTRIBUTE_VERTICAL
+            verticalItems,
+            ITEM_ATTRIBUTE_HORIZONTAL
         )
     }
 

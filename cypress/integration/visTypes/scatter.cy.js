@@ -13,6 +13,8 @@ import {
     switchDataTab,
     expectDataDimensionModalWarningToContain,
     expectDataItemToBeInactive,
+    expectOrgUnitDimensionModalToBeVisible,
+    selectOrgUnitLevel,
 } from '../../elements/dimensionModal'
 import { changeVisType } from '../../elements/visualizationTypeSelector'
 import {
@@ -41,7 +43,7 @@ import { expectRouteToBeEmpty } from '../../elements/route'
 import {
     clickOptionsModalUpdateButton,
     clickOptionsTab,
-    enableOutliers,
+    clickOutliersCheckbox,
     OPTIONS_TAB_AXES,
     OPTIONS_TAB_OUTLIERS,
     setAxisRangeMaxValue,
@@ -53,6 +55,7 @@ import {
     expectWindowConfigXAxisToHaveRangeMaxValue,
     expectWindowConfigXAxisToHaveRangeMinValue,
 } from '../../utils/window'
+import { expectAppToNotBeLoading } from '../../elements/common'
 
 const TEST_INDICATOR_NAMES = TEST_INDICATORS.slice(1, 4).map(item => item.name)
 const TEST_VIS_NAME = `TEST SCATTER ${new Date().toLocaleString()}`
@@ -84,6 +87,15 @@ describe('using a Scatter chart', () => {
         //expectStoreCurrentColumnsToHaveLength(1) // FIXME: Store is always in default state
         expectVerticalToContainDimensionLabel(TEST_INDICATOR_NAMES[0])
         expectHorizontalToContainDimensionLabel(TEST_INDICATOR_NAMES[1])
+    })
+    it('selects org unit level Facility', () => {
+        const TEST_ORG_UNIT_LEVEL = 'Facility'
+        openDimension(DIMENSION_ID_ORGUNIT)
+        expectOrgUnitDimensionModalToBeVisible()
+        selectOrgUnitLevel(TEST_ORG_UNIT_LEVEL)
+        expectOrgUnitDimensionModalToBeVisible()
+        clickDimensionModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_SCATTER)
     })
     it('Data is locked to Vertical', () => {
         expectDimensionOnAxisToHaveLockIcon(DIMENSION_ID_DATA, 'Vertical')
@@ -151,7 +163,7 @@ describe('using a Scatter chart', () => {
     it('Options -> Outliers -> enables outliers', () => {
         clickMenuBarOptionsButton()
         clickOptionsTab(OPTIONS_TAB_OUTLIERS)
-        enableOutliers()
+        clickOutliersCheckbox()
         // TODO: Set more outlier options
         clickOptionsModalUpdateButton()
         expectVisualizationToBeVisible(VIS_TYPE_SCATTER)
@@ -159,6 +171,7 @@ describe('using a Scatter chart', () => {
     })
     it('saves and displays items in the correct places', () => {
         saveExistingAO()
+        expectAppToNotBeLoading()
         expectVisualizationToBeVisible(VIS_TYPE_SCATTER)
         expectVerticalToContainDimensionLabel(TEST_INDICATOR_NAMES[0])
         expectHorizontalToContainDimensionLabel(TEST_INDICATOR_NAMES[1])
