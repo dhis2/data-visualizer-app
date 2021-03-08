@@ -1,3 +1,10 @@
+## [35.20.9](https://github.com/dhis2/data-visualizer-app/compare/v35.20.8...v35.20.9) (2021-03-08)
+
+
+### Bug Fixes
+
+* set outlier threshold min to 0 ([#1644](https://github.com/dhis2/data-visualizer-app/issues/1644)) ([45a8a51](https://github.com/dhis2/data-visualizer-app/commit/45a8a518d28ac0e26e11dda27afea9db162bd170))
+
 ## [35.20.8](https://github.com/dhis2/data-visualizer-app/compare/v35.20.7...v35.20.8) (2021-03-08)
 
 
