@@ -1,3 +1,10 @@
+## [35.20.10](https://github.com/dhis2/data-visualizer-app/compare/v35.20.9...v35.20.10) (2021-03-08)
+
+
+### Bug Fixes
+
+* set vertical before horizontal when swapping ([#1645](https://github.com/dhis2/data-visualizer-app/issues/1645)) ([9f4db3f](https://github.com/dhis2/data-visualizer-app/commit/9f4db3fa0398a56143c75c5e3ba82061626ae45f))
+
 ## [35.20.9](https://github.com/dhis2/data-visualizer-app/compare/v35.20.8...v35.20.9) (2021-03-08)
 
 
