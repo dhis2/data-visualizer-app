@@ -1,3 +1,10 @@
+## [35.20.7](https://github.com/dhis2/data-visualizer-app/compare/v35.20.6...v35.20.7) (2021-03-08)
+
+
+### Bug Fixes
+
+* include outlierAnalysis in AO request ([#1642](https://github.com/dhis2/data-visualizer-app/issues/1642)) ([47f6795](https://github.com/dhis2/data-visualizer-app/commit/47f67950f2537a1f9f0b8d56babdd236be8a49b2))
+
 ## [35.20.6](https://github.com/dhis2/data-visualizer-app/compare/v35.20.5...v35.20.6) (2021-03-05)
 
 
