@@ -1,7 +1,14 @@
 import React, { useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { Popover, FlyoutMenu, Tooltip, MenuItem, MenuDivider } from '@dhis2/ui'
+import {
+    Popper,
+    Layer,
+    FlyoutMenu,
+    Tooltip,
+    MenuItem,
+    MenuDivider,
+} from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { AXIS_ID_COLUMNS, DIMENSION_ID_DATA } from '@dhis2/analytics'
 
@@ -83,45 +90,42 @@ const Axis = ({
                 </IconButton>
             </div>
             {dialogIsOpen && (
-                <Popover
-                    reference={buttonRef}
-                    placement="bottom-start"
-                    onClickOutside={toggleMenu}
-                    arrow={false}
-                >
-                    <FlyoutMenu
-                        dense
-                        dataTest={'layout-chip-menu-dimension-menu'}
-                    >
-                        <Tooltip
-                            key={`assigned-categories-item-${DIMENSION_ID_DATA}`}
-                            content={i18n.t('Not available for Scatter')}
-                            aria-label="disabled"
-                        >
-                            <MenuItem
-                                disabled
-                                dense
-                                label={i18n.t('Add Assigned Categories')}
-                                dataTest={`layout-chip-menu-dimension-menu-item-co-menu`}
-                            />
-                        </Tooltip>
-                        <MenuDivider
+                <Layer position="fixed" level={2000} onClick={toggleMenu}>
+                    <Popper reference={buttonRef} placement="bottom-start">
+                        <FlyoutMenu
                             dense
-                            key={'assigned-categories-divider'}
-                        />
-                        <MenuItem
-                            key={`${itemAttribute}-to-${destination}`}
-                            onClick={onSwap}
-                            label={i18n.t(`Swap with {{axisName}} axis`, {
-                                axisName:
-                                    destination === ITEM_ATTRIBUTE_VERTICAL
-                                        ? i18n.t('vertical')
-                                        : i18n.t('horizontal'),
-                            })}
-                            dataTest={`layout-chip-menu-dimension-menu-item-action-${itemAttribute}-to-${destination}`}
-                        />
-                    </FlyoutMenu>
-                </Popover>
+                            dataTest={'layout-chip-menu-dimension-menu'}
+                        >
+                            <Tooltip
+                                key={`assigned-categories-item-${DIMENSION_ID_DATA}`}
+                                content={i18n.t('Not available for Scatter')}
+                                aria-label="disabled"
+                            >
+                                <MenuItem
+                                    disabled
+                                    dense
+                                    label={i18n.t('Add Assigned Categories')}
+                                    dataTest={`layout-chip-menu-dimension-menu-item-co-menu`}
+                                />
+                            </Tooltip>
+                            <MenuDivider
+                                dense
+                                key={'assigned-categories-divider'}
+                            />
+                            <MenuItem
+                                key={`${itemAttribute}-to-${destination}`}
+                                onClick={onSwap}
+                                label={i18n.t(`Swap with {{axisName}} axis`, {
+                                    axisName:
+                                        destination === ITEM_ATTRIBUTE_VERTICAL
+                                            ? i18n.t('vertical')
+                                            : i18n.t('horizontal'),
+                                })}
+                                dataTest={`layout-chip-menu-dimension-menu-item-action-${itemAttribute}-to-${destination}`}
+                            />
+                        </FlyoutMenu>
+                    </Popper>
+                </Layer>
             )}
         </>
     )
