@@ -405,13 +405,14 @@ msgid "Compact"
 msgstr "Kompakt"
 
 msgid "Extreme lines"
-msgstr ""
+msgstr "Ekstreme linjer"
 
 msgid "Calculated as a percent, usually 1%, of the total values along an axis"
 msgstr ""
+"Beregnet som en prosent, vanligvis 1%, av de totale verdiene langs en akse"
 
 msgid "Extreme line % detection"
-msgstr ""
+msgstr "Ekstrem linje %-beregning"
 
 msgid "Number"
 msgstr "Nummer"
@@ -1006,7 +1007,7 @@ msgid "Limit minimum/maximum values"
 msgstr "Begrens minimum/maksimumsverdier"
 
 msgid "Outliers"
-msgstr "Uteliggere"
+msgstr "Utliggere"
 
 msgid "Series"
 msgstr "Serie"
