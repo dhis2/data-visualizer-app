@@ -1,16 +1,15 @@
 # 
 # Translators:
-# ericbp <ericbarredap@gmail.com>, 2020
-# phil_dhis2, 2020
-# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
+# phil_dhis2, 2019
+# Viktor Varland <viktor@dhis2.org>, 2019
+# ericbp <ericbarredap@gmail.com>, 2019
 # Pablo Pajuelo Cabezas <ppajuelo@quadram.mobi>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-02T10:49:34.913Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
+"POT-Creation-Date: 2021-02-25T08:13:26.611Z\n"
+"PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: Pablo Pajuelo Cabezas <ppajuelo@quadram.mobi>, 2020\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
@@ -32,7 +31,7 @@ msgid "You have unsaved changes."
 msgstr ""
 
 msgid "Discard unsaved changes?"
-msgstr "¿Descartar los cambios no guardados ?"
+msgstr ""
 
 msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
@@ -46,7 +45,7 @@ msgid "Yes, leave"
 msgstr ""
 
 msgid "Add to {{axisName}}"
-msgstr "Añadir a {{Nombredeleje}}"
+msgstr ""
 
 msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
@@ -91,7 +90,7 @@ msgid "PDF (.pdf)"
 msgstr ""
 
 msgid "Table layout"
-msgstr "Disposición de la tabla"
+msgstr ""
 
 msgid "Excel (.xls)"
 msgstr ""
@@ -106,13 +105,13 @@ msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr "Identificador"
+msgstr ""
 
 msgid "Code"
-msgstr "Código"
+msgstr ""
 
 msgid "Name"
-msgstr "Nombre"
+msgstr ""
 
 msgid "Download"
 msgstr "Descargar"
@@ -121,16 +120,16 @@ msgid "Plain data source"
 msgstr "Fuente de datos sin formato"
 
 msgid "JSON"
-msgstr "JSON"
+msgstr ""
 
 msgid "XML"
-msgstr "XML"
+msgstr ""
 
 msgid "Excel"
 msgstr ""
 
 msgid "CSV"
-msgstr "CSV"
+msgstr ""
 
 msgid "Advanced"
 msgstr "Avanzado"
@@ -205,7 +204,7 @@ msgid "Levels"
 msgstr ""
 
 msgid "Groups"
-msgstr "Grupos"
+msgstr ""
 
 msgid "And 1 other..."
 msgstr ""
@@ -293,7 +292,7 @@ msgid "Variance"
 msgstr "Varianza"
 
 msgid "Data approved at level"
-msgstr "Datos aprobados a nivel"
+msgstr ""
 
 msgid "Select from predefined levels"
 msgstr ""
@@ -322,7 +321,7 @@ msgid ""
 msgstr ""
 
 msgid "Steps"
-msgstr "Pasos"
+msgstr ""
 
 msgid "Axis title"
 msgstr ""
@@ -340,7 +339,7 @@ msgid "Columns totals"
 msgstr ""
 
 msgid "Default"
-msgstr "Predeterminado"
+msgstr ""
 
 msgid "Bright"
 msgstr ""
@@ -364,46 +363,58 @@ msgid "Only include completed events"
 msgstr ""
 
 msgid "Include cumulative"
-msgstr "Incluir acumulado"
+msgstr ""
 
 msgid "Cumulative values"
 msgstr ""
 
 msgid "Digit group separator"
-msgstr "Separador de grupos de dígitos"
+msgstr ""
 
 msgid "None"
 msgstr "Ninguno"
 
 msgid "Space"
-msgstr "Espacio"
+msgstr ""
 
 msgid "Comma"
-msgstr "Coma"
+msgstr ""
 
 msgid "Display density"
-msgstr "Mostrar densidad"
+msgstr ""
 
 msgid "Comfortable"
-msgstr "Confortable"
+msgstr ""
 
 msgid "Normal"
-msgstr "Normal"
+msgstr ""
 
 msgid "Compact"
-msgstr "Compacto"
+msgstr ""
+
+msgid "Extreme lines"
+msgstr ""
+
+msgid "Calculated as a percent, usually 1%, of the total values along an axis"
+msgstr ""
+
+msgid "Extreme line % detection"
+msgstr ""
+
+msgid "Number"
+msgstr ""
 
 msgid "Font size"
-msgstr "Tamaño de fuente"
+msgstr ""
 
 msgid "Large"
-msgstr "Grande"
+msgstr ""
 
 msgid "Small"
-msgstr "Pequeña"
+msgstr ""
 
 msgid "Hide empty columns"
-msgstr "Ocultar columnas vacías"
+msgstr ""
 
 msgid "Hide empty categories"
 msgstr "Ocultar categorías vacías"
@@ -421,7 +432,7 @@ msgid "All"
 msgstr "Todos"
 
 msgid "Hide empty rows"
-msgstr "Ocultar filas vacías"
+msgstr ""
 
 msgid "Show legend key"
 msgstr ""
@@ -436,7 +447,7 @@ msgid "Auto generated"
 msgstr ""
 
 msgid "Custom"
-msgstr "Personalizado"
+msgstr ""
 
 msgid "Chart title"
 msgstr "Título del gráfico"
@@ -445,10 +456,10 @@ msgid "Display legend"
 msgstr ""
 
 msgid "Legend style"
-msgstr "Estilo de la leyenda"
+msgstr ""
 
 msgid "Legend type"
-msgstr "Tipo de leyenda"
+msgstr ""
 
 msgid "Use pre-defined legend per data item"
 msgstr ""
@@ -463,7 +474,7 @@ msgid "Legend changes text color"
 msgstr ""
 
 msgid "Legend"
-msgstr "Set de leyendas"
+msgstr ""
 
 msgid "Select from legends"
 msgstr ""
@@ -490,40 +501,65 @@ msgid "No space between bars/columns"
 msgstr ""
 
 msgid "Number type"
-msgstr "Tipo de número"
+msgstr ""
 
 msgid "Display the value of percentages of the total"
 msgstr ""
 
 msgid "Value"
-msgstr "Valor"
+msgstr ""
 
 msgid "Percentage of row"
-msgstr "Porcentaje del total de filas"
+msgstr ""
 
 msgid "Percentage of column"
-msgstr "Porcentaje del total de columnas"
+msgstr ""
+
+msgid "Threshold factor"
+msgstr ""
+
+msgid ""
+"A high value is more sensitive so fewer data items will be identified as "
+"outliers"
+msgstr ""
+
+msgid "Interquartile Range (IQR)"
+msgstr ""
+
+msgid "Z-score / Standard score"
+msgstr ""
+
+msgid "Modified Z-score"
+msgstr ""
+
+msgid "Outlier analysis"
+msgstr ""
+
+msgid ""
+"Outlier analysis detects and highlights data items that are markedly "
+"different from the rest of the data"
+msgstr ""
+
+msgid "Outlier detection method"
+msgstr ""
 
 msgid "Organisation unit"
-msgstr "Unidad organizativa"
+msgstr ""
 
 msgid "Parent organisation unit"
-msgstr "Padre de la unidad organizativa"
+msgstr ""
 
 msgid "Reporting period"
-msgstr "Período del informe"
+msgstr ""
 
 msgid "Stacked values add up to 100%"
 msgstr ""
 
 msgid "Include regression"
-msgstr "Incluir regresión"
+msgstr ""
 
 msgid "Title"
-msgstr "Título"
-
-msgid "Number"
-msgstr "Número"
+msgstr ""
 
 msgid "Trend line"
 msgstr "Mostrar línea de tendencia"
@@ -582,7 +618,7 @@ msgid "Display organisation unit hierarchy"
 msgstr ""
 
 msgid "Skip rounding"
-msgstr "Evitar redondeo"
+msgstr ""
 
 msgid "Custom sort order"
 msgstr ""
@@ -603,10 +639,10 @@ msgid "Size"
 msgstr ""
 
 msgid "Position"
-msgstr "Posición"
+msgstr ""
 
 msgid "Top limit"
-msgstr "Limite superior"
+msgstr ""
 
 msgid "Options"
 msgstr "Opciones"
@@ -656,7 +692,7 @@ msgid ""
 msgstr ""
 
 msgid "No period selected"
-msgstr "No hay periodo seleccionado"
+msgstr ""
 
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
@@ -738,7 +774,7 @@ msgid "Something went wrong"
 msgstr "Algo ha ido mal"
 
 msgid "or"
-msgstr "o"
+msgstr ""
 
 msgid "Today"
 msgstr "Hoy"
@@ -852,10 +888,10 @@ msgid "User org unit grand children"
 msgstr ""
 
 msgid "Table title"
-msgstr "Título de la tabla"
+msgstr ""
 
 msgid "Parameters"
-msgstr "Parámetros"
+msgstr ""
 
 msgid ""
 "These options only apply to legacy tables like standard reports. Options set"
@@ -890,7 +926,7 @@ msgid "Chart style"
 msgstr ""
 
 msgid "Display"
-msgstr "Mostrar"
+msgstr ""
 
 msgid "Empty data"
 msgstr ""
@@ -911,7 +947,7 @@ msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr ""
 
 msgid "Axes"
-msgstr "Ejes"
+msgstr ""
 
 msgid "Data"
 msgstr "Datos"

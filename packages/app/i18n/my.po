@@ -1,13 +1,13 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2020
+# Viktor Varland <viktor@dhis2.org>, 2019
 # phil_dhis2, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-02T10:49:34.913Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
+"POT-Creation-Date: 2021-02-25T08:13:26.611Z\n"
+"PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Burmese (https://www.transifex.com/hisp-uio/teams/100509/my/)\n"
 "MIME-Version: 1.0\n"
@@ -103,13 +103,13 @@ msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr "အိုင်ဒီ"
+msgstr ""
 
 msgid "Code"
-msgstr "ကုဒ်"
+msgstr ""
 
 msgid "Name"
-msgstr "အမည်"
+msgstr ""
 
 msgid "Download"
 msgstr ""
@@ -337,7 +337,7 @@ msgid "Columns totals"
 msgstr ""
 
 msgid "Default"
-msgstr "Default"
+msgstr ""
 
 msgid "Bright"
 msgstr ""
@@ -385,9 +385,21 @@ msgid "Comfortable"
 msgstr ""
 
 msgid "Normal"
-msgstr "Normal"
+msgstr ""
 
 msgid "Compact"
+msgstr ""
+
+msgid "Extreme lines"
+msgstr ""
+
+msgid "Calculated as a percent, usually 1%, of the total values along an axis"
+msgstr ""
+
+msgid "Extreme line % detection"
+msgstr ""
+
+msgid "Number"
 msgstr ""
 
 msgid "Font size"
@@ -433,7 +445,7 @@ msgid "Auto generated"
 msgstr ""
 
 msgid "Custom"
-msgstr "Custom"
+msgstr ""
 
 msgid "Chart title"
 msgstr ""
@@ -487,13 +499,13 @@ msgid "No space between bars/columns"
 msgstr ""
 
 msgid "Number type"
-msgstr "ကိန်းဂဏန်းအရေတွက်"
+msgstr ""
 
 msgid "Display the value of percentages of the total"
 msgstr ""
 
 msgid "Value"
-msgstr "တန်ဖိုး"
+msgstr ""
 
 msgid "Percentage of row"
 msgstr ""
@@ -501,11 +513,39 @@ msgstr ""
 msgid "Percentage of column"
 msgstr ""
 
+msgid "Threshold factor"
+msgstr ""
+
+msgid ""
+"A high value is more sensitive so fewer data items will be identified as "
+"outliers"
+msgstr ""
+
+msgid "Interquartile Range (IQR)"
+msgstr ""
+
+msgid "Z-score / Standard score"
+msgstr ""
+
+msgid "Modified Z-score"
+msgstr ""
+
+msgid "Outlier analysis"
+msgstr ""
+
+msgid ""
+"Outlier analysis detects and highlights data items that are markedly "
+"different from the rest of the data"
+msgstr ""
+
+msgid "Outlier detection method"
+msgstr ""
+
 msgid "Organisation unit"
-msgstr "Organisation unit"
+msgstr ""
 
 msgid "Parent organisation unit"
-msgstr "Parent organisation unit"
+msgstr ""
 
 msgid "Reporting period"
 msgstr ""
@@ -517,10 +557,7 @@ msgid "Include regression"
 msgstr ""
 
 msgid "Title"
-msgstr "ခေါင်းစဉ်"
-
-msgid "Number"
-msgstr "ဂဏန်း"
+msgstr ""
 
 msgid "Trend line"
 msgstr "လမ်းကြောင်း"
@@ -735,7 +772,7 @@ msgid "Something went wrong"
 msgstr ""
 
 msgid "or"
-msgstr "သို့မဟုတ်"
+msgstr ""
 
 msgid "Today"
 msgstr ""

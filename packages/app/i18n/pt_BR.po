@@ -1,14 +1,14 @@
 # 
 # Translators:
-# phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
+# Viktor Varland <viktor@dhis2.org>, 2019
+# phil_dhis2, 2019
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-02T10:49:34.913Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"POT-Creation-Date: 2021-02-25T08:13:26.611Z\n"
+"PO-Revision-Date: 2019-09-01 20:50+0000\n"
+"Last-Translator: phil_dhis2, 2019\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/hisp-uio/teams/100509/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -103,13 +103,13 @@ msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr "Id"
+msgstr ""
 
 msgid "Code"
-msgstr "Código"
+msgstr ""
 
 msgid "Name"
-msgstr "Nome"
+msgstr ""
 
 msgid "Download"
 msgstr "Baixar"
@@ -202,7 +202,7 @@ msgid "Levels"
 msgstr ""
 
 msgid "Groups"
-msgstr "Grupos"
+msgstr ""
 
 msgid "And 1 other..."
 msgstr ""
@@ -361,7 +361,7 @@ msgid "Only include completed events"
 msgstr ""
 
 msgid "Include cumulative"
-msgstr "Incluir cumulativa"
+msgstr ""
 
 msgid "Cumulative values"
 msgstr ""
@@ -382,13 +382,25 @@ msgid "Display density"
 msgstr ""
 
 msgid "Comfortable"
-msgstr "Confortável"
+msgstr ""
 
 msgid "Normal"
-msgstr "Normal"
+msgstr ""
 
 msgid "Compact"
-msgstr "Compacto"
+msgstr ""
+
+msgid "Extreme lines"
+msgstr ""
+
+msgid "Calculated as a percent, usually 1%, of the total values along an axis"
+msgstr ""
+
+msgid "Extreme line % detection"
+msgstr ""
+
+msgid "Number"
+msgstr ""
 
 msgid "Font size"
 msgstr ""
@@ -445,7 +457,7 @@ msgid "Legend style"
 msgstr ""
 
 msgid "Legend type"
-msgstr "Tipo de legenda"
+msgstr ""
 
 msgid "Use pre-defined legend per data item"
 msgstr ""
@@ -460,7 +472,7 @@ msgid "Legend changes text color"
 msgstr ""
 
 msgid "Legend"
-msgstr "Legenda"
+msgstr ""
 
 msgid "Select from legends"
 msgstr ""
@@ -487,13 +499,13 @@ msgid "No space between bars/columns"
 msgstr ""
 
 msgid "Number type"
-msgstr "Tipo de número"
+msgstr ""
 
 msgid "Display the value of percentages of the total"
 msgstr ""
 
 msgid "Value"
-msgstr "Valor"
+msgstr ""
 
 msgid "Percentage of row"
 msgstr ""
@@ -501,26 +513,51 @@ msgstr ""
 msgid "Percentage of column"
 msgstr ""
 
+msgid "Threshold factor"
+msgstr ""
+
+msgid ""
+"A high value is more sensitive so fewer data items will be identified as "
+"outliers"
+msgstr ""
+
+msgid "Interquartile Range (IQR)"
+msgstr ""
+
+msgid "Z-score / Standard score"
+msgstr ""
+
+msgid "Modified Z-score"
+msgstr ""
+
+msgid "Outlier analysis"
+msgstr ""
+
+msgid ""
+"Outlier analysis detects and highlights data items that are markedly "
+"different from the rest of the data"
+msgstr ""
+
+msgid "Outlier detection method"
+msgstr ""
+
 msgid "Organisation unit"
-msgstr "Unidade organizacional"
+msgstr ""
 
 msgid "Parent organisation unit"
-msgstr "Unidade organizacional parente"
+msgstr ""
 
 msgid "Reporting period"
-msgstr "Período de relatório"
+msgstr ""
 
 msgid "Stacked values add up to 100%"
 msgstr ""
 
 msgid "Include regression"
-msgstr "Incluir regressão"
+msgstr ""
 
 msgid "Title"
-msgstr "Título"
-
-msgid "Number"
-msgstr "Número"
+msgstr ""
 
 msgid "Trend line"
 msgstr "Linha de tendência"
@@ -603,7 +640,7 @@ msgid "Position"
 msgstr ""
 
 msgid "Top limit"
-msgstr "Limite superior"
+msgstr ""
 
 msgid "Options"
 msgstr "Opções"
@@ -735,7 +772,7 @@ msgid "Something went wrong"
 msgstr ""
 
 msgid "or"
-msgstr "ou"
+msgstr ""
 
 msgid "Today"
 msgstr "Hoje"
@@ -852,7 +889,7 @@ msgid "Table title"
 msgstr ""
 
 msgid "Parameters"
-msgstr "Paâmetros"
+msgstr ""
 
 msgid ""
 "These options only apply to legacy tables like standard reports. Options set"
@@ -887,7 +924,7 @@ msgid "Chart style"
 msgstr ""
 
 msgid "Display"
-msgstr "Exibir"
+msgstr ""
 
 msgid "Empty data"
 msgstr ""

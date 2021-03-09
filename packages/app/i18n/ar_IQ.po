@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-02T10:49:34.913Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
+"POT-Creation-Date: 2021-02-25T08:13:26.611Z\n"
+"PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2020\n"
 "Language-Team: Arabic (Iraq) (https://www.transifex.com/hisp-uio/teams/100509/ar_IQ/)\n"
 "MIME-Version: 1.0\n"
@@ -87,7 +87,7 @@ msgid "PDF (.pdf)"
 msgstr ""
 
 msgid "Table layout"
-msgstr "تنسيق الجدول"
+msgstr ""
 
 msgid "Excel (.xls)"
 msgstr ""
@@ -108,7 +108,7 @@ msgid "Code"
 msgstr ""
 
 msgid "Name"
-msgstr "الاسم"
+msgstr ""
 
 msgid "Download"
 msgstr "تنزيل"
@@ -336,7 +336,7 @@ msgid "Columns totals"
 msgstr ""
 
 msgid "Default"
-msgstr "الافتراضي"
+msgstr ""
 
 msgid "Bright"
 msgstr ""
@@ -360,43 +360,55 @@ msgid "Only include completed events"
 msgstr ""
 
 msgid "Include cumulative"
-msgstr "تضمين التراكم"
+msgstr ""
 
 msgid "Cumulative values"
 msgstr ""
 
 msgid "Digit group separator"
-msgstr "فاصل مجموعة الخانات"
+msgstr ""
 
 msgid "None"
 msgstr "لا شيء"
 
 msgid "Space"
-msgstr "مسافة"
+msgstr ""
 
 msgid "Comma"
-msgstr "فاصلة"
+msgstr ""
 
 msgid "Display density"
-msgstr "كثافة العرض"
+msgstr ""
 
 msgid "Comfortable"
-msgstr "مريح"
+msgstr ""
 
 msgid "Normal"
-msgstr "عادي"
+msgstr ""
 
 msgid "Compact"
-msgstr "مضغوط"
+msgstr ""
+
+msgid "Extreme lines"
+msgstr ""
+
+msgid "Calculated as a percent, usually 1%, of the total values along an axis"
+msgstr ""
+
+msgid "Extreme line % detection"
+msgstr ""
+
+msgid "Number"
+msgstr ""
 
 msgid "Font size"
-msgstr "حجم الخط"
+msgstr ""
 
 msgid "Large"
-msgstr "كبير"
+msgstr ""
 
 msgid "Small"
-msgstr "صغير"
+msgstr ""
 
 msgid "Hide empty columns"
 msgstr ""
@@ -417,7 +429,7 @@ msgid "All"
 msgstr "الجميع"
 
 msgid "Hide empty rows"
-msgstr "إخفاء الصفوف الفارغة"
+msgstr ""
 
 msgid "Show legend key"
 msgstr ""
@@ -492,7 +504,7 @@ msgid "Display the value of percentages of the total"
 msgstr ""
 
 msgid "Value"
-msgstr "القيمة"
+msgstr ""
 
 msgid "Percentage of row"
 msgstr ""
@@ -500,25 +512,50 @@ msgstr ""
 msgid "Percentage of column"
 msgstr ""
 
+msgid "Threshold factor"
+msgstr ""
+
+msgid ""
+"A high value is more sensitive so fewer data items will be identified as "
+"outliers"
+msgstr ""
+
+msgid "Interquartile Range (IQR)"
+msgstr ""
+
+msgid "Z-score / Standard score"
+msgstr ""
+
+msgid "Modified Z-score"
+msgstr ""
+
+msgid "Outlier analysis"
+msgstr ""
+
+msgid ""
+"Outlier analysis detects and highlights data items that are markedly "
+"different from the rest of the data"
+msgstr ""
+
+msgid "Outlier detection method"
+msgstr ""
+
 msgid "Organisation unit"
-msgstr "الوحدة التنظيمية"
+msgstr ""
 
 msgid "Parent organisation unit"
-msgstr "الوحدة التنظيمية الأصل"
+msgstr ""
 
 msgid "Reporting period"
-msgstr "الفترة الزمنية لإعداد التقرير"
+msgstr ""
 
 msgid "Stacked values add up to 100%"
 msgstr ""
 
 msgid "Include regression"
-msgstr "تضمين الانحدار"
+msgstr ""
 
 msgid "Title"
-msgstr "العنوان"
-
-msgid "Number"
 msgstr ""
 
 msgid "Trend line"
@@ -602,7 +639,7 @@ msgid "Position"
 msgstr ""
 
 msgid "Top limit"
-msgstr "الحد الأعلى"
+msgstr ""
 
 msgid "Options"
 msgstr "الخيارات"
@@ -848,10 +885,10 @@ msgid "User org unit grand children"
 msgstr ""
 
 msgid "Table title"
-msgstr "عنوان الجدول"
+msgstr ""
 
 msgid "Parameters"
-msgstr "المعاملات"
+msgstr ""
 
 msgid ""
 "These options only apply to legacy tables like standard reports. Options set"

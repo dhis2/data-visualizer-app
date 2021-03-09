@@ -1,15 +1,14 @@
 # 
 # Translators:
-# phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
-# Ulanbek Abakirov <ulans@mail.ru>, 2020
+# Viktor Varland <viktor@dhis2.org>, 2019
+# phil_dhis2, 2019
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-02T10:49:34.913Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Ulanbek Abakirov <ulans@mail.ru>, 2020\n"
+"POT-Creation-Date: 2021-02-25T08:13:26.611Z\n"
+"PO-Revision-Date: 2019-09-01 20:50+0000\n"
+"Last-Translator: phil_dhis2, 2019\n"
 "Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,7 +29,7 @@ msgid "You have unsaved changes."
 msgstr ""
 
 msgid "Discard unsaved changes?"
-msgstr "Отменить несохраненные изменения?"
+msgstr ""
 
 msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
@@ -44,7 +43,7 @@ msgid "Yes, leave"
 msgstr ""
 
 msgid "Add to {{axisName}}"
-msgstr "Добавить в {{axisName}}"
+msgstr ""
 
 msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
@@ -68,16 +67,16 @@ msgid "Horizontal"
 msgstr ""
 
 msgid "Main dimensions"
-msgstr "Основное измерение"
+msgstr ""
 
 msgid "Other dimensions"
 msgstr ""
 
 msgid "Your dimensions"
-msgstr "Ваши Измерения"
+msgstr ""
 
 msgid "Filter dimensions"
-msgstr "Фильтровать измерения"
+msgstr ""
 
 msgid "Graphics"
 msgstr "Графика"
@@ -89,7 +88,7 @@ msgid "PDF (.pdf)"
 msgstr ""
 
 msgid "Table layout"
-msgstr "Формат таблицы"
+msgstr ""
 
 msgid "Excel (.xls)"
 msgstr ""
@@ -104,31 +103,31 @@ msgid "Metadata ID scheme"
 msgstr "ID Схема метаданных"
 
 msgid "ID"
-msgstr "Ид"
+msgstr ""
 
 msgid "Code"
-msgstr "Код"
+msgstr ""
 
 msgid "Name"
-msgstr "Название"
+msgstr ""
 
 msgid "Download"
-msgstr "Скачать"
+msgstr "Загрузить"
 
 msgid "Plain data source"
-msgstr "Источник данных"
+msgstr "Простой источник данных"
 
 msgid "JSON"
-msgstr "JSON"
+msgstr ""
 
 msgid "XML"
-msgstr "XML"
+msgstr ""
 
 msgid "Excel"
-msgstr "Excel"
+msgstr ""
 
 msgid "CSV"
-msgstr "CSV"
+msgstr ""
 
 msgid "Advanced"
 msgstr "Расширенный"
@@ -180,7 +179,7 @@ msgid "Not available for Scatter"
 msgstr ""
 
 msgid "Add Assigned Categories"
-msgstr "Добавить Назначенные категории"
+msgstr ""
 
 msgid "Swap with {{axisName}} axis"
 msgstr ""
@@ -204,7 +203,7 @@ msgid "Levels"
 msgstr ""
 
 msgid "Groups"
-msgstr "Группы"
+msgstr ""
 
 msgid "And 1 other..."
 msgstr ""
@@ -253,48 +252,46 @@ msgid "Your most viewed charts and tables"
 msgstr ""
 
 msgid "Aggregation type"
-msgstr "Тип агрегирования"
+msgstr "Тип агрегации"
 
 msgid "Overrides aggregation type for all data values."
 msgstr ""
 
 msgid "By data element"
-msgstr "По элементу данных"
+msgstr "По элементам данных"
 
 msgid "Count"
-msgstr "Количество"
+msgstr "Счет"
 
 msgid "Average"
 msgstr "Среднее"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr "Среднее (сумма по иерархической структуре организационных единиц)"
+msgstr "Среднее (сумма по иерархии организационных единиц)"
 
 msgid "Sum"
-msgstr "Сумма"
+msgstr "Сум"
 
 msgid "Last value"
 msgstr "Последнее значение"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr ""
-"Последнее значение (среднее по иерархической структуре организационных "
-"единиц)"
+msgstr "Последнее значение (среднее по иерархии организационных единиц)"
 
 msgid "Min"
-msgstr "Мин"
+msgstr "Минимум"
 
 msgid "Max"
-msgstr "Макс"
+msgstr "Максимум"
 
 msgid "Standard deviation"
-msgstr "Среднеквадратическое отклонение"
+msgstr "Стандартное отклонение"
 
 msgid "Variance"
 msgstr "Дисперсия"
 
 msgid "Data approved at level"
-msgstr "Данные подтверждены на уровне"
+msgstr ""
 
 msgid "Select from predefined levels"
 msgstr ""
@@ -306,10 +303,10 @@ msgid "Decimals"
 msgstr ""
 
 msgid "Auto"
-msgstr "Авто"
+msgstr ""
 
 msgid "Labels"
-msgstr "Метки"
+msgstr ""
 
 msgid "Axis range"
 msgstr ""
@@ -323,7 +320,7 @@ msgid ""
 msgstr ""
 
 msgid "Steps"
-msgstr "Шаги"
+msgstr ""
 
 msgid "Axis title"
 msgstr ""
@@ -341,7 +338,7 @@ msgid "Columns totals"
 msgstr ""
 
 msgid "Default"
-msgstr "По умолчанию"
+msgstr ""
 
 msgid "Bright"
 msgstr ""
@@ -365,46 +362,58 @@ msgid "Only include completed events"
 msgstr ""
 
 msgid "Include cumulative"
-msgstr "Включить кумулятивно"
+msgstr ""
 
 msgid "Cumulative values"
 msgstr ""
 
 msgid "Digit group separator"
-msgstr "Разделитель групп разрядов"
+msgstr ""
 
 msgid "None"
 msgstr "Не известное значение"
 
 msgid "Space"
-msgstr "Пробел"
+msgstr ""
 
 msgid "Comma"
-msgstr "Запятая"
+msgstr ""
 
 msgid "Display density"
-msgstr "Отобразить плотность"
+msgstr ""
 
 msgid "Comfortable"
-msgstr "Комфортный"
+msgstr ""
 
 msgid "Normal"
-msgstr "Стандартный"
+msgstr ""
 
 msgid "Compact"
-msgstr "Компактный"
+msgstr ""
+
+msgid "Extreme lines"
+msgstr ""
+
+msgid "Calculated as a percent, usually 1%, of the total values along an axis"
+msgstr ""
+
+msgid "Extreme line % detection"
+msgstr ""
+
+msgid "Number"
+msgstr ""
 
 msgid "Font size"
-msgstr "Размер шрифта"
+msgstr ""
 
 msgid "Large"
-msgstr "Большой"
+msgstr ""
 
 msgid "Small"
-msgstr "Маленький"
+msgstr ""
 
 msgid "Hide empty columns"
-msgstr "Скрыть пустые столбцы"
+msgstr ""
 
 msgid "Hide empty categories"
 msgstr "Скрыть пустые категории"
@@ -413,7 +422,7 @@ msgid "Before first"
 msgstr "До первого"
 
 msgid "After last"
-msgstr "После последнего"
+msgstr ""
 
 msgid "Before first and after last"
 msgstr "До первого и после последнего"
@@ -422,7 +431,7 @@ msgid "All"
 msgstr "Все"
 
 msgid "Hide empty rows"
-msgstr "Скрыть незаполненные строки"
+msgstr ""
 
 msgid "Show legend key"
 msgstr ""
@@ -437,7 +446,7 @@ msgid "Auto generated"
 msgstr ""
 
 msgid "Custom"
-msgstr "Пользователь"
+msgstr ""
 
 msgid "Chart title"
 msgstr "Заголовок диаграммы"
@@ -446,10 +455,10 @@ msgid "Display legend"
 msgstr ""
 
 msgid "Legend style"
-msgstr "Стиль легенды"
+msgstr ""
 
 msgid "Legend type"
-msgstr "Тип условных обозначений"
+msgstr ""
 
 msgid "Use pre-defined legend per data item"
 msgstr ""
@@ -464,7 +473,7 @@ msgid "Legend changes text color"
 msgstr ""
 
 msgid "Legend"
-msgstr "Легенда"
+msgstr ""
 
 msgid "Select from legends"
 msgstr ""
@@ -491,49 +500,74 @@ msgid "No space between bars/columns"
 msgstr ""
 
 msgid "Number type"
-msgstr "Тип числа"
+msgstr ""
 
 msgid "Display the value of percentages of the total"
 msgstr ""
 
 msgid "Value"
-msgstr "Значение"
+msgstr ""
 
 msgid "Percentage of row"
-msgstr "Процент строки"
+msgstr ""
 
 msgid "Percentage of column"
-msgstr "Процент столбца"
+msgstr ""
+
+msgid "Threshold factor"
+msgstr ""
+
+msgid ""
+"A high value is more sensitive so fewer data items will be identified as "
+"outliers"
+msgstr ""
+
+msgid "Interquartile Range (IQR)"
+msgstr ""
+
+msgid "Z-score / Standard score"
+msgstr ""
+
+msgid "Modified Z-score"
+msgstr ""
+
+msgid "Outlier analysis"
+msgstr ""
+
+msgid ""
+"Outlier analysis detects and highlights data items that are markedly "
+"different from the rest of the data"
+msgstr ""
+
+msgid "Outlier detection method"
+msgstr ""
 
 msgid "Organisation unit"
-msgstr "Организационная единица"
+msgstr ""
 
 msgid "Parent organisation unit"
-msgstr "Родительская организация"
+msgstr ""
 
 msgid "Reporting period"
-msgstr "Отчетный период"
+msgstr ""
 
 msgid "Stacked values add up to 100%"
 msgstr ""
 
 msgid "Include regression"
-msgstr "Включить регрессию"
+msgstr ""
 
 msgid "Title"
-msgstr "Название"
-
-msgid "Number"
-msgstr "Число"
+msgstr ""
 
 msgid "Trend line"
-msgstr "Линия тренда"
+msgstr "Показать тенденции"
 
 msgid "Linear"
 msgstr "Линейный"
 
 msgid "Polynomial"
-msgstr "Полиномиальный"
+msgstr "Полиномиальная регрессия"
 
 msgid "Loess"
 msgstr "Локальная регрессия (LOESS)"
@@ -551,7 +585,7 @@ msgid "Visualization type"
 msgstr ""
 
 msgid "Axis {{axisId}}"
-msgstr "Ось {{axisId}}"
+msgstr ""
 
 msgid "Series is empty"
 msgstr ""
@@ -583,16 +617,16 @@ msgid "Display organisation unit hierarchy"
 msgstr ""
 
 msgid "Skip rounding"
-msgstr "Пропустить округление данных"
+msgstr ""
 
 msgid "Custom sort order"
 msgstr ""
 
 msgid "Low to high"
-msgstr "От низких к высоким"
+msgstr "Низкий - высокий"
 
 msgid "High to low"
-msgstr "От высоких к низким"
+msgstr "Высокий-низкий"
 
 msgid "Add a subtitle"
 msgstr ""
@@ -607,10 +641,10 @@ msgid "Position"
 msgstr ""
 
 msgid "Top limit"
-msgstr "Верхний предел"
+msgstr ""
 
 msgid "Options"
-msgstr "Параметры"
+msgstr "Опции"
 
 msgid "Open as Map"
 msgstr ""
@@ -657,7 +691,7 @@ msgid ""
 msgstr ""
 
 msgid "No period selected"
-msgstr "Не выбран период"
+msgstr ""
 
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
@@ -739,7 +773,7 @@ msgid "Something went wrong"
 msgstr "Что-то пошло не так"
 
 msgid "or"
-msgstr "или"
+msgstr ""
 
 msgid "Today"
 msgstr "Сегодня"
@@ -760,16 +794,16 @@ msgid "This week"
 msgstr "Эта неделя"
 
 msgid "Last week"
-msgstr "Прошлая неделя"
+msgstr "Последняя неделя"
 
 msgid "Last 4 weeks"
-msgstr "Прошлые 4 недели"
+msgstr "Последние 4 недели"
 
 msgid "Last 12 weeks"
-msgstr "Прошлые 12 недель"
+msgstr "Последние 12 недель"
 
 msgid "Last 52 weeks"
-msgstr "Прошлые 52 недели"
+msgstr "Последние 52 недели"
 
 msgid "Weeks this year"
 msgstr "Недели этого года"
@@ -778,19 +812,19 @@ msgid "This month"
 msgstr "Этот месяц"
 
 msgid "Last month"
-msgstr "Прошлый месяц"
+msgstr "Последний месяц"
 
 msgid "Last 3 months"
-msgstr "Прошлые 3 месяца"
+msgstr "Последние 3 месяца"
 
 msgid "Last 6 months"
-msgstr "Прошлые 6 месяцев"
+msgstr "Последние 6 месяцев"
 
 msgid "Last 12 months"
-msgstr "Прошлые 12 месяцев"
+msgstr "Последние 12 месяцев"
 
 msgid "Months this year"
-msgstr "Месяцы этого года"
+msgstr "Месяцы в этом году"
 
 msgid "This bimonth"
 msgstr "Этот бимесяц"
@@ -808,13 +842,13 @@ msgid "This quarter"
 msgstr "Этот квартал"
 
 msgid "Last quarter"
-msgstr "Прошлый квартал"
+msgstr "Последний квартал"
 
 msgid "Last 4 quarters"
-msgstr "Прошлые 4 квартала"
+msgstr "Последние 4 квартала"
 
 msgid "Quarters this year"
-msgstr "Кварталы этого года"
+msgstr "Кварталы в этом году"
 
 msgid "This six-month"
 msgstr "Это полугодие"
@@ -823,7 +857,7 @@ msgid "Last six-month"
 msgstr "Прошлое полугодие"
 
 msgid "Last 2 six-months"
-msgstr "Прошлые 2 полугодия"
+msgstr "Последние два полугодия"
 
 msgid "This financial year"
 msgstr "Этот финансовый год"
@@ -832,16 +866,16 @@ msgid "Last financial year"
 msgstr "Прошлый финансовый год"
 
 msgid "Last 5 financial years"
-msgstr "Прошлые 5 финансовых лет"
+msgstr "Последние 5 финансовых лет"
 
 msgid "This year"
 msgstr "Этот год"
 
 msgid "Last year"
-msgstr "Прошлый год"
+msgstr "Последний год"
 
 msgid "Last 5 years"
-msgstr "Прошлые 5 лет"
+msgstr "Последние 5 лет"
 
 msgid "User org unit"
 msgstr "Пользовательская организационная единица"
@@ -853,10 +887,10 @@ msgid "User org unit grand children"
 msgstr "Потомки 2го уровня пользовательской организационной единицы"
 
 msgid "Table title"
-msgstr "Название таблицы"
+msgstr ""
 
 msgid "Parameters"
-msgstr "Параметры"
+msgstr ""
 
 msgid ""
 "These options only apply to legacy tables like standard reports. Options set"
@@ -891,7 +925,7 @@ msgid "Chart style"
 msgstr ""
 
 msgid "Display"
-msgstr "Показать"
+msgstr ""
 
 msgid "Empty data"
 msgstr ""
@@ -912,7 +946,7 @@ msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr ""
 
 msgid "Axes"
-msgstr "Оси"
+msgstr ""
 
 msgid "Data"
 msgstr "Данные"

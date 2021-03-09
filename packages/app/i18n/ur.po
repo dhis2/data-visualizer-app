@@ -1,14 +1,14 @@
 # 
 # Translators:
-# phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
+# phil_dhis2, 2019
+# Viktor Varland <viktor@dhis2.org>, 2019
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-02T10:49:34.913Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"POT-Creation-Date: 2021-02-25T08:13:26.611Z\n"
+"PO-Revision-Date: 2019-09-01 20:50+0000\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2019\n"
 "Language-Team: Urdu (https://www.transifex.com/hisp-uio/teams/100509/ur/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,7 +29,7 @@ msgid "You have unsaved changes."
 msgstr ""
 
 msgid "Discard unsaved changes?"
-msgstr "غیر محفوظ شدہ تبدیلیاں ختم کریں؟"
+msgstr ""
 
 msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
@@ -88,7 +88,7 @@ msgid "PDF (.pdf)"
 msgstr ""
 
 msgid "Table layout"
-msgstr "ٹیبل ترتیب"
+msgstr ""
 
 msgid "Excel (.xls)"
 msgstr ""
@@ -103,13 +103,13 @@ msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr "شناخت"
+msgstr ""
 
 msgid "Code"
-msgstr "کوڈ"
+msgstr ""
 
 msgid "Name"
-msgstr "ÙØ§Ù"
+msgstr ""
 
 msgid "Download"
 msgstr "ڈاؤن لوڈ کریں"
@@ -118,16 +118,16 @@ msgid "Plain data source"
 msgstr "سادہ اعداد و شمار کا ذریعہ"
 
 msgid "JSON"
-msgstr "JSON"
+msgstr ""
 
 msgid "XML"
-msgstr "XML"
+msgstr ""
 
 msgid "Excel"
 msgstr ""
 
 msgid "CSV"
-msgstr "CSV"
+msgstr ""
 
 msgid "Advanced"
 msgstr "اعلی درجے کی"
@@ -202,7 +202,7 @@ msgid "Levels"
 msgstr ""
 
 msgid "Groups"
-msgstr "گروپ"
+msgstr ""
 
 msgid "And 1 other..."
 msgstr ""
@@ -231,7 +231,7 @@ msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
 msgid "Update"
-msgstr "اپ ڈیٹ"
+msgstr "اپڈیٹ"
 
 msgid "Getting started"
 msgstr ""
@@ -269,7 +269,7 @@ msgid "Average (sum in org unit hierarchy)"
 msgstr "اوسط (اختیاری یونٹ کے تنظیمی ڈھانچے میں)"
 
 msgid "Sum"
-msgstr "سم"
+msgstr "جمع"
 
 msgid "Last value"
 msgstr "آخری قیمت"
@@ -278,7 +278,7 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr "آخری قدر (اوسط یونٹ کے تنظیمی ڈھانچے میں اوسط)"
 
 msgid "Min"
-msgstr "منٹ"
+msgstr "کم سے کم"
 
 msgid "Max"
 msgstr "زیادہ سے زیادہ"
@@ -290,7 +290,7 @@ msgid "Variance"
 msgstr "متغیر"
 
 msgid "Data approved at level"
-msgstr "سطح پر منظوری دی گئی ہے"
+msgstr ""
 
 msgid "Select from predefined levels"
 msgstr ""
@@ -305,7 +305,7 @@ msgid "Auto"
 msgstr ""
 
 msgid "Labels"
-msgstr "لیبل"
+msgstr ""
 
 msgid "Axis range"
 msgstr ""
@@ -319,7 +319,7 @@ msgid ""
 msgstr ""
 
 msgid "Steps"
-msgstr "مرحلے"
+msgstr ""
 
 msgid "Axis title"
 msgstr ""
@@ -337,7 +337,7 @@ msgid "Columns totals"
 msgstr ""
 
 msgid "Default"
-msgstr "طےشدہ"
+msgstr ""
 
 msgid "Bright"
 msgstr ""
@@ -361,46 +361,58 @@ msgid "Only include completed events"
 msgstr ""
 
 msgid "Include cumulative"
-msgstr "مجموعی شامل کریں"
+msgstr ""
 
 msgid "Cumulative values"
 msgstr ""
 
 msgid "Digit group separator"
-msgstr "ڈیجیٹٹ گروپ الگ الگ"
+msgstr ""
 
 msgid "None"
-msgstr "کوئی بھی نہیں"
+msgstr "کوئی نہں"
 
 msgid "Space"
-msgstr "خلائی"
+msgstr ""
 
 msgid "Comma"
-msgstr "کما"
+msgstr ""
 
 msgid "Display density"
-msgstr "ڈسپلے کثافت"
+msgstr ""
 
 msgid "Comfortable"
-msgstr "آرام دہ اور پرسکون"
+msgstr ""
 
 msgid "Normal"
-msgstr "عام"
+msgstr ""
 
 msgid "Compact"
-msgstr "کومپیکٹ"
+msgstr ""
+
+msgid "Extreme lines"
+msgstr ""
+
+msgid "Calculated as a percent, usually 1%, of the total values along an axis"
+msgstr ""
+
+msgid "Extreme line % detection"
+msgstr ""
+
+msgid "Number"
+msgstr ""
 
 msgid "Font size"
-msgstr "حرف کا سائز"
+msgstr ""
 
 msgid "Large"
-msgstr "بڑے"
+msgstr ""
 
 msgid "Small"
-msgstr "چھوٹے"
+msgstr ""
 
 msgid "Hide empty columns"
-msgstr "خالی کالم چھپائیں"
+msgstr ""
 
 msgid "Hide empty categories"
 msgstr "خالی اقسام چھپائیں"
@@ -409,16 +421,16 @@ msgid "Before first"
 msgstr "پہلے سے پہلے"
 
 msgid "After last"
-msgstr "آخری کے بعد"
+msgstr ""
 
 msgid "Before first and after last"
 msgstr "پہلے اور بعد میں آخری سے پہلے"
 
 msgid "All"
-msgstr "سب"
+msgstr "تمام"
 
 msgid "Hide empty rows"
-msgstr "خالی قطار چھپائیں"
+msgstr ""
 
 msgid "Show legend key"
 msgstr ""
@@ -433,7 +445,7 @@ msgid "Auto generated"
 msgstr ""
 
 msgid "Custom"
-msgstr "مرضی کے مطابق"
+msgstr ""
 
 msgid "Chart title"
 msgstr "چارٹ کا عنوان"
@@ -442,10 +454,10 @@ msgid "Display legend"
 msgstr ""
 
 msgid "Legend style"
-msgstr "علامات سٹائل"
+msgstr ""
 
 msgid "Legend type"
-msgstr "علامات کی قسم"
+msgstr ""
 
 msgid "Use pre-defined legend per data item"
 msgstr ""
@@ -460,7 +472,7 @@ msgid "Legend changes text color"
 msgstr ""
 
 msgid "Legend"
-msgstr "علامات"
+msgstr ""
 
 msgid "Select from legends"
 msgstr ""
@@ -487,40 +499,65 @@ msgid "No space between bars/columns"
 msgstr ""
 
 msgid "Number type"
-msgstr "نمبر کی قسم"
+msgstr ""
 
 msgid "Display the value of percentages of the total"
 msgstr ""
 
 msgid "Value"
-msgstr "قدر"
+msgstr ""
 
 msgid "Percentage of row"
-msgstr "قطار کا فیصد"
+msgstr ""
 
 msgid "Percentage of column"
-msgstr "کالم کا فیصد"
+msgstr ""
+
+msgid "Threshold factor"
+msgstr ""
+
+msgid ""
+"A high value is more sensitive so fewer data items will be identified as "
+"outliers"
+msgstr ""
+
+msgid "Interquartile Range (IQR)"
+msgstr ""
+
+msgid "Z-score / Standard score"
+msgstr ""
+
+msgid "Modified Z-score"
+msgstr ""
+
+msgid "Outlier analysis"
+msgstr ""
+
+msgid ""
+"Outlier analysis detects and highlights data items that are markedly "
+"different from the rest of the data"
+msgstr ""
+
+msgid "Outlier detection method"
+msgstr ""
 
 msgid "Organisation unit"
-msgstr "تنظیم یونٹ"
+msgstr ""
 
 msgid "Parent organisation unit"
-msgstr "والدین تنظیم یونٹ"
+msgstr ""
 
 msgid "Reporting period"
-msgstr "رپورٹنگ مدت"
+msgstr ""
 
 msgid "Stacked values add up to 100%"
 msgstr ""
 
 msgid "Include regression"
-msgstr "رجفریشن شامل کریں"
+msgstr ""
 
 msgid "Title"
-msgstr "عنوان"
-
-msgid "Number"
-msgstr "نمبر"
+msgstr ""
 
 msgid "Trend line"
 msgstr "رجحان لائن"
@@ -579,7 +616,7 @@ msgid "Display organisation unit hierarchy"
 msgstr ""
 
 msgid "Skip rounding"
-msgstr "راؤنڈنگ چھوڑ دو"
+msgstr ""
 
 msgid "Custom sort order"
 msgstr ""
@@ -603,7 +640,7 @@ msgid "Position"
 msgstr ""
 
 msgid "Top limit"
-msgstr "اوپر کی حد"
+msgstr ""
 
 msgid "Options"
 msgstr "اختیارات"
@@ -653,7 +690,7 @@ msgid ""
 msgstr ""
 
 msgid "No period selected"
-msgstr "کوئی مدت منتخب نہیں"
+msgstr ""
 
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
@@ -735,7 +772,7 @@ msgid "Something went wrong"
 msgstr ""
 
 msgid "or"
-msgstr "یا"
+msgstr ""
 
 msgid "Today"
 msgstr "آج"
@@ -756,16 +793,16 @@ msgid "This week"
 msgstr "اس ہفتے"
 
 msgid "Last week"
-msgstr "پچھلا ہفتہ"
+msgstr "آخری ہفتہ"
 
 msgid "Last 4 weeks"
-msgstr "آخری 4 ہفتوں"
+msgstr "آخری ۴ ہفتے"
 
 msgid "Last 12 weeks"
-msgstr "آخری 12 ہفتوں"
+msgstr "آخری ۱۲ ہفتے"
 
 msgid "Last 52 weeks"
-msgstr "آخری 52 ہفتوں"
+msgstr "آخری ۵۲ ہفتے"
 
 msgid "Weeks this year"
 msgstr "اس سال ہفتہ"
@@ -774,19 +811,19 @@ msgid "This month"
 msgstr "اس مہینے"
 
 msgid "Last month"
-msgstr "پچھلے مہینے"
+msgstr "آخری ماہ"
 
 msgid "Last 3 months"
-msgstr "آخری 3 ماہ"
+msgstr "آخری ۳ ماہ"
 
 msgid "Last 6 months"
-msgstr "آخری 6 ماہ"
+msgstr "آخری ۶ ماہ"
 
 msgid "Last 12 months"
-msgstr "آخری 12 ماہ"
+msgstr "آخری ۱۲ ماہ"
 
 msgid "Months this year"
-msgstr "اس سال ماہ"
+msgstr "ماہ اس سال"
 
 msgid "This bimonth"
 msgstr "یہ مہینہ"
@@ -804,40 +841,40 @@ msgid "This quarter"
 msgstr "اس سہ ماہی"
 
 msgid "Last quarter"
-msgstr "آخری چوتھائی"
+msgstr "آخری سہ ماہ"
 
 msgid "Last 4 quarters"
-msgstr "آخری چار چوتھائی"
+msgstr "آخری ۴ سہ ماہی"
 
 msgid "Quarters this year"
-msgstr "اس سال سہ ماہی"
+msgstr "سہ ماہی اس سال"
 
 msgid "This six-month"
 msgstr "یہ چھ ماہ"
 
 msgid "Last six-month"
-msgstr "آخری چھ ماہ"
+msgstr "آخری ۶ ماہ"
 
 msgid "Last 2 six-months"
-msgstr "آخری 2 چھ ماہ"
+msgstr "آخری ۲ چھ ماہ"
 
 msgid "This financial year"
-msgstr "یہ مالی سال"
+msgstr "اس مالیاتی سال"
 
 msgid "Last financial year"
-msgstr "آخری مالی سال"
+msgstr "آخری مالیاتی سال"
 
 msgid "Last 5 financial years"
-msgstr "آخری 5 مالی سال"
+msgstr "آخری ۵ مالیاتی سال"
 
 msgid "This year"
 msgstr "اس سال"
 
 msgid "Last year"
-msgstr "پچھلے سال"
+msgstr "آخری سال"
 
 msgid "Last 5 years"
-msgstr "آخری 5 سال"
+msgstr "آخری ۵ سال"
 
 msgid "User org unit"
 msgstr "صارف کے اجزاء"
@@ -849,10 +886,10 @@ msgid "User org unit grand children"
 msgstr "یوزر ایو یونٹ گرینڈ بچوں"
 
 msgid "Table title"
-msgstr "ٹیبل کا عنوان"
+msgstr ""
 
 msgid "Parameters"
-msgstr "پیرامیٹرز"
+msgstr ""
 
 msgid ""
 "These options only apply to legacy tables like standard reports. Options set"
@@ -908,7 +945,7 @@ msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr ""
 
 msgid "Axes"
-msgstr "محور"
+msgstr ""
 
 msgid "Data"
 msgstr "ڈیٹا"
@@ -929,7 +966,7 @@ msgid "Series"
 msgstr "سیریز"
 
 msgid "Style"
-msgstr "انداز"
+msgstr "سٹائل"
 
 msgid "Weeks per year"
 msgstr ""

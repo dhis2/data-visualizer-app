@@ -1,14 +1,14 @@
 # 
 # Translators:
+# Viktor Varland <viktor@dhis2.org>, 2019
 # phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-02T10:49:34.913Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"POT-Creation-Date: 2021-02-25T08:13:26.611Z\n"
+"PO-Revision-Date: 2019-09-01 20:50+0000\n"
+"Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Tetum (Tetun) (https://www.transifex.com/hisp-uio/teams/100509/tet/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -88,7 +88,7 @@ msgid "PDF (.pdf)"
 msgstr ""
 
 msgid "Table layout"
-msgstr "Dispozisaun tabela"
+msgstr ""
 
 msgid "Excel (.xls)"
 msgstr ""
@@ -103,13 +103,13 @@ msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr "Id"
+msgstr ""
 
 msgid "Code"
-msgstr "Kódigu"
+msgstr ""
 
 msgid "Name"
-msgstr "Naran"
+msgstr ""
 
 msgid "Download"
 msgstr "Hatun"
@@ -337,7 +337,7 @@ msgid "Columns totals"
 msgstr ""
 
 msgid "Default"
-msgstr "Default"
+msgstr ""
 
 msgid "Bright"
 msgstr ""
@@ -361,13 +361,13 @@ msgid "Only include completed events"
 msgstr ""
 
 msgid "Include cumulative"
-msgstr "Inklui kumulativu"
+msgstr ""
 
 msgid "Cumulative values"
 msgstr ""
 
 msgid "Digit group separator"
-msgstr "Separador grupu díjitu"
+msgstr ""
 
 msgid "None"
 msgstr "Nein ida"
@@ -379,25 +379,37 @@ msgid "Comma"
 msgstr ""
 
 msgid "Display density"
-msgstr "Ezibe densidade"
+msgstr ""
 
 msgid "Comfortable"
-msgstr "Konfortável"
+msgstr ""
 
 msgid "Normal"
-msgstr "Normal"
+msgstr ""
 
 msgid "Compact"
-msgstr "Kompaktu"
+msgstr ""
+
+msgid "Extreme lines"
+msgstr ""
+
+msgid "Calculated as a percent, usually 1%, of the total values along an axis"
+msgstr ""
+
+msgid "Extreme line % detection"
+msgstr ""
+
+msgid "Number"
+msgstr ""
 
 msgid "Font size"
-msgstr "Letra nia tamañu"
+msgstr ""
 
 msgid "Large"
-msgstr "Bo'ot"
+msgstr ""
 
 msgid "Small"
-msgstr "Kiik"
+msgstr ""
 
 msgid "Hide empty columns"
 msgstr ""
@@ -493,7 +505,7 @@ msgid "Display the value of percentages of the total"
 msgstr ""
 
 msgid "Value"
-msgstr "Valor"
+msgstr ""
 
 msgid "Percentage of row"
 msgstr ""
@@ -501,26 +513,51 @@ msgstr ""
 msgid "Percentage of column"
 msgstr ""
 
+msgid "Threshold factor"
+msgstr ""
+
+msgid ""
+"A high value is more sensitive so fewer data items will be identified as "
+"outliers"
+msgstr ""
+
+msgid "Interquartile Range (IQR)"
+msgstr ""
+
+msgid "Z-score / Standard score"
+msgstr ""
+
+msgid "Modified Z-score"
+msgstr ""
+
+msgid "Outlier analysis"
+msgstr ""
+
+msgid ""
+"Outlier analysis detects and highlights data items that are markedly "
+"different from the rest of the data"
+msgstr ""
+
+msgid "Outlier detection method"
+msgstr ""
+
 msgid "Organisation unit"
-msgstr "Unidade organizasional"
+msgstr ""
 
 msgid "Parent organisation unit"
-msgstr "Unidade organizasional inan"
+msgstr ""
 
 msgid "Reporting period"
-msgstr "Períodu ne'ebé atu relata"
+msgstr ""
 
 msgid "Stacked values add up to 100%"
 msgstr ""
 
 msgid "Include regression"
-msgstr "Inklui regresaun"
+msgstr ""
 
 msgid "Title"
-msgstr "Títulu"
-
-msgid "Number"
-msgstr "Númeru"
+msgstr ""
 
 msgid "Trend line"
 msgstr "Hatudu liñas tendensia"
@@ -603,7 +640,7 @@ msgid "Position"
 msgstr ""
 
 msgid "Top limit"
-msgstr "Limite leten"
+msgstr ""
 
 msgid "Options"
 msgstr "Opsoens"
@@ -852,7 +889,7 @@ msgid "Table title"
 msgstr ""
 
 msgid "Parameters"
-msgstr "Parámetrus"
+msgstr ""
 
 msgid ""
 "These options only apply to legacy tables like standard reports. Options set"
@@ -908,7 +945,7 @@ msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr ""
 
 msgid "Axes"
-msgstr "Eixus"
+msgstr ""
 
 msgid "Data"
 msgstr "Dadus"

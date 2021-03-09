@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-02T10:49:34.913Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
+"POT-Creation-Date: 2021-02-25T08:13:26.611Z\n"
+"PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
 "MIME-Version: 1.0\n"
@@ -20,46 +20,40 @@ msgid "Rename successful"
 msgstr "Navneendring vellykket"
 
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
-msgstr "{{visualizationType}} visualisering uten navn, {{date}}"
+msgstr ""
 
 msgid "\"{{deletedObject}}\" successfully deleted."
-msgstr "Sletting av \"{{what}}\" var vellykket."
+msgstr ""
 
 msgid "You have unsaved changes."
-msgstr "Du har ulagrede endringer."
+msgstr ""
 
 msgid "Discard unsaved changes?"
-msgstr "Vil du forkaste ulagrede endringer?"
+msgstr ""
 
 msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
 "be lost."
 msgstr ""
-"Er du sikker på at du vil forlate denne visualiseringen? Eventuelle ulagrede"
-" endringer vil gå tapt."
 
 msgid "No, cancel"
-msgstr "Nei, avbryt"
+msgstr ""
 
 msgid "Yes, leave"
-msgstr "Ja, avslutt"
+msgstr ""
 
 msgid "Add to {{axisName}}"
-msgstr "Legg til {{axisName}}"
+msgstr ""
 
 msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
 "first item will be used and saved."
 msgstr ""
-"'{{visualizationType}}' er ment å vise et enkelt datapunkt. Bare det første "
-"punktetvil bli brukt og lagret."
 
 msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
-"'{{visualiationType}}' er ment for å vise maksimalt {{maxNumber}} antall "
-"elementer. Bare de første {{maxNumber}} elementene vil bli brukt og lagret."
 
 msgid ""
 "'Scatter' is intended to show a single data item per axis. Only the first "
@@ -67,22 +61,22 @@ msgid ""
 msgstr ""
 
 msgid "Vertical"
-msgstr "Vertikal"
+msgstr ""
 
 msgid "Horizontal"
-msgstr "Horisontal"
+msgstr ""
 
 msgid "Main dimensions"
-msgstr "Hoveddimensjoner"
+msgstr ""
 
 msgid "Other dimensions"
-msgstr "Andre dimensjoner"
+msgstr ""
 
 msgid "Your dimensions"
-msgstr "Dine dimensjoner"
+msgstr ""
 
 msgid "Filter dimensions"
-msgstr "Filterdimensjoner"
+msgstr ""
 
 msgid "Graphics"
 msgstr "Grafikk"
@@ -94,28 +88,28 @@ msgid "PDF (.pdf)"
 msgstr "PDF (.pdf)"
 
 msgid "Table layout"
-msgstr "Tabelloppsett"
+msgstr ""
 
 msgid "Excel (.xls)"
-msgstr "Excel (.xls)"
+msgstr ""
 
 msgid "CSV (.csv)"
-msgstr "CSV (.csv)"
+msgstr ""
 
 msgid "HTML (.html)"
-msgstr "HTML (.html)"
+msgstr ""
 
 msgid "Metadata ID scheme"
 msgstr "Metadata-ID-ordning"
 
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgid "Code"
-msgstr "Kode"
+msgstr ""
 
 msgid "Name"
-msgstr "Navn"
+msgstr ""
 
 msgid "Download"
 msgstr "Last ned"
@@ -124,16 +118,16 @@ msgid "Plain data source"
 msgstr "Ren datakilde"
 
 msgid "JSON"
-msgstr "JSON"
+msgstr ""
 
 msgid "XML"
-msgstr "XML"
+msgstr ""
 
 msgid "Excel"
-msgstr "Excel"
+msgstr ""
 
 msgid "CSV"
-msgstr "CSV"
+msgstr ""
 
 msgid "Advanced"
 msgstr "Avansert"
@@ -145,10 +139,10 @@ msgid "Other formats"
 msgstr "Andre formater"
 
 msgid "JRXML"
-msgstr "JRXML"
+msgstr ""
 
 msgid "Raw data SQL"
-msgstr "Rådata SQL"
+msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "Det oppstod en feil i DHIS2 Data Visualizer-applikasjonen."
@@ -172,65 +166,63 @@ msgid "Interpretations"
 msgstr "Tolkninger"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr "{{total}} av {{axisMaxNumberOfItems}} valgt"
+msgstr ""
 
 msgid "{{total}} selected"
-msgstr "{{total}} valgt"
+msgstr ""
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
-msgstr "{{dimensionName}} er låst til {{axisName}} for {{visTypeName}}"
+msgstr ""
 
 msgid "Not available for Scatter"
-msgstr "Ikke tilgjengelig for Spredning"
+msgstr ""
 
 msgid "Add Assigned Categories"
-msgstr "Legg tildelte kategorier"
+msgstr ""
 
 msgid "Swap with {{axisName}} axis"
-msgstr "Bytt med {{axisName}} -aksen"
+msgstr ""
 
 msgid "vertical"
-msgstr "vertikal"
+msgstr ""
 
 msgid "horizontal"
-msgstr "horisontal"
+msgstr ""
 
 msgid "None selected"
 msgstr "Ingen valgt"
 
 msgid "Only '{{- name}}' in use"
-msgstr "Bare '{{- name}}' er i bruk"
+msgstr ""
 
 msgid "Only '{{number}}' in use"
-msgstr "Bare '{{nummer}}' er i bruk"
+msgstr ""
 
 msgid "Levels"
-msgstr "Nivå"
+msgstr ""
 
 msgid "Groups"
-msgstr "Grupper"
+msgstr ""
 
 msgid "And 1 other..."
-msgstr "Og 1 annen..."
+msgstr ""
 
 msgid "And {{numberOfItems}} others..."
-msgstr "Og {{numberOfItems}} andre..."
+msgstr ""
 
 msgid "Select a period"
-msgstr "Velg periode"
+msgstr ""
 
 msgid "Select years"
-msgstr "Velg år"
+msgstr ""
 
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
 msgstr ""
-"Denne visualiseringen kan ikke slettes fordi den brukes på ett eller flere "
-"dashbord"
 
 msgid "Unsaved visualization"
-msgstr "Ikke lagret visualisering"
+msgstr ""
 
 msgid "Edited"
 msgstr "Redigert"
@@ -242,29 +234,27 @@ msgid "Update"
 msgstr "Oppdater"
 
 msgid "Getting started"
-msgstr "Komme i gang"
+msgstr ""
 
 msgid ""
 "All dimensions that you can use to build visualizations are shown in the "
 "left sidebar"
 msgstr ""
-"Alle dimensjoner du kan bruke til å lage visualiseringer vises i venstre "
-"sidefelt"
 
 msgid "Add dimensions to the layout above"
-msgstr "Legg til dimensjoner i oppsettet over"
+msgstr ""
 
 msgid "Click a dimension to add or remove items"
-msgstr "Klikk på en dimensjon for å legge til eller fjerne elementer"
+msgstr ""
 
 msgid "Your most viewed charts and tables"
-msgstr "Dine mest viste diagrammer og tabeller"
+msgstr ""
 
 msgid "Aggregation type"
 msgstr "Aggregasjonstype"
 
 msgid "Overrides aggregation type for all data values."
-msgstr "Overstyrer aggregeringstype for alle dataverdier."
+msgstr ""
 
 msgid "By data element"
 msgstr "Per datalement"
@@ -300,119 +290,129 @@ msgid "Variance"
 msgstr "Varians"
 
 msgid "Data approved at level"
-msgstr "Data godkjent på nivå"
+msgstr ""
 
 msgid "Select from predefined levels"
-msgstr "Velg fra forhåndsdefinerte nivåer"
+msgstr ""
 
 msgid "Loading data approval levels"
-msgstr "Laster nivåer for godkjenning av data"
+msgstr ""
 
 msgid "Decimals"
-msgstr "Desimaler"
+msgstr ""
 
 msgid "Auto"
-msgstr "Auto"
+msgstr ""
 
 msgid "Labels"
-msgstr "Etiketter"
+msgstr ""
 
 msgid "Axis range"
-msgstr "Akserekkevidde"
+msgstr ""
 
 msgid "Values outside of the range will not be displayed"
-msgstr "Verdier utenfor rekkevidden vises ikke"
+msgstr ""
 
 msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
 msgstr ""
-"Antall trinn for akse-kryss, inkludert min og maks. En verdi på 2 eller "
-"lavere vil bli ignorert."
 
 msgid "Steps"
-msgstr "Trinn"
+msgstr ""
 
 msgid "Axis title"
-msgstr "Akseltittel"
+msgstr ""
 
 msgid "Add a title"
-msgstr "Legg til en tittel"
+msgstr ""
 
 msgid "Base line"
 msgstr "Grunnlinje"
 
 msgid "Column sub-totals"
-msgstr "Kolonnedelsummer"
+msgstr ""
 
 msgid "Columns totals"
-msgstr "Kolonnesummer"
+msgstr ""
 
 msgid "Default"
-msgstr "Standard"
+msgstr ""
 
 msgid "Bright"
-msgstr "Lys"
+msgstr ""
 
 msgid "Dark"
-msgstr "Mørk"
+msgstr ""
 
 msgid "Gray"
-msgstr "Grå"
+msgstr ""
 
 msgid "Color blind"
-msgstr "Fargeblind"
+msgstr ""
 
 msgid "Patterns"
-msgstr "Mønster"
+msgstr ""
 
 msgid "Event data"
-msgstr "Hendelsesdata"
+msgstr ""
 
 msgid "Only include completed events"
-msgstr "Inkluder bare fullførte hendelser"
+msgstr ""
 
 msgid "Include cumulative"
-msgstr "Inkluder kumulativ"
+msgstr ""
 
 msgid "Cumulative values"
-msgstr "Kumulative verdier"
+msgstr ""
 
 msgid "Digit group separator"
-msgstr "Siffergruppeseparator"
+msgstr ""
 
 msgid "None"
 msgstr "Ingen"
 
 msgid "Space"
-msgstr "Mellomrom"
+msgstr ""
 
 msgid "Comma"
-msgstr "Komma"
+msgstr ""
 
 msgid "Display density"
-msgstr "Visningstetthet"
+msgstr ""
 
 msgid "Comfortable"
-msgstr "Komfortabel"
+msgstr ""
 
 msgid "Normal"
-msgstr "Normal"
+msgstr ""
 
 msgid "Compact"
-msgstr "Kompakt"
+msgstr ""
+
+msgid "Extreme lines"
+msgstr ""
+
+msgid "Calculated as a percent, usually 1%, of the total values along an axis"
+msgstr ""
+
+msgid "Extreme line % detection"
+msgstr ""
+
+msgid "Number"
+msgstr ""
 
 msgid "Font size"
-msgstr "Skriftstørrelse"
+msgstr ""
 
 msgid "Large"
-msgstr "Stor"
+msgstr ""
 
 msgid "Small"
-msgstr "Liten"
+msgstr ""
 
 msgid "Hide empty columns"
-msgstr "Skjul tomme kolonner"
+msgstr ""
 
 msgid "Hide empty categories"
 msgstr "Skjul tomme kategorier"
@@ -421,7 +421,7 @@ msgid "Before first"
 msgstr "Før første"
 
 msgid "After last"
-msgstr "Etter siste"
+msgstr ""
 
 msgid "Before first and after last"
 msgstr "Før første og etter siste"
@@ -430,55 +430,55 @@ msgid "All"
 msgstr "Alt"
 
 msgid "Hide empty rows"
-msgstr "Skjul tomme rader"
+msgstr ""
 
 msgid "Show legend key"
-msgstr "Vis tegnforklaring"
+msgstr ""
 
 msgid "Table subtitle"
-msgstr "Tabellundertittel"
+msgstr ""
 
 msgid "Chart subtitle"
-msgstr "Diagramundertittel"
+msgstr "Diagrammets undertittel"
 
 msgid "Auto generated"
-msgstr "Automatisk generert"
+msgstr ""
 
 msgid "Custom"
-msgstr "Tilpasset"
+msgstr ""
 
 msgid "Chart title"
 msgstr "Diagramtittel"
 
 msgid "Display legend"
-msgstr "Vis tegnforklaring"
+msgstr ""
 
 msgid "Legend style"
-msgstr "Tegnforklaringstil"
+msgstr ""
 
 msgid "Legend type"
-msgstr "Tegnforklaringtype"
+msgstr ""
 
 msgid "Use pre-defined legend per data item"
-msgstr "Bruk forhåndsdefinert tegnforklaring per datapunkt"
+msgstr ""
 
 msgid "Select a single legend for the entire visualization"
-msgstr "Velg en enkel tegnforklaring for hele tabellen"
+msgstr ""
 
 msgid "Legend changes background color"
-msgstr "Tegnforklaring endrer bakgrunnsfarge"
+msgstr ""
 
 msgid "Legend changes text color"
-msgstr "Tegnforklaring endrer tekstfarge"
+msgstr ""
 
 msgid "Legend"
-msgstr "Tegnforklaring"
+msgstr ""
 
 msgid "Select from legends"
-msgstr "Velg fra tegnforklaringer"
+msgstr ""
 
 msgid "Loading legends"
-msgstr "Laster tegnforklaringer"
+msgstr ""
 
 msgid ""
 "You can set a minimum or maximum value. This will apply to the entire "
@@ -487,52 +487,77 @@ msgid ""
 msgstr ""
 
 msgid "Minimum data value"
-msgstr "Minimum dataverdi"
+msgstr ""
 
 msgid "Maximum data value"
-msgstr "Maksimal dataverdi"
+msgstr ""
 
 msgid "Clear min/max limits"
-msgstr "Fjern min/max-grenser"
+msgstr ""
 
 msgid "No space between bars/columns"
-msgstr "Ingen mellomrom mellom stolper"
+msgstr ""
 
 msgid "Number type"
-msgstr "Nummertype"
+msgstr ""
 
 msgid "Display the value of percentages of the total"
-msgstr "Vis verdien av prosenter av totalen"
+msgstr ""
 
 msgid "Value"
-msgstr "Verdi"
+msgstr ""
 
 msgid "Percentage of row"
-msgstr "Prosentandel av rad"
+msgstr ""
 
 msgid "Percentage of column"
-msgstr "Prosentandel av kolonne"
+msgstr ""
+
+msgid "Threshold factor"
+msgstr ""
+
+msgid ""
+"A high value is more sensitive so fewer data items will be identified as "
+"outliers"
+msgstr ""
+
+msgid "Interquartile Range (IQR)"
+msgstr ""
+
+msgid "Z-score / Standard score"
+msgstr ""
+
+msgid "Modified Z-score"
+msgstr ""
+
+msgid "Outlier analysis"
+msgstr ""
+
+msgid ""
+"Outlier analysis detects and highlights data items that are markedly "
+"different from the rest of the data"
+msgstr ""
+
+msgid "Outlier detection method"
+msgstr ""
 
 msgid "Organisation unit"
-msgstr "Organisasjonsenhet"
+msgstr ""
 
 msgid "Parent organisation unit"
-msgstr "Overordnet organisasjonsenhet"
+msgstr ""
 
 msgid "Reporting period"
-msgstr "Rapporteringsperiode"
+msgstr ""
 
 msgid "Stacked values add up to 100%"
-msgstr "Stablede verdier er til sammen 100%"
+msgstr ""
 
 msgid "Include regression"
-msgstr "Inkluder regresjon"
+msgstr ""
 
 msgid "Title"
-msgstr "Tittel"
-
-msgid "Number"
-msgstr "Nummer"
+msgstr ""
 
 msgid "Trend line"
 msgstr "Trendlinje"
@@ -547,56 +572,54 @@ msgid "Loess"
 msgstr "LOESS"
 
 msgid "Row sub-totals"
-msgstr "Raddelsummer"
+msgstr ""
 
 msgid "Row totals"
-msgstr "Radsummer"
+msgstr ""
 
 msgid "Data item"
-msgstr "Datapunkt"
+msgstr ""
 
 msgid "Visualization type"
-msgstr "Visualiseringstype"
+msgstr ""
 
 msgid "Axis {{axisId}}"
-msgstr "Akse {{axisId}}"
+msgstr ""
 
 msgid "Series is empty"
-msgstr "Serie er tom"
+msgstr ""
 
 msgid "Options for selected items will be available here"
-msgstr "Alternativer for valgte elementer vil være tilgjengelige her"
+msgstr ""
 
 msgid "No Series options"
-msgstr "Ingen seriealternativer"
+msgstr ""
 
 msgid "There aren't any Series options for this visualization type"
-msgstr "Det er ingen seriealternativer for denne visualiseringstypen"
+msgstr ""
 
 msgid "Series options unavailable"
-msgstr "Seriealternativer utilgjengelige"
+msgstr ""
 
 msgid ""
 "Series options are not available when using relative selections for periods,"
 " org units or categories"
 msgstr ""
-"Seriealternativer er ikke tilgjengelige når du bruker relative valg for "
-"perioder, organisasjonsenheter eller kategorier"
 
 msgid "Value labels"
-msgstr "Verdietiketter"
+msgstr ""
 
 msgid "Dimension labels"
-msgstr "Dimensjonsetiketter"
+msgstr ""
 
 msgid "Display organisation unit hierarchy"
-msgstr "Vis organisasjonsenhethierarki"
+msgstr ""
 
 msgid "Skip rounding"
-msgstr "Hopp over avrunding"
+msgstr ""
 
 msgid "Custom sort order"
-msgstr "Tilpasset sorteringsrekkefølge"
+msgstr ""
 
 msgid "Low to high"
 msgstr "Lav til høy"
@@ -605,30 +628,29 @@ msgid "High to low"
 msgstr "Høy til lav"
 
 msgid "Add a subtitle"
-msgstr "Legg til en undertittel"
+msgstr ""
 
 msgid "Target line"
 msgstr "Mållinje"
 
 msgid "Size"
-msgstr "Størrelse"
+msgstr ""
 
 msgid "Position"
-msgstr "Posisjon"
+msgstr ""
 
 msgid "Top limit"
-msgstr "Toppgrense"
+msgstr ""
 
 msgid "Options"
 msgstr "Alternativer"
 
 msgid "Open as Map"
-msgstr "Åpne som kart"
+msgstr ""
 
 msgid ""
 "Visually plot data on a world map. Data elements use separate map layers."
 msgstr ""
-"Vis data på et verdenskart visuelt. Dataelementer bruker separate kartlag."
 
 msgid "Reporting rate"
 msgstr "Rapporteringfrekvens"
@@ -646,126 +668,111 @@ msgid "Expected reports"
 msgstr "Forventede rapporter"
 
 msgid "No data available"
-msgstr "Ingen data tilgjengelig"
+msgstr ""
 
 msgid ""
 "The selected dimensions didn’t return any data. There may be no data, or you"
 " may not have access to it."
 msgstr ""
-"De valgte dimensjonene ga ingen data. Det kan være at det er ingen data, "
-"eller du har kanskje ikke tilgang til dem."
 
 msgid "{{axisName}} is empty"
-msgstr "{{axisName}} er tom"
+msgstr ""
 
 msgid "Add at least one item to {{axisName}}."
-msgstr "Legg til minst ett element til {{axisName}}."
+msgstr ""
 
 msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
-msgstr "{{columnsAxisName}} og {{rowsAxisName}} er tomme"
+msgstr ""
 
 msgid ""
 "Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
 " {{visualizationType}}."
 msgstr ""
-"Legg til minst ett element til {{columnsAxisName}} eller {{rowsAxisName}} "
-"for å opprette en {{visualizationType}}."
 
 msgid "No period selected"
-msgstr "Ingen periode valgt"
+msgstr ""
 
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
-msgstr "{{visualizationType}} må ha minst en periode valgt i {{axes}}."
+msgstr ""
 
 msgid "Add organisation units to {{axisName}}."
-msgstr "Legg til organisasjonsenheter i {{axisName}}."
+msgstr ""
 
 msgid "Vertical is empty"
-msgstr "Vertikal er tom"
+msgstr ""
 
 msgid "Add a data item to the vertical axis."
-msgstr "Legg til et datapunkt i den vertikale aksen."
+msgstr ""
 
 msgid "Horizontal is empty"
-msgstr "Horisontal er tom"
+msgstr ""
 
 msgid "Add a data item to the horizontal axis."
-msgstr "Legg til et datapunkt i den horisontale aksen."
+msgstr ""
 
 msgid "Axes data items are the same"
-msgstr "Aksedatapunktene er de samme"
+msgstr ""
 
 msgid ""
 "The horizontal and vertical axes have the same data item. Scatter chart axes"
 " must have different data for each axis."
 msgstr ""
-"De horisontale og vertikale aksene har samme datapunkt. "
-"Spredningsdiagramaksene må ha forskjellige data for hver akse."
 
 msgid "No data selected"
-msgstr "Ingen data valgt"
+msgstr ""
 
 msgid ""
 "{{visualizationType}} must have at least one data item or data element group"
 " set item in {{axes}}."
 msgstr ""
-"{{visualizationType}} må ha minst ett datapunkr eller "
-"dataelementgruppesettelement i {{axes}}."
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
-msgstr "{{visualizationType}} må ha minst ett datapunkt i {{axes}}."
+msgstr ""
 
 msgid "There's a problem with the layout"
-msgstr "Det er et problem med oppsettet"
+msgstr ""
 
 msgid ""
 "A single indicator must be the only data item when using indicators as Data "
 "in Filter."
 msgstr ""
-"En enkelt indikator må være det eneste datapunktet når du bruker indikatorer"
-" som Data i filter."
 
 msgid "Data Element Group Sets and Reporting Rates cannot be used together."
 msgstr ""
-"Dataelementgruppesett og rapporteringsfrekvenser kan ikke brukes sammen."
 
 msgid "There is a problem with this {{visualizationType}} visualization."
-msgstr "Det er et problem med denne {{visualizationType}}-visualiseringen."
+msgstr ""
 
 msgid "There was a problem getting the data from the server."
-msgstr "Det oppstod et problem med å hente dataene fra serveren."
+msgstr ""
 
 msgid "Assigned Categories can only be used with data elements"
-msgstr "Tildelte Kategorier kan bare brukes med dataelementer"
+msgstr ""
 
 msgid ""
 "Fix this problem by selecting data elements or removing Assigned Categories."
 msgstr ""
-"Løs dette problemet ved å velge dataelementer eller fjerne Tildelte "
-"Kategorier."
 
 msgid "Assigned Categories cannot be used as Filter"
-msgstr "Tildelte Kategorier kan ikke brukes som filter"
+msgstr ""
 
 msgid "Fix this problem by moving or removing Assigned Categories."
-msgstr "Løs dette problemet ved å flytte eller fjerne Tildelte Kategorier."
+msgstr ""
 
 msgid "Visualization not found"
-msgstr "Fant ikke visualisering"
+msgstr ""
 
 msgid ""
 "The visualization you are trying to view could not be found, the ID could be"
 " incorrect or it could have been deleted."
 msgstr ""
-"Visualiseringen du prøver å vise, ble ikke funnet, ID-en kan være feil, "
-"eller den kan ha blitt slettet."
 
 msgid "Something went wrong"
 msgstr "Noe gikk galt"
 
 msgid "or"
-msgstr "eller"
+msgstr ""
 
 msgid "Today"
 msgstr "I dag"
@@ -819,13 +826,13 @@ msgid "Months this year"
 msgstr "Måneder inneværende år"
 
 msgid "This bimonth"
-msgstr "Denne tomåned"
+msgstr "Denne dobbelmåneden"
 
 msgid "Last bimonth"
-msgstr "Siste tomåned"
+msgstr "Siste dobbelmåned"
 
 msgid "Last 6 bimonths"
-msgstr "Siste 6 tomåneder"
+msgstr "Siste 6 dobbelmåneder"
 
 msgid "Bimonths this year"
 msgstr "Tomåneder inneværende år"
@@ -879,10 +886,10 @@ msgid "User org unit grand children"
 msgstr "Bruker under-underordnet org enhet"
 
 msgid "Table title"
-msgstr "Tabelltittel"
+msgstr ""
 
 msgid "Parameters"
-msgstr "Parametere"
+msgstr ""
 
 msgid ""
 "These options only apply to legacy tables like standard reports. Options set"
@@ -902,62 +909,61 @@ msgid "Horizontal axis"
 msgstr ""
 
 msgid "Color set"
-msgstr "Fargesett"
+msgstr ""
 
 msgid "Color sets are not supported yet when using multiple axes"
-msgstr "Fargesett støttes ikke ennå ved bruk av flere akser"
+msgstr ""
 
 msgid "Horizontal (x) axis"
-msgstr "Horisontal (x) akse"
+msgstr ""
 
 msgid "Lines are not supported yet when using multiple axes"
-msgstr "Linjer støttes ikke ennå ved bruk av flere akser"
+msgstr ""
 
 msgid "Chart style"
-msgstr "Diagramstil"
+msgstr ""
 
 msgid "Display"
-msgstr "Vis"
+msgstr ""
 
 msgid "Empty data"
-msgstr "Tomme data"
+msgstr ""
 
 msgid "Lines"
-msgstr "Linjer"
+msgstr ""
 
 msgid "Totals"
 msgstr "Totalsummer"
 
 msgid "Vertical (y) axis"
-msgstr "Vertikal (y) akse"
+msgstr ""
 
 msgid "Titles"
-msgstr "Titler"
+msgstr ""
 
 msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr ""
-"Alternativer for vertikal akse støttes ikke ennå ved bruk av flere akser"
 
 msgid "Axes"
-msgstr "Akser"
+msgstr ""
 
 msgid "Data"
 msgstr "Data"
 
 msgid "Limit values"
-msgstr "Begrens verdier"
+msgstr ""
 
 msgid "Limit number of values"
-msgstr "Begrens antall verdier"
+msgstr ""
 
 msgid "Limit minimum/maximum values"
-msgstr "Begrens minimum/maksimumsverdier"
+msgstr ""
 
 msgid "Outliers"
 msgstr ""
 
 msgid "Series"
-msgstr "Serie"
+msgstr "Serier"
 
 msgid "Style"
 msgstr "Stil"

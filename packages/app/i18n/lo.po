@@ -1,15 +1,14 @@
 # 
 # Translators:
-# phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
-# Somkhit Bouavong <bouavongk@gmail.com>, 2021
+# Viktor Varland <viktor@dhis2.org>, 2019
+# phil_dhis2, 2019
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-02T10:49:34.913Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Somkhit Bouavong <bouavongk@gmail.com>, 2021\n"
+"POT-Creation-Date: 2021-02-25T08:13:26.611Z\n"
+"PO-Revision-Date: 2019-09-01 20:50+0000\n"
+"Last-Translator: phil_dhis2, 2019\n"
 "Language-Team: Lao (https://www.transifex.com/hisp-uio/teams/100509/lo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,7 +29,7 @@ msgid "You have unsaved changes."
 msgstr ""
 
 msgid "Discard unsaved changes?"
-msgstr "ຈະລຶບການປ່ຽນແປງທີ່ບໍ່ທັນໄດ້ບັນທຶກບໍ່?"
+msgstr ""
 
 msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
@@ -89,7 +88,7 @@ msgid "PDF (.pdf)"
 msgstr ""
 
 msgid "Table layout"
-msgstr "ເຄົ້າໂຄງຕາຕະລາງ"
+msgstr ""
 
 msgid "Excel (.xls)"
 msgstr ""
@@ -104,13 +103,13 @@ msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr "ລະຫັດ"
+msgstr ""
 
 msgid "Code"
-msgstr "ລະຫັດ"
+msgstr ""
 
 msgid "Name"
-msgstr "ຊື່"
+msgstr ""
 
 msgid "Download"
 msgstr "ດາວໂຫຼດ"
@@ -119,16 +118,16 @@ msgid "Plain data source"
 msgstr "ສະເພາະຂໍ້ມູນພື້ນຖານ"
 
 msgid "JSON"
-msgstr "JSON"
+msgstr ""
 
 msgid "XML"
-msgstr "XML"
+msgstr ""
 
 msgid "Excel"
 msgstr ""
 
 msgid "CSV"
-msgstr "CSV"
+msgstr ""
 
 msgid "Advanced"
 msgstr "ການຕັ້ງຄ່າຂັ້ນສູງ"
@@ -203,7 +202,7 @@ msgid "Levels"
 msgstr ""
 
 msgid "Groups"
-msgstr "ກຸ່ມ"
+msgstr ""
 
 msgid "And 1 other..."
 msgstr ""
@@ -291,7 +290,7 @@ msgid "Variance"
 msgstr "ຄວາມແຕກຕ່າງ"
 
 msgid "Data approved at level"
-msgstr "ຂໍ້ມູນໄດ້ຮັບການອະນຸມັດຢູ່ຂັ້ນ"
+msgstr ""
 
 msgid "Select from predefined levels"
 msgstr ""
@@ -338,7 +337,7 @@ msgid "Columns totals"
 msgstr ""
 
 msgid "Default"
-msgstr "ຄ່າຕັ້ງຕົ້ນ"
+msgstr ""
 
 msgid "Bright"
 msgstr ""
@@ -362,46 +361,58 @@ msgid "Only include completed events"
 msgstr ""
 
 msgid "Include cumulative"
-msgstr "​ລວມ​ເອົາ​ທັງ​ການ​ສະ​ສົມ"
+msgstr ""
 
 msgid "Cumulative values"
 msgstr ""
 
 msgid "Digit group separator"
-msgstr "ແຍກຕົວເລກເປັນກຸ່ມ"
+msgstr ""
 
 msgid "None"
 msgstr "ບໍ່ມີ"
 
 msgid "Space"
-msgstr "ຍະຫວ່າງ"
+msgstr ""
 
 msgid "Comma"
-msgstr "ຈຸດ"
+msgstr ""
 
 msgid "Display density"
-msgstr "ສະແດງຄວາມໜາແໜ້ນ"
+msgstr ""
 
 msgid "Comfortable"
-msgstr "ຂະໜາດພໍດີງາມ"
+msgstr ""
 
 msgid "Normal"
-msgstr "ປົກກະຕິ"
+msgstr ""
 
 msgid "Compact"
-msgstr "ໜາແໜ້ນ"
+msgstr ""
+
+msgid "Extreme lines"
+msgstr ""
+
+msgid "Calculated as a percent, usually 1%, of the total values along an axis"
+msgstr ""
+
+msgid "Extreme line % detection"
+msgstr ""
+
+msgid "Number"
+msgstr ""
 
 msgid "Font size"
-msgstr "ຂະຫນາດຕົວອັກສອນ"
+msgstr ""
 
 msgid "Large"
-msgstr "ໃຫຍ່"
+msgstr ""
 
 msgid "Small"
-msgstr "ນ້ອຍ"
+msgstr ""
 
 msgid "Hide empty columns"
-msgstr "ປິດແຖວທີ່ຫວ່າງເປົ່າ"
+msgstr ""
 
 msgid "Hide empty categories"
 msgstr "ເຊື່ອງປະເພດຂອງຂໍ້ມູນທີ່ເປົ່າວ່າງ"
@@ -410,7 +421,7 @@ msgid "Before first"
 msgstr "ກ່ອນໜ້າທໍາອິດ"
 
 msgid "After last"
-msgstr "ຫຼັງຈາກສຸດທ້າຍ"
+msgstr ""
 
 msgid "Before first and after last"
 msgstr "ກ່ອນໜ້າທໍາອິດ ແລະ ຫຼັງຈາກສຸດທ້າຍ"
@@ -419,7 +430,7 @@ msgid "All"
 msgstr "ທັງໝົດ"
 
 msgid "Hide empty rows"
-msgstr "ເຊື່ອງແຖວທີ່ເປົ່າຫວ່າງ"
+msgstr ""
 
 msgid "Show legend key"
 msgstr ""
@@ -443,7 +454,7 @@ msgid "Display legend"
 msgstr ""
 
 msgid "Legend style"
-msgstr "ຫວ່າງຂໍ້ມູນ"
+msgstr ""
 
 msgid "Legend type"
 msgstr ""
@@ -461,7 +472,7 @@ msgid "Legend changes text color"
 msgstr ""
 
 msgid "Legend"
-msgstr "ຫວ່າງຂໍ້ມູນ"
+msgstr ""
 
 msgid "Select from legends"
 msgstr ""
@@ -488,13 +499,13 @@ msgid "No space between bars/columns"
 msgstr ""
 
 msgid "Number type"
-msgstr "Number type"
+msgstr ""
 
 msgid "Display the value of percentages of the total"
 msgstr ""
 
 msgid "Value"
-msgstr "Value"
+msgstr ""
 
 msgid "Percentage of row"
 msgstr ""
@@ -502,26 +513,51 @@ msgstr ""
 msgid "Percentage of column"
 msgstr ""
 
+msgid "Threshold factor"
+msgstr ""
+
+msgid ""
+"A high value is more sensitive so fewer data items will be identified as "
+"outliers"
+msgstr ""
+
+msgid "Interquartile Range (IQR)"
+msgstr ""
+
+msgid "Z-score / Standard score"
+msgstr ""
+
+msgid "Modified Z-score"
+msgstr ""
+
+msgid "Outlier analysis"
+msgstr ""
+
+msgid ""
+"Outlier analysis detects and highlights data items that are markedly "
+"different from the rest of the data"
+msgstr ""
+
+msgid "Outlier detection method"
+msgstr ""
+
 msgid "Organisation unit"
-msgstr "​ຫົວ​ໜ່ວຍ​ການ​ຈັດ​ຕັ້ງ"
+msgstr ""
 
 msgid "Parent organisation unit"
-msgstr "ໂຄງຮ່າງການຈັດຕັ້ງຂັ້ນສູງ"
+msgstr ""
 
 msgid "Reporting period"
-msgstr "​ໄລ​ຍະ​ເວ​ລາ​ການ​ລາຍ​ງານ"
+msgstr ""
 
 msgid "Stacked values add up to 100%"
 msgstr ""
 
 msgid "Include regression"
-msgstr "​ລວມ​ທັງ​ອັນທີ່​ຊ້ຳ​ກັນ"
+msgstr ""
 
 msgid "Title"
-msgstr "ຫົວຂໍ້"
-
-msgid "Number"
-msgstr "ຈຳນວນ"
+msgstr ""
 
 msgid "Trend line"
 msgstr "ເສັ້ນແນວໂນ້ມ"
@@ -580,7 +616,7 @@ msgid "Display organisation unit hierarchy"
 msgstr ""
 
 msgid "Skip rounding"
-msgstr "ບໍ່ປັດຕົວເລກ"
+msgstr ""
 
 msgid "Custom sort order"
 msgstr ""
@@ -604,7 +640,7 @@ msgid "Position"
 msgstr ""
 
 msgid "Top limit"
-msgstr "ຂໍ້​ຈຳ​ກັດ​ສູງ​ສຸດ"
+msgstr ""
 
 msgid "Options"
 msgstr "ຈັດການ"
@@ -654,7 +690,7 @@ msgid ""
 msgstr ""
 
 msgid "No period selected"
-msgstr "ບໍ່ໄດ້ເລືອກເວລາ"
+msgstr ""
 
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
@@ -736,7 +772,7 @@ msgid "Something went wrong"
 msgstr ""
 
 msgid "or"
-msgstr "or"
+msgstr ""
 
 msgid "Today"
 msgstr "ມື້ນີ້"
@@ -850,10 +886,10 @@ msgid "User org unit grand children"
 msgstr ""
 
 msgid "Table title"
-msgstr "ຊື່ຂອງຕາຕະລາງ"
+msgstr ""
 
 msgid "Parameters"
-msgstr "ຂອບເຂດ"
+msgstr ""
 
 msgid ""
 "These options only apply to legacy tables like standard reports. Options set"
@@ -888,7 +924,7 @@ msgid "Chart style"
 msgstr ""
 
 msgid "Display"
-msgstr "ສະແດງ"
+msgstr ""
 
 msgid "Empty data"
 msgstr ""
@@ -909,7 +945,7 @@ msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr ""
 
 msgid "Axes"
-msgstr "ແກນ"
+msgstr ""
 
 msgid "Data"
 msgstr "ຂໍ້ມູນ"
@@ -924,7 +960,7 @@ msgid "Limit minimum/maximum values"
 msgstr ""
 
 msgid "Outliers"
-msgstr "ຄ່າຜິດປົກກະຕິ"
+msgstr ""
 
 msgid "Series"
 msgstr "ແທ່ງ"

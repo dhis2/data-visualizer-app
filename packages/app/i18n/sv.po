@@ -1,14 +1,14 @@
 # 
 # Translators:
+# phil_dhis2, 2019
 # Viktor Varland <viktor@dhis2.org>, 2020
-# phil_dhis2, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-02T10:49:34.913Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: phil_dhis2, 2020\n"
+"POT-Creation-Date: 2021-02-25T08:13:26.611Z\n"
+"PO-Revision-Date: 2019-09-01 20:50+0000\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Swedish (https://www.transifex.com/hisp-uio/teams/100509/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -103,13 +103,13 @@ msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr "id"
+msgstr ""
 
 msgid "Code"
-msgstr "Koda"
+msgstr ""
 
 msgid "Name"
-msgstr "Namn"
+msgstr ""
 
 msgid "Download"
 msgstr "Ladda ner"
@@ -118,16 +118,16 @@ msgid "Plain data source"
 msgstr ""
 
 msgid "JSON"
-msgstr "JSON"
+msgstr ""
 
 msgid "XML"
-msgstr "XML"
+msgstr ""
 
 msgid "Excel"
 msgstr ""
 
 msgid "CSV"
-msgstr "CSV"
+msgstr ""
 
 msgid "Advanced"
 msgstr ""
@@ -202,7 +202,7 @@ msgid "Levels"
 msgstr ""
 
 msgid "Groups"
-msgstr "Grupper"
+msgstr ""
 
 msgid "And 1 other..."
 msgstr ""
@@ -319,7 +319,7 @@ msgid ""
 msgstr ""
 
 msgid "Steps"
-msgstr "Steg"
+msgstr ""
 
 msgid "Axis title"
 msgstr ""
@@ -337,7 +337,7 @@ msgid "Columns totals"
 msgstr ""
 
 msgid "Default"
-msgstr "Standard"
+msgstr ""
 
 msgid "Bright"
 msgstr ""
@@ -385,9 +385,21 @@ msgid "Comfortable"
 msgstr ""
 
 msgid "Normal"
-msgstr "Vanligt"
+msgstr ""
 
 msgid "Compact"
+msgstr ""
+
+msgid "Extreme lines"
+msgstr ""
+
+msgid "Calculated as a percent, usually 1%, of the total values along an axis"
+msgstr ""
+
+msgid "Extreme line % detection"
+msgstr ""
+
+msgid "Number"
 msgstr ""
 
 msgid "Font size"
@@ -433,7 +445,7 @@ msgid "Auto generated"
 msgstr ""
 
 msgid "Custom"
-msgstr "Beställnings"
+msgstr ""
 
 msgid "Chart title"
 msgstr ""
@@ -445,7 +457,7 @@ msgid "Legend style"
 msgstr ""
 
 msgid "Legend type"
-msgstr "Typ av symbolförklaring"
+msgstr ""
 
 msgid "Use pre-defined legend per data item"
 msgstr ""
@@ -493,7 +505,7 @@ msgid "Display the value of percentages of the total"
 msgstr ""
 
 msgid "Value"
-msgstr "Värde"
+msgstr ""
 
 msgid "Percentage of row"
 msgstr ""
@@ -501,8 +513,36 @@ msgstr ""
 msgid "Percentage of column"
 msgstr ""
 
+msgid "Threshold factor"
+msgstr ""
+
+msgid ""
+"A high value is more sensitive so fewer data items will be identified as "
+"outliers"
+msgstr ""
+
+msgid "Interquartile Range (IQR)"
+msgstr ""
+
+msgid "Z-score / Standard score"
+msgstr ""
+
+msgid "Modified Z-score"
+msgstr ""
+
+msgid "Outlier analysis"
+msgstr ""
+
+msgid ""
+"Outlier analysis detects and highlights data items that are markedly "
+"different from the rest of the data"
+msgstr ""
+
+msgid "Outlier detection method"
+msgstr ""
+
 msgid "Organisation unit"
-msgstr "Organisationsenhet"
+msgstr ""
 
 msgid "Parent organisation unit"
 msgstr ""
@@ -517,10 +557,7 @@ msgid "Include regression"
 msgstr ""
 
 msgid "Title"
-msgstr "Titel"
-
-msgid "Number"
-msgstr "Antal"
+msgstr ""
 
 msgid "Trend line"
 msgstr ""
@@ -653,7 +690,7 @@ msgid ""
 msgstr ""
 
 msgid "No period selected"
-msgstr "Ingen valda perioden"
+msgstr ""
 
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."

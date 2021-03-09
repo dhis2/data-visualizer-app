@@ -1,14 +1,14 @@
 # 
 # Translators:
-# phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
+# Viktor Varland <viktor@dhis2.org>, 2019
+# phil_dhis2, 2019
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-02T10:49:34.913Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"POT-Creation-Date: 2021-02-25T08:13:26.611Z\n"
+"PO-Revision-Date: 2019-09-01 20:50+0000\n"
+"Last-Translator: phil_dhis2, 2019\n"
 "Language-Team: Pushto (https://www.transifex.com/hisp-uio/teams/100509/ps/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,7 +29,7 @@ msgid "You have unsaved changes."
 msgstr ""
 
 msgid "Discard unsaved changes?"
-msgstr "د ثبت نه شوی بدلونونه پرېښودل"
+msgstr ""
 
 msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
@@ -88,7 +88,7 @@ msgid "PDF (.pdf)"
 msgstr ""
 
 msgid "Table layout"
-msgstr "د جدول طرحه"
+msgstr ""
 
 msgid "Excel (.xls)"
 msgstr ""
@@ -103,13 +103,13 @@ msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr "د هویت څرګندونه"
+msgstr ""
 
 msgid "Code"
-msgstr "کوډ یا شفر"
+msgstr ""
 
 msgid "Name"
-msgstr "نوم"
+msgstr ""
 
 msgid "Download"
 msgstr "بارگیری"
@@ -118,16 +118,16 @@ msgid "Plain data source"
 msgstr "د ډاټا یا مالوماتو ساده سرچینه"
 
 msgid "JSON"
-msgstr "JSON"
+msgstr ""
 
 msgid "XML"
-msgstr "XML"
+msgstr ""
 
 msgid "Excel"
 msgstr ""
 
 msgid "CSV"
-msgstr "CSV"
+msgstr ""
 
 msgid "Advanced"
 msgstr "پرمختللي."
@@ -202,7 +202,7 @@ msgid "Levels"
 msgstr ""
 
 msgid "Groups"
-msgstr "ګروپونه"
+msgstr ""
 
 msgid "And 1 other..."
 msgstr ""
@@ -290,7 +290,7 @@ msgid "Variance"
 msgstr "توپیر"
 
 msgid "Data approved at level"
-msgstr "په سطحه کې د مالوماتو (ډاټا) منظورول"
+msgstr ""
 
 msgid "Select from predefined levels"
 msgstr ""
@@ -319,7 +319,7 @@ msgid ""
 msgstr ""
 
 msgid "Steps"
-msgstr "ګامونه"
+msgstr ""
 
 msgid "Axis title"
 msgstr ""
@@ -337,7 +337,7 @@ msgid "Columns totals"
 msgstr ""
 
 msgid "Default"
-msgstr "ډیفالټ"
+msgstr ""
 
 msgid "Bright"
 msgstr ""
@@ -361,43 +361,55 @@ msgid "Only include completed events"
 msgstr ""
 
 msgid "Include cumulative"
-msgstr "جمع کول یا تراکم په کې شامل کړئ"
+msgstr ""
 
 msgid "Cumulative values"
 msgstr ""
 
 msgid "Digit group separator"
-msgstr "د اعدادو د ګروپ جلا کوونکی"
+msgstr ""
 
 msgid "None"
 msgstr "هېڅ یو"
 
 msgid "Space"
-msgstr "فاصله یا واټن"
+msgstr ""
 
 msgid "Comma"
-msgstr "کامه (،)"
+msgstr ""
 
 msgid "Display density"
-msgstr "ګڼوالۍ څرګند کړئ"
+msgstr ""
 
 msgid "Comfortable"
-msgstr "هوسا"
+msgstr ""
 
 msgid "Normal"
-msgstr "نورمال"
+msgstr ""
 
 msgid "Compact"
-msgstr "متراکم"
+msgstr ""
+
+msgid "Extreme lines"
+msgstr ""
+
+msgid "Calculated as a percent, usually 1%, of the total values along an axis"
+msgstr ""
+
+msgid "Extreme line % detection"
+msgstr ""
+
+msgid "Number"
+msgstr ""
 
 msgid "Font size"
-msgstr "د ليکنې اندازه"
+msgstr ""
 
 msgid "Large"
-msgstr "لوی"
+msgstr ""
 
 msgid "Small"
-msgstr "کوچنۍ"
+msgstr ""
 
 msgid "Hide empty columns"
 msgstr ""
@@ -409,7 +421,7 @@ msgid "Before first"
 msgstr "لومړۍ اول"
 
 msgid "After last"
-msgstr "په وروستي څخه بعد"
+msgstr ""
 
 msgid "Before first and after last"
 msgstr "لومړۍ اول او له وروستي څخه بعد"
@@ -418,7 +430,7 @@ msgid "All"
 msgstr "ټول"
 
 msgid "Hide empty rows"
-msgstr "خالي یا تش کتارونه پټ کړئ"
+msgstr ""
 
 msgid "Show legend key"
 msgstr ""
@@ -433,7 +445,7 @@ msgid "Auto generated"
 msgstr ""
 
 msgid "Custom"
-msgstr "ځانګړی"
+msgstr ""
 
 msgid "Chart title"
 msgstr "د چارټ عنوان"
@@ -445,7 +457,7 @@ msgid "Legend style"
 msgstr ""
 
 msgid "Legend type"
-msgstr "نوع موضوع تاریخی"
+msgstr ""
 
 msgid "Use pre-defined legend per data item"
 msgstr ""
@@ -460,7 +472,7 @@ msgid "Legend changes text color"
 msgstr ""
 
 msgid "Legend"
-msgstr "ليجنډ"
+msgstr ""
 
 msgid "Select from legends"
 msgstr ""
@@ -487,13 +499,13 @@ msgid "No space between bars/columns"
 msgstr ""
 
 msgid "Number type"
-msgstr "Number type"
+msgstr ""
 
 msgid "Display the value of percentages of the total"
 msgstr ""
 
 msgid "Value"
-msgstr "ارزښت یا رقم"
+msgstr ""
 
 msgid "Percentage of row"
 msgstr ""
@@ -501,26 +513,51 @@ msgstr ""
 msgid "Percentage of column"
 msgstr ""
 
+msgid "Threshold factor"
+msgstr ""
+
+msgid ""
+"A high value is more sensitive so fewer data items will be identified as "
+"outliers"
+msgstr ""
+
+msgid "Interquartile Range (IQR)"
+msgstr ""
+
+msgid "Z-score / Standard score"
+msgstr ""
+
+msgid "Modified Z-score"
+msgstr ""
+
+msgid "Outlier analysis"
+msgstr ""
+
+msgid ""
+"Outlier analysis detects and highlights data items that are markedly "
+"different from the rest of the data"
+msgstr ""
+
+msgid "Outlier detection method"
+msgstr ""
+
 msgid "Organisation unit"
-msgstr "د سازمان واحد"
+msgstr ""
 
 msgid "Parent organisation unit"
-msgstr "د لوی سازمان واحد"
+msgstr ""
 
 msgid "Reporting period"
-msgstr "د راپور ورکولو موده"
+msgstr ""
 
 msgid "Stacked values add up to 100%"
 msgstr ""
 
 msgid "Include regression"
-msgstr "شا ته تګ په کې شامل کړئ"
+msgstr ""
 
 msgid "Title"
-msgstr "عنوان"
-
-msgid "Number"
-msgstr "عدد [ بشپړ عدد ]"
+msgstr ""
 
 msgid "Trend line"
 msgstr "د محاسبې کرښې ښکاره کړئ"
@@ -579,7 +616,7 @@ msgid "Display organisation unit hierarchy"
 msgstr ""
 
 msgid "Skip rounding"
-msgstr "له ګردولو (راونډینګ) څخه تېر شئ"
+msgstr ""
 
 msgid "Custom sort order"
 msgstr ""
@@ -603,7 +640,7 @@ msgid "Position"
 msgstr ""
 
 msgid "Top limit"
-msgstr "وروستۍ حد"
+msgstr ""
 
 msgid "Options"
 msgstr "ګزینه"
@@ -653,7 +690,7 @@ msgid ""
 msgstr ""
 
 msgid "No period selected"
-msgstr "هیج معیاد انتخاب نشده است"
+msgstr ""
 
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
@@ -849,10 +886,10 @@ msgid "User org unit grand children"
 msgstr ""
 
 msgid "Table title"
-msgstr "د جدول عنوان"
+msgstr ""
 
 msgid "Parameters"
-msgstr "پارامیټرونه"
+msgstr ""
 
 msgid ""
 "These options only apply to legacy tables like standard reports. Options set"
@@ -887,7 +924,7 @@ msgid "Chart style"
 msgstr ""
 
 msgid "Display"
-msgstr "ښکاره یې کړئ"
+msgstr ""
 
 msgid "Empty data"
 msgstr ""
@@ -908,7 +945,7 @@ msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr ""
 
 msgid "Axes"
-msgstr "محورونه"
+msgstr ""
 
 msgid "Data"
 msgstr "مالومات (ډاټا)"
