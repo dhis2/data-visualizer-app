@@ -1,3 +1,10 @@
+## [35.20.13](https://github.com/dhis2/data-visualizer-app/compare/v35.20.12...v35.20.13) (2021-03-09)
+
+
+### Bug Fixes
+
+* prevent ghost items in itemsByDimension ([#1647](https://github.com/dhis2/data-visualizer-app/issues/1647)) ([caf5dfa](https://github.com/dhis2/data-visualizer-app/commit/caf5dfa87c8bceb9016e3b996f4237e5e3818167))
+
 ## [35.20.12](https://github.com/dhis2/data-visualizer-app/compare/v35.20.11...v35.20.12) (2021-03-09)
 
 
