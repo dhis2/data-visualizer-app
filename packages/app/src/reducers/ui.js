@@ -518,7 +518,13 @@ export default (state = DEFAULT_UI, action) => {
                     ...state.itemsByDimension,
                     [dimensionId]: [
                         ...new Set([
-                            ...state.itemsByDimension[dimensionId],
+                            ...state.itemsByDimension[dimensionId].filter(id =>
+                                state.itemAttributes.find(
+                                    itemAttr =>
+                                        itemAttr.id === id &&
+                                        itemAttr.attribute !== attribute
+                                )
+                            ),
                             ...itemIds,
                         ]),
                     ],
