@@ -7,7 +7,7 @@ import { Checkbox, FieldSet, Help, Legend } from '@dhis2/ui'
 import { sGetUiOptions } from '../../../reducers/ui'
 import { acSetUiOptions } from '../../../actions/ui'
 import {
-    tabSectionOptionToggleable,
+    tabSectionToggleableSubsection,
     tabSectionOption,
     tabSectionTitle,
 } from '../styles/VisualizationOptions.style.js'
@@ -54,6 +54,8 @@ const DEFAULT_STATE = {
     },
 }
 
+const dataTest = 'option-outliers'
+
 const Outliers = ({ outlierAnalysis, onChange }) => {
     const storeProp = (prop, value) =>
         onChange({ ...outlierAnalysis, [prop]: value })
@@ -75,6 +77,7 @@ const Outliers = ({ outlierAnalysis, onChange }) => {
                     label={i18n.t('Outlier analysis')}
                     onChange={({ checked }) => storeProp(ENABLED_PROP, checked)}
                     dense
+                    dataTest={`${dataTest}-enabled-checkbox`}
                 />
                 <Help>
                     {i18n.t(
@@ -82,9 +85,9 @@ const Outliers = ({ outlierAnalysis, onChange }) => {
                     )}
                 </Help>
             </div>
-            {outlierAnalysis[ENABLED_PROP] ? (
+            {outlierAnalysis[ENABLED_PROP] && (
                 <>
-                    <div className={tabSectionOptionToggleable.className}>
+                    <div className={tabSectionToggleableSubsection.className}>
                         <div className={tabSectionOption.className}>
                             <FieldSet>
                                 <Legend>
@@ -119,7 +122,7 @@ const Outliers = ({ outlierAnalysis, onChange }) => {
                         </div>
                     </div>
                     <div className={styles.divider}></div>
-                    <div className={tabSectionOptionToggleable.className}>
+                    <div className={tabSectionToggleableSubsection.className}>
                         <div className={tabSectionOption.className}>
                             <FieldSet>
                                 <Legend>
@@ -157,7 +160,7 @@ const Outliers = ({ outlierAnalysis, onChange }) => {
                         </div>
                     </div>
                 </>
-            ) : null}
+            )}
         </div>
     )
 }
