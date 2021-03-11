@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-25T08:13:26.611Z\n"
-"PO-Revision-Date: 2019-09-01 20:50+0000\n"
+"POT-Creation-Date: 2021-03-03T10:40:06.300Z\n"
+"PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Yury Rogachev <yury@dhis2.org>, 2021\n"
 "Language-Team: Uzbek (Latin) (https://www.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
 "MIME-Version: 1.0\n"
@@ -401,6 +401,18 @@ msgstr ""
 msgid "Number"
 msgstr ""
 
+msgid "Extreme lines"
+msgstr ""
+
+msgid "Calculated as a percent, usually 1%, of the total values along an axis"
+msgstr ""
+
+msgid "Extreme line % detection"
+msgstr ""
+
+msgid "Number"
+msgstr "Tartib raqami"
+
 msgid "Font size"
 msgstr ""
 
@@ -540,6 +552,40 @@ msgstr ""
 msgid "Outlier detection method"
 msgstr ""
 
+msgid ""
+"Each detection method identifies outliers in different ways and suits "
+"different data. Check the documentation for help to choose the right outlier"
+" detection method"
+msgstr ""
+
+msgid "Threshold factor"
+msgstr ""
+
+msgid ""
+"A high value is more sensitive so fewer data items will be identified as "
+"outliers"
+msgstr ""
+
+msgid "Interquartile Range (IQR)"
+msgstr ""
+
+msgid "Z-score / Standard score"
+msgstr ""
+
+msgid "Modified Z-score"
+msgstr ""
+
+msgid "Outlier analysis"
+msgstr ""
+
+msgid ""
+"Outlier analysis detects and highlights data items that are markedly "
+"different from the rest of the data"
+msgstr ""
+
+msgid "Outlier detection method"
+msgstr ""
+
 msgid "Organisation unit"
 msgstr ""
 
@@ -556,7 +602,7 @@ msgid "Include regression"
 msgstr ""
 
 msgid "Title"
-msgstr ""
+msgstr "Sarlavha"
 
 msgid "Trend line"
 msgstr "Yoʼnalish qatori"
