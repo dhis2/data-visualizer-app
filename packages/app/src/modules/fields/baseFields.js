@@ -48,7 +48,6 @@ export const fieldsByType = {
         getFieldObject('regressionType', { option: true }),
         getFieldObject('series', { option: true }),
         getFieldObject('showData', { option: true }),
-        getFieldObject('outlierAnalysis', { option: true }),
         getFieldObject(BASE_FIELD_TYPE, { option: true }),
     ],
     eventReport_eventChart: [

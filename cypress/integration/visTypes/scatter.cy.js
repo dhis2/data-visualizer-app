@@ -13,8 +13,6 @@ import {
     switchDataTab,
     expectDataDimensionModalWarningToContain,
     expectDataItemToBeInactive,
-    expectOrgUnitDimensionModalToBeVisible,
-    selectOrgUnitLevel,
 } from '../../elements/dimensionModal'
 import { changeVisType } from '../../elements/visualizationTypeSelector'
 import {
@@ -27,10 +25,7 @@ import {
     expectChartTitleToBeVisible,
 } from '../../elements/chart'
 import { TEST_INDICATORS } from '../../utils/data'
-import {
-    clickMenuBarOptionsButton,
-    clickMenuBarUpdateButton,
-} from '../../elements/menuBar'
+import { clickMenuBarUpdateButton } from '../../elements/menuBar'
 import {
     clickContextMenuSwap,
     expectDimensionOnAxisToHaveLockIcon,
@@ -40,22 +35,6 @@ import {
 } from '../../elements/layout'
 import { deleteAO, saveExistingAO, saveNewAO } from '../../elements/fileMenu'
 import { expectRouteToBeEmpty } from '../../elements/route'
-import {
-    clickOptionsModalUpdateButton,
-    clickOptionsTab,
-    clickOutliersCheckbox,
-    OPTIONS_TAB_AXES,
-    OPTIONS_TAB_OUTLIERS,
-    setAxisRangeMaxValue,
-    setAxisRangeMinValue,
-} from '../../elements/optionsModal'
-import {
-    expectWindowConfigYAxisToHaveRangeMaxValue,
-    expectWindowConfigYAxisToHaveRangeMinValue,
-    expectWindowConfigXAxisToHaveRangeMaxValue,
-    expectWindowConfigXAxisToHaveRangeMinValue,
-} from '../../utils/window'
-import { expectAppToNotBeLoading } from '../../elements/common'
 
 const TEST_INDICATOR_NAMES = TEST_INDICATORS.slice(1, 4).map(item => item.name)
 const TEST_VIS_NAME = `TEST SCATTER ${new Date().toLocaleString()}`
@@ -87,15 +66,6 @@ describe('using a Scatter chart', () => {
         //expectStoreCurrentColumnsToHaveLength(1) // FIXME: Store is always in default state
         expectVerticalToContainDimensionLabel(TEST_INDICATOR_NAMES[0])
         expectHorizontalToContainDimensionLabel(TEST_INDICATOR_NAMES[1])
-    })
-    it('selects org unit level Facility', () => {
-        const TEST_ORG_UNIT_LEVEL = 'Facility'
-        openDimension(DIMENSION_ID_ORGUNIT)
-        expectOrgUnitDimensionModalToBeVisible()
-        selectOrgUnitLevel(TEST_ORG_UNIT_LEVEL)
-        expectOrgUnitDimensionModalToBeVisible()
-        clickDimensionModalUpdateButton()
-        expectVisualizationToBeVisible(VIS_TYPE_SCATTER)
     })
     it('Data is locked to Vertical', () => {
         expectDimensionOnAxisToHaveLockIcon(DIMENSION_ID_DATA, 'Vertical')
@@ -142,41 +112,12 @@ describe('using a Scatter chart', () => {
         expectVerticalToContainDimensionLabel(TEST_INDICATOR_NAMES[0])
         expectHorizontalToContainDimensionLabel(TEST_INDICATOR_NAMES[1])
     })
-    it('Options -> Axes -> sets min/max range', () => {
-        const TEST_AXES = [
-            { axis: 'RANGE_0', min: 50, max: 150 },
-            { axis: 'RANGE_1', min: 100, max: 200 },
-        ]
-        clickMenuBarOptionsButton()
-        clickOptionsTab(OPTIONS_TAB_AXES)
-        TEST_AXES.forEach(test => {
-            setAxisRangeMinValue(test.axis, test.min)
-            setAxisRangeMaxValue(test.axis, test.max)
-        })
-        clickOptionsModalUpdateButton()
-        expectVisualizationToBeVisible(VIS_TYPE_SCATTER)
-        expectWindowConfigYAxisToHaveRangeMinValue(TEST_AXES[0].min)
-        expectWindowConfigYAxisToHaveRangeMaxValue(TEST_AXES[0].max)
-        expectWindowConfigXAxisToHaveRangeMinValue(TEST_AXES[1].min)
-        expectWindowConfigXAxisToHaveRangeMaxValue(TEST_AXES[1].max)
-    })
-    it('Options -> Outliers -> enables outliers', () => {
-        clickMenuBarOptionsButton()
-        clickOptionsTab(OPTIONS_TAB_OUTLIERS)
-        clickOutliersCheckbox()
-        // TODO: Set more outlier options
-        clickOptionsModalUpdateButton()
-        expectVisualizationToBeVisible(VIS_TYPE_SCATTER)
-        // TODO: Intercept the data returned to simplify / standardise it, then check that the $config has the correct data
-    })
     it('saves and displays items in the correct places', () => {
         saveExistingAO()
-        expectAppToNotBeLoading()
         expectVisualizationToBeVisible(VIS_TYPE_SCATTER)
         expectVerticalToContainDimensionLabel(TEST_INDICATOR_NAMES[0])
         expectHorizontalToContainDimensionLabel(TEST_INDICATOR_NAMES[1])
     })
-    // TODO: Open outlier options again and check that everything was saved correctly
     it('deletes saved scatter AO', () => {
         deleteAO()
         expectStartScreenToBeVisible()

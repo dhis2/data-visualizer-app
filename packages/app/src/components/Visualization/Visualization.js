@@ -29,7 +29,6 @@ import {
     CombinationDEGSRRError,
 } from '../../modules/error'
 import LoadingMask from '../../widgets/LoadingMask'
-import { sGetSettingsDisplayNameProperty } from '../../reducers/settings'
 
 export class Visualization extends Component {
     constructor(props) {
@@ -177,9 +176,6 @@ export class Visualization extends Component {
                     onError={this.onError}
                     onDrill={this.onDrill}
                     style={styles.chartCanvas}
-                    userSettings={{
-                        displayProperty: this.props.displayProperty,
-                    }}
                 />
             </Fragment>
         )
@@ -189,7 +185,6 @@ export class Visualization extends Component {
 Visualization.propTypes = {
     addMetadata: PropTypes.func,
     addParentGraphMap: PropTypes.func,
-    displayProperty: PropTypes.string,
     error: PropTypes.object,
     isLoading: PropTypes.bool,
     rightSidebarOpen: PropTypes.bool,
@@ -222,7 +217,6 @@ const mapStateToProps = state => ({
     rightSidebarOpen: sGetUiRightSidebarOpen(state),
     error: sGetLoadError(state),
     isLoading: sGetIsPluginLoading(state),
-    displayProperty: sGetSettingsDisplayNameProperty(state),
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -77,12 +77,6 @@ export const tabSectionOptionToggleable = css.resolve`
     }
 `
 
-export const tabSectionToggleableSubsection = css.resolve`
-    div {
-        margin-left: 23px;
-    }
-`
-
 export const tabSectionOptionComplexInline = css.resolve`
     div {
         display: flex;

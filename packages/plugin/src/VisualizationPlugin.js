@@ -24,7 +24,6 @@ export const VisualizationPlugin = ({
     visualization,
     filters,
     forDashboard,
-    userSettings,
     onError,
     onLoadingComplete,
     onResponsesReceived,
@@ -56,7 +55,6 @@ export const VisualizationPlugin = ({
             visualization,
             filters,
             forDashboard,
-            userSettings,
         })
 
         if (result.responses.length) {
@@ -64,14 +62,7 @@ export const VisualizationPlugin = ({
         }
 
         return result
-    }, [
-        engine,
-        filters,
-        forDashboard,
-        userSettings,
-        onResponsesReceived,
-        visualization,
-    ])
+    }, [engine, filters, forDashboard, onResponsesReceived, visualization])
 
     const doFetchLegendSets = useCallback(
         async legendSetIds => {
@@ -214,13 +205,11 @@ VisualizationPlugin.defaultProps = {
     onLoadingComplete: Function.prototype,
     onResponsesReceived: Function.prototype,
     visualization: {},
-    userSettings: {},
 }
 VisualizationPlugin.propTypes = {
     visualization: PropTypes.object.isRequired,
     filters: PropTypes.object,
     forDashboard: PropTypes.bool,
-    userSettings: PropTypes.object,
     onDrill: PropTypes.func,
     onError: PropTypes.func,
     onLoadingComplete: PropTypes.func,

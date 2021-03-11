@@ -18,7 +18,6 @@ export const CheckboxBaseOption = ({
     onChange,
     inverted,
     fontStyleKey,
-    dataTest,
 }) => (
     <div className={tabSectionOption.className}>
         <Checkbox
@@ -30,17 +29,13 @@ export const CheckboxBaseOption = ({
         />
         {((!inverted && value) || (inverted && !value)) && fontStyleKey ? (
             <div className={tabSectionOptionToggleable.className}>
-                <TextStyle
-                    fontStyleKey={fontStyleKey}
-                    dataTest={`${dataTest}-text-style`}
-                />
+                <TextStyle fontStyleKey={fontStyleKey} />
             </div>
         ) : null}
     </div>
 )
 
 CheckboxBaseOption.propTypes = {
-    dataTest: PropTypes.string,
     fontStyleKey: PropTypes.string,
     inverted: PropTypes.bool,
     label: PropTypes.string,

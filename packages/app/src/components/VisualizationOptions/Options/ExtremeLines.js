@@ -3,10 +3,7 @@ import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import { Checkbox, Help, InputField } from '@dhis2/ui'
 
-import {
-    tabSectionOption,
-    tabSectionToggleableSubsection,
-} from '../styles/VisualizationOptions.style.js'
+import { tabSectionOption } from '../styles/VisualizationOptions.style.js'
 
 const ExtremeLines = ({
     isEnabled,
@@ -29,25 +26,19 @@ const ExtremeLines = ({
                     )}
                 </Help>
             </div>
-            {isEnabled && (
-                <div className={tabSectionToggleableSubsection.className}>
-                    <div className={tabSectionOption.className}>
-                        <InputField
-                            type="number"
-                            label={i18n.t('Extreme line % detection')}
-                            min="0.1"
-                            step="0.1"
-                            onChange={input =>
-                                onValueChange(Number(input.value))
-                            }
-                            value={currentValue?.toString() || ''}
-                            placeholder={i18n.t('Number')}
-                            inputWidth="96px"
-                            dense
-                        />
-                    </div>
-                </div>
-            )}
+            <div className={tabSectionOption.className}>
+                <InputField
+                    type="number"
+                    label={i18n.t('Extreme line % detection')}
+                    min="0.1"
+                    step="0.1"
+                    onChange={input => onValueChange(Number(input.value))}
+                    value={currentValue?.toString() || ''}
+                    placeholder={i18n.t('Number')}
+                    inputWidth="96px"
+                    dense
+                />
+            </div>
         </div>
     </>
 )

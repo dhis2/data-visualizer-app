@@ -1,6 +1,6 @@
 import { getOptionsForRequest } from './options'
 
-export const getRequestOptions = (visualization, filters, userSettings) => {
+export const getRequestOptions = (visualization, filters) => {
     const options = getOptionsForRequest().reduce((map, [option, props]) => {
         // only add parameter if value !== default
         if (
@@ -16,17 +16,6 @@ export const getRequestOptions = (visualization, filters, userSettings) => {
     // interpretation filter
     if (filters.relativePeriodDate) {
         options.relativePeriodDate = filters.relativePeriodDate
-    }
-
-    if (userSettings?.displayProperty) {
-        switch (userSettings.displayProperty) {
-            case 'displayShortName':
-                options.displayProperty = 'SHORTNAME'
-                break
-            case 'displayName':
-                options.displayProperty = 'NAME'
-                break
-        }
     }
 
     // global filters

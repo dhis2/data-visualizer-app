@@ -8,9 +8,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-03-03T10:40:06.300Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: easylin <lin_xd@126.com>, 2021\n"
+"POT-Creation-Date: 2021-02-25T08:13:26.611Z\n"
+"PO-Revision-Date: 2019-09-01 20:50+0000\n"
+"Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -404,18 +404,6 @@ msgstr ""
 msgid "Number"
 msgstr ""
 
-msgid "Extreme lines"
-msgstr "极限线"
-
-msgid "Calculated as a percent, usually 1%, of the total values along an axis"
-msgstr "计算为沿轴的总值的百分比，通常为1％"
-
-msgid "Extreme line % detection"
-msgstr "极限线％检测"
-
-msgid "Number"
-msgstr "数字"
-
 msgid "Font size"
 msgstr ""
 
@@ -555,40 +543,6 @@ msgstr ""
 msgid "Outlier detection method"
 msgstr ""
 
-msgid ""
-"Each detection method identifies outliers in different ways and suits "
-"different data. Check the documentation for help to choose the right outlier"
-" detection method"
-msgstr "每种检测方法都以不同的方式识别异常值，不通啊的方法适合不同的数据。查看文档以获取帮助以选择正确的离群值检测方法"
-
-msgid "Threshold factor"
-msgstr "阈值系数"
-
-msgid ""
-"A high value is more sensitive so fewer data items will be identified as "
-"outliers"
-msgstr "高值更敏感，因此较少数据项将被识别为异常值"
-
-msgid "Interquartile Range (IQR)"
-msgstr "四分位间距（IQR）"
-
-msgid "Z-score / Standard score"
-msgstr "Z分数/标准分数"
-
-msgid "Modified Z-score"
-msgstr "修改后的Z评分"
-
-msgid "Outlier analysis"
-msgstr "离群分析"
-
-msgid ""
-"Outlier analysis detects and highlights data items that are markedly "
-"different from the rest of the data"
-msgstr "离群值分析检测并突出显示与其余数据明显不同的数据项"
-
-msgid "Outlier detection method"
-msgstr "离群值检测方法"
-
 msgid "Organisation unit"
 msgstr ""
 
@@ -605,7 +559,7 @@ msgid "Include regression"
 msgstr ""
 
 msgid "Title"
-msgstr "称谓"
+msgstr ""
 
 msgid "Trend line"
 msgstr "趋势线"

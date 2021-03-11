@@ -13,7 +13,6 @@ const HideLegend = () => (
         }}
         inverted={true}
         fontStyleKey={FONT_STYLE_LEGEND}
-        dataTest={'option-legend-key'}
     />
 )
 

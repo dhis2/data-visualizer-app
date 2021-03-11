@@ -21,7 +21,6 @@ export const closeFileMenuWithClick = () =>
 
 export const closeFileMenuWithEsc = () =>
     cy.getBySel(fileMenuToggleEl).type('{esc}', { force: true })
-// use force as the element that's being typed into is hidden
 
 export const clickFileMenuButton = buttonName =>
     cy.getBySel(fileMenuContainerEl).contains(buttonName).click()

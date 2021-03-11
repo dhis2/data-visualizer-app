@@ -28,16 +28,12 @@ const OutlierDetectionMethod = ({
                     />
                 ))}
             </Field>
-            <Help>
-                {i18n.t(
-                    'Each detection method identifies outliers in different ways and suits different data. Check the documentation for help to choose the right outlier detection method'
-                )}
-            </Help>
+            <Help>{i18n.t('TODO: Help text goes here')}</Help>
         </div>
         <InputField
             type="number"
             label={i18n.t('Threshold factor')}
-            min="0"
+            min="0.5"
             step="0.5"
             onChange={({ value }) => onThresholdChange(Number(value))}
             value={currentThreshold?.toString() || ''}
