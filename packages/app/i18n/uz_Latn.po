@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-03-03T10:40:06.300Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
+"PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: Yury Rogachev <yury@dhis2.org>, 2021\n"
 "Language-Team: Uzbek (Latin) (https://www.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
 "MIME-Version: 1.0\n"
@@ -117,7 +117,7 @@ msgid "Code"
 msgstr "Kod"
 
 msgid "Name"
-msgstr "Ismi"
+msgstr "Исми"
 
 msgid "Download"
 msgstr "Yuklash"
@@ -210,7 +210,7 @@ msgid "Levels"
 msgstr "Bosqichlar/Qavatlar"
 
 msgid "Groups"
-msgstr ""
+msgstr "Гуруҳлар"
 
 msgid "And 1 other..."
 msgstr "Yana bir boshqasi"
@@ -419,7 +419,7 @@ msgid "Number"
 msgstr "Tartib raqami"
 
 msgid "Font size"
-msgstr "Shrift oʼlchami"
+msgstr "Shrift hajmi"
 
 msgid "Large"
 msgstr "Katta"
@@ -473,7 +473,7 @@ msgid "Legend style"
 msgstr "Taʼrif turi"
 
 msgid "Legend type"
-msgstr "Taʼrif turi"
+msgstr "Таъриф тури"
 
 msgid "Use pre-defined legend per data item"
 msgstr "Har bir maʼlumot uchun oldindan belgilangan taʼrifdan foydalaning"
@@ -521,7 +521,7 @@ msgid "Display the value of percentages of the total"
 msgstr "Jamidan foizlar qiymatini koʼrsatish"
 
 msgid "Value"
-msgstr "Qiymat"
+msgstr "Қиймат"
 
 msgid "Percentage of row"
 msgstr "Qator foizi"
@@ -564,7 +564,7 @@ msgid "Outlier detection method"
 msgstr ""
 
 msgid "Organisation unit"
-msgstr "Tashkiliy birlik"
+msgstr "Ташкилий бирлик"
 
 msgid "Parent organisation unit"
 msgstr "Yuqori tashkilot boʼlimi"
@@ -720,7 +720,7 @@ msgstr ""
 "yoki {{rowsAxisName}} kamida bir elementni qoʼshing."
 
 msgid "No period selected"
-msgstr "Davr tanlanmagan"
+msgstr "Давр танланмаган"
 
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
@@ -1014,7 +1014,7 @@ msgid "Limit minimum/maximum values"
 msgstr "Minimal/maksimal qiymatlarni cheklash"
 
 msgid "Outliers"
-msgstr ""
+msgstr "Chekinishlar"
 
 msgid "Series"
 msgstr "Ketma-ketliklar"

@@ -1,15 +1,15 @@
 # 
 # Translators:
-# phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
-# Ulanbek Abakirov <ulans@mail.ru>, 2020
+# Ulanbek Abakirov <ulans@mail.ru>, 2021
+# phil_dhis2, 2021
+# Viktor Varland <viktor@dhis2.org>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-03-03T10:40:06.300Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Ulanbek Abakirov <ulans@mail.ru>, 2020\n"
+"PO-Revision-Date: 2019-09-01 20:50+0000\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2021\n"
 "Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -113,10 +113,10 @@ msgid "Name"
 msgstr "Название"
 
 msgid "Download"
-msgstr "Скачать"
+msgstr "Загрузить"
 
 msgid "Plain data source"
-msgstr "Источник данных"
+msgstr "Простой источник данных"
 
 msgid "JSON"
 msgstr "JSON"
@@ -253,42 +253,40 @@ msgid "Your most viewed charts and tables"
 msgstr ""
 
 msgid "Aggregation type"
-msgstr "Тип агрегирования"
+msgstr "Тип агрегации"
 
 msgid "Overrides aggregation type for all data values."
 msgstr ""
 
 msgid "By data element"
-msgstr "По элементу данных"
+msgstr "По элементам данных"
 
 msgid "Count"
-msgstr "Количество"
+msgstr "Счет"
 
 msgid "Average"
 msgstr "Среднее"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr "Среднее (сумма по иерархической структуре организационных единиц)"
+msgstr "Среднее (сумма по иерархии организационных единиц)"
 
 msgid "Sum"
-msgstr "Сумма"
+msgstr "Сум"
 
 msgid "Last value"
 msgstr "Последнее значение"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr ""
-"Последнее значение (среднее по иерархической структуре организационных "
-"единиц)"
+msgstr "Последнее значение (среднее по иерархии организационных единиц)"
 
 msgid "Min"
-msgstr "Мин"
+msgstr "Минимум"
 
 msgid "Max"
-msgstr "Макс"
+msgstr "Максимум"
 
 msgid "Standard deviation"
-msgstr "Среднеквадратическое отклонение"
+msgstr "Стандартное отклонение"
 
 msgid "Variance"
 msgstr "Дисперсия"
@@ -570,13 +568,13 @@ msgid "Title"
 msgstr "Название"
 
 msgid "Trend line"
-msgstr "Линия тренда"
+msgstr "Показать тенденции"
 
 msgid "Linear"
 msgstr "Линейный"
 
 msgid "Polynomial"
-msgstr "Полиномиальный"
+msgstr "Полиномиальная регрессия"
 
 msgid "Loess"
 msgstr "Локальная регрессия (LOESS)"
@@ -632,10 +630,10 @@ msgid "Custom sort order"
 msgstr ""
 
 msgid "Low to high"
-msgstr "От низких к высоким"
+msgstr "Низкий - высокий"
 
 msgid "High to low"
-msgstr "От высоких к низким"
+msgstr "Высокий-низкий"
 
 msgid "Add a subtitle"
 msgstr ""
@@ -653,7 +651,7 @@ msgid "Top limit"
 msgstr "Верхний предел"
 
 msgid "Options"
-msgstr "Параметры"
+msgstr "Опции"
 
 msgid "Open as Map"
 msgstr ""
@@ -803,16 +801,16 @@ msgid "This week"
 msgstr "Эта неделя"
 
 msgid "Last week"
-msgstr "Прошлая неделя"
+msgstr "Последняя неделя"
 
 msgid "Last 4 weeks"
-msgstr "Прошлые 4 недели"
+msgstr "Последние 4 недели"
 
 msgid "Last 12 weeks"
-msgstr "Прошлые 12 недель"
+msgstr "Последние 12 недель"
 
 msgid "Last 52 weeks"
-msgstr "Прошлые 52 недели"
+msgstr "Последние 52 недели"
 
 msgid "Weeks this year"
 msgstr "Недели этого года"
@@ -821,19 +819,19 @@ msgid "This month"
 msgstr "Этот месяц"
 
 msgid "Last month"
-msgstr "Прошлый месяц"
+msgstr "Последний месяц"
 
 msgid "Last 3 months"
-msgstr "Прошлые 3 месяца"
+msgstr "Последние 3 месяца"
 
 msgid "Last 6 months"
-msgstr "Прошлые 6 месяцев"
+msgstr "Последние 6 месяцев"
 
 msgid "Last 12 months"
-msgstr "Прошлые 12 месяцев"
+msgstr "Последние 12 месяцев"
 
 msgid "Months this year"
-msgstr "Месяцы этого года"
+msgstr "Месяцы в этом году"
 
 msgid "This bimonth"
 msgstr "Этот бимесяц"
@@ -851,13 +849,13 @@ msgid "This quarter"
 msgstr "Этот квартал"
 
 msgid "Last quarter"
-msgstr "Прошлый квартал"
+msgstr "Последний квартал"
 
 msgid "Last 4 quarters"
-msgstr "Прошлые 4 квартала"
+msgstr "Последние 4 квартала"
 
 msgid "Quarters this year"
-msgstr "Кварталы этого года"
+msgstr "Кварталы в этом году"
 
 msgid "This six-month"
 msgstr "Это полугодие"
@@ -866,7 +864,7 @@ msgid "Last six-month"
 msgstr "Прошлое полугодие"
 
 msgid "Last 2 six-months"
-msgstr "Прошлые 2 полугодия"
+msgstr "Последние два полугодия"
 
 msgid "This financial year"
 msgstr "Этот финансовый год"
@@ -875,16 +873,16 @@ msgid "Last financial year"
 msgstr "Прошлый финансовый год"
 
 msgid "Last 5 financial years"
-msgstr "Прошлые 5 финансовых лет"
+msgstr "Последние 5 финансовых лет"
 
 msgid "This year"
 msgstr "Этот год"
 
 msgid "Last year"
-msgstr "Прошлый год"
+msgstr "Последний год"
 
 msgid "Last 5 years"
-msgstr "Прошлые 5 лет"
+msgstr "Последние 5 лет"
 
 msgid "User org unit"
 msgstr "Пользовательская организационная единица"

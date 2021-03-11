@@ -1,16 +1,16 @@
 # 
 # Translators:
-# Sheila André <sandre@saudigitus.org>, 2020
-# phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
-# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
+# phil_dhis2, 2021
+# Sheila André <sandre@saudigitus.org>, 2021
+# Viktor Varland <viktor@dhis2.org>, 2021
+# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # Ge Joao <gsimango@saudigitus.org>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-03-03T10:40:06.300Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
+"PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: Ge Joao <gsimango@saudigitus.org>, 2021\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -112,7 +112,7 @@ msgid "Metadata ID scheme"
 msgstr "Esquema de ID de metadados"
 
 msgid "ID"
-msgstr "Id"
+msgstr "ID"
 
 msgid "Code"
 msgstr "Código"
@@ -768,7 +768,9 @@ msgstr ""
 "Dados no filtro."
 
 msgid "Data Element Group Sets and Reporting Rates cannot be used together."
-msgstr "Data Element Group Sets and Reporting Rates cannot be used together."
+msgstr ""
+"Conjuntos de grupos de elementos de dados e taxas de relatório não podem ser"
+" usados ​​juntos."
 
 msgid "There is a problem with this {{visualizationType}} visualization."
 msgstr "Há um problema com esta visualização {{visualizationType}}."

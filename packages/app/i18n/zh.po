@@ -1,15 +1,15 @@
 # 
 # Translators:
-# phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
-# 晓东 林 <13981924470@126.com>, 2020
+# phil_dhis2, 2021
+# Viktor Varland <viktor@dhis2.org>, 2021
+# 晓东 林 <13981924470@126.com>, 2021
 # easylin <lin_xd@126.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-03-03T10:40:06.300Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
+"PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2021\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
@@ -404,7 +404,7 @@ msgid "Extreme line % detection"
 msgstr "极限线％检测"
 
 msgid "Number"
-msgstr "数字"
+msgstr "数据"
 
 msgid "Font size"
 msgstr "字体大小"
@@ -521,7 +521,7 @@ msgid ""
 "Each detection method identifies outliers in different ways and suits "
 "different data. Check the documentation for help to choose the right outlier"
 " detection method"
-msgstr ""
+msgstr "每种检测方法都以不同的方式识别异常值，不通啊的方法适合不同的数据。查看文档以获取帮助以选择正确的离群值检测方法"
 
 msgid "Threshold factor"
 msgstr "阈值系数"
@@ -529,7 +529,7 @@ msgstr "阈值系数"
 msgid ""
 "A high value is more sensitive so fewer data items will be identified as "
 "outliers"
-msgstr "高值更敏感，因此较少数据项将被识别为异常值"
+msgstr "较高的值更敏感，因此较少的数据项将被识别为异常值"
 
 msgid "Interquartile Range (IQR)"
 msgstr "四分位间距（IQR）"
@@ -541,7 +541,7 @@ msgid "Modified Z-score"
 msgstr "修改后的Z评分"
 
 msgid "Outlier analysis"
-msgstr "离群分析"
+msgstr "异常值分析"
 
 msgid ""
 "Outlier analysis detects and highlights data items that are markedly "
@@ -552,7 +552,7 @@ msgid "Outlier detection method"
 msgstr "离群值检测方法"
 
 msgid "Organisation unit"
-msgstr "组织机构"
+msgstr "机构"
 
 msgid "Parent organisation unit"
 msgstr "上级组织机构"
@@ -829,7 +829,7 @@ msgid "Last 3 months"
 msgstr "最近3个月"
 
 msgid "Last 6 months"
-msgstr "最近6个月"
+msgstr "最近六个月<br>"
 
 msgid "Last 12 months"
 msgstr "最近12月"
@@ -844,7 +844,7 @@ msgid "Last bimonth"
 msgstr "最近俩月"
 
 msgid "Last 6 bimonths"
-msgstr "最近6个俩月"
+msgstr "最近六个俩月"
 
 msgid "Bimonths this year"
 msgstr "今年的俩月"
