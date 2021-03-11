@@ -72,19 +72,19 @@ describe('Data dimension', () => {
             expectGroupSelectToNotBeVisible()
         })
         const firstPageItemName = TEST_INDICATORS[0].name
-        it('an item can be selected by double click', () => {
+        it(`item ${firstPageItemName} can be selected by double click`, () => {
             selectItemByDoubleClick(firstPageItemName)
             expectDataItemToBeSelected(firstPageItemName)
         })
-        it('an item can be unselected by double click', () => {
+        it(`item ${firstPageItemName} can be unselected by double click`, () => {
             unselectItemByDoubleClick(firstPageItemName)
             expectNoDataItemsToBeSelected()
         })
-        it('an item can be selected by button', () => {
+        it(`item ${firstPageItemName} can be selected by button`, () => {
             selectItemByButton(firstPageItemName)
             expectDataItemToBeSelected(firstPageItemName)
         })
-        it('an item can be unselected by button', () => {
+        it(`item ${firstPageItemName} can be unselected by button`, () => {
             unselectItemByButton(firstPageItemName)
             expectNoDataItemsToBeSelected()
         })
@@ -244,7 +244,7 @@ describe('Data dimension', () => {
                     expectDataItemsSelectableAmountToBeLeast(PAGE_SIZE + 1)
                 })
             }
-            it('an item can be selected', () => {
+            it(`item ${testDataType.testItem.name} can be selected`, () => {
                 selectItemByDoubleClick(testDataType.testItem.name)
                 expectDataItemToBeSelected(testDataType.testItem.name)
             })
