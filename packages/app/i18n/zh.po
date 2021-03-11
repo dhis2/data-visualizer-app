@@ -521,7 +521,7 @@ msgid ""
 "Each detection method identifies outliers in different ways and suits "
 "different data. Check the documentation for help to choose the right outlier"
 " detection method"
-msgstr ""
+msgstr "每种检测方法都以不同的方式识别异常值，不通啊的方法适合不同的数据。查看文档以获取帮助以选择正确的离群值检测方法"
 
 msgid "Threshold factor"
 msgstr "阈值系数"
