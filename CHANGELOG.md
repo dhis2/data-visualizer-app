@@ -1,3 +1,10 @@
+## [35.20.17](https://github.com/dhis2/data-visualizer-app/compare/v35.20.16...v35.20.17) (2021-03-11)
+
+
+### Bug Fixes
+
+* upgrade to @dhis2/cli-app-scripts@6 (DHIS2-9893) ([#1657](https://github.com/dhis2/data-visualizer-app/issues/1657)) ([0df0a93](https://github.com/dhis2/data-visualizer-app/commit/0df0a932680a26a943f0e36e85d9df29ff784a12))
+
 ## [35.20.16](https://github.com/dhis2/data-visualizer-app/compare/v35.20.15...v35.20.16) (2021-03-11)
 
 
