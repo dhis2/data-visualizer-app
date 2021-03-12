@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-03-03T10:40:06.300Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
+"PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: Ibatov <ibatovk@who.int>, 2021\n"
 "Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
 "MIME-Version: 1.0\n"
@@ -171,7 +171,7 @@ msgid "Hide"
 msgstr "Беркитиш"
 
 msgid "Interpretations"
-msgstr "Талқинлар"
+msgstr "Шарҳлар"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr "{{total}} / {{axisMaxNumberOfItems}} дан танланди"
@@ -198,7 +198,7 @@ msgid "horizontal"
 msgstr "горизонтал"
 
 msgid "None selected"
-msgstr "Бирор нима танланмаган"
+msgstr "Ҳеч ким танламади"
 
 msgid "Only '{{- name}}' in use"
 msgstr "Фойдаланиш учун фақатгина '{{- name}}' "
@@ -303,7 +303,7 @@ msgid "Variance"
 msgstr "Номувофиқлик"
 
 msgid "Data approved at level"
-msgstr "Маълумотлар тасдиқланган даража"
+msgstr "Маълумотлар тасдиқланган поғона"
 
 msgid "Select from predefined levels"
 msgstr "олдиндан белгиланган даражалардан танланг"
@@ -318,7 +318,7 @@ msgid "Auto"
 msgstr "Авто"
 
 msgid "Labels"
-msgstr "Ёрлиқлар"
+msgstr "Ёрлиқ/Белгилар"
 
 msgid "Axis range"
 msgstr "Ўқлар диапазони"
@@ -343,7 +343,7 @@ msgid "Add a title"
 msgstr "Сарлавҳа қўшиш"
 
 msgid "Base line"
-msgstr "Базавий чизиқ"
+msgstr "базавий чизиқ"
 
 msgid "Column sub-totals"
 msgstr "Устуннинг оралиқ йиғиндилари"
@@ -418,7 +418,7 @@ msgid "Number"
 msgstr "Тартиб рақами"
 
 msgid "Font size"
-msgstr "Шрифт ўлчами"
+msgstr "Шрифт ҳажми"
 
 msgid "Large"
 msgstr "Катта"
@@ -466,7 +466,7 @@ msgid "Chart title"
 msgstr "Диаграмма сарлавҳаси"
 
 msgid "Display legend"
-msgstr "Таърифни кўрсатиш"
+msgstr "Таърифни экранда кўрсатиш"
 
 msgid "Legend style"
 msgstr "Таъриф тури"
@@ -517,10 +517,10 @@ msgid "No space between bars/columns"
 msgstr "Барлар/устунлар орасида бўш жой йўқ"
 
 msgid "Number type"
-msgstr "Рақам тури "
+msgstr "Рақам тури"
 
 msgid "Display the value of percentages of the total"
-msgstr "Жамидан фоизлар қийматини кўрсатиш"
+msgstr "Жамидан фоизлар қийматини экранда кўрсатиш"
 
 msgid "Value"
 msgstr "Қиймат"
@@ -639,7 +639,7 @@ msgid "Dimension labels"
 msgstr "Ўлчам қийматлари"
 
 msgid "Display organisation unit hierarchy"
-msgstr "Ташкилий бўлим иерархиясини намойиш қилиш"
+msgstr "Ташкилий бўлим иерархиясини экранда кўрсатиш"
 
 msgid "Skip rounding"
 msgstr "Соддалаштириш ўтказиб юборилсин"
@@ -660,7 +660,7 @@ msgid "Target line"
 msgstr "Мақсад чегара чизиғи"
 
 msgid "Size"
-msgstr "Ўлчам"
+msgstr "Ўлчам/Ҳажм"
 
 msgid "Position"
 msgstr "Лавозими"

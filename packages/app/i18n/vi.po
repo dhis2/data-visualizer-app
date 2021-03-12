@@ -1,15 +1,15 @@
 # 
 # Translators:
-# phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
-# Mai Nguyen <thanhmai.jica@gmail.com>, 2020
+# phil_dhis2, 2021
+# Viktor Varland <viktor@dhis2.org>, 2021
+# Mai Nguyen <thanhmai.jica@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-03-03T10:40:06.300Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2020\n"
+"PO-Revision-Date: 2019-09-01 20:50+0000\n"
+"Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2021\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,10 +21,10 @@ msgid "Rename successful"
 msgstr "Đổi tên thành công"
 
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
-msgstr "Mô hình hóa {{loại mô hình}} không có tiêu đề, {{ngày}}"
+msgstr "Mô hình hóa {{visualizationType}} không có tiêu đề, {{date}}"
 
 msgid "\"{{deletedObject}}\" successfully deleted."
-msgstr "Đã xóa thành công \"{{Đối tượng được xóa}}\"."
+msgstr "Đã xóa thành công \"{{deletedObject}}\"."
 
 msgid "You have unsaved changes."
 msgstr "Không lưu các thay đổi"
@@ -36,8 +36,8 @@ msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
 "be lost."
 msgstr ""
-"Bạn có muốn thoát khỏi ứng dụng trực quan hóa? Những thay đổi không được lưu"
-" sẽ bị mất."
+"Bạn có muốn thoát khỏi ứng dụng trực quan hóa dữ liệu? Những thay đổi không "
+"được lưu sẽ bị mất."
 
 msgid "No, cancel"
 msgstr "Không"
@@ -52,15 +52,15 @@ msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
 "first item will be used and saved."
 msgstr ""
-"'{{loại mô hình hóa}}' nhằm hiển thị một mục dữ liệu. Chỉ mục đầu tiên sẽ "
+"'{{visualizationType}}' nhằm hiển thị một mục dữ liệu. Chỉ mục đầu tiên sẽ "
 "được sử dụng và lưu."
 
 msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
-"'{{Loại mô hình hóa}}' nhằm hiển thị số lượng mục tối đa {{số lượng tối "
-"đa}}. Chỉ {{số lượng tối đa}} mục đầu tiên sẽ được sử dụng và lưu."
+"'{{visualiationType}}' nhằm hiển thị số lượng mục tối đa {{maxNumber}}. Chỉ "
+"{{maxNumber}} mục đầu tiên sẽ được sử dụng và lưu."
 
 msgid ""
 "'Scatter' is intended to show a single data item per axis. Only the first "
@@ -97,7 +97,7 @@ msgid "PDF (.pdf)"
 msgstr "PDF (.pdf)"
 
 msgid "Table layout"
-msgstr "Bảng bố trí"
+msgstr "Bố trí bảng"
 
 msgid "Excel (.xls)"
 msgstr "Excel (.xls)"
@@ -175,10 +175,10 @@ msgid "Interpretations"
 msgstr "Diễn giải báo cáo"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr "{{tổng}} / {{axisMaxNumberOfItems}}Đã chọn "
+msgstr "{{total}} / {{axisMaxNumberOfItems}}Đã chọn "
 
 msgid "{{total}} selected"
-msgstr "Đã chọn {{tổng}}"
+msgstr "Đã chọn {{total}}"
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr "{{mensName}} bị khóa với {{axisName}} cho {{visTypeName}}"
@@ -303,7 +303,7 @@ msgid "Variance"
 msgstr "Sự khác nhau"
 
 msgid "Data approved at level"
-msgstr "Dữ liệu đã được phê duyệt tại tuyến"
+msgstr "Dữ liệu đã được phê duyệt tại cấp"
 
 msgid "Select from predefined levels"
 msgstr "Chọn từ các cấp được xác định trước"
@@ -346,7 +346,7 @@ msgid "Base line"
 msgstr "Đường cơ sở"
 
 msgid "Column sub-totals"
-msgstr "Tổng số cột phụ"
+msgstr "Tổng phụ cột"
 
 msgid "Columns totals"
 msgstr "Tổng cột"
@@ -376,13 +376,13 @@ msgid "Only include completed events"
 msgstr "Chỉ bao gồm các sự kiện đã được hoàn tất"
 
 msgid "Include cumulative"
-msgstr "Bao gồm các giá trị tính toán"
+msgstr "Bao gồm tích lũy"
 
 msgid "Cumulative values"
 msgstr "Các giá trị tích lũy"
 
 msgid "Digit group separator"
-msgstr "Khoảng cách nhóm chữ số"
+msgstr "Dấu tách nhóm chữ số"
 
 msgid "None"
 msgstr "Không"
@@ -469,10 +469,10 @@ msgid "Display legend"
 msgstr "Hiển thị chú giải"
 
 msgid "Legend style"
-msgstr "Mẫu chú thích"
+msgstr "Mẫu chú giải"
 
 msgid "Legend type"
-msgstr "Loại Chú Thích"
+msgstr "Loại chú giải"
 
 msgid "Use pre-defined legend per data item"
 msgstr "Sử dụng chú giải được xác định trước cho mỗi mục dữ liệu"
@@ -487,7 +487,7 @@ msgid "Legend changes text color"
 msgstr "Chú giải thay đổi màu chữ"
 
 msgid "Legend"
-msgstr "Chú Thích"
+msgstr "Chú giải"
 
 msgid "Select from legends"
 msgstr "Chọn từ các chú giải"
@@ -719,7 +719,7 @@ msgstr ""
 "{{visualizationType}}."
 
 msgid "No period selected"
-msgstr "Chưa chọn Thời Điểm"
+msgstr "Chưa chọn thời điểm"
 
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
@@ -869,16 +869,16 @@ msgid "Months this year"
 msgstr "Tháng năm nay"
 
 msgid "This bimonth"
-msgstr "Kỳ 2 tháng này"
+msgstr "Hai tháng này"
 
 msgid "Last bimonth"
-msgstr "Kỳ 2 tháng trước"
+msgstr "Hai tháng trước"
 
 msgid "Last 6 bimonths"
-msgstr "6 kỳ 2 tháng trước"
+msgstr "6 kỳ trước, 1 kỳ = 2 tháng"
 
 msgid "Bimonths this year"
-msgstr "Các kỳ 2 tháng trong năm"
+msgstr "Các kỳ trong năm này, 1 kỳ = 2 tháng"
 
 msgid "This quarter"
 msgstr "Quý này"
@@ -1018,7 +1018,7 @@ msgid "Months per year"
 msgstr "Tháng mỗi năm"
 
 msgid "Bimonths per year"
-msgstr "Các kỳ hai tháng mỗi năm"
+msgstr "Hai tháng mỗi năm"
 
 msgid "Quarters per year"
 msgstr "Quý mỗi năm"
