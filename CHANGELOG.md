@@ -1,3 +1,10 @@
+## [35.20.18](https://github.com/dhis2/data-visualizer-app/compare/v35.20.17...v35.20.18) (2021-03-12)
+
+
+### Bug Fixes
+
+* upgrade analytics ([#1659](https://github.com/dhis2/data-visualizer-app/issues/1659)) ([34f989e](https://github.com/dhis2/data-visualizer-app/commit/34f989ec03cb598770f8ff1c64e83cb6a276c015))
+
 ## [35.20.17](https://github.com/dhis2/data-visualizer-app/compare/v35.20.16...v35.20.17) (2021-03-11)
 
 
