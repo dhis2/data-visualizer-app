@@ -1,3 +1,10 @@
+## [35.20.19](https://github.com/dhis2/data-visualizer-app/compare/v35.20.18...v35.20.19) (2021-03-12)
+
+
+### Bug Fixes
+
+* use VISUALIZATION_VIEW ([#1662](https://github.com/dhis2/data-visualizer-app/issues/1662)) ([05e2798](https://github.com/dhis2/data-visualizer-app/commit/05e2798906c1d924e9ce09f96f9eca05a5b90191))
+
 ## [35.20.18](https://github.com/dhis2/data-visualizer-app/compare/v35.20.17...v35.20.18) (2021-03-12)
 
 
