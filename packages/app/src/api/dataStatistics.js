@@ -1,12 +1,12 @@
 import { onError } from './index'
 
-export const EVENT_TYPE_CHART_VIEW = 'VISUALIZATION_VIEW'
+export const EVENT_TYPE = 'VISUALIZATION_VIEW'
 
 const dataStatisticMutation = {
     resource: 'dataStatistics',
     params: ({ id }) => ({
         favorite: id,
-        eventType: EVENT_TYPE_CHART_VIEW,
+        eventType: EVENT_TYPE,
     }),
     type: 'create',
 }
