@@ -1,6 +1,6 @@
 import { onError } from './index'
 
-const EVENT_TYPE_CHART_VIEW = 'CHART_VIEW'
+export const EVENT_TYPE_CHART_VIEW = 'VISUALIZATION_VIEW'
 
 const dataStatisticMutation = {
     resource: 'dataStatistics',
