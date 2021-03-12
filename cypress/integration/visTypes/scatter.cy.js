@@ -88,8 +88,8 @@ describe('using a Scatter chart', () => {
         expectVerticalToContainDimensionLabel(TEST_INDICATOR_NAMES[0])
         expectHorizontalToContainDimensionLabel(TEST_INDICATOR_NAMES[1])
     })
-    it('selects org unit level Facility', () => {
-        const TEST_ORG_UNIT_LEVEL = 'Facility'
+    const TEST_ORG_UNIT_LEVEL = 'District'
+    it(`selects org unit level ${TEST_ORG_UNIT_LEVEL}`, () => {
         openDimension(DIMENSION_ID_ORGUNIT)
         expectOrgUnitDimensionModalToBeVisible()
         selectOrgUnitLevel(TEST_ORG_UNIT_LEVEL)
