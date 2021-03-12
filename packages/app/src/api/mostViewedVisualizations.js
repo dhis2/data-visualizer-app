@@ -1,10 +1,13 @@
 // TODO move into component StartScreen?
+
+import { EVENT_TYPE } from './dataStatistics'
+
 // most likely is not needed anywhere else
 export const apiFetchMostViewedVisualizations = (dataEngine, pageSize) => {
     const visualizationQuery = {
         resource: 'dataStatistics/favorites',
         params: {
-            eventType: 'VISUALIZATION_VIEW',
+            eventType: EVENT_TYPE,
             pageSize: pageSize || 10,
         },
     }
