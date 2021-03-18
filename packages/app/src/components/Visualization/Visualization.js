@@ -161,6 +161,7 @@ export class Visualization extends Component {
             userSettings,
             error,
             isLoading,
+            onLoadingComplete,
         } = this.props
         const { renderId } = this.state
 
@@ -178,7 +179,7 @@ export class Visualization extends Component {
                     visualization={visualization}
                     filters={visFilters}
                     onChartGenerated={this.onChartGenerated}
-                    onLoadingComplete={this.props.onLoadingComplete}
+                    onLoadingComplete={onLoadingComplete}
                     onResponsesReceived={this.onResponsesReceived}
                     onError={this.onError}
                     onDrill={this.onDrill}
