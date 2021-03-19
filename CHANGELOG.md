@@ -1,3 +1,10 @@
+## [35.20.20](https://github.com/dhis2/data-visualizer-app/compare/v35.20.19...v35.20.20) (2021-03-19)
+
+
+### Bug Fixes
+
+* avoid visualization plugin double render ([#1665](https://github.com/dhis2/data-visualizer-app/issues/1665)) ([c6c348c](https://github.com/dhis2/data-visualizer-app/commit/c6c348c0b9d28757136be9e6bd125cfab44afd58))
+
 ## [35.20.19](https://github.com/dhis2/data-visualizer-app/compare/v35.20.18...v35.20.19) (2021-03-12)
 
 
