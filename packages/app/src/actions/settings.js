@@ -1,11 +1,6 @@
-import { SET_SETTINGS, ADD_SETTINGS } from '../reducers/settings'
+import { ADD_SETTINGS } from '../reducers/settings'
 import { apiFetchSystemSettings } from '../api/settings'
 import { apiFetchOrganisationUnitRoots } from '@dhis2/analytics'
-
-export const acSetSettings = value => ({
-    type: SET_SETTINGS,
-    value,
-})
 
 export const acAddSettings = value => ({
     type: ADD_SETTINGS,
