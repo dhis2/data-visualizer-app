@@ -24,7 +24,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid "Rename successful"
-msgstr "Renomear com êxito"
+msgstr ""
 
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
 msgstr "Visualisation {{visualizationType}} sans titre, {{date}}"
