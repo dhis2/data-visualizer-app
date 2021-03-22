@@ -13,6 +13,7 @@ const ChartPlugin = ({
     animation: defaultAnimation,
 }) => {
     const canvasRef = useRef(undefined)
+    const prevStyle = useRef(style)
 
     const renderVisualization = useCallback(
         animation => {
@@ -61,7 +62,18 @@ const ChartPlugin = ({
         renderCounter !== null && renderVisualization(0)
 
         /* eslint-disable-next-line react-hooks/exhaustive-deps */
-    }, [renderCounter, style])
+    }, [renderCounter])
+
+    useEffect(() => {
+        if (
+            style.width !== prevStyle.width ||
+            style.height !== prevStyle.height
+        ) {
+            renderVisualization(0)
+            prevStyle.current = style
+        }
+        /* eslint-disable-next-line react-hooks/exhaustive-deps */
+    }, [style])
 
     return <div ref={canvasRef} style={style} />
 }
