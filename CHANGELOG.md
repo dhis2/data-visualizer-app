@@ -1,3 +1,10 @@
+## [35.20.22](https://github.com/dhis2/data-visualizer-app/compare/v35.20.21...v35.20.22) (2021-03-22)
+
+
+### Bug Fixes
+
+* detect style changes from dashboard for re-rendering visualization ([#1667](https://github.com/dhis2/data-visualizer-app/issues/1667)) ([ee6a7d0](https://github.com/dhis2/data-visualizer-app/commit/ee6a7d0485c888bdc513e3a40306aed78230dfc5))
+
 ## [35.20.21](https://github.com/dhis2/data-visualizer-app/compare/v35.20.20...v35.20.21) (2021-03-20)
 
 
