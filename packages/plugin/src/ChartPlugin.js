@@ -59,17 +59,22 @@ const ChartPlugin = ({
     }, [visualization, responses, extraOptions])
 
     useEffect(() => {
+        renderCounter !== null && renderVisualization(0)
+
+        /* eslint-disable-next-line react-hooks/exhaustive-deps */
+    }, [renderCounter])
+
+    useEffect(() => {
         if (
-            renderCounter !== null ||
-            style.width !== prevStyle.width ||
-            style.height !== prevStyle.height
+            style.width !== prevStyle.current.width ||
+            style.height !== prevStyle.current.height
         ) {
             renderVisualization(0)
             prevStyle.current = style
         }
 
         /* eslint-disable-next-line react-hooks/exhaustive-deps */
-    }, [renderCounter, style])
+    }, [style])
 
     return <div ref={canvasRef} style={style} />
 }
