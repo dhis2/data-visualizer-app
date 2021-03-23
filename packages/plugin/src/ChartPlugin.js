@@ -14,6 +14,7 @@ const ChartPlugin = ({
 }) => {
     const canvasRef = useRef(undefined)
     const prevStyle = useRef(style)
+    const prevRenderCounter = useRef(renderCounter)
 
     const renderVisualization = useCallback(
         animation => {
@@ -59,7 +60,10 @@ const ChartPlugin = ({
     }, [visualization, responses, extraOptions])
 
     useEffect(() => {
-        renderCounter !== null && renderVisualization(0)
+        if (renderCounter !== prevRenderCounter.current) {
+            renderVisualization(0)
+            prevRenderCounter.current = renderCounter
+        }
 
         /* eslint-disable-next-line react-hooks/exhaustive-deps */
     }, [renderCounter])
