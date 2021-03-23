@@ -1,3 +1,10 @@
+## [35.20.23](https://github.com/dhis2/data-visualizer-app/compare/v35.20.22...v35.20.23) (2021-03-23)
+
+
+### Bug Fixes
+
+* avoid re-render after 1st resize ([#1669](https://github.com/dhis2/data-visualizer-app/issues/1669)) ([5fe6791](https://github.com/dhis2/data-visualizer-app/commit/5fe679155a6db7881963c2449de87078ec86bec2))
+
 ## [35.20.22](https://github.com/dhis2/data-visualizer-app/compare/v35.20.21...v35.20.22) (2021-03-22)
 
 
