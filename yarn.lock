@@ -1234,9 +1234,9 @@
     lodash.once "^4.1.1"
 
 "@dhis2/analytics@^4":
-  version "4.5.29"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.5.29.tgz#9091590cd76ca42d2436efe76844e20627354971"
-  integrity sha512-HTxUc9N/uoPJtqzKlWa3F04LxFOeyYvfIXQOsz0R6Ii8Ywjt0R8z8f8tUgPgjfgPYEXdwgYC+fr4NFa3CACw6Q==
+  version "4.5.33"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.5.33.tgz#c8925e41552e6a137bcf7710d381e6d971679043"
+  integrity sha512-ctrwcrHgXEseDzRiVdSmxPyAeAMh+ywKdIfbMFN0yDdUGVumxQtv+uu8jkxT8hJ+YKsKRgVT0waSAsSEd2ejmA==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.4"
     "@dhis2/ui-core" "^4.16.0"
