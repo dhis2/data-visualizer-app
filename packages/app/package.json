@@ -25,7 +25,7 @@
         "webpack-bundle-analyzer": "^3.0.3"
     },
     "dependencies": {
-        "@dhis2/analytics": "~2.4.16",
+        "@dhis2/analytics": "~2.4.x",
         "@dhis2/d2-i18n": "^1.0.6",
         "@dhis2/d2-ui-core": "^7.0.4",
         "@dhis2/d2-ui-file-menu": "7.0.4",
