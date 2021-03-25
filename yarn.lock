@@ -1302,7 +1302,7 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@~11.0.x":
+"@dhis2/analytics@~11.0.0":
   version "11.0.17"
   resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-11.0.17.tgz#f83f2b786649d41ec7f5dab10d2313c044a01067"
   integrity sha512-tGkrq1bPn+f6xbltyONl5bvnWTibz8/yg/xmJqjZml0xmix/MYWgriPp1y4f8gxsG3MvDxs/viq3TstZCwXbPg==
