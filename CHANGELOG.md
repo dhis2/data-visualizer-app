@@ -1,3 +1,20 @@
+## [35.12.25](https://github.com/dhis2/data-visualizer-app/compare/v35.12.24...v35.12.25) (2021-03-25)
+
+
+### Bug Fixes
+
+* bump Analytics to latest ([#1671](https://github.com/dhis2/data-visualizer-app/issues/1671)) ([d848cba](https://github.com/dhis2/data-visualizer-app/commit/d848cba2fd14388d8c062cda80182686bc03ccf7))
+* debounce DHIS2-10611 interpretations DHIS2-10625 ([#1670](https://github.com/dhis2/data-visualizer-app/issues/1670)) ([4c6f987](https://github.com/dhis2/data-visualizer-app/commit/4c6f987a405e14d604f9e56ae0fb0aa745242cb7))
+* **translations:** sync translations from transifex (35.x) ([b730093](https://github.com/dhis2/data-visualizer-app/commit/b7300936d0aedc8b50c0860f9923354fd7eace2b))
+* **translations:** sync translations from transifex (35.x) ([c86f8b3](https://github.com/dhis2/data-visualizer-app/commit/c86f8b32d80a88638207025de6acf02402a29ac4))
+* **translations:** sync translations from transifex (35.x) ([d0fb384](https://github.com/dhis2/data-visualizer-app/commit/d0fb384e55a3af0c90adf7495d4ab653daef6af6))
+* **translations:** sync translations from transifex (35.x) ([f9df3d5](https://github.com/dhis2/data-visualizer-app/commit/f9df3d5e7682921ebcf9df36a9146e26a2055ddd))
+* **translations:** sync translations from transifex (35.x) ([c9537f0](https://github.com/dhis2/data-visualizer-app/commit/c9537f0364dc81e75420c0c250ee43d0b86440cd))
+* **translations:** sync translations from transifex (35.x) ([8c5df7c](https://github.com/dhis2/data-visualizer-app/commit/8c5df7c43c2bcf42fe37dc7b02d908d1c3d4a13e))
+* **translations:** sync translations from transifex (35.x) ([f0f3e07](https://github.com/dhis2/data-visualizer-app/commit/f0f3e071eaa177e7bdd7a54b8102690d00466236))
+* reset app when New is clicked (DHIS2-9876) ([#1470](https://github.com/dhis2/data-visualizer-app/issues/1470)) ([3d6a299](https://github.com/dhis2/data-visualizer-app/commit/3d6a2999cbd847ee75b06691d2282172ea10a024))
+* upgrade d2-ui dependencies to fix interpretations translations [v35] ([#1514](https://github.com/dhis2/data-visualizer-app/issues/1514)) ([3d18155](https://github.com/dhis2/data-visualizer-app/commit/3d18155719dbf67710a07057aaee024147eaf968))
+
 ## [35.12.25](https://github.com/dhis2/data-visualizer-app/compare/v35.12.24...v35.12.25) (2021-03-24)
 
 
