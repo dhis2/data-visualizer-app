@@ -1,3 +1,15 @@
+# [37.0.0](https://github.com/dhis2/data-visualizer-app/compare/v36.0.0...v37.0.0) (2021-03-29)
+
+
+### chore
+
+* bump master to 37.0.0 ([#1679](https://github.com/dhis2/data-visualizer-app/issues/1679)) ([fddeae0](https://github.com/dhis2/data-visualizer-app/commit/fddeae0f150ea554e2b9d2a98894c9926dfb945e))
+
+
+### BREAKING CHANGES
+
+* release cut
+
 # [36.0.0](https://github.com/dhis2/data-visualizer-app/compare/v35.20.23...v36.0.0) (2021-03-29)
 
 
