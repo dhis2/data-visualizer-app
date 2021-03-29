@@ -1,3 +1,15 @@
+# [36.0.0](https://github.com/dhis2/data-visualizer-app/compare/v35.20.23...v36.0.0) (2021-03-29)
+
+
+### chore
+
+* bump master to v36 ([#1678](https://github.com/dhis2/data-visualizer-app/issues/1678)) ([1c047a1](https://github.com/dhis2/data-visualizer-app/commit/1c047a1627c354e730e93e36582b8fe3feccafe0))
+
+
+### BREAKING CHANGES
+
+* no breaking change
+
 ## [35.20.23](https://github.com/dhis2/data-visualizer-app/compare/v35.20.22...v35.20.23) (2021-03-23)
 
 
