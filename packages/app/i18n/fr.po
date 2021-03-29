@@ -6,7 +6,7 @@
 # phil_dhis2, 2020
 # Djibril Dione <dione.djibril@gmail.com>, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
-# Yao Selom SAKA <saka.yao@yahoo.fr>, 2020
+# Yao Selom SAKA <ysaka@hispwca.org>, 2020
 # Edem Kossi <ekossi@hispwca.org>, 2021
 # 
 msgid ""
