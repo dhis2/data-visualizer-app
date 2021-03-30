@@ -1,3 +1,10 @@
+# [35.22.0](https://github.com/dhis2/data-visualizer-app/compare/v35.21.1...v35.22.0) (2021-03-30)
+
+
+### Features
+
+* minor bump ([4ab030b](https://github.com/dhis2/data-visualizer-app/commit/4ab030b412748e888b23b6fc4b8b09b847e3ea57))
+
 ## [35.21.1](https://github.com/dhis2/data-visualizer-app/compare/v35.21.0...v35.21.1) (2021-03-30)
 
 
