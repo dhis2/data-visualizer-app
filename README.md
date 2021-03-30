@@ -90,7 +90,7 @@ All netlfiy deployments run against play.dhis2.org/dev, so in order to use them,
 
 1. Copy the URL of the deployment you want to enable, i.e. `https://dhis2-data-visualizer.netlify.com`
 2. Visit the [system settings -- access](https://play.dhis2.org/dev/dhis-web-settings/index.html#/access) page on the DHIS2 instance you want to test against (i.e. `https://debug.dhis2.org/dev`)
-3. Add the copied URL on a new line the in CORS Whitelist textbox **NOTE**: do **NOT** include a trailing slash
+3. Add the copied URL on a new line the in CORS Whitelist textbox **NOTE**: do NOT include a trailing slash
 4. Back on [netlify](`https://dhis2-data-visualizer.netlify.com`), enter the DHIS2 instance URL in the Server input of the login dialog
 
 The master branch is always available at:
