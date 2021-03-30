@@ -1,3 +1,11 @@
+## [35.21.1](https://github.com/dhis2/data-visualizer-app/compare/v35.21.0...v35.21.1) (2021-03-30)
+
+
+### Bug Fixes
+
+* bump patch 2 ([f84c107](https://github.com/dhis2/data-visualizer-app/commit/f84c107c79f08b0eeec5d0bb5f13bf2a08773393))
+* bump version in plugin package.json ([52577ac](https://github.com/dhis2/data-visualizer-app/commit/52577ac01e465e9079f42cd89c6373ec06aee0cf))
+
 # [35.13.0](https://github.com/dhis2/data-visualizer-app/compare/v35.12.24...v35.13.0) (2021-03-29)
 
 
