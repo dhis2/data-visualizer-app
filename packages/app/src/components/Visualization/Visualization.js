@@ -155,14 +155,21 @@ export class Visualization extends Component {
     }
 
     render() {
-        const { visualization, visFilters, error } = this.props
+        const {
+            visualization,
+            visFilters,
+            userSettings,
+            error,
+            isLoading,
+            onLoadingComplete,
+        } = this.props
         const { renderId } = this.state
 
         return !visualization || error ? (
             <StartScreen />
         ) : (
             <Fragment>
-                {this.props.isLoading ? (
+                {isLoading ? (
                     <div style={styles.loadingCover}>
                         <LoadingMask />
                     </div>
@@ -172,14 +179,12 @@ export class Visualization extends Component {
                     visualization={visualization}
                     filters={visFilters}
                     onChartGenerated={this.onChartGenerated}
-                    onLoadingComplete={this.props.onLoadingComplete}
+                    onLoadingComplete={onLoadingComplete}
                     onResponsesReceived={this.onResponsesReceived}
                     onError={this.onError}
                     onDrill={this.onDrill}
                     style={styles.chartCanvas}
-                    userSettings={{
-                        displayProperty: this.props.displayProperty,
-                    }}
+                    userSettings={userSettings}
                 />
             </Fragment>
         )
@@ -189,7 +194,6 @@ export class Visualization extends Component {
 Visualization.propTypes = {
     addMetadata: PropTypes.func,
     addParentGraphMap: PropTypes.func,
-    displayProperty: PropTypes.string,
     error: PropTypes.object,
     isLoading: PropTypes.bool,
     rightSidebarOpen: PropTypes.bool,
@@ -197,6 +201,7 @@ Visualization.propTypes = {
     setCurrent: PropTypes.func,
     setLoadError: PropTypes.func,
     setUiItems: PropTypes.func,
+    userSettings: PropTypes.object,
     visFilters: PropTypes.object,
     visualization: PropTypes.object,
     onLoadingComplete: PropTypes.func,
@@ -216,13 +221,20 @@ export const visFiltersSelector = createSelector(
             : {}
 )
 
+export const userSettingsSelector = createSelector(
+    [sGetSettingsDisplayNameProperty],
+    displayProperty => ({
+        displayProperty,
+    })
+)
+
 const mapStateToProps = state => ({
     visualization: visualizationSelector(state),
     visFilters: visFiltersSelector(state),
     rightSidebarOpen: sGetUiRightSidebarOpen(state),
     error: sGetLoadError(state),
     isLoading: sGetIsPluginLoading(state),
-    displayProperty: sGetSettingsDisplayNameProperty(state),
+    userSettings: userSettingsSelector(state),
 })
 
 const mapDispatchToProps = dispatch => ({
