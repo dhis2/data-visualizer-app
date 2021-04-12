@@ -1,7 +1,13 @@
 import React, { useContext, useState, useEffect, createContext } from 'react'
 import PropTypes from 'prop-types'
 import { useDataEngine } from '@dhis2/app-runtime'
-import { userSettingsQuery } from '../api/userSettings'
+
+export const userSettingsQuery = {
+    resource: 'userSettings',
+    params: {
+        key: ['keyDbLocale', 'keyUiLocale', 'keyAnalysisDisplayProperty'],
+    },
+}
 
 export const UserSettingsCtx = createContext({})
 
