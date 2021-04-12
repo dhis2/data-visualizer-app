@@ -13,8 +13,6 @@ import getChartStyleSection from './sections/chartStyle'
 import getLegendTab from './tabs/legend'
 import getLimitValuesTab from './tabs/limitValues'
 
-const verticalAxisId = 'RANGE_0'
-
 export default ({
     hasDisabledSections,
     supportsMultiAxes,
@@ -25,12 +23,15 @@ export default ({
 } = {}) => [
     getDataTab([
         getDisplaySection(isStacked),
-        getLinesSection(hasDisabledSections, verticalAxisId),
+        getLinesSection(hasDisabledSections, 'RANGE_0'),
         getAdvancedSection(),
     ]),
     ...(supportsLegends ? [getLegendTab({ hideStyleOptions: true })] : []),
     getAxesTab([
-        getVerticalAxisSection(hasDisabledSections),
+        getVerticalAxisSection('RANGE_0', hasDisabledSections),
+        getVerticalAxisSection('RANGE_1', hasDisabledSections),
+        getVerticalAxisSection('RANGE_2', hasDisabledSections),
+        getVerticalAxisSection('RANGE_3', hasDisabledSections),
         getHorizontalAxisSection(),
     ]),
     getSeriesTab({

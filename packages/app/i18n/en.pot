@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-03-03T10:40:06.300Z\n"
-"PO-Revision-Date: 2021-03-03T10:40:06.300Z\n"
+"POT-Creation-Date: 2021-04-09T12:05:33.309Z\n"
+"PO-Revision-Date: 2021-04-09T12:05:33.309Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -934,9 +934,6 @@ msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Titles"
-msgstr ""
-
-msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr ""
 
 msgid "Axes"
