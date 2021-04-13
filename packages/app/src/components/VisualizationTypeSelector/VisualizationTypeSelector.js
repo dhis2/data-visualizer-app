@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { visTypeDisplayNames, visTypeDescriptions } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
-import { Card, Divider, Popper, IconChevronDown16 } from '@dhis2/ui'
+import { Card, Divider, Popper } from '@dhis2/ui'
 
 import { prepareCurrentAnalyticalObject } from '../../modules/currentAnalyticalObject'
 import { getAdaptedUiByType } from '../../modules/ui'
@@ -16,6 +16,7 @@ import {
     apiSaveAOInUserDataStore,
     CURRENT_AO_KEY,
 } from '../../api/userDataStore'
+import ArrowDown from '../../assets/ArrowDown'
 import VisualizationTypeListItem from './VisualizationTypeListItem'
 import ListItemIcon from './ListItemIcon'
 import styles from './styles/VisualizationTypeSelector.module.css'
@@ -103,8 +104,8 @@ export const VisualizationTypeSelector = (
                 <span data-test="visualization-type-selector-currently-selected-text">
                     {visTypeDisplayNames[visualizationType]}
                 </span>
-                <span style={{ marginLeft: 'auto' }}>
-                    <IconChevronDown16 />
+                <span className={styles.arrowIcon}>
+                    <ArrowDown />
                 </span>
             </div>
             {listIsOpen &&
