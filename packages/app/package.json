@@ -19,7 +19,6 @@
         "@dhis2/d2-ui-interpretations": "^7.1.6",
         "@dhis2/data-visualizer-plugin": "37.0.0",
         "@dhis2/ui": "^6.5.5",
-        "@material-ui/icons": "^3.0.1",
         "d2": "^31.9.1",
         "history": "^4.7.2",
         "lodash-es": "^4.17.11",
