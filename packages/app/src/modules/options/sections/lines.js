@@ -10,12 +10,18 @@ import getLinesTemplate from './templates/lines'
 export default (hasDisabledSections, axisId) => ({
     ...getLinesTemplate({
         helpText: hasDisabledSections
-            ? i18n.t('Lines are not supported yet when using multiple axes')
+            ? i18n.t(
+                  'Trend, base and target line are available on the Axes tab for multi-axis charts'
+              )
             : null,
-        content: React.Children.toArray([
-            <RegressionType disabled={hasDisabledSections} />,
-            <TargetLine disabled={hasDisabledSections} axisId={axisId} />,
-            <BaseLine disabled={hasDisabledSections} axisId={axisId} />,
-        ]),
+        content: React.Children.toArray(
+            !hasDisabledSections
+                ? [
+                      <RegressionType />,
+                      <TargetLine axisId={axisId} />,
+                      <BaseLine axisId={axisId} />,
+                  ]
+                : []
+        ),
     }),
 })
