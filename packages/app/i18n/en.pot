@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-04-15T12:04:36.814Z\n"
-"PO-Revision-Date: 2021-04-15T12:04:36.814Z\n"
+"POT-Creation-Date: 2021-04-15T12:33:45.104Z\n"
+"PO-Revision-Date: 2021-04-15T12:33:45.104Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -928,6 +928,9 @@ msgid "Lines"
 msgstr ""
 
 msgid "Totals"
+msgstr ""
+
+msgid "Vertical (y) axis {{axisId}}"
 msgstr ""
 
 msgid "Vertical (y) axis"

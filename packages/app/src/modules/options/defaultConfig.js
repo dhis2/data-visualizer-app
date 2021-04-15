@@ -20,6 +20,7 @@ export default ({
     isColumnBased,
     isStacked,
     supportsLegends,
+    verticalAxisIds,
 } = {}) => [
     getDataTab([
         getDisplaySection(isStacked),
@@ -28,10 +29,13 @@ export default ({
     ]),
     ...(supportsLegends ? [getLegendTab({ hideStyleOptions: true })] : []),
     getAxesTab([
-        getVerticalAxisSection('RANGE_0', hasDisabledSections),
-        getVerticalAxisSection('RANGE_1', hasDisabledSections),
-        getVerticalAxisSection('RANGE_2', hasDisabledSections),
-        getVerticalAxisSection('RANGE_3', hasDisabledSections),
+        ...verticalAxisIds.map(id =>
+            getVerticalAxisSection(
+                `RANGE_${id}`,
+                hasDisabledSections,
+                verticalAxisIds.length > 1 || verticalAxisIds.some(id => id > 0)
+            )
+        ),
         getHorizontalAxisSection(),
     ]),
     getSeriesTab({

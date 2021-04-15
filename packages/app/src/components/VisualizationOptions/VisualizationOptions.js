@@ -84,7 +84,8 @@ export class VisualizationOptions extends Component {
             visualizationType,
             isDualAxisType(visualizationType) &&
                 hasCustomAxes(filteredSeries) &&
-                !hasRelativeItems(columns[0], columnDimensionItems)
+                !hasRelativeItems(columns[0], columnDimensionItems),
+            [...new Set(series.map(serie => serie.axis))].sort((a, b) => a - b)
         )
 
         const tabs = this.generateTabs(optionsConfig)

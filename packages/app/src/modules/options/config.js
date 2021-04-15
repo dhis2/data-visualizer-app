@@ -18,7 +18,11 @@ import singleValueConfig from './singleValueConfig'
 import defaultConfig from './defaultConfig'
 import scatterConfig from './scatterConfig'
 
-export const getOptionsByType = (type, hasDisabledSections) => {
+export const getOptionsByType = (
+    type,
+    hasDisabledSections,
+    verticalAxisIds
+) => {
     const isStacked = isStackedType(type)
     const isColumnBased = isColumnBasedType(type)
     const supportsLegends = isLegendSetType(type)
@@ -32,6 +36,7 @@ export const getOptionsByType = (type, hasDisabledSections) => {
         supportsLegends,
         supportsMultiAxes,
         supportsMultiType,
+        verticalAxisIds,
     }
 
     switch (type) {

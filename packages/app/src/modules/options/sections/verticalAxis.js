@@ -11,7 +11,7 @@ import getVerticalAxisTemplate from './templates/verticalAxis'
 import BaseLine from '../../../components/VisualizationOptions/Options/BaseLine'
 import TargetLine from '../../../components/VisualizationOptions/Options/TargetLine'
 
-export default (axisId, showLines) => ({
+export default (axisId, showLines, showId) => ({
     ...getVerticalAxisTemplate({
         content: React.Children.toArray([
             <AxisTitle
@@ -26,6 +26,6 @@ export default (axisId, showLines) => ({
                 ? [<TargetLine axisId={axisId} />, <BaseLine axisId={axisId} />]
                 : []),
         ]),
-        axisId,
+        ...(showId ? { axisId } : null),
     }),
 })
