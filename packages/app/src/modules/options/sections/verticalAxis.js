@@ -10,7 +10,6 @@ import AxisLabels from '../../../components/VisualizationOptions/Options/AxisLab
 import getVerticalAxisTemplate from './templates/verticalAxis'
 import BaseLine from '../../../components/VisualizationOptions/Options/BaseLine'
 import TargetLine from '../../../components/VisualizationOptions/Options/TargetLine'
-import RegressionType from '../../../components/VisualizationOptions/Options/RegressionType'
 
 export default (axisId, showLines) => ({
     ...getVerticalAxisTemplate({
@@ -24,11 +23,7 @@ export default (axisId, showLines) => ({
             <AxisDecimals axisId={axisId} />,
             <AxisLabels axisId={axisId} />,
             ...(showLines
-                ? [
-                      <RegressionType />,
-                      <TargetLine axisId={axisId} />,
-                      <BaseLine axisId={axisId} />,
-                  ]
+                ? [<TargetLine axisId={axisId} />, <BaseLine axisId={axisId} />]
                 : []),
         ]),
         axisId,
