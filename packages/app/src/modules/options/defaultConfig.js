@@ -20,7 +20,7 @@ export default ({
     isColumnBased,
     isStacked,
     supportsLegends,
-    verticalAxisIds,
+    verticalAxisIds = [],
 } = {}) => [
     getDataTab([
         getDisplaySection(isStacked),
