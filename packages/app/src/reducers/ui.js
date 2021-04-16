@@ -16,6 +16,7 @@ import {
     FONT_STYLE_HORIZONTAL_AXIS_TITLE,
     FONT_STYLE_VERTICAL_AXIS_TITLE,
     FONT_STYLE_REGRESSION_LINE_LABEL,
+    hasCustomAxes,
 } from '@dhis2/analytics'
 import objectClean from 'd2-utilizr/lib/objectClean'
 
@@ -619,6 +620,7 @@ export default (state = DEFAULT_UI, action) => {
         case UPDATE_UI_SERIES_ITEM: {
             const { changedItem, value, prop } = action.value
             const series = [...state.options.series]
+            const prevHasCustomAxes = hasCustomAxes(series)
 
             const itemIndex = series.findIndex(
                 item => item.dimensionItem == changedItem.dimensionItem
@@ -631,6 +633,20 @@ export default (state = DEFAULT_UI, action) => {
                 series[itemIndex] = Object.assign({}, series[itemIndex], {
                     [prop]: value,
                 })
+            }
+
+            const nextHasCustomAxes = hasCustomAxes(series)
+
+            if (!prevHasCustomAxes && nextHasCustomAxes) {
+                console.log('custom axes enabled')
+                // TODO:
+                // Set all empty axis titles to "Axis 1" etc by enabling the new "auto generated" option
+                // Set all axis title colors (font style) to blue, red etc
+            } else if (prevHasCustomAxes && !nextHasCustomAxes) {
+                console.log('custom axes disabled')
+                // TODO:
+                // Clear all axis titles that has the default value (e.g. clear "Axis 1" but not "Some name")
+                // Reset all axis colors that use the default color (blue, red etc) to the regular black (colors.grey900)
             }
 
             return {
