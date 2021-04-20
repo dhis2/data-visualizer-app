@@ -17,8 +17,10 @@ import {
     FONT_STYLE_VERTICAL_AXIS_TITLE,
     FONT_STYLE_REGRESSION_LINE_LABEL,
     hasCustomAxes,
+    FONT_STYLE_OPTION_TEXT_COLOR,
 } from '@dhis2/analytics'
 import objectClean from 'd2-utilizr/lib/objectClean'
+import i18n from '@dhis2/d2-i18n'
 
 import {
     getFilteredLayout,
@@ -171,20 +173,12 @@ export default (state = DEFAULT_UI, action) => {
             const [axisType, axisIndex] = (action.value.axisId || '').split('_')
             const fontStyleOption = action.value.fontStyleOption
 
-            const pushAxis = axis => {
-                options.axes = options.axes.filter(
-                    filter =>
-                        filter.index !== Number(axis.index) ||
-                        filter.type !== axis.type
-                )
-                options.axes.push(axis)
-            }
             switch (optionId) {
                 case OPTION_AXIS_DECIMALS:
                 case OPTION_AXIS_STEPS:
                 case OPTION_AXIS_MAX_VALUE:
                 case OPTION_AXIS_MIN_VALUE: {
-                    pushAxis({
+                    pushAxis(options, {
                         ...getAxis(options.axes, Number(axisIndex), axisType),
                         [optionId]: value,
                     })
@@ -202,7 +196,7 @@ export default (state = DEFAULT_UI, action) => {
                         Number(axisIndex),
                         axisType
                     )
-                    pushAxis({
+                    pushAxis(options, {
                         ...axis,
                         title: {
                             ...axis.title,
@@ -212,7 +206,7 @@ export default (state = DEFAULT_UI, action) => {
                     break
                 }
                 case OPTION_AXIS_TITLE_ENABLED: {
-                    pushAxis({
+                    pushAxis(options, {
                         ...getAxis(options.axes, Number(axisIndex), axisType),
                         title: value
                             ? {
@@ -228,7 +222,7 @@ export default (state = DEFAULT_UI, action) => {
                         optionId === OPTION_BASE_LINE_ENABLED
                             ? 'baseLine'
                             : 'targetLine'
-                    pushAxis({
+                    pushAxis(options, {
                         ...getAxis(options.axes, Number(axisIndex), axisType),
                         [prop]: value
                             ? {
@@ -256,7 +250,7 @@ export default (state = DEFAULT_UI, action) => {
                             text: value || undefined,
                         },
                     }
-                    pushAxis(axis)
+                    pushAxis(options, axis)
                     break
                 }
                 case OPTION_BASE_LINE_VALUE:
@@ -274,7 +268,7 @@ export default (state = DEFAULT_UI, action) => {
                         ...axis[prop],
                         value: value || value === 0 ? value : undefined,
                     }
-                    pushAxis(axis)
+                    pushAxis(options, axis)
                     break
                 }
                 case OPTION_BASE_LINE_TITLE_FONT_STYLE:
@@ -300,7 +294,7 @@ export default (state = DEFAULT_UI, action) => {
                                     : undefined,
                         },
                     }
-                    pushAxis(axis)
+                    pushAxis(options, axis)
                     break
                 }
 
@@ -322,7 +316,7 @@ export default (state = DEFAULT_UI, action) => {
                                     : undefined,
                         },
                     }
-                    pushAxis(axis)
+                    pushAxis(options, axis)
                     break
                 }
                 case FONT_STYLE_AXIS_LABELS: {
@@ -342,7 +336,7 @@ export default (state = DEFAULT_UI, action) => {
                                     : undefined,
                         },
                     }
-                    pushAxis(axis)
+                    pushAxis(options, axis)
                     break
                 }
                 case FONT_STYLE_LEGEND: {
@@ -620,6 +614,9 @@ export default (state = DEFAULT_UI, action) => {
         case UPDATE_UI_SERIES_ITEM: {
             const { changedItem, value, prop } = action.value
             const series = [...state.options.series]
+            const options = {
+                axes: state.options.axes || [],
+            }
             const prevHasCustomAxes = hasCustomAxes(series)
 
             const itemIndex = series.findIndex(
@@ -639,6 +636,28 @@ export default (state = DEFAULT_UI, action) => {
 
             if (!prevHasCustomAxes && nextHasCustomAxes) {
                 console.log('custom axes enabled')
+                const axisType = 'RANGE'
+                const axesInUse = [
+                    ...new Set(series.map(serie => serie.axis)),
+                ].sort((a, b) => a - b)
+                const colors = ['#4292c6', '#cb181d', '#41ab5d', '#6c66b8']
+                axesInUse.forEach(axisIndex => {
+                    const axis = getAxis(options.axes, axisIndex, axisType)
+                    if (!axis.title?.enabled || !axis.title.text) {
+                        axis.title = {
+                            enabled: true,
+                            text: i18n.t('Axis {{axisId}}', {
+                                axisId: axisIndex + 1,
+                            }),
+                            fontStyle: {
+                                [FONT_STYLE_OPTION_TEXT_COLOR]:
+                                    colors[axisIndex],
+                            },
+                        }
+                    }
+                    pushAxis(options, axis)
+                })
+
                 // TODO:
                 // Set all empty axis titles to "Axis 1" etc by enabling the new "auto generated" option
                 // Set all axis title colors (font style) to blue, red etc
@@ -653,6 +672,7 @@ export default (state = DEFAULT_UI, action) => {
                 ...state,
                 options: {
                     ...state.options,
+                    axes: options.axes,
                     series,
                 },
             }
@@ -843,4 +863,12 @@ const deepClean = input => {
         }
     })
     return result
+}
+
+const pushAxis = (options, axis) => {
+    options.axes = options.axes.filter(
+        filter =>
+            filter.index !== Number(axis.index) || filter.type !== axis.type
+    )
+    options.axes.push(axis)
 }
