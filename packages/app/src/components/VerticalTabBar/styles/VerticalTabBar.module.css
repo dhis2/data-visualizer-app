@@ -1,0 +1,5 @@
+.container {
+    height: 100%;
+    border-right: 1px solid var(--colors-grey400);
+    margin-right: var(--spacers-dp24);
+}
