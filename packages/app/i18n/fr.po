@@ -3,20 +3,20 @@
 # Bram Piot <bram.piot@gmail.com>, 2019
 # Matthieu Pinard <matthieu@pinard.no>, 2019
 # Djibril Dione <dione.djibril@gmail.com>, 2020
-# Edem Kossi <ekossi@hispwca.org>, 2020
 # Karoline Tufte Lien <karoline@dhis2.org>, 2020
 # phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
+# Viktor Varland <viktor@dhis2.org>, 2020
 # Yao Selom Saka <ysaka@hispwca.org>, 2020
 # Yayra Gomado <ygomado@hispwca.org>, 2021
+# Edem Kossi <ekossi@hispwca.org>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-03-03T10:40:06.300Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Yayra Gomado <ygomado@hispwca.org>, 2021\n"
+"Last-Translator: Edem Kossi <ekossi@hispwca.org>, 2021\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -50,7 +50,7 @@ msgid "No, cancel"
 msgstr "Non, annuler"
 
 msgid "Yes, leave"
-msgstr "Oui, abandon"
+msgstr "Oui, quitter"
 
 msgid "Add to {{axisName}}"
 msgstr "Ajouter à {{nomdel'axe}} "
@@ -67,8 +67,8 @@ msgid ""
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
 "'{{visualiationType}}' est destiné à montrer le maximum {{maxNumber}} nombre"
-" d'éléments  . Seul le premier {{maxNumber}} les éléments seront utilisés et"
-" enregistrés."
+" d'éléments  . Seul les premiers {{maxNumber}} éléments seront utilisés et "
+"enregistrés."
 
 msgid ""
 "'Scatter' is intended to show a single data item per axis. Only the first "
@@ -93,7 +93,7 @@ msgid "Your dimensions"
 msgstr "Vos dimensions"
 
 msgid "Filter dimensions"
-msgstr "Dimensions du filtre"
+msgstr "Filtrer les dimensions"
 
 msgid "Graphics"
 msgstr "Graphisme"
@@ -105,7 +105,7 @@ msgid "PDF (.pdf)"
 msgstr "PDF (.pdf)"
 
 msgid "Table layout"
-msgstr "Mise en page du tableau"
+msgstr "Disposition du tableau"
 
 msgid "Excel (.xls)"
 msgstr "Excel (.xls)"
@@ -162,20 +162,21 @@ msgid "Raw data SQL"
 msgstr "Données brutes SQL"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr "An error occurred in the Application Visualiseur de Données DHIS2"
+msgstr ""
+"Une erreur s'est produite dans l'application Visualiseur de Données de DHIS2"
 
 msgid "Refresh to try again"
 msgstr "Actualiser pour réessayer"
 
 msgid "Hide technical details"
-msgstr "Cacher les détails techniques"
+msgstr "Masquer les détails techniques"
 
 msgid "Show technical details"
 msgstr "Afficher les détails techniques"
 
 msgid "The following information may be requested by technical support."
 msgstr ""
-"Les informations suivantes peuvent être demandées par support technique."
+"Les informations suivantes peuvent être demandées par le support technique."
 
 msgid "Hide"
 msgstr "Masquer"
@@ -184,20 +185,20 @@ msgid "Interpretations"
 msgstr "interprétations"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr "{{total}} de {{axisMaxNumberOfItems}} choisi"
+msgstr "{{total}} de {{axisMaxNumberOfItems}} choisis"
 
 msgid "{{total}} selected"
-msgstr "{{total}} choisi"
+msgstr "{{total}} choisis"
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr ""
 "{{dimensionName}} est verrouillé sur {{axisName}} pour {{visTypeName}}"
 
 msgid "Not available for Scatter"
-msgstr "Non disponible pour Scatter"
+msgstr "Non disponible pour Dispersion"
 
 msgid "Add Assigned Categories"
-msgstr "Ajouter des Catégories Affectées"
+msgstr "Ajouter des Catégories assignées"
 
 msgid "Swap with {{axisName}} axis"
 msgstr "Intervertir avec l'axe {{axisName}}"
@@ -246,7 +247,7 @@ msgid "Unsaved visualization"
 msgstr "Visualisation non enregistrée"
 
 msgid "Edited"
-msgstr "Édité"
+msgstr "Modifié"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "Affichage de l'interprétation de {{interpretationDate}}"
@@ -332,7 +333,7 @@ msgid "Labels"
 msgstr "Étiquettes"
 
 msgid "Axis range"
-msgstr "Gamme d'axes"
+msgstr "Plage de l'axe"
 
 msgid "Values outside of the range will not be displayed"
 msgstr "Valeurs en dehors de la plage ne seront pas affichées"
@@ -341,8 +342,8 @@ msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
 msgstr ""
-"Nombre de pas de cochage des axes, y compris le min et le max. Une valeur "
-"inférieure ou égale à 2 sera ignorée."
+"Nombre de graduations principales de l'axe, y compris le min et le max. Une "
+"valeur inférieure ou égale à 2 sera ignorée."
 
 msgid "Steps"
 msgstr "Étapes"
