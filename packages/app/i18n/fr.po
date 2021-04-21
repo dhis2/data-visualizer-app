@@ -32,7 +32,7 @@ msgid "\"{{what}}\" successfully deleted."
 msgstr "\"{{what}}\" supprimé avec succès."
 
 msgid "Data Visualizer"
-msgstr "Visualiseur de données"
+msgstr "Visualiseur de Données"
 
 msgid "Axis 1"
 msgstr "Axe 1"
@@ -60,8 +60,8 @@ msgid ""
 "'Single Value' is intended to show a single data item. Only the first item "
 "will be used and saved."
 msgstr ""
-"La 'Valeur unique' est destinée à afficher un seul élément de données. Seul "
-"le premier élément sera utilisé et enregistré."
+"La 'Valeur unique' est destinée à afficher une seule donnée. Seul le premier"
+" élément sera utilisé et enregistré."
 
 msgid "Hide"
 msgstr "Masquer"
@@ -73,7 +73,7 @@ msgid "Download"
 msgstr "Télécharger"
 
 msgid "Graphics"
-msgstr "Graphisme"
+msgstr "Graphiques"
 
 msgid "Image (.png)"
 msgstr "Image (.png)"
@@ -82,7 +82,7 @@ msgid "PDF (.pdf)"
 msgstr "PDF (.pdf)"
 
 msgid "Plain data source"
-msgstr "Sourc de données brutes"
+msgstr "Source de données brutes"
 
 msgid "Advanced"
 msgstr "Avancé"
@@ -118,7 +118,8 @@ msgid "Raw data SQL"
 msgstr "Données brutes SQL"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr "An error occurred in the Application Visualiseur de Données DHIS2"
+msgstr ""
+"Une erreur s'est produite dans l'application Visualiseur de Données de DHIS2"
 
 msgid "Something went wrong"
 msgstr "Quelque chose a mal tourné"
@@ -262,7 +263,7 @@ msgid "All"
 msgstr "Tout"
 
 msgid "Show legend key"
-msgstr "Afficher la clé de légende"
+msgstr "Afficher la légende"
 
 msgid "Hide subtitle"
 msgstr "Masquer le sous-titre"
@@ -280,26 +281,26 @@ msgid "Auto"
 msgstr "Auto"
 
 msgid "Range axis decimals"
-msgstr "Décimales de l'axe des plages"
+msgstr "Décimales de l'axe des ordonnées"
 
 msgid "Range axis title"
 msgstr "Titre de l'axe des ordonnées"
 
 msgid "Range axis max"
-msgstr "Le maximum pour l'axe des plages"
+msgstr "Le maximum pour l'axe des ordonnées"
 
 msgid "Range axis min"
-msgstr "Le minimum pour l'axe des plages"
+msgstr "Le minimum pour l'axe des ordonnées"
 
 msgid "Range axis tick steps"
-msgstr "Pas de cochage de l'axe des plages"
+msgstr "Nombre de graduations principales"
 
 msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
 msgstr ""
-"Nombre de pas de cochage des axes, y compris le min et le max. Une valeur "
-"inférieure ou égale à 2 sera ignorée."
+"Nombre de pas de graduation principale de l'axe, y compris le min et le max."
+" Une valeur inférieure ou égale à 2 sera ignorée."
 
 msgid "Trend line"
 msgstr "Courbe de tendance"
@@ -362,10 +363,10 @@ msgid "Stacked column"
 msgstr "Colonne empilée"
 
 msgid "Bar"
-msgstr "Bar"
+msgstr "Barre"
 
 msgid "Stacked bar"
-msgstr "Bar empilé"
+msgstr "Barre empilée"
 
 msgid "Line"
 msgstr "Ligne"
@@ -386,7 +387,7 @@ msgid "Year over year (line)"
 msgstr "Année après année (ligne)"
 
 msgid "Year over year (column)"
-msgstr "Année après année (colonne)"
+msgstr "Année après année (barre)"
 
 msgid "Single value"
 msgstr "Valeur unique"
@@ -492,7 +493,7 @@ msgid "Weeks this year"
 msgstr "Semaines cette année"
 
 msgid "This month"
-msgstr "Ce mois-ci"
+msgstr "Ce mois"
 
 msgid "Last month"
 msgstr "Le mois dernier"
