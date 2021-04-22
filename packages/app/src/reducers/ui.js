@@ -211,10 +211,16 @@ export default (state = DEFAULT_UI, action) => {
                     break
                 }
                 case OPTION_AXIS_TITLE_ENABLED: {
+                    const axis = getAxis(
+                        options.axes,
+                        Number(axisIndex),
+                        axisType
+                    )
                     pushAxis({
-                        ...getAxis(options.axes, Number(axisIndex), axisType),
+                        ...axis,
                         title: value
                             ? {
+                                  ...axis.title,
                                   enabled: value,
                               }
                             : null,
