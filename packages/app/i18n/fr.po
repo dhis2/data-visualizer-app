@@ -423,7 +423,7 @@ msgid "filter"
 msgstr "filtre"
 
 msgid "Please add at least one {{series}} dimension"
-msgstr "Veuillez ajouter au moins dimension de {{series}}"
+msgstr "Veuillez ajouter au moins une dimension de {{series}}"
 
 msgid "Please add at least one {{category}} dimension"
 msgstr "Veuillez ajouter au moins une dimension de {{category}}"
