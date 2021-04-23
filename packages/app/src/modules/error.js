@@ -258,6 +258,18 @@ export class VisualizationNotFoundError extends VisualizationError {
     }
 }
 
+export class NoOrgUnitResponseError extends VisualizationError {
+    constructor() {
+        super(
+            EmptyBox,
+            i18n.t('No organization units found'),
+            i18n.t(
+                "The level or group selections didn't return any organization units."
+            )
+        )
+    }
+}
+
 export const genericErrorTitle = i18n.t('Something went wrong')
 
 const getAvailableAxesDescription = visType => {
