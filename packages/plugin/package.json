@@ -1,6 +1,6 @@
 {
     "name": "@dhis2/data-visualizer-plugin",
-    "version": "33.1.52",
+    "version": "33.1.53",
     "description": "DHIS2 Data Visualizer plugin",
     "main": "./build/index.js",
     "license": "BSD-3-Clause",
