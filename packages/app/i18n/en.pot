@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-04-21T09:58:03.856Z\n"
-"PO-Revision-Date: 2021-04-21T09:58:03.856Z\n"
+"POT-Creation-Date: 2021-04-23T09:26:03.770Z\n"
+"PO-Revision-Date: 2021-04-23T09:26:03.770Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -134,21 +134,6 @@ msgid "JRXML"
 msgstr ""
 
 msgid "Raw data SQL"
-msgstr ""
-
-msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr ""
-
-msgid "Refresh to try again"
-msgstr ""
-
-msgid "Hide technical details"
-msgstr ""
-
-msgid "Show technical details"
-msgstr ""
-
-msgid "The following information may be requested by technical support."
 msgstr ""
 
 msgid "Hide"
