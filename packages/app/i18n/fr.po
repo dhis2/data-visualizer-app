@@ -14,7 +14,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-03-03T10:40:06.300Z\n"
+"POT-Creation-Date: 2021-04-23T09:26:03.770Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Edem Kossi <ekossi@hispwca.org>, 2021\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -160,23 +160,6 @@ msgstr "JRXML"
 
 msgid "Raw data SQL"
 msgstr "Données brutes SQL"
-
-msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr ""
-"Une erreur s'est produite dans l'application Visualiseur de Données de DHIS2"
-
-msgid "Refresh to try again"
-msgstr "Actualiser pour réessayer"
-
-msgid "Hide technical details"
-msgstr "Masquer les détails techniques"
-
-msgid "Show technical details"
-msgstr "Afficher les détails techniques"
-
-msgid "The following information may be requested by technical support."
-msgstr ""
-"Les informations suivantes peuvent être demandées par le support technique."
 
 msgid "Hide"
 msgstr "Masquer"
@@ -844,6 +827,12 @@ msgid ""
 msgstr ""
 "La visualisation que vous essayez de consulter est introuvable, "
 "l'identifiant est peut-être incorrect ou a pu être supprimé"
+
+msgid "No organization units found"
+msgstr ""
+
+msgid "The level or group selections didn't return any organization units."
+msgstr ""
 
 msgid "Something went wrong"
 msgstr "Quelque chose a mal tourné"
