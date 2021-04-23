@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-09-09T14:22:42.172Z\n"
-"PO-Revision-Date: 2020-09-09T14:22:42.172Z\n"
+"POT-Creation-Date: 2021-09-16T07:40:14.837Z\n"
+"PO-Revision-Date: 2021-09-16T07:40:14.837Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -143,21 +143,6 @@ msgid "JRXML"
 msgstr ""
 
 msgid "Raw data SQL"
-msgstr ""
-
-msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr ""
-
-msgid "Refresh to try again"
-msgstr ""
-
-msgid "Hide technical details"
-msgstr ""
-
-msgid "Show technical details"
-msgstr ""
-
-msgid "The following information may be requested by technical support."
 msgstr ""
 
 msgid "Hide"
@@ -616,6 +601,12 @@ msgid "Assigned Categories cannot be used as Filter"
 msgstr ""
 
 msgid "Fix this problem by moving or removing Assigned Categories."
+msgstr ""
+
+msgid "No organization units found"
+msgstr ""
+
+msgid "The level or group selections didn't return any organization units."
 msgstr ""
 
 msgid "Something went wrong"

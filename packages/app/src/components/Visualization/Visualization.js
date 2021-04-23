@@ -27,6 +27,7 @@ import {
     MultipleIndicatorAsFilterError,
     NoDataOrDataElementGroupSetError,
     CombinationDEGSRRError,
+    NoOrgUnitResponseError,
 } from '../../modules/error'
 import LoadingMask from './LoadingMask'
 
@@ -59,6 +60,9 @@ export class Visualization extends Component {
                     break
                 case 'E7112':
                     error = new CombinationDEGSRRError()
+                    break
+                case 'E7124':
+                    error = new NoOrgUnitResponseError()
                     break
                 default:
                     error = response
