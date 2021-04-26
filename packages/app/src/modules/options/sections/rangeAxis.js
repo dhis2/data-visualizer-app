@@ -38,8 +38,11 @@ export default ({ axisId, isVertical, showLines, hasCustomAxes }) => {
                 <AxisLabels axisId={axisId} />,
                 ...(showLines
                     ? [
-                          <TargetLine axisId={axisId} />,
-                          <BaseLine axisId={axisId} />,
+                          <TargetLine
+                              axisId={axisId}
+                              isVertical={isVertical}
+                          />,
+                          <BaseLine axisId={axisId} isVertical={isVertical} />,
                       ]
                     : []),
             ]),
