@@ -39,7 +39,6 @@ export default () => [
                 <AxisRange axisId={axisId} />,
                 <AxisLabels axisId={axisId} />,
             ]),
-            axisId,
         }),
     ]),
     getSeriesTab(),
