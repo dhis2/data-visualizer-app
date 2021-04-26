@@ -85,7 +85,7 @@ export class VisualizationOptions extends Component {
             isDualAxisType(visualizationType) &&
                 hasCustomAxes(filteredSeries) &&
                 !hasRelativeItems(columns[0], columnDimensionItems),
-            series?.length
+            series?.length && isDualAxisType(visualizationType)
                 ? [...new Set(series.map(serie => serie.axis))].sort(
                       (a, b) => a - b
                   )
