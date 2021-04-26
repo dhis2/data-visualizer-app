@@ -1,6 +1,6 @@
 import getLinesSection from './sections/lines'
-import getVerticalAxisSection from './sections/verticalAxis'
-import getHorizontalAxisSection from './sections/horizontalAxis'
+import getRangeAxisSection from './sections/rangeAxis'
+import getDomainAxisSection from './sections/domainAxis'
 import getColorSetSection from './sections/colorSet'
 import getSeriesTab from './tabs/series'
 import getAxesTab from './tabs/axes'
@@ -20,7 +20,8 @@ export default ({
     isColumnBased,
     isStacked,
     supportsLegends,
-    verticalAxisIds = [],
+    rangeAxisIds = [],
+    isVertical,
 } = {}) => [
     getDataTab([
         getDisplaySection(isStacked),
@@ -29,14 +30,16 @@ export default ({
     ]),
     ...(supportsLegends ? [getLegendTab({ hideStyleOptions: true })] : []),
     getAxesTab([
-        ...verticalAxisIds.map(id =>
-            getVerticalAxisSection(
-                `RANGE_${id}`,
-                hasDisabledSections,
-                verticalAxisIds.length > 1 || verticalAxisIds.some(id => id > 0)
-            )
+        ...rangeAxisIds.map(id =>
+            getRangeAxisSection({
+                axisId: `RANGE_${id}`,
+                isVertical,
+                showLines: hasDisabledSections,
+                hasCustomAxes:
+                    rangeAxisIds.length > 1 || rangeAxisIds.some(id => id > 0),
+            })
         ),
-        getHorizontalAxisSection(),
+        getDomainAxisSection({ axisId: 'DOMAIN_0', isVertical }),
     ]),
     getSeriesTab({
         showAxisOptions: supportsMultiAxes,

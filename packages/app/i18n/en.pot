@@ -909,9 +909,6 @@ msgstr ""
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
 
-msgid "Horizontal (x) axis"
-msgstr ""
-
 msgid "Base and target lines are available on the Axes tab for multi-axis charts"
 msgstr ""
 
@@ -922,6 +919,12 @@ msgid "Display"
 msgstr ""
 
 msgid "Empty data"
+msgstr ""
+
+msgid "Horizontal (x) axis {{axisId}}"
+msgstr ""
+
+msgid "Horizontal (x) axis"
 msgstr ""
 
 msgid "Lines"

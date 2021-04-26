@@ -9,6 +9,7 @@ import {
     isMultiType,
     isDualAxisType,
     isColumnBasedType,
+    isVerticalType,
 } from '@dhis2/analytics'
 
 import pivotTableConfig from './pivotTableConfig'
@@ -18,16 +19,13 @@ import singleValueConfig from './singleValueConfig'
 import defaultConfig from './defaultConfig'
 import scatterConfig from './scatterConfig'
 
-export const getOptionsByType = (
-    type,
-    hasDisabledSections,
-    verticalAxisIds
-) => {
+export const getOptionsByType = (type, hasDisabledSections, rangeAxisIds) => {
     const isStacked = isStackedType(type)
     const isColumnBased = isColumnBasedType(type)
     const supportsLegends = isLegendSetType(type)
     const supportsMultiAxes = isDualAxisType(type)
     const supportsMultiType = isMultiType(type)
+    const isVertical = isVerticalType(type)
 
     const defaultProps = {
         hasDisabledSections,
@@ -36,7 +34,8 @@ export const getOptionsByType = (
         supportsLegends,
         supportsMultiAxes,
         supportsMultiType,
-        verticalAxisIds,
+        rangeAxisIds,
+        isVertical,
     }
 
     switch (type) {

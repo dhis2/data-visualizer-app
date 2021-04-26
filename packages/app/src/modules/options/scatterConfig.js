@@ -46,6 +46,7 @@ export default () => [
         }),
         getAdvancedSection(),
     ]),
+    // TODO: Refactor to use 2x rangeAxis instead
     getAxesTab([
         {
             key: 'axes-vertical-axis',
