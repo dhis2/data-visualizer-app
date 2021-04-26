@@ -3,10 +3,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import WarningIcon from '@material-ui/icons/Warning'
-import LockIcon from '@material-ui/icons/Lock'
-
-import { Tooltip } from '@dhis2/ui'
+import { Tooltip, IconLock16, IconWarningFilled16 } from '@dhis2/ui'
 
 import i18n from '@dhis2/d2-i18n'
 import {
@@ -47,17 +44,20 @@ const Chip = ({
     const dataTest = `layout-chip-${dimensionId}`
 
     const LockIconWrapper = (
-        <div style={styles.lockIconWrapper} data-test={`${dataTest}-lock-icon`}>
-            <LockIcon style={styles.lockIcon} />
+        <div
+            style={styles.rightIconWrapper}
+            data-test={`${dataTest}-lock-icon`}
+        >
+            <IconLock16 />
         </div>
     )
 
     const WarningIconWrapper = (
         <div
-            style={styles.warningIconWrapper}
+            style={styles.rightIconWrapper}
             data-test={`${dataTest}-warning-icon`}
         >
-            <WarningIcon style={styles.warningIcon} />
+            <IconWarningFilled16 />
         </div>
     )
 
@@ -143,7 +143,7 @@ const Chip = ({
 
     const renderChipContent = () => (
         <>
-            <div style={styles.iconWrapper}>{renderChipIcon()}</div>
+            <div style={styles.leftIconWrapper}>{renderChipIcon()}</div>
             <span style={!isSplitAxis ? styles.label : {}}>
                 {dimensionName}
             </span>

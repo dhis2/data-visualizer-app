@@ -1,8 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import { IconChevronRight24, IconChevronLeft24 } from '@dhis2/ui'
 import { InterpretationsButton } from '../InterpretationsButton'
-import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft'
-import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight'
 import MenuButton from '../../MenuButton/MenuButton'
 
 describe('InterpretationsButton component', () => {
@@ -53,7 +52,7 @@ describe('InterpretationsButton component', () => {
 
     it('uses the correct arrow icon based on props', () => {
         expect(
-            interpretationsButton().find(KeyboardArrowLeftIcon).first().length
+            interpretationsButton().find(IconChevronLeft24).first().length
         ).toEqual(1)
     })
 
@@ -61,7 +60,7 @@ describe('InterpretationsButton component', () => {
         props.rightSidebarOpen = true
 
         expect(
-            interpretationsButton().find(KeyboardArrowRightIcon).first().length
+            interpretationsButton().find(IconChevronRight24).first().length
         ).toEqual(1)
     })
 })
