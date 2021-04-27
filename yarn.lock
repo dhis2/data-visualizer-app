@@ -1524,6 +1524,13 @@
   dependencies:
     moment "^2.24.0"
 
+"@dhis2/app-runtime-adapter-d2@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-runtime-adapter-d2/-/app-runtime-adapter-d2-1.1.0.tgz#4da0b620a5552b3d7f01b1cc470bb4f2de684025"
+  integrity sha512-Qlff432iw1IljuRoexNCBhpdThYQ6WMNhSIrHQuNpF8JARKmq/W1WhSsnUrYbHy2FL8yBKsORXOWbfMpVY5vRw==
+  dependencies:
+    prop-types "^15.7.2"
+
 "@dhis2/app-runtime@^2.8.0":
   version "2.8.0"
   resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-2.8.0.tgz#83ca6e96c299686ee72eea3e1825e04aa53cd5d2"

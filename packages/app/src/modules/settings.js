@@ -4,13 +4,3 @@ export const SYSTEM_SETTINGS = [
     'keyAnalysisDigitGroupSeparator',
     'keyIgnoreAnalyticsApprovalYearThreshold',
 ]
-
-export const extractUserSettings = settings => {
-    const nameProp = settings.keyAnalysisDisplayProperty
-
-    return {
-        displayNameProperty:
-            nameProp === 'name' ? 'displayName' : 'displayShortName',
-        uiLocale: settings.keyUiLocale,
-    }
-}
