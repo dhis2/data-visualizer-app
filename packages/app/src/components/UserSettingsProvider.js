@@ -5,7 +5,7 @@ import { useDataEngine } from '@dhis2/app-runtime'
 export const userSettingsQuery = {
     resource: 'userSettings',
     params: {
-        key: ['keyDbLocale', 'keyUiLocale', 'keyAnalysisDisplayProperty'],
+        key: ['keyUiLocale', 'keyAnalysisDisplayProperty'],
     },
 }
 
@@ -24,6 +24,11 @@ const UserSettingsProvider = ({ children }) => {
             setSettings({
                 ...userSettings,
                 displayProperty: userSettings.keyAnalysisDisplayProperty,
+                displayPropertyName:
+                    userSettings.keyAnalysisDisplayProperty === 'name'
+                        ? 'displayName'
+                        : 'displayShortName',
+                uiLocale: userSettings.keyUiLocale,
             })
         }
         fetchData()

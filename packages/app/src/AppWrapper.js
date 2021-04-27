@@ -5,7 +5,6 @@ import { useConfig, useDataEngine } from '@dhis2/app-runtime'
 
 import { D2Shim } from '@dhis2/app-runtime-adapter-d2'
 import history from './modules/history'
-import { extractUserSettings } from './modules/settings'
 import configureStore from './configureStore'
 import metadataMiddleware from './middleware/metadata'
 import App from './components/App'
@@ -75,9 +74,7 @@ const AppWrapper = () => {
                                                 baseUrl={baseUrl}
                                                 dataEngine={engine}
                                                 ouLevels={ouLevels}
-                                                userSettings={extractUserSettings(
-                                                    userSettings
-                                                )}
+                                                userSettings={userSettings}
                                             />
                                         )
                                     }
