@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
-import { Label, Field, Radio, InputField } from '@dhis2/ui'
+import { Label, Field, Radio, InputField, Button } from '@dhis2/ui'
 import { connect } from 'react-redux'
 import {
     defaultFontStyle,
@@ -14,7 +14,7 @@ import {
 } from '../styles/VisualizationOptions.style.js'
 import TextStyle from './TextStyle'
 import { sGetUiOption } from '../../../reducers/ui'
-import { acSetUiOption } from '../../../actions/ui'
+import { acSetUiOption, acSetUiOptionFontStyle } from '../../../actions/ui'
 import {
     OPTION_AXIS_TITLE,
     OPTION_AXIS_TITLE_ENABLED,
@@ -26,41 +26,56 @@ const TITLE_CUSTOM = 'CUSTOM'
 const colors = ['#4292c6', '#cb181d', '#41ab5d', '#6c66b8']
 
 const AxisTitle = ({
-    disabled,
     axisId,
     fontStyleKey,
-    //checked,
-    onChange,
-    onToggle,
+    enabled,
+    onTextChange,
+    onEnabledToggle,
     title,
     hasCustomAxes,
     setTitleColor,
     fontStyle,
+    setFontStyle,
 }) => {
-    const [titleType, setTitleType] = useState(TITLE_NONE)
+    const titleType = enabled
+        ? title || title === ''
+            ? TITLE_CUSTOM
+            : TITLE_AUTO
+        : TITLE_NONE
 
-    const onTypeChange = ({ value }) => {
-        setTitleType(value)
-        onToggle(value === TITLE_CUSTOM || value === TITLE_AUTO)
+    const onTypeChange = ({ value: type }) => {
+        onEnabledToggle(type === TITLE_CUSTOM || type === TITLE_AUTO)
 
-        if (value === TITLE_AUTO) {
-            onChange(
-                i18n.t('Axis {{axisId}}', {
-                    axisId: Number(axisId.slice(-1)) + 1,
-                })
-            )
-            if (
-                hasCustomAxes &&
-                fontStyle[FONT_STYLE_OPTION_TEXT_COLOR] ===
-                    defaultFontStyle[fontStyleKey][FONT_STYLE_OPTION_TEXT_COLOR]
-            ) {
-                setTitleColor(colors[axisId.slice(-1)])
-            }
+        if (
+            (type === TITLE_AUTO || type === TITLE_CUSTOM) &&
+            hasCustomAxes &&
+            fontStyle[FONT_STYLE_OPTION_TEXT_COLOR] ===
+                defaultFontStyle[fontStyleKey][FONT_STYLE_OPTION_TEXT_COLOR]
+        ) {
+            setTitleColor(colors[axisId.slice(-1)])
+        }
+        if (type === TITLE_CUSTOM) {
+            onTextChange('Custom')
         } else {
-            //TODO: Always set title to empty string here?
-            onChange()
+            onTextChange()
         }
     }
+
+    const resetStyle = () => {
+        setFontStyle(
+            hasCustomAxes ? { textColor: colors[axisId.slice(-1)] } : {}
+        )
+    }
+
+    const fontStyleIsDefault = () =>
+        Object.keys(fontStyle).every(
+            key =>
+                ((key !== FONT_STYLE_OPTION_TEXT_COLOR || !hasCustomAxes) &&
+                    fontStyle[key] === defaultFontStyle[fontStyleKey][key]) ||
+                (key === FONT_STYLE_OPTION_TEXT_COLOR &&
+                    hasCustomAxes &&
+                    fontStyle[key] === colors[axisId.slice(-1)])
+        )
 
     return (
         <div
@@ -91,12 +106,11 @@ const AxisTitle = ({
                 <div className={tabSectionOptionToggleable.className}>
                     <InputField
                         type={'text'}
-                        onChange={({ value }) => onChange(value)}
+                        onChange={({ value }) => onTextChange(value)}
                         value={title}
                         placeholder={i18n.t('Add a title')}
                         inputWidth={'280px'}
                         dense
-                        disabled={disabled}
                         dataTest={`${axisId}-axis-title-input`}
                     />
                 </div>
@@ -108,6 +122,13 @@ const AxisTitle = ({
                         dataTest={`${axisId}-axis-title-text-style`}
                         axisId={axisId}
                     />
+                    <Button
+                        onClick={resetStyle}
+                        disabled={fontStyleIsDefault()}
+                        small
+                    >
+                        {i18n.t('Reset style to default')}
+                    </Button>
                 </div>
             ) : null}
         </div>
@@ -116,14 +137,15 @@ const AxisTitle = ({
 
 AxisTitle.propTypes = {
     axisId: PropTypes.string,
-    disabled: PropTypes.bool,
+    enabled: PropTypes.bool,
     fontStyle: PropTypes.object,
     fontStyleKey: PropTypes.string,
     hasCustomAxes: PropTypes.bool,
+    setFontStyle: PropTypes.func,
     setTitleColor: PropTypes.func,
     title: PropTypes.string,
-    onChange: PropTypes.func,
-    onToggle: PropTypes.func,
+    onEnabledToggle: PropTypes.func,
+    onTextChange: PropTypes.func,
 }
 
 const mapStateToProps = (state, ownProps) => ({
@@ -132,12 +154,11 @@ const mapStateToProps = (state, ownProps) => ({
             id: ownProps.fontStyleKey,
             axisId: ownProps.axisId,
         }) || {},
-    title:
-        sGetUiOption(state, {
-            axisId: ownProps.axisId,
-            id: OPTION_AXIS_TITLE,
-        }) || '',
-    checked:
+    title: sGetUiOption(state, {
+        axisId: ownProps.axisId,
+        id: OPTION_AXIS_TITLE,
+    }),
+    enabled:
         sGetUiOption(state, {
             id: OPTION_AXIS_TITLE_ENABLED,
             axisId: ownProps.axisId,
@@ -145,7 +166,7 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onChange: value =>
+    onTextChange: value =>
         dispatch(
             acSetUiOption({
                 optionId: OPTION_AXIS_TITLE,
@@ -153,12 +174,12 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
                 value,
             })
         ),
-    onToggle: checked =>
+    onEnabledToggle: enabled =>
         dispatch(
             acSetUiOption({
                 optionId: OPTION_AXIS_TITLE_ENABLED,
                 axisId: ownProps.axisId,
-                value: checked,
+                value: enabled,
             })
         ),
     setTitleColor: value =>
@@ -167,6 +188,14 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
                 optionId: ownProps.fontStyleKey,
                 axisId: ownProps.axisId,
                 fontStyleOption: FONT_STYLE_OPTION_TEXT_COLOR,
+                value,
+            })
+        ),
+    setFontStyle: value =>
+        dispatch(
+            acSetUiOptionFontStyle({
+                optionId: ownProps.fontStyleKey,
+                axisId: ownProps.axisId,
                 value,
             })
         ),

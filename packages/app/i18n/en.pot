@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-04-15T12:33:45.104Z\n"
-"PO-Revision-Date: 2021-04-15T12:33:45.104Z\n"
+"POT-Creation-Date: 2021-04-26T14:05:33.119Z\n"
+"PO-Revision-Date: 2021-04-26T14:05:33.119Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -316,7 +316,19 @@ msgstr ""
 msgid "Axis title"
 msgstr ""
 
+msgid "Auto generated"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Custom"
+msgstr ""
+
 msgid "Add a title"
+msgstr ""
+
+msgid "Reset style to default"
 msgstr ""
 
 msgid "Base line"
@@ -359,9 +371,6 @@ msgid "Cumulative values"
 msgstr ""
 
 msgid "Digit group separator"
-msgstr ""
-
-msgid "None"
 msgstr ""
 
 msgid "Space"
@@ -431,12 +440,6 @@ msgid "Table subtitle"
 msgstr ""
 
 msgid "Chart subtitle"
-msgstr ""
-
-msgid "Auto generated"
-msgstr ""
-
-msgid "Custom"
 msgstr ""
 
 msgid "Chart title"
