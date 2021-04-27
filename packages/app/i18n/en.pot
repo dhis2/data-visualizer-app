@@ -136,21 +136,6 @@ msgstr ""
 msgid "Raw data SQL"
 msgstr ""
 
-msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr ""
-
-msgid "Refresh to try again"
-msgstr ""
-
-msgid "Hide technical details"
-msgstr ""
-
-msgid "Show technical details"
-msgstr ""
-
-msgid "The following information may be requested by technical support."
-msgstr ""
-
 msgid "Hide"
 msgstr ""
 
@@ -764,6 +749,12 @@ msgstr ""
 msgid ""
 "The visualization you are trying to view could not be found, the ID could "
 "be incorrect or it could have been deleted."
+msgstr ""
+
+msgid "No organization units found"
+msgstr ""
+
+msgid "The level or group selections didn't return any organization units."
 msgstr ""
 
 msgid "Something went wrong"

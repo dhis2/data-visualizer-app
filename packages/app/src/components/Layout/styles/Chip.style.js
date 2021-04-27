@@ -33,26 +33,13 @@ export const styles = {
     fixedDimensionIcon: {
         paddingRight: '6px',
     },
-    iconWrapper: {
+    leftIconWrapper: {
         paddingRight: '6px',
         display: 'flex',
         alignItems: 'center',
     },
-    warningIcon: {
-        fontSize: layoutStyle.CHIP_FONT_SIZE,
-    },
-    warningIconWrapper: {
+    rightIconWrapper: {
         paddingLeft: '6px',
-        display: 'flex',
-        alignItems: 'center',
-    },
-    lockIcon: {
-        fontSize: layoutStyle.CHIP_FONT_SIZE,
-    },
-    lockIconWrapper: {
-        paddingLeft: '6px',
-        display: 'flex',
-        alignItems: 'center',
     },
     label: {
         whiteSpace: 'nowrap',

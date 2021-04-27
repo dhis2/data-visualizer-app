@@ -25,16 +25,13 @@ export const styles = {
         overflow: 'hidden',
         textOverflow: 'ellipsis',
     },
-    icon: {
-        fontSize: '13px',
-        marginRight: '6px',
-    },
     iconWrapper: {
         display: 'flex',
         alignItems: 'center',
         marginBottom: '5px',
     },
-    warningLabel: {
+    label: {
         whiteSpace: 'normal',
+        marginLeft: '6px',
     },
 }

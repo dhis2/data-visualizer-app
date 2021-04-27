@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft'
-import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight'
+import { IconChevronRight24, IconChevronLeft24 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 
 import { sGetUiRightSidebarOpen } from '../../reducers/ui'
@@ -14,9 +13,13 @@ import styles from './styles/InterpretationsButton.module.css'
 export const InterpretationsButton = props => (
     <MenuButton disabled={!props.id} onClick={props.onClick}>
         {props.rightSidebarOpen ? (
-            <KeyboardArrowRightIcon className={styles.icon} />
+            <div className={styles.iconWrapper}>
+                <IconChevronRight24 />
+            </div>
         ) : (
-            <KeyboardArrowLeftIcon className={styles.icon} />
+            <div className={styles.iconWrapper}>
+                <IconChevronLeft24 />
+            </div>
         )}
         {i18n.t('Interpretations')}
     </MenuButton>

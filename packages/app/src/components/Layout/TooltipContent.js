@@ -2,11 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import LockIcon from '@material-ui/icons/Lock'
-import WarningIcon from '@material-ui/icons/Warning'
-
 import i18n from '@dhis2/d2-i18n'
 import { ouIdHelper } from '@dhis2/analytics'
+import { IconWarningFilled16, IconLock16 } from '@dhis2/ui'
 
 import { sGetMetadata } from '../../reducers/metadata'
 import { styles } from './styles/Tooltip.style'
@@ -79,8 +77,8 @@ export const TooltipContent = ({
     const renderWarningLabel = warningLabel => (
         <li style={styles.item}>
             <div style={styles.iconWrapper}>
-                <WarningIcon style={styles.icon} />
-                <span style={styles.warningLabel}>{warningLabel}</span>
+                <IconWarningFilled16 />
+                <span style={styles.label}>{warningLabel}</span>
             </div>
         </li>
     )
@@ -115,8 +113,8 @@ export const TooltipContent = ({
     const renderLockedLabel = () => (
         <li style={styles.item}>
             <div style={styles.iconWrapper}>
-                <LockIcon style={styles.icon} />
-                <span>{lockedLabel}</span>
+                <IconLock16 />
+                <span style={styles.label}>{lockedLabel}</span>
             </div>
         </li>
     )
