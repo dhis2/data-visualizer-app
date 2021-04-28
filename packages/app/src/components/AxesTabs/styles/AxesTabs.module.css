@@ -1,0 +1,10 @@
+.tabs {
+    width: 200px;
+    position: absolute;
+    top: 136px; /* modal title + horizontal tab bar height */
+    bottom: 84px; /* modal actions section height */
+}
+
+.content {
+    margin-left: 200px;
+}
