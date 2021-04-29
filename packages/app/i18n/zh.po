@@ -766,10 +766,10 @@ msgid ""
 msgstr "找不到您尝试查看的可视化文件，该ID可能不正确或已被删除。"
 
 msgid "No organization units found"
-msgstr ""
+msgstr "找不到组织机构"
 
 msgid "The level or group selections didn't return any organization units."
-msgstr ""
+msgstr "级别或组选择未返回任何组织机构。"
 
 msgid "Something went wrong"
 msgstr "出了些问题"
