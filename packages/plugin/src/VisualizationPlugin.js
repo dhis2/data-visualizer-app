@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import { useDataEngine, useDataQuery } from '@dhis2/app-runtime'
 import { Popper } from '@dhis2/ui'
-import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
+import { VIS_TYPE_PIVOT_TABLE, convertOuLevelsToUids } from '@dhis2/analytics'
 
 import { apiFetchLegendSets } from './api/legendSets'
 import { orgUnitLevelsQuery } from './api/organisationUnits'
@@ -156,7 +156,10 @@ export const VisualizationPlugin = ({
             {!fetchResult.visualization.type ||
             fetchResult.visualization.type === VIS_TYPE_PIVOT_TABLE ? (
                 <PivotPlugin
-                    visualization={fetchResult.visualization}
+                    visualization={convertOuLevelsToUids(
+                        ouLevels,
+                        fetchResult.visualization
+                    )}
                     responses={fetchResult.responses}
                     legendSets={fetchResult.legendSets}
                     onToggleContextualMenu={
@@ -166,7 +169,10 @@ export const VisualizationPlugin = ({
                 />
             ) : (
                 <ChartPlugin
-                    visualization={fetchResult.visualization}
+                    visualization={convertOuLevelsToUids(
+                        ouLevels,
+                        fetchResult.visualization
+                    )}
                     responses={fetchResult.responses}
                     extraOptions={fetchResult.extraOptions}
                     legendSets={fetchResult.legendSets}

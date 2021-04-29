@@ -48,6 +48,7 @@ jest.mock('../../api/organisationUnits', () => ({
                 id: '2nd-floor',
             },
         ]),
+    convertOuLevelsToUids: (ouLevels, vis) => vis,
 }))
 
 describe('index', () => {
