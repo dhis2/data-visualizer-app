@@ -1,3 +1,10 @@
+## [37.0.4](https://github.com/dhis2/data-visualizer-app/compare/v37.0.3...v37.0.4) (2021-04-30)
+
+
+### Bug Fixes
+
+* i18n folder and missing icons ([#1708](https://github.com/dhis2/data-visualizer-app/issues/1708)) ([0659202](https://github.com/dhis2/data-visualizer-app/commit/06592022d2eb53f723e7f3864bf676d56f386438))
+
 ## [37.0.3](https://github.com/dhis2/data-visualizer-app/compare/v37.0.2...v37.0.3) (2021-04-29)
 
 
