@@ -57,7 +57,7 @@ const Legend = ({
         <div className={tabSectionOption.className}>
             <Checkbox
                 checked={legendEnabled}
-                label={i18n.t('Use a legend set for chart colors')}
+                label={i18n.t('Use legend for chart colors')}
                 onChange={onCheckboxChange}
                 dense
             />
