@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
+import { colors } from '@dhis2/ui'
 import { useDataEngine } from '@dhis2/app-runtime'
 import { visTypeIcons } from '@dhis2/analytics'
 
@@ -79,21 +80,28 @@ const StartScreen = ({ error }) => {
                             {i18n.t('Your most viewed charts and tables')}
                         </h3>
                         {mostViewedVisualizations.map(
-                            (visualization, index) => (
-                                <p
-                                    key={index}
-                                    className={styles.visualization}
-                                    onClick={() =>
-                                        history.push(`/${visualization.id}`)
-                                    }
-                                    data-test="start-screen-most-viewed-list-item"
-                                >
-                                    <span className={styles.visIcon}>
-                                        {visTypeIcons[visualization.type]}
-                                    </span>
-                                    <span>{visualization.name}</span>
-                                </p>
-                            )
+                            (visualization, index) => {
+                                const VisualizationIcon =
+                                    visTypeIcons[visualization.type]
+
+                                return (
+                                    <p
+                                        key={index}
+                                        className={styles.visualization}
+                                        onClick={() =>
+                                            history.push(`/${visualization.id}`)
+                                        }
+                                        data-test="start-screen-most-viewed-list-item"
+                                    >
+                                        <span className={styles.visIcon}>
+                                            <VisualizationIcon
+                                                color={colors.grey600}
+                                            />
+                                        </span>
+                                        <span>{visualization.name}</span>
+                                    </p>
+                                )
+                            }
                         )}
                     </div>
                 )}

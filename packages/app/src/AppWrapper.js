@@ -59,7 +59,7 @@ const AppWrapper = () => {
                         return userSettings?.keyUiLocale ? (
                             <D2Shim
                                 d2Config={d2Config}
-                                i18nRoot="./i18n-old"
+                                i18nRoot="./i18n_old"
                                 locale={userSettings.keyUiLocale}
                             >
                                 {({ d2 }) => {
