@@ -13,6 +13,7 @@ import history from '../../modules/history'
 import { VisualizationError, genericErrorTitle } from '../../modules/error'
 import { GenericError } from '../../assets/ErrorIcons'
 import { apiFetchVisualizations } from '../../api/visualization'
+import { matchVisualizationWithType } from './utils'
 
 const StartScreen = ({ error }) => {
     const [mostViewedVisualizations, setMostViewedVisualizations] = useState([])
@@ -32,19 +33,10 @@ const StartScreen = ({ error }) => {
                 )
                 const visualizationsWithType =
                     visualizationsResult.visualization.visualizations // {id: string, type: string}
-                const result = []
-
-                visualizations.forEach(visualization => {
-                    const type = visualizationsWithType.find(
-                        visWithType => visWithType.id === visualization.id
-                    )?.type
-                    if (type) {
-                        result.push({
-                            ...visualization,
-                            type,
-                        })
-                    }
-                })
+                const result = matchVisualizationWithType(
+                    visualizations,
+                    visualizationsWithType
+                )
 
                 setMostViewedVisualizations(result)
             }
