@@ -26,20 +26,18 @@ const StartScreen = ({ error, username }) => {
                 6,
                 username
             )
-            const visualizations = mostViewedVisualizationsResult.visualization
+            const visualizations = mostViewedVisualizationsResult.visualization // {position: int, views: int, id: string, created: string}
             if (visualizations && visualizations.length) {
                 const visualizationsResult = await apiFetchVisualizations(
                     engine,
-                    visualizations.map(vis => vis.id)
+                    visualizations.map(visualization => visualization.id)
                 )
                 const visualizationsWithType =
-                    visualizationsResult.visualization.visualizations
-                const result = visualizations.map(vis => ({
-                    ...visualizationsWithType.find(
-                        visWithType => visWithType.id === vis.id && visWithType
-                    ),
-                    ...vis,
-                }))
+                    visualizationsResult.visualization.visualizations // {id: string, type: string}
+                const result = matchVisualizationWithType(
+                    visualizations,
+                    visualizationsWithType
+                )
 
                 setMostViewedVisualizations(result)
             }
