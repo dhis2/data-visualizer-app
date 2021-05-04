@@ -32,7 +32,7 @@ import {
     OPTION_AXIS_MIN_VALUE,
     OPTION_AXIS_STEPS,
     OPTION_AXIS_TITLE,
-    OPTION_AXIS_TITLE_ENABLED,
+    OPTION_AXIS_TITLE_TYPE,
     OPTION_BASE_LINE_TITLE,
     OPTION_BASE_LINE_VALUE,
     OPTION_BASE_LINE_TITLE_FONT_STYLE,
@@ -203,7 +203,7 @@ export default (state = DEFAULT_UI, action) => {
                     })
                     break
                 }
-                case OPTION_AXIS_TITLE_ENABLED: {
+                case OPTION_AXIS_TITLE_TYPE: {
                     const axis = getAxis(
                         options.axes,
                         Number(axisIndex),
@@ -213,7 +213,7 @@ export default (state = DEFAULT_UI, action) => {
                         ...axis,
                         title: {
                             ...axis.title,
-                            enabled: value,
+                            type: value,
                         },
                     })
                     break
@@ -737,9 +737,9 @@ export const sGetUiOption = (state, option) => {
                     option.id
                 ]
                 break
-            case OPTION_AXIS_TITLE_ENABLED:
+            case OPTION_AXIS_TITLE_TYPE:
                 value = getAxis(options.axes, Number(axisIndex), axisType).title
-                    ?.enabled
+                    ?.type
                 break
             case OPTION_AXIS_TITLE:
                 value = getAxis(options.axes, Number(axisIndex), axisType).title

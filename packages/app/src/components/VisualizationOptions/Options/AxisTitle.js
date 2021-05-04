@@ -17,7 +17,7 @@ import { sGetUiOption } from '../../../reducers/ui'
 import { acSetUiOption, acSetUiOptionFontStyle } from '../../../actions/ui'
 import {
     OPTION_AXIS_TITLE,
-    OPTION_AXIS_TITLE_ENABLED,
+    OPTION_AXIS_TITLE_TYPE,
 } from '../../../modules/options'
 
 const TITLE_AUTO = 'AUTO'
@@ -28,36 +28,25 @@ const colors = ['#4292c6', '#cb181d', '#41ab5d', '#6c66b8']
 const AxisTitle = ({
     axisId,
     fontStyleKey,
-    enabled,
+    type,
     onTextChange,
-    onEnabledToggle,
+    onTypeChange,
     title,
     hasCustomAxes,
     setTitleColor,
     fontStyle,
     setFontStyle,
 }) => {
-    const titleType = enabled
-        ? title || title === ''
-            ? TITLE_CUSTOM
-            : TITLE_AUTO
-        : TITLE_NONE
-
-    const onTypeChange = ({ value: type }) => {
-        onEnabledToggle(type === TITLE_CUSTOM || type === TITLE_AUTO)
+    const onRadioChange = ({ value: newType }) => {
+        onTypeChange(newType)
 
         if (
-            (type === TITLE_AUTO || type === TITLE_CUSTOM) &&
+            (newType === TITLE_AUTO || newType === TITLE_CUSTOM) &&
             hasCustomAxes &&
             fontStyle[FONT_STYLE_OPTION_TEXT_COLOR] ===
                 defaultFontStyle[fontStyleKey][FONT_STYLE_OPTION_TEXT_COLOR]
         ) {
             setTitleColor(colors[axisId.slice(-1)])
-        }
-        if (type === TITLE_CUSTOM) {
-            onTextChange('Custom')
-        } else {
-            onTextChange()
         }
     }
 
@@ -97,12 +86,12 @@ const AxisTitle = ({
                         label={label}
                         value={id}
                         dense
-                        onChange={onTypeChange}
-                        checked={titleType === id}
+                        onChange={onRadioChange}
+                        checked={type === id}
                     />
                 ))}
             </Field>
-            {titleType === TITLE_CUSTOM ? (
+            {type === TITLE_CUSTOM ? (
                 <div className={tabSectionOptionToggleable.className}>
                     <InputField
                         type={'text'}
@@ -115,7 +104,7 @@ const AxisTitle = ({
                     />
                 </div>
             ) : null}
-            {titleType === TITLE_AUTO || titleType === TITLE_CUSTOM ? (
+            {type === TITLE_AUTO || type === TITLE_CUSTOM ? (
                 <div className={tabSectionOptionToggleable.className}>
                     <TextStyle
                         fontStyleKey={fontStyleKey}
@@ -137,15 +126,15 @@ const AxisTitle = ({
 
 AxisTitle.propTypes = {
     axisId: PropTypes.string,
-    enabled: PropTypes.bool,
     fontStyle: PropTypes.object,
     fontStyleKey: PropTypes.string,
     hasCustomAxes: PropTypes.bool,
     setFontStyle: PropTypes.func,
     setTitleColor: PropTypes.func,
     title: PropTypes.string,
-    onEnabledToggle: PropTypes.func,
+    type: PropTypes.bool,
     onTextChange: PropTypes.func,
+    onTypeChange: PropTypes.func,
 }
 
 const mapStateToProps = (state, ownProps) => ({
@@ -158,11 +147,11 @@ const mapStateToProps = (state, ownProps) => ({
         axisId: ownProps.axisId,
         id: OPTION_AXIS_TITLE,
     }),
-    enabled:
+    type:
         sGetUiOption(state, {
-            id: OPTION_AXIS_TITLE_ENABLED,
+            id: OPTION_AXIS_TITLE_TYPE,
             axisId: ownProps.axisId,
-        }) || false,
+        }) || TITLE_NONE,
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
@@ -174,12 +163,12 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
                 value,
             })
         ),
-    onEnabledToggle: enabled =>
+    onTypeChange: type =>
         dispatch(
             acSetUiOption({
-                optionId: OPTION_AXIS_TITLE_ENABLED,
+                optionId: OPTION_AXIS_TITLE_TYPE,
                 axisId: ownProps.axisId,
-                value: enabled,
+                value: type,
             })
         ),
     setTitleColor: value =>
