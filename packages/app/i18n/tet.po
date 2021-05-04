@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-23T09:26:03.770Z\n"
+"POT-Creation-Date: 2021-04-30T12:20:24.132Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Tetum (Tetun) (https://www.transifex.com/hisp-uio/teams/100509/tet/)\n"
@@ -435,7 +435,7 @@ msgstr ""
 msgid "Chart title"
 msgstr "Gráfiku nia títulu"
 
-msgid "Display legend"
+msgid "Use legend for chart colors"
 msgstr ""
 
 msgid "Legend style"
