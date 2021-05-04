@@ -1,3 +1,10 @@
+## [37.0.5](https://github.com/dhis2/data-visualizer-app/compare/v37.0.4...v37.0.5) (2021-05-03)
+
+
+### Bug Fixes
+
+* start screen vis type crash ([#1709](https://github.com/dhis2/data-visualizer-app/issues/1709)) ([f8c4303](https://github.com/dhis2/data-visualizer-app/commit/f8c43030eb167aa52a0e30d47eac699d6fdb5a05))
+
 ## [37.0.4](https://github.com/dhis2/data-visualizer-app/compare/v37.0.3...v37.0.4) (2021-04-30)
 
 
