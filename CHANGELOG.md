@@ -1,3 +1,10 @@
+## [37.0.6](https://github.com/dhis2/data-visualizer-app/compare/v37.0.5...v37.0.6) (2021-05-04)
+
+
+### Bug Fixes
+
+* new label for legend set options (DHIS2-11037) ([#1707](https://github.com/dhis2/data-visualizer-app/issues/1707)) ([580e7d4](https://github.com/dhis2/data-visualizer-app/commit/580e7d487ea6bc85a577e10ecf4b9c9bc45acd8b))
+
 ## [37.0.5](https://github.com/dhis2/data-visualizer-app/compare/v37.0.4...v37.0.5) (2021-05-03)
 
 
