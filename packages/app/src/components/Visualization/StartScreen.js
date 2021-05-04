@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
+import { colors } from '@dhis2/ui'
 import { useDataEngine } from '@dhis2/app-runtime'
 import { visTypeIcons } from '@dhis2/analytics'
 
@@ -12,6 +13,7 @@ import history from '../../modules/history'
 import { VisualizationError, genericErrorTitle } from '../../modules/error'
 import { GenericError } from '../../assets/ErrorIcons'
 import { apiFetchVisualizations } from '../../api/visualization'
+import { matchVisualizationWithType } from './utils'
 
 const StartScreen = ({ error }) => {
     const [mostViewedVisualizations, setMostViewedVisualizations] = useState([])
@@ -23,20 +25,18 @@ const StartScreen = ({ error }) => {
                 engine,
                 6
             )
-            const visualizations = mostViewedVisualizationsResult.visualization
+            const visualizations = mostViewedVisualizationsResult.visualization // {position: int, views: int, id: string, created: string}
             if (visualizations && visualizations.length) {
                 const visualizationsResult = await apiFetchVisualizations(
                     engine,
-                    visualizations.map(vis => vis.id)
+                    visualizations.map(visualization => visualization.id)
                 )
                 const visualizationsWithType =
-                    visualizationsResult.visualization.visualizations
-                const result = visualizations.map(vis => ({
-                    ...visualizationsWithType.find(
-                        visWithType => visWithType.id === vis.id && visWithType
-                    ),
-                    ...vis,
-                }))
+                    visualizationsResult.visualization.visualizations // {id: string, type: string}
+                const result = matchVisualizationWithType(
+                    visualizations,
+                    visualizationsWithType
+                )
 
                 setMostViewedVisualizations(result)
             }
@@ -79,21 +79,28 @@ const StartScreen = ({ error }) => {
                             {i18n.t('Your most viewed charts and tables')}
                         </h3>
                         {mostViewedVisualizations.map(
-                            (visualization, index) => (
-                                <p
-                                    key={index}
-                                    className={styles.visualization}
-                                    onClick={() =>
-                                        history.push(`/${visualization.id}`)
-                                    }
-                                    data-test="start-screen-most-viewed-list-item"
-                                >
-                                    <span className={styles.visIcon}>
-                                        {visTypeIcons[visualization.type]}
-                                    </span>
-                                    <span>{visualization.name}</span>
-                                </p>
-                            )
+                            (visualization, index) => {
+                                const VisualizationIcon =
+                                    visTypeIcons[visualization.type]
+
+                                return (
+                                    <p
+                                        key={index}
+                                        className={styles.visualization}
+                                        onClick={() =>
+                                            history.push(`/${visualization.id}`)
+                                        }
+                                        data-test="start-screen-most-viewed-list-item"
+                                    >
+                                        <span className={styles.visIcon}>
+                                            <VisualizationIcon
+                                                color={colors.grey600}
+                                            />
+                                        </span>
+                                        <span>{visualization.name}</span>
+                                    </p>
+                                )
+                            }
                         )}
                     </div>
                 )}

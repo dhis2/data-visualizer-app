@@ -3,19 +3,20 @@
 # Bram Piot <bram.piot@gmail.com>, 2019
 # Matthieu Pinard <matthieu@pinard.no>, 2019
 # Djibril Dione <dione.djibril@gmail.com>, 2020
-# Edem Kossi <ekossi@hispwca.org>, 2020
 # Karoline Tufte Lien <karoline@dhis2.org>, 2020
 # phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
-# Yao Selom SAKA <saka.yao@yahoo.fr>, 2020
+# Viktor Varland <viktor@dhis2.org>, 2020
+# Yao Selom Saka <ysaka@hispwca.org>, 2020
+# Yayra Gomado <ygomado@hispwca.org>, 2021
+# Edem Kossi <ekossi@hispwca.org>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-03-03T10:40:06.300Z\n"
+"POT-Creation-Date: 2021-04-23T09:26:03.770Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Yao Selom SAKA <saka.yao@yahoo.fr>, 2020\n"
+"Last-Translator: Edem Kossi <ekossi@hispwca.org>, 2021\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +25,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid "Rename successful"
-msgstr ""
+msgstr "Renommer avec succès"
 
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
 msgstr "Visualisation {{visualizationType}} sans titre, {{date}}"
@@ -49,7 +50,7 @@ msgid "No, cancel"
 msgstr "Non, annuler"
 
 msgid "Yes, leave"
-msgstr "Oui, abandon"
+msgstr "Oui, quitter"
 
 msgid "Add to {{axisName}}"
 msgstr "Ajouter à {{nomdel'axe}} "
@@ -66,8 +67,8 @@ msgid ""
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
 "'{{visualiationType}}' est destiné à montrer le maximum {{maxNumber}} nombre"
-" d'éléments  . Seul le premier {{maxNumber}} les éléments seront utilisés et"
-" enregistrés."
+" d'éléments  . Seul les premiers {{maxNumber}} éléments seront utilisés et "
+"enregistrés."
 
 msgid ""
 "'Scatter' is intended to show a single data item per axis. Only the first "
@@ -92,7 +93,7 @@ msgid "Your dimensions"
 msgstr "Vos dimensions"
 
 msgid "Filter dimensions"
-msgstr "Dimensions du filtre"
+msgstr "Filtrer les dimensions"
 
 msgid "Graphics"
 msgstr "Graphisme"
@@ -104,7 +105,7 @@ msgid "PDF (.pdf)"
 msgstr "PDF (.pdf)"
 
 msgid "Table layout"
-msgstr "Mise en page du tableau"
+msgstr "Disposition du tableau"
 
 msgid "Excel (.xls)"
 msgstr "Excel (.xls)"
@@ -160,22 +161,6 @@ msgstr "JRXML"
 msgid "Raw data SQL"
 msgstr "Données brutes SQL"
 
-msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr "An error occurred in the Application Visualiseur de Données DHIS2"
-
-msgid "Refresh to try again"
-msgstr "Actualiser pour réessayer"
-
-msgid "Hide technical details"
-msgstr "Cacher les détails techniques"
-
-msgid "Show technical details"
-msgstr "Afficher les détails techniques"
-
-msgid "The following information may be requested by technical support."
-msgstr ""
-"Les informations suivantes peuvent être demandées par support technique."
-
 msgid "Hide"
 msgstr "Masquer"
 
@@ -183,20 +168,20 @@ msgid "Interpretations"
 msgstr "interprétations"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr "{{total}} de {{axisMaxNumberOfItems}} choisi"
+msgstr "{{total}} de {{axisMaxNumberOfItems}} choisis"
 
 msgid "{{total}} selected"
-msgstr "{{total}} choisi"
+msgstr "{{total}} choisis"
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr ""
 "{{dimensionName}} est verrouillé sur {{axisName}} pour {{visTypeName}}"
 
 msgid "Not available for Scatter"
-msgstr "Non disponible pour Scatter"
+msgstr "Non disponible pour Dispersion"
 
 msgid "Add Assigned Categories"
-msgstr "Ajouter des Catégories Affectées"
+msgstr "Ajouter des Catégories assignées"
 
 msgid "Swap with {{axisName}} axis"
 msgstr "Intervertir avec l'axe {{axisName}}"
@@ -245,7 +230,7 @@ msgid "Unsaved visualization"
 msgstr "Visualisation non enregistrée"
 
 msgid "Edited"
-msgstr "Édité"
+msgstr "Modifié"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "Affichage de l'interprétation de {{interpretationDate}}"
@@ -331,7 +316,7 @@ msgid "Labels"
 msgstr "Étiquettes"
 
 msgid "Axis range"
-msgstr "Gamme d'axes"
+msgstr "Plage de l'axe"
 
 msgid "Values outside of the range will not be displayed"
 msgstr "Valeurs en dehors de la plage ne seront pas affichées"
@@ -340,8 +325,8 @@ msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
 msgstr ""
-"Nombre de pas de cochage des axes, y compris le min et le max. Une valeur "
-"inférieure ou égale à 2 sera ignorée."
+"Nombre de graduations principales de l'axe, y compris le min et le max. Une "
+"valeur inférieure ou égale à 2 sera ignorée."
 
 msgid "Steps"
 msgstr "Étapes"
@@ -416,13 +401,15 @@ msgid "Compact"
 msgstr "Compact"
 
 msgid "Extreme lines"
-msgstr ""
+msgstr "Lignes extrêmes"
 
 msgid "Calculated as a percent, usually 1%, of the total values along an axis"
 msgstr ""
+"Calculé en pourcentage, généralement 1%, des valeurs totales le long d'un "
+"axe"
 
 msgid "Extreme line % detection"
-msgstr ""
+msgstr "Détection de% de ligne extrême"
 
 msgid "Number"
 msgstr "Nombre"
@@ -510,6 +497,9 @@ msgid ""
 "visualization, all values outside of the minimum/maximum range will not be "
 "displayed"
 msgstr ""
+"Vous pouvez définir une valeur minimale ou maximale. Cela s'appliquera à "
+"l'ensemble de la visualisation, toutes les valeurs en dehors de la plage "
+"minimum / maximum ne seront pas affichées"
 
 msgid "Minimum data value"
 msgstr "Valeur minimale des données"
@@ -543,34 +533,42 @@ msgid ""
 "different data. Check the documentation for help to choose the right outlier"
 " detection method"
 msgstr ""
+"Chaque méthode de détection identifie les valeurs atypiques de différentes "
+"manières et convient à différentes données. Consultez la documentation pour "
+"obtenir de l'aide pour choisir la bonne méthode de détection des valeurs "
+"atypiques"
 
 msgid "Threshold factor"
-msgstr ""
+msgstr "Le facteur seuil"
 
 msgid ""
 "A high value is more sensitive so fewer data items will be identified as "
 "outliers"
 msgstr ""
+"Une valeur élevée est plus sensible, donc moins de données seront identifiés"
+" comme des valeurs atypiques"
 
 msgid "Interquartile Range (IQR)"
-msgstr ""
+msgstr "Intervalle interquartile (IQR)"
 
 msgid "Z-score / Standard score"
-msgstr ""
+msgstr "Score Z / Score standard"
 
 msgid "Modified Z-score"
-msgstr ""
+msgstr "Z-score modifié"
 
 msgid "Outlier analysis"
-msgstr ""
+msgstr "Analyse valeurs atypiques"
 
 msgid ""
 "Outlier analysis detects and highlights data items that are markedly "
 "different from the rest of the data"
 msgstr ""
+"L'analyse des valeurs aberrantes détecte et met en évidence les données qui "
+"sont nettement différents du reste des données"
 
 msgid "Outlier detection method"
-msgstr ""
+msgstr "Méthode de détection des valeurs atypiques"
 
 msgid "Organisation unit"
 msgstr "Unité d'organisation"
@@ -830,6 +828,12 @@ msgstr ""
 "La visualisation que vous essayez de consulter est introuvable, "
 "l'identifiant est peut-être incorrect ou a pu être supprimé"
 
+msgid "No organization units found"
+msgstr ""
+
+msgid "The level or group selections didn't return any organization units."
+msgstr ""
+
 msgid "Something went wrong"
 msgstr "Quelque chose a mal tourné"
 
@@ -957,18 +961,23 @@ msgid ""
 "These options only apply to legacy tables like standard reports. Options set"
 " here will have no effect on tables made in Data Visualizer."
 msgstr ""
+"Ces options s'appliquent uniquement aux tableaux préexistants tels que les "
+"rapports standard. Les options définies ici n'auront aucun effet sur les "
+"tables créées dans le Visualiseur de données."
 
 msgid "Applies to standard reports only"
-msgstr ""
+msgstr "S'applique uniquement aux rapports standard"
 
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
+"Les lignes de base et cible sont disponibles dans l'onglet Axes pour les "
+"graphiques en nuage de points"
 
 msgid "Vertical axis"
-msgstr ""
+msgstr "Axe vertical"
 
 msgid "Horizontal axis"
-msgstr ""
+msgstr "Axe horizontal"
 
 msgid "Color set"
 msgstr "Jeu de Couleurs"
@@ -1028,7 +1037,7 @@ msgid "Limit minimum/maximum values"
 msgstr "Valeurs seuils minimales/maximales"
 
 msgid "Outliers"
-msgstr ""
+msgstr "Valeurs atypiques"
 
 msgid "Series"
 msgstr "Séries"
