@@ -1,3 +1,31 @@
+## [37.0.5](https://github.com/dhis2/data-visualizer-app/compare/v37.0.4...v37.0.5) (2021-05-03)
+
+
+### Bug Fixes
+
+* start screen vis type crash ([#1709](https://github.com/dhis2/data-visualizer-app/issues/1709)) ([f8c4303](https://github.com/dhis2/data-visualizer-app/commit/f8c43030eb167aa52a0e30d47eac699d6fdb5a05))
+
+## [37.0.4](https://github.com/dhis2/data-visualizer-app/compare/v37.0.3...v37.0.4) (2021-04-30)
+
+
+### Bug Fixes
+
+* i18n folder and missing icons ([#1708](https://github.com/dhis2/data-visualizer-app/issues/1708)) ([0659202](https://github.com/dhis2/data-visualizer-app/commit/06592022d2eb53f723e7f3864bf676d56f386438))
+
+## [37.0.3](https://github.com/dhis2/data-visualizer-app/compare/v37.0.2...v37.0.3) (2021-04-29)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([3ec10f0](https://github.com/dhis2/data-visualizer-app/commit/3ec10f0fbf174f987d47ab89c1a1ce3f7025a968))
+
+## [37.0.2](https://github.com/dhis2/data-visualizer-app/compare/v37.0.1...v37.0.2) (2021-04-29)
+
+
+### Bug Fixes
+
+* convertOuLevelsToUids changes (DHIS2-11016) ([#1706](https://github.com/dhis2/data-visualizer-app/issues/1706)) ([7a3b18f](https://github.com/dhis2/data-visualizer-app/commit/7a3b18fee57ce233d9df71c885d399d5109b37a6))
+
 ## [37.0.1](https://github.com/dhis2/data-visualizer-app/compare/v37.0.0...v37.0.1) (2021-04-26)
 
 
