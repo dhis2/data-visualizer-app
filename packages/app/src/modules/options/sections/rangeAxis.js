@@ -31,6 +31,7 @@ export default ({ axisId, isVertical, showLines, hasCustomAxes }) => {
                     axisId={axisId}
                     fontStyleKey={fontStyleKey}
                     hasCustomAxes={hasCustomAxes}
+                    showAutoOption
                 />,
                 <AxisRange axisId={axisId} />,
                 <AxisSteps axisId={axisId} />,

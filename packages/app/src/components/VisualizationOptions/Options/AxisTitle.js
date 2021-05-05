@@ -36,6 +36,7 @@ const AxisTitle = ({
     setTitleColor,
     fontStyle,
     setFontStyle,
+    showAutoOption,
 }) => {
     const onRadioChange = ({ value: newType }) => {
         onTypeChange(newType)
@@ -74,10 +75,14 @@ const AxisTitle = ({
             <Label>{i18n.t('Axis title')}</Label>
             <Field name="title-selector" dense>
                 {[
-                    {
-                        id: TITLE_AUTO,
-                        label: i18n.t('Auto generated'),
-                    },
+                    ...(showAutoOption
+                        ? [
+                              {
+                                  id: TITLE_AUTO,
+                                  label: i18n.t('Auto generated'),
+                              },
+                          ]
+                        : []),
                     { id: TITLE_NONE, label: i18n.t('None') },
                     { id: TITLE_CUSTOM, label: i18n.t('Custom') },
                 ].map(({ id, label }) => (
@@ -131,6 +136,7 @@ AxisTitle.propTypes = {
     hasCustomAxes: PropTypes.bool,
     setFontStyle: PropTypes.func,
     setTitleColor: PropTypes.func,
+    showAutoOption: PropTypes.bool,
     title: PropTypes.string,
     type: PropTypes.bool,
     onTextChange: PropTypes.func,
