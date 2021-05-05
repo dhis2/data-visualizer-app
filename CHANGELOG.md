@@ -1,3 +1,17 @@
+## [37.0.7](https://github.com/dhis2/data-visualizer-app/compare/v37.0.6...v37.0.7) (2021-05-04)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([8348fd3](https://github.com/dhis2/data-visualizer-app/commit/8348fd36bcf15ff556f64f49af29e5807190ed8f))
+
+## [37.0.6](https://github.com/dhis2/data-visualizer-app/compare/v37.0.5...v37.0.6) (2021-05-04)
+
+
+### Bug Fixes
+
+* new label for legend set options (DHIS2-11037) ([#1707](https://github.com/dhis2/data-visualizer-app/issues/1707)) ([580e7d4](https://github.com/dhis2/data-visualizer-app/commit/580e7d487ea6bc85a577e10ecf4b9c9bc45acd8b))
+
 ## [37.0.5](https://github.com/dhis2/data-visualizer-app/compare/v37.0.4...v37.0.5) (2021-05-03)
 
 
