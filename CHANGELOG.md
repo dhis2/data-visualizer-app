@@ -1,3 +1,10 @@
+## [37.0.8](https://github.com/dhis2/data-visualizer-app/compare/v37.0.7...v37.0.8) (2021-05-05)
+
+
+### Bug Fixes
+
+* pass username to the favorites endpoint ([#1711](https://github.com/dhis2/data-visualizer-app/issues/1711)) ([be2ff21](https://github.com/dhis2/data-visualizer-app/commit/be2ff21c71172ce74554867a1282cdad8175ae2e))
+
 ## [37.0.7](https://github.com/dhis2/data-visualizer-app/compare/v37.0.6...v37.0.7) (2021-05-04)
 
 
