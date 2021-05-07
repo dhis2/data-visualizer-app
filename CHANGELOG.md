@@ -1,3 +1,10 @@
+## [37.0.9](https://github.com/dhis2/data-visualizer-app/compare/v37.0.8...v37.0.9) (2021-05-07)
+
+
+### Bug Fixes
+
+* await ou levels ([#1716](https://github.com/dhis2/data-visualizer-app/issues/1716)) ([94d241b](https://github.com/dhis2/data-visualizer-app/commit/94d241b1d66aefc48384540bbf4c18c1e1bbc725))
+
 ## [37.0.8](https://github.com/dhis2/data-visualizer-app/compare/v37.0.7...v37.0.8) (2021-05-05)
 
 
