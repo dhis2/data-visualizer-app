@@ -440,7 +440,7 @@ msgid "Chart title"
 msgstr "图表标题"
 
 msgid "Use legend for chart colors"
-msgstr ""
+msgstr "将图例用于图表颜色"
 
 msgid "Legend style"
 msgstr "图例风格"
