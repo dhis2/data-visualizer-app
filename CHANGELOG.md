@@ -1,3 +1,10 @@
+## [34.6.60](https://github.com/dhis2/data-visualizer-app/compare/v34.6.59...v34.6.60) (2021-05-10)
+
+
+### Bug Fixes
+
+* start screen most viewed updates v34 (DHIS2-11065) ([#1715](https://github.com/dhis2/data-visualizer-app/issues/1715)) ([53a8e4a](https://github.com/dhis2/data-visualizer-app/commit/53a8e4a2be983956e1895afe808ca5a71dd3021d)), closes [#1711](https://github.com/dhis2/data-visualizer-app/issues/1711) [#1709](https://github.com/dhis2/data-visualizer-app/issues/1709)
+
 ## [34.6.59](https://github.com/dhis2/data-visualizer-app/compare/v34.6.58...v34.6.59) (2021-04-27)
 
 
