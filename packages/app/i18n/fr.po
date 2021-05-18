@@ -463,7 +463,7 @@ msgid "Chart title"
 msgstr "Titre du graphique"
 
 msgid "Use legend for chart colors"
-msgstr ""
+msgstr "Utiliser la légende pour les couleurs du graphique"
 
 msgid "Legend style"
 msgstr "Style de légende"
@@ -829,10 +829,10 @@ msgstr ""
 "l'identifiant est peut-être incorrect ou a pu être supprimé"
 
 msgid "No organization units found"
-msgstr ""
+msgstr "Aucune unité d'organisation trouvée"
 
 msgid "The level or group selections didn't return any organization units."
-msgstr ""
+msgstr "Le niveau ou groupe choisi n'a retourné aucune unité d'organisation"
 
 msgid "Something went wrong"
 msgstr "Quelque chose a mal tourné"
