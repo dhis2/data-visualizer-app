@@ -1,4 +1,4 @@
-import { DAYS } from '@dhis2/analytics'
+import { DAILY } from '@dhis2/analytics'
 import {
     computeYoYMatrix,
     computeGenericPeriodNamesFromMatrix,
@@ -244,10 +244,10 @@ describe('YOY edge cases testing: LAST_7_DAYS across february/march with leap ye
 
     testCases.forEach(testCase =>
         it('generated correct matrix from analytics responses', () => {
-            const matrix = computeYoYMatrix(testCase.responses, DAYS)
+            const matrix = computeYoYMatrix(testCase.responses, DAILY)
 
             expect(matrix).toEqual(testCase.expectedMatrix)
-            expect(computeGenericPeriodNamesFromMatrix(matrix, DAYS)).toEqual(
+            expect(computeGenericPeriodNamesFromMatrix(matrix, DAILY)).toEqual(
                 testCase.expectedPeriodNames
             )
         })
