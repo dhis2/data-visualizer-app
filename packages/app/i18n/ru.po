@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-03-03T10:40:06.300Z\n"
+"POT-Creation-Date: 2021-04-30T12:20:24.132Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Ulanbek Abakirov <ulans@mail.ru>, 2020\n"
 "Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
@@ -144,22 +144,6 @@ msgstr ""
 
 msgid "Raw data SQL"
 msgstr ""
-
-msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr "Произошла ошибка в приложении Визуализатор Данных DHIS2."
-
-msgid "Refresh to try again"
-msgstr "Обновить и повторить попытку"
-
-msgid "Hide technical details"
-msgstr "Скрыть технические подробности"
-
-msgid "Show technical details"
-msgstr "Показать технические подробности"
-
-msgid "The following information may be requested by technical support."
-msgstr ""
-"Следующая информация может быть запрошена службой технической поддержки."
 
 msgid "Hide"
 msgstr "Скрыть"
@@ -454,7 +438,7 @@ msgstr "Пользователь"
 msgid "Chart title"
 msgstr "Заголовок диаграммы"
 
-msgid "Display legend"
+msgid "Use legend for chart colors"
 msgstr ""
 
 msgid "Legend style"
@@ -776,6 +760,12 @@ msgstr ""
 msgid ""
 "The visualization you are trying to view could not be found, the ID could be"
 " incorrect or it could have been deleted."
+msgstr ""
+
+msgid "No organization units found"
+msgstr ""
+
+msgid "The level or group selections didn't return any organization units."
 msgstr ""
 
 msgid "Something went wrong"

@@ -1,3 +1,59 @@
+## [37.0.10](https://github.com/dhis2/data-visualizer-app/compare/v37.0.9...v37.0.10) (2021-05-18)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([a798681](https://github.com/dhis2/data-visualizer-app/commit/a798681c7ec8014682ae1006c4c15b63e3ab0b61))
+
+## [37.0.9](https://github.com/dhis2/data-visualizer-app/compare/v37.0.8...v37.0.9) (2021-05-07)
+
+
+### Bug Fixes
+
+* await ou levels ([#1716](https://github.com/dhis2/data-visualizer-app/issues/1716)) ([94d241b](https://github.com/dhis2/data-visualizer-app/commit/94d241b1d66aefc48384540bbf4c18c1e1bbc725))
+
+## [37.0.8](https://github.com/dhis2/data-visualizer-app/compare/v37.0.7...v37.0.8) (2021-05-05)
+
+
+### Bug Fixes
+
+* pass username to the favorites endpoint ([#1711](https://github.com/dhis2/data-visualizer-app/issues/1711)) ([be2ff21](https://github.com/dhis2/data-visualizer-app/commit/be2ff21c71172ce74554867a1282cdad8175ae2e))
+
+## [37.0.7](https://github.com/dhis2/data-visualizer-app/compare/v37.0.6...v37.0.7) (2021-05-04)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([8348fd3](https://github.com/dhis2/data-visualizer-app/commit/8348fd36bcf15ff556f64f49af29e5807190ed8f))
+
+## [37.0.6](https://github.com/dhis2/data-visualizer-app/compare/v37.0.5...v37.0.6) (2021-05-04)
+
+
+### Bug Fixes
+
+* new label for legend set options (DHIS2-11037) ([#1707](https://github.com/dhis2/data-visualizer-app/issues/1707)) ([580e7d4](https://github.com/dhis2/data-visualizer-app/commit/580e7d487ea6bc85a577e10ecf4b9c9bc45acd8b))
+
+## [37.0.5](https://github.com/dhis2/data-visualizer-app/compare/v37.0.4...v37.0.5) (2021-05-03)
+
+
+### Bug Fixes
+
+* start screen vis type crash ([#1709](https://github.com/dhis2/data-visualizer-app/issues/1709)) ([f8c4303](https://github.com/dhis2/data-visualizer-app/commit/f8c43030eb167aa52a0e30d47eac699d6fdb5a05))
+
+## [37.0.4](https://github.com/dhis2/data-visualizer-app/compare/v37.0.3...v37.0.4) (2021-04-30)
+
+
+### Bug Fixes
+
+* i18n folder and missing icons ([#1708](https://github.com/dhis2/data-visualizer-app/issues/1708)) ([0659202](https://github.com/dhis2/data-visualizer-app/commit/06592022d2eb53f723e7f3864bf676d56f386438))
+
+## [37.0.3](https://github.com/dhis2/data-visualizer-app/compare/v37.0.2...v37.0.3) (2021-04-29)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([3ec10f0](https://github.com/dhis2/data-visualizer-app/commit/3ec10f0fbf174f987d47ab89c1a1ce3f7025a968))
+
 ## [37.0.2](https://github.com/dhis2/data-visualizer-app/compare/v37.0.1...v37.0.2) (2021-04-29)
 
 

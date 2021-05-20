@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-03-03T10:40:06.300Z\n"
+"POT-Creation-Date: 2021-04-30T12:20:24.132Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2021\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -150,21 +150,6 @@ msgstr "JRXML"
 
 msgid "Raw data SQL"
 msgstr "للبيانات الأولية SQL "
-
-msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr "حدث خطأ في تطبيق DHIS2 Data Visualizer."
-
-msgid "Refresh to try again"
-msgstr "قم بالتحديث للمحاولة مرة أخرى"
-
-msgid "Hide technical details"
-msgstr "إخفاء التفاصيل التقنية"
-
-msgid "Show technical details"
-msgstr "إظهار التفاصيل التقنية"
-
-msgid "The following information may be requested by technical support."
-msgstr "قد يتم طلب المعلومات التالية من قبل الدعم الفني."
 
 msgid "Hide"
 msgstr "إخفاء"
@@ -461,8 +446,8 @@ msgstr "مخصص"
 msgid "Chart title"
 msgstr "عنوان المخطط البياني"
 
-msgid "Display legend"
-msgstr "عرض المفاتيح الإيضاحية"
+msgid "Use legend for chart colors"
+msgstr ""
 
 msgid "Legend style"
 msgstr "نمط وسيلة الإيضاح"
@@ -801,6 +786,12 @@ msgid ""
 msgstr ""
 "تعذر العثور على المرئيات التي تحاول عرضها، ربما يكون الـ ID غير صحيح أو ربما"
 " تم حذفه."
+
+msgid "No organization units found"
+msgstr ""
+
+msgid "The level or group selections didn't return any organization units."
+msgstr ""
 
 msgid "Something went wrong"
 msgstr "هناك خطأ ما"
