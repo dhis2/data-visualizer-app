@@ -1,4 +1,5 @@
 import { DIMENSION_ID_DATA } from '@dhis2/analytics'
+
 import {
     clickDimensionModalHideButton,
     expectDimensionModalToContain,
@@ -33,14 +34,14 @@ import {
     expectSubGroupSelectToBeVisible,
     expectSubGroupSelectToBe,
     switchSubGroupTo,
-} from '../elements/dimensionModal'
-import { openDimension } from '../elements/dimensionsPanel'
-import { goToStartPage } from '../elements/startScreen'
+} from '../../elements/dimensionModal'
+import { openDimension } from '../../elements/dimensionsPanel'
+import { goToStartPage } from '../../elements/startScreen'
 import {
     TEST_DATA_ELEMENTS,
     TEST_DATA_SETS,
     TEST_INDICATORS,
-} from '../utils/data'
+} from '../../utils/data'
 
 const PAGE_SIZE = 50
 
