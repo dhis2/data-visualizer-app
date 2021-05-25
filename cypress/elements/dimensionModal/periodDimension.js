@@ -1,7 +1,6 @@
 import { DIMENSION_ID_PERIOD } from '@dhis2/analytics'
 
 import { expectDimensionModalToBeVisible } from '.'
-import { exactMatch } from '../../support'
 
 const optionEl = 'period-dimension-transfer-option'
 const sourceOptionsListEl = 'period-dimension-transfer-sourceoptions'
@@ -60,11 +59,11 @@ const clickSourceOption = itemName =>
 
 const switchToPeriodType = (periodTypeEl, periodTypeOption) => {
     cy.getBySel(periodTypeEl).click()
-    cy.getBySel(periodTypeMenuEl).contains(exactMatch(periodTypeOption)).click()
+    cy.getBySel(periodTypeMenuEl).containsExact(periodTypeOption).click()
 }
 
 export const selectPeriodType = periodTypeOption =>
-    cy.getBySel(periodTypeMenuEl).contains(exactMatch(periodTypeOption)).click()
+    cy.getBySel(periodTypeMenuEl).containsExact(periodTypeOption).click()
 
 export const expectItemToBeSelected = period =>
     cy.getBySel(selectedItemsEl).should('contain', period)
