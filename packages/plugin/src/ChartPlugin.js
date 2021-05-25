@@ -11,6 +11,7 @@ const ChartPlugin = ({
     style,
     onChartGenerated,
     animation: defaultAnimation,
+    onToggleContextualMenu,
 }) => {
     const canvasRef = useRef(undefined)
     const prevStyle = useRef(style)
@@ -26,6 +27,7 @@ const ChartPlugin = ({
                     ...extraOptions,
                     animation,
                     legendSets,
+                    onToggleContextualMenu,
                 },
                 undefined,
                 undefined,
@@ -101,6 +103,7 @@ ChartPlugin.propTypes = {
     id: PropTypes.number,
     style: PropTypes.object,
     onChartGenerated: PropTypes.func,
+    onToggleContextualMenu: PropTypes.func,
 }
 
 export default ChartPlugin
