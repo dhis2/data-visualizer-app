@@ -14,8 +14,6 @@ import {
     expectNoPeriodsToBeSelected,
     expectRelativePeriodTypeSelectToContain,
     expectFixedPeriodTypeSelectToContain,
-    // expectRelativePeriodTypeSelectToNotContain,
-    // expectFixedPeriodTypeSelectToNotContain,
     openRelativePeriodsTypeSelect,
     expectSelectablePeriodsAmountToBe,
     switchRelativePeriodType,
@@ -25,6 +23,9 @@ import {
     expectSelectablePeriodsAmountToBeLeast,
     openFixedPeriodsTypeSelect,
     switchFixedPeriodType,
+    expectRelativePeriodTypeSelectToNotContain,
+    expectFixedPeriodTypeSelectToNotContain,
+    expectFixedPeriodTypeToBe,
 } from '../../elements/dimensionModal/periodDimension' // TODO: Move to dimensionModal/index.js
 import { openDimension } from '../../elements/dimensionsPanel'
 import { goToStartPage } from '../../elements/startScreen'
@@ -145,6 +146,9 @@ describe('Period dimension', () => {
         it('can switch to fixed periods', () => {
             switchToFixedPeriods()
         })
+        it("period type is 'Monthly'", () => {
+            expectFixedPeriodTypeToBe('Monthly')
+        })
         it('has the correct period types', () => {
             openFixedPeriodsTypeSelect()
             fixedPeriodTypes.forEach(type =>
@@ -162,6 +166,330 @@ describe('Period dimension', () => {
                     : expectSelectablePeriodsAmountToBe(type.amountOfChildren)
             })
         )
+    })
+    describe('period settings - hidden monthly', () => {
+        it('navigates to the start page', () => {
+            cy.intercept(
+                /systemSettings(\S)*keyAnalysisRelativePeriod(\S)*/,
+                req => {
+                    req.reply(res => {
+                        res.send({
+                            body: {
+                                ...systemSettingsBody,
+                                keyHideMonthlyPeriods: true,
+                            },
+                        })
+                    })
+                }
+            )
+            // TODO: Intercept settings request with defaultRelativePeriod and hiddenPeriodTypes
+            // TODO: Do this one more and hide months, to test that quarters are displayed as the preselected type instead
+            goToStartPage()
+        })
+        it('opens the period dimension modal', () => {
+            openDimension(DIMENSION_ID_PERIOD)
+            expectPeriodDimensionModalToBeVisible()
+        })
+        it("period type is 'Quarters'", () => {
+            expectRelativePeriodTypeToBe('Quarters')
+        })
+        it("relative option 'Months' is not shown", () => {
+            openRelativePeriodsTypeSelect()
+            expectRelativePeriodTypeSelectToNotContain('Months')
+        })
+        it('all other relative options are shown', () => {
+            const relativePeriodTypes = [
+                'Days',
+                'Weeks',
+                'Bi-weeks',
+                'Bi-months',
+                'Quarters',
+                'Six-months',
+                'Financial Years',
+                'Years',
+            ]
+            relativePeriodTypes.forEach(type =>
+                expectRelativePeriodTypeSelectToContain(type)
+            )
+            selectPeriodType(relativePeriodTypes.slice(-1)[0]) // Click the last item to close the dropdown
+        })
+        it('can switch to fixed periods', () => {
+            switchToFixedPeriods()
+        })
+        it("period type is 'Quarterly'", () => {
+            expectFixedPeriodTypeToBe('Quarterly')
+        })
+        it("fixed option 'Monthly' is not shown", () => {
+            openFixedPeriodsTypeSelect()
+            expectFixedPeriodTypeSelectToNotContain('Monthly')
+        })
+        it('all other fixed options are shown', () => {
+            const fixedPeriodTypes = [
+                'Daily',
+                'Weekly',
+                'Weekly (Start Wednesday)',
+                'Weekly (Start Thursday)',
+                'Weekly (Start Saturday)',
+                'Weekly (Start Sunday)',
+                'Bi-weekly',
+                'Bi-monthly',
+                'Quarterly',
+                'Six-monthly',
+                'Six-monthly April',
+                'Yearly',
+                'Financial year (Start November)',
+                'Financial year (Start October)',
+                'Financial year (Start July)',
+                'Financial year (Start April)',
+            ]
+            fixedPeriodTypes.forEach(type =>
+                expectFixedPeriodTypeSelectToContain(type)
+            )
+            selectPeriodType(fixedPeriodTypes[1]) // Click the second item to close the dropdown
+        })
+    })
+    describe('period settings - hidden weekly', () => {
+        it('navigates to the start page', () => {
+            cy.intercept(
+                /systemSettings(\S)*keyAnalysisRelativePeriod(\S)*/,
+                req => {
+                    req.reply(res => {
+                        res.send({
+                            body: {
+                                ...systemSettingsBody,
+                                keyHideWeeklyPeriods: true,
+                            },
+                        })
+                    })
+                }
+            )
+            // TODO: Intercept settings request with defaultRelativePeriod and hiddenPeriodTypes
+            // TODO: Do this one more and hide months, to test that quarters are displayed as the preselected type instead
+            goToStartPage()
+        })
+        it('opens the period dimension modal', () => {
+            openDimension(DIMENSION_ID_PERIOD)
+            expectPeriodDimensionModalToBeVisible()
+        })
+        it("period type is 'Months'", () => {
+            expectRelativePeriodTypeToBe('Months')
+        })
+        it("relative option 'Weeks' is not shown", () => {
+            openRelativePeriodsTypeSelect()
+            expectRelativePeriodTypeSelectToNotContain('Weeks')
+        })
+        it('all other relative options are shown', () => {
+            const relativePeriodTypes = [
+                'Days',
+                'Bi-weeks',
+                'Months',
+                'Bi-months',
+                'Quarters',
+                'Six-months',
+                'Financial Years',
+                'Years',
+            ]
+            relativePeriodTypes.forEach(type =>
+                expectRelativePeriodTypeSelectToContain(type)
+            )
+            selectPeriodType(relativePeriodTypes.slice(-1)[0]) // Click the last item to close the dropdown
+        })
+        it('can switch to fixed periods', () => {
+            switchToFixedPeriods()
+        })
+        it("period type is 'Monthly'", () => {
+            expectFixedPeriodTypeToBe('Monthly')
+        })
+        it("fixed option 'Weekly' and other weekly based periods are not shown", () => {
+            openFixedPeriodsTypeSelect()
+            expectFixedPeriodTypeSelectToNotContain('Weekly')
+            expectFixedPeriodTypeSelectToNotContain('Weekly (Start Wednesday)')
+            expectFixedPeriodTypeSelectToNotContain('Weekly (Start Thursday)')
+            expectFixedPeriodTypeSelectToNotContain('Weekly (Start Saturday)')
+            expectFixedPeriodTypeSelectToNotContain('Weekly (Start Sunday)')
+        })
+        it('all other fixed options are shown', () => {
+            const fixedPeriodTypes = [
+                'Daily',
+                'Bi-weekly',
+                'Monthly',
+                'Bi-monthly',
+                'Quarterly',
+                'Six-monthly',
+                'Six-monthly April',
+                'Yearly',
+                'Financial year (Start November)',
+                'Financial year (Start October)',
+                'Financial year (Start July)',
+                'Financial year (Start April)',
+            ]
+            fixedPeriodTypes.forEach(type =>
+                expectFixedPeriodTypeSelectToContain(type)
+            )
+            selectPeriodType(fixedPeriodTypes[1]) // Click the second item to close the dropdown
+        })
+    })
+    describe('period settings - hidden daily', () => {
+        it('navigates to the start page', () => {
+            cy.intercept(
+                /systemSettings(\S)*keyAnalysisRelativePeriod(\S)*/,
+                req => {
+                    req.reply(res => {
+                        res.send({
+                            body: {
+                                ...systemSettingsBody,
+                                keyHideDailyPeriods: true,
+                            },
+                        })
+                    })
+                }
+            )
+            // TODO: Intercept settings request with defaultRelativePeriod and hiddenPeriodTypes
+            // TODO: Do this one more and hide months, to test that quarters are displayed as the preselected type instead
+            goToStartPage()
+        })
+        it('opens the period dimension modal', () => {
+            openDimension(DIMENSION_ID_PERIOD)
+            expectPeriodDimensionModalToBeVisible()
+        })
+        it("period type is 'Months'", () => {
+            expectRelativePeriodTypeToBe('Months')
+        })
+        it("relative option 'Days' is not shown", () => {
+            openRelativePeriodsTypeSelect()
+            expectRelativePeriodTypeSelectToNotContain('Days')
+        })
+        it('all other relative options are shown', () => {
+            const relativePeriodTypes = [
+                'Weeks',
+                'Bi-weeks',
+                'Months',
+                'Bi-months',
+                'Quarters',
+                'Six-months',
+                'Financial Years',
+                'Years',
+            ]
+            relativePeriodTypes.forEach(type =>
+                expectRelativePeriodTypeSelectToContain(type)
+            )
+            selectPeriodType(relativePeriodTypes.slice(-1)[0]) // Click the last item to close the dropdown
+        })
+        it('can switch to fixed periods', () => {
+            switchToFixedPeriods()
+        })
+        it("period type is 'Monthly'", () => {
+            expectFixedPeriodTypeToBe('Monthly')
+        })
+        it("fixed option 'Daily' is not shown", () => {
+            openFixedPeriodsTypeSelect()
+            expectFixedPeriodTypeSelectToNotContain('Daily')
+        })
+        it('all other fixed options are shown', () => {
+            const fixedPeriodTypes = [
+                'Weekly',
+                'Weekly (Start Wednesday)',
+                'Weekly (Start Thursday)',
+                'Weekly (Start Saturday)',
+                'Weekly (Start Sunday)',
+                'Bi-weekly',
+                'Monthly',
+                'Bi-monthly',
+                'Quarterly',
+                'Six-monthly',
+                'Six-monthly April',
+                'Yearly',
+                'Financial year (Start November)',
+                'Financial year (Start October)',
+                'Financial year (Start July)',
+                'Financial year (Start April)',
+            ]
+            fixedPeriodTypes.forEach(type =>
+                expectFixedPeriodTypeSelectToContain(type)
+            )
+            selectPeriodType(fixedPeriodTypes[1]) // Click the second item to close the dropdown
+        })
+    })
+    describe('period settings - hidden bi-monthly', () => {
+        it('navigates to the start page', () => {
+            cy.intercept(
+                /systemSettings(\S)*keyAnalysisRelativePeriod(\S)*/,
+                req => {
+                    req.reply(res => {
+                        res.send({
+                            body: {
+                                ...systemSettingsBody,
+                                keyHideBiMonthlyPeriods: true,
+                            },
+                        })
+                    })
+                }
+            )
+            // TODO: Intercept settings request with defaultRelativePeriod and hiddenPeriodTypes
+            // TODO: Do this one more and hide months, to test that quarters are displayed as the preselected type instead
+            goToStartPage()
+        })
+        it('opens the period dimension modal', () => {
+            openDimension(DIMENSION_ID_PERIOD)
+            expectPeriodDimensionModalToBeVisible()
+        })
+        it("period type is 'Months'", () => {
+            expectRelativePeriodTypeToBe('Months')
+        })
+        it("relative option 'Bi-months' is not shown", () => {
+            openRelativePeriodsTypeSelect()
+            expectRelativePeriodTypeSelectToNotContain('Bi-months')
+        })
+        it('all other relative options are shown', () => {
+            const relativePeriodTypes = [
+                'Days',
+                'Weeks',
+                'Bi-weeks',
+                'Months',
+                'Quarters',
+                'Six-months',
+                'Financial Years',
+                'Years',
+            ]
+            relativePeriodTypes.forEach(type =>
+                expectRelativePeriodTypeSelectToContain(type)
+            )
+            selectPeriodType(relativePeriodTypes.slice(-1)[0]) // Click the last item to close the dropdown
+        })
+        it('can switch to fixed periods', () => {
+            switchToFixedPeriods()
+        })
+        it("period type is 'Monthly'", () => {
+            expectFixedPeriodTypeToBe('Monthly')
+        })
+        it("fixed option 'Bi-monthly' is not shown", () => {
+            openFixedPeriodsTypeSelect()
+            expectFixedPeriodTypeSelectToNotContain('Bi-monthly')
+        })
+        it('all other fixed options are shown', () => {
+            const fixedPeriodTypes = [
+                'Daily',
+                'Weekly',
+                'Weekly (Start Wednesday)',
+                'Weekly (Start Thursday)',
+                'Weekly (Start Saturday)',
+                'Weekly (Start Sunday)',
+                'Bi-weekly',
+                'Monthly',
+                'Quarterly',
+                'Six-monthly',
+                'Six-monthly April',
+                'Yearly',
+                'Financial year (Start November)',
+                'Financial year (Start October)',
+                'Financial year (Start July)',
+                'Financial year (Start April)',
+            ]
+            fixedPeriodTypes.forEach(type =>
+                expectFixedPeriodTypeSelectToContain(type)
+            )
+            selectPeriodType(fixedPeriodTypes[1]) // Click the second item to close the dropdown
+        })
     })
 
     // TODO: Run tests for relative and fixed periods above again but with different intercepted settings and test that the new settings works too

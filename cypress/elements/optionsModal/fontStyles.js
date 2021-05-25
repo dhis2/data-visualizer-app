@@ -1,3 +1,5 @@
+import { exactMatch } from '../../support'
+
 const getTextAlignSelectEl = prefix => `${prefix}-text-style-text-align-select`
 const getTextAlignOptionEl = prefix => `${prefix}-text-style-text-align-option`
 const getFontSizeSelectEl = prefix => `${prefix}-text-style-font-size-select`
@@ -13,7 +15,7 @@ export const changeTextAlignOption = (prefix, optionName) => {
 export const changeFontSizeOption = (prefix, optionName) => {
     cy.getBySel(getFontSizeSelectEl(prefix)).click()
     cy.getBySelLike(getFontSizeOptionEl(prefix))
-        .contains(new RegExp(`^${optionName}$`, 'gm'))
+        .contains(exactMatch(optionName))
         .click()
 }
 
