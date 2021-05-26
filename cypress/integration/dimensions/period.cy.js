@@ -16,16 +16,15 @@ import {
     expectFixedPeriodTypeSelectToContain,
     openRelativePeriodsTypeSelect,
     expectSelectablePeriodsAmountToBe,
-    switchRelativePeriodType,
     selectPeriodType,
     unselectAllItemsByButton,
     switchToFixedPeriods,
     expectSelectablePeriodsAmountToBeLeast,
     openFixedPeriodsTypeSelect,
-    switchFixedPeriodType,
     expectRelativePeriodTypeSelectToNotContain,
     expectFixedPeriodTypeSelectToNotContain,
     expectFixedPeriodTypeToBe,
+    selectAllItemsByButton,
 } from '../../elements/dimensionModal'
 import { openDimension } from '../../elements/dimensionsPanel'
 import { goToStartPage } from '../../elements/startScreen'
@@ -91,11 +90,14 @@ describe('Period dimension', () => {
             selectItemByButton(defaultRelativePeriod)
             expectItemToBeSelected(defaultRelativePeriod)
         })
+        it('all can be selected by button', () => {
+            selectAllItemsByButton()
+            expectSelectedPeriodsAmountToBe(6)
+        })
         it('all can be unselected by button', () => {
             unselectAllItemsByButton()
+            expectNoPeriodsToBeSelected()
         })
-    })
-    describe('relatives period', () => {
         const relativePeriodTypes = [
             { name: 'Days', amountOfChildren: 9 },
             { name: 'Weeks', amountOfChildren: 6 },
@@ -107,21 +109,19 @@ describe('Period dimension', () => {
             { name: 'Financial Years', amountOfChildren: 3 },
             { name: 'Years', amountOfChildren: 3 },
         ]
-        it('has the correct period types', () => {
-            openRelativePeriodsTypeSelect()
-            relativePeriodTypes.forEach(type =>
-                expectRelativePeriodTypeSelectToContain(type.name)
-            )
-            selectPeriodType(relativePeriodTypes.slice(-1)[0].name) // Click the last item to close the dropdown
-        })
         relativePeriodTypes.forEach(type =>
-            it(`'${type.name}' has ${type.amountOfChildren} items`, () => {
-                switchRelativePeriodType(type.name)
+            it(`relative period type '${type.name}' has ${type.amountOfChildren} items`, () => {
+                openRelativePeriodsTypeSelect()
+                selectPeriodType(type.name)
                 expectSelectablePeriodsAmountToBe(type.amountOfChildren)
             })
         )
-    })
-    describe('fixed periods', () => {
+        it('can switch to fixed periods', () => {
+            switchToFixedPeriods()
+        })
+        it("period type is 'Monthly'", () => {
+            expectFixedPeriodTypeToBe('Monthly')
+        })
         const fixedPeriodTypes = [
             { name: 'Daily', amountOfChildren: 365 },
             { name: 'Weekly', amountOfChildren: 52 },
@@ -141,22 +141,10 @@ describe('Period dimension', () => {
             { name: 'Financial year (Start July)', amountOfChildren: 10 },
             { name: 'Financial year (Start April)', amountOfChildren: 10 },
         ]
-        it('can switch to fixed periods', () => {
-            switchToFixedPeriods()
-        })
-        it("period type is 'Monthly'", () => {
-            expectFixedPeriodTypeToBe('Monthly')
-        })
-        it('has the correct period types', () => {
-            openFixedPeriodsTypeSelect()
-            fixedPeriodTypes.forEach(type =>
-                expectFixedPeriodTypeSelectToContain(type.name)
-            )
-            selectPeriodType(fixedPeriodTypes[1].name) // Click the second item to close the dropdown
-        })
         fixedPeriodTypes.forEach(type =>
-            it(`'${type.name}' has ${type.amountOfChildren} items`, () => {
-                switchFixedPeriodType(type.name)
+            it(`fixed period type '${type.name}' has ${type.amountOfChildren} items`, () => {
+                openFixedPeriodsTypeSelect()
+                selectPeriodType(type.name)
                 type.amountOfChildren > 50
                     ? expectSelectablePeriodsAmountToBeLeast(
                           type.amountOfChildren
@@ -165,7 +153,7 @@ describe('Period dimension', () => {
             })
         )
     })
-    describe('period settings - hidden monthly', () => {
+    describe('using period settings - hidden monthly', () => {
         it('navigates to the start page', () => {
             cy.intercept(
                 /systemSettings(\S)*keyAnalysisRelativePeriod(\S)*/,
@@ -189,11 +177,11 @@ describe('Period dimension', () => {
         it("period type is 'Quarters'", () => {
             expectRelativePeriodTypeToBe('Quarters')
         })
-        it("relative option 'Months' is not shown", () => {
+        it("relative type 'Months' is not shown", () => {
             openRelativePeriodsTypeSelect()
             expectRelativePeriodTypeSelectToNotContain('Months')
         })
-        it('all other relative options are shown', () => {
+        it('all other relative types are shown', () => {
             const relativePeriodTypes = [
                 'Days',
                 'Weeks',
@@ -215,11 +203,11 @@ describe('Period dimension', () => {
         it("period type is 'Quarterly'", () => {
             expectFixedPeriodTypeToBe('Quarterly')
         })
-        it("fixed option 'Monthly' is not shown", () => {
+        it("fixed type 'Monthly' is not shown", () => {
             openFixedPeriodsTypeSelect()
             expectFixedPeriodTypeSelectToNotContain('Monthly')
         })
-        it('all other fixed options are shown', () => {
+        it('all other fixed types are shown', () => {
             const fixedPeriodTypes = [
                 'Daily',
                 'Weekly',
@@ -244,7 +232,7 @@ describe('Period dimension', () => {
             selectPeriodType(fixedPeriodTypes[1]) // Click the second item to close the dropdown
         })
     })
-    describe('period settings - hidden weekly', () => {
+    describe('using period settings - hidden weekly', () => {
         it('navigates to the start page', () => {
             cy.intercept(
                 /systemSettings(\S)*keyAnalysisRelativePeriod(\S)*/,
@@ -268,11 +256,11 @@ describe('Period dimension', () => {
         it("period type is 'Months'", () => {
             expectRelativePeriodTypeToBe('Months')
         })
-        it("relative option 'Weeks' is not shown", () => {
+        it("relative type 'Weeks' is not shown", () => {
             openRelativePeriodsTypeSelect()
             expectRelativePeriodTypeSelectToNotContain('Weeks')
         })
-        it('all other relative options are shown', () => {
+        it('all other relative types are shown', () => {
             const relativePeriodTypes = [
                 'Days',
                 'Bi-weeks',
@@ -294,7 +282,7 @@ describe('Period dimension', () => {
         it("period type is 'Monthly'", () => {
             expectFixedPeriodTypeToBe('Monthly')
         })
-        it("fixed option 'Weekly' and other weekly based periods are not shown", () => {
+        it("fixed type 'Weekly' and other weekly based periods are not shown", () => {
             openFixedPeriodsTypeSelect()
             expectFixedPeriodTypeSelectToNotContain('Weekly')
             expectFixedPeriodTypeSelectToNotContain('Weekly (Start Wednesday)')
@@ -302,7 +290,7 @@ describe('Period dimension', () => {
             expectFixedPeriodTypeSelectToNotContain('Weekly (Start Saturday)')
             expectFixedPeriodTypeSelectToNotContain('Weekly (Start Sunday)')
         })
-        it('all other fixed options are shown', () => {
+        it('all other fixed types are shown', () => {
             const fixedPeriodTypes = [
                 'Daily',
                 'Bi-weekly',
@@ -323,7 +311,7 @@ describe('Period dimension', () => {
             selectPeriodType(fixedPeriodTypes[1]) // Click the second item to close the dropdown
         })
     })
-    describe('period settings - hidden daily', () => {
+    describe('using period settings - hidden daily', () => {
         it('navigates to the start page', () => {
             cy.intercept(
                 /systemSettings(\S)*keyAnalysisRelativePeriod(\S)*/,
@@ -347,11 +335,11 @@ describe('Period dimension', () => {
         it("period type is 'Months'", () => {
             expectRelativePeriodTypeToBe('Months')
         })
-        it("relative option 'Days' is not shown", () => {
+        it("relative type 'Days' is not shown", () => {
             openRelativePeriodsTypeSelect()
             expectRelativePeriodTypeSelectToNotContain('Days')
         })
-        it('all other relative options are shown', () => {
+        it('all other relative types are shown', () => {
             const relativePeriodTypes = [
                 'Weeks',
                 'Bi-weeks',
@@ -373,11 +361,11 @@ describe('Period dimension', () => {
         it("period type is 'Monthly'", () => {
             expectFixedPeriodTypeToBe('Monthly')
         })
-        it("fixed option 'Daily' is not shown", () => {
+        it("fixed type 'Daily' is not shown", () => {
             openFixedPeriodsTypeSelect()
             expectFixedPeriodTypeSelectToNotContain('Daily')
         })
-        it('all other fixed options are shown', () => {
+        it('all other fixed types are shown', () => {
             const fixedPeriodTypes = [
                 'Weekly',
                 'Weekly (Start Wednesday)',
@@ -402,7 +390,7 @@ describe('Period dimension', () => {
             selectPeriodType(fixedPeriodTypes[1]) // Click the second item to close the dropdown
         })
     })
-    describe('period settings - hidden bi-monthly', () => {
+    describe('using period settings - hidden bi-monthly', () => {
         it('navigates to the start page', () => {
             cy.intercept(
                 /systemSettings(\S)*keyAnalysisRelativePeriod(\S)*/,
@@ -426,11 +414,11 @@ describe('Period dimension', () => {
         it("period type is 'Months'", () => {
             expectRelativePeriodTypeToBe('Months')
         })
-        it("relative option 'Bi-months' is not shown", () => {
+        it("relative type 'Bi-months' is not shown", () => {
             openRelativePeriodsTypeSelect()
             expectRelativePeriodTypeSelectToNotContain('Bi-months')
         })
-        it('all other relative options are shown', () => {
+        it('all other relative types are shown', () => {
             const relativePeriodTypes = [
                 'Days',
                 'Weeks',
@@ -452,11 +440,11 @@ describe('Period dimension', () => {
         it("period type is 'Monthly'", () => {
             expectFixedPeriodTypeToBe('Monthly')
         })
-        it("fixed option 'Bi-monthly' is not shown", () => {
+        it("fixed type 'Bi-monthly' is not shown", () => {
             openFixedPeriodsTypeSelect()
             expectFixedPeriodTypeSelectToNotContain('Bi-monthly')
         })
-        it('all other fixed options are shown', () => {
+        it('all other fixed types are shown', () => {
             const fixedPeriodTypes = [
                 'Daily',
                 'Weekly',

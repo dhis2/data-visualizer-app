@@ -28,7 +28,8 @@ export const selectRelativePeriods = (periods, periodType) => {
     switchToRelativePeriods()
     if (periodType !== 'Months') {
         // Temp fix for https://jira.dhis2.org/browse/TECH-396, as Months is the default option and can't be clicked
-        switchToPeriodType(relativePeriodsPeriodTypeButtonEl, periodType)
+        openRelativePeriodsTypeSelect()
+        selectPeriodType(periodType)
     }
     periods.forEach(item => clickSourceOption(item))
 }
@@ -37,24 +38,14 @@ export const selectFixedPeriods = (periods, periodType) => {
     switchToFixedPeriods()
     if (periodType !== 'Monthly') {
         // Temp fix for https://jira.dhis2.org/browse/TECH-396, as Monthly is the default option and can't be clicked
-        switchToPeriodType(fixedPeriodsPeriodTypeButtonEl, periodType)
+        openFixedPeriodsTypeSelect()
+        selectPeriodType(periodType)
     }
     periods.forEach(item => clickSourceOption(item))
 }
 
-export const switchRelativePeriodType = type =>
-    switchToPeriodType(relativePeriodsPeriodTypeButtonEl, type)
-
-export const switchFixedPeriodType = type =>
-    switchToPeriodType(fixedPeriodsPeriodTypeButtonEl, type)
-
 const clickSourceOption = itemName =>
     cy.getBySel(sourceOptionsListEl).contains(itemName).dblclick()
-
-const switchToPeriodType = (periodTypeEl, periodTypeOption) => {
-    cy.getBySel(periodTypeEl).click()
-    cy.getBySel(periodTypeMenuEl).containsExact(periodTypeOption).click()
-}
 
 export const selectPeriodType = periodTypeOption =>
     cy.getBySel(periodTypeMenuEl).containsExact(periodTypeOption).click()
