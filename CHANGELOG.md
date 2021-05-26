@@ -1,3 +1,10 @@
+# [37.1.0](https://github.com/dhis2/data-visualizer-app/compare/v37.0.10...v37.1.0) (2021-05-25)
+
+
+### Features
+
+* drill down org units in bar and column charts (DHIS2-11061) ([#1720](https://github.com/dhis2/data-visualizer-app/issues/1720)) ([ed09736](https://github.com/dhis2/data-visualizer-app/commit/ed0973676a114800f1f97dc08f53d928d21a17f7))
+
 ## [37.0.10](https://github.com/dhis2/data-visualizer-app/compare/v37.0.9...v37.0.10) (2021-05-18)
 
 

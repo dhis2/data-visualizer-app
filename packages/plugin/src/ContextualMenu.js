@@ -1,14 +1,12 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import PropTypes from 'prop-types'
-
 import i18n from '@dhis2/d2-i18n'
 import { useDataEngine } from '@dhis2/app-runtime'
 import { Divider, FlyoutMenu, MenuItem } from '@dhis2/ui'
+import { apiFetchOrganisationUnit } from '@dhis2/analytics'
 
 import ArrowUpwardIcon from './assets/ArrowUpwardIcon'
 import ArrowDownwardIcon from './assets/ArrowDownwardIcon'
-
-import { apiFetchOrganisationUnit } from '@dhis2/analytics'
 
 export const ContextualMenu = ({ config, ouLevels, onClick }) => {
     const engine = useDataEngine()
