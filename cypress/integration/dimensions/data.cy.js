@@ -11,8 +11,6 @@ import {
     expectDataTypeToBe,
     expectGroupSelectToNotBeVisible,
     expectNoDataItemsToBeSelected,
-    selectAllDataItems,
-    unselectAllDataItems,
     expectDataItemsSelectedAmountToBeLeast,
     expectDataItemsSelectedAmountToBe,
     expectDataItemToBeSelectable,
@@ -34,6 +32,9 @@ import {
     expectSubGroupSelectToBeVisible,
     expectSubGroupSelectToBe,
     switchSubGroupTo,
+    expectSourceToNotBeLoading,
+    unselectAllItemsByButton,
+    selectAllItemsByButton,
 } from '../../elements/dimensionModal'
 import { openDimension } from '../../elements/dimensionsPanel'
 import { goToStartPage } from '../../elements/startScreen'
@@ -94,7 +95,8 @@ describe('Data dimension', () => {
         const secondPageItemName = 'BCG doses'
         it('all items can be selected', () => {
             cy.intercept('GET', '/dataItems').as('dataItems')
-            selectAllDataItems()
+            selectAllItemsByButton()
+            expectSourceToNotBeLoading()
             expectDataItemsSelectedAmountToBeLeast(PAGE_SIZE)
             cy.wait('@dataItems').then(({ request, response }) => {
                 expect(request.url).to.contain('page=2')
@@ -107,7 +109,8 @@ describe('Data dimension', () => {
             expectDataItemToBeSelectable(secondPageItemName)
         })
         it('all items can be unselected', () => {
-            unselectAllDataItems()
+            unselectAllItemsByButton()
+            expectSourceToNotBeLoading()
             expectNoDataItemsToBeSelected()
         })
         it('more items are fetched when scrolling down', () => {
@@ -295,7 +298,8 @@ describe('Data dimension', () => {
                 )
             })
             it('selection and filter can be reset', () => {
-                unselectAllDataItems()
+                unselectAllItemsByButton()
+                expectSourceToNotBeLoading()
                 expectNoDataItemsToBeSelected()
                 clearSearchTerm()
                 expectDataItemsSelectableAmountToBe(

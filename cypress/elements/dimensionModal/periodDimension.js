@@ -13,12 +13,8 @@ const fixedPeriodsPeriodTypeButtonEl =
     'period-dimension-fixed-period-filter-period-type-content'
 const periodTypeMenuEl = 'dhis2-uicore-select-menu-menuwrapper'
 //const fixedPeriodsYearEl = 'period-dimension-fixed-period-filter-year-content'
-const removeAllButtonEl = 'period-dimension-transfer-actions-removeall'
-//const addAllButtonEl = 'period-dimension-transfer-actions-addall'
 const selectableItemsEl = 'period-dimension-transfer-sourceoptions'
 const selectedItemsEl = 'period-dimension-transfer-pickedoptions'
-const addOneButtonEl = 'period-dimension-transfer-actions-addindividual'
-const removeOneButtonEl = 'period-dimension-transfer-actions-removeindividual'
 const relativePeriodTypeSelectOptionEl =
     'period-dimension-relative-period-filter-option'
 
@@ -27,8 +23,6 @@ const fixedPeriodTypeSelectOptionEl =
 
 export const expectPeriodDimensionModalToBeVisible = () =>
     expectDimensionModalToBeVisible(DIMENSION_ID_PERIOD)
-
-export const removeAllPeriodItems = () => cy.getBySel(removeAllButtonEl).click()
 
 export const selectRelativePeriods = (periods, periodType) => {
     switchToRelativePeriods()
@@ -111,22 +105,6 @@ export const expectRelativeToBeSelected = () =>
 export const expectFixedToBeSelected = () =>
     cy.getBySel(fixedPeriodsButtonEl).should('have.class', 'selected')
 
-export const unselectItemByDoubleClick = item =>
-    cy.getBySel(selectedItemsEl).contains(item).dblclick()
-
-export const selectItemByDoubleClick = item =>
-    cy.getBySel(selectableItemsEl).contains(item).dblclick()
-
-export const unselectItemByButton = item => {
-    cy.getBySel(selectedItemsEl).contains(item).click()
-    cy.getBySel(removeOneButtonEl).click()
-}
-
-export const selectItemByButton = item => {
-    cy.getBySel(selectableItemsEl).contains(item).click()
-    cy.getBySel(addOneButtonEl).click()
-}
-
 export const expectNoPeriodsToBeSelected = () =>
     cy.getBySel(selectedItemsEl).should('contain', 'No periods selected')
 
@@ -160,7 +138,3 @@ export const openRelativePeriodsTypeSelect = () =>
 
 export const openFixedPeriodsTypeSelect = () =>
     cy.getBySel(fixedPeriodsPeriodTypeButtonEl).click()
-
-export const unselectAllPeriods = () => {
-    cy.getBySel(removeAllButtonEl).click()
-}

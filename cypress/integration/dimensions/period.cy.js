@@ -1,7 +1,7 @@
 import { DIMENSION_ID_PERIOD } from '@dhis2/analytics'
 
-import { expectDimensionModalToContain } from '../../elements/dimensionModal'
 import {
+    expectDimensionModalToContain,
     expectPeriodDimensionModalToBeVisible,
     expectSelectedPeriodsAmountToBe,
     expectItemToBeSelected,
@@ -18,7 +18,7 @@ import {
     expectSelectablePeriodsAmountToBe,
     switchRelativePeriodType,
     selectPeriodType,
-    unselectAllPeriods,
+    unselectAllItemsByButton,
     switchToFixedPeriods,
     expectSelectablePeriodsAmountToBeLeast,
     openFixedPeriodsTypeSelect,
@@ -26,7 +26,7 @@ import {
     expectRelativePeriodTypeSelectToNotContain,
     expectFixedPeriodTypeSelectToNotContain,
     expectFixedPeriodTypeToBe,
-} from '../../elements/dimensionModal/periodDimension' // TODO: Move to dimensionModal/index.js
+} from '../../elements/dimensionModal'
 import { openDimension } from '../../elements/dimensionsPanel'
 import { goToStartPage } from '../../elements/startScreen'
 
@@ -54,8 +54,6 @@ describe('Period dimension', () => {
                     })
                 }
             )
-            // TODO: Intercept settings request with defaultRelativePeriod and hiddenPeriodTypes
-            // TODO: Do this one more and hide months, to test that quarters are displayed as the preselected type instead
             goToStartPage()
         })
         it('opens the period dimension modal', () => {
@@ -94,7 +92,7 @@ describe('Period dimension', () => {
             expectItemToBeSelected(defaultRelativePeriod)
         })
         it('all can be unselected by button', () => {
-            unselectAllPeriods()
+            unselectAllItemsByButton()
         })
     })
     describe('relatives period', () => {
@@ -182,8 +180,6 @@ describe('Period dimension', () => {
                     })
                 }
             )
-            // TODO: Intercept settings request with defaultRelativePeriod and hiddenPeriodTypes
-            // TODO: Do this one more and hide months, to test that quarters are displayed as the preselected type instead
             goToStartPage()
         })
         it('opens the period dimension modal', () => {
@@ -263,8 +259,6 @@ describe('Period dimension', () => {
                     })
                 }
             )
-            // TODO: Intercept settings request with defaultRelativePeriod and hiddenPeriodTypes
-            // TODO: Do this one more and hide months, to test that quarters are displayed as the preselected type instead
             goToStartPage()
         })
         it('opens the period dimension modal', () => {
@@ -344,8 +338,6 @@ describe('Period dimension', () => {
                     })
                 }
             )
-            // TODO: Intercept settings request with defaultRelativePeriod and hiddenPeriodTypes
-            // TODO: Do this one more and hide months, to test that quarters are displayed as the preselected type instead
             goToStartPage()
         })
         it('opens the period dimension modal', () => {
@@ -425,8 +417,6 @@ describe('Period dimension', () => {
                     })
                 }
             )
-            // TODO: Intercept settings request with defaultRelativePeriod and hiddenPeriodTypes
-            // TODO: Do this one more and hide months, to test that quarters are displayed as the preselected type instead
             goToStartPage()
         })
         it('opens the period dimension modal', () => {

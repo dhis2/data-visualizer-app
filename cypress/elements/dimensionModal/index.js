@@ -2,6 +2,14 @@ const dimensionModalEl = 'dialog-manager'
 const dimensionModalUpdateButtonEl = 'dialog-manager-modal-action-confirm'
 const dimensionModalHideButtonEl = 'dialog-manager-modal-action-cancel'
 const dimensionModalTitleEl = 'dialog-manager-modal-title'
+const transferAddAllButtonEl = 'transfer-actions-addall'
+const transferRemoveAllButtonEl = 'transfer-actions-removeall'
+const transferAddOneButtonEl = 'transfer-actions-addindividual'
+const transferRemoveOneButtonEl = 'transfer-actions-removeindividual'
+const transferSelectableItemsEl = 'transfer-sourceoptions'
+const transferSelectedItemsEl = 'transfer-pickedoptions'
+const transferLeftContainerEl = 'transfer-leftside'
+const transferLoadingEl = 'dhis2-uicore-circularloader'
 
 export const expectDimensionModalToBeVisible = dimensionId =>
     cy.getBySel(`${dimensionModalEl}-${dimensionId}`).should('be.visible')
@@ -18,21 +26,42 @@ export const clickDimensionModalHideButton = () =>
 export const expectDimensionModalToContain = text =>
     cy.getBySel(dimensionModalTitleEl).should('contain', text)
 
+export const selectAllItemsByButton = () => {
+    cy.getBySelLike(transferAddAllButtonEl).filter('button').click()
+}
+export const unselectAllItemsByButton = () => {
+    cy.getBySelLike(transferRemoveAllButtonEl).filter('button').click()
+}
+export const selectItemByButton = item => {
+    cy.getBySelLike(transferSelectableItemsEl).contains(item).click()
+    cy.getBySelLike(transferAddOneButtonEl).filter('button').click()
+}
+export const unselectItemByButton = item => {
+    cy.getBySelLike(transferSelectedItemsEl).contains(item).click()
+    cy.getBySelLike(transferRemoveOneButtonEl).filter('button').click()
+}
+export const selectItemByDoubleClick = item =>
+    cy.getBySelLike(transferSelectableItemsEl).contains(item).dblclick()
+export const unselectItemByDoubleClick = item =>
+    cy.getBySelLike(transferSelectedItemsEl).contains(item).dblclick()
+
+export const expectSourceToNotBeLoading = () =>
+    cy
+        .getBySelLike(transferLeftContainerEl)
+        .findBySelLike(transferLoadingEl)
+        .should('not.exist')
+
 export {
     selectDataElements,
     selectIndicators,
     switchDataTab,
     expectDataDimensionModalWarningToContain,
     expectDataItemToBeInactive,
-    unselectItemByDoubleClick,
-    selectItemByDoubleClick,
     expectDataDimensionModalToBeVisible,
     expectDataItemToBeSelected,
     expectDataTypeToBe,
     expectGroupSelectToNotBeVisible,
     expectNoDataItemsToBeSelected,
-    selectAllDataItems,
-    unselectAllDataItems,
     expectDataItemsSelectedAmountToBeLeast,
     expectDataItemsSelectedAmountToBe,
     expectDataItemToBeSelectable,
@@ -49,14 +78,34 @@ export {
     switchGroupToAll,
     switchDataTypeToAll,
     scrollSourceToBottom,
-    unselectItemByButton,
-    selectItemByButton,
     expectSubGroupSelectToBeVisible,
     expectSubGroupSelectToBe,
     switchSubGroupTo,
 } from './dataDimension'
 
-export { selectRelativePeriods, selectFixedPeriods } from './periodDimension'
+export {
+    selectRelativePeriods,
+    selectFixedPeriods,
+    expectPeriodDimensionModalToBeVisible,
+    expectSelectedPeriodsAmountToBe,
+    expectItemToBeSelected,
+    expectRelativePeriodTypeToBe,
+    expectRelativeToBeSelected,
+    expectNoPeriodsToBeSelected,
+    expectRelativePeriodTypeSelectToContain,
+    expectFixedPeriodTypeSelectToContain,
+    openRelativePeriodsTypeSelect,
+    expectSelectablePeriodsAmountToBe,
+    switchRelativePeriodType,
+    selectPeriodType,
+    switchToFixedPeriods,
+    expectSelectablePeriodsAmountToBeLeast,
+    openFixedPeriodsTypeSelect,
+    switchFixedPeriodType,
+    expectRelativePeriodTypeSelectToNotContain,
+    expectFixedPeriodTypeSelectToNotContain,
+    expectFixedPeriodTypeToBe,
+} from './periodDimension'
 
 export {
     expectOrgUnitDimensionModalToBeVisible,
