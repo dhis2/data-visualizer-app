@@ -481,6 +481,4 @@ describe('Period dimension', () => {
             selectPeriodType(fixedPeriodTypes[1]) // Click the second item to close the dropdown
         })
     })
-
-    // TODO: Run tests for relative and fixed periods above again but with different intercepted settings and test that the new settings works too
 })
