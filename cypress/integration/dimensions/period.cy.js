@@ -25,6 +25,10 @@ import {
     expectFixedPeriodTypeSelectToNotContain,
     expectFixedPeriodTypeToBe,
     selectAllItemsByButton,
+    expectFirstSelectedItemToBe,
+    clickMoveUpButton,
+    clickMoveDownButton,
+    singleClickSelectedItem,
 } from '../../elements/dimensionModal'
 import { openDimension } from '../../elements/dimensionsPanel'
 import { goToStartPage } from '../../elements/startScreen'
@@ -97,6 +101,19 @@ describe('Period dimension', () => {
         it('all can be unselected by button', () => {
             unselectAllItemsByButton()
             expectNoPeriodsToBeSelected()
+        })
+        it('periods can be reordered', () => {
+            const itemA = 'This month'
+            const itemB = 'Last month'
+            selectItemByDoubleClick(itemA)
+            selectItemByDoubleClick(itemB)
+            expectFirstSelectedItemToBe(itemA)
+            singleClickSelectedItem(itemB)
+            clickMoveUpButton(itemB)
+            expectFirstSelectedItemToBe(itemB)
+            clickMoveDownButton(itemB)
+            expectFirstSelectedItemToBe(itemA)
+            unselectAllItemsByButton()
         })
         const relativePeriodTypes = [
             { name: 'Days', amountOfChildren: 9 },

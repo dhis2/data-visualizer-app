@@ -7,7 +7,6 @@ import {
 } from '.'
 import { clearInput, typeInput } from '../common'
 
-const optionEl = 'data-dimension-transfer-option'
 const optionContentEl = 'data-dimension-transfer-option-content'
 const selectableItemsEl = 'data-dimension-transfer-sourceoptions'
 const selectedItemsEl = 'data-dimension-transfer-pickedoptions'
@@ -34,30 +33,6 @@ export const expectDataDimensionModalToBeVisible = () =>
 export const expectNoDataItemsToBeSelected = () =>
     cy.getBySel(selectedItemsEl).should('contain', 'No items selected')
 
-export const expectDataItemsSelectedAmountToBeLeast = amount =>
-    cy
-        .getBySel(selectedItemsEl)
-        .findBySel(optionEl)
-        .should('have.length.least', amount)
-
-export const expectDataItemsSelectableAmountToBeLeast = amount =>
-    cy
-        .getBySel(selectableItemsEl)
-        .findBySel(optionEl)
-        .should('have.length.least', amount)
-
-export const expectDataItemsSelectableAmountToBe = amount =>
-    cy
-        .getBySel(selectableItemsEl)
-        .findBySel(optionEl)
-        .should('have.length', amount)
-
-export const expectDataItemsSelectedAmountToBe = amount =>
-    cy
-        .getBySel(selectedItemsEl)
-        .findBySel(optionEl)
-        .should('have.length', amount)
-
 export const expectDataDimensionModalWarningToContain = text =>
     cy.getBySel(rightHeaderEl).should('contain', text)
 
@@ -76,12 +51,6 @@ export const selectDataElements = dataElements => {
     switchDataTypeTo('Data elements')
     dataElements.forEach(item => selectItemByDoubleClick(item))
 }
-
-export const expectDataItemToBeSelected = dataItem =>
-    cy.getBySel(selectedItemsEl).should('contain', dataItem)
-
-export const expectDataItemToBeSelectable = dataItem =>
-    cy.getBySel(selectableItemsEl).should('contain', dataItem)
 
 export const selectFirstDataItem = () =>
     cy.getBySel(selectableItemsEl).findBySel(optionContentEl).eq(0).dblclick()

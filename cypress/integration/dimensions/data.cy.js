@@ -7,18 +7,18 @@ import {
     unselectItemByDoubleClick,
     selectItemByDoubleClick,
     expectDataDimensionModalToBeVisible,
-    expectDataItemToBeSelected,
+    expectItemToBeSelected,
     expectDataTypeToBe,
     expectGroupSelectToNotBeVisible,
     expectNoDataItemsToBeSelected,
-    expectDataItemsSelectedAmountToBeLeast,
-    expectDataItemsSelectedAmountToBe,
-    expectDataItemToBeSelectable,
-    expectDataItemsSelectableAmountToBe,
+    expectSelectedItemsAmountToBeLeast,
+    expectSelectedItemsAmountToBe,
+    expectItemToBeSelectable,
+    expectSelectableItemsAmountToBe,
     inputSearchTerm,
     switchDataTypeTo,
     clearSearchTerm,
-    expectDataItemsSelectableAmountToBeLeast,
+    expectSelectableItemsAmountToBeLeast,
     expectGroupSelectToBeVisible,
     switchGroupTo,
     selectFirstDataItem,
@@ -76,7 +76,7 @@ describe('Data dimension', () => {
         const firstPageItemName = TEST_INDICATORS[0].name
         it('an item can be selected by double click', () => {
             selectItemByDoubleClick(firstPageItemName)
-            expectDataItemToBeSelected(firstPageItemName)
+            expectItemToBeSelected(firstPageItemName)
         })
         it('an item can be unselected by double click', () => {
             unselectItemByDoubleClick(firstPageItemName)
@@ -84,7 +84,7 @@ describe('Data dimension', () => {
         })
         it('an item can be selected by button', () => {
             selectItemByButton(firstPageItemName)
-            expectDataItemToBeSelected(firstPageItemName)
+            expectItemToBeSelected(firstPageItemName)
         })
         it('an item can be unselected by button', () => {
             unselectItemByButton(firstPageItemName)
@@ -97,7 +97,7 @@ describe('Data dimension', () => {
             cy.intercept('GET', '/dataItems').as('dataItems')
             selectAllItemsByButton()
             expectSourceToNotBeLoading()
-            expectDataItemsSelectedAmountToBeLeast(PAGE_SIZE)
+            expectSelectedItemsAmountToBeLeast(PAGE_SIZE)
             cy.wait('@dataItems').then(({ request, response }) => {
                 expect(request.url).to.contain('page=2')
                 expect(response.statusCode).to.eq(200)
@@ -105,8 +105,8 @@ describe('Data dimension', () => {
             })
         })
         it('more items are fetched', () => {
-            expectDataItemsSelectableAmountToBeLeast(PAGE_SIZE)
-            expectDataItemToBeSelectable(secondPageItemName)
+            expectSelectableItemsAmountToBeLeast(PAGE_SIZE)
+            expectItemToBeSelectable(secondPageItemName)
         })
         it('all items can be unselected', () => {
             unselectAllItemsByButton()
@@ -121,7 +121,7 @@ describe('Data dimension', () => {
                 expect(response.statusCode).to.eq(200)
                 expect(response.body.dataItems.length).to.eq(PAGE_SIZE)
             })
-            expectDataItemsSelectableAmountToBeLeast(PAGE_SIZE * 3)
+            expectSelectableItemsAmountToBeLeast(PAGE_SIZE * 3)
         })
     })
     describe('global search', () => {
@@ -129,16 +129,16 @@ describe('Data dimension', () => {
         it('recieves a search term', () => inputSearchTerm(testSearchTerm))
         // TODO: Test that the search is only called once, i.e. debounce works
         it('search result is displayed', () => {
-            expectDataItemsSelectableAmountToBe(1)
-            expectDataItemToBeSelectable(testSearchTerm)
+            expectSelectableItemsAmountToBe(1)
+            expectItemToBeSelectable(testSearchTerm)
         })
         it('search result is maintained when switching data type', () => {
             switchDataTypeTo('Data elements')
-            expectDataItemsSelectableAmountToBe(1)
-            expectDataItemToBeSelectable(testSearchTerm)
+            expectSelectableItemsAmountToBe(1)
+            expectItemToBeSelectable(testSearchTerm)
             clearSearchTerm()
             switchDataTypeToAll()
-            expectDataItemsSelectableAmountToBeLeast(PAGE_SIZE)
+            expectSelectableItemsAmountToBeLeast(PAGE_SIZE)
         })
         it('search displays a correct error message', () => {
             const testSearchTermWithNoMatch = 'nomatch'
@@ -149,7 +149,7 @@ describe('Data dimension', () => {
         })
         it('search result can be cleared', () => {
             clearSearchTerm()
-            expectDataItemsSelectableAmountToBeLeast(PAGE_SIZE)
+            expectSelectableItemsAmountToBeLeast(PAGE_SIZE)
         })
         it('modal is closed', () => {
             clickDimensionModalHideButton()
@@ -225,7 +225,7 @@ describe('Data dimension', () => {
             })
             it(`switches to ${testDataType.name}`, () => {
                 switchDataTypeTo(testDataType.name)
-                expectDataItemsSelectableAmountToBeLeast(PAGE_SIZE)
+                expectSelectableItemsAmountToBeLeast(PAGE_SIZE)
             })
             it('group select is visible', () => {
                 expectGroupSelectToBeVisible()
@@ -245,25 +245,25 @@ describe('Data dimension', () => {
                                 .length
                         ).to.be.least(1)
                     })
-                    expectDataItemsSelectableAmountToBeLeast(PAGE_SIZE + 1)
+                    expectSelectableItemsAmountToBeLeast(PAGE_SIZE + 1)
                 })
             }
             it('an item can be selected', () => {
                 selectItemByDoubleClick(testDataType.testItem.name)
-                expectDataItemToBeSelected(testDataType.testItem.name)
+                expectItemToBeSelected(testDataType.testItem.name)
             })
             it(`group can be changed to "${testDataType.testGroup.name}"`, () => {
                 switchGroupTo(testDataType.testGroup.name)
                 expectGroupSelectToBe(testDataType.testGroup.name)
-                expectDataItemsSelectableAmountToBe(
+                expectSelectableItemsAmountToBe(
                     testDataType.testGroup.itemAmount
                 )
-                expectDataItemToBeSelected(testDataType.testItem.name)
+                expectItemToBeSelected(testDataType.testItem.name)
             })
             it('the first item can be selected', () => {
                 selectFirstDataItem()
-                expectDataItemsSelectedAmountToBe(2)
-                expectDataItemsSelectableAmountToBe(
+                expectSelectedItemsAmountToBe(2)
+                expectSelectableItemsAmountToBe(
                     testDataType.testGroup.itemAmount - 1
                 )
             })
@@ -276,18 +276,18 @@ describe('Data dimension', () => {
                 it(`sub group can be changed to "${testDataType.testSubGroup.name}"`, () => {
                     switchSubGroupTo(testDataType.testSubGroup.name)
                     expectSubGroupSelectToBe(testDataType.testSubGroup.name)
-                    expectDataItemsSelectableAmountToBe(
+                    expectSelectableItemsAmountToBe(
                         testDataType.testSubGroup.itemAmount
                     )
-                    expectDataItemToBeSelected(testDataType.testItem.name)
+                    expectItemToBeSelected(testDataType.testItem.name)
                 })
                 it(`sub group can be changed back to "${testDataType.defaultSubGroup.name}"`, () => {
                     switchSubGroupTo(testDataType.defaultSubGroup.name)
                     expectSubGroupSelectToBe(testDataType.defaultSubGroup.name)
-                    expectDataItemsSelectableAmountToBe(
+                    expectSelectableItemsAmountToBe(
                         testDataType.testGroup.itemAmount - 1
                     )
-                    expectDataItemToBeSelected(testDataType.testItem.name)
+                    expectItemToBeSelected(testDataType.testItem.name)
                 })
             }
             it('search displays a correct error message', () => {
@@ -302,13 +302,13 @@ describe('Data dimension', () => {
                 expectSourceToNotBeLoading()
                 expectNoDataItemsToBeSelected()
                 clearSearchTerm()
-                expectDataItemsSelectableAmountToBe(
+                expectSelectableItemsAmountToBe(
                     testDataType.testGroup.itemAmount
                 )
                 switchGroupToAll()
-                expectDataItemsSelectableAmountToBeLeast(PAGE_SIZE)
+                expectSelectableItemsAmountToBeLeast(PAGE_SIZE)
                 switchDataTypeToAll()
-                expectDataItemsSelectableAmountToBeLeast(PAGE_SIZE)
+                expectSelectableItemsAmountToBeLeast(PAGE_SIZE)
             })
             it('modal is closed', () => {
                 clickDimensionModalHideButton()
