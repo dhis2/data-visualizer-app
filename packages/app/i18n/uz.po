@@ -391,13 +391,13 @@ msgid "Compact"
 msgstr "Зич"
 
 msgid "Extreme lines"
-msgstr ""
+msgstr "Чегара чизиқлар"
 
 msgid "Calculated as a percent, usually 1%, of the total values along an axis"
-msgstr ""
+msgstr "Фоиз сифатида ҳисобланади, одатда 1%, ўқнинг умумий қийматидан"
 
 msgid "Extreme line % detection"
-msgstr ""
+msgstr "Чизиқнинг чегара қиймати фоизлари аниқланди"
 
 msgid "Number"
 msgstr "Тартиб рақами"
@@ -451,7 +451,7 @@ msgid "Chart title"
 msgstr "Диаграмма сарлавҳаси"
 
 msgid "Use legend for chart colors"
-msgstr ""
+msgstr "Диаграмманинг ранглари учун талқинлардан фойдаланиш"
 
 msgid "Legend style"
 msgstr "Таъриф тури"
@@ -521,34 +521,41 @@ msgid ""
 "different data. Check the documentation for help to choose the right outlier"
 " detection method"
 msgstr ""
+"Ҳар бир аниқлаш усули ҳар хил усулларни аниқлайди ва ҳар хил маълумотларга "
+"мос келади. Аниқроқ аниқлаш усулини танлашда ёрдам учун ҳужжатларни "
+"текширинг"
 
 msgid "Threshold factor"
-msgstr ""
+msgstr "Чегара омили"
 
 msgid ""
 "A high value is more sensitive so fewer data items will be identified as "
 "outliers"
 msgstr ""
+"Юқори қийматлар ўта сезгирдир, шунинг учун паст қийматдагилар чиқариб "
+"ташланганлар сифатида идентифицирланади"
 
 msgid "Interquartile Range (IQR)"
-msgstr ""
+msgstr "Кварталлар оралиғи"
 
 msgid "Z-score / Standard score"
-msgstr ""
+msgstr "Z - баҳолаш / Стандарт балл"
 
 msgid "Modified Z-score"
-msgstr ""
+msgstr "Ўзгартирилган Z - баҳолаш"
 
 msgid "Outlier analysis"
-msgstr ""
+msgstr "Чекинишлар таҳлили"
 
 msgid ""
 "Outlier analysis detects and highlights data items that are markedly "
 "different from the rest of the data"
 msgstr ""
+"Чекинишлар таҳлили бошқа қийматлардан сезиларли фарқ қилувчи элементлар "
+"қийматини аниқлайди ва белгилайди"
 
 msgid "Outlier detection method"
-msgstr ""
+msgstr "Чекинишларни аниқлаш усули"
 
 msgid "Organisation unit"
 msgstr "Ташкилий бўлим"
@@ -806,10 +813,10 @@ msgstr ""
 "ўчирилган бўлиши мумкин."
 
 msgid "No organization units found"
-msgstr ""
+msgstr "Ташкилий бўлим топилмади"
 
 msgid "The level or group selections didn't return any organization units."
-msgstr ""
+msgstr "Босқич ёки гуруҳ танлаш ҳеч қандай ташкилий бўлимни олиб чиқмади."
 
 msgid "Something went wrong"
 msgstr "Нимадир нотўғри бажарилди"
@@ -938,9 +945,12 @@ msgid ""
 "These options only apply to legacy tables like standard reports. Options set"
 " here will have no effect on tables made in Data Visualizer."
 msgstr ""
+"Бу параметрлар фақатгина эскирган жадвалларга лойиқ, масалан стандарт "
+"жадвалларга. Бу ерда созланган созламалар маълумотлар визуализаторида "
+"яратилган жадваллар параметрларига таъсир қилмайди. "
 
 msgid "Applies to standard reports only"
-msgstr ""
+msgstr "Фақатгина стандарт ҳисоботларга тааллуқли"
 
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""

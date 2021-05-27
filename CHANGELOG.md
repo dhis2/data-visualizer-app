@@ -1,3 +1,31 @@
+# [37.1.0](https://github.com/dhis2/data-visualizer-app/compare/v37.0.10...v37.1.0) (2021-05-25)
+
+
+### Features
+
+* drill down org units in bar and column charts (DHIS2-11061) ([#1720](https://github.com/dhis2/data-visualizer-app/issues/1720)) ([ed09736](https://github.com/dhis2/data-visualizer-app/commit/ed0973676a114800f1f97dc08f53d928d21a17f7))
+
+## [37.0.10](https://github.com/dhis2/data-visualizer-app/compare/v37.0.9...v37.0.10) (2021-05-18)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([a798681](https://github.com/dhis2/data-visualizer-app/commit/a798681c7ec8014682ae1006c4c15b63e3ab0b61))
+
+## [37.0.9](https://github.com/dhis2/data-visualizer-app/compare/v37.0.8...v37.0.9) (2021-05-07)
+
+
+### Bug Fixes
+
+* await ou levels ([#1716](https://github.com/dhis2/data-visualizer-app/issues/1716)) ([94d241b](https://github.com/dhis2/data-visualizer-app/commit/94d241b1d66aefc48384540bbf4c18c1e1bbc725))
+
+## [37.0.8](https://github.com/dhis2/data-visualizer-app/compare/v37.0.7...v37.0.8) (2021-05-05)
+
+
+### Bug Fixes
+
+* pass username to the favorites endpoint ([#1711](https://github.com/dhis2/data-visualizer-app/issues/1711)) ([be2ff21](https://github.com/dhis2/data-visualizer-app/commit/be2ff21c71172ce74554867a1282cdad8175ae2e))
+
 ## [37.0.7](https://github.com/dhis2/data-visualizer-app/compare/v37.0.6...v37.0.7) (2021-05-04)
 
 

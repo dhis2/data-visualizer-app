@@ -14,8 +14,9 @@ import { VisualizationError, genericErrorTitle } from '../../modules/error'
 import { GenericError } from '../../assets/ErrorIcons'
 import { apiFetchVisualizations } from '../../api/visualization'
 import { matchVisualizationWithType } from './utils'
+import { sGetUsername } from '../../reducers/user'
 
-const StartScreen = ({ error }) => {
+const StartScreen = ({ error, username }) => {
     const [mostViewedVisualizations, setMostViewedVisualizations] = useState([])
     const engine = useDataEngine()
 
@@ -23,7 +24,8 @@ const StartScreen = ({ error }) => {
         async function populateMostViewedVisualizations(engine) {
             const mostViewedVisualizationsResult = await apiFetchMostViewedVisualizations(
                 engine,
-                6
+                6,
+                username
             )
             const visualizations = mostViewedVisualizationsResult.visualization // {position: int, views: int, id: string, created: string}
             if (visualizations && visualizations.length) {
@@ -141,10 +143,12 @@ const StartScreen = ({ error }) => {
 
 StartScreen.propTypes = {
     error: PropTypes.object,
+    username: PropTypes.string,
 }
 
 const mapStateToProps = state => ({
     error: sGetLoadError(state),
+    username: sGetUsername(state),
 })
 
 export default connect(mapStateToProps)(StartScreen)
