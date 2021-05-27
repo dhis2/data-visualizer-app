@@ -57,7 +57,7 @@ export const expectItemToBeSelected = item =>
     cy.getBySelLike(transferSelectedItemsEl).should('contain', item)
 
 export const expectItemToBeSelectable = dataItem =>
-    cy.getBySel(transferSelectableItemsEl).should('contain', dataItem)
+    cy.getBySelLike(transferSelectableItemsEl).should('contain', dataItem)
 
 export const expectFirstSelectedItemToBe = item =>
     cy
@@ -72,6 +72,12 @@ export const expectSourceToNotBeLoading = () =>
         .findBySelLike(transferLoadingEl)
         .should('not.exist')
 
+export const expectSourceToBeLoading = () =>
+    cy
+        .getBySelLike(transferLeftContainerEl)
+        .findBySelLike(transferLoadingEl)
+        .should('exist')
+
 export const singleClickSelectedItem = item =>
     cy.getBySelLike(transferSelectedItemsEl).contains(item).click()
 
@@ -84,24 +90,28 @@ export const expectSelectedItemsAmountToBeLeast = amount =>
     cy
         .getBySelLike(transferSelectedItemsEl)
         .findBySelLike(transferOptionEl)
+        .filter('.wrapper')
         .should('have.length.least', amount)
 
 export const expectSelectableItemsAmountToBeLeast = amount =>
     cy
         .getBySelLike(transferSelectableItemsEl)
         .findBySelLike(transferOptionEl)
+        .filter('.wrapper')
         .should('have.length.least', amount)
 
 export const expectSelectableItemsAmountToBe = amount =>
     cy
         .getBySelLike(transferSelectableItemsEl)
         .findBySelLike(transferOptionEl)
+        .filter('.wrapper')
         .should('have.length', amount)
 
 export const expectSelectedItemsAmountToBe = amount =>
     cy
         .getBySelLike(transferSelectedItemsEl)
         .findBySelLike(transferOptionEl)
+        .filter('.wrapper')
         .should('have.length', amount)
 
 export {

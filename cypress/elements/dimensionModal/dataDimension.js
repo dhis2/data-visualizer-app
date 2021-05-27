@@ -1,10 +1,6 @@
 import { DIMENSION_ID_DATA } from '@dhis2/analytics'
 
-import {
-    expectDimensionModalToBeVisible,
-    expectSourceToNotBeLoading,
-    selectItemByDoubleClick,
-} from '.'
+import { expectDimensionModalToBeVisible, selectItemByDoubleClick } from '.'
 import { clearInput, typeInput } from '../common'
 
 const optionContentEl = 'data-dimension-transfer-option-content'
@@ -44,7 +40,6 @@ export const expectDataItemToBeInactive = id =>
 
 export const scrollSourceToBottom = () => {
     cy.getBySel(selectableItemsEl).scrollTo('bottom')
-    expectSourceToNotBeLoading()
 }
 
 export const selectDataElements = dataElements => {
@@ -62,7 +57,6 @@ export const selectIndicators = indicators => {
 
 export const switchDataTab = tabName => {
     cy.getBySel(tabbarEl).contains(tabName).click()
-    expectSourceToNotBeLoading()
 }
 
 export const expectDataTypeToBe = type =>
@@ -80,13 +74,11 @@ export const expectGroupSelectToBe = group =>
 export const switchGroupTo = group => {
     cy.getBySel(groupSelectButtonEl).click()
     cy.getBySelLike(groupSelectOptionEl).contains(group).click()
-    expectSourceToNotBeLoading()
 }
 
 export const switchGroupToAll = () => {
     cy.getBySel(groupSelectButtonEl).click()
     cy.getBySelLike(groupSelectOptionEl).eq(0).click()
-    expectSourceToNotBeLoading()
 }
 
 export const expectSubGroupSelectToBeVisible = () =>
@@ -98,29 +90,24 @@ export const expectSubGroupSelectToBe = group =>
 export const switchSubGroupTo = group => {
     cy.getBySel(subGroupSelectButtonEl).click()
     cy.getBySelLike(subGroupSelectOptionEl).contains(group).click()
-    expectSourceToNotBeLoading()
 }
 
 export const switchDataTypeTo = dataType => {
     cy.getBySel(dataTypesSelectButtonEl).click()
     cy.getBySelLike(dataTypeSelectOptionEl).contains(dataType).click()
-    expectSourceToNotBeLoading()
 }
 
 export const switchDataTypeToAll = () => {
     cy.getBySel(dataTypesSelectButtonEl).click()
     cy.getBySelLike(dataTypeSelectOptionEl).eq(0).click()
-    expectSourceToNotBeLoading()
 }
 
 export const inputSearchTerm = searchTerm => {
     typeInput(searchFieldEl, searchTerm)
-    expectSourceToNotBeLoading()
 }
 
 export const clearSearchTerm = () => {
     clearInput(searchFieldEl)
-    expectSourceToNotBeLoading()
 }
 
 export const expectEmptySourceMessageToBe = message => {
