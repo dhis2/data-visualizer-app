@@ -3,7 +3,7 @@ import { DIMENSION_ID_PERIOD } from '@dhis2/analytics'
 import {
     expectDimensionModalToContain,
     expectPeriodDimensionModalToBeVisible,
-    expectSelectedPeriodsAmountToBe,
+    expectSelectedItemsAmountToBe,
     expectItemToBeSelected,
     expectRelativePeriodTypeToBe,
     expectRelativeToBeSelected,
@@ -15,11 +15,9 @@ import {
     expectRelativePeriodTypeSelectToContain,
     expectFixedPeriodTypeSelectToContain,
     openRelativePeriodsTypeSelect,
-    expectSelectablePeriodsAmountToBe,
     selectPeriodType,
     unselectAllItemsByButton,
     switchToFixedPeriods,
-    expectSelectablePeriodsAmountToBeLeast,
     openFixedPeriodsTypeSelect,
     expectRelativePeriodTypeSelectToNotContain,
     expectFixedPeriodTypeSelectToNotContain,
@@ -29,6 +27,8 @@ import {
     clickMoveUpButton,
     clickMoveDownButton,
     singleClickSelectedItem,
+    expectSelectableItemsAmountToBeLeast,
+    expectSelectableItemsAmountToBe,
 } from '../../elements/dimensionModal'
 import { openDimension } from '../../elements/dimensionsPanel'
 import { goToStartPage } from '../../elements/startScreen'
@@ -67,7 +67,7 @@ describe('Period dimension', () => {
             expectDimensionModalToContain('Period')
         })
         it('1 period is selected', () => {
-            expectSelectedPeriodsAmountToBe(1)
+            expectSelectedItemsAmountToBe(1)
         })
         it(`period '${defaultRelativePeriod}' is selected`, () => {
             expectItemToBeSelected(defaultRelativePeriod)
@@ -96,7 +96,7 @@ describe('Period dimension', () => {
         })
         it('all can be selected by button', () => {
             selectAllItemsByButton()
-            expectSelectedPeriodsAmountToBe(6)
+            expectSelectedItemsAmountToBe(6)
         })
         it('all can be unselected by button', () => {
             unselectAllItemsByButton()
@@ -130,7 +130,7 @@ describe('Period dimension', () => {
             it(`relative period type '${type.name}' has ${type.amountOfChildren} items`, () => {
                 openRelativePeriodsTypeSelect()
                 selectPeriodType(type.name)
-                expectSelectablePeriodsAmountToBe(type.amountOfChildren)
+                expectSelectableItemsAmountToBe(type.amountOfChildren)
             })
         )
         it('can switch to fixed periods', () => {
@@ -163,10 +163,10 @@ describe('Period dimension', () => {
                 openFixedPeriodsTypeSelect()
                 selectPeriodType(type.name)
                 type.amountOfChildren > 50
-                    ? expectSelectablePeriodsAmountToBeLeast(
+                    ? expectSelectableItemsAmountToBeLeast(
                           type.amountOfChildren
                       )
-                    : expectSelectablePeriodsAmountToBe(type.amountOfChildren)
+                    : expectSelectableItemsAmountToBe(type.amountOfChildren)
             })
         )
     })
