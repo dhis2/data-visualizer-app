@@ -212,6 +212,7 @@ exports[`The DialogManager component renders the PeriodDimension content in dial
       dataTest="dialog-manager-modal-content"
     >
       <PeriodDimension
+        excludedPeriodTypes={Array []}
         onSelect={[Function]}
         selectedPeriods={Array []}
       />

@@ -3,8 +3,8 @@ import {
     VIS_TYPE_PIVOT_TABLE,
     layoutGetDimensionItems,
     DIMENSION_ID_PERIOD,
-    DAYS,
-    WEEKS,
+    DAILY,
+    WEEKLY,
 } from '@dhis2/analytics'
 
 import { getRelativePeriodTypeUsed } from '../modules/analytics'
@@ -57,7 +57,7 @@ export const apiFetchAnalyticsForYearOverYear = async (
     const periodItems = layoutGetDimensionItems(visualization, periodId)
 
     // relative week period in use
-    if (getRelativePeriodTypeUsed(periodItems) === WEEKS) {
+    if (getRelativePeriodTypeUsed(periodItems) === WEEKLY) {
         const relativeWeeksData = await prepareRequestsForRelativeWeeks({
             analyticsEngine,
             visualization,
@@ -69,7 +69,7 @@ export const apiFetchAnalyticsForYearOverYear = async (
 
         periodDates.push(...relativeWeeksData.periodDates)
         yearlySeriesLabels.push(...relativeWeeksData.yearlySeriesLabels)
-    } else if (getRelativePeriodTypeUsed(periodItems) === DAYS) {
+    } else if (getRelativePeriodTypeUsed(periodItems) === DAILY) {
         const relativeDaysData = prepareRequestsForRelativeDays({
             yearlySeriesRes,
             currentMonth,

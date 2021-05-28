@@ -3,4 +3,9 @@ export const SYSTEM_SETTINGS = [
     'keyAnalysisRelativePeriod',
     'keyAnalysisDigitGroupSeparator',
     'keyIgnoreAnalyticsApprovalYearThreshold',
+    'keyHideBiMonthlyPeriods',
+    'keyHideDailyPeriods',
+    'keyHideMonthlyPeriods',
+    'keyHideWeeklyPeriods',
+    'keyHideBiWeeklyPeriods',
 ]
