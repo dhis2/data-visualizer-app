@@ -3,13 +3,14 @@
 # phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
 # Ulanbek Abakirov <ulans@mail.ru>, 2020
+# Saurabh Leekha <saurabh.leekha@hispindia.org>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
 "PO-Revision-Date: 2020-12-22 22:14+0000\n"
-"Last-Translator: Ulanbek Abakirov <ulans@mail.ru>, 2020\n"
+"Last-Translator: Saurabh Leekha <saurabh.leekha@hispindia.org>, 2021\n"
 "Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -277,10 +278,10 @@ msgid "Loading data approval levels"
 msgstr ""
 
 msgid "Axis range"
-msgstr ""
+msgstr "Диапазон осей"
 
 msgid "Values outside of the range will not be displayed"
-msgstr ""
+msgstr "Значения вне диапазона не будут отображаться"
 
 msgid "Base line"
 msgstr "Базисная линия"
@@ -361,7 +362,7 @@ msgid "Compact"
 msgstr "Компактный"
 
 msgid "Axis title"
-msgstr ""
+msgstr "Название оси"
 
 msgid "Add a title"
 msgstr ""
@@ -397,7 +398,7 @@ msgid "Hide empty rows"
 msgstr "Скрыть незаполненные строки"
 
 msgid "Show legend key"
-msgstr ""
+msgstr "Показать ключ легенды"
 
 msgid "Table subtitle"
 msgstr ""
@@ -406,7 +407,7 @@ msgid "Chart subtitle"
 msgstr "Подзаголовок диаграммы"
 
 msgid "Auto generated"
-msgstr ""
+msgstr "Автогенерируемая"
 
 msgid "Custom"
 msgstr "Пользователь"
@@ -459,7 +460,7 @@ msgid "Clear min/max limits"
 msgstr ""
 
 msgid "No space between bars/columns"
-msgstr ""
+msgstr "Без пробелов между полосами / столбцами"
 
 msgid "Number type"
 msgstr "Тип числа"
@@ -486,7 +487,7 @@ msgid "Stacked values add up to 100%"
 msgstr ""
 
 msgid "Decimals"
-msgstr ""
+msgstr "Десятичные дроби"
 
 msgid "Auto"
 msgstr "Авто"
@@ -495,6 +496,8 @@ msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
 msgstr ""
+"Количество шагов по оси, включая мин. И макс. Значение 2 или ниже будет "
+"проигнорировано."
 
 msgid "Steps"
 msgstr "Шаги"
@@ -550,7 +553,7 @@ msgid ""
 msgstr ""
 
 msgid "Value labels"
-msgstr ""
+msgstr "Ярлыки значений"
 
 msgid "Dimension labels"
 msgstr ""
@@ -818,7 +821,7 @@ msgid "Axes"
 msgstr "Оси"
 
 msgid "Horizontal (x) axis"
-msgstr ""
+msgstr "Горизонтальная ось (x)"
 
 msgid "Series"
 msgstr "Ряды"
@@ -830,13 +833,13 @@ msgid "Chart style"
 msgstr ""
 
 msgid "Titles"
-msgstr ""
+msgstr "Титулы"
 
 msgid "Lines"
 msgstr ""
 
 msgid "Vertical (y) axis"
-msgstr ""
+msgstr "Вертикальная ось (y)"
 
 msgid "Totals"
 msgstr "Итоги"
