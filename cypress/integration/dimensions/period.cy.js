@@ -124,7 +124,7 @@ describe('Period dimension', () => {
             { name: 'Quarters', amountOfChildren: 4 },
             { name: 'Six-months', amountOfChildren: 3 },
             { name: 'Financial Years', amountOfChildren: 3 },
-            { name: 'Years', amountOfChildren: 3 },
+            { name: 'Years', amountOfChildren: 4 },
         ]
         relativePeriodTypes.forEach(type =>
             it(`relative period type '${type.name}' has ${type.amountOfChildren} items`, () => {
