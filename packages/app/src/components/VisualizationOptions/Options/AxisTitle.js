@@ -28,9 +28,9 @@ const colors = ['#4292c6', '#cb181d', '#41ab5d', '#6c66b8']
 const AxisTitle = ({
     axisId,
     fontStyleKey,
-    type,
+    textMode,
     onTextChange,
-    onTypeChange,
+    onTextModeChange,
     title,
     hasCustomAxes,
     setTitleColor,
@@ -38,11 +38,11 @@ const AxisTitle = ({
     setFontStyle,
     showAutoOption,
 }) => {
-    const onRadioChange = ({ value: newType }) => {
-        onTypeChange(newType)
+    const onRadioChange = ({ value: newTextMode }) => {
+        onTextModeChange(newTextMode)
 
         if (
-            (newType === TITLE_AUTO || newType === TITLE_CUSTOM) &&
+            (newTextMode === TITLE_AUTO || newTextMode === TITLE_CUSTOM) &&
             hasCustomAxes &&
             fontStyle[FONT_STYLE_OPTION_TEXT_COLOR] ===
                 defaultFontStyle[fontStyleKey][FONT_STYLE_OPTION_TEXT_COLOR]
@@ -92,11 +92,11 @@ const AxisTitle = ({
                         value={id}
                         dense
                         onChange={onRadioChange}
-                        checked={type === id}
+                        checked={textMode === id}
                     />
                 ))}
             </Field>
-            {type === TITLE_CUSTOM ? (
+            {textMode === TITLE_CUSTOM ? (
                 <div className={tabSectionOptionToggleable.className}>
                     <InputField
                         type={'text'}
@@ -109,7 +109,7 @@ const AxisTitle = ({
                     />
                 </div>
             ) : null}
-            {type === TITLE_AUTO || type === TITLE_CUSTOM ? (
+            {textMode === TITLE_AUTO || textMode === TITLE_CUSTOM ? (
                 <div className={tabSectionOptionToggleable.className}>
                     <TextStyle
                         fontStyleKey={fontStyleKey}
@@ -137,10 +137,10 @@ AxisTitle.propTypes = {
     setFontStyle: PropTypes.func,
     setTitleColor: PropTypes.func,
     showAutoOption: PropTypes.bool,
+    textMode: PropTypes.bool,
     title: PropTypes.string,
-    type: PropTypes.bool,
     onTextChange: PropTypes.func,
-    onTypeChange: PropTypes.func,
+    onTextModeChange: PropTypes.func,
 }
 
 const mapStateToProps = (state, ownProps) => ({
@@ -153,7 +153,7 @@ const mapStateToProps = (state, ownProps) => ({
         axisId: ownProps.axisId,
         id: OPTION_AXIS_TITLE,
     }),
-    type:
+    textMode:
         sGetUiOption(state, {
             id: OPTION_AXIS_TITLE_TEXT_MODE,
             axisId: ownProps.axisId,
@@ -169,12 +169,12 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
                 value,
             })
         ),
-    onTypeChange: type =>
+    onTextModeChange: textMode =>
         dispatch(
             acSetUiOption({
                 optionId: OPTION_AXIS_TITLE_TEXT_MODE,
                 axisId: ownProps.axisId,
-                value: type,
+                value: textMode,
             })
         ),
     setTitleColor: value =>
