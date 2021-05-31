@@ -17,7 +17,7 @@ import { sGetUiOption } from '../../../reducers/ui'
 import { acSetUiOption, acSetUiOptionFontStyle } from '../../../actions/ui'
 import {
     OPTION_AXIS_TITLE,
-    OPTION_AXIS_TITLE_TYPE,
+    OPTION_AXIS_TITLE_TEXT_MODE,
 } from '../../../modules/options'
 
 const TITLE_AUTO = 'AUTO'
@@ -155,7 +155,7 @@ const mapStateToProps = (state, ownProps) => ({
     }),
     type:
         sGetUiOption(state, {
-            id: OPTION_AXIS_TITLE_TYPE,
+            id: OPTION_AXIS_TITLE_TEXT_MODE,
             axisId: ownProps.axisId,
         }) || TITLE_NONE,
 })
@@ -172,7 +172,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     onTypeChange: type =>
         dispatch(
             acSetUiOption({
-                optionId: OPTION_AXIS_TITLE_TYPE,
+                optionId: OPTION_AXIS_TITLE_TEXT_MODE,
                 axisId: ownProps.axisId,
                 value: type,
             })
