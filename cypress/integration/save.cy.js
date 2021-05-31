@@ -132,6 +132,19 @@ describe('saving an AO', () => {
 
     describe('"save" and "save as" for a saved AO created by you', () => {
         it('navigates to the start page and opens a saved AO', () => {
+            cy.intercept(
+                /systemSettings(\S)*keyAnalysisRelativePeriod(\S)*/,
+                req => {
+                    req.reply(res => {
+                        res.send({
+                            body: {
+                                ...res.body,
+                                keyHideMonthlyPeriods: false,
+                            },
+                        })
+                    })
+                }
+            )
             goToStartPage()
             openAOByName(TEST_VIS_NAME_UPDATED)
             expectAOTitleToBeValue(TEST_VIS_NAME_UPDATED)

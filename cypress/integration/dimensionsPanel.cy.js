@@ -17,8 +17,8 @@ import {
     clickOrgUnitTreeItem,
     clickDimensionModalUpdateButton,
     expectDimensionModalToNotBeVisible,
+    unselectAllItemsByButton,
 } from '../elements/dimensionModal'
-import { removeAllPeriodItems } from '../elements/dimensionModal/periodDimension'
 import {
     openDimension,
     openContextMenu,
@@ -67,7 +67,7 @@ describe('interacting with the dimensions panel', () => {
         })
         it('removes period and period items', () => {
             openDimension(DIMENSION_ID_PERIOD)
-            removeAllPeriodItems()
+            unselectAllItemsByButton()
             clickDimensionModalUpdateButton()
             openContextMenu(DIMENSION_ID_PERIOD)
             clickContextMenuRemove(DIMENSION_ID_PERIOD)

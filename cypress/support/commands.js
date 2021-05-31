@@ -28,14 +28,16 @@ Cypress.Commands.add(
         cy.wrap(subject).find(`[data-test*=${selector}]`, ...args)
 )
 
-/* 
-FIXME: Draft for a containsExact command
 Cypress.Commands.add(
     'containsExact',
     {
         prevSubject: true,
     },
-    (subject, selector) => 
-        cy.wrap(subject).contains(new RegExp(`^${selector}$`, 'g'))
+    (subject, selector) =>
+        cy.wrap(subject).contains(
+            new RegExp(
+                `^${selector.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')}$`, //eslint-disable-line no-useless-escape
+                'gm'
+            )
+        )
 )
-*/

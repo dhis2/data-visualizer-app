@@ -1,3 +1,24 @@
+## [37.3.1](https://github.com/dhis2/data-visualizer-app/compare/v37.3.0...v37.3.1) (2021-05-28)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([65a16e7](https://github.com/dhis2/data-visualizer-app/commit/65a16e73e8f06d6f34f361243ea3a181429393dc))
+
+# [37.3.0](https://github.com/dhis2/data-visualizer-app/compare/v37.2.0...v37.3.0) (2021-05-28)
+
+
+### Features
+
+* add last 10 years relative period (DHIS2-7029) ([#1722](https://github.com/dhis2/data-visualizer-app/issues/1722)) ([8448fa5](https://github.com/dhis2/data-visualizer-app/commit/8448fa5032aa89922e46089cbc1529758e05bf0a))
+
+# [37.2.0](https://github.com/dhis2/data-visualizer-app/compare/v37.1.0...v37.2.0) (2021-05-28)
+
+
+### Features
+
+* hide periods based on system settings (DHIS2-11161) ([#1721](https://github.com/dhis2/data-visualizer-app/issues/1721)) ([fb0974c](https://github.com/dhis2/data-visualizer-app/commit/fb0974c323a62f2d34e6e2e36a57567590d42116))
+
 # [37.1.0](https://github.com/dhis2/data-visualizer-app/compare/v37.0.10...v37.1.0) (2021-05-25)
 
 
