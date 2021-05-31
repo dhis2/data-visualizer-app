@@ -10,7 +10,7 @@ export default content => ({
         {
             key: 'axis-tabs',
             content: React.Children.toArray([
-                <AxesTabs items={content} key="tabs" />,
+                <AxesTabs items={content} key="tabs" dataTest={'axes-tabs'} />,
             ]),
         },
     ],

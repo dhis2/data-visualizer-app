@@ -6,12 +6,12 @@ import VerticalTabBar from '../VerticalTabBar/VerticalTabBar'
 import VerticalTab from '../VerticalTabBar/VerticalTab'
 import styles from './styles/AxesTabs.module.css'
 
-const AxesTabs = ({ items }) => {
+const AxesTabs = ({ items, dataTest }) => {
     const [selectedTabIndex, setSelectedTabIndex] = useState(0)
 
     return (
         <div>
-            <div className={styles.tabs}>
+            <div className={styles.tabs} data-test={dataTest}>
                 <VerticalTabBar>
                     {items.map(({ label }, index) => (
                         <VerticalTab
@@ -36,6 +36,7 @@ const AxesTabs = ({ items }) => {
 }
 
 AxesTabs.propTypes = {
+    dataTest: PropTypes.string,
     items: PropTypes.array,
 }
 
