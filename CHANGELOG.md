@@ -1,3 +1,10 @@
+# [37.4.0](https://github.com/dhis2/data-visualizer-app/compare/v37.3.1...v37.4.0) (2021-06-01)
+
+
+### Features
+
+* support options for multi axes (DHIS2-6672) ([#1692](https://github.com/dhis2/data-visualizer-app/issues/1692)) ([f535418](https://github.com/dhis2/data-visualizer-app/commit/f535418560664d9287835a10fa2b9a1bad84b7b3))
+
 ## [37.3.1](https://github.com/dhis2/data-visualizer-app/compare/v37.3.0...v37.3.1) (2021-05-28)
 
 
