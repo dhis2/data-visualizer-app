@@ -309,7 +309,19 @@ msgstr ""
 msgid "Axis title"
 msgstr ""
 
+msgid "Auto generated"
+msgstr ""
+
+msgid "None"
+msgstr "Жодного"
+
+msgid "Custom"
+msgstr "Налаштовуваний користувачем"
+
 msgid "Add a title"
+msgstr ""
+
+msgid "Reset style to default"
 msgstr ""
 
 msgid "Base line"
@@ -353,9 +365,6 @@ msgstr ""
 
 msgid "Digit group separator"
 msgstr "Роздільник групи цифр"
-
-msgid "None"
-msgstr "Жодного"
 
 msgid "Space"
 msgstr "Пробіл"
@@ -425,12 +434,6 @@ msgstr ""
 
 msgid "Chart subtitle"
 msgstr ""
-
-msgid "Auto generated"
-msgstr ""
-
-msgid "Custom"
-msgstr "Налаштовуваний користувачем"
 
 msgid "Chart title"
 msgstr ""
@@ -899,22 +902,14 @@ msgstr ""
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
 
-msgid "Vertical axis"
-msgstr ""
-
-msgid "Horizontal axis"
-msgstr ""
-
 msgid "Color set"
 msgstr ""
 
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
 
-msgid "Horizontal (x) axis"
-msgstr ""
-
-msgid "Lines are not supported yet when using multiple axes"
+msgid ""
+"Base and target lines are available on the Axes tab for multi-axis charts"
 msgstr ""
 
 msgid "Chart style"
@@ -926,19 +921,25 @@ msgstr ""
 msgid "Empty data"
 msgstr ""
 
+msgid "Horizontal (x) axis {{axisId}}"
+msgstr ""
+
+msgid "Horizontal (x) axis"
+msgstr ""
+
 msgid "Lines"
 msgstr ""
 
 msgid "Totals"
 msgstr "Підсумки"
 
+msgid "Vertical (y) axis {{axisId}}"
+msgstr ""
+
 msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Titles"
-msgstr ""
-
-msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr ""
 
 msgid "Axes"

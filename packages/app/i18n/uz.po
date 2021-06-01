@@ -324,8 +324,20 @@ msgstr "Қадамлар"
 msgid "Axis title"
 msgstr "Ўқ сарлавҳаси"
 
+msgid "Auto generated"
+msgstr "Автоматик равишда яратилган"
+
+msgid "None"
+msgstr "Йўқ"
+
+msgid "Custom"
+msgstr "Одатий"
+
 msgid "Add a title"
 msgstr "Сарлавҳа қўшиш"
+
+msgid "Reset style to default"
+msgstr ""
 
 msgid "Base line"
 msgstr "Базавий чизиқ"
@@ -368,9 +380,6 @@ msgstr "Кумулятив қийматлар"
 
 msgid "Digit group separator"
 msgstr "Рақамлар гуруҳини тақсимловчи"
-
-msgid "None"
-msgstr "Йўқ"
 
 msgid "Space"
 msgstr "Оралиқ (майдон)"
@@ -440,12 +449,6 @@ msgstr "Жадвал таглавҳаси"
 
 msgid "Chart subtitle"
 msgstr "Диаграмма шарҳи"
-
-msgid "Auto generated"
-msgstr "Автоматик равишда яратилган"
-
-msgid "Custom"
-msgstr "Одатий"
 
 msgid "Chart title"
 msgstr "Диаграмма сарлавҳаси"
@@ -956,23 +959,15 @@ msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
 "Тарқатма жадваллар учун Ўқлар ёрлиғида асосий ва мақсадли қаторлар мавжуд"
 
-msgid "Vertical axis"
-msgstr "Вертикал ўқ"
-
-msgid "Horizontal axis"
-msgstr "Горизонтал ўқ"
-
 msgid "Color set"
 msgstr "Ранглар тўплами"
 
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr "Кўп ўқлардан фойдаланганда ранглар тўплами ҳали қўллаб қувватланмайди"
 
-msgid "Horizontal (x) axis"
-msgstr "горизонтал (Х) ўқ"
-
-msgid "Lines are not supported yet when using multiple axes"
-msgstr "Кўп ўқлардан фойдаланганда чизиқлар ҳали қўллаб қувватланмайди"
+msgid ""
+"Base and target lines are available on the Axes tab for multi-axis charts"
+msgstr ""
 
 msgid "Chart style"
 msgstr "Диаграмма услуби"
@@ -983,22 +978,26 @@ msgstr "Экранда кўрсатиш"
 msgid "Empty data"
 msgstr "Бўш маълумотлар"
 
+msgid "Horizontal (x) axis {{axisId}}"
+msgstr ""
+
+msgid "Horizontal (x) axis"
+msgstr "горизонтал (Х) ўқ"
+
 msgid "Lines"
 msgstr "Қаторлар"
 
 msgid "Totals"
 msgstr "Жами"
 
+msgid "Vertical (y) axis {{axisId}}"
+msgstr ""
+
 msgid "Vertical (y) axis"
 msgstr "Вертикал (y) ўқи"
 
 msgid "Titles"
 msgstr "Сарлавҳалар"
-
-msgid "Vertical axis options are not supported yet when using multiple axes"
-msgstr ""
-"Кўп ўқлардан фойдаланганда вертикал ўқ параметрлари ҳали қўллаб "
-"қувватланмайди"
 
 msgid "Axes"
 msgstr "Ўқлар"
