@@ -10,7 +10,7 @@ const AxesTabs = ({ items, dataTest }) => {
     const [selectedTabIndex, setSelectedTabIndex] = useState(0)
 
     return (
-        <div>
+        <>
             <div className={styles.tabs} data-test={dataTest}>
                 <VerticalTabBar>
                     {items.map(({ label }, index) => (
@@ -31,7 +31,7 @@ const AxesTabs = ({ items, dataTest }) => {
                 {items[selectedTabIndex].content}
             </div>
             {tabSectionTitle.styles}
-        </div>
+        </>
     )
 }
 
