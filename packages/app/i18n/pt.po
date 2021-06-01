@@ -321,8 +321,20 @@ msgstr "Passos"
 msgid "Axis title"
 msgstr "Título do eixo"
 
+msgid "Auto generated"
+msgstr "Gerado automaticamente"
+
+msgid "None"
+msgstr "Nenhum"
+
+msgid "Custom"
+msgstr "Customizar "
+
 msgid "Add a title"
 msgstr "Adicionar titulo"
+
+msgid "Reset style to default"
+msgstr ""
 
 msgid "Base line"
 msgstr "Linha de base "
@@ -365,9 +377,6 @@ msgstr "Valores cumulativos "
 
 msgid "Digit group separator"
 msgstr "Separador de grupo de dígitos"
-
-msgid "None"
-msgstr "Nenhum"
 
 msgid "Space"
 msgstr "Espaço"
@@ -437,12 +446,6 @@ msgstr "Subtitulo da tabela"
 
 msgid "Chart subtitle"
 msgstr "Subtítulo do gráfico"
-
-msgid "Auto generated"
-msgstr "Gerado automaticamente"
-
-msgid "Custom"
-msgstr "Customizar "
 
 msgid "Chart title"
 msgstr "Título do gráfico"
@@ -924,22 +927,14 @@ msgstr ""
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
 
-msgid "Vertical axis"
-msgstr ""
-
-msgid "Horizontal axis"
-msgstr ""
-
 msgid "Color set"
 msgstr ""
 
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
 
-msgid "Horizontal (x) axis"
-msgstr "Eixo Horizontal (x) "
-
-msgid "Lines are not supported yet when using multiple axes"
+msgid ""
+"Base and target lines are available on the Axes tab for multi-axis charts"
 msgstr ""
 
 msgid "Chart style"
@@ -951,20 +946,26 @@ msgstr "Exibir"
 msgid "Empty data"
 msgstr ""
 
+msgid "Horizontal (x) axis {{axisId}}"
+msgstr ""
+
+msgid "Horizontal (x) axis"
+msgstr "Eixo Horizontal (x) "
+
 msgid "Lines"
 msgstr "Linhas "
 
 msgid "Totals"
 msgstr "Totais"
 
+msgid "Vertical (y) axis {{axisId}}"
+msgstr ""
+
 msgid "Vertical (y) axis"
 msgstr "Eixo vertical (y)"
 
 msgid "Titles"
 msgstr "Titulos"
-
-msgid "Vertical axis options are not supported yet when using multiple axes"
-msgstr ""
 
 msgid "Axes"
 msgstr "Machados"

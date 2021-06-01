@@ -315,7 +315,19 @@ msgstr "Шаги"
 msgid "Axis title"
 msgstr "Название оси"
 
+msgid "Auto generated"
+msgstr "Автогенерируемая"
+
+msgid "None"
+msgstr "Не известное значение"
+
+msgid "Custom"
+msgstr "Пользователь"
+
 msgid "Add a title"
+msgstr ""
+
+msgid "Reset style to default"
 msgstr ""
 
 msgid "Base line"
@@ -359,9 +371,6 @@ msgstr ""
 
 msgid "Digit group separator"
 msgstr "Разделитель групп разрядов"
-
-msgid "None"
-msgstr "Не известное значение"
 
 msgid "Space"
 msgstr "Пробел"
@@ -431,12 +440,6 @@ msgstr ""
 
 msgid "Chart subtitle"
 msgstr "Подзаголовок диаграммы"
-
-msgid "Auto generated"
-msgstr "Автогенерируемая"
-
-msgid "Custom"
-msgstr "Пользователь"
 
 msgid "Chart title"
 msgstr "Заголовок диаграммы"
@@ -905,22 +908,14 @@ msgstr ""
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
 
-msgid "Vertical axis"
-msgstr ""
-
-msgid "Horizontal axis"
-msgstr ""
-
 msgid "Color set"
 msgstr ""
 
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
 
-msgid "Horizontal (x) axis"
-msgstr "Горизонтальная ось (x)"
-
-msgid "Lines are not supported yet when using multiple axes"
+msgid ""
+"Base and target lines are available on the Axes tab for multi-axis charts"
 msgstr ""
 
 msgid "Chart style"
@@ -932,20 +927,26 @@ msgstr "Показать"
 msgid "Empty data"
 msgstr ""
 
+msgid "Horizontal (x) axis {{axisId}}"
+msgstr ""
+
+msgid "Horizontal (x) axis"
+msgstr "Горизонтальная ось (x)"
+
 msgid "Lines"
 msgstr ""
 
 msgid "Totals"
 msgstr "Итоги"
 
+msgid "Vertical (y) axis {{axisId}}"
+msgstr ""
+
 msgid "Vertical (y) axis"
 msgstr "Вертикальная ось (y)"
 
 msgid "Titles"
 msgstr "Титулы"
-
-msgid "Vertical axis options are not supported yet when using multiple axes"
-msgstr ""
 
 msgid "Axes"
 msgstr "Оси"
