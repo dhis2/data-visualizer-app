@@ -5,13 +5,14 @@
 # phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
 # Pablo Pajuelo Cabezas <ppajuelo@quadram.mobi>, 2020
+# drprabhjot, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-25T09:27:28.489Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
-"Last-Translator: Pablo Pajuelo Cabezas <ppajuelo@quadram.mobi>, 2020\n"
+"Last-Translator: drprabhjot, 2021\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -497,16 +498,16 @@ msgid "Months this year"
 msgstr "Meses este año"
 
 msgid "This bimonth"
-msgstr ""
+msgstr "Este bimestre"
 
 msgid "Last bimonth"
-msgstr ""
+msgstr "Último bimestre"
 
 msgid "Last 6 bimonths"
 msgstr ""
 
 msgid "Bimonths this year"
-msgstr ""
+msgstr "Bimestres de este año"
 
 msgid "This quarter"
 msgstr "Este trimestre"
