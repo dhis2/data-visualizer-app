@@ -7,7 +7,7 @@ export const OPTION_AXIS_DECIMALS = 'decimals'
 export const OPTION_AXIS_MAX_VALUE = 'maxValue'
 export const OPTION_AXIS_MIN_VALUE = 'minValue'
 export const OPTION_AXIS_TITLE = 'axisTitle'
-export const OPTION_AXIS_TITLE_ENABLED = 'axisTitleEnabled'
+export const OPTION_AXIS_TITLE_TEXT_MODE = 'axisTitleTextMode'
 export const OPTION_BASE_LINE_ENABLED = 'baseLineEnabled'
 export const OPTION_BASE_LINE_TITLE = 'baseLineTitle'
 export const OPTION_BASE_LINE_VALUE = 'baseLineValue'
@@ -167,11 +167,8 @@ export const getOptionsFromVisualization = visualization => {
     }
 
     optionsFromVisualization.axes = optionsFromVisualization.axes.map(axis => {
-        if (axis.title || axis.targetLine || axis.baseLine) {
+        if (axis.targetLine || axis.baseLine) {
             const clonedAxis = { ...axis }
-            if (clonedAxis.title) {
-                clonedAxis.title = { ...clonedAxis.title, enabled: true }
-            }
             if (clonedAxis.targetLine) {
                 clonedAxis.targetLine = {
                     ...clonedAxis.targetLine,

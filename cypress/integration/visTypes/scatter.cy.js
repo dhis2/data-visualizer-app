@@ -48,6 +48,7 @@ import {
     OPTIONS_TAB_OUTLIERS,
     setAxisRangeMaxValue,
     setAxisRangeMinValue,
+    switchAxesTabTo,
 } from '../../elements/optionsModal'
 import {
     expectWindowConfigYAxisToHaveRangeMaxValue,
@@ -144,12 +145,18 @@ describe('using a Scatter chart', () => {
     })
     it('Options -> Axes -> sets min/max range', () => {
         const TEST_AXES = [
-            { axis: 'RANGE_0', min: 50, max: 150 },
-            { axis: 'RANGE_1', min: 100, max: 200 },
+            { axis: 'RANGE_0', label: 'Vertical (y) axis', min: 50, max: 150 },
+            {
+                axis: 'RANGE_1',
+                label: 'Horizontal (x) axis',
+                min: 100,
+                max: 200,
+            },
         ]
         clickMenuBarOptionsButton()
         clickOptionsTab(OPTIONS_TAB_AXES)
         TEST_AXES.forEach(test => {
+            switchAxesTabTo(test.label)
             setAxisRangeMinValue(test.axis, test.min)
             setAxisRangeMaxValue(test.axis, test.max)
         })

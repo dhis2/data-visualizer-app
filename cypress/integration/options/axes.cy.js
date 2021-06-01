@@ -15,14 +15,15 @@ import { clickMenuBarOptionsButton } from '../../elements/menuBar'
 import {
     clickOptionsModalUpdateButton,
     clickOptionsTab,
-    enableAxisTitle,
+    switchAxesTabTo,
     expectAxisRangeMaxToBeValue,
     expectAxisRangeMinToBeValue,
     expectAxisTitleToBeValue,
     OPTIONS_TAB_AXES,
     setAxisRangeMaxValue,
     setAxisRangeMinValue,
-    setAxisTitle,
+    setAxisTitleText,
+    setAxisTitleToCustom,
 } from '../../elements/optionsModal'
 import {
     expectWindowConfigYAxisToHaveRangeMinValue,
@@ -51,11 +52,11 @@ describe('Options - Vertical axis', () => {
             clickMenuBarOptionsButton()
             clickOptionsTab(OPTIONS_TAB_AXES)
         })
-        it('enable title', () => {
-            enableAxisTitle(TEST_AXIS)
+        it("set axis title to 'custom'", () => {
+            setAxisTitleToCustom()
         })
-        it('set custom title', () => {
-            setAxisTitle(TEST_AXIS, TEST_TITLE)
+        it('type title', () => {
+            setAxisTitleText(TEST_AXIS, TEST_TITLE)
         })
         it('click the modal update button', () => {
             clickOptionsModalUpdateButton()
@@ -108,6 +109,7 @@ describe('Options - Vertical axis', () => {
 describe('Options - Horizontal axis', () => {
     const TEST_AXIS = 'DOMAIN_0'
     const TEST_TITLE = 'HT'
+    const TEST_TAB = 'Horizontal (x) axis'
     it('navigates to the start page and add a data item', () => {
         goToStartPage()
         openDimension(DIMENSION_ID_DATA)
@@ -120,11 +122,14 @@ describe('Options - Horizontal axis', () => {
             clickMenuBarOptionsButton()
             clickOptionsTab(OPTIONS_TAB_AXES)
         })
-        it('enable title', () => {
-            enableAxisTitle(TEST_AXIS)
+        it(`switch to '${TEST_TAB}' tab`, () => {
+            switchAxesTabTo(TEST_TAB)
         })
-        it('set custom title', () => {
-            setAxisTitle(TEST_AXIS, TEST_TITLE)
+        it("set axis title to 'custom'", () => {
+            setAxisTitleToCustom()
+        })
+        it('type title', () => {
+            setAxisTitleText(TEST_AXIS, TEST_TITLE)
         })
         it('click the modal update button', () => {
             clickOptionsModalUpdateButton()
@@ -139,6 +144,9 @@ describe('Options - Horizontal axis', () => {
         it('opens Options -> Axes', () => {
             clickMenuBarOptionsButton()
             clickOptionsTab(OPTIONS_TAB_AXES)
+        })
+        it(`switch to '${TEST_TAB}' tab`, () => {
+            switchAxesTabTo(TEST_TAB)
         })
         it(`title is "${TEST_TITLE}"`, () => {
             expectAxisTitleToBeValue(TEST_AXIS, TEST_TITLE)

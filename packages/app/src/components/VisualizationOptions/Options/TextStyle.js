@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
@@ -37,32 +37,21 @@ const TextStyle = ({
         fontStyleKey,
         isVertical || isVerticalType(visType)
     )
-    const [fontSize, setFontSize] = useState(
-        fontStyle[FONT_STYLE_OPTION_FONT_SIZE]
-    )
-    const [textAlign, setTextAlign] = useState(
-        fontStyle[FONT_STYLE_OPTION_TEXT_ALIGN]
-    )
-    const [textColor, setTextColor] = useState(
-        fontStyle[FONT_STYLE_OPTION_TEXT_COLOR]
-    )
-    const [bold, setBold] = useState(fontStyle[FONT_STYLE_OPTION_BOLD])
-    const [italic, setItalic] = useState(fontStyle[FONT_STYLE_OPTION_ITALIC])
 
     const onChangeColor = debounce(value => {
-        setTextColor(value)
         onChange(FONT_STYLE_OPTION_TEXT_COLOR, value)
     }, 100)
 
     return (
         <div className={styles.container} data-test={dataTest}>
-            {fontSize && (
+            {fontStyle[FONT_STYLE_OPTION_FONT_SIZE] && (
                 <SingleSelect
                     onChange={({ selected }) => {
-                        setFontSize(Number(selected))
                         onChange(FONT_STYLE_OPTION_FONT_SIZE, Number(selected))
                     }}
-                    selected={fontSize.toString()}
+                    selected={(
+                        fontStyle[FONT_STYLE_OPTION_FONT_SIZE] || ''
+                    ).toString()}
                     prefix={i18n.t('Size')}
                     dense
                     className={styles.fontSizeSelect}
@@ -79,13 +68,12 @@ const TextStyle = ({
                     ))}
                 </SingleSelect>
             )}
-            {textAlign && (
+            {fontStyle[FONT_STYLE_OPTION_TEXT_ALIGN] && (
                 <SingleSelect
                     onChange={({ selected }) => {
-                        setTextAlign(selected)
                         onChange(FONT_STYLE_OPTION_TEXT_ALIGN, selected)
                     }}
-                    selected={textAlign}
+                    selected={fontStyle[FONT_STYLE_OPTION_TEXT_ALIGN]}
                     prefix={i18n.t('Position')}
                     dense
                     className={styles.textAlignSelect}
@@ -102,7 +90,7 @@ const TextStyle = ({
                     ))}
                 </SingleSelect>
             )}
-            {textColor && (
+            {fontStyle[FONT_STYLE_OPTION_TEXT_COLOR] && (
                 <label
                     className={cx(styles.textColorLabel, {
                         [styles.disabled]: disabled,
@@ -111,41 +99,47 @@ const TextStyle = ({
                 >
                     <input
                         type="color"
-                        value={textColor}
+                        value={fontStyle[FONT_STYLE_OPTION_TEXT_COLOR]}
                         onChange={e => onChangeColor(e.target.value)}
                         className={styles.textColorInput}
                         disabled={disabled}
                     />
                     <div className={styles.textColorIcon}>
-                        <FontColorIcon color={textColor} />
+                        <FontColorIcon
+                            color={fontStyle[FONT_STYLE_OPTION_TEXT_COLOR]}
+                        />
                     </div>
                 </label>
             )}
-            {bold != null && (
+            {fontStyle[FONT_STYLE_OPTION_BOLD] != null && (
                 <Button
                     icon={<BoldIcon />}
                     onClick={() => {
-                        onChange(FONT_STYLE_OPTION_BOLD, !bold)
-                        setBold(!bold)
+                        onChange(
+                            FONT_STYLE_OPTION_BOLD,
+                            !fontStyle[FONT_STYLE_OPTION_BOLD]
+                        )
                     }}
                     small
                     secondary
-                    toggled={bold}
+                    toggled={fontStyle[FONT_STYLE_OPTION_BOLD]}
                     disabled={disabled}
                     dataTest={`${dataTest}-bold-toggle`}
                 />
             )}
-            {italic != null && (
+            {fontStyle[FONT_STYLE_OPTION_ITALIC] != null && (
                 <Button
                     icon={<ItalicIcon />}
                     onClick={() => {
-                        onChange(FONT_STYLE_OPTION_ITALIC, !italic)
-                        setItalic(!italic)
+                        onChange(
+                            FONT_STYLE_OPTION_ITALIC,
+                            !fontStyle[FONT_STYLE_OPTION_ITALIC]
+                        )
                     }}
                     small
                     secondary
                     disabled={disabled}
-                    toggled={italic}
+                    toggled={fontStyle[FONT_STYLE_OPTION_ITALIC]}
                     dataTest={`${dataTest}-italic-toggle`}
                 />
             )}
