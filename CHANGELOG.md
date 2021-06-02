@@ -1,3 +1,10 @@
+## [33.1.57](https://github.com/dhis2/data-visualizer-app/compare/v33.1.56...v33.1.57) (2021-06-02)
+
+
+### Bug Fixes
+
+* debounce DHIS2-10611 interpretations DHIS2-10625 v33 ([#1733](https://github.com/dhis2/data-visualizer-app/issues/1733)) ([1acad32](https://github.com/dhis2/data-visualizer-app/commit/1acad32b99fdcb4e95e2307c6968651c8848eccd))
+
 ## [33.1.56](https://github.com/dhis2/data-visualizer-app/compare/v33.1.55...v33.1.56) (2021-06-01)
 
 
