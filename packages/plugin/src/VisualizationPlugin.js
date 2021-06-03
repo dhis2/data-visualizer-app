@@ -234,7 +234,7 @@ export const VisualizationPlugin = ({
                     <div onClick={closeContextualMenu} style={styles.backdrop}>
                         <Popper
                             reference={virtualContextualMenuElement}
-                            placement="right"
+                            placement="right-start"
                         >
                             <ContextualMenu
                                 config={contextualMenuConfig}
