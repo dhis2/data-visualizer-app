@@ -43,9 +43,10 @@ export const VisualizationPlugin = ({
             setContextualMenuConfig(data)
         } else if (
             data.category &&
-            visualization.rows.some(
-                row => row.dimension === DIMENSION_ID_ORGUNIT
-            )
+            ((visualization.rows.length === 1 &&
+                visualization.rows[0].dimension === DIMENSION_ID_ORGUNIT) ||
+                (visualization.rows.length === 2 &&
+                    visualization.rows[1].dimension === DIMENSION_ID_ORGUNIT))
         ) {
             const ouId = Object.values(
                 fetchResult.responses[0].metaData.items
