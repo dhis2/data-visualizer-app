@@ -1,3 +1,10 @@
+## [37.4.2](https://github.com/dhis2/data-visualizer-app/compare/v37.4.1...v37.4.2) (2021-06-04)
+
+
+### Bug Fixes
+
+* drill down bugs (DHIS2-11061) ([#1735](https://github.com/dhis2/data-visualizer-app/issues/1735)) ([92d90bb](https://github.com/dhis2/data-visualizer-app/commit/92d90bb9e858d5c151c6ba1d7408423042f972f1))
+
 ## [37.4.1](https://github.com/dhis2/data-visualizer-app/compare/v37.4.0...v37.4.1) (2021-06-01)
 
 
