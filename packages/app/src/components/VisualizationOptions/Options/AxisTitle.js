@@ -48,6 +48,8 @@ const AxisTitle = ({
                 defaultFontStyle[fontStyleKey][FONT_STYLE_OPTION_TEXT_COLOR]
         ) {
             setTitleColor(colors[axisId.slice(-1)])
+        } else if (newTextMode === TITLE_NONE) {
+            onTextChange(null)
         }
     }
 
