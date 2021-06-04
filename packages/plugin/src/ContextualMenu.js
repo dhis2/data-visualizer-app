@@ -59,56 +59,54 @@ export const ContextualMenu = ({ config, ouLevels, onClick }) => {
         minWidth: 200,
     }
 
-    return (
+    return ouData ? (
         <FlyoutMenu>
-            {ouData && (
-                <MenuItem dense label={i18n.t('Change org unit')}>
-                    {ouData?.parent && (
-                        <>
-                            <MenuItem
-                                dense
-                                icon={<ArrowUpwardIcon />}
-                                label={
-                                    <span style={menuItemStyle}>
-                                        {ouData.parent.name}
-                                    </span>
-                                }
-                                onClick={() =>
-                                    onClick({
-                                        ou: { id: ouData.parent.id },
-                                    })
-                                }
-                            />
-                            {subLevelData && <Divider />}
-                        </>
-                    )}
-                    {subLevelData && (
+            <MenuItem dense label={i18n.t('Change org unit')}>
+                {ouData?.parent && (
+                    <>
                         <MenuItem
                             dense
-                            icon={<ArrowDownwardIcon />}
+                            icon={<ArrowUpwardIcon />}
                             label={
                                 <span style={menuItemStyle}>
-                                    {i18n.t('{{level}} level in {{orgunit}}', {
-                                        level: subLevelData.name,
-                                        orgunit: ouData.name,
-                                    })}
+                                    {ouData.parent.name}
                                 </span>
                             }
                             onClick={() =>
                                 onClick({
-                                    ou: {
-                                        id: ouData.id,
-                                        path: ouData.path,
-                                        level: subLevelData.id,
-                                    },
+                                    ou: { id: ouData.parent.id },
                                 })
                             }
                         />
-                    )}
-                </MenuItem>
-            )}
+                        {subLevelData && <Divider />}
+                    </>
+                )}
+                {subLevelData && (
+                    <MenuItem
+                        dense
+                        icon={<ArrowDownwardIcon />}
+                        label={
+                            <span style={menuItemStyle}>
+                                {i18n.t('{{level}} level in {{orgunit}}', {
+                                    level: subLevelData.name,
+                                    orgunit: ouData.name,
+                                })}
+                            </span>
+                        }
+                        onClick={() =>
+                            onClick({
+                                ou: {
+                                    id: ouData.id,
+                                    path: ouData.path,
+                                    level: subLevelData.id,
+                                },
+                            })
+                        }
+                    />
+                )}
+            </MenuItem>
         </FlyoutMenu>
-    )
+    ) : null
 }
 
 ContextualMenu.propTypes = {
