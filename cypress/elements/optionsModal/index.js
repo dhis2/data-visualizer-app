@@ -31,13 +31,14 @@ export {
 } from './fontStyles'
 
 export {
-    enableAxisTitle,
-    setAxisTitle,
+    setAxisTitleText,
     expectAxisTitleToBeValue,
     setAxisRangeMinValue,
     expectAxisRangeMinToBeValue,
     setAxisRangeMaxValue,
     expectAxisRangeMaxToBeValue,
+    switchAxesTabTo,
+    setAxisTitleToCustom,
 } from './axes'
 
 export {

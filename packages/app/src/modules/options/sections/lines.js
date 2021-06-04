@@ -6,16 +6,21 @@ import RegressionType from '../../../components/VisualizationOptions/Options/Reg
 import TargetLine from '../../../components/VisualizationOptions/Options/TargetLine'
 import BaseLine from '../../../components/VisualizationOptions/Options/BaseLine'
 import getLinesTemplate from './templates/lines'
+import InfoText from '../../../components/VisualizationOptions/InfoText'
 
 export default (hasDisabledSections, axisId) => ({
     ...getLinesTemplate({
-        helpText: hasDisabledSections
-            ? i18n.t('Lines are not supported yet when using multiple axes')
-            : null,
         content: React.Children.toArray([
-            <RegressionType disabled={hasDisabledSections} />,
-            <TargetLine disabled={hasDisabledSections} axisId={axisId} />,
-            <BaseLine disabled={hasDisabledSections} axisId={axisId} />,
+            [<RegressionType />],
+            ...(!hasDisabledSections
+                ? [<TargetLine axisId={axisId} />, <BaseLine axisId={axisId} />]
+                : [
+                      <InfoText
+                          text={i18n.t(
+                              'Base and target lines are available on the Axes tab for multi-axis charts'
+                          )}
+                      />,
+                  ]),
         ]),
     }),
 })

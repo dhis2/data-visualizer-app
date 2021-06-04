@@ -1,3 +1,59 @@
+## [37.4.3](https://github.com/dhis2/data-visualizer-app/compare/v37.4.2...v37.4.3) (2021-06-04)
+
+
+### Bug Fixes
+
+* axis title bugs (DHIS2-10902) ([#1736](https://github.com/dhis2/data-visualizer-app/issues/1736)) ([084da30](https://github.com/dhis2/data-visualizer-app/commit/084da30a75dfb2d7a80262679ccd72676842d63f))
+
+## [37.4.2](https://github.com/dhis2/data-visualizer-app/compare/v37.4.1...v37.4.2) (2021-06-04)
+
+
+### Bug Fixes
+
+* drill down bugs (DHIS2-11061) ([#1735](https://github.com/dhis2/data-visualizer-app/issues/1735)) ([92d90bb](https://github.com/dhis2/data-visualizer-app/commit/92d90bb9e858d5c151c6ba1d7408423042f972f1))
+
+## [37.4.1](https://github.com/dhis2/data-visualizer-app/compare/v37.4.0...v37.4.1) (2021-06-01)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([ae5c82c](https://github.com/dhis2/data-visualizer-app/commit/ae5c82cf225e5c907c1e83756beefa618325c851))
+
+# [37.4.0](https://github.com/dhis2/data-visualizer-app/compare/v37.3.1...v37.4.0) (2021-06-01)
+
+
+### Features
+
+* support options for multi axes (DHIS2-6672) ([#1692](https://github.com/dhis2/data-visualizer-app/issues/1692)) ([f535418](https://github.com/dhis2/data-visualizer-app/commit/f535418560664d9287835a10fa2b9a1bad84b7b3))
+
+## [37.3.1](https://github.com/dhis2/data-visualizer-app/compare/v37.3.0...v37.3.1) (2021-05-28)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([65a16e7](https://github.com/dhis2/data-visualizer-app/commit/65a16e73e8f06d6f34f361243ea3a181429393dc))
+
+# [37.3.0](https://github.com/dhis2/data-visualizer-app/compare/v37.2.0...v37.3.0) (2021-05-28)
+
+
+### Features
+
+* add last 10 years relative period (DHIS2-7029) ([#1722](https://github.com/dhis2/data-visualizer-app/issues/1722)) ([8448fa5](https://github.com/dhis2/data-visualizer-app/commit/8448fa5032aa89922e46089cbc1529758e05bf0a))
+
+# [37.2.0](https://github.com/dhis2/data-visualizer-app/compare/v37.1.0...v37.2.0) (2021-05-28)
+
+
+### Features
+
+* hide periods based on system settings (DHIS2-11161) ([#1721](https://github.com/dhis2/data-visualizer-app/issues/1721)) ([fb0974c](https://github.com/dhis2/data-visualizer-app/commit/fb0974c323a62f2d34e6e2e36a57567590d42116))
+
+# [37.1.0](https://github.com/dhis2/data-visualizer-app/compare/v37.0.10...v37.1.0) (2021-05-25)
+
+
+### Features
+
+* drill down org units in bar and column charts (DHIS2-11061) ([#1720](https://github.com/dhis2/data-visualizer-app/issues/1720)) ([ed09736](https://github.com/dhis2/data-visualizer-app/commit/ed0973676a114800f1f97dc08f53d928d21a17f7))
+
 ## [37.0.10](https://github.com/dhis2/data-visualizer-app/compare/v37.0.9...v37.0.10) (2021-05-18)
 
 

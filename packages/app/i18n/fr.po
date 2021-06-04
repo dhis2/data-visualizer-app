@@ -334,8 +334,20 @@ msgstr "Étapes"
 msgid "Axis title"
 msgstr "Titre de l'axe"
 
+msgid "Auto generated"
+msgstr "Genere automatiquement"
+
+msgid "None"
+msgstr "Aucun"
+
+msgid "Custom"
+msgstr "Personnalisé"
+
 msgid "Add a title"
 msgstr "Ajouter un titre"
+
+msgid "Reset style to default"
+msgstr ""
 
 msgid "Base line"
 msgstr "Ligne de base"
@@ -378,9 +390,6 @@ msgstr "Valeurs cumulées"
 
 msgid "Digit group separator"
 msgstr "Séparateur des groupe de chiffres"
-
-msgid "None"
-msgstr "Aucun"
 
 msgid "Space"
 msgstr "Espace"
@@ -452,12 +461,6 @@ msgstr "Sous-titre du tableau"
 
 msgid "Chart subtitle"
 msgstr "Sous-titre du graphique"
-
-msgid "Auto generated"
-msgstr "Genere automatiquement"
-
-msgid "Custom"
-msgstr "Personnalisé"
 
 msgid "Chart title"
 msgstr "Titre du graphique"
@@ -973,12 +976,6 @@ msgstr ""
 "Les lignes de base et cible sont disponibles dans l'onglet Axes pour les "
 "graphiques en nuage de points"
 
-msgid "Vertical axis"
-msgstr "Axe vertical"
-
-msgid "Horizontal axis"
-msgstr "Axe horizontal"
-
 msgid "Color set"
 msgstr "Jeu de Couleurs"
 
@@ -987,13 +984,9 @@ msgstr ""
 "Les jeux de couleurs ne sont pas encore pris en charge en cas d'utilisation "
 "de plusieurs axes"
 
-msgid "Horizontal (x) axis"
-msgstr "Axe horizontal (x)"
-
-msgid "Lines are not supported yet when using multiple axes"
+msgid ""
+"Base and target lines are available on the Axes tab for multi-axis charts"
 msgstr ""
-"Les lignes ne sont pas encore prises en charge en cas d'utilisation de "
-"plusieurs axes"
 
 msgid "Chart style"
 msgstr "Style de graphique"
@@ -1004,22 +997,26 @@ msgstr "Afficher"
 msgid "Empty data"
 msgstr "Données vides"
 
+msgid "Horizontal (x) axis {{axisId}}"
+msgstr ""
+
+msgid "Horizontal (x) axis"
+msgstr "Axe horizontal (x)"
+
 msgid "Lines"
 msgstr "Lignes"
 
 msgid "Totals"
 msgstr "Totaux"
 
+msgid "Vertical (y) axis {{axisId}}"
+msgstr ""
+
 msgid "Vertical (y) axis"
 msgstr "Axe vertical (y)"
 
 msgid "Titles"
 msgstr "Titres"
-
-msgid "Vertical axis options are not supported yet when using multiple axes"
-msgstr ""
-"Les options relatives aux axes verticaux ne sont pas encore prises en charge"
-" en cas d'utilisation de plusieurs axes"
 
 msgid "Axes"
 msgstr "Axes"

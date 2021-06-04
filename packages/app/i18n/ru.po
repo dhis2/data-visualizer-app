@@ -3,13 +3,14 @@
 # phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
 # Ulanbek Abakirov <ulans@mail.ru>, 2020
+# Saurabh Leekha <saurabh.leekha@hispindia.org>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-04-30T12:20:24.132Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Ulanbek Abakirov <ulans@mail.ru>, 2020\n"
+"Last-Translator: Saurabh Leekha <saurabh.leekha@hispindia.org>, 2021\n"
 "Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -287,7 +288,7 @@ msgid "Loading data approval levels"
 msgstr ""
 
 msgid "Decimals"
-msgstr ""
+msgstr "Десятичные дроби"
 
 msgid "Auto"
 msgstr "Авто"
@@ -296,23 +297,37 @@ msgid "Labels"
 msgstr "Метки"
 
 msgid "Axis range"
-msgstr ""
+msgstr "Диапазон осей"
 
 msgid "Values outside of the range will not be displayed"
-msgstr ""
+msgstr "Значения вне диапазона не будут отображаться"
 
 msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
 msgstr ""
+"Количество шагов по оси, включая мин. И макс. Значение 2 или ниже будет "
+"проигнорировано."
 
 msgid "Steps"
 msgstr "Шаги"
 
 msgid "Axis title"
-msgstr ""
+msgstr "Название оси"
+
+msgid "Auto generated"
+msgstr "Автогенерируемая"
+
+msgid "None"
+msgstr "Не известное значение"
+
+msgid "Custom"
+msgstr "Пользователь"
 
 msgid "Add a title"
+msgstr ""
+
+msgid "Reset style to default"
 msgstr ""
 
 msgid "Base line"
@@ -356,9 +371,6 @@ msgstr ""
 
 msgid "Digit group separator"
 msgstr "Разделитель групп разрядов"
-
-msgid "None"
-msgstr "Не известное значение"
 
 msgid "Space"
 msgstr "Пробел"
@@ -421,19 +433,13 @@ msgid "Hide empty rows"
 msgstr "Скрыть незаполненные строки"
 
 msgid "Show legend key"
-msgstr ""
+msgstr "Показать ключ легенды"
 
 msgid "Table subtitle"
 msgstr ""
 
 msgid "Chart subtitle"
 msgstr "Подзаголовок диаграммы"
-
-msgid "Auto generated"
-msgstr ""
-
-msgid "Custom"
-msgstr "Пользователь"
 
 msgid "Chart title"
 msgstr "Заголовок диаграммы"
@@ -484,7 +490,7 @@ msgid "Clear min/max limits"
 msgstr ""
 
 msgid "No space between bars/columns"
-msgstr ""
+msgstr "Без пробелов между полосами / столбцами"
 
 msgid "Number type"
 msgstr "Тип числа"
@@ -601,7 +607,7 @@ msgid ""
 msgstr ""
 
 msgid "Value labels"
-msgstr ""
+msgstr "Ярлыки значений"
 
 msgid "Dimension labels"
 msgstr ""
@@ -902,22 +908,14 @@ msgstr ""
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
 
-msgid "Vertical axis"
-msgstr ""
-
-msgid "Horizontal axis"
-msgstr ""
-
 msgid "Color set"
 msgstr ""
 
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
 
-msgid "Horizontal (x) axis"
-msgstr ""
-
-msgid "Lines are not supported yet when using multiple axes"
+msgid ""
+"Base and target lines are available on the Axes tab for multi-axis charts"
 msgstr ""
 
 msgid "Chart style"
@@ -929,20 +927,26 @@ msgstr "Показать"
 msgid "Empty data"
 msgstr ""
 
+msgid "Horizontal (x) axis {{axisId}}"
+msgstr ""
+
+msgid "Horizontal (x) axis"
+msgstr "Горизонтальная ось (x)"
+
 msgid "Lines"
 msgstr ""
 
 msgid "Totals"
 msgstr "Итоги"
 
-msgid "Vertical (y) axis"
+msgid "Vertical (y) axis {{axisId}}"
 msgstr ""
+
+msgid "Vertical (y) axis"
+msgstr "Вертикальная ось (y)"
 
 msgid "Titles"
-msgstr ""
-
-msgid "Vertical axis options are not supported yet when using multiple axes"
-msgstr ""
+msgstr "Титулы"
 
 msgid "Axes"
 msgstr "Оси"

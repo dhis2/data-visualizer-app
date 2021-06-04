@@ -308,7 +308,19 @@ msgstr ""
 msgid "Axis title"
 msgstr ""
 
+msgid "Auto generated"
+msgstr ""
+
+msgid "None"
+msgstr "لا شيء"
+
+msgid "Custom"
+msgstr ""
+
 msgid "Add a title"
+msgstr ""
+
+msgid "Reset style to default"
 msgstr ""
 
 msgid "Base line"
@@ -352,9 +364,6 @@ msgstr ""
 
 msgid "Digit group separator"
 msgstr "فاصل مجموعة الخانات"
-
-msgid "None"
-msgstr "لا شيء"
 
 msgid "Space"
 msgstr "مسافة"
@@ -423,12 +432,6 @@ msgid "Table subtitle"
 msgstr ""
 
 msgid "Chart subtitle"
-msgstr ""
-
-msgid "Auto generated"
-msgstr ""
-
-msgid "Custom"
 msgstr ""
 
 msgid "Chart title"
@@ -898,22 +901,14 @@ msgstr ""
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
 
-msgid "Vertical axis"
-msgstr ""
-
-msgid "Horizontal axis"
-msgstr ""
-
 msgid "Color set"
 msgstr ""
 
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
 
-msgid "Horizontal (x) axis"
-msgstr ""
-
-msgid "Lines are not supported yet when using multiple axes"
+msgid ""
+"Base and target lines are available on the Axes tab for multi-axis charts"
 msgstr ""
 
 msgid "Chart style"
@@ -925,19 +920,25 @@ msgstr ""
 msgid "Empty data"
 msgstr ""
 
+msgid "Horizontal (x) axis {{axisId}}"
+msgstr ""
+
+msgid "Horizontal (x) axis"
+msgstr ""
+
 msgid "Lines"
 msgstr ""
 
 msgid "Totals"
 msgstr "الإجماليات"
 
+msgid "Vertical (y) axis {{axisId}}"
+msgstr ""
+
 msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Titles"
-msgstr ""
-
-msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr ""
 
 msgid "Axes"

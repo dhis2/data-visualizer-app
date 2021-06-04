@@ -309,8 +309,20 @@ msgstr "步"
 msgid "Axis title"
 msgstr "轴标题"
 
+msgid "Auto generated"
+msgstr "自动生成"
+
+msgid "None"
+msgstr "没有"
+
+msgid "Custom"
+msgstr "定制"
+
 msgid "Add a title"
 msgstr "添加标题"
+
+msgid "Reset style to default"
+msgstr ""
 
 msgid "Base line"
 msgstr "基线"
@@ -353,9 +365,6 @@ msgstr "汇总值"
 
 msgid "Digit group separator"
 msgstr "数字分隔符"
-
-msgid "None"
-msgstr "没有"
 
 msgid "Space"
 msgstr "空格"
@@ -425,12 +434,6 @@ msgstr "表子标题"
 
 msgid "Chart subtitle"
 msgstr "图表子标题"
-
-msgid "Auto generated"
-msgstr "自动生成"
-
-msgid "Custom"
-msgstr "定制"
 
 msgid "Chart title"
 msgstr "图表标题"
@@ -901,22 +904,14 @@ msgstr ""
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
 
-msgid "Vertical axis"
-msgstr ""
-
-msgid "Horizontal axis"
-msgstr ""
-
 msgid "Color set"
 msgstr ""
 
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
 
-msgid "Horizontal (x) axis"
-msgstr "水平轴（X）"
-
-msgid "Lines are not supported yet when using multiple axes"
+msgid ""
+"Base and target lines are available on the Axes tab for multi-axis charts"
 msgstr ""
 
 msgid "Chart style"
@@ -928,20 +923,26 @@ msgstr "显示"
 msgid "Empty data"
 msgstr ""
 
+msgid "Horizontal (x) axis {{axisId}}"
+msgstr ""
+
+msgid "Horizontal (x) axis"
+msgstr "水平轴（X）"
+
 msgid "Lines"
 msgstr "线"
 
 msgid "Totals"
 msgstr "总共"
 
+msgid "Vertical (y) axis {{axisId}}"
+msgstr ""
+
 msgid "Vertical (y) axis"
 msgstr "垂轴（Y）"
 
 msgid "Titles"
 msgstr "标题"
-
-msgid "Vertical axis options are not supported yet when using multiple axes"
-msgstr ""
 
 msgid "Axes"
 msgstr "轴"

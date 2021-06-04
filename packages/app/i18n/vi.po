@@ -324,8 +324,20 @@ msgstr "Bước"
 msgid "Axis title"
 msgstr "Tiêu đề trục"
 
+msgid "Auto generated"
+msgstr "Tự động tạo"
+
+msgid "None"
+msgstr "Không"
+
+msgid "Custom"
+msgstr "Tùy chỉnh"
+
 msgid "Add a title"
 msgstr "Thêm tiêu đề"
+
+msgid "Reset style to default"
+msgstr ""
 
 msgid "Base line"
 msgstr "Đường cơ sở"
@@ -368,9 +380,6 @@ msgstr "Các giá trị tích lũy"
 
 msgid "Digit group separator"
 msgstr "Khoảng cách nhóm chữ số"
-
-msgid "None"
-msgstr "Không"
 
 msgid "Space"
 msgstr "Khoảng trắng"
@@ -440,12 +449,6 @@ msgstr "Tiêu đề phụ của bảng"
 
 msgid "Chart subtitle"
 msgstr "Tiêu đề phụ biểu đồ"
-
-msgid "Auto generated"
-msgstr "Tự động tạo"
-
-msgid "Custom"
-msgstr "Tùy chỉnh"
 
 msgid "Chart title"
 msgstr "Tiêu đề của biểu đồ"
@@ -936,23 +939,15 @@ msgstr ""
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
 
-msgid "Vertical axis"
-msgstr ""
-
-msgid "Horizontal axis"
-msgstr ""
-
 msgid "Color set"
 msgstr "Bộ màu"
 
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr "Bộ màu chưa được hỗ trợ khi sử dụng nhiều trục"
 
-msgid "Horizontal (x) axis"
-msgstr "Trục ngang (x)"
-
-msgid "Lines are not supported yet when using multiple axes"
-msgstr "Đường chưa được hỗ trợ khi sử dụng nhiều trục"
+msgid ""
+"Base and target lines are available on the Axes tab for multi-axis charts"
+msgstr ""
 
 msgid "Chart style"
 msgstr "Dạng biểu đồ"
@@ -963,20 +958,26 @@ msgstr "Hiển thị"
 msgid "Empty data"
 msgstr "Dữ liệu trống"
 
+msgid "Horizontal (x) axis {{axisId}}"
+msgstr ""
+
+msgid "Horizontal (x) axis"
+msgstr "Trục ngang (x)"
+
 msgid "Lines"
 msgstr "Các đường"
 
 msgid "Totals"
 msgstr "Tổng"
 
+msgid "Vertical (y) axis {{axisId}}"
+msgstr ""
+
 msgid "Vertical (y) axis"
 msgstr "Dục dọc (y)"
 
 msgid "Titles"
 msgstr "Tiêu đề"
-
-msgid "Vertical axis options are not supported yet when using multiple axes"
-msgstr "Tùy chọn trục dọc chưa được hỗ trợ khi sử dụng nhiều trục"
 
 msgid "Axes"
 msgstr "Trục"

@@ -48,8 +48,9 @@ import {
     clickBaseLineCheckbox,
     setBaseLineLabel,
     setBaseLineValue,
-    enableAxisTitle,
-    setAxisTitle,
+    setAxisTitleText,
+    setAxisTitleToCustom,
+    switchAxesTabTo,
 } from '../../elements/optionsModal'
 import {
     generateRandomBool,
@@ -384,6 +385,7 @@ describe('Options - Font styles', () => {
         it('opens Options -> Axes', () => {
             clickMenuBarOptionsButton()
             clickOptionsTab(OPTIONS_TAB_AXES)
+            switchAxesTabTo('Horizontal (x) axis')
         })
         setFontStyleOptions({
             fontSize: TEST_FONT_SIZE_OPTION.input,
@@ -423,8 +425,9 @@ describe('Options - Font styles', () => {
             clickOptionsTab(OPTIONS_TAB_AXES)
         })
         it(`sets horizontal axis title to "${TEST_TITLE}"`, () => {
-            enableAxisTitle(TEST_AXIS)
-            setAxisTitle(TEST_AXIS, TEST_TITLE)
+            switchAxesTabTo('Horizontal (x) axis')
+            setAxisTitleToCustom()
+            setAxisTitleText(TEST_AXIS, TEST_TITLE)
         })
         setFontStyleOptions({
             fontSize: TEST_FONT_SIZE_OPTION.input,
@@ -468,8 +471,8 @@ describe('Options - Font styles', () => {
             clickOptionsTab(OPTIONS_TAB_AXES)
         })
         it(`sets vertical axis title to "${TEST_TITLE}"`, () => {
-            enableAxisTitle(TEST_AXIS)
-            setAxisTitle(TEST_AXIS, TEST_TITLE)
+            setAxisTitleToCustom()
+            setAxisTitleText(TEST_AXIS, TEST_TITLE)
         })
         setFontStyleOptions({
             fontSize: TEST_FONT_SIZE_OPTION.input,

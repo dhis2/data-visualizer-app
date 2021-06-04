@@ -317,8 +317,20 @@ msgstr "langkah"
 msgid "Axis title"
 msgstr "Judul sumbu X"
 
+msgid "Auto generated"
+msgstr ""
+
+msgid "None"
+msgstr "Tidak ada"
+
+msgid "Custom"
+msgstr ""
+
 msgid "Add a title"
 msgstr "Tambahkan judul"
+
+msgid "Reset style to default"
+msgstr ""
 
 msgid "Base line"
 msgstr "Baseline"
@@ -361,9 +373,6 @@ msgstr "Nilai Kumulatif"
 
 msgid "Digit group separator"
 msgstr "Pemisah kelompok digit"
-
-msgid "None"
-msgstr "Tidak ada"
 
 msgid "Space"
 msgstr "Spasi"
@@ -433,12 +442,6 @@ msgstr ""
 
 msgid "Chart subtitle"
 msgstr "Subjudul grafik"
-
-msgid "Auto generated"
-msgstr ""
-
-msgid "Custom"
-msgstr ""
 
 msgid "Chart title"
 msgstr "Judul grafik"
@@ -907,22 +910,14 @@ msgstr ""
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
 
-msgid "Vertical axis"
-msgstr ""
-
-msgid "Horizontal axis"
-msgstr ""
-
 msgid "Color set"
 msgstr ""
 
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
 
-msgid "Horizontal (x) axis"
-msgstr "sumbu X"
-
-msgid "Lines are not supported yet when using multiple axes"
+msgid ""
+"Base and target lines are available on the Axes tab for multi-axis charts"
 msgstr ""
 
 msgid "Chart style"
@@ -934,20 +929,26 @@ msgstr ""
 msgid "Empty data"
 msgstr ""
 
+msgid "Horizontal (x) axis {{axisId}}"
+msgstr ""
+
+msgid "Horizontal (x) axis"
+msgstr "sumbu X"
+
 msgid "Lines"
 msgstr "Garis"
 
 msgid "Totals"
 msgstr "Total"
 
+msgid "Vertical (y) axis {{axisId}}"
+msgstr ""
+
 msgid "Vertical (y) axis"
 msgstr "Sumbu Y"
 
 msgid "Titles"
 msgstr "Judul"
-
-msgid "Vertical axis options are not supported yet when using multiple axes"
-msgstr ""
 
 msgid "Axes"
 msgstr "Sumbu"

@@ -320,8 +320,20 @@ msgstr "الخطوات"
 msgid "Axis title"
 msgstr "عنوان المحور"
 
+msgid "Auto generated"
+msgstr "توليد تلقائي"
+
+msgid "None"
+msgstr "لا شيء"
+
+msgid "Custom"
+msgstr "مخصص"
+
 msgid "Add a title"
 msgstr "إضافة عنوان"
+
+msgid "Reset style to default"
+msgstr ""
 
 msgid "Base line"
 msgstr "خط الأساس"
@@ -364,9 +376,6 @@ msgstr "قيم تراكمية"
 
 msgid "Digit group separator"
 msgstr "فاصل مجموعة الخانات الرقمية"
-
-msgid "None"
-msgstr "لا شيء"
 
 msgid "Space"
 msgstr "مسافة"
@@ -436,12 +445,6 @@ msgstr "العنوان الفرعي للجدول"
 
 msgid "Chart subtitle"
 msgstr "العنوان الفرعي للمخطط البياني"
-
-msgid "Auto generated"
-msgstr "توليد تلقائي"
-
-msgid "Custom"
-msgstr "مخصص"
 
 msgid "Chart title"
 msgstr "عنوان المخطط البياني"
@@ -927,23 +930,15 @@ msgstr ""
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
 
-msgid "Vertical axis"
-msgstr ""
-
-msgid "Horizontal axis"
-msgstr ""
-
 msgid "Color set"
 msgstr "مجموعة لونية"
 
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr "مازالت المجموعات اللونية غير مدعومة عند استخدام محاور متعددة"
 
-msgid "Horizontal (x) axis"
-msgstr "محور (س) الأفقي"
-
-msgid "Lines are not supported yet when using multiple axes"
-msgstr "مازال الرسم الخطي غير مدعوم عند استخدام محاور متعددة"
+msgid ""
+"Base and target lines are available on the Axes tab for multi-axis charts"
+msgstr ""
 
 msgid "Chart style"
 msgstr "نمط الرسم البياني"
@@ -954,20 +949,26 @@ msgstr "العرض"
 msgid "Empty data"
 msgstr "بيانات فارغة"
 
+msgid "Horizontal (x) axis {{axisId}}"
+msgstr ""
+
+msgid "Horizontal (x) axis"
+msgstr "محور (س) الأفقي"
+
 msgid "Lines"
 msgstr "الخطوط"
 
 msgid "Totals"
 msgstr "الإجمالي"
 
+msgid "Vertical (y) axis {{axisId}}"
+msgstr ""
+
 msgid "Vertical (y) axis"
 msgstr "محور (ص) العمودي"
 
 msgid "Titles"
 msgstr "العناوين"
-
-msgid "Vertical axis options are not supported yet when using multiple axes"
-msgstr "مازالت خيارات المحور الرأسي غير مدعومة عند استخدام محاور متعددة"
 
 msgid "Axes"
 msgstr "المحاور"
