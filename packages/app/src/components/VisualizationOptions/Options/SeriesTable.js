@@ -7,7 +7,7 @@ import {
     Table,
     TableHead,
     TableRow,
-    TableDataCell,
+    TableCell,
     TableBody,
     Radio,
     colors,
@@ -81,37 +81,34 @@ const SeriesTable = ({
             </colgroup>
             <TableHead className={styles.tableHead}>
                 <TableRow className={styles.tableRow}>
-                    <TableDataCell className={styles.tableCell}>
+                    <TableCell className={styles.tableCell}>
                         {i18n.t('Data item')}
-                    </TableDataCell>
+                    </TableCell>
 
-                    <TableDataCell className={styles.tableCell}>
+                    <TableCell className={styles.tableCell}>
                         {showTypeOptions && i18n.t('Visualization type')}
-                    </TableDataCell>
+                    </TableCell>
 
                     {showAxisOptions &&
                         availableAxes.map((axis, index) => (
-                            <TableDataCell
-                                key={index}
-                                className={styles.tableCell}
-                            >
+                            <TableCell key={index} className={styles.tableCell}>
                                 {i18n.t('Axis {{axisId}}', {
                                     axisId: index + 1,
                                 })}
                                 <div className={styles.axisIcon}>
                                     {renderAxisIcon(index + 1)}
                                 </div>
-                            </TableDataCell>
+                            </TableCell>
                         ))}
                 </TableRow>
             </TableHead>
             <TableBody className={styles.tableBody}>
                 {optionItems.map(item => (
                     <TableRow key={`multiaxis-table-row-${item.dimensionItem}`}>
-                        <TableDataCell className={styles.itemName}>
+                        <TableCell className={styles.itemName}>
                             {item.name}
-                        </TableDataCell>
-                        <TableDataCell className={styles.itemType}>
+                        </TableCell>
+                        <TableCell className={styles.itemType}>
                             {showTypeOptions &&
                                 availableTypes.map(type => {
                                     const VisualizationTypeIcon =
@@ -155,10 +152,10 @@ const SeriesTable = ({
                                         </div>
                                     )
                                 })}
-                        </TableDataCell>
+                        </TableCell>
                         {showAxisOptions &&
                             availableAxes.map(axis => (
-                                <TableDataCell
+                                <TableCell
                                     key={axis}
                                     className={styles.itemAxis}
                                 >
@@ -173,7 +170,7 @@ const SeriesTable = ({
                                         checked={item.axis === axis}
                                         dense
                                     />
-                                </TableDataCell>
+                                </TableCell>
                             ))}
                     </TableRow>
                 ))}
