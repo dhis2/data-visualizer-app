@@ -34,7 +34,7 @@
         "redux-logger": "^3.0.6",
         "redux-thunk": "^2.2.0",
         "reselect": "^4.0.0",
-        "whatwg-fetch": "^3.4.1"
+        "whatwg-fetch": "^3.6.2"
     },
     "scripts": {
         "start": "d2-app-scripts start",
