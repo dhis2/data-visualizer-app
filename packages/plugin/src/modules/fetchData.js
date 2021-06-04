@@ -20,8 +20,9 @@ export const fetchData = async ({
     visualization,
     filters,
     forDashboard,
+    userSettings,
 }) => {
-    const options = getRequestOptions(visualization, filters)
+    const options = getRequestOptions(visualization, filters, userSettings)
 
     const extraOptions = {
         dashboard: forDashboard,

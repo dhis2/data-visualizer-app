@@ -13,7 +13,16 @@ import ChartPlugin from '../ChartPlugin'
 
 jest.mock('../ChartPlugin', () => jest.fn(() => null))
 jest.mock('../PivotPlugin', () => jest.fn(() => null))
-jest.mock('@dhis2/analytics')
+jest.mock('@dhis2/analytics', () => ({
+    ...jest.requireActual('@dhis2/analytics'),
+    apiFetchOrganisationUnitLevels: () =>
+        Promise.resolve([
+            {
+                level: 2,
+                id: '2nd-floor',
+            },
+        ]),
+}))
 
 const dxMock = {
     dimension: 'dx',

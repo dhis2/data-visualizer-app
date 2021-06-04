@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-02T10:49:34.913Z\n"
+"POT-Creation-Date: 2021-04-30T12:20:24.132Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Ibatov <ibatovk@who.int>, 2021\n"
 "Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
@@ -151,21 +151,6 @@ msgstr "JRXML"
 
 msgid "Raw data SQL"
 msgstr "Хом маълумотлар SQL"
-
-msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr "DHIS2 Маълумотлар Визуализатор дастурида хатолик юз берди."
-
-msgid "Refresh to try again"
-msgstr "Ыайтиб уриниб кщрин учун аввал янгиланг"
-
-msgid "Hide technical details"
-msgstr "Техник деталларни беркитиш"
-
-msgid "Show technical details"
-msgstr "Техник деталларни кўрсатиш"
-
-msgid "The following information may be requested by technical support."
-msgstr "Қуйидаги ахборот техник ёрдамчилар томонидан сўралиши мумкин"
 
 msgid "Hide"
 msgstr "Беркитиш"
@@ -339,8 +324,20 @@ msgstr "Қадамлар"
 msgid "Axis title"
 msgstr "Ўқ сарлавҳаси"
 
+msgid "Auto generated"
+msgstr "Автоматик равишда яратилган"
+
+msgid "None"
+msgstr "Йўқ"
+
+msgid "Custom"
+msgstr "Одатий"
+
 msgid "Add a title"
 msgstr "Сарлавҳа қўшиш"
+
+msgid "Reset style to default"
+msgstr ""
 
 msgid "Base line"
 msgstr "Базавий чизиқ"
@@ -384,9 +381,6 @@ msgstr "Кумулятив қийматлар"
 msgid "Digit group separator"
 msgstr "Рақамлар гуруҳини тақсимловчи"
 
-msgid "None"
-msgstr "Йўқ"
-
 msgid "Space"
 msgstr "Оралиқ (майдон)"
 
@@ -404,6 +398,18 @@ msgstr "Меъёрий"
 
 msgid "Compact"
 msgstr "Зич"
+
+msgid "Extreme lines"
+msgstr "Чегара чизиқлар"
+
+msgid "Calculated as a percent, usually 1%, of the total values along an axis"
+msgstr "Фоиз сифатида ҳисобланади, одатда 1%, ўқнинг умумий қийматидан"
+
+msgid "Extreme line % detection"
+msgstr "Чизиқнинг чегара қиймати фоизлари аниқланди"
+
+msgid "Number"
+msgstr "Тартиб рақами"
 
 msgid "Font size"
 msgstr "Шрифт ўлчами"
@@ -444,17 +450,11 @@ msgstr "Жадвал таглавҳаси"
 msgid "Chart subtitle"
 msgstr "Диаграмма шарҳи"
 
-msgid "Auto generated"
-msgstr "Автоматик равишда яратилган"
-
-msgid "Custom"
-msgstr "Одатий"
-
 msgid "Chart title"
 msgstr "Диаграмма сарлавҳаси"
 
-msgid "Display legend"
-msgstr "Таърифни кўрсатиш"
+msgid "Use legend for chart colors"
+msgstr "Диаграмманинг ранглари учун талқинлардан фойдаланиш"
 
 msgid "Legend style"
 msgstr "Таъриф тури"
@@ -519,6 +519,47 @@ msgstr "Қатор фоизи"
 msgid "Percentage of column"
 msgstr "Устун фоизи"
 
+msgid ""
+"Each detection method identifies outliers in different ways and suits "
+"different data. Check the documentation for help to choose the right outlier"
+" detection method"
+msgstr ""
+"Ҳар бир аниқлаш усули ҳар хил усулларни аниқлайди ва ҳар хил маълумотларга "
+"мос келади. Аниқроқ аниқлаш усулини танлашда ёрдам учун ҳужжатларни "
+"текширинг"
+
+msgid "Threshold factor"
+msgstr "Чегара омили"
+
+msgid ""
+"A high value is more sensitive so fewer data items will be identified as "
+"outliers"
+msgstr ""
+"Юқори қийматлар ўта сезгирдир, шунинг учун паст қийматдагилар чиқариб "
+"ташланганлар сифатида идентифицирланади"
+
+msgid "Interquartile Range (IQR)"
+msgstr "Кварталлар оралиғи"
+
+msgid "Z-score / Standard score"
+msgstr "Z - баҳолаш / Стандарт балл"
+
+msgid "Modified Z-score"
+msgstr "Ўзгартирилган Z - баҳолаш"
+
+msgid "Outlier analysis"
+msgstr "Чекинишлар таҳлили"
+
+msgid ""
+"Outlier analysis detects and highlights data items that are markedly "
+"different from the rest of the data"
+msgstr ""
+"Чекинишлар таҳлили бошқа қийматлардан сезиларли фарқ қилувчи элементлар "
+"қийматини аниқлайди ва белгилайди"
+
+msgid "Outlier detection method"
+msgstr "Чекинишларни аниқлаш усули"
+
 msgid "Organisation unit"
 msgstr "Ташкилий бўлим"
 
@@ -536,9 +577,6 @@ msgstr "Регрессияни ўз ичига олади"
 
 msgid "Title"
 msgstr "Сарлавҳа"
-
-msgid "Number"
-msgstr "Тартиб рақами"
 
 msgid "Trend line"
 msgstr "Йўналиш қатори"
@@ -777,6 +815,12 @@ msgstr ""
 "Сиз кўрмоқчи бўлган визуализация топилмади, идентификатор нотўғри ёки "
 "ўчирилган бўлиши мумкин."
 
+msgid "No organization units found"
+msgstr "Ташкилий бўлим топилмади"
+
+msgid "The level or group selections didn't return any organization units."
+msgstr "Босқич ёки гуруҳ танлаш ҳеч қандай ташкилий бўлимни олиб чиқмади."
+
 msgid "Something went wrong"
 msgstr "Нимадир нотўғри бажарилди"
 
@@ -904,19 +948,16 @@ msgid ""
 "These options only apply to legacy tables like standard reports. Options set"
 " here will have no effect on tables made in Data Visualizer."
 msgstr ""
+"Бу параметрлар фақатгина эскирган жадвалларга лойиқ, масалан стандарт "
+"жадвалларга. Бу ерда созланган созламалар маълумотлар визуализаторида "
+"яратилган жадваллар параметрларига таъсир қилмайди. "
 
 msgid "Applies to standard reports only"
-msgstr ""
+msgstr "Фақатгина стандарт ҳисоботларга тааллуқли"
 
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
 "Тарқатма жадваллар учун Ўқлар ёрлиғида асосий ва мақсадли қаторлар мавжуд"
-
-msgid "Vertical axis"
-msgstr "Вертикал ўқ"
-
-msgid "Horizontal axis"
-msgstr "Горизонтал ўқ"
 
 msgid "Color set"
 msgstr "Ранглар тўплами"
@@ -924,11 +965,9 @@ msgstr "Ранглар тўплами"
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr "Кўп ўқлардан фойдаланганда ранглар тўплами ҳали қўллаб қувватланмайди"
 
-msgid "Horizontal (x) axis"
-msgstr "горизонтал (Х) ўқ"
-
-msgid "Lines are not supported yet when using multiple axes"
-msgstr "Кўп ўқлардан фойдаланганда чизиқлар ҳали қўллаб қувватланмайди"
+msgid ""
+"Base and target lines are available on the Axes tab for multi-axis charts"
+msgstr ""
 
 msgid "Chart style"
 msgstr "Диаграмма услуби"
@@ -939,22 +978,26 @@ msgstr "Экранда кўрсатиш"
 msgid "Empty data"
 msgstr "Бўш маълумотлар"
 
+msgid "Horizontal (x) axis {{axisId}}"
+msgstr ""
+
+msgid "Horizontal (x) axis"
+msgstr "горизонтал (Х) ўқ"
+
 msgid "Lines"
 msgstr "Қаторлар"
 
 msgid "Totals"
 msgstr "Жами"
 
+msgid "Vertical (y) axis {{axisId}}"
+msgstr ""
+
 msgid "Vertical (y) axis"
 msgstr "Вертикал (y) ўқи"
 
 msgid "Titles"
 msgstr "Сарлавҳалар"
-
-msgid "Vertical axis options are not supported yet when using multiple axes"
-msgstr ""
-"Кўп ўқлардан фойдаланганда вертикал ўқ параметрлари ҳали қўллаб "
-"қувватланмайди"
 
 msgid "Axes"
 msgstr "Ўқлар"

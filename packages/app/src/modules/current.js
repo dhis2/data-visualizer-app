@@ -57,10 +57,6 @@ export const getOptionsFromUi = ui => {
         optionsFromUi.axes = [...optionsFromUi.axes.map(axis => ({ ...axis }))]
 
         optionsFromUi.axes.forEach(axis => {
-            if (axis.title) {
-                const { enabled, ...rest } = axis.title
-                axis.title = { ...rest }
-            }
             if (axis.targetLine) {
                 const { enabled, ...rest } = axis.targetLine
                 axis.targetLine = { ...rest }

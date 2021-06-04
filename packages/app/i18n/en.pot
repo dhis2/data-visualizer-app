@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-02-25T08:13:26.611Z\n"
-"PO-Revision-Date: 2021-02-25T08:13:26.611Z\n"
+"POT-Creation-Date: 2021-04-30T12:20:24.132Z\n"
+"PO-Revision-Date: 2021-04-30T12:20:24.133Z\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -134,21 +134,6 @@ msgid "JRXML"
 msgstr ""
 
 msgid "Raw data SQL"
-msgstr ""
-
-msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr ""
-
-msgid "Refresh to try again"
-msgstr ""
-
-msgid "Hide technical details"
-msgstr ""
-
-msgid "Show technical details"
-msgstr ""
-
-msgid "The following information may be requested by technical support."
 msgstr ""
 
 msgid "Hide"
@@ -316,7 +301,19 @@ msgstr ""
 msgid "Axis title"
 msgstr ""
 
+msgid "Auto generated"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Custom"
+msgstr ""
+
 msgid "Add a title"
+msgstr ""
+
+msgid "Reset style to default"
 msgstr ""
 
 msgid "Base line"
@@ -359,9 +356,6 @@ msgid "Cumulative values"
 msgstr ""
 
 msgid "Digit group separator"
-msgstr ""
-
-msgid "None"
 msgstr ""
 
 msgid "Space"
@@ -433,16 +427,10 @@ msgstr ""
 msgid "Chart subtitle"
 msgstr ""
 
-msgid "Auto generated"
-msgstr ""
-
-msgid "Custom"
-msgstr ""
-
 msgid "Chart title"
 msgstr ""
 
-msgid "Display legend"
+msgid "Use legend for chart colors"
 msgstr ""
 
 msgid "Legend style"
@@ -503,6 +491,12 @@ msgid "Percentage of row"
 msgstr ""
 
 msgid "Percentage of column"
+msgstr ""
+
+msgid ""
+"Each detection method identifies outliers in different ways and suits "
+"different data. Check the documentation for help to choose the right "
+"outlier detection method"
 msgstr ""
 
 msgid "Threshold factor"
@@ -757,6 +751,12 @@ msgid ""
 "be incorrect or it could have been deleted."
 msgstr ""
 
+msgid "No organization units found"
+msgstr ""
+
+msgid "The level or group selections didn't return any organization units."
+msgstr ""
+
 msgid "Something went wrong"
 msgstr ""
 
@@ -891,22 +891,13 @@ msgstr ""
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
 
-msgid "Vertical axis"
-msgstr ""
-
-msgid "Horizontal axis"
-msgstr ""
-
 msgid "Color set"
 msgstr ""
 
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
 
-msgid "Horizontal (x) axis"
-msgstr ""
-
-msgid "Lines are not supported yet when using multiple axes"
+msgid "Base and target lines are available on the Axes tab for multi-axis charts"
 msgstr ""
 
 msgid "Chart style"
@@ -918,19 +909,25 @@ msgstr ""
 msgid "Empty data"
 msgstr ""
 
+msgid "Horizontal (x) axis {{axisId}}"
+msgstr ""
+
+msgid "Horizontal (x) axis"
+msgstr ""
+
 msgid "Lines"
 msgstr ""
 
 msgid "Totals"
 msgstr ""
 
+msgid "Vertical (y) axis {{axisId}}"
+msgstr ""
+
 msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Titles"
-msgstr ""
-
-msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr ""
 
 msgid "Axes"

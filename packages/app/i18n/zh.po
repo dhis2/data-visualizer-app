@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-02T10:49:34.913Z\n"
+"POT-Creation-Date: 2021-04-30T12:20:24.132Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2021\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -147,21 +147,6 @@ msgstr "JRXML"
 
 msgid "Raw data SQL"
 msgstr "原生数据SQL"
-
-msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr "数据可视化应用发生错误"
-
-msgid "Refresh to try again"
-msgstr "刷新后再试"
-
-msgid "Hide technical details"
-msgstr "隐藏技术细节"
-
-msgid "Show technical details"
-msgstr "显示技术细节"
-
-msgid "The following information may be requested by technical support."
-msgstr "下列信息可能技术支持需要"
 
 msgid "Hide"
 msgstr "隐藏"
@@ -328,8 +313,20 @@ msgstr "步"
 msgid "Axis title"
 msgstr "轴标题"
 
+msgid "Auto generated"
+msgstr "自动生成"
+
+msgid "None"
+msgstr "无"
+
+msgid "Custom"
+msgstr "定制"
+
 msgid "Add a title"
 msgstr "添加标题"
+
+msgid "Reset style to default"
+msgstr ""
 
 msgid "Base line"
 msgstr "基线"
@@ -373,9 +370,6 @@ msgstr "汇总值"
 msgid "Digit group separator"
 msgstr "数字分隔符"
 
-msgid "None"
-msgstr "无"
-
 msgid "Space"
 msgstr "空格"
 
@@ -393,6 +387,18 @@ msgstr "适度"
 
 msgid "Compact"
 msgstr "紧凑"
+
+msgid "Extreme lines"
+msgstr "极限线"
+
+msgid "Calculated as a percent, usually 1%, of the total values along an axis"
+msgstr "计算为沿轴的总值的百分比，通常为1％"
+
+msgid "Extreme line % detection"
+msgstr "极限线％检测"
+
+msgid "Number"
+msgstr "数字"
 
 msgid "Font size"
 msgstr "字体大小"
@@ -433,17 +439,11 @@ msgstr "表子标题"
 msgid "Chart subtitle"
 msgstr "图表子标题"
 
-msgid "Auto generated"
-msgstr "自动生成"
-
-msgid "Custom"
-msgstr "定制"
-
 msgid "Chart title"
 msgstr "图表标题"
 
-msgid "Display legend"
-msgstr "显示图例"
+msgid "Use legend for chart colors"
+msgstr "将图例用于图表颜色"
 
 msgid "Legend style"
 msgstr "图例风格"
@@ -505,6 +505,40 @@ msgstr "行百分比"
 msgid "Percentage of column"
 msgstr "列百分比"
 
+msgid ""
+"Each detection method identifies outliers in different ways and suits "
+"different data. Check the documentation for help to choose the right outlier"
+" detection method"
+msgstr "每种检测方法都以不同的方式识别异常值，不通啊的方法适合不同的数据。查看文档以获取帮助以选择正确的离群值检测方法"
+
+msgid "Threshold factor"
+msgstr "阈值系数"
+
+msgid ""
+"A high value is more sensitive so fewer data items will be identified as "
+"outliers"
+msgstr "高值更敏感，因此较少数据项将被识别为异常值"
+
+msgid "Interquartile Range (IQR)"
+msgstr "四分位间距（IQR）"
+
+msgid "Z-score / Standard score"
+msgstr "Z分数/标准分数"
+
+msgid "Modified Z-score"
+msgstr "修改后的Z评分"
+
+msgid "Outlier analysis"
+msgstr "离群分析"
+
+msgid ""
+"Outlier analysis detects and highlights data items that are markedly "
+"different from the rest of the data"
+msgstr "离群值分析检测并突出显示与其余数据明显不同的数据项"
+
+msgid "Outlier detection method"
+msgstr "离群值检测方法"
+
 msgid "Organisation unit"
 msgstr "组织机构"
 
@@ -522,9 +556,6 @@ msgstr "包含回归分析"
 
 msgid "Title"
 msgstr "称谓"
-
-msgid "Number"
-msgstr "数字"
 
 msgid "Trend line"
 msgstr "趋势线"
@@ -737,6 +768,12 @@ msgid ""
 " incorrect or it could have been deleted."
 msgstr "找不到您尝试查看的可视化文件，该ID可能不正确或已被删除。"
 
+msgid "No organization units found"
+msgstr "找不到组织机构"
+
+msgid "The level or group selections didn't return any organization units."
+msgstr "级别或组选择未返回任何组织机构。"
+
 msgid "Something went wrong"
 msgstr "出了些问题"
 
@@ -871,23 +908,15 @@ msgstr "仅适用于标准报表"
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr "散点图的“轴”选项卡上提供了基准线和目标线"
 
-msgid "Vertical axis"
-msgstr "垂直轴"
-
-msgid "Horizontal axis"
-msgstr "横轴"
-
 msgid "Color set"
 msgstr "颜色集"
 
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr "使用多轴时尚不支持颜色设置"
 
-msgid "Horizontal (x) axis"
-msgstr "水平轴（X）"
-
-msgid "Lines are not supported yet when using multiple axes"
-msgstr "使用多轴时尚不支持线型"
+msgid ""
+"Base and target lines are available on the Axes tab for multi-axis charts"
+msgstr ""
 
 msgid "Chart style"
 msgstr "图表风格"
@@ -898,20 +927,26 @@ msgstr "显示"
 msgid "Empty data"
 msgstr "空数据"
 
+msgid "Horizontal (x) axis {{axisId}}"
+msgstr ""
+
+msgid "Horizontal (x) axis"
+msgstr "水平轴（X）"
+
 msgid "Lines"
 msgstr "线"
 
 msgid "Totals"
 msgstr "总共"
 
+msgid "Vertical (y) axis {{axisId}}"
+msgstr ""
+
 msgid "Vertical (y) axis"
 msgstr "垂轴（Y）"
 
 msgid "Titles"
 msgstr "标题"
-
-msgid "Vertical axis options are not supported yet when using multiple axes"
-msgstr "使用多轴时尚不支持垂直轴选项"
 
 msgid "Axes"
 msgstr "轴"

@@ -17,6 +17,15 @@ import {
     getDisplayNameByVisType,
     filterOutPredefinedDimensions,
     apiFetchRecommendedIds,
+    DAILY,
+    WEEKLY,
+    WEEKLYWED,
+    WEEKLYTHU,
+    WEEKLYSAT,
+    WEEKLYSUN,
+    BIWEEKLY,
+    MONTHLY,
+    BIMONTHLY,
 } from '@dhis2/analytics'
 import {
     Modal,
@@ -52,7 +61,10 @@ import {
 } from '../../../reducers/ui'
 import { sGetDimensions } from '../../../reducers/dimensions'
 import { sGetMetadata } from '../../../reducers/metadata'
-import { sGetSettingsDisplayNameProperty } from '../../../reducers/settings'
+import {
+    sGetSettings,
+    sGetSettingsDisplayNameProperty,
+} from '../../../reducers/settings'
 import { removeLastPathSegment, getOuPath } from '../../../modules/orgUnit'
 import UpdateButton from '../../UpdateButton/UpdateButton'
 import {
@@ -64,6 +76,25 @@ import styles from './styles/DialogManager.module.css'
 const isScatterAttribute = dialogId =>
     [ITEM_ATTRIBUTE_VERTICAL, ITEM_ATTRIBUTE_HORIZONTAL].includes(dialogId)
 
+const getExcludedPeriodTypes = (settings = {}) => {
+    const types = []
+    if (settings['keyHideDailyPeriods']) {
+        types.push(DAILY)
+    }
+    if (settings['keyHideWeeklyPeriods']) {
+        types.push(WEEKLY, WEEKLYWED, WEEKLYTHU, WEEKLYSAT, WEEKLYSUN)
+    }
+    if (settings['keyHideBiWeeklyPeriods']) {
+        types.push(BIWEEKLY)
+    }
+    if (settings['keyHideMonthlyPeriods']) {
+        types.push(MONTHLY)
+    }
+    if (settings['keyHideBiMonthlyPeriods']) {
+        types.push(BIMONTHLY)
+    }
+    return types
+}
 export class DialogManager extends Component {
     state = {
         onMounted: false,
@@ -340,6 +371,9 @@ export class DialogManager extends Component {
                     <PeriodDimension
                         selectedPeriods={selectedItems}
                         onSelect={dimensionProps.onSelect}
+                        excludedPeriodTypes={getExcludedPeriodTypes(
+                            this.props.settings
+                        )}
                         // TODO: infoBoxMessage should ideally be implemented for all dimensions
                     />
                 )
@@ -354,6 +388,7 @@ export class DialogManager extends Component {
                         dimensionId={dialogId}
                         onSelect={dimensionProps.onSelect}
                         dimensionTitle={this.props.dimensions[dialogId].name}
+                        displayNameProp={displayNameProperty}
                         // TODO: infoBoxMessage should ideally be implemented for all dimensions
                     />
                 )
@@ -461,6 +496,7 @@ DialogManager.propTypes = {
     selectedItems: PropTypes.object,
     setUiItemAttributes: PropTypes.func,
     setUiItems: PropTypes.func,
+    settings: PropTypes.object,
     type: PropTypes.string,
 }
 
@@ -478,6 +514,7 @@ const mapStateToProps = state => ({
     dxIds: sGetUiItemsByDimension(state, DIMENSION_ID_DATA),
     ouIds: sGetUiItemsByDimension(state, DIMENSION_ID_ORGUNIT),
     selectedItems: sGetUiItems(state),
+    settings: sGetSettings(state),
     type: sGetUiType(state),
     getAxisIdByDimensionId: dimensionId =>
         sGetAxisIdByDimensionId(state, dimensionId),

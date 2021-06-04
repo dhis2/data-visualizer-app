@@ -3,13 +3,14 @@
 # phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
 # Ulanbek Abakirov <ulans@mail.ru>, 2020
+# Saurabh Leekha <saurabh.leekha@hispindia.org>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-02T10:49:34.913Z\n"
+"POT-Creation-Date: 2021-04-30T12:20:24.132Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Ulanbek Abakirov <ulans@mail.ru>, 2020\n"
+"Last-Translator: Saurabh Leekha <saurabh.leekha@hispindia.org>, 2021\n"
 "Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -144,22 +145,6 @@ msgstr ""
 
 msgid "Raw data SQL"
 msgstr ""
-
-msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr "Произошла ошибка в приложении Визуализатор Данных DHIS2."
-
-msgid "Refresh to try again"
-msgstr "Обновить и повторить попытку"
-
-msgid "Hide technical details"
-msgstr "Скрыть технические подробности"
-
-msgid "Show technical details"
-msgstr "Показать технические подробности"
-
-msgid "The following information may be requested by technical support."
-msgstr ""
-"Следующая информация может быть запрошена службой технической поддержки."
 
 msgid "Hide"
 msgstr "Скрыть"
@@ -303,7 +288,7 @@ msgid "Loading data approval levels"
 msgstr ""
 
 msgid "Decimals"
-msgstr ""
+msgstr "Десятичные дроби"
 
 msgid "Auto"
 msgstr "Авто"
@@ -312,23 +297,37 @@ msgid "Labels"
 msgstr "Метки"
 
 msgid "Axis range"
-msgstr ""
+msgstr "Диапазон осей"
 
 msgid "Values outside of the range will not be displayed"
-msgstr ""
+msgstr "Значения вне диапазона не будут отображаться"
 
 msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
 msgstr ""
+"Количество шагов по оси, включая мин. И макс. Значение 2 или ниже будет "
+"проигнорировано."
 
 msgid "Steps"
 msgstr "Шаги"
 
 msgid "Axis title"
-msgstr ""
+msgstr "Название оси"
+
+msgid "Auto generated"
+msgstr "Автогенерируемая"
+
+msgid "None"
+msgstr "Не известное значение"
+
+msgid "Custom"
+msgstr "Пользователь"
 
 msgid "Add a title"
+msgstr ""
+
+msgid "Reset style to default"
 msgstr ""
 
 msgid "Base line"
@@ -373,9 +372,6 @@ msgstr ""
 msgid "Digit group separator"
 msgstr "Разделитель групп разрядов"
 
-msgid "None"
-msgstr "Не известное значение"
-
 msgid "Space"
 msgstr "Пробел"
 
@@ -393,6 +389,18 @@ msgstr "Стандартный"
 
 msgid "Compact"
 msgstr "Компактный"
+
+msgid "Extreme lines"
+msgstr ""
+
+msgid "Calculated as a percent, usually 1%, of the total values along an axis"
+msgstr ""
+
+msgid "Extreme line % detection"
+msgstr ""
+
+msgid "Number"
+msgstr "Число"
 
 msgid "Font size"
 msgstr "Размер шрифта"
@@ -425,7 +433,7 @@ msgid "Hide empty rows"
 msgstr "Скрыть незаполненные строки"
 
 msgid "Show legend key"
-msgstr ""
+msgstr "Показать ключ легенды"
 
 msgid "Table subtitle"
 msgstr ""
@@ -433,16 +441,10 @@ msgstr ""
 msgid "Chart subtitle"
 msgstr "Подзаголовок диаграммы"
 
-msgid "Auto generated"
-msgstr ""
-
-msgid "Custom"
-msgstr "Пользователь"
-
 msgid "Chart title"
 msgstr "Заголовок диаграммы"
 
-msgid "Display legend"
+msgid "Use legend for chart colors"
 msgstr ""
 
 msgid "Legend style"
@@ -488,7 +490,7 @@ msgid "Clear min/max limits"
 msgstr ""
 
 msgid "No space between bars/columns"
-msgstr ""
+msgstr "Без пробелов между полосами / столбцами"
 
 msgid "Number type"
 msgstr "Тип числа"
@@ -504,6 +506,40 @@ msgstr "Процент строки"
 
 msgid "Percentage of column"
 msgstr "Процент столбца"
+
+msgid ""
+"Each detection method identifies outliers in different ways and suits "
+"different data. Check the documentation for help to choose the right outlier"
+" detection method"
+msgstr ""
+
+msgid "Threshold factor"
+msgstr ""
+
+msgid ""
+"A high value is more sensitive so fewer data items will be identified as "
+"outliers"
+msgstr ""
+
+msgid "Interquartile Range (IQR)"
+msgstr ""
+
+msgid "Z-score / Standard score"
+msgstr ""
+
+msgid "Modified Z-score"
+msgstr ""
+
+msgid "Outlier analysis"
+msgstr ""
+
+msgid ""
+"Outlier analysis detects and highlights data items that are markedly "
+"different from the rest of the data"
+msgstr ""
+
+msgid "Outlier detection method"
+msgstr ""
 
 msgid "Organisation unit"
 msgstr "Организационная единица"
@@ -522,9 +558,6 @@ msgstr "Включить регрессию"
 
 msgid "Title"
 msgstr "Название"
-
-msgid "Number"
-msgstr "Число"
 
 msgid "Trend line"
 msgstr "Линия тренда"
@@ -574,7 +607,7 @@ msgid ""
 msgstr ""
 
 msgid "Value labels"
-msgstr ""
+msgstr "Ярлыки значений"
 
 msgid "Dimension labels"
 msgstr ""
@@ -735,6 +768,12 @@ msgid ""
 " incorrect or it could have been deleted."
 msgstr ""
 
+msgid "No organization units found"
+msgstr ""
+
+msgid "The level or group selections didn't return any organization units."
+msgstr ""
+
 msgid "Something went wrong"
 msgstr "Что-то пошло не так"
 
@@ -869,22 +908,14 @@ msgstr ""
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
 
-msgid "Vertical axis"
-msgstr ""
-
-msgid "Horizontal axis"
-msgstr ""
-
 msgid "Color set"
 msgstr ""
 
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
 
-msgid "Horizontal (x) axis"
-msgstr ""
-
-msgid "Lines are not supported yet when using multiple axes"
+msgid ""
+"Base and target lines are available on the Axes tab for multi-axis charts"
 msgstr ""
 
 msgid "Chart style"
@@ -896,20 +927,26 @@ msgstr "Показать"
 msgid "Empty data"
 msgstr ""
 
+msgid "Horizontal (x) axis {{axisId}}"
+msgstr ""
+
+msgid "Horizontal (x) axis"
+msgstr "Горизонтальная ось (x)"
+
 msgid "Lines"
 msgstr ""
 
 msgid "Totals"
 msgstr "Итоги"
 
-msgid "Vertical (y) axis"
+msgid "Vertical (y) axis {{axisId}}"
 msgstr ""
+
+msgid "Vertical (y) axis"
+msgstr "Вертикальная ось (y)"
 
 msgid "Titles"
-msgstr ""
-
-msgid "Vertical axis options are not supported yet when using multiple axes"
-msgstr ""
+msgstr "Титулы"
 
 msgid "Axes"
 msgstr "Оси"

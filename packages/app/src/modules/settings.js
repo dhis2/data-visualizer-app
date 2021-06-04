@@ -3,14 +3,9 @@ export const SYSTEM_SETTINGS = [
     'keyAnalysisRelativePeriod',
     'keyAnalysisDigitGroupSeparator',
     'keyIgnoreAnalyticsApprovalYearThreshold',
+    'keyHideBiMonthlyPeriods',
+    'keyHideDailyPeriods',
+    'keyHideMonthlyPeriods',
+    'keyHideWeeklyPeriods',
+    'keyHideBiWeeklyPeriods',
 ]
-
-export const extractUserSettings = settings => {
-    const nameProp = settings.keyAnalysisDisplayProperty
-
-    return {
-        displayNameProperty:
-            nameProp === 'name' ? 'displayName' : 'displayShortName',
-        uiLocale: settings.keyUiLocale,
-    }
-}

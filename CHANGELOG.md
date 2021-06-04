@@ -1,3 +1,307 @@
+## [37.4.3](https://github.com/dhis2/data-visualizer-app/compare/v37.4.2...v37.4.3) (2021-06-04)
+
+
+### Bug Fixes
+
+* axis title bugs (DHIS2-10902) ([#1736](https://github.com/dhis2/data-visualizer-app/issues/1736)) ([084da30](https://github.com/dhis2/data-visualizer-app/commit/084da30a75dfb2d7a80262679ccd72676842d63f))
+
+## [37.4.2](https://github.com/dhis2/data-visualizer-app/compare/v37.4.1...v37.4.2) (2021-06-04)
+
+
+### Bug Fixes
+
+* drill down bugs (DHIS2-11061) ([#1735](https://github.com/dhis2/data-visualizer-app/issues/1735)) ([92d90bb](https://github.com/dhis2/data-visualizer-app/commit/92d90bb9e858d5c151c6ba1d7408423042f972f1))
+
+## [37.4.1](https://github.com/dhis2/data-visualizer-app/compare/v37.4.0...v37.4.1) (2021-06-01)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([ae5c82c](https://github.com/dhis2/data-visualizer-app/commit/ae5c82cf225e5c907c1e83756beefa618325c851))
+
+# [37.4.0](https://github.com/dhis2/data-visualizer-app/compare/v37.3.1...v37.4.0) (2021-06-01)
+
+
+### Features
+
+* support options for multi axes (DHIS2-6672) ([#1692](https://github.com/dhis2/data-visualizer-app/issues/1692)) ([f535418](https://github.com/dhis2/data-visualizer-app/commit/f535418560664d9287835a10fa2b9a1bad84b7b3))
+
+## [37.3.1](https://github.com/dhis2/data-visualizer-app/compare/v37.3.0...v37.3.1) (2021-05-28)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([65a16e7](https://github.com/dhis2/data-visualizer-app/commit/65a16e73e8f06d6f34f361243ea3a181429393dc))
+
+# [37.3.0](https://github.com/dhis2/data-visualizer-app/compare/v37.2.0...v37.3.0) (2021-05-28)
+
+
+### Features
+
+* add last 10 years relative period (DHIS2-7029) ([#1722](https://github.com/dhis2/data-visualizer-app/issues/1722)) ([8448fa5](https://github.com/dhis2/data-visualizer-app/commit/8448fa5032aa89922e46089cbc1529758e05bf0a))
+
+# [37.2.0](https://github.com/dhis2/data-visualizer-app/compare/v37.1.0...v37.2.0) (2021-05-28)
+
+
+### Features
+
+* hide periods based on system settings (DHIS2-11161) ([#1721](https://github.com/dhis2/data-visualizer-app/issues/1721)) ([fb0974c](https://github.com/dhis2/data-visualizer-app/commit/fb0974c323a62f2d34e6e2e36a57567590d42116))
+
+# [37.1.0](https://github.com/dhis2/data-visualizer-app/compare/v37.0.10...v37.1.0) (2021-05-25)
+
+
+### Features
+
+* drill down org units in bar and column charts (DHIS2-11061) ([#1720](https://github.com/dhis2/data-visualizer-app/issues/1720)) ([ed09736](https://github.com/dhis2/data-visualizer-app/commit/ed0973676a114800f1f97dc08f53d928d21a17f7))
+
+## [37.0.10](https://github.com/dhis2/data-visualizer-app/compare/v37.0.9...v37.0.10) (2021-05-18)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([a798681](https://github.com/dhis2/data-visualizer-app/commit/a798681c7ec8014682ae1006c4c15b63e3ab0b61))
+
+## [37.0.9](https://github.com/dhis2/data-visualizer-app/compare/v37.0.8...v37.0.9) (2021-05-07)
+
+
+### Bug Fixes
+
+* await ou levels ([#1716](https://github.com/dhis2/data-visualizer-app/issues/1716)) ([94d241b](https://github.com/dhis2/data-visualizer-app/commit/94d241b1d66aefc48384540bbf4c18c1e1bbc725))
+
+## [37.0.8](https://github.com/dhis2/data-visualizer-app/compare/v37.0.7...v37.0.8) (2021-05-05)
+
+
+### Bug Fixes
+
+* pass username to the favorites endpoint ([#1711](https://github.com/dhis2/data-visualizer-app/issues/1711)) ([be2ff21](https://github.com/dhis2/data-visualizer-app/commit/be2ff21c71172ce74554867a1282cdad8175ae2e))
+
+## [37.0.7](https://github.com/dhis2/data-visualizer-app/compare/v37.0.6...v37.0.7) (2021-05-04)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([8348fd3](https://github.com/dhis2/data-visualizer-app/commit/8348fd36bcf15ff556f64f49af29e5807190ed8f))
+
+## [37.0.6](https://github.com/dhis2/data-visualizer-app/compare/v37.0.5...v37.0.6) (2021-05-04)
+
+
+### Bug Fixes
+
+* new label for legend set options (DHIS2-11037) ([#1707](https://github.com/dhis2/data-visualizer-app/issues/1707)) ([580e7d4](https://github.com/dhis2/data-visualizer-app/commit/580e7d487ea6bc85a577e10ecf4b9c9bc45acd8b))
+
+## [37.0.5](https://github.com/dhis2/data-visualizer-app/compare/v37.0.4...v37.0.5) (2021-05-03)
+
+
+### Bug Fixes
+
+* start screen vis type crash ([#1709](https://github.com/dhis2/data-visualizer-app/issues/1709)) ([f8c4303](https://github.com/dhis2/data-visualizer-app/commit/f8c43030eb167aa52a0e30d47eac699d6fdb5a05))
+
+## [37.0.4](https://github.com/dhis2/data-visualizer-app/compare/v37.0.3...v37.0.4) (2021-04-30)
+
+
+### Bug Fixes
+
+* i18n folder and missing icons ([#1708](https://github.com/dhis2/data-visualizer-app/issues/1708)) ([0659202](https://github.com/dhis2/data-visualizer-app/commit/06592022d2eb53f723e7f3864bf676d56f386438))
+
+## [37.0.3](https://github.com/dhis2/data-visualizer-app/compare/v37.0.2...v37.0.3) (2021-04-29)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([3ec10f0](https://github.com/dhis2/data-visualizer-app/commit/3ec10f0fbf174f987d47ab89c1a1ce3f7025a968))
+
+## [37.0.2](https://github.com/dhis2/data-visualizer-app/compare/v37.0.1...v37.0.2) (2021-04-29)
+
+
+### Bug Fixes
+
+* convertOuLevelsToUids changes (DHIS2-11016) ([#1706](https://github.com/dhis2/data-visualizer-app/issues/1706)) ([7a3b18f](https://github.com/dhis2/data-visualizer-app/commit/7a3b18fee57ce233d9df71c885d399d5109b37a6))
+
+## [37.0.1](https://github.com/dhis2/data-visualizer-app/compare/v37.0.0...v37.0.1) (2021-04-26)
+
+
+### Bug Fixes
+
+* custom error for mismatching org unit levels (DHIS2-10171) ([#1699](https://github.com/dhis2/data-visualizer-app/issues/1699)) ([a0ae250](https://github.com/dhis2/data-visualizer-app/commit/a0ae25093520f8b8b2384d5d1f4b57547ca7f37a))
+
+# [37.0.0](https://github.com/dhis2/data-visualizer-app/compare/v36.0.0...v37.0.0) (2021-03-29)
+
+
+### chore
+
+* bump master to 37.0.0 ([#1679](https://github.com/dhis2/data-visualizer-app/issues/1679)) ([fddeae0](https://github.com/dhis2/data-visualizer-app/commit/fddeae0f150ea554e2b9d2a98894c9926dfb945e))
+
+
+### BREAKING CHANGES
+
+* release cut
+
+# [36.0.0](https://github.com/dhis2/data-visualizer-app/compare/v35.20.23...v36.0.0) (2021-03-29)
+
+
+### chore
+
+* bump master to v36 ([#1678](https://github.com/dhis2/data-visualizer-app/issues/1678)) ([1c047a1](https://github.com/dhis2/data-visualizer-app/commit/1c047a1627c354e730e93e36582b8fe3feccafe0))
+
+
+### BREAKING CHANGES
+
+* no breaking change
+
+## [35.20.23](https://github.com/dhis2/data-visualizer-app/compare/v35.20.22...v35.20.23) (2021-03-23)
+
+
+### Bug Fixes
+
+* avoid re-render after 1st resize ([#1669](https://github.com/dhis2/data-visualizer-app/issues/1669)) ([5fe6791](https://github.com/dhis2/data-visualizer-app/commit/5fe679155a6db7881963c2449de87078ec86bec2))
+
+## [35.20.22](https://github.com/dhis2/data-visualizer-app/compare/v35.20.21...v35.20.22) (2021-03-22)
+
+
+### Bug Fixes
+
+* detect style changes from dashboard for re-rendering visualization ([#1667](https://github.com/dhis2/data-visualizer-app/issues/1667)) ([ee6a7d0](https://github.com/dhis2/data-visualizer-app/commit/ee6a7d0485c888bdc513e3a40306aed78230dfc5))
+
+## [35.20.21](https://github.com/dhis2/data-visualizer-app/compare/v35.20.20...v35.20.21) (2021-03-20)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([eff50cc](https://github.com/dhis2/data-visualizer-app/commit/eff50cc4a7ac4f1a2180e271aaab9f3315725c22))
+
+## [35.20.20](https://github.com/dhis2/data-visualizer-app/compare/v35.20.19...v35.20.20) (2021-03-19)
+
+
+### Bug Fixes
+
+* avoid visualization plugin double render ([#1665](https://github.com/dhis2/data-visualizer-app/issues/1665)) ([c6c348c](https://github.com/dhis2/data-visualizer-app/commit/c6c348c0b9d28757136be9e6bd125cfab44afd58))
+
+## [35.20.19](https://github.com/dhis2/data-visualizer-app/compare/v35.20.18...v35.20.19) (2021-03-12)
+
+
+### Bug Fixes
+
+* use VISUALIZATION_VIEW ([#1662](https://github.com/dhis2/data-visualizer-app/issues/1662)) ([05e2798](https://github.com/dhis2/data-visualizer-app/commit/05e2798906c1d924e9ce09f96f9eca05a5b90191))
+
+## [35.20.18](https://github.com/dhis2/data-visualizer-app/compare/v35.20.17...v35.20.18) (2021-03-12)
+
+
+### Bug Fixes
+
+* upgrade analytics ([#1659](https://github.com/dhis2/data-visualizer-app/issues/1659)) ([34f989e](https://github.com/dhis2/data-visualizer-app/commit/34f989ec03cb598770f8ff1c64e83cb6a276c015))
+
+## [35.20.17](https://github.com/dhis2/data-visualizer-app/compare/v35.20.16...v35.20.17) (2021-03-11)
+
+
+### Bug Fixes
+
+* upgrade to @dhis2/cli-app-scripts@6 (DHIS2-9893) ([#1657](https://github.com/dhis2/data-visualizer-app/issues/1657)) ([0df0a93](https://github.com/dhis2/data-visualizer-app/commit/0df0a932680a26a943f0e36e85d9df29ff784a12))
+
+## [35.20.16](https://github.com/dhis2/data-visualizer-app/compare/v35.20.15...v35.20.16) (2021-03-11)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([7f35b01](https://github.com/dhis2/data-visualizer-app/commit/7f35b0177259008099a52bacfc08ae9974ca8774))
+
+## [35.20.15](https://github.com/dhis2/data-visualizer-app/compare/v35.20.14...v35.20.15) (2021-03-09)
+
+
+### Bug Fixes
+
+* @dhis2/analytics@16.0.11 ([#1651](https://github.com/dhis2/data-visualizer-app/issues/1651)) ([ab6adfd](https://github.com/dhis2/data-visualizer-app/commit/ab6adfdd0fc1bf4ad3716a86949ddda3cf22f67c))
+
+## [35.20.14](https://github.com/dhis2/data-visualizer-app/compare/v35.20.13...v35.20.14) (2021-03-09)
+
+
+### Bug Fixes
+
+* @dhis2/analytics@16.0.9 ([#1650](https://github.com/dhis2/data-visualizer-app/issues/1650)) ([64191f1](https://github.com/dhis2/data-visualizer-app/commit/64191f1aa9e862095817afd7b067eb6cf0521db4))
+
+## [35.20.13](https://github.com/dhis2/data-visualizer-app/compare/v35.20.12...v35.20.13) (2021-03-09)
+
+
+### Bug Fixes
+
+* prevent ghost items in itemsByDimension ([#1647](https://github.com/dhis2/data-visualizer-app/issues/1647)) ([caf5dfa](https://github.com/dhis2/data-visualizer-app/commit/caf5dfa87c8bceb9016e3b996f4237e5e3818167))
+
+## [35.20.12](https://github.com/dhis2/data-visualizer-app/compare/v35.20.11...v35.20.12) (2021-03-09)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([6b1ac40](https://github.com/dhis2/data-visualizer-app/commit/6b1ac406eca2cc6f5c07f43b0bca371483ac3795))
+
+## [35.20.11](https://github.com/dhis2/data-visualizer-app/compare/v35.20.10...v35.20.11) (2021-03-08)
+
+
+### Bug Fixes
+
+* fix double border in chip menu for scatter ([#1646](https://github.com/dhis2/data-visualizer-app/issues/1646)) ([39a5820](https://github.com/dhis2/data-visualizer-app/commit/39a582084f97fb195aa04339f7f0854e89e4b517))
+
+## [35.20.10](https://github.com/dhis2/data-visualizer-app/compare/v35.20.9...v35.20.10) (2021-03-08)
+
+
+### Bug Fixes
+
+* set vertical before horizontal when swapping ([#1645](https://github.com/dhis2/data-visualizer-app/issues/1645)) ([9f4db3f](https://github.com/dhis2/data-visualizer-app/commit/9f4db3fa0398a56143c75c5e3ba82061626ae45f))
+
+## [35.20.9](https://github.com/dhis2/data-visualizer-app/compare/v35.20.8...v35.20.9) (2021-03-08)
+
+
+### Bug Fixes
+
+* set outlier threshold min to 0 ([#1644](https://github.com/dhis2/data-visualizer-app/issues/1644)) ([45a8a51](https://github.com/dhis2/data-visualizer-app/commit/45a8a518d28ac0e26e11dda27afea9db162bd170))
+
+## [35.20.8](https://github.com/dhis2/data-visualizer-app/compare/v35.20.7...v35.20.8) (2021-03-08)
+
+
+### Bug Fixes
+
+* @dhis2/analytics@16.0.8 ([#1643](https://github.com/dhis2/data-visualizer-app/issues/1643)) ([6758a06](https://github.com/dhis2/data-visualizer-app/commit/6758a0649888c6369db9319a913caf549f6e20f2))
+
+## [35.20.7](https://github.com/dhis2/data-visualizer-app/compare/v35.20.6...v35.20.7) (2021-03-08)
+
+
+### Bug Fixes
+
+* include outlierAnalysis in AO request ([#1642](https://github.com/dhis2/data-visualizer-app/issues/1642)) ([47f6795](https://github.com/dhis2/data-visualizer-app/commit/47f67950f2537a1f9f0b8d56babdd236be8a49b2))
+
+## [35.20.6](https://github.com/dhis2/data-visualizer-app/compare/v35.20.5...v35.20.6) (2021-03-05)
+
+
+### Bug Fixes
+
+* bump analytics and ui to latest ([#1640](https://github.com/dhis2/data-visualizer-app/issues/1640)) ([8f01ccf](https://github.com/dhis2/data-visualizer-app/commit/8f01ccf42c830b38bb82c5d5aa3473bc4be89bc9))
+
+## [35.20.5](https://github.com/dhis2/data-visualizer-app/compare/v35.20.4...v35.20.5) (2021-03-05)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#1626](https://github.com/dhis2/data-visualizer-app/issues/1626)) ([c7912af](https://github.com/dhis2/data-visualizer-app/commit/c7912af09b4b1541328f4c6c9933e5ee6503b7d9))
+
+## [35.20.4](https://github.com/dhis2/data-visualizer-app/compare/v35.20.3...v35.20.4) (2021-03-04)
+
+
+### Bug Fixes
+
+* @dhis2/analytics@16.0.3 ([#1637](https://github.com/dhis2/data-visualizer-app/issues/1637)) ([7607231](https://github.com/dhis2/data-visualizer-app/commit/7607231e7ee25f42ee7f7f9edc354cb7acabb116))
+
+## [35.20.3](https://github.com/dhis2/data-visualizer-app/compare/v35.20.2...v35.20.3) (2021-03-03)
+
+
+### Bug Fixes
+
+* minor tweaks for outlier options ([#1633](https://github.com/dhis2/data-visualizer-app/issues/1633)) ([4f70aa5](https://github.com/dhis2/data-visualizer-app/commit/4f70aa5a1b988fe815e4579f699aca5a9f2ed26d))
+
+## [35.20.2](https://github.com/dhis2/data-visualizer-app/compare/v35.20.1...v35.20.2) (2021-03-03)
+
+
+### Bug Fixes
+
+* use nameprop for dynamic dimensions and /analytics ([#1634](https://github.com/dhis2/data-visualizer-app/issues/1634)) ([520be2b](https://github.com/dhis2/data-visualizer-app/commit/520be2b846f5e14c33e4bf923a0c258158d1def2))
+
 ## [35.20.1](https://github.com/dhis2/data-visualizer-app/compare/v35.20.0...v35.20.1) (2021-02-26)
 
 

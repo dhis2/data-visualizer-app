@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-02T10:49:34.913Z\n"
+"POT-Creation-Date: 2021-04-30T12:20:24.132Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2020\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
@@ -143,21 +143,6 @@ msgstr ""
 
 msgid "Raw data SQL"
 msgstr ""
-
-msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr "数据可视化应用发生错误"
-
-msgid "Refresh to try again"
-msgstr "刷新后再试"
-
-msgid "Hide technical details"
-msgstr "隐藏技术细节"
-
-msgid "Show technical details"
-msgstr "显示技术细节"
-
-msgid "The following information may be requested by technical support."
-msgstr "下列信息可能技术支持需要"
 
 msgid "Hide"
 msgstr "隐藏"
@@ -324,8 +309,20 @@ msgstr "步"
 msgid "Axis title"
 msgstr "轴标题"
 
+msgid "Auto generated"
+msgstr "自动生成"
+
+msgid "None"
+msgstr "没有"
+
+msgid "Custom"
+msgstr "定制"
+
 msgid "Add a title"
 msgstr "添加标题"
+
+msgid "Reset style to default"
+msgstr ""
 
 msgid "Base line"
 msgstr "基线"
@@ -369,9 +366,6 @@ msgstr "汇总值"
 msgid "Digit group separator"
 msgstr "数字分隔符"
 
-msgid "None"
-msgstr "没有"
-
 msgid "Space"
 msgstr "空格"
 
@@ -389,6 +383,18 @@ msgstr "适度"
 
 msgid "Compact"
 msgstr "紧凑"
+
+msgid "Extreme lines"
+msgstr ""
+
+msgid "Calculated as a percent, usually 1%, of the total values along an axis"
+msgstr ""
+
+msgid "Extreme line % detection"
+msgstr ""
+
+msgid "Number"
+msgstr "数据"
 
 msgid "Font size"
 msgstr "字体大小"
@@ -429,17 +435,11 @@ msgstr "表子标题"
 msgid "Chart subtitle"
 msgstr "图表子标题"
 
-msgid "Auto generated"
-msgstr "自动生成"
-
-msgid "Custom"
-msgstr "定制"
-
 msgid "Chart title"
 msgstr "图表标题"
 
-msgid "Display legend"
-msgstr "显示图例"
+msgid "Use legend for chart colors"
+msgstr ""
 
 msgid "Legend style"
 msgstr "图例风格"
@@ -501,6 +501,40 @@ msgstr "行百分比"
 msgid "Percentage of column"
 msgstr "列百分比"
 
+msgid ""
+"Each detection method identifies outliers in different ways and suits "
+"different data. Check the documentation for help to choose the right outlier"
+" detection method"
+msgstr ""
+
+msgid "Threshold factor"
+msgstr ""
+
+msgid ""
+"A high value is more sensitive so fewer data items will be identified as "
+"outliers"
+msgstr ""
+
+msgid "Interquartile Range (IQR)"
+msgstr ""
+
+msgid "Z-score / Standard score"
+msgstr ""
+
+msgid "Modified Z-score"
+msgstr ""
+
+msgid "Outlier analysis"
+msgstr ""
+
+msgid ""
+"Outlier analysis detects and highlights data items that are markedly "
+"different from the rest of the data"
+msgstr ""
+
+msgid "Outlier detection method"
+msgstr ""
+
 msgid "Organisation unit"
 msgstr "机构"
 
@@ -518,9 +552,6 @@ msgstr "包含回归分析"
 
 msgid "Title"
 msgstr "称谓"
-
-msgid "Number"
-msgstr "数据"
 
 msgid "Trend line"
 msgstr "趋势线"
@@ -733,6 +764,12 @@ msgid ""
 " incorrect or it could have been deleted."
 msgstr ""
 
+msgid "No organization units found"
+msgstr ""
+
+msgid "The level or group selections didn't return any organization units."
+msgstr ""
+
 msgid "Something went wrong"
 msgstr "出了些问题"
 
@@ -867,22 +904,14 @@ msgstr ""
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
 
-msgid "Vertical axis"
-msgstr ""
-
-msgid "Horizontal axis"
-msgstr ""
-
 msgid "Color set"
 msgstr ""
 
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
 
-msgid "Horizontal (x) axis"
-msgstr "水平轴（X）"
-
-msgid "Lines are not supported yet when using multiple axes"
+msgid ""
+"Base and target lines are available on the Axes tab for multi-axis charts"
 msgstr ""
 
 msgid "Chart style"
@@ -894,20 +923,26 @@ msgstr "显示"
 msgid "Empty data"
 msgstr ""
 
+msgid "Horizontal (x) axis {{axisId}}"
+msgstr ""
+
+msgid "Horizontal (x) axis"
+msgstr "水平轴（X）"
+
 msgid "Lines"
 msgstr "线"
 
 msgid "Totals"
 msgstr "总共"
 
+msgid "Vertical (y) axis {{axisId}}"
+msgstr ""
+
 msgid "Vertical (y) axis"
 msgstr "垂轴（Y）"
 
 msgid "Titles"
 msgstr "标题"
-
-msgid "Vertical axis options are not supported yet when using multiple axes"
-msgstr ""
 
 msgid "Axes"
 msgstr "轴"

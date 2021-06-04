@@ -19,7 +19,7 @@ import { clickMenuBarOptionsButton } from '../../elements/menuBar'
 import {
     clickOptionsModalUpdateButton,
     clickOptionsTab,
-    enableTrendLine,
+    clickTrendLineCheckbox,
     OPTIONS_TAB_DATA,
     selectTrendLineType,
 } from '../../elements/optionsModal'
@@ -49,15 +49,17 @@ describe('Options - Lines', () => {
             expectWindowConfigSeriesToNotHaveTrendline()
         })
 
-        trendLineTypes.forEach(trendLineType => {
+        trendLineTypes.forEach((trendLineType, index) => {
             describe(trendLineType.name, () => {
                 it('opens Options -> Data', () => {
                     clickMenuBarOptionsButton()
                     clickOptionsTab(OPTIONS_TAB_DATA)
                 })
-                it('enable trendline', () => {
-                    enableTrendLine()
-                })
+                if (index === 0) {
+                    it('enable trendline', () => {
+                        clickTrendLineCheckbox()
+                    })
+                }
                 it('select trendline type', () => {
                     selectTrendLineType(trendLineType.name)
                 })

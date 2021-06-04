@@ -2,6 +2,10 @@
     "name": "data-visualizer",
     "description": "DHIS2 Data Visualizer",
     "private": true,
+    "version": "37.4.3",
+    "workspaces": [
+        "packages/*"
+    ],
     "license": "BSD-3-Clause",
     "devDependencies": {
         "@dhis2/cli-style": "^7.2.2",
@@ -29,12 +33,5 @@
         "cypress:start": "BROWSER=none yarn start",
         "cy:open": "d2-utils-cypress open --appStart 'yarn cypress:start'",
         "cy:run": "d2-utils-cypress run --appStart 'yarn cypress:start'"
-    },
-    "workspaces": [
-        "packages/*"
-    ],
-    "version": "35.20.1",
-    "resolutions": {
-        "@dhis2/ui": "^6.5.0"
     }
 }

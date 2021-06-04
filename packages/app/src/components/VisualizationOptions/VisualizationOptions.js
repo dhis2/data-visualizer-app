@@ -11,6 +11,7 @@ import {
     tabSectionOption,
     tabSectionOptionItem,
     tabSectionOptionToggleable,
+    tabSectionToggleableSubsection,
     tabSectionOptionComplexInline,
     tabSectionOptionText,
     tabBar,
@@ -83,7 +84,12 @@ export class VisualizationOptions extends Component {
             visualizationType,
             isDualAxisType(visualizationType) &&
                 hasCustomAxes(filteredSeries) &&
-                !hasRelativeItems(columns[0], columnDimensionItems)
+                !hasRelativeItems(columns[0], columnDimensionItems),
+            series?.length && isDualAxisType(visualizationType)
+                ? [...new Set(series.map(serie => serie.axis))].sort(
+                      (a, b) => a - b
+                  )
+                : [0]
         )
 
         const tabs = this.generateTabs(optionsConfig)
@@ -121,6 +127,7 @@ export class VisualizationOptions extends Component {
                     {tabSectionOption.styles}
                     {tabSectionOptionItem.styles}
                     {tabSectionOptionToggleable.styles}
+                    {tabSectionToggleableSubsection.styles}
                     {tabSectionOptionComplexInline.styles}
                     {tabSectionOptionText.styles}
                     {tabSectionOptionIcon.styles}

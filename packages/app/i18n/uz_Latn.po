@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-02T10:49:34.913Z\n"
+"POT-Creation-Date: 2021-04-30T12:20:24.132Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Yury Rogachev <yury@dhis2.org>, 2021\n"
 "Language-Team: Uzbek (Latin) (https://www.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
@@ -151,21 +151,6 @@ msgstr "JRXML"
 
 msgid "Raw data SQL"
 msgstr "Xom maʼlumotlar SQL"
-
-msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr "DHIS2 Maʼlumotlar Vizualizator dasturida xatolik yuz berdi."
-
-msgid "Refresh to try again"
-msgstr "Ыaytib urinib kщrin uchun avval yangilang"
-
-msgid "Hide technical details"
-msgstr "Texnik detallarni berkitish"
-
-msgid "Show technical details"
-msgstr "Texnik detallarni koʼrsatish"
-
-msgid "The following information may be requested by technical support."
-msgstr "Quyidagi axborot texnik yordamchilar tomonidan soʼralishi mumkin"
 
 msgid "Hide"
 msgstr "Berkitish"
@@ -340,8 +325,20 @@ msgstr "Qadamlar"
 msgid "Axis title"
 msgstr "Oʼq sarlavhasi"
 
+msgid "Auto generated"
+msgstr "Аvtomatik ravishda yaratilgan"
+
+msgid "None"
+msgstr "Yoʼq"
+
+msgid "Custom"
+msgstr "Odatiy"
+
 msgid "Add a title"
 msgstr "Sarlavha qoʼshish"
+
+msgid "Reset style to default"
+msgstr ""
 
 msgid "Base line"
 msgstr "Bazaviy chiziq"
@@ -385,9 +382,6 @@ msgstr "Kumulyativ qiymatlar"
 msgid "Digit group separator"
 msgstr "Raqamlar guruhini taqsimlovchi"
 
-msgid "None"
-msgstr "Yoʼq"
-
 msgid "Space"
 msgstr "Oraliq (maydon)"
 
@@ -405,6 +399,18 @@ msgstr "Meʼyoriy"
 
 msgid "Compact"
 msgstr "Zich"
+
+msgid "Extreme lines"
+msgstr ""
+
+msgid "Calculated as a percent, usually 1%, of the total values along an axis"
+msgstr ""
+
+msgid "Extreme line % detection"
+msgstr ""
+
+msgid "Number"
+msgstr "Tartib raqami"
 
 msgid "Font size"
 msgstr "Shrift oʼlchami"
@@ -445,17 +451,11 @@ msgstr "Jadval taglavhasi"
 msgid "Chart subtitle"
 msgstr "Diagramma sharhi"
 
-msgid "Auto generated"
-msgstr "Аvtomatik ravishda yaratilgan"
-
-msgid "Custom"
-msgstr "Odatiy"
-
 msgid "Chart title"
 msgstr "Diagramma sarlavhasi"
 
-msgid "Display legend"
-msgstr "Taʼrifni koʼrsatish"
+msgid "Use legend for chart colors"
+msgstr ""
 
 msgid "Legend style"
 msgstr "Taʼrif turi"
@@ -517,6 +517,40 @@ msgstr "Qator foizi"
 msgid "Percentage of column"
 msgstr "Ustun foizi"
 
+msgid ""
+"Each detection method identifies outliers in different ways and suits "
+"different data. Check the documentation for help to choose the right outlier"
+" detection method"
+msgstr ""
+
+msgid "Threshold factor"
+msgstr ""
+
+msgid ""
+"A high value is more sensitive so fewer data items will be identified as "
+"outliers"
+msgstr ""
+
+msgid "Interquartile Range (IQR)"
+msgstr ""
+
+msgid "Z-score / Standard score"
+msgstr ""
+
+msgid "Modified Z-score"
+msgstr ""
+
+msgid "Outlier analysis"
+msgstr ""
+
+msgid ""
+"Outlier analysis detects and highlights data items that are markedly "
+"different from the rest of the data"
+msgstr ""
+
+msgid "Outlier detection method"
+msgstr ""
+
 msgid "Organisation unit"
 msgstr "Tashkiliy birlik"
 
@@ -534,9 +568,6 @@ msgstr "Regressiyani oʼz ichiga oladi"
 
 msgid "Title"
 msgstr "Sarlavha"
-
-msgid "Number"
-msgstr "Tartib raqami"
 
 msgid "Trend line"
 msgstr "Yoʼnalish qatori"
@@ -776,6 +807,12 @@ msgstr ""
 "Siz koʼrmoqchi boʼlgan vizualizatsiya topilmadi, identifikator notoʼgʼri "
 "yoki oʼchirilgan boʼlishi mumkin."
 
+msgid "No organization units found"
+msgstr ""
+
+msgid "The level or group selections didn't return any organization units."
+msgstr ""
+
 msgid "Something went wrong"
 msgstr "Nimadir notoʼgʼri bajarildi"
 
@@ -910,12 +947,6 @@ msgstr ""
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
 
-msgid "Vertical axis"
-msgstr ""
-
-msgid "Horizontal axis"
-msgstr ""
-
 msgid "Color set"
 msgstr "Ranglar toʼplami"
 
@@ -923,11 +954,9 @@ msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
 "Koʼp oʼqlardan foydalanganda ranglar toʼplami hali qoʼllab quvvatlanmaydi"
 
-msgid "Horizontal (x) axis"
-msgstr "gorizontal (X) oʼq"
-
-msgid "Lines are not supported yet when using multiple axes"
-msgstr "Koʼp oʼqlardan foydalanganda chiziqlar hali qoʼllab quvvatlanmaydi"
+msgid ""
+"Base and target lines are available on the Axes tab for multi-axis charts"
+msgstr ""
 
 msgid "Chart style"
 msgstr "Diagramma uslubi"
@@ -938,22 +967,26 @@ msgstr "Ekranda koʼrsatish"
 msgid "Empty data"
 msgstr "Boʼsh maʼlumotlar"
 
+msgid "Horizontal (x) axis {{axisId}}"
+msgstr ""
+
+msgid "Horizontal (x) axis"
+msgstr "gorizontal (X) oʼq"
+
 msgid "Lines"
 msgstr "Qatorlar"
 
 msgid "Totals"
 msgstr "Jami"
 
+msgid "Vertical (y) axis {{axisId}}"
+msgstr ""
+
 msgid "Vertical (y) axis"
 msgstr "Vertikal (y) oʼqi"
 
 msgid "Titles"
 msgstr "Sarlavhalar"
-
-msgid "Vertical axis options are not supported yet when using multiple axes"
-msgstr ""
-"Koʼp oʼqlardan foydalanganda vertikal oʼq parametrlari hali qoʼllab "
-"quvvatlanmaydi"
 
 msgid "Axes"
 msgstr "Oʼqlar"

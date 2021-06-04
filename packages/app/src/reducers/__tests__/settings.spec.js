@@ -1,8 +1,4 @@
-import reducer, {
-    DEFAULT_SETTINGS,
-    SET_SETTINGS,
-    ADD_SETTINGS,
-} from '../settings'
+import reducer, { DEFAULT_SETTINGS, ADD_SETTINGS } from '../settings'
 
 describe('reducer: settings', () => {
     const currentState = {
@@ -14,22 +10,6 @@ describe('reducer: settings', () => {
         const actualState = reducer(DEFAULT_SETTINGS, { type: 'NO_MATCH' })
 
         expect(actualState).toEqual(DEFAULT_SETTINGS)
-    })
-
-    it(`${SET_SETTINGS}: should set settings`, () => {
-        const stateToSet = {
-            keyAnalysisRelativePeriod: 'LAST_4_QUARTERS',
-            keyAnalysisDisplayProperty: 'shortName',
-        }
-
-        const actualState = reducer(currentState, {
-            type: SET_SETTINGS,
-            value: stateToSet,
-        })
-
-        const expectedState = stateToSet
-
-        expect(actualState).toEqual(expectedState)
     })
 
     it(`${ADD_SETTINGS}: should add settings`, () => {
