@@ -1,35 +1,27 @@
-const getTextAlignSelectElByType = type =>
-    `option-chart-${type}-text-style-text-align-select`
-const getTextAlignOptionElByType = type =>
-    `option-chart-${type}-text-style-text-align-option`
-const getFontSizeSelectElByType = type =>
-    `option-chart-${type}-text-style-font-size-select`
-const getFontSizeOptionElByType = type =>
-    `option-chart-${type}-text-style-font-size-option`
-const getBoldButtonElByType = type =>
-    `option-chart-${type}-text-style-bold-toggle`
-const getItalicButtonElByType = type =>
-    `option-chart-${type}-text-style-italic-toggle`
+const getTextAlignSelectEl = prefix => `${prefix}-text-style-text-align-select`
+const getTextAlignOptionEl = prefix => `${prefix}-text-style-text-align-option`
+const getFontSizeSelectEl = prefix => `${prefix}-text-style-font-size-select`
+const getFontSizeOptionEl = prefix => `${prefix}-text-style-font-size-option`
+const getBoldButtonEl = prefix => `${prefix}-text-style-bold-toggle`
+const getItalicButtonEl = prefix => `${prefix}-text-style-italic-toggle`
 
-export const changeTextAlignOption = (type, optionName) => {
-    cy.getBySel(getTextAlignSelectElByType(type)).click()
-    cy.getBySelLike(getTextAlignOptionElByType(type))
-        .contains(optionName)
+export const changeTextAlignOption = (prefix, optionName) => {
+    cy.getBySel(getTextAlignSelectEl(prefix)).click()
+    cy.getBySelLike(getTextAlignOptionEl(prefix)).contains(optionName).click()
+}
+
+export const changeFontSizeOption = (prefix, optionName) => {
+    cy.getBySel(getFontSizeSelectEl(prefix)).click()
+    cy.getBySelLike(getFontSizeOptionEl(prefix))
+        .containsExact(optionName)
         .click()
 }
 
-export const changeFontSizeOption = (type, optionName) => {
-    cy.getBySel(getFontSizeSelectElByType(type)).click()
-    cy.getBySelLike(getFontSizeOptionElByType(type))
-        .contains(optionName)
-        .click()
-}
+export const clickBoldButton = prefix =>
+    cy.getBySel(getBoldButtonEl(prefix)).click()
 
-export const clickBoldButton = type =>
-    cy.getBySel(getBoldButtonElByType(type)).click()
-
-export const clickItalicButton = type =>
-    cy.getBySel(getItalicButtonElByType(type)).click()
+export const clickItalicButton = prefix =>
+    cy.getBySel(getItalicButtonEl(prefix)).click()
 
 /*FIXME: Find a way to test the color picker
     export const changeTitleColorOption = color => 

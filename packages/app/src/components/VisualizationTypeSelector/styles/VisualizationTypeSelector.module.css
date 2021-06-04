@@ -7,6 +7,11 @@
     z-index: 110;
 }
 
+.arrowIcon {
+    display: flex;
+    margin-left: auto;
+}
+
 .button {
     padding: 7px var(--spacers-dp8);
     display: flex;

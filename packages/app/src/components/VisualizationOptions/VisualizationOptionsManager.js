@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react'
-import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import {
     ButtonStrip,
@@ -42,7 +41,6 @@ class VisualizationOptionsManager extends Component {
         return (
             <Fragment>
                 <MenuButton
-                    className={this.props.className}
                     onClick={this.toggleVisualizationOptionsDialog}
                     dataTest={'app-menubar-options-button'}
                 >
@@ -84,10 +82,6 @@ class VisualizationOptionsManager extends Component {
             </Fragment>
         )
     }
-}
-
-VisualizationOptionsManager.propTypes = {
-    className: PropTypes.string,
 }
 
 export default VisualizationOptionsManager

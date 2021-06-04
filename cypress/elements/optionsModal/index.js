@@ -6,8 +6,7 @@ const optionsModalHideButtonEl = 'options-modal-action-cancel'
 export const OPTIONS_TAB_STYLE = 'Style'
 export const OPTIONS_TAB_DATA = 'Data'
 export const OPTIONS_TAB_AXES = 'Axes'
-export const TYPE_TITLE = 'title'
-export const TYPE_SUBTITLE = 'subtitle'
+export const OPTIONS_TAB_OUTLIERS = 'Outliers'
 
 export const clickOptionsTab = name =>
     cy.getBySel(tabBarEl).contains(name).click()
@@ -32,15 +31,27 @@ export {
 } from './fontStyles'
 
 export {
-    enableVerticalAxisTitle,
-    setVerticalAxisTitle,
-    expectVerticalAxisTitleToBeValue,
-    setVerticalAxisRangeMinValue,
-    expectVerticalAxisRangeMinToBeValue,
-    setVerticalAxisRangeMaxValue,
-    expectVerticalAxisRangeMaxToBeValue,
-} from './verticalAxis'
+    setAxisTitleText,
+    expectAxisTitleToBeValue,
+    setAxisRangeMinValue,
+    expectAxisRangeMinToBeValue,
+    setAxisRangeMaxValue,
+    expectAxisRangeMaxToBeValue,
+    switchAxesTabTo,
+    setAxisTitleToCustom,
+} from './axes'
 
-export { enableTrendLine, selectTrendLineType } from './lines'
+export {
+    clickTrendLineCheckbox,
+    selectTrendLineType,
+    clickTargetLineCheckbox,
+    setTargetLineValue,
+    setTargetLineLabel,
+    clickBaseLineCheckbox,
+    setBaseLineLabel,
+    setBaseLineValue,
+} from './lines'
 
 export { setCustomSubtitle } from './subtitle'
+
+export { clickOutliersCheckbox } from './outliers'

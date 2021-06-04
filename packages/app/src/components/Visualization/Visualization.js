@@ -27,8 +27,10 @@ import {
     MultipleIndicatorAsFilterError,
     NoDataOrDataElementGroupSetError,
     CombinationDEGSRRError,
+    NoOrgUnitResponseError,
 } from '../../modules/error'
 import LoadingMask from '../../widgets/LoadingMask'
+import { sGetSettingsDisplayNameProperty } from '../../reducers/settings'
 
 export class Visualization extends Component {
     constructor(props) {
@@ -60,6 +62,10 @@ export class Visualization extends Component {
                 case 'E7112':
                     error = new CombinationDEGSRRError()
                     break
+                case 'E7124':
+                    error = new NoOrgUnitResponseError()
+                    break
+
                 default:
                     error = response
             }
@@ -74,11 +80,6 @@ export class Visualization extends Component {
 
     onResponsesReceived = responses => {
         const forMetadata = {}
-        if (
-            !responses.some(response => response.rows && response.rows.length)
-        ) {
-            throw new EmptyResponseError()
-        }
         responses.forEach(response => {
             Object.entries(response.metaData.items).forEach(([id, item]) => {
                 forMetadata[id] = {
@@ -91,6 +92,12 @@ export class Visualization extends Component {
         })
 
         this.props.addMetadata(forMetadata)
+
+        if (
+            !responses.some(response => response.rows && response.rows.length)
+        ) {
+            throw new EmptyResponseError()
+        }
     }
 
     onDrill = drillData => {
@@ -153,14 +160,21 @@ export class Visualization extends Component {
     }
 
     render() {
-        const { visualization, visFilters, error } = this.props
+        const {
+            visualization,
+            visFilters,
+            userSettings,
+            error,
+            isLoading,
+            onLoadingComplete,
+        } = this.props
         const { renderId } = this.state
 
         return !visualization || error ? (
             <StartScreen />
         ) : (
             <Fragment>
-                {this.props.isLoading ? (
+                {isLoading ? (
                     <div style={styles.loadingCover}>
                         <LoadingMask />
                     </div>
@@ -170,11 +184,12 @@ export class Visualization extends Component {
                     visualization={visualization}
                     filters={visFilters}
                     onChartGenerated={this.onChartGenerated}
-                    onLoadingComplete={this.props.onLoadingComplete}
+                    onLoadingComplete={onLoadingComplete}
                     onResponsesReceived={this.onResponsesReceived}
                     onError={this.onError}
                     onDrill={this.onDrill}
                     style={styles.chartCanvas}
+                    userSettings={userSettings}
                 />
             </Fragment>
         )
@@ -191,6 +206,7 @@ Visualization.propTypes = {
     setCurrent: PropTypes.func,
     setLoadError: PropTypes.func,
     setUiItems: PropTypes.func,
+    userSettings: PropTypes.object,
     visFilters: PropTypes.object,
     visualization: PropTypes.object,
     onLoadingComplete: PropTypes.func,
@@ -210,12 +226,20 @@ export const visFiltersSelector = createSelector(
             : {}
 )
 
+export const userSettingsSelector = createSelector(
+    [sGetSettingsDisplayNameProperty],
+    displayProperty => ({
+        displayProperty,
+    })
+)
+
 const mapStateToProps = state => ({
     visualization: visualizationSelector(state),
     visFilters: visFiltersSelector(state),
     rightSidebarOpen: sGetUiRightSidebarOpen(state),
     error: sGetLoadError(state),
     isLoading: sGetIsPluginLoading(state),
+    userSettings: userSettingsSelector(state),
 })
 
 const mapDispatchToProps = dispatch => ({

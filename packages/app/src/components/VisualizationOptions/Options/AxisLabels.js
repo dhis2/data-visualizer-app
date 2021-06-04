@@ -14,6 +14,7 @@ const AxisLabels = ({ disabled, axisId }) => (
             fontStyleKey={FONT_STYLE_AXIS_LABELS}
             disabled={disabled}
             axisId={axisId}
+            dataTest={`option-axis-label-${axisId}-text-style`}
         />
     </div>
 )

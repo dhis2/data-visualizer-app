@@ -1,0 +1,16 @@
+.tab {
+    padding: var(--spacers-dp12);
+    color: var(--colors-grey600);
+}
+
+.tab:hover {
+    background: var(--colors-grey100);
+}
+
+.selected,
+.selected:hover {
+    background: var(--colors-blue050);
+    border-right: 4px solid var(--colors-blue700);
+    color: var(--colors-blue700);
+    margin-right: -1px;
+}

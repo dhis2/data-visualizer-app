@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-02T10:49:34.913Z\n"
+"POT-Creation-Date: 2021-04-30T12:20:24.132Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2020\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
@@ -149,21 +149,6 @@ msgstr ""
 
 msgid "Raw data SQL"
 msgstr ""
-
-msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr "Terjadi kesalahan dalam aplikasi DHIS2 Data Visualizer."
-
-msgid "Refresh to try again"
-msgstr "Refresh untuk mencoba kembali"
-
-msgid "Hide technical details"
-msgstr "Sembunyikan rincian teknis"
-
-msgid "Show technical details"
-msgstr "Tampilkan rincian teknis"
-
-msgid "The following information may be requested by technical support."
-msgstr "Informasi berikut mungkin diperlukan untuk dukungan teknis."
 
 msgid "Hide"
 msgstr "Sembunyikan"
@@ -332,8 +317,20 @@ msgstr "langkah"
 msgid "Axis title"
 msgstr "Judul sumbu X"
 
+msgid "Auto generated"
+msgstr ""
+
+msgid "None"
+msgstr "Tidak ada"
+
+msgid "Custom"
+msgstr ""
+
 msgid "Add a title"
 msgstr "Tambahkan judul"
+
+msgid "Reset style to default"
+msgstr ""
 
 msgid "Base line"
 msgstr "Baseline"
@@ -377,9 +374,6 @@ msgstr "Nilai Kumulatif"
 msgid "Digit group separator"
 msgstr "Pemisah kelompok digit"
 
-msgid "None"
-msgstr "Tidak ada"
-
 msgid "Space"
 msgstr "Spasi"
 
@@ -397,6 +391,18 @@ msgstr "Normal"
 
 msgid "Compact"
 msgstr "Padat"
+
+msgid "Extreme lines"
+msgstr ""
+
+msgid "Calculated as a percent, usually 1%, of the total values along an axis"
+msgstr ""
+
+msgid "Extreme line % detection"
+msgstr ""
+
+msgid "Number"
+msgstr "Angka"
 
 msgid "Font size"
 msgstr "Ukuran font"
@@ -437,16 +443,10 @@ msgstr ""
 msgid "Chart subtitle"
 msgstr "Subjudul grafik"
 
-msgid "Auto generated"
-msgstr ""
-
-msgid "Custom"
-msgstr ""
-
 msgid "Chart title"
 msgstr "Judul grafik"
 
-msgid "Display legend"
+msgid "Use legend for chart colors"
 msgstr ""
 
 msgid "Legend style"
@@ -509,6 +509,40 @@ msgstr "Persentase baris"
 msgid "Percentage of column"
 msgstr "Persentase kolom"
 
+msgid ""
+"Each detection method identifies outliers in different ways and suits "
+"different data. Check the documentation for help to choose the right outlier"
+" detection method"
+msgstr ""
+
+msgid "Threshold factor"
+msgstr ""
+
+msgid ""
+"A high value is more sensitive so fewer data items will be identified as "
+"outliers"
+msgstr ""
+
+msgid "Interquartile Range (IQR)"
+msgstr ""
+
+msgid "Z-score / Standard score"
+msgstr ""
+
+msgid "Modified Z-score"
+msgstr ""
+
+msgid "Outlier analysis"
+msgstr ""
+
+msgid ""
+"Outlier analysis detects and highlights data items that are markedly "
+"different from the rest of the data"
+msgstr ""
+
+msgid "Outlier detection method"
+msgstr ""
+
 msgid "Organisation unit"
 msgstr "Unit organisasi"
 
@@ -526,9 +560,6 @@ msgstr "Masukkan regresi"
 
 msgid "Title"
 msgstr "Judul"
-
-msgid "Number"
-msgstr "Angka"
 
 msgid "Trend line"
 msgstr "Garis tren"
@@ -739,6 +770,12 @@ msgid ""
 " incorrect or it could have been deleted."
 msgstr ""
 
+msgid "No organization units found"
+msgstr ""
+
+msgid "The level or group selections didn't return any organization units."
+msgstr ""
+
 msgid "Something went wrong"
 msgstr "Terjadi kesalahan"
 
@@ -873,22 +910,14 @@ msgstr ""
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
 
-msgid "Vertical axis"
-msgstr ""
-
-msgid "Horizontal axis"
-msgstr ""
-
 msgid "Color set"
 msgstr ""
 
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
 
-msgid "Horizontal (x) axis"
-msgstr "sumbu X"
-
-msgid "Lines are not supported yet when using multiple axes"
+msgid ""
+"Base and target lines are available on the Axes tab for multi-axis charts"
 msgstr ""
 
 msgid "Chart style"
@@ -900,20 +929,26 @@ msgstr ""
 msgid "Empty data"
 msgstr ""
 
+msgid "Horizontal (x) axis {{axisId}}"
+msgstr ""
+
+msgid "Horizontal (x) axis"
+msgstr "sumbu X"
+
 msgid "Lines"
 msgstr "Garis"
 
 msgid "Totals"
 msgstr "Total"
 
+msgid "Vertical (y) axis {{axisId}}"
+msgstr ""
+
 msgid "Vertical (y) axis"
 msgstr "Sumbu Y"
 
 msgid "Titles"
 msgstr "Judul"
-
-msgid "Vertical axis options are not supported yet when using multiple axes"
-msgstr ""
 
 msgid "Axes"
 msgstr "Sumbu"

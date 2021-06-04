@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-02T10:49:34.913Z\n"
+"POT-Creation-Date: 2021-04-30T12:20:24.132Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: phil_dhis2, 2020\n"
 "Language-Team: Danish (https://www.transifex.com/hisp-uio/teams/100509/da/)\n"
@@ -141,21 +141,6 @@ msgid "JRXML"
 msgstr ""
 
 msgid "Raw data SQL"
-msgstr ""
-
-msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr ""
-
-msgid "Refresh to try again"
-msgstr ""
-
-msgid "Hide technical details"
-msgstr ""
-
-msgid "Show technical details"
-msgstr ""
-
-msgid "The following information may be requested by technical support."
 msgstr ""
 
 msgid "Hide"
@@ -323,7 +308,19 @@ msgstr ""
 msgid "Axis title"
 msgstr ""
 
+msgid "Auto generated"
+msgstr ""
+
+msgid "None"
+msgstr "None"
+
+msgid "Custom"
+msgstr "Custom"
+
 msgid "Add a title"
+msgstr ""
+
+msgid "Reset style to default"
 msgstr ""
 
 msgid "Base line"
@@ -368,9 +365,6 @@ msgstr ""
 msgid "Digit group separator"
 msgstr ""
 
-msgid "None"
-msgstr "None"
-
 msgid "Space"
 msgstr ""
 
@@ -388,6 +382,18 @@ msgstr "Normal"
 
 msgid "Compact"
 msgstr ""
+
+msgid "Extreme lines"
+msgstr ""
+
+msgid "Calculated as a percent, usually 1%, of the total values along an axis"
+msgstr ""
+
+msgid "Extreme line % detection"
+msgstr ""
+
+msgid "Number"
+msgstr "Number"
 
 msgid "Font size"
 msgstr ""
@@ -428,16 +434,10 @@ msgstr ""
 msgid "Chart subtitle"
 msgstr ""
 
-msgid "Auto generated"
-msgstr ""
-
-msgid "Custom"
-msgstr "Custom"
-
 msgid "Chart title"
 msgstr ""
 
-msgid "Display legend"
+msgid "Use legend for chart colors"
 msgstr ""
 
 msgid "Legend style"
@@ -500,6 +500,40 @@ msgstr ""
 msgid "Percentage of column"
 msgstr ""
 
+msgid ""
+"Each detection method identifies outliers in different ways and suits "
+"different data. Check the documentation for help to choose the right outlier"
+" detection method"
+msgstr ""
+
+msgid "Threshold factor"
+msgstr ""
+
+msgid ""
+"A high value is more sensitive so fewer data items will be identified as "
+"outliers"
+msgstr ""
+
+msgid "Interquartile Range (IQR)"
+msgstr ""
+
+msgid "Z-score / Standard score"
+msgstr ""
+
+msgid "Modified Z-score"
+msgstr ""
+
+msgid "Outlier analysis"
+msgstr ""
+
+msgid ""
+"Outlier analysis detects and highlights data items that are markedly "
+"different from the rest of the data"
+msgstr ""
+
+msgid "Outlier detection method"
+msgstr ""
+
 msgid "Organisation unit"
 msgstr "Organisation unit"
 
@@ -517,9 +551,6 @@ msgstr ""
 
 msgid "Title"
 msgstr "Title"
-
-msgid "Number"
-msgstr "Number"
 
 msgid "Trend line"
 msgstr ""
@@ -730,6 +761,12 @@ msgid ""
 " incorrect or it could have been deleted."
 msgstr ""
 
+msgid "No organization units found"
+msgstr ""
+
+msgid "The level or group selections didn't return any organization units."
+msgstr ""
+
 msgid "Something went wrong"
 msgstr ""
 
@@ -864,22 +901,14 @@ msgstr ""
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
 
-msgid "Vertical axis"
-msgstr ""
-
-msgid "Horizontal axis"
-msgstr ""
-
 msgid "Color set"
 msgstr ""
 
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
 
-msgid "Horizontal (x) axis"
-msgstr ""
-
-msgid "Lines are not supported yet when using multiple axes"
+msgid ""
+"Base and target lines are available on the Axes tab for multi-axis charts"
 msgstr ""
 
 msgid "Chart style"
@@ -891,19 +920,25 @@ msgstr ""
 msgid "Empty data"
 msgstr ""
 
+msgid "Horizontal (x) axis {{axisId}}"
+msgstr ""
+
+msgid "Horizontal (x) axis"
+msgstr ""
+
 msgid "Lines"
 msgstr ""
 
 msgid "Totals"
 msgstr ""
 
+msgid "Vertical (y) axis {{axisId}}"
+msgstr ""
+
 msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Titles"
-msgstr ""
-
-msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr ""
 
 msgid "Axes"

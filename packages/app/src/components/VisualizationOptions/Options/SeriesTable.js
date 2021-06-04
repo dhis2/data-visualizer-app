@@ -10,6 +10,7 @@ import {
     TableCell,
     TableBody,
     Radio,
+    colors,
 } from '@dhis2/ui'
 import {
     VIS_TYPE_COLUMN,
@@ -109,37 +110,48 @@ const SeriesTable = ({
                         </TableCell>
                         <TableCell className={styles.itemType}>
                             {showTypeOptions &&
-                                availableTypes.map(type => (
-                                    <div
-                                        className={styles.typeContainer}
-                                        key={type}
-                                    >
-                                        <Radio
-                                            className={styles.radioInput}
+                                availableTypes.map(type => {
+                                    const VisualizationTypeIcon =
+                                        visTypeIcons[type]
+
+                                    return (
+                                        <div
+                                            className={styles.typeContainer}
                                             key={type}
-                                            onChange={() =>
-                                                onItemChange({
-                                                    changedItem: item,
-                                                    value: type,
-                                                    prop: SERIES_ITEM_TYPE_PROP,
-                                                })
-                                            }
-                                            checked={
-                                                item.type
-                                                    ? item.type === type
-                                                    : visType === type
-                                            }
-                                            label={
-                                                <span
-                                                    className={styles.visIcon}
-                                                >
-                                                    {visTypeIcons[type]}
-                                                </span>
-                                            }
-                                            dense
-                                        />
-                                    </div>
-                                ))}
+                                        >
+                                            <Radio
+                                                className={styles.radioInput}
+                                                key={type}
+                                                onChange={() =>
+                                                    onItemChange({
+                                                        changedItem: item,
+                                                        value: type,
+                                                        prop: SERIES_ITEM_TYPE_PROP,
+                                                    })
+                                                }
+                                                checked={
+                                                    item.type
+                                                        ? item.type === type
+                                                        : visType === type
+                                                }
+                                                label={
+                                                    <span
+                                                        className={
+                                                            styles.visIcon
+                                                        }
+                                                    >
+                                                        <VisualizationTypeIcon
+                                                            color={
+                                                                colors.grey600
+                                                            }
+                                                        />
+                                                    </span>
+                                                }
+                                                dense
+                                            />
+                                        </div>
+                                    )
+                                })}
                         </TableCell>
                         {showAxisOptions &&
                             availableAxes.map(axis => (

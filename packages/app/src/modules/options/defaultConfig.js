@@ -1,6 +1,6 @@
 import getLinesSection from './sections/lines'
-import getVerticalAxisSection from './sections/verticalAxis'
-import getHorizontalAxisSection from './sections/horizontalAxis'
+import getRangeAxisSection from './sections/rangeAxis'
+import getDomainAxisSection from './sections/domainAxis'
 import getColorSetSection from './sections/colorSet'
 import getSeriesTab from './tabs/series'
 import getAxesTab from './tabs/axes'
@@ -13,8 +13,6 @@ import getChartStyleSection from './sections/chartStyle'
 import getLegendTab from './tabs/legend'
 import getLimitValuesTab from './tabs/limitValues'
 
-const verticalAxisId = 'RANGE_0'
-
 export default ({
     hasDisabledSections,
     supportsMultiAxes,
@@ -22,16 +20,26 @@ export default ({
     isColumnBased,
     isStacked,
     supportsLegends,
+    rangeAxisIds = [],
+    isVertical,
 } = {}) => [
     getDataTab([
         getDisplaySection(isStacked),
-        getLinesSection(hasDisabledSections, verticalAxisId),
+        getLinesSection(hasDisabledSections, 'RANGE_0'),
         getAdvancedSection(),
     ]),
     ...(supportsLegends ? [getLegendTab({ hideStyleOptions: true })] : []),
     getAxesTab([
-        getVerticalAxisSection(hasDisabledSections),
-        getHorizontalAxisSection(),
+        ...rangeAxisIds.map(id =>
+            getRangeAxisSection({
+                axisId: `RANGE_${id}`,
+                isVertical,
+                showLines: hasDisabledSections,
+                hasCustomAxes:
+                    rangeAxisIds.length > 1 || rangeAxisIds.some(id => id > 0),
+            })
+        ),
+        getDomainAxisSection({ axisId: 'DOMAIN_0', isVertical }),
     ]),
     getSeriesTab({
         showAxisOptions: supportsMultiAxes,

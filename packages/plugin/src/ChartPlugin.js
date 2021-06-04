@@ -11,8 +11,11 @@ const ChartPlugin = ({
     style,
     onChartGenerated,
     animation: defaultAnimation,
+    onToggleContextualMenu,
 }) => {
     const canvasRef = useRef(undefined)
+    const prevStyle = useRef(style)
+    const prevRenderCounter = useRef(renderCounter)
 
     const renderVisualization = useCallback(
         animation => {
@@ -24,6 +27,7 @@ const ChartPlugin = ({
                     ...extraOptions,
                     animation,
                     legendSets,
+                    onToggleContextualMenu,
                 },
                 undefined,
                 undefined,
@@ -58,10 +62,25 @@ const ChartPlugin = ({
     }, [visualization, responses, extraOptions])
 
     useEffect(() => {
-        renderCounter !== null && renderVisualization(0)
+        if (renderCounter !== prevRenderCounter.current) {
+            renderVisualization(0)
+            prevRenderCounter.current = renderCounter
+        }
 
         /* eslint-disable-next-line react-hooks/exhaustive-deps */
-    }, [renderCounter, style])
+    }, [renderCounter])
+
+    useEffect(() => {
+        if (
+            style.width !== prevStyle.current.width ||
+            style.height !== prevStyle.current.height
+        ) {
+            renderVisualization(0)
+            prevStyle.current = style
+        }
+
+        /* eslint-disable-next-line react-hooks/exhaustive-deps */
+    }, [style])
 
     return <div ref={canvasRef} style={style} />
 }
@@ -71,6 +90,7 @@ ChartPlugin.defaultProps = {
     filters: {},
     style: {},
     animation: 200,
+    id: null,
     onChartGenerated: Function.prototype,
 }
 
@@ -83,6 +103,7 @@ ChartPlugin.propTypes = {
     id: PropTypes.number,
     style: PropTypes.object,
     onChartGenerated: PropTypes.func,
+    onToggleContextualMenu: PropTypes.func,
 }
 
 export default ChartPlugin

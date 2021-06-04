@@ -1,7 +1,6 @@
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 
-import * as analytics from '@dhis2/analytics'
 import * as fromActions from '../index'
 import * as api from '../../api/visualization'
 import * as history from '../../modules/history'
@@ -40,18 +39,18 @@ const digitGroupSeparator = 'COMMA'
 selectors.sGetRootOrgUnit = () => rootOrganisationUnit
 selectors.sGetRelativePeriod = () => relativePeriod
 selectors.sGetSettingsDigitGroupSeparator = () => digitGroupSeparator
-analytics.apiFetchOrganisationUnitLevels = () =>
-    Promise.resolve([
-        {
-            level: 2,
-            id: '2nd-floor',
-        },
-    ])
-/* eslint-enable no-import-assign, import/namespace */
-
-jest.mock('../../modules/orgUnit', () => ({
+jest.mock('@dhis2/analytics', () => ({
+    ...jest.requireActual('@dhis2/analytics'),
+    apiFetchOrganisationUnitLevels: () =>
+        Promise.resolve([
+            {
+                level: 2,
+                id: '2nd-floor',
+            },
+        ]),
     convertOuLevelsToUids: (ouLevels, vis) => vis,
 }))
+/* eslint-enable no-import-assign, import/namespace */
 
 describe('index', () => {
     describe('tDoLoadVisualization', () => {

@@ -2,7 +2,6 @@ import React, { useState, createRef } from 'react'
 import { createPortal } from 'react-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
 import { visTypeDisplayNames, visTypeDescriptions } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import { Card, Divider, Popper } from '@dhis2/ui'
@@ -17,6 +16,7 @@ import {
     apiSaveAOInUserDataStore,
     CURRENT_AO_KEY,
 } from '../../api/userDataStore'
+import ArrowDown from '../../assets/ArrowDown'
 import VisualizationTypeListItem from './VisualizationTypeListItem'
 import ListItemIcon from './ListItemIcon'
 import styles from './styles/VisualizationTypeSelector.module.css'
@@ -104,7 +104,9 @@ export const VisualizationTypeSelector = (
                 <span data-test="visualization-type-selector-currently-selected-text">
                     {visTypeDisplayNames[visualizationType]}
                 </span>
-                <ArrowDropDownIcon style={{ marginLeft: 'auto' }} />
+                <span className={styles.arrowIcon}>
+                    <ArrowDown />
+                </span>
             </div>
             {listIsOpen &&
                 createPortal(
