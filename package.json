@@ -28,7 +28,7 @@
         "test-app": "cd packages/app && yarn test",
         "test": "yarn test-plugin && yarn test-app",
         "coverage": "yarn test-plugin --coverage && yarn test-app --coverage",
-        "validate-commit": "d2-style check js --staged && d2-style check text --staged",
+        "validate-commit": "d2-style check --staged",
         "validate-push": "yarn test",
         "cypress:start": "BROWSER=none yarn start",
         "cy:open": "d2-utils-cypress open --appStart 'yarn cypress:start'",
