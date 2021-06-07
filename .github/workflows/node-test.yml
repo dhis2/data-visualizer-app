@@ -21,8 +21,8 @@ jobs:
 
             - name: Lint
               run: |
-                  yarn d2-style js check
-                  yarn d2-style text check
+                  yarn d2-style check js
+                  yarn d2-style check text
 
             - name: Test
               run: yarn test
