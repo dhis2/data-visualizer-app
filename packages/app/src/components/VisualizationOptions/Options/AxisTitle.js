@@ -1,24 +1,23 @@
-import React from 'react'
-import i18n from '@dhis2/d2-i18n'
-import PropTypes from 'prop-types'
-import { Label, Field, Radio, InputField, Button } from '@dhis2/ui'
-import { connect } from 'react-redux'
 import {
     defaultFontStyle,
     FONT_STYLE_OPTION_TEXT_COLOR,
 } from '@dhis2/analytics'
-
-import {
-    tabSectionOption,
-    tabSectionOptionToggleable,
-} from '../styles/VisualizationOptions.style.js'
-import TextStyle from './TextStyle'
-import { sGetUiOption } from '../../../reducers/ui'
+import i18n from '@dhis2/d2-i18n'
+import { Label, Field, Radio, InputField, Button } from '@dhis2/ui'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { connect } from 'react-redux'
 import { acSetUiOption, acSetUiOptionFontStyle } from '../../../actions/ui'
 import {
     OPTION_AXIS_TITLE,
     OPTION_AXIS_TITLE_TEXT_MODE,
 } from '../../../modules/options'
+import { sGetUiOption } from '../../../reducers/ui'
+import {
+    tabSectionOption,
+    tabSectionOptionToggleable,
+} from '../styles/VisualizationOptions.style.js'
+import TextStyle from './TextStyle'
 
 const TITLE_AUTO = 'AUTO'
 const TITLE_NONE = 'NONE'

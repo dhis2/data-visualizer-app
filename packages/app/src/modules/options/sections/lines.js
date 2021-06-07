@@ -1,12 +1,11 @@
 /* eslint-disable react/jsx-key */
-import React from 'react'
 import i18n from '@dhis2/d2-i18n'
-
+import React from 'react'
+import InfoText from '../../../components/VisualizationOptions/InfoText'
+import BaseLine from '../../../components/VisualizationOptions/Options/BaseLine'
 import RegressionType from '../../../components/VisualizationOptions/Options/RegressionType'
 import TargetLine from '../../../components/VisualizationOptions/Options/TargetLine'
-import BaseLine from '../../../components/VisualizationOptions/Options/BaseLine'
 import getLinesTemplate from './templates/lines'
-import InfoText from '../../../components/VisualizationOptions/InfoText'
 
 export default (hasDisabledSections, axisId) => ({
     ...getLinesTemplate({

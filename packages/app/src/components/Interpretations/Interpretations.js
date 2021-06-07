@@ -1,15 +1,13 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 import InterpretationsComponent from '@dhis2/d2-ui-interpretations'
-
-import { sGetUiInterpretation } from '../../reducers/ui'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import {
     acSetUiInterpretation,
     acClearUiInterpretation,
 } from '../../actions/ui'
 import history from '../../modules/history'
-
+import { sGetUiInterpretation } from '../../reducers/ui'
 import styles from './styles/Interpretations.style'
 
 export class Interpretations extends Component {

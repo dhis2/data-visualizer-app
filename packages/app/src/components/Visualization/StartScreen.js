@@ -1,20 +1,19 @@
+import { visTypeIcons } from '@dhis2/analytics'
+import { useDataEngine } from '@dhis2/app-runtime'
+import i18n from '@dhis2/d2-i18n'
+import { colors } from '@dhis2/ui'
+import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
-import i18n from '@dhis2/d2-i18n'
-import PropTypes from 'prop-types'
-import { colors } from '@dhis2/ui'
-import { useDataEngine } from '@dhis2/app-runtime'
-import { visTypeIcons } from '@dhis2/analytics'
-
-import styles from './styles/StartScreen.module.css'
-import { sGetLoadError } from '../../reducers/loader'
 import { apiFetchMostViewedVisualizations } from '../../api/mostViewedVisualizations'
-import history from '../../modules/history'
-import { VisualizationError, genericErrorTitle } from '../../modules/error'
-import { GenericError } from '../../assets/ErrorIcons'
 import { apiFetchVisualizations } from '../../api/visualization'
-import { matchVisualizationWithType } from './utils'
+import { GenericError } from '../../assets/ErrorIcons'
+import { VisualizationError, genericErrorTitle } from '../../modules/error'
+import history from '../../modules/history'
+import { sGetLoadError } from '../../reducers/loader'
 import { sGetUsername } from '../../reducers/user'
+import styles from './styles/StartScreen.module.css'
+import { matchVisualizationWithType } from './utils'
 
 const StartScreen = ({ error, username }) => {
     const [mostViewedVisualizations, setMostViewedVisualizations] = useState([])
@@ -22,11 +21,8 @@ const StartScreen = ({ error, username }) => {
 
     useEffect(() => {
         async function populateMostViewedVisualizations(engine) {
-            const mostViewedVisualizationsResult = await apiFetchMostViewedVisualizations(
-                engine,
-                6,
-                username
-            )
+            const mostViewedVisualizationsResult =
+                await apiFetchMostViewedVisualizations(engine, 6, username)
             const visualizations = mostViewedVisualizationsResult.visualization // {position: int, views: int, id: string, created: string}
             if (visualizations && visualizations.length) {
                 const visualizationsResult = await apiFetchVisualizations(

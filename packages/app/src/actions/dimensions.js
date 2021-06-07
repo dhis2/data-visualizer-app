@@ -1,7 +1,7 @@
+import { apiFetchDimensions } from '@dhis2/analytics'
 import keyBy from 'lodash-es/keyBy'
 import sortBy from 'lodash-es/sortBy'
 import { SET_DIMENSIONS } from '../reducers/dimensions'
-import { apiFetchDimensions } from '@dhis2/analytics'
 import { sGetSettingsDisplayNameProperty } from '../reducers/settings'
 
 export const acSetDimensions = dimensions => ({

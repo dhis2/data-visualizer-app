@@ -1,20 +1,19 @@
-import React, { useEffect, useState, useCallback } from 'react'
-import { createPortal } from 'react-dom'
-import PropTypes from 'prop-types'
-import { useDataEngine } from '@dhis2/app-runtime'
-import { Popper } from '@dhis2/ui'
 import {
     VIS_TYPE_PIVOT_TABLE,
     apiFetchOrganisationUnitLevels,
     convertOuLevelsToUids,
     DIMENSION_ID_ORGUNIT,
 } from '@dhis2/analytics'
-
+import { useDataEngine } from '@dhis2/app-runtime'
+import { Popper } from '@dhis2/ui'
+import PropTypes from 'prop-types'
+import React, { useEffect, useState, useCallback } from 'react'
+import { createPortal } from 'react-dom'
 import { apiFetchLegendSets } from './api/legendSets'
-import ContextualMenu from './ContextualMenu'
 import ChartPlugin from './ChartPlugin'
-import PivotPlugin from './PivotPlugin'
+import ContextualMenu from './ContextualMenu'
 import { fetchData } from './modules/fetchData'
+import PivotPlugin from './PivotPlugin'
 import styles from './styles/VisualizationPlugin.style.js'
 
 const LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM = 'BY_DATA_ITEM'

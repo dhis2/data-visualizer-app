@@ -14,10 +14,9 @@ import {
     VIS_TYPE_GAUGE,
     VIS_TYPE_SINGLE_VALUE,
 } from '@dhis2/analytics'
-
+import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields'
 import { getInverseLayout } from './layout'
 import { getOptionsFromVisualization } from './options'
-import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields'
 import { removeLastPathSegment } from './orgUnit'
 
 export const SERIES_ITEM_TYPE_PROP = 'type'

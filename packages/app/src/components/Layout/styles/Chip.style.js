@@ -1,5 +1,4 @@
 import { colors } from '@dhis2/ui'
-
 import * as layoutStyle from './style'
 
 const baseChip = {

@@ -1,11 +1,4 @@
 // TODO: Refactor chip to contain less logic
-import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-
-import { Tooltip, IconLock16, IconWarningFilled16 } from '@dhis2/ui'
-
-import i18n from '@dhis2/d2-i18n'
 import {
     getPredefinedDimensionProp,
     getAxisMaxNumberOfItems,
@@ -18,14 +11,18 @@ import {
     VIS_TYPE_SCATTER,
     DIMENSION_ID_DATA,
 } from '@dhis2/analytics'
-
-import TooltipContent from './TooltipContent'
+import i18n from '@dhis2/d2-i18n'
+import { Tooltip, IconLock16, IconWarningFilled16 } from '@dhis2/ui'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { connect } from 'react-redux'
+import DynamicDimensionIcon from '../../assets/DynamicDimensionIcon'
 import { setDataTransfer } from '../../modules/dnd'
 import { sGetDimensions } from '../../reducers/dimensions'
-import { sGetUiType } from '../../reducers/ui'
-import DynamicDimensionIcon from '../../assets/DynamicDimensionIcon'
-import { styles } from './styles/Chip.style'
 import { sGetMetadata } from '../../reducers/metadata'
+import { sGetUiType } from '../../reducers/ui'
+import { styles } from './styles/Chip.style'
+import TooltipContent from './TooltipContent'
 
 const Chip = ({
     type,

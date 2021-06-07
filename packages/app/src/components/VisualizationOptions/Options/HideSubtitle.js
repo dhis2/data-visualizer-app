@@ -1,24 +1,20 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import { createSelector } from 'reselect'
-
-import i18n from '@dhis2/d2-i18n'
-import { Label, Radio, Field } from '@dhis2/ui'
-
 import {
     VIS_TYPE_PIVOT_TABLE,
     FONT_STYLE_VISUALIZATION_SUBTITLE,
 } from '@dhis2/analytics'
-import { sGetUiOptions, sGetUiType } from '../../../reducers/ui'
+import i18n from '@dhis2/d2-i18n'
+import { Label, Radio, Field } from '@dhis2/ui'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { createSelector } from 'reselect'
 import { acSetUiOptions } from '../../../actions/ui'
-
-import Subtitle from './Subtitle'
-
+import { sGetUiOptions, sGetUiType } from '../../../reducers/ui'
 import {
     tabSectionOption,
     tabSectionOptionToggleable,
 } from '../styles/VisualizationOptions.style.js'
+import Subtitle from './Subtitle'
 import TextStyle from './TextStyle'
 
 const HIDE_SUBTITLE_AUTO = 'AUTO'

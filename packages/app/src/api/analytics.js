@@ -1,5 +1,5 @@
-import { getInstance } from 'd2'
 import { Analytics } from '@dhis2/analytics'
+import { getInstance } from 'd2'
 
 export const apiDownloadImage = async ({ baseUrl, type, formData }) => {
     const d2 = await getInstance()

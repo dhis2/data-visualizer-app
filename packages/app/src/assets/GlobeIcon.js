@@ -1,5 +1,5 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 
 const GlobeIcon = ({
     style = { width: 24, height: 24, paddingRight: '8px' },

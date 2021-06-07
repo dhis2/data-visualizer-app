@@ -1,6 +1,5 @@
-import React from 'react'
 import { AXIS_ID_COLUMNS, AXIS_ID_FILTERS } from '@dhis2/analytics'
-
+import React from 'react'
 import DefaultAxis from '../DefaultLayout/DefaultAxis'
 import defaultAxisStyles from '../DefaultLayout/styles/DefaultAxis.style'
 import defaultLayoutStyles from '../DefaultLayout/styles/DefaultLayout.style'

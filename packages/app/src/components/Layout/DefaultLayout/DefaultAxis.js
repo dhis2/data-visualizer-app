@@ -1,24 +1,23 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import { Droppable, Draggable } from 'react-beautiful-dnd'
 import {
     getAxisNameByLayoutType,
     getLayoutTypeByVisType,
     isDimensionLocked,
 } from '@dhis2/analytics'
-
-import Chip from '../Chip'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { Droppable, Draggable } from 'react-beautiful-dnd'
+import { connect } from 'react-redux'
+import { acSetUiActiveModalDialog } from '../../../actions/ui'
 import {
     sGetUi,
     sGetUiItemsByDimension,
     sGetUiLayout,
     sGetUiType,
 } from '../../../reducers/ui'
-import { acSetUiActiveModalDialog } from '../../../actions/ui'
-import styles from './styles/DefaultAxis.style'
-import stylesModule from './styles/DefaultAxis.module.css'
+import Chip from '../Chip'
 import ChipMenu from '../ChipMenu'
+import stylesModule from './styles/DefaultAxis.module.css'
+import styles from './styles/DefaultAxis.style'
 
 class Axis extends React.Component {
     onDragOver = e => {

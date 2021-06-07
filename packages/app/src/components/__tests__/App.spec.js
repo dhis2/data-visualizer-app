@@ -1,15 +1,14 @@
-import React from 'react'
 import { shallow } from 'enzyme'
-import { App } from '../App'
-import Snackbar from '../Snackbar/Snackbar'
-import * as actions from '../../actions/'
-import history from '../../modules/history'
-
+import React from 'react'
 import { getStubContext } from '../../../../../config/testsContext'
+import * as actions from '../../actions/'
 import { CURRENT_AO_KEY } from '../../api/userDataStore'
 import * as userDataStore from '../../api/userDataStore'
+import history from '../../modules/history'
 import * as ui from '../../modules/ui'
 import { DEFAULT_CURRENT } from '../../reducers/current'
+import { App } from '../App'
+import Snackbar from '../Snackbar/Snackbar'
 
 jest.mock(
     '../Visualization/Visualization',

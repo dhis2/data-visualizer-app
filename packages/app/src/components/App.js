@@ -1,6 +1,3 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import {
     CssVariables,
@@ -11,31 +8,32 @@ import {
     ButtonStrip,
     Button,
 } from '@dhis2/ui'
-
-import DndContext from './DndContext'
-import Snackbar from '../components/Snackbar/Snackbar'
-import MenuBar from './MenuBar/MenuBar'
-import TitleBar from './TitleBar/TitleBar'
-import VisualizationTypeSelector from './VisualizationTypeSelector/VisualizationTypeSelector'
-import DimensionsPanel from './DimensionsPanel/DimensionsPanel'
-import Interpretations from './Interpretations/Interpretations'
-import Visualization from './Visualization/Visualization'
-import Layout from './Layout/Layout'
-import * as fromReducers from '../reducers'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import * as fromActions from '../actions'
-import history from '../modules/history'
-import defaultMetadata from '../modules/metadata'
 import {
     apiFetchAOFromUserDataStore,
     CURRENT_AO_KEY,
 } from '../api/userDataStore'
-
+import Snackbar from '../components/Snackbar/Snackbar'
+import history from '../modules/history'
+import defaultMetadata from '../modules/metadata'
+import { getParentGraphMapFromVisualization } from '../modules/ui'
+import { STATE_DIRTY, getVisualizationState } from '../modules/visualization'
+import * as fromReducers from '../reducers'
+import { sGetVisualization } from '../reducers/visualization'
+import DimensionsPanel from './DimensionsPanel/DimensionsPanel'
+import DndContext from './DndContext'
+import Interpretations from './Interpretations/Interpretations'
+import Layout from './Layout/Layout'
+import MenuBar from './MenuBar/MenuBar'
+import TitleBar from './TitleBar/TitleBar'
+import Visualization from './Visualization/Visualization'
+import { APPROVAL_LEVEL_OPTION_AUTH } from './VisualizationOptions/Options/ApprovalLevel'
+import VisualizationTypeSelector from './VisualizationTypeSelector/VisualizationTypeSelector'
 import './App.css'
 import './scrollbar.css'
-import { getParentGraphMapFromVisualization } from '../modules/ui'
-import { APPROVAL_LEVEL_OPTION_AUTH } from './VisualizationOptions/Options/ApprovalLevel'
-import { sGetVisualization } from '../reducers/visualization'
-import { STATE_DIRTY, getVisualizationState } from '../modules/visualization'
 
 export class App extends Component {
     unlisten = null

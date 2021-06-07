@@ -1,20 +1,13 @@
 import { DIMENSION_ID_DATA, VIS_TYPE_COLUMN } from '@dhis2/analytics'
-
-import { openDimension } from '../../elements/dimensionsPanel'
-import {
-    selectDataElements,
-    clickDimensionModalUpdateButton,
-} from '../../elements/dimensionModal'
-import { goToStartPage } from '../../elements/startScreen'
 import {
     expectVisualizationToBeVisible,
     expectChartTitleToBeVisible,
 } from '../../elements/chart'
 import {
-    expectWindowConfigSeriesToHaveTrendline,
-    expectWindowConfigSeriesToNotHaveTrendline,
-} from '../../utils/window'
-import { TEST_DATA_ELEMENTS } from '../../utils/data'
+    selectDataElements,
+    clickDimensionModalUpdateButton,
+} from '../../elements/dimensionModal'
+import { openDimension } from '../../elements/dimensionsPanel'
 import { clickMenuBarOptionsButton } from '../../elements/menuBar'
 import {
     clickOptionsModalUpdateButton,
@@ -23,7 +16,13 @@ import {
     OPTIONS_TAB_DATA,
     selectTrendLineType,
 } from '../../elements/optionsModal'
+import { goToStartPage } from '../../elements/startScreen'
 import { CONFIG_DEFAULT_TREND_LINE } from '../../utils/config'
+import { TEST_DATA_ELEMENTS } from '../../utils/data'
+import {
+    expectWindowConfigSeriesToHaveTrendline,
+    expectWindowConfigSeriesToNotHaveTrendline,
+} from '../../utils/window'
 
 const TEST_DATA_ELEMENT_NAMES = TEST_DATA_ELEMENTS.slice(2, 4).map(
     item => item.name

@@ -1,35 +1,14 @@
 import { DIMENSION_ID_DATA, VIS_TYPE_COLUMN } from '@dhis2/analytics'
-
-import { openDimension } from '../../elements/dimensionsPanel'
-import {
-    selectDataElements,
-    clickDimensionModalUpdateButton,
-} from '../../elements/dimensionModal'
-import { goToStartPage } from '../../elements/startScreen'
 import {
     expectVisualizationToBeVisible,
     expectChartTitleToBeVisible,
     expectChartSubtitleToBeVisible,
 } from '../../elements/chart'
 import {
-    expectWindowConfigSubtitleToBeValue,
-    expectWindowConfigTitleToBeValue,
-    expectWindowConfigLegendToBeValue,
-    expectWindowConfigAxisPlotLinesToBeValue,
-    expectWindowConfigAxisTitleToBeValue,
-    expectWindowConfigAxisLabelsToBeValue,
-} from '../../utils/window'
-import { TEST_DATA_ELEMENTS } from '../../utils/data'
-import {
-    CONFIG_DEFAULT_SUBTITLE,
-    CONFIG_DEFAULT_TITLE,
-    CONFIG_DEFAULT_LEGEND,
-    CONFIG_DEFAULT_TARGET_LINE,
-    CONFIG_DEFAULT_BASE_LINE,
-    CONFIG_DEFAULT_VERTICAL_AXIS_TITLE,
-    CONFIG_DEFAULT_HORIZONTAL_AXIS_TITLE,
-    CONFIG_DEFAULT_AXIS_LABELS,
-} from '../../utils/config'
+    selectDataElements,
+    clickDimensionModalUpdateButton,
+} from '../../elements/dimensionModal'
+import { openDimension } from '../../elements/dimensionsPanel'
 import { clickMenuBarOptionsButton } from '../../elements/menuBar'
 import {
     changeFontSizeOption,
@@ -52,11 +31,31 @@ import {
     setAxisTitleToCustom,
     switchAxesTabTo,
 } from '../../elements/optionsModal'
+import { goToStartPage } from '../../elements/startScreen'
+import {
+    CONFIG_DEFAULT_SUBTITLE,
+    CONFIG_DEFAULT_TITLE,
+    CONFIG_DEFAULT_LEGEND,
+    CONFIG_DEFAULT_TARGET_LINE,
+    CONFIG_DEFAULT_BASE_LINE,
+    CONFIG_DEFAULT_VERTICAL_AXIS_TITLE,
+    CONFIG_DEFAULT_HORIZONTAL_AXIS_TITLE,
+    CONFIG_DEFAULT_AXIS_LABELS,
+} from '../../utils/config'
+import { TEST_DATA_ELEMENTS } from '../../utils/data'
 import {
     generateRandomBool,
     generateRandomNumber,
     getRandomArrayItem,
 } from '../../utils/random'
+import {
+    expectWindowConfigSubtitleToBeValue,
+    expectWindowConfigTitleToBeValue,
+    expectWindowConfigLegendToBeValue,
+    expectWindowConfigAxisPlotLinesToBeValue,
+    expectWindowConfigAxisTitleToBeValue,
+    expectWindowConfigAxisLabelsToBeValue,
+} from '../../utils/window'
 
 const TEST_DATA_ELEMENT_NAME = getRandomArrayItem(TEST_DATA_ELEMENTS).name
 const TITLE_PREFIX = 'option-chart-title'

@@ -1,13 +1,12 @@
-import React from 'react'
 import {
     AXIS_ID_COLUMNS,
     AXIS_ID_ROWS,
     AXIS_ID_FILTERS,
 } from '@dhis2/analytics'
-
+import React from 'react'
 import DefaultAxis from './DefaultAxis'
-import styles from './styles/DefaultLayout.style'
 import defaultAxisStyles from './styles/DefaultAxis.style'
+import styles from './styles/DefaultLayout.style'
 
 const Layout = () => (
     <div id="layout-ct" style={styles.ct}>

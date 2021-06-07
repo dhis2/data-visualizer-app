@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-
-import { tabSectionTitle } from '../VisualizationOptions/styles/VisualizationOptions.style'
-import VerticalTabBar from '../VerticalTabBar/VerticalTabBar'
+import React, { useState } from 'react'
 import VerticalTab from '../VerticalTabBar/VerticalTab'
+import VerticalTabBar from '../VerticalTabBar/VerticalTabBar'
+import { tabSectionTitle } from '../VisualizationOptions/styles/VisualizationOptions.style'
 import styles from './styles/AxesTabs.module.css'
 
 const AxesTabs = ({ items, dataTest }) => {

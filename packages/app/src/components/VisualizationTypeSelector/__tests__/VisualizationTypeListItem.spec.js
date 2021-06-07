@@ -1,9 +1,8 @@
-import React from 'react'
-import { shallow } from 'enzyme'
 import { VIS_TYPE_COLUMN } from '@dhis2/analytics'
-
-import VisualizationTypeListItem from '../VisualizationTypeListItem'
+import { shallow } from 'enzyme'
+import React from 'react'
 import ListItemIcon from '../ListItemIcon'
+import VisualizationTypeListItem from '../VisualizationTypeListItem'
 
 describe('VisualizationTypeListItem component ', () => {
     let props

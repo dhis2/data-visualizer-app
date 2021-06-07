@@ -2,7 +2,6 @@ import {
     DIMENSION_ID_ORGUNIT,
     layoutGetAxisIdDimensionIdsObject,
 } from '@dhis2/analytics'
-
 import { getInverseLayout } from './layout'
 
 export const getPathForOrgUnit = (orgUnit, parentGraphMap) => {

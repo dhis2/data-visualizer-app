@@ -1,7 +1,6 @@
 import { DIMENSION_ID_DATA } from '@dhis2/analytics'
-
-import { expectDimensionModalToBeVisible, selectItemByDoubleClick } from '.'
 import { clearInput, typeInput } from '../common'
+import { expectDimensionModalToBeVisible, selectItemByDoubleClick } from '.'
 
 const optionContentEl = 'data-dimension-transfer-option-content'
 const selectableItemsEl = 'data-dimension-transfer-sourceoptions'

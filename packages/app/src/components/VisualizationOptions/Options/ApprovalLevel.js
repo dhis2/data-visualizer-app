@@ -1,17 +1,14 @@
-import React, { useState } from 'react'
+import { useDataEngine } from '@dhis2/app-runtime'
+import i18n from '@dhis2/d2-i18n'
+import { SingleSelectField, SingleSelectOption } from '@dhis2/ui'
 import PropTypes from 'prop-types'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
-
-import i18n from '@dhis2/d2-i18n'
-
-import { SingleSelectField, SingleSelectOption } from '@dhis2/ui'
-import { useDataEngine } from '@dhis2/app-runtime'
-
-import { sGetUserAuthorities } from '../../../reducers/user'
+import { acSetUiOptions } from '../../../actions/ui'
 import { sGetSettings } from '../../../reducers/settings'
 import { sGetUiOptions } from '../../../reducers/ui'
-import { acSetUiOptions } from '../../../actions/ui'
+import { sGetUserAuthorities } from '../../../reducers/user'
 
 export const APPROVAL_LEVEL_OPTION_AUTH = 'F_VIEW_UNAPPROVED_DATA'
 
