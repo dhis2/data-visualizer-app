@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-key */
 import React from 'react'
-
 import HideLegend from '../../../components/VisualizationOptions/Options/HideLegend'
 import NoSpaceBetweenColumns from '../../../components/VisualizationOptions/Options/NoSpaceBetweenColumns'
 import ShowData from '../../../components/VisualizationOptions/Options/ShowData'

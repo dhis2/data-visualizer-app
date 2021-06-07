@@ -1,15 +1,14 @@
 /* eslint-disable react/jsx-key */
 import React from 'react'
-
-import SkipRounding from '../../components/VisualizationOptions/Options/SkipRounding'
 import DigitGroupSeparator from '../../components/VisualizationOptions/Options/DigitGroupSeparator'
-import getSeriesTab from './tabs/series'
-import getDataTab from './tabs/data'
+import SkipRounding from '../../components/VisualizationOptions/Options/SkipRounding'
 import getAdvancedSection from './sections/advanced'
 import getDisplayTemplate from './sections/templates/display'
-import getLegendTab from './tabs/legend'
-import getStyleTab from './tabs/style'
 import getTitlesSection from './sections/titles'
+import getDataTab from './tabs/data'
+import getLegendTab from './tabs/legend'
+import getSeriesTab from './tabs/series'
+import getStyleTab from './tabs/style'
 
 export default () => [
     getDataTab([

@@ -1,12 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import { IconChevronRight24, IconChevronLeft24 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
-
-import { sGetUiRightSidebarOpen } from '../../reducers/ui'
-import { sGetCurrent } from '../../reducers/current'
+import { IconChevronRight24, IconChevronLeft24 } from '@dhis2/ui'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { connect } from 'react-redux'
 import { acToggleUiRightSidebarOpen } from '../../actions/ui'
+import { sGetCurrent } from '../../reducers/current'
+import { sGetUiRightSidebarOpen } from '../../reducers/ui'
 import MenuButton from '../MenuButton/MenuButton'
 import styles from './styles/InterpretationsButton.module.css'
 

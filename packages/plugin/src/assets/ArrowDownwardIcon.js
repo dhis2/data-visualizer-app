@@ -1,5 +1,5 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 
 const ArrowDownwardIcon = ({ style = { width: 18, height: 18 } }) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style={style}>

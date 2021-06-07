@@ -1,6 +1,5 @@
-import React from 'react'
 import { shallow } from 'enzyme'
-
+import React from 'react'
 import { AddToLayoutButton } from '../AddToLayoutButton'
 
 describe('The AddToLayoutButton component ', () => {

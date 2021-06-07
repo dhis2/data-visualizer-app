@@ -10,7 +10,6 @@ import {
     DIMENSION_ID_ASSIGNED_CATEGORIES,
     AXIS_ID_ROWS,
 } from '@dhis2/analytics'
-
 import {
     expectDimensionModalToBeVisible,
     clickDimensionModalHideButton,

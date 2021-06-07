@@ -1,5 +1,4 @@
 import { DIMENSION_ID_PERIOD } from '@dhis2/analytics'
-
 import { expectDimensionModalToBeVisible } from '.'
 
 const relativePeriodsButtonEl = 'period-dimension-relative-periods-button'

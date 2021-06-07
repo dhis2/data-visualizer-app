@@ -1,5 +1,5 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 
 const GaugeIcon = ({
     style = { paddingRight: '8px', width: 24, height: 24 },

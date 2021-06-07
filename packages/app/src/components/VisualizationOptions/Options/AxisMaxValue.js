@@ -1,9 +1,8 @@
-import React from 'react'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
-
-import NumberBaseType from './NumberBaseType'
+import React from 'react'
 import { OPTION_AXIS_MAX_VALUE } from '../../../modules/options'
+import NumberBaseType from './NumberBaseType'
 
 const AxisMaxValue = ({ disabled, axisId }) => (
     <NumberBaseType

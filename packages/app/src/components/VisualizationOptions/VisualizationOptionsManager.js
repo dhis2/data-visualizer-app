@@ -1,4 +1,3 @@
-import React, { Component, Fragment } from 'react'
 import i18n from '@dhis2/d2-i18n'
 import {
     ButtonStrip,
@@ -7,13 +6,13 @@ import {
     ModalContent,
     ModalActions,
 } from '@dhis2/ui'
-
-import styles from './styles/VisualizationOptionsManager.module.css'
-import UpdateButton from '../UpdateButton/UpdateButton'
+import React, { Component, Fragment } from 'react'
 import HideButton from '../HideButton/HideButton'
-import UpdateVisualizationContainer from '../UpdateButton/UpdateVisualizationContainer'
-import VisualizationOptions from './VisualizationOptions'
 import MenuButton from '../MenuButton/MenuButton'
+import UpdateButton from '../UpdateButton/UpdateButton'
+import UpdateVisualizationContainer from '../UpdateButton/UpdateVisualizationContainer'
+import styles from './styles/VisualizationOptionsManager.module.css'
+import VisualizationOptions from './VisualizationOptions'
 
 class VisualizationOptionsManager extends Component {
     constructor(props) {

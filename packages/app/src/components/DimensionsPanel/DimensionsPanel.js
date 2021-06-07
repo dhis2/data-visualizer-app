@@ -1,6 +1,3 @@
-import React, { useState } from 'react'
-import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
 import {
     DimensionMenu,
     DIMENSION_ID_ASSIGNED_CATEGORIES,
@@ -8,17 +5,19 @@ import {
     VIS_TYPE_SCATTER,
 } from '@dhis2/analytics'
 import { Layer, Popper } from '@dhis2/ui'
-
-import DialogManager from './Dialogs/DialogManager'
-import DndDimensionsPanel from './DndDimensionsPanel'
-import * as fromReducers from '../../reducers'
-import { styles } from './styles/DimensionsPanel.style'
+import PropTypes from 'prop-types'
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
 import {
     acSetUiActiveModalDialog,
     acAddUiLayoutDimensions,
     acRemoveUiLayoutDimensions,
 } from '../../actions/ui'
 import { ITEM_ATTRIBUTE_VERTICAL } from '../../modules/ui'
+import * as fromReducers from '../../reducers'
+import DialogManager from './Dialogs/DialogManager'
+import DndDimensionsPanel from './DndDimensionsPanel'
+import { styles } from './styles/DimensionsPanel.style'
 
 export const Dimensions = ({
     assignedCategoriesItemHandler,
@@ -111,9 +110,8 @@ const mapStateToProps = state => ({
     dimensions: fromReducers.fromDimensions.sGetDimensions(state),
     layout: fromReducers.fromUi.sGetUiLayout(state),
     itemsByDimension: fromReducers.fromUi.sGetUiItems(state),
-    layoutHasAssignedCategories: fromReducers.fromUi.sLayoutHasAssignedCategories(
-        state
-    ),
+    layoutHasAssignedCategories:
+        fromReducers.fromUi.sLayoutHasAssignedCategories(state),
     getCurrentAxisId: dimensionId =>
         fromReducers.fromUi.sGetAxisIdByDimensionId(state, dimensionId),
 })

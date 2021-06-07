@@ -1,14 +1,14 @@
-import React from 'react'
-import { shallow } from 'enzyme'
 import VisualizationPlugin from '@dhis2/data-visualizer-plugin'
+import { shallow } from 'enzyme'
+import React from 'react'
+import { GenericServerError } from '../../../modules/error'
+import LoadingMask from '../../../widgets/LoadingMask'
+import StartScreen from '../StartScreen'
 import {
     Visualization,
     visualizationSelector,
     visFiltersSelector,
 } from '../Visualization'
-import StartScreen from '../StartScreen'
-import { GenericServerError } from '../../../modules/error'
-import LoadingMask from '../../../widgets/LoadingMask'
 
 jest.mock(
     '@dhis2/data-visualizer-plugin',

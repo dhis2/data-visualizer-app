@@ -1,19 +1,17 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 import { Checkbox, Label } from '@dhis2/ui'
-
-import { sGetUiOption } from '../../../reducers/ui'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { connect } from 'react-redux'
 import { acSetUiOption } from '../../../actions/ui'
-import RegressionLineValue from './RegressionLineValue'
-import RegressionLineTitle from './RegressionLineTitle'
-
+import { sGetUiOption } from '../../../reducers/ui'
 import {
     tabSectionOption,
     tabSectionOptionToggleable,
     tabSectionOptionComplexInline,
 } from '../styles/VisualizationOptions.style.js'
+import RegressionLineTitle from './RegressionLineTitle'
+import RegressionLineValue from './RegressionLineValue'
 
 export const RegressionLine = ({
     checked,

@@ -85,12 +85,14 @@ export const computeYoYMatrix = (responses, relativePeriodTypeUsed) => {
                     }
                 } else {
                     // find the right spot considering also the year
-                    const indexForPrevWeekInYear = periodKeyAxisIndexMatrix.findIndex(
-                        periodKeys =>
-                            periodKeys.findIndex(
-                                periodKey => periodKey === `${year}W${week - 1}`
-                            ) !== -1
-                    )
+                    const indexForPrevWeekInYear =
+                        periodKeyAxisIndexMatrix.findIndex(
+                            periodKeys =>
+                                periodKeys.findIndex(
+                                    periodKey =>
+                                        periodKey === `${year}W${week - 1}`
+                                ) !== -1
+                        )
 
                     periodKeyAxisIndexMatrix.splice(
                         indexForPrevWeekInYear + 1,

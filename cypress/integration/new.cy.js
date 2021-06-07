@@ -8,30 +8,29 @@ import {
     VIS_TYPE_SINGLE_VALUE,
     VIS_TYPE_GAUGE,
 } from '@dhis2/analytics'
-
-import { createNewAO } from '../elements/fileMenu'
-import { openDimension } from '../elements/dimensionsPanel'
-import {
-    selectDataElements,
-    selectIndicators,
-    clickDimensionModalUpdateButton,
-    switchDataTab,
-} from '../elements/dimensionModal'
-import {
-    changeVisType,
-    expectVisTypeToBeDefault,
-    expectVisTypeToBeValue,
-} from '../elements/visualizationTypeSelector'
-import { goToStartPage } from '../elements/startScreen'
-import { expectStoreCurrentToBeEmpty } from '../utils/store'
 import {
     expectAOTitleToBeUnsaved,
     expectVisualizationToBeVisible,
     expectVisualizationToNotBeVisible,
     expectChartToContainDimensionItem,
 } from '../elements/chart'
-import { TEST_DATA_ELEMENTS, TEST_INDICATORS } from '../utils/data'
+import {
+    selectDataElements,
+    selectIndicators,
+    clickDimensionModalUpdateButton,
+    switchDataTab,
+} from '../elements/dimensionModal'
+import { openDimension } from '../elements/dimensionsPanel'
+import { createNewAO } from '../elements/fileMenu'
 import { expectDimensionOnAxisToHaveLockIcon } from '../elements/layout'
+import { goToStartPage } from '../elements/startScreen'
+import {
+    changeVisType,
+    expectVisTypeToBeDefault,
+    expectVisTypeToBeValue,
+} from '../elements/visualizationTypeSelector'
+import { TEST_DATA_ELEMENTS, TEST_INDICATORS } from '../utils/data'
+import { expectStoreCurrentToBeEmpty } from '../utils/store'
 
 const TEST_AXIS_ID = AXIS_ID_COLUMNS
 const TEST_DATA_ELEMENT_NAMES = TEST_DATA_ELEMENTS.slice(2, 4).map(

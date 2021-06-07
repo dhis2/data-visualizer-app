@@ -1,8 +1,7 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import { Label } from '@dhis2/ui'
 import cx from 'classnames'
-
+import PropTypes from 'prop-types'
+import React from 'react'
 import styles from './styles/VerticalTab.module.css'
 
 const VerticalTab = ({ selected, onClick, children }) => (

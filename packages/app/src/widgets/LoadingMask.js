@@ -1,6 +1,6 @@
+import { CircularLoader } from '@dhis2/ui'
 import React from 'react'
 import styles from './styles/LoadingMask.module.css'
-import { CircularLoader } from '@dhis2/ui'
 
 function LoadingMask() {
     return (

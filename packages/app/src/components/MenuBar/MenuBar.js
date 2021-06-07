@@ -1,19 +1,17 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 import { FileMenu } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
-
-import UpdateButton from '../UpdateButton/UpdateButton'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { connect } from 'react-redux'
+import * as fromActions from '../../actions'
+import { getErrorVariantByStatusCode } from '../../modules/error'
+import history from '../../modules/history'
+import { sGetCurrent } from '../../reducers/current'
 import DownloadMenu from '../DownloadMenu/DownloadMenu'
 import InterpretationsButton from '../Interpretations/InterpretationsButton'
-import VisualizationOptionsManager from '../VisualizationOptions/VisualizationOptionsManager'
+import UpdateButton from '../UpdateButton/UpdateButton'
 import UpdateVisualizationContainer from '../UpdateButton/UpdateVisualizationContainer'
-import * as fromActions from '../../actions'
-import { sGetCurrent } from '../../reducers/current'
-import history from '../../modules/history'
-import { getErrorVariantByStatusCode } from '../../modules/error'
-
+import VisualizationOptionsManager from '../VisualizationOptions/VisualizationOptionsManager'
 import styles from './styles/MenuBar.module.css'
 
 const onOpen = id => {

@@ -1,16 +1,17 @@
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
-
-import * as fromActions from '../index'
 import * as api from '../../api/visualization'
+import { VARIANT_SUCCESS } from '../../components/Snackbar/Snackbar'
+import { GenericServerError } from '../../modules/error'
 import * as history from '../../modules/history'
-import DataEngineMock from '../__mocks__/DataEngine'
-
-import {
-    SET_VISUALIZATION,
-    CLEAR_VISUALIZATION,
-} from '../../reducers/visualization'
 import { SET_CURRENT, CLEAR_CURRENT } from '../../reducers/current'
+import {
+    SET_LOAD_ERROR,
+    CLEAR_LOAD_ERROR,
+    SET_PLUGIN_LOADING,
+} from '../../reducers/loader'
+import * as selectors from '../../reducers/settings'
+import { RECEIVED_SNACKBAR_MESSAGE } from '../../reducers/snackbar'
 import {
     SET_UI_FROM_VISUALIZATION,
     CLEAR_UI,
@@ -18,15 +19,11 @@ import {
     SET_UI_INTERPRETATION,
 } from '../../reducers/ui'
 import {
-    SET_LOAD_ERROR,
-    CLEAR_LOAD_ERROR,
-    SET_PLUGIN_LOADING,
-} from '../../reducers/loader'
-import { RECEIVED_SNACKBAR_MESSAGE } from '../../reducers/snackbar'
-import * as selectors from '../../reducers/settings'
-import { GenericServerError } from '../../modules/error'
-
-import { VARIANT_SUCCESS } from '../../components/Snackbar/Snackbar'
+    SET_VISUALIZATION,
+    CLEAR_VISUALIZATION,
+} from '../../reducers/visualization'
+import DataEngineMock from '../__mocks__/DataEngine'
+import * as fromActions from '../index'
 
 const dataEngineMock = new DataEngineMock()
 const middlewares = [thunk.withExtraArgument(dataEngineMock)]

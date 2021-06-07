@@ -1,8 +1,7 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { Draggable } from 'react-beautiful-dnd'
 import { DimensionItem } from '@dhis2/analytics'
-
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import { Draggable } from 'react-beautiful-dnd'
 import styles from './styles/DndDimensionItem.module.css'
 
 export class DndDimensionItem extends Component {

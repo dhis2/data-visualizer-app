@@ -1,21 +1,20 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
-
-import { sGetVisualization } from '../../reducers/visualization'
-import { sGetCurrent } from '../../reducers/current'
-import { sGetUiInterpretation } from '../../reducers/ui'
-import { sGetUiLocale } from '../../reducers/settings'
-import formatDate from '../../modules/formatDate'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { connect } from 'react-redux'
 import InterpretationIcon from '../../assets/InterpretationIcon'
-import styles from './styles/TitleBar.style'
+import formatDate from '../../modules/formatDate'
 import {
     STATE_UNSAVED,
     STATE_SAVED,
     STATE_DIRTY,
     getVisualizationState,
 } from '../../modules/visualization'
+import { sGetCurrent } from '../../reducers/current'
+import { sGetUiLocale } from '../../reducers/settings'
+import { sGetUiInterpretation } from '../../reducers/ui'
+import { sGetVisualization } from '../../reducers/visualization'
+import styles from './styles/TitleBar.style'
 
 export const getTitleUnsaved = () => i18n.t('Unsaved visualization')
 export const getTitleDirty = () => i18n.t('Edited')

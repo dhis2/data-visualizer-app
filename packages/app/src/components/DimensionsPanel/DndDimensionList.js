@@ -1,8 +1,3 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import { Droppable } from 'react-beautiful-dnd'
-import { createSelector } from 'reselect'
 import {
     getDisallowedDimensions,
     getAllLockedDimensionIds,
@@ -11,11 +6,14 @@ import {
     getPredefinedDimensions,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
-
-import DndDimensionItem from './DndDimensionItem'
-import * as fromReducers from '../../reducers'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import { Droppable } from 'react-beautiful-dnd'
+import { connect } from 'react-redux'
+import { createSelector } from 'reselect'
 import { SOURCE_DIMENSIONS } from '../../modules/layout'
-
+import * as fromReducers from '../../reducers'
+import DndDimensionItem from './DndDimensionItem'
 import styles from './styles/DndDimensionList.module.css'
 
 export class DndDimensionList extends Component {

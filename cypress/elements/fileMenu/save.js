@@ -1,11 +1,11 @@
+import { clearInput, typeInput } from '../common'
+import { clickMenuBarFileButton } from '../menuBar'
 import {
     clickFileMenuButton,
     FILE_MENU_BUTTON_SAVE_EXISTING,
     FILE_MENU_BUTTON_SAVE_NEW,
     FILE_MENU_BUTTON_SAVEAS,
 } from '.'
-import { clearInput, typeInput } from '../common'
-import { clickMenuBarFileButton } from '../menuBar'
 
 const saveModalNameEl = 'file-menu-saveas-modal-name'
 const saveModalDescriptionEl = 'file-menu-saveas-modal-description'

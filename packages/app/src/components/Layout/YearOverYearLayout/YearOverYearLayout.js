@@ -1,27 +1,26 @@
-import React from 'react'
-import { connect } from 'react-redux'
 import {
     AXIS_ID_FILTERS,
     AXIS_ID_COLUMNS,
     AXIS_ID_ROWS,
 } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
-
-import DefaultAxis from '../DefaultLayout/DefaultAxis'
-import defaultLayoutStyles from '../DefaultLayout/styles/DefaultLayout.style'
-import YearOverYearAxis from './YearOverYearAxis'
-import YearOverYearSelect from './YearOverYearSelect'
-import YearOverYearLayoutStyles from './styles/YearOverYearLayout.style'
-import defaultAxisStyles from '../DefaultLayout/styles/DefaultAxis.style'
-import {
-    sGetUiYearOverYearSeries,
-    sGetUiYearOverYearCategory,
-} from '../../../reducers/ui'
+import React from 'react'
+import { connect } from 'react-redux'
 import {
     acSetUiYearOverYearSeries,
     acSetUiYearOverYearCategory,
 } from '../../../actions/ui'
 import { seriesOptions, categoryOptions } from '../../../modules/yearOverYear'
+import {
+    sGetUiYearOverYearSeries,
+    sGetUiYearOverYearCategory,
+} from '../../../reducers/ui'
+import DefaultAxis from '../DefaultLayout/DefaultAxis'
+import defaultAxisStyles from '../DefaultLayout/styles/DefaultAxis.style'
+import defaultLayoutStyles from '../DefaultLayout/styles/DefaultLayout.style'
+import YearOverYearLayoutStyles from './styles/YearOverYearLayout.style'
+import YearOverYearAxis from './YearOverYearAxis'
+import YearOverYearSelect from './YearOverYearSelect'
 
 const Layout = props => (
     <div id="layout-ct" style={defaultLayoutStyles.ct}>

@@ -1,13 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-
 import { AlertBar } from '@dhis2/ui'
-
-import styles from './styles/Snackbar.module.css'
-
-import { sGetSnackbar } from '../../reducers/snackbar'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { connect } from 'react-redux'
 import { acClearSnackbar } from '../../actions/snackbar'
+import { sGetSnackbar } from '../../reducers/snackbar'
+import styles from './styles/Snackbar.module.css'
 
 export const VARIANT_ERROR = 'error'
 export const VARIANT_SUCCESS = 'success'

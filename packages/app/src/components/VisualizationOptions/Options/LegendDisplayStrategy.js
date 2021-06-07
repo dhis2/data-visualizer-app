@@ -1,21 +1,16 @@
-import React, { Fragment } from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-
 import i18n from '@dhis2/d2-i18n'
-
 import { Radio, Field } from '@dhis2/ui'
-
-import LegendSet from './LegendSet'
-
-import { sGetUiOptions } from '../../../reducers/ui'
+import PropTypes from 'prop-types'
+import React, { Fragment } from 'react'
+import { connect } from 'react-redux'
 import { acSetUiOptions } from '../../../actions/ui'
+import { sGetUiOptions } from '../../../reducers/ui'
+import { tabSectionOptionToggleable } from '../styles/VisualizationOptions.style.js'
+import LegendSet from './LegendSet'
 
 export const LEGEND_DISPLAY_STRATEGY_OPTION_NAME = 'legendDisplayStrategy'
 export const LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM = 'BY_DATA_ITEM'
 export const LEGEND_DISPLAY_STRATEGY_FIXED = 'FIXED'
-
-import { tabSectionOptionToggleable } from '../styles/VisualizationOptions.style.js'
 
 const LegendDisplayStrategy = ({ value, onChange }) => (
     <Fragment>

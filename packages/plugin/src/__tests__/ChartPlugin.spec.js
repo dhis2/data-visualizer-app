@@ -1,9 +1,8 @@
-import React from 'react'
-import { mount } from 'enzyme'
 import * as analytics from '@dhis2/analytics'
-
-import ChartPlugin from '../ChartPlugin'
+import { mount } from 'enzyme'
+import React from 'react'
 import * as api from '../api/analytics'
+import ChartPlugin from '../ChartPlugin'
 import * as options from '../modules/options'
 
 jest.mock('@dhis2/analytics')

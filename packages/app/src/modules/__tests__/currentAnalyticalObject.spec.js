@@ -202,9 +202,8 @@ describe('currentAnalyticalObject', () => {
                 displayName: 'Analytical object typical name',
                 key: 'value',
             }
-            const processed = removeUnnecessaryAttributesFromAnalyticalObject(
-                unprocessed
-            )
+            const processed =
+                removeUnnecessaryAttributesFromAnalyticalObject(unprocessed)
             const keysToRemove = ['id', 'name', 'displayName']
 
             keysToRemove.forEach(key => {

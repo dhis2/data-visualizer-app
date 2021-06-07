@@ -1,10 +1,8 @@
-import React from 'react'
-import { shallow } from 'enzyme'
-
 import { Tab, TabBar } from '@dhis2/ui'
-
-import { VisualizationOptions } from '../VisualizationOptions'
+import { shallow } from 'enzyme'
+import React from 'react'
 import { getOptionsByType } from '../../../modules/options/config'
+import { VisualizationOptions } from '../VisualizationOptions'
 
 describe('VisualizationOptions', () => {
     let props

@@ -6,7 +6,6 @@ import {
     DAILY,
     WEEKLY,
 } from '@dhis2/analytics'
-
 import { getRelativePeriodTypeUsed } from '../modules/analytics'
 
 const periodId = DIMENSION_ID_PERIOD
@@ -193,12 +192,10 @@ const prepareRequestsForRelativeWeeks = async ({
 
     // 2. extract the last week number of the LAST_x_WEEKS period
     //    special handling for the week 53 case as not all years have 53 weeks
-    const referenceWeekPeriod = referencePeriodRes.metaData.dimensions[
-        periodId
-    ].pop()
-    const [referenceWeekYear, referenceWeekNumber] = referenceWeekPeriod.split(
-        'W'
-    )
+    const referenceWeekPeriod =
+        referencePeriodRes.metaData.dimensions[periodId].pop()
+    const [referenceWeekYear, referenceWeekNumber] =
+        referenceWeekPeriod.split('W')
     const referenceWeekYearDelta = referencePeriodYear - referenceWeekYear
 
     const weekPeriods = yearlySeriesIds.reduce((periods, year) => {

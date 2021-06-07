@@ -1,12 +1,11 @@
 /* eslint-disable react/jsx-key */
-import React from 'react'
 import {
     FONT_STYLE_HORIZONTAL_AXIS_TITLE,
     FONT_STYLE_VERTICAL_AXIS_TITLE,
 } from '@dhis2/analytics'
-
-import AxisTitle from '../../../components/VisualizationOptions/Options/AxisTitle'
+import React from 'react'
 import AxisLabels from '../../../components/VisualizationOptions/Options/AxisLabels'
+import AxisTitle from '../../../components/VisualizationOptions/Options/AxisTitle'
 import getHorizontalAxisTemplate from './templates/horizontalAxis'
 import getVerticalAxisTemplate from './templates/verticalAxis'
 

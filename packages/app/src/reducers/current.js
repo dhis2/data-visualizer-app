@@ -6,7 +6,6 @@ import {
     VIS_TYPE_SINGLE_VALUE,
     VIS_TYPE_SCATTER,
 } from '@dhis2/analytics'
-
 import {
     getAxesFromUi,
     getOptionsFromUi,

@@ -9,7 +9,6 @@ import {
     VIS_TYPE_RADAR,
     VIS_TYPE_BAR,
 } from '@dhis2/analytics'
-
 import * as ui from '../ui'
 
 const reducer = ui.default

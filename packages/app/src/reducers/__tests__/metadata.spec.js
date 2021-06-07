@@ -8,8 +8,7 @@ const currentState = {
 
 const metadataToAdd = {
     uid2: {
-        name:
-            'Tarquin Fin-tim-lin-bin-whin-bim-lim-bus-stop-Ftang-Ftang-Ole-Biscuitbarrel',
+        name: 'Tarquin Fin-tim-lin-bin-whin-bim-lim-bus-stop-Ftang-Ftang-Ole-Biscuitbarrel',
     },
 }
 

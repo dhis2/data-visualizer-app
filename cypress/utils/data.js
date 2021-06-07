@@ -31,8 +31,7 @@ export const TEST_AOS = [
         type: VIS_TYPE_BAR,
     },
     {
-        name:
-            'ANC: ANC 3rd visits by facility type last 12 months 100% stacked columns',
+        name: 'ANC: ANC 3rd visits by facility type last 12 months 100% stacked columns',
         type: VIS_TYPE_STACKED_COLUMN,
     },
     {

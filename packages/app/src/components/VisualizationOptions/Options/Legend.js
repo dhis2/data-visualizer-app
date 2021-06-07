@@ -1,31 +1,27 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import cx from 'classnames'
-
 import i18n from '@dhis2/d2-i18n'
 import { Checkbox, FieldSet, Legend as UiCoreLegend } from '@dhis2/ui'
-
-import LegendDisplayStyle, {
-    LEGEND_DISPLAY_STYLE_OPTION_NAME,
-    LEGEND_DISPLAY_STYLE_FILL,
-} from './LegendDisplayStyle'
-import LegendDisplayStrategy, {
-    LEGEND_DISPLAY_STRATEGY_OPTION_NAME,
-    LEGEND_DISPLAY_STRATEGY_FIXED,
-    LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM,
-} from './LegendDisplayStrategy'
-import { LEGEND_SET_OPTION_NAME } from './LegendSet'
-
-import { sGetUiOptions } from '../../../reducers/ui'
+import cx from 'classnames'
+import PropTypes from 'prop-types'
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
 import { acSetUiOptions } from '../../../actions/ui'
-
+import { sGetUiOptions } from '../../../reducers/ui'
 import {
     tabSectionOptionToggleable,
     tabSectionOption,
     tabSectionTitle,
     tabSectionTitleMargin,
 } from '../styles/VisualizationOptions.style.js'
+import LegendDisplayStrategy, {
+    LEGEND_DISPLAY_STRATEGY_OPTION_NAME,
+    LEGEND_DISPLAY_STRATEGY_FIXED,
+    LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM,
+} from './LegendDisplayStrategy'
+import LegendDisplayStyle, {
+    LEGEND_DISPLAY_STYLE_OPTION_NAME,
+    LEGEND_DISPLAY_STYLE_FILL,
+} from './LegendDisplayStyle'
+import { LEGEND_SET_OPTION_NAME } from './LegendSet'
 
 const Legend = ({
     legendSet,
@@ -42,12 +38,14 @@ const Legend = ({
 
         if (checked) {
             onChange({
-                [LEGEND_DISPLAY_STRATEGY_OPTION_NAME]: LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM,
+                [LEGEND_DISPLAY_STRATEGY_OPTION_NAME]:
+                    LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM,
             })
         } else {
             onChange({
                 [LEGEND_SET_OPTION_NAME]: undefined,
-                [LEGEND_DISPLAY_STRATEGY_OPTION_NAME]: LEGEND_DISPLAY_STRATEGY_FIXED,
+                [LEGEND_DISPLAY_STRATEGY_OPTION_NAME]:
+                    LEGEND_DISPLAY_STRATEGY_FIXED,
                 [LEGEND_DISPLAY_STYLE_OPTION_NAME]: LEGEND_DISPLAY_STYLE_FILL,
             })
         }
@@ -87,7 +85,8 @@ const Legend = ({
                             <UiCoreLegend>
                                 <span
                                     className={cx(tabSectionTitle.className, {
-                                        [tabSectionTitleMargin.className]: hideStyleOptions,
+                                        [tabSectionTitleMargin.className]:
+                                            hideStyleOptions,
                                     })}
                                 >
                                     {i18n.t('Legend type')}
@@ -113,9 +112,8 @@ Legend.propTypes = {
 
 const mapStateToProps = state => ({
     legendSet: sGetUiOptions(state)[LEGEND_SET_OPTION_NAME],
-    legendDisplayStrategy: sGetUiOptions(state)[
-        LEGEND_DISPLAY_STRATEGY_OPTION_NAME
-    ],
+    legendDisplayStrategy:
+        sGetUiOptions(state)[LEGEND_DISPLAY_STRATEGY_OPTION_NAME],
 })
 
 const mapDispatchToProps = dispatch => ({

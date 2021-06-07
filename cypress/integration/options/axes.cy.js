@@ -1,16 +1,13 @@
 import { DIMENSION_ID_DATA, VIS_TYPE_COLUMN } from '@dhis2/analytics'
-
-import { openDimension } from '../../elements/dimensionsPanel'
-import {
-    selectDataElements,
-    clickDimensionModalUpdateButton,
-} from '../../elements/dimensionModal'
-import { goToStartPage } from '../../elements/startScreen'
 import {
     expectVisualizationToBeVisible,
     expectChartTitleToBeVisible,
 } from '../../elements/chart'
-import { TEST_DATA_ELEMENTS } from '../../utils/data'
+import {
+    selectDataElements,
+    clickDimensionModalUpdateButton,
+} from '../../elements/dimensionModal'
+import { openDimension } from '../../elements/dimensionsPanel'
 import { clickMenuBarOptionsButton } from '../../elements/menuBar'
 import {
     clickOptionsModalUpdateButton,
@@ -25,13 +22,15 @@ import {
     setAxisTitleText,
     setAxisTitleToCustom,
 } from '../../elements/optionsModal'
+import { goToStartPage } from '../../elements/startScreen'
+import { TEST_DATA_ELEMENTS } from '../../utils/data'
+import { generateRandomNumber, getRandomArrayItem } from '../../utils/random'
 import {
     expectWindowConfigYAxisToHaveRangeMinValue,
     expectWindowConfigYAxisToHaveRangeMaxValue,
     expectWindowConfigYAxisToHaveTitleText,
     expectWindowConfigXAxisToHaveTitleText,
 } from '../../utils/window'
-import { generateRandomNumber, getRandomArrayItem } from '../../utils/random'
 
 const TEST_DATA_ELEMENT_NAME = getRandomArrayItem(TEST_DATA_ELEMENTS).name
 const TEST_MIN_VALUE = generateRandomNumber(-1000, 1000)

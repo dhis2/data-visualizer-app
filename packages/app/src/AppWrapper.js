@@ -1,17 +1,16 @@
+import { apiFetchOrganisationUnitLevels } from '@dhis2/analytics'
+import { useConfig, useDataEngine } from '@dhis2/app-runtime'
+import { D2Shim } from '@dhis2/app-runtime-adapter-d2'
 import React, { useState, useEffect, useCallback } from 'react'
 import { Provider as ReduxProvider } from 'react-redux'
 import thunk from 'redux-thunk'
-import { useConfig, useDataEngine } from '@dhis2/app-runtime'
-
-import { D2Shim } from '@dhis2/app-runtime-adapter-d2'
-import history from './modules/history'
-import configureStore from './configureStore'
-import metadataMiddleware from './middleware/metadata'
 import App from './components/App'
 import UserSettingsProvider, {
     UserSettingsCtx,
 } from './components/UserSettingsProvider'
-import { apiFetchOrganisationUnitLevels } from '@dhis2/analytics'
+import configureStore from './configureStore'
+import metadataMiddleware from './middleware/metadata'
+import history from './modules/history'
 import './locales'
 
 const AppWrapper = () => {

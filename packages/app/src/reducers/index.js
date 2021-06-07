@@ -1,15 +1,15 @@
 import { combineReducers } from 'redux'
-import visualization, * as fromVisualization from './visualization'
+import chart, * as fromChart from './chart'
 import current, * as fromCurrent from './current'
 import dimensions, * as fromDimensions from './dimensions'
-import recommendedIds, * as fromRecommendedIds from './recommendedIds'
-import ui, * as fromUi from './ui'
-import metadata, * as fromMetadata from './metadata'
-import settings, * as fromSettings from './settings'
-import user, * as fromUser from './user'
-import snackbar, * as fromSnackbar from './snackbar'
 import loader, * as fromLoader from './loader'
-import chart, * as fromChart from './chart'
+import metadata, * as fromMetadata from './metadata'
+import recommendedIds, * as fromRecommendedIds from './recommendedIds'
+import settings, * as fromSettings from './settings'
+import snackbar, * as fromSnackbar from './snackbar'
+import ui, * as fromUi from './ui'
+import user, * as fromUser from './user'
+import visualization, * as fromVisualization from './visualization'
 
 // Reducers
 

@@ -1,5 +1,3 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import {
     VIS_TYPE_COLUMN,
     VIS_TYPE_STACKED_COLUMN,
@@ -17,23 +15,24 @@ import {
     VIS_TYPE_PIVOT_TABLE,
     VIS_TYPE_SCATTER,
 } from '@dhis2/analytics'
-
-import ColumnIcon from '../../assets/ColumnIcon'
-import StackedColumnIcon from '../../assets/StackedColumnIcon'
-import BarIcon from '../../assets/BarIcon'
-import StackedBarIcon from '../../assets/StackedBarIcon'
-import PieIcon from '../../assets/PieIcon'
-import GaugeIcon from '../../assets/GaugeIcon'
-import LineIcon from '../../assets/LineIcon'
+import PropTypes from 'prop-types'
+import React from 'react'
 import AreaIcon from '../../assets/AreaIcon'
-import StackedAreaIcon from '../../assets/StackedAreaIcon'
-import RadarIcon from '../../assets/RadarIcon'
-import YearOverYearLineIcon from '../../assets/YearOverYearLineIcon'
-import YearOverYearColumnIcon from '../../assets/YearOverYearColumnIcon'
-import SingleValueIcon from '../../assets/SingleValueIcon'
+import BarIcon from '../../assets/BarIcon'
+import ColumnIcon from '../../assets/ColumnIcon'
+import GaugeIcon from '../../assets/GaugeIcon'
 import GlobeIcon from '../../assets/GlobeIcon'
+import LineIcon from '../../assets/LineIcon'
+import PieIcon from '../../assets/PieIcon'
 import PivotTableIcon from '../../assets/PivotTableIcon'
+import RadarIcon from '../../assets/RadarIcon'
 import ScatterIcon from '../../assets/ScatterIcon'
+import SingleValueIcon from '../../assets/SingleValueIcon'
+import StackedAreaIcon from '../../assets/StackedAreaIcon'
+import StackedBarIcon from '../../assets/StackedBarIcon'
+import StackedColumnIcon from '../../assets/StackedColumnIcon'
+import YearOverYearColumnIcon from '../../assets/YearOverYearColumnIcon'
+import YearOverYearLineIcon from '../../assets/YearOverYearLineIcon'
 
 const ListItemIcon = ({ iconType, style }) => {
     switch (iconType) {

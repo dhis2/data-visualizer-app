@@ -1,9 +1,6 @@
-import React, { useState, createRef } from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import { createSelector } from 'reselect'
-import i18n from '@dhis2/d2-i18n'
+import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
 import { useConfig, useDataEngine } from '@dhis2/app-runtime'
+import i18n from '@dhis2/d2-i18n'
 import {
     FlyoutMenu,
     Layer,
@@ -14,20 +11,22 @@ import {
     IconFileDocument24,
     colors,
 } from '@dhis2/ui'
-import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
-
-import {
-    sGetUiType,
-    sGetUiLayout,
-    sGetUiInterpretation,
-} from '../../reducers/ui'
-import { sGetCurrent } from '../../reducers/current'
-import { sGetChart } from '../../reducers/chart'
+import PropTypes from 'prop-types'
+import React, { useState, createRef } from 'react'
+import { connect } from 'react-redux'
+import { createSelector } from 'reselect'
 import {
     apiDownloadImage,
     apiDownloadData,
     apiDownloadTable,
 } from '../../api/analytics'
+import { sGetChart } from '../../reducers/chart'
+import { sGetCurrent } from '../../reducers/current'
+import {
+    sGetUiType,
+    sGetUiLayout,
+    sGetUiInterpretation,
+} from '../../reducers/ui'
 import MenuButton from '../MenuButton/MenuButton'
 
 const DenseMenuItem = ({ Icon, children, ...rest }) => (

@@ -1,5 +1,5 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 
 const ArrowDown = ({ style = { width: 16, height: 16 } }) => (
     <svg

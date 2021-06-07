@@ -1,7 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import { NoticeBox as UiNoticeBox } from '@dhis2/ui'
-
+import PropTypes from 'prop-types'
+import React from 'react'
 import { tabSectionOption } from './styles/VisualizationOptions.style.js'
 
 const NoticeBox = ({ title, text, warning = false, error = false }) => (

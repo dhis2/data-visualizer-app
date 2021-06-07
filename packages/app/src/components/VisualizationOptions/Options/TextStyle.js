@@ -1,8 +1,3 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import i18n from '@dhis2/d2-i18n'
-import { SingleSelect, SingleSelectOption, Button } from '@dhis2/ui'
 import {
     getFontSizeOptions,
     getTextAlignOptions,
@@ -13,15 +8,19 @@ import {
     FONT_STYLE_OPTION_TEXT_ALIGN,
     isVerticalType,
 } from '@dhis2/analytics'
+import i18n from '@dhis2/d2-i18n'
+import { SingleSelect, SingleSelectOption, Button } from '@dhis2/ui'
 import cx from 'classnames'
 import debounce from 'lodash-es/debounce'
-
-import styles from '../styles/TextStyle.module.css'
-import FontColorIcon from '../../../assets/FontColorIcon'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { connect } from 'react-redux'
+import { acSetUiOption } from '../../../actions/ui'
 import BoldIcon from '../../../assets/BoldIcon'
+import FontColorIcon from '../../../assets/FontColorIcon'
 import ItalicIcon from '../../../assets/ItalicIcon'
 import { sGetUiOption, sGetUiType } from '../../../reducers/ui'
-import { acSetUiOption } from '../../../actions/ui'
+import styles from '../styles/TextStyle.module.css'
 
 const TextStyle = ({
     fontStyleKey,
