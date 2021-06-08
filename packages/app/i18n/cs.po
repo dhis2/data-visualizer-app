@@ -334,7 +334,7 @@ msgid "Add a title"
 msgstr "Přidat název"
 
 msgid "Reset style to default"
-msgstr ""
+msgstr "Obnovit výchozí styl"
 
 msgid "Base line"
 msgstr "Základní linie"
@@ -451,7 +451,7 @@ msgid "Chart title"
 msgstr "Název grafu"
 
 msgid "Use legend for chart colors"
-msgstr ""
+msgstr "Pro barvy grafu použijte legendu"
 
 msgid "Legend style"
 msgstr "Styl Legendy"
@@ -521,6 +521,9 @@ msgid ""
 "different data. Check the documentation for help to choose the right outlier"
 " detection method"
 msgstr ""
+"Každá metoda detekce identifikuje odlehlé hodnoty různými způsoby a vyhovuje"
+" různým datům. V dokumentaci najdete nápovědu k výběru správné metody "
+"detekce odlehlých hodnot"
 
 msgid "Threshold factor"
 msgstr "Faktor prahu"
@@ -803,10 +806,10 @@ msgstr ""
 "nesprávné nebo může být odstraněno."
 
 msgid "No organization units found"
-msgstr ""
+msgstr "Nebyly nalezeny žádné organizační jednotky"
 
 msgid "The level or group selections didn't return any organization units."
-msgstr ""
+msgstr "Výběr úrovní nebo skupin nevrátil žádné organizační jednotky."
 
 msgid "Something went wrong"
 msgstr "Něco se pokazilo"
@@ -954,6 +957,7 @@ msgstr "Barevné sady zatím nejsou podporovány při použití více os"
 msgid ""
 "Base and target lines are available on the Axes tab for multi-axis charts"
 msgstr ""
+"Základní a cílové čáry jsou k dispozici na kartě Osy pro víceosé grafy"
 
 msgid "Chart style"
 msgstr "Styl grafu"
@@ -965,7 +969,7 @@ msgid "Empty data"
 msgstr "Prázdná data"
 
 msgid "Horizontal (x) axis {{axisId}}"
-msgstr ""
+msgstr "Vodorovná (x) osa {{axisId}}"
 
 msgid "Horizontal (x) axis"
 msgstr "Vodorovná (x) osa"
@@ -977,7 +981,7 @@ msgid "Totals"
 msgstr "Součty"
 
 msgid "Vertical (y) axis {{axisId}}"
-msgstr ""
+msgstr "Svislá osa (y) {{axisId}}"
 
 msgid "Vertical (y) axis"
 msgstr "Svislá osa (y)"
