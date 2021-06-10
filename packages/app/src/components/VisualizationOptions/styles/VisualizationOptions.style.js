@@ -1,7 +1,6 @@
+import { colors, spacers } from '@dhis2/ui'
 import React from 'react' /* eslint-disable-line no-unused-vars */
 import css from 'styled-jsx/css'
-
-import { colors, spacers } from '@dhis2/ui'
 
 export const tabBar = css.resolve`
     div {

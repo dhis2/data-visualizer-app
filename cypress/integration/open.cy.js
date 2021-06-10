@@ -1,17 +1,16 @@
 import { visTypeDisplayNames } from '@dhis2/analytics'
-
-import { createNewAO, openAOByName } from '../elements/fileMenu'
-import { confirmLeave } from '../elements/confirmLeaveModal'
 import {
     expectAOTitleToBeDirty,
     expectAOTitleToBeValue,
     expectAOTitleToNotBeDirty,
     expectVisualizationToBeVisible,
 } from '../elements/chart'
+import { replacePeriodItems } from '../elements/common'
+import { confirmLeave } from '../elements/confirmLeaveModal'
+import { createNewAO, openAOByName } from '../elements/fileMenu'
+import { expectRouteToBeAOId, expectRouteToBeEmpty } from '../elements/route'
 import { goToStartPage } from '../elements/startScreen'
 import { TEST_AOS } from '../utils/data'
-import { expectRouteToBeAOId, expectRouteToBeEmpty } from '../elements/route'
-import { replacePeriodItems } from '../elements/common'
 
 describe('opening a saved AO', () => {
     it('navigates to the start page', () => {

@@ -1,7 +1,5 @@
-import React from 'react'
-
 import i18n from '@dhis2/d2-i18n'
-
+import React from 'react'
 import RadioBaseOption from './RadioBaseOption'
 
 export const LEGEND_DISPLAY_STYLE_OPTION_NAME = 'legendDisplayStyle'

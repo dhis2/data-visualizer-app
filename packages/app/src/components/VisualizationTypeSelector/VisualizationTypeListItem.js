@@ -1,8 +1,6 @@
-import React from 'react'
 import PropTypes from 'prop-types'
-
+import React from 'react'
 import ListItemIcon from './ListItemIcon'
-
 import styles from './styles/VisualizationTypeSelector.module.css'
 
 const VisualizationTypeListItem = ({

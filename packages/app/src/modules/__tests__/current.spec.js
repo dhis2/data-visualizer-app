@@ -6,7 +6,6 @@ import {
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
 } from '@dhis2/analytics'
-
 import { DEFAULT_CURRENT } from '../../reducers/current'
 import { getAxesFromUi, getSingleValueCurrentFromUi } from '../current'
 

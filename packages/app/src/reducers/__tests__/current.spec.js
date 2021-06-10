@@ -5,9 +5,8 @@ import {
     VIS_TYPE_YEAR_OVER_YEAR_LINE,
     VIS_TYPE_COLUMN,
 } from '@dhis2/analytics'
-
-import options from '../../modules/options'
 import { getOptionsFromUi } from '../../modules/current'
+import options from '../../modules/options'
 import reducer, {
     DEFAULT_CURRENT,
     SET_CURRENT,

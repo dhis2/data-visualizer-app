@@ -1,6 +1,5 @@
 /*eslint no-unused-vars: ["error", { "ignoreRestSiblings": true }]*/
 
-import castArray from 'lodash-es/castArray'
 import {
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
@@ -18,7 +17,7 @@ import {
     FONT_STYLE_REGRESSION_LINE_LABEL,
 } from '@dhis2/analytics'
 import objectClean from 'd2-utilizr/lib/objectClean'
-
+import castArray from 'lodash-es/castArray'
 import {
     getFilteredLayout,
     getInverseLayout,
@@ -101,11 +100,8 @@ export const PRESELECTED_YEAR_OVER_YEAR_SERIES = ['THIS_YEAR', 'LAST_YEAR']
 export const PRESELECTED_YEAR_OVER_YEAR_CATEGORY = ['MONTHS_THIS_YEAR']
 
 const getPreselectedUi = options => {
-    const {
-        rootOrganisationUnit,
-        relativePeriod,
-        digitGroupSeparator,
-    } = options
+    const { rootOrganisationUnit, relativePeriod, digitGroupSeparator } =
+        options
 
     const rootOrganisationUnits = []
     const parentGraphMap = { ...DEFAULT_UI.parentGraphMap }

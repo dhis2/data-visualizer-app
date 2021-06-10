@@ -1,13 +1,11 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-
+import { useDataEngine } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { SingleSelectField, SingleSelectOption } from '@dhis2/ui'
-import { useDataEngine } from '@dhis2/app-runtime'
-
-import { sGetUiOptions } from '../../../reducers/ui'
+import PropTypes from 'prop-types'
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
 import { acSetUiOptions } from '../../../actions/ui'
+import { sGetUiOptions } from '../../../reducers/ui'
 
 export const LEGEND_SET_OPTION_NAME = 'legendSet'
 

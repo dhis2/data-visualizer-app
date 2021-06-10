@@ -1,8 +1,11 @@
 /*eslint no-unused-vars: ["error", { "ignoreRestSiblings": true }]*/
-import React, { useEffect } from 'react'
+import {
+    VIS_TYPE_COLUMN,
+    VIS_TYPE_LINE,
+    visTypeIcons,
+    hasRelativeItems,
+} from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
-import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
 import {
     Table,
     TableHead,
@@ -12,28 +15,24 @@ import {
     Radio,
     colors,
 } from '@dhis2/ui'
-import {
-    VIS_TYPE_COLUMN,
-    VIS_TYPE_LINE,
-    visTypeIcons,
-    hasRelativeItems,
-} from '@dhis2/analytics'
-
-import styles from '../styles/SeriesTable.module.css'
+import PropTypes from 'prop-types'
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
 import { acSetUiOptions, acUpdateUiSeriesItem } from '../../../actions/ui'
-import { sGetUiLayout, sGetUiOptions, sGetUiType } from '../../../reducers/ui'
-import { sGetSeriesSetupItems } from '../../../reducers'
-import { EmptySeries, EmptyBox, GenericError } from '../../../assets/ErrorIcons'
 import {
     AxisOne,
     AxisTwo,
     AxisThree,
     AxisFour,
 } from '../../../assets/AxisIcons'
+import { EmptySeries, EmptyBox, GenericError } from '../../../assets/ErrorIcons'
 import {
     SERIES_ITEM_TYPE_PROP,
     SERIES_ITEM_AXIS_PROP,
 } from '../../../modules/ui'
+import { sGetSeriesSetupItems } from '../../../reducers'
+import { sGetUiLayout, sGetUiOptions, sGetUiType } from '../../../reducers/ui'
+import styles from '../styles/SeriesTable.module.css'
 
 const availableAxes = [0, 1, 2, 3]
 const allTypes = [VIS_TYPE_COLUMN, VIS_TYPE_LINE]
@@ -269,9 +268,11 @@ const mapDispatchToProps = {
     onChange: series => dispatch => {
         dispatch(acSetUiOptions({ series }))
     },
-    onItemChange: ({ changedItem, value, prop }) => dispatch => {
-        dispatch(acUpdateUiSeriesItem({ changedItem, value, prop }))
-    },
+    onItemChange:
+        ({ changedItem, value, prop }) =>
+        dispatch => {
+            dispatch(acUpdateUiSeriesItem({ changedItem, value, prop }))
+        },
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SeriesTable)

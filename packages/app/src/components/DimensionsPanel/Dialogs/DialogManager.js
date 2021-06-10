@@ -1,9 +1,3 @@
-import React, { Component, Fragment } from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import debounce from 'lodash-es/debounce'
-import isEqual from 'lodash-es/isEqual'
-import i18n from '@dhis2/d2-i18n'
 import {
     DataDimension,
     DynamicDimension,
@@ -27,6 +21,7 @@ import {
     MONTHLY,
     BIMONTHLY,
 } from '@dhis2/analytics'
+import i18n from '@dhis2/d2-i18n'
 import {
     Modal,
     ModalContent,
@@ -36,10 +31,13 @@ import {
     TabBar,
     Tab,
 } from '@dhis2/ui'
-
-import HideButton from '../../HideButton/HideButton'
-import AddToLayoutButton from './AddToLayoutButton/AddToLayoutButton'
-import UpdateVisualizationContainer from '../../UpdateButton/UpdateVisualizationContainer'
+import debounce from 'lodash-es/debounce'
+import isEqual from 'lodash-es/isEqual'
+import PropTypes from 'prop-types'
+import React, { Component, Fragment } from 'react'
+import { connect } from 'react-redux'
+import { acAddMetadata } from '../../../actions/metadata'
+import { acSetRecommendedIds } from '../../../actions/recommendedIds'
 import {
     acSetUiActiveModalDialog,
     acRemoveUiItems,
@@ -47,8 +45,17 @@ import {
     acAddParentGraphMap,
     acSetUiItemAttributes,
 } from '../../../actions/ui'
-import { acAddMetadata } from '../../../actions/metadata'
-import { acSetRecommendedIds } from '../../../actions/recommendedIds'
+import { removeLastPathSegment, getOuPath } from '../../../modules/orgUnit'
+import {
+    ITEM_ATTRIBUTE_HORIZONTAL,
+    ITEM_ATTRIBUTE_VERTICAL,
+} from '../../../modules/ui'
+import { sGetDimensions } from '../../../reducers/dimensions'
+import { sGetMetadata } from '../../../reducers/metadata'
+import {
+    sGetSettings,
+    sGetSettingsDisplayNameProperty,
+} from '../../../reducers/settings'
 import {
     sGetUiItems,
     sGetUiItemsByDimension,
@@ -59,18 +66,10 @@ import {
     sGetDimensionIdsFromLayout,
     sGetUiItemsByAttribute,
 } from '../../../reducers/ui'
-import { sGetDimensions } from '../../../reducers/dimensions'
-import { sGetMetadata } from '../../../reducers/metadata'
-import {
-    sGetSettings,
-    sGetSettingsDisplayNameProperty,
-} from '../../../reducers/settings'
-import { removeLastPathSegment, getOuPath } from '../../../modules/orgUnit'
+import HideButton from '../../HideButton/HideButton'
 import UpdateButton from '../../UpdateButton/UpdateButton'
-import {
-    ITEM_ATTRIBUTE_HORIZONTAL,
-    ITEM_ATTRIBUTE_VERTICAL,
-} from '../../../modules/ui'
+import UpdateVisualizationContainer from '../../UpdateButton/UpdateVisualizationContainer'
+import AddToLayoutButton from './AddToLayoutButton/AddToLayoutButton'
 import styles from './styles/DialogManager.module.css'
 
 const isScatterAttribute = dialogId =>
@@ -287,17 +286,15 @@ export class DialogManager extends Component {
                         ? i18n.t(
                               `'{{visualizationType}}' is intended to show a single data item. Only the first item will be used and saved.`,
                               {
-                                  visualizationType: getDisplayNameByVisType(
-                                      visType
-                                  ),
+                                  visualizationType:
+                                      getDisplayNameByVisType(visType),
                               }
                           )
                         : i18n.t(
                               `'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of items. Only the first {{maxNumber}} items will be used and saved.`,
                               {
-                                  visualiationType: getDisplayNameByVisType(
-                                      visType
-                                  ),
+                                  visualiationType:
+                                      getDisplayNameByVisType(visType),
                                   maxNumber: axisMaxNumberOfItems,
                               }
                           )

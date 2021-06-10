@@ -29,14 +29,12 @@ export const fetchData = async ({
     }
 
     if (isYearOverYear(visualization.type)) {
-        const {
-            responses,
-            yearlySeriesLabels,
-        } = await apiFetchAnalyticsForYearOverYear(
-            dataEngine,
-            visualization,
-            options
-        )
+        const { responses, yearlySeriesLabels } =
+            await apiFetchAnalyticsForYearOverYear(
+                dataEngine,
+                visualization,
+                options
+            )
 
         const peItems = layoutGetDimensionItems(
             visualization,

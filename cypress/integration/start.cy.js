@@ -6,7 +6,6 @@ import {
     DIMENSION_ID_ORGUNIT,
     DIMENSION_ID_PERIOD,
 } from '@dhis2/analytics'
-
 import { expectVisualizationToNotBeVisible } from '../elements/chart'
 import {
     closeFileMenuWithEsc,

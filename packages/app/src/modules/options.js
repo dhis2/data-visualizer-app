@@ -1,5 +1,5 @@
-import pick from 'lodash-es/pick'
 import { COLOR_SET_DEFAULT } from '@dhis2/analytics'
+import pick from 'lodash-es/pick'
 
 export const OPTION_HIDE_LEGEND = 'hideLegend'
 export const OPTION_AXIS_STEPS = 'steps'

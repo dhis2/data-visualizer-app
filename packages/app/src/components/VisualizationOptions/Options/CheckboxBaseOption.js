@@ -1,10 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 import { Checkbox } from '@dhis2/ui'
-
-import { sGetUiOption } from '../../../reducers/ui'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { connect } from 'react-redux'
 import { acSetUiOption } from '../../../actions/ui'
+import { sGetUiOption } from '../../../reducers/ui'
 import {
     tabSectionOption,
     tabSectionOptionToggleable,

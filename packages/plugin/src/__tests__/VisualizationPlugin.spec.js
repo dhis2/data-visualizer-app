@@ -1,15 +1,12 @@
+import * as analytics from '@dhis2/analytics'
+import { mount } from 'enzyme'
 import React from 'react'
 import { act } from 'react-dom/test-utils'
-import { mount } from 'enzyme'
-import * as analytics from '@dhis2/analytics'
-
-import { VisualizationPlugin } from '../VisualizationPlugin'
-
 import * as api from '../api/analytics'
-import * as options from '../modules/options'
-import * as moduleAnalytics from '../modules/analytics'
-
 import ChartPlugin from '../ChartPlugin'
+import * as moduleAnalytics from '../modules/analytics'
+import * as options from '../modules/options'
+import { VisualizationPlugin } from '../VisualizationPlugin'
 
 jest.mock('../ChartPlugin', () => jest.fn(() => null))
 jest.mock('../PivotPlugin', () => jest.fn(() => null))

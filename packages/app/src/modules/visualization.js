@@ -1,6 +1,6 @@
-import options from './options'
-import { DEFAULT_VISUALIZATION } from '../reducers/visualization'
 import { DEFAULT_CURRENT } from '../reducers/current'
+import { DEFAULT_VISUALIZATION } from '../reducers/visualization'
+import options from './options'
 
 export const getVisualizationFromCurrent = current => {
     const visualization = Object.assign({}, current)

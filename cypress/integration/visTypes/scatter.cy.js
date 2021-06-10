@@ -5,8 +5,11 @@ import {
     VIS_TYPE_SCATTER,
     AXIS_ID_ROWS,
 } from '@dhis2/analytics'
-
-import { openDimension } from '../../elements/dimensionsPanel'
+import {
+    expectVisualizationToBeVisible,
+    expectChartTitleToBeVisible,
+} from '../../elements/chart'
+import { expectAppToNotBeLoading } from '../../elements/common'
 import {
     selectIndicators,
     clickDimensionModalUpdateButton,
@@ -16,21 +19,8 @@ import {
     expectOrgUnitDimensionModalToBeVisible,
     selectOrgUnitLevel,
 } from '../../elements/dimensionModal'
-import { changeVisType } from '../../elements/visualizationTypeSelector'
-import {
-    expectErrorToContainTitle,
-    expectStartScreenToBeVisible,
-    goToStartPage,
-} from '../../elements/startScreen'
-import {
-    expectVisualizationToBeVisible,
-    expectChartTitleToBeVisible,
-} from '../../elements/chart'
-import { TEST_INDICATORS } from '../../utils/data'
-import {
-    clickMenuBarOptionsButton,
-    clickMenuBarUpdateButton,
-} from '../../elements/menuBar'
+import { openDimension } from '../../elements/dimensionsPanel'
+import { deleteAO, saveExistingAO, saveNewAO } from '../../elements/fileMenu'
 import {
     clickContextMenuSwap,
     expectDimensionOnAxisToHaveLockIcon,
@@ -38,8 +28,10 @@ import {
     openContextMenu,
     openDimensionOnAxis,
 } from '../../elements/layout'
-import { deleteAO, saveExistingAO, saveNewAO } from '../../elements/fileMenu'
-import { expectRouteToBeEmpty } from '../../elements/route'
+import {
+    clickMenuBarOptionsButton,
+    clickMenuBarUpdateButton,
+} from '../../elements/menuBar'
 import {
     clickOptionsModalUpdateButton,
     clickOptionsTab,
@@ -50,13 +42,20 @@ import {
     setAxisRangeMinValue,
     switchAxesTabTo,
 } from '../../elements/optionsModal'
+import { expectRouteToBeEmpty } from '../../elements/route'
+import {
+    expectErrorToContainTitle,
+    expectStartScreenToBeVisible,
+    goToStartPage,
+} from '../../elements/startScreen'
+import { changeVisType } from '../../elements/visualizationTypeSelector'
+import { TEST_INDICATORS } from '../../utils/data'
 import {
     expectWindowConfigYAxisToHaveRangeMaxValue,
     expectWindowConfigYAxisToHaveRangeMinValue,
     expectWindowConfigXAxisToHaveRangeMaxValue,
     expectWindowConfigXAxisToHaveRangeMinValue,
 } from '../../utils/window'
-import { expectAppToNotBeLoading } from '../../elements/common'
 
 const TEST_INDICATOR_NAMES = TEST_INDICATORS.slice(1, 4).map(item => item.name)
 const TEST_VIS_NAME = `TEST SCATTER ${new Date().toLocaleString()}`

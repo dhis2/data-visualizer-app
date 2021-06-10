@@ -1,6 +1,3 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 import {
     LAYOUT_TYPE_DEFAULT,
     LAYOUT_TYPE_PIE,
@@ -9,13 +6,15 @@ import {
     getLayoutTypeByVisType,
     LAYOUT_TYPE_SCATTER,
 } from '@dhis2/analytics'
-
-import DefaultLayout from './DefaultLayout/DefaultLayout'
-import YearOverYearLayout from './YearOverYearLayout/YearOverYearLayout'
-import PieLayout from './PieLayout/PieLayout'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { connect } from 'react-redux'
 import { sGetUiType } from '../../reducers/ui'
+import DefaultLayout from './DefaultLayout/DefaultLayout'
+import PieLayout from './PieLayout/PieLayout'
 import PivotTableLayout from './PivotTableLayout/PivotTableLayout'
 import ScatterLayout from './ScatterLayout/ScatterLayout'
+import YearOverYearLayout from './YearOverYearLayout/YearOverYearLayout'
 
 const componentMap = {
     [LAYOUT_TYPE_DEFAULT]: DefaultLayout,

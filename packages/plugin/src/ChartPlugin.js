@@ -1,6 +1,6 @@
-import React, { useRef, useCallback, useEffect } from 'react'
-import PropTypes from 'prop-types'
 import { isSingleValue, createVisualization } from '@dhis2/analytics'
+import PropTypes from 'prop-types'
+import React, { useRef, useCallback, useEffect } from 'react'
 
 const ChartPlugin = ({
     visualization,

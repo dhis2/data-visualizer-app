@@ -1,20 +1,19 @@
-import React, { useState, useRef } from 'react'
-import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
 import {
     DimensionMenu,
     DIMENSION_ID_ASSIGNED_CATEGORIES,
 } from '@dhis2/analytics'
 import { Layer, Popper } from '@dhis2/ui'
-
-import * as fromReducers from '../../reducers'
-import MoreHorizontalIcon from '../../assets/MoreHorizontalIcon'
-import { styles } from './styles/Menu.style'
+import PropTypes from 'prop-types'
+import React, { useState, useRef } from 'react'
+import { connect } from 'react-redux'
 import {
     acAddUiLayoutDimensions,
     acRemoveUiLayoutDimensions,
 } from '../../actions/ui'
+import MoreHorizontalIcon from '../../assets/MoreHorizontalIcon'
+import * as fromReducers from '../../reducers'
 import IconButton from '../IconButton/IconButton'
+import { styles } from './styles/Menu.style'
 
 const ChipMenu = ({
     assignedCategoriesItemHandler,
@@ -91,9 +90,8 @@ ChipMenu.propTypes = {
 
 const mapStateToProps = state => {
     return {
-        layoutHasAssignedCategories: fromReducers.fromUi.sLayoutHasAssignedCategories(
-            state
-        ),
+        layoutHasAssignedCategories:
+            fromReducers.fromUi.sLayoutHasAssignedCategories(state),
     }
 }
 

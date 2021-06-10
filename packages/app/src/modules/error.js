@@ -1,4 +1,3 @@
-import i18n from '@dhis2/d2-i18n'
 import {
     getDisplayNameByVisType,
     getAvailableAxes,
@@ -9,7 +8,7 @@ import {
     AXIS_ID_COLUMNS,
     AXIS_ID_ROWS,
 } from '@dhis2/analytics'
-
+import i18n from '@dhis2/d2-i18n'
 import {
     EmptySeries,
     EmptyCategory,
@@ -18,7 +17,6 @@ import {
     GenericError,
     EmptyBox,
 } from '../assets/ErrorIcons'
-
 import { VARIANT_ERROR, VARIANT_WARNING } from '../components/Snackbar/Snackbar'
 
 export class VisualizationError {

@@ -1,25 +1,24 @@
-import React, { useState, createRef } from 'react'
-import { createPortal } from 'react-dom'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 import { visTypeDisplayNames, visTypeDescriptions } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import { Card, Divider, Popper } from '@dhis2/ui'
-
-import { prepareCurrentAnalyticalObject } from '../../modules/currentAnalyticalObject'
-import { getAdaptedUiByType } from '../../modules/ui'
-import { sGetUi, sGetUiType } from '../../reducers/ui'
-import { sGetCurrent } from '../../reducers/current'
-import { sGetMetadata } from '../../reducers/metadata'
+import PropTypes from 'prop-types'
+import React, { useState, createRef } from 'react'
+import { createPortal } from 'react-dom'
+import { connect } from 'react-redux'
 import { acSetUi, acClearSeriesType } from '../../actions/ui'
 import {
     apiSaveAOInUserDataStore,
     CURRENT_AO_KEY,
 } from '../../api/userDataStore'
 import ArrowDown from '../../assets/ArrowDown'
-import VisualizationTypeListItem from './VisualizationTypeListItem'
+import { prepareCurrentAnalyticalObject } from '../../modules/currentAnalyticalObject'
+import { getAdaptedUiByType } from '../../modules/ui'
+import { sGetCurrent } from '../../reducers/current'
+import { sGetMetadata } from '../../reducers/metadata'
+import { sGetUi, sGetUiType } from '../../reducers/ui'
 import ListItemIcon from './ListItemIcon'
 import styles from './styles/VisualizationTypeSelector.module.css'
+import VisualizationTypeListItem from './VisualizationTypeListItem'
 
 export const MAPS_APP_URL = 'dhis-web-maps'
 

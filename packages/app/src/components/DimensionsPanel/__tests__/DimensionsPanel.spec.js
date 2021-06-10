@@ -1,8 +1,7 @@
-import React from 'react'
 import { shallow } from 'enzyme'
-import { DndDimensionsPanel } from '../DndDimensionsPanel'
-
+import React from 'react'
 import { Dimensions } from '../DimensionsPanel'
+import { DndDimensionsPanel } from '../DndDimensionsPanel'
 
 describe('Dimensions component ', () => {
     let shallowDimensions

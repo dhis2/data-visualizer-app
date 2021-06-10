@@ -1,12 +1,9 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-
 import { Checkbox, SingleSelectField, SingleSelectOption } from '@dhis2/ui'
-
-import { sGetUiOptions } from '../../../reducers/ui'
+import PropTypes from 'prop-types'
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
 import { acSetUiOptions } from '../../../actions/ui'
-
+import { sGetUiOptions } from '../../../reducers/ui'
 import {
     tabSectionOption,
     tabSectionOptionToggleable,

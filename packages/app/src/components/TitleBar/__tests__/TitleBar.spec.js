@@ -1,12 +1,12 @@
-import React from 'react'
 import { shallow } from 'enzyme'
-import { TitleBar, getTitleUnsaved, getTitleDirty } from '../TitleBar'
+import React from 'react'
 import {
     STATE_EMPTY,
     STATE_UNSAVED,
     STATE_SAVED,
     STATE_DIRTY,
 } from '../../../modules/visualization'
+import { TitleBar, getTitleUnsaved, getTitleDirty } from '../TitleBar'
 
 describe('TitleBar component', () => {
     let props

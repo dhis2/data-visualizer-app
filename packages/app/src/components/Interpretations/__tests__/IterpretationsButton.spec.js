@@ -1,8 +1,8 @@
-import React from 'react'
-import { shallow } from 'enzyme'
 import { IconChevronRight24, IconChevronLeft24 } from '@dhis2/ui'
-import { InterpretationsButton } from '../InterpretationsButton'
+import { shallow } from 'enzyme'
+import React from 'react'
 import MenuButton from '../../MenuButton/MenuButton'
+import { InterpretationsButton } from '../InterpretationsButton'
 
 describe('InterpretationsButton component', () => {
     let props
