@@ -38,8 +38,8 @@ export const VisualizationPlugin = ({
 
     const onToggleContextualMenu = (ref, data) => {
         if (data.ouId) {
-            setContextualMenuRef(ref)
             setContextualMenuConfig(data)
+            setContextualMenuRef(ref)
         } else if (
             data.category &&
             ((visualization.rows.length === 1 &&
@@ -56,8 +56,8 @@ export const VisualizationPlugin = ({
                         DIMENSION_ID_ORGUNIT
                     ].includes(item.uid)
             )?.uid
-            setContextualMenuRef(ref)
             setContextualMenuConfig({ ouId })
+            setContextualMenuRef(ref)
         } else if (
             data.category &&
             visualization.columns.some(
@@ -73,8 +73,8 @@ export const VisualizationPlugin = ({
                         DIMENSION_ID_ORGUNIT
                     ].includes(item.uid)
             )?.uid
-            setContextualMenuRef(ref)
             setContextualMenuConfig({ ouId })
+            setContextualMenuRef(ref)
         }
     }
 
