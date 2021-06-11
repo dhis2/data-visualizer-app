@@ -2,21 +2,21 @@ import { generateRandomChar, generateRandomNumber } from '../../utils/random'
 import { clickMenuBarFileButton } from '../menuBar'
 import { FILE_MENU_BUTTON_OPEN, clickFileMenuButton } from '.'
 
-const openModalEl = '*[class^="MuiDialogContent"]' // TODO: Add data-test to open modal to target this better
+const openModalEl = 'open-file-dialog-modal'
 const openModalFooterEl = '*[class^="MuiTableFooter"]'
 const openModalToolbarEl = '*[class^="MuiToolbar-root"]'
 const createdByOthersEl = '[data-value=byothers]'
 const openModalItemContainerEl = '*[class^="MuiTableBody"]'
 
 const searchAOByName = name =>
-    cy.get(openModalEl).find('*[type="search"]').clear().type(name)
+    cy.getBySel(openModalEl).find('*[type="search"]').clear().type(name)
 
 const clickRandomAO = () =>
     cy
-        .get(openModalEl)
+        .getBySel(openModalEl)
         .find(openModalItemContainerEl)
         .children()
-        .eq(generateRandomNumber(0, 9))
+        .eq(generateRandomNumber(0, 8))
         .click()
 
 export const openRandomAO = () => {
@@ -35,7 +35,7 @@ export const openRandomAO = () => {
 export const openRandomAOCreatedByOthers = () => {
     clickMenuBarFileButton()
     clickFileMenuButton(FILE_MENU_BUTTON_OPEN)
-    cy.get(openModalEl)
+    cy.getBySel(openModalEl)
         .find(openModalToolbarEl)
         .eq(0)
         .children()
@@ -48,7 +48,7 @@ export const openRandomAOCreatedByOthers = () => {
                 .get(createdByOthersEl)
                 .click()
                 .then(() => {
-                    cy.get(openModalEl)
+                    cy.getBySel(openModalEl)
                         .find(openModalFooterEl)
                         .should('contain', '241') // FIXME: This is a hack
                     /* 
@@ -66,5 +66,5 @@ export const openAOByName = name => {
     clickMenuBarFileButton()
     clickFileMenuButton(FILE_MENU_BUTTON_OPEN)
     searchAOByName(name)
-    cy.get(openModalEl).contains(name).click()
+    cy.getBySel(openModalEl).contains(name).click()
 }
