@@ -3,13 +3,14 @@ import { clickMenuBarFileButton } from '../menuBar'
 import { FILE_MENU_BUTTON_OPEN, clickFileMenuButton } from '.'
 
 const openModalEl = 'open-file-dialog-modal'
+const openModalNameFilterEl = `${openModalEl}-name-filter`
 const openModalFooterEl = '*[class^="MuiTableFooter"]'
 const openModalToolbarEl = '*[class^="MuiToolbar-root"]'
 const createdByOthersEl = '[data-value=byothers]'
 const openModalItemContainerEl = '*[class^="MuiTableBody"]'
 
 const searchAOByName = name =>
-    cy.getBySel(openModalEl).find('*[type="search"]').clear().type(name)
+    cy.getBySel(openModalNameFilterEl).find('input').clear().type(name)
 
 const clickRandomAO = () =>
     cy
