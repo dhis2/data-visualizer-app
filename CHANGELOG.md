@@ -1,3 +1,10 @@
+# [37.5.0](https://github.com/dhis2/data-visualizer-app/compare/v37.4.5...v37.5.0) (2021-06-14)
+
+
+### Features
+
+* use OpenFileDialog from analytics ([#1737](https://github.com/dhis2/data-visualizer-app/issues/1737)) ([81a2967](https://github.com/dhis2/data-visualizer-app/commit/81a296703274d2bbd6eb0c2c79e7dc40c587a624))
+
 ## [37.4.5](https://github.com/dhis2/data-visualizer-app/compare/v37.4.4...v37.4.5) (2021-06-11)
 
 
