@@ -3,7 +3,7 @@ import { clickMenuBarFileButton } from '../menuBar'
 import { FILE_MENU_BUTTON_OPEN, clickFileMenuButton } from '.'
 
 const openModalEl = 'open-file-dialog-modal'
-const openModalNameFilterEl = `${openModalEl}-name-filter`
+const openModalNameFilterEl = 'open-file-dialog-modal-name-filter'
 const openModalFooterEl = '*[class^="MuiTableFooter"]'
 const openModalToolbarEl = '*[class^="MuiToolbar-root"]'
 const createdByOthersEl = '[data-value=byothers]'
