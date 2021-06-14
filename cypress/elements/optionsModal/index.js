@@ -7,6 +7,7 @@ export const OPTIONS_TAB_STYLE = 'Style'
 export const OPTIONS_TAB_DATA = 'Data'
 export const OPTIONS_TAB_AXES = 'Axes'
 export const OPTIONS_TAB_OUTLIERS = 'Outliers'
+export const OPTIONS_TAB_SERIES = 'Series'
 
 export const clickOptionsTab = name =>
     cy.getBySel(tabBarEl).contains(name).click()
@@ -55,3 +56,5 @@ export {
 export { setCustomSubtitle } from './subtitle'
 
 export { clickOutliersCheckbox } from './outliers'
+
+export { setItemToAxis } from './series'

@@ -103,7 +103,10 @@ const SeriesTable = ({
             </TableHead>
             <TableBody className={styles.tableBody}>
                 {optionItems.map(item => (
-                    <TableRow key={`multiaxis-table-row-${item.dimensionItem}`}>
+                    <TableRow
+                        key={`multiaxis-table-row-${item.dimensionItem}`}
+                        dataTest={'series-table-item'}
+                    >
                         <TableCell className={styles.itemName}>
                             {item.name}
                         </TableCell>
@@ -147,6 +150,7 @@ const SeriesTable = ({
                                                     </span>
                                                 }
                                                 dense
+                                                dataTest={`item-type-${type}`}
                                             />
                                         </div>
                                     )
@@ -168,6 +172,7 @@ const SeriesTable = ({
                                         }
                                         checked={item.axis === axis}
                                         dense
+                                        dataTest={`item-axis-${axis + 1}`}
                                     />
                                 </TableCell>
                             ))}

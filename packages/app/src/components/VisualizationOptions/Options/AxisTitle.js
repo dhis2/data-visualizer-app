@@ -138,7 +138,7 @@ AxisTitle.propTypes = {
     setFontStyle: PropTypes.func,
     setTitleColor: PropTypes.func,
     showAutoOption: PropTypes.bool,
-    textMode: PropTypes.bool,
+    textMode: PropTypes.string,
     title: PropTypes.string,
     onTextChange: PropTypes.func,
     onTextModeChange: PropTypes.func,
