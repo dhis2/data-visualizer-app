@@ -16,7 +16,7 @@ const clickRandomAO = () =>
         .getBySel(openModalEl)
         .find(openModalItemContainerEl)
         .children()
-        .eq(generateRandomNumber(0, 8))
+        .eq(generateRandomNumber(0, 7))
         .click()
 
 export const openRandomAO = () => {
