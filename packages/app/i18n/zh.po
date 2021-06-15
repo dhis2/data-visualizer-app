@@ -326,7 +326,7 @@ msgid "Add a title"
 msgstr "添加标题"
 
 msgid "Reset style to default"
-msgstr ""
+msgstr "将样式重置为默认值"
 
 msgid "Base line"
 msgstr "基线"
@@ -916,7 +916,7 @@ msgstr "使用多轴时尚不支持颜色设置"
 
 msgid ""
 "Base and target lines are available on the Axes tab for multi-axis charts"
-msgstr ""
+msgstr "基准线和目标线在多轴图表的轴选项卡上可用"
 
 msgid "Chart style"
 msgstr "图表风格"
@@ -928,7 +928,7 @@ msgid "Empty data"
 msgstr "空数据"
 
 msgid "Horizontal (x) axis {{axisId}}"
-msgstr ""
+msgstr "水平 (x) 轴 {{axisId}}"
 
 msgid "Horizontal (x) axis"
 msgstr "水平轴（X）"
@@ -940,7 +940,7 @@ msgid "Totals"
 msgstr "总共"
 
 msgid "Vertical (y) axis {{axisId}}"
-msgstr ""
+msgstr "垂直 (y) 轴 {{axisId}}"
 
 msgid "Vertical (y) axis"
 msgstr "垂轴（Y）"
