@@ -60,13 +60,13 @@ describe('Options - Vertical axis', () => {
             clickMenuBarOptionsButton()
             clickOptionsTab(OPTIONS_TAB_AXES)
         })
-        it("set axis title to 'Custom'", () => {
+        it("sets axis title to 'Custom'", () => {
             setAxisTitleTextModeTo('Custom')
         })
-        it('type title', () => {
+        it('types the title', () => {
             setAxisTitleText(TEST_AXIS, TEST_TITLE)
         })
-        it('click the modal update button', () => {
+        it('clicks the modal update button', () => {
             clickOptionsModalUpdateButton()
             expectChartTitleToBeVisible()
         })
@@ -79,19 +79,19 @@ describe('Options - Vertical axis', () => {
             clickMenuBarOptionsButton()
             clickOptionsTab(OPTIONS_TAB_AXES)
         })
-        it('set min value', () => {
+        it('sets min value', () => {
             setAxisRangeMinValue(TEST_AXIS, TEST_MIN_VALUE)
         })
-        it('set max value', () => {
+        it('sets max value', () => {
             setAxisRangeMaxValue(TEST_AXIS, TEST_MAX_VALUE)
         })
-        it('set steps value', () => {
+        it('sets steps value', () => {
             setAxisStepsValue(TEST_AXIS, TEST_STEPS_VALUE)
         })
-        it('set decimals value', () => {
+        it('sets decimals value', () => {
             setAxisDecimalsValue(TEST_AXIS, TEST_DECIMALS_VALUE)
         })
-        it('click the modal update button', () => {
+        it('clicks the modal update button', () => {
             clickOptionsModalUpdateButton()
             expectChartTitleToBeVisible()
         })
@@ -139,16 +139,16 @@ describe('Options - Horizontal axis', () => {
             clickMenuBarOptionsButton()
             clickOptionsTab(OPTIONS_TAB_AXES)
         })
-        it(`switch to '${TEST_TAB}' tab`, () => {
+        it(`switches to '${TEST_TAB}' tab`, () => {
             switchAxesTabTo(TEST_TAB)
         })
-        it("set axis title to 'Custom'", () => {
+        it("sets axis title to 'Custom'", () => {
             setAxisTitleTextModeTo('Custom')
         })
-        it('type title', () => {
+        it('types the title', () => {
             setAxisTitleText(TEST_AXIS, TEST_TITLE)
         })
-        it('click the modal update button', () => {
+        it('clicks the modal update button', () => {
             clickOptionsModalUpdateButton()
             expectChartTitleToBeVisible()
         })
@@ -161,7 +161,7 @@ describe('Options - Horizontal axis', () => {
             clickMenuBarOptionsButton()
             clickOptionsTab(OPTIONS_TAB_AXES)
         })
-        it(`switch to '${TEST_TAB}' tab`, () => {
+        it(`switches to '${TEST_TAB}' tab`, () => {
             switchAxesTabTo(TEST_TAB)
         })
         it(`title is "${TEST_TITLE}"`, () => {
@@ -183,10 +183,10 @@ describe('Options - Auto-generated axis title', () => {
             clickMenuBarOptionsButton()
             clickOptionsTab(OPTIONS_TAB_AXES)
         })
-        it("set axis title to 'Auto generated'", () => {
+        it("sets axis title to 'Auto generated'", () => {
             setAxisTitleTextModeTo('Auto generated')
         })
-        it('click the modal update button', () => {
+        it('clicks the modal update button', () => {
             clickOptionsModalUpdateButton()
             expectChartTitleToBeVisible()
         })
@@ -242,17 +242,17 @@ describe('Options - Auto-generated axis title', () => {
         it('opens Options -> Axes', () => {
             clickOptionsTab(OPTIONS_TAB_AXES)
         })
-        it("set axis title to 'Auto generated'", () => {
+        it("sets axis title to 'Auto generated'", () => {
             setAxisTitleTextModeTo('Auto generated')
         })
         const TEST_TAB = 'Vertical (y) axis 2'
-        it(`switch to '${TEST_TAB}' tab`, () => {
+        it(`switches to '${TEST_TAB}' tab`, () => {
             switchAxesTabTo(TEST_TAB)
         })
-        it("set axis title to 'Auto generated'", () => {
+        it("sets axis title to 'Auto generated'", () => {
             setAxisTitleTextModeTo('Auto generated')
         })
-        it('click the modal update button', () => {
+        it('clicks the modal update button', () => {
             clickOptionsModalUpdateButton()
             expectChartTitleToBeVisible()
         })
