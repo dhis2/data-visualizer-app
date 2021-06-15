@@ -55,14 +55,14 @@ describe('Options - Lines', () => {
                     clickOptionsTab(OPTIONS_TAB_DATA)
                 })
                 if (index === 0) {
-                    it('enable trendline', () => {
+                    it('enables trendline', () => {
                         clickTrendLineCheckbox()
                     })
                 }
-                it('select trendline type', () => {
+                it('selects trendline type', () => {
                     selectTrendLineType(trendLineType.name)
                 })
-                it('click the modal update button', () => {
+                it('clicks the modal update button', () => {
                     clickOptionsModalUpdateButton()
                     expectChartTitleToBeVisible()
                 })

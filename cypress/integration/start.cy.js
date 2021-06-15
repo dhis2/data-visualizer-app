@@ -100,7 +100,7 @@ describe('viewing the start screen', () => {
         )
         closeFileMenuWithClick()
     })
-    it('Fle menu is closed with Escape', () => {
+    it('File menu is closed with Escape', () => {
         clickMenuBarFileButton()
         closeFileMenuWithEsc()
     })

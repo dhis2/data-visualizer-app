@@ -133,7 +133,7 @@ describe('Options - Font styles', () => {
             italic: TEST_ITALIC_OPTION.input,
             prefix,
         })
-        it('click the modal update button', () => {
+        it('clicks the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
         it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
@@ -178,7 +178,7 @@ describe('Options - Font styles', () => {
             italic: TEST_ITALIC_OPTION.input,
             prefix,
         })
-        it('click the modal update button', () => {
+        it('clicks the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
         it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
@@ -223,7 +223,7 @@ describe('Options - Font styles', () => {
             italic: TEST_ITALIC_OPTION.input,
             prefix,
         })
-        it('click the modal update button', () => {
+        it('clicks the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
         it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
@@ -278,7 +278,7 @@ describe('Options - Font styles', () => {
             italic: TEST_ITALIC_OPTION.input,
             prefix,
         })
-        it('click the modal update button', () => {
+        it('clicks the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
         it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
@@ -326,7 +326,7 @@ describe('Options - Font styles', () => {
             italic: TEST_ITALIC_OPTION.input,
             prefix,
         })
-        it('click the modal update button', () => {
+        it('clicks the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
         it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
@@ -359,7 +359,7 @@ describe('Options - Font styles', () => {
             italic: TEST_ITALIC_OPTION.input,
             prefix,
         })
-        it('click the modal update button', () => {
+        it('clicks the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
         it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
@@ -392,7 +392,7 @@ describe('Options - Font styles', () => {
             italic: TEST_ITALIC_OPTION.input,
             prefix,
         })
-        it('click the modal update button', () => {
+        it('clicks the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
         it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
@@ -435,7 +435,7 @@ describe('Options - Font styles', () => {
             italic: TEST_ITALIC_OPTION.input,
             prefix,
         })
-        it('click the modal update button', () => {
+        it('clicks the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
 
@@ -480,7 +480,7 @@ describe('Options - Font styles', () => {
             italic: TEST_ITALIC_OPTION.input,
             prefix,
         })
-        it('click the modal update button', () => {
+        it('clicks the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
         it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
