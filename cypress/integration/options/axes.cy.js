@@ -20,15 +20,12 @@ import {
     setAxisRangeMaxValue,
     setAxisRangeMinValue,
     setAxisTitleText,
-    setAxisTitleToCustom,
+    setAxisTitleTextModeTo,
     OPTIONS_TAB_SERIES,
     setItemToAxis,
-} from '../../elements/optionsModal'
-import {
     setAxisDecimalsValue,
     setAxisStepsValue,
-    setAxisTitleToAuto,
-} from '../../elements/optionsModal/axes'
+} from '../../elements/optionsModal'
 import { goToStartPage } from '../../elements/startScreen'
 import { CONFIG_DEFAULT_VERTICAL_AXIS_TITLE } from '../../utils/config'
 import { TEST_DATA_ELEMENTS } from '../../utils/data'
@@ -64,7 +61,7 @@ describe('Options - Vertical axis', () => {
             clickOptionsTab(OPTIONS_TAB_AXES)
         })
         it("set axis title to 'Custom'", () => {
-            setAxisTitleToCustom()
+            setAxisTitleTextModeTo('Custom')
         })
         it('type title', () => {
             setAxisTitleText(TEST_AXIS, TEST_TITLE)
@@ -146,7 +143,7 @@ describe('Options - Horizontal axis', () => {
             switchAxesTabTo(TEST_TAB)
         })
         it("set axis title to 'Custom'", () => {
-            setAxisTitleToCustom()
+            setAxisTitleTextModeTo('Custom')
         })
         it('type title', () => {
             setAxisTitleText(TEST_AXIS, TEST_TITLE)
@@ -186,8 +183,8 @@ describe('Options - Auto-generated axis title', () => {
             clickMenuBarOptionsButton()
             clickOptionsTab(OPTIONS_TAB_AXES)
         })
-        it("set axis title to 'Auto'", () => {
-            setAxisTitleToAuto()
+        it("set axis title to 'Auto generated'", () => {
+            setAxisTitleTextModeTo('Auto generated')
         })
         it('click the modal update button', () => {
             clickOptionsModalUpdateButton()
@@ -245,15 +242,15 @@ describe('Options - Auto-generated axis title', () => {
         it('opens Options -> Axes', () => {
             clickOptionsTab(OPTIONS_TAB_AXES)
         })
-        it("set axis title to 'Auto'", () => {
-            setAxisTitleToAuto()
+        it("set axis title to 'Auto generated'", () => {
+            setAxisTitleTextModeTo('Auto generated')
         })
         const TEST_TAB = 'Vertical (y) axis 2'
         it(`switch to '${TEST_TAB}' tab`, () => {
             switchAxesTabTo(TEST_TAB)
         })
-        it("set axis title to 'Auto'", () => {
-            setAxisTitleToAuto()
+        it("set axis title to 'Auto generated'", () => {
+            setAxisTitleTextModeTo('Auto generated')
         })
         it('click the modal update button', () => {
             clickOptionsModalUpdateButton()

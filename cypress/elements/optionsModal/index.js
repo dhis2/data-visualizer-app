@@ -39,7 +39,9 @@ export {
     setAxisRangeMaxValue,
     expectAxisRangeMaxToBeValue,
     switchAxesTabTo,
-    setAxisTitleToCustom,
+    setAxisTitleTextModeTo,
+    setAxisDecimalsValue,
+    setAxisStepsValue,
 } from './axes'
 
 export {

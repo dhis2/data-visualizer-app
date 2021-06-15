@@ -28,7 +28,7 @@ import {
     setBaseLineLabel,
     setBaseLineValue,
     setAxisTitleText,
-    setAxisTitleToCustom,
+    setAxisTitleTextModeTo,
     switchAxesTabTo,
 } from '../../elements/optionsModal'
 import { goToStartPage } from '../../elements/startScreen'
@@ -425,7 +425,7 @@ describe('Options - Font styles', () => {
         })
         it(`sets horizontal axis title to "${TEST_TITLE}"`, () => {
             switchAxesTabTo('Horizontal (x) axis')
-            setAxisTitleToCustom()
+            setAxisTitleTextModeTo('Custom')
             setAxisTitleText(TEST_AXIS, TEST_TITLE)
         })
         setFontStyleOptions({
@@ -470,7 +470,7 @@ describe('Options - Font styles', () => {
             clickOptionsTab(OPTIONS_TAB_AXES)
         })
         it(`sets vertical axis title to "${TEST_TITLE}"`, () => {
-            setAxisTitleToCustom()
+            setAxisTitleTextModeTo('Custom')
             setAxisTitleText(TEST_AXIS, TEST_TITLE)
         })
         setFontStyleOptions({

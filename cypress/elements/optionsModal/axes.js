@@ -16,14 +16,8 @@ export const switchAxesTabTo = tab =>
 export const setAxisTitleText = (axis, text) =>
     typeInput(getAxisSelector(axis, titleInputEl), text)
 
-export const setAxisTitleToCustom = () =>
-    cy.getBySel(axisTitleRadiosEl).contains('Custom').click()
-
-export const setAxisTitleToAuto = () =>
-    cy.getBySel(axisTitleRadiosEl).contains('Auto generated').click()
-
-export const setAxisTitleToNone = () =>
-    cy.getBySel(axisTitleRadiosEl).contains('None').click()
+export const setAxisTitleTextModeTo = textMode =>
+    cy.getBySel(axisTitleRadiosEl).contains(textMode).click()
 
 export const expectAxisTitleToBeValue = (axis, value) =>
     cy
