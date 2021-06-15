@@ -132,6 +132,16 @@ export const expectWindowConfigYAxisToHaveRangeMaxValue = value =>
             expect(yAxis.max).to.eq(value)
         })
 
+export const expectWindowConfigYAxisToHaveStepsValue = value =>
+    cy
+        .window()
+        .its(CONFIG_PROP)
+        .its(Y_AXIS_PROP)
+        .then(yAxes => {
+            const yAxis = yAxes[0]
+            expect(yAxis.tickAmount).to.eq(value)
+        })
+
 export const expectWindowConfigXAxisToHaveRangeMinValue = value =>
     cy
         .window()

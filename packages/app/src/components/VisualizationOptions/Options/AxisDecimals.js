@@ -14,6 +14,7 @@ const AxisDecimals = ({ disabled, axisId }) => (
             id: OPTION_AXIS_DECIMALS,
             axisId,
         }}
+        dataTest={`${axisId}-axis-decimals`}
     />
 )
 

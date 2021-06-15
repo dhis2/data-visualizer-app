@@ -17,6 +17,7 @@ export const AxisSteps = ({ disabled, axisId }) => (
             id: OPTION_AXIS_STEPS,
             axisId,
         }}
+        dataTest={`${axisId}-axis-steps`}
     />
 )
 

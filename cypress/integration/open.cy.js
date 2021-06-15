@@ -19,13 +19,19 @@ describe('opening a saved AO', () => {
     TEST_AOS.forEach(ao => {
         // FIXME: Add a saved Scatter chart to the default database
         describe(visTypeDisplayNames[ao.type], () => {
-            it('opens a saved AO ', () => {
-                openAOByName(ao.name)
-                expectRouteToBeAOId()
-                expectAOTitleToBeValue(ao.name)
-                expectVisualizationToBeVisible(ao.type)
-                expectAOTitleToNotBeDirty()
-            })
+            it(
+                'opens a saved AO ',
+                {
+                    retries: 2,
+                },
+                () => {
+                    openAOByName(ao.name)
+                    expectRouteToBeAOId()
+                    expectAOTitleToBeValue(ao.name)
+                    expectVisualizationToBeVisible(ao.type)
+                    expectAOTitleToNotBeDirty()
+                }
+            )
             it(`replaces the selected period`, () => {
                 replacePeriodItems(ao.type)
                 expectAOTitleToBeDirty()
