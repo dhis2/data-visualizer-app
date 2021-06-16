@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import { useDataEngine } from '@dhis2/app-runtime'
-import { visTypeIcons } from '@dhis2/analytics'
+import { visTypeIcons, VIS_TYPE_SCATTER } from '@dhis2/analytics'
 
 import styles from './styles/StartScreen.module.css'
 import { sGetLoadError } from '../../reducers/loader'
@@ -90,7 +90,7 @@ const StartScreen = ({ error, username }) => {
                                     data-test="start-screen-most-viewed-list-item"
                                 >
                                     <span className={styles.visIcon}>
-                                        {visTypeIcons[visualization.type]}
+                                        {getVisTypeIcon(visualization.type)}
                                     </span>
                                     <span>{visualization.name}</span>
                                 </p>
@@ -100,6 +100,11 @@ const StartScreen = ({ error, username }) => {
                 )}
             </div>
         )
+
+    const getVisTypeIcon = visType => {
+        const Icon = visTypeIcons[visType]
+        return visType === VIS_TYPE_SCATTER ? <Icon /> : Icon
+    }
 
     const getErrorContent = () => (
         <div

@@ -84,5 +84,6 @@
 }
 .visIcon svg {
     height: 16px;
+    width: 16px;
     margin-right: var(--spacers-dp8);
 }
