@@ -1,3 +1,10 @@
+## [36.1.1](https://github.com/dhis2/data-visualizer-app/compare/v36.1.0...v36.1.1) (2021-06-16)
+
+
+### Bug Fixes
+
+* missing scatter icon (DHIS2-11352) v36 ([#1755](https://github.com/dhis2/data-visualizer-app/issues/1755)) ([9e016f1](https://github.com/dhis2/data-visualizer-app/commit/9e016f18ee45855b1bc2af23dc293b41951c1614))
+
 # [36.1.0](https://github.com/dhis2/data-visualizer-app/compare/v36.0.1...v36.1.0) (2021-05-12)
 
 
