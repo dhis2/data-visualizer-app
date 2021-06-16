@@ -21,8 +21,11 @@ const StartScreen = ({ error, username }) => {
 
     useEffect(() => {
         async function populateMostViewedVisualizations(engine) {
-            const mostViewedVisualizationsResult =
-                await apiFetchMostViewedVisualizations(engine, 6, username)
+            const mostViewedVisualizationsResult = await apiFetchMostViewedVisualizations(
+                engine,
+                6,
+                username
+            )
             const visualizations = mostViewedVisualizationsResult.visualization // {position: int, views: int, id: string, created: string}
             if (visualizations && visualizations.length) {
                 const visualizationsResult = await apiFetchVisualizations(
