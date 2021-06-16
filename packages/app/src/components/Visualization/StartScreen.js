@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import { useDataEngine } from '@dhis2/app-runtime'
-import { visTypeIcons } from '@dhis2/analytics'
+import { visTypeIcons, VIS_TYPE_SCATTER } from '@dhis2/analytics'
 
 import styles from './styles/StartScreen.module.css'
 import { sGetLoadError } from '../../reducers/loader'
@@ -21,11 +21,8 @@ const StartScreen = ({ error, username }) => {
 
     useEffect(() => {
         async function populateMostViewedVisualizations(engine) {
-            const mostViewedVisualizationsResult = await apiFetchMostViewedVisualizations(
-                engine,
-                6,
-                username
-            )
+            const mostViewedVisualizationsResult =
+                await apiFetchMostViewedVisualizations(engine, 6, username)
             const visualizations = mostViewedVisualizationsResult.visualization // {position: int, views: int, id: string, created: string}
             if (visualizations && visualizations.length) {
                 const visualizationsResult = await apiFetchVisualizations(
@@ -90,7 +87,7 @@ const StartScreen = ({ error, username }) => {
                                     data-test="start-screen-most-viewed-list-item"
                                 >
                                     <span className={styles.visIcon}>
-                                        {visTypeIcons[visualization.type]}
+                                        {getIcon(visualization.type)}
                                     </span>
                                     <span>{visualization.name}</span>
                                 </p>
@@ -100,6 +97,11 @@ const StartScreen = ({ error, username }) => {
                 )}
             </div>
         )
+
+    const getIcon = visType => {
+        const Icon = visTypeIcons[visType]
+        return visType === VIS_TYPE_SCATTER ? <Icon /> : Icon
+    }
 
     const getErrorContent = () => (
         <div
