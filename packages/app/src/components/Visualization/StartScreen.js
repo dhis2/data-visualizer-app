@@ -87,7 +87,7 @@ const StartScreen = ({ error, username }) => {
                                     data-test="start-screen-most-viewed-list-item"
                                 >
                                     <span className={styles.visIcon}>
-                                        {getIcon(visualization.type)}
+                                        {getVisTypeIcon(visualization.type)}
                                     </span>
                                     <span>{visualization.name}</span>
                                 </p>
@@ -98,7 +98,7 @@ const StartScreen = ({ error, username }) => {
             </div>
         )
 
-    const getIcon = visType => {
+    const getVisTypeIcon = visType => {
         const Icon = visTypeIcons[visType]
         return visType === VIS_TYPE_SCATTER ? <Icon /> : Icon
     }
