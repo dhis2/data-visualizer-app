@@ -71,6 +71,8 @@ body {
 /* Main center */
 
 .main-center-canvas {
+    display: flex;
+    justify-content: center;
     height: 100%;
     overflow: hidden;
     position: relative;

@@ -3,6 +3,7 @@ import {
     apiFetchOrganisationUnitLevels,
     convertOuLevelsToUids,
     DIMENSION_ID_ORGUNIT,
+    LegendKey,
 } from '@dhis2/analytics'
 import { useDataEngine } from '@dhis2/app-runtime'
 import { Popper } from '@dhis2/ui'
@@ -200,35 +201,40 @@ export const VisualizationPlugin = ({
 
     return (
         <>
-            {!fetchResult.visualization.type ||
-            fetchResult.visualization.type === VIS_TYPE_PIVOT_TABLE ? (
-                <PivotPlugin
-                    visualization={convertOuLevelsToUids(
-                        ouLevels,
-                        fetchResult.visualization
-                    )}
-                    responses={fetchResult.responses}
-                    legendSets={fetchResult.legendSets}
-                    onToggleContextualMenu={
-                        onDrill ? onToggleContextualMenu : undefined
-                    }
-                    {...props}
-                />
-            ) : (
-                <ChartPlugin
-                    visualization={convertOuLevelsToUids(
-                        ouLevels,
-                        fetchResult.visualization
-                    )}
-                    responses={fetchResult.responses}
-                    extraOptions={fetchResult.extraOptions}
-                    legendSets={fetchResult.legendSets}
-                    onToggleContextualMenu={
-                        onDrill ? onToggleContextualMenu : undefined
-                    }
-                    {...props}
-                />
-            )}
+            <div style={styles.container}>
+                {!fetchResult.visualization.type ||
+                fetchResult.visualization.type === VIS_TYPE_PIVOT_TABLE ? (
+                    <PivotPlugin
+                        visualization={convertOuLevelsToUids(
+                            ouLevels,
+                            fetchResult.visualization
+                        )}
+                        responses={fetchResult.responses}
+                        legendSets={fetchResult.legendSets}
+                        onToggleContextualMenu={
+                            onDrill ? onToggleContextualMenu : undefined
+                        }
+                        {...props}
+                    />
+                ) : (
+                    <ChartPlugin
+                        visualization={convertOuLevelsToUids(
+                            ouLevels,
+                            fetchResult.visualization
+                        )}
+                        responses={fetchResult.responses}
+                        extraOptions={fetchResult.extraOptions}
+                        legendSets={fetchResult.legendSets}
+                        onToggleContextualMenu={
+                            onDrill ? onToggleContextualMenu : undefined
+                        }
+                        {...props}
+                    />
+                )}
+            </div>
+            <div style={styles.legendKey}>
+                <LegendKey legendSets={fetchResult.legendSets} />
+            </div>
             {contextualMenuRect &&
                 createPortal(
                     <div onClick={closeContextualMenu} style={styles.backdrop}>

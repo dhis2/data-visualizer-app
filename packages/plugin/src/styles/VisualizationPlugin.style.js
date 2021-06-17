@@ -1,4 +1,11 @@
 export default {
+    container: {
+        flexGrow: 1,
+    },
+    legendKey: {
+        margin: '0 8px',
+        width: '180px',
+    },
     backdrop: {
         position: 'fixed',
         height: '100%',
