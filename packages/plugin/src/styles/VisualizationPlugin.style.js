@@ -6,6 +6,12 @@ export default {
         margin: '0 8px',
         width: '180px',
     },
+    wrapper: {
+        position: 'absolute',
+        top: 0,
+        bottom: 0,
+        overflow: 'auto',
+    },
     backdrop: {
         position: 'fixed',
         height: '100%',

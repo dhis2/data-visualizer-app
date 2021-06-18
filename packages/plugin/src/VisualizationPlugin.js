@@ -233,7 +233,9 @@ export const VisualizationPlugin = ({
                 )}
             </div>
             <div style={styles.legendKey}>
-                <LegendKey legendSets={fetchResult.legendSets} />
+                <div style={styles.wrapper}>
+                    <LegendKey legendSets={fetchResult.legendSets} />
+                </div>
             </div>
             {contextualMenuRect &&
                 createPortal(
