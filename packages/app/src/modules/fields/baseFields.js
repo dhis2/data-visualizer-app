@@ -42,7 +42,7 @@ export const fieldsByType = {
         getFieldObject('cumulativeValues', { option: true }),
         getFieldObject('fontStyle', { option: true }),
         getFieldObject('hideEmptyRowItems', { option: true }),
-        getFieldObject('legend', { option: true }),
+        getFieldObject('seriesKey', { option: true }),
         getFieldObject('noSpaceBetweenColumns', { option: true }),
         getFieldObject('percentStackedValues', { option: true }),
         getFieldObject('regressionType', { option: true }),

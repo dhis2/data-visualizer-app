@@ -18,7 +18,7 @@ export const options = {
         requestable: false,
         savable: true,
     },
-    legend: { defaultValue: {}, requestable: false, savable: true },
+    seriesKey: { defaultValue: {}, requestable: false, savable: true },
     noSpaceBetweenColumns: {
         defaultValue: false,
         requestable: false,

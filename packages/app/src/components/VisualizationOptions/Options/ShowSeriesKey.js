@@ -1,19 +1,19 @@
 import { FONT_STYLE_LEGEND } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import React from 'react'
-import { OPTION_HIDE_LEGEND } from '../../../modules/options'
+import { OPTION_SHOW_SERIES_KEY } from '../../../modules/options'
 import CheckboxBaseOption from './CheckboxBaseOption'
 
-const HideLegend = () => (
+const ShowSeriesKey = () => (
     <CheckboxBaseOption
-        label={i18n.t('Show legend key')}
+        label={i18n.t('Show series key')}
         option={{
-            id: OPTION_HIDE_LEGEND,
+            id: OPTION_SHOW_SERIES_KEY,
         }}
         inverted={true}
         fontStyleKey={FONT_STYLE_LEGEND}
-        dataTest={'option-legend-key'}
+        dataTest={'option-series-key'}
     />
 )
 
-export default HideLegend
+export default ShowSeriesKey

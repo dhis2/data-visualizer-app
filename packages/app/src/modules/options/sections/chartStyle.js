@@ -1,16 +1,16 @@
 /* eslint-disable react/jsx-key */
 import React from 'react'
-import HideLegend from '../../../components/VisualizationOptions/Options/HideLegend'
 import NoSpaceBetweenColumns from '../../../components/VisualizationOptions/Options/NoSpaceBetweenColumns'
 import ShowData from '../../../components/VisualizationOptions/Options/ShowData'
+import ShowSeriesKey from '../../../components/VisualizationOptions/Options/ShowSeriesKey'
 import getChartStyleTemplate from './templates/chartStyle'
 
-const defaultContent = [<ShowData />, <HideLegend />]
+const defaultContent = [<ShowData />, <ShowSeriesKey />]
 
 const columnContent = [
     <ShowData />,
     <NoSpaceBetweenColumns />,
-    <HideLegend />,
+    <ShowSeriesKey />,
     /* TODO new option <BackgroundLines /> */
 ]
 

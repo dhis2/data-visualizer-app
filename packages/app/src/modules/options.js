@@ -1,7 +1,8 @@
 import { COLOR_SET_DEFAULT } from '@dhis2/analytics'
 import pick from 'lodash-es/pick'
 
-export const OPTION_HIDE_LEGEND = 'hideLegend'
+export const OPTION_SHOW_SERIES_KEY = 'showSeriesKey'
+export const OPTION_SHOW_LEGEND_KEY = 'showLegendKey'
 export const OPTION_AXIS_STEPS = 'steps'
 export const OPTION_AXIS_DECIMALS = 'decimals'
 export const OPTION_AXIS_MAX_VALUE = 'maxValue'
@@ -34,7 +35,7 @@ export const options = {
         requestable: false,
         savable: true,
     },
-    legend: { defaultValue: {}, requestable: false, savable: true },
+    seriesKey: { defaultValue: {}, requestable: false, savable: true },
     noSpaceBetweenColumns: {
         defaultValue: false,
         requestable: false,
