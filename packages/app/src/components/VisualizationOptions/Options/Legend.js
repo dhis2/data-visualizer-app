@@ -22,6 +22,7 @@ import LegendDisplayStyle, {
     LEGEND_DISPLAY_STYLE_FILL,
 } from './LegendDisplayStyle'
 import { LEGEND_SET_OPTION_NAME } from './LegendSet'
+import ShowLegendKey from './ShowLegendKey'
 
 const Legend = ({
     legendSet,
@@ -80,7 +81,7 @@ const Legend = ({
                             </FieldSet>
                         </div>
                     ) : null}
-                    <div>
+                    <div className={tabSectionOption.className}>
                         <FieldSet>
                             <UiCoreLegend>
                                 <span
@@ -96,6 +97,9 @@ const Legend = ({
                                 <LegendDisplayStrategy />
                             </div>
                         </FieldSet>
+                    </div>
+                    <div>
+                        <ShowLegendKey />
                     </div>
                 </div>
             ) : null}

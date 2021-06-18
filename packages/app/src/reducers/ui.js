@@ -40,6 +40,7 @@ import {
     OPTION_TARGET_LINE_TITLE,
     OPTION_BASE_LINE_ENABLED,
     OPTION_TARGET_LINE_ENABLED,
+    OPTION_SHOW_LEGEND_KEY,
 } from '../modules/options'
 import {
     getAdaptedUiByType,
@@ -181,6 +182,11 @@ export default (state = DEFAULT_UI, action) => {
                 case OPTION_SHOW_SERIES_KEY:
                     options.seriesKey = {
                         ...options.seriesKey,
+                        hidden: value,
+                    }
+                    break
+                case OPTION_SHOW_LEGEND_KEY:
+                    options.legendKey = {
                         hidden: value,
                     }
                     break
@@ -743,6 +749,9 @@ export const sGetUiOption = (state, option) => {
                 break
             case OPTION_SHOW_SERIES_KEY:
                 value = options.seriesKey?.hidden
+                break
+            case OPTION_SHOW_LEGEND_KEY:
+                value = options.legendKey?.hidden
                 break
             case FONT_STYLE_LEGEND:
                 value = getConsolidatedFontStyle(

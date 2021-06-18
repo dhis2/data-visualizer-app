@@ -43,6 +43,7 @@ export const fieldsByType = {
         getFieldObject('fontStyle', { option: true }),
         getFieldObject('hideEmptyRowItems', { option: true }),
         getFieldObject('seriesKey', { option: true }),
+        getFieldObject('legendKey', { option: true }),
         getFieldObject('noSpaceBetweenColumns', { option: true }),
         getFieldObject('percentStackedValues', { option: true }),
         getFieldObject('regressionType', { option: true }),
