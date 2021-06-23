@@ -6,7 +6,8 @@ import {
     LegendKey,
 } from '@dhis2/analytics'
 import { useDataEngine } from '@dhis2/app-runtime'
-import { Popper } from '@dhis2/ui'
+import i18n from '@dhis2/d2-i18n'
+import { Popper, Button } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState, useCallback } from 'react'
 import { createPortal } from 'react-dom'
@@ -24,18 +25,24 @@ export const VisualizationPlugin = ({
     visualization,
     filters,
     forDashboard,
+    id,
+    style,
     userSettings,
+    onChartGenerated,
     onError,
     onLoadingComplete,
     onResponsesReceived,
     onDrill,
-    ...props
 }) => {
     const engine = useDataEngine()
     const [ouLevels, setOuLevels] = useState(undefined)
     const [fetchResult, setFetchResult] = useState(null)
     const [contextualMenuRef, setContextualMenuRef] = useState(undefined)
     const [contextualMenuConfig, setContextualMenuConfig] = useState({})
+    const [showLegendKey, setShowLegendKey] = useState(false)
+    const [renderId, setRenderId] = useState(0)
+
+    const incremementRenderId = () => setRenderId(renderId + 1)
 
     const onToggleContextualMenu = (ref, data) => {
         if (data.ouId) {
@@ -199,6 +206,19 @@ export const VisualizationPlugin = ({
         ? { getBoundingClientRect: () => contextualMenuRect }
         : null
 
+    const hasLegendSet = fetchResult.legendSets?.length > 0
+    const hasLegendKey =
+        fetchResult.visualization.legendKey &&
+        !fetchResult.visualization.legendKey.hidden
+    const transformedStyle =
+        forDashboard && hasLegendSet
+            ? {
+                  ...style,
+                  width:
+                      style.width - (showLegendKey || hasLegendKey ? 195 : 75), // TODO: Very arbitrary and static, change these values to something dynamic
+              }
+            : style
+
     return (
         <>
             <div style={styles.container}>
@@ -214,7 +234,8 @@ export const VisualizationPlugin = ({
                         onToggleContextualMenu={
                             onDrill ? onToggleContextualMenu : undefined
                         }
-                        {...props}
+                        id={id}
+                        style={transformedStyle}
                     />
                 ) : (
                     <ChartPlugin
@@ -228,19 +249,32 @@ export const VisualizationPlugin = ({
                         onToggleContextualMenu={
                             onDrill ? onToggleContextualMenu : undefined
                         }
-                        {...props}
+                        id={forDashboard ? renderId : id}
+                        onChartGenerated={onChartGenerated}
+                        style={transformedStyle}
                     />
                 )}
             </div>
-            {fetchResult.legendSets?.length > 0 &&
-                fetchResult.visualization.legendKey &&
-                !fetchResult.visualization.legendKey.hidden && (
-                    <div style={styles.legendKey}>
-                        <div style={styles.wrapper}>
-                            <LegendKey legendSets={fetchResult.legendSets} />
-                        </div>
+            {hasLegendSet && (hasLegendKey || (forDashboard && showLegendKey)) && (
+                <div style={styles.legendKey}>
+                    <div style={styles.wrapper}>
+                        <LegendKey legendSets={fetchResult.legendSets} />
                     </div>
-                )}
+                </div>
+            )}
+            {forDashboard && hasLegendSet && !hasLegendKey && (
+                <div style={styles.legendKeyToggle}>
+                    <Button
+                        secondary
+                        onClick={() => {
+                            setShowLegendKey(!showLegendKey)
+                            incremementRenderId()
+                        }}
+                    >
+                        {i18n.t('BTN')}
+                    </Button>
+                </div>
+            )}
             {contextualMenuRect &&
                 createPortal(
                     <div onClick={closeContextualMenu} style={styles.backdrop}>
@@ -264,9 +298,11 @@ export const VisualizationPlugin = ({
 VisualizationPlugin.defaultProps = {
     filters: {},
     forDashboard: false,
+    onChartGenerated: Function.prototype,
     onError: Function.prototype,
     onLoadingComplete: Function.prototype,
     onResponsesReceived: Function.prototype,
+    style: {},
     visualization: {},
     userSettings: {},
 }
@@ -274,7 +310,10 @@ VisualizationPlugin.propTypes = {
     visualization: PropTypes.object.isRequired,
     filters: PropTypes.object,
     forDashboard: PropTypes.bool,
+    id: PropTypes.string,
+    style: PropTypes.object,
     userSettings: PropTypes.object,
+    onChartGenerated: PropTypes.func,
     onDrill: PropTypes.func,
     onError: PropTypes.func,
     onLoadingComplete: PropTypes.func,

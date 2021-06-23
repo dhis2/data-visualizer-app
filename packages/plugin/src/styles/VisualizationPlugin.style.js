@@ -6,6 +6,9 @@ export default {
         margin: '0 8px',
         width: '180px',
     },
+    legendKeyToggle: {
+        margin: '0 8px',
+    },
     wrapper: {
         position: 'absolute',
         top: 0,
