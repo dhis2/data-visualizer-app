@@ -1,3 +1,10 @@
+## [35.22.8](https://github.com/dhis2/data-visualizer-app/compare/v35.22.7...v35.22.8) (2021-06-23)
+
+
+### Bug Fixes
+
+* fix locale format passed to Intl in interpretations v35 ([#1762](https://github.com/dhis2/data-visualizer-app/issues/1762)) ([5b032f8](https://github.com/dhis2/data-visualizer-app/commit/5b032f852d6d91673715475ac38a5a38509e8f82))
+
 ## [35.22.7](https://github.com/dhis2/data-visualizer-app/compare/v35.22.6...v35.22.7) (2021-06-22)
 
 
