@@ -76,7 +76,7 @@ msgid "Metadata ID scheme"
 msgstr "Skema ID metadata"
 
 msgid "ID"
-msgstr "Indo"
+msgstr "ID"
 
 msgid "Code"
 msgstr "Kode"
@@ -268,7 +268,7 @@ msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
 msgstr ""
-"Jumlah langkah centang sumbu, termasuk min dan maks. Nilai 2 atau lebih "
+"Jumlah langkah penandaan aksis, termasuk min dan maks. Nilai 2 atau lebih "
 "rendah akan diabaikan."
 
 msgid "Trend line"
@@ -522,10 +522,10 @@ msgid "Last 5 years"
 msgstr "5 tahun terakhir"
 
 msgid "User org unit"
-msgstr "Unit org pengguna"
+msgstr "Unit organisasi pengguna"
 
 msgid "User org unit children"
-msgstr "Sub org unit user"
+msgstr "Sub organisasi unit user"
 
 msgid "User org unit grand children"
 msgstr "Sub-sub org unit pengguna"
