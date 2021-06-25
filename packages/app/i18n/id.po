@@ -254,7 +254,7 @@ msgid "Average"
 msgstr "Rata-rata"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr "Rerata (jumlah dalam hirarki unit org)"
+msgstr "Rerata (jumlah dalam hirarki unit organisasi)"
 
 msgid "Sum"
 msgstr "Jumlah"
@@ -263,7 +263,7 @@ msgid "Last value"
 msgstr "Nilai terakhir"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr "Nilai terakhir (jumlah dalam hirarki unit org)"
+msgstr "Nilai terakhir (jumlah dalam hirarki unit organisasi)"
 
 msgid "Min"
 msgstr "Min"
@@ -475,7 +475,7 @@ msgid "No space between bars/columns"
 msgstr "Tanpa spasi diantara batang/kolom"
 
 msgid "Number type"
-msgstr "Tipe nomer"
+msgstr "Tipe nomor"
 
 msgid "Display the value of percentages of the total"
 msgstr "Tampilkan nilai persentase dari total"
@@ -508,7 +508,7 @@ msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
 msgstr ""
-"Jumlah langkah centang sumbu, termasuk min dan maks. Nilai 2 atau lebih "
+"Jumlah langkah penandaan aksis, termasuk min dan maks. Nilai 2 atau lebih "
 "rendah akan diabaikan."
 
 msgid "Steps"
@@ -853,7 +853,7 @@ msgid "Display"
 msgstr "Tampilan"
 
 msgid "Axes"
-msgstr "Sumbu"
+msgstr "Aksis"
 
 msgid "Horizontal (x) axis"
 msgstr "sumbu X"
