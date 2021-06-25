@@ -39,7 +39,8 @@ msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
 "be lost."
 msgstr ""
-"yakin meninggalkan gambar ini?perobahan yang belum tersimpan akan hilang"
+"Apakah Anda yakin meninggalkan visualisasi ini? Perubahan yang belum "
+"tersimpan akan hilang"
 
 msgid "No, cancel"
 msgstr "tidak, batalkan"
@@ -144,7 +145,7 @@ msgid "Metadata ID scheme"
 msgstr "Skema ID metadata"
 
 msgid "ID"
-msgstr "Indo"
+msgstr "ID"
 
 msgid "Code"
 msgstr "Kode"
@@ -259,7 +260,7 @@ msgid "Average"
 msgstr "Rata-rata"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr "Rerata (jumlah dalam hirarki unit org)"
+msgstr "Rerata (jumlah dalam hirarki unit organisasi)"
 
 msgid "Sum"
 msgstr "Jumlah"
@@ -268,7 +269,7 @@ msgid "Last value"
 msgstr "Nilai terakhir"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr "Nilai terakhir (jumlah dalam hirarki unit org)"
+msgstr "Nilai terakhir (jumlah dalam hirarki unit organisasi)"
 
 msgid "Min"
 msgstr "Min"
@@ -319,10 +320,10 @@ msgid "Columns totals"
 msgstr "Total kolom"
 
 msgid "Event data"
-msgstr "Data acara"
+msgstr "Data even"
 
 msgid "Only include completed events"
-msgstr "Hanya sertakan acara yang telah selesai"
+msgstr "Hanya sertakan even yang telah selesai"
 
 msgid "Include cumulative"
 msgstr "Masukkan kumulatif"
@@ -355,7 +356,7 @@ msgid "Compact"
 msgstr "Padat"
 
 msgid "Axis title"
-msgstr "Judul sumbu X"
+msgstr "Judul aksis"
 
 msgid "Add a title"
 msgstr "Tambahkan judul"
@@ -495,7 +496,7 @@ msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
 msgstr ""
-"Jumlah langkah centang sumbu, termasuk min dan maks. Nilai 2 atau lebih "
+"Jumlah langkah penandaan aksis, termasuk min dan maks. Nilai 2 atau lebih "
 "rendah akan diabaikan."
 
 msgid "Steps"
@@ -772,13 +773,13 @@ msgid "Last 5 years"
 msgstr "5 tahun terakhir"
 
 msgid "User org unit"
-msgstr "Unit org pengguna"
+msgstr "Unit organisasi pengguna"
 
 msgid "User org unit children"
-msgstr "Sub org unit user"
+msgstr "Sub organisasi unit user"
 
 msgid "User org unit grand children"
-msgstr "Sub-sub org unit pengguna"
+msgstr "Sub-sub organisasi unit pengguna"
 
 msgid "Data"
 msgstr "Data"
