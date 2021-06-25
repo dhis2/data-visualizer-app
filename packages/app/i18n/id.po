@@ -68,8 +68,8 @@ msgid ""
 "'Scatter' is intended to show a single data item per axis. Only the first "
 "item will be used and saved."
 msgstr ""
-"'Menyebar' dimaksudkan untuk menampilkan satu item data per sumbu. Hanya "
-"item pertama yang akan digunakan dan disimpan."
+"'Scatter' dimaksudkan untuk menampilkan satu item data per sumbu. Hanya item"
+" pertama yang akan digunakan dan disimpan."
 
 msgid "Vertical"
 msgstr "Vertikal"
@@ -99,7 +99,7 @@ msgid "PDF (.pdf)"
 msgstr "PDF (.pdf)"
 
 msgid "Table layout"
-msgstr "Layout tabel"
+msgstr "Tata letak tabel"
 
 msgid "Excel (.xls)"
 msgstr "Excel (.xls)"
@@ -332,14 +332,14 @@ msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
 msgstr ""
-"Jumlah langkah centang sumbu, termasuk min dan maks. Nilai 2 atau lebih "
+"Jumlah langkah penandaan aksis, termasuk min dan maks. Nilai 2 atau lebih "
 "rendah akan diabaikan."
 
 msgid "Steps"
 msgstr "langkah"
 
 msgid "Axis title"
-msgstr "Judul sumbu X"
+msgstr "Judul aksis"
 
 msgid "Add a title"
 msgstr "Tambahkan judul"
@@ -412,7 +412,7 @@ msgstr "Garis ekstrim"
 
 msgid "Calculated as a percent, usually 1%, of the total values along an axis"
 msgstr ""
-"Dihitung sebagai persen, biasanya 1%, dari nilai total sepanjang sumbu"
+"Dihitung sebagai persen, biasanya 1%, dari nilai total sepanjang aksis"
 
 msgid "Extreme line % detection"
 msgstr "Deteksi % garis ekstrim"
@@ -560,7 +560,7 @@ msgid "Z-score / Standard score"
 msgstr "Z-skor / Skor standar"
 
 msgid "Modified Z-score"
-msgstr "Skor Z yang dimodifikasi"
+msgstr "Z-score yang dimodifikasi"
 
 msgid "Outlier analysis"
 msgstr "Analisis outlier"
@@ -791,7 +791,7 @@ msgstr ""
 
 msgid "Data Element Group Sets and Reporting Rates cannot be used together."
 msgstr ""
-"Kumpulan Grup Elemen Data dan Tarif Pelaporan tidak dapat digunakan bersama-"
+"Kumpulan grup data element dan laju pelaporan tidak dapat digunakan bersama-"
 "sama."
 
 msgid "There is a problem with this {{visualizationType}} visualization."
@@ -801,21 +801,21 @@ msgid "There was a problem getting the data from the server."
 msgstr "Terjadi masalah saat mengambil data dari server."
 
 msgid "Assigned Categories can only be used with data elements"
-msgstr "Kategori yang Ditugaskan hanya dapat digunakan dengan elemen data"
+msgstr "Kategori yang ditetapkan hanya dapat digunakan dengan elemen data"
 
 msgid ""
 "Fix this problem by selecting data elements or removing Assigned Categories."
 msgstr ""
-"Perbaiki masalah ini dengan memilih elemen data atau menghapus Kategori yang"
-" Ditugaskan."
+"Perbaiki masalah ini dengan memilih data element atau menghapus kategori "
+"yang ditetapkan."
 
 msgid "Assigned Categories cannot be used as Filter"
-msgstr "Kategori yang Ditetapkan tidak dapat digunakan sebagai Filter"
+msgstr "Kategori yang ditetapkan tidak dapat digunakan sebagai filter"
 
 msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr ""
-"Perbaiki masalah ini dengan memindahkan atau menghapus Kategori yang "
-"Ditugaskan."
+"Perbaiki masalah ini dengan memindahkan atau menghapus kategori yang "
+"ditetapkan."
 
 msgid "Visualization not found"
 msgstr "Visualisasi tidak ditemukan"
@@ -936,10 +936,10 @@ msgid "Last 5 years"
 msgstr "5 tahun terakhir"
 
 msgid "User org unit"
-msgstr "Unit org pengguna"
+msgstr "Unit organisasi pengguna"
 
 msgid "User org unit children"
-msgstr "Sub org unit user"
+msgstr "Sub organisasi unit user"
 
 msgid "User org unit grand children"
 msgstr "Sub-sub org unit pengguna"
@@ -962,7 +962,7 @@ msgid "Applies to standard reports only"
 msgstr "Hanya berlaku untuk laporan standar"
 
 msgid "Base and target lines are available on the Axes tab for scatter charts"
-msgstr "Garis dasar dan target tersedia di tab Sumbu untuk bagan sebar"
+msgstr "Garis dasar dan target tersedia di tab aksis untuk bagan sebar"
 
 msgid "Vertical axis"
 msgstr "Sumbu vertikal"
@@ -1004,10 +1004,10 @@ msgid "Titles"
 msgstr "Judul"
 
 msgid "Vertical axis options are not supported yet when using multiple axes"
-msgstr "Opsi sumbu vertikal belum didukung saat menggunakan banyak sumbu"
+msgstr "Opsi sumbu vertikal belum didukung saat menggunakan banyak aksis"
 
 msgid "Axes"
-msgstr "Sumbu"
+msgstr "Aksis"
 
 msgid "Data"
 msgstr "Data"
@@ -1022,7 +1022,7 @@ msgid "Limit minimum/maximum values"
 msgstr "Batasi nilai minimum/maksimum"
 
 msgid "Outliers"
-msgstr "Pencilan"
+msgstr "Outliers"
 
 msgid "Series"
 msgstr "Seri"
