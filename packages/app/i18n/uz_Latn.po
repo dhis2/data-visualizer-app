@@ -182,7 +182,7 @@ msgid "Levels"
 msgstr "Bosqichlar/Qavatlar"
 
 msgid "Groups"
-msgstr ""
+msgstr "Гуруҳлар"
 
 msgid "And 1 other..."
 msgstr "Yana bir boshqasi"
