@@ -37,9 +37,6 @@ export const CONFIG_DEFAULT_SUBTITLE = {
 }
 
 export const CONFIG_DEFAULT_LEGEND = {
-    symbolWidth: 11,
-    symbolHeight: 11,
-    itemMarginBottom: 2,
     align: 'center',
     itemStyle: {
         fontSize: '13px',
@@ -47,6 +44,9 @@ export const CONFIG_DEFAULT_LEGEND = {
         color: '#212934',
         fontStyle: 'normal',
     },
+    useHTML: true,
+    symbolWidth: 0.001,
+    symbolHeight: 0.001,
 }
 
 export const CONFIG_DEFAULT_AXIS_LABELS = {

@@ -1,3 +1,4 @@
+/*eslint no-unused-vars: ["error", { "ignoreRestSiblings": true }]*/
 import {
     TITLE_PROP,
     SUBTITLE_PROP,
@@ -18,7 +19,14 @@ export const expectWindowConfigSubtitleToBeValue = value =>
     cy.window().its(CONFIG_PROP).its(SUBTITLE_PROP).should('eql', value)
 
 export const expectWindowConfigLegendToBeValue = value =>
-    cy.window().its(CONFIG_PROP).its(LEGEND_PROP).should('eql', value)
+    cy
+        .window()
+        .its(CONFIG_PROP)
+        .its(LEGEND_PROP)
+        .then(legend => {
+            const { labelFormatter, ...rest } = legend
+            expect({ ...rest }).to.eql(value)
+        })
 
 export const expectWindowConfigAxisPlotLinesToBeValue = ({
     axisType,
