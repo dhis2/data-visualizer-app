@@ -4,10 +4,9 @@ import { SingleSelectField, SingleSelectOption } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { acSetUiOptions } from '../../../actions/ui'
-import { sGetUiOptions } from '../../../reducers/ui'
-
-export const LEGEND_SET_OPTION_NAME = 'legendSet'
+import { acSetUiOption } from '../../../actions/ui'
+import { OPTION_LEGEND_SET } from '../../../modules/options'
+import { sGetUiOption } from '../../../reducers/ui'
 
 const query = {
     legendSets: {
@@ -100,18 +99,21 @@ const LegendSet = ({ value, onChange }) => {
 }
 
 LegendSet.propTypes = {
+    onChange: PropTypes.func.isRequired,
     value: PropTypes.object,
-    onChange: PropTypes.func,
 }
 
 const mapStateToProps = state => ({
-    value: sGetUiOptions(state)[LEGEND_SET_OPTION_NAME] || {},
+    value: sGetUiOption(state, { id: OPTION_LEGEND_SET }),
 })
 
 const mapDispatchToProps = dispatch => ({
     onChange: ({ id, displayName }) =>
         dispatch(
-            acSetUiOptions({ [LEGEND_SET_OPTION_NAME]: { id, displayName } })
+            acSetUiOption({
+                value: { id, displayName },
+                optionId: OPTION_LEGEND_SET,
+            })
         ),
 })
 

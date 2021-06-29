@@ -4,6 +4,8 @@ import {
     convertOuLevelsToUids,
     DIMENSION_ID_ORGUNIT,
     LegendKey,
+    LEGEND_DISPLAY_STRATEGY_FIXED,
+    LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM,
 } from '@dhis2/analytics'
 import { useDataEngine } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
@@ -17,9 +19,6 @@ import ContextualMenu from './ContextualMenu'
 import { fetchData } from './modules/fetchData'
 import PivotPlugin from './PivotPlugin'
 import styles from './styles/VisualizationPlugin.style.js'
-
-const LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM = 'BY_DATA_ITEM'
-const LEGEND_DISPLAY_STRATEGY_FIXED = 'FIXED'
 
 export const VisualizationPlugin = ({
     visualization,
@@ -152,10 +151,10 @@ export const VisualizationPlugin = ({
 
             const legendSetIds = []
 
-            switch (visualization.legendDisplayStrategy) {
+            switch (visualization.legend?.strategy) {
                 case LEGEND_DISPLAY_STRATEGY_FIXED:
-                    if (visualization.legendSet && visualization.legendSet.id) {
-                        legendSetIds.push(visualization.legendSet.id)
+                    if (visualization.legend?.set?.id) {
+                        legendSetIds.push(visualization.legend.set.id)
                     }
                     break
                 case LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM: {
@@ -207,9 +206,7 @@ export const VisualizationPlugin = ({
         : null
 
     const hasLegendSet = fetchResult.legendSets?.length > 0
-    const hasLegendKey =
-        fetchResult.visualization.legendKey &&
-        !fetchResult.visualization.legendKey.hidden
+    const hasLegendKey = fetchResult.visualization.legend?.showKey
     const transformedStyle =
         forDashboard && hasLegendSet
             ? {

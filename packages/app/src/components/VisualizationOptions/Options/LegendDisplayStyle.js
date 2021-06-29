@@ -1,15 +1,16 @@
+import {
+    LEGEND_DISPLAY_STYLE_FILL,
+    LEGEND_DISPLAY_STYLE_TEXT,
+} from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import React from 'react'
+import { OPTION_LEGEND_DISPLAY_STYLE } from '../../../modules/options'
 import RadioBaseOption from './RadioBaseOption'
-
-export const LEGEND_DISPLAY_STYLE_OPTION_NAME = 'legendDisplayStyle'
-export const LEGEND_DISPLAY_STYLE_FILL = 'FILL'
-export const LEGEND_DISPLAY_STYLE_TEXT = 'TEXT'
 
 const LegendDisplayStyle = () => (
     <RadioBaseOption
         option={{
-            name: LEGEND_DISPLAY_STYLE_OPTION_NAME,
+            id: OPTION_LEGEND_DISPLAY_STYLE,
             items: [
                 {
                     id: LEGEND_DISPLAY_STYLE_FILL,

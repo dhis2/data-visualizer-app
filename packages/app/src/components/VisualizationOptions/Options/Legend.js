@@ -1,27 +1,29 @@
+import {
+    LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM,
+    LEGEND_DISPLAY_STRATEGY_FIXED,
+    LEGEND_DISPLAY_STYLE_FILL,
+} from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import { Checkbox, FieldSet, Legend as UiCoreLegend } from '@dhis2/ui'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { acSetUiOptions } from '../../../actions/ui'
-import { sGetUiOptions } from '../../../reducers/ui'
+import { acSetUiOption } from '../../../actions/ui'
+import {
+    OPTION_LEGEND_DISPLAY_STRATEGY,
+    OPTION_LEGEND_DISPLAY_STYLE,
+    OPTION_LEGEND_SET,
+} from '../../../modules/options'
+import { sGetUiOption } from '../../../reducers/ui'
 import {
     tabSectionOptionToggleable,
     tabSectionOption,
     tabSectionTitle,
     tabSectionTitleMargin,
 } from '../styles/VisualizationOptions.style.js'
-import LegendDisplayStrategy, {
-    LEGEND_DISPLAY_STRATEGY_OPTION_NAME,
-    LEGEND_DISPLAY_STRATEGY_FIXED,
-    LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM,
-} from './LegendDisplayStrategy'
-import LegendDisplayStyle, {
-    LEGEND_DISPLAY_STYLE_OPTION_NAME,
-    LEGEND_DISPLAY_STYLE_FILL,
-} from './LegendDisplayStyle'
-import { LEGEND_SET_OPTION_NAME } from './LegendSet'
+import LegendDisplayStrategy from './LegendDisplayStrategy'
+import LegendDisplayStyle from './LegendDisplayStyle'
 import ShowLegendKey from './ShowLegendKey'
 
 const Legend = ({
@@ -31,7 +33,11 @@ const Legend = ({
     hideStyleOptions,
 }) => {
     const [legendEnabled, setLegendEnabled] = useState(
-        !(legendDisplayStrategy === LEGEND_DISPLAY_STRATEGY_FIXED && !legendSet)
+        !(
+            (!legendDisplayStrategy ||
+                legendDisplayStrategy === LEGEND_DISPLAY_STRATEGY_FIXED) &&
+            !legendSet
+        )
     )
 
     const onCheckboxChange = ({ checked }) => {
@@ -39,15 +45,25 @@ const Legend = ({
 
         if (checked) {
             onChange({
-                [LEGEND_DISPLAY_STRATEGY_OPTION_NAME]:
-                    LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM,
+                optionId: OPTION_LEGEND_DISPLAY_STRATEGY,
+                value: LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM,
+            })
+            onChange({
+                optionId: OPTION_LEGEND_DISPLAY_STYLE,
+                value: LEGEND_DISPLAY_STYLE_FILL,
             })
         } else {
             onChange({
-                [LEGEND_SET_OPTION_NAME]: undefined,
-                [LEGEND_DISPLAY_STRATEGY_OPTION_NAME]:
-                    LEGEND_DISPLAY_STRATEGY_FIXED,
-                [LEGEND_DISPLAY_STYLE_OPTION_NAME]: LEGEND_DISPLAY_STYLE_FILL,
+                optionId: OPTION_LEGEND_DISPLAY_STRATEGY,
+                value: LEGEND_DISPLAY_STRATEGY_FIXED,
+            })
+            onChange({
+                optionId: OPTION_LEGEND_SET,
+                value: undefined,
+            })
+            onChange({
+                optionId: OPTION_LEGEND_DISPLAY_STYLE,
+                value: undefined,
             })
         }
     }
@@ -108,20 +124,21 @@ const Legend = ({
 }
 
 Legend.propTypes = {
-    legendDisplayStrategy: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     hideStyleOptions: PropTypes.bool,
-    legendSet: PropTypes.object,
+    legendDisplayStrategy: PropTypes.string,
+    legendSet: PropTypes.string,
 }
 
 const mapStateToProps = state => ({
-    legendSet: sGetUiOptions(state)[LEGEND_SET_OPTION_NAME],
-    legendDisplayStrategy:
-        sGetUiOptions(state)[LEGEND_DISPLAY_STRATEGY_OPTION_NAME],
+    legendSet: sGetUiOption(state, { id: OPTION_LEGEND_SET }),
+    legendDisplayStrategy: sGetUiOption(state, {
+        id: OPTION_LEGEND_DISPLAY_STRATEGY,
+    }),
 })
 
 const mapDispatchToProps = dispatch => ({
-    onChange: value => dispatch(acSetUiOptions(value)),
+    onChange: params => dispatch(acSetUiOption(params)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Legend)

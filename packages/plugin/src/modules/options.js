@@ -19,8 +19,8 @@ export const options = {
         savable: true,
     },
     seriesKey: { defaultValue: {}, requestable: false, savable: true },
-    legendKey: {
-        defaultValue: { hidden: true },
+    legend: {
+        defaultValue: {},
         requestable: false,
         savable: true,
     },
@@ -73,17 +73,6 @@ export const options = {
     skipRounding: { defaultValue: false, requestable: true, savable: true },
     numberType: { defaultValue: 'VALUE', requestable: false, savable: true },
     showHierarchy: { defaultValue: false, requestable: true, savable: true },
-    legendSet: { defaultValue: undefined, requestable: false, savable: true },
-    legendDisplayStrategy: {
-        defaultValue: 'FIXED',
-        requestable: false,
-        savable: true,
-    },
-    legendDisplayStyle: {
-        defaultValue: 'FILL',
-        requestable: false,
-        savable: true,
-    },
     displayDensity: {
         defaultValue: 'NORMAL',
         requestable: false,

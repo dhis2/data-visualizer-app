@@ -9,7 +9,6 @@ const ShowLegendKey = () => (
         option={{
             id: OPTION_SHOW_LEGEND_KEY,
         }}
-        inverted={true}
         dataTest={'option-legend-key'}
     />
 )

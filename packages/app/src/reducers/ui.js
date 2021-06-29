@@ -41,6 +41,9 @@ import {
     OPTION_BASE_LINE_ENABLED,
     OPTION_TARGET_LINE_ENABLED,
     OPTION_SHOW_LEGEND_KEY,
+    OPTION_LEGEND_DISPLAY_STRATEGY,
+    OPTION_LEGEND_SET,
+    OPTION_LEGEND_DISPLAY_STYLE,
 } from '../modules/options'
 import {
     getAdaptedUiByType,
@@ -162,6 +165,7 @@ export default (state = DEFAULT_UI, action) => {
                 axes: state.options.axes || [],
                 seriesKey: state.options.seriesKey || {},
                 fontStyle: state.options.fontStyle || {},
+                legend: state.options.legend || {},
             }
             const value = action.value.value
             const optionId = action.value.optionId
@@ -185,9 +189,28 @@ export default (state = DEFAULT_UI, action) => {
                         hidden: value,
                     }
                     break
+                case OPTION_LEGEND_DISPLAY_STRATEGY:
+                    options.legend = {
+                        ...options.legend,
+                        strategy: value,
+                    }
+                    break
+                case OPTION_LEGEND_DISPLAY_STYLE:
+                    options.legend = {
+                        ...options.legend,
+                        style: value,
+                    }
+                    break
                 case OPTION_SHOW_LEGEND_KEY:
-                    options.legendKey = {
-                        hidden: value,
+                    options.legend = {
+                        ...options.legend,
+                        showKey: value,
+                    }
+                    break
+                case OPTION_LEGEND_SET:
+                    options.legend = {
+                        ...options.legend,
+                        set: value,
                     }
                     break
                 case OPTION_AXIS_TITLE: {
@@ -750,8 +773,17 @@ export const sGetUiOption = (state, option) => {
             case OPTION_SHOW_SERIES_KEY:
                 value = options.seriesKey?.hidden
                 break
+            case OPTION_LEGEND_DISPLAY_STRATEGY:
+                value = options.legend?.strategy
+                break
+            case OPTION_LEGEND_DISPLAY_STYLE:
+                value = options.legend?.style
+                break
             case OPTION_SHOW_LEGEND_KEY:
-                value = options.legendKey?.hidden
+                value = options.legend?.showKey
+                break
+            case OPTION_LEGEND_SET:
+                value = options.legend?.set
                 break
             case FONT_STYLE_LEGEND:
                 value = getConsolidatedFontStyle(

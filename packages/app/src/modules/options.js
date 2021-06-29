@@ -17,6 +17,9 @@ export const OPTION_TARGET_LINE_ENABLED = 'targetLineEnabled'
 export const OPTION_TARGET_LINE_TITLE = 'targetLineTitle'
 export const OPTION_TARGET_LINE_VALUE = 'targetLineValue'
 export const OPTION_TARGET_LINE_TITLE_FONT_STYLE = 'targetLineTitleFontStyle'
+export const OPTION_LEGEND_DISPLAY_STRATEGY = 'legendDisplayStrategy'
+export const OPTION_LEGEND_DISPLAY_STYLE = 'legendDisplayStyle'
+export const OPTION_LEGEND_SET = 'legendSet'
 
 export const options = {
     axes: { requestable: false, savable: true, defaultValue: [] },
@@ -36,8 +39,8 @@ export const options = {
         savable: true,
     },
     seriesKey: { defaultValue: {}, requestable: false, savable: true },
-    legendKey: {
-        defaultValue: { hidden: true },
+    legend: {
+        defaultValue: {},
         requestable: false,
         savable: true,
     },
@@ -95,17 +98,6 @@ export const options = {
     skipRounding: { defaultValue: false, requestable: true, savable: true },
     numberType: { defaultValue: 'VALUE', requestable: false, savable: true },
     showHierarchy: { defaultValue: false, requestable: true, savable: true },
-    legendSet: { defaultValue: undefined, requestable: false, savable: true },
-    legendDisplayStrategy: {
-        defaultValue: 'FIXED',
-        requestable: false,
-        savable: true,
-    },
-    legendDisplayStyle: {
-        defaultValue: 'FILL',
-        requestable: false,
-        savable: true,
-    },
     displayDensity: {
         defaultValue: 'NORMAL',
         requestable: false,
