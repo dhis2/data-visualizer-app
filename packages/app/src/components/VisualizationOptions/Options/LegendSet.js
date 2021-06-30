@@ -22,7 +22,14 @@ const query = {
     },
 }
 
-const LegendSetSelect = ({ value, loading, options, onFocus, onChange }) => (
+const LegendSetSelect = ({
+    value,
+    loading,
+    options,
+    onFocus,
+    onChange,
+    dataTest,
+}) => (
     <SingleSelectField
         name="legendSetSelect"
         label={i18n.t('Legend')}
@@ -40,14 +47,21 @@ const LegendSetSelect = ({ value, loading, options, onFocus, onChange }) => (
                     .label,
             })
         }
+        dataTest={`${dataTest}-select`}
     >
         {options.map(({ value, label }) => (
-            <SingleSelectOption key={value} value={value} label={label} />
+            <SingleSelectOption
+                key={value}
+                value={value}
+                label={label}
+                dataTest={`${dataTest}-option`}
+            />
         ))}
     </SingleSelectField>
 )
 
 LegendSetSelect.propTypes = {
+    dataTest: PropTypes.string,
     loading: PropTypes.bool,
     options: PropTypes.array,
     value: PropTypes.object,
@@ -55,7 +69,7 @@ LegendSetSelect.propTypes = {
     onFocus: PropTypes.func,
 }
 
-const LegendSet = ({ value, onChange }) => {
+const LegendSet = ({ value, onChange, dataTest }) => {
     const engine = useDataEngine()
 
     const [options, setOptions] = useState([])
@@ -94,12 +108,14 @@ const LegendSet = ({ value, onChange }) => {
             options={options}
             onChange={onChange}
             onFocus={onSelectFocus}
+            dataTest={dataTest}
         />
     )
 }
 
 LegendSet.propTypes = {
     onChange: PropTypes.func.isRequired,
+    dataTest: PropTypes.string,
     value: PropTypes.object,
 }
 

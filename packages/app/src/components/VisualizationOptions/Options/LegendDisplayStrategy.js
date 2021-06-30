@@ -23,6 +23,7 @@ const LegendDisplayStrategy = ({ value, onChange }) => (
                 checked={value === LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM}
                 onChange={onChange}
                 dense
+                dataTest={'legend-display-strategy-by-data-item'}
             />
             <Radio
                 key={LEGEND_DISPLAY_STRATEGY_FIXED}
@@ -33,11 +34,12 @@ const LegendDisplayStrategy = ({ value, onChange }) => (
                 checked={value === LEGEND_DISPLAY_STRATEGY_FIXED}
                 onChange={onChange}
                 dense
+                dataTest={'legend-display-strategy-fixed'}
             />
         </Field>
         {value === LEGEND_DISPLAY_STRATEGY_FIXED ? (
             <div className={tabSectionOptionToggleable.className}>
-                <LegendSet />
+                <LegendSet dataTest="fixed-legend-set" />
             </div>
         ) : null}
     </Fragment>

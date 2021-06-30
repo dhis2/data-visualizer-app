@@ -169,3 +169,18 @@ export const expectWindowConfigXAxisToHaveRangeMaxValue = value =>
             const xAxis = xAxes[0]
             expect(xAxis.max).to.eq(value)
         })
+
+export const expectWindowConfigSeriesItemToHaveLegendSet = (
+    seriesItemName,
+    expectedLS
+) =>
+    cy
+        .window()
+        .its(CONFIG_PROP)
+        .its(SERIES_PROP)
+        .then(series => {
+            const seriesItem = series.find(item => item.name === seriesItemName)
+            seriesItem.data.every(item =>
+                expect(item.legendSet).to.eq(expectedLS)
+            )
+        })
