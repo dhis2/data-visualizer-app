@@ -7,13 +7,16 @@ export default {
         width: '180px',
     },
     legendKeyToggle: {
-        margin: '0 8px',
+        margin: '0 4px',
     },
     wrapper: {
         position: 'absolute',
         top: 0,
         bottom: 0,
         overflow: 'auto',
+    },
+    buttonMargin: {
+        marginTop: '34px',
     },
     backdrop: {
         position: 'fixed',

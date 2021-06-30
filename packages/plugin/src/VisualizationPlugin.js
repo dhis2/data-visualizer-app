@@ -8,8 +8,7 @@ import {
     LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM,
 } from '@dhis2/analytics'
 import { useDataEngine } from '@dhis2/app-runtime'
-import i18n from '@dhis2/d2-i18n'
-import { Popper, Button } from '@dhis2/ui'
+import { Popper, Button, IconLegend24 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState, useCallback } from 'react'
 import { createPortal } from 'react-dom'
@@ -185,6 +184,7 @@ export const VisualizationPlugin = ({
                 responses,
                 extraOptions,
             })
+            setShowLegendKey(visualization.legend?.showKey)
             onLoadingComplete()
         }
 
@@ -206,15 +206,56 @@ export const VisualizationPlugin = ({
         : null
 
     const hasLegendSet = fetchResult.legendSets?.length > 0
-    const hasLegendKey = fetchResult.visualization.legend?.showKey
     const transformedStyle =
         forDashboard && hasLegendSet
             ? {
                   ...style,
-                  width:
-                      style.width - (showLegendKey || hasLegendKey ? 195 : 75), // TODO: Very arbitrary and static, change these values to something dynamic
+                  width: style.width - (showLegendKey ? 200 : 36), // TODO: Very arbitrary and static, change these values to something dynamic
               }
             : style
+
+    const getLegendKey = () => {
+        if (forDashboard && hasLegendSet) {
+            return (
+                <>
+                    {showLegendKey && (
+                        <div style={styles.legendKey}>
+                            <div
+                                style={{
+                                    ...styles.wrapper,
+                                    ...styles.buttonMargin,
+                                }}
+                            >
+                                <LegendKey
+                                    legendSets={fetchResult.legendSets}
+                                />
+                            </div>
+                        </div>
+                    )}
+                    <div style={styles.legendKeyToggle}>
+                        <Button
+                            small
+                            secondary
+                            onClick={() => {
+                                setShowLegendKey(!showLegendKey)
+                                incremementRenderId()
+                            }}
+                            icon={<IconLegend24 />}
+                            toggled={showLegendKey}
+                        />
+                    </div>
+                </>
+            )
+        } else if (hasLegendSet && fetchResult.visualization.legend?.showKey) {
+            return (
+                <div style={styles.legendKey}>
+                    <div style={styles.wrapper}>
+                        <LegendKey legendSets={fetchResult.legendSets} />
+                    </div>
+                </div>
+            )
+        }
+    }
 
     return (
         <>
@@ -252,26 +293,7 @@ export const VisualizationPlugin = ({
                     />
                 )}
             </div>
-            {hasLegendSet && (hasLegendKey || (forDashboard && showLegendKey)) && (
-                <div style={styles.legendKey}>
-                    <div style={styles.wrapper}>
-                        <LegendKey legendSets={fetchResult.legendSets} />
-                    </div>
-                </div>
-            )}
-            {forDashboard && hasLegendSet && !hasLegendKey && (
-                <div style={styles.legendKeyToggle}>
-                    <Button
-                        secondary
-                        onClick={() => {
-                            setShowLegendKey(!showLegendKey)
-                            incremementRenderId()
-                        }}
-                    >
-                        {i18n.t('BTN')}
-                    </Button>
-                </div>
-            )}
+            {getLegendKey()}
             {contextualMenuRect &&
                 createPortal(
                     <div onClick={closeContextualMenu} style={styles.backdrop}>
