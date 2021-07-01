@@ -41,7 +41,7 @@ msgid ""
 msgstr ""
 
 msgid "No, cancel"
-msgstr ""
+msgstr "No, cancela"
 
 msgid "Yes, leave"
 msgstr ""
