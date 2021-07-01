@@ -54,3 +54,15 @@ export const changeFixedLegendSet = legendSetName => {
 
 export const expectFixedLegendSetToBe = legendSetName =>
     cy.getBySel('fixed-legend-set-select').should('contain', legendSetName)
+
+export const expectSingleValueToNotBeColor = color =>
+    cy
+        .getBySel('visualization-primary-value')
+        .invoke('attr', 'fill')
+        .should('not.eq', color)
+
+export const expectSingleValueToBeColor = color =>
+    cy
+        .getBySel('visualization-primary-value')
+        .invoke('attr', 'fill')
+        .should('eq', color)

@@ -73,4 +73,6 @@ export {
     changeDisplayStyleToText,
     expectLegendDisplayStyleToBeText,
     expectLegendDisplayStyleToBeFill,
+    expectSingleValueToNotBeColor,
+    expectSingleValueToBeColor,
 } from './legend'

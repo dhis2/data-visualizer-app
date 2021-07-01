@@ -32,6 +32,8 @@ import {
     expectLegendDisplayStyleToBeFill,
     expectLegendDisplayStyleToBeText,
     expectLegendToBeEnabled,
+    expectSingleValueToBeColor,
+    expectSingleValueToNotBeColor,
     OPTIONS_TAB_LEGEND,
 } from '../../elements/optionsModal'
 import { goToStartPage } from '../../elements/startScreen'
@@ -116,9 +118,7 @@ describe('Options - Legend', () => {
             selectIndicators([TEST_ITEM.name])
             clickDimensionModalUpdateButton()
             expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
-            cy.getBySel('visualization-primary-value')
-                .invoke('attr', 'fill')
-                .should('eq', EXPECTED_STANDARD_TEXT_COLOR)
+            expectSingleValueToBeColor(EXPECTED_STANDARD_TEXT_COLOR)
         })
         it('enables legend', () => {
             clickMenuBarOptionsButton()
@@ -130,9 +130,7 @@ describe('Options - Legend', () => {
             expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
         })
         it('legend is applied', () => {
-            cy.getBySel('visualization-primary-value')
-                .invoke('attr', 'fill')
-                .should('not.eq', EXPECTED_STANDARD_TEXT_COLOR)
+            expectSingleValueToNotBeColor(EXPECTED_STANDARD_TEXT_COLOR)
         })
     })
     describe('Gauge: applying a legend', () => {
@@ -346,9 +344,7 @@ describe('Options - Legend', () => {
             expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
         })
         it('legend is applied', () => {
-            cy.getBySel('visualization-primary-value')
-                .invoke('attr', 'fill')
-                .should('not.eq', EXPECTED_STANDARD_TEXT_COLOR)
+            expectSingleValueToNotBeColor(EXPECTED_STANDARD_TEXT_COLOR)
         })
         it('verifies that options are persisted', () => {
             clickMenuBarOptionsButton()
