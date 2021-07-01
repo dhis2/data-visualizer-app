@@ -3,6 +3,7 @@ import {
     VIS_TYPE_COLUMN,
     VIS_TYPE_SINGLE_VALUE,
     VIS_TYPE_GAUGE,
+    VIS_TYPE_PIVOT_TABLE,
     visTypeDisplayNames,
 } from '@dhis2/analytics'
 import {
@@ -195,6 +196,69 @@ describe('Options - Legend', () => {
             changeDisplayStyleToText()
         })
     })
+    describe('Pivot table: applying a legend', () => {
+        const TEST_ITEM = TEST_ITEMS[0]
+        const EXPECTED_STANDARD_TEXT_COLOR = 'color: rgb(33, 41, 52)'
+        const valueCellEl = 'visualization-value-cell'
+        it('navigates to the start page and adds data items', () => {
+            goToStartPage()
+            changeVisType(visTypeDisplayNames[VIS_TYPE_PIVOT_TABLE])
+            openDimension(DIMENSION_ID_DATA)
+            selectIndicators([TEST_ITEM.name])
+            clickDimensionModalUpdateButton()
+            expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
+        })
+        it('no legend is applied', () => {
+            cy.getBySel(valueCellEl).each($el => {
+                cy.wrap($el)
+                    .invoke('attr', 'style')
+                    .should('not.contain', 'color')
+                    .and('not.contain', 'background-color')
+            })
+        })
+        it('enables legend', () => {
+            clickMenuBarOptionsButton()
+            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            enableLegend()
+            expectLegendToBeEnabled()
+            expectLegendDisplayStrategyToBeByDataItem()
+            expectLegendDisplayStyleToBeFill()
+            clickOptionsModalUpdateButton()
+            expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
+        })
+        it('background color legend is applied', () => {
+            cy.getBySel(valueCellEl).each($el => {
+                cy.wrap($el)
+                    .invoke('attr', 'style')
+                    .should('contain', 'background-color')
+                    .and('contain', EXPECTED_STANDARD_TEXT_COLOR)
+            })
+        })
+        it('changes legend display style to text color', () => {
+            clickMenuBarOptionsButton()
+            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            expectLegendDisplayStrategyToBeByDataItem()
+            expectLegendDisplayStyleToBeFill()
+            changeDisplayStyleToText()
+            expectLegendDisplayStyleToBeText()
+            clickOptionsModalUpdateButton()
+            expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
+        })
+        it('text color legend is applied', () => {
+            cy.getBySel(valueCellEl).each($el => {
+                cy.wrap($el)
+                    .invoke('attr', 'style')
+                    .should('not.contain', 'background-color')
+                    .and('not.contain', EXPECTED_STANDARD_TEXT_COLOR)
+            })
+        })
+        it('verifies that options are persisted', () => {
+            clickMenuBarOptionsButton()
+            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            expectLegendDisplayStrategyToBeByDataItem()
+            changeDisplayStyleToText()
+        })
+    })
 })
 
 /*  TODO:
@@ -202,12 +266,12 @@ describe('Options - Legend', () => {
         x isLegendSetType types (currently Column and Bar) - only legend strategy
         x SV - only legend strategy
         x Gauge - legend style and legend strategy
-        - PT - legend style and legend strategy
+        x PT - legend style and legend strategy
     - Other vis types should show the default colors
     - Other vis types should not show the legend tab in options
     x Legend style and strategy options should persist when reopening the modal
     - Legend style and strategy options should persist when changing vis type to another type that supports legends
-    - "Fixed legend" list loads and displays properly
+    x "Fixed legend" list loads and displays properly
     - Legend key can be toggled on and off
     - Series key items show multiple bullets when a legend is in use
 */
