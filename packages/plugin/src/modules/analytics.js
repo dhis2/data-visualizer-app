@@ -1,4 +1,4 @@
-import { getRelativePeriodsOptionsById, WEEKS, DAYS } from '@dhis2/analytics'
+import { getRelativePeriodsOptionsById, WEEKLY, DAILY } from '@dhis2/analytics'
 
 export const computeYoYMatrix = (responses, relativePeriodTypeUsed) => {
     const periodGroups = responses.reduce((list, res) => {
@@ -7,7 +7,7 @@ export const computeYoYMatrix = (responses, relativePeriodTypeUsed) => {
         return list
     }, [])
 
-    if (relativePeriodTypeUsed === DAYS) {
+    if (relativePeriodTypeUsed === DAILY) {
         periodGroups.sort((a, b) => a[0].substr(-2) - b[0].substr(-2))
 
         const periodKeyAxisIndexMatrix = periodGroups
@@ -52,7 +52,7 @@ export const computeYoYMatrix = (responses, relativePeriodTypeUsed) => {
         })
 
         return periodKeyAxisIndexMatrix
-    } else if (relativePeriodTypeUsed === WEEKS) {
+    } else if (relativePeriodTypeUsed === WEEKLY) {
         periodGroups.sort((a, b) => b[0].split('W')[1] - a[0].split('W')[1])
 
         const periodKeyAxisIndexMatrix = periodGroups
@@ -85,12 +85,14 @@ export const computeYoYMatrix = (responses, relativePeriodTypeUsed) => {
                     }
                 } else {
                     // find the right spot considering also the year
-                    const indexForPrevWeekInYear = periodKeyAxisIndexMatrix.findIndex(
-                        periodKeys =>
-                            periodKeys.findIndex(
-                                periodKey => periodKey === `${year}W${week - 1}`
-                            ) !== -1
-                    )
+                    const indexForPrevWeekInYear =
+                        periodKeyAxisIndexMatrix.findIndex(
+                            periodKeys =>
+                                periodKeys.findIndex(
+                                    periodKey =>
+                                        periodKey === `${year}W${week - 1}`
+                                ) !== -1
+                        )
 
                     periodKeyAxisIndexMatrix.splice(
                         indexForPrevWeekInYear + 1,
@@ -123,14 +125,14 @@ export const computeGenericPeriodNamesFromMatrix = (
     relativePeriodTypeUsed
 ) => {
     switch (relativePeriodTypeUsed) {
-        case WEEKS:
+        case WEEKLY:
             return (
                 periodKeyAxisIndexMatrix
                     // remove year, return "Wnn"
                     .map(periodKeys => periodKeys[0].substr(4))
                     .flat()
             )
-        case DAYS:
+        case DAILY:
             return periodKeyAxisIndexMatrix
                 .map(periodKeys =>
                     // remove year, return "dd-mm"
@@ -172,16 +174,16 @@ export const computeGenericPeriodNames = responses => {
 
 export const getRelativePeriodTypeUsed = periodItems => {
     if (
-        getRelativePeriodsOptionsById(WEEKS)
+        getRelativePeriodsOptionsById(WEEKLY)
             .getPeriods()
             .find(period => period.id === periodItems[0].id)
     ) {
-        return WEEKS
+        return WEEKLY
     } else if (
-        getRelativePeriodsOptionsById(DAYS)
+        getRelativePeriodsOptionsById(DAILY)
             .getPeriods()
             .find(period => period.id === periodItems[0].id)
     ) {
-        return DAYS
+        return DAILY
     }
 }

@@ -1,16 +1,14 @@
-import React from 'react'
 import i18n from '@dhis2/d2-i18n'
-import PropTypes from 'prop-types'
 import { Label, Help } from '@dhis2/ui'
-
-import AxisMinValue from './AxisMinValue'
-import AxisMaxValue from './AxisMaxValue'
+import PropTypes from 'prop-types'
+import React from 'react'
 import styles from '../styles/AxisRange.module.css'
-
 import {
     tabSectionOption,
     tabSectionOptionComplexInline,
 } from '../styles/VisualizationOptions.style.js'
+import AxisMaxValue from './AxisMaxValue'
+import AxisMinValue from './AxisMinValue'
 
 const AxisRange = ({ disabled, axisId }) => (
     <div className={tabSectionOption.className}>

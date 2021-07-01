@@ -1,19 +1,18 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 import { Checkbox, FieldSet, Help, Legend } from '@dhis2/ui'
-
-import { sGetUiOptions } from '../../../reducers/ui'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { connect } from 'react-redux'
 import { acSetUiOptions } from '../../../actions/ui'
+import { sGetUiOptions } from '../../../reducers/ui'
+import styles from '../styles/Outliers.module.css'
 import {
     tabSectionToggleableSubsection,
     tabSectionOption,
     tabSectionTitle,
 } from '../styles/VisualizationOptions.style.js'
-import OutlierDetectionMethod from './OutlierDetectionMethod'
 import ExtremeLines from './ExtremeLines'
-import styles from '../styles/Outliers.module.css'
+import OutlierDetectionMethod from './OutlierDetectionMethod'
 
 const ENABLED_PROP = 'enabled'
 const METHOD_PROP = 'outlierMethod'

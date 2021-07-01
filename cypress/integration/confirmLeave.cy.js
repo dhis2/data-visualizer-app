@@ -35,7 +35,7 @@ describe('confirm leave modal', () => {
         createNewAO()
         expectConfirmLeaveModalToBeVisible()
     })
-    it('cancel leave', () => {
+    it('cancels leave', () => {
         confirmLeave(false)
         expectVisualizationToBeVisible(TEST_AO.type)
         expectAOTitleToBeDirty()
@@ -44,7 +44,7 @@ describe('confirm leave modal', () => {
         createNewAO()
         expectConfirmLeaveModalToBeVisible()
     })
-    it('confirm leave', () => {
+    it('confirms leave', () => {
         confirmLeave(true)
         expectStartScreenToBeVisible()
         expectVisualizationToNotBeVisible()

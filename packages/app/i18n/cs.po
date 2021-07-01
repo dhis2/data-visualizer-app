@@ -321,8 +321,20 @@ msgstr "Kroky"
 msgid "Axis title"
 msgstr "Název osy"
 
+msgid "Auto generated"
+msgstr "Automaticky generováno"
+
+msgid "None"
+msgstr "Žádný"
+
+msgid "Custom"
+msgstr "Vlastní"
+
 msgid "Add a title"
 msgstr "Přidat název"
+
+msgid "Reset style to default"
+msgstr "Obnovit výchozí styl"
 
 msgid "Base line"
 msgstr "Základní linie"
@@ -365,9 +377,6 @@ msgstr "Kumulativní hodnoty"
 
 msgid "Digit group separator"
 msgstr "Oddělovač skupin číslic"
-
-msgid "None"
-msgstr "Žádný"
 
 msgid "Space"
 msgstr "Mezera"
@@ -438,17 +447,11 @@ msgstr "Podtitul tabulky"
 msgid "Chart subtitle"
 msgstr "Podtitul grafu"
 
-msgid "Auto generated"
-msgstr "Automaticky generováno"
-
-msgid "Custom"
-msgstr "Vlastní"
-
 msgid "Chart title"
 msgstr "Název grafu"
 
 msgid "Use legend for chart colors"
-msgstr ""
+msgstr "Pro barvy grafu použijte legendu"
 
 msgid "Legend style"
 msgstr "Styl Legendy"
@@ -518,6 +521,9 @@ msgid ""
 "different data. Check the documentation for help to choose the right outlier"
 " detection method"
 msgstr ""
+"Každá metoda detekce identifikuje odlehlé hodnoty různými způsoby a vyhovuje"
+" různým datům. V dokumentaci najdete nápovědu k výběru správné metody "
+"detekce odlehlých hodnot"
 
 msgid "Threshold factor"
 msgstr "Faktor prahu"
@@ -800,10 +806,10 @@ msgstr ""
 "nesprávné nebo může být odstraněno."
 
 msgid "No organization units found"
-msgstr ""
+msgstr "Nebyly nalezeny žádné organizační jednotky"
 
 msgid "The level or group selections didn't return any organization units."
-msgstr ""
+msgstr "Výběr úrovní nebo skupin nevrátil žádné organizační jednotky."
 
 msgid "Something went wrong"
 msgstr "Něco se pokazilo"
@@ -942,23 +948,16 @@ msgstr "Platí pouze pro standardní zprávy"
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr "Základní a cílové čáry jsou k dispozici na kartě Osy pro bodové grafy"
 
-msgid "Vertical axis"
-msgstr "Svislá osa"
-
-msgid "Horizontal axis"
-msgstr "Horizontální osa"
-
 msgid "Color set"
 msgstr "Barevná sada"
 
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr "Barevné sady zatím nejsou podporovány při použití více os"
 
-msgid "Horizontal (x) axis"
-msgstr "Vodorovná (x) osa"
-
-msgid "Lines are not supported yet when using multiple axes"
-msgstr "Při použití více os ještě nejsou řádky podporovány"
+msgid ""
+"Base and target lines are available on the Axes tab for multi-axis charts"
+msgstr ""
+"Základní a cílové čáry jsou k dispozici na kartě Osy pro víceosé grafy"
 
 msgid "Chart style"
 msgstr "Styl grafu"
@@ -969,20 +968,26 @@ msgstr "Zobrazit"
 msgid "Empty data"
 msgstr "Prázdná data"
 
+msgid "Horizontal (x) axis {{axisId}}"
+msgstr "Vodorovná (x) osa {{axisId}}"
+
+msgid "Horizontal (x) axis"
+msgstr "Vodorovná (x) osa"
+
 msgid "Lines"
 msgstr "Linie"
 
 msgid "Totals"
 msgstr "Součty"
 
+msgid "Vertical (y) axis {{axisId}}"
+msgstr "Svislá osa (y) {{axisId}}"
+
 msgid "Vertical (y) axis"
 msgstr "Svislá osa (y)"
 
 msgid "Titles"
 msgstr "Tituly"
-
-msgid "Vertical axis options are not supported yet when using multiple axes"
-msgstr "Možnosti svislé osy ještě nejsou podporovány při použití více os"
 
 msgid "Axes"
 msgstr "Osy"

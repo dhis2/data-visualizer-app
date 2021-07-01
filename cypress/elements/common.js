@@ -1,12 +1,11 @@
 import { isYearOverYear, DIMENSION_ID_PERIOD } from '@dhis2/analytics'
-
-import { clickMenuBarUpdateButton } from './menuBar'
-import { openDimension, selectYoyCategoryOption } from './layout'
 import {
-    removeAllPeriodItems,
-    selectRelativePeriods,
-} from './dimensionModal/periodDimension'
-import { clickDimensionModalUpdateButton } from './dimensionModal'
+    clickDimensionModalUpdateButton,
+    unselectAllItemsByButton,
+} from './dimensionModal'
+import { selectRelativePeriods } from './dimensionModal/periodDimension'
+import { openDimension, selectYoyCategoryOption } from './layout'
+import { clickMenuBarUpdateButton } from './menuBar'
 
 const loadingEl = 'dhis2-uicore-circularloader'
 
@@ -38,7 +37,7 @@ export const replacePeriodItems = (
             ? 'Last 2 six-month'
             : 'Quarters this year'
         openDimension(DIMENSION_ID_PERIOD)
-        removeAllPeriodItems()
+        unselectAllItemsByButton()
         selectRelativePeriods([TEST_PERIOD], TEST_PERIOD_TYPE)
         clickDimensionModalUpdateButton()
     }

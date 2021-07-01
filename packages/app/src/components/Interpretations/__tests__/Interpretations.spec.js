@@ -1,6 +1,6 @@
-import React from 'react'
-import { shallow } from 'enzyme'
 import InterpretationsComponent from '@dhis2/d2-ui-interpretations'
+import { shallow } from 'enzyme'
+import React from 'react'
 import { Interpretations } from '../Interpretations'
 
 describe('Interpretations component', () => {

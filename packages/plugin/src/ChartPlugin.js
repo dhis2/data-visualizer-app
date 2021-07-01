@@ -1,6 +1,6 @@
-import React, { useRef, useCallback, useEffect } from 'react'
-import PropTypes from 'prop-types'
 import { isSingleValue, createVisualization } from '@dhis2/analytics'
+import PropTypes from 'prop-types'
+import React, { useRef, useCallback, useEffect } from 'react'
 
 const ChartPlugin = ({
     visualization,
@@ -11,6 +11,7 @@ const ChartPlugin = ({
     style,
     onChartGenerated,
     animation: defaultAnimation,
+    onToggleContextualMenu,
 }) => {
     const canvasRef = useRef(undefined)
     const prevStyle = useRef(style)
@@ -26,6 +27,7 @@ const ChartPlugin = ({
                     ...extraOptions,
                     animation,
                     legendSets,
+                    onToggleContextualMenu,
                 },
                 undefined,
                 undefined,
@@ -101,6 +103,7 @@ ChartPlugin.propTypes = {
     id: PropTypes.number,
     style: PropTypes.object,
     onChartGenerated: PropTypes.func,
+    onToggleContextualMenu: PropTypes.func,
 }
 
 export default ChartPlugin

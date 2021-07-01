@@ -1,6 +1,5 @@
 import PropTypes from '@dhis2/prop-types'
 import React from 'react'
-
 import styles from './styles/IconButton.module.css'
 
 const IconButton = ({

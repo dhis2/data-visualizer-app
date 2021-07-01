@@ -1,6 +1,5 @@
 /*eslint no-unused-vars: ["error", { "ignoreRestSiblings": true }]*/
 
-import castArray from 'lodash-es/castArray'
 import {
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
@@ -18,7 +17,7 @@ import {
     FONT_STYLE_REGRESSION_LINE_LABEL,
 } from '@dhis2/analytics'
 import objectClean from 'd2-utilizr/lib/objectClean'
-
+import castArray from 'lodash-es/castArray'
 import {
     getFilteredLayout,
     getInverseLayout,
@@ -32,7 +31,7 @@ import {
     OPTION_AXIS_MIN_VALUE,
     OPTION_AXIS_STEPS,
     OPTION_AXIS_TITLE,
-    OPTION_AXIS_TITLE_ENABLED,
+    OPTION_AXIS_TITLE_TEXT_MODE,
     OPTION_BASE_LINE_TITLE,
     OPTION_BASE_LINE_VALUE,
     OPTION_BASE_LINE_TITLE_FONT_STYLE,
@@ -53,6 +52,7 @@ export const SET_UI_FROM_VISUALIZATION = 'SET_UI_FROM_VISUALIZATION'
 export const SET_UI_TYPE = 'SET_UI_TYPE'
 export const SET_UI_OPTIONS = 'SET_UI_OPTIONS'
 export const SET_UI_OPTION = 'SET_UI_OPTION'
+export const SET_UI_OPTION_FONT_STYLE = 'SET_UI_OPTION_FONT_STYLE'
 export const SET_UI_LAYOUT = 'SET_UI_LAYOUT'
 export const ADD_UI_LAYOUT_DIMENSIONS = 'ADD_UI_LAYOUT_DIMENSIONS'
 export const REMOVE_UI_LAYOUT_DIMENSIONS = 'REMOVE_UI_LAYOUT_DIMENSIONS'
@@ -100,11 +100,8 @@ export const PRESELECTED_YEAR_OVER_YEAR_SERIES = ['THIS_YEAR', 'LAST_YEAR']
 export const PRESELECTED_YEAR_OVER_YEAR_CATEGORY = ['MONTHS_THIS_YEAR']
 
 const getPreselectedUi = options => {
-    const {
-        rootOrganisationUnit,
-        relativePeriod,
-        digitGroupSeparator,
-    } = options
+    const { rootOrganisationUnit, relativePeriod, digitGroupSeparator } =
+        options
 
     const rootOrganisationUnits = []
     const parentGraphMap = { ...DEFAULT_UI.parentGraphMap }
@@ -170,20 +167,12 @@ export default (state = DEFAULT_UI, action) => {
             const [axisType, axisIndex] = (action.value.axisId || '').split('_')
             const fontStyleOption = action.value.fontStyleOption
 
-            const pushAxis = axis => {
-                options.axes = options.axes.filter(
-                    filter =>
-                        filter.index !== Number(axis.index) ||
-                        filter.type !== axis.type
-                )
-                options.axes.push(axis)
-            }
             switch (optionId) {
                 case OPTION_AXIS_DECIMALS:
                 case OPTION_AXIS_STEPS:
                 case OPTION_AXIS_MAX_VALUE:
                 case OPTION_AXIS_MIN_VALUE: {
-                    pushAxis({
+                    options.axes = pushAxis(options.axes, {
                         ...getAxis(options.axes, Number(axisIndex), axisType),
                         [optionId]: value,
                     })
@@ -201,7 +190,7 @@ export default (state = DEFAULT_UI, action) => {
                         Number(axisIndex),
                         axisType
                     )
-                    pushAxis({
+                    options.axes = pushAxis(options.axes, {
                         ...axis,
                         title: {
                             ...axis.title,
@@ -210,14 +199,18 @@ export default (state = DEFAULT_UI, action) => {
                     })
                     break
                 }
-                case OPTION_AXIS_TITLE_ENABLED: {
-                    pushAxis({
-                        ...getAxis(options.axes, Number(axisIndex), axisType),
-                        title: value
-                            ? {
-                                  enabled: value,
-                              }
-                            : null,
+                case OPTION_AXIS_TITLE_TEXT_MODE: {
+                    const axis = getAxis(
+                        options.axes,
+                        Number(axisIndex),
+                        axisType
+                    )
+                    options.axes = pushAxis(options.axes, {
+                        ...axis,
+                        title: {
+                            ...axis.title,
+                            textMode: value,
+                        },
                     })
                     break
                 }
@@ -227,7 +220,7 @@ export default (state = DEFAULT_UI, action) => {
                         optionId === OPTION_BASE_LINE_ENABLED
                             ? 'baseLine'
                             : 'targetLine'
-                    pushAxis({
+                    options.axes = pushAxis(options.axes, {
                         ...getAxis(options.axes, Number(axisIndex), axisType),
                         [prop]: value
                             ? {
@@ -255,7 +248,7 @@ export default (state = DEFAULT_UI, action) => {
                             text: value || undefined,
                         },
                     }
-                    pushAxis(axis)
+                    options.axes = pushAxis(options.axes, axis)
                     break
                 }
                 case OPTION_BASE_LINE_VALUE:
@@ -273,7 +266,7 @@ export default (state = DEFAULT_UI, action) => {
                         ...axis[prop],
                         value: value || value === 0 ? value : undefined,
                     }
-                    pushAxis(axis)
+                    options.axes = pushAxis(options.axes, axis)
                     break
                 }
                 case OPTION_BASE_LINE_TITLE_FONT_STYLE:
@@ -299,7 +292,7 @@ export default (state = DEFAULT_UI, action) => {
                                     : undefined,
                         },
                     }
-                    pushAxis(axis)
+                    options.axes = pushAxis(options.axes, axis)
                     break
                 }
 
@@ -321,7 +314,7 @@ export default (state = DEFAULT_UI, action) => {
                                     : undefined,
                         },
                     }
-                    pushAxis(axis)
+                    options.axes = pushAxis(options.axes, axis)
                     break
                 }
                 case FONT_STYLE_AXIS_LABELS: {
@@ -341,7 +334,7 @@ export default (state = DEFAULT_UI, action) => {
                                     : undefined,
                         },
                     }
-                    pushAxis(axis)
+                    options.axes = pushAxis(options.axes, axis)
                     break
                 }
                 case FONT_STYLE_LEGEND: {
@@ -384,16 +377,36 @@ export default (state = DEFAULT_UI, action) => {
 
             options.fontStyle = deepClean(options.fontStyle)
             options.legend = deepClean(options.legend)
-            options.axes = options.axes
-                .map(axis => {
-                    const cleanAxis = deepClean(axis)
-                    return !Object.keys(cleanAxis).filter(
-                        key => !['type', 'index'].includes(key)
-                    ).length
-                        ? null
-                        : cleanAxis
-                })
-                .filter(i => i)
+            options.axes = cleanAxes(options.axes)
+
+            return {
+                ...state,
+                options: {
+                    ...state.options,
+                    ...options,
+                },
+            }
+        }
+        case SET_UI_OPTION_FONT_STYLE: {
+            const options = {
+                axes: state.options.axes || [],
+            }
+            const [axisType, axisIndex] = (action.value.axisId || '').split('_')
+            const axis = getAxis(options.axes, Number(axisIndex), axisType)
+
+            switch (action.value.optionId) {
+                case FONT_STYLE_VERTICAL_AXIS_TITLE:
+                case FONT_STYLE_HORIZONTAL_AXIS_TITLE: {
+                    axis.title = {
+                        ...axis.title,
+                        fontStyle: action.value.value,
+                    }
+                    options.axes = pushAxis(options.axes, axis)
+                    break
+                }
+            }
+
+            options.axes = cleanAxes(options.axes)
 
             return {
                 ...state,
@@ -720,9 +733,9 @@ export const sGetUiOption = (state, option) => {
                     option.id
                 ]
                 break
-            case OPTION_AXIS_TITLE_ENABLED:
+            case OPTION_AXIS_TITLE_TEXT_MODE:
                 value = getAxis(options.axes, Number(axisIndex), axisType).title
-                    ?.enabled
+                    ?.textMode
                 break
             case OPTION_AXIS_TITLE:
                 value = getAxis(options.axes, Number(axisIndex), axisType).title
@@ -828,3 +841,24 @@ const deepClean = input => {
     })
     return result
 }
+
+const pushAxis = (axes, axis) => {
+    const updatedAxes = axes.filter(
+        filter =>
+            filter.index !== Number(axis.index) || filter.type !== axis.type
+    )
+    updatedAxes.push(axis)
+    return updatedAxes
+}
+
+const cleanAxes = axes =>
+    axes
+        .map(axis => {
+            const cleanAxis = deepClean(axis)
+            return !Object.keys(cleanAxis).filter(
+                key => !['type', 'index'].includes(key)
+            ).length
+                ? null
+                : cleanAxis
+        })
+        .filter(i => i)

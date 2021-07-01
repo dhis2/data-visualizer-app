@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-key */
 import React from 'react'
-
 import CumulativeValues from '../../../components/VisualizationOptions/Options/CumulativeValues'
 import HideEmptyRowItems from '../../../components/VisualizationOptions/Options/HideEmptyRowItems'
 import PercentStackedValues from '../../../components/VisualizationOptions/Options/PercentStackedValues'

@@ -14,8 +14,6 @@ import {
     DIMENSION_PROP_NO_ITEMS,
     DIMENSION_ID_DATA,
 } from '@dhis2/analytics'
-
-import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields'
 import {
     NoSeriesError,
     NoCategoryError,
@@ -27,6 +25,7 @@ import {
     NoHorizontalError,
     DuplicateItemsError,
 } from './error'
+import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields'
 import { ITEM_ATTRIBUTE_HORIZONTAL, ITEM_ATTRIBUTE_VERTICAL } from './ui'
 
 // Layout validation helper functions

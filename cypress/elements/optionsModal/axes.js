@@ -1,17 +1,23 @@
-import { clickCheckbox, typeInput } from '../common'
+import { typeInput } from '../common'
 
-const titleCheckboxEl = 'axis-title-checkbox'
 const titleInputEl = 'axis-title-input'
 const rangeMinInputEl = 'axis-range-min-input'
 const rangeMaxInputEl = 'axis-range-max-input'
+const axisTitleRadiosEl = 'option-chart-title'
+const verticalTabsEl = 'axes-tabs'
+const stepsInputEl = 'axis-steps'
+const decimalsInputEl = 'axis-decimals'
 
 const getAxisSelector = (axis, selector) => `${axis}-${selector}`
 
-export const enableAxisTitle = axis =>
-    clickCheckbox(getAxisSelector(axis, titleCheckboxEl))
+export const switchAxesTabTo = tab =>
+    cy.getBySel(verticalTabsEl).containsExact(tab).click()
 
-export const setAxisTitle = (axis, text) =>
+export const setAxisTitleText = (axis, text) =>
     typeInput(getAxisSelector(axis, titleInputEl), text)
+
+export const setAxisTitleTextModeTo = textMode =>
+    cy.getBySel(axisTitleRadiosEl).contains(textMode).click()
 
 export const expectAxisTitleToBeValue = (axis, value) =>
     cy
@@ -46,3 +52,12 @@ export const expectAxisRangeMaxToBeValue = (axis, value) =>
         .find('input')
         .should('be.visible')
         .and('have.value', value)
+
+export const setAxisStepsValue = (axis, value) =>
+    cy.getBySel(getAxisSelector(axis, stepsInputEl)).find('input').type(value)
+
+export const setAxisDecimalsValue = (axis, value) =>
+    cy
+        .getBySel(getAxisSelector(axis, decimalsInputEl))
+        .find('input')
+        .type(value)

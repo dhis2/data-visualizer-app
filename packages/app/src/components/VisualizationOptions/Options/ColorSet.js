@@ -1,9 +1,3 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-
-import i18n from '@dhis2/d2-i18n'
-import { Field, Radio } from '@dhis2/ui'
 import {
     colorSets,
     COLOR_SET_DEFAULT,
@@ -13,10 +7,13 @@ import {
     COLOR_SET_COLOR_BLIND,
     COLOR_SET_PATTERNS,
 } from '@dhis2/analytics'
-
-import { sGetUiOptions } from '../../../reducers/ui'
+import i18n from '@dhis2/d2-i18n'
+import { Field, Radio } from '@dhis2/ui'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { connect } from 'react-redux'
 import { acSetUiOptions } from '../../../actions/ui'
-
+import { sGetUiOptions } from '../../../reducers/ui'
 import { tabSectionOption } from '../styles/VisualizationOptions.style.js'
 
 export const COLOR_SET_OPTION_NAME = 'colorSet'

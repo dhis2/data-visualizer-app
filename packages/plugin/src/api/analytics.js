@@ -3,10 +3,9 @@ import {
     VIS_TYPE_PIVOT_TABLE,
     layoutGetDimensionItems,
     DIMENSION_ID_PERIOD,
-    DAYS,
-    WEEKS,
+    DAILY,
+    WEEKLY,
 } from '@dhis2/analytics'
-
 import { getRelativePeriodTypeUsed } from '../modules/analytics'
 
 const periodId = DIMENSION_ID_PERIOD
@@ -57,7 +56,7 @@ export const apiFetchAnalyticsForYearOverYear = async (
     const periodItems = layoutGetDimensionItems(visualization, periodId)
 
     // relative week period in use
-    if (getRelativePeriodTypeUsed(periodItems) === WEEKS) {
+    if (getRelativePeriodTypeUsed(periodItems) === WEEKLY) {
         const relativeWeeksData = await prepareRequestsForRelativeWeeks({
             analyticsEngine,
             visualization,
@@ -69,7 +68,7 @@ export const apiFetchAnalyticsForYearOverYear = async (
 
         periodDates.push(...relativeWeeksData.periodDates)
         yearlySeriesLabels.push(...relativeWeeksData.yearlySeriesLabels)
-    } else if (getRelativePeriodTypeUsed(periodItems) === DAYS) {
+    } else if (getRelativePeriodTypeUsed(periodItems) === DAILY) {
         const relativeDaysData = prepareRequestsForRelativeDays({
             yearlySeriesRes,
             currentMonth,
@@ -193,12 +192,10 @@ const prepareRequestsForRelativeWeeks = async ({
 
     // 2. extract the last week number of the LAST_x_WEEKS period
     //    special handling for the week 53 case as not all years have 53 weeks
-    const referenceWeekPeriod = referencePeriodRes.metaData.dimensions[
-        periodId
-    ].pop()
-    const [referenceWeekYear, referenceWeekNumber] = referenceWeekPeriod.split(
-        'W'
-    )
+    const referenceWeekPeriod =
+        referencePeriodRes.metaData.dimensions[periodId].pop()
+    const [referenceWeekYear, referenceWeekNumber] =
+        referenceWeekPeriod.split('W')
     const referenceWeekYearDelta = referencePeriodYear - referenceWeekYear
 
     const weekPeriods = yearlySeriesIds.reduce((periods, year) => {

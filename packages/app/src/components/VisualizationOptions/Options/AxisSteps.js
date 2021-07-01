@@ -1,9 +1,8 @@
-import React from 'react'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
-
-import PositiveNumberBaseType from './PositiveNumberBaseType'
+import React from 'react'
 import { OPTION_AXIS_STEPS } from '../../../modules/options'
+import PositiveNumberBaseType from './PositiveNumberBaseType'
 
 export const AxisSteps = ({ disabled, axisId }) => (
     <PositiveNumberBaseType
@@ -18,6 +17,7 @@ export const AxisSteps = ({ disabled, axisId }) => (
             id: OPTION_AXIS_STEPS,
             axisId,
         }}
+        dataTest={`${axisId}-axis-steps`}
     />
 )
 

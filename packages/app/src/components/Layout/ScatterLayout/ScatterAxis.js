@@ -1,6 +1,5 @@
-import React, { useRef, useState } from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
+import { AXIS_ID_COLUMNS, DIMENSION_ID_DATA } from '@dhis2/analytics'
+import i18n from '@dhis2/d2-i18n'
 import {
     Popper,
     Layer,
@@ -9,26 +8,29 @@ import {
     MenuItem,
     MenuDivider,
 } from '@dhis2/ui'
-import i18n from '@dhis2/d2-i18n'
-import { AXIS_ID_COLUMNS, DIMENSION_ID_DATA } from '@dhis2/analytics'
-
-import Chip from '../Chip'
-import { sGetUi, sGetUiLayout } from '../../../reducers/ui'
-import { acSetUiActiveModalDialog } from '../../../actions/ui'
-import styles from './styles/ScatterAxis.style'
-import IconButton from '../../IconButton/IconButton'
+import PropTypes from 'prop-types'
+import React, { useRef, useState } from 'react'
+import { connect } from 'react-redux'
+import {
+    acSetUiActiveModalDialog,
+    acSetUiItemAttributes,
+    acRemoveUiItemAttributes,
+} from '../../../actions/ui'
+import HorizontalIcon from '../../../assets/HorizontalIcon'
 import MoreHorizontalIcon from '../../../assets/MoreHorizontalIcon'
+import VerticalIcon from '../../../assets/VerticalIcon'
 import {
     ITEM_ATTRIBUTE_HORIZONTAL,
     ITEM_ATTRIBUTE_VERTICAL,
 } from '../../../modules/ui'
 import {
-    acSetUiItemAttributes,
-    acRemoveUiItemAttributes,
-} from '../../../actions/ui'
-import { sGetUiItemsByAttribute } from '../../../reducers/ui'
-import VerticalIcon from '../../../assets/VerticalIcon'
-import HorizontalIcon from '../../../assets/HorizontalIcon'
+    sGetUi,
+    sGetUiLayout,
+    sGetUiItemsByAttribute,
+} from '../../../reducers/ui'
+import IconButton from '../../IconButton/IconButton'
+import Chip from '../Chip'
+import styles from './styles/ScatterAxis.style'
 
 const Axis = ({
     label,

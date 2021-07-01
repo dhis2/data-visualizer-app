@@ -13,7 +13,7 @@ export const changeTextAlignOption = (prefix, optionName) => {
 export const changeFontSizeOption = (prefix, optionName) => {
     cy.getBySel(getFontSizeSelectEl(prefix)).click()
     cy.getBySelLike(getFontSizeOptionEl(prefix))
-        .contains(new RegExp(`^${optionName}$`, 'gm'))
+        .containsExact(optionName)
         .click()
 }
 

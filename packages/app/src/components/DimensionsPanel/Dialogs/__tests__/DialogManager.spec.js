@@ -1,14 +1,13 @@
 /* eslint-disable react/display-name */
-import React from 'react'
-import { shallow } from 'enzyme'
 import {
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
 } from '@dhis2/analytics'
-
-import { DialogManager } from '../DialogManager'
+import { shallow } from 'enzyme'
+import React from 'react'
 import HideButton from '../../../HideButton/HideButton'
+import { DialogManager } from '../DialogManager'
 
 jest.mock('@dhis2/analytics', () => {
     const dataId = 'dx'

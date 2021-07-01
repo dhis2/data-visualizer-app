@@ -1,19 +1,18 @@
+import { AXIS_ID_FILTERS, AXIS_ID_ROWS } from '@dhis2/analytics'
+import i18n from '@dhis2/d2-i18n'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import { AXIS_ID_FILTERS, AXIS_ID_ROWS } from '@dhis2/analytics'
-import PropTypes from 'prop-types'
-import i18n from '@dhis2/d2-i18n'
-
+import {
+    ITEM_ATTRIBUTE_HORIZONTAL,
+    ITEM_ATTRIBUTE_VERTICAL,
+} from '../../../modules/ui'
 import { sGetUiItemsByAttribute } from '../../../reducers/ui'
 import DefaultAxis from '../DefaultLayout/DefaultAxis'
 import defaultAxisStyles from '../DefaultLayout/styles/DefaultAxis.style'
 import defaultLayoutStyles from '../DefaultLayout/styles/DefaultLayout.style'
 import ScatterAxis from './ScatterAxis'
 import scatterLayoutStyles from './styles/ScatterLayout.style'
-import {
-    ITEM_ATTRIBUTE_HORIZONTAL,
-    ITEM_ATTRIBUTE_VERTICAL,
-} from '../../../modules/ui'
 
 const Layout = ({ getItemsByAttribute }) => (
     <div id="layout-ct" style={defaultLayoutStyles.ct}>

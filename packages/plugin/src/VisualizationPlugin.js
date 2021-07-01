@@ -1,21 +1,19 @@
-import React, { useEffect, useState, useCallback } from 'react'
-import { createPortal } from 'react-dom'
-import PropTypes from 'prop-types'
-
-import { useDataEngine } from '@dhis2/app-runtime'
-import { Popper } from '@dhis2/ui'
 import {
     VIS_TYPE_PIVOT_TABLE,
     apiFetchOrganisationUnitLevels,
     convertOuLevelsToUids,
+    DIMENSION_ID_ORGUNIT,
 } from '@dhis2/analytics'
-
+import { useDataEngine } from '@dhis2/app-runtime'
+import { Popper } from '@dhis2/ui'
+import PropTypes from 'prop-types'
+import React, { useEffect, useState, useCallback } from 'react'
+import { createPortal } from 'react-dom'
 import { apiFetchLegendSets } from './api/legendSets'
-import ContextualMenu from './ContextualMenu'
 import ChartPlugin from './ChartPlugin'
-import PivotPlugin from './PivotPlugin'
+import ContextualMenu from './ContextualMenu'
 import { fetchData } from './modules/fetchData'
-
+import PivotPlugin from './PivotPlugin'
 import styles from './styles/VisualizationPlugin.style.js'
 
 const LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM = 'BY_DATA_ITEM'
@@ -39,8 +37,45 @@ export const VisualizationPlugin = ({
     const [contextualMenuConfig, setContextualMenuConfig] = useState({})
 
     const onToggleContextualMenu = (ref, data) => {
-        setContextualMenuRef(ref)
-        setContextualMenuConfig(data)
+        if (data.ouId) {
+            setContextualMenuConfig(data)
+            setContextualMenuRef(ref)
+        } else if (
+            data.category &&
+            ((visualization.rows.length === 1 &&
+                visualization.rows[0].dimension === DIMENSION_ID_ORGUNIT) ||
+                (visualization.rows.length === 2 &&
+                    visualization.rows[1].dimension === DIMENSION_ID_ORGUNIT))
+        ) {
+            const ouId = Object.values(
+                fetchResult.responses[0].metaData.items
+            ).find(
+                item =>
+                    item.name === data.category &&
+                    fetchResult.responses[0].metaData.dimensions[
+                        DIMENSION_ID_ORGUNIT
+                    ].includes(item.uid)
+            )?.uid
+            setContextualMenuConfig({ ouId })
+            setContextualMenuRef(ref)
+        } else if (
+            data.category &&
+            visualization.columns.some(
+                column => column.dimension === DIMENSION_ID_ORGUNIT
+            )
+        ) {
+            const ouId = Object.values(
+                fetchResult.responses[0].metaData.items
+            ).find(
+                item =>
+                    item.name === data.series &&
+                    fetchResult.responses[0].metaData.dimensions[
+                        DIMENSION_ID_ORGUNIT
+                    ].includes(item.uid)
+            )?.uid
+            setContextualMenuConfig({ ouId })
+            setContextualMenuRef(ref)
+        }
     }
 
     const closeContextualMenu = () => setContextualMenuRef(undefined)
@@ -157,10 +192,7 @@ export const VisualizationPlugin = ({
         return null
     }
 
-    const contextualMenuRect =
-        contextualMenuRef &&
-        contextualMenuRef.current &&
-        contextualMenuRef.current.getBoundingClientRect()
+    const contextualMenuRect = contextualMenuRef?.getBoundingClientRect()
 
     const virtualContextualMenuElement = contextualMenuRect
         ? { getBoundingClientRect: () => contextualMenuRect }
@@ -191,6 +223,9 @@ export const VisualizationPlugin = ({
                     responses={fetchResult.responses}
                     extraOptions={fetchResult.extraOptions}
                     legendSets={fetchResult.legendSets}
+                    onToggleContextualMenu={
+                        onDrill ? onToggleContextualMenu : undefined
+                    }
                     {...props}
                 />
             )}
@@ -199,7 +234,7 @@ export const VisualizationPlugin = ({
                     <div onClick={closeContextualMenu} style={styles.backdrop}>
                         <Popper
                             reference={virtualContextualMenuElement}
-                            placement="right"
+                            placement="right-start"
                         >
                             <ContextualMenu
                                 config={contextualMenuConfig}

@@ -6,7 +6,6 @@ import {
     DIMENSION_ID_ORGUNIT,
     DIMENSION_ID_PERIOD,
 } from '@dhis2/analytics'
-
 import { expectVisualizationToNotBeVisible } from '../elements/chart'
 import {
     closeFileMenuWithEsc,
@@ -101,7 +100,7 @@ describe('viewing the start screen', () => {
         )
         closeFileMenuWithClick()
     })
-    it('Fle menu is closed with Escape', () => {
+    it('File menu is closed with Escape', () => {
         clickMenuBarFileButton()
         closeFileMenuWithEsc()
     })

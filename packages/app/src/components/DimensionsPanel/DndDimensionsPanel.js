@@ -1,10 +1,8 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import i18n from '@dhis2/d2-i18n'
 import { DimensionFilter } from '@dhis2/analytics'
-
+import i18n from '@dhis2/d2-i18n'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import DndDimensionList from './DndDimensionList'
-
 import styles from './styles/DndDimensionsPanel.module.css'
 
 export class DndDimensionsPanel extends Component {

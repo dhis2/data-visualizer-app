@@ -1,19 +1,18 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import { createSelector } from 'reselect'
+import { FONT_STYLE_VISUALIZATION_TITLE } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import { Label, Field, Radio } from '@dhis2/ui'
-import { FONT_STYLE_VISUALIZATION_TITLE } from '@dhis2/analytics'
-
-import { sGetUiOptions } from '../../../reducers/ui'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { createSelector } from 'reselect'
 import { acSetUiOptions } from '../../../actions/ui'
-import Title from './Title'
+import { sGetUiOptions } from '../../../reducers/ui'
 import {
     tabSectionOption,
     tabSectionOptionToggleable,
 } from '../styles/VisualizationOptions.style.js'
 import TextStyle from './TextStyle'
+import Title from './Title'
 
 const HIDE_TITLE_AUTO = 'AUTO'
 const HIDE_TITLE_NONE = 'NONE'

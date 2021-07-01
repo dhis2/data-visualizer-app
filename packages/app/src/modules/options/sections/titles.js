@@ -1,9 +1,8 @@
 /* eslint-disable react/jsx-key */
-import React from 'react'
 import i18n from '@dhis2/d2-i18n'
-
-import HideTitle from '../../../components/VisualizationOptions/Options/HideTitle'
+import React from 'react'
 import HideSubtitle from '../../../components/VisualizationOptions/Options/HideSubtitle'
+import HideTitle from '../../../components/VisualizationOptions/Options/HideTitle'
 
 export default () => ({
     key: 'style-titles',

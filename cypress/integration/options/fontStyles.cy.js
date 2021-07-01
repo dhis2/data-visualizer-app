@@ -1,35 +1,14 @@
 import { DIMENSION_ID_DATA, VIS_TYPE_COLUMN } from '@dhis2/analytics'
-
-import { openDimension } from '../../elements/dimensionsPanel'
-import {
-    selectDataElements,
-    clickDimensionModalUpdateButton,
-} from '../../elements/dimensionModal'
-import { goToStartPage } from '../../elements/startScreen'
 import {
     expectVisualizationToBeVisible,
     expectChartTitleToBeVisible,
     expectChartSubtitleToBeVisible,
 } from '../../elements/chart'
 import {
-    expectWindowConfigSubtitleToBeValue,
-    expectWindowConfigTitleToBeValue,
-    expectWindowConfigLegendToBeValue,
-    expectWindowConfigAxisPlotLinesToBeValue,
-    expectWindowConfigAxisTitleToBeValue,
-    expectWindowConfigAxisLabelsToBeValue,
-} from '../../utils/window'
-import { TEST_DATA_ELEMENTS } from '../../utils/data'
-import {
-    CONFIG_DEFAULT_SUBTITLE,
-    CONFIG_DEFAULT_TITLE,
-    CONFIG_DEFAULT_LEGEND,
-    CONFIG_DEFAULT_TARGET_LINE,
-    CONFIG_DEFAULT_BASE_LINE,
-    CONFIG_DEFAULT_VERTICAL_AXIS_TITLE,
-    CONFIG_DEFAULT_HORIZONTAL_AXIS_TITLE,
-    CONFIG_DEFAULT_AXIS_LABELS,
-} from '../../utils/config'
+    selectDataElements,
+    clickDimensionModalUpdateButton,
+} from '../../elements/dimensionModal'
+import { openDimension } from '../../elements/dimensionsPanel'
 import { clickMenuBarOptionsButton } from '../../elements/menuBar'
 import {
     changeFontSizeOption,
@@ -48,14 +27,35 @@ import {
     clickBaseLineCheckbox,
     setBaseLineLabel,
     setBaseLineValue,
-    enableAxisTitle,
-    setAxisTitle,
+    setAxisTitleText,
+    setAxisTitleTextModeTo,
+    switchAxesTabTo,
 } from '../../elements/optionsModal'
+import { goToStartPage } from '../../elements/startScreen'
+import {
+    CONFIG_DEFAULT_SUBTITLE,
+    CONFIG_DEFAULT_TITLE,
+    CONFIG_DEFAULT_LEGEND,
+    CONFIG_DEFAULT_TARGET_LINE,
+    CONFIG_DEFAULT_BASE_LINE,
+    CONFIG_DEFAULT_VERTICAL_AXIS_TITLE,
+    CONFIG_DEFAULT_HORIZONTAL_AXIS_TITLE,
+    CONFIG_DEFAULT_AXIS_LABELS,
+} from '../../utils/config'
+import { TEST_DATA_ELEMENTS } from '../../utils/data'
 import {
     generateRandomBool,
     generateRandomNumber,
     getRandomArrayItem,
 } from '../../utils/random'
+import {
+    expectWindowConfigSubtitleToBeValue,
+    expectWindowConfigTitleToBeValue,
+    expectWindowConfigLegendToBeValue,
+    expectWindowConfigAxisPlotLinesToBeValue,
+    expectWindowConfigAxisTitleToBeValue,
+    expectWindowConfigAxisLabelsToBeValue,
+} from '../../utils/window'
 
 const TEST_DATA_ELEMENT_NAME = getRandomArrayItem(TEST_DATA_ELEMENTS).name
 const TITLE_PREFIX = 'option-chart-title'
@@ -133,7 +133,7 @@ describe('Options - Font styles', () => {
             italic: TEST_ITALIC_OPTION.input,
             prefix,
         })
-        it('click the modal update button', () => {
+        it('clicks the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
         it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
@@ -178,7 +178,7 @@ describe('Options - Font styles', () => {
             italic: TEST_ITALIC_OPTION.input,
             prefix,
         })
-        it('click the modal update button', () => {
+        it('clicks the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
         it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
@@ -223,7 +223,7 @@ describe('Options - Font styles', () => {
             italic: TEST_ITALIC_OPTION.input,
             prefix,
         })
-        it('click the modal update button', () => {
+        it('clicks the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
         it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
@@ -278,7 +278,7 @@ describe('Options - Font styles', () => {
             italic: TEST_ITALIC_OPTION.input,
             prefix,
         })
-        it('click the modal update button', () => {
+        it('clicks the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
         it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
@@ -326,7 +326,7 @@ describe('Options - Font styles', () => {
             italic: TEST_ITALIC_OPTION.input,
             prefix,
         })
-        it('click the modal update button', () => {
+        it('clicks the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
         it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
@@ -359,7 +359,7 @@ describe('Options - Font styles', () => {
             italic: TEST_ITALIC_OPTION.input,
             prefix,
         })
-        it('click the modal update button', () => {
+        it('clicks the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
         it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
@@ -384,6 +384,7 @@ describe('Options - Font styles', () => {
         it('opens Options -> Axes', () => {
             clickMenuBarOptionsButton()
             clickOptionsTab(OPTIONS_TAB_AXES)
+            switchAxesTabTo('Horizontal (x) axis')
         })
         setFontStyleOptions({
             fontSize: TEST_FONT_SIZE_OPTION.input,
@@ -391,7 +392,7 @@ describe('Options - Font styles', () => {
             italic: TEST_ITALIC_OPTION.input,
             prefix,
         })
-        it('click the modal update button', () => {
+        it('clicks the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
         it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
@@ -423,8 +424,9 @@ describe('Options - Font styles', () => {
             clickOptionsTab(OPTIONS_TAB_AXES)
         })
         it(`sets horizontal axis title to "${TEST_TITLE}"`, () => {
-            enableAxisTitle(TEST_AXIS)
-            setAxisTitle(TEST_AXIS, TEST_TITLE)
+            switchAxesTabTo('Horizontal (x) axis')
+            setAxisTitleTextModeTo('Custom')
+            setAxisTitleText(TEST_AXIS, TEST_TITLE)
         })
         setFontStyleOptions({
             fontSize: TEST_FONT_SIZE_OPTION.input,
@@ -433,7 +435,7 @@ describe('Options - Font styles', () => {
             italic: TEST_ITALIC_OPTION.input,
             prefix,
         })
-        it('click the modal update button', () => {
+        it('clicks the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
 
@@ -468,8 +470,8 @@ describe('Options - Font styles', () => {
             clickOptionsTab(OPTIONS_TAB_AXES)
         })
         it(`sets vertical axis title to "${TEST_TITLE}"`, () => {
-            enableAxisTitle(TEST_AXIS)
-            setAxisTitle(TEST_AXIS, TEST_TITLE)
+            setAxisTitleTextModeTo('Custom')
+            setAxisTitleText(TEST_AXIS, TEST_TITLE)
         })
         setFontStyleOptions({
             fontSize: TEST_FONT_SIZE_OPTION.input,
@@ -478,7 +480,7 @@ describe('Options - Font styles', () => {
             italic: TEST_ITALIC_OPTION.input,
             prefix,
         })
-        it('click the modal update button', () => {
+        it('clicks the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
         it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {

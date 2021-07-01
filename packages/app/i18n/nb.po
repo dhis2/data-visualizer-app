@@ -323,8 +323,20 @@ msgstr "Trinn"
 msgid "Axis title"
 msgstr "Akseltittel"
 
+msgid "Auto generated"
+msgstr "Automatisk generert"
+
+msgid "None"
+msgstr "Ingen"
+
+msgid "Custom"
+msgstr "Tilpasset"
+
 msgid "Add a title"
 msgstr "Legg til en tittel"
+
+msgid "Reset style to default"
+msgstr ""
 
 msgid "Base line"
 msgstr "Grunnlinje"
@@ -367,9 +379,6 @@ msgstr "Kumulative verdier"
 
 msgid "Digit group separator"
 msgstr "Siffergruppeseparator"
-
-msgid "None"
-msgstr "Ingen"
 
 msgid "Space"
 msgstr "Mellomrom"
@@ -440,12 +449,6 @@ msgstr "Tabellundertittel"
 
 msgid "Chart subtitle"
 msgstr "Diagramundertittel"
-
-msgid "Auto generated"
-msgstr "Automatisk generert"
-
-msgid "Custom"
-msgstr "Tilpasset"
 
 msgid "Chart title"
 msgstr "Diagramtittel"
@@ -939,23 +942,15 @@ msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
 "Baselinjer og mållinjer er tilgjengelige i Akse-fanen for spredningsplott."
 
-msgid "Vertical axis"
-msgstr "Vertikal akse"
-
-msgid "Horizontal axis"
-msgstr "Horisontal akse"
-
 msgid "Color set"
 msgstr "Fargesett"
 
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr "Fargesett støttes ikke ennå ved bruk av flere akser"
 
-msgid "Horizontal (x) axis"
-msgstr "Horisontal (x) akse"
-
-msgid "Lines are not supported yet when using multiple axes"
-msgstr "Linjer støttes ikke ennå ved bruk av flere akser"
+msgid ""
+"Base and target lines are available on the Axes tab for multi-axis charts"
+msgstr ""
 
 msgid "Chart style"
 msgstr "Diagramstil"
@@ -966,21 +961,26 @@ msgstr "Vis"
 msgid "Empty data"
 msgstr "Tomme data"
 
+msgid "Horizontal (x) axis {{axisId}}"
+msgstr ""
+
+msgid "Horizontal (x) axis"
+msgstr "Horisontal (x) akse"
+
 msgid "Lines"
 msgstr "Linjer"
 
 msgid "Totals"
 msgstr "Totalsummer"
 
+msgid "Vertical (y) axis {{axisId}}"
+msgstr ""
+
 msgid "Vertical (y) axis"
 msgstr "Vertikal (y) akse"
 
 msgid "Titles"
 msgstr "Titler"
-
-msgid "Vertical axis options are not supported yet when using multiple axes"
-msgstr ""
-"Alternativer for vertikal akse støttes ikke ennå ved bruk av flere akser"
 
 msgid "Axes"
 msgstr "Akser"

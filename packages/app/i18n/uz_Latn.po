@@ -195,7 +195,7 @@ msgid "Levels"
 msgstr "Bosqichlar/Qavatlar"
 
 msgid "Groups"
-msgstr ""
+msgstr "Гуруҳлар"
 
 msgid "And 1 other..."
 msgstr "Yana bir boshqasi"
@@ -325,8 +325,20 @@ msgstr "Qadamlar"
 msgid "Axis title"
 msgstr "Oʼq sarlavhasi"
 
+msgid "Auto generated"
+msgstr "Аvtomatik ravishda yaratilgan"
+
+msgid "None"
+msgstr "Yoʼq"
+
+msgid "Custom"
+msgstr "Odatiy"
+
 msgid "Add a title"
 msgstr "Sarlavha qoʼshish"
+
+msgid "Reset style to default"
+msgstr ""
 
 msgid "Base line"
 msgstr "Bazaviy chiziq"
@@ -369,9 +381,6 @@ msgstr "Kumulyativ qiymatlar"
 
 msgid "Digit group separator"
 msgstr "Raqamlar guruhini taqsimlovchi"
-
-msgid "None"
-msgstr "Yoʼq"
 
 msgid "Space"
 msgstr "Oraliq (maydon)"
@@ -441,12 +450,6 @@ msgstr "Jadval taglavhasi"
 
 msgid "Chart subtitle"
 msgstr "Diagramma sharhi"
-
-msgid "Auto generated"
-msgstr "Аvtomatik ravishda yaratilgan"
-
-msgid "Custom"
-msgstr "Odatiy"
 
 msgid "Chart title"
 msgstr "Diagramma sarlavhasi"
@@ -944,12 +947,6 @@ msgstr ""
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
 
-msgid "Vertical axis"
-msgstr ""
-
-msgid "Horizontal axis"
-msgstr ""
-
 msgid "Color set"
 msgstr "Ranglar toʼplami"
 
@@ -957,11 +954,9 @@ msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
 "Koʼp oʼqlardan foydalanganda ranglar toʼplami hali qoʼllab quvvatlanmaydi"
 
-msgid "Horizontal (x) axis"
-msgstr "gorizontal (X) oʼq"
-
-msgid "Lines are not supported yet when using multiple axes"
-msgstr "Koʼp oʼqlardan foydalanganda chiziqlar hali qoʼllab quvvatlanmaydi"
+msgid ""
+"Base and target lines are available on the Axes tab for multi-axis charts"
+msgstr ""
 
 msgid "Chart style"
 msgstr "Diagramma uslubi"
@@ -972,22 +967,26 @@ msgstr "Ekranda koʼrsatish"
 msgid "Empty data"
 msgstr "Boʼsh maʼlumotlar"
 
+msgid "Horizontal (x) axis {{axisId}}"
+msgstr ""
+
+msgid "Horizontal (x) axis"
+msgstr "gorizontal (X) oʼq"
+
 msgid "Lines"
 msgstr "Qatorlar"
 
 msgid "Totals"
 msgstr "Jami"
 
+msgid "Vertical (y) axis {{axisId}}"
+msgstr ""
+
 msgid "Vertical (y) axis"
 msgstr "Vertikal (y) oʼqi"
 
 msgid "Titles"
 msgstr "Sarlavhalar"
-
-msgid "Vertical axis options are not supported yet when using multiple axes"
-msgstr ""
-"Koʼp oʼqlardan foydalanganda vertikal oʼq parametrlari hali qoʼllab "
-"quvvatlanmaydi"
 
 msgid "Axes"
 msgstr "Oʼqlar"
@@ -1005,7 +1004,7 @@ msgid "Limit minimum/maximum values"
 msgstr "Minimal/maksimal qiymatlarni cheklash"
 
 msgid "Outliers"
-msgstr ""
+msgstr "Chekinishlar"
 
 msgid "Series"
 msgstr "Ketma-ketliklar"

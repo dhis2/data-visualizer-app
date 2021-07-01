@@ -1,6 +1,5 @@
 /*eslint no-unused-vars: ["error", { "ignoreRestSiblings": true }]*/
 
-import pick from 'lodash-es/pick'
 import {
     AXIS_ID_COLUMNS,
     AXIS_ID_ROWS,
@@ -17,14 +16,14 @@ import {
     getAdaptedUiLayoutByType,
     VIS_TYPE_SCATTER,
 } from '@dhis2/analytics'
-
-import options from './options'
-import {} from './layout'
-import { BASE_FIELD_TYPE, BASE_FIELD_YEARLY_SERIES } from './fields/baseFields'
+import pick from 'lodash-es/pick'
 import {
     ITEM_ATTRIBUTE_HORIZONTAL,
     ITEM_ATTRIBUTE_VERTICAL,
 } from '../modules/ui'
+import { BASE_FIELD_TYPE, BASE_FIELD_YEARLY_SERIES } from './fields/baseFields'
+import options from './options'
+import {} from './layout'
 
 const hasItems = (object, id) => Array.isArray(object[id]) && object[id].length
 
@@ -57,10 +56,6 @@ export const getOptionsFromUi = ui => {
         optionsFromUi.axes = [...optionsFromUi.axes.map(axis => ({ ...axis }))]
 
         optionsFromUi.axes.forEach(axis => {
-            if (axis.title) {
-                const { enabled, ...rest } = axis.title
-                axis.title = { ...rest }
-            }
             if (axis.targetLine) {
                 const { enabled, ...rest } = axis.targetLine
                 axis.targetLine = { ...rest }

@@ -1,5 +1,5 @@
-import { onError } from './index'
 import { SYSTEM_SETTINGS } from '../modules/settings'
+import { onError } from './index'
 
 const systemSettingsQuery = {
     resource: 'systemSettings',

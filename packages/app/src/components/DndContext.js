@@ -1,20 +1,19 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
-import { DragDropContext } from 'react-beautiful-dnd'
 import {
     canDimensionBeAddedToAxis,
     getPredefinedDimensionProp,
     DIMENSION_PROP_NO_ITEMS,
 } from '@dhis2/analytics'
-
-import { sGetUiLayout, sGetUiItems, sGetUiType } from '../reducers/ui'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import { DragDropContext } from 'react-beautiful-dnd'
+import { connect } from 'react-redux'
 import {
     acAddUiLayoutDimensions,
     acSetUiActiveModalDialog,
     acSetUiLayout,
 } from '../actions/ui'
 import { SOURCE_DIMENSIONS } from '../modules/layout'
+import { sGetUiLayout, sGetUiItems, sGetUiType } from '../reducers/ui'
 
 class DndContext extends Component {
     rearrangeLayoutDimensions = ({

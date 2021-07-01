@@ -1,10 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 import { InputField } from '@dhis2/ui'
-
-import { sGetUiOption } from '../../../reducers/ui'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { connect } from 'react-redux'
 import { acSetUiOption } from '../../../actions/ui'
+import { sGetUiOption } from '../../../reducers/ui'
 import { tabSectionOption } from '../styles/VisualizationOptions.style.js'
 
 export const PositiveNumberBaseType = ({
@@ -16,6 +15,7 @@ export const PositiveNumberBaseType = ({
     value,
     onChange,
     disabled,
+    dataTest,
 }) => (
     <div className={tabSectionOption.className}>
         <div>
@@ -35,12 +35,14 @@ export const PositiveNumberBaseType = ({
                 inputWidth={width}
                 dense
                 disabled={disabled}
+                dataTest={dataTest}
             />
         </div>
     </div>
 )
 
 PositiveNumberBaseType.propTypes = {
+    dataTest: PropTypes.string,
     disabled: PropTypes.bool,
     helpText: PropTypes.string,
     label: PropTypes.string,

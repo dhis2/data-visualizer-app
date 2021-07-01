@@ -1,24 +1,14 @@
-import React, { Component, Fragment } from 'react'
+import VisualizationPlugin from '@dhis2/data-visualizer-plugin'
+import debounce from 'lodash-es/debounce'
 import PropTypes from 'prop-types'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
-import debounce from 'lodash-es/debounce'
-
-import styles from './styles/Visualization.style'
-import VisualizationPlugin from '@dhis2/data-visualizer-plugin'
-import { sGetVisualization } from '../../reducers/visualization'
-import { sGetCurrent } from '../../reducers/current'
-import { sGetUiRightSidebarOpen, sGetUiInterpretation } from '../../reducers/ui'
-import { sGetLoadError, sGetIsPluginLoading } from '../../reducers/loader'
-
-import { acAddMetadata } from '../../actions/metadata'
 import { acSetChart } from '../../actions/chart'
-import { acSetLoadError, acSetPluginLoading } from '../../actions/loader'
-import { acSetUiItems, acAddParentGraphMap } from '../../actions/ui'
 import { tSetCurrentFromUi } from '../../actions/current'
-import { removeLastPathSegment } from '../../modules/orgUnit'
-
-import StartScreen from './StartScreen'
+import { acSetLoadError, acSetPluginLoading } from '../../actions/loader'
+import { acAddMetadata } from '../../actions/metadata'
+import { acSetUiItems, acAddParentGraphMap } from '../../actions/ui'
 import {
     AssignedCategoriesDataElementsError,
     GenericServerError,
@@ -29,8 +19,15 @@ import {
     CombinationDEGSRRError,
     NoOrgUnitResponseError,
 } from '../../modules/error'
-import LoadingMask from '../../widgets/LoadingMask'
+import { removeLastPathSegment } from '../../modules/orgUnit'
+import { sGetCurrent } from '../../reducers/current'
+import { sGetLoadError, sGetIsPluginLoading } from '../../reducers/loader'
 import { sGetSettingsDisplayNameProperty } from '../../reducers/settings'
+import { sGetUiRightSidebarOpen, sGetUiInterpretation } from '../../reducers/ui'
+import { sGetVisualization } from '../../reducers/visualization'
+import LoadingMask from '../../widgets/LoadingMask'
+import StartScreen from './StartScreen'
+import styles from './styles/Visualization.style'
 
 export class Visualization extends Component {
     constructor(props) {

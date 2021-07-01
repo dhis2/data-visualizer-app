@@ -1,16 +1,15 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 import {
     getAvailableAxes,
     getAxisNameByLayoutType,
     getLayoutTypeByVisType,
 } from '@dhis2/analytics'
-import { SplitButton, FlyoutMenu, MenuItem, Button } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
-
-import { sGetUiActiveModalDialog, sGetUiType } from '../../../../reducers/ui'
+import { SplitButton, FlyoutMenu, MenuItem, Button } from '@dhis2/ui'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { connect } from 'react-redux'
 import { acAddUiLayoutDimensions } from '../../../../actions/ui'
+import { sGetUiActiveModalDialog, sGetUiType } from '../../../../reducers/ui'
 
 export const AddToLayoutButton = ({
     dialogId,

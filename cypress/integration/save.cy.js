@@ -3,13 +3,6 @@ import {
     visTypeDisplayNames,
     VIS_TYPE_SCATTER,
 } from '@dhis2/analytics'
-
-import { openDimension } from '../elements/dimensionsPanel'
-import {
-    selectDataElements,
-    clickDimensionModalUpdateButton,
-} from '../elements/dimensionModal'
-import { changeVisType } from '../elements/visualizationTypeSelector'
 import {
     expectAOTitleToBeDirty,
     expectAOTitleToBeUnsaved,
@@ -17,7 +10,12 @@ import {
     expectAOTitleToNotBeDirty,
     expectVisualizationToBeVisible,
 } from '../elements/chart'
-import { TEST_DATA_ELEMENTS } from '../utils/data'
+import { replacePeriodItems } from '../elements/common'
+import {
+    selectDataElements,
+    clickDimensionModalUpdateButton,
+} from '../elements/dimensionModal'
+import { openDimension } from '../elements/dimensionsPanel'
 import {
     //openRandomAOCreatedByOthers,
     saveNewAO,
@@ -38,14 +36,15 @@ import {
     FILE_MENU_BUTTON_SHARE,
     FILE_MENU_BUTTON_GETLINK,
 } from '../elements/fileMenu'
-import { expectRouteToBeAOId, expectRouteToBeEmpty } from '../elements/route'
-import { getRandomVisType } from '../utils/random'
 import { clickMenuBarFileButton } from '../elements/menuBar'
+import { expectRouteToBeAOId, expectRouteToBeEmpty } from '../elements/route'
 import {
     expectStartScreenToBeVisible,
     goToStartPage,
 } from '../elements/startScreen'
-import { replacePeriodItems } from '../elements/common'
+import { changeVisType } from '../elements/visualizationTypeSelector'
+import { TEST_DATA_ELEMENTS } from '../utils/data'
+import { getRandomVisType } from '../utils/random'
 
 const TEST_VIS_NAME = `TEST ${new Date().toLocaleString()}`
 const TEST_VIS_NAME_UPDATED = `${TEST_VIS_NAME} - updated`
@@ -64,7 +63,7 @@ describe('saving an AO', () => {
             changeVisType(TEST_VIS_TYPE_NAME)
         })
         it('adds Data dimension items', () => {
-            if (TEST_VIS_TYPE_NAME === VIS_TYPE_SCATTER) {
+            if (TEST_VIS_TYPE === VIS_TYPE_SCATTER) {
                 cy.contains(
                     'Scatter was randomly picked but this has not been implemented for Scatter yet, please rerun the test'
                 ).should('exist')
@@ -132,6 +131,19 @@ describe('saving an AO', () => {
 
     describe('"save" and "save as" for a saved AO created by you', () => {
         it('navigates to the start page and opens a saved AO', () => {
+            cy.intercept(
+                /systemSettings(\S)*keyAnalysisRelativePeriod(\S)*/,
+                req => {
+                    req.reply(res => {
+                        res.send({
+                            body: {
+                                ...res.body,
+                                keyHideMonthlyPeriods: false,
+                            },
+                        })
+                    })
+                }
+            )
             goToStartPage()
             openAOByName(TEST_VIS_NAME_UPDATED)
             expectAOTitleToBeValue(TEST_VIS_NAME_UPDATED)

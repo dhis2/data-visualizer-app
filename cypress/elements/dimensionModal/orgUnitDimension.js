@@ -1,5 +1,4 @@
 import { DIMENSION_ID_ORGUNIT } from '@dhis2/analytics'
-
 import { expectDimensionModalToBeVisible } from '.'
 
 const orgUnitModalEl = 'dialog-manager-ou'

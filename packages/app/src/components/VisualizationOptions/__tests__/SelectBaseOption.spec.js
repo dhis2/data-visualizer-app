@@ -1,8 +1,6 @@
-import React from 'react'
-import { shallow } from 'enzyme'
-
 import { Checkbox, SingleSelectField, SingleSelectOption } from '@dhis2/ui'
-
+import { shallow } from 'enzyme'
+import React from 'react'
 import { SelectBaseOption } from '../Options/SelectBaseOption'
 
 describe('DV > Options > SelectBaseOption', () => {

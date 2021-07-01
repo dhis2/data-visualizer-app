@@ -1,9 +1,20 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-
+import {
+    isDualAxisType,
+    hasCustomAxes,
+    hasRelativeItems,
+    AXIS_ID_COLUMNS,
+} from '@dhis2/analytics'
 import { FieldSet, Legend, TabBar, Tab, Help } from '@dhis2/ui'
-
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { getOptionsByType } from '../../modules/options/config'
+import {
+    sGetUiType,
+    sGetUiOptions,
+    sGetDimensionItemsByAxis,
+    sGetUiLayout,
+} from '../../reducers/ui'
 import {
     tabSection,
     tabSectionTitle,
@@ -18,20 +29,6 @@ import {
     tabContent,
     tabSectionOptionIcon,
 } from './styles/VisualizationOptions.style.js'
-
-import {
-    sGetUiType,
-    sGetUiOptions,
-    sGetDimensionItemsByAxis,
-    sGetUiLayout,
-} from '../../reducers/ui'
-import { getOptionsByType } from '../../modules/options/config'
-import {
-    isDualAxisType,
-    hasCustomAxes,
-    hasRelativeItems,
-    AXIS_ID_COLUMNS,
-} from '@dhis2/analytics'
 
 export class VisualizationOptions extends Component {
     state = { activeTabKey: undefined }
@@ -69,12 +66,8 @@ export class VisualizationOptions extends Component {
         }))
 
     render() {
-        const {
-            visualizationType,
-            columnDimensionItems,
-            series,
-            columns,
-        } = this.props
+        const { visualizationType, columnDimensionItems, series, columns } =
+            this.props
         const filteredSeries = series.filter(seriesItem =>
             columnDimensionItems.some(
                 layoutItem => layoutItem === seriesItem.dimensionItem
@@ -84,7 +77,12 @@ export class VisualizationOptions extends Component {
             visualizationType,
             isDualAxisType(visualizationType) &&
                 hasCustomAxes(filteredSeries) &&
-                !hasRelativeItems(columns[0], columnDimensionItems)
+                !hasRelativeItems(columns[0], columnDimensionItems),
+            series?.length && isDualAxisType(visualizationType)
+                ? [...new Set(series.map(serie => serie.axis))].sort(
+                      (a, b) => a - b
+                  )
+                : [0]
         )
 
         const tabs = this.generateTabs(optionsConfig)

@@ -1,4 +1,4 @@
-import { WEEKS } from '@dhis2/analytics'
+import { WEEKLY } from '@dhis2/analytics'
 import {
     computeYoYMatrix,
     computeGenericPeriodNamesFromMatrix,
@@ -184,10 +184,10 @@ describe('YOY edge cases testing: LAST_4_WEEKS across 2 years', () => {
 
     testCases.forEach(testCase =>
         it('generated correct matrix from analytics responses', () => {
-            const matrix = computeYoYMatrix(testCase.responses, WEEKS)
+            const matrix = computeYoYMatrix(testCase.responses, WEEKLY)
 
             expect(matrix).toEqual(testCase.expectedMatrix)
-            expect(computeGenericPeriodNamesFromMatrix(matrix, WEEKS)).toEqual(
+            expect(computeGenericPeriodNamesFromMatrix(matrix, WEEKLY)).toEqual(
                 testCase.expectedPeriodNames
             )
         })
