@@ -11,6 +11,7 @@ export const RadioBaseOption = ({
     value,
     onChange,
     disabled,
+    dataTest,
 }) => (
     <Field name={option.name} label={label} dense>
         {option.items.map(({ id, label }) => (
@@ -22,6 +23,7 @@ export const RadioBaseOption = ({
                 onChange={({ value }) => onChange(value)}
                 disabled={disabled}
                 dense
+                dataTest={`${dataTest}-option-${id}`}
             />
         ))}
     </Field>
@@ -31,6 +33,7 @@ RadioBaseOption.propTypes = {
     option: PropTypes.object.isRequired,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     onChange: PropTypes.func.isRequired,
+    dataTest: PropTypes.string,
     disabled: PropTypes.bool,
     label: PropTypes.string,
 }

@@ -127,7 +127,7 @@ Legend.propTypes = {
     onChange: PropTypes.func.isRequired,
     hideStyleOptions: PropTypes.bool,
     legendDisplayStrategy: PropTypes.string,
-    legendSet: PropTypes.string,
+    legendSet: PropTypes.object,
 }
 
 const mapStateToProps = state => ({

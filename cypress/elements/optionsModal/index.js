@@ -70,4 +70,7 @@ export {
     changeDisplayStrategyToFixed,
     changeFixedLegendSet,
     expectFixedLegendSetToBe,
+    changeDisplayStyleToText,
+    expectLegendDisplayStyleToBeText,
+    expectLegendDisplayStyleToBeFill,
 } from './legend'

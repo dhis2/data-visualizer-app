@@ -22,6 +22,7 @@ const LegendDisplayStyle = () => (
                 },
             ],
         }}
+        dataTest={'legend-display-style'}
     />
 )
 

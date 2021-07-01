@@ -150,6 +150,16 @@ export const expectWindowConfigYAxisToHaveStepsValue = value =>
             expect(yAxis.tickAmount).to.eq(value)
         })
 
+export const expectWindowConfigYAxisToHaveColor = color =>
+    cy
+        .window()
+        .its(CONFIG_PROP)
+        .its(Y_AXIS_PROP)
+        .then(yAxis => {
+            expect(yAxis.minColor).to.eq(color)
+            expect(yAxis.maxColor).to.eq(color)
+        })
+
 export const expectWindowConfigXAxisToHaveRangeMinValue = value =>
     cy
         .window()
@@ -182,5 +192,19 @@ export const expectWindowConfigSeriesItemToHaveLegendSet = (
             const seriesItem = series.find(item => item.name === seriesItemName)
             seriesItem.data.every(item =>
                 expect(item.legendSet).to.eq(expectedLS)
+            )
+        })
+
+export const expectWindowConfigSeriesDataLabelsToHaveColor = (
+    seriesItemIndex,
+    expectedColor
+) =>
+    cy
+        .window()
+        .its(CONFIG_PROP)
+        .its(SERIES_PROP)
+        .then(series => {
+            expect(series[seriesItemIndex].dataLabels.style.color).to.eq(
+                expectedColor
             )
         })
