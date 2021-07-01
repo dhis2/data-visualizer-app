@@ -26,7 +26,7 @@
         "react-dom": "^16.8"
     },
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^6.2.0"
+        "@dhis2/cli-app-scripts": "^7.0.1"
     },
     "scripts": {
         "clean": "rm -rf ./build/*",
