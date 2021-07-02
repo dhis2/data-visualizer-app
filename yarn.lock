@@ -1558,15 +1558,15 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^19.0.3":
-  version "19.0.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-19.0.3.tgz#956e456b6a67991e6e969f9d86f517ef26d36b50"
-  integrity sha512-9d7Dn3fSJrztkWO3g31/ENJJeoKDAV/nPc9fQh98WOkJ8j1/FjSiveHLoQvuwjmqLHTi9juCY4F0MGhzyeUSbQ==
+"@dhis2/analytics@^20.0.0":
+  version "20.0.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-20.0.0.tgz#fa18386ef73c69ac2892558f6d860a9b8137a3b3"
+  integrity sha512-N3Y3gb3xyRNIA0JvZNF9qoN8B6oNn2Pvahmof+v2/GEXO26siYAEaMysU9LS5wLidEeuEibhusMtC9blwArIBA==
   dependencies:
     "@dhis2/d2-ui-favorites-dialog" "^7.3.0"
     "@dhis2/d2-ui-org-unit-dialog" "^7.3.0"
     "@dhis2/d2-ui-sharing-dialog" "^7.2.0"
-    "@dhis2/d2-ui-translation-dialog" "^7.3.0"
+    "@dhis2/d2-ui-translation-dialog" "^7.3.1"
     classnames "^2.3.1"
     d2-utilizr "^0.2.16"
     d3-color "^1.2.3"
@@ -1884,7 +1884,7 @@
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
-"@dhis2/d2-ui-translation-dialog@^7.3.0":
+"@dhis2/d2-ui-translation-dialog@^7.3.1":
   version "7.3.1"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-translation-dialog/-/d2-ui-translation-dialog-7.3.1.tgz#aa10fad9e0cbf134ecc02b7dee6b9e07fa4edae3"
   integrity sha512-yApQUlj6F3Ll5zkdcnqspAm6m7KosL6Vbj7qa6rHooz/Dvu8fA2Isg/wqYN+ZuKmutaTpX26B7zlN4l1OOP9yw==
