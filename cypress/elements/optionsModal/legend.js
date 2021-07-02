@@ -1,6 +1,15 @@
 const optionsModalContentEl = 'options-modal-content'
+const legendKeyOptionEl = 'option-legend-key'
+const legendKeyEl = 'visualization-legend-key'
+const singleValueOutputEl = 'visualization-primary-value'
+const legendDisplayStrategyByDataItemEl = 'legend-display-strategy-BY_DATA_ITEM'
+const legendDisplayStrategyFixedEl = 'legend-display-strategy-FIXED'
+const legendDisplayStyleOptionTextEl = 'legend-display-style-option-TEXT'
+const legendDisplayStyleOptionFillEl = 'legend-display-style-option-FILL'
+const fixedLegendSetSelectEl = 'fixed-legend-set-select'
+const fixedLegendSetOptionEl = 'fixed-legend-set-option'
 
-export const enableLegend = () =>
+export const toggleLegend = () =>
     cy
         .getBySel(optionsModalContentEl)
         .contains('Use legend for chart colors')
@@ -23,46 +32,62 @@ export const expectLegendToBeEnabled = () =>
 
 export const expectLegendDisplayStrategyToBeByDataItem = () =>
     cy
-        .getBySel('legend-display-strategy-BY_DATA_ITEM')
+        .getBySel(legendDisplayStrategyByDataItemEl)
         .find('[type="radio"]')
         .should('be.checked')
 
 export const expectLegendDisplayStrategyToBeFixed = () =>
     cy
-        .getBySel('legend-display-strategy-FIXED')
+        .getBySel(legendDisplayStrategyFixedEl)
         .find('[type="radio"]')
         .should('be.checked')
 
 export const expectLegendDisplayStyleToBeText = () =>
     cy
-        .getBySel('legend-display-style-option-TEXT')
+        .getBySel(legendDisplayStyleOptionTextEl)
         .find('[type="radio"]')
         .should('be.checked')
 
 export const expectLegendDisplayStyleToBeFill = () =>
     cy
-        .getBySel('legend-display-style-option-FILL')
+        .getBySel(legendDisplayStyleOptionFillEl)
         .find('[type="radio"]')
         .should('be.checked')
 
 export const changeFixedLegendSet = legendSetName => {
-    cy.getBySel('fixed-legend-set-select')
-        .findBySel('dhis2-uicore-select')
-        .click()
-    cy.getBySel('fixed-legend-set-option').containsExact(legendSetName).click()
+    cy.getBySel(fixedLegendSetSelectEl).findBySel('dhis2-uicore-select').click()
+    cy.getBySel(fixedLegendSetOptionEl).containsExact(legendSetName).click()
 }
 
 export const expectFixedLegendSetToBe = legendSetName =>
-    cy.getBySel('fixed-legend-set-select').should('contain', legendSetName)
+    cy.getBySel(fixedLegendSetSelectEl).should('contain', legendSetName)
 
 export const expectSingleValueToNotBeColor = color =>
     cy
-        .getBySel('visualization-primary-value')
+        .getBySel(singleValueOutputEl)
         .invoke('attr', 'fill')
         .should('not.eq', color)
 
 export const expectSingleValueToBeColor = color =>
+    cy.getBySel(singleValueOutputEl).invoke('attr', 'fill').should('eq', color)
+
+export const toggleLegendKeyOption = () =>
+    cy.getBySel(optionsModalContentEl).contains('Show legend key').click()
+
+export const expectLegendKeyOptionToBeEnabled = () =>
     cy
-        .getBySel('visualization-primary-value')
-        .invoke('attr', 'fill')
-        .should('eq', color)
+        .getBySel(legendKeyOptionEl)
+        .find('[type="checkbox"]')
+        .should('be.checked')
+
+export const expectLegendKeyOptionToBeDisabled = () =>
+    cy
+        .getBySel(legendKeyOptionEl)
+        .find('[type="checkbox"]')
+        .should('not.be.checked')
+
+export const expectLegendKeyToBeHidden = () =>
+    cy.getBySel(legendKeyEl).should('not.exist')
+
+export const expectLegendKeyToBeVisible = () =>
+    cy.getBySel(legendKeyEl).should('be.visible')

@@ -8,6 +8,8 @@ import {
 } from '@dhis2/analytics'
 import {
     expectChartTitleToBeVisible,
+    expectSeriesKeyItemToHaveBullets,
+    expectSeriesKeyToHaveSeriesKeyItems,
     expectVisualizationToBeVisible,
 } from '../../elements/chart'
 import {
@@ -25,7 +27,7 @@ import {
     changeFixedLegendSet,
     clickOptionsModalUpdateButton,
     clickOptionsTab,
-    enableLegend,
+    toggleLegend,
     expectFixedLegendSetToBe,
     expectLegendDisplayStrategyToBeByDataItem,
     expectLegendDisplayStrategyToBeFixed,
@@ -35,6 +37,11 @@ import {
     expectSingleValueToBeColor,
     expectSingleValueToNotBeColor,
     OPTIONS_TAB_LEGEND,
+    toggleLegendKeyOption,
+    expectLegendKeyOptionToBeEnabled,
+    expectLegendKeyToBeVisible,
+    expectLegendKeyToBeHidden,
+    expectLegendKeyOptionToBeDisabled,
 } from '../../elements/optionsModal'
 import { goToStartPage } from '../../elements/startScreen'
 import { changeVisType } from '../../elements/visualizationTypeSelector'
@@ -48,17 +55,19 @@ const TEST_ITEMS = [
     {
         name: 'ANC 1 Coverage',
         legendSet: 'ANC Coverage',
+        legends: 7,
     },
     {
-        name: 'BCG Coverage <1y',
-        legendSet: 'Immunization Coverage',
+        name: 'Diarrhoea <5 y incidence rate (%)',
+        legendSet: 'Diarrhoea',
+        legends: 6,
     },
 ]
 
 const TEST_LEGEND_SET = 'Height in cm'
 
 describe('Options - Legend', () => {
-    describe('Column: applying a legend', () => {
+    describe('Applying a legend: Column', () => {
         it('navigates to the start page and adds data items', () => {
             goToStartPage()
             openDimension(DIMENSION_ID_DATA)
@@ -69,7 +78,7 @@ describe('Options - Legend', () => {
         it('enables legend', () => {
             clickMenuBarOptionsButton()
             clickOptionsTab(OPTIONS_TAB_LEGEND)
-            enableLegend()
+            toggleLegend()
             expectLegendToBeEnabled()
             expectLegendDisplayStrategyToBeByDataItem()
             clickOptionsModalUpdateButton()
@@ -101,14 +110,26 @@ describe('Options - Legend', () => {
                 )
             )
         })
+        it('legend key is hidden', () => {
+            expectLegendKeyToBeHidden()
+        })
         it('verifies that options are persisted', () => {
             clickMenuBarOptionsButton()
             clickOptionsTab(OPTIONS_TAB_LEGEND)
             expectLegendDisplayStrategyToBeFixed()
             expectFixedLegendSetToBe(TEST_LEGEND_SET)
         })
+        it('enables legend key option', () => {
+            toggleLegendKeyOption()
+            expectLegendKeyOptionToBeEnabled()
+            clickOptionsModalUpdateButton()
+            expectVisualizationToBeVisible()
+        })
+        it('legend key is shown', () => {
+            expectLegendKeyToBeVisible()
+        })
     })
-    describe('Single value: applying a legend', () => {
+    describe('Applying a legend: Single value', () => {
         const TEST_ITEM = TEST_ITEMS[0]
         const EXPECTED_STANDARD_TEXT_COLOR = '#212934'
         it('navigates to the start page and adds data items', () => {
@@ -123,7 +144,7 @@ describe('Options - Legend', () => {
         it('enables legend', () => {
             clickMenuBarOptionsButton()
             clickOptionsTab(OPTIONS_TAB_LEGEND)
-            enableLegend()
+            toggleLegend()
             expectLegendToBeEnabled()
             expectLegendDisplayStrategyToBeByDataItem()
             clickOptionsModalUpdateButton()
@@ -132,8 +153,22 @@ describe('Options - Legend', () => {
         it('legend is applied', () => {
             expectSingleValueToNotBeColor(EXPECTED_STANDARD_TEXT_COLOR)
         })
+        it('legend key is hidden', () => {
+            expectLegendKeyToBeHidden()
+        })
+        it('enables legend key option', () => {
+            clickMenuBarOptionsButton()
+            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            toggleLegendKeyOption()
+            expectLegendKeyOptionToBeEnabled()
+            clickOptionsModalUpdateButton()
+            expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
+        })
+        it('legend key is shown', () => {
+            expectLegendKeyToBeVisible()
+        })
     })
-    describe('Gauge: applying a legend', () => {
+    describe('Applying a legend: Gauge', () => {
         const TEST_ITEM = TEST_ITEMS[0]
         const EXPECTED_BY_DATA_COLOR = '#FFFFB2'
         const EXPECTED_FIXED_COLOR = '#c7e9c0'
@@ -148,7 +183,7 @@ describe('Options - Legend', () => {
         it('enables legend', () => {
             clickMenuBarOptionsButton()
             clickOptionsTab(OPTIONS_TAB_LEGEND)
-            enableLegend()
+            toggleLegend()
             expectLegendToBeEnabled()
             expectLegendDisplayStrategyToBeByDataItem()
             expectLegendDisplayStyleToBeFill()
@@ -189,14 +224,26 @@ describe('Options - Legend', () => {
                 EXPECTED_FIXED_COLOR
             )
         })
+        it('legend key is hidden', () => {
+            expectLegendKeyToBeHidden()
+        })
         it('verifies that options are persisted', () => {
             clickMenuBarOptionsButton()
             clickOptionsTab(OPTIONS_TAB_LEGEND)
             expectLegendDisplayStrategyToBeFixed()
             expectFixedLegendSetToBe(TEST_LEGEND_SET)
         })
+        it('enables legend key option', () => {
+            toggleLegendKeyOption()
+            expectLegendKeyOptionToBeEnabled()
+            clickOptionsModalUpdateButton()
+            expectVisualizationToBeVisible(VIS_TYPE_GAUGE)
+        })
+        it('legend key is shown', () => {
+            expectLegendKeyToBeVisible()
+        })
     })
-    describe('Pivot table: applying a legend', () => {
+    describe('Applying a legend: Pivot table', () => {
         const TEST_ITEM = TEST_ITEMS[0]
         const EXPECTED_STANDARD_TEXT_COLOR = 'color: rgb(33, 41, 52)'
         const valueCellEl = 'visualization-value-cell'
@@ -219,7 +266,7 @@ describe('Options - Legend', () => {
         it('enables legend', () => {
             clickMenuBarOptionsButton()
             clickOptionsTab(OPTIONS_TAB_LEGEND)
-            enableLegend()
+            toggleLegend()
             expectLegendToBeEnabled()
             expectLegendDisplayStrategyToBeByDataItem()
             expectLegendDisplayStyleToBeFill()
@@ -252,13 +299,25 @@ describe('Options - Legend', () => {
                     .and('not.contain', EXPECTED_STANDARD_TEXT_COLOR)
             })
         })
+        it('legend key is hidden', () => {
+            expectLegendKeyToBeHidden()
+        })
         it('verifies that options are persisted', () => {
             clickMenuBarOptionsButton()
             clickOptionsTab(OPTIONS_TAB_LEGEND)
             expectLegendDisplayStrategyToBeByDataItem()
         })
+        it('enables legend key option', () => {
+            toggleLegendKeyOption()
+            expectLegendKeyOptionToBeEnabled()
+            clickOptionsModalUpdateButton()
+            expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
+        })
+        it('legend key is shown', () => {
+            expectLegendKeyToBeVisible()
+        })
     })
-    describe('Pivot table -> Gauge: transferring a legend', () => {
+    describe('Transferring a legend: Pivot table -> Gauge', () => {
         const TEST_ITEM = TEST_ITEMS[0]
         const EXPECTED_STANDARD_TEXT_COLOR = 'color: rgb(33, 41, 52)'
         const EXPECTED_FIXED_COLOR = '#c7e9c0'
@@ -274,7 +333,7 @@ describe('Options - Legend', () => {
         it('enables legend', () => {
             clickMenuBarOptionsButton()
             clickOptionsTab(OPTIONS_TAB_LEGEND)
-            enableLegend()
+            toggleLegend()
             expectLegendToBeEnabled()
             expectLegendDisplayStrategyToBeByDataItem()
             expectLegendDisplayStyleToBeFill()
@@ -312,7 +371,7 @@ describe('Options - Legend', () => {
             expectLegendDisplayStrategyToBeFixed()
         })
     })
-    describe('Column -> Single value: transferring a legend', () => {
+    describe('Transferring a legend: Column -> Single value', () => {
         const EXPECTED_STANDARD_TEXT_COLOR = '#212934'
         it('navigates to the start page and adds data items', () => {
             goToStartPage()
@@ -324,7 +383,7 @@ describe('Options - Legend', () => {
         it('enables legend', () => {
             clickMenuBarOptionsButton()
             clickOptionsTab(OPTIONS_TAB_LEGEND)
-            enableLegend()
+            toggleLegend()
             expectLegendToBeEnabled()
             expectLegendDisplayStrategyToBeByDataItem()
             clickOptionsModalUpdateButton()
@@ -352,19 +411,140 @@ describe('Options - Legend', () => {
             expectLegendDisplayStrategyToBeByDataItem()
         })
     })
+    describe('Transferring the legend key: Column -> Pivot table -> Gauge -> Single value', () => {
+        it('navigates to the start page and adds data items', () => {
+            goToStartPage()
+            openDimension(DIMENSION_ID_DATA)
+            selectIndicators(TEST_ITEMS.map(item => item.name))
+            clickDimensionModalUpdateButton()
+            expectVisualizationToBeVisible()
+        })
+        it('enables legend (Column)', () => {
+            clickMenuBarOptionsButton()
+            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            toggleLegend()
+            expectLegendToBeEnabled()
+            clickOptionsModalUpdateButton()
+            expectVisualizationToBeVisible()
+        })
+        it('legend key is hidden (Column)', () => {
+            expectLegendKeyToBeHidden()
+        })
+        it('enables legend key option (Column)', () => {
+            clickMenuBarOptionsButton()
+            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            toggleLegendKeyOption()
+            expectLegendKeyOptionToBeEnabled()
+            clickOptionsModalUpdateButton()
+            expectVisualizationToBeVisible()
+        })
+        it('legend key is shown (Column)', () => {
+            expectLegendKeyToBeVisible()
+        })
+        it('changes vis type to Pivot table', () => {
+            changeVisType(visTypeDisplayNames[VIS_TYPE_PIVOT_TABLE])
+            clickMenuBarUpdateButton()
+            expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
+        })
+        it('legend key is shown (Pivot table)', () => {
+            expectLegendKeyToBeVisible()
+        })
+        it('disables legend key option (Pivot table)', () => {
+            clickMenuBarOptionsButton()
+            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            toggleLegendKeyOption()
+            expectLegendKeyOptionToBeDisabled()
+            clickOptionsModalUpdateButton()
+            expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
+        })
+        it('legend key is hidden (Pivot table)', () => {
+            expectLegendKeyToBeHidden()
+        })
+        it('changes vis type to Gauge', () => {
+            changeVisType(visTypeDisplayNames[VIS_TYPE_GAUGE])
+            clickMenuBarUpdateButton()
+            expectVisualizationToBeVisible(VIS_TYPE_GAUGE)
+        })
+        it('legend key is hidden (Gauge)', () => {
+            expectLegendKeyToBeHidden()
+        })
+        it('enables legend key option (Gauge)', () => {
+            clickMenuBarOptionsButton()
+            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            toggleLegendKeyOption()
+            expectLegendKeyOptionToBeEnabled()
+            clickOptionsModalUpdateButton()
+            expectVisualizationToBeVisible(VIS_TYPE_GAUGE)
+        })
+        it('legend key is shown (Gauge)', () => {
+            expectLegendKeyToBeVisible()
+        })
+        it('changes vis type to Single value', () => {
+            changeVisType(visTypeDisplayNames[VIS_TYPE_SINGLE_VALUE])
+            clickMenuBarUpdateButton()
+            expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
+        })
+        it('legend key is shown (Single value)', () => {
+            expectLegendKeyToBeVisible()
+        })
+        it('disables legend key option (Single value)', () => {
+            clickMenuBarOptionsButton()
+            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            toggleLegendKeyOption()
+            expectLegendKeyOptionToBeDisabled()
+            clickOptionsModalUpdateButton()
+            expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
+        })
+        it('legend key is hidden (Single value)', () => {
+            expectLegendKeyToBeHidden()
+        })
+    })
+    describe('The chart series key displaying legend colors', () => {
+        it('navigates to the start page and adds data items', () => {
+            goToStartPage()
+            openDimension(DIMENSION_ID_DATA)
+            selectIndicators(TEST_ITEMS.map(item => item.name))
+            clickDimensionModalUpdateButton()
+            expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+        })
+        it(`series key items displays the correct amount of bullets (1 each)`, () => {
+            expectSeriesKeyToHaveSeriesKeyItems(2)
+            expectSeriesKeyItemToHaveBullets(0, 1)
+            expectSeriesKeyItemToHaveBullets(1, 1)
+        })
+        it('enables legend', () => {
+            clickMenuBarOptionsButton()
+            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            toggleLegend()
+            expectLegendToBeEnabled()
+            expectLegendDisplayStrategyToBeByDataItem()
+            clickOptionsModalUpdateButton()
+            expectChartTitleToBeVisible()
+        })
+        it(`series key items displays the correct amount of bullets (first: ${TEST_ITEMS[0].legends}, second: ${TEST_ITEMS[1].legends})`, () => {
+            expectSeriesKeyToHaveSeriesKeyItems(2)
+            expectSeriesKeyItemToHaveBullets(0, TEST_ITEMS[0].legends)
+            expectSeriesKeyItemToHaveBullets(1, TEST_ITEMS[1].legends)
+        })
+        it(`changes legend display strategy to fixed (${TEST_ITEMS[1].legendSet})`, () => {
+            clickMenuBarOptionsButton()
+            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            expectLegendDisplayStrategyToBeByDataItem()
+            changeDisplayStrategyToFixed()
+            expectLegendDisplayStrategyToBeFixed()
+            changeFixedLegendSet(TEST_ITEMS[1].legendSet)
+            clickOptionsModalUpdateButton()
+            expectChartTitleToBeVisible()
+        })
+        it(`series key displays the correct amount of bullets (${TEST_ITEMS[1].legends} each)`, () => {
+            expectSeriesKeyToHaveSeriesKeyItems(2)
+            expectSeriesKeyItemToHaveBullets(0, TEST_ITEMS[1].legends)
+            expectSeriesKeyItemToHaveBullets(1, TEST_ITEMS[1].legends)
+        })
+    })
 })
 
 /*  TODO:
-    - A legend set can be applied to:
-        x isLegendSetType types (currently Column and Bar) - only legend strategy
-        x SV - only legend strategy
-        x Gauge - legend style and legend strategy
-        x PT - legend style and legend strategy
-    - Other vis types should show the default colors
-    - Other vis types should not show the legend tab in options
-    x Legend style and strategy options should persist when reopening the modal
-    x Legend style and strategy options should persist when changing vis type to another type that supports legends
-    x "Fixed legend" list loads and displays properly
-    - Legend key can be toggled on and off
-    - Series key items show multiple bullets when a legend is in use
+    - Non-legend vis types should show the default colors
+    - Non-legend vis types should not show the legend tab in options
 */

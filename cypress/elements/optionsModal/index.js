@@ -63,7 +63,7 @@ export { clickOutliersCheckbox } from './outliers'
 export { setItemToAxis } from './series'
 
 export {
-    enableLegend,
+    toggleLegend,
     expectLegendToBeEnabled,
     expectLegendDisplayStrategyToBeByDataItem,
     expectLegendDisplayStrategyToBeFixed,
@@ -75,4 +75,9 @@ export {
     expectLegendDisplayStyleToBeFill,
     expectSingleValueToNotBeColor,
     expectSingleValueToBeColor,
+    toggleLegendKeyOption,
+    expectLegendKeyOptionToBeEnabled,
+    expectLegendKeyOptionToBeDisabled,
+    expectLegendKeyToBeHidden,
+    expectLegendKeyToBeVisible,
 } from './legend'

@@ -219,7 +219,10 @@ export const VisualizationPlugin = ({
             return (
                 <>
                     {showLegendKey && (
-                        <div style={styles.legendKey}>
+                        <div
+                            style={styles.legendKey}
+                            data-test="visualization-legend-key"
+                        >
                             <div
                                 style={{
                                     ...styles.wrapper,
@@ -248,7 +251,10 @@ export const VisualizationPlugin = ({
             )
         } else if (hasLegendSet && fetchResult.visualization.legend?.showKey) {
             return (
-                <div style={styles.legendKey}>
+                <div
+                    style={styles.legendKey}
+                    data-test="visualization-legend-key"
+                >
                     <div style={styles.wrapper}>
                         <LegendKey legendSets={fetchResult.legendSets} />
                     </div>
