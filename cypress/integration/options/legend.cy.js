@@ -389,7 +389,7 @@ describe('Options - Legend', () => {
             clickOptionsModalUpdateButton()
             expectChartTitleToBeVisible()
         })
-        it('legend is applied', () => {
+        it('legend is applied to Column', () => {
             TEST_ITEMS.forEach(item =>
                 expectWindowConfigSeriesItemToHaveLegendSet(
                     item.name,
@@ -402,7 +402,7 @@ describe('Options - Legend', () => {
             clickMenuBarUpdateButton()
             expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
         })
-        it('legend is applied', () => {
+        it('legend is applied to Single value', () => {
             expectSingleValueToNotBeColor(EXPECTED_STANDARD_TEXT_COLOR)
         })
         it('verifies that options are persisted', () => {
