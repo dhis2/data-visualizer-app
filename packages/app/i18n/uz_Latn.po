@@ -195,7 +195,7 @@ msgid "Levels"
 msgstr "Bosqichlar/Qavatlar"
 
 msgid "Groups"
-msgstr ""
+msgstr "Гуруҳлар"
 
 msgid "And 1 other..."
 msgstr "Yana bir boshqasi"
@@ -1004,7 +1004,7 @@ msgid "Limit minimum/maximum values"
 msgstr "Minimal/maksimal qiymatlarni cheklash"
 
 msgid "Outliers"
-msgstr ""
+msgstr "Chekinishlar"
 
 msgid "Series"
 msgstr "Ketma-ketliklar"
