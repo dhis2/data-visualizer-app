@@ -210,7 +210,9 @@ export const VisualizationPlugin = ({
         forDashboard && hasLegendSet
             ? {
                   ...style,
-                  width: style.width - (showLegendKey ? 200 : 36), // TODO: Very arbitrary and static, change these values to something dynamic
+                  width: style.width - (showLegendKey ? 200 : 36),
+                  // 200: width of legend key component with margin and scrollbar
+                  // 36: width of the toggle button with margin
               }
             : style
 
