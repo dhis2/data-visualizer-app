@@ -14,7 +14,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-30T12:20:24.132Z\n"
+"POT-Creation-Date: 2021-06-18T09:30:04.938Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Edem Kossi <ekossi@hispwca.org>, 2021\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -453,9 +453,6 @@ msgstr "Tout"
 msgid "Hide empty rows"
 msgstr "Cacher lignes vides"
 
-msgid "Show legend key"
-msgstr "Afficher la clé de légende"
-
 msgid "Table subtitle"
 msgstr "Sous-titre du tableau"
 
@@ -650,6 +647,12 @@ msgstr "Étiquettes de dimension"
 
 msgid "Display organisation unit hierarchy"
 msgstr "Afficher la hiérarchie des unités d'organisation"
+
+msgid "Show legend key"
+msgstr "Afficher la clé de légende"
+
+msgid "Show series key"
+msgstr ""
 
 msgid "Skip rounding"
 msgstr "Ne pas arondir"
