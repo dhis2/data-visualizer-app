@@ -1,3 +1,10 @@
+# [37.6.0](https://github.com/dhis2/data-visualizer-app/compare/v37.5.5...v37.6.0) (2021-07-05)
+
+
+### Features
+
+* legend key (DHIS2-11239) ([#1756](https://github.com/dhis2/data-visualizer-app/issues/1756)) ([2f1f0b2](https://github.com/dhis2/data-visualizer-app/commit/2f1f0b2713988d1b36032e2d54ca41eaeb23c208)), closes [analytics#951](https://github.com/analytics/issues/951)
+
 ## [37.5.5](https://github.com/dhis2/data-visualizer-app/compare/v37.5.4...v37.5.5) (2021-07-01)
 
 
