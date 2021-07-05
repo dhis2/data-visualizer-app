@@ -60,7 +60,7 @@ import {
 const TEST_DATA_ELEMENT_NAME = getRandomArrayItem(TEST_DATA_ELEMENTS).name
 const TITLE_PREFIX = 'option-chart-title'
 const SUBTITLE_PREFIX = 'option-chart-subtitle'
-const LEGEND_PREFIX = 'option-legend-key'
+const SERIES_KEY_PREFIX = 'option-series-key'
 const TARGET_LINE_PREFIX = 'option-target-line-label'
 const BASE_LINE_PREFIX = 'option-base-line-label'
 const VERTICAL_AXIS_TITLE_PREFIX = 'RANGE_0-axis-title'
@@ -306,14 +306,14 @@ describe('Options - Font styles', () => {
             })
         })
     })
-    describe('legend key', () => {
+    describe('series key', () => {
         const TEST_FONT_SIZE_OPTION = { input: 'Extra Large', output: '24px' }
         const TEST_TEXT_ALIGN_OPTION = generateRandomBool()
             ? { input: 'Left', output: 'left' }
             : { input: 'Right', output: 'right' }
         const TEST_BOLD_OPTION = randomizeBoldOption()
         const TEST_ITALIC_OPTION = randomizeItalicOption()
-        const prefix = LEGEND_PREFIX
+        const prefix = SERIES_KEY_PREFIX
 
         it('opens Options -> Style', () => {
             clickMenuBarOptionsButton()

@@ -226,12 +226,12 @@ describe('reducer: ui', () => {
         expect(actualState).toEqual(expectedState)
     })
 
-    it(`${ui.SET_UI_OPTION} sets legend option hideLegend`, () => {
+    it(`${ui.SET_UI_OPTION} sets series key option showSeriesKey`, () => {
         const expectedState = {
             ...ui.DEFAULT_UI,
             options: {
                 ...ui.DEFAULT_UI.options,
-                legend: {
+                seriesKey: {
                     hidden: true,
                 },
             },
@@ -239,7 +239,7 @@ describe('reducer: ui', () => {
         const actualState = reducer(ui.DEFAULT_UI, {
             type: ui.SET_UI_OPTION,
             value: {
-                optionId: 'hideLegend',
+                optionId: 'showSeriesKey',
                 value: true,
             },
         })

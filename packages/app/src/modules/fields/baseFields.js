@@ -13,7 +13,6 @@ export const fieldsByType = {
     reportTable: [
         getFieldObject('cumulative', { option: true }),
         getFieldObject('hideEmptyColumns', { option: true }),
-        getFieldObject('legendDisplayStyle', { option: true }),
         getFieldObject('measureCriteria', { option: true }),
         getFieldObject('numberType', { option: true }),
         getFieldObject('regression', { option: true }),
@@ -42,6 +41,7 @@ export const fieldsByType = {
         getFieldObject('cumulativeValues', { option: true }),
         getFieldObject('fontStyle', { option: true }),
         getFieldObject('hideEmptyRowItems', { option: true }),
+        getFieldObject('seriesKey', { option: true }),
         getFieldObject('legend', { option: true }),
         getFieldObject('noSpaceBetweenColumns', { option: true }),
         getFieldObject('percentStackedValues', { option: true }),
@@ -64,10 +64,6 @@ export const fieldsByType = {
         getFieldObject('programStatus', { option: true }),
         getFieldObject('startDate'),
         getFieldObject('value'),
-    ],
-    reportTable_chart_eventReport: [
-        getFieldObject('legendDisplayStrategy', { option: true }),
-        getFieldObject('legendSet', { option: true }),
     ],
     reportTable_eventReport_eventChart: [
         getFieldObject('columnDimensions', { excluded: true }),
@@ -140,7 +136,6 @@ fieldsByType.visualization = [
     ...fieldsByType.chart,
     ...fieldsByType.reportTable_eventReport,
     ...fieldsByType.chart_eventChart,
-    ...fieldsByType.reportTable_chart_eventReport,
     ...fieldsByType.reportTable_eventReport_eventChart,
     ...fieldsByType.reportTable_chart_eventReport_eventChart,
 ]

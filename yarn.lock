@@ -1558,19 +1558,19 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^18.3.0":
-  version "18.3.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-18.3.0.tgz#c142419aa59d85727e4cecc51cc939d78f2e3a71"
-  integrity sha512-o35IzC/aIXV18CYDugY5C33OjCI7XmEnN/o6d9N4h7u0pkp1kKknL6pX9+bGLlYVjv1GlALYMCmoInoM8qSGaQ==
+"@dhis2/analytics@^20.0.0":
+  version "20.0.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-20.0.0.tgz#fa18386ef73c69ac2892558f6d860a9b8137a3b3"
+  integrity sha512-N3Y3gb3xyRNIA0JvZNF9qoN8B6oNn2Pvahmof+v2/GEXO26siYAEaMysU9LS5wLidEeuEibhusMtC9blwArIBA==
   dependencies:
     "@dhis2/d2-ui-favorites-dialog" "^7.3.0"
     "@dhis2/d2-ui-org-unit-dialog" "^7.3.0"
     "@dhis2/d2-ui-sharing-dialog" "^7.2.0"
-    "@dhis2/d2-ui-translation-dialog" "^7.2.0"
+    "@dhis2/d2-ui-translation-dialog" "^7.3.1"
     classnames "^2.3.1"
     d2-utilizr "^0.2.16"
     d3-color "^1.2.3"
-    highcharts "^9.1.1"
+    highcharts "^9.1.2"
     lodash "^4.17.21"
     mathjs "^9.4.2"
     react-beautiful-dnd "^10.1.1"
@@ -1763,17 +1763,6 @@
     i18next "^10.3"
     moment "^2.24.0"
 
-"@dhis2/d2-ui-core@7.2.0":
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-7.2.0.tgz#932c9b2f439dc730ccb28a69129cfeeba15527ad"
-  integrity sha512-ox3//w5/sVwlEpOwp/h3NwMufd0bf653ZZmw4sWpH8t8oosuvt0F4bDGB7Vz0f8tidB09oLGiAsHmtvKTXpLpA==
-  dependencies:
-    babel-runtime "^6.26.0"
-    d2 "~31.7"
-    lodash "^4.17.10"
-    material-ui "^0.20.0"
-    rxjs "^5.5.7"
-
 "@dhis2/d2-ui-core@7.3.0":
   version "7.3.0"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-7.3.0.tgz#d30fe5aea507a1d1f203d524f2172e293b0a9bf9"
@@ -1895,12 +1884,12 @@
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
-"@dhis2/d2-ui-translation-dialog@^7.2.0":
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-translation-dialog/-/d2-ui-translation-dialog-7.2.0.tgz#4e990e6bf551213f1a514b560a211d3444bd34bd"
-  integrity sha512-hbe1QWGxo8bx+Ha5XNrN4ELVhJJPrwtJ89asybCot8InPjepYbf1U2QQYG6DX4GzEGZ3r+aSq+07QWfK9h9m+Q==
+"@dhis2/d2-ui-translation-dialog@^7.3.1":
+  version "7.3.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-translation-dialog/-/d2-ui-translation-dialog-7.3.1.tgz#aa10fad9e0cbf134ecc02b7dee6b9e07fa4edae3"
+  integrity sha512-yApQUlj6F3Ll5zkdcnqspAm6m7KosL6Vbj7qa6rHooz/Dvu8fA2Isg/wqYN+ZuKmutaTpX26B7zlN4l1OOP9yw==
   dependencies:
-    "@dhis2/d2-ui-core" "7.2.0"
+    "@dhis2/d2-ui-core" "7.3.1"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     babel-runtime "^6.26.0"
@@ -8432,10 +8421,10 @@ hex-color-regex@^1.1.0:
   resolved "https://registry.yarnpkg.com/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
 
-highcharts@^9.1.1:
-  version "9.1.1"
-  resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-9.1.1.tgz#919223d7ccc429af8237a591855d8f48bea13872"
-  integrity sha512-dNkUIJUNMh/G2TxQxxlQeILVs9tXiXQRxVkNGU9SLCh2zB2jcjJ7aQdgA0k7PFTEvDVUHphumZ301sHkDS7/pg==
+highcharts@^9.1.2:
+  version "9.1.2"
+  resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-9.1.2.tgz#c9b15390a10acb274a941d2aa5bc05c0889646d9"
+  integrity sha512-RwCnJnxAUCGG4R/WDG+QP/4VJNtOpkQTkXcuf58DjDvm9ZILplSMdZvrbMRC9Y9ecuJQCjjZsiifvyS5E2IBvQ==
 
 history@^4.7.2:
   version "4.10.1"

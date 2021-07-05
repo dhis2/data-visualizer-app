@@ -1,3 +1,4 @@
+/*eslint no-unused-vars: ["error", { "ignoreRestSiblings": true }]*/
 import {
     TITLE_PROP,
     SUBTITLE_PROP,
@@ -18,7 +19,14 @@ export const expectWindowConfigSubtitleToBeValue = value =>
     cy.window().its(CONFIG_PROP).its(SUBTITLE_PROP).should('eql', value)
 
 export const expectWindowConfigLegendToBeValue = value =>
-    cy.window().its(CONFIG_PROP).its(LEGEND_PROP).should('eql', value)
+    cy
+        .window()
+        .its(CONFIG_PROP)
+        .its(LEGEND_PROP)
+        .then(legend => {
+            const { labelFormatter, ...rest } = legend
+            expect({ ...rest }).to.eql(value)
+        })
 
 export const expectWindowConfigAxisPlotLinesToBeValue = ({
     axisType,
@@ -142,6 +150,16 @@ export const expectWindowConfigYAxisToHaveStepsValue = value =>
             expect(yAxis.tickAmount).to.eq(value)
         })
 
+export const expectWindowConfigYAxisToHaveColor = color =>
+    cy
+        .window()
+        .its(CONFIG_PROP)
+        .its(Y_AXIS_PROP)
+        .then(yAxis => {
+            expect(yAxis.minColor).to.eq(color)
+            expect(yAxis.maxColor).to.eq(color)
+        })
+
 export const expectWindowConfigXAxisToHaveRangeMinValue = value =>
     cy
         .window()
@@ -160,4 +178,33 @@ export const expectWindowConfigXAxisToHaveRangeMaxValue = value =>
         .then(xAxes => {
             const xAxis = xAxes[0]
             expect(xAxis.max).to.eq(value)
+        })
+
+export const expectWindowConfigSeriesItemToHaveLegendSet = (
+    seriesItemName,
+    expectedLS
+) =>
+    cy
+        .window()
+        .its(CONFIG_PROP)
+        .its(SERIES_PROP)
+        .then(series => {
+            const seriesItem = series.find(item => item.name === seriesItemName)
+            seriesItem.data.every(item =>
+                expect(item.legendSet).to.eq(expectedLS)
+            )
+        })
+
+export const expectWindowConfigSeriesDataLabelsToHaveColor = (
+    seriesItemIndex,
+    expectedColor
+) =>
+    cy
+        .window()
+        .its(CONFIG_PROP)
+        .its(SERIES_PROP)
+        .then(series => {
+            expect(series[seriesItemIndex].dataLabels.style.color).to.eq(
+                expectedColor
+            )
         })

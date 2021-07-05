@@ -26,6 +26,7 @@ export const CheckboxBaseOption = ({
             name={option.name}
             onChange={({ checked }) => onChange(inverted ? !checked : checked)}
             dense
+            dataTest={dataTest}
         />
         {((!inverted && value) || (inverted && !value)) && fontStyleKey ? (
             <div className={tabSectionOptionToggleable.className}>

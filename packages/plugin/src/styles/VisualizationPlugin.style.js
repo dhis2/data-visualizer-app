@@ -1,4 +1,23 @@
 export default {
+    container: {
+        flexGrow: 1,
+    },
+    legendKey: {
+        margin: '0 8px',
+        width: '180px',
+    },
+    legendKeyToggle: {
+        margin: '0 4px',
+    },
+    wrapper: {
+        position: 'absolute',
+        top: 0,
+        bottom: 0,
+        overflow: 'auto',
+    },
+    buttonMargin: {
+        marginTop: '34px',
+    },
     backdrop: {
         position: 'fixed',
         height: '100%',

@@ -53,7 +53,10 @@ class VisualizationOptionsManager extends Component {
                         dataTest={'options-modal'}
                     >
                         <ModalTitle>{i18n.t('Options')}</ModalTitle>
-                        <ModalContent className={styles.modalContent}>
+                        <ModalContent
+                            className={styles.modalContent}
+                            dataTest={'options-modal-content'}
+                        >
                             <VisualizationOptions />
                         </ModalContent>
                         <ModalActions dataTest={'options-modal-actions'}>

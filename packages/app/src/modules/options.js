@@ -1,7 +1,8 @@
 import { COLOR_SET_DEFAULT } from '@dhis2/analytics'
 import pick from 'lodash-es/pick'
 
-export const OPTION_HIDE_LEGEND = 'hideLegend'
+export const OPTION_SHOW_SERIES_KEY = 'showSeriesKey'
+export const OPTION_SHOW_LEGEND_KEY = 'showLegendKey'
 export const OPTION_AXIS_STEPS = 'steps'
 export const OPTION_AXIS_DECIMALS = 'decimals'
 export const OPTION_AXIS_MAX_VALUE = 'maxValue'
@@ -16,6 +17,9 @@ export const OPTION_TARGET_LINE_ENABLED = 'targetLineEnabled'
 export const OPTION_TARGET_LINE_TITLE = 'targetLineTitle'
 export const OPTION_TARGET_LINE_VALUE = 'targetLineValue'
 export const OPTION_TARGET_LINE_TITLE_FONT_STYLE = 'targetLineTitleFontStyle'
+export const OPTION_LEGEND_DISPLAY_STRATEGY = 'legendDisplayStrategy'
+export const OPTION_LEGEND_DISPLAY_STYLE = 'legendDisplayStyle'
+export const OPTION_LEGEND_SET = 'legendSet'
 
 export const options = {
     axes: { requestable: false, savable: true, defaultValue: [] },
@@ -34,7 +38,12 @@ export const options = {
         requestable: false,
         savable: true,
     },
-    legend: { defaultValue: {}, requestable: false, savable: true },
+    seriesKey: { defaultValue: {}, requestable: false, savable: true },
+    legend: {
+        defaultValue: {},
+        requestable: false,
+        savable: true,
+    },
     noSpaceBetweenColumns: {
         defaultValue: false,
         requestable: false,
@@ -89,17 +98,6 @@ export const options = {
     skipRounding: { defaultValue: false, requestable: true, savable: true },
     numberType: { defaultValue: 'VALUE', requestable: false, savable: true },
     showHierarchy: { defaultValue: false, requestable: true, savable: true },
-    legendSet: { defaultValue: undefined, requestable: false, savable: true },
-    legendDisplayStrategy: {
-        defaultValue: 'FIXED',
-        requestable: false,
-        savable: true,
-    },
-    legendDisplayStyle: {
-        defaultValue: 'FILL',
-        requestable: false,
-        savable: true,
-    },
     displayDensity: {
         defaultValue: 'NORMAL',
         requestable: false,

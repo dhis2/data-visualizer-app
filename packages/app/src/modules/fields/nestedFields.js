@@ -19,7 +19,6 @@ export const nestedFields = {
     filters: AXIS,
     user: USER,
     interpretations: INTERPRETATIONS,
-    legendSet: LEGEND_SET,
 }
 
 export const extendFields = field =>

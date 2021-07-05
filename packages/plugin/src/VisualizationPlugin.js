@@ -3,9 +3,12 @@ import {
     apiFetchOrganisationUnitLevels,
     convertOuLevelsToUids,
     DIMENSION_ID_ORGUNIT,
+    LegendKey,
+    LEGEND_DISPLAY_STRATEGY_FIXED,
+    LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM,
 } from '@dhis2/analytics'
 import { useDataEngine } from '@dhis2/app-runtime'
-import { Popper } from '@dhis2/ui'
+import { Popper, Button, IconLegend24 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState, useCallback } from 'react'
 import { createPortal } from 'react-dom'
@@ -16,25 +19,28 @@ import { fetchData } from './modules/fetchData'
 import PivotPlugin from './PivotPlugin'
 import styles from './styles/VisualizationPlugin.style.js'
 
-const LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM = 'BY_DATA_ITEM'
-const LEGEND_DISPLAY_STRATEGY_FIXED = 'FIXED'
-
 export const VisualizationPlugin = ({
     visualization,
     filters,
     forDashboard,
+    id,
+    style,
     userSettings,
+    onChartGenerated,
     onError,
     onLoadingComplete,
     onResponsesReceived,
     onDrill,
-    ...props
 }) => {
     const engine = useDataEngine()
     const [ouLevels, setOuLevels] = useState(undefined)
     const [fetchResult, setFetchResult] = useState(null)
     const [contextualMenuRef, setContextualMenuRef] = useState(undefined)
     const [contextualMenuConfig, setContextualMenuConfig] = useState({})
+    const [showLegendKey, setShowLegendKey] = useState(false)
+    const [renderId, setRenderId] = useState(0)
+
+    const incremementRenderId = () => setRenderId(renderId + 1)
 
     const onToggleContextualMenu = (ref, data) => {
         if (data.ouId) {
@@ -144,10 +150,10 @@ export const VisualizationPlugin = ({
 
             const legendSetIds = []
 
-            switch (visualization.legendDisplayStrategy) {
+            switch (visualization.legend?.strategy) {
                 case LEGEND_DISPLAY_STRATEGY_FIXED:
-                    if (visualization.legendSet && visualization.legendSet.id) {
-                        legendSetIds.push(visualization.legendSet.id)
+                    if (visualization.legend?.set?.id) {
+                        legendSetIds.push(visualization.legend.set.id)
                     }
                     break
                 case LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM: {
@@ -178,6 +184,7 @@ export const VisualizationPlugin = ({
                 responses,
                 extraOptions,
             })
+            setShowLegendKey(visualization.legend?.showKey)
             onLoadingComplete()
         }
 
@@ -198,37 +205,103 @@ export const VisualizationPlugin = ({
         ? { getBoundingClientRect: () => contextualMenuRect }
         : null
 
+    const hasLegendSet = fetchResult.legendSets?.length > 0
+    const transformedStyle =
+        forDashboard && hasLegendSet
+            ? {
+                  ...style,
+                  width: style.width - (showLegendKey ? 200 : 36),
+                  // 200: width of legend key component with margin and scrollbar
+                  // 36: width of the toggle button with margin
+              }
+            : style
+
+    const getLegendKey = () => {
+        if (forDashboard && hasLegendSet) {
+            return (
+                <>
+                    {showLegendKey && (
+                        <div
+                            style={styles.legendKey}
+                            data-test="visualization-legend-key"
+                        >
+                            <div
+                                style={{
+                                    ...styles.wrapper,
+                                    ...styles.buttonMargin,
+                                }}
+                            >
+                                <LegendKey
+                                    legendSets={fetchResult.legendSets}
+                                />
+                            </div>
+                        </div>
+                    )}
+                    <div style={styles.legendKeyToggle}>
+                        <Button
+                            small
+                            secondary
+                            onClick={() => {
+                                setShowLegendKey(!showLegendKey)
+                                incremementRenderId()
+                            }}
+                            icon={<IconLegend24 />}
+                            toggled={showLegendKey}
+                        />
+                    </div>
+                </>
+            )
+        } else if (hasLegendSet && fetchResult.visualization.legend?.showKey) {
+            return (
+                <div
+                    style={styles.legendKey}
+                    data-test="visualization-legend-key"
+                >
+                    <div style={styles.wrapper}>
+                        <LegendKey legendSets={fetchResult.legendSets} />
+                    </div>
+                </div>
+            )
+        }
+    }
+
     return (
         <>
-            {!fetchResult.visualization.type ||
-            fetchResult.visualization.type === VIS_TYPE_PIVOT_TABLE ? (
-                <PivotPlugin
-                    visualization={convertOuLevelsToUids(
-                        ouLevels,
-                        fetchResult.visualization
-                    )}
-                    responses={fetchResult.responses}
-                    legendSets={fetchResult.legendSets}
-                    onToggleContextualMenu={
-                        onDrill ? onToggleContextualMenu : undefined
-                    }
-                    {...props}
-                />
-            ) : (
-                <ChartPlugin
-                    visualization={convertOuLevelsToUids(
-                        ouLevels,
-                        fetchResult.visualization
-                    )}
-                    responses={fetchResult.responses}
-                    extraOptions={fetchResult.extraOptions}
-                    legendSets={fetchResult.legendSets}
-                    onToggleContextualMenu={
-                        onDrill ? onToggleContextualMenu : undefined
-                    }
-                    {...props}
-                />
-            )}
+            <div style={styles.container}>
+                {!fetchResult.visualization.type ||
+                fetchResult.visualization.type === VIS_TYPE_PIVOT_TABLE ? (
+                    <PivotPlugin
+                        visualization={convertOuLevelsToUids(
+                            ouLevels,
+                            fetchResult.visualization
+                        )}
+                        responses={fetchResult.responses}
+                        legendSets={fetchResult.legendSets}
+                        onToggleContextualMenu={
+                            onDrill ? onToggleContextualMenu : undefined
+                        }
+                        id={id}
+                        style={transformedStyle}
+                    />
+                ) : (
+                    <ChartPlugin
+                        visualization={convertOuLevelsToUids(
+                            ouLevels,
+                            fetchResult.visualization
+                        )}
+                        responses={fetchResult.responses}
+                        extraOptions={fetchResult.extraOptions}
+                        legendSets={fetchResult.legendSets}
+                        onToggleContextualMenu={
+                            onDrill ? onToggleContextualMenu : undefined
+                        }
+                        id={forDashboard ? renderId : id}
+                        onChartGenerated={onChartGenerated}
+                        style={transformedStyle}
+                    />
+                )}
+            </div>
+            {getLegendKey()}
             {contextualMenuRect &&
                 createPortal(
                     <div onClick={closeContextualMenu} style={styles.backdrop}>
@@ -252,9 +325,11 @@ export const VisualizationPlugin = ({
 VisualizationPlugin.defaultProps = {
     filters: {},
     forDashboard: false,
+    onChartGenerated: Function.prototype,
     onError: Function.prototype,
     onLoadingComplete: Function.prototype,
     onResponsesReceived: Function.prototype,
+    style: {},
     visualization: {},
     userSettings: {},
 }
@@ -262,7 +337,10 @@ VisualizationPlugin.propTypes = {
     visualization: PropTypes.object.isRequired,
     filters: PropTypes.object,
     forDashboard: PropTypes.bool,
+    id: PropTypes.string,
+    style: PropTypes.object,
     userSettings: PropTypes.object,
+    onChartGenerated: PropTypes.func,
     onDrill: PropTypes.func,
     onError: PropTypes.func,
     onLoadingComplete: PropTypes.func,

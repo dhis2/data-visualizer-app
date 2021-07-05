@@ -8,6 +8,7 @@ export const OPTIONS_TAB_DATA = 'Data'
 export const OPTIONS_TAB_AXES = 'Axes'
 export const OPTIONS_TAB_OUTLIERS = 'Outliers'
 export const OPTIONS_TAB_SERIES = 'Series'
+export const OPTIONS_TAB_LEGEND = 'Legend'
 
 export const clickOptionsTab = name =>
     cy.getBySel(tabBarEl).contains(name).click()
@@ -60,3 +61,23 @@ export { setCustomSubtitle } from './subtitle'
 export { clickOutliersCheckbox } from './outliers'
 
 export { setItemToAxis } from './series'
+
+export {
+    toggleLegend,
+    expectLegendToBeEnabled,
+    expectLegendDisplayStrategyToBeByDataItem,
+    expectLegendDisplayStrategyToBeFixed,
+    changeDisplayStrategyToFixed,
+    changeFixedLegendSet,
+    expectFixedLegendSetToBe,
+    changeDisplayStyleToText,
+    expectLegendDisplayStyleToBeText,
+    expectLegendDisplayStyleToBeFill,
+    expectSingleValueToNotBeColor,
+    expectSingleValueToBeColor,
+    toggleLegendKeyOption,
+    expectLegendKeyOptionToBeEnabled,
+    expectLegendKeyOptionToBeDisabled,
+    expectLegendKeyToBeHidden,
+    expectLegendKeyToBeVisible,
+} from './legend'
