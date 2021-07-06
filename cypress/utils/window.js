@@ -195,6 +195,16 @@ export const expectWindowConfigSeriesItemToHaveLegendSet = (
             )
         })
 
+export const expectWindowConfigSeriesItemToNotHaveLegendSet = seriesItemName =>
+    cy
+        .window()
+        .its(CONFIG_PROP)
+        .its(SERIES_PROP)
+        .then(series => {
+            const seriesItem = series.find(item => item.name === seriesItemName)
+            seriesItem.data.every(item => expect(item).to.be.a('number'))
+        })
+
 export const expectWindowConfigSeriesDataLabelsToHaveColor = (
     seriesItemIndex,
     expectedColor
