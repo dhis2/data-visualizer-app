@@ -21,7 +21,7 @@
         "@dhis2/data-visualizer-plugin": "37.6.1",
         "@dhis2/ui": "^6.9.0",
         "d2": "^31.9.1",
-        "history": "^4.7.2",
+        "history": "^5.0.0",
         "lodash-es": "^4.17.11",
         "prop-types": "^15",
         "raf": "3.4.1",
