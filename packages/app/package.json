@@ -25,7 +25,7 @@
         "lodash-es": "^4.17.11",
         "prop-types": "^15",
         "raf": "3.4.1",
-        "react": "^16.13",
+        "react": "^16.14",
         "react-beautiful-dnd": "^13.1.0",
         "react-dom": "^16.13",
         "react-redux": "^5.1.0",
