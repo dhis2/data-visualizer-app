@@ -1,3 +1,10 @@
+## [37.6.1](https://github.com/dhis2/data-visualizer-app/compare/v37.6.0...v37.6.1) (2021-07-06)
+
+
+### Bug Fixes
+
+* legend options bleed (DHIS2-11239) ([#1785](https://github.com/dhis2/data-visualizer-app/issues/1785)) ([041cd20](https://github.com/dhis2/data-visualizer-app/commit/041cd209a24b9e8acc640f7b37ec822768c08f61))
+
 # [37.6.0](https://github.com/dhis2/data-visualizer-app/compare/v37.5.5...v37.6.0) (2021-07-05)
 
 

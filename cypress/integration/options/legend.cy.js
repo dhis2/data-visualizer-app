@@ -4,6 +4,8 @@ import {
     VIS_TYPE_SINGLE_VALUE,
     VIS_TYPE_GAUGE,
     VIS_TYPE_PIVOT_TABLE,
+    VIS_TYPE_STACKED_COLUMN,
+    VIS_TYPE_LINE,
     visTypeDisplayNames,
 } from '@dhis2/analytics'
 import {
@@ -42,12 +44,14 @@ import {
     expectLegendKeyToBeVisible,
     expectLegendKeyToBeHidden,
     expectLegendKeyOptionToBeDisabled,
+    expectOptionsTabToBeHidden,
 } from '../../elements/optionsModal'
 import { goToStartPage } from '../../elements/startScreen'
 import { changeVisType } from '../../elements/visualizationTypeSelector'
 import {
     expectWindowConfigSeriesDataLabelsToHaveColor,
     expectWindowConfigSeriesItemToHaveLegendSet,
+    expectWindowConfigSeriesItemToNotHaveLegendSet,
     expectWindowConfigYAxisToHaveColor,
 } from '../../utils/window'
 
@@ -499,6 +503,81 @@ describe('Options - Legend', () => {
             expectLegendKeyToBeHidden()
         })
     })
+    describe('Preventing options bleed: Column -> Stacked column', () => {
+        it('navigates to the start page and adds data items', () => {
+            goToStartPage()
+            openDimension(DIMENSION_ID_DATA)
+            selectIndicators(TEST_ITEMS.map(item => item.name))
+            clickDimensionModalUpdateButton()
+            expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+        })
+        it('enables legend', () => {
+            clickMenuBarOptionsButton()
+            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            toggleLegend()
+            expectLegendToBeEnabled()
+            expectLegendDisplayStrategyToBeByDataItem()
+            clickOptionsModalUpdateButton()
+            expectChartTitleToBeVisible()
+        })
+        it('legend is applied to Column', () => {
+            TEST_ITEMS.forEach(item =>
+                expectWindowConfigSeriesItemToHaveLegendSet(
+                    item.name,
+                    item.legendSet
+                )
+            )
+        })
+        it('changes vis type to Stacked column', () => {
+            changeVisType(visTypeDisplayNames[VIS_TYPE_STACKED_COLUMN])
+            clickMenuBarUpdateButton()
+            expectVisualizationToBeVisible(VIS_TYPE_STACKED_COLUMN)
+        })
+        it('legend is not applied to Stacked column', () => {
+            TEST_ITEMS.forEach(item =>
+                expectWindowConfigSeriesItemToNotHaveLegendSet(item.name)
+            )
+        })
+        it('legend options are not available', () => {
+            clickMenuBarOptionsButton()
+            expectOptionsTabToBeHidden(OPTIONS_TAB_LEGEND)
+        })
+        it('legend key is hidden', () => {
+            expectLegendKeyToBeHidden()
+        })
+        it(`series key displays the correct amount of bullets (1 each)`, () => {
+            expectSeriesKeyToHaveSeriesKeyItems(2)
+            expectSeriesKeyItemToHaveBullets(0, 1)
+            expectSeriesKeyItemToHaveBullets(1, 1)
+        })
+    })
+    describe('Non-legend set type displays correctly: Line', () => {
+        it('navigates to the start page and adds data items', () => {
+            goToStartPage()
+            changeVisType(visTypeDisplayNames[VIS_TYPE_LINE])
+            openDimension(DIMENSION_ID_DATA)
+            selectIndicators(TEST_ITEMS.map(item => item.name))
+            clickDimensionModalUpdateButton()
+            expectVisualizationToBeVisible(VIS_TYPE_LINE)
+        })
+        it('legend is not applied to Line', () => {
+            TEST_ITEMS.forEach(item =>
+                expectWindowConfigSeriesItemToNotHaveLegendSet(item.name)
+            )
+        })
+        it('legend options are not available', () => {
+            clickMenuBarOptionsButton()
+            expectOptionsTabToBeHidden(OPTIONS_TAB_LEGEND)
+        })
+        it('legend key is hidden', () => {
+            expectLegendKeyToBeHidden()
+        })
+        it(`series key displays the correct amount of bullets (1 each)`, () => {
+            expectSeriesKeyToHaveSeriesKeyItems(2)
+            expectSeriesKeyItemToHaveBullets(0, 1)
+            expectSeriesKeyItemToHaveBullets(1, 1)
+        })
+    })
     describe('The chart series key displaying legend colors', () => {
         it('navigates to the start page and adds data items', () => {
             goToStartPage()
@@ -543,8 +622,3 @@ describe('Options - Legend', () => {
         })
     })
 })
-
-/*  TODO:
-    - Non-legend vis types should show the default colors
-    - Non-legend vis types should not show the legend tab in options
-*/

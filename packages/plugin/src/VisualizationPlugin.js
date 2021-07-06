@@ -6,6 +6,7 @@ import {
     LegendKey,
     LEGEND_DISPLAY_STRATEGY_FIXED,
     LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM,
+    isLegendSetType,
 } from '@dhis2/analytics'
 import { useDataEngine } from '@dhis2/app-runtime'
 import { Popper, Button, IconLegend24 } from '@dhis2/ui'
@@ -205,7 +206,9 @@ export const VisualizationPlugin = ({
         ? { getBoundingClientRect: () => contextualMenuRect }
         : null
 
-    const hasLegendSet = fetchResult.legendSets?.length > 0
+    const hasLegendSet =
+        fetchResult.legendSets?.length > 0 &&
+        isLegendSetType(fetchResult.visualization.type)
     const transformedStyle =
         forDashboard && hasLegendSet
             ? {
@@ -217,7 +220,7 @@ export const VisualizationPlugin = ({
             : style
 
     const getLegendKey = () => {
-        if (forDashboard && hasLegendSet) {
+        if (hasLegendSet && forDashboard) {
             return (
                 <>
                     {showLegendKey && (
