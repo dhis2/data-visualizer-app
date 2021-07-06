@@ -1,6 +1,6 @@
 # Data visualizer app and plugin
 
-This is a yarn workspaces mono-repo that contains the data-visualizer-app. Eventually it will also contain the analytics plugins.
+This is a yarn workspaces mono-repo that contains the data visualizer app and the data visualizer plugin
 
 ## Getting started
 
