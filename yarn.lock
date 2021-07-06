@@ -1558,10 +1558,10 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^20.0.0":
-  version "20.0.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-20.0.0.tgz#fa18386ef73c69ac2892558f6d860a9b8137a3b3"
-  integrity sha512-N3Y3gb3xyRNIA0JvZNF9qoN8B6oNn2Pvahmof+v2/GEXO26siYAEaMysU9LS5wLidEeuEibhusMtC9blwArIBA==
+"@dhis2/analytics@^20.0.2":
+  version "20.0.2"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-20.0.2.tgz#0619ffdba59db03df176ae0c2a7d8d5b55fb68b7"
+  integrity sha512-oN7Fo2BE0PIKbaEUFVoED54v71lnmOpdeK00DPlEvG5vB/97pe+tmONz5imW2vkZGwmS/fqcF7C680GV4iRuOQ==
   dependencies:
     "@dhis2/d2-ui-favorites-dialog" "^7.3.0"
     "@dhis2/d2-ui-org-unit-dialog" "^7.3.0"
@@ -1856,7 +1856,7 @@
     markdown-it "^8.4.2"
     prop-types "^15.6.2"
 
-"@dhis2/d2-ui-sharing-dialog@7.3.0", "@dhis2/d2-ui-sharing-dialog@^7.2.0":
+"@dhis2/d2-ui-sharing-dialog@7.3.0":
   version "7.3.0"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-sharing-dialog/-/d2-ui-sharing-dialog-7.3.0.tgz#a1abfe4b472f3a66550f2727c94ae828fd9eb809"
   integrity sha512-OPDGd0pknd9b4xTqezScwv1AU1ChPWub+Mh7ETvfoWMTc2N+mXaacVOl2RZFrjEX9aVpl8OwzWpEzj1o0j6esQ==
@@ -1870,7 +1870,7 @@
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
-"@dhis2/d2-ui-sharing-dialog@7.3.1":
+"@dhis2/d2-ui-sharing-dialog@7.3.1", "@dhis2/d2-ui-sharing-dialog@^7.2.0":
   version "7.3.1"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-sharing-dialog/-/d2-ui-sharing-dialog-7.3.1.tgz#2e56a030f7a5744a632c8823d60401ca10aa1c6e"
   integrity sha512-HAyvJ9R7D626gN53R3g9iG3DFdjStN85C5XMlfmlmHHyRecvE/8n+jqCQnInpoJpKoLue45uCSEZ01hZoLUVEA==
@@ -13922,10 +13922,10 @@ react-transition-group@^2.2.1:
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
 
-react@^16.13, react@^16.8.6:
-  version "16.13.1"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
-  integrity sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w==
+react@^16.14, react@^16.8.6:
+  version "16.14.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.14.0.tgz#94d776ddd0aaa37da3eda8fc5b6b18a4c9a3114d"
+  integrity sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
