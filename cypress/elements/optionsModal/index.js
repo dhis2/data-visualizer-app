@@ -13,6 +13,9 @@ export const OPTIONS_TAB_LEGEND = 'Legend'
 export const clickOptionsTab = name =>
     cy.getBySel(tabBarEl).contains(name).click()
 
+export const expectOptionsTabToBeHidden = name =>
+    cy.getBySel(tabBarEl).should('not.contain', name)
+
 export const expectOptionsModalToBeVisible = () =>
     cy.getBySel(optionsModalEl).should('be.visible')
 
