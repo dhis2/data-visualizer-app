@@ -260,7 +260,7 @@ describe('Data dimension', () => {
         },
         {
             name: 'Program indicators',
-            testGroup: { name: 'Malaria focus investigation', itemAmount: 6 },
+            testGroup: { name: 'Malaria focus investigation', itemAmount: 3 },
             testItem: { name: 'BMI male' },
             defaultGroup: { name: 'All programs' },
             endpoint: {
