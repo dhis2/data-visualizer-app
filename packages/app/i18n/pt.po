@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-30T12:20:24.132Z\n"
+"POT-Creation-Date: 2021-06-18T09:30:04.938Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Ge Joao <gsimango@saudigitus.org>, 2021\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
@@ -438,9 +438,6 @@ msgstr "Tudo"
 msgid "Hide empty rows"
 msgstr "Esconder linhas vazias"
 
-msgid "Show legend key"
-msgstr ""
-
 msgid "Table subtitle"
 msgstr "Subtitulo da tabela"
 
@@ -620,6 +617,12 @@ msgstr "Etiquetas de dimensão"
 
 msgid "Display organisation unit hierarchy"
 msgstr "Exibir hierarquia da unidade organizacional"
+
+msgid "Show legend key"
+msgstr ""
+
+msgid "Show series key"
+msgstr ""
 
 msgid "Skip rounding"
 msgstr "Não arrendondar"

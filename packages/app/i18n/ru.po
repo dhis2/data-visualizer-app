@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-30T12:20:24.132Z\n"
+"POT-Creation-Date: 2021-06-18T09:30:04.938Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Saurabh Leekha <saurabh.leekha@hispindia.org>, 2021\n"
 "Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
@@ -432,9 +432,6 @@ msgstr "Все"
 msgid "Hide empty rows"
 msgstr "Скрыть незаполненные строки"
 
-msgid "Show legend key"
-msgstr "Показать ключ легенды"
-
 msgid "Table subtitle"
 msgstr ""
 
@@ -613,6 +610,12 @@ msgid "Dimension labels"
 msgstr ""
 
 msgid "Display organisation unit hierarchy"
+msgstr ""
+
+msgid "Show legend key"
+msgstr "Показать ключ легенды"
+
+msgid "Show series key"
 msgstr ""
 
 msgid "Skip rounding"
