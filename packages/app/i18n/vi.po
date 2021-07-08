@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-30T12:20:24.132Z\n"
+"POT-Creation-Date: 2021-06-18T09:30:04.938Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2020\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
@@ -441,9 +441,6 @@ msgstr "Tất cả"
 msgid "Hide empty rows"
 msgstr "Ẩn dòng rỗng"
 
-msgid "Show legend key"
-msgstr "Hiển thị khóa chú giải"
-
 msgid "Table subtitle"
 msgstr "Tiêu đề phụ của bảng"
 
@@ -625,6 +622,12 @@ msgstr "Nhãn chiều dữ liệu"
 
 msgid "Display organisation unit hierarchy"
 msgstr "Hiển thị cây đơn vị"
+
+msgid "Show legend key"
+msgstr "Hiển thị khóa chú giải"
+
+msgid "Show series key"
+msgstr ""
 
 msgid "Skip rounding"
 msgstr "Không làm tròn"

@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-30T12:20:24.132Z\n"
+"POT-Creation-Date: 2021-06-18T09:30:04.938Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2021\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -430,9 +430,6 @@ msgstr "全部"
 msgid "Hide empty rows"
 msgstr "隐藏空行"
 
-msgid "Show legend key"
-msgstr "显示图例键值"
-
 msgid "Table subtitle"
 msgstr "表子标题"
 
@@ -612,6 +609,12 @@ msgstr "维度标签"
 
 msgid "Display organisation unit hierarchy"
 msgstr "显示机构层次"
+
+msgid "Show legend key"
+msgstr "显示图例键值"
+
+msgid "Show series key"
+msgstr ""
 
 msgid "Skip rounding"
 msgstr "跳过舍入"

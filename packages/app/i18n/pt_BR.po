@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-30T12:20:24.132Z\n"
+"POT-Creation-Date: 2021-06-18T09:30:04.938Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/hisp-uio/teams/100509/pt_BR/)\n"
@@ -426,9 +426,6 @@ msgstr "Tudo"
 msgid "Hide empty rows"
 msgstr ""
 
-msgid "Show legend key"
-msgstr ""
-
 msgid "Table subtitle"
 msgstr ""
 
@@ -607,6 +604,12 @@ msgid "Dimension labels"
 msgstr ""
 
 msgid "Display organisation unit hierarchy"
+msgstr ""
+
+msgid "Show legend key"
+msgstr ""
+
+msgid "Show series key"
 msgstr ""
 
 msgid "Skip rounding"
