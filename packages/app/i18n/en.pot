@@ -402,6 +402,12 @@ msgstr "Extreme line % detection"
 msgid "Number"
 msgstr "Number"
 
+msgid "Fixed column headers to top of table"
+msgstr "Fixed column headers to top of table"
+
+msgid "Fixed row headers to left of table"
+msgstr "Fixed row headers to left of table"
+
 msgid "Font size"
 msgstr "Font size"
 
