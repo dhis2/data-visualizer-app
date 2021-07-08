@@ -68,6 +68,7 @@ describe('saving an AO', () => {
         it('adds Data dimension items', () => {
             openDimension(DIMENSION_ID_DATA)
             if (TEST_VIS_TYPE === VIS_TYPE_SCATTER) {
+                switchDataTab('Vertical')
                 selectIndicators([TEST_INDICATOR_NAMES[0]])
                 switchDataTab('Horizontal')
                 selectIndicators([TEST_INDICATOR_NAMES[1]])
