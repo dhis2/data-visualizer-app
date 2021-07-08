@@ -47,6 +47,10 @@ jobs:
               with:
                   node-version: 12.x
 
+            - uses: actions/download-artifact@v2
+              with:
+                  name: lib-build
+
             - uses: c-hive/gha-yarn-cache@v1
             - run: yarn install --frozen-lockfile
 
@@ -61,6 +65,10 @@ jobs:
             - uses: actions/setup-node@v1
               with:
                   node-version: 12.x
+
+            - uses: actions/download-artifact@v2
+              with:
+                  name: lib-build
 
             - uses: c-hive/gha-yarn-cache@v1
             - run: yarn install --frozen-lockfile
