@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-30T12:20:24.132Z\n"
+"POT-Creation-Date: 2021-06-18T09:30:04.938Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: trendspotter, 2021\n"
 "Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
@@ -438,9 +438,6 @@ msgstr "Vše"
 msgid "Hide empty rows"
 msgstr "Skrýt prázdné řádky"
 
-msgid "Show legend key"
-msgstr "Zobrazit klíč legendy"
-
 msgid "Table subtitle"
 msgstr "Podtitul tabulky"
 
@@ -632,6 +629,12 @@ msgstr "Štítky dimenzí"
 
 msgid "Display organisation unit hierarchy"
 msgstr "Zobrazit hierarchii organizačních jednotek"
+
+msgid "Show legend key"
+msgstr "Zobrazit klíč legendy"
+
+msgid "Show series key"
+msgstr ""
 
 msgid "Skip rounding"
 msgstr "Přeskočit zaokrouhlování"

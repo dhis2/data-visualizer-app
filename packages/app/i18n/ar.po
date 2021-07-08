@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-30T12:20:24.132Z\n"
+"POT-Creation-Date: 2021-06-18T09:30:04.938Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2021\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -437,9 +437,6 @@ msgstr "الجميع"
 msgid "Hide empty rows"
 msgstr "إخفاء الصفوف الفارغة"
 
-msgid "Show legend key"
-msgstr "إظهار المفتاح الإيضاحي"
-
 msgid "Table subtitle"
 msgstr "العنوان الفرعي للجدول"
 
@@ -621,6 +618,12 @@ msgstr "تسميات الأبعاد"
 
 msgid "Display organisation unit hierarchy"
 msgstr "عرض التسلسل الهرمي للوحدة التنظيمية"
+
+msgid "Show legend key"
+msgstr "إظهار المفتاح الإيضاحي"
+
+msgid "Show series key"
+msgstr ""
 
 msgid "Skip rounding"
 msgstr "تخطي التقريب"

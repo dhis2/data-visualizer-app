@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-30T12:20:24.132Z\n"
+"POT-Creation-Date: 2021-06-18T09:30:04.938Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Ibatov <ibatovk@who.int>, 2021\n"
 "Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
@@ -441,9 +441,6 @@ msgstr "Барчаси"
 msgid "Hide empty rows"
 msgstr "Бўш қаторларни беркитиш"
 
-msgid "Show legend key"
-msgstr "Калит таърифни кўрсатинг"
-
 msgid "Table subtitle"
 msgstr "Жадвал таглавҳаси"
 
@@ -635,6 +632,12 @@ msgstr "Ўлчам қийматлари"
 
 msgid "Display organisation unit hierarchy"
 msgstr "Ташкилий бўлим иерархиясини намойиш қилиш"
+
+msgid "Show legend key"
+msgstr "Калит таърифни кўрсатинг"
+
+msgid "Show series key"
+msgstr ""
 
 msgid "Skip rounding"
 msgstr "Соддалаштириш ўтказиб юборилсин"
