@@ -1,3 +1,18 @@
+## [37.6.2](https://github.com/dhis2/data-visualizer-app/compare/v37.6.1...v37.6.2) (2021-07-08)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#1782](https://github.com/dhis2/data-visualizer-app/issues/1782)) ([4003687](https://github.com/dhis2/data-visualizer-app/commit/40036872b6d4f405e0b68660e9dcf2477012e80f))
+* cypress test user has different permissions and access ([#1793](https://github.com/dhis2/data-visualizer-app/issues/1793)) ([e02591b](https://github.com/dhis2/data-visualizer-app/commit/e02591b5ec87a2fccbed32c379a1c7b28eac0cab))
+
+## [37.6.1](https://github.com/dhis2/data-visualizer-app/compare/v37.6.0...v37.6.1) (2021-07-06)
+
+
+### Bug Fixes
+
+* legend options bleed (DHIS2-11239) ([#1785](https://github.com/dhis2/data-visualizer-app/issues/1785)) ([041cd20](https://github.com/dhis2/data-visualizer-app/commit/041cd209a24b9e8acc640f7b37ec822768c08f61))
+
 # [37.6.0](https://github.com/dhis2/data-visualizer-app/compare/v37.5.5...v37.6.0) (2021-07-05)
 
 
