@@ -97,7 +97,7 @@ export class App extends Component {
 
                 // clear visualization and current
                 // to avoid leave them "dirty" when navigating to
-                // /currentAnalyticalObject from a previous saved AO
+                // /currentAnalyticalObject from a previously saved AO
                 this.props.clearVisualization()
                 this.props.clearCurrent()
 
