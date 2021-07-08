@@ -31,6 +31,7 @@ import {
     expectSubGroupSelectToBeVisible,
     expectSubGroupSelectToBe,
     switchSubGroupTo,
+    expectSourceToBeLoading,
     expectSourceToNotBeLoading,
     unselectAllItemsByButton,
     selectAllItemsByButton,
@@ -260,7 +261,7 @@ describe('Data dimension', () => {
         },
         {
             name: 'Program indicators',
-            testGroup: { name: 'Malaria focus investigation', itemAmount: 6 },
+            testGroup: { name: 'Malaria focus investigation', itemAmount: 3 },
             testItem: { name: 'BMI male' },
             defaultGroup: { name: 'All programs' },
             endpoint: {
@@ -436,6 +437,7 @@ describe('Data dimension', () => {
                     cy.intercept('GET', DATA_ITEMS_URL).as('/dataItems')
                 }
                 switchDataTypeToAll()
+                expectSourceToBeLoading()
                 cy.wait('@/dataItems').then(({ request, response }) => {
                     expect(request.url).to.contain('page=1')
                     expect(response.statusCode).to.eq(200)
