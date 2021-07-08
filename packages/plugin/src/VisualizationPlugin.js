@@ -7,6 +7,7 @@ import {
     LEGEND_DISPLAY_STRATEGY_FIXED,
     LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM,
     isLegendSetType,
+    VIS_TYPE_LINE,
 } from '@dhis2/analytics'
 import { useDataEngine } from '@dhis2/app-runtime'
 import { Popper, Button, IconLegend24 } from '@dhis2/ui'
@@ -206,8 +207,21 @@ export const VisualizationPlugin = ({
         ? { getBoundingClientRect: () => contextualMenuRect }
         : null
 
+    const legendSets = fetchResult.legendSets.filter(legendSet =>
+        Object.values(fetchResult.responses[0].metaData.items)
+            .filter(item =>
+                visualization.series
+                    .filter(serie => serie.type !== VIS_TYPE_LINE)
+                    .map(serie => serie.dimensionItem)
+                    .includes(item.uid)
+            )
+            .map(item => item.legendSet)
+            .includes(legendSet.id)
+    )
+    // TODO: remove all legendSets that only belong to data items when data isn't on Series and "by element" strategy is used
+
     const hasLegendSet =
-        fetchResult.legendSets?.length > 0 &&
+        legendSets?.length > 0 &&
         isLegendSetType(fetchResult.visualization.type)
     const transformedStyle =
         forDashboard && hasLegendSet
@@ -234,9 +248,7 @@ export const VisualizationPlugin = ({
                                     ...styles.buttonMargin,
                                 }}
                             >
-                                <LegendKey
-                                    legendSets={fetchResult.legendSets}
-                                />
+                                <LegendKey legendSets={legendSets} />
                             </div>
                         </div>
                     )}
@@ -261,7 +273,7 @@ export const VisualizationPlugin = ({
                     data-test="visualization-legend-key"
                 >
                     <div style={styles.wrapper}>
-                        <LegendKey legendSets={fetchResult.legendSets} />
+                        <LegendKey legendSets={legendSets} />
                     </div>
                 </div>
             )
@@ -279,7 +291,7 @@ export const VisualizationPlugin = ({
                             fetchResult.visualization
                         )}
                         responses={fetchResult.responses}
-                        legendSets={fetchResult.legendSets}
+                        legendSets={legendSets}
                         onToggleContextualMenu={
                             onDrill ? onToggleContextualMenu : undefined
                         }
@@ -294,7 +306,7 @@ export const VisualizationPlugin = ({
                         )}
                         responses={fetchResult.responses}
                         extraOptions={fetchResult.extraOptions}
-                        legendSets={fetchResult.legendSets}
+                        legendSets={legendSets}
                         onToggleContextualMenu={
                             onDrill ? onToggleContextualMenu : undefined
                         }
