@@ -66,18 +66,22 @@ describe('saving an AO', () => {
             changeVisType(TEST_VIS_TYPE_NAME)
         })
         it('adds Data dimension items', () => {
-            openDimension(DIMENSION_ID_DATA)
             if (TEST_VIS_TYPE === VIS_TYPE_SCATTER) {
+                openDimension(DIMENSION_ID_DATA)
                 switchDataTab('Vertical')
                 selectIndicators([TEST_INDICATOR_NAMES[0]])
+                clickDimensionModalUpdateButton()
+                openDimension(DIMENSION_ID_DATA)
                 switchDataTab('Horizontal')
                 selectIndicators([TEST_INDICATOR_NAMES[1]])
+                clickDimensionModalUpdateButton()
             } else {
+                openDimension(DIMENSION_ID_DATA)
                 selectDataElements(
                     TEST_DATA_ELEMENTS.slice(1, 2).map(item => item.name)
                 )
+                clickDimensionModalUpdateButton()
             }
-            clickDimensionModalUpdateButton()
         })
         it('displays an unsaved visualization', () => {
             expectVisualizationToBeVisible(TEST_VIS_TYPE)
