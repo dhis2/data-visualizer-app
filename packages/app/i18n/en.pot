@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-06-18T09:30:04.938Z\n"
-"PO-Revision-Date: 2021-06-18T09:30:04.938Z\n"
+"POT-Creation-Date: 2021-07-08T10:16:49.197Z\n"
+"PO-Revision-Date: 2021-07-08T10:16:49.197Z\n"
 
 msgid "Rename successful"
 msgstr "Rename successful"
@@ -401,6 +401,12 @@ msgstr "Extreme line % detection"
 
 msgid "Number"
 msgstr "Number"
+
+msgid "Fixed column headers to top of table"
+msgstr "Fixed column headers to top of table"
+
+msgid "Fixed row headers to left of table"
+msgstr "Fixed row headers to left of table"
 
 msgid "Font size"
 msgstr "Font size"
