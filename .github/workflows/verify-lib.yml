@@ -56,9 +56,13 @@ jobs:
             - run: yarn install --frozen-lockfile
 
             - name: Generate translations
+              with:
+                  cwd: ./packages/app
               run: yarn d2-app-scripts i18n generate
 
             - name: Lint
+              with:
+                  cwd: .
               run: yarn lint
 
     test:
