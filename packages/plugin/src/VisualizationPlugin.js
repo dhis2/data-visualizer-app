@@ -352,7 +352,7 @@ VisualizationPlugin.propTypes = {
     visualization: PropTypes.object.isRequired,
     filters: PropTypes.object,
     forDashboard: PropTypes.bool,
-    id: PropTypes.string,
+    id: PropTypes.number,
     style: PropTypes.object,
     userSettings: PropTypes.object,
     onChartGenerated: PropTypes.func,
