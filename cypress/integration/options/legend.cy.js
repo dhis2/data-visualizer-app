@@ -7,6 +7,8 @@ import {
     VIS_TYPE_STACKED_COLUMN,
     VIS_TYPE_LINE,
     visTypeDisplayNames,
+    DIMENSION_ID_PERIOD,
+    AXIS_ID_COLUMNS,
 } from '@dhis2/analytics'
 import {
     expectChartTitleToBeVisible,
@@ -17,8 +19,15 @@ import {
 import {
     selectIndicators,
     clickDimensionModalUpdateButton,
+    selectRelativePeriods,
+    unselectAllItemsByButton,
 } from '../../elements/dimensionModal'
-import { openDimension } from '../../elements/layout'
+import {
+    clickContextMenuMove,
+    expectAxisToHaveDimension,
+    openContextMenu,
+    openDimension,
+} from '../../elements/layout'
 import {
     clickMenuBarOptionsButton,
     clickMenuBarUpdateButton,
@@ -45,10 +54,13 @@ import {
     expectLegendKeyToBeHidden,
     expectLegendKeyOptionToBeDisabled,
     expectOptionsTabToBeHidden,
+    expectLegedKeyItemAmountToBe,
 } from '../../elements/optionsModal'
 import { goToStartPage } from '../../elements/startScreen'
 import { changeVisType } from '../../elements/visualizationTypeSelector'
 import {
+    expectEachWindowConfigSeriesItemToHaveLegendSet,
+    expectEachWindowConfigSeriesItemToNotHaveLegendSet,
     expectWindowConfigSeriesDataLabelsToHaveColor,
     expectWindowConfigSeriesItemToHaveLegendSet,
     expectWindowConfigSeriesItemToNotHaveLegendSet,
@@ -129,8 +141,9 @@ describe('Options - Legend', () => {
             clickOptionsModalUpdateButton()
             expectVisualizationToBeVisible()
         })
-        it('legend key is shown', () => {
+        it('legend key is shown with 1 item', () => {
             expectLegendKeyToBeVisible()
+            expectLegedKeyItemAmountToBe(1)
         })
     })
     describe('Applying a legend: Single value', () => {
@@ -168,8 +181,9 @@ describe('Options - Legend', () => {
             clickOptionsModalUpdateButton()
             expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
         })
-        it('legend key is shown', () => {
+        it('legend key is shown with 1 item', () => {
             expectLegendKeyToBeVisible()
+            expectLegedKeyItemAmountToBe(1)
         })
     })
     describe('Applying a legend: Gauge', () => {
@@ -243,8 +257,9 @@ describe('Options - Legend', () => {
             clickOptionsModalUpdateButton()
             expectVisualizationToBeVisible(VIS_TYPE_GAUGE)
         })
-        it('legend key is shown', () => {
+        it('legend key is shown with 1 item', () => {
             expectLegendKeyToBeVisible()
+            expectLegedKeyItemAmountToBe(1)
         })
     })
     describe('Applying a legend: Pivot table', () => {
@@ -317,8 +332,9 @@ describe('Options - Legend', () => {
             clickOptionsModalUpdateButton()
             expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
         })
-        it('legend key is shown', () => {
+        it('legend key is shown with 1 item', () => {
             expectLegendKeyToBeVisible()
+            expectLegedKeyItemAmountToBe(1)
         })
     })
     describe('Transferring a legend: Pivot table -> Gauge', () => {
@@ -442,16 +458,18 @@ describe('Options - Legend', () => {
             clickOptionsModalUpdateButton()
             expectVisualizationToBeVisible()
         })
-        it('legend key is shown (Column)', () => {
+        it(`legend key is shown (Column) with ${TEST_ITEMS.length} items`, () => {
             expectLegendKeyToBeVisible()
+            expectLegedKeyItemAmountToBe(TEST_ITEMS.length)
         })
         it('changes vis type to Pivot table', () => {
             changeVisType(visTypeDisplayNames[VIS_TYPE_PIVOT_TABLE])
             clickMenuBarUpdateButton()
             expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
         })
-        it('legend key is shown (Pivot table)', () => {
+        it(`legend key is shown (Pivot table) with ${TEST_ITEMS.length} items`, () => {
             expectLegendKeyToBeVisible()
+            expectLegedKeyItemAmountToBe(TEST_ITEMS.length)
         })
         it('disables legend key option (Pivot table)', () => {
             clickMenuBarOptionsButton()
@@ -480,16 +498,18 @@ describe('Options - Legend', () => {
             clickOptionsModalUpdateButton()
             expectVisualizationToBeVisible(VIS_TYPE_GAUGE)
         })
-        it('legend key is shown (Gauge)', () => {
+        it('legend key is shown (Gauge) with 1 item', () => {
             expectLegendKeyToBeVisible()
+            expectLegedKeyItemAmountToBe(1)
         })
         it('changes vis type to Single value', () => {
             changeVisType(visTypeDisplayNames[VIS_TYPE_SINGLE_VALUE])
             clickMenuBarUpdateButton()
             expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
         })
-        it('legend key is shown (Single value)', () => {
+        it('legend key is shown (Single value) with 1 item', () => {
             expectLegendKeyToBeVisible()
+            expectLegedKeyItemAmountToBe(1)
         })
         it('disables legend key option (Single value)', () => {
             clickMenuBarOptionsButton()
@@ -621,4 +641,87 @@ describe('Options - Legend', () => {
             expectSeriesKeyItemToHaveBullets(1, TEST_ITEMS[1].legends)
         })
     })
+    describe('When data is not on series, legend is only applied when strategy fixed is used', () => {
+        const TEST_ITEM = TEST_ITEMS[0]
+        it('navigates to the start page and adds data items, legend and legend key', () => {
+            goToStartPage()
+            openDimension(DIMENSION_ID_DATA)
+            selectIndicators([TEST_ITEM.name])
+            clickDimensionModalUpdateButton()
+            expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+            clickMenuBarOptionsButton()
+            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            toggleLegend()
+            expectLegendToBeEnabled()
+            expectLegendDisplayStrategyToBeByDataItem()
+            toggleLegendKeyOption()
+            expectLegendKeyOptionToBeEnabled()
+            clickOptionsModalUpdateButton()
+            expectVisualizationToBeVisible()
+        })
+        it("selects period 'Last 3 months'", () => {
+            openDimension(DIMENSION_ID_PERIOD)
+            unselectAllItemsByButton()
+            selectRelativePeriods(['Last 3 months'], 'Months')
+            clickDimensionModalUpdateButton()
+        })
+        it('legend by data item is applied', () => {
+            expectWindowConfigSeriesItemToHaveLegendSet(
+                TEST_ITEM.name,
+                TEST_ITEM.legendSet
+            )
+        })
+        it('legend key is shown with 1 item', () => {
+            expectLegendKeyToBeVisible()
+            expectLegedKeyItemAmountToBe(1)
+        })
+        it(`series key items displays the correct amount of bullets (${TEST_ITEM.legends})`, () => {
+            expectSeriesKeyToHaveSeriesKeyItems(1)
+            expectSeriesKeyItemToHaveBullets(0, TEST_ITEMS[0].legends)
+        })
+        it('moves period dimension to series axis', () => {
+            openContextMenu(DIMENSION_ID_PERIOD)
+            clickContextMenuMove(DIMENSION_ID_PERIOD, AXIS_ID_COLUMNS)
+            clickMenuBarUpdateButton()
+            expectVisualizationToBeVisible()
+            expectAxisToHaveDimension(AXIS_ID_COLUMNS, DIMENSION_ID_PERIOD)
+        })
+        it('no legend is applied', () => {
+            expectEachWindowConfigSeriesItemToNotHaveLegendSet()
+        })
+        it('legend key is hidden', () => {
+            expectLegendKeyToBeHidden()
+        })
+        it('series key displays the correct amount of bullets (1 each)', () => {
+            for (let i = 0; i < 3; i++) {
+                expectSeriesKeyItemToHaveBullets(i, 1)
+            }
+        })
+        it(`changes legend display strategy to fixed (${TEST_ITEMS[1].legendSet})`, () => {
+            clickMenuBarOptionsButton()
+            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            expectLegendDisplayStrategyToBeByDataItem()
+            changeDisplayStrategyToFixed()
+            expectLegendDisplayStrategyToBeFixed()
+            changeFixedLegendSet(TEST_ITEMS[1].legendSet)
+            clickOptionsModalUpdateButton()
+            expectVisualizationToBeVisible()
+        })
+        it('fixed legend is applied', () => {
+            expectEachWindowConfigSeriesItemToHaveLegendSet(
+                TEST_ITEMS[1].legendSet
+            )
+        })
+        it('legend key is shown with 1 item', () => {
+            expectLegendKeyToBeVisible()
+            expectLegedKeyItemAmountToBe(1)
+        })
+        it(`series key items displays the correct amount of bullets (${TEST_ITEMS[1].legends})`, () => {
+            expectSeriesKeyToHaveSeriesKeyItems(3)
+            for (let i = 0; i < 3; i++) {
+                expectSeriesKeyItemToHaveBullets(i, TEST_ITEMS[1].legends)
+            }
+        })
+    })
+    describe('Legend is not applied to column-as-line items', () => {})
 })

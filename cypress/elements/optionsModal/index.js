@@ -83,4 +83,5 @@ export {
     expectLegendKeyOptionToBeDisabled,
     expectLegendKeyToBeHidden,
     expectLegendKeyToBeVisible,
+    expectLegedKeyItemAmountToBe,
 } from './legend'

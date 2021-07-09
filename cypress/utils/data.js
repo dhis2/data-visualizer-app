@@ -10,7 +10,6 @@ import {
     VIS_TYPE_SCATTER,
     VIS_TYPE_RADAR,
     VIS_TYPE_SINGLE_VALUE,
-    VIS_TYPE_AREA,
     VIS_TYPE_STACKED_BAR,
     VIS_TYPE_STACKED_AREA,
     VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
@@ -72,10 +71,10 @@ export const TEST_AOS = [
         name: 'BCG coverage last 12 months - Bo',
         type: VIS_TYPE_SINGLE_VALUE,
     },
-    {
-        name: 'Expenditures: Expenses by districts area',
-        type: VIS_TYPE_AREA,
-    },
+    // {
+    //     name: 'Expenditures: Expenses by districts area',
+    //     type: VIS_TYPE_AREA,
+    // }, // FIXME: replace with an AO that has data for "Last 2 six-month"
     {
         name: 'Nutrition: Malnutrition indicators stacked bar',
         type: VIS_TYPE_STACKED_BAR,
