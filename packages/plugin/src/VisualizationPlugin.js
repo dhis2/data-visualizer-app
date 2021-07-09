@@ -207,19 +207,48 @@ export const VisualizationPlugin = ({
         ? { getBoundingClientRect: () => contextualMenuRect }
         : null
 
-    const legendSets = fetchResult.legendSets.filter(legendSet =>
-        Object.values(fetchResult.responses[0].metaData.items)
-            .filter(item =>
-                visualization.series
-                    .filter(serie => serie.type !== VIS_TYPE_LINE)
-                    .map(serie => serie.dimensionItem)
-                    .includes(item.uid)
-            )
-            .map(item => item.legendSet)
-            .includes(legendSet.id)
-    )
-    // TODO: remove all legendSets that only belong to data items when data isn't on Series and "by element" strategy is used
+    let legendSets = []
+    switch (visualization.legend?.strategy) {
+        case LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM:
+            {
+                if (
+                    !fetchResult.visualization.columns.some(
+                        item => item.dimension === 'dx'
+                    )
+                ) {
+                    break
+                }
+                const legendSetItemMap = Object.values(
+                    fetchResult.responses[0].metaData.items
+                )
+                    .filter(item =>
+                        fetchResult.legendSets
+                            .map(legendSet => legendSet.id)
+                            .includes(item.legendSet)
+                    )
+                    .map(item => ({
+                        itemId: item.uid,
+                        legendSet: item.legendSet,
+                    }))
 
+                const unsupportedDimensions = visualization.series
+                    ?.filter(serie => serie.type === VIS_TYPE_LINE)
+                    .map(item => item.dimensionItem)
+
+                legendSets = fetchResult.legendSets.filter(legendSet =>
+                    legendSetItemMap
+                        .filter(
+                            item => !unsupportedDimensions.includes(item.itemId)
+                        )
+                        .map(supportedLegendSet => supportedLegendSet.legendSet)
+                        .includes(legendSet.id)
+                )
+            }
+            break
+        case LEGEND_DISPLAY_STRATEGY_FIXED:
+            legendSets = fetchResult.legendSets
+            break
+    }
     const hasLegendSet =
         legendSets?.length > 0 &&
         isLegendSetType(fetchResult.visualization.type)
