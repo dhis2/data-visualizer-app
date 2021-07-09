@@ -9,7 +9,7 @@
     "license": "BSD-3-Clause",
     "devDependencies": {
         "@dhis2/cli-style": "^9.0.1",
-        "concurrently": "^5.3.0",
+        "concurrently": "^6.2.0",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.5",
         "eslint-plugin-react-hooks": "^4.2.0",
