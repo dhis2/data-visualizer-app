@@ -63,7 +63,7 @@ export { setCustomSubtitle } from './subtitle'
 
 export { clickOutliersCheckbox } from './outliers'
 
-export { setItemToAxis } from './series'
+export { setItemToAxis, setItemToType } from './series'
 
 export {
     toggleLegend,

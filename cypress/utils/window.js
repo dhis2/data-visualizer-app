@@ -100,6 +100,24 @@ export const expectWindowConfigSeriesToHaveTrendline = expectedTL =>
             expect(actualTL.zIndex).to.eq(expectedTL.zIndex)
         })
 
+export const expectWindowConfigSeriesItemToBeType = (itemIndex, type) =>
+    cy
+        .window()
+        .its(CONFIG_PROP)
+        .its(SERIES_PROP)
+        .then(series => {
+            expect(series[itemIndex].type).to.eq(type)
+        })
+
+export const expectWindowConfigSeriesItemToNotHaveType = itemIndex =>
+    cy
+        .window()
+        .its(CONFIG_PROP)
+        .its(SERIES_PROP)
+        .then(series => {
+            expect(series[itemIndex].type).to.be.undefined
+        })
+
 export const expectWindowConfigYAxisToHaveTitleText = text =>
     cy
         .window()

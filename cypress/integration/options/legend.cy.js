@@ -55,6 +55,8 @@ import {
     expectLegendKeyOptionToBeDisabled,
     expectOptionsTabToBeHidden,
     expectLegedKeyItemAmountToBe,
+    OPTIONS_TAB_SERIES,
+    setItemToType,
 } from '../../elements/optionsModal'
 import { goToStartPage } from '../../elements/startScreen'
 import { changeVisType } from '../../elements/visualizationTypeSelector'
@@ -62,8 +64,10 @@ import {
     expectEachWindowConfigSeriesItemToHaveLegendSet,
     expectEachWindowConfigSeriesItemToNotHaveLegendSet,
     expectWindowConfigSeriesDataLabelsToHaveColor,
+    expectWindowConfigSeriesItemToBeType,
     expectWindowConfigSeriesItemToHaveLegendSet,
     expectWindowConfigSeriesItemToNotHaveLegendSet,
+    expectWindowConfigSeriesItemToNotHaveType,
     expectWindowConfigYAxisToHaveColor,
 } from '../../utils/window'
 
@@ -723,5 +727,112 @@ describe('Options - Legend', () => {
             }
         })
     })
-    describe('Legend is not applied to column-as-line items', () => {})
+    describe('Legend is not applied to column-as-line items', () => {
+        it('navigates to the start page and adds data items, legend and legend key', () => {
+            goToStartPage()
+            openDimension(DIMENSION_ID_DATA)
+            selectIndicators(TEST_ITEMS.map(item => item.name))
+            clickDimensionModalUpdateButton()
+            expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+            clickMenuBarOptionsButton()
+            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            toggleLegend()
+            expectLegendToBeEnabled()
+            expectLegendDisplayStrategyToBeByDataItem()
+            toggleLegendKeyOption()
+            expectLegendKeyOptionToBeEnabled()
+            clickOptionsModalUpdateButton()
+            expectVisualizationToBeVisible()
+        })
+        it('legend by data item is applied', () => {
+            TEST_ITEMS.forEach(item =>
+                expectWindowConfigSeriesItemToHaveLegendSet(
+                    item.name,
+                    item.legendSet
+                )
+            )
+        })
+        it(`changes all items to type ${VIS_TYPE_LINE}`, () => {
+            clickMenuBarOptionsButton()
+            clickOptionsTab(OPTIONS_TAB_SERIES)
+            TEST_ITEMS.forEach((item, index) =>
+                setItemToType(index, VIS_TYPE_LINE)
+            )
+            clickOptionsModalUpdateButton()
+            expectVisualizationToBeVisible()
+            TEST_ITEMS.forEach((item, index) =>
+                expectWindowConfigSeriesItemToBeType(index, 'line')
+            )
+        })
+        it('no legend is applied', () => {
+            expectEachWindowConfigSeriesItemToNotHaveLegendSet()
+        })
+        it('legend key is hidden', () => {
+            expectLegendKeyToBeHidden()
+        })
+        it(`series key displays the correct amount of bullets (1 each)`, () => {
+            expectSeriesKeyToHaveSeriesKeyItems(2)
+            expectSeriesKeyItemToHaveBullets(0, 1)
+            expectSeriesKeyItemToHaveBullets(1, 1)
+        })
+        it(`changes first item (${TEST_ITEMS[0].name}) to type ${VIS_TYPE_COLUMN}`, () => {
+            clickMenuBarOptionsButton()
+            clickOptionsTab(OPTIONS_TAB_SERIES)
+            setItemToType(0, VIS_TYPE_COLUMN)
+            clickOptionsModalUpdateButton()
+            expectVisualizationToBeVisible()
+            expectWindowConfigSeriesItemToNotHaveType(0)
+        })
+        it('legend by data item is applied to the first item', () => {
+            expectWindowConfigSeriesItemToHaveLegendSet(
+                TEST_ITEMS[0].name,
+                TEST_ITEMS[0].legendSet
+            )
+            expectWindowConfigSeriesItemToNotHaveLegendSet(TEST_ITEMS[1].name)
+        })
+        it('legend key is shown with 1 item', () => {
+            expectLegendKeyToBeVisible()
+            expectLegedKeyItemAmountToBe(1)
+        })
+        it(`series key items displays the correct amount of bullets (first: ${TEST_ITEMS[1].legends}, second: 1)`, () => {
+            expectSeriesKeyToHaveSeriesKeyItems(2)
+            expectSeriesKeyItemToHaveBullets(0, TEST_ITEMS[0].legends)
+            expectSeriesKeyItemToHaveBullets(1, 1)
+        })
+        const TEST_ITEM = {
+            name: 'ANC 2 Coverage',
+            legendSet: 'ANC Coverage',
+            legends: 7,
+        }
+        it(`adds a third item (${TEST_ITEM.name} - same legendset as the first item) with type ${VIS_TYPE_LINE}`, () => {
+            openDimension(DIMENSION_ID_DATA)
+            selectIndicators([TEST_ITEM.name])
+            clickDimensionModalUpdateButton()
+            expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+            clickMenuBarOptionsButton()
+            clickOptionsTab(OPTIONS_TAB_SERIES)
+            setItemToType(2, VIS_TYPE_LINE)
+            clickOptionsModalUpdateButton()
+            expectVisualizationToBeVisible()
+            expectWindowConfigSeriesItemToNotHaveType(0)
+        })
+        it('legend key is shown with 1 item', () => {
+            expectLegendKeyToBeVisible()
+            expectLegedKeyItemAmountToBe(1)
+        })
+        it('legend by data item is applied to the first item', () => {
+            expectWindowConfigSeriesItemToHaveLegendSet(
+                TEST_ITEMS[0].name,
+                TEST_ITEMS[0].legendSet
+            )
+            expectWindowConfigSeriesItemToNotHaveLegendSet(TEST_ITEMS[1].name)
+            expectWindowConfigSeriesItemToNotHaveLegendSet(TEST_ITEM.name)
+        })
+        it(`series key items displays the correct amount of bullets (first: ${TEST_ITEMS[1].legends}, second: 1, third: 1)`, () => {
+            expectSeriesKeyToHaveSeriesKeyItems(3)
+            expectSeriesKeyItemToHaveBullets(0, TEST_ITEMS[0].legends)
+            expectSeriesKeyItemToHaveBullets(1, 1)
+            expectSeriesKeyItemToHaveBullets(2, 1)
+        })
+    })
 })
