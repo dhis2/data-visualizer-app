@@ -8,6 +8,11 @@ import {
     VIS_TYPE_STACKED_COLUMN,
     VIS_TYPE_YEAR_OVER_YEAR_LINE,
     VIS_TYPE_SCATTER,
+    VIS_TYPE_RADAR,
+    VIS_TYPE_SINGLE_VALUE,
+    VIS_TYPE_STACKED_BAR,
+    VIS_TYPE_STACKED_AREA,
+    VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
 } from '@dhis2/analytics'
 
 /*
@@ -47,6 +52,10 @@ export const TEST_AOS = [
         type: VIS_TYPE_GAUGE,
     },
     {
+        name: 'Immunization: Indicators last 12 months radar',
+        type: VIS_TYPE_RADAR,
+    },
+    {
         name: 'Immunization: FIC year over year',
         type: VIS_TYPE_YEAR_OVER_YEAR_LINE,
     },
@@ -57,6 +66,26 @@ export const TEST_AOS = [
     {
         name: 'Measles: Dropout rate v Coverage <1y per district',
         type: VIS_TYPE_SCATTER,
+    },
+    {
+        name: 'BCG coverage last 12 months - Bo',
+        type: VIS_TYPE_SINGLE_VALUE,
+    },
+    // {
+    //     name: 'Expenditures: Expenses by districts area',
+    //     type: VIS_TYPE_AREA,
+    // }, // FIXME: replace with an AO that has data for "Last 2 six-month"
+    {
+        name: 'Nutrition: Malnutrition indicators stacked bar',
+        type: VIS_TYPE_STACKED_BAR,
+    },
+    {
+        name: 'Nutrition: Malnutrition indicators stacked area',
+        type: VIS_TYPE_STACKED_AREA,
+    },
+    {
+        name: 'Nutrition: Malnutrition this year vs last year',
+        type: VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
     },
 ]
 
