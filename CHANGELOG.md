@@ -1,3 +1,10 @@
+## [37.6.4](https://github.com/dhis2/data-visualizer-app/compare/v37.6.3...v37.6.4) (2021-07-13)
+
+
+### Bug Fixes
+
+* legend key bugs (DHIS2-11239) ([#1801](https://github.com/dhis2/data-visualizer-app/issues/1801)) ([27aa8ab](https://github.com/dhis2/data-visualizer-app/commit/27aa8ab915b0f2b16cc7011091908c4f230d6a0a))
+
 ## [37.6.3](https://github.com/dhis2/data-visualizer-app/compare/v37.6.2...v37.6.3) (2021-07-13)
 
 
