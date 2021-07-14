@@ -78,8 +78,6 @@ export class App extends Component {
     }
 
     loadVisualization = async location => {
-        const { store } = this.context
-
         if (location.pathname.length > 1) {
             // /currentAnalyticalObject
             // /${id}/
@@ -97,7 +95,7 @@ export class App extends Component {
 
                 // clear visualization and current
                 // to avoid leave them "dirty" when navigating to
-                // /currentAnalyticalObject from a previous saved AO
+                // /currentAnalyticalObject from a previously saved AO
                 this.props.clearVisualization()
                 this.props.clearCurrent()
 
@@ -106,51 +104,42 @@ export class App extends Component {
             }
 
             if (!urlContainsCurrentAOKey && this.refetch(location)) {
-                await store.dispatch(
-                    fromActions.tDoLoadVisualization({
-                        id,
-                        interpretationId,
-                        ouLevels: this.props.ouLevels,
-                    })
-                )
+                await this.props.setVisualization({
+                    id,
+                    interpretationId,
+                    ouLevels: this.props.ouLevels,
+                })
             }
 
             if (!interpretationId) {
-                store.dispatch(fromActions.fromUi.acClearUiInterpretation())
+                this.props.clearInterpretation()
             }
         } else {
-            fromActions.clearVisualization(store.dispatch, store.getState)
-            fromActions.fromUi.acClearUiInterpretation(store.dispatch)
+            this.props.clearAll()
+            this.props.clearInterpretation()
         }
         this.setState({ initialLoadIsComplete: true })
         this.setState({ previousLocation: location.pathname })
     }
 
     componentDidMount = async () => {
-        const { store } = this.context
         const { d2, userSettings } = this.props
 
-        await store.dispatch(
-            fromActions.fromSettings.tAddSettings(userSettings)
-        )
-        store.dispatch(fromActions.fromUser.acReceivedUser(d2.currentUser))
-        store.dispatch(
-            fromActions.fromUser.tLoadUserAuthority(APPROVAL_LEVEL_OPTION_AUTH)
-        )
-        store.dispatch(fromActions.fromDimensions.tSetDimensions())
+        await this.props.addSettings(userSettings)
+        this.props.setUser(d2.currentUser)
+        this.props.loadUserAuthority(APPROVAL_LEVEL_OPTION_AUTH)
+        this.props.setDimensions()
 
         const rootOrgUnit = this.props.settings.rootOrganisationUnit
 
         if (rootOrgUnit && rootOrgUnit.id) {
-            store.dispatch(
-                fromActions.fromMetadata.acAddMetadata({
-                    ...defaultMetadata(),
-                    [rootOrgUnit.id]: {
-                        ...rootOrgUnit,
-                        path: `/${rootOrgUnit.id}`,
-                    },
-                })
-            )
+            this.props.addMetadata({
+                ...defaultMetadata(),
+                [rootOrgUnit.id]: {
+                    ...rootOrgUnit,
+                    path: `/${rootOrgUnit.id}`,
+                },
+            })
         }
 
         this.loadVisualization(this.props.location)
@@ -334,17 +323,22 @@ const mapStateToProps = state => ({
     snackbar: fromReducers.fromSnackbar.sGetSnackbar(state),
 })
 
-const mapDispatchToProps = dispatch => ({
-    setCurrentFromUi: ui =>
-        dispatch(fromActions.fromCurrent.acSetCurrentFromUi(ui)),
-    clearVisualization: () => dispatch(fromActions.fromVisualization.acClear()),
-    clearCurrent: () => dispatch(fromActions.fromCurrent.acClear()),
-    setUiFromVisualization: visualization =>
-        dispatch(fromActions.fromUi.acSetUiFromVisualization(visualization)),
-    addParentGraphMap: parentGraphMap =>
-        dispatch(fromActions.fromUi.acAddParentGraphMap(parentGraphMap)),
-    clearSnackbar: () => dispatch(fromActions.fromSnackbar.acClearSnackbar()),
-})
+const mapDispatchToProps = {
+    setCurrentFromUi: fromActions.fromCurrent.acSetCurrentFromUi,
+    clearVisualization: fromActions.fromVisualization.acClear,
+    clearCurrent: fromActions.fromCurrent.acClear,
+    setUiFromVisualization: fromActions.fromUi.acSetUiFromVisualization,
+    addParentGraphMap: fromActions.fromUi.acAddParentGraphMap,
+    clearSnackbar: fromActions.fromSnackbar.acClearSnackbar,
+    addSettings: fromActions.fromSettings.tAddSettings,
+    setUser: fromActions.fromUser.acReceivedUser,
+    loadUserAuthority: fromActions.fromUser.tLoadUserAuthority,
+    setDimensions: fromActions.fromDimensions.tSetDimensions,
+    addMetadata: fromActions.fromMetadata.acAddMetadata,
+    setVisualization: fromActions.tDoLoadVisualization,
+    clearInterpretation: fromActions.fromUi.acClearUiInterpretation,
+    clearAll: fromActions.clearAll,
+}
 
 App.contextTypes = {
     store: PropTypes.object,
@@ -358,18 +352,26 @@ App.childContextTypes = {
 }
 
 App.propTypes = {
+    addMetadata: PropTypes.func,
     addParentGraphMap: PropTypes.func,
+    addSettings: PropTypes.func,
     baseUrl: PropTypes.string,
+    clearAll: PropTypes.func,
     clearCurrent: PropTypes.func,
+    clearInterpretation: PropTypes.func,
     clearVisualization: PropTypes.func,
     current: PropTypes.object,
     d2: PropTypes.object,
     dataEngine: PropTypes.object,
     interpretation: PropTypes.object,
+    loadUserAuthority: PropTypes.func,
     location: PropTypes.object,
     ouLevels: PropTypes.array,
     setCurrentFromUi: PropTypes.func,
+    setDimensions: PropTypes.func,
     setUiFromVisualization: PropTypes.func,
+    setUser: PropTypes.func,
+    setVisualization: PropTypes.func,
     settings: PropTypes.object,
     ui: PropTypes.object,
     userSettings: PropTypes.object,

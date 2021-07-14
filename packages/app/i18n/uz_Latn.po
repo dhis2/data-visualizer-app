@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-04-30T12:20:24.132Z\n"
+"POT-Creation-Date: 2021-06-18T09:30:04.938Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Yury Rogachev <yury@dhis2.org>, 2021\n"
 "Language-Team: Uzbek (Latin) (https://www.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
@@ -442,9 +442,6 @@ msgstr "Barchasi"
 msgid "Hide empty rows"
 msgstr "Boʼsh qatorlarni berkitish"
 
-msgid "Show legend key"
-msgstr "Kalit taʼrifni koʼrsating"
-
 msgid "Table subtitle"
 msgstr "Jadval taglavhasi"
 
@@ -626,6 +623,12 @@ msgstr "Oʼlcham qiymatlari"
 
 msgid "Display organisation unit hierarchy"
 msgstr "Tashkiliy boʼlim ierarxiyasini namoyish qilish"
+
+msgid "Show legend key"
+msgstr "Kalit taʼrifni koʼrsating"
+
+msgid "Show series key"
+msgstr ""
 
 msgid "Skip rounding"
 msgstr "Soddalashtirish oʼtkazib yuborilsin"

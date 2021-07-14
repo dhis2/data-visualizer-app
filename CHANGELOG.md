@@ -1,3 +1,32 @@
+## [37.6.5](https://github.com/dhis2/data-visualizer-app/compare/v37.6.4...v37.6.5) (2021-07-14)
+
+
+### Bug Fixes
+
+* minor axis options changes (DHIS2-6672) ([#1803](https://github.com/dhis2/data-visualizer-app/issues/1803)) ([59504e1](https://github.com/dhis2/data-visualizer-app/commit/59504e127e93890127ad6035604bd405dd31b0b9))
+
+## [37.6.4](https://github.com/dhis2/data-visualizer-app/compare/v37.6.3...v37.6.4) (2021-07-13)
+
+
+### Bug Fixes
+
+* legend key bugs (DHIS2-11239) ([#1801](https://github.com/dhis2/data-visualizer-app/issues/1801)) ([27aa8ab](https://github.com/dhis2/data-visualizer-app/commit/27aa8ab915b0f2b16cc7011091908c4f230d6a0a))
+
+## [37.6.3](https://github.com/dhis2/data-visualizer-app/compare/v37.6.2...v37.6.3) (2021-07-13)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([60e7635](https://github.com/dhis2/data-visualizer-app/commit/60e76350baa072be46f72a8ccdaf0a732736bb09))
+
+## [37.6.2](https://github.com/dhis2/data-visualizer-app/compare/v37.6.1...v37.6.2) (2021-07-08)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#1782](https://github.com/dhis2/data-visualizer-app/issues/1782)) ([4003687](https://github.com/dhis2/data-visualizer-app/commit/40036872b6d4f405e0b68660e9dcf2477012e80f))
+* cypress test user has different permissions and access ([#1793](https://github.com/dhis2/data-visualizer-app/issues/1793)) ([e02591b](https://github.com/dhis2/data-visualizer-app/commit/e02591b5ec87a2fccbed32c379a1c7b28eac0cab))
+
 ## [37.6.1](https://github.com/dhis2/data-visualizer-app/compare/v37.6.0...v37.6.1) (2021-07-06)
 
 

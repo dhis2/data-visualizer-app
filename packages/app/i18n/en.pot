@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-06-18T09:30:04.938Z\n"
-"PO-Revision-Date: 2021-06-18T09:30:04.938Z\n"
+"POT-Creation-Date: 2021-07-14T07:23:39.714Z\n"
+"PO-Revision-Date: 2021-07-14T07:23:39.714Z\n"
 
 msgid "Rename successful"
 msgstr "Rename successful"
@@ -315,8 +315,8 @@ msgstr "Steps"
 msgid "Axis title"
 msgstr "Axis title"
 
-msgid "Auto generated"
-msgstr "Auto generated"
+msgid "Auto generated from axis items"
+msgstr "Auto generated from axis items"
 
 msgid "None"
 msgstr "None"
@@ -437,6 +437,9 @@ msgstr "Table subtitle"
 
 msgid "Chart subtitle"
 msgstr "Chart subtitle"
+
+msgid "Auto generated"
+msgstr "Auto generated"
 
 msgid "Chart title"
 msgstr "Chart title"
