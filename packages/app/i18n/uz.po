@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-06-18T09:30:04.938Z\n"
+"POT-Creation-Date: 2021-07-14T07:23:39.714Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Ibatov <ibatovk@who.int>, 2021\n"
 "Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
@@ -324,8 +324,8 @@ msgstr "Қадамлар"
 msgid "Axis title"
 msgstr "Ўқ сарлавҳаси"
 
-msgid "Auto generated"
-msgstr "Автоматик равишда яратилган"
+msgid "Auto generated from axis items"
+msgstr ""
 
 msgid "None"
 msgstr "Йўқ"
@@ -446,6 +446,9 @@ msgstr "Жадвал таглавҳаси"
 
 msgid "Chart subtitle"
 msgstr "Диаграмма шарҳи"
+
+msgid "Auto generated"
+msgstr "Автоматик равишда яратилган"
 
 msgid "Chart title"
 msgstr "Диаграмма сарлавҳаси"

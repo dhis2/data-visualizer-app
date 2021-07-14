@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-06-18T09:30:04.938Z\n"
+"POT-Creation-Date: 2021-07-14T07:23:39.714Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Untoro Dwi Raharjo <untoro.dwi.raharjo@mail.ugm.ac.id>, 2021\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
@@ -326,8 +326,8 @@ msgstr "langkah"
 msgid "Axis title"
 msgstr "Judul sumbu X"
 
-msgid "Auto generated"
-msgstr "Dibuat otomatis"
+msgid "Auto generated from axis items"
+msgstr ""
 
 msgid "None"
 msgstr "Tidak ada"
@@ -449,6 +449,9 @@ msgstr "Subjudul tabel"
 
 msgid "Chart subtitle"
 msgstr "Subjudul grafik"
+
+msgid "Auto generated"
+msgstr "Dibuat otomatis"
 
 msgid "Chart title"
 msgstr "Judul grafik"
