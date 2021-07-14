@@ -1,3 +1,31 @@
+## [36.1.3](https://github.com/dhis2/data-visualizer-app/compare/v36.1.2...v36.1.3) (2021-07-06)
+
+
+### Bug Fixes
+
+* update description in README ([#1784](https://github.com/dhis2/data-visualizer-app/issues/1784)) ([8b52994](https://github.com/dhis2/data-visualizer-app/commit/8b529943d775a5c887cc5922f864dd3ad5873c77))
+
+## [36.1.2](https://github.com/dhis2/data-visualizer-app/compare/v36.1.1...v36.1.2) (2021-06-23)
+
+
+### Bug Fixes
+
+* fix locale format passed to Intl in interpretations v36 ([#1761](https://github.com/dhis2/data-visualizer-app/issues/1761)) ([b50870c](https://github.com/dhis2/data-visualizer-app/commit/b50870c0a0382283b1625781ed753e77bbab63b9))
+
+## [36.1.1](https://github.com/dhis2/data-visualizer-app/compare/v36.1.0...v36.1.1) (2021-06-16)
+
+
+### Bug Fixes
+
+* missing scatter icon (DHIS2-11352) v36 ([#1755](https://github.com/dhis2/data-visualizer-app/issues/1755)) ([9e016f1](https://github.com/dhis2/data-visualizer-app/commit/9e016f18ee45855b1bc2af23dc293b41951c1614))
+
+# [36.1.0](https://github.com/dhis2/data-visualizer-app/compare/v36.0.1...v36.1.0) (2021-05-12)
+
+
+### Features
+
+* bump version to 36.1.0 ([#1719](https://github.com/dhis2/data-visualizer-app/issues/1719)) ([48a0ad3](https://github.com/dhis2/data-visualizer-app/commit/48a0ad3b67e5cc00e4a6af0b1db46b7adb032a14))
+
 ## [35.20.19](https://github.com/dhis2/data-visualizer-app/compare/v35.20.18...v35.20.19) (2021-03-12)
 
 

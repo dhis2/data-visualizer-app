@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import { useDataEngine } from '@dhis2/app-runtime'
-import { visTypeIcons } from '@dhis2/analytics'
+import { visTypeIcons, VIS_TYPE_SCATTER } from '@dhis2/analytics'
 
 import styles from './styles/StartScreen.module.css'
 import { sGetLoadError } from '../../reducers/loader'
@@ -12,8 +12,10 @@ import history from '../../modules/history'
 import { VisualizationError, genericErrorTitle } from '../../modules/error'
 import { GenericError } from '../../assets/ErrorIcons'
 import { apiFetchVisualizations } from '../../api/visualization'
+import { matchVisualizationWithType } from './utils'
+import { sGetUsername } from '../../reducers/user'
 
-const StartScreen = ({ error }) => {
+const StartScreen = ({ error, username }) => {
     const [mostViewedVisualizations, setMostViewedVisualizations] = useState([])
     const engine = useDataEngine()
 
@@ -21,22 +23,21 @@ const StartScreen = ({ error }) => {
         async function populateMostViewedVisualizations(engine) {
             const mostViewedVisualizationsResult = await apiFetchMostViewedVisualizations(
                 engine,
-                6
+                6,
+                username
             )
-            const visualizations = mostViewedVisualizationsResult.visualization
+            const visualizations = mostViewedVisualizationsResult.visualization // {position: int, views: int, id: string, created: string}
             if (visualizations && visualizations.length) {
                 const visualizationsResult = await apiFetchVisualizations(
                     engine,
-                    visualizations.map(vis => vis.id)
+                    visualizations.map(visualization => visualization.id)
                 )
                 const visualizationsWithType =
-                    visualizationsResult.visualization.visualizations
-                const result = visualizations.map(vis => ({
-                    ...visualizationsWithType.find(
-                        visWithType => visWithType.id === vis.id && visWithType
-                    ),
-                    ...vis,
-                }))
+                    visualizationsResult.visualization.visualizations // {id: string, type: string}
+                const result = matchVisualizationWithType(
+                    visualizations,
+                    visualizationsWithType
+                )
 
                 setMostViewedVisualizations(result)
             }
@@ -89,7 +90,7 @@ const StartScreen = ({ error }) => {
                                     data-test="start-screen-most-viewed-list-item"
                                 >
                                     <span className={styles.visIcon}>
-                                        {visTypeIcons[visualization.type]}
+                                        {getVisTypeIcon(visualization.type)}
                                     </span>
                                     <span>{visualization.name}</span>
                                 </p>
@@ -99,6 +100,11 @@ const StartScreen = ({ error }) => {
                 )}
             </div>
         )
+
+    const getVisTypeIcon = visType => {
+        const Icon = visTypeIcons[visType]
+        return visType === VIS_TYPE_SCATTER ? <Icon /> : Icon
+    }
 
     const getErrorContent = () => (
         <div
@@ -134,10 +140,12 @@ const StartScreen = ({ error }) => {
 
 StartScreen.propTypes = {
     error: PropTypes.object,
+    username: PropTypes.string,
 }
 
 const mapStateToProps = state => ({
     error: sGetLoadError(state),
+    username: sGetUsername(state),
 })
 
 export default connect(mapStateToProps)(StartScreen)

@@ -88,6 +88,7 @@ ChartPlugin.defaultProps = {
     filters: {},
     style: {},
     animation: 200,
+    id: null,
     onChartGenerated: Function.prototype,
 }
 
