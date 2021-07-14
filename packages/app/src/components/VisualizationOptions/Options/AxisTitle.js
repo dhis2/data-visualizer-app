@@ -80,7 +80,9 @@ const AxisTitle = ({
                         ? [
                               {
                                   id: TITLE_AUTO,
-                                  label: i18n.t('Auto generated'),
+                                  label: i18n.t(
+                                      'Auto generated from axis items'
+                                  ),
                               },
                           ]
                         : []),
