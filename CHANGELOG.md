@@ -1,3 +1,10 @@
+## [36.1.3](https://github.com/dhis2/data-visualizer-app/compare/v36.1.2...v36.1.3) (2021-07-06)
+
+
+### Bug Fixes
+
+* update description in README ([#1784](https://github.com/dhis2/data-visualizer-app/issues/1784)) ([8b52994](https://github.com/dhis2/data-visualizer-app/commit/8b529943d775a5c887cc5922f864dd3ad5873c77))
+
 ## [36.1.2](https://github.com/dhis2/data-visualizer-app/compare/v36.1.1...v36.1.2) (2021-06-23)
 
 
