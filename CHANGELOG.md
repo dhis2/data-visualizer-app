@@ -1,3 +1,10 @@
+## [37.6.5](https://github.com/dhis2/data-visualizer-app/compare/v37.6.4...v37.6.5) (2021-07-14)
+
+
+### Bug Fixes
+
+* minor axis options changes (DHIS2-6672) ([#1803](https://github.com/dhis2/data-visualizer-app/issues/1803)) ([59504e1](https://github.com/dhis2/data-visualizer-app/commit/59504e127e93890127ad6035604bd405dd31b0b9))
+
 ## [37.6.4](https://github.com/dhis2/data-visualizer-app/compare/v37.6.3...v37.6.4) (2021-07-13)
 
 
