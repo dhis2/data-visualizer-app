@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-06-18T09:30:04.938Z\n"
+"POT-Creation-Date: 2021-07-14T07:23:39.714Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2020\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
@@ -324,8 +324,8 @@ msgstr "Bước"
 msgid "Axis title"
 msgstr "Tiêu đề trục"
 
-msgid "Auto generated"
-msgstr "Tự động tạo"
+msgid "Auto generated from axis items"
+msgstr ""
 
 msgid "None"
 msgstr "Không"
@@ -446,6 +446,9 @@ msgstr "Tiêu đề phụ của bảng"
 
 msgid "Chart subtitle"
 msgstr "Tiêu đề phụ biểu đồ"
+
+msgid "Auto generated"
+msgstr "Tự động tạo"
 
 msgid "Chart title"
 msgstr "Tiêu đề của biểu đồ"

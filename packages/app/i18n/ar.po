@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-06-18T09:30:04.938Z\n"
+"POT-Creation-Date: 2021-07-14T07:23:39.714Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2021\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -320,8 +320,8 @@ msgstr "الخطوات"
 msgid "Axis title"
 msgstr "عنوان المحور"
 
-msgid "Auto generated"
-msgstr "توليد تلقائي"
+msgid "Auto generated from axis items"
+msgstr ""
 
 msgid "None"
 msgstr "لا شيء"
@@ -442,6 +442,9 @@ msgstr "العنوان الفرعي للجدول"
 
 msgid "Chart subtitle"
 msgstr "العنوان الفرعي للمخطط البياني"
+
+msgid "Auto generated"
+msgstr "توليد تلقائي"
 
 msgid "Chart title"
 msgstr "عنوان المخطط البياني"
