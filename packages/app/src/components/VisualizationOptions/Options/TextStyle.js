@@ -89,59 +89,68 @@ const TextStyle = ({
                     ))}
                 </SingleSelect>
             )}
-            {fontStyle[FONT_STYLE_OPTION_TEXT_COLOR] && (
-                <label
-                    className={cx(styles.textColorLabel, {
-                        [styles.disabled]: disabled,
-                    })}
-                    data-test={`${dataTest}-text-color-picker`}
-                >
-                    <input
-                        type="color"
-                        value={fontStyle[FONT_STYLE_OPTION_TEXT_COLOR]}
-                        onChange={e => onChangeColor(e.target.value)}
-                        className={styles.textColorInput}
-                        disabled={disabled}
-                    />
-                    <div className={styles.textColorIcon}>
-                        <FontColorIcon
-                            color={fontStyle[FONT_STYLE_OPTION_TEXT_COLOR]}
+            <div
+                className={cx({
+                    [styles.buttonStrip]:
+                        fontStyle[FONT_STYLE_OPTION_TEXT_COLOR] ||
+                        fontStyle[FONT_STYLE_OPTION_BOLD] ||
+                        fontStyle[FONT_STYLE_OPTION_ITALIC],
+                })}
+            >
+                {fontStyle[FONT_STYLE_OPTION_TEXT_COLOR] && (
+                    <label
+                        className={cx(styles.textColorLabel, {
+                            [styles.disabled]: disabled,
+                        })}
+                        data-test={`${dataTest}-text-color-picker`}
+                    >
+                        <input
+                            type="color"
+                            value={fontStyle[FONT_STYLE_OPTION_TEXT_COLOR]}
+                            onChange={e => onChangeColor(e.target.value)}
+                            className={styles.textColorInput}
+                            disabled={disabled}
                         />
-                    </div>
-                </label>
-            )}
-            {fontStyle[FONT_STYLE_OPTION_BOLD] != null && (
-                <Button
-                    icon={<BoldIcon />}
-                    onClick={() => {
-                        onChange(
-                            FONT_STYLE_OPTION_BOLD,
-                            !fontStyle[FONT_STYLE_OPTION_BOLD]
-                        )
-                    }}
-                    small
-                    secondary
-                    toggled={fontStyle[FONT_STYLE_OPTION_BOLD]}
-                    disabled={disabled}
-                    dataTest={`${dataTest}-bold-toggle`}
-                />
-            )}
-            {fontStyle[FONT_STYLE_OPTION_ITALIC] != null && (
-                <Button
-                    icon={<ItalicIcon />}
-                    onClick={() => {
-                        onChange(
-                            FONT_STYLE_OPTION_ITALIC,
-                            !fontStyle[FONT_STYLE_OPTION_ITALIC]
-                        )
-                    }}
-                    small
-                    secondary
-                    disabled={disabled}
-                    toggled={fontStyle[FONT_STYLE_OPTION_ITALIC]}
-                    dataTest={`${dataTest}-italic-toggle`}
-                />
-            )}
+                        <div className={styles.textColorIcon}>
+                            <FontColorIcon
+                                color={fontStyle[FONT_STYLE_OPTION_TEXT_COLOR]}
+                            />
+                        </div>
+                    </label>
+                )}
+                {fontStyle[FONT_STYLE_OPTION_BOLD] != null && (
+                    <Button
+                        icon={<BoldIcon />}
+                        onClick={() => {
+                            onChange(
+                                FONT_STYLE_OPTION_BOLD,
+                                !fontStyle[FONT_STYLE_OPTION_BOLD]
+                            )
+                        }}
+                        small
+                        secondary
+                        toggled={fontStyle[FONT_STYLE_OPTION_BOLD]}
+                        disabled={disabled}
+                        dataTest={`${dataTest}-bold-toggle`}
+                    />
+                )}
+                {fontStyle[FONT_STYLE_OPTION_ITALIC] != null && (
+                    <Button
+                        icon={<ItalicIcon />}
+                        onClick={() => {
+                            onChange(
+                                FONT_STYLE_OPTION_ITALIC,
+                                !fontStyle[FONT_STYLE_OPTION_ITALIC]
+                            )
+                        }}
+                        small
+                        secondary
+                        disabled={disabled}
+                        toggled={fontStyle[FONT_STYLE_OPTION_ITALIC]}
+                        dataTest={`${dataTest}-italic-toggle`}
+                    />
+                )}
+            </div>
         </div>
     )
 }
