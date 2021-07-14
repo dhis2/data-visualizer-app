@@ -95,34 +95,36 @@ export const tDoLoadVisualization =
             } else {
                 error = new GenericServerError()
             }
-            clearVisualization(dispatch, getState, error)
+            dispatch(clearAll(error))
 
             logError('tDoLoadVisualization', error)
         }
     }
 
-export const clearVisualization = (dispatch, getState, error = null) => {
-    if (error) {
-        dispatch(fromLoader.acSetLoadError(error))
-    } else {
-        dispatch(fromLoader.acClearLoadError())
+export const clearAll =
+    (error = null) =>
+    (dispatch, getState) => {
+        if (error) {
+            dispatch(fromLoader.acSetLoadError(error))
+        } else {
+            dispatch(fromLoader.acClearLoadError())
+        }
+
+        dispatch(fromVisualization.acClear())
+        dispatch(fromCurrent.acClear())
+
+        const rootOrganisationUnit = sGetRootOrgUnit(getState())
+        const relativePeriod = sGetRelativePeriod(getState())
+        const digitGroupSeparator = sGetSettingsDigitGroupSeparator(getState())
+
+        dispatch(
+            fromUi.acClear({
+                rootOrganisationUnit,
+                relativePeriod,
+                digitGroupSeparator,
+            })
+        )
     }
-
-    dispatch(fromVisualization.acClear())
-    dispatch(fromCurrent.acClear())
-
-    const rootOrganisationUnit = sGetRootOrgUnit(getState())
-    const relativePeriod = sGetRelativePeriod(getState())
-    const digitGroupSeparator = sGetSettingsDigitGroupSeparator(getState())
-
-    dispatch(
-        fromUi.acClear({
-            rootOrganisationUnit,
-            relativePeriod,
-            digitGroupSeparator,
-        })
-    )
-}
 
 export const tDoRenameVisualization =
     ({ name, description }) =>

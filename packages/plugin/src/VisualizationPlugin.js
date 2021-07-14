@@ -7,6 +7,7 @@ import {
     LEGEND_DISPLAY_STRATEGY_FIXED,
     LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM,
     isLegendSetType,
+    VIS_TYPE_LINE,
 } from '@dhis2/analytics'
 import { useDataEngine } from '@dhis2/app-runtime'
 import { Popper, Button, IconLegend24 } from '@dhis2/ui'
@@ -206,8 +207,50 @@ export const VisualizationPlugin = ({
         ? { getBoundingClientRect: () => contextualMenuRect }
         : null
 
+    let legendSets = []
+    switch (visualization.legend?.strategy) {
+        case LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM:
+            {
+                if (
+                    !fetchResult.visualization.columns.some(
+                        item => item.dimension === 'dx'
+                    )
+                ) {
+                    break
+                }
+                const legendSetItemMap = Object.values(
+                    fetchResult.responses[0].metaData.items
+                )
+                    .filter(item =>
+                        fetchResult.legendSets
+                            .map(legendSet => legendSet.id)
+                            .includes(item.legendSet)
+                    )
+                    .map(item => ({
+                        itemId: item.uid,
+                        legendSet: item.legendSet,
+                    }))
+
+                const unsupportedDimensions = visualization.series
+                    ?.filter(serie => serie.type === VIS_TYPE_LINE)
+                    .map(item => item.dimensionItem)
+
+                legendSets = fetchResult.legendSets.filter(legendSet =>
+                    legendSetItemMap
+                        .filter(
+                            item => !unsupportedDimensions.includes(item.itemId)
+                        )
+                        .map(supportedLegendSet => supportedLegendSet.legendSet)
+                        .includes(legendSet.id)
+                )
+            }
+            break
+        case LEGEND_DISPLAY_STRATEGY_FIXED:
+            legendSets = fetchResult.legendSets
+            break
+    }
     const hasLegendSet =
-        fetchResult.legendSets?.length > 0 &&
+        legendSets?.length > 0 &&
         isLegendSetType(fetchResult.visualization.type)
     const transformedStyle =
         forDashboard && hasLegendSet
@@ -234,9 +277,7 @@ export const VisualizationPlugin = ({
                                     ...styles.buttonMargin,
                                 }}
                             >
-                                <LegendKey
-                                    legendSets={fetchResult.legendSets}
-                                />
+                                <LegendKey legendSets={legendSets} />
                             </div>
                         </div>
                     )}
@@ -261,7 +302,7 @@ export const VisualizationPlugin = ({
                     data-test="visualization-legend-key"
                 >
                     <div style={styles.wrapper}>
-                        <LegendKey legendSets={fetchResult.legendSets} />
+                        <LegendKey legendSets={legendSets} />
                     </div>
                 </div>
             )
@@ -279,7 +320,7 @@ export const VisualizationPlugin = ({
                             fetchResult.visualization
                         )}
                         responses={fetchResult.responses}
-                        legendSets={fetchResult.legendSets}
+                        legendSets={legendSets}
                         onToggleContextualMenu={
                             onDrill ? onToggleContextualMenu : undefined
                         }
@@ -294,7 +335,7 @@ export const VisualizationPlugin = ({
                         )}
                         responses={fetchResult.responses}
                         extraOptions={fetchResult.extraOptions}
-                        legendSets={fetchResult.legendSets}
+                        legendSets={legendSets}
                         onToggleContextualMenu={
                             onDrill ? onToggleContextualMenu : undefined
                         }
@@ -340,7 +381,7 @@ VisualizationPlugin.propTypes = {
     visualization: PropTypes.object.isRequired,
     filters: PropTypes.object,
     forDashboard: PropTypes.bool,
-    id: PropTypes.string,
+    id: PropTypes.number,
     style: PropTypes.object,
     userSettings: PropTypes.object,
     onChartGenerated: PropTypes.func,

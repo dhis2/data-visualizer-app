@@ -201,7 +201,7 @@ describe('index', () => {
         })
     })
 
-    describe('clearVisualization', () => {
+    describe('clearAll', () => {
         it('dispatches the correct actions when clearing the visualization', () => {
             const expectedActions = [
                 { type: CLEAR_LOAD_ERROR },
@@ -219,7 +219,7 @@ describe('index', () => {
 
             const store = mockStore({})
 
-            fromActions.clearVisualization(store.dispatch, store.getState)
+            fromActions.clearAll()(store.dispatch, store.getState)
 
             expect(store.getActions()).toEqual(expectedActions)
         })

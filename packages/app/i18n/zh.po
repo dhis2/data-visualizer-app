@@ -614,7 +614,7 @@ msgid "Show legend key"
 msgstr "显示图例键值"
 
 msgid "Show series key"
-msgstr ""
+msgstr "显示系列键"
 
 msgid "Skip rounding"
 msgstr "跳过舍入"

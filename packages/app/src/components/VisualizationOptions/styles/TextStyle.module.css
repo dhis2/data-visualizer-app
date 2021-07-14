@@ -1,10 +1,16 @@
 .container {
+    flex-wrap: wrap;
+}
+
+.container,
+.buttonStrip {
     display: flex;
     position: relative;
     margin: var(--spacers-dp4) 0;
 }
 
-.container > *:not(:last-child) {
+.container,
+.buttonStrip > *:not(:last-child) {
     margin-right: var(--spacers-dp4);
 }
 

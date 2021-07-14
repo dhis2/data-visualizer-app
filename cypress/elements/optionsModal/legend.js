@@ -1,6 +1,8 @@
 const optionsModalContentEl = 'options-modal-content'
 const legendKeyOptionEl = 'option-legend-key'
 const legendKeyEl = 'visualization-legend-key'
+const legendKeyContainerEl = 'legend-key-container'
+const legendKeyItemEl = 'legend-key-item'
 const singleValueOutputEl = 'visualization-primary-value'
 const legendDisplayStrategyByDataItemEl = 'legend-display-strategy-BY_DATA_ITEM'
 const legendDisplayStrategyFixedEl = 'legend-display-strategy-FIXED'
@@ -91,3 +93,9 @@ export const expectLegendKeyToBeHidden = () =>
 
 export const expectLegendKeyToBeVisible = () =>
     cy.getBySel(legendKeyEl).should('be.visible')
+
+export const expectLegedKeyItemAmountToBe = amount =>
+    cy
+        .getBySel(legendKeyContainerEl)
+        .findBySelLike(legendKeyItemEl)
+        .should('have.length', amount)

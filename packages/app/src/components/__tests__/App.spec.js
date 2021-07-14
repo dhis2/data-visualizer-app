@@ -60,11 +60,19 @@ describe('App', () => {
             setCurrentFromUi: jest.fn(),
             clearVisualization: jest.fn(),
             clearCurrent: jest.fn(),
+            clearAll: jest.fn(),
+            addSettings: jest.fn(),
+            setUser: jest.fn(),
+            loadUserAuthority: jest.fn(),
+            setDimensions: jest.fn(),
+            addMetadata: jest.fn(),
+            setVisualization: jest.fn(),
+            clearInterpretation: jest.fn(),
         }
         shallowApp = undefined
 
         /* eslint-disable no-import-assign, import/namespace */
-        actions.tDoLoadVisualization = jest.fn()
+        props.setVisualization = jest.fn()
         actions.clearVisualization = jest.fn()
         userDataStore.apiFetchAOFromUserDataStore = jest.fn()
         ui.getParentGraphMapFromVisualization = jest.fn()
@@ -84,24 +92,24 @@ describe('App', () => {
     })
 
     describe('location pathname', () => {
-        it('calls clear visualization action when location pathname is root', done => {
+        it('calls clearAll when location pathname is root', done => {
             props.location.pathname = '/'
             app()
 
             setTimeout(() => {
-                expect(actions.tDoLoadVisualization).not.toHaveBeenCalled()
-                expect(actions.clearVisualization).toBeCalledTimes(1)
+                expect(props.setVisualization).not.toHaveBeenCalled()
+                expect(props.clearAll).toBeCalledTimes(1)
                 done()
             })
         })
 
-        it('calls load visualization action when location pathname has length', done => {
+        it('calls setVisualization when location pathname has length', done => {
             props.location.pathname = '/twilightsparkle'
             app()
 
             setTimeout(() => {
-                expect(actions.tDoLoadVisualization).toBeCalledTimes(1)
-                expect(actions.clearVisualization).not.toHaveBeenCalled()
+                expect(props.setVisualization).toBeCalledTimes(1)
+                expect(props.clearAll).not.toHaveBeenCalled()
                 done()
             })
         })
@@ -113,7 +121,7 @@ describe('App', () => {
 
             setTimeout(() => {
                 history.push('/rainbowdash')
-                expect(actions.tDoLoadVisualization).toBeCalledTimes(2)
+                expect(props.setVisualization).toBeCalledTimes(2)
 
                 done()
             })
@@ -129,7 +137,7 @@ describe('App', () => {
                     pathname: '/fluttershy',
                     state: { isOpening: true },
                 })
-                expect(actions.tDoLoadVisualization).toBeCalledTimes(2)
+                expect(props.setVisualization).toBeCalledTimes(2)
 
                 done()
             })
@@ -145,7 +153,7 @@ describe('App', () => {
                     pathname: '/fluttershy',
                     state: { isSaving: true },
                 })
-                expect(actions.tDoLoadVisualization).toBeCalledTimes(2)
+                expect(props.setVisualization).toBeCalledTimes(2)
 
                 done()
             })
@@ -181,7 +189,7 @@ describe('App', () => {
 
                 setTimeout(() => {
                     history.push('/applejack')
-                    expect(actions.tDoLoadVisualization).toBeCalledTimes(1)
+                    expect(props.setVisualization).toBeCalledTimes(1)
 
                     done()
                 })
