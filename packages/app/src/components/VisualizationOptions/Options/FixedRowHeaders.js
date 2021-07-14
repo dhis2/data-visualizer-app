@@ -4,7 +4,7 @@ import CheckboxBaseOption from './CheckboxBaseOption'
 
 const FixedRowHeaders = () => (
     <CheckboxBaseOption
-        label={i18n.t('Fixed row headers to left of table')}
+        label={i18n.t('Fix row headers to left of table')}
         option={{
             name: 'fixedRowHeaders',
         }}
