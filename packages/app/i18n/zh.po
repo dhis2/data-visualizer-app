@@ -314,7 +314,7 @@ msgid "Axis title"
 msgstr "轴标题"
 
 msgid "Auto generated from axis items"
-msgstr ""
+msgstr "从轴项自动生成"
 
 msgid "None"
 msgstr "无"
