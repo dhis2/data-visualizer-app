@@ -7,7 +7,7 @@ export default {
         width: '180px',
     },
     legendKeyToggle: {
-        margin: '0 4px',
+        margin: '1px 4px 0',
     },
     wrapper: {
         position: 'absolute',
