@@ -1,3 +1,10 @@
+## [37.6.6](https://github.com/dhis2/data-visualizer-app/compare/v37.6.5...v37.6.6) (2021-08-09)
+
+
+### Bug Fixes
+
+* prevent outline clipping ([#1813](https://github.com/dhis2/data-visualizer-app/issues/1813)) ([d5bfc40](https://github.com/dhis2/data-visualizer-app/commit/d5bfc40f3be3ae7f38c4bb283486a3eb9097d348))
+
 ## [37.6.5](https://github.com/dhis2/data-visualizer-app/compare/v37.6.4...v37.6.5) (2021-07-14)
 
 
