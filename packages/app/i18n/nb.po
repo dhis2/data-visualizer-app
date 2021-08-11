@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-06-18T09:30:04.938Z\n"
+"POT-Creation-Date: 2021-07-14T07:23:39.714Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2021\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -323,8 +323,8 @@ msgstr "Trinn"
 msgid "Axis title"
 msgstr "Akseltittel"
 
-msgid "Auto generated"
-msgstr "Automatisk generert"
+msgid "Auto generated from axis items"
+msgstr ""
 
 msgid "None"
 msgstr "Ingen"
@@ -446,6 +446,9 @@ msgstr "Tabellundertittel"
 
 msgid "Chart subtitle"
 msgstr "Diagramundertittel"
+
+msgid "Auto generated"
+msgstr "Automatisk generert"
 
 msgid "Chart title"
 msgstr "Diagramtittel"
