@@ -14,6 +14,7 @@ import {
     getSingleValueCurrentFromUi,
     getSeriesFromUi,
     getScatterCurrentFromUi,
+    getItemsByDimensionFromUi,
 } from '../modules/current'
 import { BASE_FIELD_TYPE } from '../modules/fields/baseFields'
 
@@ -24,9 +25,13 @@ export const CLEAR_CURRENT = 'CLEAR_CURRENT'
 export const DEFAULT_CURRENT = null
 
 const getDefaultFromUi = (state, action) => {
-    const axesFromUi = getAxesFromUi(action.value)
-    const optionsFromUi = getOptionsFromUi(action.value)
-    const series = getSeriesFromUi(action.value)
+    const adaptedUi = {
+        ...action.value,
+        itemsByDimension: getItemsByDimensionFromUi(action.value),
+    }
+    const axesFromUi = getAxesFromUi(adaptedUi)
+    const optionsFromUi = getOptionsFromUi(adaptedUi)
+    const series = getSeriesFromUi(adaptedUi)
 
     return {
         ...state,

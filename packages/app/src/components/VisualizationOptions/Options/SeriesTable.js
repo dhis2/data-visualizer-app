@@ -4,6 +4,7 @@ import {
     VIS_TYPE_LINE,
     visTypeIcons,
     hasRelativeItems,
+    ALL_DYNAMIC_DIMENSION_ITEMS,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import {
@@ -228,6 +229,15 @@ const SeriesTable = ({
             GenericError()
         )
 
+    const renderAllItemsError = () =>
+        renderError(
+            i18n.t('Series options unavailable'),
+            i18n.t(
+                'Series options are not available when a series item has an "All items" selection'
+            ),
+            GenericError()
+        )
+
     if (!showAxisOptions && !showTypeOptions) {
         return renderNoSeriesOptionsError()
     } else if (
@@ -237,6 +247,12 @@ const SeriesTable = ({
         )
     ) {
         return renderRelativeItemsError()
+    } else if (
+        layoutItems.some(
+            item => item.dimensionItem === ALL_DYNAMIC_DIMENSION_ITEMS
+        )
+    ) {
+        return renderAllItemsError()
     } else {
         return Object.keys(layoutItems).length && optionItems.length
             ? renderTable()

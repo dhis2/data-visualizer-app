@@ -2,6 +2,7 @@ import {
     isYearOverYear,
     DIMENSION_ID_PERIOD,
     layoutGetDimensionItems,
+    ALL_DYNAMIC_DIMENSION_ITEMS,
 } from '@dhis2/analytics'
 import {
     apiFetchAnalyticsForYearOverYear,
@@ -15,6 +16,12 @@ import {
 } from './analytics'
 import { getRequestOptions } from './getRequestOptions'
 
+const removeItemAllFromAxisItems = axis =>
+    axis.map(ai => ({
+        ...ai,
+        items: ai.items.filter(item => item.id !== ALL_DYNAMIC_DIMENSION_ITEMS),
+    }))
+
 export const fetchData = async ({
     dataEngine,
     visualization,
@@ -22,22 +29,33 @@ export const fetchData = async ({
     forDashboard,
     userSettings,
 }) => {
-    const options = getRequestOptions(visualization, filters, userSettings)
+    const adaptedVisualization = {
+        ...visualization,
+        columns: removeItemAllFromAxisItems(visualization.columns),
+        rows: removeItemAllFromAxisItems(visualization.rows),
+        filters: removeItemAllFromAxisItems(visualization.filters),
+    }
+
+    const options = getRequestOptions(
+        adaptedVisualization,
+        filters,
+        userSettings
+    )
 
     const extraOptions = {
         dashboard: forDashboard,
     }
 
-    if (isYearOverYear(visualization.type)) {
+    if (isYearOverYear(adaptedVisualization.type)) {
         const { responses, yearlySeriesLabels } =
             await apiFetchAnalyticsForYearOverYear(
                 dataEngine,
-                visualization,
+                adaptedVisualization,
                 options
             )
 
         const peItems = layoutGetDimensionItems(
-            visualization,
+            adaptedVisualization,
             DIMENSION_ID_PERIOD
         )
 
@@ -75,7 +93,11 @@ export const fetchData = async ({
     }
 
     return {
-        responses: await apiFetchAnalytics(dataEngine, visualization, options),
+        responses: await apiFetchAnalytics(
+            dataEngine,
+            adaptedVisualization,
+            options
+        ),
         extraOptions,
     }
 }

@@ -10,6 +10,7 @@ import {
     DIMENSION_PROP_NO_ITEMS,
     VIS_TYPE_SCATTER,
     DIMENSION_ID_DATA,
+    ALL_DYNAMIC_DIMENSION_ITEMS,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import { Tooltip, IconLock16, IconWarningFilled16 } from '@dhis2/ui'
@@ -83,20 +84,30 @@ const Chip = ({
 
     const renderChipLabelSuffix = () => {
         const numberOfItems = items.length
-
-        const getItemsLabel =
-            !!getMaxNumberOfItems() && numberOfItems > getMaxNumberOfItems()
-                ? i18n.t(`{{total}} of {{axisMaxNumberOfItems}} selected`, {
-                      total: numberOfItems,
-                      axisMaxNumberOfItems: getMaxNumberOfItems(),
-                  })
-                : isSplitAxis
-                ? i18n.t(metadata[items[0]]?.name || '')
-                : i18n.t('{{total}} selected', {
-                      total: numberOfItems,
-                  })
-
-        return `${items.length > 0 ? `: ${getItemsLabel}` : ''}`
+        let itemsLabel
+        if (items.includes(ALL_DYNAMIC_DIMENSION_ITEMS)) {
+            itemsLabel = i18n.t('All')
+        } else if (
+            !!getMaxNumberOfItems() &&
+            numberOfItems > getMaxNumberOfItems()
+        ) {
+            itemsLabel = i18n.t(
+                `{{total}} of {{axisMaxNumberOfItems}} selected`,
+                {
+                    total: numberOfItems,
+                    axisMaxNumberOfItems: getMaxNumberOfItems(),
+                }
+            )
+        } else {
+            if (isSplitAxis) {
+                itemsLabel = i18n.t(metadata[items[0]]?.name || '')
+            } else {
+                itemsLabel = i18n.t('{{total}} selected', {
+                    total: numberOfItems,
+                })
+            }
+        }
+        return items.length > 0 ? `: ${itemsLabel}` : ''
     }
 
     const renderChipIcon = () => {
