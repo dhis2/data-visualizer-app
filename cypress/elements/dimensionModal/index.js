@@ -1,6 +1,7 @@
 const dimensionModalEl = 'dialog-manager'
 const dimensionModalUpdateButtonEl = 'dialog-manager-modal-action-confirm'
 const dimensionModalHideButtonEl = 'dialog-manager-modal-action-cancel'
+const dimensionModalAddToButtonEl = 'dialog-manager-modal-action-confirm-button'
 const dimensionModalTitleEl = 'dialog-manager-modal-title'
 const transferAddAllButtonEl = 'transfer-actions-addall'
 const transferRemoveAllButtonEl = 'transfer-actions-removeall'
@@ -25,6 +26,9 @@ export const clickDimensionModalUpdateButton = () =>
 
 export const clickDimensionModalHideButton = () =>
     cy.getBySel(dimensionModalHideButtonEl).click()
+
+export const clickDimensionModalAddToButton = () =>
+    cy.getBySel(dimensionModalAddToButtonEl).click()
 
 export const expectDimensionModalToContain = text =>
     cy.getBySel(dimensionModalTitleEl).should('contain', text)
@@ -164,6 +168,12 @@ export {
     selectOrgUnitLevel,
 } from './orgUnitDimension'
 
+export {
+    expectManualSelectionToBeChecked,
+    expectAutomaticSelectionToBeChecked,
+    changeSelectionToAutomatic,
+    changeSelectionToManual,
+} from './dynamicDimension'
 /*  TODO:
     Check that each dimension can be opened and that all options can be accessed 
     (especially dropdowns due to the reoccuring bug with duplicates of @dhis2/ui)
