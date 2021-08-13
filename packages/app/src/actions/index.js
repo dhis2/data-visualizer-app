@@ -54,9 +54,9 @@ const logError = (action, error) => {
 }
 
 const addItemAllToAxisItems = axis =>
-    axis.map(ai => ({
+    (axis || []).map(ai => ({
         ...ai,
-        items: ai.items.length
+        items: ai?.items?.length
             ? ai.items
             : [
                   {

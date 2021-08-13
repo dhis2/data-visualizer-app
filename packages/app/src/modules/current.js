@@ -128,7 +128,7 @@ export const getSingleValueCurrentFromUi = (state, action) => {
                 VIS_TYPE_SINGLE_VALUE
             ),
         },
-        itemsByDimension: getItemsByDimensionFromUi(ui),
+        itemsByDimension: getItemsByDimensionFromUi(action.value),
     }
 
     const axesFromUi = getAxesFromUi(ui)
@@ -155,7 +155,7 @@ export const getScatterCurrentFromUi = (state, action) => {
         layout: {
             ...getAdaptedUiLayoutByType(action.value.layout, VIS_TYPE_SCATTER),
         },
-        itemsByDimension: getItemsByDimensionFromUi(ui),
+        itemsByDimension: getItemsByDimensionFromUi(action.value),
     }
 
     const axesFromUi = getAxesFromUi(ui)
@@ -189,7 +189,7 @@ export const getPieCurrentFromUi = (state, action) => {
         layout: {
             ...getAdaptedUiLayoutByType(action.value.layout, VIS_TYPE_PIE),
         },
-        itemsByDimension: getItemsByDimensionFromUi(ui),
+        itemsByDimension: getItemsByDimensionFromUi(action.value),
     }
 
     return {
@@ -203,7 +203,7 @@ export const getPieCurrentFromUi = (state, action) => {
 export const getYearOverYearCurrentFromUi = (state, action) => {
     const ui = {
         ...action.value,
-        itemsByDimension: getItemsByDimensionFromUi(ui),
+        itemsByDimension: getItemsByDimensionFromUi(action.value),
     }
 
     const periodDimension = dimensionCreate(

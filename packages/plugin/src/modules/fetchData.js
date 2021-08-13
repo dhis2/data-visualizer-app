@@ -17,9 +17,11 @@ import {
 import { getRequestOptions } from './getRequestOptions'
 
 const removeItemAllFromAxisItems = axis =>
-    axis.map(ai => ({
+    (axis || []).map(ai => ({
         ...ai,
-        items: ai.items.filter(item => item.id !== ALL_DYNAMIC_DIMENSION_ITEMS),
+        items: ai?.items?.filter(
+            item => item.id !== ALL_DYNAMIC_DIMENSION_ITEMS
+        ),
     }))
 
 export const fetchData = async ({
