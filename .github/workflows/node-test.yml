@@ -2,6 +2,9 @@ name: 'dhis2: test (node)'
 
 on: push
 
+env:
+    D2_VERBOSE: true
+
 jobs:
     unit:
         runs-on: ubuntu-latest
@@ -27,3 +30,4 @@ jobs:
               run: yarn test
         env:
             CI: true
+            D2_VERBOSE: true
