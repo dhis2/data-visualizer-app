@@ -8,11 +8,11 @@ import { sGetMetadata } from '../../reducers/metadata'
 import { styles } from './styles/Tooltip.style'
 
 const labels = {
-    noneSelected: i18n.t('None selected'),
+    noneSelected: () => i18n.t('None selected'),
     onlyOneInUse: name => i18n.t("Only '{{- name}}' in use", { name }),
     onlyLimitedNumberInUse: number =>
         i18n.t("Only '{{number}}' in use", { number }),
-    allItems: i18n.t('All items are selected'),
+    allItems: () => i18n.t('All items are selected'),
 }
 
 export const TooltipContent = ({
@@ -120,14 +120,14 @@ export const TooltipContent = ({
     )
 
     const renderNoItemsLabel = () => (
-        <li key={`${dimensionId}-${labels.noneSelected}`} style={styles.item}>
-            {labels.noneSelected}
+        <li key={`${dimensionId}-${labels.noneSelected()}`} style={styles.item}>
+            {labels.noneSelected()}
         </li>
     )
 
     const renderAllItemsLabel = () => (
-        <li key={`${dimensionId}-${labels.allItems}`} style={styles.item}>
-            {labels.allItems}
+        <li key={`${dimensionId}-${labels.allItems()}`} style={styles.item}>
+            {labels.allItems()}
         </li>
     )
 
