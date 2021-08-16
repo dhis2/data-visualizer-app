@@ -53,7 +53,7 @@ const logError = (action, error) => {
     console.log(`Error in action ${action}: ${error}`)
 }
 
-const addItemAllToAxisItems = axis =>
+const adaptAxisItems = axis =>
     (axis || []).map(ai => ({
         ...ai,
         items: ai?.items?.length
@@ -78,9 +78,9 @@ export const tDoLoadVisualization =
                 response.visualization
             )
 
-            visualization.columns = addItemAllToAxisItems(visualization.columns)
-            visualization.rows = addItemAllToAxisItems(visualization.rows)
-            visualization.filters = addItemAllToAxisItems(visualization.filters)
+            visualization.columns = adaptAxisItems(visualization.columns)
+            visualization.rows = adaptAxisItems(visualization.rows)
+            visualization.filters = adaptAxisItems(visualization.filters)
 
             if (interpretationId) {
                 const interpretation = visualization.interpretations.find(
