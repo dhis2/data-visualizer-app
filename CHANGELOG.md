@@ -1,3 +1,10 @@
+# [37.7.0](https://github.com/dhis2/data-visualizer-app/compare/v37.6.8...v37.7.0) (2021-08-16)
+
+
+### Features
+
+* all items option for dynamic dimension (DHIS2-9734) ([#1828](https://github.com/dhis2/data-visualizer-app/issues/1828)) ([b302276](https://github.com/dhis2/data-visualizer-app/commit/b3022761b6d6c46cde7605b71a2dfeb201c081bc))
+
 ## [37.6.8](https://github.com/dhis2/data-visualizer-app/compare/v37.6.7...v37.6.8) (2021-08-13)
 
 
