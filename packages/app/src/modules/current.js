@@ -15,6 +15,7 @@ import {
     DIMENSION_PROP_NO_ITEMS,
     getAdaptedUiLayoutByType,
     VIS_TYPE_SCATTER,
+    ALL_DYNAMIC_DIMENSION_ITEMS,
 } from '@dhis2/analytics'
 import pick from 'lodash-es/pick'
 import {
@@ -104,6 +105,20 @@ export const getSeriesFromUi = ui => {
     return ui.options.series ? [...ui.options.series] : []
 }
 
+export const getItemsByDimensionFromUi = ui => {
+    const result = {}
+    Object.keys(ui.itemsByDimension).forEach(
+        key =>
+            // strip out all other items when 'ALL' is in use, to be passed to the backend
+            (result[key] = ui.itemsByDimension[key].some(
+                id => id === ALL_DYNAMIC_DIMENSION_ITEMS
+            )
+                ? [ALL_DYNAMIC_DIMENSION_ITEMS]
+                : ui.itemsByDimension[key])
+    )
+    return result
+}
+
 export const getSingleValueCurrentFromUi = (state, action) => {
     const ui = {
         ...action.value,
@@ -113,6 +128,7 @@ export const getSingleValueCurrentFromUi = (state, action) => {
                 VIS_TYPE_SINGLE_VALUE
             ),
         },
+        itemsByDimension: getItemsByDimensionFromUi(action.value),
     }
 
     const axesFromUi = getAxesFromUi(ui)
@@ -139,6 +155,7 @@ export const getScatterCurrentFromUi = (state, action) => {
         layout: {
             ...getAdaptedUiLayoutByType(action.value.layout, VIS_TYPE_SCATTER),
         },
+        itemsByDimension: getItemsByDimensionFromUi(action.value),
     }
 
     const axesFromUi = getAxesFromUi(ui)
@@ -172,6 +189,7 @@ export const getPieCurrentFromUi = (state, action) => {
         layout: {
             ...getAdaptedUiLayoutByType(action.value.layout, VIS_TYPE_PIE),
         },
+        itemsByDimension: getItemsByDimensionFromUi(action.value),
     }
 
     return {
@@ -183,7 +201,10 @@ export const getPieCurrentFromUi = (state, action) => {
 }
 
 export const getYearOverYearCurrentFromUi = (state, action) => {
-    const ui = action.value
+    const ui = {
+        ...action.value,
+        itemsByDimension: getItemsByDimensionFromUi(action.value),
+    }
 
     const periodDimension = dimensionCreate(
         DIMENSION_ID_PERIOD,

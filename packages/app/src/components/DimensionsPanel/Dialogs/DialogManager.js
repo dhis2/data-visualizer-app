@@ -20,6 +20,7 @@ import {
     BIWEEKLY,
     MONTHLY,
     BIMONTHLY,
+    ALL_DYNAMIC_DIMENSION_ITEMS,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import {
@@ -190,13 +191,17 @@ export class DialogManager extends Component {
             ? this.props.getItemsByAttribute(dialogId)
             : this.props.selectedItems[dialogId]
         return (items || [])
-            .filter(id => this.props.metadata[id])
+            .filter(
+                id =>
+                    this.props.metadata[id] ||
+                    id === ALL_DYNAMIC_DIMENSION_ITEMS
+            )
             .map(id => ({
                 id,
-                name: this.props.metadata[id].name,
+                name: this.props.metadata[id]?.name,
                 type:
-                    this.props.metadata[id].type ||
-                    this.props.metadata[id].dimensionItemType,
+                    this.props.metadata[id]?.type ||
+                    this.props.metadata[id]?.dimensionItemType,
             }))
     }
 

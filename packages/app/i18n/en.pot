@@ -5,8 +5,11 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-07-14T07:23:39.714Z\n"
-"PO-Revision-Date: 2021-07-14T07:23:39.714Z\n"
+"POT-Creation-Date: 2021-08-12T10:01:59.854Z\n"
+"PO-Revision-Date: 2021-08-12T10:01:59.854Z\n"
+
+msgid "All items"
+msgstr "All items"
 
 msgid "Rename successful"
 msgstr "Rename successful"
@@ -150,6 +153,9 @@ msgstr "Hide"
 msgid "Interpretations"
 msgstr "Interpretations"
 
+msgid "All"
+msgstr "All"
+
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr "{{total}} of {{axisMaxNumberOfItems}} selected"
 
@@ -182,6 +188,9 @@ msgstr "Only '{{- name}}' in use"
 
 msgid "Only '{{number}}' in use"
 msgstr "Only '{{number}}' in use"
+
+msgid "All items are selected"
+msgstr "All items are selected"
 
 msgid "Levels"
 msgstr "Levels"
@@ -426,9 +435,6 @@ msgstr "After last"
 msgid "Before first and after last"
 msgstr "Before first and after last"
 
-msgid "All"
-msgstr "All"
-
 msgid "Hide empty rows"
 msgstr "Hide empty rows"
 
@@ -617,6 +623,13 @@ msgid ""
 msgstr ""
 "Series options are not available when using relative selections for "
 "periods, org units or categories"
+
+msgid ""
+"Series options are not available when a series item has an \"All items\" "
+"selection"
+msgstr ""
+"Series options are not available when a series item has an \"All items\" "
+"selection"
 
 msgid "Value labels"
 msgstr "Value labels"

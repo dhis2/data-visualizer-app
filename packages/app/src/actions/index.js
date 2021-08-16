@@ -1,6 +1,7 @@
 import {
     getDisplayNameByVisType,
     convertOuLevelsToUids,
+    ALL_DYNAMIC_DIMENSION_ITEMS,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import { apiPostDataStatistics } from '../api/dataStatistics'
@@ -52,6 +53,19 @@ const logError = (action, error) => {
     console.log(`Error in action ${action}: ${error}`)
 }
 
+const adaptAxisItems = axis =>
+    (axis || []).map(ai => ({
+        ...ai,
+        items: ai?.items?.length
+            ? ai.items
+            : [
+                  {
+                      id: ALL_DYNAMIC_DIMENSION_ITEMS,
+                      name: i18n.t('All items'),
+                  },
+              ],
+    }))
+
 // visualization, current, ui
 
 export const tDoLoadVisualization =
@@ -63,6 +77,10 @@ export const tDoLoadVisualization =
                 ouLevels,
                 response.visualization
             )
+
+            visualization.columns = adaptAxisItems(visualization.columns)
+            visualization.rows = adaptAxisItems(visualization.rows)
+            visualization.filters = adaptAxisItems(visualization.filters)
 
             if (interpretationId) {
                 const interpretation = visualization.interpretations.find(

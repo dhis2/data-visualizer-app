@@ -198,6 +198,15 @@ export const expectWindowConfigXAxisToHaveRangeMaxValue = value =>
             expect(xAxis.max).to.eq(value)
         })
 
+export const expectWindowConfigSeriesToHaveLength = length =>
+    cy
+        .window()
+        .its(CONFIG_PROP)
+        .its(SERIES_PROP)
+        .then(series => {
+            expect(series).to.have.lengthOf(length)
+        })
+
 export const expectWindowConfigSeriesItemToHaveLegendSet = (
     seriesItemName,
     expectedLS

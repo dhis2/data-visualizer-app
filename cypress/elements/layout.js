@@ -66,6 +66,13 @@ export const expectDimensionToHaveItemAmount = (
     }
 }
 
+export const expectDimensionToHaveAllItemsSelected = dimensionId =>
+    cy
+        .getBySel(getDimensionChipEl(dimensionId))
+        .contains(`: All`)
+        .should('have.length', 1)
+        .and('be.visible')
+
 export const expectDimensionOnAxisToHaveLockIcon = (dimensionId, axisId) =>
     cy
         .getBySel(getAxisEl(axisId))
