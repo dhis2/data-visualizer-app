@@ -92,7 +92,7 @@ export const TEST_AOS = [
 export const TEST_DATA_ELEMENTS = [
     { id: 'RUv0hqER0zV', name: 'All other follow-ups' },
     { id: 'A2VfEfPflHV', name: 'All other new' },
-    { id: 'laZLQdnucV1', name: 'All other referrals' },
+    { id: 'Yf4u4QOIdsi', name: 'ART entry point: TB' },
     { id: 'HLPuaFB7Frw', name: 'Anaemia new' },
     { id: 's46m5MS0hxu', name: 'BCG doses given' },
 ]
