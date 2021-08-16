@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-07-14T07:23:39.714Z\n"
+"POT-Creation-Date: 2021-08-12T10:01:59.854Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Somkhit Bouavong <bouavongk@gmail.com>, 2021\n"
 "Language-Team: Lao (https://www.transifex.com/hisp-uio/teams/100509/lo/)\n"
@@ -16,6 +16,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lo\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "All items"
+msgstr ""
 
 msgid "Rename successful"
 msgstr ""
@@ -151,6 +154,9 @@ msgstr "ເຊື່ອງ"
 msgid "Interpretations"
 msgstr "ການແປຂໍ້ມູນ"
 
+msgid "All"
+msgstr "ທັງໝົດ"
+
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr ""
 
@@ -182,6 +188,9 @@ msgid "Only '{{- name}}' in use"
 msgstr ""
 
 msgid "Only '{{number}}' in use"
+msgstr ""
+
+msgid "All items are selected"
 msgstr ""
 
 msgid "Levels"
@@ -421,9 +430,6 @@ msgstr "ຫຼັງຈາກສຸດທ້າຍ"
 msgid "Before first and after last"
 msgstr "ກ່ອນໜ້າທໍາອິດ ແລະ ຫຼັງຈາກສຸດທ້າຍ"
 
-msgid "All"
-msgstr "ທັງໝົດ"
-
 msgid "Hide empty rows"
 msgstr "ເຊື່ອງແຖວທີ່ເປົ່າຫວ່າງ"
 
@@ -599,6 +605,11 @@ msgstr ""
 msgid ""
 "Series options are not available when using relative selections for periods,"
 " org units or categories"
+msgstr ""
+
+msgid ""
+"Series options are not available when a series item has an \"All items\" "
+"selection"
 msgstr ""
 
 msgid "Value labels"

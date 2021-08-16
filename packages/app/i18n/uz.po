@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-07-14T07:23:39.714Z\n"
+"POT-Creation-Date: 2021-08-12T10:01:59.854Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Ibatov <ibatovk@who.int>, 2021\n"
 "Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
@@ -14,6 +14,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uz@Cyrl\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "All items"
+msgstr ""
 
 msgid "Rename successful"
 msgstr "Муваффақиятли қайта номлаш"
@@ -158,6 +161,9 @@ msgstr "Беркитиш"
 msgid "Interpretations"
 msgstr "Талқинлар"
 
+msgid "All"
+msgstr "Барчаси"
+
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr "{{total}} / {{axisMaxNumberOfItems}} дан танланди"
 
@@ -190,6 +196,9 @@ msgstr "Фойдаланиш учун фақатгина '{{- name}}' "
 
 msgid "Only '{{number}}' in use"
 msgstr "Фойдаланиш учун фақатгина '{{number}}'"
+
+msgid "All items are selected"
+msgstr ""
 
 msgid "Levels"
 msgstr "Босқичлар/Қаватлар"
@@ -435,9 +444,6 @@ msgstr "Охиргидан кейинги"
 msgid "Before first and after last"
 msgstr "Биринчидан олдинги ва охиргидан кейинги"
 
-msgid "All"
-msgstr "Барчаси"
-
 msgid "Hide empty rows"
 msgstr "Бўш қаторларни беркитиш"
 
@@ -626,6 +632,11 @@ msgid ""
 msgstr ""
 "Даврлар, ташкилий бўлимлар ёки тоифалар учун нисбий танловлардан "
 "фойдаланилганда кетма-кет вариантлар мавжуд эмас"
+
+msgid ""
+"Series options are not available when a series item has an \"All items\" "
+"selection"
+msgstr ""
 
 msgid "Value labels"
 msgstr "Қиймат ёрлиқлари"

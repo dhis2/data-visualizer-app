@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-07-14T07:23:39.714Z\n"
+"POT-Creation-Date: 2021-08-12T10:01:59.854Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Saurabh Leekha <saurabh.leekha@hispindia.org>, 2021\n"
 "Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
@@ -17,6 +17,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+msgid "All items"
+msgstr ""
 
 msgid "Rename successful"
 msgstr "Переименовать удачно"
@@ -152,6 +155,9 @@ msgstr "Скрыть"
 msgid "Interpretations"
 msgstr "Интерпретации"
 
+msgid "All"
+msgstr "Все"
+
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr ""
 
@@ -183,6 +189,9 @@ msgid "Only '{{- name}}' in use"
 msgstr ""
 
 msgid "Only '{{number}}' in use"
+msgstr ""
+
+msgid "All items are selected"
 msgstr ""
 
 msgid "Levels"
@@ -426,9 +435,6 @@ msgstr "После последнего"
 msgid "Before first and after last"
 msgstr "До первого и после последнего"
 
-msgid "All"
-msgstr "Все"
-
 msgid "Hide empty rows"
 msgstr "Скрыть незаполненные строки"
 
@@ -604,6 +610,11 @@ msgstr ""
 msgid ""
 "Series options are not available when using relative selections for periods,"
 " org units or categories"
+msgstr ""
+
+msgid ""
+"Series options are not available when a series item has an \"All items\" "
+"selection"
 msgstr ""
 
 msgid "Value labels"
