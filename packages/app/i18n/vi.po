@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-07-14T07:23:39.714Z\n"
+"POT-Creation-Date: 2021-08-12T10:01:59.854Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2020\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
@@ -16,6 +16,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: vi\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "All items"
+msgstr ""
 
 msgid "Rename successful"
 msgstr "Đổi tên thành công"
@@ -159,6 +162,9 @@ msgstr "Ẩn"
 msgid "Interpretations"
 msgstr "Diễn giải báo cáo"
 
+msgid "All"
+msgstr "Tất cả"
+
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr "{{tổng}} / {{axisMaxNumberOfItems}}Đã chọn "
 
@@ -191,6 +197,9 @@ msgstr "Chỉ sử dụng tên"
 
 msgid "Only '{{number}}' in use"
 msgstr "Chỉ  '{{number}}' được sử dụng"
+
+msgid "All items are selected"
+msgstr ""
 
 msgid "Levels"
 msgstr "Các cấp độ"
@@ -435,9 +444,6 @@ msgstr "Sau giá trị cuối cùng"
 msgid "Before first and after last"
 msgstr "Trước giá trị đầu tiên và sau giá trị cuối cùng"
 
-msgid "All"
-msgstr "Tất cả"
-
 msgid "Hide empty rows"
 msgstr "Ẩn dòng rỗng"
 
@@ -616,6 +622,11 @@ msgid ""
 msgstr ""
 "Tùy chọn chuỗi không có sẵn khi sử dụng các lựa chọn tương đối cho khoảng "
 "thời gian, đơn vị hoặc phân loại"
+
+msgid ""
+"Series options are not available when a series item has an \"All items\" "
+"selection"
+msgstr ""
 
 msgid "Value labels"
 msgstr "Nhãn giá trị"

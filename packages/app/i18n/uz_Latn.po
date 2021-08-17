@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-07-14T07:23:39.714Z\n"
+"POT-Creation-Date: 2021-08-12T10:01:59.854Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Yury Rogachev <yury@dhis2.org>, 2021\n"
 "Language-Team: Uzbek (Latin) (https://www.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
@@ -14,6 +14,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uz@Latn\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "All items"
+msgstr ""
 
 msgid "Rename successful"
 msgstr "Muvaffaqiyatli qayta nomlash"
@@ -158,6 +161,9 @@ msgstr "Berkitish"
 msgid "Interpretations"
 msgstr "Sharhlar"
 
+msgid "All"
+msgstr "Barchasi"
+
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr "{{total}} / {{axisMaxNumberOfItems}} dan tanlandi"
 
@@ -190,6 +196,9 @@ msgstr "Foydalanish uchun faqatgina '{{- name}}'"
 
 msgid "Only '{{number}}' in use"
 msgstr "Foydalanish uchun faqatgina '{{number}}'"
+
+msgid "All items are selected"
+msgstr ""
 
 msgid "Levels"
 msgstr "Bosqichlar/Qavatlar"
@@ -436,9 +445,6 @@ msgstr "Oxirgidan keyingi"
 msgid "Before first and after last"
 msgstr "Birinchidan oldingi va oxirgidan keyingi"
 
-msgid "All"
-msgstr "Barchasi"
-
 msgid "Hide empty rows"
 msgstr "Boʼsh qatorlarni berkitish"
 
@@ -617,6 +623,11 @@ msgid ""
 msgstr ""
 "Davrlar, tashkiliy boʼlimlar yoki toifalar uchun nisbiy tanlovlardan "
 "foydalanilganda ketma-ket variantlar mavjud emas"
+
+msgid ""
+"Series options are not available when a series item has an \"All items\" "
+"selection"
+msgstr ""
 
 msgid "Value labels"
 msgstr "Qiymat yorliqlari"

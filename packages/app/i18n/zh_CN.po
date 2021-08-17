@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-07-14T07:23:39.714Z\n"
+"POT-Creation-Date: 2021-08-12T10:01:59.854Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2020\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
@@ -15,6 +15,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "All items"
+msgstr ""
 
 msgid "Rename successful"
 msgstr "重命名成功"
@@ -150,6 +153,9 @@ msgstr "隐藏"
 msgid "Interpretations"
 msgstr "注释"
 
+msgid "All"
+msgstr "全部"
+
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr "选择了 {{axisMaxNumberOfItems}} 中的{{total}} "
 
@@ -182,6 +188,9 @@ msgstr "仅'{{- name}}' 在使用"
 
 msgid "Only '{{number}}' in use"
 msgstr "仅 '{{number}}' 在使用"
+
+msgid "All items are selected"
+msgstr ""
 
 msgid "Levels"
 msgstr "等级"
@@ -420,9 +429,6 @@ msgstr "最后一个后面"
 msgid "Before first and after last"
 msgstr "第一个前和最后一个后面"
 
-msgid "All"
-msgstr "全部"
-
 msgid "Hide empty rows"
 msgstr "隐藏空行"
 
@@ -598,6 +604,11 @@ msgstr ""
 msgid ""
 "Series options are not available when using relative selections for periods,"
 " org units or categories"
+msgstr ""
+
+msgid ""
+"Series options are not available when a series item has an \"All items\" "
+"selection"
 msgstr ""
 
 msgid "Value labels"

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-07-14T07:23:39.714Z\n"
+"POT-Creation-Date: 2021-08-12T10:01:59.854Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2021\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -15,6 +15,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nb\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "All items"
+msgstr ""
 
 msgid "Rename successful"
 msgstr "Navneendring vellykket"
@@ -158,6 +161,9 @@ msgstr "Skjul"
 msgid "Interpretations"
 msgstr "Tolkninger"
 
+msgid "All"
+msgstr "Alt"
+
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr "{{total}} av {{axisMaxNumberOfItems}} valgt"
 
@@ -190,6 +196,9 @@ msgstr "Bare '{{- name}}' er i bruk"
 
 msgid "Only '{{number}}' in use"
 msgstr "Bare '{{nummer}}' er i bruk"
+
+msgid "All items are selected"
+msgstr ""
 
 msgid "Levels"
 msgstr "Nivå"
@@ -435,9 +444,6 @@ msgstr "Etter siste"
 msgid "Before first and after last"
 msgstr "Før første og etter siste"
 
-msgid "All"
-msgstr "Alt"
-
 msgid "Hide empty rows"
 msgstr "Skjul tomme rader"
 
@@ -619,6 +625,11 @@ msgid ""
 msgstr ""
 "Seriealternativer er ikke tilgjengelige når du bruker relative valg for "
 "perioder, organisasjonsenheter eller kategorier"
+
+msgid ""
+"Series options are not available when a series item has an \"All items\" "
+"selection"
+msgstr ""
 
 msgid "Value labels"
 msgstr "Verdietiketter"
