@@ -1,13 +1,13 @@
 import { apiFetchOrganisationUnit } from '@dhis2/analytics'
 import { useDataEngine } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import { Divider, FlyoutMenu, MenuItem } from '@dhis2/ui'
+import { Divider, FlyoutMenu, MenuItem, Popper } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState, useCallback } from 'react'
 import ArrowDownwardIcon from './assets/ArrowDownwardIcon'
 import ArrowUpwardIcon from './assets/ArrowUpwardIcon'
 
-export const ContextualMenu = ({ config, ouLevels, onClick }) => {
+export const ContextualMenu = ({ config, ouLevels, onClick, reference }) => {
     const engine = useDataEngine()
     const [ouData, setOuData] = useState(undefined)
     const [subLevelData, setSubLevelData] = useState(undefined)
@@ -59,58 +59,61 @@ export const ContextualMenu = ({ config, ouLevels, onClick }) => {
     }
 
     return ouData ? (
-        <FlyoutMenu>
-            <MenuItem dense label={i18n.t('Change org unit')}>
-                {ouData?.parent && (
-                    <>
+        <Popper reference={reference} placement="right-start">
+            <FlyoutMenu>
+                <MenuItem dense label={i18n.t('Change org unit')}>
+                    {ouData?.parent && (
+                        <>
+                            <MenuItem
+                                dense
+                                icon={<ArrowUpwardIcon />}
+                                label={
+                                    <span style={menuItemStyle}>
+                                        {ouData.parent.name}
+                                    </span>
+                                }
+                                onClick={() =>
+                                    onClick({
+                                        ou: { id: ouData.parent.id },
+                                    })
+                                }
+                            />
+                            {subLevelData && <Divider />}
+                        </>
+                    )}
+                    {subLevelData && (
                         <MenuItem
                             dense
-                            icon={<ArrowUpwardIcon />}
+                            icon={<ArrowDownwardIcon />}
                             label={
                                 <span style={menuItemStyle}>
-                                    {ouData.parent.name}
+                                    {i18n.t('{{level}} level in {{orgunit}}', {
+                                        level: subLevelData.name,
+                                        orgunit: ouData.name,
+                                    })}
                                 </span>
                             }
                             onClick={() =>
                                 onClick({
-                                    ou: { id: ouData.parent.id },
+                                    ou: {
+                                        id: ouData.id,
+                                        path: ouData.path,
+                                        level: subLevelData.id,
+                                    },
                                 })
                             }
                         />
-                        {subLevelData && <Divider />}
-                    </>
-                )}
-                {subLevelData && (
-                    <MenuItem
-                        dense
-                        icon={<ArrowDownwardIcon />}
-                        label={
-                            <span style={menuItemStyle}>
-                                {i18n.t('{{level}} level in {{orgunit}}', {
-                                    level: subLevelData.name,
-                                    orgunit: ouData.name,
-                                })}
-                            </span>
-                        }
-                        onClick={() =>
-                            onClick({
-                                ou: {
-                                    id: ouData.id,
-                                    path: ouData.path,
-                                    level: subLevelData.id,
-                                },
-                            })
-                        }
-                    />
-                )}
-            </MenuItem>
-        </FlyoutMenu>
+                    )}
+                </MenuItem>
+            </FlyoutMenu>
+        </Popper>
     ) : null
 }
 
 ContextualMenu.propTypes = {
     config: PropTypes.object,
     ouLevels: PropTypes.array,
+    reference: PropTypes.object,
     onClick: PropTypes.func,
 }
 

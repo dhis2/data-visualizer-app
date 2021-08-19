@@ -10,7 +10,7 @@ import {
     VIS_TYPE_LINE,
 } from '@dhis2/analytics'
 import { useDataEngine } from '@dhis2/app-runtime'
-import { Popper, Button, IconLegend24 } from '@dhis2/ui'
+import { Button, IconLegend24 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState, useCallback } from 'react'
 import { createPortal } from 'react-dom'
@@ -349,16 +349,12 @@ export const VisualizationPlugin = ({
             {contextualMenuRect &&
                 createPortal(
                     <div onClick={closeContextualMenu} style={styles.backdrop}>
-                        <Popper
+                        <ContextualMenu
                             reference={virtualContextualMenuElement}
-                            placement="right-start"
-                        >
-                            <ContextualMenu
-                                config={contextualMenuConfig}
-                                ouLevels={ouLevels}
-                                onClick={onContextualMenuItemClick}
-                            />
-                        </Popper>
+                            config={contextualMenuConfig}
+                            ouLevels={ouLevels}
+                            onClick={onContextualMenuItemClick}
+                        />
                     </div>,
                     document.body
                 )}
