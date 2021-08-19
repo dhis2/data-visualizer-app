@@ -2,13 +2,13 @@ import i18n from '@dhis2/d2-i18n'
 import React from 'react'
 import CheckboxBaseOption from './CheckboxBaseOption'
 
-const FixedRowHeaders = () => (
+const FixColumnHeaders = () => (
     <CheckboxBaseOption
-        label={i18n.t('Fix row headers to left of table')}
+        label={i18n.t('Fix column headers to top of table')}
         option={{
-            name: 'fixedRowHeaders',
+            name: 'fixColumnHeaders',
         }}
     />
 )
 
-export default FixedRowHeaders
+export default FixColumnHeaders

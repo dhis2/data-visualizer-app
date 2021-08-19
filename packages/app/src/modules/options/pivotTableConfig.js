@@ -10,8 +10,8 @@ import CompletedOnly from '../../components/VisualizationOptions/Options/Complet
 import Cumulative from '../../components/VisualizationOptions/Options/Cumulative'
 import DigitGroupSeparator from '../../components/VisualizationOptions/Options/DigitGroupSeparator'
 import DisplayDensity from '../../components/VisualizationOptions/Options/DisplayDensity'
-import FixedColumnHeaders from '../../components/VisualizationOptions/Options/FixedColumnHeaders'
-import FixedRowHeaders from '../../components/VisualizationOptions/Options/FixedRowHeaders'
+import FixColumnHeaders from '../../components/VisualizationOptions/Options/FixColumnHeaders'
+import FixRowHeaders from '../../components/VisualizationOptions/Options/FixRowHeaders'
 import FontSize from '../../components/VisualizationOptions/Options/FontSize'
 import HideEmptyColumns from '../../components/VisualizationOptions/Options/HideEmptyColumns'
 import HideEmptyRows from '../../components/VisualizationOptions/Options/HideEmptyRows'
@@ -79,8 +79,8 @@ export default () => [
                 <DisplayDensity />,
                 <FontSize />,
                 <DigitGroupSeparator />,
-                <FixedColumnHeaders />,
-                <FixedRowHeaders />,
+                <FixColumnHeaders />,
+                <FixRowHeaders />,
             ]),
         },
         {
