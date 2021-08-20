@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "All items"
-msgstr ""
+msgstr "所有条目"
 
 msgid "Rename successful"
 msgstr "重命名成功"
@@ -194,7 +194,7 @@ msgid "Only '{{number}}' in use"
 msgstr "仅 '{{number}}' 在使用"
 
 msgid "All items are selected"
-msgstr ""
+msgstr "所有条目都被选中"
 
 msgid "Levels"
 msgstr "等级"
@@ -613,7 +613,7 @@ msgstr "在对期间，组织单位或类别使用相对选择时，系列选项
 msgid ""
 "Series options are not available when a series item has an \"All items\" "
 "selection"
-msgstr ""
+msgstr "当系列条目具有“所有条目”选择时，系列选项不可用"
 
 msgid "Value labels"
 msgstr "值标签"
