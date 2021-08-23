@@ -11,6 +11,7 @@ import {
 } from '@dhis2/analytics'
 import { useDataEngine } from '@dhis2/app-runtime'
 import { Popper, Button, IconLegend24 } from '@dhis2/ui'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState, useCallback } from 'react'
 import { createPortal } from 'react-dom'
@@ -19,7 +20,7 @@ import ChartPlugin from './ChartPlugin'
 import ContextualMenu from './ContextualMenu'
 import { fetchData } from './modules/fetchData'
 import PivotPlugin from './PivotPlugin'
-import styles from './styles/VisualizationPlugin.style.js'
+import styles from './styles/VisualizationPlugin.module.css'
 
 export const VisualizationPlugin = ({
     visualization,
@@ -268,20 +269,20 @@ export const VisualizationPlugin = ({
                 <>
                     {showLegendKey && (
                         <div
-                            style={styles.legendKey}
+                            className={styles.legendKey}
                             data-test="visualization-legend-key"
                         >
                             <div
-                                style={{
-                                    ...styles.wrapper,
-                                    ...styles.buttonMargin,
-                                }}
+                                className={cx(
+                                    styles.wrapper,
+                                    styles.buttonMargin
+                                )}
                             >
                                 <LegendKey legendSets={legendSets} />
                             </div>
                         </div>
                     )}
-                    <div style={styles.legendKeyToggle}>
+                    <div className={styles.legendKeyToggle}>
                         <Button
                             small
                             secondary
@@ -298,10 +299,10 @@ export const VisualizationPlugin = ({
         } else if (hasLegendSet && fetchResult.visualization.legend?.showKey) {
             return (
                 <div
-                    style={styles.legendKey}
+                    className={styles.legendKey}
                     data-test="visualization-legend-key"
                 >
-                    <div style={styles.wrapper}>
+                    <div className={styles.wrapper}>
                         <LegendKey legendSets={legendSets} />
                     </div>
                 </div>
@@ -311,7 +312,7 @@ export const VisualizationPlugin = ({
 
     return (
         <>
-            <div style={styles.container}>
+            <div className={styles.container}>
                 {!fetchResult.visualization.type ||
                 fetchResult.visualization.type === VIS_TYPE_PIVOT_TABLE ? (
                     <PivotPlugin
@@ -348,7 +349,10 @@ export const VisualizationPlugin = ({
             {getLegendKey()}
             {contextualMenuRect &&
                 createPortal(
-                    <div onClick={closeContextualMenu} style={styles.backdrop}>
+                    <div
+                        onClick={closeContextualMenu}
+                        className={styles.backdrop}
+                    >
                         <Popper
                             reference={virtualContextualMenuElement}
                             placement="right-start"
