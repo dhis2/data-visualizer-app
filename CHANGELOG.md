@@ -1,3 +1,10 @@
+# [37.8.0](https://github.com/dhis2/data-visualizer-app/compare/v37.7.2...v37.8.0) (2021-08-23)
+
+
+### Features
+
+* show indicator type in SV [#1830](https://github.com/dhis2/data-visualizer-app/issues/1830) ([bd1c132](https://github.com/dhis2/data-visualizer-app/commit/bd1c13272929e8c715fedbf15feb13bfb0300e61))
+
 ## [37.7.2](https://github.com/dhis2/data-visualizer-app/compare/v37.7.1...v37.7.2) (2021-08-20)
 
 
