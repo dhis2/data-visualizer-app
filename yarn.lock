@@ -2683,10 +2683,10 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@^20.1.0":
-  version "20.1.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-20.1.0.tgz#c67a171b7f8def091f808d105400c099e8404db3"
-  integrity sha512-P+mM+5YN+NNSVGe5j5ciRZnzO5afA5SqxKdkCQW2bPfM5AUP0KcPop210mIpIGL1JQbVG3bgqa2yyYxujrTfJQ==
+"@dhis2/analytics@^20.2.0":
+  version "20.2.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-20.2.0.tgz#ad008a2985b244999c82c63947d3964377e639cb"
+  integrity sha512-Wkw1z5wUesJQjx/imqZeFBNdvmwJwiurMwidJm/Bj21RNsJ5eZA29QTIX5+vsDn49697YHgj1DxJFnVLcRWwtg==
   dependencies:
     "@dhis2/d2-ui-favorites-dialog" "^7.3.0"
     "@dhis2/d2-ui-org-unit-dialog" "^7.3.0"
@@ -2860,10 +2860,12 @@
     jscodeshift "^0.11.0"
     wait-on "^4.0.2"
 
-"@dhis2/cypress-commands@^5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/cypress-commands/-/cypress-commands-5.0.0.tgz#99ac6b0f3b4cd36e7a7dce7caac12c89ac0f02fa"
-  integrity sha512-8jfLMMapcmJswkBh7ODZLbtmskfJSSZrwya03bWwKWM3oVI/uSkZr2GV0Pu3JORohNqoOah2UKlfVRmWgTkpjg==
+"@dhis2/cypress-commands@^8.0.2":
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/@dhis2/cypress-commands/-/cypress-commands-8.0.2.tgz#4a05379050fb76341e291d25b9eda7826deb6180"
+  integrity sha512-kSD/Z0fR5dLfgT61N3cd1mkCjlKC0oWWyF6n0ltdvQvdHRWimxxvq5nayU19TCiWnysGz25xugXiQUQpbdsfdA==
+  dependencies:
+    jscodeshift "^0.11.0"
 
 "@dhis2/d2-i18n@^1.1.0":
   version "1.1.0"
