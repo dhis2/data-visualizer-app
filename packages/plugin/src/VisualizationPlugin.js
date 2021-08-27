@@ -349,7 +349,10 @@ export const VisualizationPlugin = ({
             {getLegendKey()}
             {contextualMenuRect &&
                 createPortal(
-                    <div onClick={closeContextualMenu} style={styles.backdrop}>
+                    <div
+                        onClick={closeContextualMenu}
+                        className={styles.backdrop}
+                    >
                         <ContextualMenu
                             reference={virtualContextualMenuElement}
                             config={contextualMenuConfig}
