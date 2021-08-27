@@ -352,12 +352,14 @@ export const VisualizationPlugin = ({
                     <div
                         onClick={closeContextualMenu}
                         className={styles.backdrop}
+                        data-test={'visualization-drill-down-backdrop'}
                     >
                         <ContextualMenu
                             reference={virtualContextualMenuElement}
                             config={contextualMenuConfig}
                             ouLevels={ouLevels}
                             onClick={onContextualMenuItemClick}
+                            dataTest={'visualization-drill-down-menu'}
                         />
                     </div>,
                     document.body

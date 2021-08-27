@@ -7,7 +7,13 @@ import React, { useEffect, useState, useCallback } from 'react'
 import ArrowDownwardIcon from './assets/ArrowDownwardIcon'
 import ArrowUpwardIcon from './assets/ArrowUpwardIcon'
 
-export const ContextualMenu = ({ config, ouLevels, onClick, reference }) => {
+export const ContextualMenu = ({
+    config,
+    ouLevels,
+    onClick,
+    reference,
+    dataTest,
+}) => {
     const engine = useDataEngine()
     const [ouData, setOuData] = useState(undefined)
     const [subLevelData, setSubLevelData] = useState(undefined)
@@ -59,9 +65,17 @@ export const ContextualMenu = ({ config, ouLevels, onClick, reference }) => {
     }
 
     return ouData ? (
-        <Popper reference={reference} placement="right-start">
+        <Popper
+            reference={reference}
+            placement="right-start"
+            dataTest={dataTest}
+        >
             <FlyoutMenu>
-                <MenuItem dense label={i18n.t('Change org unit')}>
+                <MenuItem
+                    dense
+                    label={i18n.t('Change org unit')}
+                    dataTest={`${dataTest}-org-unit`}
+                >
                     {ouData?.parent && (
                         <>
                             <MenuItem
@@ -77,6 +91,7 @@ export const ContextualMenu = ({ config, ouLevels, onClick, reference }) => {
                                         ou: { id: ouData.parent.id },
                                     })
                                 }
+                                dataTest={`${dataTest}-org-unit-drill-up`}
                             />
                             {subLevelData && <Divider />}
                         </>
@@ -102,6 +117,7 @@ export const ContextualMenu = ({ config, ouLevels, onClick, reference }) => {
                                     },
                                 })
                             }
+                            dataTest={`${dataTest}-org-unit-drill-down`}
                         />
                     )}
                 </MenuItem>
@@ -112,6 +128,7 @@ export const ContextualMenu = ({ config, ouLevels, onClick, reference }) => {
 
 ContextualMenu.propTypes = {
     config: PropTypes.object,
+    dataTest: PropTypes.string,
     ouLevels: PropTypes.array,
     reference: PropTypes.object,
     onClick: PropTypes.func,
