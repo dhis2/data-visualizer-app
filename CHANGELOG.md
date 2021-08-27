@@ -1,3 +1,10 @@
+## [37.8.2](https://github.com/dhis2/data-visualizer-app/compare/v37.8.1...v37.8.2) (2021-08-27)
+
+
+### Bug Fixes
+
+* drill-down menu render side (DHIS2-11061) ([#1835](https://github.com/dhis2/data-visualizer-app/issues/1835)) ([3276d77](https://github.com/dhis2/data-visualizer-app/commit/3276d7713873e64781cd3e5157ba186523323d77))
+
 ## [37.8.1](https://github.com/dhis2/data-visualizer-app/compare/v37.8.0...v37.8.1) (2021-08-25)
 
 
