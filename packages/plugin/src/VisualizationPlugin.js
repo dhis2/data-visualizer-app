@@ -10,7 +10,7 @@ import {
     VIS_TYPE_LINE,
 } from '@dhis2/analytics'
 import { useDataEngine } from '@dhis2/app-runtime'
-import { Popper, Button, IconLegend24 } from '@dhis2/ui'
+import { Button, IconLegend24 } from '@dhis2/ui'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState, useCallback } from 'react'
