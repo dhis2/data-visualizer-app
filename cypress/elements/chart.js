@@ -17,6 +17,7 @@ const highchartsTitleEl = '.highcharts-title'
 const highchartsSubtitleEl = '.highcharts-subtitle'
 const highchartsSeriesKeyItemEl = '.data-test-series-key-item' // Note: Highcharts strips out 'data-test' and similar attributes, hence 'class="data-test-..." was used instead
 const highchartsSeriesKeyItemBulletEl = '.data-test-series-key-item-bullet'
+const highchartsChartItemEl = '.highcharts-series'
 const unsavedVisualizationTitleText = 'Unsaved visualization'
 const AOTitleEl = 'AO-title'
 const AOTitleDirtyEl = 'AO-title-dirty'
@@ -116,3 +117,9 @@ export const expectSeriesKeyItemToHaveBullets = (itemIndex, bulletAmount) =>
         .eq(itemIndex)
         .find(highchartsSeriesKeyItemBulletEl)
         .should('have.length', bulletAmount)
+
+export const clickChartItem = index =>
+    cy.get(highchartsChartItemEl).children().eq(index).click()
+
+export const expectChartItemsToHaveLength = length =>
+    cy.get(highchartsChartItemEl).children().should('have.length', length)

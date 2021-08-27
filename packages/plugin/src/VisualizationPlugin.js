@@ -10,7 +10,7 @@ import {
     VIS_TYPE_LINE,
 } from '@dhis2/analytics'
 import { useDataEngine } from '@dhis2/app-runtime'
-import { Popper, Button, IconLegend24 } from '@dhis2/ui'
+import { Button, IconLegend24 } from '@dhis2/ui'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState, useCallback } from 'react'
@@ -352,17 +352,15 @@ export const VisualizationPlugin = ({
                     <div
                         onClick={closeContextualMenu}
                         className={styles.backdrop}
+                        data-test={'visualization-drill-down-backdrop'}
                     >
-                        <Popper
+                        <ContextualMenu
                             reference={virtualContextualMenuElement}
-                            placement="right-start"
-                        >
-                            <ContextualMenu
-                                config={contextualMenuConfig}
-                                ouLevels={ouLevels}
-                                onClick={onContextualMenuItemClick}
-                            />
-                        </Popper>
+                            config={contextualMenuConfig}
+                            ouLevels={ouLevels}
+                            onClick={onContextualMenuItemClick}
+                            dataTest={'visualization-drill-down-menu'}
+                        />
                     </div>,
                     document.body
                 )}
