@@ -1,3 +1,24 @@
+## [37.8.1](https://github.com/dhis2/data-visualizer-app/compare/v37.8.0...v37.8.1) (2021-08-25)
+
+
+### Bug Fixes
+
+* plugin print style for legend key toggle ([#1840](https://github.com/dhis2/data-visualizer-app/issues/1840)) ([345d592](https://github.com/dhis2/data-visualizer-app/commit/345d5925d93e186656705f1ae285c256dfb7a44b))
+
+# [37.8.0](https://github.com/dhis2/data-visualizer-app/compare/v37.7.2...v37.8.0) (2021-08-23)
+
+
+### Features
+
+* show indicator type in SV [#1830](https://github.com/dhis2/data-visualizer-app/issues/1830) ([bd1c132](https://github.com/dhis2/data-visualizer-app/commit/bd1c13272929e8c715fedbf15feb13bfb0300e61))
+
+## [37.7.2](https://github.com/dhis2/data-visualizer-app/compare/v37.7.1...v37.7.2) (2021-08-20)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([eabc89c](https://github.com/dhis2/data-visualizer-app/commit/eabc89ca9cc08fcc6b89fd8be0ee365d4cacbb1e))
+
 ## [37.7.1](https://github.com/dhis2/data-visualizer-app/compare/v37.7.0...v37.7.1) (2021-08-17)
 
 

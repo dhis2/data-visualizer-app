@@ -1,6 +1,6 @@
 {
     "name": "data-visualizer-app",
-    "version": "37.7.1",
+    "version": "37.8.1",
     "description": "DHIS2 Data Visualizer app",
     "license": "BSD-3-Clause",
     "private": true,
@@ -13,12 +13,12 @@
         "redux-mock-store": "^1.5.4"
     },
     "dependencies": {
-        "@dhis2/analytics": "^20.1.0",
+        "@dhis2/analytics": "^20.2.0",
         "@dhis2/app-runtime": "^2.8.0",
         "@dhis2/app-runtime-adapter-d2": "^1.1.0",
         "@dhis2/d2-i18n": "^1.1.0",
         "@dhis2/d2-ui-interpretations": "^7.3.1",
-        "@dhis2/data-visualizer-plugin": "37.7.1",
+        "@dhis2/data-visualizer-plugin": "37.8.1",
         "@dhis2/ui": "^6.15.0",
         "d2": "^31.9.1",
         "history": "^4.7.2",
