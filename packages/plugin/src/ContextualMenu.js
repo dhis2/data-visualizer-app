@@ -7,13 +7,7 @@ import React, { useEffect, useState, useCallback } from 'react'
 import ArrowDownwardIcon from './assets/ArrowDownwardIcon'
 import ArrowUpwardIcon from './assets/ArrowUpwardIcon'
 
-export const ContextualMenu = ({
-    config,
-    ouLevels,
-    onClick,
-    reference,
-    dataTest,
-}) => {
+const ContextualMenu = ({ config, ouLevels, onClick, reference, dataTest }) => {
     const engine = useDataEngine()
     const [ouData, setOuData] = useState(undefined)
     const [subLevelData, setSubLevelData] = useState(undefined)
