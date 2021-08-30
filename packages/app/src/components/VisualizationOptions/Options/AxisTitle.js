@@ -19,9 +19,9 @@ import {
 } from '../styles/VisualizationOptions.style.js'
 import TextStyle from './TextStyle'
 
-const TITLE_AUTO = 'AUTO'
-const TITLE_NONE = 'NONE'
-const TITLE_CUSTOM = 'CUSTOM'
+export const TITLE_AUTO = 'AUTO'
+export const TITLE_NONE = 'NONE'
+export const TITLE_CUSTOM = 'CUSTOM'
 const colors = ['#4292c6', '#cb181d', '#41ab5d', '#6c66b8']
 
 const AxisTitle = ({
