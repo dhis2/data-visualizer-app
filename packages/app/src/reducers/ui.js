@@ -19,6 +19,10 @@ import {
 import objectClean from 'd2-utilizr/lib/objectClean'
 import castArray from 'lodash-es/castArray'
 import {
+    TITLE_AUTO,
+    TITLE_CUSTOM,
+} from '../components/VisualizationOptions/Options/AxisTitle'
+import {
     getFilteredLayout,
     getInverseLayout,
     getRetransfer,
@@ -238,7 +242,9 @@ export default (state = DEFAULT_UI, action) => {
                         ...axis,
                         title: {
                             ...axis.title,
-                            textMode: value,
+                            textMode: [TITLE_CUSTOM, TITLE_AUTO].includes(value)
+                                ? value
+                                : null,
                         },
                     })
                     break
