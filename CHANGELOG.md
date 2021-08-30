@@ -1,3 +1,10 @@
+## [37.8.3](https://github.com/dhis2/data-visualizer-app/compare/v37.8.2...v37.8.3) (2021-08-30)
+
+
+### Bug Fixes
+
+* only store auto and custom title options ([#1844](https://github.com/dhis2/data-visualizer-app/issues/1844)) ([af9874e](https://github.com/dhis2/data-visualizer-app/commit/af9874e79dd2ce4083d71b74300c6052baad2b58))
+
 ## [37.8.2](https://github.com/dhis2/data-visualizer-app/compare/v37.8.1...v37.8.2) (2021-08-27)
 
 
