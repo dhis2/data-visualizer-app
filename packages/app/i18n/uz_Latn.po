@@ -421,6 +421,12 @@ msgstr ""
 msgid "Number"
 msgstr "Tartib raqami"
 
+msgid "Fix column headers to top of table"
+msgstr ""
+
+msgid "Fix row headers to left of table"
+msgstr ""
+
 msgid "Font size"
 msgstr "Shrift oʼlchami"
 

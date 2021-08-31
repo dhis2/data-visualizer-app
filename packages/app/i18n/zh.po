@@ -409,6 +409,12 @@ msgstr "极限线％检测"
 msgid "Number"
 msgstr "数字"
 
+msgid "Fix column headers to top of table"
+msgstr ""
+
+msgid "Fix row headers to left of table"
+msgstr ""
+
 msgid "Font size"
 msgstr "字体大小"
 

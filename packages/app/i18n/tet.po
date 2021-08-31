@@ -405,6 +405,12 @@ msgstr ""
 msgid "Number"
 msgstr "Númeru"
 
+msgid "Fix column headers to top of table"
+msgstr ""
+
+msgid "Fix row headers to left of table"
+msgstr ""
+
 msgid "Font size"
 msgstr "Letra nia tamañu"
 

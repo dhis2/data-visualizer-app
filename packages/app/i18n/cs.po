@@ -417,6 +417,12 @@ msgstr "Detekce extrémní linie %"
 msgid "Number"
 msgstr "Číslo"
 
+msgid "Fix column headers to top of table"
+msgstr ""
+
+msgid "Fix row headers to left of table"
+msgstr ""
+
 msgid "Font size"
 msgstr "Velikost písma"
 
