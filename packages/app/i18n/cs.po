@@ -16,7 +16,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 msgid "All items"
-msgstr ""
+msgstr "Všechny položky"
 
 msgid "Rename successful"
 msgstr "Přejmenování bylo úspěšné"
@@ -197,7 +197,7 @@ msgid "Only '{{number}}' in use"
 msgstr "Používá se pouze '{{number}}' "
 
 msgid "All items are selected"
-msgstr ""
+msgstr "Jsou vybrány všechny položky"
 
 msgid "Levels"
 msgstr "Úrovně"
@@ -634,6 +634,8 @@ msgid ""
 "Series options are not available when a series item has an \"All items\" "
 "selection"
 msgstr ""
+"Možnosti série nejsou k dispozici, pokud má položka položky výběr „Všechny "
+"položky“"
 
 msgid "Value labels"
 msgstr "Hodnotové štítky"
