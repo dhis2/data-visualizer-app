@@ -89,6 +89,16 @@ export const options = {
         requestable: true,
         savable: false,
     },
+    fixedColumnHeaders: {
+        defaultValue: false,
+        requestable: false,
+        savable: true,
+    },
+    fixedRowHeaders: {
+        defaultValue: false,
+        requestable: false,
+        savable: true,
+    },
 
     // these are stored in the AO under reportingParams
     reportingPeriod: { defaultValue: false, requestable: false, savable: true },
