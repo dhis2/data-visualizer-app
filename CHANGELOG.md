@@ -1,3 +1,10 @@
+# [37.9.0](https://github.com/dhis2/data-visualizer-app/compare/v37.8.4...v37.9.0) (2021-08-31)
+
+
+### Features
+
+* PT fixed headers (DHIS2-11057) ([#1797](https://github.com/dhis2/data-visualizer-app/issues/1797)) ([8fa77a3](https://github.com/dhis2/data-visualizer-app/commit/8fa77a32dc7d5261b600f8011ebb5cb7e9c13cb6))
+
 ## [37.8.4](https://github.com/dhis2/data-visualizer-app/compare/v37.8.3...v37.8.4) (2021-08-31)
 
 
