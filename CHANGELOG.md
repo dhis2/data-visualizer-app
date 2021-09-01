@@ -1,3 +1,15 @@
+# [38.0.0](https://github.com/dhis2/data-visualizer-app/compare/v37.9.0...v38.0.0) (2021-09-01)
+
+
+### Features
+
+* bump to 38.0.0 ([#1854](https://github.com/dhis2/data-visualizer-app/issues/1854)) ([92f43a8](https://github.com/dhis2/data-visualizer-app/commit/92f43a89cca2db406c3dee5cae8d6ad13d8c6deb))
+
+
+### BREAKING CHANGES
+
+* 38.0.0
+
 # [37.9.0](https://github.com/dhis2/data-visualizer-app/compare/v37.8.4...v37.9.0) (2021-08-31)
 
 
