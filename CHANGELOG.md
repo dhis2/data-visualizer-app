@@ -1,3 +1,10 @@
+## [38.0.1](https://github.com/dhis2/data-visualizer-app/compare/v38.0.0...v38.0.1) (2021-09-01)
+
+
+### Bug Fixes
+
+* bump @dhis2/analytics, @dhis2/ui, @dhis2/app-runtime to latest ([#1853](https://github.com/dhis2/data-visualizer-app/issues/1853)) ([51ea385](https://github.com/dhis2/data-visualizer-app/commit/51ea3853f2f8dc30839d251c4b769da6a808ec85))
+
 # [38.0.0](https://github.com/dhis2/data-visualizer-app/compare/v37.9.0...v38.0.0) (2021-09-01)
 
 
