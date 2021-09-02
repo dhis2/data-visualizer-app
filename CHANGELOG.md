@@ -1,3 +1,10 @@
+## [38.0.3](https://github.com/dhis2/data-visualizer-app/compare/v38.0.2...v38.0.3) (2021-09-02)
+
+
+### Bug Fixes
+
+* fix issue with ui Modals and z-index on other elements ([#1857](https://github.com/dhis2/data-visualizer-app/issues/1857)) ([83285a2](https://github.com/dhis2/data-visualizer-app/commit/83285a2ae2f25937b2ebbe674a095aab98cd8344))
+
 ## [38.0.2](https://github.com/dhis2/data-visualizer-app/compare/v38.0.1...v38.0.2) (2021-09-02)
 
 
