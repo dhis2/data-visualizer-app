@@ -346,7 +346,7 @@ export const VisualizationPlugin = ({
                 )}
             </div>
             {getLegendKey()}
-            {contextualMenuRect &&
+            {contextualMenuRect && (
                 <Layer
                     onClick={closeContextualMenu}
                     className={styles.backdrop}
@@ -360,7 +360,7 @@ export const VisualizationPlugin = ({
                         dataTest={'visualization-drill-down-menu'}
                     />
                 </Layer>
-            }
+            )}
         </>
     )
 }

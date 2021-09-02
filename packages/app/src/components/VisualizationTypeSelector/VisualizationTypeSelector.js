@@ -106,7 +106,7 @@ export const VisualizationTypeSelector = (
                     <ArrowDown />
                 </span>
             </div>
-            {listIsOpen &&
+            {listIsOpen && (
                 <Layer onClick={toggleList}>
                     <Popper reference={buttonRef} placement="bottom-start">
                         <div className={styles.cardContainer}>
@@ -114,7 +114,7 @@ export const VisualizationTypeSelector = (
                         </div>
                     </Popper>
                 </Layer>
-            }
+            )}
         </>
     )
 }
