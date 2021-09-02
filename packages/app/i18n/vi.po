@@ -420,6 +420,12 @@ msgstr ""
 msgid "Number"
 msgstr "Số"
 
+msgid "Fix column headers to top of table"
+msgstr ""
+
+msgid "Fix row headers to left of table"
+msgstr ""
+
 msgid "Font size"
 msgstr "Cỡ chữ"
 

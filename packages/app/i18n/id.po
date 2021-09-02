@@ -423,6 +423,12 @@ msgstr "Deteksi % garis ekstrim"
 msgid "Number"
 msgstr "Angka"
 
+msgid "Fix column headers to top of table"
+msgstr ""
+
+msgid "Fix row headers to left of table"
+msgstr ""
+
 msgid "Font size"
 msgstr "Ukuran font"
 
