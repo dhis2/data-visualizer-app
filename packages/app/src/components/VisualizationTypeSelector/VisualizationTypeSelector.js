@@ -1,9 +1,8 @@
 import { visTypeDisplayNames, visTypeDescriptions } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
-import { Card, Divider, Popper } from '@dhis2/ui'
+import { Card, Divider, Popper, Layer } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState, createRef } from 'react'
-import { createPortal } from 'react-dom'
 import { connect } from 'react-redux'
 import { acSetUi, acClearSeriesType } from '../../actions/ui'
 import {
@@ -108,17 +107,14 @@ export const VisualizationTypeSelector = (
                 </span>
             </div>
             {listIsOpen &&
-                createPortal(
-                    <div onClick={toggleList} className={styles.backdrop}>
-                        <Popper reference={buttonRef} placement="bottom-start">
-                            <div className={styles.cardContainer}>
-                                {VisTypesList}
-                            </div>
-                        </Popper>
-                    </div>,
-                    // It would be better to use the Portal component but currently this is internal
-                    document.getElementById('dhis2-portal-root')
-                )}
+                <Layer onClick={toggleList}>
+                    <Popper reference={buttonRef} placement="bottom-start">
+                        <div className={styles.cardContainer}>
+                            {VisTypesList}
+                        </div>
+                    </Popper>
+                </Layer>
+            }
         </>
     )
 }

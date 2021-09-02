@@ -10,11 +10,10 @@ import {
     VIS_TYPE_LINE,
 } from '@dhis2/analytics'
 import { useDataEngine } from '@dhis2/app-runtime'
-import { Button, IconLegend24 } from '@dhis2/ui'
+import { Button, IconLegend24, Layer } from '@dhis2/ui'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState, useCallback } from 'react'
-import { createPortal } from 'react-dom'
 import { apiFetchLegendSets } from './api/legendSets'
 import ChartPlugin from './ChartPlugin'
 import ContextualMenu from './ContextualMenu'
@@ -348,23 +347,20 @@ export const VisualizationPlugin = ({
             </div>
             {getLegendKey()}
             {contextualMenuRect &&
-                createPortal(
-                    <div
-                        onClick={closeContextualMenu}
-                        className={styles.backdrop}
-                        data-test={'visualization-drill-down-backdrop'}
-                    >
-                        <ContextualMenu
-                            reference={virtualContextualMenuElement}
-                            config={contextualMenuConfig}
-                            ouLevels={ouLevels}
-                            onClick={onContextualMenuItemClick}
-                            dataTest={'visualization-drill-down-menu'}
-                        />
-                    </div>,
-                    // It would be better to use the Portal component but currently this is internal
-                    document.getElementById('dhis2-portal-root')
-                )}
+                <Layer
+                    onClick={closeContextualMenu}
+                    className={styles.backdrop}
+                    dataTest={'visualization-drill-down-backdrop'}
+                >
+                    <ContextualMenu
+                        reference={virtualContextualMenuElement}
+                        config={contextualMenuConfig}
+                        ouLevels={ouLevels}
+                        onClick={onContextualMenuItemClick}
+                        dataTest={'visualization-drill-down-menu'}
+                    />
+                </Layer>
+            }
         </>
     )
 }
