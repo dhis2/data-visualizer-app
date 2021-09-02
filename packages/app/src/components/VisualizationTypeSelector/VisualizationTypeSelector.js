@@ -116,7 +116,8 @@ export const VisualizationTypeSelector = (
                             </div>
                         </Popper>
                     </div>,
-                    document.body
+                    // It would be better to use the Portal component but currently this is internal
+                    document.getElementById('dhis2-portal-root')
                 )}
         </>
     )
