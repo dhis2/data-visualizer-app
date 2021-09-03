@@ -65,7 +65,7 @@ export const Dimensions = ({
                 onDimensionOptionsClick={openOptionsMenuForDimension}
             />
             {menuIsOpen && dimensionId && ref && (
-                <Layer position="fixed" level={2000} onClick={toggleMenu}>
+                <Layer onClick={toggleMenu}>
                     <Popper reference={ref} placement="bottom-start">
                         <DimensionMenu
                             dimensionId={dimensionId}
