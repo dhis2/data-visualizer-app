@@ -349,7 +349,6 @@ export const VisualizationPlugin = ({
             {contextualMenuRect && (
                 <Layer
                     onClick={closeContextualMenu}
-                    className={styles.backdrop}
                     dataTest={'visualization-drill-down-backdrop'}
                 >
                     <ContextualMenu
