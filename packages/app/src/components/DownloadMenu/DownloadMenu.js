@@ -174,7 +174,7 @@ export const DownloadMenu = ({
                 </MenuButton>
             </div>
             {menuIsOpen && (
-                <Layer position="fixed" level={2000} onClick={toggleMenu}>
+                <Layer onClick={toggleMenu}>
                     <Popper reference={buttonRef} placement="bottom-start">
                         <FlyoutMenu>
                             {visType === VIS_TYPE_PIVOT_TABLE

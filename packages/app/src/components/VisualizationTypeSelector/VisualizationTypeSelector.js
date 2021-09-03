@@ -1,9 +1,8 @@
 import { visTypeDisplayNames, visTypeDescriptions } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
-import { Card, Divider, Popper } from '@dhis2/ui'
+import { Card, Divider, Popper, Layer } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState, createRef } from 'react'
-import { createPortal } from 'react-dom'
 import { connect } from 'react-redux'
 import { acSetUi, acClearSeriesType } from '../../actions/ui'
 import {
@@ -107,17 +106,15 @@ export const VisualizationTypeSelector = (
                     <ArrowDown />
                 </span>
             </div>
-            {listIsOpen &&
-                createPortal(
-                    <div onClick={toggleList} className={styles.backdrop}>
-                        <Popper reference={buttonRef} placement="bottom-start">
-                            <div className={styles.cardContainer}>
-                                {VisTypesList}
-                            </div>
-                        </Popper>
-                    </div>,
-                    document.body
-                )}
+            {listIsOpen && (
+                <Layer onClick={toggleList}>
+                    <Popper reference={buttonRef} placement="bottom-start">
+                        <div className={styles.cardContainer}>
+                            {VisTypesList}
+                        </div>
+                    </Popper>
+                </Layer>
+            )}
         </>
     )
 }
