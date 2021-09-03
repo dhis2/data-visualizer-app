@@ -17,14 +17,6 @@
 .buttonMargin {
     margin-top: 34px;
 }
-.backdrop {
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    background-color: transparent;
-}
 
 @media print {
     .legendKeyToggle {

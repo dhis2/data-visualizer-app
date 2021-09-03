@@ -48,7 +48,7 @@ const ChipMenu = ({
             </div>
             {/* TODO: Fix bug with the first menu item getting selected when the menu is opened */}
             {menuIsOpen && (
-                <Layer position="fixed" level={2000} onClick={toggleMenu}>
+                <Layer onClick={toggleMenu}>
                     <Popper reference={buttonRef} placement="bottom-start">
                         <DimensionMenu
                             dimensionId={dimensionId}

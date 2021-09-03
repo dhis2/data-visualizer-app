@@ -92,7 +92,7 @@ const Axis = ({
                 </IconButton>
             </div>
             {dialogIsOpen && (
-                <Layer position="fixed" level={2000} onClick={toggleMenu}>
+                <Layer onClick={toggleMenu}>
                     <Popper reference={buttonRef} placement="bottom-start">
                         <FlyoutMenu
                             dense
