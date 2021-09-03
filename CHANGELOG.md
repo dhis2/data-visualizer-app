@@ -1,3 +1,10 @@
+## [38.0.4](https://github.com/dhis2/data-visualizer-app/compare/v38.0.3...v38.0.4) (2021-09-03)
+
+
+### Bug Fixes
+
+* use layer component for backdrop and remove level overrides ([#1859](https://github.com/dhis2/data-visualizer-app/issues/1859)) ([927ab69](https://github.com/dhis2/data-visualizer-app/commit/927ab690302cbbaaadc222e6d5a66319adf2cf07))
+
 ## [38.0.3](https://github.com/dhis2/data-visualizer-app/compare/v38.0.2...v38.0.3) (2021-09-02)
 
 
