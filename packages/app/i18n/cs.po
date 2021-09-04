@@ -418,10 +418,10 @@ msgid "Number"
 msgstr "Číslo"
 
 msgid "Fix column headers to top of table"
-msgstr ""
+msgstr "Opravit záhlaví sloupců na začátek tabulky"
 
 msgid "Fix row headers to left of table"
-msgstr ""
+msgstr "Připnout záhlaví řádků vlevo od tabulky"
 
 msgid "Font size"
 msgstr "Velikost písma"
