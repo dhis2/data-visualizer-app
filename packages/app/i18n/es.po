@@ -1,17 +1,17 @@
 # 
 # Translators:
-# ericbp <ericbarredap@gmail.com>, 2020
-# phil_dhis2, 2020
-# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
-# Pablo Pajuelo Cabezas <ppajuelo@quadram.mobi>, 2020
+# phil_dhis2, 2021
+# Viktor Varland <viktor@dhis2.org>, 2021
+# Pablo Pajuelo Cabezas <ppajuelo@quadram.mobi>, 2021
+# ericbp <ericbarredap@gmail.com>, 2021
+# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # drprabhjot, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-08-12T10:01:59.854Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
+"PO-Revision-Date: 2021-09-03 23:49+0000\n"
 "Last-Translator: drprabhjot, 2021\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
@@ -264,7 +264,7 @@ msgid "Average"
 msgstr "Promedio"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr "Media (suma en las unidades organizativas de la jerarquía)"
+msgstr "Media (suma en la jerarquía de unidades organizativas)"
 
 msgid "Sum"
 msgstr "Suma"
@@ -408,6 +408,12 @@ msgstr ""
 
 msgid "Number"
 msgstr "Número"
+
+msgid "Fix column headers to top of table"
+msgstr ""
+
+msgid "Fix row headers to left of table"
+msgstr ""
 
 msgid "Font size"
 msgstr "Tamaño de fuente"
@@ -910,7 +916,7 @@ msgid "Table title"
 msgstr "Título de la tabla"
 
 msgid "Parameters"
-msgstr "Parámetros"
+msgstr "Parámetros"
 
 msgid ""
 "These options only apply to legacy tables like standard reports. Options set"

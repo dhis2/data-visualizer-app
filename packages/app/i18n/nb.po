@@ -1,14 +1,14 @@
 # 
 # Translators:
-# Caroline Hesthagen Holen <caroline@devotta.no>, 2020
 # Karoline Tufte Lien <karoline@dhis2.org>, 2021
+# Caroline Hesthagen Holen <caroline@devotta.no>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-08-12T10:01:59.854Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2021\n"
+"PO-Revision-Date: 2021-09-03 23:49+0000\n"
+"Last-Translator: Caroline Hesthagen Holen <caroline@devotta.no>, 2021\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -420,6 +420,12 @@ msgstr "Ekstrem linje %-beregning"
 msgid "Number"
 msgstr "Nummer"
 
+msgid "Fix column headers to top of table"
+msgstr ""
+
+msgid "Fix row headers to left of table"
+msgstr ""
+
 msgid "Font size"
 msgstr "Skriftstørrelse"
 
@@ -674,7 +680,7 @@ msgid "Top limit"
 msgstr "Toppgrense"
 
 msgid "Options"
-msgstr "Alternativer"
+msgstr "Alternativ"
 
 msgid "Open as Map"
 msgstr "Åpne som kart"
@@ -858,7 +864,7 @@ msgid "Last 52 weeks"
 msgstr "Siste 52 uker"
 
 msgid "Weeks this year"
-msgstr "Uker i år"
+msgstr "Uker inneværende år"
 
 msgid "This month"
 msgstr "Denne måneden"
@@ -876,7 +882,7 @@ msgid "Last 12 months"
 msgstr "Siste 12 måneder"
 
 msgid "Months this year"
-msgstr "Måneder inneværende år"
+msgstr "Måneder i år"
 
 msgid "This bimonth"
 msgstr "Denne tomåned"
@@ -900,7 +906,7 @@ msgid "Last 4 quarters"
 msgstr "Siste 4 kvartaler"
 
 msgid "Quarters this year"
-msgstr "Kvartaler inneværende år"
+msgstr "Kvartaler i år"
 
 msgid "This six-month"
 msgstr "Dette halvåret"
@@ -909,7 +915,7 @@ msgid "Last six-month"
 msgstr "Siste halvår"
 
 msgid "Last 2 six-months"
-msgstr "Siste to halvår"
+msgstr "Siste 2 halvår"
 
 msgid "This financial year"
 msgstr "Dette regnskapsåret"
@@ -924,13 +930,13 @@ msgid "This year"
 msgstr "Dette året"
 
 msgid "Last year"
-msgstr "I fjor"
+msgstr "Forrige år"
 
 msgid "Last 5 years"
 msgstr "Siste 5 år"
 
 msgid "User org unit"
-msgstr "Brukers org enhet"
+msgstr "Org enhet"
 
 msgid "User org unit children"
 msgstr "Bruker underordnet org enhet"
@@ -942,7 +948,7 @@ msgid "Table title"
 msgstr "Tabelltittel"
 
 msgid "Parameters"
-msgstr "Parametere"
+msgstr "Parametre"
 
 msgid ""
 "These options only apply to legacy tables like standard reports. Options set"
