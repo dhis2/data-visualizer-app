@@ -410,10 +410,10 @@ msgid "Number"
 msgstr "数字"
 
 msgid "Fix column headers to top of table"
-msgstr ""
+msgstr "将列标题固定到表格顶部"
 
 msgid "Fix row headers to left of table"
-msgstr ""
+msgstr "将行标题固定到表格的左侧"
 
 msgid "Font size"
 msgstr "字体大小"
