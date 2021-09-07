@@ -18,6 +18,8 @@ export const fieldsByType = {
         getFieldObject('regression', { option: true }),
         getFieldObject('reportingParams', { option: true }),
         getFieldObject('skipRounding', { option: true }),
+        getFieldObject('fixColumnHeaders', { option: true }),
+        getFieldObject('fixRowHeaders', { option: true }),
     ],
     chart: [
         getFieldObject('category', { excluded: true }),
