@@ -1,3 +1,10 @@
+## [38.0.8](https://github.com/dhis2/data-visualizer-app/compare/v38.0.7...v38.0.8) (2021-09-07)
+
+
+### Bug Fixes
+
+* fetch PT fix headers options ([#1871](https://github.com/dhis2/data-visualizer-app/issues/1871)) ([265aa7d](https://github.com/dhis2/data-visualizer-app/commit/265aa7d3ab86b1b1593b1fe70db993cd33d8ccd9))
+
 ## [38.0.7](https://github.com/dhis2/data-visualizer-app/compare/v38.0.6...v38.0.7) (2021-09-07)
 
 
