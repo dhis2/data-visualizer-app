@@ -89,12 +89,12 @@ export const options = {
         requestable: true,
         savable: false,
     },
-    fixedColumnHeaders: {
+    fixColumnHeaders: {
         defaultValue: false,
         requestable: false,
         savable: true,
     },
-    fixedRowHeaders: {
+    fixRowHeaders: {
         defaultValue: false,
         requestable: false,
         savable: true,
