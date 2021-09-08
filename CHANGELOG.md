@@ -1,3 +1,10 @@
+## [37.9.3](https://github.com/dhis2/data-visualizer-app/compare/v37.9.2...v37.9.3) (2021-09-08)
+
+
+### Bug Fixes
+
+* several backports to [37.x] 7 sept ([#1869](https://github.com/dhis2/data-visualizer-app/issues/1869)) ([4037228](https://github.com/dhis2/data-visualizer-app/commit/4037228573d2aea488a492fbbdd86fd1ea7cac9f))
+
 ## [37.9.2](https://github.com/dhis2/data-visualizer-app/compare/v37.9.1...v37.9.2) (2021-09-05)
 
 
