@@ -17,7 +17,7 @@
         "@dhis2/analytics": "^20.4.3",
         "@dhis2/app-runtime": "^2.11.0",
         "@dhis2/d2-i18n": "^1.1.0",
-        "@dhis2/ui": "^6.20.0",
+        "@dhis2/ui": "^6.23.5",
         "lodash-es": "^4.17.21"
     },
     "peerDependencies": {
@@ -26,7 +26,7 @@
         "react-dom": "^16.8"
     },
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^7.6.2"
+        "@dhis2/cli-app-scripts": "^7.6.4"
     },
     "scripts": {
         "clean": "rm -rf ./build/*",

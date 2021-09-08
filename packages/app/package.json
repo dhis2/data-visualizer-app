@@ -6,7 +6,7 @@
     "private": true,
     "homepage": ".",
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^7.6.2",
+        "@dhis2/cli-app-scripts": "^7.6.4",
         "@dhis2/cli-utils-cypress": "^7.0.0",
         "@dhis2/cypress-commands": "^5.0.0",
         "eslint-plugin-cypress": "^2.11.3",
@@ -19,7 +19,7 @@
         "@dhis2/d2-i18n": "^1.1.0",
         "@dhis2/d2-ui-interpretations": "^7.3.1",
         "@dhis2/data-visualizer-plugin": "38.0.8",
-        "@dhis2/ui": "^6.20.0",
+        "@dhis2/ui": "^6.23.5",
         "d2": "^31.9.1",
         "history": "^4.7.2",
         "lodash-es": "^4.17.21",
