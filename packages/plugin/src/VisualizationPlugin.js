@@ -231,8 +231,8 @@ export const VisualizationPlugin = ({
                         legendSet: item.legendSet,
                     }))
 
-                const unsupportedDimensions = visualization.series
-                    ?.filter(serie => serie.type === VIS_TYPE_LINE)
+                const unsupportedDimensions = (visualization.series || [])
+                    .filter(serie => serie.type === VIS_TYPE_LINE)
                     .map(item => item.dimensionItem)
 
                 legendSets = fetchResult.legendSets.filter(legendSet =>
