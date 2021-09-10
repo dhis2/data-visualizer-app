@@ -15,7 +15,7 @@
     },
     "dependencies": {
         "@dhis2/analytics": "^20.4.3",
-        "@dhis2/app-runtime": "^3.0.0",
+        "@dhis2/app-runtime": "^2.11.0",
         "@dhis2/d2-i18n": "^1.1.0",
         "@dhis2/ui": "^6.23.5",
         "lodash-es": "^4.17.21"
