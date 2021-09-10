@@ -1,3 +1,10 @@
+## [38.0.11](https://github.com/dhis2/data-visualizer-app/compare/v38.0.10...v38.0.11) (2021-09-10)
+
+
+### Bug Fixes
+
+* prevent error from undefined series, downgrade app-runtime ([#1876](https://github.com/dhis2/data-visualizer-app/issues/1876)) ([d822607](https://github.com/dhis2/data-visualizer-app/commit/d82260743f4c3a55ea82343e22b1dbeff25f1e6a))
+
 ## [38.0.10](https://github.com/dhis2/data-visualizer-app/compare/v38.0.9...v38.0.10) (2021-09-08)
 
 
