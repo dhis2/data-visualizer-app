@@ -1,3 +1,10 @@
+## [35.22.13](https://github.com/dhis2/data-visualizer-app/compare/v35.22.12...v35.22.13) (2021-09-15)
+
+
+### Bug Fixes
+
+* convertOuLevelsToUids changes (DHIS2-11016) ([#1706](https://github.com/dhis2/data-visualizer-app/issues/1706)) [v35] + DHIS2-11411 ([#1886](https://github.com/dhis2/data-visualizer-app/issues/1886)) ([7862d54](https://github.com/dhis2/data-visualizer-app/commit/7862d545dfb00dccb9bbc5f83a076bb3d2758f84))
+
 ## [35.22.12](https://github.com/dhis2/data-visualizer-app/compare/v35.22.11...v35.22.12) (2021-08-31)
 
 
