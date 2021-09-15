@@ -1,3 +1,10 @@
+## [37.9.6](https://github.com/dhis2/data-visualizer-app/compare/v37.9.5...v37.9.6) (2021-09-15)
+
+
+### Bug Fixes
+
+* @dhis2/analytics@20.4.7 ([#1883](https://github.com/dhis2/data-visualizer-app/issues/1883)) ([a28cfef](https://github.com/dhis2/data-visualizer-app/commit/a28cfeffb7bac19794797e931a4901896210eb00))
+
 ## [37.9.5](https://github.com/dhis2/data-visualizer-app/compare/v37.9.4...v37.9.5) (2021-09-15)
 
 
