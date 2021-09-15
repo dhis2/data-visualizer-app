@@ -36,11 +36,8 @@ selectors.sGetRootOrgUnit = () => rootOrganisationUnit
 selectors.sGetRelativePeriod = () => relativePeriod
 selectors.sGetSettingsDigitGroupSeparator = () => digitGroupSeparator
 
-jest.mock('../../modules/orgUnit', () => ({
-    convertOuLevelsToUids: (ouLevels, vis) => vis,
-}))
-
-jest.mock('../../api/organisationUnits', () => ({
+jest.mock('@dhis2/analytics', () => ({
+    ...jest.requireActual('@dhis2/analytics'),
     apiFetchOrganisationUnitLevels: () =>
         Promise.resolve([
             {
@@ -48,6 +45,7 @@ jest.mock('../../api/organisationUnits', () => ({
                 id: '2nd-floor',
             },
         ]),
+    convertOuLevelsToUids: (ouLevels, vis) => vis,
 }))
 
 describe('index', () => {
