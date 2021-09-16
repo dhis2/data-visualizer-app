@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
+"POT-Creation-Date: 2021-04-23T09:26:03.770Z\n"
 "PO-Revision-Date: 2020-12-22 22:14+0000\n"
 "Last-Translator: Caroline Hesthagen Holen <caroline@devotta.no>, 2020\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -138,21 +138,6 @@ msgstr "JRXML"
 
 msgid "Raw data SQL"
 msgstr "Rådata SQL"
-
-msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr "Det oppstod en feil i DHIS2 Data Visualizer-applikasjonen."
-
-msgid "Refresh to try again"
-msgstr "Oppdater for å prøve igjen"
-
-msgid "Hide technical details"
-msgstr "Skjul tekniske detaljer"
-
-msgid "Show technical details"
-msgstr "Vis tekniske detaljer"
-
-msgid "The following information may be requested by technical support."
-msgstr "Følgende informasjon kan bli bedt om av teknisk support."
 
 msgid "Hide"
 msgstr "Skjul"
@@ -716,6 +701,12 @@ msgid ""
 msgstr ""
 "Visualiseringen du prøver å vise, ble ikke funnet, ID-en kan være feil, "
 "eller den kan ha blitt slettet."
+
+msgid "No organization units found"
+msgstr ""
+
+msgid "The level or group selections didn't return any organization units."
+msgstr ""
 
 msgid "Something went wrong"
 msgstr "Noe gikk galt"

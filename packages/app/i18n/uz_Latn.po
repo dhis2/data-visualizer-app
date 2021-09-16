@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
+"POT-Creation-Date: 2021-04-23T09:26:03.770Z\n"
 "PO-Revision-Date: 2020-12-22 22:14+0000\n"
 "Last-Translator: Yury Rogachev <yury@dhis2.org>, 2021\n"
 "Language-Team: Uzbek (Latin) (https://www.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
@@ -138,21 +138,6 @@ msgstr "JRXML"
 
 msgid "Raw data SQL"
 msgstr "Xom maʼlumotlar SQL"
-
-msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr "DHIS2 Maʼlumotlar Vizualizator dasturida xatolik yuz berdi."
-
-msgid "Refresh to try again"
-msgstr "Ыaytib urinib kщrin uchun avval yangilang"
-
-msgid "Hide technical details"
-msgstr "Texnik detallarni berkitish"
-
-msgid "Show technical details"
-msgstr "Texnik detallarni koʼrsatish"
-
-msgid "The following information may be requested by technical support."
-msgstr "Quyidagi axborot texnik yordamchilar tomonidan soʼralishi mumkin"
 
 msgid "Hide"
 msgstr "Berkitish"
@@ -729,6 +714,12 @@ msgid ""
 msgstr ""
 "Siz koʼrmoqchi boʼlgan vizualizatsiya topilmadi, identifikator notoʼgʼri "
 "yoki oʼchirilgan boʼlishi mumkin."
+
+msgid "No organization units found"
+msgstr ""
+
+msgid "The level or group selections didn't return any organization units."
+msgstr ""
 
 msgid "Something went wrong"
 msgstr "Nimadir notoʼgʼri bajarildi"
