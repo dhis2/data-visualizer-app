@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-03-03T10:40:06.300Z\n"
+"POT-Creation-Date: 2021-04-23T09:26:03.770Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2021\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
@@ -152,21 +152,6 @@ msgstr "JRXML"
 
 msgid "Raw data SQL"
 msgstr "Dữ liệu thô SQL"
-
-msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr "Xảy ra lỗi ở ứng dụng trực quan hóa dữ liệu DHIS2"
-
-msgid "Refresh to try again"
-msgstr "Thử lại"
-
-msgid "Hide technical details"
-msgstr "Ẩn chi tiết kỹ thuật"
-
-msgid "Show technical details"
-msgstr "Hiện chi tiết kỹ thuật"
-
-msgid "The following information may be requested by technical support."
-msgstr "Các thông tin sau có thể được yêu cầu bởi hỗ trợ kỹ thuật."
 
 msgid "Hide"
 msgstr "Ẩn"
@@ -810,6 +795,12 @@ msgid ""
 msgstr ""
 "Không thể tìm thấy hình ảnh trực quan mà bạn đang cố gắng xem, ID có thể "
 "không chính xác hoặc có thể đã bị xóa."
+
+msgid "No organization units found"
+msgstr ""
+
+msgid "The level or group selections didn't return any organization units."
+msgstr ""
 
 msgid "Something went wrong"
 msgstr "Có lỗi"

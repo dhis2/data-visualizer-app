@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-03-03T10:40:06.300Z\n"
+"POT-Creation-Date: 2021-04-23T09:26:03.770Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2021\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -147,21 +147,6 @@ msgstr "JRXML"
 
 msgid "Raw data SQL"
 msgstr "原生数据SQL"
-
-msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr "数据可视化应用发生错误"
-
-msgid "Refresh to try again"
-msgstr "刷新后再试"
-
-msgid "Hide technical details"
-msgstr "隐藏技术细节"
-
-msgid "Show technical details"
-msgstr "显示技术细节"
-
-msgid "The following information may be requested by technical support."
-msgstr "下列信息可能技术支持需要"
 
 msgid "Hide"
 msgstr "隐藏"
@@ -779,6 +764,12 @@ msgid ""
 "The visualization you are trying to view could not be found, the ID could be"
 " incorrect or it could have been deleted."
 msgstr "找不到您尝试查看的可视化文件，该ID可能不正确或已被删除。"
+
+msgid "No organization units found"
+msgstr "找不到组织机构"
+
+msgid "The level or group selections didn't return any organization units."
+msgstr "级别或组选择未返回任何组织机构。"
 
 msgid "Something went wrong"
 msgstr "出了些问题"

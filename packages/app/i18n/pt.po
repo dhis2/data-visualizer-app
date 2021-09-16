@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-03-03T10:40:06.300Z\n"
+"POT-Creation-Date: 2021-04-23T09:26:03.770Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: Ge Joao <gsimango@saudigitus.org>, 2021\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
@@ -152,21 +152,6 @@ msgstr "JRXML"
 
 msgid "Raw data SQL"
 msgstr "Raw data SQL"
-
-msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr "Ocorreu um erro no aplicativo DHIS2 Data Visualizer."
-
-msgid "Refresh to try again"
-msgstr "Actualize para tentar novamente"
-
-msgid "Hide technical details"
-msgstr "Ocultar detalhes técnicos"
-
-msgid "Show technical details"
-msgstr "Mostrar detalhes tecnicos "
-
-msgid "The following information may be requested by technical support."
-msgstr "As informações a seguir podem ser solicitadas pelo suporte técnico."
 
 msgid "Hide"
 msgstr "Esconder"
@@ -799,6 +784,12 @@ msgstr ""
 msgid ""
 "The visualization you are trying to view could not be found, the ID could be"
 " incorrect or it could have been deleted."
+msgstr ""
+
+msgid "No organization units found"
+msgstr ""
+
+msgid "The level or group selections didn't return any organization units."
 msgstr ""
 
 msgid "Something went wrong"
