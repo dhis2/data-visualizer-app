@@ -1,5 +1,8 @@
 import i18n from '@dhis2/d2-i18n'
-import { getDisplayNameByVisType } from '@dhis2/analytics'
+import {
+    getDisplayNameByVisType,
+    convertOuLevelsToUids,
+} from '@dhis2/analytics'
 
 import {
     apiFetchVisualization,
@@ -28,7 +31,6 @@ import {
 
 import history from '../modules/history'
 import { getVisualizationFromCurrent } from '../modules/visualization'
-import { convertOuLevelsToUids } from '../modules/orgUnit'
 import { apiPostDataStatistics } from '../api/dataStatistics'
 import { GenericServerError } from '../modules/error'
 
