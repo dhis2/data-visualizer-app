@@ -1,3 +1,10 @@
+## [36.1.7](https://github.com/dhis2/data-visualizer-app/compare/v36.1.6...v36.1.7) (2021-09-16)
+
+
+### Bug Fixes
+
+* custom error for mismatching org unit levels (DHIS2-10171) ([#1699](https://github.com/dhis2/data-visualizer-app/issues/1699)) ([#1888](https://github.com/dhis2/data-visualizer-app/issues/1888)) ([ff07ad1](https://github.com/dhis2/data-visualizer-app/commit/ff07ad1fcf56ed68df09770470025b5e21bb04ad))
+
 ## [36.1.6](https://github.com/dhis2/data-visualizer-app/compare/v36.1.5...v36.1.6) (2021-09-15)
 
 
