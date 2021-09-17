@@ -11,7 +11,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
+"POT-Creation-Date: 2021-04-23T09:26:03.770Z\n"
 "PO-Revision-Date: 2020-12-22 22:14+0000\n"
 "Last-Translator: Untoro Dwi Raharjo <untoro.dwi.raharjo@mail.ugm.ac.id>, 2021\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
@@ -142,21 +142,6 @@ msgstr "JRXML"
 
 msgid "Raw data SQL"
 msgstr "SQL data mentah"
-
-msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr "Terjadi kesalahan dalam aplikasi DHIS2 Data Visualizer."
-
-msgid "Refresh to try again"
-msgstr "Refresh untuk mencoba kembali"
-
-msgid "Hide technical details"
-msgstr "Sembunyikan rincian teknis"
-
-msgid "Show technical details"
-msgstr "Tampilkan rincian teknis"
-
-msgid "The following information may be requested by technical support."
-msgstr "Informasi berikut mungkin diperlukan untuk dukungan teknis."
 
 msgid "Hide"
 msgstr "Sembunyikan"
@@ -728,6 +713,12 @@ msgid ""
 msgstr ""
 "Visualisasi yang Anda coba lihat tidak dapat ditemukan, ID mungkin salah "
 "atau mungkin telah dihapus."
+
+msgid "No organization units found"
+msgstr ""
+
+msgid "The level or group selections didn't return any organization units."
+msgstr ""
 
 msgid "Something went wrong"
 msgstr "Terjadi kesalahan"
