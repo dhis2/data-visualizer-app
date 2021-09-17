@@ -813,10 +813,10 @@ msgstr ""
 "ўчирилган бўлиши мумкин."
 
 msgid "No organization units found"
-msgstr ""
+msgstr "Ташкилий бўлим топилмади"
 
 msgid "The level or group selections didn't return any organization units."
-msgstr ""
+msgstr "Босқич ёки гуруҳ танлаш ҳеч қандай ташкилий бўлимни олиб чиқмади."
 
 msgid "Something went wrong"
 msgstr "Нимадир нотўғри бажарилди"
