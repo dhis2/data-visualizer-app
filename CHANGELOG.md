@@ -1,3 +1,10 @@
+## [38.0.15](https://github.com/dhis2/data-visualizer-app/compare/v38.0.14...v38.0.15) (2021-09-21)
+
+
+### Bug Fixes
+
+* fix color for No data text in SV DHIS2-11810 ([#1896](https://github.com/dhis2/data-visualizer-app/issues/1896)) ([297da6d](https://github.com/dhis2/data-visualizer-app/commit/297da6d9bdb73eefc29cc277763b5debeb7bb486))
+
 ## [38.0.14](https://github.com/dhis2/data-visualizer-app/compare/v38.0.13...v38.0.14) (2021-09-20)
 
 
