@@ -2105,10 +2105,10 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@^20.4.8":
-  version "20.4.8"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-20.4.8.tgz#caf64b342d7b5ff262d5a813dcf7edc83a0c1f01"
-  integrity sha512-/wqvEcJMKiQv2ZzFrlHFyEmbuDj7QG+LT1+HvFdfl307sOQdEIsck368IWRIZ0fF8T19eXIf6uPrHrKJBzfiHg==
+"@dhis2/analytics@^20.4.9":
+  version "20.4.9"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-20.4.9.tgz#feed2e8eda8f3f824ed059dd05294fd3ff3cf948"
+  integrity sha512-duWf2M7eYMpP2S6mq/+61EkmnBPW1RidCRgNcBVvwrjomVlhs/m5wnGWtzQifheBoOVwDm9RGuZSeIyh14KFBQ==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.3.0"
     "@dhis2/d2-ui-translation-dialog" "^7.3.1"
