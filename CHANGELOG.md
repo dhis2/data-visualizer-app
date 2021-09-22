@@ -1,3 +1,10 @@
+## [37.9.7](https://github.com/dhis2/data-visualizer-app/compare/v37.9.6...v37.9.7) (2021-09-21)
+
+
+### Bug Fixes
+
+* update analytics with SV no data fix v37 ([#1893](https://github.com/dhis2/data-visualizer-app/issues/1893)) ([9633581](https://github.com/dhis2/data-visualizer-app/commit/96335812a7a80598ebfa87ca1f5d8f069cf704e0))
+
 ## [37.9.6](https://github.com/dhis2/data-visualizer-app/compare/v37.9.5...v37.9.6) (2021-09-15)
 
 
