@@ -1,3 +1,10 @@
+## [38.0.16](https://github.com/dhis2/data-visualizer-app/compare/v38.0.15...v38.0.16) (2021-09-23)
+
+
+### Bug Fixes
+
+* update analytics with fix for PT fixed row headers ([#1898](https://github.com/dhis2/data-visualizer-app/issues/1898)) ([bcb99a3](https://github.com/dhis2/data-visualizer-app/commit/bcb99a3f9a4dbdf802430c260fb10916a5b1bdf9))
+
 ## [38.0.15](https://github.com/dhis2/data-visualizer-app/compare/v38.0.14...v38.0.15) (2021-09-21)
 
 
