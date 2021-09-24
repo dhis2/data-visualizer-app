@@ -1,3 +1,10 @@
+## [36.1.8](https://github.com/dhis2/data-visualizer-app/compare/v36.1.7...v36.1.8) (2021-09-24)
+
+
+### Bug Fixes
+
+* scatter dx chip position ([#1903](https://github.com/dhis2/data-visualizer-app/issues/1903)) ([c7e8fcc](https://github.com/dhis2/data-visualizer-app/commit/c7e8fcc2ed13717a0d092b94761a43bdeca0cb35))
+
 ## [36.1.7](https://github.com/dhis2/data-visualizer-app/compare/v36.1.6...v36.1.7) (2021-09-16)
 
 
