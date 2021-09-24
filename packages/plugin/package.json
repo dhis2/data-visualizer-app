@@ -1,6 +1,6 @@
 {
     "name": "@dhis2/data-visualizer-plugin",
-    "version": "38.0.15",
+    "version": "38.0.17",
     "description": "DHIS2 Data Visualizer plugin",
     "main": "./build/cjs/index.js",
     "module": "./build/es/index.js",
@@ -26,7 +26,7 @@
         "react-dom": "^16.8"
     },
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^7.6.4"
+        "@dhis2/cli-app-scripts": "^8.1.0"
     },
     "scripts": {
         "clean": "rm -rf ./build/*",
