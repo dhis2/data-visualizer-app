@@ -4,6 +4,7 @@ import * as layoutStyle from '../../styles/style'
 export default {
     axisContainer: {
         display: 'flex',
+        alignItems: 'flex-start',
         backgroundColor: layoutStyle.AXIS_BACKGROUND_COLOR,
         borderColor: layoutStyle.AXIS_BORDER_COLOR,
         borderStyle: layoutStyle.AXIS_BORDER_STYLE,
