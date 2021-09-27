@@ -1,89 +1,60 @@
-import i18n from '@dhis2/d2-i18n'
 import {
-    ButtonStrip,
-    Modal,
-    ModalTitle,
-    ModalContent,
-    ModalActions,
-} from '@dhis2/ui'
-import React, { Component, Fragment } from 'react'
-import HideButton from '../HideButton/HideButton'
-import MenuButton from '../MenuButton/MenuButton'
-import UpdateButton from '../UpdateButton/UpdateButton'
-import UpdateVisualizationContainer from '../UpdateButton/UpdateVisualizationContainer'
-import styles from './styles/VisualizationOptionsManager.module.css'
-import VisualizationOptions from './VisualizationOptions'
+    AXIS_ID_COLUMNS,
+    hasCustomAxes,
+    hasRelativeItems,
+    isDualAxisType,
+    VisualizationOptionsManager as VOM,
+} from '@dhis2/analytics'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { getOptionsByType } from '../../modules/options/config'
+import {
+    sGetUiType,
+    sGetUiOptions,
+    sGetDimensionItemsByAxis,
+    sGetUiLayout,
+} from '../../reducers/ui'
 
 class VisualizationOptionsManager extends Component {
-    constructor(props) {
-        super(props)
-
-        this.state = {
-            dialogIsOpen: false,
-        }
-    }
-
-    onClose = () => {
-        this.toggleVisualizationOptionsDialog()
-    }
-
-    toggleVisualizationOptionsDialog = () => {
-        this.setState({ dialogIsOpen: !this.state.dialogIsOpen })
-    }
-
-    getPrimaryOnClick = handler => () => {
-        handler()
-        this.onClose()
-    }
+    filteredSeries = this.props.series.filter(seriesItem =>
+        this.props.columnDimensionItems.some(
+            layoutItem => layoutItem === seriesItem.dimensionItem
+        )
+    )
+    optionsConfig = getOptionsByType(
+        this.props.visualizationType,
+        isDualAxisType(this.props.visualizationType) &&
+            hasCustomAxes(this.filteredSeries) &&
+            !hasRelativeItems(
+                this.props.columns[0],
+                this.props.columnDimensionItems
+            ),
+        this.props.series?.length &&
+            isDualAxisType(this.props.visualizationType)
+            ? [...new Set(this.props.series.map(serie => serie.axis))].sort(
+                  (a, b) => a - b
+              )
+            : [0]
+    )
 
     render() {
-        return (
-            <Fragment>
-                <MenuButton
-                    onClick={this.toggleVisualizationOptionsDialog}
-                    dataTest={'app-menubar-options-button'}
-                >
-                    {i18n.t('Options')}
-                </MenuButton>
-                {this.state.dialogIsOpen && (
-                    <Modal
-                        onClose={this.onClose}
-                        position="top"
-                        large
-                        dataTest={'options-modal'}
-                    >
-                        <ModalTitle>{i18n.t('Options')}</ModalTitle>
-                        <ModalContent
-                            className={styles.modalContent}
-                            dataTest={'options-modal-content'}
-                        >
-                            <VisualizationOptions />
-                        </ModalContent>
-                        <ModalActions dataTest={'options-modal-actions'}>
-                            <ButtonStrip>
-                                <HideButton
-                                    onClick={this.onClose}
-                                    dataTest={'options-modal-action-cancel'}
-                                />
-                                <UpdateVisualizationContainer
-                                    renderComponent={handler => (
-                                        <UpdateButton
-                                            onClick={this.getPrimaryOnClick(
-                                                handler
-                                            )}
-                                            dataTest={
-                                                'options-modal-action-confirm'
-                                            }
-                                        />
-                                    )}
-                                />
-                            </ButtonStrip>
-                        </ModalActions>
-                    </Modal>
-                )}
-            </Fragment>
-        )
+        return <VOM optionsConfig={this.optionsConfig} />
     }
 }
 
-export default VisualizationOptionsManager
+VisualizationOptionsManager.propTypes = {
+    visualizationType: PropTypes.string.isRequired,
+    columnDimensionItems: PropTypes.array,
+    columns: PropTypes.array,
+    series: PropTypes.array,
+}
+
+const mapStateToProps = state => ({
+    visualizationType: sGetUiType(state),
+    columnDimensionItems: sGetDimensionItemsByAxis(state, AXIS_ID_COLUMNS),
+    series: sGetUiOptions(state).series,
+    columns: sGetUiLayout(state).columns,
+})
+
+export default connect(mapStateToProps)(VisualizationOptionsManager)
