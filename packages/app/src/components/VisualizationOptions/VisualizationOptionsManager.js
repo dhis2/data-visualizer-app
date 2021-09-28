@@ -17,6 +17,7 @@ import {
     sGetUiLayout,
 } from '../../reducers/ui'
 import MenuButton from '../MenuButton/MenuButton'
+import UpdateVisualizationContainer from '../UpdateButton/UpdateVisualizationContainer'
 
 class VisualizationOptionsManager extends Component {
     constructor(props) {
@@ -25,6 +26,11 @@ class VisualizationOptionsManager extends Component {
         this.state = {
             dialogIsOpen: false,
         }
+    }
+
+    onClick = handler => () => {
+        handler()
+        this.onClose()
     }
 
     onClose = () => {
@@ -66,7 +72,15 @@ class VisualizationOptionsManager extends Component {
                     {i18n.t('Options')}
                 </MenuButton>
                 {this.state.dialogIsOpen && (
-                    <VisualizationOptions optionsConfig={this.optionsConfig} />
+                    <UpdateVisualizationContainer
+                        renderComponent={handler => (
+                            <VisualizationOptions
+                                optionsConfig={this.optionsConfig}
+                                onPrimaryClick={this.onClick(handler)}
+                                onClose={this.onClose}
+                            />
+                        )}
+                    />
                 )}
             </>
         )
