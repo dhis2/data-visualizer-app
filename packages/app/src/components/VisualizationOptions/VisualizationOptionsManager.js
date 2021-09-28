@@ -16,6 +16,7 @@ import {
     sGetDimensionItemsByAxis,
     sGetUiLayout,
 } from '../../reducers/ui'
+import MenuButton from '../MenuButton/MenuButton'
 
 class VisualizationOptionsManager extends Component {
     constructor(props) {
@@ -58,13 +59,12 @@ class VisualizationOptionsManager extends Component {
     render() {
         return (
             <>
-                <button
-                    //className={styles.menuButton}
+                <MenuButton
                     data-test={'app-menubar-options-button'}
                     onClick={this.toggleVisualizationOptionsDialog}
                 >
                     {i18n.t('Options')}
-                </button>
+                </MenuButton>
                 {this.state.dialogIsOpen && (
                     <VisualizationOptions optionsConfig={this.optionsConfig} />
                 )}
