@@ -3,8 +3,9 @@ import {
     hasCustomAxes,
     hasRelativeItems,
     isDualAxisType,
-    VisualizationOptionsManager as VOM,
+    VisualizationOptions,
 } from '@dhis2/analytics'
+import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
@@ -17,6 +18,22 @@ import {
 } from '../../reducers/ui'
 
 class VisualizationOptionsManager extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            dialogIsOpen: false,
+        }
+    }
+
+    onClose = () => {
+        this.toggleVisualizationOptionsDialog()
+    }
+
+    toggleVisualizationOptionsDialog = () => {
+        this.setState({ dialogIsOpen: !this.state.dialogIsOpen })
+    }
+
     filteredSeries = this.props.series.filter(seriesItem =>
         this.props.columnDimensionItems.some(
             layoutItem => layoutItem === seriesItem.dimensionItem
@@ -39,7 +56,20 @@ class VisualizationOptionsManager extends Component {
     )
 
     render() {
-        return <VOM optionsConfig={this.optionsConfig} />
+        return (
+            <>
+                <button
+                    //className={styles.menuButton}
+                    data-test={'app-menubar-options-button'}
+                    onClick={this.toggleVisualizationOptionsDialog}
+                >
+                    {i18n.t('Options')}
+                </button>
+                {this.state.dialogIsOpen && (
+                    <VisualizationOptions optionsConfig={this.optionsConfig} />
+                )}
+            </>
+        )
     }
 }
 
