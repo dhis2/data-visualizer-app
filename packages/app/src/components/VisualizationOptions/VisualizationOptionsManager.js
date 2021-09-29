@@ -76,7 +76,7 @@ class VisualizationOptionsManager extends Component {
                         renderComponent={handler => (
                             <VisualizationOptions
                                 optionsConfig={this.optionsConfig}
-                                onPrimaryClick={this.onClick(handler)}
+                                onUpdate={this.onClick(handler)}
                                 onClose={this.onClose}
                             />
                         )}
