@@ -7,7 +7,7 @@ import {
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { getOptionsByType } from '../../modules/options/config'
 import {
@@ -19,72 +19,65 @@ import {
 import MenuButton from '../MenuButton/MenuButton'
 import UpdateVisualizationContainer from '../UpdateButton/UpdateVisualizationContainer'
 
-class VisualizationOptionsManager extends Component {
-    constructor(props) {
-        super(props)
+const VisualizationOptionsManager = ({
+    visualizationType,
+    columnDimensionItems,
+    columns,
+    series,
+}) => {
+    const [dialogIsOpen, setDialogIsOpen] = useState(false)
 
-        this.state = {
-            dialogIsOpen: false,
-        }
-    }
-
-    onClick = handler => () => {
+    const onClick = handler => () => {
         handler()
-        this.onClose()
+        onClose()
     }
 
-    onClose = () => {
-        this.toggleVisualizationOptionsDialog()
+    const onClose = () => {
+        toggleVisualizationOptionsDialog()
     }
 
-    toggleVisualizationOptionsDialog = () => {
-        this.setState({ dialogIsOpen: !this.state.dialogIsOpen })
+    const toggleVisualizationOptionsDialog = () => {
+        setDialogIsOpen(!dialogIsOpen)
     }
 
-    filteredSeries = this.props.series.filter(seriesItem =>
-        this.props.columnDimensionItems.some(
+    const filteredSeries = series.filter(seriesItem =>
+        columnDimensionItems.some(
             layoutItem => layoutItem === seriesItem.dimensionItem
         )
     )
-    optionsConfig = getOptionsByType(
-        this.props.visualizationType,
-        isDualAxisType(this.props.visualizationType) &&
-            hasCustomAxes(this.filteredSeries) &&
-            !hasRelativeItems(
-                this.props.columns[0],
-                this.props.columnDimensionItems
-            ),
-        this.props.series?.length &&
-            isDualAxisType(this.props.visualizationType)
-            ? [...new Set(this.props.series.map(serie => serie.axis))].sort(
+    const optionsConfig = getOptionsByType(
+        visualizationType,
+        isDualAxisType(visualizationType) &&
+            hasCustomAxes(filteredSeries) &&
+            !hasRelativeItems(columns[0], columnDimensionItems),
+        series?.length && isDualAxisType(visualizationType)
+            ? [...new Set(series.map(serie => serie.axis))].sort(
                   (a, b) => a - b
               )
             : [0]
     )
 
-    render() {
-        return (
-            <>
-                <MenuButton
-                    data-test={'app-menubar-options-button'}
-                    onClick={this.toggleVisualizationOptionsDialog}
-                >
-                    {i18n.t('Options')}
-                </MenuButton>
-                {this.state.dialogIsOpen && (
-                    <UpdateVisualizationContainer
-                        renderComponent={handler => (
-                            <VisualizationOptions
-                                optionsConfig={this.optionsConfig}
-                                onUpdate={this.onClick(handler)}
-                                onClose={this.onClose}
-                            />
-                        )}
-                    />
-                )}
-            </>
-        )
-    }
+    return (
+        <>
+            <MenuButton
+                data-test={'app-menubar-options-button'}
+                onClick={toggleVisualizationOptionsDialog}
+            >
+                {i18n.t('Options')}
+            </MenuButton>
+            {dialogIsOpen && (
+                <UpdateVisualizationContainer
+                    renderComponent={handler => (
+                        <VisualizationOptions
+                            optionsConfig={optionsConfig}
+                            onUpdate={onClick(handler)}
+                            onClose={onClose}
+                        />
+                    )}
+                />
+            )}
+        </>
+    )
 }
 
 VisualizationOptionsManager.propTypes = {
