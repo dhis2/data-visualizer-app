@@ -724,8 +724,16 @@ export const sGetAxisIdByDimensionId = (state, dimensionId) =>
 export const sGetUiItemsByDimension = (state, dimension) =>
     sGetUiItems(state)[dimension] || DEFAULT_UI.itemsByDimension[dimension]
 
-export const sGetDimensionItemsByAxis = (state, axisId) =>
-    sGetUiItemsByDimension(state, (sGetUiLayout(state) || {})[axisId]) || []
+export const sGetDimensionItemsByAxis = (state, axisId) => {
+    const dimensions = (sGetUiLayout(state) || {})[axisId] || []
+
+    return dimensions
+        .reduce((items, dimension) => {
+            items.push(sGetUiItemsByDimension(state, dimension))
+            return items
+        }, [])
+        .flat()
+}
 
 export const sGetDimensionIdsFromLayout = state =>
     Object.values(sGetUiLayout(state)).reduce(

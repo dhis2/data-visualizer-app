@@ -642,4 +642,55 @@ describe('reducer: ui', () => {
 
         expect(actualState.rightSidebarOpen).toEqual(false)
     })
+
+    describe('selectors', () => {
+        it('sGetDimensionItemsByAxis when 1 dimension on requested axis', () => {
+            const state = {
+                ui: {
+                    layout: {
+                        [AXIS_ID_COLUMNS]: [DIMENSION_ID_DATA],
+                        [AXIS_ID_ROWS]: [DIMENSION_ID_ORGUNIT],
+                        [AXIS_ID_FILTERS]: [DIMENSION_ID_PERIOD],
+                    },
+                    itemsByDimension: {
+                        [DIMENSION_ID_DATA]: ['anc', 'bcg'],
+                        [DIMENSION_ID_ORGUNIT]: ['tanzania'],
+                        [DIMENSION_ID_PERIOD]: ['six-months'],
+                    },
+                },
+            }
+
+            const expectedDimensions = ['anc', 'bcg']
+
+            expect(ui.sGetDimensionItemsByAxis(state, AXIS_ID_COLUMNS)).toEqual(
+                expectedDimensions
+            )
+        })
+
+        it('sGetDimensionItemsByAxis when 2 dimensions on requested axis', () => {
+            const state = {
+                ui: {
+                    layout: {
+                        [AXIS_ID_COLUMNS]: [DIMENSION_ID_ORGUNIT],
+                        [AXIS_ID_ROWS]: [
+                            DIMENSION_ID_DATA,
+                            DIMENSION_ID_PERIOD,
+                        ],
+                        [AXIS_ID_FILTERS]: ['FACILITY_TYPE'],
+                    },
+                    itemsByDimension: {
+                        [DIMENSION_ID_DATA]: ['anc', 'bcg'],
+                        [DIMENSION_ID_ORGUNIT]: ['tanzania'],
+                        [DIMENSION_ID_PERIOD]: ['six-months'],
+                    },
+                },
+            }
+
+            const expectedDimensions = ['anc', 'bcg', 'six-months']
+
+            expect(ui.sGetDimensionItemsByAxis(state, AXIS_ID_ROWS)).toEqual(
+                expectedDimensions
+            )
+        })
+    })
 })
