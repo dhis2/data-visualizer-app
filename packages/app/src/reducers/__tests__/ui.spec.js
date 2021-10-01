@@ -686,7 +686,6 @@ describe('reducer: ui', () => {
                 },
             }
 
-            // TODO: what is the expected result?
             const expectedDimensions = ['anc', 'bcg', 'six-months']
 
             expect(ui.sGetDimensionItemsByAxis(state, AXIS_ID_ROWS)).toEqual(
