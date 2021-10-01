@@ -18,7 +18,13 @@ import pivotTableConfig from './pivotTableConfig.js'
 import scatterConfig from './scatterConfig.js'
 import singleValueConfig from './singleValueConfig.js'
 
-export const getOptionsByType = (type, hasDisabledSections, rangeAxisIds) => {
+export const getOptionsByType = ({
+    type,
+    hasDimensionItemsInColumns,
+    hasDimensionItemsInRows,
+    hasDisabledSections,
+    rangeAxisIds,
+}) => {
     const isStacked = isStackedType(type)
     const isColumnBased = isColumnBasedType(type)
     const supportsLegends = isLegendSetType(type)
@@ -45,7 +51,10 @@ export const getOptionsByType = (type, hasDisabledSections, rangeAxisIds) => {
         case VIS_TYPE_SINGLE_VALUE:
             return singleValueConfig()
         case VIS_TYPE_PIVOT_TABLE:
-            return pivotTableConfig()
+            return pivotTableConfig({
+                hasDimensionItemsInColumns,
+                hasDimensionItemsInRows,
+            })
         case VIS_TYPE_SCATTER:
             return scatterConfig()
         default:
