@@ -1,3 +1,10 @@
+## [38.0.18](https://github.com/dhis2/data-visualizer-app/compare/v38.0.17...v38.0.18) (2021-10-01)
+
+
+### Bug Fixes
+
+* return a flat list of dimension items with multiple dimension on axis ([#1914](https://github.com/dhis2/data-visualizer-app/issues/1914)) ([48ebb23](https://github.com/dhis2/data-visualizer-app/commit/48ebb2323ded5250f37ffcaae26ce18fead27757))
+
 ## [38.0.17](https://github.com/dhis2/data-visualizer-app/compare/v38.0.16...v38.0.17) (2021-09-24)
 
 
