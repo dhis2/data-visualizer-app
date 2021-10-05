@@ -1,3 +1,10 @@
+## [38.0.19](https://github.com/dhis2/data-visualizer-app/compare/v38.0.18...v38.0.19) (2021-10-05)
+
+
+### Bug Fixes
+
+* use VisualizationOptions from Analytics ([#1907](https://github.com/dhis2/data-visualizer-app/issues/1907)) ([6446e2c](https://github.com/dhis2/data-visualizer-app/commit/6446e2cd4eb25432cff294eea3c176f297404897))
+
 ## [38.0.18](https://github.com/dhis2/data-visualizer-app/compare/v38.0.17...v38.0.18) (2021-10-01)
 
 
