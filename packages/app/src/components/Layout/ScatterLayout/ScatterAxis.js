@@ -23,11 +23,7 @@ import {
     ITEM_ATTRIBUTE_HORIZONTAL,
     ITEM_ATTRIBUTE_VERTICAL,
 } from '../../../modules/ui'
-import {
-    sGetUi,
-    sGetUiLayout,
-    sGetUiItemsByAttribute,
-} from '../../../reducers/ui'
+import { sGetUiLayout, sGetUiItemsByAttribute } from '../../../reducers/ui'
 import IconButton from '../../IconButton/IconButton'
 import Chip from '../Chip'
 import styles from './styles/ScatterAxis.style'
@@ -174,7 +170,6 @@ Axis.propTypes = {
 }
 
 const mapStateToProps = state => ({
-    ui: sGetUi(state),
     layout: sGetUiLayout(state),
     getItemsByAttribute: attribute => sGetUiItemsByAttribute(state, attribute),
 })
