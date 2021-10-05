@@ -2295,10 +2295,12 @@
     jscodeshift "^0.11.0"
     wait-on "^4.0.2"
 
-"@dhis2/cypress-commands@^5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/cypress-commands/-/cypress-commands-5.0.0.tgz#99ac6b0f3b4cd36e7a7dce7caac12c89ac0f02fa"
-  integrity sha512-8jfLMMapcmJswkBh7ODZLbtmskfJSSZrwya03bWwKWM3oVI/uSkZr2GV0Pu3JORohNqoOah2UKlfVRmWgTkpjg==
+"@dhis2/cypress-commands@^8.0.4":
+  version "8.0.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/cypress-commands/-/cypress-commands-8.0.4.tgz#27c0da91bec78e4c9e470f2d867ac98b61b546eb"
+  integrity sha512-Pm0cjexhdR9kl4a75gVZRaJ42IXwgVgDgem/i93tLV1N2CNonIVM8yiwB8f+oX9rg4Nj2yLc2vILjTkgn1Rpaw==
+  dependencies:
+    jscodeshift "^0.11.0"
 
 "@dhis2/d2-i18n@^1.1.0":
   version "1.1.0"
