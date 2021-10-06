@@ -50,7 +50,6 @@ export const VisualizationPlugin = ({
     const { data: ouLevelsResponse } = useDataQuery(orgUnitLevelsQuery, {
         onError,
     })
-    const ouLevels = ouLevelsResponse?.orgUnitLevels.organisationUnitLevels
 
     const doFetchData = useCallback(async () => {
         const result = await fetchData({
@@ -138,9 +137,11 @@ export const VisualizationPlugin = ({
         /* eslint-disable-next-line react-hooks/exhaustive-deps */
     }, [visualization, filters, forDashboard])
 
-    if (!fetchResult) {
+    if (!fetchResult || !ouLevelsResponse) {
         return null
     }
+
+    const ouLevels = ouLevelsResponse.orgUnitLevels.organisationUnitLevels
 
     const contextualMenuRect =
         contextualMenuRef &&
