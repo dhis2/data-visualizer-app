@@ -923,7 +923,7 @@ msgstr "参数"
 msgid ""
 "These options only apply to legacy tables like standard reports. Options set"
 " here will have no effect on tables made in Data Visualizer."
-msgstr "这些选项仅适用于传统表格(如标准报表)。此处设置的选项将对在Data 可视化应用中创建的表无效。"
+msgstr "这些选项仅适用于标准报告等旧表。此处设置的选项不会影响在 Data Visualizer（数据可视化应用） 中制作的表格。"
 
 msgid "Applies to standard reports only"
 msgstr "仅适用于标准报表"
