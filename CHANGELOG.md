@@ -1,3 +1,10 @@
+## [36.1.9](https://github.com/dhis2/data-visualizer-app/compare/v36.1.8...v36.1.9) (2021-10-07)
+
+
+### Bug Fixes
+
+* wait for ouLevels (DHIS2-11931) v36 ([#1927](https://github.com/dhis2/data-visualizer-app/issues/1927)) ([bc3b875](https://github.com/dhis2/data-visualizer-app/commit/bc3b875ca745627dbb3da740fcd6e8c7601198ae))
+
 ## [36.1.8](https://github.com/dhis2/data-visualizer-app/compare/v36.1.7...v36.1.8) (2021-09-24)
 
 
