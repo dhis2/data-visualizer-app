@@ -152,7 +152,7 @@ export const VisualizationPlugin = ({
         /* eslint-disable-next-line react-hooks/exhaustive-deps */
     }, [visualization, filters, forDashboard])
 
-    if (!fetchResult) {
+    if (!fetchResult || !ouLevels) {
         return null
     }
 
