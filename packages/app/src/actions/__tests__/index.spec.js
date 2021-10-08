@@ -48,12 +48,9 @@ jest.mock('@dhis2/analytics', () => ({
                 id: '2nd-floor',
             },
         ]),
-}))
-/* eslint-enable no-import-assign, import/namespace */
-
-jest.mock('../../modules/orgUnit', () => ({
     convertOuLevelsToUids: (ouLevels, vis) => vis,
 }))
+/* eslint-enable no-import-assign, import/namespace */
 
 describe('index', () => {
     describe('tDoLoadVisualization', () => {
