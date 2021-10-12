@@ -9,6 +9,3 @@ export const setDataTransfer = (e, source) => {
         })
     )
 }
-
-export const decodeDataTransfer = e =>
-    JSON.parse(e.dataTransfer.getData(DATA_TYPE_TEXT))
