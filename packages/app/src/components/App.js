@@ -18,7 +18,6 @@ import {
 } from '../api/userDataStore'
 import Snackbar from '../components/Snackbar/Snackbar'
 import history from '../modules/history'
-import defaultMetadata from '../modules/metadata'
 import { getParentGraphMapFromVisualization } from '../modules/ui'
 import { STATE_DIRTY, getVisualizationState } from '../modules/visualization'
 import * as fromReducers from '../reducers'
@@ -134,7 +133,6 @@ export class App extends Component {
 
         if (rootOrgUnit && rootOrgUnit.id) {
             this.props.addMetadata({
-                ...defaultMetadata(),
                 [rootOrgUnit.id]: {
                     ...rootOrgUnit,
                     path: `/${rootOrgUnit.id}`,
