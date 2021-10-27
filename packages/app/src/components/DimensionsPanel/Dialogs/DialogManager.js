@@ -41,7 +41,6 @@ import { acAddMetadata } from '../../../actions/metadata'
 import { acSetRecommendedIds } from '../../../actions/recommendedIds'
 import {
     acSetUiActiveModalDialog,
-    acRemoveUiItems,
     acSetUiItems,
     acAddParentGraphMap,
     acSetUiItemAttributes,
@@ -220,16 +219,10 @@ export class DialogManager extends Component {
     // The OU content is persisted as mounted in order
     // to cache the org unit tree data
     renderPersistedContent = dimensionProps => {
-        const {
-            displayNameProperty,
-            ouIds,
-            metadata,
-            parentGraphMap,
-            dialogId,
-        } = this.props
+        const { ouIds, metadata, parentGraphMap, dialogId } = this.props
 
         if (this.state.ouMounted) {
-            const ouItems = this.getOrgUnitsFromIds(
+            const selected = this.getOrgUnitsFromIds(
                 ouIds,
                 metadata,
                 parentGraphMap
@@ -239,11 +232,7 @@ export class DialogManager extends Component {
 
             return (
                 <div key={DIMENSION_ID_ORGUNIT} style={{ display }}>
-                    <OrgUnitDimension
-                        displayNameProperty={displayNameProperty}
-                        ouItems={ouItems}
-                        {...dimensionProps}
-                    />
+                    <OrgUnitDimension selected={selected} {...dimensionProps} />
                 </div>
             )
         }
@@ -252,19 +241,10 @@ export class DialogManager extends Component {
     }
 
     renderDialogContent = () => {
-        const {
-            displayNameProperty,
-            dialogId,
-            type,
-            removeUiItems,
-            setUiItems,
-        } = this.props
+        const { displayNameProperty, dialogId, type } = this.props
 
         const dimensionProps = {
-            d2: this.context.d2,
             onSelect: this.selectUiItems,
-            onDeselect: removeUiItems,
-            onReorder: setUiItems,
         }
 
         const dynamicContent = () => {
@@ -494,7 +474,6 @@ DialogManager.propTypes = {
     getItemsByAttribute: PropTypes.func,
     metadata: PropTypes.object,
     parentGraphMap: PropTypes.object,
-    removeUiItems: PropTypes.func,
     selectedItems: PropTypes.object,
     setUiItemAttributes: PropTypes.func,
     setUiItems: PropTypes.func,
@@ -529,7 +508,6 @@ export default connect(mapStateToProps, {
     setRecommendedIds: acSetRecommendedIds,
     setUiItems: acSetUiItems,
     addMetadata: acAddMetadata,
-    removeUiItems: acRemoveUiItems,
     addParentGraphMap: acAddParentGraphMap,
     setUiItemAttributes: acSetUiItemAttributes,
 })(DialogManager)
