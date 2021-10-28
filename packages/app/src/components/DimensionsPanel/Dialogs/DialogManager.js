@@ -53,6 +53,7 @@ import {
 import { sGetDimensions } from '../../../reducers/dimensions'
 import { sGetMetadata } from '../../../reducers/metadata'
 import {
+    sGetRootOrgUnit,
     sGetSettings,
     sGetSettingsDisplayNameProperty,
 } from '../../../reducers/settings'
@@ -95,6 +96,7 @@ const getExcludedPeriodTypes = (settings = {}) => {
     return types
 }
 export class DialogManager extends Component {
+    // TODO: Convert to functional component
     state = {
         onMounted: false,
     }
@@ -232,7 +234,11 @@ export class DialogManager extends Component {
 
             return (
                 <div key={DIMENSION_ID_ORGUNIT} style={{ display }}>
-                    <OrgUnitDimension selected={selected} {...dimensionProps} />
+                    <OrgUnitDimension
+                        selected={selected}
+                        root={this.props.rootOrgUnit?.id} // TODO: What happens when the root not the top level org unit? E.g. Bo
+                        {...dimensionProps}
+                    />
                 </div>
             )
         }
@@ -474,6 +480,7 @@ DialogManager.propTypes = {
     getItemsByAttribute: PropTypes.func,
     metadata: PropTypes.object,
     parentGraphMap: PropTypes.object,
+    rootOrgUnit: PropTypes.object,
     selectedItems: PropTypes.object,
     setUiItemAttributes: PropTypes.func,
     setUiItems: PropTypes.func,
@@ -494,6 +501,7 @@ const mapStateToProps = state => ({
     parentGraphMap: sGetUiParentGraphMap(state),
     dxIds: sGetUiItemsByDimension(state, DIMENSION_ID_DATA),
     ouIds: sGetUiItemsByDimension(state, DIMENSION_ID_ORGUNIT),
+    rootOrgUnit: sGetRootOrgUnit(state),
     selectedItems: sGetUiItems(state),
     settings: sGetSettings(state),
     type: sGetUiType(state),
