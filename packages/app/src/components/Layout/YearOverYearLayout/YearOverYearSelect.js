@@ -47,6 +47,7 @@ const MultiPeriodSelector = ({ options, selected, onChange, dataTest }) => (
                 key={option.id}
                 value={option.id}
                 label={option.getName()}
+                dataTest={`${dataTest}-option-${option.id}`}
             />
         ))}
     </MultiSelect>

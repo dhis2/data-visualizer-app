@@ -17,7 +17,7 @@ import {
     expectDataDimensionModalWarningToContain,
     expectDataItemToBeInactive,
     expectOrgUnitDimensionModalToBeVisible,
-    selectOrgUnitLevel,
+    toggleOrgUnitLevel,
 } from '../../elements/dimensionModal'
 import { openDimension } from '../../elements/dimensionsPanel'
 import { deleteAO, saveExistingAO, saveNewAO } from '../../elements/fileMenu'
@@ -92,7 +92,7 @@ describe('using a Scatter chart', () => {
         const TEST_ORG_UNIT_LEVEL = 'Facility'
         openDimension(DIMENSION_ID_ORGUNIT)
         expectOrgUnitDimensionModalToBeVisible()
-        selectOrgUnitLevel(TEST_ORG_UNIT_LEVEL)
+        toggleOrgUnitLevel(TEST_ORG_UNIT_LEVEL)
         expectOrgUnitDimensionModalToBeVisible()
         clickDimensionModalUpdateButton()
         expectVisualizationToBeVisible(VIS_TYPE_SCATTER)
