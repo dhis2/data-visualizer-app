@@ -60,7 +60,7 @@ const VisualizationOptionsManager = ({
     return (
         <>
             <MenuButton
-                data-test={'app-menubar-options-button'}
+                dataTest={'app-menubar-options-button'}
                 onClick={toggleVisualizationOptionsDialog}
             >
                 {i18n.t('Options')}
