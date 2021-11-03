@@ -38,7 +38,7 @@
     },
     "scripts": {
         "start": "d2-app-scripts start",
-        "build": "d2-app-scripts build",
+        "build": "d2-app-scripts build --verbose",
         "test": "d2-app-scripts test",
         "coverage": "npm run test --coverage"
     },

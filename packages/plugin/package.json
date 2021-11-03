@@ -30,7 +30,7 @@
     },
     "scripts": {
         "clean": "rm -rf ./build/*",
-        "build": "d2-app-scripts build",
+        "build": "d2-app-scripts build --verbose",
         "test": "d2-app-scripts test"
     },
     "jest": {
