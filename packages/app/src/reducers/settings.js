@@ -7,7 +7,7 @@ export const DEFAULT_SETTINGS = {
     keyIgnoreAnalyticsApprovalYearThreshold: -1,
     displayNameProperty: 'displayName',
     uiLocale: 'en',
-    rootOrganisationUnits: {},
+    rootOrganisationUnits: [],
 }
 
 export default (state = DEFAULT_SETTINGS, action) => {

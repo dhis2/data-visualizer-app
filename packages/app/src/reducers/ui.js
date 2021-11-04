@@ -15,6 +15,7 @@ import {
     FONT_STYLE_HORIZONTAL_AXIS_TITLE,
     FONT_STYLE_VERTICAL_AXIS_TITLE,
     FONT_STYLE_REGRESSION_LINE_LABEL,
+    USER_ORG_UNIT,
 } from '@dhis2/analytics'
 import objectClean from 'd2-utilizr/lib/objectClean'
 import castArray from 'lodash-es/castArray'
@@ -111,12 +112,10 @@ const getPreselectedUi = options => {
     const { rootOrganisationUnits, relativePeriod, digitGroupSeparator } =
         options
 
-    const orgUnits = []
     const parentGraphMap = { ...DEFAULT_UI.parentGraphMap }
 
     rootOrganisationUnits.forEach(root => {
         if (root.id) {
-            orgUnits.push(root.id)
             parentGraphMap[root.id] = ''
         }
     })
@@ -129,7 +128,7 @@ const getPreselectedUi = options => {
         },
         itemsByDimension: {
             ...DEFAULT_UI.itemsByDimension,
-            [DIMENSION_ID_ORGUNIT]: orgUnits,
+            [DIMENSION_ID_ORGUNIT]: [USER_ORG_UNIT],
             [DIMENSION_ID_PERIOD]: [relativePeriod],
         },
         yearOverYearSeries: PRESELECTED_YEAR_OVER_YEAR_SERIES,
