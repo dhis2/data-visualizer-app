@@ -53,7 +53,7 @@ import {
 import { sGetDimensions } from '../../../reducers/dimensions'
 import { sGetMetadata } from '../../../reducers/metadata'
 import {
-    sGetRootOrgUnit,
+    sGetRootOrgUnits,
     sGetSettings,
     sGetSettingsDisplayNameProperty,
 } from '../../../reducers/settings'
@@ -236,7 +236,9 @@ export class DialogManager extends Component {
                 <div key={DIMENSION_ID_ORGUNIT} style={{ display }}>
                     <OrgUnitDimension
                         selected={selected}
-                        root={this.props.rootOrgUnit?.id} // TODO: What happens when the root not the top level org unit? E.g. Bo
+                        roots={this.props.rootOrgUnits.map(
+                            rootOrgUnit => rootOrgUnit.id
+                        )}
                         {...dimensionProps}
                     />
                 </div>
@@ -480,7 +482,7 @@ DialogManager.propTypes = {
     getItemsByAttribute: PropTypes.func,
     metadata: PropTypes.object,
     parentGraphMap: PropTypes.object,
-    rootOrgUnit: PropTypes.object,
+    rootOrgUnits: PropTypes.object,
     selectedItems: PropTypes.object,
     setUiItemAttributes: PropTypes.func,
     setUiItems: PropTypes.func,
@@ -501,7 +503,7 @@ const mapStateToProps = state => ({
     parentGraphMap: sGetUiParentGraphMap(state),
     dxIds: sGetUiItemsByDimension(state, DIMENSION_ID_DATA),
     ouIds: sGetUiItemsByDimension(state, DIMENSION_ID_ORGUNIT),
-    rootOrgUnit: sGetRootOrgUnit(state),
+    rootOrgUnits: sGetRootOrgUnits(state),
     selectedItems: sGetUiItems(state),
     settings: sGetSettings(state),
     type: sGetUiType(state),

@@ -108,17 +108,18 @@ export const PRESELECTED_YEAR_OVER_YEAR_SERIES = ['THIS_YEAR', 'LAST_YEAR']
 export const PRESELECTED_YEAR_OVER_YEAR_CATEGORY = ['MONTHS_THIS_YEAR']
 
 const getPreselectedUi = options => {
-    const { rootOrganisationUnit, relativePeriod, digitGroupSeparator } =
+    const { rootOrganisationUnits, relativePeriod, digitGroupSeparator } =
         options
 
-    const rootOrganisationUnits = []
+    const orgUnits = []
     const parentGraphMap = { ...DEFAULT_UI.parentGraphMap }
 
-    if (rootOrganisationUnit && rootOrganisationUnit.id) {
-        rootOrganisationUnits.push(rootOrganisationUnit.id)
-
-        parentGraphMap[rootOrganisationUnit.id] = ''
-    }
+    rootOrganisationUnits.forEach(root => {
+        if (root.id) {
+            orgUnits.push(root.id)
+            parentGraphMap[root.id] = ''
+        }
+    })
 
     return {
         ...DEFAULT_UI,
@@ -128,7 +129,7 @@ const getPreselectedUi = options => {
         },
         itemsByDimension: {
             ...DEFAULT_UI.itemsByDimension,
-            [DIMENSION_ID_ORGUNIT]: rootOrganisationUnits,
+            [DIMENSION_ID_ORGUNIT]: orgUnits,
             [DIMENSION_ID_PERIOD]: [relativePeriod],
         },
         yearOverYearSeries: PRESELECTED_YEAR_OVER_YEAR_SERIES,

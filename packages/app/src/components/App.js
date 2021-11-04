@@ -130,17 +130,22 @@ export class App extends Component {
         this.props.loadUserAuthority(APPROVAL_LEVEL_OPTION_AUTH)
         this.props.setDimensions()
 
-        const rootOrgUnit = this.props.settings.rootOrganisationUnit
+        const rootOrgUnits = this.props.settings.rootOrganisationUnits
 
-        if (rootOrgUnit && rootOrgUnit.id) {
-            this.props.addMetadata({
-                ...defaultMetadata(),
-                [rootOrgUnit.id]: {
-                    ...rootOrgUnit,
-                    path: `/${rootOrgUnit.id}`,
-                },
-            })
-        }
+        this.props.addMetadata({
+            ...defaultMetadata(),
+        })
+
+        rootOrgUnits.forEach(rootOrgUnit => {
+            if (rootOrgUnit.id) {
+                this.props.addMetadata({
+                    [rootOrgUnit.id]: {
+                        ...rootOrgUnit,
+                        path: `/${rootOrgUnit.id}`,
+                    },
+                })
+            }
+        })
 
         this.loadVisualization(this.props.location)
 
