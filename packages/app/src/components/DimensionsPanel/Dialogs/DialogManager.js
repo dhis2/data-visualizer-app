@@ -493,6 +493,7 @@ DialogManager.propTypes = {
 DialogManager.defaultProps = {
     dialogId: null,
     dxIds: [],
+    rootOrgUnits: [],
 }
 
 const mapStateToProps = state => ({

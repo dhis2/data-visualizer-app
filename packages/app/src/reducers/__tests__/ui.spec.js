@@ -63,7 +63,7 @@ describe('reducer: ui', () => {
 
     it(`${ui.CLEAR_UI} sets the preselected state`, () => {
         const settings = {
-            rootOrganisationUnit: { id: 'ROOT_ORGUNIT' },
+            rootOrganisationUnits: [{ id: 'USER_ORG_UNIT' }],
             relativePeriod: 'SYSTEM_RELATIVE_PERIOD',
             digitGroupSeparator: 'SPACE',
         }
@@ -81,11 +81,11 @@ describe('reducer: ui', () => {
             },
             parentGraphMap: {
                 ...ui.DEFAULT_UI.parentGraphMap,
-                [settings.rootOrganisationUnit.id]: '',
+                [settings.rootOrganisationUnits[0].id]: '',
             },
             itemsByDimension: {
                 ...ui.DEFAULT_UI.itemsByDimension,
-                [DIMENSION_ID_ORGUNIT]: [settings.rootOrganisationUnit.id],
+                [DIMENSION_ID_ORGUNIT]: ['USER_ORGUNIT'],
                 [DIMENSION_ID_PERIOD]: [settings.relativePeriod],
             },
             yearOverYearSeries: ui.PRESELECTED_YEAR_OVER_YEAR_SERIES,
