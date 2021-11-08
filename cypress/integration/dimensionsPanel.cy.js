@@ -13,7 +13,7 @@ import {
 import {
     expectDimensionModalToBeVisible,
     clickDimensionModalHideButton,
-    deselectOrgUnitTreeItem,
+    deselectUserOrgUnit,
     clickDimensionModalUpdateButton,
     expectDimensionModalToNotBeVisible,
     unselectAllItemsByButton,
@@ -74,7 +74,7 @@ describe('interacting with the dimensions panel', () => {
         })
         it('removes org unit and org unit items', () => {
             openDimension(DIMENSION_ID_ORGUNIT)
-            deselectOrgUnitTreeItem('Sierra Leone')
+            deselectUserOrgUnit('User organisation unit')
             clickDimensionModalUpdateButton()
             openContextMenu(DIMENSION_ID_ORGUNIT)
             clickContextMenuRemove(DIMENSION_ID_ORGUNIT)
