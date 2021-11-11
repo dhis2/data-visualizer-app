@@ -66,9 +66,7 @@ export const SET_UI_LAYOUT = 'SET_UI_LAYOUT'
 export const ADD_UI_LAYOUT_DIMENSIONS = 'ADD_UI_LAYOUT_DIMENSIONS'
 export const REMOVE_UI_LAYOUT_DIMENSIONS = 'REMOVE_UI_LAYOUT_DIMENSIONS'
 export const SET_UI_ITEMS = 'SET_UI_ITEMS'
-export const ADD_UI_ITEMS = 'ADD_UI_ITEMS'
 export const REMOVE_UI_ITEMS = 'REMOVE_UI_ITEMS'
-export const SET_UI_PARENT_GRAPH_MAP = 'SET_UI_PARENT_GRAPH_MAP'
 export const ADD_UI_PARENT_GRAPH_MAP = 'ADD_UI_PARENT_GRAPH_MAP'
 export const SET_UI_ACTIVE_MODAL_DIALOG = 'SET_UI_ACTIVE_MODAL_DIALOG'
 export const SET_UI_YEAR_ON_YEAR_SERIES = 'SET_UI_YEAR_ON_YEAR_SERIES'
@@ -513,20 +511,6 @@ export default (state = DEFAULT_UI, action) => {
                 },
             }
         }
-        case ADD_UI_ITEMS: {
-            // FIXME: Unused, remove?
-            const { dimensionId, itemIds } = action.value
-            const currentItemIds = state.itemsByDimension[dimensionId] || []
-            const dxItems = [...new Set([...currentItemIds, ...itemIds])]
-
-            return {
-                ...state,
-                itemsByDimension: {
-                    ...state.itemsByDimension,
-                    [dimensionId]: dxItems,
-                },
-            }
-        }
         case REMOVE_UI_ITEMS: {
             const { dimensionId, itemIdsToRemove } = action.value
 
@@ -608,12 +592,6 @@ export default (state = DEFAULT_UI, action) => {
                     [dimensionId]: dxItems,
                 },
                 itemAttributes,
-            }
-        }
-        case SET_UI_PARENT_GRAPH_MAP: {
-            return {
-                ...state,
-                parentGraphMap: action.value,
             }
         }
         case ADD_UI_PARENT_GRAPH_MAP: {

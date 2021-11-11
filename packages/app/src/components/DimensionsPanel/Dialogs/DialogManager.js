@@ -463,7 +463,6 @@ export class DialogManager extends Component {
 }
 
 DialogManager.contextTypes = {
-    d2: PropTypes.object,
     dataEngine: PropTypes.object,
 }
 
