@@ -57,7 +57,7 @@ export const VisualizationTypeSelector = (
     const getVisTypes = () => Object.keys(visTypeDisplayNames)
 
     const VisTypesList = (
-        <Card dataTest={'visualization-type-selector-card'}>
+        <div dataTest={'visualization-type-selector-card'}>
             <div className={styles.listContainer}>
                 <div className={styles.listSection}>
                     {getVisTypes().map(type => (
@@ -85,7 +85,7 @@ export const VisualizationTypeSelector = (
                     />
                 </div>
             </div>
-        </Card>
+        </div>
     )
 
     const buttonRef = createRef()

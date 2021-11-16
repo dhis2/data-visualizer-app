@@ -308,7 +308,7 @@ export class App extends Component {
                     </Modal>
                 )}
                 <Snackbar />
-                <CssVariables colors spacers />
+                <CssVariables colors spacers elevations />
             </>
         )
     }
