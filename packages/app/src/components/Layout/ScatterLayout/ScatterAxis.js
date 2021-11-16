@@ -7,6 +7,7 @@ import {
     Tooltip,
     MenuItem,
     MenuDivider,
+    IconMore16,
 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useRef, useState } from 'react'
@@ -84,7 +85,7 @@ const Axis = ({
                     style={styles.icon}
                     dataTest={`layout-chip-menu-button-${itemAttribute}`}
                 >
-                    <MoreHorizontalIcon style={styles.icon} />
+                    <IconMore16 color="var(--colors-grey700)" />
                 </IconButton>
             </div>
             {dialogIsOpen && (
