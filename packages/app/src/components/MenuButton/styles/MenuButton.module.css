@@ -3,10 +3,11 @@
     position: relative;
     align-items: center;
     justify-content: center;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 400;
     text-transform: none;
     padding: 6px 8px;
+    border-radius: 3px;
     color: var(--colors-grey900);
     min-width: 64px;
     box-sizing: border-box;
@@ -18,12 +19,30 @@
 }
 
 .menuButton:hover:enabled {
-    background-color: var(--colors-grey300);
+    background-color: var(--colors-grey200);
 }
 
 .menuButton:disabled {
     color: var(--colors-grey400);
+    cursor: not-allowed;
 }
+
+.menuButton:active {
+    background-color: var(--colors-grey300);
+}
+
 .menuButton:focus {
+    outline: 2px solid var(--colors-blue600);
+}
+
+.menuButton:focus:not(:focus-visible) {
     outline: none;
+}
+
+.menuButton svg {
+    color: var(--colors-grey600);
+}
+
+.menuButton:disabled svg {
+    color: var(--colors-grey400);
 }
