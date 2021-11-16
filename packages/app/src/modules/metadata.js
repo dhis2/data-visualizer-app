@@ -43,9 +43,9 @@ const getRelativePeriods = () => ({
 })
 
 const getOrganisationUnits = () => ({
-    [USER_ORG_UNIT]: i18n.t('User org unit'),
-    [USER_ORG_UNIT_CHILDREN]: i18n.t('User org unit children'),
-    [USER_ORG_UNIT_GRANDCHILDREN]: i18n.t('User org unit grand children'),
+    [USER_ORG_UNIT]: i18n.t('User organisation unit'),
+    [USER_ORG_UNIT_CHILDREN]: i18n.t('User sub-units'),
+    [USER_ORG_UNIT_GRANDCHILDREN]: i18n.t('User sub-x2-units'),
 })
 
 export default function () {

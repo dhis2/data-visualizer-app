@@ -132,20 +132,18 @@ export class App extends Component {
 
         const rootOrgUnits = this.props.settings.rootOrganisationUnits
 
-        this.props.addMetadata({
-            ...defaultMetadata(),
-        })
+        const metaData = { ...defaultMetadata() }
 
         rootOrgUnits.forEach(rootOrgUnit => {
             if (rootOrgUnit.id) {
-                this.props.addMetadata({
-                    [rootOrgUnit.id]: {
-                        ...rootOrgUnit,
-                        path: `/${rootOrgUnit.id}`,
-                    },
-                })
+                metaData[rootOrgUnit.id] = {
+                    ...rootOrgUnit,
+                    path: `/${rootOrgUnit.id}`,
+                }
             }
         })
+
+        this.props.addMetadata(metaData)
 
         this.loadVisualization(this.props.location)
 
