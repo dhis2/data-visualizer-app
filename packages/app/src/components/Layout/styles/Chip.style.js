@@ -39,6 +39,7 @@ export const styles = {
     },
     rightIconWrapper: {
         paddingLeft: '6px',
+        marginTop: '2px',
     },
     label: {
         whiteSpace: 'nowrap',
