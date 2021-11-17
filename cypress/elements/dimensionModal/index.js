@@ -164,8 +164,17 @@ export {
 
 export {
     expectOrgUnitDimensionModalToBeVisible,
-    clickOrgUnitTreeItem,
-    selectOrgUnitLevel,
+    expectOrgUnitItemToBeSelected,
+    selectOrgUnitTreeItem,
+    deselectOrgUnitTreeItem,
+    toggleOrgUnitLevel,
+    expectOrgUnitDimensionToNotBeLoading,
+    openOrgUnitTreeItem,
+    toggleOrgUnitGroup,
+    selectUserOrgUnit,
+    expectOrgUnitTreeToBeDisabled,
+    expectOrgUnitTreeToBeEnabled,
+    deselectUserOrgUnit,
 } from './orgUnitDimension'
 
 export {

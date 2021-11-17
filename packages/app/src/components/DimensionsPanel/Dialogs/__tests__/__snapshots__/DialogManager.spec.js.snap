@@ -26,7 +26,8 @@ exports[`The DialogManager component renders OUDimension content with display:no
       >
         <OrgUnitDimension
           onSelect={[Function]}
-          ouItems={Array []}
+          roots={Array []}
+          selected={Array []}
         />
       </div>
     </ModalContent>
@@ -77,7 +78,8 @@ exports[`The DialogManager component renders OUDimension content with display:no
       >
         <OrgUnitDimension
           onSelect={[Function]}
-          ouItems={Array []}
+          roots={Array []}
+          selected={Array []}
         />
       </div>
       <DataDimension
@@ -172,7 +174,8 @@ exports[`The DialogManager component renders the OrgUnitDimension content in dia
       >
         <OrgUnitDimension
           onSelect={[Function]}
-          ouItems={Array []}
+          roots={Array []}
+          selected={Array []}
         />
       </div>
     </ModalContent>
