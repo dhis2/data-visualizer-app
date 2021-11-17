@@ -57,7 +57,7 @@ export const VisualizationTypeSelector = (
     const getVisTypes = () => Object.keys(visTypeDisplayNames)
 
     const VisTypesList = (
-        <div dataTest={'visualization-type-selector-card'}>
+        <div data-test='visualization-type-selector-card'>
             <div className={styles.listContainer}>
                 <div className={styles.listSection}>
                     {getVisTypes().map(type => (
