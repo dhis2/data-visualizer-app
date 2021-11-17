@@ -48,10 +48,12 @@ describe('App', () => {
             ui: { rightSidebarOpen: false },
             location: { pathname: '/' },
             settings: {
-                rootOrganisationUnit: {
-                    id: 'ROOT_ORGUNIT',
-                    path: '/ROOT_ORGUNIT',
-                },
+                rootOrganisationUnits: [
+                    {
+                        id: 'ROOT_ORGUNIT',
+                        path: '/ROOT_ORGUNIT',
+                    },
+                ],
                 keyAnalysisRelativePeriod: 'LAST_12_MONTHS',
             },
 
