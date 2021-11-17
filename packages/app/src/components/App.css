@@ -63,7 +63,8 @@ body {
 .main-right {
     flex: 1 1 0%;
     max-width: 380px;
-    background-color: var(--colors-grey100);
+    background-color: var(--colors-grey200);
+    border-left: 1px solid var(--colors-grey400);
     overflow-y: auto;
     overflow-x: hidden;
 }
