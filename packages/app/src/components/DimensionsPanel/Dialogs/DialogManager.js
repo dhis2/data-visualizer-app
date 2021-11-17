@@ -41,7 +41,6 @@ import { acAddMetadata } from '../../../actions/metadata'
 import { acSetRecommendedIds } from '../../../actions/recommendedIds'
 import {
     acSetUiActiveModalDialog,
-    acRemoveUiItems,
     acSetUiItems,
     acAddParentGraphMap,
     acSetUiItemAttributes,
@@ -54,6 +53,7 @@ import {
 import { sGetDimensions } from '../../../reducers/dimensions'
 import { sGetMetadata } from '../../../reducers/metadata'
 import {
+    sGetRootOrgUnits,
     sGetSettings,
     sGetSettingsDisplayNameProperty,
 } from '../../../reducers/settings'
@@ -96,6 +96,7 @@ const getExcludedPeriodTypes = (settings = {}) => {
     return types
 }
 export class DialogManager extends Component {
+    // TODO: Convert to functional component
     state = {
         onMounted: false,
     }
@@ -220,16 +221,10 @@ export class DialogManager extends Component {
     // The OU content is persisted as mounted in order
     // to cache the org unit tree data
     renderPersistedContent = dimensionProps => {
-        const {
-            displayNameProperty,
-            ouIds,
-            metadata,
-            parentGraphMap,
-            dialogId,
-        } = this.props
+        const { ouIds, metadata, parentGraphMap, dialogId } = this.props
 
         if (this.state.ouMounted) {
-            const ouItems = this.getOrgUnitsFromIds(
+            const selected = this.getOrgUnitsFromIds(
                 ouIds,
                 metadata,
                 parentGraphMap
@@ -240,8 +235,10 @@ export class DialogManager extends Component {
             return (
                 <div key={DIMENSION_ID_ORGUNIT} style={{ display }}>
                     <OrgUnitDimension
-                        displayNameProperty={displayNameProperty}
-                        ouItems={ouItems}
+                        selected={selected}
+                        roots={this.props.rootOrgUnits.map(
+                            rootOrgUnit => rootOrgUnit.id
+                        )}
                         {...dimensionProps}
                     />
                 </div>
@@ -252,19 +249,10 @@ export class DialogManager extends Component {
     }
 
     renderDialogContent = () => {
-        const {
-            displayNameProperty,
-            dialogId,
-            type,
-            removeUiItems,
-            setUiItems,
-        } = this.props
+        const { displayNameProperty, dialogId, type } = this.props
 
         const dimensionProps = {
-            d2: this.context.d2,
             onSelect: this.selectUiItems,
-            onDeselect: removeUiItems,
-            onReorder: setUiItems,
         }
 
         const dynamicContent = () => {
@@ -475,7 +463,6 @@ export class DialogManager extends Component {
 }
 
 DialogManager.contextTypes = {
-    d2: PropTypes.object,
     dataEngine: PropTypes.object,
 }
 
@@ -494,7 +481,7 @@ DialogManager.propTypes = {
     getItemsByAttribute: PropTypes.func,
     metadata: PropTypes.object,
     parentGraphMap: PropTypes.object,
-    removeUiItems: PropTypes.func,
+    rootOrgUnits: PropTypes.array,
     selectedItems: PropTypes.object,
     setUiItemAttributes: PropTypes.func,
     setUiItems: PropTypes.func,
@@ -505,6 +492,7 @@ DialogManager.propTypes = {
 DialogManager.defaultProps = {
     dialogId: null,
     dxIds: [],
+    rootOrgUnits: [],
 }
 
 const mapStateToProps = state => ({
@@ -515,6 +503,7 @@ const mapStateToProps = state => ({
     parentGraphMap: sGetUiParentGraphMap(state),
     dxIds: sGetUiItemsByDimension(state, DIMENSION_ID_DATA),
     ouIds: sGetUiItemsByDimension(state, DIMENSION_ID_ORGUNIT),
+    rootOrgUnits: sGetRootOrgUnits(state),
     selectedItems: sGetUiItems(state),
     settings: sGetSettings(state),
     type: sGetUiType(state),
@@ -529,7 +518,6 @@ export default connect(mapStateToProps, {
     setRecommendedIds: acSetRecommendedIds,
     setUiItems: acSetUiItems,
     addMetadata: acAddMetadata,
-    removeUiItems: acRemoveUiItems,
     addParentGraphMap: acAddParentGraphMap,
     setUiItemAttributes: acSetUiItemAttributes,
 })(DialogManager)

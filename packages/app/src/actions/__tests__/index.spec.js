@@ -29,11 +29,11 @@ const dataEngineMock = new DataEngineMock()
 const middlewares = [thunk.withExtraArgument(dataEngineMock)]
 const mockStore = configureMockStore(middlewares)
 
-const rootOrganisationUnit = 'abc123'
+const rootOrganisationUnits = ['abc123']
 const relativePeriod = 'xyzpdq'
 const digitGroupSeparator = 'COMMA'
 /* eslint-disable no-import-assign, import/namespace */
-selectors.sGetRootOrgUnit = () => rootOrganisationUnit
+selectors.sGetRootOrgUnits = () => rootOrganisationUnits
 selectors.sGetRelativePeriod = () => relativePeriod
 selectors.sGetSettingsDigitGroupSeparator = () => digitGroupSeparator
 jest.mock('@dhis2/analytics', () => ({
@@ -179,7 +179,7 @@ describe('index', () => {
                 {
                     type: CLEAR_UI,
                     value: {
-                        rootOrganisationUnit,
+                        rootOrganisationUnits,
                         relativePeriod,
                         digitGroupSeparator,
                     },
@@ -210,7 +210,7 @@ describe('index', () => {
                 {
                     type: CLEAR_UI,
                     value: {
-                        rootOrganisationUnit,
+                        rootOrganisationUnits,
                         relativePeriod,
                         digitGroupSeparator,
                     },

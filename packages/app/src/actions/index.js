@@ -18,7 +18,7 @@ import history from '../modules/history'
 import { getVisualizationFromCurrent } from '../modules/visualization'
 import { sGetCurrent } from '../reducers/current'
 import {
-    sGetRootOrgUnit,
+    sGetRootOrgUnits,
     sGetRelativePeriod,
     sGetSettingsDigitGroupSeparator,
 } from '../reducers/settings'
@@ -131,13 +131,13 @@ export const clearAll =
         dispatch(fromVisualization.acClear())
         dispatch(fromCurrent.acClear())
 
-        const rootOrganisationUnit = sGetRootOrgUnit(getState())
+        const rootOrganisationUnits = sGetRootOrgUnits(getState())
         const relativePeriod = sGetRelativePeriod(getState())
         const digitGroupSeparator = sGetSettingsDigitGroupSeparator(getState())
 
         dispatch(
             fromUi.acClear({
-                rootOrganisationUnit,
+                rootOrganisationUnits,
                 relativePeriod,
                 digitGroupSeparator,
             })
