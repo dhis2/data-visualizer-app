@@ -18,7 +18,6 @@ import {
     acRemoveUiItemAttributes,
 } from '../../../actions/ui'
 import HorizontalIcon from '../../../assets/HorizontalIcon'
-import MoreHorizontalIcon from '../../../assets/MoreHorizontalIcon'
 import VerticalIcon from '../../../assets/VerticalIcon'
 import {
     ITEM_ATTRIBUTE_HORIZONTAL,
