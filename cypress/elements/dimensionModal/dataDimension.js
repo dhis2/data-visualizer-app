@@ -2,7 +2,7 @@ import { DIMENSION_ID_DATA } from '@dhis2/analytics'
 import { clearInput, typeInput } from '../common'
 import {
     expectDimensionModalToBeVisible,
-    expectSourceToBeLoading,
+    expectSourceToNotBeLoading,
     selectItemByDoubleClick,
 } from '.'
 
@@ -98,13 +98,13 @@ export const switchSubGroupTo = group => {
 export const switchDataTypeTo = dataType => {
     cy.getBySel(dataTypesSelectButtonEl).click()
     cy.getBySelLike(dataTypeSelectOptionEl).contains(dataType).click()
-    expectSourceToBeLoading()
+    expectSourceToNotBeLoading()
 }
 
 export const switchDataTypeToAll = () => {
     cy.getBySel(dataTypesSelectButtonEl).click()
     cy.getBySelLike(dataTypeSelectOptionEl).eq(0).click()
-    expectSourceToBeLoading()
+    expectSourceToNotBeLoading()
 }
 
 export const inputSearchTerm = searchTerm => {
