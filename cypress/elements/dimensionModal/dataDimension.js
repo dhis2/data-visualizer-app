@@ -47,6 +47,7 @@ export const scrollSourceToBottom = () => {
 
 export const selectDataElements = dataElements => {
     switchDataTypeTo('Data elements')
+    expectSourceToNotBeLoading()
     dataElements.forEach(item => selectItemByDoubleClick(item))
 }
 
@@ -55,6 +56,7 @@ export const selectFirstDataItem = () =>
 
 export const selectIndicators = indicators => {
     switchDataTypeTo('Indicators')
+    expectSourceToNotBeLoading()
     indicators.forEach(item => selectItemByDoubleClick(item))
 }
 
@@ -98,13 +100,11 @@ export const switchSubGroupTo = group => {
 export const switchDataTypeTo = dataType => {
     cy.getBySel(dataTypesSelectButtonEl).click()
     cy.getBySelLike(dataTypeSelectOptionEl).contains(dataType).click()
-    expectSourceToNotBeLoading()
 }
 
 export const switchDataTypeToAll = () => {
     cy.getBySel(dataTypesSelectButtonEl).click()
     cy.getBySelLike(dataTypeSelectOptionEl).eq(0).click()
-    expectSourceToNotBeLoading()
 }
 
 export const inputSearchTerm = searchTerm => {
