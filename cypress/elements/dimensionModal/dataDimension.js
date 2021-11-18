@@ -1,6 +1,10 @@
 import { DIMENSION_ID_DATA } from '@dhis2/analytics'
 import { clearInput, typeInput } from '../common'
-import { expectDimensionModalToBeVisible, selectItemByDoubleClick } from '.'
+import {
+    expectDimensionModalToBeVisible,
+    expectSourceToBeLoading,
+    selectItemByDoubleClick,
+} from '.'
 
 const optionContentEl = 'data-dimension-transfer-option-content'
 const selectableItemsEl = 'data-dimension-transfer-sourceoptions'
@@ -94,11 +98,13 @@ export const switchSubGroupTo = group => {
 export const switchDataTypeTo = dataType => {
     cy.getBySel(dataTypesSelectButtonEl).click()
     cy.getBySelLike(dataTypeSelectOptionEl).contains(dataType).click()
+    expectSourceToBeLoading()
 }
 
 export const switchDataTypeToAll = () => {
     cy.getBySel(dataTypesSelectButtonEl).click()
     cy.getBySelLike(dataTypeSelectOptionEl).eq(0).click()
+    expectSourceToBeLoading()
 }
 
 export const inputSearchTerm = searchTerm => {
