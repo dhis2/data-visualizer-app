@@ -18,5 +18,5 @@ export const CHIP_FONT_SIZE = '14px'
 export const CHIP_BACKGROUND_COLOR = theme.secondary200
 export const CHIP_HEIGHT = '14px'
 export const CHIP_MARGIN = '4px'
-export const CHIP_PADDING = '1px 6px'
+export const CHIP_PADDING = '1px 2px 1px 6px'
 export const CHIP_BORDER_RADIUS = '2px'
