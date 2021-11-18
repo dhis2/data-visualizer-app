@@ -1,3 +1,10 @@
+## [38.1.1](https://github.com/dhis2/data-visualizer-app/compare/v38.1.0...v38.1.1) (2021-11-18)
+
+
+### Bug Fixes
+
+* UI tweaks ([#1949](https://github.com/dhis2/data-visualizer-app/issues/1949)) ([d6a7dad](https://github.com/dhis2/data-visualizer-app/commit/d6a7dade2eb3cb5e58cb0c07616b40af6446ed7d))
+
 # [38.1.0](https://github.com/dhis2/data-visualizer-app/compare/v38.0.19...v38.1.0) (2021-11-17)
 
 
