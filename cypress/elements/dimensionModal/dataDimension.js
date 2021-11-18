@@ -1,6 +1,10 @@
 import { DIMENSION_ID_DATA } from '@dhis2/analytics'
 import { clearInput, typeInput } from '../common'
-import { expectDimensionModalToBeVisible, selectItemByDoubleClick } from '.'
+import {
+    expectDimensionModalToBeVisible,
+    expectSourceToNotBeLoading,
+    selectItemByDoubleClick,
+} from '.'
 
 const optionContentEl = 'data-dimension-transfer-option-content'
 const selectableItemsEl = 'data-dimension-transfer-sourceoptions'
@@ -43,6 +47,7 @@ export const scrollSourceToBottom = () => {
 
 export const selectDataElements = dataElements => {
     switchDataTypeTo('Data elements')
+    expectSourceToNotBeLoading()
     dataElements.forEach(item => selectItemByDoubleClick(item))
 }
 
@@ -51,6 +56,7 @@ export const selectFirstDataItem = () =>
 
 export const selectIndicators = indicators => {
     switchDataTypeTo('Indicators')
+    expectSourceToNotBeLoading()
     indicators.forEach(item => selectItemByDoubleClick(item))
 }
 
