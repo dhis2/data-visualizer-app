@@ -15,6 +15,7 @@ import {
     FONT_STYLE_HORIZONTAL_AXIS_TITLE,
     FONT_STYLE_VERTICAL_AXIS_TITLE,
     FONT_STYLE_REGRESSION_LINE_LABEL,
+    USER_ORG_UNIT,
 } from '@dhis2/analytics'
 import objectClean from 'd2-utilizr/lib/objectClean'
 import castArray from 'lodash-es/castArray'
@@ -65,9 +66,7 @@ export const SET_UI_LAYOUT = 'SET_UI_LAYOUT'
 export const ADD_UI_LAYOUT_DIMENSIONS = 'ADD_UI_LAYOUT_DIMENSIONS'
 export const REMOVE_UI_LAYOUT_DIMENSIONS = 'REMOVE_UI_LAYOUT_DIMENSIONS'
 export const SET_UI_ITEMS = 'SET_UI_ITEMS'
-export const ADD_UI_ITEMS = 'ADD_UI_ITEMS'
 export const REMOVE_UI_ITEMS = 'REMOVE_UI_ITEMS'
-export const SET_UI_PARENT_GRAPH_MAP = 'SET_UI_PARENT_GRAPH_MAP'
 export const ADD_UI_PARENT_GRAPH_MAP = 'ADD_UI_PARENT_GRAPH_MAP'
 export const SET_UI_ACTIVE_MODAL_DIALOG = 'SET_UI_ACTIVE_MODAL_DIALOG'
 export const SET_UI_YEAR_ON_YEAR_SERIES = 'SET_UI_YEAR_ON_YEAR_SERIES'
@@ -108,17 +107,16 @@ export const PRESELECTED_YEAR_OVER_YEAR_SERIES = ['THIS_YEAR', 'LAST_YEAR']
 export const PRESELECTED_YEAR_OVER_YEAR_CATEGORY = ['MONTHS_THIS_YEAR']
 
 const getPreselectedUi = options => {
-    const { rootOrganisationUnit, relativePeriod, digitGroupSeparator } =
+    const { rootOrganisationUnits, relativePeriod, digitGroupSeparator } =
         options
 
-    const rootOrganisationUnits = []
     const parentGraphMap = { ...DEFAULT_UI.parentGraphMap }
 
-    if (rootOrganisationUnit && rootOrganisationUnit.id) {
-        rootOrganisationUnits.push(rootOrganisationUnit.id)
-
-        parentGraphMap[rootOrganisationUnit.id] = ''
-    }
+    rootOrganisationUnits.forEach(root => {
+        if (root.id) {
+            parentGraphMap[root.id] = ''
+        }
+    })
 
     return {
         ...DEFAULT_UI,
@@ -128,7 +126,7 @@ const getPreselectedUi = options => {
         },
         itemsByDimension: {
             ...DEFAULT_UI.itemsByDimension,
-            [DIMENSION_ID_ORGUNIT]: rootOrganisationUnits,
+            [DIMENSION_ID_ORGUNIT]: [USER_ORG_UNIT],
             [DIMENSION_ID_PERIOD]: [relativePeriod],
         },
         yearOverYearSeries: PRESELECTED_YEAR_OVER_YEAR_SERIES,
@@ -513,20 +511,6 @@ export default (state = DEFAULT_UI, action) => {
                 },
             }
         }
-        case ADD_UI_ITEMS: {
-            // FIXME: Unused, remove?
-            const { dimensionId, itemIds } = action.value
-            const currentItemIds = state.itemsByDimension[dimensionId] || []
-            const dxItems = [...new Set([...currentItemIds, ...itemIds])]
-
-            return {
-                ...state,
-                itemsByDimension: {
-                    ...state.itemsByDimension,
-                    [dimensionId]: dxItems,
-                },
-            }
-        }
         case REMOVE_UI_ITEMS: {
             const { dimensionId, itemIdsToRemove } = action.value
 
@@ -608,12 +592,6 @@ export default (state = DEFAULT_UI, action) => {
                     [dimensionId]: dxItems,
                 },
                 itemAttributes,
-            }
-        }
-        case SET_UI_PARENT_GRAPH_MAP: {
-            return {
-                ...state,
-                parentGraphMap: action.value,
             }
         }
         case ADD_UI_PARENT_GRAPH_MAP: {

@@ -8,10 +8,8 @@ import {
     ADD_UI_LAYOUT_DIMENSIONS,
     REMOVE_UI_LAYOUT_DIMENSIONS,
     SET_UI_ITEMS,
-    ADD_UI_ITEMS,
     REMOVE_UI_ITEMS,
     ADD_UI_PARENT_GRAPH_MAP,
-    SET_UI_PARENT_GRAPH_MAP,
     SET_UI_ACTIVE_MODAL_DIALOG,
     SET_UI_YEAR_ON_YEAR_SERIES,
     SET_UI_YEAR_ON_YEAR_CATEGORY,
@@ -87,11 +85,6 @@ export const acSetUiItems = value => ({
     value,
 })
 
-export const acAddUiItems = value => ({
-    type: ADD_UI_ITEMS,
-    value,
-})
-
 export const acRemoveUiItems = value => ({
     type: REMOVE_UI_ITEMS,
     value,
@@ -119,11 +112,6 @@ export const acRemoveUiItemAttributes = value => ({
 
 export const acAddParentGraphMap = value => ({
     type: ADD_UI_PARENT_GRAPH_MAP,
-    value,
-})
-
-export const acSetParentGraphMap = value => ({
-    type: SET_UI_PARENT_GRAPH_MAP,
     value,
 })
 

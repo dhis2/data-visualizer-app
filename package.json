@@ -2,7 +2,7 @@
     "name": "data-visualizer",
     "description": "DHIS2 Data Visualizer",
     "private": true,
-    "version": "38.0.19",
+    "version": "38.1.1",
     "workspaces": [
         "packages/*"
     ],
@@ -17,15 +17,15 @@
         "loglevel": "^1.7.1"
     },
     "scripts": {
-        "build-plugin": "cd packages/plugin && yarn build",
-        "build-app": "cd packages/app && yarn build",
+        "build-plugin": "yarn --cwd packages/plugin build",
+        "build-app": "yarn --cwd packages/app build",
         "build": "yarn build-plugin && yarn build-app",
         "lint": "d2-style check",
         "format": "d2-style apply",
-        "start-app": "cd packages/app && yarn start",
+        "start-app": "yarn --cwd packages/app start",
         "start": "concurrently -n plugin,app \"yarn build-plugin --watch\" \"yarn start-app\"",
-        "test-plugin": "cd packages/plugin && yarn test",
-        "test-app": "cd packages/app && yarn test",
+        "test-plugin": "yarn --cwd packages/plugin test",
+        "test-app": "yarn --cwd packages/app test",
         "test": "yarn test-plugin && yarn test-app",
         "coverage": "yarn test-plugin --coverage && yarn test-app --coverage",
         "validate-commit": "d2-style check --staged",

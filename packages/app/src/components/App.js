@@ -18,6 +18,7 @@ import {
 } from '../api/userDataStore'
 import Snackbar from '../components/Snackbar/Snackbar'
 import history from '../modules/history'
+import defaultMetadata from '../modules/metadata'
 import { getParentGraphMapFromVisualization } from '../modules/ui'
 import { STATE_DIRTY, getVisualizationState } from '../modules/visualization'
 import * as fromReducers from '../reducers'
@@ -129,16 +130,20 @@ export class App extends Component {
         this.props.loadUserAuthority(APPROVAL_LEVEL_OPTION_AUTH)
         this.props.setDimensions()
 
-        const rootOrgUnit = this.props.settings.rootOrganisationUnit
+        const rootOrgUnits = this.props.settings.rootOrganisationUnits
 
-        if (rootOrgUnit && rootOrgUnit.id) {
-            this.props.addMetadata({
-                [rootOrgUnit.id]: {
+        const metaData = { ...defaultMetadata() }
+
+        rootOrgUnits.forEach(rootOrgUnit => {
+            if (rootOrgUnit.id) {
+                metaData[rootOrgUnit.id] = {
                     ...rootOrgUnit,
                     path: `/${rootOrgUnit.id}`,
-                },
-            })
-        }
+                }
+            }
+        })
+
+        this.props.addMetadata(metaData)
 
         this.loadVisualization(this.props.location)
 
@@ -306,7 +311,7 @@ export class App extends Component {
                     </Modal>
                 )}
                 <Snackbar />
-                <CssVariables colors spacers />
+                <CssVariables colors spacers elevations />
             </>
         )
     }

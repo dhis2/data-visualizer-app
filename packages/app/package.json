@@ -1,25 +1,25 @@
 {
     "name": "data-visualizer-app",
-    "version": "38.0.19",
+    "version": "38.1.1",
     "description": "DHIS2 Data Visualizer app",
     "license": "BSD-3-Clause",
     "private": true,
     "homepage": ".",
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^7.6.4",
+        "@dhis2/cli-app-scripts": "^8.3.0",
         "@dhis2/cli-utils-cypress": "^7.0.0",
         "@dhis2/cypress-commands": "^5.0.0",
         "eslint-plugin-cypress": "^2.11.3",
         "redux-mock-store": "^1.5.4"
     },
     "dependencies": {
-        "@dhis2/analytics": "^20.5.0",
-        "@dhis2/app-runtime": "^2.11.0",
+        "@dhis2/analytics": "^21.0.0",
+        "@dhis2/app-runtime": "^3.2.0",
         "@dhis2/app-runtime-adapter-d2": "^1.1.0",
         "@dhis2/d2-i18n": "^1.1.0",
         "@dhis2/d2-ui-interpretations": "^7.3.1",
-        "@dhis2/data-visualizer-plugin": "38.0.19",
-        "@dhis2/ui": "^6.23.5",
+        "@dhis2/data-visualizer-plugin": "38.1.1",
+        "@dhis2/ui": "^7.7.3",
         "d2": "^31.9.1",
         "history": "^4.7.2",
         "lodash-es": "^4.17.21",
@@ -38,7 +38,7 @@
     },
     "scripts": {
         "start": "d2-app-scripts start",
-        "build": "d2-app-scripts build",
+        "build": "d2-app-scripts build --verbose",
         "test": "d2-app-scripts test",
         "coverage": "npm run test --coverage"
     },

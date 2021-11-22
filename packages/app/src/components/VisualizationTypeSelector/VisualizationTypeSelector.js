@@ -1,6 +1,6 @@
 import { visTypeDisplayNames, visTypeDescriptions } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
-import { Card, Divider, Popper, Layer } from '@dhis2/ui'
+import { Divider, Popper, Layer } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState, createRef } from 'react'
 import { connect } from 'react-redux'
@@ -57,7 +57,7 @@ export const VisualizationTypeSelector = (
     const getVisTypes = () => Object.keys(visTypeDisplayNames)
 
     const VisTypesList = (
-        <Card dataTest={'visualization-type-selector-card'}>
+        <div data-test="visualization-type-selector-card">
             <div className={styles.listContainer}>
                 <div className={styles.listSection}>
                     {getVisTypes().map(type => (
@@ -85,7 +85,7 @@ export const VisualizationTypeSelector = (
                     />
                 </div>
             </div>
-        </Card>
+        </div>
     )
 
     const buttonRef = createRef()

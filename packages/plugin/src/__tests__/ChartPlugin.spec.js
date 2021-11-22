@@ -34,13 +34,6 @@ const ouMock = {
     ],
 }
 
-const yearOverYearCurrentMock = {
-    type: analytics.VIS_TYPE_YEAR_OVER_YEAR_LINE,
-    columns: [dxMock],
-    rows: [peMock],
-    yearlySeries: ['LAST_YEAR'],
-}
-
 const mockExtraOptions = {
     dashboard: false,
     noData: {
@@ -158,15 +151,6 @@ describe('ChartPlugin', () => {
                     createVisualizationMock.visualization.getSVGForExport()
                 )
                 done()
-            })
-        })
-
-        describe('Year-on-year chart', () => {
-            beforeEach(() => {
-                props.visualization = {
-                    ...yearOverYearCurrentMock,
-                    option1: 'def',
-                }
             })
         })
 

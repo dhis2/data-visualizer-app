@@ -9,7 +9,6 @@ import { Droppable, Draggable } from 'react-beautiful-dnd'
 import { connect } from 'react-redux'
 import { acSetUiActiveModalDialog } from '../../../actions/ui'
 import {
-    sGetUi,
     sGetUiItemsByDimension,
     sGetUiLayout,
     sGetUiType,
@@ -129,11 +128,9 @@ Axis.propTypes = {
     layout: PropTypes.object,
     style: PropTypes.object,
     type: PropTypes.string,
-    ui: PropTypes.object,
 }
 
 const mapStateToProps = state => ({
-    ui: sGetUi(state),
     type: sGetUiType(state),
     layout: sGetUiLayout(state),
     getItemsByDimension: dimensionId =>
@@ -149,7 +146,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => ({
     ...stateProps,
     ...dispatchProps,
     ...ownProps,
-    axis: stateProps.ui.layout[ownProps.axisId],
+    axis: stateProps.layout[ownProps.axisId],
 })
 
 export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(Axis)

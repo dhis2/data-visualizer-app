@@ -146,7 +146,7 @@ class MeasureCriteria extends Component {
                     </div>
                 </div>
                 <div style={{ paddingTop: '16px' }}>
-                    <Button onClick={this.onClear}>
+                    <Button small onClick={this.onClear}>
                         {i18n.t('Clear min/max limits')}
                     </Button>
                 </div>

@@ -63,7 +63,7 @@ describe('reducer: ui', () => {
 
     it(`${ui.CLEAR_UI} sets the preselected state`, () => {
         const settings = {
-            rootOrganisationUnit: { id: 'ROOT_ORGUNIT' },
+            rootOrganisationUnits: [{ id: 'USER_ORG_UNIT' }],
             relativePeriod: 'SYSTEM_RELATIVE_PERIOD',
             digitGroupSeparator: 'SPACE',
         }
@@ -81,11 +81,11 @@ describe('reducer: ui', () => {
             },
             parentGraphMap: {
                 ...ui.DEFAULT_UI.parentGraphMap,
-                [settings.rootOrganisationUnit.id]: '',
+                [settings.rootOrganisationUnits[0].id]: '',
             },
             itemsByDimension: {
                 ...ui.DEFAULT_UI.itemsByDimension,
-                [DIMENSION_ID_ORGUNIT]: [settings.rootOrganisationUnit.id],
+                [DIMENSION_ID_ORGUNIT]: ['USER_ORGUNIT'],
                 [DIMENSION_ID_PERIOD]: [settings.relativePeriod],
             },
             yearOverYearSeries: ui.PRESELECTED_YEAR_OVER_YEAR_SERIES,
@@ -453,74 +453,6 @@ describe('reducer: ui', () => {
             )
         })
 
-        it(`${ui.ADD_UI_ITEMS} adds single item to dx`, () => {
-            const dx = ['abc']
-
-            const value = {
-                dimensionId: DIMENSION_ID_DATA,
-                itemIds: dx,
-            }
-            const expectedState = dx
-            const actualState = reducer(ui.DEFAULT_UI, {
-                type: ui.ADD_UI_ITEMS,
-                value,
-            })
-
-            expect(actualState.itemsByDimension[DIMENSION_ID_DATA]).toEqual(
-                expectedState
-            )
-        })
-
-        it(`${ui.ADD_UI_ITEMS} adds several items to dx`, () => {
-            const dx1 = 'abc'
-            const dx2 = 'def'
-
-            const value = {
-                dimensionId: DIMENSION_ID_DATA,
-                itemIds: [dx1, dx2],
-            }
-            const expectedState = [dx1, dx2]
-            const actualState = reducer(ui.DEFAULT_UI, {
-                type: ui.ADD_UI_ITEMS,
-                value,
-            })
-
-            expect(actualState.itemsByDimension[DIMENSION_ID_DATA]).toEqual(
-                expectedState
-            )
-        })
-
-        it(`${ui.ADD_UI_ITEMS} adds pre-existing items to dx`, () => {
-            const dx1 = 'abc'
-            const dx2 = 'def'
-
-            const defaultIBD = Object.assign(
-                {},
-                { ...ui.DEFAULT_UI.itemsByDimension },
-                { [DIMENSION_ID_DATA]: [dx1] }
-            )
-
-            const startingState = Object.assign(
-                {},
-                { ...ui.DEFAULT_UI },
-                { itemsByDimension: defaultIBD }
-            )
-
-            const value = {
-                dimensionId: DIMENSION_ID_DATA,
-                itemIds: [dx1, dx2],
-            }
-            const expectedState = [dx1, dx2]
-            const actualState = reducer(startingState, {
-                type: ui.ADD_UI_ITEMS,
-                value,
-            })
-
-            expect(actualState.itemsByDimension[DIMENSION_ID_DATA]).toEqual(
-                expectedState
-            )
-        })
-
         it(`${ui.REMOVE_UI_ITEMS} removes items from dx`, () => {
             const dx1 = 'abc'
             const dx2 = 'def'
@@ -585,18 +517,6 @@ describe('reducer: ui', () => {
         expect(actualState).toEqual(expectedState)
     })
 
-    it(`${ui.SET_UI_PARENT_GRAPH_MAP} sets the new parent graph map`, () => {
-        const graphMapToSet = {
-            abc: 'Silly district',
-        }
-        const actualState = reducer(ui.DEFAULT_UI, {
-            type: ui.SET_UI_PARENT_GRAPH_MAP,
-            value: graphMapToSet,
-        })
-
-        expect(actualState.parentGraphMap).toEqual(graphMapToSet)
-    })
-
     it(`${ui.ADD_UI_PARENT_GRAPH_MAP} adds to the parent graph map`, () => {
         const currentGraphMap = {
             bcd: 'Very silly district',
@@ -605,7 +525,7 @@ describe('reducer: ui', () => {
             abc: 'Silly district',
         }
         const testState = reducer(ui.DEFAULT_UI, {
-            type: ui.SET_UI_PARENT_GRAPH_MAP,
+            type: ui.ADD_UI_PARENT_GRAPH_MAP,
             value: currentGraphMap,
         })
         const actualState = reducer(testState, {

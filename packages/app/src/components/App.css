@@ -2,7 +2,7 @@
 
 .data-visualizer-app {
     height: 100%;
-    background-color: #f4f6f8;
+    background-color: var(--colors-grey100);
     overflow: hidden;
 }
 .data-visualizer-app * {
@@ -45,25 +45,26 @@ body {
 
 .toolbar-type {
     width: 260px;
-    border-right: 1px solid #e0e2e4;
-    border-bottom: 1px solid #e0e2e4;
+    border-right: 1px solid var(--colors-grey300);
+    border-bottom: 1px solid var(--colors-grey400);
 }
 
 .toolbar-menubar {
-    background-color: #ddd;
+    background-color: var(--colors-grey400);
 }
 
 /* Main */
 
 .main-left {
     min-width: 260px;
-    border-right: 1px solid #e0e2e4;
+    border-right: 1px solid var(--colors-grey400);
 }
 
 .main-right {
     flex: 1 1 0%;
     max-width: 380px;
-    background-color: #f0f2f4;
+    background-color: var(--colors-grey200);
+    border-left: 1px solid var(--colors-grey400);
     overflow-y: auto;
     overflow-x: hidden;
 }

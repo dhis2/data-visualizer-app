@@ -1,3 +1,17 @@
+## [38.1.1](https://github.com/dhis2/data-visualizer-app/compare/v38.1.0...v38.1.1) (2021-11-18)
+
+
+### Bug Fixes
+
+* UI tweaks ([#1949](https://github.com/dhis2/data-visualizer-app/issues/1949)) ([d6a7dad](https://github.com/dhis2/data-visualizer-app/commit/d6a7dade2eb3cb5e58cb0c07616b40af6446ed7d))
+
+# [38.1.0](https://github.com/dhis2/data-visualizer-app/compare/v38.0.19...v38.1.0) (2021-11-17)
+
+
+### Features
+
+* new org unit dimension (TECH-707) ([#1939](https://github.com/dhis2/data-visualizer-app/issues/1939)) ([08486c0](https://github.com/dhis2/data-visualizer-app/commit/08486c0583b22a5eb8df021a58753d23387fc058))
+
 ## [38.0.19](https://github.com/dhis2/data-visualizer-app/compare/v38.0.18...v38.0.19) (2021-10-05)
 
 
