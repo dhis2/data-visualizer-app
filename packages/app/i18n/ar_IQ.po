@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-09-28T07:35:40.207Z\n"
+"POT-Creation-Date: 2021-11-16T13:39:36.158Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2020\n"
 "Language-Team: Arabic (Iraq) (https://www.transifex.com/hisp-uio/teams/100509/ar_IQ/)\n"
@@ -898,13 +898,13 @@ msgstr "السنة الماضية"
 msgid "Last 5 years"
 msgstr "آخر 5 سنوات"
 
-msgid "User org unit"
-msgstr "الوحدة التنظيمية للمستخدم"
-
-msgid "User org unit children"
+msgid "User organisation unit"
 msgstr ""
 
-msgid "User org unit grand children"
+msgid "User sub-units"
+msgstr ""
+
+msgid "User sub-x2-units"
 msgstr ""
 
 msgid "Table title"

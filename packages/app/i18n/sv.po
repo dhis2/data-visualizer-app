@@ -1,14 +1,14 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2020
 # phil_dhis2, 2020
+# Viktor Varland <viktor@dhis2.org>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-09-28T07:35:40.207Z\n"
+"POT-Creation-Date: 2021-11-16T13:39:36.158Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: phil_dhis2, 2020\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2021\n"
 "Language-Team: Swedish (https://www.transifex.com/hisp-uio/teams/100509/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -899,14 +899,14 @@ msgstr "Förra året"
 msgid "Last 5 years"
 msgstr "Senaste 5 år"
 
-msgid "User org unit"
-msgstr ""
+msgid "User organisation unit"
+msgstr "Användare organisation enheter"
 
-msgid "User org unit children"
-msgstr ""
+msgid "User sub-units"
+msgstr "Användarunderenheter"
 
-msgid "User org unit grand children"
-msgstr ""
+msgid "User sub-x2-units"
+msgstr "Användarunder x2-enheter"
 
 msgid "Table title"
 msgstr ""

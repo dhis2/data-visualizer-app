@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-09-28T07:35:40.207Z\n"
+"POT-Creation-Date: 2021-11-16T13:39:36.158Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: trendspotter <jirka.p@volny.cz>, 2021\n"
 "Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
@@ -944,14 +944,14 @@ msgstr "Poslední rok"
 msgid "Last 5 years"
 msgstr "Posledních 5 let"
 
-msgid "User org unit"
+msgid "User organisation unit"
 msgstr "Organizační jednotka uživatele"
 
-msgid "User org unit children"
-msgstr "Uživatel podřízené uživatelské jednotky"
+msgid "User sub-units"
+msgstr "Podjednotky uživatele"
 
-msgid "User org unit grand children"
-msgstr " Uživatel druhé podřazené úrovně organizační jednotky"
+msgid "User sub-x2-units"
+msgstr "Jednotky 2. řádu uživatele"
 
 msgid "Table title"
 msgstr "Název tabulky"
