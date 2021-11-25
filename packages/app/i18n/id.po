@@ -2,16 +2,16 @@
 # Translators:
 # Farida Sibuea <farida_sibuea@yahoo.com>, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
-# Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2020
 # Yusuf Setiawan <mohammadyusufsetiawan@gmail.com>, 2021
 # Untoro Dwi Raharjo <untoro.dwi.raharjo@mail.ugm.ac.id>, 2021
+# Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-08-12T10:01:59.854Z\n"
+"POT-Creation-Date: 2021-11-16T13:39:36.158Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Untoro Dwi Raharjo <untoro.dwi.raharjo@mail.ugm.ac.id>, 2021\n"
+"Last-Translator: Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2021\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -952,14 +952,14 @@ msgstr "Tahun lalu"
 msgid "Last 5 years"
 msgstr "5 tahun terakhir"
 
-msgid "User org unit"
-msgstr "Org unit user"
+msgid "User organisation unit"
+msgstr ""
 
-msgid "User org unit children"
-msgstr "Sub org unit user"
+msgid "User sub-units"
+msgstr "Subunit pengguna"
 
-msgid "User org unit grand children"
-msgstr "Sub-sub org unit pengguna"
+msgid "User sub-x2-units"
+msgstr "Sub-x2-unit pengguna"
 
 msgid "Table title"
 msgstr "Judul tabel"
