@@ -23,7 +23,7 @@ const query = {
         params: {
             order: 'level:asc',
             fields: 'id,displayName~rename(name),level',
-            paging: false,
+            paging: 'false',
         },
     },
 }

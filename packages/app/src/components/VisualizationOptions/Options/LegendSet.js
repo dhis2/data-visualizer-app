@@ -20,7 +20,7 @@ const query = {
                 'displayName~rename(name)',
                 'legends[id,displayName~rename(name),startValue,endValue,color]',
             ],
-            paging: false,
+            paging: 'false',
         },
     },
 }
