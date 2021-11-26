@@ -1,3 +1,10 @@
+## [34.6.76](https://github.com/dhis2/data-visualizer-app/compare/v34.6.75...v34.6.76) (2021-11-26)
+
+
+### Bug Fixes
+
+* fix paging query parameter passed to dataQuery (DHIS2-11913) ([#1958](https://github.com/dhis2/data-visualizer-app/issues/1958)) ([e3db94c](https://github.com/dhis2/data-visualizer-app/commit/e3db94c2156ad3ea85ddeee40e9e0f4eb8edc20e))
+
 ## [34.6.75](https://github.com/dhis2/data-visualizer-app/compare/v34.6.74...v34.6.75) (2021-11-25)
 
 
