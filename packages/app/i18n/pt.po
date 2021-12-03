@@ -1,17 +1,17 @@
 # 
 # Translators:
-# Sheila André <sandre@saudigitus.org>, 2020
 # phil_dhis2, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
 # Ge Joao <gsimango@saudigitus.org>, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
+# Sheila André <sandre@saudigitus.org>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-11-16T13:39:36.158Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2021\n"
+"Last-Translator: Sheila André <sandre@saudigitus.org>, 2021\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -991,7 +991,7 @@ msgid "Titles"
 msgstr "Titulos"
 
 msgid "Axes"
-msgstr "Machados"
+msgstr "Eixos"
 
 msgid "Data"
 msgstr "Dados"
