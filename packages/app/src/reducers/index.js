@@ -43,8 +43,8 @@ export {
     fromChart,
 }
 
-export const sGetSeriesSetupItems = state =>
-    fromUi.sGetAxisSetup(state).map(item => ({
+export const sGetSeriesSetupItems = (state) =>
+    fromUi.sGetAxisSetup(state).map((item) => ({
         dimensionItem: item.id,
         axis: item.axis,
         name: fromMetadata.sGetMetadata(state)[item.id]?.name,

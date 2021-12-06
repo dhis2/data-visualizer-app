@@ -52,7 +52,7 @@ export const DownloadMenu = ({
     const { baseUrl } = useConfig()
     const [menuIsOpen, setMenuIsOpen] = useState(false)
 
-    const onKeyDown = e => {
+    const onKeyDown = (e) => {
         if (e?.keyCode === 27) {
             setMenuIsOpen(false)
         }
@@ -60,7 +60,7 @@ export const DownloadMenu = ({
 
     const toggleMenu = () => setMenuIsOpen(!menuIsOpen)
 
-    const downloadImage = format => async () => {
+    const downloadImage = (format) => async () => {
         const formData = new URLSearchParams()
 
         formData.append('filename', current.name)
@@ -97,7 +97,7 @@ export const DownloadMenu = ({
         window.open(url, format.match(/(xls|csv)/) ? '_top' : '_blank')
     }
 
-    const downloadTable = format => async () => {
+    const downloadTable = (format) => async () => {
         const url = await apiDownloadTable({
             baseUrl,
             dataEngine,
@@ -146,7 +146,7 @@ export const DownloadMenu = ({
             />,
         ])
 
-    const plainDataSourceSubLevel = format =>
+    const plainDataSourceSubLevel = (format) =>
         React.Children.toArray([
             <MenuSectionHeader label={i18n.t('Metadata ID scheme')} />,
             <DenseMenuItem
@@ -241,7 +241,7 @@ export const DownloadMenu = ({
 
 const relativePeriodDateSelector = createSelector(
     [sGetUiInterpretation],
-    interpretation => interpretation.created || undefined
+    (interpretation) => interpretation.created || undefined
 )
 
 DownloadMenu.propTypes = {
@@ -253,7 +253,7 @@ DownloadMenu.propTypes = {
     visType: PropTypes.string,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     current: sGetCurrent(state),
     relativePeriodDate: relativePeriodDateSelector(state),
     rows: sGetUiLayout(state).rows,

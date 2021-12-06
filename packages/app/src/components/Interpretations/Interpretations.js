@@ -11,7 +11,7 @@ import { sGetUiInterpretation } from '../../reducers/ui'
 import styles from './styles/Interpretations.style'
 
 export class Interpretations extends Component {
-    onInterpretationChange = interpretation => {
+    onInterpretationChange = (interpretation) => {
         if (interpretation) {
             const interpretationUrl = `/${this.props.id}/interpretation/${interpretation.id}`
 
@@ -68,7 +68,7 @@ Interpretations.contextTypes = {
     d2: PropTypes.object,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     interpretationId: sGetUiInterpretation(state).id || null,
 })
 

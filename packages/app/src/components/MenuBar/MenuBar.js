@@ -14,7 +14,7 @@ import UpdateVisualizationContainer from '../UpdateButton/UpdateVisualizationCon
 import VisualizationOptionsManager from '../VisualizationOptions/VisualizationOptionsManager'
 import styles from './styles/MenuBar.module.css'
 
-const onOpen = id => {
+const onOpen = (id) => {
     const path = `/${id}`
     if (history.location.pathname === path) {
         history.replace({ pathname: path, state: { isOpening: true } })
@@ -29,16 +29,18 @@ const onNew = () => {
         history.push('/')
     }
 }
-const getOnRename = props => details => props.onRenameVisualization(details)
-const getOnSave = props => details => props.onSaveVisualization(details, false)
-const getOnSaveAs = props => details => props.onSaveVisualization(details, true)
-const getOnDelete = props => () => props.onDeleteVisualization()
-const getOnError = props => error => props.onError(error)
+const getOnRename = (props) => (details) => props.onRenameVisualization(details)
+const getOnSave = (props) => (details) =>
+    props.onSaveVisualization(details, false)
+const getOnSaveAs = (props) => (details) =>
+    props.onSaveVisualization(details, true)
+const getOnDelete = (props) => () => props.onDeleteVisualization()
+const getOnError = (props) => (error) => props.onError(error)
 
 export const MenuBar = ({ dataTest, ...props }, context) => (
     <div className={styles.menuBar} data-test={dataTest}>
         <UpdateVisualizationContainer
-            renderComponent={handler => (
+            renderComponent={(handler) => (
                 <UpdateButton
                     className={styles.updateButton}
                     small
@@ -76,17 +78,17 @@ MenuBar.contextTypes = {
     d2: PropTypes.object,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     current: sGetCurrent(state),
 })
 
-const mapDispatchToProps = dispatch => ({
-    onRenameVisualization: details =>
+const mapDispatchToProps = (dispatch) => ({
+    onRenameVisualization: (details) =>
         dispatch(fromActions.tDoRenameVisualization(details)),
     onSaveVisualization: (details = {}, copy) =>
         dispatch(fromActions.tDoSaveVisualization(details, copy)),
     onDeleteVisualization: () => dispatch(fromActions.tDoDeleteVisualization()),
-    onError: error => {
+    onError: (error) => {
         const message =
             error.errorCode === 'E4030'
                 ? i18n.t(

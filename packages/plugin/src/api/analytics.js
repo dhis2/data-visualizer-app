@@ -81,7 +81,7 @@ export const apiFetchAnalyticsForYearOverYear = async (
         yearlySeriesRes.metaData.dimensions[periodId]
             .sort()
             .reverse()
-            .forEach(year => {
+            .forEach((year) => {
                 yearlySeriesLabels.push(
                     yearlySeriesRes.metaData.items[year].name
                 )
@@ -102,8 +102,8 @@ export const apiFetchAnalyticsForYearOverYear = async (
         return list
     }, [])
 
-    return Promise.all(requests).then(responses => ({
-        responses: responses.map(res => new analyticsEngine.response(res)),
+    return Promise.all(requests).then((responses) => ({
+        responses: responses.map((res) => new analyticsEngine.response(res)),
         yearlySeriesLabels,
     }))
 }
@@ -123,7 +123,7 @@ const prepareRequestsForRelativeDays = ({
 
     const isFeb29 = currentMonth === '02' && currentDay === '29'
 
-    yearlySeriesIds.forEach(year => {
+    yearlySeriesIds.forEach((year) => {
         yearlySeriesLabels.push(yearlySeriesRes.metaData.items[year].name)
 
         const isLeapYear = new Date(year, 1, 29).getDate() === 29
@@ -230,7 +230,7 @@ const prepareRequestsForRelativeWeeks = async ({
         weekPeriodsRes.metaData.dimensions[periodId]
             .sort()
             .reverse()
-            .forEach(period => {
+            .forEach((period) => {
                 const year = period.substr(0, 4)
 
                 // make sure we only take W53 or W52 whichever is available

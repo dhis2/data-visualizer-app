@@ -3,7 +3,7 @@ import i18n from '@dhis2/d2-i18n'
 import React from 'react'
 import ColorSet from '../../../components/VisualizationOptions/Options/ColorSet'
 
-export default hasDisabledSections => ({
+export default (hasDisabledSections) => ({
     key: 'style-color-set',
     label: i18n.t('Color set'),
     helpText: hasDisabledSections

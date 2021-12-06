@@ -84,7 +84,7 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onToggle: checked =>
+    onToggle: (checked) =>
         dispatch(
             acSetUiOption({
                 optionId: ownProps.enabledId,

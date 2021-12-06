@@ -8,7 +8,7 @@ describe('DV > Options > CheckboxBaseOption', () => {
     let shallowCheckboxBaseOption
     let onChange
 
-    const checkboxBaseOption = props => {
+    const checkboxBaseOption = (props) => {
         shallowCheckboxBaseOption = shallow(<CheckboxBaseOption {...props} />)
 
         return shallowCheckboxBaseOption

@@ -130,15 +130,15 @@ Legend.propTypes = {
     legendSet: PropTypes.object,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     legendSet: sGetUiOption(state, { id: OPTION_LEGEND_SET }),
     legendDisplayStrategy: sGetUiOption(state, {
         id: OPTION_LEGEND_DISPLAY_STRATEGY,
     }),
 })
 
-const mapDispatchToProps = dispatch => ({
-    onChange: params => dispatch(acSetUiOption(params)),
+const mapDispatchToProps = (dispatch) => ({
+    onChange: (params) => dispatch(acSetUiOption(params)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Legend)

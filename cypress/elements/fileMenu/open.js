@@ -9,7 +9,7 @@ const openModalToolbarEl = '*[class^="MuiToolbar-root"]'
 const createdByOthersEl = '[data-value=byothers]'
 const openModalItemContainerEl = '*[class^="MuiTableBody"]'
 
-const searchAOByName = name =>
+const searchAOByName = (name) =>
     cy.getBySel(openModalNameFilterEl).find('input').clear().type(name)
 
 const clickRandomAO = () =>
@@ -63,7 +63,7 @@ export const openRandomAOCreatedByOthers = () => {
         )
 }
 
-export const openAOByName = name => {
+export const openAOByName = (name) => {
     clickMenuBarFileButton()
     clickFileMenuButton(FILE_MENU_BUTTON_OPEN)
     searchAOByName(name)

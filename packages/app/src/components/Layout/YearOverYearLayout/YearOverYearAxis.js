@@ -12,7 +12,7 @@ import {
 import defaultAxisStyles from '../DefaultLayout/styles/DefaultAxis.style'
 import YearOverYearAxisStyles from './styles/YearOverYearAxis.style'
 
-const YearOverYearAxis = props => (
+const YearOverYearAxis = (props) => (
     <div
         id={props.axisId}
         data-test={`${props.axisId}-axis`}
@@ -39,7 +39,7 @@ YearOverYearAxis.propTypes = {
     style: PropTypes.object,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     yearOverYearSeries: sGetUiYearOverYearSeries(state),
     yearOverYearCategory: sGetUiYearOverYearCategory(state),
 })

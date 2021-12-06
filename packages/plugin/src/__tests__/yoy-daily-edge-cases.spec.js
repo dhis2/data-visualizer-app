@@ -242,7 +242,7 @@ describe('YOY edge cases testing: LAST_7_DAYS across february/march with leap ye
         },
     ]
 
-    testCases.forEach(testCase =>
+    testCases.forEach((testCase) =>
         it('generated correct matrix from analytics responses', () => {
             const matrix = computeYoYMatrix(testCase.responses, DAILY)
 

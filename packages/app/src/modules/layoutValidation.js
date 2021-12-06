@@ -29,9 +29,9 @@ import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields'
 import { ITEM_ATTRIBUTE_HORIZONTAL, ITEM_ATTRIBUTE_VERTICAL } from './ui'
 
 // Layout validation helper functions
-const isAxisValid = axis =>
+const isAxisValid = (axis) =>
     AXIS.isValid(axis) &&
-    axis.some(axisItem =>
+    axis.some((axisItem) =>
         dimensionIsValid(axisItem, {
             requireItems: !getPredefinedDimensionProp(
                 axisItem.dimension,
@@ -53,7 +53,7 @@ const validateAxis = (axis, error) => {
 }
 
 // Layout validation
-const validateDefaultLayout = layout => {
+const validateDefaultLayout = (layout) => {
     validateAxis(layout.columns, new NoSeriesError(layout.type))
     validateAxis(layout.rows, new NoCategoryError(layout.type))
     validateDimension(
@@ -62,7 +62,7 @@ const validateDefaultLayout = layout => {
     )
 }
 
-const validatePivotTableLayout = layout => {
+const validatePivotTableLayout = (layout) => {
     if (!isAxisValid(layout.columns) && !isAxisValid(layout.rows)) {
         throw new NoSeriesOrCategoryError(layout.type)
     }
@@ -72,7 +72,7 @@ const validatePivotTableLayout = layout => {
     )
 }
 
-const validateYearOverYearLayout = layout => {
+const validateYearOverYearLayout = (layout) => {
     if (
         !(
             Array.isArray(layout[BASE_FIELD_YEARLY_SERIES]) &&
@@ -85,7 +85,7 @@ const validateYearOverYearLayout = layout => {
     validateAxis(layout.rows, new NoCategoryError(layout.type))
 }
 
-const validatePieLayout = layout => {
+const validatePieLayout = (layout) => {
     validateAxis(layout.columns, new NoSeriesError(layout.type))
     validateDimension(
         layoutGetDimension(layout, DIMENSION_ID_PERIOD),
@@ -93,7 +93,7 @@ const validatePieLayout = layout => {
     )
 }
 
-const validateSingleValueLayout = layout => {
+const validateSingleValueLayout = (layout) => {
     validateDimension(
         layoutGetDimension(layout, DIMENSION_ID_DATA),
         new NoDataError(layout.type)
@@ -105,14 +105,14 @@ const validateSingleValueLayout = layout => {
     )
 }
 
-const validateScatterLayout = layout => {
+const validateScatterLayout = (layout) => {
     const verticalItems =
         layout.ui.itemAttributes?.filter(
-            item => item.attribute === ITEM_ATTRIBUTE_VERTICAL
+            (item) => item.attribute === ITEM_ATTRIBUTE_VERTICAL
         ) || []
     const horizontalItems =
         layout.ui.itemAttributes?.filter(
-            item => item.attribute === ITEM_ATTRIBUTE_HORIZONTAL
+            (item) => item.attribute === ITEM_ATTRIBUTE_HORIZONTAL
         ) || []
     if (!verticalItems.length) {
         throw new NoVerticalError()
@@ -128,7 +128,7 @@ const validateScatterLayout = layout => {
     )
 }
 
-export const validateLayout = layout => {
+export const validateLayout = (layout) => {
     switch (layout.type) {
         case VIS_TYPE_PIE:
             return validatePieLayout(layout)

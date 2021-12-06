@@ -57,7 +57,7 @@ const ChipMenu = ({
                             isAssignedCategoriesInLayout={
                                 layoutHasAssignedCategories
                             }
-                            assignedCategoriesItemHandler={destination =>
+                            assignedCategoriesItemHandler={(destination) =>
                                 assignedCategoriesItemHandler(
                                     layoutHasAssignedCategories,
                                     destination
@@ -87,18 +87,18 @@ ChipMenu.propTypes = {
     visType: PropTypes.string,
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
         layoutHasAssignedCategories:
             fromReducers.fromUi.sLayoutHasAssignedCategories(state),
     }
 }
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
     axisItemHandler: ({ dimensionId, axisId }) => {
         dispatch(acAddUiLayoutDimensions({ [dimensionId]: { axisId } }))
     },
-    removeItemHandler: dimensionId => {
+    removeItemHandler: (dimensionId) => {
         dispatch(acRemoveUiLayoutDimensions(dimensionId))
     },
     assignedCategoriesItemHandler: (layoutHasAssignedCategories, axisId) => {

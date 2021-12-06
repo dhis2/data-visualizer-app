@@ -2,13 +2,13 @@ import { DEFAULT_CURRENT } from '../reducers/current'
 import { DEFAULT_VISUALIZATION } from '../reducers/visualization'
 import options from './options'
 
-export const getVisualizationFromCurrent = current => {
+export const getVisualizationFromCurrent = (current) => {
     const visualization = Object.assign({}, current)
     const nonSavableOptions = Object.keys(options).filter(
-        option => !options[option].savable
+        (option) => !options[option].savable
     )
 
-    nonSavableOptions.forEach(option => delete visualization[option])
+    nonSavableOptions.forEach((option) => delete visualization[option])
 
     return visualization
 }

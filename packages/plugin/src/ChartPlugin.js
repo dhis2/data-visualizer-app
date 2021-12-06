@@ -18,7 +18,7 @@ const ChartPlugin = ({
     const prevRenderCounter = useRef(renderCounter)
 
     const renderVisualization = useCallback(
-        animation => {
+        (animation) => {
             const visualizationConfig = createVisualization(
                 responses,
                 visualization,

@@ -27,7 +27,7 @@ export const selectRelativePeriods = (periods, periodType) => {
         openRelativePeriodsTypeSelect()
         selectPeriodType(periodType)
     }
-    periods.forEach(item => clickSourceOption(item))
+    periods.forEach((item) => clickSourceOption(item))
 }
 
 export const selectFixedPeriods = (periods, periodType) => {
@@ -37,19 +37,19 @@ export const selectFixedPeriods = (periods, periodType) => {
         openFixedPeriodsTypeSelect()
         selectPeriodType(periodType)
     }
-    periods.forEach(item => clickSourceOption(item))
+    periods.forEach((item) => clickSourceOption(item))
 }
 
-const clickSourceOption = itemName =>
+const clickSourceOption = (itemName) =>
     cy.getBySel(selectableItemsEl).contains(itemName).dblclick()
 
-export const selectPeriodType = periodTypeOption =>
+export const selectPeriodType = (periodTypeOption) =>
     cy.getBySel(periodTypeMenuEl).containsExact(periodTypeOption).click()
 
-export const expectRelativePeriodTypeToBe = type =>
+export const expectRelativePeriodTypeToBe = (type) =>
     cy.getBySelLike(relativePeriodsPeriodTypeButtonEl).should('contain', type)
 
-export const expectFixedPeriodTypeToBe = type =>
+export const expectFixedPeriodTypeToBe = (type) =>
     cy.getBySelLike(fixedPeriodsPeriodTypeButtonEl).should('contain', type)
 
 export const switchToFixedPeriods = () => {
@@ -71,25 +71,25 @@ export const expectFixedToBeSelected = () =>
 export const expectNoPeriodsToBeSelected = () =>
     cy.getBySel(selectedItemsEl).should('contain', 'No periods selected')
 
-export const expectRelativePeriodTypeSelectToContain = periodType => {
+export const expectRelativePeriodTypeSelectToContain = (periodType) => {
     cy.getBySelLike(relativePeriodTypeSelectOptionEl).should(
         'contain',
         periodType
     )
 }
 
-export const expectRelativePeriodTypeSelectToNotContain = periodType => {
+export const expectRelativePeriodTypeSelectToNotContain = (periodType) => {
     cy.getBySelLike(relativePeriodTypeSelectOptionEl).should(
         'not.contain',
         periodType
     )
 }
 
-export const expectFixedPeriodTypeSelectToContain = periodType => {
+export const expectFixedPeriodTypeSelectToContain = (periodType) => {
     cy.getBySelLike(fixedPeriodTypeSelectOptionEl).should('contain', periodType)
 }
 
-export const expectFixedPeriodTypeSelectToNotContain = periodType => {
+export const expectFixedPeriodTypeSelectToNotContain = (periodType) => {
     cy.getBySelLike(fixedPeriodTypeSelectOptionEl).should(
         'not.contain',
         periodType

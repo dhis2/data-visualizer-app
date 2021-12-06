@@ -36,7 +36,7 @@ const ExtremeLines = ({
                             label={i18n.t('Extreme line % detection')}
                             min="0.1"
                             step="0.1"
-                            onChange={input =>
+                            onChange={(input) =>
                                 onValueChange(Number(input.value))
                             }
                             value={currentValue?.toString() || ''}

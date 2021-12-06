@@ -38,11 +38,11 @@ Snackbar.propTypes = {
     onClose: PropTypes.func,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     snackbar: sGetSnackbar(state),
 })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
     onClose: () => dispatch(acClearSnackbar()),
 })
 

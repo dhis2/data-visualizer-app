@@ -52,7 +52,7 @@ export class App extends Component {
      * - file->open (same or different AO)
      * - file->saveAs
      */
-    refetch = location => {
+    refetch = (location) => {
         if (!this.state.previousLocation) {
             return true
         }
@@ -70,14 +70,14 @@ export class App extends Component {
         return false
     }
 
-    parseLocation = location => {
+    parseLocation = (location) => {
         const pathParts = location.pathname.slice(1).split('/')
         const id = pathParts[0]
         const interpretationId = pathParts[2]
         return { id, interpretationId }
     }
 
-    loadVisualization = async location => {
+    loadVisualization = async (location) => {
         if (location.pathname.length > 1) {
             // /currentAnalyticalObject
             // /${id}/
@@ -134,7 +134,7 @@ export class App extends Component {
 
         const metaData = { ...defaultMetadata() }
 
-        rootOrgUnits.forEach(rootOrgUnit => {
+        rootOrgUnits.forEach((rootOrgUnit) => {
             if (rootOrgUnit.id) {
                 metaData[rootOrgUnit.id] = {
                     ...rootOrgUnit,
@@ -147,7 +147,7 @@ export class App extends Component {
 
         this.loadVisualization(this.props.location)
 
-        this.unlisten = history.listen(location => {
+        this.unlisten = history.listen((location) => {
             const isSaving = location.state?.isSaving
             const isOpening = location.state?.isOpening
             const isResetting = location.state?.isResetting
@@ -183,13 +183,13 @@ export class App extends Component {
 
         document.body.addEventListener(
             'keyup',
-            e =>
+            (e) =>
                 e.key === 'Enter' &&
                 e.ctrlKey === true &&
                 this.props.setCurrentFromUi(this.props.ui)
         )
 
-        window.addEventListener('beforeunload', event => {
+        window.addEventListener('beforeunload', (event) => {
             if (
                 getVisualizationState(
                     this.props.visualization,
@@ -317,7 +317,7 @@ export class App extends Component {
     }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     settings: fromReducers.fromSettings.sGetSettings(state),
     current: fromReducers.fromCurrent.sGetCurrent(state),
     interpretation: fromReducers.fromUi.sGetUiInterpretation(state),

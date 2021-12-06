@@ -27,7 +27,7 @@ const StartScreen = ({ error, username }) => {
             if (visualizations && visualizations.length) {
                 const visualizationsResult = await apiFetchVisualizations(
                     engine,
-                    visualizations.map(visualization => visualization.id)
+                    visualizations.map((visualization) => visualization.id)
                 )
                 const visualizationsWithType =
                     visualizationsResult.visualization.visualizations // {id: string, type: string}
@@ -142,7 +142,7 @@ StartScreen.propTypes = {
     username: PropTypes.string,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     error: sGetLoadError(state),
     username: sGetUsername(state),
 })

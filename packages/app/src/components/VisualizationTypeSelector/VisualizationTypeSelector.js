@@ -31,13 +31,13 @@ export const VisualizationTypeSelector = (
 
     const toggleList = () => setListIsOpen(!listIsOpen)
 
-    const handleListItemClick = type => () => {
+    const handleListItemClick = (type) => () => {
         setUi(getAdaptedUiByType({ ...ui, type }))
         onItemClick()
         toggleList()
     }
 
-    const handleOpenAsMapClick = async event => {
+    const handleOpenAsMapClick = async (event) => {
         if (!current) {
             event.stopPropagation()
             return
@@ -60,7 +60,7 @@ export const VisualizationTypeSelector = (
         <div data-test="visualization-type-selector-card">
             <div className={styles.listContainer}>
                 <div className={styles.listSection}>
-                    {getVisTypes().map(type => (
+                    {getVisTypes().map((type) => (
                         <VisualizationTypeListItem
                             key={type}
                             iconType={type}
@@ -132,15 +132,15 @@ VisualizationTypeSelector.contextTypes = {
     baseUrl: PropTypes.string,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     visualizationType: sGetUiType(state),
     current: sGetCurrent(state),
     metadata: sGetMetadata(state),
     ui: sGetUi(state),
 })
 
-const mapDispatchToProps = dispatch => ({
-    setUi: ui => dispatch(acSetUi(ui)),
+const mapDispatchToProps = (dispatch) => ({
+    setUi: (ui) => dispatch(acSetUi(ui)),
     onItemClick: () => dispatch(acClearSeriesType()),
 })
 

@@ -72,7 +72,7 @@ class DndContext extends Component {
         }
     }
 
-    onDragEnd = result => {
+    onDragEnd = (result) => {
         const { source, destination, draggableId } = result
 
         if (!destination) {
@@ -114,17 +114,17 @@ DndContext.propTypes = {
     onReorderDimensions: PropTypes.func,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     layout: sGetUiLayout(state),
     type: sGetUiType(state),
     itemsByDimension: sGetUiItems(state),
 })
 
-const mapDispatchToProps = dispatch => ({
-    onAddDimensions: map => dispatch(acAddUiLayoutDimensions(map)),
-    onDropWithoutItems: dimensionId =>
+const mapDispatchToProps = (dispatch) => ({
+    onAddDimensions: (map) => dispatch(acAddUiLayoutDimensions(map)),
+    onDropWithoutItems: (dimensionId) =>
         dispatch(acSetUiActiveModalDialog(dimensionId)),
-    onReorderDimensions: layout => dispatch(acSetUiLayout(layout)),
+    onReorderDimensions: (layout) => dispatch(acSetUiLayout(layout)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(DndContext)

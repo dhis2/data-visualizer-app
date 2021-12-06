@@ -12,10 +12,11 @@ const ContextualMenu = ({ config, ouLevels, onClick, reference, dataTest }) => {
     const [ouData, setOuData] = useState(undefined)
     const [subLevelData, setSubLevelData] = useState(undefined)
 
-    const lookupLevel = levelId => ouLevels.find(item => item.level === levelId)
+    const lookupLevel = (levelId) =>
+        ouLevels.find((item) => item.level === levelId)
 
     const doFetchOuData = useCallback(
-        async ouId => {
+        async (ouId) => {
             const orgUnit = await apiFetchOrganisationUnit(engine, ouId)
 
             return orgUnit

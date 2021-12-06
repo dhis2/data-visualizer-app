@@ -56,21 +56,21 @@ export const expectLegendDisplayStyleToBeFill = () =>
         .find('[type="radio"]')
         .should('be.checked')
 
-export const changeFixedLegendSet = legendSetName => {
+export const changeFixedLegendSet = (legendSetName) => {
     cy.getBySel(fixedLegendSetSelectEl).findBySel('dhis2-uicore-select').click()
     cy.getBySel(fixedLegendSetOptionEl).containsExact(legendSetName).click()
 }
 
-export const expectFixedLegendSetToBe = legendSetName =>
+export const expectFixedLegendSetToBe = (legendSetName) =>
     cy.getBySel(fixedLegendSetSelectEl).should('contain', legendSetName)
 
-export const expectSingleValueToNotBeColor = color =>
+export const expectSingleValueToNotBeColor = (color) =>
     cy
         .getBySel(singleValueOutputEl)
         .invoke('attr', 'fill')
         .should('not.eq', color)
 
-export const expectSingleValueToBeColor = color =>
+export const expectSingleValueToBeColor = (color) =>
     cy.getBySel(singleValueOutputEl).invoke('attr', 'fill').should('eq', color)
 
 export const toggleLegendKeyOption = () =>
@@ -94,7 +94,7 @@ export const expectLegendKeyToBeHidden = () =>
 export const expectLegendKeyToBeVisible = () =>
     cy.getBySel(legendKeyEl).should('be.visible')
 
-export const expectLegedKeyItemAmountToBe = amount =>
+export const expectLegedKeyItemAmountToBe = (amount) =>
     cy
         .getBySel(legendKeyContainerEl)
         .findBySelLike(legendKeyItemEl)

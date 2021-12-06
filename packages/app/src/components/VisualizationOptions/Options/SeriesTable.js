@@ -50,16 +50,16 @@ const SeriesTable = ({
 }) => {
     const availableTypes = [
         visType,
-        ...allTypes.filter(type => type !== visType),
+        ...allTypes.filter((type) => type !== visType),
     ]
 
     useEffect(() => {
         if (!optionItems.length) {
             onChange(layoutItems)
         } else {
-            const matchedItems = layoutItems.map(item => {
+            const matchedItems = layoutItems.map((item) => {
                 const matchedItem = optionItems.find(
-                    option => option.dimensionItem === item.dimensionItem
+                    (option) => option.dimensionItem === item.dimensionItem
                 )
                 if (matchedItem) {
                     matchedItem.name = item.name
@@ -103,7 +103,7 @@ const SeriesTable = ({
                 </TableRow>
             </TableHead>
             <TableBody className={styles.tableBody}>
-                {optionItems.map(item => (
+                {optionItems.map((item) => (
                     <TableRow
                         key={`multiaxis-table-row-${item.dimensionItem}`}
                         dataTest={'series-table-item'}
@@ -113,7 +113,7 @@ const SeriesTable = ({
                         </TableCell>
                         <TableCell className={styles.itemType}>
                             {showTypeOptions &&
-                                availableTypes.map(type => {
+                                availableTypes.map((type) => {
                                     const VisualizationTypeIcon =
                                         visTypeIcons[type]
 
@@ -158,7 +158,7 @@ const SeriesTable = ({
                                 })}
                         </TableCell>
                         {showAxisOptions &&
-                            availableAxes.map(axis => (
+                            availableAxes.map((axis) => (
                                 <TableCell
                                     key={axis}
                                     className={styles.itemAxis}
@@ -183,7 +183,7 @@ const SeriesTable = ({
         </Table>
     )
 
-    const renderAxisIcon = axis => {
+    const renderAxisIcon = (axis) => {
         switch (axis) {
             case 1:
                 return <AxisOne />
@@ -243,13 +243,13 @@ const SeriesTable = ({
     } else if (
         hasRelativeItems(
             columns[0],
-            layoutItems.map(item => item.dimensionItem)
+            layoutItems.map((item) => item.dimensionItem)
         )
     ) {
         return renderRelativeItemsError()
     } else if (
         layoutItems.some(
-            item => item.dimensionItem === ALL_DYNAMIC_DIMENSION_ITEMS
+            (item) => item.dimensionItem === ALL_DYNAMIC_DIMENSION_ITEMS
         )
     ) {
         return renderAllItemsError()
@@ -278,7 +278,7 @@ SeriesTable.defaultProps = {
     showTypeOptions: false,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     layoutItems: sGetSeriesSetupItems(state),
     columns: sGetUiLayout(state).columns,
     optionItems: sGetUiOptions(state).series,
@@ -286,12 +286,12 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
-    onChange: series => dispatch => {
+    onChange: (series) => (dispatch) => {
         dispatch(acSetUiOptions({ series }))
     },
     onItemChange:
         ({ changedItem, value, prop }) =>
-        dispatch => {
+        (dispatch) => {
             dispatch(acUpdateUiSeriesItem({ changedItem, value, prop }))
         },
 }

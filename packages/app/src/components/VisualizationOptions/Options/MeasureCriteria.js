@@ -82,7 +82,7 @@ class MeasureCriteria extends Component {
 
     onClear = () => this.setState(this.defaultState, this.props.onChange(''))
 
-    onChange = name => value => {
+    onChange = (name) => (value) => {
         this.setState({ [name]: value }, () => {
             const { op1, v1, op2, v2 } = this.state
             const value = []
@@ -160,12 +160,12 @@ MeasureCriteria.propTypes = {
     onChange: PropTypes.func,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     value: sGetUiOptions(state).measureCriteria || '',
 })
 
-const mapDispatchToProps = dispatch => ({
-    onChange: value => dispatch(acSetUiOptions({ measureCriteria: value })),
+const mapDispatchToProps = (dispatch) => ({
+    onChange: (value) => dispatch(acSetUiOptions({ measureCriteria: value })),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MeasureCriteria)

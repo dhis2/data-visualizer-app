@@ -30,9 +30,9 @@ export const appendPathsToOrgUnits = (current, ui) => {
 
     return {
         ...current,
-        [ouAxis]: current[ouAxis].map(dimension => ({
+        [ouAxis]: current[ouAxis].map((dimension) => ({
             ...dimension,
-            items: dimension.items.map(item => ({
+            items: dimension.items.map((item) => ({
                 ...item,
                 path: getPathForOrgUnit(item, parentGraphMap),
             })),
@@ -40,7 +40,7 @@ export const appendPathsToOrgUnits = (current, ui) => {
     }
 }
 
-export const removeUnnecessaryAttributesFromAnalyticalObject = current => ({
+export const removeUnnecessaryAttributesFromAnalyticalObject = (current) => ({
     ...current,
     id: undefined,
     name: undefined,
@@ -51,9 +51,9 @@ export const appendDimensionItemNamesToAnalyticalObject = (
     current,
     metadata
 ) => {
-    const appendNames = dimension => ({
+    const appendNames = (dimension) => ({
         ...dimension,
-        items: dimension.items.map(item => ({
+        items: dimension.items.map((item) => ({
             ...item,
             name: metadata[item.id] ? metadata[item.id].name : undefined,
         })),
@@ -71,9 +71,9 @@ export const appendDimensionItemTypeToAnalyticalObject = (
     current,
     metadata
 ) => {
-    const appendDimensionType = dimension => ({
+    const appendDimensionType = (dimension) => ({
         ...dimension,
-        items: dimension.items.map(item => ({
+        items: dimension.items.map((item) => ({
             ...item,
             dimensionItemType: metadata[item.id]
                 ? metadata[item.id].dimensionItemType

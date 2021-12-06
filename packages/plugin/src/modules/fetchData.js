@@ -16,11 +16,11 @@ import {
 } from './analytics'
 import { getRequestOptions } from './getRequestOptions'
 
-const removeItemAllFromAxisItems = axis =>
-    (axis || []).map(ai => ({
+const removeItemAllFromAxisItems = (axis) =>
+    (axis || []).map((ai) => ({
         ...ai,
         items: ai?.items?.filter(
-            item => item.id !== ALL_DYNAMIC_DIMENSION_ITEMS
+            (item) => item.id !== ALL_DYNAMIC_DIMENSION_ITEMS
         ),
     }))
 
@@ -69,7 +69,7 @@ export const fetchData = async ({
         )
         const periodKeyAxisIndexMap = periodKeyAxisIndexMatrix.reduce(
             (map, periodKeys, index) => {
-                periodKeys.forEach(periodKey => (map[periodKey] = index))
+                periodKeys.forEach((periodKey) => (map[periodKey] = index))
 
                 return map
             },

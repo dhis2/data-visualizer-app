@@ -25,7 +25,7 @@ import {
 } from '../../utils/window'
 
 const TEST_DATA_ELEMENT_NAMES = TEST_DATA_ELEMENTS.slice(2, 4).map(
-    item => item.name
+    (item) => item.name
 )
 
 describe('Options - Lines', () => {
@@ -66,7 +66,7 @@ describe('Options - Lines', () => {
                     clickOptionsModalUpdateButton()
                     expectChartTitleToBeVisible()
                 })
-                TEST_DATA_ELEMENT_NAMES.forEach(dataElement => {
+                TEST_DATA_ELEMENT_NAMES.forEach((dataElement) => {
                     it(`config has "${dataElement}" trendline`, () => {
                         const trendline = {
                             ...CONFIG_DEFAULT_TREND_LINE,

@@ -15,7 +15,7 @@ const transferLoadingEl = 'dhis2-uicore-circularloader'
 const transferMoveUpEl = 'transfer-reorderingactions-buttonmoveup'
 const transferMoveDownEl = 'transfer-reorderingactions-buttonmovedown'
 
-export const expectDimensionModalToBeVisible = dimensionId =>
+export const expectDimensionModalToBeVisible = (dimensionId) =>
     cy.getBySel(`${dimensionModalEl}-${dimensionId}`).should('be.visible')
 
 export const expectDimensionModalToNotBeVisible = () =>
@@ -30,7 +30,7 @@ export const clickDimensionModalHideButton = () =>
 export const clickDimensionModalAddToButton = () =>
     cy.getBySel(dimensionModalAddToButtonEl).click()
 
-export const expectDimensionModalToContain = text =>
+export const expectDimensionModalToContain = (text) =>
     cy.getBySel(dimensionModalTitleEl).should('contain', text)
 
 export const selectAllItemsByButton = () => {
@@ -41,29 +41,29 @@ export const unselectAllItemsByButton = () => {
     cy.getBySelLike(transferRemoveAllButtonEl).filter('button').click()
 }
 
-export const selectItemByButton = item => {
+export const selectItemByButton = (item) => {
     cy.getBySelLike(transferSelectableItemsEl).contains(item).click()
     cy.getBySelLike(transferAddOneButtonEl).filter('button').click()
 }
 
-export const unselectItemByButton = item => {
+export const unselectItemByButton = (item) => {
     cy.getBySelLike(transferSelectedItemsEl).contains(item).click()
     cy.getBySelLike(transferRemoveOneButtonEl).filter('button').click()
 }
 
-export const selectItemByDoubleClick = item =>
+export const selectItemByDoubleClick = (item) =>
     cy.getBySelLike(transferSelectableItemsEl).contains(item).dblclick()
 
-export const unselectItemByDoubleClick = item =>
+export const unselectItemByDoubleClick = (item) =>
     cy.getBySelLike(transferSelectedItemsEl).contains(item).dblclick()
 
-export const expectItemToBeSelected = item =>
+export const expectItemToBeSelected = (item) =>
     cy.getBySelLike(transferSelectedItemsEl).should('contain', item)
 
-export const expectItemToBeSelectable = dataItem =>
+export const expectItemToBeSelectable = (dataItem) =>
     cy.getBySelLike(transferSelectableItemsEl).should('contain', dataItem)
 
-export const expectFirstSelectedItemToBe = item =>
+export const expectFirstSelectedItemToBe = (item) =>
     cy
         .getBySelLike(transferSelectedItemsEl)
         .findBySelLike(transferOptionEl)
@@ -82,7 +82,7 @@ export const expectSourceToBeLoading = () =>
         .findBySelLike(transferLoadingEl)
         .should('exist')
 
-export const singleClickSelectedItem = item =>
+export const singleClickSelectedItem = (item) =>
     cy.getBySelLike(transferSelectedItemsEl).contains(item).click()
 
 export const clickMoveUpButton = () => cy.getBySelLike(transferMoveUpEl).click()
@@ -90,28 +90,28 @@ export const clickMoveUpButton = () => cy.getBySelLike(transferMoveUpEl).click()
 export const clickMoveDownButton = () =>
     cy.getBySelLike(transferMoveDownEl).click()
 
-export const expectSelectedItemsAmountToBeLeast = amount =>
+export const expectSelectedItemsAmountToBeLeast = (amount) =>
     cy
         .getBySelLike(transferSelectedItemsEl)
         .findBySelLike(transferOptionEl)
         .filter('.wrapper')
         .should('have.length.least', amount)
 
-export const expectSelectableItemsAmountToBeLeast = amount =>
+export const expectSelectableItemsAmountToBeLeast = (amount) =>
     cy
         .getBySelLike(transferSelectableItemsEl)
         .findBySelLike(transferOptionEl)
         .filter('.wrapper')
         .should('have.length.least', amount)
 
-export const expectSelectableItemsAmountToBe = amount =>
+export const expectSelectableItemsAmountToBe = (amount) =>
     cy
         .getBySelLike(transferSelectableItemsEl)
         .findBySelLike(transferOptionEl)
         .filter('.wrapper')
         .should('have.length', amount)
 
-export const expectSelectedItemsAmountToBe = amount =>
+export const expectSelectedItemsAmountToBe = (amount) =>
     cy
         .getBySelLike(transferSelectedItemsEl)
         .findBySelLike(transferOptionEl)

@@ -31,4 +31,4 @@ export default (state = DEFAULT_DIMENSIONS, action) => {
  * @param {Object} state The current state
  * @returns {Array}
  */
-export const sGetDimensions = state => state.dimensions
+export const sGetDimensions = (state) => state.dimensions

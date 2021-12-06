@@ -14,7 +14,7 @@ const columnContent = [
     /* TODO new option <BackgroundLines /> */
 ]
 
-export default isColumnBased => ({
+export default (isColumnBased) => ({
     ...getChartStyleTemplate({
         content: React.Children.toArray([
             isColumnBased ? columnContent : defaultContent,

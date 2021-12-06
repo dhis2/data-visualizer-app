@@ -103,7 +103,7 @@ HideSubtitle.propTypes = {
     onChange: PropTypes.func,
 }
 
-const hideSubtitleSelector = createSelector([sGetUiOptions], uiOptions =>
+const hideSubtitleSelector = createSelector([sGetUiOptions], (uiOptions) =>
     uiOptions.hideSubtitle
         ? HIDE_SUBTITLE_NONE
         : uiOptions.subtitle === undefined
@@ -111,13 +111,13 @@ const hideSubtitleSelector = createSelector([sGetUiOptions], uiOptions =>
         : HIDE_SUBTITLE_CUSTOM
 )
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     visualizationType: sGetUiType(state),
     value: hideSubtitleSelector(state),
     subtitle: sGetUiOptions(state).subtitle,
 })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
     onChange: (hideSubtitle, subtitle) =>
         dispatch(acSetUiOptions({ hideSubtitle, subtitle })),
 })

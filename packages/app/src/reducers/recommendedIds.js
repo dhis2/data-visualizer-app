@@ -13,4 +13,4 @@ export default (state = DEFAULT_RECOMMENDED_IDS, action) => {
 }
 
 // Selectors
-export const sGetRecommendedIds = state => state.recommendedIds
+export const sGetRecommendedIds = (state) => state.recommendedIds

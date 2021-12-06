@@ -89,7 +89,7 @@ HideTitle.propTypes = {
     onChange: PropTypes.func,
 }
 
-const hideTitleSelector = createSelector([sGetUiOptions], uiOptions =>
+const hideTitleSelector = createSelector([sGetUiOptions], (uiOptions) =>
     uiOptions.hideTitle
         ? HIDE_TITLE_NONE
         : uiOptions.title === undefined
@@ -97,12 +97,12 @@ const hideTitleSelector = createSelector([sGetUiOptions], uiOptions =>
         : HIDE_TITLE_CUSTOM
 )
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     value: hideTitleSelector(state),
     title: sGetUiOptions(state).title,
 })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
     onChange: (hideTitle, title) =>
         dispatch(acSetUiOptions({ hideTitle, title })),
 })

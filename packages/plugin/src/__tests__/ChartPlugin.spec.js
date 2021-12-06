@@ -79,7 +79,7 @@ const createVisualizationMock = {
     },
 }
 
-const isSingleValueMockResponse = visType => {
+const isSingleValueMockResponse = (visType) => {
     return visType === analytics.VIS_TYPE_SINGLE_VALUE
 }
 
@@ -123,17 +123,17 @@ describe('ChartPlugin', () => {
                 .mockReturnValue(createVisualizationMock)
         })
 
-        it('renders a div', done => {
+        it('renders a div', (done) => {
             expect(canvas().find('div').length).toBeGreaterThan(0)
             done()
         })
 
-        it('uses the style passed as prop', done => {
+        it('uses the style passed as prop', (done) => {
             expect(canvas().find('div').prop('style')).toEqual(props.style)
             done()
         })
 
-        it('calls createVisualization', done => {
+        it('calls createVisualization', (done) => {
             canvas()
 
             setTimeout(() => {
@@ -142,7 +142,7 @@ describe('ChartPlugin', () => {
             })
         })
 
-        it('calls onChartGenerated callback', done => {
+        it('calls onChartGenerated callback', (done) => {
             canvas()
 
             setTimeout(() => {
@@ -168,7 +168,7 @@ describe('ChartPlugin', () => {
                     )
             })
 
-            it('provides dhis as output format to createChart', done => {
+            it('provides dhis as output format to createChart', (done) => {
                 canvas()
 
                 setTimeout(() => {

@@ -8,7 +8,7 @@ describe('DV > Options > TextBaseOption', () => {
     let shallowTextBaseOption
     let onChange
 
-    const textBaseOption = props => {
+    const textBaseOption = (props) => {
         shallowTextBaseOption = shallow(<TextBaseOption {...props} />)
 
         return shallowTextBaseOption

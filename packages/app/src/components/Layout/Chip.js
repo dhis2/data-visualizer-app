@@ -70,7 +70,7 @@ const Chip = ({
         }
     }
 
-    const getDragStartHandler = () => event => {
+    const getDragStartHandler = () => (event) => {
         setDataTransfer(event, axisId)
     }
 
