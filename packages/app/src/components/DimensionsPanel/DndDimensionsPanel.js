@@ -2,7 +2,7 @@ import { DimensionFilter } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import DndDimensionList from './DndDimensionList'
+import DndDimensionList from './DndDimensionList.js'
 import styles from './styles/DndDimensionsPanel.module.css'
 
 export class DndDimensionsPanel extends Component {
@@ -12,7 +12,7 @@ export class DndDimensionsPanel extends Component {
         this.setState({ filterText: '' })
     }
 
-    onFilterTextChange = (filterText) => {
+    onFilterTextChange = filterText => {
         this.setState({ filterText })
     }
 

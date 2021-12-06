@@ -15,8 +15,8 @@ import {
     getSeriesFromUi,
     getScatterCurrentFromUi,
     getItemsByDimensionFromUi,
-} from '../modules/current'
-import { BASE_FIELD_TYPE } from '../modules/fields/baseFields'
+} from '../modules/current.js'
+import { BASE_FIELD_TYPE } from '../modules/fields/baseFields.js'
 
 export const SET_CURRENT = 'SET_CURRENT'
 export const SET_CURRENT_FROM_UI = 'SET_CURRENT_FROM_UI'
@@ -73,8 +73,8 @@ export default (state = DEFAULT_CURRENT, action) => {
 
 // Selectors
 
-export const sGetCurrent = (state) => state.current
-export const sGetCurrentFromUi = (state) => {
+export const sGetCurrent = state => state.current
+export const sGetCurrentFromUi = state => {
     const ui = state.ui
 
     switch (ui.type) {

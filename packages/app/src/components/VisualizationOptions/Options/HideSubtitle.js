@@ -8,14 +8,14 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
-import { acSetUiOptions } from '../../../actions/ui'
-import { sGetUiOptions, sGetUiType } from '../../../reducers/ui'
+import { acSetUiOptions } from '../../../actions/ui.js'
+import { sGetUiOptions, sGetUiType } from '../../../reducers/ui.js'
 import {
     tabSectionOption,
     tabSectionOptionToggleable,
 } from '../styles/VisualizationOptions.style.js'
-import Subtitle from './Subtitle'
-import TextStyle from './TextStyle'
+import Subtitle from './Subtitle.js'
+import TextStyle from './TextStyle.js'
 
 const HIDE_SUBTITLE_AUTO = 'AUTO'
 const HIDE_SUBTITLE_NONE = 'NONE'
@@ -103,7 +103,7 @@ HideSubtitle.propTypes = {
     onChange: PropTypes.func,
 }
 
-const hideSubtitleSelector = createSelector([sGetUiOptions], (uiOptions) =>
+const hideSubtitleSelector = createSelector([sGetUiOptions], uiOptions =>
     uiOptions.hideSubtitle
         ? HIDE_SUBTITLE_NONE
         : uiOptions.subtitle === undefined
@@ -111,13 +111,13 @@ const hideSubtitleSelector = createSelector([sGetUiOptions], (uiOptions) =>
         : HIDE_SUBTITLE_CUSTOM
 )
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
     visualizationType: sGetUiType(state),
     value: hideSubtitleSelector(state),
     subtitle: sGetUiOptions(state).subtitle,
 })
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
     onChange: (hideSubtitle, subtitle) =>
         dispatch(acSetUiOptions({ hideSubtitle, subtitle })),
 })

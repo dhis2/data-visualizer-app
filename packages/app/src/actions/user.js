@@ -1,21 +1,21 @@
-import { apiFetchUserAuthority } from '../api/user'
-import { GenericServerError } from '../modules/error'
-import { RECEIVED_USER, SET_USER_AUTHORITY } from '../reducers/user'
-import { acSetLoadError } from './loader'
+import { apiFetchUserAuthority } from '../api/user.js'
+import { GenericServerError } from '../modules/error.js'
+import { RECEIVED_USER, SET_USER_AUTHORITY } from '../reducers/user.js'
+import { acSetLoadError } from './loader.js'
 
-export const acReceivedUser = (value) => ({
+export const acReceivedUser = value => ({
     type: RECEIVED_USER,
     value,
 })
 
-export const acSetUserAuthority = (value) => ({
+export const acSetUserAuthority = value => ({
     type: SET_USER_AUTHORITY,
     value,
 })
 
 export const tLoadUserAuthority =
-    (authorityKey) => async (dispatch, getState, engine) => {
-        const onSuccess = (response) => {
+    authorityKey => async (dispatch, getState, engine) => {
+        const onSuccess = response => {
             dispatch(acSetUserAuthority({ [authorityKey]: response.authority }))
         }
 

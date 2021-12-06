@@ -3,7 +3,7 @@ import reducer, {
     SET_LOAD_ERROR,
     CLEAR_LOAD_ERROR,
     SET_LOADING,
-} from '../loader'
+} from '../loader.js'
 
 describe('reducer: loader', () => {
     const errorMsg = 'fail!'

@@ -2,8 +2,8 @@ import { Field, Radio } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import { acSetUiOption, acSetUiOptions } from '../../../actions/ui'
-import { sGetUiOption, sGetUiOptions } from '../../../reducers/ui'
+import { acSetUiOption, acSetUiOptions } from '../../../actions/ui.js'
+import { sGetUiOption, sGetUiOptions } from '../../../reducers/ui.js'
 
 export const RadioBaseOption = ({
     option,
@@ -45,7 +45,7 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onChange: (value) =>
+    onChange: value =>
         ownProps.option.id
             ? dispatch(acSetUiOption({ optionId: ownProps.option.id, value }))
             : dispatch(acSetUiOptions({ [ownProps.option.name]: value })),

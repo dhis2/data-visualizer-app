@@ -15,11 +15,11 @@ import debounce from 'lodash-es/debounce'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import { acSetUiOption } from '../../../actions/ui'
-import BoldIcon from '../../../assets/BoldIcon'
-import FontColorIcon from '../../../assets/FontColorIcon'
-import ItalicIcon from '../../../assets/ItalicIcon'
-import { sGetUiOption, sGetUiType } from '../../../reducers/ui'
+import { acSetUiOption } from '../../../actions/ui.js'
+import BoldIcon from '../../../assets/BoldIcon.js'
+import FontColorIcon from '../../../assets/FontColorIcon.js'
+import ItalicIcon from '../../../assets/ItalicIcon.js'
+import { sGetUiOption, sGetUiType } from '../../../reducers/ui.js'
 import styles from '../styles/TextStyle.module.css'
 
 const TextStyle = ({
@@ -37,7 +37,7 @@ const TextStyle = ({
         isVertical || isVerticalType(visType)
     )
 
-    const onChangeColor = debounce((value) => {
+    const onChangeColor = debounce(value => {
         onChange(FONT_STYLE_OPTION_TEXT_COLOR, value)
     }, 100)
 
@@ -57,7 +57,7 @@ const TextStyle = ({
                     disabled={disabled}
                     dataTest={`${dataTest}-font-size-select`}
                 >
-                    {fontSizeOptions.map((option) => (
+                    {fontSizeOptions.map(option => (
                         <SingleSelectOption
                             key={option.value?.toString()}
                             value={option.value?.toString()}
@@ -79,7 +79,7 @@ const TextStyle = ({
                     disabled={disabled}
                     dataTest={`${dataTest}-text-align-select`}
                 >
-                    {textAlignOptions.map((option) => (
+                    {textAlignOptions.map(option => (
                         <SingleSelectOption
                             key={option.value}
                             value={option.value}
@@ -107,7 +107,7 @@ const TextStyle = ({
                         <input
                             type="color"
                             value={fontStyle[FONT_STYLE_OPTION_TEXT_COLOR]}
-                            onChange={(e) => onChangeColor(e.target.value)}
+                            onChange={e => onChangeColor(e.target.value)}
                             className={styles.textColorInput}
                             disabled={disabled}
                         />

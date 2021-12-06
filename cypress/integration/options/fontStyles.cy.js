@@ -3,13 +3,13 @@ import {
     expectVisualizationToBeVisible,
     expectChartTitleToBeVisible,
     expectChartSubtitleToBeVisible,
-} from '../../elements/chart'
+} from '../../elements/chart.js'
 import {
     selectDataElements,
     clickDimensionModalUpdateButton,
-} from '../../elements/dimensionModal'
-import { openDimension } from '../../elements/dimensionsPanel'
-import { clickMenuBarOptionsButton } from '../../elements/menuBar'
+} from '../../elements/dimensionModal/index.js'
+import { openDimension } from '../../elements/dimensionsPanel.js'
+import { clickMenuBarOptionsButton } from '../../elements/menuBar.js'
 import {
     changeFontSizeOption,
     clickOptionsModalUpdateButton,
@@ -30,8 +30,8 @@ import {
     setAxisTitleText,
     setAxisTitleTextModeTo,
     switchAxesTabTo,
-} from '../../elements/optionsModal'
-import { goToStartPage } from '../../elements/startScreen'
+} from '../../elements/optionsModal/index.js'
+import { goToStartPage } from '../../elements/startScreen.js'
 import {
     CONFIG_DEFAULT_SUBTITLE,
     CONFIG_DEFAULT_TITLE,
@@ -41,13 +41,13 @@ import {
     CONFIG_DEFAULT_VERTICAL_AXIS_TITLE,
     CONFIG_DEFAULT_HORIZONTAL_AXIS_TITLE,
     CONFIG_DEFAULT_AXIS_LABELS,
-} from '../../utils/config'
-import { TEST_DATA_ELEMENTS } from '../../utils/data'
+} from '../../utils/config.js'
+import { TEST_DATA_ELEMENTS } from '../../utils/data.js'
 import {
     generateRandomBool,
     generateRandomNumber,
     getRandomArrayItem,
-} from '../../utils/random'
+} from '../../utils/random.js'
 import {
     expectWindowConfigSubtitleToBeValue,
     expectWindowConfigTitleToBeValue,
@@ -55,7 +55,7 @@ import {
     expectWindowConfigAxisPlotLinesToBeValue,
     expectWindowConfigAxisTitleToBeValue,
     expectWindowConfigAxisLabelsToBeValue,
-} from '../../utils/window'
+} from '../../utils/window.js'
 
 const TEST_DATA_ELEMENT_NAME = getRandomArrayItem(TEST_DATA_ELEMENTS).name
 const TITLE_PREFIX = 'option-chart-title'

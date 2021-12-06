@@ -2,23 +2,23 @@ import { isYearOverYear, DIMENSION_ID_PERIOD } from '@dhis2/analytics'
 import {
     clickDimensionModalUpdateButton,
     unselectAllItemsByButton,
-} from './dimensionModal'
-import { selectRelativePeriods } from './dimensionModal/periodDimension'
-import { openDimension, selectYoyCategoryOption } from './layout'
-import { clickMenuBarUpdateButton } from './menuBar'
+} from './dimensionModal/index.js'
+import { selectRelativePeriods } from './dimensionModal/periodDimension.js'
+import { openDimension, selectYoyCategoryOption } from './layout.js'
+import { clickMenuBarUpdateButton } from './menuBar.js'
 
 const loadingEl = 'dhis2-uicore-circularloader'
 
 export const expectAppToNotBeLoading = () =>
     cy.getBySel(loadingEl).should('not.exist')
 
-export const clickCheckbox = (target) =>
+export const clickCheckbox = target =>
     cy.getBySel(target).click().find('[type="checkbox"]').should('be.checked')
 
 export const typeInput = (target, text) =>
     cy.getBySel(target).find('input').type(text)
 
-export const clearInput = (target) => cy.getBySel(target).find('input').clear()
+export const clearInput = target => cy.getBySel(target).find('input').clear()
 
 export const replacePeriodItems = (
     visType,

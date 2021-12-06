@@ -7,19 +7,19 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
 import { connect } from 'react-redux'
-import { acSetUiActiveModalDialog } from '../../../actions/ui'
+import { acSetUiActiveModalDialog } from '../../../actions/ui.js'
 import {
     sGetUiItemsByDimension,
     sGetUiLayout,
     sGetUiType,
-} from '../../../reducers/ui'
-import Chip from '../Chip'
-import ChipMenu from '../ChipMenu'
+} from '../../../reducers/ui.js'
+import Chip from '../Chip.js'
+import ChipMenu from '../ChipMenu.js'
 import stylesModule from './styles/DefaultAxis.module.css'
-import styles from './styles/DefaultAxis.style'
+import styles from './styles/DefaultAxis.style.js'
 
 class Axis extends React.Component {
-    onDragOver = (e) => {
+    onDragOver = e => {
         e.preventDefault()
     }
 
@@ -48,7 +48,7 @@ class Axis extends React.Component {
                         )}
                 </div>
                 <Droppable droppableId={axisId} direction="horizontal">
-                    {(provided) => (
+                    {provided => (
                         <div
                             className={stylesModule.content}
                             ref={provided.innerRef}
@@ -71,7 +71,7 @@ class Axis extends React.Component {
                                         index={index}
                                         isDragDisabled={isLocked}
                                     >
-                                        {(provided) => (
+                                        {provided => (
                                             <div
                                                 ref={provided.innerRef}
                                                 {...provided.draggableProps}
@@ -130,15 +130,15 @@ Axis.propTypes = {
     type: PropTypes.string,
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
     type: sGetUiType(state),
     layout: sGetUiLayout(state),
-    getItemsByDimension: (dimensionId) =>
+    getItemsByDimension: dimensionId =>
         sGetUiItemsByDimension(state, dimensionId) || [],
 })
 
-const mapDispatchToProps = (dispatch) => ({
-    getOpenHandler: (dimensionId) => () =>
+const mapDispatchToProps = dispatch => ({
+    getOpenHandler: dimensionId => () =>
         dispatch(acSetUiActiveModalDialog(dimensionId)),
 })
 

@@ -13,7 +13,7 @@ import {
     expectDimensionModalToBeVisible,
     clickDimensionModalHideButton,
     expectDimensionModalToNotBeVisible,
-} from '../elements/dimensionModal'
+} from '../elements/dimensionModal/index.js'
 import {
     openDimension,
     openContextMenu,
@@ -25,8 +25,8 @@ import {
     expectAxisToHaveDimension,
     expectAxisToNotHaveDimension,
     expectLayoutToNotHaveDimension,
-} from '../elements/layout'
-import { goToStartPage } from '../elements/startScreen'
+} from '../elements/layout.js'
+import { goToStartPage } from '../elements/startScreen.js'
 
 const TEST_FIXED_DIMS = Object.values(getFixedDimensions())
 const TEST_DYNAMIC_DIMS = Object.values(getDynamicDimensions())
@@ -36,7 +36,7 @@ describe('interacting with the layout', () => {
         goToStartPage()
     })
     describe('opening items by clicking them', () => {
-        TEST_FIXED_DIMS.forEach((dim) => {
+        TEST_FIXED_DIMS.forEach(dim => {
             it(`opens and closes ${dim.name}`, () => {
                 openDimension(dim.id)
                 expectDimensionModalToBeVisible(dim.id)
@@ -48,7 +48,7 @@ describe('interacting with the layout', () => {
     describe('moving items by using the context menu', () => {
         const TEST_AXIS = AXIS_ID_FILTERS
         const TEST_DIM = TEST_FIXED_DIMS.find(
-            (dim) => dim.id === DIMENSION_ID_DATA
+            dim => dim.id === DIMENSION_ID_DATA
         )
         it(`moves ${TEST_DIM.name} to ${TEST_AXIS}`, () => {
             openContextMenu(TEST_DIM.id)
@@ -58,7 +58,7 @@ describe('interacting with the layout', () => {
     })
     describe('removing item by using the context menu', () => {
         const TEST_DIM = TEST_FIXED_DIMS.find(
-            (dim) => dim.id === DIMENSION_ID_PERIOD
+            dim => dim.id === DIMENSION_ID_PERIOD
         )
         it(`removes ${TEST_DIM.name}`, () => {
             openContextMenu(TEST_DIM.id)
@@ -68,7 +68,7 @@ describe('interacting with the layout', () => {
     })
     describe('handling AC by using the Data item context menu', () => {
         const TEST_DIM = TEST_DYNAMIC_DIMS.find(
-            (dim) => dim.id === DIMENSION_ID_ASSIGNED_CATEGORIES
+            dim => dim.id === DIMENSION_ID_ASSIGNED_CATEGORIES
         )
         const TEST_AXIS = AXIS_ID_COLUMNS
         it(`adds and removes ${TEST_DIM.name}`, () => {

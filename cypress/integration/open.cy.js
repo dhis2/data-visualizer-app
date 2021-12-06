@@ -4,19 +4,19 @@ import {
     expectAOTitleToBeValue,
     expectAOTitleToNotBeDirty,
     expectVisualizationToBeVisible,
-} from '../elements/chart'
-import { replacePeriodItems } from '../elements/common'
-import { confirmLeave } from '../elements/confirmLeaveModal'
-import { createNewAO, openAOByName } from '../elements/fileMenu'
-import { expectRouteToBeAOId, expectRouteToBeEmpty } from '../elements/route'
-import { goToStartPage } from '../elements/startScreen'
-import { TEST_AOS } from '../utils/data'
+} from '../elements/chart.js'
+import { replacePeriodItems } from '../elements/common.js'
+import { confirmLeave } from '../elements/confirmLeaveModal.js'
+import { createNewAO, openAOByName } from '../elements/fileMenu/index.js'
+import { expectRouteToBeAOId, expectRouteToBeEmpty } from '../elements/route.js'
+import { goToStartPage } from '../elements/startScreen.js'
+import { TEST_AOS } from '../utils/data.js'
 
 describe('opening a saved AO', () => {
     it('navigates to the start page', () => {
         goToStartPage()
     })
-    TEST_AOS.forEach((ao) => {
+    TEST_AOS.forEach(ao => {
         // FIXME: Add a saved Scatter chart to the default database
         describe(visTypeDisplayNames[ao.type], () => {
             it(

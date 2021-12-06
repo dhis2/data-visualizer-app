@@ -4,9 +4,9 @@ import { SingleSelectField, SingleSelectOption } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { acSetUiOption } from '../../../actions/ui'
-import { OPTION_LEGEND_SET } from '../../../modules/options'
-import { sGetUiOption } from '../../../reducers/ui'
+import { acSetUiOption } from '../../../actions/ui.js'
+import { OPTION_LEGEND_SET } from '../../../modules/options.js'
+import { sGetUiOption } from '../../../reducers/ui.js'
 
 const query = {
     legendSets: {
@@ -43,7 +43,7 @@ const LegendSetSelect = ({
         onChange={({ selected }) =>
             onChange({
                 id: selected,
-                displayName: options.find((option) => option.value === selected)
+                displayName: options.find(option => option.value === selected)
                     .label,
             })
         }
@@ -76,7 +76,7 @@ const LegendSet = ({ value, onChange, dataTest }) => {
     const [isLoaded, setIsLoaded] = useState(false)
 
     if (value && value.id) {
-        if (!options.find((option) => option.value === value.id)) {
+        if (!options.find(option => option.value === value.id)) {
             setOptions([
                 ...options,
                 { value: value.id, label: value.displayName },
@@ -89,7 +89,7 @@ const LegendSet = ({ value, onChange, dataTest }) => {
             const { legendSets } = await engine.query(query)
 
             if (legendSets) {
-                const options = legendSets.legendSets.map((legendSet) => ({
+                const options = legendSets.legendSets.map(legendSet => ({
                     value: legendSet.id,
                     label: legendSet.name,
                 }))
@@ -119,11 +119,11 @@ LegendSet.propTypes = {
     value: PropTypes.object,
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
     value: sGetUiOption(state, { id: OPTION_LEGEND_SET }),
 })
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
     onChange: ({ id, displayName }) =>
         dispatch(
             acSetUiOption({

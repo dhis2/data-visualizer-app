@@ -1,11 +1,11 @@
 /* eslint-disable react/jsx-key */
 import React from 'react'
-import CumulativeValues from '../../../components/VisualizationOptions/Options/CumulativeValues'
-import HideEmptyRowItems from '../../../components/VisualizationOptions/Options/HideEmptyRowItems'
-import PercentStackedValues from '../../../components/VisualizationOptions/Options/PercentStackedValues'
-import SkipRounding from '../../../components/VisualizationOptions/Options/SkipRounding'
-import SortOrder from '../../../components/VisualizationOptions/Options/SortOrder'
-import getDisplayTemplate from './templates/display'
+import CumulativeValues from '../../../components/VisualizationOptions/Options/CumulativeValues.js'
+import HideEmptyRowItems from '../../../components/VisualizationOptions/Options/HideEmptyRowItems.js'
+import PercentStackedValues from '../../../components/VisualizationOptions/Options/PercentStackedValues.js'
+import SkipRounding from '../../../components/VisualizationOptions/Options/SkipRounding.js'
+import SortOrder from '../../../components/VisualizationOptions/Options/SortOrder.js'
+import getDisplayTemplate from './templates/display.js'
 
 const defaultContent = [
     <CumulativeValues />,
@@ -16,7 +16,7 @@ const defaultContent = [
 
 const stackedContent = [<PercentStackedValues />, ...defaultContent]
 
-export default (isStacked) => ({
+export default isStacked => ({
     ...getDisplayTemplate({
         content: React.Children.toArray(
             isStacked ? stackedContent : defaultContent

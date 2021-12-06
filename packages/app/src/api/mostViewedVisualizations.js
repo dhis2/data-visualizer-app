@@ -1,6 +1,6 @@
 // TODO move into component StartScreen?
 
-import { EVENT_TYPE } from './dataStatistics'
+import { EVENT_TYPE } from './dataStatistics.js'
 
 // most likely is not needed anywhere else
 export const apiFetchMostViewedVisualizations = (

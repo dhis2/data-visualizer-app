@@ -12,33 +12,33 @@ import {
     clickChartItem,
     expectChartItemsToHaveLength,
     expectVisualizationToBeVisible,
-} from '../elements/chart'
+} from '../elements/chart.js'
 import {
     clickDimensionModalUpdateButton,
     selectIndicators,
-} from '../elements/dimensionModal'
+} from '../elements/dimensionModal/index.js'
 import {
     clickChangeOrgUnit,
     drillDown,
     drillUp,
     expectDrillDownMenuToBeVisible,
     expectDrillDownMenuToNotBeVisible,
-} from '../elements/drillDownMenu'
+} from '../elements/drillDownMenu.js'
 import {
     clickContextMenuMove,
     expectAxisToHaveDimension,
     expectDimensionToHaveItemAmount,
     openContextMenu,
     openDimension,
-} from '../elements/layout'
-import { clickMenuBarUpdateButton } from '../elements/menuBar'
+} from '../elements/layout.js'
+import { clickMenuBarUpdateButton } from '../elements/menuBar.js'
 import {
     clickTableValueCell,
     expectTableValueCellsToHaveLength,
-} from '../elements/pivotTable'
-import { goToStartPage } from '../elements/startScreen'
-import { changeVisType } from '../elements/visualizationTypeSelector'
-import { TEST_INDICATORS } from '../utils/data'
+} from '../elements/pivotTable.js'
+import { goToStartPage } from '../elements/startScreen.js'
+import { changeVisType } from '../elements/visualizationTypeSelector.js'
+import { TEST_INDICATORS } from '../utils/data.js'
 
 describe('Drill-down: Column', () => {
     it('navigates to the start page and adds a data item', () => {

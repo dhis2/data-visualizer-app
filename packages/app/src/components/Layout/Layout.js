@@ -9,12 +9,12 @@ import {
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import { sGetUiType } from '../../reducers/ui'
-import DefaultLayout from './DefaultLayout/DefaultLayout'
-import PieLayout from './PieLayout/PieLayout'
-import PivotTableLayout from './PivotTableLayout/PivotTableLayout'
-import ScatterLayout from './ScatterLayout/ScatterLayout'
-import YearOverYearLayout from './YearOverYearLayout/YearOverYearLayout'
+import { sGetUiType } from '../../reducers/ui.js'
+import DefaultLayout from './DefaultLayout/DefaultLayout.js'
+import PieLayout from './PieLayout/PieLayout.js'
+import PivotTableLayout from './PivotTableLayout/PivotTableLayout.js'
+import ScatterLayout from './ScatterLayout/ScatterLayout.js'
+import YearOverYearLayout from './YearOverYearLayout/YearOverYearLayout.js'
 
 const componentMap = {
     [LAYOUT_TYPE_DEFAULT]: DefaultLayout,
@@ -35,7 +35,7 @@ Layout.propTypes = {
     visType: PropTypes.string,
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
     visType: sGetUiType(state),
 })
 

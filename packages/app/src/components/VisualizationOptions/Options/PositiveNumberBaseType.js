@@ -2,8 +2,8 @@ import { InputField } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import { acSetUiOption } from '../../../actions/ui'
-import { sGetUiOption } from '../../../reducers/ui'
+import { acSetUiOption } from '../../../actions/ui.js'
+import { sGetUiOption } from '../../../reducers/ui.js'
 import { tabSectionOption } from '../styles/VisualizationOptions.style.js'
 
 export const PositiveNumberBaseType = ({
@@ -58,7 +58,7 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onChange: (value) =>
+    onChange: value =>
         dispatch(
             acSetUiOption({
                 optionId: ownProps.option.id || ownProps.option.name,

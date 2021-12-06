@@ -7,8 +7,8 @@ import {
     tabSectionOption,
     tabSectionOptionComplexInline,
 } from '../styles/VisualizationOptions.style.js'
-import AxisMaxValue from './AxisMaxValue'
-import AxisMinValue from './AxisMinValue'
+import AxisMaxValue from './AxisMaxValue.js'
+import AxisMinValue from './AxisMinValue.js'
 
 const AxisRange = ({ disabled, axisId }) => (
     <div className={tabSectionOption.className}>

@@ -6,8 +6,8 @@ import {
     OPTION_TARGET_LINE_TITLE,
     OPTION_TARGET_LINE_TITLE_FONT_STYLE,
     OPTION_TARGET_LINE_VALUE,
-} from '../../../modules/options'
-import RegressionLine from './RegressionLine'
+} from '../../../modules/options.js'
+import RegressionLine from './RegressionLine.js'
 
 export const TargetLine = ({ disabled, axisId, isVertical }) => (
     <RegressionLine

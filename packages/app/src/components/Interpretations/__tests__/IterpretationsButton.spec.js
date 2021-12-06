@@ -1,8 +1,8 @@
 import { IconChevronRight24, IconChevronLeft24 } from '@dhis2/ui'
 import { shallow } from 'enzyme'
 import React from 'react'
-import MenuButton from '../../MenuButton/MenuButton'
-import { InterpretationsButton } from '../InterpretationsButton'
+import MenuButton from '../../MenuButton/MenuButton.js'
+import { InterpretationsButton } from '../InterpretationsButton.js'
 
 describe('InterpretationsButton component', () => {
     let props

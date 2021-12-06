@@ -5,13 +5,13 @@ import { connect } from 'react-redux'
 import {
     acSetUiInterpretation,
     acClearUiInterpretation,
-} from '../../actions/ui'
-import history from '../../modules/history'
-import { sGetUiInterpretation } from '../../reducers/ui'
-import styles from './styles/Interpretations.style'
+} from '../../actions/ui.js'
+import history from '../../modules/history.js'
+import { sGetUiInterpretation } from '../../reducers/ui.js'
+import styles from './styles/Interpretations.style.js'
 
 export class Interpretations extends Component {
-    onInterpretationChange = (interpretation) => {
+    onInterpretationChange = interpretation => {
         if (interpretation) {
             const interpretationUrl = `/${this.props.id}/interpretation/${interpretation.id}`
 
@@ -68,7 +68,7 @@ Interpretations.contextTypes = {
     d2: PropTypes.object,
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
     interpretationId: sGetUiInterpretation(state).id || null,
 })
 

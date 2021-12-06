@@ -1,20 +1,20 @@
 import { apiFetchDimensions } from '@dhis2/analytics'
 import keyBy from 'lodash-es/keyBy'
 import sortBy from 'lodash-es/sortBy'
-import { SET_DIMENSIONS } from '../reducers/dimensions'
-import { sGetSettingsDisplayNameProperty } from '../reducers/settings'
+import { SET_DIMENSIONS } from '../reducers/dimensions.js'
+import { sGetSettingsDisplayNameProperty } from '../reducers/settings.js'
 
-export const acSetDimensions = (dimensions) => ({
+export const acSetDimensions = dimensions => ({
     type: SET_DIMENSIONS,
-    value: keyBy(sortBy(dimensions, [(d) => d.name.toLowerCase()]), 'id'),
+    value: keyBy(sortBy(dimensions, [d => d.name.toLowerCase()]), 'id'),
 })
 
 export const tSetDimensions = () => async (dispatch, getState, engine) => {
-    const onSuccess = (dimensions) => {
+    const onSuccess = dimensions => {
         dispatch(acSetDimensions(dimensions))
     }
 
-    const onError = (error) => {
+    const onError = error => {
         console.log('Error (apiFetchDimensions): ', error)
         return error
     }

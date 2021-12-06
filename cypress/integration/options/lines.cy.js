@@ -2,30 +2,30 @@ import { DIMENSION_ID_DATA, VIS_TYPE_COLUMN } from '@dhis2/analytics'
 import {
     expectVisualizationToBeVisible,
     expectChartTitleToBeVisible,
-} from '../../elements/chart'
+} from '../../elements/chart.js'
 import {
     selectDataElements,
     clickDimensionModalUpdateButton,
-} from '../../elements/dimensionModal'
-import { openDimension } from '../../elements/dimensionsPanel'
-import { clickMenuBarOptionsButton } from '../../elements/menuBar'
+} from '../../elements/dimensionModal/index.js'
+import { openDimension } from '../../elements/dimensionsPanel.js'
+import { clickMenuBarOptionsButton } from '../../elements/menuBar.js'
 import {
     clickOptionsModalUpdateButton,
     clickOptionsTab,
     clickTrendLineCheckbox,
     OPTIONS_TAB_DATA,
     selectTrendLineType,
-} from '../../elements/optionsModal'
-import { goToStartPage } from '../../elements/startScreen'
-import { CONFIG_DEFAULT_TREND_LINE } from '../../utils/config'
-import { TEST_DATA_ELEMENTS } from '../../utils/data'
+} from '../../elements/optionsModal/index.js'
+import { goToStartPage } from '../../elements/startScreen.js'
+import { CONFIG_DEFAULT_TREND_LINE } from '../../utils/config.js'
+import { TEST_DATA_ELEMENTS } from '../../utils/data.js'
 import {
     expectWindowConfigSeriesToHaveTrendline,
     expectWindowConfigSeriesToNotHaveTrendline,
-} from '../../utils/window'
+} from '../../utils/window.js'
 
 const TEST_DATA_ELEMENT_NAMES = TEST_DATA_ELEMENTS.slice(2, 4).map(
-    (item) => item.name
+    item => item.name
 )
 
 describe('Options - Lines', () => {
@@ -66,7 +66,7 @@ describe('Options - Lines', () => {
                     clickOptionsModalUpdateButton()
                     expectChartTitleToBeVisible()
                 })
-                TEST_DATA_ELEMENT_NAMES.forEach((dataElement) => {
+                TEST_DATA_ELEMENT_NAMES.forEach(dataElement => {
                     it(`config has "${dataElement}" trendline`, () => {
                         const trendline = {
                             ...CONFIG_DEFAULT_TREND_LINE,

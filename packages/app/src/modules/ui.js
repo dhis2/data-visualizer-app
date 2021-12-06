@@ -14,10 +14,10 @@ import {
     VIS_TYPE_GAUGE,
     VIS_TYPE_SINGLE_VALUE,
 } from '@dhis2/analytics'
-import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields'
-import { getInverseLayout } from './layout'
-import { getOptionsFromVisualization } from './options'
-import { removeLastPathSegment } from './orgUnit'
+import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields.js'
+import { getInverseLayout } from './layout.js'
+import { getOptionsFromVisualization } from './options.js'
+import { removeLastPathSegment } from './orgUnit.js'
 
 export const SERIES_ITEM_TYPE_PROP = 'type'
 export const SERIES_ITEM_AXIS_PROP = 'axis'
@@ -40,18 +40,18 @@ export const getUiFromVisualization = (vis, currentState = {}) => ({
             ? vis[BASE_FIELD_YEARLY_SERIES]
             : currentState.yearOverYearSeries,
     yearOverYearCategory: isYearOverYear(vis.type)
-        ? vis.rows[0].items.map((item) => item.id)
+        ? vis.rows[0].items.map(item => item.id)
         : currentState.yearOverYearCategory,
 })
 
 // Transform from store.ui to default format
-const defaultUiAdapter = (ui) => ({
+const defaultUiAdapter = ui => ({
     ...ui,
     layout: getAdaptedUiLayoutByType(ui.layout, ui.type),
 })
 
 // Transform from store.ui to year on year format
-const yearOverYearUiAdapter = (ui) => {
+const yearOverYearUiAdapter = ui => {
     const state = Object.assign({}, ui)
 
     const items = Object.assign({}, state.itemsByDimension)
@@ -64,14 +64,14 @@ const yearOverYearUiAdapter = (ui) => {
     }
 }
 
-const singleValueUiAdapter = (ui) => {
+const singleValueUiAdapter = ui => {
     const adaptedUi = defaultUiAdapter(ui)
     adaptedUi.options.measureCriteria = undefined
     return adaptedUi
 }
 
 // Transform from store.ui to scatter format
-const scatterUiAdapter = (ui) => {
+const scatterUiAdapter = ui => {
     const adaptedUi = {
         ...ui,
         layout: getAdaptedUiLayoutByType(ui.layout, ui.type),
@@ -99,7 +99,7 @@ const scatterUiAdapter = (ui) => {
     return adaptedUi
 }
 
-export const getAdaptedUiByType = (ui) => {
+export const getAdaptedUiByType = ui => {
     switch (ui.type) {
         case VIS_TYPE_YEAR_OVER_YEAR_LINE:
         case VIS_TYPE_YEAR_OVER_YEAR_COLUMN: {
@@ -117,7 +117,7 @@ export const getAdaptedUiByType = (ui) => {
     }
 }
 
-export const getParentGraphMapFromVisualization = (vis) => {
+export const getParentGraphMapFromVisualization = vis => {
     const dimensionIdsByAxis = layoutGetAxisIdDimensionIdsObject(vis)
     const inverseLayout = getInverseLayout(dimensionIdsByAxis)
     const ouAxis = inverseLayout[DIMENSION_ID_ORGUNIT]
@@ -128,12 +128,12 @@ export const getParentGraphMapFromVisualization = (vis) => {
 
     const parentGraphMap = {}
     const ouDimension = vis[ouAxis].find(
-        (dimension) => dimension.dimension === DIMENSION_ID_ORGUNIT
+        dimension => dimension.dimension === DIMENSION_ID_ORGUNIT
     )
 
     ouDimension.items
-        .filter((orgUnit) => orgUnit.path)
-        .forEach((orgUnit) => {
+        .filter(orgUnit => orgUnit.path)
+        .forEach(orgUnit => {
             if ('/' + orgUnit.id === orgUnit.path) {
                 // root org unit case
                 parentGraphMap[orgUnit.id] = ''
@@ -148,7 +148,7 @@ export const getParentGraphMapFromVisualization = (vis) => {
 }
 
 export const mergeUiMaps = (destinationMap, sourceMap, propName) => {
-    Object.keys(sourceMap || {}).forEach((key) => {
+    Object.keys(sourceMap || {}).forEach(key => {
         if (!(key in destinationMap)) {
             destinationMap[key] = {}
         }

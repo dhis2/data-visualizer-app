@@ -1,14 +1,14 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import { getStubContext } from '../../../../../config/testsContext'
-import * as actions from '../../actions/'
-import { CURRENT_AO_KEY } from '../../api/userDataStore'
-import * as userDataStore from '../../api/userDataStore'
-import history from '../../modules/history'
-import * as ui from '../../modules/ui'
-import { DEFAULT_CURRENT } from '../../reducers/current'
-import { App } from '../App'
-import Snackbar from '../Snackbar/Snackbar'
+import { getStubContext } from '../../../../../config/testsContext.js'
+import * as actions from '../../actions/index.js'
+import { CURRENT_AO_KEY } from '../../api/userDataStore.js'
+import * as userDataStore from '../../api/userDataStore.js'
+import history from '../../modules/history.js'
+import * as ui from '../../modules/ui.js'
+import { DEFAULT_CURRENT } from '../../reducers/current.js'
+import { App } from '../App.js'
+import Snackbar from '../Snackbar/Snackbar.js'
 
 jest.mock(
     '../Visualization/Visualization',
@@ -94,7 +94,7 @@ describe('App', () => {
     })
 
     describe('location pathname', () => {
-        it('calls clearAll when location pathname is root', (done) => {
+        it('calls clearAll when location pathname is root', done => {
             props.location.pathname = '/'
             app()
 
@@ -105,7 +105,7 @@ describe('App', () => {
             })
         })
 
-        it('calls setVisualization when location pathname has length', (done) => {
+        it('calls setVisualization when location pathname has length', done => {
             props.location.pathname = '/twilightsparkle'
             app()
 
@@ -116,7 +116,7 @@ describe('App', () => {
             })
         })
 
-        it('loads new visualization when pathname changes', (done) => {
+        it('loads new visualization when pathname changes', done => {
             props.location.pathname = '/rarity'
 
             app()
@@ -129,7 +129,7 @@ describe('App', () => {
             })
         })
 
-        it('reloads visualization when opening the same visualization', (done) => {
+        it('reloads visualization when opening the same visualization', done => {
             props.location.pathname = '/fluttershy'
 
             app()
@@ -145,7 +145,7 @@ describe('App', () => {
             })
         })
 
-        it('reloads visualization when same pathname pushed when saving', (done) => {
+        it('reloads visualization when same pathname pushed when saving', done => {
             props.location.pathname = '/fluttershy'
 
             app()
@@ -161,7 +161,7 @@ describe('App', () => {
             })
         })
 
-        it('loads AO from user data store if id equals to "currentAnalyticalObject"', (done) => {
+        it('loads AO from user data store if id equals to "currentAnalyticalObject"', done => {
             props.location.pathname = '/' + CURRENT_AO_KEY
 
             app()
@@ -186,7 +186,7 @@ describe('App', () => {
                 props.location.pathname = `/applejack/interpretation/xyz123`
             })
 
-            it('does not reload visualization when interpretation toggled', (done) => {
+            it('does not reload visualization when interpretation toggled', done => {
                 app()
 
                 setTimeout(() => {

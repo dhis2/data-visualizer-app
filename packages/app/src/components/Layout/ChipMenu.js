@@ -9,10 +9,10 @@ import { connect } from 'react-redux'
 import {
     acAddUiLayoutDimensions,
     acRemoveUiLayoutDimensions,
-} from '../../actions/ui'
-import * as fromReducers from '../../reducers'
-import IconButton from '../IconButton/IconButton'
-import { styles } from './styles/Menu.style'
+} from '../../actions/ui.js'
+import * as fromReducers from '../../reducers/index.js'
+import IconButton from '../IconButton/IconButton.js'
+import { styles } from './styles/Menu.style.js'
 
 const ChipMenu = ({
     assignedCategoriesItemHandler,
@@ -57,7 +57,7 @@ const ChipMenu = ({
                             isAssignedCategoriesInLayout={
                                 layoutHasAssignedCategories
                             }
-                            assignedCategoriesItemHandler={(destination) =>
+                            assignedCategoriesItemHandler={destination =>
                                 assignedCategoriesItemHandler(
                                     layoutHasAssignedCategories,
                                     destination
@@ -87,18 +87,18 @@ ChipMenu.propTypes = {
     visType: PropTypes.string,
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
         layoutHasAssignedCategories:
             fromReducers.fromUi.sLayoutHasAssignedCategories(state),
     }
 }
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
     axisItemHandler: ({ dimensionId, axisId }) => {
         dispatch(acAddUiLayoutDimensions({ [dimensionId]: { axisId } }))
     },
-    removeItemHandler: (dimensionId) => {
+    removeItemHandler: dimensionId => {
         dispatch(acRemoveUiLayoutDimensions(dimensionId))
     },
     assignedCategoriesItemHandler: (layoutHasAssignedCategories, axisId) => {

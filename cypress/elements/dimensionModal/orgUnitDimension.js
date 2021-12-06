@@ -1,5 +1,5 @@
 import { DIMENSION_ID_ORGUNIT } from '@dhis2/analytics'
-import { expectDimensionModalToBeVisible } from '.'
+import { expectDimensionModalToBeVisible } from './index.js'
 
 const timeout = {
     timeout: 20000,
@@ -24,21 +24,21 @@ export const expectOrgUnitDimensionToNotBeLoading = () =>
         .find('[role="progressbar"]', timeout)
         .should('not.exist')
 
-export const expectOrgUnitItemToBeSelected = (itemName) =>
+export const expectOrgUnitItemToBeSelected = itemName =>
     cy
         .getBySel(orgUnitTreeNodeLabelEl)
         .contains(itemName)
         .find(orgUnitTreeNodeSelectEl)
         .should('be.checked')
 
-export const expectOrgUnitItemToNotBeSelected = (itemName) =>
+export const expectOrgUnitItemToNotBeSelected = itemName =>
     cy
         .getBySel(orgUnitTreeNodeLabelEl)
         .contains(itemName)
         .find(orgUnitTreeNodeSelectEl)
         .should('not.be.checked')
 
-export const selectOrgUnitTreeItem = (itemName) => {
+export const selectOrgUnitTreeItem = itemName => {
     expectOrgUnitItemToNotBeSelected(itemName)
     cy.getBySel(orgUnitTreeNodeLabelEl)
         .contains(itemName)
@@ -47,7 +47,7 @@ export const selectOrgUnitTreeItem = (itemName) => {
     expectOrgUnitItemToBeSelected(itemName)
 }
 
-export const deselectOrgUnitTreeItem = (itemName) => {
+export const deselectOrgUnitTreeItem = itemName => {
     expectOrgUnitItemToBeSelected(itemName)
     cy.getBySel(orgUnitTreeNodeLabelEl)
         .contains(itemName)
@@ -56,7 +56,7 @@ export const deselectOrgUnitTreeItem = (itemName) => {
     expectOrgUnitItemToNotBeSelected(itemName)
 }
 
-export const openOrgUnitTreeItem = (itemName) =>
+export const openOrgUnitTreeItem = itemName =>
     cy
         .getBySel(orgUnitTreeNodeLabelEl)
         .contains(itemName)
@@ -64,7 +64,7 @@ export const openOrgUnitTreeItem = (itemName) =>
         .children(`[data-test=${orgUnitTreeNodeToggleEl}]`)
         .click()
 
-export const toggleOrgUnitLevel = (name) => {
+export const toggleOrgUnitLevel = name => {
     cy.getBySel(levelSelectEl).click()
     cy.getBySelLike(levelSelectOptionEl)
         .contains(name)
@@ -73,7 +73,7 @@ export const toggleOrgUnitLevel = (name) => {
         .click('center')
 }
 
-export const toggleOrgUnitGroup = (name) => {
+export const toggleOrgUnitGroup = name => {
     cy.getBySel(groupSelectEl).click()
     cy.getBySelLike(groupSelectOptionEl)
         .contains(name)
@@ -82,7 +82,7 @@ export const toggleOrgUnitGroup = (name) => {
         .click('center')
 }
 
-export const selectUserOrgUnit = (name) => {
+export const selectUserOrgUnit = name => {
     cy.getBySel(orgUnitModalEl)
         .contains(name)
         .find('[type="checkbox"]')
@@ -94,7 +94,7 @@ export const selectUserOrgUnit = (name) => {
         .should('be.checked')
 }
 
-export const deselectUserOrgUnit = (name) => {
+export const deselectUserOrgUnit = name => {
     cy.getBySel(orgUnitModalEl)
         .contains(name)
         .find('[type="checkbox"]')

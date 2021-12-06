@@ -4,15 +4,15 @@ import {
     FONT_STYLE_VERTICAL_AXIS_TITLE,
 } from '@dhis2/analytics'
 import React from 'react'
-import AxisDecimals from '../../../components/VisualizationOptions/Options/AxisDecimals'
-import AxisLabels from '../../../components/VisualizationOptions/Options/AxisLabels'
-import AxisRange from '../../../components/VisualizationOptions/Options/AxisRange'
-import AxisSteps from '../../../components/VisualizationOptions/Options/AxisSteps'
-import AxisTitle from '../../../components/VisualizationOptions/Options/AxisTitle'
-import BaseLine from '../../../components/VisualizationOptions/Options/BaseLine'
-import TargetLine from '../../../components/VisualizationOptions/Options/TargetLine'
-import getHorizontalAxisTemplate from './templates/horizontalAxis'
-import getVerticalAxisTemplate from './templates/verticalAxis'
+import AxisDecimals from '../../../components/VisualizationOptions/Options/AxisDecimals.js'
+import AxisLabels from '../../../components/VisualizationOptions/Options/AxisLabels.js'
+import AxisRange from '../../../components/VisualizationOptions/Options/AxisRange.js'
+import AxisSteps from '../../../components/VisualizationOptions/Options/AxisSteps.js'
+import AxisTitle from '../../../components/VisualizationOptions/Options/AxisTitle.js'
+import BaseLine from '../../../components/VisualizationOptions/Options/BaseLine.js'
+import TargetLine from '../../../components/VisualizationOptions/Options/TargetLine.js'
+import getHorizontalAxisTemplate from './templates/horizontalAxis.js'
+import getVerticalAxisTemplate from './templates/verticalAxis.js'
 
 export default ({ axisId, isVertical, showLines, hasCustomAxes }) => {
     const template = isVertical

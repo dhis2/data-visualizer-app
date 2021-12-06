@@ -7,11 +7,11 @@ import { Radio, Field } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
-import { acSetUiOption } from '../../../actions/ui'
-import { OPTION_LEGEND_DISPLAY_STRATEGY } from '../../../modules/options'
-import { sGetUiOption } from '../../../reducers/ui'
+import { acSetUiOption } from '../../../actions/ui.js'
+import { OPTION_LEGEND_DISPLAY_STRATEGY } from '../../../modules/options.js'
+import { sGetUiOption } from '../../../reducers/ui.js'
 import { tabSectionOptionToggleable } from '../styles/VisualizationOptions.style.js'
-import LegendSet from './LegendSet'
+import LegendSet from './LegendSet.js'
 
 const LegendDisplayStrategy = ({ value, onChange }) => (
     <Fragment>
@@ -50,11 +50,11 @@ LegendDisplayStrategy.propTypes = {
     onChange: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
     value: sGetUiOption(state, { id: OPTION_LEGEND_DISPLAY_STRATEGY }),
 })
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
     onChange: ({ value }) =>
         dispatch(
             acSetUiOption({ optionId: OPTION_LEGEND_DISPLAY_STRATEGY, value })

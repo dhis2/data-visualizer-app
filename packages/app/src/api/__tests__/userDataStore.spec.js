@@ -1,5 +1,5 @@
 import * as d2lib from 'd2'
-import * as userDataStore from '../userDataStore'
+import * as userDataStore from '../userDataStore.js'
 import {
     apiSave,
     apiFetch,
@@ -9,7 +9,7 @@ import {
     apiFetchAOFromUserDataStore,
     NAMESPACE,
     CURRENT_AO_KEY,
-} from '../userDataStore'
+} from '../userDataStore.js'
 
 let mockD2
 let mockNamespace

@@ -2,8 +2,8 @@ import { AlertBar } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import { acClearSnackbar } from '../../actions/snackbar'
-import { sGetSnackbar } from '../../reducers/snackbar'
+import { acClearSnackbar } from '../../actions/snackbar.js'
+import { sGetSnackbar } from '../../reducers/snackbar.js'
 import styles from './styles/Snackbar.module.css'
 
 export const VARIANT_ERROR = 'error'
@@ -38,11 +38,11 @@ Snackbar.propTypes = {
     onClose: PropTypes.func,
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
     snackbar: sGetSnackbar(state),
 })
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
     onClose: () => dispatch(acClearSnackbar()),
 })
 

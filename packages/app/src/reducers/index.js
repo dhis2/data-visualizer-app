@@ -1,15 +1,15 @@
 import { combineReducers } from 'redux'
-import chart, * as fromChart from './chart'
-import current, * as fromCurrent from './current'
-import dimensions, * as fromDimensions from './dimensions'
-import loader, * as fromLoader from './loader'
-import metadata, * as fromMetadata from './metadata'
-import recommendedIds, * as fromRecommendedIds from './recommendedIds'
-import settings, * as fromSettings from './settings'
-import snackbar, * as fromSnackbar from './snackbar'
-import ui, * as fromUi from './ui'
-import user, * as fromUser from './user'
-import visualization, * as fromVisualization from './visualization'
+import chart, * as fromChart from './chart.js'
+import current, * as fromCurrent from './current.js'
+import dimensions, * as fromDimensions from './dimensions.js'
+import loader, * as fromLoader from './loader.js'
+import metadata, * as fromMetadata from './metadata.js'
+import recommendedIds, * as fromRecommendedIds from './recommendedIds.js'
+import settings, * as fromSettings from './settings.js'
+import snackbar, * as fromSnackbar from './snackbar.js'
+import ui, * as fromUi from './ui.js'
+import user, * as fromUser from './user.js'
+import visualization, * as fromVisualization from './visualization.js'
 
 // Reducers
 
@@ -43,8 +43,8 @@ export {
     fromChart,
 }
 
-export const sGetSeriesSetupItems = (state) =>
-    fromUi.sGetAxisSetup(state).map((item) => ({
+export const sGetSeriesSetupItems = state =>
+    fromUi.sGetAxisSetup(state).map(item => ({
         dimensionItem: item.id,
         axis: item.axis,
         name: fromMetadata.sGetMetadata(state)[item.id]?.name,

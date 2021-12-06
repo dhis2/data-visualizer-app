@@ -2,8 +2,8 @@ import { Checkbox, SingleSelectField, SingleSelectOption } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { acSetUiOptions } from '../../../actions/ui'
-import { sGetUiOptions } from '../../../reducers/ui'
+import { acSetUiOptions } from '../../../actions/ui.js'
+import { sGetUiOptions } from '../../../reducers/ui.js'
 import {
     tabSectionOption,
     tabSectionOptionToggleable,
@@ -21,8 +21,8 @@ export const SelectBaseOption = ({
 }) => {
     const defaultValue = option.defaultValue
     const [checked, setChecked] = useState(value !== defaultValue)
-    const selected = option.items.find((item) => item.value === value)?.value
-    const onToggle = (checked) => {
+    const selected = option.items.find(item => item.value === value)?.value
+    const onToggle = checked => {
         setChecked(checked)
 
         onChange(checked ? option.items[0].value : defaultValue)
@@ -88,7 +88,7 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onChange: (value) =>
+    onChange: value =>
         dispatch(acSetUiOptions({ [ownProps.option.name]: value })),
 })
 

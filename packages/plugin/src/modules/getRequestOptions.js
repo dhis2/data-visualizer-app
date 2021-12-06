@@ -1,4 +1,4 @@
-import { getOptionsForRequest } from './options'
+import { getOptionsForRequest } from './options.js'
 
 export const getRequestOptions = (visualization, filters, userSettings) => {
     const options = getOptionsForRequest().reduce((map, [option, props]) => {
@@ -33,7 +33,7 @@ export const getRequestOptions = (visualization, filters, userSettings) => {
     // userOrgUnit
     if (filters.userOrgUnit && filters.userOrgUnit.length) {
         const ouIds = filters.userOrgUnit.map(
-            (ouPath) => ouPath.split('/').slice(-1)[0]
+            ouPath => ouPath.split('/').slice(-1)[0]
         )
 
         options.userOrgUnit = ouIds.join(';')

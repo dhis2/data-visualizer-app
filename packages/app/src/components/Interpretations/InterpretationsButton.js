@@ -3,13 +3,13 @@ import { IconChevronRight24, IconChevronLeft24 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import { acToggleUiRightSidebarOpen } from '../../actions/ui'
-import { sGetCurrent } from '../../reducers/current'
-import { sGetUiRightSidebarOpen } from '../../reducers/ui'
-import MenuButton from '../MenuButton/MenuButton'
+import { acToggleUiRightSidebarOpen } from '../../actions/ui.js'
+import { sGetCurrent } from '../../reducers/current.js'
+import { sGetUiRightSidebarOpen } from '../../reducers/ui.js'
+import MenuButton from '../MenuButton/MenuButton.js'
 import styles from './styles/InterpretationsButton.module.css'
 
-export const InterpretationsButton = (props) => (
+export const InterpretationsButton = props => (
     <MenuButton disabled={!props.id} onClick={props.onClick}>
         {props.rightSidebarOpen ? (
             <div className={styles.iconWrapper}>
@@ -30,12 +30,12 @@ InterpretationsButton.propTypes = {
     onClick: PropTypes.func,
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
     rightSidebarOpen: sGetUiRightSidebarOpen(state),
     id: (sGetCurrent(state) || {}).id,
 })
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
     onClick: () => dispatch(acToggleUiRightSidebarOpen()),
 })
 

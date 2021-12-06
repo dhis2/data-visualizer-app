@@ -3,15 +3,15 @@ import { Checkbox, Label } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import { acSetUiOption } from '../../../actions/ui'
-import { sGetUiOption } from '../../../reducers/ui'
+import { acSetUiOption } from '../../../actions/ui.js'
+import { sGetUiOption } from '../../../reducers/ui.js'
 import {
     tabSectionOption,
     tabSectionOptionToggleable,
     tabSectionOptionComplexInline,
 } from '../styles/VisualizationOptions.style.js'
-import RegressionLineTitle from './RegressionLineTitle'
-import RegressionLineValue from './RegressionLineValue'
+import RegressionLineTitle from './RegressionLineTitle.js'
+import RegressionLineValue from './RegressionLineValue.js'
 
 export const RegressionLine = ({
     checked,
@@ -84,7 +84,7 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onToggle: (checked) =>
+    onToggle: checked =>
         dispatch(
             acSetUiOption({
                 optionId: ownProps.enabledId,

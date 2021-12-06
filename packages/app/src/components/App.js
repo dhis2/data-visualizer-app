@@ -11,27 +11,27 @@ import {
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import * as fromActions from '../actions'
+import * as fromActions from '../actions/index.js'
 import {
     apiFetchAOFromUserDataStore,
     CURRENT_AO_KEY,
-} from '../api/userDataStore'
-import Snackbar from '../components/Snackbar/Snackbar'
-import history from '../modules/history'
-import defaultMetadata from '../modules/metadata'
-import { getParentGraphMapFromVisualization } from '../modules/ui'
-import { STATE_DIRTY, getVisualizationState } from '../modules/visualization'
-import * as fromReducers from '../reducers'
-import { sGetVisualization } from '../reducers/visualization'
-import DimensionsPanel from './DimensionsPanel/DimensionsPanel'
-import DndContext from './DndContext'
-import Interpretations from './Interpretations/Interpretations'
-import Layout from './Layout/Layout'
-import MenuBar from './MenuBar/MenuBar'
-import TitleBar from './TitleBar/TitleBar'
-import Visualization from './Visualization/Visualization'
-import { APPROVAL_LEVEL_OPTION_AUTH } from './VisualizationOptions/Options/ApprovalLevel'
-import VisualizationTypeSelector from './VisualizationTypeSelector/VisualizationTypeSelector'
+} from '../api/userDataStore.js'
+import Snackbar from '../components/Snackbar/Snackbar.js'
+import history from '../modules/history.js'
+import defaultMetadata from '../modules/metadata.js'
+import { getParentGraphMapFromVisualization } from '../modules/ui.js'
+import { STATE_DIRTY, getVisualizationState } from '../modules/visualization.js'
+import * as fromReducers from '../reducers/index.js'
+import { sGetVisualization } from '../reducers/visualization.js'
+import DimensionsPanel from './DimensionsPanel/DimensionsPanel.js'
+import DndContext from './DndContext.js'
+import Interpretations from './Interpretations/Interpretations.js'
+import Layout from './Layout/Layout.js'
+import MenuBar from './MenuBar/MenuBar.js'
+import TitleBar from './TitleBar/TitleBar.js'
+import Visualization from './Visualization/Visualization.js'
+import { APPROVAL_LEVEL_OPTION_AUTH } from './VisualizationOptions/Options/ApprovalLevel.js'
+import VisualizationTypeSelector from './VisualizationTypeSelector/VisualizationTypeSelector.js'
 import './App.css'
 import './scrollbar.css'
 
@@ -52,7 +52,7 @@ export class App extends Component {
      * - file->open (same or different AO)
      * - file->saveAs
      */
-    refetch = (location) => {
+    refetch = location => {
         if (!this.state.previousLocation) {
             return true
         }
@@ -70,14 +70,14 @@ export class App extends Component {
         return false
     }
 
-    parseLocation = (location) => {
+    parseLocation = location => {
         const pathParts = location.pathname.slice(1).split('/')
         const id = pathParts[0]
         const interpretationId = pathParts[2]
         return { id, interpretationId }
     }
 
-    loadVisualization = async (location) => {
+    loadVisualization = async location => {
         if (location.pathname.length > 1) {
             // /currentAnalyticalObject
             // /${id}/
@@ -134,7 +134,7 @@ export class App extends Component {
 
         const metaData = { ...defaultMetadata() }
 
-        rootOrgUnits.forEach((rootOrgUnit) => {
+        rootOrgUnits.forEach(rootOrgUnit => {
             if (rootOrgUnit.id) {
                 metaData[rootOrgUnit.id] = {
                     ...rootOrgUnit,
@@ -147,7 +147,7 @@ export class App extends Component {
 
         this.loadVisualization(this.props.location)
 
-        this.unlisten = history.listen((location) => {
+        this.unlisten = history.listen(location => {
             const isSaving = location.state?.isSaving
             const isOpening = location.state?.isOpening
             const isResetting = location.state?.isResetting
@@ -183,13 +183,13 @@ export class App extends Component {
 
         document.body.addEventListener(
             'keyup',
-            (e) =>
+            e =>
                 e.key === 'Enter' &&
                 e.ctrlKey === true &&
                 this.props.setCurrentFromUi(this.props.ui)
         )
 
-        window.addEventListener('beforeunload', (event) => {
+        window.addEventListener('beforeunload', event => {
             if (
                 getVisualizationState(
                     this.props.visualization,
@@ -317,7 +317,7 @@ export class App extends Component {
     }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
     settings: fromReducers.fromSettings.sGetSettings(state),
     current: fromReducers.fromCurrent.sGetCurrent(state),
     interpretation: fromReducers.fromUi.sGetUiInterpretation(state),

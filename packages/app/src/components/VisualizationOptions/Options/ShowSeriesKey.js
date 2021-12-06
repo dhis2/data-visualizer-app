@@ -1,8 +1,8 @@
 import { FONT_STYLE_LEGEND } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import React from 'react'
-import { OPTION_SHOW_SERIES_KEY } from '../../../modules/options'
-import CheckboxBaseOption from './CheckboxBaseOption'
+import { OPTION_SHOW_SERIES_KEY } from '../../../modules/options.js'
+import CheckboxBaseOption from './CheckboxBaseOption.js'
 
 const ShowSeriesKey = () => (
     <CheckboxBaseOption

@@ -17,13 +17,13 @@ import { Tooltip, IconLock16, IconWarningFilled16 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import DynamicDimensionIcon from '../../assets/DynamicDimensionIcon'
-import { setDataTransfer } from '../../modules/dnd'
-import { sGetDimensions } from '../../reducers/dimensions'
-import { sGetMetadata } from '../../reducers/metadata'
-import { sGetUiType } from '../../reducers/ui'
-import { styles } from './styles/Chip.style'
-import TooltipContent from './TooltipContent'
+import DynamicDimensionIcon from '../../assets/DynamicDimensionIcon.js'
+import { setDataTransfer } from '../../modules/dnd.js'
+import { sGetDimensions } from '../../reducers/dimensions.js'
+import { sGetMetadata } from '../../reducers/metadata.js'
+import { sGetUiType } from '../../reducers/ui.js'
+import { styles } from './styles/Chip.style.js'
+import TooltipContent from './TooltipContent.js'
 
 const Chip = ({
     type,
@@ -70,7 +70,7 @@ const Chip = ({
         }
     }
 
-    const getDragStartHandler = () => (event) => {
+    const getDragStartHandler = () => event => {
         setDataTransfer(event, axisId)
     }
 

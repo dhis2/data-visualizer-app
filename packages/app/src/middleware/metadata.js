@@ -1,8 +1,8 @@
-import { acAddMetadata } from '../actions/metadata'
+import { acAddMetadata } from '../actions/metadata.js'
 
 export default ({ dispatch }) =>
-    (next) =>
-    (action) => {
+    next =>
+    action => {
         typeof action.metadata === 'object' &&
             !Array.isArray(action.metadata) &&
             dispatch(acAddMetadata(action.metadata))

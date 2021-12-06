@@ -1,4 +1,4 @@
-import { getErrorVariantByStatusCode } from '../error'
+import { getErrorVariantByStatusCode } from '../error.js'
 
 describe('getErrorVariantByStatusCode', () => {
     let error

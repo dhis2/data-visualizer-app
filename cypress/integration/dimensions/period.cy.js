@@ -28,9 +28,9 @@ import {
     singleClickSelectedItem,
     expectSelectableItemsAmountToBeLeast,
     expectSelectableItemsAmountToBe,
-} from '../../elements/dimensionModal'
-import { openDimension } from '../../elements/dimensionsPanel'
-import { goToStartPage } from '../../elements/startScreen'
+} from '../../elements/dimensionModal/index.js'
+import { openDimension } from '../../elements/dimensionsPanel.js'
+import { goToStartPage } from '../../elements/startScreen.js'
 
 const defaultRelativePeriod = 'Last 3 months'
 const systemSettingsBody = {
@@ -50,8 +50,8 @@ describe('Period dimension', () => {
         it('navigates to the start page', () => {
             cy.intercept(
                 /systemSettings(\S)*keyAnalysisRelativePeriod(\S)*/,
-                (req) => {
-                    req.reply((res) => {
+                req => {
+                    req.reply(res => {
                         res.send({ body: systemSettingsBody })
                     })
                 }
@@ -125,7 +125,7 @@ describe('Period dimension', () => {
             { name: 'Financial Years', amountOfChildren: 3 },
             { name: 'Years', amountOfChildren: 4 },
         ]
-        relativePeriodTypes.forEach((type) =>
+        relativePeriodTypes.forEach(type =>
             it(`relative period type '${type.name}' has ${type.amountOfChildren} items`, () => {
                 openRelativePeriodsTypeSelect()
                 selectPeriodType(type.name)
@@ -157,7 +157,7 @@ describe('Period dimension', () => {
             { name: 'Financial year (Start July)', amountOfChildren: 10 },
             { name: 'Financial year (Start April)', amountOfChildren: 10 },
         ]
-        fixedPeriodTypes.forEach((type) =>
+        fixedPeriodTypes.forEach(type =>
             it(`fixed period type '${type.name}' has ${type.amountOfChildren} items`, () => {
                 openFixedPeriodsTypeSelect()
                 selectPeriodType(type.name)
@@ -173,8 +173,8 @@ describe('Period dimension', () => {
         it('navigates to the start page', () => {
             cy.intercept(
                 /systemSettings(\S)*keyAnalysisRelativePeriod(\S)*/,
-                (req) => {
-                    req.reply((res) => {
+                req => {
+                    req.reply(res => {
                         res.send({
                             body: {
                                 ...systemSettingsBody,
@@ -208,7 +208,7 @@ describe('Period dimension', () => {
                 'Financial Years',
                 'Years',
             ]
-            relativePeriodTypes.forEach((type) =>
+            relativePeriodTypes.forEach(type =>
                 expectRelativePeriodTypeSelectToContain(type)
             )
             selectPeriodType(relativePeriodTypes.slice(-1)[0]) // Click the last item to close the dropdown
@@ -242,7 +242,7 @@ describe('Period dimension', () => {
                 'Financial year (Start July)',
                 'Financial year (Start April)',
             ]
-            fixedPeriodTypes.forEach((type) =>
+            fixedPeriodTypes.forEach(type =>
                 expectFixedPeriodTypeSelectToContain(type)
             )
             selectPeriodType(fixedPeriodTypes[1]) // Click the second item to close the dropdown
@@ -252,8 +252,8 @@ describe('Period dimension', () => {
         it('navigates to the start page', () => {
             cy.intercept(
                 /systemSettings(\S)*keyAnalysisRelativePeriod(\S)*/,
-                (req) => {
-                    req.reply((res) => {
+                req => {
+                    req.reply(res => {
                         res.send({
                             body: {
                                 ...systemSettingsBody,
@@ -287,7 +287,7 @@ describe('Period dimension', () => {
                 'Financial Years',
                 'Years',
             ]
-            relativePeriodTypes.forEach((type) =>
+            relativePeriodTypes.forEach(type =>
                 expectRelativePeriodTypeSelectToContain(type)
             )
             selectPeriodType(relativePeriodTypes.slice(-1)[0]) // Click the last item to close the dropdown
@@ -321,7 +321,7 @@ describe('Period dimension', () => {
                 'Financial year (Start July)',
                 'Financial year (Start April)',
             ]
-            fixedPeriodTypes.forEach((type) =>
+            fixedPeriodTypes.forEach(type =>
                 expectFixedPeriodTypeSelectToContain(type)
             )
             selectPeriodType(fixedPeriodTypes[1]) // Click the second item to close the dropdown
@@ -331,8 +331,8 @@ describe('Period dimension', () => {
         it('navigates to the start page', () => {
             cy.intercept(
                 /systemSettings(\S)*keyAnalysisRelativePeriod(\S)*/,
-                (req) => {
-                    req.reply((res) => {
+                req => {
+                    req.reply(res => {
                         res.send({
                             body: {
                                 ...systemSettingsBody,
@@ -366,7 +366,7 @@ describe('Period dimension', () => {
                 'Financial Years',
                 'Years',
             ]
-            relativePeriodTypes.forEach((type) =>
+            relativePeriodTypes.forEach(type =>
                 expectRelativePeriodTypeSelectToContain(type)
             )
             selectPeriodType(relativePeriodTypes.slice(-1)[0]) // Click the last item to close the dropdown
@@ -400,7 +400,7 @@ describe('Period dimension', () => {
                 'Financial year (Start July)',
                 'Financial year (Start April)',
             ]
-            fixedPeriodTypes.forEach((type) =>
+            fixedPeriodTypes.forEach(type =>
                 expectFixedPeriodTypeSelectToContain(type)
             )
             selectPeriodType(fixedPeriodTypes[1]) // Click the second item to close the dropdown
@@ -410,8 +410,8 @@ describe('Period dimension', () => {
         it('navigates to the start page', () => {
             cy.intercept(
                 /systemSettings(\S)*keyAnalysisRelativePeriod(\S)*/,
-                (req) => {
-                    req.reply((res) => {
+                req => {
+                    req.reply(res => {
                         res.send({
                             body: {
                                 ...systemSettingsBody,
@@ -445,7 +445,7 @@ describe('Period dimension', () => {
                 'Financial Years',
                 'Years',
             ]
-            relativePeriodTypes.forEach((type) =>
+            relativePeriodTypes.forEach(type =>
                 expectRelativePeriodTypeSelectToContain(type)
             )
             selectPeriodType(relativePeriodTypes.slice(-1)[0]) // Click the last item to close the dropdown
@@ -479,7 +479,7 @@ describe('Period dimension', () => {
                 'Financial year (Start July)',
                 'Financial year (Start April)',
             ]
-            fixedPeriodTypes.forEach((type) =>
+            fixedPeriodTypes.forEach(type =>
                 expectFixedPeriodTypeSelectToContain(type)
             )
             selectPeriodType(fixedPeriodTypes[1]) // Click the second item to close the dropdown

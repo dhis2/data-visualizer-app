@@ -11,12 +11,12 @@ import {
     isColumnBasedType,
     isVerticalType,
 } from '@dhis2/analytics'
-import defaultConfig from './defaultConfig'
-import gaugeConfig from './gaugeConfig'
-import pieConfig from './pieConfig'
-import pivotTableConfig from './pivotTableConfig'
-import scatterConfig from './scatterConfig'
-import singleValueConfig from './singleValueConfig'
+import defaultConfig from './defaultConfig.js'
+import gaugeConfig from './gaugeConfig.js'
+import pieConfig from './pieConfig.js'
+import pivotTableConfig from './pivotTableConfig.js'
+import scatterConfig from './scatterConfig.js'
+import singleValueConfig from './singleValueConfig.js'
 
 export const getOptionsByType = (type, hasDisabledSections, rangeAxisIds) => {
     const isStacked = isStackedType(type)

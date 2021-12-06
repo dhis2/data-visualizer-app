@@ -1,14 +1,14 @@
 import { Checkbox, Input, InputField } from '@dhis2/ui'
 import { shallow } from 'enzyme'
 import React from 'react'
-import { TextBaseOption } from '../Options/TextBaseOption'
+import { TextBaseOption } from '../Options/TextBaseOption.js'
 
 describe('DV > Options > TextBaseOption', () => {
     let props
     let shallowTextBaseOption
     let onChange
 
-    const textBaseOption = (props) => {
+    const textBaseOption = props => {
         shallowTextBaseOption = shallow(<TextBaseOption {...props} />)
 
         return shallowTextBaseOption

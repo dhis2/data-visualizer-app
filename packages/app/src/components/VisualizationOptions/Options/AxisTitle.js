@@ -7,17 +7,17 @@ import { Label, Field, Radio, InputField, Button } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import { acSetUiOption, acSetUiOptionFontStyle } from '../../../actions/ui'
+import { acSetUiOption, acSetUiOptionFontStyle } from '../../../actions/ui.js'
 import {
     OPTION_AXIS_TITLE,
     OPTION_AXIS_TITLE_TEXT_MODE,
-} from '../../../modules/options'
-import { sGetUiOption } from '../../../reducers/ui'
+} from '../../../modules/options.js'
+import { sGetUiOption } from '../../../reducers/ui.js'
 import {
     tabSectionOption,
     tabSectionOptionToggleable,
 } from '../styles/VisualizationOptions.style.js'
-import TextStyle from './TextStyle'
+import TextStyle from './TextStyle.js'
 
 export const TITLE_AUTO = 'AUTO'
 export const TITLE_NONE = 'NONE'
@@ -60,7 +60,7 @@ const AxisTitle = ({
 
     const fontStyleIsDefault = () =>
         Object.keys(fontStyle).every(
-            (key) =>
+            key =>
                 ((key !== FONT_STYLE_OPTION_TEXT_COLOR || !hasCustomAxes) &&
                     fontStyle[key] === defaultFontStyle[fontStyleKey][key]) ||
                 (key === FONT_STYLE_OPTION_TEXT_COLOR &&
@@ -164,7 +164,7 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onTextChange: (value) =>
+    onTextChange: value =>
         dispatch(
             acSetUiOption({
                 optionId: OPTION_AXIS_TITLE,
@@ -172,7 +172,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
                 value,
             })
         ),
-    onTextModeChange: (textMode) =>
+    onTextModeChange: textMode =>
         dispatch(
             acSetUiOption({
                 optionId: OPTION_AXIS_TITLE_TEXT_MODE,
@@ -180,7 +180,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
                 value: textMode,
             })
         ),
-    setTitleColor: (value) =>
+    setTitleColor: value =>
         dispatch(
             acSetUiOption({
                 optionId: ownProps.fontStyleKey,
@@ -189,7 +189,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
                 value,
             })
         ),
-    setFontStyle: (value) =>
+    setFontStyle: value =>
         dispatch(
             acSetUiOptionFontStyle({
                 optionId: ownProps.fontStyleKey,

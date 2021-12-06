@@ -15,23 +15,23 @@ import {
     expectSeriesKeyItemToHaveBullets,
     expectSeriesKeyToHaveSeriesKeyItems,
     expectVisualizationToBeVisible,
-} from '../../elements/chart'
+} from '../../elements/chart.js'
 import {
     selectIndicators,
     clickDimensionModalUpdateButton,
     selectRelativePeriods,
     unselectAllItemsByButton,
-} from '../../elements/dimensionModal'
+} from '../../elements/dimensionModal/index.js'
 import {
     clickContextMenuMove,
     expectAxisToHaveDimension,
     openContextMenu,
     openDimension,
-} from '../../elements/layout'
+} from '../../elements/layout.js'
 import {
     clickMenuBarOptionsButton,
     clickMenuBarUpdateButton,
-} from '../../elements/menuBar'
+} from '../../elements/menuBar.js'
 import {
     changeDisplayStrategyToFixed,
     changeDisplayStyleToText,
@@ -57,9 +57,9 @@ import {
     expectLegedKeyItemAmountToBe,
     OPTIONS_TAB_SERIES,
     setItemToType,
-} from '../../elements/optionsModal'
-import { goToStartPage } from '../../elements/startScreen'
-import { changeVisType } from '../../elements/visualizationTypeSelector'
+} from '../../elements/optionsModal/index.js'
+import { goToStartPage } from '../../elements/startScreen.js'
+import { changeVisType } from '../../elements/visualizationTypeSelector.js'
 import {
     expectEachWindowConfigSeriesItemToHaveLegendSet,
     expectEachWindowConfigSeriesItemToNotHaveLegendSet,
@@ -69,7 +69,7 @@ import {
     expectWindowConfigSeriesItemToNotHaveLegendSet,
     expectWindowConfigSeriesItemToNotHaveType,
     expectWindowConfigYAxisToHaveColor,
-} from '../../utils/window'
+} from '../../utils/window.js'
 
 const TEST_ITEMS = [
     {
@@ -91,7 +91,7 @@ describe('Options - Legend', () => {
         it('navigates to the start page and adds data items', () => {
             goToStartPage()
             openDimension(DIMENSION_ID_DATA)
-            selectIndicators(TEST_ITEMS.map((item) => item.name))
+            selectIndicators(TEST_ITEMS.map(item => item.name))
             clickDimensionModalUpdateButton()
             expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
         })
@@ -105,7 +105,7 @@ describe('Options - Legend', () => {
             expectChartTitleToBeVisible()
         })
         it('legend by data item is applied', () => {
-            TEST_ITEMS.forEach((item) =>
+            TEST_ITEMS.forEach(item =>
                 expectWindowConfigSeriesItemToHaveLegendSet(
                     item.name,
                     item.legendSet
@@ -123,7 +123,7 @@ describe('Options - Legend', () => {
             expectChartTitleToBeVisible()
         })
         it('fixed legend is applied', () => {
-            TEST_ITEMS.forEach((item) =>
+            TEST_ITEMS.forEach(item =>
                 expectWindowConfigSeriesItemToHaveLegendSet(
                     item.name,
                     TEST_LEGEND_SET
@@ -279,7 +279,7 @@ describe('Options - Legend', () => {
             expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
         })
         it('no legend is applied', () => {
-            cy.getBySel(valueCellEl).each(($el) => {
+            cy.getBySel(valueCellEl).each($el => {
                 cy.wrap($el)
                     .invoke('attr', 'style')
                     .should('not.contain', 'color')
@@ -297,7 +297,7 @@ describe('Options - Legend', () => {
             expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
         })
         it('background color legend is applied', () => {
-            cy.getBySel(valueCellEl).each(($el) => {
+            cy.getBySel(valueCellEl).each($el => {
                 cy.wrap($el)
                     .invoke('attr', 'style')
                     .should('contain', 'background-color')
@@ -315,7 +315,7 @@ describe('Options - Legend', () => {
             expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
         })
         it('text color legend is applied', () => {
-            cy.getBySel(valueCellEl).each(($el) => {
+            cy.getBySel(valueCellEl).each($el => {
                 cy.wrap($el)
                     .invoke('attr', 'style')
                     .should('not.contain', 'background-color')
@@ -370,7 +370,7 @@ describe('Options - Legend', () => {
             expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
         })
         it(`text color fixed legend (${TEST_LEGEND_SET}) is applied`, () => {
-            cy.getBySel(valueCellEl).each(($el) => {
+            cy.getBySel(valueCellEl).each($el => {
                 cy.wrap($el)
                     .invoke('attr', 'style')
                     .should('not.contain', 'background-color')
@@ -400,7 +400,7 @@ describe('Options - Legend', () => {
         it('navigates to the start page and adds data items', () => {
             goToStartPage()
             openDimension(DIMENSION_ID_DATA)
-            selectIndicators(TEST_ITEMS.map((item) => item.name))
+            selectIndicators(TEST_ITEMS.map(item => item.name))
             clickDimensionModalUpdateButton()
             expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
         })
@@ -414,7 +414,7 @@ describe('Options - Legend', () => {
             expectChartTitleToBeVisible()
         })
         it('legend is applied to Column', () => {
-            TEST_ITEMS.forEach((item) =>
+            TEST_ITEMS.forEach(item =>
                 expectWindowConfigSeriesItemToHaveLegendSet(
                     item.name,
                     item.legendSet
@@ -439,7 +439,7 @@ describe('Options - Legend', () => {
         it('navigates to the start page and adds data items', () => {
             goToStartPage()
             openDimension(DIMENSION_ID_DATA)
-            selectIndicators(TEST_ITEMS.map((item) => item.name))
+            selectIndicators(TEST_ITEMS.map(item => item.name))
             clickDimensionModalUpdateButton()
             expectVisualizationToBeVisible()
         })
@@ -531,7 +531,7 @@ describe('Options - Legend', () => {
         it('navigates to the start page and adds data items', () => {
             goToStartPage()
             openDimension(DIMENSION_ID_DATA)
-            selectIndicators(TEST_ITEMS.map((item) => item.name))
+            selectIndicators(TEST_ITEMS.map(item => item.name))
             clickDimensionModalUpdateButton()
             expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
         })
@@ -545,7 +545,7 @@ describe('Options - Legend', () => {
             expectChartTitleToBeVisible()
         })
         it('legend is applied to Column', () => {
-            TEST_ITEMS.forEach((item) =>
+            TEST_ITEMS.forEach(item =>
                 expectWindowConfigSeriesItemToHaveLegendSet(
                     item.name,
                     item.legendSet
@@ -558,7 +558,7 @@ describe('Options - Legend', () => {
             expectVisualizationToBeVisible(VIS_TYPE_STACKED_COLUMN)
         })
         it('legend is not applied to Stacked column', () => {
-            TEST_ITEMS.forEach((item) =>
+            TEST_ITEMS.forEach(item =>
                 expectWindowConfigSeriesItemToNotHaveLegendSet(item.name)
             )
         })
@@ -580,12 +580,12 @@ describe('Options - Legend', () => {
             goToStartPage()
             changeVisType(visTypeDisplayNames[VIS_TYPE_LINE])
             openDimension(DIMENSION_ID_DATA)
-            selectIndicators(TEST_ITEMS.map((item) => item.name))
+            selectIndicators(TEST_ITEMS.map(item => item.name))
             clickDimensionModalUpdateButton()
             expectVisualizationToBeVisible(VIS_TYPE_LINE)
         })
         it('legend is not applied to Line', () => {
-            TEST_ITEMS.forEach((item) =>
+            TEST_ITEMS.forEach(item =>
                 expectWindowConfigSeriesItemToNotHaveLegendSet(item.name)
             )
         })
@@ -606,7 +606,7 @@ describe('Options - Legend', () => {
         it('navigates to the start page and adds data items', () => {
             goToStartPage()
             openDimension(DIMENSION_ID_DATA)
-            selectIndicators(TEST_ITEMS.map((item) => item.name))
+            selectIndicators(TEST_ITEMS.map(item => item.name))
             clickDimensionModalUpdateButton()
             expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
         })
@@ -731,7 +731,7 @@ describe('Options - Legend', () => {
         it('navigates to the start page and adds data items, legend and legend key', () => {
             goToStartPage()
             openDimension(DIMENSION_ID_DATA)
-            selectIndicators(TEST_ITEMS.map((item) => item.name))
+            selectIndicators(TEST_ITEMS.map(item => item.name))
             clickDimensionModalUpdateButton()
             expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
             clickMenuBarOptionsButton()
@@ -745,7 +745,7 @@ describe('Options - Legend', () => {
             expectVisualizationToBeVisible()
         })
         it('legend by data item is applied', () => {
-            TEST_ITEMS.forEach((item) =>
+            TEST_ITEMS.forEach(item =>
                 expectWindowConfigSeriesItemToHaveLegendSet(
                     item.name,
                     item.legendSet

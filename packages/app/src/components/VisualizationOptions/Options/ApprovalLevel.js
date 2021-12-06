@@ -5,10 +5,10 @@ import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
-import { acSetUiOptions } from '../../../actions/ui'
-import { sGetSettings } from '../../../reducers/settings'
-import { sGetUiOptions } from '../../../reducers/ui'
-import { sGetUserAuthorities } from '../../../reducers/user'
+import { acSetUiOptions } from '../../../actions/ui.js'
+import { sGetSettings } from '../../../reducers/settings.js'
+import { sGetUiOptions } from '../../../reducers/ui.js'
+import { sGetUserAuthorities } from '../../../reducers/user.js'
 
 export const APPROVAL_LEVEL_OPTION_AUTH = 'F_VIEW_UNAPPROVED_DATA'
 
@@ -45,7 +45,7 @@ const ApprovalLevelSelect = ({
         onChange={({ selected }) =>
             onChange({
                 id: selected,
-                displayName: options.find((option) => option.value === selected)
+                displayName: options.find(option => option.value === selected)
                     .label,
             })
         }
@@ -75,7 +75,7 @@ const ApprovalLevel = ({ value, onChange, enabled }) => {
     }
 
     if (value && value.id) {
-        if (!options.find((option) => option.value === value.id)) {
+        if (!options.find(option => option.value === value.id)) {
             setOptions([
                 ...options,
                 { value: value.id, label: value.displayName },
@@ -89,7 +89,7 @@ const ApprovalLevel = ({ value, onChange, enabled }) => {
 
             if (dataApprovalLevels) {
                 const options = dataApprovalLevels.dataApprovalLevels.map(
-                    (level) => ({
+                    level => ({
                         value: level.id,
                         label: level.name,
                     })
@@ -126,12 +126,12 @@ const approvalLevelEnabledSelector = createSelector(
         authorities[APPROVAL_LEVEL_OPTION_AUTH]
 )
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
     enabled: approvalLevelEnabledSelector(state),
     value: sGetUiOptions(state)[optionName] || {},
 })
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
     onChange: ({ id, displayName }) =>
         dispatch(acSetUiOptions({ [optionName]: { id, displayName } })),
 })

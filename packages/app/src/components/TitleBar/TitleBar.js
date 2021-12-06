@@ -2,19 +2,19 @@ import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import InterpretationIcon from '../../assets/InterpretationIcon'
-import formatDate from '../../modules/formatDate'
+import InterpretationIcon from '../../assets/InterpretationIcon.js'
+import formatDate from '../../modules/formatDate.js'
 import {
     STATE_UNSAVED,
     STATE_SAVED,
     STATE_DIRTY,
     getVisualizationState,
-} from '../../modules/visualization'
-import { sGetCurrent } from '../../reducers/current'
-import { sGetUiLocale } from '../../reducers/settings'
-import { sGetUiInterpretation } from '../../reducers/ui'
-import { sGetVisualization } from '../../reducers/visualization'
-import styles from './styles/TitleBar.style'
+} from '../../modules/visualization.js'
+import { sGetCurrent } from '../../reducers/current.js'
+import { sGetUiLocale } from '../../reducers/settings.js'
+import { sGetUiInterpretation } from '../../reducers/ui.js'
+import { sGetVisualization } from '../../reducers/visualization.js'
+import styles from './styles/TitleBar.style.js'
 
 export const getTitleUnsaved = () => i18n.t('Unsaved visualization')
 export const getTitleDirty = () => i18n.t('Edited')
@@ -41,7 +41,7 @@ const getTitleText = (titleState, visualization) => {
     }
 }
 
-const getCustomTitleStyle = (titleState) => {
+const getCustomTitleStyle = titleState => {
     switch (titleState) {
         case STATE_UNSAVED:
             return styles.titleUnsaved
@@ -50,7 +50,7 @@ const getCustomTitleStyle = (titleState) => {
     }
 }
 
-const getSuffix = (titleState) => {
+const getSuffix = titleState => {
     switch (titleState) {
         case STATE_DIRTY:
             return (
@@ -104,7 +104,7 @@ TitleBar.propTypes = {
     titleText: PropTypes.string,
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
     visualization: sGetVisualization(state),
     current: sGetCurrent(state),
     interpretation: sGetUiInterpretation(state),

@@ -4,7 +4,7 @@ import {
     DIMENSION_ID_ORGUNIT,
     AXIS_ID_COLUMNS,
 } from '@dhis2/analytics'
-import { expectVisualizationToBeVisible } from '../../elements/chart'
+import { expectVisualizationToBeVisible } from '../../elements/chart.js'
 import {
     clickDimensionModalHideButton,
     clickDimensionModalUpdateButton,
@@ -21,18 +21,18 @@ import {
     expectOrgUnitTreeToBeDisabled,
     expectOrgUnitTreeToBeEnabled,
     deselectUserOrgUnit,
-} from '../../elements/dimensionModal'
+} from '../../elements/dimensionModal/index.js'
 import {
     clickContextMenuMove,
     expectDimensionToHaveItemAmount,
     openContextMenu,
     openDimension,
-} from '../../elements/layout'
-import { clickMenuBarUpdateButton } from '../../elements/menuBar'
-import { goToStartPage } from '../../elements/startScreen'
-import { TEST_DATA_ELEMENTS } from '../../utils/data'
-import { getRandomArrayItem } from '../../utils/random'
-import { expectWindowConfigSeriesToHaveLength } from '../../utils/window'
+} from '../../elements/layout.js'
+import { clickMenuBarUpdateButton } from '../../elements/menuBar.js'
+import { goToStartPage } from '../../elements/startScreen.js'
+import { TEST_DATA_ELEMENTS } from '../../utils/data.js'
+import { getRandomArrayItem } from '../../utils/random.js'
+import { expectWindowConfigSeriesToHaveLength } from '../../utils/window.js'
 
 const TEST_DATA_ELEMENT_NAME = getRandomArrayItem(TEST_DATA_ELEMENTS).name
 
