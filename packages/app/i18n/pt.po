@@ -21,13 +21,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "All items"
-msgstr ""
+msgstr "Todos Itens"
 
 msgid "Rename successful"
 msgstr "Renomeado com sucesso"
 
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
-msgstr ""
+msgstr "Sem título {{visualizaçãoTipo}} visualização, {{date}}"
 
 msgid "\"{{deletedObject}}\" successfully deleted."
 msgstr "\"{{deleteObject}}\" apagado com sucesso."
@@ -72,12 +72,14 @@ msgid ""
 "'Scatter' is intended to show a single data item per axis. Only the first "
 "item will be used and saved."
 msgstr ""
+"A 'dispersão' destina-se a apresentar um único item de dados por eixo. "
+"Apenas o primeiro item será usado e guardado."
 
 msgid "Vertical"
-msgstr ""
+msgstr "Vertical"
 
 msgid "Horizontal"
-msgstr ""
+msgstr "Horizontal"
 
 msgid "Main dimensions"
 msgstr "Dimensões principais"
@@ -177,19 +179,19 @@ msgstr ""
 "{{dimension Name}} está bloqueado para {{axisName}} para {{visTypeName}}"
 
 msgid "Not available for Scatter"
-msgstr ""
+msgstr "Não disponível para Dispersão"
 
 msgid "Add Assigned Categories"
 msgstr "Adicionar categorias atribuídas"
 
 msgid "Swap with {{axisName}} axis"
-msgstr ""
+msgstr "Troque com o eixo {{axisName}}"
 
 msgid "vertical"
-msgstr ""
+msgstr "vertical"
 
 msgid "horizontal"
-msgstr ""
+msgstr "horizontal"
 
 msgid "None selected"
 msgstr "Nenhum selecionado"
@@ -201,7 +203,7 @@ msgid "Only '{{number}}' in use"
 msgstr "Somente '{{numero}}' em uso"
 
 msgid "All items are selected"
-msgstr ""
+msgstr "Todos os itens são selecionados"
 
 msgid "Levels"
 msgstr "Niveis"
@@ -225,6 +227,8 @@ msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
 msgstr ""
+"Esta visualização não pode ser eliminada porque é usada em um ou mais "
+"painies de instrumentos"
 
 msgid "Unsaved visualization"
 msgstr "Visualização não salva"
@@ -261,7 +265,7 @@ msgid "Aggregation type"
 msgstr "Tipo de agregacão"
 
 msgid "Overrides aggregation type for all data values."
-msgstr ""
+msgstr "Substitui o tipo de agregação para todos os valores de dados."
 
 msgid "By data element"
 msgstr "Por elemento de dado"
@@ -324,6 +328,8 @@ msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
 msgstr ""
+"Número de passos de tique-taque do eixo, incluindo o mínimo e o máximo. Um "
+"valor inferior a 2 ou inferior será ignorado."
 
 msgid "Steps"
 msgstr "Passos"
@@ -332,7 +338,7 @@ msgid "Axis title"
 msgstr "Título do eixo"
 
 msgid "Auto generated from axis items"
-msgstr ""
+msgstr "Auto gerado a partir de itens de eixo"
 
 msgid "None"
 msgstr "Nenhum"
@@ -344,7 +350,7 @@ msgid "Add a title"
 msgstr "Adicionar titulo"
 
 msgid "Reset style to default"
-msgstr ""
+msgstr "Redefinir o estilo ao padrão"
 
 msgid "Base line"
 msgstr "Linha de base "
@@ -359,19 +365,19 @@ msgid "Default"
 msgstr "Predefinido"
 
 msgid "Bright"
-msgstr ""
+msgstr "Brilhante"
 
 msgid "Dark"
-msgstr ""
+msgstr "Escuro"
 
 msgid "Gray"
-msgstr ""
+msgstr "Cinza"
 
 msgid "Color blind"
-msgstr ""
+msgstr "Daltónico de cor"
 
 msgid "Patterns"
-msgstr ""
+msgstr "Padrões"
 
 msgid "Event data"
 msgstr "Dados de eventos "
@@ -407,22 +413,24 @@ msgid "Compact"
 msgstr "Compacto"
 
 msgid "Extreme lines"
-msgstr ""
+msgstr "Linhas extremas"
 
 msgid "Calculated as a percent, usually 1%, of the total values along an axis"
 msgstr ""
+"Calculado como um por cento, geralmente 1%, dos valores totais ao longo de "
+"um eixo"
 
 msgid "Extreme line % detection"
-msgstr ""
+msgstr "Deteção de % de linha extrema"
 
 msgid "Number"
 msgstr "Número"
 
 msgid "Fix column headers to top of table"
-msgstr ""
+msgstr "Fixar cabeçalhos de coluna para o topo da tabela"
 
 msgid "Fix row headers to left of table"
-msgstr ""
+msgstr "Fixar cabeçalhos de linha à esquerda da mesa"
 
 msgid "Font size"
 msgstr "Tamanho da fonte"
@@ -464,7 +472,7 @@ msgid "Chart title"
 msgstr "Título do gráfico"
 
 msgid "Use legend for chart colors"
-msgstr ""
+msgstr "Use a legenda para cores de gráficos"
 
 msgid "Legend style"
 msgstr "Titulo da Legenda "
@@ -476,7 +484,7 @@ msgid "Use pre-defined legend per data item"
 msgstr "Use legenda predefinida por item de dados"
 
 msgid "Select a single legend for the entire visualization"
-msgstr ""
+msgstr "Selecione uma única legenda para toda a visualização"
 
 msgid "Legend changes background color"
 msgstr "A legenda muda a cor do plano de fundo"
@@ -498,6 +506,8 @@ msgid ""
 "visualization, all values outside of the minimum/maximum range will not be "
 "displayed"
 msgstr ""
+"Pode definir um valor mínimo ou máximo. Isto aplicar-se-á a toda a "
+"visualização, todos os valores fora da gama mínima/máxima não serão exibidos"
 
 msgid "Minimum data value"
 msgstr "Valor mínimo de dados"
@@ -531,34 +541,41 @@ msgid ""
 "different data. Check the documentation for help to choose the right outlier"
 " detection method"
 msgstr ""
+"Cada método de deteção identifica os outliers de diferentes formas e adequa-"
+"se a diferentes dados. Verifique a documentação para obter ajuda para "
+"escolher o método de deteção mais distante"
 
 msgid "Threshold factor"
-msgstr ""
+msgstr "Fator limiar"
 
 msgid ""
 "A high value is more sensitive so fewer data items will be identified as "
 "outliers"
 msgstr ""
+"Um valor elevado é mais sensível para que menos itens de dados sejam "
+"identificados como outliers"
 
 msgid "Interquartile Range (IQR)"
 msgstr ""
 
 msgid "Z-score / Standard score"
-msgstr ""
+msgstr "Pontuação Z / Pontuação padrão"
 
 msgid "Modified Z-score"
-msgstr ""
+msgstr "Z-score modificado"
 
 msgid "Outlier analysis"
-msgstr ""
+msgstr "Análise mais estranha"
 
 msgid ""
 "Outlier analysis detects and highlights data items that are markedly "
 "different from the rest of the data"
 msgstr ""
+"Análise de outlier deteta e destaca itens de dados que são marcadamente "
+"diferentes do resto dos dados"
 
 msgid "Outlier detection method"
-msgstr ""
+msgstr "Método de deteção outlier"
 
 msgid "Organisation unit"
 msgstr "Unidade organizacional"
@@ -600,35 +617,39 @@ msgid "Data item"
 msgstr "Item de dados"
 
 msgid "Visualization type"
-msgstr ""
+msgstr "Tipo de visualização"
 
 msgid "Axis {{axisId}}"
-msgstr ""
+msgstr "Eixo {{eixoId}}"
 
 msgid "Series is empty"
-msgstr ""
+msgstr "A série está vazia."
 
 msgid "Options for selected items will be available here"
-msgstr ""
+msgstr "Opções para itens selecionados estarão disponíveis aqui"
 
 msgid "No Series options"
-msgstr ""
+msgstr "Sem opções série"
 
 msgid "There aren't any Series options for this visualization type"
-msgstr ""
+msgstr "Não existem opções da Série para este tipo de visualização"
 
 msgid "Series options unavailable"
-msgstr ""
+msgstr "Opções de série indisponíveis"
 
 msgid ""
 "Series options are not available when using relative selections for periods,"
 " org units or categories"
 msgstr ""
+"As opções da série não estão disponíveis quando se utilizam seleções "
+"relativas para períodos, unidades organizacionais ou categorias "
 
 msgid ""
 "Series options are not available when a series item has an \"All items\" "
 "selection"
 msgstr ""
+"As opções da série não estão disponíveis quando um item da série tem uma "
+"seleção \"Todos os itens\""
 
 msgid "Value labels"
 msgstr "Etiquetas de valor"
@@ -640,10 +661,10 @@ msgid "Display organisation unit hierarchy"
 msgstr "Exibir hierarquia da unidade organizacional"
 
 msgid "Show legend key"
-msgstr ""
+msgstr "Mostrar chave da legenda"
 
 msgid "Show series key"
-msgstr ""
+msgstr "Mostrar chave da série"
 
 msgid "Skip rounding"
 msgstr "Não arrendondar"
@@ -681,6 +702,8 @@ msgstr "Abrir como mapa"
 msgid ""
 "Visually plot data on a world map. Data elements use separate map layers."
 msgstr ""
+"Traçar visualmente dados num mapa do mundo. Os elementos de dados usam "
+"camadas de mapas separadas."
 
 msgid "Reporting rate"
 msgstr "Taxa de relatórios"
@@ -733,27 +756,29 @@ msgstr ""
 "{{axes}}. "
 
 msgid "Add organisation units to {{axisName}}."
-msgstr ""
+msgstr "Adicione unidades de organização a {{nome eixo}}}"
 
 msgid "Vertical is empty"
-msgstr ""
+msgstr "Vertical está vazio"
 
 msgid "Add a data item to the vertical axis."
-msgstr ""
+msgstr "Adicione um item de dados ao eixo vertical."
 
 msgid "Horizontal is empty"
-msgstr ""
+msgstr "Horizontal está vazio"
 
 msgid "Add a data item to the horizontal axis."
-msgstr ""
+msgstr "Adicione um item de dados ao eixo horizontal."
 
 msgid "Axes data items are the same"
-msgstr ""
+msgstr "Os itens de dados dos eixos são os mesmos"
 
 msgid ""
 "The horizontal and vertical axes have the same data item. Scatter chart axes"
 " must have different data for each axis."
 msgstr ""
+"The horizontal and vertical axes have the same data item. Scatter chart axes"
+" must have different data for each axis."
 
 msgid "No data selected"
 msgstr "Nenhum dado selecionado "
@@ -806,12 +831,14 @@ msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr "Corrija esse problema movendo ou removendo categorias atribuídas."
 
 msgid "Visualization not found"
-msgstr ""
+msgstr "Visualização não encontrada"
 
 msgid ""
 "The visualization you are trying to view could not be found, the ID could be"
 " incorrect or it could have been deleted."
 msgstr ""
+"A visualização que está a tentar visualizar não foi encontrada, o ID pode "
+"estar incorreto ou pode ter sido apagado."
 
 msgid "No organization units found"
 msgstr "Nenhuma unidade de organização encontrada"
@@ -947,22 +974,30 @@ msgid ""
 "These options only apply to legacy tables like standard reports. Options set"
 " here will have no effect on tables made in Data Visualizer."
 msgstr ""
+"Estas opções aplicam-se apenas a tabelas antigas como relatórios padrão. As "
+"opções definidas aqui não terão qualquer efeito nas tabelas feitas no Data "
+"Visualizer."
 
 msgid "Applies to standard reports only"
-msgstr ""
+msgstr "Aplica-se apenas a relatórios padrão"
 
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
+"Linhas base e alvo estão disponíveis no separador Axes para gráficos de "
+"dispersão"
 
 msgid "Color set"
-msgstr ""
+msgstr "Conjunto de cores"
 
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
+"Os conjuntos de cores ainda não são suportados quando se usam vários eixos"
 
 msgid ""
 "Base and target lines are available on the Axes tab for multi-axis charts"
 msgstr ""
+"Linhas de base e alvo estão disponíveis no separador Eixos para gráficos de "
+"vários eixos"
 
 msgid "Chart style"
 msgstr "Estilo de graficos"
@@ -971,10 +1006,10 @@ msgid "Display"
 msgstr "Exibir"
 
 msgid "Empty data"
-msgstr ""
+msgstr "Dados vazios"
 
 msgid "Horizontal (x) axis {{axisId}}"
-msgstr ""
+msgstr "Horizontal (x) eixo {{eixoId}}"
 
 msgid "Horizontal (x) axis"
 msgstr "Eixo Horizontal (x) "
@@ -986,7 +1021,7 @@ msgid "Totals"
 msgstr "Totais"
 
 msgid "Vertical (y) axis {{axisId}}"
-msgstr ""
+msgstr "Eixo vertical (y) {{eixoId}}"
 
 msgid "Vertical (y) axis"
 msgstr "Eixo vertical (y)"
@@ -1007,7 +1042,7 @@ msgid "Limit number of values"
 msgstr "Número limite de valores"
 
 msgid "Limit minimum/maximum values"
-msgstr ""
+msgstr "Limitar valores mínimos/máximos"
 
 msgid "Outliers"
 msgstr "Completude"
