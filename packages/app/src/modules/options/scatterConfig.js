@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-key */
 import i18n from '@dhis2/d2-i18n'
 import React from 'react'
-import InfoText from '../../components/VisualizationOptions/InfoText.js'
+import { InfoText } from '../../components/VisualizationOptions/InfoText.js'
 import Outliers from '../../components/VisualizationOptions/Options/Outliers.js'
 import SkipRounding from '../../components/VisualizationOptions/Options/SkipRounding.js'
 import getAdvancedSection from './sections/advanced.js'

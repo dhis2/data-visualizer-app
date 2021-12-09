@@ -16,7 +16,7 @@ const defaultContent = [
 
 const stackedContent = [<PercentStackedValues />, ...defaultContent]
 
-export default isStacked => ({
+export default (isStacked) => ({
     ...getDisplayTemplate({
         content: React.Children.toArray(
             isStacked ? stackedContent : defaultContent

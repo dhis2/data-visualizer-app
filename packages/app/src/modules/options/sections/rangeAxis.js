@@ -9,8 +9,8 @@ import AxisLabels from '../../../components/VisualizationOptions/Options/AxisLab
 import AxisRange from '../../../components/VisualizationOptions/Options/AxisRange.js'
 import AxisSteps from '../../../components/VisualizationOptions/Options/AxisSteps.js'
 import AxisTitle from '../../../components/VisualizationOptions/Options/AxisTitle.js'
-import BaseLine from '../../../components/VisualizationOptions/Options/BaseLine.js'
-import TargetLine from '../../../components/VisualizationOptions/Options/TargetLine.js'
+import { BaseLine } from '../../../components/VisualizationOptions/Options/BaseLine.js'
+import { TargetLine } from '../../../components/VisualizationOptions/Options/TargetLine.js'
 import getHorizontalAxisTemplate from './templates/horizontalAxis.js'
 import getVerticalAxisTemplate from './templates/verticalAxis.js'
 

@@ -8,7 +8,7 @@ const systemSettingsQuery = {
     },
 }
 
-export const apiFetchSystemSettings = async dataEngine => {
+export const apiFetchSystemSettings = async (dataEngine) => {
     const systemSettingsData = await dataEngine.query(
         { systemSettings: systemSettingsQuery },
         {

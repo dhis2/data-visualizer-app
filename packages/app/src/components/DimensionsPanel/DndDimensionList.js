@@ -19,15 +19,15 @@ import styles from './styles/DndDimensionList.module.css'
 export class DndDimensionList extends Component {
     dndIndex = 0
 
-    nameContainsFilterText = dimension =>
+    nameContainsFilterText = (dimension) =>
         dimension.name
             .toLowerCase()
             .includes(this.props.filterText.toLowerCase())
 
-    isSelected = id => this.props.selectedIds.includes(id)
-    isDisabledDimension = id => this.props.disallowedDimensions.includes(id)
-    isLockedDimension = id => this.props.lockedDimensions.includes(id)
-    isRecommendedDimension = id => this.props.recommendedIds.includes(id)
+    isSelected = (id) => this.props.selectedIds.includes(id)
+    isDisabledDimension = (id) => this.props.disallowedDimensions.includes(id)
+    isLockedDimension = (id) => this.props.lockedDimensions.includes(id)
+    isRecommendedDimension = (id) => this.props.recommendedIds.includes(id)
 
     renderItem = ({ id, name }) => {
         const itemProps = {
@@ -51,7 +51,7 @@ export class DndDimensionList extends Component {
         )
     }
 
-    getDimensionItemsByFilter = filter =>
+    getDimensionItemsByFilter = (filter) =>
         this.props.dimensions
             .filter(filter)
             .filter(this.nameContainsFilterText)
@@ -59,26 +59,26 @@ export class DndDimensionList extends Component {
 
     render() {
         this.dndIndex = 0
-        const fixedDimensions = this.getDimensionItemsByFilter(dimension =>
+        const fixedDimensions = this.getDimensionItemsByFilter((dimension) =>
             Object.values(getFixedDimensions()).some(
-                fixedDim => fixedDim.id === dimension.id
+                (fixedDim) => fixedDim.id === dimension.id
             )
         )
-        const dynamicDimensions = this.getDimensionItemsByFilter(dimension =>
+        const dynamicDimensions = this.getDimensionItemsByFilter((dimension) =>
             Object.values(getDynamicDimensions()).some(
-                dynDim => dynDim.id === dimension.id
+                (dynDim) => dynDim.id === dimension.id
             )
         )
         const nonPredefinedDimensions = this.getDimensionItemsByFilter(
-            dimension =>
+            (dimension) =>
                 !Object.values(getPredefinedDimensions()).some(
-                    predefDim => predefDim.id === dimension.id
+                    (predefDim) => predefDim.id === dimension.id
                 )
         )
 
         return (
             <Droppable droppableId={SOURCE_DIMENSIONS} isDropDisabled={true}>
-                {provided => (
+                {(provided) => (
                     <div
                         className={styles.container}
                         ref={provided.innerRef}
@@ -142,15 +142,15 @@ DndDimensionList.propTypes = {
 
 const getDisallowedDimensionsMemo = createSelector(
     [fromReducers.fromUi.sGetUiType],
-    type => getDisallowedDimensions(type)
+    (type) => getDisallowedDimensions(type)
 )
 
 const getisLockedDimensionsMemo = createSelector(
     [fromReducers.fromUi.sGetUiType],
-    type => getAllLockedDimensionIds(type)
+    (type) => getAllLockedDimensionIds(type)
 )
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     dimensions: Object.values(
         fromReducers.fromDimensions.sGetDimensions(state)
     ),

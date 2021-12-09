@@ -5,7 +5,7 @@ import { GenericServerError } from '../../../modules/error.js'
 import LoadingMask from '../../../widgets/LoadingMask.js'
 import StartScreen from '../StartScreen.js'
 import {
-    Visualization,
+    UnconnectedVisualization as Visualization,
     visualizationSelector,
     visFiltersSelector,
 } from '../Visualization.js'

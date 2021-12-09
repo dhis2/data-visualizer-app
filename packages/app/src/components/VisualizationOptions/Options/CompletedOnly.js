@@ -2,7 +2,7 @@ import i18n from '@dhis2/d2-i18n'
 import { Label } from '@dhis2/ui'
 import React from 'react'
 import { tabSectionOption } from '../styles/VisualizationOptions.style.js'
-import CheckboxBaseOption from './CheckboxBaseOption.js'
+import { CheckboxBaseOption } from './CheckboxBaseOption.js'
 
 const CompletedOnly = () => (
     <div className={tabSectionOption.className}>

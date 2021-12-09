@@ -182,7 +182,7 @@ describe('YOY edge cases testing: LAST_4_WEEKS across 2 years', () => {
         },
     ]
 
-    testCases.forEach(testCase =>
+    testCases.forEach((testCase) =>
         it('generated correct matrix from analytics responses', () => {
             const matrix = computeYoYMatrix(testCase.responses, WEEKLY)
 

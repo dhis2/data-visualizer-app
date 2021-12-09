@@ -53,8 +53,8 @@ const logError = (action, error) => {
     console.log(`Error in action ${action}: ${error}`)
 }
 
-const adaptAxisItems = axis =>
-    (axis || []).map(ai => ({
+const adaptAxisItems = (axis) =>
+    (axis || []).map((ai) => ({
         ...ai,
         items: ai?.items?.length
             ? ai.items
@@ -71,7 +71,7 @@ const adaptAxisItems = axis =>
 export const tDoLoadVisualization =
     ({ id, interpretationId, ouLevels }) =>
     async (dispatch, getState, engine) => {
-        const onSuccess = async response => {
+        const onSuccess = async (response) => {
             dispatch(fromLoader.acSetPluginLoading(true))
             const visualization = convertOuLevelsToUids(
                 ouLevels,
@@ -84,7 +84,7 @@ export const tDoLoadVisualization =
 
             if (interpretationId) {
                 const interpretation = visualization.interpretations.find(
-                    i => i.id === interpretationId
+                    (i) => i.id === interpretationId
                 )
 
                 if (interpretation) {
@@ -186,7 +186,7 @@ export const tDoRenameVisualization =
 export const tDoSaveVisualization =
     ({ name, description }, copy) =>
     async (dispatch, getState, engine) => {
-        const onSuccess = res => {
+        const onSuccess = (res) => {
             if (res.status === 'OK' && res.response.uid) {
                 if (copy) {
                     history.push({

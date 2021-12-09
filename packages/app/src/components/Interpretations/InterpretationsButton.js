@@ -9,7 +9,7 @@ import { sGetUiRightSidebarOpen } from '../../reducers/ui.js'
 import MenuButton from '../MenuButton/MenuButton.js'
 import styles from './styles/InterpretationsButton.module.css'
 
-export const InterpretationsButton = props => (
+export const UnconnectedInterpretationsButton = (props) => (
     <MenuButton disabled={!props.id} onClick={props.onClick}>
         {props.rightSidebarOpen ? (
             <div className={styles.iconWrapper}>
@@ -24,22 +24,22 @@ export const InterpretationsButton = props => (
     </MenuButton>
 )
 
-InterpretationsButton.propTypes = {
+UnconnectedInterpretationsButton.propTypes = {
     id: PropTypes.string,
     rightSidebarOpen: PropTypes.bool,
     onClick: PropTypes.func,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     rightSidebarOpen: sGetUiRightSidebarOpen(state),
     id: (sGetCurrent(state) || {}).id,
 })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
     onClick: () => dispatch(acToggleUiRightSidebarOpen()),
 })
 
-export default connect(
+export const InterpretationsButton = connect(
     mapStateToProps,
     mapDispatchToProps
-)(InterpretationsButton)
+)(UnconnectedInterpretationsButton)

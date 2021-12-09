@@ -9,8 +9,8 @@ import { styles } from './styles/Tooltip.style.js'
 
 const labels = {
     noneSelected: () => i18n.t('None selected'),
-    onlyOneInUse: name => i18n.t("Only '{{- name}}' in use", { name }),
-    onlyLimitedNumberInUse: number =>
+    onlyOneInUse: (name) => i18n.t("Only '{{- name}}' in use", { name }),
+    onlyLimitedNumberInUse: (number) =>
         i18n.t("Only '{{number}}' in use", { number }),
     allItems: () => i18n.t('All items are selected'),
 }
@@ -50,7 +50,7 @@ export const TooltipContent = ({
         const itemDisplayNames = []
 
         if (!displayLimitedAmount && !hasAllItemsSelected) {
-            itemIds.forEach(id => {
+            itemIds.forEach((id) => {
                 if (ouIdHelper.hasLevelPrefix(id)) {
                     levelIds.push(ouIdHelper.removePrefix(id))
                 } else if (ouIdHelper.hasGroupPrefix(id)) {
@@ -74,7 +74,7 @@ export const TooltipContent = ({
         return itemDisplayNames
     }
 
-    const renderWarningLabel = warningLabel => (
+    const renderWarningLabel = (warningLabel) => (
         <li style={styles.item}>
             <div style={styles.iconWrapper}>
                 <IconWarningFilled16 />
@@ -83,12 +83,12 @@ export const TooltipContent = ({
         </li>
     )
 
-    const renderItems = itemDisplayNames => {
+    const renderItems = (itemDisplayNames) => {
         const renderLimit = 5
 
         const itemsToRender = itemDisplayNames
             .slice(0, renderLimit)
-            .map(name => (
+            .map((name) => (
                 <li key={`${dimensionId}-${name}`} style={styles.item}>
                     {name}
                 </li>
@@ -155,7 +155,7 @@ TooltipContent.propTypes = {
     lockedLabel: PropTypes.string,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     metadata: sGetMetadata(state),
 })
 

@@ -64,8 +64,9 @@ Layout.propTypes = {
     getItemsByAttribute: PropTypes.func,
 }
 
-const mapStateToProps = state => ({
-    getItemsByAttribute: attribute => sGetUiItemsByAttribute(state, attribute),
+const mapStateToProps = (state) => ({
+    getItemsByAttribute: (attribute) =>
+        sGetUiItemsByAttribute(state, attribute),
 })
 
 export default connect(mapStateToProps)(Layout)

@@ -30,13 +30,14 @@ export default ({
     ]),
     ...(supportsLegends ? [getLegendTab({ hideStyleOptions: true })] : []),
     getAxesTab([
-        ...rangeAxisIds.map(id =>
+        ...rangeAxisIds.map((id) =>
             getRangeAxisSection({
                 axisId: `RANGE_${id}`,
                 isVertical,
                 showLines: hasDisabledSections,
                 hasCustomAxes:
-                    rangeAxisIds.length > 1 || rangeAxisIds.some(id => id > 0),
+                    rangeAxisIds.length > 1 ||
+                    rangeAxisIds.some((id) => id > 0),
             })
         ),
         getDomainAxisSection({ axisId: 'DOMAIN_0', isVertical }),

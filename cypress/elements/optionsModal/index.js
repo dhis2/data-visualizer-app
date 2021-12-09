@@ -10,10 +10,10 @@ export const OPTIONS_TAB_OUTLIERS = 'Outliers'
 export const OPTIONS_TAB_SERIES = 'Series'
 export const OPTIONS_TAB_LEGEND = 'Legend'
 
-export const clickOptionsTab = name =>
+export const clickOptionsTab = (name) =>
     cy.getBySel(tabBarEl).contains(name).click()
 
-export const expectOptionsTabToBeHidden = name =>
+export const expectOptionsTabToBeHidden = (name) =>
     cy.getBySel(tabBarEl).should('not.contain', name)
 
 export const expectOptionsModalToBeVisible = () =>

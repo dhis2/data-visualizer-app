@@ -169,13 +169,14 @@ Axis.propTypes = {
     style: PropTypes.object,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     layout: sGetUiLayout(state),
-    getItemsByAttribute: attribute => sGetUiItemsByAttribute(state, attribute),
+    getItemsByAttribute: (attribute) =>
+        sGetUiItemsByAttribute(state, attribute),
 })
 
-const mapDispatchToProps = dispatch => ({
-    getOpenHandler: dialogId => () =>
+const mapDispatchToProps = (dispatch) => ({
+    getOpenHandler: (dialogId) => () =>
         dispatch(acSetUiActiveModalDialog(dialogId)),
     setItemAttributes: (dimensionId, itemIds, attribute) =>
         dispatch(acSetUiItemAttributes({ dimensionId, itemIds, attribute })),

@@ -41,7 +41,7 @@ const getTitleText = (titleState, visualization) => {
     }
 }
 
-const getCustomTitleStyle = titleState => {
+const getCustomTitleStyle = (titleState) => {
     switch (titleState) {
         case STATE_UNSAVED:
             return styles.titleUnsaved
@@ -50,7 +50,7 @@ const getCustomTitleStyle = titleState => {
     }
 }
 
-const getSuffix = titleState => {
+const getSuffix = (titleState) => {
     switch (titleState) {
         case STATE_DIRTY:
             return (
@@ -67,7 +67,11 @@ const getSuffix = titleState => {
     }
 }
 
-export const TitleBar = ({ titleState, titleText, interpretationDate }) => {
+export const UnconnectedTitleBar = ({
+    titleState,
+    titleText,
+    interpretationDate,
+}) => {
     const titleStyle = {
         ...defaultTitleStyle,
         ...getCustomTitleStyle(titleState),
@@ -98,13 +102,13 @@ export const TitleBar = ({ titleState, titleText, interpretationDate }) => {
     ) : null
 }
 
-TitleBar.propTypes = {
+UnconnectedTitleBar.propTypes = {
     interpretationDate: PropTypes.string,
     titleState: PropTypes.string,
     titleText: PropTypes.string,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     visualization: sGetVisualization(state),
     current: sGetCurrent(state),
     interpretation: sGetUiInterpretation(state),
@@ -126,4 +130,8 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     }
 }
 
-export default connect(mapStateToProps, null, mergeProps)(TitleBar)
+export const TitleBar = connect(
+    mapStateToProps,
+    null,
+    mergeProps
+)(UnconnectedTitleBar)

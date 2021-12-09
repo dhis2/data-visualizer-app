@@ -50,7 +50,7 @@ describe('interacting with the dimensions panel', () => {
     })
     describe('displays recommended icons', () => {
         ;[getRandomArrayItem(TEST_DEFAULT_RECOMMENDED_DIMENSIONS)].forEach(
-            dim =>
+            (dim) =>
                 describe(`${dim.name}`, () => {
                     it('displays the recommended icon', () => {
                         expectRecommendedIconToBeVisible(dim.id)
@@ -82,7 +82,7 @@ describe('interacting with the dimensions panel', () => {
         })
     })
     describe('opening items by clicking them', () => {
-        ;[...TEST_FIXED_DIMS, ...TEST_CUSTOM_DIMS].forEach(dim => {
+        ;[...TEST_FIXED_DIMS, ...TEST_CUSTOM_DIMS].forEach((dim) => {
             it(`opens and closes ${dim.name}`, () => {
                 openDimension(dim.id)
                 expectDimensionModalToBeVisible(dim.id)
@@ -96,7 +96,7 @@ describe('interacting with the dimensions panel', () => {
             ...TEST_FIXED_DIMS,
             ...TEST_DYNAMIC_DIMS,
             ...TEST_CUSTOM_DIMS,
-        ].forEach(dim => {
+        ].forEach((dim) => {
             it(`adds ${dim.name} to ${TEST_AXIS} axis`, () => {
                 openContextMenu(dim.id)
                 clickContextMenuAdd(dim.id, TEST_AXIS)
@@ -129,7 +129,7 @@ describe('interacting with the dimensions panel', () => {
     })
     describe('handling AC by using the Data item context menu', () => {
         const TEST_DIM = TEST_DYNAMIC_DIMS.find(
-            dim => dim.id === DIMENSION_ID_ASSIGNED_CATEGORIES
+            (dim) => dim.id === DIMENSION_ID_ASSIGNED_CATEGORIES
         )
         it(`removes and adds ${TEST_DIM.name}`, () => {
             const TEST_AXIS = AXIS_ID_COLUMNS

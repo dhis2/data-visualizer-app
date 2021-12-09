@@ -50,11 +50,11 @@ LegendDisplayStrategy.propTypes = {
     onChange: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     value: sGetUiOption(state, { id: OPTION_LEGEND_DISPLAY_STRATEGY }),
 })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
     onChange: ({ value }) =>
         dispatch(
             acSetUiOption({ optionId: OPTION_LEGEND_DISPLAY_STRATEGY, value })

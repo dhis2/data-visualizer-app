@@ -73,7 +73,7 @@ import UpdateVisualizationContainer from '../../UpdateButton/UpdateVisualization
 import AddToLayoutButton from './AddToLayoutButton/AddToLayoutButton.js'
 import styles from './styles/DialogManager.module.css'
 
-const isScatterAttribute = dialogId =>
+const isScatterAttribute = (dialogId) =>
     [ITEM_ATTRIBUTE_VERTICAL, ITEM_ATTRIBUTE_HORIZONTAL].includes(dialogId)
 
 const getExcludedPeriodTypes = (settings = {}) => {
@@ -101,7 +101,7 @@ export class DialogManager extends Component {
         onMounted: false,
     }
 
-    componentDidUpdate = prevProps => {
+    componentDidUpdate = (prevProps) => {
         const shouldFetchIds =
             !isEqual(prevProps.dxIds, this.props.dxIds) ||
             !isEqual(prevProps.ouIds, this.props.ouIds)
@@ -133,12 +133,12 @@ export class DialogManager extends Component {
             this.props.setUiItemAttributes({
                 dimensionId,
                 attribute: itemAttribute,
-                itemIds: items.map(item => item.id),
+                itemIds: items.map((item) => item.id),
             })
         } else {
             this.props.setUiItems({
                 dimensionId,
-                itemIds: items.map(item => item.id),
+                itemIds: items.map((item) => item.id),
             })
         }
 
@@ -147,7 +147,7 @@ export class DialogManager extends Component {
                 const forMetadata = {}
                 const forParentGraphMap = {}
 
-                items.forEach(ou => {
+                items.forEach((ou) => {
                     const id = ouIdHelper.removePrefix(ou.id)
                     forMetadata[id] = {
                         id,
@@ -187,17 +187,17 @@ export class DialogManager extends Component {
 
     closeDialog = () => this.props.changeDialog(null)
 
-    getSelectedItems = dialogId => {
+    getSelectedItems = (dialogId) => {
         const items = isScatterAttribute(dialogId)
             ? this.props.getItemsByAttribute(dialogId)
             : this.props.selectedItems[dialogId]
         return (items || [])
             .filter(
-                id =>
+                (id) =>
                     this.props.metadata[id] ||
                     id === ALL_DYNAMIC_DIMENSION_ITEMS
             )
-            .map(id => ({
+            .map((id) => ({
                 id,
                 name: this.props.metadata[id]?.name,
                 type:
@@ -208,8 +208,8 @@ export class DialogManager extends Component {
 
     getOrgUnitsFromIds = (ids, metadata, parentGraphMap) =>
         ids
-            .filter(id => metadata[ouIdHelper.removePrefix(id)] !== undefined)
-            .map(id => {
+            .filter((id) => metadata[ouIdHelper.removePrefix(id)] !== undefined)
+            .map((id) => {
                 const ouUid = ouIdHelper.removePrefix(id)
                 return {
                     id,
@@ -220,7 +220,7 @@ export class DialogManager extends Component {
 
     // The OU content is persisted as mounted in order
     // to cache the org unit tree data
-    renderPersistedContent = dimensionProps => {
+    renderPersistedContent = (dimensionProps) => {
         const { ouIds, metadata, parentGraphMap, dialogId } = this.props
 
         if (this.state.ouMounted) {
@@ -237,7 +237,7 @@ export class DialogManager extends Component {
                     <OrgUnitDimension
                         selected={selected}
                         roots={this.props.rootOrgUnits.map(
-                            rootOrgUnit => rootOrgUnit.id
+                            (rootOrgUnit) => rootOrgUnit.id
                         )}
                         {...dimensionProps}
                     />
@@ -309,7 +309,7 @@ export class DialogManager extends Component {
                 isScatterAttribute(dialogId)
             ) {
                 const onSelect = isScatterAttribute(dialogId)
-                    ? defaultProps =>
+                    ? (defaultProps) =>
                           this.selectUiItems({
                               ...defaultProps,
                               itemAttribute: dialogId,
@@ -394,7 +394,7 @@ export class DialogManager extends Component {
         )
     }
 
-    getPrimaryOnClick = handler => () => {
+    getPrimaryOnClick = (handler) => () => {
         handler()
         this.closeDialog()
     }
@@ -429,7 +429,7 @@ export class DialogManager extends Component {
                                     }
                                 />
                                 <UpdateVisualizationContainer
-                                    renderComponent={handler =>
+                                    renderComponent={(handler) =>
                                         this.props.dimensionIdsInLayout.includes(
                                             dialogId
                                         ) || isScatterAttribute(dialogId) ? (
@@ -495,7 +495,7 @@ DialogManager.defaultProps = {
     rootOrgUnits: [],
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     displayNameProperty: sGetSettingsDisplayNameProperty(state),
     dialogId: sGetUiActiveModalDialog(state),
     dimensions: sGetDimensions(state),
@@ -507,10 +507,11 @@ const mapStateToProps = state => ({
     selectedItems: sGetUiItems(state),
     settings: sGetSettings(state),
     type: sGetUiType(state),
-    getAxisIdByDimensionId: dimensionId =>
+    getAxisIdByDimensionId: (dimensionId) =>
         sGetAxisIdByDimensionId(state, dimensionId),
     dimensionIdsInLayout: sGetDimensionIdsFromLayout(state),
-    getItemsByAttribute: attribute => sGetUiItemsByAttribute(state, attribute),
+    getItemsByAttribute: (attribute) =>
+        sGetUiItemsByAttribute(state, attribute),
 })
 
 export default connect(mapStateToProps, {

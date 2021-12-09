@@ -34,15 +34,17 @@ import { expectStoreCurrentToBeEmpty } from '../utils/store.js'
 
 const TEST_AXIS_ID = AXIS_ID_COLUMNS
 const TEST_DATA_ELEMENT_NAMES = TEST_DATA_ELEMENTS.slice(2, 4).map(
-    item => item.name
+    (item) => item.name
 )
-const TEST_INDICATOR_NAMES = TEST_INDICATORS.slice(1, 3).map(item => item.name)
+const TEST_INDICATOR_NAMES = TEST_INDICATORS.slice(1, 3).map(
+    (item) => item.name
+)
 
 describe('creating a new AO', () => {
     it('navigates to the start page', () => {
         goToStartPage()
     })
-    Object.keys(visTypeDisplayNames).forEach(visType => {
+    Object.keys(visTypeDisplayNames).forEach((visType) => {
         const visTypeName = visTypeDisplayNames[visType]
         describe(visTypeName, () => {
             it('creates a new AO', () => {
@@ -83,7 +85,7 @@ describe('creating a new AO', () => {
                     : expectAOTitleToBeUnsaved() */
 
                 if (visType !== VIS_TYPE_SCATTER) {
-                    TEST_DATA_ELEMENT_NAMES.forEach(item =>
+                    TEST_DATA_ELEMENT_NAMES.forEach((item) =>
                         expectChartToContainDimensionItem(visType, item)
                     )
                 }

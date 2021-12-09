@@ -32,10 +32,10 @@ export const expectDataDimensionModalToBeVisible = () =>
 export const expectNoDataItemsToBeSelected = () =>
     cy.getBySel(selectedItemsEl).should('contain', 'No items selected')
 
-export const expectDataDimensionModalWarningToContain = text =>
+export const expectDataDimensionModalWarningToContain = (text) =>
     cy.getBySel(rightHeaderEl).should('contain', text)
 
-export const expectDataItemToBeInactive = id =>
+export const expectDataItemToBeInactive = (id) =>
     cy
         .get(`[data-value="${id}"]`)
         .findBySel(optionContentEl)
@@ -45,26 +45,26 @@ export const scrollSourceToBottom = () => {
     cy.getBySel(selectableItemsEl).scrollTo('bottom')
 }
 
-export const selectDataElements = dataElements => {
+export const selectDataElements = (dataElements) => {
     switchDataTypeTo('Data elements')
     expectSourceToNotBeLoading()
-    dataElements.forEach(item => selectItemByDoubleClick(item))
+    dataElements.forEach((item) => selectItemByDoubleClick(item))
 }
 
 export const selectFirstDataItem = () =>
     cy.getBySel(selectableItemsEl).findBySel(optionContentEl).eq(0).dblclick()
 
-export const selectIndicators = indicators => {
+export const selectIndicators = (indicators) => {
     switchDataTypeTo('Indicators')
     expectSourceToNotBeLoading()
-    indicators.forEach(item => selectItemByDoubleClick(item))
+    indicators.forEach((item) => selectItemByDoubleClick(item))
 }
 
-export const switchDataTab = tabName => {
+export const switchDataTab = (tabName) => {
     cy.getBySel(tabbarEl).contains(tabName).click()
 }
 
-export const expectDataTypeToBe = type =>
+export const expectDataTypeToBe = (type) =>
     cy.getBySel(dataTypesSelectButtonEl).should('contain', type)
 
 export const expectGroupSelectToNotBeVisible = () =>
@@ -73,10 +73,10 @@ export const expectGroupSelectToNotBeVisible = () =>
 export const expectGroupSelectToBeVisible = () =>
     cy.getBySel(groupSelectButtonEl).should('exist')
 
-export const expectGroupSelectToBe = group =>
+export const expectGroupSelectToBe = (group) =>
     cy.getBySel(groupSelectButtonEl).should('contain', group)
 
-export const switchGroupTo = group => {
+export const switchGroupTo = (group) => {
     cy.getBySel(groupSelectButtonEl).click()
     cy.getBySelLike(groupSelectOptionEl).contains(group).click()
 }
@@ -89,15 +89,15 @@ export const switchGroupToAll = () => {
 export const expectSubGroupSelectToBeVisible = () =>
     cy.getBySel(subGroupSelectButtonEl).should('exist')
 
-export const expectSubGroupSelectToBe = group =>
+export const expectSubGroupSelectToBe = (group) =>
     cy.getBySel(subGroupSelectButtonEl).should('contain', group)
 
-export const switchSubGroupTo = group => {
+export const switchSubGroupTo = (group) => {
     cy.getBySel(subGroupSelectButtonEl).click()
     cy.getBySelLike(subGroupSelectOptionEl).contains(group).click()
 }
 
-export const switchDataTypeTo = dataType => {
+export const switchDataTypeTo = (dataType) => {
     cy.getBySel(dataTypesSelectButtonEl).click()
     cy.getBySelLike(dataTypeSelectOptionEl).contains(dataType).click()
 }
@@ -107,7 +107,7 @@ export const switchDataTypeToAll = () => {
     cy.getBySelLike(dataTypeSelectOptionEl).eq(0).click()
 }
 
-export const inputSearchTerm = searchTerm => {
+export const inputSearchTerm = (searchTerm) => {
     typeInput(searchFieldEl, searchTerm)
 }
 
@@ -115,7 +115,7 @@ export const clearSearchTerm = () => {
     clearInput(searchFieldEl)
 }
 
-export const expectEmptySourceMessageToBe = message => {
+export const expectEmptySourceMessageToBe = (message) => {
     cy.getBySel(emptySourceEl).should('contain', message)
 }
 

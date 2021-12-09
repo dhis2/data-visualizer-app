@@ -35,7 +35,7 @@ Layout.propTypes = {
     visType: PropTypes.string,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     visType: sGetUiType(state),
 })
 

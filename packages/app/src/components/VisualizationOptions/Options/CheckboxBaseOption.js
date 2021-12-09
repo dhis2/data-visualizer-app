@@ -10,7 +10,7 @@ import {
 } from '../styles/VisualizationOptions.style.js'
 import TextStyle from './TextStyle.js'
 
-export const CheckboxBaseOption = ({
+export const UnconnectedCheckboxBaseOption = ({
     option,
     label,
     value,
@@ -39,7 +39,7 @@ export const CheckboxBaseOption = ({
     </div>
 )
 
-CheckboxBaseOption.propTypes = {
+UnconnectedCheckboxBaseOption.propTypes = {
     dataTest: PropTypes.string,
     fontStyleKey: PropTypes.string,
     inverted: PropTypes.bool,
@@ -54,7 +54,7 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onChange: value =>
+    onChange: (value) =>
         dispatch(
             acSetUiOption({
                 optionId: ownProps.option.id || ownProps.option.name,
@@ -64,4 +64,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
         ),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(CheckboxBaseOption)
+export const CheckboxBaseOption = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(UnconnectedCheckboxBaseOption)

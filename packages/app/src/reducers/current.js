@@ -73,8 +73,8 @@ export default (state = DEFAULT_CURRENT, action) => {
 
 // Selectors
 
-export const sGetCurrent = state => state.current
-export const sGetCurrentFromUi = state => {
+export const sGetCurrent = (state) => state.current
+export const sGetCurrentFromUi = (state) => {
     const ui = state.ui
 
     switch (ui.type) {

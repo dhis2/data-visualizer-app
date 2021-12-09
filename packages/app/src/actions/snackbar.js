@@ -3,7 +3,7 @@ import {
     CLEAR_SNACKBAR,
 } from '../reducers/snackbar.js'
 
-export const acReceivedSnackbarMessage = value => ({
+export const acReceivedSnackbarMessage = (value) => ({
     type: RECEIVED_SNACKBAR_MESSAGE,
     value,
 })

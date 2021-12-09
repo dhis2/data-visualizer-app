@@ -12,13 +12,13 @@ const loadingEl = 'dhis2-uicore-circularloader'
 export const expectAppToNotBeLoading = () =>
     cy.getBySel(loadingEl).should('not.exist')
 
-export const clickCheckbox = target =>
+export const clickCheckbox = (target) =>
     cy.getBySel(target).click().find('[type="checkbox"]').should('be.checked')
 
 export const typeInput = (target, text) =>
     cy.getBySel(target).find('input').type(text)
 
-export const clearInput = target => cy.getBySel(target).find('input').clear()
+export const clearInput = (target) => cy.getBySel(target).find('input').clear()
 
 export const replacePeriodItems = (
     visType,

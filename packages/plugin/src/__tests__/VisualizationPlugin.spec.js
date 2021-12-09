@@ -95,7 +95,7 @@ class MockYoYAnalyticsResponse {
     }
 }
 
-const isYearOverYearMockResponse = visType => {
+const isYearOverYearMockResponse = (visType) => {
     return visType === analytics.VIS_TYPE_YEAR_OVER_YEAR_LINE
 }
 
@@ -113,7 +113,7 @@ describe('VisualizationPlugin', () => {
         onResponsesReceived: jest.fn(),
         onError: jest.fn(),
     }
-    const canvas = async props => {
+    const canvas = async (props) => {
         const combinedProps = {
             ...defaultProps,
             ...props,
@@ -122,7 +122,7 @@ describe('VisualizationPlugin', () => {
 
         await act(async () => {
             plugin = mount(<VisualizationPlugin {...combinedProps} />)
-            await new Promise(resolve => {
+            await new Promise((resolve) => {
                 setTimeout(resolve)
             })
         })

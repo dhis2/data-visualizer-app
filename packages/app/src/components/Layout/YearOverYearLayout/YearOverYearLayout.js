@@ -25,7 +25,7 @@ import YearOverYearLayoutStyles from './styles/YearOverYearLayout.style.js'
 import YearOverYearAxis from './YearOverYearAxis.js'
 import YearOverYearSelect from './YearOverYearSelect.js'
 
-const Layout = props => (
+const Layout = (props) => (
     <div id="layout-ct" style={defaultLayoutStyles.ct}>
         <div
             id="axis-group-1"
@@ -88,12 +88,12 @@ Layout.propTypes = {
     onSeriesChange: PropTypes.func,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     yearOverYearSeries: sGetUiYearOverYearSeries(state),
     yearOverYearCategory: sGetUiYearOverYearCategory(state),
 })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
     onSeriesChange: ({ selected }) => {
         dispatch(acSetUiYearOverYearSeries(selected))
     },

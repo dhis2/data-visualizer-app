@@ -16,7 +16,7 @@ describe('opening a saved AO', () => {
     it('navigates to the start page', () => {
         goToStartPage()
     })
-    TEST_AOS.forEach(ao => {
+    TEST_AOS.forEach((ao) => {
         // FIXME: Add a saved Scatter chart to the default database
         describe(visTypeDisplayNames[ao.type], () => {
             it(

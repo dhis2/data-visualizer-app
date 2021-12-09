@@ -2,7 +2,7 @@ import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { OPTION_AXIS_DECIMALS } from '../../../modules/options.js'
-import PositiveNumberBaseType from './PositiveNumberBaseType.js'
+import { PositiveNumberBaseType } from './PositiveNumberBaseType.js'
 
 const AxisDecimals = ({ disabled, axisId }) => (
     <PositiveNumberBaseType

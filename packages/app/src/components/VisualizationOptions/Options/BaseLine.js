@@ -28,5 +28,3 @@ BaseLine.propTypes = {
     disabled: PropTypes.bool,
     isVertical: PropTypes.bool,
 }
-
-export default BaseLine

@@ -113,7 +113,7 @@ const ColorSetPreview = ({ colorSet, disabled }) => (
                 </svg>
             ))}
         {colorSet?.colors &&
-            colorSet.colors.map(color => (
+            colorSet.colors.map((color) => (
                 <div
                     key={color}
                     style={{ backgroundColor: color, width: 14, height: 14 }}
@@ -127,12 +127,12 @@ ColorSetPreview.propTypes = {
     disabled: PropTypes.bool,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     value: sGetUiOptions(state)[COLOR_SET_OPTION_NAME],
 })
 
-const mapDispatchToProps = dispatch => ({
-    onChange: colorSet =>
+const mapDispatchToProps = (dispatch) => ({
+    onChange: (colorSet) =>
         dispatch(acSetUiOptions({ [COLOR_SET_OPTION_NAME]: colorSet })),
 })
 

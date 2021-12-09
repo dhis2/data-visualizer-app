@@ -12,7 +12,7 @@ export class DndDimensionsPanel extends Component {
         this.setState({ filterText: '' })
     }
 
-    onFilterTextChange = filterText => {
+    onFilterTextChange = (filterText) => {
         this.setState({ filterText })
     }
 

@@ -1,14 +1,14 @@
 import { Checkbox } from '@dhis2/ui'
 import { shallow } from 'enzyme'
 import React from 'react'
-import { CheckboxBaseOption } from '../Options/CheckboxBaseOption.js'
+import { UnconnectedCheckboxBaseOption as CheckboxBaseOption } from '../Options/CheckboxBaseOption.js'
 
 describe('DV > Options > CheckboxBaseOption', () => {
     let props
     let shallowCheckboxBaseOption
     let onChange
 
-    const checkboxBaseOption = props => {
+    const checkboxBaseOption = (props) => {
         shallowCheckboxBaseOption = shallow(<CheckboxBaseOption {...props} />)
 
         return shallowCheckboxBaseOption

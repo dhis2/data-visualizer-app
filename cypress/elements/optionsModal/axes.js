@@ -10,13 +10,13 @@ const decimalsInputEl = 'axis-decimals'
 
 const getAxisSelector = (axis, selector) => `${axis}-${selector}`
 
-export const switchAxesTabTo = tab =>
+export const switchAxesTabTo = (tab) =>
     cy.getBySel(verticalTabsEl).containsExact(tab).click()
 
 export const setAxisTitleText = (axis, text) =>
     typeInput(getAxisSelector(axis, titleInputEl), text)
 
-export const setAxisTitleTextModeTo = textMode =>
+export const setAxisTitleTextModeTo = (textMode) =>
     cy.getBySel(axisTitleRadiosEl).contains(textMode).click()
 
 export const expectAxisTitleToBeValue = (axis, value) =>

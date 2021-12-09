@@ -80,7 +80,7 @@ describe('viewing the start screen', () => {
             FILE_MENU_BUTTON_OPEN,
             FILE_MENU_BUTTON_SAVE_NEW,
         ]
-        enabledButtons.forEach(button =>
+        enabledButtons.forEach((button) =>
             expectFileMenuButtonToBeEnabled(button)
         )
         closeFileMenuWithClick()
@@ -95,7 +95,7 @@ describe('viewing the start screen', () => {
             FILE_MENU_BUTTON_GETLINK,
             FILE_MENU_BUTTON_DELETE,
         ]
-        disabledButtons.forEach(button =>
+        disabledButtons.forEach((button) =>
             expectFileMenuButtonToBeDisabled(button)
         )
         closeFileMenuWithClick()

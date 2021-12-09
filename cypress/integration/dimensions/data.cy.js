@@ -271,7 +271,7 @@ describe('Data dimension', () => {
             },
         },
     ]
-    testDataTypes.forEach(testDataType => {
+    testDataTypes.forEach((testDataType) => {
         describe(`${testDataType.name}`, () => {
             it('opens the data dimension modal', () => {
                 openDimension(DIMENSION_ID_DATA)

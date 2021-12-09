@@ -10,7 +10,7 @@ import {
 } from '../styles/VisualizationOptions.style.js'
 import TextStyle from './TextStyle.js'
 
-export const TextBaseOption = ({
+export const UnconnectedTextBaseOption = ({
     type,
     label,
     placeholder,
@@ -88,11 +88,11 @@ export const TextBaseOption = ({
     </div>
 )
 
-TextBaseOption.defaultProps = {
+UnconnectedTextBaseOption.defaultProps = {
     option: {},
 }
 
-TextBaseOption.propTypes = {
+UnconnectedTextBaseOption.propTypes = {
     checked: PropTypes.bool,
     dataTest: PropTypes.string,
     disabled: PropTypes.bool,
@@ -121,7 +121,7 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onChange: value =>
+    onChange: (value) =>
         dispatch(
             acSetUiOption({
                 optionId: ownProps.option.id || ownProps.option.name,
@@ -129,7 +129,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
                 value,
             })
         ),
-    onToggle: checked =>
+    onToggle: (checked) =>
         dispatch(
             acSetUiOption({
                 optionId: ownProps.option.enabledId,
@@ -139,4 +139,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
         ),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(TextBaseOption)
+export const TextBaseOption = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(UnconnectedTextBaseOption)
