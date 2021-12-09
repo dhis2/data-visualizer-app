@@ -8,7 +8,7 @@ import history from '../../modules/history.js'
 import * as ui from '../../modules/ui.js'
 import { DEFAULT_CURRENT } from '../../reducers/current.js'
 import { UnconnectedApp as App } from '../App.js'
-import { UnconnectedSnackbar as Snackbar } from '../Snackbar/Snackbar.js'
+import { Snackbar } from '../Snackbar/Snackbar.js'
 
 jest.mock(
     '../Visualization/Visualization',
