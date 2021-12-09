@@ -12,7 +12,7 @@ export function getStubContext() {
                 firstName: 'Rainbow',
                 surname: 'Dash',
                 userSettings: {
-                    get: key => userSettings[key],
+                    get: (key) => userSettings[key],
                 },
             },
         },

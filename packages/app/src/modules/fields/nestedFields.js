@@ -21,5 +21,5 @@ export const nestedFields = {
     interpretations: INTERPRETATIONS,
 }
 
-export const extendFields = field =>
+export const extendFields = (field) =>
     `${field}${nestedFields[field] ? `[${nestedFields[field]}]` : ''}`

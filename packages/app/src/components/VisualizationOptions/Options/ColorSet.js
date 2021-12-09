@@ -12,8 +12,8 @@ import { Field, Radio } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import { acSetUiOptions } from '../../../actions/ui'
-import { sGetUiOptions } from '../../../reducers/ui'
+import { acSetUiOptions } from '../../../actions/ui.js'
+import { sGetUiOptions } from '../../../reducers/ui.js'
 import { tabSectionOption } from '../styles/VisualizationOptions.style.js'
 
 export const COLOR_SET_OPTION_NAME = 'colorSet'
@@ -113,7 +113,7 @@ const ColorSetPreview = ({ colorSet, disabled }) => (
                 </svg>
             ))}
         {colorSet?.colors &&
-            colorSet.colors.map(color => (
+            colorSet.colors.map((color) => (
                 <div
                     key={color}
                     style={{ backgroundColor: color, width: 14, height: 14 }}
@@ -127,12 +127,12 @@ ColorSetPreview.propTypes = {
     disabled: PropTypes.bool,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     value: sGetUiOptions(state)[COLOR_SET_OPTION_NAME],
 })
 
-const mapDispatchToProps = dispatch => ({
-    onChange: colorSet =>
+const mapDispatchToProps = (dispatch) => ({
+    onChange: (colorSet) =>
         dispatch(acSetUiOptions({ [COLOR_SET_OPTION_NAME]: colorSet })),
 })
 

@@ -2,7 +2,7 @@ import reducer, {
     DEFAULT_VISUALIZATION,
     SET_VISUALIZATION,
     CLEAR_VISUALIZATION,
-} from '../visualization'
+} from '../visualization.js'
 
 describe('reducer: visualization', () => {
     it('should return the default state', () => {

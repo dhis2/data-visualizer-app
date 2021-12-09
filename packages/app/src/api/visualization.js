@@ -1,4 +1,4 @@
-import { getFieldsStringByType } from '../modules/fields'
+import { getFieldsStringByType } from '../modules/fields/index.js'
 
 const visualizationQuery = {
     visualization: {

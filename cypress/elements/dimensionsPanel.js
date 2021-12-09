@@ -1,4 +1,4 @@
-import { clearInput, typeInput } from './common'
+import { clearInput, typeInput } from './common.js'
 
 const dimButtonEl = 'dimensions-panel-list-dimension-item-button'
 const dimContextMenuButtonEl = 'dimensions-panel-list-dimension-item-menu'
@@ -14,12 +14,12 @@ const recommendedIconEl =
     'dimensions-panel-list-dimension-item-recommended-icon'
 const dimSelectedBackgroundColor = 'rgb(224, 242, 241)'
 
-const getDimensionButtonById = dimensionId => `${dimButtonEl}-${dimensionId}`
+const getDimensionButtonById = (dimensionId) => `${dimButtonEl}-${dimensionId}`
 
-export const openContextMenu = dimensionId =>
+export const openContextMenu = (dimensionId) =>
     cy.getBySel(`${dimContextMenuButtonEl}-${dimensionId}`).click()
 
-export const openDimension = dimensionId =>
+export const openDimension = (dimensionId) =>
     cy.getBySel(getDimensionButtonById(dimensionId)).click()
 
 export const clickContextMenuAdd = (dimensionId, axisId) =>
@@ -34,13 +34,13 @@ export const clickContextMenuMove = (dimensionId, axisId) =>
         .should('contain', 'Move to')
         .click()
 
-export const clickContextMenuRemove = dimensionId =>
+export const clickContextMenuRemove = (dimensionId) =>
     cy
         .getBySel(`${dimContextMenuRemoveOptionEl}-${dimensionId}`)
         .should('contain', 'Remove')
         .click()
 
-export const clickContextMenuDimSubMenu = dimensionId =>
+export const clickContextMenuDimSubMenu = (dimensionId) =>
     cy
         .getBySel(
             `${dimContextMenuSubMenuOptionEl.replace(
@@ -51,28 +51,28 @@ export const clickContextMenuDimSubMenu = dimensionId =>
         .should('contain', 'Add')
         .click()
 
-export const filterDimensionsByText = searchInput =>
+export const filterDimensionsByText = (searchInput) =>
     typeInput(filterInputEl, searchInput)
 
 export const clearDimensionsFilter = () => clearInput(filterInputEl)
 
-export const expectFixedDimensionsToHaveLength = length =>
+export const expectFixedDimensionsToHaveLength = (length) =>
     cy.getBySel(fixedDimsWrapperEl).children().should('have.length', length)
 
-export const expectDimensionToHaveSelectedStyle = dimensionId =>
+export const expectDimensionToHaveSelectedStyle = (dimensionId) =>
     cy
         .getBySel(getDimensionButtonById(dimensionId))
         .parent()
         .should('have.css', 'background-color', dimSelectedBackgroundColor)
 // FIXME: -FRAGILE- set in Analytics but will break if @dhis2/ui changes their theme colors
 
-export const expectDimensionToNotHaveSelectedStyle = dimensionId =>
+export const expectDimensionToNotHaveSelectedStyle = (dimensionId) =>
     cy
         .getBySel(getDimensionButtonById(dimensionId))
         .parent()
         .should('not.have.css', 'background-color', dimSelectedBackgroundColor)
 
-export const expectRecommendedIconToBeVisible = dimensionId =>
+export const expectRecommendedIconToBeVisible = (dimensionId) =>
     cy
         .getBySel(getDimensionButtonById(dimensionId))
         .findBySel(recommendedIconEl)

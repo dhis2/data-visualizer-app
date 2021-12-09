@@ -6,13 +6,13 @@ import { connect } from 'react-redux'
 import {
     ITEM_ATTRIBUTE_HORIZONTAL,
     ITEM_ATTRIBUTE_VERTICAL,
-} from '../../../modules/ui'
-import { sGetUiItemsByAttribute } from '../../../reducers/ui'
-import DefaultAxis from '../DefaultLayout/DefaultAxis'
-import defaultAxisStyles from '../DefaultLayout/styles/DefaultAxis.style'
-import defaultLayoutStyles from '../DefaultLayout/styles/DefaultLayout.style'
-import ScatterAxis from './ScatterAxis'
-import scatterLayoutStyles from './styles/ScatterLayout.style'
+} from '../../../modules/ui.js'
+import { sGetUiItemsByAttribute } from '../../../reducers/ui.js'
+import DefaultAxis from '../DefaultLayout/DefaultAxis.js'
+import defaultAxisStyles from '../DefaultLayout/styles/DefaultAxis.style.js'
+import defaultLayoutStyles from '../DefaultLayout/styles/DefaultLayout.style.js'
+import ScatterAxis from './ScatterAxis.js'
+import scatterLayoutStyles from './styles/ScatterLayout.style.js'
 
 const Layout = ({ getItemsByAttribute }) => (
     <div id="layout-ct" style={defaultLayoutStyles.ct}>
@@ -64,8 +64,9 @@ Layout.propTypes = {
     getItemsByAttribute: PropTypes.func,
 }
 
-const mapStateToProps = state => ({
-    getItemsByAttribute: attribute => sGetUiItemsByAttribute(state, attribute),
+const mapStateToProps = (state) => ({
+    getItemsByAttribute: (attribute) =>
+        sGetUiItemsByAttribute(state, attribute),
 })
 
 export default connect(mapStateToProps)(Layout)

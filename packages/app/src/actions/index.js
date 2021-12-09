@@ -4,36 +4,36 @@ import {
     ALL_DYNAMIC_DIMENSION_ITEMS,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
-import { apiPostDataStatistics } from '../api/dataStatistics'
+import { apiPostDataStatistics } from '../api/dataStatistics.js'
 import {
     apiFetchVisualization,
     apiSaveVisualization,
-} from '../api/visualization'
-import { VARIANT_SUCCESS } from '../components/Snackbar/Snackbar'
+} from '../api/visualization.js'
+import { VARIANT_SUCCESS } from '../components/Snackbar/Snackbar.js'
 import {
     GenericServerError,
     VisualizationNotFoundError,
-} from '../modules/error'
-import history from '../modules/history'
-import { getVisualizationFromCurrent } from '../modules/visualization'
-import { sGetCurrent } from '../reducers/current'
+} from '../modules/error.js'
+import history from '../modules/history.js'
+import { getVisualizationFromCurrent } from '../modules/visualization.js'
+import { sGetCurrent } from '../reducers/current.js'
 import {
     sGetRootOrgUnits,
     sGetRelativePeriod,
     sGetSettingsDigitGroupSeparator,
-} from '../reducers/settings'
-import { sGetVisualization } from '../reducers/visualization'
-import * as fromChart from './chart'
-import * as fromCurrent from './current'
-import * as fromDimensions from './dimensions'
-import * as fromLoader from './loader'
-import * as fromMetadata from './metadata'
-import * as fromRecommended from './recommendedIds'
-import * as fromSettings from './settings'
-import * as fromSnackbar from './snackbar'
-import * as fromUi from './ui'
-import * as fromUser from './user'
-import * as fromVisualization from './visualization'
+} from '../reducers/settings.js'
+import { sGetVisualization } from '../reducers/visualization.js'
+import * as fromChart from './chart.js'
+import * as fromCurrent from './current.js'
+import * as fromDimensions from './dimensions.js'
+import * as fromLoader from './loader.js'
+import * as fromMetadata from './metadata.js'
+import * as fromRecommended from './recommendedIds.js'
+import * as fromSettings from './settings.js'
+import * as fromSnackbar from './snackbar.js'
+import * as fromUi from './ui.js'
+import * as fromUser from './user.js'
+import * as fromVisualization from './visualization.js'
 
 export {
     fromVisualization,
@@ -53,8 +53,8 @@ const logError = (action, error) => {
     console.log(`Error in action ${action}: ${error}`)
 }
 
-const adaptAxisItems = axis =>
-    (axis || []).map(ai => ({
+const adaptAxisItems = (axis) =>
+    (axis || []).map((ai) => ({
         ...ai,
         items: ai?.items?.length
             ? ai.items
@@ -71,7 +71,7 @@ const adaptAxisItems = axis =>
 export const tDoLoadVisualization =
     ({ id, interpretationId, ouLevels }) =>
     async (dispatch, getState, engine) => {
-        const onSuccess = async response => {
+        const onSuccess = async (response) => {
             dispatch(fromLoader.acSetPluginLoading(true))
             const visualization = convertOuLevelsToUids(
                 ouLevels,
@@ -84,7 +84,7 @@ export const tDoLoadVisualization =
 
             if (interpretationId) {
                 const interpretation = visualization.interpretations.find(
-                    i => i.id === interpretationId
+                    (i) => i.id === interpretationId
                 )
 
                 if (interpretation) {
@@ -186,7 +186,7 @@ export const tDoRenameVisualization =
 export const tDoSaveVisualization =
     ({ name, description }, copy) =>
     async (dispatch, getState, engine) => {
-        const onSuccess = res => {
+        const onSuccess = (res) => {
             if (res.status === 'OK' && res.response.uid) {
                 if (copy) {
                     history.push({

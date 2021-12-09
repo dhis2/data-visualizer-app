@@ -1,3 +1,3 @@
 // Helper functions
 
-export const onError = error => console.log('Error: ', error)
+export const onError = (error) => console.log('Error: ', error)

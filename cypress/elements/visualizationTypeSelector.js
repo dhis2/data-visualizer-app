@@ -5,12 +5,12 @@ const defaultVisTypeName = 'Column'
 
 export const clickVisTypeSelector = () => cy.getBySel(vstButtonEl).click()
 
-export const changeVisType = visTypeName => {
+export const changeVisType = (visTypeName) => {
     clickVisTypeSelector()
     cy.getBySel(vstCardEl).contains(visTypeName).click()
 }
 
-export const expectVisTypeToBeValue = value =>
+export const expectVisTypeToBeValue = (value) =>
     cy
         .getBySel(vstButtonTextEl)
         .contains(value)

@@ -1,10 +1,10 @@
 import { getInstance } from 'd2'
-import { onError } from './index'
+import { onError } from './index.js'
 
 export const NAMESPACE = 'analytics'
 export const CURRENT_AO_KEY = 'currentAnalyticalObject'
 
-export const hasNamespace = async d2 =>
+export const hasNamespace = async (d2) =>
     await d2.currentUser.dataStore.has(NAMESPACE)
 
 export const getNamespace = async (d2, hasNamespace) =>

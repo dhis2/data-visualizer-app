@@ -1,4 +1,4 @@
-import reducer, { DEFAULT_METADATA, ADD_METADATA } from '../metadata'
+import reducer, { DEFAULT_METADATA, ADD_METADATA } from '../metadata.js'
 
 const currentState = {
     uid1: {

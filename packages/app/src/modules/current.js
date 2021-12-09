@@ -21,19 +21,22 @@ import pick from 'lodash-es/pick'
 import {
     ITEM_ATTRIBUTE_HORIZONTAL,
     ITEM_ATTRIBUTE_VERTICAL,
-} from '../modules/ui'
-import { BASE_FIELD_TYPE, BASE_FIELD_YEARLY_SERIES } from './fields/baseFields'
-import options from './options'
-import {} from './layout'
+} from '../modules/ui.js'
+import {
+    BASE_FIELD_TYPE,
+    BASE_FIELD_YEARLY_SERIES,
+} from './fields/baseFields.js'
+import options from './options.js'
+import {} from './layout.js'
 
 const hasItems = (object, id) => Array.isArray(object[id]) && object[id].length
 
-export const getAxesFromUi = ui =>
+export const getAxesFromUi = (ui) =>
     Object.entries(ui.layout).reduce(
         (layout, [axisId, dimensionIds]) => ({
             ...layout,
             [axisId]: dimensionIds
-                .map(dimensionId =>
+                .map((dimensionId) =>
                     hasItems(ui.itemsByDimension, dimensionId) ||
                     getPredefinedDimensionProp(
                         dimensionId,
@@ -45,18 +48,20 @@ export const getAxesFromUi = ui =>
                           )
                         : null
                 )
-                .filter(dim => dim !== null),
+                .filter((dim) => dim !== null),
         }),
         {}
     )
 
-export const getOptionsFromUi = ui => {
+export const getOptionsFromUi = (ui) => {
     const optionsFromUi = pick(ui.options, Object.keys(options))
 
     if (optionsFromUi.axes && optionsFromUi.axes.length) {
-        optionsFromUi.axes = [...optionsFromUi.axes.map(axis => ({ ...axis }))]
+        optionsFromUi.axes = [
+            ...optionsFromUi.axes.map((axis) => ({ ...axis })),
+        ]
 
-        optionsFromUi.axes.forEach(axis => {
+        optionsFromUi.axes.forEach((axis) => {
             if (axis.targetLine) {
                 const { enabled, ...rest } = axis.targetLine
                 axis.targetLine = { ...rest }
@@ -81,13 +86,13 @@ export const getOptionsFromUi = ui => {
         'reportingPeriod',
         'parentOrganisationUnit',
         'grandParentOrganisationUnit',
-    ].forEach(option => {
+    ].forEach((option) => {
         optionsFromUi.reportingParams[option] = optionsFromUi[option]
         delete optionsFromUi[option]
     })
 
     // cast option values to Number for some options
-    ;['sortOrder', 'topLimit'].forEach(option => {
+    ;['sortOrder', 'topLimit'].forEach((option) => {
         if (Object.prototype.hasOwnProperty.call(optionsFromUi, option)) {
             if (
                 optionsFromUi[option] !== undefined &&
@@ -101,17 +106,17 @@ export const getOptionsFromUi = ui => {
     return optionsFromUi
 }
 
-export const getSeriesFromUi = ui => {
+export const getSeriesFromUi = (ui) => {
     return ui.options.series ? [...ui.options.series] : []
 }
 
-export const getItemsByDimensionFromUi = ui => {
+export const getItemsByDimensionFromUi = (ui) => {
     const result = {}
     Object.keys(ui.itemsByDimension).forEach(
-        key =>
+        (key) =>
             // strip out all other items when 'ALL' is in use, to be passed to the backend
             (result[key] = ui.itemsByDimension[key].some(
-                id => id === ALL_DYNAMIC_DIMENSION_ITEMS
+                (id) => id === ALL_DYNAMIC_DIMENSION_ITEMS
             )
                 ? [ALL_DYNAMIC_DIMENSION_ITEMS]
                 : ui.itemsByDimension[key])
@@ -163,16 +168,16 @@ export const getScatterCurrentFromUi = (state, action) => {
     // only save first vertical and first horizontal dx items
     const verticalItem =
         ui.itemAttributes.find(
-            item => item.attribute === ITEM_ATTRIBUTE_VERTICAL
+            (item) => item.attribute === ITEM_ATTRIBUTE_VERTICAL
         ) || {}
     const horizontalItem =
         ui.itemAttributes.find(
-            item => item.attribute === ITEM_ATTRIBUTE_HORIZONTAL
+            (item) => item.attribute === ITEM_ATTRIBUTE_HORIZONTAL
         ) || {}
     const scatterAxesFromUi = layoutReplaceDimension(
         axesFromUi,
         DIMENSION_ID_DATA,
-        [verticalItem, horizontalItem].map(item => ({ id: item.id }))
+        [verticalItem, horizontalItem].map((item) => ({ id: item.id }))
     )
 
     return {

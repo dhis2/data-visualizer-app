@@ -2,15 +2,15 @@ import { Checkbox } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import { acSetUiOption } from '../../../actions/ui'
-import { sGetUiOption } from '../../../reducers/ui'
+import { acSetUiOption } from '../../../actions/ui.js'
+import { sGetUiOption } from '../../../reducers/ui.js'
 import {
     tabSectionOption,
     tabSectionOptionToggleable,
 } from '../styles/VisualizationOptions.style.js'
-import TextStyle from './TextStyle'
+import TextStyle from './TextStyle.js'
 
-export const CheckboxBaseOption = ({
+export const UnconnectedCheckboxBaseOption = ({
     option,
     label,
     value,
@@ -39,7 +39,7 @@ export const CheckboxBaseOption = ({
     </div>
 )
 
-CheckboxBaseOption.propTypes = {
+UnconnectedCheckboxBaseOption.propTypes = {
     dataTest: PropTypes.string,
     fontStyleKey: PropTypes.string,
     inverted: PropTypes.bool,
@@ -54,7 +54,7 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onChange: value =>
+    onChange: (value) =>
         dispatch(
             acSetUiOption({
                 optionId: ownProps.option.id || ownProps.option.name,
@@ -64,4 +64,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
         ),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(CheckboxBaseOption)
+export const CheckboxBaseOption = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(UnconnectedCheckboxBaseOption)

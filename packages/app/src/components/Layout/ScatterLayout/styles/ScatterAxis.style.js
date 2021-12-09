@@ -1,5 +1,5 @@
 import { colors } from '@dhis2/ui'
-import * as layoutStyle from '../../styles/style'
+import * as layoutStyle from '../../styles/style.js'
 
 export default {
     axisContainer: {

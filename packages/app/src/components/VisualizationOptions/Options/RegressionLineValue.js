@@ -1,7 +1,7 @@
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React from 'react'
-import NumberBaseType from './NumberBaseType'
+import NumberBaseType from './NumberBaseType.js'
 
 const RegressionLineValue = ({ dataTest, axisId, id }) => (
     <NumberBaseType

@@ -164,33 +164,38 @@ export const getOptionsForUi = () => {
 
 export const getOptionsForRequest = () => {
     return Object.entries(options).filter(
-        entry => entry[1].requestable // entry = [option, props]
+        (entry) => entry[1].requestable // entry = [option, props]
     )
 }
 
-export const getOptionsFromVisualization = visualization => {
+export const getOptionsFromVisualization = (visualization) => {
     const optionsFromVisualization = {
         ...getOptionsForUi(),
         ...pick(visualization, Object.keys(options)),
     }
 
-    optionsFromVisualization.axes = optionsFromVisualization.axes.map(axis => {
-        if (axis.targetLine || axis.baseLine) {
-            const clonedAxis = { ...axis }
-            if (clonedAxis.targetLine) {
-                clonedAxis.targetLine = {
-                    ...clonedAxis.targetLine,
-                    enabled: true,
+    optionsFromVisualization.axes = optionsFromVisualization.axes.map(
+        (axis) => {
+            if (axis.targetLine || axis.baseLine) {
+                const clonedAxis = { ...axis }
+                if (clonedAxis.targetLine) {
+                    clonedAxis.targetLine = {
+                        ...clonedAxis.targetLine,
+                        enabled: true,
+                    }
                 }
+                if (clonedAxis.baseLine) {
+                    clonedAxis.baseLine = {
+                        ...clonedAxis.baseLine,
+                        enabled: true,
+                    }
+                }
+                return clonedAxis
+            } else {
+                return axis
             }
-            if (clonedAxis.baseLine) {
-                clonedAxis.baseLine = { ...clonedAxis.baseLine, enabled: true }
-            }
-            return clonedAxis
-        } else {
-            return axis
         }
-    })
+    )
 
     // nested options under reportingParams
     if (visualization.reportingParams) {
@@ -205,7 +210,7 @@ export const getOptionsFromVisualization = visualization => {
     }
 
     // cast option values from Number for some options
-    ;['sortOrder', 'topLimit'].forEach(option => {
+    ;['sortOrder', 'topLimit'].forEach((option) => {
         if (Object.prototype.hasOwnProperty.call(visualization, option)) {
             optionsFromVisualization[option] = String(visualization[option])
         }

@@ -1,4 +1,4 @@
-import reducer, { DEFAULT_SETTINGS, ADD_SETTINGS } from '../settings'
+import reducer, { DEFAULT_SETTINGS, ADD_SETTINGS } from '../settings.js'
 
 describe('reducer: settings', () => {
     const currentState = {

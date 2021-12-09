@@ -35,14 +35,14 @@ import {
     expectSourceToNotBeLoading,
     unselectAllItemsByButton,
     selectAllItemsByButton,
-} from '../../elements/dimensionModal'
-import { openDimension } from '../../elements/dimensionsPanel'
-import { goToStartPage } from '../../elements/startScreen'
+} from '../../elements/dimensionModal/index.js'
+import { openDimension } from '../../elements/dimensionsPanel.js'
+import { goToStartPage } from '../../elements/startScreen.js'
 import {
     TEST_DATA_ELEMENTS,
     TEST_DATA_SETS,
     TEST_INDICATORS,
-} from '../../utils/data'
+} from '../../utils/data.js'
 
 const PAGE_SIZE = 50
 const DATA_ITEMS_URL = '/dataItems'
@@ -271,7 +271,7 @@ describe('Data dimension', () => {
             },
         },
     ]
-    testDataTypes.forEach(testDataType => {
+    testDataTypes.forEach((testDataType) => {
         describe(`${testDataType.name}`, () => {
             it('opens the data dimension modal', () => {
                 openDimension(DIMENSION_ID_DATA)

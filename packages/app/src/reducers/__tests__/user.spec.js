@@ -1,4 +1,4 @@
-import reducer, { DEFAULT_USER, RECEIVED_USER } from '../user'
+import reducer, { DEFAULT_USER, RECEIVED_USER } from '../user.js'
 
 describe('reducer: user', () => {
     it('should return the default state', () => {

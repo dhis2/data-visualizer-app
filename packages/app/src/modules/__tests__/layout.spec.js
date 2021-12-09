@@ -1,4 +1,4 @@
-import { getRetransfer } from '../layout'
+import { getRetransfer } from '../layout.js'
 
 const layout = {
     columns: ['dx'],

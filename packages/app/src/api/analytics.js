@@ -13,7 +13,7 @@ export const apiDownloadImage = async ({ baseUrl, type, formData }) => {
             body: formData,
             headers: new Headers(api.defaultHeaders),
         })
-        .then(res => res.blob())
+        .then((res) => res.blob())
 }
 
 const addCommonParameters = (req, visualization, options) => {

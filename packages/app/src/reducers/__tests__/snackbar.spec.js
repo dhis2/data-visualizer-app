@@ -1,12 +1,12 @@
 import {
     VARIANT_ERROR,
     VARIANT_WARNING,
-} from '../../components/Snackbar/Snackbar'
+} from '../../components/Snackbar/Snackbar.js'
 import reducer, {
     DEFAULT_SNACKBAR,
     RECEIVED_SNACKBAR_MESSAGE,
     CLEAR_SNACKBAR,
-} from '../snackbar'
+} from '../snackbar.js'
 
 describe('reducer: snackbar', () => {
     it('should return the default state', () => {

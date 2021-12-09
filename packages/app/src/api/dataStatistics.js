@@ -1,4 +1,4 @@
-import { onError } from './index'
+import { onError } from './index.js'
 
 export const EVENT_TYPE = 'VISUALIZATION_VIEW'
 

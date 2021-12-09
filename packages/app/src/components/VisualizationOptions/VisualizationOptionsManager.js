@@ -9,15 +9,15 @@ import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { getOptionsByType } from '../../modules/options/config'
+import { getOptionsByType } from '../../modules/options/config.js'
 import {
     sGetUiType,
     sGetUiOptions,
     sGetDimensionItemsByAxis,
     sGetUiLayout,
-} from '../../reducers/ui'
-import MenuButton from '../MenuButton/MenuButton'
-import UpdateVisualizationContainer from '../UpdateButton/UpdateVisualizationContainer'
+} from '../../reducers/ui.js'
+import MenuButton from '../MenuButton/MenuButton.js'
+import UpdateVisualizationContainer from '../UpdateButton/UpdateVisualizationContainer.js'
 
 const VisualizationOptionsManager = ({
     visualizationType,
@@ -27,7 +27,7 @@ const VisualizationOptionsManager = ({
 }) => {
     const [dialogIsOpen, setDialogIsOpen] = useState(false)
 
-    const onClick = handler => () => {
+    const onClick = (handler) => () => {
         handler()
         onClose()
     }
@@ -40,9 +40,9 @@ const VisualizationOptionsManager = ({
         setDialogIsOpen(!dialogIsOpen)
     }
 
-    const filteredSeries = series.filter(seriesItem =>
+    const filteredSeries = series.filter((seriesItem) =>
         columnDimensionItems.some(
-            layoutItem => layoutItem === seriesItem.dimensionItem
+            (layoutItem) => layoutItem === seriesItem.dimensionItem
         )
     )
     const optionsConfig = getOptionsByType(
@@ -51,7 +51,7 @@ const VisualizationOptionsManager = ({
             hasCustomAxes(filteredSeries) &&
             !hasRelativeItems(columns[0], columnDimensionItems),
         series?.length && isDualAxisType(visualizationType)
-            ? [...new Set(series.map(serie => serie.axis))].sort(
+            ? [...new Set(series.map((serie) => serie.axis))].sort(
                   (a, b) => a - b
               )
             : [0]
@@ -67,7 +67,7 @@ const VisualizationOptionsManager = ({
             </MenuButton>
             {dialogIsOpen && (
                 <UpdateVisualizationContainer
-                    renderComponent={handler => (
+                    renderComponent={(handler) => (
                         <VisualizationOptions
                             optionsConfig={optionsConfig}
                             onUpdate={onClick(handler)}
@@ -87,7 +87,7 @@ VisualizationOptionsManager.propTypes = {
     series: PropTypes.array,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     visualizationType: sGetUiType(state),
     columnDimensionItems: sGetDimensionItemsByAxis(state, AXIS_ID_COLUMNS),
     series: sGetUiOptions(state).series,

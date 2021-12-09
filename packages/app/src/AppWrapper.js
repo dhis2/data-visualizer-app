@@ -4,14 +4,14 @@ import { D2Shim } from '@dhis2/app-runtime-adapter-d2'
 import React, { useState, useEffect, useCallback } from 'react'
 import { Provider as ReduxProvider } from 'react-redux'
 import thunk from 'redux-thunk'
-import App from './components/App'
+import { App } from './components/App.js'
 import UserSettingsProvider, {
     UserSettingsCtx,
-} from './components/UserSettingsProvider'
-import configureStore from './configureStore'
-import metadataMiddleware from './middleware/metadata'
-import history from './modules/history'
-import './locales'
+} from './components/UserSettingsProvider.js'
+import configureStore from './configureStore.js'
+import metadataMiddleware from './middleware/metadata.js'
+import history from './modules/history.js'
+import './locales/index.js'
 
 const AppWrapper = () => {
     const { baseUrl } = useConfig()

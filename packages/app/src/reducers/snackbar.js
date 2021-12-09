@@ -21,4 +21,4 @@ export default (state = DEFAULT_SNACKBAR, action) => {
 
 // Selectors
 
-export const sGetSnackbar = state => state.snackbar
+export const sGetSnackbar = (state) => state.snackbar

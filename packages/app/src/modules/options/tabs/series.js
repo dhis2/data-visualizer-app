@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-key */
 import i18n from '@dhis2/d2-i18n'
 import React from 'react'
-import SeriesTable from '../../../components/VisualizationOptions/Options/SeriesTable'
+import SeriesTable from '../../../components/VisualizationOptions/Options/SeriesTable.js'
 
 export default ({ showAxisOptions, showTypeOptions } = {}) => ({
     key: 'series-tab',

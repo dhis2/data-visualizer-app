@@ -2,7 +2,7 @@ import { DAILY } from '@dhis2/analytics'
 import {
     computeYoYMatrix,
     computeGenericPeriodNamesFromMatrix,
-} from '../modules/analytics'
+} from '../modules/analytics.js'
 
 // 2020 is a leap year
 // counting 7 days backwards from March 1st yelds:
@@ -242,7 +242,7 @@ describe('YOY edge cases testing: LAST_7_DAYS across february/march with leap ye
         },
     ]
 
-    testCases.forEach(testCase =>
+    testCases.forEach((testCase) =>
         it('generated correct matrix from analytics responses', () => {
             const matrix = computeYoYMatrix(testCase.responses, DAILY)
 

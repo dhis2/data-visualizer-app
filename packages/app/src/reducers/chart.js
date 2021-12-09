@@ -12,4 +12,4 @@ export default (state = DEFAULT_CHART, action) => {
     }
 }
 
-export const sGetChart = state => state.chart
+export const sGetChart = (state) => state.chart

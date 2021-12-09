@@ -1,4 +1,4 @@
-import { clickCheckbox, typeInput } from '../common'
+import { clickCheckbox, typeInput } from '../common.js'
 
 const trendLineCheckboxEl = 'option-trend-line-checkbox'
 const trendLineSelectEl = 'option-trend-line-select'
@@ -12,21 +12,21 @@ const baseLineLabelInputEl = 'option-base-line-label-input'
 
 export const clickTrendLineCheckbox = () => clickCheckbox(trendLineCheckboxEl)
 
-export const selectTrendLineType = optionName => {
+export const selectTrendLineType = (optionName) => {
     cy.getBySel(trendLineSelectEl).findBySel('dhis2-uicore-select').click()
     cy.getBySel(trendLineSelectOptionEl).contains(optionName).click()
 }
 
 export const clickTargetLineCheckbox = () => clickCheckbox(targetLineCheckboxEl)
 
-export const setTargetLineValue = text =>
+export const setTargetLineValue = (text) =>
     typeInput(targetLineValueInputEl, text)
 
-export const setTargetLineLabel = text =>
+export const setTargetLineLabel = (text) =>
     typeInput(targetLineLabelInputEl, text)
 
 export const clickBaseLineCheckbox = () => clickCheckbox(baseLineCheckboxEl)
 
-export const setBaseLineValue = text => typeInput(baseLineValueInputEl, text)
+export const setBaseLineValue = (text) => typeInput(baseLineValueInputEl, text)
 
-export const setBaseLineLabel = text => typeInput(baseLineLabelInputEl, text)
+export const setBaseLineLabel = (text) => typeInput(baseLineLabelInputEl, text)

@@ -2,13 +2,13 @@ import { DIMENSION_ID_DATA, VIS_TYPE_COLUMN } from '@dhis2/analytics'
 import {
     expectVisualizationToBeVisible,
     expectChartTitleToBeVisible,
-} from '../../elements/chart'
+} from '../../elements/chart.js'
 import {
     selectDataElements,
     clickDimensionModalUpdateButton,
-} from '../../elements/dimensionModal'
-import { openDimension } from '../../elements/dimensionsPanel'
-import { clickMenuBarOptionsButton } from '../../elements/menuBar'
+} from '../../elements/dimensionModal/index.js'
+import { openDimension } from '../../elements/dimensionsPanel.js'
+import { clickMenuBarOptionsButton } from '../../elements/menuBar.js'
 import {
     clickOptionsModalUpdateButton,
     clickOptionsTab,
@@ -25,11 +25,11 @@ import {
     setItemToAxis,
     setAxisDecimalsValue,
     setAxisStepsValue,
-} from '../../elements/optionsModal'
-import { goToStartPage } from '../../elements/startScreen'
-import { CONFIG_DEFAULT_VERTICAL_AXIS_TITLE } from '../../utils/config'
-import { TEST_DATA_ELEMENTS } from '../../utils/data'
-import { generateRandomNumber, getRandomArrayItem } from '../../utils/random'
+} from '../../elements/optionsModal/index.js'
+import { goToStartPage } from '../../elements/startScreen.js'
+import { CONFIG_DEFAULT_VERTICAL_AXIS_TITLE } from '../../utils/config.js'
+import { TEST_DATA_ELEMENTS } from '../../utils/data.js'
+import { generateRandomNumber, getRandomArrayItem } from '../../utils/random.js'
 import {
     expectWindowConfigYAxisToHaveRangeMinValue,
     expectWindowConfigYAxisToHaveRangeMaxValue,
@@ -37,7 +37,7 @@ import {
     expectWindowConfigXAxisToHaveTitleText,
     expectWindowConfigYAxisToHaveStepsValue,
     expectWindowConfigAxisTitleToBeValue,
-} from '../../utils/window'
+} from '../../utils/window.js'
 
 const TEST_DATA_ELEMENT_NAME = getRandomArrayItem(TEST_DATA_ELEMENTS).name
 const TEST_MIN_VALUE = generateRandomNumber(-1000, 1000)

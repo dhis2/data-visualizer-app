@@ -1,4 +1,4 @@
-export const removeLastPathSegment = path => {
+export const removeLastPathSegment = (path) => {
     // if root path, then return unprocessed path
     if (path.match(/\//g).length === 1) {
         return path

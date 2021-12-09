@@ -1,4 +1,4 @@
-import { clickCheckbox } from '../common'
+import { clickCheckbox } from '../common.js'
 
 const outliersCheckboxEl = 'option-outliers-enabled-checkbox'
 

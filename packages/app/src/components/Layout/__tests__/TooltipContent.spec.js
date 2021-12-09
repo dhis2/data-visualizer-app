@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import { TooltipContent } from '../TooltipContent'
+import { TooltipContent } from '../TooltipContent.js'
 
 describe('TooltipContent', () => {
     let props

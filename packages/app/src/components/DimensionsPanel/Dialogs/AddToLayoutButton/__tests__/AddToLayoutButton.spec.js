@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import { AddToLayoutButton } from '../AddToLayoutButton'
+import { AddToLayoutButton } from '../AddToLayoutButton.js'
 
 describe('The AddToLayoutButton component ', () => {
     let props

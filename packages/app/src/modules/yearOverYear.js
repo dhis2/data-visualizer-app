@@ -1,7 +1,7 @@
 import i18n from '@dhis2/d2-i18n'
 
 // Fixed years generator
-const getFixedYears = len => {
+const getFixedYears = (len) => {
     let year = new Date().getFullYear()
     return new Array(len).fill(null).map(() => {
         const yearString = String(year--)
