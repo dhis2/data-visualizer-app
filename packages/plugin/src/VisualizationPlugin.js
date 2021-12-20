@@ -2,12 +2,12 @@ import React, { useEffect, useState, useCallback } from 'react'
 import { createPortal } from 'react-dom'
 import PropTypes from 'prop-types'
 
-import { useDataEngine, useDataQuery } from '@dhis2/app-runtime'
+import { useDataEngine } from '@dhis2/app-runtime'
 import { Popper } from '@dhis2/ui'
 import { VIS_TYPE_PIVOT_TABLE, convertOuLevelsToUids } from '@dhis2/analytics'
 
 import { apiFetchLegendSets } from './api/legendSets'
-import { orgUnitLevelsQuery } from './api/organisationUnits'
+import { apiFetchOrganisationUnitLevels } from './api/organisationUnits'
 import ContextualMenu from './ContextualMenu'
 import ChartPlugin from './ChartPlugin'
 import PivotPlugin from './PivotPlugin'
@@ -30,6 +30,7 @@ export const VisualizationPlugin = ({
     ...props
 }) => {
     const engine = useDataEngine()
+    const [ouLevels, setOuLevels] = useState(undefined)
     const [fetchResult, setFetchResult] = useState(null)
     const [contextualMenuRef, setContextualMenuRef] = useState(undefined)
     const [contextualMenuConfig, setContextualMenuConfig] = useState({})
@@ -46,10 +47,6 @@ export const VisualizationPlugin = ({
 
         onDrill(args)
     }
-
-    const { data: ouLevelsResponse } = useDataQuery(orgUnitLevelsQuery, {
-        onError,
-    })
 
     const doFetchData = useCallback(async () => {
         const result = await fetchData({
@@ -80,6 +77,16 @@ export const VisualizationPlugin = ({
         },
         [engine]
     )
+
+    useEffect(() => {
+        const doFetchOuLevels = async () => {
+            const ouLevelsData = await apiFetchOrganisationUnitLevels(engine)
+
+            setOuLevels(ouLevelsData.orgUnitLevels.organisationUnitLevels)
+        }
+
+        doFetchOuLevels()
+    }, [engine])
 
     useEffect(() => {
         setFetchResult(null)
@@ -137,11 +144,9 @@ export const VisualizationPlugin = ({
         /* eslint-disable-next-line react-hooks/exhaustive-deps */
     }, [visualization, filters, forDashboard])
 
-    if (!fetchResult || !ouLevelsResponse) {
+    if (!fetchResult || !ouLevels) {
         return null
     }
-
-    const ouLevels = ouLevelsResponse.orgUnitLevels.organisationUnitLevels
 
     const contextualMenuRect =
         contextualMenuRef &&
