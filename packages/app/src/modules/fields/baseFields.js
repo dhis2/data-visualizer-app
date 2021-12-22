@@ -144,9 +144,9 @@ fieldsByType.visualization = [
 
 // actions
 
-export const extractName = propObj => propObj[BASE_FIELD_NAME]
+export const extractName = (propObj) => propObj[BASE_FIELD_NAME]
 
-export const markExcluded = fieldObj =>
+export const markExcluded = (fieldObj) =>
     fieldObj.excluded === true
         ? { ...fieldObj, [BASE_FIELD_NAME]: `!${fieldObj[BASE_FIELD_NAME]}` }
         : fieldObj
@@ -160,7 +160,7 @@ export const moveExcludedToEnd = (acc, current, curIndex, array) => {
 
 // getters
 
-export const getAllFieldObjectsByType = type =>
+export const getAllFieldObjectsByType = (type) =>
     Object.entries(fieldsByType).reduce(
         (fields, [key, value]) =>
             key.includes(type) ? fields.concat(value) : fields,

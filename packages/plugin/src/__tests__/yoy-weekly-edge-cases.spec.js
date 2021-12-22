@@ -2,7 +2,7 @@ import { WEEKLY } from '@dhis2/analytics'
 import {
     computeYoYMatrix,
     computeGenericPeriodNamesFromMatrix,
-} from '../modules/analytics'
+} from '../modules/analytics.js'
 
 // 1st january 2021 is in week 53, so last 4 weeks from that date are
 // all in 2020, starting from W52 and counting 4 weeks backwards
@@ -182,7 +182,7 @@ describe('YOY edge cases testing: LAST_4_WEEKS across 2 years', () => {
         },
     ]
 
-    testCases.forEach(testCase =>
+    testCases.forEach((testCase) =>
         it('generated correct matrix from analytics responses', () => {
             const matrix = computeYoYMatrix(testCase.responses, WEEKLY)
 

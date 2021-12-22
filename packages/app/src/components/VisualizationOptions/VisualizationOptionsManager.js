@@ -1,89 +1,97 @@
-import i18n from '@dhis2/d2-i18n'
 import {
-    ButtonStrip,
-    Modal,
-    ModalTitle,
-    ModalContent,
-    ModalActions,
-} from '@dhis2/ui'
-import React, { Component, Fragment } from 'react'
-import HideButton from '../HideButton/HideButton'
-import MenuButton from '../MenuButton/MenuButton'
-import UpdateButton from '../UpdateButton/UpdateButton'
-import UpdateVisualizationContainer from '../UpdateButton/UpdateVisualizationContainer'
-import styles from './styles/VisualizationOptionsManager.module.css'
-import VisualizationOptions from './VisualizationOptions'
+    AXIS_ID_COLUMNS,
+    hasCustomAxes,
+    hasRelativeItems,
+    isDualAxisType,
+    VisualizationOptions,
+} from '@dhis2/analytics'
+import i18n from '@dhis2/d2-i18n'
+import PropTypes from 'prop-types'
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
+import { getOptionsByType } from '../../modules/options/config.js'
+import {
+    sGetUiType,
+    sGetUiOptions,
+    sGetDimensionItemsByAxis,
+    sGetUiLayout,
+} from '../../reducers/ui.js'
+import MenuButton from '../MenuButton/MenuButton.js'
+import UpdateVisualizationContainer from '../UpdateButton/UpdateVisualizationContainer.js'
 
-class VisualizationOptionsManager extends Component {
-    constructor(props) {
-        super(props)
+const VisualizationOptionsManager = ({
+    visualizationType,
+    columnDimensionItems,
+    columns,
+    series,
+}) => {
+    const [dialogIsOpen, setDialogIsOpen] = useState(false)
 
-        this.state = {
-            dialogIsOpen: false,
-        }
-    }
-
-    onClose = () => {
-        this.toggleVisualizationOptionsDialog()
-    }
-
-    toggleVisualizationOptionsDialog = () => {
-        this.setState({ dialogIsOpen: !this.state.dialogIsOpen })
-    }
-
-    getPrimaryOnClick = handler => () => {
+    const onClick = (handler) => () => {
         handler()
-        this.onClose()
+        onClose()
     }
 
-    render() {
-        return (
-            <Fragment>
-                <MenuButton
-                    onClick={this.toggleVisualizationOptionsDialog}
-                    dataTest={'app-menubar-options-button'}
-                >
-                    {i18n.t('Options')}
-                </MenuButton>
-                {this.state.dialogIsOpen && (
-                    <Modal
-                        onClose={this.onClose}
-                        position="top"
-                        large
-                        dataTest={'options-modal'}
-                    >
-                        <ModalTitle>{i18n.t('Options')}</ModalTitle>
-                        <ModalContent
-                            className={styles.modalContent}
-                            dataTest={'options-modal-content'}
-                        >
-                            <VisualizationOptions />
-                        </ModalContent>
-                        <ModalActions dataTest={'options-modal-actions'}>
-                            <ButtonStrip>
-                                <HideButton
-                                    onClick={this.onClose}
-                                    dataTest={'options-modal-action-cancel'}
-                                />
-                                <UpdateVisualizationContainer
-                                    renderComponent={handler => (
-                                        <UpdateButton
-                                            onClick={this.getPrimaryOnClick(
-                                                handler
-                                            )}
-                                            dataTest={
-                                                'options-modal-action-confirm'
-                                            }
-                                        />
-                                    )}
-                                />
-                            </ButtonStrip>
-                        </ModalActions>
-                    </Modal>
-                )}
-            </Fragment>
-        )
+    const onClose = () => {
+        toggleVisualizationOptionsDialog()
     }
+
+    const toggleVisualizationOptionsDialog = () => {
+        setDialogIsOpen(!dialogIsOpen)
+    }
+
+    const filteredSeries = series.filter((seriesItem) =>
+        columnDimensionItems.some(
+            (layoutItem) => layoutItem === seriesItem.dimensionItem
+        )
+    )
+    const optionsConfig = getOptionsByType(
+        visualizationType,
+        isDualAxisType(visualizationType) &&
+            hasCustomAxes(filteredSeries) &&
+            !hasRelativeItems(columns[0], columnDimensionItems),
+        series?.length && isDualAxisType(visualizationType)
+            ? [...new Set(series.map((serie) => serie.axis))].sort(
+                  (a, b) => a - b
+              )
+            : [0]
+    )
+
+    return (
+        <>
+            <MenuButton
+                dataTest={'app-menubar-options-button'}
+                onClick={toggleVisualizationOptionsDialog}
+            >
+                {i18n.t('Options')}
+            </MenuButton>
+            {dialogIsOpen && (
+                <UpdateVisualizationContainer
+                    renderComponent={(handler) => (
+                        <VisualizationOptions
+                            optionsConfig={optionsConfig}
+                            onUpdate={onClick(handler)}
+                            onClose={onClose}
+                        />
+                    )}
+                />
+            )}
+        </>
+    )
 }
 
-export default VisualizationOptionsManager
+VisualizationOptionsManager.propTypes = {
+    visualizationType: PropTypes.string.isRequired,
+    columnDimensionItems: PropTypes.array,
+    columns: PropTypes.array,
+    series: PropTypes.array,
+}
+
+const mapStateToProps = (state) => ({
+    visualizationType: sGetUiType(state),
+    columnDimensionItems: sGetDimensionItemsByAxis(state, AXIS_ID_COLUMNS),
+    series: sGetUiOptions(state).series,
+    columns: sGetUiLayout(state).columns,
+})
+
+export default connect(mapStateToProps)(VisualizationOptionsManager)

@@ -4,7 +4,7 @@ import { Label } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { tabSectionOption } from '../styles/VisualizationOptions.style.js'
-import TextStyle from './TextStyle'
+import TextStyle from './TextStyle.js'
 
 const AxisLabels = ({ disabled, axisId }) => (
     <div className={tabSectionOption.className}>

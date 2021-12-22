@@ -2,18 +2,17 @@ import {
     DimensionMenu,
     DIMENSION_ID_ASSIGNED_CATEGORIES,
 } from '@dhis2/analytics'
-import { Layer, Popper } from '@dhis2/ui'
+import { Layer, Popper, IconMore16 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState, useRef } from 'react'
 import { connect } from 'react-redux'
 import {
     acAddUiLayoutDimensions,
     acRemoveUiLayoutDimensions,
-} from '../../actions/ui'
-import MoreHorizontalIcon from '../../assets/MoreHorizontalIcon'
-import * as fromReducers from '../../reducers'
-import IconButton from '../IconButton/IconButton'
-import { styles } from './styles/Menu.style'
+} from '../../actions/ui.js'
+import * as fromReducers from '../../reducers/index.js'
+import IconButton from '../IconButton/IconButton.js'
+import { styles } from './styles/Menu.style.js'
 
 const ChipMenu = ({
     assignedCategoriesItemHandler,
@@ -43,7 +42,7 @@ const ChipMenu = ({
                     style={styles.icon}
                     dataTest={`layout-chip-menu-button-${dimensionId}`}
                 >
-                    <MoreHorizontalIcon style={styles.icon} />
+                    <IconMore16 color="var(--colors-grey700)" />
                 </IconButton>
             </div>
             {/* TODO: Fix bug with the first menu item getting selected when the menu is opened */}
@@ -58,7 +57,7 @@ const ChipMenu = ({
                             isAssignedCategoriesInLayout={
                                 layoutHasAssignedCategories
                             }
-                            assignedCategoriesItemHandler={destination =>
+                            assignedCategoriesItemHandler={(destination) =>
                                 assignedCategoriesItemHandler(
                                     layoutHasAssignedCategories,
                                     destination
@@ -88,18 +87,18 @@ ChipMenu.propTypes = {
     visType: PropTypes.string,
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
         layoutHasAssignedCategories:
             fromReducers.fromUi.sLayoutHasAssignedCategories(state),
     }
 }
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
     axisItemHandler: ({ dimensionId, axisId }) => {
         dispatch(acAddUiLayoutDimensions({ [dimensionId]: { axisId } }))
     },
-    removeItemHandler: dimensionId => {
+    removeItemHandler: (dimensionId) => {
         dispatch(acRemoveUiLayoutDimensions(dimensionId))
     },
     assignedCategoriesItemHandler: (layoutHasAssignedCategories, axisId) => {

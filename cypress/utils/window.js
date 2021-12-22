@@ -8,22 +8,22 @@ import {
     LEGEND_PROP,
     PLOT_LINES_PROP,
     LABELS_PROP,
-} from './config'
+} from './config.js'
 
 const CONFIG_PROP = '$config'
 
-export const expectWindowConfigTitleToBeValue = value =>
+export const expectWindowConfigTitleToBeValue = (value) =>
     cy.window().its(CONFIG_PROP).its(TITLE_PROP).should('eql', value)
 
-export const expectWindowConfigSubtitleToBeValue = value =>
+export const expectWindowConfigSubtitleToBeValue = (value) =>
     cy.window().its(CONFIG_PROP).its(SUBTITLE_PROP).should('eql', value)
 
-export const expectWindowConfigLegendToBeValue = value =>
+export const expectWindowConfigLegendToBeValue = (value) =>
     cy
         .window()
         .its(CONFIG_PROP)
         .its(LEGEND_PROP)
-        .then(legend => {
+        .then((legend) => {
             const { labelFormatter, ...rest } = legend
             expect({ ...rest }).to.eql(value)
         })
@@ -74,21 +74,21 @@ export const expectWindowConfigSeriesToNotHaveTrendline = () =>
         .window()
         .its(CONFIG_PROP)
         .its(SERIES_PROP)
-        .then(series => {
+        .then((series) => {
             const trendlines = series.filter(
-                item => item.type === 'line' || item.type === 'spline'
+                (item) => item.type === 'line' || item.type === 'spline'
             )
             expect(trendlines).to.have.lengthOf(0)
         })
 
-export const expectWindowConfigSeriesToHaveTrendline = expectedTL =>
+export const expectWindowConfigSeriesToHaveTrendline = (expectedTL) =>
     cy
         .window()
         .its(CONFIG_PROP)
         .its(SERIES_PROP)
-        .then(series => {
+        .then((series) => {
             const actualTL = series.find(
-                item =>
+                (item) =>
                     (item.type === 'line' || item.type === 'spline') &&
                     item.name === expectedTL.name
             )
@@ -105,105 +105,105 @@ export const expectWindowConfigSeriesItemToBeType = (itemIndex, type) =>
         .window()
         .its(CONFIG_PROP)
         .its(SERIES_PROP)
-        .then(series => {
+        .then((series) => {
             expect(series[itemIndex].type).to.eq(type)
         })
 
-export const expectWindowConfigSeriesItemToNotHaveType = itemIndex =>
+export const expectWindowConfigSeriesItemToNotHaveType = (itemIndex) =>
     cy
         .window()
         .its(CONFIG_PROP)
         .its(SERIES_PROP)
-        .then(series => {
+        .then((series) => {
             expect(series[itemIndex].type).to.be.undefined
         })
 
-export const expectWindowConfigYAxisToHaveTitleText = text =>
+export const expectWindowConfigYAxisToHaveTitleText = (text) =>
     cy
         .window()
         .its(CONFIG_PROP)
         .its(Y_AXIS_PROP)
-        .then(yAxes => {
+        .then((yAxes) => {
             const yAxis = yAxes[0]
             expect(yAxis.title.text).to.eq(text)
         })
 
-export const expectWindowConfigXAxisToHaveTitleText = text =>
+export const expectWindowConfigXAxisToHaveTitleText = (text) =>
     cy
         .window()
         .its(CONFIG_PROP)
         .its(X_AXIS_PROP)
-        .then(xAxes => {
+        .then((xAxes) => {
             const xAxis = xAxes[0]
             expect(xAxis.title.text).to.eq(text)
         })
 
-export const expectWindowConfigYAxisToHaveRangeMinValue = value =>
+export const expectWindowConfigYAxisToHaveRangeMinValue = (value) =>
     cy
         .window()
         .its(CONFIG_PROP)
         .its(Y_AXIS_PROP)
-        .then(yAxes => {
+        .then((yAxes) => {
             const yAxis = yAxes[0]
             expect(yAxis.min).to.eq(value)
         })
 
-export const expectWindowConfigYAxisToHaveRangeMaxValue = value =>
+export const expectWindowConfigYAxisToHaveRangeMaxValue = (value) =>
     cy
         .window()
         .its(CONFIG_PROP)
         .its(Y_AXIS_PROP)
-        .then(yAxes => {
+        .then((yAxes) => {
             const yAxis = yAxes[0]
             expect(yAxis.max).to.eq(value)
         })
 
-export const expectWindowConfigYAxisToHaveStepsValue = value =>
+export const expectWindowConfigYAxisToHaveStepsValue = (value) =>
     cy
         .window()
         .its(CONFIG_PROP)
         .its(Y_AXIS_PROP)
-        .then(yAxes => {
+        .then((yAxes) => {
             const yAxis = yAxes[0]
             expect(yAxis.tickAmount).to.eq(value)
         })
 
-export const expectWindowConfigYAxisToHaveColor = color =>
+export const expectWindowConfigYAxisToHaveColor = (color) =>
     cy
         .window()
         .its(CONFIG_PROP)
         .its(Y_AXIS_PROP)
-        .then(yAxis => {
+        .then((yAxis) => {
             expect(yAxis.minColor).to.eq(color)
             expect(yAxis.maxColor).to.eq(color)
         })
 
-export const expectWindowConfigXAxisToHaveRangeMinValue = value =>
+export const expectWindowConfigXAxisToHaveRangeMinValue = (value) =>
     cy
         .window()
         .its(CONFIG_PROP)
         .its(X_AXIS_PROP)
-        .then(xAxes => {
+        .then((xAxes) => {
             const xAxis = xAxes[0]
             expect(xAxis.min).to.eq(value)
         })
 
-export const expectWindowConfigXAxisToHaveRangeMaxValue = value =>
+export const expectWindowConfigXAxisToHaveRangeMaxValue = (value) =>
     cy
         .window()
         .its(CONFIG_PROP)
         .its(X_AXIS_PROP)
-        .then(xAxes => {
+        .then((xAxes) => {
             const xAxis = xAxes[0]
             expect(xAxis.max).to.eq(value)
         })
 
-export const expectWindowConfigSeriesToHaveLength = length =>
+export const expectWindowConfigSeriesToHaveLength = (length) =>
     cy
         .window()
         .its(CONFIG_PROP)
         .its(SERIES_PROP)
-        .then(series => {
+        .then((series) => {
             expect(series).to.have.lengthOf(length)
         })
 
@@ -215,34 +215,40 @@ export const expectWindowConfigSeriesItemToHaveLegendSet = (
         .window()
         .its(CONFIG_PROP)
         .its(SERIES_PROP)
-        .then(series => {
-            const seriesItem = series.find(item => item.name === seriesItemName)
-            seriesItem.data.every(item =>
+        .then((series) => {
+            const seriesItem = series.find(
+                (item) => item.name === seriesItemName
+            )
+            seriesItem.data.every((item) =>
                 expect(item.legendSet).to.eq(expectedLS)
             )
         })
 
-export const expectEachWindowConfigSeriesItemToHaveLegendSet = expectedLS =>
+export const expectEachWindowConfigSeriesItemToHaveLegendSet = (expectedLS) =>
     cy
         .window()
         .its(CONFIG_PROP)
         .its(SERIES_PROP)
-        .then(series =>
-            series.forEach(seriesItem =>
-                seriesItem.data.every(item =>
+        .then((series) =>
+            series.forEach((seriesItem) =>
+                seriesItem.data.every((item) =>
                     expect(item.legendSet).to.eq(expectedLS)
                 )
             )
         )
 
-export const expectWindowConfigSeriesItemToNotHaveLegendSet = seriesItemName =>
+export const expectWindowConfigSeriesItemToNotHaveLegendSet = (
+    seriesItemName
+) =>
     cy
         .window()
         .its(CONFIG_PROP)
         .its(SERIES_PROP)
-        .then(series => {
-            const seriesItem = series.find(item => item.name === seriesItemName)
-            seriesItem.data.every(item => expect(item).to.be.a('number'))
+        .then((series) => {
+            const seriesItem = series.find(
+                (item) => item.name === seriesItemName
+            )
+            seriesItem.data.every((item) => expect(item).to.be.a('number'))
         })
 
 export const expectEachWindowConfigSeriesItemToNotHaveLegendSet = () =>
@@ -250,9 +256,9 @@ export const expectEachWindowConfigSeriesItemToNotHaveLegendSet = () =>
         .window()
         .its(CONFIG_PROP)
         .its(SERIES_PROP)
-        .then(series =>
-            series.forEach(seriesItem =>
-                seriesItem.data.every(item => expect(item).to.be.a('number'))
+        .then((series) =>
+            series.forEach((seriesItem) =>
+                seriesItem.data.every((item) => expect(item).to.be.a('number'))
             )
         )
 
@@ -264,7 +270,7 @@ export const expectWindowConfigSeriesDataLabelsToHaveColor = (
         .window()
         .its(CONFIG_PROP)
         .its(SERIES_PROP)
-        .then(series => {
+        .then((series) => {
             expect(series[seriesItemIndex].dataLabels.style.color).to.eq(
                 expectedColor
             )

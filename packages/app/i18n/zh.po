@@ -2,15 +2,15 @@
 # Translators:
 # phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
-# 晓东 林 <13981924470@126.com>, 2020
 # easylin <lin_xd@126.com>, 2021
+# 晓东 林 <13981924470@126.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-08-12T10:01:59.854Z\n"
+"POT-Creation-Date: 2021-11-16T13:39:36.158Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: easylin <lin_xd@126.com>, 2021\n"
+"Last-Translator: 晓东 林 <13981924470@126.com>, 2021\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -905,14 +905,14 @@ msgstr "去年"
 msgid "Last 5 years"
 msgstr "最近5年"
 
-msgid "User org unit"
-msgstr "当前用户机构"
+msgid "User organisation unit"
+msgstr "用户所在机构"
 
-msgid "User org unit children"
-msgstr "用户下属机构"
+msgid "User sub-units"
+msgstr "我的下属机构"
 
-msgid "User org unit grand children"
-msgstr "用户下下级机构"
+msgid "User sub-x2-units"
+msgstr "该用户2级下属机构"
 
 msgid "Table title"
 msgstr "表标题"
@@ -923,7 +923,7 @@ msgstr "参数"
 msgid ""
 "These options only apply to legacy tables like standard reports. Options set"
 " here will have no effect on tables made in Data Visualizer."
-msgstr "这些选项仅适用于传统表格(如标准报表)。此处设置的选项将对在Data 可视化应用中创建的表无效。"
+msgstr "这些选项仅适用于标准报告等旧表。此处设置的选项不会影响在 Data Visualizer（数据可视化应用） 中制作的表格。"
 
 msgid "Applies to standard reports only"
 msgstr "仅适用于标准报表"

@@ -29,5 +29,5 @@ export const expectMostViewedToHaveItems = () =>
         .getBySel(mostViewedListItemEl)
         .should('have.length', mostViewedListItemAmount)
 
-export const expectErrorToContainTitle = errorTitle =>
+export const expectErrorToContainTitle = (errorTitle) =>
     cy.getBySel(errorContainerEl).should('contain', errorTitle)

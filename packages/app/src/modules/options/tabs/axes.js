@@ -1,8 +1,8 @@
 import i18n from '@dhis2/d2-i18n'
 import React from 'react'
-import AxesTabs from '../../../components/AxesTabs/AxesTabs'
+import AxesTabs from '../../../components/AxesTabs/AxesTabs.js'
 
-export default content => ({
+export default (content) => ({
     key: 'axes-tab',
     label: i18n.t('Axes'),
     content: [

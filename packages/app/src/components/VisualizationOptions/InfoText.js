@@ -21,5 +21,3 @@ export const InfoText = ({ text }) => (
 InfoText.propTypes = {
     text: PropTypes.string,
 }
-
-export default InfoText

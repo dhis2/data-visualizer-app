@@ -9,20 +9,23 @@ import { connect } from 'react-redux'
 import {
     acSetUiYearOverYearSeries,
     acSetUiYearOverYearCategory,
-} from '../../../actions/ui'
-import { seriesOptions, categoryOptions } from '../../../modules/yearOverYear'
+} from '../../../actions/ui.js'
+import {
+    seriesOptions,
+    categoryOptions,
+} from '../../../modules/yearOverYear.js'
 import {
     sGetUiYearOverYearSeries,
     sGetUiYearOverYearCategory,
-} from '../../../reducers/ui'
-import DefaultAxis from '../DefaultLayout/DefaultAxis'
-import defaultAxisStyles from '../DefaultLayout/styles/DefaultAxis.style'
-import defaultLayoutStyles from '../DefaultLayout/styles/DefaultLayout.style'
-import YearOverYearLayoutStyles from './styles/YearOverYearLayout.style'
-import YearOverYearAxis from './YearOverYearAxis'
-import YearOverYearSelect from './YearOverYearSelect'
+} from '../../../reducers/ui.js'
+import DefaultAxis from '../DefaultLayout/DefaultAxis.js'
+import defaultAxisStyles from '../DefaultLayout/styles/DefaultAxis.style.js'
+import defaultLayoutStyles from '../DefaultLayout/styles/DefaultLayout.style.js'
+import YearOverYearLayoutStyles from './styles/YearOverYearLayout.style.js'
+import YearOverYearAxis from './YearOverYearAxis.js'
+import YearOverYearSelect from './YearOverYearSelect.js'
 
-const Layout = props => (
+const Layout = (props) => (
     <div id="layout-ct" style={defaultLayoutStyles.ct}>
         <div
             id="axis-group-1"
@@ -85,12 +88,12 @@ Layout.propTypes = {
     onSeriesChange: PropTypes.func,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     yearOverYearSeries: sGetUiYearOverYearSeries(state),
     yearOverYearCategory: sGetUiYearOverYearCategory(state),
 })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
     onSeriesChange: ({ selected }) => {
         dispatch(acSetUiYearOverYearSeries(selected))
     },

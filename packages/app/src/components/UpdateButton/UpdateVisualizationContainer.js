@@ -1,15 +1,15 @@
 import { connect } from 'react-redux'
-import * as fromActions from '../../actions'
+import * as fromActions from '../../actions/index.js'
 import {
     acSetLoadError,
     acClearLoadError,
     acSetPluginLoading,
-} from '../../actions/loader'
-import { CURRENT_AO_KEY } from '../../api/userDataStore'
-import { GenericClientError } from '../../modules/error'
-import history from '../../modules/history'
-import { validateLayout } from '../../modules/layoutValidation'
-import { sGetCurrent, sGetCurrentFromUi } from '../../reducers/current'
+} from '../../actions/loader.js'
+import { CURRENT_AO_KEY } from '../../api/userDataStore.js'
+import { GenericClientError } from '../../modules/error.js'
+import history from '../../modules/history.js'
+import { validateLayout } from '../../modules/layoutValidation.js'
+import { sGetCurrent, sGetCurrentFromUi } from '../../reducers/current.js'
 
 const UpdateVisualizationContainer = ({
     renderComponent,

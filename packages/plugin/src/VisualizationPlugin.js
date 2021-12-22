@@ -14,11 +14,11 @@ import { Button, IconLegend24, Layer } from '@dhis2/ui'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState, useCallback } from 'react'
-import { apiFetchLegendSets } from './api/legendSets'
-import ChartPlugin from './ChartPlugin'
-import ContextualMenu from './ContextualMenu'
-import { fetchData } from './modules/fetchData'
-import PivotPlugin from './PivotPlugin'
+import { apiFetchLegendSets } from './api/legendSets.js'
+import ChartPlugin from './ChartPlugin.js'
+import ContextualMenu from './ContextualMenu.js'
+import { fetchData } from './modules/fetchData.js'
+import PivotPlugin from './PivotPlugin.js'
 import styles from './styles/VisualizationPlugin.module.css'
 
 export const VisualizationPlugin = ({
@@ -58,7 +58,7 @@ export const VisualizationPlugin = ({
             const ouId = Object.values(
                 fetchResult.responses[0].metaData.items
             ).find(
-                item =>
+                (item) =>
                     item.name === data.category &&
                     fetchResult.responses[0].metaData.dimensions[
                         DIMENSION_ID_ORGUNIT
@@ -69,13 +69,13 @@ export const VisualizationPlugin = ({
         } else if (
             data.category &&
             visualization.columns.some(
-                column => column.dimension === DIMENSION_ID_ORGUNIT
+                (column) => column.dimension === DIMENSION_ID_ORGUNIT
             )
         ) {
             const ouId = Object.values(
                 fetchResult.responses[0].metaData.items
             ).find(
-                item =>
+                (item) =>
                     item.name === data.series &&
                     fetchResult.responses[0].metaData.dimensions[
                         DIMENSION_ID_ORGUNIT
@@ -88,7 +88,7 @@ export const VisualizationPlugin = ({
 
     const closeContextualMenu = () => setContextualMenuRef(undefined)
 
-    const onContextualMenuItemClick = args => {
+    const onContextualMenuItemClick = (args) => {
         closeContextualMenu()
 
         onDrill(args)
@@ -118,7 +118,7 @@ export const VisualizationPlugin = ({
     ])
 
     const doFetchLegendSets = useCallback(
-        async legendSetIds => {
+        async (legendSetIds) => {
             if (!legendSetIds.length) {
                 return []
             }
@@ -165,7 +165,7 @@ export const VisualizationPlugin = ({
                     // dx dimensions might not be present, the empty array covers that case
                     const dxIds = responses[0].metaData.dimensions.dx || []
 
-                    dxIds.forEach(dxId => {
+                    dxIds.forEach((dxId) => {
                         const legendSetId =
                             responses[0].metaData.items[dxId].legendSet
 
@@ -190,7 +190,7 @@ export const VisualizationPlugin = ({
             onLoadingComplete()
         }
 
-        doFetchAll().catch(error => {
+        doFetchAll().catch((error) => {
             onError(error)
         })
 
@@ -213,7 +213,7 @@ export const VisualizationPlugin = ({
             {
                 if (
                     !fetchResult.visualization.columns.some(
-                        item => item.dimension === 'dx'
+                        (item) => item.dimension === 'dx'
                     )
                 ) {
                     break
@@ -221,26 +221,29 @@ export const VisualizationPlugin = ({
                 const legendSetItemMap = Object.values(
                     fetchResult.responses[0].metaData.items
                 )
-                    .filter(item =>
+                    .filter((item) =>
                         fetchResult.legendSets
-                            .map(legendSet => legendSet.id)
+                            .map((legendSet) => legendSet.id)
                             .includes(item.legendSet)
                     )
-                    .map(item => ({
+                    .map((item) => ({
                         itemId: item.uid,
                         legendSet: item.legendSet,
                     }))
 
                 const unsupportedDimensions = (visualization.series || [])
-                    .filter(serie => serie.type === VIS_TYPE_LINE)
-                    .map(item => item.dimensionItem)
+                    .filter((serie) => serie.type === VIS_TYPE_LINE)
+                    .map((item) => item.dimensionItem)
 
-                legendSets = fetchResult.legendSets.filter(legendSet =>
+                legendSets = fetchResult.legendSets.filter((legendSet) =>
                     legendSetItemMap
                         .filter(
-                            item => !unsupportedDimensions.includes(item.itemId)
+                            (item) =>
+                                !unsupportedDimensions.includes(item.itemId)
                         )
-                        .map(supportedLegendSet => supportedLegendSet.legendSet)
+                        .map(
+                            (supportedLegendSet) => supportedLegendSet.legendSet
+                        )
                         .includes(legendSet.id)
                 )
             }

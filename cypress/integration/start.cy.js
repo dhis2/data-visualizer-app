@@ -6,7 +6,7 @@ import {
     DIMENSION_ID_ORGUNIT,
     DIMENSION_ID_PERIOD,
 } from '@dhis2/analytics'
-import { expectVisualizationToNotBeVisible } from '../elements/chart'
+import { expectVisualizationToNotBeVisible } from '../elements/chart.js'
 import {
     closeFileMenuWithEsc,
     closeFileMenuWithClick,
@@ -21,20 +21,20 @@ import {
     FILE_MENU_BUTTON_RENAME,
     FILE_MENU_BUTTON_DELETE,
     expectFileMenuButtonToBeEnabled,
-} from '../elements/fileMenu'
+} from '../elements/fileMenu/index.js'
 import {
     expectAxisToHaveDimension,
     expectDimensionToHaveItemAmount,
     expectDimensionToNotHaveItems,
-} from '../elements/layout'
-import { clickMenuBarFileButton } from '../elements/menuBar'
+} from '../elements/layout.js'
+import { clickMenuBarFileButton } from '../elements/menuBar.js'
 import {
     expectMostViewedToBeVisible,
     goToStartPage,
-} from '../elements/startScreen'
-import { expectVisTypeToBeDefault } from '../elements/visualizationTypeSelector'
-import { expectWindowTitleToBeDefault } from '../elements/window'
-import { expectStoreCurrentToBeEmpty } from '../utils/store'
+} from '../elements/startScreen.js'
+import { expectVisTypeToBeDefault } from '../elements/visualizationTypeSelector.js'
+import { expectWindowTitleToBeDefault } from '../elements/window.js'
+import { expectStoreCurrentToBeEmpty } from '../utils/store.js'
 
 describe('viewing the start screen', () => {
     it('navigates to the start page', () => {
@@ -80,7 +80,7 @@ describe('viewing the start screen', () => {
             FILE_MENU_BUTTON_OPEN,
             FILE_MENU_BUTTON_SAVE_NEW,
         ]
-        enabledButtons.forEach(button =>
+        enabledButtons.forEach((button) =>
             expectFileMenuButtonToBeEnabled(button)
         )
         closeFileMenuWithClick()
@@ -95,7 +95,7 @@ describe('viewing the start screen', () => {
             FILE_MENU_BUTTON_GETLINK,
             FILE_MENU_BUTTON_DELETE,
         ]
-        disabledButtons.forEach(button =>
+        disabledButtons.forEach((button) =>
             expectFileMenuButtonToBeDisabled(button)
         )
         closeFileMenuWithClick()

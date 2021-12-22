@@ -7,7 +7,7 @@ export const DEFAULT_SETTINGS = {
     keyIgnoreAnalyticsApprovalYearThreshold: -1,
     displayNameProperty: 'displayName',
     uiLocale: 'en',
-    rootOrganisationUnit: {},
+    rootOrganisationUnits: [],
 }
 
 export default (state = DEFAULT_SETTINGS, action) => {
@@ -25,17 +25,18 @@ export default (state = DEFAULT_SETTINGS, action) => {
 
 // Selectors
 
-export const sGetSettings = state => state.settings
+export const sGetSettings = (state) => state.settings
 
-export const sGetSettingsDisplayNameProperty = state =>
+export const sGetSettingsDisplayNameProperty = (state) =>
     sGetSettings(state).displayNameProperty
 
-export const sGetSettingsDigitGroupSeparator = state =>
+export const sGetSettingsDigitGroupSeparator = (state) =>
     sGetSettings(state).keyAnalysisDigitGroupSeparator
 
-export const sGetRootOrgUnit = state => sGetSettings(state).rootOrganisationUnit
+export const sGetRootOrgUnits = (state) =>
+    sGetSettings(state).rootOrganisationUnits
 
-export const sGetRelativePeriod = state =>
+export const sGetRelativePeriod = (state) =>
     sGetSettings(state).keyAnalysisRelativePeriod
 
-export const sGetUiLocale = state => sGetSettings(state).uiLocale
+export const sGetUiLocale = (state) => sGetSettings(state).uiLocale

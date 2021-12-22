@@ -1,8 +1,8 @@
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { OPTION_AXIS_MIN_VALUE } from '../../../modules/options'
-import NumberBaseType from './NumberBaseType'
+import { OPTION_AXIS_MIN_VALUE } from '../../../modules/options.js'
+import NumberBaseType from './NumberBaseType.js'
 
 const AxisMinValue = ({ disabled, axisId }) => (
     <NumberBaseType

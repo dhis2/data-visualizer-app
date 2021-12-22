@@ -1,9 +1,9 @@
 import * as analytics from '@dhis2/analytics'
 import { mount } from 'enzyme'
 import React from 'react'
-import * as api from '../api/analytics'
-import ChartPlugin from '../ChartPlugin'
-import * as options from '../modules/options'
+import * as api from '../api/analytics.js'
+import ChartPlugin from '../ChartPlugin.js'
+import * as options from '../modules/options.js'
 
 jest.mock('@dhis2/analytics')
 
@@ -32,13 +32,6 @@ const ouMock = {
             id: 'ImspTQPwCqd',
         },
     ],
-}
-
-const yearOverYearCurrentMock = {
-    type: analytics.VIS_TYPE_YEAR_OVER_YEAR_LINE,
-    columns: [dxMock],
-    rows: [peMock],
-    yearlySeries: ['LAST_YEAR'],
 }
 
 const mockExtraOptions = {
@@ -86,7 +79,7 @@ const createVisualizationMock = {
     },
 }
 
-const isSingleValueMockResponse = visType => {
+const isSingleValueMockResponse = (visType) => {
     return visType === analytics.VIS_TYPE_SINGLE_VALUE
 }
 
@@ -130,17 +123,17 @@ describe('ChartPlugin', () => {
                 .mockReturnValue(createVisualizationMock)
         })
 
-        it('renders a div', done => {
+        it('renders a div', (done) => {
             expect(canvas().find('div').length).toBeGreaterThan(0)
             done()
         })
 
-        it('uses the style passed as prop', done => {
+        it('uses the style passed as prop', (done) => {
             expect(canvas().find('div').prop('style')).toEqual(props.style)
             done()
         })
 
-        it('calls createVisualization', done => {
+        it('calls createVisualization', (done) => {
             canvas()
 
             setTimeout(() => {
@@ -149,7 +142,7 @@ describe('ChartPlugin', () => {
             })
         })
 
-        it('calls onChartGenerated callback', done => {
+        it('calls onChartGenerated callback', (done) => {
             canvas()
 
             setTimeout(() => {
@@ -158,15 +151,6 @@ describe('ChartPlugin', () => {
                     createVisualizationMock.visualization.getSVGForExport()
                 )
                 done()
-            })
-        })
-
-        describe('Year-on-year chart', () => {
-            beforeEach(() => {
-                props.visualization = {
-                    ...yearOverYearCurrentMock,
-                    option1: 'def',
-                }
             })
         })
 
@@ -184,7 +168,7 @@ describe('ChartPlugin', () => {
                     )
             })
 
-            it('provides dhis as output format to createChart', done => {
+            it('provides dhis as output format to createChart', (done) => {
                 canvas()
 
                 setTimeout(() => {

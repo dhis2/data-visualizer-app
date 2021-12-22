@@ -5,15 +5,15 @@ import { colors } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
-import { apiFetchMostViewedVisualizations } from '../../api/mostViewedVisualizations'
-import { apiFetchVisualizations } from '../../api/visualization'
-import { GenericError } from '../../assets/ErrorIcons'
-import { VisualizationError, genericErrorTitle } from '../../modules/error'
-import history from '../../modules/history'
-import { sGetLoadError } from '../../reducers/loader'
-import { sGetUsername } from '../../reducers/user'
+import { apiFetchMostViewedVisualizations } from '../../api/mostViewedVisualizations.js'
+import { apiFetchVisualizations } from '../../api/visualization.js'
+import { GenericError } from '../../assets/ErrorIcons.js'
+import { VisualizationError, genericErrorTitle } from '../../modules/error.js'
+import history from '../../modules/history.js'
+import { sGetLoadError } from '../../reducers/loader.js'
+import { sGetUsername } from '../../reducers/user.js'
 import styles from './styles/StartScreen.module.css'
-import { matchVisualizationWithType } from './utils'
+import { matchVisualizationWithType } from './utils.js'
 
 const StartScreen = ({ error, username }) => {
     const [mostViewedVisualizations, setMostViewedVisualizations] = useState([])
@@ -27,7 +27,7 @@ const StartScreen = ({ error, username }) => {
             if (visualizations && visualizations.length) {
                 const visualizationsResult = await apiFetchVisualizations(
                     engine,
-                    visualizations.map(visualization => visualization.id)
+                    visualizations.map((visualization) => visualization.id)
                 )
                 const visualizationsWithType =
                     visualizationsResult.visualization.visualizations // {id: string, type: string}
@@ -142,7 +142,7 @@ StartScreen.propTypes = {
     username: PropTypes.string,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     error: sGetLoadError(state),
     username: sGetUsername(state),
 })

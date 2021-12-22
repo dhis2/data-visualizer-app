@@ -1,4 +1,4 @@
-import { seriesOptions } from '../yearOverYear'
+import { seriesOptions } from '../yearOverYear.js'
 
 describe('yearOverYear', () => {
     it('year has matching id and name', () => {

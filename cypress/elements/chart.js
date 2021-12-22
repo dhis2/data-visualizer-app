@@ -88,7 +88,7 @@ export const expectChartToContainDimensionItem = (visType, itemName) => {
                 .and('contain', itemName)
     }
 }
-export const expectAOTitleToBeValue = value =>
+export const expectAOTitleToBeValue = (value) =>
     cy
         .getBySel(AOTitleEl)
         .should('have.length', 1)
@@ -108,7 +108,7 @@ export const expectAOTitleToBeDirty = () =>
 export const expectAOTitleToNotBeDirty = () =>
     cy.getBySel(AOTitleDirtyEl).should('not.exist')
 
-export const expectSeriesKeyToHaveSeriesKeyItems = itemAmount =>
+export const expectSeriesKeyToHaveSeriesKeyItems = (itemAmount) =>
     cy.get(highchartsSeriesKeyItemEl).should('have.length', itemAmount)
 
 export const expectSeriesKeyItemToHaveBullets = (itemIndex, bulletAmount) =>
@@ -118,8 +118,8 @@ export const expectSeriesKeyItemToHaveBullets = (itemIndex, bulletAmount) =>
         .find(highchartsSeriesKeyItemBulletEl)
         .should('have.length', bulletAmount)
 
-export const clickChartItem = index =>
+export const clickChartItem = (index) =>
     cy.get(highchartsChartItemEl).children().eq(index).click()
 
-export const expectChartItemsToHaveLength = length =>
+export const expectChartItemsToHaveLength = (length) =>
     cy.get(highchartsChartItemEl).children().should('have.length', length)

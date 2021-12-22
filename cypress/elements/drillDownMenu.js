@@ -13,8 +13,8 @@ export const expectDrillDownMenuToNotBeVisible = () =>
 export const clickChangeOrgUnit = () =>
     cy.getBySel(drillDownOrgUnitEl).containsExact('Change org unit').click()
 
-export const drillDown = option =>
+export const drillDown = (option) =>
     cy.getBySel(drillDownOrgUnitDrillDownEl).containsExact(option).click()
 
-export const drillUp = option =>
+export const drillUp = (option) =>
     cy.getBySel(drillDownOrgUnitDrillUpEl).containsExact(option).click()

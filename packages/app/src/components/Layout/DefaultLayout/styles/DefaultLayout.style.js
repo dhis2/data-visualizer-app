@@ -1,4 +1,4 @@
-import { LAYOUT_HEIGHT } from '../../styles/style'
+import { LAYOUT_HEIGHT } from '../../styles/style.js'
 
 // Axis
 export const FILTER_AXIS_WIDTH = '50%'

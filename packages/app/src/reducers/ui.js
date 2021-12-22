@@ -15,18 +15,19 @@ import {
     FONT_STYLE_HORIZONTAL_AXIS_TITLE,
     FONT_STYLE_VERTICAL_AXIS_TITLE,
     FONT_STYLE_REGRESSION_LINE_LABEL,
+    USER_ORG_UNIT,
 } from '@dhis2/analytics'
 import objectClean from 'd2-utilizr/lib/objectClean'
 import castArray from 'lodash-es/castArray'
 import {
     TITLE_AUTO,
     TITLE_CUSTOM,
-} from '../components/VisualizationOptions/Options/AxisTitle'
+} from '../components/VisualizationOptions/Options/AxisTitle.js'
 import {
     getFilteredLayout,
     getInverseLayout,
     getRetransfer,
-} from '../modules/layout'
+} from '../modules/layout.js'
 import {
     getOptionsForUi,
     OPTION_AXIS_DECIMALS,
@@ -48,12 +49,12 @@ import {
     OPTION_LEGEND_DISPLAY_STRATEGY,
     OPTION_LEGEND_SET,
     OPTION_LEGEND_DISPLAY_STYLE,
-} from '../modules/options'
+} from '../modules/options.js'
 import {
     getAdaptedUiByType,
     getUiFromVisualization,
     SERIES_ITEM_TYPE_PROP,
-} from '../modules/ui'
+} from '../modules/ui.js'
 
 export const SET_UI = 'SET_UI'
 export const SET_UI_FROM_VISUALIZATION = 'SET_UI_FROM_VISUALIZATION'
@@ -65,9 +66,7 @@ export const SET_UI_LAYOUT = 'SET_UI_LAYOUT'
 export const ADD_UI_LAYOUT_DIMENSIONS = 'ADD_UI_LAYOUT_DIMENSIONS'
 export const REMOVE_UI_LAYOUT_DIMENSIONS = 'REMOVE_UI_LAYOUT_DIMENSIONS'
 export const SET_UI_ITEMS = 'SET_UI_ITEMS'
-export const ADD_UI_ITEMS = 'ADD_UI_ITEMS'
 export const REMOVE_UI_ITEMS = 'REMOVE_UI_ITEMS'
-export const SET_UI_PARENT_GRAPH_MAP = 'SET_UI_PARENT_GRAPH_MAP'
 export const ADD_UI_PARENT_GRAPH_MAP = 'ADD_UI_PARENT_GRAPH_MAP'
 export const SET_UI_ACTIVE_MODAL_DIALOG = 'SET_UI_ACTIVE_MODAL_DIALOG'
 export const SET_UI_YEAR_ON_YEAR_SERIES = 'SET_UI_YEAR_ON_YEAR_SERIES'
@@ -107,18 +106,17 @@ export const DEFAULT_UI = {
 export const PRESELECTED_YEAR_OVER_YEAR_SERIES = ['THIS_YEAR', 'LAST_YEAR']
 export const PRESELECTED_YEAR_OVER_YEAR_CATEGORY = ['MONTHS_THIS_YEAR']
 
-const getPreselectedUi = options => {
-    const { rootOrganisationUnit, relativePeriod, digitGroupSeparator } =
+const getPreselectedUi = (options) => {
+    const { rootOrganisationUnits, relativePeriod, digitGroupSeparator } =
         options
 
-    const rootOrganisationUnits = []
     const parentGraphMap = { ...DEFAULT_UI.parentGraphMap }
 
-    if (rootOrganisationUnit && rootOrganisationUnit.id) {
-        rootOrganisationUnits.push(rootOrganisationUnit.id)
-
-        parentGraphMap[rootOrganisationUnit.id] = ''
-    }
+    rootOrganisationUnits.forEach((root) => {
+        if (root.id) {
+            parentGraphMap[root.id] = ''
+        }
+    })
 
     return {
         ...DEFAULT_UI,
@@ -128,7 +126,7 @@ const getPreselectedUi = options => {
         },
         itemsByDimension: {
             ...DEFAULT_UI.itemsByDimension,
-            [DIMENSION_ID_ORGUNIT]: rootOrganisationUnits,
+            [DIMENSION_ID_ORGUNIT]: [USER_ORG_UNIT],
             [DIMENSION_ID_PERIOD]: [relativePeriod],
         },
         yearOverYearSeries: PRESELECTED_YEAR_OVER_YEAR_SERIES,
@@ -513,25 +511,11 @@ export default (state = DEFAULT_UI, action) => {
                 },
             }
         }
-        case ADD_UI_ITEMS: {
-            // FIXME: Unused, remove?
-            const { dimensionId, itemIds } = action.value
-            const currentItemIds = state.itemsByDimension[dimensionId] || []
-            const dxItems = [...new Set([...currentItemIds, ...itemIds])]
-
-            return {
-                ...state,
-                itemsByDimension: {
-                    ...state.itemsByDimension,
-                    [dimensionId]: dxItems,
-                },
-            }
-        }
         case REMOVE_UI_ITEMS: {
             const { dimensionId, itemIdsToRemove } = action.value
 
             const dxItems = (state.itemsByDimension[dimensionId] || []).filter(
-                id => !itemIdsToRemove.includes(id)
+                (id) => !itemIdsToRemove.includes(id)
             )
 
             return {
@@ -566,12 +550,13 @@ export default (state = DEFAULT_UI, action) => {
                     ...state.itemsByDimension,
                     [dimensionId]: [
                         ...new Set([
-                            ...state.itemsByDimension[dimensionId].filter(id =>
-                                state.itemAttributes.find(
-                                    itemAttr =>
-                                        itemAttr.id === id &&
-                                        itemAttr.attribute !== attribute
-                                )
+                            ...state.itemsByDimension[dimensionId].filter(
+                                (id) =>
+                                    state.itemAttributes.find(
+                                        (itemAttr) =>
+                                            itemAttr.id === id &&
+                                            itemAttr.attribute !== attribute
+                                    )
                             ),
                             ...itemIds,
                         ]),
@@ -579,9 +564,9 @@ export default (state = DEFAULT_UI, action) => {
                 },
                 itemAttributes: [
                     ...state.itemAttributes.filter(
-                        item => item.attribute !== attribute
+                        (item) => item.attribute !== attribute
                     ),
-                    ...itemIds.map(id => ({ id, attribute })),
+                    ...itemIds.map((id) => ({ id, attribute })),
                 ],
             }
         }
@@ -596,7 +581,7 @@ export default (state = DEFAULT_UI, action) => {
                     )
             )
             const dxItems = (state.itemsByDimension[dimensionId] || []).filter(
-                id =>
+                (id) =>
                     itemAttributes.some(({ id: itemId }) => itemId === id) ||
                     !itemIdsToRemove.includes(id)
             )
@@ -608,12 +593,6 @@ export default (state = DEFAULT_UI, action) => {
                     [dimensionId]: dxItems,
                 },
                 itemAttributes,
-            }
-        }
-        case SET_UI_PARENT_GRAPH_MAP: {
-            return {
-                ...state,
-                parentGraphMap: action.value,
             }
         }
         case ADD_UI_PARENT_GRAPH_MAP: {
@@ -669,7 +648,7 @@ export default (state = DEFAULT_UI, action) => {
             const series = [...state.options.series]
 
             const itemIndex = series.findIndex(
-                item => item.dimensionItem == changedItem.dimensionItem
+                (item) => item.dimensionItem == changedItem.dimensionItem
             )
 
             if (prop === SERIES_ITEM_TYPE_PROP && value === state.type) {
@@ -696,25 +675,26 @@ export default (state = DEFAULT_UI, action) => {
 
 // Selectors
 
-export const sGetUi = state => state.ui
+export const sGetUi = (state) => state.ui
 
-export const sGetUiType = state => sGetUi(state).type
-export const sGetUiOptions = state => sGetUi(state).options
-export const sGetUiLayout = state => sGetUi(state).layout
-export const sGetUiItems = state => sGetUi(state).itemsByDimension
-export const sGetUiYearOverYearSeries = state =>
+export const sGetUiType = (state) => sGetUi(state).type
+export const sGetUiOptions = (state) => sGetUi(state).options
+export const sGetUiLayout = (state) => sGetUi(state).layout
+export const sGetUiItems = (state) => sGetUi(state).itemsByDimension
+export const sGetUiYearOverYearSeries = (state) =>
     sGetUi(state).yearOverYearSeries
-export const sGetUiYearOverYearCategory = state =>
+export const sGetUiYearOverYearCategory = (state) =>
     sGetUi(state).yearOverYearCategory
 export const sGetUiItemsByAttribute = (state, attribute) =>
     (sGetUi(state).itemAttributes || [])
-        .filter(item => item.attribute === attribute)
-        .map(item => item.id)
-export const sGetUiParentGraphMap = state => sGetUi(state).parentGraphMap
-export const sGetUiActiveModalDialog = state => sGetUi(state).activeModalDialog
-export const sGetUiRightSidebarOpen = state => sGetUi(state).rightSidebarOpen
-export const sGetUiInterpretation = state => sGetUi(state).interpretation
-export const sGetAxes = state => sGetUi(state).axes
+        .filter((item) => item.attribute === attribute)
+        .map((item) => item.id)
+export const sGetUiParentGraphMap = (state) => sGetUi(state).parentGraphMap
+export const sGetUiActiveModalDialog = (state) =>
+    sGetUi(state).activeModalDialog
+export const sGetUiRightSidebarOpen = (state) => sGetUi(state).rightSidebarOpen
+export const sGetUiInterpretation = (state) => sGetUi(state).interpretation
+export const sGetAxes = (state) => sGetUi(state).axes
 
 // Selectors level 2
 
@@ -724,10 +704,18 @@ export const sGetAxisIdByDimensionId = (state, dimensionId) =>
 export const sGetUiItemsByDimension = (state, dimension) =>
     sGetUiItems(state)[dimension] || DEFAULT_UI.itemsByDimension[dimension]
 
-export const sGetDimensionItemsByAxis = (state, axisId) =>
-    sGetUiItemsByDimension(state, (sGetUiLayout(state) || {})[axisId]) || []
+export const sGetDimensionItemsByAxis = (state, axisId) => {
+    const dimensions = (sGetUiLayout(state) || {})[axisId] || []
 
-export const sGetDimensionIdsFromLayout = state =>
+    return dimensions
+        .reduce((items, dimension) => {
+            items.push(sGetUiItemsByDimension(state, dimension))
+            return items
+        }, [])
+        .flat()
+}
+
+export const sGetDimensionIdsFromLayout = (state) =>
     Object.values(sGetUiLayout(state)).reduce(
         (ids, axisDimensionIds) => ids.concat(axisDimensionIds),
         []
@@ -736,16 +724,16 @@ export const sGetDimensionIdsFromLayout = state =>
 export const sLayoutHasDimension = (state, dimension) =>
     sGetDimensionIdsFromLayout(state).includes(dimension)
 
-export const sLayoutHasAssignedCategories = state =>
+export const sLayoutHasAssignedCategories = (state) =>
     sLayoutHasDimension(state, DIMENSION_ID_ASSIGNED_CATEGORIES)
 
-export const sGetAxisSetup = state => {
+export const sGetAxisSetup = (state) => {
     const columns = sGetUiLayout(state).columns
     const items = sGetUiItems(state)
     const axes = sGetAxes(state) || {}
 
     return Array.isArray(items[columns[0]]) && items[columns[0]].length
-        ? items[columns[0]].map(id => ({
+        ? items[columns[0]].map((id) => ({
               id,
               axis: id in axes ? axes[id] : 0,
           }))
@@ -864,7 +852,7 @@ export const sGetUiOption = (state, option) => {
 
 const getAxis = (axes = [], axisIndex, axisType) => ({
     ...(axes.find(
-        axis => axis.index === axisIndex && axis.type === axisType
+        (axis) => axis.index === axisIndex && axis.type === axisType
     ) || {
         index: Number(axisIndex),
         type: axisType,
@@ -876,9 +864,9 @@ const getConsolidatedFontStyle = (fontStyleKey, fontStyle) => ({
     ...(fontStyle || {}),
 })
 
-const deepClean = input => {
+const deepClean = (input) => {
     const result = objectClean(input)
-    Object.keys(result).forEach(key => {
+    Object.keys(result).forEach((key) => {
         if (typeof result[key] === 'object') {
             result[key] = deepClean(result[key])
             if (!Object.keys(result[key]).length) {
@@ -891,21 +879,21 @@ const deepClean = input => {
 
 const pushAxis = (axes, axis) => {
     const updatedAxes = axes.filter(
-        filter =>
+        (filter) =>
             filter.index !== Number(axis.index) || filter.type !== axis.type
     )
     updatedAxes.push(axis)
     return updatedAxes
 }
 
-const cleanAxes = axes =>
+const cleanAxes = (axes) =>
     axes
-        .map(axis => {
+        .map((axis) => {
             const cleanAxis = deepClean(axis)
             return !Object.keys(cleanAxis).filter(
-                key => !['type', 'index'].includes(key)
+                (key) => !['type', 'index'].includes(key)
             ).length
                 ? null
                 : cleanAxis
         })
-        .filter(i => i)
+        .filter((i) => i)

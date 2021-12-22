@@ -9,22 +9,22 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { acSetUiOption } from '../../../actions/ui'
+import { acSetUiOption } from '../../../actions/ui.js'
 import {
     OPTION_LEGEND_DISPLAY_STRATEGY,
     OPTION_LEGEND_DISPLAY_STYLE,
     OPTION_LEGEND_SET,
-} from '../../../modules/options'
-import { sGetUiOption } from '../../../reducers/ui'
+} from '../../../modules/options.js'
+import { sGetUiOption } from '../../../reducers/ui.js'
 import {
     tabSectionOptionToggleable,
     tabSectionOption,
     tabSectionTitle,
     tabSectionTitleMargin,
 } from '../styles/VisualizationOptions.style.js'
-import LegendDisplayStrategy from './LegendDisplayStrategy'
-import LegendDisplayStyle from './LegendDisplayStyle'
-import ShowLegendKey from './ShowLegendKey'
+import LegendDisplayStrategy from './LegendDisplayStrategy.js'
+import LegendDisplayStyle from './LegendDisplayStyle.js'
+import ShowLegendKey from './ShowLegendKey.js'
 
 const Legend = ({
     legendSet,
@@ -130,15 +130,15 @@ Legend.propTypes = {
     legendSet: PropTypes.object,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     legendSet: sGetUiOption(state, { id: OPTION_LEGEND_SET }),
     legendDisplayStrategy: sGetUiOption(state, {
         id: OPTION_LEGEND_DISPLAY_STRATEGY,
     }),
 })
 
-const mapDispatchToProps = dispatch => ({
-    onChange: params => dispatch(acSetUiOption(params)),
+const mapDispatchToProps = (dispatch) => ({
+    onChange: (params) => dispatch(acSetUiOption(params)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Legend)

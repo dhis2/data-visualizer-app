@@ -4,9 +4,9 @@ import {
     AXIS_ID_FILTERS,
 } from '@dhis2/analytics'
 import React from 'react'
-import DefaultAxis from './DefaultAxis'
-import defaultAxisStyles from './styles/DefaultAxis.style'
-import styles from './styles/DefaultLayout.style'
+import DefaultAxis from './DefaultAxis.js'
+import defaultAxisStyles from './styles/DefaultAxis.style.js'
+import styles from './styles/DefaultLayout.style.js'
 
 const Layout = () => (
     <div id="layout-ct" style={styles.ct}>

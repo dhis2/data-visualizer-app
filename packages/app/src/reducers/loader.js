@@ -38,6 +38,6 @@ export default (state = DEFAULT_LOADING, action) => {
 }
 
 // Selectors
-export const sGetLoadError = state => state.loader.loadingError
-export const sGetIsLoading = state => state.loader.isLoading
-export const sGetIsPluginLoading = state => state.loader.isPluginLoading
+export const sGetLoadError = (state) => state.loader.loadingError
+export const sGetIsLoading = (state) => state.loader.isLoading
+export const sGetIsPluginLoading = (state) => state.loader.isPluginLoading

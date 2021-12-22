@@ -5,13 +5,13 @@ import { connect } from 'react-redux'
 import {
     acSetUiInterpretation,
     acClearUiInterpretation,
-} from '../../actions/ui'
-import history from '../../modules/history'
-import { sGetUiInterpretation } from '../../reducers/ui'
-import styles from './styles/Interpretations.style'
+} from '../../actions/ui.js'
+import history from '../../modules/history.js'
+import { sGetUiInterpretation } from '../../reducers/ui.js'
+import styles from './styles/Interpretations.style.js'
 
-export class Interpretations extends Component {
-    onInterpretationChange = interpretation => {
+export class UnconnectedInterpretations extends Component {
+    onInterpretationChange = (interpretation) => {
         if (interpretation) {
             const interpretationUrl = `/${this.props.id}/interpretation/${interpretation.id}`
 
@@ -53,26 +53,26 @@ export class Interpretations extends Component {
     }
 }
 
-Interpretations.defaultProps = {
+UnconnectedInterpretations.defaultProps = {
     type: 'chart',
 }
 
-Interpretations.propTypes = {
+UnconnectedInterpretations.propTypes = {
     acSetUiInterpretation: PropTypes.func,
     id: PropTypes.string,
     interpretationId: PropTypes.string,
     type: PropTypes.string,
 }
 
-Interpretations.contextTypes = {
+UnconnectedInterpretations.contextTypes = {
     d2: PropTypes.object,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     interpretationId: sGetUiInterpretation(state).id || null,
 })
 
-export default connect(mapStateToProps, {
+export const Interpretations = connect(mapStateToProps, {
     acSetUiInterpretation,
     acClearUiInterpretation,
-})(Interpretations)
+})(UnconnectedInterpretations)

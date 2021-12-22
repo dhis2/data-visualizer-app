@@ -1,14 +1,14 @@
 # 
 # Translators:
 # phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
+# Viktor Varland <viktor@dhis2.org>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-08-12T10:01:59.854Z\n"
+"POT-Creation-Date: 2021-11-16T13:39:36.158Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2021\n"
 "Language-Team: Pashto (https://www.transifex.com/hisp-uio/teams/100509/ps/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -899,14 +899,14 @@ msgstr "تېر کال"
 msgid "Last 5 years"
 msgstr "تېر 5 کلونه"
 
-msgid "User org unit"
-msgstr "د سازمان د واحد کاروونکی"
+msgid "User organisation unit"
+msgstr "کارکوڼکی واحدو سازمان"
 
-msgid "User org unit children"
-msgstr ""
+msgid "User sub-units"
+msgstr "واحد های فرعی استفاده کننده"
 
-msgid "User org unit grand children"
-msgstr ""
+msgid "User sub-x2-units"
+msgstr "واحد های نیم فرعی استفاده کننده"
 
 msgid "Table title"
 msgstr "د جدول عنوان"

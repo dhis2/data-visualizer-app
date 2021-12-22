@@ -13,11 +13,11 @@ import {
 import {
     expectDimensionModalToBeVisible,
     clickDimensionModalHideButton,
-    clickOrgUnitTreeItem,
+    deselectUserOrgUnit,
     clickDimensionModalUpdateButton,
     expectDimensionModalToNotBeVisible,
     unselectAllItemsByButton,
-} from '../elements/dimensionModal'
+} from '../elements/dimensionModal/index.js'
 import {
     openDimension,
     openContextMenu,
@@ -31,14 +31,14 @@ import {
     expectDimensionToHaveSelectedStyle,
     clickContextMenuDimSubMenu,
     expectRecommendedIconToBeVisible,
-} from '../elements/dimensionsPanel'
-import { expectAxisToHaveDimension } from '../elements/layout'
-import { goToStartPage } from '../elements/startScreen'
+} from '../elements/dimensionsPanel.js'
+import { expectAxisToHaveDimension } from '../elements/layout.js'
+import { goToStartPage } from '../elements/startScreen.js'
 import {
     TEST_CUSTOM_DIMENSIONS,
     TEST_DEFAULT_RECOMMENDED_DIMENSIONS,
-} from '../utils/data'
-import { getRandomArrayItem } from '../utils/random'
+} from '../utils/data.js'
+import { getRandomArrayItem } from '../utils/random.js'
 
 const TEST_FIXED_DIMS = Object.values(getFixedDimensions())
 const TEST_DYNAMIC_DIMS = Object.values(getDynamicDimensions())
@@ -50,7 +50,7 @@ describe('interacting with the dimensions panel', () => {
     })
     describe('displays recommended icons', () => {
         ;[getRandomArrayItem(TEST_DEFAULT_RECOMMENDED_DIMENSIONS)].forEach(
-            dim =>
+            (dim) =>
                 describe(`${dim.name}`, () => {
                     it('displays the recommended icon', () => {
                         expectRecommendedIconToBeVisible(dim.id)
@@ -74,7 +74,7 @@ describe('interacting with the dimensions panel', () => {
         })
         it('removes org unit and org unit items', () => {
             openDimension(DIMENSION_ID_ORGUNIT)
-            clickOrgUnitTreeItem('Sierra Leone')
+            deselectUserOrgUnit('User organisation unit')
             clickDimensionModalUpdateButton()
             openContextMenu(DIMENSION_ID_ORGUNIT)
             clickContextMenuRemove(DIMENSION_ID_ORGUNIT)
@@ -82,7 +82,7 @@ describe('interacting with the dimensions panel', () => {
         })
     })
     describe('opening items by clicking them', () => {
-        ;[...TEST_FIXED_DIMS, ...TEST_CUSTOM_DIMS].forEach(dim => {
+        ;[...TEST_FIXED_DIMS, ...TEST_CUSTOM_DIMS].forEach((dim) => {
             it(`opens and closes ${dim.name}`, () => {
                 openDimension(dim.id)
                 expectDimensionModalToBeVisible(dim.id)
@@ -96,7 +96,7 @@ describe('interacting with the dimensions panel', () => {
             ...TEST_FIXED_DIMS,
             ...TEST_DYNAMIC_DIMS,
             ...TEST_CUSTOM_DIMS,
-        ].forEach(dim => {
+        ].forEach((dim) => {
             it(`adds ${dim.name} to ${TEST_AXIS} axis`, () => {
                 openContextMenu(dim.id)
                 clickContextMenuAdd(dim.id, TEST_AXIS)
@@ -129,7 +129,7 @@ describe('interacting with the dimensions panel', () => {
     })
     describe('handling AC by using the Data item context menu', () => {
         const TEST_DIM = TEST_DYNAMIC_DIMS.find(
-            dim => dim.id === DIMENSION_ID_ASSIGNED_CATEGORIES
+            (dim) => dim.id === DIMENSION_ID_ASSIGNED_CATEGORIES
         )
         it(`removes and adds ${TEST_DIM.name}`, () => {
             const TEST_AXIS = AXIS_ID_COLUMNS

@@ -9,7 +9,7 @@ export const generateRandomChar = () =>
 export const generateRandomNumber = (min, max) =>
     Math.floor(Math.random() * (max - min + 1)) + min
 
-export const getRandomArrayItem = array =>
+export const getRandomArrayItem = (array) =>
     array[generateRandomNumber(0, array.length - 1)]
 
 export const getRandomVisType = () =>

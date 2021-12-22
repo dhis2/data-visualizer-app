@@ -16,8 +16,11 @@ import {
     DataError,
     GenericError,
     EmptyBox,
-} from '../assets/ErrorIcons'
-import { VARIANT_ERROR, VARIANT_WARNING } from '../components/Snackbar/Snackbar'
+} from '../assets/ErrorIcons.js'
+import {
+    VARIANT_ERROR,
+    VARIANT_WARNING,
+} from '../components/Snackbar/Snackbar.js'
 
 export class VisualizationError {
     constructor(icon, title, description) {
@@ -322,7 +325,7 @@ export class NoOrgUnitResponseError extends VisualizationError {
 
 export const genericErrorTitle = i18n.t('Something went wrong')
 
-const getAvailableAxesDescription = visType => {
+const getAvailableAxesDescription = (visType) => {
     const axes = getAvailableAxes(visType)
     let axesDescription = ''
     for (let index = 0; index < axes.length; index++) {
@@ -339,5 +342,5 @@ const getAvailableAxesDescription = visType => {
     return axesDescription
 }
 
-export const getErrorVariantByStatusCode = statusCode =>
+export const getErrorVariantByStatusCode = (statusCode) =>
     String(statusCode).match(/50\d/) ? VARIANT_ERROR : VARIANT_WARNING

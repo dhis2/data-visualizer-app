@@ -2,7 +2,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: #f4f6f8;
+    background-color: var(--colors-grey200);
     padding: var(--spacers-dp8) 0 0 var(--spacers-dp8);
     overflow: hidden;
 }

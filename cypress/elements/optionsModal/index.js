@@ -10,10 +10,10 @@ export const OPTIONS_TAB_OUTLIERS = 'Outliers'
 export const OPTIONS_TAB_SERIES = 'Series'
 export const OPTIONS_TAB_LEGEND = 'Legend'
 
-export const clickOptionsTab = name =>
+export const clickOptionsTab = (name) =>
     cy.getBySel(tabBarEl).contains(name).click()
 
-export const expectOptionsTabToBeHidden = name =>
+export const expectOptionsTabToBeHidden = (name) =>
     cy.getBySel(tabBarEl).should('not.contain', name)
 
 export const expectOptionsModalToBeVisible = () =>
@@ -33,7 +33,7 @@ export {
     changeFontSizeOption,
     clickBoldButton,
     clickItalicButton,
-} from './fontStyles'
+} from './fontStyles.js'
 
 export {
     setAxisTitleText,
@@ -46,7 +46,7 @@ export {
     setAxisTitleTextModeTo,
     setAxisDecimalsValue,
     setAxisStepsValue,
-} from './axes'
+} from './axes.js'
 
 export {
     clickTrendLineCheckbox,
@@ -57,13 +57,13 @@ export {
     clickBaseLineCheckbox,
     setBaseLineLabel,
     setBaseLineValue,
-} from './lines'
+} from './lines.js'
 
-export { setCustomSubtitle } from './subtitle'
+export { setCustomSubtitle } from './subtitle.js'
 
-export { clickOutliersCheckbox } from './outliers'
+export { clickOutliersCheckbox } from './outliers.js'
 
-export { setItemToAxis, setItemToType } from './series'
+export { setItemToAxis, setItemToType } from './series.js'
 
 export {
     toggleLegend,
@@ -84,4 +84,4 @@ export {
     expectLegendKeyToBeHidden,
     expectLegendKeyToBeVisible,
     expectLegedKeyItemAmountToBe,
-} from './legend'
+} from './legend.js'

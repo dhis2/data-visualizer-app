@@ -1,14 +1,14 @@
 # 
 # Translators:
 # 晓东 林 <13981924470@126.com>, 2020
-# easylin <lin_xd@126.com>, 2020
+# easylin <lin_xd@126.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-08-12T10:01:59.854Z\n"
+"POT-Creation-Date: 2021-11-16T13:39:36.158Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: easylin <lin_xd@126.com>, 2020\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2021\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -901,14 +901,14 @@ msgstr "去年"
 msgid "Last 5 years"
 msgstr "最近五年"
 
-msgid "User org unit"
-msgstr "当前用户机构"
+msgid "User organisation unit"
+msgstr "用户所在机构"
 
-msgid "User org unit children"
-msgstr "用户下属机构"
+msgid "User sub-units"
+msgstr "下属机构"
 
-msgid "User org unit grand children"
-msgstr "用户下下级机构"
+msgid "User sub-x2-units"
+msgstr "二级下属机构"
 
 msgid "Table title"
 msgstr "表标题"

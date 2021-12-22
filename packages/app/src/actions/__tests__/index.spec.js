@@ -1,39 +1,39 @@
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
-import * as api from '../../api/visualization'
-import { VARIANT_SUCCESS } from '../../components/Snackbar/Snackbar'
-import { GenericServerError } from '../../modules/error'
-import * as history from '../../modules/history'
-import { SET_CURRENT, CLEAR_CURRENT } from '../../reducers/current'
+import * as api from '../../api/visualization.js'
+import { VARIANT_SUCCESS } from '../../components/Snackbar/Snackbar.js'
+import { GenericServerError } from '../../modules/error.js'
+import * as history from '../../modules/history.js'
+import { SET_CURRENT, CLEAR_CURRENT } from '../../reducers/current.js'
 import {
     SET_LOAD_ERROR,
     CLEAR_LOAD_ERROR,
     SET_PLUGIN_LOADING,
-} from '../../reducers/loader'
-import * as selectors from '../../reducers/settings'
-import { RECEIVED_SNACKBAR_MESSAGE } from '../../reducers/snackbar'
+} from '../../reducers/loader.js'
+import * as selectors from '../../reducers/settings.js'
+import { RECEIVED_SNACKBAR_MESSAGE } from '../../reducers/snackbar.js'
 import {
     SET_UI_FROM_VISUALIZATION,
     CLEAR_UI,
     SET_UI_RIGHT_SIDEBAR_OPEN,
     SET_UI_INTERPRETATION,
-} from '../../reducers/ui'
+} from '../../reducers/ui.js'
 import {
     SET_VISUALIZATION,
     CLEAR_VISUALIZATION,
-} from '../../reducers/visualization'
-import DataEngineMock from '../__mocks__/DataEngine'
-import * as fromActions from '../index'
+} from '../../reducers/visualization.js'
+import DataEngineMock from '../__mocks__/DataEngine.js'
+import * as fromActions from '../index.js'
 
 const dataEngineMock = new DataEngineMock()
 const middlewares = [thunk.withExtraArgument(dataEngineMock)]
 const mockStore = configureMockStore(middlewares)
 
-const rootOrganisationUnit = 'abc123'
+const rootOrganisationUnits = ['abc123']
 const relativePeriod = 'xyzpdq'
 const digitGroupSeparator = 'COMMA'
 /* eslint-disable no-import-assign, import/namespace */
-selectors.sGetRootOrgUnit = () => rootOrganisationUnit
+selectors.sGetRootOrgUnits = () => rootOrganisationUnits
 selectors.sGetRelativePeriod = () => relativePeriod
 selectors.sGetSettingsDigitGroupSeparator = () => digitGroupSeparator
 jest.mock('@dhis2/analytics', () => ({
@@ -179,7 +179,7 @@ describe('index', () => {
                 {
                     type: CLEAR_UI,
                     value: {
-                        rootOrganisationUnit,
+                        rootOrganisationUnits,
                         relativePeriod,
                         digitGroupSeparator,
                     },
@@ -210,7 +210,7 @@ describe('index', () => {
                 {
                     type: CLEAR_UI,
                     value: {
-                        rootOrganisationUnit,
+                        rootOrganisationUnits,
                         relativePeriod,
                         digitGroupSeparator,
                     },
