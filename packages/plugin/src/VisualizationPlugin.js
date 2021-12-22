@@ -30,7 +30,7 @@ export const VisualizationPlugin = ({
     ...props
 }) => {
     const engine = useDataEngine()
-    const [ouLevels, setOuLevels] = useState(undefined)
+    const [ouLevels, setOuLevels] = useState()
     const [fetchResult, setFetchResult] = useState(null)
     const [contextualMenuRef, setContextualMenuRef] = useState(undefined)
     const [contextualMenuConfig, setContextualMenuConfig] = useState({})
