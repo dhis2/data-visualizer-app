@@ -1,5 +1,6 @@
 import {
     AXIS_ID_COLUMNS,
+    AXIS_ID_ROWS,
     hasCustomAxes,
     hasRelativeItems,
     isDualAxisType,
@@ -22,6 +23,7 @@ import UpdateVisualizationContainer from '../UpdateButton/UpdateVisualizationCon
 const VisualizationOptionsManager = ({
     visualizationType,
     columnDimensionItems,
+    rowDimensionItems,
     columns,
     series,
 }) => {
@@ -45,17 +47,21 @@ const VisualizationOptionsManager = ({
             (layoutItem) => layoutItem === seriesItem.dimensionItem
         )
     )
-    const optionsConfig = getOptionsByType(
-        visualizationType,
-        isDualAxisType(visualizationType) &&
+    const optionsConfig = getOptionsByType({
+        type: visualizationType,
+        hasDisabledSections:
+            isDualAxisType(visualizationType) &&
             hasCustomAxes(filteredSeries) &&
             !hasRelativeItems(columns[0], columnDimensionItems),
-        series?.length && isDualAxisType(visualizationType)
-            ? [...new Set(series.map((serie) => serie.axis))].sort(
-                  (a, b) => a - b
-              )
-            : [0]
-    )
+        rangeAxisIds:
+            series?.length && isDualAxisType(visualizationType)
+                ? [...new Set(series.map((serie) => serie.axis))].sort(
+                      (a, b) => a - b
+                  )
+                : [0],
+        hasDimensionItemsInColumns: Boolean(columnDimensionItems.length),
+        hasDimensionItemsInRows: Boolean(rowDimensionItems.length),
+    })
 
     return (
         <>
@@ -84,12 +90,14 @@ VisualizationOptionsManager.propTypes = {
     visualizationType: PropTypes.string.isRequired,
     columnDimensionItems: PropTypes.array,
     columns: PropTypes.array,
+    rowDimensionItems: PropTypes.array,
     series: PropTypes.array,
 }
 
 const mapStateToProps = (state) => ({
     visualizationType: sGetUiType(state),
     columnDimensionItems: sGetDimensionItemsByAxis(state, AXIS_ID_COLUMNS),
+    rowDimensionItems: sGetDimensionItemsByAxis(state, AXIS_ID_ROWS),
     series: sGetUiOptions(state).series,
     columns: sGetUiLayout(state).columns,
 })
