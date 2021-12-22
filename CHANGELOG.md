@@ -1,3 +1,10 @@
+## [38.1.6](https://github.com/dhis2/data-visualizer-app/compare/v38.1.5...v38.1.6) (2021-12-22)
+
+
+### Bug Fixes
+
+* make sure the legend set name is fetched DHIS2-12264 ([#1976](https://github.com/dhis2/data-visualizer-app/issues/1976)) ([4cef7ab](https://github.com/dhis2/data-visualizer-app/commit/4cef7ab7349cc67890b44369fb5ab645575dd965))
+
 ## [38.1.5](https://github.com/dhis2/data-visualizer-app/compare/v38.1.4...v38.1.5) (2021-12-22)
 
 
