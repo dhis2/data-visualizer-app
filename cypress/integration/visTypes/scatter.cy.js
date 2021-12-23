@@ -18,6 +18,8 @@ import {
     expectDataItemToBeInactive,
     expectOrgUnitDimensionModalToBeVisible,
     toggleOrgUnitLevel,
+    deselectUserOrgUnit,
+    selectOrgUnitTreeItem,
 } from '../../elements/dimensionModal/index.js'
 import { openDimension } from '../../elements/dimensionsPanel.js'
 import {
@@ -98,6 +100,8 @@ describe('using a Scatter chart', () => {
         const TEST_ORG_UNIT_LEVEL = 'Facility'
         openDimension(DIMENSION_ID_ORGUNIT)
         expectOrgUnitDimensionModalToBeVisible()
+        deselectUserOrgUnit('User organisation unit')
+        selectOrgUnitTreeItem('Sierra Leone')
         toggleOrgUnitLevel(TEST_ORG_UNIT_LEVEL)
         expectOrgUnitDimensionModalToBeVisible()
         clickDimensionModalUpdateButton()
