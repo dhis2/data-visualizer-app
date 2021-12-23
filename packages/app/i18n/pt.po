@@ -429,8 +429,14 @@ msgstr "Número"
 msgid "Fix column headers to top of table"
 msgstr "Fixar cabeçalhos de coluna para o topo da tabela"
 
+msgid "There aren’t any column headers because Columns is empty."
+msgstr ""
+
 msgid "Fix row headers to left of table"
 msgstr "Fixar cabeçalhos de linha à esquerda da mesa"
+
+msgid "There aren’t any row headers because Rows is empty."
+msgstr ""
 
 msgid "Font size"
 msgstr "Tamanho da fonte"

@@ -420,8 +420,14 @@ msgstr "Číslo"
 msgid "Fix column headers to top of table"
 msgstr "Opravit záhlaví sloupců na začátek tabulky"
 
+msgid "There aren’t any column headers because Columns is empty."
+msgstr ""
+
 msgid "Fix row headers to left of table"
 msgstr "Připnout záhlaví řádků vlevo od tabulky"
+
+msgid "There aren’t any row headers because Rows is empty."
+msgstr ""
 
 msgid "Font size"
 msgstr "Velikost písma"

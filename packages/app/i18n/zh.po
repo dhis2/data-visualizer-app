@@ -412,8 +412,14 @@ msgstr "数字"
 msgid "Fix column headers to top of table"
 msgstr "将列标题固定到表格顶部"
 
+msgid "There aren’t any column headers because Columns is empty."
+msgstr ""
+
 msgid "Fix row headers to left of table"
 msgstr "将行标题固定到表格的左侧"
+
+msgid "There aren’t any row headers because Rows is empty."
+msgstr ""
 
 msgid "Font size"
 msgstr "字体大小"
