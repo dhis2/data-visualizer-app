@@ -1,3 +1,10 @@
+## [38.1.7](https://github.com/dhis2/data-visualizer-app/compare/v38.1.6...v38.1.7) (2021-12-23)
+
+
+### Bug Fixes
+
+* PT fixed headers help text ([#1918](https://github.com/dhis2/data-visualizer-app/issues/1918)) ([276104f](https://github.com/dhis2/data-visualizer-app/commit/276104f06286248de501058ff313508e1e07bcf4))
+
 ## [38.1.6](https://github.com/dhis2/data-visualizer-app/compare/v38.1.5...v38.1.6) (2021-12-22)
 
 
