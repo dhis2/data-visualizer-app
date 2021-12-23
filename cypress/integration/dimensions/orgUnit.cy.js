@@ -51,28 +51,6 @@ describe(`Org unit dimension`, () => {
         expectWindowConfigSeriesToHaveLength(1)
         expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 1)
     })
-    const TEST_LEVEL = 'District'
-    it(`selects a level - ${TEST_LEVEL}`, () => {
-        openDimension(DIMENSION_ID_ORGUNIT)
-        expectOrgUnitDimensionModalToBeVisible()
-        expectOrgUnitDimensionToNotBeLoading()
-        expectOrgUnitTreeToBeDisabled()
-        toggleOrgUnitLevel(TEST_LEVEL)
-        clickDimensionModalUpdateButton()
-        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
-        expectWindowConfigSeriesToHaveLength(13) // number of districts in Sierra Leone
-        expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 2)
-    })
-    it(`deselects ${TEST_LEVEL}`, () => {
-        openDimension(DIMENSION_ID_ORGUNIT)
-        expectOrgUnitDimensionModalToBeVisible()
-        expectOrgUnitDimensionToNotBeLoading()
-        toggleOrgUnitLevel(TEST_LEVEL)
-        clickDimensionModalUpdateButton()
-        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
-        expectWindowConfigSeriesToHaveLength(1)
-        expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 1)
-    })
     const TEST_DISTRICT_1 = 'Bo'
     it(`selects a district level org unit - ${TEST_DISTRICT_1}`, () => {
         openDimension(DIMENSION_ID_ORGUNIT)
@@ -112,6 +90,28 @@ describe(`Org unit dimension`, () => {
         expectOrgUnitItemToBeSelected(TEST_CHIEFDOM)
         deselectOrgUnitTreeItem(TEST_DISTRICT_1)
         deselectOrgUnitTreeItem(TEST_CHIEFDOM)
+        clickDimensionModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+        expectWindowConfigSeriesToHaveLength(1)
+        expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 1)
+    })
+    const TEST_LEVEL = 'District'
+    it(`selects a level - ${TEST_LEVEL}`, () => {
+        openDimension(DIMENSION_ID_ORGUNIT)
+        expectOrgUnitDimensionModalToBeVisible()
+        expectOrgUnitDimensionToNotBeLoading()
+        expectOrgUnitTreeToBeEnabled()
+        toggleOrgUnitLevel(TEST_LEVEL)
+        clickDimensionModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+        expectWindowConfigSeriesToHaveLength(13) // number of districts in Sierra Leone
+        expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 2)
+    })
+    it(`deselects ${TEST_LEVEL}`, () => {
+        openDimension(DIMENSION_ID_ORGUNIT)
+        expectOrgUnitDimensionModalToBeVisible()
+        expectOrgUnitDimensionToNotBeLoading()
+        toggleOrgUnitLevel(TEST_LEVEL)
         clickDimensionModalUpdateButton()
         expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
         expectWindowConfigSeriesToHaveLength(1)
