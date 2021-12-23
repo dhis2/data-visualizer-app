@@ -2131,10 +2131,10 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@^21.0.0":
-  version "21.0.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-21.0.0.tgz#9cf151d5b355e2117067764cd97a6e4fd6e335e5"
-  integrity sha512-v3Gj0GsrbtjFOajNa8M/dQKkZrPWA2ps7r4Ok/a2LRXGI8ngKtWJfLFdPzMp2+RRUBUJzblRM3Ut4Fx+o2q6kg==
+"@dhis2/analytics@^21.1.1":
+  version "21.1.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-21.1.1.tgz#5f4906c3dcbec05e0bed2094f1e104ee055f8f42"
+  integrity sha512-tluiMVv3pCBRznXQNphSGN+XAXTKV2k1ja/HcM/U+GNwVp/8he60zv0UAGe7Z8D5qXu6hYzG1SeMx67YaC93kQ==
   dependencies:
     "@dhis2/d2-ui-translation-dialog" "^7.3.1"
     classnames "^2.3.1"
@@ -3106,7 +3106,7 @@
     "@types/yargs" "^16.0.0"
     chalk "^4.0.0"
 
-"@ls-lint/ls-lint@^1.10.0", "@ls-lint/ls-lint@^1.9.2":
+"@ls-lint/ls-lint@^1.9.2":
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/@ls-lint/ls-lint/-/ls-lint-1.10.0.tgz#cad20085edc010a3e938aa01bb66d05e5e12b3f3"
   integrity sha512-C1vrI8zFp/28CiqCQHtfu/GqUg2iLYZqtlJHCYfqlg6OJopv7lHAPS0rzk06Ev1121yj4Gi/GmXMBlF+j35DcQ==
