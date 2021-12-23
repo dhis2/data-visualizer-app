@@ -38,7 +38,7 @@ import getLimitValuesTab from './tabs/limitValues.js'
 import getSeriesTab from './tabs/series.js'
 import getStyleTab from './tabs/style.js'
 
-export default () => [
+export default ({ hasDimensionItemsInColumns, hasDimensionItemsInRows }) => [
     getDataTab([
         getDisplayTemplate({
             content: React.Children.toArray([
@@ -79,8 +79,10 @@ export default () => [
                 <DisplayDensity />,
                 <FontSize />,
                 <DigitGroupSeparator />,
-                <FixColumnHeaders />,
-                <FixRowHeaders />,
+                <FixColumnHeaders
+                    columnsHasItems={hasDimensionItemsInColumns}
+                />,
+                <FixRowHeaders rowsHasItems={hasDimensionItemsInRows} />,
             ]),
         },
         {
