@@ -413,7 +413,13 @@ msgstr "Número"
 msgid "Fix column headers to top of table"
 msgstr ""
 
+msgid "There aren’t any column headers because Columns is empty."
+msgstr ""
+
 msgid "Fix row headers to left of table"
+msgstr ""
+
+msgid "There aren’t any row headers because Rows is empty."
 msgstr ""
 
 msgid "Font size"
