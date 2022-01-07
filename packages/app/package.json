@@ -12,7 +12,7 @@
         "redux-mock-store": "^1.5.3"
     },
     "dependencies": {
-        "@dhis2/analytics": "^4.5.39",
+        "@dhis2/analytics": "^4.5.42",
         "@dhis2/app-runtime": "*",
         "@dhis2/d2-i18n": "*",
         "@dhis2/d2-ui-core": "^7.0.4",

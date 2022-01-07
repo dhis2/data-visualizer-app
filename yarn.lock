@@ -1218,10 +1218,10 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dhis2/analytics@^4.5.39":
-  version "4.5.39"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.5.39.tgz#6e4eddfc0172f33623a0d7a5d74554d699b8362c"
-  integrity sha512-BKHCNwDTvaGL+WkLzXq610Ja0tnOQ6NHOHg0hrwo/yXI8ZKpzDKPX790jLsRH3UYYZnCwMwaPKToE4RVQoFOPQ==
+"@dhis2/analytics@^4.5.42":
+  version "4.5.42"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-4.5.42.tgz#f243e4898d5beaf86795ae71402c75a0dc754e51"
+  integrity sha512-YwyKwxU4wTNm8W6aH280bHw37vZdYgHqo1NysIDWTha9YfljHz+isi4ZObXyeTQx7PDR48EX2uI8AlqIa/t1tw==
   dependencies:
     "@dhis2/d2-ui-org-unit-dialog" "^7.0.4"
     "@dhis2/ui-core" "^4.16.0"
