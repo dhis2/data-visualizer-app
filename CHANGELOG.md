@@ -1,3 +1,10 @@
+## [34.6.79](https://github.com/dhis2/data-visualizer-app/compare/v34.6.78...v34.6.79) (2022-01-10)
+
+
+### Bug Fixes
+
+* backport for DHIS2-8174 v34 ([#1983](https://github.com/dhis2/data-visualizer-app/issues/1983)) ([15f9d96](https://github.com/dhis2/data-visualizer-app/commit/15f9d9632890440948d1e00c842ab5fed86c27be))
+
 ## [34.6.78](https://github.com/dhis2/data-visualizer-app/compare/v34.6.77...v34.6.78) (2021-12-22)
 
 
