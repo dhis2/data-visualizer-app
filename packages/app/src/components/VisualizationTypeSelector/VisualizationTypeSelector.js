@@ -1,4 +1,4 @@
-import { visTypeDisplayNames, visTypeDescriptions } from '@dhis2/analytics'
+import { visTypeDisplayNames } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import { Divider, Popper, Layer } from '@dhis2/ui'
 import PropTypes from 'prop-types'
@@ -12,6 +12,7 @@ import {
 import ArrowDown from '../../assets/ArrowDown.js'
 import { prepareCurrentAnalyticalObject } from '../../modules/currentAnalyticalObject.js'
 import { getAdaptedUiByType } from '../../modules/ui.js'
+import { visTypes, visTypeDescriptions } from '../../modules/visualization.js'
 import { sGetCurrent } from '../../reducers/current.js'
 import { sGetMetadata } from '../../reducers/metadata.js'
 import { sGetUi, sGetUiType } from '../../reducers/ui.js'
@@ -54,13 +55,11 @@ const UnconnectedVisualizationTypeSelector = (
         window.location.href = `${baseUrl}/${MAPS_APP_URL}?${CURRENT_AO_KEY}=true`
     }
 
-    const getVisTypes = () => Object.keys(visTypeDisplayNames)
-
     const VisTypesList = (
         <div data-test="visualization-type-selector-card">
             <div className={styles.listContainer}>
                 <div className={styles.listSection}>
-                    {getVisTypes().map((type) => (
+                    {visTypes.map(({ type }) => (
                         <VisualizationTypeListItem
                             key={type}
                             iconType={type}
