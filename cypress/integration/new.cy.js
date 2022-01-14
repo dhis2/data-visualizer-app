@@ -29,7 +29,7 @@ import {
     expectVisTypeToBeDefault,
     expectVisTypeToBeValue,
 } from '../elements/visualizationTypeSelector.js'
-import { TEST_DATA_ELEMENTS, TEST_INDICATORS } from '../utils/data.js'
+import { TEST_DATA_ELEMENTS, TEST_INDICATORS, visTypes } from '../utils/data.js'
 import { expectStoreCurrentToBeEmpty } from '../utils/store.js'
 
 const TEST_AXIS_ID = AXIS_ID_COLUMNS
@@ -44,7 +44,7 @@ describe('creating a new AO', () => {
     it('navigates to the start page', () => {
         goToStartPage()
     })
-    Object.keys(visTypeDisplayNames).forEach((visType) => {
+    visTypes.forEach((visType) => {
         const visTypeName = visTypeDisplayNames[visType]
         describe(visTypeName, () => {
             it('creates a new AO', () => {
