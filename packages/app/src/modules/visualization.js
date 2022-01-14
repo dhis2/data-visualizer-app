@@ -18,7 +18,7 @@ import {
 import i18n from '@dhis2/d2-i18n'
 import { DEFAULT_CURRENT } from '../reducers/current.js'
 import { DEFAULT_VISUALIZATION } from '../reducers/visualization.js'
-import options from './options.js'
+import { options } from './options.js'
 
 export const visTypes = [
     { type: VIS_TYPE_PIVOT_TABLE },
