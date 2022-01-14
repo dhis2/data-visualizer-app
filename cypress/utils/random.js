@@ -1,4 +1,4 @@
-import { visTypeDisplayNames } from '@dhis2/analytics'
+import { visTypeDescriptions } from '../../packages/app/src/modules/visualization.js'
 
 export const generateRandomChar = () =>
     Math.random()
@@ -13,6 +13,6 @@ export const getRandomArrayItem = (array) =>
     array[generateRandomNumber(0, array.length - 1)]
 
 export const getRandomVisType = () =>
-    getRandomArrayItem(Object.keys(visTypeDisplayNames))
+    getRandomArrayItem(Object.keys(visTypeDescriptions))
 
 export const generateRandomBool = () => Math.random() < 0.5
