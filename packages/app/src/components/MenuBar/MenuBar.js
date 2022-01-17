@@ -1,4 +1,8 @@
-import { FileMenu, VIS_TYPE_ALL, VIS_TYPE_CHARTS } from '@dhis2/analytics'
+import {
+    FileMenu,
+    VIS_TYPE_GROUP_ALL,
+    VIS_TYPE_GROUP_CHARTS,
+} from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -39,8 +43,8 @@ const getOnDelete = (props) => () => props.onDeleteVisualization()
 const getOnError = (props) => (error) => props.onError(error)
 
 const filterVisTypes = [
-    { type: VIS_TYPE_ALL },
-    { type: VIS_TYPE_CHARTS, insertDivider: true },
+    { type: VIS_TYPE_GROUP_ALL },
+    { type: VIS_TYPE_GROUP_CHARTS, insertDivider: true },
     ...visTypes,
 ]
 
@@ -61,7 +65,7 @@ const UnconnectedMenuBar = ({ dataTest, ...props }, context) => (
             fileType={props.apiObjectName}
             fileObject={props.current}
             filterVisTypes={filterVisTypes}
-            defaultFilterVisType={VIS_TYPE_ALL}
+            defaultFilterVisType={VIS_TYPE_GROUP_ALL}
             onOpen={onOpen}
             onNew={onNew}
             onRename={getOnRename(props)}
