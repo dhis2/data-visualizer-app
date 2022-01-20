@@ -12,7 +12,6 @@ import {
 } from '../../actions/ui.js'
 import * as fromReducers from '../../reducers/index.js'
 import IconButton from '../IconButton/IconButton.js'
-import { styles } from './styles/Menu.style.js'
 
 const ChipMenu = ({
     assignedCategoriesItemHandler,
@@ -39,10 +38,9 @@ const ChipMenu = ({
                     ariaOwns={menuIsOpen ? getMenuId() : null}
                     ariaHaspopup={true}
                     onClick={toggleMenu}
-                    style={styles.icon}
                     dataTest={`layout-chip-menu-button-${dimensionId}`}
                 >
-                    <IconMore16 color="var(--colors-grey700)" />
+                    <IconMore16 />
                 </IconButton>
             </div>
             {/* TODO: Fix bug with the first menu item getting selected when the menu is opened */}
