@@ -35,7 +35,6 @@ IconButton.propTypes = {
     dataTest: PropTypes.string,
     disabled: PropTypes.bool,
     name: PropTypes.string,
-    style: PropTypes.object,
     onBlur: PropTypes.func,
     onClick: PropTypes.func,
     onFocus: PropTypes.func,
