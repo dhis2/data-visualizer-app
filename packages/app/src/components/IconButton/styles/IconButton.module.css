@@ -9,8 +9,18 @@
     cursor: pointer;
     padding: 0;
     vertical-align: middle;
+    border-radius: 2px;
+    width: 22px;
+    height: 22px;
+    margin: '0px 0px 0px 2px';
+    color: var(--colors-grey700);
 }
 
 .iconButton:focus {
     outline: none;
+}
+
+.iconButton:hover {
+    background-color: rgba(0, 0, 0, 0.12);
+    color: var(--colors-grey900);
 }
