@@ -45,9 +45,9 @@ const getOnError = (props) => (error) => props.onError(error)
 const filterVisTypes = [
     { type: VIS_TYPE_GROUP_ALL },
     { type: VIS_TYPE_GROUP_CHARTS, insertDivider: true },
-    ...visTypes.map((visType) => {
-        type: visType
-    }),
+    ...visTypes.map((visType) => ({
+        type: visType,
+    })),
 ]
 
 const UnconnectedMenuBar = ({ dataTest, ...props }, context) => (
