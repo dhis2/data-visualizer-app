@@ -59,14 +59,14 @@ const UnconnectedVisualizationTypeSelector = (
         <div data-test="visualization-type-selector-card">
             <div className={styles.listContainer}>
                 <div className={styles.listSection}>
-                    {visTypes.map(({ type }) => (
+                    {visTypes.map((visType) => (
                         <VisualizationTypeListItem
-                            key={type}
-                            iconType={type}
-                            label={visTypeDisplayNames[type]}
-                            description={visTypeDescriptions[type]}
-                            isSelected={type === visualizationType}
-                            onClick={handleListItemClick(type)}
+                            key={visType}
+                            iconType={visType}
+                            label={visTypeDisplayNames[visType]}
+                            description={visTypeDescriptions[visType]}
+                            isSelected={visType === visualizationType}
+                            onClick={handleListItemClick(visType)}
                         />
                     ))}
                 </div>

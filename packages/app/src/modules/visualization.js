@@ -21,21 +21,21 @@ import { DEFAULT_VISUALIZATION } from '../reducers/visualization.js'
 import { options } from './options.js'
 
 export const visTypes = [
-    { type: VIS_TYPE_PIVOT_TABLE },
-    { type: VIS_TYPE_COLUMN },
-    { type: VIS_TYPE_STACKED_COLUMN },
-    { type: VIS_TYPE_BAR },
-    { type: VIS_TYPE_STACKED_BAR },
-    { type: VIS_TYPE_LINE },
-    { type: VIS_TYPE_AREA },
-    { type: VIS_TYPE_STACKED_AREA },
-    { type: VIS_TYPE_PIE },
-    { type: VIS_TYPE_RADAR },
-    { type: VIS_TYPE_GAUGE },
-    { type: VIS_TYPE_YEAR_OVER_YEAR_LINE },
-    { type: VIS_TYPE_YEAR_OVER_YEAR_COLUMN },
-    { type: VIS_TYPE_SINGLE_VALUE },
-    { type: VIS_TYPE_SCATTER },
+    VIS_TYPE_PIVOT_TABLE,
+    VIS_TYPE_COLUMN,
+    VIS_TYPE_STACKED_COLUMN,
+    VIS_TYPE_BAR,
+    VIS_TYPE_STACKED_BAR,
+    VIS_TYPE_LINE,
+    VIS_TYPE_AREA,
+    VIS_TYPE_STACKED_AREA,
+    VIS_TYPE_PIE,
+    VIS_TYPE_RADAR,
+    VIS_TYPE_GAUGE,
+    VIS_TYPE_YEAR_OVER_YEAR_LINE,
+    VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
+    VIS_TYPE_SINGLE_VALUE,
+    VIS_TYPE_SCATTER,
 ]
 
 export const visTypeDescriptions = {
