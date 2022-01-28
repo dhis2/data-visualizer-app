@@ -81,10 +81,9 @@ const Axis = ({
                     ariaOwns={dialogIsOpen ? `menu-for-${itemAttribute}` : null}
                     ariaHaspopup={true}
                     onClick={toggleMenu}
-                    style={styles.icon}
                     dataTest={`layout-chip-menu-button-${itemAttribute}`}
                 >
-                    <IconMore16 color="var(--colors-grey700)" />
+                    <IconMore16 />
                 </IconButton>
             </div>
             {dialogIsOpen && (
@@ -134,7 +133,7 @@ const Axis = ({
         ) : (
             <HorizontalIcon />
         )
-
+    console.log('ScatterBrain')
     return (
         <div
             id={label}

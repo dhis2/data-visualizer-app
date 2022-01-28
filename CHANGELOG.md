@@ -1,3 +1,15 @@
+# [38.2.0](https://github.com/dhis2/data-visualizer-app/compare/v38.1.9...v38.2.0) (2022-01-20)
+
+
+### Bug Fixes
+
+* remove unused prop type ([b82e7a0](https://github.com/dhis2/data-visualizer-app/commit/b82e7a0032871becec7f8adf6bd11a9f0fa0a33b))
+
+
+### Features
+
+* add hover style to chip menu button ([b9cf758](https://github.com/dhis2/data-visualizer-app/commit/b9cf7583d037b1e28a042c6f77e65d5914465170))
+
 ## [38.1.9](https://github.com/dhis2/data-visualizer-app/compare/v38.1.8...v38.1.9) (2021-12-28)
 
 
