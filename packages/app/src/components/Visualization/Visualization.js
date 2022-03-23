@@ -1,3 +1,4 @@
+import { DIMENSION_ID_ORGUNIT, DIMENSION_ID_DATA } from '@dhis2/analytics'
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
@@ -65,11 +66,19 @@ export class Visualization extends Component {
                     break
                 case 'E7124':
                     {
-                        if (response?.message?.includes('`dx`')) {
+                        if (
+                            response?.message?.includes(
+                                `\`${DIMENSION_ID_DATA}\``
+                            )
+                        ) {
                             error = new NoDataError(
                                 this.props.visualization.type
                             )
-                        } else if (response?.message?.includes('`ou`')) {
+                        } else if (
+                            response?.message?.includes(
+                                `\`${DIMENSION_ID_ORGUNIT}\``
+                            )
+                        ) {
                             error = new NoOrgUnitResponseError()
                         } else {
                             error = new GenericServerError()
