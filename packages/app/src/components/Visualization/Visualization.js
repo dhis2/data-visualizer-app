@@ -18,6 +18,7 @@ import {
     NoDataOrDataElementGroupSetError,
     CombinationDEGSRRError,
     NoOrgUnitResponseError,
+    NoDataError,
 } from '../../modules/error'
 import { removeLastPathSegment } from '../../modules/orgUnit'
 import { sGetCurrent } from '../../reducers/current'
