@@ -76,7 +76,6 @@ export class Visualization extends Component {
                         }
                     }
                     break
-
                 default:
                     error = response
             }
