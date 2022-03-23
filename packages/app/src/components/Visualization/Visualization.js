@@ -18,6 +18,7 @@ import {
     NoDataOrDataElementGroupSetError,
     CombinationDEGSRRError,
     NoOrgUnitResponseError,
+    NoDataError,
 } from '../../modules/error.js'
 import { removeLastPathSegment } from '../../modules/orgUnit.js'
 import { sGetCurrent } from '../../reducers/current.js'
@@ -63,9 +64,18 @@ export class UnconnectedVisualization extends Component {
                     error = new CombinationDEGSRRError()
                     break
                 case 'E7124':
-                    error = new NoOrgUnitResponseError()
+                    {
+                        if (response?.message?.includes('`dx`')) {
+                            error = new NoDataError(
+                                this.props.visualization.type
+                            )
+                        } else if (response?.message?.includes('`ou`')) {
+                            error = new NoOrgUnitResponseError()
+                        } else {
+                            error = new GenericServerError()
+                        }
+                    }
                     break
-
                 default:
                     error = response
             }
