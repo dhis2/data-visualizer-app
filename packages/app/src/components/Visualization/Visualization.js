@@ -60,9 +60,18 @@ export class Visualization extends Component {
                     error = new CombinationDEGSRRError()
                     break
                 case 'E7124':
-                    error = new NoOrgUnitResponseError()
+                    {
+                        if (response?.message?.includes('`dx`')) {
+                            error = new NoDataError(
+                                this.props.visualization.type
+                            )
+                        } else if (response?.message?.includes('`ou`')) {
+                            error = new NoOrgUnitResponseError()
+                        } else {
+                            error = new GenericServerError()
+                        }
+                    }
                     break
-
                 default:
                     error = response
             }
