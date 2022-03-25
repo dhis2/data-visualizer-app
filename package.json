@@ -2,7 +2,7 @@
     "name": "data-visualizer",
     "description": "DHIS2 Data Visualizer",
     "private": true,
-    "version": "37.9.14",
+    "version": "37.9.15",
     "workspaces": [
         "packages/*"
     ],
