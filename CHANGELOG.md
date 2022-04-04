@@ -1,3 +1,10 @@
+## [38.2.5](https://github.com/dhis2/data-visualizer-app/compare/v38.2.4...v38.2.5) (2022-04-04)
+
+
+### Bug Fixes
+
+* use translated name in title DHIS2-13015 ([#2017](https://github.com/dhis2/data-visualizer-app/issues/2017)) ([757444a](https://github.com/dhis2/data-visualizer-app/commit/757444aeb1b462e4fac8611b19965040598d701f))
+
 ## [38.2.4](https://github.com/dhis2/data-visualizer-app/compare/v38.2.3...v38.2.4) (2022-03-25)
 
 
