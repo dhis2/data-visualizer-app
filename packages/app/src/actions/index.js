@@ -2,6 +2,10 @@ import {
     getDisplayNameByVisType,
     convertOuLevelsToUids,
     ALL_DYNAMIC_DIMENSION_ITEMS,
+    DIMENSION_ID_DATA,
+    DIMENSION_ID_PERIOD,
+    DIMENSION_ID_ORGUNIT,
+    DIMENSION_ID_ASSIGNED_CATEGORIES,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import { apiPostDataStatistics } from '../api/dataStatistics.js'
@@ -58,12 +62,19 @@ const adaptAxisItems = (axis) =>
         ...ai,
         items: ai?.items?.length
             ? ai.items
-            : [
+            : ![
+                  DIMENSION_ID_DATA,
+                  DIMENSION_ID_PERIOD,
+                  DIMENSION_ID_ORGUNIT,
+                  DIMENSION_ID_ASSIGNED_CATEGORIES,
+              ].includes(ai.dimension)
+            ? [
                   {
                       id: ALL_DYNAMIC_DIMENSION_ITEMS,
                       name: i18n.t('All items'),
                   },
-              ],
+              ]
+            : null,
     }))
 
 // visualization, current, ui
