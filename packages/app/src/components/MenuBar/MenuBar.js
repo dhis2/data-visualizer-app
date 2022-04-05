@@ -63,7 +63,7 @@ const UnconnectedMenuBar = ({ dataTest, ...props }, context) => (
             )}
         />
         <FileMenu
-            d2={context.d2}
+            currentUser={context.d2.currentUser}
             fileType={props.apiObjectName}
             fileObject={props.current}
             filterVisTypes={filterVisTypes}
