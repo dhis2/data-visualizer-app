@@ -1,3 +1,15 @@
+# [39.0.0](https://github.com/dhis2/data-visualizer-app/compare/v38.2.5...v39.0.0) (2022-04-05)
+
+
+### Features
+
+* bump to 39.0.0 ([e310390](https://github.com/dhis2/data-visualizer-app/commit/e310390c29758d12c0a563ce080d930268deef4f))
+
+
+### BREAKING CHANGES
+
+* 39.0.0
+
 ## [38.2.5](https://github.com/dhis2/data-visualizer-app/compare/v38.2.4...v38.2.5) (2022-04-04)
 
 
