@@ -1,3 +1,10 @@
+## [38.2.7](https://github.com/dhis2/data-visualizer-app/compare/v38.2.6...v38.2.7) (2022-04-05)
+
+
+### Bug Fixes
+
+* empty ([7b531c8](https://github.com/dhis2/data-visualizer-app/commit/7b531c86ae8dd731eaf003204e2cfe9311c12da8))
+
 ## [38.2.1](https://github.com/dhis2/data-visualizer-app/compare/v38.2.0...v38.2.1) (2022-02-15)
 
 
