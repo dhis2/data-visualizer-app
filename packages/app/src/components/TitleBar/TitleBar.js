@@ -35,13 +35,13 @@ const getTitleText = (titleState, visualization) => {
             return getTitleUnsaved()
         case STATE_SAVED:
         case STATE_DIRTY:
-            return visualization.name
+            return visualization.displayName
         default:
             return ''
     }
 }
 
-const getCustomTitleStyle = titleState => {
+const getCustomTitleStyle = (titleState) => {
     switch (titleState) {
         case STATE_UNSAVED:
             return styles.titleUnsaved
@@ -50,7 +50,7 @@ const getCustomTitleStyle = titleState => {
     }
 }
 
-const getSuffix = titleState => {
+const getSuffix = (titleState) => {
     switch (titleState) {
         case STATE_DIRTY:
             return (
@@ -104,7 +104,7 @@ TitleBar.propTypes = {
     titleText: PropTypes.string,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     visualization: sGetVisualization(state),
     current: sGetCurrent(state),
     interpretation: sGetUiInterpretation(state),
