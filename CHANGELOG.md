@@ -1,3 +1,10 @@
+## [39.0.1](https://github.com/dhis2/data-visualizer-app/compare/v39.0.0...v39.0.1) (2022-04-06)
+
+
+### Bug Fixes
+
+* address analytics breaking changes ([#2026](https://github.com/dhis2/data-visualizer-app/issues/2026)) ([9c5e393](https://github.com/dhis2/data-visualizer-app/commit/9c5e3935b7c7b82b462baaa6bade378d573a1f31))
+
 # [39.0.0](https://github.com/dhis2/data-visualizer-app/compare/v38.2.5...v39.0.0) (2022-04-05)
 
 
